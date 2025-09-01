@@ -1504,7 +1504,7 @@ parse_frames.exit:                                ; preds = %134, %.preheader.i1
 
 210:                                              ; preds = %203
   %211 = zext nneg i32 %208 to i64
-  %212 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i32, ptr %2, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !64
   %214 = icmp eq i32 %213, -1
   br i1 %214, label %215, label %221
@@ -1531,10 +1531,10 @@ parse_frames.exit:                                ; preds = %134, %.preheader.i1
 
 .preheader.i174:                                  ; preds = %.preheader.i174.preheader, %.preheader.i174
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %.preheader.i174 ], [ 0, %.preheader.i174.preheader ]
-  %222 = getelementptr inbounds nuw [5 x i32], ptr @select_reference_stream.type_priority_list, i64 0, i64 %indvars.iv70.i
+  %222 = getelementptr inbounds nuw i32, ptr @select_reference_stream.type_priority_list, i64 %indvars.iv70.i
   %223 = load i32, ptr %222, align 4, !tbaa !64
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %224
+  %225 = getelementptr inbounds i32, ptr %2, i64 %224
   %226 = load i32, ptr %225, align 4, !tbaa !64
   %227 = icmp sgt i32 %226, -1
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1

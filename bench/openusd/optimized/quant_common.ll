@@ -33,7 +33,7 @@ define hidden signext i16 @av1_dc_quant_QTX(i32 noundef %0, i32 noundef %1, i32 
 .sink.split:                                      ; preds = %3, %7, %8
   %dc_qlookup_12_QTX.sink = phi ptr [ @dc_qlookup_12_QTX, %8 ], [ @dc_qlookup_10_QTX, %7 ], [ @dc_qlookup_QTX, %3 ]
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw [256 x i16], ptr %dc_qlookup_12_QTX.sink, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i16, ptr %dc_qlookup_12_QTX.sink, i64 %9
   %11 = load i16, ptr %10, align 2
   br label %12
 
@@ -62,7 +62,7 @@ define hidden signext i16 @av1_ac_quant_QTX(i32 noundef %0, i32 noundef %1, i32 
 .sink.split:                                      ; preds = %3, %7, %8
   %ac_qlookup_12_QTX.sink = phi ptr [ @ac_qlookup_12_QTX, %8 ], [ @ac_qlookup_10_QTX, %7 ], [ @ac_qlookup_QTX, %3 ]
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw [256 x i16], ptr %ac_qlookup_12_QTX.sink, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i16, ptr %ac_qlookup_12_QTX.sink, i64 %9
   %11 = load i16, ptr %10, align 2
   br label %12
 
@@ -80,7 +80,7 @@ define hidden noundef i32 @av1_get_qindex(ptr noundef readonly captures(none) %0
 segfeature_active.exit:                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
@@ -88,7 +88,7 @@ segfeature_active.exit:                           ; preds = %3
 
 10:                                               ; preds = %segfeature_active.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = getelementptr inbounds [8 x [8 x i16]], ptr %11, i64 0, i64 %6
+  %12 = getelementptr inbounds [8 x i16], ptr %11, i64 %6
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   %15 = add nsw i32 %2, %14
@@ -111,7 +111,7 @@ define hidden zeroext i1 @av1_use_qmatrix(ptr noundef readonly captures(none) %0
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10692
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br label %12
@@ -125,11 +125,11 @@ define hidden zeroext i1 @av1_use_qmatrix(ptr noundef readonly captures(none) %0
 define hidden ptr @av1_iqmatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [16 x [3 x [19 x ptr]]], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds [3 x [19 x ptr]], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [3 x [19 x ptr]], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds [19 x ptr], ptr %7, i64 %8
   %10 = zext i8 %3 to i64
-  %11 = getelementptr inbounds nuw [19 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
 }
@@ -138,11 +138,11 @@ define hidden ptr @av1_iqmatrix(ptr noundef readonly captures(none) %0, i32 noun
 define hidden ptr @av1_qmatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7416
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [16 x [3 x [19 x ptr]]], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds [3 x [19 x ptr]], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [3 x [19 x ptr]], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds [19 x ptr], ptr %7, i64 %8
   %10 = zext i8 %3 to i64
-  %11 = getelementptr inbounds nuw [19 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
 }
@@ -184,7 +184,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
   %19 = getelementptr i8, ptr %1, i64 192
   %20 = getelementptr i8, ptr %19, i64 %.idx
   %21 = zext nneg i16 %17 to i64
-  %22 = getelementptr inbounds nuw [8 x [19 x ptr]], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [19 x ptr], ptr %20, i64 %21
   br label %25
 
 23:                                               ; preds = %av1_get_adjusted_tx_size.exit
@@ -193,7 +193,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 
 25:                                               ; preds = %23, %16
   %.pn = phi ptr [ %22, %16 ], [ %24, %23 ]
-  %.in = getelementptr inbounds nuw [19 x ptr], ptr %.pn, i64 0, i64 %.0.i
+  %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
   %26 = load ptr, ptr %.in, align 8
   ret ptr %26
 }
@@ -235,7 +235,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
   %19 = getelementptr i8, ptr %1, i64 1408
   %20 = getelementptr i8, ptr %19, i64 %.idx
   %21 = zext nneg i16 %17 to i64
-  %22 = getelementptr inbounds nuw [8 x [19 x ptr]], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [19 x ptr], ptr %20, i64 %21
   br label %25
 
 23:                                               ; preds = %av1_get_adjusted_tx_size.exit
@@ -244,7 +244,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 
 25:                                               ; preds = %23, %16
   %.pn = phi ptr [ %22, %16 ], [ %24, %23 ]
-  %.in = getelementptr inbounds nuw [19 x ptr], ptr %.pn, i64 0, i64 %.0.i
+  %.in = getelementptr inbounds nuw ptr, ptr %.pn, i64 %.0.i
   %26 = load ptr, ptr %.in, align 8
   ret ptr %26
 }
@@ -266,10 +266,10 @@ define hidden void @av1_qm_init(ptr noundef captures(none) %0, i32 noundef %1) l
 .preheader55.us:                                  ; preds = %.preheader55.us.preheader, %._crit_edge.us
   %indvars.iv83 = phi i64 [ 0, %.preheader55.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us ]
   %8 = icmp eq i64 %indvars.iv83, 15
-  %9 = getelementptr inbounds nuw [16 x [3 x [19 x ptr]]], ptr %4, i64 0, i64 %indvars.iv83
-  %10 = getelementptr inbounds nuw [16 x [3 x [19 x ptr]]], ptr %5, i64 0, i64 %indvars.iv83
-  %11 = getelementptr inbounds nuw [15 x [2 x [3344 x i8]]], ptr @wt_matrix_ref, i64 0, i64 %indvars.iv83
-  %12 = getelementptr inbounds nuw [15 x [2 x [3344 x i8]]], ptr @iwt_matrix_ref, i64 0, i64 %indvars.iv83
+  %9 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %4, i64 %indvars.iv83
+  %10 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %5, i64 %indvars.iv83
+  %11 = getelementptr inbounds nuw [2 x [3344 x i8]], ptr @wt_matrix_ref, i64 %indvars.iv83
+  %12 = getelementptr inbounds nuw [2 x [3344 x i8]], ptr @iwt_matrix_ref, i64 %indvars.iv83
   br i1 %8, label %.preheader.us.us, label %.preheader.us61
 
 .split.us:                                        ; preds = %36
@@ -280,7 +280,7 @@ define hidden void @av1_qm_init(ptr noundef captures(none) %0, i32 noundef %1) l
 13:                                               ; preds = %.preheader.us61, %36
   %indvars.iv = phi i64 [ 0, %.preheader.us61 ], [ %indvars.iv.next, %36 ]
   %.05356.us = phi i32 [ 0, %.preheader.us61 ], [ %.1.us, %36 ]
-  %14 = getelementptr inbounds nuw [20 x i32], ptr @tx_size_2d, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr @tx_size_2d, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = trunc i64 %indvars.iv to i8
   switch i8 %16, label %19 [
@@ -308,23 +308,23 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
 
 21:                                               ; preds = %av1_get_adjusted_tx_size.exit.us
   %22 = zext nneg i8 %.0.i.us to i64
-  %23 = getelementptr inbounds nuw [19 x ptr], ptr %37, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %37, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw [19 x ptr], ptr %37, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds nuw [19 x ptr], ptr %38, i64 0, i64 %22
+  %26 = getelementptr inbounds nuw ptr, ptr %38, i64 %22
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw [19 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   store ptr %27, ptr %28, align 8
   br label %36
 
 29:                                               ; preds = %av1_get_adjusted_tx_size.exit.us
   %30 = sext i32 %.05356.us to i64
-  %31 = getelementptr inbounds [3344 x i8], ptr %41, i64 0, i64 %30
-  %32 = getelementptr inbounds nuw [19 x ptr], ptr %37, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds i8, ptr %41, i64 %30
+  %32 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds [3344 x i8], ptr %42, i64 0, i64 %30
-  %34 = getelementptr inbounds nuw [19 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds i8, ptr %42, i64 %30
+  %34 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   store ptr %33, ptr %34, align 8
   %35 = add nsw i32 %15, %.05356.us
   br label %36
@@ -337,12 +337,12 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
 
 .preheader.us61:                                  ; preds = %.preheader55.us, %.split.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.split.us ], [ 0, %.preheader55.us ]
-  %37 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %9, i64 0, i64 %indvars.iv70
-  %38 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %10, i64 0, i64 %indvars.iv70
+  %37 = getelementptr inbounds nuw [19 x ptr], ptr %9, i64 %indvars.iv70
+  %38 = getelementptr inbounds nuw [19 x ptr], ptr %10, i64 %indvars.iv70
   %39 = icmp ne i64 %indvars.iv70, 0
   %40 = zext i1 %39 to i64
-  %41 = getelementptr inbounds nuw [2 x [3344 x i8]], ptr %11, i64 0, i64 %40
-  %42 = getelementptr inbounds nuw [2 x [3344 x i8]], ptr %12, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [3344 x i8], ptr %11, i64 %40
+  %42 = getelementptr inbounds nuw [3344 x i8], ptr %12, i64 %40
   br label %13
 
 ._crit_edge.us:                                   ; preds = %.split.us, %.split.us.us.us
@@ -352,15 +352,15 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
 
 .preheader.us.us:                                 ; preds = %.preheader55.us, %.split.us.us.us
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.split.us.us.us ], [ 0, %.preheader55.us ]
-  %43 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %6, i64 0, i64 %indvars.iv78
-  %44 = getelementptr inbounds nuw [3 x [19 x ptr]], ptr %7, i64 0, i64 %indvars.iv78
+  %43 = getelementptr inbounds nuw [19 x ptr], ptr %6, i64 %indvars.iv78
+  %44 = getelementptr inbounds nuw [19 x ptr], ptr %7, i64 %indvars.iv78
   br label %av1_get_adjusted_tx_size.exit.us.us.us
 
 av1_get_adjusted_tx_size.exit.us.us.us:           ; preds = %av1_get_adjusted_tx_size.exit.us.us.us, %.preheader.us.us
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %av1_get_adjusted_tx_size.exit.us.us.us ], [ 0, %.preheader.us.us ]
-  %45 = getelementptr inbounds nuw [19 x ptr], ptr %43, i64 0, i64 %indvars.iv74
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv74
   store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds nuw [19 x ptr], ptr %44, i64 0, i64 %indvars.iv74
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv74
   store ptr null, ptr %46, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 19

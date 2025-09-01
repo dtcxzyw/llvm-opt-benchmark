@@ -229,10 +229,10 @@ _ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit: ; preds = %12
 
 switch.lookup:                                    ; preds = %1
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep8 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE.19, i64 0, i64 %20
+  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE.19, i64 %20
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   br label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread
 

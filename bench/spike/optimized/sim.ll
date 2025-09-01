@@ -4893,7 +4893,7 @@ _ZN5sim_t8get_coreEm.exit:                        ; preds = %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %39, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !252
   %42 = tail call noundef i32 @llvm.bswap.i32(i32 %41)
   store i32 %42, ptr %40, align 4, !tbaa !252
@@ -5814,7 +5814,7 @@ define void @_ZN5sim_t10read_chunkEmmPv(ptr noundef nonnull readonly align 8 cap
   %.not = icmp eq i64 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 39056
   %12 = and i64 %9, 255
-  %13 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !216
   %15 = icmp eq i64 %14, %9
   %or.cond.i = select i1 %.not, i1 %15, i1 false
@@ -5822,7 +5822,7 @@ define void @_ZN5sim_t10read_chunkEmmPv(ptr noundef nonnull readonly align 8 cap
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32912
-  %18 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %17, i64 0, i64 %12
+  %18 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %17, i64 %12
   %19 = load ptr, ptr %18, align 8, !tbaa !437
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %1
   %21 = load i64, ptr %20, align 8
@@ -5874,7 +5874,7 @@ define void @_ZN5sim_t11write_chunkEmmPKv(ptr noundef nonnull readonly align 8 c
   %10 = lshr i64 %1, 12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 41104
   %12 = and i64 %10, 255
-  %13 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !216
   %15 = icmp eq i64 %14, %10
   %16 = and i64 %1, 7
@@ -5884,7 +5884,7 @@ define void @_ZN5sim_t11write_chunkEmmPKv(ptr noundef nonnull readonly align 8 c
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 32912
-  %21 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %20, i64 0, i64 %12
+  %21 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %20, i64 %12
   %22 = load ptr, ptr %21, align 8, !tbaa !437
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %1
   store i64 %7, ptr %23, align 8

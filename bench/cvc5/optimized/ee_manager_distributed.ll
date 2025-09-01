@@ -502,7 +502,7 @@ _ZN4cvc58internal6theory11EeSetupInfoD2Ev.exit:   ; preds = %_ZNKSt7__cxx1112bas
   %111 = load ptr, ptr %91, align 8, !tbaa !43
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw [14 x ptr], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !174
   %116 = icmp eq ptr %115, null
   br i1 %116, label %169, label %117

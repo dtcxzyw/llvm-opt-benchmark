@@ -465,7 +465,7 @@ for.inc.us:                                       ; preds = %_ZN4llvh9StringRefC
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %cmp.us = icmp samesign ult i64 %indvars.iv18, 25
   tail call void @llvm.assume(i1 %cmp.us)
-  %arrayidx.us = getelementptr inbounds nuw [9 x ptr], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 0, i64 %indvars.iv.next19
+  %arrayidx.us = getelementptr inbounds nuw ptr, ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 %indvars.iv.next19
   %2 = load ptr, ptr %arrayidx.us, align 8
   %tobool.i.not.us = icmp eq ptr %2, null
   br i1 %tobool.i.not.us, label %if.then.loopexit, label %_ZN4llvh9StringRefC2EPKc.exit.us, !llvm.loop !4
@@ -474,7 +474,7 @@ for.cond:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %cmp = icmp samesign ult i64 %indvars.iv, 26
   tail call void @llvm.assume(i1 %cmp)
-  %arrayidx = getelementptr inbounds nuw [9 x ptr], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.i.not = icmp eq ptr %3, null
   br i1 %tobool.i.not, label %for.inc, label %_ZN4llvh9StringRefC2EPKc.exit
@@ -680,10 +680,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE.90, i64 0, i64 %2
+  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE.90, i64 %2
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   %3 = zext i32 %switch.load to i64
   %4 = or disjoint i64 %switch.load7, %3

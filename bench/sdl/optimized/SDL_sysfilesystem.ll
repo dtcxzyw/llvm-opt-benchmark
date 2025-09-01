@@ -425,7 +425,7 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %50
   %55 = add i64 %51, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 10
   br i1 %59, label %60, label %.preheader

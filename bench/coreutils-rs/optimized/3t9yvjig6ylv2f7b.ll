@@ -1363,7 +1363,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %66, align 8, !alias.scope !221, !noalias !224, !nonnull !5, !noundef !5
-  %107 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }], ptr %106, i64 0, i64 %92, i32 1
+  %107 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %106, i64 %92, i32 1
   %108 = load i64, ptr %107, align 8, !range !96, !noalias !228, !noundef !5
   %.not.i119.us = icmp eq i64 %108, -9223372036854775808
   br i1 %.not.i119.us, label %109, label %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.thread.us"
@@ -2411,7 +2411,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
 
 152:                                              ; preds = %148
   %153 = load ptr, ptr %62, align 8, !alias.scope !377, !noalias !380, !nonnull !5, !noundef !5
-  %154 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }], ptr %153, i64 0, i64 %149, i32 1
+  %154 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %153, i64 %149, i32 1
   %155 = load i64, ptr %154, align 8, !range !96, !noalias !383, !noundef !5
   %.not.i = icmp eq i64 %155, -9223372036854775808
   br i1 %.not.i, label %157, label %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.thread"
@@ -2990,7 +2990,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us: ; preds = %.split.us
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %22, align 8, !alias.scope !454, !noalias !457, !nonnull !5, !noundef !5
-  %89 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }], ptr %88, i64 0, i64 %84, i32 1
+  %89 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %88, i64 %84, i32 1
   %90 = load i64, ptr %89, align 8, !range !96, !noalias !460, !noundef !5
   %.not.i.us = icmp eq i64 %90, -9223372036854775808
   br i1 %.not.i.us, label %91, label %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.thread.us"

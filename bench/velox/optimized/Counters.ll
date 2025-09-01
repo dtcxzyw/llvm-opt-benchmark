@@ -8330,7 +8330,7 @@ for.body.lr.ph:                                   ; preds = %_ZN5folly29core_cac
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0126 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds [64 x %"class.std::shared_ptr"], ptr %this, i64 0, i64 %i.0126
+  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %this, i64 %i.0126
   store ptr null, ptr %arrayidx.i.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8
@@ -8434,7 +8434,7 @@ cond.false.i.i:                                   ; preds = %if.then
 
 _ZN5folly16getCoreAllocatorISt10shared_ptrIN8facebook5velox17BaseStatsReporterEELm64EEENS_19CxxAllocatorAdaptorIT_NS_16CoreRawAllocatorIXT0_EE9AllocatorELb0EEEm.exit: ; preds = %if.then, %cond.false.i.i
   %cond.i.i = phi ptr [ %call2.i.i, %cond.false.i.i ], [ %atomic-temp.i.0.i.i, %if.then ]
-  %arrayidx.i.i11 = getelementptr inbounds [64 x %"class.folly::CoreRawAllocator<64>::Allocator"], ptr %cond.i.i, i64 0, i64 %i.0126
+  %arrayidx.i.i11 = getelementptr inbounds %"class.folly::CoreRawAllocator<64>::Allocator", ptr %cond.i.i, i64 %i.0126
   call void @llvm.lifetime.start.p0(ptr nonnull %__a2.i.i.i.i), !noalias !374
   call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i.i.i.i), !noalias !374
   store ptr %arrayidx.i.i11, ptr %__a2.i.i.i.i, align 8, !noalias !374
@@ -8741,8 +8741,8 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
 
 for.body:                                         ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt8weak_ptrIN8facebook5velox17BaseStatsReporterEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit
   %i.06 = phi i64 [ %inc, %_ZNSt8weak_ptrIN8facebook5velox17BaseStatsReporterEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit ], [ 0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  %arrayidx.i.i = getelementptr inbounds [64 x %"class.std::shared_ptr"], ptr %p, i64 0, i64 %i.06
-  %arrayidx.i.i4 = getelementptr inbounds [64 x %"class.std::weak_ptr"], ptr %this, i64 0, i64 %i.06
+  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %p, i64 %i.06
+  %arrayidx.i.i4 = getelementptr inbounds %"class.std::weak_ptr", ptr %this, i64 %i.06
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   store ptr %6, ptr %arrayidx.i.i4, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
@@ -10179,7 +10179,7 @@ while.cond2.i:                                    ; preds = %while.body6.i, %whi
   %slot.1.i = phi i32 [ %slot.0.i, %while.body.i ], [ %inc.i35, %while.body6.i ]
   %mul.i.i = shl i32 %slot.1.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic.101"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::atomic.101", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 %idxprom.i.i
   %18 = load atomic i64, ptr %arrayidx.i.i acquire, align 32
   %and.i.i = and i64 %18, -2
   %cmp.i.i = icmp eq i64 %and.i.i, %17
@@ -10342,7 +10342,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %slot.addr.4 = phi i32 [ %inc, %while.body ], [ %slot.addr.253, %while.cond.preheader ]
   %mul.i = shl i32 %slot.addr.4, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic.101"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.std::atomic.101", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -10371,7 +10371,7 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %movedSlotCount.059 = phi i32 [ 0, %for.body26.lr.ph ], [ %movedSlotCount.1, %for.inc35 ]
   %mul.i46 = shl i64 %indvars.iv, 2
   %idxprom.i47 = and i64 %mul.i46, 4294967292
-  %arrayidx.i48 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.101"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i47
+  %arrayidx.i48 = getelementptr inbounds nuw %"struct.std::atomic.101", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 %idxprom.i47
   %4 = load atomic i64, ptr %arrayidx.i48 acquire, align 32
   %and.i49 = and i64 %4, -2
   %cmp.i50 = icmp eq i64 %and.i49, %1

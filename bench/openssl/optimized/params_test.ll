@@ -175,7 +175,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_case(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [4 x %struct.anon], ptr @test_cases, i64 0, i64 %2
+  %3 = getelementptr inbounds %struct.anon, ptr @test_cases, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.3, i32 noundef 540, ptr noundef nonnull @.str.4, ptr noundef %5) #7
@@ -208,7 +208,7 @@ define internal i32 @test_allocate_from_text(i32 noundef %0) #0 {
   %2 = alloca %struct.ossl_param_st, align 8
   %3 = alloca i64, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [37 x %struct.int_from_text_test_st], ptr @int_from_text_test_cases, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.int_from_text_test_st, ptr @int_from_text_test_cases, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
@@ -301,7 +301,7 @@ define internal range(i32 0, 2) i32 @test_more_allocate_from_text() #0 {
 3:                                                ; preds = %19, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %19 ]
   %.01216.i = phi i32 [ 0, %0 ], [ %.1.i, %19 ]
-  %4 = getelementptr inbounds nuw [6 x ptr], ptr @check_octetstr_from_hexstr.values, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @check_octetstr_from_hexstr.values, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
   %7 = and i64 %6, 1
@@ -900,7 +900,7 @@ sub_161:                                          ; preds = %.tail54, %sub_156
 74:                                               ; preds = %67
   %75 = load ptr, ptr %68, align 8, !tbaa !23
   %76 = tail call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %75, i64 noundef %72) #7
-  %77 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %72
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 %72
   store i8 0, ptr %77, align 1, !tbaa !38
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   store i64 %78, ptr %9, align 8, !tbaa !45

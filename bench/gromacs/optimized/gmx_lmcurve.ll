@@ -84,7 +84,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 .critedge.preheader:                              ; preds = %32, %.thread70
   %.04769 = phi i32 [ %15, %.thread70 ], [ %.2, %32 ]
   %35 = zext nneg i32 %6 to i64
-  %36 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr @lmcurves, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -93,7 +93,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 .split.us.preheader:                              ; preds = %21, %.thread
   %.04766 = phi i32 [ %.2, %.thread ], [ %15, %21 ]
   %40 = zext nneg i32 %6 to i64
-  %41 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr @lmcurves, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -119,7 +119,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %52 = load i32, ptr %46, align 8, !tbaa !30
   %53 = load i32, ptr %47, align 4, !tbaa !31
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [0 x ptr], ptr @lm_infmsg, i64 0, i64 %54
+  %55 = getelementptr inbounds ptr, ptr @lm_infmsg, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !32
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %49, i32 noundef %51, i32 noundef %52, ptr noundef %56)
   %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.050.us, double noundef %50)

@@ -183,7 +183,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %.0124 to i64
-  %54 = getelementptr [12 x i32], ptr @netxray_open.netxray_encap, i64 0, i64 %53
+  %54 = getelementptr i32, ptr @netxray_open.netxray_encap, i64 %53
   %55 = shl nuw nsw i64 1, %53
   %56 = and i64 %55, 2529
   %.not152 = icmp eq i64 %56, 0
@@ -279,7 +279,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %174
 
 97:                                               ; preds = %91
-  %98 = getelementptr [3 x double], ptr @TpS, i64 0, i64 %86
+  %98 = getelementptr double, ptr @TpS, i64 %86
   %99 = load double, ptr %98, align 8
   br label %174
 
@@ -291,7 +291,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 104:                                              ; preds = %100
   %105 = zext nneg i8 %102 to i64
-  %106 = getelementptr [3 x double], ptr @TpS_gigpod, i64 0, i64 %105
+  %106 = getelementptr double, ptr @TpS_gigpod, i64 %105
   %107 = load double, ptr %106, align 8
   %108 = icmp eq i8 %102, 1
   br i1 %108, label %109, label %112
@@ -318,7 +318,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 118:                                              ; preds = %114
   %119 = zext nneg i8 %116 to i64
-  %120 = getelementptr [3 x double], ptr @TpS_otherpod, i64 0, i64 %119
+  %120 = getelementptr double, ptr @TpS_otherpod, i64 %119
   %121 = load double, ptr %120, align 8
   %122 = icmp eq i8 %116, 1
   br i1 %122, label %123, label %126
@@ -345,7 +345,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 132:                                              ; preds = %128
   %133 = zext nneg i8 %130 to i64
-  %134 = getelementptr [3 x double], ptr @TpS_otherpod2, i64 0, i64 %133
+  %134 = getelementptr double, ptr @TpS_otherpod2, i64 %133
   %135 = load double, ptr %134, align 8
   %136 = add nsw i8 %130, -1
   %137 = icmp ult i8 %136, 2
@@ -373,7 +373,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 147:                                              ; preds = %143
   %148 = zext nneg i8 %145 to i64
-  %149 = getelementptr [3 x double], ptr @TpS_gigpod2, i64 0, i64 %148
+  %149 = getelementptr double, ptr @TpS_gigpod2, i64 %148
   %150 = load double, ptr %149, align 8
   %151 = icmp eq i8 %145, 1
   br i1 %151, label %152, label %155
@@ -417,7 +417,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 170:                                              ; preds = %160
   %171 = zext nneg i8 %162 to i64
-  %172 = getelementptr [3 x double], ptr @TpS, i64 0, i64 %171
+  %172 = getelementptr double, ptr @TpS, i64 %171
   %173 = load double, ptr %172, align 8
   br label %174
 
@@ -499,7 +499,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %189
   %203 = zext nneg i8 %191 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.netxray_open, i64 0, i64 %203
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.netxray_open, i64 %203
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.idx.cast = zext nneg i8 %191 to i32
   br label %204
@@ -1299,7 +1299,7 @@ define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_1_1(i32 nound
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
-  %4 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr %struct.anon.3, ptr @wtap_encap_1_1, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %wtap_encap_to_netxray_1_1_encap.exit, label %3
@@ -1484,13 +1484,13 @@ define internal noundef zeroext i1 @netxray_dump_finish_1_1(ptr noundef %0, ptr 
 
 23:                                               ; preds = %22, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
-  %24 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr %struct.anon.3, ptr @wtap_encap_1_1, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %21, %25
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23
-  %28 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i, i32 1
+  %28 = getelementptr %struct.anon.3, ptr @wtap_encap_1_1, i64 %indvars.iv.i, i32 1
   %29 = load i32, ptr %28, align 4
   %30 = trunc i32 %29 to i8
   br label %wtap_encap_to_netxray_1_1_encap.exit
@@ -1549,7 +1549,7 @@ define internal range(i32 -9, 1) i32 @netxray_dump_can_write_encap_2_0(i32 nound
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
-  %4 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr %struct.anon.4, ptr @wtap_encap_2_0, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %wtap_encap_to_netxray_2_0_encap.exit, label %3
@@ -1822,13 +1822,13 @@ define internal noundef zeroext i1 @netxray_dump_finish_2_0(ptr noundef %0, ptr 
 
 23:                                               ; preds = %22, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
-  %24 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr %struct.anon.4, ptr @wtap_encap_2_0, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %21, %25
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23
-  %28 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i, i32 1
+  %28 = getelementptr %struct.anon.4, ptr @wtap_encap_2_0, i64 %indvars.iv.i, i32 1
   %29 = load i32, ptr %28, align 4
   %30 = trunc i32 %29 to i8
   br label %wtap_encap_to_netxray_2_0_encap.exit

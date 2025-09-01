@@ -507,7 +507,7 @@ define internal noundef i32 @power_supply_hwmon_read_string(ptr readnone capture
 
 7:                                                ; preds = %5
   %8 = sext i32 %3 to i64
-  %9 = getelementptr [2 x ptr], ptr @ps_temp_label, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr @ps_temp_label, i64 %8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
   br label %11

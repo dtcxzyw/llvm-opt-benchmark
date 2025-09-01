@@ -1634,7 +1634,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemE
   store i8 %28, ptr %30, align 1, !tbaa !13
   %32 = lshr i64 %1, 28
   %33 = and i64 %32, 15
-  %34 = getelementptr inbounds nuw [9 x i8], ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !13
   %36 = shl i8 %35, 6
   %37 = and i8 %.sroa.3.0.extract.trunc, 56
@@ -1684,7 +1684,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemE
   store ptr %62, ptr %60, align 8, !tbaa !51
   store i8 %59, ptr %61, align 1, !tbaa !13
   %63 = and i64 %sum.shift, 15
-  %64 = getelementptr inbounds nuw [9 x i8], ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !13
   %66 = shl i8 %65, 6
   %67 = and i8 %.sroa.3.0.extract.trunc, 56
@@ -1719,7 +1719,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemE
   store i8 %82, ptr %84, align 1, !tbaa !13
   %86 = lshr i64 %1, 28
   %87 = and i64 %86, 15
-  %88 = getelementptr inbounds nuw [9 x i8], ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3X64L16getScaleEncodingEhE6scales, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !13
   %90 = shl i8 %89, 6
   %91 = or disjoint i8 %90, 36
@@ -2067,10 +2067,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 3:                                                ; preds = %2
   %4 = and i64 %.sroa.4.0.extract.shift, 7
-  %5 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %4
   %6 = lshr i64 %1, 19
   %7 = and i64 %6, 31
-  %8 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %9)
   br label %64
@@ -2086,7 +2086,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 14:                                               ; preds = %13
   %15 = and i64 %.sroa.9.0.extract.shift, 15
-  %16 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %17)
   br label %18
@@ -2100,7 +2100,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 20:                                               ; preds = %19
   %21 = and i64 %.sroa.9.0.extract.shift, 15
-  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %23)
   br label %24
@@ -2112,10 +2112,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 25:                                               ; preds = %24
   %26 = and i64 %.sroa.4.0.extract.shift, 7
-  %27 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %26
   %28 = lshr i64 %1, 19
   %29 = and i64 %28, 31
-  %30 = getelementptr inbounds nuw [16 x ptr], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %31)
   br label %32
@@ -2128,10 +2128,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 34:                                               ; preds = %32
   %35 = select i1 %.not25, ptr @.str.99, ptr @.str.98
   %36 = and i64 %.sroa.2.0.extract.shift, 7
-  %37 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %36
   %38 = lshr i64 %1, 11
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw [16 x ptr], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.97, ptr noundef nonnull %35, ptr noundef %41)
   br label %42
@@ -3166,7 +3166,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645setccENS0_12Cond
 
 7:                                                ; preds = %3
   %8 = zext i8 %1 to i64
-  %9 = getelementptr inbounds nuw [26 x ptr], ptr @_ZN4Luau7CodeGen3X64L21setccTextForConditionE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN4Luau7CodeGen3X64L21setccTextForConditionE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logEPKcNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef %10, i64 %2)
   br label %11
@@ -3228,7 +3228,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX648placeRexENS1_10OperandX64E.exit: ; pred
   store ptr %43, ptr %41, align 8, !tbaa !51
   store i8 15, ptr %42, align 1, !tbaa !13
   %44 = zext i8 %1 to i64
-  %45 = getelementptr inbounds nuw [26 x i8], ptr @_ZN4Luau7CodeGen3X64L16codeForConditionE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L16codeForConditionE, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !13
   %47 = or i8 %46, -112
   %48 = load ptr, ptr %41, align 8, !tbaa !51
@@ -3267,7 +3267,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644cmovENS0_12Condi
 
 8:                                                ; preds = %4
   %9 = zext i8 %1 to i64
-  %10 = getelementptr inbounds nuw [26 x ptr], ptr @_ZN4Luau7CodeGen3X64L20cmovTextForConditionE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZN4Luau7CodeGen3X64L20cmovTextForConditionE, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %.sroa.352.0.insert.ext = zext i8 %2 to i64
   %.sroa.352.0.insert.shift = shl nuw nsw i64 %.sroa.352.0.insert.ext, 16
@@ -3330,7 +3330,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX648placeRexENS1_11RegisterX64ENS1_10Operan
   store ptr %48, ptr %46, align 8, !tbaa !51
   store i8 15, ptr %47, align 1, !tbaa !13
   %49 = zext i8 %1 to i64
-  %50 = getelementptr inbounds nuw [26 x i8], ptr @_ZN4Luau7CodeGen3X64L16codeForConditionE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L16codeForConditionE, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !13
   %52 = or i8 %51, 64
   %53 = load ptr, ptr %46, align 8, !tbaa !51
@@ -3364,9 +3364,9 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit: ; preds = %_ZN4Luau7Code
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext %1, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [26 x ptr], ptr @_ZN4Luau7CodeGen3X64L19jccTextForConditionE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @_ZN4Luau7CodeGen3X64L19jccTextForConditionE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !64
-  %7 = getelementptr inbounds nuw [26 x i8], ptr @_ZN4Luau7CodeGen3X64L16codeForConditionE, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L16codeForConditionE, i64 %4
   %8 = load i8, ptr %7, align 1, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load ptr, ptr %9, align 8, !tbaa !51
@@ -7116,10 +7116,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local noundef ptr @_ZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(252) %0, i8 %1) local_unnamed_addr #9 align 2 {
   %3 = and i8 %1, 7
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw [7 x [16 x ptr]], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %4
   %6 = lshr i8 %1, 3
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   ret ptr %9
 }
@@ -7127,7 +7127,7 @@ define dso_local noundef ptr @_ZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(252) %0, i8 noundef zeroext %1) local_unnamed_addr #9 align 2 {
   %3 = zext i8 %1 to i64
-  %4 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !64
   ret ptr %5
 }

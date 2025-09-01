@@ -187,7 +187,7 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   %.287118 = phi i64 [ 0, %.loopexit100.thread ], [ %49, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1148, i64 %.287118
   %42 = load i8, ptr %41, align 1, !tbaa !9
-  %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.287118
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 %.287118
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.287118
   %46 = load i8, ptr %45, align 1, !tbaa !9

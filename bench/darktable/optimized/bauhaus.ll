@@ -1998,7 +1998,7 @@ define internal range(i32 0, 2) i32 @_popup_key_press(ptr readnone captures(none
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 92
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr inbounds nuw [180 x i8], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !106
   br i1 %8, label %32, label %47
 

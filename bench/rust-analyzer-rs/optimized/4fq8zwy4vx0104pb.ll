@@ -1484,7 +1484,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %47 = getelementptr inbounds nuw [3 x { { i32 } }], ptr %46, i64 0, i64 %43
+  %47 = getelementptr inbounds nuw { { i32 } }, ptr %46, i64 %43
   %48 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %47), !range !232, !noalias !228
   store i32 %48, ptr %11, align 4, !noalias !228
   %49 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !228
@@ -1923,7 +1923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %47 = getelementptr inbounds nuw [3 x { { i32 } }], ptr %46, i64 0, i64 %43
+  %47 = getelementptr inbounds nuw { { i32 } }, ptr %46, i64 %43
   %48 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %47), !range !232, !noalias !252
   store i32 %48, ptr %11, align 4, !noalias !252
   %49 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !252
@@ -2362,7 +2362,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %47 = getelementptr inbounds nuw [3 x { { i32 } }], ptr %46, i64 0, i64 %43
+  %47 = getelementptr inbounds nuw { { i32 } }, ptr %46, i64 %43
   %48 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %47), !range !232, !noalias !273
   store i32 %48, ptr %11, align 4, !noalias !273
   %49 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !273

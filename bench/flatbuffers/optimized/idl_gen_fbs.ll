@@ -6811,7 +6811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %100
   %103 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb, i64 0, i64 %103
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb, i64 %103
   %switch.load = load ptr, ptr %switch.gep, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %104, ptr %0, align 8, !tbaa !4

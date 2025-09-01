@@ -747,7 +747,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert(ptr noundef captures(none) %0, p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !45
-  %36 = getelementptr inbounds nuw [1 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   store ptr %35, ptr %36, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

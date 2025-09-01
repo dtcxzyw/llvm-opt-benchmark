@@ -3659,7 +3659,7 @@ _agent_defer.exit:                                ; preds = %._crit_edge.thread.
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 36
   %174 = load i32, ptr %173, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %175 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   store i32 %174, ptr %175, align 4
   %176 = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %176, label %177, label %169, !llvm.loop !29

@@ -2408,7 +2408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
   %156 = load ptr, ptr %12, align 8
   %157 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %154, ptr align 1 %156, i64 %157, i1 false)
-  %158 = getelementptr inbounds nuw [1024 x i8], ptr %154, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 %157
   store i8 0, ptr %158, align 1
   call void @_ZN6Assimp13ColladaParser13UriDecodePathER8aiString(ptr noundef nonnull align 4 dereferenceable(1028) %13)
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2848,7 +2848,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp10TXmlParserIN4pugi8xml
 
 switch.lookup:                                    ; preds = %44
   %48 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseEPNS_8IOStreamE, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
 
@@ -3069,7 +3069,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %50 = sext i32 %spec.store.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr nonnull align 1 %46, i64 %50, i1 false)
-  %51 = getelementptr inbounds [1024 x i8], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds i8, ptr %49, i64 %50
   store i8 0, ptr %51, align 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %53 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_8aiStringESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE17_M_emplace_uniqueIJRA26_KcRS8_EEES6_ISt17_Rb_tree_iteratorIS9_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull align 1 dereferenceable(26) @.str.15, ptr noundef nonnull align 4 dereferenceable(1028) %6)
@@ -5384,7 +5384,7 @@ define hidden void @_ZN6Assimp13ColladaParser13UriDecodePathER8aiString(ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %9 = zext i32 %7 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %8, i64 %9, i1 false)
-  %10 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
   store i8 0, ptr %10, align 1
   br label %11
 
@@ -5415,7 +5415,7 @@ define hidden void @_ZN6Assimp13ColladaParser13UriDecodePathER8aiString(ptr noun
   store i32 %23, ptr %0, align 4
   %24 = zext i32 %23 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %15, i64 %24, i1 false)
-  %25 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   store i8 0, ptr %25, align 1
   br label %26
 
@@ -9564,7 +9564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 
 114:                                              ; preds = %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i, %114 ]
-  %115 = getelementptr inbounds nuw [8 x i32], ptr %113, i64 0, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.i
   store i32 2, ptr %115, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -13150,7 +13150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -13618,7 +13618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %87 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %86, ptr align 1 %87, i64 %82, i1 false)
-  %88 = getelementptr inbounds nuw [1024 x i8], ptr %86, i64 0, i64 %82
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %82
   store i8 0, ptr %88, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -18865,7 +18865,7 @@ _ZNK4pugi8xml_node9attributeEPKc.exit83:          ; preds = %168
   %.049.i.i.i = phi ptr [ %180, %.preheader.i ], [ %174, %_ZNK4pugi8xml_node9attributeEPKc.exit83 ]
   %175 = load i8, ptr %.049.i.i.i, align 1
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = and i8 %178, 8
   %.not.i.i.i = icmp eq i8 %179, 0
@@ -19486,7 +19486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
 
 404:                                              ; preds = %401, %399
   %.0.lcssa.i.i = phi ptr [ %.0.i.i131, %399 ], [ %scevgep.i.i, %401 ]
-  %405 = getelementptr inbounds nuw [16 x float], ptr %49, i64 0, i64 %indvars.iv
+  %405 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
   %406 = invoke noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %.0.lcssa.i.i, ptr noundef nonnull align 4 dereferenceable(4) %405, i1 noundef zeroext true)
           to label %407 unwind label %416
 
@@ -20424,7 +20424,7 @@ _ZNK4pugi8xml_node9attributeEPKc.exit89:          ; preds = %103
   %.049.i.i.i = phi ptr [ %115, %.preheader.i ], [ %109, %_ZNK4pugi8xml_node9attributeEPKc.exit89 ]
   %110 = load i8, ptr %.049.i.i.i, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = and i8 %113, 8
   %.not.i.i.i = icmp eq i8 %114, 0
@@ -21471,7 +21471,7 @@ _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %9
   %.049.i.i.i = phi ptr [ %21, %.preheader.i ], [ %15, %_ZNK4pugi8xml_node9attributeEPKc.exit ]
   %16 = load i8, ptr %.049.i.i.i, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 8
   %.not.i.i.i = icmp eq i8 %20, 0
@@ -22304,7 +22304,7 @@ _ZNK4pugi8xml_text9as_stringEPKc.exit:            ; preds = %72, %65, %_ZNK4pugi
   %92 = load ptr, ptr %8, align 8
   %93 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %92, i64 %93, i1 false)
-  %94 = getelementptr inbounds nuw [1024 x i8], ptr %28, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %28, i64 %93
   store i8 0, ptr %94, align 1
   %95 = icmp eq ptr %92, %26
   br i1 %95, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -22436,7 +22436,7 @@ _ZNK4pugi8xml_node5childEPKc.exit90:              ; preds = %126, %123
   %135 = load ptr, ptr %9, align 8
   %136 = zext i32 %spec.select.i93 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 1 %135, i64 %136, i1 false)
-  %137 = getelementptr inbounds nuw [1024 x i8], ptr %21, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %21, i64 %136
   store i8 0, ptr %137, align 1
   call void @_ZN6Assimp13ColladaParser13UriDecodePathER8aiString(ptr noundef nonnull align 4 dereferenceable(1028) %12)
   %138 = load i64, ptr %22, align 8
@@ -33054,7 +33054,7 @@ _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %9
   %.049.i.i.i = phi ptr [ %21, %.preheader.i ], [ %15, %_ZNK4pugi8xml_node9attributeEPKc.exit ]
   %16 = load i8, ptr %.049.i.i.i, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 8
   %.not.i.i.i = icmp eq i8 %20, 0
@@ -36793,11 +36793,11 @@ define hidden void @_ZN6Assimp13ColladaParser28ExtractDataObjectFromChannelERKNS
 
 37:                                               ; preds = %23, %37
   %.081173 = phi i64 [ 0, %23 ], [ %43, %37 ]
-  %38 = getelementptr inbounds nuw [4 x i64], ptr %35, i64 0, i64 %.081173
+  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %.081173
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw float, ptr %34, i64 %39
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.081173
+  %42 = getelementptr inbounds nuw float, ptr %6, i64 %.081173
   store float %41, ptr %42, align 4
   %43 = add nuw nsw i64 %.081173, 1
   %exitcond.not = icmp eq i64 %43, 4
@@ -37298,7 +37298,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRfS5_S5_EEEvN9__gnu_cxx
 
 305:                                              ; preds = %301
   %306 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %307 = getelementptr inbounds nuw [8 x %"class.std::vector.130"], ptr %306, i64 0, i64 %303
+  %307 = getelementptr inbounds nuw %"class.std::vector.130", ptr %306, i64 %303
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load ptr, ptr %308, align 8
   %310 = load ptr, ptr %307, align 8
@@ -37340,7 +37340,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRfS5_S5_EEEvN9__gnu_cxx
 332:                                              ; preds = %325, %305
   %333 = phi ptr [ %.pre184, %325 ], [ %309, %305 ]
   %334 = phi i64 [ %.pre182, %325 ], [ %303, %305 ]
-  %335 = getelementptr inbounds nuw [8 x %"class.std::vector.130"], ptr %306, i64 0, i64 %334
+  %335 = getelementptr inbounds nuw %"class.std::vector.130", ptr %306, i64 %334
   %336 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %337 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %338 = getelementptr inbounds nuw i8, ptr %335, i64 8
@@ -37439,7 +37439,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit141
 379:                                              ; preds = %376, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit141
   %380 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %381 = load i64, ptr %302, align 8
-  %382 = getelementptr inbounds nuw [8 x i32], ptr %380, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i32, ptr %380, i64 %381
   store i32 3, ptr %382, align 4
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit
 
@@ -37456,7 +37456,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit141
 
 389:                                              ; preds = %385
   %390 = getelementptr inbounds nuw i8, ptr %3, i64 408
-  %391 = getelementptr inbounds nuw [8 x %"class.std::vector.135"], ptr %390, i64 0, i64 %387
+  %391 = getelementptr inbounds nuw %"class.std::vector.135", ptr %390, i64 %387
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8
   %394 = load ptr, ptr %391, align 8
@@ -37514,7 +37514,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit141
 
 ._crit_edge:                                      ; preds = %_ZN9aiColor4tIfEixEj.exit, %416
   %421 = load i64, ptr %386, align 8
-  %422 = getelementptr inbounds nuw [8 x %"class.std::vector.135"], ptr %390, i64 0, i64 %421
+  %422 = getelementptr inbounds nuw %"class.std::vector.135", ptr %390, i64 %421
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %424 = load ptr, ptr %423, align 8
   %425 = getelementptr inbounds nuw i8, ptr %422, i64 16
@@ -37612,9 +37612,9 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backERKS1_.exit: ; preds = %427, %_ZNSt6
 
 450:                                              ; preds = %.lr.ph, %_ZN9aiColor4tIfEixEj.exit
   %.0174 = phi i64 [ 0, %.lr.ph ], [ %459, %_ZN9aiColor4tIfEixEj.exit ]
-  %451 = getelementptr inbounds nuw [4 x i64], ptr %420, i64 0, i64 %.0174
+  %451 = getelementptr inbounds nuw i64, ptr %420, i64 %.0174
   %452 = load i64, ptr %451, align 8
-  %453 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %452
+  %453 = getelementptr inbounds nuw float, ptr %6, i64 %452
   %454 = load float, ptr %453, align 4
   %455 = trunc i64 %.0174 to i32
   switch i32 %455, label %_ZN9aiColor4tIfEixEj.exit [
@@ -37940,7 +37940,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   %59 = load i64, ptr %56, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
   %61 = zext i32 %3 to i64
-  %62 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN6Assimp13ColladaParser22ReadNodeTransformationERN4pugi8xml_nodeEPNS_7Collada4NodeENS4_13TransformTypeEE14sNumParameters, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr @_ZZN6Assimp13ColladaParser22ReadNodeTransformationERN4pugi8xml_nodeEPNS_7Collada4NodeENS4_13TransformTypeEE14sNumParameters, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = ptrtoint ptr %60 to i64
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 36
@@ -38045,7 +38045,7 @@ _ZNSt16allocator_traitsISaIN6Assimp7Collada9TransformEEE9constructIS2_JRKS2_EEEv
 
 100:                                              ; preds = %97, %95
   %.0.lcssa.i.i = phi ptr [ %.0.i.i36, %95 ], [ %scevgep.i.i, %97 ]
-  %101 = getelementptr inbounds nuw [16 x float], ptr %65, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv
   %102 = invoke noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %.0.lcssa.i.i, ptr noundef nonnull align 4 dereferenceable(4) %101, i1 noundef zeroext true)
           to label %103 unwind label %104
 
@@ -48155,7 +48155,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = and i8 %30, 8
   %.not = icmp ne i8 %31, 0
@@ -48257,7 +48257,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 %.0106161
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = and i8 %76, 8
   %.not138 = icmp eq i8 %77, 0
@@ -48282,7 +48282,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 %.1107
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = and i8 %87, 8
   %.not141 = icmp eq i8 %88, 0
@@ -48307,7 +48307,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 %.2108163
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %99
   %101 = load i8, ptr %100, align 1
   %102 = and i8 %101, 64
   %.not144 = icmp eq i8 %102, 0
@@ -48733,14 +48733,14 @@ switch.lookup:
   %6 = lshr i32 %3, 4
   %7 = and i32 %6, 15
   %8 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = and i32 %6, 3
   %10 = lshr i32 %3, 9
   %11 = and i32 %10, 4
   %12 = or disjoint i32 %9, %11
   %13 = zext nneg i32 %12 to i64
-  %switch.gep817 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc.2, i64 0, i64 %13
+  %switch.gep817 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc.2, i64 %13
   %switch.load818 = load ptr, ptr %switch.gep817, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
@@ -48768,7 +48768,7 @@ switch.lookup:
 
 .preheader317:                                    ; preds = %.backedge
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 8
   %.not213406 = icmp eq i8 %23, 0
@@ -48784,7 +48784,7 @@ thread-pre-split:                                 ; preds = %.preheader316, %.ba
   %25 = phi i8 [ %.pr, %thread-pre-split ], [ %418, %416 ]
   %.2189 = phi ptr [ %.2189.ph, %thread-pre-split ], [ %417, %416 ]
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %.not234 = icmp sgt i8 %28, -1
   br i1 %.not234, label %274, label %29
@@ -48878,7 +48878,7 @@ thread-pre-split:                                 ; preds = %.preheader316, %.ba
   %.3190 = phi ptr [ %.2189, %71 ], [ %99, %92 ]
   %73 = load i8, ptr %.3190, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = and i8 %76, 64
   %.not245 = icmp eq i8 %77, 0
@@ -48888,7 +48888,7 @@ thread-pre-split:                                 ; preds = %.preheader316, %.ba
   %79 = getelementptr inbounds nuw i8, ptr %.3190, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = and i8 %83, 64
   %.not246 = icmp eq i8 %84, 0
@@ -48898,7 +48898,7 @@ thread-pre-split:                                 ; preds = %.preheader316, %.ba
   %86 = getelementptr inbounds nuw i8, ptr %.3190, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = and i8 %90, 64
   %.not247 = icmp eq i8 %91, 0
@@ -48908,7 +48908,7 @@ thread-pre-split:                                 ; preds = %.preheader316, %.ba
   %93 = getelementptr inbounds nuw i8, ptr %.3190, i64 3
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = and i8 %97, 64
   %.not248 = icmp eq i8 %98, 0
@@ -48949,7 +48949,7 @@ select.unfold:                                    ; preds = %72, %select.unfold.
   %.7 = phi ptr [ %.7.ph, %.preheader819 ], [ %.7.be, %.backedge820 ]
   %110 = load i8, ptr %.7, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = and i8 %113, 8
   %.not251 = icmp eq i8 %114, 0
@@ -49049,7 +49049,7 @@ _ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.
   %.9 = phi ptr [ %.7, %156 ], [ %184, %177 ]
   %158 = load i8, ptr %.9, align 1
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, 64
   %.not254 = icmp eq i8 %162, 0
@@ -49059,7 +49059,7 @@ _ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.
   %164 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %166
   %168 = load i8, ptr %167, align 1
   %169 = and i8 %168, 64
   %.not255 = icmp eq i8 %169, 0
@@ -49069,7 +49069,7 @@ _ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.
   %171 = getelementptr inbounds nuw i8, ptr %.9, i64 2
   %172 = load i8, ptr %171, align 1
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %173
   %175 = load i8, ptr %174, align 1
   %176 = and i8 %175, 64
   %.not256 = icmp eq i8 %176, 0
@@ -49079,7 +49079,7 @@ _ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.
   %178 = getelementptr inbounds nuw i8, ptr %.9, i64 3
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = and i8 %182, 64
   %.not257 = icmp eq i8 %183, 0
@@ -49112,7 +49112,7 @@ select.unfold295:                                 ; preds = %157, %select.unfold
   %.12 = phi ptr [ %197, %.preheader314 ], [ %190, %select.unfold295 ]
   %192 = load i8, ptr %.12, align 1
   %193 = zext i8 %192 to i64
-  %194 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = and i8 %195, 8
   %.not259 = icmp eq i8 %196, 0
@@ -49129,7 +49129,7 @@ select.unfold295:                                 ; preds = %157, %select.unfold
   %.13 = phi ptr [ %204, %.preheader ], [ %.11, %.loopexit539 ]
   %199 = load i8, ptr %.13, align 1
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %200
   %202 = load i8, ptr %201, align 1
   %203 = and i8 %202, 8
   %.not260 = icmp eq i8 %203, 0
@@ -49161,7 +49161,7 @@ select.unfold295:                                 ; preds = %157, %select.unfold
 214:                                              ; preds = %206
   %215 = load i8, ptr %208, align 1
   %216 = zext i8 %215 to i64
-  %217 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %216
   %218 = load i8, ptr %217, align 1
   %.not262 = icmp sgt i8 %218, -1
   br i1 %.not262, label %.backedge820, label %219
@@ -49313,7 +49313,7 @@ select.unfold295:                                 ; preds = %157, %select.unfold
   %.0 = phi ptr [ %290, %288 ], [ %279, %275 ]
   %283 = load i8, ptr %.15, align 1
   %284 = zext i8 %283 to i64
-  %285 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %284
   %286 = load i8, ptr %285, align 1
   %287 = and i8 %286, 64
   %.not238 = icmp eq i8 %287, 0
@@ -49374,7 +49374,7 @@ select.unfold295:                                 ; preds = %157, %select.unfold
   %.16 = phi ptr [ %.15, %310 ], [ %319, %313 ]
   %314 = load i8, ptr %.16, align 1
   %315 = zext i8 %314 to i64
-  %316 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %315
   %317 = load i8, ptr %316, align 1
   %318 = and i8 %317, 8
   %.not240 = icmp eq i8 %318, 0
@@ -49448,7 +49448,7 @@ select.unfold295:                                 ; preds = %157, %select.unfold
   %345 = getelementptr inbounds nuw i8, ptr %.19407, i64 1
   %.pr310 = load i8, ptr %345, align 1
   %346 = zext i8 %.pr310 to i64
-  %347 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %346
   %348 = load i8, ptr %347, align 1
   %349 = and i8 %348, 8
   %.not213 = icmp eq i8 %349, 0
@@ -49726,7 +49726,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
   %.ptr98 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %.ptr98, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not = icmp sgt i8 %10, -1
   br i1 %.not, label %11, label %.preheader144
@@ -49743,7 +49743,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
   %.082.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.082.idx
   %14 = load i8, ptr %.082.ptr, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 64
   %.not97 = icmp eq i8 %18, 0
@@ -50032,7 +50032,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
 
 151:                                              ; preds = %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit.thread
   %152 = zext i8 %134 to i64
-  %153 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = and i8 %154, 8
   %.not107 = icmp eq i8 %155, 0
@@ -50042,7 +50042,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %.183 = phi ptr [ %161, %.preheader143 ], [ %135, %151 ]
   %156 = load i8, ptr %.183, align 1
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = and i8 %159, 8
   %.not108 = icmp eq i8 %160, 0
@@ -50339,7 +50339,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %.026.i = phi ptr [ %.026.i.ph, %.preheader284.outer ], [ %.026.i.be, %.preheader284.backedge ]
   %70 = load i8, ptr %.026.i, align 1
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 32
   %.not44.i = icmp eq i8 %74, 0
@@ -50350,7 +50350,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %75 = getelementptr inbounds nuw i8, ptr %.145.i, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = and i8 %79, 32
   %.not11.i = icmp eq i8 %80, 0
@@ -50360,7 +50360,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %82 = getelementptr inbounds nuw i8, ptr %.145.i, i64 2
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, 32
   %.not12.i = icmp eq i8 %87, 0
@@ -50370,7 +50370,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %89 = getelementptr inbounds nuw i8, ptr %.145.i, i64 3
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = and i8 %93, 32
   %.not13.i = icmp eq i8 %94, 0
@@ -50380,7 +50380,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %96 = getelementptr inbounds nuw i8, ptr %.145.i, i64 4
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = and i8 %100, 32
   %.not.i = icmp eq i8 %101, 0
@@ -50862,7 +50862,7 @@ _ZN4pugi4impl15strconv_commentEPcc.exit:          ; preds = %128, %130
   %.0122 = phi ptr [ %310, %.preheader191 ], [ %297, %303 ]
   %305 = load i8, ptr %.0122, align 1
   %306 = zext i8 %305 to i64
-  %307 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %306
+  %307 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %306
   %308 = load i8, ptr %307, align 1
   %309 = and i8 %308, 8
   %.not145 = icmp eq i8 %309, 0
@@ -50932,7 +50932,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %.1 = phi ptr [ %0, %2 ], [ %.1.be, %.backedge ]
   %4 = load i8, ptr %.1, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 2
   %.not = icmp eq i8 %8, 0
@@ -50942,7 +50942,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %10 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 2
   %.not21 = icmp eq i8 %15, 0
@@ -50952,7 +50952,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 2
   %.not22 = icmp eq i8 %22, 0
@@ -50962,7 +50962,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 2
   %.not23 = icmp eq i8 %29, 0
@@ -51020,7 +51020,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %.1 = phi ptr [ %0, %2 ], [ %.1.be, %.backedge ]
   %5 = load i8, ptr %.1, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 2
   %.not = icmp eq i8 %9, 0
@@ -51030,7 +51030,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %11 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 2
   %.not24 = icmp eq i8 %16, 0
@@ -51040,7 +51040,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %18 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 2
   %.not25 = icmp eq i8 %23, 0
@@ -51050,7 +51050,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 2
   %.not26 = icmp eq i8 %30, 0
@@ -51138,7 +51138,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %.022 = phi ptr [ %.022.ph, %.outer ], [ %.022.be, %.backedge ]
   %4 = load i8, ptr %.022, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 2
   %.not38 = icmp eq i8 %8, 0
@@ -51149,7 +51149,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %9 = getelementptr inbounds nuw i8, ptr %.139, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 2
   %.not8 = icmp eq i8 %14, 0
@@ -51159,7 +51159,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %16 = getelementptr inbounds nuw i8, ptr %.139, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 2
   %.not9 = icmp eq i8 %21, 0
@@ -51169,7 +51169,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %23 = getelementptr inbounds nuw i8, ptr %.139, i64 3
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 2
   %.not10 = icmp eq i8 %28, 0
@@ -51179,7 +51179,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %30 = getelementptr inbounds nuw i8, ptr %.139, i64 4
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 2
   %.not = icmp eq i8 %35, 0
@@ -51279,7 +51279,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %.018 = phi ptr [ %0, %2 ], [ %.018.be, %.backedge ]
   %6 = load i8, ptr %.018, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 2
   %.not32 = icmp eq i8 %10, 0
@@ -51290,7 +51290,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %11 = getelementptr inbounds nuw i8, ptr %.133, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 2
   %.not8 = icmp eq i8 %16, 0
@@ -51300,7 +51300,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %18 = getelementptr inbounds nuw i8, ptr %.133, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 2
   %.not9 = icmp eq i8 %23, 0
@@ -51310,7 +51310,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %25 = getelementptr inbounds nuw i8, ptr %.133, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 2
   %.not10 = icmp eq i8 %30, 0
@@ -51320,7 +51320,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %32 = getelementptr inbounds nuw i8, ptr %.133, i64 4
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = and i8 %36, 2
   %.not = icmp eq i8 %37, 0
@@ -51437,7 +51437,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %.023 = phi ptr [ %.023.ph, %.outer ], [ %.023.be, %.backedge ]
   %4 = load i8, ptr %.023, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 4
   %.not39 = icmp eq i8 %8, 0
@@ -51448,7 +51448,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %9 = getelementptr inbounds nuw i8, ptr %.140, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 4
   %.not8 = icmp eq i8 %14, 0
@@ -51458,7 +51458,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %16 = getelementptr inbounds nuw i8, ptr %.140, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 4
   %.not9 = icmp eq i8 %21, 0
@@ -51468,7 +51468,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %23 = getelementptr inbounds nuw i8, ptr %.140, i64 3
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 4
   %.not10 = icmp eq i8 %28, 0
@@ -51478,7 +51478,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %30 = getelementptr inbounds nuw i8, ptr %.140, i64 4
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 4
   %.not = icmp eq i8 %35, 0
@@ -51586,7 +51586,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %.019 = phi ptr [ %0, %2 ], [ %.019.be, %.backedge ]
   %6 = load i8, ptr %.019, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 4
   %.not33 = icmp eq i8 %10, 0
@@ -51597,7 +51597,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %11 = getelementptr inbounds nuw i8, ptr %.134, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 4
   %.not8 = icmp eq i8 %16, 0
@@ -51607,7 +51607,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %18 = getelementptr inbounds nuw i8, ptr %.134, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 4
   %.not9 = icmp eq i8 %23, 0
@@ -51617,7 +51617,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %25 = getelementptr inbounds nuw i8, ptr %.134, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 4
   %.not10 = icmp eq i8 %30, 0
@@ -51627,7 +51627,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %32 = getelementptr inbounds nuw i8, ptr %.134, i64 4
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = and i8 %36, 4
   %.not = icmp eq i8 %37, 0
@@ -51743,7 +51743,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %65, %67
 define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS0_9opt_falseEE11parse_wnormEPcc(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 8
   %.not = icmp eq i8 %7, 0
@@ -51754,7 +51754,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %8 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 8
   %.not18 = icmp eq i8 %13, 0
@@ -51783,7 +51783,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader53
   %.1 = phi ptr [ %.1.ph121, %.outer ], [ %.1.be, %.backedge ]
   %19 = load i8, ptr %.1, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 12
   %.not1965 = icmp eq i8 %23, 0
@@ -51794,7 +51794,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader53
   %24 = getelementptr inbounds nuw i8, ptr %.266, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 12
   %.not20 = icmp eq i8 %29, 0
@@ -51804,7 +51804,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader53
   %31 = getelementptr inbounds nuw i8, ptr %.266, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 12
   %.not21 = icmp eq i8 %36, 0
@@ -51814,7 +51814,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader53
   %38 = getelementptr inbounds nuw i8, ptr %.266, i64 3
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = and i8 %42, 12
   %.not22 = icmp eq i8 %43, 0
@@ -51824,7 +51824,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader53
   %45 = getelementptr inbounds nuw i8, ptr %.266, i64 4
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = and i8 %49, 12
   %.not19 = icmp eq i8 %50, 0
@@ -51873,7 +51873,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   store i8 0, ptr %.014, align 1
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = and i8 %69, 8
   %.not27 = icmp eq i8 %70, 0
@@ -51893,7 +51893,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   store i8 32, ptr %.3.ph, align 1
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, 8
   %.not25 = icmp eq i8 %81, 0
@@ -51904,7 +51904,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %82 = load i8, ptr %.0, align 1
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = and i8 %85, 8
   %.not26 = icmp eq i8 %86, 0
@@ -51954,7 +51954,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 8
   %.not = icmp eq i8 %8, 0
@@ -51965,7 +51965,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %9 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 8
   %.not19 = icmp eq i8 %14, 0
@@ -51990,7 +51990,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader47
   %.1 = phi ptr [ %.042, %20 ], [ %.1.be, %.backedge ]
   %23 = load i8, ptr %.1, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 12
   %.not2057 = icmp eq i8 %27, 0
@@ -52001,7 +52001,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader47
   %28 = getelementptr inbounds nuw i8, ptr %.258, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = and i8 %32, 12
   %.not21 = icmp eq i8 %33, 0
@@ -52011,7 +52011,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader47
   %35 = getelementptr inbounds nuw i8, ptr %.258, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, 12
   %.not22 = icmp eq i8 %40, 0
@@ -52021,7 +52021,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader47
   %42 = getelementptr inbounds nuw i8, ptr %.258, i64 3
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = and i8 %46, 12
   %.not23 = icmp eq i8 %47, 0
@@ -52031,7 +52031,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader47
   %49 = getelementptr inbounds nuw i8, ptr %.258, i64 4
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 12
   %.not20 = icmp eq i8 %54, 0
@@ -52084,7 +52084,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   store i8 0, ptr %.014, align 1
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = and i8 %77, 8
   %.not28 = icmp eq i8 %78, 0
@@ -52104,7 +52104,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   store i8 32, ptr %.3.ph, align 1
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 8
   %.not26 = icmp eq i8 %89, 0
@@ -52115,7 +52115,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %90 = load i8, ptr %.0, align 1
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = and i8 %93, 8
   %.not27 = icmp eq i8 %94, 0
@@ -52548,7 +52548,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %.1 = phi ptr [ %0, %1 ], [ %.1.be, %.backedge ]
   %3 = load i8, ptr %.1, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %.not = icmp eq i8 %7, 0
@@ -52558,7 +52558,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 1
   %.not26 = icmp eq i8 %14, 0
@@ -52568,7 +52568,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %16 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 1
   %.not27 = icmp eq i8 %21, 0
@@ -52578,7 +52578,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %23 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 1
   %.not28 = icmp eq i8 %28, 0
@@ -52638,7 +52638,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %.1 = phi ptr [ %0, %1 ], [ %.1.be, %.backedge ]
   %4 = load i8, ptr %.1, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
@@ -52648,7 +52648,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %10 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %.not28 = icmp eq i8 %15, 0
@@ -52658,7 +52658,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
   %.not29 = icmp eq i8 %22, 0
@@ -52668,7 +52668,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 1
   %.not30 = icmp eq i8 %29, 0
@@ -52777,7 +52777,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %.029 = phi ptr [ %.029.ph, %.outer ], [ %.029.be, %.backedge ]
   %3 = load i8, ptr %.029, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %.not45 = icmp eq i8 %7, 0
@@ -52788,7 +52788,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %8 = getelementptr inbounds nuw i8, ptr %.146, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 1
   %.not9 = icmp eq i8 %13, 0
@@ -52798,7 +52798,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %15 = getelementptr inbounds nuw i8, ptr %.146, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 1
   %.not10 = icmp eq i8 %20, 0
@@ -52808,7 +52808,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %22 = getelementptr inbounds nuw i8, ptr %.146, i64 3
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 1
   %.not11 = icmp eq i8 %27, 0
@@ -52818,7 +52818,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %29 = getelementptr inbounds nuw i8, ptr %.146, i64 4
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 1
   %.not = icmp eq i8 %34, 0
@@ -52934,7 +52934,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %.022 = phi ptr [ %0, %1 ], [ %.022.be, %.backedge ]
   %5 = load i8, ptr %.022, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 1
   %.not36 = icmp eq i8 %9, 0
@@ -52945,7 +52945,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %10 = getelementptr inbounds nuw i8, ptr %.137, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %.not9 = icmp eq i8 %15, 0
@@ -52955,7 +52955,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %17 = getelementptr inbounds nuw i8, ptr %.137, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
   %.not10 = icmp eq i8 %22, 0
@@ -52965,7 +52965,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %24 = getelementptr inbounds nuw i8, ptr %.137, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 1
   %.not11 = icmp eq i8 %29, 0
@@ -52975,7 +52975,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %31 = getelementptr inbounds nuw i8, ptr %.137, i64 4
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 1
   %.not = icmp eq i8 %36, 0
@@ -53106,7 +53106,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %.1 = phi ptr [ %0, %1 ], [ %.1.be, %.backedge ]
   %3 = load i8, ptr %.1, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %.not = icmp eq i8 %7, 0
@@ -53116,7 +53116,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 1
   %.not38 = icmp eq i8 %14, 0
@@ -53126,7 +53126,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %16 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 1
   %.not39 = icmp eq i8 %21, 0
@@ -53136,7 +53136,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %23 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 1
   %.not40 = icmp eq i8 %28, 0
@@ -53176,7 +53176,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit, %
   %36 = getelementptr inbounds i8, ptr %.033, i64 -1
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, 8
   %.not42 = icmp eq i8 %41, 0
@@ -53196,7 +53196,7 @@ _ZN4pugi4impl3gap5flushEPc.exit46:                ; preds = %.split.loop.exit, %
   %45 = getelementptr inbounds i8, ptr %.0, i64 -1
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = and i8 %49, 8
   %.not41 = icmp eq i8 %50, 0
@@ -53226,7 +53226,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %.1 = phi ptr [ %0, %1 ], [ %.1.be, %.backedge ]
   %4 = load i8, ptr %.1, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
@@ -53236,7 +53236,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %10 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %.not40 = icmp eq i8 %15, 0
@@ -53246,7 +53246,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
   %.not41 = icmp eq i8 %22, 0
@@ -53256,7 +53256,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 1
   %.not42 = icmp eq i8 %29, 0
@@ -53320,7 +53320,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   %50 = getelementptr inbounds i8, ptr %.035, i64 -1
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = and i8 %54, 8
   %.not44 = icmp eq i8 %55, 0
@@ -53367,7 +53367,7 @@ _ZN4pugi4impl3gap5flushEPc.exit48:                ; preds = %_ZN4pugi4impl3gap5f
   %74 = getelementptr inbounds i8, ptr %.0, i64 -1
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, 8
   %.not43 = icmp eq i8 %79, 0
@@ -53401,7 +53401,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %.044 = phi ptr [ %.044.ph, %.outer ], [ %.044.be, %.backedge ]
   %3 = load i8, ptr %.044, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %.not60 = icmp eq i8 %7, 0
@@ -53412,7 +53412,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %8 = getelementptr inbounds nuw i8, ptr %.161, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 1
   %.not21 = icmp eq i8 %13, 0
@@ -53422,7 +53422,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %15 = getelementptr inbounds nuw i8, ptr %.161, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 1
   %.not22 = icmp eq i8 %20, 0
@@ -53432,7 +53432,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %22 = getelementptr inbounds nuw i8, ptr %.161, i64 3
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 1
   %.not23 = icmp eq i8 %27, 0
@@ -53442,7 +53442,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %29 = getelementptr inbounds nuw i8, ptr %.161, i64 4
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 1
   %.not = icmp eq i8 %34, 0
@@ -53496,7 +53496,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   %49 = getelementptr inbounds i8, ptr %.017, i64 -1
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 8
   %.not25 = icmp eq i8 %54, 0
@@ -53559,7 +53559,7 @@ _ZN4pugi4impl3gap5flushEPc.exit29:                ; preds = %_ZN4pugi4impl3gap5f
   %79 = getelementptr inbounds i8, ptr %.0, i64 -1
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = and i8 %83, 8
   %.not24 = icmp eq i8 %84, 0
@@ -53594,7 +53594,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %.037 = phi ptr [ %0, %1 ], [ %.037.be, %.backedge ]
   %5 = load i8, ptr %.037, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 1
   %.not51 = icmp eq i8 %9, 0
@@ -53605,7 +53605,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %10 = getelementptr inbounds nuw i8, ptr %.152, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %.not21 = icmp eq i8 %15, 0
@@ -53615,7 +53615,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %17 = getelementptr inbounds nuw i8, ptr %.152, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
   %.not22 = icmp eq i8 %22, 0
@@ -53625,7 +53625,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %24 = getelementptr inbounds nuw i8, ptr %.152, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 1
   %.not23 = icmp eq i8 %29, 0
@@ -53635,7 +53635,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %31 = getelementptr inbounds nuw i8, ptr %.152, i64 4
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 1
   %.not = icmp eq i8 %36, 0
@@ -53694,7 +53694,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   %55 = getelementptr inbounds i8, ptr %.017, i64 -1
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = and i8 %59, 8
   %.not25 = icmp eq i8 %60, 0
@@ -53774,7 +53774,7 @@ _ZN4pugi4impl3gap5flushEPc.exit29:                ; preds = %_ZN4pugi4impl3gap5f
   %94 = getelementptr inbounds i8, ptr %.0, i64 -1
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = and i8 %98, 8
   %.not24 = icmp eq i8 %99, 0
@@ -53809,7 +53809,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13strconv_cdataEPcc(ptr nou
   %.026 = phi ptr [ %.026.ph, %.outer ], [ %.026.be, %.backedge ]
   %5 = load i8, ptr %.026, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 16
   %.not44 = icmp eq i8 %9, 0
@@ -53820,7 +53820,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13strconv_cdataEPcc(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %.145, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 16
   %.not11 = icmp eq i8 %15, 0
@@ -53830,7 +53830,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13strconv_cdataEPcc(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %.145, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 16
   %.not12 = icmp eq i8 %22, 0
@@ -53840,7 +53840,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13strconv_cdataEPcc(ptr nou
   %24 = getelementptr inbounds nuw i8, ptr %.145, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 16
   %.not13 = icmp eq i8 %29, 0
@@ -53850,7 +53850,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13strconv_cdataEPcc(ptr nou
   %31 = getelementptr inbounds nuw i8, ptr %.145, i64 4
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN4pugi4implL14chartype_tableE, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 16
   %.not = icmp eq i8 %36, 0
@@ -54718,7 +54718,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %31 = zext nneg i32 %spec.select.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull align 4 %30, i64 %31, i1 false)
-  %32 = getelementptr inbounds nuw [1024 x i8], ptr %29, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   store i8 0, ptr %32, align 1
   ret void
 
@@ -56182,7 +56182,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %33 = zext nneg i32 %spec.select.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %31, ptr nonnull align 4 %32, i64 %33, i1 false)
-  %34 = getelementptr inbounds nuw [1024 x i8], ptr %31, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   store i8 0, ptr %34, align 1
   ret void
 
@@ -56372,7 +56372,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %33 = zext nneg i32 %spec.select.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %31, ptr nonnull align 4 %32, i64 %33, i1 false)
-  %34 = getelementptr inbounds nuw [1024 x i8], ptr %31, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   store i8 0, ptr %34, align 1
   ret void
 

@@ -125,7 +125,7 @@ define internal i32 @mpsub_read_header(ptr noundef %0) #1 {
 
 20:                                               ; preds = %17
   %21 = call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.5) #9
-  %22 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !12
   %23 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, ptr noundef nonnull %10) #10
   %24 = icmp eq i32 %23, 1

@@ -1599,7 +1599,7 @@ define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Opti
   br i1 %29, label %"_ZN4core3ptr169drop_in_place$LT$$LP$core..option..Option$LT$http..header..name..HeaderName$GT$$C$smallvec..SmallVec$LT$$u5b$http..header..value..HeaderValue$u3b$$u20$4$u5d$$GT$$RP$$GT$17h15d12a6455e7f543E.exit", label %30
 
 30:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit.i.i.i.i"
-  %31 = getelementptr inbounds nuw [0 x { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }], ptr %28, i64 0, i64 %.0.i.i.i.i
+  %31 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %28, i64 %.0.i.i.i.i
   %32 = add nuw nsw i64 %.0.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
@@ -1626,7 +1626,7 @@ define internal fastcc void @"_ZN4core3ptr197drop_in_place$LT$core..option..Opti
   br label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit7.i.i.i.i"
 
 44:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit7.i.i.i.i"
-  %45 = getelementptr inbounds [0 x { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }], ptr %28, i64 0, i64 %.1.i.i.i.i
+  %45 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %28, i64 %.1.i.i.i.i
   %46 = add i64 %.1.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
@@ -2069,7 +2069,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$LP$http..header..name..Head
   br i1 %23, label %"_ZN4core3ptr51drop_in_place$LT$actix_http..header..map..Value$GT$17hd63f5eab6825dd9fE.exit", label %24
 
 24:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit.i.i.i.i"
-  %25 = getelementptr inbounds nuw [0 x { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }], ptr %22, i64 0, i64 %.0.i.i.i.i
+  %25 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %22, i64 %.0.i.i.i.i
   %26 = add nuw nsw i64 %.0.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
@@ -2096,7 +2096,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$LP$http..header..name..Head
   br label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit7.i.i.i.i"
 
 38:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit7.i.i.i.i"
-  %39 = getelementptr inbounds [0 x { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }], ptr %22, i64 0, i64 %.1.i.i.i.i
+  %39 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %22, i64 %.1.i.i.i.i
   %40 = add i64 %.1.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
@@ -2765,9 +2765,9 @@ define internal fastcc { ptr, i64 } @_ZN4http6header4name10HeaderName6as_str17h7
 switch.lookup:                                    ; preds = %1
   %5 = load i8, ptr %4, align 8, !range !53, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [81 x ptr], ptr @switch.table._ZN4http6header4name10HeaderName6as_str17h79b77d94b2831daeE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4http6header4name10HeaderName6as_str17h79b77d94b2831daeE, i64 %6
   %7 = zext nneg i8 %5 to i64
-  %switch.gep5 = getelementptr inbounds nuw [81 x i64], ptr @switch.table._ZN4http6header4name10HeaderName6as_str17h79b77d94b2831daeE.82, i64 0, i64 %7
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4http6header4name10HeaderName6as_str17h79b77d94b2831daeE.82, i64 %7
   br label %_ZN4http6header4name14StandardHeader6as_str17h4e0b57132386f1e9E.exit
 
 8:                                                ; preds = %1
@@ -3893,7 +3893,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
 
 9:                                                ; preds = %6, %._crit_edge93
   %indvars.iv = phi i64 [ %8, %6 ], [ %indvars.iv.next, %._crit_edge93 ]
-  %10 = getelementptr inbounds nuw [6 x i64], ptr @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems4gaps17h853bfca822ee5e2fE, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems4gaps17h853bfca822ee5e2fE, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = icmp ult i64 %11, %2
   br i1 %12, label %.lr.ph92, label %._crit_edge93
@@ -3909,7 +3909,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
   br i1 %13, label %14, label %17, !prof !955
 
 14:                                               ; preds = %.lr.ph92
-  %15 = getelementptr inbounds [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %.04690
+  %15 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.04690
   %16 = load i64, ptr %15, align 4
   %.sroa.060.0.extract.trunc = trunc i64 %16 to i32
   %.not86 = icmp ult i64 %.04690, %11
@@ -3931,7 +3931,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
   br i1 %20, label %25, label %28, !prof !955
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %18
+  %22 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %18
   %.val55 = load i32, ptr %22, align 4, !noundef !4
   %23 = icmp ugt i32 %.val55, %.sroa.060.0.extract.trunc
   br i1 %23, label %29, label %._crit_edge
@@ -3941,7 +3941,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
   unreachable
 
 25:                                               ; preds = %._crit_edge
-  %26 = getelementptr inbounds [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %.045.lcssa
+  %26 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.045.lcssa
   store i64 %16, ptr %26, align 4
   %27 = add i64 %.04690, 1
   %exitcond.not = icmp eq i64 %27, %2
@@ -3953,7 +3953,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
 
 29:                                               ; preds = %21
   %30 = load i64, ptr %22, align 4
-  %31 = getelementptr inbounds [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %.04587
+  %31 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.04587
   store i64 %30, ptr %31, align 4
   %.not = icmp ult i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3964,7 +3964,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
   br i1 %exitcond118.not, label %35, label %32, !prof !235
 
 32:                                               ; preds = %.lr.ph96
-  %33 = getelementptr inbounds nuw [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %.04295
+  %33 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %0, i64 %.04295
   %34 = load i64, ptr %33, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %34 to i32
   br label %36
@@ -3976,7 +3976,7 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
 36:                                               ; preds = %32, %41
   %.041 = phi i64 [ %.04295, %32 ], [ %.0, %41 ]
   %.0 = add nsw i64 %.041, -1
-  %37 = getelementptr inbounds [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %.0
+  %37 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.0
   %.val57 = load i32, ptr %37, align 4, !noundef !4
   %38 = icmp ugt i32 %.val57, %.sroa.0.0.extract.trunc
   br i1 %38, label %41, label %39
@@ -3988,13 +3988,13 @@ define hidden void @_ZN6brotli3enc14entropy_encode20SortHuffmanTreeItems17hd9853
 
 41:                                               ; preds = %36
   %42 = load i64, ptr %37, align 4
-  %43 = getelementptr inbounds [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %.041
+  %43 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.041
   store i64 %42, ptr %43, align 4
   %44 = icmp eq i64 %.0, 0
   br i1 %44, label %39, label %36
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds [0 x { i32, i16, i16 }], ptr %0, i64 0, i64 %.1
+  %46 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.1
   store i64 %34, ptr %46, align 4
   %47 = add nuw i64 %.04295, 1
   %exitcond119.not = icmp eq i64 %47, %2
@@ -4229,7 +4229,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT
   unreachable
 
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4d99efb0b2ce3b25E.exit": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h4c28e121514a28f9E.llvm.222537792231950641.exit"
-  %19 = getelementptr inbounds [0 x { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }], ptr %.sink3.i, i64 0, i64 %1
+  %19 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink3.i, i64 %1
   ret ptr %19
 }
 

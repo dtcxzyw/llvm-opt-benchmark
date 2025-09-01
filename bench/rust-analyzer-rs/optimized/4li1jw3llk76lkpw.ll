@@ -13021,7 +13021,7 @@ default.unreachable:                              ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.sroa.4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.06.sroa.4, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
-  %30 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %6, i64 0, i64 %.sroa.7.031
+  %30 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.sroa.7.031
   store i8 %.sroa.0.0.i13, ptr %30, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.06.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.06.sroa.4, i64 7, i1 false)
@@ -14814,8 +14814,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %.preheader.split
   %6 = add i64 %.sroa.01.0, 1
-  %7 = getelementptr inbounds [0 x { ptr, ptr }], ptr %0, i64 0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds [0 x { ptr, ptr }], ptr %2, i64 0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2877)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2880)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2882)
@@ -14861,8 +14861,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %.preheader.split
   %6 = add i64 %.sroa.01.0, 1
-  %7 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds [0 x i32], ptr %2, i64 0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds i32, ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds i32, ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2897)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2900)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2902)
@@ -15504,7 +15504,7 @@ default.unreachable:                              ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.sroa.4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.06.sroa.4.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i.i, i64 7, i1 false), !noalias !2973
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
-  %36 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %12, i64 0, i64 %.sroa.7.031.i
+  %36 = getelementptr inbounds nuw { [3 x i64] }, ptr %12, i64 %.sroa.7.031.i
   store i8 %.sroa.0.0.i13.i, ptr %36, align 8, !noalias !2973
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.06.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.06.sroa.4.i, i64 7, i1 false), !noalias !2973
@@ -26940,14 +26940,14 @@ _ZN14ide_completion6render8function6detail17h6c828f7810d9f6ccE.exit: ; preds = %
 877:                                              ; preds = %869
   %878 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i, 255
   %879 = zext nneg i32 %878 to i64
-  %880 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %879
+  %880 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %879
   %881 = load i8, ptr %880, align 1, !noalias !5358, !noundef !12
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hf9dc7f8b8e482515E.exit.i.i.i.i.i.i"
 
 882:                                              ; preds = %869
   %883 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i, 255
   %884 = zext nneg i32 %883 to i64
-  %885 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %884
+  %885 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %884
   %886 = load i8, ptr %885, align 1, !noalias !5358, !noundef !12
   %887 = lshr i8 %886, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hf9dc7f8b8e482515E.exit.i.i.i.i.i.i"

@@ -2725,7 +2725,7 @@ define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, 
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 63
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, ptrtoint (ptr @__per_cpu_start to i64)
   %22 = inttoptr i64 %21 to ptr
@@ -2745,7 +2745,7 @@ define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, 
   store i64 %31, ptr %1, align 8
   %32 = load i32, ptr @__boot_cpu_id, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %33
+  %34 = getelementptr i64, ptr @__per_cpu_offset, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %31, ptrtoint (ptr @__per_cpu_start to i64)
   %37 = add i64 %36, %35
@@ -2783,7 +2783,7 @@ define dso_local noundef zeroext i1 @is_kernel_percpu_address(i64 noundef %0) lo
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 63
-  %18 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %17
+  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @__per_cpu_start to i64)
   %21 = inttoptr i64 %20 to ptr
@@ -2850,7 +2850,7 @@ define dso_local i64 @per_cpu_ptr_to_phys(ptr noundef %0) local_unnamed_addr #1 
 
 39:                                               ; preds = %35
   %40 = and i64 %36, 63
-  %41 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %40
+  %41 = getelementptr i64, ptr @__per_cpu_offset, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @__per_cpu_start to i64)
   %44 = inttoptr i64 %43 to ptr
@@ -3190,7 +3190,7 @@ define dso_local void @pcpu_setup_first_chunk(ptr noundef readonly captures(none
 118:                                              ; preds = %196, %116
   %119 = phi i64 [ 0, %116 ], [ %198, %196 ]
   %120 = phi i32 [ 0, %116 ], [ %199, %196 ]
-  %121 = getelementptr [0 x %struct.pcpu_group_info], ptr %117, i64 0, i64 %119
+  %121 = getelementptr %struct.pcpu_group_info, ptr %117, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = getelementptr i64, ptr %81, i64 %119
@@ -3630,7 +3630,7 @@ define internal fastcc void @pcpu_dump_alloc_info(ptr noundef %0, ptr noundef re
   %27 = phi i32 [ 1, %.loopexit13 ], [ %24, %.preheader ]
   %28 = tail call i32 @llvm.smin.i32(i32 %27, i32 8)
   %29 = sext i32 %28 to i64
-  %30 = getelementptr [9 x i8], ptr %3, i64 0, i64 %29
+  %30 = getelementptr i8, ptr %3, i64 %29
   store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load i64, ptr %31, align 8
@@ -3672,7 +3672,7 @@ define internal fastcc void @pcpu_dump_alloc_info(ptr noundef %0, ptr noundef re
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %56 ]
   %64 = phi i32 [ %114, %.loopexit ], [ 0, %56 ]
   %65 = phi i32 [ %73, %.loopexit ], [ 0, %56 ]
-  %66 = getelementptr [0 x %struct.pcpu_group_info], ptr %60, i64 0, i64 %indvars.iv
+  %66 = getelementptr %struct.pcpu_group_info, ptr %60, i64 %indvars.iv
   %67 = load i32, ptr %66, align 8
   %68 = srem i32 %67, %36
   %69 = sdiv i32 %67, %36
@@ -4028,7 +4028,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %36 = phi i64 [ 0, %32 ], [ %69, %59 ]
   %37 = phi ptr [ inttoptr (i64 -1 to ptr), %32 ], [ %62, %59 ]
   %38 = phi i32 [ 0, %32 ], [ %68, %59 ]
-  %39 = getelementptr [0 x %struct.pcpu_group_info], ptr %33, i64 0, i64 %36
+  %39 = getelementptr %struct.pcpu_group_info, ptr %33, i64 %36
   %40 = load i32, ptr %39, align 8
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.critedge
@@ -4097,7 +4097,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %84 = load i64, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %86 = getelementptr [0 x %struct.pcpu_group_info], ptr %85, i64 0, i64 %76
+  %86 = getelementptr %struct.pcpu_group_info, ptr %85, i64 %76
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
   %89 = mul i64 %84, %88
@@ -4148,7 +4148,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
 .preheader15:                                     ; preds = %102, %.loopexit14
   %116 = phi i32 [ %146, %.loopexit14 ], [ %103, %102 ]
   %117 = phi i64 [ %147, %.loopexit14 ], [ 0, %102 ]
-  %118 = getelementptr [0 x %struct.pcpu_group_info], ptr %85, i64 0, i64 %117
+  %118 = getelementptr %struct.pcpu_group_info, ptr %85, i64 %117
   %119 = load i32, ptr %118, align 8
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %121, label %.loopexit14
@@ -4246,7 +4246,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   br i1 %176, label %183, label %177
 
 177:                                              ; preds = %171
-  %178 = getelementptr [0 x %struct.pcpu_group_info], ptr %169, i64 0, i64 %173
+  %178 = getelementptr %struct.pcpu_group_info, ptr %169, i64 %173
   %179 = load i32, ptr %178, align 8
   %180 = sext i32 %179 to i64
   %181 = load i64, ptr %170, align 8
@@ -4332,10 +4332,10 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   %40 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %38) #24, !srcloc !39
   %41 = trunc i64 %40 to i32
   %42 = and i64 %40, 4294967295
-  %43 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_map, i64 0, i64 %42
+  %43 = getelementptr i32, ptr @pcpu_build_alloc_info.group_map, i64 %42
   store i32 %39, ptr %43, align 4
   %44 = sext i32 %39 to i64
-  %45 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_cnt, i64 0, i64 %44
+  %45 = getelementptr i32, ptr @pcpu_build_alloc_info.group_cnt, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
@@ -4371,7 +4371,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 
 65:                                               ; preds = %62, %58
   %66 = and i64 %55, 63
-  %67 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_map, i64 0, i64 %66
+  %67 = getelementptr i32, ptr @pcpu_build_alloc_info.group_map, i64 %66
   store i32 %39, ptr %67, align 4
   %68 = load i32, ptr %45, align 4
   %69 = add i32 %68, 1
@@ -4422,7 +4422,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   %92 = phi i64 [ 0, %89 ], [ %103, %91 ]
   %93 = phi i32 [ 0, %89 ], [ %102, %91 ]
   %94 = phi i32 [ 0, %89 ], [ %99, %91 ]
-  %95 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_cnt, i64 0, i64 %92
+  %95 = getelementptr i32, ptr @pcpu_build_alloc_info.group_cnt, i64 %92
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %90, %96
   %98 = sdiv i32 %97, %78
@@ -4477,7 +4477,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 126:                                              ; preds = %126, %124
   %127 = phi i64 [ 0, %124 ], [ %135, %126 ]
   %128 = phi i32 [ 0, %124 ], [ %134, %126 ]
-  %129 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_cnt, i64 0, i64 %127
+  %129 = getelementptr i32, ptr @pcpu_build_alloc_info.group_cnt, i64 %127
   %130 = load i32, ptr %129, align 4
   %.fr17 = freeze i32 %130
   %131 = add i32 %125, %.fr17
@@ -4547,7 +4547,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   %174 = getelementptr i8, ptr %167, i64 %.idx
   %175 = getelementptr i8, ptr %174, i64 16
   store ptr %173, ptr %175, align 8
-  %176 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_cnt, i64 0, i64 %172
+  %176 = getelementptr i32, ptr @pcpu_build_alloc_info.group_cnt, i64 %172
   %177 = load i32, ptr %176, align 4
   %.fr18 = freeze i32 %177
   %178 = add i32 %170, %.fr18
@@ -4582,7 +4582,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 194:                                              ; preds = %.thread25, %192
   %195 = phi i64 [ 0, %192 ], [ %235, %.thread25 ]
   %196 = phi i32 [ 0, %192 ], [ %234, %.thread25 ]
-  %197 = getelementptr [0 x %struct.pcpu_group_info], ptr %167, i64 0, i64 %195
+  %197 = getelementptr %struct.pcpu_group_info, ptr %167, i64 %195
   %198 = sext i32 %196 to i64
   %199 = load i64, ptr %189, align 8
   %200 = mul i64 %199, %198
@@ -4608,7 +4608,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 
 213:                                              ; preds = %209
   %214 = and i64 %210, 63
-  %215 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_map, i64 0, i64 %214
+  %215 = getelementptr i32, ptr @pcpu_build_alloc_info.group_map, i64 %214
   %216 = load i32, ptr %215, align 4
   %217 = zext i32 %216 to i64
   %218 = icmp eq i64 %195, %217
@@ -4685,7 +4685,7 @@ define internal fastcc ptr @pcpu_fc_alloc(i32 noundef %0, i64 noundef %1, i64 no
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %17
+  %22 = getelementptr ptr, ptr @node_data, i64 %17
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %28
@@ -6291,7 +6291,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
 
 35:                                               ; preds = %31
   %36 = and i64 %32, 63
-  %37 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %36
+  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
   br label %38
 
 38:                                               ; preds = %59, %35

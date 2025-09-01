@@ -1649,7 +1649,7 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$
 
 .lr.ph.i:                                         ; preds = %0, %"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Remote$GT$17he99318eb2a83a2d9E.exit.i"
   %.010.i = phi i64 [ %3, %"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Remote$GT$17he99318eb2a83a2d9E.exit.i" ], [ 0, %0 ]
-  %2 = getelementptr inbounds [0 x { ptr, ptr }], ptr %.0.val, i64 0, i64 %.010.i
+  %2 = getelementptr inbounds { ptr, ptr }, ptr %.0.val, i64 %.010.i
   %3 = add nuw i64 %.010.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !315)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
@@ -1722,7 +1722,7 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { ptr, ptr }], ptr %.0.val, i64 0, i64 %.1.i
+  %28 = getelementptr inbounds { ptr, ptr }, ptr %.0.val, i64 %.1.i
   %29 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Remote$GT$17he99318eb2a83a2d9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28) #27
           to label %23 unwind label %30
@@ -3120,7 +3120,7 @@ define void @_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE(ptr noal
   br i1 %6, label %7, label %12, !prof !623
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %0, i64 0, i64 %5
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %5
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %9, align 8
@@ -3156,7 +3156,7 @@ define void @_ZN5tokio4util9wake_list8WakeList8wake_all17hf305bd504b00dfdfE(ptr 
   %6 = phi i64 [ %7, %.lr.ph.preheader ], [ %3, %.preheader ]
   %7 = add nsw i64 %6, -1
   store i64 %7, ptr %2, align 8
-  %8 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8, !nonnull !19, !align !32, !noundef !19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !19
@@ -5632,7 +5632,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17
 346:                                              ; preds = %341
   %347 = getelementptr inbounds nuw i8, ptr %342, i64 88
   %348 = load ptr, ptr %347, align 8, !nonnull !19, !align !32, !noundef !19
-  %349 = getelementptr inbounds [0 x { ptr, ptr }], ptr %348, i64 0, i64 %338
+  %349 = getelementptr inbounds { ptr, ptr }, ptr %348, i64 %338
   %350 = invoke noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Steal$LT$T$GT$10steal_into17h72f46fc01fde9417E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %349, ptr noalias noundef nonnull align 8 dereferenceable(8) %331, ptr noalias noundef nonnull align 8 dereferenceable(32) %271)
           to label %.noexc55 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -6140,7 +6140,7 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %28 = load ptr, ptr %27, align 8, !noalias !994, !nonnull !19, !align !32, !noundef !19
-  %29 = getelementptr inbounds [0 x { ptr, ptr }], ptr %28, i64 0, i64 %.fca.1.extract.i.i.i, i32 1
+  %29 = getelementptr inbounds { ptr, ptr }, ptr %28, i64 %.fca.1.extract.i.i.i, i32 1
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 280
   %31 = load ptr, ptr %29, align 8, !alias.scope !997, !noalias !994, !nonnull !19, !noundef !19
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -6765,7 +6765,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core20should_notify_others17h01
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %109, i64 88
   %120 = load ptr, ptr %119, align 8, !nonnull !19, !align !32, !noundef !19
-  %121 = getelementptr inbounds [0 x { ptr, ptr }], ptr %120, i64 0, i64 %.fca.1.extract.i, i32 1
+  %121 = getelementptr inbounds { ptr, ptr }, ptr %120, i64 %.fca.1.extract.i, i32 1
   %122 = getelementptr inbounds nuw i8, ptr %109, i64 280
   %123 = load ptr, ptr %121, align 8, !alias.scope !1111, !nonnull !19, !noundef !19
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16

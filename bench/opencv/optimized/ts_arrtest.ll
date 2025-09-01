@@ -1055,7 +1055,7 @@ _ZN6cvtest2TS7get_rngEv.exit._crit_edge:          ; preds = %_ZN6cvtest2TS7get_r
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.10.0.insert.shift, %.sroa.022.0.insert.ext
   %178 = and i32 %149, 7
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw [7 x i32], ptr @_ZN6cvtestL16icvTsTypeToDepthE, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i32, ptr @_ZN6cvtestL16icvTsTypeToDepthE, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !66
   %182 = lshr i32 %149, 3
   %183 = and i32 %182, 511
@@ -1920,7 +1920,7 @@ define hidden noundef i32 @_ZN6cvtest9ArrayTest21validate_test_resultsEi(ptr nou
   br i1 %.not80114.not, label %.thread100, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader104
-  %36 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN6cvtest9ArrayTest21validate_test_resultsEiE9arr_names, i64 0, i64 %17
+  %36 = getelementptr inbounds nuw ptr, ptr @_ZZN6cvtest9ArrayTest21validate_test_resultsEiE9arr_names, i64 %17
   br label %50
 
 37:                                               ; preds = %14
@@ -2041,7 +2041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %103, label %.lr.ph118, label %.loopexit
 
 .lr.ph118:                                        ; preds = %.preheader
-  %104 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN6cvtest9ArrayTest21validate_test_resultsEiE9arr_names, i64 0, i64 %indvars.iv123
+  %104 = getelementptr inbounds nuw ptr, ptr @_ZZN6cvtest9ArrayTest21validate_test_resultsEiE9arr_names, i64 %indvars.iv123
   %wide.trip.count = and i64 %101, 2147483647
   br label %105
 

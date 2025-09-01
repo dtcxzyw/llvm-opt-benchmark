@@ -176,7 +176,7 @@ _ZN10serde_json3ser9Formatter12begin_string17hc5056dab08bd610cE.exit: ; preds = 
   %23 = add i64 %.sroa.7.0.i, 1
   %24 = load i8, ptr %.sroa.0.0.i, align 1, !alias.scope !20, !noundef !18
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17h8bcbc55594fbaa6fE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser6ESCAPE17h8bcbc55594fbaa6fE, i64 %25
   %27 = load i8, ptr %26, align 1, !noalias !20, !noundef !18
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %17, label %49
@@ -299,9 +299,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h3b3d499412ce0113E.exit.thre
   %74 = zext nneg i8 %73 to i64
   %75 = lshr i8 %24, 4
   %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hbea7fb2c79816c05E, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hbea7fb2c79816c05E, i64 %76
   %78 = load i8, ptr %77, align 1, !noalias !20, !noundef !18
-  %79 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hbea7fb2c79816c05E, i64 0, i64 %74
+  %79 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hbea7fb2c79816c05E, i64 %74
   %80 = load i8, ptr %79, align 1, !noalias !20, !noundef !18
   %81 = load i64, ptr %6, align 8, !alias.scope !53, !noalias !62, !noundef !18
   %82 = sub i64 %81, %65
@@ -4169,7 +4169,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
 
 118:                                              ; preds = %114
   %.val10.i.i.i = load ptr, ptr %103, align 8, !noalias !785, !nonnull !18, !noundef !18
-  %119 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }], ptr %.val10.i.i.i, i64 0, i64 %108
+  %119 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }, ptr %.val10.i.i.i, i64 %108
   %120 = cmpxchg ptr %119, i32 0, i32 1 acquire monotonic, align 4, !noalias !788
   %.sroa.18.0.in.i.i.i.i.i = extractvalue { i32, i1 } %120, 1
   br i1 %.sroa.18.0.in.i.i.i.i.i, label %121, label %.noexc27.i.i

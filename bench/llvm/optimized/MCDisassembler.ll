@@ -154,7 +154,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17XCOFFSymbolInfoTyltERKS0_(ptr no
 
 switch.lookup:                                    ; preds = %17
   %20 = zext nneg i8 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 %20
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit
 
@@ -166,7 +166,7 @@ _ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit: ; preds = %17, %swit
 
 switch.lookup13:                                  ; preds = %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit
   %23 = zext nneg i8 %21 to i64
-  %switch.gep14 = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %23
+  %switch.gep14 = getelementptr inbounds nuw i8, ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 %23
   %switch.load15 = load i8, ptr %switch.gep14, align 1
   %24 = icmp samesign ult i8 %.0.i, %switch.load15
   br label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9

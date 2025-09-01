@@ -1162,7 +1162,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
 105:                                              ; preds = %100, %105
   %indvars.iv94 = phi i64 [ 0, %100 ], [ %indvars.iv.next95, %105 ]
   %106 = phi i32 [ %.promoted, %100 ], [ %111, %105 ]
-  %107 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %90, i64 0, i64 %indvars.iv94
+  %107 = getelementptr inbounds nuw %struct.iovec, ptr %90, i64 %indvars.iv94
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !106
   %110 = trunc i64 %109 to i32
@@ -1210,7 +1210,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %137 = load i32, ptr %136, align 8, !tbaa !111
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %135, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw %struct.iovec, ptr %135, i64 %138
   store ptr %134, ptr %139, align 8, !tbaa !104
   br label %140
 
@@ -1384,7 +1384,7 @@ define internal noalias noundef nonnull ptr @storage_write_thread(ptr noundef %0
   br i1 %34, label %232, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !13
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %40, label %38
@@ -1730,7 +1730,7 @@ storage_write.exit.thread:                        ; preds = %221, %45, %.critedg
 
 .preheader:                                       ; preds = %31, %.preheader
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.preheader ], [ 0, %31 ]
-  %237 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv123
+  %237 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv123
   store i32 1, ptr %237, align 4, !tbaa !13
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next124, 64
@@ -1900,7 +1900,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 
 .preheader.i:                                     ; preds = %.loopexit, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.loopexit ]
-  %66 = getelementptr inbounds nuw [6 x %struct.__storage_buk], ptr %4, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1934,7 +1934,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   %75 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %.pre136.i, i64 %indvars.iv128.i, i32 3
   %76 = load i32, ptr %75, align 4, !tbaa !26
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [6 x %struct.__storage_buk], ptr %4, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = load i32, ptr %79, align 8, !tbaa !188
   %81 = add i32 %80, 1
@@ -2050,7 +2050,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 140:                                              ; preds = %166, %136
   %.sroa.0.5 = phi i8 [ %.sroa.0.4, %136 ], [ %.sroa.0.6, %166 ]
   %indvars.iv132.i = phi i64 [ 0, %136 ], [ %indvars.iv.next133.i, %166 ]
-  %141 = getelementptr inbounds nuw [6 x %struct.__storage_buk], ptr %4, i64 0, i64 %indvars.iv132.i
+  %141 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %indvars.iv132.i
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %143 = load i32, ptr %142, align 8, !tbaa !188
   %144 = icmp eq i32 %143, 0

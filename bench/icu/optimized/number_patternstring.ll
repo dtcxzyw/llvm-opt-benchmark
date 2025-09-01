@@ -4541,305 +4541,305 @@ define void @_ZN6icu_776number4impl18PatternStringUtils16convertLocalizedERKNS_1
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 2688
-  %.sroa.gep274 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %.sroa.sel276 = select i1 %3, ptr %19, ptr %.sroa.gep274
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel276)
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %.sroa.sel = select i1 %3, ptr %19, ptr %.sroa.gep
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel)
           to label %.noexc unwind label %153
 
 .noexc:                                           ; preds = %27
-  %.sroa.sel276.sroa.sel279.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 8, i64 72
-  %.sroa.sel276.sroa.sel279.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel276.sroa.sel279.v.sroa.sel.v.sroa.sel.v
-  %29 = load i16, ptr %.sroa.sel276.sroa.sel279.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel276.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 12, i64 76
-  %.sroa.sel276.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel276.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %30 = load i32, ptr %.sroa.sel276.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 8, i64 72
+  %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel.v
+  %29 = load i16, ptr %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 12, i64 76
+  %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %30 = load i32, ptr %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %31 = icmp slt i16 %29, 0
   %32 = ashr i16 %29, 5
   %33 = sext i16 %32 to i32
   %34 = select i1 %31, i32 %30, i32 %33
-  %35 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel276, i32 noundef 0, i32 noundef %34, i64 1, ptr nonnull @.str.14)
+  %35 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel, i32 noundef 0, i32 noundef %34, i64 1, ptr nonnull @.str.14)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit: ; preds = %.noexc
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %.sroa.sel282 = select i1 %3, ptr %.sroa.gep274, ptr %19
-  %38 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel282, ptr noundef nonnull align 8 dereferenceable(64) %37)
+  %.sroa.sel267 = select i1 %3, ptr %.sroa.gep, ptr %19
+  %38 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel267, ptr noundef nonnull align 8 dereferenceable(64) %37)
           to label %39 unwind label %153
 
 39:                                               ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %.sroa.gep286 = getelementptr inbounds nuw i8, ptr %19, i64 192
-  %.sroa.sel288 = select i1 %3, ptr %40, ptr %.sroa.gep286
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel288)
+  %.sroa.gep268 = getelementptr inbounds nuw i8, ptr %19, i64 192
+  %.sroa.sel270 = select i1 %3, ptr %40, ptr %.sroa.gep268
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel270)
           to label %.noexc175 unwind label %153
 
 .noexc175:                                        ; preds = %39
-  %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 136, i64 200
-  %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel.v
-  %41 = load i16, ptr %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 140, i64 204
-  %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %42 = load i32, ptr %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 136, i64 200
+  %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel.v
+  %41 = load i16, ptr %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 140, i64 204
+  %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %42 = load i32, ptr %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %43 = icmp slt i16 %41, 0
   %44 = ashr i16 %41, 5
   %45 = sext i16 %44 to i32
   %46 = select i1 %43, i32 %42, i32 %45
-  %47 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel288, i32 noundef 0, i32 noundef %46, i64 1, ptr nonnull @.str.15)
+  %47 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel270, i32 noundef 0, i32 noundef %46, i64 1, ptr nonnull @.str.15)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit177 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit177: ; preds = %.noexc175
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 776
-  %.sroa.sel285 = select i1 %3, ptr %.sroa.gep286, ptr %40
-  %49 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel285, ptr noundef nonnull align 8 dereferenceable(64) %48)
+  %.sroa.sel276 = select i1 %3, ptr %.sroa.gep268, ptr %40
+  %49 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel276, ptr noundef nonnull align 8 dereferenceable(64) %48)
           to label %50 unwind label %153
 
 50:                                               ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit177
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 256
-  %.sroa.gep295 = getelementptr inbounds nuw i8, ptr %19, i64 320
-  %.sroa.sel297 = select i1 %3, ptr %51, ptr %.sroa.gep295
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel297)
+  %.sroa.gep277 = getelementptr inbounds nuw i8, ptr %19, i64 320
+  %.sroa.sel279 = select i1 %3, ptr %51, ptr %.sroa.gep277
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel279)
           to label %.noexc180 unwind label %153
 
 .noexc180:                                        ; preds = %50
-  %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 264, i64 328
-  %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel.v
-  %52 = load i16, ptr %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 268, i64 332
-  %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %53 = load i32, ptr %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel279.sroa.sel282.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 264, i64 328
+  %.sroa.sel279.sroa.sel282.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel279.sroa.sel282.v.sroa.sel.v.sroa.sel.v
+  %52 = load i16, ptr %.sroa.sel279.sroa.sel282.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel279.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 268, i64 332
+  %.sroa.sel279.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel279.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %53 = load i32, ptr %.sroa.sel279.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %54 = icmp slt i16 %52, 0
   %55 = ashr i16 %52, 5
   %56 = sext i16 %55 to i32
   %57 = select i1 %54, i32 %53, i32 %56
-  %58 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel297, i32 noundef 0, i32 noundef %57, i64 1, ptr nonnull @.str.16)
+  %58 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel279, i32 noundef 0, i32 noundef %57, i64 1, ptr nonnull @.str.16)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit182 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit182: ; preds = %.noexc180
-  %.sroa.sel294 = select i1 %3, ptr %.sroa.gep295, ptr %51
-  %59 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel294, ptr noundef nonnull align 8 dereferenceable(64) %36)
+  %.sroa.sel285 = select i1 %3, ptr %.sroa.gep277, ptr %51
+  %59 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel285, ptr noundef nonnull align 8 dereferenceable(64) %36)
           to label %60 unwind label %153
 
 60:                                               ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit182
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 384
-  %.sroa.gep304 = getelementptr inbounds nuw i8, ptr %19, i64 448
-  %.sroa.sel306 = select i1 %3, ptr %61, ptr %.sroa.gep304
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel306)
+  %.sroa.gep286 = getelementptr inbounds nuw i8, ptr %19, i64 448
+  %.sroa.sel288 = select i1 %3, ptr %61, ptr %.sroa.gep286
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel288)
           to label %.noexc185 unwind label %153
 
 .noexc185:                                        ; preds = %60
-  %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 392, i64 456
-  %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel.v
-  %62 = load i16, ptr %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 396, i64 460
-  %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %63 = load i32, ptr %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 392, i64 456
+  %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel.v
+  %62 = load i16, ptr %.sroa.sel288.sroa.sel291.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 396, i64 460
+  %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %63 = load i32, ptr %.sroa.sel288.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %64 = icmp slt i16 %62, 0
   %65 = ashr i16 %62, 5
   %66 = sext i16 %65 to i32
   %67 = select i1 %64, i32 %63, i32 %66
-  %68 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel306, i32 noundef 0, i32 noundef %67, i64 1, ptr nonnull @.str.17)
+  %68 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel288, i32 noundef 0, i32 noundef %67, i64 1, ptr nonnull @.str.17)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit187 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit187: ; preds = %.noexc185
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.sroa.sel303 = select i1 %3, ptr %.sroa.gep304, ptr %61
-  %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel303, ptr noundef nonnull align 8 dereferenceable(64) %69)
+  %.sroa.sel294 = select i1 %3, ptr %.sroa.gep286, ptr %61
+  %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel294, ptr noundef nonnull align 8 dereferenceable(64) %69)
           to label %71 unwind label %153
 
 71:                                               ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit187
   %72 = getelementptr inbounds nuw i8, ptr %19, i64 512
-  %.sroa.gep313 = getelementptr inbounds nuw i8, ptr %19, i64 576
-  %.sroa.sel315 = select i1 %3, ptr %72, ptr %.sroa.gep313
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel315)
+  %.sroa.gep295 = getelementptr inbounds nuw i8, ptr %19, i64 576
+  %.sroa.sel297 = select i1 %3, ptr %72, ptr %.sroa.gep295
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel297)
           to label %.noexc190 unwind label %153
 
 .noexc190:                                        ; preds = %71
-  %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 520, i64 584
-  %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel.v
-  %73 = load i16, ptr %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 524, i64 588
-  %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %74 = load i32, ptr %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 520, i64 584
+  %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel.v
+  %73 = load i16, ptr %.sroa.sel297.sroa.sel300.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 524, i64 588
+  %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %74 = load i32, ptr %.sroa.sel297.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %75 = icmp slt i16 %73, 0
   %76 = ashr i16 %73, 5
   %77 = sext i16 %76 to i32
   %78 = select i1 %75, i32 %74, i32 %77
-  %79 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel315, i32 noundef 0, i32 noundef %78, i64 1, ptr nonnull @.str.18)
+  %79 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel297, i32 noundef 0, i32 noundef %78, i64 1, ptr nonnull @.str.18)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit192 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit192: ; preds = %.noexc190
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  %.sroa.sel312 = select i1 %3, ptr %.sroa.gep313, ptr %72
-  %81 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel312, ptr noundef nonnull align 8 dereferenceable(64) %80)
+  %.sroa.sel303 = select i1 %3, ptr %.sroa.gep295, ptr %72
+  %81 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel303, ptr noundef nonnull align 8 dereferenceable(64) %80)
           to label %82 unwind label %153
 
 82:                                               ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit192
   %83 = getelementptr inbounds nuw i8, ptr %19, i64 640
-  %.sroa.gep322 = getelementptr inbounds nuw i8, ptr %19, i64 704
-  %.sroa.sel324 = select i1 %3, ptr %83, ptr %.sroa.gep322
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel324)
+  %.sroa.gep304 = getelementptr inbounds nuw i8, ptr %19, i64 704
+  %.sroa.sel306 = select i1 %3, ptr %83, ptr %.sroa.gep304
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel306)
           to label %.noexc195 unwind label %153
 
 .noexc195:                                        ; preds = %82
-  %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 648, i64 712
-  %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel.v
-  %84 = load i16, ptr %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 652, i64 716
-  %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %85 = load i32, ptr %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 648, i64 712
+  %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel.v
+  %84 = load i16, ptr %.sroa.sel306.sroa.sel309.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 652, i64 716
+  %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %85 = load i32, ptr %.sroa.sel306.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %86 = icmp slt i16 %84, 0
   %87 = ashr i16 %84, 5
   %88 = sext i16 %87 to i32
   %89 = select i1 %86, i32 %85, i32 %88
-  %90 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel324, i32 noundef 0, i32 noundef %89, i64 1, ptr nonnull @.str.19)
+  %90 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel306, i32 noundef 0, i32 noundef %89, i64 1, ptr nonnull @.str.19)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit197 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit197: ; preds = %.noexc195
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  %.sroa.sel321 = select i1 %3, ptr %.sroa.gep322, ptr %83
-  %92 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel321, ptr noundef nonnull align 8 dereferenceable(64) %91)
+  %.sroa.sel312 = select i1 %3, ptr %.sroa.gep304, ptr %83
+  %92 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel312, ptr noundef nonnull align 8 dereferenceable(64) %91)
           to label %93 unwind label %153
 
 93:                                               ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit197
   %94 = getelementptr inbounds nuw i8, ptr %19, i64 768
-  %.sroa.gep331 = getelementptr inbounds nuw i8, ptr %19, i64 832
-  %.sroa.sel333 = select i1 %3, ptr %94, ptr %.sroa.gep331
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel333)
+  %.sroa.gep313 = getelementptr inbounds nuw i8, ptr %19, i64 832
+  %.sroa.sel315 = select i1 %3, ptr %94, ptr %.sroa.gep313
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel315)
           to label %.noexc200 unwind label %153
 
 .noexc200:                                        ; preds = %93
-  %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 776, i64 840
-  %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel.v
-  %95 = load i16, ptr %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 780, i64 844
-  %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %96 = load i32, ptr %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 776, i64 840
+  %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel.v
+  %95 = load i16, ptr %.sroa.sel315.sroa.sel318.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 780, i64 844
+  %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %96 = load i32, ptr %.sroa.sel315.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %97 = icmp slt i16 %95, 0
   %98 = ashr i16 %95, 5
   %99 = sext i16 %98 to i32
   %100 = select i1 %97, i32 %96, i32 %99
-  %101 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel333, i32 noundef 0, i32 noundef %100, i64 1, ptr nonnull @.str.20)
+  %101 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel315, i32 noundef 0, i32 noundef %100, i64 1, ptr nonnull @.str.20)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit202 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit202: ; preds = %.noexc200
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %.sroa.sel330 = select i1 %3, ptr %.sroa.gep331, ptr %94
-  %103 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel330, ptr noundef nonnull align 8 dereferenceable(64) %102)
+  %.sroa.sel321 = select i1 %3, ptr %.sroa.gep313, ptr %94
+  %103 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel321, ptr noundef nonnull align 8 dereferenceable(64) %102)
           to label %104 unwind label %153
 
 104:                                              ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit202
   %105 = getelementptr inbounds nuw i8, ptr %19, i64 896
-  %.sroa.gep340 = getelementptr inbounds nuw i8, ptr %19, i64 960
-  %.sroa.sel342 = select i1 %3, ptr %105, ptr %.sroa.gep340
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel342)
+  %.sroa.gep322 = getelementptr inbounds nuw i8, ptr %19, i64 960
+  %.sroa.sel324 = select i1 %3, ptr %105, ptr %.sroa.gep322
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel324)
           to label %.noexc205 unwind label %153
 
 .noexc205:                                        ; preds = %104
-  %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 904, i64 968
-  %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel.v
-  %106 = load i16, ptr %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 908, i64 972
-  %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %107 = load i32, ptr %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 904, i64 968
+  %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel.v
+  %106 = load i16, ptr %.sroa.sel324.sroa.sel327.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 908, i64 972
+  %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %107 = load i32, ptr %.sroa.sel324.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %108 = icmp slt i16 %106, 0
   %109 = ashr i16 %106, 5
   %110 = sext i16 %109 to i32
   %111 = select i1 %108, i32 %107, i32 %110
-  %112 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel342, i32 noundef 0, i32 noundef %111, i64 1, ptr nonnull @.str.21)
+  %112 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel324, i32 noundef 0, i32 noundef %111, i64 1, ptr nonnull @.str.21)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit207 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit207: ; preds = %.noexc205
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  %.sroa.sel339 = select i1 %3, ptr %.sroa.gep340, ptr %105
-  %114 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel339, ptr noundef nonnull align 8 dereferenceable(64) %113)
+  %.sroa.sel330 = select i1 %3, ptr %.sroa.gep322, ptr %105
+  %114 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel330, ptr noundef nonnull align 8 dereferenceable(64) %113)
           to label %115 unwind label %153
 
 115:                                              ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit207
   %116 = getelementptr inbounds nuw i8, ptr %19, i64 1024
-  %.sroa.gep349 = getelementptr inbounds nuw i8, ptr %19, i64 1088
-  %.sroa.sel351 = select i1 %3, ptr %116, ptr %.sroa.gep349
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel351)
+  %.sroa.gep331 = getelementptr inbounds nuw i8, ptr %19, i64 1088
+  %.sroa.sel333 = select i1 %3, ptr %116, ptr %.sroa.gep331
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel333)
           to label %.noexc210 unwind label %153
 
 .noexc210:                                        ; preds = %115
-  %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1032, i64 1096
-  %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel.v
-  %117 = load i16, ptr %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1036, i64 1100
-  %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %118 = load i32, ptr %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1032, i64 1096
+  %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel.v
+  %117 = load i16, ptr %.sroa.sel333.sroa.sel336.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1036, i64 1100
+  %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %118 = load i32, ptr %.sroa.sel333.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %119 = icmp slt i16 %117, 0
   %120 = ashr i16 %117, 5
   %121 = sext i16 %120 to i32
   %122 = select i1 %119, i32 %118, i32 %121
-  %123 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel351, i32 noundef 0, i32 noundef %122, i64 1, ptr nonnull @.str.22)
+  %123 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel333, i32 noundef 0, i32 noundef %122, i64 1, ptr nonnull @.str.22)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit212 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit212: ; preds = %.noexc210
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 712
-  %.sroa.sel348 = select i1 %3, ptr %.sroa.gep349, ptr %116
-  %125 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel348, ptr noundef nonnull align 8 dereferenceable(64) %124)
+  %.sroa.sel339 = select i1 %3, ptr %.sroa.gep331, ptr %116
+  %125 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel339, ptr noundef nonnull align 8 dereferenceable(64) %124)
           to label %126 unwind label %153
 
 126:                                              ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit212
   %127 = getelementptr inbounds nuw i8, ptr %19, i64 1152
-  %.sroa.gep358 = getelementptr inbounds nuw i8, ptr %19, i64 1216
-  %.sroa.sel360 = select i1 %3, ptr %127, ptr %.sroa.gep358
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel360)
+  %.sroa.gep340 = getelementptr inbounds nuw i8, ptr %19, i64 1216
+  %.sroa.sel342 = select i1 %3, ptr %127, ptr %.sroa.gep340
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel342)
           to label %.noexc215 unwind label %153
 
 .noexc215:                                        ; preds = %126
-  %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1160, i64 1224
-  %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel.v
-  %128 = load i16, ptr %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1164, i64 1228
-  %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %129 = load i32, ptr %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1160, i64 1224
+  %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel.v
+  %128 = load i16, ptr %.sroa.sel342.sroa.sel345.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1164, i64 1228
+  %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %129 = load i32, ptr %.sroa.sel342.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %130 = icmp slt i16 %128, 0
   %131 = ashr i16 %128, 5
   %132 = sext i16 %131 to i32
   %133 = select i1 %130, i32 %129, i32 %132
-  %134 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel360, i32 noundef 0, i32 noundef %133, i64 1, ptr nonnull @.str.23)
+  %134 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel342, i32 noundef 0, i32 noundef %133, i64 1, ptr nonnull @.str.23)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit217 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit217: ; preds = %.noexc215
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 840
-  %.sroa.sel357 = select i1 %3, ptr %.sroa.gep358, ptr %127
-  %136 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel357, ptr noundef nonnull align 8 dereferenceable(64) %135)
+  %.sroa.sel348 = select i1 %3, ptr %.sroa.gep340, ptr %127
+  %136 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel348, ptr noundef nonnull align 8 dereferenceable(64) %135)
           to label %137 unwind label %153
 
 137:                                              ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit217
   %138 = getelementptr inbounds nuw i8, ptr %19, i64 1280
-  %.sroa.gep367 = getelementptr inbounds nuw i8, ptr %19, i64 1344
-  %.sroa.sel369 = select i1 %3, ptr %138, ptr %.sroa.gep367
-  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel369)
+  %.sroa.gep349 = getelementptr inbounds nuw i8, ptr %19, i64 1344
+  %.sroa.sel351 = select i1 %3, ptr %138, ptr %.sroa.gep349
+  invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel351)
           to label %.noexc220 unwind label %153
 
 .noexc220:                                        ; preds = %137
-  %.sroa.sel369.sroa.sel372.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1288, i64 1352
-  %.sroa.sel369.sroa.sel372.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel369.sroa.sel372.v.sroa.sel.v.sroa.sel.v
-  %139 = load i16, ptr %.sroa.sel369.sroa.sel372.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
-  %.sroa.sel369.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1292, i64 1356
-  %.sroa.sel369.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel369.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %140 = load i32, ptr %.sroa.sel369.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1288, i64 1352
+  %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel.v
+  %139 = load i16, ptr %.sroa.sel351.sroa.sel354.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1292, i64 1356
+  %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %140 = load i32, ptr %.sroa.sel351.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %141 = icmp slt i16 %139, 0
   %142 = ashr i16 %139, 5
   %143 = sext i16 %142 to i32
   %144 = select i1 %141, i32 %140, i32 %143
-  %145 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel369, i32 noundef 0, i32 noundef %144, i64 1, ptr nonnull @.str.24)
+  %145 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel351, i32 noundef 0, i32 noundef %144, i64 1, ptr nonnull @.str.24)
           to label %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit222 unwind label %153
 
 _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit222: ; preds = %.noexc220
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  %.sroa.sel366 = select i1 %3, ptr %.sroa.gep367, ptr %138
-  %147 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel366, ptr noundef nonnull align 8 dereferenceable(64) %146)
+  %.sroa.sel357 = select i1 %3, ptr %.sroa.gep349, ptr %138
+  %147 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel357, ptr noundef nonnull align 8 dereferenceable(64) %146)
           to label %.preheader414 unwind label %153
 
 .preheader414:                                    ; preds = %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit222
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 8, i64 72
-  %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 12, i64 76
+  %.sroa.sel366.sroa.sel369.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1416, i64 1480
+  %.sroa.sel366.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 1420, i64 1484
   br label %155
 
 .preheader413:                                    ; preds = %171
@@ -4847,9 +4847,9 @@ _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit222: ; preds = %.noexc220
   %150 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %151 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %152 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %.sroa.sel270.idx.sroa.sel.idx.sroa.sel.idx = select i1 %3, i64 64, i64 0
-  %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 72, i64 8
-  %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 76, i64 12
+  %.sroa.sel360.idx.sroa.sel.idx.sroa.sel.idx = select i1 %3, i64 64, i64 0
+  %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 72, i64 8
+  %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %3, i64 76, i64 12
   br label %191
 
 153:                                              ; preds = %.noexc220, %137, %.noexc215, %126, %.noexc210, %115, %.noexc205, %104, %.noexc200, %93, %.noexc195, %82, %.noexc190, %71, %.noexc185, %60, %.noexc180, %50, %.noexc175, %39, %.noexc, %27, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit222, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit217, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit212, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit207, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit202, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit197, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit192, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit187, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit182, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit177, %_ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit
@@ -4859,30 +4859,30 @@ _ZN6icu_7713UnicodeStringaSIA2_DsvEERS0_RKT_.exit222: ; preds = %.noexc220
 
 155:                                              ; preds = %.preheader414, %171
   %indvars.iv = phi i64 [ 0, %.preheader414 ], [ %indvars.iv.next, %171 ]
-  %156 = add nuw nsw i64 %indvars.iv, 11
-  %157 = getelementptr inbounds nuw [21 x [2 x %"class.icu_77::UnicodeString"]], ptr %19, i64 0, i64 %156
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %157, i64 64
-  %.sroa.sel = select i1 %3, ptr %157, ptr %.sroa.gep
-  %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %157, i64 %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel.v
-  %158 = load i16, ptr %.sroa.sel.sroa.sel264.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %156 = getelementptr inbounds nuw [2 x %"class.icu_77::UnicodeString"], ptr %19, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1408
+  %.sroa.gep364 = getelementptr inbounds nuw i8, ptr %156, i64 1472
+  %.sroa.sel366 = select i1 %3, ptr %157, ptr %.sroa.gep364
+  %.sroa.sel366.sroa.sel369.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %156, i64 %.sroa.sel366.sroa.sel369.v.sroa.sel.v.sroa.sel.v
+  %158 = load i16, ptr %.sroa.sel366.sroa.sel369.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
   %159 = icmp slt i16 %158, 0
   %160 = ashr i16 %158, 5
   %161 = sext i16 %160 to i32
-  %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %157, i64 %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %162 = load i32, ptr %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel366.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %156, i64 %.sroa.sel366.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %162 = load i32, ptr %.sroa.sel366.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %163 = select i1 %159, i32 %162, i32 %161
   %164 = trunc i64 %indvars.iv to i32
   %165 = or i32 %164, 48
-  %166 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString7replaceEiii(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel, i32 noundef 0, i32 noundef %163, i32 noundef %165)
+  %166 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString7replaceEiii(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel366, i32 noundef 0, i32 noundef %163, i32 noundef %165)
           to label %_ZN6icu_7713UnicodeStringaSEi.exit unwind label %172
 
 _ZN6icu_7713UnicodeStringaSEi.exit:               ; preds = %155
   %167 = icmp eq i64 %indvars.iv, 0
-  %168 = add nuw nsw i64 %indvars.iv, 17
-  %169 = getelementptr inbounds nuw [29 x %"class.icu_77::UnicodeString"], ptr %36, i64 0, i64 %168
+  %168 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %36, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 1088
   %.0.i = select i1 %167, ptr %148, ptr %169
-  %.sroa.sel267 = select i1 %3, ptr %.sroa.gep, ptr %157
-  %170 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel267, ptr noundef nonnull align 8 dereferenceable(64) %.0.i)
+  %.sroa.sel372 = select i1 %3, ptr %.sroa.gep364, ptr %157
+  %170 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel372, ptr noundef nonnull align 8 dereferenceable(64) %.0.i)
           to label %171 unwind label %172
 
 171:                                              ; preds = %_ZN6icu_7713UnicodeStringaSEi.exit
@@ -4921,8 +4921,8 @@ _ZN6icu_7713UnicodeStringaSEi.exit:               ; preds = %155
 
 191:                                              ; preds = %.preheader413, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit
   %indvars.iv448 = phi i64 [ 0, %.preheader413 ], [ %indvars.iv.next449, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit ]
-  %192 = getelementptr inbounds nuw [21 x [2 x %"class.icu_77::UnicodeString"]], ptr %19, i64 0, i64 %indvars.iv448
-  %.sroa.sel270.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %192, i64 %.sroa.sel270.idx.sroa.sel.idx.sroa.sel.idx
+  %192 = getelementptr inbounds nuw [2 x %"class.icu_77::UnicodeString"], ptr %19, i64 %indvars.iv448
+  %.sroa.sel360.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %192, i64 %.sroa.sel360.idx.sroa.sel.idx.sroa.sel.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN6icu_7713UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %20, i16 noundef zeroext 39)
           to label %193 unwind label %214
@@ -4933,13 +4933,13 @@ _ZN6icu_7713UnicodeStringaSEi.exit:               ; preds = %155
           to label %194 unwind label %216
 
 194:                                              ; preds = %193
-  %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %192, i64 %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel.v
-  %195 = load i16, ptr %.sroa.sel270.sroa.sel273.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
+  %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %192, i64 %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel.v
+  %195 = load i16, ptr %.sroa.sel360.sroa.sel363.v.sroa.sel.v.sroa.sel, align 8, !tbaa !34
   %196 = icmp slt i16 %195, 0
   %197 = ashr i16 %195, 5
   %198 = sext i16 %197 to i32
-  %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %192, i64 %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %199 = load i32, ptr %.sroa.sel270.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %192, i64 %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %199 = load i32, ptr %.sroa.sel360.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %200 = select i1 %196, i32 %199, i32 %198
   %201 = load i16, ptr %149, align 8, !tbaa !34
   %202 = icmp slt i16 %201, 0
@@ -4953,7 +4953,7 @@ _ZN6icu_7713UnicodeStringaSEi.exit:               ; preds = %155
   %210 = sext i16 %209 to i32
   %211 = load i32, ptr %152, align 4
   %212 = select i1 %208, i32 %211, i32 %210
-  %213 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString14findAndReplaceEiiRKS0_iiS2_ii(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel270.idx.sroa.sel.idx.sroa.sel, i32 noundef 0, i32 noundef %200, ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef 0, i32 noundef %206, ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef 0, i32 noundef %212)
+  %213 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString14findAndReplaceEiiRKS0_iiS2_ii(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.sel360.idx.sroa.sel.idx.sroa.sel, i32 noundef 0, i32 noundef %200, ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef 0, i32 noundef %206, ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef 0, i32 noundef %212)
           to label %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit unwind label %218
 
 _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit: ; preds = %194
@@ -5773,7 +5773,7 @@ define noundef range(i32 0, 3) i32 @_ZN6icu_776number4impl18PatternStringUtils18
 .sink.split:                                      ; preds = %9, %7, %5, %3
   %switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3.sink = phi ptr [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE, %3 ], [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.1, %5 ], [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.2, %7 ], [ @switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3, %9 ]
   %12 = zext nneg i32 %1 to i64
-  %switch.gep13 = getelementptr inbounds nuw [4 x i32], ptr %switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3.sink, i64 0, i64 %12
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr %switch.table._ZN6icu_776number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE.3.sink, i64 %12
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %13
 

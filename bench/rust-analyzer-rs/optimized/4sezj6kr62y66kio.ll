@@ -170,7 +170,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h26a2c315c1
 
 .lr.ph.i.us.i.i.i:                                ; preds = %37, %41
   %.05.i.us.i.i.i = phi i64 [ %42, %41 ], [ 0, %37 ]
-  %38 = getelementptr inbounds nuw [0 x i8], ptr %31, i64 0, i64 %.05.i.us.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 %.05.i.us.i.i.i
   %39 = load i8, ptr %38, align 1, !alias.scope !26, !noalias !25, !noundef !4
   %40 = icmp eq i8 %39, %33
   br i1 %40, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i, label %41
@@ -227,7 +227,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %61, %65
   %.05.i.i.i.i = phi i64 [ %66, %65 ], [ 0, %61 ]
-  %62 = getelementptr inbounds nuw [0 x i8], ptr %55, i64 0, i64 %.05.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 %.05.i.i.i.i
   %63 = load i8, ptr %62, align 1, !alias.scope !26, !noalias !25, !noundef !4
   %64 = icmp eq i8 %63, %57
   br i1 %64, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %65
@@ -366,7 +366,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %109 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, splat (i8 65)
   %110 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, splat (i8 58)
   %111 = and <16 x i1> %109, %110
-  %112 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.047.i.i.i.i.i.i
+  %112 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.047.i.i.i.i.i.i
   store <16 x i1> %111, ptr %112, align 2, !noalias !56
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %105, 4
   br i1 %exitcond.not.i.i.i.i.i.i, label %.preheader44.i.i.i.i.i.i, label %104
@@ -384,7 +384,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %.sroa.028.049.i.i.i.i.i.i = phi i64 [ %118, %122 ], [ 0, %104 ]
   %.248.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %122 ], [ 0, %104 ]
   %118 = add nuw nsw i64 %.sroa.028.049.i.i.i.i.i.i, 1
-  %119 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.049.i.i.i.i.i.i
+  %119 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.049.i.i.i.i.i.i
   %120 = load i16, ptr %119, align 2, !noalias !56, !noundef !4
   %121 = icmp eq i16 %120, 0
   br i1 %121, label %122, label %123

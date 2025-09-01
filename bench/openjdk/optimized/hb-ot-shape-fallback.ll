@@ -4129,7 +4129,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_11AttachPointENS_7IntTypeItLj2EEELb1EEES4_E16san
 
 112:                                              ; preds = %.lr.ph, %158
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
-  %113 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.196"], ptr %82, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw %"struct.OT::OffsetTo.196", ptr %82, i64 %indvars.iv
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 2
   %115 = load ptr, ptr %4, align 8
   %116 = ptrtoint ptr %114 to i64
@@ -4387,7 +4387,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEELb1EEES4_E16sanitiz
 
 112:                                              ; preds = %.lr.ph, %141
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %141 ]
-  %113 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.201"], ptr %82, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw %"struct.OT::OffsetTo.201", ptr %82, i64 %indvars.iv
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 2
   %115 = load ptr, ptr %4, align 8
   %116 = ptrtoint ptr %114 to i64
@@ -4498,7 +4498,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEELb1EEES4_E16sani
 
 39:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %40 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.203"], ptr %3, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.OT::OffsetTo.203", ptr %3, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = load ptr, ptr %4, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -4791,7 +4791,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeIjLj4EEELb1EE
 
 50:                                               ; preds = %50, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %50 ]
-  %51 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.174"], ptr %22, i64 0, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds nuw %"struct.OT::OffsetTo.174", ptr %22, i64 %indvars.iv.i.i.i
   %52 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_6Layout6Common8CoverageENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_20MarkGlyphSetsFormat1EEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSC_(ptr noundef nonnull align 8 dereferenceable(62) %0, ptr noundef nonnull align 1 dereferenceable(4) %51, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -5123,7 +5123,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %116 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.169"], ptr %4, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %"struct.OT::OffsetTo.169", ptr %4, i64 %indvars.iv
   %117 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -5795,7 +5795,7 @@ _ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i:       ; preds = %58, %44, %30
 86:                                               ; preds = %77
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !41
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %88 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.174"], ptr %87, i64 0, i64 %8
+  %88 = getelementptr inbounds nuw %"struct.OT::OffsetTo.174", ptr %87, i64 %8
   br label %_ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i
 
 _ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i: ; preds = %86, %77

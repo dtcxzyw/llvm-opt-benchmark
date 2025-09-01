@@ -880,7 +880,7 @@ define hidden void @_ZN7datalog13mk_magic_sets9adornment8populateEP3appRK8uint_s
 
 7:                                                ; preds = %.lr.ph, %_ZN6vectorIN7datalog13mk_magic_sets6a_flagELb0EjE9push_backEOS2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorIN7datalog13mk_magic_sets6a_flagELb0EjE9push_backEOS2_.exit ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !278
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
@@ -1053,7 +1053,7 @@ define hidden noundef i32 @_ZN7datalog19get_bound_arg_countEP3appRK8uint_set(ptr
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.012.us = phi i32 [ %.1.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %indvars.iv17
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv17
   %10 = load ptr, ptr %9, align 8, !tbaa !278
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -1072,7 +1072,7 @@ define hidden noundef i32 @_ZN7datalog19get_bound_arg_countEP3appRK8uint_set(ptr
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK8uint_set8containsEj.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK8uint_set8containsEj.exit.thread ], [ 0, %.lr.ph ]
   %.012 = phi i32 [ %.1, %_ZNK8uint_set8containsEj.exit.thread ], [ 0, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !278
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
@@ -1132,7 +1132,7 @@ define hidden noundef float @_ZN7datalog13mk_magic_sets16get_unbound_costEP3appR
 11:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.016 = phi float [ 1.000000e+00, %.lr.ph ], [ %.1, %39 ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !278
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
@@ -1166,7 +1166,7 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZNK8uint_set8containsEj.exit.thread:             ; preds = %18, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %_ZNK8uint_set8containsEj.exit
   %33 = load ptr, ptr %9, align 8, !tbaa !296
-  %34 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !297
   %36 = tail call noundef i64 @_ZN7datalog7context22get_sort_size_estimateEP4sort(ptr noundef nonnull align 8 dereferenceable(3028) %33, ptr noundef %35)
   %37 = uitofp i64 %36 to float
@@ -1212,7 +1212,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %4
   %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !263
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !299
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, -8
@@ -1234,7 +1234,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %4
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %.012.us.i = phi i32 [ %.1.us.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %indvars.iv17.i
+  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv17.i
   %29 = load ptr, ptr %28, align 8, !tbaa !278
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -1249,7 +1249,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %4
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNK8uint_set8containsEj.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8uint_set8containsEj.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.012.i = phi i32 [ %.1.i, %_ZNK8uint_set8containsEj.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8, !tbaa !278
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
@@ -1302,7 +1302,7 @@ _ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread46: ; preds = %.lr.
 59:                                               ; preds = %87, %.lr.ph.i35
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i38, %87 ]
   %.016.i = phi float [ 1.000000e+00, %.lr.ph.i35 ], [ %.1.i37, %87 ]
-  %60 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %indvars.iv.i36
+  %60 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i36
   %61 = load ptr, ptr %60, align 8, !tbaa !278
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
@@ -1336,7 +1336,7 @@ _ZNK8uint_set8containsEj.exit.i43:                ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZNK8uint_set8containsEj.exit.thread.i42:         ; preds = %_ZNK8uint_set8containsEj.exit.i43, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i41, %66
   %81 = load ptr, ptr %10, align 8, !tbaa !296
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %58, i64 0, i64 %indvars.iv.i36
+  %82 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i36
   %83 = load ptr, ptr %82, align 8, !tbaa !297
   %84 = tail call noundef i64 @_ZN7datalog7context22get_sort_size_estimateEP4sort(ptr noundef nonnull align 8 dereferenceable(3028) %81, ptr noundef %83)
   %85 = uitofp i64 %84 to float
@@ -1438,7 +1438,7 @@ define hidden noundef ptr @_ZN7datalog13mk_magic_sets13adorn_literalEP3appRK8uin
 15:                                               ; preds = %_ZN6vectorIN7datalog13mk_magic_sets6a_flagELb0EjE9push_backEOS2_.exit.i, %.lr.ph.i
   %16 = phi ptr [ null, %.lr.ph.i ], [ %48, %_ZN6vectorIN7datalog13mk_magic_sets6a_flagELb0EjE9push_backEOS2_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN6vectorIN7datalog13mk_magic_sets6a_flagELb0EjE9push_backEOS2_.exit.i ]
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !278
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
@@ -2270,7 +2270,7 @@ _ZNK7obj_mapI9func_declN7datalog13mk_magic_sets9adornmentEE9find_coreEPS0_.exit:
   br i1 %49, label %50, label %70
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !278
   %53 = icmp eq ptr %45, null
   br i1 %53, label %60, label %54
@@ -2367,7 +2367,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %77, %80
   br i1 %93, label %94, label %114
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds nuw [0 x ptr], ptr %83, i64 0, i64 %indvars.iv67
+  %95 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv67
   %96 = load ptr, ptr %95, align 8, !tbaa !297
   %97 = icmp eq ptr %89, null
   br i1 %97, label %104, label %98
@@ -3061,7 +3061,7 @@ define hidden void @_ZN7datalog13mk_magic_sets14transform_ruleERKNS0_9adornmentE
   %27 = phi ptr [ null, %.lr.ph ], [ %118, %117 ]
   %28 = phi ptr [ null, %.lr.ph ], [ %119, %117 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %117 ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !278
   %31 = load ptr, ptr %1, align 8, !tbaa !233
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
@@ -3285,7 +3285,7 @@ _ZN8uint_set6insertEj.exit:                       ; preds = %_ZNK6vectorIjLb0EjE
 
 122:                                              ; preds = %.lr.ph200, %_ZN6vectorIjLb0EjE9push_backERKj.exit
   %indvars.iv211 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next212, %_ZN6vectorIjLb0EjE9push_backERKj.exit ]
-  %123 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %indvars.iv211
+  %123 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv211
   %124 = load ptr, ptr %123, align 8, !tbaa !299
   %125 = ptrtoint ptr %124 to i64
   %126 = and i64 %125, -8
@@ -3501,7 +3501,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.thread..thread188_crit_edge: ; preds = %_ZNK6ve
 219:                                              ; preds = %198, %.thread188
   %.sink311 = phi i32 [ %217, %.thread188 ], [ %195, %198 ]
   %220 = zext i32 %.sink311 to i64
-  %221 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw ptr, ptr %120, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !299
   %223 = ptrtoint ptr %222 to i64
   %224 = and i64 %223, -8
@@ -3522,7 +3522,7 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.thread..thread188_crit_edge: ; preds = %_ZNK6ve
 .sink.split:                                      ; preds = %192, %.thread
   %.sink317 = phi i32 [ %208, %.thread ], [ %191, %192 ]
   %227 = zext i32 %.sink317 to i64
-  %228 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw ptr, ptr %120, i64 %227
   %229 = load ptr, ptr %228, align 8, !tbaa !299
   %230 = ptrtoint ptr %229 to i64
   %231 = and i64 %230, -8
@@ -3997,7 +3997,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit124:           ; preds = %_ZN11ast_manager6mk
 
 427:                                              ; preds = %.lr.ph204, %463
   %indvars.iv216 = phi i64 [ %423, %.lr.ph204 ], [ %indvars.iv.next217, %463 ]
-  %428 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %indvars.iv216
+  %428 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv216
   %429 = load ptr, ptr %428, align 8, !tbaa !299
   %430 = ptrtoint ptr %429 to i64
   %431 = and i64 %430, -8
@@ -4384,7 +4384,7 @@ define hidden void @_ZN7datalog13mk_magic_sets20create_transfer_ruleERKNS0_14ado
 21:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !252
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !297
   %25 = trunc nuw i64 %indvars.iv to i32
   %26 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %22, i32 noundef %25, ptr noundef %24)

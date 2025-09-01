@@ -267,7 +267,7 @@ define internal fastcc void @bcj_apply(ptr noundef captures(none) %0, ptr nounde
 
 38:                                               ; preds = %33
   %39 = add nuw i64 %19, 4
-  %40 = getelementptr [8 x i8], ptr @bcj_x86.mask_to_bit_num, i64 0, i64 %34
+  %40 = getelementptr i8, ptr @bcj_x86.mask_to_bit_num, i64 %34
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = sub i64 %39, %42
@@ -304,7 +304,7 @@ define internal fastcc void @bcj_apply(ptr noundef captures(none) %0, ptr nounde
 
 67:                                               ; preds = %58
   %68 = zext nneg i32 %52 to i64
-  %69 = getelementptr [8 x i8], ptr @bcj_x86.mask_to_bit_num, i64 0, i64 %68
+  %69 = getelementptr i8, ptr @bcj_x86.mask_to_bit_num, i64 %68
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 3

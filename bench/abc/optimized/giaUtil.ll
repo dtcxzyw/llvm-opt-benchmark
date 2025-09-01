@@ -12210,7 +12210,7 @@ Gia_ManFillValue.exit:                            ; preds = %36, %Vec_WrdStart.e
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val122, i64 %74, i32 1
   %76 = load i32, ptr %75, align 4, !tbaa !49
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %70, i64 0, i64 %indvars.iv160
+  %77 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv160
   store i32 %76, ptr %77, align 4, !tbaa !3
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
@@ -12395,7 +12395,7 @@ define void @Gia_DumpLutSizeDistrib(ptr noundef readonly captures(none) %0, ptr 
 
 17:                                               ; preds = %12
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !3
@@ -12413,7 +12413,7 @@ define void @Gia_DumpLutSizeDistrib(ptr noundef readonly captures(none) %0, ptr 
 
 24:                                               ; preds = %._crit_edge, %24
   %indvars.iv27 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next28, %24 ]
-  %25 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv27
+  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv27
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.51, i32 noundef %26) #39
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -18926,7 +18926,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
 17:                                               ; preds = %.lr.ph
   %18 = sub nsw i32 %.049, %16
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %4, i64 %19
   store ptr %14, ptr %20, align 8, !tbaa !255
   br label %Vec_WrdFreeP.exit
 
@@ -19252,7 +19252,7 @@ Vec_WrdStart.exit.i:                              ; preds = %18, %7
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %39, !llvm.loop !261
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %41 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %41 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %42 = load i32, ptr %41, align 4, !tbaa !3
   br label %39
 
@@ -19745,7 +19745,7 @@ define void @Gia_ManTestProblem() local_unnamed_addr #19 {
   %9 = lshr i32 254, %8
   %10 = and i32 %7, 1
   %11 = and i32 %9, 1
-  %12 = getelementptr inbounds nuw [64 x [100 x i32]], ptr %1, i64 0, i64 %indvars.iv167
+  %12 = getelementptr inbounds nuw [100 x i32], ptr %1, i64 %indvars.iv167
   %.148 = select i1 %4, i32 %11, i32 %10
   %.146.v = select i1 %4, i32 %9, i32 %7
   %.146 = and i32 %.146.v, 1
@@ -19799,7 +19799,7 @@ Gia_GetMValue.exit.us:                            ; preds = %Gia_GetMValue.exit.
   %27 = icmp eq i32 %21, %.0.i109.us
   %28 = select i1 %27, i32 1, i32 -1
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, 1
-  %29 = getelementptr inbounds [100 x i32], ptr %12, i64 0, i64 %indvars.iv162
+  %29 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv162
   store i32 %28, ptr %29, align 4, !tbaa !3
   %30 = add nuw nsw i32 %.099119.us, 1
   %exitcond165.not = icmp eq i32 %30, 7
@@ -19822,7 +19822,7 @@ Gia_GetMValue.exit.us:                            ; preds = %Gia_GetMValue.exit.
   %37 = icmp eq i32 %.146, %.0.i109.us125
   %38 = select i1 %37, i32 1, i32 -1
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
-  %39 = getelementptr inbounds [100 x i32], ptr %12, i64 0, i64 %indvars.iv158
+  %39 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv158
   store i32 %38, ptr %39, align 4, !tbaa !3
   %40 = add nuw nsw i32 %.099119.us120, 1
   %exitcond161.not = icmp eq i32 %40, 7
@@ -19840,7 +19840,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
   %.not = icmp eq i32 %.0.i109, 0
   %45 = select i1 %.not, i32 -1, i32 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds [100 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
   store i32 %45, ptr %46, align 4, !tbaa !3
   %47 = add nuw nsw i32 %.099119, 1
   %exitcond.not = icmp eq i32 %47, 7
@@ -19848,7 +19848,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 
 48:                                               ; preds = %.loopexit116
   %49 = select i1 %4, float -1.000000e+00, float 1.000000e+00
-  %50 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv167
+  %50 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv167
   store float %49, ptr %50, align 4, !tbaa !274
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next168, 16
@@ -19856,12 +19856,12 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 
 .preheader114:                                    ; preds = %48, %56
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %56 ], [ 0, %48 ]
-  %51 = getelementptr inbounds nuw [64 x [100 x i32]], ptr %1, i64 0, i64 %indvars.iv175
+  %51 = getelementptr inbounds nuw [100 x i32], ptr %1, i64 %indvars.iv175
   br label %52
 
 52:                                               ; preds = %.preheader114, %52
   %indvars.iv171 = phi i64 [ 0, %.preheader114 ], [ %indvars.iv.next172, %52 ]
-  %53 = getelementptr inbounds nuw [100 x i32], ptr %51, i64 0, i64 %indvars.iv171
+  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv171
   %54 = load i32, ptr %53, align 4, !tbaa !3
   %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %54)
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
@@ -19869,7 +19869,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
   br i1 %exitcond174.not, label %56, label %52, !llvm.loop !276
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv175
+  %57 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv175
   %58 = load float, ptr %57, align 4, !tbaa !274
   %59 = fpext float %58 to double
   %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, double noundef %59)
@@ -19884,7 +19884,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 61:                                               ; preds = %.preheader112, %61
   %indvars.iv179 = phi i64 [ 0, %.preheader112 ], [ %indvars.iv.next180, %61 ]
   %.096134 = phi float [ 0.000000e+00, %.preheader112 ], [ %67, %61 ]
-  %62 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv179
+  %62 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv179
   %63 = load float, ptr %62, align 4, !tbaa !274
   %64 = fcmp ogt float %63, 0.000000e+00
   %65 = fneg float %63
@@ -19901,7 +19901,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 
 71:                                               ; preds = %68, %71
   %indvars.iv183 = phi i64 [ 0, %68 ], [ %indvars.iv.next184, %71 ]
-  %72 = getelementptr inbounds nuw [100 x float], ptr %3, i64 0, i64 %indvars.iv183
+  %72 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv183
   %73 = load float, ptr %72, align 4, !tbaa !274
   %74 = fpext float %73 to double
   %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, double noundef %74)
@@ -19915,19 +19915,19 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 
 .preheader:                                       ; preds = %76, %.loopexit
   %indvars.iv199 = phi i64 [ 0, %76 ], [ %indvars.iv.next200, %.loopexit ]
-  %invariant.gep = getelementptr inbounds nuw [100 x i32], ptr %1, i64 0, i64 %indvars.iv199
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv199
   br label %77
 
 77:                                               ; preds = %.preheader, %90
   %indvars.iv187 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next188, %90 ]
   %.0137 = phi i32 [ 0, %.preheader ], [ %91, %90 ]
-  %gep = getelementptr inbounds nuw [64 x [100 x i32]], ptr %invariant.gep, i64 0, i64 %indvars.iv187
+  %gep = getelementptr inbounds nuw [100 x i32], ptr %invariant.gep, i64 %indvars.iv187
   %78 = load i32, ptr %gep, align 4, !tbaa !3
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv187
+  %81 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv187
   %82 = load float, ptr %81, align 4, !tbaa !274
   %83 = fcmp ogt float %82, 0.000000e+00
   br i1 %83, label %90, label %.thread
@@ -19937,7 +19937,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
   br i1 %85, label %86, label %.thread
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv187
+  %87 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv187
   %88 = load float, ptr %87, align 4, !tbaa !274
   %89 = fcmp olt float %88, 0.000000e+00
   br i1 %89, label %90, label %.thread
@@ -19960,7 +19960,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
   %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.81, i32 noundef %91)
   %96 = icmp sgt i32 %91, 0
   %97 = trunc nuw nsw i64 %indvars.iv199 to i32
-  %98 = getelementptr inbounds nuw [100 x float], ptr %3, i64 0, i64 %indvars.iv199
+  %98 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv199
   br i1 %96, label %99, label %107
 
 99:                                               ; preds = %94
@@ -19972,7 +19972,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 
 103:                                              ; preds = %99, %103
   %indvars.iv195 = phi i64 [ 0, %99 ], [ %indvars.iv.next196, %103 ]
-  %104 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv195
+  %104 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv195
   %105 = load float, ptr %104, align 4, !tbaa !274
   %106 = fadd float %105, 0xBF947AE140000000
   store float %106, ptr %104, align 4, !tbaa !274
@@ -19989,7 +19989,7 @@ Gia_GetMValue.exit:                               ; preds = %.lr.ph.split, %Gia_
 
 111:                                              ; preds = %107, %111
   %indvars.iv191 = phi i64 [ 0, %107 ], [ %indvars.iv.next192, %111 ]
-  %112 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv191
+  %112 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv191
   %113 = load float, ptr %112, align 4, !tbaa !274
   %114 = fadd float %113, 0x3F947AE140000000
   store float %114, ptr %112, align 4, !tbaa !274

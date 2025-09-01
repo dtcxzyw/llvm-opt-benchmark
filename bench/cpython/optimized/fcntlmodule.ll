@@ -432,7 +432,7 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
 
 .thread2.sink.split.i:                            ; preds = %57, %55
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %51, i64 %53, i1 false)
-  %63 = getelementptr [1025 x i8], ptr %6, i64 0, i64 %53
+  %63 = getelementptr i8, ptr %6, i64 %53
   store i8 0, ptr %63, align 1, !tbaa !24
   br label %.thread2.i
 
@@ -503,7 +503,7 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
 89:                                               ; preds = %83
   %90 = load ptr, ptr %5, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %90, i64 %85, i1 false)
-  %91 = getelementptr [1025 x i8], ptr %6, i64 0, i64 %85
+  %91 = getelementptr i8, ptr %6, i64 %85
   store i8 0, ptr %91, align 1, !tbaa !24
   %92 = call ptr @PyEval_SaveThread() #7
   %93 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %18, i64 noundef %32, ptr noundef nonnull %6) #7

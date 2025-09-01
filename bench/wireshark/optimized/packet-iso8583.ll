@@ -207,7 +207,7 @@ define hidden void @proto_register_iso8583() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr [128 x %struct.hf_register_info], ptr @proto_register_iso8583.hf_data, i64 0, i64 %indvars.iv
+  %3 = getelementptr %struct.hf_register_info, ptr @proto_register_iso8583.hf_data, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 -1, ptr %5, align 8
@@ -219,7 +219,7 @@ define hidden void @proto_register_iso8583() local_unnamed_addr #0 {
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr null, ptr %9, align 8
-  %10 = getelementptr [128 x i32], ptr @iso8583_data_bit, i64 0, i64 %indvars.iv
+  %10 = getelementptr i32, ptr @iso8583_data_bit, i64 %indvars.iv
   store ptr %10, ptr %3, align 16
   %11 = tail call ptr @wmem_epan_scope()
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -238,7 +238,7 @@ define hidden void @proto_register_iso8583() local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %spec.select28, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %20 = getelementptr [128 x ptr], ptr @proto_register_iso8583.hf_data_blurb, i64 0, i64 %indvars.iv
+  %20 = getelementptr ptr, ptr @proto_register_iso8583.hf_data_blurb, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1143,14 +1143,14 @@ bin2hex.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %378
   br i1 %.not130.i.i, label %get_bit.exit.thread69.i, label %413
 
 413:                                              ; preds = %412
-  %414 = getelementptr [128 x i32], ptr @iso8583_data_bit, i64 0, i64 %indvars.iv.i152
+  %414 = getelementptr i32, ptr @iso8583_data_bit, i64 %indvars.iv.i152
   %415 = load i32, ptr %414, align 4
   %416 = call ptr @proto_tree_add_string(ptr noundef nonnull %118, i32 noundef %415, ptr noundef %0, i32 noundef %.251.i, i32 noundef %.pre95.i, ptr noundef nonnull %.194.i.i)
   %.pre.i = load i32, ptr %6, align 4
   br label %get_bit.exit.thread69.i
 
 417:                                              ; preds = %.thread123.i.i
-  %418 = getelementptr [128 x i32], ptr @iso8583_data_bit, i64 0, i64 %indvars.iv.i152
+  %418 = getelementptr i32, ptr @iso8583_data_bit, i64 %indvars.iv.i152
   %419 = load i32, ptr %418, align 4
   %420 = call ptr @proto_tree_add_item(ptr noundef nonnull %118, i32 noundef %419, ptr noundef %0, i32 noundef %.251.i, i32 noundef %.pre97.i, i32 noundef 0)
   %.pre96.i = load i32, ptr %6, align 4
@@ -1526,8 +1526,8 @@ isstrtype_ok.exit.thread.i:                       ; preds = %isstrtype_ok.exit.i
 579:                                              ; preds = %isstrtype_ok.exit.thread.i, %.thread.i
   %.3525777.i = phi i32 [ %.352.ph.i, %.thread.i ], [ %.35257.i, %isstrtype_ok.exit.thread.i ]
   %sext.i = shl i64 %indvars.iv.i152, 32
-  %580 = ashr exact i64 %sext.i, 32
-  %581 = getelementptr [128 x i32], ptr @iso8583_data_bit, i64 0, i64 %580
+  %580 = ashr exact i64 %sext.i, 30
+  %581 = getelementptr i8, ptr @iso8583_data_bit, i64 %580
   %582 = load i32, ptr %581, align 4
   %583 = call ptr @proto_tree_add_string(ptr noundef %118, i32 noundef %582, ptr noundef %0, i32 noundef %.3525777.i, i32 noundef 0, ptr noundef nonnull @.str.150)
   br label %584

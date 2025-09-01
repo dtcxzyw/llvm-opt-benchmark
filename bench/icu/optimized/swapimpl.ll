@@ -99,7 +99,7 @@ define noundef i32 @udata_swap(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 37:                                               ; preds = %35, %36
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %36 ]
-  %38 = getelementptr inbounds nuw [19 x %struct.anon], ptr @_ZL7swapFns, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.anon, ptr @_ZL7swapFns, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %38, ptr noundef nonnull dereferenceable(4) %17, i64 4)
   %39 = icmp eq i32 %bcmp, 0
   br i1 %39, label %40, label %36
@@ -312,7 +312,7 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
   %63 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !15
   %65 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %64)
-  %66 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %65, ptr %66, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -329,7 +329,7 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
 .preheader:                                       ; preds = %67, %.preheader
   %.1103120 = phi i32 [ %72, %.preheader ], [ 9, %67 ]
   %68 = zext nneg i32 %.1103120 to i64
-  %69 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr %6, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !15
   %71 = icmp eq i32 %70, 0
   %72 = add nsw i32 %.1103120, -1
@@ -541,7 +541,7 @@ define internal noundef i32 @_ZL10ucase_swapPK12UDataSwapperPKviPvP10UErrorCode(
   %64 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %65)
-  %67 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %66, ptr %67, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -706,7 +706,7 @@ define internal noundef i32 @_ZL10ubidi_swapPK12UDataSwapperPKviPvP10UErrorCode(
   %61 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !15
   %63 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %62)
-  %64 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %63, ptr %64, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -853,7 +853,7 @@ define internal noundef i32 @_ZL10unorm_swapPK12UDataSwapperPKviPvP10UErrorCode(
   %54 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !15
   %56 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %55)
-  %57 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %56, ptr %57, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1058,7 +1058,7 @@ define internal noundef i32 @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCod
   %63 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !15
   %65 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %64)
-  %66 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %65, ptr %66, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1092,7 +1092,7 @@ define internal noundef i32 @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCod
 78:                                               ; preds = %73, %88
   %indvars.iv100 = phi i64 [ 1, %73 ], [ %indvars.iv.next101, %88 ]
   %.08197 = phi i32 [ %74, %73 ], [ %80, %88 ]
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv100
+  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv100
   %80 = load i32, ptr %79, align 4, !tbaa !15
   %81 = sub nsw i32 %80, %.08197
   %82 = icmp sgt i32 %81, 15
@@ -1226,7 +1226,7 @@ define internal noundef i32 @_ZL11uemoji_swapPK12UDataSwapperPKviPvP10UErrorCode
   %64 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %65)
-  %67 = getelementptr inbounds nuw [14 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %66, ptr %67, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14

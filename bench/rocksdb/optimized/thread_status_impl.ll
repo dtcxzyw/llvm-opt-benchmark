@@ -294,7 +294,7 @@ define void @_ZN7rocksdb12ThreadStatus17GetThreadTypeNameB5cxx11ENS0_10ThreadTyp
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb12ThreadStatus16GetOperationNameB5cxx11ENS0_13OperationTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %or.cond = icmp ugt i32 %0, 11
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw [12 x %"struct.rocksdb::OperationInfo"], ptr @_ZN7rocksdbL22global_operation_tableE, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds nuw %"struct.rocksdb::OperationInfo", ptr @_ZN7rocksdbL22global_operation_tableE, i64 %2, i32 1
   %.0 = select i1 %or.cond, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 8), ptr %3
   ret ptr %.0
 }
@@ -303,7 +303,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb12ThreadStatu
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb12ThreadStatus21GetOperationStageNameB5cxx11ENS0_14OperationStageE(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %or.cond = icmp ugt i32 %0, 10
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw [11 x %"struct.rocksdb::OperationStageInfo"], ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds nuw %"struct.rocksdb::OperationStageInfo", ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 %2, i32 1
   %.0 = select i1 %or.cond, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 8), ptr %3
   ret ptr %.0
 }
@@ -312,7 +312,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb12ThreadStatu
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb12ThreadStatus12GetStateNameB5cxx11ENS0_9StateTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %or.cond = icmp ugt i32 %0, 1
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw [2 x %"struct.rocksdb::StateInfo"], ptr @_ZN7rocksdbL18global_state_tableE, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds nuw %"struct.rocksdb::StateInfo", ptr @_ZN7rocksdbL18global_state_tableE, i64 %2, i32 1
   %.0 = select i1 %or.cond, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL18global_state_tableE, i64 8), ptr %3
   ret ptr %.0
 }
@@ -414,7 +414,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb12ThreadStatu
 
 12:                                               ; preds = %10
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds [6 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 0, i64 %13, i32 1
+  %14 = getelementptr inbounds %"struct.rocksdb::OperationProperty", ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 %13, i32 1
   br label %20
 
 15:                                               ; preds = %9
@@ -423,7 +423,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb12ThreadStatu
 
 17:                                               ; preds = %15
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [3 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL26flush_operation_propertiesE, i64 0, i64 %18, i32 1
+  %19 = getelementptr inbounds %"struct.rocksdb::OperationProperty", ptr @_ZN7rocksdbL26flush_operation_propertiesE, i64 %18, i32 1
   br label %20
 
 20:                                               ; preds = %9, %15, %10, %17, %12
@@ -807,13 +807,13 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmED2Ev.exit107: 
 
 141:                                              ; preds = %140
   %142 = icmp samesign ugt i64 %indvars.iv, 5
-  %143 = getelementptr inbounds nuw [6 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 0, i64 %indvars.iv, i32 1
+  %143 = getelementptr inbounds nuw %"struct.rocksdb::OperationProperty", ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 %indvars.iv, i32 1
   %spec.select = select i1 %142, ptr @_ZZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEiE9empty_strB5cxx11, ptr %143
   br label %_ZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEi.exit
 
 144:                                              ; preds = %140
   %145 = icmp samesign ugt i64 %indvars.iv, 2
-  %146 = getelementptr inbounds nuw [3 x %"struct.rocksdb::OperationProperty"], ptr @_ZN7rocksdbL26flush_operation_propertiesE, i64 0, i64 %indvars.iv, i32 1
+  %146 = getelementptr inbounds nuw %"struct.rocksdb::OperationProperty", ptr @_ZN7rocksdbL26flush_operation_propertiesE, i64 %indvars.iv, i32 1
   %spec.select167 = select i1 %145, ptr @_ZZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEiE9empty_strB5cxx11, ptr %146
   br label %_ZN7rocksdb12ThreadStatus24GetOperationPropertyNameB5cxx11ENS0_13OperationTypeEi.exit
 

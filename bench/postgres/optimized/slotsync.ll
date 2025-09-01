@@ -1036,7 +1036,7 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   %141 = phi ptr [ %.pre11.i.i, %.lr.ph.preheader.i.i ], [ %153, %151 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %151 ]
   %.09.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %.1.i.i, %151 ]
-  %142 = getelementptr inbounds nuw [1 x %struct.ReplicationSlot], ptr %141, i64 0, i64 %indvars.iv.i.i
+  %142 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %141, i64 %indvars.iv.i.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %144 = load i8, ptr %143, align 1, !range !4, !noundef !5
   %145 = trunc nuw i8 %144 to i1
@@ -1657,7 +1657,7 @@ define internal fastcc void @update_synced_slots_inactive_since() unnamed_addr #
   %12 = phi ptr [ %.pre11, %.lr.ph.preheader ], [ %36, %34 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
   %.09 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %34 ]
-  %13 = getelementptr inbounds nuw [1 x %struct.ReplicationSlot], ptr %12, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1

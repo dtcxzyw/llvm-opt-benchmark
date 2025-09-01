@@ -1478,9 +1478,9 @@ define void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef %0, p
 
 196:                                              ; preds = %.preheader132, %196
   %indvars.iv = phi i64 [ 0, %.preheader132 ], [ %indvars.iv.next, %196 ]
-  %197 = getelementptr inbounds nuw [7 x float], ptr %19, i64 0, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
   %198 = load float, ptr %197, align 4, !tbaa !225
-  %199 = getelementptr inbounds nuw [7 x float], ptr %20, i64 0, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   store float %198, ptr %199, align 4, !tbaa !225
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not126 = icmp eq i64 %indvars.iv.next, 7

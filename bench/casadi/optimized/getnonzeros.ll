@@ -2755,7 +2755,7 @@ define void @_ZNK6casadi11GetNonzeros11eval_linearERKSt6vectorISt5arrayINS_2MXEL
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %2, align 8, !tbaa !112
-  %17 = getelementptr inbounds nuw [3 x %"class.casadi::MX"], ptr %16, i64 0, i64 %.050
+  %17 = getelementptr inbounds nuw %"class.casadi::MX", ptr %16, i64 %.050
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   store ptr %18, ptr %5, align 8, !tbaa !16
   invoke void @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE8count_upEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -2772,7 +2772,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit.preheade
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = load ptr, ptr %1, align 8, !tbaa !112
-  %20 = getelementptr inbounds nuw [3 x %"class.casadi::MX"], ptr %19, i64 0, i64 %.050
+  %20 = getelementptr inbounds nuw %"class.casadi::MX", ptr %19, i64 %.050
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   store ptr %21, ptr %7, align 8, !tbaa !16
   invoke void @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE8count_upEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -2825,7 +2825,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit30.prehea
 41:                                               ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit30.preheader
   %42 = load ptr, ptr %4, align 8, !tbaa !27
   %43 = load ptr, ptr %2, align 8, !tbaa !112
-  %44 = getelementptr inbounds nuw [3 x %"class.casadi::MX"], ptr %43, i64 0, i64 %.050
+  %44 = getelementptr inbounds nuw %"class.casadi::MX", ptr %43, i64 %.050
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %69
 

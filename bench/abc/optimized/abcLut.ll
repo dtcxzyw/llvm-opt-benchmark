@@ -303,7 +303,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %110, %114
 132:                                              ; preds = %132, %.lr.ph.i136
   %indvars.iv.i140 = phi i64 [ 0, %.lr.ph.i136 ], [ %indvars.iv.next.i141, %132 ]
   %.023.i = phi i32 [ 0, %.lr.ph.i136 ], [ %spec.select.i, %132 ]
-  %133 = getelementptr inbounds nuw [0 x i32], ptr %129, i64 0, i64 %indvars.iv.i140
+  %133 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv.i140
   %134 = load i32, ptr %133, align 4, !tbaa !40
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds ptr, ptr %.val.val.i138, i64 %135
@@ -653,7 +653,7 @@ Abc_NodeDecomposeSort.exit.i.i.thread:            ; preds = %277
   %indvars.iv.i.i90.i = phi i64 [ 0, %.preheader.us.i.i.i ], [ %indvars.iv.next.i.i.i, %296 ]
   %.033.us.i.i.i = phi i32 [ 1000000, %.preheader.us.i.i.i ], [ %.1.us.i.i.i, %296 ]
   %.02032.us.i.i.i = phi i32 [ -1, %.preheader.us.i.i.i ], [ %.121.us.i.i.i, %296 ]
-  %288 = getelementptr inbounds nuw [15 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i90.i
+  %288 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i90.i
   %289 = load ptr, ptr %288, align 8, !tbaa !77
   %.not.us.i.i.i = icmp eq ptr %289, null
   br i1 %.not.us.i.i.i, label %296, label %290
@@ -679,7 +679,7 @@ Abc_NodeDecomposeSort.exit.i.i.thread:            ; preds = %277
   %297 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv41.i.i.i
   store i32 %.121.us.i.i.i, ptr %297, align 4, !tbaa !40
   %298 = sext i32 %.121.us.i.i.i to i64
-  %299 = getelementptr inbounds [15 x ptr], ptr %5, i64 0, i64 %298
+  %299 = getelementptr inbounds ptr, ptr %5, i64 %298
   store ptr null, ptr %299, align 8, !tbaa !77
   %indvars.iv.next42.i.i.i = add nuw nsw i64 %indvars.iv41.i.i.i, 1
   %exitcond45.not.i.i.i = icmp eq i64 %indvars.iv.next42.i.i.i, %wide.trip.count44.i.i.i
@@ -741,7 +741,7 @@ Extra_TruthCopy.exit.thread.i.i:                  ; preds = %Abc_NodeDecomposeSo
 .lr.ph.us.i.i:                                    ; preds = %.preheader288.us.i.i
   %314 = trunc nuw nsw i64 %indvars.iv374.i.i to i32
   %315 = shl nuw nsw i32 1, %314
-  %316 = getelementptr inbounds nuw [15 x i32], ptr %99, i64 0, i64 %indvars.iv374.i.i
+  %316 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv374.i.i
   %317 = sext i32 %.0180300.us.i.i to i64
   %318 = load i32, ptr %316, align 4, !tbaa !40
   br label %select.unfold.preheader.i211.us.us.i.i
@@ -803,7 +803,7 @@ Extra_TruthCopy.exit221.loopexit.us.us.i.i:       ; preds = %select.unfold.i218.
 .lr.ph.i87.i:                                     ; preds = %.preheader288.i.i
   %340 = trunc nuw nsw i64 %indvars.iv366.i.i to i32
   %341 = shl nuw nsw i32 1, %340
-  %342 = getelementptr inbounds nuw [15 x i32], ptr %99, i64 0, i64 %indvars.iv366.i.i
+  %342 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv366.i.i
   %343 = sext i32 %.0180300.i.i to i64
   %344 = load i32, ptr %342, align 4, !tbaa !40
   br label %Extra_TruthCopy.exit215.i.i
@@ -871,7 +871,7 @@ Extra_TruthCopy.exit215.i.i:                      ; preds = %Extra_TruthCopy.exi
 
 .lr.ph306.i.i:                                    ; preds = %388, %.lr.ph306.preheader.i.i
   %indvars.iv377.i.i = phi i64 [ 0, %.lr.ph306.preheader.i.i ], [ %indvars.iv.next378.i.i, %388 ]
-  %366 = getelementptr inbounds nuw [64 x [64 x i8]], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 0, i64 %indvars.iv377.i.i
+  %366 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 %indvars.iv377.i.i
   %367 = load i8, ptr %366, align 16, !tbaa !82
   %368 = sext i8 %367 to i32
   %369 = add nsw i32 %359, %368
@@ -898,12 +898,12 @@ select.unfold.i223.i.i:                           ; preds = %375, %.lr.ph306.i.i
 Extra_TruthIsEqual.exit.i.i:                      ; preds = %select.unfold.i223.i.i
   %381 = trunc nuw nsw i64 %indvars.iv377.i.i to i32
   %382 = trunc i64 %indvars.iv381.i.i to i8
-  %383 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.nCofClasses, i64 0, i64 %indvars.iv377.i.i
+  %383 = getelementptr inbounds nuw i8, ptr @Abc_NodeDecomposeStep.nCofClasses, i64 %indvars.iv377.i.i
   %384 = load i8, ptr %383, align 1, !tbaa !82
   %385 = add i8 %384, 1
   store i8 %385, ptr %383, align 1, !tbaa !82
   %386 = sext i8 %384 to i64
-  %387 = getelementptr inbounds [64 x i8], ptr %366, i64 0, i64 %386
+  %387 = getelementptr inbounds i8, ptr %366, i64 %386
   store i8 %382, ptr %387, align 1, !tbaa !82
   br label %.loopexit286.i.i
 
@@ -920,9 +920,9 @@ Extra_TruthIsEqual.exit.i.i:                      ; preds = %select.unfold.i223.
 .loopexit286.thread.i.i:                          ; preds = %388, %.loopexit286.i.i
   %389 = trunc i64 %indvars.iv381.i.i to i8
   %390 = sext i32 %.0176310.i.i to i64
-  %391 = getelementptr inbounds [64 x [64 x i8]], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 0, i64 %390
+  %391 = getelementptr inbounds [64 x i8], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 %390
   store i8 %389, ptr %391, align 16, !tbaa !82
-  %392 = getelementptr inbounds [64 x i8], ptr @Abc_NodeDecomposeStep.nCofClasses, i64 0, i64 %390
+  %392 = getelementptr inbounds i8, ptr @Abc_NodeDecomposeStep.nCofClasses, i64 %390
   store i8 1, ptr %392, align 1, !tbaa !82
   %393 = add nsw i32 %.0176310.i.i, 1
   %.not202.i.i = icmp slt i32 %.0176310.i.i, %361
@@ -975,7 +975,7 @@ Extra_TruthClear.exit.i.i:                        ; preds = %._crit_edge.i.i, %s
 
 .lr.ph315.preheader.i.i:                          ; preds = %Extra_TruthOr.exit.i.i, %.lr.ph318.i.i
   %indvars.iv393.i.i = phi i64 [ 0, %.lr.ph318.i.i ], [ %indvars.iv.next394.i.i, %Extra_TruthOr.exit.i.i ]
-  %410 = getelementptr inbounds nuw [64 x [64 x i8]], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 0, i64 %indvars.iv393.i.i
+  %410 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 %indvars.iv393.i.i
   %411 = load i8, ptr %410, align 16, !tbaa !82
   %412 = sext i8 %411 to i32
   %413 = add nsw i32 %404, %412
@@ -991,7 +991,7 @@ Extra_TruthClear.exit.i.i:                        ; preds = %._crit_edge.i.i, %s
   %419 = shl nuw i32 1, %418
   %420 = and i32 %419, %417
   %.not199.i.us.i = icmp eq i32 %420, 0
-  %421 = getelementptr inbounds nuw [15 x i32], ptr %99, i64 0, i64 %indvars.iv387.i.us.i
+  %421 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv387.i.us.i
   %422 = load i32, ptr %421, align 4, !tbaa !40
   %423 = sext i32 %422 to i64
   %424 = getelementptr inbounds ptr, ptr %409, i64 %423
@@ -1093,7 +1093,7 @@ Extra_TruthClear.exit244.i.i:                     ; preds = %select.unfold.prehe
   br i1 %.not.i86.i.us, label %.loopexit.i.i.us, label %.preheader284.i.i.us
 
 .preheader284.i.i.us:                             ; preds = %.lr.ph327.i.i.split.us
-  %463 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.nCofClasses, i64 0, i64 %indvars.iv406.i.i.us
+  %463 = getelementptr inbounds nuw i8, ptr @Abc_NodeDecomposeStep.nCofClasses, i64 %indvars.iv406.i.i.us
   %464 = load i8, ptr %463, align 1, !tbaa !82
   %465 = icmp sgt i8 %464, 0
   br i1 %465, label %.lr.ph325.i.i.us, label %.loopexit.i.i.us
@@ -1101,7 +1101,7 @@ Extra_TruthClear.exit244.i.i:                     ; preds = %select.unfold.prehe
 .lr.ph325.i.i.us:                                 ; preds = %.preheader284.i.i.us
   %wide.trip.count404.i.i.us = zext nneg i8 %464 to i64
   %466 = load ptr, ptr %275, align 8, !tbaa !39
-  %467 = getelementptr inbounds nuw [64 x [64 x i8]], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 0, i64 %indvars.iv406.i.i.us
+  %467 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 %indvars.iv406.i.i.us
   %468 = load ptr, ptr %35, align 8, !tbaa !36
   br i1 %455, label %.lr.ph325.i.i.split.us.us.split.us, label %.lr.ph325.i.i.split.us.us.split
 
@@ -1119,7 +1119,7 @@ select.unfold.preheader.i246.i.i.us.us.us:        ; preds = %.lr.ph325.i.i.split
   br label %Extra_TruthFill.exit.i.i.us.us.us
 
 Extra_TruthFill.exit.i.i.us.us.us:                ; preds = %select.unfold.preheader.i246.i.i.us.us.us, %.lr.ph325.i.i.split.us.us.split.us
-  %469 = getelementptr inbounds nuw [64 x i8], ptr %467, i64 0, i64 %indvars.iv401.i.i.us.us.us
+  %469 = getelementptr inbounds nuw i8, ptr %467, i64 %indvars.iv401.i.i.us.us.us
   %470 = load i8, ptr %469, align 1, !tbaa !82
   %471 = sext i8 %470 to i32
   br label %478
@@ -1222,7 +1222,7 @@ Extra_TruthOr.exit264.i.i.loopexit.us.us.us202:   ; preds = %select.unfold.i261.
   br i1 %.not.i86.i.us185, label %.loopexit.i.i.us189, label %.preheader284.i.i.us186
 
 .preheader284.i.i.us186:                          ; preds = %.lr.ph327.i.i.split.split.us
-  %507 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.nCofClasses, i64 0, i64 %indvars.iv406.i.i.us184
+  %507 = getelementptr inbounds nuw i8, ptr @Abc_NodeDecomposeStep.nCofClasses, i64 %indvars.iv406.i.i.us184
   %508 = load i8, ptr %507, align 1, !tbaa !82
   %509 = icmp sgt i8 %508, 0
   br i1 %509, label %.lr.ph325.i.i.us187, label %.loopexit.i.i.us189
@@ -1256,7 +1256,7 @@ select.unfold.preheader.i246.i.i.us175.us:        ; preds = %select.unfold.prehe
   br i1 %.not.i86.i, label %.loopexit.i.i, label %.preheader284.i.i
 
 .preheader284.i.i:                                ; preds = %.lr.ph327.i.i.split.split
-  %516 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.nCofClasses, i64 0, i64 %indvars.iv406.i.i
+  %516 = getelementptr inbounds nuw i8, ptr @Abc_NodeDecomposeStep.nCofClasses, i64 %indvars.iv406.i.i
   %517 = load i8, ptr %516, align 1, !tbaa !82
   %518 = icmp sgt i8 %517, 0
   br i1 %518, label %.lr.ph325.i.i, label %.loopexit.i.i
@@ -1288,7 +1288,7 @@ Extra_TruthFill.exit.i.i:                         ; preds = %Extra_TruthFill.exi
 
 .lr.ph331.i.i:                                    ; preds = %._crit_edge328.i.i, %.lr.ph331.i.i
   %indvars.iv411.i.i = phi i64 [ %indvars.iv.next412.i.i, %.lr.ph331.i.i ], [ 0, %._crit_edge328.i.i ]
-  %524 = getelementptr inbounds nuw [15 x i32], ptr %99, i64 0, i64 %indvars.iv411.i.i
+  %524 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv411.i.i
   %525 = load i32, ptr %524, align 4, !tbaa !40
   %.val204.i.i = load ptr, ptr %273, align 8, !tbaa !26
   %526 = sext i32 %525 to i64
@@ -1348,7 +1348,7 @@ Abc_NodeGetLevel.exit.i.i:                        ; preds = %.critedge.loopexit.
   %551 = and i32 %550, 4095
   %552 = or disjoint i32 %551, %.0.lcssa.i.i.i
   store i32 %552, ptr %549, align 4
-  %553 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv414.i.i
+  %553 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv414.i.i
   store ptr %523, ptr %553, align 8, !tbaa !77
   %indvars.iv.next415.i.i = add nuw nsw i64 %indvars.iv414.i.i, 1
   %exitcond418.not.i.i = icmp eq i64 %indvars.iv.next415.i.i, %wide.trip.count417.i.i
@@ -1373,9 +1373,9 @@ Abc_NodeGetLevel.exit.i.i:                        ; preds = %.critedge.loopexit.
 
 .lr.ph338.i.i:                                    ; preds = %Abc_NodeGetLevel.exit.i.i, %.lr.ph338.i.i
   %indvars.iv419.i.i = phi i64 [ %indvars.iv.next420.i.i, %.lr.ph338.i.i ], [ 0, %Abc_NodeGetLevel.exit.i.i ]
-  %559 = getelementptr inbounds nuw [15 x i32], ptr %99, i64 0, i64 %indvars.iv419.i.i
+  %559 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv419.i.i
   %560 = load i32, ptr %559, align 4, !tbaa !40
-  %561 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv419.i.i
+  %561 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv419.i.i
   %562 = load ptr, ptr %561, align 8, !tbaa !77
   %.val207.i.i = load ptr, ptr %273, align 8, !tbaa !26
   %563 = sext i32 %560 to i64
@@ -1388,7 +1388,7 @@ Abc_NodeGetLevel.exit.i.i:                        ; preds = %.critedge.loopexit.
 .lr.ph341.i.i:                                    ; preds = %.lr.ph341.i.i, %.lr.ph341.preheader.i.i
   %indvars.iv424.i.i = phi i64 [ %558, %.lr.ph341.preheader.i.i ], [ %indvars.iv.next425.i.i, %.lr.ph341.i.i ]
   %.0189339.i.i = phi i32 [ 0, %.lr.ph341.preheader.i.i ], [ %568, %.lr.ph341.i.i ]
-  %565 = getelementptr inbounds [15 x i32], ptr %99, i64 0, i64 %indvars.iv424.i.i
+  %565 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv424.i.i
   %566 = load i32, ptr %565, align 4, !tbaa !40
   %567 = shl nuw i32 1, %566
   %568 = or i32 %567, %.0189339.i.i
@@ -2616,7 +2616,7 @@ define void @Abc_NodeDecomposeSort(ptr noundef readonly captures(none) %0, i32 n
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %20 ]
   %.033.us = phi i32 [ 1000000, %.preheader.us ], [ %.1.us, %20 ]
   %.02032.us = phi i32 [ -1, %.preheader.us ], [ %.121.us, %20 ]
-  %12 = getelementptr inbounds nuw [15 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !77
   %.not.us = icmp eq ptr %13, null
   br i1 %.not.us, label %20, label %14
@@ -2642,7 +2642,7 @@ define void @Abc_NodeDecomposeSort(ptr noundef readonly captures(none) %0, i32 n
   %21 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv41
   store i32 %.121.us, ptr %21, align 4, !tbaa !40
   %22 = sext i32 %.121.us to i64
-  %23 = getelementptr inbounds [15 x ptr], ptr %5, i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %5, i64 %22
   store ptr null, ptr %23, align 8, !tbaa !77
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
@@ -2688,7 +2688,7 @@ define i64 @Abc_ObjComputeTruth(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 Vec_IntFind.exit:                                 ; preds = %9
   %14 = and i64 %indvars.iv.i, 4294967295
-  %15 = getelementptr inbounds nuw [6 x i64], ptr @s__Truths6, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @s__Truths6, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !121
   br label %common.ret30
 

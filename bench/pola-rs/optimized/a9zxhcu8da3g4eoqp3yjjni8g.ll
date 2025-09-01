@@ -29736,9 +29736,9 @@ switch.lookup:
   %6 = icmp slt i64 %5, -9223372036854775806
   %7 = add i64 %5, -9223372036854775807
   %8 = select i1 %6, i64 %7, i64 0
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds ptr, ptr @"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE", i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep4 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE.199", i64 0, i64 %8
+  %switch.gep4 = getelementptr inbounds i64, ptr @"switch.table._ZN80_$LT$polars_pipe..operators..sink..FinalizedSink$u20$as$u20$core..fmt..Debug$GT$3fmt17hc62adca19d98d59dE.199", i64 %8
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8

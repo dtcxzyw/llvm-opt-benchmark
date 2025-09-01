@@ -564,7 +564,7 @@ define ptr @usprep_openByType_77(i32 noundef %0, ptr noundef %1) local_unnamed_a
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw [14 x ptr], ptr @_ZL13PROFILE_NAMES, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZL13PROFILE_NAMES, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = tail call ptr @usprep_open_77(ptr noundef null, ptr noundef %12, ptr noundef nonnull %1)
   br label %14
@@ -620,7 +620,7 @@ define void @uprv_syntaxError_77(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %13 = sub nsw i32 %1, %9
   %14 = tail call ptr @u_memcpy_77(ptr noundef nonnull %10, ptr noundef %12, i32 noundef %13)
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds [16 x i16], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds i16, ptr %10, i64 %15
   store i16 0, ptr %16, align 2, !tbaa !39
   %17 = add nsw i32 %1, 15
   %spec.select = tail call i32 @llvm.smin.i32(i32 %17, i32 %2)
@@ -643,7 +643,7 @@ define void @uprv_syntaxError_77(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %23, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %27 = sext i32 %.pre-phi to i64
-  %28 = getelementptr inbounds [16 x i16], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds i16, ptr %26, i64 %27
   store i16 0, ptr %28, align 2, !tbaa !39
   br label %29
 
@@ -1053,7 +1053,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %205
 
 .noexc:                                           ; preds = %212
   %221 = sext i32 %219 to i64
-  %222 = getelementptr inbounds [16 x i16], ptr %216, i64 0, i64 %221
+  %222 = getelementptr inbounds i16, ptr %216, i64 %221
   store i16 0, ptr %222, align 2, !tbaa !39
   %223 = add nsw i32 %210, 15
   %spec.select.i = call i32 @llvm.smin.i32(i32 %223, i32 %119)
@@ -1076,7 +1076,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %205
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %229, %225 ]
   %231 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %232 = sext i32 %.pre-phi.i to i64
-  %233 = getelementptr inbounds [16 x i16], ptr %231, i64 0, i64 %232
+  %233 = getelementptr inbounds i16, ptr %231, i64 %232
   store i16 0, ptr %233, align 2, !tbaa !39
   br label %.thread253
 
@@ -1392,7 +1392,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   %119 = sub nsw i32 %110, %115
   %120 = tail call ptr @u_memcpy_77(ptr noundef nonnull %116, ptr noundef %118, i32 noundef %119)
   %121 = sext i32 %119 to i64
-  %122 = getelementptr inbounds [16 x i16], ptr %116, i64 0, i64 %121
+  %122 = getelementptr inbounds i16, ptr %116, i64 %121
   store i16 0, ptr %122, align 2, !tbaa !39
   %123 = add nsw i32 %110, 15
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %123, i32 %2)
@@ -1415,7 +1415,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %129, %125 ]
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %133 = sext i32 %.pre-phi.i to i64
-  %134 = getelementptr inbounds [16 x i16], ptr %132, i64 0, i64 %133
+  %134 = getelementptr inbounds i16, ptr %132, i64 %133
   store i16 0, ptr %134, align 2, !tbaa !39
   br label %.thread143
 
@@ -1669,7 +1669,7 @@ define i32 @usprep_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %56 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !25
   %58 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %57)
-  %59 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %58, ptr %59, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16

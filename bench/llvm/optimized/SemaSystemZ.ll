@@ -494,7 +494,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
   %26 = add i32 %8, -1
   store i32 %26, ptr %7, align 8, !tbaa !63
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [16 x ptr], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !86
   store i8 0, ptr %29, align 8, !tbaa !65
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 424

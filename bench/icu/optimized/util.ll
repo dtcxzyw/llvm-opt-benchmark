@@ -539,7 +539,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility1
   %.13346 = phi i32 [ %.recomposed, %.lr.ph48 ], [ %.032, %.preheader ]
   %25 = sdiv i32 %.13346, %.147
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %26
+  %27 = getelementptr inbounds i16, ptr @_ZL6DIGITS, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %28, ptr %5, align 2, !tbaa !15
@@ -643,7 +643,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %17 = lshr i32 %1, 28
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 %20, ptr %11, align 2, !tbaa !15
@@ -652,7 +652,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %22 = lshr i32 %1, 24
   %23 = and i32 %22, 15
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 %26, ptr %10, align 2, !tbaa !15
@@ -661,7 +661,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %28 = lshr i32 %1, 20
   %29 = and i32 %28, 15
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 %32, ptr %9, align 2, !tbaa !15
@@ -670,7 +670,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %34 = lshr i32 %1, 16
   %35 = and i32 %34, 15
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %38, ptr %8, align 2, !tbaa !15
@@ -689,7 +689,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %43 = lshr i32 %1, 12
   %44 = and i32 %43, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %47, ptr %6, align 2, !tbaa !15
@@ -698,7 +698,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %49 = lshr i32 %1, 8
   %50 = and i32 %49, 15
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %53, ptr %5, align 2, !tbaa !15
@@ -707,7 +707,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %55 = lshr i32 %1, 4
   %56 = and i32 %55, 15
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 %59, ptr %4, align 2, !tbaa !15
@@ -715,7 +715,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = and i32 %1, 15
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %64, ptr %3, align 2, !tbaa !15

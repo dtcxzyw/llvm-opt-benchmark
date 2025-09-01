@@ -2384,7 +2384,7 @@ wt_porcelain_v2_submodule_state.exit.i45.i:       ; preds = %290, %281
 
 switch.lookup:                                    ; preds = %wt_porcelain_v2_submodule_state.exit.i45.i
   %294 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.wt_status_print, i64 0, i64 %294
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wt_status_print, i64 %294
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %15, i8 0, i64 120, i1 false)
   %295 = load ptr, ptr %257, align 8, !tbaa !203
@@ -2425,7 +2425,7 @@ switch.lookup:                                    ; preds = %wt_porcelain_v2_sub
   %318 = load i32, ptr %317, align 4, !tbaa !128
   %319 = add nsw i32 %311, -1
   %320 = zext nneg i32 %319 to i64
-  %321 = getelementptr inbounds nuw [3 x %struct.anon], ptr %15, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw %struct.anon, ptr %15, i64 %320
   store i32 %318, ptr %321, align 8, !tbaa !208
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %323 = getelementptr inbounds nuw i8, ptr %307, i64 72
@@ -7390,7 +7390,7 @@ define internal fastcc void @wt_longstatus_print_change_data(ptr noundef %0, i32
   %.not.i = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw [9 x [75 x i8]], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [75 x i8], ptr %12, i64 %13
   %.0.i = select i1 %.not.i, ptr @.str.29, ptr %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.wt_longstatus_print_other.buf, i64 24, i1 false)

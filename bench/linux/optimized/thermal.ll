@@ -237,7 +237,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 
 57:                                               ; preds = %57, %54
   %58 = phi i64 [ %56, %54 ], [ %60, %57 ]
-  %59 = getelementptr [10 x %struct.acpi_thermal_active], ptr %55, i64 0, i64 %58
+  %59 = getelementptr %struct.acpi_thermal_active, ptr %55, i64 %58
   store i64 -274000, ptr %59, align 8
   %60 = add nuw nsw i64 %58, 1
   %61 = icmp eq i64 %60, 10
@@ -440,7 +440,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 179:                                              ; preds = %194, %175
   %180 = phi i64 [ 0, %175 ], [ %198, %194 ]
   %181 = phi ptr [ %177, %175 ], [ %197, %194 ]
-  %182 = getelementptr [10 x %struct.acpi_thermal_active], ptr %178, i64 0, i64 %180
+  %182 = getelementptr %struct.acpi_thermal_active, ptr %178, i64 %180
   %183 = load i64, ptr %182, align 8
   %184 = icmp eq i64 %183, -274000
   br i1 %184, label %200, label %185
@@ -906,7 +906,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef no
 61:                                               ; preds = %2
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = sext i32 %1 to i64
-  %64 = getelementptr [10 x %struct.acpi_thermal_active], ptr %62, i64 0, i64 %63
+  %64 = getelementptr %struct.acpi_thermal_active, ptr %62, i64 %63
   %65 = load i32, ptr @act, align 4
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %91, label %67
@@ -1569,7 +1569,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef r
 
 10:                                               ; preds = %.loopexit, %8
   %11 = phi i64 [ 0, %8 ], [ %31, %.loopexit ]
-  %12 = getelementptr [10 x %struct.acpi_thermal_active], ptr %9, i64 0, i64 %11
+  %12 = getelementptr %struct.acpi_thermal_active, ptr %9, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, -274000
   br i1 %14, label %33, label %15

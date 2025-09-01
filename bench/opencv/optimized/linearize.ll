@@ -1522,7 +1522,7 @@ _ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i: ; preds = %.noexc22, %222, %.s
 .preheader.split.i:                               ; preds = %.preheader.split.i.preheader, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit56.i"
   %229 = phi i32 [ %243, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit56.i" ], [ %218, %.preheader.split.i.preheader ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit56.i" ], [ 0, %.preheader.split.i.preheader ]
-  %230 = getelementptr inbounds nuw [3 x double], ptr %.val3574.i, i64 0, i64 %indvars.iv.i
+  %230 = getelementptr inbounds nuw double, ptr %.val3574.i, i64 %indvars.iv.i
   %231 = load double, ptr %230, align 8, !tbaa !37, !noalias !51
   %.not8.i.i49.i = icmp slt i32 %229, 0
   br i1 %.not8.i.i49.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit56.i", label %.lr.ph.i.i50.i

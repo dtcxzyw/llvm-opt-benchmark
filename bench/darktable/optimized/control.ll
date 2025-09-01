@@ -649,7 +649,7 @@ define void @dt_control_shutdown(ptr noundef %0) local_unnamed_addr #0 {
 
 47:                                               ; preds = %.preheader, %56
   %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %56 ]
-  %48 = getelementptr inbounds nuw [3 x i64], ptr %31, i64 0, i64 %indvars.iv33
+  %48 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv33
   %49 = load i64, ptr %48, align 8, !tbaa !119
   %50 = tail call i32 @dt_pthread_join(i64 noundef %49) #13
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !115
@@ -936,7 +936,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 24:                                               ; preds = %24, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw [14 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %26 = load float, ptr %25, align 8, !tbaa !143
   %27 = fpext reassoc nsz arcp contract afn float %26 to double
   %28 = fmul reassoc nsz arcp contract afn double %27, 1.000000e-02
@@ -953,7 +953,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 .preheader48.i:                                   ; preds = %24, %.preheader48.i
   %indvars.iv57.i = phi i64 [ %indvars.iv.next58.i, %.preheader48.i ], [ 1, %24 ]
-  %33 = getelementptr inbounds nuw [14 x float], ptr %4, i64 0, i64 %indvars.iv57.i
+  %33 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv57.i
   %34 = load float, ptr %33, align 4, !tbaa !143
   %35 = fpext reassoc nsz arcp contract afn float %34 to double
   %36 = fmul reassoc nsz arcp contract afn double %35, 3.000000e-02
@@ -970,7 +970,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 41:                                               ; preds = %41, %.preheader47.i
   %indvars.iv60.i = phi i64 [ 0, %.preheader47.i ], [ %indvars.iv.next61.i, %41 ]
-  %42 = getelementptr inbounds nuw [14 x float], ptr %4, i64 0, i64 %indvars.iv60.i
+  %42 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv60.i
   %43 = load float, ptr %42, align 8, !tbaa !143
   %44 = fmul reassoc nsz arcp contract afn float %43, %32
   store float %44, ptr %42, align 8, !tbaa !143
@@ -986,7 +986,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 49:                                               ; preds = %49, %.preheader46.i
   %indvars.iv63.i = phi i64 [ 1, %.preheader46.i ], [ %indvars.iv.next64.i, %49 ]
-  %50 = getelementptr inbounds nuw [14 x float], ptr %4, i64 0, i64 %indvars.iv63.i
+  %50 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv63.i
   %51 = load float, ptr %50, align 4, !tbaa !143
   %52 = fmul reassoc nsz arcp contract afn float %51, %40
   store float %52, ptr %50, align 4, !tbaa !143
@@ -996,7 +996,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 .preheader45.i:                                   ; preds = %46, %.preheader45.i
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %.preheader45.i ], [ 0, %46 ]
-  %54 = getelementptr inbounds nuw [14 x float], ptr %4, i64 0, i64 %indvars.iv66.i
+  %54 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv66.i
   %55 = load float, ptr %54, align 8, !tbaa !143
   %56 = fsub reassoc nsz arcp contract afn float %32, %55
   store float %56, ptr %54, align 8, !tbaa !143
@@ -1055,7 +1055,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 99:                                               ; preds = %99, %.loopexit.i
   %indvars.iv69.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next70.i, %99 ]
-  %100 = getelementptr inbounds nuw [14 x float], ptr %4, i64 0, i64 %indvars.iv69.i
+  %100 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv69.i
   %101 = load float, ptr %100, align 8, !tbaa !143
   %102 = fsub reassoc nsz arcp contract afn float %32, %101
   store float %102, ptr %100, align 8, !tbaa !143
@@ -1065,7 +1065,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 .preheader.i:                                     ; preds = %99, %.preheader.i
   %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %.preheader.i ], [ 1, %99 ]
-  %104 = getelementptr inbounds nuw [14 x float], ptr %4, i64 0, i64 %indvars.iv72.i
+  %104 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv72.i
   %105 = load float, ptr %104, align 4, !tbaa !143
   %106 = fsub reassoc nsz arcp contract afn float %40, %105
   store float %106, ptr %104, align 4, !tbaa !143
@@ -1421,7 +1421,7 @@ define void @dt_control_log(ptr noundef %0, ...) local_unnamed_addr #0 {
   %14 = and i32 %13, 7
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 952
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw [8 x [1000 x i8]], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [1000 x i8], ptr %15, i64 %16
   %18 = call i32 @g_strcmp0(ptr noundef nonnull %6, ptr noundef nonnull %17) #13
   %.not18 = icmp eq i32 %18, 0
   br i1 %.not18, label %.thread, label %19
@@ -1436,7 +1436,7 @@ define void @dt_control_log(ptr noundef %0, ...) local_unnamed_addr #0 {
   %21 = load i32, ptr %8, align 8, !tbaa !96
   %22 = and i32 %21, 7
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [8 x [1000 x i8]], ptr %20, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [1000 x i8], ptr %20, i64 %23
   %25 = call i64 @g_strlcpy(ptr noundef nonnull %24, ptr noundef nonnull %6, i64 noundef 1000) #13
   %26 = load i32, ptr %8, align 8, !tbaa !96
   %27 = add nsw i32 %26, 1
@@ -1590,7 +1590,7 @@ define internal fastcc void @_toast_log(i32 noundef range(i32 0, 2) %0, ptr noun
   %10 = load i32, ptr %9, align 8, !tbaa !100
   %11 = and i32 %10, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x [300 x i8]], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [300 x i8], ptr %8, i64 %12
   %14 = tail call i32 @vsnprintf(ptr noundef nonnull %13, i64 noundef 300, ptr noundef %1, ptr noundef nonnull %2) #13
   br label %24
 
@@ -1601,7 +1601,7 @@ define internal fastcc void @_toast_log(i32 noundef range(i32 0, 2) %0, ptr noun
   %19 = load i32, ptr %18, align 8, !tbaa !100
   %20 = and i32 %19, 1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x [300 x i8]], ptr %17, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [300 x i8], ptr %17, i64 %21
   %23 = tail call i64 @g_strlcpy(ptr noundef nonnull %22, ptr noundef %16, i64 noundef 300) #13
   tail call void @g_free(ptr noundef %16) #13
   br label %24
@@ -2025,7 +2025,7 @@ _control_log_ack_all.exit55:                      ; preds = %36, %49, %52
   %63 = add i32 %6, %62
   store i32 %63, ptr %5, align 8, !tbaa !149
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [256 x i8], ptr %56, i64 0, i64 %64
+  %65 = getelementptr inbounds i8, ptr %56, i64 %64
   store i8 0, ptr %65, align 1, !tbaa !150
   %66 = load i32, ptr %5, align 8, !tbaa !149
   %67 = icmp eq i32 %66, 0
@@ -2097,7 +2097,7 @@ _control_log_ack_all.exit58:                      ; preds = %68, %81, %84
   br i1 %100, label %thread-pre-split.thread, label %102
 
 thread-pre-split.thread:                          ; preds = %96
-  %101 = getelementptr inbounds nuw [256 x i8], ptr %98, i64 0, i64 %97
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %97
   store i8 0, ptr %101, align 1, !tbaa !150
   br label %116
 
@@ -2121,7 +2121,7 @@ thread-pre-split:                                 ; preds = %91, %102
   %107 = phi ptr [ %105, %..thread_crit_edge ], [ %95, %94 ]
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %109 = sext i32 %106 to i64
-  %110 = getelementptr inbounds [256 x i8], ptr %108, i64 0, i64 %109
+  %110 = getelementptr inbounds i8, ptr %108, i64 %109
   store i8 0, ptr %110, align 1, !tbaa !150
   %111 = load ptr, ptr %107, align 8, !tbaa !152
   %112 = tail call i64 @g_strlcat(ptr noundef nonnull %108, ptr noundef %111, i64 noundef 256) #13

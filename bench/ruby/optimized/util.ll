@@ -74,7 +74,7 @@ define dso_local i64 @ruby_scan_hex(ptr noundef nonnull %0, i64 noundef %1, ptr 
   %.01718 = phi i64 [ %11, %8 ], [ 0, %.lr.ph.preheader ]
   %4 = load i8, ptr %.01619, align 1, !tbaa !7
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %5
+  %6 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !7
   %or.cond = icmp ugt i8 %7, 15
   br i1 %or.cond, label %._crit_edge, label %8
@@ -119,7 +119,7 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
 .critedge.us.preheader:                           ; preds = %.critedge.outer
   %8 = load i8, ptr %.029.ph, align 1, !tbaa !7
   %9 = zext i8 %8 to i64
-  %10 = getelementptr [256 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !7
   %12 = icmp ne i8 %11, -1
   %13 = sext i8 %11 to i32
@@ -148,7 +148,7 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
 .critedge.us:                                     ; preds = %21, %.lr.ph
   %22 = load i8, ptr %15, align 1, !tbaa !7
   %23 = zext i8 %22 to i64
-  %24 = getelementptr [256 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !7
   %26 = icmp ne i8 %25, -1
   %27 = sext i8 %25 to i32
@@ -160,7 +160,7 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
   %28 = getelementptr i8, ptr %.029.ph, i64 1
   %29 = load i8, ptr %.029.ph, align 1, !tbaa !7
   %30 = zext i8 %29 to i64
-  %31 = getelementptr [256 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %30
+  %31 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !7
   %33 = icmp ne i8 %32, -1
   %34 = sext i8 %32 to i32
@@ -303,7 +303,7 @@ define dso_local i64 @ruby_strtoul(ptr noundef nonnull %0, ptr noundef writeonly
   %41 = zext nneg i32 %.038 to i64
   %42 = load i8, ptr %.2, align 1, !tbaa !7
   %43 = zext i8 %42 to i64
-  %44 = getelementptr [256 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %43
+  %44 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %46 = icmp ne i8 %45, -1
   %47 = sext i8 %45 to i32
@@ -327,7 +327,7 @@ define dso_local i64 @ruby_strtoul(ptr noundef nonnull %0, ptr noundef writeonly
   %spec.select57 = select i1 %54, i32 1, i32 %.05465
   %55 = load i8, ptr %49, align 1, !tbaa !7
   %56 = zext i8 %55 to i64
-  %57 = getelementptr [256 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !7
   %59 = icmp ne i8 %58, -1
   %60 = sext i8 %58 to i32
@@ -1112,9 +1112,9 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br i1 %224, label %225, label %.thread
 
 225:                                              ; preds = %220
-  %226 = add nsw i32 %222, -9
-  %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr [23 x double], ptr @tens, i64 0, i64 %227
+  %226 = zext nneg i32 %222 to i64
+  %227 = getelementptr double, ptr @tens, i64 %226
+  %228 = getelementptr i8, ptr %227, i64 -72
   %229 = load double, ptr %228, align 8, !tbaa !42
   %230 = uitofp i32 %.2559 to double
   %231 = tail call double @llvm.fmuladd.f64(double %229, double %223, double %230)
@@ -1141,7 +1141,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 
 240:                                              ; preds = %238
   %241 = zext nneg i32 %221 to i64
-  %242 = getelementptr [23 x double], ptr @tens, i64 0, i64 %241
+  %242 = getelementptr double, ptr @tens, i64 %241
   %243 = load double, ptr %242, align 8, !tbaa !42
   %244 = fmul double %.sroa.0103.1836, %243
   br label %Bfree.exit822
@@ -1155,11 +1155,11 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %248 = sub i32 15, %.2620
   %249 = sub i32 %221, %248
   %250 = sext i32 %248 to i64
-  %251 = getelementptr [23 x double], ptr @tens, i64 0, i64 %250
+  %251 = getelementptr double, ptr @tens, i64 %250
   %252 = load double, ptr %251, align 8, !tbaa !42
   %253 = fmul double %.sroa.0103.1836, %252
   %254 = sext i32 %249 to i64
-  %255 = getelementptr [23 x double], ptr @tens, i64 0, i64 %254
+  %255 = getelementptr double, ptr @tens, i64 %254
   %256 = load double, ptr %255, align 8, !tbaa !42
   %257 = fmul double %253, %256
   br label %Bfree.exit822
@@ -1171,7 +1171,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 260:                                              ; preds = %258
   %261 = sub nsw i32 0, %221
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr [23 x double], ptr @tens, i64 0, i64 %262
+  %263 = getelementptr double, ptr @tens, i64 %262
   %264 = load double, ptr %263, align 8, !tbaa !42
   %265 = fdiv double %.sroa.0103.1836, %264
   br label %Bfree.exit822
@@ -1190,7 +1190,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 
 272:                                              ; preds = %270
   %273 = zext nneg i32 %271 to i64
-  %274 = getelementptr [23 x double], ptr @tens, i64 0, i64 %273
+  %274 = getelementptr double, ptr @tens, i64 %273
   %275 = load double, ptr %274, align 8, !tbaa !42
   %276 = fmul double %.sroa.0103.1837, %275
   br label %277
@@ -1233,7 +1233,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br i1 %.not726, label %292, label %288
 
 288:                                              ; preds = %.lr.ph1090
-  %289 = getelementptr [5 x double], ptr @bigtens, i64 0, i64 %indvars.iv1234
+  %289 = getelementptr double, ptr @bigtens, i64 %indvars.iv1234
   %290 = load double, ptr %289, align 8, !tbaa !42
   %291 = fmul double %.sroa.0103.51088, %290
   br label %292
@@ -1259,7 +1259,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %.sroa.0103.4.insert.mask163 = and i64 %296, 4294967295
   %.sroa.0103.4.insert.insert164 = or disjoint i64 %.sroa.0103.4.insert.shift, %.sroa.0103.4.insert.mask163
   %298 = bitcast i64 %.sroa.0103.4.insert.insert164 to double
-  %299 = getelementptr [5 x double], ptr @bigtens, i64 0, i64 %.0627.lcssa
+  %299 = getelementptr double, ptr @bigtens, i64 %.0627.lcssa
   %300 = load double, ptr %299, align 8, !tbaa !42
   %301 = fmul double %300, %298
   %302 = bitcast double %301 to i64
@@ -1293,7 +1293,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 
 315:                                              ; preds = %312
   %316 = zext nneg i32 %314 to i64
-  %317 = getelementptr [23 x double], ptr @tens, i64 0, i64 %316
+  %317 = getelementptr double, ptr @tens, i64 %316
   %318 = load double, ptr %317, align 8, !tbaa !42
   %319 = fdiv double %.sroa.0103.1837, %318
   br label %320
@@ -1324,7 +1324,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br i1 %.not708, label %332, label %328
 
 328:                                              ; preds = %.lr.ph1083
-  %329 = getelementptr [5 x double], ptr @tinytens, i64 0, i64 %indvars.iv
+  %329 = getelementptr double, ptr @tinytens, i64 %indvars.iv
   %330 = load double, ptr %329, align 8, !tbaa !42
   %331 = fmul double %.sroa.0103.91081, %330
   br label %332
@@ -1426,7 +1426,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.thread845
   %.023.lcssa61.i = phi i32 [ %361, %._crit_edge.i ], [ 0, %.thread845 ]
   %369 = sext i32 %.023.lcssa61.i to i64
-  %370 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %369
+  %370 = getelementptr ptr, ptr @freelist, i64 %369
   %371 = load ptr, ptr %370, align 8, !tbaa !47
   br label %372
 
@@ -1589,7 +1589,7 @@ Bfree.exit802:                                    ; preds = %Bfree.exit802.backe
 
 453:                                              ; preds = %Bfree.exit802
   %454 = sext i32 %446 to i64
-  %455 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %454
+  %455 = getelementptr ptr, ptr @freelist, i64 %454
   %456 = load ptr, ptr %455, align 8, !tbaa !47
   br label %457
 
@@ -1798,7 +1798,7 @@ i2b.exit:                                         ; preds = %516, %535
 566:                                              ; preds = %.backedge1625, %.preheader.i
   %567 = load i32, ptr %561, align 8, !tbaa !54
   %568 = sext i32 %567 to i64
-  %569 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %568
+  %569 = getelementptr ptr, ptr @freelist, i64 %568
   %570 = cmpxchg volatile ptr %569, i64 0, i64 0 seq_cst seq_cst, align 8
   %571 = extractvalue { i64, i1 } %570, 0
   %572 = icmp eq i64 %571, -1
@@ -1812,7 +1812,7 @@ i2b.exit:                                         ; preds = %516, %535
   store ptr %574, ptr %505, align 8, !tbaa !50
   %575 = load i32, ptr %561, align 8, !tbaa !54
   %576 = sext i32 %575 to i64
-  %577 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %576
+  %577 = getelementptr ptr, ptr @freelist, i64 %576
   %578 = cmpxchg volatile ptr %577, i64 %571, i64 %564 seq_cst seq_cst, align 8
   %.not12.i = extractvalue { i64, i1 } %578, 1
   br i1 %.not12.i, label %Bfree.exit, label %.backedge1625, !prof !49
@@ -2436,7 +2436,7 @@ ratio.exit:                                       ; preds = %758, %769, %781
 874:                                              ; preds = %.backedge1624, %.preheader.i788
   %875 = load i32, ptr %869, align 8, !tbaa !54
   %876 = sext i32 %875 to i64
-  %877 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %876
+  %877 = getelementptr ptr, ptr @freelist, i64 %876
   %878 = cmpxchg volatile ptr %877, i64 0, i64 0 seq_cst seq_cst, align 8
   %879 = extractvalue { i64, i1 } %878, 0
   %880 = icmp eq i64 %879, -1
@@ -2450,7 +2450,7 @@ ratio.exit:                                       ; preds = %758, %769, %781
   store ptr %882, ptr %.4556, align 8, !tbaa !50
   %883 = load i32, ptr %869, align 8, !tbaa !54
   %884 = sext i32 %883 to i64
-  %885 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %884
+  %885 = getelementptr ptr, ptr @freelist, i64 %884
   %886 = cmpxchg volatile ptr %885, i64 %879, i64 %872 seq_cst seq_cst, align 8
   %.not12.i789 = extractvalue { i64, i1 } %886, 1
   br i1 %.not12.i789, label %Bfree.exit790, label %.backedge1624, !prof !49
@@ -2476,7 +2476,7 @@ Bfree.exit790:                                    ; preds = %881, %867, %873
 893:                                              ; preds = %.backedge1623, %.preheader.i792
   %894 = load i32, ptr %888, align 8, !tbaa !54
   %895 = sext i32 %894 to i64
-  %896 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %895
+  %896 = getelementptr ptr, ptr @freelist, i64 %895
   %897 = cmpxchg volatile ptr %896, i64 0, i64 0 seq_cst seq_cst, align 8
   %898 = extractvalue { i64, i1 } %897, 0
   %899 = icmp eq i64 %898, -1
@@ -2490,7 +2490,7 @@ Bfree.exit790:                                    ; preds = %881, %867, %873
   store ptr %901, ptr %.4549, align 8, !tbaa !50
   %902 = load i32, ptr %888, align 8, !tbaa !54
   %903 = sext i32 %902 to i64
-  %904 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %903
+  %904 = getelementptr ptr, ptr @freelist, i64 %903
   %905 = cmpxchg volatile ptr %904, i64 %898, i64 %891 seq_cst seq_cst, align 8
   %.not12.i793 = extractvalue { i64, i1 } %905, 1
   br i1 %.not12.i793, label %Bfree.exit794, label %.backedge1623, !prof !49
@@ -2516,7 +2516,7 @@ Bfree.exit794:                                    ; preds = %900, %Bfree.exit790
 912:                                              ; preds = %.backedge1622, %.preheader.i796
   %913 = load i32, ptr %907, align 8, !tbaa !54
   %914 = sext i32 %913 to i64
-  %915 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %914
+  %915 = getelementptr ptr, ptr @freelist, i64 %914
   %916 = cmpxchg volatile ptr %915, i64 0, i64 0 seq_cst seq_cst, align 8
   %917 = extractvalue { i64, i1 } %916, 0
   %918 = icmp eq i64 %917, -1
@@ -2530,7 +2530,7 @@ Bfree.exit794:                                    ; preds = %900, %Bfree.exit790
   store ptr %920, ptr %.4541, align 8, !tbaa !50
   %921 = load i32, ptr %907, align 8, !tbaa !54
   %922 = sext i32 %921 to i64
-  %923 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %922
+  %923 = getelementptr ptr, ptr @freelist, i64 %922
   %924 = cmpxchg volatile ptr %923, i64 %917, i64 %910 seq_cst seq_cst, align 8
   %.not12.i797 = extractvalue { i64, i1 } %924, 1
   br i1 %.not12.i797, label %Bfree.exit798, label %.backedge1622, !prof !49
@@ -2559,7 +2559,7 @@ Bfree.exit802.backedge:                           ; preds = %938, %Bfree.exit798
 931:                                              ; preds = %.backedge1621, %.preheader.i800
   %932 = load i32, ptr %926, align 8, !tbaa !54
   %933 = sext i32 %932 to i64
-  %934 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %933
+  %934 = getelementptr ptr, ptr @freelist, i64 %933
   %935 = cmpxchg volatile ptr %934, i64 0, i64 0 seq_cst seq_cst, align 8
   %936 = extractvalue { i64, i1 } %935, 0
   %937 = icmp eq i64 %936, -1
@@ -2573,7 +2573,7 @@ Bfree.exit802.backedge:                           ; preds = %938, %Bfree.exit798
   store ptr %939, ptr %594, align 8, !tbaa !50
   %940 = load i32, ptr %926, align 8, !tbaa !54
   %941 = sext i32 %940 to i64
-  %942 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %941
+  %942 = getelementptr ptr, ptr @freelist, i64 %941
   %943 = cmpxchg volatile ptr %942, i64 %936, i64 %929 seq_cst seq_cst, align 8
   %.not12.i801 = extractvalue { i64, i1 } %943, 1
   br i1 %.not12.i801, label %Bfree.exit802.backedge, label %.backedge1621, !prof !49
@@ -2618,7 +2618,7 @@ cmp.exit782.thread:                               ; preds = %648, %626, %646, %.
 953:                                              ; preds = %.backedge1617, %.preheader.i804
   %954 = load i32, ptr %948, align 8, !tbaa !54
   %955 = sext i32 %954 to i64
-  %956 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %955
+  %956 = getelementptr ptr, ptr @freelist, i64 %955
   %957 = cmpxchg volatile ptr %956, i64 0, i64 0 seq_cst seq_cst, align 8
   %958 = extractvalue { i64, i1 } %957, 0
   %959 = icmp eq i64 %958, -1
@@ -2632,7 +2632,7 @@ cmp.exit782.thread:                               ; preds = %648, %626, %646, %.
   store ptr %961, ptr %.4556, align 8, !tbaa !50
   %962 = load i32, ptr %948, align 8, !tbaa !54
   %963 = sext i32 %962 to i64
-  %964 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %963
+  %964 = getelementptr ptr, ptr @freelist, i64 %963
   %965 = cmpxchg volatile ptr %964, i64 %958, i64 %951 seq_cst seq_cst, align 8
   %.not12.i805 = extractvalue { i64, i1 } %965, 1
   br i1 %.not12.i805, label %Bfree.exit806, label %.backedge1617, !prof !49
@@ -2658,7 +2658,7 @@ Bfree.exit806:                                    ; preds = %960, %.thread874, %
 972:                                              ; preds = %.backedge1616, %.preheader.i808
   %973 = load i32, ptr %967, align 8, !tbaa !54
   %974 = sext i32 %973 to i64
-  %975 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %974
+  %975 = getelementptr ptr, ptr @freelist, i64 %974
   %976 = cmpxchg volatile ptr %975, i64 0, i64 0 seq_cst seq_cst, align 8
   %977 = extractvalue { i64, i1 } %976, 0
   %978 = icmp eq i64 %977, -1
@@ -2672,7 +2672,7 @@ Bfree.exit806:                                    ; preds = %960, %.thread874, %
   store ptr %980, ptr %.4549, align 8, !tbaa !50
   %981 = load i32, ptr %967, align 8, !tbaa !54
   %982 = sext i32 %981 to i64
-  %983 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %982
+  %983 = getelementptr ptr, ptr @freelist, i64 %982
   %984 = cmpxchg volatile ptr %983, i64 %977, i64 %970 seq_cst seq_cst, align 8
   %.not12.i809 = extractvalue { i64, i1 } %984, 1
   br i1 %.not12.i809, label %Bfree.exit810, label %.backedge1616, !prof !49
@@ -2698,7 +2698,7 @@ Bfree.exit810:                                    ; preds = %979, %Bfree.exit806
 991:                                              ; preds = %.backedge1615, %.preheader.i812
   %992 = load i32, ptr %986, align 8, !tbaa !54
   %993 = sext i32 %992 to i64
-  %994 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %993
+  %994 = getelementptr ptr, ptr @freelist, i64 %993
   %995 = cmpxchg volatile ptr %994, i64 0, i64 0 seq_cst seq_cst, align 8
   %996 = extractvalue { i64, i1 } %995, 0
   %997 = icmp eq i64 %996, -1
@@ -2712,7 +2712,7 @@ Bfree.exit810:                                    ; preds = %979, %Bfree.exit806
   store ptr %999, ptr %.4541, align 8, !tbaa !50
   %1000 = load i32, ptr %986, align 8, !tbaa !54
   %1001 = sext i32 %1000 to i64
-  %1002 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %1001
+  %1002 = getelementptr ptr, ptr @freelist, i64 %1001
   %1003 = cmpxchg volatile ptr %1002, i64 %996, i64 %989 seq_cst seq_cst, align 8
   %.not12.i813 = extractvalue { i64, i1 } %1003, 1
   br i1 %.not12.i813, label %Bfree.exit814, label %.backedge1615, !prof !49
@@ -2737,7 +2737,7 @@ Bfree.exit814:                                    ; preds = %998, %Bfree.exit810
 1009:                                             ; preds = %.backedge1614, %.preheader.i816
   %1010 = load i32, ptr %438, align 8, !tbaa !54
   %1011 = sext i32 %1010 to i64
-  %1012 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %1011
+  %1012 = getelementptr ptr, ptr @freelist, i64 %1011
   %1013 = cmpxchg volatile ptr %1012, i64 0, i64 0 seq_cst seq_cst, align 8
   %1014 = extractvalue { i64, i1 } %1013, 0
   %1015 = icmp eq i64 %1014, -1
@@ -2751,7 +2751,7 @@ Bfree.exit814:                                    ; preds = %998, %Bfree.exit810
   store ptr %1017, ptr %.229.lcssa.i, align 8, !tbaa !50
   %1018 = load i32, ptr %438, align 8, !tbaa !54
   %1019 = sext i32 %1018 to i64
-  %1020 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %1019
+  %1020 = getelementptr ptr, ptr @freelist, i64 %1019
   %1021 = cmpxchg volatile ptr %1020, i64 %1014, i64 %1007 seq_cst seq_cst, align 8
   %.not12.i817 = extractvalue { i64, i1 } %1021, 1
   br i1 %.not12.i817, label %Bfree.exit818, label %.backedge1614, !prof !49
@@ -2777,7 +2777,7 @@ Bfree.exit818:                                    ; preds = %1016, %Bfree.exit81
 1028:                                             ; preds = %.backedge, %.preheader.i820
   %1029 = load i32, ptr %1023, align 8, !tbaa !54
   %1030 = sext i32 %1029 to i64
-  %1031 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %1030
+  %1031 = getelementptr ptr, ptr @freelist, i64 %1030
   %1032 = cmpxchg volatile ptr %1031, i64 0, i64 0 seq_cst seq_cst, align 8
   %1033 = extractvalue { i64, i1 } %1032, 0
   %1034 = icmp eq i64 %1033, -1
@@ -2791,7 +2791,7 @@ Bfree.exit818:                                    ; preds = %1016, %Bfree.exit81
   store ptr %1036, ptr %.1, align 8, !tbaa !50
   %1037 = load i32, ptr %1023, align 8, !tbaa !54
   %1038 = sext i32 %1037 to i64
-  %1039 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %1038
+  %1039 = getelementptr ptr, ptr @freelist, i64 %1038
   %1040 = cmpxchg volatile ptr %1039, i64 %1033, i64 %1026 seq_cst seq_cst, align 8
   %.not12.i821 = extractvalue { i64, i1 } %1040, 1
   br i1 %.not12.i821, label %Bfree.exit822, label %.backedge, !prof !49
@@ -3128,9 +3128,9 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = add nsw i32 %3, -1
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr [3 x i32], ptr @pow5mult.p05, i64 0, i64 %6
+  %5 = zext nneg i32 %3 to i64
+  %6 = getelementptr i32, ptr @pow5mult.p05, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !15
   %9 = tail call fastcc ptr @multadd(ptr noundef %0, i32 noundef %8, i32 noundef 0)
   br label %10
@@ -3269,7 +3269,7 @@ i2b.exit:                                         ; preds = %25, %44
 64:                                               ; preds = %.backedge, %.preheader.i
   %65 = load i32, ptr %59, align 8, !tbaa !54
   %66 = sext i32 %65 to i64
-  %67 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %66
+  %67 = getelementptr ptr, ptr @freelist, i64 %66
   %68 = cmpxchg volatile ptr %67, i64 0, i64 0 seq_cst seq_cst, align 8
   %69 = extractvalue { i64, i1 } %68, 0
   %70 = icmp eq i64 %69, -1
@@ -3283,7 +3283,7 @@ i2b.exit:                                         ; preds = %25, %44
   store ptr %72, ptr %.131, align 8, !tbaa !50
   %73 = load i32, ptr %59, align 8, !tbaa !54
   %74 = sext i32 %73 to i64
-  %75 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %74
+  %75 = getelementptr ptr, ptr @freelist, i64 %74
   %76 = cmpxchg volatile ptr %75, i64 %69, i64 %62 seq_cst seq_cst, align 8
   %.not12.i = extractvalue { i64, i1 } %76, 1
   br i1 %.not12.i, label %Bfree.exit, label %.backedge, !prof !49
@@ -3350,7 +3350,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
 
 25:                                               ; preds = %2
   %26 = sext i32 %.058 to i64
-  %27 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr @freelist, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !47
   br label %29
 
@@ -3545,7 +3545,7 @@ define internal fastcc void @Bfree(ptr noundef %0) unnamed_addr #1 {
 8:                                                ; preds = %.backedge, %.preheader
   %9 = load i32, ptr %3, align 8, !tbaa !54
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr @freelist, i64 %10
   %12 = cmpxchg volatile ptr %11, i64 0, i64 0 seq_cst seq_cst, align 8
   %13 = extractvalue { i64, i1 } %12, 0
   %14 = icmp eq i64 %13, -1
@@ -3559,7 +3559,7 @@ define internal fastcc void @Bfree(ptr noundef %0) unnamed_addr #1 {
   store ptr %16, ptr %0, align 8, !tbaa !50
   %17 = load i32, ptr %3, align 8, !tbaa !54
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr @freelist, i64 %18
   %20 = cmpxchg volatile ptr %19, i64 %13, i64 %6 seq_cst seq_cst, align 8
   %.not12 = extractvalue { i64, i1 } %20, 1
   br i1 %.not12, label %.loopexit, label %.backedge, !prof !49
@@ -3605,7 +3605,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
 
 22:                                               ; preds = %._crit_edge
   %23 = sext i32 %.044.lcssa to i64
-  %24 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr @freelist, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !47
   br label %26
 
@@ -3761,7 +3761,7 @@ Balloc.exit:                                      ; preds = %35, %63
 100:                                              ; preds = %.backedge, %.preheader.i
   %101 = load i32, ptr %4, align 8, !tbaa !54
   %102 = sext i32 %101 to i64
-  %103 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %102
+  %103 = getelementptr ptr, ptr @freelist, i64 %102
   %104 = cmpxchg volatile ptr %103, i64 0, i64 0 seq_cst seq_cst, align 8
   %105 = extractvalue { i64, i1 } %104, 0
   %106 = icmp eq i64 %105, -1
@@ -3775,7 +3775,7 @@ Balloc.exit:                                      ; preds = %35, %63
   store ptr %108, ptr %0, align 8, !tbaa !50
   %109 = load i32, ptr %4, align 8, !tbaa !54
   %110 = sext i32 %109 to i64
-  %111 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %110
+  %111 = getelementptr ptr, ptr @freelist, i64 %110
   %112 = cmpxchg volatile ptr %111, i64 %105, i64 %98 seq_cst seq_cst, align 8
   %.not12.i = extractvalue { i64, i1 } %112, 1
   br i1 %.not12.i, label %Bfree.exit, label %.backedge, !prof !49
@@ -3915,7 +3915,7 @@ Balloc.exit:                                      ; preds = %33, %52
 
 68:                                               ; preds = %58
   %69 = sext i32 %61 to i64
-  %70 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %69
+  %70 = getelementptr ptr, ptr @freelist, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !47
   br label %72
 
@@ -4203,7 +4203,7 @@ define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noun
 
 62:                                               ; preds = %52
   %63 = zext nneg i32 %.0514 to i64
-  %64 = getelementptr [23 x double], ptr @tens, i64 0, i64 %63
+  %64 = getelementptr double, ptr @tens, i64 %63
   %65 = load double, ptr %64, align 8, !tbaa !42
   %66 = fcmp olt double %.sroa.088.0, %65
   br i1 %66, label %select.unfold, label %68
@@ -4294,7 +4294,7 @@ default.unreachable:                              ; preds = %80
 96:                                               ; preds = %94
   %97 = and i32 %.1515, 15
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr [23 x double], ptr @tens, i64 0, i64 %98
+  %99 = getelementptr double, ptr @tens, i64 %98
   %100 = load double, ptr %99, align 8, !tbaa !42
   %101 = lshr i32 %.1515, 4
   %102 = and i32 %.1515, 256
@@ -4318,7 +4318,7 @@ default.unreachable:                              ; preds = %80
 
 106:                                              ; preds = %.lr.ph879
   %107 = add i32 %.1546875, 1
-  %108 = getelementptr [5 x double], ptr @bigtens, i64 0, i64 %indvars.iv
+  %108 = getelementptr double, ptr @bigtens, i64 %indvars.iv
   %109 = load double, ptr %108, align 8, !tbaa !42
   %110 = fmul double %.0439878, %109
   br label %111
@@ -4345,7 +4345,7 @@ default.unreachable:                              ; preds = %80
   %116 = sub i32 0, %.1515
   %117 = and i32 %116, 15
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr [23 x double], ptr @tens, i64 0, i64 %118
+  %119 = getelementptr double, ptr @tens, i64 %118
   %120 = load double, ptr %119, align 8, !tbaa !42
   %121 = fmul double %.sroa.088.0, %120
   %.not581868 = icmp ult i32 %116, 16
@@ -4367,7 +4367,7 @@ default.unreachable:                              ; preds = %80
 124:                                              ; preds = %.lr.ph
   %125 = add i32 %.4549869, 1
   %126 = sext i32 %.3532870 to i64
-  %127 = getelementptr [5 x double], ptr @bigtens, i64 0, i64 %126
+  %127 = getelementptr double, ptr @bigtens, i64 %126
   %128 = load double, ptr %127, align 8, !tbaa !42
   %129 = fmul double %.sroa.088.4872, %128
   br label %130
@@ -4427,9 +4427,9 @@ default.unreachable:                              ; preds = %80
 
 154:                                              ; preds = %141
   %.not585 = icmp eq i32 %.0507, 0
-  %155 = add nsw i32 %.2541, -1
-  %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr [23 x double], ptr @tens, i64 0, i64 %156
+  %155 = zext nneg i32 %.2541 to i64
+  %156 = getelementptr double, ptr @tens, i64 %155
+  %157 = getelementptr i8, ptr %156, i64 -8
   %158 = load double, ptr %157, align 8, !tbaa !42
   %159 = getelementptr i8, ptr %92, i64 1
   br i1 %.not585, label %186, label %160
@@ -4551,7 +4551,7 @@ default.unreachable:                              ; preds = %80
 
 224:                                              ; preds = %.loopexit764.thread, %.loopexit764
   %225 = sext i32 %.1515 to i64
-  %226 = getelementptr [23 x double], ptr @tens, i64 0, i64 %225
+  %226 = getelementptr double, ptr @tens, i64 %225
   %227 = load double, ptr %226, align 8, !tbaa !42
   %228 = icmp slt i32 %.0470, 0
   %229 = icmp slt i32 %.0539, 1
@@ -4787,7 +4787,7 @@ i2b.exit:                                         ; preds = %293, %312
 338:                                              ; preds = %.backedge1408, %.preheader.i
   %339 = load i32, ptr %333, align 8, !tbaa !54
   %340 = sext i32 %339 to i64
-  %341 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %340
+  %341 = getelementptr ptr, ptr @freelist, i64 %340
   %342 = cmpxchg volatile ptr %341, i64 0, i64 0 seq_cst seq_cst, align 8
   %343 = extractvalue { i64, i1 } %342, 0
   %344 = icmp eq i64 %343, -1
@@ -4801,7 +4801,7 @@ i2b.exit:                                         ; preds = %293, %312
   store ptr %346, ptr %25, align 8, !tbaa !50
   %347 = load i32, ptr %333, align 8, !tbaa !54
   %348 = sext i32 %347 to i64
-  %349 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %348
+  %349 = getelementptr ptr, ptr @freelist, i64 %348
   %350 = cmpxchg volatile ptr %349, i64 %343, i64 %336 seq_cst seq_cst, align 8
   %.not12.i = extractvalue { i64, i1 } %350, 1
   br i1 %.not12.i, label %Bfree.exit, label %.backedge1408, !prof !49
@@ -4914,7 +4914,7 @@ i2b.exit657:                                      ; preds = %363, %382
   %400 = load i32, ptr %399, align 4, !tbaa !57
   %401 = add i32 %400, -1
   %402 = sext i32 %401 to i64
-  %403 = getelementptr [1 x i32], ptr %398, i64 0, i64 %402
+  %403 = getelementptr i32, ptr %398, i64 %402
   %404 = load i32, ptr %403, align 4, !tbaa !15
   %.not.i658 = icmp ult i32 %404, 65536
   %405 = shl nuw i32 %404, 16
@@ -5153,7 +5153,7 @@ cmp.exit667.thread728:                            ; preds = %486, %240, %cmp.exi
 
 509:                                              ; preds = %500
   %510 = sext i32 %502 to i64
-  %511 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %510
+  %511 = getelementptr ptr, ptr @freelist, i64 %510
   %512 = load ptr, ptr %511, align 8, !tbaa !47
   br label %513
 
@@ -5364,7 +5364,7 @@ cmp.exit687.thread:                               ; preds = %cmp.exit680, %593, 
 620:                                              ; preds = %.backedge1349, %.preheader.i689
   %621 = load i32, ptr %615, align 8, !tbaa !54
   %622 = sext i32 %621 to i64
-  %623 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %622
+  %623 = getelementptr ptr, ptr @freelist, i64 %622
   %624 = cmpxchg volatile ptr %623, i64 0, i64 0 seq_cst seq_cst, align 8
   %625 = extractvalue { i64, i1 } %624, 0
   %626 = icmp eq i64 %625, -1
@@ -5378,7 +5378,7 @@ cmp.exit687.thread:                               ; preds = %cmp.exit680, %593, 
   store ptr %628, ptr %590, align 8, !tbaa !50
   %629 = load i32, ptr %615, align 8, !tbaa !54
   %630 = sext i32 %629 to i64
-  %631 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %630
+  %631 = getelementptr ptr, ptr @freelist, i64 %630
   %632 = cmpxchg volatile ptr %631, i64 %625, i64 %618 seq_cst seq_cst, align 8
   %.not12.i690 = extractvalue { i64, i1 } %632, 1
   br i1 %.not12.i690, label %Bfree.exit691, label %.backedge1349, !prof !49
@@ -5689,7 +5689,7 @@ cmp.exit705.thread749:                            ; preds = %738, %cmp.exit705.t
 766:                                              ; preds = %.backedge1317, %.preheader.i707
   %767 = load i32, ptr %761, align 8, !tbaa !54
   %768 = sext i32 %767 to i64
-  %769 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %768
+  %769 = getelementptr ptr, ptr @freelist, i64 %768
   %770 = cmpxchg volatile ptr %769, i64 0, i64 0 seq_cst seq_cst, align 8
   %771 = extractvalue { i64, i1 } %770, 0
   %772 = icmp eq i64 %771, -1
@@ -5703,7 +5703,7 @@ cmp.exit705.thread749:                            ; preds = %738, %cmp.exit705.t
   store ptr %774, ptr %.4445, align 8, !tbaa !50
   %775 = load i32, ptr %761, align 8, !tbaa !54
   %776 = sext i32 %775 to i64
-  %777 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %776
+  %777 = getelementptr ptr, ptr @freelist, i64 %776
   %778 = cmpxchg volatile ptr %777, i64 %771, i64 %764 seq_cst seq_cst, align 8
   %.not12.i708 = extractvalue { i64, i1 } %778, 1
   br i1 %.not12.i708, label %Bfree.exit709, label %.backedge1317, !prof !49
@@ -5735,7 +5735,7 @@ Bfree.exit709:                                    ; preds = %773, %.loopexit755,
 786:                                              ; preds = %.backedge1316, %.preheader.i711
   %787 = load i32, ptr %781, align 8, !tbaa !54
   %788 = sext i32 %787 to i64
-  %789 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %788
+  %789 = getelementptr ptr, ptr @freelist, i64 %788
   %790 = cmpxchg volatile ptr %789, i64 0, i64 0 seq_cst seq_cst, align 8
   %791 = extractvalue { i64, i1 } %790, 0
   %792 = icmp eq i64 %791, -1
@@ -5749,7 +5749,7 @@ Bfree.exit709:                                    ; preds = %773, %.loopexit755,
   store ptr %794, ptr %.0463, align 8, !tbaa !50
   %795 = load i32, ptr %781, align 8, !tbaa !54
   %796 = sext i32 %795 to i64
-  %797 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %796
+  %797 = getelementptr ptr, ptr @freelist, i64 %796
   %798 = cmpxchg volatile ptr %797, i64 %791, i64 %784 seq_cst seq_cst, align 8
   %.not12.i712 = extractvalue { i64, i1 } %798, 1
   br i1 %.not12.i712, label %Bfree.exit713, label %.backedge1316, !prof !49
@@ -5771,7 +5771,7 @@ Bfree.exit713:                                    ; preds = %793, %779, %785
 804:                                              ; preds = %.backedge1315, %.preheader.i715
   %805 = load i32, ptr %799, align 8, !tbaa !54
   %806 = sext i32 %805 to i64
-  %807 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %806
+  %807 = getelementptr ptr, ptr @freelist, i64 %806
   %808 = cmpxchg volatile ptr %807, i64 0, i64 0 seq_cst seq_cst, align 8
   %809 = extractvalue { i64, i1 } %808, 0
   %810 = icmp eq i64 %809, -1
@@ -5785,7 +5785,7 @@ Bfree.exit713:                                    ; preds = %793, %779, %785
   store ptr %812, ptr %.9455, align 8, !tbaa !50
   %813 = load i32, ptr %799, align 8, !tbaa !54
   %814 = sext i32 %813 to i64
-  %815 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %814
+  %815 = getelementptr ptr, ptr @freelist, i64 %814
   %816 = cmpxchg volatile ptr %815, i64 %809, i64 %802 seq_cst seq_cst, align 8
   %.not12.i716 = extractvalue { i64, i1 } %816, 1
   br i1 %.not12.i716, label %Bfree.exit717, label %.backedge1315, !prof !49
@@ -5814,7 +5814,7 @@ Bfree.exit717:                                    ; preds = %175, %.preheader760
 823:                                              ; preds = %.backedge, %.preheader.i719
   %824 = load i32, ptr %818, align 8, !tbaa !54
   %825 = sext i32 %824 to i64
-  %826 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %825
+  %826 = getelementptr ptr, ptr @freelist, i64 %825
   %827 = cmpxchg volatile ptr %826, i64 0, i64 0 seq_cst seq_cst, align 8
   %828 = extractvalue { i64, i1 } %827, 0
   %829 = icmp eq i64 %828, -1
@@ -5828,7 +5828,7 @@ Bfree.exit717:                                    ; preds = %175, %.preheader760
   store ptr %831, ptr %.2473, align 8, !tbaa !50
   %832 = load i32, ptr %818, align 8, !tbaa !54
   %833 = sext i32 %832 to i64
-  %834 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %833
+  %834 = getelementptr ptr, ptr @freelist, i64 %833
   %835 = cmpxchg volatile ptr %834, i64 %828, i64 %821 seq_cst seq_cst, align 8
   %.not12.i720 = extractvalue { i64, i1 } %835, 1
   br i1 %.not12.i720, label %Bfree.exit721, label %.backedge, !prof !49
@@ -5940,7 +5940,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 32:                                               ; preds = %22
   %33 = sext i32 %25 to i64
-  %34 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %33
+  %34 = getelementptr ptr, ptr @freelist, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !47
   br label %36
 
@@ -6047,7 +6047,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %83, %Balloc.exit
 89:                                               ; preds = %.backedge, %.preheader.i
   %90 = load i32, ptr %23, align 8, !tbaa !54
   %91 = sext i32 %90 to i64
-  %92 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %91
+  %92 = getelementptr ptr, ptr @freelist, i64 %91
   %93 = cmpxchg volatile ptr %92, i64 0, i64 0 seq_cst seq_cst, align 8
   %94 = extractvalue { i64, i1 } %93, 0
   %95 = icmp eq i64 %94, -1
@@ -6061,7 +6061,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %83, %Balloc.exit
   store ptr %97, ptr %0, align 8, !tbaa !50
   %98 = load i32, ptr %23, align 8, !tbaa !54
   %99 = sext i32 %98 to i64
-  %100 = getelementptr [16 x ptr], ptr @freelist, i64 0, i64 %99
+  %100 = getelementptr ptr, ptr @freelist, i64 %99
   %101 = cmpxchg volatile ptr %100, i64 %94, i64 %87 seq_cst seq_cst, align 8
   %.not12.i = extractvalue { i64, i1 } %101, 1
   br i1 %.not12.i, label %Bfree.exit, label %.backedge, !prof !49
@@ -6072,7 +6072,7 @@ Bfree.exit:                                       ; preds = %96, %88, %19
   %103 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %104 = add i32 %5, 1
   %105 = sext i32 %5 to i64
-  %106 = getelementptr [1 x i32], ptr %103, i64 0, i64 %105
+  %106 = getelementptr i32, ptr %103, i64 %105
   store i32 %102, ptr %106, align 4, !tbaa !15
   %107 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   store i32 %104, ptr %107, align 4, !tbaa !57

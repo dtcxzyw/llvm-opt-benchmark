@@ -2435,7 +2435,7 @@ _ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeT
   %160 = load ptr, ptr %32, align 8
   %161 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %160) #6
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %162
   %164 = load i32, ptr %163, align 4
   %165 = mul i32 %164, %159
   %166 = call noundef i32 @llvm.umax.i32(i32 %158, i32 %165)
@@ -2478,7 +2478,7 @@ _ZN4NodenwEm.exit70:                              ; preds = %184, %186
 
 189:                                              ; preds = %_ZN4NodenwEm.exit70
   %190 = zext i8 %34 to i64
-  %191 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %192, i32 noundef %150) #6
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i69, i32 noundef 2) #6
@@ -2573,7 +2573,7 @@ _ZN4NodenwEm.exit74:                              ; preds = %238, %240
 
 243:                                              ; preds = %_ZN4NodenwEm.exit74
   %244 = zext i8 %34 to i64
-  %245 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %244
   %246 = load ptr, ptr %245, align 8
   %247 = call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %246, i32 noundef %150, i1 noundef zeroext false) #6
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i73, i32 noundef 2) #6
@@ -3451,7 +3451,7 @@ define hidden noundef ptr @_ZN11PhaseVector22expand_vbox_alloc_nodeEP21VectorBox
   %90 = load ptr, ptr %16, align 8
   %91 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %90) #6
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = mul i32 %94, %89
   %96 = call noundef i32 @llvm.umax.i32(i32 %88, i32 %95)

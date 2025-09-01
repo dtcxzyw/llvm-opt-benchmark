@@ -209,7 +209,7 @@ define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull ret
   %.01316 = phi i64 [ %9, %.backedge ], [ 0, %2 ]
   %9 = add i64 %.01316, 1
   %10 = add nuw nsw i64 %.017, 1
-  %11 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %.017
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.017
   store i8 %8, ptr %11, align 1, !tbaa !14
   %.not = icmp eq i8 %8, 37
   br i1 %.not, label %12, label %.backedge
@@ -220,7 +220,7 @@ define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull ret
 
 14:                                               ; preds = %12
   %15 = add nuw nsw i64 %.017, 2
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %10
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   store i8 37, ptr %16, align 1, !tbaa !14
   br label %.backedge
 
@@ -235,7 +235,7 @@ define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull ret
 
 ._crit_edge:                                      ; preds = %.backedge, %12, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %.017, %12 ], [ %.0.be, %.backedge ]
-  %22 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %.0.lcssa
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   store i8 0, ptr %22, align 1, !tbaa !14
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 1024, ptr noundef nonnull @.str.14, ptr noundef %1, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -290,7 +290,7 @@ define dso_local noundef i32 @die_message_errno(ptr noundef %0, ...) local_unnam
   %.01316.i = phi i64 [ %10, %.backedge.i ], [ 0, %1 ]
   %10 = add i64 %.01316.i, 1
   %11 = add nuw nsw i64 %.017.i, 1
-  %12 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.017.i
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.017.i
   store i8 %9, ptr %12, align 1, !tbaa !14
   %.not.i = icmp eq i8 %9, 37
   br i1 %.not.i, label %13, label %.backedge.i
@@ -301,7 +301,7 @@ define dso_local noundef i32 @die_message_errno(ptr noundef %0, ...) local_unnam
 
 15:                                               ; preds = %13
   %16 = add nuw nsw i64 %.017.i, 2
-  %17 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   store i8 37, ptr %17, align 1, !tbaa !14
   br label %.backedge.i
 
@@ -316,7 +316,7 @@ define dso_local noundef i32 @die_message_errno(ptr noundef %0, ...) local_unnam
 
 fmt_with_err.exit:                                ; preds = %13, %.backedge.i, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %.0.be.i, %.backedge.i ], [ %.017.i, %13 ]
-  %23 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.0.lcssa.i
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i
   store i8 0, ptr %23, align 1, !tbaa !14
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.14, ptr noundef %0, ptr noundef nonnull %2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -362,7 +362,7 @@ define dso_local noundef i32 @error_errno(ptr noundef %0, ...) local_unnamed_add
   %.01316.i = phi i64 [ %11, %.backedge.i ], [ 0, %1 ]
   %11 = add i64 %.01316.i, 1
   %12 = add nuw nsw i64 %.017.i, 1
-  %13 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.017.i
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %.017.i
   store i8 %10, ptr %13, align 1, !tbaa !14
   %.not.i = icmp eq i8 %10, 37
   br i1 %.not.i, label %14, label %.backedge.i
@@ -373,7 +373,7 @@ define dso_local noundef i32 @error_errno(ptr noundef %0, ...) local_unnamed_add
 
 16:                                               ; preds = %14
   %17 = add nuw nsw i64 %.017.i, 2
-  %18 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   store i8 37, ptr %18, align 1, !tbaa !14
   br label %.backedge.i
 
@@ -388,7 +388,7 @@ define dso_local noundef i32 @error_errno(ptr noundef %0, ...) local_unnamed_add
 
 fmt_with_err.exit:                                ; preds = %14, %.backedge.i, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %.0.be.i, %.backedge.i ], [ %.017.i, %14 ]
-  %24 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.0.lcssa.i
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i
   store i8 0, ptr %24, align 1, !tbaa !14
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.14, ptr noundef %0, ptr noundef nonnull %2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -434,7 +434,7 @@ define dso_local void @warning_errno(ptr noundef %0, ...) local_unnamed_addr #5 
   %.01316.i = phi i64 [ %11, %.backedge.i ], [ 0, %1 ]
   %11 = add i64 %.01316.i, 1
   %12 = add nuw nsw i64 %.017.i, 1
-  %13 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.017.i
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %.017.i
   store i8 %10, ptr %13, align 1, !tbaa !14
   %.not.i = icmp eq i8 %10, 37
   br i1 %.not.i, label %14, label %.backedge.i
@@ -445,7 +445,7 @@ define dso_local void @warning_errno(ptr noundef %0, ...) local_unnamed_addr #5 
 
 16:                                               ; preds = %14
   %17 = add nuw nsw i64 %.017.i, 2
-  %18 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   store i8 37, ptr %18, align 1, !tbaa !14
   br label %.backedge.i
 
@@ -460,7 +460,7 @@ define dso_local void @warning_errno(ptr noundef %0, ...) local_unnamed_addr #5 
 
 fmt_with_err.exit:                                ; preds = %14, %.backedge.i, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %.0.be.i, %.backedge.i ], [ %.017.i, %14 ]
-  %24 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.0.lcssa.i
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i
   store i8 0, ptr %24, align 1, !tbaa !14
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.14, ptr noundef %0, ptr noundef nonnull %2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -654,7 +654,7 @@ _.exit:                                           ; preds = %14, %17
 
 22:                                               ; preds = %.lr.ph
   %23 = zext i8 %21 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !14
   %.fr = freeze i8 %25
   %26 = and i8 %.fr, 64

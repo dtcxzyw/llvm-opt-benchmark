@@ -571,7 +571,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 111:                                              ; preds = %._crit_edge
-  %112 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i, i32 2
+  %112 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i, i32 2
   %113 = load i64, ptr %112, align 8, !noalias !53, !noundef !7
   %.sroa.0.011.i = and i64 %64, %113
   %114 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.011.i
@@ -737,7 +737,7 @@ _ZN4core3ptr19swap_nonoverlapping17h25efa55a1bcbbe91E.exit.loopexit.i: ; preds =
 .lr.ph.i8:                                        ; preds = %176, %_ZN4core3ptr19swap_nonoverlapping17h25efa55a1bcbbe91E.exit.loopexit.i
   %.val3.i16.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17h25efa55a1bcbbe91E.exit.loopexit.i ], [ %.val3.i15.i, %176 ]
   %188 = phi ptr [ %184, %_ZN4core3ptr19swap_nonoverlapping17h25efa55a1bcbbe91E.exit.loopexit.i ], [ %173, %176 ]
-  %189 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i16.i, i32 2
+  %189 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i16.i, i32 2
   %190 = load i64, ptr %189, align 8, !noalias !81, !noundef !7
   %.val8.i = load i64, ptr %15, align 8, !alias.scope !63, !noundef !7
   %.sroa.0.011.i.i = and i64 %.val8.i, %190

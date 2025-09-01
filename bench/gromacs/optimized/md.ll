@@ -2177,13 +2177,13 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %897
 
 956:                                              ; preds = %.preheader1572, %961
   %indvars.iv = phi i64 [ 0, %.preheader1572 ], [ %indvars.iv.next, %961 ]
-  %957 = getelementptr inbounds nuw [3 x i32], ptr %954, i64 0, i64 %indvars.iv
+  %957 = getelementptr inbounds nuw i32, ptr %954, i64 %indvars.iv
   %958 = load i32, ptr %957, align 4, !tbaa !580
   %.not738 = icmp eq i32 %958, 0
   br i1 %.not738, label %961, label %959
 
 959:                                              ; preds = %956
-  %960 = getelementptr inbounds nuw [3 x float], ptr %955, i64 0, i64 %indvars.iv
+  %960 = getelementptr inbounds nuw float, ptr %955, i64 %indvars.iv
   store float 0.000000e+00, ptr %960, align 4, !tbaa !158
   br label %961
 
@@ -4413,7 +4413,7 @@ _Z11do_per_stepll.exit1034:                       ; preds = %2253, %2251, %2247
   %2265 = getelementptr inbounds nuw i8, ptr %2264, i64 560
   %2266 = load i64, ptr %47, align 8, !tbaa !517
   %2267 = srem i64 %2266, 2
-  %2268 = getelementptr inbounds nuw [2 x %"class.std::unique_ptr.329"], ptr %2265, i64 0, i64 %2267
+  %2268 = getelementptr inbounds nuw %"class.std::unique_ptr.329", ptr %2265, i64 %2267
   %2269 = load ptr, ptr %2268, align 8, !tbaa !699
   %or.cond48 = or i1 %spec.select837, %.0.i1012
   br i1 %or.cond48, label %2270, label %2280
@@ -4748,7 +4748,7 @@ _Z11do_per_stepll.exit1046.thread:                ; preds = %_Z11do_per_stepll.e
   %2465 = phi i64 [ 0, %2453 ], [ %2487, %2484 ]
   %.idx.i1049 = mul nuw nsw i64 %2465, 24
   %2466 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i1049
-  %2467 = getelementptr inbounds nuw [5 x %"class.std::vector.73"], ptr %53, i64 0, i64 %2465
+  %2467 = getelementptr inbounds nuw %"class.std::vector.73", ptr %53, i64 %2465
   %2468 = getelementptr inbounds nuw i8, ptr %2467, i64 8
   %2469 = load ptr, ptr %2468, align 8, !tbaa !721
   %2470 = load ptr, ptr %2467, align 8, !tbaa !722
@@ -5669,7 +5669,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit1087: ; preds = %2928,
   %2988 = phi i64 [ 0, %2976 ], [ %3010, %3007 ]
   %.idx.i1088 = mul nuw nsw i64 %2988, 24
   %2989 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i1088
-  %2990 = getelementptr inbounds nuw [5 x %"class.std::vector.73"], ptr %53, i64 0, i64 %2988
+  %2990 = getelementptr inbounds nuw %"class.std::vector.73", ptr %53, i64 %2988
   %2991 = getelementptr inbounds nuw i8, ptr %2990, i64 8
   %2992 = load ptr, ptr %2991, align 8, !tbaa !721
   %2993 = load ptr, ptr %2990, align 8, !tbaa !722

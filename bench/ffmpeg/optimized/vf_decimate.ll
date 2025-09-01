@@ -915,13 +915,13 @@ define internal fastcc i32 @filter_frame(ptr %.16.val, ptr %.24.val, ptr noundef
   br i1 %exitcond231.not.i, label %._crit_edge189.i, label %.preheader.us.i, !llvm.loop !92
 
 116:                                              ; preds = %87
-  %117 = getelementptr inbounds nuw [8 x i32], ptr %72, i64 0, i64 %indvars.iv220.i
+  %117 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv220.i
   %118 = load i32, ptr %117, align 4, !tbaa !49
-  %119 = getelementptr inbounds nuw [8 x i32], ptr %73, i64 0, i64 %indvars.iv220.i
+  %119 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv220.i
   %120 = load i32, ptr %119, align 4, !tbaa !49
-  %121 = getelementptr inbounds nuw [8 x ptr], ptr %56, i64 0, i64 %indvars.iv220.i
+  %121 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv220.i
   %122 = load ptr, ptr %121, align 8, !tbaa !89
-  %123 = getelementptr inbounds nuw [8 x ptr], ptr %.0133, i64 0, i64 %indvars.iv220.i
+  %123 = getelementptr inbounds nuw ptr, ptr %.0133, i64 %indvars.iv220.i
   %124 = load ptr, ptr %123, align 8, !tbaa !89
   %.not152.i = icmp eq i64 %indvars.iv220.i, 0
   br i1 %.not152.i, label %142, label %125

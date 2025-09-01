@@ -318,7 +318,7 @@ define dso_local noundef ptr @xlog_identify(i8 noundef zeroext %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.xlog_identify, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xlog_identify, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -380,14 +380,14 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %25 = load i32, ptr %16, align 4
   %26 = load i32, ptr %7, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [0 x ptr], ptr @forkNames, i64 0, i64 %27
+  %28 = getelementptr inbounds ptr, ptr @forkNames, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %.06781.us, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %29, i32 noundef %30) #4
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = sext i32 %.06781.us to i64
-  %34 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 29
   %36 = load i8, ptr %35, align 1, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
@@ -433,7 +433,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %.0.us = phi ptr [ @.str.33, %50 ], [ @.str.34, %52 ], [ %.str.36..str.35.us, %54 ]
   %57 = load ptr, ptr %11, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
-  %59 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %58, i64 0, i64 %33
+  %59 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %58, i64 %33
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 30
   %61 = load i8, ptr %60, align 2, !range !4, !noundef !5
   %62 = trunc nuw i8 %61 to i1
@@ -455,7 +455,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 75:                                               ; preds = %47
   %76 = load ptr, ptr %11, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 88
-  %78 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %77, i64 0, i64 %33
+  %78 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %77, i64 %33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 30
   %80 = load i8, ptr %79, align 2, !range !4, !noundef !5
   %81 = trunc nuw i8 %80 to i1
@@ -506,7 +506,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 
 103:                                              ; preds = %98
   %104 = sext i32 %99 to i64
-  %105 = getelementptr inbounds [0 x ptr], ptr @forkNames, i64 0, i64 %104
+  %105 = getelementptr inbounds ptr, ptr @forkNames, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.41, i32 noundef %.06781, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef %106, i32 noundef %107) #4
@@ -521,7 +521,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %111 = load ptr, ptr %11, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 88
   %113 = sext i32 %.06781 to i64
-  %114 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %112, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 29
   %116 = load i8, ptr %115, align 1, !range !4, !noundef !5
   %117 = trunc nuw i8 %116 to i1

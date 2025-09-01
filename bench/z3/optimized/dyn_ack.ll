@@ -2667,9 +2667,9 @@ define hidden void @_ZN3smt15dyn_ack_manager11instantiateEP3appS2_(ptr noundef n
 
 35:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %36 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !627
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !627
   %.not41 = icmp eq ptr %37, %39
   br i1 %.not41, label %67, label %40
@@ -4539,11 +4539,11 @@ define linkonce_odr hidden noundef ptr @_ZN3smt24dyn_ack_cc_justification8mk_pro
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
   %28 = load ptr, ptr %14, align 8, !tbaa !677
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !627
   %32 = load ptr, ptr %21, align 8, !tbaa !680
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !627
   %.not = icmp eq ptr %31, %35
   br i1 %.not, label %158, label %36
@@ -6014,7 +6014,7 @@ define linkonce_odr hidden noundef ptr @_ZN3smt24dyn_ack_eq_justification8mk_pro
   %35 = add i32 %34, -1
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !627
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !687

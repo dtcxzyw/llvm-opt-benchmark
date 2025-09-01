@@ -151,7 +151,7 @@ mi_heap_main_init.exit.i:                         ; preds = %11, %_mi_is_main_th
 
 .preheader.i:                                     ; preds = %_mi_is_main_thread.exit.i, %24
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %_mi_is_main_thread.exit.i ]
-  %20 = getelementptr inbounds nuw [8 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr @td_cache, i64 %indvars.iv.i.i
   %21 = load atomic i64, ptr %20 monotonic, align 8
   %.not.i29.i = icmp eq i64 %21, 0
   br i1 %.not.i29.i, label %24, label %22
@@ -412,7 +412,7 @@ _mi_heap_set_default_direct.exit.i:               ; preds = %14, %7
 
 31:                                               ; preds = %.critedge.i.i, %27
   %indvars.iv.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i.i, %.critedge.i.i ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw ptr, ptr @td_cache, i64 %indvars.iv.i.i
   %33 = load atomic i64, ptr %32 monotonic, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %35, label %.critedge.i.i
@@ -439,7 +439,7 @@ _mi_heap_set_default_direct.exit.i:               ; preds = %14, %7
 
 41:                                               ; preds = %48, %.critedge.i
   %indvars.iv.i20.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next.i22.i, %48 ]
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i20.i
+  %42 = getelementptr inbounds nuw ptr, ptr @td_cache, i64 %indvars.iv.i20.i
   %43 = load atomic i64, ptr %42 monotonic, align 8
   %.not.i21.i = icmp eq i64 %43, 0
   br i1 %.not.i21.i, label %48, label %44

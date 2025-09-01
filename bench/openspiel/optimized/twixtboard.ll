@@ -1434,7 +1434,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us: ;
   br i1 %.not.i56.us, label %_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE.exit.us, label %.lr.ph.i.us
 
 _ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE.exit.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.us.i.us
-  %445 = getelementptr inbounds nuw [8 x %struct.Position], ptr %87, i64 0, i64 %indvars.iv19.i.us
+  %445 = getelementptr inbounds nuw %struct.Position, ptr %87, i64 %indvars.iv19.i.us
   store i64 %.sroa.0.0.insert.insert.i.us.i.us, ptr %445, align 4
   %.pre23.i.us = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us.i.us
@@ -1702,7 +1702,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i: ; preds = %51
   br i1 %spec.select.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i, %517
-  %523 = getelementptr inbounds nuw [8 x %struct.Position], ptr %484, i64 0, i64 %indvars.iv.i
+  %523 = getelementptr inbounds nuw %struct.Position, ptr %484, i64 %indvars.iv.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %523, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i
 
@@ -1755,7 +1755,7 @@ define void @_ZN10open_spiel5twixt5Board22InitializeLegalActionsEv(ptr noundef n
 15:                                               ; preds = %1, %_ZNSt6vectorIlSaIlEE5clearEv.exit
   %16 = phi i1 [ true, %1 ], [ false, %_ZNSt6vectorIlSaIlEE5clearEv.exit ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %_ZNSt6vectorIlSaIlEE5clearEv.exit ]
-  %17 = getelementptr inbounds nuw [2 x %"class.std::vector.19"], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"class.std::vector.19", ptr %6, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
@@ -2351,7 +2351,7 @@ define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr noundef no
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %9, i64 %8, i32 4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [2 x [2 x i8]], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
@@ -2369,7 +2369,7 @@ define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr noundef no
   %22 = sub nsw i32 1, %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds [2 x %"class.std::vector.19"], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds %"class.std::vector.19", ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 8
@@ -2437,7 +2437,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us: ; preds = %1
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.us, %19
   %25 = trunc nuw nsw i64 %indvars.iv19 to i32
   tail call void @_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 %1, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %26 = getelementptr inbounds nuw [8 x %struct.Position], ptr %6, i64 0, i64 %indvars.iv19
+  %26 = getelementptr inbounds nuw %struct.Position, ptr %6, i64 %indvars.iv19
   store i64 %.sroa.0.0.insert.insert.i.us, ptr %26, align 4
   %.pre23 = load ptr, ptr @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, align 8
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.us
@@ -2486,7 +2486,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %39
   br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13: ; preds = %39, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit
-  %45 = getelementptr inbounds nuw [8 x %struct.Position], ptr %6, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.Position, ptr %6, i64 %indvars.iv
   store i64 %.sroa.0.0.insert.insert.i, ptr %45, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
@@ -2954,7 +2954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit61: ; 
 
 switch.lookup:                                    ; preds = %114
   %118 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK10open_spiel5twixt5Board8ToStringB5cxx11Ev, i64 0, i64 %118
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK10open_spiel5twixt5Board8ToStringB5cxx11Ev, i64 %118
   %switch.load = load ptr, ptr %switch.gep, align 8
   %119 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %switch.load)
           to label %120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3477,11 +3477,11 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %62
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc11 unwind label %62
+          to label %.noexc11 unwind label %58
 
 .noexc11:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i8 noundef signext 45)
@@ -3497,7 +3497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %26 = zext nneg i32 %.lobit to i64
   %27 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26)
-          to label %28 unwind label %62
+          to label %28 unwind label %58
 
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %29 = icmp ugt i32 %4, 99
@@ -3509,65 +3509,61 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %33, %.lr.ph.i12 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %46, %.lr.ph.i12 ], [ %30, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %44, %.lr.ph.i12 ], [ %30, %.lr.ph.preheader.i ]
   %31 = urem i32 %.020.i, 100
   %32 = shl nuw nsw i32 %31, 1
   %33 = udiv i32 %.020.i, 100
-  %34 = or disjoint i32 %32, 1
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %34 = zext nneg i32 %32 to i64
+  %35 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
-  %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 2
-  %43 = add i32 %.01819.i, -1
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
-  store i8 %42, ptr %45, align 1
-  %46 = add i32 %.01819.i, -2
-  %47 = icmp ugt i32 %.020.i, 9999
-  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !24
+  %40 = load i8, ptr %35, align 2
+  %41 = add i32 %.01819.i, -1
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 %42
+  store i8 %40, ptr %43, align 1
+  %44 = add i32 %.01819.i, -2
+  %45 = icmp ugt i32 %.020.i, 9999
+  br i1 %45, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %48, label %49, label %59
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %46, label %47, label %55
 
-49:                                               ; preds = %._crit_edge.i
-  %50 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %51 = or disjoint i32 %50, 1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %54, ptr %55, align 1
-  %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 2
+47:                                               ; preds = %._crit_edge.i
+  %48 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %52, ptr %53, align 1
+  %54 = load i8, ptr %50, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %61 = or disjoint i8 %60, 48
+55:                                               ; preds = %._crit_edge.i
+  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
-  %storemerge.i = phi i8 [ %61, %59 ], [ %58, %49 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %47, %55
+  %storemerge.i = phi i8 [ %57, %55 ], [ %54, %47 ]
   store i8 %storemerge.i, ptr %27, align 1
   ret void
 
-62:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %63 = landingpad { ptr, i32 }
+58:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
+  %59 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %24, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %25, %24 ]
-  %64 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %64) #21
+.body:                                            ; preds = %24, %58
+  %eh.lpad-body = phi { ptr, i32 } [ %59, %58 ], [ %25, %24 ]
+  %60 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %60) #21
   unreachable
 }
 
@@ -4757,7 +4753,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i: ; preds = %23
   br i1 %spec.select.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i, %23
-  %29 = getelementptr inbounds nuw [8 x %struct.Position], ptr %11, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw %struct.Position, ptr %11, i64 %indvars.iv.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %29, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i
 
@@ -4851,7 +4847,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i.i: ; preds = %
   br i1 %spec.select.i.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i.i
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.i.i: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.i.i, %37
-  %43 = getelementptr inbounds nuw [8 x %struct.Position], ptr %25, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw %struct.Position, ptr %25, i64 %indvars.iv.i.i
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %43, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i.i
 
@@ -5427,7 +5423,7 @@ _ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102: ; preds = %_Z
   %279 = load ptr, ptr %277, align 8
   %280 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %279, i64 %278, i32 4
   %281 = sext i32 %1 to i64
-  %282 = getelementptr inbounds [2 x [2 x i8]], ptr %280, i64 0, i64 %281
+  %282 = getelementptr inbounds [2 x i8], ptr %280, i64 %281
   %283 = load i8, ptr %282, align 1
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 1
   %285 = load i8, ptr %284, align 1
@@ -5445,7 +5441,7 @@ _ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102: ; preds = %_Z
   %292 = sub nsw i32 1, %1
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %294 = sext i32 %292 to i64
-  %295 = getelementptr inbounds [2 x %"class.std::vector.19"], ptr %293, i64 0, i64 %294
+  %295 = getelementptr inbounds %"class.std::vector.19", ptr %293, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load ptr, ptr %296, align 8
   %298 = load ptr, ptr %295, align 8
@@ -5488,7 +5484,7 @@ define void @_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position(ptr nound
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [2 x %"class.std::vector.19"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds %"class.std::vector.19", ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -5646,7 +5642,7 @@ define void @_ZN10open_spiel5twixt5Board14SetPegAndLinksEi8Position(ptr noundef 
   %20 = getelementptr i8, ptr %15, i64 77
   %21 = getelementptr i8, ptr %20, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 76
-  %23 = getelementptr inbounds [2 x [2 x i8]], ptr %22, i64 0, i64 %19
+  %23 = getelementptr inbounds [2 x i8], ptr %22, i64 %19
   br label %24
 
 24:                                               ; preds = %3, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
@@ -5754,7 +5750,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
   %82 = or i32 %80, %81
   store i32 %82, ptr %79, align 4
   %83 = getelementptr inbounds nuw i8, ptr %45, i64 76
-  %84 = getelementptr inbounds [2 x [2 x i8]], ptr %83, i64 0, i64 %19
+  %84 = getelementptr inbounds [2 x i8], ptr %83, i64 %19
   %85 = load i8, ptr %84, align 1
   %86 = trunc i8 %85 to i1
   br i1 %86, label %87, label %88
@@ -6046,7 +6042,7 @@ _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EE6insertEOS3_.exit: ; pre
   br i1 %.not, label %.critedge, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw [8 x %struct.Position], ptr %33, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %struct.Position, ptr %33, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %49, align 4
   %sext.i = shl i64 %.sroa.0.0.copyload.i, 32
   %50 = ashr exact i64 %sext.i, 32
@@ -6084,8 +6080,8 @@ _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EE4findERKS3_.exit: ; pred
 
 _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %48, %_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EE4findERKS3_.exit
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 76
-  %65 = getelementptr inbounds [2 x [2 x i8]], ptr %64, i64 0, i64 %35
-  %66 = getelementptr inbounds [2 x i8], ptr %65, i64 0, i64 %36
+  %65 = getelementptr inbounds [2 x i8], ptr %64, i64 %35
+  %66 = getelementptr inbounds i8, ptr %65, i64 %36
   %67 = load i8, ptr %66, align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %.critedge, label %69

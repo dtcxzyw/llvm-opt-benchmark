@@ -1369,7 +1369,7 @@ define noundef range(i32 1, 16) i32 @_ZN6casadi9from_fmi2ENS_8TypeFmi2E(i32 noun
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN6casadi9from_fmi2ENS_8TypeFmi2E, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6casadi9from_fmi2ENS_8TypeFmi2E, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -5139,7 +5139,7 @@ define noundef range(i32 0, 4) i32 @_ZN6casadi8Variable15default_initialENS_9Cau
 
 switch.lookup:                                    ; preds = %5
   %10 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN6casadi18DaeBuilderInternal22import_model_variablesERKNS_7XmlNodeE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6casadi18DaeBuilderInternal22import_model_variablesERKNS_7XmlNodeE, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 
@@ -8207,98 +8207,96 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit.i:    ; preds = %18, %16, %12, %8, %
 
 .lr.ph.i13.i:                                     ; preds = %.lr.ph.i13.i, %.lr.ph.preheader.i.i
   %.020.i.i = phi i64 [ %32, %.lr.ph.i13.i ], [ %5, %.lr.ph.preheader.i.i ]
-  %.01819.i.i = phi i32 [ %43, %.lr.ph.i13.i ], [ %29, %.lr.ph.preheader.i.i ]
+  %.01819.i.i = phi i32 [ %42, %.lr.ph.i13.i ], [ %29, %.lr.ph.preheader.i.i ]
   %30 = urem i64 %.020.i.i, 100
   %31 = shl nuw nsw i64 %30, 1
   %32 = udiv i64 %.020.i.i, 100
-  %33 = or disjoint i64 %31, 1
-  %34 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %33
+  %33 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !13, !noalias !151
   %36 = zext i32 %.01819.i.i to i64
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 %36
   store i8 %35, ptr %37, align 1, !tbaa !13
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %31
-  %39 = load i8, ptr %38, align 2, !tbaa !13, !noalias !151
-  %40 = add i32 %.01819.i.i, -1
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %27, i64 %41
-  store i8 %39, ptr %42, align 1, !tbaa !13
-  %43 = add i32 %.01819.i.i, -2
-  %44 = icmp ugt i64 %.020.i.i, 9999
-  br i1 %44, label %.lr.ph.i13.i, label %._crit_edge.i.i, !llvm.loop !155
+  %38 = load i8, ptr %33, align 2, !tbaa !13, !noalias !151
+  %39 = add i32 %.01819.i.i, -1
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 %40
+  store i8 %38, ptr %41, align 1, !tbaa !13
+  %42 = add i32 %.01819.i.i, -2
+  %43 = icmp ugt i64 %.020.i.i, 9999
+  br i1 %43, label %.lr.ph.i13.i, label %._crit_edge.i.i, !llvm.loop !155
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i13.i, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit.i
   %.0.lcssa.i.i = phi i64 [ %5, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit.i ], [ %32, %.lr.ph.i13.i ]
-  %45 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
-  br i1 %45, label %46, label %54
+  %44 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
+  br i1 %44, label %45, label %52
 
-46:                                               ; preds = %._crit_edge.i.i
-  %47 = shl nuw nsw i64 %.0.lcssa.i.i, 1
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !13, !noalias !151
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %50, ptr %51, align 1, !tbaa !13
-  %52 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %47
-  %53 = load i8, ptr %52, align 2, !tbaa !13, !noalias !151
+45:                                               ; preds = %._crit_edge.i.i
+  %46 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !13, !noalias !151
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %49, ptr %50, align 1, !tbaa !13
+  %51 = load i8, ptr %47, align 2, !tbaa !13, !noalias !151
   br label %_ZNSt7__cxx119to_stringEx.exit
 
-54:                                               ; preds = %._crit_edge.i.i
-  %55 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
-  %56 = or disjoint i8 %55, 48
+52:                                               ; preds = %._crit_edge.i.i
+  %53 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
+  %54 = or disjoint i8 %53, 48
   br label %_ZNSt7__cxx119to_stringEx.exit
 
-_ZNSt7__cxx119to_stringEx.exit:                   ; preds = %46, %54
-  %storemerge.i.i = phi i8 [ %56, %54 ], [ %53, %46 ]
+_ZNSt7__cxx119to_stringEx.exit:                   ; preds = %45, %52
+  %storemerge.i.i = phi i8 [ %54, %52 ], [ %51, %45 ]
   store i8 %storemerge.i.i, ptr %27, align 1, !tbaa !13
   invoke void @_ZN6casadi7XmlNode13set_attributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %57 unwind label %65
+          to label %55 unwind label %63
 
-57:                                               ; preds = %_ZNSt7__cxx119to_stringEx.exit
-  %58 = load ptr, ptr %4, align 8, !tbaa !11
-  %59 = icmp eq ptr %58, %25
-  br i1 %59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+55:                                               ; preds = %_ZNSt7__cxx119to_stringEx.exit
+  %56 = load ptr, ptr %4, align 8, !tbaa !11
+  %57 = icmp eq ptr %56, %25
+  br i1 %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !14
-  %62 = icmp ult i64 %61, 16
-  call void @llvm.assume(i1 %62)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %59 = load i64, ptr %58, align 8, !tbaa !14
+  %60 = icmp ult i64 %59, 16
+  call void @llvm.assume(i1 %60)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %57
-  %63 = load i64, ptr %25, align 8, !tbaa !13
-  %64 = add i64 %63, 1
-  call void @_ZdlPvm(ptr noundef %58, i64 noundef %64) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %55
+  %61 = load i64, ptr %25, align 8, !tbaa !13
+  %62 = add i64 %61, 1
+  call void @_ZdlPvm(ptr noundef %56, i64 noundef %62) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-65:                                               ; preds = %_ZNSt7__cxx119to_stringEx.exit
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt7__cxx119to_stringEx.exit
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %67 = load ptr, ptr %4, align 8, !tbaa !11
-  %68 = icmp eq ptr %67, %25
-  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
+  %65 = load ptr, ptr %4, align 8, !tbaa !11
+  %66 = icmp eq ptr %65, %25
+  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %70 = load i64, ptr %69, align 8, !tbaa !14
-  %71 = icmp ult i64 %70, 16
-  call void @llvm.assume(i1 %71)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %68 = load i64, ptr %67, align 8, !tbaa !14
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %65
-  %72 = load i64, ptr %25, align 8, !tbaa !13
-  %73 = add i64 %72, 1
-  call void @_ZdlPvm(ptr noundef %67, i64 noundef %73) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %63
+  %70 = load i64, ptr %25, align 8, !tbaa !13
+  %71 = add i64 %70, 1
+  call void @_ZdlPvm(ptr noundef %65, i64 noundef %71) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %66
+  resume { ptr, i32 } %64
 }
 
 declare void @_ZN6casadi7XmlNode13set_attributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(32), double noundef) local_unnamed_addr #0
@@ -18929,7 +18927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit458: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %680
   %685 = zext nneg i32 %675 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN6casadi18DaeBuilderInternal22import_model_variablesERKNS_7XmlNodeE, i64 0, i64 %685
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6casadi18DaeBuilderInternal22import_model_variablesERKNS_7XmlNodeE, i64 %685
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6casadi8Variable15default_initialENS_9CausalityENS_11VariabilityE.exit
 
@@ -42586,9 +42584,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi18DaeBuilderIn
 43:                                               ; preds = %42, %4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %45 = zext i1 %2 to i64
-  %46 = getelementptr inbounds nuw [2 x [2 x %"class.casadi::Function"]], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [2 x %"class.casadi::Function"], ptr %44, i64 %45
   %47 = zext i1 %3 to i64
-  %48 = getelementptr inbounds nuw [2 x %"class.casadi::Function"], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"class.casadi::Function", ptr %46, i64 %47
   %49 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
   br i1 %49, label %50, label %534
 
@@ -44239,8 +44237,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %_Z
 
 535:                                              ; preds = %534
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %537 = getelementptr inbounds nuw [2 x [2 x %"class.casadi::Function"]], ptr %536, i64 0, i64 %45
-  %538 = getelementptr inbounds nuw [2 x %"class.casadi::Function"], ptr %537, i64 0, i64 %47
+  %537 = getelementptr inbounds nuw [2 x %"class.casadi::Function"], ptr %536, i64 %45
+  %538 = getelementptr inbounds nuw %"class.casadi::Function", ptr %537, i64 %47
   %539 = call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %538)
   br i1 %539, label %._crit_edge.i.i321, label %571
 
@@ -46045,7 +46043,7 @@ define void @_ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev(ptr dead_on_
   %12 = tail call i32 @rand() #30
   %13 = srem i32 %12, 16
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [17 x i8], ptr @__const._ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev.h, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr @__const._ZN6casadi18DaeBuilderInternal13generate_guidB5cxx11Ev.h, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.017
   store i8 %16, ptr %17, align 1, !tbaa !13
@@ -99272,7 +99270,7 @@ define void @_ZNK6casadi18DaeBuilderInternal11clear_cacheEv(ptr noundef nonnull 
 6:                                                ; preds = %1, %8
   %.not = phi i1 [ false, %1 ], [ true, %8 ]
   %.0.idx38.sroa.phi.sroa.speculated = phi i64 [ 0, %1 ], [ 1, %8 ]
-  %7 = getelementptr inbounds nuw [2 x [2 x [2 x %"class.casadi::Function"]]], ptr %3, i64 0, i64 %.0.idx38.sroa.phi.sroa.speculated
+  %7 = getelementptr inbounds nuw [2 x [2 x %"class.casadi::Function"]], ptr %3, i64 %.0.idx38.sroa.phi.sroa.speculated
   br label %9
 
 8:                                                ; preds = %11
@@ -99281,7 +99279,7 @@ define void @_ZNK6casadi18DaeBuilderInternal11clear_cacheEv(ptr noundef nonnull 
 9:                                                ; preds = %6, %11
   %.not27 = phi i1 [ false, %6 ], [ true, %11 ]
   %.025.idx37.sroa.phi.sroa.speculated = phi i64 [ 0, %6 ], [ 1, %11 ]
-  %10 = getelementptr inbounds nuw [2 x [2 x %"class.casadi::Function"]], ptr %7, i64 0, i64 %.025.idx37.sroa.phi.sroa.speculated
+  %10 = getelementptr inbounds nuw [2 x %"class.casadi::Function"], ptr %7, i64 %.025.idx37.sroa.phi.sroa.speculated
   br label %12
 
 11:                                               ; preds = %19
@@ -99290,7 +99288,7 @@ define void @_ZNK6casadi18DaeBuilderInternal11clear_cacheEv(ptr noundef nonnull 
 12:                                               ; preds = %9, %19
   %.not28 = phi i1 [ false, %9 ], [ true, %19 ]
   %.026.idx36.sroa.phi.sroa.speculated = phi i64 [ 0, %9 ], [ 1, %19 ]
-  %13 = getelementptr inbounds nuw [2 x %"class.casadi::Function"], ptr %10, i64 0, i64 %.026.idx36.sroa.phi.sroa.speculated
+  %13 = getelementptr inbounds nuw %"class.casadi::Function", ptr %10, i64 %.026.idx36.sroa.phi.sroa.speculated
   %14 = call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
   br i1 %14, label %19, label %15
 

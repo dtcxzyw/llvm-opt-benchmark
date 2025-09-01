@@ -4120,7 +4120,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit96
 129:                                              ; preds = %.lr.ph154, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next, %.loopexit ]
   %.061152 = phi i32 [ 0, %.lr.ph154 ], [ %.162, %.loopexit ]
-  %130 = getelementptr inbounds nuw [0 x ptr], ptr %81, i64 0, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
   %131 = load ptr, ptr %130, align 8, !tbaa !121
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load i32, ptr %132, align 4
@@ -4146,7 +4146,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit96
   br i1 %143, label %144, label %_ZNK8rational11is_unsignedEv.exit.thread
 
 144:                                              ; preds = %136
-  %145 = getelementptr inbounds nuw [0 x ptr], ptr %125, i64 0, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv
   %146 = load ptr, ptr %145, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %147 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef %146, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -6314,7 +6314,7 @@ thread-pre-split.i.i.i:                           ; preds = %.thread-pre-split_c
 113:                                              ; preds = %_ZN12_GLOBAL__N_117has_nlira_functorclEP3app.exit.i.i.i, %.lr.ph.i.i.i
   %114 = phi i32 [ %110, %.lr.ph.i.i.i ], [ %218, %_ZN12_GLOBAL__N_117has_nlira_functorclEP3app.exit.i.i.i ]
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw [0 x ptr], ptr %112, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw ptr, ptr %112, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !121
   %118 = add nuw i32 %114, 1
   store i32 %118, ptr %109, align 8, !tbaa !217
@@ -9648,7 +9648,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
 
 77:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %78 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -9672,7 +9672,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
 
 85:                                               ; preds = %.lr.ph64, %89
   %indvars.iv69 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next70, %89 ]
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv69
+  %86 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv69
   %87 = load ptr, ptr %86, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %87, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %4)

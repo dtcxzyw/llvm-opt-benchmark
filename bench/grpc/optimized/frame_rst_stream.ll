@@ -520,7 +520,7 @@ define void @_Z35grpc_chttp2_rst_stream_parser_parsePvP21grpc_chttp2_transportP1
   %39 = phi i8 [ %.promoted, %.lr.ph ], [ %44, %38 ]
   %40 = load i8, ptr %.089, align 1, !tbaa !14
   %41 = zext i8 %39 to i64
-  %42 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 %41
   store i8 %40, ptr %42, align 1, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %.089, i64 1
   %44 = add i8 %39, 1
@@ -630,7 +630,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit: ; pr
 
 87:                                               ; preds = %87, %84
   %.057.i.i.i = phi i64 [ 0, %84 ], [ %90, %87 ]
-  %88 = getelementptr inbounds nuw [3 x i16], ptr %86, i64 0, i64 %.057.i.i.i
+  %88 = getelementptr inbounds nuw i16, ptr %86, i64 %.057.i.i.i
   %89 = load i16, ptr %88, align 2, !tbaa !257
   %.not.i.i.i = icmp eq i16 %89, 0
   %90 = add nuw nsw i64 %.057.i.i.i, 1

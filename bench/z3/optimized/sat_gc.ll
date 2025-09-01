@@ -1186,7 +1186,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE6shrinkEj.exit:    ; preds = %2, %._crit_edge, %.
 _ZNK3sat6solver10can_deleteERKNS_6clauseE.exit:   ; preds = %39
   %47 = load i8, ptr %12, align 8, !tbaa !194, !range !179, !noundef !180
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw [2 x %"class.sat::clause_allocator"], ptr %11, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"class.sat::clause_allocator", ptr %11, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !195
   %52 = tail call noundef ptr @_ZNK3sat16clause_allocator10get_clauseEm(ptr noundef nonnull align 8 dereferenceable(568) %49, i64 noundef %51)
@@ -1430,7 +1430,7 @@ define hidden noundef zeroext i1 @_ZNK3sat6solver10can_deleteERKNS_6clauseE(ptr 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %26 = load i8, ptr %25, align 8, !tbaa !194, !range !179, !noundef !180
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds nuw [2 x %"class.sat::clause_allocator"], ptr %24, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %"class.sat::clause_allocator", ptr %24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !195
   %31 = tail call noundef ptr @_ZNK3sat16clause_allocator10get_clauseEm(ptr noundef nonnull align 8 dereferenceable(568) %28, i64 noundef %30)
@@ -1472,7 +1472,7 @@ define hidden noundef zeroext i1 @_ZN3sat6solver22activate_frozen_clauseERNS_6cl
 12:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %.03047 = phi i32 [ 0, %.lr.ph ], [ %.333.ph, %24 ]
-  %13 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %9, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %indvars.iv
   %.sroa.06.0.copyload = load i32, ptr %13, align 4, !tbaa !167
   %14 = zext i32 %.sroa.06.0.copyload to i64
   %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
@@ -1488,7 +1488,7 @@ define hidden noundef zeroext i1 @_ZN3sat6solver22activate_frozen_clauseERNS_6cl
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %9, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %18
   %21 = load i32, ptr %20, align 4, !tbaa !167
   store i32 %21, ptr %13, align 4, !tbaa !167
   store i32 %.sroa.06.0.copyload, ptr %20, align 4, !tbaa !167
@@ -1658,7 +1658,7 @@ _ZN3sat14clause_wrapper8iteratordeEv.exit:        ; preds = %_ZN3sat14clause_wra
   %.01330 = phi i1 [ false, %_ZN3sat14clause_wrapper8iteratordeEv.exit.lr.ph ], [ %.114.ph, %28 ]
   %.sroa.020.029 = phi i32 [ 0, %_ZN3sat14clause_wrapper8iteratordeEv.exit.lr.ph ], [ %29, %28 ]
   %17 = zext i32 %.sroa.020.029 to i64
-  %18 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %12, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"class.sat::literal", ptr %12, i64 %17
   %.sroa.0.0.copyload.i.i = load i32, ptr %18, align 4, !tbaa !167
   %19 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %20 = getelementptr inbounds nuw i32, ptr %14, i64 %19

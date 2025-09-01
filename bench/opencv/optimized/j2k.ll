@@ -934,10 +934,10 @@ switch.lookup:                                    ; preds = %74
   %switch.downshift = lshr i48 17180065795, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i16
   %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.opj_j2k_setup_encoder, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.opj_j2k_setup_encoder, i64 %79
   %switch.load = load i32, ptr %switch.gep, align 4
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1013 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.opj_j2k_setup_encoder.22, i64 0, i64 %80
+  %switch.gep1013 = getelementptr inbounds nuw i32, ptr @switch.table.opj_j2k_setup_encoder.22, i64 %80
   %switch.load1014 = load i32, ptr %switch.gep1013, align 4
   store i16 %switch.masked, ptr %71, align 4, !tbaa !61
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 18712
@@ -1004,11 +1004,11 @@ switch.lookup:                                    ; preds = %74
 99:                                               ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %126 ]
   %indvars829 = trunc nuw i64 %indvars.iv to i32
-  %100 = getelementptr inbounds nuw [100 x float], ptr %98, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv
   %101 = load float, ptr %100, align 4, !tbaa !67
-  %102 = add nsw i64 %indvars.iv, -1
-  %103 = add i32 %indvars829, -1
-  %104 = getelementptr inbounds nuw [100 x float], ptr %98, i64 0, i64 %102
+  %102 = add i32 %indvars829, -1
+  %103 = getelementptr float, ptr %98, i64 %indvars.iv
+  %104 = getelementptr i8, ptr %103, i64 -4
   %105 = load float, ptr %104, align 4, !tbaa !67
   %.inv = fcmp ole float %101, 1.000000e+00
   %.0590 = select i1 %.inv, float 1.000000e+00, float %101
@@ -1030,11 +1030,11 @@ switch.lookup:                                    ; preds = %74
 
 114:                                              ; preds = %111
   %115 = fpext float %.0591 to double
-  %116 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %indvars829, double noundef %110, double noundef %112, i32 noundef %103, double noundef %113, double noundef %115) #21
+  %116 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %indvars829, double noundef %110, double noundef %112, i32 noundef %102, double noundef %113, double noundef %115) #21
   br label %126
 
 117:                                              ; preds = %111
-  %118 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %indvars829, double noundef %110, double noundef %112, i32 noundef %103, double noundef %113) #21
+  %118 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %indvars829, double noundef %110, double noundef %112, i32 noundef %102, double noundef %113) #21
   br label %126
 
 119:                                              ; preds = %107
@@ -1043,11 +1043,11 @@ switch.lookup:                                    ; preds = %74
 
 121:                                              ; preds = %119
   %122 = fpext float %.0591 to double
-  %123 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %indvars829, double noundef %110, i32 noundef %103, double noundef %120, double noundef %122) #21
+  %123 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %indvars829, double noundef %110, i32 noundef %102, double noundef %120, double noundef %122) #21
   br label %126
 
 124:                                              ; preds = %119
-  %125 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %indvars829, double noundef %110, i32 noundef %103, double noundef %120) #21
+  %125 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %indvars829, double noundef %110, i32 noundef %102, double noundef %120) #21
   br label %126
 
 126:                                              ; preds = %114, %121, %124, %117, %99
@@ -1075,11 +1075,11 @@ switch.lookup:                                    ; preds = %74
   %135 = phi i32 [ %92, %.lr.ph773 ], [ %153, %152 ]
   %indvars.iv830 = phi i64 [ 1, %.lr.ph773 ], [ %indvars.iv.next831, %152 ]
   %indvars832 = trunc nuw i64 %indvars.iv830 to i32
-  %136 = getelementptr inbounds nuw [100 x float], ptr %133, i64 0, i64 %indvars.iv830
+  %136 = getelementptr inbounds nuw float, ptr %133, i64 %indvars.iv830
   %137 = load float, ptr %136, align 4, !tbaa !67
-  %138 = add nsw i64 %indvars.iv830, -1
-  %139 = add i32 %indvars832, -1
-  %140 = getelementptr inbounds nuw [100 x float], ptr %133, i64 0, i64 %138
+  %138 = add i32 %indvars832, -1
+  %139 = getelementptr float, ptr %133, i64 %indvars.iv830
+  %140 = getelementptr i8, ptr %139, i64 -4
   %141 = load float, ptr %140, align 4, !tbaa !67
   %142 = fcmp olt float %137, %141
   br i1 %142, label %143, label %152
@@ -1095,7 +1095,7 @@ switch.lookup:                                    ; preds = %74
 148:                                              ; preds = %143
   %149 = fpext float %137 to double
   %150 = fpext float %141 to double
-  %151 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %indvars832, double noundef %149, i32 noundef %139, double noundef %150) #21
+  %151 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %indvars832, double noundef %149, i32 noundef %138, double noundef %150) #21
   %.pre876 = load i32, ptr %91, align 4, !tbaa !57
   br label %152
 
@@ -1115,9 +1115,9 @@ switch.lookup:                                    ; preds = %74
 
 160:                                              ; preds = %.loopexit753
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 4800
-  %162 = add nsw i32 %156, -1
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds [100 x float], ptr %161, i64 0, i64 %163
+  %162 = sext i32 %156 to i64
+  %163 = getelementptr float, ptr %161, i64 %162
+  %164 = getelementptr i8, ptr %163, i64 -4
   %165 = load float, ptr %164, align 4, !tbaa !67
   %166 = fcmp ogt float %165, 0.000000e+00
   br i1 %166, label %167, label %200
@@ -1249,7 +1249,7 @@ switch.lookup:                                    ; preds = %74
 
 261:                                              ; preds = %.outer, %265
   %indvars.iv833 = phi i64 [ %indvars.iv.next834, %265 ], [ %indvars.iv833.ph, %.outer ]
-  %262 = getelementptr inbounds nuw [100 x float], ptr %259, i64 0, i64 %indvars.iv833
+  %262 = getelementptr inbounds nuw float, ptr %259, i64 %indvars.iv833
   %263 = load float, ptr %262, align 4, !tbaa !67
   %264 = fcmp olt float %263, %258
   br i1 %264, label %.thread934, label %265
@@ -1260,7 +1260,7 @@ switch.lookup:                                    ; preds = %74
   br i1 %exitcond.not, label %._crit_edge, label %261, !llvm.loop !79
 
 .thread934:                                       ; preds = %261
-  %266 = getelementptr inbounds nuw [100 x float], ptr %259, i64 0, i64 %indvars.iv833
+  %266 = getelementptr inbounds nuw float, ptr %259, i64 %indvars.iv833
   store float %258, ptr %266, align 4, !tbaa !67
   %indvars.iv.next834936 = add nuw nsw i64 %indvars.iv833, 1
   %exitcond.not937 = icmp eq i64 %indvars.iv.next834936, %wide.trip.count
@@ -1624,9 +1624,9 @@ switch.lookup:                                    ; preds = %74
   br i1 %442, label %.thread737, label %.thread736
 
 .thread737:                                       ; preds = %451
-  %452 = getelementptr inbounds nuw [100 x float], ptr %421, i64 0, i64 %indvars.iv836
+  %452 = getelementptr inbounds nuw float, ptr %421, i64 %indvars.iv836
   %453 = load float, ptr %452, align 4, !tbaa !67
-  %454 = getelementptr inbounds nuw [100 x float], ptr %449, i64 0, i64 %indvars.iv836
+  %454 = getelementptr inbounds nuw float, ptr %449, i64 %indvars.iv836
   store float %453, ptr %454, align 4, !tbaa !67
   br label %.sink.split980.sink.split
 
@@ -1634,9 +1634,9 @@ switch.lookup:                                    ; preds = %74
   br i1 %442, label %.sink.split980.sink.split, label %.thread736
 
 .thread736:                                       ; preds = %451, %455
-  %456 = getelementptr inbounds nuw [100 x float], ptr %420, i64 0, i64 %indvars.iv836
+  %456 = getelementptr inbounds nuw float, ptr %420, i64 %indvars.iv836
   %457 = load float, ptr %456, align 4, !tbaa !67
-  %458 = getelementptr inbounds nuw [100 x float], ptr %448, i64 0, i64 %indvars.iv836
+  %458 = getelementptr inbounds nuw float, ptr %448, i64 %indvars.iv836
   store float %457, ptr %458, align 4, !tbaa !67
   %459 = fcmp ugt float %457, 1.000000e+00
   br i1 %459, label %465, label %.sink.split980
@@ -1645,14 +1645,14 @@ switch.lookup:                                    ; preds = %74
   %460 = phi i64 [ 4800, %.thread737 ], [ 5200, %455 ]
   %.sink983.ph = phi ptr [ %448, %.thread737 ], [ %449, %455 ]
   %461 = getelementptr inbounds nuw i8, ptr %1, i64 %460
-  %462 = getelementptr inbounds nuw [100 x float], ptr %461, i64 0, i64 %indvars.iv836
+  %462 = getelementptr inbounds nuw float, ptr %461, i64 %indvars.iv836
   %463 = load float, ptr %462, align 4, !tbaa !67
   br label %.sink.split980
 
 .sink.split980:                                   ; preds = %.sink.split980.sink.split, %.thread736
   %.sink983 = phi ptr [ %448, %.thread736 ], [ %.sink983.ph, %.sink.split980.sink.split ]
   %.sink981 = phi float [ 0.000000e+00, %.thread736 ], [ %463, %.sink.split980.sink.split ]
-  %464 = getelementptr inbounds nuw [100 x float], ptr %.sink983, i64 0, i64 %indvars.iv836
+  %464 = getelementptr inbounds nuw float, ptr %.sink983, i64 %indvars.iv836
   store float %.sink981, ptr %464, align 4, !tbaa !67
   br label %465
 
@@ -1698,7 +1698,7 @@ switch.lookup:                                    ; preds = %74
 
 484:                                              ; preds = %478
   %485 = zext i32 %.0580782 to i64
-  %486 = getelementptr inbounds nuw [32 x %struct.opj_poc], ptr %426, i64 0, i64 %485
+  %486 = getelementptr inbounds nuw %struct.opj_poc, ptr %426, i64 %485
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 4
   %488 = load i32, ptr %487, align 4, !tbaa !112
   %489 = load i32, ptr %65, align 8, !tbaa !58
@@ -1706,7 +1706,7 @@ switch.lookup:                                    ; preds = %74
   br i1 %.not679, label %.thread738, label %510
 
 .thread738:                                       ; preds = %484
-  %490 = getelementptr inbounds nuw [32 x %struct.opj_poc], ptr %477, i64 0, i64 %485
+  %490 = getelementptr inbounds nuw %struct.opj_poc, ptr %477, i64 %485
   %491 = load i32, ptr %486, align 4, !tbaa !113
   store i32 %491, ptr %490, align 4, !tbaa !113
   %492 = getelementptr inbounds nuw i8, ptr %490, i64 4
@@ -2077,7 +2077,7 @@ opj_int_floorlog2.exit709:                        ; preds = %.lr.ph.i706, %opj_i
   br i1 %665, label %666, label %682
 
 666:                                              ; preds = %662
-  %667 = getelementptr inbounds nuw [33 x i32], ptr %434, i64 0, i64 %indvars.iv858
+  %667 = getelementptr inbounds nuw i32, ptr %434, i64 %indvars.iv858
   %668 = load i32, ptr %667, align 4, !tbaa !125
   %669 = icmp slt i32 %668, 1
   br i1 %669, label %opj_int_floorlog2.exit714, label %670
@@ -2096,9 +2096,9 @@ opj_int_floorlog2.exit709:                        ; preds = %.lr.ph.i706, %opj_i
 
 opj_int_floorlog2.exit714:                        ; preds = %.lr.ph.i711, %670, %666
   %.0.lcssa.i710.sink = phi i32 [ 1, %666 ], [ 0, %670 ], [ %672, %.lr.ph.i711 ]
-  %674 = getelementptr inbounds nuw [33 x i32], ptr %656, i64 0, i64 %indvars.iv.next857
+  %674 = getelementptr inbounds nuw i32, ptr %656, i64 %indvars.iv.next857
   store i32 %.0.lcssa.i710.sink, ptr %674, align 4, !tbaa !125
-  %675 = getelementptr inbounds nuw [33 x i32], ptr %435, i64 0, i64 %indvars.iv858
+  %675 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv858
   %676 = load i32, ptr %675, align 4, !tbaa !125
   %677 = icmp slt i32 %676, 1
   br i1 %677, label %opj_int_floorlog2.exit719, label %678
@@ -2118,12 +2118,12 @@ opj_int_floorlog2.exit714:                        ; preds = %.lr.ph.i711, %670, 
 682:                                              ; preds = %662
   %683 = add nsw i32 %663, -1
   %684 = sext i32 %683 to i64
-  %685 = getelementptr inbounds [33 x i32], ptr %434, i64 0, i64 %684
+  %685 = getelementptr inbounds i32, ptr %434, i64 %684
   %686 = load i32, ptr %685, align 4, !tbaa !125
   %687 = trunc nuw nsw i64 %indvars.iv858 to i32
   %688 = sub nsw i32 %687, %683
   %689 = ashr i32 %686, %688
-  %690 = getelementptr inbounds [33 x i32], ptr %435, i64 0, i64 %684
+  %690 = getelementptr inbounds i32, ptr %435, i64 %684
   %691 = load i32, ptr %690, align 4, !tbaa !125
   %692 = ashr i32 %691, %688
   %693 = icmp slt i32 %689, 1
@@ -2143,7 +2143,7 @@ opj_int_floorlog2.exit714:                        ; preds = %.lr.ph.i711, %670, 
 
 opj_int_floorlog2.exit724:                        ; preds = %.lr.ph.i721, %694, %682
   %.0.lcssa.i720.sink = phi i32 [ 1, %682 ], [ 0, %694 ], [ %696, %.lr.ph.i721 ]
-  %698 = getelementptr inbounds nuw [33 x i32], ptr %656, i64 0, i64 %indvars.iv.next857
+  %698 = getelementptr inbounds nuw i32, ptr %656, i64 %indvars.iv.next857
   store i32 %.0.lcssa.i720.sink, ptr %698, align 4, !tbaa !125
   %699 = icmp slt i32 %692, 1
   br i1 %699, label %opj_int_floorlog2.exit719, label %700
@@ -2162,7 +2162,7 @@ opj_int_floorlog2.exit724:                        ; preds = %.lr.ph.i721, %694, 
 
 opj_int_floorlog2.exit719:                        ; preds = %.lr.ph.i726, %.lr.ph.i716, %700, %opj_int_floorlog2.exit724, %678, %opj_int_floorlog2.exit714
   %.sink = phi i32 [ 1, %opj_int_floorlog2.exit714 ], [ 0, %678 ], [ 1, %opj_int_floorlog2.exit724 ], [ 0, %700 ], [ %680, %.lr.ph.i716 ], [ %702, %.lr.ph.i726 ]
-  %704 = getelementptr inbounds nuw [33 x i32], ptr %657, i64 0, i64 %indvars.iv.next857
+  %704 = getelementptr inbounds nuw i32, ptr %657, i64 %indvars.iv.next857
   store i32 %.sink, ptr %704, align 4, !tbaa !125
   %indvars.iv.next859 = add nuw nsw i64 %indvars.iv858, 1
   %exitcond864.not = icmp eq i64 %indvars.iv.next859, %658
@@ -2170,9 +2170,9 @@ opj_int_floorlog2.exit719:                        ; preds = %.lr.ph.i726, %.lr.p
 
 705:                                              ; preds = %.lr.ph800, %705
   %indvars.iv865 = phi i64 [ 0, %.lr.ph800 ], [ %indvars.iv.next866, %705 ]
-  %706 = getelementptr inbounds nuw [33 x i32], ptr %659, i64 0, i64 %indvars.iv865
+  %706 = getelementptr inbounds nuw i32, ptr %659, i64 %indvars.iv865
   store i32 15, ptr %706, align 4, !tbaa !125
-  %707 = getelementptr inbounds nuw [33 x i32], ptr %660, i64 0, i64 %indvars.iv865
+  %707 = getelementptr inbounds nuw i32, ptr %660, i64 %indvars.iv865
   store i32 15, ptr %707, align 4, !tbaa !125
   %indvars.iv.next866 = add nuw nsw i64 %indvars.iv865, 1
   %708 = icmp samesign ult i64 %indvars.iv.next866, %661
@@ -2256,16 +2256,16 @@ define internal fastcc void @opj_j2k_set_cinema_parameters(ptr noundef nonnull i
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4800
-  %24 = add nsw i32 %20, -1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [100 x float], ptr %23, i64 0, i64 %25
+  %24 = zext nneg i32 %20 to i64
+  %25 = getelementptr float, ptr %23, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load float, ptr %26, align 4, !tbaa !67
   %28 = fpext float %27 to double
   %29 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.110, i32 noundef %20, double noundef %28) #21
   %30 = load i32, ptr %19, align 4, !tbaa !57
-  %31 = add nsw i32 %30, -1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [100 x float], ptr %23, i64 0, i64 %32
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr float, ptr %23, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 -4
   %34 = load float, ptr %33, align 4, !tbaa !67
   store float %34, ptr %23, align 8, !tbaa !67
   store i32 1, ptr %19, align 4, !tbaa !57
@@ -2356,9 +2356,9 @@ define internal fastcc void @opj_j2k_set_cinema_parameters(ptr noundef nonnull i
 
 72:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %73 = getelementptr inbounds nuw [33 x i32], ptr %70, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
   store i32 256, ptr %73, align 4, !tbaa !125
-  %74 = getelementptr inbounds nuw [33 x i32], ptr %71, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
   store i32 256, ptr %74, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2746,9 +2746,9 @@ opj_j2k_get_imf_max_NL.exit:                      ; preds = %55, %49, %58, %53, 
 
 88:                                               ; preds = %.lr.ph10, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph10 ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds nuw [33 x i32], ptr %86, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
   store i32 256, ptr %89, align 4, !tbaa !125
-  %90 = getelementptr inbounds nuw [33 x i32], ptr %87, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
   store i32 256, ptr %90, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2787,7 +2787,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_is_imf_compliant(ptr noundef
 
 23:                                               ; preds = %3
   %24 = zext nneg i16 %9 to i64
-  %25 = getelementptr inbounds nuw [12 x i16], ptr @tabMaxSubLevelFromMainLevel, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr @tabMaxSubLevelFromMainLevel, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !159
   %27 = icmp ugt i16 %11, %26
   br i1 %27, label %28, label %32
@@ -3335,13 +3335,13 @@ default.unreachable:                              ; preds = %216
   %275 = phi i32 [ %261, %.lr.ph331 ], [ %284, %283 ]
   %indvars.iv339 = phi i64 [ 0, %.lr.ph331 ], [ %indvars.iv.next340, %283 ]
   %.22329 = phi i32 [ %.20, %.lr.ph331 ], [ %.23, %283 ]
-  %276 = getelementptr inbounds nuw [33 x i32], ptr %263, i64 0, i64 %indvars.iv339
+  %276 = getelementptr inbounds nuw i32, ptr %263, i64 %indvars.iv339
   %277 = load i32, ptr %276, align 4, !tbaa !125
   %.not302 = icmp eq i32 %277, 256
   br i1 %.not302, label %278, label %281
 
 278:                                              ; preds = %274
-  %279 = getelementptr inbounds nuw [33 x i32], ptr %264, i64 0, i64 %indvars.iv339
+  %279 = getelementptr inbounds nuw i32, ptr %264, i64 %indvars.iv339
   %280 = load i32, ptr %279, align 4, !tbaa !125
   %.not303 = icmp eq i32 %280, 256
   br i1 %.not303, label %283, label %281
@@ -3650,7 +3650,7 @@ define hidden range(i32 0, 2) i32 @opj_j2k_setup_mct_encoding(ptr noundef captur
 46:                                               ; preds = %37
   %47 = load i32, ptr %33, align 8, !tbaa !177
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw [4 x ptr], ptr @j2k_mct_write_functions_from_float, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr @j2k_mct_write_functions_from_float, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !178
   %51 = load ptr, ptr %6, align 8, !tbaa !123
   tail call void %50(ptr noundef %51, ptr noundef nonnull %45, i32 noundef %42) #21
@@ -3776,7 +3776,7 @@ define hidden range(i32 0, 2) i32 @opj_j2k_setup_mct_encoding(ptr noundef captur
 ._crit_edge:                                      ; preds = %.lr.ph, %101
   %110 = load i32, ptr %82, align 8, !tbaa !177
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [4 x ptr], ptr @j2k_mct_write_functions_from_float, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw ptr, ptr @j2k_mct_write_functions_from_float, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !178
   %114 = load ptr, ptr %83, align 8, !tbaa !173
   tail call void %113(ptr noundef nonnull %98, ptr noundef %114, i32 noundef %91) #21
@@ -6824,9 +6824,9 @@ define internal fastcc void @opj_j2k_dump_tile_info(ptr noundef readonly capture
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [33 x i32], ptr %43, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !125
-  %48 = getelementptr inbounds nuw [33 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !125
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.272, i32 noundef %47, i32 noundef %49) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6863,7 +6863,7 @@ define internal fastcc void @opj_j2k_dump_tile_info(ptr noundef readonly capture
 
 70:                                               ; preds = %.lr.ph65, %70
   %indvars.iv73 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next74, %70 ]
-  %71 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %69, i64 0, i64 %indvars.iv73
+  %71 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %69, i64 %indvars.iv73
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !287
   %74 = load i32, ptr %71, align 4, !tbaa !289
@@ -7088,13 +7088,13 @@ define hidden ptr @j2k_get_cstr_info(ptr noundef readonly captures(none) %0) loc
 
 97:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %94, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %94, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !287
-  %101 = getelementptr inbounds nuw [97 x i32], ptr %95, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !125
   %102 = load i32, ptr %98, align 4, !tbaa !289
-  %103 = getelementptr inbounds nuw [97 x i32], ptr %96, i64 0, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
   store i32 %102, ptr %103, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9035,7 +9035,7 @@ opj_j2k_convert_progression_order.exit.i99.i:     ; preds = %160
 .preheader.i102.i:                                ; preds = %opj_j2k_convert_progression_order.exit.i99.i
   %166 = getelementptr inbounds nuw i8, ptr %157, i64 424
   %167 = zext i32 %.031.i to i64
-  %168 = getelementptr inbounds nuw [32 x %struct.opj_poc], ptr %166, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw %struct.opj_poc, ptr %166, i64 %167
   %169 = load i8, ptr %119, align 8, !tbaa !12
   %170 = zext i8 %169 to i32
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 84
@@ -11889,7 +11889,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_poc(ptr noundef readonly captu
 .lr.ph:                                           ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 424
   %52 = zext nneg i32 %43 to i64
-  %53 = getelementptr inbounds nuw [32 x %struct.opj_poc], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %struct.opj_poc, ptr %51, i64 %52
   %54 = zext nneg i32 %. to i64
   %55 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %56
@@ -13845,7 +13845,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mco(ptr noundef readonly captu
 65:                                               ; preds = %62
   %66 = load i32, ptr %64, align 8, !tbaa !177
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw [4 x i32], ptr @MCT_ELEMENT_SIZE, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr @MCT_ELEMENT_SIZE, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !125
   %70 = mul i32 %59, %59
   %71 = mul i32 %69, %70
@@ -13865,7 +13865,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mco(ptr noundef readonly captu
 78:                                               ; preds = %74
   %79 = load i32, ptr %64, align 8, !tbaa !177
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [4 x ptr], ptr @j2k_mct_read_functions_to_float, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr @j2k_mct_read_functions_to_float, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !178
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !173
@@ -13881,7 +13881,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mco(ptr noundef readonly captu
 88:                                               ; preds = %85
   %89 = load i32, ptr %87, align 8, !tbaa !177
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw [4 x i32], ptr @MCT_ELEMENT_SIZE, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr @MCT_ELEMENT_SIZE, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !125
   %93 = load i32, ptr %60, align 8, !tbaa !58
   %94 = mul i32 %93, %92
@@ -13900,7 +13900,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mco(ptr noundef readonly captu
 101:                                              ; preds = %97
   %102 = load i32, ptr %87, align 8, !tbaa !177
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [4 x ptr], ptr @j2k_mct_read_functions_to_int32, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw ptr, ptr @j2k_mct_read_functions_to_int32, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !178
   %106 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !173
@@ -14116,10 +14116,10 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_read_SPCod_SPCoc(ptr noundef
   br label %.loopexit
 
 ._crit_edge102:                                   ; preds = %90, %92
-  %97 = getelementptr inbounds nuw [33 x i32], ptr %86, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
   store i32 %.pre103, ptr %97, align 4, !tbaa !125
   %98 = lshr i32 %.pre, 4
-  %99 = getelementptr inbounds nuw [33 x i32], ptr %87, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
   store i32 %98, ptr %99, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = load i32, ptr %31, align 4, !tbaa !132
@@ -14140,9 +14140,9 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_read_SPCod_SPCoc(ptr noundef
 
 105:                                              ; preds = %.lr.ph93, %105
   %indvars.iv98 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next99, %105 ]
-  %106 = getelementptr inbounds nuw [33 x i32], ptr %81, i64 0, i64 %indvars.iv98
+  %106 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv98
   store i32 15, ptr %106, align 4, !tbaa !125
-  %107 = getelementptr inbounds nuw [33 x i32], ptr %82, i64 0, i64 %indvars.iv98
+  %107 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv98
   store i32 15, ptr %107, align 4, !tbaa !125
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %108 = icmp samesign ult i64 %indvars.iv.next99, %83
@@ -14340,7 +14340,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_read_SQcd_SQcc(ptr noundef r
 55:                                               ; preds = %52
   %56 = load i32, ptr %6, align 4, !tbaa !125
   %57 = lshr i32 %56, 3
-  %58 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %51, i64 0, i64 %indvars.iv88
+  %58 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %51, i64 %indvars.iv88
   store i32 %57, ptr %58, align 4, !tbaa !289
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 0, ptr %59, align 4, !tbaa !287
@@ -14371,7 +14371,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_read_SQcd_SQcc(ptr noundef r
 68:                                               ; preds = %65
   %69 = load i32, ptr %6, align 4, !tbaa !125
   %70 = lshr i32 %69, 11
-  %71 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %50, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %50, i64 %indvars.iv
   store i32 %70, ptr %71, align 4, !tbaa !289
   %72 = and i32 %69, 2047
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -14418,7 +14418,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_read_SQcd_SQcc(ptr noundef r
   %88 = udiv i32 %87, 3
   %89 = sub nsw i32 %.pre, %88
   %spec.select = call i32 @llvm.smax.i32(i32 %89, i32 0)
-  %90 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %83, i64 0, i64 %indvars.iv93
+  %90 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %83, i64 %indvars.iv93
   store i32 %spec.select, ptr %90, align 4, !tbaa !289
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %.pre98, ptr %91, align 4, !tbaa !287
@@ -16152,7 +16152,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_write_sod(ptr noundef readon
   %.049.i = lshr i32 %.049.in6.i, 7
   %70 = trunc i32 %.049.i to i8
   %71 = or i8 %70, -128
-  %72 = getelementptr inbounds nuw [5 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %71, ptr %72, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp ult i32 %.049.in6.i, 16384
@@ -16198,7 +16198,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_write_sod(ptr noundef readon
   %.38.i = phi ptr [ %.164.i, %.lr.ph11.preheader.i ], [ %92, %.lr.ph11.i ]
   %87 = add nuw nsw i64 %indvars.iv29.i, 4294967295
   %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw [5 x i8], ptr %7, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !12
   %91 = zext i8 %90 to i32
   tail call void @opj_write_bytes_LE(ptr noundef nonnull %.38.i, i32 noundef %91, i32 noundef 1) #21
@@ -16599,7 +16599,7 @@ define internal noundef i32 @opj_j2k_init_info(ptr noundef initializes((48, 52))
 opj_j2k_convert_progression_order.exit.i.i:       ; preds = %35
   %.06.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %39 = zext i32 %.04.i to i64
-  %40 = getelementptr inbounds nuw [32 x %struct.opj_poc], ptr %24, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.opj_poc, ptr %24, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 84
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 88
@@ -17116,17 +17116,17 @@ define internal range(i32 0, 2) i32 @opj_j2k_write_all_coc(ptr noundef captures(
 
 53:                                               ; preds = %52, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %52 ]
-  %54 = getelementptr inbounds nuw [33 x i32], ptr %48, i64 0, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !125
-  %56 = getelementptr inbounds nuw [33 x i32], ptr %50, i64 0, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i
   %57 = load i32, ptr %56, align 4, !tbaa !125
   %.not36.i.i = icmp eq i32 %55, %57
   br i1 %.not36.i.i, label %58, label %.loopexit
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw [33 x i32], ptr %49, i64 0, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i.i
   %60 = load i32, ptr %59, align 4, !tbaa !125
-  %61 = getelementptr inbounds nuw [33 x i32], ptr %51, i64 0, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !125
   %.not37.i.i = icmp eq i32 %60, %62
   br i1 %.not37.i.i, label %52, label %.loopexit
@@ -17322,9 +17322,9 @@ define internal range(i32 0, 2) i32 @opj_j2k_write_all_qcc(ptr noundef captures(
 
 43:                                               ; preds = %42, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %42 ]
-  %44 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %40, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %40, i64 %indvars.iv.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !289
-  %46 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %41, i64 %indvars.iv.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !289
   %.not39.i.i = icmp eq i32 %45, %47
   br i1 %.not39.i.i, label %42, label %.loopexit
@@ -18790,9 +18790,9 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_write_SPCod_SPCoc(ptr readon
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.0402 = phi ptr [ %35, %.lr.ph ], [ %49, %42 ]
-  %43 = getelementptr inbounds nuw [33 x i32], ptr %38, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !125
-  %45 = getelementptr inbounds nuw [33 x i32], ptr %39, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !125
   %47 = shl i32 %46, 4
   %48 = add i32 %47, %44
@@ -18867,7 +18867,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_write_SQcd_SQcc(ptr readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.pn3 = phi ptr [ %2, %.lr.ph ], [ %.046, %31 ]
   %.046 = getelementptr inbounds nuw i8, ptr %.pn3, i64 1
-  %32 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %30, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %30, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !289
   %34 = shl i32 %33, 3
   tail call void @opj_write_bytes_LE(ptr noundef nonnull %.046, i32 noundef %34, i32 noundef 1) #21
@@ -18905,7 +18905,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_write_SQcd_SQcc(ptr readonly
 48:                                               ; preds = %.lr.ph6, %48
   %indvars.iv11 = phi i64 [ 0, %.lr.ph6 ], [ %indvars.iv.next12, %48 ]
   %.15 = phi ptr [ %46, %.lr.ph6 ], [ %55, %48 ]
-  %49 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %47, i64 0, i64 %indvars.iv11
+  %49 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %47, i64 %indvars.iv11
   %50 = load i32, ptr %49, align 4, !tbaa !289
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !287

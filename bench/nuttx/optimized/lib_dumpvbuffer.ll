@@ -72,8 +72,8 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly captures(addr
   %33 = load i8, ptr %19, align 1
   %34 = add i8 %33, -32
   %or.cond = icmp ult i8 %34, 95
-  %35 = add nuw nsw i64 %indvars.iv, 49
-  %36 = getelementptr inbounds nuw [66 x i8], ptr %6, i64 0, i64 %35
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 49
   %. = select i1 %or.cond, i8 %33, i8 46
   store i8 %., ptr %36, align 1
   %37 = add i32 %.14461, 1
@@ -94,9 +94,9 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly captures(addr
   %48 = mul nuw nsw i32 %47, 3
   %49 = zext nneg i32 %48 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 32, i64 %49, i1 false)
-  %50 = add nuw i64 %indvars.iv, 50
-  %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds nuw [66 x i8], ptr %6, i64 0, i64 %51
+  %50 = and i64 %indvars.iv, 4294967295
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 50
   %53 = zext nneg i32 %47 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 32, i64 %53, i1 false)
   br label %.loopexit

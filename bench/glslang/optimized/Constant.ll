@@ -11499,7 +11499,7 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %.lr.ph.i.i.i.i.i
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %32, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = load ptr, ptr %33, align 8

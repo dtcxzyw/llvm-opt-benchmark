@@ -2403,9 +2403,9 @@ _ZN3mbp12mbp_array_tg4impl9mark_seenEP4exprS3_.exit: ; preds = %961, %955, %937,
 
 .lr.ph471:                                        ; preds = %_ZN3mbp12mbp_array_tg4impl9mark_seenEP4exprS3_.exit, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit319
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit319 ], [ 1, %_ZN3mbp12mbp_array_tg4impl9mark_seenEP4exprS3_.exit ]
-  %970 = getelementptr inbounds nuw [0 x ptr], ptr %770, i64 0, i64 %indvars.iv
+  %970 = getelementptr inbounds nuw ptr, ptr %770, i64 %indvars.iv
   %971 = load ptr, ptr %970, align 8, !tbaa !63
-  %972 = getelementptr inbounds nuw [0 x ptr], ptr %782, i64 0, i64 %indvars.iv
+  %972 = getelementptr inbounds nuw ptr, ptr %782, i64 %indvars.iv
   %973 = load ptr, ptr %972, align 8, !tbaa !63
   %974 = load ptr, ptr %663, align 8, !tbaa !147
   %975 = invoke noundef zeroext i1 @_ZN5model9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(160) %974, ptr noundef %971, ptr noundef %973)
@@ -3224,7 +3224,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i203:     ; preds = %_ZN7obj_refI4expr11
   %68 = add i32 %67, -1
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %69, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !63
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 %64, ptr %73, align 8, !tbaa !52
@@ -5594,7 +5594,7 @@ define linkonce_odr hidden void @_ZN3mbp12mbp_array_tg4impl8elimrdwrEP3app(ptr n
   %13 = load i32, ptr %12, align 8, !tbaa !88
   %14 = add i32 %13, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !63
   %18 = load ptr, ptr %11, align 8, !tbaa !63
   %.not66 = icmp eq i32 %7, 1

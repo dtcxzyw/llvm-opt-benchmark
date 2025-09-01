@@ -184,7 +184,7 @@ declare void @llvm.va_end.p0(ptr) #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @advice_enabled(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %2, i32 1
   %4 = load i32, ptr %3, align 8, !tbaa !18
   %5 = icmp ne i32 %4, 1
   %6 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
@@ -234,7 +234,7 @@ define dso_local void @advise_if_enabled(i32 noundef %0, ptr noundef %1, ...) lo
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %4, i32 1
   %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = icmp ne i32 %6, 1
   %8 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
@@ -277,7 +277,7 @@ advice_enabled.exit:                              ; preds = %13, %15
 
 23:                                               ; preds = %19, %advice_enabled.exit
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %24 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %4
+  %24 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !18
   %.not3 = icmp eq i32 %26, 0
@@ -346,7 +346,7 @@ select.unfold:                                    ; preds = %13, %11
   br label %.critedge
 
 17:                                               ; preds = %select.unfold
-  %18 = getelementptr inbounds nuw [2 x [75 x i8]], ptr @advice_colors, i64 0, i64 %.0.i.ph
+  %18 = getelementptr inbounds nuw [75 x i8], ptr @advice_colors, i64 %.0.i.ph
   %19 = tail call i32 @color_parse(ptr noundef nonnull %1, ptr noundef nonnull %18) #13
   br label %.critedge
 
@@ -372,7 +372,7 @@ skip_prefix.exit28:                               ; preds = %skip_prefix.exit28.
 
 skip_prefix.exit28.preheader:                     ; preds = %skip_prefix.exit, %skip_prefix.exit28
   %.040 = phi i64 [ %25, %skip_prefix.exit28 ], [ 0, %skip_prefix.exit ]
-  %26 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %.040
+  %26 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %.040
   %27 = load ptr, ptr %26, align 16, !tbaa !20
   %28 = tail call i32 @strcasecmp(ptr noundef nonnull %scevgep45, ptr noundef %27) #14
   %.not21 = icmp eq i32 %28, 0
@@ -414,7 +414,7 @@ define dso_local void @list_config_advices(ptr noundef %0, ptr noundef %1) local
 
 4:                                                ; preds = %2, %4
   %.04 = phi i64 [ 0, %2 ], [ %9, %4 ]
-  %5 = getelementptr inbounds nuw [46 x %struct.anon], ptr @advice_setting, i64 0, i64 %.04
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %.04
   %6 = load ptr, ptr %5, align 16, !tbaa !20
   %7 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.83, ptr noundef %1, ptr noundef %6) #13
   %8 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %7) #13

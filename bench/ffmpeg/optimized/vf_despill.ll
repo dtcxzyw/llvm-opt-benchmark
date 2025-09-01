@@ -254,7 +254,7 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
   %.idx = mul nuw nsw i64 %indvars.iv, 20
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = load i32, ptr %11, align 4, !tbaa !58
-  %13 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

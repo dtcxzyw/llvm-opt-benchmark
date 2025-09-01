@@ -291,13 +291,13 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
 
 14:                                               ; preds = %.lr.ph56, %14
   %indvars.iv60 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next61, %14 ]
-  %15 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_params_rule_t], ptr %12, i64 0, i64 %indvars.iv60
+  %15 = getelementptr inbounds nuw %struct.dt_lib_collect_params_rule_t, ptr %12, i64 %indvars.iv60
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 65535
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [42 x i32], ptr @__const.legacy_params.table, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @__const.legacy_params.table, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !11
-  %21 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_params_rule_t], ptr %13, i64 0, i64 %indvars.iv60
+  %21 = getelementptr inbounds nuw %struct.dt_lib_collect_params_rule_t, ptr %13, i64 %indvars.iv60
   %22 = and i32 %20, 65535
   %23 = and i32 %16, -65536
   %24 = or disjoint i32 %22, %23
@@ -328,13 +328,13 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_params_rule_t], ptr %32, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.dt_lib_collect_params_rule_t, ptr %32, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 65535
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [42 x i32], ptr @__const.legacy_params.table.2, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @__const.legacy_params.table.2, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
-  %41 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_params_rule_t], ptr %33, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.dt_lib_collect_params_rule_t, ptr %33, i64 %indvars.iv
   %42 = and i32 %40, 65535
   %43 = and i32 %36, -65536
   %44 = or disjoint i32 %42, %43
@@ -408,7 +408,7 @@ define internal fastcc void @_lib_collect_update_params(ptr initializes((0, 2604
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 200, ptr noundef nonnull @.str.58, i32 noundef %8) #16
   %10 = call i32 @dt_conf_get_int(ptr noundef nonnull %1) #16
-  %11 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_params_rule_t], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.dt_lib_collect_params_rule_t, ptr %5, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %10, 65535
   %14 = and i32 %12, -65536
@@ -459,7 +459,7 @@ define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %.01819 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
   %9 = trunc nuw i64 %indvars.iv to i32
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.3, i32 noundef %9) #16
-  %11 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_params_rule_t], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.dt_lib_collect_params_rule_t, ptr %6, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 65535
   call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %13) #16
@@ -547,7 +547,7 @@ define internal void @_lib_collect_gui_update(ptr noundef %0) #1 {
 
 20:                                               ; preds = %7, %20
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %indvars.iv, i32 1
+  %21 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv, i32 1
   %22 = load ptr, ptr %21, align 8, !tbaa !74
   tail call void @gtk_widget_set_no_show_all(ptr noundef %22, i32 noundef 1) #16
   %23 = load ptr, ptr %21, align 8, !tbaa !74
@@ -576,7 +576,7 @@ define internal void @_lib_collect_gui_update(ptr noundef %0) #1 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %87
   %indvars.iv69 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next70, %87 ]
-  %32 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %indvars.iv69
+  %32 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv69
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !74
   call void @gtk_widget_set_no_show_all(ptr noundef %34, i32 noundef 0) #16
@@ -659,7 +659,7 @@ _combo_set_active_collection.exit:                ; preds = %.preheader, %44
 
 switch.lookup:                                    ; preds = %76
   %82 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._lib_collect_gui_update, i64 0, i64 %82
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._lib_collect_gui_update, i64 %82
   %switch.load = load ptr, ptr %switch.gep, align 8
   %83 = getelementptr inbounds nuw i8, ptr %65, i64 56
   store ptr %switch.load, ptr %83, align 8, !tbaa !83
@@ -979,7 +979,7 @@ define hidden void @_mount_changed(ptr readnone captures(none) %0, ptr noundef r
 14:                                               ; preds = %2
   %15 = load i32, ptr %5, align 8, !tbaa !78
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %16, i32 5
+  %17 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %16, i32 5
   store i32 0, ptr %17, align 8, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 1136
   store i32 -1, ptr %18, align 8, !tbaa !65
@@ -989,7 +989,7 @@ define hidden void @_mount_changed(ptr readnone captures(none) %0, ptr noundef r
 19:                                               ; preds = %2
   %20 = load i32, ptr %5, align 8, !tbaa !78
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %21, i32 5
+  %22 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %21, i32 5
   store i32 0, ptr %22, align 8, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 1136
   store i32 -1, ptr %23, align 8, !tbaa !65
@@ -1035,7 +1035,7 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %1
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._tree_view, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._tree_view, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %28
 
@@ -2763,7 +2763,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 68:                                               ; preds = %1, %68
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %68 ]
   %.0150 = phi i32 [ 0, %1 ], [ %spec.select, %68 ]
-  %69 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_rule_t], ptr %2, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %2, i64 %indvars.iv
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %70, ptr %69, align 8, !tbaa !120
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 40
@@ -4090,7 +4090,7 @@ define internal void @_history_show(ptr noundef %0, ptr noundef %1) #1 {
 
 50:                                               ; preds = %53, %49
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %49 ]
-  %51 = getelementptr inbounds nuw [400 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %52 = load i8, ptr %51, align 1, !tbaa !127
   switch i8 %52, label %53 [
     i8 36, label %54
@@ -4102,7 +4102,7 @@ define internal void @_history_show(ptr noundef %0, ptr noundef %1) #1 {
   br label %50
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw [400 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 0, ptr %55, align 1, !tbaa !127
   br label %.loopexit.i
 
@@ -4230,7 +4230,7 @@ define internal void @collection_updated(ptr readnone captures(none) %0, i32 nou
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 1120
   %11 = load i32, ptr %10, align 8, !tbaa !78
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %8, i64 0, i64 %12, i32 5
+  %13 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %8, i64 %12, i32 5
   store i32 0, ptr %13, align 8, !tbaa !81
   %14 = icmp eq i32 %1, 3
   %15 = icmp ne i32 %2, 43
@@ -4250,7 +4250,7 @@ define internal void @collection_updated(ptr readnone captures(none) %0, i32 nou
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_rule_t], ptr %8, i64 0, i64 %indvars.iv, i32 2
+  %19 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %8, i64 %indvars.iv, i32 2
   %20 = load ptr, ptr %19, align 8, !tbaa !79
   %21 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %20) #16
   %22 = ptrtoint ptr %21 to i64
@@ -4289,7 +4289,7 @@ define internal void @filmrolls_imported(ptr readnone captures(none) %0, i32 %1,
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1120
   %8 = load i32, ptr %7, align 8, !tbaa !78
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %5, i64 0, i64 %9, i32 5
+  %10 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %5, i64 %9, i32 5
   store i32 0, ptr %10, align 8, !tbaa !81
   tail call void @_lib_collect_gui_update(ptr noundef %2)
   ret void
@@ -4312,7 +4312,7 @@ define internal void @filmrolls_removed(ptr readnone captures(none) %0, ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1120
   %10 = load i32, ptr %9, align 8, !tbaa !78
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %11, i32 5
+  %12 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %11, i32 5
   store i32 0, ptr %12, align 8, !tbaa !81
   tail call void @_lib_collect_gui_update(ptr noundef nonnull %1)
   ret void
@@ -4325,7 +4325,7 @@ define internal void @tag_changed(ptr readnone captures(none) %0, ptr noundef re
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1120
   %6 = load i32, ptr %5, align 8, !tbaa !78
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %7, i32 2
   %9 = load ptr, ptr %8, align 8, !tbaa !79
   %10 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %9) #16
   %11 = ptrtoint ptr %10 to i64
@@ -4344,7 +4344,7 @@ define internal void @tag_changed(ptr readnone captures(none) %0, ptr noundef re
   store i32 -1, ptr %18, align 8, !tbaa !65
   %19 = load i32, ptr %5, align 8, !tbaa !78
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %20, i32 5
+  %21 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %20, i32 5
   store i32 0, ptr %21, align 8, !tbaa !81
   br label %.critedge.sink.split
 
@@ -4353,7 +4353,7 @@ define internal void @tag_changed(ptr readnone captures(none) %0, ptr noundef re
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_rule_t], ptr %4, i64 0, i64 %indvars.iv, i32 2
+  %22 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv, i32 2
   %23 = load ptr, ptr %22, align 8, !tbaa !79
   %24 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %23) #16
   %25 = ptrtoint ptr %24 to i64
@@ -4396,7 +4396,7 @@ define internal void @_geotag_changed(ptr readnone captures(none) %0, ptr readno
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1120
   %9 = load i32, ptr %8, align 8, !tbaa !78
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %7, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %7, i64 %10, i32 2
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   %13 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %12) #16
   %14 = ptrtoint ptr %13 to i64
@@ -4409,7 +4409,7 @@ define internal void @_geotag_changed(ptr readnone captures(none) %0, ptr readno
   store i32 -1, ptr %18, align 8, !tbaa !65
   %19 = load i32, ptr %8, align 8, !tbaa !78
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %7, i64 0, i64 %20, i32 5
+  %21 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %7, i64 %20, i32 5
   store i32 0, ptr %21, align 8, !tbaa !81
   tail call void @_lib_collect_gui_update(ptr noundef nonnull %3)
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
@@ -4441,7 +4441,7 @@ define internal void @metadata_changed(ptr readnone captures(none) %0, i32 nound
 
 .preheader:                                       ; preds = %3, %_combo_set_active_collection.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_combo_set_active_collection.exit ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw [10 x %struct.dt_lib_collect_rule_t], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %6, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !79
   %11 = call i32 @g_signal_handlers_block_matched(ptr noundef %10, i32 noundef 8, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @combo_changed, ptr noundef null) #16
@@ -4505,7 +4505,7 @@ _combo_set_active_collection.exit:                ; preds = %18, %21, %.preheade
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 1120
   %47 = load i32, ptr %46, align 8, !tbaa !78
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %6, i64 0, i64 %48, i32 2
+  %49 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %6, i64 %48, i32 2
   %50 = load ptr, ptr %49, align 8, !tbaa !79
   %51 = call ptr @dt_bauhaus_combobox_get_data(ptr noundef %50) #16
   %52 = ptrtoint ptr %51 to i64
@@ -6170,7 +6170,7 @@ define internal fastcc void @row_activated_with_event(ptr noundef %0, ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 1120
   %23 = load i32, ptr %22, align 8, !tbaa !78
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [10 x %struct.dt_lib_collect_rule_t], ptr %2, i64 0, i64 %24
+  %25 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %2, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i32 0, ptr %26, align 8, !tbaa !81
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16

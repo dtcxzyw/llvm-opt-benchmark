@@ -702,7 +702,7 @@ define dso_local void @Curl_doh_cleanup(ptr noundef captures(none) %0) local_unn
 10:                                               ; preds = %23, %8
   %11 = phi i1 [ true, %8 ], [ false, %23 ]
   %.021.i = phi i64 [ 0, %8 ], [ 1, %23 ]
-  %12 = getelementptr inbounds nuw [2 x %struct.doh_probe], ptr %9, i64 0, i64 %.021.i
+  %12 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %.021.i
   %13 = load i64, ptr %12, align 8, !tbaa !80
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %23, label %15
@@ -812,7 +812,7 @@ define dso_local range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %0, ptr 
 32:                                               ; preds = %45, %31
   %33 = phi i1 [ true, %31 ], [ false, %45 ]
   %.021.i = phi i64 [ 0, %31 ], [ 1, %45 ]
-  %34 = getelementptr inbounds nuw [2 x %struct.doh_probe], ptr %9, i64 0, i64 %.021.i
+  %34 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %.021.i
   %35 = load i64, ptr %34, align 8, !tbaa !80
   %36 = icmp slt i64 %35, 0
   br i1 %36, label %45, label %37
@@ -854,7 +854,7 @@ Curl_doh_close.exit:                              ; preds = %28, %46
 
 48:                                               ; preds = %48, %Curl_doh_close.exit
   %indvars.iv.i = phi i64 [ 0, %Curl_doh_close.exit ], [ %indvars.iv.next.i, %48 ]
-  %49 = getelementptr inbounds nuw [4 x %struct.dynbuf], ptr %5, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw %struct.dynbuf, ptr %5, i64 %indvars.iv.i
   call void @Curl_dyn_init(ptr noundef nonnull %49, i64 noundef 256) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -873,7 +873,7 @@ de_init.exit.preheader:                           ; preds = %48
   %57 = phi i1 [ true, %de_init.exit.preheader ], [ false, %de_init.exit ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %de_init.exit.preheader ], [ %.sroa.5, %de_init.exit ]
   %indvars.iv = phi i64 [ 0, %de_init.exit.preheader ], [ 1, %de_init.exit ]
-  %58 = getelementptr inbounds nuw [2 x %struct.doh_probe], ptr %9, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !103
   %.not89 = icmp eq i32 %60, 0
@@ -1337,7 +1337,7 @@ doh_resp_decode.exit:                             ; preds = %97, %doh_skipqname.
 
 doh_strerror.exit:                                ; preds = %313, %311
   %317 = zext nneg i32 %.0.i to i64
-  %318 = getelementptr inbounds nuw [14 x ptr], ptr @errors, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw ptr, ptr @errors, i64 %317
   %319 = load ptr, ptr %318, align 8, !tbaa !86
   %320 = load i32, ptr %59, align 8, !tbaa !103
   %switch.selectcmp.i = icmp eq i32 %320, 28
@@ -1419,7 +1419,7 @@ de_init.exit:                                     ; preds = %doh_resp_decode.exi
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i98, %377 ]
   %.05784.i = phi ptr [ null, %.lr.ph.i96 ], [ %357, %377 ]
   %.05983.i = phi ptr [ null, %.lr.ph.i96 ], [ %spec.select.i, %377 ]
-  %352 = getelementptr inbounds nuw [24 x %struct.dohaddr], ptr %348, i64 0, i64 %indvars.iv.i97
+  %352 = getelementptr inbounds nuw %struct.dohaddr, ptr %348, i64 %indvars.iv.i97
   %353 = load i32, ptr %352, align 4, !tbaa !131
   %354 = icmp eq i32 %353, 28
   %..i = select i1 %354, i64 28, i64 16
@@ -1493,7 +1493,7 @@ doh2ai.exit:                                      ; preds = %340, %382
 
 .lr.ph.i100:                                      ; preds = %doh2ai.exit, %.lr.ph.i100
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i102, %.lr.ph.i100 ], [ 0, %doh2ai.exit ]
-  %385 = getelementptr inbounds nuw [4 x %struct.dynbuf], ptr %5, i64 0, i64 %indvars.iv.i101
+  %385 = getelementptr inbounds nuw %struct.dynbuf, ptr %5, i64 %indvars.iv.i101
   call void @Curl_dyn_free(ptr noundef nonnull %385) #8
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
   %386 = load i32, ptr %50, align 8, !tbaa !144
@@ -1546,7 +1546,7 @@ de_cleanup.exit.thread:                           ; preds = %401, %402, %322
 
 .lr.ph.i104:                                      ; preds = %de_cleanup.exit.thread, %.lr.ph.i104
   %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i106, %.lr.ph.i104 ], [ 0, %de_cleanup.exit.thread ]
-  %406 = getelementptr inbounds nuw [4 x %struct.dynbuf], ptr %5, i64 0, i64 %indvars.iv.i105
+  %406 = getelementptr inbounds nuw %struct.dynbuf, ptr %5, i64 %indvars.iv.i105
   call void @Curl_dyn_free(ptr noundef nonnull %406) #8
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
   %407 = load i32, ptr %50, align 8, !tbaa !144
@@ -1597,7 +1597,7 @@ define dso_local void @Curl_doh_close(ptr noundef readonly captures(none) %0) lo
 10:                                               ; preds = %8, %23
   %11 = phi i1 [ true, %8 ], [ false, %23 ]
   %.021 = phi i64 [ 0, %8 ], [ 1, %23 ]
-  %12 = getelementptr inbounds nuw [2 x %struct.doh_probe], ptr %9, i64 0, i64 %.021
+  %12 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %.021
   %13 = load i64, ptr %12, align 8, !tbaa !80
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %23, label %15
@@ -1681,7 +1681,7 @@ define internal fastcc void @doh_show(ptr noundef nonnull %0, ptr noundef nonnul
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4712
   br label %27
 
-.preheader:                                       ; preds = %82, %17
+.preheader:                                       ; preds = %81, %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %24 = load i32, ptr %23, align 8, !tbaa !144
   %25 = icmp sgt i32 %24, 0
@@ -1689,13 +1689,13 @@ define internal fastcc void @doh_show(ptr noundef nonnull %0, ptr noundef nonnul
 
 .lr.ph77:                                         ; preds = %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  br label %86
+  br label %85
 
-27:                                               ; preds = %.lr.ph, %82
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next80, %82 ]
-  %28 = getelementptr inbounds nuw [24 x %struct.dohaddr], ptr %21, i64 0, i64 %indvars.iv79
+27:                                               ; preds = %.lr.ph, %81
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next80, %81 ]
+  %28 = getelementptr inbounds nuw %struct.dohaddr, ptr %21, i64 %indvars.iv79
   %29 = load i32, ptr %28, align 4, !tbaa !131
-  switch i32 %29, label %82 [
+  switch i32 %29, label %81 [
     i32 1, label %30
     i32 28, label %52
   ]
@@ -1704,7 +1704,7 @@ define internal fastcc void @doh_show(ptr noundef nonnull %0, ptr noundef nonnul
   %31 = load i64, ptr %4, align 2
   %32 = and i64 %31, 134217728
   %.not70 = icmp eq i64 %32, 0
-  br i1 %.not70, label %82, label %33
+  br i1 %.not70, label %81, label %33
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %22, align 8, !tbaa !104
@@ -1715,7 +1715,7 @@ define internal fastcc void @doh_show(ptr noundef nonnull %0, ptr noundef nonnul
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !108
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %82
+  br i1 %38, label %39, label %81
 
 39:                                               ; preds = %35, %33
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -1731,104 +1731,103 @@ define internal fastcc void @doh_show(ptr noundef nonnull %0, ptr noundef nonnul
   %50 = load i8, ptr %49, align 1, !tbaa !99
   %51 = zext i8 %50 to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51) #8
-  br label %82
+  br label %81
 
 52:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 16 dereferenceable(128) @__const.doh_show.buffer, i64 128, i1 false)
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %54 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %53
   %55 = sub i64 128, %53
   %56 = getelementptr inbounds nuw i8, ptr %28, i64 4
   br label %57
 
 57:                                               ; preds = %52, %57
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %57 ]
-  %.05474 = phi ptr [ %54, %52 ], [ %69, %57 ]
-  %.05573 = phi i64 [ %55, %52 ], [ %68, %57 ]
+  %.05474 = phi ptr [ %54, %52 ], [ %68, %57 ]
+  %.05573 = phi i64 [ %55, %52 ], [ %67, %57 ]
   %.not69 = icmp eq i64 %indvars.iv, 0
   %58 = select i1 %.not69, ptr @.str.11, ptr @.str.31
-  %59 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
   %60 = load i8, ptr %59, align 1, !tbaa !99
   %61 = zext i8 %60 to i32
-  %62 = or disjoint i64 %indvars.iv, 1
-  %63 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !99
-  %65 = zext i8 %64 to i32
-  %66 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.05474, i64 noundef %.05573, ptr noundef nonnull @.str.30, ptr noundef nonnull %58, i32 noundef %61, i32 noundef %65) #8
-  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05474) #9
-  %68 = sub i64 %.05573, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.05474, i64 %67
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  %63 = load i8, ptr %62, align 1, !tbaa !99
+  %64 = zext i8 %63 to i32
+  %65 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.05474, i64 noundef %.05573, ptr noundef nonnull @.str.30, ptr noundef nonnull %58, i32 noundef %61, i32 noundef %64) #8
+  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05474) #9
+  %67 = sub i64 %.05573, %66
+  %68 = getelementptr inbounds nuw i8, ptr %.05474, i64 %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %70 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %70, label %57, label %71, !llvm.loop !147
+  %69 = icmp samesign ult i64 %indvars.iv, 14
+  br i1 %69, label %57, label %70, !llvm.loop !147
 
-71:                                               ; preds = %57
-  %72 = load i64, ptr %4, align 2
-  %73 = and i64 %72, 134217728
-  %.not67 = icmp eq i64 %73, 0
-  br i1 %.not67, label %81, label %74
+70:                                               ; preds = %57
+  %71 = load i64, ptr %4, align 2
+  %72 = and i64 %71, 134217728
+  %.not67 = icmp eq i64 %72, 0
+  br i1 %.not67, label %80, label %73
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %22, align 8, !tbaa !104
-  %.not68 = icmp eq ptr %75, null
-  br i1 %.not68, label %80, label %76
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %22, align 8, !tbaa !104
+  %.not68 = icmp eq ptr %74, null
+  br i1 %.not68, label %79, label %75
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !108
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %81
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %77 = load i32, ptr %76, align 8, !tbaa !108
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %79, label %80
 
-80:                                               ; preds = %76, %74
+79:                                               ; preds = %75, %73
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef nonnull %3) #8
+  br label %80
+
+80:                                               ; preds = %79, %75, %70
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
-81:                                               ; preds = %80, %76, %71
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %82
-
-82:                                               ; preds = %27, %81, %30, %35, %39
+81:                                               ; preds = %27, %80, %30, %35, %39
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %83 = load i32, ptr %18, align 8, !tbaa !130
-  %84 = sext i32 %83 to i64
-  %85 = icmp slt i64 %indvars.iv.next80, %84
-  br i1 %85, label %27, label %.preheader, !llvm.loop !148
+  %82 = load i32, ptr %18, align 8, !tbaa !130
+  %83 = sext i32 %82 to i64
+  %84 = icmp slt i64 %indvars.iv.next80, %83
+  br i1 %84, label %27, label %.preheader, !llvm.loop !148
 
-86:                                               ; preds = %.lr.ph77, %99
-  %87 = phi i32 [ %24, %.lr.ph77 ], [ %100, %99 ]
-  %indvars.iv82 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next83, %99 ]
-  %88 = load i64, ptr %4, align 2
-  %89 = and i64 %88, 134217728
-  %.not65 = icmp eq i64 %89, 0
-  br i1 %.not65, label %99, label %90
+85:                                               ; preds = %.lr.ph77, %98
+  %86 = phi i32 [ %24, %.lr.ph77 ], [ %99, %98 ]
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next83, %98 ]
+  %87 = load i64, ptr %4, align 2
+  %88 = and i64 %87, 134217728
+  %.not65 = icmp eq i64 %88, 0
+  br i1 %.not65, label %98, label %89
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %26, align 8, !tbaa !104
-  %.not66 = icmp eq ptr %91, null
-  br i1 %.not66, label %96, label %92
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %26, align 8, !tbaa !104
+  %.not66 = icmp eq ptr %90, null
+  br i1 %.not66, label %95, label %91
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %94 = load i32, ptr %93, align 8, !tbaa !108
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %96, label %99
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %93 = load i32, ptr %92, align 8, !tbaa !108
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %95, label %98
 
-96:                                               ; preds = %92, %90
-  %97 = getelementptr inbounds nuw [4 x %struct.dynbuf], ptr %1, i64 0, i64 %indvars.iv82
-  %98 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %97) #8
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, ptr noundef %98) #8
+95:                                               ; preds = %91, %89
+  %96 = getelementptr inbounds nuw %struct.dynbuf, ptr %1, i64 %indvars.iv82
+  %97 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %96) #8
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, ptr noundef %97) #8
   %.pre = load i32, ptr %23, align 8, !tbaa !144
-  br label %99
+  br label %98
 
-99:                                               ; preds = %86, %92, %96
-  %100 = phi i32 [ %87, %86 ], [ %87, %92 ], [ %.pre, %96 ]
+98:                                               ; preds = %85, %91, %95
+  %99 = phi i32 [ %86, %85 ], [ %86, %91 ], [ %.pre, %95 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %indvars.iv.next83, %101
-  br i1 %102, label %86, label %._crit_edge, !llvm.loop !149
+  %100 = sext i32 %99 to i64
+  %101 = icmp slt i64 %indvars.iv.next83, %100
+  br i1 %101, label %85, label %._crit_edge, !llvm.loop !149
 
-._crit_edge:                                      ; preds = %99, %.preheader
+._crit_edge:                                      ; preds = %98, %.preheader
   ret void
 }
 
@@ -2031,7 +2030,7 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds [24 x %struct.dohaddr], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds %struct.dohaddr, ptr %13, i64 %14
   store i32 1, ptr %15, align 4, !tbaa !131
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = sext i32 %4 to i64
@@ -2055,7 +2054,7 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %28 = sext i32 %24 to i64
-  %29 = getelementptr inbounds [24 x %struct.dohaddr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds %struct.dohaddr, ptr %27, i64 %28
   store i32 28, ptr %29, align 4, !tbaa !131
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = sext i32 %4 to i64
@@ -2075,7 +2074,7 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
   %39 = add nsw i32 %36, 1
   store i32 %39, ptr %35, align 8, !tbaa !144
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds [4 x %struct.dynbuf], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds %struct.dynbuf, ptr %5, i64 %40
   br label %42
 
 42:                                               ; preds = %73, %38

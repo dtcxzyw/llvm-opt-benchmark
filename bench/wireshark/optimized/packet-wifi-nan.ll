@@ -2555,7 +2555,7 @@ define internal fastcc void @dissect_attr_mesh(ptr noundef %0, ptr noundef %1, i
 
 switch.lookup:                                    ; preds = %9
   %18 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_attr_mesh, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_attr_mesh, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 

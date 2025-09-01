@@ -105,8 +105,8 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
 
 .preheader:                                       ; preds = %20, %27
   %indvars.iv26 = phi i64 [ 0, %20 ], [ %indvars.iv.next27, %27 ]
-  %24 = getelementptr inbounds nuw [36 x [36 x ptr]], ptr %22, i64 0, i64 %indvars.iv26
-  %25 = getelementptr inbounds nuw [36 x [36 x ptr]], ptr %23, i64 0, i64 %indvars.iv26
+  %24 = getelementptr inbounds nuw [36 x ptr], ptr %22, i64 %indvars.iv26
+  %25 = getelementptr inbounds nuw [36 x ptr], ptr %23, i64 %indvars.iv26
   %26 = trunc nuw nsw i64 %indvars.iv26 to i32
   br label %30
 
@@ -131,7 +131,7 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
           to label %37 unwind label %46
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw [36 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   store ptr %36, ptr %38, align 8, !tbaa !29
   %39 = load ptr, ptr %8, align 8, !tbaa !23
   %40 = load ptr, ptr %39, align 8, !tbaa !4
@@ -141,7 +141,7 @@ define dso_local void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(
           to label %44 unwind label %46
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw [36 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   store ptr %43, ptr %45, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
@@ -311,9 +311,9 @@ declare void @_ZN12btDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define dso_local void @_ZN21btCollisionDispatcher27registerCollisionCreateFuncEiiP30btCollisionAlgorithmCreateFunc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20816) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [36 x [36 x ptr]], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds [36 x ptr], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [36 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !29
   ret void
 }
@@ -322,9 +322,9 @@ define dso_local void @_ZN21btCollisionDispatcher27registerCollisionCreateFuncEi
 define dso_local void @_ZN21btCollisionDispatcher31registerClosestPointsCreateFuncEiiP30btCollisionAlgorithmCreateFunc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20816) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [36 x [36 x ptr]], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds [36 x ptr], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [36 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !29
   ret void
 }
@@ -608,7 +608,7 @@ define dso_local void @_ZN21btCollisionDispatcher13clearManifoldEP20btPersistent
 
 8:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %7, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %7, i64 %indvars.iv.i
   tail call void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %1, ptr noundef nonnull align 8 dereferenceable(204) %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %4, align 8, !tbaa !79
@@ -719,8 +719,8 @@ define dso_local noundef ptr @_ZN21btCollisionDispatcher13findAlgorithmEPK24btCo
   %18 = sext i32 %17 to i64
   %. = select i1 %8, i64 72, i64 10440
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %20 = getelementptr inbounds [36 x [36 x ptr]], ptr %19, i64 0, i64 %13
-  %21 = getelementptr inbounds [36 x ptr], ptr %20, i64 0, i64 %18
+  %20 = getelementptr inbounds [36 x ptr], ptr %19, i64 %13
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %18
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16

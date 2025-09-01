@@ -1378,7 +1378,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %fd7 = getelementptr inbounds nuw i8, ptr %handle, i64 %switch.load
   %fd_out.0 = load i32, ptr %fd7, align 8
@@ -2843,7 +2843,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %fd7.i = getelementptr inbounds nuw i8, ptr %handle, i64 %switch.load
   %fd_out.0.i = load i32, ptr %fd7.i, align 8

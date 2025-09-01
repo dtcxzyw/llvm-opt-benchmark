@@ -114,7 +114,7 @@ define ptr @dt_iop_order_string(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [6 x ptr], ptr @iop_order_string, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @iop_order_string, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   br label %7
 
@@ -279,8 +279,8 @@ define ptr @dt_ioppr_get_iop_order_rules() local_unnamed_addr #1 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = phi ptr [ @__const.dt_ioppr_get_iop_order_rules.rule_entry, %0 ], [ %7, %1 ]
   %.010 = phi ptr [ null, %0 ], [ %6, %1 ]
+  %2 = getelementptr inbounds nuw %struct.dt_iop_order_rule_t, ptr @__const.dt_ioppr_get_iop_order_rules.rule_entry, i64 %indvars.iv
   %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -288,13 +288,12 @@ define ptr @dt_ioppr_get_iop_order_rules() local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
   %6 = tail call ptr @g_list_prepend(ptr noundef %.010, ptr noundef nonnull %3) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = getelementptr inbounds nuw [15 x %struct.dt_iop_order_rule_t], ptr @__const.dt_ioppr_get_iop_order_rules.rule_entry, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond, label %8, label %1
+  br i1 %exitcond, label %7, label %1
 
-8:                                                ; preds = %1
-  %9 = tail call ptr @g_list_reverse(ptr noundef %6) #15
-  ret ptr %9
+7:                                                ; preds = %1
+  %8 = tail call ptr @g_list_reverse(ptr noundef %6) #15
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -654,7 +653,7 @@ define i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef readonly captures(addre
 
 .lr.ph.i.preheader:                               ; preds = %.split, %_check_iop_list_equal.exit
   %indvars.iv = phi i64 [ 1, %.split ], [ %indvars.iv.next, %_check_iop_list_equal.exit ]
-  %4 = getelementptr inbounds nuw [6 x ptr], ptr @_iop_order_tables, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @_iop_order_tables, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !60
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %3) #18
@@ -1524,7 +1523,7 @@ _insert_before.exit179.thread196:                 ; preds = %.critedge.preheader
 
 254:                                              ; preds = %252
   %255 = zext nneg i32 %34 to i64
-  %256 = getelementptr inbounds nuw [6 x ptr], ptr @_iop_order_tables, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr @_iop_order_tables, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !60
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load i8, ptr %258, align 8, !tbaa !59
@@ -1594,7 +1593,7 @@ _insert_before.exit179:                           ; preds = %_insert_before.exit
 .thread200:                                       ; preds = %2, %.thread203
   %282 = call i32 @_ioppr_get_default_iop_order_version(i32 noundef %0)
   %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr inbounds nuw [6 x ptr], ptr @_iop_order_tables, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr @_iop_order_tables, i64 %283
   %285 = load ptr, ptr %284, align 8, !tbaa !60
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %287 = load i8, ptr %286, align 8, !tbaa !59
@@ -1948,7 +1947,7 @@ define range(i32 0, 2) i32 @dt_ioppr_write_iop_order_list(ptr noundef %0, i32 no
 
 .lr.ph.i.preheader.i:                             ; preds = %_check_iop_list_equal.exit.i, %.split.i
   %indvars.iv.i = phi i64 [ 1, %.split.i ], [ %indvars.iv.next.i, %_check_iop_list_equal.exit.i ]
-  %5 = getelementptr inbounds nuw [6 x ptr], ptr @_iop_order_tables, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw ptr, ptr @_iop_order_tables, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !60
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #18
@@ -2037,7 +2036,7 @@ define ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %0) local_unnamed_ad
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [6 x ptr], ptr @_iop_order_tables, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @_iop_order_tables, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !60
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !59

@@ -12942,9 +12942,9 @@ _ZN5QListIdE6appendEd.exit97:                     ; preds = %230
 
 248:                                              ; preds = %.lr.ph, %_ZN5QListIdE6appendEd.exit105
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5QListIdE6appendEd.exit105 ]
-  %249 = getelementptr [4 x i32], ptr %244, i64 0, i64 %indvars.iv
+  %249 = getelementptr i32, ptr %244, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4
-  %251 = getelementptr [4 x i32], ptr %245, i64 0, i64 %indvars.iv
+  %251 = getelementptr i32, ptr %245, i64 %indvars.iv
   %252 = load i32, ptr %251, align 4
   %253 = sub i32 %250, %252
   %254 = uitofp i32 %253 to double
@@ -15755,7 +15755,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS
   unreachable
 
 _ZNSt6vectorISt4pairIjjESaIS1_EEixEm.exit:        ; preds = %451
-  %459 = getelementptr [4 x i32], ptr %366, i64 0, i64 %indvars.iv
+  %459 = getelementptr i32, ptr %366, i64 %indvars.iv
   %460 = load i32, ptr %459, align 4
   %461 = getelementptr %"struct.std::pair", ptr %453, i64 %indvars.iv
   store i32 %460, ptr %461, align 4
@@ -15773,7 +15773,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EEixEm.exit:        ; preds = %451
   unreachable
 
 _ZNSt6vectorISt4pairIjjESaIS1_EEixEm.exit199:     ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EEixEm.exit
-  %469 = getelementptr [4 x i32], ptr %367, i64 0, i64 %indvars.iv
+  %469 = getelementptr i32, ptr %367, i64 %indvars.iv
   %470 = load i32, ptr %469, align 4
   %471 = getelementptr %"struct.std::pair", ptr %463, i64 %indvars.iv, i32 1
   store i32 %470, ptr %471, align 4
@@ -18659,11 +18659,11 @@ _ZN5QListIdE6appendEd.exit244:                    ; preds = %570
   %593 = phi ptr [ %588, %587 ], [ %584, %.preheader ]
   %.1104956 = phi ptr [ %.0.i, %587 ], [ %.0103959, %.preheader ]
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 108
-  %595 = getelementptr [4 x i32], ptr %594, i64 0, i64 %indvars.iv
+  %595 = getelementptr i32, ptr %594, i64 %indvars.iv
   %596 = load i32, ptr %595, align 4
   %597 = sub i32 %596, %.0101
   %598 = getelementptr inbounds nuw i8, ptr %593, i64 124
-  %599 = getelementptr [4 x i32], ptr %598, i64 0, i64 %indvars.iv
+  %599 = getelementptr i32, ptr %598, i64 %indvars.iv
   %600 = load i32, ptr %599, align 4
   %601 = sub i32 %600, %.0101
   %602 = sub i32 %597, %601

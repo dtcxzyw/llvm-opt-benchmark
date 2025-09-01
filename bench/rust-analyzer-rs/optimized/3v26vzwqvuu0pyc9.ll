@@ -538,7 +538,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN7base_db18source_root_crates28_$u7b$$u7b$closure$u7d$$u7d$17hac89b8976eef3792E.llvm.1853903674817351132.exit": ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8, !alias.scope !57, !noalias !58, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }], ptr %13, i64 0, i64 %7, i32 7
+  %14 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }, ptr %13, i64 %7, i32 7
   %15 = load i32, ptr %14, align 8, !noalias !50, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !63, !noundef !4
@@ -1502,7 +1502,7 @@ _ZN8lz4_flex5block9hashtable11HashTable4K3new17h38d5fc5553627a54E.exit.i: ; pred
   %.0.copyload.i.i.i = load i64, ptr %71, align 1, !alias.scope !228, !noalias !231
   %72 = mul i64 %.0.copyload.i.i.i, -3523014627271114752
   %73 = lshr i64 %72, 52
-  %74 = getelementptr inbounds nuw [4096 x i32], ptr %63, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %63, i64 %73
   %75 = trunc i64 %.02.i.i to i32
   store i32 %75, ptr %74, align 4, !noalias !234
   %76 = add nuw nsw i64 %.02.i.i, 3
@@ -1595,7 +1595,7 @@ _ZN8lz4_flex5block9hashtable14HashTable4KU163new17hea4dcbfbe9d4a03dE.exit.i: ; p
   %108 = mul i32 %.0.copyload.i.i12.i, -1640531535
   %109 = lshr i32 %108, 20
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [4096 x i16], ptr %99, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i16, ptr %99, i64 %110
   %112 = trunc i64 %.02.i11.i to i16
   store i16 %112, ptr %111, align 2, !noalias !255
   %113 = add nuw nsw i64 %.02.i11.i, 3
@@ -2003,7 +2003,7 @@ define hidden noundef zeroext i1 @"_ZN7base_db18source_root_crates28_$u7b$$u7b$c
 "_ZN124_$LT$base_db..input..CrateGraph$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$5index17ha37e1347a25a6fbeE.exit": ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8, !alias.scope !331, !noalias !332, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }], ptr %12, i64 0, i64 %6, i32 7
+  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }, ptr %12, i64 %6, i32 7
   %14 = load i32, ptr %13, align 8, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !63, !noundef !4

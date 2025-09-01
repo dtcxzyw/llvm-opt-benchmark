@@ -1105,7 +1105,7 @@ _ZNSt6vectorIN4nori7TVectorIfLi3EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_c
   %.sroa.0236.5494 = phi ptr [ %.sroa.0236.0, %344 ], [ %.sroa.0236.6, %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.16.2492 = phi ptr [ %.sroa.16.0, %344 ], [ %.sroa.16.3, %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.28.2490 = phi ptr [ %.sroa.28.0, %344 ], [ %.sroa.28.3, %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE9push_backERKS2_.exit ]
-  %346 = getelementptr inbounds nuw [6 x %"struct.nori::WavefrontOBJ::OBJVertex"], ptr %26, i64 0, i64 %indvars.iv
+  %346 = getelementptr inbounds nuw %"struct.nori::WavefrontOBJ::OBJVertex", ptr %26, i64 %indvars.iv
   %347 = load i64, ptr %118, align 8
   %.not.not.i.i = icmp eq i64 %347, 0
   br i1 %.not.not.i.i, label %348, label %365

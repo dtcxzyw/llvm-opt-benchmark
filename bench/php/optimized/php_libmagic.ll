@@ -40,78 +40,75 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
   store i8 126, ptr %14, align 8, !tbaa !4
   br i1 %.not56, label %._crit_edge54, label %.lr.ph53
 
-.lr.ph53:                                         ; preds = %._crit_edge, %24
-  %.152 = phi i64 [ %26, %24 ], [ 0, %._crit_edge ]
-  %.251 = phi i64 [ %27, %24 ], [ 1, %._crit_edge ]
+.lr.ph53:                                         ; preds = %._crit_edge, %25
+  %.152 = phi i64 [ %27, %25 ], [ 0, %._crit_edge ]
+  %.251 = phi i64 [ %28, %25 ], [ 1, %._crit_edge ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.152
   %16 = load i8, ptr %15, align 1, !tbaa !4
-  switch i8 %16, label %24 [
-    i8 126, label %.sink.split
-    i8 0, label %17
+  switch i8 %16, label %25 [
+    i8 126, label %17
+    i8 0, label %20
   ]
 
 17:                                               ; preds = %.lr.ph53
   %18 = add i64 %.251, 1
-  %19 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.251
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 %.251
   store i8 92, ptr %19, align 1, !tbaa !4
-  %20 = add i64 %.251, 2
-  %21 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %18
-  store i8 120, ptr %21, align 1, !tbaa !4
-  br label %.sink.split
+  br label %25
 
-.sink.split:                                      ; preds = %.lr.ph53, %17
-  %.sink68 = phi i64 [ 3, %17 ], [ 1, %.lr.ph53 ]
-  %.251.sink = phi i64 [ %20, %17 ], [ %.251, %.lr.ph53 ]
-  %.sink = phi i8 [ 48, %17 ], [ 92, %.lr.ph53 ]
-  %.sink62.ph = phi i8 [ 48, %17 ], [ %16, %.lr.ph53 ]
-  %22 = add i64 %.251, %.sink68
-  %23 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.251.sink
-  store i8 %.sink, ptr %23, align 1, !tbaa !4
-  br label %24
+20:                                               ; preds = %.lr.ph53
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %.251
+  store i8 92, ptr %21, align 1, !tbaa !4
+  %22 = getelementptr i8, ptr %21, i64 1
+  store i8 120, ptr %22, align 1, !tbaa !4
+  %23 = add i64 %.251, 3
+  %24 = getelementptr i8, ptr %21, i64 2
+  store i8 48, ptr %24, align 1, !tbaa !4
+  br label %25
 
-24:                                               ; preds = %.sink.split, %.lr.ph53
-  %.sink64 = phi i64 [ %.251, %.lr.ph53 ], [ %22, %.sink.split ]
-  %.sink62 = phi i8 [ %16, %.lr.ph53 ], [ %.sink62.ph, %.sink.split ]
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.sink64
-  store i8 %.sink62, ptr %25, align 1, !tbaa !4
-  %26 = add nuw i64 %.152, 1
-  %27 = add i64 %.sink64, 1
-  %exitcond58.not = icmp eq i64 %26, %1
+25:                                               ; preds = %.lr.ph53, %17, %20
+  %.sink64 = phi i64 [ %18, %17 ], [ %23, %20 ], [ %.251, %.lr.ph53 ]
+  %.sink62 = phi i8 [ 126, %17 ], [ 48, %20 ], [ %16, %.lr.ph53 ]
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink64
+  store i8 %.sink62, ptr %26, align 1, !tbaa !4
+  %27 = add nuw i64 %.152, 1
+  %28 = add i64 %.sink64, 1
+  %exitcond58.not = icmp eq i64 %27, %1
   br i1 %exitcond58.not, label %._crit_edge54, label %.lr.ph53
 
-._crit_edge54:                                    ; preds = %24, %._crit_edge
-  %.2.lcssa = phi i64 [ 1, %._crit_edge ], [ %27, %24 ]
-  %28 = add i64 %.2.lcssa, 1
-  %29 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.2.lcssa
-  store i8 126, ptr %29, align 1, !tbaa !4
-  %30 = and i32 %2, 8
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %34, label %31
+._crit_edge54:                                    ; preds = %25, %._crit_edge
+  %.2.lcssa = phi i64 [ 1, %._crit_edge ], [ %28, %25 ]
+  %29 = add i64 %.2.lcssa, 1
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 %.2.lcssa
+  store i8 126, ptr %30, align 1, !tbaa !4
+  %31 = and i32 %2, 8
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %35, label %32
 
-31:                                               ; preds = %._crit_edge54
-  %32 = add i64 %.2.lcssa, 2
-  %33 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %28
-  store i8 105, ptr %33, align 1, !tbaa !4
-  br label %34
+32:                                               ; preds = %._crit_edge54
+  %33 = add i64 %.2.lcssa, 2
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 %29
+  store i8 105, ptr %34, align 1, !tbaa !4
+  br label %35
 
-34:                                               ; preds = %31, %._crit_edge54
-  %.4 = phi i64 [ %32, %31 ], [ %28, %._crit_edge54 ]
-  %35 = and i32 %2, 1024
-  %.not48 = icmp eq i32 %35, 0
-  br i1 %.not48, label %39, label %36
+35:                                               ; preds = %32, %._crit_edge54
+  %.4 = phi i64 [ %33, %32 ], [ %29, %._crit_edge54 ]
+  %36 = and i32 %2, 1024
+  %.not48 = icmp eq i32 %36, 0
+  br i1 %.not48, label %40, label %37
 
-36:                                               ; preds = %34
-  %37 = add i64 %.4, 1
-  %38 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.4
-  store i8 109, ptr %38, align 1, !tbaa !4
-  br label %39
+37:                                               ; preds = %35
+  %38 = add i64 %.4, 1
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 %.4
+  store i8 109, ptr %39, align 1, !tbaa !4
+  br label %40
 
-39:                                               ; preds = %36, %34
-  %.5 = phi i64 [ %37, %36 ], [ %.4, %34 ]
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %41 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.5
-  store i8 0, ptr %41, align 1, !tbaa !4
-  store i64 %.5, ptr %40, align 8, !tbaa !13
+40:                                               ; preds = %37, %35
+  %.5 = phi i64 [ %38, %37 ], [ %.4, %35 ]
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 %.5
+  store i8 0, ptr %42, align 1, !tbaa !4
+  store i64 %.5, ptr %41, align 8, !tbaa !13
   ret ptr %11
 }
 

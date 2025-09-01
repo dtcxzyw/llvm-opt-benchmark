@@ -4766,7 +4766,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, -2
   %5 = load i32, ptr %0, align 8
-  %6 = and i32 %5, 1
+  %.fr24 = freeze i32 %5
+  %6 = and i32 %.fr24, 1
   %7 = or disjoint i32 %6, %4
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4776,13 +4777,16 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %.not.i.i.i = icmp eq i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = select i1 %.not.i.i.i, ptr %12, ptr %11
+  %.fr25 = freeze ptr %12
+  %13 = select i1 %.not.i.i.i, ptr %.fr25, ptr %11
   %14 = load i32, ptr %1, align 8
-  %15 = and i32 %14, 1
+  %.fr26 = freeze i32 %14
+  %15 = and i32 %.fr26, 1
   %.not.i.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = select i1 %.not.i.i, ptr %17, ptr %16
+  %.fr27 = freeze ptr %17
+  %18 = select i1 %.not.i.i, ptr %.fr27, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i, i32 %20, i32 4
@@ -4790,79 +4794,115 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit, %2
+.lr.ph:                                           ; preds = %2
+  %23 = icmp eq ptr %13, %18
+  br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us
+  %.023.us = phi i64 [ %35, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us ], [ 0, %.lr.ph ]
+  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.242", ptr %13, i64 %.023.us
+  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.242", ptr %18, i64 %.023.us
+  %26 = load ptr, ptr %25, align 8, !tbaa !132
+  store ptr %26, ptr %24, align 8, !tbaa !132
+  %magicptr.us = ptrtoint ptr %26 to i64
+  switch i64 %magicptr.us, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us [
+    i64 -4096, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us
+    i64 -8192, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us
+  ]
+
+_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us: ; preds = %.lr.ph.split.us
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us
+
+_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us
+  %28 = phi i64 [ %33, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us ], [ 0, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us ]
+  %29 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr %30, ptr %29, align 8, !tbaa !98
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 0, ptr %31, align 8, !tbaa !100
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i32 2, ptr %32, align 4, !tbaa !101
+  %33 = add nuw nsw i64 %28, 1
+  %34 = icmp eq i64 %33, 2
+  br i1 %34, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us
+
+_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us, %.lr.ph.split.us, %.lr.ph.split.us
+  %35 = add nuw nsw i64 %.023.us, 1
+  %exitcond29.not = icmp eq i64 %35, %22
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !253
+
+._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit.us, %2
   ret void
 
-.lr.ph:                                           ; preds = %2, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit
-  %.022 = phi i64 [ %47, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit ], [ 0, %2 ]
-  %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.242", ptr %13, i64 %.022
-  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.242", ptr %18, i64 %.022
-  %25 = load ptr, ptr %24, align 8, !tbaa !132
-  store ptr %25, ptr %23, align 8, !tbaa !132
-  %magicptr = ptrtoint ptr %25 to i64
-  switch i64 %magicptr, label %26 [
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit
+  %.023 = phi i64 [ %57, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit ], [ 0, %.lr.ph ]
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.242", ptr %13, i64 %.023
+  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.242", ptr %18, i64 %.023
+  %38 = load ptr, ptr %37, align 8, !tbaa !132
+  store ptr %38, ptr %36, align 8, !tbaa !132
+  %magicptr = ptrtoint ptr %38 to i64
+  switch i64 %magicptr, label %.split.i.preheader [
     i64 -4096, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit
     i64 -8192, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit
   ]
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  br label %29
+.split.i.preheader:                               ; preds = %.lr.ph.split
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  br label %.split.i
 
-29:                                               ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, %26
-  %30 = phi i1 [ false, %26 ], [ true, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ]
-  %31 = phi i64 [ 0, %26 ], [ 1, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ]
-  %32 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %27, i64 %31
-  %33 = getelementptr inbounds nuw [2 x %"class.llvm::SmallVector.245"], ptr %28, i64 0, i64 %31
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %34, ptr %32, align 8, !tbaa !98
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 0, ptr %35, align 8, !tbaa !100
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i32 2, ptr %36, align 4, !tbaa !101
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %38 = load i32, ptr %37, align 8, !tbaa !100
-  %.not.i.i.i21 = icmp eq i32 %38, 0
-  %39 = icmp eq ptr %32, %33
-  %or.cond.i.i = or i1 %39, %.not.i.i.i21
-  br i1 %or.cond.i.i, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, label %40
+.split.i:                                         ; preds = %.split.i.preheader, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i
+  %41 = phi i1 [ true, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ], [ false, %.split.i.preheader ]
+  %42 = phi i64 [ 1, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ], [ 0, %.split.i.preheader ]
+  %43 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %39, i64 %42
+  %44 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %40, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store ptr %45, ptr %43, align 8, !tbaa !98
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i32 0, ptr %46, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  store i32 2, ptr %47, align 4, !tbaa !101
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %49 = load i32, ptr %48, align 8, !tbaa !100
+  %.not.i.i.i21 = icmp eq i32 %49, 0
+  br i1 %.not.i.i.i21, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, label %50
 
-40:                                               ; preds = %29
-  %41 = icmp ugt i32 %38, 2
-  br i1 %41, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i
+50:                                               ; preds = %.split.i
+  %51 = icmp ugt i32 %49, 2
+  br i1 %51, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i
 
-_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i: ; preds = %40
-  %42 = zext i32 %38 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %34, i64 noundef %42, i64 noundef 8) #23
-  %.pre.i.i = load i32, ptr %37, align 8, !tbaa !100
+_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i: ; preds = %50
+  %52 = zext i32 %49 to i64
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull %45, i64 noundef %52, i64 noundef 8) #23
+  %.pre.i.i = load i32, ptr %48, align 8, !tbaa !100
   %.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i
 
 _ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i: ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i
-  %.pre.i = load ptr, ptr %32, align 8, !tbaa !98
+  %.pre.i = load ptr, ptr %43, align 8, !tbaa !98
   br label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i
 
-_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i: ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i, %40
-  %43 = phi ptr [ %.pre.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %34, %40 ]
-  %44 = phi i32 [ %.pre.i.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %38, %40 ]
-  %45 = zext i32 %44 to i64
-  %46 = load ptr, ptr %33, align 8, !tbaa !98
-  %gepdiff.i.i.i = shl nuw nsw i64 %45, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 8 %46, i64 %gepdiff.i.i.i, i1 false)
+_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i: ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i, %50
+  %53 = phi ptr [ %.pre.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %45, %50 ]
+  %54 = phi i32 [ %.pre.i.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %49, %50 ]
+  %55 = zext i32 %54 to i64
+  %56 = load ptr, ptr %44, align 8, !tbaa !98
+  %gepdiff.i.i.i = shl nuw nsw i64 %55, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 8 %56, i64 %gepdiff.i.i.i, i1 false)
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i
-  store i32 %38, ptr %35, align 8, !tbaa !100
+  store i32 %49, ptr %46, align 8, !tbaa !100
   br label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i
 
-_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i: ; preds = %.sink.split.i.i.i, %29
-  br i1 %30, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit, label %29
+_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i: ; preds = %.sink.split.i.i.i, %.split.i
+  br i1 %41, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit, label %.split.i
 
-_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, %.lr.ph, %.lr.ph
-  %47 = add nuw nsw i64 %.022, 1
-  %exitcond.not = icmp eq i64 %47, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !253
+_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb0EE14DeletesInsertsC2ERKS5_.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, %.lr.ph.split, %.lr.ph.split
+  %57 = add nuw nsw i64 %.023, 1
+  %exitcond.not = icmp eq i64 %57, %22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !253
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -11309,7 +11349,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, -2
   %5 = load i32, ptr %0, align 8
-  %6 = and i32 %5, 1
+  %.fr24 = freeze i32 %5
+  %6 = and i32 %.fr24, 1
   %7 = or disjoint i32 %6, %4
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -11319,13 +11360,16 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %.not.i.i.i = icmp eq i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = select i1 %.not.i.i.i, ptr %12, ptr %11
+  %.fr25 = freeze ptr %12
+  %13 = select i1 %.not.i.i.i, ptr %.fr25, ptr %11
   %14 = load i32, ptr %1, align 8
-  %15 = and i32 %14, 1
+  %.fr26 = freeze i32 %14
+  %15 = and i32 %.fr26, 1
   %.not.i.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = select i1 %.not.i.i, ptr %17, ptr %16
+  %.fr27 = freeze ptr %17
+  %18 = select i1 %.not.i.i, ptr %.fr27, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i, i32 %20, i32 4
@@ -11333,79 +11377,115 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit, %2
+.lr.ph:                                           ; preds = %2
+  %23 = icmp eq ptr %13, %18
+  br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us
+  %.023.us = phi i64 [ %35, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us ], [ 0, %.lr.ph ]
+  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.319", ptr %13, i64 %.023.us
+  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.319", ptr %18, i64 %.023.us
+  %26 = load ptr, ptr %25, align 8, !tbaa !132
+  store ptr %26, ptr %24, align 8, !tbaa !132
+  %magicptr.us = ptrtoint ptr %26 to i64
+  switch i64 %magicptr.us, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us [
+    i64 -4096, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us
+    i64 -8192, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us
+  ]
+
+_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us: ; preds = %.lr.ph.split.us
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us
+
+_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us
+  %28 = phi i64 [ %33, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us ], [ 0, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.preheader.us ]
+  %29 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr %30, ptr %29, align 8, !tbaa !98
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 0, ptr %31, align 8, !tbaa !100
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i32 2, ptr %32, align 4, !tbaa !101
+  %33 = add nuw nsw i64 %28, 1
+  %34 = icmp eq i64 %33, 2
+  br i1 %34, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us
+
+_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.us.i.us, %.lr.ph.split.us, %.lr.ph.split.us
+  %35 = add nuw nsw i64 %.023.us, 1
+  %exitcond29.not = icmp eq i64 %35, %22
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !367
+
+._crit_edge:                                      ; preds = %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit.us, %2
   ret void
 
-.lr.ph:                                           ; preds = %2, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit
-  %.022 = phi i64 [ %47, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit ], [ 0, %2 ]
-  %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.319", ptr %13, i64 %.022
-  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.319", ptr %18, i64 %.022
-  %25 = load ptr, ptr %24, align 8, !tbaa !132
-  store ptr %25, ptr %23, align 8, !tbaa !132
-  %magicptr = ptrtoint ptr %25 to i64
-  switch i64 %magicptr, label %26 [
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit
+  %.023 = phi i64 [ %57, %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit ], [ 0, %.lr.ph ]
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.319", ptr %13, i64 %.023
+  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.319", ptr %18, i64 %.023
+  %38 = load ptr, ptr %37, align 8, !tbaa !132
+  store ptr %38, ptr %36, align 8, !tbaa !132
+  %magicptr = ptrtoint ptr %38 to i64
+  switch i64 %magicptr, label %.split.i.preheader [
     i64 -4096, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit
     i64 -8192, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit
   ]
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  br label %29
+.split.i.preheader:                               ; preds = %.lr.ph.split
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  br label %.split.i
 
-29:                                               ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, %26
-  %30 = phi i1 [ false, %26 ], [ true, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ]
-  %31 = phi i64 [ 0, %26 ], [ 1, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ]
-  %32 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %27, i64 %31
-  %33 = getelementptr inbounds nuw [2 x %"class.llvm::SmallVector.245"], ptr %28, i64 0, i64 %31
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %34, ptr %32, align 8, !tbaa !98
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 0, ptr %35, align 8, !tbaa !100
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i32 2, ptr %36, align 4, !tbaa !101
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %38 = load i32, ptr %37, align 8, !tbaa !100
-  %.not.i.i.i21 = icmp eq i32 %38, 0
-  %39 = icmp eq ptr %32, %33
-  %or.cond.i.i = or i1 %39, %.not.i.i.i21
-  br i1 %or.cond.i.i, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, label %40
+.split.i:                                         ; preds = %.split.i.preheader, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i
+  %41 = phi i1 [ true, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ], [ false, %.split.i.preheader ]
+  %42 = phi i64 [ 1, %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i ], [ 0, %.split.i.preheader ]
+  %43 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %39, i64 %42
+  %44 = getelementptr inbounds nuw %"class.llvm::SmallVector.245", ptr %40, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store ptr %45, ptr %43, align 8, !tbaa !98
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i32 0, ptr %46, align 8, !tbaa !100
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  store i32 2, ptr %47, align 4, !tbaa !101
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %49 = load i32, ptr %48, align 8, !tbaa !100
+  %.not.i.i.i21 = icmp eq i32 %49, 0
+  br i1 %.not.i.i.i21, label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, label %50
 
-40:                                               ; preds = %29
-  %41 = icmp ugt i32 %38, 2
-  br i1 %41, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i
+50:                                               ; preds = %.split.i
+  %51 = icmp ugt i32 %49, 2
+  br i1 %51, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i
 
-_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i: ; preds = %40
-  %42 = zext i32 %38 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %34, i64 noundef %42, i64 noundef 8) #23
-  %.pre.i.i = load i32, ptr %37, align 8, !tbaa !100
+_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i: ; preds = %50
+  %52 = zext i32 %49 to i64
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull %45, i64 noundef %52, i64 noundef 8) #23
+  %.pre.i.i = load i32, ptr %48, align 8, !tbaa !100
   %.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i
 
 _ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i: ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i
-  %.pre.i = load ptr, ptr %32, align 8, !tbaa !98
+  %.pre.i = load ptr, ptr %43, align 8, !tbaa !98
   br label %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i
 
-_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i: ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i, %40
-  %43 = phi ptr [ %.pre.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %34, %40 ]
-  %44 = phi i32 [ %.pre.i.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %38, %40 ]
-  %45 = zext i32 %44 to i64
-  %46 = load ptr, ptr %33, align 8, !tbaa !98
-  %gepdiff.i.i.i = shl nuw nsw i64 %45, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 8 %46, i64 %gepdiff.i.i.i, i1 false)
+_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i: ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i, %50
+  %53 = phi ptr [ %.pre.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %45, %50 ]
+  %54 = phi i32 [ %.pre.i.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i ], [ %49, %50 ]
+  %55 = zext i32 %54 to i64
+  %56 = load ptr, ptr %44, align 8, !tbaa !98
+  %gepdiff.i.i.i = shl nuw nsw i64 %55, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 8 %56, i64 %gepdiff.i.i.i, i1 false)
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i, %_ZSt4copyIPKPN5clang8CFGBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i
-  store i32 %38, ptr %35, align 8, !tbaa !100
+  store i32 %49, ptr %46, align 8, !tbaa !100
   br label %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i
 
-_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i: ; preds = %.sink.split.i.i.i, %29
-  br i1 %30, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit, label %29
+_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i: ; preds = %.sink.split.i.i.i, %.split.i
+  br i1 %41, label %_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit, label %.split.i
 
-_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, %.lr.ph, %.lr.ph
-  %47 = add nuw nsw i64 %.022, 1
-  %exitcond.not = icmp eq i64 %47, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !367
+_ZN4llvm9GraphDiffIPN5clang8CFGBlockELb1EE14DeletesInsertsC2ERKS5_.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang8CFGBlockELj2EEC2ERKS4_.exit.i, %.lr.ph.split, %.lr.ph.split
+  %57 = add nuw nsw i64 %.023, 1
+  %exitcond.not = icmp eq i64 %57, %22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !367
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

@@ -293,7 +293,7 @@ tailrecurse.i:                                    ; preds = %37, %23
 
 27:                                               ; preds = %25, %tailrecurse.i
   %.01423.i = phi i64 [ 0, %tailrecurse.i ], [ %26, %25 ]
-  %28 = getelementptr inbounds nuw [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01423.i
+  %28 = getelementptr inbounds nuw %struct.fontinfo, ptr @fonttab, i64 %.01423.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !49
   %strlen.i.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %30)
@@ -454,7 +454,7 @@ define internal void @pic_bezier(ptr noundef %0, ptr noundef readonly captures(n
   %.02325 = phi i64 [ 1, %.lr.ph ], [ %24, %17 ]
   %18 = getelementptr %struct.pointf_s, ptr %16, i64 %.02325
   %19 = load double, ptr %18, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %5, i64 0, i64 %.02325
+  %20 = getelementptr inbounds nuw %struct.pointf_s, ptr %5, i64 %.02325
   store double %19, ptr %20, align 16, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !53

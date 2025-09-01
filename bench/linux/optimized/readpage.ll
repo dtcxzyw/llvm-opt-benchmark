@@ -98,7 +98,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   %43 = zext nneg i32 %42 to i64
   %44 = add nuw nsw i64 %10, 4294967295
   %45 = and i64 %44, 4294967295
-  %46 = getelementptr [8 x i64], ptr %4, i64 0, i64 %45
+  %46 = getelementptr i64, ptr %4, i64 %45
   %47 = zext i32 %32 to i64
   br label %48
 
@@ -233,7 +233,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
 
 129:                                              ; preds = %125
   %130 = add i64 %121, %126
-  %131 = getelementptr [8 x i64], ptr %4, i64 0, i64 %126
+  %131 = getelementptr i64, ptr %4, i64 %126
   store i64 %130, ptr %131, align 8
   %132 = add nuw nsw i64 %126, 1
   %133 = add i64 %127, 1
@@ -383,9 +383,9 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   br i1 %222, label %231, label %223
 
 223:                                              ; preds = %221
-  %224 = add nsw i32 %150, -1
-  %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr [8 x i64], ptr %4, i64 0, i64 %225
+  %224 = zext nneg i32 %150 to i64
+  %225 = getelementptr i64, ptr %4, i64 %224
+  %226 = getelementptr i8, ptr %225, i64 -8
   %227 = load i64, ptr %226, align 8
   %228 = load i64, ptr %5, align 8
   %229 = add i64 %228, -1
@@ -412,7 +412,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
 242:                                              ; preds = %237
   %243 = add i64 %238, %235
   %244 = zext i32 %239 to i64
-  %245 = getelementptr [8 x i64], ptr %4, i64 0, i64 %244
+  %245 = getelementptr i64, ptr %4, i64 %244
   store i64 %243, ptr %245, align 8
   %246 = add i32 %239, 1
   %247 = add i64 %240, 1

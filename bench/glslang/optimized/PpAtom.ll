@@ -123,7 +123,7 @@ define void @_ZN7glslang14TStringAtomMapC2Ev(ptr noundef nonnull align 8 derefer
 
 .preheader:                                       ; preds = %20, %.preheader
   %.011 = phi i64 [ %28, %.preheader ], [ 0, %20 ]
-  %24 = getelementptr inbounds nuw [42 x %struct.anon], ptr @_ZN12_GLOBAL__N_16tokensE, i64 0, i64 %.011
+  %24 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16tokensE, i64 %.011
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %24, align 16

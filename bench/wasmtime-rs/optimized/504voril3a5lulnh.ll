@@ -1004,7 +1004,7 @@ switch.lookup:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 4, !range !51, !alias.scope !52, !noundef !5
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   %7 = shl i32 %3, 1
   %8 = and i32 %7, 2
@@ -1030,7 +1030,7 @@ define noundef range(i8 0, 8) i8 @"_ZN11wasi_common9snapshots9preview_1139_$LT$i
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !51, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -1062,7 +1062,7 @@ switch.lookup:
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %16 = load i8, ptr %15, align 8, !range !51, !alias.scope !55, !noundef !5
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 %17
   %switch.load = load i8, ptr %switch.gep, align 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = load i64, ptr %18, align 8, !noundef !5
@@ -1234,7 +1234,7 @@ switch.lookup:                                    ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i8, ptr %9, align 8, !range !51, !alias.scope !79, !noundef !5
   %11 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN11wasi_common9snapshots9preview_1144_$LT$impl$u20$core..convert..TryFrom$LT$$RF$wasi_common..dir..ReaddirEntity$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Dirent$GT$8try_from17h6c02916c961707c0E", i64 %11
   %switch.load = load i8, ptr %switch.gep, align 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8, !noundef !5

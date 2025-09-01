@@ -366,12 +366,12 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %139, %146, %149
 
 164:                                              ; preds = %.lr.ph, %164
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %164 ]
-  %165 = getelementptr inbounds nuw [15 x i8], ptr %162, i64 0, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %indvars.iv
   %166 = load i8, ptr %165, align 1, !tbaa !35
   %167 = sext i8 %166 to i32
   %168 = ashr i32 %167, 1
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds [0 x i32], ptr %160, i64 0, i64 %169
+  %170 = getelementptr inbounds i32, ptr %160, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !36
   %172 = ashr i32 %171, 1
   %173 = sext i32 %172 to i64
@@ -387,7 +387,7 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %139, %146, %149
   %183 = load i32, ptr %182, align 8, !tbaa !35
   %184 = zext i1 %181 to i32
   %.sink = add nsw i32 %183, %184
-  %185 = getelementptr inbounds nuw [0 x i32], ptr %145, i64 0, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv
   store i32 %.sink, ptr %185, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %186 = load i32, ptr %158, align 4
@@ -466,7 +466,7 @@ Vec_PtrPush.exit139:                              ; preds = %.Vec_PtrGrow.exit11
   %221 = load i64, ptr %21, align 8
   %.not104 = icmp sgt i64 %221, -1
   %222 = zext i1 %.not104 to i64
-  %223 = getelementptr inbounds nuw [2 x i32], ptr %118, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i32, ptr %118, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !36
   %.not105 = icmp eq i32 %224, 0
   br i1 %.not105, label %415, label %225

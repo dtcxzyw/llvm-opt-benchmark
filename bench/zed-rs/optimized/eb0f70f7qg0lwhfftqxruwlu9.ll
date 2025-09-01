@@ -10284,7 +10284,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12pu
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %13, align 16, !nonnull !4, !align !18, !noundef !4
-  %36 = getelementptr inbounds [0 x { { i64 }, ptr }], ptr %35, i64 0, i64 %19
+  %36 = getelementptr inbounds { { i64 }, ptr }, ptr %35, i64 %19
   %37 = load atomic i64, ptr %36 acquire, align 8
   %38 = icmp eq i64 %.sroa.012.049, %37
   br i1 %38, label %57, label %39
@@ -10419,7 +10419,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue7bounded16Bounded
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %11, align 16, !nonnull !4, !align !18, !noundef !4
-  %32 = getelementptr inbounds [0 x { { i64 }, { { [0 x i8] } } }], ptr %31, i64 0, i64 %17
+  %32 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %31, i64 %17
   %33 = load atomic i64, ptr %32 acquire, align 8
   %34 = icmp eq i64 %.sroa.010.035, %33
   br i1 %34, label %41, label %36
@@ -10468,7 +10468,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue7bounded16Bounded
   br i1 %53, label %14, label %.loopexit
 
 54:                                               ; preds = %41
-  %55 = getelementptr inbounds [0 x { { i64 }, { { [0 x i8] } } }], ptr %31, i64 0, i64 %17
+  %55 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %31, i64 %17
   %56 = add i64 %.sroa.010.035, 1
   store atomic i64 %56, ptr %55 release, align 8
   br label %.loopexit
@@ -10557,7 +10557,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue7bounded16Bounded
   %19 = phi i64 [ %9, %.lr.ph ], [ %45, %42 ]
   %.sroa.03.031 = phi i64 [ %3, %.lr.ph ], [ %.sroa.03.1, %42 ]
   %20 = load ptr, ptr %15, align 16, !nonnull !4, !align !18, !noundef !4
-  %21 = getelementptr inbounds [0 x { { i64 }, { { [0 x i8] } } }], ptr %20, i64 0, i64 %19
+  %21 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %20, i64 %19
   %22 = load atomic i64, ptr %21 acquire, align 8
   %23 = add i64 %.sroa.03.031, 1
   %24 = icmp eq i64 %23, %22
@@ -10634,7 +10634,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN16concurrent_queue7bounded16Bounded
   br i1 %.sroa.18.0.in.i, label %57, label %42
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds [0 x { { i64 }, { { [0 x i8] } } }], ptr %20, i64 0, i64 %19
+  %58 = getelementptr inbounds { { i64 }, { { [0 x i8] } } }, ptr %20, i64 %19
   %59 = load i64, ptr %5, align 128, !noundef !4
   %60 = add i64 %59, %.sroa.03.031
   store atomic i64 %60, ptr %58 release, align 8
@@ -10668,7 +10668,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17hca518
   %20 = phi i64 [ %10, %.lr.ph ], [ %47, %44 ]
   %.sroa.02.028 = phi i64 [ %4, %.lr.ph ], [ %.sroa.02.1, %44 ]
   %21 = load ptr, ptr %16, align 16, !nonnull !4, !align !18, !noundef !4
-  %22 = getelementptr inbounds [0 x { { i64 }, ptr }], ptr %21, i64 0, i64 %20
+  %22 = getelementptr inbounds { { i64 }, ptr }, ptr %21, i64 %20
   %23 = load atomic i64, ptr %22 acquire, align 8
   %24 = add i64 %.sroa.02.028, 1
   %25 = icmp eq i64 %24, %23
@@ -16556,7 +16556,7 @@ define internal fastcc void @"_ZN4core3ptr85drop_in_place$LT$core..option..Optio
 
 .lr.ph.i.i.i:                                     ; preds = %4, %"_ZN4core3ptr34drop_in_place$LT$fs..PathEvent$GT$17h11d402aac9ab32ccE.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %11, %"_ZN4core3ptr34drop_in_place$LT$fs..PathEvent$GT$17h11d402aac9ab32ccE.exit.i.i.i" ], [ 0, %4 ]
-  %10 = getelementptr inbounds [0 x { { { { { { i64, ptr, {} }, i64 } } } }, i8, [7 x i8] }], ptr %6, i64 0, i64 %.sroa.0.09.i.i.i
+  %10 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, i8, [7 x i8] }, ptr %6, i64 %.sroa.0.09.i.i.i
   %11 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4164)

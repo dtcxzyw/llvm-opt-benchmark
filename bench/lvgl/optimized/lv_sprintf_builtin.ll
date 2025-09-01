@@ -379,7 +379,7 @@ thread-pre-split:                                 ; preds = %_atoi.exit289, %_at
   %160 = select i1 %157, i32 %158, i32 %159
   %161 = trunc i32 %160 to i8
   %162 = add nuw nsw i64 %.1.i, 1
-  %163 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %.1.i
+  %163 = getelementptr inbounds nuw i8, ptr %11, i64 %.1.i
   store i8 %161, ptr %163, align 1, !tbaa !3
   %164 = udiv i64 %.0.i, %.0223374379
   %165 = icmp ule i64 %.0223374379, %.0.i
@@ -449,7 +449,7 @@ _ntoa_long_long.exit:                             ; preds = %154, %142
   %201 = select i1 %198, i32 %199, i32 %200
   %202 = trunc i32 %201 to i8
   %203 = add nuw nsw i64 %.1.i294, 1
-  %204 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %.1.i294
+  %204 = getelementptr inbounds nuw i8, ptr %10, i64 %.1.i294
   store i8 %202, ptr %204, align 1, !tbaa !3
   %205 = udiv i64 %.0.i295, %.0223374379
   %206 = icmp ule i64 %.0223374379, %.0.i295
@@ -579,7 +579,7 @@ _ntoa_long.exit:                                  ; preds = %195, %183
   %275 = select i1 %272, i32 %273, i32 %274
   %276 = trunc i32 %275 to i8
   %277 = add nuw nsw i64 %.1.i300, 1
-  %278 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.1.i300
+  %278 = getelementptr inbounds nuw i8, ptr %9, i64 %.1.i300
   store i8 %276, ptr %278, align 1, !tbaa !3
   %279 = udiv i64 %.0.i301, %.0223374379
   %280 = icmp ule i64 %.0223374379, %.0.i301
@@ -683,7 +683,7 @@ _ntoa_long.exit302:                               ; preds = %269, %257
   %336 = select i1 %333, i32 %334, i32 %335
   %337 = trunc i32 %336 to i8
   %338 = add nuw nsw i64 %.1.i307, 1
-  %339 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %.1.i307
+  %339 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i307
   store i8 %337, ptr %339, align 1, !tbaa !3
   %340 = udiv i64 %.0.i308, %.0223374379
   %341 = icmp ule i64 %.0223374379, %.0.i308
@@ -751,7 +751,7 @@ _ntoa_long_long.exit309:                          ; preds = %330, %320
   %375 = select i1 %372, i32 %373, i32 %374
   %376 = trunc i32 %375 to i8
   %377 = add nuw nsw i64 %.1.i314, 1
-  %378 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.1.i314
+  %378 = getelementptr inbounds nuw i8, ptr %7, i64 %.1.i314
   store i8 %376, ptr %378, align 1, !tbaa !3
   %379 = udiv i64 %.0.i315, %.0223374379
   %380 = icmp ule i64 %.0223374379, %.0.i315
@@ -877,7 +877,7 @@ _ntoa_long.exit316:                               ; preds = %369, %359
   %447 = select i1 %444, i32 %445, i32 %446
   %448 = trunc i32 %447 to i8
   %449 = add nuw nsw i64 %.1.i321, 1
-  %450 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %.1.i321
+  %450 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i321
   store i8 %448, ptr %450, align 1, !tbaa !3
   %451 = udiv i64 %.0.i322, %.0223374379
   %452 = icmp ule i64 %.0223374379, %.0.i322
@@ -1370,7 +1370,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %70 = sitofp i32 %69 to double
   %71 = fsub double %.0123, %70
   %72 = zext i32 %.1127.lcssa to i64
-  %73 = getelementptr inbounds nuw [10 x double], ptr @_ftoa.pow10, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw double, ptr @_ftoa.pow10, i64 %72
   %74 = load double, ptr %73, align 8, !tbaa !26
   %75 = fmul double %71, %74
   %76 = fptoui double %75 to i64
@@ -1431,7 +1431,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %102 = trunc nuw nsw i64 %101 to i8
   %103 = or disjoint i8 %102, 48
   %104 = add nuw nsw i64 %.2122, 1
-  %105 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.2122
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 %.2122
   store i8 %103, ptr %105, align 1, !tbaa !3
   %106 = udiv i64 %.1114, 10
   %107 = icmp ugt i64 %.1114, 9
@@ -1472,7 +1472,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
 
 117:                                              ; preds = %.critedge
   %118 = add nuw nsw i64 %.4.lcssa, 1
-  %119 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.4.lcssa
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 %.4.lcssa
   store i8 46, ptr %119, align 1, !tbaa !3
   br label %120
 
@@ -1489,7 +1489,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %122 = trunc nsw i32 %121 to i8
   %123 = add nsw i8 %122, 48
   %124 = add nuw nsw i64 %.6, 1
-  %125 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.6
+  %125 = getelementptr inbounds nuw i8, ptr %9, i64 %.6
   store i8 %123, ptr %125, align 1, !tbaa !3
   %126 = sdiv i32 %.2118, 10
   %127 = add i32 %.2118, -10
@@ -1552,7 +1552,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
 .sink.split:                                      ; preds = %144, %142, %141
   %.sink = phi i8 [ 45, %141 ], [ 43, %142 ], [ 32, %144 ]
   %146 = add nuw nsw i64 %.8, 1
-  %147 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.8
+  %147 = getelementptr inbounds nuw i8, ptr %9, i64 %.8
   store i8 %.sink, ptr %147, align 1, !tbaa !3
   br label %148
 
@@ -1742,7 +1742,7 @@ define internal fastcc i64 @_etoa(ptr noundef readonly captures(none) %0, ptr no
   %90 = trunc nuw nsw i64 %89 to i8
   %91 = or disjoint i8 %90, 48
   %92 = add nuw nsw i64 %.1.i, 1
-  %93 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %.1.i
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 %.1.i
   store i8 %91, ptr %93, align 1, !tbaa !3
   %94 = udiv i64 %.0.i, 10
   %95 = icmp samesign ugt i64 %.0.i, 9

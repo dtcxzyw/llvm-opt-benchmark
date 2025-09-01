@@ -854,7 +854,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 %219
   %221 = load i8, ptr %220, align 1, !tbaa !75
   %222 = and i64 %198, 7
-  %223 = getelementptr inbounds nuw [8 x i8], ptr @H5VM_bit_set_g, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i8, ptr @H5VM_bit_set_g, i64 %222
   %224 = load i8, ptr %223, align 1, !tbaa !75
   %225 = and i8 %224, %221
   %.not420 = icmp eq i8 %225, 0

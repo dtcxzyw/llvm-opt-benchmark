@@ -1309,10 +1309,10 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4absl12lts_2024011612log_inte
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.6, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.6, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %5 to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.7, i64 0, i64 %8
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.7, i64 %8
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %.invoke13
 
@@ -1333,10 +1333,10 @@ _ZN4absl12lts_2024011612log_internal22MakeCheckOpValueStringIN5ceres8internal25C
 
 switch.lookup16:                                  ; preds = %13
   %16 = zext nneg i32 %14 to i64
-  %switch.gep17 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.6, i64 0, i64 %16
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.6, i64 %16
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %17 = zext nneg i32 %14 to i64
-  %switch.gep19 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.7, i64 0, i64 %17
+  %switch.gep19 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIRKN5ceres8internal25CompressedRowSparseMatrix11StorageTypeES8_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.7, i64 %17
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %.invoke
 

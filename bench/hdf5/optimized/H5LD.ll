@@ -640,9 +640,9 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
   %.sink173.i = sub nuw i64 %23, %27
   %28 = zext i1 %26 to i32
   %.1105.i = add i32 %.0104156.i, %28
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
   store i64 %.sink173.i, ptr %29, align 8, !tbaa !26
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
   store i64 %27, ptr %30, align 8, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

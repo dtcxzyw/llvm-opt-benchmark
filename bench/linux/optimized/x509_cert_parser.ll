@@ -1248,9 +1248,9 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %125
-  %131 = add nsw i32 %73, -1
-  %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr [12 x i8], ptr @x509_decode_time.month_lengths, i64 0, i64 %132
+  %131 = zext nneg i8 %narrow42 to i64
+  %132 = getelementptr i8, ptr @x509_decode_time.month_lengths, i64 %131
+  %133 = getelementptr i8, ptr %132, i64 -1
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = icmp eq i8 %narrow42, 2

@@ -266,7 +266,7 @@ define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly captu
 define dso_local range(i32 0, 16) i32 @amd_get_subcaches(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i32, align 4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -314,7 +314,7 @@ declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr nound
 define dso_local noundef range(i32 -22, 1) i32 @amd_set_subcaches(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   %4 = sext i32 %0 to i64
-  %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
+  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_info to i64)
   %8 = inttoptr i64 %7 to ptr

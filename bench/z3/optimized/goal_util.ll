@@ -503,7 +503,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 62:                                               ; preds = %.lr.ph, %_ZN20has_term_ite_functorclEP3app.exit
   %63 = phi i32 [ %59, %.lr.ph ], [ %152, %_ZN20has_term_ite_functorclEP3app.exit ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !57
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !56

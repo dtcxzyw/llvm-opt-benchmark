@@ -5919,7 +5919,7 @@ add_id.exit5010:                                  ; preds = %3458, %3462, %3465
 
 3515:                                             ; preds = %.lr.ph, %3531
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %3531 ]
-  %3516 = getelementptr [0 x i64], ptr %3512, i64 0, i64 %indvars.iv
+  %3516 = getelementptr i64, ptr %3512, i64 %indvars.iv
   %3517 = load i64, ptr %3516, align 8, !tbaa !486
   %3518 = icmp eq i64 %3517, 0
   br i1 %3518, label %3519, label %3521

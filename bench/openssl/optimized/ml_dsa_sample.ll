@@ -63,7 +63,7 @@ shake_xof.exit.i:                                 ; preds = %21
   %.120.i = phi i32 [ %.2.i, %.preheader.i.backedge ], [ 0, %shake_xof.exit.i ]
   %.012.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.012.idx21.i
   %25 = sext i32 %.120.i to i64
-  %26 = getelementptr inbounds [256 x i32], ptr %.122, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr %.122, i64 %25
   %27 = load i16, ptr %.012.ptr.i, align 1
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %.012.ptr.i, i64 2
@@ -276,7 +276,7 @@ shake_xof.exit:                                   ; preds = %9
   %15 = and i32 %14, 15
   %16 = lshr i32 %14, 4
   %17 = sext i32 %.130 to i64
-  %18 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %4, i64 %17
   %19 = call i32 %2(i32 noundef %15, ptr noundef %18) #6, !callees !26
   %.not25 = icmp eq i32 %19, 0
   br i1 %.not25, label %23, label %20
@@ -293,7 +293,7 @@ shake_xof.exit:                                   ; preds = %9
 23:                                               ; preds = %._crit_edge, %.preheader
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %17, %.preheader ]
   %.2 = phi i32 [ %22, %._crit_edge ], [ %.130, %.preheader ]
-  %24 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %.pre-phi
+  %24 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi
   %25 = call i32 %2(i32 noundef %16, ptr noundef %24) #6, !callees !26
   %.not26 = icmp eq i32 %25, 0
   br i1 %.not26, label %29, label %26
@@ -408,16 +408,16 @@ shake_xof.exit:                                   ; preds = %10
   %.224 = phi i32 [ %.123, %19 ], [ 0, %21 ]
   %24 = add nsw i32 %.224, 1
   %25 = sext i32 %.224 to i64
-  %26 = getelementptr inbounds [136 x i8], ptr %7, i64 0, i64 %25
+  %26 = getelementptr inbounds i8, ptr %7, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = zext i8 %27 to i64
   %.not27 = icmp samesign ult i64 %.02135, %28
   br i1 %.not27, label %19, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %28
   %31 = load i32, ptr %30, align 4, !tbaa !13
-  %32 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %.02135
+  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %.02135
   store i32 %31, ptr %32, align 4, !tbaa !13
   %.tr = trunc i64 %.02933 to i32
   %33 = shl i32 %.tr, 1

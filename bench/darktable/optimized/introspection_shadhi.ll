@@ -425,7 +425,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader255:                                    ; preds = %99, %.preheader255
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader255 ], [ 0, %99 ]
-  %100 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %100, align 4, !tbaa !99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -433,7 +433,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader:                                       ; preds = %.preheader255, %.preheader
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.preheader ], [ 0, %.preheader255 ]
-  %101 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv284
+  %101 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv284
   store float 0xC7EFFFFFE0000000, ptr %101, align 4, !tbaa !99
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, 4
@@ -1153,7 +1153,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [14 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14

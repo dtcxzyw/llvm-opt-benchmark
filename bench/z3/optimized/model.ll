@@ -6344,7 +6344,7 @@ _ZNK11func_interp3endEv.exit:                     ; preds = %72
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z12for_each_astIN5model14occs_collectorEEvRT_P3astb.exit ], [ 0, %86 ]
   %92 = load ptr, ptr %.02563, align 8, !tbaa !279
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr %93, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !281
@@ -7032,7 +7032,7 @@ _Z13for_each_exprIN5model14deps_collectorEEvRT_P4expr.exit24.us: ; preds = %52, 
 
 54:                                               ; preds = %.lr.ph.us, %_Z13for_each_exprIN5model14deps_collectorEEvRT_P4expr.exit25.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_Z13for_each_exprIN5model14deps_collectorEEvRT_P4expr.exit25.us ]
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
@@ -10358,7 +10358,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
   %116 = trunc nuw i64 %indvars.iv to i32
   %117 = xor i32 %116, -1
   %118 = add i32 %109, %117
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %110, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8, !tbaa !101
   %121 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %115, i32 noundef %118, ptr noundef %120)
           to label %122 unwind label %128
@@ -16957,7 +16957,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 56:                                               ; preds = %.lr.ph, %_ZN5model14deps_collectorclEP3app.exit
   %57 = phi i32 [ %53, %.lr.ph ], [ %276, %_ZN5model14deps_collectorclEP3app.exit ]
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !79
   %61 = add nuw i32 %57, 1
   store i32 %61, ptr %52, align 8, !tbaa !582

@@ -235,7 +235,7 @@ thread-pre-split:                                 ; preds = %.critedge.i
 
 .preheader:                                       ; preds = %3, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw [16 x i8], ptr %.not.sroa.gep37, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %.not.sroa.gep37, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !23
   %.not19 = icmp eq i8 %11, 0
   br i1 %.not19, label %9, label %.loopexit

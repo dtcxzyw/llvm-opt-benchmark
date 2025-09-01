@@ -1873,7 +1873,7 @@ _ZN9hashbrown3raw5inner13RawTableInner15allocation_info17hed00d187fdebc99dE.llvm
   unreachable
 
 83:                                               ; preds = %._crit_edge70
-  %84 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val4.i, i32 2
+  %84 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val4.i, i32 2
   %85 = load i64, ptr %84, align 8, !noalias !217, !noundef !9
   %.sroa.0.011.i.i = and i64 %30, %85
   %86 = getelementptr inbounds i8, ptr %27, i64 %.sroa.0.011.i.i
@@ -2046,7 +2046,7 @@ _ZN4core3ptr19swap_nonoverlapping17h2f032602b946e8faE.exit.loopexit: ; preds = %
 .lr.ph:                                           ; preds = %151, %_ZN4core3ptr19swap_nonoverlapping17h2f032602b946e8faE.exit.loopexit
   %.val4.i1564 = phi i64 [ %.val4.i15, %_ZN4core3ptr19swap_nonoverlapping17h2f032602b946e8faE.exit.loopexit ], [ %.val4.i1562, %151 ]
   %.val.i1363 = phi ptr [ %.val.i13, %_ZN4core3ptr19swap_nonoverlapping17h2f032602b946e8faE.exit.loopexit ], [ %148, %151 ]
-  %162 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val4.i1564, i32 2
+  %162 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val4.i1564, i32 2
   %163 = load i64, ptr %162, align 8, !noalias !246, !noundef !9
   %.val5 = load i64, ptr %17, align 8, !noundef !9
   %.sroa.0.011.i = and i64 %.val5, %163
@@ -2587,7 +2587,7 @@ common.resume:                                    ; preds = %172, %126
   br label %common.resume
 
 174:                                              ; preds = %160
-  %175 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %169, i32 2
+  %175 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %169, i32 2
   %176 = load i64, ptr %175, align 8, !noundef !9
   %.sroa.0.011.i.i = and i64 %176, %7
   %177 = getelementptr inbounds i8, ptr %.val15, i64 %.sroa.0.011.i.i

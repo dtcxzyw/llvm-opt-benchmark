@@ -3020,7 +3020,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
 
 334:                                              ; preds = %.preheader578.us, %._crit_edge626.us
   %indvars.iv736 = phi i64 [ 0, %.preheader578.us ], [ %indvars.iv.next737, %._crit_edge626.us ]
-  %335 = getelementptr inbounds nuw [4 x float], ptr @_ZL20lb_scale_factor_symm, i64 0, i64 %indvars.iv736
+  %335 = getelementptr inbounds nuw float, ptr @_ZL20lb_scale_factor_symm, i64 %indvars.iv736
   %336 = load float, ptr %335, align 4, !tbaa !15
   %337 = fmul float %336, 2.000000e+00
   br i1 %249, label %.lr.ph625.us.preheader, label %._crit_edge626.us

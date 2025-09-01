@@ -183,7 +183,7 @@ define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly captu
 .preheader:                                       ; preds = %28, %35
   %38 = phi i32 [ %36, %35 ], [ 0, %28 ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [8 x %struct.dm_io_region], ptr %15, i64 0, i64 %39
+  %40 = getelementptr %struct.dm_io_region, ptr %15, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
@@ -883,7 +883,7 @@ define internal void @segment_complete(i32 noundef %0, i64 noundef %1, ptr nound
 55:                                               ; preds = %55, %53
   %56 = phi i32 [ 0, %53 ], [ %63, %55 ]
   %57 = sext i32 %56 to i64
-  %58 = getelementptr [8 x %struct.dm_io_region], ptr %54, i64 0, i64 %57
+  %58 = getelementptr %struct.dm_io_region, ptr %54, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %32

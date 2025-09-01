@@ -463,14 +463,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_create(ptr noundef %0, i64 no
   %22 = mul i64 %1, 125613361
   %23 = lshr i64 %22, 27
   %24 = and i64 %23, 31
-  %25 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %28 = load i64, ptr %27, align 8, !tbaa !55
   %29 = mul i64 %28, 125613361
   %30 = lshr i64 %29, 27
   %31 = and i64 %30, 31
-  %32 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !54
   %.not = icmp eq i32 %26, %33
   %34 = add i32 %26, 2
@@ -2687,14 +2687,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_iblock_root_halve(ptr nou
 
 19:                                               ; preds = %18
   %20 = lshr i64 %16, 24
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !107
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %23, 24
   br label %H5VM_log2_gen.exit
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %17
+  %26 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %17
   %27 = load i8, ptr %26, align 1, !tbaa !107
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 16
@@ -2706,14 +2706,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_iblock_root_halve(ptr nou
 
 31:                                               ; preds = %30
   %32 = lshr i64 %16, 8
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !107
   %35 = zext i8 %34 to i32
   %36 = add nuw nsw i32 %35, 8
   br label %H5VM_log2_gen.exit
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %16
+  %38 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %16
   %39 = load i8, ptr %38, align 1, !tbaa !107
   %40 = zext i8 %39 to i32
   br label %H5VM_log2_gen.exit
@@ -3327,12 +3327,12 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
   %37 = mul i64 %36, 125613361
   %38 = lshr i64 %37, 27
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !54
   %42 = mul i32 %33, 125613361
   %43 = lshr i32 %42, 27
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !54
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %48 = load ptr, ptr %47, align 8, !tbaa !94
@@ -3354,14 +3354,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
 
 56:                                               ; preds = %55
   %57 = lshr i64 %51, 56
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !107
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 56
   br label %.preheader66.lr.ph
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %54
+  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %54
   %64 = load i8, ptr %63, align 1, !tbaa !107
   %65 = zext i8 %64 to i32
   %66 = add nuw nsw i32 %65, 48
@@ -3373,14 +3373,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
 
 68:                                               ; preds = %67
   %69 = lshr i64 %51, 40
-  %70 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !107
   %72 = zext i8 %71 to i32
   %73 = add nuw nsw i32 %72, 40
   br label %.preheader66.lr.ph
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %52
+  %75 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %52
   %76 = load i8, ptr %75, align 1, !tbaa !107
   %77 = zext i8 %76 to i32
   %78 = add nuw nsw i32 %77, 32
@@ -3397,14 +3397,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
 
 82:                                               ; preds = %81
   %83 = lshr i64 %51, 24
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !107
   %86 = zext i8 %85 to i32
   %87 = add nuw nsw i32 %86, 24
   br label %.preheader66.lr.ph
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %80
+  %89 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %80
   %90 = load i8, ptr %89, align 1, !tbaa !107
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %91, 16
@@ -3416,14 +3416,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures
 
 94:                                               ; preds = %93
   %95 = lshr i64 %51, 8
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !107
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, 8
   br label %.preheader66.lr.ph
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %51
+  %101 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %51
   %102 = load i8, ptr %101, align 1, !tbaa !107
   %103 = zext i8 %102 to i32
   br label %.preheader66.lr.ph

@@ -299,7 +299,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_13AwhTargetTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   ret ptr %4
 }
@@ -307,7 +307,7 @@ define noundef ptr @_ZN3gmx17enumValueToStringENS_13AwhTargetTypeE(i32 noundef %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   ret ptr %4
 }
@@ -315,7 +315,7 @@ define noundef ptr @_ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE(i32 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   ret ptr %4
 }
@@ -323,7 +323,7 @@ define noundef ptr @_ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE(i32 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   ret ptr %4
 }
@@ -1962,7 +1962,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx25AwhCoordinateProviderTypeEET_
 21:                                               ; preds = %16, %25
   %.not80 = phi i1 [ false, %16 ], [ true, %25 ]
   %indvars.iv = phi i64 [ 0, %16 ], [ 1, %25 ]
-  %22 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %23, ptr noundef %20)
   %.not = icmp eq i32 %24, 0
@@ -2061,7 +2061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %.not81 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %59 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 0, i64 %indvars.iv88
+  %59 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_25AwhCoordinateProviderTypeE.awhCoordinateProviderTypeNames, i64 %indvars.iv88
   %60 = load ptr, ptr %59, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %60)
           to label %61 unwind label %75
@@ -4376,7 +4376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %_Z
 731:                                              ; preds = %728
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %732 = zext nneg i32 %729 to i64
-  %733 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 0, i64 %732
+  %733 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %732
   %734 = load ptr, ptr %733, align 8, !tbaa !14
   %735 = load ptr, ptr %21, align 8, !tbaa !4
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull @.str.62, ptr noundef %734, ptr noundef %735)
@@ -5242,7 +5242,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx22AwhHistogramGrowthTypeEET_PSt
 21:                                               ; preds = %16, %25
   %.not80 = phi i1 [ false, %16 ], [ true, %25 ]
   %indvars.iv = phi i64 [ 0, %16 ], [ 1, %25 ]
-  %22 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %23, ptr noundef %20)
   %.not = icmp eq i32 %24, 0
@@ -5341,7 +5341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %.not81 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %59 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 0, i64 %indvars.iv88
+  %59 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_22AwhHistogramGrowthTypeE.awhHistogramGrowthTypeNames, i64 %indvars.iv88
   %60 = load ptr, ptr %59, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %60)
           to label %61 unwind label %75
@@ -5821,7 +5821,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx13AwhTargetTypeEET_PSt6vectorI9
 
 21:                                               ; preds = %16, %25
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %25 ]
-  %22 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %23, ptr noundef %20)
   %.not = icmp eq i32 %24, 0
@@ -5921,7 +5921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %indvars.iv.next89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %59 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 0, i64 %indvars.iv88
+  %59 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %indvars.iv88
   %60 = load ptr, ptr %59, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %60)
           to label %61 unwind label %75
@@ -7597,7 +7597,7 @@ define linkonce_odr noundef i32 @_Z7getEnumIN3gmx16AwhPotentialTypeEET_PSt6vecto
 21:                                               ; preds = %16, %25
   %.not80 = phi i1 [ false, %16 ], [ true, %25 ]
   %indvars.iv = phi i64 [ 0, %16 ], [ 1, %25 ]
-  %22 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %23, ptr noundef %20)
   %.not = icmp eq i32 %24, 0
@@ -7696,7 +7696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %.not81 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   %indvars.iv88 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %59 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 0, i64 %indvars.iv88
+  %59 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %indvars.iv88
   %60 = load ptr, ptr %59, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.35, ptr noundef %60)
           to label %61 unwind label %75
@@ -8862,7 +8862,7 @@ _ZN3gmxL29checkInputConsistencyIntervalERKNS_9AwhParamsEP14WarningHandler.exit: 
 204:                                              ; preds = %235, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %235 ]
   %.031.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %.1.i.i, %235 ]
-  %205 = getelementptr inbounds nuw [3 x [3 x float]], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %205 = getelementptr inbounds nuw [3 x float], ptr %41, i64 %indvars.iv.i.i
   %206 = load float, ptr %205, align 4, !tbaa !227
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %208 = load float, ptr %207, align 4, !tbaa !227
@@ -8947,13 +8947,13 @@ _ZN3gmxL21get_pull_coord_periodERK12t_pull_coordRK5t_pbcf.exit.i: ; preds = %235
 
 241:                                              ; preds = %256, %.outer.i
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %256 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %242 = getelementptr inbounds nuw [3 x float], ptr %198, i64 0, i64 %indvars.iv.i43
+  %242 = getelementptr inbounds nuw float, ptr %198, i64 %indvars.iv.i43
   %243 = load float, ptr %242, align 4, !tbaa !227
   %244 = fcmp une float %243, 0.000000e+00
   br i1 %244, label %245, label %256
 
 245:                                              ; preds = %241
-  %246 = getelementptr inbounds nuw [3 x [3 x float]], ptr %5, i64 0, i64 %indvars.iv.i43
+  %246 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %indvars.iv.i43
   %247 = load float, ptr %246, align 4, !tbaa !227
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 4
   %249 = load float, ptr %248, align 4, !tbaa !227
@@ -10688,7 +10688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %630 = load ptr, ptr %27, align 8, !tbaa !4
   %631 = zext nneg i32 %620 to i64
-  %632 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %631
   %633 = load ptr, ptr %632, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr noundef nonnull @.str.128, ptr noundef %630, double noundef %623, ptr noundef %633)
           to label %634 unwind label %644
@@ -10757,7 +10757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %657 = load ptr, ptr %27, align 8, !tbaa !4
   %658 = sext i32 %620 to i64
-  %659 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 0, i64 %658
+  %659 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %658
   %660 = load ptr, ptr %659, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr noundef nonnull @.str.129, ptr noundef %657, double noundef %623, ptr noundef %660)
           to label %661 unwind label %671
@@ -11091,7 +11091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %770 = load ptr, ptr %27, align 8, !tbaa !4
   %771 = sext i32 %738 to i64
-  %772 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 0, i64 %771
+  %772 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_13AwhTargetTypeE.awhTargetTypeNames, i64 %771
   %773 = load ptr, ptr %772, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull @.str.129, ptr noundef %770, double noundef %740, ptr noundef %773)
           to label %774 unwind label %784
@@ -13415,7 +13415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %1597 = load ptr, ptr %46, align 8, !tbaa !4
   %1598 = load i32, ptr %1591, align 4, !tbaa !157
   %1599 = sext i32 %1598 to i64
-  %1600 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 0, i64 %1599
+  %1600 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx17enumValueToStringENS_16AwhPotentialTypeE.awhPotentialTypeNames, i64 %1599
   %1601 = load ptr, ptr %1600, align 8, !tbaa !14
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %52, ptr noundef nonnull @.str.115, ptr noundef %1597, ptr noundef %1601, ptr noundef nonnull @.str.15)
           to label %1602 unwind label %1614

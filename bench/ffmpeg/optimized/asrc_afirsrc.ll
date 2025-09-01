@@ -392,7 +392,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %68
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %69
   %70 = zext nneg i32 %.110.i to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !60
   %73 = zext i8 %72 to i32
   %74 = add nuw nsw i32 %.1.i, %73
@@ -1576,7 +1576,7 @@ define internal range(i32 -2147483648, 1) i32 @config_eq_output(ptr noundef read
 38:                                               ; preds = %32
   %39 = load i32, ptr %8, align 8, !tbaa !98
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [18 x %struct.EqPreset], ptr @eq_presets, i64 0, i64 %40, i32 1
+  %41 = getelementptr inbounds %struct.EqPreset, ptr @eq_presets, i64 %40, i32 1
   %42 = load i32, ptr %6, align 8, !tbaa !52
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 2

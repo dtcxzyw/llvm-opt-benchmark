@@ -1299,7 +1299,7 @@ lean_dec.exit378:                                 ; preds = %74, %73, %71, %lean
   %.0266802 = phi ptr [ %3, %.lr.ph ], [ %.1267, %951 ]
   %.0275801 = phi ptr [ %9, %.lr.ph ], [ %.1276, %951 ]
   %79 = getelementptr inbounds nuw i8, ptr %.0266802, i64 24
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %79, i64 0, i64 %.0257803
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0257803
   %81 = load ptr, ptr %80, align 8, !tbaa !9
   %82 = ptrtoint ptr %81 to i64
   %83 = and i64 %82, 1
@@ -13805,7 +13805,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_etaExpandCore___spec_
   %.02250 = phi i64 [ %52, %68 ], [ %1, %3 ]
   %.02449 = phi ptr [ %.0.i.i34, %68 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02449, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02250
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02250
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

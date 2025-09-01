@@ -494,7 +494,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit
   %146 = zext nneg i32 %128 to i64
-  %147 = getelementptr inbounds nuw [1024 x i8], ptr %101, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %101, i64 %146
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 16), ptr %147, align 8, !tbaa !3, !noalias !203
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %0, ptr %148, align 8, !tbaa !206, !noalias !203
@@ -722,7 +722,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128
   %234 = zext nneg i32 %216 to i64
-  %235 = getelementptr inbounds nuw [1024 x i8], ptr %101, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr %101, i64 %234
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 16), ptr %235, align 8, !tbaa !3, !noalias !210
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store ptr %0, ptr %236, align 8, !tbaa !213, !noalias !210
@@ -852,7 +852,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i: ;
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit
   %280 = zext nneg i32 %262 to i64
-  %281 = getelementptr inbounds nuw [1024 x i8], ptr %101, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw i8, ptr %101, i64 %280
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 16), ptr %281, align 8, !tbaa !3, !noalias !215
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   store ptr %0, ptr %282, align 8, !tbaa !218, !noalias !215
@@ -982,7 +982,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.e
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit
   %326 = zext nneg i32 %308 to i64
-  %327 = getelementptr inbounds nuw [1024 x i8], ptr %101, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i8, ptr %101, i64 %326
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 16), ptr %327, align 8, !tbaa !3, !noalias !220
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
   store ptr %0, ptr %328, align 8, !tbaa !223, !noalias !220
@@ -1819,7 +1819,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; p
 
 _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit23: ; preds = %2
   %23 = zext nneg i32 %5 to i64
-  %24 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 16), ptr %24, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %.0.val, ptr %25, align 8, !tbaa !245

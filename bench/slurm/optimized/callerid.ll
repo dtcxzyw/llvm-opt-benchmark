@@ -209,11 +209,11 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %24, %27
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = call noundef i32 @llvm.bswap.i32(i32 %29)
   store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = call noundef i32 @llvm.bswap.i32(i32 %32)
   store i32 %33, ptr %31, align 4

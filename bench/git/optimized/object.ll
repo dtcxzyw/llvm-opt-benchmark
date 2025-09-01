@@ -53,7 +53,7 @@ define dso_local ptr @type_name(i32 noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [5 x ptr], ptr @object_type_strings, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   br label %7
 
@@ -77,7 +77,7 @@ define dso_local range(i32 -1, 5) i32 @type_from_string_gently(ptr noundef %0, i
 
 8:                                                ; preds = %7, %12
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds nuw [5 x ptr], ptr @object_type_strings, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = tail call i32 @xstrncmpz(ptr noundef %10, ptr noundef %0, i64 noundef %.011) #20
   %.not14 = icmp eq i32 %11, 0
@@ -387,7 +387,7 @@ _.exit:                                           ; preds = %19, %21
 
 29:                                               ; preds = %_.exit
   %30 = zext nneg i32 %27 to i64
-  %31 = getelementptr inbounds nuw [5 x ptr], ptr @object_type_strings, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !40
   br label %type_name.exit
 
@@ -398,7 +398,7 @@ type_name.exit:                                   ; preds = %_.exit, %29
 
 34:                                               ; preds = %type_name.exit
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw [5 x ptr], ptr @object_type_strings, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !40
   br label %type_name.exit17
 

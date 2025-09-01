@@ -1122,7 +1122,7 @@ if.end:                                           ; preds = %if.end.i.i.i.i.i.2.
   %quad_part113 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 144
   %82 = load i32, ptr %quad_part113, align 4, !tbaa !63
   %conv114 = sext i32 %82 to i64
-  %arrayidx.i.i266 = getelementptr inbounds [4 x i32], ptr %add.ptr.i264, i64 0, i64 %conv114
+  %arrayidx.i.i266 = getelementptr inbounds i32, ptr %add.ptr.i264, i64 %conv114
   %83 = load i32, ptr %arrayidx.i.i266, align 4, !tbaa !29
   %add = add nsw i32 %83, 1
   store i32 %add, ptr %arrayidx.i.i266, align 4, !tbaa !29

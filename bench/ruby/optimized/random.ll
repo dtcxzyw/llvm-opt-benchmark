@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_free_default_rand_key() local_unnamed_addr #0 {
   %1 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @ruby_xfree(ptr noundef %1) #23
+  tail call void @ruby_xfree(ptr noundef %1) #22
   ret void
 }
 
@@ -81,14 +81,14 @@ declare void @ruby_xfree(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @rb_genrand_int32() local_unnamed_addr #0 {
   %1 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %2 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %1) #23
+  %2 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %1) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %default_rand.exit.i
 
 4:                                                ; preds = %0
-  %5 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %5 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %6 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %6, ptr noundef nonnull %5) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %6, ptr noundef nonnull %5) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %4, %0
@@ -211,14 +211,14 @@ next_state.exit:                                  ; preds = %.preheader.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local double @rb_genrand_real() local_unnamed_addr #0 {
   %1 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %2 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %1) #23
+  %2 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %1) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %default_rand.exit.i
 
 4:                                                ; preds = %0
-  %5 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %5 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %6 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %6, ptr noundef nonnull %5) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %6, ptr noundef nonnull %5) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %4, %0
@@ -250,7 +250,7 @@ default_mt.exit:                                  ; preds = %default_rand.exit.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_random_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8, !tbaa !26
-  tail call void @rb_gc_mark(i64 noundef %2) #23
+  tail call void @rb_gc_mark(i64 noundef %2) #22
   ret void
 }
 
@@ -280,11 +280,11 @@ define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 n
 
 6:                                                ; preds = %11, %5
   %.013.i = phi i64 [ 0, %5 ], [ %12, %11 ]
-  %7 = tail call ptr @rb_errno_ptr() #23
+  %7 = tail call ptr @rb_errno_ptr() #22
   store i32 0, ptr %7, align 4, !tbaa !22
   %8 = getelementptr i8, ptr %0, i64 %.013.i
   %9 = sub i64 %1, %.013.i
-  %10 = tail call i64 @getrandom(ptr noundef %8, i64 noundef %9, i32 noundef %spec.store.select.i) #23
+  %10 = tail call i64 @getrandom(ptr noundef %8, i64 noundef %9, i32 noundef %spec.store.select.i) #22
   %.not17.i = icmp eq i64 %10, -1
   br i1 %.not17.i, label %.thread.i, label %11
 
@@ -308,7 +308,7 @@ define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 n
 
 15:                                               ; preds = %14
   %16 = tail call i64 @llvm.umin.i64(i64 %.014.i, i64 256)
-  %17 = tail call i32 @getentropy(ptr noundef %.012.i, i64 noundef %16) #23
+  %17 = tail call i32 @getentropy(ptr noundef %.012.i, i64 noundef %16) #22
   %.not16.i9 = icmp eq i32 %17, 0
   %18 = getelementptr i8, ptr %.012.i, i64 %16
   %19 = sub i64 %.014.i, %16
@@ -322,14 +322,14 @@ fill_random_bytes_syscall.exit:                   ; preds = %11, %15, %14
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_genrand_ulong_limited(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #23
+  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %default_rand.exit.i
 
 5:                                                ; preds = %1
-  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %7 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %5, %1
@@ -423,14 +423,14 @@ define dso_local i32 @rb_random_int32(i64 noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %9 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %8) #23
+  %9 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %8) #22
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %default_rand.exit.i
 
 11:                                               ; preds = %7
-  %12 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %12 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %13 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %13, ptr noundef nonnull %12) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %13, ptr noundef nonnull %12) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %11, %7
@@ -450,7 +450,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
   %.0.i = phi ptr [ %20, %15 ], [ @random_mt_if, %default_rand.exit.i ]
   %21 = getelementptr i8, ptr %.0.i, i64 32
   %.val = load ptr, ptr %21, align 8, !tbaa !39
-  %22 = tail call i32 %.val(ptr noundef nonnull %3) #23
+  %22 = tail call i32 %.val(ptr noundef nonnull %3) #22
   br label %23
 
 23:                                               ; preds = %try_rand_if.exit, %4
@@ -466,14 +466,14 @@ define internal fastcc ptr @try_get_rnd(i64 noundef %0) unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %6 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %5) #23
+  %6 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %5) #22
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %default_rand.exit
 
 8:                                                ; preds = %4
-  %9 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %9 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %10 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %10, ptr noundef nonnull %9) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %10, ptr noundef nonnull %9) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %4, %8
@@ -484,7 +484,7 @@ default_rand.exit:                                ; preds = %4, %8
   br i1 %.not.i.i, label %rand_start.exit.sink.split, label %rand_start.exit
 
 13:                                               ; preds = %1
-  %14 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @rb_random_data_type_1_0) #23
+  %14 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef nonnull @rb_random_data_type_1_0) #22
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %rand_start.exit, label %15
 
@@ -510,7 +510,7 @@ default_rand.exit:                                ; preds = %4, %8
 26:                                               ; preds = %25
   %27 = load i64, ptr @rb_eArgError, align 8, !tbaa !43
   %28 = load ptr, ptr %18, align 8, !tbaa !46
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.23, ptr noundef %28) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.23, ptr noundef %28) #24
   unreachable
 
 rand_start.exit.sink.split:                       ; preds = %22, %default_rand.exit
@@ -539,14 +539,14 @@ define internal fastcc range(i64 1, -7) i64 @obj_random_bytes(i64 noundef %0, pt
   br label %rb_long2num_inline.exit
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @rb_int2big(i64 noundef %2) #23
+  %10 = tail call i64 @rb_int2big(i64 noundef %2) #22
   br label %rb_long2num_inline.exit
 
 rb_long2num_inline.exit:                          ; preds = %6, %9
   %.0.i = phi i64 [ %8, %6 ], [ %10, %9 ]
   store i64 %.0.i, ptr %4, align 8, !tbaa !43
   %11 = load i64, ptr @id_bytes, align 8, !tbaa !43
-  %12 = call i64 @rb_funcallv_public(i64 noundef %0, i64 noundef %11, i32 noundef 1, ptr noundef nonnull %4) #23
+  %12 = call i64 @rb_funcallv_public(i64 noundef %0, i64 noundef %11, i32 noundef 1, ptr noundef nonnull %4) #22
   %13 = icmp eq i64 %12, 0
   %14 = and i64 %12, 7
   %15 = icmp ne i64 %14, 0
@@ -561,7 +561,7 @@ rb_long2num_inline.exit:                          ; preds = %6, %9
   br i1 %21, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !49
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %17, %rb_long2num_inline.exit
-  call void @rb_unexpected_type(i64 noundef %12, i32 noundef 5) #26
+  call void @rb_unexpected_type(i64 noundef %12, i32 noundef 5) #25
   unreachable
 
 Check_Type.exit:                                  ; preds = %17
@@ -572,7 +572,7 @@ Check_Type.exit:                                  ; preds = %17
 
 25:                                               ; preds = %Check_Type.exit
   %26 = load i64, ptr @rb_eRangeError, align 8, !tbaa !43
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.25, i64 noundef %23) #25
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.25, i64 noundef %23) #24
   unreachable
 
 27:                                               ; preds = %Check_Type.exit
@@ -581,7 +581,7 @@ Check_Type.exit:                                  ; preds = %17
 
 29:                                               ; preds = %27
   %30 = load i64, ptr @rb_eRangeError, align 8, !tbaa !43
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.26, i64 noundef %23) #25
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.26, i64 noundef %23) #24
   unreachable
 
 31:                                               ; preds = %27
@@ -604,7 +604,7 @@ RSTRING_PTR.exit:                                 ; preds = %32, %35
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %36
 
 36:                                               ; preds = %RSTRING_PTR.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1, ptr noundef nonnull readonly align 1 %.sroa.2.0.i, i64 noundef range(i64 1, 0) %2, i1 noundef false) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1, ptr noundef nonnull readonly align 1 %.sroa.2.0.i, i64 noundef range(i64 1, 0) %2, i1 noundef false) #22
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %36, %RSTRING_PTR.exit, %31
@@ -650,14 +650,14 @@ define dso_local double @rb_random_real(i64 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @id_rand, align 8, !tbaa !43
-  %5 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef %4, i32 noundef 0, ptr noundef null) #23
-  %6 = tail call double @rb_num2dbl(i64 noundef %5) #23
+  %5 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef %4, i32 noundef 0, ptr noundef null) #22
+  %6 = tail call double @rb_num2dbl(i64 noundef %5) #22
   %7 = fcmp olt double %6, 0.000000e+00
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
   %9 = load i64, ptr @rb_eRangeError, align 8, !tbaa !43
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.1, double noundef %6) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.1, double noundef %6) #24
   unreachable
 
 10:                                               ; preds = %3
@@ -666,19 +666,19 @@ define dso_local double @rb_random_real(i64 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %10
   %13 = load i64, ptr @rb_eRangeError, align 8, !tbaa !43
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.2, double noundef %6) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.2, double noundef %6) #24
   unreachable
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %16 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %15) #23
+  %16 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %15) #22
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %default_rand.exit.i.i
 
 18:                                               ; preds = %14
-  %19 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %19 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %20 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %20, ptr noundef nonnull %19) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %20, ptr noundef nonnull %19) #22
   br label %default_rand.exit.i.i
 
 default_rand.exit.i.i:                            ; preds = %18, %14
@@ -702,15 +702,15 @@ try_rand_if.exit.i:                               ; preds = %22, %default_rand.e
   br i1 %.not23.i, label %32, label %30
 
 30:                                               ; preds = %try_rand_if.exit.i
-  %31 = tail call double %29(ptr noundef nonnull %2, i32 noundef 1) #23
+  %31 = tail call double %29(ptr noundef nonnull %2, i32 noundef 1) #22
   br label %random_real.exit
 
 32:                                               ; preds = %try_rand_if.exit.i
   %33 = getelementptr i8, ptr %.0.i.i, i64 32
   %.val24.i = load ptr, ptr %33, align 8, !tbaa !39
-  %34 = tail call i32 %.val24.i(ptr noundef nonnull %2) #23
+  %34 = tail call i32 %.val24.i(ptr noundef nonnull %2) #22
   %.val.i = load ptr, ptr %33, align 8, !tbaa !39
-  %35 = tail call i32 %.val.i(ptr noundef nonnull %2) #23
+  %35 = tail call i32 %.val.i(ptr noundef nonnull %2) #22
   %36 = lshr i32 %34, 5
   %37 = lshr i32 %35, 6
   %38 = uitofp nneg i32 %36 to double
@@ -749,14 +749,14 @@ define internal fastcc double @random_real(i64 noundef %0, ptr noundef %1, i32 n
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %12 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %11) #23
+  %12 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %11) #22
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %default_rand.exit.i
 
 14:                                               ; preds = %10
-  %15 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %15 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %16 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %16, ptr noundef nonnull %15) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %16, ptr noundef nonnull %15) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %14, %10
@@ -782,13 +782,13 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
 .thread:                                          ; preds = %try_rand_if.exit
   %26 = getelementptr i8, ptr %.0.i, i64 32
   %.val24 = load ptr, ptr %26, align 8, !tbaa !39
-  %27 = tail call i32 %.val24(ptr noundef nonnull %1) #23
+  %27 = tail call i32 %.val24(ptr noundef nonnull %1) #22
   %.val = load ptr, ptr %26, align 8, !tbaa !39
-  %28 = tail call i32 %.val(ptr noundef nonnull %1) #23
+  %28 = tail call i32 %.val(ptr noundef nonnull %1) #22
   br label %31
 
 29:                                               ; preds = %try_rand_if.exit
-  %30 = tail call double %25(ptr noundef nonnull %1, i32 noundef %2) #23
+  %30 = tail call double %25(ptr noundef nonnull %1, i32 noundef %2) #22
   br label %47
 
 31:                                               ; preds = %.thread, %5
@@ -845,15 +845,15 @@ define dso_local i64 @rb_random_ulong_limited(i64 noundef %0, i64 noundef %1) lo
   br label %ulong_to_num_plus_1.exit
 
 11:                                               ; preds = %5
-  %12 = tail call i64 @rb_ull2inum(i64 noundef %6) #23
+  %12 = tail call i64 @rb_ull2inum(i64 noundef %6) #22
   br label %ulong_to_num_plus_1.exit
 
 ulong_to_num_plus_1.exit:                         ; preds = %8, %11
   %.0.i.i = phi i64 [ %10, %8 ], [ %12, %11 ]
   store i64 %.0.i.i, ptr %3, align 8, !tbaa !43
   %13 = load i64, ptr @id_rand, align 8, !tbaa !43
-  %14 = call i64 @rb_funcallv_public(i64 noundef %0, i64 noundef %13, i32 noundef 1, ptr noundef nonnull %3) #23
-  %15 = call i64 @rb_to_int(i64 noundef %14) #23
+  %14 = call i64 @rb_funcallv_public(i64 noundef %0, i64 noundef %13, i32 noundef 1, ptr noundef nonnull %3) #22
+  %15 = call i64 @rb_to_int(i64 noundef %14) #22
   %16 = and i64 %15, 1
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %19, label %17
@@ -863,18 +863,18 @@ ulong_to_num_plus_1.exit:                         ; preds = %8, %11
   br label %rb_num2ulong_inline.exit
 
 19:                                               ; preds = %ulong_to_num_plus_1.exit
-  %20 = call i64 @rb_num2ulong(i64 noundef %15) #23
+  %20 = call i64 @rb_num2ulong(i64 noundef %15) #22
   br label %rb_num2ulong_inline.exit
 
 rb_num2ulong_inline.exit:                         ; preds = %17, %19
   %.0.i = phi i64 [ %18, %17 ], [ %20, %19 ]
-  %21 = call i32 @rb_num_negative_p(i64 noundef %15) #23
+  %21 = call i32 @rb_num_negative_p(i64 noundef %15) #22
   %.not17 = icmp eq i32 %21, 0
   br i1 %.not17, label %24, label %22
 
 22:                                               ; preds = %rb_num2ulong_inline.exit
   %23 = load i64, ptr @rb_eRangeError, align 8, !tbaa !43
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.3, i64 noundef %.0.i) #25
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.3, i64 noundef %.0.i) #24
   unreachable
 
 24:                                               ; preds = %rb_num2ulong_inline.exit
@@ -883,7 +883,7 @@ rb_num2ulong_inline.exit:                         ; preds = %17, %19
 
 26:                                               ; preds = %24
   %27 = load i64, ptr @rb_eRangeError, align 8, !tbaa !43
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.4, i64 noundef %.0.i) #25
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.4, i64 noundef %.0.i) #24
   unreachable
 
 28:                                               ; preds = %24
@@ -892,14 +892,14 @@ rb_num2ulong_inline.exit:                         ; preds = %17, %19
 
 29:                                               ; preds = %2
   %30 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %31 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %30) #23
+  %31 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %30) #22
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %default_rand.exit.i
 
 33:                                               ; preds = %29
-  %34 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %34 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %35 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %35, ptr noundef nonnull %34) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %35, ptr noundef nonnull %34) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %33, %29
@@ -948,7 +948,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
 
 61:                                               ; preds = %.loopexit28.i
   %62 = load ptr, ptr %57, align 8, !tbaa !39
-  %63 = tail call i32 %62(ptr noundef nonnull %4) #23
+  %63 = tail call i32 %62(ptr noundef nonnull %4) #22
   %64 = zext i32 %63 to i64
   %65 = shl nuw i64 %64, %58
   %66 = or i64 %65, %.02332.i
@@ -969,7 +969,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
 
 .preheader29.i:                                   ; preds = %43, %.preheader29.i
   %70 = load ptr, ptr %57, align 8, !tbaa !39
-  %71 = tail call i32 %70(ptr noundef nonnull %4) #23
+  %71 = tail call i32 %70(ptr noundef nonnull %4) #22
   %72 = zext i32 %71 to i64
   %73 = and i64 %55, %72
   %74 = icmp samesign ult i64 %1, %73
@@ -994,7 +994,7 @@ define dso_local void @rb_rand_bytes_int32(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %4, %12
   %.01623 = phi ptr [ %9, %12 ], [ %2, %4 ]
   %.01822 = phi i64 [ %13, %12 ], [ %3, %4 ]
-  %6 = tail call i32 %0(ptr noundef %1) #23
+  %6 = tail call i32 %0(ptr noundef %1) #22
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph
@@ -1021,7 +1021,7 @@ define dso_local void @rb_rand_bytes_int32(ptr noundef readonly captures(none) %
   br i1 %.not, label %.loopexit, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = tail call i32 %0(ptr noundef %1) #23
+  %16 = tail call i32 %0(ptr noundef %1) #22
   br label %17
 
 17:                                               ; preds = %17, %15
@@ -1052,14 +1052,14 @@ define dso_local i64 @rb_random_bytes(i64 noundef %0, i64 noundef %1) local_unna
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %8 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %7) #23
+  %8 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %7) #22
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %default_rand.exit.i
 
 10:                                               ; preds = %6
-  %11 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %11 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %12 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %12, ptr noundef nonnull %11) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %12, ptr noundef nonnull %11) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %10, %6
@@ -1077,7 +1077,7 @@ default_rand.exit.i:                              ; preds = %10, %6
 
 try_rand_if.exit:                                 ; preds = %default_rand.exit.i, %14
   %.0.i = phi ptr [ %19, %14 ], [ @random_mt_if, %default_rand.exit.i ]
-  %20 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %1) #23, !callees !57
+  %20 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %1) #22, !callees !57
   %21 = inttoptr i64 %20 to ptr
   %22 = load i64, ptr %21, align 8, !tbaa !48, !noalias !58
   %23 = and i64 %22, 8192
@@ -1093,7 +1093,7 @@ rand_bytes.exit:                                  ; preds = %try_rand_if.exit, %
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %25 ], [ %24, %try_rand_if.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !61
-  tail call void %27(ptr noundef nonnull %3, ptr noundef %.sroa.2.0.i.i, i64 noundef %1) #23
+  tail call void %27(ptr noundef nonnull %3, ptr noundef %.sroa.2.0.i.i, i64 noundef %1) #22
   br label %28
 
 28:                                               ; preds = %rand_bytes.exit, %4
@@ -1323,11 +1323,11 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %10
   %.013.i.i = phi i64 [ %11, %10 ], [ 0, %0 ]
-  %6 = tail call ptr @rb_errno_ptr() #23
+  %6 = tail call ptr @rb_errno_ptr() #22
   store i32 0, ptr %6, align 4, !tbaa !22
   %7 = getelementptr i8, ptr @hash_salt, i64 %.013.i.i
   %8 = sub nuw nsw i64 24, %.013.i.i
-  %9 = tail call i64 @getrandom(ptr noundef %7, i64 noundef %8, i32 noundef 1) #23
+  %9 = tail call i64 @getrandom(ptr noundef %7, i64 noundef %8, i32 noundef 1) #22
   %.not17.i.i = icmp eq i64 %9, -1
   br i1 %.not17.i.i, label %.thread.i.i, label %10
 
@@ -1348,7 +1348,7 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
 
 14:                                               ; preds = %13
   %15 = tail call i64 @llvm.umin.i64(i64 %.014.i.i, i64 256)
-  %16 = tail call i32 @getentropy(ptr noundef %.012.i.i, i64 noundef %15) #23
+  %16 = tail call i32 @getentropy(ptr noundef %.012.i.i, i64 noundef %15) #22
   %.not16.i9.i = icmp eq i32 %16, 0
   %17 = getelementptr i8, ptr %.012.i.i, i64 %15
   %18 = sub i64 %.014.i.i, %15
@@ -1360,8 +1360,8 @@ ruby_fill_random_bytes.exit:                      ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %4, ptr %1, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 noundef 0, i64 noundef range(i64 0, 2305843009213693949) 16, i1 noundef false) #23
-  %19 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 noundef 0, i64 noundef range(i64 0, 2305843009213693949) 16, i1 noundef false) #22
+  %19 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #22
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !64
   %22 = load i32, ptr %4, align 16, !tbaa !22
@@ -1377,7 +1377,7 @@ ruby_fill_random_bytes.exit:                      ; preds = %14
   %31 = trunc nuw i64 %30 to i32
   %32 = xor i32 %24, %31
   store i32 %32, ptr %4, align 16, !tbaa !22
-  %33 = call i32 @getpid() #23
+  %33 = call i32 @getpid() #22
   %34 = atomicrmw volatile add ptr @fill_random_seed.n, i32 1 seq_cst, align 4
   %35 = shl i32 %34, 16
   %36 = load ptr, ptr %1, align 8, !tbaa !63
@@ -1403,14 +1403,14 @@ ruby_fill_random_bytes.exit:                      ; preds = %14
 49:                                               ; preds = %genrand_int32.exit, %init_by_array.exit
   %.pre.i9 = phi ptr [ %.phi.trans.insert.i.promoted, %init_by_array.exit ], [ %97, %genrand_int32.exit ]
   %indvars.iv.i = phi i64 [ 0, %init_by_array.exit ], [ %indvars.iv.next.i, %genrand_int32.exit ]
-  %50 = load i32, ptr %118, align 8, !tbaa !20
+  %50 = load i32, ptr %117, align 8, !tbaa !20
   %51 = add i32 %50, -1
-  store i32 %51, ptr %118, align 8, !tbaa !20
+  store i32 %51, ptr %117, align 8, !tbaa !20
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %53, label %genrand_int32.exit
 
 53:                                               ; preds = %49
-  store i32 624, ptr %118, align 8, !tbaa !20
+  store i32 624, ptr %117, align 8, !tbaa !20
   %.pre.i.i = load i32, ptr %3, align 8, !tbaa !22
   br label %54
 
@@ -1488,115 +1488,115 @@ genrand_int32.exit:                               ; preds = %49, %next_state.exi
   %106 = xor i32 %105, %103
   %107 = lshr i32 %106, 18
   %108 = xor i32 %107, %106
-  %109 = getelementptr [6 x i32], ptr @hash_salt, i64 0, i64 %indvars.iv.i
+  %109 = getelementptr i32, ptr @hash_salt, i64 %indvars.iv.i
   store i32 %108, ptr %109, align 4, !tbaa !53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %init_hash_salt.exit, label %49, !llvm.loop !67
 
 init_hash_salt.exit:                              ; preds = %genrand_int32.exit
-  store ptr %97, ptr %119, align 8, !tbaa !21
-  call void @__explicit_bzero_chk(ptr noundef nonnull %3, i64 noundef 2512, i64 noundef 2512) #23
+  store ptr %97, ptr %118, align 8, !tbaa !21
+  call void @__explicit_bzero_chk(ptr noundef nonnull %3, i64 noundef 2512, i64 noundef 2512) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ruby_fill_random_bytes.exit.thread
 
 110:                                              ; preds = %110, %ruby_fill_random_bytes.exit
-  %111 = phi i32 [ 19650218, %ruby_fill_random_bytes.exit ], [ %116, %110 ]
+  %store_forwarded = phi i32 [ 19650218, %ruby_fill_random_bytes.exit ], [ %116, %110 ]
   %indvars.iv.i.i = phi i64 [ 1, %ruby_fill_random_bytes.exit ], [ %indvars.iv.next.i.i, %110 ]
-  %112 = lshr i32 %111, 30
-  %113 = xor i32 %112, %111
+  %111 = getelementptr i32, ptr %3, i64 %indvars.iv.i.i
+  %112 = lshr i32 %store_forwarded, 30
+  %113 = xor i32 %112, %store_forwarded
   %114 = mul i32 %113, 1812433253
   %115 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %116 = add i32 %114, %115
-  %117 = getelementptr [624 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
-  store i32 %116, ptr %117, align 4, !tbaa !22
+  store i32 %116, ptr %111, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 624
   br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %110, !llvm.loop !68
 
 init_genrand.exit.i:                              ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 2504
-  %119 = getelementptr inbounds nuw i8, ptr %3, i64 2496
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 2492
-  store i32 1, ptr %118, align 8, !tbaa !20
-  store ptr %119, ptr %119, align 8, !tbaa !21
-  br label %121
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 2504
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 2496
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 2492
+  store i32 1, ptr %117, align 8, !tbaa !20
+  store ptr %118, ptr %118, align 8, !tbaa !21
+  br label %120
 
-121:                                              ; preds = %143, %init_genrand.exit.i
-  %.051.i = phi i32 [ 624, %init_genrand.exit.i ], [ %144, %143 ]
-  %.04250.i = phi i32 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %143 ]
-  %.04349.i = phi i32 [ 1, %init_genrand.exit.i ], [ %.144.i, %143 ]
-  %122 = sext i32 %.04349.i to i64
-  %123 = getelementptr [624 x i32], ptr %3, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !22
-  %125 = add i32 %.04349.i, -1
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr [624 x i32], ptr %3, i64 0, i64 %126
-  %128 = load i32, ptr %127, align 4, !tbaa !22
-  %129 = lshr i32 %128, 30
-  %130 = xor i32 %129, %128
-  %131 = mul i32 %130, 1664525
-  %132 = xor i32 %131, %124
-  %133 = sext i32 %.04250.i to i64
-  %134 = getelementptr i32, ptr %4, i64 %133
-  %135 = load i32, ptr %134, align 4, !tbaa !22
-  %136 = add i32 %135, %.04250.i
-  %137 = add i32 %136, %132
-  store i32 %137, ptr %123, align 4, !tbaa !22
-  %138 = add i32 %.04349.i, 1
-  %139 = add i32 %.04250.i, 1
-  %140 = icmp sgt i32 %138, 623
-  br i1 %140, label %141, label %143
+120:                                              ; preds = %142, %init_genrand.exit.i
+  %.051.i = phi i32 [ 624, %init_genrand.exit.i ], [ %143, %142 ]
+  %.04250.i = phi i32 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %142 ]
+  %.04349.i = phi i32 [ 1, %init_genrand.exit.i ], [ %.144.i, %142 ]
+  %121 = sext i32 %.04349.i to i64
+  %122 = getelementptr i32, ptr %3, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !22
+  %124 = add i32 %.04349.i, -1
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr i32, ptr %3, i64 %125
+  %127 = load i32, ptr %126, align 4, !tbaa !22
+  %128 = lshr i32 %127, 30
+  %129 = xor i32 %128, %127
+  %130 = mul i32 %129, 1664525
+  %131 = xor i32 %130, %123
+  %132 = sext i32 %.04250.i to i64
+  %133 = getelementptr i32, ptr %4, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !22
+  %135 = add i32 %134, %.04250.i
+  %136 = add i32 %135, %131
+  store i32 %136, ptr %122, align 4, !tbaa !22
+  %137 = add i32 %.04349.i, 1
+  %138 = add i32 %.04250.i, 1
+  %139 = icmp sgt i32 %137, 623
+  br i1 %139, label %140, label %142
 
-141:                                              ; preds = %121
-  %142 = load i32, ptr %120, align 4, !tbaa !22
-  store i32 %142, ptr %3, align 8, !tbaa !22
-  br label %143
+140:                                              ; preds = %120
+  %141 = load i32, ptr %119, align 4, !tbaa !22
+  store i32 %141, ptr %3, align 8, !tbaa !22
+  br label %142
 
-143:                                              ; preds = %141, %121
-  %.144.i = phi i32 [ 1, %141 ], [ %138, %121 ]
-  %.not48.i = icmp slt i32 %139, 4
-  %spec.store.select.i = select i1 %.not48.i, i32 %139, i32 0
-  %144 = add nsw i32 %.051.i, -1
-  %.not.i = icmp eq i32 %144, 0
-  br i1 %.not.i, label %.preheader.i, label %121, !llvm.loop !69
+142:                                              ; preds = %140, %120
+  %.144.i = phi i32 [ 1, %140 ], [ %137, %120 ]
+  %.not48.i = icmp slt i32 %138, 4
+  %spec.store.select.i = select i1 %.not48.i, i32 %138, i32 0
+  %143 = add nsw i32 %.051.i, -1
+  %.not.i = icmp eq i32 %143, 0
+  br i1 %.not.i, label %.preheader.i, label %120, !llvm.loop !69
 
-.preheader.i:                                     ; preds = %143, %161
-  %.153.i = phi i32 [ %162, %161 ], [ 623, %143 ]
-  %.252.i = phi i32 [ %.3.i, %161 ], [ %.144.i, %143 ]
-  %145 = sext i32 %.252.i to i64
-  %146 = getelementptr [624 x i32], ptr %3, i64 0, i64 %145
-  %147 = load i32, ptr %146, align 4, !tbaa !22
-  %148 = add i32 %.252.i, -1
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr [624 x i32], ptr %3, i64 0, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !22
-  %152 = lshr i32 %151, 30
-  %153 = xor i32 %152, %151
-  %154 = mul i32 %153, 1566083941
-  %155 = xor i32 %154, %147
-  %156 = sub i32 %155, %.252.i
-  store i32 %156, ptr %146, align 4, !tbaa !22
-  %157 = add i32 %.252.i, 1
-  %158 = icmp sgt i32 %157, 623
-  br i1 %158, label %159, label %161
+.preheader.i:                                     ; preds = %142, %160
+  %.153.i = phi i32 [ %161, %160 ], [ 623, %142 ]
+  %.252.i = phi i32 [ %.3.i, %160 ], [ %.144.i, %142 ]
+  %144 = sext i32 %.252.i to i64
+  %145 = getelementptr i32, ptr %3, i64 %144
+  %146 = load i32, ptr %145, align 4, !tbaa !22
+  %147 = add i32 %.252.i, -1
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr i32, ptr %3, i64 %148
+  %150 = load i32, ptr %149, align 4, !tbaa !22
+  %151 = lshr i32 %150, 30
+  %152 = xor i32 %151, %150
+  %153 = mul i32 %152, 1566083941
+  %154 = xor i32 %153, %146
+  %155 = sub i32 %154, %.252.i
+  store i32 %155, ptr %145, align 4, !tbaa !22
+  %156 = add i32 %.252.i, 1
+  %157 = icmp sgt i32 %156, 623
+  br i1 %157, label %158, label %160
 
-159:                                              ; preds = %.preheader.i
-  %160 = load i32, ptr %120, align 4, !tbaa !22
-  store i32 %160, ptr %3, align 8, !tbaa !22
-  br label %161
+158:                                              ; preds = %.preheader.i
+  %159 = load i32, ptr %119, align 4, !tbaa !22
+  store i32 %159, ptr %3, align 8, !tbaa !22
+  br label %160
 
-161:                                              ; preds = %159, %.preheader.i
-  %.3.i = phi i32 [ 1, %159 ], [ %157, %.preheader.i ]
-  %162 = add nsw i32 %.153.i, -1
-  %.not47.i = icmp eq i32 %162, 0
+160:                                              ; preds = %158, %.preheader.i
+  %.3.i = phi i32 [ 1, %158 ], [ %156, %.preheader.i ]
+  %161 = add nsw i32 %.153.i, -1
+  %.not47.i = icmp eq i32 %161, 0
   br i1 %.not47.i, label %init_by_array.exit, label %.preheader.i, !llvm.loop !70
 
-init_by_array.exit:                               ; preds = %161
+init_by_array.exit:                               ; preds = %160
   store i32 -2147483648, ptr %3, align 8, !tbaa !22
-  call void @__explicit_bzero_chk(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 16) #23
+  call void @__explicit_bzero_chk(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 16) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.phi.trans.insert.i.promoted = load ptr, ptr %119, align 8
+  %.phi.trans.insert.i.promoted = load ptr, ptr %118, align 8
   br label %49
 
 ruby_fill_random_bytes.exit.thread:               ; preds = %10, %13, %init_hash_salt.exit
@@ -1606,14 +1606,14 @@ ruby_fill_random_bytes.exit.thread:               ; preds = %10, %13, %init_hash
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_reset_random_seed() local_unnamed_addr #0 {
   %1 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %2 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %1) #23
+  %2 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %1) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %default_rand.exit
 
 4:                                                ; preds = %0
-  %5 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %5 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %6 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %6, ptr noundef nonnull %5) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %6, ptr noundef nonnull %5) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %0, %4
@@ -1626,45 +1626,45 @@ default_rand.exit:                                ; preds = %0, %4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @InitVM_Random() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 4) #23
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.6, ptr noundef nonnull @rb_f_srand, i32 noundef -1) #23
-  tail call void @rb_define_global_function(ptr noundef nonnull @.str.7, ptr noundef nonnull @rb_f_rand, i32 noundef -1) #23
+  %1 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 4) #22
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.6, ptr noundef nonnull @rb_f_srand, i32 noundef -1) #22
+  tail call void @rb_define_global_function(ptr noundef nonnull @.str.7, ptr noundef nonnull @rb_f_rand, i32 noundef -1) #22
   %2 = load i64, ptr @rb_cObject, align 8, !tbaa !43
-  %3 = tail call i64 @rb_define_class_id(i64 noundef %1, i64 noundef %2) #23
-  tail call void @rb_undef_alloc_func(i64 noundef %3) #23
-  %4 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.8, i64 noundef %3) #23
+  %3 = tail call i64 @rb_define_class_id(i64 noundef %1, i64 noundef %2) #22
+  tail call void @rb_undef_alloc_func(i64 noundef %3) #22
+  %4 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.8, i64 noundef %3) #22
   store i64 %4, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_const_set(i64 noundef %4, i64 noundef %1, i64 noundef %3) #23
+  tail call void @rb_const_set(i64 noundef %4, i64 noundef %1, i64 noundef %3) #22
   %5 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_alloc_func(i64 noundef %5, ptr noundef nonnull @random_alloc) #23
-  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.9, ptr noundef nonnull @random_init, i32 noundef -1) #23
-  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull @random_rand, i32 noundef -1) #23
-  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.10, ptr noundef nonnull @random_bytes, i32 noundef 1) #23
-  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.11, ptr noundef nonnull @random_get_seed, i32 noundef 0) #23
+  tail call void @rb_define_alloc_func(i64 noundef %5, ptr noundef nonnull @random_alloc) #22
+  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.9, ptr noundef nonnull @random_init, i32 noundef -1) #22
+  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull @random_rand, i32 noundef -1) #22
+  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.10, ptr noundef nonnull @random_bytes, i32 noundef 1) #22
+  tail call void @rb_define_method(i64 noundef %3, ptr noundef nonnull @.str.11, ptr noundef nonnull @random_get_seed, i32 noundef 0) #22
   %6 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_method(i64 noundef %6, ptr noundef nonnull @.str.12, ptr noundef nonnull @rand_mt_copy, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %6, ptr noundef nonnull @.str.12, ptr noundef nonnull @rand_mt_copy, i32 noundef 1) #22
   %7 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_private_method(i64 noundef %7, ptr noundef nonnull @.str.13, ptr noundef nonnull @rand_mt_dump, i32 noundef 0) #23
+  tail call void @rb_define_private_method(i64 noundef %7, ptr noundef nonnull @.str.13, ptr noundef nonnull @rand_mt_dump, i32 noundef 0) #22
   %8 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_private_method(i64 noundef %8, ptr noundef nonnull @.str.14, ptr noundef nonnull @rand_mt_load, i32 noundef 1) #23
+  tail call void @rb_define_private_method(i64 noundef %8, ptr noundef nonnull @.str.14, ptr noundef nonnull @rand_mt_load, i32 noundef 1) #22
   %9 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_private_method(i64 noundef %9, ptr noundef nonnull @.str.15, ptr noundef nonnull @rand_mt_state, i32 noundef 0) #23
+  tail call void @rb_define_private_method(i64 noundef %9, ptr noundef nonnull @.str.15, ptr noundef nonnull @rand_mt_state, i32 noundef 0) #22
   %10 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_private_method(i64 noundef %10, ptr noundef nonnull @.str.16, ptr noundef nonnull @rand_mt_left, i32 noundef 0) #23
+  tail call void @rb_define_private_method(i64 noundef %10, ptr noundef nonnull @.str.16, ptr noundef nonnull @rand_mt_left, i32 noundef 0) #22
   %11 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_method(i64 noundef %11, ptr noundef nonnull @.str.17, ptr noundef nonnull @rand_mt_equal, i32 noundef 1) #23
+  tail call void @rb_define_method(i64 noundef %11, ptr noundef nonnull @.str.17, ptr noundef nonnull @rand_mt_equal, i32 noundef 1) #22
   %12 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_singleton_method(i64 noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull @rb_f_srand, i32 noundef -1) #23
+  tail call void @rb_define_singleton_method(i64 noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull @rb_f_srand, i32 noundef -1) #22
   %13 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_singleton_method(i64 noundef %13, ptr noundef nonnull @.str.7, ptr noundef nonnull @random_s_rand, i32 noundef -1) #23
+  tail call void @rb_define_singleton_method(i64 noundef %13, ptr noundef nonnull @.str.7, ptr noundef nonnull @random_s_rand, i32 noundef -1) #22
   %14 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_singleton_method(i64 noundef %14, ptr noundef nonnull @.str.10, ptr noundef nonnull @random_s_bytes, i32 noundef 1) #23
+  tail call void @rb_define_singleton_method(i64 noundef %14, ptr noundef nonnull @.str.10, ptr noundef nonnull @random_s_bytes, i32 noundef 1) #22
   %15 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_singleton_method(i64 noundef %15, ptr noundef nonnull @.str.11, ptr noundef nonnull @random_s_seed, i32 noundef 0) #23
+  tail call void @rb_define_singleton_method(i64 noundef %15, ptr noundef nonnull @.str.11, ptr noundef nonnull @random_s_seed, i32 noundef 0) #22
   %16 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_singleton_method(i64 noundef %16, ptr noundef nonnull @.str.18, ptr noundef nonnull @random_seed, i32 noundef 0) #23
+  tail call void @rb_define_singleton_method(i64 noundef %16, ptr noundef nonnull @.str.18, ptr noundef nonnull @random_seed, i32 noundef 0) #22
   %17 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  tail call void @rb_define_singleton_method(i64 noundef %17, ptr noundef nonnull @.str.19, ptr noundef nonnull @random_raw_seed, i32 noundef 1) #23
+  tail call void @rb_define_singleton_method(i64 noundef %17, ptr noundef nonnull @.str.19, ptr noundef nonnull @random_raw_seed, i32 noundef 1) #22
   %18 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
   %19 = icmp eq i64 %18, 0
   %20 = and i64 %18, 7
@@ -1704,7 +1704,7 @@ define hidden void @InitVM_Random() local_unnamed_addr #0 {
 rb_class_of.exit:                                 ; preds = %23, %26, %27, %28, %29, %31
   %.0.in.i = phi ptr [ @rb_cNilClass, %27 ], [ @rb_cTrueClass, %28 ], [ %25, %23 ], [ @rb_cFalseClass, %26 ], [ @rb_cInteger, %29 ], [ %spec.select.i, %31 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !43
-  tail call void @rb_define_private_method(i64 noundef %.0.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @random_s_state, i32 noundef 0) #23
+  tail call void @rb_define_private_method(i64 noundef %.0.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @random_s_state, i32 noundef 0) #22
   %34 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
   %35 = icmp eq i64 %34, 0
   %36 = and i64 %34, 7
@@ -1744,14 +1744,14 @@ rb_class_of.exit:                                 ; preds = %23, %26, %27, %28, 
 rb_class_of.exit19:                               ; preds = %39, %42, %43, %44, %45, %47
   %.0.in.i15 = phi ptr [ @rb_cNilClass, %43 ], [ @rb_cTrueClass, %44 ], [ %41, %39 ], [ @rb_cFalseClass, %42 ], [ @rb_cInteger, %45 ], [ %spec.select.i18, %47 ]
   %.0.i16 = load i64, ptr %.0.in.i15, align 8, !tbaa !43
-  tail call void @rb_define_private_method(i64 noundef %.0.i16, ptr noundef nonnull @.str.16, ptr noundef nonnull @random_s_left, i32 noundef 0) #23
+  tail call void @rb_define_private_method(i64 noundef %.0.i16, ptr noundef nonnull @.str.16, ptr noundef nonnull @random_s_left, i32 noundef 0) #22
   %50 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
-  %51 = tail call i64 @rb_define_module_under(i64 noundef %50, ptr noundef nonnull @.str.20) #23
-  tail call void @rb_include_module(i64 noundef %3, i64 noundef %51) #23
-  tail call void @rb_extend_object(i64 noundef %3, i64 noundef %51) #23
-  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.21, ptr noundef nonnull @rand_random_number, i32 noundef -1) #23
-  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.7, ptr noundef nonnull @rand_random_number, i32 noundef -1) #23
-  %52 = tail call ptr @rb_ractor_local_storage_ptr_newkey(ptr noundef nonnull @default_rand_key_storage_type) #23
+  %51 = tail call i64 @rb_define_module_under(i64 noundef %50, ptr noundef nonnull @.str.20) #22
+  tail call void @rb_include_module(i64 noundef %3, i64 noundef %51) #22
+  tail call void @rb_extend_object(i64 noundef %3, i64 noundef %51) #22
+  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.21, ptr noundef nonnull @rand_random_number, i32 noundef -1) #22
+  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.7, ptr noundef nonnull @rand_random_number, i32 noundef -1) #22
+  %52 = tail call ptr @rb_ractor_local_storage_ptr_newkey(ptr noundef nonnull @default_rand_key_storage_type) #22
   store ptr %52, ptr @default_rand_key, align 8, !tbaa !7
   ret void
 }
@@ -1761,14 +1761,14 @@ declare extern_weak void @rb_define_global_function(ptr noundef, ptr noundef, i3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_f_srand(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %5 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %4) #23
+  %5 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %4) #22
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %default_rand.exit
 
 7:                                                ; preds = %3
-  %8 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %8 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %9 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %9, ptr noundef nonnull %8) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %9, ptr noundef nonnull %8) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %3, %7
@@ -1789,7 +1789,7 @@ rand_mt_start.exit:                               ; preds = %default_rand.exit, 
   br i1 %or.cond.i, label %15, label %rb_check_arity.exit
 
 15:                                               ; preds = %rand_mt_start.exit
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #25
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #24
   unreachable
 
 rb_check_arity.exit:                              ; preds = %rand_mt_start.exit
@@ -1802,7 +1802,7 @@ rb_check_arity.exit:                              ; preds = %rand_mt_start.exit
 
 19:                                               ; preds = %rb_check_arity.exit
   %20 = load i64, ptr %1, align 8, !tbaa !43
-  %21 = tail call i64 @rb_to_int(i64 noundef %20) #23
+  %21 = tail call i64 @rb_to_int(i64 noundef %20) #22
   br label %22
 
 22:                                               ; preds = %19, %17
@@ -1816,14 +1816,14 @@ rb_check_arity.exit:                              ; preds = %rand_mt_start.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_f_rand(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %5 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %4) #23
+  %5 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %4) #22
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %default_rand.exit
 
 7:                                                ; preds = %3
-  %8 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %8 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %9 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %9, ptr noundef nonnull %8) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %9, ptr noundef nonnull %8) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %3, %7
@@ -1844,7 +1844,7 @@ rand_start.exit:                                  ; preds = %default_rand.exit, 
   br i1 %or.cond.i, label %15, label %rb_check_arity.exit
 
 15:                                               ; preds = %rand_start.exit
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #25
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #24
   unreachable
 
 rb_check_arity.exit:                              ; preds = %rand_start.exit
@@ -1862,7 +1862,7 @@ rb_check_arity.exit:                              ; preds = %rand_start.exit
   br i1 %.not20, label %21, label %rb_float_new_inline.exit
 
 21:                                               ; preds = %19
-  %22 = tail call i64 @rb_to_int(i64 noundef %17) #23
+  %22 = tail call i64 @rb_to_int(i64 noundef %17) #22
   %.not21 = icmp eq i64 %22, 1
   br i1 %.not21, label %26, label %23
 
@@ -1896,7 +1896,7 @@ rb_check_arity.exit:                              ; preds = %rand_start.exit
   br i1 %39, label %rb_float_new_inline.exit, label %40
 
 40:                                               ; preds = %38, %26
-  %41 = tail call i64 @rb_float_new_in_heap(double noundef %27) #23
+  %41 = tail call i64 @rb_float_new_in_heap(double noundef %27) #22
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %23, %19, %40, %38, %34
@@ -1916,7 +1916,7 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 2520, ptr noundef nonnull @random_mt_type) #23
+  %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 2520, ptr noundef nonnull @random_mt_type) #22
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !71
@@ -1951,7 +1951,7 @@ define internal range(i64 1, -7) i64 @random_init(i32 noundef %0, ptr noundef re
 10:                                               ; preds = %3
   %11 = load i64, ptr @rb_eTypeError, align 8, !tbaa !43
   %12 = load ptr, ptr %7, align 8, !tbaa !46
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.28, ptr noundef %12) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.28, ptr noundef %12) #24
   unreachable
 
 13:                                               ; preds = %3
@@ -1966,7 +1966,7 @@ define internal range(i64 1, -7) i64 @random_init(i32 noundef %0, ptr noundef re
   %19 = load i8, ptr %18, align 1, !tbaa !74
   %20 = zext i8 %19 to i32
   %21 = load i64, ptr @rb_eTypeError, align 8, !tbaa !43
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.29, i32 noundef %17, i32 noundef %20) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.29, i32 noundef %17, i32 noundef %20) #24
   unreachable
 
 22:                                               ; preds = %13
@@ -1974,7 +1974,7 @@ define internal range(i64 1, -7) i64 @random_init(i32 noundef %0, ptr noundef re
   br i1 %or.cond.i, label %23, label %rb_check_arity.exit
 
 23:                                               ; preds = %22
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #25
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #24
   unreachable
 
 rb_check_arity.exit:                              ; preds = %22
@@ -1994,7 +1994,7 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %rb_check_arity.exit
   br i1 %or.cond.i21, label %RB_OBJ_FROZEN.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !75
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i, %rb_check_arity.exit
-  tail call void @rb_error_frozen_object(i64 noundef %2) #25
+  tail call void @rb_error_frozen_object(i64 noundef %2) #24
   unreachable
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
@@ -2005,7 +2005,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %34, !prof !76
 
 34:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  tail call void @rb_str_modify(i64 noundef %2) #23
+  tail call void @rb_str_modify(i64 noundef %2) #22
   br label %rb_check_frozen_inline.exit
 
 rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %34
@@ -2018,7 +2018,7 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
 
 38:                                               ; preds = %rb_check_frozen_inline.exit
   %39 = load i64, ptr %1, align 8, !tbaa !43
-  %40 = tail call i64 @rb_to_int(i64 noundef %39) #23
+  %40 = tail call i64 @rb_to_int(i64 noundef %39) #22
   %41 = tail call fastcc i64 @rand_init(ptr noundef nonnull %9, ptr noundef %4, i64 noundef %40)
   br label %42
 
@@ -2044,12 +2044,12 @@ define internal range(i64 5, 4) i64 @random_rand(i32 noundef %0, ptr noundef rea
   br i1 %.not.i.i, label %9, label %check_random_number.exit
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @rb_num2long(i64 noundef %7) #23
+  %10 = tail call i64 @rb_num2long(i64 noundef %7) #22
   br label %check_random_number.exit
 
 11:                                               ; preds = %3
   %12 = load i64, ptr %1, align 8, !tbaa !43
-  tail call fastcc void @invalid_argument(i64 noundef %12) #27
+  tail call fastcc void @invalid_argument(i64 noundef %12) #26
   unreachable
 
 check_random_number.exit:                         ; preds = %3, %6, %9
@@ -2064,7 +2064,7 @@ define internal i64 @random_bytes(i64 noundef %0, i64 noundef %1) #0 {
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !35
-  %9 = tail call i64 @rb_to_int(i64 noundef %1) #23
+  %9 = tail call i64 @rb_to_int(i64 noundef %1) #22
   %10 = and i64 %9, 1
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %13, label %11
@@ -2074,12 +2074,12 @@ define internal i64 @random_bytes(i64 noundef %0, i64 noundef %1) #0 {
   br label %rb_num2long_inline.exit
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @rb_num2long(i64 noundef %9) #23
+  %14 = tail call i64 @rb_num2long(i64 noundef %9) #22
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %11, %13
   %.0.i = phi i64 [ %12, %11 ], [ %14, %13 ]
-  %15 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %.0.i) #23, !callees !57
+  %15 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %.0.i) #22, !callees !57
   %16 = inttoptr i64 %15 to ptr
   %17 = load i64, ptr %16, align 8, !tbaa !48, !noalias !77
   %18 = and i64 %17, 8192
@@ -2095,13 +2095,13 @@ rand_bytes.exit:                                  ; preds = %rb_num2long_inline.
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %20 ], [ %19, %rb_num2long_inline.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !61
-  tail call void %22(ptr noundef %3, ptr noundef %.sroa.2.0.i.i, i64 noundef %.0.i) #23
+  tail call void %22(ptr noundef %3, ptr noundef %.sroa.2.0.i.i, i64 noundef %.0.i) #22
   ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_get_seed(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_random_data_type_1_0) #23
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_random_data_type_1_0) #22
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !31
@@ -2131,9 +2131,9 @@ define internal noundef i64 @rand_mt_copy(i64 noundef returned %0, i64 noundef %
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @rb_obj_init_copy(i64 noundef %0, i64 noundef %1) #23
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #23
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @random_mt_type) #23
+  %4 = tail call i64 @rb_obj_init_copy(i64 noundef %0, i64 noundef %1) #22
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #22
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @random_mt_type) #22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2520) %5, ptr noundef nonnull align 8 dereferenceable(2520) %6, i64 2520, i1 false), !tbaa.struct !80
   %7 = getelementptr i8, ptr %5, i64 2504
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2512
@@ -2153,27 +2153,27 @@ declare extern_weak void @rb_define_private_method(i64 noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rand_mt_dump(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #23
-  %3 = tail call i64 @rb_ary_new_capa(i64 noundef 3) #23
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #22
+  %3 = tail call i64 @rb_ary_new_capa(i64 noundef 3) #22
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = tail call i64 @rb_integer_unpack(ptr noundef nonnull %4, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
-  %6 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %5) #23
+  %5 = tail call i64 @rb_integer_unpack(ptr noundef nonnull %4, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
+  %6 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %5) #22
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 2512
   %8 = load i32, ptr %7, align 8, !tbaa !81
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 1
   %11 = or disjoint i64 %10, 1
-  %12 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %11) #23
+  %12 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %11) #22
   %13 = load i64, ptr %2, align 8, !tbaa !19
-  %14 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %13) #23
+  %14 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %13) #22
   ret i64 %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rand_mt_load(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #23
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @rb_check_copyable(i64 noundef %0, i64 noundef %1) #23
+  tail call void @rb_check_copyable(i64 noundef %0, i64 noundef %1) #22
   %5 = icmp eq i64 %1, 0
   %6 = and i64 %1, 7
   %7 = icmp ne i64 %6, 0
@@ -2188,7 +2188,7 @@ define internal noundef i64 @rand_mt_load(i64 noundef returned %0, i64 noundef %
   br i1 %13, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !49
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %9, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 7) #26
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 7) #25
   unreachable
 
 Check_Type.exit:                                  ; preds = %9
@@ -2268,7 +2268,7 @@ RARRAY_AREF.exit26:                               ; preds = %30, %32
 RARRAY_AREF.exit29:                               ; preds = %38, %40
   %.0.i.i28 = phi ptr [ %39, %38 ], [ %42, %40 ]
   %43 = load i64, ptr %.0.i.i28, align 8, !tbaa !43
-  %44 = tail call i32 @rb_integer_pack(i64 noundef %43, ptr noundef nonnull %4, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  %44 = tail call i32 @rb_integer_pack(i64 noundef %43, ptr noundef nonnull %4, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
   %45 = and i64 %.0, 1
   %.not.i30 = icmp eq i64 %45, 0
   br i1 %.not.i30, label %48, label %46
@@ -2278,7 +2278,7 @@ RARRAY_AREF.exit29:                               ; preds = %38, %40
   br label %rb_num2ulong_inline.exit
 
 48:                                               ; preds = %RARRAY_AREF.exit29
-  %49 = tail call i64 @rb_num2ulong(i64 noundef %.0) #23
+  %49 = tail call i64 @rb_num2ulong(i64 noundef %.0) #22
   br label %rb_num2ulong_inline.exit
 
 rb_num2ulong_inline.exit:                         ; preds = %46, %48
@@ -2289,12 +2289,12 @@ rb_num2ulong_inline.exit:                         ; preds = %46, %48
 
 51:                                               ; preds = %rb_array_len.exit
   %52 = load i64, ptr @rb_eArgError, align 8, !tbaa !43
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %52, ptr noundef nonnull @.str.31) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %52, ptr noundef nonnull @.str.31) #24
   unreachable
 
 53:                                               ; preds = %rb_num2ulong_inline.exit
   %54 = load i64, ptr @rb_eArgError, align 8, !tbaa !43
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.32) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.32) #24
   unreachable
 
 55:                                               ; preds = %rb_num2ulong_inline.exit
@@ -2306,22 +2306,22 @@ rb_num2ulong_inline.exit:                         ; preds = %46, %48
   %60 = getelementptr i32, ptr %58, i64 %59
   %61 = getelementptr i8, ptr %60, i64 4
   store ptr %61, ptr %58, align 8, !tbaa !21
-  %62 = tail call i64 @rb_to_int(i64 noundef %.1) #23
+  %62 = tail call i64 @rb_to_int(i64 noundef %.1) #22
   store i64 %62, ptr %3, align 8, !tbaa !19
   ret i64 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rand_mt_state(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #23
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #22
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = tail call i64 @rb_integer_unpack(ptr noundef nonnull %3, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  %4 = tail call i64 @rb_integer_unpack(ptr noundef nonnull %3, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @rand_mt_left(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #23
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #22
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2512
   %4 = load i32, ptr %3, align 8, !tbaa !81
   %5 = sext i32 %4 to i64
@@ -2332,14 +2332,14 @@ define internal range(i64 1, 0) i64 @rand_mt_left(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rand_mt_equal(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @rb_obj_class(i64 noundef %0) #23
-  %4 = tail call i64 @rb_obj_class(i64 noundef %1) #23
+  %3 = tail call i64 @rb_obj_class(i64 noundef %0) #22
+  %4 = tail call i64 @rb_obj_class(i64 noundef %1) #22
   %.not = icmp eq i64 %3, %4
   br i1 %.not, label %5, label %30
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #23
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @random_mt_type) #23
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #22
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @random_mt_type) #22
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2496) %8, ptr noundef nonnull dereferenceable(2496) %9, i64 2496)
@@ -2371,7 +2371,7 @@ define internal i64 @rand_mt_equal(i64 noundef %0, i64 noundef %1) #0 {
 26:                                               ; preds = %21
   %27 = load i64, ptr %6, align 8, !tbaa !19
   %28 = load i64, ptr %7, align 8, !tbaa !19
-  %29 = tail call i64 @rb_equal(i64 noundef %27, i64 noundef %28) #23
+  %29 = tail call i64 @rb_equal(i64 noundef %27, i64 noundef %28) #22
   br label %30
 
 30:                                               ; preds = %21, %10, %5, %2, %26
@@ -2384,14 +2384,14 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 5, 4) i64 @random_s_rand(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %5 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %4) #23
+  %5 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %4) #22
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %default_rand.exit
 
 7:                                                ; preds = %3
-  %8 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %8 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %9 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %9, ptr noundef nonnull %8) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %9, ptr noundef nonnull %8) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %3, %7
@@ -2421,12 +2421,12 @@ rand_start.exit:                                  ; preds = %default_rand.exit, 
   br i1 %.not.i.i4, label %19, label %check_random_number.exit
 
 19:                                               ; preds = %16
-  %20 = tail call i64 @rb_num2long(i64 noundef %17) #23
+  %20 = tail call i64 @rb_num2long(i64 noundef %17) #22
   br label %check_random_number.exit
 
 21:                                               ; preds = %rand_start.exit
   %22 = load i64, ptr %1, align 8, !tbaa !43
-  tail call fastcc void @invalid_argument(i64 noundef %22) #27
+  tail call fastcc void @invalid_argument(i64 noundef %22) #26
   unreachable
 
 check_random_number.exit:                         ; preds = %rand_start.exit, %16, %19
@@ -2436,14 +2436,14 @@ check_random_number.exit:                         ; preds = %rand_start.exit, %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_s_bytes(i64 %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %4 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %3) #23
+  %4 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %3) #22
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %default_rand.exit
 
 6:                                                ; preds = %2
-  %7 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %7 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %8 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %8, ptr noundef nonnull %7) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %8, ptr noundef nonnull %7) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %2, %6
@@ -2460,7 +2460,7 @@ default_rand.exit:                                ; preds = %2, %6
   br label %rand_start.exit
 
 rand_start.exit:                                  ; preds = %default_rand.exit, %11
-  %14 = tail call i64 @rb_to_int(i64 noundef %1) #23
+  %14 = tail call i64 @rb_to_int(i64 noundef %1) #22
   %15 = and i64 %14, 1
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %18, label %16
@@ -2470,12 +2470,12 @@ rand_start.exit:                                  ; preds = %default_rand.exit, 
   br label %rb_num2long_inline.exit
 
 18:                                               ; preds = %rand_start.exit
-  %19 = tail call i64 @rb_num2long(i64 noundef %14) #23
+  %19 = tail call i64 @rb_num2long(i64 noundef %14) #22
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %16, %18
   %.0.i1 = phi i64 [ %17, %16 ], [ %19, %18 ]
-  %20 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %.0.i1) #23, !callees !57
+  %20 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %.0.i1) #22, !callees !57
   %21 = inttoptr i64 %20 to ptr
   %22 = load i64, ptr %21, align 8, !tbaa !48, !noalias !82
   %23 = and i64 %22, 8192
@@ -2549,14 +2549,14 @@ rand_mt_get_bytes.exit:                           ; preds = %40, %._crit_edge.i.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_s_seed(i64 %0) #0 {
   %2 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #23
+  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %default_rand.exit
 
 5:                                                ; preds = %1
-  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %7 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %1, %5
@@ -2594,11 +2594,11 @@ define internal i64 @random_seed(i64 %0) #0 {
 
 .preheader.i:                                     ; preds = %1, %8
   %.013.i.i.i = phi i64 [ %9, %8 ], [ 0, %1 ]
-  %4 = call ptr @rb_errno_ptr() #23
+  %4 = call ptr @rb_errno_ptr() #22
   store i32 0, ptr %4, align 4, !tbaa !22
   %5 = getelementptr i8, ptr %2, i64 %.013.i.i.i
   %6 = sub nuw nsw i64 16, %.013.i.i.i
-  %7 = call i64 @getrandom(ptr noundef %5, i64 noundef %6, i32 noundef 1) #23
+  %7 = call i64 @getrandom(ptr noundef %5, i64 noundef %6, i32 noundef 1) #22
   %.not17.i.i.i = icmp eq i64 %7, -1
   br i1 %.not17.i.i.i, label %.thread.i.i.i, label %8
 
@@ -2619,7 +2619,7 @@ define internal i64 @random_seed(i64 %0) #0 {
 
 12:                                               ; preds = %11
   %13 = call i64 @llvm.umin.i64(i64 %.014.i.i.i, i64 256)
-  %14 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %13) #23
+  %14 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %13) #22
   %.not16.i9.i.i = icmp eq i32 %14, 0
   %15 = getelementptr i8, ptr %.012.i.i.i, i64 %13
   %16 = sub i64 %.014.i.i.i, %13
@@ -2638,8 +2638,8 @@ fill_random_seed.exit:                            ; preds = %8, %11, %12
 
 make_seed_value.exit:                             ; preds = %fill_random_seed.exit, %20
   %.0.i = phi i64 [ 5, %20 ], [ 4, %fill_random_seed.exit ]
-  %22 = call i64 @rb_integer_unpack(ptr noundef nonnull %2, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
-  call void @__explicit_bzero_chk(ptr noundef nonnull %2, i64 noundef 16, i64 noundef 20) #23
+  %22 = call i64 @rb_integer_unpack(ptr noundef nonnull %2, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
+  call void @__explicit_bzero_chk(ptr noundef nonnull %2, i64 noundef 16, i64 noundef 20) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %22
 }
@@ -2655,12 +2655,12 @@ define internal i64 @random_raw_seed(i64 %0, i64 noundef %1) #0 {
   br label %rb_num2ulong_inline.exit
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @rb_num2ulong(i64 noundef %1) #23
+  %7 = tail call i64 @rb_num2ulong(i64 noundef %1) #22
   br label %rb_num2ulong_inline.exit
 
 rb_num2ulong_inline.exit:                         ; preds = %4, %6
   %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
-  %8 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %.0.i) #23, !callees !57
+  %8 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %.0.i) #22, !callees !57
   %9 = icmp eq i64 %.0.i, 0
   br i1 %9, label %ruby_fill_random_bytes.exit.thread, label %10
 
@@ -2687,11 +2687,11 @@ RSTRING_PTR.exit:                                 ; preds = %10, %15
 
 .preheader:                                       ; preds = %RSTRING_PTR.exit, %21
   %.013.i.i = phi i64 [ %22, %21 ], [ 0, %RSTRING_PTR.exit ]
-  %17 = tail call ptr @rb_errno_ptr() #23
+  %17 = tail call ptr @rb_errno_ptr() #22
   store i32 0, ptr %17, align 4, !tbaa !22
   %18 = getelementptr i8, ptr %.sroa.2.0.i, i64 %.013.i.i
   %19 = sub i64 %.0.i, %.013.i.i
-  %20 = tail call i64 @getrandom(ptr noundef %18, i64 noundef %19, i32 noundef 0) #23
+  %20 = tail call i64 @getrandom(ptr noundef %18, i64 noundef %19, i32 noundef 0) #22
   %.not17.i.i = icmp eq i64 %20, -1
   br i1 %.not17.i.i, label %.thread.i.i, label %21
 
@@ -2712,7 +2712,7 @@ RSTRING_PTR.exit:                                 ; preds = %10, %15
 
 25:                                               ; preds = %24
   %26 = tail call i64 @llvm.umin.i64(i64 %.014.i.i, i64 256)
-  %27 = tail call i32 @getentropy(ptr noundef %.012.i.i, i64 noundef %26) #23
+  %27 = tail call i32 @getentropy(ptr noundef %.012.i.i, i64 noundef %26) #22
   %.not16.i9.i = icmp eq i32 %27, 0
   %28 = getelementptr i8, ptr %.012.i.i, i64 %26
   %29 = sub i64 %.014.i.i, %26
@@ -2720,7 +2720,7 @@ RSTRING_PTR.exit:                                 ; preds = %10, %15
 
 ruby_fill_random_bytes.exit:                      ; preds = %25
   %30 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !43
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.33) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.33) #24
   unreachable
 
 ruby_fill_random_bytes.exit.thread:               ; preds = %21, %24, %rb_num2ulong_inline.exit
@@ -2730,34 +2730,34 @@ ruby_fill_random_bytes.exit.thread:               ; preds = %21, %24, %rb_num2ul
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_s_state(i64 %0) #0 {
   %2 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #23
+  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %default_rand.exit
 
 5:                                                ; preds = %1
-  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %7 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %1, %5
   %.0.i = phi ptr [ %6, %5 ], [ %3, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %9 = tail call i64 @rb_integer_unpack(ptr noundef nonnull %8, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  %9 = tail call i64 @rb_integer_unpack(ptr noundef nonnull %8, i64 noundef 624, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
   ret i64 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @random_s_left(i64 %0) #0 {
   %2 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #23
+  %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %default_rand.exit
 
 5:                                                ; preds = %1
-  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %6 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %7 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %7, ptr noundef nonnull %6) #22
   br label %default_rand.exit
 
 default_rand.exit:                                ; preds = %1, %5
@@ -2810,12 +2810,12 @@ define internal i64 @rand_random_number(i32 noundef %0, ptr noundef readonly cap
   br i1 %19, label %rand_random.exit, label %20
 
 20:                                               ; preds = %18, %6
-  %21 = tail call i64 @rb_float_new_in_heap(double noundef %7) #23
+  %21 = tail call i64 @rb_float_new_in_heap(double noundef %7) #22
   br label %rand_random.exit
 
 22:                                               ; preds = %3
   %23 = load i64, ptr %1, align 8, !tbaa !43
-  tail call fastcc void @invalid_argument(i64 noundef %23) #27
+  tail call fastcc void @invalid_argument(i64 noundef %23) #26
   unreachable
 
 rand_random.exit:                                 ; preds = %3, %20, %18, %14
@@ -2827,9 +2827,9 @@ declare ptr @rb_ractor_local_storage_ptr_newkey(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_Random() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_intern(ptr noundef nonnull @.str.7) #23
+  %1 = tail call i64 @rb_intern(ptr noundef nonnull @.str.7) #22
   store i64 %1, ptr @id_rand, align 8, !tbaa !43
-  %2 = tail call i64 @rb_intern(ptr noundef nonnull @.str.10) #23
+  %2 = tail call i64 @rb_intern(ptr noundef nonnull @.str.10) #22
   store i64 %2, ptr @id_bytes, align 8, !tbaa !43
   tail call void @InitVM_Random()
   ret void
@@ -2842,7 +2842,7 @@ define internal fastcc noundef i64 @rand_init(ptr noundef readonly captures(none
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !43
-  %5 = tail call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef null) #23
+  %5 = tail call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef null) #22
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %6 = icmp ult i64 %5, 256
   br i1 %6, label %15, label %7
@@ -2852,22 +2852,22 @@ define internal fastcc noundef i64 @rand_init(ptr noundef readonly captures(none
   br i1 %8, label %9, label %.thread, !prof !88
 
 9:                                                ; preds = %7
-  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %spec.store.select, i64 noundef 4) #25
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %spec.store.select, i64 noundef 4) #24
   unreachable
 
 .thread:                                          ; preds = %7
   %10 = shl nuw i64 %spec.store.select, 2
   %11 = add i64 %10, 7
   %12 = lshr i64 %11, 3
-  %13 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %10, i64 noundef %12) #28
-  %14 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %13, i64 noundef %spec.store.select, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  %13 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %10, i64 noundef %12) #27
+  %14 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %13, i64 noundef %spec.store.select, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
   br label %24
 
 15:                                               ; preds = %3
   store i64 0, ptr %4, align 8, !tbaa !43
   %16 = shl nuw nsw i64 %spec.store.select, 2
   %17 = alloca i8, i64 %16, align 16
-  %18 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %17, i64 noundef %spec.store.select, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  %18 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %17, i64 noundef %spec.store.select, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
   %19 = icmp samesign ult i64 %5, 2
   br i1 %19, label %20, label %24
 
@@ -2875,7 +2875,7 @@ define internal fastcc noundef i64 @rand_init(ptr noundef readonly captures(none
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !89
   %23 = load i32, ptr %17, align 16, !tbaa !22
-  call void %22(ptr noundef %1, i32 noundef %23) #23
+  call void %22(ptr noundef %1, i32 noundef %23) #22
   br label %37
 
 24:                                               ; preds = %.thread, %15
@@ -2898,15 +2898,15 @@ define internal fastcc noundef i64 @rand_init(ptr noundef readonly captures(none
   %.1 = phi i64 [ %spec.store.select, %24 ], [ %spec.select27, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !90
-  call void %35(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %.1) #23
+  call void %35(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %.1) #22
   %36 = shl i64 %.1, 2
   br label %37
 
 37:                                               ; preds = %33, %20
   %38 = phi ptr [ %17, %20 ], [ %26, %33 ]
   %.024 = phi i64 [ 4, %20 ], [ %36, %33 ]
-  call void @__explicit_bzero_chk(ptr noundef nonnull %38, i64 noundef %.024, i64 noundef -1) #23
-  call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #23
+  call void @__explicit_bzero_chk(ptr noundef nonnull %38, i64 noundef %.024, i64 noundef -1) #22
+  call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
@@ -2939,129 +2939,129 @@ define internal void @rand_mt_init(ptr noundef initializes((8, 12)) %0, ptr noun
   br label %5
 
 5:                                                ; preds = %5, %3
-  %6 = phi i32 [ 19650218, %3 ], [ %11, %5 ]
+  %store_forwarded = phi i32 [ 19650218, %3 ], [ %11, %5 ]
   %indvars.iv.i.i = phi i64 [ 1, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %7 = lshr i32 %6, 30
-  %8 = xor i32 %7, %6
+  %6 = getelementptr i32, ptr %4, i64 %indvars.iv.i.i
+  %7 = lshr i32 %store_forwarded, 30
+  %8 = xor i32 %7, %store_forwarded
   %9 = mul i32 %8, 1812433253
   %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %11 = add i32 %9, %10
-  %12 = getelementptr [624 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
-  store i32 %11, ptr %12, align 4, !tbaa !22
+  store i32 %11, ptr %6, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 624
   br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %5, !llvm.loop !68
 
 init_genrand.exit.i:                              ; preds = %5
-  %13 = trunc i64 %2 to i32
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  store i32 1, ptr %14, align 8, !tbaa !20
-  %15 = getelementptr i8, ptr %0, i64 2504
-  store ptr %15, ptr %15, align 8, !tbaa !21
-  %16 = tail call i32 @llvm.smax.i32(i32 %13, i32 624)
-  %17 = getelementptr i8, ptr %0, i64 2500
-  br label %18
+  %12 = trunc i64 %2 to i32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2512
+  store i32 1, ptr %13, align 8, !tbaa !20
+  %14 = getelementptr i8, ptr %0, i64 2504
+  store ptr %14, ptr %14, align 8, !tbaa !21
+  %15 = tail call i32 @llvm.smax.i32(i32 %12, i32 624)
+  %16 = getelementptr i8, ptr %0, i64 2500
+  br label %17
 
-18:                                               ; preds = %40, %init_genrand.exit.i
-  %.051.i = phi i32 [ %16, %init_genrand.exit.i ], [ %41, %40 ]
-  %.04250.i = phi i32 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %40 ]
-  %.04349.i = phi i32 [ 1, %init_genrand.exit.i ], [ %.144.i, %40 ]
-  %19 = sext i32 %.04349.i to i64
-  %20 = getelementptr [624 x i32], ptr %4, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !22
-  %22 = add i32 %.04349.i, -1
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr [624 x i32], ptr %4, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !22
-  %26 = lshr i32 %25, 30
-  %27 = xor i32 %26, %25
-  %28 = mul i32 %27, 1664525
-  %29 = xor i32 %28, %21
-  %30 = sext i32 %.04250.i to i64
-  %31 = getelementptr i32, ptr %1, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !22
-  %33 = add i32 %32, %.04250.i
-  %34 = add i32 %33, %29
-  store i32 %34, ptr %20, align 4, !tbaa !22
-  %35 = add i32 %.04349.i, 1
-  %36 = add i32 %.04250.i, 1
-  %37 = icmp sgt i32 %35, 623
-  br i1 %37, label %38, label %40
+17:                                               ; preds = %39, %init_genrand.exit.i
+  %.051.i = phi i32 [ %15, %init_genrand.exit.i ], [ %40, %39 ]
+  %.04250.i = phi i32 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %39 ]
+  %.04349.i = phi i32 [ 1, %init_genrand.exit.i ], [ %.144.i, %39 ]
+  %18 = sext i32 %.04349.i to i64
+  %19 = getelementptr i32, ptr %4, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !22
+  %21 = add i32 %.04349.i, -1
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr i32, ptr %4, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %25 = lshr i32 %24, 30
+  %26 = xor i32 %25, %24
+  %27 = mul i32 %26, 1664525
+  %28 = xor i32 %27, %20
+  %29 = sext i32 %.04250.i to i64
+  %30 = getelementptr i32, ptr %1, i64 %29
+  %31 = load i32, ptr %30, align 4, !tbaa !22
+  %32 = add i32 %31, %.04250.i
+  %33 = add i32 %32, %28
+  store i32 %33, ptr %19, align 4, !tbaa !22
+  %34 = add i32 %.04349.i, 1
+  %35 = add i32 %.04250.i, 1
+  %36 = icmp sgt i32 %34, 623
+  br i1 %36, label %37, label %39
 
-38:                                               ; preds = %18
-  %39 = load i32, ptr %17, align 4, !tbaa !22
-  store i32 %39, ptr %4, align 8, !tbaa !22
-  br label %40
+37:                                               ; preds = %17
+  %38 = load i32, ptr %16, align 4, !tbaa !22
+  store i32 %38, ptr %4, align 8, !tbaa !22
+  br label %39
 
-40:                                               ; preds = %38, %18
-  %.144.i = phi i32 [ 1, %38 ], [ %35, %18 ]
-  %.not48.i = icmp slt i32 %36, %13
-  %spec.store.select.i = select i1 %.not48.i, i32 %36, i32 0
-  %41 = add nsw i32 %.051.i, -1
-  %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %.preheader.i, label %18, !llvm.loop !69
+39:                                               ; preds = %37, %17
+  %.144.i = phi i32 [ 1, %37 ], [ %34, %17 ]
+  %.not48.i = icmp slt i32 %35, %12
+  %spec.store.select.i = select i1 %.not48.i, i32 %35, i32 0
+  %40 = add nsw i32 %.051.i, -1
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %.preheader.i, label %17, !llvm.loop !69
 
-.preheader.i:                                     ; preds = %40, %58
-  %.153.i = phi i32 [ %59, %58 ], [ 623, %40 ]
-  %.252.i = phi i32 [ %.3.i, %58 ], [ %.144.i, %40 ]
-  %42 = sext i32 %.252.i to i64
-  %43 = getelementptr [624 x i32], ptr %4, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !22
-  %45 = add i32 %.252.i, -1
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr [624 x i32], ptr %4, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !22
-  %49 = lshr i32 %48, 30
-  %50 = xor i32 %49, %48
-  %51 = mul i32 %50, 1566083941
-  %52 = xor i32 %51, %44
-  %53 = sub i32 %52, %.252.i
-  store i32 %53, ptr %43, align 4, !tbaa !22
-  %54 = add i32 %.252.i, 1
-  %55 = icmp sgt i32 %54, 623
-  br i1 %55, label %56, label %58
+.preheader.i:                                     ; preds = %39, %57
+  %.153.i = phi i32 [ %58, %57 ], [ 623, %39 ]
+  %.252.i = phi i32 [ %.3.i, %57 ], [ %.144.i, %39 ]
+  %41 = sext i32 %.252.i to i64
+  %42 = getelementptr i32, ptr %4, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !22
+  %44 = add i32 %.252.i, -1
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr i32, ptr %4, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !22
+  %48 = lshr i32 %47, 30
+  %49 = xor i32 %48, %47
+  %50 = mul i32 %49, 1566083941
+  %51 = xor i32 %50, %43
+  %52 = sub i32 %51, %.252.i
+  store i32 %52, ptr %42, align 4, !tbaa !22
+  %53 = add i32 %.252.i, 1
+  %54 = icmp sgt i32 %53, 623
+  br i1 %54, label %55, label %57
 
-56:                                               ; preds = %.preheader.i
-  %57 = load i32, ptr %17, align 4, !tbaa !22
-  store i32 %57, ptr %4, align 8, !tbaa !22
-  br label %58
+55:                                               ; preds = %.preheader.i
+  %56 = load i32, ptr %16, align 4, !tbaa !22
+  store i32 %56, ptr %4, align 8, !tbaa !22
+  br label %57
 
-58:                                               ; preds = %56, %.preheader.i
-  %.3.i = phi i32 [ 1, %56 ], [ %54, %.preheader.i ]
-  %59 = add nsw i32 %.153.i, -1
-  %.not47.i = icmp eq i32 %59, 0
+57:                                               ; preds = %55, %.preheader.i
+  %.3.i = phi i32 [ 1, %55 ], [ %53, %.preheader.i ]
+  %58 = add nsw i32 %.153.i, -1
+  %.not47.i = icmp eq i32 %58, 0
   br i1 %.not47.i, label %init_by_array.exit, label %.preheader.i, !llvm.loop !70
 
-init_by_array.exit:                               ; preds = %58
+init_by_array.exit:                               ; preds = %57
   store i32 -2147483648, ptr %4, align 8, !tbaa !22
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define internal void @rand_mt_init_int32(ptr noundef initializes((8, 12)) %0, i32 noundef %1) #12 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+define internal void @rand_mt_init_int32(ptr noundef initializes((8, 12)) %0, i32 noundef %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8, !tbaa !22
   br label %4
 
 4:                                                ; preds = %4, %2
-  %5 = phi i32 [ %1, %2 ], [ %10, %4 ]
+  %store_forwarded = phi i32 [ %1, %2 ], [ %10, %4 ]
   %indvars.iv.i = phi i64 [ 1, %2 ], [ %indvars.iv.next.i, %4 ]
-  %6 = lshr i32 %5, 30
-  %7 = xor i32 %6, %5
+  %5 = getelementptr i32, ptr %3, i64 %indvars.iv.i
+  %6 = lshr i32 %store_forwarded, 30
+  %7 = xor i32 %6, %store_forwarded
   %8 = mul i32 %7, 1812433253
   %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %10 = add i32 %8, %9
-  %11 = getelementptr [624 x i32], ptr %3, i64 0, i64 %indvars.iv.i
-  store i32 %10, ptr %11, align 4, !tbaa !22
+  store i32 %10, ptr %5, align 4, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
   br i1 %exitcond.not.i, label %init_genrand.exit, label %4, !llvm.loop !68
 
 init_genrand.exit:                                ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  store i32 1, ptr %12, align 8, !tbaa !20
-  %13 = getelementptr i8, ptr %0, i64 2504
-  store ptr %13, ptr %13, align 8, !tbaa !21
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2512
+  store i32 1, ptr %11, align 8, !tbaa !20
+  %12 = getelementptr i8, ptr %0, i64 2504
+  store ptr %12, ptr %12, align 8, !tbaa !21
   ret void
 }
 
@@ -3141,13 +3141,13 @@ define internal noundef i64 @random_mt_memsize(ptr readnone captures(none) %0) #
 declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #13
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #15
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
 declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #1
 
@@ -3156,18 +3156,18 @@ declare i64 @rb_num2ulong(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #16
+declare i32 @getpid() local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare void @__explicit_bzero_chk(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
+declare void @__explicit_bzero_chk(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #15
 
 declare ptr @rb_ractor_local_storage_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #17
+declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 declare void @rb_ractor_local_storage_ptr_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3177,7 +3177,7 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc i64 @rand_range(i64 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #18 {
+define internal fastcc i64 @rand_range(i64 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #17 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3189,7 +3189,7 @@ define internal fastcc i64 @rand_range(i64 noundef %0, ptr noundef %1, i64 nound
   store i32 0, ptr %8, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %9 = call i32 @rb_range_values(i64 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %8) #23
+  %9 = call i32 @rb_range_values(i64 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %8) #22
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %range_values.exit.thread86, label %10
 
@@ -3215,7 +3215,7 @@ range_values.exit.thread86:                       ; preds = %3
   br label %17
 
 range_values.exit:                                ; preds = %13
-  %16 = call i64 @rb_check_funcall_default(i64 noundef %14, i64 noundef 45, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 0) #23
+  %16 = call i64 @rb_check_funcall_default(i64 noundef %14, i64 noundef 45, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 0) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i64 %16, label %18 [
@@ -3224,7 +3224,7 @@ range_values.exit:                                ; preds = %13
   ]
 
 17:                                               ; preds = %range_values.exit, %.thread
-  call fastcc void @domain_error() #27
+  call fastcc void @domain_error() #26
   unreachable
 
 18:                                               ; preds = %range_values.exit
@@ -3245,7 +3245,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %21
   br i1 %26, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread92
 
 RB_FLOAT_TYPE_P.exit.thread92:                    ; preds = %21, %RB_FLOAT_TYPE_P.exit
-  %27 = call i64 @rb_check_to_int(i64 noundef %16) #23
+  %27 = call i64 @rb_check_to_int(i64 noundef %16) #22
   %28 = icmp eq i64 %27, 4
   br i1 %28, label %RB_FLOAT_TYPE_P.exit.thread, label %29
 
@@ -3286,11 +3286,11 @@ RB_FLOAT_TYPE_P.exit.thread92:                    ; preds = %21, %RB_FLOAT_TYPE_
   br label %rb_float_new_inline.exit.thread.sink.split
 
 45:                                               ; preds = %39
-  %46 = call i64 @rb_uint2big(i64 noundef %40) #23
+  %46 = call i64 @rb_uint2big(i64 noundef %40) #22
   br label %rb_float_new_inline.exit.thread.sink.split
 
 47:                                               ; preds = %.lr.ph.preheader
-  %48 = call i32 @rb_bigzero_p(i64 noundef %27) #23
+  %48 = call i32 @rb_bigzero_p(i64 noundef %27) #22
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %49, label %rb_float_new_inline.exit.thread
 
@@ -3300,11 +3300,11 @@ RB_FLOAT_TYPE_P.exit.thread92:                    ; preds = %21, %RB_FLOAT_TYPE_
   br i1 %.not51, label %53, label %51
 
 51:                                               ; preds = %49
-  %52 = call i64 @rb_big_minus(i64 noundef %27, i64 noundef 3) #23
+  %52 = call i64 @rb_big_minus(i64 noundef %27, i64 noundef 3) #22
   br label %55
 
 53:                                               ; preds = %49
-  %54 = call i64 @rb_big_norm(i64 noundef %27) #23
+  %54 = call i64 @rb_big_norm(i64 noundef %27) #22
   br label %55
 
 55:                                               ; preds = %53, %51
@@ -3322,7 +3322,7 @@ RB_FLOAT_TYPE_P.exit.thread92:                    ; preds = %21, %RB_FLOAT_TYPE_
   br label %rb_float_new_inline.exit.thread.sink.split
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %18, %RB_FLOAT_TYPE_P.exit.thread92, %RB_FLOAT_TYPE_P.exit
-  %60 = call i64 @rb_check_to_float(i64 noundef %16) #23
+  %60 = call i64 @rb_check_to_float(i64 noundef %16) #22
   store i64 %60, ptr %7, align 8, !tbaa !43
   %61 = icmp eq i64 %60, 4
   br i1 %61, label %rb_float_new_inline.exit.thread, label %62
@@ -3353,7 +3353,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %18, %RB_FLOAT_TYPE_
 
 rb_float_value_inline.exit:                       ; preds = %66, %72
   %.0.i54 = phi double [ %75, %72 ], [ %71, %66 ]
-  %76 = call double @llvm.fabs.f64(double %.0.i54) #29
+  %76 = call double @llvm.fabs.f64(double %.0.i54) #28
   %77 = fcmp oeq double %76, 0x7FF0000000000000
   br i1 %77, label %78, label %118
 
@@ -3363,7 +3363,7 @@ rb_float_value_inline.exit:                       ; preds = %66, %72
 
 78:                                               ; preds = %rb_float_value_inline.exit
   %79 = load i64, ptr %6, align 8, !tbaa !43
-  %80 = call i64 @rb_to_float(i64 noundef %79) #23
+  %80 = call i64 @rb_to_float(i64 noundef %79) #22
   %81 = and i64 %80, 3
   %82 = icmp eq i64 %81, 2
   br i1 %82, label %83, label %90
@@ -3394,12 +3394,12 @@ rb_float_value_inline.exit.i:                     ; preds = %90, %84, %83
   br i1 %95, label %96, label %float_value.exit
 
 96:                                               ; preds = %rb_float_value_inline.exit.i
-  call fastcc void @domain_error() #27
+  call fastcc void @domain_error() #26
   unreachable
 
 float_value.exit:                                 ; preds = %rb_float_value_inline.exit.i
   %97 = fmul double %.0.i.i, 5.000000e-01
-  %98 = call i64 @rb_to_float(i64 noundef %14) #23
+  %98 = call i64 @rb_to_float(i64 noundef %14) #22
   %99 = and i64 %98, 3
   %100 = icmp eq i64 %99, 2
   br i1 %100, label %101, label %108
@@ -3430,7 +3430,7 @@ rb_float_value_inline.exit.i55:                   ; preds = %108, %102, %101
   br i1 %113, label %114, label %float_value.exit59
 
 114:                                              ; preds = %rb_float_value_inline.exit.i55
-  call fastcc void @domain_error() #27
+  call fastcc void @domain_error() #26
   unreachable
 
 float_value.exit59:                               ; preds = %rb_float_value_inline.exit.i55
@@ -3444,7 +3444,7 @@ float_value.exit59:                               ; preds = %rb_float_value_inli
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %118
-  call fastcc void @domain_error() #27
+  call fastcc void @domain_error() #26
   unreachable
 
 121:                                              ; preds = %118, %float_value.exit59
@@ -3486,7 +3486,7 @@ float_value.exit59:                               ; preds = %rb_float_value_inli
   br i1 %141, label %rb_float_new_inline.exit, label %142
 
 142:                                              ; preds = %140, %126
-  %143 = call i64 @rb_float_new_in_heap(double noundef %129) #23
+  %143 = call i64 @rb_float_new_in_heap(double noundef %129) #22
   br label %rb_float_new_inline.exit
 
 144:                                              ; preds = %123
@@ -3514,7 +3514,7 @@ float_value.exit59:                               ; preds = %rb_float_value_inli
   br i1 %157, label %rb_float_new_inline.exit.thread.sink.split, label %158
 
 158:                                              ; preds = %156, %144
-  %159 = call i64 @rb_float_new_in_heap(double noundef %145) #23
+  %159 = call i64 @rb_float_new_in_heap(double noundef %145) #22
   br label %rb_float_new_inline.exit.thread.sink.split
 
 160:                                              ; preds = %.thread98, %121
@@ -3554,7 +3554,7 @@ rb_float_new_inline.exit.thread:                  ; preds = %rb_float_new_inline
   br label %rb_float_new_inline.exit
 
 176:                                              ; preds = %168
-  %177 = call i64 @rb_int2big(i64 noundef %171) #23
+  %177 = call i64 @rb_int2big(i64 noundef %171) #22
   br label %rb_float_new_inline.exit
 
 178:                                              ; preds = %rb_float_new_inline.exit.thread
@@ -3593,11 +3593,11 @@ rb_type.exit:                                     ; preds = %178
   ]
 
 193:                                              ; preds = %rb_type.exit
-  %194 = call i64 @rb_big_plus(i64 noundef %164, i64 noundef %165) #23
+  %194 = call i64 @rb_big_plus(i64 noundef %164, i64 noundef %165) #22
   br label %rb_float_new_inline.exit
 
 rb_type.exit.thread107:                           ; preds = %185, %rb_type.exit
-  %195 = call i64 @rb_check_to_float(i64 noundef %165) #23
+  %195 = call i64 @rb_check_to_float(i64 noundef %165) #22
   %196 = icmp eq i64 %195, 4
   br i1 %196, label %rb_type.exit.thread107.rb_float_new_inline.exit80_crit_edge, label %197
 
@@ -3680,12 +3680,12 @@ rb_float_value_inline.exit76:                     ; preds = %213, %214, %220
   br i1 %236, label %rb_float_new_inline.exit, label %237
 
 237:                                              ; preds = %235, %rb_float_value_inline.exit76
-  %238 = call i64 @rb_float_new_in_heap(double noundef %224) #23
+  %238 = call i64 @rb_float_new_in_heap(double noundef %224) #22
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit80:                       ; preds = %rb_type.exit.thread107.rb_float_new_inline.exit80_crit_edge, %183, %183, %185, %183, %rb_type.exit
   %239 = phi i64 [ %.pre124, %rb_type.exit.thread107.rb_float_new_inline.exit80_crit_edge ], [ %165, %183 ], [ %165, %183 ], [ %165, %185 ], [ %165, %183 ], [ %165, %rb_type.exit ]
-  %240 = call i64 @rb_funcallv(i64 noundef %239, i64 noundef 43, i32 noundef 1, ptr noundef nonnull %7) #23
+  %240 = call i64 @rb_funcallv(i64 noundef %239, i64 noundef 43, i32 noundef 1, ptr noundef nonnull %7) #22
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %range_values.exit, %231, %235, %237, %183, %176, %173, %136, %140, %142, %range_values.exit.thread86, %rb_type.exit, %rb_float_new_inline.exit80, %193
@@ -3734,11 +3734,11 @@ define internal fastcc i64 @rand_int(i64 noundef %0, ptr noundef %1, i64 noundef
   br label %rb_ulong2num_inline.exit
 
 22:                                               ; preds = %15
-  %23 = tail call i64 @rb_uint2big(i64 noundef %17) #23
+  %23 = tail call i64 @rb_uint2big(i64 noundef %17) #22
   br label %rb_ulong2num_inline.exit
 
 24:                                               ; preds = %4
-  %25 = tail call i32 @rb_bigzero_p(i64 noundef %2) #23
+  %25 = tail call i32 @rb_bigzero_p(i64 noundef %2) #22
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %rb_ulong2num_inline.exit
 
@@ -3754,12 +3754,12 @@ define internal fastcc i64 @rand_int(i64 noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not21, label %31, label %rb_ulong2num_inline.exit
 
 31:                                               ; preds = %30
-  %32 = tail call i64 @rb_big_uminus(i64 noundef %2) #23
+  %32 = tail call i64 @rb_big_uminus(i64 noundef %2) #22
   br label %33
 
 33:                                               ; preds = %31, %26
   %34 = phi i64 [ %32, %31 ], [ %2, %26 ]
-  %35 = tail call i64 @rb_big_minus(i64 noundef %34, i64 noundef 3) #23
+  %35 = tail call i64 @rb_big_minus(i64 noundef %34, i64 noundef 3) #22
   store i64 %35, ptr %5, align 8, !tbaa !43
   %36 = and i64 %35, 1
   %.not27 = icmp eq i64 %36, 0
@@ -3782,14 +3782,14 @@ define internal fastcc i64 @rand_int(i64 noundef %0, ptr noundef %1, i64 noundef
   br label %rb_ulong2num_inline.exit
 
 46:                                               ; preds = %40
-  %47 = tail call i64 @rb_int2big(i64 noundef %41) #23
+  %47 = tail call i64 @rb_int2big(i64 noundef %41) #22
   br label %rb_ulong2num_inline.exit
 
 48:                                               ; preds = %33
   %49 = tail call fastcc i64 @random_ulong_limited_big(i64 noundef %0, ptr noundef %1, i64 noundef %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !94
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #23, !srcloc !96
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #22, !srcloc !96
   %50 = load ptr, ptr %6, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %51 = load volatile i64, ptr %50, align 8, !tbaa !43
@@ -3801,13 +3801,13 @@ rb_ulong2num_inline.exit:                         ; preds = %46, %43, %22, %19, 
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @domain_error() unnamed_addr #19 {
+define internal fastcc void @domain_error() unnamed_addr #18 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 67, ptr %1, align 8, !tbaa !43
   %2 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !43
-  %3 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %1, i64 noundef %2) #23
-  call void @rb_exc_raise(i64 noundef %3) #25
+  %3 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %1, i64 noundef %2) #22
+  call void @rb_exc_raise(i64 noundef %3) #24
   unreachable
 }
 
@@ -3887,14 +3887,14 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
 
 37:                                               ; preds = %5
   %38 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %39 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %38) #23
+  %39 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %38) #22
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %default_rand.exit.i
 
 41:                                               ; preds = %37
-  %42 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %42 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %43 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %43, ptr noundef nonnull %42) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %43, ptr noundef nonnull %42) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %41, %37
@@ -3939,7 +3939,7 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
 
 68:                                               ; preds = %.loopexit28.i
   %69 = load ptr, ptr %64, align 8, !tbaa !39
-  %70 = tail call i32 %69(ptr noundef nonnull %1) #23
+  %70 = tail call i32 %69(ptr noundef nonnull %1) #22
   %71 = zext i32 %70 to i64
   %72 = shl nuw i64 %71, %65
   %73 = or i64 %72, %.02332.i
@@ -3960,7 +3960,7 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
 
 .preheader29.i:                                   ; preds = %try_rand_if.exit, %.preheader29.i
   %77 = load ptr, ptr %64, align 8, !tbaa !39
-  %78 = tail call i32 %77(ptr noundef nonnull %1) #23
+  %78 = tail call i32 %77(ptr noundef nonnull %1) #22
   %79 = zext i32 %78 to i64
   %80 = and i64 %62, %79
   %81 = icmp samesign ult i64 %2, %80
@@ -3987,7 +3987,7 @@ define internal fastcc i64 @random_ulong_limited_big(i64 noundef %0, ptr noundef
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef nonnull %5) #23
+  %7 = call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef nonnull %5) #22
   %8 = shl i64 %7, 1
   %9 = icmp ult i64 %8, 256
   br i1 %9, label %10, label %13
@@ -4003,13 +4003,13 @@ define internal fastcc i64 @random_ulong_limited_big(i64 noundef %0, ptr noundef
   br i1 %14, label %15, label %rb_alloc_tmp_buffer2.exit, !prof !88
 
 15:                                               ; preds = %13
-  call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %8, i64 noundef 4) #25
+  call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %8, i64 noundef 4) #24
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %13
   %16 = shl i64 %7, 3
   %17 = and i64 %7, 2305843009213693951
-  %18 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %16, i64 noundef %17) #28
+  %18 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %16, i64 noundef %17) #27
   br label %19
 
 19:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %10
@@ -4018,7 +4018,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %13
   %22 = trunc i64 %21 to i32
   %23 = lshr i32 -1, %22
   %24 = getelementptr i32, ptr %20, i64 %7
-  %25 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %20, i64 noundef %7, i64 noundef 4, i64 noundef 0, i32 noundef 65) #23
+  %25 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %20, i64 noundef %7, i64 noundef 4, i64 noundef 0, i32 noundef 65) #22
   %26 = shl i64 %7, 2
   %27 = call fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef %24, i64 noundef %26)
   %28 = load i32, ptr %24, align 4, !tbaa !22
@@ -4055,22 +4055,22 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %13
   br label %.lr.ph.us.backedge
 
 ._crit_edge:                                      ; preds = %35, %19
-  %42 = call i64 @rb_integer_unpack(ptr noundef nonnull %24, i64 noundef %7, i64 noundef 4, i64 noundef 0, i32 noundef 65) #23
-  call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #23
+  %42 = call i64 @rb_integer_unpack(ptr noundef nonnull %24, i64 noundef %7, i64 noundef 4, i64 noundef 0, i32 noundef 65) #22
+  call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
 43:                                               ; preds = %3
   %44 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  %45 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %44) #23
+  %45 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %44) #22
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %default_rand.exit.i
 
 47:                                               ; preds = %43
-  %48 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #24
+  %48 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #23
   %49 = load ptr, ptr @default_rand_key, align 8, !tbaa !7
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %49, ptr noundef nonnull %48) #23
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %49, ptr noundef nonnull %48) #22
   br label %default_rand.exit.i
 
 default_rand.exit.i:                              ; preds = %47, %43
@@ -4099,7 +4099,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
 declare i64 @rb_check_to_float(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #15
+declare double @llvm.fabs.f64(double) #14
 
 declare i64 @rb_to_float(i64 noundef) local_unnamed_addr #1
 
@@ -4115,7 +4115,7 @@ declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #5
 declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
@@ -4125,7 +4125,7 @@ declare i64 @rb_integer_unpack(ptr noundef, i64 noundef, i64 noundef, i64 nounde
 define internal fastcc i64 @limited_big_rand(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef null) #23
+  %5 = tail call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef null) #22
   %6 = shl i64 %5, 1
   %7 = icmp ult i64 %6, 256
   br i1 %7, label %8, label %11
@@ -4141,19 +4141,19 @@ define internal fastcc i64 @limited_big_rand(ptr noundef readonly captures(none)
   br i1 %12, label %13, label %rb_alloc_tmp_buffer2.exit, !prof !88
 
 13:                                               ; preds = %11
-  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %6, i64 noundef 4) #25
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 256, 0) %6, i64 noundef 4) #24
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %14 = shl i64 %5, 3
   %15 = and i64 %5, 2305843009213693951
-  %16 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %14, i64 noundef %15) #28
+  %16 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %14, i64 noundef %15) #27
   br label %17
 
 17:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %8
   %18 = phi ptr [ %10, %8 ], [ %16, %rb_alloc_tmp_buffer2.exit ]
   %19 = getelementptr i32, ptr %18, i64 %5
-  %20 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %18, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  %20 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %18, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.03449 = add i64 %5, -1
   %22 = icmp sgt i64 %.03449, -1
@@ -4187,7 +4187,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
 .thread:                                          ; preds = %.lr.ph, %25
   %38 = phi i32 [ %37, %25 ], [ -1, %.lr.ph ]
   %39 = load ptr, ptr %21, align 8, !tbaa !39
-  %40 = call i32 %39(ptr noundef nonnull %1) #23
+  %40 = call i32 %39(ptr noundef nonnull %1) #22
   %41 = and i32 %40, %38
   %.not42 = icmp eq i32 %.03550, 0
   br i1 %.not42, label %46, label %42
@@ -4218,8 +4218,8 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   br label %.lr.ph, !llvm.loop !99
 
 .loopexit._crit_edge:                             ; preds = %46, %17
-  %50 = call i64 @rb_integer_unpack(ptr noundef %19, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
-  call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #23
+  %50 = call i64 @rb_integer_unpack(ptr noundef %19, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
+  call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %50
 }
@@ -4229,7 +4229,7 @@ declare i64 @rb_big_uminus(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_float_new_in_heap(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #15
+declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4253,7 +4253,7 @@ define internal fastcc i64 @rand_init_default(ptr noundef nonnull readonly captu
 rb_alloc_tmp_buffer2.exit:                        ; preds = %2
   %12 = add nuw nsw i64 %9, 7
   %13 = lshr i64 %12, 3
-  %14 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %3, i64 noundef %9, i64 noundef %13) #28
+  %14 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %3, i64 noundef %9, i64 noundef %13) #27
   br label %15
 
 15:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %10
@@ -4268,11 +4268,11 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %2
 
 .preheader.i:                                     ; preds = %15, %23
   %.013.i.i.i = phi i64 [ %24, %23 ], [ 0, %15 ]
-  %19 = call ptr @rb_errno_ptr() #23
+  %19 = call ptr @rb_errno_ptr() #22
   store i32 0, ptr %19, align 4, !tbaa !22
   %20 = getelementptr i8, ptr %16, i64 %.013.i.i.i
   %21 = sub nsw i64 %17, %.013.i.i.i
-  %22 = call i64 @getrandom(ptr noundef %20, i64 noundef %21, i32 noundef 1) #23
+  %22 = call i64 @getrandom(ptr noundef %20, i64 noundef %21, i32 noundef 1) #22
   %.not17.i.i.i = icmp eq i64 %22, -1
   br i1 %.not17.i.i.i, label %.thread.i.i.i, label %23
 
@@ -4293,7 +4293,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %2
 
 27:                                               ; preds = %26
   %28 = call i64 @llvm.umin.i64(i64 %.014.i.i.i, i64 256)
-  %29 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %28) #23
+  %29 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %28) #22
   %.not16.i9.i.i = icmp eq i32 %29, 0
   %30 = getelementptr i8, ptr %.012.i.i.i, i64 %28
   %31 = sub i64 %.014.i.i.i, %28
@@ -4302,7 +4302,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %2
 fill_random_seed.exit:                            ; preds = %23, %26, %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !90
-  call void %33(ptr noundef %1, ptr noundef nonnull %16, i64 noundef %6) #23
+  call void %33(ptr noundef %1, ptr noundef nonnull %16, i64 noundef %6) #22
   %34 = getelementptr i32, ptr %16, i64 %6
   %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4, !tbaa !22
@@ -4315,9 +4315,9 @@ fill_random_seed.exit:                            ; preds = %23, %26, %27
 
 make_seed_value.exit:                             ; preds = %fill_random_seed.exit, %38
   %.0.i = phi i64 [ %7, %38 ], [ %6, %fill_random_seed.exit ]
-  %39 = call i64 @rb_integer_unpack(ptr noundef nonnull %16, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
-  call void @__explicit_bzero_chk(ptr noundef nonnull %16, i64 noundef %17, i64 noundef -1) #23
-  call void @rb_free_tmp_buffer(ptr noundef nonnull %3) #23
+  %39 = call i64 @rb_integer_unpack(ptr noundef nonnull %16, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
+  call void @__explicit_bzero_chk(ptr noundef nonnull %16, i64 noundef %17, i64 noundef -1) #22
+  call void @rb_free_tmp_buffer(ptr noundef nonnull %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %39
 }
@@ -4333,7 +4333,7 @@ define internal fastcc i64 @rand_random(i32 noundef %0, ptr noundef readonly cap
   br i1 %or.cond.i, label %5, label %rb_check_arity.exit
 
 5:                                                ; preds = %4
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #25
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #24
   unreachable
 
 rb_check_arity.exit:                              ; preds = %4
@@ -4365,7 +4365,7 @@ rb_check_arity.exit:                              ; preds = %4
   br i1 %20, label %rb_float_new_inline.exit, label %21
 
 21:                                               ; preds = %19, %7
-  %22 = tail call i64 @rb_float_new_in_heap(double noundef %8) #23
+  %22 = tail call i64 @rb_float_new_in_heap(double noundef %8) #22
   br label %rb_float_new_inline.exit
 
 23:                                               ; preds = %rb_check_arity.exit
@@ -4393,7 +4393,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %29
   br i1 %37, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread32
 
 RB_FLOAT_TYPE_P.exit.thread32:                    ; preds = %29, %RB_FLOAT_TYPE_P.exit
-  %38 = tail call i64 @rb_check_to_int(i64 noundef %24) #23
+  %38 = tail call i64 @rb_check_to_int(i64 noundef %24) #22
   %39 = icmp eq i64 %38, 4
   br i1 %39, label %RB_FLOAT_TYPE_P.exit.thread, label %40
 
@@ -4402,7 +4402,7 @@ RB_FLOAT_TYPE_P.exit.thread32:                    ; preds = %29, %RB_FLOAT_TYPE_
   br label %rb_float_new_inline.exit
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %26, %RB_FLOAT_TYPE_P.exit.thread32, %RB_FLOAT_TYPE_P.exit
-  %42 = tail call i64 @rb_check_to_float(i64 noundef %24) #23
+  %42 = tail call i64 @rb_check_to_float(i64 noundef %24) #22
   %43 = icmp eq i64 %42, 4
   br i1 %43, label %79, label %44
 
@@ -4437,7 +4437,7 @@ rb_float_value_inline.exit.i:                     ; preds = %54, %48
   br i1 %59, label %60, label %float_value.exit
 
 60:                                               ; preds = %rb_float_value_inline.exit.i
-  tail call fastcc void @domain_error() #27
+  tail call fastcc void @domain_error() #26
   unreachable
 
 float_value.exit:                                 ; preds = %rb_float_value_inline.exit.i
@@ -4473,7 +4473,7 @@ float_value.exit.thread:                          ; preds = %47, %float_value.ex
   br i1 %76, label %rb_float_new_inline.exit, label %77
 
 77:                                               ; preds = %75, %float_value.exit.thread
-  %78 = tail call i64 @rb_float_new_in_heap(double noundef %.0) #23
+  %78 = tail call i64 @rb_float_new_in_heap(double noundef %.0) #22
   br label %rb_float_new_inline.exit
 
 79:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
@@ -4486,9 +4486,9 @@ rb_float_new_inline.exit:                         ; preds = %77, %75, %71, %21, 
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @invalid_argument(i64 noundef %0) unnamed_addr #19 {
+define internal fastcc void @invalid_argument(i64 noundef %0) unnamed_addr #18 {
   %2 = load i64, ptr @rb_eArgError, align 8, !tbaa !43
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.30, i64 noundef %0) #25
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.30, i64 noundef %0) #24
   unreachable
 }
 
@@ -4511,30 +4511,30 @@ declare i64 @rb_equal(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @default_rand_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8, !tbaa !19
-  tail call void @rb_gc_mark(i64 noundef %2) #23
+  tail call void @rb_gc_mark(i64 noundef %2) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #21
+declare i32 @llvm.abs.i32(i32, i1 immarg) #20
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4548,24 +4548,23 @@ attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(read, inacce
 attributes #9 = { allocsize(1,2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind allocsize(0,1) }
-attributes #25 = { noreturn nounwind }
-attributes #26 = { cold noreturn nounwind }
-attributes #27 = { noreturn }
-attributes #28 = { nounwind allocsize(1,2) }
-attributes #29 = { memory(none) }
+attributes #12 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind allocsize(0,1) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { noreturn }
+attributes #27 = { nounwind allocsize(1,2) }
+attributes #28 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

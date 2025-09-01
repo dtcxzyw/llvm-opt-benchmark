@@ -2953,7 +2953,7 @@ _ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit
   %.not.i.i302 = phi i1 [ true, %_ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit301 ], [ false, %338 ]
   %.0813.i.i = phi i64 [ 0, %_ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit301 ], [ 1, %338 ]
   %.0912.i.i = phi i64 [ 2, %_ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit301 ], [ %.1.i.i, %338 ]
-  %333 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core9XdsConfig13ClusterConfig14EndpointConfigEJS3_NS2_15AggregateConfigEEEmv.__found, i64 0, i64 %.0813.i.i
+  %333 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core9XdsConfig13ClusterConfig14EndpointConfigEJS3_NS2_15AggregateConfigEEEmv.__found, i64 %.0813.i.i
   %334 = load i8, ptr %333, align 1, !tbaa !123, !range !121, !noundef !122
   %335 = trunc nuw i8 %334 to i1
   br i1 %335, label %336, label %338
@@ -3008,7 +3008,7 @@ _ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit
   %.not.i.i305 = phi i1 [ true, %_ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit304 ], [ false, %356 ]
   %.0813.i.i306 = phi i64 [ 0, %_ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit304 ], [ 1, %356 ]
   %.0912.i.i307 = phi i64 [ 2, %_ZNK4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEptEv.exit304 ], [ %.1.i.i308, %356 ]
-  %351 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core9XdsConfig13ClusterConfig14EndpointConfigEJS3_NS2_15AggregateConfigEEEmv.__found, i64 0, i64 %.0813.i.i306
+  %351 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core9XdsConfig13ClusterConfig14EndpointConfigEJS3_NS2_15AggregateConfigEEEmv.__found, i64 %.0813.i.i306
   %352 = load i8, ptr %351, align 1, !tbaa !123, !range !121, !noundef !122
   %353 = trunc nuw i8 %352 to i1
   br i1 %353, label %354, label %356
@@ -8225,7 +8225,7 @@ _ZNKR4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEdeEv.exi
   %.not.i.i.i.i.i.i.i = phi i1 [ true, %_ZNKR4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEdeEv.exit.i.i.i.i ], [ false, %104 ]
   %.0813.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNKR4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEdeEv.exit.i.i.i.i ], [ 1, %104 ]
   %.0912.i.i.i.i.i.i.i = phi i64 [ 2, %_ZNKR4absl12lts_202407228StatusOrIN9grpc_core9XdsConfig13ClusterConfigEEdeEv.exit.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %104 ]
-  %99 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core9XdsConfig13ClusterConfig15AggregateConfigEJNS2_14EndpointConfigES3_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i
+  %99 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core9XdsConfig13ClusterConfig15AggregateConfigEJNS2_14EndpointConfigES3_EEmv.__found, i64 %.0813.i.i.i.i.i.i.i
   %100 = load i8, ptr %99, align 1, !tbaa !123, !range !121, !noalias !279, !noundef !122
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %104
@@ -13101,7 +13101,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb37CreateChildPolic
 207:                                              ; preds = %213, %5
   %.0813.i.i = phi i64 [ 0, %5 ], [ %214, %213 ]
   %.0912.i.i = phi i64 [ 3, %5 ], [ %.1.i.i, %213 ]
-  %208 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core18XdsClusterResource10LogicalDnsEJNS1_3EdsES2_NS1_9AggregateEEEmv.__found, i64 0, i64 %.0813.i.i
+  %208 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core18XdsClusterResource10LogicalDnsEJNS1_3EdsES2_NS1_9AggregateEEEmv.__found, i64 %.0813.i.i
   %209 = load i8, ptr %208, align 1, !tbaa !123, !range !121, !noundef !122
   %210 = trunc nuw i8 %209 to i1
   br i1 %210, label %211, label %213

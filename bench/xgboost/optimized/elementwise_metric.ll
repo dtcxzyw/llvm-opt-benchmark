@@ -24789,11 +24789,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 172:                                              ; preds = %172, %164
   %173 = phi i64 [ 1, %164 ], [ %177, %172 ]
   %indvars.iv.i16.i.i.i.i = phi i64 [ 1, %164 ], [ %indvars.iv.next.i17.i.i.i.i, %172 ]
-  %174 = add nuw nsw i64 %indvars.iv.i16.i.i.i.i, 1
-  %175 = getelementptr inbounds nuw [3 x i64], ptr %166, i64 0, i64 %174
+  %174 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv.i16.i.i.i.i
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !44, !alias.scope !908
   %177 = mul i64 %176, %173
-  %178 = getelementptr inbounds nuw [3 x i64], ptr %27, i64 0, i64 %indvars.iv.i16.i.i.i.i
+  %178 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv.i16.i.i.i.i
   store i64 %177, ptr %178, align 8, !tbaa !44, !alias.scope !908
   %indvars.iv.next.i17.i.i.i.i = add nsw i64 %indvars.iv.i16.i.i.i.i, -1
   %.not.i.i.i.i.i = icmp eq i64 %indvars.iv.i16.i.i.i.i, 0
@@ -25027,7 +25027,7 @@ _ZNK7xgboost6linalg6TensorIfLi2EE4SizeEv.exit.i:  ; preds = %_ZNSt6vectorIdSaIdE
 268:                                              ; preds = %263, %260
   %.sink.i.i.i.i.i.i = phi i64 [ %265, %263 ], [ %.recomposed, %260 ]
   %.1.i.i.i.i.i.i = phi i64 [ %267, %263 ], [ %261, %260 ]
-  %269 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %269 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i.i.i.i.i
   store i64 %.sink.i.i.i.i.i.i, ptr %269, align 8, !tbaa !44, !noalias !914
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
   %270 = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -25072,7 +25072,7 @@ _ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
   %.sink.in.i.i.i.i.i.i = phi i32 [ %285, %283 ], [ %.recomposed214, %280 ]
   %.1.i10.i.i.i.i.i = phi i32 [ %287, %283 ], [ %281, %280 ]
   %.sink.i11.i.i.i.i.i = zext i32 %.sink.in.i.i.i.i.i.i to i64
-  %289 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv.i7.i.i.i.i.i
+  %289 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i7.i.i.i.i.i
   store i64 %.sink.i11.i.i.i.i.i, ptr %289, align 8, !tbaa !44, !noalias !929
   %indvars.iv.next.i12.i.i.i.i.i = add nsw i64 %indvars.iv.i7.i.i.i.i.i, -1
   %290 = icmp samesign ugt i64 %indvars.iv.i7.i.i.i.i.i, 1
@@ -25335,7 +25335,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 399:                                              ; preds = %394, %391
   %.sink.i.i.i62.i = phi i64 [ %396, %394 ], [ %.recomposed215, %391 ]
   %.1.i.i.i.i = phi i64 [ %398, %394 ], [ %392, %391 ]
-  %400 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
+  %400 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i.i
   store i64 %.sink.i.i.i62.i, ptr %400, align 8, !tbaa !44, !noalias !946
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %401 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
@@ -25380,7 +25380,7 @@ _ZN7xgboost6linalg6detail11UnravelImplImLi3EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
   %.sink.in.i.i.i.i = phi i32 [ %416, %414 ], [ %.recomposed216, %411 ]
   %.1.i10.i.i.i = phi i32 [ %418, %414 ], [ %412, %411 ]
   %.sink.i11.i.i.i = zext i32 %.sink.in.i.i.i.i to i64
-  %420 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i7.i.i.i
+  %420 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i7.i.i.i
   store i64 %.sink.i11.i.i.i, ptr %420, align 8, !tbaa !44, !noalias !960
   %indvars.iv.next.i12.i.i.i = add nsw i64 %indvars.iv.i7.i.i.i, -1
   %421 = icmp samesign ugt i64 %indvars.iv.i7.i.i.i, 1

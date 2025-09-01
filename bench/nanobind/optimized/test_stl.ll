@@ -19898,7 +19898,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail12array_caster
 
 11:                                               ; preds = %.preheader
   %12 = load i32, ptr %6, align 4, !tbaa !128
-  %13 = getelementptr inbounds nuw [3 x i32], ptr %0, i64 0, i64 %.015
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %.015
   store i32 %12, ptr %13, align 4, !tbaa !128
   %14 = add nuw nsw i64 %.015, 1
   %exitcond = icmp eq i64 %14, 3

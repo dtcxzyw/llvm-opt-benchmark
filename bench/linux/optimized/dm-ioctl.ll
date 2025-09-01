@@ -998,7 +998,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
   %36 = trunc i64 %35 to i32
   %37 = and i32 %11, %36
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [18 x %struct.anon.5], ptr @lookup_ioctl._ioctls, i64 0, i64 %38
+  %39 = getelementptr %struct.anon.5, ptr @lookup_ioctl._ioctls, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -2821,7 +2821,7 @@ define internal noundef range(i32 -6, 1) i32 @table_deps(ptr readnone captures(n
   %81 = zext i32 %80 to i64
   %82 = add i32 %68, 1
   %83 = zext i32 %68 to i64
-  %84 = getelementptr [0 x i64], ptr %65, i64 0, i64 %83
+  %84 = getelementptr i64, ptr %65, i64 %83
   store i64 %81, ptr %84, align 8
   %85 = load ptr, ptr %67, align 8
   %86 = call ptr @dm_table_get_devices(ptr noundef nonnull %28) #21

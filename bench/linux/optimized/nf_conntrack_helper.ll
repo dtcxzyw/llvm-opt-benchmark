@@ -968,12 +968,12 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
 
 83:                                               ; preds = %80, %.preheader
   %84 = phi i64 [ 0, %.preheader ], [ %81, %80 ]
-  %85 = getelementptr [4 x i32], ptr %79, i64 0, i64 %84
+  %85 = getelementptr i32, ptr %79, i64 %84
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr [4 x i32], ptr %5, i64 0, i64 %84
+  %87 = getelementptr i32, ptr %5, i64 %84
   %88 = load i32, ptr %87, align 4
   %89 = xor i32 %88, %86
-  %90 = getelementptr [4 x i32], ptr %2, i64 0, i64 %84
+  %90 = getelementptr i32, ptr %2, i64 %84
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %89, %91
   %93 = icmp eq i32 %92, 0

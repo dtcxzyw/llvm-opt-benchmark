@@ -517,21 +517,21 @@ define internal fastcc noalias noundef ptr @AllocUserData() unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %14
   %indvars.iv17 = phi i64 [ 0, %0 ], [ %indvars.iv.next18, %14 ]
-  %4 = getelementptr inbounds nuw [10 x [10 x ptr]], ptr %1, i64 0, i64 %indvars.iv17
-  %5 = getelementptr inbounds nuw [10 x [10 x ptr]], ptr %2, i64 0, i64 %indvars.iv17
-  %6 = getelementptr inbounds nuw [10 x [10 x ptr]], ptr %3, i64 0, i64 %indvars.iv17
+  %4 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 %indvars.iv17
+  %5 = getelementptr inbounds nuw [10 x ptr], ptr %2, i64 %indvars.iv17
+  %6 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 %indvars.iv17
   br label %7
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %8 = tail call ptr @SUNDlsMat_newDenseMat(i64 noundef 2, i64 noundef 2) #10
-  %9 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !29
   %10 = tail call ptr @SUNDlsMat_newDenseMat(i64 noundef 2, i64 noundef 2) #10
-  %11 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !29
   %12 = tail call ptr @SUNDlsMat_newIndexArray(i64 noundef 2) #10
-  %13 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %12, ptr %13, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -826,8 +826,8 @@ define internal range(i32 0, 2) i32 @Precond(double %0, ptr noundef %1, ptr read
 
 .preheader95:                                     ; preds = %7, %14
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %14 ], [ 0, %7 ]
-  %invariant.gep = getelementptr inbounds nuw [10 x ptr], ptr %8, i64 0, i64 %indvars.iv117
-  %invariant.gep98 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv117
+  %invariant.gep = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv117
+  %invariant.gep98 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv117
   br label %11
 
 11:                                               ; preds = %.preheader95, %11
@@ -874,8 +874,8 @@ define internal range(i32 0, 2) i32 @Precond(double %0, ptr noundef %1, ptr read
   %37 = fadd double %33, %36
   %38 = tail call double @llvm.fmuladd.f64(double %23, double 2.000000e+00, double %37)
   %39 = mul nuw nsw i64 %indvars.iv125, 20
-  %invariant.gep102 = getelementptr inbounds nuw [10 x ptr], ptr %8, i64 0, i64 %indvars.iv125
-  %invariant.gep104 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv125
+  %invariant.gep102 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv125
+  %invariant.gep104 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv125
   %invariant.gep147 = getelementptr inbounds nuw double, ptr %10, i64 %39
   %40 = getelementptr inbounds nuw double, ptr %10, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -925,7 +925,7 @@ define internal range(i32 0, 2) i32 @Precond(double %0, ptr noundef %1, ptr read
 
 .preheader93:                                     ; preds = %.loopexit94, %64
   %indvars.iv133 = phi i64 [ 0, %.loopexit94 ], [ %indvars.iv.next134, %64 ]
-  %invariant.gep108 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv133
+  %invariant.gep108 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv133
   br label %62
 
 62:                                               ; preds = %.preheader93, %62
@@ -955,11 +955,11 @@ define internal range(i32 0, 2) i32 @Precond(double %0, ptr noundef %1, ptr read
 
 68:                                               ; preds = %.preheader, %67
   %indvars.iv137 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next138, %67 ]
-  %69 = getelementptr inbounds nuw [10 x ptr], ptr %65, i64 0, i64 %indvars.iv137
+  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv137
   %70 = load ptr, ptr %69, align 8, !tbaa !29
   tail call void @SUNDlsMat_denseAddIdentity(ptr noundef %70, i64 noundef 2) #10
   %71 = load ptr, ptr %69, align 8, !tbaa !29
-  %72 = getelementptr inbounds nuw [10 x ptr], ptr %66, i64 0, i64 %indvars.iv137
+  %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv137
   %73 = load ptr, ptr %72, align 8, !tbaa !31
   %74 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef %71, i64 noundef 2, i64 noundef 2, ptr noundef %73) #10
   %.not90 = icmp eq i64 %74, 0
@@ -994,9 +994,9 @@ define internal noundef i32 @PSolve(double %0, ptr readnone captures(none) %1, p
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 160
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %15 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !29
-  %17 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !31
   tail call void @SUNDlsMat_denseGETRS(ptr noundef %16, i64 noundef 2, ptr noundef %18, ptr noundef %gep) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1268,20 +1268,20 @@ define internal fastcc void @FreeUserData(ptr noundef captures(none) %0) unnamed
 
 .preheader:                                       ; preds = %1, %14
   %indvars.iv17 = phi i64 [ 0, %1 ], [ %indvars.iv.next18, %14 ]
-  %4 = getelementptr inbounds nuw [10 x [10 x ptr]], ptr %0, i64 0, i64 %indvars.iv17
-  %5 = getelementptr inbounds nuw [10 x [10 x ptr]], ptr %2, i64 0, i64 %indvars.iv17
-  %6 = getelementptr inbounds nuw [10 x [10 x ptr]], ptr %3, i64 0, i64 %indvars.iv17
+  %4 = getelementptr inbounds nuw [10 x ptr], ptr %0, i64 %indvars.iv17
+  %5 = getelementptr inbounds nuw [10 x ptr], ptr %2, i64 %indvars.iv17
+  %6 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 %indvars.iv17
   br label %7
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   tail call void @SUNDlsMat_destroyMat(ptr noundef %9) #10
-  %10 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   tail call void @SUNDlsMat_destroyMat(ptr noundef %11) #10
-  %12 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   tail call void @SUNDlsMat_destroyArray(ptr noundef %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

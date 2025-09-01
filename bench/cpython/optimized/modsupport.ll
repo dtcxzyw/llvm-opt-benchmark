@@ -1723,7 +1723,7 @@ define internal fastcc ptr @do_mktuple(ptr noundef nonnull captures(none) %0, pt
   br label %Py_DECREF.exit
 
 21:                                               ; preds = %11
-  %22 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %.02739
+  %22 = getelementptr ptr, ptr %9, i64 %.02739
   store ptr %12, ptr %22, align 8, !tbaa !23
   %23 = add nuw nsw i64 %.02739, 1
   %exitcond.not = icmp eq i64 %23, %3
@@ -1913,7 +1913,7 @@ check_end.exit:                                   ; preds = %26, %._crit_edge.i
   br i1 %.not17, label %Py_DECREF.exit, label %33
 
 33:                                               ; preds = %.lr.ph.split
-  %34 = getelementptr [1 x ptr], ptr %7, i64 0, i64 %.021
+  %34 = getelementptr ptr, ptr %7, i64 %.021
   store ptr %32, ptr %34, align 8, !tbaa !23
   br label %Py_DECREF.exit
 

@@ -1123,7 +1123,7 @@ define internal fastcc noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef %0, i
 
 75:                                               ; preds = %74, %87
   %.02674 = phi i64 [ 0, %74 ], [ %90, %87 ]
-  %76 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %.02674
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 %.02674
   %77 = load i8, ptr %76, align 1, !tbaa !32
   %78 = xor i8 %77, 1
   store i8 %78, ptr %76, align 1, !tbaa !32

@@ -29,7 +29,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10, i32 2
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = icmp sgt i32 %12, 9
   br i1 %13, label %14, label %15
@@ -54,7 +54,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %15
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %20, i32 2
+  %21 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %20, i32 2
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %55
@@ -194,7 +194,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 78:                                               ; preds = %77
   %79 = zext nneg i32 %1 to i64
-  %80 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %79, i32 2
+  %80 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %79, i32 2
   %81 = load i32, ptr %80, align 4, !tbaa !12
   %82 = icmp sgt i32 %81, 9
   br i1 %82, label %83, label %84
@@ -212,7 +212,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 87:                                               ; preds = %86
   %88 = zext nneg i32 %1 to i64
-  %89 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %88, i32 2
+  %89 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %88, i32 2
   %90 = load i32, ptr %89, align 4, !tbaa !12
   %91 = icmp sgt i32 %90, 9
   br i1 %91, label %92, label %94

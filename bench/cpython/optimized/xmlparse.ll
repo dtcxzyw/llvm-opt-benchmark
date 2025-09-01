@@ -5653,7 +5653,7 @@ define hidden noundef ptr @PyExpat_XML_ErrorString(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [44 x ptr], ptr @switch.table.PyExpat_XML_ErrorString, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PyExpat_XML_ErrorString, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -5777,7 +5777,7 @@ define hidden noundef nonnull ptr @PyExpat_unsignedCharToPrintable(i8 noundef ze
 switch.lookup:
   %switch.tableidx = xor i8 %0, -128
   %1 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x ptr], ptr @switch.table.PyExpat_unsignedCharToPrintable, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PyExpat_unsignedCharToPrintable, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -12218,7 +12218,7 @@ poolAppend.exit:                                  ; preds = %336
 
 373:                                              ; preds = %._crit_edge241, %.lr.ph
   %374 = phi ptr [ %.pre, %._crit_edge241 ], [ %369, %.lr.ph ]
-  %375 = getelementptr [4 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %375 = getelementptr i8, ptr %9, i64 %indvars.iv
   %376 = load i8, ptr %375, align 1, !tbaa !3
   %377 = getelementptr i8, ptr %374, i64 1
   store ptr %377, ptr %24, align 8, !tbaa !146
@@ -19623,7 +19623,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr noundef captures(non
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %36
+  %40 = getelementptr i8, ptr @addBinding.xmlNamespace, i64 %36
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %.not132.us.us = icmp eq i8 %35, %41
   br i1 %.not132.us.us, label %is_rfc3986_uri_char.exit.us.us, label %42
@@ -19658,7 +19658,7 @@ is_rfc3986_uri_char.exit.us.us:                   ; preds = %42, %39, %.lr.ph.sp
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %51
+  %55 = getelementptr i8, ptr @addBinding.xmlNamespace, i64 %51
   %56 = load i8, ptr %55, align 1, !tbaa !3
   %.not132.us = icmp eq i8 %50, %56
   br i1 %.not132.us, label %58, label %57
@@ -19788,7 +19788,7 @@ is_rfc3986_uri_char.exit.us:                      ; preds = %60, %60, %60, %60, 
   br i1 %70, label %74, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %68
+  %72 = getelementptr i8, ptr @addBinding.xmlNamespace, i64 %68
   %73 = load i8, ptr %72, align 1, !tbaa !3
   %.not132.us156 = icmp eq i8 %67, %73
   br i1 %.not132.us156, label %75, label %74
@@ -19806,7 +19806,7 @@ is_rfc3986_uri_char.exit.us:                      ; preds = %60, %60, %60, %60, 
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %76
-  %79 = getelementptr [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %68
+  %79 = getelementptr i8, ptr @addBinding.xmlnsNamespace, i64 %68
   %80 = load i8, ptr %79, align 1, !tbaa !3
   %.not133.us = icmp eq i8 %67, %80
   br i1 %.not133.us, label %is_rfc3986_uri_char.exit.us159, label %81
@@ -19842,7 +19842,7 @@ is_rfc3986_uri_char.exit.us159:                   ; preds = %81, %78, %75
   br i1 %92, label %96, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %90
+  %94 = getelementptr i8, ptr @addBinding.xmlNamespace, i64 %90
   %95 = load i8, ptr %94, align 1, !tbaa !3
   %.not132 = icmp eq i8 %89, %95
   br i1 %.not132, label %97, label %96
@@ -19860,7 +19860,7 @@ is_rfc3986_uri_char.exit.us159:                   ; preds = %81, %78, %75
   br i1 %99, label %103, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %90
+  %101 = getelementptr i8, ptr @addBinding.xmlnsNamespace, i64 %90
   %102 = load i8, ptr %101, align 1, !tbaa !3
   %.not133 = icmp eq i8 %89, %102
   br i1 %.not133, label %104, label %103
@@ -20554,7 +20554,7 @@ accountingDiffTolerated.exit.thread:              ; preds = %43, %accountingDiff
 
 166:                                              ; preds = %._crit_edge249, %.lr.ph
   %167 = phi ptr [ %.pre250, %._crit_edge249 ], [ %161, %.lr.ph ]
-  %168 = getelementptr [4 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %168 = getelementptr i8, ptr %11, i64 %indvars.iv
   %169 = load i8, ptr %168, align 1, !tbaa !3
   %170 = getelementptr i8, ptr %167, i64 1
   store ptr %170, ptr %21, align 8, !tbaa !146
@@ -21564,9 +21564,9 @@ define internal range(i32 0, 44) i32 @entityValueInitProcessor(ptr noundef initi
   br label %entityValueProcessor.exit
 
 45:                                               ; preds = %._crit_edge.i
-  %switch.tableidx105 = add i32 %.lcssa.i, 2
-  %46 = icmp ult i32 %switch.tableidx105, 3
-  br i1 %46, label %switch.lookup104, label %47
+  %switch.tableidx104 = add i32 %.lcssa.i, 2
+  %46 = icmp ult i32 %switch.tableidx104, 3
+  br i1 %46, label %switch.lookup105, label %47
 
 47:                                               ; preds = %45
   %48 = call fastcc i32 @storeEntityValue(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %34, ptr noundef %2, i32 noundef 0)
@@ -21579,12 +21579,12 @@ define internal range(i32 0, 44) i32 @entityValueInitProcessor(ptr noundef initi
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge.i, label %.lr.ph.i
 
-switch.lookup104:                                 ; preds = %45
+switch.lookup105:                                 ; preds = %45
   %switch.offset107 = sub i32 4, %.lcssa.i
   br label %entityValueProcessor.exit
 
-entityValueProcessor.exit:                        ; preds = %switch.lookup104, %44, %47
-  %.0.i = phi i32 [ 0, %44 ], [ %48, %47 ], [ %switch.offset107, %switch.lookup104 ]
+entityValueProcessor.exit:                        ; preds = %switch.lookup105, %44, %47
+  %.0.i = phi i32 [ 0, %44 ], [ %48, %47 ], [ %switch.offset107, %switch.lookup105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %accountingOnAbort.exit
 

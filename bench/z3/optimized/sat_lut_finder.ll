@@ -176,7 +176,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %_ZN6vectorIjLb0EjE6
   %indvars.iv = phi i64 [ 0, %_ZN6vectorIPN3sat6clauseELb0EjE5resetEv.exit ], [ %indvars.iv.next, %48 ]
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = tail call noundef i64 @_ZN3sat3cut11effect_maskEj(i32 noundef %49)
-  %51 = getelementptr inbounds nuw [7 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -1394,7 +1394,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit15.i:              ; preds = %335, %.split.us.i
 
 348:                                              ; preds = %347
   %349 = add nsw i64 %indvars.iv.i.i, -1
-  %350 = getelementptr inbounds nuw [7 x i64], ptr %163, i64 0, i64 %349
+  %350 = getelementptr inbounds nuw i64, ptr %163, i64 %349
   %351 = load i64, ptr %350, align 8, !tbaa !34
   %.0.i.i.i174 = and i64 %351, %346
   %352 = shl nuw i64 1, %349
@@ -1965,7 +1965,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit15.i204:           ; preds = %600, %.split.us.i20
 
 613:                                              ; preds = %612
   %614 = add nsw i64 %indvars.iv.i.i209, -1
-  %615 = getelementptr inbounds nuw [7 x i64], ptr %163, i64 0, i64 %614
+  %615 = getelementptr inbounds nuw i64, ptr %163, i64 %614
   %616 = load i64, ptr %615, align 8, !tbaa !34
   %.0.i.i.i211 = and i64 %616, %611
   %617 = shl nuw i64 1, %614
@@ -2367,7 +2367,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit15.i249:           ; preds = %787, %.split.us.i24
 
 800:                                              ; preds = %799
   %801 = add nsw i64 %indvars.iv.i.i254, -1
-  %802 = getelementptr inbounds nuw [7 x i64], ptr %163, i64 0, i64 %801
+  %802 = getelementptr inbounds nuw i64, ptr %163, i64 %801
   %803 = load i64, ptr %802, align 8, !tbaa !34
   %.0.i.i.i256 = and i64 %803, %798
   %804 = shl nuw i64 1, %801
@@ -2915,7 +2915,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit26:                ; preds = %_ZNK6vectorIjLb0EjE
   %12 = load i32, ptr %9, align 4, !tbaa !10
   %.fr = freeze i32 %12
   %13 = and i64 %indvars.iv.next, 4294967295
-  %14 = getelementptr inbounds nuw [7 x i64], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %13
   %15 = icmp ult i32 %.fr, 6
   %16 = zext nneg i32 %.fr to i64
   %17 = shl nuw nsw i64 1, %16
@@ -2944,7 +2944,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit26:                ; preds = %_ZNK6vectorIjLb0EjE
   %28 = load i32, ptr %27, align 4, !tbaa !10
   store i32 %28, ptr %2, align 4, !tbaa !10
   tail call void @_ZN6vectorIjLb0EjE5eraseERKj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %29 = getelementptr inbounds nuw [7 x i64], ptr %26, i64 0, i64 %.us-phi
+  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %.us-phi
   %30 = load i64, ptr %29, align 8, !tbaa !34
   %31 = load i64, ptr %.in3149, align 8
   br label %33
@@ -3107,7 +3107,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit15:                ; preds = %.split.us, %48
 
 62:                                               ; preds = %61
   %63 = add nsw i64 %indvars.iv.i, -1
-  %64 = getelementptr inbounds nuw [7 x i64], ptr %55, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i64, ptr %55, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !34
   %.0.i.i = and i64 %65, %60
   %66 = shl nuw i64 1, %63
@@ -3159,7 +3159,7 @@ define hidden noundef zeroext i1 @_ZN3sat10lut_finder14lut_is_definedEj(ptr noun
 
 18:                                               ; preds = %17
   %19 = add nsw i64 %indvars.iv, -1
-  %20 = getelementptr inbounds nuw [7 x i64], ptr %11, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %11, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !34
   %.0.i = and i64 %21, %16
   %22 = shl nuw i64 1, %19
@@ -3180,7 +3180,7 @@ define hidden noundef zeroext i1 @_ZN3sat10lut_finder14lut_is_definedEjj(ptr nou
   %5 = load i64, ptr %4, align 8, !tbaa !62
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = getelementptr inbounds nuw [7 x i64], ptr %7, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw i64, ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !34
   %10 = icmp ult i32 %2, 6
   %11 = zext nneg i32 %2 to i64

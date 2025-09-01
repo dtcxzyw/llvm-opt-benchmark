@@ -18867,10 +18867,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !51, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !1741, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h89a77b4b413ee8ecE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h89a77b4b413ee8ecE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h89a77b4b413ee8ecE.1884", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h89a77b4b413ee8ecE.1884", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -19090,10 +19090,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !51, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !1496, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0faf932a44d04faE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0faf932a44d04faE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0faf932a44d04faE.1885", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0faf932a44d04faE.1885", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -19266,10 +19266,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !51, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !983, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd367bad233abae2cE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd367bad233abae2cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd367bad233abae2cE.1886", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd367bad233abae2cE.1886", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -147426,10 +147426,10 @@ define internal noundef zeroext i1 @"_ZN80_$LT$polars_ops..frame..join..args..Jo
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !983, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN80_$LT$polars_ops..frame..join..args..JoinCoalesce$u20$as$u20$core..fmt..Debug$GT$3fmt17hd91fd5ba6a186c4eE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$polars_ops..frame..join..args..JoinCoalesce$u20$as$u20$core..fmt..Debug$GT$3fmt17hd91fd5ba6a186c4eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN80_$LT$polars_ops..frame..join..args..JoinCoalesce$u20$as$u20$core..fmt..Debug$GT$3fmt17hd91fd5ba6a186c4eE.1887", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$polars_ops..frame..join..args..JoinCoalesce$u20$as$u20$core..fmt..Debug$GT$3fmt17hd91fd5ba6a186c4eE.1887", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -147624,10 +147624,10 @@ define internal noundef zeroext i1 @"_ZN86_$LT$polars_parquet..parquet..parquet_
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !983, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c7ecf52e69678c1E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c7ecf52e69678c1E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c7ecf52e69678c1E.1888", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c7ecf52e69678c1E.1888", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -147802,7 +147802,7 @@ define internal noundef zeroext i1 @"_ZN88_$LT$polars_parquet..parquet..parquet_
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !983, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN88_$LT$polars_parquet..parquet..parquet_bridge..Repetition$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4e6d0d53e69e603E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$polars_parquet..parquet..parquet_bridge..Repetition$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4e6d0d53e69e603E", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 8)
   ret i1 %4
@@ -172985,9 +172985,9 @@ switch.lookup:                                    ; preds = %1
   %14 = icmp ult i64 %13, 5
   %15 = add nsw i64 %12, -1
   %16 = select i1 %14, i64 %15, i64 0
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 0, i64 %16
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 0, i64 %16
+  %switch.gep1 = getelementptr inbounds ptr, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 %16
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %"_ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.exit"
 
@@ -173033,9 +173033,9 @@ switch.lookup:                                    ; preds = %1
 switch.lookup3:                                   ; preds = %1
   %30 = add nsw i64 %2, -2
   %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 2)
-  %switch.gep4 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN11polars_plan5plans2ir6schema44_$LT$impl$u20$polars_plan..plans..ir..IR$GT$4name17h208367fafc328cc9E.1890", i64 0, i64 %31
+  %switch.gep4 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans2ir6schema44_$LT$impl$u20$polars_plan..plans..ir..IR$GT$4name17h208367fafc328cc9E.1890", i64 %31
   %switch.load5 = load i64, ptr %switch.gep4, align 8
-  %switch.gep6 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11polars_plan5plans2ir6schema44_$LT$impl$u20$polars_plan..plans..ir..IR$GT$4name17h208367fafc328cc9E.1891", i64 0, i64 %31
+  %switch.gep6 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans2ir6schema44_$LT$impl$u20$polars_plan..plans..ir..IR$GT$4name17h208367fafc328cc9E.1891", i64 %31
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   br label %"_ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.exit"
 
@@ -176862,9 +176862,9 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = icmp ult i64 %10, 10
   %17 = select i1 %16, i64 %10, i64 6
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN86_$LT$polars_plan..plans..functions..dsl..DslFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hb5af9c7384af301bE", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$polars_plan..plans..functions..dsl..DslFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hb5af9c7384af301bE", i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep22 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN86_$LT$polars_plan..plans..functions..dsl..DslFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hb5af9c7384af301bE.1892", i64 0, i64 %17
+  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$polars_plan..plans..functions..dsl..DslFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hb5af9c7384af301bE.1892", i64 %17
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   store ptr %switch.load23, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -179008,9 +179008,9 @@ define noundef zeroext i1 @"_ZN80_$LT$polars_plan..plans..functions..FunctionIR$
 switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %switch.tableidx = add nsw i64 %21, -3
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @"switch.table._ZN80_$LT$polars_plan..plans..functions..FunctionIR$u20$as$u20$core..fmt..Display$GT$3fmt17h50f7ca8517384c23E", i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN80_$LT$polars_plan..plans..functions..FunctionIR$u20$as$u20$core..fmt..Display$GT$3fmt17h50f7ca8517384c23E", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep145 = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZN80_$LT$polars_plan..plans..functions..FunctionIR$u20$as$u20$core..fmt..Display$GT$3fmt17h50f7ca8517384c23E.1893", i64 0, i64 %switch.tableidx
+  %switch.gep145 = getelementptr inbounds ptr, ptr @"switch.table._ZN80_$LT$polars_plan..plans..functions..FunctionIR$u20$as$u20$core..fmt..Display$GT$3fmt17h50f7ca8517384c23E.1893", i64 %switch.tableidx
   %switch.load146 = load ptr, ptr %switch.gep145, align 8
   store ptr %switch.load146, ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -179047,9 +179047,9 @@ switch.lookup147:                                 ; preds = %2
   %33 = icmp ult i64 %32, 5
   %34 = add nsw i64 %31, -1
   %35 = select i1 %33, i64 %34, i64 0
-  %switch.gep148 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 0, i64 %35
+  %switch.gep148 = getelementptr inbounds i64, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 %35
   %switch.load149 = load i64, ptr %switch.gep148, align 8
-  %switch.gep150 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 0, i64 %35
+  %switch.gep150 = getelementptr inbounds ptr, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 %35
   %switch.load151 = load ptr, ptr %switch.gep150, align 8
   store ptr %switch.load151, ptr %15, align 8
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -183053,9 +183053,9 @@ switch.lookup:
   %3 = icmp ult i64 %2, 5
   %4 = add nsw i64 %1, -1
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds ptr, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call fastcc void @"_ZN4core3ptr58drop_in_place$LT$polars_plan..dsl..file_scan..FileScan$GT$17h2aa167d91c497fd8E"(ptr noalias noundef align 8 dereferenceable(224) %0)
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -183071,9 +183071,9 @@ switch.lookup:
   %3 = icmp ult i64 %2, 5
   %4 = add nsw i64 %1, -1
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds ptr, ptr @"switch.table._ZN11polars_plan3dsl9file_scan106_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..dsl..file_scan..FileScan$GT$$u20$for$u20$$RF$str$GT$4from17hec6e7c5ce1208e50E.1897", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1
@@ -184601,9 +184601,9 @@ switch.lookup:
   %4 = icmp ne i64 %2, 17
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 17
-  %switch.gep = getelementptr inbounds nuw [21 x i64], ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [21 x ptr], ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E.1899", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E.1899", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call fastcc void @"_ZN4core3ptr47drop_in_place$LT$polars_plan..plans..ir..IR$GT$17hd973354669fdae04E"(ptr noalias noundef align 16 dereferenceable(320) %0)
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -184620,9 +184620,9 @@ switch.lookup:
   %4 = icmp ne i64 %2, 17
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 17
-  %switch.gep = getelementptr inbounds nuw [21 x i64], ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [21 x ptr], ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E.1899", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans2ir95_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..ir..IR$GT$$u20$for$u20$$RF$str$GT$4from17hb30297f44f1f3977E.1899", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1
@@ -187035,9 +187035,9 @@ switch.lookup:
   %4 = icmp ne i64 %2, 6
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 6
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E.1901", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E.1901", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call fastcc void @"_ZN4core3ptr68drop_in_place$LT$polars_plan..plans..functions..dsl..DslFunction$GT$17h79495f471a2d8bdbE"(ptr noalias noundef align 16 dereferenceable(208) %0)
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -187054,9 +187054,9 @@ switch.lookup:
   %4 = icmp ne i64 %2, 6
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 6
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E.1901", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans9functions3dsl116_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..dsl..DslFunction$GT$$u20$for$u20$$RF$str$GT$4from17h9657ecfccc7f4318E.1901", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1
@@ -188034,9 +188034,9 @@ switch.lookup:
   %4 = icmp ne i64 %2, 2
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 2
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E.1903", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E.1903", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call fastcc void @"_ZN4core3ptr62drop_in_place$LT$polars_plan..plans..functions..FunctionIR$GT$17haaa3d1a104582709E"(ptr noalias noundef align 8 dereferenceable(128) %0)
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -188053,9 +188053,9 @@ switch.lookup:
   %4 = icmp ne i64 %2, 2
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 2
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E.1903", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans9functions110_$LT$impl$u20$core..convert..From$LT$$RF$polars_plan..plans..functions..FunctionIR$GT$$u20$for$u20$$RF$str$GT$4from17h47aeab9de46baec8E.1903", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1

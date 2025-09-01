@@ -1890,7 +1890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.preheader: ; pr
   br i1 %.not, label %._crit_edge.i.i, label %46
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.preheader
-  %47 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZN12_GLOBAL__N_114AnlogicEqnPass8init2eqnEN5Yosys5RTLIL5ConstEi.names, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_114AnlogicEqnPass8init2eqnEN5Yosys5RTLIL5ConstEi.names, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !88
   %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #23
   %50 = load i64, ptr %12, align 8, !tbaa !20
@@ -1926,7 +1926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i40: ; pre
   store i8 126, ptr %16, align 8, !tbaa !21
   store i64 1, ptr %17, align 8, !tbaa !20
   store i8 0, ptr %23, align 1, !tbaa !21
-  %54 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZN12_GLOBAL__N_114AnlogicEqnPass8init2eqnEN5Yosys5RTLIL5ConstEi.names, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_114AnlogicEqnPass8init2eqnEN5Yosys5RTLIL5ConstEi.names, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !88
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %56 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #23, !noalias !89

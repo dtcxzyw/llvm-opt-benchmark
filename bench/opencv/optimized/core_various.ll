@@ -735,7 +735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
   store i64 0, ptr %207, align 8
   store i32 50397184, ptr %32, align 8, !tbaa !31
   store ptr %28, ptr %206, align 8, !tbaa !33
-  %232 = getelementptr inbounds nuw [4 x %"class.cv::Point_.11"], ptr %31, i64 0, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw %"class.cv::Point_.11", ptr %31, i64 %indvars.iv
   %233 = load float, ptr %232, align 8, !tbaa !41
   %234 = insertelement <4 x float> poison, float %233, i64 0
   %235 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %234)
@@ -749,7 +749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
   %.sroa.0.0.insert.insert.i134 = or disjoint i64 %.sroa.2.0.insert.shift.i132, %.sroa.0.0.insert.ext.i133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %240 = and i64 %indvars.iv.next, 3
-  %241 = getelementptr inbounds nuw [4 x %"class.cv::Point_.11"], ptr %31, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw %"class.cv::Point_.11", ptr %31, i64 %240
   %242 = load float, ptr %241, align 8, !tbaa !41
   %243 = insertelement <4 x float> poison, float %242, i64 0
   %244 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %243)
@@ -776,7 +776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
   store i32 50397184, ptr %34, align 8, !tbaa !31
   store ptr %28, ptr %210, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %250 = getelementptr inbounds nuw [4 x ptr], ptr @__const.main.vertex_names, i64 0, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw ptr, ptr @__const.main.vertex_names, i64 %indvars.iv
   %251 = load ptr, ptr %250, align 8, !tbaa !53
   store ptr %212, ptr %35, align 8, !tbaa !16
   %252 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #16

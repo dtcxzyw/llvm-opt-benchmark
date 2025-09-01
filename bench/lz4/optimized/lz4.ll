@@ -6330,7 +6330,7 @@ define dso_local i32 @LZ4_compress_fast_continue(ptr noundef %0, ptr noundef %1,
 
 25:                                               ; preds = %25, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !31
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %27, i32 %22)
   store i32 %storemerge.i, ptr %26, align 4, !tbaa !31
@@ -10518,7 +10518,7 @@ define dso_local i32 @LZ4_compress_forceExtDict(ptr noundef captures(none) %0, p
 
 16:                                               ; preds = %16, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !31
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %18, i32 %11)
   store i32 %storemerge.i, ptr %17, align 4, !tbaa !31
@@ -12302,14 +12302,14 @@ read_variable_length.exit15.thread79:             ; preds = %82, %read_variable_
   %134 = load i8, ptr %133, align 1, !tbaa !4
   %135 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %134, ptr %135, align 1, !tbaa !4
-  %136 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %73
+  %136 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %73
   %137 = load i32, ptr %136, align 4, !tbaa !31
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %76, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %141 = load i32, ptr %139, align 1
   store i32 %141, ptr %140, align 1
-  %142 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %73
+  %142 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %73
   %143 = load i32, ptr %142, align 4, !tbaa !31
   %144 = sext i32 %143 to i64
   %145 = sub nsw i64 0, %144
@@ -12610,14 +12610,14 @@ read_variable_length.exit24:                      ; preds = %251, %246
   %278 = load i8, ptr %277, align 1, !tbaa !4
   %279 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %278, ptr %279, align 1, !tbaa !4
-  %280 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i
+  %280 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i
   %281 = load i32, ptr %280, align 4, !tbaa !31
   %282 = zext i32 %281 to i64
   %283 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %285 = load i32, ptr %283, align 1
   store i32 %285, ptr %284, align 1
-  %286 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i
+  %286 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i
   %287 = load i32, ptr %286, align 4, !tbaa !31
   %288 = sext i32 %287 to i64
   %289 = sub nsw i64 0, %288
@@ -12982,14 +12982,14 @@ read_variable_length.exit19.thread83:             ; preds = %79, %read_variable_
   %131 = load i8, ptr %130, align 1, !tbaa !4
   %132 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %131, ptr %132, align 1, !tbaa !4
-  %133 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %70
+  %133 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %70
   %134 = load i32, ptr %133, align 4, !tbaa !31
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %73, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %138 = load i32, ptr %136, align 1
   store i32 %138, ptr %137, align 1
-  %139 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %70
+  %139 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %70
   %140 = load i32, ptr %139, align 4, !tbaa !31
   %141 = sext i32 %140 to i64
   %142 = sub nsw i64 0, %141
@@ -13342,14 +13342,14 @@ read_variable_length.exit28:                      ; preds = %257, %252
   %299 = load i8, ptr %298, align 1, !tbaa !4
   %300 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %299, ptr %300, align 1, !tbaa !4
-  %301 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i
+  %301 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i
   %302 = load i32, ptr %301, align 4, !tbaa !31
   %303 = zext i32 %302 to i64
   %304 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %306 = load i32, ptr %304, align 1
   store i32 %306, ptr %305, align 1
-  %307 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i
+  %307 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i
   %308 = load i32, ptr %307, align 4, !tbaa !31
   %309 = sext i32 %308 to i64
   %310 = sub nsw i64 0, %309
@@ -13805,14 +13805,14 @@ read_variable_length.exit15.thread79:             ; preds = %77, %read_variable_
   %125 = load i8, ptr %124, align 1, !tbaa !4
   %126 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr, i64 3
   store i8 %125, ptr %126, align 1, !tbaa !4
-  %127 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %70
+  %127 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %70
   %128 = load i32, ptr %127, align 4, !tbaa !31
   %129 = zext i32 %128 to i64
   %130 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr, i64 4
   %132 = load i32, ptr %130, align 1
   store i32 %132, ptr %131, align 1
-  %133 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %70
+  %133 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %70
   %134 = load i32, ptr %133, align 4, !tbaa !31
   %135 = sext i32 %134 to i64
   %136 = sub nsw i64 0, %135
@@ -14117,14 +14117,14 @@ read_variable_length.exit24:                      ; preds = %233, %228
   %258 = load i8, ptr %257, align 1, !tbaa !4
   %259 = getelementptr inbounds nuw i8, ptr %.4.i.ptr, i64 3
   store i8 %258, ptr %259, align 1, !tbaa !4
-  %260 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i
+  %260 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i
   %261 = load i32, ptr %260, align 4, !tbaa !31
   %262 = zext i32 %261 to i64
   %263 = getelementptr inbounds nuw i8, ptr %.0362.i.ptr, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %.4.i.ptr, i64 4
   %265 = load i32, ptr %263, align 1
   store i32 %265, ptr %264, align 1
-  %266 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i
+  %266 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i
   %267 = load i32, ptr %266, align 4, !tbaa !31
   %268 = sext i32 %267 to i64
   %269 = sub nsw i64 0, %268
@@ -14679,14 +14679,14 @@ read_variable_length.exit17.thread81:             ; preds = %89, %read_variable_
   %165 = load i8, ptr %164, align 1, !tbaa !4
   %166 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %165, ptr %166, align 1, !tbaa !4
-  %167 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %80
+  %167 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %80
   %168 = load i32, ptr %167, align 4, !tbaa !31
   %169 = zext i32 %168 to i64
   %170 = getelementptr inbounds nuw i8, ptr %83, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %172 = load i32, ptr %170, align 1
   store i32 %172, ptr %171, align 1
-  %173 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %80
+  %173 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %80
   %174 = load i32, ptr %173, align 4, !tbaa !31
   %175 = sext i32 %174 to i64
   %176 = sub nsw i64 0, %175
@@ -15035,14 +15035,14 @@ read_variable_length.exit26:                      ; preds = %282, %277
   %334 = load i8, ptr %333, align 1, !tbaa !4
   %335 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %334, ptr %335, align 1, !tbaa !4
-  %336 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i
+  %336 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i
   %337 = load i32, ptr %336, align 4, !tbaa !31
   %338 = zext i32 %337 to i64
   %339 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %341 = load i32, ptr %339, align 1
   store i32 %341, ptr %340, align 1
-  %342 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i
+  %342 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i
   %343 = load i32, ptr %342, align 4, !tbaa !31
   %344 = sext i32 %343 to i64
   %345 = sub nsw i64 0, %344
@@ -15472,14 +15472,14 @@ read_variable_length.exit21.thread85:             ; preds = %86, %read_variable_
   %169 = load i8, ptr %168, align 1, !tbaa !4
   %170 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %169, ptr %170, align 1, !tbaa !4
-  %171 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %77
+  %171 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %77
   %172 = load i32, ptr %171, align 4, !tbaa !31
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds nuw i8, ptr %80, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %176 = load i32, ptr %174, align 1
   store i32 %176, ptr %175, align 1
-  %177 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %77
+  %177 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %77
   %178 = load i32, ptr %177, align 4, !tbaa !31
   %179 = sext i32 %178 to i64
   %180 = sub nsw i64 0, %179
@@ -15893,14 +15893,14 @@ read_variable_length.exit30:                      ; preds = %295, %290
   %369 = load i8, ptr %368, align 1, !tbaa !4
   %370 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %369, ptr %370, align 1, !tbaa !4
-  %371 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i
+  %371 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i
   %372 = load i32, ptr %371, align 4, !tbaa !31
   %373 = zext i32 %372 to i64
   %374 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %373
   %375 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %376 = load i32, ptr %374, align 1
   store i32 %376, ptr %375, align 1
-  %377 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i
+  %377 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i
   %378 = load i32, ptr %377, align 4, !tbaa !31
   %379 = sext i32 %378 to i64
   %380 = sub nsw i64 0, %379
@@ -16377,14 +16377,14 @@ read_variable_length.exit77.thread143:            ; preds = %117, %read_variable
   %193 = load i8, ptr %192, align 1, !tbaa !4
   %194 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3
   store i8 %193, ptr %194, align 1, !tbaa !4
-  %195 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %108
+  %195 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %108
   %196 = load i32, ptr %195, align 4, !tbaa !31
   %197 = zext i32 %196 to i64
   %198 = getelementptr inbounds nuw i8, ptr %111, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   %200 = load i32, ptr %198, align 1
   store i32 %200, ptr %199, align 1
-  %201 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %108
+  %201 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %108
   %202 = load i32, ptr %201, align 4, !tbaa !31
   %203 = sext i32 %202 to i64
   %204 = sub nsw i64 0, %203
@@ -16734,14 +16734,14 @@ read_variable_length.exit86:                      ; preds = %310, %305
   %363 = load i8, ptr %362, align 1, !tbaa !4
   %364 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 3
   store i8 %363, ptr %364, align 1, !tbaa !4
-  %365 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i.i
+  %365 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i.i
   %366 = load i32, ptr %365, align 4, !tbaa !31
   %367 = zext i32 %366 to i64
   %368 = getelementptr inbounds nuw i8, ptr %.0362.i.i, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 4
   %370 = load i32, ptr %368, align 1
   store i32 %370, ptr %369, align 1
-  %371 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i.i
+  %371 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i.i
   %372 = load i32, ptr %371, align 4, !tbaa !31
   %373 = sext i32 %372 to i64
   %374 = sub nsw i64 0, %373
@@ -17148,14 +17148,14 @@ read_variable_length.exit16.thread80:             ; preds = %85, %read_variable_
   %137 = load i8, ptr %136, align 1, !tbaa !4
   %138 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %137, ptr %138, align 1, !tbaa !4
-  %139 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %76
+  %139 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %76
   %140 = load i32, ptr %139, align 4, !tbaa !31
   %141 = zext i32 %140 to i64
   %142 = getelementptr inbounds nuw i8, ptr %79, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %144 = load i32, ptr %142, align 1
   store i32 %144, ptr %143, align 1
-  %145 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %76
+  %145 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %76
   %146 = load i32, ptr %145, align 4, !tbaa !31
   %147 = sext i32 %146 to i64
   %148 = sub nsw i64 0, %147
@@ -17456,14 +17456,14 @@ read_variable_length.exit25:                      ; preds = %254, %249
   %281 = load i8, ptr %280, align 1, !tbaa !4
   %282 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %281, ptr %282, align 1, !tbaa !4
-  %283 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i
+  %283 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i
   %284 = load i32, ptr %283, align 4, !tbaa !31
   %285 = zext i32 %284 to i64
   %286 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %285
   %287 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %288 = load i32, ptr %286, align 1
   store i32 %288, ptr %287, align 1
-  %289 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i
+  %289 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i
   %290 = load i32, ptr %289, align 4, !tbaa !31
   %291 = sext i32 %290 to i64
   %292 = sub nsw i64 0, %291
@@ -18347,14 +18347,14 @@ read_variable_length.exit19.thread83.i:           ; preds = %read_variable_lengt
   %134 = load i8, ptr %133, align 1, !tbaa !4
   %135 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr.i, i64 3
   store i8 %134, ptr %135, align 1, !tbaa !4
-  %136 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %79
+  %136 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %79
   %137 = load i32, ptr %136, align 4, !tbaa !31
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr.i, i64 4
   %141 = load i32, ptr %139, align 1
   store i32 %141, ptr %140, align 1
-  %142 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %79
+  %142 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %79
   %143 = load i32, ptr %142, align 4, !tbaa !31
   %144 = sext i32 %143 to i64
   %145 = sub nsw i64 0, %144
@@ -18713,14 +18713,14 @@ read_variable_length.exit28.i:                    ; preds = %249, %244
   %288 = load i8, ptr %287, align 1, !tbaa !4
   %289 = getelementptr inbounds nuw i8, ptr %.4.i.ptr.i, i64 3
   store i8 %288, ptr %289, align 1, !tbaa !4
-  %290 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i.i
+  %290 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i.i
   %291 = load i32, ptr %290, align 4, !tbaa !31
   %292 = zext i32 %291 to i64
   %293 = getelementptr inbounds nuw i8, ptr %.0362.i.ptr.i, i64 %292
   %294 = getelementptr inbounds nuw i8, ptr %.4.i.ptr.i, i64 4
   %295 = load i32, ptr %293, align 1
   store i32 %295, ptr %294, align 1
-  %296 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i.i
+  %296 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i.i
   %297 = load i32, ptr %296, align 4, !tbaa !31
   %298 = sext i32 %297 to i64
   %299 = sub nsw i64 0, %298
@@ -19045,14 +19045,14 @@ read_variable_length.exit20.thread84.i:           ; preds = %read_variable_lengt
   %454 = load i8, ptr %453, align 1, !tbaa !4
   %455 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3
   store i8 %454, ptr %455, align 1, !tbaa !4
-  %456 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %393
+  %456 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %393
   %457 = load i32, ptr %456, align 4, !tbaa !31
   %458 = zext i32 %457 to i64
   %459 = getelementptr inbounds nuw i8, ptr %396, i64 %458
   %460 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   %461 = load i32, ptr %459, align 1
   store i32 %461, ptr %460, align 1
-  %462 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %393
+  %462 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %393
   %463 = load i32, ptr %462, align 4, !tbaa !31
   %464 = sext i32 %463 to i64
   %465 = sub nsw i64 0, %464
@@ -19405,14 +19405,14 @@ read_variable_length.exit29.i:                    ; preds = %580, %575
   %622 = load i8, ptr %621, align 1, !tbaa !4
   %623 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 3
   store i8 %622, ptr %623, align 1, !tbaa !4
-  %624 = getelementptr inbounds nuw [8 x i32], ptr @inc32table, i64 0, i64 %.0369.i.i38
+  %624 = getelementptr inbounds nuw i32, ptr @inc32table, i64 %.0369.i.i38
   %625 = load i32, ptr %624, align 4, !tbaa !31
   %626 = zext i32 %625 to i64
   %627 = getelementptr inbounds nuw i8, ptr %.0362.i.i, i64 %626
   %628 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 4
   %629 = load i32, ptr %627, align 1
   store i32 %629, ptr %628, align 1
-  %630 = getelementptr inbounds nuw [8 x i32], ptr @dec64table, i64 0, i64 %.0369.i.i38
+  %630 = getelementptr inbounds nuw i32, ptr @dec64table, i64 %.0369.i.i38
   %631 = load i32, ptr %630, align 4, !tbaa !31
   %632 = sext i32 %631 to i64
   %633 = sub nsw i64 0, %632

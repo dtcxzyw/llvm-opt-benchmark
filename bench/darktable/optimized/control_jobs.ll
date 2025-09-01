@@ -780,269 +780,269 @@ _imageio_dng_make_tag.exit99.i.i:                 ; preds = %_imageio_dng_make_t
   %231 = fcmp ueq float %230, 0x7FF0000000000000
   br i1 %231, label %_imageio_dng_write_buf.exit.thread.i100.i.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %_imageio_dng_make_tag.exit99.i.i, %234
-  %indvars.iv162.i.i = phi i64 [ %indvars.iv.next163.i.i, %234 ], [ 0, %_imageio_dng_make_tag.exit99.i.i ]
+.preheader.i.i:                                   ; preds = %_imageio_dng_make_tag.exit99.i.i, %233
+  %indvars.iv162.i.i = phi i64 [ %indvars.iv.next163.i.i, %233 ], [ 0, %_imageio_dng_make_tag.exit99.i.i ]
   %232 = getelementptr inbounds nuw [3 x float], ptr %88, i64 %indvars.iv162.i.i
-  %233 = mul nuw nsw i64 %indvars.iv162.i.i, 3
-  br label %235
+  %.idx.i.i = mul nuw nsw i64 %indvars.iv162.i.i, 12
+  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  br label %234
 
-234:                                              ; preds = %235
+233:                                              ; preds = %234
   %indvars.iv.next163.i.i = add nuw nsw i64 %indvars.iv162.i.i, 1
   %exitcond165.not.i.i = icmp eq i64 %indvars.iv.next163.i.i, 3
   br i1 %exitcond165.not.i.i, label %_imageio_dng_write_buf.exit.thread.i100.i.i, label %.preheader.i.i
 
-235:                                              ; preds = %235, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %235 ]
-  %236 = getelementptr inbounds nuw [3 x float], ptr %232, i64 0, i64 %indvars.iv.i.i
-  %237 = load float, ptr %236, align 4, !tbaa !70
-  %238 = fmul reassoc nsz arcp contract afn float %237, 1.000000e+04
-  %239 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %238)
-  %240 = fptosi float %239 to i32
-  %241 = add nuw nsw i64 %indvars.iv.i.i, %233
-  %242 = getelementptr inbounds nuw [9 x i32], ptr %3, i64 0, i64 %241
-  store i32 %240, ptr %242, align 4, !tbaa !68
+234:                                              ; preds = %234, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %234 ]
+  %235 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv.i.i
+  %236 = load float, ptr %235, align 4, !tbaa !70
+  %237 = fmul reassoc nsz arcp contract afn float %236, 1.000000e+04
+  %238 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %237)
+  %239 = fptosi float %238 to i32
+  %gep.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  store i32 %239, ptr %gep.i.i, align 4, !tbaa !68
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %234, label %235
+  br i1 %exitcond.not.i.i, label %233, label %234
 
-_imageio_dng_write_buf.exit.thread.i100.i.i:      ; preds = %234, %_imageio_dng_make_tag.exit99.i.i
-  %.0150155.i.i = phi i32 [ 1000000, %_imageio_dng_make_tag.exit99.i.i ], [ 10000, %234 ]
-  %243 = getelementptr inbounds nuw i8, ptr %2, i64 214
-  store i8 33, ptr %243, align 2, !tbaa !72
-  %244 = getelementptr inbounds nuw i8, ptr %2, i64 215
-  store i8 -58, ptr %244, align 1, !tbaa !72
-  %245 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  store i8 10, ptr %245, align 8, !tbaa !72
-  %246 = getelementptr inbounds nuw i8, ptr %2, i64 217
-  store i8 0, ptr %246, align 1, !tbaa !72
-  %247 = getelementptr inbounds nuw i8, ptr %2, i64 218
-  store i8 9, ptr %247, align 2, !tbaa !72
-  %248 = getelementptr inbounds nuw i8, ptr %2, i64 219
-  store i8 0, ptr %248, align 1, !tbaa !72
-  %249 = getelementptr inbounds nuw i8, ptr %2, i64 220
-  store i8 0, ptr %249, align 4, !tbaa !72
-  %250 = getelementptr inbounds nuw i8, ptr %2, i64 221
-  store i8 0, ptr %250, align 1, !tbaa !72
-  %251 = getelementptr inbounds nuw i8, ptr %2, i64 222
-  %252 = trunc nuw nsw i32 %.084.i.i to i16
-  store i16 %252, ptr %251, align 2
-  %253 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store i8 0, ptr %253, align 16, !tbaa !72
-  %254 = getelementptr inbounds nuw i8, ptr %2, i64 225
-  store i8 0, ptr %254, align 1, !tbaa !72
-  %255 = trunc i32 %.0150155.i.i to i8
-  %256 = lshr i32 %.0150155.i.i, 8
-  %257 = trunc i32 %256 to i8
-  %258 = lshr i32 %.0150155.i.i, 16
-  %259 = trunc nuw nsw i32 %258 to i8
-  %260 = zext nneg i32 %.084.i.i to i64
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %260
+_imageio_dng_write_buf.exit.thread.i100.i.i:      ; preds = %233, %_imageio_dng_make_tag.exit99.i.i
+  %.0150155.i.i = phi i32 [ 1000000, %_imageio_dng_make_tag.exit99.i.i ], [ 10000, %233 ]
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 214
+  store i8 33, ptr %240, align 2, !tbaa !72
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 215
+  store i8 -58, ptr %241, align 1, !tbaa !72
+  %242 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  store i8 10, ptr %242, align 8, !tbaa !72
+  %243 = getelementptr inbounds nuw i8, ptr %2, i64 217
+  store i8 0, ptr %243, align 1, !tbaa !72
+  %244 = getelementptr inbounds nuw i8, ptr %2, i64 218
+  store i8 9, ptr %244, align 2, !tbaa !72
+  %245 = getelementptr inbounds nuw i8, ptr %2, i64 219
+  store i8 0, ptr %245, align 1, !tbaa !72
+  %246 = getelementptr inbounds nuw i8, ptr %2, i64 220
+  store i8 0, ptr %246, align 4, !tbaa !72
+  %247 = getelementptr inbounds nuw i8, ptr %2, i64 221
+  store i8 0, ptr %247, align 1, !tbaa !72
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 222
+  %249 = trunc nuw nsw i32 %.084.i.i to i16
+  store i16 %249, ptr %248, align 2
+  %250 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store i8 0, ptr %250, align 16, !tbaa !72
+  %251 = getelementptr inbounds nuw i8, ptr %2, i64 225
+  store i8 0, ptr %251, align 1, !tbaa !72
+  %252 = trunc i32 %.0150155.i.i to i8
+  %253 = lshr i32 %.0150155.i.i, 8
+  %254 = trunc i32 %253 to i8
+  %255 = lshr i32 %.0150155.i.i, 16
+  %256 = trunc nuw nsw i32 %255 to i8
+  %257 = zext nneg i32 %.084.i.i to i64
+  %invariant.gep174.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %257
   br label %_imageio_dng_write_buf.exit108.i.i
 
 _imageio_dng_write_buf.exit.thread.i104.i.i:      ; preds = %_imageio_dng_write_buf.exit108.i.i
-  %261 = add nuw nsw i32 %.084.i.i, 72
-  %262 = getelementptr inbounds nuw i8, ptr %2, i64 226
-  store i8 40, ptr %262, align 2, !tbaa !72
-  %263 = getelementptr inbounds nuw i8, ptr %2, i64 227
-  store i8 -58, ptr %263, align 1, !tbaa !72
-  %264 = getelementptr inbounds nuw i8, ptr %2, i64 228
-  store i8 5, ptr %264, align 4, !tbaa !72
-  %265 = getelementptr inbounds nuw i8, ptr %2, i64 229
-  store i8 0, ptr %265, align 1, !tbaa !72
-  %266 = getelementptr inbounds nuw i8, ptr %2, i64 230
-  store i8 3, ptr %266, align 2, !tbaa !72
-  %267 = getelementptr inbounds nuw i8, ptr %2, i64 231
-  store i8 0, ptr %267, align 1, !tbaa !72
-  %268 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store i8 0, ptr %268, align 8, !tbaa !72
-  %269 = getelementptr inbounds nuw i8, ptr %2, i64 233
-  store i8 0, ptr %269, align 1, !tbaa !72
-  %270 = getelementptr inbounds nuw i8, ptr %2, i64 234
-  %271 = trunc nuw nsw i32 %261 to i16
-  store i16 %271, ptr %270, align 2
-  %272 = getelementptr inbounds nuw i8, ptr %2, i64 236
-  store i8 0, ptr %272, align 4, !tbaa !72
-  %273 = getelementptr inbounds nuw i8, ptr %2, i64 237
-  store i8 0, ptr %273, align 1, !tbaa !72
-  %274 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  %275 = zext nneg i32 %261 to i64
-  %276 = load float, ptr %274, align 4, !tbaa !70
-  %277 = fmul reassoc nsz arcp contract afn float %276, 1.000000e+06
-  %invariant.gep176.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %275
+  %258 = add nuw nsw i32 %.084.i.i, 72
+  %259 = getelementptr inbounds nuw i8, ptr %2, i64 226
+  store i8 40, ptr %259, align 2, !tbaa !72
+  %260 = getelementptr inbounds nuw i8, ptr %2, i64 227
+  store i8 -58, ptr %260, align 1, !tbaa !72
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 228
+  store i8 5, ptr %261, align 4, !tbaa !72
+  %262 = getelementptr inbounds nuw i8, ptr %2, i64 229
+  store i8 0, ptr %262, align 1, !tbaa !72
+  %263 = getelementptr inbounds nuw i8, ptr %2, i64 230
+  store i8 3, ptr %263, align 2, !tbaa !72
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 231
+  store i8 0, ptr %264, align 1, !tbaa !72
+  %265 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  store i8 0, ptr %265, align 8, !tbaa !72
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 233
+  store i8 0, ptr %266, align 1, !tbaa !72
+  %267 = getelementptr inbounds nuw i8, ptr %2, i64 234
+  %268 = trunc nuw nsw i32 %258 to i16
+  store i16 %268, ptr %267, align 2
+  %269 = getelementptr inbounds nuw i8, ptr %2, i64 236
+  store i8 0, ptr %269, align 4, !tbaa !72
+  %270 = getelementptr inbounds nuw i8, ptr %2, i64 237
+  store i8 0, ptr %270, align 1, !tbaa !72
+  %271 = getelementptr inbounds nuw i8, ptr %5, i64 100
+  %272 = zext nneg i32 %258 to i64
+  %273 = load float, ptr %271, align 4, !tbaa !70
+  %274 = fmul reassoc nsz arcp contract afn float %273, 1.000000e+06
+  %invariant.gep178.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %272
   br label %_imageio_dng_write_buf.exit114.i.i
 
 _imageio_dng_write_buf.exit108.i.i:               ; preds = %_imageio_dng_write_buf.exit108.i.i, %_imageio_dng_write_buf.exit.thread.i100.i.i
   %indvars.iv166.i.i = phi i64 [ 0, %_imageio_dng_write_buf.exit.thread.i100.i.i ], [ %indvars.iv.next167.i.i, %_imageio_dng_write_buf.exit108.i.i ]
-  %278 = shl nuw nsw i64 %indvars.iv166.i.i, 3
-  %279 = getelementptr inbounds nuw [9 x i32], ptr %3, i64 0, i64 %indvars.iv166.i.i
-  %280 = load i32, ptr %279, align 4, !tbaa !68
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %278
-  store i32 %280, ptr %gep.i.i, align 2
-  %281 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 4
-  store i8 %255, ptr %281, align 2, !tbaa !72
-  %282 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 5
-  store i8 %257, ptr %282, align 1, !tbaa !72
-  %283 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 6
-  store i8 %259, ptr %283, align 4, !tbaa !72
-  %284 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 7
-  store i8 0, ptr %284, align 1, !tbaa !72
+  %275 = shl nuw nsw i64 %indvars.iv166.i.i, 3
+  %276 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv166.i.i
+  %277 = load i32, ptr %276, align 4, !tbaa !68
+  %gep175.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep174.i.i, i64 %275
+  store i32 %277, ptr %gep175.i.i, align 2
+  %278 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 4
+  store i8 %252, ptr %278, align 2, !tbaa !72
+  %279 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 5
+  store i8 %254, ptr %279, align 1, !tbaa !72
+  %280 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 6
+  store i8 %256, ptr %280, align 4, !tbaa !72
+  %281 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 7
+  store i8 0, ptr %281, align 1, !tbaa !72
   %indvars.iv.next167.i.i = add nuw nsw i64 %indvars.iv166.i.i, 1
   %exitcond169.not.i.i = icmp eq i64 %indvars.iv.next167.i.i, 9
   br i1 %exitcond169.not.i.i, label %_imageio_dng_write_buf.exit.thread.i104.i.i, label %_imageio_dng_write_buf.exit108.i.i
 
 _imageio_dng_write_buf.exit.thread.i109.i.i:      ; preds = %_imageio_dng_write_buf.exit114.i.i
-  %285 = add nuw nsw i32 %.084.i.i, 96
-  %286 = getelementptr inbounds nuw i8, ptr %2, i64 238
-  store i8 90, ptr %286, align 2, !tbaa !72
-  %287 = getelementptr inbounds nuw i8, ptr %2, i64 239
-  store i8 -58, ptr %287, align 1, !tbaa !72
-  %288 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store i8 3, ptr %288, align 16, !tbaa !72
-  %289 = getelementptr inbounds nuw i8, ptr %2, i64 241
-  store i8 0, ptr %289, align 1, !tbaa !72
-  %290 = getelementptr inbounds nuw i8, ptr %2, i64 242
-  store i8 1, ptr %290, align 2, !tbaa !72
-  %291 = getelementptr inbounds nuw i8, ptr %2, i64 243
-  store i8 0, ptr %291, align 1, !tbaa !72
-  %292 = getelementptr inbounds nuw i8, ptr %2, i64 244
-  store i8 0, ptr %292, align 4, !tbaa !72
-  %293 = getelementptr inbounds nuw i8, ptr %2, i64 245
-  store i8 0, ptr %293, align 1, !tbaa !72
-  %294 = getelementptr inbounds nuw i8, ptr %2, i64 246
-  store i8 21, ptr %294, align 2, !tbaa !72
-  %295 = getelementptr inbounds nuw i8, ptr %2, i64 247
-  store i8 0, ptr %295, align 1, !tbaa !72
-  %296 = getelementptr inbounds nuw i8, ptr %2, i64 248
-  store i8 0, ptr %296, align 8, !tbaa !72
-  %297 = getelementptr inbounds nuw i8, ptr %2, i64 249
-  store i8 0, ptr %297, align 1, !tbaa !72
-  %298 = trunc nuw nsw i32 %285 to i16
-  store i16 %298, ptr %128, align 2
+  %282 = add nuw nsw i32 %.084.i.i, 96
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 238
+  store i8 90, ptr %283, align 2, !tbaa !72
+  %284 = getelementptr inbounds nuw i8, ptr %2, i64 239
+  store i8 -58, ptr %284, align 1, !tbaa !72
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store i8 3, ptr %285, align 16, !tbaa !72
+  %286 = getelementptr inbounds nuw i8, ptr %2, i64 241
+  store i8 0, ptr %286, align 1, !tbaa !72
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 242
+  store i8 1, ptr %287, align 2, !tbaa !72
+  %288 = getelementptr inbounds nuw i8, ptr %2, i64 243
+  store i8 0, ptr %288, align 1, !tbaa !72
+  %289 = getelementptr inbounds nuw i8, ptr %2, i64 244
+  store i8 0, ptr %289, align 4, !tbaa !72
+  %290 = getelementptr inbounds nuw i8, ptr %2, i64 245
+  store i8 0, ptr %290, align 1, !tbaa !72
+  %291 = getelementptr inbounds nuw i8, ptr %2, i64 246
+  store i8 21, ptr %291, align 2, !tbaa !72
+  %292 = getelementptr inbounds nuw i8, ptr %2, i64 247
+  store i8 0, ptr %292, align 1, !tbaa !72
+  %293 = getelementptr inbounds nuw i8, ptr %2, i64 248
+  store i8 0, ptr %293, align 8, !tbaa !72
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 249
+  store i8 0, ptr %294, align 1, !tbaa !72
+  %295 = trunc nuw nsw i32 %282 to i16
+  store i16 %295, ptr %128, align 2
   store i8 0, ptr %129, align 4, !tbaa !72
   store i8 0, ptr %130, align 1, !tbaa !72
-  %299 = load i8, ptr %94, align 8, !tbaa !72
-  %.not86.i.i = icmp eq i8 %299, 20
-  br i1 %.not86.i.i, label %310, label %.sink.split.i.i
+  %296 = load i8, ptr %94, align 8, !tbaa !72
+  %.not86.i.i = icmp eq i8 %296, 20
+  br i1 %.not86.i.i, label %307, label %.sink.split.i.i
 
 _imageio_dng_write_buf.exit114.i.i:               ; preds = %_imageio_dng_write_buf.exit114.i.i, %_imageio_dng_write_buf.exit.thread.i104.i.i
   %indvars.iv170.i.i = phi i64 [ 0, %_imageio_dng_write_buf.exit.thread.i104.i.i ], [ %indvars.iv.next171.i.i, %_imageio_dng_write_buf.exit114.i.i ]
-  %300 = shl nuw nsw i64 %indvars.iv170.i.i, 3
-  %301 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv170.i.i
-  %302 = load float, ptr %301, align 4, !tbaa !70
-  %303 = fdiv reassoc nsz arcp contract afn float %277, %302
-  %304 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %303)
-  %305 = fptosi float %304 to i32
-  %gep177.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep176.i.i, i64 %300
-  store i32 %305, ptr %gep177.i.i, align 2
-  %gep179.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %300
-  %306 = getelementptr inbounds nuw i8, ptr %gep179.i.i, i64 76
-  store i8 64, ptr %306, align 2, !tbaa !72
-  %307 = getelementptr inbounds nuw i8, ptr %gep179.i.i, i64 77
-  store i8 66, ptr %307, align 1, !tbaa !72
-  %308 = getelementptr inbounds nuw i8, ptr %gep179.i.i, i64 78
-  store i8 15, ptr %308, align 4, !tbaa !72
-  %309 = getelementptr inbounds nuw i8, ptr %gep179.i.i, i64 79
-  store i8 0, ptr %309, align 1, !tbaa !72
+  %297 = shl nuw nsw i64 %indvars.iv170.i.i, 3
+  %298 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv170.i.i
+  %299 = load float, ptr %298, align 4, !tbaa !70
+  %300 = fdiv reassoc nsz arcp contract afn float %274, %299
+  %301 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %300)
+  %302 = fptosi float %301 to i32
+  %gep179.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep178.i.i, i64 %297
+  store i32 %302, ptr %gep179.i.i, align 2
+  %gep181.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep174.i.i, i64 %297
+  %303 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 76
+  store i8 64, ptr %303, align 2, !tbaa !72
+  %304 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 77
+  store i8 66, ptr %304, align 1, !tbaa !72
+  %305 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 78
+  store i8 15, ptr %305, align 4, !tbaa !72
+  %306 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 79
+  store i8 0, ptr %306, align 1, !tbaa !72
   %indvars.iv.next171.i.i = add nuw nsw i64 %indvars.iv170.i.i, 1
   %exitcond173.not.i.i = icmp eq i64 %indvars.iv.next171.i.i, 3
   br i1 %exitcond173.not.i.i, label %_imageio_dng_write_buf.exit.thread.i109.i.i, label %_imageio_dng_write_buf.exit114.i.i
 
-310:                                              ; preds = %_imageio_dng_write_buf.exit.thread.i109.i.i
-  %311 = zext nneg i32 %285 to i64
-  %312 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %311, ptr noundef nonnull %89)
-  %313 = trunc i64 %312 to i32
-  %.not87.i.i = icmp eq i32 %285, %313
+307:                                              ; preds = %_imageio_dng_write_buf.exit.thread.i109.i.i
+  %308 = zext nneg i32 %282 to i64
+  %309 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %308, ptr noundef nonnull %89)
+  %310 = trunc i64 %309 to i32
+  %.not87.i.i = icmp eq i32 %282, %310
   br i1 %.not87.i.i, label %_imageio_dng_write_tiff_header.exit.i, label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %310, %_imageio_dng_write_buf.exit.thread.i109.i.i
-  %.str.70.sink.i.i = phi ptr [ @.str.68, %_imageio_dng_write_buf.exit.thread.i109.i.i ], [ @.str.70, %310 ]
+.sink.split.i.i:                                  ; preds = %307, %_imageio_dng_write_buf.exit.thread.i109.i.i
+  %.str.70.sink.i.i = phi ptr [ @.str.68, %_imageio_dng_write_buf.exit.thread.i109.i.i ], [ @.str.70, %307 ]
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.70.sink.i.i) #17
   br label %_imageio_dng_write_tiff_header.exit.i
 
-_imageio_dng_write_tiff_header.exit.i:            ; preds = %.sink.split.i.i, %310
+_imageio_dng_write_tiff_header.exit.i:            ; preds = %.sink.split.i.i, %307
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %314 = sext i32 %81 to i64
-  %315 = sext i32 %82 to i64
-  %316 = mul nsw i64 %315, %314
-  %317 = call i64 @fwrite(ptr noundef readonly %80, i64 noundef 4, i64 noundef %316, ptr noundef nonnull %89)
-  %318 = trunc i64 %317 to i32
-  %319 = mul nsw i32 %82, %81
-  %.not23.i = icmp eq i32 %319, %318
-  br i1 %.not23.i, label %321, label %320
+  %311 = sext i32 %81 to i64
+  %312 = sext i32 %82 to i64
+  %313 = mul nsw i64 %312, %311
+  %314 = call i64 @fwrite(ptr noundef readonly %80, i64 noundef 4, i64 noundef %313, ptr noundef nonnull %89)
+  %315 = trunc i64 %314 to i32
+  %316 = mul nsw i32 %82, %81
+  %.not23.i = icmp eq i32 %316, %315
+  br i1 %.not23.i, label %318, label %317
 
-320:                                              ; preds = %_imageio_dng_write_tiff_header.exit.i
+317:                                              ; preds = %_imageio_dng_write_tiff_header.exit.i
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.67, ptr noundef nonnull %9) #17
-  br label %321
+  br label %318
 
-321:                                              ; preds = %320, %_imageio_dng_write_tiff_header.exit.i
-  %322 = call i32 @fclose(ptr noundef nonnull %89)
+318:                                              ; preds = %317, %_imageio_dng_write_tiff_header.exit.i
+  %319 = call i32 @fclose(ptr noundef nonnull %89)
   %.not24.i = icmp eq ptr %83, null
-  br i1 %.not24.i, label %dt_imageio_write_dng.exit, label %323
+  br i1 %.not24.i, label %dt_imageio_write_dng.exit, label %320
 
-323:                                              ; preds = %321
-  %324 = call i32 @dt_exif_write_blob(ptr noundef nonnull %83, i32 noundef %52, ptr noundef nonnull %9, i32 noundef 0) #17
+320:                                              ; preds = %318
+  %321 = call i32 @dt_exif_write_blob(ptr noundef nonnull %83, i32 noundef %52, ptr noundef nonnull %9, i32 noundef 0) #17
   br label %dt_imageio_write_dng.exit
 
-dt_imageio_write_dng.exit:                        ; preds = %74, %321, %323
-  %325 = load ptr, ptr %8, align 8, !tbaa !67
-  call void @free(ptr noundef %325) #17
+dt_imageio_write_dng.exit:                        ; preds = %74, %318, %320
+  %322 = load ptr, ptr %8, align 8, !tbaa !67
+  call void @free(ptr noundef %322) #17
   call void @dt_control_job_set_progress(ptr noundef %0, double noundef 1.000000e+00) #17
-  br label %326
+  br label %323
 
-326:                                              ; preds = %326, %dt_imageio_write_dng.exit
-  %.1 = phi ptr [ %.041, %dt_imageio_write_dng.exit ], [ %331, %326 ]
-  %327 = load i8, ptr %.1, align 1, !tbaa !72
-  %328 = icmp ne i8 %327, 47
-  %329 = icmp ugt ptr %.1, %9
-  %330 = and i1 %329, %328
-  %331 = getelementptr inbounds i8, ptr %.1, i64 -1
-  br i1 %330, label %326, label %332
+323:                                              ; preds = %323, %dt_imageio_write_dng.exit
+  %.1 = phi ptr [ %.041, %dt_imageio_write_dng.exit ], [ %328, %323 ]
+  %324 = load i8, ptr %.1, align 1, !tbaa !72
+  %325 = icmp ne i8 %324, 47
+  %326 = icmp ugt ptr %.1, %9
+  %327 = and i1 %326, %325
+  %328 = getelementptr inbounds i8, ptr %.1, i64 -1
+  br i1 %327, label %323, label %329
 
-332:                                              ; preds = %326
-  %333 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #17
-  %334 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  call void (ptr, ...) @dt_control_log(ptr noundef %333, ptr noundef nonnull %334) #17
-  %335 = call noalias ptr @g_path_get_dirname(ptr noundef nonnull %9) #17
-  %336 = call i32 @dt_film_new(ptr noundef nonnull %11, ptr noundef %335) #17
-  %337 = call i32 @dt_image_import(i32 noundef %336, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #17
-  call void @g_free(ptr noundef %335) #17
-  %338 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
-  %339 = sext i32 %337 to i64
-  %340 = inttoptr i64 %339 to ptr
-  %341 = call ptr @g_list_prepend(ptr noundef null, ptr noundef %340) #17
-  call void @dt_collection_update_query(ptr noundef %338, i32 noundef 3, i32 noundef 43, ptr noundef %341) #17
-  %342 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %343 = and i32 %342, 1
-  %344 = icmp ne i32 %343, 0
-  %345 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %346 = icmp ne i32 %345, 0
-  %or.cond = select i1 %344, i1 %346, i1 false
-  br i1 %or.cond, label %347, label %351
+329:                                              ; preds = %323
+  %330 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #17
+  %331 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  call void (ptr, ...) @dt_control_log(ptr noundef %330, ptr noundef nonnull %331) #17
+  %332 = call noalias ptr @g_path_get_dirname(ptr noundef nonnull %9) #17
+  %333 = call i32 @dt_film_new(ptr noundef nonnull %11, ptr noundef %332) #17
+  %334 = call i32 @dt_image_import(i32 noundef %333, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #17
+  call void @g_free(ptr noundef %332) #17
+  %335 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
+  %336 = sext i32 %334 to i64
+  %337 = inttoptr i64 %336 to ptr
+  %338 = call ptr @g_list_prepend(ptr noundef null, ptr noundef %337) #17
+  call void @dt_collection_update_query(ptr noundef %335, i32 noundef 3, i32 noundef 43, ptr noundef %338) #17
+  %339 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
+  %340 = and i32 %339, 1
+  %341 = icmp ne i32 %340, 0
+  %342 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
+  %343 = icmp ne i32 %342, 0
+  %or.cond = select i1 %341, i1 %343, i1 false
+  br i1 %or.cond, label %344, label %348
 
-347:                                              ; preds = %332
-  %348 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %349 = and i32 %348, 1048576
-  %.not44 = icmp eq i32 %349, 0
-  br i1 %.not44, label %351, label %350
+344:                                              ; preds = %329
+  %345 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %346 = and i32 %345, 1048576
+  %.not44 = icmp eq i32 %346, 0
+  br i1 %.not44, label %348, label %347
 
-350:                                              ; preds = %347
+347:                                              ; preds = %344
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 695, ptr noundef nonnull @__FUNCTION__.dt_control_merge_hdr_job_run) #17
-  br label %351
+  br label %348
 
-351:                                              ; preds = %347, %350, %332
-  %352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %352, i32 noundef 15) #17
+348:                                              ; preds = %344, %347, %329
+  %349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %349, i32 noundef 15) #17
   call void (...) @dt_control_queue_redraw_center() #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %._crit_edge, %351
-  %353 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %354 = load ptr, ptr %353, align 16, !tbaa !73
-  call void @free(ptr noundef %354) #17
-  %355 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %356 = load ptr, ptr %355, align 8, !tbaa !66
-  call void @free(ptr noundef %356) #17
+.loopexit:                                        ; preds = %24, %._crit_edge, %348
+  %350 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %351 = load ptr, ptr %350, align 16, !tbaa !73
+  call void @free(ptr noundef %351) #17
+  %352 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %353 = load ptr, ptr %352, align 8, !tbaa !66
+  call void @free(ptr noundef %353) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4677,7 +4677,7 @@ define internal range(i32 0, 2) i32 @dt_control_merge_hdr_process(ptr noundef re
   %36 = srem i32 %35, 6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [6 x i8], ptr %30, i64 %37
-  %39 = getelementptr inbounds nuw [6 x [6 x i8]], ptr %33, i64 0, i64 %indvars.iv270
+  %39 = getelementptr inbounds nuw [6 x i8], ptr %33, i64 %indvars.iv270
   br label %63
 
 40:                                               ; preds = %62
@@ -4722,9 +4722,9 @@ define internal range(i32 0, 2) i32 @dt_control_merge_hdr_process(ptr noundef re
   %65 = add i32 %31, %64
   %66 = srem i32 %65, 6
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [6 x i8], ptr %38, i64 0, i64 %67
+  %68 = getelementptr inbounds i8, ptr %38, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !72
-  %70 = getelementptr inbounds nuw [6 x i8], ptr %39, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
   store i8 %69, ptr %70, align 1, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

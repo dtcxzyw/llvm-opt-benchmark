@@ -1104,7 +1104,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noun
 
 17:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [11 x %struct.unit_names], ptr @un, i64 0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw %struct.unit_names, ptr @un, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond, label %33, label %.preheader, !llvm.loop !15
@@ -1112,7 +1112,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noun
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader.preheader ]
   %20 = phi ptr [ %19, %17 ], [ @.str.18, %.preheader.preheader ]
-  %21 = phi ptr [ %18, %17 ], [ @un, %.preheader.preheader ]
+  %21 = getelementptr inbounds nuw %struct.unit_names, ptr @un, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64

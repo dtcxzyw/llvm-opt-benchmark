@@ -808,7 +808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %_Z
   store i64 0, ptr %248, align 8
   store i32 50397184, ptr %25, align 8, !tbaa !20
   store ptr %4, ptr %247, align 8, !tbaa !22
-  %334 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %24, i64 0, i64 %indvars.iv
+  %334 = getelementptr inbounds nuw %"class.cv::Point_.7", ptr %24, i64 %indvars.iv
   %335 = load float, ptr %334, align 8, !tbaa !52
   %336 = insertelement <4 x float> poison, float %335, i64 0
   %337 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %336)
@@ -822,7 +822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %_Z
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %342 = and i64 %indvars.iv.next, 3
-  %343 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %24, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw %"class.cv::Point_.7", ptr %24, i64 %342
   %344 = load float, ptr %343, align 8, !tbaa !52
   %345 = insertelement <4 x float> poison, float %344, i64 0
   %346 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %345)
@@ -920,7 +920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %_Z
   store i64 0, ptr %258, align 8
   store i32 50397184, ptr %29, align 8, !tbaa !20
   store ptr %4, ptr %257, align 8, !tbaa !22
-  %376 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %28, i64 0, i64 %indvars.iv204
+  %376 = getelementptr inbounds nuw %"class.cv::Point_.7", ptr %28, i64 %indvars.iv204
   %377 = load float, ptr %376, align 8, !tbaa !52
   %378 = insertelement <4 x float> poison, float %377, i64 0
   %379 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %378)
@@ -934,7 +934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %_Z
   %.sroa.0.0.insert.insert.i138 = or disjoint i64 %.sroa.2.0.insert.shift.i136, %.sroa.0.0.insert.ext.i137
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %384 = and i64 %indvars.iv.next205, 3
-  %385 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %28, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw %"class.cv::Point_.7", ptr %28, i64 %384
   %386 = load float, ptr %385, align 8, !tbaa !52
   %387 = insertelement <4 x float> poison, float %386, i64 0
   %388 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %387)

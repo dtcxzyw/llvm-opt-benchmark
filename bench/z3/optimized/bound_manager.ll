@@ -1988,7 +1988,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %27
 44:                                               ; preds = %42, %382
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %382 ]
   %.033130 = phi ptr [ null, %42 ], [ %.235.ph, %382 ]
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !40
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
@@ -3025,7 +3025,7 @@ define internal fastcc noundef i32 @_ZL9swap_decli(i32 noundef %0) unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL9swap_decli, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL9swap_decli, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 

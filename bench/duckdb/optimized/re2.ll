@@ -2172,7 +2172,7 @@ _ZN10duckdb_re211SparseArrayIiEC2Ei.exit:         ; preds = %15, %.lr.ph.i.i
   %35 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 false)
   %36 = sub nuw nsw i32 32, %35
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4, !tbaa !3

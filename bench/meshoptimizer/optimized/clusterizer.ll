@@ -46,7 +46,7 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   %17 = alloca i32, align 4
   %18 = alloca float, align 4
   %19 = icmp eq i64 %4, 0
-  br i1 %19, label %446, label %20
+  br i1 %19, label %445, label %20
 
 20:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -219,7 +219,7 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
 104:                                              ; preds = %.noexc183, %.noexc182, %106, %.noexc175, %.noexc, %27
   %105 = landingpad { ptr, i32 }
           cleanup
-  br label %445
+  br label %444
 
 106:                                              ; preds = %20
   %107 = invoke noundef ptr %23(i64 noundef %26)
@@ -344,11 +344,11 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   br i1 %exitcond72.not.i, label %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit, label %.lr.ph67.i, !llvm.loop !27
 
 _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit: ; preds = %102
-  %.pre234 = udiv i64 %4, 3
+  %.pre235 = udiv i64 %4, 3
   br label %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit
 
 _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit: ; preds = %.lr.ph67.i, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit, %.preheader.i181
-  %.pre-phi = phi i64 [ %.pre234, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %120, %.preheader.i181 ], [ %120, %.lr.ph67.i ]
+  %.pre-phi = phi i64 [ %.pre235, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %120, %.preheader.i181 ], [ %120, %.lr.ph67.i ]
   %166 = phi ptr [ %31, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %110, %.preheader.i181 ], [ %110, %.lr.ph67.i ]
   %167 = phi ptr [ %36, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %117, %.preheader.i181 ], [ %117, %.lr.ph67.i ]
   %168 = phi ptr [ %28, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %107, %.preheader.i181 ], [ %107, %.lr.ph67.i ]
@@ -502,24 +502,24 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
 278:                                              ; preds = %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit
   %279 = landingpad { ptr, i32 }
           cleanup
-  br label %445
+  br label %444
 
 280:                                              ; preds = %171
   %281 = landingpad { ptr, i32 }
           cleanup
-  br label %445
+  br label %444
 
 282:                                              ; preds = %_ZN7meshoptL20computeTriangleConesEPNS_4ConeEPKjmPKfmm.exit
   %283 = landingpad { ptr, i32 }
           cleanup
-  br label %445
+  br label %444
 
 .lr.ph:                                           ; preds = %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit, %.lr.ph
-  %.0143224 = phi i64 [ %286, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit ]
-  %284 = trunc i64 %.0143224 to i32
-  %285 = getelementptr inbounds nuw i32, ptr %271, i64 %.0143224
+  %.0143225 = phi i64 [ %286, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit ]
+  %284 = trunc i64 %.0143225 to i32
+  %285 = getelementptr inbounds nuw i32, ptr %271, i64 %.0143225
   store i32 %284, ptr %285, align 4, !tbaa !16
-  %286 = add nuw nsw i64 %.0143224, 1
+  %286 = add nuw nsw i64 %.0143225, 1
   %exitcond.not = icmp eq i64 %286, %.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
@@ -584,7 +584,7 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   store float %315, ptr %.sroa.16.0..sroa_idx, align 4, !tbaa !36, !alias.scope !39
   %316 = call fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshopt_MeshletPKNS_4ConeEPjPKjRKNS_18TriangleAdjacency2ES5_S8_PKhff(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %178, ptr noundef %168, ptr noundef %291, float noundef %266, float noundef %10)
   %317 = icmp eq i32 %316, -1
-  br i1 %317, label %.thread203, label %318
+  br i1 %317, label %.thread204, label %318
 
 318:                                              ; preds = %298
   %319 = mul i32 %316, 3
@@ -623,24 +623,24 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %352 = zext i32 %299 to i64
   %.not161 = icmp ugt i64 %9, %352
   %or.cond173 = select i1 %351, i1 %.not161, i1 false
-  br i1 %or.cond173, label %.thread207, label %353
+  br i1 %or.cond173, label %.thread208, label %353
 
 353:                                              ; preds = %318
   %354 = call fastcc noundef i32 @_ZN7meshoptL19getNeighborTriangleERK15meshopt_MeshletPKNS_4ConeEPjPKjRKNS_18TriangleAdjacency2ES5_S8_PKhff(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef null, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %178, ptr noundef %168, ptr noundef nonnull %291, float noundef %266, float noundef 0.000000e+00)
   %355 = icmp eq i32 %354, -1
-  br i1 %355, label %.thread203, label %.thread207
+  br i1 %355, label %.thread204, label %.thread208
 
 356:                                              ; preds = %._crit_edge
   %357 = landingpad { ptr, i32 }
           cleanup
-  br label %445
+  br label %444
 
 358:                                              ; preds = %287
   %359 = landingpad { ptr, i32 }
           cleanup
-  br label %445
+  br label %444
 
-.thread203:                                       ; preds = %298, %353
+.thread204:                                       ; preds = %298, %353
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float %304, ptr %16, align 4, !tbaa !28
   store float %305, ptr %296, align 4, !tbaa !28
@@ -655,11 +655,11 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %361 = icmp eq i32 %360, -1
-  br i1 %361, label %420, label %.thread207
+  br i1 %361, label %420, label %.thread208
 
-.thread207:                                       ; preds = %318, %353, %.thread203
-  %.1150209 = phi i32 [ %360, %.thread203 ], [ %354, %353 ], [ %316, %318 ]
-  %362 = mul i32 %.1150209, 3
+.thread208:                                       ; preds = %318, %353, %.thread204
+  %.1150210 = phi i32 [ %360, %.thread204 ], [ %354, %353 ], [ %316, %318 ]
+  %362 = mul i32 %.1150210, 3
   %363 = zext i32 %362 to i64
   %364 = getelementptr inbounds nuw i32, ptr %3, i64 %363
   %365 = load i32, ptr %364, align 4, !tbaa !16
@@ -674,23 +674,23 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %374 = call fastcc noundef zeroext i1 @_ZN7meshoptL13appendMeshletER15meshopt_MeshletjjjPhPS0_PjS2_mmm(ptr noundef nonnull align 4 dereferenceable(16) %14, i32 noundef %365, i32 noundef %369, i32 noundef %373, ptr noundef %291, ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.0145, i64 noundef %8, i64 noundef %9)
   br i1 %374, label %375, label %377
 
-375:                                              ; preds = %.thread207
+375:                                              ; preds = %.thread208
   %376 = add i64 %.0145, 1
   br label %377
 
-377:                                              ; preds = %375, %.thread207
-  %.sroa.0.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.0.0, %.thread207 ]
-  %.sroa.8.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.8.0, %.thread207 ]
-  %.sroa.10.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.10.0, %.thread207 ]
-  %.sroa.12.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.12.0, %.thread207 ]
-  %.sroa.14.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.14.0, %.thread207 ]
-  %.sroa.16.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.16.0, %.thread207 ]
-  %.2147 = phi i64 [ %376, %375 ], [ %.0145, %.thread207 ]
+377:                                              ; preds = %375, %.thread208
+  %.sroa.0.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.0.0, %.thread208 ]
+  %.sroa.8.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.8.0, %.thread208 ]
+  %.sroa.10.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.10.0, %.thread208 ]
+  %.sroa.12.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.12.0, %.thread208 ]
+  %.sroa.14.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.14.0, %.thread208 ]
+  %.sroa.16.2 = phi float [ 0.000000e+00, %375 ], [ %.sroa.16.0, %.thread208 ]
+  %.2147 = phi i64 [ %376, %375 ], [ %.0145, %.thread208 ]
   br label %378
 
 378:                                              ; preds = %377, %.loopexit
-  %.0144228 = phi i64 [ 0, %377 ], [ %398, %.loopexit ]
-  %gep = getelementptr inbounds nuw i32, ptr %364, i64 %.0144228
+  %.0144229 = phi i64 [ 0, %377 ], [ %398, %.loopexit ]
+  %gep = getelementptr inbounds nuw i32, ptr %364, i64 %.0144229
   %379 = load i32, ptr %gep, align 4, !tbaa !16
   %380 = zext i32 %379 to i64
   %381 = getelementptr inbounds nuw i32, ptr %166, i64 %380
@@ -700,18 +700,18 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %385 = getelementptr inbounds nuw i32, ptr %168, i64 %380
   %386 = load i32, ptr %385, align 4, !tbaa !16
   %387 = zext i32 %386 to i64
-  %.not229 = icmp eq i32 %386, 0
-  br i1 %.not229, label %.loopexit, label %.lr.ph227
+  %.not230 = icmp eq i32 %386, 0
+  br i1 %.not230, label %.loopexit, label %.lr.ph228
 
-.lr.ph227:                                        ; preds = %378, %.critedge
-  %.0133225 = phi i64 [ %397, %.critedge ], [ 0, %378 ]
-  %388 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133225
+.lr.ph228:                                        ; preds = %378, %.critedge
+  %.0133226 = phi i64 [ %397, %.critedge ], [ 0, %378 ]
+  %388 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133226
   %389 = load i32, ptr %388, align 4, !tbaa !16
-  %.not170 = icmp eq i32 %389, %.1150209
+  %.not170 = icmp eq i32 %389, %.1150210
   br i1 %.not170, label %390, label %.critedge
 
-390:                                              ; preds = %.lr.ph227
-  %391 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133225
+390:                                              ; preds = %.lr.ph228
+  %391 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133226
   %392 = getelementptr i32, ptr %384, i64 %387
   %393 = getelementptr i8, ptr %392, i64 -4
   %394 = load i32, ptr %393, align 4, !tbaa !16
@@ -721,18 +721,18 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   store i32 %396, ptr %385, align 4, !tbaa !16
   br label %.loopexit
 
-.critedge:                                        ; preds = %.lr.ph227
-  %397 = add nuw nsw i64 %.0133225, 1
-  %exitcond232.not = icmp eq i64 %397, %387
-  br i1 %exitcond232.not, label %.loopexit, label %.lr.ph227, !llvm.loop !45
+.critedge:                                        ; preds = %.lr.ph228
+  %397 = add nuw nsw i64 %.0133226, 1
+  %exitcond233.not = icmp eq i64 %397, %387
+  br i1 %exitcond233.not, label %.loopexit, label %.lr.ph228, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.critedge, %378, %390
-  %398 = add nuw nsw i64 %.0144228, 1
-  %exitcond233.not = icmp eq i64 %398, 3
-  br i1 %exitcond233.not, label %399, label %378, !llvm.loop !46
+  %398 = add nuw nsw i64 %.0144229, 1
+  %exitcond234.not = icmp eq i64 %398, 3
+  br i1 %exitcond234.not, label %399, label %378, !llvm.loop !46
 
 399:                                              ; preds = %.loopexit
-  %400 = zext i32 %.1150209 to i64
+  %400 = zext i32 %.1150210 to i64
   %401 = getelementptr inbounds nuw %"struct.meshopt::Cone", ptr %178, i64 %400
   %402 = load float, ptr %401, align 4, !tbaa !30
   %403 = fadd float %.sroa.0.2, %402
@@ -757,9 +757,9 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %.pre = load i32, ptr %294, align 4, !tbaa !47
   br label %298
 
-420:                                              ; preds = %.thread203
+420:                                              ; preds = %.thread204
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br i1 %300, label %435, label %421
+  br i1 %300, label %.lr.ph.i196.preheader, label %421
 
 421:                                              ; preds = %420
   %422 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -786,46 +786,47 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %421, %.lr.ph.p
   %433 = add i64 %.0145, 1
   %434 = getelementptr inbounds nuw %struct.meshopt_Meshlet, ptr %0, i64 %.0145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %434, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !49
-  br label %435
+  br label %.lr.ph.i196.preheader
 
-435:                                              ; preds = %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, %420
+.lr.ph.i196.preheader:                            ; preds = %420, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit
   %.3148 = phi i64 [ %433, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit ], [ %.0145, %420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %436
+  br label %.lr.ph.i196
 
-436:                                              ; preds = %437, %435
-  %.0.i = phi i64 [ 8, %435 ], [ %439, %437 ]
-  %.not.i196 = icmp eq i64 %.0.i, 0
-  br i1 %.not.i196, label %_ZN17meshopt_AllocatorD2Ev.exit, label %437
+.lr.ph.i196:                                      ; preds = %.lr.ph.i196.preheader, %439
+  %.04.i = phi i64 [ %440, %439 ], [ 8, %.lr.ph.i196.preheader ]
+  %435 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %436 = getelementptr ptr, ptr %12, i64 %.04.i
+  %437 = getelementptr i8, ptr %436, i64 -8
+  %438 = load ptr, ptr %437, align 8, !tbaa !4
+  invoke void %435(ptr noundef %438)
+          to label %439 unwind label %441
 
-437:                                              ; preds = %436
-  %438 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %439 = add i64 %.0.i, -1
-  %440 = getelementptr inbounds nuw [24 x ptr], ptr %12, i64 0, i64 %439
-  %441 = load ptr, ptr %440, align 8, !tbaa !4
-  invoke void %438(ptr noundef %441)
-          to label %436 unwind label %442, !llvm.loop !50
+439:                                              ; preds = %.lr.ph.i196
+  %440 = add i64 %.04.i, -1
+  %.not.i197 = icmp eq i64 %440, 0
+  br i1 %.not.i197, label %_ZN17meshopt_AllocatorD2Ev.exit, label %.lr.ph.i196, !llvm.loop !50
 
-442:                                              ; preds = %437
-  %443 = landingpad { ptr, i32 }
+441:                                              ; preds = %.lr.ph.i196
+  %442 = landingpad { ptr, i32 }
           catch ptr null
-  %444 = extractvalue { ptr, i32 } %443, 0
-  call void @__clang_call_terminate(ptr %444) #18
+  %443 = extractvalue { ptr, i32 } %442, 0
+  call void @__clang_call_terminate(ptr %443) #18
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %436
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %439
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %446
+  br label %445
 
-445:                                              ; preds = %278, %282, %358, %356, %280, %104
+444:                                              ; preds = %278, %282, %358, %356, %280, %104
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %279, %278 ], [ %281, %280 ], [ %283, %282 ], [ %357, %356 ], [ %359, %358 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %12) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn
 
-446:                                              ; preds = %11, %_ZN17meshopt_AllocatorD2Ev.exit
+445:                                              ; preds = %11, %_ZN17meshopt_AllocatorD2Ev.exit
   %.0 = phi i64 [ %.3148, %_ZN17meshopt_AllocatorD2Ev.exit ], [ 0, %11 ]
   ret i64 %.0
 }
@@ -893,7 +894,7 @@ _ZN7meshoptL15kdtreeBuildLeafEmPNS_6KDNodeEmPjm.exit: ; preds = %.lr.ph.i, %9
   %32 = select i1 %31, i32 1, i32 2
   %33 = select i1 %or.cond, i32 %32, i32 0
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw float, ptr %6, i64 %34
   %36 = load float, ptr %35, align 4, !tbaa !28
   %invariant.gep.i = getelementptr inbounds nuw float, ptr %2, i64 %34
   br label %37
@@ -948,13 +949,13 @@ _ZN7meshoptL15kdtreePartitionEPjmPKfmjf.exit:     ; preds = %37
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %60 ]
   %61 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !28
-  %63 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %64 = load float, ptr %63, align 4, !tbaa !28
   %65 = fsub float %62, %64
   %66 = tail call float @llvm.fmuladd.f32(float %65, float %.07494, float %64)
   store float %66, ptr %63, align 4, !tbaa !28
   %67 = fsub float %62, %66
-  %68 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !28
   %70 = tail call float @llvm.fmuladd.f32(float %65, float %67, float %69)
   store float %70, ptr %68, align 4, !tbaa !28
@@ -1530,29 +1531,31 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i64, ptr %2, align 8, !tbaa !8
-  br label %4
+  %.not3 = icmp eq i64 %3, 0
+  br i1 %.not3, label %._crit_edge, label %.lr.ph
 
-4:                                                ; preds = %6, %1
-  %.0 = phi i64 [ %3, %1 ], [ %8, %6 ]
-  %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %5, label %6
-
-5:                                                ; preds = %4
+._crit_edge:                                      ; preds = %8, %1
   ret void
 
-6:                                                ; preds = %4
-  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %8 = add i64 %.0, -1
-  %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !4
-  invoke void %7(ptr noundef %10)
-          to label %4 unwind label %11, !llvm.loop !50
+.lr.ph:                                           ; preds = %1, %8
+  %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
+  %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %6 = getelementptr i8, ptr %5, i64 -8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  invoke void %4(ptr noundef %7)
+          to label %8 unwind label %10
 
-11:                                               ; preds = %6
-  %12 = landingpad { ptr, i32 }
+8:                                                ; preds = %.lr.ph
+  %9 = add i64 %.04, -1
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+
+10:                                               ; preds = %.lr.ph
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #18
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #18
   unreachable
 }
 
@@ -1572,13 +1575,13 @@ define dso_local noundef i64 @meshopt_buildMeshletsScan(ptr noundef writeonly ca
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %.not35 = icmp eq i64 %4, 0
-  br i1 %.not35, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not35, label %.lr.ph.i, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !47
   %.not = icmp eq i32 %.pre, 0
-  br i1 %.not, label %._crit_edge.thread, label %27
+  br i1 %.not, label %.lr.ph.i, label %27
 
 14:                                               ; preds = %8
   %15 = landingpad { ptr, i32 }
@@ -1628,24 +1631,24 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %27, %.lr.ph.pr
   %39 = add i64 %24, 1
   %40 = getelementptr inbounds nuw %struct.meshopt_Meshlet, ptr %0, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !49
-  br label %._crit_edge.thread
+  br label %.lr.ph.i
 
-._crit_edge.thread:                               ; preds = %13, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, %._crit_edge
+.lr.ph.i:                                         ; preds = %13, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, %._crit_edge
   %.1 = phi i64 [ %39, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit ], [ %24, %._crit_edge ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %41 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
   %42 = load ptr, ptr %9, align 8, !tbaa !4
   invoke void %41(ptr noundef %42)
-          to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %43, !llvm.loop !50
+          to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %43
 
-43:                                               ; preds = %._crit_edge.thread
+43:                                               ; preds = %.lr.ph.i
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
   tail call void @__clang_call_terminate(ptr %45) #18
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge.thread
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.1
 }
@@ -1728,7 +1731,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 62:                                               ; preds = %.lr.ph
   %sqrt = tail call float @llvm.sqrt.f32(float %60)
   %63 = fdiv float %51, %sqrt
-  %64 = getelementptr inbounds nuw [512 x [3 x float]], ptr %7, i64 0, i64 %.0147
+  %64 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0147
   store float %63, ptr %64, align 4, !tbaa !28
   %65 = fdiv float %54, %sqrt
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -1736,7 +1739,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
   %67 = fdiv float %57, %sqrt
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store float %67, ptr %68, align 4, !tbaa !28
-  %69 = getelementptr inbounds nuw [512 x [3 x [3 x float]]], ptr %8, i64 0, i64 %.0147
+  %69 = getelementptr inbounds nuw [3 x [3 x float]], ptr %8, i64 %.0147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
@@ -1797,7 +1800,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 104:                                              ; preds = %76, %104
   %.0139149 = phi float [ 1.000000e+00, %76 ], [ %115, %104 ]
   %.0140148 = phi i64 [ 0, %76 ], [ %116, %104 ]
-  %105 = getelementptr inbounds nuw [512 x [3 x float]], ptr %7, i64 0, i64 %.0140148
+  %105 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0140148
   %106 = load float, ptr %105, align 4, !tbaa !28
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load float, ptr %107, align 4, !tbaa !28
@@ -1900,7 +1903,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
 .preheader:                                       ; preds = %97, %.preheader
   %.0141151 = phi float [ %209, %.preheader ], [ 0.000000e+00, %97 ]
   %.0142150 = phi i64 [ %210, %.preheader ], [ 0, %97 ]
-  %186 = getelementptr inbounds nuw [512 x [3 x [3 x float]]], ptr %8, i64 0, i64 %.0142150
+  %186 = getelementptr inbounds nuw [3 x [3 x float]], ptr %8, i64 %.0142150
   %187 = load float, ptr %186, align 4, !tbaa !28
   %188 = fsub float %78, %187
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 4
@@ -1909,7 +1912,7 @@ define dso_local void @meshopt_computeClusterBounds(ptr dead_on_unwind noalias w
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %193 = load float, ptr %192, align 4, !tbaa !28
   %194 = fsub float %82, %193
-  %195 = getelementptr inbounds nuw [512 x [3 x float]], ptr %7, i64 0, i64 %.0142150
+  %195 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %.0142150
   %196 = load float, ptr %195, align 4, !tbaa !28
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %198 = load float, ptr %197, align 4, !tbaa !28
@@ -1973,18 +1976,18 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !28
-  %12 = getelementptr inbounds nuw [3 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !69
   %14 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %13
-  %15 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !28
   %17 = fcmp olt float %11, %16
   %.0. = select i1 %17, i64 %.0109, i64 %13
   store i64 %.0., ptr %12, align 8, !tbaa !69
-  %18 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !69
   %20 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %19
-  %21 = getelementptr inbounds nuw [3 x float], ptr %20, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !28
   %23 = fcmp ogt float %11, %22
   %24 = select i1 %23, i64 %.0109, i64 %19
@@ -1995,10 +1998,10 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
 
 25:                                               ; preds = %.preheader
   %26 = zext nneg i32 %.1103 to i64
-  %27 = getelementptr inbounds nuw [3 x i64], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !69
   %29 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %28
-  %30 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %26
+  %30 = getelementptr inbounds nuw i64, ptr %5, i64 %26
   %31 = load i64, ptr %30, align 8, !tbaa !69
   %32 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %31
   %33 = load float, ptr %29, align 4, !tbaa !28
@@ -2025,10 +2028,10 @@ define internal fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr n
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.preheader ], [ 0, %.preheader.preheader ]
   %.098112 = phi float [ %.1, %.preheader ], [ 0.000000e+00, %.preheader.preheader ]
   %.0102111 = phi i32 [ %.1103, %.preheader ], [ 0, %.preheader.preheader ]
-  %51 = getelementptr inbounds nuw [3 x i64], ptr %4, i64 0, i64 %indvars.iv125
+  %51 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv125
   %52 = load i64, ptr %51, align 8, !tbaa !69
   %53 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %52
-  %54 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv125
+  %54 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv125
   %55 = load i64, ptr %54, align 8, !tbaa !69
   %56 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !28
@@ -2142,7 +2145,7 @@ define dso_local void @meshopt_computeMeshletBounds(ptr dead_on_unwind noalias w
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !16
-  %15 = getelementptr inbounds nuw [1536 x i32], ptr %8, i64 0, i64 %.012
+  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %.012
   store i32 %14, ptr %15, align 4, !tbaa !16
   %16 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %16, %9
@@ -2188,19 +2191,19 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
   %15 = getelementptr i8, ptr %11, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !42
   %17 = zext i8 %12 to i64
-  %18 = getelementptr inbounds nuw [255 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !42
   %20 = sub i8 %.095, %19
   %21 = icmp ult i8 %20, 3
   %22 = zext i1 %21 to i32
   %23 = zext i8 %14 to i64
-  %24 = getelementptr inbounds nuw [255 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !42
   %26 = sub i8 %.095, %25
   %27 = icmp ult i8 %26, 3
   %28 = zext i1 %27 to i32
   %29 = zext i8 %16 to i64
-  %30 = getelementptr inbounds nuw [255 x i8], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !42
   %32 = sub i8 %.095, %31
   %33 = icmp ult i8 %32, 3
@@ -2245,13 +2248,13 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
   store i8 %50, ptr %60, align 1, !tbaa !42
   %61 = add i8 %.095, 1
   %62 = zext i8 %46 to i64
-  %63 = getelementptr inbounds nuw [255 x i8], ptr %5, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 %62
   store i8 %61, ptr %63, align 1, !tbaa !42
   %64 = zext i8 %48 to i64
-  %65 = getelementptr inbounds nuw [255 x i8], ptr %5, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 %64
   store i8 %61, ptr %65, align 1, !tbaa !42
   %66 = zext i8 %50 to i64
-  %67 = getelementptr inbounds nuw [255 x i8], ptr %5, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 %66
   store i8 %61, ptr %67, align 1, !tbaa !42
   %exitcond101.not = icmp eq i64 %51, %2
   br i1 %exitcond101.not, label %.lr.ph.preheader, label %.preheader, !llvm.loop !75
@@ -2274,7 +2277,7 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 %.07897
   %70 = load i8, ptr %69, align 1, !tbaa !42
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [255 x i8], ptr %7, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !42
   %74 = icmp eq i8 %73, -1
   br i1 %74, label %75, label %81
@@ -2284,7 +2287,7 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
   store i8 %76, ptr %72, align 1, !tbaa !42
   %77 = getelementptr inbounds nuw i32, ptr %0, i64 %71
   %78 = load i32, ptr %77, align 4, !tbaa !16
-  %79 = getelementptr inbounds nuw [255 x i32], ptr %6, i64 0, i64 %.07996
+  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %.07996
   store i32 %78, ptr %79, align 4, !tbaa !16
   %80 = add i64 %.07996, 1
   br label %81

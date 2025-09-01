@@ -337,7 +337,7 @@ define internal fastcc void @evdev_pass_values(ptr noundef %0, ptr noundef reado
   br i1 %43, label %96, label %._crit_edge10
 
 ._crit_edge10:                                    ; preds = %37, %40
-  %44 = getelementptr [32 x i64], ptr @evdev_get_mask_cnt.counts, i64 0, i64 %.pre11
+  %44 = getelementptr i64, ptr @evdev_get_mask_cnt.counts, i64 %.pre11
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %thread-pre-split, label %47
@@ -348,7 +348,7 @@ define internal fastcc void @evdev_pass_values(ptr noundef %0, ptr noundef reado
   br i1 %49, label %50, label %thread-pre-split
 
 50:                                               ; preds = %47
-  %51 = getelementptr [32 x ptr], ptr %23, i64 0, i64 %.pre11
+  %51 = getelementptr ptr, ptr %23, i64 %.pre11
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %thread-pre-split, label %54
@@ -392,7 +392,7 @@ thread-pre-split:                                 ; preds = %._crit_edge10, %47,
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %67, 1
   %72 = zext i32 %67 to i64
-  %73 = getelementptr [0 x %struct.input_event], ptr %25, i64 0, i64 %72
+  %73 = getelementptr %struct.input_event, ptr %25, i64 %72
   store i64 %15, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %17, ptr %74, align 8
@@ -415,7 +415,7 @@ thread-pre-split:                                 ; preds = %._crit_edge10, %47,
   %85 = and i32 %84, %79
   store i32 %85, ptr %27, align 4
   %86 = zext i32 %85 to i64
-  %87 = getelementptr [0 x %struct.input_event], ptr %25, i64 0, i64 %86
+  %87 = getelementptr %struct.input_event, ptr %25, i64 %86
   store i64 %15, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %17, ptr %88, align 8
@@ -670,7 +670,7 @@ define internal i64 @evdev_read(ptr noundef readonly captures(none) %0, ptr noun
 58:                                               ; preds = %.preheader
   %59 = add i32 %56, 1
   %60 = zext i32 %56 to i64
-  %61 = getelementptr [0 x %struct.input_event], ptr %31, i64 0, i64 %60
+  %61 = getelementptr %struct.input_event, ptr %31, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef align 8 dereferenceable(24) %61, i64 24, i1 false)
   %62 = load i32, ptr %32, align 8
   %63 = add i32 %62, -1
@@ -1126,7 +1126,7 @@ define internal noundef i32 @evdev_release(ptr readnone captures(none) %0, ptr n
 
 32:                                               ; preds = %32, %24
   %33 = phi i64 [ 0, %24 ], [ %36, %32 ]
-  %34 = getelementptr [32 x ptr], ptr %31, i64 0, i64 %33
+  %34 = getelementptr ptr, ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8
   tail call void @bitmap_free(ptr noundef %35) #14
   %36 = add nuw nsw i64 %33, 1
@@ -1478,7 +1478,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
 
 167:                                              ; preds = %158
   %168 = zext nneg i32 %162 to i64
-  %169 = getelementptr [32 x i64], ptr @evdev_get_mask_cnt.counts, i64 0, i64 %168
+  %169 = getelementptr i64, ptr @evdev_get_mask_cnt.counts, i64 %168
   %170 = load i64, ptr %169, align 8
   %171 = add i64 %170, 63
   %172 = lshr i64 %171, 3
@@ -1490,7 +1490,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
 
 177:                                              ; preds = %167
   %178 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %179 = getelementptr [32 x ptr], ptr %178, i64 0, i64 %168
+  %179 = getelementptr ptr, ptr %178, i64 %168
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %184
@@ -1608,7 +1608,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
 
 256:                                              ; preds = %248
   %257 = zext nneg i32 %252 to i64
-  %258 = getelementptr [32 x i64], ptr @evdev_get_mask_cnt.counts, i64 0, i64 %257
+  %258 = getelementptr i64, ptr @evdev_get_mask_cnt.counts, i64 %257
   %259 = load i64, ptr %258, align 8
   %260 = icmp eq i64 %259, 0
   br i1 %260, label %.thread23, label %261
@@ -1663,7 +1663,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
   %292 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %293 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %292) #14
   %294 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %295 = getelementptr [32 x ptr], ptr %294, i64 0, i64 %257
+  %295 = getelementptr ptr, ptr %294, i64 %257
   %296 = load ptr, ptr %295, align 8
   store ptr %263, ptr %295, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %292, i64 noundef %293) #14
@@ -1723,7 +1723,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handl
   %330 = load i32, ptr %31, align 8
   %331 = add i32 %330, 1
   %332 = zext i32 %330 to i64
-  %333 = getelementptr [0 x %struct.input_event], ptr %329, i64 0, i64 %332
+  %333 = getelementptr %struct.input_event, ptr %329, i64 %332
   store i64 %326, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i64 %328, ptr %334, align 8
@@ -2122,7 +2122,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(pt
   %18 = getelementptr inbounds nuw i8, ptr %.320.val, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %.320.val, i64 4
   %20 = zext nneg i32 %14 to i64
-  %21 = getelementptr [14 x i32], ptr %18, i64 0, i64 %20
+  %21 = getelementptr i32, ptr %18, i64 %20
   %22 = shl nuw nsw i64 %17, 30
   %23 = add nsw i64 %22, -4294967296
   %24 = ashr i64 %23, 32
@@ -2138,7 +2138,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(pt
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %25
-  %33 = getelementptr [0 x %struct.input_mt_slot], ptr %21, i64 0, i64 %26
+  %33 = getelementptr %struct.input_mt_slot, ptr %21, i64 %26
   %34 = load i32, ptr %33, align 4
   %35 = add nuw nsw i64 %26, 1
   %36 = getelementptr i32, ptr %1, i64 %35
@@ -2194,7 +2194,7 @@ define internal fastcc range(i32 -14, 104) i32 @evdev_handle_get_val(ptr noundef
   %30 = phi i32 [ %22, %26 ], [ %59, %58 ]
   %31 = phi i32 [ %22, %26 ], [ %62, %58 ]
   %32 = zext i32 %31 to i64
-  %33 = getelementptr [0 x %struct.input_event], ptr %27, i64 0, i64 %32
+  %33 = getelementptr %struct.input_event, ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i16, ptr %34, align 8
   %36 = icmp eq i16 %35, 0
@@ -2223,7 +2223,7 @@ define internal fastcc range(i32 -14, 104) i32 @evdev_handle_get_val(ptr noundef
 
 50:                                               ; preds = %48
   %51 = zext i32 %30 to i64
-  %52 = getelementptr [0 x %struct.input_event], ptr %27, i64 0, i64 %51
+  %52 = getelementptr %struct.input_event, ptr %27, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %52, ptr noundef align 8 dereferenceable(24) %33, i64 24, i1 false)
   br label %53
 
@@ -2282,7 +2282,7 @@ define internal fastcc range(i32 -14, 104) i32 @evdev_handle_get_val(ptr noundef
   %92 = load i32, ptr %0, align 8
   %93 = add i32 %92, 1
   %94 = zext i32 %92 to i64
-  %95 = getelementptr [0 x %struct.input_event], ptr %91, i64 0, i64 %94
+  %95 = getelementptr %struct.input_event, ptr %91, i64 %94
   store i64 %88, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 %90, ptr %96, align 8

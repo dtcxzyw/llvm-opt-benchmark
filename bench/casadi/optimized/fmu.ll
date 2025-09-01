@@ -36396,7 +36396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit602: ; preds = %_Z
   br label %1559
 
 804:                                              ; preds = %711
-  %805 = getelementptr inbounds nuw [5 x ptr], ptr %43, i64 0, i64 %.03751075
+  %805 = getelementptr inbounds nuw ptr, ptr %43, i64 %.03751075
   store ptr %714, ptr %805, align 8, !tbaa !42
   %806 = icmp eq i64 %.03751075, %163
   br i1 %806, label %807, label %816

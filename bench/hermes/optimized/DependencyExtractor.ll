@@ -297,12 +297,12 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [6 x %"struct.hermes::(anonymous namespace)::ResourceCallee"], ptr @_ZN6hermes12_GLOBAL__N_116RESOURCE_CALLEESE, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::(anonymous namespace)::ResourceCallee", ptr @_ZN6hermes12_GLOBAL__N_116RESOURCE_CALLEESE, i64 %indvars.iv.i
   %callee.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
   %callee.sroa.2.0.callee16.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %callee.sroa.2.0.copyload.i = load i64, ptr %callee.sroa.2.0.callee16.sroa_idx.i, align 8
   %call19.i = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr %callee.sroa.0.0.copyload.i, i64 %callee.sroa.2.0.copyload.i)
-  %arrayidx21.i = getelementptr inbounds nuw [6 x ptr], ptr %resourceIdents_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx21.i = getelementptr inbounds nuw ptr, ptr %resourceIdents_.i, i64 %indvars.iv.i
   store ptr %call19.i, ptr %arrayidx21.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -10328,7 +10328,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw [6 x ptr], ptr %resourceIdents_, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %resourceIdents_, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   %cmp10 = icmp eq ptr %8, %1
   br i1 %cmp10, label %if.then11, label %for.cond
@@ -10377,7 +10377,7 @@ if.then15:                                        ; preds = %if.end.i27
   %agg.tmp16.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %agg.tmp16.sroa.2.0.call18.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %agg.tmp16.sroa.2.0.copyload = load i64, ptr %agg.tmp16.sroa.2.0.call18.sroa_idx, align 8
-  %kind = getelementptr inbounds nuw [6 x %"struct.hermes::(anonymous namespace)::ResourceCallee"], ptr @_ZN6hermes12_GLOBAL__N_116RESOURCE_CALLEESE, i64 0, i64 %indvars.iv, i32 1
+  %kind = getelementptr inbounds nuw %"struct.hermes::(anonymous namespace)::ResourceCallee", ptr @_ZN6hermes12_GLOBAL__N_116RESOURCE_CALLEESE, i64 %indvars.iv, i32 1
   %14 = load i32, ptr %kind, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp16.sroa.0.0.copyload, i64 %agg.tmp16.sroa.2.0.copyload, i32 noundef %14)
   br label %if.end58

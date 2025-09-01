@@ -54,7 +54,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB19_instNameIndexTableE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB19_instNameIndexTableE, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %64, label %11
@@ -205,7 +205,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
 
 19:                                               ; preds = %14
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [26 x %"struct.asmjit::_abi_1_10::x86::InstDB::InstNameIndex"], ptr @_ZN6asmjit9_abi_1_103x866InstDB13instNameIndexE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::InstNameIndex", ptr @_ZN6asmjit9_abi_1_103x866InstDB13instNameIndexE, i64 %20
   %22 = load i16, ptr %21, align 4, !tbaa !10
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %161, label %24, !prof !9
@@ -235,7 +235,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %41 = phi i64 [ %25, %31 ], [ %157, %155 ]
   %42 = lshr i64 %40, 1
   %43 = add i64 %42, %41
-  %44 = getelementptr inbounds [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB19_instNameIndexTableE, i64 0, i64 %43
+  %44 = getelementptr inbounds i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB19_instNameIndexTableE, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !4
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %95, label %47
@@ -440,12 +440,12 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 16:                                               ; preds = %5
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = lshr i32 %19, 14
   %21 = and i32 %20, 1023
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !23
   %25 = and i32 %14, 204800
   %26 = icmp eq i32 %25, 0
@@ -560,7 +560,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %91 = lshr i32 %84, 3
   %92 = and i32 %91, 31
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [32 x i64], ptr @_ZN6asmjit9_abi_1_103x86L21_x86OpFlagFromRegTypeE, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i64, ptr @_ZN6asmjit9_abi_1_103x86L21_x86OpFlagFromRegTypeE, i64 %93
   %95 = load i64, ptr %94, align 8, !tbaa !29
   %96 = shl nuw nsw i64 1, %93
   %97 = and i64 %96, 4261515015
@@ -578,7 +578,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br i1 %104, label %.loopexit28, label %105, !prof !9
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %93
+  %106 = getelementptr inbounds nuw i32, ptr %8, i64 %93
   %107 = load i32, ptr %106, align 4, !tbaa !4
   %108 = shl nuw i32 1, %101
   %109 = and i32 %107, %108
@@ -744,7 +744,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 208:                                              ; preds = %204
   %209 = zext nneg i8 %205 to i64
-  %210 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmNS0_15ValidationFlagsE, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmNS0_15ValidationFlagsE, i64 %209
   %211 = load i64, ptr %210, align 8
   br label %212
 
@@ -894,7 +894,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %286 = phi i32 [ -1, %113 ], [ %108, %111 ], [ %231, %251 ], [ %231, %249 ], [ %231, %247 ], [ %231, %245 ], [ %231, %243 ], [ %231, %241 ], [ %231, %239 ], [ %231, %237 ], [ %231, %235 ], [ %231, %233 ], [ 0, %257 ], [ 0, %259 ], [ 0, %261 ], [ 0, %263 ], [ 0, %265 ], [ 0, %267 ], [ 0, %269 ], [ 0, %274 ], [ 0, %277 ], [ 0, %279 ], [ 0, %77 ], [ 0, %271 ], [ 0, %281 ]
   %287 = phi ptr [ %81, %113 ], [ %81, %111 ], [ %83, %251 ], [ %83, %249 ], [ %83, %247 ], [ %83, %245 ], [ %83, %243 ], [ %83, %241 ], [ %83, %239 ], [ %83, %237 ], [ %83, %235 ], [ %83, %233 ], [ %81, %257 ], [ %81, %259 ], [ %81, %261 ], [ %81, %263 ], [ %81, %265 ], [ %81, %267 ], [ %81, %269 ], [ %81, %274 ], [ %81, %277 ], [ %81, %279 ], [ %81, %77 ], [ %81, %271 ], [ %81, %281 ]
   %288 = phi i32 [ %80, %113 ], [ %112, %111 ], [ %232, %251 ], [ %232, %249 ], [ %232, %247 ], [ %232, %245 ], [ %232, %243 ], [ %232, %241 ], [ %232, %239 ], [ %232, %237 ], [ %232, %235 ], [ %232, %233 ], [ %80, %257 ], [ %80, %259 ], [ %80, %261 ], [ %80, %263 ], [ %80, %265 ], [ %80, %267 ], [ %80, %269 ], [ %80, %274 ], [ %80, %277 ], [ %80, %279 ], [ %80, %77 ], [ %80, %271 ], [ %80, %281 ]
-  %289 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature"], ptr %6, i64 0, i64 %78
+  %289 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature", ptr %6, i64 %78
   %290 = and i64 %285, 72057594037927935
   %291 = and i32 %286, 255
   %292 = zext nneg i32 %291 to i64
@@ -988,11 +988,11 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %354 = phi i64 [ 0, %351 ], [ %392, %389 ]
   %355 = phi i32 [ 0, %351 ], [ %391, %389 ]
   %356 = phi i8 [ 0, %351 ], [ %390, %389 ]
-  %357 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature"], ptr %6, i64 0, i64 %354
-  %358 = getelementptr inbounds nuw [6 x i8], ptr %352, i64 0, i64 %354
+  %357 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature", ptr %6, i64 %354
+  %358 = getelementptr inbounds nuw i8, ptr %352, i64 %354
   %359 = load i8, ptr %358, align 1, !tbaa !8
   %360 = zext i8 %359 to i64
-  %361 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature"], ptr @_ZN6asmjit9_abi_1_103x866InstDB17_opSignatureTableE, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature", ptr @_ZN6asmjit9_abi_1_103x866InstDB17_opSignatureTableE, i64 %360
   %362 = load i64, ptr %357, align 8
   %363 = load i64, ptr %361, align 8
   %364 = and i64 %363, %362
@@ -1062,7 +1062,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 413:                                              ; preds = %421, %406
   %indvars.iv = phi i64 [ %indvars.iv.next, %421 ], [ %412, %406 ]
-  %414 = getelementptr inbounds nuw [6 x i8], ptr %404, i64 0, i64 %indvars.iv
+  %414 = getelementptr inbounds nuw i8, ptr %404, i64 %indvars.iv
   %415 = load i8, ptr %414, align 1, !tbaa !8
   %416 = zext i8 %415 to i64
   %417 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature", ptr @_ZN6asmjit9_abi_1_103x866InstDB17_opSignatureTableE, i64 %416
@@ -1309,33 +1309,33 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 14
   %13 = and i32 %12, 1023
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %14
   %16 = lshr i32 %11, 24
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::AdditionalInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB20_additionalInfoTableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::AdditionalInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB20_additionalInfoTableE, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !43
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::RWFlagsInfoTable"], ptr @_ZN6asmjit9_abi_1_103x866InstDB17_rwFlagsInfoTableE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::RWFlagsInfoTable", ptr @_ZN6asmjit9_abi_1_103x866InstDB17_rwFlagsInfoTableE, i64 %21
   %23 = icmp eq i64 %3, 2
   %24 = select i1 %23, ptr @_ZN6asmjit9_abi_1_103x866InstDB12rwInfoIndexAE, ptr @_ZN6asmjit9_abi_1_103x866InstDB12rwInfoIndexBE
   %25 = select i1 %23, ptr @_ZN6asmjit9_abi_1_103x866InstDB7rwInfoAE, ptr @_ZN6asmjit9_abi_1_103x866InstDB7rwInfoBE
-  %26 = getelementptr inbounds nuw [1663 x i8], ptr %24, i64 0, i64 %9
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %9
   %27 = load i8, ptr %26, align 1, !tbaa !8
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::RWInfo"], ptr %25, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::RWInfo", ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %31 = load i8, ptr %30, align 1, !tbaa !45
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::RWInfoRm"], ptr @_ZN6asmjit9_abi_1_103x866InstDB8rwInfoRmE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::RWInfoRm", ptr @_ZN6asmjit9_abi_1_103x866InstDB8rwInfoRmE, i64 %32
   %34 = load i8, ptr %18, align 1, !tbaa !47
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_instFlagsTableE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_instFlagsTableE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !48
   store i32 %37, ptr %4, align 8, !tbaa !50
   %38 = trunc i64 %3 to i8
@@ -1390,12 +1390,12 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %59 = phi i32 [ 0, %53 ], [ %186, %184 ]
   %60 = phi i32 [ 0, %53 ], [ %187, %184 ]
   %61 = phi i32 [ 0, %53 ], [ %185, %184 ]
-  %62 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::OpRWInfo"], ptr %54, i64 0, i64 %57
+  %62 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OpRWInfo", ptr %54, i64 %57
   %63 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %2, i64 %57
-  %64 = getelementptr inbounds nuw [6 x i8], ptr %55, i64 0, i64 %57
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 %57
   %65 = load i8, ptr %64, align 1, !tbaa !8
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::RWInfoOp"], ptr @_ZN6asmjit9_abi_1_103x866InstDB8rwInfoOpE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::RWInfoOp", ptr @_ZN6asmjit9_abi_1_103x866InstDB8rwInfoOpE, i64 %66
   %68 = load i32, ptr %63, align 4, !tbaa !26
   %69 = and i32 %68, 7
   %70 = shl nuw nsw i32 1, %69
@@ -1516,7 +1516,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %151 = lshr i32 %91, 8
   %152 = and i32 %151, 15
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [16 x i64], ptr @_ZN6asmjit9_abi_1_103x86L18rwRegGroupByteMaskE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i64, ptr @_ZN6asmjit9_abi_1_103x86L18rwRegGroupByteMaskE, i64 %153
   %155 = load i64, ptr %154, align 8, !tbaa !76
   %156 = and i64 %155, %150
   %157 = icmp eq i64 %156, 0
@@ -1710,7 +1710,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %276 = add nsw i32 %274, -1
   %277 = and i32 %276, %274
   %278 = zext nneg i32 %275 to i64
-  %279 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::OpRWInfo"], ptr %264, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OpRWInfo", ptr %264, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !75
   %281 = or i32 %280, 4
   store i32 %281, ptr %279, align 4, !tbaa !75
@@ -3716,11 +3716,11 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = lshr i32 %13, 24
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [0 x %"struct.asmjit::_abi_1_10::x86::InstDB::AdditionalInfo"], ptr @_ZN6asmjit9_abi_1_103x866InstDB20_additionalInfoTableE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::AdditionalInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB20_additionalInfoTableE, i64 %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !8
@@ -3734,7 +3734,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %24 = zext nneg i32 %23 to i64
   %25 = shl nuw i64 1, %24
   %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !76
   %29 = or i64 %28, %25
   store i64 %29, ptr %27, align 8, !tbaa !76
@@ -3750,7 +3750,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %37 = zext nneg i32 %36 to i64
   %38 = shl nuw i64 1, %37
   %39 = zext nneg i32 %35 to i64
-  %40 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %4, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !76
   %42 = or i64 %41, %38
   store i64 %42, ptr %40, align 8, !tbaa !76
@@ -3766,7 +3766,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %50 = zext nneg i32 %49 to i64
   %51 = shl nuw i64 1, %50
   %52 = zext nneg i32 %48 to i64
-  %53 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i64, ptr %4, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !76
   %55 = or i64 %54, %51
   store i64 %55, ptr %53, align 8, !tbaa !76
@@ -3782,7 +3782,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %63 = zext nneg i32 %62 to i64
   %64 = shl nuw i64 1, %63
   %65 = zext nneg i32 %61 to i64
-  %66 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %4, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !76
   %68 = or i64 %67, %64
   store i64 %68, ptr %66, align 8, !tbaa !76
@@ -3798,7 +3798,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw i64 1, %76
   %78 = zext nneg i32 %74 to i64
-  %79 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i64, ptr %4, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !76
   %81 = or i64 %80, %77
   store i64 %81, ptr %79, align 8, !tbaa !76
@@ -3814,7 +3814,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %89 = zext nneg i32 %88 to i64
   %90 = shl nuw i64 1, %89
   %91 = zext nneg i32 %87 to i64
-  %92 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %4, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !76
   %94 = or i64 %93, %90
   store i64 %94, ptr %92, align 8, !tbaa !76

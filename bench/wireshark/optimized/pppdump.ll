@@ -838,7 +838,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr noundef capture
   %69 = add nsw i32 %61, 1
   store i32 %69, ptr %12, align 4
   %70 = sext i32 %61 to i64
-  %71 = getelementptr [8192 x i8], ptr %13, i64 0, i64 %70
+  %71 = getelementptr i8, ptr %13, i64 %70
   store i8 %68, ptr %71, align 1
   br label %72
 

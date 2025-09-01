@@ -2448,7 +2448,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__mod_timer(ptr noundef %0, 
 26:                                               ; preds = %22
   %27 = and i32 %23, 262143
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %28
+  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = and i32 %23, 524288
   %32 = icmp eq i32 %31, 0
@@ -2554,7 +2554,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__mod_timer(ptr noundef %0, 
 88:                                               ; preds = %84
   %89 = and i32 %85, 262143
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %90
+  %91 = getelementptr i64, ptr @__per_cpu_offset, i64 %90
   %92 = load i64, ptr %91, align 8
   %93 = and i32 %85, 524288
   %94 = icmp eq i32 %93, 0
@@ -2720,7 +2720,7 @@ detach_if_pending.exit:                           ; preds = %124
 181:                                              ; preds = %178
   %182 = tail call i32 @get_nohz_timer_target() #16
   %183 = zext i32 %182 to i64
-  %184 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %183
+  %184 = getelementptr i64, ptr @__per_cpu_offset, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = and i32 %176, 524288
   %187 = icmp eq i32 %186, 0
@@ -2885,7 +2885,7 @@ define dso_local void @add_timer_on(ptr noundef %0, i32 noundef %1) #1 align 16 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   br label %14
 
@@ -2898,7 +2898,7 @@ define dso_local void @add_timer_on(ptr noundef %0, i32 noundef %1) #1 align 16 
 18:                                               ; preds = %14
   %19 = and i32 %15, 262143
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
+  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = and i32 %15, 524288
   %24 = icmp eq i32 %23, 0
@@ -3029,7 +3029,7 @@ define dso_local noundef range(i32 0, 2) i32 @timer_delete(ptr noundef %0) #1 al
 11:                                               ; preds = %7
   %12 = and i32 %8, 262143
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = and i32 %8, 524288
   %17 = icmp eq i32 %16, 0
@@ -3155,7 +3155,7 @@ define dso_local noundef range(i32 0, 2) i32 @timer_shutdown(ptr noundef %0) #1 
 9:                                                ; preds = %5
   %10 = and i32 %6, 262143
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = and i32 %6, 524288
   %15 = icmp eq i32 %14, 0
@@ -3277,7 +3277,7 @@ define dso_local noundef range(i32 -1, 2) i32 @try_to_del_timer_sync(ptr noundef
 7:                                                ; preds = %3
   %8 = and i32 %4, 262143
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = and i32 %4, 524288
   %13 = icmp eq i32 %12, 0
@@ -3431,7 +3431,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__timer_delete_sync(ptr noun
 20:                                               ; preds = %16
   %21 = and i32 %17, 262143
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
+  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = and i32 %17, 524288
   %26 = icmp eq i32 %25, 0
@@ -4074,13 +4074,13 @@ define dso_local range(i64 0, -9223372036854775808) i64 @schedule_timeout_idle(i
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, argmem: write)
 define dso_local noundef i32 @timers_prepare_cpu(i32 noundef %0) local_unnamed_addr #8 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   br label %4
 
 4:                                                ; preds = %4, %1
   %5 = phi i1 [ true, %1 ], [ false, %4 ]
   %6 = phi i64 [ 0, %1 ], [ 1, %4 ]
-  %7 = getelementptr [2 x %struct.timer_base], ptr @timer_bases, i64 0, i64 %6
+  %7 = getelementptr %struct.timer_base, ptr @timer_bases, i64 %6
   %8 = ptrtoint ptr %7 to i64
   %9 = load i64, ptr %3, align 8
   %10 = add i64 %9, %8
@@ -4106,13 +4106,13 @@ define dso_local noundef i32 @timers_prepare_cpu(i32 noundef %0) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @timers_dead_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   br label %4
 
 4:                                                ; preds = %227, %1
   %5 = phi i1 [ true, %1 ], [ false, %227 ]
   %6 = phi i64 [ 0, %1 ], [ 1, %227 ]
-  %7 = getelementptr [2 x %struct.timer_base], ptr @timer_bases, i64 0, i64 %6
+  %7 = getelementptr %struct.timer_base, ptr @timer_bases, i64 %6
   %8 = ptrtoint ptr %7 to i64
   %9 = load i64, ptr %3, align 8
   %10 = add i64 %9, %8
@@ -4539,13 +4539,13 @@ define internal fastcc void @init_timer_cpus() unnamed_addr #3 section ".init.te
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   br label %14
 
 14:                                               ; preds = %14, %11
   %15 = phi i1 [ true, %11 ], [ false, %14 ]
   %16 = phi i64 [ 0, %11 ], [ 1, %14 ]
-  %17 = getelementptr [2 x %struct.timer_base], ptr @timer_bases, i64 0, i64 %16
+  %17 = getelementptr %struct.timer_base, ptr @timer_bases, i64 %16
   %18 = ptrtoint ptr %17 to i64
   %19 = load i64, ptr %13, align 8
   %20 = add i64 %19, %18

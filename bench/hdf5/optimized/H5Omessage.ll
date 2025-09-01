@@ -252,7 +252,7 @@ define range(i32 -1, 1) i32 @H5O_msg_append_oh(ptr noundef %0, ptr noundef %1, i
 
 22:                                               ; preds = %19
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = tail call i32 @H5O__msg_append_real(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %3, i32 noundef %4, ptr noundef %5)
   %27 = icmp slt i32 %26, 0
@@ -330,7 +330,7 @@ define range(i32 -1, 1) i32 @H5O__msg_alloc(ptr noundef %0, ptr noundef %1, ptr 
 14:                                               ; preds = %6
   %15 = load i32, ptr %2, align 8, !tbaa !20
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !23
@@ -584,7 +584,7 @@ define range(i32 -1, 1) i32 @H5O_msg_write(ptr noundef %0, i32 noundef %1, i32 n
 
 21:                                               ; preds = %18
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = tail call ptr @H5O_pin(ptr noundef %0) #7
   %26 = icmp eq ptr %25, null
@@ -795,7 +795,7 @@ define range(i32 -1, 1) i32 @H5O_msg_write_oh(ptr noundef %0, ptr noundef %1, i3
 
 25:                                               ; preds = %22
   %26 = zext i32 %2 to i64
-  %27 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = call i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, i32 noundef %3, i32 noundef %4, ptr noundef %5)
   %30 = icmp slt i32 %29, 0
@@ -920,7 +920,7 @@ define ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 12:                                               ; preds = %4
   %13 = zext i32 %2 to i64
-  %14 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %17 = load i64, ptr %16, align 8, !tbaa !49
@@ -1135,7 +1135,7 @@ define range(i32 -1, 1) i32 @H5O_msg_reset(i32 noundef %0, ptr noundef %1) local
 
 18:                                               ; preds = %15
   %19 = zext i32 %0 to i64
-  %20 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %H5O__msg_reset_real.exit.thread, label %22, !prof !68
@@ -1183,7 +1183,7 @@ define noalias noundef ptr @H5O_msg_free(i32 noundef %0, ptr noundef %1) local_u
 
 9:                                                ; preds = %2
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %H5O_msg_free_real.exit, label %13, !prof !68
@@ -1384,7 +1384,7 @@ define ptr @H5O_msg_copy(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 19:                                               ; preds = %16
   %20 = zext i32 %0 to i64
-  %21 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !46
@@ -1441,7 +1441,7 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 18:                                               ; preds = %15
   %19 = zext i32 %1 to i64
-  %20 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = tail call ptr @H5O_protect(ptr noundef %0, i32 noundef 128, i1 noundef zeroext false) #7
   %23 = icmp eq ptr %22, null
@@ -1608,7 +1608,7 @@ define range(i32 -1, 2) i32 @H5O_msg_exists(ptr noundef %0, i32 noundef %1) loca
 
 35:                                               ; preds = %28
   %36 = zext i32 %1 to i64
-  %37 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 336
   %40 = load i64, ptr %39, align 8, !tbaa !49
@@ -1666,7 +1666,7 @@ define range(i32 0, 2) i32 @H5O_msg_exists_oh(ptr noundef readonly captures(none
 
 9:                                                ; preds = %2
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %14 = load i64, ptr %13, align 8, !tbaa !49
@@ -1735,7 +1735,7 @@ define range(i32 -1, 1) i32 @H5O_msg_remove(ptr noundef %0, i32 noundef %1, i32 
 
 20:                                               ; preds = %17
   %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = tail call ptr @H5O_pin(ptr noundef %0) #7
   %25 = icmp eq ptr %24, null
@@ -1884,7 +1884,7 @@ define range(i32 -1, 1) i32 @H5O_msg_remove_op(ptr noundef %0, i32 noundef %1, i
 
 22:                                               ; preds = %19
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = tail call ptr @H5O_pin(ptr noundef %0) #7
   %27 = icmp eq ptr %26, null
@@ -2262,7 +2262,7 @@ define i32 @H5O_msg_iterate(ptr noundef %0, i32 noundef %1, ptr noundef readonly
 
 20:                                               ; preds = %17
   %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = tail call ptr @H5O_protect(ptr noundef %0, i32 noundef 128, i1 noundef zeroext false) #7
   %25 = icmp eq ptr %24, null
@@ -2346,7 +2346,7 @@ define i64 @H5O_msg_raw_size(ptr noundef %0, i32 noundef %1, i1 noundef zeroext 
 
 20:                                               ; preds = %17
   %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !82
@@ -2405,7 +2405,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
 
 22:                                               ; preds = %19
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = tail call ptr @H5I_object(i64 noundef %1) #7
   %27 = icmp eq ptr %26, null
@@ -2445,7 +2445,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
   %49 = add i64 %42, %4
   %50 = call i32 @H5F_get_low_bound(ptr noundef %0) #7
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [7 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr @H5O_obj_ver_bounds, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !18
   %54 = and i32 %53, 255
   %55 = icmp eq i32 %54, 0
@@ -2454,7 +2454,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
 56:                                               ; preds = %48
   %57 = call i32 @H5F_get_low_bound(ptr noundef %0) #7
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [7 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %58
+  %59 = getelementptr inbounds i32, ptr @H5O_obj_ver_bounds, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !18
   %61 = and i32 %60, 255
   %62 = icmp eq i32 %61, 1
@@ -2471,7 +2471,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
   %68 = select i1 %67, i32 2, i32 1
   %69 = call i32 @H5F_get_low_bound(ptr noundef %0) #7
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [7 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %70
+  %71 = getelementptr inbounds i32, ptr @H5O_obj_ver_bounds, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !18
   %73 = and i32 %72, 255
   %74 = icmp samesign ugt i32 %68, %73
@@ -2484,7 +2484,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
 77:                                               ; preds = %65
   %78 = call i32 @H5F_get_low_bound(ptr noundef %0) #7
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [7 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %79
+  %80 = getelementptr inbounds i32, ptr @H5O_obj_ver_bounds, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !18
   %82 = and i32 %81, 255
   %83 = icmp eq i32 %82, 1
@@ -2556,7 +2556,7 @@ define i64 @H5O_msg_size_oh(ptr noundef %0, ptr noundef readonly captures(none) 
 
 21:                                               ; preds = %18
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8, !tbaa !82
@@ -2611,7 +2611,7 @@ define i32 @H5O_msg_can_share(i32 noundef %0, ptr noundef %1) local_unnamed_addr
 
 9:                                                ; preds = %2
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8, !tbaa !85
@@ -2645,7 +2645,7 @@ define range(i32 -1, 2) i32 @H5O_msg_can_share_in_ohdr(i32 noundef %0) local_unn
 
 8:                                                ; preds = %1
   %9 = zext i32 %0 to i64
-  %10 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !23
@@ -2670,7 +2670,7 @@ define range(i32 -1, 2) i32 @H5O_msg_is_shared(i32 noundef %0, ptr noundef reado
 
 9:                                                ; preds = %2
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !23
@@ -2728,7 +2728,7 @@ define range(i32 -1, 1) i32 @H5O_msg_set_share(i32 noundef %0, ptr noundef %1, p
 
 19:                                               ; preds = %16
   %20 = zext i32 %0 to i64
-  %21 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !86
@@ -2823,7 +2823,7 @@ define range(i32 -1, 1) i32 @H5O_msg_get_crt_index(i32 noundef %0, ptr noundef %
 
 19:                                               ; preds = %16
   %20 = zext i32 %0 to i64
-  %21 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8, !tbaa !27
@@ -2888,7 +2888,7 @@ define range(i32 -1, 1) i32 @H5O_msg_encode(ptr noundef %0, i32 noundef %1, i1 n
 
 21:                                               ; preds = %18
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !87
@@ -2948,7 +2948,7 @@ define ptr @H5O_msg_decode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
 
 22:                                               ; preds = %19
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !56
@@ -3036,7 +3036,7 @@ define range(i32 -1, 1) i32 @H5O_msg_delete(ptr noundef %0, ptr noundef %1, i32 
 
 20:                                               ; preds = %17
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load ptr, ptr %24, align 8, !tbaa !89
@@ -3472,7 +3472,7 @@ define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, p
 
 19:                                               ; preds = %16
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = tail call ptr @H5O_protect(ptr noundef %0, i32 noundef 128, i1 noundef zeroext false) #7
   %24 = icmp eq ptr %23, null

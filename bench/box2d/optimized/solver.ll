@@ -214,7 +214,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 95:                                               ; preds = %87
   %96 = sext i32 %.0676776 to i64
-  %97 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %96
+  %97 = getelementptr inbounds i32, ptr %4, i64 %96
   %98 = trunc nuw nsw i64 %indvars.iv918 to i32
   store i32 %98, ptr %97, align 4, !tbaa !100
   %99 = icmp sgt i32 %90, 0
@@ -222,10 +222,10 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %101 = ashr i32 %100, 2
   %102 = add nsw i32 %101, 1
   %103 = select i1 %99, i32 %102, i32 0
-  %104 = getelementptr inbounds [12 x i32], ptr %5, i64 0, i64 %96
+  %104 = getelementptr inbounds i32, ptr %5, i64 %96
   store i32 %103, ptr %104, align 4, !tbaa !100
   %105 = icmp sgt i32 %103, %72
-  %106 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %96
+  %106 = getelementptr inbounds i32, ptr %6, i64 %96
   br i1 %105, label %107, label %109
 
 107:                                              ; preds = %95
@@ -250,12 +250,12 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 116:                                              ; preds = %111, %115, %107
   %.sink = phi i32 [ %114, %111 ], [ 0, %115 ], [ %56, %107 ]
-  %117 = getelementptr inbounds [12 x i32], ptr %7, i64 0, i64 %96
+  %117 = getelementptr inbounds i32, ptr %7, i64 %96
   store i32 %.sink, ptr %117, align 4, !tbaa !100
-  %118 = getelementptr inbounds [12 x i32], ptr %8, i64 0, i64 %96
+  %118 = getelementptr inbounds i32, ptr %8, i64 %96
   store i32 %92, ptr %118, align 4, !tbaa !100
   %119 = icmp sgt i32 %92, %72
-  %120 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %96
+  %120 = getelementptr inbounds i32, ptr %9, i64 %96
   br i1 %119, label %121, label %123
 
 121:                                              ; preds = %116
@@ -280,7 +280,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 130:                                              ; preds = %125, %129, %121
   %.sink1120 = phi i32 [ %128, %125 ], [ 0, %129 ], [ %56, %121 ]
-  %131 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %96
+  %131 = getelementptr inbounds i32, ptr %10, i64 %96
   store i32 %.sink1120, ptr %131, align 4, !tbaa !100
   %132 = add i32 %.sink, %.0672778
   %133 = add i32 %132, %.sink1120
@@ -309,7 +309,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv934 = phi i64 [ 0, %.lr.ph792.preheader ], [ %indvars.iv.next935, %._crit_edge787 ]
   %.0681790 = phi i32 [ 0, %.lr.ph792.preheader ], [ %.1682, %._crit_edge787 ]
   %.0683789 = phi i32 [ 0, %.lr.ph792.preheader ], [ %185, %._crit_edge787 ]
-  %143 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %indvars.iv934
+  %143 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv934
   %144 = load i32, ptr %143, align 4, !tbaa !100
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds %struct.b2GraphColor, ptr %45, i64 %145
@@ -614,11 +614,11 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph817:                                        ; preds = %.lr.ph817.preheader, %._crit_edge813
   %indvars.iv965 = phi i64 [ 0, %.lr.ph817.preheader ], [ %indvars.iv.next966, %._crit_edge813 ]
   %.0699815 = phi ptr [ %211, %.lr.ph817.preheader ], [ %.2701, %._crit_edge813 ]
-  %289 = getelementptr inbounds nuw [12 x ptr], ptr %11, i64 0, i64 %indvars.iv965
+  %289 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv965
   store ptr %.0699815, ptr %289, align 8, !tbaa !125
-  %290 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv965
+  %290 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv965
   %291 = load i32, ptr %290, align 4, !tbaa !100
-  %292 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %indvars.iv965
+  %292 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv965
   %293 = load i32, ptr %292, align 4, !tbaa !100
   %294 = icmp sgt i32 %291, 0
   br i1 %294, label %.lr.ph808, label %._crit_edge809
@@ -645,7 +645,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond959.not, label %._crit_edge809.thread, label %296, !llvm.loop !126
 
 ._crit_edge809.thread:                            ; preds = %296
-  %303 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %indvars.iv965
+  %303 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv965
   %304 = load i32, ptr %303, align 4, !tbaa !100
   %305 = add nsw i32 %291, -1
   %306 = mul nsw i32 %305, %293
@@ -660,9 +660,9 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 ._crit_edge809:                                   ; preds = %.lr.ph817, %._crit_edge809.thread
   %.1700 = phi ptr [ %312, %._crit_edge809.thread ], [ %.0699815, %.lr.ph817 ]
-  %313 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %indvars.iv965
+  %313 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv965
   %314 = load i32, ptr %313, align 4, !tbaa !100
-  %315 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %indvars.iv965
+  %315 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv965
   %316 = load i32, ptr %315, align 4, !tbaa !100
   %317 = icmp sgt i32 %314, 0
   br i1 %317, label %.lr.ph812, label %._crit_edge813
@@ -689,7 +689,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond964.not, label %._crit_edge813.thread, label %319, !llvm.loop !127
 
 ._crit_edge813.thread:                            ; preds = %319
-  %326 = getelementptr inbounds nuw [12 x i32], ptr %5, i64 0, i64 %indvars.iv965
+  %326 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv965
   %327 = load i32, ptr %326, align 4, !tbaa !100
   %328 = add nsw i32 %314, -1
   %329 = mul nsw i32 %328, %316
@@ -716,18 +716,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv971 = phi i64 [ 0, %.lr.ph822.preheader ], [ %indvars.iv.next972, %.lr.ph822 ]
   %.0707820 = phi ptr [ %288, %.lr.ph822.preheader ], [ %349, %.lr.ph822 ]
   store i32 3, ptr %.0707820, align 8, !tbaa !119
-  %336 = getelementptr inbounds nuw [12 x ptr], ptr %11, i64 0, i64 %indvars.iv971
+  %336 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv971
   %337 = load ptr, ptr %336, align 8, !tbaa !125
   %338 = getelementptr inbounds nuw i8, ptr %.0707820, i64 8
   store ptr %337, ptr %338, align 8, !tbaa !122
-  %339 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv971
+  %339 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv971
   %340 = load i32, ptr %339, align 4, !tbaa !100
-  %341 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %indvars.iv971
+  %341 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv971
   %342 = load i32, ptr %341, align 4, !tbaa !100
   %343 = add nsw i32 %342, %340
   %344 = getelementptr inbounds nuw i8, ptr %.0707820, i64 16
   store i32 %343, ptr %344, align 8, !tbaa !123
-  %345 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %indvars.iv971
+  %345 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv971
   %346 = load i32, ptr %345, align 4, !tbaa !100
   %347 = getelementptr inbounds nuw i8, ptr %.0707820, i64 20
   store i32 %346, ptr %347, align 4, !tbaa !124
@@ -756,18 +756,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv977 = phi i64 [ 0, %.lr.ph825.preheader ], [ %indvars.iv.next978, %.lr.ph825 ]
   %.1708824 = phi ptr [ %349, %.lr.ph825.preheader ], [ %367, %.lr.ph825 ]
   store i32 4, ptr %.1708824, align 8, !tbaa !119
-  %354 = getelementptr inbounds nuw [12 x ptr], ptr %11, i64 0, i64 %indvars.iv977
+  %354 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv977
   %355 = load ptr, ptr %354, align 8, !tbaa !125
   %356 = getelementptr inbounds nuw i8, ptr %.1708824, i64 8
   store ptr %355, ptr %356, align 8, !tbaa !122
-  %357 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv977
+  %357 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv977
   %358 = load i32, ptr %357, align 4, !tbaa !100
-  %359 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %indvars.iv977
+  %359 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv977
   %360 = load i32, ptr %359, align 4, !tbaa !100
   %361 = add nsw i32 %360, %358
   %362 = getelementptr inbounds nuw i8, ptr %.1708824, i64 16
   store i32 %361, ptr %362, align 8, !tbaa !123
-  %363 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %indvars.iv977
+  %363 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv977
   %364 = load i32, ptr %363, align 4, !tbaa !100
   %365 = getelementptr inbounds nuw i8, ptr %.1708824, i64 20
   store i32 %364, ptr %365, align 4, !tbaa !124
@@ -800,18 +800,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.2709831 = phi ptr [ %.27098281086, %.lr.ph833.preheader ], [ %.2709, %.lr.ph833 ]
   %.1708.pn830 = phi ptr [ %367, %.lr.ph833.preheader ], [ %.2709831, %.lr.ph833 ]
   store i32 6, ptr %.2709831, align 8, !tbaa !119
-  %372 = getelementptr inbounds nuw [12 x ptr], ptr %11, i64 0, i64 %indvars.iv983
+  %372 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv983
   %373 = load ptr, ptr %372, align 8, !tbaa !125
   %374 = getelementptr inbounds nuw i8, ptr %.1708.pn830, i64 40
   store ptr %373, ptr %374, align 8, !tbaa !122
-  %375 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv983
+  %375 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv983
   %376 = load i32, ptr %375, align 4, !tbaa !100
-  %377 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %indvars.iv983
+  %377 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv983
   %378 = load i32, ptr %377, align 4, !tbaa !100
   %379 = add nsw i32 %378, %376
   %380 = getelementptr inbounds nuw i8, ptr %.1708.pn830, i64 48
   store i32 %379, ptr %380, align 8, !tbaa !123
-  %381 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %indvars.iv983
+  %381 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv983
   %382 = load i32, ptr %381, align 4, !tbaa !100
   %383 = getelementptr inbounds nuw i8, ptr %.1708.pn830, i64 52
   store i32 %382, ptr %383, align 4, !tbaa !124
@@ -873,18 +873,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv989 = phi i64 [ 0, %.lr.ph837.preheader ], [ %indvars.iv.next990, %.lr.ph837 ]
   %.3836 = phi ptr [ %.2709, %.lr.ph837.preheader ], [ %419, %.lr.ph837 ]
   store i32 7, ptr %.3836, align 8, !tbaa !119
-  %406 = getelementptr inbounds nuw [12 x ptr], ptr %11, i64 0, i64 %indvars.iv989
+  %406 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv989
   %407 = load ptr, ptr %406, align 8, !tbaa !125
   %408 = getelementptr inbounds nuw i8, ptr %.3836, i64 8
   store ptr %407, ptr %408, align 8, !tbaa !122
-  %409 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv989
+  %409 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv989
   %410 = load i32, ptr %409, align 4, !tbaa !100
-  %411 = getelementptr inbounds nuw [12 x i32], ptr %7, i64 0, i64 %indvars.iv989
+  %411 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv989
   %412 = load i32, ptr %411, align 4, !tbaa !100
   %413 = add nsw i32 %412, %410
   %414 = getelementptr inbounds nuw i8, ptr %.3836, i64 16
   store i32 %413, ptr %414, align 8, !tbaa !123
-  %415 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %indvars.iv989
+  %415 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv989
   %416 = load i32, ptr %415, align 4, !tbaa !100
   %417 = getelementptr inbounds nuw i8, ptr %.3836, i64 20
   store i32 %416, ptr %417, align 4, !tbaa !124
@@ -901,7 +901,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 420:                                              ; preds = %.lr.ph842, %420
   %indvars.iv995 = phi i64 [ 0, %.lr.ph842 ], [ %indvars.iv.next996, %420 ]
-  %421 = getelementptr inbounds nuw [64 x %struct.b2WorkerContext], ptr %12, i64 0, i64 %indvars.iv995
+  %421 = getelementptr inbounds nuw %struct.b2WorkerContext, ptr %12, i64 %indvars.iv995
   store ptr %1, ptr %421, align 8, !tbaa !142
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
   %423 = trunc nuw nsw i64 %indvars.iv995 to i32
@@ -964,7 +964,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 455:                                              ; preds = %.lr.ph846, %463
   %indvars.iv1000 = phi i64 [ 0, %.lr.ph846 ], [ %indvars.iv.next1001, %463 ]
-  %456 = getelementptr inbounds nuw [64 x %struct.b2WorkerContext], ptr %12, i64 0, i64 %indvars.iv1000, i32 2
+  %456 = getelementptr inbounds nuw %struct.b2WorkerContext, ptr %12, i64 %indvars.iv1000, i32 2
   %457 = load ptr, ptr %456, align 8, !tbaa !146
   %.not753 = icmp eq ptr %457, null
   br i1 %.not753, label %463, label %458

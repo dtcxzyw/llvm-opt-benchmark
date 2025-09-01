@@ -1291,7 +1291,7 @@ define internal void @init_globals() #0 {
 
 22:                                               ; preds = %4, %30
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %30 ]
-  %23 = getelementptr [29 x %struct._HF_OF_INTEREST_INFO], ptr @hf_of_interest, i64 0, i64 %indvars.iv
+  %23 = getelementptr %struct._HF_OF_INTEREST_INFO, ptr @hf_of_interest, i64 %indvars.iv
   %24 = load i32, ptr %23, align 16
   %.not26 = icmp eq i32 %24, -1
   br i1 %.not26, label %27, label %25
@@ -1322,7 +1322,7 @@ define internal void @init_globals() #0 {
   %34 = phi ptr [ %42, %._crit_edge ], [ %20, %14 ]
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %._crit_edge ], [ 0, %14 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = getelementptr [0 x %struct.range_admin_tag], ptr %35, i64 0, i64 %indvars.iv44
+  %36 = getelementptr %struct.range_admin_tag, ptr %35, i64 %indvars.iv44
   %37 = load i32, ptr %36, align 4
   %.idx24 = shl nuw nsw i64 %indvars.iv44, 3
   %38 = getelementptr i8, ptr %34, i64 8
@@ -1392,7 +1392,7 @@ define internal void @init_globals() #0 {
   %79 = phi ptr [ %87, %._crit_edge37 ], [ %31, %.preheader ]
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %._crit_edge37 ], [ 0, %.preheader ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %81 = getelementptr [0 x %struct.range_admin_tag], ptr %80, i64 0, i64 %indvars.iv47
+  %81 = getelementptr %struct.range_admin_tag, ptr %80, i64 %indvars.iv47
   %82 = load i32, ptr %81, align 4
   %.idx = shl nuw nsw i64 %indvars.iv47, 3
   %83 = getelementptr i8, ptr %79, i64 8
@@ -1465,7 +1465,7 @@ define hidden void @proto_reg_handoff_transum() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr [29 x %struct._HF_OF_INTEREST_INFO], ptr @hf_of_interest, i64 0, i64 %indvars.iv
+  %3 = getelementptr %struct._HF_OF_INTEREST_INFO, ptr @hf_of_interest, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @proto_registrar_get_id_byname(ptr noundef %5)

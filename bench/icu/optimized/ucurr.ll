@@ -2220,7 +2220,7 @@ define internal fastcc noundef ptr @_ZL13getCacheEntryPKcR10UErrorCode(ptr nound
 
 34:                                               ; preds = %2, %40
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %40 ]
-  %35 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !56
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %40, label %37
@@ -2237,7 +2237,7 @@ define internal fastcc noundef ptr @_ZL13getCacheEntryPKcR10UErrorCode(ptr nound
 
 41:                                               ; preds = %37
   %42 = and i64 %indvars.iv, 255
-  %43 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !56
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 188
   %46 = load i32, ptr %45, align 4, !tbaa !55
@@ -3731,7 +3731,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 
 501:                                              ; preds = %500, %507
   %indvars.iv240 = phi i64 [ 0, %500 ], [ %indvars.iv.next241, %507 ]
-  %502 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %indvars.iv240
+  %502 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %indvars.iv240
   %503 = load ptr, ptr %502, align 8, !tbaa !56
   %.not48 = icmp eq ptr %503, null
   br i1 %.not48, label %507, label %504
@@ -3749,7 +3749,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 .thread291:                                       ; preds = %507
   %508 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1, !tbaa !27
   %509 = zext nneg i8 %508 to i64
-  %510 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %509
   %511 = load ptr, ptr %510, align 8, !tbaa !56
   %.not49 = icmp eq ptr %511, null
   br i1 %.not49, label %518, label %512
@@ -3780,7 +3780,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 522:                                              ; preds = %518
   %523 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1, !tbaa !27
   %524 = zext nneg i8 %523 to i64
-  %525 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %524
+  %525 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %524
   store ptr %519, ptr %525, align 8, !tbaa !56
   %526 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %519, ptr noundef nonnull dereferenceable(1) %0) #20
   %527 = getelementptr inbounds nuw i8, ptr %519, i64 160
@@ -3859,8 +3859,8 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit: ; preds = %543, %534
 _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit61: ; preds = %552, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit
   call void @uprv_free_77(ptr noundef %.098)
   %sext = shl i64 %indvars.iv240, 56
-  %553 = ashr exact i64 %sext, 56
-  %554 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %553
+  %553 = ashr exact i64 %sext, 53
+  %554 = getelementptr inbounds i8, ptr @_ZL9currCache, i64 %553
   %555 = load ptr, ptr %554, align 8, !tbaa !56
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 188
   %557 = load i32, ptr %556, align 4, !tbaa !55
@@ -4556,7 +4556,7 @@ define double @ucurr_getRoundingIncrement_77(ptr noundef %0, ptr noundef nonnull
 11:                                               ; preds = %9
   %12 = uitofp nneg i32 %.019.i to double
   %13 = zext nneg i32 %.020.i to i64
-  %14 = getelementptr inbounds nuw [10 x i32], ptr @_ZL5POW10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @_ZL5POW10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = sitofp i32 %15 to double
   %17 = fdiv double %12, %16
@@ -4608,7 +4608,7 @@ define double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %0, i32 noundef
 15:                                               ; preds = %13
   %16 = uitofp nneg i32 %.019 to double
   %17 = zext nneg i32 %.020 to i64
-  %18 = getelementptr inbounds nuw [10 x i32], ptr @_ZL5POW10, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL5POW10, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = sitofp i32 %19 to double
   %21 = fdiv double %16, %20
@@ -6663,7 +6663,7 @@ _ZN4CReg7cleanupEv.exit.preheader:                ; preds = %.lr.ph.i, %0
 
 _ZN4CReg7cleanupEv.exit:                          ; preds = %_ZN4CReg7cleanupEv.exit.preheader, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %_ZN4CReg7cleanupEv.exit.preheader ]
-  %5 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !56
   %.not.i1 = icmp eq ptr %6, null
   br i1 %.not.i1, label %8, label %7
@@ -7952,7 +7952,7 @@ define internal noundef i32 @_ZL23ucurr_countCurrencyListP12UEnumerationP10UErro
 .split.us:                                        ; preds = %2, %.split.us
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.split.us ], [ 0, %2 ]
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %7 = getelementptr inbounds nuw [309 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv.next18
+  %7 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv.next18
   %8 = load ptr, ptr %7, align 16, !tbaa !119
   %.not.us = icmp eq ptr %8, null
   br i1 %.not.us, label %.split14.us.loopexit, label %.split.us, !llvm.loop !121
@@ -7967,18 +7967,17 @@ define internal noundef i32 @_ZL23ucurr_countCurrencyListP12UEnumerationP10UErro
 
 .split:                                           ; preds = %2, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %2 ]
-  %9 = phi ptr [ %15, %.split ], [ @_ZL13gCurrencyList, %2 ]
   %.0911 = phi i32 [ %spec.select, %.split ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !122
-  %12 = and i32 %11, %5
-  %13 = icmp eq i32 %12, %5
-  %14 = zext i1 %13 to i32
-  %spec.select = add nuw nsw i32 %.0911, %14
+  %9 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !122
+  %11 = and i32 %10, %5
+  %12 = icmp eq i32 %11, %5
+  %13 = zext i1 %12 to i32
+  %spec.select = add nuw nsw i32 %.0911, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw [309 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv.next
-  %16 = load ptr, ptr %15, align 16, !tbaa !119
-  %.not = icmp eq ptr %16, null
+  %14 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv.next
+  %15 = load ptr, ptr %14, align 16, !tbaa !119
+  %.not = icmp eq ptr %15, null
   br i1 %.not, label %.split14.us, label %.split, !llvm.loop !121
 }
 
@@ -8004,7 +8003,7 @@ define internal noundef ptr @_ZL22ucurr_nextCurrencyListP12UEnumerationPiP10UErr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %10, ptr %6, align 4, !tbaa !100
-  %11 = getelementptr inbounds nuw [309 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv
   %12 = load i32, ptr %5, align 4, !tbaa !98
   %13 = icmp eq i32 %12, 2147483647
   br i1 %13, label %19, label %14

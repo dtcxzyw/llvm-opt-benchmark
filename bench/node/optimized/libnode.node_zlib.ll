@@ -8863,7 +8863,7 @@ if.then:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.then
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
 
@@ -8910,18 +8910,18 @@ if.then11:                                        ; preds = %sw.epilog
   %this.val3 = load ptr, ptr %6, align 8
   %cmp.not.i4 = icmp eq ptr %this.val3, null
   %spec.select.i5 = select i1 %cmp.not.i4, ptr @.str.179, ptr %this.val3
-  %switch.tableidx26 = add i32 %5, 6
-  %7 = icmp ult i32 %switch.tableidx26, 9
-  br i1 %7, label %switch.lookup25, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
+  %switch.tableidx25 = add i32 %5, 6
+  %7 = icmp ult i32 %switch.tableidx25, 9
+  br i1 %7, label %switch.lookup26, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
-switch.lookup25:                                  ; preds = %if.then11
-  %8 = zext nneg i32 %switch.tableidx26 to i64
-  %switch.gep27 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %8
+switch.lookup26:                                  ; preds = %if.then11
+  %8 = zext nneg i32 %switch.tableidx25 to i64
+  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 %8
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18: ; preds = %if.then11, %switch.lookup25
-  %retval.0.i.i7 = phi ptr [ %switch.load28, %switch.lookup25 ], [ @.str.174, %if.then11 ]
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18: ; preds = %if.then11, %switch.lookup26
+  %retval.0.i.i7 = phi ptr [ %switch.load28, %switch.lookup26 ], [ @.str.174, %if.then11 ]
   store ptr %spec.select.i5, ptr %agg.result, align 8, !alias.scope !54
   %code3.i.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i.i7, ptr %code3.i.i8, align 8, !alias.scope !54
@@ -8980,18 +8980,18 @@ if.then18.i:                                      ; preds = %sw.epilog.i
   %this.val1.i = load ptr, ptr %13, align 8, !noalias !57
   %cmp.not.i.i = icmp eq ptr %this.val1.i, null
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.173, ptr %this.val1.i
-  %switch.tableidx30 = add i32 %12, 6
-  %14 = icmp ult i32 %switch.tableidx30, 9
-  br i1 %14, label %switch.lookup29, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
+  %switch.tableidx29 = add i32 %12, 6
+  %14 = icmp ult i32 %switch.tableidx29, 9
+  br i1 %14, label %switch.lookup30, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
 
-switch.lookup29:                                  ; preds = %if.then18.i
-  %15 = zext nneg i32 %switch.tableidx30 to i64
-  %switch.gep31 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %15
+switch.lookup30:                                  ; preds = %if.then18.i
+  %15 = zext nneg i32 %switch.tableidx29 to i64
+  %switch.gep31 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 %15
   %switch.load32 = load ptr, ptr %switch.gep31, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then18.i, %switch.lookup29
-  %retval.0.i.i.i = phi ptr [ %switch.load32, %switch.lookup29 ], [ @.str.174, %if.then18.i ]
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then18.i, %switch.lookup30
+  %retval.0.i.i.i = phi ptr [ %switch.load32, %switch.lookup30 ], [ @.str.174, %if.then18.i ]
   store ptr %spec.select.i.i, ptr %agg.result, align 8, !alias.scope !60
   %code3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i.i.i, ptr %code3.i.i.i, align 8, !alias.scope !60
@@ -9046,9 +9046,9 @@ if.then.i:                                        ; preds = %sw.bb.i
   %this.val7.i = load ptr, ptr %3, align 8, !noalias !63
   %cmp.not.i.i = icmp eq ptr %this.val7.i, null
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.183, ptr %this.val7.i
-  %switch.tableidx = add nsw i32 %0, 5
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv, i64 0, i64 %4
+  %4 = sext i32 %0 to i64
+  %5 = getelementptr ptr, ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv, i64 %4
+  %switch.gep = getelementptr i8, ptr %5, i64 40
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %spec.select.i.i, ptr %err, align 8, !alias.scope !66
   %code3.i.i.i = getelementptr inbounds nuw i8, ptr %err, i64 8
@@ -9059,12 +9059,12 @@ if.then.i:                                        ; preds = %sw.bb.i
 
 sw.bb4.i:                                         ; preds = %entry
   %dictionary_.i = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %5 = load ptr, ptr %dictionary_.i, align 8, !noalias !63
+  %6 = load ptr, ptr %dictionary_.i, align 8, !noalias !63
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 336
-  %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !63
-  %cmp.i.i.i = icmp eq ptr %5, %6
-  %7 = getelementptr inbounds nuw i8, ptr %this, i64 400
-  %this.val5.i = load ptr, ptr %7, align 8, !noalias !63
+  %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !63
+  %cmp.i.i.i = icmp eq ptr %6, %7
+  %8 = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %this.val5.i = load ptr, ptr %8, align 8, !noalias !63
   %cmp.not.i8.i = icmp eq ptr %this.val5.i, null
   %code3.i.i12.i = getelementptr inbounds nuw i8, ptr %err, i64 8
   %err4.i.i13.i = getelementptr inbounds nuw i8, ptr %err, i64 16
@@ -9085,17 +9085,17 @@ _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i: ; preds = %s
   br label %if.end
 
 sw.default.i:                                     ; preds = %entry
-  %8 = getelementptr inbounds nuw i8, ptr %this, i64 400
-  %this.val1.i = load ptr, ptr %8, align 8, !noalias !63
+  %9 = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %this.val1.i = load ptr, ptr %9, align 8, !noalias !63
   %cmp.not.i38.i = icmp eq ptr %this.val1.i, null
   %spec.select.i39.i = select i1 %cmp.not.i38.i, ptr @.str.186, ptr %this.val1.i
-  %9 = icmp ugt i32 %0, -7
-  br i1 %9, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
+  %10 = icmp ugt i32 %0, -7
+  br i1 %10, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 
 switch.lookup:                                    ; preds = %sw.default.i
-  %switch.tableidx5 = add nsw i32 %0, 6
-  %10 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %10
+  %11 = sext i32 %0 to i64
+  %12 = getelementptr ptr, ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 %11
+  %switch.gep6 = getelementptr i8, ptr %12, i64 48
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 

@@ -3222,7 +3222,7 @@ define internal fastcc range(i32 -22, 1) i32 @read_channels(ptr noundef %0, i32 
   br i1 %.not58, label %.thread.sink.split, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw [2 x i32], ptr %21, i64 0, i64 %16
+  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %16
   store i32 1, ptr %24, align 4, !tbaa !31
   br label %25
 
@@ -3251,7 +3251,7 @@ count_coefficients.exit:                          ; preds = %25, %25
   %34 = sext i32 %33 to i64
   %35 = call noalias ptr @av_calloc(i64 noundef %34, i64 noundef 8) #14
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %37 = getelementptr inbounds nuw [2 x ptr], ptr %36, i64 0, i64 %16
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %16
   store ptr %35, ptr %37, align 8, !tbaa !74
   %38 = load i32, ptr %24, align 4, !tbaa !31
   %39 = load i32, ptr %17, align 4, !tbaa !73
@@ -3261,7 +3261,7 @@ count_coefficients.exit:                          ; preds = %25, %25
   %42 = sext i32 %41 to i64
   %43 = call noalias ptr @av_calloc(i64 noundef %42, i64 noundef 8) #14
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %45 = getelementptr inbounds nuw [2 x ptr], ptr %44, i64 0, i64 %16
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %16
   store ptr %43, ptr %45, align 8, !tbaa !74
   %.not60 = icmp eq ptr %43, null
   br i1 %.not60, label %.thread.sink.split, label %46
@@ -3279,7 +3279,7 @@ count_coefficients.exit:                          ; preds = %25, %25
 
 52:                                               ; preds = %48
   %53 = zext nneg i32 %49 to i64
-  %54 = getelementptr inbounds nuw [5 x ptr], ptr @format, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @format, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

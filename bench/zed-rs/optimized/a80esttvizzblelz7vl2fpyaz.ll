@@ -49546,7 +49546,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %48, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19bd53d04c4d0385E.llvm.8822578354236523850.exit.i", label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds [0 x { ptr, [3 x i64] }], ptr %44, i64 0, i64 %.sroa.0.0.i.i.i
+  %50 = getelementptr inbounds { ptr, [3 x i64] }, ptr %44, i64 %.sroa.0.0.i.i.i
   %51 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hd5ce3e752b0c094dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %50)
           to label %47 unwind label %54, !noalias !10845
@@ -49562,7 +49562,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %52
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds [0 x { ptr, [3 x i64] }], ptr %44, i64 0, i64 %.sroa.0.1.i.i.i
+  %57 = getelementptr inbounds { ptr, [3 x i64] }, ptr %44, i64 %.sroa.0.1.i.i.i
   %58 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hd5ce3e752b0c094dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %57) #32
           to label %52 unwind label %59, !noalias !10845
@@ -136674,7 +136674,7 @@ _ZN4gpui4view7AnyView8downcast17hb44292137579b85cE.exit.thread.i: ; preds = %78,
   br i1 %119, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcd38c8061ceeb1c2E.llvm.8822578354236523850.exit.i", label %120
 
 120:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf0b90f3b4167f9e0E.exit.i.i.i"
-  %121 = getelementptr inbounds [0 x ptr], ptr %116, i64 0, i64 %.sroa.0.0.i.i.i
+  %121 = getelementptr inbounds ptr, ptr %116, i64 %.sroa.0.0.i.i.i
   %122 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %121)
           to label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf0b90f3b4167f9e0E.exit.i.i.i" unwind label %124, !noalias !28667
@@ -136690,7 +136690,7 @@ _ZN4gpui4view7AnyView8downcast17hb44292137579b85cE.exit.thread.i: ; preds = %78,
   br label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf0b90f3b4167f9e0E.exit7.i.i.i"
 
 126:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf0b90f3b4167f9e0E.exit7.i.i.i"
-  %127 = getelementptr inbounds [0 x ptr], ptr %116, i64 0, i64 %.sroa.0.1.i.i.i
+  %127 = getelementptr inbounds ptr, ptr %116, i64 %.sroa.0.1.i.i.i
   %128 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %127)
           to label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf0b90f3b4167f9e0E.exit7.i.i.i" unwind label %129, !noalias !28667

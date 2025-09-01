@@ -152,7 +152,7 @@ define internal noundef i32 @filter_channels(ptr noundef %0, ptr noundef readonl
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %25 = load i32, ptr %19, align 8, !tbaa !50
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [4 x ptr], ptr %18, i64 0, i64 %26
+  %27 = getelementptr inbounds ptr, ptr %18, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = load ptr, ptr %20, align 8, !tbaa !52
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv

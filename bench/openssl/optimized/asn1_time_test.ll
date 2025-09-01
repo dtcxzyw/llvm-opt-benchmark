@@ -228,7 +228,7 @@ define internal range(i32 0, 2) i32 @test_table_neg_64bit(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_table_compare(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [16 x %struct.compare_testdata], ptr @tbl_compare_testdata, i64 0, i64 %2
+  %3 = getelementptr inbounds %struct.compare_testdata, ptr @tbl_compare_testdata, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = tail call i32 @ASN1_TIME_compare(ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -334,7 +334,7 @@ define internal range(i32 0, 2) i32 @test_time_dup() #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @convert_asn1_to_time_t(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [5 x %struct.TESTDATA_asn1_to_utc], ptr @asn1_to_utc, i64 0, i64 %2
+  %3 = getelementptr inbounds %struct.TESTDATA_asn1_to_utc, ptr @asn1_to_utc, i64 %2
   %4 = load ptr, ptr %3, align 16, !tbaa !14
   %5 = tail call i64 @test_asn1_string_to_time_t(ptr noundef %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8

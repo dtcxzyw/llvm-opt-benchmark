@@ -3925,7 +3925,7 @@ define noundef nonnull ptr @grpc_call_error_to_string(i32 noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.grpc_call_error_to_string, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.grpc_call_error_to_string, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

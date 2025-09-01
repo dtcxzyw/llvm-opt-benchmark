@@ -107,7 +107,7 @@ define dso_local ptr @select_plugin_id_to_string(i32 noundef %0) local_unnamed_a
 3:                                                ; preds = %1, %2
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %2 ]
-  %5 = getelementptr inbounds nuw [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %2
@@ -138,7 +138,7 @@ define dso_local i32 @select_string_to_plugin_id(ptr noundef %0) local_unnamed_a
 3:                                                ; preds = %1, %2
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %2 ]
-  %5 = getelementptr inbounds nuw [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef %7) #15
@@ -1110,7 +1110,7 @@ select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %11
 select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %21
   %22 = phi i1 [ false, %21 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
   %indvars.iv.i24 = phi i64 [ 1, %21 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %23 = getelementptr inbounds nuw [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i24
+  %23 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv.i24
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %12, %24
   br i1 %25, label %26, label %21
@@ -1539,7 +1539,7 @@ select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %11
 select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %21
   %22 = phi i1 [ false, %21 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
   %indvars.iv.i24 = phi i64 [ 1, %21 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %23 = getelementptr inbounds nuw [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i24
+  %23 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv.i24
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %12, %24
   br i1 %25, label %26, label %21

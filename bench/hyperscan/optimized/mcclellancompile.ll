@@ -5453,7 +5453,7 @@ _ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit.i: ; preds = %1290, %1
 1345:                                             ; preds = %1345, %1337
   %indvars.iv56.i = phi i64 [ 0, %1337 ], [ %indvars.iv.next57.i, %1345 ]
   %.09048.i = phi i32 [ 0, %1337 ], [ %spec.select129.i, %1345 ]
-  %1346 = getelementptr inbounds nuw [257 x i16], ptr %1341, i64 0, i64 %indvars.iv56.i
+  %1346 = getelementptr inbounds nuw i16, ptr %1341, i64 %indvars.iv56.i
   %1347 = load i16, ptr %1346, align 2
   %1348 = zext i16 %1347 to i64
   %1349 = getelementptr inbounds nuw i16, ptr %1342, i64 %1348
@@ -9083,7 +9083,7 @@ define hidden noundef range(i32 0, 257) i32 @_ZN3ue223mcclellanStartReachSizeEPK
 
 35:                                               ; preds = %12, %48
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %48 ]
-  %36 = getelementptr inbounds nuw [257 x i16], ptr %17, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i64
   %39 = getelementptr inbounds nuw i16, ptr %18, i64 %38
@@ -9095,7 +9095,7 @@ define hidden noundef range(i32 0, 257) i32 @_ZN3ue223mcclellanStartReachSizeEPK
   %42 = and i64 %indvars.iv, 63
   %43 = shl nuw i64 1, %42
   %44 = lshr i64 %indvars.iv, 6
-  %45 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %2, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = or i64 %46, %43
   store i64 %47, ptr %45, align 8
@@ -10870,7 +10870,7 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %_ZNK3ue212_GLOBAL__
 76:                                               ; preds = %9, %_ZN3ue29verify_u8ItEEhT_.exit
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %_ZN3ue29verify_u8ItEEhT_.exit ]
   %77 = load ptr, ptr %28, align 8
-  %78 = getelementptr inbounds nuw [257 x i16], ptr %77, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2
   %.not.i.i55 = icmp ult i16 %79, 256
   br i1 %.not.i.i55, label %_ZN3ue29verify_u8ItEEhT_.exit, label %80
@@ -10891,7 +10891,7 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %_ZNK3ue212_GLOBAL__
 
 _ZN3ue29verify_u8ItEEhT_.exit:                    ; preds = %76
   %85 = trunc nuw i16 %79 to i8
-  %86 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   store i8 %85, ptr %86, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -11531,7 +11531,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIjSaIjE
   %55 = load i32, ptr %.sroa.023.031, align 4
   %56 = add i32 %.01732, 1
   %57 = zext i32 %.01732 to i64
-  %58 = getelementptr inbounds nuw [0 x i32], ptr %41, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %41, i64 %57
   store i32 %55, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.023.031, i64 4
   %.not29 = icmp eq ptr %59, %40

@@ -40,7 +40,7 @@ define internal noundef i32 @mbc_case_fold(i32 %0, ptr noundef captures(none) %1
   %6 = load ptr, ptr %1, align 8, !tbaa !6
   %7 = load i8, ptr %6, align 1, !tbaa !11
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @EncISO_8859_5_ToLowerCaseTable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @EncISO_8859_5_ToLowerCaseTable, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !11
   store i8 %10, ptr %3, align 1, !tbaa !11
   %11 = load ptr, ptr %1, align 8, !tbaa !6
@@ -70,7 +70,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_5_CtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i16, ptr @EncISO_8859_5_CtypeTable, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !12
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
@@ -105,7 +105,7 @@ define internal i32 @case_map(ptr noundef captures(none) %0, ptr noundef capture
   store ptr %13, ptr %1, align 8, !tbaa !6
   %14 = load i8, ptr %12, align 1, !tbaa !11
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_5_CtypeTable, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i16, ptr @EncISO_8859_5_CtypeTable, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !12
   %18 = and i16 %17, 1024
   %.not = icmp eq i16 %18, 0
@@ -116,7 +116,7 @@ define internal i32 @case_map(ptr noundef captures(none) %0, ptr noundef capture
 
 20:                                               ; preds = %.lr.ph
   %21 = or i32 %.037, 262144
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @EncISO_8859_5_ToLowerCaseTable, i64 0, i64 %15
+  %22 = getelementptr inbounds nuw i8, ptr @EncISO_8859_5_ToLowerCaseTable, i64 %15
   %23 = load i8, ptr %22, align 1, !tbaa !11
   br label %34
 

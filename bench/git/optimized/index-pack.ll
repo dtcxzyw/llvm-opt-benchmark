@@ -1458,7 +1458,7 @@ use.exit118.i:                                    ; preds = %536
 
 569:                                              ; preds = %.preheader1156, %571
   %.0811.i.i.i.i = phi i64 [ %572, %571 ], [ 0, %.preheader1156 ]
-  %570 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %570 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %562, %570
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %571
 
@@ -3179,7 +3179,7 @@ sane_qsort.exit.i.i:                              ; preds = %1367, %._crit_edge.
   %1427 = trunc i64 %.0.in41.i.i.i to i8
   %1428 = or i8 %1427, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %1429 = getelementptr inbounds nuw [10 x i8], ptr %17, i64 0, i64 %indvars.iv.i.i.i
+  %1429 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i.i.i
   store i8 %1428, ptr %1429, align 1, !tbaa !23
   %1430 = and i64 %.03539.i.i.i, 127
   %1431 = lshr i64 %.03539.i.i.i, 7
@@ -3198,7 +3198,7 @@ sane_qsort.exit.i.i:                              ; preds = %1367, %._crit_edge.
   %1434 = getelementptr inbounds %struct.object_entry, ptr %1419, i64 %1433
   %1435 = add nuw nsw i32 %.034.lcssa.i.i.i, 1
   %1436 = zext nneg i32 %.034.lcssa.i.i.i to i64
-  %1437 = getelementptr inbounds nuw [10 x i8], ptr %17, i64 0, i64 %1436
+  %1437 = getelementptr inbounds nuw i8, ptr %17, i64 %1436
   store i8 %.0.i.i18.i, ptr %1437, align 1, !tbaa !23
   call void @crc32_begin(ptr noundef %1354) #24
   call void @hashwrite(ptr noundef %1354, ptr noundef nonnull %17, i32 noundef %1435) #24
@@ -3280,7 +3280,7 @@ write_compressed.exit.i.i.i:                      ; preds = %1451
 
 1474:                                             ; preds = %.preheader, %1476
   %.0811.i.i.i.i.i = phi i64 [ %1477, %1476 ], [ 0, %.preheader ]
-  %1475 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i.i
+  %1475 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %1466, %1475
   br i1 %.not.i.i.i.i.i, label %.split.loop.exit9.i.i.i.i.i, label %1476
 

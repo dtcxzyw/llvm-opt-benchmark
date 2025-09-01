@@ -96,7 +96,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %30 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %31 = load i32, ptr %.1105, align 4
   %32 = zext i32 %31 to i64
-  %33 = getelementptr [0 x %struct.range_admin_tag], ptr %30, i64 0, i64 %32
+  %33 = getelementptr %struct.range_admin_tag, ptr %30, i64 %32
   store i32 1, ptr %33, align 4
   br label %.preheader118.preheader
 
@@ -144,7 +144,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %53 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %54 = load i32, ptr %.1105, align 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr [0 x %struct.range_admin_tag], ptr %53, i64 0, i64 %55
+  %56 = getelementptr %struct.range_admin_tag, ptr %53, i64 %55
   store i32 %51, ptr %56, align 4
   br label %57
 
@@ -262,7 +262,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 96:                                               ; preds = %57, %57
   %97 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %98 = zext i32 %54 to i64
-  %99 = getelementptr [0 x %struct.range_admin_tag], ptr %97, i64 0, i64 %98
+  %99 = getelementptr %struct.range_admin_tag, ptr %97, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %100, ptr %101, align 4
@@ -286,7 +286,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 106:                                              ; preds = %.lr.ph, %114
   %107 = phi i32 [ %14, %.lr.ph ], [ %115, %114 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %108 = getelementptr [0 x %struct.range_admin_tag], ptr %17, i64 0, i64 %indvars.iv
+  %108 = getelementptr %struct.range_admin_tag, ptr %17, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %111 = load i32, ptr %110, align 4
@@ -346,7 +346,7 @@ define noundef zeroext i1 @value_is_in_range(ptr noundef readonly captures(addre
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr [0 x %struct.range_admin_tag], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr %struct.range_admin_tag, ptr %3, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %.not13 = icmp ult i32 %1, %6
   br i1 %.not13, label %10, label %7
@@ -389,7 +389,7 @@ define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(
 
 8:                                                ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %9 = getelementptr [0 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct.range_admin_tag, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not38 = icmp ult i32 %2, %10
   br i1 %.not38, label %14, label %11
@@ -448,7 +448,7 @@ define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(
   store i32 %2, ptr %36, align 4
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = getelementptr [0 x %struct.range_admin_tag], ptr %38, i64 0, i64 %.0.lcssa
+  %39 = getelementptr %struct.range_admin_tag, ptr %38, i64 %.0.lcssa
   store i32 %2, ptr %39, align 4
   br label %.loopexit
 
@@ -479,7 +479,7 @@ define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef captur
 
 8:                                                ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %9 = getelementptr [0 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct.range_admin_tag, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp ugt i32 %2, %10
   br i1 %11, label %12, label %16
@@ -528,10 +528,10 @@ define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef captur
   br i1 %37, label %47, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr [0 x %struct.range_admin_tag], ptr %31, i64 0, i64 %indvars.iv84
+  %39 = getelementptr %struct.range_admin_tag, ptr %31, i64 %indvars.iv84
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %.04971 to i64
-  %42 = getelementptr [0 x %struct.range_admin_tag], ptr %32, i64 0, i64 %41
+  %42 = getelementptr %struct.range_admin_tag, ptr %32, i64 %41
   store i32 %40, ptr %42, align 4
   %.idx = shl nuw nsw i64 %indvars.iv84, 3
   %43 = getelementptr i8, ptr %33, i64 %.idx
@@ -606,9 +606,9 @@ define noundef zeroext i1 @ranges_are_equal(ptr noundef readonly captures(addres
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr [0 x %struct.range_admin_tag], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr %struct.range_admin_tag, ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr [0 x %struct.range_admin_tag], ptr %9, i64 0, i64 %indvars.iv
+  %14 = getelementptr %struct.range_admin_tag, ptr %9, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %.not19 = icmp eq i32 %13, %15
   br i1 %.not19, label %16, label %.loopexit
@@ -645,7 +645,7 @@ define void @range_foreach(ptr noundef readonly captures(address_is_null) %0, pt
 8:                                                ; preds = %.lr.ph20, %._crit_edge
   %9 = phi i32 [ %6, %.lr.ph20 ], [ %16, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next, %._crit_edge ]
-  %10 = getelementptr [0 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
+  %10 = getelementptr %struct.range_admin_tag, ptr %7, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -693,7 +693,7 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly captures(ad
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.01923 = phi ptr [ @.str, %.lr.ph ], [ @.str.2, %14 ]
-  %7 = getelementptr [0 x %struct.range_admin_tag], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr %struct.range_admin_tag, ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4

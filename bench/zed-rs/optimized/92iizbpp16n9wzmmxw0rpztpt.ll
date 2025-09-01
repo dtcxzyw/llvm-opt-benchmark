@@ -1329,7 +1329,7 @@ _ZN10rayon_core8registry9in_worker17h8f0a64a17fdf3970E.exit: ; preds = %.noexc26
 
 .lr.ph.i.i.i.i:                                   ; preds = %46, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %49, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i" ], [ 0, %46 ]
-  %48 = getelementptr inbounds [0 x ptr], ptr %.sroa.070.0.copyload, i64 0, i64 %.sroa.0.09.i.i.i.i
+  %48 = getelementptr inbounds ptr, ptr %.sroa.070.0.copyload, i64 %.sroa.0.09.i.i.i.i
   %49 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
   call void @llvm.experimental.noalias.scope.decl(metadata !232)
@@ -1356,7 +1356,7 @@ _ZN10rayon_core8registry9in_worker17h8f0a64a17fdf3970E.exit: ; preds = %.noexc26
 
 .lr.ph12.i.i.i.i:                                 ; preds = %55, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i"
   %.sroa.0.110.i.i.i.i = phi i64 [ %59, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i" ], [ %49, %55 ]
-  %58 = getelementptr inbounds [0 x ptr], ptr %.sroa.070.0.copyload, i64 0, i64 %.sroa.0.110.i.i.i.i
+  %58 = getelementptr inbounds ptr, ptr %.sroa.070.0.copyload, i64 %.sroa.0.110.i.i.i.i
   %59 = add i64 %.sroa.0.110.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !247)
   call void @llvm.experimental.noalias.scope.decl(metadata !250)
@@ -1575,7 +1575,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
 
 .lr.ph.i.i.i.i:                                   ; preds = %44, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %47, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i" ], [ 0, %44 ]
-  %46 = getelementptr inbounds [0 x ptr], ptr %.sroa.058.0.copyload, i64 0, i64 %.sroa.0.09.i.i.i.i
+  %46 = getelementptr inbounds ptr, ptr %.sroa.058.0.copyload, i64 %.sroa.0.09.i.i.i.i
   %47 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
@@ -1602,7 +1602,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
 
 .lr.ph12.i.i.i.i:                                 ; preds = %53, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i"
   %.sroa.0.110.i.i.i.i = phi i64 [ %57, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i" ], [ %47, %53 ]
-  %56 = getelementptr inbounds [0 x ptr], ptr %.sroa.058.0.copyload, i64 0, i64 %.sroa.0.110.i.i.i.i
+  %56 = getelementptr inbounds ptr, ptr %.sroa.058.0.copyload, i64 %.sroa.0.110.i.i.i.i
   %57 = add i64 %.sroa.0.110.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !303)
   call void @llvm.experimental.noalias.scope.decl(metadata !306)

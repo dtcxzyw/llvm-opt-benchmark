@@ -796,7 +796,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
   %.139 = phi i32 [ -1, %47 ], [ %.03876, %44 ]
   %.1 = phi i32 [ %62, %47 ], [ %.03678, %44 ]
   %64 = zext nneg i32 %45 to i64
-  %65 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %6, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !147
   %.not = icmp eq i32 %66, 0
   %67 = load i32, ptr %35, align 8, !tbaa !167
@@ -821,7 +821,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
 
 81:                                               ; preds = %80
   %.neg = shl nsw i32 -128, %.1
-  %82 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %64
+  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %64
   %83 = load i32, ptr %82, align 4, !tbaa !147
   %84 = add i32 %83, %.neg
   %85 = icmp slt i32 %84, 0
@@ -858,12 +858,12 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit:
   %105 = lshr i32 %103, %104
   %106 = and i32 %105, 15
   %107 = or disjoint i32 %106, %95
-  %108 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %64
+  %108 = getelementptr inbounds nuw i32, ptr %5, i64 %64
   store i32 %107, ptr %108, align 4, !tbaa !147
   br label %109
 
 109:                                              ; preds = %80, %81, %94, %91
-  %110 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %64
+  %110 = getelementptr inbounds nuw i32, ptr %5, i64 %64
   %111 = load i32, ptr %110, align 4, !tbaa !147
   %112 = icmp samesign ult i64 %indvars.iv, %41
   tail call void @llvm.assume(i1 %112)

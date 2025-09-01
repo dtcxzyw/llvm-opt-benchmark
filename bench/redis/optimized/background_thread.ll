@@ -392,7 +392,7 @@ define hidden noundef zeroext i1 @je_background_threads_enable(ptr noundef %0) l
   br i1 %15, label %52, label %16
 
 16:                                               ; preds = %.lr.ph45
-  %17 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %indvars.iv
   %18 = load atomic i64, ptr %17 acquire, align 8
   %19 = icmp eq i64 %18, 0
   %.pre = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
@@ -477,7 +477,7 @@ malloc_mutex_lock.exit:                           ; preds = %28, %34
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %60
   %indvars.iv53 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next54, %60 ]
-  %56 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %indvars.iv53
+  %56 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %indvars.iv53
   %57 = load atomic i64, ptr %56 acquire, align 8
   %.not38 = icmp eq i64 %57, 0
   br i1 %.not38, label %60, label %58
@@ -518,7 +518,7 @@ define hidden noundef zeroext i1 @je_background_threads_disable(ptr noundef %0) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %6 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %indvars.iv
   %7 = load atomic i64, ptr %6 acquire, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %10, label %8
@@ -1713,7 +1713,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %.02227.us = phi i64 [ %.1.us, %22 ], [ -1, %.lr.ph ]
   %.02326.us = phi i32 [ %25, %22 ], [ %2, %.lr.ph ]
   %15 = zext i32 %.02326.us to i64
-  %16 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %15
   %17 = load atomic i64, ptr %16 acquire, align 8
   %.not.us = icmp eq i64 %17, 0
   %18 = icmp ult i64 %.02227.us, 100000001
@@ -1818,7 +1818,7 @@ background_thread_sleep.exit:                     ; preds = %54, %61
   %.02227 = phi i64 [ %.1, %71 ], [ -1, %.lr.ph ]
   %.02326 = phi i32 [ %74, %71 ], [ %2, %.lr.ph ]
   %63 = zext i32 %.02326 to i64
-  %64 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %63
   %65 = load atomic i64, ptr %64 acquire, align 8
   %.0.i.i = inttoptr i64 %65 to ptr
   %.not = icmp eq i64 %65, 0

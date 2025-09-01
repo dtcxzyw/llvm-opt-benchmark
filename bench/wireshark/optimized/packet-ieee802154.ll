@@ -7426,7 +7426,7 @@ dissect_zboss_specific.exit:                      ; preds = %4, %10, %13, %16, %
 
 46:                                               ; preds = %dissect_zboss_specific.exit
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr [3 x i32], ptr @__const.ieee802154_fcs_type_len.fcs_type_lengths, i64 0, i64 %47
+  %48 = getelementptr i32, ptr @__const.ieee802154_fcs_type_len.fcs_type_lengths, i64 %47
   %49 = load i32, ptr %48, align 4
   br label %ieee802154_fcs_type_len.exit
 
@@ -7948,7 +7948,7 @@ switch.lookup:                                    ; preds = %261
   %264 = lshr i16 %263, 9
   %265 = and i16 %264, 3
   %266 = zext nneg i16 %265 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_ieee802154_tap, i64 0, i64 %266
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ieee802154_tap, i64 %266
   %switch.load = load ptr, ptr %switch.gep, align 8
   %267 = load i32, ptr @hf_ieee802154_tap_fsk_ms_phr, align 4
   %268 = load i32, ptr @ett_ieee802154_tap_phr, align 4
@@ -9233,7 +9233,7 @@ define internal range(i32 3, 30) i32 @dissect_802154_tsch_timeslot(ptr noundef %
 33:                                               ; preds = %13, %33
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %33 ]
   %.134 = phi i32 [ 3, %13 ], [ %37, %33 ]
-  %34 = getelementptr [10 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %34 = getelementptr i32, ptr %5, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %35, ptr noundef %0, i32 noundef %.134, i32 noundef 2, i32 noundef -2147483648)
   %37 = add nuw nsw i32 %.134, 2

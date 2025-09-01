@@ -280,7 +280,7 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
 
 60:                                               ; preds = %4, %60
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw [6 x %class.btVector3], ptr %5, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv
   %62 = load float, ptr %61, align 16, !tbaa !18
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load float, ptr %63, align 4, !tbaa !18
@@ -354,7 +354,7 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
 105:                                              ; preds = %39, %105
   %indvars.iv87 = phi i64 [ 0, %39 ], [ %indvars.iv.next88, %105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %106 = getelementptr inbounds nuw [6 x %class.btVector3], ptr %6, i64 0, i64 %indvars.iv87
+  %106 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv87
   %107 = load float, ptr %106, align 16, !tbaa !18
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %109 = load float, ptr %108, align 4, !tbaa !18
@@ -383,34 +383,33 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   store float %125, ptr %126, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %127 = add nuw nsw i64 %indvars.iv87, 3
-  %128 = getelementptr inbounds nuw [6 x %class.btVector3], ptr %6, i64 0, i64 %127
-  %129 = load float, ptr %128, align 16, !tbaa !18
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %131 = load float, ptr %130, align 4, !tbaa !18
-  %132 = fmul float %44, %131
-  %133 = call float @llvm.fmuladd.f32(float %129, float %43, float %132)
-  %134 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %135 = load float, ptr %134, align 8, !tbaa !18
-  %136 = call noundef float @llvm.fmuladd.f32(float %135, float %45, float %133)
-  %137 = fmul float %47, %131
-  %138 = call float @llvm.fmuladd.f32(float %129, float %46, float %137)
-  %139 = call noundef float @llvm.fmuladd.f32(float %135, float %48, float %138)
-  %140 = fmul float %50, %131
-  %141 = call float @llvm.fmuladd.f32(float %129, float %49, float %140)
-  %142 = call noundef float @llvm.fmuladd.f32(float %135, float %51, float %141)
-  %143 = fadd float %53, %136
-  %144 = fadd float %55, %139
-  %145 = fadd float %57, %142
-  %.sroa.0.0.vec.insert.i2.i32 = insertelement <2 x float> poison, float %143, i64 0
-  %.sroa.0.4.vec.insert.i3.i33 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i32, float %144, i64 1
-  %.sroa.3.12.vec.insert.i4.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %145, i64 0
+  %127 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  %128 = load float, ptr %127, align 16, !tbaa !18
+  %129 = getelementptr inbounds nuw i8, ptr %106, i64 52
+  %130 = load float, ptr %129, align 4, !tbaa !18
+  %131 = fmul float %44, %130
+  %132 = call float @llvm.fmuladd.f32(float %128, float %43, float %131)
+  %133 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %134 = load float, ptr %133, align 8, !tbaa !18
+  %135 = call noundef float @llvm.fmuladd.f32(float %134, float %45, float %132)
+  %136 = fmul float %47, %130
+  %137 = call float @llvm.fmuladd.f32(float %128, float %46, float %136)
+  %138 = call noundef float @llvm.fmuladd.f32(float %134, float %48, float %137)
+  %139 = fmul float %50, %130
+  %140 = call float @llvm.fmuladd.f32(float %128, float %49, float %139)
+  %141 = call noundef float @llvm.fmuladd.f32(float %134, float %51, float %140)
+  %142 = fadd float %53, %135
+  %143 = fadd float %55, %138
+  %144 = fadd float %57, %141
+  %.sroa.0.0.vec.insert.i2.i32 = insertelement <2 x float> poison, float %142, i64 0
+  %.sroa.0.4.vec.insert.i3.i33 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i32, float %143, i64 1
+  %.sroa.3.12.vec.insert.i4.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %144, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i3.i33, ptr %10, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i34, ptr %59, align 8
-  %146 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv87
-  %147 = load float, ptr %146, align 4, !tbaa !18
-  %148 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv87
-  store float %147, ptr %148, align 4, !tbaa !18
+  %145 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv87
+  %146 = load float, ptr %145, align 4, !tbaa !18
+  %147 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv87
+  store float %146, ptr %147, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 3

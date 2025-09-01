@@ -667,7 +667,7 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr noundef reado
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i64
-  %10 = getelementptr [15 x ptr], ptr %6, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14, !prof !12
@@ -803,7 +803,7 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr noundef readon
   tail call void @__rcu_read_lock() #13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4936
   %16 = zext i8 %14 to i64
-  %17 = getelementptr [15 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %15, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %20 = icmp ne i8 %19, 0
@@ -1372,7 +1372,7 @@ define dso_local void @ieee80211_update_mu_groups(ptr noundef %0, i32 noundef %1
   tail call void @__rcu_read_lock() #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %6 = zext i32 %1 to i64
-  %7 = getelementptr [15 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %5, i64 %6
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %14, label %10
@@ -1410,7 +1410,7 @@ define dso_local void @ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %10 = zext i32 %3 to i64
-  %11 = getelementptr [6 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @__ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 poison)
   %14 = icmp eq i32 %13, 0

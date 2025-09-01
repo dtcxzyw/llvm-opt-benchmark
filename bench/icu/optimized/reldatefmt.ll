@@ -627,7 +627,7 @@ define void @_ZN6icu_7725RelativeDateTimeCacheDataD2Ev(ptr noundef nonnull align
 
 .preheader19:                                     ; preds = %1, %10
   %indvars.iv28 = phi i64 [ 0, %1 ], [ %indvars.iv.next29, %10 ]
-  %3 = getelementptr inbounds nuw [3 x [15 x [2 x [8 x ptr]]]], ptr %2, i64 0, i64 %indvars.iv28
+  %3 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %2, i64 %indvars.iv28
   br label %.preheader
 
 4:                                                ; preds = %10
@@ -638,7 +638,7 @@ define void @_ZN6icu_7725RelativeDateTimeCacheDataD2Ev(ptr noundef nonnull align
 
 .preheader:                                       ; preds = %.preheader19, %11
   %indvars.iv24 = phi i64 [ 0, %.preheader19 ], [ %indvars.iv.next25, %11 ]
-  %8 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %3, i64 0, i64 %indvars.iv24
+  %8 = getelementptr inbounds nuw [2 x [8 x ptr]], ptr %3, i64 %indvars.iv24
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   br label %12
 
@@ -654,7 +654,7 @@ define void @_ZN6icu_7725RelativeDateTimeCacheDataD2Ev(ptr noundef nonnull align
 
 12:                                               ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
-  %13 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -665,7 +665,7 @@ define void @_ZN6icu_7725RelativeDateTimeCacheDataD2Ev(ptr noundef nonnull align
   br label %17
 
 17:                                               ; preds = %16, %12
-  %18 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
@@ -726,23 +726,23 @@ define void @_ZN6icu_7725RelativeDateTimeCacheDataD0Ev(ptr noundef nonnull align
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7725RelativeDateTimeCacheData21getAbsoluteUnitStringEi17UDateAbsoluteUnit14UDateDirection(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(23152) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext i32 %2 to i64
-  %invariant.gep = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %5, i64 0, i64 %6
+  %invariant.gep = getelementptr [6 x %"class.icu_77::UnicodeString"], ptr %5, i64 %6
   %7 = zext i32 %3 to i64
-  %invariant.gep14 = getelementptr [6 x %"class.icu_77::UnicodeString"], ptr %invariant.gep, i64 0, i64 %7
+  %invariant.gep14 = getelementptr %"class.icu_77::UnicodeString", ptr %invariant.gep, i64 %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 23128
   br label %9
 
 9:                                                ; preds = %14, %4
   %.0 = phi i32 [ %1, %4 ], [ %16, %14 ]
   %10 = sext i32 %.0 to i64
-  %gep15 = getelementptr [3 x [15 x [6 x %"class.icu_77::UnicodeString"]]], ptr %invariant.gep14, i64 0, i64 %10
+  %gep15 = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %invariant.gep14, i64 %10
   %11 = getelementptr inbounds nuw i8, ptr %gep15, i64 8
   %12 = load i16, ptr %11, align 8, !tbaa !32
   %13 = icmp ugt i16 %12, 31
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %10
+  %15 = getelementptr inbounds i32, ptr %8, i64 %10
   %16 = load i32, ptr %15, align 4, !tbaa !12
   %.not12 = icmp eq i32 %16, -1
   br i1 %.not12, label %17, label %9, !llvm.loop !33
@@ -763,31 +763,31 @@ define noundef ptr @_ZNK6icu_7725RelativeDateTimeCacheData24getRelativeUnitForma
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK6icu_7725RelativeDateTimeFormatter10formatImplEd14UDateDirection17UDateRelativeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7725RelativeDateTimeFormatter10formatImplEd14UDateDirection17UDateRelativeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 17304
-  %invariant.gep.i = getelementptr [15 x [2 x [8 x ptr]]], ptr %8, i64 0, i64 %switch.load
+  %invariant.gep.i = getelementptr [2 x [8 x ptr]], ptr %8, i64 %switch.load
   %9 = sext i32 %3 to i64
-  %invariant.gep30.i = getelementptr [2 x [8 x ptr]], ptr %invariant.gep.i, i64 0, i64 %9
+  %invariant.gep30.i = getelementptr [8 x ptr], ptr %invariant.gep.i, i64 %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 23128
   br label %11
 
 11:                                               ; preds = %19, %switch.lookup
   %.015.i = phi i32 [ %4, %switch.lookup ], [ 5, %19 ]
   %12 = sext i32 %.015.i to i64
-  %invariant.gep32.i = getelementptr [8 x ptr], ptr %invariant.gep30.i, i64 0, i64 %12
+  %invariant.gep32.i = getelementptr ptr, ptr %invariant.gep30.i, i64 %12
   br label %13
 
 13:                                               ; preds = %16, %11
   %.014.i = phi i32 [ %1, %11 ], [ %18, %16 ]
   %14 = sext i32 %.014.i to i64
-  %gep.i = getelementptr [3 x [15 x [2 x [8 x ptr]]]], ptr %invariant.gep32.i, i64 0, i64 %14
+  %gep.i = getelementptr [15 x [2 x [8 x ptr]]], ptr %invariant.gep32.i, i64 %14
   %15 = load ptr, ptr %gep.i, align 8, !tbaa !30
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %_ZNK6icu_7725RelativeDateTimeCacheData32getRelativeDateTimeUnitFormatterEi21URelativeDateTimeUnitii.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %14
+  %17 = getelementptr inbounds i32, ptr %10, i64 %14
   %18 = load i32, ptr %17, align 4, !tbaa !12
   %.not20.i = icmp eq i32 %18, -1
   br i1 %.not20.i, label %19, label %13, !llvm.loop !34
@@ -805,28 +805,28 @@ _ZNK6icu_7725RelativeDateTimeCacheData32getRelativeDateTimeUnitFormatterEi21URel
 define noundef ptr @_ZNK6icu_7725RelativeDateTimeCacheData32getRelativeDateTimeUnitFormatterEi21URelativeDateTimeUnitii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23152) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 17304
   %7 = zext i32 %2 to i64
-  %invariant.gep = getelementptr [15 x [2 x [8 x ptr]]], ptr %6, i64 0, i64 %7
+  %invariant.gep = getelementptr [2 x [8 x ptr]], ptr %6, i64 %7
   %8 = sext i32 %3 to i64
-  %invariant.gep30 = getelementptr [2 x [8 x ptr]], ptr %invariant.gep, i64 0, i64 %8
+  %invariant.gep30 = getelementptr [8 x ptr], ptr %invariant.gep, i64 %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 23128
   br label %10
 
 10:                                               ; preds = %18, %5
   %.015 = phi i32 [ %4, %5 ], [ 5, %18 ]
   %11 = sext i32 %.015 to i64
-  %invariant.gep32 = getelementptr [8 x ptr], ptr %invariant.gep30, i64 0, i64 %11
+  %invariant.gep32 = getelementptr ptr, ptr %invariant.gep30, i64 %11
   br label %12
 
 12:                                               ; preds = %15, %10
   %.014 = phi i32 [ %1, %10 ], [ %17, %15 ]
   %13 = sext i32 %.014 to i64
-  %gep = getelementptr [3 x [15 x [2 x [8 x ptr]]]], ptr %invariant.gep32, i64 0, i64 %13
+  %gep = getelementptr [15 x [2 x [8 x ptr]]], ptr %invariant.gep32, i64 %13
   %14 = load ptr, ptr %gep, align 8, !tbaa !30
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %13
+  %16 = getelementptr inbounds i32, ptr %9, i64 %13
   %17 = load i32, ptr %16, align 4, !tbaa !12
   %.not20 = icmp eq i32 %17, -1
   br i1 %.not20, label %18, label %12, !llvm.loop !34
@@ -904,12 +904,12 @@ define noundef ptr @_ZNK6icu_7714LocaleCacheKeyINS_25RelativeDateTimeCacheDataEE
 
 .preheader37.i:                                   ; preds = %46, %38
   %indvars.iv51.i = phi i64 [ 0, %38 ], [ %indvars.iv.next52.i, %46 ]
-  %43 = getelementptr inbounds nuw [3 x [15 x [2 x [8 x ptr]]]], ptr %42, i64 0, i64 %indvars.iv51.i
+  %43 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %42, i64 %indvars.iv51.i
   br label %.preheader36.i
 
 .preheader36.i:                                   ; preds = %47, %.preheader37.i
   %indvars.iv47.i = phi i64 [ 0, %.preheader37.i ], [ %indvars.iv.next48.i, %47 ]
-  %44 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %43, i64 0, i64 %indvars.iv47.i
+  %44 = getelementptr inbounds nuw [2 x [8 x ptr]], ptr %43, i64 %indvars.iv47.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   br label %48
 
@@ -925,9 +925,9 @@ define noundef ptr @_ZNK6icu_7714LocaleCacheKeyINS_25RelativeDateTimeCacheDataEE
 
 48:                                               ; preds = %48, %.preheader36.i
   %indvars.iv.i = phi i64 [ 0, %.preheader36.i ], [ %indvars.iv.next.i, %48 ]
-  %49 = getelementptr inbounds nuw [8 x ptr], ptr %44, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
   store ptr null, ptr %49, align 8, !tbaa !30
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
   store ptr null, ptr %50, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -991,7 +991,7 @@ define noundef ptr @_ZNK6icu_7714LocaleCacheKeyINS_25RelativeDateTimeCacheDataEE
 
 .preheader24.i.i:                                 ; preds = %62, %72
   %indvars.iv27.i.i = phi i64 [ %indvars.iv.next28.i.i, %72 ], [ 0, %62 ]
-  %67 = getelementptr inbounds nuw [3 x i32], ptr @_ZN6icu_77L28styleToDateFormatSymbolWidthE, i64 0, i64 %indvars.iv27.i.i
+  %67 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L28styleToDateFormatSymbolWidthE, i64 %indvars.iv27.i.i
   %68 = load i32, ptr %67, align 4, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %69 = invoke noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef 1, i32 noundef %68)
@@ -1019,7 +1019,7 @@ define noundef ptr @_ZNK6icu_7714LocaleCacheKeyINS_25RelativeDateTimeCacheDataEE
 
 75:                                               ; preds = %71
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %76 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %70, i64 0, i64 %indvars.iv.i.i, i64 5
+  %76 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %70, i64 %indvars.iv.i.i, i64 5
   %77 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %69, i64 %indvars.iv.next.i.i
   %78 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull align 8 dereferenceable(64) %77)
           to label %71 unwind label %79, !llvm.loop !48
@@ -2676,31 +2676,31 @@ switch.lookup:                                    ; preds = %26
   %32 = load ptr, ptr %31, align 8, !tbaa !87
   %33 = icmp eq i32 %2, 3
   %34 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK6icu_7725RelativeDateTimeFormatter10formatImplEd14UDateDirection17UDateRelativeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7725RelativeDateTimeFormatter10formatImplEd14UDateDirection17UDateRelativeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 17304
-  %invariant.gep.i.i = getelementptr [15 x [2 x [8 x ptr]]], ptr %35, i64 0, i64 %switch.load
+  %invariant.gep.i.i = getelementptr [2 x [8 x ptr]], ptr %35, i64 %switch.load
   %36 = zext i1 %33 to i64
-  %invariant.gep30.i.i = getelementptr [2 x [8 x ptr]], ptr %invariant.gep.i.i, i64 0, i64 %36
+  %invariant.gep30.i.i = getelementptr [8 x ptr], ptr %invariant.gep.i.i, i64 %36
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 23128
   br label %38
 
 38:                                               ; preds = %46, %switch.lookup
   %.015.i.i = phi i32 [ %30, %switch.lookup ], [ 5, %46 ]
   %39 = sext i32 %.015.i.i to i64
-  %invariant.gep32.i.i = getelementptr [8 x ptr], ptr %invariant.gep30.i.i, i64 0, i64 %39
+  %invariant.gep32.i.i = getelementptr ptr, ptr %invariant.gep30.i.i, i64 %39
   br label %40
 
 40:                                               ; preds = %43, %38
   %.014.i.i = phi i32 [ %28, %38 ], [ %45, %43 ]
   %41 = sext i32 %.014.i.i to i64
-  %gep.i.i = getelementptr [3 x [15 x [2 x [8 x ptr]]]], ptr %invariant.gep32.i.i, i64 0, i64 %41
+  %gep.i.i = getelementptr [15 x [2 x [8 x ptr]]], ptr %invariant.gep32.i.i, i64 %41
   %42 = load ptr, ptr %gep.i.i, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %43, label %_ZNK6icu_7725RelativeDateTimeCacheData24getRelativeUnitFormatterEi17UDateRelativeUnitii.exit
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds [3 x i32], ptr %37, i64 0, i64 %41
+  %44 = getelementptr inbounds i32, ptr %37, i64 %41
   %45 = load i32, ptr %44, align 4, !tbaa !12
   %.not20.i.i = icmp eq i32 %45, -1
   br i1 %.not20.i.i, label %46, label %40, !llvm.loop !34
@@ -3026,28 +3026,28 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter17formatNumericImplEd21URelat
   %31 = load i32, ptr %6, align 4, !tbaa !94
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 17304
   %33 = zext nneg i32 %2 to i64
-  %invariant.gep.i = getelementptr [15 x [2 x [8 x ptr]]], ptr %32, i64 0, i64 %33
+  %invariant.gep.i = getelementptr [2 x [8 x ptr]], ptr %32, i64 %33
   %34 = zext i1 %26 to i64
-  %invariant.gep30.i = getelementptr [2 x [8 x ptr]], ptr %invariant.gep.i, i64 0, i64 %34
+  %invariant.gep30.i = getelementptr [8 x ptr], ptr %invariant.gep.i, i64 %34
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 23128
   br label %36
 
 36:                                               ; preds = %44, %24
   %.015.i = phi i32 [ %31, %24 ], [ 5, %44 ]
   %37 = sext i32 %.015.i to i64
-  %invariant.gep32.i = getelementptr [8 x ptr], ptr %invariant.gep30.i, i64 0, i64 %37
+  %invariant.gep32.i = getelementptr ptr, ptr %invariant.gep30.i, i64 %37
   br label %38
 
 38:                                               ; preds = %41, %36
   %.014.i = phi i32 [ %30, %36 ], [ %43, %41 ]
   %39 = sext i32 %.014.i to i64
-  %gep.i = getelementptr [3 x [15 x [2 x [8 x ptr]]]], ptr %invariant.gep32.i, i64 0, i64 %39
+  %gep.i = getelementptr [15 x [2 x [8 x ptr]]], ptr %invariant.gep32.i, i64 %39
   %40 = load ptr, ptr %gep.i, align 8, !tbaa !30
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %41, label %_ZNK6icu_7725RelativeDateTimeCacheData32getRelativeDateTimeUnitFormatterEi21URelativeDateTimeUnitii.exit
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds [3 x i32], ptr %35, i64 0, i64 %39
+  %42 = getelementptr inbounds i32, ptr %35, i64 %39
   %43 = load i32, ptr %42, align 4, !tbaa !12
   %.not20.i = icmp eq i32 %43, -1
   br i1 %.not20.i, label %44, label %38, !llvm.loop !34
@@ -3352,23 +3352,23 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter18formatAbsoluteImplE14UDateD
   %19 = load i32, ptr %18, align 8, !tbaa !86
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = zext nneg i32 %2 to i64
-  %invariant.gep.i = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %20, i64 0, i64 %21
+  %invariant.gep.i = getelementptr [6 x %"class.icu_77::UnicodeString"], ptr %20, i64 %21
   %22 = zext nneg i32 %1 to i64
-  %invariant.gep14.i = getelementptr [6 x %"class.icu_77::UnicodeString"], ptr %invariant.gep.i, i64 0, i64 %22
+  %invariant.gep14.i = getelementptr %"class.icu_77::UnicodeString", ptr %invariant.gep.i, i64 %22
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 23128
   br label %24
 
 24:                                               ; preds = %29, %14
   %.0.i = phi i32 [ %19, %14 ], [ %31, %29 ]
   %25 = sext i32 %.0.i to i64
-  %gep15.i = getelementptr [3 x [15 x [6 x %"class.icu_77::UnicodeString"]]], ptr %invariant.gep14.i, i64 0, i64 %25
+  %gep15.i = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %invariant.gep14.i, i64 %25
   %26 = getelementptr inbounds nuw i8, ptr %gep15.i, i64 8
   %27 = load i16, ptr %26, align 8, !tbaa !32
   %28 = icmp ugt i16 %27, 31
   br i1 %28, label %_ZNK6icu_7725RelativeDateTimeCacheData21getAbsoluteUnitStringEi17UDateAbsoluteUnit14UDateDirection.exit, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds [3 x i32], ptr %23, i64 0, i64 %25
+  %30 = getelementptr inbounds i32, ptr %23, i64 %25
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %.not12.i = icmp eq i32 %31, -1
   br i1 %.not12.i, label %32, label %24, !llvm.loop !33
@@ -3636,23 +3636,23 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter18formatRelativeImplEd21URela
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !86
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %invariant.gep.i.i = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %41, i64 0, i64 %.040
+  %invariant.gep.i.i = getelementptr [6 x %"class.icu_77::UnicodeString"], ptr %41, i64 %.040
   %42 = and i64 %.239, 4294967295
-  %invariant.gep14.i.i = getelementptr [6 x %"class.icu_77::UnicodeString"], ptr %invariant.gep.i.i, i64 0, i64 %42
+  %invariant.gep14.i.i = getelementptr %"class.icu_77::UnicodeString", ptr %invariant.gep.i.i, i64 %42
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 23128
   br label %44
 
 44:                                               ; preds = %49, %.thread35
   %.0.i.i = phi i32 [ %40, %.thread35 ], [ %51, %49 ]
   %45 = sext i32 %.0.i.i to i64
-  %gep15.i.i = getelementptr [3 x [15 x [6 x %"class.icu_77::UnicodeString"]]], ptr %invariant.gep14.i.i, i64 0, i64 %45
+  %gep15.i.i = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %invariant.gep14.i.i, i64 %45
   %46 = getelementptr inbounds nuw i8, ptr %gep15.i.i, i64 8
   %47 = load i16, ptr %46, align 8, !tbaa !32
   %48 = icmp ugt i16 %47, 31
   br i1 %48, label %_ZNK6icu_7725RelativeDateTimeFormatter18formatAbsoluteImplE14UDateDirection17UDateAbsoluteUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds [3 x i32], ptr %43, i64 0, i64 %45
+  %50 = getelementptr inbounds i32, ptr %43, i64 %45
   %51 = load i32, ptr %50, align 4, !tbaa !12
   %.not12.i.i = icmp eq i32 %51, -1
   br i1 %.not12.i.i, label %52, label %44, !llvm.loop !33
@@ -4873,7 +4873,7 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink27styleFromAliasUnicodeStringENS
   %107 = load ptr, ptr %40, align 8, !tbaa !125
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 23128
   %109 = zext nneg i32 %.0.i.i to i64
-  %110 = getelementptr inbounds nuw [3 x i32], ptr %108, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !12
   %.not20.i = icmp eq i32 %111, -1
   %.not21.i = icmp eq i32 %111, %.03.i.i
@@ -5139,14 +5139,14 @@ sub_1.i19:                                        ; preds = %sub_0.i15
 
 switch.lookup:                                    ; preds = %215
   %218 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %218
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 %218
   %switch.load = load i64, ptr %switch.gep, align 8
   %219 = load ptr, ptr %40, align 8, !tbaa !125
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %221 = load i32, ptr %38, align 4, !tbaa !128
   %222 = zext i32 %221 to i64
-  %223 = getelementptr inbounds nuw [3 x [15 x [6 x %"class.icu_77::UnicodeString"]]], ptr %220, i64 0, i64 %222
-  %224 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %223, i64 0, i64 %switch.load, i64 5
+  %223 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %220, i64 %222
+  %224 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %223, i64 %switch.load, i64 5
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load i16, ptr %225, align 8, !tbaa !32
   %227 = icmp ugt i16 %226, 31
@@ -5359,27 +5359,27 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i: ; preds =
 _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i: ; preds = %305, %select.unfold.thread.i.i, %select.unfold.i.i
   %.0.i.ph44.i.i = phi i64 [ %.0.i.ph.i15.i, %select.unfold.i.i ], [ 2, %select.unfold.thread.i.i ], [ %.0.i.ph454851.i.i, %305 ]
   %.pr.i.i = phi i32 [ %283, %select.unfold.i.i ], [ %284, %select.unfold.thread.i.i ], [ %.pr.pr.pre.i.i, %305 ]
-  %switch.tableidx54 = add i32 %.pr.i.i, -1
-  %308 = icmp ult i32 %switch.tableidx54, 14
-  br i1 %308, label %switch.lookup53, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+  %switch.tableidx53 = add i32 %.pr.i.i, -1
+  %308 = icmp ult i32 %switch.tableidx53, 14
+  br i1 %308, label %switch.lookup54, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
-switch.lookup53:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
-  %309 = zext nneg i32 %switch.tableidx54 to i64
-  %switch.gep55 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %309
+switch.lookup54:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
+  %309 = zext nneg i32 %switch.tableidx53 to i64
+  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 %309
   %switch.load56 = load i64, ptr %switch.gep55, align 8
   %310 = load ptr, ptr %40, align 8, !tbaa !125
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %312 = load i32, ptr %38, align 4, !tbaa !128
   %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds nuw [3 x [15 x [6 x %"class.icu_77::UnicodeString"]]], ptr %311, i64 0, i64 %313
-  %315 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %314, i64 0, i64 %switch.load56
-  %316 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %315, i64 0, i64 %.0.i.ph44.i.i
+  %314 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %311, i64 %313
+  %315 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %314, i64 %switch.load56
+  %316 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %315, i64 %.0.i.ph44.i.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %318 = load i16, ptr %317, align 8, !tbaa !32
   %319 = icmp ugt i16 %318, 31
   br i1 %319, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, label %320
 
-320:                                              ; preds = %switch.lookup53
+320:                                              ; preds = %switch.lookup54
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !136
@@ -5426,7 +5426,7 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit31.i.i: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i, %331, %switch.lookup53, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, %sub_0.i.i, %sub_120.i.i.i, %.tail14.i.i.i, %.tail10.i.i.i, %.tail5.i.i.i, %.tail.i.i.i, %sub_1.i.i.i, %263, %.lr.ph.i.i
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i, %331, %switch.lookup54, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, %sub_0.i.i, %sub_120.i.i.i, %.tail14.i.i.i, %.tail10.i.i.i, %.tail5.i.i.i, %.tail.i.i.i, %sub_1.i.i.i, %263, %.lr.ph.i.i
   %335 = add nuw nsw i32 %.02140.i.i, 1
   %336 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %18, i32 noundef %335, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not24.i.i = icmp eq i8 %336, 0
@@ -5461,7 +5461,7 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13
 
 switch.lookup57:                                  ; preds = %346
   %349 = zext nneg i32 %347 to i64
-  %switch.gep58 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 0, i64 %349
+  %switch.gep58 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 %349
   %switch.load59 = load i64, ptr %switch.gep58, align 8
   %350 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not1117.i.i = icmp eq i8 %350, 0
@@ -5518,11 +5518,11 @@ switch.lookup57:                                  ; preds = %346
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 17304
   %376 = load i32, ptr %38, align 4, !tbaa !128
   %377 = zext i32 %376 to i64
-  %378 = getelementptr inbounds nuw [3 x [15 x [2 x [8 x ptr]]]], ptr %375, i64 0, i64 %377
-  %379 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %378, i64 0, i64 %switch.load59
+  %378 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %375, i64 %377
+  %379 = getelementptr inbounds nuw [2 x [8 x ptr]], ptr %378, i64 %switch.load59
   %380 = load i32, ptr %41, align 8, !tbaa !140
   %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds [2 x [8 x ptr]], ptr %379, i64 0, i64 %381
+  %382 = getelementptr inbounds [8 x ptr], ptr %379, i64 %381
   %383 = zext nneg i32 %371 to i64
   %384 = getelementptr inbounds nuw ptr, ptr %382, i64 %383
   %385 = load ptr, ptr %384, align 8, !tbaa !30

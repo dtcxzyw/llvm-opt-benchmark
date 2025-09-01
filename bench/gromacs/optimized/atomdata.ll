@@ -176,7 +176,7 @@ $_ZNSt6vectorIiN3gmx9AllocatorIiNS0_23AlignedAllocationPolicyEEEE17_M_default_ap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN3gmx17enumValueToStringENS_17LJCombinationRuleE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZN3gmx17enumValueToStringENS_17LJCombinationRuleEE24s_ljCombinationRuleNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZZN3gmx17enumValueToStringENS_17LJCombinationRuleEE24s_ljCombinationRuleNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -2695,7 +2695,7 @@ _ZNKRSt8optionalIN3gmx17LJCombinationRuleEE5valueEv.exit219.i: ; preds = %319
   store i64 0, ptr %345, align 8, !tbaa !113
   store i8 0, ptr %344, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %346 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZN3gmx17enumValueToStringENS_17LJCombinationRuleEE24s_ljCombinationRuleNames, i64 0, i64 %343
+  %346 = getelementptr inbounds nuw ptr, ptr @_ZZN3gmx17enumValueToStringENS_17LJCombinationRuleEE24s_ljCombinationRuleNames, i64 %343
   %347 = load ptr, ptr %346, align 8, !tbaa !4
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.16, ptr noundef %347)
           to label %348 unwind label %389
@@ -3241,7 +3241,7 @@ _ZN3gmxL21set_lj_parameter_dataEPNS_16nbnxn_atomdata_t6ParamsEb.exit.i: ; preds 
 
 switch.lookup:                                    ; preds = %567
   %569 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN3gmx16nbnxn_atomdata_tC2ENS_13PinningPolicyERKNS_8MDLoggerENS_15NbnxmKernelTypeERKSt8optionalINS_17LJCombinationRuleEES7_NS_8ArrayRefIKfEEbii, i64 0, i64 %569
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3gmx16nbnxn_atomdata_tC2ENS_13PinningPolicyERKNS_8MDLoggerENS_15NbnxmKernelTypeERKSt8optionalINS_17LJCombinationRuleEES7_NS_8ArrayRefIKfEEbii, i64 %569
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit.i
 
@@ -5933,7 +5933,7 @@ _ZN3gmxL21copyRVecToNbatXYZRealILi3EEEviPA3_KfPfi.exit.us17.i: ; preds = %.lr.ph
 
 132:                                              ; preds = %136, %.preheader.i.us.i
   %indvars.iv23.i.us.i = phi i64 [ 0, %.preheader.i.us.i ], [ %indvars.iv.next24.i.us.i, %136 ]
-  %gep.i.us.i = getelementptr [3 x float], ptr %invariant.gep33.i.us.i, i64 0, i64 %indvars.iv23.i.us.i
+  %gep.i.us.i = getelementptr float, ptr %invariant.gep33.i.us.i, i64 %indvars.iv23.i.us.i
   %.idx.i33.us.i = shl nuw nsw i64 %indvars.iv23.i.us.i, 4
   %gep34.i.us.i = getelementptr i8, ptr %invariant.gep.i.us.i, i64 %.idx.i33.us.i
   br label %133
@@ -5998,7 +5998,7 @@ _ZN3gmxL21copyRVecToNbatXYZRealILi3EEEviPA3_KfPfi.exit.us21.i: ; preds = %137, %
 
 156:                                              ; preds = %160, %.preheader.i39.us.i
   %indvars.iv23.i44.us.i = phi i64 [ 0, %.preheader.i39.us.i ], [ %indvars.iv.next24.i52.us.i, %160 ]
-  %gep.i45.us.i = getelementptr [3 x float], ptr %invariant.gep33.i41.us.i, i64 0, i64 %indvars.iv23.i44.us.i
+  %gep.i45.us.i = getelementptr float, ptr %invariant.gep33.i41.us.i, i64 %indvars.iv23.i44.us.i
   %.idx.i46.us.i = shl nuw nsw i64 %indvars.iv23.i44.us.i, 5
   %gep34.i47.us.i = getelementptr i8, ptr %invariant.gep.i43.us.i, i64 %.idx.i46.us.i
   br label %157
@@ -6328,7 +6328,7 @@ define internal void @_ZN3gmx16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_o
   store i64 %.sroa.24.0.copyload, ptr %24, align 8
   %64 = sdiv i32 %63, 64
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %5, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !116
   %68 = srem i32 %63, 64
   %69 = zext nneg i32 %68 to i64
@@ -6343,7 +6343,7 @@ define internal void @_ZN3gmx16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_o
   %74 = load ptr, ptr %73, align 8, !tbaa !69
   %75 = add nsw i32 %.04262, 1
   %76 = sext i32 %.04262 to i64
-  %77 = getelementptr inbounds [128 x ptr], ptr %10, i64 0, i64 %76
+  %77 = getelementptr inbounds ptr, ptr %10, i64 %76
   store ptr %74, ptr %77, align 8, !tbaa !255
   br label %78
 
@@ -6958,7 +6958,7 @@ define internal void @_ZN3gmx16nbnxn_atomdata_t12reduceForcesENS_12AtomLocalityE
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds float, ptr %.val40, i64 %150
   %152 = load float, ptr %151, align 4, !tbaa !71
-  %153 = getelementptr inbounds nuw [3 x float], ptr %gep32.i, i64 0, i64 %indvars.iv16.i
+  %153 = getelementptr inbounds nuw float, ptr %gep32.i, i64 %indvars.iv16.i
   %154 = load float, ptr %153, align 4, !tbaa !71
   %155 = fadd float %152, %154
   store float %155, ptr %153, align 4, !tbaa !71
@@ -6989,7 +6989,7 @@ define internal void @_ZN3gmx16nbnxn_atomdata_t12reduceForcesENS_12AtomLocalityE
   %.idx.i61 = shl i64 %indvars.iv.i60, 4
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i61
   %166 = load float, ptr %gep.i, align 4, !tbaa !71
-  %167 = getelementptr inbounds nuw [3 x float], ptr %162, i64 0, i64 %indvars.iv.i60
+  %167 = getelementptr inbounds nuw float, ptr %162, i64 %indvars.iv.i60
   %168 = load float, ptr %167, align 4, !tbaa !71
   %169 = fadd float %166, %168
   store float %169, ptr %167, align 4, !tbaa !71
@@ -7052,7 +7052,7 @@ define internal void @_ZN3gmx16nbnxn_atomdata_t12reduceForcesENS_12AtomLocalityE
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds float, ptr %.val41, i64 %187
   %189 = load float, ptr %188, align 4, !tbaa !71
-  %190 = getelementptr inbounds nuw [3 x float], ptr %gep32.i86, i64 0, i64 %indvars.iv16.i87
+  %190 = getelementptr inbounds nuw float, ptr %gep32.i86, i64 %indvars.iv16.i87
   %191 = load float, ptr %190, align 4, !tbaa !71
   %192 = fadd float %189, %191
   store float %192, ptr %190, align 4, !tbaa !71
@@ -7083,7 +7083,7 @@ define internal void @_ZN3gmx16nbnxn_atomdata_t12reduceForcesENS_12AtomLocalityE
   %.idx.i73 = shl i64 %indvars.iv.i72, 5
   %gep.i74 = getelementptr i8, ptr %invariant.gep.i71, i64 %.idx.i73
   %203 = load float, ptr %gep.i74, align 4, !tbaa !71
-  %204 = getelementptr inbounds nuw [3 x float], ptr %199, i64 0, i64 %indvars.iv.i72
+  %204 = getelementptr inbounds nuw float, ptr %199, i64 %indvars.iv.i72
   %205 = load float, ptr %204, align 4, !tbaa !71
   %206 = fadd float %203, %205
   store float %206, ptr %204, align 4, !tbaa !71
@@ -7247,7 +7247,7 @@ define void @_ZN3gmx16nbnxn_atomdata_t16clearForceBufferEi(ptr noundef nonnull r
   %19 = shl nuw i64 1, %18
   %20 = sdiv i32 %1, 64
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %21
   store i64 %19, ptr %22, align 8, !tbaa !116
   %.not.i = icmp eq ptr %11, %9
   br i1 %.not.i, label %_ZN3gmxL18clearBufferFlaggedILi3EEEviNS_8ArrayRefIKSt5arrayImLm2EEEENS1_IfEE.exit, label %.lr.ph.i

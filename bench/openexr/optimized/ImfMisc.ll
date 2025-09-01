@@ -95,7 +95,7 @@ define noundef range(i32 2, 5) i32 @_ZN7Imf_3_413pixelTypeSizeENS_9PixelTypeE(i3
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7Imf_3_413pixelTypeSizeENS_9PixelTypeE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7Imf_3_413pixelTypeSizeENS_9PixelTypeE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -276,7 +276,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %21, %23, %25, %27
 
 switch.lookup:                                    ; preds = %.lr.ph45
   %43 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7Imf_3_421bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6vectorImSaImEE, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7Imf_3_421bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6vectorImSaImEE, i64 %43
   %switch.load = load i64, ptr %switch.gep, align 8
   %44 = load i32, ptr %5, align 4, !tbaa !19
   %45 = load i32, ptr %3, align 4, !tbaa !20
@@ -466,7 +466,7 @@ switch.lookup:                                    ; preds = %23
   %36 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
   %37 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
   %38 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7Imf_3_421bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6vectorImSaImEE, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7Imf_3_421bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6vectorImSaImEE, i64 %38
   %switch.load = load i64, ptr %switch.gep, align 8
   %39 = add i32 %12, %37
   %40 = srem i32 %39, %37

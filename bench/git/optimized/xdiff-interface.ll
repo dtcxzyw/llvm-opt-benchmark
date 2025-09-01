@@ -818,7 +818,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ff_regexp(ptr noundef %0
   %52 = getelementptr i8, ptr %51, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !20
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !20
   %57 = and i8 %56, 1
   %.not47 = icmp eq i8 %57, 0

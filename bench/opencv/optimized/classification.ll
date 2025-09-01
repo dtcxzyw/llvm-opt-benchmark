@@ -5394,7 +5394,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSt7_
 
 .noexc486:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.noexc490
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc490 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %379 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %indvars.iv.i
+  %379 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i
   %380 = load double, ptr %379, align 8, !tbaa !90
   %381 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %380)
           to label %.noexc489 unwind label %.loopexit.split-lp831.loopexit
@@ -5469,7 +5469,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit493: ; preds = %_ZNS
 
 .noexc497:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit493, %.noexc501
   %indvars.iv.i494 = phi i64 [ %indvars.iv.next.i495, %.noexc501 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit493 ]
-  %408 = getelementptr inbounds nuw [4 x double], ptr %30, i64 0, i64 %indvars.iv.i494
+  %408 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.i494
   %409 = load double, ptr %408, align 8, !tbaa !90
   %410 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %409)
           to label %.noexc500 unwind label %.loopexit830

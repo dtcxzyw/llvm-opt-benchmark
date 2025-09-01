@@ -209,7 +209,7 @@ Vec_PtrFill.exit:                                 ; preds = %106, %Vec_PtrGrow.e
   %111 = load ptr, ptr %2, align 8, !tbaa !39
   %112 = load i8, ptr %84, align 1, !tbaa !28
   %113 = sext i8 %112 to i64
-  %114 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %113
+  %114 = getelementptr inbounds i32, ptr %70, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !25
   %116 = getelementptr i8, ptr %111, i64 32
   %.val153293 = load ptr, ptr %116, align 8, !tbaa !45
@@ -226,7 +226,7 @@ Vec_PtrFill.exit:                                 ; preds = %106, %Vec_PtrGrow.e
   %123 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv.next
   %124 = load i8, ptr %123, align 1, !tbaa !28
   %125 = sext i8 %124 to i64
-  %126 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %125
+  %126 = getelementptr inbounds i32, ptr %70, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !25
   %128 = getelementptr i8, ptr %122, i64 32
   %.val153 = load ptr, ptr %128, align 8, !tbaa !45
@@ -804,7 +804,7 @@ Abc_Clock.exit183:                                ; preds = %._crit_edge237, %37
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 %.0140.lcssa
   %404 = load i8, ptr %403, align 1, !tbaa !28
   %405 = zext i8 %404 to i64
-  %406 = getelementptr inbounds nuw [222 x i32], ptr %400, i64 0, i64 %405
+  %406 = getelementptr inbounds nuw i32, ptr %400, i64 %405
   %407 = load i32, ptr %406, align 4, !tbaa !25
   %408 = add nsw i32 %407, 1
   store i32 %408, ptr %406, align 4, !tbaa !25
@@ -947,7 +947,7 @@ tailrecurse:                                      ; preds = %84, %3
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !25
   %14 = icmp eq i32 %13, %9
   br i1 %14, label %15, label %10
@@ -1187,11 +1187,11 @@ define void @Rwr_ScoresClean(ptr noundef readonly captures(none) %0) local_unnam
 define range(i32 -1, 2) i32 @Rwr_ScoresCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 4, !tbaa !25
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @Gains, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !25
   %7 = load i32, ptr %1, align 4, !tbaa !25
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr @Gains, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !25
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %10, i32 %6)
   ret i32 %.0
@@ -1218,10 +1218,10 @@ define void @Rwr_ScoresReport(ptr noundef readonly captures(none) %0) local_unna
 
 11:                                               ; preds = %.lr.ph55, %.critedge
   %indvars.iv66 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next67, %.critedge ]
-  %12 = getelementptr inbounds nuw [222 x i32], ptr %2, i64 0, i64 %indvars.iv66
+  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv66
   %13 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i32 %13, ptr %12, align 4, !tbaa !25
-  %14 = getelementptr inbounds nuw [222 x i32], ptr @Gains, i64 0, i64 %indvars.iv66
+  %14 = getelementptr inbounds nuw i32, ptr @Gains, i64 %indvars.iv66
   store i32 0, ptr %14, align 4, !tbaa !25
   %15 = getelementptr inbounds nuw ptr, ptr %.val51, i64 %indvars.iv66
   %16 = load ptr, ptr %15, align 8, !tbaa !36
@@ -1273,10 +1273,10 @@ define void @Rwr_ScoresReport(ptr noundef readonly captures(none) %0) local_unna
 34:                                               ; preds = %.lr.ph62, %.critedge2
   %indvars.iv72 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next73, %.critedge2 ]
   %35 = phi ptr [ %29, %.lr.ph62 ], [ %84, %.critedge2 ]
-  %36 = getelementptr inbounds nuw [222 x i32], ptr %2, i64 0, i64 %indvars.iv72
+  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv72
   %37 = load i32, ptr %36, align 4, !tbaa !25
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [222 x i32], ptr @Gains, i64 0, i64 %38
+  %39 = getelementptr inbounds i32, ptr @Gains, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !25
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %._crit_edge63, label %42

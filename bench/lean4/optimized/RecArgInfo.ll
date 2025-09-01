@@ -1145,7 +1145,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Structural_RecArgInfo_pi
 11:                                               ; preds = %.lr.ph, %lean_array_get.exit.thread
   %.01737 = phi i64 [ %5, %.lr.ph ], [ %57, %lean_array_get.exit.thread ]
   %.01936 = phi ptr [ %6, %.lr.ph ], [ %56, %lean_array_get.exit.thread ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.01737
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01737
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
@@ -1206,7 +1206,7 @@ lean_array_get.exit.thread27:                     ; preds = %22
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %36, %35, %33, %27
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %24
+  %37 = getelementptr inbounds nuw ptr, ptr %10, i64 %24
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -1361,7 +1361,7 @@ lean_nat_lt.exit.thread:                          ; preds = %16
 
 50:                                               ; preds = %.thread89, %.thread85, %39
   %51 = lshr i64 %14, 1
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %12, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 1
@@ -2231,7 +2231,7 @@ define ptr @l_Lean_Elab_Structural_RecArgInfo_indName_x21(ptr noundef readonly c
 
 lean_dec.exit.i:                                  ; preds = %26, %25, %23, %17
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %14
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %14
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
@@ -2314,7 +2314,7 @@ define ptr @l_Lean_Elab_Structural_RecArgInfo_indName_x21___boxed(ptr noundef %0
 
 lean_dec.exit.i.i:                                ; preds = %26, %25, %23, %17
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %14
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %14
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1

@@ -160,7 +160,7 @@ define void @_ZN15FilterListModel6reloadEv(ptr noundef align 8 dereferenceable_o
 
 switch.lookup:                                    ; preds = %1
   %30 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN15FilterListModel8saveListEv, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15FilterListModel8saveListEv, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = tail call ptr @get_persconffile_path(ptr noundef nonnull %switch.load, i1 noundef zeroext true)
@@ -3292,7 +3292,7 @@ define void @_ZN15FilterListModel8saveListEv(ptr noundef align 8 dereferenceable
 
 switch.lookup:                                    ; preds = %1
   %35 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN15FilterListModel8saveListEv, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15FilterListModel8saveListEv, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

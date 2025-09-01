@@ -22,7 +22,7 @@ define ptr @ossl_cipher_cbc_cts_mode_id2name(i32 noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw %struct.cts_mode_name2id_st, ptr @cts_modes, i64 %.06
   %6 = load i32, ptr %5, align 16, !tbaa !5
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %2
@@ -48,7 +48,7 @@ define i32 @ossl_cipher_cbc_cts_mode_name2id(ptr noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw %struct.cts_mode_name2id_st, ptr @cts_modes, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %0, ptr noundef %7) #7

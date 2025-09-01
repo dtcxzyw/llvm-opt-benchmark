@@ -1678,7 +1678,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
 62:                                               ; preds = %BufferGetPage.exit
   %63 = add nsw i32 %.03344, 1
   %64 = sext i32 %.03344 to i64
-  %65 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %64
+  %65 = getelementptr inbounds i32, ptr %6, i64 %64
   store i32 %46, ptr %65, align 4
   br label %67
 
@@ -1720,7 +1720,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %XLogRegisterBuffer.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next, %XLogRegisterBuffer.exit ]
-  %78 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   tail call void @MarkBufferDirty(i32 noundef %79) #10
   %80 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1799,7 +1799,7 @@ XLogRegisterBuffer.exit:                          ; preds = %98, %104
 
 119:                                              ; preds = %._crit_edge49, %BufferGetPage.exit40
   %indvars.iv57 = phi i64 [ 0, %._crit_edge49 ], [ %indvars.iv.next58, %BufferGetPage.exit40 ]
-  %120 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv57
+  %120 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv57
   %121 = load i32, ptr %120, align 4
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %123, label %129

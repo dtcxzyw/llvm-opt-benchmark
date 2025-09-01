@@ -15589,7 +15589,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.011.020.i, i64 24
   %43 = load i32, ptr %42, align 4, !alias.scope !2391, !noalias !2396, !noundef !4
   store i32 %43, ptr %32, align 8, !noalias !2388
-  %44 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %27, i64 0, i64 %.sroa.7.019.i
+  %44 = getelementptr inbounds nuw { [4 x i64] }, ptr %27, i64 %.sroa.7.019.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !2390
   %45 = icmp eq i64 %36, 0
   br i1 %45, label %.loopexit49, label %35
@@ -15656,7 +15656,7 @@ common.resume:                                    ; preds = %.thread27, %.thread
 62:                                               ; preds = %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.i"
   %63 = icmp ult i64 %.sroa.02.012.i, %.pre41
   tail call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }], ptr %.pre, i64 0, i64 %.sroa.02.012.i, i32 1
+  %64 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %.pre, i64 %.sroa.02.012.i, i32 1
   store i32 %., ptr %64, align 8
   br label %73
 

@@ -190,7 +190,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %21 = and i64 %19, 4294967295
-  %22 = getelementptr [19 x %struct.ata_port_info], ptr @ahci_port_info, i64 0, i64 %21
+  %22 = getelementptr %struct.ata_port_info, ptr @ahci_port_info, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef align 16 dereferenceable(48) %22, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %15, ptr %16, align 16
@@ -463,7 +463,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 
 163:                                              ; preds = %155
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %165 = getelementptr [11 x %struct.resource], ptr %164, i64 0, i64 %157
+  %165 = getelementptr %struct.resource, ptr %164, i64 %157
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i64, ptr %166, align 8
   %168 = icmp eq i64 %167, 0
@@ -962,7 +962,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 445:                                              ; preds = %480, %442
   %446 = phi i32 [ 0, %442 ], [ %481, %480 ]
   %447 = sext i32 %446 to i64
-  %448 = getelementptr [0 x ptr], ptr %443, i64 0, i64 %447
+  %448 = getelementptr ptr, ptr %443, i64 %447
   %449 = load ptr, ptr %448, align 8
   call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef -1, ptr noundef nonnull @.str.11) #13
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 44
@@ -1077,7 +1077,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 520:                                              ; preds = %.loopexit36, %518
   %521 = phi i32 [ 0, %518 ], [ %538, %.loopexit36 ]
   %522 = sext i32 %521 to i64
-  %523 = getelementptr [0 x ptr], ptr %519, i64 0, i64 %522
+  %523 = getelementptr ptr, ptr %519, i64 %522
   %524 = load ptr, ptr %523, align 8
   %525 = call ptr @ata_link_next(ptr noundef null, ptr noundef %524, i32 noundef 0) #13
   %526 = icmp eq ptr %525, null

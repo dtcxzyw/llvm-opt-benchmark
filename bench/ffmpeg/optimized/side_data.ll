@@ -44,7 +44,7 @@ define noundef ptr @av_frame_side_data_desc(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [30 x %struct.AVSideDataDescriptor], ptr @sd_props, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
@@ -64,7 +64,7 @@ define ptr @av_frame_side_data_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [30 x %struct.AVSideDataDescriptor], ptr @sd_props, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   br label %av_frame_side_data_desc.exit.thread
 
@@ -154,7 +154,7 @@ define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw [30 x %struct.AVSideDataDescriptor], ptr @sd_props, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %14
   %16 = load ptr, ptr %15, align 16, !tbaa !4
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %av_frame_side_data_desc.exit.thread, label %av_frame_side_data_desc.exit
@@ -280,7 +280,7 @@ define ptr @av_frame_side_data_new(ptr noundef captures(none) %0, ptr noundef ca
 
 9:                                                ; preds = %5
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds nuw [30 x %struct.AVSideDataDescriptor], ptr @sd_props, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %10
   %12 = load ptr, ptr %11, align 16, !tbaa !4
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %av_frame_side_data_desc.exit
@@ -469,7 +469,7 @@ define ptr @av_frame_side_data_add(ptr noundef captures(none) %0, ptr noundef ca
 
 9:                                                ; preds = %5
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds nuw [30 x %struct.AVSideDataDescriptor], ptr @sd_props, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %10
   %12 = load ptr, ptr %11, align 16, !tbaa !4
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %av_frame_side_data_desc.exit
@@ -697,7 +697,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_side_data_clone(ptr noundef captu
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [30 x %struct.AVSideDataDescriptor], ptr @sd_props, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %20
   %22 = load ptr, ptr %21, align 16, !tbaa !4
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %23, label %av_frame_side_data_desc.exit

@@ -677,7 +677,7 @@ while.body:                                       ; preds = %while.cond
   %arrayidx = getelementptr inbounds i8, ptr %pString, i64 %validPos.0
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx1 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2EA4StdC15utf8lengthTableE, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC15utf8lengthTableE, i64 %idxprom
   %1 = load i8, ptr %arrayidx1, align 1
   %cmp2 = icmp eq i8 %1, 0
   %conv = zext i8 %1 to i64
@@ -703,7 +703,7 @@ while.body:                                       ; preds = %entry, %if.end
   %arrayidx = getelementptr inbounds i8, ptr %pIn, i64 %validPos.023
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx1 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2EA4StdC15utf8lengthTableE, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC15utf8lengthTableE, i64 %idxprom
   %1 = load i8, ptr %arrayidx1, align 1
   %cmp2 = icmp eq i8 %1, 0
   br i1 %cmp2, label %if.then, label %lor.lhs.false

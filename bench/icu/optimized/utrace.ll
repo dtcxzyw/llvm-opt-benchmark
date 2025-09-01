@@ -586,7 +586,7 @@ _ZL10outputCharcPcPiii.exit.us35.i:               ; preds = %145, %.loopexit.i.u
 192:                                              ; preds = %.loopexit.i.i
   %193 = ashr i64 %189, %indvars.iv.next.i178
   %194 = and i64 %193, 15
-  %195 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %194
   %196 = load i8, ptr %195, align 1, !tbaa !7
   %197 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv603
   store i8 %196, ptr %197, align 1, !tbaa !7
@@ -633,7 +633,7 @@ _ZL10outputCharcPcPiii.exit.i:                    ; preds = %192, %.loopexit.i.i
 216:                                              ; preds = %.loopexit.i.i180
   %217 = ashr i64 %213, %indvars.iv.next.i182
   %218 = and i64 %217, 15
-  %219 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !7
   %221 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv600
   store i8 %220, ptr %221, align 1, !tbaa !7
@@ -680,7 +680,7 @@ _ZL10outputCharcPcPiii.exit.i183:                 ; preds = %216, %.loopexit.i.i
 240:                                              ; preds = %.loopexit.i.i187
   %241 = ashr i64 %237, %indvars.iv.next.i189
   %242 = and i64 %241, 15
-  %243 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !7
   %245 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv597
   store i8 %244, ptr %245, align 1, !tbaa !7
@@ -726,7 +726,7 @@ _ZL10outputCharcPcPiii.exit.i190:                 ; preds = %240, %.loopexit.i.i
 263:                                              ; preds = %.loopexit.i.i194
   %264 = ashr i64 %260, %indvars.iv.next.i196
   %265 = and i64 %264, 15
-  %266 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %265
   %267 = load i8, ptr %266, align 1, !tbaa !7
   %268 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv594
   store i8 %267, ptr %268, align 1, !tbaa !7
@@ -782,7 +782,7 @@ _ZL10outputCharcPcPiii.exit.i197:                 ; preds = %263, %.loopexit.i.i
 289:                                              ; preds = %.loopexit.i.i.i
   %290 = ashr i64 %286, %indvars.iv.next.i.i
   %291 = and i64 %290, 15
-  %292 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %291
   %293 = load i8, ptr %292, align 1, !tbaa !7
   %294 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv591
   store i8 %293, ptr %294, align 1, !tbaa !7
@@ -1085,7 +1085,7 @@ _ZL10outputCharcPcPiii.exit.us35.i224:            ; preds = %387, %.loopexit.i.u
 417:                                              ; preds = %.loopexit.i.i.i238
   %418 = ashr i64 %414, %indvars.iv.next.i.i240
   %419 = and i64 %418, 15
-  %420 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %419
   %421 = load i8, ptr %420, align 1, !tbaa !7
   %422 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv582
   store i8 %421, ptr %422, align 1, !tbaa !7
@@ -1438,7 +1438,7 @@ _ZL10outputCharcPcPiii.exit305:                   ; preds = %.loopexit.i298, %53
 552:                                              ; preds = %.loopexit.i.i307
   %553 = ashr i64 %.4404, %indvars.iv.next.i309
   %554 = and i64 %553, 15
-  %555 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %554
+  %555 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %554
   %556 = load i8, ptr %555, align 1, !tbaa !7
   %557 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv585
   store i8 %556, ptr %557, align 1, !tbaa !7
@@ -1596,7 +1596,7 @@ _ZL10outputCharcPcPiii.exit334:                   ; preds = %.loopexit.i327, %60
 611:                                              ; preds = %.loopexit.i.i336
   %612 = ashr i64 %608, %indvars.iv.next.i338
   %613 = and i64 %612, 15
-  %614 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %613
+  %614 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %613
   %615 = load i8, ptr %614, align 1, !tbaa !7
   %616 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv588
   store i8 %615, ptr %616, align 1, !tbaa !7
@@ -1969,7 +1969,7 @@ _ZL10outputCharcPcPiii.exit.us35.i:               ; preds = %50
 63:                                               ; preds = %.loopexit.i.i
   %64 = lshr i64 %60, %indvars.iv.next.i24
   %65 = and i64 %64, 15
-  %66 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !7
   %68 = sext i32 %61 to i64
   %69 = getelementptr inbounds i8, ptr %2, i64 %68
@@ -2116,9 +2116,9 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #9 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL8trFnName, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZL8trFnName, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !13
-  br label %26
+  br label %27
 
 6:                                                ; preds = %1
   %7 = and i32 %0, -8
@@ -2126,37 +2126,38 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #9 {
   br i1 %or.cond3, label %8, label %13
 
 8:                                                ; preds = %6
-  %9 = add nsw i32 %0, -4096
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [9 x ptr], ptr @_ZL11trConvNames, i64 0, i64 %10
+  %9 = zext nneg i32 %0 to i64
+  %10 = getelementptr ptr, ptr @_ZL11trConvNames, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -32768
   %12 = load ptr, ptr %11, align 8, !tbaa !13
-  br label %26
+  br label %27
 
 13:                                               ; preds = %6
   %14 = add i32 %0, -8192
   %or.cond5 = icmp ult i32 %14, 9
-  br i1 %or.cond5, label %15, label %19
+  br i1 %or.cond5, label %15, label %20
 
 15:                                               ; preds = %13
-  %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL11trCollNames, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !13
-  br label %26
+  %16 = zext nneg i32 %0 to i64
+  %17 = getelementptr ptr, ptr @_ZL11trCollNames, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -65536
+  %19 = load ptr, ptr %18, align 8, !tbaa !13
+  br label %27
 
-19:                                               ; preds = %13
-  %20 = and i32 %0, -4
-  %or.cond7 = icmp eq i32 %20, 12288
-  br i1 %or.cond7, label %21, label %26
+20:                                               ; preds = %13
+  %21 = and i32 %0, -4
+  %or.cond7 = icmp eq i32 %21, 12288
+  br i1 %or.cond7, label %22, label %27
 
-21:                                               ; preds = %19
-  %22 = add nsw i32 %0, -12288
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [5 x ptr], ptr @_ZL14trResDataNames, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !13
-  br label %26
+22:                                               ; preds = %20
+  %23 = zext nneg i32 %0 to i64
+  %24 = getelementptr ptr, ptr @_ZL14trResDataNames, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 -98304
+  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  br label %27
 
-26:                                               ; preds = %19, %21, %15, %8, %2
-  %.0 = phi ptr [ %5, %2 ], [ %12, %8 ], [ %18, %15 ], [ %25, %21 ], [ @.str.1, %19 ]
+27:                                               ; preds = %20, %22, %15, %8, %2
+  %.0 = phi ptr [ %5, %2 ], [ %12, %8 ], [ %19, %15 ], [ %26, %22 ], [ @.str.1, %20 ]
   ret ptr %.0
 }
 

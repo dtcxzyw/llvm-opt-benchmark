@@ -138,7 +138,7 @@ define internal fastcc noundef zeroext i1 @eri_enb_log_get_packet(ptr noundef %0
 12:                                               ; preds = %7
   %13 = add nsw i32 %10, -1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr [131072 x i8], ptr @eri_enb_log_get_packet.line, i64 0, i64 %14
+  %15 = getelementptr i8, ptr @eri_enb_log_get_packet.line, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 10
   br i1 %17, label %18, label %.thread
@@ -157,7 +157,7 @@ define internal fastcc noundef zeroext i1 @eri_enb_log_get_packet(ptr noundef %0
   %.pre-phi7 = phi i64 [ %.pre6, %..thread_crit_edge ], [ %14, %12 ]
   %.pre-phi = phi i32 [ %.pre, %..thread_crit_edge ], [ %13, %12 ]
   %.02 = phi i32 [ %13, %..thread_crit_edge ], [ %10, %12 ]
-  %19 = getelementptr [131072 x i8], ptr @eri_enb_log_get_packet.line, i64 0, i64 %.pre-phi7
+  %19 = getelementptr i8, ptr @eri_enb_log_get_packet.line, i64 %.pre-phi7
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 13
   br i1 %21, label %22, label %.thread3

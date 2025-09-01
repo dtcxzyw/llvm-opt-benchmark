@@ -528,7 +528,7 @@ define dso_local range(i32 0, 3) i32 @io_arm_poll_handler(ptr noundef %0, i32 no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %6
+  %7 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68

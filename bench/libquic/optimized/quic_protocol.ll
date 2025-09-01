@@ -817,7 +817,7 @@ define void @_ZN3net20AllSupportedVersionsEv(ptr dead_on_unwind noalias writable
   %5 = phi ptr [ null, %1 ], [ %32, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   %6 = phi ptr [ null, %1 ], [ %31, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   %7 = phi ptr [ null, %1 ], [ %30, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %8 = getelementptr inbounds nuw [7 x i32], ptr @_ZN3netL22kSupportedQuicVersionsE, i64 0, i64 %.019
+  %8 = getelementptr inbounds nuw i32, ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.019
   %.not.i = icmp eq ptr %5, %6
   br i1 %.not.i, label %11, label %9
 
@@ -1476,7 +1476,7 @@ define noundef i32 @_ZN3net20QuicTagToQuicVersionEj(i32 noundef %0) local_unname
 
 4:                                                ; preds = %1, %2
   %.079 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [7 x i32], ptr @_ZN3netL22kSupportedQuicVersionsE, i64 0, i64 %.079
+  %5 = getelementptr inbounds nuw i32, ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.079
   %6 = load i32, ptr %5, align 4, !tbaa !66
   %7 = tail call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %6)
   %8 = icmp eq i32 %0, %7

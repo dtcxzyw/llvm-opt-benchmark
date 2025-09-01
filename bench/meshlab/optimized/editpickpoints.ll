@@ -1674,7 +1674,7 @@ define linkonce_odr void @_ZN3vcg9GLPickTriI6CMeshOE22glGetMatrixAndViewportERN5
 
 7:                                                ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = sitofp i32 %9 to float
   %11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
@@ -2488,7 +2488,7 @@ _ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit77.thread: ; preds = %_ZNK3vcg4Box3If
 
 107:                                              ; preds = %107, %.preheader.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %107 ]
-  %108 = getelementptr inbounds nuw [4 x %"class.vcg::Segment3"], ptr %8, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw %"class.vcg::Segment3", ptr %8, i64 %indvars.iv
   %109 = call noundef zeroext i1 @_ZN3vcg27IntersectionSegmentTriangleIfEEbRKNS_8Segment3IT_EERKNS_6Point3IS2_EES9_S9_RS2_SA_(ptr noundef nonnull align 4 dereferenceable(24) %108, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3138,30 +3138,30 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
 8:                                                ; preds = %3, %25
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %25 ]
   %.06471 = phi i32 [ 1, %3 ], [ %.165, %25 ]
-  %9 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds nuw [3 x float], ptr %0, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %12 = load float, ptr %11, align 4
   %13 = fcmp olt float %10, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %12, ptr %16, align 4
   br label %25
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %19 = load float, ptr %18, align 4
   %20 = fcmp ogt float %10, %19
-  %21 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   br i1 %20, label %22, label %24
 
 22:                                               ; preds = %17
   store i8 0, ptr %21, align 1
-  %23 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %19, ptr %23, align 4
   br label %25
 
@@ -3189,21 +3189,21 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
 
 29:                                               ; preds = %.preheader70, %43
   %indvars.iv78 = phi i64 [ 0, %.preheader70 ], [ %indvars.iv.next79, %43 ]
-  %30 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv78
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv78
   %31 = load i8, ptr %30, align 1
   %.not68 = icmp eq i8 %31, 2
   br i1 %.not68, label %43, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv78
+  %33 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv78
   %34 = load float, ptr %33, align 4
   %35 = fcmp une float %34, 0.000000e+00
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv78
+  %37 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv78
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv78
+  %39 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv78
   %40 = load float, ptr %39, align 4
   %41 = fsub float %38, %40
   %42 = fdiv float %41, %34
@@ -3211,7 +3211,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
 
 43:                                               ; preds = %29, %32, %36
   %.sink = phi float [ %42, %36 ], [ -1.000000e+00, %32 ], [ -1.000000e+00, %29 ]
-  %44 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv78
+  %44 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv78
   store float %.sink, ptr %44, align 4
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 3
@@ -3221,9 +3221,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.preheader69 ], [ 1, %43 ]
   %.075 = phi i32 [ %.1, %.preheader69 ], [ 0, %43 ]
   %45 = zext nneg i32 %.075 to i64
-  %46 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw float, ptr %5, i64 %45
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv82
+  %48 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv82
   %49 = load float, ptr %48, align 4
   %50 = fcmp olt float %47, %49
   %51 = trunc nuw nsw i64 %indvars.iv82 to i32
@@ -3234,14 +3234,14 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
 
 52:                                               ; preds = %.preheader69
   %53 = zext i32 %.1 to i64
-  %54 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw float, ptr %5, i64 %53
   %55 = load float, ptr %54, align 4
   %56 = fcmp olt float %55, 0.000000e+00
   br i1 %56, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %52
-  %57 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %53
-  %58 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %53
+  %57 = getelementptr inbounds nuw float, ptr %6, i64 %53
+  %58 = getelementptr inbounds nuw float, ptr %2, i64 %53
   br label %59
 
 59:                                               ; preds = %.preheader, %76
@@ -3250,20 +3250,20 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
   br i1 %.not67, label %74, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv86
+  %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv86
   %62 = load float, ptr %61, align 4
-  %63 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv86
+  %63 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv86
   %64 = load float, ptr %63, align 4
   %65 = tail call float @llvm.fmuladd.f32(float %55, float %64, float %62)
-  %66 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv86
+  %66 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv86
   store float %65, ptr %66, align 4
-  %67 = getelementptr inbounds nuw [3 x float], ptr %0, i64 0, i64 %indvars.iv86
+  %67 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv86
   %68 = load float, ptr %67, align 4
   %69 = fcmp olt float %65, %68
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %60
-  %71 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv86
+  %71 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv86
   %72 = load float, ptr %71, align 4
   %73 = fcmp ogt float %65, %72
   br i1 %73, label %.loopexit, label %76

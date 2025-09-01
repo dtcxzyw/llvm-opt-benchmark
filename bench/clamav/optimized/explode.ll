@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %16 = icmp ugt i32 %15, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %18 = zext i32 %9 to i64
-  %19 = getelementptr inbounds nuw [8192 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   %20 = load ptr, ptr %0, align 8, !tbaa !19
   br i1 %16, label %21, label %25
 
@@ -181,7 +181,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %49 = icmp ugt i32 %48, %36
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %51 = zext i32 %39 to i64
-  %52 = getelementptr inbounds nuw [8192 x i8], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
   %53 = load ptr, ptr %0, align 8, !tbaa !19
   br i1 %49, label %54, label %58
 
@@ -247,7 +247,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %82 = icmp ugt i32 %81, %69
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %84 = zext i32 %72 to i64
-  %85 = getelementptr inbounds nuw [8192 x i8], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
   %86 = load ptr, ptr %0, align 8, !tbaa !19
   br i1 %82, label %87, label %91
 
@@ -563,7 +563,7 @@ lookup_tree.exit.thread:                          ; preds = %179
   %242 = load i32, ptr %241, align 8, !tbaa !13
   %243 = and i32 %242, %240
   %244 = zext i32 %243 to i64
-  %245 = getelementptr inbounds nuw [8192 x i8], ptr %238, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr %238, i64 %244
   store i8 %237, ptr %245, align 1, !tbaa !20
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %247 = load ptr, ptr %246, align 8, !tbaa !25
@@ -1016,7 +1016,7 @@ lookup_tree.exit451.thread:                       ; preds = %420
   %495 = load i32, ptr %494, align 8, !tbaa !13
   %496 = and i32 %495, %493
   %497 = zext i32 %496 to i64
-  %498 = getelementptr inbounds nuw [8192 x i8], ptr %491, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw i8, ptr %491, i64 %497
   %499 = load i8, ptr %498, align 1, !tbaa !20
   br label %503
 
@@ -1030,7 +1030,7 @@ lookup_tree.exit451.thread:                       ; preds = %420
   %.sink553 = phi i8 [ 0, %500 ], [ %499, %492 ]
   %504 = and i32 %.sink557, %487
   %505 = zext i32 %504 to i64
-  %506 = getelementptr inbounds nuw [8192 x i8], ptr %491, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw i8, ptr %491, i64 %505
   store i8 %.sink553, ptr %506, align 1, !tbaa !20
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %508 = load ptr, ptr %507, align 8, !tbaa !25
@@ -1068,7 +1068,7 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr noundef readonly cap
 8:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %8 ]
   %9 = trunc i64 %indvars.iv to i8
-  %10 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %9, ptr %10, align 1, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1236,10 +1236,10 @@ bs.exit:                                          ; preds = %._crit_edge.i, %._c
   %.036 = phi i16 [ %78, %70 ], [ 0, %bs.exit ]
   %71 = zext i16 %.038 to i32
   %72 = add i32 %.040, %71
-  %73 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv82
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv82
   %74 = load i8, ptr %73, align 1, !tbaa !20
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !20
   %78 = zext i8 %77 to i16
   %.not54 = icmp eq i16 %.036, %78

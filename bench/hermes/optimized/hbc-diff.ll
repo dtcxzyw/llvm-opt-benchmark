@@ -2349,7 +2349,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit722.i:            ; preds = %if.then4.i.i717.i, 
 for.body178.i:                                    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit811.i, %_ZN4llvh11raw_ostreamlsEPKc.exit722.i
   %indvars.iv1044.i = phi i64 [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit722.i ], [ %indvars.iv.next1045.i, %_ZN4llvh11raw_ostreamlsEPKc.exit811.i ]
   %call179.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv() #21
-  %arrayidx.i.i723.i = getelementptr inbounds nuw [15 x ptr], ptr @_ZL12sectionNames, i64 0, i64 %indvars.iv1044.i
+  %arrayidx.i.i723.i = getelementptr inbounds nuw ptr, ptr @_ZL12sectionNames, i64 %indvars.iv1044.i
   %234 = load ptr, ptr %arrayidx.i.i723.i, align 8
   %tobool.i.not.i724.i = icmp eq ptr %234, null
   br i1 %tobool.i.not.i724.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit739.i, label %cond.true.i.split.i.i
@@ -3115,9 +3115,9 @@ if.then10:                                        ; preds = %if.end6
   unreachable
 
 if.end12:                                         ; preds = %if.end6
-  %sub = add nsw i64 %conv, -1
-  %arrayidx = getelementptr inbounds [4 x i8], ptr @.str.33, i64 0, i64 %sub
-  %6 = load i8, ptr %arrayidx, align 1
+  %6 = getelementptr i8, ptr @.str.33, i64 %conv
+  %arrayidx = getelementptr i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx, align 1
   %conv1.i = uitofp nneg i64 %conv to double
   %mul = fmul double %conv1.i, 1.000000e+01
   %exp2 = tail call double @exp2(double %mul) #21
@@ -3126,9 +3126,9 @@ if.end12:                                         ; preds = %if.end6
   store ptr @.str.34, ptr %Fmt.i.i.i, align 8, !alias.scope !37
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJdcEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !37
   %Vals.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store i8 %6, ptr %Vals.i.i, align 8, !alias.scope !37
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store double %div16, ptr %7, align 8, !alias.scope !37
+  store i8 %7, ptr %Vals.i.i, align 8, !alias.scope !37
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  store double %div16, ptr %8, align 8, !alias.scope !37
   %call17 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
   br label %return
 

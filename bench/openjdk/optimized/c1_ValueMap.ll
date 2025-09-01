@@ -1284,7 +1284,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %84, %89
   %93 = load i8, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 41
   %95 = zext i8 %93 to i64
-  %96 = getelementptr inbounds nuw [14 x i8], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = trunc i8 %97 to i1
   br i1 %98, label %.thread, label %99
@@ -1358,7 +1358,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %84, %89
   %152 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %151) #7
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 55
   %154 = zext i8 %152 to i64
-  %155 = getelementptr inbounds nuw [14 x i8], ptr %153, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = trunc i8 %156 to i1
   br i1 %157, label %.thread, label %158
@@ -4207,7 +4207,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %_ZN8ValueMap10kill_
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %124 = load i8, ptr %123, align 8
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw [14 x i8], ptr %122, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 %125
   store i8 1, ptr %126, align 1
   ret void
 }
@@ -4327,7 +4327,7 @@ _ZN8ValueMap10kill_arrayEP9ValueType.exit:        ; preds = %.loopexit.i, %2
   %64 = tail call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %1) #7
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %66 = zext i8 %64 to i64
-  %67 = getelementptr inbounds nuw [14 x i8], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
   store i8 1, ptr %67, align 1
   ret void
 }

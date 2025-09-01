@@ -263,10 +263,10 @@ define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %0, ptr no
 42:                                               ; preds = %39
   %43 = call ptr @BIO_push(ptr noundef %30, ptr noundef %40) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %3, i8 0, i64 1056, i1 false)
-  %44 = getelementptr inbounds nuw [1056 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !4
   %46 = xor i8 %45, -1
-  %47 = getelementptr inbounds nuw [1056 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %46, ptr %47, align 1, !tbaa !4
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = call i32 @BIO_read(ptr noundef %30, ptr noundef nonnull %3, i32 noundef %48) #5
@@ -443,10 +443,10 @@ define internal fastcc range(i32 0, 2) i32 @do_bio_cipher(ptr noundef %0, ptr no
 126:                                              ; preds = %123
   %127 = call ptr @BIO_push(ptr noundef %114, ptr noundef %124) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %3, i8 0, i64 1056, i1 false)
-  %128 = getelementptr inbounds nuw [1056 x i8], ptr %4, i64 0, i64 %indvars.iv116
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv116
   %129 = load i8, ptr %128, align 1, !tbaa !4
   %130 = xor i8 %129, -1
-  %131 = getelementptr inbounds nuw [1056 x i8], ptr %3, i64 0, i64 %indvars.iv116
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv116
   store i8 %130, ptr %131, align 1, !tbaa !4
   %132 = trunc nuw nsw i64 %indvars.iv116 to i32
   %133 = call i32 @BIO_read(ptr noundef %114, ptr noundef nonnull %3, i32 noundef %132) #5

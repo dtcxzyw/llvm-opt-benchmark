@@ -415,7 +415,7 @@ for.body29:                                       ; preds = %if.end, %sw.epilog
 
 switch.lookup:                                    ; preds = %for.body29
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._Z11list_peopleRKN8tutorial11AddressBookE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z11list_peopleRKN8tutorial11AddressBookE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load)
   br label %sw.epilog

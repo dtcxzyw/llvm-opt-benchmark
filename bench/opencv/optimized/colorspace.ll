@@ -5706,7 +5706,7 @@ _ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i: ; preds = %.noexc22, %201, %20
 
 208:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit48.i", %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit48.i" ]
-  %209 = getelementptr inbounds nuw [3 x double], ptr %.val3565.i, i64 0, i64 %indvars.iv.i
+  %209 = getelementptr inbounds nuw double, ptr %.val3565.i, i64 %indvars.iv.i
   %210 = load double, ptr %209, align 8, !tbaa !84, !noalias !137
   %211 = load double, ptr %196, align 8, !tbaa !131, !noalias !137
   %212 = fcmp ogt double %210, %211
@@ -6427,7 +6427,7 @@ _ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i: ; preds = %.noexc22, %205, %20
 
 212:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit48.i", %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit48.i" ]
-  %213 = getelementptr inbounds nuw [3 x double], ptr %.val3365.i, i64 0, i64 %indvars.iv.i
+  %213 = getelementptr inbounds nuw double, ptr %.val3365.i, i64 %indvars.iv.i
   %214 = load double, ptr %213, align 8, !tbaa !84, !noalias !174
   %215 = load double, ptr %200, align 8, !tbaa !133, !noalias !174
   %216 = fcmp ogt double %214, %215

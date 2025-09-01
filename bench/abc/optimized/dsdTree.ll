@@ -3269,7 +3269,7 @@ common.ret38:                                     ; preds = %._crit_edge.loopexi
   %28 = load ptr, ptr %24, align 8, !tbaa !51
   %29 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef nonnull %0, ptr noundef %28)
   %30 = sext i32 %23 to i64
-  %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %30
+  %31 = getelementptr inbounds i64, ptr @s_Truths6, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !76
   %33 = and i64 %32, %29
   %34 = xor i64 %32, -1
@@ -3418,7 +3418,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
 71:                                               ; preds = %.lr.ph110, %71
   %indvars.iv119 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next120, %71 ]
   %72 = load ptr, ptr %70, align 8, !tbaa !14
-  %73 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv119
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv119
   %74 = load i8, ptr %73, align 1, !tbaa !51
   %75 = sext i8 %74 to i64
   %76 = getelementptr inbounds ptr, ptr %72, i64 %75
@@ -4085,7 +4085,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr noundef read
   %54 = load ptr, ptr %53, align 8, !tbaa !18
   %55 = load i32, ptr %54, align 8, !tbaa !38
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [1000 x i32], ptr @Dsd_TreeGetPrimeFunctionOld.Permute, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr @Dsd_TreeGetPrimeFunctionOld.Permute, i64 %56
   %58 = trunc nuw nsw i64 %indvars.iv64 to i32
   store i32 %58, ptr %57, align 4, !tbaa !28
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1

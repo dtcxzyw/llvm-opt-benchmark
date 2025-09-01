@@ -62235,10 +62235,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %1, align 1, !range !4057, !noundef !6
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN153_$LT$ruff_linter..rules..flake8_async..rules..async_function_with_timeout..AsyncFunctionWithTimeout$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17hfae9a602618949efE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN153_$LT$ruff_linter..rules..flake8_async..rules..async_function_with_timeout..AsyncFunctionWithTimeout$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17hfae9a602618949efE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep4 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN153_$LT$ruff_linter..rules..flake8_async..rules..async_function_with_timeout..AsyncFunctionWithTimeout$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17hfae9a602618949efE.1390", i64 0, i64 %7
+  %switch.gep4 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN153_$LT$ruff_linter..rules..flake8_async..rules..async_function_with_timeout..AsyncFunctionWithTimeout$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17hfae9a602618949efE.1390", i64 %7
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -70671,7 +70671,7 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules29unnecessary_dict_index_
 
 switch.lookup:                                    ; preds = %2
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN11ruff_linter5rules6pylint5rules29unnecessary_list_index_lookup43unnecessary_list_index_lookup_comprehension17hd500cd994a1fff73E, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5rules6pylint5rules29unnecessary_list_index_lookup43unnecessary_list_index_lookup_comprehension17hd500cd994a1fff73E, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -71692,7 +71692,7 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules29unnecessary_list_index_
 
 switch.lookup:                                    ; preds = %2
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN11ruff_linter5rules6pylint5rules29unnecessary_list_index_lookup43unnecessary_list_index_lookup_comprehension17hd500cd994a1fff73E, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5rules6pylint5rules29unnecessary_list_index_lookup43unnecessary_list_index_lookup_comprehension17hd500cd994a1fff73E, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -74395,7 +74395,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %7, 3
   %switch.offset = zext nneg i8 %narrow to i64
   %8 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..redundant_log_base..RedundantLogBase$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h61855a757c66b599E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..redundant_log_base..RedundantLogBase$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h61855a757c66b599E", i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -74766,7 +74766,7 @@ _ZN11ruff_linter7locator7Locator5slice17h2604da1ea4c3cb35E.exit: ; preds = %126,
   %narrow = add nuw nsw i8 %.sroa.0.021, 3
   %switch.offset = zext nneg i8 %narrow to i64
   %158 = zext nneg i8 %.sroa.0.021 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..redundant_log_base..RedundantLogBase$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h61855a757c66b599E", i64 0, i64 %158
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..redundant_log_base..RedundantLogBase$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h61855a757c66b599E", i64 %158
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void @_ZN11ruff_linter8importer13ImportRequest6import17hee51c6eda46a9c84E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 1 @anon.879c592214345ca999bafaa324406990.772, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.offset)
           to label %.noexc8 unwind label %.body.thread30
@@ -78464,7 +78464,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %7, 3
   %switch.offset = zext nneg i8 %narrow to i64
   %8 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..redundant_log_base..RedundantLogBase$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h61855a757c66b599E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..redundant_log_base..RedundantLogBase$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h61855a757c66b599E", i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8

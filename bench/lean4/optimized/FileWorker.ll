@@ -78718,7 +78718,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_FileWorker_0__Lean
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -79859,7 +79859,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Server_FileWorker_0__L
 6:                                                ; preds = %.lr.ph, %61
   %.02151 = phi i64 [ %1, %.lr.ph ], [ %34, %61 ]
   %.02550 = phi ptr [ %3, %.lr.ph ], [ %.227, %61 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02151
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02151
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -80130,7 +80130,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_FileWorker_0__Lean
   %.02665 = phi i64 [ %2, %.lr.ph ], [ %76, %lean_dec.exit33 ]
   %.02864 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i48, %lean_dec.exit33 ]
   %16 = getelementptr inbounds nuw i8, ptr %.02864, i64 24
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %.02665
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.02665
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
@@ -80345,7 +80345,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_FileWorker_0__Lean
   %.02145 = phi i64 [ %36, %52 ], [ %1, %3 ]
   %.02344 = phi ptr [ %.0.i.i31, %52 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02344, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02145
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02145
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -80494,7 +80494,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Server_FileWorker_0__L
 6:                                                ; preds = %.lr.ph, %248
   %.093222 = phi i64 [ %1, %.lr.ph ], [ %25, %248 ]
   %.095221 = phi ptr [ %3, %.lr.ph ], [ %.6101, %248 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.093222
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.093222
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -80542,7 +80542,7 @@ lean_dec.exit123:                                 ; preds = %lean_nat_sub.exit
   %28 = ptrtoint ptr %.1.i to i64
   %29 = lshr i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %.095221, i64 24
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 1
@@ -83364,7 +83364,7 @@ lean_alloc_ctor.exit:                             ; preds = %._crit_edge
   %.04074 = phi ptr [ %4, %.lr.ph ], [ %.0.i.i57, %96 ]
   %.04273 = phi ptr [ %6, %.lr.ph ], [ %62, %96 ]
   %20 = getelementptr inbounds nuw i8, ptr %.04074, i64 24
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %.03875
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.03875
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -83576,7 +83576,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Server_FileWorker_0__L
 6:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.01935 = phi i64 [ %1, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.02134 = phi ptr [ %3, %.lr.ph ], [ %.223, %lean_dec.exit ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01935
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01935
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -90982,7 +90982,7 @@ lean_dec.exit247:                                 ; preds = %477, %476, %474, %l
 487:                                              ; preds = %lean_dec.exit.i, %.lr.ph.i
   %.01935.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %lean_dec.exit.i ]
   %.02134.i = phi ptr [ %485, %.lr.ph.i ], [ %.223.i, %lean_dec.exit.i ]
-  %488 = getelementptr inbounds nuw [0 x ptr], ptr %486, i64 0, i64 %.01935.i
+  %488 = getelementptr inbounds nuw ptr, ptr %486, i64 %.01935.i
   %489 = load ptr, ptr %488, align 8, !tbaa !4
   %490 = ptrtoint ptr %489 to i64
   %491 = and i64 %490, 1
@@ -91588,7 +91588,7 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
 26:                                               ; preds = %lean_dec.exit.i, %.lr.ph.i
   %.01935.i = phi i64 [ %.val15, %.lr.ph.i ], [ %.2.i, %lean_dec.exit.i ]
   %.02134.i = phi ptr [ %3, %.lr.ph.i ], [ %.223.i, %lean_dec.exit.i ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.01935.i
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01935.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -91836,7 +91836,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_FileWorker_0__Lean
   %.07491765 = phi i64 [ %2, %.lr.ph ], [ %.1750, %1861 ]
   %.07531764 = phi ptr [ %3, %.lr.ph ], [ %.1754, %1861 ]
   %7 = getelementptr inbounds nuw i8, ptr %.07531764, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.07491765
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.07491765
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -97167,7 +97167,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Server_FileWorker_0__L
   %.063162 = phi ptr [ %5, %.lr.ph ], [ %102, %191 ]
   %.066161 = phi ptr [ %6, %.lr.ph ], [ %86, %191 ]
   %.069160 = phi ptr [ %7, %.lr.ph ], [ %59, %191 ]
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.060163
+  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %.060163
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, 1
@@ -99785,7 +99785,7 @@ define ptr @l_Array_anyMUnsafe_any___at___private_Lean_Server_FileWorker_0__Lean
 9:                                                ; preds = %.lr.ph, %192
   %.0100261 = phi i64 [ %1, %.lr.ph ], [ %193, %192 ]
   %.0106259 = phi ptr [ %4, %.lr.ph ], [ %97, %192 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.0100261
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.0100261
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -100313,7 +100313,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_FileWorker_0__Lean
   %.02047 = phi i64 [ %47, %63 ], [ %1, %3 ]
   %.02246 = phi ptr [ %.0.i.i32, %63 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02246, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02047
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02047
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -100496,7 +100496,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Server_FileWorker_0__L
   %.063162 = phi ptr [ %5, %.lr.ph ], [ %102, %191 ]
   %.066161 = phi ptr [ %6, %.lr.ph ], [ %86, %191 ]
   %.069160 = phi ptr [ %7, %.lr.ph ], [ %59, %191 ]
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.060163
+  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %.060163
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, 1
@@ -122569,7 +122569,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_FileWorker_initializeWork
   %.051133 = phi i64 [ %1, %.lr.ph ], [ %.354, %lean_dec.exit75 ]
   %.055132 = phi ptr [ %3, %.lr.ph ], [ %.358, %lean_dec.exit75 ]
   %.059131 = phi ptr [ %4, %.lr.ph ], [ %46, %lean_dec.exit75 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.051133
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.051133
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -123109,7 +123109,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Server_FileWorker_initializeWorker_
   %.0107220 = phi i64 [ %2, %.lr.ph ], [ %41, %lean_dec.exit125 ]
   %.0109219 = phi ptr [ %3, %.lr.ph ], [ %.1110, %lean_dec.exit125 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0109219, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.0107220
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.0107220
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -123814,7 +123814,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_FileWorker_initializeWork
 7:                                                ; preds = %.lr.ph, %l_Lean_RBNode_insert___at_Lean_Server_FileWorker_WorkerContext_modifyGetPartialHandler___spec__3.exit
   %.02042 = phi i64 [ %2, %.lr.ph ], [ %45, %l_Lean_RBNode_insert___at_Lean_Server_FileWorker_WorkerContext_modifyGetPartialHandler___spec__3.exit ]
   %.02241 = phi ptr [ %4, %.lr.ph ], [ %.123, %l_Lean_RBNode_insert___at_Lean_Server_FileWorker_WorkerContext_modifyGetPartialHandler___spec__3.exit ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02042
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02042
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -123945,7 +123945,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_FileWorker_initializeWork
 6:                                                ; preds = %.lr.ph, %l_Lean_RBNode_insert___at_Lean_Server_FileWorker_WorkerContext_modifyGetPartialHandler___spec__3.exit
   %.02042 = phi i64 [ %1, %.lr.ph ], [ %44, %l_Lean_RBNode_insert___at_Lean_Server_FileWorker_WorkerContext_modifyGetPartialHandler___spec__3.exit ]
   %.02241 = phi ptr [ %3, %.lr.ph ], [ %.123, %l_Lean_RBNode_insert___at_Lean_Server_FileWorker_WorkerContext_modifyGetPartialHandler___spec__3.exit ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02042
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02042
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -141084,7 +141084,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_FileWorker_handleStaleDep
 9:                                                ; preds = %.lr.ph, %lean_dec.exit34
   %.02864 = phi i64 [ %2, %.lr.ph ], [ %65, %lean_dec.exit34 ]
   %.03063 = phi ptr [ %4, %.lr.ph ], [ %.232, %lean_dec.exit34 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02864
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02864
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -143059,7 +143059,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWo
   br label %lean_dec.exit32
 
 lean_dec.exit32:                                  ; preds = %21, %20, %18, %12
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.02463
+  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02463
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -177825,7 +177825,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_FileWorker_handleGetInter
 13:                                               ; preds = %.lr.ph, %lean_dec.exit204
   %.0145440 = phi i64 [ %2, %.lr.ph ], [ %460, %lean_dec.exit204 ]
   %.0147432 = phi ptr [ %4, %.lr.ph ], [ %.14161, %lean_dec.exit204 ]
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.0145440
+  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %.0145440
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, 1
@@ -180487,7 +180487,7 @@ lean_dec.exit829:                                 ; preds = %101, %100, %98, %le
 
 switch.lookup:                                    ; preds = %lean_dec.exit829
   %103 = and i64 %93, 3
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableDiagnosticWith_enc____x40_Lean_Widget_InteractiveDiagnostic___hyg_1853____at_Lean_Server_FileWorker_handlePreRequestSpecialCases_x3f___spec__3, i64 0, i64 %103
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableDiagnosticWith_enc____x40_Lean_Widget_InteractiveDiagnostic___hyg_1853____at_Lean_Server_FileWorker_handlePreRequestSpecialCases_x3f___spec__3, i64 %103
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %104
 
@@ -183967,7 +183967,7 @@ define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Server_FileWorker_h
   %.03164 = phi ptr [ %.0.i.i47, %80 ], [ %2, %4 ]
   %.03363 = phi ptr [ %46, %80 ], [ %3, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.03164, i64 24
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.02965
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02965
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -190447,7 +190447,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Server_FileWorker_handlePostRequest
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -191084,7 +191084,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Server_FileWo
 
 9:                                                ; preds = %.lr.ph, %7
   %.01530 = phi i64 [ %2, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01530
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01530
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -191176,7 +191176,7 @@ lean_nat_lt.exit:
 
 7:                                                ; preds = %5, %.lr.ph.i
   %.01530.i = phi i64 [ 0, %.lr.ph.i ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %3, i64 0, i64 %.01530.i
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01530.i
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -193962,7 +193962,7 @@ lean_dec.exit214:                                 ; preds = %58, %57, %55, %lean
 
 65:                                               ; preds = %63, %.lr.ph.i.i
   %.01530.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %64, %63 ]
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %.01530.i.i
+  %66 = getelementptr inbounds nuw ptr, ptr %61, i64 %.01530.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !4
   %68 = ptrtoint ptr %67 to i64
   %69 = and i64 %68, 1
@@ -194042,7 +194042,7 @@ lean_dec.exit.i.i:                                ; preds = %90, %89, %87, %lean
 
 94:                                               ; preds = %lean_dec.exit.i.i312, %.lr.ph.i.i305
   %.01530.i.i306 = phi i64 [ 0, %.lr.ph.i.i305 ], [ %120, %lean_dec.exit.i.i312 ]
-  %95 = getelementptr inbounds nuw [0 x ptr], ptr %92, i64 0, i64 %.01530.i.i306
+  %95 = getelementptr inbounds nuw ptr, ptr %92, i64 %.01530.i.i306
   %96 = load ptr, ptr %95, align 8, !tbaa !4
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, 1
@@ -196173,7 +196173,7 @@ lean_dec.exit12:                                  ; preds = %24, %23, %21, %lean
 
 29:                                               ; preds = %27, %.lr.ph.i
   %.01530.i = phi i64 [ %.val20, %.lr.ph.i ], [ %28, %27 ]
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.01530.i
+  %30 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01530.i
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 1
@@ -196313,7 +196313,7 @@ define noundef nonnull ptr @l_Array_contains___at_Lean_Server_FileWorker_handleP
 
 8:                                                ; preds = %6, %.lr.ph.i.i
   %.01530.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01530.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01530.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -222081,7 +222081,7 @@ lean_dec.exit68:                                  ; preds = %20, %19, %17, %._cr
   %.053121 = phi i64 [ %5, %.lr.ph ], [ %151, %149 ]
   %.055120 = phi ptr [ %6, %.lr.ph ], [ %150, %149 ]
   %.057119 = phi ptr [ %9, %.lr.ph ], [ %131, %149 ]
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.053121
+  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %.053121
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 1
@@ -240976,7 +240976,7 @@ lean_alloc_ctor.exit6848:                         ; preds = %7148
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit6848
   %7157 = zext nneg i8 %7033 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_readNotificationAs___at_Lean_Server_FileWorker_initAndRunWorker___spec__4, i64 0, i64 %7157
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_readNotificationAs___at_Lean_Server_FileWorker_initAndRunWorker___spec__4, i64 %7157
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7158
 
@@ -246855,7 +246855,7 @@ lean_alloc_ctor.exit1641:                         ; preds = %2120
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1641
   %2129 = zext nneg i8 %2005 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_readNotificationAs___at_Lean_Server_FileWorker_initAndRunWorker___spec__4, i64 0, i64 %2129
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_readNotificationAs___at_Lean_Server_FileWorker_initAndRunWorker___spec__4, i64 %2129
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %2130
 
@@ -247824,7 +247824,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWo
   br label %lean_dec.exit31
 
 lean_dec.exit31:                                  ; preds = %23, %22, %20, %14
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.02352
+  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %.02352
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1

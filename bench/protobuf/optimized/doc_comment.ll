@@ -1109,23 +1109,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i32 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i32 %rem.i, 1
   %div.i = udiv i32 %__val.addr.016.i, 100
-  %add.i10 = or disjoint i32 %mul.i, 1
-  %idxprom.i = zext nneg i32 %add.i10 to i64
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
-  %2 = load i8, ptr %arrayidx.i, align 1
+  %2 = zext nneg i32 %mul.i to i64
+  %3 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %2
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %4 = load i8, ptr %arrayidx.i, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %call7, i64 %idxprom1.i
-  store i8 %2, ptr %arrayidx2.i, align 1
-  %idxprom3.i = zext nneg i32 %mul.i to i64
-  %arrayidx4.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
-  %3 = load i8, ptr %arrayidx4.i, align 2
+  store i8 %4, ptr %arrayidx2.i, align 1
+  %5 = load i8, ptr %3, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call7, i64 %idxprom6.i
-  store i8 %3, ptr %arrayidx7.i, align 1
+  store i8 %5, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
-  %cmp.i11 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i11, label %while.body.i, label %while.end.i, !llvm.loop !21
+  %cmp.i10 = icmp ugt i32 %__val.addr.016.i, 9999
+  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !21
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
@@ -1134,36 +1132,34 @@ while.end.i:                                      ; preds = %while.body.i, %invo
 
 if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
-  %add12.i = or disjoint i32 %mul11.i, 1
-  %idxprom13.i = zext nneg i32 %add12.i to i64
-  %arrayidx14.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
-  %4 = load i8, ptr %arrayidx14.i, align 1
+  %6 = zext nneg i32 %mul11.i to i64
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %6
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %8 = load i8, ptr %arrayidx14.i, align 1
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %call7, i64 1
-  store i8 %4, ptr %arrayidx15.i, align 1
-  %idxprom16.i = zext nneg i32 %mul11.i to i64
-  %arrayidx17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
-  %5 = load i8, ptr %arrayidx17.i, align 2
+  store i8 %8, ptr %arrayidx15.i, align 1
+  %9 = load i8, ptr %7, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %6, 48
+  %10 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %10, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %5, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %9, %if.then.i ]
   store i8 %storemerge.i, ptr %call7, align 1
   ret void
 
 terminate.lpad:                                   ; preds = %call.i.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %lpad.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %7, %terminate.lpad ], [ %1, %lpad.i ]
-  %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %8) #24
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %terminate.lpad ], [ %1, %lpad.i ]
+  %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %12) #24
   unreachable
 }
 
@@ -1315,8 +1311,7 @@ for.body.preheader:                               ; preds = %if.then.i, %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %cmp = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
   %i.017.sroa.phi = phi ptr [ %i.017.sroa.gep, %for.inc ], [ %vars, %for.body.preheader ]
-  %i.017 = phi i64 [ 3, %for.inc ], [ 1, %for.body.preheader ]
-  %arrayidx13 = getelementptr inbounds nuw [5 x %"class.std::basic_string_view"], ptr %vars, i64 0, i64 %i.017
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %i.017.sroa.phi, i64 16
   %call.i.i.i.i.i.i8 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE22find_or_prepare_insertIS7_EESB_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %map, ptr noundef nonnull align 8 dereferenceable(16) %i.017.sroa.phi)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
@@ -4080,7 +4075,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %cmp.i.i.i = phi i1 [ true, %if.end ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %if.end ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJSt17basic_string_viewIcSt11char_traitsIcEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJSt17basic_string_viewIcSt11char_traitsIcEES2_EEmv.__found, i64 %__i.06.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -4876,7 +4871,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %2 = phi i64 [ %.sroa.speculated.i.i, %do.cond ], [ %.pre22, %do.body.preheader ]
   %3 = phi ptr [ %add.ptr15.i, %do.cond ], [ %.pre, %do.body.preheader ]
   %index.0 = phi i64 [ %inc, %do.cond ], [ 0, %do.body.preheader ]
-  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %ar, i64 0, i64 %index.0
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %index.0
   store ptr %3, ptr %arrayidx.i.i, align 8
   %size = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i64 %2, ptr %size, align 8

@@ -2405,7 +2405,7 @@ define ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate_congrTh
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2448,7 +2448,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate_congrThmOfGate.exit
 
@@ -5315,7 +5315,7 @@ define noalias noundef nonnull ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Reified
 
 switch.lookup:                                    ; preds = %12
   %14 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lean_Elab_Tactic_BVDecide_Frontend_ReifiedBVLogical_mkGate_congrThmOfGate.exit
 

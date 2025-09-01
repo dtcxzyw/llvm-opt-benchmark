@@ -1447,25 +1447,25 @@ find_matching_ts_config.exit.thread:              ; preds = %13
   store ptr @.str.174, ptr @default_text_search_config, align 8
   br label %53
 
-.lr.ph15:                                         ; preds = %13, %17
-  %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i, %17 ], [ 0, %13 ]
+.lr.ph15:                                         ; preds = %13, %16
+  %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %13 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i14, 1
-  %16 = getelementptr inbounds nuw [58 x %struct.tsearch_config_match], ptr @tsearch_config_languages, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 57
-  br i1 %exitcond.i, label %.find_matching_ts_config.exit_crit_edge, label %17, !llvm.loop !7
+  br i1 %exitcond.i, label %.find_matching_ts_config.exit_crit_edge, label %16, !llvm.loop !7
 
-17:                                               ; preds = %.lr.ph15
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @pg_strcasecmp(ptr noundef %19, ptr noundef %.016.i) #19
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %find_matching_ts_config.exit, label %.lr.ph15, !llvm.loop !7
+16:                                               ; preds = %.lr.ph15
+  %17 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call i32 @pg_strcasecmp(ptr noundef %18, ptr noundef %.016.i) #19
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %find_matching_ts_config.exit, label %.lr.ph15, !llvm.loop !7
 
 .find_matching_ts_config.exit_crit_edge:          ; preds = %.lr.ph15
   br label %find_matching_ts_config.exit, !llvm.loop !7
 
-find_matching_ts_config.exit:                     ; preds = %17, %.find_matching_ts_config.exit_crit_edge
-  %22 = load ptr, ptr %16, align 16
+find_matching_ts_config.exit:                     ; preds = %16, %.find_matching_ts_config.exit_crit_edge
+  %21 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i
+  %22 = load ptr, ptr %21, align 16
   tail call void @free(ptr noundef %.016.i) #19
   store ptr %22, ptr @default_text_search_config, align 8
   %.not2 = icmp eq ptr %22, null
@@ -1517,25 +1517,25 @@ find_matching_ts_config.exit10.thread:            ; preds = %34
   tail call void @free(ptr noundef %.016.i6) #19
   br label %47
 
-.lr.ph:                                           ; preds = %34, %38
-  %indvars.iv.i711 = phi i64 [ %indvars.iv.next.i8, %38 ], [ 0, %34 ]
+.lr.ph:                                           ; preds = %34, %37
+  %indvars.iv.i711 = phi i64 [ %indvars.iv.next.i8, %37 ], [ 0, %34 ]
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i711, 1
-  %37 = getelementptr inbounds nuw [58 x %struct.tsearch_config_match], ptr @tsearch_config_languages, i64 0, i64 %indvars.iv.next.i8
   %exitcond.i9 = icmp eq i64 %indvars.iv.next.i8, 57
-  br i1 %exitcond.i9, label %.find_matching_ts_config.exit10_crit_edge, label %38, !llvm.loop !7
+  br i1 %exitcond.i9, label %.find_matching_ts_config.exit10_crit_edge, label %37, !llvm.loop !7
 
-38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 @pg_strcasecmp(ptr noundef %40, ptr noundef %.016.i6) #19
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %find_matching_ts_config.exit10, label %.lr.ph, !llvm.loop !7
+37:                                               ; preds = %.lr.ph
+  %38 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i8, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call i32 @pg_strcasecmp(ptr noundef %39, ptr noundef %.016.i6) #19
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %find_matching_ts_config.exit10, label %.lr.ph, !llvm.loop !7
 
 .find_matching_ts_config.exit10_crit_edge:        ; preds = %.lr.ph
   br label %find_matching_ts_config.exit10, !llvm.loop !7
 
-find_matching_ts_config.exit10:                   ; preds = %38, %.find_matching_ts_config.exit10_crit_edge
-  %43 = load ptr, ptr %37, align 16
+find_matching_ts_config.exit10:                   ; preds = %37, %.find_matching_ts_config.exit10_crit_edge
+  %42 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv.next.i8
+  %43 = load ptr, ptr %42, align 16
   tail call void @free(ptr noundef %.016.i6) #19
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
@@ -1888,7 +1888,7 @@ define dso_local void @initialize_data_directory() local_unnamed_addr #0 {
 19:                                               ; preds = %0, %28
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %28 ]
   %20 = load ptr, ptr @pg_data, align 8
-  %21 = getelementptr inbounds nuw [23 x ptr], ptr @subdirs, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr @subdirs, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.57, ptr noundef %20, ptr noundef %22) #19
   %24 = load i32, ptr @pg_dir_create_mode, align 4
@@ -1987,7 +1987,7 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
 
 61:                                               ; preds = %67, %choose_dsm_implementation.exit.i
   %indvars.iv.i = phi i64 [ 0, %choose_dsm_implementation.exit.i ], [ %indvars.iv.next.i, %67 ]
-  %62 = getelementptr inbounds nuw [5 x i32], ptr @test_config_settings.trial_conns, i64 0, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw i32, ptr @test_config_settings.trial_conns, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
   %64 = sdiv i32 %63, 6
   store i32 %64, ptr @n_av_slots, align 4
@@ -2009,7 +2009,7 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
 .split.loop.exit38.i:                             ; preds = %67, %.split.loop.exit.i
   %.019.lcssa.i = phi i64 [ %70, %.split.loop.exit.i ], [ 4, %67 ]
   %.0.i = phi i32 [ %65, %.split.loop.exit.i ], [ 0, %67 ]
-  %71 = getelementptr inbounds nuw [5 x i32], ptr @test_config_settings.trial_conns, i64 0, i64 %.019.lcssa.i
+  %71 = getelementptr inbounds nuw i32, ptr @test_config_settings.trial_conns, i64 %.019.lcssa.i
   %72 = load i32, ptr %71, align 4
   store i32 %72, ptr @n_connections, align 4
   %73 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.292, i32 noundef %72) #19
@@ -2022,7 +2022,7 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
 
 79:                                               ; preds = %84, %.split.loop.exit38.i
   %indvars.iv30.i = phi i64 [ 0, %.split.loop.exit38.i ], [ %indvars.iv.next31.i, %84 ]
-  %80 = getelementptr inbounds nuw [19 x i32], ptr @test_config_settings.trial_bufs, i64 0, i64 %indvars.iv30.i
+  %80 = getelementptr inbounds nuw i32, ptr @test_config_settings.trial_bufs, i64 %indvars.iv30.i
   %81 = load i32, ptr %80, align 4
   %82 = shl i32 %81, 13
   %83 = ashr exact i32 %82, 13

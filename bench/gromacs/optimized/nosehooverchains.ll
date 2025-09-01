@@ -1121,7 +1121,7 @@ define void @_ZN3gmx20NoseHooverChainsDataC2EifiNS_8ArrayRefIKfEES3_S3_NS_8NhcUs
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx20NoseHooverChainsDataE, i64 16), ptr %0, align 8, !tbaa !88
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = sext i32 %8 to i64
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !90
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.1, ptr noundef %17)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2342,7 +2342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 67:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %68 = sext i32 %0 to i64
-  %69 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !90, !noalias !278
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.42, ptr noundef %70)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2512,7 +2512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %131, %133
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %138 = sext i32 %0 to i64
-  %139 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !90, !noalias !285
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.42, ptr noundef %140)
   %141 = load ptr, ptr %2, align 8, !tbaa !275
@@ -2683,7 +2683,7 @@ _ZNSt14_Function_baseD2Ev.exit95:                 ; preds = %179, %176, %_ZNSt7_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx20NoseHooverChainsData6dataIDB5cxx11ENS_8NhcUsageE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !90
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.42, ptr noundef %5)
   ret void
@@ -8557,7 +8557,7 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
   %indvars.iv96 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next97, %._crit_edge82 ]
   %.185 = phi float [ %.05888, %.preheader ], [ %142, %._crit_edge82 ]
   %.16084 = phi float [ %.05987, %.preheader ], [ %140, %._crit_edge82 ]
-  %121 = getelementptr inbounds nuw [5 x double], ptr %4, i64 0, i64 %indvars.iv96
+  %121 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv96
   %122 = load double, ptr %121, align 8, !tbaa !470
   %123 = fmul double %122, %62
   %124 = fdiv double %123, 5.000000e+00
@@ -9645,7 +9645,7 @@ define noundef ptr @_ZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS_
   %21 = alloca %"struct.gmx::PropagatorTag", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %22 = sext i32 %7 to i64
-  %23 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN3gmxL13nhcUsageNamesE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !90, !noalias !504
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.42, ptr noundef %24)
   %25 = load ptr, ptr %1, align 8, !tbaa !275

@@ -1637,7 +1637,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit: ; preds = %24, %26, %28
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds nuw [3 x i32], ptr %43, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
   %100 = load ptr, ptr %6, align 8
@@ -1760,7 +1760,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._crit_edge, %_ZN
 
 150:                                              ; preds = %.preheader, %157
   %indvars.iv265 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next266, %157 ]
-  %151 = getelementptr inbounds nuw [3 x i32], ptr %.sroa.0173.0239, i64 0, i64 %indvars.iv265
+  %151 = getelementptr inbounds nuw i32, ptr %.sroa.0173.0239, i64 %indvars.iv265
   %152 = load i32, ptr %151, align 4
   %153 = zext i32 %152 to i64
   %154 = load ptr, ptr %0, align 8
@@ -1859,7 +1859,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %185, %186
 193:                                              ; preds = %183, %.loopexit
   %194 = phi ptr [ null, %183 ], [ %246, %.loopexit ]
   %indvars.iv269 = phi i64 [ 0, %183 ], [ %indvars.iv.next270, %.loopexit ]
-  %195 = getelementptr inbounds nuw [3 x i32], ptr %.sroa.0158.0257, i64 0, i64 %indvars.iv269
+  %195 = getelementptr inbounds nuw i32, ptr %.sroa.0158.0257, i64 %indvars.iv269
   %196 = load i32, ptr %195, align 4
   %197 = zext i32 %196 to i64
   %198 = lshr i32 %196, 6
@@ -4328,7 +4328,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit: ; preds = %118, %_ZNSt6vect
   store i32 %156, ptr %105, align 4
   %157 = getelementptr inbounds nuw i8, ptr %105, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %157, ptr align 1 %.pre116, i64 %153, i1 false)
-  %158 = getelementptr inbounds nuw [1024 x i8], ptr %157, i64 0, i64 %153
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %153
   store i8 0, ptr %158, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4643,7 +4643,7 @@ _ZNSt6vectorIP8aiCameraSaIS1_EE9push_backERKS1_.exit: ; preds = %247, %_ZNSt6vec
   store i32 %285, ptr %230, align 4
   %286 = getelementptr inbounds nuw i8, ptr %230, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %286, ptr align 1 %.pre, i64 %282, i1 false)
-  %287 = getelementptr inbounds nuw [1024 x i8], ptr %286, i64 0, i64 %282
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 %282
   store i8 0, ptr %287, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52
 

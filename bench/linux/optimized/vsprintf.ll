@@ -492,7 +492,7 @@ define dso_local i32 @num_to_str(ptr noundef writeonly captures(none) %0, i32 no
   %37 = xor i32 %36, -1
   %38 = add i32 %17, %37
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [24 x i8], ptr %5, i64 0, i64 %39
+  %40 = getelementptr i8, ptr %5, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = add i32 %30, %36
   %43 = zext i32 %42 to i64
@@ -528,7 +528,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %9 = mul nuw nsw i64 %8, 4294967196
   %10 = add nuw nsw i64 %9, %5
   %11 = and i64 %10, 4294967295
-  %12 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %11
+  %12 = getelementptr i16, ptr @decpair, i64 %11
   %13 = load i16, ptr %12, align 2
   store i16 %13, ptr %0, align 2
   %14 = getelementptr i8, ptr %0, i64 2
@@ -538,7 +538,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %18 = mul nuw nsw i64 %16, 4294967196
   %19 = add nuw nsw i64 %18, %8
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %20
+  %21 = getelementptr i16, ptr @decpair, i64 %20
   %22 = load i16, ptr %21, align 2
   store i16 %22, ptr %14, align 2
   %23 = getelementptr i8, ptr %0, i64 4
@@ -547,12 +547,12 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %26 = mul nsw i32 %25, -100
   %27 = add nsw i32 %26, %17
   %28 = zext i32 %27 to i64
-  %29 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %28
+  %29 = getelementptr i16, ptr @decpair, i64 %28
   %30 = load i16, ptr %29, align 2
   store i16 %30, ptr %23, align 2
   %31 = getelementptr i8, ptr %0, i64 6
   %32 = zext nneg i32 %25 to i64
-  %33 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %32
+  %33 = getelementptr i16, ptr @decpair, i64 %32
   %34 = load i16, ptr %33, align 2
   store i16 %34, ptr %31, align 2
   %35 = getelementptr i8, ptr %0, i64 8
@@ -567,7 +567,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %42 = mul nuw nsw i64 %41, 4294967196
   %43 = add nuw nsw i64 %42, %38
   %44 = and i64 %43, 4294967295
-  %45 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %44
+  %45 = getelementptr i16, ptr @decpair, i64 %44
   %46 = load i16, ptr %45, align 2
   store i16 %46, ptr %35, align 2
   %47 = getelementptr i8, ptr %0, i64 10
@@ -577,7 +577,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %51 = mul nuw nsw i64 %49, 4294967196
   %52 = add nuw nsw i64 %51, %41
   %53 = and i64 %52, 4294967295
-  %54 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %53
+  %54 = getelementptr i16, ptr @decpair, i64 %53
   %55 = load i16, ptr %54, align 2
   store i16 %55, ptr %47, align 2
   %56 = getelementptr i8, ptr %0, i64 12
@@ -586,12 +586,12 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %59 = mul nsw i32 %58, -100
   %60 = add nsw i32 %59, %50
   %61 = zext i32 %60 to i64
-  %62 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %61
+  %62 = getelementptr i16, ptr @decpair, i64 %61
   %63 = load i16, ptr %62, align 2
   store i16 %63, ptr %56, align 2
   %64 = getelementptr i8, ptr %0, i64 14
   %65 = zext nneg i32 %58 to i64
-  %66 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %65
+  %66 = getelementptr i16, ptr @decpair, i64 %65
   %67 = load i16, ptr %66, align 2
   store i16 %67, ptr %64, align 2
   %68 = getelementptr i8, ptr %0, i64 16
@@ -612,7 +612,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %78 = mul nuw nsw i64 %76, 4294967196
   %79 = add nuw nsw i64 %78, %69
   %80 = and i64 %79, 4294967295
-  %81 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %80
+  %81 = getelementptr i16, ptr @decpair, i64 %80
   %82 = load i16, ptr %81, align 2
   store i16 %82, ptr %70, align 2
   %83 = getelementptr i8, ptr %70, i64 2
@@ -626,7 +626,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %89 = mul nuw nsw i64 %87, 4294967196
   %90 = add nuw nsw i64 %89, %76
   %91 = and i64 %90, 4294967295
-  %92 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %91
+  %92 = getelementptr i16, ptr @decpair, i64 %91
   %93 = load i16, ptr %92, align 2
   store i16 %93, ptr %83, align 2
   %94 = getelementptr i8, ptr %70, i64 4
@@ -639,7 +639,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address,
   %99 = mul nsw i32 %98, -100
   %100 = add nsw i32 %99, %88
   %101 = zext i32 %100 to i64
-  %102 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %101
+  %102 = getelementptr i16, ptr @decpair, i64 %101
   %103 = load i16, ptr %102, align 2
   store i16 %103, ptr %94, align 2
   %104 = getelementptr i8, ptr %70, i64 6
@@ -649,7 +649,7 @@ put_dec_trunc8.exit:                              ; preds = %.thread, %73, %85, 
   %105 = phi ptr [ %70, %.thread ], [ %94, %85 ], [ %83, %73 ], [ %104, %96 ]
   %106 = phi i32 [ %71, %.thread ], [ %88, %85 ], [ %77, %73 ], [ %98, %96 ]
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %107
+  %108 = getelementptr i16, ptr @decpair, i64 %107
   %109 = load i16, ptr %108, align 2
   store i16 %109, ptr %105, align 2
   %110 = icmp samesign ult i32 %106, 10
@@ -1078,7 +1078,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   %204 = phi ptr [ %24, %199 ], [ %211, %203 ]
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i64
-  %207 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %206
+  %207 = getelementptr i8, ptr @_ctype, i64 %206
   %208 = load i8, ptr %207, align 1
   %209 = and i8 %208, 7
   %210 = icmp eq i8 %209, 0
@@ -3327,7 +3327,7 @@ widen_string.exit.thread.i24:                     ; preds = %596
   %683 = load i8, ptr %682, align 1
   %684 = lshr i8 %683, 4
   %685 = zext nneg i8 %684 to i64
-  %686 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %685
+  %686 = getelementptr i8, ptr @hex_asc, i64 %685
   %687 = load i8, ptr %686, align 1
   store i8 %687, ptr %679, align 1
   br label %688
@@ -3342,7 +3342,7 @@ widen_string.exit.thread.i24:                     ; preds = %596
   %693 = load i8, ptr %692, align 1
   %694 = and i8 %693, 15
   %695 = zext nneg i8 %694 to i64
-  %696 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %695
+  %696 = getelementptr i8, ptr @hex_asc, i64 %695
   %697 = load i8, ptr %696, align 1
   store i8 %697, ptr %689, align 1
   br label %698
@@ -3364,7 +3364,7 @@ widen_string.exit.thread.i24:                     ; preds = %596
   %707 = load i8, ptr %706, align 1
   %708 = lshr i8 %707, 4
   %709 = zext nneg i8 %708 to i64
-  %710 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %709
+  %710 = getelementptr i8, ptr @hex_asc, i64 %709
   %711 = load i8, ptr %710, align 1
   store i8 %711, ptr %703, align 1
   br label %712
@@ -3379,7 +3379,7 @@ widen_string.exit.thread.i24:                     ; preds = %596
   %717 = load i8, ptr %716, align 1
   %718 = and i8 %717, 15
   %719 = zext nneg i8 %718 to i64
-  %720 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %719
+  %720 = getelementptr i8, ptr @hex_asc, i64 %719
   %721 = load i8, ptr %720, align 1
   store i8 %721, ptr %713, align 1
   br label %722
@@ -3566,13 +3566,13 @@ widen_string.exit.thread.i33:                     ; preds = %742
   %820 = zext i8 %819 to i32
   %821 = lshr i32 %820, 4
   %822 = zext nneg i32 %821 to i64
-  %823 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %822
+  %823 = getelementptr i8, ptr @hex_asc, i64 %822
   %824 = load i8, ptr %823, align 1
   %825 = getelementptr i8, ptr %816, i64 1
   store i8 %824, ptr %816, align 1
   %826 = and i32 %820, 15
   %827 = zext nneg i32 %826 to i64
-  %828 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %827
+  %828 = getelementptr i8, ptr @hex_asc, i64 %827
   %829 = load i8, ptr %828, align 1
   store i8 %829, ptr %825, align 1
   %830 = getelementptr i8, ptr %816, i64 2
@@ -3601,13 +3601,13 @@ widen_string.exit.thread.i33:                     ; preds = %742
   %845 = zext i8 %844 to i32
   %846 = lshr i32 %845, 4
   %847 = zext nneg i32 %846 to i64
-  %848 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %847
+  %848 = getelementptr i8, ptr @hex_asc, i64 %847
   %849 = load i8, ptr %848, align 1
   %850 = getelementptr i8, ptr %842, i64 1
   store i8 %849, ptr %842, align 1
   %851 = and i32 %845, 15
   %852 = zext nneg i32 %851 to i64
-  %853 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %852
+  %853 = getelementptr i8, ptr @hex_asc, i64 %852
   %854 = load i8, ptr %853, align 1
   store i8 %854, ptr %850, align 1
   %855 = getelementptr i8, ptr %842, i64 2
@@ -3894,13 +3894,13 @@ widen_string.exit.thread.i45:                     ; preds = %922
   %1008 = zext i8 %1007 to i32
   %1009 = lshr i32 %1008, 4
   %1010 = zext nneg i32 %1009 to i64
-  %1011 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1010
+  %1011 = getelementptr i8, ptr @hex_asc, i64 %1010
   %1012 = load i8, ptr %1011, align 1
   %1013 = getelementptr i8, ptr %1004, i64 1
   store i8 %1012, ptr %1004, align 1
   %1014 = and i32 %1008, 15
   %1015 = zext nneg i32 %1014 to i64
-  %1016 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1015
+  %1016 = getelementptr i8, ptr @hex_asc, i64 %1015
   %1017 = load i8, ptr %1016, align 1
   %1018 = getelementptr i8, ptr %1004, i64 2
   store i8 %1017, ptr %1013, align 1
@@ -3909,13 +3909,13 @@ widen_string.exit.thread.i45:                     ; preds = %922
   %1021 = zext i8 %1020 to i32
   %1022 = lshr i32 %1021, 4
   %1023 = zext nneg i32 %1022 to i64
-  %1024 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1023
+  %1024 = getelementptr i8, ptr @hex_asc, i64 %1023
   %1025 = load i8, ptr %1024, align 1
   %1026 = getelementptr i8, ptr %1004, i64 3
   store i8 %1025, ptr %1018, align 1
   %1027 = and i32 %1021, 15
   %1028 = zext nneg i32 %1027 to i64
-  %1029 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1028
+  %1029 = getelementptr i8, ptr @hex_asc, i64 %1028
   %1030 = load i8, ptr %1029, align 1
   %1031 = getelementptr i8, ptr %1004, i64 4
   store i8 %1030, ptr %1026, align 1
@@ -4176,7 +4176,7 @@ ip4_addr_string.exit.i:                           ; preds = %1154, %1147, %.thre
   %1163 = getelementptr i8, ptr %0, i64 2
   %1164 = load i8, ptr %1163, align 1
   %1165 = zext i8 %1164 to i64
-  %1166 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %1165
+  %1166 = getelementptr i8, ptr @_ctype, i64 %1165
   %1167 = load i8, ptr %1166, align 1
   %1168 = and i8 %1167, 3
   %1169 = icmp eq i8 %1168, 0
@@ -4214,7 +4214,7 @@ ip4_addr_string.exit.i:                           ; preds = %1154, %1147, %.thre
   %1183 = getelementptr i8, ptr %1172, i64 1
   %1184 = load i8, ptr %1183, align 1
   %1185 = zext i8 %1184 to i64
-  %1186 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %1185
+  %1186 = getelementptr i8, ptr @_ctype, i64 %1185
   %1187 = load i8, ptr %1186, align 1
   %1188 = and i8 %1187, 3
   %1189 = icmp eq i8 %1188, 0
@@ -4352,7 +4352,7 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1261 = getelementptr i8, ptr %0, i64 2
   %1262 = load i8, ptr %1261, align 1
   %1263 = zext i8 %1262 to i64
-  %1264 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %1263
+  %1264 = getelementptr i8, ptr @_ctype, i64 %1263
   %1265 = load i8, ptr %1264, align 1
   %1266 = and i8 %1265, 3
   %1267 = icmp eq i8 %1266, 0
@@ -4393,7 +4393,7 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1283 = getelementptr i8, ptr %1269, i64 1
   %1284 = load i8, ptr %1283, align 1
   %1285 = zext i8 %1284 to i64
-  %1286 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %1285
+  %1286 = getelementptr i8, ptr @_ctype, i64 %1285
   %1287 = load i8, ptr %1286, align 1
   %1288 = and i8 %1287, 3
   %1289 = icmp eq i8 %1288, 0
@@ -4436,13 +4436,13 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1309 = zext i8 %1308 to i32
   %1310 = lshr i32 %1309, 4
   %1311 = zext nneg i32 %1310 to i64
-  %1312 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1311
+  %1312 = getelementptr i8, ptr @hex_asc, i64 %1311
   %1313 = load i8, ptr %1312, align 1
   %1314 = getelementptr i8, ptr %.sroa.phi.i.i, i64 1
   store i8 %1313, ptr %.sroa.phi.i.i, align 1
   %1315 = and i32 %1309, 15
   %1316 = zext nneg i32 %1315 to i64
-  %1317 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1316
+  %1317 = getelementptr i8, ptr @hex_asc, i64 %1316
   %1318 = load i8, ptr %1317, align 1
   %1319 = getelementptr i8, ptr %.sroa.phi.i.i, i64 2
   store i8 %1318, ptr %1314, align 1
@@ -4450,13 +4450,13 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1321 = zext i8 %1320 to i32
   %1322 = lshr i32 %1321, 4
   %1323 = zext nneg i32 %1322 to i64
-  %1324 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1323
+  %1324 = getelementptr i8, ptr @hex_asc, i64 %1323
   %1325 = load i8, ptr %1324, align 1
   %1326 = getelementptr i8, ptr %.sroa.phi.i.i, i64 3
   store i8 %1325, ptr %1319, align 1
   %1327 = and i32 %1321, 15
   %1328 = zext nneg i32 %1327 to i64
-  %1329 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1328
+  %1329 = getelementptr i8, ptr @hex_asc, i64 %1328
   %1330 = load i8, ptr %1329, align 1
   %1331 = getelementptr i8, ptr %.sroa.phi.i.i, i64 4
   store i8 %1330, ptr %1326, align 1
@@ -4471,13 +4471,13 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1337 = zext i8 %1336 to i32
   %1338 = lshr i32 %1337, 4
   %1339 = zext nneg i32 %1338 to i64
-  %1340 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1339
+  %1340 = getelementptr i8, ptr @hex_asc, i64 %1339
   %1341 = load i8, ptr %1340, align 1
   %1342 = getelementptr i8, ptr %1333, i64 1
   store i8 %1341, ptr %1333, align 1
   %1343 = and i32 %1337, 15
   %1344 = zext nneg i32 %1343 to i64
-  %1345 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1344
+  %1345 = getelementptr i8, ptr @hex_asc, i64 %1344
   %1346 = load i8, ptr %1345, align 1
   %1347 = getelementptr i8, ptr %1333, i64 2
   store i8 %1346, ptr %1342, align 1
@@ -4486,13 +4486,13 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1350 = zext i8 %1349 to i32
   %1351 = lshr i32 %1350, 4
   %1352 = zext nneg i32 %1351 to i64
-  %1353 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1352
+  %1353 = getelementptr i8, ptr @hex_asc, i64 %1352
   %1354 = load i8, ptr %1353, align 1
   %1355 = getelementptr i8, ptr %1333, i64 3
   store i8 %1354, ptr %1347, align 1
   %1356 = and i32 %1350, 15
   %1357 = zext nneg i32 %1356 to i64
-  %1358 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1357
+  %1358 = getelementptr i8, ptr @hex_asc, i64 %1357
   %1359 = load i8, ptr %1358, align 1
   %1360 = getelementptr i8, ptr %1333, i64 4
   store i8 %1359, ptr %1355, align 1
@@ -4518,13 +4518,13 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1374 = zext i8 %1373 to i32
   %1375 = lshr i32 %1374, 4
   %1376 = zext nneg i32 %1375 to i64
-  %1377 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1376
+  %1377 = getelementptr i8, ptr @hex_asc, i64 %1376
   %1378 = load i8, ptr %1377, align 1
   %1379 = getelementptr i8, ptr %1367, i64 6
   store i8 %1378, ptr %1370, align 1
   %1380 = and i32 %1374, 15
   %1381 = zext nneg i32 %1380 to i64
-  %1382 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1381
+  %1382 = getelementptr i8, ptr @hex_asc, i64 %1381
   %1383 = load i8, ptr %1382, align 1
   %1384 = getelementptr i8, ptr %1367, i64 7
   store i8 %1383, ptr %1379, align 1
@@ -4532,13 +4532,13 @@ ip4_addr_string_sa.exit.i:                        ; preds = %1254, %1247, %.thre
   %1386 = zext i8 %1385 to i32
   %1387 = lshr i32 %1386, 4
   %1388 = zext nneg i32 %1387 to i64
-  %1389 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1388
+  %1389 = getelementptr i8, ptr @hex_asc, i64 %1388
   %1390 = load i8, ptr %1389, align 1
   %1391 = getelementptr i8, ptr %1367, i64 8
   store i8 %1390, ptr %1384, align 1
   %1392 = and i32 %1386, 15
   %1393 = zext nneg i32 %1392 to i64
-  %1394 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %1393
+  %1394 = getelementptr i8, ptr @hex_asc, i64 %1393
   %1395 = load i8, ptr %1394, align 1
   %1396 = getelementptr i8, ptr %1367, i64 9
   store i8 %1395, ptr %1391, align 1
@@ -5280,10 +5280,10 @@ widen_string.exit.thread.i64:                     ; preds = %1722
   %1811 = getelementptr i8, ptr %1802, i64 1
   %1812 = and i32 %1808, 15
   %1813 = zext nneg i32 %1812 to i64
-  %1814 = getelementptr [0 x i8], ptr %1799, i64 0, i64 %1810
+  %1814 = getelementptr i8, ptr %1799, i64 %1810
   %1815 = load i8, ptr %1814, align 1
   store i8 %1815, ptr %1802, align 1
-  %1816 = getelementptr [0 x i8], ptr %1799, i64 0, i64 %1813
+  %1816 = getelementptr i8, ptr %1799, i64 %1813
   %1817 = load i8, ptr %1816, align 1
   store i8 %1817, ptr %1811, align 1
   %1818 = getelementptr i8, ptr %1802, i64 2
@@ -6187,7 +6187,7 @@ widen_string.exit11.thread.i:                     ; preds = %2272
 
 2351:                                             ; preds = %2344
   %2352 = zext nneg i32 %2349 to i64
-  %2353 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %2352
+  %2353 = getelementptr i8, ptr @_ctype, i64 %2352
   %2354 = load i8, ptr %2353, align 1
   %2355 = and i8 %2354, -105
   %2356 = icmp eq i8 %2355, 0
@@ -6907,8 +6907,8 @@ widen_string.exit.thread.i137:                    ; preds = %2702
 
 2779:                                             ; preds = %widen_string.exit.thread.i137
   %2780 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2774) #20
-  %2781 = add i64 %2780, -1
-  %2782 = getelementptr [32 x i8], ptr %2774, i64 0, i64 %2781
+  %2781 = getelementptr i8, ptr %2774, i64 %2780
+  %2782 = getelementptr i8, ptr %2781, i64 -1
   %2783 = load i8, ptr %2782, align 1
   %2784 = add i8 %2783, -58
   %2785 = icmp ult i8 %2784, -10
@@ -7138,7 +7138,7 @@ widen_string.exit.thread.i145:                    ; preds = %2796
   %2904 = phi i64 [ %2941, %2938 ], [ 0, %.thread35.i.preheader ]
   %2905 = phi i8 [ %2940, %2938 ], [ %.ph1260, %.thread35.i.preheader ]
   %2906 = phi ptr [ %2939, %2938 ], [ %.ph1261, %.thread35.i.preheader ]
-  %2907 = getelementptr [5 x %struct.page_flags_fields], ptr @pff, i64 0, i64 %2904
+  %2907 = getelementptr %struct.page_flags_fields, ptr @pff, i64 %2904
   %2908 = load i32, ptr %2907, align 16
   %2909 = icmp eq i32 %2908, 0
   br i1 %2909, label %2938, label %2910
@@ -8433,7 +8433,7 @@ define internal fastcc ptr @number(ptr noundef writeonly captures(address, ret: 
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %57
-  %65 = getelementptr [0 x i8], ptr @hex_asc_upper, i64 0, i64 %45
+  %65 = getelementptr i8, ptr @hex_asc_upper, i64 %45
   %66 = load i8, ptr %65, align 1
   %67 = or i8 %66, %20
   store i8 %67, ptr %5, align 2
@@ -8454,12 +8454,12 @@ define internal fastcc ptr @number(ptr noundef writeonly captures(address, ret: 
   %76 = phi i64 [ %45, %70 ], [ %85, %75 ]
   %77 = phi i32 [ 0, %70 ], [ %82, %75 ]
   %78 = and i64 %74, %76
-  %79 = getelementptr [0 x i8], ptr @hex_asc_upper, i64 0, i64 %78
+  %79 = getelementptr i8, ptr @hex_asc_upper, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = or i8 %80, %20
   %82 = add i32 %77, 1
   %83 = sext i32 %77 to i64
-  %84 = getelementptr [24 x i8], ptr %5, i64 0, i64 %83
+  %84 = getelementptr i8, ptr %5, i64 %83
   store i8 %81, ptr %84, align 1
   %85 = lshr i64 %76, %73
   %86 = icmp eq i64 %85, 0
@@ -8632,7 +8632,7 @@ define internal fastcc ptr @number(ptr noundef writeonly captures(address, ret: 
   br i1 %174, label %175, label %178
 
 175:                                              ; preds = %171
-  %176 = getelementptr [24 x i8], ptr %5, i64 0, i64 %172
+  %176 = getelementptr i8, ptr %5, i64 %172
   %177 = load i8, ptr %176, align 1
   store i8 %177, ptr %173, align 1
   br label %178
@@ -8977,7 +8977,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 131:                                              ; preds = %108
   %132 = zext i8 %109 to i64
-  %133 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %132
+  %133 = getelementptr i8, ptr @_ctype, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = and i8 %134, 7
   %136 = icmp eq i8 %135, 0
@@ -9060,7 +9060,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   %180 = phi ptr [ %16, %177 ], [ %187, %179 ]
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i64
-  %183 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %182
+  %183 = getelementptr i8, ptr @_ctype, i64 %182
   %184 = load i8, ptr %183, align 1
   %185 = and i8 %184, 7
   %186 = icmp eq i8 %185, 0
@@ -9604,7 +9604,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 153:                                              ; preds = %151
   %154 = zext i8 %152 to i64
-  %155 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %154
+  %155 = getelementptr i8, ptr @_ctype, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = and i8 %156, 7
   %158 = icmp eq i8 %157, 0
@@ -9651,7 +9651,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   %188 = phi ptr [ %23, %184 ], [ %195, %187 ]
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i64
-  %191 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %190
+  %191 = getelementptr i8, ptr @_ctype, i64 %190
   %192 = load i8, ptr %191, align 1
   %193 = and i8 %192, 7
   %194 = icmp eq i8 %193, 0
@@ -9832,7 +9832,7 @@ define dso_local i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr noundef captur
   %16 = phi i32 [ 0, %10 ], [ %118, %.loopexit ]
   %17 = phi ptr [ %0, %10 ], [ %117, %.loopexit ]
   %18 = zext i8 %15 to i64
-  %19 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @_ctype, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 32
   %22 = icmp eq i8 %21, 0
@@ -9896,7 +9896,7 @@ define dso_local i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr noundef captur
   %51 = getelementptr i8, ptr %48, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %53
+  %54 = getelementptr i8, ptr @_ctype, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = freeze i8 %55
   %57 = and i8 %56, 32
@@ -9907,7 +9907,7 @@ define dso_local i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr noundef captur
   %60 = phi ptr [ %69, %59 ], [ %29, %.loopexit44 ]
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
-  %63 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %62
+  %63 = getelementptr i8, ptr @_ctype, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = and i8 %64, 32
   %66 = icmp ne i8 %65, 0
@@ -10128,7 +10128,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %176 = phi i16 [ %186, %185 ], [ %172, %170 ]
   %177 = phi ptr [ %187, %185 ], [ %167, %170 ]
   %178 = zext i8 %174 to i64
-  %179 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %178
+  %179 = getelementptr i8, ptr @_ctype, i64 %178
   %180 = load i8, ptr %179, align 1
   %181 = and i8 %180, 32
   %182 = icmp ne i8 %181, 0
@@ -10318,7 +10318,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
 
 277:                                              ; preds = %275
   %278 = zext i8 %273 to i64
-  %279 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %278
+  %279 = getelementptr i8, ptr @_ctype, i64 %278
   %280 = load i8, ptr %279, align 1
   %281 = and i8 %280, 68
   %282 = icmp eq i8 %281, 0
@@ -11356,7 +11356,7 @@ widen_string.exit.thread:                         ; preds = %22
   %87 = load volatile ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %89 = load volatile ptr, ptr %88, align 8
-  %90 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %23
+  %90 = getelementptr ptr, ptr %5, i64 %23
   store ptr %89, ptr %90, align 8
   %91 = icmp eq ptr %87, %24
   br i1 %91, label %92, label %97
@@ -11367,7 +11367,7 @@ widen_string.exit.thread:                         ; preds = %22
   br i1 %94, label %._crit_edge, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %23
+  %96 = getelementptr ptr, ptr %5, i64 %23
   store ptr @.str.39, ptr %96, align 8
   br label %._crit_edge
 
@@ -11388,7 +11388,7 @@ widen_string.exit.thread:                         ; preds = %22
 
 105:                                              ; preds = %._crit_edge
   %106 = sext i32 %102 to i64
-  %107 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %106
+  %107 = getelementptr ptr, ptr %5, i64 %106
   %108 = load ptr, ptr %107, align 8
   br label %109
 
@@ -11409,7 +11409,7 @@ widen_string.exit.thread:                         ; preds = %22
 119:                                              ; preds = %117
   %120 = add i32 %111, -1
   %121 = sext i32 %120 to i64
-  %122 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %121
+  %122 = getelementptr ptr, ptr %5, i64 %121
   %123 = load ptr, ptr %122, align 8
   br label %124
 
@@ -11878,12 +11878,12 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
 
 18:                                               ; preds = %31, %2
   %19 = phi i64 [ 0, %2 ], [ %32, %31 ]
-  %20 = getelementptr [8 x i8], ptr %4, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %4, i64 %19
   br label %21
 
 21:                                               ; preds = %26, %18
   %22 = phi i64 [ %19, %18 ], [ %29, %26 ]
-  %23 = getelementptr [8 x i16], ptr %5, i64 0, i64 %22
+  %23 = getelementptr i16, ptr %5, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %31
@@ -11905,7 +11905,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %34 = phi i64 [ %44, %.preheader ], [ 0, %31 ]
   %35 = phi i32 [ %43, %.preheader ], [ -1, %31 ]
   %36 = phi i32 [ %41, %.preheader ], [ 1, %31 ]
-  %37 = getelementptr [8 x i8], ptr %4, i64 0, i64 %34
+  %37 = getelementptr i8, ptr %4, i64 %34
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = icmp ult i32 %36, %39
@@ -11959,7 +11959,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
 69:                                               ; preds = %67, %65
   %70 = phi ptr [ %68, %67 ], [ %55, %65 ]
   %71 = zext nneg i32 %54 to i64
-  %72 = getelementptr [8 x i16], ptr %5, i64 0, i64 %71
+  %72 = getelementptr i16, ptr %5, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = tail call i16 @llvm.bswap.i16(i16 %73)
   %75 = lshr i16 %74, 8
@@ -11975,7 +11975,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %81 = zext nneg i16 %75 to i32
   %82 = lshr i32 %81, 4
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %83
+  %84 = getelementptr i8, ptr @hex_asc, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = getelementptr i8, ptr %70, i64 1
   store i8 %85, ptr %70, align 1
@@ -11991,7 +11991,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %92 = phi i64 [ %90, %89 ], [ %88, %80 ]
   %93 = phi i64 [ 1, %89 ], [ 2, %80 ]
   %94 = phi ptr [ %70, %89 ], [ %86, %80 ]
-  %95 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %92
+  %95 = getelementptr i8, ptr @hex_asc, i64 %92
   %96 = load i8, ptr %95, align 1
   %97 = getelementptr i8, ptr %70, i64 %93
   store i8 %96, ptr %94, align 1
@@ -11999,13 +11999,13 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %99 = zext nneg i16 %98 to i32
   %100 = lshr i32 %99, 4
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %101
+  %102 = getelementptr i8, ptr @hex_asc, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = getelementptr i8, ptr %97, i64 1
   store i8 %103, ptr %97, align 1
   %105 = and i32 %99, 15
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %106
+  %107 = getelementptr i8, ptr @hex_asc, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = getelementptr i8, ptr %97, i64 2
   store i8 %108, ptr %104, align 1
@@ -12018,13 +12018,13 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
 112:                                              ; preds = %110
   %113 = lshr i32 %76, 4
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %114
+  %115 = getelementptr i8, ptr @hex_asc, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = getelementptr i8, ptr %70, i64 1
   store i8 %116, ptr %70, align 1
   %118 = and i32 %76, 15
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %119
+  %120 = getelementptr i8, ptr @hex_asc, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = getelementptr i8, ptr %70, i64 2
   store i8 %121, ptr %117, align 1
@@ -12032,7 +12032,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
 
 123:                                              ; preds = %110
   %124 = zext nneg i16 %74 to i64
-  %125 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %124
+  %125 = getelementptr i8, ptr @hex_asc, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = getelementptr i8, ptr %70, i64 1
   store i8 %126, ptr %70, align 1
@@ -12083,7 +12083,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %155 = mul nsw i32 %154, -100
   %156 = add nsw i32 %155, %148
   %157 = zext i32 %156 to i64
-  %158 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %157
+  %158 = getelementptr i16, ptr @decpair, i64 %157
   %159 = load i16, ptr %158, align 2
   store i16 %159, ptr %3, align 4
   br label %put_dec_trunc8.exit.i
@@ -12092,7 +12092,7 @@ put_dec_trunc8.exit.i:                            ; preds = %150, %143
   %160 = phi ptr [ %3, %143 ], [ %142, %150 ]
   %161 = phi i32 [ %148, %143 ], [ %154, %150 ]
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %162
+  %163 = getelementptr i16, ptr @decpair, i64 %162
   %164 = load i16, ptr %163, align 2
   store i16 %164, ptr %160, align 2
   %165 = icmp samesign ult i32 %161, 10
@@ -12109,7 +12109,7 @@ put_dec_trunc8.exit.i:                            ; preds = %150, %143
   %171 = phi ptr [ %176, %.preheader.i ], [ %145, %put_dec_trunc8.exit.i ]
   %172 = add i32 %170, -1
   %173 = sext i32 %172 to i64
-  %174 = getelementptr [4 x i8], ptr %3, i64 0, i64 %173
+  %174 = getelementptr i8, ptr %3, i64 %173
   %175 = load i8, ptr %174, align 1
   %176 = getelementptr i8, ptr %171, i64 1
   store i8 %175, ptr %171, align 1
@@ -12187,7 +12187,7 @@ define internal fastcc noundef ptr @ip4_string(ptr noundef writeonly captures(re
   %26 = mul nsw i32 %25, -100
   %27 = add nsw i32 %26, %19
   %28 = zext i32 %27 to i64
-  %29 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %28
+  %29 = getelementptr i16, ptr @decpair, i64 %28
   %30 = load i16, ptr %29, align 2
   store i16 %30, ptr %3, align 4
   br label %put_dec_trunc8.exit.us
@@ -12196,7 +12196,7 @@ put_dec_trunc8.exit.us:                           ; preds = %21, %.split.us
   %31 = phi ptr [ %3, %.split.us ], [ %13, %21 ]
   %32 = phi i32 [ %19, %.split.us ], [ %25, %21 ]
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %33
+  %34 = getelementptr i16, ptr @decpair, i64 %33
   %35 = load i16, ptr %34, align 2
   store i16 %35, ptr %31, align 2
   %36 = icmp samesign ult i32 %32, 10
@@ -12213,7 +12213,7 @@ put_dec_trunc8.exit.us:                           ; preds = %21, %.split.us
   %42 = phi ptr [ %47, %.preheader.us ], [ %16, %put_dec_trunc8.exit.us ]
   %43 = add i32 %41, -1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr [4 x i8], ptr %3, i64 0, i64 %44
+  %45 = getelementptr i8, ptr %3, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr i8, ptr %42, i64 1
   store i8 %46, ptr %42, align 1
@@ -12253,7 +12253,7 @@ put_dec_trunc8.exit.us:                           ; preds = %21, %.split.us
   %67 = mul nsw i32 %66, -100
   %68 = add nsw i32 %67, %60
   %69 = zext i32 %68 to i64
-  %70 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %69
+  %70 = getelementptr i16, ptr @decpair, i64 %69
   %71 = load i16, ptr %70, align 2
   store i16 %71, ptr %3, align 4
   br label %put_dec_trunc8.exit
@@ -12262,7 +12262,7 @@ put_dec_trunc8.exit:                              ; preds = %.split, %62
   %72 = phi ptr [ %3, %.split ], [ %13, %62 ]
   %73 = phi i32 [ %60, %.split ], [ %66, %62 ]
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %74
+  %75 = getelementptr i16, ptr @decpair, i64 %74
   %76 = load i16, ptr %75, align 2
   store i16 %76, ptr %72, align 2
   %77 = icmp samesign ult i32 %73, 10
@@ -12295,7 +12295,7 @@ put_dec_trunc8.exit:                              ; preds = %.split, %62
   %87 = phi ptr [ %92, %.preheader ], [ %.ph, %.preheader.preheader ]
   %88 = add i32 %86, -1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr [4 x i8], ptr %3, i64 0, i64 %89
+  %90 = getelementptr i8, ptr %3, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = getelementptr i8, ptr %87, i64 1
   store i8 %91, ptr %87, align 1

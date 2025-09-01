@@ -26,7 +26,7 @@ define hidden void @lj_lib_register(ptr noundef %0, ptr noundef %1, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = load i8, ptr %9, align 1, !tbaa !14
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [57 x i32], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %20 = load i8, ptr %15, align 1, !tbaa !14
   %21 = zext i8 %20 to i32

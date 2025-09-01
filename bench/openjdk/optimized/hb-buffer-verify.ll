@@ -392,7 +392,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 .critedge.i27:                                    ; preds = %179, %.critedge.loopexit.split.loop.exit.i34, %169, %167
   %.2.i28 = phi i32 [ %168, %167 ], [ %.093108.i, %169 ], [ %180, %.critedge.loopexit.split.loop.exit.i34 ], [ %172, %179 ]
   %181 = zext nneg i32 %.091111.i to i64
-  %182 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw ptr, ptr %7, i64 %181
   %183 = load ptr, ptr %182, align 8
   call void @hb_buffer_append(ptr noundef %183, ptr noundef %1, i32 noundef %.095107.i, i32 noundef %.2.i28)
   %184 = sub nuw nsw i32 1, %.091111.i
@@ -469,16 +469,16 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 .lr.ph123.i:                                      ; preds = %.preheader.i.critedge, %.critedge2.i
   %.088122.i = phi i32 [ %243, %.critedge2.i ], [ 0, %.preheader.i.critedge ]
   %219 = zext nneg i32 %.088122.i to i64
-  %220 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i32, ptr %11, i64 %219
   %221 = load i32, ptr %220, align 4
-  %222 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %219
+  %222 = getelementptr inbounds nuw i32, ptr %12, i64 %219
   %223 = load i32, ptr %222, align 4
   %.0114.i = add i32 %221, 1
   %224 = icmp ult i32 %.0114.i, %223
   br i1 %224, label %.lr.ph118.i, label %.critedge2.i
 
 .lr.ph118.i:                                      ; preds = %.lr.ph123.i
-  %225 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %219
+  %225 = getelementptr inbounds nuw ptr, ptr %13, i64 %219
   %226 = load ptr, ptr %225, align 8
   %227 = zext i32 %.0114.i to i64
   br label %228
@@ -516,7 +516,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 
 .critedge2.i:                                     ; preds = %.critedge4.i, %236, %.lr.ph123.i
   %.0.lcssa.i = phi i32 [ %.0114.i, %.lr.ph123.i ], [ %240, %236 ], [ %223, %.critedge4.i ]
-  %241 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %219
+  %241 = getelementptr inbounds nuw ptr, ptr %7, i64 %219
   %242 = load ptr, ptr %241, align 8
   call void @hb_buffer_append(ptr noundef %137, ptr noundef %242, i32 noundef %221, i32 noundef %.0.lcssa.i)
   store i32 %.0.lcssa.i, ptr %220, align 4

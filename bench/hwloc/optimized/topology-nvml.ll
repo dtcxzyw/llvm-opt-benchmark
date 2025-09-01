@@ -652,7 +652,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 
 switch.lookup:                                    ; preds = %274
   %286 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table.hwloc_nvml_discover, i64 0, i64 %286
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.hwloc_nvml_discover, i64 %286
   %switch.load = load i64, ptr %switch.gep, align 8
   %287 = add i32 %268, %262
   %288 = zext i32 %287 to i64

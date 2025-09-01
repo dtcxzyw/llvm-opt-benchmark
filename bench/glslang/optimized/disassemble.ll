@@ -606,7 +606,7 @@ define void @_ZN3spv11SpirvStream19processInstructionsEv(ptr noundef nonnull ali
 33:                                               ; preds = %18
   %34 = add nsw i32 %26, -1
   %35 = zext nneg i32 %27 to i64
-  %36 = getelementptr inbounds nuw [0 x %"class.spv::InstructionParameters"], ptr @_ZN3spv15InstructionDescE, i64 0, i64 %35, i32 4
+  %36 = getelementptr inbounds nuw %"class.spv::InstructionParameters", ptr @_ZN3spv15InstructionDescE, i64 %35, i32 4
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %46
@@ -1357,7 +1357,7 @@ _ZN3spv11SpirvStream14disassembleIdsEi.exit:      ; preds = %82, %251
 
 switch.lookup:                                    ; preds = %_ZN3spv11SpirvStream14disassembleIdsEi.exit
   %313 = zext nneg i32 %311 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi, i64 0, i64 %313
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi, i64 %313
   %switch.load = load ptr, ptr %switch.gep, align 8
   %314 = load ptr, ptr %14, align 8
   %315 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %314, ptr noundef nonnull %switch.load) #19
@@ -1396,7 +1396,7 @@ switch.lookup:                                    ; preds = %_ZN3spv11SpirvStrea
 
 .thread:                                          ; preds = %20, %121, %125, %129, %102, %100, %98, %96, %119, %117, %115, %216, %247, %243, %239, %235, %231, %227, %30, %_ZNSt5stackIjSt5dequeIjSaIjEEE4pushERKj.exit, %82, %251
   %341 = zext i32 %3 to i64
-  %342 = getelementptr inbounds nuw [0 x %"class.spv::InstructionParameters"], ptr @_ZN3spv15InstructionDescE, i64 0, i64 %341, i32 3
+  %342 = getelementptr inbounds nuw %"class.spv::InstructionParameters", ptr @_ZN3spv15InstructionDescE, i64 %341, i32 3
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = load ptr, ptr %343, align 8
   %345 = load ptr, ptr %342, align 8
@@ -2021,7 +2021,7 @@ _ZN3spv11SpirvStream12outputIndentEv.exit149:     ; preds = %617
   %734 = load ptr, ptr %14, align 8
   %735 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %734, ptr noundef nonnull @.str.12) #19
   %736 = zext nneg i32 %731 to i64
-  %737 = getelementptr inbounds nuw [82 x ptr], ptr @GlslStd450DebugNames, i64 0, i64 %736
+  %737 = getelementptr inbounds nuw ptr, ptr @GlslStd450DebugNames, i64 %736
   %738 = load ptr, ptr %737, align 8
   %739 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %735, ptr noundef %738) #19
   %740 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %739, ptr noundef nonnull @.str.13) #19
@@ -2052,9 +2052,9 @@ _ZN3spv11SpirvStream12outputIndentEv.exit149:     ; preds = %617
   br i1 %757, label %758, label %760
 
 758:                                              ; preds = %755
-  %switch.tableidx336 = add i32 %748, -1
-  %759 = icmp ult i32 %switch.tableidx336, 9
-  br i1 %759, label %switch.lookup335, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
+  %switch.tableidx335 = add i32 %748, -1
+  %759 = icmp ult i32 %switch.tableidx335, 9
+  br i1 %759, label %switch.lookup336, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
 760:                                              ; preds = %755
   %761 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %679, ptr noundef nonnull dereferenceable(41) @.str.56) #22
@@ -2072,30 +2072,30 @@ _ZN3spv11SpirvStream12outputIndentEv.exit149:     ; preds = %617
   br i1 %766, label %767, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
 767:                                              ; preds = %764
-  %switch.tableidx340 = add i32 %748, -1
-  %768 = icmp ult i32 %switch.tableidx340, 3
-  br i1 %768, label %switch.lookup339, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
+  %switch.tableidx339 = add i32 %748, -1
+  %768 = icmp ult i32 %switch.tableidx339, 3
+  br i1 %768, label %switch.lookup340, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
 switch.lookup332:                                 ; preds = %753
   %769 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep333 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.2, i64 0, i64 %769
+  %switch.gep333 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.2, i64 %769
   %switch.load334 = load ptr, ptr %switch.gep333, align 8
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-switch.lookup335:                                 ; preds = %758
-  %770 = zext nneg i32 %switch.tableidx336 to i64
-  %switch.gep337 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.3, i64 0, i64 %770
+switch.lookup336:                                 ; preds = %758
+  %770 = zext nneg i32 %switch.tableidx335 to i64
+  %switch.gep337 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.3, i64 %770
   %switch.load338 = load ptr, ptr %switch.gep337, align 8
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-switch.lookup339:                                 ; preds = %767
-  %771 = zext nneg i32 %switch.tableidx340 to i64
-  %switch.gep341 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.4, i64 0, i64 %771
+switch.lookup340:                                 ; preds = %767
+  %771 = zext nneg i32 %switch.tableidx339 to i64
+  %switch.gep341 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.4, i64 %771
   %switch.load342 = load ptr, ptr %switch.gep341, align 8
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %764, %767, %switch.lookup339, %758, %switch.lookup335, %753, %switch.lookup332, %763
-  %.0.i162 = phi ptr [ %.str.81..str.71.i, %763 ], [ %switch.load334, %switch.lookup332 ], [ @.str.71, %753 ], [ %switch.load338, %switch.lookup335 ], [ @.str.71, %758 ], [ %switch.load342, %switch.lookup339 ], [ @.str.71, %767 ], [ @.str.71, %764 ]
+_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %764, %767, %switch.lookup340, %758, %switch.lookup336, %753, %switch.lookup332, %763
+  %.0.i162 = phi ptr [ %.str.81..str.71.i, %763 ], [ %switch.load334, %switch.lookup332 ], [ @.str.71, %753 ], [ %switch.load338, %switch.lookup336 ], [ @.str.71, %758 ], [ %switch.load342, %switch.lookup340 ], [ @.str.71, %767 ], [ @.str.71, %764 ]
   %772 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %750, ptr noundef nonnull %.0.i162) #19
   %773 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %772, ptr noundef nonnull @.str.13) #19
   br label %.thread224
@@ -2150,18 +2150,18 @@ _ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %764, %767, %switch.
   br i1 %806, label %807, label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
 
 807:                                              ; preds = %804, %801, %798, %795, %792, %789, %786, %774
-  %switch.tableidx344 = add i32 %781, -5248
-  %808 = icmp ult i32 %switch.tableidx344, 40
-  br i1 %808, label %switch.lookup343, label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
+  %switch.tableidx343 = add i32 %781, -5248
+  %808 = icmp ult i32 %switch.tableidx343, 40
+  br i1 %808, label %switch.lookup344, label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
 
-switch.lookup343:                                 ; preds = %807
-  %809 = zext nneg i32 %switch.tableidx344 to i64
-  %switch.gep345 = getelementptr inbounds nuw [40 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.5, i64 0, i64 %809
+switch.lookup344:                                 ; preds = %807
+  %809 = zext nneg i32 %switch.tableidx343 to i64
+  %switch.gep345 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.5, i64 %809
   %switch.load346 = load ptr, ptr %switch.gep345, align 8
   br label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
 
-_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit:       ; preds = %807, %switch.lookup343, %804
-  %.0.i163 = phi ptr [ @.str.71, %804 ], [ %switch.load346, %switch.lookup343 ], [ @.str.71, %807 ]
+_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit:       ; preds = %807, %switch.lookup344, %804
+  %.0.i163 = phi ptr [ @.str.71, %804 ], [ %switch.load346, %switch.lookup344 ], [ @.str.71, %807 ]
   %810 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %783, ptr noundef nonnull %.0.i163) #19
   %811 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %810, ptr noundef nonnull @.str.13) #19
   br label %.thread224
@@ -2307,7 +2307,7 @@ _ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit169: ; preds = %860, %.
 
 895:                                              ; preds = %361
   %896 = zext i32 %366 to i64
-  %897 = getelementptr inbounds nuw [0 x %"class.spv::EnumDefinition"], ptr @_ZN3spv18OperandClassParamsE, i64 0, i64 %896
+  %897 = getelementptr inbounds nuw %"class.spv::EnumDefinition", ptr @_ZN3spv18OperandClassParamsE, i64 %896
   %898 = getelementptr inbounds nuw i8, ptr %897, i64 12
   %899 = load i8, ptr %898, align 4
   %900 = trunc i8 %899 to i1
@@ -2514,7 +2514,7 @@ define void @_ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj(ptr noundef no
 
 .preheader:                                       ; preds = %3
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [0 x %"class.spv::EnumDefinition"], ptr @_ZN3spv18OperandClassParamsE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.spv::EnumDefinition", ptr @_ZN3spv18OperandClassParamsE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
@@ -2802,7 +2802,7 @@ define internal fastcc noundef nonnull ptr @_ZN3spvL42NonSemanticShaderDebugInfo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [109 x ptr], ptr @switch.table._ZN3spvL42NonSemanticShaderDebugInfo100GetDebugNamesEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spvL42NonSemanticShaderDebugInfo100GetDebugNamesEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

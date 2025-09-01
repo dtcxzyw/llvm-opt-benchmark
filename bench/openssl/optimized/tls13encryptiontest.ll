@@ -95,7 +95,7 @@ define internal range(i32 0, 2) i32 @test_tls13_encryption() #0 {
   %.067 = phi i64 [ 0, %0 ], [ %101, %95 ]
   %16 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %8) #5
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %.067
+  %18 = getelementptr inbounds nuw %struct.RECORD_DATA, ptr @refdata, i64 %.067
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !17

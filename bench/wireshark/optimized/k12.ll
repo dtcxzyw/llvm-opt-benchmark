@@ -1632,7 +1632,7 @@ define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr n
   %47 = and i64 %46, %43
   %.not = icmp ne i64 %47, 0
   %48 = sext i1 %.not to i8
-  %49 = getelementptr [32 x i8], ptr %44, i64 0, i64 %indvars.iv
+  %49 = getelementptr i8, ptr %44, i64 %indvars.iv
   store i8 %48, ptr %49, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32

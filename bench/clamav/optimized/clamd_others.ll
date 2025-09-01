@@ -94,13 +94,13 @@ define dso_local void @virusaction(ptr noundef %0, ptr noundef %1, ptr noundef %
 25:                                               ; preds = %21
   %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #21
   %27 = add nuw nsw i64 %.069, 1
-  %28 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %.069
+  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.069
   store ptr %24, ptr %28, align 8, !tbaa !14
   br label %29
 
 29:                                               ; preds = %25, %21
   %.170 = phi i64 [ %27, %25 ], [ %.069, %21 ]
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %.170
+  %30 = getelementptr inbounds nuw ptr, ptr %4, i64 %.170
   store ptr null, ptr %30, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !15

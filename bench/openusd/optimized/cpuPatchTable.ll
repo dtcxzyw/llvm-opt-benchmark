@@ -95,7 +95,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE
 
 switch.lookup:                                    ; preds = %22
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -528,18 +528,18 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit155: ; 
 
 194:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit155
   %195 = load i32, ptr %4, align 4
-  %switch.tableidx444 = add i32 %195, -1
-  %196 = icmp ult i32 %switch.tableidx444, 10
-  br i1 %196, label %switch.lookup443, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157
+  %switch.tableidx443 = add i32 %195, -1
+  %196 = icmp ult i32 %switch.tableidx443, 10
+  br i1 %196, label %switch.lookup444, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157
 
-switch.lookup443:                                 ; preds = %194
-  %197 = zext nneg i32 %switch.tableidx444 to i64
-  %switch.gep445 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %197
+switch.lookup444:                                 ; preds = %194
+  %197 = zext nneg i32 %switch.tableidx443 to i64
+  %switch.gep445 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %197
   %switch.load446 = load i32, ptr %switch.gep445, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157
 
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157: ; preds = %194, %switch.lookup443
-  %.0.i.i156 = phi i32 [ %switch.load446, %switch.lookup443 ], [ -1, %194 ]
+_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157: ; preds = %194, %switch.lookup444
+  %.0.i.i156 = phi i32 [ %switch.load446, %switch.lookup444 ], [ -1, %194 ]
   %198 = mul nsw i32 %.0.i.i156, %.0.lcssa
   %199 = sext i32 %198 to i64
   %200 = icmp slt i32 %198, 0
@@ -1037,18 +1037,18 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207: ; 
   store i32 %438, ptr %403, align 4
   store i32 %421, ptr %404, align 4
   store i32 %430, ptr %405, align 4
-  %switch.tableidx448 = add i32 %438, -1
-  %439 = icmp ult i32 %switch.tableidx448, 10
-  br i1 %439, label %switch.lookup447, label %441
+  %switch.tableidx447 = add i32 %438, -1
+  %439 = icmp ult i32 %switch.tableidx447, 10
+  br i1 %439, label %switch.lookup448, label %441
 
-switch.lookup447:                                 ; preds = %423
-  %440 = zext nneg i32 %switch.tableidx448 to i64
-  %switch.gep449 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %440
+switch.lookup448:                                 ; preds = %423
+  %440 = zext nneg i32 %switch.tableidx447 to i64
+  %switch.gep449 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %440
   %switch.load450 = load i32, ptr %switch.gep449, align 4
   br label %441
 
-441:                                              ; preds = %423, %switch.lookup447
-  %.0.i.i.i = phi i32 [ %switch.load450, %switch.lookup447 ], [ -1, %423 ]
+441:                                              ; preds = %423, %switch.lookup448
+  %.0.i.i.i = phi i32 [ %switch.load450, %switch.lookup448 ], [ -1, %423 ]
   store i32 %.0.i.i.i, ptr %406, align 4
   store i32 %437, ptr %407, align 4
   %442 = load ptr, ptr %408, align 8
@@ -1114,18 +1114,18 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit:
   store i32 %477, ptr %410, align 4
   store i32 %421, ptr %411, align 4
   store i32 %469, ptr %412, align 4
-  %switch.tableidx452 = add i32 %477, -1
-  %478 = icmp ult i32 %switch.tableidx452, 10
-  br i1 %478, label %switch.lookup451, label %480
+  %switch.tableidx451 = add i32 %477, -1
+  %478 = icmp ult i32 %switch.tableidx451, 10
+  br i1 %478, label %switch.lookup452, label %480
 
-switch.lookup451:                                 ; preds = %462
-  %479 = zext nneg i32 %switch.tableidx452 to i64
-  %switch.gep453 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 0, i64 %479
+switch.lookup452:                                 ; preds = %462
+  %479 = zext nneg i32 %switch.tableidx451 to i64
+  %switch.gep453 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %479
   %switch.load454 = load i32, ptr %switch.gep453, align 4
   br label %480
 
-480:                                              ; preds = %462, %switch.lookup451
-  %.0.i.i.i210 = phi i32 [ %switch.load454, %switch.lookup451 ], [ -1, %462 ]
+480:                                              ; preds = %462, %switch.lookup452
+  %.0.i.i.i210 = phi i32 [ %switch.load454, %switch.lookup452 ], [ -1, %462 ]
   store i32 %.0.i.i.i210, ptr %413, align 4
   store i32 %476, ptr %414, align 4
   %481 = load ptr, ptr %415, align 8
@@ -1214,30 +1214,30 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
   %528 = trunc i64 %527 to i32
   %529 = load i32, ptr %9, align 4
   %530 = load i32, ptr %10, align 4
-  %switch.tableidx456 = add i32 %529, -1
-  %531 = icmp ult i32 %switch.tableidx456, 10
-  br i1 %531, label %switch.lookup455, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
+  %switch.tableidx455 = add i32 %529, -1
+  %531 = icmp ult i32 %switch.tableidx455, 10
+  br i1 %531, label %switch.lookup456, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
 
-switch.lookup455:                                 ; preds = %508
-  %532 = zext nneg i32 %switch.tableidx456 to i64
-  %switch.gep457 = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 0, i64 %532
+switch.lookup456:                                 ; preds = %508
+  %532 = zext nneg i32 %switch.tableidx455 to i64
+  %switch.gep457 = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 %532
   %switch.load458 = load i16, ptr %switch.gep457, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
 
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i: ; preds = %508, %switch.lookup455
-  %.0.i.i.i217 = phi i16 [ %switch.load458, %switch.lookup455 ], [ -1, %508 ]
-  %switch.tableidx460 = add i32 %530, -1
-  %533 = icmp ult i32 %switch.tableidx460, 10
-  br i1 %533, label %switch.lookup459, label %535
+_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i: ; preds = %508, %switch.lookup456
+  %.0.i.i.i217 = phi i16 [ %switch.load458, %switch.lookup456 ], [ -1, %508 ]
+  %switch.tableidx459 = add i32 %530, -1
+  %533 = icmp ult i32 %switch.tableidx459, 10
+  br i1 %533, label %switch.lookup460, label %535
 
-switch.lookup459:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
-  %534 = zext nneg i32 %switch.tableidx460 to i64
-  %switch.gep461 = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 0, i64 %534
+switch.lookup460:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
+  %534 = zext nneg i32 %switch.tableidx459 to i64
+  %switch.gep461 = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 %534
   %switch.load462 = load i16, ptr %switch.gep461, align 2
   br label %535
 
-535:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i, %switch.lookup459
-  %.0.i.i3.i = phi i16 [ %switch.load462, %switch.lookup459 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i ]
+535:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i, %switch.lookup460
+  %.0.i.i3.i = phi i16 [ %switch.load462, %switch.lookup460 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i ]
   %.sroa.speculated.i = call i16 @llvm.smax.i16(i16 %.0.i.i.i217, i16 %.0.i.i3.i)
   %536 = sext i16 %.sroa.speculated.i to i32
   %537 = load ptr, ptr %15, align 8

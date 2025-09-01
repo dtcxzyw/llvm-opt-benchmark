@@ -7551,7 +7551,7 @@ _ZN7journal11journal_dir17h5cc80d3483fcb1b4E.exit: ; preds = %150, %"_ZN4core3pt
           to label %.body84 unwind label %557
 
 233:                                              ; preds = %.noexc86
-  %234 = getelementptr inbounds nuw [733 x i8], ptr @anon.1f02c558fecad9962a36c4495a03ff21.84, i64 0, i64 %228
+  %234 = getelementptr inbounds nuw i8, ptr @anon.1f02c558fecad9962a36c4495a03ff21.84, i64 %228
   %235 = load i8, ptr %234, align 1, !noalias !1496, !noundef !5
   %236 = zext i8 %235 to i32
   %237 = add nuw nsw i32 %227, %236
@@ -7686,7 +7686,7 @@ _ZN7journal11journal_dir17h5cc80d3483fcb1b4E.exit: ; preds = %150, %"_ZN4core3pt
   unreachable
 
 281:                                              ; preds = %.noexc96
-  %282 = getelementptr inbounds nuw [733 x i8], ptr @anon.1f02c558fecad9962a36c4495a03ff21.84, i64 0, i64 %278
+  %282 = getelementptr inbounds nuw i8, ptr @anon.1f02c558fecad9962a36c4495a03ff21.84, i64 %278
   %283 = load i8, ptr %282, align 1, !noalias !1542, !noundef !5
   %284 = zext i8 %283 to i32
   %285 = add nuw nsw i32 %276, %284

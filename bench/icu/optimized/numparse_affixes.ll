@@ -974,8 +974,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_778numparse4impl2
 
 24:                                               ; preds = %24, %2
   %.013.i = phi i64 [ 0, %2 ], [ %28, %24 ]
-  %25 = getelementptr inbounds nuw [8 x %"class.icu_77::UnicodeString"], ptr %22, i64 0, i64 %.013.i
-  %26 = getelementptr inbounds nuw [8 x %"class.icu_77::UnicodeString"], ptr %23, i64 0, i64 %.013.i
+  %25 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %22, i64 %.013.i
+  %26 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %23, i64 %.013.i
   %27 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %26) #19
   %28 = add nuw nsw i64 %.013.i, 1
   %.not.i = icmp eq i64 %28, 8
@@ -2211,7 +2211,7 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouse19createAffixMatcher
   %14 = alloca %"class.icu_77::numparse::impl::AffixMatcher", align 8
   %15 = alloca %"class.icu_77::numparse::impl::AffixMatcher", align 8
   %16 = tail call noundef zeroext i1 @_ZN6icu_778numparse4impl21AffixMatcherWarehouse13isInterestingERKNS_6number4impl20AffixPatternProviderERKNS1_17IgnorablesMatcherEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(80) %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br i1 %16, label %17, label %255
+  br i1 %16, label %17, label %254
 
 17:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2245,9 +2245,9 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouse19createAffixMatcher
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  br label %58
+  br label %57
 
-.preheader172:                                    ; preds = %243
+.preheader172:                                    ; preds = %242
   %45 = icmp sgt i32 %.180, 1
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br i1 %45, label %.lr.ph.us.preheader, label %.preheader
@@ -2256,33 +2256,32 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouse19createAffixMatcher
   %wide.trip.count = zext nneg i32 %.180 to i64
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %56, %.lr.ph.us.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next.mux, %56 ], [ 1, %.lr.ph.us.preheader ]
-  %.078197.us = phi i1 [ %.1.us.mux, %56 ], [ false, %.lr.ph.us.preheader ]
-  %47 = add nsw i64 %indvars.iv, -1
-  %48 = getelementptr inbounds [18 x %"class.icu_77::numparse::impl::AffixMatcher"], ptr %0, i64 0, i64 %47
-  %49 = getelementptr inbounds nuw [18 x %"class.icu_77::numparse::impl::AffixMatcher"], ptr %0, i64 0, i64 %indvars.iv
-  %50 = invoke noundef signext i8 @_ZNK6icu_778numparse4impl12AffixMatcher9compareToERKS2_(ptr noundef nonnull align 8 dereferenceable(28) %48, ptr noundef nonnull align 8 dereferenceable(28) %49)
-          to label %51 unwind label %.split.us
+.lr.ph.us:                                        ; preds = %55, %.lr.ph.us.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next.mux, %55 ], [ 1, %.lr.ph.us.preheader ]
+  %.078197.us = phi i1 [ %.1.us.mux, %55 ], [ false, %.lr.ph.us.preheader ]
+  %47 = getelementptr %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %indvars.iv
+  %48 = getelementptr i8, ptr %47, i64 -32
+  %49 = invoke noundef signext i8 @_ZNK6icu_778numparse4impl12AffixMatcher9compareToERKS2_(ptr noundef nonnull align 8 dereferenceable(28) %48, ptr noundef nonnull align 8 dereferenceable(28) %47)
+          to label %50 unwind label %.split.us
 
-51:                                               ; preds = %.lr.ph.us
-  %52 = icmp sgt i8 %50, 0
-  br i1 %52, label %53, label %56
+50:                                               ; preds = %.lr.ph.us
+  %51 = icmp sgt i8 %49, 0
+  br i1 %51, label %52, label %55
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_778numparse4impl12AffixMatcherE, i64 16), ptr %15, align 8, !tbaa !15
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(20) %54, i64 20, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %54, ptr noundef nonnull align 8 dereferenceable(20) %55, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %55, ptr noundef nonnull align 8 dereferenceable(20) %46, i64 20, i1 false)
+  %53 = getelementptr i8, ptr %47, i64 -24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(20) %53, i64 20, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(20) %54, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %54, ptr noundef nonnull align 8 dereferenceable(20) %46, i64 20, i1 false)
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %15) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %56
+  br label %55
 
-56:                                               ; preds = %53, %51
-  %.1.us = phi i1 [ true, %53 ], [ %.078197.us, %51 ]
+55:                                               ; preds = %52, %50
+  %.1.us = phi i1 [ true, %52 ], [ %.078197.us, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond202.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %brmerge = select i1 %exitcond202.not, i1 true, i1 %.1.us
@@ -2291,573 +2290,573 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouse19createAffixMatcher
   br i1 %brmerge, label %.lr.ph.us, label %.preheader, !llvm.loop !108
 
 .split.us:                                        ; preds = %.lr.ph.us
-  %57 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  br label %256
+  br label %255
 
-58:                                               ; preds = %17, %243
-  %.079196 = phi i32 [ 0, %17 ], [ %.180, %243 ]
-  %.081195 = phi i32 [ 0, %17 ], [ %.182, %243 ]
-  %.085194 = phi ptr [ null, %17 ], [ %.186, %243 ]
-  %.0101193 = phi ptr [ null, %17 ], [ %.1102, %243 ]
-  %.0105192 = phi i8 [ 0, %17 ], [ %244, %243 ]
-  %59 = lshr i8 %.0105192, 1
-  %60 = zext nneg i8 %59 to i32
-  %61 = and i8 %.0105192, 1
-  %62 = icmp ne i8 %61, 0
-  br i1 %62, label %63, label %.critedge
+57:                                               ; preds = %17, %242
+  %.079196 = phi i32 [ 0, %17 ], [ %.180, %242 ]
+  %.081195 = phi i32 [ 0, %17 ], [ %.182, %242 ]
+  %.085194 = phi ptr [ null, %17 ], [ %.186, %242 ]
+  %.0101193 = phi ptr [ null, %17 ], [ %.1102, %242 ]
+  %.0105192 = phi i8 [ 0, %17 ], [ %243, %242 ]
+  %58 = lshr i8 %.0105192, 1
+  %59 = zext nneg i8 %58 to i32
+  %60 = and i8 %.0105192, 1
+  %61 = icmp ne i8 %60, 0
+  br i1 %61, label %62, label %.critedge
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %1, align 8, !tbaa !15
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %66 = load ptr, ptr %65, align 8
-  %67 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %68 unwind label %69
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %1, align 8, !tbaa !15
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %66 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %67 unwind label %68
 
-68:                                               ; preds = %63
-  br i1 %67, label %71, label %243
+67:                                               ; preds = %62
+  br i1 %66, label %70, label %242
 
-69:                                               ; preds = %71, %63
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %70, %62
+  %69 = landingpad { ptr, i32 }
           cleanup
-  br label %256
+  br label %255
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %21, align 8, !tbaa !106
-  %73 = load ptr, ptr %72, align 8, !tbaa !35
-  %74 = load ptr, ptr %73, align 8, !tbaa !64
-  %75 = invoke noundef zeroext i1 @_ZNK6icu_776number4impl15CurrencySymbols22hasEmptyCurrencySymbolEv(ptr noundef nonnull align 8 dereferenceable(232) %74)
-          to label %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit unwind label %69
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %21, align 8, !tbaa !106
+  %72 = load ptr, ptr %71, align 8, !tbaa !35
+  %73 = load ptr, ptr %72, align 8, !tbaa !64
+  %74 = invoke noundef zeroext i1 @_ZNK6icu_776number4impl15CurrencySymbols22hasEmptyCurrencySymbolEv(ptr noundef nonnull align 8 dereferenceable(232) %73)
+          to label %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit unwind label %68
 
-_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit: ; preds = %71
-  br i1 %75, label %.critedge, label %243
+_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit: ; preds = %70
+  br i1 %74, label %.critedge, label %242
 
-.critedge:                                        ; preds = %58, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit
-  %76 = icmp samesign ugt i8 %.0105192, 1
-  %or.cond120 = or i1 %.not, %76
-  br i1 %or.cond120, label %77, label %243
+.critedge:                                        ; preds = %57, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit
+  %75 = icmp samesign ugt i8 %.0105192, 1
+  %or.cond120 = or i1 %.not, %75
+  br i1 %or.cond120, label %76, label %242
 
-77:                                               ; preds = %.critedge
-  %78 = and i8 %.0105192, 6
-  %79 = icmp eq i8 %78, 2
-  %or.cond122 = and i1 %.not, %79
-  br i1 %or.cond122, label %243, label %80
+76:                                               ; preds = %.critedge
+  %77 = and i8 %.0105192, 6
+  %78 = icmp eq i8 %77, 2
+  %or.cond122 = and i1 %.not, %78
+  br i1 %or.cond122, label %242, label %79
 
-80:                                               ; preds = %77
+79:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !83
-  invoke void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext true, i32 noundef %60, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %81 unwind label %189
+  invoke void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext true, i32 noundef %59, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %61, ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %80 unwind label %188
 
-81:                                               ; preds = %80
+80:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %82 = load ptr, ptr %21, align 8, !tbaa !106
-  invoke void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::numparse::impl::AffixPatternMatcher") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(1288) %82, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %83 unwind label %191
+  %81 = load ptr, ptr %21, align 8, !tbaa !106
+  invoke void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::numparse::impl::AffixPatternMatcher") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(1288) %81, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %82 unwind label %190
 
-83:                                               ; preds = %81
-  %84 = sext i32 %.081195 to i64
-  %85 = getelementptr inbounds [12 x %"class.icu_77::numparse::impl::AffixPatternMatcher"], ptr %23, i64 0, i64 %84
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 20
-  %88 = load i8, ptr %87, align 4, !tbaa !22
-  %.not.i.i.i.i = icmp eq i8 %88, 0
-  br i1 %.not.i.i.i.i, label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i, label %89
+82:                                               ; preds = %80
+  %83 = sext i32 %.081195 to i64
+  %84 = getelementptr inbounds %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %23, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 20
+  %87 = load i8, ptr %86, align 4, !tbaa !22
+  %.not.i.i.i.i = icmp eq i8 %87, 0
+  br i1 %.not.i.i.i.i, label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i, label %88
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %86, align 8, !tbaa !17
-  invoke void @uprv_free_77(ptr noundef %90)
-          to label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i unwind label %101
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %85, align 8, !tbaa !17
+  invoke void @uprv_free_77(ptr noundef %89)
+          to label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i unwind label %100
 
-_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i: ; preds = %89, %83
-  %91 = load i32, ptr %25, align 8, !tbaa !21
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i32 %91, ptr %92, align 8, !tbaa !21
-  %93 = load i8, ptr %26, align 4, !tbaa !22
-  store i8 %93, ptr %87, align 4, !tbaa !22
-  %94 = load ptr, ptr %24, align 8, !tbaa !17
-  %95 = icmp eq ptr %94, %27
-  br i1 %95, label %96, label %100
+_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i: ; preds = %88, %82
+  %90 = load i32, ptr %25, align 8, !tbaa !21
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store i32 %90, ptr %91, align 8, !tbaa !21
+  %92 = load i8, ptr %26, align 4, !tbaa !22
+  store i8 %92, ptr %86, align 4, !tbaa !22
+  %93 = load ptr, ptr %24, align 8, !tbaa !17
+  %94 = icmp eq ptr %93, %27
+  br i1 %94, label %95, label %99
 
-96:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %98 = sext i32 %91 to i64
-  %99 = shl nsw i64 %98, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %97, ptr nonnull align 8 %27, i64 %99, i1 false)
+95:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %97 = sext i32 %90 to i64
+  %98 = shl nsw i64 %97, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %96, ptr nonnull align 8 %27, i64 %98, i1 false)
   br label %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
 
-100:                                              ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
+99:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
   store ptr %27, ptr %24, align 8, !tbaa !17
   store i32 3, ptr %25, align 8, !tbaa !21
   store i8 0, ptr %26, align 4, !tbaa !22
   br label %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
 
-101:                                              ; preds = %89
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %88
+  %101 = landingpad { ptr, i32 }
           catch ptr null
-  %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #21
+  %102 = extractvalue { ptr, i32 } %101, 0
+  call void @__clang_call_terminate(ptr %102) #21
   unreachable
 
-_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %100, %96
-  %.sink = phi ptr [ %97, %96 ], [ %94, %100 ]
-  store ptr %.sink, ptr %86, align 8, !tbaa !17
-  %104 = load i32, ptr %28, align 8, !tbaa !109
-  %105 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  store i32 %104, ptr %105, align 8, !tbaa !109
-  %106 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %107 = getelementptr inbounds nuw i8, ptr %85, i64 68
-  %108 = load i8, ptr %107, align 4, !tbaa !88
-  %.not.i.i.i3.i = icmp eq i8 %108, 0
-  br i1 %.not.i.i.i3.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i, label %109
+_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %99, %95
+  %.sink = phi ptr [ %96, %95 ], [ %93, %99 ]
+  store ptr %.sink, ptr %85, align 8, !tbaa !17
+  %103 = load i32, ptr %28, align 8, !tbaa !109
+  %104 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  store i32 %103, ptr %104, align 8, !tbaa !109
+  %105 = getelementptr inbounds nuw i8, ptr %84, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %84, i64 68
+  %107 = load i8, ptr %106, align 4, !tbaa !88
+  %.not.i.i.i3.i = icmp eq i8 %107, 0
+  br i1 %.not.i.i.i3.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i, label %108
 
-109:                                              ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %110 = load ptr, ptr %106, align 8, !tbaa !84
-  invoke void @uprv_free_77(ptr noundef %110)
-          to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i unwind label %116
+108:                                              ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
+  %109 = load ptr, ptr %105, align 8, !tbaa !84
+  invoke void @uprv_free_77(ptr noundef %109)
+          to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i unwind label %115
 
-_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i: ; preds = %109, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %111 = load i32, ptr %30, align 8, !tbaa !87
-  %112 = getelementptr inbounds nuw i8, ptr %85, i64 64
-  store i32 %111, ptr %112, align 8, !tbaa !87
-  %113 = load i8, ptr %31, align 4, !tbaa !88
-  store i8 %113, ptr %107, align 4, !tbaa !88
-  %114 = load ptr, ptr %29, align 8, !tbaa !84
-  %115 = icmp eq ptr %114, %32
-  br i1 %115, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread
+_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i: ; preds = %108, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
+  %110 = load i32, ptr %30, align 8, !tbaa !87
+  %111 = getelementptr inbounds nuw i8, ptr %84, i64 64
+  store i32 %110, ptr %111, align 8, !tbaa !87
+  %112 = load i8, ptr %31, align 4, !tbaa !88
+  store i8 %112, ptr %106, align 4, !tbaa !88
+  %113 = load ptr, ptr %29, align 8, !tbaa !84
+  %114 = icmp eq ptr %113, %32
+  br i1 %114, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
-  store ptr %114, ptr %106, align 8, !tbaa !84
+  store ptr %113, ptr %105, align 8, !tbaa !84
   store ptr %32, ptr %29, align 8, !tbaa !84
   store i32 4, ptr %30, align 8, !tbaa !87
   store i8 0, ptr %31, align 4, !tbaa !88
   br label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i
 
-116:                                              ; preds = %109
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %108
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #21
+  %117 = extractvalue { ptr, i32 } %116, 0
+  call void @__clang_call_terminate(ptr %117) #21
   unreachable
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
-  %119 = getelementptr inbounds nuw i8, ptr %85, i64 70
-  store ptr %119, ptr %106, align 8, !tbaa !84
-  %120 = sext i32 %111 to i64
-  %121 = shl nsw i64 %120, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %119, ptr nonnull align 2 %32, i64 %121, i1 false)
+  %118 = getelementptr inbounds nuw i8, ptr %84, i64 70
+  store ptr %118, ptr %105, align 8, !tbaa !84
+  %119 = sext i32 %110 to i64
+  %120 = shl nsw i64 %119, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %118, ptr nonnull align 2 %32, i64 %120, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl19AffixPatternMatcherE, i64 16), ptr %9, align 8, !tbaa !15
-  %.not.i.i.i.i126 = icmp eq i8 %113, 0
-  br i1 %.not.i.i.i.i126, label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, label %122
+  %.not.i.i.i.i126 = icmp eq i8 %112, 0
+  br i1 %.not.i.i.i.i126, label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, label %121
 
-122:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
-  invoke void @uprv_free_77(ptr noundef %114)
-          to label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i unwind label %123
+121:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
+  invoke void @uprv_free_77(ptr noundef %113)
+          to label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i unwind label %122
 
-123:                                              ; preds = %122
-  %124 = landingpad { ptr, i32 }
+122:                                              ; preds = %121
+  %123 = landingpad { ptr, i32 }
           catch ptr null
-  %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #21
+  %124 = extractvalue { ptr, i32 } %123, 0
+  call void @__clang_call_terminate(ptr %124) #21
   unreachable
 
-_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i: ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread, %122, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
+_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i: ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit.thread, %121, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl18ArraySeriesMatcherE, i64 16), ptr %9, align 8, !tbaa !15
-  %126 = load i8, ptr %26, align 4, !tbaa !22
-  %.not.i.i.i1.i = icmp eq i8 %126, 0
-  br i1 %.not.i.i.i1.i, label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit, label %127
+  %125 = load i8, ptr %26, align 4, !tbaa !22
+  %.not.i.i.i1.i = icmp eq i8 %125, 0
+  br i1 %.not.i.i.i1.i, label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit, label %126
 
-127:                                              ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i
-  %128 = load ptr, ptr %24, align 8, !tbaa !17
-  invoke void @uprv_free_77(ptr noundef %128)
-          to label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit unwind label %129
+126:                                              ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i
+  %127 = load ptr, ptr %24, align 8, !tbaa !17
+  invoke void @uprv_free_77(ptr noundef %127)
+          to label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit unwind label %128
 
-129:                                              ; preds = %127
-  %130 = landingpad { ptr, i32 }
+128:                                              ; preds = %126
+  %129 = landingpad { ptr, i32 }
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #21
+  %130 = extractvalue { ptr, i32 } %129, 0
+  call void @__clang_call_terminate(ptr %130) #21
   unreachable
 
-_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit: ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, %127
+_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit: ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, %126
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %132 = load i8, ptr %8, align 1, !tbaa !83, !range !61, !noundef !62
-  %133 = trunc nuw i8 %132 to i1
-  %134 = zext nneg i8 %132 to i32
-  %spec.select = add nsw i32 %.081195, %134
-  %spec.select123 = select i1 %133, ptr %85, ptr null
+  %131 = load i8, ptr %8, align 1, !tbaa !83, !range !61, !noundef !62
+  %132 = trunc nuw i8 %131 to i1
+  %133 = zext nneg i8 %131 to i32
+  %spec.select = add nsw i32 %.081195, %133
+  %spec.select123 = select i1 %132, ptr %84, ptr null
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !83
-  invoke void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false, i32 noundef %60, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %62, ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %135 unwind label %193
+  invoke void @_ZN6icu_776number4impl18PatternStringUtils26patternInfoToStringBuilderERKNS1_20AffixPatternProviderEbNS1_15PatternSignTypeEbNS_14StandardPlural4FormEbbRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false, i32 noundef %59, i1 noundef zeroext false, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext %61, ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %134 unwind label %192
 
-135:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit
+134:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %136 = load ptr, ptr %21, align 8, !tbaa !106
-  invoke void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::numparse::impl::AffixPatternMatcher") align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(1288) %136, i32 noundef %4, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %137 unwind label %195
+  %135 = load ptr, ptr %21, align 8, !tbaa !106
+  invoke void @_ZN6icu_778numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::numparse::impl::AffixPatternMatcher") align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(1288) %135, i32 noundef %4, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %136 unwind label %194
 
-137:                                              ; preds = %135
-  %138 = sext i32 %spec.select to i64
-  %139 = getelementptr inbounds [12 x %"class.icu_77::numparse::impl::AffixPatternMatcher"], ptr %23, i64 0, i64 %138
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  %142 = load i8, ptr %141, align 4, !tbaa !22
-  %.not.i.i.i.i127 = icmp eq i8 %142, 0
-  br i1 %.not.i.i.i.i127, label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128, label %143
+136:                                              ; preds = %134
+  %137 = sext i32 %spec.select to i64
+  %138 = getelementptr inbounds %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %23, i64 %137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 20
+  %141 = load i8, ptr %140, align 4, !tbaa !22
+  %.not.i.i.i.i127 = icmp eq i8 %141, 0
+  br i1 %.not.i.i.i.i127, label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128, label %142
 
-143:                                              ; preds = %137
-  %144 = load ptr, ptr %140, align 8, !tbaa !17
-  invoke void @uprv_free_77(ptr noundef %144)
-          to label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128 unwind label %155
+142:                                              ; preds = %136
+  %143 = load ptr, ptr %139, align 8, !tbaa !17
+  invoke void @uprv_free_77(ptr noundef %143)
+          to label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128 unwind label %154
 
-_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128: ; preds = %143, %137
-  %145 = load i32, ptr %34, align 8, !tbaa !21
-  %146 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store i32 %145, ptr %146, align 8, !tbaa !21
-  %147 = load i8, ptr %35, align 4, !tbaa !22
-  store i8 %147, ptr %141, align 4, !tbaa !22
-  %148 = load ptr, ptr %33, align 8, !tbaa !17
-  %149 = icmp eq ptr %148, %36
-  br i1 %149, label %150, label %154
+_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128: ; preds = %142, %136
+  %144 = load i32, ptr %34, align 8, !tbaa !21
+  %145 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  store i32 %144, ptr %145, align 8, !tbaa !21
+  %146 = load i8, ptr %35, align 4, !tbaa !22
+  store i8 %146, ptr %140, align 4, !tbaa !22
+  %147 = load ptr, ptr %33, align 8, !tbaa !17
+  %148 = icmp eq ptr %147, %36
+  br i1 %148, label %149, label %153
 
-150:                                              ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128
-  %151 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %152 = sext i32 %145 to i64
-  %153 = shl nsw i64 %152, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %151, ptr nonnull align 8 %36, i64 %153, i1 false)
+149:                                              ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128
+  %150 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  %151 = sext i32 %144 to i64
+  %152 = shl nsw i64 %151, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %150, ptr nonnull align 8 %36, i64 %152, i1 false)
   br label %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
 
-154:                                              ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128
+153:                                              ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i128
   store ptr %36, ptr %33, align 8, !tbaa !17
   store i32 3, ptr %34, align 8, !tbaa !21
   store i8 0, ptr %35, align 4, !tbaa !22
   br label %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
 
-155:                                              ; preds = %143
-  %156 = landingpad { ptr, i32 }
+154:                                              ; preds = %142
+  %155 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #21
+  %156 = extractvalue { ptr, i32 } %155, 0
+  call void @__clang_call_terminate(ptr %156) #21
   unreachable
 
-_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129: ; preds = %154, %150
-  %.sink209 = phi ptr [ %151, %150 ], [ %148, %154 ]
-  store ptr %.sink209, ptr %140, align 8, !tbaa !17
-  %158 = load i32, ptr %37, align 8, !tbaa !109
-  %159 = getelementptr inbounds nuw i8, ptr %139, i64 48
-  store i32 %158, ptr %159, align 8, !tbaa !109
-  %160 = getelementptr inbounds nuw i8, ptr %139, i64 56
-  %161 = getelementptr inbounds nuw i8, ptr %139, i64 68
-  %162 = load i8, ptr %161, align 4, !tbaa !88
-  %.not.i.i.i3.i130 = icmp eq i8 %162, 0
-  br i1 %.not.i.i.i3.i130, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131, label %163
+_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129: ; preds = %153, %149
+  %.sink209 = phi ptr [ %150, %149 ], [ %147, %153 ]
+  store ptr %.sink209, ptr %139, align 8, !tbaa !17
+  %157 = load i32, ptr %37, align 8, !tbaa !109
+  %158 = getelementptr inbounds nuw i8, ptr %138, i64 48
+  store i32 %157, ptr %158, align 8, !tbaa !109
+  %159 = getelementptr inbounds nuw i8, ptr %138, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %138, i64 68
+  %161 = load i8, ptr %160, align 4, !tbaa !88
+  %.not.i.i.i3.i130 = icmp eq i8 %161, 0
+  br i1 %.not.i.i.i3.i130, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131, label %162
 
-163:                                              ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
-  %164 = load ptr, ptr %160, align 8, !tbaa !84
-  invoke void @uprv_free_77(ptr noundef %164)
-          to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131 unwind label %170
+162:                                              ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
+  %163 = load ptr, ptr %159, align 8, !tbaa !84
+  invoke void @uprv_free_77(ptr noundef %163)
+          to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131 unwind label %169
 
-_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131: ; preds = %163, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
-  %165 = load i32, ptr %39, align 8, !tbaa !87
-  %166 = getelementptr inbounds nuw i8, ptr %139, i64 64
-  store i32 %165, ptr %166, align 8, !tbaa !87
-  %167 = load i8, ptr %40, align 4, !tbaa !88
-  store i8 %167, ptr %161, align 4, !tbaa !88
-  %168 = load ptr, ptr %38, align 8, !tbaa !84
-  %169 = icmp eq ptr %168, %41
-  br i1 %169, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread
+_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131: ; preds = %162, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i129
+  %164 = load i32, ptr %39, align 8, !tbaa !87
+  %165 = getelementptr inbounds nuw i8, ptr %138, i64 64
+  store i32 %164, ptr %165, align 8, !tbaa !87
+  %166 = load i8, ptr %40, align 4, !tbaa !88
+  store i8 %166, ptr %160, align 4, !tbaa !88
+  %167 = load ptr, ptr %38, align 8, !tbaa !84
+  %168 = icmp eq ptr %167, %41
+  br i1 %168, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132, label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131
-  store ptr %168, ptr %160, align 8, !tbaa !84
+  store ptr %167, ptr %159, align 8, !tbaa !84
   store ptr %41, ptr %38, align 8, !tbaa !84
   store i32 4, ptr %39, align 8, !tbaa !87
   store i8 0, ptr %40, align 4, !tbaa !88
   br label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134
 
-170:                                              ; preds = %163
-  %171 = landingpad { ptr, i32 }
+169:                                              ; preds = %162
+  %170 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #21
+  %171 = extractvalue { ptr, i32 } %170, 0
+  call void @__clang_call_terminate(ptr %171) #21
   unreachable
 
 _ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132: ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i131
-  %173 = getelementptr inbounds nuw i8, ptr %139, i64 70
-  store ptr %173, ptr %160, align 8, !tbaa !84
-  %174 = sext i32 %165 to i64
-  %175 = shl nsw i64 %174, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %173, ptr nonnull align 2 %41, i64 %175, i1 false)
+  %172 = getelementptr inbounds nuw i8, ptr %138, i64 70
+  store ptr %172, ptr %159, align 8, !tbaa !84
+  %173 = sext i32 %164 to i64
+  %174 = shl nsw i64 %173, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %172, ptr nonnull align 2 %41, i64 %174, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl19AffixPatternMatcherE, i64 16), ptr %11, align 8, !tbaa !15
-  %.not.i.i.i.i133 = icmp eq i8 %167, 0
-  br i1 %.not.i.i.i.i133, label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134, label %176
+  %.not.i.i.i.i133 = icmp eq i8 %166, 0
+  br i1 %.not.i.i.i.i133, label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134, label %175
 
-176:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132
-  invoke void @uprv_free_77(ptr noundef %168)
-          to label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134 unwind label %177
+175:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132
+  invoke void @uprv_free_77(ptr noundef %167)
+          to label %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134 unwind label %176
 
-177:                                              ; preds = %176
-  %178 = landingpad { ptr, i32 }
+176:                                              ; preds = %175
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #21
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #21
   unreachable
 
-_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134: ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread, %176, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132
+_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134: ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132.thread, %175, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit132
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl18ArraySeriesMatcherE, i64 16), ptr %11, align 8, !tbaa !15
-  %180 = load i8, ptr %35, align 4, !tbaa !22
-  %.not.i.i.i1.i135 = icmp eq i8 %180, 0
-  br i1 %.not.i.i.i1.i135, label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136, label %181
+  %179 = load i8, ptr %35, align 4, !tbaa !22
+  %.not.i.i.i1.i135 = icmp eq i8 %179, 0
+  br i1 %.not.i.i.i1.i135, label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136, label %180
 
-181:                                              ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134
-  %182 = load ptr, ptr %33, align 8, !tbaa !17
-  invoke void @uprv_free_77(ptr noundef %182)
-          to label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 unwind label %183
+180:                                              ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134
+  %181 = load ptr, ptr %33, align 8, !tbaa !17
+  invoke void @uprv_free_77(ptr noundef %181)
+          to label %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 unwind label %182
 
-183:                                              ; preds = %181
-  %184 = landingpad { ptr, i32 }
+182:                                              ; preds = %180
+  %183 = landingpad { ptr, i32 }
           catch ptr null
-  %185 = extractvalue { ptr, i32 } %184, 0
-  call void @__clang_call_terminate(ptr %185) #21
+  %184 = extractvalue { ptr, i32 } %183, 0
+  call void @__clang_call_terminate(ptr %184) #21
   unreachable
 
-_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136: ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134, %181
+_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136: ; preds = %_ZN6icu_778numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i134, %180
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %186 = load i8, ptr %10, align 1, !tbaa !83, !range !61, !noundef !62
-  %187 = trunc nuw i8 %186 to i1
-  %188 = zext nneg i8 %186 to i32
-  %spec.select124 = add nsw i32 %spec.select, %188
-  %spec.select125 = select i1 %187, ptr %139, ptr null
-  br i1 %76, label %197, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
+  %185 = load i8, ptr %10, align 1, !tbaa !83, !range !61, !noundef !62
+  %186 = trunc nuw i8 %185 to i1
+  %187 = zext nneg i8 %185 to i32
+  %spec.select124 = add nsw i32 %spec.select, %187
+  %spec.select125 = select i1 %186, ptr %138, ptr null
+  br i1 %75, label %196, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
 
-189:                                              ; preds = %80
-  %190 = landingpad { ptr, i32 }
+188:                                              ; preds = %79
+  %189 = landingpad { ptr, i32 }
           cleanup
-  br label %246
+  br label %245
 
-191:                                              ; preds = %81
-  %192 = landingpad { ptr, i32 }
+190:                                              ; preds = %80
+  %191 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %246
-
-193:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit
-  %194 = landingpad { ptr, i32 }
-          cleanup
   br label %245
 
-195:                                              ; preds = %135
-  %196 = landingpad { ptr, i32 }
+192:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit
+  %193 = landingpad { ptr, i32 }
+          cleanup
+  br label %244
+
+194:                                              ; preds = %134
+  %195 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %245
+  br label %244
 
-197:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136
-  %not. = xor i1 %133, true
-  %198 = icmp eq ptr %.085194, null
-  %or.cond.i = and i1 %198, %not.
-  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread, label %199
+196:                                              ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136
+  %not. = xor i1 %132, true
+  %197 = icmp eq ptr %.085194, null
+  %or.cond.i = and i1 %197, %not.
+  br i1 %or.cond.i, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread, label %198
 
-199:                                              ; preds = %197
-  %or.cond3.i = or i1 %198, %not.
-  br i1 %or.cond3.i, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156, label %200
+198:                                              ; preds = %196
+  %or.cond3.i = or i1 %197, %not.
+  br i1 %or.cond3.i, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156, label %199
 
-200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %.085194, i64 56
-  %202 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %201)
-          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit unwind label %208
+199:                                              ; preds = %198
+  %200 = getelementptr inbounds nuw i8, ptr %.085194, i64 56
+  %201 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %200)
+          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit unwind label %207
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit: ; preds = %200
-  br i1 %202, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit: ; preds = %199
+  br i1 %201, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread: ; preds = %197, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit
-  %not.170 = xor i1 %187, true
-  %203 = icmp eq ptr %.0101193, null
-  %or.cond.i137 = and i1 %203, %not.170
-  br i1 %or.cond.i137, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread, label %204
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread: ; preds = %196, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit
+  %not.170 = xor i1 %186, true
+  %202 = icmp eq ptr %.0101193, null
+  %or.cond.i137 = and i1 %202, %not.170
+  br i1 %or.cond.i137, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread, label %203
 
-204:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread
-  %or.cond3.i138 = or i1 %203, %not.170
-  br i1 %or.cond3.i138, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156, label %205
+203:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread
+  %or.cond3.i138 = or i1 %202, %not.170
+  br i1 %or.cond3.i138, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156, label %204
 
-205:                                              ; preds = %204
-  %206 = getelementptr inbounds nuw i8, ptr %.0101193, i64 56
-  %207 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef nonnull align 8 dereferenceable(24) %206)
-          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 unwind label %208
+204:                                              ; preds = %203
+  %205 = getelementptr inbounds nuw i8, ptr %.0101193, i64 56
+  %206 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %205)
+          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 unwind label %207
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141: ; preds = %205
-  br i1 %207, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141: ; preds = %204
+  br i1 %206, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
 
-208:                                              ; preds = %205, %200
-  %209 = landingpad { ptr, i32 }
+207:                                              ; preds = %204, %199
+  %208 = landingpad { ptr, i32 }
           cleanup
-  br label %245
+  br label %244
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156: ; preds = %204, %199, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141
-  %.2103 = phi ptr [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %spec.select125, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.0101193, %199 ], [ %.0101193, %204 ]
-  %.287 = phi ptr [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %spec.select123, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.085194, %199 ], [ %.085194, %204 ]
-  %210 = icmp eq i8 %78, 4
-  %211 = zext i1 %210 to i32
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156: ; preds = %203, %198, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141
+  %.2103 = phi ptr [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %spec.select125, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.0101193, %198 ], [ %.0101193, %203 ]
+  %.287 = phi ptr [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %spec.select123, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.085194, %198 ], [ %.085194, %203 ]
+  %209 = icmp eq i8 %77, 4
+  %210 = zext i1 %209 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  invoke void @_ZN6icu_778numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef %spec.select123, ptr noundef %spec.select125, i32 noundef %211)
-          to label %212 unwind label %223
+  invoke void @_ZN6icu_778numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef %spec.select123, ptr noundef %spec.select125, i32 noundef %210)
+          to label %211 unwind label %222
 
-212:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
-  %213 = add nsw i32 %.079196, 1
-  %214 = sext i32 %.079196 to i64
-  %215 = getelementptr inbounds [18 x %"class.icu_77::numparse::impl::AffixMatcher"], ptr %0, i64 0, i64 %214, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %215, ptr noundef nonnull align 8 dereferenceable(20) %42, i64 20, i1 false)
+211:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
+  %212 = add nsw i32 %.079196, 1
+  %213 = sext i32 %.079196 to i64
+  %214 = getelementptr inbounds %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %213, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %214, ptr noundef nonnull align 8 dereferenceable(20) %42, i64 20, i1 false)
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %12) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %216 = and i8 %186, %132
-  %217 = icmp ne i8 %216, 0
-  %or.cond3 = and i1 %20, %217
-  br i1 %or.cond3, label %218, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread
+  %215 = and i8 %185, %131
+  %216 = icmp ne i8 %215, 0
+  %or.cond3 = and i1 %20, %216
+  br i1 %or.cond3, label %217, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread
 
-218:                                              ; preds = %212
-  %219 = icmp ne ptr %.287, null
-  %or.cond.not = select i1 %76, i1 %219, i1 false
-  br i1 %or.cond.not, label %220, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
+217:                                              ; preds = %211
+  %218 = icmp ne ptr %.287, null
+  %or.cond.not = select i1 %75, i1 %218, i1 false
+  br i1 %or.cond.not, label %219, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
 
-220:                                              ; preds = %218
-  %221 = getelementptr inbounds nuw i8, ptr %.287, i64 56
-  %222 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %221)
-          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146 unwind label %225
+219:                                              ; preds = %217
+  %220 = getelementptr inbounds nuw i8, ptr %.287, i64 56
+  %221 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %220)
+          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146 unwind label %224
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146: ; preds = %220
-  br i1 %222, label %.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146: ; preds = %219
+  br i1 %221, label %.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162: ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146, %218
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162: ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146, %217
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  invoke void @_ZN6icu_778numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull %85, ptr noundef null, i32 noundef %211)
-          to label %229 unwind label %227
+  invoke void @_ZN6icu_778numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull %84, ptr noundef null, i32 noundef %210)
+          to label %228 unwind label %226
 
-223:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
-  %224 = landingpad { ptr, i32 }
+222:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156
+  %223 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %245
+  br label %244
 
-225:                                              ; preds = %234, %220
-  %226 = landingpad { ptr, i32 }
+224:                                              ; preds = %233, %219
+  %225 = landingpad { ptr, i32 }
           cleanup
-  br label %245
+  br label %244
 
-227:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
-  %228 = landingpad { ptr, i32 }
+226:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
+  %227 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %245
+  br label %244
 
-229:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
-  %230 = add nsw i32 %.079196, 2
-  %231 = sext i32 %213 to i64
-  %232 = getelementptr inbounds [18 x %"class.icu_77::numparse::impl::AffixMatcher"], ptr %0, i64 0, i64 %231, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %232, ptr noundef nonnull align 8 dereferenceable(20) %43, i64 20, i1 false)
+228:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146.thread162
+  %229 = add nsw i32 %.079196, 2
+  %230 = sext i32 %212 to i64
+  %231 = getelementptr inbounds %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %230, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %231, ptr noundef nonnull align 8 dereferenceable(20) %43, i64 20, i1 false)
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %13) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %76, label %.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
+  br i1 %75, label %.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
 
-.thread:                                          ; preds = %229, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146
-  %.4165 = phi i32 [ %230, %229 ], [ %213, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146 ]
-  %233 = icmp eq ptr %.2103, null
-  br i1 %233, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168, label %234
+.thread:                                          ; preds = %228, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146
+  %.4165 = phi i32 [ %229, %228 ], [ %212, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit146 ]
+  %232 = icmp eq ptr %.2103, null
+  br i1 %232, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168, label %233
 
-234:                                              ; preds = %.thread
-  %235 = getelementptr inbounds nuw i8, ptr %.2103, i64 56
-  %236 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef nonnull align 8 dereferenceable(24) %235)
-          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 unwind label %225
+233:                                              ; preds = %.thread
+  %234 = getelementptr inbounds nuw i8, ptr %.2103, i64 56
+  %235 = invoke noundef zeroext i1 @_ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %234)
+          to label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 unwind label %224
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151: ; preds = %234
-  br i1 %236, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151: ; preds = %233
+  br i1 %235, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread, label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168: ; preds = %.thread, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151, %229
-  %.4166 = phi i32 [ %.4165, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %230, %229 ], [ %.4165, %.thread ]
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168: ; preds = %.thread, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151, %228
+  %.4166 = phi i32 [ %.4165, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %229, %228 ], [ %.4165, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  invoke void @_ZN6icu_778numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef null, ptr noundef nonnull %139, i32 noundef %211)
-          to label %237 unwind label %241
+  invoke void @_ZN6icu_778numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef null, ptr noundef nonnull %138, i32 noundef %210)
+          to label %236 unwind label %240
 
-237:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
-  %238 = add nsw i32 %.4166, 1
-  %239 = sext i32 %.4166 to i64
-  %240 = getelementptr inbounds [18 x %"class.icu_77::numparse::impl::AffixMatcher"], ptr %0, i64 0, i64 %239, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %240, ptr noundef nonnull align 8 dereferenceable(20) %44, i64 20, i1 false)
+236:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
+  %237 = add nsw i32 %.4166, 1
+  %238 = sext i32 %.4166 to i64
+  %239 = getelementptr inbounds %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %238, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %239, ptr noundef nonnull align 8 dereferenceable(20) %44, i64 20, i1 false)
   call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %14) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread
 
-241:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
-  %242 = landingpad { ptr, i32 }
+240:                                              ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151.thread168
+  %241 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  br label %244
+
+_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread: ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread, %211, %236, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141
+  %.3104 = phi ptr [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.2103, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %.2103, %236 ], [ %.2103, %211 ], [ null, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread ]
+  %.388 = phi ptr [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.287, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %.287, %236 ], [ %.287, %211 ], [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread ]
+  %.2 = phi i32 [ %.079196, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.4165, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %237, %236 ], [ %212, %211 ], [ %.079196, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %242
+
+242:                                              ; preds = %76, %.critedge, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit, %67, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread
+  %.1102 = phi ptr [ %.3104, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.0101193, %67 ], [ %.0101193, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.0101193, %.critedge ], [ %.0101193, %76 ]
+  %.186 = phi ptr [ %.388, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.085194, %67 ], [ %.085194, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.085194, %.critedge ], [ %.085194, %76 ]
+  %.182 = phi i32 [ %spec.select124, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.081195, %67 ], [ %.081195, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.081195, %.critedge ], [ %.081195, %76 ]
+  %.180 = phi i32 [ %.2, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.079196, %67 ], [ %.079196, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.079196, %.critedge ], [ %.079196, %76 ]
+  %243 = add nuw nsw i8 %.0105192, 1
+  %exitcond.not = icmp eq i8 %243, 6
+  br i1 %exitcond.not, label %.preheader172, label %57, !llvm.loop !113
+
+244:                                              ; preds = %207, %240, %226, %224, %222, %194, %192
+  %.pn112.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %193, %192 ], [ %208, %207 ], [ %241, %240 ], [ %225, %224 ], [ %227, %226 ], [ %223, %222 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %245
 
-_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread: ; preds = %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread, %212, %237, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141
-  %.3104 = phi ptr [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.2103, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %.2103, %237 ], [ %.2103, %212 ], [ null, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread ]
-  %.388 = phi ptr [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.287, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %.287, %237 ], [ %.287, %212 ], [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread ]
-  %.2 = phi i32 [ %.079196, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.4165, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit151 ], [ %238, %237 ], [ %213, %212 ], [ %.079196, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+245:                                              ; preds = %244, %190, %188
+  %.pn112.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn, %244 ], [ %191, %190 ], [ %189, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %243
+  br label %255
 
-243:                                              ; preds = %77, %.critedge, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit, %68, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread
-  %.1102 = phi ptr [ %.3104, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.0101193, %68 ], [ %.0101193, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.0101193, %.critedge ], [ %.0101193, %77 ]
-  %.186 = phi ptr [ %.388, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.085194, %68 ], [ %.085194, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.085194, %.critedge ], [ %.085194, %77 ]
-  %.182 = phi i32 [ %spec.select124, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.081195, %68 ], [ %.081195, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.081195, %.critedge ], [ %.081195, %77 ]
-  %.180 = phi i32 [ %.2, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.079196, %68 ], [ %.079196, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.079196, %.critedge ], [ %.079196, %77 ]
-  %244 = add nuw nsw i8 %.0105192, 1
-  %exitcond.not = icmp eq i8 %244, 6
-  br i1 %exitcond.not, label %.preheader172, label %58, !llvm.loop !113
-
-245:                                              ; preds = %208, %241, %227, %225, %223, %195, %193
-  %.pn112.pn.pn = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ], [ %209, %208 ], [ %242, %241 ], [ %226, %225 ], [ %228, %227 ], [ %224, %223 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %246
-
-246:                                              ; preds = %245, %191, %189
-  %.pn112.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn, %245 ], [ %192, %191 ], [ %190, %189 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %256
-
-.preheader:                                       ; preds = %56, %.preheader172
-  %247 = icmp sgt i32 %.180, 0
-  br i1 %247, label %.lr.ph.preheader, label %._crit_edge
+.preheader:                                       ; preds = %55, %.preheader172
+  %246 = icmp sgt i32 %.180, 0
+  br i1 %246, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count207 = zext nneg i32 %.180 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %252, %.preheader
+._crit_edge:                                      ; preds = %251, %.preheader
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %255
+  br label %254
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %252
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next204, %252 ]
-  %248 = getelementptr inbounds nuw [18 x %"class.icu_77::numparse::impl::AffixMatcher"], ptr %0, i64 0, i64 %indvars.iv203
-  %249 = load ptr, ptr %2, align 8, !tbaa !15
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
-  %251 = load ptr, ptr %250, align 8
-  invoke void %251(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %248)
-          to label %252 unwind label %253
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %251
+  %indvars.iv203 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next204, %251 ]
+  %247 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %indvars.iv203
+  %248 = load ptr, ptr %2, align 8, !tbaa !15
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  %250 = load ptr, ptr %249, align 8
+  invoke void %250(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %247)
+          to label %251 unwind label %252
 
-252:                                              ; preds = %.lr.ph
+251:                                              ; preds = %.lr.ph
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count207
   br i1 %exitcond208.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
-253:                                              ; preds = %.lr.ph
-  %254 = landingpad { ptr, i32 }
+252:                                              ; preds = %.lr.ph
+  %253 = landingpad { ptr, i32 }
           cleanup
-  br label %256
+  br label %255
 
-255:                                              ; preds = %6, %._crit_edge
+254:                                              ; preds = %6, %._crit_edge
   ret void
 
-256:                                              ; preds = %.split.us, %253, %69, %246
-  %.pn112.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn, %246 ], [ %70, %69 ], [ %57, %.split.us ], [ %254, %253 ]
+255:                                              ; preds = %.split.us, %252, %68, %245
+  %.pn112.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn, %245 ], [ %69, %68 ], [ %56, %.split.us ], [ %253, %252 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn112.pn.pn.pn.pn.pn

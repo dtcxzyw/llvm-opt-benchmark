@@ -430,7 +430,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %89, align 8, !noalias !66, !nonnull !23, !noundef !23
-  %103 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %102, i64 0, i64 %88
+  %103 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %102, i64 %88
   invoke void @_RNvMs5_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_5MutexINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtBT_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEE8try_lockCsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %103)
           to label %105 unwind label %.loopexit.i.i, !noalias !66
 
@@ -903,7 +903,7 @@ _RINvXNtCs5qLmTC8D4jC_6digest6digestINtNtNtB5_8core_api7wrapper11CoreWrapperINtN
   %66 = call i64 @llvm.bswap.i64(i64 %65)
   store i64 %66, ptr %13, align 8, !noalias !189
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  %67 = getelementptr [0 x i8], ptr %53, i64 0, i64 %59
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 %59
   store i8 -128, ptr %67, align 1, !alias.scope !193, !noalias !194
   %68 = icmp eq i8 %58, 63
   br i1 %68, label %._crit_edge.thread.i.i.i.i, label %._crit_edge.i.i.i.i

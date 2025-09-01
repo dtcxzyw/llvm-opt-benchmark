@@ -3190,7 +3190,7 @@ define hidden void @_ZN20dominator_simplifier15simplify_and_orEbP3app(ptr dead_o
 61:                                               ; preds = %57
   %62 = load ptr, ptr %6, align 8, !tbaa !179
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %58
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %58
   %65 = load ptr, ptr %64, align 8, !tbaa !45
   %66 = invoke fastcc noundef zeroext i1 @"_ZZN20dominator_simplifier15simplify_and_orEbP3appENK3$_1clEP4expr"(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %65)
           to label %67 unwind label %59
@@ -5817,7 +5817,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !240
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

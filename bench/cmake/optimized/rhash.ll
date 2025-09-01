@@ -93,7 +93,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
   %41 = load ptr, ptr @rhash_info_table, align 8, !tbaa !18
   %42 = zext nneg i32 %40 to i64
   %43 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %36, i64 0, i64 %.15972.i
+  %44 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %36, i64 %.15972.i
   store ptr %43, ptr %44, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %.05773.i, ptr %45, align 16, !tbaa !22
@@ -157,7 +157,7 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %15
   %18 = add i64 %.0612, 1
-  %19 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %.0612
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %.0612
   store i32 %.013, ptr %19, align 4, !tbaa !4
   br label %20
 
@@ -200,7 +200,7 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.lr.ph, %17
   %9 = phi i32 [ %6, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %10 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %7, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !26
@@ -247,7 +247,7 @@ define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %7 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !26
@@ -302,7 +302,7 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %11, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !30
@@ -344,7 +344,7 @@ define dso_local noundef i32 @rhash_final(ptr noundef captures(none) %0, ptr nou
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.01516 = phi ptr [ %11, %.lr.ph ], [ %3, %13 ]
-  %14 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !32
@@ -437,7 +437,7 @@ rhash_init.exit.thread:                           ; preds = %4
 
 21:                                               ; preds = %19
   %22 = add i64 %.0612.i, 1
-  %23 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %.0612.i
+  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %.0612.i
   store i32 %.013.i, ptr %23, align 4, !tbaa !4
   br label %24
 
@@ -479,7 +479,7 @@ rhash_init.exit:                                  ; preds = %14, %26
 
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %37, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %37, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !30
@@ -515,7 +515,7 @@ rhash_update.exit:                                ; preds = %38, %29, %32
 57:                                               ; preds = %57, %.lr.ph.i10
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %57 ]
   %.01516.i = phi ptr [ %55, %.lr.ph.i10 ], [ %5, %57 ]
-  %58 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %56, i64 0, i64 %indvars.iv.i12
+  %58 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %56, i64 %indvars.iv.i12
   %59 = load ptr, ptr %58, align 8, !tbaa !20
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load ptr, ptr %60, align 8, !tbaa !32
@@ -553,7 +553,7 @@ rhash_update.exit:                                ; preds = %38, %29, %32
 73:                                               ; preds = %82, %.lr.ph.i14
   %74 = phi i32 [ %71, %.lr.ph.i14 ], [ %83, %82 ]
   %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i18, %82 ]
-  %75 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %72, i64 0, i64 %indvars.iv.i15
+  %75 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %72, i64 %indvars.iv.i15
   %76 = load ptr, ptr %75, align 8, !tbaa !20
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !26
@@ -637,7 +637,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
-  %24 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %9, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %9, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !30
@@ -733,7 +733,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef re
 
 23:                                               ; preds = %21
   %24 = add i64 %.0612.i, 1
-  %25 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %.0612.i
+  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %.0612.i
   store i32 %.013.i, ptr %25, align 4, !tbaa !4
   br label %26
 
@@ -787,7 +787,7 @@ rhash_init.exit:                                  ; preds = %16, %28
 46:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
   %.01516.i = phi ptr [ %44, %.lr.ph.i ], [ %4, %46 ]
-  %47 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %45, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %45, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !20
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !32
@@ -829,7 +829,7 @@ rhash_final.exit:                                 ; preds = %36, %._crit_edge.i
 63:                                               ; preds = %72, %.lr.ph.i19
   %64 = phi i32 [ %61, %.lr.ph.i19 ], [ %73, %72 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i23, %72 ]
-  %65 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %62, i64 0, i64 %indvars.iv.i20
+  %65 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %62, i64 %indvars.iv.i20
   %66 = load ptr, ptr %65, align 8, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8, !tbaa !26

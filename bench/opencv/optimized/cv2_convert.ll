@@ -957,7 +957,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %255, %254, %_ZL19_P
   %357 = getelementptr inbounds nuw i64, ptr %.val306, i64 %indvars.iv.next375
   %358 = load i64, ptr %357, align 8, !tbaa !51
   %359 = trunc i64 %358 to i32
-  %360 = getelementptr inbounds nuw [33 x i32], ptr %14, i64 0, i64 %indvars.iv.next375
+  %360 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next375
   store i32 %359, ptr %360, align 4, !tbaa !49
   %361 = icmp sgt i32 %359, 1
   br i1 %361, label %362, label %367
@@ -978,7 +978,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %255, %254, %_ZL19_P
 370:                                              ; preds = %362, %367
   %.0214362.sink = phi i64 [ %364, %362 ], [ %.0214362, %367 ]
   %.1215 = phi i64 [ %366, %362 ], [ %369, %367 ]
-  %371 = getelementptr inbounds nuw [33 x i64], ptr %15, i64 0, i64 %indvars.iv.next375
+  %371 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next375
   store i64 %.0214362.sink, ptr %371, align 8, !tbaa !51
   %372 = icmp samesign ugt i64 %indvars.iv374, 1
   br i1 %372, label %.lr.ph365, label %._crit_edge366, !llvm.loop !80
@@ -2049,8 +2049,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %.lr.ph, 
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
   %sext = shl i64 %.02655, 32
-  %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds [4 x double], ptr %1, i64 0, i64 %26
+  %26 = ashr exact i64 %sext, 29
+  %27 = getelementptr inbounds i8, ptr %1, i64 %26
   store double %24, ptr %27, align 8, !tbaa !34
   %28 = load i64, ptr %16, align 8, !tbaa !78
   %29 = add nsw i64 %28, -1
@@ -3517,7 +3517,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   %.not41 = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ true, %11 ]
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -3650,7 +3650,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   %.not41 = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ true, %11 ]
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.0", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -3790,7 +3790,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -3934,7 +3934,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.0", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -4082,7 +4082,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.3", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -4762,7 +4762,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   %.not41 = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ true, %11 ]
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.3", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -4897,7 +4897,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -5036,7 +5036,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.0", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -5178,7 +5178,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02540
+  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.3", ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit

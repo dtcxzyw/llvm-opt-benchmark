@@ -829,7 +829,7 @@ define internal fastcc noundef range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0
 
 30:                                               ; preds = %29, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %29 ]
-  %31 = getelementptr inbounds nuw [11 x %struct.anon.29], ptr @event_types, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw %struct.anon.29, ptr @event_types, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 16
   %33 = icmp eq i32 %32, %28
   br i1 %33, label %_yaml_event_type_string.exit, label %29
@@ -1016,7 +1016,7 @@ thread-pre-split:                                 ; preds = %5
 
 52:                                               ; preds = %.preheader, %51
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.preheader ]
-  %53 = getelementptr inbounds nuw [7 x %struct.anon.30], ptr @tags, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw %struct.anon.30, ptr @tags, i64 %indvars.iv.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @slurm_xstrcmp(ptr noundef %55, ptr noundef nonnull %.val.i) #6

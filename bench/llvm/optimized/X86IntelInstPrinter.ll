@@ -126,10 +126,10 @@ $_ZN4llvm13MCInstPrinter27applyTargetSpecificCLOptionENS_9StringRefE = comdat an
 define dso_local { ptr, i64 } @_ZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8, !tbaa !3
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [22804 x i32], ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo0, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [22804 x i32], ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo1, i64 0, i64 %4
+  %8 = getelementptr inbounds nuw i32, ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo1, i64 %4
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = zext i32 %9 to i64
   %11 = shl nuw i64 %10, 32
@@ -1422,7 +1422,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstE
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1) #13
   %16 = add i32 %15, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [391 x i16], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !29
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %20
@@ -1671,7 +1671,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter18printSTiRegOperandEPKNS_6M
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1) #13
   %27 = add i32 %10, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [391 x i16], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !29
   %31 = zext i16 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %31
@@ -2541,7 +2541,7 @@ declare void @_ZN4llvm20X86InstPrinterCommon20printRoundingControlEPKNS_6MCInstE
 define dso_local noundef nonnull ptr @_ZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %0) local_unnamed_addr #4 align 2 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [391 x i16], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !29
   %6 = zext i16 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %6
@@ -2734,7 +2734,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 1) #13
   %4 = add i32 %2, -1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [391 x i16], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !29
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %8

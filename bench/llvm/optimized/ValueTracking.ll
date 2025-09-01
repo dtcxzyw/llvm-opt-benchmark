@@ -41477,9 +41477,9 @@ _ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit: ; p
   br i1 %429, label %430, label %432
 
 430:                                              ; preds = %427
-  %switch.tableidx479 = add nsw i32 %.0, -34
-  %431 = icmp ult i32 %switch.tableidx479, 7
-  br i1 %431, label %switch.lookup478, label %.critedge113
+  %switch.tableidx478 = add nsw i32 %.0, -34
+  %431 = icmp ult i32 %switch.tableidx478, 7
+  br i1 %431, label %switch.lookup479, label %.critedge113
 
 432:                                              ; preds = %427, %424
   switch i32 %.0, label %.critedge113 [
@@ -41795,20 +41795,20 @@ _ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exi
 
 switch.lookup:                                    ; preds = %422
   %544 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j, i64 0, i64 %544
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j, i64 %544
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.critedge113
 
-switch.lookup478:                                 ; preds = %430
-  %545 = zext nneg i32 %switch.tableidx479 to i64
-  %switch.gep480 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j.69, i64 0, i64 %545
+switch.lookup479:                                 ; preds = %430
+  %545 = zext nneg i32 %switch.tableidx478 to i64
+  %switch.gep480 = getelementptr inbounds nuw i64, ptr @switch.table._ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j.69, i64 %545
   %switch.load481 = load i64, ptr %switch.gep480, align 8
   br label %.critedge113
 
-.critedge113:                                     ; preds = %432, %430, %switch.lookup478, %switch.lookup, %444, %446, %436, %479, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321, %.thread313, %90, %89, %480, %485, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit
-  %.sroa.093.3 = phi i64 [ %.sroa.05.0.insert.insert.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ %.sroa.022.0.insert.insert.i, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %485 ], [ 0, %480 ], [ 0, %89 ], [ 0, %90 ], [ %.sroa.093.4.ph, %.thread313 ], [ %415, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ %.sroa.038.1.ph.i.ph, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ %.sroa.079.2.i, %479 ], [ 0, %436 ], [ 0, %446 ], [ 0, %444 ], [ %switch.load, %switch.lookup ], [ %switch.load481, %switch.lookup478 ], [ 0, %430 ], [ 0, %432 ]
-  %.sroa.13.3 = phi i64 [ %.sroa.8.0.insert.shift.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ %.sroa.13.0.extract.shift, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %485 ], [ 0, %480 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.thread313 ], [ 0, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ 0, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ 0, %479 ], [ 0, %436 ], [ 0, %446 ], [ 0, %444 ], [ 0, %switch.lookup ], [ 0, %switch.lookup478 ], [ 0, %430 ], [ 0, %432 ]
-  %.sroa.22.3 = phi i8 [ %.sroa.15.0.shrunk.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ 0, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %485 ], [ 0, %480 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.thread313 ], [ 0, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ 0, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ 0, %479 ], [ 0, %436 ], [ 0, %446 ], [ 0, %444 ], [ 0, %switch.lookup ], [ 0, %switch.lookup478 ], [ 0, %430 ], [ 0, %432 ]
+.critedge113:                                     ; preds = %432, %430, %switch.lookup479, %switch.lookup, %444, %446, %436, %479, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321, %.thread313, %90, %89, %480, %485, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit
+  %.sroa.093.3 = phi i64 [ %.sroa.05.0.insert.insert.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ %.sroa.022.0.insert.insert.i, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %485 ], [ 0, %480 ], [ 0, %89 ], [ 0, %90 ], [ %.sroa.093.4.ph, %.thread313 ], [ %415, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ %.sroa.038.1.ph.i.ph, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ %.sroa.079.2.i, %479 ], [ 0, %436 ], [ 0, %446 ], [ 0, %444 ], [ %switch.load, %switch.lookup ], [ %switch.load481, %switch.lookup479 ], [ 0, %430 ], [ 0, %432 ]
+  %.sroa.13.3 = phi i64 [ %.sroa.8.0.insert.shift.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ %.sroa.13.0.extract.shift, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %485 ], [ 0, %480 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.thread313 ], [ 0, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ 0, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ 0, %479 ], [ 0, %436 ], [ 0, %446 ], [ 0, %444 ], [ 0, %switch.lookup ], [ 0, %switch.lookup479 ], [ 0, %430 ], [ 0, %432 ]
+  %.sroa.22.3 = phi i8 [ %.sroa.15.0.shrunk.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ 0, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %485 ], [ 0, %480 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.thread313 ], [ 0, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ 0, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ 0, %479 ], [ 0, %436 ], [ 0, %446 ], [ 0, %444 ], [ 0, %switch.lookup ], [ 0, %switch.lookup479 ], [ 0, %430 ], [ 0, %432 ]
   %546 = and i64 %.sroa.093.3, 4294967295
   %547 = or disjoint i64 %.sroa.13.3, %546
   br label %548
@@ -41858,9 +41858,9 @@ define dso_local noundef range(i32 2, 41) i32 @_ZN4llvm13getMinMaxPredENS_19Sele
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 327, 365) i32 @_ZN4llvm18getMinMaxIntrinsicENS_19SelectPatternFlavorE(i32 noundef %0) local_unnamed_addr #11 {
 switch.lookup:
-  %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm18getMinMaxIntrinsicENS_19SelectPatternFlavorE, i64 0, i64 %1
+  %1 = sext i32 %0 to i64
+  %2 = getelementptr i32, ptr @switch.table._ZN4llvm18getMinMaxIntrinsicENS_19SelectPatternFlavorE, i64 %1
+  %switch.gep = getelementptr i8, ptr %2, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -41878,7 +41878,7 @@ define dso_local noundef range(i32 1, 5) i32 @_ZN4llvm22getInverseMinMaxFlavorEN
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL19isSignedMinMaxClampPKN4llvm5ValueERS2_RPKNS_5APIntES7_, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL19isSignedMinMaxClampPKN4llvm5ValueERS2_RPKNS_5APIntES7_, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -52470,7 +52470,7 @@ _ZN4llvm18matchSelectPatternEPKNS_5ValueERS2_S3_.exit43: ; preds = %55, %58, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %switch.tableidx = add i64 %.fca.0.extract.i10.i, 4294967295
   %90 = and i64 %switch.tableidx, 4294967295
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL19isSignedMinMaxClampPKN4llvm5ValueERS2_RPKNS_5APIntES7_, i64 0, i64 %90
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL19isSignedMinMaxClampPKN4llvm5ValueERS2_RPKNS_5APIntES7_, i64 %90
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not = icmp eq i32 %switch.load, %.sroa.016.0.insert.insert.i.i33
   br i1 %.not, label %91, label %_ZN4llvm12PatternMatch5matchIKNS_5ValueENS0_11apint_matchEEEbPT_RKT0_.exit.thread

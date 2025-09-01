@@ -355,8 +355,8 @@ sub_1116:                                         ; preds = %.tail.thread, %.thr
 114:                                              ; preds = %112, %114
   %indvars.iv = phi i64 [ 0, %112 ], [ %indvars.iv.next, %114 ]
   %115 = shl nuw nsw i64 %indvars.iv, 1
-  %116 = getelementptr inbounds nuw [65 x i8], ptr %7, i64 0, i64 %115
-  %117 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %116, i64 noundef 3, ptr noundef nonnull @.str.20, i32 noundef %119) #9
@@ -380,7 +380,7 @@ sub_1116:                                         ; preds = %.tail.thread, %.thr
 
 switch.lookup:                                    ; preds = %121
   %133 = zext nneg i32 %131 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.main, i64 0, i64 %133
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %133
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dbState.exit
 
@@ -487,7 +487,7 @@ dbState.exit:                                     ; preds = %121, %switch.lookup
 
 switch.lookup134:                                 ; preds = %dbState.exit
   %231 = zext nneg i32 %229 to i64
-  %switch.gep135 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.main.1, i64 0, i64 %231
+  %switch.gep135 = getelementptr inbounds nuw ptr, ptr @switch.table.main.1, i64 %231
   %switch.load136 = load ptr, ptr %switch.gep135, align 8
   br label %wal_level_str.exit
 

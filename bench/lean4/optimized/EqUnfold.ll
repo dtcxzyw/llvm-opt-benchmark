@@ -2138,7 +2138,7 @@ lean_dec.exit29:                                  ; preds = %15, %13, %24, %23, 
   %.1.i45 = phi ptr [ %18, %21 ], [ %18, %23 ], [ %18, %24 ], [ inttoptr (i64 1 to ptr), %13 ], [ %17, %15 ]
   %25 = ptrtoint ptr %.1.i45 to i64
   %26 = lshr i64 %25, 1
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !9
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -2164,7 +2164,7 @@ lean_dec.exit29:                                  ; preds = %15, %13, %24, %23, 
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %lean_dec.exit29, %33, %35, %36
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %26
+  %37 = getelementptr inbounds nuw ptr, ptr %9, i64 %26
   %38 = load ptr, ptr %37, align 8, !tbaa !9
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -2423,7 +2423,7 @@ lean_dec.exit128:                                 ; preds = %54, %53, %51, %lean
   %.099272 = phi i64 [ %4, %.lr.ph ], [ %316, %315 ]
   %.0103271 = phi ptr [ %5, %.lr.ph ], [ %167, %315 ]
   %.0107270 = phi ptr [ %10, %.lr.ph ], [ %177, %315 ]
-  %59 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %.099272
+  %59 = getelementptr inbounds nuw ptr, ptr %12, i64 %.099272
   %60 = load ptr, ptr %59, align 8, !tbaa !9
   %61 = ptrtoint ptr %60 to i64
   %62 = and i64 %61, 1

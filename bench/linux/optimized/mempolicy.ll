@@ -110,7 +110,7 @@ define dso_local i32 @numa_nearest_node(i32 noundef %0, i32 noundef %1) #0 align
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 %7
+  %8 = getelementptr %struct.nodemask_t, ptr @node_states, i64 %7
   %9 = sext i32 %0 to i64
   %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 %9) #19, !srcloc !6
   %11 = icmp ult i8 %10, 2
@@ -177,7 +177,7 @@ define dso_local ptr @get_task_policy(ptr noundef readonly captures(none) %0) lo
 
 8:                                                ; preds = %5
   %9 = sext i32 %6 to i64
-  %10 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %9
+  %10 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = icmp eq i16 %12, 0
@@ -239,7 +239,7 @@ define dso_local void @mpol_rebind_task(ptr noundef readonly captures(none) %0, 
 
 19:                                               ; preds = %14, %10
   %20 = zext i16 %8 to i64
-  %21 = getelementptr [6 x %struct.mempolicy_operations], ptr @mpol_ops, i64 0, i64 %20, i32 1
+  %21 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %20, i32 1
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %4, ptr noundef %1) #19
   br label %23
@@ -327,7 +327,7 @@ define dso_local void @mpol_rebind_mm(ptr noundef %0, ptr noundef %1) local_unna
 
 43:                                               ; preds = %38, %34
   %44 = zext i16 %32 to i64
-  %45 = getelementptr [6 x %struct.mempolicy_operations], ptr @mpol_ops, i64 0, i64 %44, i32 1
+  %45 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %44, i32 1
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull %28, ptr noundef %1) #19
   br label %47
@@ -1096,7 +1096,7 @@ select.unfold:                                    ; preds = %25, %22
 
 128:                                              ; preds = %125
   %129 = sext i32 %126 to i64
-  %130 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %129
+  %130 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i16, ptr %131, align 4
   %133 = icmp eq i16 %132, 0
@@ -2178,7 +2178,7 @@ define dso_local ptr @get_vma_policy(ptr noundef %0, i64 noundef %1, i32 noundef
 
 29:                                               ; preds = %26
   %30 = sext i32 %27 to i64
-  %31 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %30
+  %31 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, 0
@@ -2284,7 +2284,7 @@ define dso_local zeroext i1 @vma_policy_mof(ptr noundef %0) local_unnamed_addr #
 
 41:                                               ; preds = %38
   %42 = sext i32 %39 to i64
-  %43 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %42
+  %43 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i16, ptr %44, align 4
   %46 = icmp eq i16 %45, 0
@@ -2437,7 +2437,7 @@ define dso_local i32 @mempolicy_slab_node() local_unnamed_addr #0 align 16 {
 
 46:                                               ; preds = %11, %11
   %47 = sext i32 %1 to i64
-  %48 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %47
+  %48 = getelementptr ptr, ptr @node_data, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4864
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2522,7 +2522,7 @@ define dso_local i32 @huge_node(ptr noundef %0, i64 noundef %1, i32 noundef %2, 
 
 45:                                               ; preds = %42
   %46 = sext i32 %43 to i64
-  %47 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %46
+  %47 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i16, ptr %48, align 4
   %50 = icmp eq i16 %49, 0
@@ -2907,11 +2907,11 @@ define dso_local ptr @alloc_pages_mpol(i32 noundef %0, i32 noundef %1, ptr nound
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !52
   %32 = load i64, ptr %20, align 16
   %33 = lshr i64 %32, 58
-  %34 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %33
+  %34 = getelementptr ptr, ptr @node_data, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = lshr i64 %32, 56
   %37 = and i64 %36, 3
-  %38 = getelementptr [4 x %struct.zone], ptr %35, i64 0, i64 %37, i32 7
+  %38 = getelementptr %struct.zone, ptr %35, i64 %37, i32 7
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i8, ptr %39, i64 40
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, ptr elementtype(i64) %40) #19, !srcloc !53
@@ -2987,7 +2987,7 @@ define dso_local ptr @vma_alloc_folio(i32 noundef %0, i32 noundef %1, ptr nounde
 
 31:                                               ; preds = %28
   %32 = sext i32 %29 to i64
-  %33 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %32
+  %33 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i16, ptr %34, align 4
   %36 = icmp eq i16 %35, 0
@@ -3083,7 +3083,7 @@ define dso_local ptr @alloc_pages(i32 noundef %0, i32 noundef %1) #0 align 16 {
 
 17:                                               ; preds = %14
   %18 = sext i32 %15 to i64
-  %19 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %18
+  %19 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i16, ptr %20, align 4
   %22 = icmp eq i16 %21, 0
@@ -3124,7 +3124,7 @@ define dso_local ptr @folio_alloc(i32 noundef %0, i32 noundef %1) #0 align 16 {
 
 18:                                               ; preds = %15
   %19 = sext i32 %16 to i64
-  %20 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %19
+  %20 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = icmp eq i16 %22, 0
@@ -3174,7 +3174,7 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
 
 19:                                               ; preds = %16
   %20 = sext i32 %17 to i64
-  %21 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %20
+  %21 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i16, ptr %22, align 4
   %24 = icmp eq i16 %23, 0
@@ -3431,7 +3431,7 @@ define dso_local ptr @__mpol_dup(ptr noundef readonly captures(address) %0) loca
 
 30:                                               ; preds = %26, %22
   %31 = zext i16 %20 to i64
-  %32 = getelementptr [6 x %struct.mempolicy_operations], ptr @mpol_ops, i64 0, i64 %31, i32 1
+  %32 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %31, i32 1
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull %4, ptr noundef nonnull %2) #19
   br label %34
@@ -3610,7 +3610,7 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
   %7 = trunc nuw nsw i64 %6 to i32
   %8 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !60
   %9 = sext i32 %8 to i64
-  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @numa_node to i64)
   %13 = inttoptr i64 %12 to ptr
@@ -3670,7 +3670,7 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
 
 49:                                               ; preds = %46
   %50 = sext i32 %47 to i64
-  %51 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %50
+  %51 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i16, ptr %52, align 4
   %54 = icmp eq i16 %53, 0
@@ -3825,7 +3825,7 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
 147:                                              ; preds = %142
   %148 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
   %149 = sext i32 %148 to i64
-  %150 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %149
+  %150 = getelementptr ptr, ptr @node_data, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4864
   %153 = call ptr @__next_zones_zonelist(ptr noundef nonnull %152, i32 noundef 2, ptr noundef nonnull %143) #19
@@ -4024,7 +4024,7 @@ mpol_set_nodemask.exit:                           ; preds = %51, %54
   store i64 %61, ptr %59, align 8
   %62 = load i16, ptr %38, align 4
   %63 = zext i16 %62 to i64
-  %64 = getelementptr [6 x %struct.mempolicy_operations], ptr @mpol_ops, i64 0, i64 %63
+  %64 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %63
   %65 = load ptr, ptr %64, align 16
   %66 = call i32 %65(ptr noundef nonnull %32, ptr noundef nonnull %50) #19
   call void @_raw_spin_unlock(ptr noundef nonnull %35) #19
@@ -4202,7 +4202,7 @@ define internal fastcc i32 @mpol_set_nodemask(ptr noundef %0, ptr noundef %1, pt
   store i64 %33, ptr %31, align 8
   %34 = load i16, ptr %7, align 4
   %35 = zext i16 %34 to i64
-  %36 = getelementptr [6 x %struct.mempolicy_operations], ptr @mpol_ops, i64 0, i64 %35
+  %36 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %35
   %37 = load ptr, ptr %36, align 16
   %38 = call i32 %37(ptr noundef nonnull %0, ptr noundef nonnull %21) #19
   br label %39
@@ -4656,7 +4656,7 @@ define dso_local void @numa_policy_init() local_unnamed_addr #9 section ".init.t
 .preheader13:                                     ; preds = %6, %26
   %10 = phi i32 [ %28, %26 ], [ %8, %6 ]
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [64 x %struct.mempolicy], ptr @preferred_node_policy, i64 0, i64 %11
+  %12 = getelementptr %struct.mempolicy, ptr @preferred_node_policy, i64 %11
   %13 = shl nuw i64 1, %11
   store i32 1, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -4703,7 +4703,7 @@ define dso_local void @numa_policy_init() local_unnamed_addr #9 section ".init.t
   %37 = phi i32 [ %61, %59 ], [ %34, %32 ]
   %38 = phi i32 [ %45, %59 ], [ 0, %32 ]
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %39
+  %40 = getelementptr ptr, ptr @node_data, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 13104
   %43 = load i64, ptr %42, align 16
@@ -4890,7 +4890,7 @@ mpol_set_nodemask.exit:                           ; preds = %58, %61
   store i64 %68, ptr %66, align 8
   %69 = load i16, ptr %45, align 4
   %70 = zext i16 %69 to i64
-  %71 = getelementptr [6 x %struct.mempolicy_operations], ptr @mpol_ops, i64 0, i64 %70
+  %71 = getelementptr %struct.mempolicy_operations, ptr @mpol_ops, i64 %70
   %72 = load ptr, ptr %71, align 16
   %73 = call i32 %72(ptr noundef nonnull %37, ptr noundef nonnull %57) #19
   %74 = icmp eq i32 %73, 0
@@ -5280,7 +5280,7 @@ define dso_local void @mpol_to_str(ptr noundef %0, i32 noundef %1, ptr noundef r
   %.shrunk = phi i16 [ %10, %16 ], [ %10, %13 ], [ %10, %13 ], [ 0, %8 ], [ 0, %3 ]
   %25 = sext i32 %1 to i64
   %26 = zext nneg i16 %24 to i64
-  %27 = getelementptr [6 x ptr], ptr @policy_modes, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr @policy_modes, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %25, ptr noundef nonnull @.str.7, ptr noundef %28) #19
   %30 = sext i32 %29 to i64
@@ -5808,7 +5808,7 @@ define internal range(i32 -5, 1) i32 @queue_folios_pte_range(ptr noundef %0, i64
 177:                                              ; preds = %173, %161
   %178 = phi i64 [ %176, %173 ], [ 1, %161 ]
   %179 = lshr i64 %170, 58
-  %180 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %179
+  %180 = getelementptr ptr, ptr @node_data, i64 %179
   %181 = load ptr, ptr %180, align 8
   call void @mod_node_page_state(ptr noundef %181, i32 noundef %169, i64 noundef %178) #19
   br label %188

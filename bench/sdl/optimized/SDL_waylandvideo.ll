@@ -2563,7 +2563,7 @@ define internal void @display_handle_geometry(ptr noundef captures(none) initial
   %.not35 = icmp slt i32 %30, %29
   %switch.table.display_handle_geometry.5.switch.table.display_handle_geometry = select i1 %.not35, ptr @switch.table.display_handle_geometry.5, ptr @switch.table.display_handle_geometry
   %33 = zext nneg i32 %9 to i64
-  %switch.gep39 = getelementptr inbounds nuw [8 x i32], ptr %switch.table.display_handle_geometry.5.switch.table.display_handle_geometry, i64 0, i64 %33
+  %switch.gep39 = getelementptr inbounds nuw i32, ptr %switch.table.display_handle_geometry.5.switch.table.display_handle_geometry, i64 %33
   %switch.load40 = load i32, ptr %switch.gep39, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %switch.load40, ptr %34, align 4
@@ -2884,7 +2884,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   store i32 %157, ptr %151, align 8
   %158 = load i32, ptr %152, align 4
   store i32 %158, ptr %153, align 4
-  %159 = getelementptr inbounds nuw [31 x %struct.EmulatedMode], ptr @__const.AddEmulatedModes.mode_list, i64 0, i64 %indvars.iv38.i
+  %159 = getelementptr inbounds nuw %struct.EmulatedMode, ptr @__const.AddEmulatedModes.mode_list, i64 %indvars.iv38.i
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %161 = load i32, ptr %160, align 4
   store i32 %161, ptr %154, align 8
@@ -2917,7 +2917,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
   store i32 %171, ptr %151, align 8
   %172 = load i32, ptr %152, align 4
   store i32 %172, ptr %153, align 4
-  %173 = getelementptr inbounds nuw [31 x %struct.EmulatedMode], ptr @__const.AddEmulatedModes.mode_list, i64 0, i64 %indvars.iv.i
+  %173 = getelementptr inbounds nuw %struct.EmulatedMode, ptr @__const.AddEmulatedModes.mode_list, i64 %indvars.iv.i
   %174 = load i32, ptr %173, align 8
   store i32 %174, ptr %154, align 8
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 4

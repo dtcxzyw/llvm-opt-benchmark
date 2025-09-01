@@ -214,7 +214,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 43:                                               ; preds = %39
   tail call void @llvm.assume(i1 %12)
-  %44 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { ptr, [1 x i64] } }], ptr %.val.i.i, i64 0, i64 %41
+  %44 = getelementptr inbounds nuw { { i64, [2 x i64] }, { ptr, [1 x i64] } }, ptr %.val.i.i, i64 %41
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 16
   %.sroa.3.0.i.i.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !alias.scope !93, !noalias !92, !noundef !4
   %45 = load ptr, ptr %37, align 8, !alias.scope !80, !noalias !81, !nonnull !4, !align !69, !noundef !4

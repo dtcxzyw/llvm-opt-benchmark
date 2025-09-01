@@ -21,14 +21,14 @@ define range(i32 1, 5) i32 @ff_png_get_nb_channels(i32 noundef %0) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -268435456, 268435456) i32 @ff_png_pass_row_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [7 x i8], ptr @ff_png_pass_xmin, i64 0, i64 %4
+  %5 = getelementptr inbounds i8, ptr @ff_png_pass_xmin, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = zext i8 %6 to i32
   %.not = icmp sgt i32 %2, %7
   br i1 %.not, label %8, label %20
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds [7 x i8], ptr @ff_png_pass_xshift, i64 0, i64 %4
+  %9 = getelementptr inbounds i8, ptr @ff_png_pass_xshift, i64 %4
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = zext i8 %10 to i32
   %12 = shl nuw i32 1, %11

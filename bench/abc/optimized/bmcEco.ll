@@ -1386,7 +1386,7 @@ define void @Bmc_EcoMiterTest() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.5)
-  br label %72
+  br label %73
 
 5:                                                ; preds = %0
   %6 = tail call i32 @fclose(ptr noundef nonnull %1)
@@ -1396,7 +1396,7 @@ define void @Bmc_EcoMiterTest() local_unnamed_addr #0 {
 
 9:                                                ; preds = %5
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.6)
-  br label %72
+  br label %73
 
 11:                                               ; preds = %5
   %12 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -1530,15 +1530,15 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %62
   %69 = getelementptr i8, ptr %.val40, i64 4
   %.val40.val = load i32, ptr %69, align 4, !tbaa !29
   %70 = tail call i32 @Bmc_EcoPatch(ptr noundef %65, i32 noundef %.val39.val, i32 noundef %.val40.val)
-  %switch.tableidx = add nsw i32 %70, 1
-  %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Bmc_EcoMiterTest, i64 0, i64 %71
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr ptr, ptr @switch.table.Bmc_EcoMiterTest, i64 %71
+  %switch.gep = getelementptr i8, ptr %72, i64 8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %puts33 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.load)
   tail call void @Gia_ManStop(ptr noundef %65) #14
-  br label %72
+  br label %73
 
-72:                                               ; preds = %Vec_IntFree.exit, %9, %3
+73:                                               ; preds = %Vec_IntFree.exit, %9, %3
   ret void
 }
 

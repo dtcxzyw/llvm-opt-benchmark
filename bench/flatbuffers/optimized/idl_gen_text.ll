@@ -1516,7 +1516,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIhEEvR
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %11 = load i16, ptr %10, align 8, !tbaa !185
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !31
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIhEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext %14, ptr noundef nonnull align 8 dereferenceable(26) %9, i32 noundef %4)
   br label %88
@@ -1678,7 +1678,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIaEEvR
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %9 = load i16, ptr %8, align 8, !tbaa !185
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !31
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIaEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %12, ptr noundef nonnull align 8 dereferenceable(26) %7, i32 noundef %4)
   br label %60
@@ -1776,7 +1776,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIsEEvR
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %9 = load i16, ptr %8, align 8, !tbaa !185
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !192
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIsEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef signext %12, ptr noundef nonnull align 8 dereferenceable(26) %7, i32 noundef %4)
   br label %60
@@ -1876,7 +1876,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldItEEvR
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %11 = load i16, ptr %10, align 8, !tbaa !185
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !192
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarItEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %14, ptr noundef nonnull align 8 dereferenceable(26) %9, i32 noundef %4)
   br label %88
@@ -2038,7 +2038,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIiEEvR
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %9 = load i16, ptr %8, align 8, !tbaa !185
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !135
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIiEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(26) %7, i32 noundef %4)
   br label %60
@@ -2138,7 +2138,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIjEEvR
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %11 = load i16, ptr %10, align 8, !tbaa !185
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !135
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIjEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(26) %9, i32 noundef %4)
   br label %88
@@ -2301,7 +2301,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIlEEvR
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %10 = load i16, ptr %9, align 8, !tbaa !185
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !207
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIlEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(26) %8, i32 noundef %4)
   br label %66
@@ -2406,7 +2406,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldImEEvR
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %10 = load i16, ptr %9, align 8, !tbaa !185
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !207
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarImEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(26) %8, i32 noundef %4)
   br label %76
@@ -2537,7 +2537,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIfEEvR
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %10 = load i16, ptr %9, align 8, !tbaa !185
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %13 = load float, ptr %12, align 4, !tbaa !209
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIfEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %13, ptr noundef nonnull align 8 dereferenceable(26) %8, i32 noundef %4)
   br label %69
@@ -2660,7 +2660,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIdEEvR
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %10 = load i16, ptr %9, align 8, !tbaa !185
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !211
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIdEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %13, ptr noundef nonnull align 8 dereferenceable(26) %8, i32 noundef %4)
   br label %71
@@ -2782,7 +2782,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11flatbuffers11JsonPrinter14GenFie
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %10 = load i16, ptr %9, align 8, !tbaa !185
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   br label %_ZNK11flatbuffers5Table9GetStructIPKvEET_t.exit
 
 13:                                               ; preds = %6

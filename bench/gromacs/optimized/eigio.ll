@@ -619,7 +619,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv86 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next87, %57 ]
   %58 = getelementptr float, ptr %gep109, i64 %indvars.iv86
   %59 = load float, ptr %58, align 4, !tbaa !27
-  %60 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv86
+  %60 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv86
   store float %59, ptr %60, align 4, !tbaa !27
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 3
@@ -658,7 +658,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv71 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next72, %69 ]
   %70 = getelementptr inbounds nuw float, ptr %gep, i64 %indvars.iv71
   %71 = load float, ptr %70, align 4, !tbaa !27
-  %72 = getelementptr inbounds nuw [3 x float], ptr %73, i64 0, i64 %indvars.iv71
+  %72 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv71
   store float %71, ptr %72, align 4, !tbaa !27
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 3

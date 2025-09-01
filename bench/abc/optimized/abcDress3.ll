@@ -1458,7 +1458,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   store i32 %.0134, ptr %166, align 4, !tbaa !39
   %167 = and i32 %.0134, 1
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr %3, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !85
   %171 = lshr i32 %.0134, 2
   %172 = getelementptr i8, ptr %170, i64 8

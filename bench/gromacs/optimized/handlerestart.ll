@@ -1550,7 +1550,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %449 = load i32, ptr %448, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %40, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %40, i64 %450
   %452 = load ptr, ptr %451, align 8, !tbaa !19
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %42, ptr noundef nonnull @.str.30, i64 noundef %.052167.i, ptr noundef %452)
           to label %453 unwind label %474
@@ -5477,7 +5477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 48:                                               ; preds = %44, %48
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %48 ]
   %49 = load ptr, ptr @debug, align 8, !tbaa !105
-  %50 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1, !tbaa !24
   %52 = zext i8 %51 to i32
   %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.42, i32 noundef %52) #25

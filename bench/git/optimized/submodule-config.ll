@@ -772,7 +772,7 @@ submodule_cache_check_init.exit:                  ; preds = %7, %13
 
 23:                                               ; preds = %25, %19
   %.0811.i.i.i = phi i64 [ 0, %19 ], [ %26, %25 ]
-  %24 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %24 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %25
 
@@ -901,7 +901,7 @@ define internal fastcc ptr @config_from(ptr noundef %0, ptr noundef %1, ptr noun
 
 33:                                               ; preds = %35, %29
   %.0811.i.i.i = phi i64 [ 0, %29 ], [ %36, %35 ]
-  %34 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %34 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %32, %34
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %35
 

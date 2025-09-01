@@ -1522,7 +1522,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers16InstStrategyMbqi7proc
   %99 = icmp eq i32 %98, 2
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %101 = zext i1 %99 to i64
-  %102 = getelementptr inbounds nuw [0 x ptr], ptr %100, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw ptr, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !333, !noalias !330
   store ptr %103, ptr %14, align 8, !tbaa !270, !alias.scope !330
   %104 = load i64, ptr %103, align 8, !noalias !330
@@ -1621,7 +1621,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._crit_edge, %134, 
   %152 = icmp eq i32 %151, 2
   %spec.select.i.i400 = select i1 %152, i64 2, i64 1
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %154 = getelementptr inbounds nuw [0 x ptr], ptr %153, i64 0, i64 %spec.select.i.i400
+  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %spec.select.i.i400
   %155 = load ptr, ptr %154, align 8, !tbaa !333, !noalias !334
   store ptr %155, ptr %18, align 8, !tbaa !270, !alias.scope !334
   %156 = load i64, ptr %155, align 8, !noalias !334
@@ -9869,7 +9869,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !333
   store ptr %15, ptr %0, align 8, !tbaa !270
   %16 = load i64, ptr %15, align 8

@@ -9703,10 +9703,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !130, !noundef !9
   %.val = load i8, ptr %2, align 1, !range !990, !noundef !9
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a0bbb7ec3769c76E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a0bbb7ec3769c76E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a0bbb7ec3769c76E.452", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a0bbb7ec3769c76E.452", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -43404,10 +43404,10 @@ define hidden void @_ZN11ruff_linter5rules19flake8_pytest_style5rules15unittest_
 
 switch.lookup:                                    ; preds = %71
   %76 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [41 x i64], ptr @switch.table._ZN11ruff_linter5rules19flake8_pytest_style5rules15unittest_assert14UnittestAssert15generate_assert17h12a067abe8dd7432E, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5rules19flake8_pytest_style5rules15unittest_assert14UnittestAssert15generate_assert17h12a067abe8dd7432E, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
   %77 = zext nneg i8 %1 to i64
-  %switch.gep927 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN11ruff_linter5rules19flake8_pytest_style5rules15unittest_assert14UnittestAssert15generate_assert17h12a067abe8dd7432E.453, i64 0, i64 %77
+  %switch.gep927 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5rules19flake8_pytest_style5rules15unittest_assert14UnittestAssert15generate_assert17h12a067abe8dd7432E.453, i64 %77
   %switch.load928 = load ptr, ptr %switch.gep927, align 8
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %.loopexit42.i, label %.lr.ph.i.i
@@ -44524,7 +44524,7 @@ switch.hole_check:                                ; preds = %"_ZN9hashbrown3map2
 
 switch.lookup930:                                 ; preds = %switch.hole_check
   %490 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep931 = getelementptr inbounds nuw [25 x i8], ptr @switch.table._ZN11ruff_linter5rules19flake8_pytest_style5rules15unittest_assert14UnittestAssert15generate_assert17h12a067abe8dd7432E.454, i64 0, i64 %490
+  %switch.gep931 = getelementptr inbounds nuw i8, ptr @switch.table._ZN11ruff_linter5rules19flake8_pytest_style5rules15unittest_assert14UnittestAssert15generate_assert17h12a067abe8dd7432E.454, i64 %490
   %switch.load932 = load i8, ptr %switch.gep931, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %491 = load ptr, ptr %418, align 8, !nonnull !9, !align !131, !noundef !9
@@ -56981,10 +56981,10 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules32module_import_not
 define { ptr, i64 } @_ZN11ruff_linter5rules10pydocstyle8settings10Convention19rules_to_be_ignored17hd1dae725f78a3defE(i8 noundef range(i8 0, 3) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN11ruff_linter5rules10pydocstyle8settings10Convention19rules_to_be_ignored17hd1dae725f78a3defE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5rules10pydocstyle8settings10Convention19rules_to_be_ignored17hd1dae725f78a3defE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11ruff_linter5rules10pydocstyle8settings10Convention19rules_to_be_ignored17hd1dae725f78a3defE.455, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5rules10pydocstyle8settings10Convention19rules_to_be_ignored17hd1dae725f78a3defE.455, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -63544,10 +63544,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1, !range !1823, !noundef !9
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN115_$LT$ruff_linter..rules..pylint..rules..compare_to_empty_string..EmptyStringCmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h9be8c96b53f2661fE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN115_$LT$ruff_linter..rules..pylint..rules..compare_to_empty_string..EmptyStringCmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h9be8c96b53f2661fE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN115_$LT$ruff_linter..rules..pylint..rules..compare_to_empty_string..EmptyStringCmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h9be8c96b53f2661fE.456", i64 0, i64 %7
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN115_$LT$ruff_linter..rules..pylint..rules..compare_to_empty_string..EmptyStringCmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h9be8c96b53f2661fE.456", i64 %7
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -77416,24 +77416,24 @@ default.unreachable18:                            ; preds = %2
   br i1 %9, label %switch.lookup19, label %166
 
 10:                                               ; preds = %2
-  %switch.tableidx23 = add nsw i16 %1, -10
-  %11 = icmp ult i16 %switch.tableidx23, 10
-  br i1 %11, label %switch.lookup22, label %166
+  %switch.tableidx22 = add nsw i16 %1, -10
+  %11 = icmp ult i16 %switch.tableidx22, 10
+  br i1 %11, label %switch.lookup23, label %166
 
 12:                                               ; preds = %2
-  %switch.tableidx27 = add nsw i16 %1, -20
-  %13 = icmp ult i16 %switch.tableidx27, 11
-  br i1 %13, label %switch.lookup26, label %166
+  %switch.tableidx26 = add nsw i16 %1, -20
+  %13 = icmp ult i16 %switch.tableidx26, 11
+  br i1 %13, label %switch.lookup27, label %166
 
 14:                                               ; preds = %2
-  %switch.tableidx31 = add nsw i16 %1, -31
-  %15 = icmp ult i16 %switch.tableidx31, 12
-  br i1 %15, label %switch.lookup30, label %166
+  %switch.tableidx30 = add nsw i16 %1, -31
+  %15 = icmp ult i16 %switch.tableidx30, 12
+  br i1 %15, label %switch.lookup31, label %166
 
 16:                                               ; preds = %2
-  %switch.tableidx35 = add nsw i16 %1, -43
-  %17 = icmp ult i16 %switch.tableidx35, 73
-  br i1 %17, label %switch.lookup34, label %166
+  %switch.tableidx34 = add nsw i16 %1, -43
+  %17 = icmp ult i16 %switch.tableidx34, 73
+  br i1 %17, label %switch.lookup35, label %166
 
 18:                                               ; preds = %2
   %19 = icmp eq i16 %1, 116
@@ -77441,29 +77441,29 @@ default.unreachable18:                            ; preds = %2
   br label %166
 
 20:                                               ; preds = %2
-  %switch.tableidx39 = add nsw i16 %1, -117
-  %21 = icmp ult i16 %switch.tableidx39, 3
-  br i1 %21, label %switch.lookup38, label %166
+  %switch.tableidx38 = add nsw i16 %1, -117
+  %21 = icmp ult i16 %switch.tableidx38, 3
+  br i1 %21, label %switch.lookup39, label %166
 
 22:                                               ; preds = %2
-  %switch.tableidx43 = add nsw i16 %1, -120
-  %23 = icmp ult i16 %switch.tableidx43, 41
-  br i1 %23, label %switch.lookup42, label %166
+  %switch.tableidx42 = add nsw i16 %1, -120
+  %23 = icmp ult i16 %switch.tableidx42, 41
+  br i1 %23, label %switch.lookup43, label %166
 
 24:                                               ; preds = %2
-  %switch.tableidx47 = add nsw i16 %1, -161
-  %25 = icmp ult i16 %switch.tableidx47, 6
-  br i1 %25, label %switch.lookup46, label %166
+  %switch.tableidx46 = add nsw i16 %1, -161
+  %25 = icmp ult i16 %switch.tableidx46, 6
+  br i1 %25, label %switch.lookup47, label %166
 
 26:                                               ; preds = %2
-  %switch.tableidx51 = add nsw i16 %1, -167
-  %27 = icmp ult i16 %switch.tableidx51, 3
-  br i1 %27, label %switch.lookup50, label %166
+  %switch.tableidx50 = add nsw i16 %1, -167
+  %27 = icmp ult i16 %switch.tableidx50, 3
+  br i1 %27, label %switch.lookup51, label %166
 
 28:                                               ; preds = %2
-  %switch.tableidx55 = add nsw i16 %1, -170
-  %29 = icmp ult i16 %switch.tableidx55, 19
-  br i1 %29, label %switch.lookup54, label %166
+  %switch.tableidx54 = add nsw i16 %1, -170
+  %29 = icmp ult i16 %switch.tableidx54, 19
+  br i1 %29, label %switch.lookup55, label %166
 
 30:                                               ; preds = %2
   %31 = icmp eq i16 %1, 189
@@ -77471,9 +77471,9 @@ default.unreachable18:                            ; preds = %2
   br label %166
 
 32:                                               ; preds = %2
-  %switch.tableidx59 = add nsw i16 %1, -190
-  %33 = icmp ult i16 %switch.tableidx59, 10
-  br i1 %33, label %switch.lookup58, label %166
+  %switch.tableidx58 = add nsw i16 %1, -190
+  %33 = icmp ult i16 %switch.tableidx58, 10
+  br i1 %33, label %switch.lookup59, label %166
 
 34:                                               ; preds = %2
   %35 = icmp eq i16 %1, 200
@@ -77481,24 +77481,24 @@ default.unreachable18:                            ; preds = %2
   br label %166
 
 36:                                               ; preds = %2
-  %switch.tableidx63 = add nsw i16 %1, -201
-  %37 = icmp ult i16 %switch.tableidx63, 7
-  br i1 %37, label %switch.lookup62, label %166
+  %switch.tableidx62 = add nsw i16 %1, -201
+  %37 = icmp ult i16 %switch.tableidx62, 7
+  br i1 %37, label %switch.lookup63, label %166
 
 38:                                               ; preds = %2
-  %switch.tableidx67 = add nsw i16 %1, -208
-  %39 = icmp ult i16 %switch.tableidx67, 3
-  br i1 %39, label %switch.lookup66, label %166
+  %switch.tableidx66 = add nsw i16 %1, -208
+  %39 = icmp ult i16 %switch.tableidx66, 3
+  br i1 %39, label %switch.lookup67, label %166
 
 40:                                               ; preds = %2
-  %switch.tableidx71 = add nsw i16 %1, -211
-  %41 = icmp ult i16 %switch.tableidx71, 5
-  br i1 %41, label %switch.lookup70, label %166
+  %switch.tableidx70 = add nsw i16 %1, -211
+  %41 = icmp ult i16 %switch.tableidx70, 5
+  br i1 %41, label %switch.lookup71, label %166
 
 42:                                               ; preds = %2
-  %switch.tableidx75 = add nsw i16 %1, -216
-  %43 = icmp ult i16 %switch.tableidx75, 4
-  br i1 %43, label %switch.lookup74, label %166
+  %switch.tableidx74 = add nsw i16 %1, -216
+  %43 = icmp ult i16 %switch.tableidx74, 4
+  br i1 %43, label %switch.lookup75, label %166
 
 44:                                               ; preds = %2
   switch i16 %1, label %166 [
@@ -77507,29 +77507,29 @@ default.unreachable18:                            ; preds = %2
   ]
 
 45:                                               ; preds = %2
-  %switch.tableidx79 = add nsw i16 %1, -222
-  %46 = icmp ult i16 %switch.tableidx79, 3
-  br i1 %46, label %switch.lookup78, label %166
+  %switch.tableidx78 = add nsw i16 %1, -222
+  %46 = icmp ult i16 %switch.tableidx78, 3
+  br i1 %46, label %switch.lookup79, label %166
 
 47:                                               ; preds = %2
-  %switch.tableidx83 = add nsw i16 %1, -225
-  %48 = icmp ult i16 %switch.tableidx83, 3
-  br i1 %48, label %switch.lookup82, label %166
+  %switch.tableidx82 = add nsw i16 %1, -225
+  %48 = icmp ult i16 %switch.tableidx82, 3
+  br i1 %48, label %switch.lookup83, label %166
 
 49:                                               ; preds = %2
-  %switch.tableidx87 = add nsw i16 %1, -228
-  %50 = icmp ult i16 %switch.tableidx87, 3
-  br i1 %50, label %switch.lookup86, label %166
+  %switch.tableidx86 = add nsw i16 %1, -228
+  %50 = icmp ult i16 %switch.tableidx86, 3
+  br i1 %50, label %switch.lookup87, label %166
 
 51:                                               ; preds = %2
-  %switch.tableidx91 = add nsw i16 %1, -231
-  %52 = icmp ult i16 %switch.tableidx91, 7
-  br i1 %52, label %switch.lookup90, label %166
+  %switch.tableidx90 = add nsw i16 %1, -231
+  %52 = icmp ult i16 %switch.tableidx90, 7
+  br i1 %52, label %switch.lookup91, label %166
 
 53:                                               ; preds = %2
-  %switch.tableidx95 = add nsw i16 %1, -238
-  %54 = icmp ult i16 %switch.tableidx95, 8
-  br i1 %54, label %switch.lookup94, label %166
+  %switch.tableidx94 = add nsw i16 %1, -238
+  %54 = icmp ult i16 %switch.tableidx94, 8
+  br i1 %54, label %switch.lookup95, label %166
 
 55:                                               ; preds = %2
   %56 = icmp eq i16 %1, 246
@@ -77537,9 +77537,9 @@ default.unreachable18:                            ; preds = %2
   br label %166
 
 57:                                               ; preds = %2
-  %switch.tableidx99 = add nsw i16 %1, -247
-  %58 = icmp ult i16 %switch.tableidx99, 8
-  br i1 %58, label %switch.lookup98, label %166
+  %switch.tableidx98 = add nsw i16 %1, -247
+  %58 = icmp ult i16 %switch.tableidx98, 8
+  br i1 %58, label %switch.lookup99, label %166
 
 59:                                               ; preds = %2
   switch i16 %1, label %166 [
@@ -77548,19 +77548,19 @@ default.unreachable18:                            ; preds = %2
   ]
 
 60:                                               ; preds = %2
-  %switch.tableidx103 = add nsw i16 %1, -257
-  %61 = icmp ult i16 %switch.tableidx103, 55
-  br i1 %61, label %switch.lookup102, label %166
+  %switch.tableidx102 = add nsw i16 %1, -257
+  %61 = icmp ult i16 %switch.tableidx102, 55
+  br i1 %61, label %switch.lookup103, label %166
 
 62:                                               ; preds = %2
-  %switch.tableidx107 = add nsw i16 %1, -312
-  %63 = icmp ult i16 %switch.tableidx107, 31
-  br i1 %63, label %switch.lookup106, label %166
+  %switch.tableidx106 = add nsw i16 %1, -312
+  %63 = icmp ult i16 %switch.tableidx106, 31
+  br i1 %63, label %switch.lookup107, label %166
 
 64:                                               ; preds = %2
-  %switch.tableidx111 = add nsw i16 %1, -343
-  %65 = icmp ult i16 %switch.tableidx111, 5
-  br i1 %65, label %switch.lookup110, label %166
+  %switch.tableidx110 = add nsw i16 %1, -343
+  %65 = icmp ult i16 %switch.tableidx110, 5
+  br i1 %65, label %switch.lookup111, label %166
 
 66:                                               ; preds = %2
   %67 = icmp eq i16 %1, 348
@@ -77568,9 +77568,9 @@ default.unreachable18:                            ; preds = %2
   br label %166
 
 68:                                               ; preds = %2
-  %switch.tableidx115 = add nsw i16 %1, -349
-  %69 = icmp ult i16 %switch.tableidx115, 8
-  br i1 %69, label %switch.lookup114, label %166
+  %switch.tableidx114 = add nsw i16 %1, -349
+  %69 = icmp ult i16 %switch.tableidx114, 8
+  br i1 %69, label %switch.lookup115, label %166
 
 70:                                               ; preds = %2
   %71 = icmp eq i16 %1, 357
@@ -77578,39 +77578,39 @@ default.unreachable18:                            ; preds = %2
   br label %166
 
 72:                                               ; preds = %2
-  %switch.tableidx119 = add nsw i16 %1, -358
-  %73 = icmp ult i16 %switch.tableidx119, 30
-  br i1 %73, label %switch.lookup118, label %166
+  %switch.tableidx118 = add nsw i16 %1, -358
+  %73 = icmp ult i16 %switch.tableidx118, 30
+  br i1 %73, label %switch.lookup119, label %166
 
 74:                                               ; preds = %2
-  %switch.tableidx123 = add nsw i16 %1, -388
-  %75 = icmp ult i16 %switch.tableidx123, 3
-  br i1 %75, label %switch.lookup122, label %166
+  %switch.tableidx122 = add nsw i16 %1, -388
+  %75 = icmp ult i16 %switch.tableidx122, 3
+  br i1 %75, label %switch.lookup123, label %166
 
 76:                                               ; preds = %2
-  %switch.tableidx127 = add nsw i16 %1, -391
-  %77 = icmp ult i16 %switch.tableidx127, 3
-  br i1 %77, label %switch.lookup126, label %166
+  %switch.tableidx126 = add nsw i16 %1, -391
+  %77 = icmp ult i16 %switch.tableidx126, 3
+  br i1 %77, label %switch.lookup127, label %166
 
 78:                                               ; preds = %2
-  %switch.tableidx131 = add nsw i16 %1, -394
-  %79 = icmp ult i16 %switch.tableidx131, 7
-  br i1 %79, label %switch.lookup130, label %166
+  %switch.tableidx130 = add nsw i16 %1, -394
+  %79 = icmp ult i16 %switch.tableidx130, 7
+  br i1 %79, label %switch.lookup131, label %166
 
 80:                                               ; preds = %2
-  %switch.tableidx135 = add nsw i16 %1, -401
-  %81 = icmp ult i16 %switch.tableidx135, 9
-  br i1 %81, label %switch.lookup134, label %166
+  %switch.tableidx134 = add nsw i16 %1, -401
+  %81 = icmp ult i16 %switch.tableidx134, 9
+  br i1 %81, label %switch.lookup135, label %166
 
 82:                                               ; preds = %2
-  %switch.tableidx139 = add nsw i16 %1, -410
-  %83 = icmp ult i16 %switch.tableidx139, 5
-  br i1 %83, label %switch.lookup138, label %166
+  %switch.tableidx138 = add nsw i16 %1, -410
+  %83 = icmp ult i16 %switch.tableidx138, 5
+  br i1 %83, label %switch.lookup139, label %166
 
 84:                                               ; preds = %2
-  %switch.tableidx143 = add nsw i16 %1, -415
-  %85 = icmp ult i16 %switch.tableidx143, 34
-  br i1 %85, label %switch.lookup142, label %166
+  %switch.tableidx142 = add nsw i16 %1, -415
+  %85 = icmp ult i16 %switch.tableidx142, 34
+  br i1 %85, label %switch.lookup143, label %166
 
 86:                                               ; preds = %2
   %87 = icmp eq i16 %1, 449
@@ -77629,360 +77629,360 @@ default.unreachable18:                            ; preds = %2
   br label %166
 
 91:                                               ; preds = %2
-  %switch.tableidx147 = add nsw i16 %1, -453
-  %92 = icmp ult i16 %switch.tableidx147, 4
-  br i1 %92, label %switch.lookup146, label %166
+  %switch.tableidx146 = add nsw i16 %1, -453
+  %92 = icmp ult i16 %switch.tableidx146, 4
+  br i1 %92, label %switch.lookup147, label %166
 
 93:                                               ; preds = %2
-  %switch.tableidx151 = add nsw i16 %1, -473
-  %94 = icmp ult i16 %switch.tableidx151, 13
-  br i1 %94, label %switch.lookup150, label %166
+  %switch.tableidx150 = add nsw i16 %1, -473
+  %94 = icmp ult i16 %switch.tableidx150, 13
+  br i1 %94, label %switch.lookup151, label %166
 
 95:                                               ; preds = %2
-  %switch.tableidx155 = add nsw i16 %1, -457
-  %96 = icmp ult i16 %switch.tableidx155, 16
-  br i1 %96, label %switch.lookup154, label %166
+  %switch.tableidx154 = add nsw i16 %1, -457
+  %96 = icmp ult i16 %switch.tableidx154, 16
+  br i1 %96, label %switch.lookup155, label %166
 
 97:                                               ; preds = %2
-  %switch.tableidx159 = add nsw i16 %1, -486
-  %98 = icmp ult i16 %switch.tableidx159, 6
-  br i1 %98, label %switch.lookup158, label %166
+  %switch.tableidx158 = add nsw i16 %1, -486
+  %98 = icmp ult i16 %switch.tableidx158, 6
+  br i1 %98, label %switch.lookup159, label %166
 
 99:                                               ; preds = %2
-  %switch.tableidx163 = add nsw i16 %1, -492
-  %100 = icmp ult i16 %switch.tableidx163, 67
-  br i1 %100, label %switch.lookup162, label %166
+  %switch.tableidx162 = add nsw i16 %1, -492
+  %100 = icmp ult i16 %switch.tableidx162, 67
+  br i1 %100, label %switch.lookup163, label %166
 
 101:                                              ; preds = %2
-  %switch.tableidx167 = add nsw i16 %1, -559
-  %102 = icmp ult i16 %switch.tableidx167, 6
-  br i1 %102, label %switch.lookup166, label %166
+  %switch.tableidx166 = add nsw i16 %1, -559
+  %102 = icmp ult i16 %switch.tableidx166, 6
+  br i1 %102, label %switch.lookup167, label %166
 
 103:                                              ; preds = %2
-  %switch.tableidx171 = add nsw i16 %1, -565
-  %104 = icmp ult i16 %switch.tableidx171, 46
-  br i1 %104, label %switch.lookup170, label %166
+  %switch.tableidx170 = add nsw i16 %1, -565
+  %104 = icmp ult i16 %switch.tableidx170, 46
+  br i1 %104, label %switch.lookup171, label %166
 
 105:                                              ; preds = %2
-  %switch.tableidx175 = add nsw i16 %1, -611
-  %106 = icmp ult i16 %switch.tableidx175, 43
-  br i1 %106, label %switch.lookup174, label %166
+  %switch.tableidx174 = add nsw i16 %1, -611
+  %106 = icmp ult i16 %switch.tableidx174, 43
+  br i1 %106, label %switch.lookup175, label %166
 
 107:                                              ; preds = %2
-  %switch.tableidx179 = add nsw i16 %1, -654
-  %108 = icmp ult i16 %switch.tableidx179, 5
-  br i1 %108, label %switch.lookup178, label %166
+  %switch.tableidx178 = add nsw i16 %1, -654
+  %108 = icmp ult i16 %switch.tableidx178, 5
+  br i1 %108, label %switch.lookup179, label %166
 
 109:                                              ; preds = %2
-  %switch.tableidx183 = add nsw i16 %1, -659
-  %110 = icmp ult i16 %switch.tableidx183, 112
-  br i1 %110, label %switch.lookup182, label %166
+  %switch.tableidx182 = add nsw i16 %1, -659
+  %110 = icmp ult i16 %switch.tableidx182, 112
+  br i1 %110, label %switch.lookup183, label %166
 
 111:                                              ; preds = %2
-  %switch.tableidx187 = add nsw i16 %1, -771
-  %112 = icmp ult i16 %switch.tableidx187, 46
-  br i1 %112, label %switch.lookup186, label %166
+  %switch.tableidx186 = add nsw i16 %1, -771
+  %112 = icmp ult i16 %switch.tableidx186, 46
+  br i1 %112, label %switch.lookup187, label %166
 
 113:                                              ; preds = %2
-  %switch.tableidx191 = add nsw i16 %1, -817
-  %114 = icmp ult i16 %switch.tableidx191, 36
-  br i1 %114, label %switch.lookup190, label %166
+  %switch.tableidx190 = add nsw i16 %1, -817
+  %114 = icmp ult i16 %switch.tableidx190, 36
+  br i1 %114, label %switch.lookup191, label %166
 
 115:                                              ; preds = %2
-  %switch.tableidx195 = add nsw i16 %1, -853
-  %116 = icmp ult i16 %switch.tableidx195, 58
-  br i1 %116, label %switch.lookup194, label %166
+  %switch.tableidx194 = add nsw i16 %1, -853
+  %116 = icmp ult i16 %switch.tableidx194, 58
+  br i1 %116, label %switch.lookup195, label %166
 
 117:                                              ; preds = %2
-  %switch.tableidx199 = add nsw i16 %1, -911
-  %118 = icmp ult i16 %switch.tableidx199, 10
-  br i1 %118, label %switch.lookup198, label %166
+  %switch.tableidx198 = add nsw i16 %1, -911
+  %118 = icmp ult i16 %switch.tableidx198, 10
+  br i1 %118, label %switch.lookup199, label %166
 
 switch.lookup:                                    ; preds = %4
   %119 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE", i64 0, i64 %119
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE", i64 %119
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %166
 
 switch.lookup19:                                  ; preds = %8
   %120 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 0, i64 %120
+  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 %120
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   br label %166
 
-switch.lookup22:                                  ; preds = %10
-  %121 = zext nneg i16 %switch.tableidx23 to i64
-  %switch.gep24 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.458", i64 0, i64 %121
+switch.lookup23:                                  ; preds = %10
+  %121 = zext nneg i16 %switch.tableidx22 to i64
+  %switch.gep24 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.458", i64 %121
   %switch.load25 = load ptr, ptr %switch.gep24, align 8
   br label %166
 
-switch.lookup26:                                  ; preds = %12
-  %122 = zext nneg i16 %switch.tableidx27 to i64
-  %switch.gep28 = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.459", i64 0, i64 %122
+switch.lookup27:                                  ; preds = %12
+  %122 = zext nneg i16 %switch.tableidx26 to i64
+  %switch.gep28 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.459", i64 %122
   %switch.load29 = load ptr, ptr %switch.gep28, align 8
   br label %166
 
-switch.lookup30:                                  ; preds = %14
-  %123 = zext nneg i16 %switch.tableidx31 to i64
-  %switch.gep32 = getelementptr inbounds nuw [12 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.460", i64 0, i64 %123
+switch.lookup31:                                  ; preds = %14
+  %123 = zext nneg i16 %switch.tableidx30 to i64
+  %switch.gep32 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.460", i64 %123
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   br label %166
 
-switch.lookup34:                                  ; preds = %16
-  %124 = zext nneg i16 %switch.tableidx35 to i64
-  %switch.gep36 = getelementptr inbounds nuw [73 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.461", i64 0, i64 %124
+switch.lookup35:                                  ; preds = %16
+  %124 = zext nneg i16 %switch.tableidx34 to i64
+  %switch.gep36 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.461", i64 %124
   %switch.load37 = load ptr, ptr %switch.gep36, align 8
   br label %166
 
-switch.lookup38:                                  ; preds = %20
-  %125 = zext nneg i16 %switch.tableidx39 to i64
-  %switch.gep40 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 0, i64 %125
+switch.lookup39:                                  ; preds = %20
+  %125 = zext nneg i16 %switch.tableidx38 to i64
+  %switch.gep40 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 %125
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   br label %166
 
-switch.lookup42:                                  ; preds = %22
-  %126 = zext nneg i16 %switch.tableidx43 to i64
-  %switch.gep44 = getelementptr inbounds nuw [41 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.463", i64 0, i64 %126
+switch.lookup43:                                  ; preds = %22
+  %126 = zext nneg i16 %switch.tableidx42 to i64
+  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.463", i64 %126
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %166
 
-switch.lookup46:                                  ; preds = %24
-  %127 = zext nneg i16 %switch.tableidx47 to i64
-  %switch.gep48 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.464", i64 0, i64 %127
+switch.lookup47:                                  ; preds = %24
+  %127 = zext nneg i16 %switch.tableidx46 to i64
+  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.464", i64 %127
   %switch.load49 = load ptr, ptr %switch.gep48, align 8
   br label %166
 
-switch.lookup50:                                  ; preds = %26
-  %128 = zext nneg i16 %switch.tableidx51 to i64
-  %switch.gep52 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.465", i64 0, i64 %128
+switch.lookup51:                                  ; preds = %26
+  %128 = zext nneg i16 %switch.tableidx50 to i64
+  %switch.gep52 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.465", i64 %128
   %switch.load53 = load ptr, ptr %switch.gep52, align 8
   br label %166
 
-switch.lookup54:                                  ; preds = %28
-  %129 = zext nneg i16 %switch.tableidx55 to i64
-  %switch.gep56 = getelementptr inbounds nuw [19 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.466", i64 0, i64 %129
+switch.lookup55:                                  ; preds = %28
+  %129 = zext nneg i16 %switch.tableidx54 to i64
+  %switch.gep56 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.466", i64 %129
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   br label %166
 
-switch.lookup58:                                  ; preds = %32
-  %130 = zext nneg i16 %switch.tableidx59 to i64
-  %switch.gep60 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.467", i64 0, i64 %130
+switch.lookup59:                                  ; preds = %32
+  %130 = zext nneg i16 %switch.tableidx58 to i64
+  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.467", i64 %130
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   br label %166
 
-switch.lookup62:                                  ; preds = %36
-  %131 = zext nneg i16 %switch.tableidx63 to i64
-  %switch.gep64 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.468", i64 0, i64 %131
+switch.lookup63:                                  ; preds = %36
+  %131 = zext nneg i16 %switch.tableidx62 to i64
+  %switch.gep64 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.468", i64 %131
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   br label %166
 
-switch.lookup66:                                  ; preds = %38
-  %132 = zext nneg i16 %switch.tableidx67 to i64
-  %switch.gep68 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.469", i64 0, i64 %132
+switch.lookup67:                                  ; preds = %38
+  %132 = zext nneg i16 %switch.tableidx66 to i64
+  %switch.gep68 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.469", i64 %132
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   br label %166
 
-switch.lookup70:                                  ; preds = %40
-  %133 = zext nneg i16 %switch.tableidx71 to i64
-  %switch.gep72 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.497", i64 0, i64 %133
+switch.lookup71:                                  ; preds = %40
+  %133 = zext nneg i16 %switch.tableidx70 to i64
+  %switch.gep72 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.497", i64 %133
   %switch.load73 = load ptr, ptr %switch.gep72, align 8
   br label %166
 
-switch.lookup74:                                  ; preds = %42
-  %134 = zext nneg i16 %switch.tableidx75 to i64
-  %switch.gep76 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.471", i64 0, i64 %134
+switch.lookup75:                                  ; preds = %42
+  %134 = zext nneg i16 %switch.tableidx74 to i64
+  %switch.gep76 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.471", i64 %134
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   br label %166
 
-switch.lookup78:                                  ; preds = %45
-  %135 = zext nneg i16 %switch.tableidx79 to i64
-  %switch.gep80 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 0, i64 %135
+switch.lookup79:                                  ; preds = %45
+  %135 = zext nneg i16 %switch.tableidx78 to i64
+  %switch.gep80 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 %135
   %switch.load81 = load ptr, ptr %switch.gep80, align 8
   br label %166
 
-switch.lookup82:                                  ; preds = %47
-  %136 = zext nneg i16 %switch.tableidx83 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 0, i64 %136
+switch.lookup83:                                  ; preds = %47
+  %136 = zext nneg i16 %switch.tableidx82 to i64
+  %switch.gep84 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 %136
   %switch.load85 = load ptr, ptr %switch.gep84, align 8
   br label %166
 
-switch.lookup86:                                  ; preds = %49
-  %137 = zext nneg i16 %switch.tableidx87 to i64
-  %switch.gep88 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 0, i64 %137
+switch.lookup87:                                  ; preds = %49
+  %137 = zext nneg i16 %switch.tableidx86 to i64
+  %switch.gep88 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.474", i64 %137
   %switch.load89 = load ptr, ptr %switch.gep88, align 8
   br label %166
 
-switch.lookup90:                                  ; preds = %51
-  %138 = zext nneg i16 %switch.tableidx91 to i64
-  %switch.gep92 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.475", i64 0, i64 %138
+switch.lookup91:                                  ; preds = %51
+  %138 = zext nneg i16 %switch.tableidx90 to i64
+  %switch.gep92 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.475", i64 %138
   %switch.load93 = load ptr, ptr %switch.gep92, align 8
   br label %166
 
-switch.lookup94:                                  ; preds = %53
-  %139 = zext nneg i16 %switch.tableidx95 to i64
-  %switch.gep96 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.476", i64 0, i64 %139
+switch.lookup95:                                  ; preds = %53
+  %139 = zext nneg i16 %switch.tableidx94 to i64
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.476", i64 %139
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   br label %166
 
-switch.lookup98:                                  ; preds = %57
-  %140 = zext nneg i16 %switch.tableidx99 to i64
-  %switch.gep100 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.477", i64 0, i64 %140
+switch.lookup99:                                  ; preds = %57
+  %140 = zext nneg i16 %switch.tableidx98 to i64
+  %switch.gep100 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.477", i64 %140
   %switch.load101 = load ptr, ptr %switch.gep100, align 8
   br label %166
 
-switch.lookup102:                                 ; preds = %60
-  %141 = zext nneg i16 %switch.tableidx103 to i64
-  %switch.gep104 = getelementptr inbounds nuw [55 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.478", i64 0, i64 %141
+switch.lookup103:                                 ; preds = %60
+  %141 = zext nneg i16 %switch.tableidx102 to i64
+  %switch.gep104 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.478", i64 %141
   %switch.load105 = load ptr, ptr %switch.gep104, align 8
   br label %166
 
-switch.lookup106:                                 ; preds = %62
-  %142 = zext nneg i16 %switch.tableidx107 to i64
-  %switch.gep108 = getelementptr inbounds nuw [31 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.479", i64 0, i64 %142
+switch.lookup107:                                 ; preds = %62
+  %142 = zext nneg i16 %switch.tableidx106 to i64
+  %switch.gep108 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.479", i64 %142
   %switch.load109 = load ptr, ptr %switch.gep108, align 8
   br label %166
 
-switch.lookup110:                                 ; preds = %64
-  %143 = zext nneg i16 %switch.tableidx111 to i64
-  %switch.gep112 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.480", i64 0, i64 %143
+switch.lookup111:                                 ; preds = %64
+  %143 = zext nneg i16 %switch.tableidx110 to i64
+  %switch.gep112 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.480", i64 %143
   %switch.load113 = load ptr, ptr %switch.gep112, align 8
   br label %166
 
-switch.lookup114:                                 ; preds = %68
-  %144 = zext nneg i16 %switch.tableidx115 to i64
-  %switch.gep116 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.481", i64 0, i64 %144
+switch.lookup115:                                 ; preds = %68
+  %144 = zext nneg i16 %switch.tableidx114 to i64
+  %switch.gep116 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.481", i64 %144
   %switch.load117 = load ptr, ptr %switch.gep116, align 8
   br label %166
 
-switch.lookup118:                                 ; preds = %72
-  %145 = zext nneg i16 %switch.tableidx119 to i64
-  %switch.gep120 = getelementptr inbounds nuw [30 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.482", i64 0, i64 %145
+switch.lookup119:                                 ; preds = %72
+  %145 = zext nneg i16 %switch.tableidx118 to i64
+  %switch.gep120 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.482", i64 %145
   %switch.load121 = load ptr, ptr %switch.gep120, align 8
   br label %166
 
-switch.lookup122:                                 ; preds = %74
-  %146 = zext nneg i16 %switch.tableidx123 to i64
-  %switch.gep124 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.483", i64 0, i64 %146
+switch.lookup123:                                 ; preds = %74
+  %146 = zext nneg i16 %switch.tableidx122 to i64
+  %switch.gep124 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.483", i64 %146
   %switch.load125 = load ptr, ptr %switch.gep124, align 8
   br label %166
 
-switch.lookup126:                                 ; preds = %76
-  %147 = zext nneg i16 %switch.tableidx127 to i64
-  %switch.gep128 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.484", i64 0, i64 %147
+switch.lookup127:                                 ; preds = %76
+  %147 = zext nneg i16 %switch.tableidx126 to i64
+  %switch.gep128 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.484", i64 %147
   %switch.load129 = load ptr, ptr %switch.gep128, align 8
   br label %166
 
-switch.lookup130:                                 ; preds = %78
-  %148 = zext nneg i16 %switch.tableidx131 to i64
-  %switch.gep132 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.485", i64 0, i64 %148
+switch.lookup131:                                 ; preds = %78
+  %148 = zext nneg i16 %switch.tableidx130 to i64
+  %switch.gep132 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.485", i64 %148
   %switch.load133 = load ptr, ptr %switch.gep132, align 8
   br label %166
 
-switch.lookup134:                                 ; preds = %80
-  %149 = zext nneg i16 %switch.tableidx135 to i64
-  %switch.gep136 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.486", i64 0, i64 %149
+switch.lookup135:                                 ; preds = %80
+  %149 = zext nneg i16 %switch.tableidx134 to i64
+  %switch.gep136 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.486", i64 %149
   %switch.load137 = load ptr, ptr %switch.gep136, align 8
   br label %166
 
-switch.lookup138:                                 ; preds = %82
-  %150 = zext nneg i16 %switch.tableidx139 to i64
-  %switch.gep140 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.497", i64 0, i64 %150
+switch.lookup139:                                 ; preds = %82
+  %150 = zext nneg i16 %switch.tableidx138 to i64
+  %switch.gep140 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.497", i64 %150
   %switch.load141 = load ptr, ptr %switch.gep140, align 8
   br label %166
 
-switch.lookup142:                                 ; preds = %84
-  %151 = zext nneg i16 %switch.tableidx143 to i64
-  %switch.gep144 = getelementptr inbounds nuw [34 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.488", i64 0, i64 %151
+switch.lookup143:                                 ; preds = %84
+  %151 = zext nneg i16 %switch.tableidx142 to i64
+  %switch.gep144 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.488", i64 %151
   %switch.load145 = load ptr, ptr %switch.gep144, align 8
   br label %166
 
-switch.lookup146:                                 ; preds = %91
-  %152 = zext nneg i16 %switch.tableidx147 to i64
-  %switch.gep148 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.489", i64 0, i64 %152
+switch.lookup147:                                 ; preds = %91
+  %152 = zext nneg i16 %switch.tableidx146 to i64
+  %switch.gep148 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.489", i64 %152
   %switch.load149 = load ptr, ptr %switch.gep148, align 8
   br label %166
 
-switch.lookup150:                                 ; preds = %93
-  %153 = zext nneg i16 %switch.tableidx151 to i64
-  %switch.gep152 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.490", i64 0, i64 %153
+switch.lookup151:                                 ; preds = %93
+  %153 = zext nneg i16 %switch.tableidx150 to i64
+  %switch.gep152 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.490", i64 %153
   %switch.load153 = load ptr, ptr %switch.gep152, align 8
   br label %166
 
-switch.lookup154:                                 ; preds = %95
-  %154 = zext nneg i16 %switch.tableidx155 to i64
-  %switch.gep156 = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.491", i64 0, i64 %154
+switch.lookup155:                                 ; preds = %95
+  %154 = zext nneg i16 %switch.tableidx154 to i64
+  %switch.gep156 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.491", i64 %154
   %switch.load157 = load ptr, ptr %switch.gep156, align 8
   br label %166
 
-switch.lookup158:                                 ; preds = %97
-  %155 = zext nneg i16 %switch.tableidx159 to i64
-  %switch.gep160 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.492", i64 0, i64 %155
+switch.lookup159:                                 ; preds = %97
+  %155 = zext nneg i16 %switch.tableidx158 to i64
+  %switch.gep160 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.492", i64 %155
   %switch.load161 = load ptr, ptr %switch.gep160, align 8
   br label %166
 
-switch.lookup162:                                 ; preds = %99
-  %156 = zext nneg i16 %switch.tableidx163 to i64
-  %switch.gep164 = getelementptr inbounds nuw [67 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.493", i64 0, i64 %156
+switch.lookup163:                                 ; preds = %99
+  %156 = zext nneg i16 %switch.tableidx162 to i64
+  %switch.gep164 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.493", i64 %156
   %switch.load165 = load ptr, ptr %switch.gep164, align 8
   br label %166
 
-switch.lookup166:                                 ; preds = %101
-  %157 = zext nneg i16 %switch.tableidx167 to i64
-  %switch.gep168 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.494", i64 0, i64 %157
+switch.lookup167:                                 ; preds = %101
+  %157 = zext nneg i16 %switch.tableidx166 to i64
+  %switch.gep168 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.494", i64 %157
   %switch.load169 = load ptr, ptr %switch.gep168, align 8
   br label %166
 
-switch.lookup170:                                 ; preds = %103
-  %158 = zext nneg i16 %switch.tableidx171 to i64
-  %switch.gep172 = getelementptr inbounds nuw [46 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.495", i64 0, i64 %158
+switch.lookup171:                                 ; preds = %103
+  %158 = zext nneg i16 %switch.tableidx170 to i64
+  %switch.gep172 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.495", i64 %158
   %switch.load173 = load ptr, ptr %switch.gep172, align 8
   br label %166
 
-switch.lookup174:                                 ; preds = %105
-  %159 = zext nneg i16 %switch.tableidx175 to i64
-  %switch.gep176 = getelementptr inbounds nuw [43 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.496", i64 0, i64 %159
+switch.lookup175:                                 ; preds = %105
+  %159 = zext nneg i16 %switch.tableidx174 to i64
+  %switch.gep176 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.496", i64 %159
   %switch.load177 = load ptr, ptr %switch.gep176, align 8
   br label %166
 
-switch.lookup178:                                 ; preds = %107
-  %160 = zext nneg i16 %switch.tableidx179 to i64
-  %switch.gep180 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.497", i64 0, i64 %160
+switch.lookup179:                                 ; preds = %107
+  %160 = zext nneg i16 %switch.tableidx178 to i64
+  %switch.gep180 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.497", i64 %160
   %switch.load181 = load ptr, ptr %switch.gep180, align 8
   br label %166
 
-switch.lookup182:                                 ; preds = %109
-  %161 = zext nneg i16 %switch.tableidx183 to i64
-  %switch.gep184 = getelementptr inbounds nuw [112 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.498", i64 0, i64 %161
+switch.lookup183:                                 ; preds = %109
+  %161 = zext nneg i16 %switch.tableidx182 to i64
+  %switch.gep184 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.498", i64 %161
   %switch.load185 = load ptr, ptr %switch.gep184, align 8
   br label %166
 
-switch.lookup186:                                 ; preds = %111
-  %162 = zext nneg i16 %switch.tableidx187 to i64
-  %switch.gep188 = getelementptr inbounds nuw [46 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.499", i64 0, i64 %162
+switch.lookup187:                                 ; preds = %111
+  %162 = zext nneg i16 %switch.tableidx186 to i64
+  %switch.gep188 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.499", i64 %162
   %switch.load189 = load ptr, ptr %switch.gep188, align 8
   br label %166
 
-switch.lookup190:                                 ; preds = %113
-  %163 = zext nneg i16 %switch.tableidx191 to i64
-  %switch.gep192 = getelementptr inbounds nuw [36 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.500", i64 0, i64 %163
+switch.lookup191:                                 ; preds = %113
+  %163 = zext nneg i16 %switch.tableidx190 to i64
+  %switch.gep192 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.500", i64 %163
   %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %166
 
-switch.lookup194:                                 ; preds = %115
-  %164 = zext nneg i16 %switch.tableidx195 to i64
-  %switch.gep196 = getelementptr inbounds nuw [58 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.501", i64 0, i64 %164
+switch.lookup195:                                 ; preds = %115
+  %164 = zext nneg i16 %switch.tableidx194 to i64
+  %switch.gep196 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.501", i64 %164
   %switch.load197 = load ptr, ptr %switch.gep196, align 8
   br label %166
 
-switch.lookup198:                                 ; preds = %117
-  %165 = zext nneg i16 %switch.tableidx199 to i64
-  %switch.gep200 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.502", i64 0, i64 %165
+switch.lookup199:                                 ; preds = %117
+  %165 = zext nneg i16 %switch.tableidx198 to i64
+  %switch.gep200 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter5codes47_$LT$impl$u20$ruff_linter..registry..Linter$GT$13code_for_rule17hb533f0274bd1a30dE.502", i64 %165
   %switch.load201 = load ptr, ptr %switch.gep200, align 8
   br label %166
 
-166:                                              ; preds = %switch.lookup198, %117, %switch.lookup194, %115, %switch.lookup190, %113, %switch.lookup186, %111, %switch.lookup182, %109, %switch.lookup178, %107, %switch.lookup174, %105, %switch.lookup170, %103, %switch.lookup166, %101, %switch.lookup162, %99, %switch.lookup158, %97, %switch.lookup154, %95, %switch.lookup150, %93, %switch.lookup146, %91, %switch.lookup142, %84, %switch.lookup138, %82, %switch.lookup134, %80, %switch.lookup130, %78, %switch.lookup126, %76, %switch.lookup122, %74, %switch.lookup118, %72, %switch.lookup114, %68, %switch.lookup110, %64, %switch.lookup106, %62, %switch.lookup102, %60, %switch.lookup98, %57, %switch.lookup94, %53, %switch.lookup90, %51, %switch.lookup86, %49, %switch.lookup82, %47, %switch.lookup78, %45, %switch.lookup74, %42, %switch.lookup70, %40, %switch.lookup66, %38, %switch.lookup62, %36, %switch.lookup58, %32, %switch.lookup54, %28, %switch.lookup50, %26, %switch.lookup46, %24, %switch.lookup42, %22, %switch.lookup38, %20, %switch.lookup34, %16, %switch.lookup30, %14, %switch.lookup26, %12, %switch.lookup22, %10, %switch.lookup19, %8, %switch.lookup, %4, %89, %86, %70, %66, %55, %34, %30, %18, %6, %44, %59, %88, %174, %173, %172, %171, %170, %169
-  %.sroa.923.0 = phi i64 [ 3, %169 ], [ 3, %170 ], [ 1, %171 ], [ 1, %172 ], [ 3, %173 ], [ 3, %174 ], [ undef, %117 ], [ undef, %115 ], [ undef, %113 ], [ undef, %111 ], [ undef, %109 ], [ undef, %107 ], [ undef, %105 ], [ undef, %103 ], [ undef, %101 ], [ undef, %99 ], [ undef, %97 ], [ undef, %95 ], [ undef, %93 ], [ undef, %91 ], [ undef, %88 ], [ undef, %84 ], [ undef, %82 ], [ undef, %80 ], [ undef, %78 ], [ undef, %76 ], [ undef, %74 ], [ undef, %72 ], [ undef, %68 ], [ undef, %64 ], [ undef, %62 ], [ undef, %60 ], [ undef, %59 ], [ undef, %57 ], [ undef, %53 ], [ undef, %51 ], [ undef, %49 ], [ undef, %47 ], [ undef, %45 ], [ undef, %44 ], [ undef, %42 ], [ undef, %40 ], [ undef, %38 ], [ undef, %36 ], [ undef, %32 ], [ undef, %28 ], [ undef, %26 ], [ undef, %24 ], [ undef, %22 ], [ undef, %20 ], [ undef, %16 ], [ undef, %14 ], [ undef, %12 ], [ undef, %10 ], [ undef, %8 ], [ undef, %4 ], [ 3, %6 ], [ 3, %18 ], [ 3, %30 ], [ 1, %34 ], [ 3, %55 ], [ 3, %66 ], [ 3, %70 ], [ 3, %86 ], [ 1, %89 ], [ 3, %switch.lookup ], [ 3, %switch.lookup19 ], [ 3, %switch.lookup22 ], [ 3, %switch.lookup26 ], [ 3, %switch.lookup30 ], [ 3, %switch.lookup34 ], [ 3, %switch.lookup38 ], [ 3, %switch.lookup42 ], [ 3, %switch.lookup46 ], [ 3, %switch.lookup50 ], [ 2, %switch.lookup54 ], [ 3, %switch.lookup58 ], [ 3, %switch.lookup62 ], [ 3, %switch.lookup66 ], [ 3, %switch.lookup70 ], [ 3, %switch.lookup74 ], [ 3, %switch.lookup78 ], [ 3, %switch.lookup82 ], [ 3, %switch.lookup86 ], [ 3, %switch.lookup90 ], [ 3, %switch.lookup94 ], [ 3, %switch.lookup98 ], [ 3, %switch.lookup102 ], [ 3, %switch.lookup106 ], [ 3, %switch.lookup110 ], [ 3, %switch.lookup114 ], [ 3, %switch.lookup118 ], [ 3, %switch.lookup122 ], [ 3, %switch.lookup126 ], [ 3, %switch.lookup130 ], [ 3, %switch.lookup134 ], [ 3, %switch.lookup138 ], [ 3, %switch.lookup142 ], [ 3, %switch.lookup146 ], [ 3, %switch.lookup150 ], [ 3, %switch.lookup154 ], [ 3, %switch.lookup158 ], [ 4, %switch.lookup162 ], [ 3, %switch.lookup166 ], [ 3, %switch.lookup170 ], [ 3, %switch.lookup174 ], [ 3, %switch.lookup178 ], [ 5, %switch.lookup182 ], [ 3, %switch.lookup186 ], [ 3, %switch.lookup190 ], [ 3, %switch.lookup194 ], [ 3, %switch.lookup198 ]
-  %.sroa.0.0 = phi ptr [ @anon.bcaf8a6642ef434db28a340da408f3d7.1096, %169 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1086, %170 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1238, %171 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1239, %172 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1078, %173 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1079, %174 ], [ null, %117 ], [ null, %115 ], [ null, %113 ], [ null, %111 ], [ null, %109 ], [ null, %107 ], [ null, %105 ], [ null, %103 ], [ null, %101 ], [ null, %99 ], [ null, %97 ], [ null, %95 ], [ null, %93 ], [ null, %91 ], [ null, %88 ], [ null, %84 ], [ null, %82 ], [ null, %80 ], [ null, %78 ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %68 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %59 ], [ null, %57 ], [ null, %53 ], [ null, %51 ], [ null, %49 ], [ null, %47 ], [ null, %45 ], [ null, %44 ], [ null, %42 ], [ null, %40 ], [ null, %38 ], [ null, %36 ], [ null, %32 ], [ null, %28 ], [ null, %26 ], [ null, %24 ], [ null, %22 ], [ null, %20 ], [ null, %16 ], [ null, %14 ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %spec.select1, %6 ], [ %spec.select3, %18 ], [ %spec.select5, %30 ], [ %spec.select7, %34 ], [ %spec.select9, %55 ], [ %spec.select11, %66 ], [ %spec.select13, %70 ], [ %spec.select15, %86 ], [ %spec.select17, %89 ], [ %switch.load, %switch.lookup ], [ %switch.load21, %switch.lookup19 ], [ %switch.load25, %switch.lookup22 ], [ %switch.load29, %switch.lookup26 ], [ %switch.load33, %switch.lookup30 ], [ %switch.load37, %switch.lookup34 ], [ %switch.load41, %switch.lookup38 ], [ %switch.load45, %switch.lookup42 ], [ %switch.load49, %switch.lookup46 ], [ %switch.load53, %switch.lookup50 ], [ %switch.load57, %switch.lookup54 ], [ %switch.load61, %switch.lookup58 ], [ %switch.load65, %switch.lookup62 ], [ %switch.load69, %switch.lookup66 ], [ %switch.load73, %switch.lookup70 ], [ %switch.load77, %switch.lookup74 ], [ %switch.load81, %switch.lookup78 ], [ %switch.load85, %switch.lookup82 ], [ %switch.load89, %switch.lookup86 ], [ %switch.load93, %switch.lookup90 ], [ %switch.load97, %switch.lookup94 ], [ %switch.load101, %switch.lookup98 ], [ %switch.load105, %switch.lookup102 ], [ %switch.load109, %switch.lookup106 ], [ %switch.load113, %switch.lookup110 ], [ %switch.load117, %switch.lookup114 ], [ %switch.load121, %switch.lookup118 ], [ %switch.load125, %switch.lookup122 ], [ %switch.load129, %switch.lookup126 ], [ %switch.load133, %switch.lookup130 ], [ %switch.load137, %switch.lookup134 ], [ %switch.load141, %switch.lookup138 ], [ %switch.load145, %switch.lookup142 ], [ %switch.load149, %switch.lookup146 ], [ %switch.load153, %switch.lookup150 ], [ %switch.load157, %switch.lookup154 ], [ %switch.load161, %switch.lookup158 ], [ %switch.load165, %switch.lookup162 ], [ %switch.load169, %switch.lookup166 ], [ %switch.load173, %switch.lookup170 ], [ %switch.load177, %switch.lookup174 ], [ %switch.load181, %switch.lookup178 ], [ %switch.load185, %switch.lookup182 ], [ %switch.load189, %switch.lookup186 ], [ %switch.load193, %switch.lookup190 ], [ %switch.load197, %switch.lookup194 ], [ %switch.load201, %switch.lookup198 ]
+166:                                              ; preds = %switch.lookup199, %117, %switch.lookup195, %115, %switch.lookup191, %113, %switch.lookup187, %111, %switch.lookup183, %109, %switch.lookup179, %107, %switch.lookup175, %105, %switch.lookup171, %103, %switch.lookup167, %101, %switch.lookup163, %99, %switch.lookup159, %97, %switch.lookup155, %95, %switch.lookup151, %93, %switch.lookup147, %91, %switch.lookup143, %84, %switch.lookup139, %82, %switch.lookup135, %80, %switch.lookup131, %78, %switch.lookup127, %76, %switch.lookup123, %74, %switch.lookup119, %72, %switch.lookup115, %68, %switch.lookup111, %64, %switch.lookup107, %62, %switch.lookup103, %60, %switch.lookup99, %57, %switch.lookup95, %53, %switch.lookup91, %51, %switch.lookup87, %49, %switch.lookup83, %47, %switch.lookup79, %45, %switch.lookup75, %42, %switch.lookup71, %40, %switch.lookup67, %38, %switch.lookup63, %36, %switch.lookup59, %32, %switch.lookup55, %28, %switch.lookup51, %26, %switch.lookup47, %24, %switch.lookup43, %22, %switch.lookup39, %20, %switch.lookup35, %16, %switch.lookup31, %14, %switch.lookup27, %12, %switch.lookup23, %10, %switch.lookup19, %8, %switch.lookup, %4, %89, %86, %70, %66, %55, %34, %30, %18, %6, %44, %59, %88, %174, %173, %172, %171, %170, %169
+  %.sroa.923.0 = phi i64 [ 3, %169 ], [ 3, %170 ], [ 1, %171 ], [ 1, %172 ], [ 3, %173 ], [ 3, %174 ], [ undef, %117 ], [ undef, %115 ], [ undef, %113 ], [ undef, %111 ], [ undef, %109 ], [ undef, %107 ], [ undef, %105 ], [ undef, %103 ], [ undef, %101 ], [ undef, %99 ], [ undef, %97 ], [ undef, %95 ], [ undef, %93 ], [ undef, %91 ], [ undef, %88 ], [ undef, %84 ], [ undef, %82 ], [ undef, %80 ], [ undef, %78 ], [ undef, %76 ], [ undef, %74 ], [ undef, %72 ], [ undef, %68 ], [ undef, %64 ], [ undef, %62 ], [ undef, %60 ], [ undef, %59 ], [ undef, %57 ], [ undef, %53 ], [ undef, %51 ], [ undef, %49 ], [ undef, %47 ], [ undef, %45 ], [ undef, %44 ], [ undef, %42 ], [ undef, %40 ], [ undef, %38 ], [ undef, %36 ], [ undef, %32 ], [ undef, %28 ], [ undef, %26 ], [ undef, %24 ], [ undef, %22 ], [ undef, %20 ], [ undef, %16 ], [ undef, %14 ], [ undef, %12 ], [ undef, %10 ], [ undef, %8 ], [ undef, %4 ], [ 3, %6 ], [ 3, %18 ], [ 3, %30 ], [ 1, %34 ], [ 3, %55 ], [ 3, %66 ], [ 3, %70 ], [ 3, %86 ], [ 1, %89 ], [ 3, %switch.lookup ], [ 3, %switch.lookup19 ], [ 3, %switch.lookup23 ], [ 3, %switch.lookup27 ], [ 3, %switch.lookup31 ], [ 3, %switch.lookup35 ], [ 3, %switch.lookup39 ], [ 3, %switch.lookup43 ], [ 3, %switch.lookup47 ], [ 3, %switch.lookup51 ], [ 2, %switch.lookup55 ], [ 3, %switch.lookup59 ], [ 3, %switch.lookup63 ], [ 3, %switch.lookup67 ], [ 3, %switch.lookup71 ], [ 3, %switch.lookup75 ], [ 3, %switch.lookup79 ], [ 3, %switch.lookup83 ], [ 3, %switch.lookup87 ], [ 3, %switch.lookup91 ], [ 3, %switch.lookup95 ], [ 3, %switch.lookup99 ], [ 3, %switch.lookup103 ], [ 3, %switch.lookup107 ], [ 3, %switch.lookup111 ], [ 3, %switch.lookup115 ], [ 3, %switch.lookup119 ], [ 3, %switch.lookup123 ], [ 3, %switch.lookup127 ], [ 3, %switch.lookup131 ], [ 3, %switch.lookup135 ], [ 3, %switch.lookup139 ], [ 3, %switch.lookup143 ], [ 3, %switch.lookup147 ], [ 3, %switch.lookup151 ], [ 3, %switch.lookup155 ], [ 3, %switch.lookup159 ], [ 4, %switch.lookup163 ], [ 3, %switch.lookup167 ], [ 3, %switch.lookup171 ], [ 3, %switch.lookup175 ], [ 3, %switch.lookup179 ], [ 5, %switch.lookup183 ], [ 3, %switch.lookup187 ], [ 3, %switch.lookup191 ], [ 3, %switch.lookup195 ], [ 3, %switch.lookup199 ]
+  %.sroa.0.0 = phi ptr [ @anon.bcaf8a6642ef434db28a340da408f3d7.1096, %169 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1086, %170 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1238, %171 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1239, %172 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1078, %173 ], [ @anon.bcaf8a6642ef434db28a340da408f3d7.1079, %174 ], [ null, %117 ], [ null, %115 ], [ null, %113 ], [ null, %111 ], [ null, %109 ], [ null, %107 ], [ null, %105 ], [ null, %103 ], [ null, %101 ], [ null, %99 ], [ null, %97 ], [ null, %95 ], [ null, %93 ], [ null, %91 ], [ null, %88 ], [ null, %84 ], [ null, %82 ], [ null, %80 ], [ null, %78 ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %68 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %59 ], [ null, %57 ], [ null, %53 ], [ null, %51 ], [ null, %49 ], [ null, %47 ], [ null, %45 ], [ null, %44 ], [ null, %42 ], [ null, %40 ], [ null, %38 ], [ null, %36 ], [ null, %32 ], [ null, %28 ], [ null, %26 ], [ null, %24 ], [ null, %22 ], [ null, %20 ], [ null, %16 ], [ null, %14 ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %spec.select1, %6 ], [ %spec.select3, %18 ], [ %spec.select5, %30 ], [ %spec.select7, %34 ], [ %spec.select9, %55 ], [ %spec.select11, %66 ], [ %spec.select13, %70 ], [ %spec.select15, %86 ], [ %spec.select17, %89 ], [ %switch.load, %switch.lookup ], [ %switch.load21, %switch.lookup19 ], [ %switch.load25, %switch.lookup23 ], [ %switch.load29, %switch.lookup27 ], [ %switch.load33, %switch.lookup31 ], [ %switch.load37, %switch.lookup35 ], [ %switch.load41, %switch.lookup39 ], [ %switch.load45, %switch.lookup43 ], [ %switch.load49, %switch.lookup47 ], [ %switch.load53, %switch.lookup51 ], [ %switch.load57, %switch.lookup55 ], [ %switch.load61, %switch.lookup59 ], [ %switch.load65, %switch.lookup63 ], [ %switch.load69, %switch.lookup67 ], [ %switch.load73, %switch.lookup71 ], [ %switch.load77, %switch.lookup75 ], [ %switch.load81, %switch.lookup79 ], [ %switch.load85, %switch.lookup83 ], [ %switch.load89, %switch.lookup87 ], [ %switch.load93, %switch.lookup91 ], [ %switch.load97, %switch.lookup95 ], [ %switch.load101, %switch.lookup99 ], [ %switch.load105, %switch.lookup103 ], [ %switch.load109, %switch.lookup107 ], [ %switch.load113, %switch.lookup111 ], [ %switch.load117, %switch.lookup115 ], [ %switch.load121, %switch.lookup119 ], [ %switch.load125, %switch.lookup123 ], [ %switch.load129, %switch.lookup127 ], [ %switch.load133, %switch.lookup131 ], [ %switch.load137, %switch.lookup135 ], [ %switch.load141, %switch.lookup139 ], [ %switch.load145, %switch.lookup143 ], [ %switch.load149, %switch.lookup147 ], [ %switch.load153, %switch.lookup151 ], [ %switch.load157, %switch.lookup155 ], [ %switch.load161, %switch.lookup159 ], [ %switch.load165, %switch.lookup163 ], [ %switch.load169, %switch.lookup167 ], [ %switch.load173, %switch.lookup171 ], [ %switch.load177, %switch.lookup175 ], [ %switch.load181, %switch.lookup179 ], [ %switch.load185, %switch.lookup183 ], [ %switch.load189, %switch.lookup187 ], [ %switch.load193, %switch.lookup191 ], [ %switch.load197, %switch.lookup195 ], [ %switch.load201, %switch.lookup199 ]
   %167 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %168 = insertvalue { ptr, i64 } %167, i64 %.sroa.923.0, 1
   ret { ptr, i64 } %168
@@ -84302,10 +84302,10 @@ define { ptr, i64 } @"_ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_li
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !7560, !noundef !9
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$4name17hc689142548a244f2E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$4name17hc689142548a244f2E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [59 x ptr], ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$4name17hc689142548a244f2E.503", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$4name17hc689142548a244f2E.503", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -84317,10 +84317,10 @@ define { ptr, i64 } @"_ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_li
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !7560, !noundef !9
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$3url17h99c2d64bafd236baE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$3url17h99c2d64bafd236baE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [59 x ptr], ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$3url17h99c2d64bafd236baE.504", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ruff_linter..registry..Linter$u20$as$u20$ruff_linter..registry..RuleNamespace$GT$3url17h99c2d64bafd236baE.504", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -84913,16 +84913,16 @@ switch.lookup:
   %6 = alloca [16 x i8], align 8
   %7 = load i8, ptr %1, align 1, !range !1823, !noundef !9
   %8 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E", i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i8 %7 to i64
-  %switch.gep40 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E.505", i64 0, i64 %9
+  %switch.gep40 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E.505", i64 %9
   %switch.load41 = load i64, ptr %switch.gep40, align 8
   %10 = zext nneg i8 %7 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E.506", i64 0, i64 %10
+  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E.506", i64 %10
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   %11 = zext nneg i8 %7 to i64
-  %switch.gep44 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E.507", i64 0, i64 %11
+  %switch.gep44 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN144_$LT$ruff_linter..rules..flake8_pyi..rules..redundant_numeric_union..RedundantNumericUnion$u20$as$u20$ruff_diagnostics..violation..Violation$GT$7message17h33b5f0bdbdd06ee5E.507", i64 %11
   %switch.load45 = load i64, ptr %switch.gep44, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %switch.load, ptr %6, align 8

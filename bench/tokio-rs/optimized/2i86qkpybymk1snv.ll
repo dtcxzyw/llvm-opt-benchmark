@@ -7360,7 +7360,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %45 = phi i64 [ %46, %.noexc25 ], [ %43, %.preheader.i ]
   %46 = add nsw i64 %45, -1
   store i64 %46, ptr %34, align 8, !alias.scope !1390
-  %47 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %2, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %46
   %48 = load ptr, ptr %47, align 8, !alias.scope !1390, !nonnull !4, !align !13, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8, !alias.scope !1390, !noundef !4
@@ -7425,7 +7425,7 @@ _ZN5tokio4sync6notify17NotifyWaitersList15pop_back_locked17h31301df7cc52e6d6E.ex
   %67 = phi i64 [ %68, %.noexc38 ], [ %65, %.preheader.i33 ]
   %68 = add nsw i64 %67, -1
   store i64 %68, ptr %34, align 8, !alias.scope !1396
-  %69 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %2, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %68
   %70 = load ptr, ptr %69, align 8, !alias.scope !1396, !nonnull !4, !align !13, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !1396, !noundef !4
@@ -7472,7 +7472,7 @@ _ZN5tokio4sync6notify17NotifyWaitersList15pop_back_locked17h31301df7cc52e6d6E.ex
   ret void
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %_ZN5tokio4sync6notify17NotifyWaitersList15pop_back_locked17h31301df7cc52e6d6E.exit
-  %83 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %2, i64 0, i64 %.pr69
+  %83 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %.pr69
   store ptr %62, ptr %83, align 8, !alias.scope !1416, !noalias !1419
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %64, ptr %84, align 8, !alias.scope !1416, !noalias !1419
@@ -9318,7 +9318,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %99, %"_ZN7
   %77 = phi i64 [ %78, %.noexc38 ], [ %74, %.preheader.i ]
   %78 = add nsw i64 %77, -1
   store i64 %78, ptr %11, align 8, !alias.scope !1657
-  %79 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %9, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i64 %78
   %80 = load ptr, ptr %79, align 8, !alias.scope !1657, !nonnull !4, !align !13, !noundef !4
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load ptr, ptr %81, align 8, !alias.scope !1657, !noundef !4
@@ -9365,7 +9365,7 @@ _ZN5tokio4util9wake_list8WakeList8wake_all17hf305bd504b00dfdfE.exit: ; preds = %
   unreachable
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %92
-  %95 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %9, i64 0, i64 %.pre
+  %95 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i64 %.pre
   store ptr %89, ptr %95, align 8, !alias.scope !1661, !noalias !1664
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %91, ptr %96, align 8, !alias.scope !1661, !noalias !1664
@@ -10141,7 +10141,7 @@ _ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE.exit: ; preds = %2
   br i1 %10, label %11, label %18, !prof !1660
 
 11:                                               ; preds = %_ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE.exit
-  %12 = getelementptr inbounds nuw [8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }], ptr %1, i64 0, i64 %9
+  %12 = getelementptr inbounds nuw { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }, ptr %1, i64 %9
   call void @llvm.experimental.noalias.scope.decl(metadata !1718)
   %13 = load atomic i64, ptr %12 seq_cst, align 8, !noalias !1718
   %14 = lshr i64 %13, 2

@@ -965,7 +965,7 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i.i: ; preds = %62, %5
 _ZN5boost6locale4util12_GLOBAL__N_115internal_timegmEPK2tm.exit: ; preds = %62, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i.i
   %67 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost6locale4util12_GLOBAL__N_114days_from_1janEiii.days, i64 48), %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i.i ], [ @__const._ZN5boost6locale4util12_GLOBAL__N_114days_from_1janEiii.days, %62 ]
   %68 = sext i32 %.024.i to i64
-  %69 = getelementptr inbounds [12 x i32], ptr %67, i64 0, i64 %68
+  %69 = getelementptr i32, ptr %67, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !37
   %71 = add nsw i32 %.0.i, -1
   %72 = mul nsw i32 %71, 365
@@ -1216,7 +1216,7 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i: ; preds = %36, %28
 _ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit: ; preds = %36, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i
   %41 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, i64 48), %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i ], [ @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, %36 ]
   %42 = sext i32 %33 to i64
-  %43 = getelementptr inbounds [12 x i32], ptr %41, i64 0, i64 %42
+  %43 = getelementptr i32, ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !37
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
@@ -1689,7 +1689,7 @@ _ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41: ; preds = %225, %
 _ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42: ; preds = %225, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41
   %230 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, i64 48), %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41 ], [ @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, %225 ]
   %231 = sext i32 %222 to i64
-  %232 = getelementptr inbounds [12 x i32], ptr %230, i64 0, i64 %231
+  %232 = getelementptr i32, ptr %230, i64 %231
   %233 = load i32, ptr %232, align 4, !tbaa !37
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %235 = load i32, ptr %234, align 4, !tbaa !57

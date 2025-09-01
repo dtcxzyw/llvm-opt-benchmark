@@ -54,7 +54,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
 
 .lr.ph96:                                         ; preds = %.lr.ph.i
   %24 = zext nneg i8 %8 to i64
-  %25 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
   store i8 %8, ptr %25, align 1, !tbaa !4
   %.neg = sub i64 %.sroa.080.0, %.sroa.0.0
   %.neg63 = trunc i64 %.neg to i8
@@ -67,8 +67,8 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   br label %34
 
 ._crit_edge97:                                    ; preds = %._crit_edge
-  %31 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.sroa.080.0
-  %32 = getelementptr inbounds nuw [102 x i8], ptr %31, i64 0, i64 %.sroa.0.0
+  %31 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.sroa.080.0
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.0.0
   %33 = load i8, ptr %32, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
@@ -76,13 +76,13 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
 34:                                               ; preds = %.lr.ph96, %._crit_edge
   %.05795 = phi i64 [ 1, %.lr.ph96 ], [ %80, %._crit_edge ]
   %35 = icmp ugt i64 %.05795, %27
-  %36 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  %36 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.05795
   br i1 %35, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = sub nuw i64 %.05795, %27
-  %39 = add i64 %38, -1
-  %40 = getelementptr inbounds nuw [102 x i8], ptr %36, i64 0, i64 %39
+  %39 = getelementptr i8, ptr %36, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -1
   store i8 %8, ptr %40, align 1, !tbaa !4
   br label %43
 
@@ -98,9 +98,9 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
-  %48 = add nuw nsw i64 %44, 1
-  %49 = getelementptr inbounds nuw [102 x i8], ptr %47, i64 0, i64 %48
+  %47 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.05795
+  %48 = getelementptr i8, ptr %47, i64 %44
+  %49 = getelementptr i8, ptr %48, i64 1
   store i8 %8, ptr %49, align 1, !tbaa !4
   br label %50
 
@@ -111,29 +111,29 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
 
 .lr.ph:                                           ; preds = %50
   %51 = add i64 %.05795, -1
-  %52 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %51
-  %53 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  %52 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %51
+  %53 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.05795
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %51
   %55 = icmp ugt i64 %.05795, 1
   %56 = add i64 %.05795, -2
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %56
-  %58 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %56
+  %58 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %56
   %.pre99 = load i8, ptr %54, align 1, !tbaa !4
   br i1 %55, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us
   %.06093.us = phi i64 [ %79, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us ], [ %.058, %.lr.ph ]
-  %59 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %.06093.us
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %.06093.us
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = add i8 %60, 1
   %62 = add i64 %.06093.us, -1
-  %63 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !4
   %65 = add i8 %64, 1
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %62
   %67 = load i8, ptr %66, align 1, !tbaa !4
   %68 = icmp ne i8 %.pre99, %67
-  %69 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %62
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 %62
   %70 = load i8, ptr %69, align 1, !tbaa !4
   %71 = zext i1 %68 to i8
   %72 = add i8 %70, %71
@@ -160,7 +160,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
 
 _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   %77 = load i8, ptr %spec.select.i.i.us, align 1, !tbaa !4
-  %78 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %.06093.us
+  %78 = getelementptr inbounds nuw i8, ptr %53, i64 %.06093.us
   store i8 %77, ptr %78, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %79 = add i64 %.06093.us, 1
@@ -174,17 +174,17 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit
   %.06093 = phi i64 [ %115, %_ZSt3minIhET_St16initializer_listIS0_E.exit ], [ %.058, %.lr.ph ]
-  %81 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %.06093
+  %81 = getelementptr inbounds nuw i8, ptr %52, i64 %.06093
   %82 = load i8, ptr %81, align 1, !tbaa !4
   %83 = add i8 %82, 1
   %84 = add nsw i64 %.06093, -1
-  %85 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %53, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !4
   %87 = add i8 %86, 1
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %84
   %89 = load i8, ptr %88, align 1, !tbaa !4
   %90 = icmp ne i8 %.pre99, %89
-  %91 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw i8, ptr %52, i64 %84
   %92 = load i8, ptr %91, align 1, !tbaa !4
   %93 = zext i1 %90 to i8
   %94 = add i8 %92, %93
@@ -204,7 +204,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw [102 x i8], ptr %58, i64 0, i64 %97
+  %105 = getelementptr inbounds nuw i8, ptr %58, i64 %97
   %106 = load i8, ptr %105, align 1, !tbaa !4
   %107 = add i8 %106, 1
   br label %108
@@ -234,7 +234,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
 
 _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %113 = load i8, ptr %spec.select.i.i, align 1, !tbaa !4
-  %114 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %.06093
+  %114 = getelementptr inbounds nuw i8, ptr %53, i64 %.06093
   store i8 %113, ptr %114, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %115 = add nuw nsw i64 %.06093, 1

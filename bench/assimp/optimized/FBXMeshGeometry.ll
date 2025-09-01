@@ -3993,7 +3993,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12
   %10 = icmp ugt i32 %1, 7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw [8 x %"class.std::vector.73"], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.std::vector.73", ptr %11, i64 %12
   %14 = select i1 %10, ptr @_ZZNK6Assimp3FBX12MeshGeometry16GetTextureCoordsEjE5empty, ptr %13
   ret ptr %14
 }
@@ -4024,7 +4024,7 @@ define hidden void @_ZNK6Assimp3FBX12MeshGeometry26GetTextureCoordChannelNameB5c
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds nuw [8 x %"class.std::__cxx11::basic_string"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8
   %13 = load ptr, ptr %11, align 8
@@ -4093,7 +4093,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12
   %10 = icmp ugt i32 %1, 7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw [8 x %"class.std::vector.78"], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.std::vector.78", ptr %11, i64 %12
   %14 = select i1 %10, ptr @_ZZNK6Assimp3FBX12MeshGeometry15GetVertexColorsEjE5empty, ptr %13
   ret ptr %14
 }
@@ -4838,7 +4838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %114
   %117 = phi ptr [ %116, %114 ], [ null, %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp3FBX7ElementESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i ], [ null, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ null, %._crit_edge.i.i80 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.phi.trans.insert139 = sext i32 %59 to i64
-  %.phi.trans.insert140 = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert139
+  %.phi.trans.insert140 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.phi.trans.insert, i64 %.phi.trans.insert139
   %.pre = load ptr, ptr %.phi.trans.insert140, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -4847,7 +4847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 0, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %121 = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr %120, i64 0, i64 %.phi.trans.insert139
+  %121 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %120, i64 %.phi.trans.insert139
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = icmp eq ptr %.pre, %122
   br i1 %123, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
@@ -4908,7 +4908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
 139:                                              ; preds = %138
   %140 = load i32, ptr %11, align 4
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr %120, i64 0, i64 %141
+  %142 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %120, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %145 = icmp eq ptr %143, %144
@@ -5031,7 +5031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %192 = load i32, ptr %11, align 4
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds [8 x %"class.std::vector.73"], ptr %191, i64 0, i64 %193
+  %194 = getelementptr inbounds %"class.std::vector.73", ptr %191, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %197 = load ptr, ptr %196, align 8
@@ -5354,7 +5354,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit115:                 ; preds = %256, %258
 323:                                              ; preds = %316
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %325 = sext i32 %317 to i64
-  %326 = getelementptr inbounds [8 x %"class.std::vector.78"], ptr %324, i64 0, i64 %325
+  %326 = getelementptr inbounds %"class.std::vector.78", ptr %324, i64 %325
   invoke void @_ZN6Assimp3FBX12MeshGeometry20ReadVertexDataColorsERSt6vectorI9aiColor4tIfESaIS4_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_(ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(24) %326, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZN6Assimp3FBX12MeshGeometry16ReadVertexDataUVERSt6vectorI10aiVector2tIfESaIS4_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_.exit unwind label %86
 

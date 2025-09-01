@@ -632,7 +632,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %53
 
 69:                                               ; preds = %67
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %70, i32 2
+  %71 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %70, i32 2
   %72 = load i32, ptr %71, align 4, !tbaa !92
   %73 = icmp sgt i32 %72, 4
   br i1 %73, label %74, label %86

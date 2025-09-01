@@ -69,17 +69,17 @@ check_retval.exit:                                ; preds = %0
 
 .preheader.i:                                     ; preds = %17, %7
   %indvars.iv18.i = phi i64 [ 0, %7 ], [ %indvars.iv.next19.i, %17 ]
-  %10 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %8, i64 0, i64 %indvars.iv18.i
-  %11 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %9, i64 0, i64 %indvars.iv18.i
+  %10 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 %indvars.iv18.i
+  %11 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 %indvars.iv18.i
   br label %12
 
 12:                                               ; preds = %12, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %12 ]
   %13 = call ptr @SUNDlsMat_newDenseMat(i64 noundef 6, i64 noundef 6) #10
-  %14 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   store ptr %13, ptr %14, align 8, !tbaa !9
   %15 = call ptr @SUNDlsMat_newIndexArray(i64 noundef 6) #10
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   store ptr %15, ptr %16, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -373,9 +373,9 @@ define internal fastcc void @SetInitialProfiles(ptr noundef readonly captures(no
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [6 x double], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double 1.000000e+00, ptr %6, align 8, !tbaa !33
-  %7 = getelementptr inbounds nuw [6 x double], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   store double 1.000000e+00, ptr %7, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -392,9 +392,9 @@ define internal fastcc void @SetInitialProfiles(ptr noundef readonly captures(no
 
 .preheader28:                                     ; preds = %5, %.preheader28
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.preheader28 ], [ 3, %5 ]
-  %14 = getelementptr inbounds nuw [6 x double], ptr %3, i64 0, i64 %indvars.iv35
+  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv35
   store double 3.000000e+04, ptr %14, align 8, !tbaa !33
-  %15 = getelementptr inbounds nuw [6 x double], ptr %4, i64 0, i64 %indvars.iv35
+  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv35
   store double 1.000000e-05, ptr %15, align 8, !tbaa !33
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 6
@@ -415,11 +415,11 @@ define internal fastcc void @SetInitialProfiles(ptr noundef readonly captures(no
 
 22:                                               ; preds = %17, %22
   %indvars.iv43 = phi i64 [ 0, %17 ], [ %indvars.iv.next44, %22 ]
-  %23 = getelementptr inbounds nuw [6 x double], ptr %3, i64 0, i64 %indvars.iv43
+  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv43
   %24 = load double, ptr %23, align 8, !tbaa !33
   %25 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv43
   store double %24, ptr %25, align 8, !tbaa !33
-  %26 = getelementptr inbounds nuw [6 x double], ptr %4, i64 0, i64 %indvars.iv43
+  %26 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv43
   %27 = load double, ptr %26, align 8, !tbaa !33
   %28 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv43
   store double %27, ptr %28, align 8, !tbaa !33
@@ -646,9 +646,9 @@ define internal range(i32 0, 2) i32 @PrecSetupBD(ptr noundef readonly captures(n
   %.07184 = phi i64 [ 0, %5 ], [ %101, %100 ]
   %25 = uitofp nneg i64 %.07184 to double
   %26 = fmul double %10, %25
-  %invariant.gep = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %.07184
+  %invariant.gep = getelementptr inbounds nuw ptr, ptr %4, i64 %.07184
   %27 = mul nuw nsw i64 %.07184, 48
-  %invariant.gep81 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %.07184
+  %invariant.gep81 = getelementptr inbounds nuw ptr, ptr %23, i64 %.07184
   br label %30
 
 28:                                               ; preds = %97
@@ -660,7 +660,7 @@ define internal range(i32 0, 2) i32 @PrecSetupBD(ptr noundef readonly captures(n
   %.07283 = phi i64 [ 0, %24 ], [ %29, %28 ]
   %31 = uitofp nneg i64 %.07283 to double
   %32 = fmul double %8, %31
-  %gep = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %invariant.gep, i64 0, i64 %.07283
+  %gep = getelementptr inbounds nuw [8 x ptr], ptr %invariant.gep, i64 %.07283
   %33 = load ptr, ptr %gep, align 8, !tbaa !9
   %34 = load ptr, ptr %0, align 8, !tbaa !38
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -748,7 +748,7 @@ WebRate.exit:                                     ; preds = %.preheader
 
 86:                                               ; preds = %WebRate.exit, %86
   %.07479 = phi i64 [ 0, %WebRate.exit ], [ %94, %86 ]
-  %87 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %.07479
+  %87 = getelementptr inbounds nuw double, ptr %6, i64 %.07479
   %88 = load double, ptr %87, align 8, !tbaa !33
   %89 = getelementptr inbounds nuw double, ptr %48, i64 %.07479
   %90 = load double, ptr %89, align 8, !tbaa !33
@@ -766,7 +766,7 @@ WebRate.exit:                                     ; preds = %.preheader
   br i1 %exitcond86.not, label %97, label %52
 
 97:                                               ; preds = %95
-  %gep82 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %invariant.gep81, i64 0, i64 %.07283
+  %gep82 = getelementptr inbounds nuw [8 x ptr], ptr %invariant.gep81, i64 %.07283
   %98 = load ptr, ptr %gep82, align 8, !tbaa !11
   %99 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef nonnull %33, i64 noundef 6, i64 noundef 6, ptr noundef %98) #10
   %.not = icmp eq i64 %99, 0
@@ -791,8 +791,8 @@ define internal noundef i32 @PrecSolveBD(ptr readnone captures(none) %0, ptr rea
 .preheader:                                       ; preds = %6, %21
   %.019 = phi i64 [ 0, %6 ], [ %22, %21 ]
   %.idx = mul nuw nsw i64 %.019, 48
-  %8 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %5, i64 0, i64 %.019
-  %9 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %7, i64 0, i64 %.019
+  %8 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 %.019
+  %9 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 %.019
   br label %10
 
 10:                                               ; preds = %.preheader, %10
@@ -803,9 +803,9 @@ define internal noundef i32 @PrecSolveBD(ptr readnone captures(none) %0, ptr rea
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.idx17 = mul nuw nsw i64 %.01618, 384
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx17
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %.01618
+  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01618
   %17 = load ptr, ptr %16, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %.01618
+  %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01618
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   tail call void @SUNDlsMat_denseGETRS(ptr noundef %17, i64 noundef 6, ptr noundef %19, ptr noundef %15) #10
   %20 = add nuw nsw i64 %.01618, 1
@@ -1019,16 +1019,16 @@ define internal fastcc void @FreeUserData(ptr noundef captures(none) %0) unnamed
 
 .preheader:                                       ; preds = %1, %10
   %indvars.iv19 = phi i64 [ 0, %1 ], [ %indvars.iv.next20, %10 ]
-  %3 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %0, i64 0, i64 %indvars.iv19
-  %4 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %2, i64 0, i64 %indvars.iv19
+  %3 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 %indvars.iv19
+  %4 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 %indvars.iv19
   br label %5
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   tail call void @SUNDlsMat_destroyMat(ptr noundef %7) #10
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   tail call void @SUNDlsMat_destroyArray(ptr noundef %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

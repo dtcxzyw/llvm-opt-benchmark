@@ -399,7 +399,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$mbe..expander..matcher.
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %0, i64 0, i64 %.0
+  %6 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %6)
           to label %3 unwind label %11
@@ -418,7 +418,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$mbe..expander..matcher.
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %0, i64 0, i64 %.1
+  %14 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %14) #16
           to label %9 unwind label %17
@@ -554,7 +554,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 "_ZN80_$LT$mbe..expander..matcher..LinkNode$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0115104169734b39E.exit": ; preds = %17, %11
   %.sroa.516.1 = phi i64 [ %19, %17 ], [ %.sroa.516.031, %11 ]
   %storemerge.i = phi i64 [ 1, %17 ], [ 0, %11 ]
-  %20 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %6, i64 0, i64 %.sroa.7.028
+  %20 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.sroa.7.028
   store i64 %storemerge.i, ptr %20, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %16, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
@@ -627,7 +627,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.415.0 = phi i64 [ %23, %22 ], [ %21, %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e2f4164ee5df95fE.exit.i" ]
   %.sroa.6.1 = phi i64 [ %25, %22 ], [ %.sroa.6.01632, %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e2f4164ee5df95fE.exit.i" ]
   %storemerge.i = phi i64 [ 1, %22 ], [ 0, %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e2f4164ee5df95fE.exit.i" ]
-  %26 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %6, i64 0, i64 %.sroa.7.030
+  %26 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.sroa.7.030
   store i64 %storemerge.i, ptr %26, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %.sroa.415.0, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
@@ -1111,7 +1111,7 @@ default.unreachable43.i:                          ; preds = %25
   %.sroa.020.0 = phi i64 [ %19, %.noexc ], [ 4, %.noexc13 ], [ 6, %177 ], [ 5, %16 ]
   %.sroa.9.sroa.13.1 = phi i32 [ %.sroa.27.2, %.noexc ], [ %.sroa.9.sroa.13.087, %.noexc13 ], [ %.sroa.9.sroa.13.087, %177 ], [ %.sroa.9.sroa.13.087, %16 ]
   %.sroa.9.sroa.14.1 = phi i8 [ %.sroa.28.2, %.noexc ], [ %.sroa.9.sroa.14.089, %.noexc13 ], [ %.sroa.9.sroa.14.089, %177 ], [ %.sroa.9.sroa.14.089, %16 ]
-  %180 = getelementptr inbounds nuw [0 x { [9 x i64] }], ptr %8, i64 0, i64 %.sroa.7.084
+  %180 = getelementptr inbounds nuw { [9 x i64] }, ptr %8, i64 %.sroa.7.084
   store i64 %.sroa.020.0, ptr %180, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i8 %.sroa.722.1, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
@@ -1524,7 +1524,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17heddf0576c1c016a6
   br i1 %12, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$mbe..expander..matcher..MatchState$u5d$$GT$17h0927885ab6c4ca8eE.llvm.8215553287609075132.exit", label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %10, i64 0, i64 %.0.i
+  %14 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %10, i64 %.0.i
   %15 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %14)
           to label %11 unwind label %18
@@ -1540,7 +1540,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17heddf0576c1c016a6
   br label %16
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %10, i64 0, i64 %.1.i
+  %21 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %10, i64 %.1.i
   %22 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %21) #16
           to label %16 unwind label %24
@@ -1628,7 +1628,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %.sroa.415.0.i = phi i64 [ %26, %25 ], [ %24, %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e2f4164ee5df95fE.exit.i.i" ]
   %.sroa.6.1.i = phi i64 [ %28, %25 ], [ %.sroa.6.01632.i, %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e2f4164ee5df95fE.exit.i.i" ]
   %storemerge.i.i = phi i64 [ 1, %25 ], [ 0, %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e2f4164ee5df95fE.exit.i.i" ]
-  %29 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %9, i64 0, i64 %.sroa.7.030.i
+  %29 = getelementptr inbounds nuw { [3 x i64] }, ptr %9, i64 %.sroa.7.030.i
   store i64 %storemerge.i.i, ptr %29, align 8, !noalias !308
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %.sroa.415.0.i, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 8, !noalias !308
@@ -1686,7 +1686,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 "_ZN80_$LT$mbe..expander..matcher..LinkNode$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0115104169734b39E.exit.i": ; preds = %20, %14
   %.sroa.516.1.i = phi i64 [ %22, %20 ], [ %.sroa.516.031.i, %14 ]
   %storemerge.i.i = phi i64 [ 1, %20 ], [ 0, %14 ]
-  %23 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %9, i64 0, i64 %.sroa.7.028.i
+  %23 = getelementptr inbounds nuw { [3 x i64] }, ptr %9, i64 %.sroa.7.028.i
   store i64 %storemerge.i.i, ptr %23, align 8, !noalias !320
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %19, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 8, !noalias !320

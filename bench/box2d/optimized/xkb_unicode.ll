@@ -31,7 +31,7 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
   %9 = add nuw nsw i32 %.02230, %.02329
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [828 x %struct.codepair], ptr @keysymtab, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.codepair, ptr @keysymtab, i64 %11
   %13 = load i16, ptr %12, align 4, !tbaa !3
   %14 = zext i16 %13 to i32
   %15 = icmp ugt i32 %0, %14
@@ -50,7 +50,7 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
   br label %26
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw [828 x %struct.codepair], ptr @keysymtab, i64 0, i64 %11, i32 1
+  %23 = getelementptr inbounds nuw %struct.codepair, ptr @keysymtab, i64 %11, i32 1
   %24 = load i16, ptr %23, align 2, !tbaa !8
   %25 = zext i16 %24 to i32
   br label %.loopexit

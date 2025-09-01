@@ -190,11 +190,11 @@ define range(i32 -2147483648, 1) i32 @ff_ffv1_read_extra_header(ptr noundef init
 40:                                               ; preds = %.preheader177, %40
   %indvars.iv = phi i64 [ 1, %.preheader177 ], [ %indvars.iv.next, %40 ]
   %41 = call i32 @ff_ffv1_get_symbol(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #7
-  %42 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1, !tbaa !48
   %44 = trunc i32 %41 to i8
   %45 = add i8 %43, %44
-  %46 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
   store i8 %45, ptr %46, align 1, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -232,7 +232,7 @@ define range(i32 -2147483648, 1) i32 @ff_ffv1_read_extra_header(ptr noundef init
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %64 = zext i8 %55 to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !48
   store i8 %66, ptr %4, align 16, !tbaa !48
   %67 = icmp slt i32 %59, 256
@@ -271,7 +271,7 @@ define range(i32 -2147483648, 1) i32 @ff_ffv1_read_extra_header(ptr noundef init
   store i32 %86, ptr %3, align 8, !tbaa !53
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %88 = zext i8 %55 to i64
-  %89 = getelementptr inbounds nuw [256 x i8], ptr %87, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !48
   store i8 %90, ptr %4, align 16, !tbaa !48
   store i32 %58, ptr %53, align 4, !tbaa !52
@@ -330,7 +330,7 @@ get_rac.exit:                                     ; preds = %62, %76, %81, %85, 
 122:                                              ; preds = %get_rac.exit
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %124 = zext i8 %115 to i64
-  %125 = getelementptr inbounds nuw [256 x i8], ptr %123, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !48
   store i8 %126, ptr %4, align 16, !tbaa !48
   %127 = icmp slt i32 %119, 256
@@ -369,7 +369,7 @@ get_rac.exit:                                     ; preds = %62, %76, %81, %85, 
   store i32 %146, ptr %3, align 8, !tbaa !53
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %148 = zext i8 %115 to i64
-  %149 = getelementptr inbounds nuw [256 x i8], ptr %147, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !48
   store i8 %150, ptr %4, align 16, !tbaa !48
   store i32 %118, ptr %53, align 4, !tbaa !52
@@ -493,7 +493,7 @@ get_rac.exit161:                                  ; preds = %122, %136, %141, %1
 
 213:                                              ; preds = %.lr.ph, %ff_ffv1_read_quant_tables.exit.thread165
   %indvars.iv199 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next200, %ff_ffv1_read_quant_tables.exit.thread165 ]
-  %214 = getelementptr inbounds nuw [8 x [5 x [256 x i16]]], ptr %209, i64 0, i64 %indvars.iv199
+  %214 = getelementptr inbounds nuw [5 x [256 x i16]], ptr %209, i64 %indvars.iv199
   br label %216
 
 215:                                              ; preds = %read_quant_table.exit.i
@@ -572,7 +572,7 @@ read_quant_table.exit.i:                          ; preds = %.preheader.i.i
 ff_ffv1_read_quant_tables.exit.thread165:         ; preds = %215
   %245 = add nuw nsw i32 %243, 1
   %246 = lshr i32 %245, 1
-  %247 = getelementptr inbounds nuw [8 x i32], ptr %210, i64 0, i64 %indvars.iv199
+  %247 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv199
   store i32 %246, ptr %247, align 4, !tbaa !66
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %248 = load i32, ptr %207, align 8, !tbaa !65
@@ -581,7 +581,7 @@ ff_ffv1_read_quant_tables.exit.thread165:         ; preds = %215
   br i1 %.not151, label %213, label %.critedge, !llvm.loop !67
 
 ff_ffv1_read_quant_tables.exit:                   ; preds = %read_quant_table.exit.i, %ff_ffv1_read_quant_tables.exit.thread
-  %250 = getelementptr inbounds nuw [8 x i32], ptr %210, i64 0, i64 %indvars.iv199
+  %250 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv199
   store i32 -1094995529, ptr %250, align 4, !tbaa !66
   %251 = load ptr, ptr %7, align 8, !tbaa !13
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %251, i32 noundef 16, ptr noundef nonnull @.str.6) #7
@@ -628,7 +628,7 @@ ff_ffv1_read_quant_tables.exit:                   ; preds = %read_quant_table.ex
 
 275:                                              ; preds = %265
   %276 = zext i8 %268 to i64
-  %277 = getelementptr inbounds nuw [256 x i8], ptr %262, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw i8, ptr %262, i64 %276
   %278 = load i8, ptr %277, align 1, !tbaa !48
   store i8 %278, ptr %4, align 16, !tbaa !48
   %279 = icmp slt i32 %272, 256
@@ -663,7 +663,7 @@ ff_ffv1_read_quant_tables.exit:                   ; preds = %read_quant_table.ex
   %295 = sub nsw i32 %273, %272
   store i32 %295, ptr %3, align 8, !tbaa !53
   %296 = zext i8 %268 to i64
-  %297 = getelementptr inbounds nuw [256 x i8], ptr %256, i64 0, i64 %296
+  %297 = getelementptr inbounds nuw i8, ptr %256, i64 %296
   %298 = load i8, ptr %297, align 1, !tbaa !48
   store i8 %298, ptr %4, align 16, !tbaa !48
   store i32 %271, ptr %53, align 4, !tbaa !52
@@ -696,13 +696,13 @@ ff_ffv1_read_quant_tables.exit:                   ; preds = %read_quant_table.ex
   br label %get_rac.exit163
 
 get_rac.exit163:                                  ; preds = %294, %306, %311
-  %314 = getelementptr inbounds nuw [8 x i32], ptr %260, i64 0, i64 %indvars.iv213
+  %314 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv213
   %315 = load i32, ptr %314, align 4, !tbaa !66
   %316 = icmp sgt i32 %315, 0
   br i1 %316, label %.preheader.lr.ph, label %get_rac.exit163.thread
 
 .preheader.lr.ph:                                 ; preds = %get_rac.exit163
-  %317 = getelementptr inbounds nuw [8 x ptr], ptr %261, i64 0, i64 %indvars.iv213
+  %317 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv213
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split.us
@@ -712,12 +712,12 @@ get_rac.exit163:                                  ; preds = %294, %306, %311
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv206 = phi i64 [ %indvars.iv.next207, %.preheader.split.us ], [ 0, %.preheader ]
-  %318 = getelementptr inbounds nuw [32 x [32 x i8]], ptr %5, i64 0, i64 %indvars.iv206
+  %318 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv206
   %319 = call i32 @ff_ffv1_get_symbol(ptr noundef nonnull %3, ptr noundef nonnull %318, i32 noundef 1) #7
   %320 = trunc i32 %319 to i8
   %321 = xor i8 %320, -128
   %322 = load ptr, ptr %317, align 8, !tbaa !68
-  %323 = getelementptr inbounds nuw [32 x i8], ptr %322, i64 0, i64 %indvars.iv206
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 %indvars.iv206
   store i8 %321, ptr %323, align 1, !tbaa !48
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next207, 32
@@ -735,15 +735,15 @@ get_rac.exit163:                                  ; preds = %294, %306, %311
   %327 = load ptr, ptr %317, align 8, !tbaa !68
   %328 = getelementptr [32 x i8], ptr %327, i64 %indvars.iv210
   %329 = getelementptr i8, ptr %328, i64 -32
-  %330 = getelementptr inbounds nuw [32 x i8], ptr %329, i64 0, i64 %indvars.iv202
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 %indvars.iv202
   %331 = load i8, ptr %330, align 1, !tbaa !48
-  %332 = getelementptr inbounds nuw [32 x [32 x i8]], ptr %5, i64 0, i64 %indvars.iv202
+  %332 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv202
   %333 = call i32 @ff_ffv1_get_symbol(ptr noundef nonnull %3, ptr noundef nonnull %332, i32 noundef 1) #7
   %334 = trunc i32 %333 to i8
   %335 = add i8 %331, %334
   %336 = load ptr, ptr %317, align 8, !tbaa !68
   %337 = getelementptr inbounds nuw [32 x i8], ptr %336, i64 %indvars.iv210
-  %338 = getelementptr inbounds nuw [32 x i8], ptr %337, i64 0, i64 %indvars.iv202
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 %indvars.iv202
   store i8 %335, ptr %338, align 1, !tbaa !48
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next203, 32
@@ -920,7 +920,7 @@ define range(i32 -1094995529, 1) i32 @ff_ffv1_parse_header(ptr noundef %0, ptr n
 20:                                               ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %27 ]
   %21 = tail call i32 @ff_ffv1_get_symbol(ptr noundef %1, ptr noundef %2, i32 noundef 1) #7
-  %22 = getelementptr inbounds nuw [256 x i8], ptr %18, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !48
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %21, %24
@@ -930,7 +930,7 @@ define range(i32 -1094995529, 1) i32 @ff_ffv1_parse_header(ptr noundef %0, ptr n
 
 27:                                               ; preds = %20
   %28 = trunc nuw i32 %25 to i8
-  %29 = getelementptr inbounds nuw [256 x i8], ptr %19, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   store i8 %28, ptr %29, align 1, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 256
@@ -986,7 +986,7 @@ define range(i32 -1094995529, 1) i32 @ff_ffv1_parse_header(ptr noundef %0, ptr n
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i8, ptr %2, align 1, !tbaa !48
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr %56, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !48
   store i8 %60, ptr %2, align 1, !tbaa !48
   %61 = load i32, ptr %46, align 4, !tbaa !52
@@ -1028,7 +1028,7 @@ define range(i32 -1094995529, 1) i32 @ff_ffv1_parse_header(ptr noundef %0, ptr n
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %84 = load i8, ptr %2, align 1, !tbaa !48
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr %83, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !48
   store i8 %87, ptr %2, align 1, !tbaa !48
   store i32 %51, ptr %46, align 4, !tbaa !52
@@ -1083,7 +1083,7 @@ get_rac.exit:                                     ; preds = %55, %72, %77, %81, 
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %119 = load i8, ptr %2, align 1, !tbaa !48
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw [256 x i8], ptr %118, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 %120
   %122 = load i8, ptr %121, align 1, !tbaa !48
   store i8 %122, ptr %2, align 1, !tbaa !48
   %123 = load i32, ptr %46, align 4, !tbaa !52
@@ -1125,7 +1125,7 @@ get_rac.exit:                                     ; preds = %55, %72, %77, %81, 
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %146 = load i8, ptr %2, align 1, !tbaa !48
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds nuw [256 x i8], ptr %145, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !48
   store i8 %149, ptr %2, align 1, !tbaa !48
   store i32 %113, ptr %46, align 4, !tbaa !52

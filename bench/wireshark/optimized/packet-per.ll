@@ -1429,7 +1429,7 @@ define i32 @dissect_per_restricted_character_string(ptr noundef %0, i32 noundef 
   %19 = getelementptr i8, ptr %8, i64 %indvars.iv.i
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [256 x i8], ptr %12, i64 0, i64 %21
+  %22 = getelementptr i8, ptr %12, i64 %21
   store i8 1, ptr %22, align 1
   %23 = icmp ugt i8 %20, %.02840.i
   %spec.select.i = tail call i8 @llvm.umin.i8(i8 %20, i8 %.041.i)
@@ -1453,7 +1453,7 @@ define i32 @dissect_per_restricted_character_string(ptr noundef %0, i32 noundef 
 .lr.ph47.i:                                       ; preds = %33, %.lr.ph47.preheader.i
   %indvars.iv49.i = phi i64 [ %25, %.lr.ph47.preheader.i ], [ %indvars.iv.next50.i, %33 ]
   %.03145.i = phi i32 [ 0, %.lr.ph47.preheader.i ], [ %.132.i, %33 ]
-  %26 = getelementptr [256 x i8], ptr %12, i64 0, i64 %indvars.iv49.i
+  %26 = getelementptr i8, ptr %12, i64 %indvars.iv49.i
   %27 = load i8, ptr %26, align 1
   %.not38.i = icmp eq i8 %27, 0
   br i1 %.not38.i, label %33, label %28
@@ -4855,7 +4855,7 @@ proto_item_set_hidden.exit213:                    ; preds = %100, %97, %95, %92
   %108 = lshr exact i32 -2147483648, %107
   %109 = lshr i32 %.1165248, 5
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr [4 x i32], ptr %10, i64 0, i64 %110
+  %111 = getelementptr i32, ptr %10, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = or i32 %112, %108
   store i32 %113, ptr %111, align 4
@@ -4893,7 +4893,7 @@ proto_item_set_hidden.exit213:                    ; preds = %100, %97, %95, %92
   %128 = lshr exact i32 -2147483648, %127
   %129 = lshr i32 %.0174256, 5
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr [4 x i32], ptr %10, i64 0, i64 %130
+  %131 = getelementptr i32, ptr %10, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, %128
   %.not203 = icmp eq i32 %133, 0
@@ -5355,7 +5355,7 @@ proto_item_set_hidden.exit.us:                    ; preds = %36, %33, %31, %.lr.
   %44 = lshr exact i32 -2147483648, %43
   %45 = lshr i32 %.16081.us, 5
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr [4 x i32], ptr %7, i64 0, i64 %46
+  %47 = getelementptr i32, ptr %7, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, %44
   store i32 %49, ptr %47, align 4
@@ -5461,7 +5461,7 @@ proto_item_set_hidden.exit:                       ; preds = %88, %85, %83, %inde
   %94 = lshr exact i32 -2147483648, %93
   %95 = lshr i32 %.16081, 5
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr [4 x i32], ptr %7, i64 0, i64 %96
+  %97 = getelementptr i32, ptr %7, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = or i32 %98, %94
   store i32 %99, ptr %97, align 4
@@ -5493,7 +5493,7 @@ proto_item_set_hidden.exit:                       ; preds = %88, %85, %83, %inde
   %111 = lshr exact i32 -2147483648, %110
   %112 = lshr i32 %.05589, 5
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr [4 x i32], ptr %7, i64 0, i64 %113
+  %114 = getelementptr i32, ptr %7, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, %111
   %.not64 = icmp eq i32 %116, 0

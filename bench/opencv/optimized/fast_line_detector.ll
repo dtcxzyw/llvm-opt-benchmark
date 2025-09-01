@@ -440,7 +440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i ], [ 0, %70 ]
   %74 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i.i.i
   %75 = load float, ptr %74, align 4, !tbaa !69
-  %76 = getelementptr inbounds nuw [4 x float], ptr %.sroa.9.042, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %76 = getelementptr inbounds nuw float, ptr %.sroa.9.042, i64 %indvars.iv.i.i.i.i.i
   store float %75, ptr %76, align 4, !tbaa !69
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -488,7 +488,7 @@ _ZNKSt6vectorIN2cv3VecIfLi4EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %77
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %91 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %92 = getelementptr inbounds nuw float, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %93 = load float, ptr %92, align 4, !tbaa !69
-  %94 = getelementptr inbounds nuw [4 x float], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %94 = getelementptr inbounds nuw float, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store float %93, ptr %94, align 4, !tbaa !69
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -1057,7 +1057,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
 
 .split.us.i:                                      ; preds = %166, %195
   %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %195 ], [ 0, %166 ]
-  %175 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 0, i64 %indvars.iv89.i
+  %175 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv89.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %177 = load i32, ptr %176, align 4, !tbaa !110
   %178 = add nsw i32 %177, %.sroa.0149.0
@@ -1097,7 +1097,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %.sroa.0.067.i = phi i32 [ %.sroa.0.1.i, %236 ], [ 0, %166 ]
   %.sroa.5.066.i = phi i32 [ %.sroa.5.1.i, %236 ], [ 0, %166 ]
   %indvars88.i = trunc i64 %indvars.iv.i to i32
-  %196 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 0, i64 %indvars.iv.i
+  %196 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv.i
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !110
   %199 = add nsw i32 %198, %.sroa.0149.0
@@ -4955,7 +4955,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13getPoin
 
 .split.us:                                        ; preds = %6, %37
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %37 ], [ 0, %6 ]
-  %17 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 0, i64 %indvars.iv89
+  %17 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv89
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !110
   %20 = add nsw i32 %19, %.sroa.0.0.extract.trunc
@@ -4995,7 +4995,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13getPoin
   %.sroa.0.067 = phi i32 [ %.sroa.0.1, %81 ], [ 0, %6 ]
   %.sroa.5.066 = phi i32 [ %.sroa.5.1, %81 ], [ 0, %6 ]
   %indvars88 = trunc i64 %indvars.iv to i32
-  %38 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !110
   %41 = add nsw i32 %40, %.sroa.0.0.extract.trunc

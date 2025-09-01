@@ -2665,7 +2665,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
 
 40:                                               ; preds = %33
   %41 = zext nneg i32 %36 to i64
-  %42 = getelementptr [20 x i32], ptr @hf_indicator, i64 0, i64 %41
+  %42 = getelementptr i32, ptr @hf_indicator, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
   br label %45
@@ -2785,7 +2785,7 @@ check_cind.exit:                                  ; preds = %13, %13, %14
 
 18:                                               ; preds = %check_cind.exit
   %19 = zext nneg i32 %7 to i64
-  %20 = getelementptr [20 x i32], ptr @hf_indicator, i64 0, i64 %19
+  %20 = getelementptr i32, ptr @hf_indicator, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0)
   br label %23

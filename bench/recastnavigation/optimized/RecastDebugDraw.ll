@@ -1290,8 +1290,8 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
   %172 = icmp eq i8 %171, -1
   br i1 %172, label %.loopexit.us.i, label %.preheader.us.i
 
-173:                                              ; preds = %.preheader.us.i, %213
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %213 ]
+173:                                              ; preds = %.preheader.us.i, %212
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %212 ]
   %174 = load ptr, ptr %163, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 %168
   %176 = load i8, ptr %175, align 1
@@ -1300,59 +1300,59 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
   %179 = shl nuw nsw i32 16, %178
   %180 = and i32 %179, %177
   %.not.us.i = icmp eq i32 %180, 0
-  br i1 %.not.us.i, label %213, label %181
+  br i1 %.not.us.i, label %212, label %181
 
 181:                                              ; preds = %173
-  %182 = shl nuw nsw i64 %indvars.iv.i, 2
-  %183 = getelementptr inbounds nuw [16 x i32], ptr @__const._ZL16drawLayerPortalsP11duDebugDrawPK18rcHeightfieldLayer.segs, i64 0, i64 %182
-  %184 = load float, ptr %1, align 8
-  %185 = load i32, ptr %183, align 16
-  %186 = add nsw i32 %185, %217
-  %187 = sitofp i32 %186 to float
-  %188 = tail call float @llvm.fmuladd.f32(float %187, float %153, float %184)
-  %189 = load float, ptr %19, align 4
-  %190 = tail call float @llvm.fmuladd.f32(float %216, float %154, float %189)
-  %191 = load float, ptr %21, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  %193 = load i32, ptr %192, align 4
-  %194 = add nsw i32 %193, %166
-  %195 = sitofp i32 %194 to float
-  %196 = tail call float @llvm.fmuladd.f32(float %195, float %153, float %191)
-  %197 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %198 = load i32, ptr %197, align 8
-  %199 = add nsw i32 %198, %217
-  %200 = sitofp i32 %199 to float
-  %201 = tail call float @llvm.fmuladd.f32(float %200, float %153, float %184)
-  %202 = getelementptr inbounds nuw i8, ptr %183, i64 12
-  %203 = load i32, ptr %202, align 4
-  %204 = add nsw i32 %203, %166
-  %205 = sitofp i32 %204 to float
-  %206 = tail call float @llvm.fmuladd.f32(float %205, float %153, float %191)
-  %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 48
-  %209 = load ptr, ptr %208, align 8
-  tail call void %209(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %188, float noundef %190, float noundef %196, i32 noundef -1)
-  %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 48
-  %212 = load ptr, ptr %211, align 8
-  tail call void %212(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %201, float noundef %190, float noundef %206, i32 noundef -1)
-  br label %213
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
+  %182 = getelementptr inbounds nuw i8, ptr @__const._ZL16drawLayerPortalsP11duDebugDrawPK18rcHeightfieldLayer.segs, i64 %.idx.i
+  %183 = load float, ptr %1, align 8
+  %184 = load i32, ptr %182, align 16
+  %185 = add nsw i32 %184, %216
+  %186 = sitofp i32 %185 to float
+  %187 = tail call float @llvm.fmuladd.f32(float %186, float %153, float %183)
+  %188 = load float, ptr %19, align 4
+  %189 = tail call float @llvm.fmuladd.f32(float %215, float %154, float %188)
+  %190 = load float, ptr %21, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %182, i64 4
+  %192 = load i32, ptr %191, align 4
+  %193 = add nsw i32 %192, %166
+  %194 = sitofp i32 %193 to float
+  %195 = tail call float @llvm.fmuladd.f32(float %194, float %153, float %190)
+  %196 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %197 = load i32, ptr %196, align 8
+  %198 = add nsw i32 %197, %216
+  %199 = sitofp i32 %198 to float
+  %200 = tail call float @llvm.fmuladd.f32(float %199, float %153, float %183)
+  %201 = getelementptr inbounds nuw i8, ptr %182, i64 12
+  %202 = load i32, ptr %201, align 4
+  %203 = add nsw i32 %202, %166
+  %204 = sitofp i32 %203 to float
+  %205 = tail call float @llvm.fmuladd.f32(float %204, float %153, float %190)
+  %206 = load ptr, ptr %0, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 48
+  %208 = load ptr, ptr %207, align 8
+  tail call void %208(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %187, float noundef %189, float noundef %195, i32 noundef -1)
+  %209 = load ptr, ptr %0, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 48
+  %211 = load ptr, ptr %210, align 8
+  tail call void %211(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %200, float noundef %189, float noundef %205, i32 noundef -1)
+  br label %212
 
-213:                                              ; preds = %181, %173
+212:                                              ; preds = %181, %173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %.loopexit.us.i, label %173, !llvm.loop !25
 
-.loopexit.us.i:                                   ; preds = %213, %167
+.loopexit.us.i:                                   ; preds = %212, %167
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %164
   br i1 %exitcond69.not.i, label %._crit_edge.us.i, label %167, !llvm.loop !26
 
 .preheader.us.i:                                  ; preds = %167
-  %214 = zext i8 %171 to i32
-  %215 = add nuw nsw i32 %214, 2
-  %216 = uitofp nneg i32 %215 to float
-  %217 = trunc nuw nsw i64 %indvars.iv66.i to i32
+  %213 = zext i8 %171 to i32
+  %214 = add nuw nsw i32 %213, 2
+  %215 = uitofp nneg i32 %214 to float
+  %216 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br label %173
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
@@ -1361,10 +1361,10 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
   br i1 %exitcond74.not.i, label %_ZL16drawLayerPortalsP11duDebugDrawPK18rcHeightfieldLayer.exit, label %.preheader59.us.i, !llvm.loop !27
 
 _ZL16drawLayerPortalsP11duDebugDrawPK18rcHeightfieldLayer.exit: ; preds = %._crit_edge.us.i, %._crit_edge110, %.preheader59.lr.ph.i
-  %218 = load ptr, ptr %0, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 72
-  %220 = load ptr, ptr %219, align 8
-  tail call void %220(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %217 = load ptr, ptr %0, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 72
+  %219 = load ptr, ptr %218, align 8
+  tail call void %219(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
 }
 
@@ -2313,7 +2313,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
 50:                                               ; preds = %50, %45
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %50 ], [ 0, %45 ]
   %51 = load ptr, ptr %1, align 8
-  %52 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %indvars.iv211
+  %52 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv211
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i64
   %.idx.us = mul nuw nsw i64 %54, 6

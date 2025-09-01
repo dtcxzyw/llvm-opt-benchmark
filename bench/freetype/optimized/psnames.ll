@@ -334,7 +334,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none)
 
 .preheader66:                                     ; preds = %18, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_name_offsets, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i32, ptr @ft_extra_glyph_name_offsets, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr @ft_extra_glyph_names, i64 %23
@@ -367,7 +367,7 @@ ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
 
 .preheader65:                                     ; preds = %ps_check_extra_glyph_name.exit, %35
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %35 ], [ 0, %ps_check_extra_glyph_name.exit ]
-  %36 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv.i62
+  %36 = getelementptr inbounds nuw i32, ptr @ft_extra_glyph_unicodes, i64 %indvars.iv.i62
   %37 = load i32, ptr %36, align 4, !tbaa !22
   %38 = icmp eq i32 %33, %37
   br i1 %38, label %39, label %35
@@ -405,16 +405,16 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 .preheader:                                       ; preds = %.preheader.preheader, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.preheader.preheader ]
   %.373 = phi ptr [ %.4, %57 ], [ %.373.ph, %.preheader.preheader ]
-  %47 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !22
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %.preheader
-  %51 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr @ft_extra_glyph_unicodes, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !22
   store i32 %52, ptr %.373, align 4, !tbaa !25
-  %53 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %.373, i64 4
   store i32 %54, ptr %55, align 4, !tbaa !27
@@ -631,7 +631,7 @@ define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #4 {
   %2 = icmp ugt i32 %0, 257
   %spec.store.select = select i1 %2, i32 0, i32 %0
   %3 = zext nneg i32 %spec.store.select to i64
-  %4 = getelementptr inbounds nuw [258 x i16], ptr @ft_mac_names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i16, ptr @ft_mac_names, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !31
   %6 = sext i16 %5 to i64
   %7 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %6
@@ -645,7 +645,7 @@ define internal ptr @ps_get_standard_strings(i32 noundef %0) #4 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [391 x i16], ptr @ft_sid_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @ft_sid_names, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !31
   %7 = sext i16 %6 to i64
   %8 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %7

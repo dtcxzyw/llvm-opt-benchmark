@@ -2326,12 +2326,12 @@ _ZN6Assimp11MD5Importer18LoadFileIntoMemoryEPNS_8IOStreamE.exit: ; preds = %.noe
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %187 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %168, ptr nonnull align 4 %186, i64 %187, i1 false)
-  %188 = getelementptr inbounds nuw [1024 x i8], ptr %168, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw i8, ptr %168, i64 %187
   store i8 0, ptr %188, align 1
   store i32 %spec.select.i, ptr %176, align 8
   %189 = getelementptr inbounds nuw i8, ptr %176, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %189, ptr nonnull align 4 %168, i64 %187, i1 false)
-  %190 = getelementptr inbounds nuw [1024 x i8], ptr %189, i64 0, i64 %187
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 %187
   store i8 0, ptr %190, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %191 = load ptr, ptr %110, align 8
@@ -3773,7 +3773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %357 = getelementptr inbounds nuw i8, ptr %319, i64 240
   %358 = load ptr, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %357, ptr align 1 %358, i64 %352, i1 false)
-  %359 = getelementptr inbounds nuw [1024 x i8], ptr %357, i64 0, i64 %352
+  %359 = getelementptr inbounds nuw i8, ptr %357, i64 %352
   store i8 0, ptr %359, align 1
   br label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4067,12 +4067,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %495 = getelementptr inbounds nuw i8, ptr %493, i64 4
   %496 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %239, ptr nonnull align 4 %495, i64 %496, i1 false)
-  %497 = getelementptr inbounds nuw [1024 x i8], ptr %239, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw i8, ptr %239, i64 %496
   store i8 0, ptr %497, align 1
   store i32 %spec.select.i, ptr %472, align 8
   %498 = getelementptr inbounds nuw i8, ptr %472, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %498, ptr nonnull align 4 %239, i64 %496, i1 false)
-  %499 = getelementptr inbounds nuw [1024 x i8], ptr %498, i64 0, i64 %496
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 %496
   store i8 0, ptr %499, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %500 = getelementptr inbounds nuw i8, ptr %493, i64 1136
@@ -4451,7 +4451,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   store i32 %spec.select.i269, ptr %11, align 4
   %721 = zext nneg i32 %spec.select.i269 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %240, ptr nonnull align 4 %334, i64 %721, i1 false)
-  %722 = getelementptr inbounds nuw [1024 x i8], ptr %240, i64 0, i64 %721
+  %722 = getelementptr inbounds nuw i8, ptr %240, i64 %721
   store i8 0, ptr %722, align 1
   %723 = icmp ugt i32 %717, 1013
   br i1 %723, label %_ZN8aiString6AppendEPKc.exit, label %724
@@ -4474,11 +4474,11 @@ _ZN8aiString6AppendEPKc.exit:                     ; preds = %720, %724
   store i32 %spec.select.i271, ptr %12, align 4
   %729 = zext nneg i32 %spec.select.i271 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %241, ptr nonnull align 4 %334, i64 %729, i1 false)
-  %730 = getelementptr inbounds nuw [1024 x i8], ptr %241, i64 0, i64 %729
+  %730 = getelementptr inbounds nuw i8, ptr %241, i64 %729
   store i8 0, ptr %730, align 1
   store i32 %spec.select.i271, ptr %11, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %240, ptr nonnull align 4 %241, i64 %729, i1 false)
-  %731 = getelementptr inbounds nuw [1024 x i8], ptr %240, i64 0, i64 %729
+  %731 = getelementptr inbounds nuw i8, ptr %240, i64 %729
   store i8 0, ptr %731, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %732 = icmp ugt i32 %728, 1017
@@ -4502,11 +4502,11 @@ _ZN8aiString6AppendEPKc.exit274:                  ; preds = %727, %733
   store i32 %spec.select.i275, ptr %13, align 4
   %738 = zext nneg i32 %spec.select.i275 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %242, ptr nonnull align 4 %334, i64 %738, i1 false)
-  %739 = getelementptr inbounds nuw [1024 x i8], ptr %242, i64 0, i64 %738
+  %739 = getelementptr inbounds nuw i8, ptr %242, i64 %738
   store i8 0, ptr %739, align 1
   store i32 %spec.select.i275, ptr %11, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %240, ptr nonnull align 4 %242, i64 %738, i1 false)
-  %740 = getelementptr inbounds nuw [1024 x i8], ptr %240, i64 0, i64 %738
+  %740 = getelementptr inbounds nuw i8, ptr %240, i64 %738
   store i8 0, ptr %740, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %741 = icmp ugt i32 %737, 1017
@@ -4530,11 +4530,11 @@ _ZN8aiString6AppendEPKc.exit278:                  ; preds = %736, %742
   store i32 %spec.select.i279, ptr %14, align 4
   %747 = zext nneg i32 %spec.select.i279 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %243, ptr nonnull align 4 %334, i64 %747, i1 false)
-  %748 = getelementptr inbounds nuw [1024 x i8], ptr %243, i64 0, i64 %747
+  %748 = getelementptr inbounds nuw i8, ptr %243, i64 %747
   store i8 0, ptr %748, align 1
   store i32 %spec.select.i279, ptr %11, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %240, ptr nonnull align 4 %243, i64 %747, i1 false)
-  %749 = getelementptr inbounds nuw [1024 x i8], ptr %240, i64 0, i64 %747
+  %749 = getelementptr inbounds nuw i8, ptr %240, i64 %747
   store i8 0, ptr %749, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %750 = icmp ugt i32 %746, 1017
@@ -5194,12 +5194,12 @@ define hidden void @_ZN6Assimp11MD5Importer17AttachChilds_MeshEiP6aiNodeRSt6vect
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %73 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %51, ptr nonnull align 4 %72, i64 %73, i1 false)
-  %74 = getelementptr inbounds nuw [1024 x i8], ptr %51, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 %73
   store i8 0, ptr %74, align 1
   store i32 %spec.select.i, ptr %65, align 4
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %75, ptr nonnull align 4 %51, i64 %73, i1 false)
-  %76 = getelementptr inbounds nuw [1024 x i8], ptr %75, i64 0, i64 %73
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %73
   store i8 0, ptr %76, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 1096
@@ -5882,12 +5882,12 @@ define hidden void @_ZN6Assimp11MD5Importer17AttachChilds_AnimEiP6aiNodeRSt6vect
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %73 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %52, ptr nonnull align 4 %72, i64 %73, i1 false)
-  %74 = getelementptr inbounds nuw [1024 x i8], ptr %52, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %52, i64 %73
   store i8 0, ptr %74, align 1
   store i32 %spec.select.i, ptr %65, align 4
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %75, ptr nonnull align 4 %52, i64 %73, i1 false)
-  %76 = getelementptr inbounds nuw [1024 x i8], ptr %75, i64 0, i64 %73
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %73
   store i8 0, ptr %76, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 1096

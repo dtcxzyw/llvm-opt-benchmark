@@ -3350,7 +3350,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i60.i: ; preds = %if.then5.i
   %type_.i.i.i61.i = getelementptr inbounds nuw i8, ptr %363, i64 2
   %372 = load i8, ptr %type_.i.i.i61.i, align 2, !noalias !6
   %idxprom.i.i.i.i.i = zext i8 %372 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i.i.i.i.i
   %373 = load i32, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !6
   br label %invoke.cont35.i
 
@@ -4383,7 +4383,7 @@ for.body354:                                      ; preds = %for.body354.prehead
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body354
   %__i.06.i.i.i = phi i64 [ 0, %for.body354 ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %for.body354 ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6google8protobuf8internal17TailCallTableInfo13FastFieldInfo5EmptyEJS5_NS4_5FieldENS4_8NonFieldEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6google8protobuf8internal17TailCallTableInfo13FastFieldInfo5EmptyEJS5_NS4_5FieldENS4_8NonFieldEEEmv.__found, i64 %__i.06.i.i.i
   %480 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %480 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i821, label %for.inc.i.i.i

@@ -181,7 +181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %59 = lshr i64 %28, %58
   %60 = lshr i64 %59, 4
   %61 = and i64 %60, 15
-  %62 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !13, !noalias !18
   %64 = load i64, ptr %32, align 8, !tbaa !10, !alias.scope !18
   %65 = add i64 %64, 1
@@ -217,7 +217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i.i: ; pr
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %65
   store i8 0, ptr %77, align 1, !tbaa !13
   %78 = and i64 %59, 15
-  %79 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !13, !noalias !18
   %81 = load i64, ptr %32, align 8, !tbaa !10, !alias.scope !18
   %82 = add i64 %81, 1
@@ -320,7 +320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit63.i: ; pr
   %119 = lshr i64 %30, %118
   %120 = lshr i64 %119, 4
   %121 = and i64 %120, 15
-  %122 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !13, !noalias !18
   %124 = load i64, ptr %32, align 8, !tbaa !10, !alias.scope !18
   %125 = add i64 %124, 1
@@ -356,7 +356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i65.i: ; 
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 %125
   store i8 0, ptr %137, align 1, !tbaa !13
   %138 = and i64 %119, 15
-  %139 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !13, !noalias !18
   %141 = load i64, ptr %32, align 8, !tbaa !10, !alias.scope !18
   %142 = add i64 %141, 1

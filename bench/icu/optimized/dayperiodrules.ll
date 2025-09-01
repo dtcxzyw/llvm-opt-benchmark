@@ -887,7 +887,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
 .preheader.i:                                     ; preds = %7, %17
   %.02042.i = phi i32 [ %18, %17 ], [ 22, %7 ]
   %14 = zext nneg i32 %.02042.i to i64
-  %15 = getelementptr inbounds nuw [24 x i32], ptr %8, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !34
   %.not24.i = icmp eq i32 %16, %1
   br i1 %.not24.i, label %17, label %20
@@ -903,7 +903,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
 
 .preheader37.i:                                   ; preds = %7, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %7 ]
-  %22 = getelementptr inbounds nuw [24 x i32], ptr %8, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = icmp eq i32 %23, %1
   br i1 %24, label %.loopexit.loopexit.i, label %25
@@ -943,7 +943,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
 
 .preheader.i23:                                   ; preds = %28, %37
   %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i27, %37 ], [ 1, %28 ]
-  %35 = getelementptr inbounds nuw [24 x i32], ptr %29, i64 0, i64 %indvars.iv.i24
+  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i24
   %36 = load i32, ptr %35, align 4, !tbaa !34
   %.not24.i25 = icmp eq i32 %36, %1
   br i1 %.not24.i25, label %37, label %.loopexit.loopexit.i26
@@ -956,7 +956,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
 .preheader37.i21:                                 ; preds = %28, %42
   %.041.i = phi i32 [ %43, %42 ], [ 23, %28 ]
   %38 = zext nneg i32 %.041.i to i64
-  %39 = getelementptr inbounds nuw [24 x i32], ptr %29, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %29, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !34
   %41 = icmp eq i32 %40, %1
   br i1 %41, label %44, label %42
@@ -1028,7 +1028,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules24getS
 .preheader:                                       ; preds = %8, %18
   %.02042 = phi i32 [ %19, %18 ], [ 22, %8 ]
   %15 = zext nneg i32 %.02042 to i64
-  %16 = getelementptr inbounds nuw [24 x i32], ptr %9, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !34
   %.not24 = icmp eq i32 %17, %1
   br i1 %.not24, label %18, label %21
@@ -1044,7 +1044,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules24getS
 
 .preheader37:                                     ; preds = %8, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %8 ]
-  %23 = getelementptr inbounds nuw [24 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !34
   %25 = icmp eq i32 %24, %1
   br i1 %25, label %.loopexit.loopexit, label %26
@@ -1094,7 +1094,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules22getE
 
 .preheader:                                       ; preds = %8, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 1, %8 ]
-  %15 = getelementptr inbounds nuw [24 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !34
   %.not24 = icmp eq i32 %16, %1
   br i1 %.not24, label %17, label %.loopexit.loopexit
@@ -1107,7 +1107,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules22getE
 .preheader37:                                     ; preds = %8, %22
   %.041 = phi i32 [ %23, %22 ], [ 23, %8 ]
   %18 = zext nneg i32 %.041 to i64
-  %19 = getelementptr inbounds nuw [24 x i32], ptr %9, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !34
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %24, label %22
@@ -1237,7 +1237,7 @@ define void @_ZN6icu_7714DayPeriodRules3addEiiNS0_9DayPeriodE(ptr noundef nonnul
   %7 = icmp eq i32 %.08, 24
   %spec.store.select = select i1 %7, i32 0, i32 %.08
   %8 = sext i32 %spec.store.select to i64
-  %9 = getelementptr inbounds [24 x i32], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr %5, i64 %8
   store i32 %3, ptr %9, align 4, !tbaa !34
   %10 = add nsw i32 %spec.store.select, 1
   %.not = icmp eq i32 %10, %2
@@ -1251,7 +1251,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7714DayPeriodRules14allHoursAr
 
 3:                                                ; preds = %3, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [24 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !34
   %.not = icmp ne i32 %5, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1960,7 +1960,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.
   %.0.i.ph.i = phi i32 [ %141, %137 ], [ %131, %133 ]
   %144 = shl nuw nsw i32 1, %.0.i
   %145 = sext i32 %.0.i.ph.i to i64
-  %146 = getelementptr inbounds [25 x i32], ptr %27, i64 0, i64 %145
+  %146 = getelementptr inbounds i32, ptr %27, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !12
   %148 = or i32 %147, %144
   store i32 %148, ptr %146, align 4, !tbaa !12
@@ -2143,7 +2143,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.
   %.0.i.ph.i110 = phi i32 [ %224, %220 ], [ %214, %216 ]
   %227 = shl nuw i32 1, %175
   %228 = sext i32 %.0.i.ph.i110 to i64
-  %229 = getelementptr inbounds [25 x i32], ptr %27, i64 0, i64 %228
+  %229 = getelementptr inbounds i32, ptr %27, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !12
   %231 = or i32 %230, %227
   store i32 %231, ptr %229, align 4, !tbaa !12
@@ -2179,7 +2179,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_
 
 245:                                              ; preds = %_ZN6icu_7714DayPeriodRules3addEiiNS0_9DayPeriodE.exit.thread.i, %.critedge78
   %indvars.iv.i114 = phi i64 [ 0, %.critedge78 ], [ %indvars.iv.next.i119, %_ZN6icu_7714DayPeriodRules3addEiiNS0_9DayPeriodE.exit.thread.i ]
-  %246 = getelementptr inbounds nuw [25 x i32], ptr %27, i64 0, i64 %indvars.iv.i114
+  %246 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i114
   %247 = load i32, ptr %246, align 4, !tbaa !12
   %248 = and i32 %247, 8
   %.not.i115 = icmp eq i32 %248, 0
@@ -2226,7 +2226,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_
   %263 = icmp eq i32 %.0.i118, 25
   %spec.store.select.i = select i1 %263, i32 0, i32 %.0.i118
   %264 = sext i32 %spec.store.select.i to i64
-  %265 = getelementptr inbounds [25 x i32], ptr %27, i64 0, i64 %264
+  %265 = getelementptr inbounds i32, ptr %27, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !12
   %267 = and i32 %266, 1
   %.not28.i = icmp eq i32 %267, 0
@@ -2243,7 +2243,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_
   %271 = icmp eq i32 %.08.i.i, 24
   %spec.store.select.i.i = select i1 %271, i32 0, i32 %.08.i.i
   %272 = sext i32 %spec.store.select.i.i to i64
-  %273 = getelementptr inbounds [24 x i32], ptr %244, i64 0, i64 %272
+  %273 = getelementptr inbounds i32, ptr %244, i64 %272
   store i32 %269, ptr %273, align 4, !tbaa !34
   %274 = add nsw i32 %spec.store.select.i.i, 1
   %.not.i.i = icmp eq i32 %274, %spec.store.select.i
@@ -2285,7 +2285,7 @@ _ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCod
 
 283:                                              ; preds = %283, %.critedge82
   %indvars.iv.i120 = phi i64 [ 0, %.critedge82 ], [ %indvars.iv.next.i122, %283 ]
-  %284 = getelementptr inbounds nuw [24 x i32], ptr %282, i64 0, i64 %indvars.iv.i120
+  %284 = getelementptr inbounds nuw i32, ptr %282, i64 %indvars.iv.i120
   %285 = load i32, ptr %284, align 4, !tbaa !34
   %.not.i121 = icmp ne i32 %285, -1
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i120, 1

@@ -4036,7 +4036,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %251, %243
 
 .lr.ph479:                                        ; preds = %.lr.ph479.preheader, %_ZN8rationalD2Ev.exit171
   %indvars.iv = phi i64 [ 1, %.lr.ph479.preheader ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit171 ]
-  %266 = getelementptr inbounds nuw [0 x ptr], ptr %246, i64 0, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv
   %267 = load ptr, ptr %266, align 8, !tbaa !521
   %268 = load ptr, ptr %23, align 8, !tbaa !588
   %269 = getelementptr inbounds nuw %class.rational, ptr %268, i64 %56
@@ -10611,7 +10611,7 @@ _ZNK3euf5enode11num_parentsEv.exit:               ; preds = %_ZNK6vectorIP3appLb
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !521
   %33 = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %32)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64

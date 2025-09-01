@@ -571,7 +571,7 @@ define internal fastcc noundef range(i32 -12, -10) i32 @io_setup_async_msg(ptr n
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2097152
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %67
+  br i1 %7, label %8, label %66
 
 8:                                                ; preds = %3
   %9 = and i32 %2, 2
@@ -621,7 +621,7 @@ define internal fastcc noundef range(i32 -12, -10) i32 @io_setup_async_msg(ptr n
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %32 = load ptr, ptr %31, align 8
   tail call void @kfree(ptr noundef %32) #11
-  br label %67
+  br label %66
 
 33:                                               ; preds = %._crit_edge, %.thread4
   %34 = phi i32 [ %23, %.thread4 ], [ %.pre, %._crit_edge ]
@@ -649,19 +649,19 @@ define internal fastcc noundef range(i32 -12, -10) i32 @io_setup_async_msg(ptr n
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 192
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %67, label %50
+  br i1 %49, label %66, label %50
 
 50:                                               ; preds = %46, %42
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %52 = load i8, ptr %51, align 8
   %53 = icmp eq i8 %52, 1
-  br i1 %53, label %54, label %67
+  br i1 %53, label %54, label %66
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %67
+  br i1 %57, label %58, label %66
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -669,15 +669,14 @@ define internal fastcc noundef range(i32 -12, -10) i32 @io_setup_async_msg(ptr n
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %1 to i64
   %63 = sub i64 %61, %62
-  %64 = ashr exact i64 %63, 4
-  %65 = getelementptr [8 x %struct.iovec], ptr %35, i64 0, i64 %64
-  %66 = getelementptr inbounds nuw i8, ptr %35, i64 176
-  store ptr %65, ptr %66, align 8
-  br label %67
+  %64 = getelementptr i8, ptr %35, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 176
+  store ptr %64, ptr %65, align 8
+  br label %66
 
-67:                                               ; preds = %58, %54, %50, %46, %.thread3, %3
-  %68 = phi i32 [ -12, %.thread3 ], [ -11, %3 ], [ -11, %46 ], [ -11, %58 ], [ -11, %54 ], [ -11, %50 ]
-  ret i32 %68
+66:                                               ; preds = %58, %54, %50, %46, %.thread3, %3
+  %67 = phi i32 [ -12, %.thread3 ], [ -11, %3 ], [ -11, %46 ], [ -11, %58 ], [ -11, %54 ], [ -11, %50 ]
+  ret i32 %67
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3145,7 +3144,7 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   %59 = and i32 %58, -4096
   %60 = add i32 %59, %41
   %61 = add nuw nsw i64 %39, 1
-  %62 = getelementptr [17 x %struct.bio_vec], ptr %35, i64 0, i64 %39
+  %62 = getelementptr %struct.bio_vec, ptr %35, i64 %39
   store ptr %47, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 %54, ptr %63, align 4

@@ -342,7 +342,7 @@ define dso_local ptr @next_arg(ptr noundef %0, ptr noundef writeonly captures(no
 
 10:                                               ; preds = %3
   %11 = zext i8 %8 to i64
-  %12 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %11
+  %12 = getelementptr i8, ptr @_ctype, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 32
   %15 = icmp eq i8 %14, 0
@@ -359,7 +359,7 @@ define dso_local ptr @next_arg(ptr noundef %0, ptr noundef writeonly captures(no
   %22 = zext i1 %21 to i32
   %23 = select i1 %20, i32 %22, i32 %35
   %24 = zext i8 %44 to i64
-  %25 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @_ctype, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 32
   %28 = icmp eq i8 %27, 0

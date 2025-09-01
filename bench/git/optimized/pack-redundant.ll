@@ -2284,7 +2284,7 @@ llist_item_get.exit.i:                            ; preds = %19, %15
 
 33:                                               ; preds = %.preheader80, %35
   %.0811.i.i.i = phi i64 [ %36, %35 ], [ 0, %.preheader80 ]
-  %34 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %34 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %25, %34
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %35
 
@@ -2400,7 +2400,7 @@ llist_item_get.exit.i.i:                          ; preds = %64, %60
 
 78:                                               ; preds = %.preheader, %80
   %.0811.i.i.i.i = phi i64 [ %81, %80 ], [ 0, %.preheader ]
-  %79 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %79 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %70, %79
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %80
 
@@ -2630,7 +2630,7 @@ llist_item_get.exit.i.i:                          ; preds = %38, %34
 
 52:                                               ; preds = %.preheader, %54
   %.0811.i.i.i.i = phi i64 [ %55, %54 ], [ 0, %.preheader ]
-  %53 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %53 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %44, %53
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %54
 

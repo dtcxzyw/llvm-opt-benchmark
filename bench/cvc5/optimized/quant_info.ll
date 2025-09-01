@@ -873,7 +873,7 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
   %177 = icmp eq i32 %175, 2
   %178 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %179 = zext i1 %177 to i64
-  %180 = getelementptr inbounds nuw [0 x ptr], ptr %178, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !4, !noalias !75
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load i64, ptr %182, align 8
@@ -1035,7 +1035,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval9QuantInfo15compu
   %32 = icmp eq i32 %31, 2
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %34 = zext i1 %32 to i64
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !4, !noalias !80
   %37 = load ptr, ptr %1, align 8, !tbaa !49
   %.not.i = icmp eq ptr %37, %36

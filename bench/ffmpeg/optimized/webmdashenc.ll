@@ -836,7 +836,7 @@ get_duration.exit:                                ; preds = %209, %191
 
 bitstream_switching.exit.i:                       ; preds = %.critedge.i.i, %375, %369, %365, %360, %347, %.preheader.i.i, %328
   %.0.i.i = phi i64 [ 0, %328 ], [ 1, %.preheader.i.i ], [ 0, %347 ], [ 0, %360 ], [ 0, %365 ], [ 0, %369 ], [ 0, %375 ], [ 1, %.critedge.i.i ]
-  %383 = getelementptr inbounds nuw [2 x [6 x i8]], ptr @write_adaptation_set.boolean, i64 0, i64 %.0.i.i
+  %383 = getelementptr inbounds nuw [6 x i8], ptr @write_adaptation_set.boolean, i64 %.0.i.i
   %384 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %236, ptr noundef nonnull @.str.65, ptr noundef nonnull %383) #9
   %385 = load i32, ptr %239, align 8, !tbaa !55
   %.not132.i = icmp eq i32 %385, 0
@@ -897,7 +897,7 @@ bitstream_switching.exit.i:                       ; preds = %.critedge.i.i, %375
 
 subsegment_alignment.exit.i:                      ; preds = %.critedge.i164.i, %404, %400, %.preheader.i160.i, %386, %bitstream_switching.exit.i
   %419 = phi i64 [ 1, %bitstream_switching.exit.i ], [ 0, %386 ], [ 1, %.preheader.i160.i ], [ 0, %404 ], [ 0, %.critedge.i164.i ], [ 1, %400 ]
-  %420 = getelementptr inbounds nuw [2 x [6 x i8]], ptr @write_adaptation_set.boolean, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw [6 x i8], ptr @write_adaptation_set.boolean, i64 %419
   %421 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %236, ptr noundef nonnull @.str.66, ptr noundef nonnull %420) #9
   %422 = getelementptr inbounds nuw i8, ptr %226, i64 24
   %423 = load i32, ptr %422, align 8, !tbaa !47

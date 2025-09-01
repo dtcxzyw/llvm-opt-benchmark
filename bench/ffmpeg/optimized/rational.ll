@@ -440,7 +440,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %9
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %10
   %11 = zext nneg i32 %.110.i to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = zext i8 %13 to i32
   %.not.i42 = icmp samesign ult i32 %.sroa.0.1, 65536
@@ -453,7 +453,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %.110.i46 = select i1 %.not11.i45, i32 %spec.select.i43, i32 %16
   %.1.i47.neg54 = select i1 %.not11.i45, i32 %spec.select12.i44.neg, i32 %.neg53
   %17 = zext nneg i32 %.110.i46 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = zext i8 %19 to i32
   %.neg52 = add nsw i32 %.1.i47.neg54, 23

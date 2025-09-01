@@ -10792,7 +10792,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 104:                                              ; preds = %.lr.ph, %131
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
   %.03477 = phi i1 [ false, %.lr.ph ], [ %138, %131 ]
-  %105 = getelementptr inbounds nuw [0 x ptr], ptr %102, i64 0, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8, !tbaa !226
   %.not.i52 = icmp eq ptr %106, null
   br i1 %.not.i52, label %110, label %_ZN11ast_manager7inc_refEP3ast.exit.i53

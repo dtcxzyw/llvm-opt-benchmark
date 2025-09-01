@@ -401,7 +401,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr readnone captures(none) 
 
 57:                                               ; preds = %68, %51
   %58 = phi i64 [ 0, %51 ], [ %78, %68 ]
-  %59 = getelementptr [3 x %struct.tree_descr], ptr @sel_make_avc_files.files, i64 0, i64 %58
+  %59 = getelementptr %struct.tree_descr, ptr @sel_make_avc_files.files, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @d_alloc_name(ptr noundef %45, ptr noundef %60) #14
   %.not = icmp eq ptr %61, null
@@ -567,7 +567,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr readnone captures(none) 
 154:                                              ; preds = %164, %152
   %155 = phi i64 [ 0, %152 ], [ %169, %164 ]
   %156 = load ptr, ptr %147, align 8
-  %157 = getelementptr [9 x ptr], ptr @selinux_policycap_names, i64 0, i64 %155
+  %157 = getelementptr ptr, ptr @selinux_policycap_names, i64 %155
   %158 = load ptr, ptr %157, align 8
   %159 = tail call ptr @d_alloc_name(ptr noundef %156, ptr noundef %158) #14
   %.not27 = icmp eq ptr %159, null
@@ -1797,7 +1797,7 @@ define internal i64 @selinux_transaction_write(ptr noundef %0, ptr noundef %1, i
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr [15 x ptr], ptr @write_op, i64 0, i64 %8
+  %11 = getelementptr ptr, ptr @write_op, i64 %8
   %12 = shl nuw nsw i64 1, %8
   %13 = and i64 %12, 15391
   %14 = icmp eq i64 %13, 0
@@ -3549,8 +3549,8 @@ define internal ptr @sel_avc_stats_seq_start(ptr readnone captures(none) %0, ptr
 
 17:                                               ; preds = %12
   %18 = shl nuw i64 %13, 32
-  %19 = ashr exact i64 %18, 32
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
+  %19 = ashr exact i64 %18, 29
+  %20 = getelementptr i8, ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @avc_cache_stats to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -3598,8 +3598,8 @@ define internal ptr @sel_avc_stats_seq_next(ptr readnone captures(none) %0, ptr 
   %17 = add i64 %16, 4294967296
   %18 = ashr exact i64 %17, 32
   store i64 %18, ptr %2, align 8
-  %19 = ashr exact i64 %16, 32
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
+  %19 = ashr exact i64 %16, 29
+  %20 = getelementptr i8, ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @avc_cache_stats to i64)
   %23 = inttoptr i64 %22 to ptr

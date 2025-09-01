@@ -12617,7 +12617,7 @@ define noundef range(i64 -1, 7) i64 @_ZN6casadi10Integrator10adjmap_outEx(i64 no
 
 switch.lookup:                                    ; preds = %1
   %4 = and i64 %0, 7
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN6casadi10Integrator10adjmap_outEx, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6casadi10Integrator10adjmap_outEx, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %5
 

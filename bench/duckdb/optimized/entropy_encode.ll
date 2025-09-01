@@ -35,7 +35,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli14BrotliSetDepthEiPNS_11Hu
   %15 = load i16, ptr %14, align 2, !tbaa !10
   %16 = sext i16 %15 to i32
   %17 = sext i32 %13 to i64
-  %18 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %5, i64 %17
   store i32 %16, ptr %18, align 4, !tbaa !3
   %19 = zext nneg i16 %9 to i32
   br label %.backedge.backedge
@@ -58,7 +58,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli14BrotliSetDepthEiPNS_11Hu
 .lr.ph:                                           ; preds = %20, %31
   %.126 = phi i32 [ %32, %31 ], [ %.021, %20 ]
   %27 = zext nneg i32 %.126 to i64
-  %28 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %31, label %.critedge
@@ -69,7 +69,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli14BrotliSetDepthEiPNS_11Hu
   br i1 %33, label %.lr.ph, label %.critedge.thread, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %27
+  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %27
   store i32 -1, ptr %34, align 4, !tbaa !3
   br label %.backedge.backedge
 
@@ -184,7 +184,7 @@ _ZL15SortHuffmanTreePKN13duckdb_brotli11HuffmanTreeES2_.exit: ; preds = %29
 
 46:                                               ; preds = %43, %._crit_edge131
   %indvars.iv = phi i64 [ %45, %43 ], [ %indvars.iv.next, %._crit_edge131 ]
-  %47 = getelementptr inbounds nuw [6 x i64], ptr @_ZN13duckdb_brotli16kBrotliShellGapsE, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_brotli16kBrotliShellGapsE, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8, !tbaa !19
   %49 = icmp ult i64 %48, %.1
   br i1 %49, label %.lr.ph130, label %._crit_edge131
@@ -322,7 +322,7 @@ _ZL15SortHuffmanTreePKN13duckdb_brotli11HuffmanTreeES2_.exit83: ; preds = %.lr.p
   %105 = load i16, ptr %104, align 2, !tbaa !10
   %106 = sext i16 %105 to i32
   %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %107
+  %108 = getelementptr inbounds i32, ptr %6, i64 %107
   store i32 %106, ptr %108, align 4, !tbaa !3
   %109 = zext nneg i16 %99 to i32
   br label %.backedge.i.backedge
@@ -340,7 +340,7 @@ _ZL15SortHuffmanTreePKN13duckdb_brotli11HuffmanTreeES2_.exit83: ; preds = %.lr.p
 .lr.ph.i:                                         ; preds = %110, %121
   %.126.i = phi i32 [ %122, %121 ], [ %.021.i, %110 ]
   %117 = zext nneg i32 %.126.i to i64
-  %118 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i32, ptr %6, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !3
   %120 = icmp eq i32 %119, -1
   br i1 %120, label %121, label %.critedge.i85
@@ -351,7 +351,7 @@ _ZL15SortHuffmanTreePKN13duckdb_brotli11HuffmanTreeES2_.exit83: ; preds = %.lr.p
   br i1 %123, label %.lr.ph.i, label %_ZN13duckdb_brotli14BrotliSetDepthEiPNS_11HuffmanTreeEPhi.exit.thread, !llvm.loop !14
 
 .critedge.i85:                                    ; preds = %.lr.ph.i
-  %124 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %117
+  %124 = getelementptr inbounds nuw i32, ptr %6, i64 %117
   store i32 -1, ptr %124, align 4, !tbaa !3
   br label %.backedge.i.backedge
 
@@ -1121,7 +1121,7 @@ define void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.02124
   %7 = load i8, ptr %6, align 1, !tbaa !13
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr %4, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !43
   %11 = add i16 %10, 1
   store i16 %11, ptr %9, align 2, !tbaa !43
@@ -1139,12 +1139,12 @@ define void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr noun
 13:                                               ; preds = %._crit_edge, %13
   %.026 = phi i16 [ 0, %._crit_edge ], [ %18, %13 ]
   %.125 = phi i64 [ 1, %._crit_edge ], [ %20, %13 ]
-  %14 = add nsw i64 %.125, -1
-  %15 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %14
+  %14 = getelementptr i16, ptr %4, i64 %.125
+  %15 = getelementptr i8, ptr %14, i64 -2
   %16 = load i16, ptr %15, align 2, !tbaa !43
   %17 = add i16 %16, %.026
   %18 = shl i16 %17, 1
-  %19 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 0, i64 %.125
+  %19 = getelementptr inbounds nuw i16, ptr %5, i64 %.125
   store i16 %18, ptr %19, align 2, !tbaa !43
   %20 = add nuw nsw i64 %.125, 1
   %exitcond32.not = icmp eq i64 %20, 16
@@ -1159,13 +1159,13 @@ define void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr noun
 
 23:                                               ; preds = %.lr.ph28
   %24 = zext i8 %22 to i64
-  %25 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr %5, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !43
   %27 = add i16 %26, 1
   store i16 %27, ptr %25, align 2, !tbaa !43
   %28 = and i16 %26, 15
   %29 = zext nneg i16 %28 to i64
-  %30 = getelementptr inbounds nuw [16 x i64], ptr @_ZZL17BrotliReverseBitsmtE4kLut, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr @_ZZL17BrotliReverseBitsmtE4kLut, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !19
   %32 = icmp ugt i8 %22, 4
   br i1 %32, label %.lr.ph.i, label %_ZL17BrotliReverseBitsmt.exit
@@ -1178,7 +1178,7 @@ define void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr noun
   %34 = lshr i16 %.01214.i, 4
   %35 = and i16 %34, 15
   %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw [16 x i64], ptr @_ZZL17BrotliReverseBitsmtE4kLut, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i64, ptr @_ZZL17BrotliReverseBitsmtE4kLut, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !19
   %39 = or i64 %38, %33
   %40 = add nuw nsw i64 %.016.i, 4

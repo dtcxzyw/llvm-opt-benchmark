@@ -292,7 +292,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_mixTraceArray___spec__1___rarg(p
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %lean_dec.exit.us
   %.01734.us = phi i64 [ %25, %lean_dec.exit.us ], [ %2, %.lr.ph ]
   %.01933.us = phi ptr [ %24, %lean_dec.exit.us ], [ %4, %.lr.ph ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.01734.us
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01734.us
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -344,7 +344,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
   %.01933 = phi ptr [ %36, %lean_array_uget.exit ], [ %4, %.lr.ph ]
-  %26 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.01734
+  %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01734
   %27 = load ptr, ptr %26, align 8, !tbaa !9
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
@@ -1869,7 +1869,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayTrace___spec__1___ra
 
 lean_inc.exit64:                                  ; preds = %20, %19, %17, %10
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %6
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %6
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -2728,7 +2728,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instComputeTraceArrayOfMonad___s
 
 lean_inc.exit57:                                  ; preds = %18, %17, %15, %8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %4
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %4
   %21 = load ptr, ptr %20, align 8, !tbaa !9
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -6317,7 +6317,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_computeArrayHash___spec__1___rar
 
 lean_inc.exit52:                                  ; preds = %17, %16, %14, %7
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %3
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %3
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1

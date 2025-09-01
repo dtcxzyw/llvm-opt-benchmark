@@ -190,7 +190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit23: ; preds
 
 75:                                               ; preds = %79, %74
   %.08.i3.i.i.i.i = phi i64 [ 0, %74 ], [ %80, %79 ]
-  %76 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i3.i.i.i.i
+  %76 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i3.i.i.i.i
   %77 = load i64, ptr %76, align 8, !tbaa !22
   %78 = icmp ult i64 %3, %77
   br i1 %78, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i, label %79, !prof !23
@@ -215,7 +215,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i: ; preds = %75
   %83 = add i64 %.014.i4.i.i.i.i, -2
   %84 = udiv i64 %.0.i5.i.i.i.i, 100
   %85 = urem i64 %.0.i5.i.i.i.i, 100
-  %86 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !27
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 %83
   store i16 %87, ptr %88, align 1
@@ -226,7 +226,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i: ; preds = %75
   %spec.select.i11.i.i.i.i = phi i64 [ %81, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i ], [ %spec.select.i12.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %81, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i ], [ %83, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %3, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %90 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
+  %90 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %91 = load i16, ptr %90, align 2, !tbaa !27
   %92 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %92, label %93, label %94, !prof !23
@@ -308,7 +308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %124 = load i8, ptr %123, align 1, !tbaa !16
   %125 = lshr i8 %124, 4
   %126 = zext nneg i8 %125 to i64
-  %127 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !16
   %129 = load i64, ptr %97, align 8, !tbaa !7
   %130 = add i64 %129, 1
@@ -343,7 +343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit11.i: ; pr
   %143 = load i8, ptr %123, align 1, !tbaa !16
   %144 = and i8 %143, 15
   %145 = zext nneg i8 %144 to i64
-  %146 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !16
   %148 = load i64, ptr %97, align 8, !tbaa !7
   %149 = add i64 %148, 1

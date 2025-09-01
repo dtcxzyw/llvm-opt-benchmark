@@ -150,7 +150,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h9361872
 define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17h4eea33d20597bd6fE.llvm.5600706966749493971(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
   %3 = lshr i64 %0, 1
   %4 = and i64 %3, 7
-  %5 = getelementptr inbounds nuw [8 x i8], ptr @anon.d126d3296d9517d5518575f231663373.0.llvm.5600706966749493971, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @anon.d126d3296d9517d5518575f231663373.0.llvm.5600706966749493971, i64 %4
   %6 = load i8, ptr %5, align 1, !noundef !7
   %7 = zext i8 %6 to i64
   %.not6 = icmp ugt i64 %1, 16

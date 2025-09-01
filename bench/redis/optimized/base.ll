@@ -130,7 +130,7 @@ define hidden noundef ptr @je_base_new(ptr noundef %0, i32 noundef %1, ptr nound
 
 50:                                               ; preds = %31, %50
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw [235 x %struct.edata_heap_t], ptr %38, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %38, i64 %indvars.iv
   call void @je_edata_heap_new(ptr noundef nonnull %51) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 235
@@ -187,7 +187,7 @@ sz_psz2u.exit:                                    ; preds = %7, %20
   %37 = icmp ult i32 %36, 198
   %spec.select = select i1 %37, i32 %36, i32 %35
   %38 = zext i32 %spec.select to i64
-  %39 = getelementptr inbounds nuw [200 x i64], ptr @je_sz_pind2sz_tab, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !11
   %41 = add i64 %40, 2097151
   %42 = tail call i64 @llvm.umax.i64(i64 %.0.i53, i64 %41)
@@ -854,7 +854,7 @@ define internal fastcc void @base_extent_bump_alloc_post(ptr noundef %0, ptr nou
 10:                                               ; preds = %7
   %11 = add nsw i64 %.val, 8
   %12 = lshr i64 %11, 3
-  %13 = getelementptr inbounds nuw [0 x i8], ptr @je_sz_size2index_tab, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !16
   %15 = zext i8 %14 to i64
   br label %sz_size2index.exit
@@ -882,7 +882,7 @@ sz_size2index.exit:                               ; preds = %18, %16, %10
   %29 = add nuw nsw i64 %.0.i, 4294967295
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = and i64 %29, 4294967295
-  %32 = getelementptr inbounds nuw [235 x %struct.edata_heap_t], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %30, i64 %31
   tail call void @je_edata_heap_insert(ptr noundef nonnull %32, ptr noundef nonnull %1) #9
   br label %33
 
@@ -1030,7 +1030,7 @@ malloc_mutex_lock.exit:                           ; preds = %19, %25
 30:                                               ; preds = %malloc_mutex_lock.exit
   %31 = add nsw i64 %12, -1
   %32 = lshr i64 %31, 3
-  %33 = getelementptr inbounds nuw [0 x i8], ptr @je_sz_size2index_tab, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !16
   %35 = zext i8 %34 to i32
   br label %sz_size2index.exit
@@ -1073,7 +1073,7 @@ sz_size2index.exit:                               ; preds = %38, %30
 
 56:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ %54, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %57 = getelementptr inbounds nuw [235 x %struct.edata_heap_t], ptr %53, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %53, i64 %indvars.iv
   %58 = tail call ptr @je_edata_heap_remove_first(ptr noundef nonnull %57) #9
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %55, label %.loopexit

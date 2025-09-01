@@ -190,7 +190,7 @@ define dso_local range(i32 0, 4) i32 @linker_find_linker_type() local_unnamed_ad
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table.linker_find_linker_type, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.linker_find_linker_type, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 
@@ -413,7 +413,7 @@ define dso_local void @platform_linker(ptr noundef %0, ptr noundef readonly capt
 
 switch.lookup:                                    ; preds = %29
   %70 = zext nneg i32 %38 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.platform_linker, i64 0, i64 %70
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.platform_linker, i64 %70
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %71
 

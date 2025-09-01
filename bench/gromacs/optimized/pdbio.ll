@@ -143,7 +143,7 @@ $_ZSt19piecewise_construct = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString13PdbRecordType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -805,7 +805,7 @@ _ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit: ; pre
   %243 = srem i32 %226, 100000
   %244 = srem i32 %.0130, 10000
   %245 = zext nneg i32 %176 to i64
-  %246 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !4
   %248 = sext i8 %.0129 to i32
   %249 = fpext float %231 to double
@@ -1105,7 +1105,7 @@ define noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3
   %44 = srem i32 %2, 100000
   %45 = srem i32 %7, 10000
   %46 = zext nneg i32 %1 to i64
-  %47 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %49 = sext i8 %4 to i32
   %50 = sext i8 %6 to i32
@@ -1610,7 +1610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
 
 .lr.ph:                                           ; preds = %167, %.critedge2
   %.047183 = phi i64 [ %173, %.critedge2 ], [ 0, %167 ]
-  %169 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %.047183
+  %169 = getelementptr inbounds nuw i8, ptr %6, i64 %.047183
   %170 = load i8, ptr %169, align 1, !tbaa !13
   %171 = sext i8 %170 to i32
   %172 = call i32 @isspace(i32 noundef %171) #31
@@ -1627,7 +1627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %167
   %.047.lcssa = phi i64 [ 0, %167 ], [ %.047183, %.lr.ph ], [ %168, %.critedge2 ]
-  %174 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %.047.lcssa
+  %174 = getelementptr inbounds nuw i8, ptr %6, i64 %.047.lcssa
   %175 = load i8, ptr %174, align 1, !tbaa !13
   store i8 %175, ptr %7, align 1, !tbaa !13
   store i8 0, ptr %26, align 1, !tbaa !13
@@ -2169,8 +2169,8 @@ define noundef zeroext i1 @_Z12is_dummymassPKc(ptr noundef readonly captures(non
 
 6:                                                ; preds = %1
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
-  %8 = add i64 %7, -1
-  %9 = getelementptr inbounds nuw [30 x i8], ptr %2, i64 0, i64 %8
+  %8 = getelementptr i8, ptr %2, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -1
   %10 = load i8, ptr %9, align 1, !tbaa !13
   %11 = sext i8 %10 to i32
   %isdigittmp = add nsw i32 %11, -48
@@ -3759,7 +3759,7 @@ define linkonce_odr void @_ZN3gmx26StringToEnumValueConverterI13PdbRecordTypeXad
   %.sroa.031.049 = phi i32 [ 0, %1 ], [ %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = zext nneg i32 %.sroa.031.049 to i64
-  %20 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString13PdbRecordTypeE17pdbRecordTypeName, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   store ptr %13, ptr %6, align 8, !tbaa !36
   %22 = icmp eq ptr %21, null
@@ -4917,7 +4917,7 @@ define noundef ptr @_Z19gmx_conect_generatePK10t_topology(ptr noundef readonly c
 
 5:                                                ; preds = %1, %_ZL11IS_CHEMBONDi.exit.thread
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZL11IS_CHEMBONDi.exit.thread ]
-  %6 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 16, !tbaa !135
   %9 = icmp eq i32 %8, 2
@@ -4931,14 +4931,14 @@ _ZL11IS_CHEMBONDi.exit:                           ; preds = %5
   br i1 %.not, label %_ZL11IS_CHEMBONDi.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZL11IS_CHEMBONDi.exit
-  %13 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.t_ilist, ptr %3, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8, !tbaa !138
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %_ZL11IS_CHEMBONDi.exit.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
+  %17 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 2
   %.pre = load i32, ptr %2, align 8, !tbaa !60
   %.pre19 = load ptr, ptr %4, align 8, !tbaa !78
   br label %18

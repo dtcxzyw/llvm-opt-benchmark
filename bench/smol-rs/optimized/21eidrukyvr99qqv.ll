@@ -315,7 +315,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
 
 24:                                               ; preds = %23, %24
   %25 = phi i64 [ 0, %23 ], [ %27, %24 ]
-  %26 = getelementptr inbounds nuw [31 x { ptr, { i64 } }], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %4, i64 %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = add nuw nsw i64 %25, 1
   %exitcond.not = icmp eq i64 %27, 31
@@ -355,7 +355,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
 
 36:                                               ; preds = %35, %36
   %37 = phi i64 [ 0, %35 ], [ %39, %36 ]
-  %38 = getelementptr inbounds nuw [31 x { ptr, { i64 } }], ptr %3, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %3, i64 %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %39 = add nuw nsw i64 %37, 1
   %exitcond153.not = icmp eq i64 %39, 31

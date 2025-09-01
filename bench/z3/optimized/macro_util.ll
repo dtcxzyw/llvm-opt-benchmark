@@ -1279,7 +1279,7 @@ _ZN6bufferIiLb0ELj16EE9push_backERKi.exit.i:      ; preds = %.preheader.i, %_ZN6
 
 50:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %47, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !73
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
@@ -3621,7 +3621,7 @@ _ZN6bufferIbLb0ELj16EE6resizeEjRKb.exit:          ; preds = %_ZN6bufferIbLb0ELj1
 46:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.03458 = phi i32 [ 0, %.lr.ph ], [ %.438.ph, %.thread ]
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !73
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
@@ -4276,7 +4276,7 @@ _ZN6bufferIbLb0ELj16EE6resizeEjRKb.exit:          ; preds = %_ZN6bufferIbLb0ELj1
 57:                                               ; preds = %.lr.ph, %142
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %142 ]
   %.030105 = phi i32 [ %36, %.lr.ph ], [ %.131, %142 ]
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !73
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4
@@ -4957,7 +4957,7 @@ define hidden void @_ZNK10macro_util14normalize_exprEP3appjP4exprR7obj_refIS2_11
 
 25:                                               ; preds = %.outer, %102
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ %indvars.iv.ph, %.outer ]
-  %26 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !88

@@ -3144,7 +3144,7 @@ _ZN5arrow6StatusD2Ev.exit48:                      ; preds = %_ZN5arrow6StatusD2E
   %89 = getelementptr inbounds i8, ptr %85, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !62, !noalias !337
   %91 = srem i64 %87, 8
-  %92 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %91
+  %92 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !62, !noalias !337
   %94 = or i8 %93, %90
   store i8 %94, ptr %89, align 1, !tbaa !62, !noalias !337
@@ -4226,7 +4226,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %20
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !62, !noalias !402
   %43 = srem i64 %39, 8
-  %44 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %43
+  %44 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !62, !noalias !402
   %46 = or i8 %45, %42
   store i8 %46, ptr %41, align 1, !tbaa !62, !noalias !402
@@ -4323,7 +4323,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %9
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !62, !noalias !417
   %34 = srem i64 %30, 8
-  %35 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !62, !noalias !417
   %37 = or i8 %36, %33
   store i8 %37, ptr %32, align 1, !tbaa !62, !noalias !417
@@ -4410,7 +4410,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %9
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !62, !noalias !430
   %34 = srem i64 %30, 8
-  %35 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !62, !noalias !430
   %37 = or i8 %36, %33
   store i8 %37, ptr %32, align 1, !tbaa !62, !noalias !430

@@ -2148,7 +2148,7 @@ rb_vm_search_cf_from_ep.exit.i:                   ; preds = %44, %.lr.ph.i.i, %3
 
 75:                                               ; preds = %97, %.lr.ph263.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph263.i ], [ %indvars.iv.next.i, %97 ]
-  %76 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %74, i64 0, i64 %indvars.iv.i
+  %76 = getelementptr %struct.iseq_catch_table_entry, ptr %74, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 8, !tbaa !140
   %78 = icmp eq i32 %77, 9
   br i1 %78, label %79, label %97
@@ -10129,7 +10129,7 @@ vm_check_keyword.exit:                            ; preds = %1263, %1269, %.crit
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %1293
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.vm_exec_core.111, i64 0, i64 %1294
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.vm_exec_core.111, i64 %1294
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -11311,7 +11311,7 @@ rb_type.exit.i:                                   ; preds = %1831
   br label %rb_class_of.exit.i.i
 
 switch.lookup3550:                                ; preds = %1846
-  %switch.gep3554 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.vm_exec_core.111, i64 0, i64 %1847
+  %switch.gep3554 = getelementptr inbounds nuw i32, ptr @switch.table.vm_exec_core.111, i64 %1847
   %switch.load3555 = load i32, ptr %switch.gep3554, align 4
   br label %1861
 
@@ -15576,7 +15576,7 @@ vm_opt_regexpmatch2.exit.thread:                  ; preds = %4126, %4129, %4084,
   %4152 = getelementptr i8, ptr %.02230, i64 24
   %.02230.val2311 = load i64, ptr %4152, align 8, !tbaa !94
   %.val2312 = load ptr, ptr %4143, align 8, !tbaa !332
-  %4153 = getelementptr [16 x ptr], ptr @lookup_builtin_invoker.invokers, i64 0, i64 %4149
+  %4153 = getelementptr ptr, ptr @lookup_builtin_invoker.invokers, i64 %4149
   %4154 = load ptr, ptr %4153, align 8, !tbaa !179
   %4155 = call i64 %4154(ptr noundef nonnull %0, i64 noundef %.02230.val2311, ptr noundef %4151, ptr noundef %.val2312) #20
   %.val2314 = load i32, ptr %4147, align 8, !tbaa !329
@@ -15628,7 +15628,7 @@ vm_opt_regexpmatch2.exit.thread:                  ; preds = %4126, %4129, %4084,
   %.val13.i = load i64, ptr %4189, align 8, !tbaa !94
   %.val14.i = load ptr, ptr %4164, align 8, !tbaa !332
   %4190 = sext i32 %4169 to i64
-  %4191 = getelementptr [16 x ptr], ptr @lookup_builtin_invoker.invokers, i64 0, i64 %4190
+  %4191 = getelementptr ptr, ptr @lookup_builtin_invoker.invokers, i64 %4190
   %4192 = load ptr, ptr %4191, align 8, !tbaa !179
   %4193 = call i64 %4192(ptr noundef nonnull %0, i64 noundef %.val13.i, ptr noundef %4188, ptr noundef %.val14.i) #20
   br label %vm_invoke_builtin_delegate.exit
@@ -15681,7 +15681,7 @@ vm_invoke_builtin_delegate.exit:                  ; preds = %4171, %4174
   %.val13.i2723 = load i64, ptr %4225, align 8, !tbaa !94
   %.val14.i2724 = load ptr, ptr %4200, align 8, !tbaa !332
   %4226 = sext i32 %4205 to i64
-  %4227 = getelementptr [16 x ptr], ptr @lookup_builtin_invoker.invokers, i64 0, i64 %4226
+  %4227 = getelementptr ptr, ptr @lookup_builtin_invoker.invokers, i64 %4226
   %4228 = load ptr, ptr %4227, align 8, !tbaa !179
   %4229 = call i64 %4228(ptr noundef nonnull %0, i64 noundef %.val13.i2723, ptr noundef %4224, ptr noundef %.val14.i2724) #20
   br label %vm_invoke_builtin_delegate.exit2728
@@ -17856,8 +17856,8 @@ define internal fastcc void @setup_method_cfunc_struct(ptr noundef writeonly cap
   %8 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 464
   %9 = load i8, ptr %8, align 8, !tbaa !371, !range !257, !noundef !60
   %10 = trunc nuw i8 %9 to i1
-  %switch.tableidx6 = add i32 %2, 2
-  %11 = icmp ult i32 %switch.tableidx6, 18
+  %switch.tableidx5 = add i32 %2, 2
+  %11 = icmp ult i32 %switch.tableidx5, 18
   br i1 %10, label %14, label %12
 
 12:                                               ; preds = %3
@@ -17876,8 +17876,8 @@ define internal fastcc void @setup_method_cfunc_struct(ptr noundef writeonly cap
 
 call_cfunc_invoker_func.exit:                     ; preds = %14, %12
   %switch.table.setup_method_cfunc_struct.112.sink = phi ptr [ @switch.table.setup_method_cfunc_struct, %12 ], [ @switch.table.setup_method_cfunc_struct.112, %14 ]
-  %16 = zext nneg i32 %switch.tableidx6 to i64
-  %switch.gep7 = getelementptr inbounds nuw [18 x ptr], ptr %switch.table.setup_method_cfunc_struct.112.sink, i64 0, i64 %16
+  %16 = zext nneg i32 %switch.tableidx5 to i64
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr %switch.table.setup_method_cfunc_struct.112.sink, i64 %16
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %switch.load8, ptr %17, align 8, !tbaa !372
@@ -25344,7 +25344,7 @@ define hidden noundef ptr @rb_type_str(i32 noundef %0) local_unnamed_addr #7 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [31 x ptr], ptr @switch.table.rb_type_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_type_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -25476,7 +25476,7 @@ rb_ec_vm_ptr.exit.i:                              ; preds = %rb_class_of.exit.i,
   %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !61
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1384
-  %40 = getelementptr [1023 x ptr], ptr %39, i64 0, i64 %34
+  %40 = getelementptr ptr, ptr %39, i64 %34
   %41 = load ptr, ptr %40, align 8, !tbaa !411
   %.not27.i = icmp eq ptr %41, null
   br i1 %.not27.i, label %gccct_method_search.exit, label %42, !prof !176
@@ -35312,7 +35312,7 @@ define hidden void @rb_vm_mark(ptr noundef %0) local_unnamed_addr #2 {
 
 44:                                               ; preds = %37, %56
   %.03957 = phi i64 [ 0, %37 ], [ %57, %56 ]
-  %45 = getelementptr [1023 x ptr], ptr %43, i64 0, i64 %.03957
+  %45 = getelementptr ptr, ptr %43, i64 %.03957
   %46 = load ptr, ptr %45, align 8, !tbaa !411
   %.not46 = icmp eq ptr %46, null
   br i1 %.not46, label %56, label %47
@@ -38292,7 +38292,7 @@ define internal fastcc noundef i64 @vm_setivar_default(i64 noundef %0, i64 nound
   %38 = load ptr, ptr %6, align 8, !tbaa !287
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = zext i32 %4 to i64
-  %41 = getelementptr [1 x i64], ptr %39, i64 0, i64 %40
+  %41 = getelementptr i64, ptr %39, i64 %40
   store i64 %2, ptr %41, align 8, !tbaa !7
   %42 = icmp eq i64 %2, 0
   %43 = and i64 %2, 7
@@ -38632,7 +38632,7 @@ rb_ec_vm_ptr.exit.i:                              ; preds = %rb_class_of.exit.i,
   %33 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !61
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1384
-  %36 = getelementptr [1023 x ptr], ptr %35, i64 0, i64 %30
+  %36 = getelementptr ptr, ptr %35, i64 %30
   %37 = load ptr, ptr %36, align 8, !tbaa !411
   %.not27.i = icmp eq ptr %37, null
   br i1 %.not27.i, label %gccct_method_search.exit, label %38, !prof !176
@@ -38929,7 +38929,7 @@ define internal fastcc ptr @gccct_method_search_slowpath(ptr noundef captures(no
 vm_search_method_slowpath0.exit:                  ; preds = %4, %7, %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr [1023 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %14, i64 %15
   store ptr %6, ptr %16, align 8, !tbaa !411
   ret ptr %6
 }
@@ -42273,9 +42273,9 @@ vm_ci_flag.exit.i181:                             ; preds = %91, %88
 
 99:                                               ; preds = %96
   %100 = sext i32 %4 to i64
-  %101 = getelementptr [4 x [6 x ptr]], ptr @vm_call_iseq_handlers, i64 0, i64 %100
+  %101 = getelementptr [6 x ptr], ptr @vm_call_iseq_handlers, i64 %100
   %102 = sext i32 %5 to i64
-  %103 = getelementptr [6 x ptr], ptr %101, i64 0, i64 %102
+  %103 = getelementptr ptr, ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !179
   br label %vm_call_iseq_setup_func.exit
 
@@ -42737,10 +42737,10 @@ define internal fastcc void @warn_unused_block(ptr noundef %0, ptr noundef reado
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
   %.031 = phi i64 [ %30, %20 ], [ 0, %.preheader ]
-  %21 = getelementptr [8 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr i8, ptr %4, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !26
   %23 = sub nuw nsw i64 7, %indvars.iv
-  %24 = getelementptr [8 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %5, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !26
   %26 = xor i8 %25, %22
   %27 = zext i8 %26 to i64
@@ -53272,7 +53272,7 @@ define internal fastcc i64 @vm_opt_length(i64 noundef %0, i32 noundef range(i32 
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr [34 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %14
+  %15 = getelementptr i16, ptr @ruby_vm_redefined_flag, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !263
   %17 = and i16 %16, 4
   %18 = icmp eq i16 %17, 0
@@ -53309,7 +53309,7 @@ define internal fastcc i64 @vm_opt_length(i64 noundef %0, i32 noundef range(i32 
 
 35:                                               ; preds = %32
   %36 = zext nneg i32 %1 to i64
-  %37 = getelementptr [34 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %36
+  %37 = getelementptr i16, ptr @ruby_vm_redefined_flag, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !263
   %39 = and i16 %38, 8
   %40 = icmp eq i16 %39, 0
@@ -53353,7 +53353,7 @@ rb_array_len.exit:                                ; preds = %44, %47
 
 59:                                               ; preds = %56
   %60 = zext nneg i32 %1 to i64
-  %61 = getelementptr [34 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %60
+  %61 = getelementptr i16, ptr @ruby_vm_redefined_flag, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !263
   %63 = and i16 %62, 16
   %64 = icmp eq i16 %63, 0
@@ -55613,7 +55613,7 @@ select.unfold:                                    ; preds = %68, %38, %41, %44, 
   %77 = trunc i64 %76 to i32
   call void @rb_yjit_bop_redefined(i32 noundef %.0.i20.ph, i32 noundef %77) #20
   %78 = load i64, ptr %3, align 8, !tbaa !7
-  %79 = getelementptr [34 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %78
+  %79 = getelementptr i16, ptr @ruby_vm_redefined_flag, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !263
   %81 = trunc nuw nsw i32 %.0.i20.ph to i16
   %82 = or i16 %80, %81
@@ -58648,7 +58648,7 @@ rb_ec_vm_ptr.exit.i:                              ; preds = %rb_class_of.exit.i,
   %45 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !61
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1384
-  %48 = getelementptr [1023 x ptr], ptr %47, i64 0, i64 %42
+  %48 = getelementptr ptr, ptr %47, i64 %42
   %49 = load ptr, ptr %48, align 8, !tbaa !411
   %.not27.i = icmp eq ptr %49, null
   br i1 %.not27.i, label %.critedge.i, label %50, !prof !176
@@ -59464,7 +59464,7 @@ RSTRING_PTR.exit.i:                               ; preds = %109, %103
 
 switch.lookup:                                    ; preds = %169
   %179 = zext nneg i32 %173 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.eval_make_iseq, i64 0, i64 %179
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.eval_make_iseq, i64 %179
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %180
 
@@ -61264,7 +61264,7 @@ rb_vm_pop_frame.exit:                             ; preds = %72, %76
 
 103:                                              ; preds = %.lr.ph422, %116
   %indvars.iv483 = phi i64 [ 0, %.lr.ph422 ], [ %indvars.iv.next484, %116 ]
-  %104 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %102, i64 0, i64 %indvars.iv483
+  %104 = getelementptr %struct.iseq_catch_table_entry, ptr %102, i64 %indvars.iv483
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load i32, ptr %105, align 8, !tbaa !143
   %107 = zext i32 %106 to i64
@@ -61363,7 +61363,7 @@ rb_vm_pop_frame.exit270:                          ; preds = %.thread, %132
 
 148:                                              ; preds = %.lr.ph420, %160
   %indvars.iv478 = phi i64 [ 0, %.lr.ph420 ], [ %indvars.iv.next479, %160 ]
-  %149 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %147, i64 0, i64 %indvars.iv478
+  %149 = getelementptr %struct.iseq_catch_table_entry, ptr %147, i64 %indvars.iv478
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load i32, ptr %150, align 8, !tbaa !143
   %152 = zext i32 %151 to i64
@@ -61407,7 +61407,7 @@ rb_vm_pop_frame.exit270:                          ; preds = %.thread, %132
 
 166:                                              ; preds = %.lr.ph, %184
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %184 ]
-  %167 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %165, i64 0, i64 %indvars.iv
+  %167 = getelementptr %struct.iseq_catch_table_entry, ptr %165, i64 %indvars.iv
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load i32, ptr %168, align 8, !tbaa !143
   %170 = zext i32 %169 to i64
@@ -61465,7 +61465,7 @@ switch.early.test:                                ; preds = %.thread300
 
 187:                                              ; preds = %switch.early.test, %switch.early.test, %.thread300
   %188 = zext nneg i32 %.1199312 to i64
-  %189 = getelementptr [15 x i32], ptr @constinit, i64 0, i64 %188
+  %189 = getelementptr i32, ptr @constinit, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !139
   %191 = getelementptr inbounds nuw i8, ptr %81, i64 152
   %192 = load ptr, ptr %191, align 8, !tbaa !138
@@ -61484,7 +61484,7 @@ switch.early.test:                                ; preds = %.thread300
 
 195:                                              ; preds = %.lr.ph431, %261
   %indvars.iv493 = phi i64 [ 0, %.lr.ph431 ], [ %indvars.iv.next494, %261 ]
-  %196 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %194, i64 0, i64 %indvars.iv493
+  %196 = getelementptr %struct.iseq_catch_table_entry, ptr %194, i64 %indvars.iv493
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %198 = load i32, ptr %197, align 8, !tbaa !143
   %199 = zext i32 %198 to i64
@@ -61631,7 +61631,7 @@ switch.early.test.thread:                         ; preds = %switch.early.test
 
 265:                                              ; preds = %.lr.ph429, %278
   %indvars.iv488 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next489, %278 ]
-  %266 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %264, i64 0, i64 %indvars.iv488
+  %266 = getelementptr %struct.iseq_catch_table_entry, ptr %264, i64 %indvars.iv488
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load i32, ptr %267, align 8, !tbaa !143
   %269 = zext i32 %268 to i64
@@ -62793,9 +62793,9 @@ define internal range(i32 0, 2) i32 @vm_ci_hash_cmp(i64 noundef %0, i64 noundef 
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %31 = getelementptr [0 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %31 = getelementptr i64, ptr %27, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !7
-  %33 = getelementptr [0 x i64], ptr %28, i64 0, i64 %indvars.iv
+  %33 = getelementptr i64, ptr %28, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8, !tbaa !7
   %.not26 = icmp eq i64 %32, %34
   br i1 %.not26, label %29, label %.critedge
@@ -62835,7 +62835,7 @@ define internal i64 @vm_ci_hash(i64 noundef %0) #2 {
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.114 = phi i64 [ %11, %.lr.ph ], [ %20, %17 ]
-  %18 = getelementptr [0 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %18 = getelementptr i64, ptr %16, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %20 = tail call i64 @rb_st_hash_uint(i64 noundef %.114, i64 noundef %19) #64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -373,10 +373,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 132:                                              ; preds = %125, %132
   %indvars.iv376 = phi i64 [ 0, %125 ], [ %indvars.iv.next377, %132 ]
   %133 = load i32, ptr %127, align 8, !tbaa !140
-  %134 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %128, i64 0, i64 %indvars.iv376
+  %134 = getelementptr inbounds nuw %"class.std::vector.55", ptr %128, i64 %indvars.iv376
   %135 = load ptr, ptr %134, align 8, !tbaa !158
   %136 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %133, ptr noundef %135)
-  %137 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv376
+  %137 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv376
   store i32 %136, ptr %137, align 4, !tbaa !114
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %.not349 = icmp eq i64 %indvars.iv.next377, 5
@@ -627,10 +627,10 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 
 268:                                              ; preds = %262, %268
   %indvars.iv382 = phi i64 [ 0, %262 ], [ %indvars.iv.next383, %268 ]
-  %269 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv382
+  %269 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv382
   %270 = load i32, ptr %269, align 4, !tbaa !114
   %271 = load i32, ptr %263, align 8, !tbaa !140
-  %272 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %264, i64 0, i64 %indvars.iv382
+  %272 = getelementptr inbounds nuw %"class.std::vector.55", ptr %264, i64 %indvars.iv382
   %273 = load ptr, ptr %272, align 8, !tbaa !158
   call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %270, i32 noundef %271, ptr noundef %273)
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1

@@ -227,7 +227,7 @@ define dso_local void @InitWalSender() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %0 ]
   %5 = load ptr, ptr @WalSndCtl, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %7 = getelementptr inbounds nuw [0 x %struct.WalSnd], ptr %6, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw %struct.WalSnd, ptr %6, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #17, !srcloc !4
   %.not.i = icmp eq i8 %9, 0
@@ -2369,7 +2369,7 @@ define dso_local void @WalSndRqstFileReload() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %0 ]
   %3 = load ptr, ptr @WalSndCtl, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = getelementptr inbounds nuw [0 x %struct.WalSnd], ptr %4, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.WalSnd, ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #17, !srcloc !4
   %.not = icmp eq i8 %7, 0
@@ -2537,7 +2537,7 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.loopexit.preheader ]
   %30 = load ptr, ptr @WalSndCtl, align 8
-  %31 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %30, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %struct.dlist_head, ptr %30, i64 %indvars.iv
   store ptr %31, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %31, ptr %32, align 8
@@ -2616,7 +2616,7 @@ define dso_local void @WalSndInitStopping() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %0 ]
   %3 = load ptr, ptr @WalSndCtl, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = getelementptr inbounds nuw [0 x %struct.WalSnd], ptr %4, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.WalSnd, ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #17, !srcloc !4
   %.not = icmp eq i8 %7, 0
@@ -2660,7 +2660,7 @@ define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.backedge ], [ 0, %0 ]
   %3 = load ptr, ptr @WalSndCtl, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = getelementptr inbounds nuw [0 x %struct.WalSnd], ptr %4, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.WalSnd, ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #17, !srcloc !4
   %.not = icmp eq i8 %7, 0
@@ -2756,7 +2756,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
   %indvars.iv102 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next103, %131 ]
   %34 = load ptr, ptr @WalSndCtl, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
-  %36 = getelementptr inbounds nuw [0 x %struct.WalSnd], ptr %35, i64 0, i64 %indvars.iv102
+  %36 = getelementptr inbounds nuw %struct.WalSnd, ptr %35, i64 %indvars.iv102
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
@@ -2845,7 +2845,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %81
   %83 = zext nneg i32 %49 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.pg_stat_get_wal_senders, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_stat_get_wal_senders, i64 %83
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %WalSndGetStateString.exit
 
@@ -3653,7 +3653,7 @@ define internal void @WalSndUpdateProgress(ptr noundef readonly captures(none) %
 25:                                               ; preds = %25, %19
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %25 ]
   %.01115.i = phi i1 [ false, %19 ], [ %spec.select.i, %25 ]
-  %26 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %23, %27
   %spec.select.i = select i1 %28, i1 true, i1 %.01115.i
@@ -3676,7 +3676,7 @@ define internal void @WalSndUpdateProgress(ptr noundef readonly captures(none) %
   %.010.i = phi i32 [ %23, %29 ], [ %21, %.sink.split.i ]
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds %struct.WalTimeSample, ptr %34, i64 %35
   store i64 %1, ptr %36, align 8
   %37 = load i32, ptr %20, align 8
   %38 = sext i32 %37 to i64
@@ -3927,14 +3927,14 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 131096
   %68 = sext i32 %.promoted.i.i.i to i64
-  %69 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %66, i64 0, i64 %68
+  %69 = getelementptr inbounds %struct.WalTimeSample, ptr %66, i64 %68
   %70 = load i64, ptr %69, align 8
   %.not38.i108.i.i = icmp ugt i64 %70, %37
   br i1 %.not38.i108.i.i, label %.critedge.i.thread.i.i, label %.lr.ph.i.i
 
 71:                                               ; preds = %.lr.ph.i.i
   %72 = sext i32 %80 to i64
-  %73 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %66, i64 0, i64 %72
+  %73 = getelementptr inbounds %struct.WalTimeSample, ptr %66, i64 %72
   %74 = load i64, ptr %73, align 8
   %.not38.i.i.i = icmp ugt i64 %74, %37
   br i1 %.not38.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i, !llvm.loop !75
@@ -3987,7 +3987,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %95 = sext i32 %87 to i64
-  %96 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds %struct.WalTimeSample, ptr %94, i64 %95
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %96, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %97 = icmp ult i64 %37, %.sroa.02.0.copyload.i.i.i
@@ -4033,14 +4033,14 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   %118 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %62, i64 131112
   %120 = sext i32 %.promoted.i55.i.i to i64
-  %121 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %118, i64 0, i64 %120
+  %121 = getelementptr inbounds %struct.WalTimeSample, ptr %118, i64 %120
   %122 = load i64, ptr %121, align 8
   %.not38.i59110.i.i = icmp ugt i64 %122, %38
   br i1 %.not38.i59110.i.i, label %.critedge.i63.thread.i.i, label %.lr.ph111.i.i
 
 123:                                              ; preds = %.lr.ph111.i.i
   %124 = sext i32 %132 to i64
-  %125 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %118, i64 0, i64 %124
+  %125 = getelementptr inbounds %struct.WalTimeSample, ptr %118, i64 %124
   %126 = load i64, ptr %125, align 8
   %.not38.i59.i.i = icmp ugt i64 %126, %38
   br i1 %.not38.i59.i.i, label %.critedge.i63.i.i, label %.lr.ph111.i.i, !llvm.loop !75
@@ -4093,7 +4093,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   %.sroa.02.0.copyload.i68.i.i = load i64, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %147 = sext i32 %139 to i64
-  %148 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %146, i64 0, i64 %147
+  %148 = getelementptr inbounds %struct.WalTimeSample, ptr %146, i64 %147
   %.sroa.4.0..sroa_idx.i69.i.i = getelementptr inbounds nuw i8, ptr %148, i64 8
   %.sroa.4.0.copyload.i70.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i69.i.i, align 8
   %149 = icmp ult i64 %38, %.sroa.02.0.copyload.i68.i.i
@@ -4139,14 +4139,14 @@ LagTrackerRead.exit74.i.i:                        ; preds = %167, %144, %.thread
   %170 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %62, i64 131128
   %172 = sext i32 %.promoted.i75.i.i to i64
-  %173 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %170, i64 0, i64 %172
+  %173 = getelementptr inbounds %struct.WalTimeSample, ptr %170, i64 %172
   %174 = load i64, ptr %173, align 8
   %.not38.i79114.i.i = icmp ugt i64 %174, %39
   br i1 %.not38.i79114.i.i, label %.critedge.i83.thread.i.i, label %.lr.ph115.i.i
 
 175:                                              ; preds = %.lr.ph115.i.i
   %176 = sext i32 %184 to i64
-  %177 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %170, i64 0, i64 %176
+  %177 = getelementptr inbounds %struct.WalTimeSample, ptr %170, i64 %176
   %178 = load i64, ptr %177, align 8
   %.not38.i79.i.i = icmp ugt i64 %178, %39
   br i1 %.not38.i79.i.i, label %.critedge.i83.i.i, label %.lr.ph115.i.i, !llvm.loop !75
@@ -4199,7 +4199,7 @@ LagTrackerRead.exit74.i.i:                        ; preds = %167, %144, %.thread
   %.sroa.02.0.copyload.i88.i.i = load i64, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %199 = sext i32 %191 to i64
-  %200 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %198, i64 0, i64 %199
+  %200 = getelementptr inbounds %struct.WalTimeSample, ptr %198, i64 %199
   %.sroa.4.0..sroa_idx.i89.i.i = getelementptr inbounds nuw i8, ptr %200, i64 8
   %.sroa.4.0.copyload.i90.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i89.i.i, align 8
   %201 = icmp ult i64 %39, %.sroa.02.0.copyload.i88.i.i
@@ -5400,7 +5400,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
 57:                                               ; preds = %57, %51
   %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %57 ]
   %.01115.i = phi i1 [ false, %51 ], [ %spec.select.i, %57 ]
-  %58 = getelementptr inbounds nuw [3 x i32], ptr %56, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %55, %59
   %spec.select.i = select i1 %60, i1 true, i1 %.01115.i
@@ -5423,7 +5423,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
   %.010.i = phi i32 [ %55, %61 ], [ %53, %.sink.split.i ]
   %66 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds [8192 x %struct.WalTimeSample], ptr %66, i64 0, i64 %67
+  %68 = getelementptr inbounds %struct.WalTimeSample, ptr %66, i64 %67
   store i64 %.0, ptr %68, align 8
   %69 = load i32, ptr %52, align 8
   %70 = sext i32 %69 to i64

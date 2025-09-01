@@ -517,10 +517,10 @@ define i64 @ZSTD_frameHeaderSize(ptr noundef readonly captures(none) %0, i64 nou
   %12 = xor i1 %11, true
   %13 = zext i1 %12 to i64
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_did_fieldSize, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !49
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !49
   %.not.i = icmp ult i8 %6, 64
   %20 = and i1 %.not.i, %11
@@ -630,10 +630,10 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
   %38 = xor i1 %37, true
   %39 = zext i1 %38 to i64
   %40 = zext nneg i32 %34 to i64
-  %41 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_did_fieldSize, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !49
   %43 = zext nneg i32 %35 to i64
-  %44 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !49
   %.not.i132 = icmp ult i8 %.sink162, 64
   %46 = and i1 %.not.i132, %37
@@ -1665,10 +1665,10 @@ ZSTD_frameHeaderSize_internal.exit.i:             ; preds = %145
   %160 = xor i1 %159, true
   %161 = zext i1 %160 to i64
   %162 = zext nneg i32 %156 to i64
-  %163 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_did_fieldSize, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %162
   %164 = load i64, ptr %163, align 8, !tbaa !49
   %165 = zext nneg i32 %157 to i64
-  %166 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %165
   %167 = load i64, ptr %166, align 8, !tbaa !49
   %.not.i.i113 = icmp ult i8 %154, 64
   %168 = and i1 %.not.i.i113, %159
@@ -2104,7 +2104,7 @@ define range(i32 0, 6) i32 @ZSTD_nextInputType(ptr noundef readonly captures(non
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.ZSTD_nextInputType, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ZSTD_nextInputType, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -2207,10 +2207,10 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
   %47 = xor i1 %46, true
   %48 = zext i1 %47 to i64
   %49 = zext nneg i32 %43 to i64
-  %50 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_did_fieldSize, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !49
   %52 = zext nneg i32 %44 to i64
-  %53 = getelementptr inbounds nuw [4 x i64], ptr @ZSTD_fcs_fieldSize, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !49
   %.not.i164 = icmp ult i8 %41, 64
   %55 = and i1 %.not.i164, %46
@@ -2863,7 +2863,7 @@ define i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
 
 .critedge95:                                      ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.469106, i64 4
-  %70 = getelementptr inbounds nuw [3 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   store i32 %.469.val, ptr %70, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3

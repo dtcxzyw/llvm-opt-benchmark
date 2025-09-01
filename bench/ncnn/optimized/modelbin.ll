@@ -1823,7 +1823,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit330.thread:          ; preds = %545
   %559 = getelementptr inbounds nuw i8, ptr %.sroa.0369.1, i64 %indvars.iv
   %560 = load i8, ptr %559, align 1, !tbaa !37
   %561 = zext i8 %560 to i64
-  %562 = getelementptr inbounds nuw [256 x float], ptr %12, i64 0, i64 %561
+  %562 = getelementptr inbounds nuw float, ptr %12, i64 %561
   %563 = load float, ptr %562, align 4, !tbaa !38
   %564 = getelementptr inbounds nuw float, ptr %557, i64 %indvars.iv
   store float %563, ptr %564, align 4, !tbaa !38

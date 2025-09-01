@@ -46561,10 +46561,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !178, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !339, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4fe7c3b1abcba749E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4fe7c3b1abcba749E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4fe7c3b1abcba749E.205", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4fe7c3b1abcba749E.205", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -46758,10 +46758,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !178, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !8111, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h85a4088c8f89707dE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h85a4088c8f89707dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h85a4088c8f89707dE.206", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h85a4088c8f89707dE.206", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -82633,10 +82633,10 @@ switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !481, !noundef !4
   %switch.tableidx = xor i8 %2, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN67_$LT$meilisearch_types..error..Code$u20$as$u20$core..fmt..Debug$GT$3fmt17h2e495f9fc02aff38E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN67_$LT$meilisearch_types..error..Code$u20$as$u20$core..fmt..Debug$GT$3fmt17h2e495f9fc02aff38E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN67_$LT$meilisearch_types..error..Code$u20$as$u20$core..fmt..Debug$GT$3fmt17h2e495f9fc02aff38E.207", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN67_$LT$meilisearch_types..error..Code$u20$as$u20$core..fmt..Debug$GT$3fmt17h2e495f9fc02aff38E.207", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -95737,7 +95737,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
 
 .lr.ph.i.us.i.i:                                  ; preds = %31, %35
   %.sroa.01.05.i.us.i.i = phi i64 [ %36, %35 ], [ 0, %31 ]
-  %32 = getelementptr inbounds nuw [0 x i8], ptr %26, i64 0, i64 %.sroa.01.05.i.us.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %.sroa.01.05.i.us.i.i
   %33 = load i8, ptr %32, align 1, !alias.scope !18464, !noalias !18463, !noundef !4
   %34 = icmp eq i8 %33, %.pre93.i.i
   br i1 %34, label %_ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.us.i.i, label %35
@@ -95793,7 +95793,7 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.us.i.i: ; preds = %
 
 .lr.ph.i.i.i:                                     ; preds = %53, %57
   %.sroa.01.05.i.i.i = phi i64 [ %58, %57 ], [ 0, %53 ]
-  %54 = getelementptr inbounds nuw [0 x i8], ptr %48, i64 0, i64 %.sroa.01.05.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %.sroa.01.05.i.i.i
   %55 = load i8, ptr %54, align 1, !alias.scope !18464, !noalias !18463, !noundef !4
   %56 = icmp eq i8 %55, %.pre93.i.i
   br i1 %56, label %_ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.i.i, label %57
@@ -97254,7 +97254,7 @@ define internal fastcc void @"_ZN96_$LT$actix_router..path..PathIter$LT$T$GT$$u2
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h38e253337f4c1dfaE.exit": ; preds = %2
   %10 = getelementptr i8, ptr %5, i64 8
   %.val8 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { i64, [2 x i64] } }], ptr %.val8, i64 0, i64 %4
+  %11 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.val8, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !range !517, !noundef !4
   %14 = icmp eq i64 %13, -9223372036854775807

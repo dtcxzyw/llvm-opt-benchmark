@@ -301,7 +301,7 @@ pmix_obj_update.exit:                             ; preds = %124
 
 135:                                              ; preds = %pmix_obj_update.exit
   %136 = zext nneg i32 %134 to i64
-  %137 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %136, i32 2
+  %137 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %136, i32 2
   %138 = load i32, ptr %137, align 4, !tbaa !60
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %140, label %146

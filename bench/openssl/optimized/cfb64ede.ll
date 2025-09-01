@@ -392,11 +392,11 @@ define void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr no
 .preheader329:                                    ; preds = %.preheader329.preheader, %.preheader329
   %150 = phi i8 [ %.pre, %.preheader329.preheader ], [ %155, %.preheader329 ]
   %indvars.iv = phi i64 [ 0, %.preheader329.preheader ], [ %indvars.iv.next, %.preheader329 ]
-  %151 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %152 = zext i8 %150 to i32
   %153 = shl nuw nsw i32 %152, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %154 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv.next
+  %154 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next
   %155 = load i8, ptr %154, align 1, !tbaa !7
   %156 = zext i8 %155 to i32
   %157 = lshr i32 %156, %51
@@ -544,11 +544,11 @@ define void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr no
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %214 = phi i8 [ %.pre357, %.preheader.preheader ], [ %219, %.preheader ]
   %indvars.iv353 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next354, %.preheader ]
-  %215 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv353
+  %215 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv353
   %216 = zext i8 %214 to i32
   %217 = shl nuw nsw i32 %216, %59
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
-  %218 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv.next354
+  %218 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next354
   %219 = load i8, ptr %218, align 1, !tbaa !7
   %220 = zext i8 %219 to i32
   %221 = lshr i32 %220, %61

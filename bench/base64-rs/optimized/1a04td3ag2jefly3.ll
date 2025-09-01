@@ -218,7 +218,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 91:                                               ; preds = %85
   %92 = zext i8 %22 to i64
-  %93 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 %92
   %94 = load i8, ptr %93, align 1, !noundef !4
   %95 = icmp eq i8 %94, -1
   br i1 %95, label %97, label %96
@@ -238,7 +238,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br label %60
 
 .outer:                                           ; preds = %96
-  %100 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %.078.ph185
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 %.078.ph185
   store i8 %94, ptr %100, align 1
   %101 = add nuw nsw i64 %.078.ph185, 1
   %102 = icmp eq ptr %20, %15

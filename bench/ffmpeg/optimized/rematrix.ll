@@ -58,18 +58,18 @@ define range(i32 -22, 1) i32 @swr_set_matrix(ptr noundef captures(address_is_nul
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv34 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next35, %._crit_edge.us ]
   %.02529.us = phi ptr [ %1, %.preheader.us.preheader ], [ %25, %._crit_edge.us ]
-  %17 = getelementptr inbounds nuw [64 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv34
-  %18 = getelementptr inbounds nuw [64 x [64 x float]], ptr %9, i64 0, i64 %indvars.iv34
+  %17 = getelementptr inbounds nuw [64 x double], ptr %8, i64 %indvars.iv34
+  %18 = getelementptr inbounds nuw [64 x float], ptr %9, i64 %indvars.iv34
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %19 ]
   %20 = getelementptr inbounds nuw double, ptr %.02529.us, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw [64 x double], ptr %17, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
   store double %21, ptr %22, align 8, !tbaa !24
   %23 = fptrunc nsz double %21 to float
-  %24 = getelementptr inbounds nuw [64 x float], ptr %18, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   store float %23, ptr %24, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -263,8 +263,8 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw [18 x [18 x double]], ptr %12, i64 0, i64 %indvars.iv.i
-  %79 = getelementptr inbounds nuw [18 x double], ptr %78, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [18 x double], ptr %12, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv.i
   store double 1.000000e+00, ptr %79, align 8, !tbaa !24
   br label %80
 
@@ -863,7 +863,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   %402 = zext nneg i32 %399 to i64
   %403 = mul nsw i64 %8, %402
   %404 = getelementptr double, ptr %7, i64 %403
-  %405 = getelementptr inbounds nuw [18 x [18 x double]], ptr %12, i64 0, i64 %indvars.iv189.i
+  %405 = getelementptr inbounds nuw [18 x double], ptr %12, i64 %indvars.iv189.i
   br i1 %401, label %.preheader172.split.i, label %.preheader172.split.us.i
 
 .preheader172.split.us.i:                         ; preds = %.preheader172.i, %423
@@ -916,7 +916,7 @@ define range(i32 -2147483648, 1) i32 @swr_build_matrix2(ptr noundef %0, ptr noun
   br i1 %428, label %429, label %435
 
 429:                                              ; preds = %427
-  %430 = getelementptr inbounds nuw [18 x double], ptr %405, i64 0, i64 %indvars.iv185.i
+  %430 = getelementptr inbounds nuw double, ptr %405, i64 %indvars.iv185.i
   %431 = load double, ptr %430, align 8, !tbaa !24
   %432 = zext nneg i32 %425 to i64
   %433 = getelementptr double, ptr %404, i64 %432
@@ -1298,7 +1298,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   br i1 %48, label %.lr.ph255, label %._crit_edge256
 
 .lr.ph255:                                        ; preds = %.preheader230
-  %51 = getelementptr inbounds nuw [64 x [64 x double]], ptr %49, i64 0, i64 %indvars.iv297
+  %51 = getelementptr inbounds nuw [64 x double], ptr %49, i64 %indvars.iv297
   %52 = mul nuw nsw i64 %indvars.iv297, %50
   %invariant.gep326 = getelementptr inbounds nuw i32, ptr %46, i64 %52
   br label %53
@@ -1307,7 +1307,7 @@ define range(i32 -2147483648, 1) i32 @swri_rematrix_init(ptr noundef initializes
   %indvars.iv292 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next293, %53 ]
   %.0176254 = phi i32 [ 0, %.lr.ph255 ], [ %64, %53 ]
   %.0177253 = phi double [ 0.000000e+00, %.lr.ph255 ], [ %62, %53 ]
-  %54 = getelementptr inbounds nuw [64 x double], ptr %51, i64 0, i64 %indvars.iv292
+  %54 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv292
   %55 = load double, ptr %54, align 8, !tbaa !24
   %56 = tail call nsz double @llvm.fmuladd.f64(double %55, double 3.276800e+04, double %.0177253)
   %57 = fptrunc nsz double %56 to float
@@ -1719,14 +1719,14 @@ get_mix_any_func_clip_s16.exit:                   ; preds = %205, %252, %256
   br i1 %266, label %.lr.ph248, label %._crit_edge249
 
 .lr.ph248:                                        ; preds = %.preheader232
-  %269 = getelementptr inbounds nuw [64 x [64 x double]], ptr %267, i64 0, i64 %indvars.iv287
+  %269 = getelementptr inbounds nuw [64 x double], ptr %267, i64 %indvars.iv287
   %270 = mul nuw nsw i64 %indvars.iv287, %268
   %invariant.gep324 = getelementptr inbounds nuw float, ptr %264, i64 %270
   br label %271
 
 271:                                              ; preds = %.lr.ph248, %271
   %indvars.iv282 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next283, %271 ]
-  %272 = getelementptr inbounds nuw [64 x double], ptr %269, i64 0, i64 %indvars.iv282
+  %272 = getelementptr inbounds nuw double, ptr %269, i64 %indvars.iv282
   %273 = load double, ptr %272, align 8, !tbaa !24
   %274 = fptrunc nsz double %273 to float
   %gep325 = getelementptr inbounds nuw float, ptr %invariant.gep324, i64 %indvars.iv282
@@ -1948,14 +1948,14 @@ get_mix_any_func_float.exit:                      ; preds = %317, %364, %368
   br i1 %378, label %.lr.ph243, label %._crit_edge244
 
 .lr.ph243:                                        ; preds = %.preheader234
-  %381 = getelementptr inbounds nuw [64 x [64 x double]], ptr %379, i64 0, i64 %indvars.iv277
+  %381 = getelementptr inbounds nuw [64 x double], ptr %379, i64 %indvars.iv277
   %382 = mul nuw nsw i64 %indvars.iv277, %380
   %invariant.gep322 = getelementptr inbounds nuw double, ptr %376, i64 %382
   br label %383
 
 383:                                              ; preds = %.lr.ph243, %383
   %indvars.iv272 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next273, %383 ]
-  %384 = getelementptr inbounds nuw [64 x double], ptr %381, i64 0, i64 %indvars.iv272
+  %384 = getelementptr inbounds nuw double, ptr %381, i64 %indvars.iv272
   %385 = load double, ptr %384, align 8, !tbaa !24
   %gep323 = getelementptr inbounds nuw double, ptr %invariant.gep322, i64 %indvars.iv272
   store double %385, ptr %gep323, align 8, !tbaa !24
@@ -2181,7 +2181,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
   br i1 %489, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader236
-  %493 = getelementptr inbounds nuw [64 x [64 x double]], ptr %490, i64 0, i64 %indvars.iv266
+  %493 = getelementptr inbounds nuw [64 x double], ptr %490, i64 %indvars.iv266
   %494 = mul nuw nsw i64 %indvars.iv266, %491
   %invariant.gep = getelementptr inbounds nuw i32, ptr %486, i64 %494
   br label %495
@@ -2189,7 +2189,7 @@ get_mix_any_func_double.exit:                     ; preds = %428, %475, %479
 495:                                              ; preds = %.lr.ph, %495
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %495 ]
   %.0171239 = phi double [ 0.000000e+00, %.lr.ph ], [ %504, %495 ]
-  %496 = getelementptr inbounds nuw [64 x double], ptr %493, i64 0, i64 %indvars.iv
+  %496 = getelementptr inbounds nuw double, ptr %493, i64 %indvars.iv
   %497 = load double, ptr %496, align 8, !tbaa !24
   %498 = tail call nsz double @llvm.fmuladd.f64(double %497, double 3.276800e+04, double %.0171239)
   %499 = fptrunc nsz double %498 to float
@@ -2402,21 +2402,21 @@ get_mix_any_func_s32.exit:                        ; preds = %548, %595, %599
 
 .preheader:                                       ; preds = %.thread, %622
   %indvars.iv306 = phi i64 [ 0, %.thread ], [ %indvars.iv.next307, %622 ]
-  %604 = getelementptr inbounds nuw [64 x [64 x double]], ptr %601, i64 0, i64 %indvars.iv306
-  %605 = getelementptr inbounds nuw [64 x [64 x i32]], ptr %602, i64 0, i64 %indvars.iv306
-  %606 = getelementptr inbounds nuw [64 x [65 x i8]], ptr %603, i64 0, i64 %indvars.iv306
+  %604 = getelementptr inbounds nuw [64 x double], ptr %601, i64 %indvars.iv306
+  %605 = getelementptr inbounds nuw [64 x i32], ptr %602, i64 %indvars.iv306
+  %606 = getelementptr inbounds nuw [65 x i8], ptr %603, i64 %indvars.iv306
   br label %607
 
 607:                                              ; preds = %.preheader, %621
   %indvars.iv302 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next303, %621 ]
   %.0262 = phi i32 [ 0, %.preheader ], [ %.1, %621 ]
-  %608 = getelementptr inbounds nuw [64 x double], ptr %604, i64 0, i64 %indvars.iv302
+  %608 = getelementptr inbounds nuw double, ptr %604, i64 %indvars.iv302
   %609 = load double, ptr %608, align 8, !tbaa !24
   %610 = fmul nsz double %609, 3.276800e+04
   %611 = fptrunc nsz double %610 to float
   %612 = call i64 @llvm.lrint.i64.f32(float %611)
   %613 = trunc i64 %612 to i32
-  %614 = getelementptr inbounds nuw [64 x i32], ptr %605, i64 0, i64 %indvars.iv302
+  %614 = getelementptr inbounds nuw i32, ptr %605, i64 %indvars.iv302
   store i32 %613, ptr %614, align 4, !tbaa !34
   %615 = fcmp nsz une double %609, 0.000000e+00
   br i1 %615, label %616, label %621
@@ -2425,7 +2425,7 @@ get_mix_any_func_s32.exit:                        ; preds = %548, %595, %599
   %617 = trunc i64 %indvars.iv302 to i8
   %618 = add nsw i32 %.0262, 1
   %619 = sext i32 %618 to i64
-  %620 = getelementptr inbounds [65 x i8], ptr %606, i64 0, i64 %619
+  %620 = getelementptr inbounds i8, ptr %606, i64 %619
   store i8 %617, ptr %620, align 1, !tbaa !32
   br label %621
 
@@ -2511,16 +2511,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @auto_matrix(ptr noundef in
 
 .preheader:                                       ; preds = %.preheader34, %50
   %indvars.iv38 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next39, %50 ]
-  %43 = getelementptr inbounds nuw [64 x [64 x double]], ptr %19, i64 0, i64 %indvars.iv38
-  %44 = getelementptr inbounds nuw [64 x [64 x float]], ptr %42, i64 0, i64 %indvars.iv38
+  %43 = getelementptr inbounds nuw [64 x double], ptr %19, i64 %indvars.iv38
+  %44 = getelementptr inbounds nuw [64 x float], ptr %42, i64 %indvars.iv38
   br label %45
 
 45:                                               ; preds = %.preheader, %45
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [64 x double], ptr %43, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv
   %47 = load double, ptr %46, align 8, !tbaa !24
   %48 = fptrunc nsz double %47 to float
-  %49 = getelementptr inbounds nuw [64 x float], ptr %44, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
   store float %48, ptr %49, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -3004,7 +3004,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
 
 64:                                               ; preds = %.lr.ph242, %.loopexit
   %indvars.iv276 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next277, %.loopexit ]
-  %65 = getelementptr inbounds nuw [64 x [65 x i8]], ptr %49, i64 0, i64 %indvars.iv276
+  %65 = getelementptr inbounds nuw [65 x i8], ptr %49, i64 %indvars.iv276
   %66 = load i8, ptr %65, align 1, !tbaa !32
   switch i8 %66, label %184 [
     i8 0, label %67
@@ -3016,7 +3016,7 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not214, label %.loopexit, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %69 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %70 = load ptr, ptr %69, align 8, !tbaa !96
   %71 = load i32, ptr %60, align 4, !tbaa !68
   %72 = tail call i32 @av_get_bytes_per_sample(i32 noundef %71) #11
@@ -3029,9 +3029,9 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !32
   %78 = zext i8 %77 to i32
-  %79 = getelementptr inbounds nuw [64 x [64 x double]], ptr %56, i64 0, i64 %indvars.iv276
+  %79 = getelementptr inbounds nuw [64 x double], ptr %56, i64 %indvars.iv276
   %80 = zext i8 %77 to i64
-  %81 = getelementptr inbounds nuw [64 x double], ptr %79, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw double, ptr %79, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !24
   %83 = fcmp nsz une double %82, 1.000000e+00
   br i1 %83, label %84, label %111
@@ -3043,9 +3043,9 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %or.cond, label %87, label %97
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %88 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %89 = load ptr, ptr %88, align 8, !tbaa !96
-  %90 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %80
+  %90 = getelementptr inbounds nuw ptr, ptr %2, i64 %80
   %91 = load ptr, ptr %90, align 8, !tbaa !96
   %92 = load ptr, ptr %54, align 8, !tbaa !97
   %93 = load i32, ptr %53, align 8, !tbaa !92
@@ -3060,10 +3060,10 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %59, align 8, !tbaa !56
-  %100 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %100 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %101 = load ptr, ptr %100, align 8, !tbaa !96
   %102 = getelementptr inbounds i8, ptr %101, i64 %.0199
-  %103 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %80
+  %103 = getelementptr inbounds nuw ptr, ptr %2, i64 %80
   %104 = load ptr, ptr %103, align 8, !tbaa !96
   %105 = getelementptr inbounds i8, ptr %104, i64 %.0199
   %106 = load ptr, ptr %52, align 8, !tbaa !52
@@ -3078,9 +3078,9 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not214, label %120, label %112
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %113 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %114 = load ptr, ptr %113, align 8, !tbaa !96
-  %115 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %80
+  %115 = getelementptr inbounds nuw ptr, ptr %2, i64 %80
   %116 = load ptr, ptr %115, align 8, !tbaa !96
   %117 = load i32, ptr %57, align 4, !tbaa !90
   %118 = mul nsw i32 %117, %3
@@ -3089,9 +3089,9 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br label %.loopexit
 
 120:                                              ; preds = %111
-  %121 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %80
+  %121 = getelementptr inbounds nuw ptr, ptr %2, i64 %80
   %122 = load ptr, ptr %121, align 8, !tbaa !96
-  %123 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %123 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   store ptr %122, ptr %123, align 8, !tbaa !96
   br label %.loopexit
 
@@ -3108,13 +3108,13 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %or.cond3, label %133, label %148
 
 133:                                              ; preds = %124
-  %134 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %134 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %135 = load ptr, ptr %134, align 8, !tbaa !96
   %136 = zext i8 %126 to i64
-  %137 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw ptr, ptr %2, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !96
   %139 = zext i8 %129 to i64
-  %140 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw ptr, ptr %2, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !96
   %142 = load ptr, ptr %54, align 8, !tbaa !97
   %143 = load i32, ptr %53, align 8, !tbaa !92
@@ -3127,13 +3127,13 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
 
 148:                                              ; preds = %124
   %149 = load ptr, ptr %51, align 8, !tbaa !57
-  %150 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %150 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %151 = load ptr, ptr %150, align 8, !tbaa !96
   %152 = zext i8 %126 to i64
-  %153 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %2, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !96
   %155 = zext i8 %129 to i64
-  %156 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr %2, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !96
   %158 = load ptr, ptr %52, align 8, !tbaa !52
   %159 = load i32, ptr %53, align 8, !tbaa !92
@@ -3149,15 +3149,15 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
 
 165:                                              ; preds = %164
   %166 = load ptr, ptr %51, align 8, !tbaa !57
-  %167 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %167 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %168 = load ptr, ptr %167, align 8, !tbaa !96
   %169 = getelementptr inbounds i8, ptr %168, i64 %.0199
   %170 = zext i8 %126 to i64
-  %171 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw ptr, ptr %2, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !96
   %173 = getelementptr inbounds i8, ptr %172, i64 %.0199
   %174 = zext i8 %129 to i64
-  %175 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw ptr, ptr %2, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !96
   %177 = getelementptr inbounds i8, ptr %176, i64 %.0199
   %178 = load ptr, ptr %52, align 8, !tbaa !52
@@ -3180,8 +3180,8 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %61, label %.preheader218.lr.ph, label %.loopexit
 
 .preheader218.lr.ph:                              ; preds = %.preheader222
-  %186 = getelementptr inbounds nuw [64 x [64 x double]], ptr %56, i64 0, i64 %indvars.iv276
-  %187 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %186 = getelementptr inbounds nuw [64 x double], ptr %56, i64 %indvars.iv276
+  %187 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %188 = load ptr, ptr %187, align 8, !tbaa !96
   br label %.preheader218
 
@@ -3189,8 +3189,8 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %61, label %.preheader217.lr.ph, label %.loopexit
 
 .preheader217.lr.ph:                              ; preds = %.preheader220
-  %189 = getelementptr inbounds nuw [64 x [64 x float]], ptr %62, i64 0, i64 %indvars.iv276
-  %190 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %189 = getelementptr inbounds nuw [64 x float], ptr %62, i64 %indvars.iv276
+  %190 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %191 = load ptr, ptr %190, align 8, !tbaa !96
   br label %.preheader217
 
@@ -3198,8 +3198,8 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   br i1 %61, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader219
-  %192 = getelementptr inbounds nuw [64 x [64 x i32]], ptr %63, i64 0, i64 %indvars.iv276
-  %193 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv276
+  %192 = getelementptr inbounds nuw [64 x i32], ptr %63, i64 %indvars.iv276
+  %193 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv276
   %194 = load ptr, ptr %193, align 8, !tbaa !96
   br label %.preheader
 
@@ -3217,14 +3217,14 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv256 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next257, %196 ]
   %.0196229 = phi float [ 0.000000e+00, %.lr.ph230 ], [ %206, %196 ]
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
-  %197 = getelementptr inbounds nuw [65 x i8], ptr %65, i64 0, i64 %indvars.iv.next257
+  %197 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.next257
   %198 = load i8, ptr %197, align 1, !tbaa !32
   %199 = zext i8 %198 to i64
-  %200 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw ptr, ptr %2, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !96
   %202 = getelementptr inbounds nuw float, ptr %201, i64 %indvars.iv261
   %203 = load float, ptr %202, align 4, !tbaa !25
-  %204 = getelementptr inbounds nuw [64 x float], ptr %189, i64 0, i64 %199
+  %204 = getelementptr inbounds nuw float, ptr %189, i64 %199
   %205 = load float, ptr %204, align 4, !tbaa !25
   %206 = tail call nsz float @llvm.fmuladd.f32(float %203, float %205, float %.0196229)
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
@@ -3252,14 +3252,14 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %209 ]
   %.0195226 = phi double [ 0.000000e+00, %.lr.ph ], [ %219, %209 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %210 = getelementptr inbounds nuw [65 x i8], ptr %65, i64 0, i64 %indvars.iv.next
+  %210 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.next
   %211 = load i8, ptr %210, align 1, !tbaa !32
   %212 = zext i8 %211 to i64
-  %213 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw ptr, ptr %2, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !96
   %215 = getelementptr inbounds nuw double, ptr %214, i64 %indvars.iv251
   %216 = load double, ptr %215, align 8, !tbaa !24
-  %217 = getelementptr inbounds nuw [64 x double], ptr %186, i64 0, i64 %212
+  %217 = getelementptr inbounds nuw double, ptr %186, i64 %212
   %218 = load double, ptr %217, align 8, !tbaa !24
   %219 = tail call nsz double @llvm.fmuladd.f64(double %216, double %218, double %.0195226)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3287,15 +3287,15 @@ define noundef i32 @swri_rematrix(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv266 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next267, %222 ]
   %.0235 = phi i32 [ 0, %.lr.ph236 ], [ %234, %222 ]
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %223 = getelementptr inbounds nuw [65 x i8], ptr %65, i64 0, i64 %indvars.iv.next267
+  %223 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.next267
   %224 = load i8, ptr %223, align 1, !tbaa !32
   %225 = zext i8 %224 to i64
-  %226 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw ptr, ptr %2, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !96
   %228 = getelementptr inbounds nuw i16, ptr %227, i64 %indvars.iv271
   %229 = load i16, ptr %228, align 2, !tbaa !76
   %230 = sext i16 %229 to i32
-  %231 = getelementptr inbounds nuw [64 x i32], ptr %192, i64 0, i64 %225
+  %231 = getelementptr inbounds nuw i32, ptr %192, i64 %225
   %232 = load i32, ptr %231, align 4, !tbaa !34
   %233 = mul nsw i32 %232, %230
   %234 = add nsw i32 %233, %.0235

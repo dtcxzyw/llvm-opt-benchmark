@@ -390,7 +390,7 @@ define internal range(i32 -2147483648, 2) i32 @vorbis_header(ptr noundef %0, i32
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %39 = lshr i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [3 x ptr], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %.not115 = icmp eq ptr %42, null
   br i1 %.not115, label %43, label %.critedge
@@ -422,7 +422,7 @@ define internal range(i32 -2147483648, 2) i32 @vorbis_header(ptr noundef %0, i32
   br label %.critedge
 
 .thread:                                          ; preds = %43, %49, %47
-  %56 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %40
+  %56 = getelementptr inbounds nuw i32, ptr %24, i64 %40
   store i32 %35, ptr %56, align 4, !tbaa !21
   %57 = load ptr, ptr %11, align 8, !tbaa !51
   %58 = load i32, ptr %13, align 8, !tbaa !54
@@ -695,7 +695,7 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   %.098137 = phi i32 [ %33, %.lr.ph ], [ %.2, %._crit_edge142 ]
   %.0100136 = phi ptr [ %50, %.lr.ph ], [ %76, %._crit_edge142 ]
   %.0101135 = phi ptr [ %50, %.lr.ph ], [ %.1102, %._crit_edge142 ]
-  %55 = getelementptr inbounds [255 x i8], ptr %51, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds i8, ptr %51, i64 %indvars.iv
   %56 = load i8, ptr %55, align 1, !tbaa !19
   %.not118 = icmp eq i8 %56, -1
   br i1 %.not118, label %._crit_edge142, label %57
@@ -925,7 +925,7 @@ define internal void @vorbis_cleanup(ptr noundef readonly captures(none) %0, i32
 
 12:                                               ; preds = %9, %12
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1080,9 +1080,9 @@ define internal fastcc i32 @fixup_vorbis_headers(ptr noundef %0, ptr noundef %1)
   %.0381 = phi i32 [ %26, %17 ], [ %37, %28 ]
   %29 = sext i32 %.0381 to i64
   %30 = getelementptr inbounds i8, ptr %16, i64 %29
-  %31 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw [3 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !21
   %35 = zext i32 %34 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %32, i64 %35, i1 false)

@@ -1093,10 +1093,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !15, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !86, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb01aadef440b7c0eE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb01aadef440b7c0eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb01aadef440b7c0eE.119", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb01aadef440b7c0eE.119", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -6054,10 +6054,10 @@ switch.lookup:
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %23 = load i8, ptr %22, align 1, !range !735, !alias.scope !1792, !noalias !1794, !noundef !3
   %24 = zext nneg i8 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h299b8b3e23551fc3E.llvm.12357120200416258917, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h299b8b3e23551fc3E.llvm.12357120200416258917, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   %25 = zext nneg i8 %23 to i64
-  %switch.gep409 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h299b8b3e23551fc3E.llvm.12357120200416258917.120, i64 0, i64 %25
+  %switch.gep409 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17h299b8b3e23551fc3E.llvm.12357120200416258917.120, i64 %25
   %switch.load410 = load ptr, ptr %switch.gep409, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i8, ptr %26, align 1, !range !735, !alias.scope !1792, !noalias !1794, !noundef !3

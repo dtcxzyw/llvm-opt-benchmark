@@ -84,7 +84,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 26:                                               ; preds = %24
   %27 = zext nneg i8 %19 to i64
-  %28 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = icmp slt i8 %29, 0
   br i1 %30, label %.critedge5, label %31
@@ -96,7 +96,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 34:                                               ; preds = %31
   %35 = zext nneg i8 %21 to i64
-  %36 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = icmp slt i8 %37, 0
   br i1 %38, label %.critedge5, label %39
@@ -111,7 +111,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 43:                                               ; preds = %41
   %44 = zext nneg i8 %19 to i64
-  %45 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = icmp slt i8 %46, 0
   br i1 %47, label %.critedge5, label %48
@@ -123,7 +123,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 51:                                               ; preds = %48
   %52 = zext nneg i8 %21 to i64
-  %53 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = icmp slt i8 %54, 0
   br i1 %55, label %.critedge5, label %56
@@ -138,7 +138,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 60:                                               ; preds = %58
   %61 = zext nneg i8 %19 to i64
-  %62 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = icmp slt i8 %63, 0
   br i1 %64, label %.critedge5, label %65
@@ -150,7 +150,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 68:                                               ; preds = %65
   %69 = zext nneg i8 %21 to i64
-  %70 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = icmp slt i8 %71, 0
   br i1 %72, label %.critedge5, label %73
@@ -165,7 +165,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 77:                                               ; preds = %75
   %78 = zext nneg i8 %19 to i64
-  %79 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = icmp slt i8 %80, 0
   br i1 %81, label %.critedge5, label %82
@@ -177,7 +177,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 85:                                               ; preds = %82
   %86 = zext nneg i8 %21 to i64
-  %87 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = icmp slt i8 %88, 0
   br i1 %89, label %.critedge5, label %90
@@ -192,7 +192,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 94:                                               ; preds = %92
   %95 = zext nneg i8 %19 to i64
-  %96 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = icmp slt i8 %97, 0
   br i1 %98, label %.critedge5, label %99
@@ -204,7 +204,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 102:                                              ; preds = %99
   %103 = zext nneg i8 %21 to i64
-  %104 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = icmp slt i8 %105, 0
   br i1 %106, label %.critedge5, label %107
@@ -219,7 +219,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 111:                                              ; preds = %109
   %112 = zext nneg i8 %19 to i64
-  %113 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = icmp slt i8 %114, 0
   br i1 %115, label %.critedge5, label %116
@@ -231,7 +231,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 119:                                              ; preds = %116
   %120 = zext nneg i8 %21 to i64
-  %121 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = icmp slt i8 %122, 0
   br i1 %123, label %.critedge5, label %124
@@ -246,7 +246,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 128:                                              ; preds = %126
   %129 = zext nneg i8 %19 to i64
-  %130 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = icmp slt i8 %131, 0
   br i1 %132, label %.critedge5, label %133
@@ -258,7 +258,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 136:                                              ; preds = %133
   %137 = zext nneg i8 %21 to i64
-  %138 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %137
   %139 = load i8, ptr %138, align 1
   %140 = icmp slt i8 %139, 0
   br i1 %140, label %.critedge5, label %141
@@ -273,7 +273,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 145:                                              ; preds = %143
   %146 = zext nneg i8 %19 to i64
-  %147 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = icmp slt i8 %148, 0
   br i1 %149, label %.critedge5, label %150
@@ -285,7 +285,7 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
 
 153:                                              ; preds = %150
   %154 = zext nneg i8 %21 to i64
-  %155 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = icmp slt i8 %156, 0
   br i1 %157, label %.critedge5, label %158

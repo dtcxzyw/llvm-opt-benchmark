@@ -14519,7 +14519,7 @@ _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
 
 43:                                               ; preds = %39
   %44 = and i64 %40, 2147483647
-  %45 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 %44
   store i8 0, ptr %45, align 1
   %46 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 41) #16
   %.not29 = icmp eq ptr %46, null

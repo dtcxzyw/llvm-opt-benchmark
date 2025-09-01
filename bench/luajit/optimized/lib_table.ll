@@ -351,7 +351,7 @@ define internal noundef i32 @lj_cf_table_concat(ptr noundef %0) #0 {
 
 50:                                               ; preds = %46, %44
   %51 = phi i64 [ 0, %44 ], [ %spec.select, %46 ]
-  %52 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !42
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 1443, ptr noundef %53, i32 noundef %32) #5
   unreachable

@@ -978,7 +978,7 @@ Cec_GiaWaitThreads.exit.thread160:                ; preds = %Cec_GiaInitThreads.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %242 = getelementptr inbounds nuw [8 x %struct.Par_ThData_t_], ptr %16, i64 0, i64 %indvars.iv
+  %242 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv
   store ptr null, ptr %242, align 16, !tbaa !62
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 12
   store i32 1, ptr %243, align 4, !tbaa !68

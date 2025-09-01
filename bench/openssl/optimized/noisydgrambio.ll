@@ -212,7 +212,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %.04964.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %36 ]
   %31 = add i64 %.04964.i, %.pre.i
   %32 = and i64 %31, 1023
-  %33 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %22, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %22, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %.not.i = icmp ult i64 %35, %..i.i
@@ -259,7 +259,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %22, i64 0, i64 %47
+  %57 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %22, i64 %47
   %58 = load i64, ptr %57, align 8, !tbaa !27
   %59 = add nuw nsw i64 %47, 1
   %60 = and i64 %59, 1023
@@ -278,7 +278,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %65 = phi i64 [ %60, %56 ], [ %47, %61 ]
   %66 = add i64 %65, %64
   %67 = and i64 %66, 1023
-  %68 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %22, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %22, i64 %67
   store i64 %50, ptr %68, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 %.sroa.02.0, ptr %69, align 8, !tbaa !34
@@ -405,7 +405,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %.04964.i = phi i64 [ 0, %.lr.ph.i ], [ %54, %50 ]
   %45 = add i64 %.04964.i, %.pre.i
   %46 = and i64 %45, 1023
-  %47 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %36, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %36, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8
   %.not.i = icmp ult i64 %49, %..i.i
@@ -452,7 +452,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %36, i64 0, i64 %61
+  %71 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %36, i64 %61
   %72 = load i64, ptr %71, align 8, !tbaa !27
   %73 = add nuw nsw i64 %61, 1
   %74 = and i64 %73, 1023
@@ -471,7 +471,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %79 = phi i64 [ %74, %70 ], [ %61, %75 ]
   %80 = add i64 %79, %78
   %81 = and i64 %80, 1023
-  %82 = getelementptr inbounds nuw [1024 x %struct.pkt_info_st], ptr %36, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %36, i64 %81
   store i64 %64, ptr %82, align 8, !tbaa !27
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 %.sroa.02.0, ptr %83, align 8, !tbaa !34

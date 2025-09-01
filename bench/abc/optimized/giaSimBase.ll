@@ -283,11 +283,11 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %27, %30, %Vec_WrdSt
   %45 = trunc i64 %.val41.us to i32
   %46 = lshr i64 %.val41.us, 29
   %47 = and i64 %46, 1
-  %48 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !41
   %50 = lshr i64 %.val41.us, 61
   %51 = and i64 %50, 1
-  %52 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !41
   %54 = and i32 %45, 536870911
   %55 = trunc nuw nsw i64 %indvars.iv to i32
@@ -380,7 +380,7 @@ Gia_ManSimPatSimAnd.exit.us:                      ; preds = %.lr.ph8.i.us, %77, 
   %95 = trunc i64 %.val46.us to i32
   %96 = lshr i64 %.val46.us, 29
   %97 = and i64 %96, 1
-  %98 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !41
   %100 = and i32 %95, 536870911
   %101 = sub nsw i32 %92, %100
@@ -546,11 +546,11 @@ Gia_ManSimPatAssignInputs.exit:                   ; preds = %44, %47, %Vec_WrdSt
   %63 = trunc i64 %.val71 to i32
   %64 = lshr i64 %.val71, 29
   %65 = and i64 %64, 1
-  %66 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !41
   %68 = lshr i64 %.val71, 61
   %69 = and i64 %68, 1
-  %70 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !41
   %72 = and i32 %63, 536870911
   %73 = trunc nuw nsw i64 %indvars.iv to i32
@@ -649,7 +649,7 @@ Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %87, %.p
   %113 = trunc i64 %.val78.us to i32
   %114 = lshr i64 %.val78.us, 29
   %115 = and i64 %114, 1
-  %116 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !41
   %118 = and i32 %113, 536870911
   %119 = sub nsw i32 %110, %118
@@ -901,11 +901,11 @@ Vec_WrdStart.exit94:                              ; preds = %23, %27
   %79 = trunc i64 %.val84 to i32
   %80 = lshr i64 %.val84, 29
   %81 = and i64 %80, 1
-  %82 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i64, ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 %81
   %83 = load i64, ptr %82, align 8, !tbaa !41
   %84 = lshr i64 %.val84, 61
   %85 = and i64 %84, 1
-  %86 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i64, ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !41
   %88 = and i32 %79, 536870911
   %89 = trunc nuw nsw i64 %indvars.iv.next121 to i32
@@ -1308,11 +1308,11 @@ Vec_WrdStart.exit:                                ; preds = %3, %9
   %46 = trunc i64 %.val46.us to i32
   %47 = lshr i64 %.val46.us, 29
   %48 = and i64 %47, 1
-  %49 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !41
   %51 = lshr i64 %.val46.us, 61
   %52 = and i64 %51, 1
-  %53 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i64, ptr @__const.Gia_ManSimPatSimAnd4.pComps, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !41
   %55 = and i32 %46, 536870911
   %56 = trunc nuw nsw i64 %indvars.iv62 to i32
@@ -1672,11 +1672,11 @@ define void @Gia_ManSimPatResim(ptr noundef readonly captures(none) %0, ptr noun
   %28 = trunc i64 %.val26 to i32
   %29 = lshr i64 %.val26, 29
   %30 = and i64 %29, 1
-  %31 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = lshr i64 %.val26, 61
   %34 = and i64 %33, 1
-  %35 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !41
   %37 = and i32 %28, 536870911
   %38 = sub nsw i32 %12, %37
@@ -1958,7 +1958,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   br i1 %exitcond73.not.i, label %..loopexit27_crit_edge.us.us.i, label %53, !llvm.loop !71
 
 .preheader.us.us.i:                               ; preds = %.lr.ph33.split.us.split.us.i
-  %55 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv74.i
+  %55 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv74.i
   %56 = load i32, ptr %55, align 4, !tbaa !30
   br label %53
 
@@ -2075,11 +2075,11 @@ Abc_TtConst.exit.loopexit.us:                     ; preds = %85
   %93 = trunc i64 %.val106 to i32
   %94 = lshr i64 %.val106, 29
   %95 = and i64 %94, 1
-  %96 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !41
   %98 = lshr i64 %.val106, 61
   %99 = and i64 %98, 1
-  %100 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !41
   %102 = and i32 %93, 536870911
   %103 = trunc nuw nsw i64 %indvars.iv169 to i32
@@ -2166,7 +2166,7 @@ Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %118, %.
   %138 = trunc i64 %.val113 to i32
   %139 = lshr i64 %.val113, 29
   %140 = and i64 %139, 1
-  %141 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !41
   %143 = and i32 %138, 536870911
   %144 = sub nsw i32 %135, %143
@@ -3446,7 +3446,7 @@ define range(i32 0, 2) i32 @Gia_ManComparePair(ptr noundef readonly captures(non
   %25 = trunc i64 %.val37 to i32
   %26 = lshr i64 %.val37, 29
   %27 = and i64 %26, 1
-  %28 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !41
   %30 = and i32 %25, 536870911
   %31 = sub nsw i32 %11, %30
@@ -3476,7 +3476,7 @@ Gia_ManSimPatSimPo.exit:                          ; preds = %.lr.ph.i, %4
   %40 = trunc i64 %.val35 to i32
   %41 = lshr i64 %.val35, 29
   %42 = and i64 %41, 1
-  %43 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !41
   %45 = and i32 %40, 536870911
   %46 = sub nsw i32 %15, %45
@@ -3690,7 +3690,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   br i1 %exitcond73.not.i, label %..loopexit27_crit_edge.us.us.i, label %78, !llvm.loop !71
 
 .preheader.us.us.i:                               ; preds = %.lr.ph33.split.us.split.us.i
-  %80 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv74.i
+  %80 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv74.i
   %81 = load i32, ptr %80, align 4, !tbaa !30
   br label %78
 
@@ -3775,11 +3775,11 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %.crited
   %107 = trunc i64 %.val128 to i32
   %108 = lshr i64 %.val128, 29
   %109 = and i64 %108, 1
-  %110 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !41
   %112 = lshr i64 %.val128, 61
   %113 = and i64 %112, 1
-  %114 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %113
   %115 = load i64, ptr %114, align 8, !tbaa !41
   %116 = and i32 %107, 536870911
   %117 = trunc nuw nsw i64 %indvars.iv268 to i32
@@ -3902,7 +3902,7 @@ Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %132, %.
   %175 = trunc i64 %.val37.i to i32
   %176 = lshr i64 %.val37.i, 29
   %177 = and i64 %176, 1
-  %178 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !41
   %180 = and i32 %175, 536870911
   %181 = sub nsw i32 %162, %180
@@ -3927,7 +3927,7 @@ Gia_ManSimPatSimPo.exit.i:                        ; preds = %.lr.ph.i.i146, %160
   %189 = trunc i64 %.val35.i to i32
   %190 = lshr i64 %.val35.i, 29
   %191 = and i64 %190, 1
-  %192 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %191
   %193 = load i64, ptr %192, align 8, !tbaa !41
   %194 = and i32 %189, 536870911
   %195 = sub nsw i32 %166, %194
@@ -4082,11 +4082,11 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i159, %Abc_T
   %251 = trunc i64 %.val129 to i32
   %252 = lshr i64 %.val129, 29
   %253 = and i64 %252, 1
-  %254 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %253
   %255 = load i64, ptr %254, align 8, !tbaa !41
   %256 = lshr i64 %.val129, 61
   %257 = and i64 %256, 1
-  %258 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %257
   %259 = load i64, ptr %258, align 8, !tbaa !41
   %260 = and i32 %251, 536870911
   %261 = sub nsw i32 %246, %260
@@ -4177,7 +4177,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i159, %Abc_T
   %313 = trunc i64 %.val37.i186 to i32
   %314 = lshr i64 %.val37.i186, 29
   %315 = and i64 %314, 1
-  %316 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %315
   %317 = load i64, ptr %316, align 8, !tbaa !41
   %318 = and i32 %313, 536870911
   %319 = sub nsw i32 %300, %318
@@ -4202,7 +4202,7 @@ Gia_ManSimPatSimPo.exit.i187:                     ; preds = %.lr.ph.i.i203, %294
   %327 = trunc i64 %.val35.i188 to i32
   %328 = lshr i64 %.val35.i188, 29
   %329 = and i64 %328, 1
-  %330 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %329
   %331 = load i64, ptr %330, align 8, !tbaa !41
   %332 = and i32 %327, 536870911
   %333 = sub nsw i32 %304, %332
@@ -5812,7 +5812,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i15.i, %Vec_
   %59 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i.i.i
   %60 = load i32, ptr %59, align 4, !tbaa !30
   %61 = and i64 %indvars.iv.i.i.i, 7
-  %62 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !30
   %64 = mul i32 %63, %60
   %65 = add i32 %64, %.012.i.i.i
@@ -5980,7 +5980,7 @@ Vec_MemHashResize.exit:                           ; preds = %Vec_IntPush.exit.i,
   %136 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
   %137 = load i32, ptr %136, align 4, !tbaa !30
   %138 = and i64 %indvars.iv.i.i, 7
-  %139 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !30
   %141 = mul i32 %140, %137
   %142 = add i32 %141, %.012.i.i23
@@ -6538,8 +6538,8 @@ define void @Gia_ManPatSatImprove(ptr noundef captures(none) %0, i32 noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %.val17, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !158
   %16 = sext i8 %15 to i64
-  %17 = add nsw i64 %16, 1
-  %18 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %17
+  %17 = getelementptr i32, ptr %4, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !30
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !30
@@ -7147,7 +7147,7 @@ define noalias noundef ptr @Gia_SimRsbFunc(ptr noundef readonly captures(none) %
 .preheader.us:                                    ; preds = %40, %.preheader.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.preheader.us ], [ 0, %40 ]
   %.03243.us = phi i32 [ %.1.us, %.preheader.us ], [ 0, %40 ]
-  %46 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv50
+  %46 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv50
   %47 = load ptr, ptr %46, align 8, !tbaa !144
   %48 = getelementptr inbounds nuw i64, ptr %47, i64 %33
   %49 = load i64, ptr %48, align 8, !tbaa !41
@@ -7185,7 +7185,7 @@ define noalias noundef ptr @Gia_SimRsbFunc(ptr noundef readonly captures(none) %
   %66 = mul nsw i32 %65, %16
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i64, ptr %.val40, i64 %67
-  %69 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7365,11 +7365,11 @@ Abc_TtClear.exit:                                 ; preds = %Abc_TtCopy.exit, %.
   %43 = trunc i64 %.val45 to i32
   %44 = lshr i64 %.val45, 29
   %45 = and i64 %44, 1
-  %46 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !41
   %48 = lshr i64 %.val45, 61
   %49 = and i64 %48, 1
-  %50 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !41
   %52 = and i32 %43, 536870911
   %53 = sub nsw i32 %36, %52
@@ -9144,11 +9144,11 @@ Gia_ManSimRelAssignInputs.exit:                   ; preds = %.lr.ph30.split.us.i
   %96 = trunc i64 %.val123 to i32
   %97 = lshr i64 %.val123, 29
   %98 = and i64 %97, 1
-  %99 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !41
   %101 = lshr i64 %.val123, 61
   %102 = and i64 %101, 1
-  %103 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !41
   %105 = and i32 %96, 536870911
   %106 = trunc nuw nsw i64 %indvars.iv180 to i32
@@ -9247,7 +9247,7 @@ Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %120, %.
   %147 = trunc i64 %145 to i32
   %148 = lshr i64 %145, 29
   %149 = and i64 %148, 1
-  %150 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %149
   %151 = load i64, ptr %150, align 8, !tbaa !41
   %152 = and i32 %147, 536870911
   %153 = sub nsw i32 %142, %152
@@ -9401,7 +9401,7 @@ define void @Gia_ManSimRelCheckFuncs(ptr readnone captures(none) %0, ptr noundef
 
 .sink.split:                                      ; preds = %28, %29, %15
   %.sink = phi i32 [ 1, %15 ], [ 3, %29 ], [ 2, %28 ]
-  %31 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv109
+  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv109
   store i32 %.sink, ptr %31, align 4, !tbaa !30
   br label %32
 
@@ -9447,7 +9447,7 @@ define void @Gia_ManSimRelCheckFuncs(ptr readnone captures(none) %0, ptr noundef
 
 45:                                               ; preds = %39, %.preheader.us.us.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %39 ], [ 0, %.preheader.us.us.us ]
-  %46 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv114
+  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv114
   %47 = load i32, ptr %46, align 4, !tbaa !30
   %48 = trunc nuw nsw i64 %indvars.iv114 to i32
   %49 = lshr i32 %.05168.us.us.us, %48
@@ -9570,7 +9570,7 @@ define void @Gia_ManSimRelCheckFuncs(ptr readnone captures(none) %0, ptr noundef
 
 .sink.split140:                                   ; preds = %102, %103, %89
   %.sink141 = phi i32 [ 1, %89 ], [ 3, %103 ], [ 2, %102 ]
-  %105 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv123
+  %105 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv123
   store i32 %.sink141, ptr %105, align 4, !tbaa !30
   br label %106
 
@@ -9918,7 +9918,7 @@ Vec_WrdStart.exit:                                ; preds = %3, %12
   br i1 %.not68.us, label %58, label %54
 
 54:                                               ; preds = %41
-  %55 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !30
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 4, !tbaa !30
@@ -10120,7 +10120,7 @@ Abc_TtCountOnes2.exit.i84.us:                     ; preds = %135, %.lr.ph.i80.us
   br i1 %exitcond.not.i86.us, label %Abc_TtCountOnesVec.exit87.loopexit.us, label %.lr.ph.i80.us, !llvm.loop !58
 
 Abc_TtCountOnesVec.exit87.loopexit.us:            ; preds = %Abc_TtCountOnes2.exit.i84.us
-  %156 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv144
+  %156 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv144
   %157 = load i32, ptr %156, align 4, !tbaa !30
   %158 = sitofp i32 %157 to double
   %159 = fmul double %158, 1.000000e+02
@@ -10133,7 +10133,7 @@ Abc_TtCountOnesVec.exit87.loopexit.us:            ; preds = %Abc_TtCountOnes2.ex
 
 Abc_TtCountOnesVec.exit87:                        ; preds = %.lr.ph.thread, %Abc_TtCountOnesVec.exit87
   %indvars.iv139 = phi i64 [ 0, %.lr.ph.thread ], [ %indvars.iv.next140, %Abc_TtCountOnesVec.exit87 ]
-  %163 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv139
+  %163 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv139
   %164 = load i32, ptr %163, align 4, !tbaa !30
   %165 = sitofp i32 %164 to double
   %166 = fmul double %165, 1.000000e+02
@@ -11582,7 +11582,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
 
 74:                                               ; preds = %._crit_edge
   %75 = sext i32 %48 to i64
-  %76 = getelementptr inbounds [2 x ptr], ptr %42, i64 0, i64 %75
+  %76 = getelementptr inbounds ptr, ptr %42, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !144
   %78 = ashr i32 %70, 6
   %79 = sext i32 %78 to i64
@@ -12643,7 +12643,7 @@ define void @Gia_RsbUpdateAdd(ptr noundef readonly captures(none) %0, i32 nounde
 10:                                               ; preds = %.preheader, %.critedge
   %11 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
   %indvars.iv51 = phi i64 [ 0, %.preheader ], [ 1, %.critedge ]
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv51
+  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv51
   %13 = load ptr, ptr %12, align 8, !tbaa !265
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !94
@@ -19844,7 +19844,7 @@ Abc_TtNot.exit155:                                ; preds = %.lr.ph.i151, %Abc_T
   %157 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i.i
   %158 = load i32, ptr %157, align 4, !tbaa !30
   %159 = and i64 %indvars.iv.i.i, 7
-  %160 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !30
   %162 = mul i32 %161, %158
   %163 = add i32 %162, %.012.i.i168
@@ -19942,7 +19942,7 @@ Abc_TtNot.exit175:                                ; preds = %.lr.ph.i171, %Vec_M
   %203 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i.i192
   %204 = load i32, ptr %203, align 4, !tbaa !30
   %205 = and i64 %indvars.iv.i.i192, 7
-  %206 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !30
   %208 = mul i32 %207, %204
   %209 = add i32 %208, %.012.i.i193
@@ -20700,11 +20700,11 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WrdDup.exit, %2
   %85 = trunc i64 %79 to i32
   %86 = lshr i64 %79, 29
   %87 = and i64 %86, 1
-  %88 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %87
   %89 = load i64, ptr %88, align 8, !tbaa !41
   %90 = lshr i64 %79, 61
   %91 = and i64 %90, 1
-  %92 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !41
   %94 = and i32 %85, 536870911
   %95 = sub nsw i32 %76, %94
@@ -20947,11 +20947,11 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i190, %Abc_T
   %200 = trunc i64 %198 to i32
   %201 = lshr i64 %198, 29
   %202 = and i64 %201, 1
-  %203 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %202
   %204 = load i64, ptr %203, align 8, !tbaa !41
   %205 = lshr i64 %198, 61
   %206 = and i64 %205, 1
-  %207 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %206
   %208 = load i64, ptr %207, align 8, !tbaa !41
   %209 = and i32 %200, 536870911
   %210 = sub nsw i32 %195, %209
@@ -22096,7 +22096,7 @@ Vec_WrdStart.exit.i:                              ; preds = %32, %Vec_WrdFreeP.e
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %53, !llvm.loop !395
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %55 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %55 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %56 = load i32, ptr %55, align 4, !tbaa !30
   br label %53
 
@@ -23378,7 +23378,7 @@ Vec_WrdStart.exit.i:                              ; preds = %36, %Vec_WrdFreeP.e
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %57, !llvm.loop !395
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %59 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %59 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %60 = load i32, ptr %59, align 4, !tbaa !30
   br label %57
 
@@ -23867,11 +23867,11 @@ define void @Gia_ManSimPatSimTfo(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %narrow.i.not, label %63, label %26
 
 26:                                               ; preds = %.lr.ph.split
-  %27 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %25
   %28 = load i64, ptr %27, align 8, !tbaa !41
   %29 = lshr i64 %.val28, 61
   %30 = and i64 %29, 1
-  %31 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = and i32 %23, 536870911
   %34 = sub nsw i32 %17, %33
@@ -23931,7 +23931,7 @@ define void @Gia_ManSimPatSimTfo(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %exitcond15.not.i, label %Gia_ManSimPatSimAnd.exit, label %.lr.ph8.i, !llvm.loop !42
 
 63:                                               ; preds = %.lr.ph.split
-  %64 = getelementptr inbounds nuw [2 x i64], ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 0, i64 %25
+  %64 = getelementptr inbounds nuw i64, ptr @__const.Gia_SimRsbSimAndCareSet.pComps, i64 %25
   %65 = load i64, ptr %64, align 8, !tbaa !41
   %66 = and i32 %23, 536870911
   %67 = sub nsw i32 %17, %66
@@ -24962,7 +24962,7 @@ Vec_WrdStart.exit.i:                              ; preds = %27, %Vec_WrdFreeP.e
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %48, !llvm.loop !395
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %50 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %50 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %51 = load i32, ptr %50, align 4, !tbaa !30
   br label %48
 
@@ -25471,7 +25471,7 @@ Vec_WrdStart.exit.i:                              ; preds = %12, %1
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %33, !llvm.loop !395
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %35 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %35 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %36 = load i32, ptr %35, align 4, !tbaa !30
   br label %33
 
@@ -25975,7 +25975,7 @@ Vec_WrdStart.exit.i:                              ; preds = %13, %2
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %34, !llvm.loop !395
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %36 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %36 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %37 = load i32, ptr %36, align 4, !tbaa !30
   br label %34
 

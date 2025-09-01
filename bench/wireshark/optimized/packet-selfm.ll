@@ -3359,7 +3359,7 @@ define internal fastcc i32 @dissect_fmdata_frame(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %82
   %89 = zext nneg i8 %87 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_fmdata_frame, i64 0, i64 %89
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_fmdata_frame, i64 %89
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %90
 

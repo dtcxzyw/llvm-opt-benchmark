@@ -992,7 +992,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9121c52
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %49, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i.i.i = phi i64 [ %54, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i.i.i.i" ], [ 0, %49 ]
-  %53 = getelementptr inbounds [0 x ptr], ptr %47, i64 0, i64 %.sroa.0.09.i.i.i.i.i.i.i
+  %53 = getelementptr inbounds ptr, ptr %47, i64 %.sroa.0.09.i.i.i.i.i.i.i
   %54 = add nuw i64 %.sroa.0.09.i.i.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
@@ -1019,7 +1019,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9121c52
 
 .lr.ph12.i.i.i.i.i.i.i:                           ; preds = %60, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i.i.i.i"
   %.sroa.0.110.i.i.i.i.i.i.i = phi i64 [ %64, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i.i.i.i" ], [ %54, %60 ]
-  %63 = getelementptr inbounds [0 x ptr], ptr %47, i64 0, i64 %.sroa.0.110.i.i.i.i.i.i.i
+  %63 = getelementptr inbounds ptr, ptr %47, i64 %.sroa.0.110.i.i.i.i.i.i.i
   %64 = add i64 %.sroa.0.110.i.i.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)

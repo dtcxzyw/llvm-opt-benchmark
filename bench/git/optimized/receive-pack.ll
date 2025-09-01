@@ -2566,13 +2566,13 @@ define internal fastcc ptr @prepare_push_cert_nonce(ptr noundef %0, i64 noundef 
 
 35:                                               ; preds = %.preheader, %35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 0, %.preheader ]
-  %36 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1, !tbaa !60
   %38 = xor i8 %37, 54
-  %39 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %38, ptr %39, align 1, !tbaa !60
   %40 = xor i8 %37, 92
-  %41 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %40, ptr %41, align 1, !tbaa !60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -2821,7 +2821,7 @@ define internal fastcc i32 @run_receive_hook(ptr noundef nonnull %0, ptr noundef
 
 73:                                               ; preds = %75, %69
   %.0811.i.i.i.i = phi i64 [ 0, %69 ], [ %76, %75 ]
-  %74 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %74 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %72, %74
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %75
 
@@ -4666,7 +4666,7 @@ define internal void @rp_error(ptr noundef readonly captures(none) %0, ...) unna
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %9, i32 4095)
   %10 = add nuw nsw i32 %spec.store.select.i, 1
   %11 = zext nneg i32 %spec.store.select.i to i64
-  %12 = getelementptr inbounds nuw [4096 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   store i8 10, ptr %12, align 1, !tbaa !60
   %.b.i = load i1, ptr @use_sideband, align 4
   %13 = zext nneg i32 %10 to i64
@@ -5663,7 +5663,7 @@ define internal void @rp_warning(ptr noundef readonly captures(none) %0, ...) un
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %9, i32 4095)
   %10 = add nuw nsw i32 %spec.store.select.i, 1
   %11 = zext nneg i32 %spec.store.select.i to i64
-  %12 = getelementptr inbounds nuw [4096 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   store i8 10, ptr %12, align 1, !tbaa !60
   %.b.i = load i1, ptr @use_sideband, align 4
   %13 = zext nneg i32 %10 to i64

@@ -42,12 +42,12 @@ define dso_local range(i32 0, 2) i32 @pg_range_sockaddr(ptr noundef readonly cap
 
 17:                                               ; preds = %16, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = xor i8 %21, %19
-  %23 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %22, %24
   %.not.i = icmp eq i8 %25, 0
@@ -137,7 +137,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
 
 36:                                               ; preds = %29, %27, %31
   %.sink = phi i8 [ %35, %31 ], [ 0, %27 ], [ -1, %29 ]
-  %37 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   store i8 %.sink, ptr %37, align 1
   %38 = add i64 %.13641, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -1641,7 +1641,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
 
 14:                                               ; preds = %9, %6
   %15 = phi i64 [ 0, %6 ], [ %10, %9 ]
-  %16 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %7, i64 0, i64 %15
+  %16 = getelementptr %struct.auto_pin_cfg_item, ptr %7, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 4
   %19 = and i8 %18, 2

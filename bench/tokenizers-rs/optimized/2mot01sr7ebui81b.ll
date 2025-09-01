@@ -2479,7 +2479,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hfad3a17b4bd9fb02E.llvm.15403311311865522351.exit, label %16
 
 16:                                               ; preds = %"_ZN110_$LT$tokenizers..models..unigram..model..UnigramIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed99adaa5686c765E.exit.i.i.i"
-  %17 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, double }], ptr %14, i64 0, i64 %.sroa.2.06.i.i.i
+  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, double }, ptr %14, i64 %.sroa.2.06.i.i.i
   %18 = add nuw i64 %.sroa.2.06.i.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !673
   call void @_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E.llvm.13080012565599917794(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !noalias !677
@@ -3387,7 +3387,7 @@ define hidden void @"_ZN239_$LT$rayon..iter..flat_map..FlatMapFolder$LT$C$C$F$C$
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf120f67d370a3efE.llvm.15403311311865522351.exit.i": ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !1108, !noalias !1113, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %21, i64 0, i64 %14
+  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %21, i64 %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1104
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !1099, !noalias !1107, !nonnull !4, !align !147, !noundef !4
@@ -3551,7 +3551,7 @@ define hidden void @"_ZN239_$LT$rayon..iter..flat_map..FlatMapFolder$LT$C$C$F$C$
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf120f67d370a3efE.llvm.15403311311865522351.exit.i": ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !1150, !noalias !1155, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %18, i64 0, i64 %12
+  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %18, i64 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1146
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !1141, !noalias !1149, !nonnull !4, !align !147, !noundef !4
@@ -6064,7 +6064,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 "_ZN10tokenizers6models3bpe7trainer10BpeTrainer8do_train28_$u7b$$u7b$closure$u7d$$u7d$17h750e25ffc540086dE.llvm.15403311311865522351.exit": ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !1490, !noalias !1493, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %14, i64 0, i64 %7
+  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1483
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !1478, !noalias !1486, !nonnull !4, !align !147, !noundef !4
@@ -7706,7 +7706,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfad3a17b4b
   br i1 %16, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h121adf269577bda6E.exit", label %17
 
 17:                                               ; preds = %"_ZN110_$LT$tokenizers..models..unigram..model..UnigramIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed99adaa5686c765E.exit.i.i"
-  %18 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, double }], ptr %15, i64 0, i64 %.sroa.2.06.i.i
+  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, double }, ptr %15, i64 %.sroa.2.06.i.i
   %19 = add nuw i64 %.sroa.2.06.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2376
   call void @_ZN4core5clone5Clone5clone17hf069e6fe2cb02d04E.llvm.13080012565599917794(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18), !noalias !2380
@@ -11888,7 +11888,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !669
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -11917,7 +11917,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN81_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9c9048108c301286E.llvm.15403311311865522351.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !3161, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -24577,10 +24577,10 @@ define { ptr, i64 } @"_ZN101_$LT$tokenizers..utils..truncation..TruncationStrate
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !1952, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN101_$LT$tokenizers..utils..truncation..TruncationStrategy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0fd22b3126469f66E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$tokenizers..utils..truncation..TruncationStrategy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0fd22b3126469f66E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN101_$LT$tokenizers..utils..truncation..TruncationStrategy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0fd22b3126469f66E.161", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$tokenizers..utils..truncation..TruncationStrategy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0fd22b3126469f66E.161", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -25113,7 +25113,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.15403
 
 112:                                              ; preds = %109
   %113 = load ptr, ptr %76, align 8, !nonnull !4, !align !147, !noundef !4
-  %114 = getelementptr inbounds [0 x i64], ptr %113, i64 0, i64 %2
+  %114 = getelementptr inbounds i64, ptr %113, i64 %2
   %115 = load i64, ptr %114, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h32e5bd655c4c73a8E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 dereferenceable(48) %15, i32 noundef %103, i32 noundef %104)
@@ -25921,7 +25921,7 @@ define hidden void @"_ZN10tokenizers6models3bpe7trainer10BpeTrainer8do_train28_$
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbf120f67d370a3efE.llvm.15403311311865522351.exit": ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !8132, !noalias !8135, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %14, i64 0, i64 %7
+  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !147, !noundef !4
@@ -32096,7 +32096,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hb46ff2c95a7f629bE.exit: ; preds 
   %385 = icmp ult i64 %384, 3
   %386 = add nsw i64 %383, -1
   %387 = select i1 %385, i64 %386, i64 0
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %387
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 %387
   %switch.load = load i64, ptr %switch.gep, align 8
   %388 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %.0.i47 = load i64, ptr %388, align 8, !noundef !4
@@ -32104,7 +32104,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hb46ff2c95a7f629bE.exit: ; preds 
   br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h924039e4693ba90bE.exit", label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17hb46ff2c95a7f629bE.exit
-  %switch.gep437 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %387
+  %switch.gep437 = getelementptr inbounds i64, ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 %387
   %switch.load438 = load i64, ptr %switch.gep437, align 8
   %390 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load438
   %.0.i.i.i = load i64, ptr %390, align 8, !noundef !4
@@ -32113,7 +32113,7 @@ switch.lookup:                                    ; preds = %_ZN4core4iter6trait
   br i1 %.not.i.i, label %switch.lookup439, label %396
 
 switch.lookup439:                                 ; preds = %switch.lookup
-  %switch.gep440 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %387
+  %switch.gep440 = getelementptr inbounds i64, ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 %387
   %switch.load441 = load i64, ptr %switch.gep440, align 8
   %392 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load441
   %.0.i2.i.i = load i64, ptr %392, align 8, !noundef !4
@@ -32121,7 +32121,7 @@ switch.lookup439:                                 ; preds = %switch.lookup
   br i1 %393, label %396, label %switch.lookup442
 
 switch.lookup442:                                 ; preds = %switch.lookup439
-  %switch.gep443 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 0, i64 %387
+  %switch.gep443 = getelementptr inbounds i64, ptr @switch.table._ZN10tokenizers9tokenizer16added_vocabulary15AddedVocabulary10add_tokens17h95860d8d7ca79737E.164, i64 %387
   %switch.load444 = load i64, ptr %switch.gep443, align 8
   %394 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load444
   %.0.i5.i.i = load i64, ptr %394, align 8, !noundef !4

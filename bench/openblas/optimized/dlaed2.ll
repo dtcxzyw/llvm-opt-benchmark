@@ -530,9 +530,9 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   %indvars.iv609 = phi i64 [ 1, %.lr.ph514.preheader ], [ %indvars.iv.next610, %.lr.ph514 ]
   %279 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv609
   %280 = load i32, ptr %279, align 4, !tbaa !3
-  %281 = add nsw i32 %280, -1
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %282
+  %281 = sext i32 %280 to i64
+  %282 = getelementptr i32, ptr %19, i64 %281
+  %283 = getelementptr i8, ptr %282, i64 -4
   %284 = load i32, ptr %283, align 4, !tbaa !3
   %285 = add nsw i32 %284, 1
   store i32 %285, ptr %283, align 4, !tbaa !3
@@ -586,9 +586,9 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   %304 = sext i32 %303 to i64
   %305 = getelementptr inbounds i32, ptr %37, i64 %304
   %306 = load i32, ptr %305, align 4, !tbaa !3
-  %307 = add nsw i32 %306, -1
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [4 x i32], ptr %24, i64 0, i64 %308
+  %307 = sext i32 %306 to i64
+  %308 = getelementptr i32, ptr %24, i64 %307
+  %309 = getelementptr i8, ptr %308, i64 -4
   %310 = load i32, ptr %309, align 4, !tbaa !3
   %311 = sext i32 %310 to i64
   %312 = getelementptr inbounds i32, ptr %34, i64 %311

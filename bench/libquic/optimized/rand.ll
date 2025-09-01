@@ -340,21 +340,21 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 99:                                               ; preds = %.preheader.us.us, %99
   %indvars.iv87 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next88, %99 ]
-  %100 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %indvars.iv87
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv87
   %101 = load i8, ptr %100, align 1, !tbaa !22
   %102 = lshr i8 %101, 4
   %103 = zext nneg i8 %102 to i64
-  %104 = getelementptr inbounds nuw [17 x i8], ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !22
   %106 = shl nuw i64 %indvars.iv87, 1
-  %107 = getelementptr inbounds nuw [8192 x i8], ptr %7, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 %106
   store i8 %105, ptr %107, align 2, !tbaa !22
   %108 = and i8 %101, 15
   %109 = zext nneg i8 %108 to i64
-  %110 = getelementptr inbounds nuw [17 x i8], ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !22
-  %112 = or disjoint i64 %106, 1
-  %113 = getelementptr inbounds nuw [8192 x i8], ptr %7, i64 0, i64 %112
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 %106
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store i8 %111, ptr %113, align 1, !tbaa !22
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 4096
@@ -388,21 +388,21 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %.preheader.us ]
-  %124 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %125 = load i8, ptr %124, align 1, !tbaa !22
   %126 = lshr i8 %125, 4
   %127 = zext nneg i8 %126 to i64
-  %128 = getelementptr inbounds nuw [17 x i8], ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !22
   %130 = shl nuw i64 %indvars.iv, 1
-  %131 = getelementptr inbounds nuw [8192 x i8], ptr %7, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 %130
   store i8 %129, ptr %131, align 2, !tbaa !22
   %132 = and i8 %125, 15
   %133 = zext nneg i8 %132 to i64
-  %134 = getelementptr inbounds nuw [17 x i8], ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !22
-  %136 = or disjoint i64 %130, 1
-  %137 = getelementptr inbounds nuw [8192 x i8], ptr %7, i64 0, i64 %136
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 %130
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 1
   store i8 %135, ptr %137, align 1, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %spec.select.us

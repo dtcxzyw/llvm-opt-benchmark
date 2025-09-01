@@ -375,7 +375,7 @@ sub_0178:                                         ; preds = %74
 
 109:                                              ; preds = %107
   %110 = sext i32 %.0107185 to i64
-  %111 = getelementptr inbounds [0 x i16], ptr @_ZN10JvmtiTrace18_exclude_functionsE, i64 0, i64 %110
+  %111 = getelementptr inbounds i16, ptr @_ZN10JvmtiTrace18_exclude_functionsE, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = sext i16 %112 to i64
   %114 = icmp eq i64 %indvars.iv, %113
@@ -389,7 +389,7 @@ sub_0178:                                         ; preds = %74
   br i1 %.not127159, label %118, label %130
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN10JvmtiTrace15_function_namesE, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw ptr, ptr @_ZN10JvmtiTrace15_function_namesE, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8
   %.not136 = icmp eq ptr %120, null
   br i1 %.not136, label %.critedge, label %121
@@ -414,7 +414,7 @@ sub_0178:                                         ; preds = %74
   br label %130
 
 130:                                              ; preds = %117, %127, %129
-  %131 = getelementptr inbounds nuw [0 x i8], ptr @_ZN10JvmtiTrace12_trace_flagsE, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw i8, ptr @_ZN10JvmtiTrace12_trace_flagsE, i64 %indvars.iv
   %132 = load i8, ptr %131, align 1
   %133 = and i8 %132, %106
   %134 = or i8 %132, %.0113.lcssa
@@ -470,7 +470,7 @@ sub_0178:                                         ; preds = %74
   %147 = trunc i64 %indvars.iv207 to i32
   %148 = add i32 %147, -50
   %or.cond.i = icmp ult i32 %148, 39
-  %149 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN10JvmtiTrace12_event_namesE, i64 0, i64 %indvars.iv207
+  %149 = getelementptr inbounds nuw ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv207
   %.0.in.i = select i1 %or.cond.i, ptr %149, ptr @_ZZN10JvmtiTrace10event_nameEiE14ext_event_name
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not134 = icmp eq ptr %.0.i, null
@@ -496,7 +496,7 @@ sub_0178:                                         ; preds = %74
   br label %159
 
 159:                                              ; preds = %144, %156, %158
-  %160 = getelementptr inbounds nuw [0 x i8], ptr @_ZN10JvmtiTrace18_event_trace_flagsE, i64 0, i64 %indvars.iv207
+  %160 = getelementptr inbounds nuw i8, ptr @_ZN10JvmtiTrace18_event_trace_flagsE, i64 %indvars.iv207
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, %143
   %163 = or i8 %161, %.0113.lcssa

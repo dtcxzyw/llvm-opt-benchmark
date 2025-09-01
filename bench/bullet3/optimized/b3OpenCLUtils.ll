@@ -435,7 +435,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
 .lr.ph:                                           ; preds = %23, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %23 ]
   %28 = load ptr, ptr @__clewCreateContext, align 8, !tbaa !8
-  %29 = getelementptr inbounds nuw [16 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %30 = call ptr %28(ptr noundef %21, i32 noundef 1, ptr noundef nonnull %29, ptr noundef null, ptr noundef null, ptr noundef nonnull %8)
   %31 = load i32, ptr %8, align 4, !tbaa !4
   %32 = icmp eq i32 %31, 0
@@ -450,7 +450,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
 36:                                               ; preds = %33
   %37 = load ptr, ptr @__clewCreateContext, align 8, !tbaa !8
   %38 = zext nneg i32 %5 to i64
-  %39 = getelementptr inbounds nuw [16 x ptr], ptr %9, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %9, i64 %38
   %40 = call ptr %37(ptr noundef %21, i32 noundef 1, ptr noundef nonnull %39, ptr noundef null, ptr noundef null, ptr noundef nonnull %8)
   br label %.loopexit
 
@@ -1227,7 +1227,7 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
 .preheader:                                       ; preds = %79, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %81 = getelementptr inbounds nuw [4 x ptr], ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw ptr, ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !10
   %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %82, ptr noundef nonnull %5) #13
   %84 = call noalias ptr @fopen(ptr noundef nonnull %18, ptr noundef nonnull @.str.63)

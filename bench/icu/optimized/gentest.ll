@@ -104,15 +104,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 31:                                               ; preds = %26
   %32 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %33 = add i64 %32, -1
-  %34 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %33
+  %33 = getelementptr i8, ptr %4, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -1
   %35 = load i8, ptr %34, align 1, !tbaa !16
   %.not92.i = icmp eq i8 %35, 47
   br i1 %.not92.i, label %37, label %36
 
 36:                                               ; preds = %31
-  %endptr.i = getelementptr inbounds i8, ptr %4, i64 %32
-  store i16 47, ptr %endptr.i, align 1
+  store i16 47, ptr %33, align 1
   br label %37
 
 37:                                               ; preds = %36, %31, %26

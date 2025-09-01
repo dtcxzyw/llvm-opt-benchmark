@@ -508,7 +508,7 @@ define dso_local void @drop_reasons_register_subsys(i32 noundef %0, ptr noundef 
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr [4 x ptr], ptr @drop_reasons_by_subsys, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr @drop_reasons_by_subsys, i64 %7
   store volatile ptr %1, ptr %8, align 8
   br label %9
 
@@ -536,7 +536,7 @@ define dso_local void @drop_reasons_unregister_subsys(i32 noundef %0) #0 align 1
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr [4 x ptr], ptr @drop_reasons_by_subsys, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr @drop_reasons_by_subsys, i64 %6
   store volatile ptr null, ptr %7, align 8
   tail call void @synchronize_rcu() #23
   br label %8
@@ -1022,7 +1022,7 @@ define dso_local ptr @napi_build_skb(ptr noundef %0, i32 noundef %1) #0 align 16
   %16 = add i32 %14, -1
   store i32 %16, ptr %5, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr [64 x ptr], ptr %15, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @skbuff_cache, align 8
   %21 = tail call i32 @kmem_cache_size(ptr noundef %20) #23
@@ -1170,7 +1170,7 @@ define dso_local ptr @__alloc_skb(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %41 = add i32 %39, -1
   store i32 %41, ptr %30, align 8
   %42 = zext i32 %41 to i64
-  %43 = getelementptr [64 x ptr], ptr %40, i64 0, i64 %42
+  %43 = getelementptr ptr, ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @skbuff_cache, align 8
   %46 = tail call i32 @kmem_cache_size(ptr noundef %45) #23
@@ -1520,7 +1520,7 @@ define dso_local ptr @__napi_alloc_skb(ptr noundef readonly captures(none) %0, i
   %78 = add i32 %76, -1
   store i32 %78, ptr %67, align 8
   %79 = zext i32 %78 to i64
-  %80 = getelementptr [64 x ptr], ptr %77, i64 0, i64 %79
+  %80 = getelementptr ptr, ptr %77, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr @skbuff_cache, align 8
   %83 = tail call i32 @kmem_cache_size(ptr noundef %82) #23
@@ -1575,7 +1575,7 @@ define dso_local void @skb_add_rx_frag(ptr noundef captures(none) %0, i32 nounde
   %12 = getelementptr i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = sext i32 %1 to i64
-  %15 = getelementptr [17 x %struct.bio_vec], ptr %13, i64 0, i64 %14
+  %15 = getelementptr %struct.bio_vec, ptr %13, i64 %14
   store ptr %2, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %3, ptr %16, align 4
@@ -1670,7 +1670,7 @@ define internal fastcc void @skb_fill_page_desc(ptr noundef captures(none) %0, i
   %11 = getelementptr i8, ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr [17 x %struct.bio_vec], ptr %12, i64 0, i64 %13
+  %14 = getelementptr %struct.bio_vec, ptr %12, i64 %13
   store ptr %2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %3, ptr %15, align 4
@@ -2173,7 +2173,7 @@ define dso_local void @kfree_skb_list_reason(ptr noundef %0, i32 noundef %1) #0 
   %51 = add i32 %50, 1
   store i32 %51, ptr %3, align 8
   %52 = zext i32 %50 to i64
-  %53 = getelementptr [16 x ptr], ptr %7, i64 0, i64 %52
+  %53 = getelementptr ptr, ptr %7, i64 %52
   store ptr %8, ptr %53, align 8
   %54 = icmp eq i32 %51, 16
   br i1 %54, label %55, label %.critedge.us, !prof !6
@@ -2272,7 +2272,7 @@ define dso_local void @kfree_skb_list_reason(ptr noundef %0, i32 noundef %1) #0 
   %101 = add i32 %100, 1
   store i32 %101, ptr %3, align 8
   %102 = zext i32 %100 to i64
-  %103 = getelementptr [16 x ptr], ptr %7, i64 0, i64 %102
+  %103 = getelementptr ptr, ptr %7, i64 %102
   store ptr %58, ptr %103, align 8
   %104 = icmp eq i32 %101, 16
   br i1 %104, label %105, label %.critedge, !prof !6
@@ -2496,7 +2496,7 @@ define dso_local void @skb_dump(ptr noundef %0, ptr noundef readonly captures(no
   %151 = phi i32 [ %208, %.loopexit11 ], [ %130, %.preheader12 ]
   %152 = phi i64 [ %209, %.loopexit11 ], [ 0, %.preheader12 ]
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 48
-  %154 = getelementptr [17 x %struct.bio_vec], ptr %153, i64 0, i64 %152
+  %154 = getelementptr %struct.bio_vec, ptr %153, i64 %152
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8
   %157 = icmp eq i32 %156, 0
@@ -3029,7 +3029,7 @@ define internal fastcc void @skb_release_data(ptr noundef %0, i32 noundef %1) un
 
 55:                                               ; preds = %90, %53
   %56 = phi i64 [ 0, %53 ], [ %91, %90 ]
-  %57 = getelementptr [17 x %struct.bio_vec], ptr %54, i64 0, i64 %56
+  %57 = getelementptr %struct.bio_vec, ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load volatile i64, ptr %59, align 8
@@ -3153,7 +3153,7 @@ define dso_local void @__napi_kfree_skb(ptr noundef %0, i32 noundef %1) local_un
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
   %14 = zext i32 %12 to i64
-  %15 = getelementptr [64 x ptr], ptr %10, i64 0, i64 %14
+  %15 = getelementptr ptr, ptr %10, i64 %14
   store ptr %0, ptr %15, align 8
   %16 = icmp eq i32 %13, 64
   br i1 %16, label %.preheader, label %25, !prof !6
@@ -3234,7 +3234,7 @@ define dso_local void @napi_skb_free_stolen_head(ptr noundef %0) local_unnamed_a
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 8
   %33 = zext i32 %31 to i64
-  %34 = getelementptr [64 x ptr], ptr %29, i64 0, i64 %33
+  %34 = getelementptr ptr, ptr %29, i64 %33
   store ptr %0, ptr %34, align 8
   %35 = icmp eq i32 %32, 64
   br i1 %35, label %.preheader, label %44, !prof !6
@@ -3466,7 +3466,7 @@ define dso_local void @napi_consume_skb(ptr noundef %0, i32 noundef %1) #0 align
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 8
   %78 = zext i32 %76 to i64
-  %79 = getelementptr [64 x ptr], ptr %74, i64 0, i64 %78
+  %79 = getelementptr ptr, ptr %74, i64 %78
   store ptr %0, ptr %79, align 8
   %80 = icmp eq i32 %77, 64
   br i1 %80, label %.preheader, label %__kfree_skb.exit, !prof !6
@@ -4493,7 +4493,7 @@ define dso_local range(i32 -12, 1) i32 @___pskb_trim(ptr noundef %0, i32 noundef
 
 73:                                               ; preds = %64
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  %75 = getelementptr [17 x %struct.bio_vec], ptr %74, i64 0, i64 %65
+  %75 = getelementptr %struct.bio_vec, ptr %74, i64 %65
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load volatile i64, ptr %77, align 8
@@ -4762,7 +4762,7 @@ define dso_local void @__skb_zcopy_downgrade_managed(ptr noundef readonly captur
   %17 = phi i64 [ %49, %46 ], [ 0, %1 ]
   %18 = phi ptr [ %53, %46 ], [ %13, %1 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %20 = getelementptr [17 x %struct.bio_vec], ptr %19, i64 0, i64 %17
+  %20 = getelementptr %struct.bio_vec, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load volatile i64, ptr %22, align 8
@@ -5035,7 +5035,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skb_copy_ubufs(ptr noundef %0, i
   %135 = zext i32 %134 to i64
   %136 = getelementptr i8, ptr %133, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  %138 = getelementptr [17 x %struct.bio_vec], ptr %137, i64 0, i64 %130
+  %138 = getelementptr %struct.bio_vec, ptr %137, i64 %130
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load i32, ptr %139, align 8
   %141 = icmp eq i32 %140, 0
@@ -5177,7 +5177,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skb_copy_ubufs(ptr noundef %0, i
 
 237:                                              ; preds = %.preheader18
   %238 = getelementptr inbounds nuw i8, ptr %233, i64 48
-  %239 = getelementptr [17 x %struct.bio_vec], ptr %238, i64 0, i64 %229
+  %239 = getelementptr %struct.bio_vec, ptr %238, i64 %229
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load volatile i64, ptr %241, align 8
@@ -5244,7 +5244,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skb_copy_ubufs(ptr noundef %0, i
   %280 = zext i32 %279 to i64
   %281 = getelementptr i8, ptr %278, i64 %280
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 48
-  %283 = getelementptr [17 x %struct.bio_vec], ptr %282, i64 0, i64 %276
+  %283 = getelementptr %struct.bio_vec, ptr %282, i64 %276
   store ptr %277, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 12
   store i32 0, ptr %284, align 4
@@ -5320,7 +5320,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skb_copy_ubufs(ptr noundef %0, i
   %330 = getelementptr i8, ptr %327, i64 %329
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 48
   %332 = sext i32 %225 to i64
-  %333 = getelementptr [17 x %struct.bio_vec], ptr %331, i64 0, i64 %332
+  %333 = getelementptr %struct.bio_vec, ptr %331, i64 %332
   store ptr %326, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 12
   store i32 0, ptr %334, align 4
@@ -5865,7 +5865,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_bits(ptr noundef readon
   %57 = phi i32 [ %43, %.thread ], [ %29, %28 ]
   %58 = phi i32 [ %67, %.thread ], [ %9, %28 ]
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %60 = getelementptr [17 x %struct.bio_vec], ptr %59, i64 0, i64 %53
+  %60 = getelementptr %struct.bio_vec, ptr %59, i64 %53
   %61 = add i32 %57, %55
   %62 = icmp sgt i32 %58, %61
   br i1 %62, label %63, label %64, !prof !6
@@ -6153,16 +6153,16 @@ define dso_local ptr @__pskb_copy_fclone(ptr noundef %0, i32 noundef %1, i32 nou
   %96 = zext i32 %95 to i64
   %97 = getelementptr i8, ptr %94, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %99 = getelementptr [17 x %struct.bio_vec], ptr %98, i64 0, i64 %92
+  %99 = getelementptr %struct.bio_vec, ptr %98, i64 %92
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %101 = getelementptr [17 x %struct.bio_vec], ptr %100, i64 0, i64 %92
+  %101 = getelementptr %struct.bio_vec, ptr %100, i64 %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %99, ptr noundef align 8 dereferenceable(16) %101, i64 16, i1 false)
   %102 = load ptr, ptr %56, align 8
   %103 = load i32, ptr %58, align 4
   %104 = zext i32 %103 to i64
   %105 = getelementptr i8, ptr %102, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
-  %107 = getelementptr [17 x %struct.bio_vec], ptr %106, i64 0, i64 %92
+  %107 = getelementptr %struct.bio_vec, ptr %106, i64 %92
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load volatile i64, ptr %109, align 8
@@ -6623,7 +6623,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pskb_expand_head(ptr noundef %0,
   %101 = phi i64 [ %133, %130 ], [ 0, %.thread33 ]
   %102 = phi ptr [ %137, %130 ], [ %97, %.thread33 ]
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %104 = getelementptr [17 x %struct.bio_vec], ptr %103, i64 0, i64 %101
+  %104 = getelementptr %struct.bio_vec, ptr %103, i64 %101
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load volatile i64, ptr %106, align 8
@@ -8059,7 +8059,7 @@ define dso_local ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %1) #0 align 
   %165 = phi i32 [ %.ph19, %225 ], [ %1, %.loopexit26 ]
   %166 = phi i32 [ %.ph, %225 ], [ 0, %.loopexit26 ]
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 48
-  %168 = getelementptr [17 x %struct.bio_vec], ptr %167, i64 0, i64 %163
+  %168 = getelementptr %struct.bio_vec, ptr %167, i64 %163
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load i32, ptr %169, align 8
   %171 = icmp sgt i32 %170, %165
@@ -8131,7 +8131,7 @@ define dso_local ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %1) #0 align 
 
 211:                                              ; preds = %.preheader
   %212 = sext i32 %166 to i64
-  %213 = getelementptr [17 x %struct.bio_vec], ptr %167, i64 0, i64 %212
+  %213 = getelementptr %struct.bio_vec, ptr %167, i64 %212
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %213, ptr noundef align 8 dereferenceable(16) %168, i64 16, i1 false)
   %214 = icmp eq i32 %165, 0
   br i1 %214, label %223, label %215
@@ -8429,7 +8429,7 @@ define internal fastcc noundef zeroext i1 @__skb_splice_bits(ptr noundef readonl
   %68 = phi i64 [ %59, %58 ], [ 0, %48 ]
   %69 = phi ptr [ %63, %58 ], [ %54, %48 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  %71 = getelementptr [17 x %struct.bio_vec], ptr %70, i64 0, i64 %68
+  %71 = getelementptr %struct.bio_vec, ptr %70, i64 %68
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %74 = load i32, ptr %73, align 4
@@ -8669,7 +8669,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
 
 123:                                              ; preds = %.preheader197
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 48
-  %125 = getelementptr [17 x %struct.bio_vec], ptr %124, i64 0, i64 %112
+  %125 = getelementptr %struct.bio_vec, ptr %124, i64 %112
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load i32, ptr %126, align 8
   %128 = icmp eq i32 %127, %113
@@ -8978,7 +8978,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_store_bits(ptr noundef reado
   %57 = phi i32 [ %43, %.thread ], [ %29, %28 ]
   %58 = phi i32 [ %67, %.thread ], [ %9, %28 ]
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %60 = getelementptr [17 x %struct.bio_vec], ptr %59, i64 0, i64 %53
+  %60 = getelementptr %struct.bio_vec, ptr %59, i64 %53
   %61 = add i32 %57, %55
   %62 = icmp sgt i32 %58, %61
   br i1 %62, label %63, label %64, !prof !6
@@ -9216,7 +9216,7 @@ define dso_local i32 @__skb_checksum(ptr noundef readonly captures(none) %0, i32
   %66 = phi i32 [ %10, %45 ], [ %76, %.thread ]
   %67 = phi i32 [ %32, %45 ], [ %50, %.thread ]
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %69 = getelementptr [17 x %struct.bio_vec], ptr %68, i64 0, i64 %61
+  %69 = getelementptr %struct.bio_vec, ptr %68, i64 %61
   %70 = add i32 %64, %63
   %71 = icmp sgt i32 %66, %70
   br i1 %71, label %72, label %73, !prof !6
@@ -9525,7 +9525,7 @@ define dso_local i32 @skb_copy_and_csum_bits(ptr noundef readonly captures(none)
   %68 = zext i32 %66 to i64
   %69 = getelementptr i8, ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  %71 = getelementptr [17 x %struct.bio_vec], ptr %70, i64 0, i64 %55
+  %71 = getelementptr %struct.bio_vec, ptr %70, i64 %55
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = add i32 %73, %59
@@ -10265,9 +10265,9 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_zerocopy(ptr noundef %0, ptr
   %256 = zext i32 %255 to i64
   %257 = getelementptr i8, ptr %254, i64 %256
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 48
-  %259 = getelementptr [17 x %struct.bio_vec], ptr %258, i64 0, i64 %indvars.iv
+  %259 = getelementptr %struct.bio_vec, ptr %258, i64 %indvars.iv
   %260 = getelementptr inbounds nuw i8, ptr %250, i64 48
-  %261 = getelementptr [17 x %struct.bio_vec], ptr %260, i64 0, i64 %249
+  %261 = getelementptr %struct.bio_vec, ptr %260, i64 %249
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %259, ptr noundef align 8 dereferenceable(16) %261, i64 16, i1 false)
   %262 = load ptr, ptr %233, align 8
   %263 = load i32, ptr %234, align 4
@@ -10285,7 +10285,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_zerocopy(ptr noundef %0, ptr
   %273 = zext i32 %272 to i64
   %274 = getelementptr i8, ptr %271, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 48
-  %276 = getelementptr [17 x %struct.bio_vec], ptr %275, i64 0, i64 %indvars.iv
+  %276 = getelementptr %struct.bio_vec, ptr %275, i64 %indvars.iv
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load volatile i64, ptr %278, align 8
@@ -10869,9 +10869,9 @@ define dso_local void @skb_split(ptr noundef captures(address_is_null) %0, ptr n
   %69 = zext i32 %68 to i64
   %70 = getelementptr i8, ptr %67, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
-  %72 = getelementptr [17 x %struct.bio_vec], ptr %71, i64 0, i64 %65
+  %72 = getelementptr %struct.bio_vec, ptr %71, i64 %65
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %74 = getelementptr [17 x %struct.bio_vec], ptr %73, i64 0, i64 %65
+  %74 = getelementptr %struct.bio_vec, ptr %73, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %72, ptr noundef align 8 dereferenceable(16) %74, i64 16, i1 false)
   %75 = add nuw nsw i64 %65, 1
   %76 = load ptr, ptr %9, align 8
@@ -10949,7 +10949,7 @@ define dso_local void @skb_split(ptr noundef captures(address_is_null) %0, ptr n
   %127 = zext i32 %126 to i64
   %128 = getelementptr i8, ptr %125, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 48
-  %130 = getelementptr [17 x %struct.bio_vec], ptr %129, i64 0, i64 %122
+  %130 = getelementptr %struct.bio_vec, ptr %129, i64 %122
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i32, ptr %131, align 8
   %133 = add i32 %132, %124
@@ -10963,7 +10963,7 @@ define dso_local void @skb_split(ptr noundef captures(address_is_null) %0, ptr n
   %139 = getelementptr i8, ptr %136, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %141 = sext i32 %123 to i64
-  %142 = getelementptr [17 x %struct.bio_vec], ptr %140, i64 0, i64 %141
+  %142 = getelementptr %struct.bio_vec, ptr %140, i64 %141
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %142, ptr noundef align 8 dereferenceable(16) %130, i64 16, i1 false)
   %143 = icmp ult i32 %124, %2
   br i1 %143, label %144, label %207
@@ -10974,7 +10974,7 @@ define dso_local void @skb_split(ptr noundef captures(address_is_null) %0, ptr n
   %147 = zext i32 %146 to i64
   %148 = getelementptr i8, ptr %145, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 48
-  %150 = getelementptr [17 x %struct.bio_vec], ptr %149, i64 0, i64 %122
+  %150 = getelementptr %struct.bio_vec, ptr %149, i64 %122
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load volatile i64, ptr %152, align 8
@@ -11198,7 +11198,7 @@ define dso_local noundef i32 @skb_shift(ptr noundef %0, ptr noundef %1, i32 noun
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %73 = add nsw i32 %53, -1
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr [17 x %struct.bio_vec], ptr %72, i64 0, i64 %74
+  %75 = getelementptr %struct.bio_vec, ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, %60
   br i1 %77, label %78, label %115
@@ -11309,13 +11309,13 @@ define dso_local noundef i32 @skb_shift(ptr noundef %0, ptr noundef %1, i32 noun
 
 151:                                              ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 48
-  %153 = getelementptr [17 x %struct.bio_vec], ptr %152, i64 0, i64 %139
+  %153 = getelementptr %struct.bio_vec, ptr %152, i64 %139
   %154 = load ptr, ptr %45, align 8
   %155 = load i32, ptr %47, align 4
   %156 = zext i32 %155 to i64
   %157 = getelementptr i8, ptr %154, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  %159 = getelementptr [17 x %struct.bio_vec], ptr %158, i64 0, i64 %140
+  %159 = getelementptr %struct.bio_vec, ptr %158, i64 %140
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %161 = load i32, ptr %160, align 8
   %162 = icmp ult i32 %141, %161
@@ -11414,9 +11414,9 @@ define dso_local noundef i32 @skb_shift(ptr noundef %0, ptr noundef %1, i32 noun
   %228 = phi ptr [ %218, %223 ], [ %237, %225 ]
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 48
   %230 = add nuw nsw i64 %227, 1
-  %231 = getelementptr [17 x %struct.bio_vec], ptr %229, i64 0, i64 %227
+  %231 = getelementptr %struct.bio_vec, ptr %229, i64 %227
   %232 = add nuw nsw i64 %226, 1
-  %233 = getelementptr [17 x %struct.bio_vec], ptr %229, i64 0, i64 %226
+  %233 = getelementptr %struct.bio_vec, ptr %229, i64 %226
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %231, ptr noundef align 8 dereferenceable(16) %233, i64 16, i1 false)
   %234 = load ptr, ptr %54, align 8
   %235 = load i32, ptr %55, align 4
@@ -11785,7 +11785,7 @@ define dso_local i32 @skb_seq_read(i32 noundef %0, ptr noundef writeonly capture
   %61 = phi ptr [ %124, %117 ], [ %55, %48 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = zext nneg i32 %.pre3337 to i64
-  %64 = getelementptr [17 x %struct.bio_vec], ptr %62, i64 0, i64 %63
+  %64 = getelementptr %struct.bio_vec, ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -12120,7 +12120,7 @@ define dso_local noundef range(i32 -90, 1) i32 @skb_append_pagefrags(ptr noundef
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %30 = add nsw i32 %14, -1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [17 x %struct.bio_vec], ptr %29, i64 0, i64 %31
+  %32 = getelementptr %struct.bio_vec, ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %1
   br i1 %34, label %35, label %49
@@ -12210,7 +12210,7 @@ define dso_local noundef range(i32 -90, 1) i32 @skb_append_pagefrags(ptr noundef
   %88 = zext i32 %87 to i64
   %89 = getelementptr i8, ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  %91 = getelementptr [17 x %struct.bio_vec], ptr %90, i64 0, i64 %50
+  %91 = getelementptr %struct.bio_vec, ptr %90, i64 %50
   store ptr %1, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
   store i32 %2, ptr %92, align 4
@@ -14169,7 +14169,7 @@ define internal fastcc i32 @__skb_to_sgvec(ptr noundef readonly captures(none) %
   %82 = zext i32 %80 to i64
   %83 = getelementptr i8, ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  %85 = getelementptr [17 x %struct.bio_vec], ptr %84, i64 0, i64 %71
+  %85 = getelementptr %struct.bio_vec, ptr %84, i64 %71
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, %74
@@ -16401,7 +16401,7 @@ define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef captures(addre
 
 .preheader:                                       ; preds = %186, %216
   %189 = phi i64 [ %219, %216 ], [ 0, %186 ]
-  %190 = getelementptr [17 x %struct.bio_vec], ptr %163, i64 0, i64 %189
+  %190 = getelementptr %struct.bio_vec, ptr %163, i64 %189
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load volatile i64, ptr %192, align 8
@@ -16501,7 +16501,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skb_pp_frag_ref(ptr nounde
 
 17:                                               ; preds = %55, %15
   %18 = phi i64 [ 0, %15 ], [ %56, %55 ]
-  %19 = getelementptr [17 x %struct.bio_vec], ptr %16, i64 0, i64 %18
+  %19 = getelementptr %struct.bio_vec, ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load volatile i64, ptr %21, align 8
@@ -18558,7 +18558,7 @@ define dso_local ptr @alloc_skb_with_frags(i64 noundef %0, i64 noundef %1, i32 n
   %62 = getelementptr i8, ptr %59, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = sext i32 %26 to i64
-  %65 = getelementptr [17 x %struct.bio_vec], ptr %63, i64 0, i64 %64
+  %65 = getelementptr %struct.bio_vec, ptr %63, i64 %64
   store ptr %54, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 0, ptr %66, align 4
@@ -18815,7 +18815,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef non
   %79 = phi i64 [ %111, %108 ], [ 0, %73 ]
   %80 = phi ptr [ %115, %108 ], [ %75, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %82 = getelementptr [17 x %struct.bio_vec], ptr %81, i64 0, i64 %79
+  %82 = getelementptr %struct.bio_vec, ptr %81, i64 %79
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load volatile i64, ptr %84, align 8
@@ -19034,7 +19034,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef non
   %212 = zext i32 %211 to i64
   %213 = getelementptr i8, ptr %210, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 48
-  %215 = getelementptr [17 x %struct.bio_vec], ptr %214, i64 0, i64 %207
+  %215 = getelementptr %struct.bio_vec, ptr %214, i64 %207
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i32, ptr %216, align 8
   %218 = add i32 %217, %209
@@ -19043,7 +19043,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pskb_carve(ptr noundef non
 
 220:                                              ; preds = %206
   %221 = sext i32 %208 to i64
-  %222 = getelementptr [17 x %struct.bio_vec], ptr %197, i64 0, i64 %221
+  %222 = getelementptr %struct.bio_vec, ptr %197, i64 %221
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %222, ptr noundef align 8 dereferenceable(16) %215, i64 16, i1 false)
   %223 = icmp ult i32 %209, %1
   br i1 %223, label %224, label %230
@@ -19332,7 +19332,7 @@ define dso_local ptr @__skb_ext_set(ptr noundef captures(none) %0, i32 noundef %
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 12, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %14 = getelementptr [1 x i8], ptr %13, i64 0, i64 %11
+  %14 = getelementptr i8, ptr %13, i64 %11
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %2, ptr %15, align 8
@@ -19393,7 +19393,7 @@ define dso_local ptr @skb_ext_add(ptr noundef captures(none) %0, i32 noundef %1)
 
 32:                                               ; preds = %45, %30
   %33 = phi i64 [ 0, %30 ], [ %46, %45 ]
-  %34 = getelementptr [6 x ptr], ptr %31, i64 0, i64 %33
+  %34 = getelementptr ptr, ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %37 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %36, i32 1, ptr nonnull elementtype(i32) %36) #23, !srcloc !88
@@ -19430,7 +19430,7 @@ define dso_local ptr @skb_ext_add(ptr noundef captures(none) %0, i32 noundef %1)
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %55 = zext i32 %1 to i64
-  %56 = getelementptr [1 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr i8, ptr %54, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %59, label %75
@@ -19461,7 +19461,7 @@ define dso_local ptr @skb_ext_add(ptr noundef captures(none) %0, i32 noundef %1)
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 5
   store i8 %71, ptr %72, align 1
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %74 = getelementptr [1 x i8], ptr %73, i64 0, i64 %.pre-phi
+  %74 = getelementptr i8, ptr %73, i64 %.pre-phi
   store i8 %70, ptr %74, align 1
   br label %75
 
@@ -19480,7 +19480,7 @@ define dso_local ptr @skb_ext_add(ptr noundef captures(none) %0, i32 noundef %1)
   %84 = or i8 %82, %83
   store i8 %84, ptr %3, align 1
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %86 = getelementptr [1 x i8], ptr %85, i64 0, i64 %.pre-phi6
+  %86 = getelementptr i8, ptr %85, i64 %.pre-phi6
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i64
   %89 = shl nuw nsw i64 %88, 3
@@ -19536,7 +19536,7 @@ define dso_local void @__skb_ext_del(ptr noundef captures(none) %0, i32 noundef 
 
 28:                                               ; preds = %.thread, %26
   %29 = phi i64 [ 0, %26 ], [ %39, %.thread ]
-  %30 = getelementptr [6 x ptr], ptr %27, i64 0, i64 %29
+  %30 = getelementptr ptr, ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %32, i32 -1, ptr nonnull elementtype(i32) %32) #23, !srcloc !51
@@ -19614,7 +19614,7 @@ define dso_local void @__skb_ext_put(ptr noundef %0) #0 align 16 {
 
 23:                                               ; preds = %.thread5, %21
   %24 = phi i64 [ 0, %21 ], [ %34, %.thread5 ]
-  %25 = getelementptr [6 x ptr], ptr %22, i64 0, i64 %24
+  %25 = getelementptr ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 -1, ptr nonnull elementtype(i32) %27) #23, !srcloc !51
@@ -19736,7 +19736,7 @@ define dso_local void @skb_attempt_defer_free(ptr noundef %0) local_unnamed_addr
   br label %__kfree_skb.exit
 
 45:                                               ; preds = %13
-  %46 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %46 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, ptrtoint (ptr @softnet_data to i64)
   %49 = inttoptr i64 %48 to ptr
@@ -19851,7 +19851,7 @@ define dso_local i64 @skb_splice_from_iter(ptr noundef captures(address_is_null)
   %48 = phi i64 [ %145, %143 ], [ %23, %.preheader.preheader ]
   %49 = add i32 %46, 1
   %50 = zext i32 %46 to i64
-  %51 = getelementptr [8 x ptr], ptr %5, i64 0, i64 %50
+  %51 = getelementptr ptr, ptr %5, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = call i64 @llvm.umin.i64(i64 %44, i64 %45)
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -21084,45 +21084,44 @@ define internal fastcc ptr @xas_next_entry(ptr noundef %0) unnamed_addr #3 align
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 63
   %19 = icmp eq i64 %18, %15
-  br i1 %19, label %20, label %.loopexit, !prof !26
+  br i1 %19, label %.preheader, label %.loopexit, !prof !26
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br label %22
+.preheader:                                       ; preds = %12
+  %20 = getelementptr i8, ptr %3, i64 48
+  br label %21
 
-22:                                               ; preds = %35, %20
-  %23 = phi i8 [ %14, %20 ], [ %36, %35 ]
-  %24 = phi i64 [ %17, %20 ], [ %37, %35 ]
-  %25 = icmp eq i64 %24, -1
-  %26 = icmp eq i8 %23, 63
-  %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %.loopexit, label %27, !prof !260
+21:                                               ; preds = %.preheader, %33
+  %22 = phi i8 [ %34, %33 ], [ %14, %.preheader ]
+  %23 = phi i64 [ %35, %33 ], [ %17, %.preheader ]
+  %24 = icmp eq i64 %23, -1
+  %25 = icmp eq i8 %22, 63
+  %or.cond = select i1 %24, i1 true, i1 %25
+  br i1 %or.cond, label %.loopexit, label %26, !prof !260
 
-27:                                               ; preds = %22
-  %28 = zext i8 %23 to i64
-  %29 = add nuw nsw i64 %28, 1
-  %30 = getelementptr [64 x ptr], ptr %21, i64 0, i64 %29
-  %31 = load volatile ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 3
-  %34 = icmp eq i64 %33, 2
-  br i1 %34, label %.loopexit, label %35, !prof !6
+26:                                               ; preds = %21
+  %27 = zext i8 %22 to i64
+  %28 = getelementptr ptr, ptr %20, i64 %27
+  %29 = load volatile ptr, ptr %28, align 8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = and i64 %30, 3
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %.loopexit, label %33, !prof !6
 
-35:                                               ; preds = %27
-  %36 = add i8 %23, 1
-  store i8 %36, ptr %13, align 2
-  %37 = add nuw i64 %24, 1
-  store i64 %37, ptr %16, align 8
-  %38 = icmp eq ptr %31, null
-  br i1 %38, label %22, label %.loopexit4, !llvm.loop !310
+33:                                               ; preds = %26
+  %34 = add i8 %22, 1
+  store i8 %34, ptr %13, align 2
+  %35 = add nuw i64 %23, 1
+  store i64 %35, ptr %16, align 8
+  %36 = icmp eq ptr %29, null
+  br i1 %36, label %21, label %.loopexit4, !llvm.loop !310
 
-.loopexit:                                        ; preds = %27, %22, %12, %9, %1
-  %39 = tail call ptr @xas_find(ptr noundef %0, i64 noundef -1) #23
+.loopexit:                                        ; preds = %26, %21, %12, %9, %1
+  %37 = tail call ptr @xas_find(ptr noundef %0, i64 noundef -1) #23
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %35, %.loopexit
-  %40 = phi ptr [ %39, %.loopexit ], [ %31, %35 ]
-  ret ptr %40
+.loopexit4:                                       ; preds = %33, %.loopexit
+  %38 = phi ptr [ %37, %.loopexit ], [ %29, %33 ]
+  ret ptr %38
 }
 
 ; Function Attrs: null_pointer_is_valid

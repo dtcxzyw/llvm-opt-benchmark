@@ -2058,7 +2058,7 @@ find_reference_location.exit.thread:              ; preds = %24, %find_reference
   %90 = phi i8 [ %89, %87 ], [ %86, %84 ]
   %.08.i.i = phi ptr [ %88, %87 ], [ %85, %84 ]
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !40
   %94 = and i8 %93, 8
   %.not6.i.i = icmp eq i8 %94, 0
@@ -2994,7 +2994,7 @@ strbuf_setlen.exit.i:                             ; preds = %21, %.backedge
   store ptr %58, ptr %2, align 8, !tbaa !100
   %59 = load i8, ptr %57, align 1, !tbaa !40
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !40
   %63 = and i8 %62, 1
   %.not73.i = icmp eq i8 %63, 0
@@ -3063,7 +3063,7 @@ strbuf_setlen.exit.i:                             ; preds = %21, %.backedge
 
 100:                                              ; preds = %102, %96
   %.0811.i.i.i = phi i64 [ 0, %96 ], [ %103, %102 ]
-  %101 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %101 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %99, %101
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %102
 
@@ -3180,7 +3180,7 @@ oidclr.exit.i:                                    ; preds = %102, %.split.loop.e
 
 161:                                              ; preds = %163, %157
   %.0811.i.i82.i = phi i64 [ 0, %157 ], [ %164, %163 ]
-  %162 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i82.i
+  %162 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i82.i
   %.not.i.i83.i = icmp eq ptr %160, %162
   br i1 %.not.i.i83.i, label %.split.loop.exit9.i.i86.i, label %163
 
@@ -3214,7 +3214,7 @@ oidclr.exit87.i:                                  ; preds = %163, %.split.loop.e
 
 173:                                              ; preds = %175, %169
   %.0811.i.i88.i = phi i64 [ 0, %169 ], [ %176, %175 ]
-  %174 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i88.i
+  %174 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i88.i
   %.not.i.i89.i = icmp eq ptr %172, %174
   br i1 %.not.i.i89.i, label %.split.loop.exit9.i.i92.i, label %175
 

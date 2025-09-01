@@ -44,7 +44,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noun
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8, i32 2
   %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %24
@@ -132,7 +132,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noun
 
 57:                                               ; preds = %55
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %58, i32 2
+  %59 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %58, i32 2
   %60 = load i32, ptr %59, align 4, !tbaa !18
   %61 = icmp sgt i32 %60, 4
   br i1 %61, label %62, label %bind_multiple.exit
@@ -172,7 +172,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noun
 
 77:                                               ; preds = %76
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %78, i32 2
+  %79 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %78, i32 2
   %80 = load i32, ptr %79, align 4, !tbaa !18
   %81 = icmp sgt i32 %80, 4
   br i1 %81, label %82, label %87
@@ -402,7 +402,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit.thread.i: ; preds = %186, %hwloc_get_ob
 
 203:                                              ; preds = %202
   %204 = zext nneg i32 %75 to i64
-  %205 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %204, i32 2
+  %205 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %204, i32 2
   %206 = load i32, ptr %205, align 4, !tbaa !18
   %207 = icmp sgt i32 %206, 4
   br i1 %207, label %208, label %215
@@ -676,7 +676,7 @@ define internal fastcc range(i32 -43, 1) i32 @bind_to_cpuset(ptr noundef %0, ptr
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = icmp sgt i32 %9, 4
   br i1 %10, label %11, label %20

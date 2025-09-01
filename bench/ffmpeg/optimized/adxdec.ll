@@ -223,7 +223,7 @@ thread-pre-split:                                 ; preds = %30
   br i1 %83, label %..loopexit_crit_edge.us.thread, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw [6 x %struct.ADXChannelState], ptr %74, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw %struct.ADXChannelState, ptr %74, i64 %indvars.iv
   %86 = load i16, ptr %.387107.us, align 1, !tbaa !39
   %87 = call i16 @llvm.bswap.i16(i16 %86)
   %88 = zext i16 %87 to i32

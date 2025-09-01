@@ -3399,10 +3399,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !16, !align !227, !noundef !16
   %.val = load i8, ptr %2, align 1, !range !228, !noundef !16
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE.118", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE.118", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -8879,10 +8879,10 @@ default.unreachable158:                           ; preds = %239, %205
 switch.lookup:                                    ; preds = %239
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !773
   %241 = zext nneg i8 %.val47 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 0, i64 %241
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 %241
   %switch.load = load i64, ptr %switch.gep, align 8
   %242 = zext nneg i8 %.val47 to i64
-  %switch.gep183 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 0, i64 %242
+  %switch.gep183 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 %242
   %switch.load184 = load ptr, ptr %switch.gep183, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !776)
   call void @llvm.experimental.noalias.scope.decl(metadata !779)
@@ -9576,10 +9576,10 @@ define { ptr, i64 } @_ZN12pingora_core9protocols4http11compression9Algorithm6as_
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !277, !noundef !16
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

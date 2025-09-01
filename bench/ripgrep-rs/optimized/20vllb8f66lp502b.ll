@@ -845,7 +845,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !261
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !254
-  %70 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %53, i64 0, i64 %.sroa.737.082
+  %70 = getelementptr inbounds nuw { [3 x i64] }, ptr %53, i64 %.sroa.737.082
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i.i, i64 24, i1 false), !noalias !261
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i)
   %71 = icmp eq i64 %60, 0
@@ -877,7 +877,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.1323.1 = phi i8 [ %.sroa.1323.087, %27 ], [ %.sroa.1323.087, %30 ], [ %.sroa.1323.087, %31 ], [ %.sroa.1323.087, %32 ], [ %.sroa.1323.087, %33 ], [ %36, %.noexc ], [ %75, %.noexc13 ], [ %.sroa.1323.087, %19 ]
   %.sroa.11.1 = phi i32 [ %29, %27 ], [ %.sroa.11.088, %30 ], [ %.sroa.11.088, %31 ], [ %.sroa.11.088, %32 ], [ %.sroa.11.088, %33 ], [ %.sroa.425.0.extract.trunc, %.noexc ], [ %56, %.noexc13 ], [ %.sroa.11.088, %19 ]
   %.sroa.020.0 = phi i64 [ -9223372036854775808, %27 ], [ -9223372036854775806, %30 ], [ -9223372036854775805, %31 ], [ -9223372036854775804, %32 ], [ -9223372036854775803, %33 ], [ %40, %.noexc ], [ -9223372036854775801, %.noexc13 ], [ -9223372036854775807, %19 ]
-  %76 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %9, i64 0, i64 %.sroa.7.090
+  %76 = getelementptr inbounds nuw { [4 x i64] }, ptr %9, i64 %.sroa.7.090
   store i64 %.sroa.020.0, ptr %76, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 %.sroa.11.1, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8

@@ -1223,7 +1223,7 @@ define internal noundef range(i32 -99, 1) i32 @__inet6_check_established(ptr nou
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 208
   %156 = load i32, ptr %155, align 8
   %157 = zext i32 %156 to i64
-  %158 = getelementptr [64 x i32], ptr %154, i64 0, i64 %157
+  %158 = getelementptr i32, ptr %154, i64 %157
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %158, ptr elementtype(i32) %158) #7, !srcloc !35
   %159 = icmp eq ptr %3, null
   br i1 %159, label %161, label %160

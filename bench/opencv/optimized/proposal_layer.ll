@@ -11190,7 +11190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %63 = getelementptr inbounds nuw [32 x %"class.cv::Range"], ptr %3, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw %"class.cv::Range", ptr %3, i64 %indvars.iv.i
   store i64 9223372034707292160, ptr %63, align 8, !noalias !248
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

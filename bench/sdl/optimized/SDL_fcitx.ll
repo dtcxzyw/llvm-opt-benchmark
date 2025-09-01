@@ -63,7 +63,7 @@ define hidden noundef zeroext i1 @SDL_Fcitx_Init() local_unnamed_addr #0 {
 
 15:                                               ; preds = %0
   %16 = and i64 %12, 2147483647
-  %17 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %16
   store i8 0, ptr %17, align 1
   %18 = call ptr @SDL_strrchr_REAL(ptr noundef nonnull %7, i32 noundef 47) #5
   %.not.i.i = icmp eq ptr %18, null

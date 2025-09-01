@@ -1022,7 +1022,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %90, %100, %103
   %204 = getelementptr inbounds nuw i32, ptr %174, i64 %indvars.iv
   %205 = load i32, ptr %204, align 4, !tbaa !82
   %206 = trunc i32 %205 to i16
-  %207 = getelementptr inbounds nuw [4 x i16], ptr %197, i64 0, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw i16, ptr %197, i64 %indvars.iv
   store i16 %206, ptr %207, align 2, !tbaa !191
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1042,7 +1042,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %90, %100, %103
 .preheader371:                                    ; preds = %198, %.preheader371
   %indvars.iv386 = phi i64 [ %indvars.iv.next387, %.preheader371 ], [ 0, %198 ]
   %.0187375 = phi float [ %219, %.preheader371 ], [ 0.000000e+00, %198 ]
-  %216 = getelementptr inbounds nuw [4 x i16], ptr %197, i64 0, i64 %indvars.iv386
+  %216 = getelementptr inbounds nuw i16, ptr %197, i64 %indvars.iv386
   %217 = load i16, ptr %216, align 2, !tbaa !191
   %218 = uitofp i16 %217 to float
   %219 = fadd reassoc nsz arcp contract afn float %.0187375, %218
@@ -1112,9 +1112,9 @@ _ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16Alig
 
 249:                                              ; preds = %_ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEESt14default_deleteIS6_EE5resetEPS6_.exit, %249
   %indvars.iv390 = phi i64 [ 0, %_ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEESt14default_deleteIS6_EE5resetEPS6_.exit ], [ %indvars.iv.next391, %249 ]
-  %250 = getelementptr inbounds nuw [4 x float], ptr %237, i64 0, i64 %indvars.iv390
+  %250 = getelementptr inbounds nuw float, ptr %237, i64 %indvars.iv390
   %251 = load float, ptr %250, align 4, !tbaa !201
-  %252 = getelementptr inbounds nuw [4 x float], ptr %238, i64 0, i64 %indvars.iv390
+  %252 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv390
   store float %251, ptr %252, align 4, !tbaa !201
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next391, 4
@@ -1123,7 +1123,7 @@ _ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16Alig
 .preheader370:                                    ; preds = %239, %256
   %indvars.iv398 = phi i64 [ 0, %239 ], [ %indvars.iv.next399, %256 ]
   %253 = mul nuw nsw i64 %indvars.iv398, 3
-  %254 = getelementptr inbounds nuw [4 x [3 x float]], ptr %247, i64 0, i64 %indvars.iv398
+  %254 = getelementptr inbounds nuw [3 x float], ptr %247, i64 %indvars.iv398
   br label %257
 
 255:                                              ; preds = %256
@@ -1153,7 +1153,7 @@ _ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16Alig
 
 268:                                              ; preds = %257, %260
   %.sink = phi float [ %267, %260 ], [ 0.000000e+00, %257 ]
-  %269 = getelementptr inbounds nuw [3 x float], ptr %254, i64 0, i64 %indvars.iv394
+  %269 = getelementptr inbounds nuw float, ptr %254, i64 %indvars.iv394
   store float %.sink, ptr %269, align 4, !tbaa !201
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond397.not = icmp eq i64 %indvars.iv.next395, 3
@@ -1206,7 +1206,7 @@ thread-pre-split:                                 ; preds = %275
 
 290:                                              ; preds = %.preheader368, %290
   %indvars.iv402 = phi i64 [ 0, %.preheader368 ], [ %indvars.iv.next403, %290 ]
-  %291 = getelementptr inbounds nuw [4 x float], ptr %289, i64 0, i64 %indvars.iv402
+  %291 = getelementptr inbounds nuw float, ptr %289, i64 %indvars.iv402
   store float 1.000000e+00, ptr %291, align 4, !tbaa !201
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next403, 4
@@ -2284,7 +2284,7 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %706, %706, %707
 
 .preheader:                                       ; preds = %.preheader364, %723
   %indvars.iv411 = phi i64 [ 0, %.preheader364 ], [ %indvars.iv.next412, %723 ]
-  %invariant.gep = getelementptr inbounds nuw [6 x i8], ptr %721, i64 0, i64 %indvars.iv411
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %721, i64 %indvars.iv411
   %722 = trunc nuw nsw i64 %indvars.iv411 to i32
   br label %724
 
@@ -2302,7 +2302,7 @@ dt_rawspeed_crop_dcraw_filters.exit:              ; preds = %706, %706, %707
           to label %729 unwind label %730
 
 729:                                              ; preds = %724
-  %gep = getelementptr inbounds nuw [6 x [6 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv407
+  %gep = getelementptr inbounds nuw [6 x i8], ptr %invariant.gep, i64 %indvars.iv407
   store i8 %728, ptr %gep, align 1, !tbaa !18
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond410.not = icmp eq i64 %indvars.iv.next408, 6

@@ -58,7 +58,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph61
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10, i32 2
   %12 = load i32, ptr %11, align 4, !tbaa !29
   %13 = icmp sgt i32 %12, 4
   br i1 %13, label %14, label %16
@@ -81,7 +81,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 22:                                               ; preds = %21
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %23, i32 2
+  %24 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %23, i32 2
   %25 = load i32, ptr %24, align 4, !tbaa !29
   %26 = icmp sgt i32 %25, 4
   br i1 %26, label %27, label %108
@@ -96,7 +96,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 30:                                               ; preds = %29
   %31 = zext nneg i32 %20 to i64
-  %32 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %31, i32 2
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = icmp sgt i32 %33, 4
   br i1 %34, label %35, label %37
@@ -123,7 +123,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 45:                                               ; preds = %43
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %46, i32 2
+  %47 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %46, i32 2
   %48 = load i32, ptr %47, align 4, !tbaa !29
   %49 = icmp sgt i32 %48, 4
   br i1 %49, label %50, label %108
@@ -151,7 +151,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %60, i32 2
+  %61 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %60, i32 2
   %62 = load i32, ptr %61, align 4, !tbaa !29
   %63 = icmp sgt i32 %62, 4
   br i1 %63, label %64, label %108

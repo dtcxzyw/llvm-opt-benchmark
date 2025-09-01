@@ -2271,7 +2271,7 @@ define hidden void @_ZN10duckdb_re26Regexp19RemoveLeadingStringEPS0_i(ptr nounde
 
 9:                                                ; preds = %7
   %10 = add nuw nsw i64 %.051, 1
-  %11 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %.051
+  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %.051
   store ptr %.0, ptr %11, align 8, !tbaa !63
   br label %12
 
@@ -2363,7 +2363,7 @@ define hidden void @_ZN10duckdb_re26Regexp19RemoveLeadingStringEPS0_i(ptr nounde
 57:                                               ; preds = %.lr.ph, %93
   %.265 = phi i64 [ %.051, %.lr.ph ], [ %58, %93 ]
   %58 = add i64 %.265, -1
-  %59 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %3, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !63
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 6
   %62 = load i16, ptr %61, align 2, !tbaa !62

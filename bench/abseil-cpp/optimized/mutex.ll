@@ -179,7 +179,7 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24sync
 
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit:   ; preds = %2, %5
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [2 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
   %.not.i.i15 = icmp eq i32 %9, 221
@@ -433,7 +433,7 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i: ; 
   br i1 %.not15.i.not, label %_ZN4abslL13AtomicSetBitsEPSt6atomicIlEll.exit, label %.lr.ph51
 
 _ZN4abslL13AtomicSetBitsEPSt6atomicIlEll.exit:    ; preds = %.backedge.i, %.loopexit
-  %35 = getelementptr inbounds nuw [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %6
+  %35 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %6
   %.152 = load ptr, ptr %35, align 8, !tbaa !47
   %.not3953 = icmp eq ptr %.152, null
   br i1 %.not3953, label %_ZN4abslL13AtomicSetBitsEPSt6atomicIlEll.exit.thread, label %.lr.ph55
@@ -466,7 +466,7 @@ _ZN4abslL13AtomicSetBitsEPSt6atomicIlEll.exit.thread: ; preds = %_ZNSt13__atomic
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %47, i8 0, i64 17, i1 false)
   %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %spec.store.select) #27
-  %50 = getelementptr inbounds nuw [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %6
+  %50 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %6
   %51 = load ptr, ptr %50, align 8, !tbaa !47
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %51, ptr %52, align 8, !tbaa !48
@@ -2486,7 +2486,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i: ; preds = %_ZN4
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i:   ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i
-  %13 = getelementptr inbounds nuw [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %6
+  %13 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %6
   %.012.i = load ptr, ptr %13, align 8, !tbaa !47
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %.critedge9.i, label %.lr.ph.i
@@ -2549,9 +2549,9 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %.055 = phi i32 [ 2, %.lr.ph.preheader ], [ %42, %41 ]
   %33 = zext nneg i32 %.055 to i64
-  %34 = getelementptr inbounds nuw [960 x i8], ptr %4, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %35 = sub nsw i64 960, %33
-  %36 = getelementptr inbounds nuw [40 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !108
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %34, i64 noundef %35, ptr noundef nonnull @.str.51, ptr noundef %37) #27
   %39 = icmp sgt i32 %38, -1
@@ -2568,14 +2568,14 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %41, %30
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr inbounds nuw [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %43, i32 1
+  %44 = getelementptr inbounds nuw %struct.anon, ptr @_ZN4abslL16event_propertiesE, i64 %43, i32 1
   %45 = load ptr, ptr %44, align 8, !tbaa !110
   %46 = getelementptr inbounds nuw i8, ptr %.011.i, i64 41
   %47 = select i1 %25, ptr @.str.35, ptr %46
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %45, ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %48 = getelementptr inbounds nuw [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %43
+  %48 = getelementptr inbounds nuw %struct.anon, ptr @_ZN4abslL16event_propertiesE, i64 %43
   %49 = load i32, ptr %48, align 16, !tbaa !113
   %50 = and i32 %49, 2
   %51 = icmp ne i32 %50, 0
@@ -2585,7 +2585,7 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
 
 .thread48:                                        ; preds = %26
   %53 = zext nneg i32 %1 to i64
-  %54 = getelementptr inbounds nuw [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %struct.anon, ptr @_ZN4abslL16event_propertiesE, i64 %53
   %55 = load i32, ptr %54, align 16, !tbaa !113
   %56 = and i32 %55, 2
   %.not51 = icmp eq i32 %56, 0
@@ -3659,7 +3659,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i: ; preds = %_ZN4ab
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i
-  %10 = getelementptr inbounds nuw [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZN4abslL11synch_eventE, i64 %3
   %.012 = load ptr, ptr %10, align 8, !tbaa !47
   %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %.critedge9, label %.lr.ph

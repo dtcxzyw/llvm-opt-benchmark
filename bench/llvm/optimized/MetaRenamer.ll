@@ -1414,7 +1414,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit109.thread.i: ; preds = %286, %284, %_Z
   %.lhs.trunc.i.i = and i16 %314, 32767
   %315 = urem i16 %.lhs.trunc.i.i, 17
   %.zext.i.i = zext nneg i16 %315 to i64
-  %316 = getelementptr inbounds nuw [17 x ptr], ptr @_ZL9metaNames, i64 0, i64 %.zext.i.i
+  %316 = getelementptr inbounds nuw ptr, ptr @_ZL9metaNames, i64 %.zext.i.i
   %317 = load ptr, ptr %316, align 8, !tbaa !46
   %318 = load i8, ptr %317, align 1, !tbaa !38
   %.not.i112.i = icmp eq i8 %318, 0
@@ -1564,7 +1564,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmneENS_9Stri
   %.lhs.trunc.i128.i = and i16 %377, 32767
   %378 = urem i16 %.lhs.trunc.i128.i, 17
   %.zext.i129.i = zext nneg i16 %378 to i64
-  %379 = getelementptr inbounds nuw [17 x ptr], ptr @_ZL9metaNames, i64 0, i64 %.zext.i129.i
+  %379 = getelementptr inbounds nuw ptr, ptr @_ZL9metaNames, i64 %.zext.i129.i
   %380 = load ptr, ptr %379, align 8, !tbaa !46
   store i8 1, ptr %290, align 8, !tbaa !118
   store i8 1, ptr %291, align 1, !tbaa !121

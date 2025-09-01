@@ -68,7 +68,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
 
 39:                                               ; preds = %28
   %40 = sext i32 %34 to i64
-  %41 = getelementptr [266 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %40, i32 2
+  %41 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %40, i32 2
   %42 = load i16, ptr %41, align 2, !tbaa !20
   %43 = and i16 %42, 8
   %.not.i = icmp eq i16 %43, 0
@@ -114,7 +114,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   %60 = icmp sgt i32 %.val55.us.i, 255
   %61 = zext i1 %60 to i32
   %62 = sext i32 %.val54.us.i to i64
-  %63 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %62
+  %63 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !25
   %65 = zext i8 %64 to i32
   %66 = select i1 %59, i32 2, i32 1
@@ -122,7 +122,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   %68 = add nuw nsw i32 %67, %61
   %69 = add i32 %.04463.us.i, %65
   %70 = add i32 %69, %68
-  %71 = getelementptr [266 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %62, i32 2
+  %71 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %62, i32 2
   %72 = load i16, ptr %71, align 2, !tbaa !20
   %73 = and i16 %72, 8
   %.not50.us.i = icmp eq i16 %73, 0
@@ -172,7 +172,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   %98 = icmp sgt i32 %.val53.us.i, 255
   %99 = zext i1 %98 to i32
   %100 = sext i32 %.val.us.i to i64
-  %101 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %100
+  %101 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !25
   %103 = zext i8 %102 to i32
   %104 = select i1 %97, i32 2, i32 1
@@ -198,7 +198,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   %109 = getelementptr %struct._PyInstruction, ptr %27, i64 %indvars.iv.i18
   %110 = load i32, ptr %109, align 4, !tbaa !19
   %111 = sext i32 %110 to i64
-  %112 = getelementptr [266 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %111, i32 2
+  %112 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %111, i32 2
   %113 = load i16, ptr %112, align 2, !tbaa !20
   %114 = and i16 %113, 8
   %.not52.i = icmp eq i16 %114, 0
@@ -325,7 +325,7 @@ Py_XDECREF.exit17.i.i:                            ; preds = %151, %148, %146, %P
   %168 = icmp sgt i32 %.val16.i.i, 255
   %169 = zext i1 %168 to i32
   %170 = sext i32 %.val.i.i to i64
-  %171 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %170
+  %171 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !25
   %173 = zext i8 %172 to i32
   %174 = select i1 %167, i32 2, i32 1
@@ -355,7 +355,7 @@ Py_XDECREF.exit17.i.i:                            ; preds = %151, %148, %146, %P
   %.val18.pre.i.i = load i32, ptr %161, align 4, !tbaa !19
   %.val19.pre.i.i = load i32, ptr %164, align 4, !tbaa !15
   %.phi.trans.insert.i.i = sext i32 %.val18.pre.i.i to i64
-  %.phi.trans.insert23.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %.phi.trans.insert.i.i
+  %.phi.trans.insert23.i.i = getelementptr i8, ptr @_PyOpcode_Caches, i64 %.phi.trans.insert.i.i
   %.pre24.i.i = load i8, ptr %.phi.trans.insert23.i.i, align 1, !tbaa !25
   %.pre25.i.i = add i32 %.pre20.i.i, %177
   %.pre27.i.i = zext i8 %.pre24.i.i to i32
@@ -505,7 +505,7 @@ assemble_emit_location.exit.thread40.i.i:         ; preds = %assemble_emit_locat
   %243 = icmp sgt i32 %.val31.i.i, 255
   %244 = zext i1 %243 to i32
   %245 = sext i32 %.val.i32.i to i64
-  %246 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %245
+  %246 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %245
   %247 = load i8, ptr %246, align 1, !tbaa !25
   %248 = zext i8 %247 to i32
   %249 = select i1 %242, i32 2, i32 1
@@ -611,7 +611,7 @@ assemble_location_info.exit.i:                    ; preds = %assemble_emit_locat
   %284 = icmp sgt i32 %.val42.i.i, 255
   %285 = zext i1 %284 to i32
   %286 = sext i32 %.val.i39.i to i64
-  %287 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %286
+  %287 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %286
   %288 = load i8, ptr %287, align 1, !tbaa !25
   %289 = zext i8 %288 to i32
   %290 = select i1 %283, i32 2, i32 1
@@ -743,7 +743,7 @@ assemble_emit.exit:                               ; preds = %320
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %352, %348
-  %354 = getelementptr [1 x ptr], ptr %336, i64 0, i64 %339
+  %354 = getelementptr ptr, ptr %336, i64 %339
   store ptr %349, ptr %354, align 8, !tbaa !50
   %355 = call i32 @PyDict_Next(ptr noundef nonnull %331, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
   %.not.i.i26 = icmp eq i32 %355, 0

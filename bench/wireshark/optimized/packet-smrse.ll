@@ -435,14 +435,14 @@ define internal i32 @dissect_smrse_T_octet_format(i1 zeroext %0, ptr noundef %1,
   %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.028)
   %22 = and i8 %21, 15
   %23 = zext nneg i8 %22 to i64
-  %24 = getelementptr [16 x i8], ptr @dissect_smrse_T_octet_format.n2a, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @dissect_smrse_T_octet_format.n2a, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = getelementptr i8, ptr %.02526, i64 1
   store i8 %25, ptr %.02526, align 1
   %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.028)
   %28 = lshr i8 %27, 4
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr [16 x i8], ptr @dissect_smrse_T_octet_format.n2a, i64 0, i64 %29
+  %30 = getelementptr i8, ptr @dissect_smrse_T_octet_format.n2a, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr i8, ptr %.02526, i64 2
   store i8 %31, ptr %26, align 1

@@ -112,7 +112,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
 
 32:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %33 = getelementptr inbounds nuw [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.cached_re_str, ptr @re_array, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 16
   %36 = icmp eq i32 %35, %26
@@ -217,7 +217,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   %89 = add nsw i32 %86, -1
   store i32 %89, ptr @num_res, align 4
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw %struct.cached_re_str, ptr @re_array, i64 %90
   %92 = load ptr, ptr %91, align 16
   call void @MemoryContextDelete(ptr noundef %92) #9
   br label %93

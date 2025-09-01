@@ -675,7 +675,7 @@ Vec_PtrAllocSimInfo.exit.split.us.split.us.i:     ; preds = %..loopexit27_crit_e
   br i1 %exitcond53.not.i, label %..loopexit27_crit_edge.us.us.i, label %54, !llvm.loop !46
 
 .preheader.us.us.i:                               ; preds = %Vec_PtrAllocSimInfo.exit.split.us.split.us.i
-  %56 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 0, i64 %indvars.iv54.i
+  %56 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv54.i
   %57 = load i32, ptr %56, align 4, !tbaa !32
   br label %54
 
@@ -756,7 +756,7 @@ select.unfold.i:                                  ; preds = %88, %select.unfold.
   br i1 %94, label %select.unfold.i, label %Gia_ManTruthCopy.exit, !llvm.loop !47
 
 95:                                               ; preds = %Vec_IntFetch.exit88
-  %96 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @Gia_ManConvertAigToTruth.uTruths, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i32], ptr @Gia_ManConvertAigToTruth.uTruths, i64 %indvars.iv
   br i1 %70, label %select.unfold.i95, label %Gia_ManTruthCopy.exit
 
 select.unfold.i95:                                ; preds = %95, %select.unfold.i95

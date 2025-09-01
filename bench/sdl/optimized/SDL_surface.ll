@@ -2723,7 +2723,7 @@ SDL_SurfaceValid.exit199.thread:                  ; preds = %16, %20, %SDL_Surfa
 
 switch.lookup:                                    ; preds = %32
   %36 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.SDL_BlitSurfaceScaled_REAL, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_BlitSurfaceScaled_REAL, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not192 = icmp eq ptr %1, null
   %. = select i1 %.not192, ptr %0, ptr %1

@@ -323,7 +323,7 @@ hdefault.exit:                                    ; preds = %87, %86
 .preheader.i:                                     ; preds = %126, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %126 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !4
-  %143 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %140, i64 0, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw %struct.FreeListData, ptr %140, i64 %indvars.iv.i
   store i8 0, ptr %143, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -579,7 +579,7 @@ seg_alloc.exit.i:                                 ; preds = %198
   br i1 %.not35.i, label %._crit_edge._crit_edge.i, label %284
 
 284:                                              ; preds = %._crit_edge.i151
-  %285 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %265, i64 0, i64 %indvars.iv
+  %285 = getelementptr inbounds nuw %struct.FreeListData, ptr %265, i64 %indvars.iv
   %286 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %285, i8 1, ptr elementtype(i8) %285) #17, !srcloc !13
   %.not36.i = icmp eq i8 %286, 0
   br i1 %.not36.i, label %._crit_edge._crit_edge.i, label %287
@@ -589,7 +589,7 @@ seg_alloc.exit.i:                                 ; preds = %198
   br label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %287, %284, %._crit_edge.i151
-  %289 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %265, i64 0, i64 %indvars.iv
+  %289 = getelementptr inbounds nuw %struct.FreeListData, ptr %265, i64 %indvars.iv
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %291 = load ptr, ptr %290, align 8
   store ptr %291, ptr %278, align 8
@@ -876,7 +876,7 @@ define dso_local ptr @hash_search_with_hash_value(ptr noundef captures(address) 
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %0
   br i1 %29, label %has_seq_scans.exit, label %26
@@ -1199,7 +1199,7 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i7
   br i1 %.not73, label %._crit_edge115, label %192
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %6, i64 0, i64 %.pre
+  %193 = getelementptr inbounds nuw %struct.FreeListData, ptr %6, i64 %.pre
   %194 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %193, i8 1, ptr elementtype(i8) %193) #17, !srcloc !13
   %.not74 = icmp eq i8 %194, 0
   br i1 %.not74, label %._crit_edge115, label %195
@@ -1209,7 +1209,7 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i7
   br label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %190, %195, %192
-  %197 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %6, i64 0, i64 %.pre
+  %197 = getelementptr inbounds nuw %struct.FreeListData, ptr %6, i64 %.pre
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load i64, ptr %198, align 8
   %200 = add i64 %199, -1
@@ -1259,7 +1259,7 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i7
   %221 = load ptr, ptr %0, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 816
   %223 = zext nneg i32 %10 to i64
-  %224 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %221, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw %struct.FreeListData, ptr %221, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 844
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 65
@@ -1340,7 +1340,7 @@ element_alloc.exit.i:                             ; preds = %element_alloc.exit.
   br i1 %.not35.i.i, label %._crit_edge._crit_edge.i.i, label %261
 
 261:                                              ; preds = %._crit_edge.i.i
-  %262 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %242, i64 0, i64 %223
+  %262 = getelementptr inbounds nuw %struct.FreeListData, ptr %242, i64 %223
   %263 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %262, i8 1, ptr elementtype(i8) %262) #17, !srcloc !13
   %.not36.i.i = icmp eq i8 %263, 0
   br i1 %.not36.i.i, label %._crit_edge._crit_edge.i.i, label %264
@@ -1350,7 +1350,7 @@ element_alloc.exit.i:                             ; preds = %element_alloc.exit.
   br label %._crit_edge._crit_edge.i.i
 
 ._crit_edge._crit_edge.i.i:                       ; preds = %264, %261, %._crit_edge.i.i
-  %266 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %242, i64 0, i64 %223
+  %266 = getelementptr inbounds nuw %struct.FreeListData, ptr %242, i64 %223
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load ptr, ptr %267, align 8
   store ptr %268, ptr %255, align 8
@@ -1381,7 +1381,7 @@ element_alloc.exit.i.backedge:                    ; preds = %270, %._crit_edge._
 .lr.ph.i81:                                       ; preds = %.preheader.i, %295
   %276 = phi i32 [ %297, %295 ], [ %274, %.preheader.i ]
   %277 = zext nneg i32 %276 to i64
-  %278 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %221, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw %struct.FreeListData, ptr %221, i64 %277
   %279 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %278, i8 1, ptr elementtype(i8) %278) #17, !srcloc !13
   %.not60.i = icmp eq i8 %279, 0
   br i1 %.not60.i, label %282, label %280
@@ -1679,7 +1679,7 @@ define dso_local i64 @hash_get_num_entries(ptr noundef readonly captures(none) %
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %1 ]
   %.19 = phi i64 [ %9, %.preheader ], [ %4, %1 ]
-  %7 = getelementptr inbounds nuw [32 x %struct.FreeListData], ptr %2, i64 0, i64 %indvars.iv, i32 1
+  %7 = getelementptr inbounds nuw %struct.FreeListData, ptr %2, i64 %indvars.iv, i32 1
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %.19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1721,12 +1721,12 @@ define dso_local void @hash_seq_init(ptr noundef writeonly captures(none) initia
 
 register_seq_scan.exit:                           ; preds = %9
   %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %17
   store ptr %1, ptr %18, align 8
   %19 = tail call i32 @GetCurrentTransactionNestLevel() #17
   %20 = load i32, ptr @num_seq_scans, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %21
   store i32 %19, ptr %22, align 4
   %23 = add i32 %20, 1
   store i32 %23, ptr @num_seq_scans, align 4
@@ -1766,12 +1766,12 @@ define dso_local void @hash_seq_init_with_hash_value(ptr noundef writeonly captu
 
 register_seq_scan.exit.i:                         ; preds = %10
   %18 = sext i32 %11 to i64
-  %19 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %18
+  %19 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %18
   store ptr %1, ptr %19, align 8
   %20 = tail call i32 @GetCurrentTransactionNestLevel() #17
   %21 = load i32, ptr @num_seq_scans, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %22
   store i32 %20, ptr %23, align 4
   %24 = add i32 %21, 1
   store i32 %24, ptr @num_seq_scans, align 4
@@ -1878,7 +1878,7 @@ define dso_local ptr @hash_seq_search(ptr noundef captures(none) %0) local_unnam
 
 27:                                               ; preds = %24
   %28 = and i64 %indvars.iv.next.i.i, 2147483647
-  %29 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %17
   br i1 %31, label %deregister_seq_scan.exit.i, label %24, !llvm.loop !31
@@ -1893,15 +1893,15 @@ define dso_local ptr @hash_seq_search(ptr noundef captures(none) %0) local_unnam
   unreachable
 
 deregister_seq_scan.exit.i:                       ; preds = %27
-  %37 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %28
+  %37 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %28
   %38 = add i32 %22, -1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %39
+  %40 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %39
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %37, align 8
-  %42 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %39
+  %42 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %39
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds nuw [100 x i32], ptr @seq_scan_level, i64 0, i64 %28
+  %44 = getelementptr inbounds nuw i32, ptr @seq_scan_level, i64 %28
   store i32 %43, ptr %44, align 4
   store i32 %38, ptr @num_seq_scans, align 4
   br label %hash_seq_term.exit
@@ -1959,7 +1959,7 @@ deregister_seq_scan.exit.i:                       ; preds = %27
 
 75:                                               ; preds = %72
   %76 = and i64 %indvars.iv.next.i.i66, 2147483647
-  %77 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, %58
   br i1 %79, label %deregister_seq_scan.exit.i67, label %72, !llvm.loop !31
@@ -1974,15 +1974,15 @@ deregister_seq_scan.exit.i:                       ; preds = %27
   unreachable
 
 deregister_seq_scan.exit.i67:                     ; preds = %75
-  %85 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %76
+  %85 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %76
   %86 = add i32 %70, -1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %87
+  %88 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %87
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %85, align 8
-  %90 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %87
+  %90 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %87
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds nuw [100 x i32], ptr @seq_scan_level, i64 0, i64 %76
+  %92 = getelementptr inbounds nuw i32, ptr @seq_scan_level, i64 %76
   store i32 %91, ptr %92, align 4
   store i32 %86, ptr @num_seq_scans, align 4
   br label %hash_seq_term.exit
@@ -2034,7 +2034,7 @@ deregister_seq_scan.exit.i67:                     ; preds = %75
 
 120:                                              ; preds = %117
   %121 = and i64 %indvars.iv.next.i.i70, 2147483647
-  %122 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, %58
   br i1 %124, label %deregister_seq_scan.exit.i71, label %117, !llvm.loop !31
@@ -2049,15 +2049,15 @@ deregister_seq_scan.exit.i67:                     ; preds = %75
   unreachable
 
 deregister_seq_scan.exit.i71:                     ; preds = %120
-  %130 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %121
+  %130 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %121
   %131 = add i32 %115, -1
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %132
+  %133 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %132
   %134 = load ptr, ptr %133, align 8
   store ptr %134, ptr %130, align 8
-  %135 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %132
+  %135 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %132
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds nuw [100 x i32], ptr @seq_scan_level, i64 0, i64 %121
+  %137 = getelementptr inbounds nuw i32, ptr @seq_scan_level, i64 %121
   store i32 %136, ptr %137, align 4
   store i32 %131, ptr @num_seq_scans, align 4
   br label %hash_seq_term.exit
@@ -2121,7 +2121,7 @@ define dso_local void @hash_seq_term(ptr noundef readonly captures(none) %0) loc
 
 12:                                               ; preds = %9
   %13 = and i64 %indvars.iv.next.i, 2147483647
-  %14 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %2
   br i1 %16, label %deregister_seq_scan.exit, label %9, !llvm.loop !31
@@ -2136,15 +2136,15 @@ define dso_local void @hash_seq_term(ptr noundef readonly captures(none) %0) loc
   unreachable
 
 deregister_seq_scan.exit:                         ; preds = %12
-  %22 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %13
+  %22 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %13
   %23 = add i32 %7, -1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %24
+  %25 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %24
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %22, align 8
-  %27 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %24
+  %27 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %24
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds nuw [100 x i32], ptr @seq_scan_level, i64 0, i64 %13
+  %29 = getelementptr inbounds nuw i32, ptr @seq_scan_level, i64 %13
   store i32 %28, ptr %29, align 4
   store i32 %23, ptr @num_seq_scans, align 4
   br label %30
@@ -2191,7 +2191,7 @@ define dso_local void @hash_freeze(ptr noundef captures(address) %0) local_unnam
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %has_seq_scans.exit, label %17
@@ -2223,7 +2223,7 @@ define dso_local void @AtEOXact_HashTables(i1 noundef zeroext %0) local_unnamed_
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %7) #17
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1930, ptr noundef nonnull @__func__.AtEOXact_HashTables) #17
@@ -2254,7 +2254,7 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %23
   %indvars.iv12 = phi i64 [ %indvars.iv.next13, %23 ], [ %5, %.lr.ph ]
-  %6 = getelementptr inbounds nuw [100 x i32], ptr @seq_scan_level, i64 0, i64 %indvars.iv12
+  %6 = getelementptr inbounds nuw i32, ptr @seq_scan_level, i64 %indvars.iv12
   %7 = load i32, ptr %6, align 4
   %.not.us = icmp slt i32 %7, %1
   br i1 %.not.us, label %23, label %8
@@ -2264,7 +2264,7 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %indvars.iv12
+  %11 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv12
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %12) #17
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1953, ptr noundef nonnull @__func__.AtEOSubXact_HashTables) #17
@@ -2274,11 +2274,11 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
   %15 = load i32, ptr @num_seq_scans, align 4
   %16 = add i32 %15, -1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %indvars.iv12
+  %20 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv12
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %17
+  %21 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %17
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %6, align 4
   store i32 %16, ptr @num_seq_scans, align 4
@@ -2292,7 +2292,7 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ %5, %.lr.ph ]
   %25 = phi i32 [ %37, %36 ], [ %3, %.lr.ph ]
-  %26 = getelementptr inbounds nuw [100 x i32], ptr @seq_scan_level, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr @seq_scan_level, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %.not = icmp slt i32 %27, %1
   br i1 %.not, label %36, label %28
@@ -2300,11 +2300,11 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
 28:                                               ; preds = %.lr.ph.split
   %29 = add i32 %25, -1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %30
+  %31 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw [100 x ptr], ptr @seq_scan_tables, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds [100 x i32], ptr @seq_scan_level, i64 0, i64 %30
+  %34 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %30
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %26, align 4
   store i32 %29, ptr @num_seq_scans, align 4

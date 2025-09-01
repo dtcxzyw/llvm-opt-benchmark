@@ -1324,7 +1324,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 169:                                              ; preds = %169, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %169 ]
-  %170 = getelementptr inbounds nuw [0 x i32], ptr %168, i64 0, i64 %indvars.iv.i
+  %170 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv.i
   %171 = load i32, ptr %170, align 4
   store i32 %171, ptr %10, align 4
   call void @BlockRefTableSetLimitBlock(ptr noundef %19, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0) #11

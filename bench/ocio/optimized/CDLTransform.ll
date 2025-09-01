@@ -2822,7 +2822,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %39, %
   br label %54
 
 54:                                               ; preds = %52, %51
-  %55 = getelementptr inbounds nuw [9 x double], ptr %3, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %56 = load double, ptr %55, align 8, !tbaa !82
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

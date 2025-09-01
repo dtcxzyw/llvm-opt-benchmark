@@ -4474,9 +4474,9 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   br i1 %94, label %95, label %.split132.us.invoke.i
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %90
+  %96 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %90
   %97 = load i8, ptr %96, align 1, !alias.scope !1537, !noalias !1542, !noundef !5
-  %98 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %93
+  %98 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %93
   %99 = load i8, ptr %98, align 1, !alias.scope !1534, !noalias !1539, !noundef !5
   %.not.i32.us.i = icmp eq i8 %97, %99
   br i1 %.not.i32.us.i, label %.preheader67.us.i, label %100
@@ -4492,9 +4492,9 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
 
 105:                                              ; preds = %102
   %106 = add nuw i64 %.sroa.04.0.i30.us.i, 1
-  %107 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i30.us.i
+  %107 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %.sroa.04.0.i30.us.i
   %108 = load i8, ptr %107, align 1, !alias.scope !1537, !noalias !1542, !noundef !5
-  %109 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %103
+  %109 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %103
   %110 = load i8, ptr %109, align 1, !alias.scope !1534, !noalias !1539, !noundef !5
   %.not24.i34.us.i = icmp eq i8 %108, %110
   br i1 %.not24.i34.us.i, label %86, label %111
@@ -4553,9 +4553,9 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   br i1 %132, label %133, label %.split132.us.invoke.i
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %130
+  %134 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %130
   %135 = load i8, ptr %134, align 1, !alias.scope !1546, !noalias !1551, !noundef !5
-  %136 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %131
+  %136 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %131
   %137 = load i8, ptr %136, align 1, !alias.scope !1543, !noalias !1548, !noundef !5
   %.not.i.us.i.us = icmp eq i8 %135, %137
   br i1 %.not.i.us.i.us, label %.preheader.us.i.us, label %.split.us
@@ -4624,9 +4624,9 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
 
 163:                                              ; preds = %160
   %164 = add nuw i64 %.sroa.04.0.i.us.i, 1
-  %165 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i.us.i
+  %165 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %.sroa.04.0.i.us.i
   %166 = load i8, ptr %165, align 1, !alias.scope !1546, !noalias !1551, !noundef !5
-  %167 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %161
+  %167 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %161
   %168 = load i8, ptr %167, align 1, !alias.scope !1543, !noalias !1548, !noundef !5
   %.not24.i.us.i = icmp eq i8 %166, %168
   br i1 %.not24.i.us.i, label %.preheader66.us.i, label %169

@@ -653,7 +653,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %10
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %18, %20, %21
   %.0.i.i = phi ptr [ %19, %18 ], [ %1, %21 ], [ %1, %20 ], [ %1, %10 ]
   %24 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZNK4llvm25MachineFunctionProperties5printERNS_11raw_ostreamE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm25MachineFunctionProperties5printERNS_11raw_ostreamE, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   %25 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
@@ -5806,10 +5806,10 @@ define dso_local noundef ptr @_ZNK4llvm15MachineFunction12getJTISymbolEjRNS_9MCC
 
 switch.lookup:                                    ; preds = %4
   %14 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.16, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.16, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = zext nneg i32 %11 to i64
-  %switch.gep10 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 0, i64 %15
+  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 %15
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   br label %_ZNK4llvm10DataLayout22getPrivateGlobalPrefixEv.exit
 
@@ -5951,10 +5951,10 @@ switch.lookup:
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !662
   %9 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext nneg i32 %8 to i64
-  %switch.gep23 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.16, i64 0, i64 %10
+  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.16, i64 %10
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %12 = load i32, ptr %11, align 8, !tbaa !270
@@ -10267,7 +10267,7 @@ _ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit: ; p
 
 switch.lookup:                                    ; preds = %_ZNK4llvm24MachineConstantPoolEntry14getSizeInBytesERKNS_10DataLayoutE.exit
   %37 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK4llvm24MachineConstantPoolEntry14getSectionKindEPKNS_10DataLayoutE, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm24MachineConstantPoolEntry14getSectionKindEPKNS_10DataLayoutE, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm24MachineConstantPoolEntry15needsRelocationEv.exit.thread
 

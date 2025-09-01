@@ -3938,7 +3938,7 @@ define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr [85 x %struct.WASSP_SUBTLV_DECODER_INFO_t], ptr @wassp_decr_info, i64 0, i64 %9
+  %10 = getelementptr %struct.WASSP_SUBTLV_DECODER_INFO_t, ptr @wassp_decr_info, i64 %9
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %.critedge

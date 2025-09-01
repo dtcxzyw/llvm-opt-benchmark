@@ -803,8 +803,8 @@ report.exit:                                      ; preds = %report.exit.backedg
   br i1 %.not12.i21, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = add i64 %16, -1
-  %19 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %18
+  %18 = getelementptr i8, ptr %2, i64 %16
+  %19 = getelementptr i8, ptr %18, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !9
   %21 = icmp eq i8 %20, 10
   br i1 %21, label %22, label %23
@@ -881,8 +881,8 @@ pushline.exit.thread:                             ; preds = %39
   br i1 %.not12.i, label %56, label %50
 
 50:                                               ; preds = %48
-  %51 = add i64 %49, -1
-  %52 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %51
+  %51 = getelementptr i8, ptr %3, i64 %49
+  %52 = getelementptr i8, ptr %51, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !9
   %54 = icmp eq i8 %53, 10
   br i1 %54, label %55, label %56

@@ -366,7 +366,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
 
 181:                                              ; preds = %181, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %181 ]
-  %182 = getelementptr inbounds nuw [2 x ptr], ptr %179, i64 0, i64 %indvars.iv.i
+  %182 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv.i
   %183 = load ptr, ptr %182, align 8, !tbaa !67
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 6
   store i8 0, ptr %184, align 1, !tbaa !68
@@ -381,7 +381,7 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   store i8 0, ptr %190, align 1, !tbaa !68
   %191 = load ptr, ptr %170, align 8, !tbaa !65
   %192 = load ptr, ptr %182, align 8, !tbaa !67
-  %193 = getelementptr inbounds nuw [2 x i32], ptr %180, i64 0, i64 %indvars.iv.i
+  %193 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i
   %194 = load i32, ptr %193, align 4, !tbaa !25
   tail call void @avio_write(ptr noundef %191, ptr noundef %192, i32 noundef %194) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -677,7 +677,7 @@ define internal void @hds_free(ptr noundef %0) #0 {
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw [2 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %34) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %25, align 8, !tbaa !66
@@ -806,13 +806,13 @@ define internal i32 @hds_write(ptr noundef captures(none) %0, ptr noundef %1, i3
 
 43:                                               ; preds = %40
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds nuw [2 x i32], ptr %19, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %19, i64 %44
   store i32 %36, ptr %45, align 4, !tbaa !25
   %46 = zext nneg i32 %36 to i64
   %47 = tail call ptr @av_memdup(ptr noundef nonnull %.04058.i, i64 noundef %46) #8
   %48 = load i32, ptr %18, align 8, !tbaa !66
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [2 x ptr], ptr %20, i64 0, i64 %49
+  %50 = getelementptr inbounds ptr, ptr %20, i64 %49
   store ptr %47, ptr %50, align 8, !tbaa !67
   %.not51.i = icmp eq ptr %47, null
   br i1 %.not51.i, label %parse_header.exit, label %51
@@ -1395,7 +1395,7 @@ add_fragment.exit:                                ; preds = %56, %.critedge.i, %
 
 92:                                               ; preds = %92, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %92 ]
-  %93 = getelementptr inbounds nuw [2 x ptr], ptr %83, i64 0, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i
   %94 = load ptr, ptr %93, align 8, !tbaa !67
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 6
   store i8 %82, ptr %95, align 1, !tbaa !68
@@ -1410,7 +1410,7 @@ add_fragment.exit:                                ; preds = %56, %.critedge.i, %
   store i8 %90, ptr %101, align 1, !tbaa !68
   %102 = load ptr, ptr %24, align 8, !tbaa !65
   %103 = load ptr, ptr %93, align 8, !tbaa !67
-  %104 = getelementptr inbounds nuw [2 x i32], ptr %91, i64 0, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4, !tbaa !25
   call void @avio_write(ptr noundef %102, ptr noundef %103, i32 noundef %105) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

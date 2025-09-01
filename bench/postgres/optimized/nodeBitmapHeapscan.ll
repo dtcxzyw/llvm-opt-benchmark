@@ -140,7 +140,7 @@ define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) local_unnamed_addr 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw [0 x %struct.BitmapHeapScanInstrumentation], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %10, align 8

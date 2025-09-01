@@ -5682,7 +5682,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm6SDNode18getIndexedModeNameENS_3IS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6470,8 +6470,8 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit.i:         ; preds = %_ZN4llvm11raw_ostre
 _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %307, %305
   %308 = phi i16 [ %.pre.i.i, %307 ], [ %304, %305 ]
   %309 = zext i16 %308 to i64
-  %310 = add nsw i64 %309, -1
-  %311 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %310
+  %310 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %309
+  %311 = getelementptr i8, ptr %310, i64 -2
   %312 = load i16, ptr %311, align 2, !tbaa !304
   %313 = zext i16 %312 to i32
   br label %_ZNK4llvm3EVT20getVectorNumElementsEv.exit
@@ -7179,7 +7179,7 @@ default.unreachable:                              ; preds = %826, %765, %704, %6
 
 switch.lookup:                                    ; preds = %668
   %673 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %673
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 %673
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit
 
@@ -7228,18 +7228,18 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit: ; preds = %sw
   %693 = phi i16 [ %.pre830, %687 ], [ %685, %680 ]
   %694 = lshr i16 %693, 7
   %695 = and i16 %694, 7
-  %switch.tableidx936 = add nsw i16 %695, -1
-  %696 = icmp ult i16 %switch.tableidx936, 4
-  br i1 %696, label %switch.lookup935, label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit584
+  %switch.tableidx935 = add nsw i16 %695, -1
+  %696 = icmp ult i16 %switch.tableidx935, 4
+  br i1 %696, label %switch.lookup936, label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit584
 
-switch.lookup935:                                 ; preds = %692
-  %697 = zext nneg i16 %switch.tableidx936 to i64
-  %switch.gep937 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %697
+switch.lookup936:                                 ; preds = %692
+  %697 = zext nneg i16 %switch.tableidx935 to i64
+  %switch.gep937 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 %697
   %switch.load938 = load ptr, ptr %switch.gep937, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit584
 
-_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit584: ; preds = %switch.lookup935, %692
-  %.0.i583 = phi ptr [ @.str.522, %692 ], [ %switch.load938, %switch.lookup935 ]
+_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit584: ; preds = %switch.lookup936, %692
+  %.0.i583 = phi ptr [ @.str.522, %692 ], [ %switch.load938, %switch.lookup936 ]
   %698 = load i8, ptr %.0.i583, align 1, !tbaa !260
   %.not401 = icmp eq i8 %698, 0
   br i1 %.not401, label %702, label %699
@@ -7296,18 +7296,18 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit584: ; preds = 
   %720 = phi i16 [ %709, %704 ], [ %.pre828, %.critedge425 ]
   %721 = lshr i16 %720, 7
   %722 = and i16 %721, 7
-  %switch.tableidx940 = add nsw i16 %722, -1
-  %723 = icmp ult i16 %switch.tableidx940, 4
-  br i1 %723, label %switch.lookup939, label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit592
+  %switch.tableidx939 = add nsw i16 %722, -1
+  %723 = icmp ult i16 %switch.tableidx939, 4
+  br i1 %723, label %switch.lookup940, label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit592
 
-switch.lookup939:                                 ; preds = %719
-  %724 = zext nneg i16 %switch.tableidx940 to i64
-  %switch.gep941 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %724
+switch.lookup940:                                 ; preds = %719
+  %724 = zext nneg i16 %switch.tableidx939 to i64
+  %switch.gep941 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 %724
   %switch.load942 = load ptr, ptr %switch.gep941, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit592
 
-_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit592: ; preds = %switch.lookup939, %719
-  %.0.i591 = phi ptr [ @.str.522, %719 ], [ %switch.load942, %switch.lookup939 ]
+_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit592: ; preds = %switch.lookup940, %719
+  %.0.i591 = phi ptr [ @.str.522, %719 ], [ %switch.load942, %switch.lookup940 ]
   %725 = load i8, ptr %.0.i591, align 1, !tbaa !260
   %.not400 = icmp eq i8 %725, 0
   br i1 %.not400, label %729, label %726
@@ -7362,18 +7362,18 @@ _ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit592: ; preds = 
   %749 = phi i16 [ %.pre826, %743 ], [ %741, %736 ]
   %750 = lshr i16 %749, 7
   %751 = and i16 %750, 7
-  %switch.tableidx944 = add nsw i16 %751, -1
-  %752 = icmp ult i16 %switch.tableidx944, 4
-  br i1 %752, label %switch.lookup943, label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit600
+  %switch.tableidx943 = add nsw i16 %751, -1
+  %752 = icmp ult i16 %switch.tableidx943, 4
+  br i1 %752, label %switch.lookup944, label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit600
 
-switch.lookup943:                                 ; preds = %748
-  %753 = zext nneg i16 %switch.tableidx944 to i64
-  %switch.gep945 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 0, i64 %753
+switch.lookup944:                                 ; preds = %748
+  %753 = zext nneg i16 %switch.tableidx943 to i64
+  %switch.gep945 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6SDNode13print_detailsERNS_11raw_ostreamEPKNS_12SelectionDAGE.14, i64 %753
   %switch.load946 = load ptr, ptr %switch.gep945, align 8
   br label %_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit600
 
-_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit600: ; preds = %switch.lookup943, %748
-  %.0.i599 = phi ptr [ @.str.522, %748 ], [ %switch.load946, %switch.lookup943 ]
+_ZN4llvm6SDNode18getIndexedModeNameENS_3ISD14MemIndexedModeE.exit600: ; preds = %switch.lookup944, %748
+  %.0.i599 = phi ptr [ @.str.522, %748 ], [ %switch.load946, %switch.lookup944 ]
   %754 = load i8, ptr %.0.i599, align 1, !tbaa !260
   %.not399 = icmp eq i8 %754, 0
   br i1 %.not399, label %758, label %755

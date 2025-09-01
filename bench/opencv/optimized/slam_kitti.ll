@@ -357,7 +357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 
 136:                                              ; preds = %92, %136
   %indvars.iv = phi i64 [ 0, %92 ], [ %indvars.iv.next, %136 ]
-  %137 = getelementptr inbounds nuw [4 x %"class.std::vector.12"], ptr %107, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw %"class.std::vector.12", ptr %107, i64 %indvars.iv
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8, !tbaa !33
   %140 = load ptr, ptr %137, align 8, !tbaa !36
@@ -430,7 +430,7 @@ _ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %indvars.iv87 = phi i64 [ 0, %108 ], [ %indvars.iv.next88, %._crit_edge ]
   %173 = trunc nuw nsw i64 %indvars.iv87 to i32
   %174 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %173)
-  %175 = getelementptr inbounds nuw [4 x %"class.std::vector.17"], ptr %129, i64 0, i64 %indvars.iv87
+  %175 = getelementptr inbounds nuw %"class.std::vector.17", ptr %129, i64 %indvars.iv87
   %176 = load ptr, ptr %175, align 8, !tbaa !54
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %178 = load ptr, ptr %177, align 8, !tbaa !54

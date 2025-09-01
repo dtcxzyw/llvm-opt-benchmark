@@ -65491,7 +65491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
 
 123:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %123
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102 ], [ %indvars.iv.next, %123 ]
-  %124 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !99
   %126 = mul nuw nsw i64 %indvars.iv, 10
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 120
@@ -65526,7 +65526,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
 
 139:                                              ; preds = %96, %141
   %indvars.iv203 = phi i64 [ 0, %96 ], [ %indvars.iv.next204, %141 ]
-  %140 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv203
+  %140 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv203
   invoke void @_ZNSt14priority_queueIP4EdgeSt6vectorIS1_SaIS1_EE16EdgePriorityLessE4pushERKS1_(ptr noundef nonnull align 8 dereferenceable(25) %9, ptr noundef nonnull align 8 dereferenceable(8) %140)
           to label %141 unwind label %142
 
@@ -65688,7 +65688,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %172, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %193 = load ptr, ptr %9, align 8, !tbaa !796
   %194 = sub nuw nsw i64 2, %indvars.iv207
-  %195 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw ptr, ptr %5, i64 %194
   %196 = load ptr, ptr %193, align 8, !tbaa !99, !noalias !797
   %197 = load ptr, ptr %195, align 8, !tbaa !99, !noalias !797
   %198 = icmp eq ptr %196, %197
@@ -65994,7 +65994,7 @@ _ZN7testing15AssertionResultD2Ev.exit153:         ; preds = %185, %282, %_ZNKSt1
 
 293:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit153, %293
   %indvars.iv211 = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit153 ], [ %indvars.iv.next212, %293 ]
-  %294 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv211
+  %294 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv211
   %295 = load ptr, ptr %294, align 8, !tbaa !99
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 120
   store i64 0, ptr %296, align 8, !tbaa !793
@@ -66034,7 +66034,7 @@ _ZN7testing15AssertionResultD2Ev.exit153:         ; preds = %185, %282, %_ZNKSt1
   %indvars.iv215 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next216, %354 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %309 = load ptr, ptr %9, align 8, !tbaa !796
-  %310 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv215
+  %310 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv215
   %311 = load ptr, ptr %309, align 8, !tbaa !99, !noalias !804
   %312 = load ptr, ptr %310, align 8, !tbaa !99, !noalias !804
   %313 = icmp eq ptr %311, %312

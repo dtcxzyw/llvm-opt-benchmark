@@ -194,7 +194,7 @@ define internal fastcc range(i32 -6, 1) i32 @start_bunzip(ptr noundef writeonly 
   br i1 %26, label %27, label %18, !llvm.loop !8
 
 27:                                               ; preds = %18
-  %28 = getelementptr [256 x i32], ptr %13, i64 0, i64 %15
+  %28 = getelementptr i32, ptr %13, i64 %15
   store i32 %24, ptr %28, align 4
   %29 = add nuw nsw i64 %15, 1
   %30 = icmp eq i64 %29, 256
@@ -287,7 +287,7 @@ define internal fastcc i32 @read_bunzip(ptr noundef %0, ptr noundef writeonly ca
   %37 = lshr i32 %35, 24
   %38 = xor i32 %37, %22
   %39 = zext i32 %38 to i64
-  %40 = getelementptr [256 x i32], ptr %26, i64 0, i64 %39
+  %40 = getelementptr i32, ptr %26, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = xor i32 %36, %41
   store i32 %42, ptr %25, align 8
@@ -751,7 +751,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i32 %131, ptr %100, align 8
   %132 = trunc nuw nsw i32 %126 to i8
   %133 = add nuw nsw i8 %132, 1
-  %134 = getelementptr [258 x i8], ptr %2, i64 0, i64 %122
+  %134 = getelementptr i8, ptr %2, i64 %122
   store i8 %133, ptr %134, align 1
   %135 = add nuw nsw i64 %122, 1
   %136 = icmp slt i64 %135, %103
@@ -775,7 +775,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %147 = phi i64 [ %157, %.preheader60 ], [ 1, %144 ]
   %148 = phi i32 [ %156, %.preheader60 ], [ %146, %144 ]
   %149 = phi i32 [ %155, %.preheader60 ], [ %146, %144 ]
-  %150 = getelementptr [258 x i8], ptr %2, i64 0, i64 %147
+  %150 = getelementptr i8, ptr %2, i64 %147
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = icmp ult i32 %148, %152
@@ -845,7 +845,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
 .preheader52:                                     ; preds = %190, %204
   %193 = phi i64 [ %206, %204 ], [ 0, %190 ]
   %194 = phi i32 [ %205, %204 ], [ %.ph204, %190 ]
-  %195 = getelementptr [258 x i8], ptr %2, i64 0, i64 %193
+  %195 = getelementptr i8, ptr %2, i64 %193
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i64
   %198 = icmp eq i64 %191, %197
@@ -854,7 +854,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
 199:                                              ; preds = %.preheader52
   %200 = add i32 %194, 1
   %201 = sext i32 %194 to i64
-  %202 = getelementptr [258 x i32], ptr %179, i64 0, i64 %201
+  %202 = getelementptr i32, ptr %179, i64 %201
   %203 = trunc i64 %193 to i32
   store i32 %203, ptr %202, align 4
   br label %204
@@ -895,10 +895,10 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
 
 .preheader57:                                     ; preds = %.preheader57.preheader, %.preheader57
   %222 = phi i64 [ %229, %.preheader57 ], [ 0, %.preheader57.preheader ]
-  %223 = getelementptr [258 x i8], ptr %2, i64 0, i64 %222
+  %223 = getelementptr i8, ptr %2, i64 %222
   %224 = load i8, ptr %223, align 1
   %225 = zext i8 %224 to i64
-  %226 = getelementptr [21 x i8], ptr %3, i64 0, i64 %225
+  %226 = getelementptr i8, ptr %3, i64 %225
   %227 = load i8, ptr %226, align 1
   %228 = add i8 %227, 1
   store i8 %228, ptr %226, align 1
@@ -910,7 +910,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %231 = phi i64 [ %246, %.preheader251 ], [ %221, %.loopexit58 ]
   %232 = phi i32 [ %243, %.preheader251 ], [ 0, %.loopexit58 ]
   %233 = phi i32 [ %244, %.preheader251 ], [ 0, %.loopexit58 ]
-  %234 = getelementptr [21 x i8], ptr %3, i64 0, i64 %231
+  %234 = getelementptr i8, ptr %3, i64 %231
   %235 = load i8, ptr %234, align 1
   %236 = zext i8 %235 to i32
   %237 = add i32 %232, %236
@@ -941,7 +941,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %254 = getelementptr i32, ptr %219, i64 %253
   %255 = getelementptr i8, ptr %254, i64 4
   store i32 2147483647, ptr %255, align 4
-  %256 = getelementptr [21 x i8], ptr %3, i64 0, i64 %253
+  %256 = getelementptr i8, ptr %3, i64 %253
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i32
   %259 = add i32 %252, %258
@@ -1106,7 +1106,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
 362:                                              ; preds = %355
   %363 = getelementptr inbounds nuw i8, ptr %295, i64 164
   %364 = zext nneg i32 %360 to i64
-  %365 = getelementptr [258 x i32], ptr %363, i64 0, i64 %364
+  %365 = getelementptr i32, ptr %363, i64 %364
   %366 = load i32, ptr %365, align 4
   %367 = icmp ult i32 %366, 2
   %368 = icmp eq i32 %279, 0

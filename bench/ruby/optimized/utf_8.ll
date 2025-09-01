@@ -16,7 +16,7 @@ define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr 
   %4 = getelementptr i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1, !tbaa !7
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [256 x i8], ptr @trans, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @trans, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -32,17 +32,17 @@ define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr 
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %6
+  %17 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %19 = sub i32 0, %18
   br label %64
 
 20:                                               ; preds = %14
-  %21 = getelementptr [8 x [256 x i8]], ptr @trans, i64 0, i64 %9
+  %21 = getelementptr [256 x i8], ptr @trans, i64 %9
   %22 = getelementptr i8, ptr %0, i64 2
   %23 = load i8, ptr %4, align 1, !tbaa !7
   %24 = zext i8 %23 to i64
-  %25 = getelementptr [256 x i8], ptr %21, i64 0, i64 %24
+  %25 = getelementptr i8, ptr %21, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !7
   %27 = sext i8 %26 to i64
   %28 = icmp slt i8 %26, 0
@@ -58,17 +58,17 @@ define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr 
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = getelementptr [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %6
+  %35 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
   %36 = load i32, ptr %35, align 4, !tbaa !10
   %37 = sub i32 1, %36
   br label %64
 
 38:                                               ; preds = %32
-  %39 = getelementptr [8 x [256 x i8]], ptr @trans, i64 0, i64 %27
+  %39 = getelementptr [256 x i8], ptr @trans, i64 %27
   %40 = getelementptr i8, ptr %0, i64 3
   %41 = load i8, ptr %22, align 1, !tbaa !7
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %39, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %39, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !7
   %45 = sext i8 %44 to i64
   %46 = icmp slt i8 %44, 0
@@ -84,16 +84,16 @@ define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr 
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
-  %53 = getelementptr [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %6
+  %53 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
   %54 = load i32, ptr %53, align 4, !tbaa !10
   %55 = sub i32 2, %54
   br label %64
 
 56:                                               ; preds = %50
-  %57 = getelementptr [8 x [256 x i8]], ptr @trans, i64 0, i64 %45
+  %57 = getelementptr [256 x i8], ptr @trans, i64 %45
   %58 = load i8, ptr %40, align 1, !tbaa !7
   %59 = zext i8 %58 to i64
-  %60 = getelementptr [256 x i8], ptr %57, i64 0, i64 %59
+  %60 = getelementptr i8, ptr %57, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !7
   %62 = icmp eq i8 %61, -1
   %63 = select i1 %62, i32 4, i32 -1
@@ -127,7 +127,7 @@ define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr 
   %4 = getelementptr i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1, !tbaa !7
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [256 x i8], ptr @trans, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @trans, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -138,11 +138,11 @@ define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr 
   br i1 %12, label %mbc_enc_len.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr [8 x [256 x i8]], ptr @trans, i64 0, i64 %9
+  %14 = getelementptr [256 x i8], ptr @trans, i64 %9
   %15 = getelementptr i8, ptr %0, i64 2
   %16 = load i8, ptr %4, align 1, !tbaa !7
   %17 = zext i8 %16 to i64
-  %18 = getelementptr [256 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = sext i8 %19 to i64
   %21 = icmp slt i8 %19, 0
@@ -157,11 +157,11 @@ define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr 
   br i1 %25, label %mbc_enc_len.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr [8 x [256 x i8]], ptr @trans, i64 0, i64 %20
+  %27 = getelementptr [256 x i8], ptr @trans, i64 %20
   %28 = getelementptr i8, ptr %0, i64 3
   %29 = load i8, ptr %15, align 1, !tbaa !7
   %30 = zext i8 %29 to i64
-  %31 = getelementptr [256 x i8], ptr %27, i64 0, i64 %30
+  %31 = getelementptr i8, ptr %27, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !7
   %33 = sext i8 %32 to i64
   %34 = icmp slt i8 %32, 0
@@ -176,10 +176,10 @@ define internal i32 @mbc_to_code(ptr noundef readonly captures(address) %0, ptr 
   br i1 %38, label %mbc_enc_len.exit, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr [8 x [256 x i8]], ptr @trans, i64 0, i64 %33
+  %40 = getelementptr [256 x i8], ptr @trans, i64 %33
   %41 = load i8, ptr %28, align 1, !tbaa !7
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %40, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %40, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !7
   %45 = icmp eq i8 %44, -1
   br i1 %45, label %mbc_enc_len.exit.thread25, label %mbc_enc_len.exit.thread
@@ -195,7 +195,7 @@ mbc_enc_len.exit.thread25:                        ; preds = %22, %35, %39
 
 mbc_enc_len.exit:                                 ; preds = %37, %24, %11
   %.sink = phi i32 [ 0, %11 ], [ 1, %24 ], [ 2, %37 ]
-  %48 = getelementptr [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %6
+  %48 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %50 = sub i32 %.sink, %49
   %51 = zext i8 %5 to i32
@@ -373,7 +373,7 @@ define internal i32 @mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %
 
 9:                                                ; preds = %5
   %10 = zext nneg i8 %7 to i64
-  %11 = getelementptr [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
+  %11 = getelementptr i8, ptr @OnigEncAsciiToLowerCaseTable, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !7
   store i8 %12, ptr %3, align 1, !tbaa !7
   %13 = load ptr, ptr %1, align 8, !tbaa !14

@@ -371,7 +371,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitEGL() local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %115
   %119 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %119
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %119
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %getEGLErrorString.exit
 
@@ -407,18 +407,18 @@ getEGLErrorString.exit:                           ; preds = %115, %switch.lookup
 130:                                              ; preds = %127
   %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
   %132 = call i32 %131() #4
-  %switch.tableidx114 = add i32 %132, -12288
-  %133 = icmp ult i32 %switch.tableidx114, 15
-  br i1 %133, label %switch.lookup113, label %getEGLErrorString.exit58
+  %switch.tableidx113 = add i32 %132, -12288
+  %133 = icmp ult i32 %switch.tableidx113, 15
+  br i1 %133, label %switch.lookup114, label %getEGLErrorString.exit58
 
-switch.lookup113:                                 ; preds = %130
-  %134 = zext nneg i32 %switch.tableidx114 to i64
-  %switch.gep115 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %134
+switch.lookup114:                                 ; preds = %130
+  %134 = zext nneg i32 %switch.tableidx113 to i64
+  %switch.gep115 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %134
   %switch.load116 = load ptr, ptr %switch.gep115, align 8
   br label %getEGLErrorString.exit58
 
-getEGLErrorString.exit58:                         ; preds = %130, %switch.lookup113
-  %.0.i57 = phi ptr [ %switch.load116, %switch.lookup113 ], [ @.str.65, %130 ]
+getEGLErrorString.exit58:                         ; preds = %130, %switch.lookup114
+  %.0.i57 = phi ptr [ %switch.load116, %switch.lookup114 ], [ @.str.65, %130 ]
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65542, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i57) #4
   %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
   %.not.i59 = icmp eq ptr %135, null
@@ -622,7 +622,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextEGL(ptr noundef %0, ptr nou
 
 7:                                                ; preds = %3
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65542, ptr noundef nonnull @.str.38) #4
-  br label %225
+  br label %202
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -639,7 +639,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextEGL(ptr noundef %0, ptr nou
   %.0110 = phi ptr [ %13, %11 ], [ null, %8 ]
   %15 = call fastcc i32 @chooseEGLConfig(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
   %.not117 = icmp eq i32 %15, 0
-  br i1 %.not117, label %225, label %16
+  br i1 %.not117, label %202, label %16
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %1, align 8, !tbaa !168
@@ -661,14 +661,14 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextEGL(ptr noundef %0, ptr nou
 
 switch.lookup:                                    ; preds = %22
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %getEGLErrorString.exit
 
 getEGLErrorString.exit:                           ; preds = %22, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.65, %22 ]
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65542, ptr noundef nonnull @.str.39, ptr noundef nonnull %.0.i) #4
-  br label %225
+  br label %202
 
 27:                                               ; preds = %16
   %28 = tail call i32 %19(i32 noundef 12450) #4
@@ -678,26 +678,26 @@ getEGLErrorString.exit:                           ; preds = %22, %switch.lookup
 29:                                               ; preds = %27
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
   %31 = tail call i32 %30() #4
-  %switch.tableidx170 = add i32 %31, -12288
-  %32 = icmp ult i32 %switch.tableidx170, 15
-  br i1 %32, label %switch.lookup169, label %getEGLErrorString.exit138
+  %switch.tableidx171 = add i32 %31, -12288
+  %32 = icmp ult i32 %switch.tableidx171, 15
+  br i1 %32, label %switch.lookup172, label %getEGLErrorString.exit138
 
-switch.lookup169:                                 ; preds = %29
-  %33 = zext nneg i32 %switch.tableidx170 to i64
-  %switch.gep171 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %33
-  %switch.load172 = load ptr, ptr %switch.gep171, align 8
+switch.lookup172:                                 ; preds = %29
+  %33 = zext nneg i32 %switch.tableidx171 to i64
+  %switch.gep173 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %33
+  %switch.load174 = load ptr, ptr %switch.gep173, align 8
   br label %getEGLErrorString.exit138
 
-getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup169
-  %.0.i137 = phi ptr [ %switch.load172, %switch.lookup169 ], [ @.str.65, %29 ]
+getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup172
+  %.0.i137 = phi ptr [ %switch.load174, %switch.lookup172 ], [ @.str.65, %29 ]
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65542, ptr noundef nonnull @.str.40, ptr noundef nonnull %.0.i137) #4
-  br label %225
+  br label %202
 
 34:                                               ; preds = %27, %20
   %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133524), align 4, !tbaa !127
   %.not120 = icmp eq i32 %35, 0
   %36 = load i32, ptr %1, align 8, !tbaa !168
-  br i1 %.not120, label %101, label %37
+  br i1 %.not120, label %88, label %37
 
 37:                                               ; preds = %34
   %38 = icmp eq i32 %36, 196609
@@ -763,354 +763,336 @@ getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup1
   %59 = load i32, ptr %58, align 4, !tbaa !175
   %.not125 = icmp eq i32 %59, 0
   %or.cond = select i1 %.not124, i1 %.not125, i1 false
-  br i1 %or.cond, label %72, label %._crit_edge149
+  br i1 %or.cond, label %66, label %._crit_edge149
 
 ._crit_edge149:                                   ; preds = %55
-  %60 = add nuw nsw i32 %.0104, 1
-  %61 = zext nneg i32 %.0104 to i64
-  %62 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %61
-  store i32 12440, ptr %62, align 4, !tbaa !173
-  %63 = add nuw nsw i32 %.0104, 2
-  %64 = zext nneg i32 %60 to i64
-  %65 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %64
-  store i32 %57, ptr %65, align 4, !tbaa !173
-  %66 = add nuw nsw i32 %.0104, 3
-  %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %67
-  store i32 12539, ptr %68, align 4, !tbaa !173
-  %69 = add nuw nsw i32 %.0104, 4
-  %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %70
-  store i32 %59, ptr %71, align 4, !tbaa !173
-  br label %72
+  %60 = zext nneg i32 %.0104 to i64
+  %61 = getelementptr inbounds nuw i32, ptr %4, i64 %60
+  store i32 12440, ptr %61, align 4, !tbaa !173
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  store i32 %57, ptr %62, align 4, !tbaa !173
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i32 12539, ptr %63, align 4, !tbaa !173
+  %64 = add nuw nsw i32 %.0104, 4
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 12
+  store i32 %59, ptr %65, align 4, !tbaa !173
+  br label %66
 
-72:                                               ; preds = %55, %._crit_edge149
-  %.2106 = phi i32 [ %69, %._crit_edge149 ], [ %.0104, %55 ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load i32, ptr %73, align 8, !tbaa !176
-  %75 = icmp ne i32 %74, 0
-  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133528), align 8
-  %77 = icmp ne i32 %76, 0
-  %or.cond3 = select i1 %75, i1 %77, i1 false
-  br i1 %or.cond3, label %78, label %85
+66:                                               ; preds = %55, %._crit_edge149
+  %.2106 = phi i32 [ %64, %._crit_edge149 ], [ %.0104, %55 ]
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %68 = load i32, ptr %67, align 8, !tbaa !176
+  %69 = icmp ne i32 %68, 0
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133528), align 8
+  %71 = icmp ne i32 %70, 0
+  %or.cond3 = select i1 %69, i1 %71, i1 false
+  br i1 %or.cond3, label %72, label %77
 
-78:                                               ; preds = %72
-  %79 = add nuw nsw i32 %.2106, 1
-  %80 = zext nneg i32 %.2106 to i64
-  %81 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %80
-  store i32 12723, ptr %81, align 4, !tbaa !173
-  %82 = add nuw nsw i32 %.2106, 2
-  %83 = zext nneg i32 %79 to i64
-  %84 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %83
-  store i32 1, ptr %84, align 4, !tbaa !173
-  br label %85
+72:                                               ; preds = %66
+  %73 = zext nneg i32 %.2106 to i64
+  %74 = getelementptr inbounds nuw i32, ptr %4, i64 %73
+  store i32 12723, ptr %74, align 4, !tbaa !173
+  %75 = add nuw nsw i32 %.2106, 2
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 1, ptr %76, align 4, !tbaa !173
+  br label %77
 
-85:                                               ; preds = %78, %72
-  %.3107 = phi i32 [ %82, %78 ], [ %.2106, %72 ]
-  br i1 %.not126, label %93, label %86
+77:                                               ; preds = %72, %66
+  %.3107 = phi i32 [ %75, %72 ], [ %.2106, %66 ]
+  br i1 %.not126, label %83, label %78
 
-86:                                               ; preds = %85
-  %87 = add nuw nsw i32 %.3107, 1
-  %88 = zext nneg i32 %.3107 to i64
-  %89 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %88
-  store i32 12541, ptr %89, align 4, !tbaa !173
-  %90 = add nuw nsw i32 %.3107, 2
-  %91 = zext nneg i32 %87 to i64
-  %92 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %91
-  store i32 %.0102, ptr %92, align 4, !tbaa !173
-  br label %93
+78:                                               ; preds = %77
+  %79 = zext nneg i32 %.3107 to i64
+  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %79
+  store i32 12541, ptr %80, align 4, !tbaa !173
+  %81 = add nuw nsw i32 %.3107, 2
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  store i32 %.0102, ptr %82, align 4, !tbaa !173
+  br label %83
 
-93:                                               ; preds = %86, %85
-  %.4 = phi i32 [ %90, %86 ], [ %.3107, %85 ]
+83:                                               ; preds = %78, %77
+  %.4 = phi i32 [ %81, %78 ], [ %.3107, %77 ]
   %.not127 = icmp eq i32 %.3, 0
-  br i1 %.not127, label %107, label %94
+  br i1 %.not127, label %94, label %84
 
-94:                                               ; preds = %93
-  %95 = add nuw nsw i32 %.4, 1
-  %96 = zext nneg i32 %.4 to i64
-  %97 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %96
-  store i32 12540, ptr %97, align 4, !tbaa !173
-  %98 = add nuw nsw i32 %.4, 2
-  %99 = zext nneg i32 %95 to i64
-  %100 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %99
-  store i32 %.3, ptr %100, align 4, !tbaa !173
-  br label %107
-
-101:                                              ; preds = %34
-  %102 = icmp eq i32 %36, 196610
-  br i1 %102, label %103, label %107
-
-103:                                              ; preds = %101
-  store i32 12440, ptr %4, align 16, !tbaa !173
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %105 = load i32, ptr %104, align 8, !tbaa !174
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %105, ptr %106, align 4, !tbaa !173
-  br label %107
-
-107:                                              ; preds = %93, %94, %101, %103
-  %.6 = phi i32 [ 2, %103 ], [ 0, %101 ], [ %98, %94 ], [ %.4, %93 ]
-  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133540), align 4, !tbaa !131
-  %.not128 = icmp eq i32 %108, 0
-  br i1 %.not128, label %119, label %109
-
-109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %111 = load i32, ptr %110, align 4, !tbaa !177
-  switch i32 %111, label %119 [
-    i32 217090, label %.sink.split158
-    i32 217089, label %112
-  ]
-
-112:                                              ; preds = %109
+84:                                               ; preds = %83
+  %85 = zext nneg i32 %.4 to i64
+  %86 = getelementptr inbounds nuw i32, ptr %4, i64 %85
+  store i32 12540, ptr %86, align 4, !tbaa !173
+  %87 = add nuw nsw i32 %.4, 2
   br label %.sink.split158
 
-.sink.split158:                                   ; preds = %109, %112
-  %.sink159 = phi i32 [ 8344, %112 ], [ 0, %109 ]
-  %113 = add nuw nsw i32 %.6, 1
-  %114 = zext nneg i32 %.6 to i64
-  %115 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %114
-  store i32 8343, ptr %115, align 4, !tbaa !173
-  %116 = add nuw nsw i32 %.6, 2
-  %117 = zext nneg i32 %113 to i64
-  %118 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %117
-  store i32 %.sink159, ptr %118, align 4, !tbaa !173
-  br label %119
+88:                                               ; preds = %34
+  %89 = icmp eq i32 %36, 196610
+  br i1 %89, label %90, label %94
 
-119:                                              ; preds = %.sink.split158, %109, %107
-  %.7 = phi i32 [ %.6, %107 ], [ %.6, %109 ], [ %116, %.sink.split158 ]
-  %120 = add nuw nsw i32 %.7, 1
-  %121 = zext nneg i32 %.7 to i64
-  %122 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %121
-  store i32 12344, ptr %122, align 4, !tbaa !173
-  %123 = zext nneg i32 %120 to i64
-  %124 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %123
-  store i32 12344, ptr %124, align 4, !tbaa !173
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133648), align 8, !tbaa !103
-  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
-  %127 = load ptr, ptr %5, align 8, !tbaa !178
-  %128 = call ptr %125(ptr noundef %126, ptr noundef %127, ptr noundef %.0110, ptr noundef nonnull %4) #4
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store ptr %128, ptr %130, align 8, !tbaa !134
-  %131 = icmp eq ptr %128, null
-  br i1 %131, label %132, label %137
+90:                                               ; preds = %88
+  store i32 12440, ptr %4, align 16, !tbaa !173
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %92 = load i32, ptr %91, align 8, !tbaa !174
+  br label %.sink.split158
 
-132:                                              ; preds = %119
-  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
-  %134 = call i32 %133() #4
-  %switch.tableidx174 = add i32 %134, -12288
-  %135 = icmp ult i32 %switch.tableidx174, 15
-  br i1 %135, label %switch.lookup173, label %getEGLErrorString.exit140
+.sink.split158:                                   ; preds = %90, %84
+  %.sink160 = phi ptr [ %86, %84 ], [ %4, %90 ]
+  %.3.sink = phi i32 [ %.3, %84 ], [ %92, %90 ]
+  %.6.ph = phi i32 [ %87, %84 ], [ 2, %90 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.sink160, i64 4
+  store i32 %.3.sink, ptr %93, align 4, !tbaa !173
+  br label %94
 
-switch.lookup173:                                 ; preds = %132
-  %136 = zext nneg i32 %switch.tableidx174 to i64
-  %switch.gep175 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %136
-  %switch.load176 = load ptr, ptr %switch.gep175, align 8
+94:                                               ; preds = %.sink.split158, %83, %88
+  %.6 = phi i32 [ 0, %88 ], [ %.4, %83 ], [ %.6.ph, %.sink.split158 ]
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133540), align 4, !tbaa !131
+  %.not128 = icmp eq i32 %95, 0
+  br i1 %.not128, label %104, label %96
+
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %98 = load i32, ptr %97, align 4, !tbaa !177
+  switch i32 %98, label %104 [
+    i32 217090, label %.sink.split161
+    i32 217089, label %99
+  ]
+
+99:                                               ; preds = %96
+  br label %.sink.split161
+
+.sink.split161:                                   ; preds = %96, %99
+  %.sink162 = phi i32 [ 8344, %99 ], [ 0, %96 ]
+  %100 = zext nneg i32 %.6 to i64
+  %101 = getelementptr inbounds nuw i32, ptr %4, i64 %100
+  store i32 8343, ptr %101, align 4, !tbaa !173
+  %102 = add nuw nsw i32 %.6, 2
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 4
+  store i32 %.sink162, ptr %103, align 4, !tbaa !173
+  br label %104
+
+104:                                              ; preds = %.sink.split161, %96, %94
+  %.7 = phi i32 [ %.6, %94 ], [ %.6, %96 ], [ %102, %.sink.split161 ]
+  %105 = zext nneg i32 %.7 to i64
+  %106 = getelementptr inbounds nuw i32, ptr %4, i64 %105
+  store i32 12344, ptr %106, align 4, !tbaa !173
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  store i32 12344, ptr %107, align 4, !tbaa !173
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133648), align 8, !tbaa !103
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
+  %110 = load ptr, ptr %5, align 8, !tbaa !178
+  %111 = call ptr %108(ptr noundef %109, ptr noundef %110, ptr noundef %.0110, ptr noundef nonnull %4) #4
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  store ptr %111, ptr %113, align 8, !tbaa !134
+  %114 = icmp eq ptr %111, null
+  br i1 %114, label %115, label %120
+
+115:                                              ; preds = %104
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
+  %117 = call i32 %116() #4
+  %switch.tableidx175 = add i32 %117, -12288
+  %118 = icmp ult i32 %switch.tableidx175, 15
+  br i1 %118, label %switch.lookup176, label %getEGLErrorString.exit140
+
+switch.lookup176:                                 ; preds = %115
+  %119 = zext nneg i32 %switch.tableidx175 to i64
+  %switch.gep177 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %119
+  %switch.load178 = load ptr, ptr %switch.gep177, align 8
   br label %getEGLErrorString.exit140
 
-getEGLErrorString.exit140:                        ; preds = %132, %switch.lookup173
-  %.0.i139 = phi ptr [ %switch.load176, %switch.lookup173 ], [ @.str.65, %132 ]
+getEGLErrorString.exit140:                        ; preds = %115, %switch.lookup176
+  %.0.i139 = phi ptr [ %switch.load178, %switch.lookup176 ], [ @.str.65, %115 ]
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65543, ptr noundef nonnull @.str.41, ptr noundef nonnull %.0.i139) #4
-  br label %225
+  br label %202
 
-137:                                              ; preds = %119
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %139 = load i32, ptr %138, align 4, !tbaa !179
-  %140 = icmp ne i32 %139, 0
-  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133532), align 4
-  %142 = icmp ne i32 %141, 0
-  %or.cond5 = select i1 %140, i1 %142, i1 false
-  br i1 %or.cond5, label %143, label %145
+120:                                              ; preds = %104
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %122 = load i32, ptr %121, align 4, !tbaa !179
+  %123 = icmp ne i32 %122, 0
+  %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133532), align 4
+  %125 = icmp ne i32 %124, 0
+  %or.cond5 = select i1 %123, i1 %125, i1 false
+  br i1 %or.cond5, label %126, label %128
 
-143:                                              ; preds = %137
+126:                                              ; preds = %120
   store i32 12445, ptr %4, align 16, !tbaa !173
-  %144 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 12425, ptr %144, align 4, !tbaa !173
-  br label %145
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 12425, ptr %127, align 4, !tbaa !173
+  br label %128
 
-145:                                              ; preds = %143, %137
-  %.8 = phi i32 [ 2, %143 ], [ 0, %137 ]
-  %146 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %147 = load i32, ptr %146, align 8, !tbaa !180
-  %.not129 = icmp eq i32 %147, 0
-  br i1 %.not129, label %148, label %155
+128:                                              ; preds = %126, %120
+  %.8 = phi i32 [ 2, %126 ], [ 0, %120 ]
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %130 = load i32, ptr %129, align 8, !tbaa !180
+  %.not129 = icmp eq i32 %130, 0
+  br i1 %.not129, label %131, label %136
 
-148:                                              ; preds = %145
-  %149 = or disjoint i32 %.8, 1
-  %150 = zext nneg i32 %.8 to i64
-  %151 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %150
-  store i32 12422, ptr %151, align 8, !tbaa !173
-  %152 = add nuw nsw i32 %.8, 2
-  %153 = zext nneg i32 %149 to i64
-  %154 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %153
-  store i32 12421, ptr %154, align 4, !tbaa !173
-  br label %155
+131:                                              ; preds = %128
+  %132 = zext nneg i32 %.8 to i64
+  %133 = getelementptr inbounds nuw i32, ptr %4, i64 %132
+  store i32 12422, ptr %133, align 8, !tbaa !173
+  %134 = add nuw nsw i32 %.8, 2
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  store i32 12421, ptr %135, align 4, !tbaa !173
+  br label %136
 
-155:                                              ; preds = %148, %145
-  %.9 = phi i32 [ %.8, %145 ], [ %152, %148 ]
-  %156 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !181
-  %157 = icmp eq i32 %156, 393219
-  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133560), align 8
-  %159 = icmp ne i32 %158, 0
-  %or.cond7 = select i1 %157, i1 %159, i1 false
-  br i1 %or.cond7, label %160, label %170
+136:                                              ; preds = %131, %128
+  %.9 = phi i32 [ %.8, %128 ], [ %134, %131 ]
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !181
+  %138 = icmp eq i32 %137, 393219
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133560), align 8
+  %140 = icmp ne i32 %139, 0
+  %or.cond7 = select i1 %138, i1 %140, i1 false
+  br i1 %or.cond7, label %141, label %149
 
-160:                                              ; preds = %155
-  %161 = add nuw nsw i32 %.9, 1
-  %162 = zext nneg i32 %.9 to i64
-  %163 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %162
-  store i32 12767, ptr %163, align 4, !tbaa !173
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %165 = load i32, ptr %164, align 4, !tbaa !182
-  %.not130 = icmp eq i32 %165, 0
-  %166 = zext i1 %.not130 to i32
-  %167 = add nuw nsw i32 %.9, 2
-  %168 = zext nneg i32 %161 to i64
-  %169 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %168
-  store i32 %166, ptr %169, align 4, !tbaa !173
-  br label %170
+141:                                              ; preds = %136
+  %142 = zext nneg i32 %.9 to i64
+  %143 = getelementptr inbounds nuw i32, ptr %4, i64 %142
+  store i32 12767, ptr %143, align 4, !tbaa !173
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %145 = load i32, ptr %144, align 4, !tbaa !182
+  %.not130 = icmp eq i32 %145, 0
+  %146 = zext i1 %.not130 to i32
+  %147 = add nuw nsw i32 %.9, 2
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 4
+  store i32 %146, ptr %148, align 4, !tbaa !173
+  br label %149
 
-170:                                              ; preds = %160, %155
-  %.10 = phi i32 [ %167, %160 ], [ %.9, %155 ]
-  %171 = add nuw nsw i32 %.10, 1
-  %172 = zext nneg i32 %.10 to i64
-  %173 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %172
-  store i32 12344, ptr %173, align 4, !tbaa !173
-  %174 = zext nneg i32 %171 to i64
-  %175 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %174
-  store i32 12344, ptr %175, align 4, !tbaa !173
-  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 584), align 8, !tbaa !183
-  %177 = call ptr %176(ptr noundef nonnull %0) #4
-  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133496), align 8, !tbaa !125
-  %switch.selectcmp.case1 = icmp eq i32 %178, 12802
-  %switch.selectcmp.case2 = icmp eq i32 %178, 0
+149:                                              ; preds = %141, %136
+  %.10 = phi i32 [ %147, %141 ], [ %.9, %136 ]
+  %150 = zext nneg i32 %.10 to i64
+  %151 = getelementptr inbounds nuw i32, ptr %4, i64 %150
+  store i32 12344, ptr %151, align 4, !tbaa !173
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  store i32 12344, ptr %152, align 4, !tbaa !173
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 584), align 8, !tbaa !183
+  %154 = call ptr %153(ptr noundef nonnull %0) #4
+  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133496), align 8, !tbaa !125
+  %switch.selectcmp.case1 = icmp eq i32 %155, 12802
+  %switch.selectcmp.case2 = icmp eq i32 %155, 0
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133672), align 8
-  %.val181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133728), align 8
-  %.sink168 = select i1 %switch.selectcmp, ptr %.val, ptr %.val181
-  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
-  %180 = call ptr %.sink168(ptr noundef %179, ptr noundef %127, ptr noundef %177, ptr noundef nonnull %4) #4
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store ptr %180, ptr %181, align 8, !tbaa !184
-  %182 = icmp eq ptr %180, null
-  br i1 %182, label %183, label %188
+  %.val183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133728), align 8
+  %.sink170 = select i1 %switch.selectcmp, ptr %.val, ptr %.val183
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
+  %157 = call ptr %.sink170(ptr noundef %156, ptr noundef %110, ptr noundef %154, ptr noundef nonnull %4) #4
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  store ptr %157, ptr %158, align 8, !tbaa !184
+  %159 = icmp eq ptr %157, null
+  br i1 %159, label %160, label %165
 
-183:                                              ; preds = %170
-  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
-  %185 = call i32 %184() #4
-  %switch.tableidx178 = add i32 %185, -12288
-  %186 = icmp ult i32 %switch.tableidx178, 15
-  br i1 %186, label %switch.lookup177, label %getEGLErrorString.exit142
+160:                                              ; preds = %149
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
+  %162 = call i32 %161() #4
+  %switch.tableidx179 = add i32 %162, -12288
+  %163 = icmp ult i32 %switch.tableidx179, 15
+  br i1 %163, label %switch.lookup180, label %getEGLErrorString.exit142
 
-switch.lookup177:                                 ; preds = %183
-  %187 = zext nneg i32 %switch.tableidx178 to i64
-  %switch.gep179 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %187
-  %switch.load180 = load ptr, ptr %switch.gep179, align 8
+switch.lookup180:                                 ; preds = %160
+  %164 = zext nneg i32 %switch.tableidx179 to i64
+  %switch.gep181 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %164
+  %switch.load182 = load ptr, ptr %switch.gep181, align 8
   br label %getEGLErrorString.exit142
 
-getEGLErrorString.exit142:                        ; preds = %183, %switch.lookup177
-  %.0.i141 = phi ptr [ %switch.load180, %switch.lookup177 ], [ @.str.65, %183 ]
+getEGLErrorString.exit142:                        ; preds = %160, %switch.lookup180
+  %.0.i141 = phi ptr [ %switch.load182, %switch.lookup180 ], [ @.str.65, %160 ]
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0.i141) #4
-  br label %225
+  br label %202
 
-188:                                              ; preds = %170
-  store ptr %127, ptr %129, align 8, !tbaa !185
-  %189 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133536), align 8, !tbaa !130
-  %.not131 = icmp eq i32 %189, 0
-  br i1 %.not131, label %190, label %.critedge
+165:                                              ; preds = %149
+  store ptr %110, ptr %112, align 8, !tbaa !185
+  %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133536), align 8, !tbaa !130
+  %.not131 = icmp eq i32 %166, 0
+  br i1 %.not131, label %167, label %.critedge
 
-190:                                              ; preds = %188
-  %191 = load i32, ptr %1, align 8, !tbaa !168
-  %192 = icmp eq i32 %191, 196610
-  br i1 %192, label %193, label %197
+167:                                              ; preds = %165
+  %168 = load i32, ptr %1, align 8, !tbaa !168
+  %169 = icmp eq i32 %168, 196610
+  br i1 %169, label %170, label %174
 
-193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %195 = load i32, ptr %194, align 8, !tbaa !174
-  %196 = icmp eq i32 %195, 1
-  %__const._glfwCreateContextEGL.es1sonames.__const._glfwCreateContextEGL.es2sonames = select i1 %196, ptr @__const._glfwCreateContextEGL.es1sonames, ptr @__const._glfwCreateContextEGL.es2sonames
-  br label %197
+170:                                              ; preds = %167
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %172 = load i32, ptr %171, align 8, !tbaa !174
+  %173 = icmp eq i32 %172, 1
+  %__const._glfwCreateContextEGL.es1sonames.__const._glfwCreateContextEGL.es2sonames = select i1 %173, ptr @__const._glfwCreateContextEGL.es1sonames, ptr @__const._glfwCreateContextEGL.es2sonames
+  br label %174
 
-197:                                              ; preds = %190, %193
-  %.0 = phi ptr [ %__const._glfwCreateContextEGL.es1sonames.__const._glfwCreateContextEGL.es2sonames, %193 ], [ @__const._glfwCreateContextEGL.glsonames, %190 ]
-  %198 = load ptr, ptr %.0, align 8, !tbaa !186
-  %.not132143 = icmp eq ptr %198, null
+174:                                              ; preds = %167, %170
+  %.0 = phi ptr [ %__const._glfwCreateContextEGL.es1sonames.__const._glfwCreateContextEGL.es2sonames, %170 ], [ @__const._glfwCreateContextEGL.glsonames, %167 ]
+  %175 = load ptr, ptr %.0, align 8, !tbaa !186
+  %.not132143 = icmp eq ptr %175, null
   br i1 %.not132143, label %._crit_edge, label %sub_0.lr.ph
 
-sub_0.lr.ph:                                      ; preds = %197
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 672
+sub_0.lr.ph:                                      ; preds = %174
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %.pre151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133520), align 8, !tbaa !95
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.lr.ph, %212
-  %200 = phi i32 [ %.pre151, %sub_0.lr.ph ], [ %213, %212 ]
-  %indvars.iv = phi i64 [ 0, %sub_0.lr.ph ], [ %indvars.iv.next, %212 ]
-  %201 = phi ptr [ %198, %sub_0.lr.ph ], [ %215, %212 ]
-  %202 = load i8, ptr %201, align 1
-  %.not146 = icmp eq i8 %202, 108
+sub_0:                                            ; preds = %sub_0.lr.ph, %189
+  %177 = phi i32 [ %.pre151, %sub_0.lr.ph ], [ %190, %189 ]
+  %indvars.iv = phi i64 [ 0, %sub_0.lr.ph ], [ %indvars.iv.next, %189 ]
+  %178 = phi ptr [ %175, %sub_0.lr.ph ], [ %192, %189 ]
+  %179 = load i8, ptr %178, align 1
+  %.not146 = icmp eq i8 %179, 108
   br i1 %.not146, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 1
-  %204 = load i8, ptr %203, align 1
-  %.not147 = icmp eq i8 %204, 105
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 1
+  %181 = load i8, ptr %180, align 1
+  %.not147 = icmp eq i8 %181, 105
   br i1 %.not147, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %205 = getelementptr inbounds nuw i8, ptr %201, i64 2
-  %206 = load i8, ptr %205, align 1
-  %207 = icmp eq i8 %206, 98
-  %208 = zext i1 %207 to i32
+  %182 = getelementptr inbounds nuw i8, ptr %178, i64 2
+  %183 = load i8, ptr %182, align 1
+  %184 = icmp eq i8 %183, 98
+  %185 = zext i1 %184 to i32
   br label %.tail
 
 .tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %209 = phi i32 [ 0, %sub_0 ], [ 0, %sub_1 ], [ %208, %sub_2 ]
-  %.not133 = icmp eq i32 %200, %209
-  br i1 %.not133, label %210, label %212
+  %186 = phi i32 [ 0, %sub_0 ], [ 0, %sub_1 ], [ %185, %sub_2 ]
+  %.not133 = icmp eq i32 %177, %186
+  br i1 %.not133, label %187, label %189
 
-210:                                              ; preds = %.tail
-  %211 = call ptr @_glfwPlatformLoadModule(ptr noundef nonnull %201) #4
-  store ptr %211, ptr %199, align 8, !tbaa !187
-  %.not134 = icmp eq ptr %211, null
+187:                                              ; preds = %.tail
+  %188 = call ptr @_glfwPlatformLoadModule(ptr noundef nonnull %178) #4
+  store ptr %188, ptr %176, align 8, !tbaa !187
+  %.not134 = icmp eq ptr %188, null
   %.pre150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133520), align 8, !tbaa !95
-  br i1 %.not134, label %212, label %._crit_edge
+  br i1 %.not134, label %189, label %._crit_edge
 
-212:                                              ; preds = %210, %.tail
-  %213 = phi i32 [ %.pre150, %210 ], [ %200, %.tail ]
+189:                                              ; preds = %187, %.tail
+  %190 = phi i32 [ %.pre150, %187 ], [ %177, %.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %214 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv.next
-  %215 = load ptr, ptr %214, align 8, !tbaa !186
-  %.not132 = icmp eq ptr %215, null
+  %191 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv.next
+  %192 = load ptr, ptr %191, align 8, !tbaa !186
+  %.not132 = icmp eq ptr %192, null
   br i1 %.not132, label %._crit_edge, label %sub_0
 
-._crit_edge:                                      ; preds = %212, %210, %197
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %217 = load ptr, ptr %216, align 8, !tbaa !187
-  %.not135.not = icmp eq ptr %217, null
-  br i1 %.not135.not, label %218, label %.critedge
+._crit_edge:                                      ; preds = %189, %187, %174
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %194 = load ptr, ptr %193, align 8, !tbaa !187
+  %.not135.not = icmp eq ptr %194, null
+  br i1 %.not135.not, label %195, label %.critedge
 
-218:                                              ; preds = %._crit_edge
+195:                                              ; preds = %._crit_edge
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65542, ptr noundef nonnull @.str.48) #4
-  br label %225
+  br label %202
 
-.critedge:                                        ; preds = %._crit_edge, %188
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @makeContextCurrentEGL, ptr %219, align 8, !tbaa !188
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr @swapBuffersEGL, ptr %220, align 8, !tbaa !189
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr @swapIntervalEGL, ptr %221, align 8, !tbaa !190
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr @extensionSupportedEGL, ptr %222, align 8, !tbaa !191
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store ptr @getProcAddressEGL, ptr %223, align 8, !tbaa !192
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr @destroyContextEGL, ptr %224, align 8, !tbaa !193
-  br label %225
+.critedge:                                        ; preds = %._crit_edge, %165
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store ptr @makeContextCurrentEGL, ptr %196, align 8, !tbaa !188
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  store ptr @swapBuffersEGL, ptr %197, align 8, !tbaa !189
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  store ptr @swapIntervalEGL, ptr %198, align 8, !tbaa !190
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store ptr @extensionSupportedEGL, ptr %199, align 8, !tbaa !191
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  store ptr @getProcAddressEGL, ptr %200, align 8, !tbaa !192
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  store ptr @destroyContextEGL, ptr %201, align 8, !tbaa !193
+  br label %202
 
-225:                                              ; preds = %218, %14, %.critedge, %getEGLErrorString.exit142, %getEGLErrorString.exit140, %getEGLErrorString.exit138, %getEGLErrorString.exit, %7
-  %.0108 = phi i32 [ 0, %getEGLErrorString.exit140 ], [ 0, %getEGLErrorString.exit142 ], [ 1, %.critedge ], [ 0, %218 ], [ 0, %getEGLErrorString.exit ], [ 0, %getEGLErrorString.exit138 ], [ 0, %7 ], [ 0, %14 ]
+202:                                              ; preds = %195, %14, %.critedge, %getEGLErrorString.exit142, %getEGLErrorString.exit140, %getEGLErrorString.exit138, %getEGLErrorString.exit, %7
+  %.0108 = phi i32 [ 0, %getEGLErrorString.exit140 ], [ 0, %getEGLErrorString.exit142 ], [ 1, %.critedge ], [ 0, %195 ], [ 0, %getEGLErrorString.exit ], [ 0, %getEGLErrorString.exit138 ], [ 0, %7 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0108
@@ -1457,7 +1439,7 @@ define internal void @makeContextCurrentEGL(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %getEGLErrorString.exit
 
@@ -1474,18 +1456,18 @@ getEGLErrorString.exit:                           ; preds = %10, %switch.lookup
 17:                                               ; preds = %15
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
   %19 = tail call i32 %18() #4
-  %switch.tableidx10 = add i32 %19, -12288
-  %20 = icmp ult i32 %switch.tableidx10, 15
-  br i1 %20, label %switch.lookup9, label %getEGLErrorString.exit8
+  %switch.tableidx9 = add i32 %19, -12288
+  %20 = icmp ult i32 %switch.tableidx9, 15
+  br i1 %20, label %switch.lookup10, label %getEGLErrorString.exit8
 
-switch.lookup9:                                   ; preds = %17
-  %21 = zext nneg i32 %switch.tableidx10 to i64
-  %switch.gep11 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.makeContextCurrentEGL.5, i64 0, i64 %21
+switch.lookup10:                                  ; preds = %17
+  %21 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep11 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %21
   %switch.load12 = load ptr, ptr %switch.gep11, align 8
   br label %getEGLErrorString.exit8
 
-getEGLErrorString.exit8:                          ; preds = %17, %switch.lookup9
-  %.0.i7 = phi ptr [ %switch.load12, %switch.lookup9 ], [ @.str.65, %17 ]
+getEGLErrorString.exit8:                          ; preds = %17, %switch.lookup10
+  %.0.i7 = phi ptr [ %switch.load12, %switch.lookup10 ], [ @.str.65, %17 ]
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.73, ptr noundef nonnull %.0.i7) #4
   br label %23
 

@@ -769,8 +769,8 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %18
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %18 ]
-  %29 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %27, i64 0, i64 %indvars.iv.i.i.i
-  %30 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %28, i64 0, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %27, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %28, i64 %indvars.iv.i.i.i
   %31 = load atomic i64, ptr %30 monotonic, align 8
   store atomic i64 %31, ptr %29 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -787,8 +787,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %33 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %32, i64 0, i64 %indvars.iv.i.i.i.i
-  %34 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %27, i64 0, i64 %indvars.iv.i.i.i.i
+  %33 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %32, i64 %indvars.iv.i.i.i.i
+  %34 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %27, i64 %indvars.iv.i.i.i.i
   %35 = load atomic i64, ptr %34 monotonic, align 8, !noalias !46
   store atomic i64 %35, ptr %33 monotonic, align 8, !noalias !46
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -803,8 +803,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %37 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %36, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %38 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %32, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %36, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %38 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %32, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %39 = load atomic i64, ptr %38 monotonic, align 8, !noalias !46
   store atomic i64 %39, ptr %37 monotonic, align 8, !alias.scope !46
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -822,8 +822,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i18:                     ; preds = %.preheader.i.i.i.i.i.i.i.i18, %40
   %indvars.iv.i.i.i.i.i.i.i.i.i19 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i20, %.preheader.i.i.i.i.i.i.i.i18 ], [ 0, %40 ]
-  %42 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %41, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i19
-  %43 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %36, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i19
+  %42 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %41, i64 %indvars.iv.i.i.i.i.i.i.i.i.i19
+  %43 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %36, i64 %indvars.iv.i.i.i.i.i.i.i.i.i19
   %44 = load atomic i64, ptr %43 monotonic, align 8, !noalias !49
   store atomic i64 %44, ptr %42 monotonic, align 8, !noalias !49
   %indvars.iv.next.i.i.i.i.i.i.i.i.i20 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i19, 1
@@ -838,8 +838,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %46 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %45, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %47 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %41, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %45, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %47 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %41, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %48 = load atomic i64, ptr %47 monotonic, align 8, !noalias !49
   store atomic i64 %48, ptr %46 monotonic, align 8, !alias.scope !49
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -1087,8 +1087,8 @@ define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatche
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %4
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %4 ]
-  %19 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %17, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %18, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %17, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %21 = load atomic i64, ptr %20 monotonic, align 8, !noalias !99
   store atomic i64 %21, ptr %19 monotonic, align 8, !noalias !99
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -1105,8 +1105,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i.i.i.i.i.i: ; preds = %.p
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit.i.i.i.i.i.i ]
-  %24 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %23, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %25 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %17, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %23, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %17, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %26 = load atomic i64, ptr %25 monotonic, align 8, !noalias !99
   store atomic i64 %26, ptr %24 monotonic, align 8, !noalias !99
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -3341,8 +3341,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i, %26
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %26 ]
-  %33 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %31, i64 0, i64 %indvars.iv.i.i.i.i.i.i
-  %34 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %32, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %33 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %31, i64 %indvars.iv.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %32, i64 %indvars.iv.i.i.i.i.i.i
   %35 = load atomic i64, ptr %34 monotonic, align 8
   store atomic i64 %35, ptr %33 monotonic, align 8
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -4768,8 +4768,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6_.exit.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6_.exit.i ]
-  %41 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %39, i64 0, i64 %indvars.iv.i.i.i
-  %42 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %40, i64 0, i64 %indvars.iv.i.i.i
+  %41 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %39, i64 %indvars.iv.i.i.i
+  %42 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %40, i64 %indvars.iv.i.i.i
   %43 = load atomic i64, ptr %42 monotonic, align 8
   store atomic i64 %43, ptr %41 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -4786,8 +4786,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %45 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i
-  %46 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %39, i64 0, i64 %indvars.iv.i.i.i.i
+  %45 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %44, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %39, i64 %indvars.iv.i.i.i.i
   %47 = load atomic i64, ptr %46 monotonic, align 8, !noalias !216
   store atomic i64 %47, ptr %45 monotonic, align 8, !noalias !216
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -4802,8 +4802,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %49 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %48, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %50 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %48, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %50 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %44, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %51 = load atomic i64, ptr %50 monotonic, align 8, !noalias !216
   store atomic i64 %51, ptr %49 monotonic, align 8, !alias.scope !216
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -4821,8 +4821,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i32:                     ; preds = %.preheader.i.i.i.i.i.i.i.i32, %52
   %indvars.iv.i.i.i.i.i.i.i.i.i33 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i34, %.preheader.i.i.i.i.i.i.i.i32 ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %53, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i33
-  %55 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %48, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i33
+  %54 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %53, i64 %indvars.iv.i.i.i.i.i.i.i.i.i33
+  %55 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %48, i64 %indvars.iv.i.i.i.i.i.i.i.i.i33
   %56 = load atomic i64, ptr %55 monotonic, align 8, !noalias !219
   store atomic i64 %56, ptr %54 monotonic, align 8, !noalias !219
   %indvars.iv.next.i.i.i.i.i.i.i.i.i34 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i33, 1
@@ -4837,8 +4837,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %58 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %57, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %59 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %53, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %58 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %57, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %59 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %53, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %60 = load atomic i64, ptr %59 monotonic, align 8, !noalias !219
   store atomic i64 %60, ptr %58 monotonic, align 8, !alias.scope !219
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -5166,8 +5166,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_15CordRepExterna
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_15CordRepExternalEEEPT_S6_.exit
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_15CordRepExternalEEEPT_S6_.exit ]
-  %30 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %28, i64 0, i64 %indvars.iv.i.i.i
-  %31 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %29, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %28, i64 %indvars.iv.i.i.i
+  %31 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %29, i64 %indvars.iv.i.i.i
   %32 = load atomic i64, ptr %31 monotonic, align 8
   store atomic i64 %32, ptr %30 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -5184,8 +5184,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %34 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %33, i64 0, i64 %indvars.iv.i.i.i.i
-  %35 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %28, i64 0, i64 %indvars.iv.i.i.i.i
+  %34 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %33, i64 %indvars.iv.i.i.i.i
+  %35 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %28, i64 %indvars.iv.i.i.i.i
   %36 = load atomic i64, ptr %35 monotonic, align 8, !noalias !227
   store atomic i64 %36, ptr %34 monotonic, align 8, !noalias !227
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -5200,8 +5200,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %38 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %37, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %39 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %33, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %38 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %37, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %39 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %33, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %40 = load atomic i64, ptr %39 monotonic, align 8, !noalias !227
   store atomic i64 %40, ptr %38 monotonic, align 8, !alias.scope !227
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -5219,8 +5219,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i20:                     ; preds = %.preheader.i.i.i.i.i.i.i.i20, %41
   %indvars.iv.i.i.i.i.i.i.i.i.i21 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i22, %.preheader.i.i.i.i.i.i.i.i20 ], [ 0, %41 ]
-  %43 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i21
-  %44 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %37, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i21
+  %43 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %42, i64 %indvars.iv.i.i.i.i.i.i.i.i.i21
+  %44 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %37, i64 %indvars.iv.i.i.i.i.i.i.i.i.i21
   %45 = load atomic i64, ptr %44 monotonic, align 8, !noalias !230
   store atomic i64 %45, ptr %43 monotonic, align 8, !noalias !230
   %indvars.iv.next.i.i.i.i.i.i.i.i.i22 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i21, 1
@@ -5235,8 +5235,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %47 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %46, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %48 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %47 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %46, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %42, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %49 = load atomic i64, ptr %48 monotonic, align 8, !noalias !230
   store atomic i64 %49, ptr %47 monotonic, align 8, !alias.scope !230
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -5573,8 +5573,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper3RefINS0_15CordRepExternalEEEPT_S
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper3RefINS0_15CordRepExternalEEEPT_S6_m.exit
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper3RefINS0_15CordRepExternalEEEPT_S6_m.exit ]
-  %37 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %35, i64 0, i64 %indvars.iv.i.i.i
-  %38 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %36, i64 0, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %35, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %36, i64 %indvars.iv.i.i.i
   %39 = load atomic i64, ptr %38 monotonic, align 8
   store atomic i64 %39, ptr %37 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -5591,8 +5591,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %41 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %40, i64 0, i64 %indvars.iv.i.i.i.i
-  %42 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %35, i64 0, i64 %indvars.iv.i.i.i.i
+  %41 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %40, i64 %indvars.iv.i.i.i.i
+  %42 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %35, i64 %indvars.iv.i.i.i.i
   %43 = load atomic i64, ptr %42 monotonic, align 8, !noalias !236
   store atomic i64 %43, ptr %41 monotonic, align 8, !noalias !236
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -5607,8 +5607,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %45 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %40, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %44, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %40, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %47 = load atomic i64, ptr %46 monotonic, align 8, !noalias !236
   store atomic i64 %47, ptr %45 monotonic, align 8, !alias.scope !236
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -5626,8 +5626,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i28:                     ; preds = %.preheader.i.i.i.i.i.i.i.i28, %48
   %indvars.iv.i.i.i.i.i.i.i.i.i29 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i30, %.preheader.i.i.i.i.i.i.i.i28 ], [ 0, %48 ]
-  %50 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %49, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i29
-  %51 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i29
+  %50 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %49, i64 %indvars.iv.i.i.i.i.i.i.i.i.i29
+  %51 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %44, i64 %indvars.iv.i.i.i.i.i.i.i.i.i29
   %52 = load atomic i64, ptr %51 monotonic, align 8, !noalias !239
   store atomic i64 %52, ptr %50 monotonic, align 8, !noalias !239
   %indvars.iv.next.i.i.i.i.i.i.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i29, 1
@@ -5642,8 +5642,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %54 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %53, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %55 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %49, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %54 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %53, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %55 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %49, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %56 = load atomic i64, ptr %55 monotonic, align 8, !noalias !239
   store atomic i64 %56, ptr %54 monotonic, align 8, !alias.scope !239
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -5967,8 +5967,8 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %23
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %23 ]
-  %35 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %33, i64 0, i64 %indvars.iv.i.i.i
-  %36 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %34, i64 0, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %33, i64 %indvars.iv.i.i.i
+  %36 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %34, i64 %indvars.iv.i.i.i
   %37 = load atomic i64, ptr %36 monotonic, align 8
   store atomic i64 %37, ptr %35 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -5985,8 +5985,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %39 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %38, i64 0, i64 %indvars.iv.i.i.i.i
-  %40 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %33, i64 0, i64 %indvars.iv.i.i.i.i
+  %39 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %38, i64 %indvars.iv.i.i.i.i
+  %40 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %33, i64 %indvars.iv.i.i.i.i
   %41 = load atomic i64, ptr %40 monotonic, align 8, !noalias !247
   store atomic i64 %41, ptr %39 monotonic, align 8, !noalias !247
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -6001,8 +6001,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %43 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %44 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %38, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %42, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %38, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %45 = load atomic i64, ptr %44 monotonic, align 8, !noalias !247
   store atomic i64 %45, ptr %43 monotonic, align 8, !alias.scope !247
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -6020,8 +6020,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i22:                     ; preds = %.preheader.i.i.i.i.i.i.i.i22, %46
   %indvars.iv.i.i.i.i.i.i.i.i.i23 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i24, %.preheader.i.i.i.i.i.i.i.i22 ], [ 0, %46 ]
-  %48 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %47, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
-  %49 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
+  %48 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %47, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
+  %49 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %42, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
   %50 = load atomic i64, ptr %49 monotonic, align 8, !noalias !250
   store atomic i64 %50, ptr %48 monotonic, align 8, !noalias !250
   %indvars.iv.next.i.i.i.i.i.i.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i23, 1
@@ -6036,8 +6036,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %52 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %51, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %53 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %47, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %52 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %51, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %47, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %54 = load atomic i64, ptr %53 monotonic, align 8, !noalias !250
   store atomic i64 %54, ptr %52 monotonic, align 8, !alias.scope !250
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -6568,8 +6568,8 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EE
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %98
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %98 ]
-  %120 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %118, i64 0, i64 %indvars.iv.i.i.i
-  %121 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %119, i64 0, i64 %indvars.iv.i.i.i
+  %120 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %118, i64 %indvars.iv.i.i.i
+  %121 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %119, i64 %indvars.iv.i.i.i
   %122 = load atomic i64, ptr %121 monotonic, align 8
   store atomic i64 %122, ptr %120 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -6586,8 +6586,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %124 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %123, i64 0, i64 %indvars.iv.i.i.i.i
-  %125 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %118, i64 0, i64 %indvars.iv.i.i.i.i
+  %124 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %123, i64 %indvars.iv.i.i.i.i
+  %125 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %118, i64 %indvars.iv.i.i.i.i
   %126 = load atomic i64, ptr %125 monotonic, align 8, !noalias !257
   store atomic i64 %126, ptr %124 monotonic, align 8, !noalias !257
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -6602,8 +6602,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %128 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %127, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %129 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %123, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %128 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %127, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %129 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %123, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %130 = load atomic i64, ptr %129 monotonic, align 8, !noalias !257
   store atomic i64 %130, ptr %128 monotonic, align 8, !alias.scope !257
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -6621,8 +6621,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i48:                     ; preds = %.preheader.i.i.i.i.i.i.i.i48, %131
   %indvars.iv.i.i.i.i.i.i.i.i.i49 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i50, %.preheader.i.i.i.i.i.i.i.i48 ], [ 0, %131 ]
-  %133 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %132, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i49
-  %134 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %127, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i49
+  %133 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %132, i64 %indvars.iv.i.i.i.i.i.i.i.i.i49
+  %134 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %127, i64 %indvars.iv.i.i.i.i.i.i.i.i.i49
   %135 = load atomic i64, ptr %134 monotonic, align 8, !noalias !260
   store atomic i64 %135, ptr %133 monotonic, align 8, !noalias !260
   %indvars.iv.next.i.i.i.i.i.i.i.i.i50 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i49, 1
@@ -6637,8 +6637,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %137 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %136, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %138 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %132, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %137 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %136, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %138 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %132, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %139 = load atomic i64, ptr %138 monotonic, align 8, !noalias !260
   store atomic i64 %139, ptr %137 monotonic, align 8, !alias.scope !260
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -7362,8 +7362,8 @@ _ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit104: ; preds
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %146
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %146 ]
-  %174 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %172, i64 0, i64 %indvars.iv.i.i.i
-  %175 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %173, i64 0, i64 %indvars.iv.i.i.i
+  %174 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %172, i64 %indvars.iv.i.i.i
+  %175 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %173, i64 %indvars.iv.i.i.i
   %176 = load atomic i64, ptr %175 monotonic, align 8
   store atomic i64 %176, ptr %174 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -7380,8 +7380,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %178 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %177, i64 0, i64 %indvars.iv.i.i.i.i
-  %179 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %172, i64 0, i64 %indvars.iv.i.i.i.i
+  %178 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %177, i64 %indvars.iv.i.i.i.i
+  %179 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %172, i64 %indvars.iv.i.i.i.i
   %180 = load atomic i64, ptr %179 monotonic, align 8, !noalias !269
   store atomic i64 %180, ptr %178 monotonic, align 8, !noalias !269
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -7396,8 +7396,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %182 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %181, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %183 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %177, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %182 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %181, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %183 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %177, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %184 = load atomic i64, ptr %183 monotonic, align 8, !noalias !269
   store atomic i64 %184, ptr %182 monotonic, align 8, !alias.scope !269
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -7415,8 +7415,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i113:                    ; preds = %.preheader.i.i.i.i.i.i.i.i113, %185
   %indvars.iv.i.i.i.i.i.i.i.i.i114 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i115, %.preheader.i.i.i.i.i.i.i.i113 ], [ 0, %185 ]
-  %187 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %186, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i114
-  %188 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %181, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i114
+  %187 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %186, i64 %indvars.iv.i.i.i.i.i.i.i.i.i114
+  %188 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %181, i64 %indvars.iv.i.i.i.i.i.i.i.i.i114
   %189 = load atomic i64, ptr %188 monotonic, align 8, !noalias !272
   store atomic i64 %189, ptr %187 monotonic, align 8, !noalias !272
   %indvars.iv.next.i.i.i.i.i.i.i.i.i115 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i114, 1
@@ -7431,8 +7431,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %191 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %190, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %192 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %186, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %191 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %190, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %192 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %186, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %193 = load atomic i64, ptr %192 monotonic, align 8, !noalias !272
   store atomic i64 %193, ptr %191 monotonic, align 8, !alias.scope !272
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -9695,8 +9695,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %260
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %260 ]
-  %277 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %275, i64 0, i64 %indvars.iv.i.i.i
-  %278 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %276, i64 0, i64 %indvars.iv.i.i.i
+  %277 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %275, i64 %indvars.iv.i.i.i
+  %278 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %276, i64 %indvars.iv.i.i.i
   %279 = load atomic i64, ptr %278 monotonic, align 8
   store atomic i64 %279, ptr %277 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -9713,8 +9713,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %281 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %280, i64 0, i64 %indvars.iv.i.i.i.i
-  %282 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %275, i64 0, i64 %indvars.iv.i.i.i.i
+  %281 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %280, i64 %indvars.iv.i.i.i.i
+  %282 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %275, i64 %indvars.iv.i.i.i.i
   %283 = load atomic i64, ptr %282 monotonic, align 8, !noalias !328
   store atomic i64 %283, ptr %281 monotonic, align 8, !noalias !328
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -9729,8 +9729,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %285 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %284, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %286 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %280, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %285 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %284, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %286 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %280, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %287 = load atomic i64, ptr %286 monotonic, align 8, !noalias !328
   store atomic i64 %287, ptr %285 monotonic, align 8, !alias.scope !328
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -9748,8 +9748,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i180:                    ; preds = %.preheader.i.i.i.i.i.i.i.i180, %288
   %indvars.iv.i.i.i.i.i.i.i.i.i181 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i182, %.preheader.i.i.i.i.i.i.i.i180 ], [ 0, %288 ]
-  %290 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %289, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i181
-  %291 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %284, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i181
+  %290 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %289, i64 %indvars.iv.i.i.i.i.i.i.i.i.i181
+  %291 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %284, i64 %indvars.iv.i.i.i.i.i.i.i.i.i181
   %292 = load atomic i64, ptr %291 monotonic, align 8, !noalias !331
   store atomic i64 %292, ptr %290 monotonic, align 8, !noalias !331
   %indvars.iv.next.i.i.i.i.i.i.i.i.i182 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i181, 1
@@ -9764,8 +9764,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %294 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %293, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %295 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %289, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %294 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %293, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %295 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %289, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %296 = load atomic i64, ptr %295 monotonic, align 8, !noalias !331
   store atomic i64 %296, ptr %294 monotonic, align 8, !alias.scope !331
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -10201,8 +10201,8 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %23
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %23 ]
-  %43 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %41, i64 0, i64 %indvars.iv.i.i.i
-  %44 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %42, i64 0, i64 %indvars.iv.i.i.i
+  %43 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %41, i64 %indvars.iv.i.i.i
+  %44 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %42, i64 %indvars.iv.i.i.i
   %45 = load atomic i64, ptr %44 monotonic, align 8
   store atomic i64 %45, ptr %43 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -10219,8 +10219,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %47 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %46, i64 0, i64 %indvars.iv.i.i.i.i
-  %48 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %41, i64 0, i64 %indvars.iv.i.i.i.i
+  %47 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %46, i64 %indvars.iv.i.i.i.i
+  %48 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %41, i64 %indvars.iv.i.i.i.i
   %49 = load atomic i64, ptr %48 monotonic, align 8, !noalias !338
   store atomic i64 %49, ptr %47 monotonic, align 8, !noalias !338
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -10235,8 +10235,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %51 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %50, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %52 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %46, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %51 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %50, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %52 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %46, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %53 = load atomic i64, ptr %52 monotonic, align 8, !noalias !338
   store atomic i64 %53, ptr %51 monotonic, align 8, !alias.scope !338
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -10254,8 +10254,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i22:                     ; preds = %.preheader.i.i.i.i.i.i.i.i22, %54
   %indvars.iv.i.i.i.i.i.i.i.i.i23 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i24, %.preheader.i.i.i.i.i.i.i.i22 ], [ 0, %54 ]
-  %56 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %55, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
-  %57 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %50, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
+  %56 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %55, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
+  %57 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %50, i64 %indvars.iv.i.i.i.i.i.i.i.i.i23
   %58 = load atomic i64, ptr %57 monotonic, align 8, !noalias !341
   store atomic i64 %58, ptr %56 monotonic, align 8, !noalias !341
   %indvars.iv.next.i.i.i.i.i.i.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i23, 1
@@ -10270,8 +10270,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %60 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %59, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %61 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %55, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %59, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %61 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %55, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %62 = load atomic i64, ptr %61 monotonic, align 8, !noalias !341
   store atomic i64 %62, ptr %60 monotonic, align 8, !alias.scope !341
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
@@ -10589,8 +10589,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_10CordRepCrcEEEP
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_10CordRepCrcEEEPT_S6_.exit
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_10CordRepCrcEEEPT_S6_.exit ]
-  %27 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %25, i64 0, i64 %indvars.iv.i.i.i
-  %28 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %26, i64 0, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %25, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %26, i64 %indvars.iv.i.i.i
   %29 = load atomic i64, ptr %28 monotonic, align 8
   store atomic i64 %29, ptr %27 monotonic, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -10607,8 +10607,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit: ; preds = %.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2ERKS1_.exit ]
-  %31 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %30, i64 0, i64 %indvars.iv.i.i.i.i
-  %32 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %25, i64 0, i64 %indvars.iv.i.i.i.i
+  %31 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %30, i64 %indvars.iv.i.i.i.i
+  %32 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %25, i64 %indvars.iv.i.i.i.i
   %33 = load atomic i64, ptr %32 monotonic, align 8, !noalias !347
   store atomic i64 %33, ptr %31 monotonic, align 8, !noalias !347
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -10623,8 +10623,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i ]
-  %35 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %34, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %36 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %30, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %34, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %36 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %30, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %37 = load atomic i64, ptr %36 monotonic, align 8, !noalias !347
   store atomic i64 %37, ptr %35 monotonic, align 8, !alias.scope !347
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -10642,8 +10642,8 @@ _ZN4absl13cord_internal15CordzStatisticsC2EOS1_.exit.i: ; preds = %.preheader.i.
 
 .preheader.i.i.i.i.i.i.i.i15:                     ; preds = %.preheader.i.i.i.i.i.i.i.i15, %38
   %indvars.iv.i.i.i.i.i.i.i.i.i16 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i17, %.preheader.i.i.i.i.i.i.i.i15 ], [ 0, %38 ]
-  %40 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %39, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i16
-  %41 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %34, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i16
+  %40 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %39, i64 %indvars.iv.i.i.i.i.i.i.i.i.i16
+  %41 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %34, i64 %indvars.iv.i.i.i.i.i.i.i.i.i16
   %42 = load atomic i64, ptr %41 monotonic, align 8, !noalias !350
   store atomic i64 %42, ptr %40 monotonic, align 8, !noalias !350
   %indvars.iv.next.i.i.i.i.i.i.i.i.i17 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i16, 1
@@ -10658,8 +10658,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatistic
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_120EqStatisticsMatcherPINS0_15CordzStatisticsEEC2EOS4_.exit.i ]
-  %44 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %43, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %45 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %39, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %43, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %39, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %46 = load atomic i64, ptr %45 monotonic, align 8, !noalias !350
   store atomic i64 %46, ptr %44 monotonic, align 8, !alias.scope !350
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1

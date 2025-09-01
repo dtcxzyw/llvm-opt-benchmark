@@ -243,7 +243,7 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
 
 .lr.ph.i.us:                                      ; preds = %25, %29
   %.05.i.us = phi i64 [ %30, %29 ], [ 0, %25 ]
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %19, i64 0, i64 %.05.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.05.i.us
   %27 = load i8, ptr %26, align 1, !alias.scope !37, !noundef !5
   %28 = icmp eq i8 %27, %21
   br i1 %28, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us, label %29
@@ -300,7 +300,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us: ; preds = %.lr.
 
 .lr.ph.i:                                         ; preds = %49, %53
   %.05.i = phi i64 [ %54, %53 ], [ 0, %49 ]
-  %50 = getelementptr inbounds nuw [0 x i8], ptr %43, i64 0, i64 %.05.i
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 %.05.i
   %51 = load i8, ptr %50, align 1, !alias.scope !37, !noundef !5
   %52 = icmp eq i8 %51, %45
   br i1 %52, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %53
@@ -920,7 +920,7 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %196, %200
   %.05.i.i.i.i.i = phi i64 [ %201, %200 ], [ 0, %196 ]
-  %197 = getelementptr inbounds nuw [0 x i8], ptr %121, i64 0, i64 %.05.i.i.i.i.i
+  %197 = getelementptr inbounds nuw i8, ptr %121, i64 %.05.i.i.i.i.i
   %198 = load i8, ptr %197, align 1, !alias.scope !199, !noalias !204, !noundef !5
   %199 = icmp eq i8 %198, 66
   br i1 %199, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i.i", label %200
@@ -1646,7 +1646,7 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
 
 .lr.ph.i.i.i48.i:                                 ; preds = %394, %398
   %.05.i.i.i49.i = phi i64 [ %399, %398 ], [ 0, %394 ]
-  %395 = getelementptr inbounds nuw [0 x i8], ptr %121, i64 0, i64 %.05.i.i.i49.i
+  %395 = getelementptr inbounds nuw i8, ptr %121, i64 %.05.i.i.i49.i
   %396 = load i8, ptr %395, align 1, !alias.scope !447, !noalias !452, !noundef !5
   %397 = icmp eq i8 %396, 66
   br i1 %397, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i46.i", label %398
@@ -1702,7 +1702,7 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
 
 .lr.ph.i.i.i.i:                                   ; preds = %411, %415
   %.05.i.i.i.i = phi i64 [ %416, %415 ], [ 0, %411 ]
-  %412 = getelementptr inbounds nuw [0 x i8], ptr %121, i64 0, i64 %.05.i.i.i.i
+  %412 = getelementptr inbounds nuw i8, ptr %121, i64 %.05.i.i.i.i
   %413 = load i8, ptr %412, align 1, !alias.scope !466, !noalias !471, !noundef !5
   %414 = icmp eq i8 %413, 66
   br i1 %414, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i", label %415
@@ -2126,7 +2126,7 @@ default.unreachable:                              ; preds = %547, %546, %525
 
 switch.lookup:                                    ; preds = %523
   %529 = zext nneg i8 %.0.i to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE, i64 0, i64 %529
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE, i64 %529
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 

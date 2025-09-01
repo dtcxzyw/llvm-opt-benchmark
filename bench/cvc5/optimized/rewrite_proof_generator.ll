@@ -433,7 +433,7 @@ define hidden void @_ZN4cvc58internal21RewriteProofGenerator11getProofForENS0_12
   %28 = icmp eq i32 %27, 2
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %30 = zext i1 %28 to i64
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !32, !noalias !29
   store ptr %32, ptr %4, align 8, !tbaa !21, !alias.scope !29
   %33 = load i64, ptr %32, align 8, !noalias !29
@@ -486,7 +486,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %38, %44, %46
   %60 = icmp eq i32 %59, 2
   %spec.select.i.i = select i1 %60, i64 2, i64 1
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %62 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %spec.select.i.i
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %spec.select.i.i
   %63 = load ptr, ptr %62, align 8, !tbaa !32, !noalias !36
   %64 = load i64, ptr %63, align 8, !noalias !36
   %65 = lshr i64 %64, 40

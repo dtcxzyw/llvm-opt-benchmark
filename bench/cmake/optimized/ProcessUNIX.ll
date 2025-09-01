@@ -1008,7 +1008,7 @@ switch.lookup:                                    ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2380
   %.not18 = icmp eq ptr %2, null
-  br i1 %.not18, label %.thread, label %switch.lookup24
+  br i1 %.not18, label %.thread, label %switch.lookup25
 
 .thread:                                          ; preds = %switch.lookup
   store i32 -1, ptr %9, align 4, !tbaa !35
@@ -1016,15 +1016,15 @@ switch.lookup:                                    ; preds = %4
   store i32 -1, ptr %10, align 4, !tbaa !35
   br label %cmsysProcess_SetPipeShared.exit
 
-switch.lookup24:                                  ; preds = %switch.lookup
+switch.lookup25:                                  ; preds = %switch.lookup
   %11 = load i32, ptr %2, align 4, !tbaa !35
   store i32 %11, ptr %9, align 4, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 2384
   store i32 %13, ptr %14, align 4, !tbaa !35
-  %switch.tableidx25 = add nsw i32 %1, -1
-  %switch.idx.cast26 = zext i32 %switch.tableidx25 to i64
+  %switch.tableidx24 = add nsw i32 %1, -1
+  %switch.idx.cast26 = zext i32 %switch.tableidx24 to i64
   %switch.idx.mult27 = shl nuw nsw i64 %switch.idx.cast26, 3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult27
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2344
@@ -1032,12 +1032,12 @@ switch.lookup24:                                  ; preds = %switch.lookup
   %.not21.i = icmp eq ptr %17, null
   br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %18
 
-18:                                               ; preds = %switch.lookup24
+18:                                               ; preds = %switch.lookup25
   tail call void @free(ptr noundef nonnull %17) #25
   store ptr null, ptr %16, align 8, !tbaa !26
   br label %cmsysProcess_SetPipeFile.exit
 
-cmsysProcess_SetPipeFile.exit:                    ; preds = %18, %switch.lookup24
+cmsysProcess_SetPipeFile.exit:                    ; preds = %18, %switch.lookup25
   switch i32 %1, label %default.unreachable20 [
     i32 1, label %19
     i32 2, label %21
@@ -1119,8 +1119,8 @@ switch.lookup:                                    ; preds = %14
   br label %cmsysProcess_SetPipeFile.exit
 
 cmsysProcess_SetPipeFile.exit:                    ; preds = %18, %switch.lookup
-  %switch.tableidx20 = add nsw i32 %1, -1
-  %switch.idx.cast21 = zext i32 %switch.tableidx20 to i64
+  %switch.tableidx19 = add nsw i32 %1, -1
+  %switch.idx.cast21 = zext i32 %switch.tableidx19 to i64
   %switch.idx.mult22 = shl nuw nsw i64 %switch.idx.cast21, 3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.idx.mult22
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2380
@@ -2245,7 +2245,7 @@ kwsysProcessesAdd.exit:                           ; preds = %.critedge4.i, %150,
 
 356:                                              ; preds = %._crit_edge, %356
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %356 ]
-  %357 = getelementptr inbounds nuw [3 x i32], ptr %292, i64 0, i64 %indvars.iv
+  %357 = getelementptr inbounds nuw i32, ptr %292, i64 %indvars.iv
   call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %357)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2564,7 +2564,7 @@ kwsysProcessesRemove.exit:                        ; preds = %.critedge.i.i, %.lo
 
 115:                                              ; preds = %112, %kwsysProcessCleanupDescriptor.exit
   %indvars.iv55 = phi i64 [ 0, %112 ], [ %indvars.iv.next56, %kwsysProcessCleanupDescriptor.exit ]
-  %116 = getelementptr inbounds nuw [3 x i32], ptr %113, i64 0, i64 %indvars.iv55
+  %116 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv55
   %117 = load i32, ptr %116, align 4, !tbaa !35
   %118 = icmp sgt i32 %117, 2
   br i1 %118, label %.preheader.i40, label %kwsysProcessCleanupDescriptor.exit
@@ -2592,7 +2592,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %115, %.critedge.i41
 
 126:                                              ; preds = %.preheader, %kwsysProcessCleanupDescriptor.exit44
   %indvars.iv58 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next59, %kwsysProcessCleanupDescriptor.exit44 ]
-  %127 = getelementptr inbounds nuw [3 x i32], ptr %114, i64 0, i64 %indvars.iv58
+  %127 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv58
   %128 = load i32, ptr %127, align 4, !tbaa !35
   %129 = icmp sgt i32 %128, 2
   br i1 %129, label %.preheader.i42, label %kwsysProcessCleanupDescriptor.exit44
@@ -3522,7 +3522,7 @@ define internal fastcc void @kwsysProcessClosePipes(ptr noundef nonnull captures
 
 6:                                                ; preds = %1, %41
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %41 ]
-  %7 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !35
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %41
@@ -3530,7 +3530,7 @@ define internal fastcc void @kwsysProcessClosePipes(ptr noundef nonnull captures
 10:                                               ; preds = %6
   %11 = lshr i32 %8, 6
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !77
   %15 = and i32 %8, 63
   %16 = zext nneg i32 %15 to i64
@@ -3772,7 +3772,7 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %80, %74, %.split
 
 109:                                              ; preds = %.loopexit45, %108
   %indvars.iv.i = phi i64 [ 0, %108 ], [ %indvars.iv.next.i, %.loopexit45 ]
-  %110 = getelementptr inbounds nuw [3 x i32], ptr %84, i64 0, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4, !tbaa !35
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %113, label %.loopexit45
@@ -3780,7 +3780,7 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %80, %74, %.split
 113:                                              ; preds = %109
   %114 = lshr i32 %111, 6
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [16 x i64], ptr %85, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %85, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !77
   %118 = and i32 %111, 63
   %119 = zext nneg i32 %118 to i64
@@ -4018,7 +4018,7 @@ kwsysProcessGetTimeoutLeft.exit.i.preheader:      ; preds = %.thread24.i.i, %198
 kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTimeoutLeft.exit.i.preheader, %225
   %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %225 ], [ 0, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
   %.078110.i = phi i32 [ %.179.i, %225 ], [ -1, %kwsysProcessGetTimeoutLeft.exit.i.preheader ]
-  %213 = getelementptr inbounds nuw [3 x i32], ptr %84, i64 0, i64 %indvars.iv123.i
+  %213 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv123.i
   %214 = load i32, ptr %213, align 4, !tbaa !35
   %215 = icmp sgt i32 %214, -1
   br i1 %215, label %216, label %225
@@ -4029,7 +4029,7 @@ kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTime
   %219 = shl nuw i64 1, %218
   %220 = lshr i32 %214, 6
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw [16 x i64], ptr %85, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw i64, ptr %85, i64 %221
   %223 = load i64, ptr %222, align 8, !tbaa !77
   %224 = or i64 %223, %219
   store i64 %224, ptr %222, align 8, !tbaa !77
@@ -4446,7 +4446,7 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #3 {
 24:                                               ; preds = %22
   %25 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1024, ptr noundef nonnull %23)
   %26 = call i32 @fclose(ptr noundef nonnull %23)
-  %27 = getelementptr inbounds nuw [1025 x i8], ptr %3, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %25
   store i8 0, ptr %27, align 1, !tbaa !54
   %.not29 = icmp eq i64 %25, 0
   br i1 %.not29, label %39, label %28

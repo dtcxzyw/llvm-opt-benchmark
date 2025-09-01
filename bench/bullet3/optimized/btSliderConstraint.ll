@@ -2928,15 +2928,15 @@ define linkonce_odr dso_local noundef ptr @_ZNK18btSliderConstraint9serializeEPv
 
 7:                                                ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i ]
-  %8 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %5, i64 0, i64 %indvars.iv.i.i
-  %9 = getelementptr inbounds nuw [3 x %struct.btVector3FloatData], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %6, i64 %indvars.iv.i.i
   br label %10
 
 10:                                               ; preds = %10, %7
   %indvars.iv.i.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i.i, %10 ]
-  %11 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i
   %12 = load float, ptr %11, align 4, !tbaa !57
-  %13 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i
   store float %12, ptr %13, align 4, !tbaa !57
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -2954,9 +2954,9 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVe
 
 16:                                               ; preds = %16, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i
   %indvars.iv.i3.i = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i ], [ %indvars.iv.next.i4.i, %16 ]
-  %17 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i3.i
+  %17 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i3.i
   %18 = load float, ptr %17, align 4, !tbaa !57
-  %19 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %indvars.iv.i3.i
+  %19 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i3.i
   store float %18, ptr %19, align 4, !tbaa !57
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -2969,15 +2969,15 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
 
 22:                                               ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i16, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
   %indvars.iv.i.i12 = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit ], [ %indvars.iv.next.i.i17, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i16 ]
-  %23 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %20, i64 0, i64 %indvars.iv.i.i12
-  %24 = getelementptr inbounds nuw [3 x %struct.btVector3FloatData], ptr %21, i64 0, i64 %indvars.iv.i.i12
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %20, i64 %indvars.iv.i.i12
+  %24 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %21, i64 %indvars.iv.i.i12
   br label %25
 
 25:                                               ; preds = %25, %22
   %indvars.iv.i.i.i13 = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i.i14, %25 ]
-  %26 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %indvars.iv.i.i.i13
+  %26 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i.i13
   %27 = load float, ptr %26, align 4, !tbaa !57
-  %28 = getelementptr inbounds nuw [4 x float], ptr %24, i64 0, i64 %indvars.iv.i.i.i13
+  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i.i13
   store float %27, ptr %28, align 4, !tbaa !57
   %indvars.iv.next.i.i.i14 = add nuw nsw i64 %indvars.iv.i.i.i13, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %indvars.iv.next.i.i.i14, 4
@@ -2995,9 +2995,9 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i19: ; preds = %_ZNK9bt
 
 31:                                               ; preds = %31, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i19
   %indvars.iv.i3.i20 = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i19 ], [ %indvars.iv.next.i4.i21, %31 ]
-  %32 = getelementptr inbounds nuw [4 x float], ptr %29, i64 0, i64 %indvars.iv.i3.i20
+  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i3.i20
   %33 = load float, ptr %32, align 4, !tbaa !57
-  %34 = getelementptr inbounds nuw [4 x float], ptr %30, i64 0, i64 %indvars.iv.i3.i20
+  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i3.i20
   store float %33, ptr %34, align 4, !tbaa !57
   %indvars.iv.next.i4.i21 = add nuw nsw i64 %indvars.iv.i3.i20, 1
   %exitcond.not.i5.i22 = icmp eq i64 %indvars.iv.next.i4.i21, 4

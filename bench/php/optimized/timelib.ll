@@ -44,7 +44,7 @@ define hidden ptr @timelib_get_error_message(i32 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [10 x ptr], ptr @timelib_error_messages, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @timelib_error_messages, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   br label %6
 
@@ -458,12 +458,12 @@ define hidden i32 @timelib_strcasecmp(ptr noundef readonly captures(address) %0,
   %11 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   %12 = load i8, ptr %.017, align 1, !tbaa !21
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @timelib_tolower_map, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @timelib_tolower_map, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %.018, i64 1
   %17 = load i8, ptr %.018, align 1, !tbaa !21
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @timelib_tolower_map, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @timelib_tolower_map, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !21
   %.not24 = icmp eq i8 %15, %20
   br i1 %.not24, label %8, label %21
@@ -508,12 +508,12 @@ define hidden i32 @timelib_strncasecmp(ptr noundef readonly captures(address) %0
   %12 = getelementptr inbounds nuw i8, ptr %.029, i64 1
   %13 = load i8, ptr %.029, align 1, !tbaa !21
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @timelib_tolower_map, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @timelib_tolower_map, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %18 = load i8, ptr %.030, align 1, !tbaa !21
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @timelib_tolower_map, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @timelib_tolower_map, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !21
   %.not38 = icmp eq i8 %16, %21
   br i1 %.not38, label %9, label %22

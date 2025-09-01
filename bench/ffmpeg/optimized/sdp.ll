@@ -116,7 +116,7 @@ define range(i32 -2147483648, 1) i32 @ff_sdp_write_media(ptr noundef %0, i32 nou
 
 switch.lookup:                                    ; preds = %9
   %23 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ff_sdp_write_media, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_sdp_write_media, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %24
 
@@ -674,7 +674,7 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
 
 248:                                              ; preds = %._crit_edge162.i.i, %247
   %indvars.iv.i.i = phi i64 [ 0, %247 ], [ %indvars.iv.next.i.i, %._crit_edge162.i.i ]
-  %249 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %indvars.iv.i.i
+  %249 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i
   %250 = load i32, ptr %249, align 4, !tbaa !47
   %.not101.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not101.i.i, label %253, label %251
@@ -684,7 +684,7 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   br label %253
 
 253:                                              ; preds = %251, %248
-  %254 = getelementptr inbounds nuw [3 x ptr], ptr @extradata2psets_hevc.ps_names, i64 0, i64 %indvars.iv.i.i
+  %254 = getelementptr inbounds nuw ptr, ptr @extradata2psets_hevc.ps_names, i64 %indvars.iv.i.i
   %255 = load ptr, ptr %254, align 8, !tbaa !23
   %256 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %246, i64 noundef 1024, ptr noundef nonnull @.str.74, ptr noundef %255) #10
   %257 = load ptr, ptr %10, align 8, !tbaa !23
@@ -1570,7 +1570,7 @@ define internal fastcc range(i32 -38, 1) i32 @latm_context2config(ptr noundef no
 
 7:                                                ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw [16 x i32], ptr @ff_mpeg4audio_sample_rates, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr @ff_mpeg4audio_sample_rates, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !47
   %10 = icmp eq i32 %9, %6
   br i1 %10, label %.thread, label %11

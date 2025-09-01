@@ -812,8 +812,8 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_send_acquire(ptr noundef cap
 
 88:                                               ; preds = %88, %85
   %89 = phi i64 [ 0, %85 ], [ %118, %88 ]
-  %90 = getelementptr [6 x %struct.xfrm_user_tmpl], ptr %5, i64 0, i64 %89
-  %91 = getelementptr [6 x %struct.xfrm_tmpl], ptr %86, i64 0, i64 %89
+  %90 = getelementptr %struct.xfrm_user_tmpl, ptr %5, i64 %89
+  %91 = getelementptr %struct.xfrm_tmpl, ptr %86, i64 %89
   %92 = getelementptr i8, ptr %90, i64 24
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %92, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(24) %90, ptr noundef align 4 dereferenceable(24) %91, i64 24, i1 false)
@@ -1386,8 +1386,8 @@ define internal i32 @xfrm_send_policy_notify(ptr noundef %0, i32 noundef %1, ptr
 
 94:                                               ; preds = %94, %91
   %95 = phi i64 [ 0, %91 ], [ %124, %94 ]
-  %96 = getelementptr [6 x %struct.xfrm_user_tmpl], ptr %7, i64 0, i64 %95
-  %97 = getelementptr [6 x %struct.xfrm_tmpl], ptr %92, i64 0, i64 %95
+  %96 = getelementptr %struct.xfrm_user_tmpl, ptr %7, i64 %95
+  %97 = getelementptr %struct.xfrm_tmpl, ptr %92, i64 %95
   %98 = getelementptr i8, ptr %96, i64 24
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %98, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(24) %96, ptr noundef align 4 dereferenceable(24) %97, i64 24, i1 false)
@@ -1705,8 +1705,8 @@ define internal i32 @xfrm_send_policy_notify(ptr noundef %0, i32 noundef %1, ptr
 
 300:                                              ; preds = %300, %297
   %301 = phi i64 [ 0, %297 ], [ %330, %300 ]
-  %302 = getelementptr [6 x %struct.xfrm_user_tmpl], ptr %5, i64 0, i64 %301
-  %303 = getelementptr [6 x %struct.xfrm_tmpl], ptr %298, i64 0, i64 %301
+  %302 = getelementptr %struct.xfrm_user_tmpl, ptr %5, i64 %301
+  %303 = getelementptr %struct.xfrm_tmpl, ptr %298, i64 %301
   %304 = getelementptr i8, ptr %302, i64 24
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %304, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(24) %302, ptr noundef align 4 dereferenceable(24) %303, i64 24, i1 false)
@@ -3123,7 +3123,7 @@ define internal fastcc void @copy_templates(ptr noundef nonnull writeonly captur
 10:                                               ; preds = %10, %7
   %11 = phi i64 [ 0, %7 ], [ %45, %10 ]
   %12 = phi ptr [ %1, %7 ], [ %46, %10 ]
-  %13 = getelementptr [6 x %struct.xfrm_tmpl], ptr %8, i64 0, i64 %11
+  %13 = getelementptr %struct.xfrm_tmpl, ptr %8, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(24) %13, ptr noundef align 4 dereferenceable(24) %12, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 28
@@ -3278,7 +3278,7 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 13:                                               ; preds = %3
   %14 = zext nneg i16 %11 to i64
   %15 = add nsw i64 %14, -16
-  %16 = getelementptr [25 x %struct.xfrm_link], ptr @xfrm_dispatch, i64 0, i64 %15
+  %16 = getelementptr %struct.xfrm_link, ptr @xfrm_dispatch, i64 %15
   %17 = tail call zeroext i1 @netlink_net_capable(ptr noundef %0, i32 noundef 12) #16
   br i1 %17, label %18, label %97
 
@@ -3337,7 +3337,7 @@ define internal i32 @xfrm_user_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread
 
 49:                                               ; preds = %26, %25
-  %50 = getelementptr [25 x i32], ptr @xfrm_msg_min, i64 0, i64 %15
+  %50 = getelementptr i32, ptr @xfrm_msg_min, i64 %15
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %1, align 4
   %53 = add i32 %51, 16
@@ -5480,7 +5480,7 @@ define internal i32 @xfrm_add_acquire(ptr noundef readonly captures(none) %0, pt
 76:                                               ; preds = %76, %68
   %77 = phi i64 [ 0, %68 ], [ %93, %76 ]
   %78 = phi ptr [ %69, %68 ], [ %94, %76 ]
-  %79 = getelementptr [6 x %struct.xfrm_tmpl], ptr %70, i64 0, i64 %77
+  %79 = getelementptr %struct.xfrm_tmpl, ptr %70, i64 %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef align 4 dereferenceable(24) %79, i64 24, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load i8, ptr %80, align 4
@@ -7746,7 +7746,7 @@ define internal fastcc ptr @xfrm_policy_construct(ptr noundef %0, ptr noundef re
 62:                                               ; preds = %62, %59
   %63 = phi i64 [ 0, %59 ], [ %97, %62 ]
   %64 = phi ptr [ %48, %59 ], [ %98, %62 ]
-  %65 = getelementptr [6 x %struct.xfrm_tmpl], ptr %60, i64 0, i64 %63
+  %65 = getelementptr %struct.xfrm_tmpl, ptr %60, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(24) %65, ptr noundef align 4 dereferenceable(24) %64, i64 24, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 28
@@ -7947,8 +7947,8 @@ define internal i32 @dump_one_policy(ptr noundef %0, i32 noundef %1, i32 %2, ptr
 
 61:                                               ; preds = %61, %58
   %62 = phi i64 [ 0, %58 ], [ %91, %61 ]
-  %63 = getelementptr [6 x %struct.xfrm_user_tmpl], ptr %6, i64 0, i64 %62
-  %64 = getelementptr [6 x %struct.xfrm_tmpl], ptr %59, i64 0, i64 %62
+  %63 = getelementptr %struct.xfrm_user_tmpl, ptr %6, i64 %62
+  %64 = getelementptr %struct.xfrm_tmpl, ptr %59, i64 %62
   %65 = getelementptr i8, ptr %63, i64 24
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %65, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(24) %63, ptr noundef align 4 dereferenceable(24) %64, i64 24, i1 false)

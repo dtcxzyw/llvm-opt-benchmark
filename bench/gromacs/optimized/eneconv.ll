@@ -703,8 +703,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 
 231:                                              ; preds = %248, %.lr.ph79.i
   %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #31
-  %233 = add i64 %232, -1
-  %234 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %233
+  %233 = getelementptr i8, ptr %5, i64 %232
+  %234 = getelementptr i8, ptr %233, i64 -1
   store i8 0, ptr %234, align 1, !tbaa !28
   %235 = load i8, ptr %5, align 16, !tbaa !28
   %236 = and i8 %235, -33

@@ -3535,7 +3535,7 @@ _ZN10CodeBuffer19take_over_code_fromEPS_.exit:    ; preds = %103
   %indvars.iv = phi i64 [ 2, %_ZN10CodeBuffer19take_over_code_fromEPS_.exit ], [ %indvars.iv.next, %154 ]
   %129 = getelementptr inbounds nuw %class.CodeSection, ptr %12, i64 %indvars.iv
   %130 = getelementptr inbounds nuw %class.CodeSection, ptr %101, i64 %indvars.iv
-  %131 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %154, label %134

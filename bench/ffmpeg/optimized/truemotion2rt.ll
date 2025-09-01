@@ -76,8 +76,8 @@ define internal i32 @truemotion2rt_decode_frame(ptr noundef %0, ptr noundef %1, 
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 %indvars.iv.next.i
   %24 = load i8, ptr %23, align 1, !tbaa !31
   %25 = xor i8 %24, %22
-  %26 = add nsw i64 %indvars.iv.i, -1
-  %27 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %26
+  %26 = getelementptr i8, ptr %5, i64 %indvars.iv.i
+  %27 = getelementptr i8, ptr %26, i64 -1
   store i8 %25, ptr %27, align 1, !tbaa !31
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
@@ -179,7 +179,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
 
 .preheader230.lr.ph:                              ; preds = %76
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds [3 x ptr], ptr @delta_tabs, i64 0, i64 %85
+  %86 = getelementptr inbounds ptr, ptr @delta_tabs, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %88 = load i32, ptr %43, align 8, !tbaa !38
   %89 = icmp sgt i32 %88, 0
@@ -426,7 +426,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
 .preheader226.lr.ph:                              ; preds = %._crit_edge247
   %222 = load ptr, ptr %220, align 8, !tbaa !45
   %223 = sext i32 %82 to i64
-  %224 = getelementptr inbounds [3 x ptr], ptr @delta_tabs, i64 0, i64 %223
+  %224 = getelementptr inbounds ptr, ptr @delta_tabs, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %.pre300 = load i32, ptr %43, align 8, !tbaa !38
   br label %.preheader226
@@ -656,7 +656,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
 .preheader222.lr.ph:                              ; preds = %._crit_edge266
   %357 = load ptr, ptr %355, align 8, !tbaa !45
   %358 = sext i32 %82 to i64
-  %359 = getelementptr inbounds [3 x ptr], ptr @delta_tabs, i64 0, i64 %358
+  %359 = getelementptr inbounds ptr, ptr @delta_tabs, i64 %358
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.pre305 = load i32, ptr %43, align 8, !tbaa !38
   br label %.preheader222

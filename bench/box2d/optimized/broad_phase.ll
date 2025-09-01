@@ -55,7 +55,7 @@ define hidden void @b2CreateBroadPhase(ptr noundef writeonly captures(none) init
 
 19:                                               ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [3 x %struct.b2DynamicTree], ptr %0, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DynamicTree_Create(ptr dead_on_unwind nonnull writable sret(%struct.b2DynamicTree) align 8 %2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false), !tbaa.struct !18

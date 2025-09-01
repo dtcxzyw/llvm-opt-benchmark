@@ -498,7 +498,7 @@ define void @_ZNK10open_spiel9blackjack14BlackjackState14ActionToStringB5cxx11Ei
 12:                                               ; preds = %4
   %13 = sdiv i64 %3, 13
   %14 = srem i64 %3, 13
-  %15 = getelementptr inbounds [5 x i8], ptr @__const._ZNK10open_spiel9blackjack14BlackjackState14ActionToStringB5cxx11Eil.kSuitNames, i64 0, i64 %13
+  %15 = getelementptr inbounds i8, ptr @__const._ZNK10open_spiel9blackjack14BlackjackState14ActionToStringB5cxx11Eil.kSuitNames, i64 %13
   %16 = load i8, ptr %15, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
   %17 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -519,7 +519,7 @@ define void @_ZNK10open_spiel9blackjack14BlackjackState14ActionToStringB5cxx11Ei
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc11
-  %20 = getelementptr inbounds [14 x i8], ptr @__const._ZNK10open_spiel9blackjack14BlackjackState14ActionToStringB5cxx11Eil.kRanks, i64 0, i64 %14
+  %20 = getelementptr inbounds i8, ptr @__const._ZNK10open_spiel9blackjack14BlackjackState14ActionToStringB5cxx11Eil.kRanks, i64 %14
   %21 = load i8, ptr %20, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #26
   %22 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)

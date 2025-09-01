@@ -1218,7 +1218,7 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   %10 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
   %11 = add nuw nsw i32 %.04649, 1
   %12 = zext nneg i32 %.04649 to i64
-  %13 = getelementptr inbounds nuw [6 x %class.Register], ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %15
@@ -1260,7 +1260,7 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   %38 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
   %39 = add nuw nsw i32 %.04649, 1
   %40 = zext nneg i32 %.04649 to i64
-  %41 = getelementptr inbounds nuw [6 x %class.Register], ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %43
@@ -1297,7 +1297,7 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   %65 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
   %66 = add nuw nsw i32 %.04450, 1
   %67 = zext nneg i32 %.04450 to i64
-  %68 = getelementptr inbounds nuw [8 x %class.XMMRegister], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %70
@@ -1333,7 +1333,7 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   %91 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
   %92 = add nuw nsw i32 %.04450, 1
   %93 = zext nneg i32 %.04450 to i64
-  %94 = getelementptr inbounds nuw [8 x %class.XMMRegister], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %96
@@ -2738,7 +2738,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 10:                                               ; preds = %7
   %11 = add nuw nsw i32 %.04245, 1
   %12 = zext nneg i32 %.04245 to i64
-  %13 = getelementptr inbounds nuw [6 x %class.Register], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %15
@@ -2770,7 +2770,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 32:                                               ; preds = %29
   %33 = add nuw nsw i32 %.04245, 1
   %34 = zext nneg i32 %.04245 to i64
-  %35 = getelementptr inbounds nuw [6 x %class.Register], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
@@ -2804,7 +2804,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 56:                                               ; preds = %53
   %57 = add nuw nsw i32 %.04046, 1
   %58 = zext nneg i32 %.04046 to i64
-  %59 = getelementptr inbounds nuw [8 x %class.XMMRegister], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
@@ -2837,7 +2837,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 79:                                               ; preds = %76
   %80 = add nuw nsw i32 %.04046, 1
   %81 = zext nneg i32 %.04046 to i64
-  %82 = getelementptr inbounds nuw [8 x %class.XMMRegister], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %84
@@ -2908,7 +2908,7 @@ define hidden noundef i32 @_ZN13SharedRuntime25vector_calling_conventionEP9VMReg
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw [32 x %class.XMMRegister], ptr @_ZZN13SharedRuntime25vector_calling_conventionEP9VMRegPairjjE10VEC_ArgReg, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime25vector_calling_conventionEP9VMRegPairjjE10VEC_ArgReg, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %13
@@ -9192,7 +9192,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #14
@@ -9420,7 +9420,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -9434,7 +9434,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -9500,7 +9500,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55

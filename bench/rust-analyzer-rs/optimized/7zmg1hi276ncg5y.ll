@@ -7706,7 +7706,7 @@ define hidden void @"_ZN8flycheck11test_runner1_92_$LT$impl$u20$serde..de..Deser
   %57 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %61, %60 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !890)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !891)
-  %58 = getelementptr inbounds [0 x i8], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds i8, ptr %55, i64 %57
   %59 = load i8, ptr %58, align 1, !noalias !892, !noundef !4
   switch i8 %59, label %63 [
     i8 32, label %60

@@ -2075,7 +2075,7 @@ Py_DECREF.exit36.i:                               ; preds = %49, %46, %42
   %83 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store ptr %82, ptr %83, align 8, !tbaa !45
   tail call void @PyObject_GC_Track(ptr noundef nonnull %60) #7
-  %84 = getelementptr [1 x ptr], ptr %58, i64 0, i64 %.02643.i
+  %84 = getelementptr ptr, ptr %58, i64 %.02643.i
   store ptr %60, ptr %84, align 8, !tbaa !38
   %85 = add nuw nsw i64 %.02643.i, 1
   %exitcond.not.i = icmp eq i64 %85, %.019343942
@@ -3943,7 +3943,7 @@ define internal noundef ptr @combinations_next(ptr noundef captures(none) %0) #0
   %.07093 = phi i64 [ 0, %.lr.ph94 ], [ %32, %Py_INCREF.exit81 ]
   %23 = getelementptr i64, ptr %5, i64 %.07093
   %24 = load i64, ptr %23, align 8, !tbaa !92
-  %25 = getelementptr [1 x ptr], ptr %20, i64 0, i64 %24
+  %25 = getelementptr ptr, ptr %20, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !38
   %27 = load i32, ptr %26, align 8, !tbaa !37
   %28 = icmp slt i32 %27, 0
@@ -3955,7 +3955,7 @@ define internal noundef ptr @combinations_next(ptr noundef captures(none) %0) #0
   br label %Py_INCREF.exit81
 
 Py_INCREF.exit81:                                 ; preds = %22, %29
-  %31 = getelementptr [1 x ptr], ptr %21, i64 0, i64 %.07093
+  %31 = getelementptr ptr, ptr %21, i64 %.07093
   store ptr %26, ptr %31, align 8, !tbaa !38
   %32 = add nuw nsw i64 %.07093, 1
   %exitcond99.not = icmp eq i64 %32, %10
@@ -4082,7 +4082,7 @@ Py_DECREF.exit79.thread:                          ; preds = %44, %41, %39, %45, 
   %.291 = phi i64 [ %.1, %.lr.ph92 ], [ %107, %Py_DECREF.exit ]
   %92 = getelementptr i64, ptr %5, i64 %.291
   %93 = load i64, ptr %92, align 8, !tbaa !92
-  %94 = getelementptr [1 x ptr], ptr %86, i64 0, i64 %93
+  %94 = getelementptr ptr, ptr %86, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !38
   %96 = load i32, ptr %95, align 8, !tbaa !37
   %97 = icmp slt i32 %96, 0
@@ -4094,7 +4094,7 @@ Py_DECREF.exit79.thread:                          ; preds = %44, %41, %39, %45, 
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %91, %98
-  %100 = getelementptr [1 x ptr], ptr %87, i64 0, i64 %.291
+  %100 = getelementptr ptr, ptr %87, i64 %.291
   %101 = load ptr, ptr %100, align 8, !tbaa !38
   store ptr %95, ptr %100, align 8, !tbaa !38
   %102 = load i32, ptr %101, align 8, !tbaa !37
@@ -5234,7 +5234,7 @@ define internal noundef ptr @cwr_next(ptr noundef captures(none) %0) #0 {
   br label %Py_INCREF.exit69
 
 Py_INCREF.exit69:                                 ; preds = %25, %28
-  %30 = getelementptr [1 x ptr], ptr %24, i64 0, i64 %.05878
+  %30 = getelementptr ptr, ptr %24, i64 %.05878
   store ptr %22, ptr %30, align 8, !tbaa !38
   %31 = add nuw nsw i64 %.05878, 1
   %exitcond82.not = icmp eq i64 %31, %10
@@ -5322,7 +5322,7 @@ Py_DECREF.exit67.thread:                          ; preds = %43, %40, %38, %44, 
 .critedge:                                        ; preds = %72
   %76 = add i64 %74, 1
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %78 = getelementptr [1 x ptr], ptr %77, i64 0, i64 %76
+  %78 = getelementptr ptr, ptr %77, i64 %76
   %79 = load ptr, ptr %78, align 8, !tbaa !38
   %80 = icmp slt i64 %.1, %10
   br i1 %80, label %.lr.ph, label %.loopexit
@@ -5345,7 +5345,7 @@ Py_DECREF.exit67.thread:                          ; preds = %43, %40, %38, %44, 
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %82, %86
-  %88 = getelementptr [1 x ptr], ptr %81, i64 0, i64 %.277
+  %88 = getelementptr ptr, ptr %81, i64 %.277
   %89 = load ptr, ptr %88, align 8, !tbaa !38
   store ptr %79, ptr %88, align 8, !tbaa !38
   %90 = load i32, ptr %89, align 8, !tbaa !37
@@ -8472,7 +8472,7 @@ define internal noundef ptr @permutations_next(ptr noundef captures(none) %0) #0
   %.093123 = phi i64 [ 0, %.lr.ph125 ], [ %34, %Py_INCREF.exit107 ]
   %25 = getelementptr i64, ptr %5, i64 %.093123
   %26 = load i64, ptr %25, align 8, !tbaa !92
-  %27 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %22, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = load i32, ptr %28, align 8, !tbaa !37
   %30 = icmp slt i32 %29, 0
@@ -8484,7 +8484,7 @@ define internal noundef ptr @permutations_next(ptr noundef captures(none) %0) #0
   br label %Py_INCREF.exit107
 
 Py_INCREF.exit107:                                ; preds = %24, %31
-  %33 = getelementptr [1 x ptr], ptr %23, i64 0, i64 %.093123
+  %33 = getelementptr ptr, ptr %23, i64 %.093123
   store ptr %28, ptr %33, align 8, !tbaa !38
   %34 = add nuw nsw i64 %.093123, 1
   %exitcond130.not = icmp eq i64 %34, %12
@@ -8619,7 +8619,7 @@ Py_DECREF.exit105.thread:                         ; preds = %48, %45, %43, %49, 
   %.091120 = phi i64 [ %.1118, %.lr.ph122 ], [ %117, %Py_DECREF.exit ]
   %102 = getelementptr i64, ptr %5, i64 %.091120
   %103 = load i64, ptr %102, align 8, !tbaa !92
-  %104 = getelementptr [1 x ptr], ptr %99, i64 0, i64 %103
+  %104 = getelementptr ptr, ptr %99, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !38
   %106 = load i32, ptr %105, align 8, !tbaa !37
   %107 = icmp slt i32 %106, 0
@@ -8631,7 +8631,7 @@ Py_DECREF.exit105.thread:                         ; preds = %48, %45, %43, %49, 
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %101, %108
-  %110 = getelementptr [1 x ptr], ptr %100, i64 0, i64 %.091120
+  %110 = getelementptr ptr, ptr %100, i64 %.091120
   %111 = load ptr, ptr %110, align 8, !tbaa !38
   store ptr %105, ptr %110, align 8, !tbaa !38
   %112 = load i32, ptr %111, align 8, !tbaa !37
@@ -9045,7 +9045,7 @@ define internal noundef ptr @product_next(ptr noundef captures(none) %0) #0 {
 
 18:                                               ; preds = %.lr.ph100, %Py_INCREF.exit83
   %.06799 = phi i64 [ 0, %.lr.ph100 ], [ %31, %Py_INCREF.exit83 ]
-  %19 = getelementptr [1 x ptr], ptr %16, i64 0, i64 %.06799
+  %19 = getelementptr ptr, ptr %16, i64 %.06799
   %20 = load ptr, ptr %19, align 8, !tbaa !38
   %21 = getelementptr i8, ptr %20, i64 16
   %.val84 = load i64, ptr %21, align 8, !tbaa !65
@@ -9065,7 +9065,7 @@ define internal noundef ptr @product_next(ptr noundef captures(none) %0) #0 {
   br label %Py_INCREF.exit83
 
 Py_INCREF.exit83:                                 ; preds = %23, %28
-  %30 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.06799
+  %30 = getelementptr ptr, ptr %17, i64 %.06799
   store ptr %25, ptr %30, align 8, !tbaa !38
   %31 = add nuw nsw i64 %.06799, 1
   %exitcond.not = icmp eq i64 %31, %.val85
@@ -9148,7 +9148,7 @@ Py_DECREF.exit79.thread:                          ; preds = %39, %41, %44, %45, 
 
 73:                                               ; preds = %.lr.ph, %Py_DECREF.exit77
   %.16898 = phi i64 [ %.16897, %.lr.ph ], [ %.168, %Py_DECREF.exit77 ]
-  %74 = getelementptr [1 x ptr], ptr %71, i64 0, i64 %.16898
+  %74 = getelementptr ptr, ptr %71, i64 %.16898
   %75 = load ptr, ptr %74, align 8, !tbaa !38
   %76 = getelementptr i64, ptr %34, i64 %.16898
   %77 = load i64, ptr %76, align 8, !tbaa !92
@@ -9173,7 +9173,7 @@ Py_DECREF.exit79.thread:                          ; preds = %39, %41, %44, %45, 
   br label %Py_INCREF.exit82
 
 Py_INCREF.exit82:                                 ; preds = %81, %86
-  %88 = getelementptr [1 x ptr], ptr %72, i64 0, i64 %.16898
+  %88 = getelementptr ptr, ptr %72, i64 %.16898
   %89 = load ptr, ptr %88, align 8, !tbaa !38
   store ptr %83, ptr %88, align 8, !tbaa !38
   %90 = load i32, ptr %89, align 8, !tbaa !37
@@ -9197,7 +9197,7 @@ Py_DECREF.exit77:                                 ; preds = %Py_INCREF.exit82, %
 
 96:                                               ; preds = %73
   %97 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %98 = getelementptr [1 x ptr], ptr %97, i64 0, i64 %78
+  %98 = getelementptr ptr, ptr %97, i64 %78
   %99 = load ptr, ptr %98, align 8, !tbaa !38
   %100 = load i32, ptr %99, align 8, !tbaa !37
   %101 = icmp slt i32 %100, 0
@@ -9209,7 +9209,7 @@ Py_DECREF.exit77:                                 ; preds = %Py_INCREF.exit82, %
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %96, %102
-  %104 = getelementptr [1 x ptr], ptr %72, i64 0, i64 %.16898
+  %104 = getelementptr ptr, ptr %72, i64 %.16898
   %105 = load ptr, ptr %104, align 8, !tbaa !38
   store ptr %99, ptr %104, align 8, !tbaa !38
   %106 = load i32, ptr %105, align 8, !tbaa !37
@@ -9368,14 +9368,14 @@ Py_DECREF.exit:                                   ; preds = %17, %18, %21
 
 50:                                               ; preds = %.lr.ph, %55
   %.05789 = phi i64 [ 0, %.lr.ph ], [ %58, %55 ]
-  %51 = getelementptr [1 x ptr], ptr %46, i64 0, i64 %.05789
+  %51 = getelementptr ptr, ptr %46, i64 %.05789
   %52 = load ptr, ptr %51, align 8, !tbaa !38
   %53 = call ptr @PySequence_Tuple(ptr noundef %52) #7
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread81.thread108, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr [1 x ptr], ptr %47, i64 0, i64 %.05789
+  %56 = getelementptr ptr, ptr %47, i64 %.05789
   store ptr %53, ptr %56, align 8, !tbaa !38
   %57 = getelementptr i64, ptr %40, i64 %.05789
   store i64 0, ptr %57, align 8, !tbaa !92
@@ -9386,7 +9386,7 @@ Py_DECREF.exit:                                   ; preds = %17, %18, %21
 59:                                               ; preds = %.lr.ph91, %Py_INCREF.exit
   %.15890 = phi i64 [ %.053, %.lr.ph91 ], [ %69, %Py_INCREF.exit ]
   %60 = sub i64 %.15890, %.053
-  %61 = getelementptr [1 x ptr], ptr %49, i64 0, i64 %60
+  %61 = getelementptr ptr, ptr %49, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !38
   %63 = load i32, ptr %62, align 8, !tbaa !37
   %64 = icmp slt i32 %63, 0
@@ -9398,7 +9398,7 @@ Py_DECREF.exit:                                   ; preds = %17, %18, %21
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %59, %65
-  %67 = getelementptr [1 x ptr], ptr %49, i64 0, i64 %.15890
+  %67 = getelementptr ptr, ptr %49, i64 %.15890
   store ptr %62, ptr %67, align 8, !tbaa !38
   %68 = getelementptr i64, ptr %40, i64 %.15890
   store i64 0, ptr %68, align 8, !tbaa !92
@@ -10474,7 +10474,7 @@ Py_DECREF.exit:                                   ; preds = %32, %35, %38
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %48 = sext i32 %40 to i64
-  %49 = getelementptr [57 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !38
   br label %67
 
@@ -10504,7 +10504,7 @@ Py_DECREF.exit:                                   ; preds = %32, %35, %38
   store i32 %63, ptr %43, align 8, !tbaa !254
   %64 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %65 = sext i32 %40 to i64
-  %66 = getelementptr [57 x ptr], ptr %64, i64 0, i64 %65
+  %66 = getelementptr ptr, ptr %64, i64 %65
   store ptr %59, ptr %66, align 8, !tbaa !38
   br label %67
 
@@ -10648,7 +10648,7 @@ define internal i32 @teedataobject_traverse(ptr noundef readonly captures(none) 
 17:                                               ; preds = %.lr.ph, %23
   %18 = phi i32 [ %14, %.lr.ph ], [ %24, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %19 = getelementptr [57 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %19 = getelementptr ptr, ptr %16, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !38
   %.not51 = icmp eq ptr %20, null
   br i1 %.not51, label %23, label %21
@@ -10723,7 +10723,7 @@ Py_DECREF.exit20:                                 ; preds = %9, %6, %4, %1
 
 14:                                               ; preds = %.lr.ph, %Py_DECREF.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Py_DECREF.exit ]
-  %15 = getelementptr [57 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %15 = getelementptr ptr, ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !38
   %.not18 = icmp eq ptr %16, null
   br i1 %.not18, label %Py_DECREF.exit, label %17
@@ -10901,7 +10901,7 @@ define internal ptr @itertools_teedataobject(ptr noundef %0, ptr noundef readonl
   %55 = load ptr, ptr %52, align 8, !tbaa !192
   %56 = getelementptr ptr, ptr %55, i64 %.0261.i
   %57 = load ptr, ptr %56, align 8, !tbaa !38
-  %58 = getelementptr [57 x ptr], ptr %53, i64 0, i64 %.0261.i
+  %58 = getelementptr ptr, ptr %53, i64 %.0261.i
   store ptr %57, ptr %58, align 8, !tbaa !38
   %59 = load i32, ptr %57, align 8, !tbaa !37
   %60 = icmp slt i32 %59, 0
@@ -11155,7 +11155,7 @@ Py_INCREF.exit:                                   ; preds = %11
   %.05684 = phi i64 [ 0, %.lr.ph85 ], [ %65, %Py_DECREF.exit69 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !260
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = getelementptr [1 x ptr], ptr %19, i64 0, i64 %.05684
+  %20 = getelementptr ptr, ptr %19, i64 %.05684
   %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %29
@@ -11218,7 +11218,7 @@ Py_INCREF.exit:                                   ; preds = %11
 _Py_NewRef.exit79:                                ; preds = %44, %48
   %50 = load ptr, ptr %14, align 8, !tbaa !260
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = getelementptr [1 x ptr], ptr %51, i64 0, i64 %.05684
+  %52 = getelementptr ptr, ptr %51, i64 %.05684
   store ptr null, ptr %52, align 8, !tbaa !38
   %53 = load i32, ptr %21, align 8, !tbaa !37
   %.not.i70 = icmp sgt i32 %53, -1
@@ -11236,7 +11236,7 @@ _Py_NewRef.exit79:                                ; preds = %44, %48
 
 _Py_NewRef.exit:                                  ; preds = %57, %54, %_Py_NewRef.exit79, %27, %23, %29
   %.054 = phi ptr [ %30, %29 ], [ %24, %23 ], [ %24, %27 ], [ %45, %_Py_NewRef.exit79 ], [ %45, %54 ], [ %45, %57 ]
-  %58 = getelementptr [1 x ptr], ptr %16, i64 0, i64 %.05684
+  %58 = getelementptr ptr, ptr %16, i64 %.05684
   %59 = load ptr, ptr %58, align 8, !tbaa !38
   store ptr %.054, ptr %58, align 8, !tbaa !38
   %60 = load i32, ptr %59, align 8, !tbaa !37
@@ -11312,7 +11312,7 @@ Py_DECREF.exit69:                                 ; preds = %_Py_NewRef.exit, %6
   %.15783 = phi i64 [ 0, %.lr.ph ], [ %139, %_Py_NewRef.exit80 ]
   %98 = load ptr, ptr %94, align 8, !tbaa !260
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %100 = getelementptr [1 x ptr], ptr %99, i64 0, i64 %.15783
+  %100 = getelementptr ptr, ptr %99, i64 %.15783
   %101 = load ptr, ptr %100, align 8, !tbaa !38
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %109
@@ -11375,7 +11375,7 @@ Py_DECREF.exit69:                                 ; preds = %_Py_NewRef.exit, %6
 _Py_NewRef.exit81:                                ; preds = %124, %128
   %130 = load ptr, ptr %94, align 8, !tbaa !260
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  %132 = getelementptr [1 x ptr], ptr %131, i64 0, i64 %.15783
+  %132 = getelementptr ptr, ptr %131, i64 %.15783
   store ptr null, ptr %132, align 8, !tbaa !38
   %133 = load i32, ptr %101, align 8, !tbaa !37
   %.not.i = icmp sgt i32 %133, -1
@@ -11393,7 +11393,7 @@ _Py_NewRef.exit81:                                ; preds = %124, %128
 
 _Py_NewRef.exit80:                                ; preds = %137, %134, %_Py_NewRef.exit81, %107, %103, %109
   %.1 = phi ptr [ %110, %109 ], [ %104, %103 ], [ %104, %107 ], [ %125, %_Py_NewRef.exit81 ], [ %125, %134 ], [ %125, %137 ]
-  %138 = getelementptr [1 x ptr], ptr %96, i64 0, i64 %.15783
+  %138 = getelementptr ptr, ptr %96, i64 %.15783
   store ptr %.1, ptr %138, align 8, !tbaa !38
   %139 = add nuw nsw i64 %.15783, 1
   %exitcond.not = icmp eq i64 %139, %3
@@ -11459,7 +11459,7 @@ define internal ptr @zip_longest_new(ptr noundef %0, ptr noundef readonly captur
 
 24:                                               ; preds = %.lr.ph, %34
   %.04574 = phi i64 [ 0, %.lr.ph ], [ %36, %34 ]
-  %25 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.04574
+  %25 = getelementptr ptr, ptr %22, i64 %.04574
   %26 = load ptr, ptr %25, align 8, !tbaa !38
   %27 = tail call ptr @PyObject_GetIter(ptr noundef %26) #7
   %.not57 = icmp eq ptr %27, null
@@ -11481,7 +11481,7 @@ define internal ptr @zip_longest_new(ptr noundef %0, ptr noundef readonly captur
   br label %Py_DECREF.exit62
 
 34:                                               ; preds = %24
-  %35 = getelementptr [1 x ptr], ptr %23, i64 0, i64 %.04574
+  %35 = getelementptr ptr, ptr %23, i64 %.04574
   store ptr %27, ptr %35, align 8, !tbaa !38
   %36 = add nuw nsw i64 %.04574, 1
   %exitcond.not = icmp eq i64 %36, %.val70
@@ -11528,7 +11528,7 @@ define internal ptr @zip_longest_new(ptr noundef %0, ptr noundef readonly captur
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %48, %51
-  %53 = getelementptr [1 x ptr], ptr %41, i64 0, i64 %.14675
+  %53 = getelementptr ptr, ptr %41, i64 %.14675
   store ptr @_Py_NoneStruct, ptr %53, align 8, !tbaa !38
   %54 = add nuw nsw i64 %.14675, 1
   %exitcond78.not = icmp eq i64 %54, %.val70

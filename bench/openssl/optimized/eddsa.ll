@@ -369,7 +369,7 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 57
   %21 = load i8, ptr %20, align 1, !tbaa !3
-  %22 = getelementptr inbounds nuw [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr @ossl_c448_ed448_verify.order, i64 %18
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = icmp ugt i8 %21, %23
   br i1 %24, label %.thread, label %25

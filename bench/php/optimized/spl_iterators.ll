@@ -2273,7 +2273,7 @@ define hidden void @zim_RecursiveTreeIterator_setPrefixPart(ptr noundef readonly
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %6, i64 -56
-  %21 = getelementptr inbounds nuw [6 x ptr], ptr %20, i64 0, i64 %15
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %15
   %22 = load ptr, ptr %21, align 8, !tbaa !100
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !11
@@ -2319,7 +2319,7 @@ zend_string_release.exit:                         ; preds = %19, %26, %33, %34
 
 zend_string_copy.exit:                            ; preds = %zend_string_release.exit, %39
   %42 = load i64, ptr %3, align 8, !tbaa !9
-  %43 = getelementptr inbounds [6 x ptr], ptr %20, i64 0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr %20, i64 %42
   store ptr %35, ptr %43, align 8, !tbaa !100
   br label %44
 
@@ -2642,7 +2642,7 @@ smart_str_0.exit:                                 ; preds = %124, %130
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i64 %.1.i, ptr %137, align 8, !tbaa !101
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %139 = getelementptr inbounds nuw [1 x i8], ptr %138, i64 0, i64 %.1.i
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %.1.i
   store i8 0, ptr %139, align 1, !tbaa !11
   %140 = load ptr, ptr %1, align 8, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -11778,7 +11778,7 @@ spl_RecursiveIteratorIterator_free_iterators.exit: ; preds = %1, %._crit_edge.i
 
 24:                                               ; preds = %spl_RecursiveIteratorIterator_free_iterators.exit, %zend_string_release.exit15
   %.017 = phi i64 [ 0, %spl_RecursiveIteratorIterator_free_iterators.exit ], [ %40, %zend_string_release.exit15 ]
-  %25 = getelementptr inbounds nuw [6 x ptr], ptr %20, i64 0, i64 %.017
+  %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %.017
   %26 = load ptr, ptr %25, align 8, !tbaa !100
   %.not12 = icmp eq ptr %26, null
   br i1 %.not12, label %zend_string_release.exit15, label %27

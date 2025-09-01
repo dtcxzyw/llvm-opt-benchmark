@@ -95,7 +95,7 @@ define hidden i32 @SDL_JoystickAttachVirtualInner(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %17
   %21 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.SDL_JoystickAttachVirtualInner, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_JoystickAttachVirtualInner, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %22
 

@@ -137,7 +137,7 @@ select.unfold:                                    ; preds = %9, %select.unfold
   %19 = load ptr, ptr @BackgroundWorkerData, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = sext i32 %.022 to i64
-  %22 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %.sroa.0.023, i64 -1496
   store i8 1, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
@@ -160,7 +160,7 @@ select.unfold:                                    ; preds = %9, %select.unfold
 
 33:                                               ; preds = %.lr.ph25, %33
   %indvars.iv = phi i64 [ %18, %.lr.ph25 ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %17, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %17, i64 %indvars.iv
   store i8 0, ptr %34, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %35 = load i32, ptr @max_worker_processes, align 4
@@ -205,7 +205,7 @@ define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_
   %indvars.iv = phi i64 [ %indvars.iv.next, %121 ], [ 0, %.preheader ]
   %13 = load ptr, ptr @BackgroundWorkerData, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = getelementptr inbounds nuw [0 x %struct.BackgroundWorkerSlot], ptr %14, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.BackgroundWorkerSlot, ptr %14, i64 %indvars.iv
   %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %121
@@ -487,7 +487,7 @@ define dso_local void @ForgetBackgroundWorker(ptr noundef %0) local_unnamed_addr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 16
@@ -556,7 +556,7 @@ define dso_local void @ReportBackgroundWorkerExit(ptr noundef %0) local_unnamed_
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i32, ptr %3, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 16
@@ -670,7 +670,7 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %15, i64 0, i64 %6
+  %16 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %15, i64 %6
   %17 = getelementptr inbounds i8, ptr %.sroa.0.018, i64 -1304
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 16
@@ -740,7 +740,7 @@ define dso_local void @ResetBackgroundWorkerCrashTimes() local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %8, i64 %11
   %13 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -1304
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 16
@@ -939,7 +939,7 @@ define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr n
 
 .preheader:                                       ; preds = %2, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [5 x %struct.anon], ptr @InternalBGWorkers, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.anon, ptr @InternalBGWorkers, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = icmp eq i32 %8, 0
@@ -1326,7 +1326,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
 
 28:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %29 = getelementptr inbounds nuw [0 x %struct.BackgroundWorkerSlot], ptr %27, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.BackgroundWorkerSlot, ptr %27, i64 %indvars.iv
   %30 = load i8, ptr %29, align 8, !range !4, !noundef !5
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %46, label %32
@@ -1401,7 +1401,7 @@ define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr noundef readonl
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %4, i64 %6
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4224
   %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 1) #14
@@ -1465,7 +1465,7 @@ define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %0, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %9, i64 %11
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4224
   %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 1) #14
@@ -1543,7 +1543,7 @@ define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %0, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %8, i64 %10
   %12 = load ptr, ptr @MainLWLockArray, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4224
   %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 1) #14
@@ -1596,7 +1596,7 @@ define dso_local void @TerminateBackgroundWorker(ptr noundef readonly captures(n
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [0 x %struct.BackgroundWorkerSlot], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %3, i64 %5
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4224
   %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #14
@@ -1648,7 +1648,7 @@ define dso_local noundef ptr @GetBackgroundWorkerTypeByPid(i32 noundef %0) local
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw [0 x %struct.BackgroundWorkerSlot], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.BackgroundWorkerSlot, ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0

@@ -2071,7 +2071,7 @@ define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr nound
 
 94:                                               ; preds = %77
   %95 = and i64 %78, 7
-  %96 = getelementptr inbounds nuw [8 x i8], ptr @bitmask_start_values, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @bitmask_start_values, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !95
   %98 = load ptr, ptr %49, align 8, !tbaa !16
   %99 = ashr i64 %78, 3
@@ -2105,7 +2105,7 @@ define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr nound
   %.lcssa128 = phi i64 [ %105, %94 ], [ %112, %.lr.ph ]
   %.lcssa = phi i64 [ %107, %94 ], [ %114, %.lr.ph ]
   %116 = and i64 %.lcssa128, 7
-  %117 = getelementptr inbounds nuw [8 x i8], ptr @bitmask_end_values, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @bitmask_end_values, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !95
   %119 = load ptr, ptr %49, align 8, !tbaa !16
   %120 = getelementptr inbounds i8, ptr %119, i64 %.lcssa
@@ -2126,7 +2126,7 @@ define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr nound
   %128 = getelementptr inbounds i8, ptr %125, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !95
   %130 = and i64 %123, 7
-  %131 = getelementptr inbounds nuw [8 x i8], ptr @bitmask_end_values, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @bitmask_end_values, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !95
   %.not110.not = icmp eq i8 %129, %132
   br i1 %.not110.not, label %.preheader, label %.loopexit

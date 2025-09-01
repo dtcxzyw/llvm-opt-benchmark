@@ -32093,7 +32093,7 @@ switch.lookup:
   %3 = or disjoint i8 %2, 4
   %switch.offset = zext nneg i8 %3 to i64
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN97_$LT$wasmi..engine..translator..stack..register_alloc..AllocPhase$u20$as$u20$core..fmt..Debug$GT$3fmt17h85e28f8f0f70e99bE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN97_$LT$wasmi..engine..translator..stack..register_alloc..AllocPhase$u20$as$u20$core..fmt..Debug$GT$3fmt17h85e28f8f0f70e99bE", i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.offset)
   ret i1 %5

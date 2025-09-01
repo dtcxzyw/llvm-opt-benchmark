@@ -1274,7 +1274,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 232:                                              ; preds = %231, %230
   %233 = phi ptr [ @.str.5, %231 ], [ @.str.7, %230 ]
   %234 = zext i32 %201 to i64
-  %235 = getelementptr [0 x %struct.memelfnote], ptr %176, i64 0, i64 %234
+  %235 = getelementptr %struct.memelfnote, ptr %176, i64 %234
   %236 = load ptr, ptr %3, align 8
   store ptr %233, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -1335,7 +1335,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 
 .preheader63:                                     ; preds = %270, %277
   %272 = phi i64 [ %278, %277 ], [ 0, %270 ]
-  %273 = getelementptr [80 x i8], ptr %265, i64 0, i64 %272
+  %273 = getelementptr i8, ptr %265, i64 %272
   %274 = load i8, ptr %273, align 1
   %275 = icmp eq i8 %274, 0
   br i1 %275, label %276, label %277
@@ -1350,7 +1350,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   br i1 %279, label %.loopexit64, label %.preheader63, !llvm.loop !30
 
 .loopexit64:                                      ; preds = %277, %270
-  %280 = getelementptr [80 x i8], ptr %265, i64 0, i64 %266
+  %280 = getelementptr i8, ptr %265, i64 %266
   store i8 0, ptr %280, align 1
   call void @__rcu_read_lock() #15
   %281 = getelementptr inbounds nuw i8, ptr %255, i64 1328
@@ -1391,7 +1391,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 302:                                              ; preds = %.thread39, %294
   %303 = phi i32 [ 0, %.thread39 ], [ %299, %294 ]
   %304 = zext nneg i32 %303 to i64
-  %305 = getelementptr [7 x i8], ptr @.str.8, i64 0, i64 %304
+  %305 = getelementptr i8, ptr @.str.8, i64 %304
   %306 = load i8, ptr %305, align 1
   br label %307
 
@@ -1846,7 +1846,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 .preheader54:                                     ; preds = %597, %609
   %600 = phi i32 [ %610, %609 ], [ %598, %597 ]
   %601 = phi i64 [ %611, %609 ], [ 1, %597 ]
-  %602 = getelementptr [0 x %struct.memelfnote], ptr %578, i64 0, i64 %601
+  %602 = getelementptr %struct.memelfnote, ptr %578, i64 %601
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 16
   %604 = load ptr, ptr %603, align 8
   %605 = icmp eq ptr %604, null

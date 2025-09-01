@@ -1575,7 +1575,7 @@ define internal noundef range(i32 -1, 2) i32 @lg_input_mapping(ptr noundef reado
 
 469:                                              ; preds = %464
   %470 = zext nneg i32 %454 to i64
-  %471 = getelementptr [80 x i8], ptr @lg_input_mapping.e_keymap, i64 0, i64 %470
+  %471 = getelementptr i8, ptr @lg_input_mapping.e_keymap, i64 %470
   %472 = load i8, ptr %471, align 1
   %473 = icmp eq i8 %472, 0
   br i1 %473, label %481, label %474

@@ -1620,7 +1620,7 @@ define dso_local range(i32 0, -2147483648) i32 @intel_crtc_compute_min_cdclk(ptr
   %128 = getelementptr i8, ptr %122, i64 1316
   %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
-  %131 = getelementptr [8 x i32], ptr %120, i64 0, i64 %130
+  %131 = getelementptr i32, ptr %120, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = tail call i32 @llvm.smax.i32(i32 %132, i32 %123)
   br label %134
@@ -4009,7 +4009,7 @@ define internal fastcc void @_bxt_set_cdclk(ptr noundef %0, i32 %.0.val, i32 %.4
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 6, ptr %202, align 4
   %203 = sext i32 %1 to i64
-  %204 = getelementptr [3 x i32], ptr %3, i64 0, i64 %203
+  %204 = getelementptr i32, ptr %3, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = shl i32 %205, 19
   br label %210
@@ -4832,7 +4832,7 @@ define internal range(i32 -2147483648, 1) i32 @bxt_modeset_calc_cdclk(ptr nounde
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 1648
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr [4 x i8], ptr %17, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %17, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, %39
   br i1 %45, label %.thread, label %46
@@ -4865,7 +4865,7 @@ define internal range(i32 -2147483648, 1) i32 @bxt_modeset_calc_cdclk(ptr nounde
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %54
-  %61 = getelementptr [4 x i8], ptr %21, i64 0, i64 %55
+  %61 = getelementptr i8, ptr %21, i64 %55
   %62 = load i8, ptr %61, align 1
   %63 = tail call i8 @llvm.umax.i8(i8 %62, i8 %56)
   br label %64
@@ -5121,7 +5121,7 @@ define internal fastcc i32 @intel_compute_min_cdclk(ptr noundef %0) unnamed_addr
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 1648
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr [4 x i32], ptr %11, i64 0, i64 %24
+  %25 = getelementptr i32, ptr %11, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %21
   br i1 %27, label %.thread, label %28
@@ -5180,7 +5180,7 @@ define internal fastcc i32 @intel_compute_min_cdclk(ptr noundef %0) unnamed_addr
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %56
-  %63 = getelementptr [4 x i32], ptr %55, i64 0, i64 %57
+  %63 = getelementptr i32, ptr %55, i64 %57
   %64 = load i32, ptr %63, align 4
   %65 = tail call i32 @llvm.smax.i32(i32 %64, i32 %58)
   br label %66

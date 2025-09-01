@@ -5387,7 +5387,7 @@ dissect_ul_pacch_access_burst.exit:               ; preds = %49, %55, %60, %66, 
 
 switch.lookup:                                    ; preds = %148
   %166 = zext nneg i8 %164 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.dissect_gsm_rlcmac_uplink, i64 0, i64 %166
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsm_rlcmac_uplink, i64 %166
   %switch.load = load ptr, ptr %switch.gep, align 8
   %167 = load i32, ptr @ett_gsm_rlcmac, align 4
   %168 = call signext i16 @csnStreamDissector(ptr noundef %159, ptr noundef nonnull %8, ptr noundef nonnull %switch.load, ptr noundef %0, ptr noundef %18, i32 noundef %167)
@@ -5454,7 +5454,7 @@ dissect_ul_gprs_block.exit:                       ; preds = %140, %141, %dissect
   %195 = getelementptr inbounds nuw i8, ptr %18, i64 11
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i64
-  %198 = getelementptr [16 x i8], ptr @egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %197
+  %198 = getelementptr i8, ptr @egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 %197
   %199 = load i8, ptr %198, align 1
   store i8 %199, ptr %189, align 4
   br label %218
@@ -5465,7 +5465,7 @@ dissect_ul_gprs_block.exit:                       ; preds = %140, %141, %dissect
   %203 = getelementptr inbounds nuw i8, ptr %18, i64 11
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i64
-  %206 = getelementptr [8 x i8], ptr @egprs_Header_type2_coding_puncturing_scheme_to_mcs, i64 0, i64 %205
+  %206 = getelementptr i8, ptr @egprs_Header_type2_coding_puncturing_scheme_to_mcs, i64 %205
   %207 = load i8, ptr %206, align 1
   store i8 %207, ptr %189, align 4
   br label %218
@@ -5476,7 +5476,7 @@ dissect_ul_gprs_block.exit:                       ; preds = %140, %141, %dissect
   %211 = getelementptr inbounds nuw i8, ptr %18, i64 11
   %212 = load i8, ptr %211, align 1
   %213 = zext i8 %212 to i64
-  %214 = getelementptr [32 x i8], ptr @egprs_Header_type1_coding_puncturing_scheme_to_mcs, i64 0, i64 %213
+  %214 = getelementptr i8, ptr @egprs_Header_type1_coding_puncturing_scheme_to_mcs, i64 %213
   %215 = load i8, ptr %214, align 1
   store i8 %215, ptr %189, align 4
   br label %218
@@ -5616,7 +5616,7 @@ dissect_ul_rlc_ec_control_message.exit:           ; preds = %249, %.sink.split.i
   %292 = getelementptr inbounds nuw i8, ptr %18, i64 11
   %293 = load i8, ptr %292, align 1
   %294 = zext i8 %293 to i64
-  %295 = getelementptr [8 x i8], ptr @ec_egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %294
+  %295 = getelementptr i8, ptr @ec_egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 %294
   %296 = load i8, ptr %295, align 1
   store i8 %296, ptr %286, align 4
   br label %299
@@ -5966,7 +5966,7 @@ switch.hole_check:                                ; preds = %184
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %199 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink, i64 0, i64 %199
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsm_rlcmac_downlink, i64 %199
   %switch.load = load ptr, ptr %switch.gep, align 8
   %200 = load i32, ptr @ett_gsm_rlcmac, align 4
   %201 = call signext i16 @csnStreamDissector(ptr noundef %194, ptr noundef nonnull %9, ptr noundef nonnull %switch.load, ptr noundef %0, ptr noundef %18, i32 noundef %200)
@@ -6030,7 +6030,7 @@ dissect_dl_gprs_block.exit:                       ; preds = %99, %100, %dissect_
   %226 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %227 = load i8, ptr %226, align 2
   %228 = zext i8 %227 to i64
-  %229 = getelementptr [16 x i8], ptr @egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %228
+  %229 = getelementptr i8, ptr @egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 %228
   %230 = load i8, ptr %229, align 1
   store i8 %230, ptr %220, align 4
   br label %249
@@ -6041,7 +6041,7 @@ dissect_dl_gprs_block.exit:                       ; preds = %99, %100, %dissect_
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %235 = load i8, ptr %234, align 2
   %236 = zext i8 %235 to i64
-  %237 = getelementptr [8 x i8], ptr @egprs_Header_type2_coding_puncturing_scheme_to_mcs, i64 0, i64 %236
+  %237 = getelementptr i8, ptr @egprs_Header_type2_coding_puncturing_scheme_to_mcs, i64 %236
   %238 = load i8, ptr %237, align 1
   store i8 %238, ptr %220, align 4
   br label %249
@@ -6052,7 +6052,7 @@ dissect_dl_gprs_block.exit:                       ; preds = %99, %100, %dissect_
   %242 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %243 = load i8, ptr %242, align 2
   %244 = zext i8 %243 to i64
-  %245 = getelementptr [32 x i8], ptr @egprs_Header_type1_coding_puncturing_scheme_to_mcs, i64 0, i64 %244
+  %245 = getelementptr i8, ptr @egprs_Header_type1_coding_puncturing_scheme_to_mcs, i64 %244
   %246 = load i8, ptr %245, align 1
   store i8 %246, ptr %220, align 4
   br label %249
@@ -6184,19 +6184,19 @@ dissect_dl_gprs_block.exit:                       ; preds = %99, %100, %dissect_
 
 330:                                              ; preds = %.critedge.i, %302
   %331 = load i8, ptr %18, align 4
-  %switch.tableidx54 = add i8 %331, -1
-  %332 = icmp ult i8 %switch.tableidx54, 18
+  %switch.tableidx53 = add i8 %331, -1
+  %332 = icmp ult i8 %switch.tableidx53, 18
   br i1 %332, label %switch.hole_check55, label %dissect_dl_rlc_ec_control_message.exit
 
 switch.hole_check55:                              ; preds = %330
-  %switch.maskindex57 = zext nneg i8 %switch.tableidx54 to i32
+  %switch.maskindex57 = zext nneg i8 %switch.tableidx53 to i32
   %switch.shifted58 = lshr i32 196735, %switch.maskindex57
   %switch.lobit59 = trunc i32 %switch.shifted58 to i1
   br i1 %switch.lobit59, label %switch.lookup56, label %dissect_dl_rlc_ec_control_message.exit
 
 switch.lookup56:                                  ; preds = %switch.hole_check55
-  %333 = zext nneg i8 %switch.tableidx54 to i64
-  %switch.gep60 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 0, i64 %333
+  %333 = zext nneg i8 %switch.tableidx53 to i64
+  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 %333
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   %334 = load i32, ptr @ett_gsm_rlcmac, align 4
   %335 = call signext i16 @csnStreamDissector(ptr noundef %301, ptr noundef nonnull %6, ptr noundef nonnull %switch.load61, ptr noundef %0, ptr noundef %18, i32 noundef %334)
@@ -6250,7 +6250,7 @@ dissect_dl_rlc_ec_control_message.exit:           ; preds = %switch.hole_check55
   %358 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %359 = load i8, ptr %358, align 2
   %360 = zext i8 %359 to i64
-  %361 = getelementptr [8 x i8], ptr @ec_egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 0, i64 %360
+  %361 = getelementptr i8, ptr @ec_egprs_Header_type3_coding_puncturing_scheme_to_mcs, i64 %360
   %362 = load i8, ptr %361, align 1
   store i8 %362, ptr %352, align 4
   br label %365
@@ -6548,8 +6548,8 @@ declare ptr @proto_tree_add_bits_ret_val(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef returned zeroext %4, i1 noundef zeroext %5, i8 noundef zeroext range(i8 0, 16) %6, i8 noundef zeroext %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   %10 = zext nneg i8 %6 to i64
-  %11 = add nsw i64 %10, -1
-  %12 = getelementptr [4 x i8], ptr @gsm_rlcmac_gprs_cs_to_block_length, i64 0, i64 %11
+  %11 = getelementptr i8, ptr @gsm_rlcmac_gprs_cs_to_block_length, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -1
   %13 = load i8, ptr %12, align 1
   %spec.select = tail call i8 @llvm.umin.i8(i8 %13, i8 %4)
   %.not = icmp eq i8 %7, 0
@@ -6952,7 +6952,7 @@ define internal noundef signext i16 @callback_UTRAN_TDD_map_NrOfFrequencies(ptr 
 
 10:                                               ; preds = %7
   %11 = zext nneg i8 %8 to i64
-  %12 = getelementptr [32 x i8], ptr @NR_OF_TDD_CELLS_map, i64 0, i64 %11
+  %12 = getelementptr i8, ptr @NR_OF_TDD_CELLS_map, i64 %11
   %13 = load i8, ptr %12, align 1
   br label %14
 
@@ -7002,7 +7002,7 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   %.06378 = phi i32 [ %.164, %30 ], [ 1, %.preheader ]
   %25 = tail call i32 @tvb_get_bits(ptr noundef %1, i32 noundef %.15682, i32 noundef %.05781, i32 noundef 0)
   %26 = sext i32 %.05980 to i64
-  %27 = getelementptr [64 x i32], ptr %8, i64 0, i64 %26
+  %27 = getelementptr i32, ptr %8, i64 %26
   store i32 %25, ptr %27, align 4
   %28 = add i32 %.15682, %.05781
   %29 = icmp eq i32 %25, 0

@@ -818,7 +818,7 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %17 = sdiv i32 %0, 2
   %18 = and i32 %0, 1
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw [5 x %struct.RGB2YUVFactors], ptr @RGB2YUVFactorTables, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.RGB2YUVFactors, ptr @RGB2YUVFactorTables, i64 %19
   switch i32 %4, label %1363 [
     i32 842094169, label %21
     i32 1448433993, label %21
@@ -2843,7 +2843,7 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_XBGR2101010_to_P010
   %11 = sdiv i32 %0, 2
   %12 = and i32 %0, 1
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds nuw [5 x %struct.RGB2YUVFactors], ptr @RGB2YUVFactorTables, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.RGB2YUVFactors, ptr @RGB2YUVFactorTables, i64 %13
   %15 = add nsw i32 %0, 1
   %16 = sdiv i32 %15, 2
   %17 = shl i32 %16, 2

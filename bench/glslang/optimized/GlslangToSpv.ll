@@ -1722,7 +1722,7 @@ _ZN12_GLOBAL__N_123TranslateExecutionModelE11EShLanguageb.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %209
   %214 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE, i64 0, i64 %214
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE, i64 %214
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_123TranslateSourceLanguageEN7glslang9EShSourceE8EProfile.exit
 
@@ -3245,30 +3245,30 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit441: ; preds = %815, %_ZNSt8
 845:                                              ; preds = %843, %839
   %846 = getelementptr inbounds nuw i8, ptr %2, i64 816
   %847 = load i32, ptr %846, align 8
-  %switch.tableidx1136 = add i32 %847, -2
-  %848 = icmp ult i32 %switch.tableidx1136, 3
-  br i1 %848, label %switch.lookup1135, label %.critedge
+  %switch.tableidx1135 = add i32 %847, -2
+  %848 = icmp ult i32 %switch.tableidx1135, 3
+  br i1 %848, label %switch.lookup1136, label %.critedge
 
-switch.lookup1135:                                ; preds = %845
+switch.lookup1136:                                ; preds = %845
   %switch.offset = add nuw nsw i32 %847, 12
   %849 = load ptr, ptr %67, align 8
   call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %849, i32 noundef %switch.offset, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
   br label %.critedge
 
-.critedge:                                        ; preds = %845, %switch.lookup1135
+.critedge:                                        ; preds = %845, %switch.lookup1136
   %850 = getelementptr inbounds nuw i8, ptr %2, i64 820
   %851 = load i32, ptr %850, align 4
-  %switch.tableidx1138 = add i32 %851, -1
-  %852 = icmp ult i32 %switch.tableidx1138, 6
-  br i1 %852, label %switch.lookup1137, label %.critedge206
+  %switch.tableidx1137 = add i32 %851, -1
+  %852 = icmp ult i32 %switch.tableidx1137, 6
+  br i1 %852, label %switch.lookup1138, label %.critedge206
 
-switch.lookup1137:                                ; preds = %.critedge
+switch.lookup1138:                                ; preds = %.critedge
   %switch.offset1139 = add nuw nsw i32 %851, 5078
   %853 = load ptr, ptr %67, align 8
   call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %853, i32 noundef %switch.offset1139, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
   br label %.critedge206
 
-.critedge206:                                     ; preds = %.critedge, %switch.lookup1137
+.critedge206:                                     ; preds = %.critedge, %switch.lookup1138
   %854 = getelementptr inbounds nuw i8, ptr %2, i64 804
   %855 = load i32, ptr %854, align 4
   switch i32 %855, label %.critedge208 [
@@ -3456,7 +3456,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit477: ; preds = %900, %_ZNSt8
 
 916:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit477, %915
   %indvars.iv937 = phi i64 [ 0, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit477 ], [ %indvars.iv.next938, %915 ]
-  %917 = getelementptr inbounds nuw [3 x i32], ptr %914, i64 0, i64 %indvars.iv937
+  %917 = getelementptr inbounds nuw i32, ptr %914, i64 %indvars.iv937
   %918 = load i32, ptr %917, align 4
   %.not201 = icmp eq i32 %918, -1
   br i1 %.not201, label %915, label %919
@@ -3476,10 +3476,10 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit477: ; preds = %900, %_ZNSt8
 
 927:                                              ; preds = %923, %964
   %indvars.iv941 = phi i64 [ 0, %923 ], [ %indvars.iv.next942, %964 ]
-  %928 = getelementptr inbounds nuw [3 x i32], ptr %914, i64 0, i64 %indvars.iv941
+  %928 = getelementptr inbounds nuw i32, ptr %914, i64 %indvars.iv941
   %929 = load i32, ptr %928, align 4
   %930 = icmp ne i32 %929, -1
-  %931 = getelementptr inbounds nuw [3 x i32], ptr %924, i64 0, i64 %indvars.iv941
+  %931 = getelementptr inbounds nuw i32, ptr %924, i64 %indvars.iv941
   %932 = load i32, ptr %931, align 4
   %933 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %70, i32 noundef 32, i1 noundef zeroext false) #20
   %934 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %70, i32 noundef %933, i32 noundef %932, i1 noundef zeroext %930) #20
@@ -3881,17 +3881,17 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
 _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit536: ; preds = %1073, %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i531
   %1087 = getelementptr inbounds nuw i8, ptr %2, i64 784
   %1088 = load i32, ptr %1087, align 8
-  %switch.tableidx1141 = add i32 %1088, -1
-  %1089 = icmp ult i32 %switch.tableidx1141, 6
-  %switch.maskindex = trunc i32 %switch.tableidx1141 to i8
+  %switch.tableidx1140 = add i32 %1088, -1
+  %1089 = icmp ult i32 %switch.tableidx1140, 6
+  %switch.maskindex = trunc i32 %switch.tableidx1140 to i8
   %switch.shifted = lshr i8 55, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %1089, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup1142, label %.critedge216
 
 switch.lookup1142:                                ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit536
-  %1090 = zext nneg i32 %switch.tableidx1141 to i64
-  %switch.gep1143 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.37, i64 0, i64 %1090
+  %1090 = zext nneg i32 %switch.tableidx1140 to i64
+  %switch.gep1143 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE.37, i64 %1090
   %switch.load1144 = load i32, ptr %switch.gep1143, align 4
   %1091 = load ptr, ptr %67, align 8
   call void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 dereferenceable(1416) %70, ptr noundef %1091, i32 noundef %switch.load1144, i32 noundef -1, i32 noundef -1, i32 noundef -1) #20
@@ -4531,10 +4531,10 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit683: ; preds = %1286, %_ZNSt
 
 1312:                                             ; preds = %1307, %1349
   %indvars.iv934 = phi i64 [ 0, %1307 ], [ %indvars.iv.next935, %1349 ]
-  %1313 = getelementptr inbounds nuw [3 x i32], ptr %1308, i64 0, i64 %indvars.iv934
+  %1313 = getelementptr inbounds nuw i32, ptr %1308, i64 %indvars.iv934
   %1314 = load i32, ptr %1313, align 4
   %1315 = icmp ne i32 %1314, -1
-  %1316 = getelementptr inbounds nuw [3 x i32], ptr %1309, i64 0, i64 %indvars.iv934
+  %1316 = getelementptr inbounds nuw i32, ptr %1309, i64 %indvars.iv934
   %1317 = load i32, ptr %1316, align 4
   %1318 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %70, i32 noundef 32, i1 noundef zeroext false) #20
   %1319 = call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %70, i32 noundef %1318, i32 noundef %1317, i1 noundef zeroext %1315) #20
@@ -8794,11 +8794,11 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit110: ; preds = %_ZNSt8_Rb_tr
   %indvars.iv = phi i64 [ 0, %218 ], [ %indvars.iv.next, %267 ]
   %225 = load ptr, ptr %219, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 648
-  %227 = getelementptr inbounds nuw [3 x i32], ptr %226, i64 0, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv
   %228 = load i32, ptr %227, align 4
   %229 = icmp ne i32 %228, -1
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 632
-  %231 = getelementptr inbounds nuw [3 x i32], ptr %230, i64 0, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv
   %232 = load i32, ptr %231, align 4
   %233 = tail call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %220, i32 noundef 32, i1 noundef zeroext false) #20
   %234 = tail call noundef i32 @_ZN3spv7Builder15makeIntConstantEjjb(ptr noundef nonnull align 8 dereferenceable(1416) %220, i32 noundef %233, i32 noundef %232, i1 noundef zeroext %229) #20
@@ -8870,7 +8870,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %236, %_ZNSt6vectorI
   %262 = load i32, ptr %261, align 4
   %263 = load ptr, ptr %219, align 8
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 648
-  %265 = getelementptr inbounds nuw [3 x i32], ptr %264, i64 0, i64 %indvars.iv
+  %265 = getelementptr inbounds nuw i32, ptr %264, i64 %indvars.iv
   %266 = load i32, ptr %265, align 4
   tail call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %220, i32 noundef %262, i32 noundef 1, i32 noundef %266) #20
   br label %267
@@ -17178,7 +17178,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   %1221 = load ptr, ptr %1220, align 8
   %1222 = load i32, ptr %1221, align 8
   %1223 = zext i1 %1210 to i64
-  %1224 = getelementptr inbounds nuw [4 x %"class.std::unordered_map.356"], ptr %608, i64 0, i64 %1223
+  %1224 = getelementptr inbounds nuw %"class.std::unordered_map.356", ptr %608, i64 %1223
   %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 24
   %1226 = load i64, ptr %1225, align 8
   %.not.not.i.i = icmp eq i64 %1226, 0
@@ -29454,7 +29454,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.
 
 switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser14getSampledTypeERKN7glslang8TSamplerE.exit
   %371 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb, i64 0, i64 %371
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb, i64 %371
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_123TranslateDimensionalityERKN7glslang8TSamplerE.exit
 
@@ -29655,7 +29655,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i209: ; preds = %_ZN3spv7Bu
 
 switch.lookup1363:                                ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.i209
   %443 = zext nneg i8 %441 to i64
-  %switch.gep1364 = getelementptr inbounds nuw [47 x i32], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb.38, i64 0, i64 %443
+  %switch.gep1364 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser23convertGlslangToSpvTypeERKN7glslang5TTypeENS1_14TLayoutPackingERKNS1_10TQualifierEbb.38, i64 %443
   %switch.load1365 = load i32, ptr %switch.gep1364, align 4
   br label %_ZN12_GLOBAL__N_122TGlslangToSpvTraverser20TranslateImageFormatERKN7glslang5TTypeE.exit
 
@@ -29717,10 +29717,10 @@ _ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.
   %471 = phi i64 [ %.pre, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit.thread732_crit_edge ], [ %.val163, %464 ]
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %473 = zext nneg i32 %2 to i64
-  %474 = getelementptr inbounds nuw [6 x [3 x %"class.std::unordered_map.279"]], ptr %472, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw [3 x %"class.std::unordered_map.279"], ptr %472, i64 %473
   %475 = lshr i64 %471, 60
   %476 = and i64 %475, 7
-  %477 = getelementptr inbounds nuw [3 x %"class.std::unordered_map.279"], ptr %474, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw %"class.std::unordered_map.279", ptr %474, i64 %476
   %478 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIPKN7glslang7TVectorINS1_8TTypeLocEEESt4pairIKS6_jESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %477, ptr noundef nonnull align 8 dereferenceable(8) %68)
   %479 = load i32, ptr %478, align 4
   %.not156 = icmp eq i32 %479, 0
@@ -30192,10 +30192,10 @@ _ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.
   %734 = phi i64 [ %.pre906, %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit501._ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit501.thread736_crit_edge ], [ %.val.i, %727 ]
   %735 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %736 = zext nneg i32 %2 to i64
-  %737 = getelementptr inbounds nuw [6 x [3 x %"class.std::unordered_map.279"]], ptr %735, i64 0, i64 %736
+  %737 = getelementptr inbounds nuw [3 x %"class.std::unordered_map.279"], ptr %735, i64 %736
   %738 = lshr i64 %734, 60
   %739 = and i64 %738, 7
-  %740 = getelementptr inbounds nuw [3 x %"class.std::unordered_map.279"], ptr %737, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw %"class.std::unordered_map.279", ptr %737, i64 %739
   %741 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIPKN7glslang7TVectorINS1_8TTypeLocEEESt4pairIKS6_jESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %740, ptr noundef nonnull align 8 dereferenceable(8) %46)
   store i32 %725, ptr %741, align 4
   br label %_ZN12_GLOBAL__N_122HasNonLayoutQualifiersERKN7glslang5TTypeERKNS0_10TQualifierE.exit501.thread
@@ -55171,9 +55171,9 @@ switch.lookup:                                    ; preds = %30
   %46 = trunc i64 %36 to i32
   %47 = and i32 %46, 4095
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser30collectRayTracingLinkerObjectsEv, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_122TGlslangToSpvTraverser30collectRayTracingLinkerObjectsEv, i64 %48
   %switch.load = load i64, ptr %switch.gep, align 8
-  %49 = getelementptr inbounds nuw [4 x %"class.std::unordered_map.356"], ptr %14, i64 0, i64 %switch.load
+  %49 = getelementptr inbounds nuw %"class.std::unordered_map.356", ptr %14, i64 %switch.load
   store i32 %47, ptr %2, align 8
   store ptr %21, ptr %15, align 8
   %50 = call { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN7glslang13TIntermSymbolEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IjS4_EEEES0_INS7_14_Node_iteratorIS5_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(16) %2)

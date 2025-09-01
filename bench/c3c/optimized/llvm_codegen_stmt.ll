@@ -1033,7 +1033,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   store i8 %82, ptr %9, align 8
   store i32 0, ptr %73, align 4
   store ptr %80, ptr %74, align 8
-  %83 = getelementptr inbounds nuw [5 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %75, align 8
   store ptr null, ptr %76, align 8
@@ -2589,7 +2589,7 @@ define dso_local void @llvm_emit_break(ptr noundef %0, ptr noundef readonly capt
 
 switch.lookup:                                    ; preds = %._crit_edge
   %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table.llvm_emit_break, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.llvm_emit_break, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %switch.load
   %.0 = load ptr, ptr %20, align 8
@@ -3342,7 +3342,7 @@ codegen_append_constraints.exit:                  ; preds = %54, %59
   %65 = load ptr, ptr %33, align 8
   %66 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %65) #9
   %67 = zext i32 %.0130328 to i64
-  %68 = getelementptr inbounds nuw [512 x ptr], ptr %5, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr %5, i64 %67
   store ptr %66, ptr %68, align 8
   %69 = load ptr, ptr %33, align 8
   %70 = call ptr @type_get_ptr(ptr noundef %69) #9
@@ -3350,11 +3350,11 @@ codegen_append_constraints.exit:                  ; preds = %54, %59
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %9) #9
   %71 = load ptr, ptr %34, align 8
   %72 = call ptr @LLVMTypeOf(ptr noundef %71) #9
-  %73 = getelementptr inbounds nuw [512 x ptr], ptr %4, i64 0, i64 %67
+  %73 = getelementptr inbounds nuw ptr, ptr %4, i64 %67
   store ptr %72, ptr %73, align 8
   %74 = load ptr, ptr %34, align 8
   %75 = add i32 %.0130328, 1
-  %76 = getelementptr inbounds nuw [512 x ptr], ptr %6, i64 0, i64 %67
+  %76 = getelementptr inbounds nuw ptr, ptr %6, i64 %67
   store ptr %74, ptr %76, align 8
   br label %96
 
@@ -3409,13 +3409,13 @@ codegen_append_constraints.exit170:               ; preds = %80, %85
   store i32 %storemerge, ptr %32, align 4
   %88 = load ptr, ptr %47, align 8
   %89 = zext i32 %.0129329 to i64
-  %90 = getelementptr inbounds nuw [512 x ptr], ptr %8, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %8, i64 %89
   store ptr %88, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %92) #9
   %94 = add i32 %.0129329, 1
-  %95 = getelementptr inbounds nuw [512 x ptr], ptr %7, i64 0, i64 %89
+  %95 = getelementptr inbounds nuw ptr, ptr %7, i64 %89
   store ptr %93, ptr %95, align 8
   br label %96
 
@@ -3483,7 +3483,7 @@ codegen_append_constraints.exit.i183:             ; preds = %.lr.ph.i.i181
 codegen_new_constraint.exit185:                   ; preds = %110, %codegen_append_constraints.exit.i183
   %117 = phi i32 [ 0, %110 ], [ %indvars.iv.next.i.i184, %codegen_append_constraints.exit.i183 ]
   %118 = zext i32 %.2132332 to i64
-  %119 = getelementptr inbounds nuw [512 x ptr], ptr %5, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw ptr, ptr %5, i64 %118
   store ptr null, ptr %119, align 8
   %120 = load i64, ptr %113, align 8
   %121 = trunc i64 %120 to i8
@@ -3627,11 +3627,11 @@ codegen_append_constraints.exit203:               ; preds = %._crit_edge.loopexi
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %10) #9
   %170 = load ptr, ptr %106, align 8
   %171 = call ptr @LLVMTypeOf(ptr noundef %170) #9
-  %172 = getelementptr inbounds nuw [512 x ptr], ptr %4, i64 0, i64 %118
+  %172 = getelementptr inbounds nuw ptr, ptr %4, i64 %118
   store ptr %171, ptr %172, align 8
   %173 = load ptr, ptr %106, align 8
   %174 = add i32 %.2132332, 1
-  %175 = getelementptr inbounds nuw [512 x ptr], ptr %6, i64 0, i64 %118
+  %175 = getelementptr inbounds nuw ptr, ptr %6, i64 %118
   store ptr %173, ptr %175, align 8
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
@@ -3640,7 +3640,7 @@ codegen_append_constraints.exit203:               ; preds = %._crit_edge.loopexi
 176:                                              ; preds = %.preheader308, %.loopexit307
   %177 = phi i32 [ %107, %.preheader308 ], [ %210, %.loopexit307 ]
   %indvars.iv367 = phi i64 [ 0, %.preheader308 ], [ %indvars.iv.next368, %.loopexit307 ]
-  %178 = getelementptr inbounds nuw [4 x i64], ptr %17, i64 0, i64 %indvars.iv367
+  %178 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv367
   %179 = load i64, ptr %178, align 8
   %.not146 = icmp eq i64 %179, 0
   br i1 %.not146, label %.loopexit307, label %.preheader306
@@ -3884,7 +3884,7 @@ codegen_append_constraints.exit289:               ; preds = %codegen_new_constra
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %254
   %indvars.iv371 = phi i64 [ 0, %.lr.ph341.preheader ], [ %indvars.iv.next372.pre-phi, %254 ]
-  %248 = getelementptr inbounds nuw [512 x ptr], ptr %5, i64 0, i64 %indvars.iv371
+  %248 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv371
   %249 = load ptr, ptr %248, align 8
   %.not151 = icmp eq ptr %249, null
   br i1 %.not151, label %.lr.ph341._crit_edge, label %250
@@ -3933,7 +3933,7 @@ codegen_append_constraints.exit289:               ; preds = %codegen_new_constra
 
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %.lr.ph344
   %indvars.iv376 = phi i64 [ 0, %.lr.ph344.preheader ], [ %indvars.iv.next377, %.lr.ph344 ]
-  %267 = getelementptr inbounds nuw [512 x ptr], ptr %8, i64 0, i64 %indvars.iv376
+  %267 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv376
   %268 = load ptr, ptr %267, align 8
   %269 = load ptr, ptr %245, align 8
   %270 = trunc nuw i64 %indvars.iv376 to i32

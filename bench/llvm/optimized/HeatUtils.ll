@@ -100,7 +100,7 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
   %16 = tail call double @llvm.round.f64(double %15)
   %17 = fptoui double %16 to i32
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4llvmL11heatPaletteE, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !25, !alias.scope !22
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #9, !noalias !22
@@ -156,7 +156,7 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Ed(ptr dead_on_unwind noalia
   %7 = tail call double @llvm.round.f64(double %6)
   %8 = fptoui double %7 to i32
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4llvmL11heatPaletteE, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !25
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9

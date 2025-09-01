@@ -272,7 +272,7 @@ define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr noundef re
 
 12:                                               ; preds = %7, %9
   %.02342 = phi i64 [ 0, %7 ], [ %10, %9 ]
-  %13 = getelementptr inbounds nuw [111 x i8], ptr %8, i64 0, i64 %.02342
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.02342
   %14 = load i8, ptr %13, align 1, !tbaa !22
   %.not30 = icmp eq i8 %14, 0
   br i1 %.not30, label %9, label %.thread
@@ -288,7 +288,7 @@ define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr noundef re
 
 18:                                               ; preds = %.preheader39, %15
   %.02243 = phi i64 [ 0, %.preheader39 ], [ %16, %15 ]
-  %19 = getelementptr inbounds nuw [111 x i8], ptr %11, i64 0, i64 %.02243
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.02243
   %20 = load i8, ptr %19, align 1, !tbaa !22
   %.not31 = icmp eq i8 %20, 0
   br i1 %.not31, label %15, label %.thread
@@ -300,7 +300,7 @@ define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr noundef re
 
 23:                                               ; preds = %.preheader, %21
   %.044 = phi i64 [ 0, %.preheader ], [ %22, %21 ]
-  %24 = getelementptr inbounds nuw [111 x i8], ptr %17, i64 0, i64 %.044
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.044
   %25 = load i8, ptr %24, align 1, !tbaa !22
   %.not32 = icmp eq i8 %25, 0
   br i1 %.not32, label %21, label %.thread

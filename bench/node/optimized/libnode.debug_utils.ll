@@ -3057,7 +3057,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [256 x ptr], ptr %frames, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %frames, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %vtable5 = load ptr, ptr %call.i.i, align 8
   %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 16

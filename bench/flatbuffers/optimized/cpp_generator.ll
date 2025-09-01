@@ -1624,7 +1624,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i12: ; pr
   %46 = lshr i32 %11, 4
   %47 = and i32 %46, 15
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3hex, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @_ZZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3hex, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !13
   %51 = load i64, ptr %4, align 8, !tbaa !10
   %52 = add i64 %51, 1
@@ -1661,7 +1661,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i16: ; pr
   store i8 0, ptr %65, align 1, !tbaa !13
   %66 = and i32 %11, 15
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3hex, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @_ZZN18grpc_cpp_generator12_GLOBAL__N_118FilenameIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3hex, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !13
   %70 = load i64, ptr %4, align 8, !tbaa !10
   %71 = add i64 %70, 1
@@ -25693,14 +25693,14 @@ define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_133PrintHeaderC
   store i64 6, ptr %38, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 22
   store i8 0, ptr %39, align 2, !tbaa !13
-  %.0195735.sroa.gep894 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0194732.sroa.gep895 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0193733.sroa.gep896 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0192734.sroa.gep897 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0189731.sroa.gep898 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0187728.sroa.gep899 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0183729.sroa.gep900 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0146730.sroa.gep901 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0146730.sroa.gep894 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0183729.sroa.gep895 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0187728.sroa.gep896 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0189731.sroa.gep897 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0192734.sroa.gep898 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0193733.sroa.gep899 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0194732.sroa.gep900 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0195735.sroa.gep901 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %40 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %41 unwind label %245
 
@@ -26328,7 +26328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit342: ; preds = %_Z
 
 ._crit_edge.i.i355:                               ; preds = %.preheader, %323
   %295 = phi i1 [ true, %.preheader ], [ false, %323 ]
-  %.0195735.sroa.phi = phi ptr [ %16, %.preheader ], [ %.0195735.sroa.gep894, %323 ]
+  %.0195735.sroa.phi = phi ptr [ %16, %.preheader ], [ %.0195735.sroa.gep901, %323 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %242, ptr %17, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %242, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -26493,7 +26493,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ClientOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i368:                               ; preds = %.preheader609, %422
   %372 = phi i1 [ true, %.preheader609 ], [ false, %422 ]
-  %.0194732.sroa.phi = phi ptr [ %16, %.preheader609 ], [ %.0194732.sroa.gep895, %422 ]
+  %.0194732.sroa.phi = phi ptr [ %16, %.preheader609 ], [ %.0194732.sroa.gep900, %422 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %364, ptr %18, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %364, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -26786,7 +26786,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i406:                               ; preds = %.preheader607, %538
   %488 = phi i1 [ true, %.preheader607 ], [ false, %538 ]
-  %.0193733.sroa.phi = phi ptr [ %16, %.preheader607 ], [ %.0193733.sroa.gep896, %538 ]
+  %.0193733.sroa.phi = phi ptr [ %16, %.preheader607 ], [ %.0193733.sroa.gep899, %538 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %480, ptr %21, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %480, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -27069,7 +27069,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i442:                               ; preds = %.preheader605, %650
   %600 = phi i1 [ true, %.preheader605 ], [ false, %650 ]
-  %.0192734.sroa.phi = phi ptr [ %16, %.preheader605 ], [ %.0192734.sroa.gep897, %650 ]
+  %.0192734.sroa.phi = phi ptr [ %16, %.preheader605 ], [ %.0192734.sroa.gep898, %650 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %592, ptr %24, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %592, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -27309,7 +27309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
 
 ._crit_edge.i.i478:                               ; preds = %.preheader611, %697
   %685 = phi i1 [ true, %.preheader611 ], [ false, %697 ]
-  %.0189731.sroa.phi = phi ptr [ %16, %.preheader611 ], [ %.0189731.sroa.gep898, %697 ]
+  %.0189731.sroa.phi = phi ptr [ %16, %.preheader611 ], [ %.0189731.sroa.gep897, %697 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %682, ptr %27, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %682, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -27415,7 +27415,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ClientOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i493:                               ; preds = %.preheader617, %752
   %727 = phi i1 [ true, %.preheader617 ], [ false, %752 ]
-  %.0187728.sroa.phi = phi ptr [ %16, %.preheader617 ], [ %.0187728.sroa.gep899, %752 ]
+  %.0187728.sroa.phi = phi ptr [ %16, %.preheader617 ], [ %.0187728.sroa.gep896, %752 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %722, ptr %28, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %722, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -27594,7 +27594,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i520:                               ; preds = %.preheader615, %816
   %791 = phi i1 [ true, %.preheader615 ], [ false, %816 ]
-  %.0183729.sroa.phi = phi ptr [ %16, %.preheader615 ], [ %.0183729.sroa.gep900, %816 ]
+  %.0183729.sroa.phi = phi ptr [ %16, %.preheader615 ], [ %.0183729.sroa.gep895, %816 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %786, ptr %30, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %786, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -27763,7 +27763,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i544:                               ; preds = %.preheader613, %876
   %851 = phi i1 [ true, %.preheader613 ], [ false, %876 ]
-  %.0146730.sroa.phi = phi ptr [ %16, %.preheader613 ], [ %.0146730.sroa.gep901, %876 ]
+  %.0146730.sroa.phi = phi ptr [ %16, %.preheader613 ], [ %.0146730.sroa.gep894, %876 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %846, ptr %32, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %846, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -28048,14 +28048,14 @@ define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_123PrintHeaderC
   store i64 6, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 22
   store i8 0, ptr %42, align 2, !tbaa !13
-  %.0204813.sroa.gep984 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0203810.sroa.gep985 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0202811.sroa.gep986 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0201812.sroa.gep987 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0198809.sroa.gep988 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0196806.sroa.gep989 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0192807.sroa.gep990 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %.0152808.sroa.gep991 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0152808.sroa.gep984 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0192807.sroa.gep985 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0196806.sroa.gep986 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0198809.sroa.gep987 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0201812.sroa.gep988 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0202811.sroa.gep989 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0203810.sroa.gep990 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %.0204813.sroa.gep991 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %43 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %44 unwind label %248
 
@@ -28683,7 +28683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit357: ; preds = %_Z
 
 ._crit_edge.i.i370:                               ; preds = %.preheader, %326
   %298 = phi i1 [ true, %.preheader ], [ false, %326 ]
-  %.0204813.sroa.phi = phi ptr [ %16, %.preheader ], [ %.0204813.sroa.gep984, %326 ]
+  %.0204813.sroa.phi = phi ptr [ %16, %.preheader ], [ %.0204813.sroa.gep991, %326 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %245, ptr %17, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %245, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -28848,7 +28848,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ClientOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i383:                               ; preds = %.preheader663, %425
   %375 = phi i1 [ true, %.preheader663 ], [ false, %425 ]
-  %.0203810.sroa.phi = phi ptr [ %16, %.preheader663 ], [ %.0203810.sroa.gep985, %425 ]
+  %.0203810.sroa.phi = phi ptr [ %16, %.preheader663 ], [ %.0203810.sroa.gep990, %425 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %367, ptr %18, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %367, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -29141,7 +29141,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i421:                               ; preds = %.preheader661, %541
   %491 = phi i1 [ true, %.preheader661 ], [ false, %541 ]
-  %.0202811.sroa.phi = phi ptr [ %16, %.preheader661 ], [ %.0202811.sroa.gep986, %541 ]
+  %.0202811.sroa.phi = phi ptr [ %16, %.preheader661 ], [ %.0202811.sroa.gep989, %541 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %483, ptr %21, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %483, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -29424,7 +29424,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i457:                               ; preds = %.preheader659, %653
   %603 = phi i1 [ true, %.preheader659 ], [ false, %653 ]
-  %.0201812.sroa.phi = phi ptr [ %16, %.preheader659 ], [ %.0201812.sroa.gep987, %653 ]
+  %.0201812.sroa.phi = phi ptr [ %16, %.preheader659 ], [ %.0201812.sroa.gep988, %653 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %595, ptr %24, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %595, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -29664,7 +29664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit492: ; preds = %_Z
 
 ._crit_edge.i.i493:                               ; preds = %.preheader665, %700
   %688 = phi i1 [ true, %.preheader665 ], [ false, %700 ]
-  %.0198809.sroa.phi = phi ptr [ %16, %.preheader665 ], [ %.0198809.sroa.gep988, %700 ]
+  %.0198809.sroa.phi = phi ptr [ %16, %.preheader665 ], [ %.0198809.sroa.gep987, %700 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %685, ptr %27, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %685, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -29773,7 +29773,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ClientOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i508:                               ; preds = %.preheader671, %767
   %733 = phi i1 [ true, %.preheader671 ], [ false, %767 ]
-  %.0196806.sroa.phi = phi ptr [ %16, %.preheader671 ], [ %.0196806.sroa.gep989, %767 ]
+  %.0196806.sroa.phi = phi ptr [ %16, %.preheader671 ], [ %.0196806.sroa.gep986, %767 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %725, ptr %28, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %725, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -30010,7 +30010,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i547:                               ; preds = %.preheader669, %851
   %817 = phi i1 [ true, %.preheader669 ], [ false, %851 ]
-  %.0192807.sroa.phi = phi ptr [ %16, %.preheader669 ], [ %.0192807.sroa.gep990, %851 ]
+  %.0192807.sroa.phi = phi ptr [ %16, %.preheader669 ], [ %.0192807.sroa.gep985, %851 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %809, ptr %31, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %809, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)
@@ -30237,7 +30237,7 @@ _ZN18grpc_cpp_generator12_GLOBAL__N_119ServerOnlyStreamingEPKN14grpc_generator6M
 
 ._crit_edge.i.i583:                               ; preds = %.preheader667, %931
   %897 = phi i1 [ true, %.preheader667 ], [ false, %931 ]
-  %.0152808.sroa.phi = phi ptr [ %16, %.preheader667 ], [ %.0152808.sroa.gep991, %931 ]
+  %.0152808.sroa.phi = phi ptr [ %16, %.preheader667 ], [ %.0152808.sroa.gep984, %931 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %889, ptr %34, align 8, !tbaa !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %889, ptr noundef nonnull align 1 dereferenceable(11) @.str.89, i64 11, i1 false)

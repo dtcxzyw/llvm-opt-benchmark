@@ -164,7 +164,7 @@ define hidden noundef i32 @_ZN4cvc58internal8decision12JustifyCache11lookupValue
   %14 = icmp eq i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = zext i1 %14 to i64
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !37, !noalias !34
   br label %19
 

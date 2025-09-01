@@ -827,7 +827,7 @@ parse_valuators.exit:                             ; preds = %93, %74
   %indvars.iv294.sroa.phi = phi ptr [ %.sroa.0, %parse_valuators.exit ], [ %.sroa.4, %110 ]
   %indvars.iv294.sroa.phi368 = phi ptr [ %.sroa.0371, %parse_valuators.exit ], [ %.sroa.7, %110 ]
   %indvars.iv294 = phi i64 [ 0, %parse_valuators.exit ], [ 1, %110 ]
-  %100 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 0, i64 %indvars.iv294
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 %indvars.iv294
   %101 = load i8, ptr %100, align 1, !range !3, !noundef !15
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %105
@@ -837,7 +837,7 @@ parse_valuators.exit:                             ; preds = %93, %74
   br label %110
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds nuw [2 x double], ptr %97, i64 0, i64 %indvars.iv294
+  %106 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv294
   %107 = load double, ptr %106, align 8
   %108 = load double, ptr %indvars.iv294.sroa.phi368, align 8
   %109 = fsub double %107, %108
@@ -1168,14 +1168,14 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
 
 289:                                              ; preds = %xinput2_get_sdlwindow.exit207, %297
   %indvars.iv = phi i64 [ 0, %xinput2_get_sdlwindow.exit207 ], [ %indvars.iv.next, %297 ]
-  %290 = getelementptr inbounds nuw [7 x i32], ptr %287, i64 0, i64 %indvars.iv
+  %290 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv
   %291 = load i32, ptr %290, align 4
   %.not185 = icmp eq i32 %291, -1
   br i1 %.not185, label %297, label %292
 
 292:                                              ; preds = %289
   %293 = load i32, ptr %253, align 4
-  %294 = getelementptr inbounds nuw [7 x float], ptr %4, i64 0, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %295 = load float, ptr %294, align 4
   %296 = trunc nuw nsw i64 %indvars.iv to i32
   call void @SDL_SendPenAxis(i64 noundef 0, i32 noundef %293, ptr noundef %273, i32 noundef %296, float noundef %295) #8
@@ -1619,16 +1619,16 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
   %39 = sext i32 %.04264 to i64
-  %40 = getelementptr inbounds [2 x i8], ptr %26, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr %26, i64 %39
   %41 = zext i1 %38 to i8
   store i8 %41, ptr %40, align 1
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds [2 x double], ptr %27, i64 0, i64 %39
+  %44 = getelementptr inbounds double, ptr %27, i64 %39
   store double %43, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds [2 x double], ptr %28, i64 0, i64 %39
+  %47 = getelementptr inbounds double, ptr %28, i64 %39
   store double %46, ptr %47, align 8
   %48 = add nsw i32 %.04264, 1
   %49 = icmp sgt i32 %.04264, 0

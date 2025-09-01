@@ -3820,7 +3820,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.spl
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %145 ], [ 0, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.split.us.i ]
   %.02230.us.i = phi double [ %.1.us.i, %145 ], [ 0xFFEFFFFFFFFFFFFF, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.split.us.i ]
   %.02329.us.i = phi i32 [ %.124.us.i, %145 ], [ undef, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.split.us.i ]
-  %135 = getelementptr inbounds nuw [8 x %"class.Eigen::Matrix.35"], ptr %5, i64 0, i64 %indvars.iv34.i
+  %135 = getelementptr inbounds nuw %"class.Eigen::Matrix.35", ptr %5, i64 %indvars.iv34.i
   store <2 x double> %.sroa.032.0, ptr %135, align 8, !tbaa !13, !noalias !216
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store double %.sroa.5.0, ptr %136, align 8, !tbaa !58, !noalias !216
@@ -3874,7 +3874,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.spl
   %indvars.iv.i = phi i64 [ 0, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.split.preheader.i ], [ %indvars.iv.next.i, %168 ]
   %.02230.i = phi double [ 0xFFEFFFFFFFFFFFFF, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.split.preheader.i ], [ %.1.i, %168 ]
   %.02329.i = phi i32 [ undef, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit27.split.preheader.i ], [ %.124.i, %168 ]
-  %157 = getelementptr inbounds nuw [8 x %"class.Eigen::Matrix.35"], ptr %5, i64 0, i64 %indvars.iv.i
+  %157 = getelementptr inbounds nuw %"class.Eigen::Matrix.35", ptr %5, i64 %indvars.iv.i
   store <2 x double> %.sroa.032.0, ptr %157, align 8, !tbaa !13, !noalias !216
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store double %.sroa.5.0, ptr %158, align 8, !tbaa !58, !noalias !216
@@ -3932,7 +3932,7 @@ default.unreachable.i:                            ; preds = %_ZN5Eigen10MatrixBa
 _ZN19CurvatureCalculator9chooseMaxEN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_d.exit: ; preds = %168, %145
   %.us-phi.i = phi i32 [ %.124.us.i, %145 ], [ %.124.i, %168 ]
   %178 = sext i32 %.us-phi.i to i64
-  %179 = getelementptr inbounds [8 x %"class.Eigen::Matrix.35"], ptr %5, i64 0, i64 %178
+  %179 = getelementptr inbounds %"class.Eigen::Matrix.35", ptr %5, i64 %178
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.035, ptr noundef nonnull align 8 dereferenceable(24) %179, i64 24, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.035, i64 24, i1 false), !tbaa.struct !79

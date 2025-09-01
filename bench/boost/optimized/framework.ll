@@ -4124,7 +4124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285: ; preds = %_Z
 
 .preheader567:                                    ; preds = %427, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit
   %.0131701 = phi i64 [ %446, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit ], [ 0, %427 ]
-  %435 = getelementptr inbounds nuw [4 x %"struct.std::pair.80"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 0, i64 %.0131701
+  %435 = getelementptr inbounds nuw %"struct.std::pair.80", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 %.0131701
   %436 = load ptr, ptr %435, align 16, !tbaa !194
   %.not.i296 = icmp eq ptr %436, null
   br i1 %.not.i296, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit, label %437
@@ -4449,7 +4449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %_Z
 
 .preheader:                                       ; preds = %540, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit317
   %.0128702 = phi i64 [ %554, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit317 ], [ 0, %540 ]
-  %541 = getelementptr inbounds nuw [11 x %"struct.std::pair"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 0, i64 %.0128702
+  %541 = getelementptr inbounds nuw %"struct.std::pair", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 %.0128702
   %542 = load ptr, ptr %541, align 16, !tbaa !207
   %.not.i307 = icmp eq ptr %542, null
   br i1 %.not.i307, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit317, label %543

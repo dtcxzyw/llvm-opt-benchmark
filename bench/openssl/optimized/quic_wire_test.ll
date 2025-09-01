@@ -285,7 +285,7 @@ define internal range(i32 0, 2) i32 @test_wire_encode(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds [24 x %struct.encode_test_case], ptr @encode_cases, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.encode_test_case, ptr @encode_cases, i64 %6
   %8 = tail call ptr @BUF_MEM_new() #4
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 1236, ptr noundef nonnull @.str.6, ptr noundef %8) #4
   %.not = icmp eq i32 %9, 0
@@ -417,7 +417,7 @@ define internal range(i32 0, 2) i32 @test_wire_ack(i32 noundef %0) #0 {
   %2 = alloca %struct.PACKET, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [7 x %struct.ack_test_case], ptr @ack_cases, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.ack_test_case, ptr @ack_cases, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = icmp slt i64 %6, 0
@@ -476,7 +476,7 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr_pn(i32 noundef %0) #0 {
   %2 = alloca [4 x i8], align 1
   %3 = alloca i64, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [18 x %struct.pn_test], ptr @pn_tests, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.pn_test, ptr @pn_tests, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i64, ptr %5, align 16, !tbaa !27
@@ -604,9 +604,9 @@ PACKET_buf_init.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [6 x i64], ptr @non_minimal_len, i64 0, i64 %4
+  %5 = getelementptr inbounds i64, ptr @non_minimal_len, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !13
-  %7 = getelementptr inbounds [6 x ptr], ptr @non_minimal, i64 0, i64 %4
+  %7 = getelementptr inbounds ptr, ptr @non_minimal, i64 %4
   %8 = load ptr, ptr %7, align 8, !tbaa !32
   store ptr %8, ptr %3, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8

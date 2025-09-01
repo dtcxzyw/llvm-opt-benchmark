@@ -51,7 +51,7 @@ define dso_local void @_ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11Memory
   br i1 %8, label %tailrecurse.us, label %tailrecurse.preheader
 
 tailrecurse.preheader:                            ; preds = %5
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %trunc.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 %trunc.i
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %tailrecurse
 
@@ -307,7 +307,7 @@ switch.lookup:                                    ; preds = %23
   %27 = add nsw i32 %26, -16777216
   %28 = lshr exact i32 %27, 24
   %trunc.i = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 0, i64 %trunc.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 %trunc.i
   %switch.load = load i32, ptr %switch.gep, align 4
   %29 = load i8, ptr @_ZZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 1, !tbaa !28
   %30 = zext nneg i8 %29 to i64

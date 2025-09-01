@@ -392,12 +392,12 @@ define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr 
 33:                                               ; preds = %24
   %34 = lshr i32 %30, 4
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [17 x i8], ptr @hextable, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @hextable, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %.334, i64 1
   store i8 %37, ptr %.334, align 1, !tbaa !14
   %39 = and i64 %28, 15
-  %40 = getelementptr inbounds nuw [17 x i8], ptr @hextable, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @hextable, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !14
   %42 = getelementptr inbounds nuw i8, ptr %.334, i64 2
   store i8 %41, ptr %38, align 1, !tbaa !14
@@ -956,7 +956,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
   br i1 %or.cond, label %25, label %28
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds nuw [17 x i8], ptr @hextable, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr @hextable, i64 %23
   %27 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1) #10
   %.not23 = icmp eq i32 %27, 1
   br i1 %.not23, label %28, label %.loopexit24

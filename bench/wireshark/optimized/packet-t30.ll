@@ -1212,7 +1212,7 @@ t30_get_string_numbers.exit.thread:               ; preds = %5
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
   %rev.i.i = tail call noundef i8 @llvm.bitreverse.i8(i8 %11)
   %12 = sub nuw nsw i64 19, %indvars.iv.i
-  %13 = getelementptr [21 x i8], ptr %6, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %6, i64 %12
   store i8 %rev.i.i, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20

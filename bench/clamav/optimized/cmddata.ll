@@ -2107,7 +2107,7 @@ define void @_ZN11CommandData13ProcessSwitchEPKw(ptr noundef nonnull align 8 der
 
 149:                                              ; preds = %149, %148
   %indvars.iv.i.i = phi i64 [ 0, %148 ], [ %indvars.iv.next.i.i, %149 ]
-  %150 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %150 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
   store ptr @.str.26, ptr %150, align 8, !tbaa !108
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2385,7 +2385,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 
 269:                                              ; preds = %.preheader215, %269
   %indvars.iv = phi i64 [ 0, %.preheader215 ], [ %indvars.iv.next, %269 ]
-  %270 = getelementptr inbounds nuw [16 x %struct.FilterMode], ptr %268, i64 0, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw %struct.FilterMode, ptr %268, i64 %indvars.iv
   store i32 3, ptr %270, align 4, !tbaa !127
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -2484,7 +2484,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   %.pr = phi i32 [ %.pr.pre, %303 ], [ %302, %301 ]
   %.0181 = phi i32 [ %306, %303 ], [ 1, %301 ]
   %.5 = phi ptr [ %304, %303 ], [ %292, %301 ]
-  %308 = getelementptr inbounds nuw [16 x %struct.FilterMode], ptr %267, i64 0, i64 %.0180
+  %308 = getelementptr inbounds nuw %struct.FilterMode, ptr %267, i64 %.0180
   store i32 %.0181, ptr %308, align 4, !tbaa !127
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 4
   store i32 %.0183, ptr %309, align 4, !tbaa !133
@@ -2701,7 +2701,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 
 407:                                              ; preds = %407, %406
   %indvars.iv.i.i206 = phi i64 [ 0, %406 ], [ %indvars.iv.next.i.i207, %407 ]
-  %408 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i206
+  %408 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i206
   store ptr @.str.26, ptr %408, align 8, !tbaa !108
   %indvars.iv.next.i.i207 = add nuw nsw i64 %indvars.iv.i.i206, 1
   %exitcond.not.i.i208 = icmp eq i64 %indvars.iv.next.i.i207, 8
@@ -3868,7 +3868,7 @@ define void @_ZN11CommandData19ReportWrongSwitchesE9RARFORMAT(ptr noundef nonnul
 
 11:                                               ; preds = %11, %10
   %indvars.iv.i.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
   store ptr @.str.26, ptr %12, align 8, !tbaa !108
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3901,7 +3901,7 @@ _Z5uiMsgIJRA4_KwiEEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %11
 
 22:                                               ; preds = %22, %21
   %indvars.iv.i.i3 = phi i64 [ 0, %21 ], [ %indvars.iv.next.i.i4, %22 ]
-  %23 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i3
+  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i3
   store ptr @.str.26, ptr %23, align 8, !tbaa !108
   %indvars.iv.next.i.i4 = add nuw nsw i64 %indvars.iv.i.i3, 1
   %exitcond.not.i.i5 = icmp eq i64 %indvars.iv.next.i.i4, 8
@@ -3934,7 +3934,7 @@ _Z5uiMsgIJRA4_KwiEEv14UIMESSAGE_CODEDpOT_.exit6:  ; preds = %22
 
 32:                                               ; preds = %32, %31
   %indvars.iv.i.i7 = phi i64 [ 0, %31 ], [ %indvars.iv.next.i.i8, %32 ]
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i7
+  %33 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i7
   store ptr @.str.26, ptr %33, align 8, !tbaa !108
   %indvars.iv.next.i.i8 = add nuw nsw i64 %indvars.iv.i.i7, 1
   %exitcond.not.i.i9 = icmp eq i64 %indvars.iv.next.i.i8, 8

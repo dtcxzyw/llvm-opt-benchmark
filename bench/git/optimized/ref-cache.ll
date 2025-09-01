@@ -317,7 +317,7 @@ define dso_local i32 @search_ref_dir(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not.i13, label %19, label %ref_entry_cmp_sslice.exit
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %17, i64 0, i64 %2
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %2
   %21 = load i8, ptr %20, align 1, !tbaa !17
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 0, %22
@@ -491,7 +491,7 @@ define dso_local ptr @find_ref_entry(ptr noundef captures(address) %0, ptr nound
   br i1 %.not.i13.i, label %19, label %ref_entry_cmp_sslice.exit.i
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %17, i64 0, i64 %5
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %5
   %21 = load i8, ptr %20, align 1, !tbaa !17
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 0, %22
@@ -583,7 +583,7 @@ define internal fastcc ptr @find_containing_dir(ptr noundef captures(ret: addres
   br i1 %.not.i13.i.i, label %22, label %ref_entry_cmp_sslice.exit.i.i
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = getelementptr inbounds nuw [0 x i8], ptr %20, i64 0, i64 %8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %8
   %24 = load i8, ptr %23, align 1, !tbaa !17
   %25 = zext i8 %24 to i32
   %26 = sub nsw i32 0, %25

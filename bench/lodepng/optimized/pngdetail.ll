@@ -564,10 +564,10 @@ define void @_Z15colorTypeStringB5cxx1116LodePNGColorType(ptr dead_on_unwind noa
 
 switch.lookup:                                    ; preds = %2
   %10 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._Z15colorTypeStringB5cxx1116LodePNGColorType, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z15colorTypeStringB5cxx1116LodePNGColorType, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = zext nneg i32 %1 to i64
-  %switch.gep22 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._Z15colorTypeStringB5cxx1116LodePNGColorType.1, i64 0, i64 %11
+  %switch.gep22 = getelementptr inbounds nuw i64, ptr @switch.table._Z15colorTypeStringB5cxx1116LodePNGColorType.1, i64 %11
   %switch.load23 = load i64, ptr %switch.gep22, align 8
   br label %.invoke
 
@@ -2422,7 +2422,7 @@ _Z8RGBtoHSLhhhPhS_S_.exit.i:                      ; preds = %29, %50
   %61 = and i32 %60, 12
   %62 = or disjoint i32 %61, %59
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr @_ZZL11applyDitheriiiibE7pattern, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !116
   %66 = mul nsw i32 %65, 17
   %67 = add nsw i32 %66, -128
@@ -2486,7 +2486,7 @@ _Z11HueToLetteri.exit:                            ; preds = %72, %78, %80, %82, 
   %.0.i = phi i8 [ 82, %72 ], [ 79, %78 ], [ 89, %80 ], [ 76, %82 ], [ 71, %84 ], [ 84, %86 ], [ 67, %88 ], [ 65, %90 ], [ 66, %92 ], [ 86, %94 ], [ %spec.select.i, %96 ]
   %98 = xor i32 %62, 10
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr @_ZZL11applyDitheriiiibE7pattern, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !116
   %102 = mul i32 %101, 1088
   %103 = add i32 %102, -8192
@@ -3501,7 +3501,7 @@ _Z8RGBtoHSLhhhPhS_S_.exit.i.i:                    ; preds = %188, %162
   %196 = and i32 %129, 3
   %197 = or disjoint i32 %196, %123
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i32, ptr @_ZZL11applyDitheriiiibE7pattern, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !116
   %201 = mul nsw i32 %200, 17
   %202 = add nsw i32 %201, -128
@@ -3565,7 +3565,7 @@ _Z11HueToLetteri.exit.i:                          ; preds = %231, %229, %227, %2
   %.0.i.i = phi i8 [ 82, %207 ], [ 79, %213 ], [ 89, %215 ], [ 76, %217 ], [ 71, %219 ], [ 84, %221 ], [ 67, %223 ], [ 65, %225 ], [ 66, %227 ], [ 86, %229 ], [ %spec.select.i.i, %231 ]
   %233 = xor i32 %197, 10
   %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds nuw [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i32, ptr @_ZZL11applyDitheriiiibE7pattern, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !116
   %237 = mul i32 %236, 1088
   %238 = add i32 %237, -8192
@@ -14720,16 +14720,16 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit60: ; preds = %13
   %157 = zext i8 %156 to i32
   %158 = or disjoint i32 %153, %157
   %159 = uitofp nneg i32 %158 to double
-  %160 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   %161 = load double, ptr %160, align 8, !tbaa !297
   %162 = fadd double %161, %159
   store double %162, ptr %160, align 8, !tbaa !297
-  %163 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %164 = load double, ptr %163, align 8, !tbaa !297
   %165 = fcmp ogt double %164, %159
   %.sroa.speculated79.us = select i1 %165, double %159, double %164
   store double %.sroa.speculated79.us, ptr %163, align 8, !tbaa !297
-  %166 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
   %167 = load double, ptr %166, align 8, !tbaa !297
   %168 = fcmp olt double %167, %159
   %.sroa.speculated.us = select i1 %168, double %159, double %167
@@ -14784,15 +14784,15 @@ _ZNSt6vectorIhSaIhEED2Ev.exit53:                  ; preds = %175, %177
 
 184:                                              ; preds = %.preheader, %184
   %indvars.iv92 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next93, %184 ]
-  %185 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv92
+  %185 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv92
   %186 = load double, ptr %185, align 8, !tbaa !297
   %187 = fdiv double %186, %174
   store double %187, ptr %185, align 8, !tbaa !297
-  %188 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv92
+  %188 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv92
   %189 = load double, ptr %188, align 8, !tbaa !297
   %190 = fdiv double %189, 2.570000e+02
   store double %190, ptr %188, align 8, !tbaa !297
-  %191 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv92
+  %191 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv92
   %192 = load double, ptr %191, align 8, !tbaa !297
   %193 = fdiv double %192, 2.570000e+02
   store double %193, ptr %191, align 8, !tbaa !297

@@ -263,7 +263,7 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   %19 = phi i32 [ %32, %.lr.ph ], [ %17, %12 ]
   %.02127 = phi ptr [ %31, %.lr.ph ], [ %13, %12 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [0 x %struct.WordEntry], ptr %13, i64 0, i64 %20
+  %21 = getelementptr inbounds %struct.WordEntry, ptr %13, i64 %20
   %22 = load i32, ptr %.02127, align 4
   %23 = lshr i32 %22, 12
   %24 = zext nneg i32 %23 to i64
@@ -600,7 +600,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(n
   %26 = phi i32 [ %39, %.lr.ph.i ], [ %24, %19 ]
   %.02127.i = phi ptr [ %38, %.lr.ph.i ], [ %20, %19 ]
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [0 x %struct.WordEntry], ptr %20, i64 0, i64 %27
+  %28 = getelementptr inbounds %struct.WordEntry, ptr %20, i64 %27
   %29 = load i32, ptr %.02127.i, align 4
   %30 = lshr i32 %29, 12
   %31 = zext nneg i32 %30 to i64

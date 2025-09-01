@@ -2963,7 +2963,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8, !prof !866
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds i8, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -2977,7 +2977,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8, !prof !866
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds i8, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -2999,7 +2999,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN81_$LT$alloc..
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3f7b6bd15b300377E.llvm.17896666486873179654.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds i8, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -3026,7 +3026,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN84_$LT$alloc..
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hddf2968d3658fc98E.llvm.17896666486873179654.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds i8, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -3366,7 +3366,7 @@ _ZN3syn6bigint6BigInt18reserve_two_digits17h4f4c0bfc99af2498E.llvm.1789666648687
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h763f774835be5361E.llvm.17896666486873179654.exit": ; preds = %.lr.ph
   %26 = load ptr, ptr %5, align 8, !alias.scope !918, !noalias !921, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds [0 x i8], ptr %26, i64 0, i64 %.058
+  %27 = getelementptr inbounds i8, ptr %26, i64 %.058
   %28 = load i8, ptr %27, align 1, !noundef !4
   %29 = add i8 %28, %.09
   %30 = urem i8 %29, 10

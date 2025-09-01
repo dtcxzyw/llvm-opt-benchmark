@@ -3131,7 +3131,7 @@ print_value.exit177.i:                            ; preds = %898, %896, %894, %8
 
 switch.lookup:                                    ; preds = %906
   %909 = zext nneg i32 %907 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.process_cap_file.2, i64 0, i64 %909
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_cap_file.2, i64 %909
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %order_string.exit.i
 
@@ -4243,7 +4243,7 @@ putquote.exit169.i:                               ; preds = %1425, %1419
 
 switch.lookup395:                                 ; preds = %putquote.exit169.i
   %1431 = zext nneg i32 %1429 to i64
-  %switch.gep396 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.process_cap_file.2, i64 0, i64 %1431
+  %switch.gep396 = getelementptr inbounds nuw ptr, ptr @switch.table.process_cap_file.2, i64 %1431
   %switch.load397 = load ptr, ptr %switch.gep396, align 8
   br label %order_string.exit.i169
 

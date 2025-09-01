@@ -96,7 +96,7 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 533620
   %11 = load i32, ptr %10, align 4, !tbaa !29
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [9 x ptr], ptr @set_frame_lut, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr @set_frame_lut, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 533632
   store ptr %14, ptr %15, align 8, !tbaa !31
@@ -137,7 +137,7 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
   %42 = or disjoint i32 %41, %37
   %43 = lshr i32 %42, %19
   %44 = add nsw i32 %43, %.neg
-  %45 = getelementptr inbounds nuw [64 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -166,7 +166,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 9:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.cache_node, ptr %5, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %10) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32768
@@ -342,7 +342,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
 
 40:                                               ; preds = %40, %37
   %indvars.iv.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i, %40 ]
-  %41 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %39, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw %struct.cache_node, ptr %39, i64 %indvars.iv.i
   call void @av_freep(ptr noundef nonnull %41) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
@@ -384,7 +384,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
   %indvars.iv44.i = phi i64 [ %55, %.lr.ph.preheader.i ], [ %indvars.iv.next45.i, %64 ]
   %56 = getelementptr inbounds nuw i32, ptr %.03139.i, i64 %indvars.iv46.i
   %57 = load i32, ptr %56, align 4, !tbaa !33
-  %58 = getelementptr inbounds [256 x i32], ptr %48, i64 0, i64 %indvars.iv44.i
+  %58 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv44.i
   store i32 %57, ptr %58, align 4, !tbaa !33
   %59 = lshr i32 %57, 24
   %60 = load i32, ptr %49, align 4, !tbaa !71
@@ -433,7 +433,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 533604
   %79 = load i32, ptr %78, align 4, !tbaa !33
   %80 = zext nneg i32 %74 to i64
-  %81 = getelementptr inbounds nuw [256 x i32], ptr %77, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !33
   store i32 %82, ptr %78, align 4, !tbaa !33
   store i32 %79, ptr %81, align 4, !tbaa !33
@@ -471,7 +471,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
 99:                                               ; preds = %108, %85
   %indvars.iv.i.i = phi i64 [ 0, %85 ], [ %indvars.iv.next.i.i, %108 ]
   %.032.i.i = phi i32 [ 0, %85 ], [ %.1.i.i, %108 ]
-  %100 = getelementptr inbounds nuw [256 x i32], ptr %87, i64 0, i64 %indvars.iv.i.i
+  %100 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !33
   %.not30.i.i = icmp ne i64 %indvars.iv.i.i, 0
   %102 = icmp eq i32 %101, %.032.i.i
@@ -486,7 +486,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
 
 .sink.split.i.i:                                  ; preds = %103, %99
   %.1.ph.i.i = phi i32 [ %.032.i.i, %99 ], [ %101, %103 ]
-  %107 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   store i8 1, ptr %107, align 1, !tbaa !76
   br label %108
 
@@ -983,18 +983,18 @@ define internal fastcc i32 @colormap_insert(ptr noundef %0, ptr noundef nonnull 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(24) %4, i64 24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %26 = sext i32 %16 to i64
-  %27 = getelementptr inbounds [3 x i32], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds i32, ptr %25, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %30 = getelementptr inbounds [3 x i32], ptr %29, i64 0, i64 %26
+  %30 = getelementptr inbounds i32, ptr %29, i64 %26
   store i32 %28, ptr %30, align 4, !tbaa !33
   %31 = tail call i32 @llvm.smin.i32(i32 %28, i32 65534)
   %32 = add nsw i32 %31, 1
-  %33 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %26
+  %33 = getelementptr inbounds i32, ptr %8, i64 %26
   store i32 %32, ptr %33, align 4, !tbaa !33
   %34 = call fastcc i32 @colormap_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %7)
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %36 = getelementptr inbounds [3 x i32], ptr %35, i64 0, i64 %26
+  %36 = getelementptr inbounds i32, ptr %35, i64 %26
   %37 = load i32, ptr %36, align 4, !tbaa !33
   %.not.not = icmp slt i32 %31, %37
   br i1 %.not.not, label %38, label %40
@@ -1105,7 +1105,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %.sroa.18.2 = tail call i32 @llvm.smax.i32(i32 %.sroa.18.0240, i32 %.sroa.0104.sroa.10.0.extract.trunc)
   %.sroa.22.2 = tail call i32 @llvm.smax.i32(i32 %.fca.1.extract, i32 %.sroa.22.0241)
   %48 = zext i32 %.0198242 to i64
-  %49 = getelementptr inbounds nuw [256 x %struct.color], ptr %5, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.color, ptr %5, i64 %48
   store i64 %.fca.0.extract, ptr %49, align 16
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !33
@@ -1144,7 +1144,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %or.cond221 = select i1 %.not212, i1 true, i1 %.not213
   %.2197 = select i1 %or.cond221, i32 %.1196, i32 0
   %58 = zext nneg i32 %.2197 to i64
-  %59 = getelementptr inbounds nuw [3 x ptr], ptr @cmp_funcs, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr @cmp_funcs, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !30
   store i32 %.2197, ptr %2, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1160,7 +1160,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %.0191260 = phi i32 [ 1, %54 ], [ %.1192234, %.thread ]
   %66 = add nsw i32 %.0191260, -1
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [64 x [2 x ptr]], ptr %6, i64 0, i64 %67
+  %68 = getelementptr inbounds [2 x ptr], ptr %6, i64 %67
   %69 = load ptr, ptr %68, align 16, !tbaa !30
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !30
@@ -1343,7 +1343,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %124
-  %130 = getelementptr inbounds [64 x [2 x ptr]], ptr %6, i64 0, i64 %indvars.iv266
+  %130 = getelementptr inbounds [2 x ptr], ptr %6, i64 %indvars.iv266
   store ptr %.0188252, ptr %130, align 16, !tbaa !30
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store ptr %.0180.lcssa, ptr %131, align 8, !tbaa !30
@@ -1352,7 +1352,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
 
 133:                                              ; preds = %124
   %134 = getelementptr inbounds nuw i8, ptr %.0179.lcssa, i64 16
-  %135 = getelementptr inbounds [64 x [2 x ptr]], ptr %6, i64 0, i64 %indvars.iv266
+  %135 = getelementptr inbounds [2 x ptr], ptr %6, i64 %indvars.iv266
   store ptr %134, ptr %135, align 16, !tbaa !30
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr %.0185253, ptr %136, align 8, !tbaa !30
@@ -1393,7 +1393,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %145 = lshr i32 %.1199, 1
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [256 x %struct.color], ptr %5, i64 0, i64 %146, i32 1
+  %147 = getelementptr inbounds nuw %struct.color, ptr %5, i64 %146, i32 1
   %148 = load i8, ptr %147, align 4, !tbaa !96
   %149 = zext i8 %148 to i32
   br label %150
@@ -1464,20 +1464,20 @@ tailrecurse:                                      ; preds = %._crit_edge, %5
   %16 = load i8, ptr %15, align 4, !tbaa !92
   %17 = zext i8 %16 to i32
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds [4 x i8], ptr @.str.11, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr @.str.11, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !76
   %21 = sext i8 %20 to i32
-  %22 = getelementptr inbounds [4 x i8], ptr @.str.12, i64 0, i64 %18
+  %22 = getelementptr inbounds i8, ptr @.str.12, i64 %18
   %23 = load i8, ptr %22, align 1, !tbaa !76
   %24 = sext i8 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = load i32, ptr %25, align 4, !tbaa !33
-  %27 = getelementptr inbounds [4 x i8], ptr @.str.13, i64 0, i64 %18
+  %27 = getelementptr inbounds i8, ptr @.str.13, i64 %18
   %28 = load i8, ptr %27, align 1, !tbaa !76
   %29 = sext i8 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !33
-  %32 = getelementptr inbounds [4 x i8], ptr @.str.14, i64 0, i64 %18
+  %32 = getelementptr inbounds i8, ptr @.str.14, i64 %18
   %33 = load i8, ptr %32, align 1, !tbaa !76
   %34 = sext i8 %33 to i32
   %35 = load i32, ptr %7, align 4, !tbaa !109
@@ -1595,7 +1595,7 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   %36 = tail call i32 @ff_lowbias32(i32 noundef %35) #13
   %37 = and i32 %36, 32767
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %17, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %struct.cache_node, ptr %17, i64 %38
   %40 = lshr i32 %35, 24
   %41 = load i32, ptr %18, align 4, !tbaa !71
   %42 = icmp ult i32 %40, %41
@@ -1747,7 +1747,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %38 = and i32 %37, 7
   %39 = or disjoint i32 %38, %35
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [64 x i32], ptr %17, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %17, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !33
   %43 = getelementptr inbounds i32, ptr %.0474.i42.us, i64 %indvars.iv46
   %44 = load i32, ptr %43, align 4, !tbaa !33
@@ -1784,7 +1784,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %65 = tail call i32 @ff_lowbias32(i32 noundef %64) #13
   %66 = and i32 %65, 32767
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %18, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %67
   %69 = lshr i32 %44, 24
   %70 = load i32, ptr %19, align 4, !tbaa !71
   %71 = icmp ult i32 %69, %70
@@ -1942,7 +1942,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %42 = tail call i32 @ff_lowbias32(i32 noundef %41) #13
   %43 = and i32 %42, 32767
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %18, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %44
   %46 = lshr i32 %41, 24
   %47 = load i32, ptr %19, align 4, !tbaa !71
   %48 = icmp ult i32 %46, %47
@@ -2019,7 +2019,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %.0.i.i.ph.us to i64
-  %79 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %22, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !33
   %81 = lshr i32 %41, 16
   %82 = lshr i32 %41, 8
@@ -2267,7 +2267,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %43 = tail call i32 @ff_lowbias32(i32 noundef %42) #13
   %44 = and i32 %43, 32767
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %18, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %45
   %47 = lshr i32 %42, 24
   %48 = load i32, ptr %19, align 4, !tbaa !71
   %49 = icmp ult i32 %47, %48
@@ -2344,7 +2344,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
 
 78:                                               ; preds = %75
   %79 = zext nneg i32 %.0.i.i.ph.us to i64
-  %80 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %22, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !33
   %82 = lshr i32 %42, 16
   %83 = lshr i32 %42, 8
@@ -2646,7 +2646,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %49 = tail call i32 @ff_lowbias32(i32 noundef %48) #13
   %50 = and i32 %49, 32767
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %18, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %51
   %53 = lshr i32 %48, 24
   %54 = load i32, ptr %19, align 4, !tbaa !71
   %55 = icmp ult i32 %53, %54
@@ -2723,7 +2723,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
 
 84:                                               ; preds = %81
   %85 = zext nneg i32 %.0.i.i.ph.us to i64
-  %86 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr %22, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !33
   %88 = lshr i32 %48, 16
   %89 = lshr i32 %48, 8
@@ -3149,7 +3149,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %42 = tail call i32 @ff_lowbias32(i32 noundef %41) #13
   %43 = and i32 %42, 32767
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %18, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %44
   %46 = lshr i32 %41, 24
   %47 = load i32, ptr %19, align 4, !tbaa !71
   %48 = icmp ult i32 %46, %47
@@ -3226,7 +3226,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %.0.i.i.ph.us to i64
-  %79 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %22, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !33
   %81 = lshr i32 %41, 16
   %82 = lshr i32 %41, 8
@@ -3483,7 +3483,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %53 = tail call i32 @ff_lowbias32(i32 noundef %52) #13
   %54 = and i32 %53, 32767
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %19, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw %struct.cache_node, ptr %19, i64 %55
   %57 = lshr i32 %52, 24
   %58 = load i32, ptr %20, align 4, !tbaa !71
   %59 = icmp ult i32 %57, %58
@@ -3560,7 +3560,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
 
 88:                                               ; preds = %85
   %89 = zext nneg i32 %.0.i.i.ph.us to i64
-  %90 = getelementptr inbounds nuw [256 x i32], ptr %23, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr %23, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !33
   %92 = lshr i32 %52, 16
   %93 = lshr i32 %52, 8
@@ -4129,7 +4129,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %49 = tail call i32 @ff_lowbias32(i32 noundef %48) #13
   %50 = and i32 %49, 32767
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %18, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %51
   %53 = lshr i32 %48, 24
   %54 = load i32, ptr %19, align 4, !tbaa !71
   %55 = icmp ult i32 %53, %54
@@ -4206,7 +4206,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
 
 84:                                               ; preds = %81
   %85 = zext nneg i32 %.0.i.i.ph.us to i64
-  %86 = getelementptr inbounds nuw [256 x i32], ptr %22, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr %22, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !33
   %88 = lshr i32 %48, 16
   %89 = lshr i32 %48, 8
@@ -4633,7 +4633,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %50 = tail call i32 @ff_lowbias32(i32 noundef %49) #13
   %51 = and i32 %50, 32767
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [32768 x %struct.cache_node], ptr %19, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %struct.cache_node, ptr %19, i64 %52
   %54 = lshr i32 %49, 24
   %55 = load i32, ptr %20, align 4, !tbaa !71
   %56 = icmp ult i32 %54, %55
@@ -4710,7 +4710,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
 
 85:                                               ; preds = %82
   %86 = zext nneg i32 %.0.i.i.ph.us to i64
-  %87 = getelementptr inbounds nuw [256 x i32], ptr %23, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %23, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !33
   %89 = lshr i32 %49, 16
   %90 = lshr i32 %49, 8
@@ -5076,10 +5076,10 @@ diff.exit:                                        ; preds = %tailrecurse, %18, %
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !89
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %53
+  %54 = getelementptr inbounds i32, ptr %7, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !33
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %57 = getelementptr inbounds [3 x i32], ptr %56, i64 0, i64 %53
+  %57 = getelementptr inbounds i32, ptr %56, i64 %53
   %58 = load i32, ptr %57, align 4, !tbaa !33
   %59 = sub nsw i32 %55, %58
   %60 = sext i32 %59 to i64

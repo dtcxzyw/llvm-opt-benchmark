@@ -2580,7 +2580,7 @@ _ZN7testing7MessagelsIA256_cEERS0_RKT_.exit.i:    ; preds = %_ZN7testing7Message
 
 47:                                               ; preds = %44
   %48 = and i64 %43, 2147483647
-  %49 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 %48
   store i8 0, ptr %49, align 1, !tbaa !27
   %50 = load ptr, ptr %4, align 8, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -62909,7 +62909,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %_ZN7testing7Message
 
 switch.lookup:                                    ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit
   %24 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i
 
@@ -67838,7 +67838,7 @@ define internal void @_ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110G
 24:                                               ; preds = %19
   %25 = load ptr, ptr @stdout, align 8, !tbaa !145, !noalias !1448
   %26 = call i32 @vfprintf(ptr noundef %25, ptr noundef %1, ptr noundef nonnull %3) #60
-  br label %34
+  br label %35
 
 27:                                               ; preds = %8
   %28 = landingpad { ptr, i32 }
@@ -67848,17 +67848,17 @@ define internal void @_ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110G
   resume { ptr, i32 } %28
 
 switch.lookup:                                    ; preds = %19
-  %switch.tableidx = add nsw i32 %0, -1
-  %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110GTestColorEPKcz, i64 0, i64 %29
+  %29 = zext nneg i32 %0 to i64
+  %30 = getelementptr ptr, ptr @switch.table._ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110GTestColorEPKcz, i64 %29
+  %switch.gep = getelementptr i8, ptr %30, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.474, ptr noundef nonnull %switch.load)
-  %31 = load ptr, ptr @stdout, align 8, !tbaa !145, !noalias !1451
-  %32 = call i32 @vfprintf(ptr noundef %31, ptr noundef %1, ptr noundef nonnull %3) #60
-  %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.475)
-  br label %34
+  %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.474, ptr noundef nonnull %switch.load)
+  %32 = load ptr, ptr @stdout, align 8, !tbaa !145, !noalias !1451
+  %33 = call i32 @vfprintf(ptr noundef %32, ptr noundef %1, ptr noundef nonnull %3) #60
+  %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.475)
+  br label %35
 
-34:                                               ; preds = %switch.lookup, %24
+35:                                               ; preds = %switch.lookup, %24
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

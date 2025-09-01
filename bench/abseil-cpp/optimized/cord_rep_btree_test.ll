@@ -28599,7 +28599,7 @@ define internal fastcc noalias noundef nonnull ptr @_ZN4absl13cord_internal12_GL
   %15 = lshr i64 %0, %14
   %16 = shl i64 %15, 1
   %17 = and i64 %16, 510
-  %18 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl16numbers_internal9kHexTableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %17
   %19 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 %19
   %21 = load i16, ptr %18, align 2
@@ -92487,142 +92487,138 @@ _ZN7testing8internal11MatcherBaseIRKN4absl4SpanIcEEED2Ev.exit: ; preds = %237, %
 define linkonce_odr dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree15GetAppendBufferEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %4 = load i8, ptr %3, align 1, !tbaa !24
-  switch i8 %4, label %80 [
+  switch i8 %4, label %76 [
     i8 3, label %5
-    i8 2, label %16
-    i8 1, label %27
-    i8 0, label %38
+    i8 2, label %15
+    i8 1, label %25
+    i8 0, label %35
   ]
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = add nsw i64 %8, -1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds nuw [6 x ptr], ptr %10, i64 0, i64 %9
-  %12 = load ptr, ptr %11, align 8, !tbaa !464
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load atomic i32, ptr %13 acquire, align 4
-  %15 = icmp eq i32 %14, 2
-  br i1 %15, label %16, label %.critedge
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr ptr, ptr %9, i64 %8
+  %11 = load ptr, ptr %10, align 8, !tbaa !464
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load atomic i32, ptr %12 acquire, align 4
+  %14 = icmp eq i32 %13, 2
+  br i1 %14, label %15, label %.critedge
 
-16:                                               ; preds = %5, %2
-  %.0 = phi ptr [ %0, %2 ], [ %12, %5 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 15
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i64
-  %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %22 = getelementptr inbounds nuw [6 x ptr], ptr %21, i64 0, i64 %20
-  %23 = load ptr, ptr %22, align 8, !tbaa !464
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load atomic i32, ptr %24 acquire, align 4
-  %26 = icmp eq i32 %25, 2
-  br i1 %26, label %27, label %.critedge
+15:                                               ; preds = %5, %2
+  %.0 = phi ptr [ %0, %2 ], [ %11, %5 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 15
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i64
+  %19 = getelementptr i8, ptr %.0, i64 8
+  %20 = getelementptr ptr, ptr %19, i64 %18
+  %21 = load ptr, ptr %20, align 8, !tbaa !464
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load atomic i32, ptr %22 acquire, align 4
+  %24 = icmp eq i32 %23, 2
+  br i1 %24, label %25, label %.critedge
 
-27:                                               ; preds = %16, %2
-  %.138 = phi ptr [ %0, %2 ], [ %.0, %16 ]
-  %.1 = phi ptr [ %0, %2 ], [ %23, %16 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 15
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i64
-  %31 = add nsw i64 %30, -1
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %33 = getelementptr inbounds nuw [6 x ptr], ptr %32, i64 0, i64 %31
-  %34 = load ptr, ptr %33, align 8, !tbaa !464
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load atomic i32, ptr %35 acquire, align 4
-  %37 = icmp eq i32 %36, 2
-  br i1 %37, label %38, label %.critedge
+25:                                               ; preds = %15, %2
+  %.138 = phi ptr [ %0, %2 ], [ %.0, %15 ]
+  %.1 = phi ptr [ %0, %2 ], [ %21, %15 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.1, i64 15
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i64
+  %29 = getelementptr i8, ptr %.1, i64 8
+  %30 = getelementptr ptr, ptr %29, i64 %28
+  %31 = load ptr, ptr %30, align 8, !tbaa !464
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load atomic i32, ptr %32 acquire, align 4
+  %34 = icmp eq i32 %33, 2
+  br i1 %34, label %35, label %.critedge
 
-38:                                               ; preds = %27, %2
-  %.239 = phi ptr [ %.138, %27 ], [ %0, %2 ]
-  %.133 = phi ptr [ %.1, %27 ], [ %0, %2 ]
-  %.2 = phi ptr [ %34, %27 ], [ %0, %2 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.2, i64 15
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i64
-  %42 = add nsw i64 %41, -1
-  %43 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %44 = getelementptr inbounds nuw [6 x ptr], ptr %43, i64 0, i64 %42
-  %45 = load ptr, ptr %44, align 8, !tbaa !464
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load atomic i32, ptr %46 acquire, align 4
-  %48 = icmp eq i32 %47, 2
-  br i1 %48, label %49, label %.critedge
+35:                                               ; preds = %25, %2
+  %.239 = phi ptr [ %.138, %25 ], [ %0, %2 ]
+  %.133 = phi ptr [ %.1, %25 ], [ %0, %2 ]
+  %.2 = phi ptr [ %31, %25 ], [ %0, %2 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.2, i64 15
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i64
+  %39 = getelementptr i8, ptr %.2, i64 8
+  %40 = getelementptr ptr, ptr %39, i64 %38
+  %41 = load ptr, ptr %40, align 8, !tbaa !464
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load atomic i32, ptr %42 acquire, align 4
+  %44 = icmp eq i32 %43, 2
+  br i1 %44, label %45, label %.critedge
 
-49:                                               ; preds = %38
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %51 = load i8, ptr %50, align 4, !tbaa !308
-  %52 = icmp ult i8 %51, 6
-  br i1 %52, label %.critedge, label %53
+45:                                               ; preds = %35
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %47 = load i8, ptr %46, align 4, !tbaa !308
+  %48 = icmp ult i8 %47, 6
+  br i1 %48, label %.critedge, label %49
 
-53:                                               ; preds = %49
-  %54 = zext i8 %51 to i32
-  %55 = icmp ult i8 %51, 67
-  %56 = icmp ult i8 %51, -69
-  %..i.i.i = select i1 %56, i32 6, i32 12
-  %.sink6.i.i.i = select i1 %55, i32 3, i32 %..i.i.i
-  %57 = shl nuw nsw i32 %54, %.sink6.i.i.i
-  %58 = select i1 %56, i32 -3725, i32 -753677
-  %59 = select i1 %55, i32 -29, i32 %58
-  %narrow.i.i = add nsw i32 %57, %59
-  %60 = sext i32 %narrow.i.i to i64
-  %61 = load i64, ptr %45, align 8, !tbaa !304
-  %62 = icmp eq i64 %61, %60
-  br i1 %62, label %.critedge, label %63
+49:                                               ; preds = %45
+  %50 = zext i8 %47 to i32
+  %51 = icmp ult i8 %47, 67
+  %52 = icmp ult i8 %47, -69
+  %..i.i.i = select i1 %52, i32 6, i32 12
+  %.sink6.i.i.i = select i1 %51, i32 3, i32 %..i.i.i
+  %53 = shl nuw nsw i32 %50, %.sink6.i.i.i
+  %54 = select i1 %52, i32 -3725, i32 -753677
+  %55 = select i1 %51, i32 -29, i32 %54
+  %narrow.i.i = add nsw i32 %53, %55
+  %56 = sext i32 %narrow.i.i to i64
+  %57 = load i64, ptr %41, align 8, !tbaa !304
+  %58 = icmp eq i64 %57, %56
+  br i1 %58, label %.critedge, label %59
 
-63:                                               ; preds = %53
-  %64 = sub i64 %60, %61
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %64, i64 %1)
-  %65 = getelementptr inbounds nuw i8, ptr %45, i64 13
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %61
-  %67 = add i64 %.sroa.speculated, %61
-  store i64 %67, ptr %45, align 8, !tbaa !304
+59:                                               ; preds = %49
+  %60 = sub i64 %56, %57
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %60, i64 %1)
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 13
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %57
+  %63 = add i64 %.sroa.speculated, %57
+  store i64 %63, ptr %41, align 8, !tbaa !304
   switch i8 %4, label %default.unreachable [
-    i8 3, label %68
-    i8 2, label %71
-    i8 1, label %74
-    i8 0, label %77
+    i8 3, label %64
+    i8 2, label %67
+    i8 1, label %70
+    i8 0, label %73
   ]
 
-68:                                               ; preds = %63
-  %69 = load i64, ptr %0, align 8, !tbaa !304
-  %70 = add i64 %69, %.sroa.speculated
-  store i64 %70, ptr %0, align 8, !tbaa !304
-  br label %71
+64:                                               ; preds = %59
+  %65 = load i64, ptr %0, align 8, !tbaa !304
+  %66 = add i64 %65, %.sroa.speculated
+  store i64 %66, ptr %0, align 8, !tbaa !304
+  br label %67
 
-71:                                               ; preds = %68, %63
-  %72 = load i64, ptr %.239, align 8, !tbaa !304
-  %73 = add i64 %72, %.sroa.speculated
-  store i64 %73, ptr %.239, align 8, !tbaa !304
-  br label %74
+67:                                               ; preds = %64, %59
+  %68 = load i64, ptr %.239, align 8, !tbaa !304
+  %69 = add i64 %68, %.sroa.speculated
+  store i64 %69, ptr %.239, align 8, !tbaa !304
+  br label %70
 
-74:                                               ; preds = %71, %63
-  %75 = load i64, ptr %.133, align 8, !tbaa !304
-  %76 = add i64 %75, %.sroa.speculated
-  store i64 %76, ptr %.133, align 8, !tbaa !304
-  br label %77
+70:                                               ; preds = %67, %59
+  %71 = load i64, ptr %.133, align 8, !tbaa !304
+  %72 = add i64 %71, %.sroa.speculated
+  store i64 %72, ptr %.133, align 8, !tbaa !304
+  br label %73
 
-77:                                               ; preds = %74, %63
-  %78 = load i64, ptr %.2, align 8, !tbaa !304
-  %79 = add i64 %78, %.sroa.speculated
-  store i64 %79, ptr %.2, align 8, !tbaa !304
+73:                                               ; preds = %70, %59
+  %74 = load i64, ptr %.2, align 8, !tbaa !304
+  %75 = add i64 %74, %.sroa.speculated
+  store i64 %75, ptr %.2, align 8, !tbaa !304
   br label %.critedge
 
-default.unreachable:                              ; preds = %63
+default.unreachable:                              ; preds = %59
   unreachable
 
-80:                                               ; preds = %2
-  %81 = tail call { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree19GetAppendBufferSlowEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1)
-  %82 = extractvalue { ptr, i64 } %81, 0
-  %83 = extractvalue { ptr, i64 } %81, 1
+76:                                               ; preds = %2
+  %77 = tail call { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree19GetAppendBufferSlowEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1)
+  %78 = extractvalue { ptr, i64 } %77, 0
+  %79 = extractvalue { ptr, i64 } %77, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %77, %53, %49, %38, %27, %16, %5, %80
-  %.sroa.9.0 = phi i64 [ %83, %80 ], [ 0, %5 ], [ 0, %16 ], [ 0, %27 ], [ 0, %38 ], [ 0, %49 ], [ %.sroa.speculated, %77 ], [ 0, %53 ]
-  %.sroa.0.0 = phi ptr [ %82, %80 ], [ null, %5 ], [ null, %16 ], [ null, %27 ], [ null, %38 ], [ null, %49 ], [ %66, %77 ], [ null, %53 ]
+.critedge:                                        ; preds = %73, %49, %45, %35, %25, %15, %5, %76
+  %.sroa.9.0 = phi i64 [ %79, %76 ], [ 0, %5 ], [ 0, %15 ], [ 0, %25 ], [ 0, %35 ], [ 0, %45 ], [ %.sroa.speculated, %73 ], [ 0, %49 ]
+  %.sroa.0.0 = phi ptr [ %78, %76 ], [ null, %5 ], [ null, %15 ], [ null, %25 ], [ null, %35 ], [ null, %45 ], [ %62, %73 ], [ null, %49 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -100813,7 +100809,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %813 = lshr i64 %225, %812
   %814 = shl i64 %813, 1
   %815 = and i64 %814, 510
-  %816 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl16numbers_internal9kHexTableE, i64 0, i64 %815
+  %816 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %815
   %817 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %818 = getelementptr inbounds nuw i8, ptr %228, i64 %817
   %819 = load i16, ptr %816, align 2
@@ -100860,7 +100856,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %
   %828 = lshr i64 %237, %827
   %829 = shl i64 %828, 1
   %830 = and i64 %829, 510
-  %831 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl16numbers_internal9kHexTableE, i64 0, i64 %830
+  %831 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %830
   %832 = shl nuw nsw i64 %indvars.iv.i.i.i.i355, 1
   %833 = getelementptr inbounds nuw i8, ptr %240, i64 %832
   %834 = load i16, ptr %831, align 2
@@ -100907,7 +100903,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i358: ; preds 
   %843 = lshr i64 %249, %842
   %844 = shl i64 %843, 1
   %845 = and i64 %844, 510
-  %846 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl16numbers_internal9kHexTableE, i64 0, i64 %845
+  %846 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %845
   %847 = shl nuw nsw i64 %indvars.iv.i.i.i.i372, 1
   %848 = getelementptr inbounds nuw i8, ptr %252, i64 %847
   %849 = load i16, ptr %846, align 2
@@ -100954,7 +100950,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i375: ; preds 
   %858 = lshr i64 %261, %857
   %859 = shl i64 %858, 1
   %860 = and i64 %859, 510
-  %861 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl16numbers_internal9kHexTableE, i64 0, i64 %860
+  %861 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %860
   %862 = shl nuw nsw i64 %indvars.iv.i.i.i.i389, 1
   %863 = getelementptr inbounds nuw i8, ptr %264, i64 %862
   %864 = load i16, ptr %861, align 2
@@ -118227,7 +118223,7 @@ _ZN7testing7MessageD2Ev.exit583:                  ; preds = %_ZNKSt14default_del
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 12
   %940 = load i8, ptr %939, align 4, !tbaa !308
   %941 = zext i8 %685 to i64
-  %942 = getelementptr inbounds nuw [6 x ptr], ptr %266, i64 0, i64 %941
+  %942 = getelementptr inbounds nuw ptr, ptr %266, i64 %941
   store ptr null, ptr %942, align 8, !tbaa !464
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %943 = call noundef zeroext i1 @_ZN4absl13cord_internal12CordRepBtree7IsValidEPKS1_b(ptr noundef nonnull %275, i1 noundef zeroext false)

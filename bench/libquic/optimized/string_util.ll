@@ -3397,7 +3397,7 @@ define void @_ZN4base22FormatBytesUnlocalizedB5cxx11El(ptr dead_on_unwind noalia
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %._crit_edge
-  %13 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN4baseL23kByteStringsUnlocalizedE, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw ptr, ptr @_ZN4baseL23kByteStringsUnlocalizedE, i64 %7
   %14 = load ptr, ptr %13, align 8, !tbaa !71
   %15 = call noundef i32 (ptr, i64, ptr, ...) @_ZN4base8snprintfEPcmPKcz(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.2, double noundef %6, ptr noundef %14)
   br label %20
@@ -3405,7 +3405,7 @@ define void @_ZN4base22FormatBytesUnlocalizedB5cxx11El(ptr dead_on_unwind noalia
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.0.lcssa24 = phi double [ %4, %._crit_edge.thread ], [ %6, %._crit_edge ]
   %.014.lcssa23 = phi i64 [ 0, %._crit_edge.thread ], [ %7, %._crit_edge ]
-  %17 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN4baseL23kByteStringsUnlocalizedE, i64 0, i64 %.014.lcssa23
+  %17 = getelementptr inbounds nuw ptr, ptr @_ZN4baseL23kByteStringsUnlocalizedE, i64 %.014.lcssa23
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = call noundef i32 (ptr, i64, ptr, ...) @_ZN4base8snprintfEPcmPKcz(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.3, double noundef %.0.lcssa24, ptr noundef %18)
   br label %20

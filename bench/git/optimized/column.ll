@@ -913,7 +913,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 
 .split.i.us:                                      ; preds = %.split.i.preheader, %.critedge.i.us
   %indvars.iv68.i.us = phi i64 [ %indvars.iv.next69.i.us, %.critedge.i.us ], [ 0, %.split.i.preheader ]
-  %12 = getelementptr inbounds nuw [7 x %struct.colopt], ptr @__const.parse_option.opts, i64 0, i64 %indvars.iv68.i.us
+  %12 = getelementptr inbounds nuw %struct.colopt, ptr @__const.parse_option.opts, i64 %indvars.iv68.i.us
   %13 = load ptr, ptr %12, align 16, !tbaa !35
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #11
   %15 = trunc i64 %14 to i32
@@ -934,7 +934,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 
 .split.us.i:                                      ; preds = %7, %.critedge.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.us.i ], [ 0, %7 ]
-  %19 = getelementptr inbounds nuw [7 x %struct.colopt], ptr @__const.parse_option.opts, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw %struct.colopt, ptr @__const.parse_option.opts, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 16, !tbaa !35
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #11
   %22 = trunc i64 %21 to i32
@@ -955,7 +955,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 
 .split.i:                                         ; preds = %.split.i.preheader, %.critedge.i
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %.critedge.i ], [ 0, %.split.i.preheader ]
-  %26 = getelementptr inbounds nuw [7 x %struct.colopt], ptr @__const.parse_option.opts, i64 0, i64 %indvars.iv68.i
+  %26 = getelementptr inbounds nuw %struct.colopt, ptr @__const.parse_option.opts, i64 %indvars.iv68.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !38
   %29 = icmp eq i32 %28, 0

@@ -416,7 +416,7 @@ define internal range(i32 0, 2) i32 @kdf_pbkdf2_derive(ptr noundef %0, ptr nound
 
 .preheader.us.us.i:                               ; preds = %91, %.preheader.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.us.i ], [ 0, %91 ]
-  %93 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %94 = load i8, ptr %93, align 1, !tbaa !21
   %95 = getelementptr inbounds nuw i8, ptr %.06614.us.i, i64 %indvars.iv.i
   %96 = load i8, ptr %95, align 1, !tbaa !21

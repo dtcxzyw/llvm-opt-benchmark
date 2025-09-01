@@ -342,7 +342,7 @@ define dso_local void @vt_set_leds_compute_shiftstate() local_unnamed_addr #0 al
   %20 = icmp eq i16 %19, 8
   %21 = select i1 %20, i16 0, i16 %19
   %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr [9 x i8], ptr @shift_down, i64 0, i64 %22
+  %23 = getelementptr i8, ptr @shift_down, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, 1
   store i8 %25, ptr %23, align 1
@@ -397,7 +397,7 @@ define internal fastcc void @do_compute_shiftstate() unnamed_addr #0 align 16 {
   %14 = icmp eq i16 %13, 8
   %15 = select i1 %14, i16 0, i16 %13
   %16 = zext nneg i16 %15 to i64
-  %17 = getelementptr [9 x i8], ptr @shift_down, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @shift_down, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = add i8 %18, 1
   store i8 %19, ptr %17, align 1
@@ -462,7 +462,7 @@ define dso_local void @setledstate(ptr noundef captures(none) %0, i32 noundef %1
 define dso_local range(i32 0, 2) i32 @vt_get_leds(i32 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %0 to i64
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @led_lock) #19
-  %5 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 2
+  %5 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %3, i32 2
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 1
   %8 = and i8 %7, 15
@@ -476,7 +476,7 @@ define dso_local range(i32 0, 2) i32 @vt_get_leds(i32 noundef %0, i32 noundef %1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vt_set_led_state(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3
+  %4 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %3
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @led_lock) #19
   %6 = icmp ult i32 %1, 8
   br i1 %6, label %7, label %12
@@ -517,7 +517,7 @@ define dso_local void @vt_set_led_state(i32 noundef %0, i32 noundef %1) local_un
 define dso_local void @vt_kbd_con_start(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = zext i32 %0 to i64
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @led_lock) #19
-  %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %2, i32 2
+  %4 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %2, i32 2
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, -3
   store i8 %6, ptr %4, align 1
@@ -540,7 +540,7 @@ define dso_local void @vt_kbd_con_start(i32 noundef %0) local_unnamed_addr #0 al
 define dso_local void @vt_kbd_con_stop(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = zext i32 %0 to i64
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @led_lock) #19
-  %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %2, i32 2
+  %4 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %2, i32 2
   %5 = load i8, ptr %4, align 1
   %6 = or i8 %5, 2
   store i8 %6, ptr %4, align 1
@@ -574,7 +574,7 @@ define dso_local i32 @kbd_init() local_unnamed_addr #4 section ".init.text" alig
 
 7:                                                ; preds = %7, %0
   %8 = phi i64 [ 0, %0 ], [ %22, %7 ]
-  %9 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %8
+  %9 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, -32
@@ -599,7 +599,7 @@ define dso_local i32 @kbd_init() local_unnamed_addr #4 section ".init.text" alig
 
 .preheader:                                       ; preds = %7, %31
   %24 = phi i64 [ %32, %31 ], [ 0, %7 ]
-  %25 = getelementptr [12 x %struct.kbd_led_trigger], ptr @kbd_led_triggers, i64 0, i64 %24
+  %25 = getelementptr %struct.kbd_led_trigger, ptr @kbd_led_triggers, i64 %24
   %26 = tail call i32 @led_trigger_register(ptr noundef %25) #19
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %31, label %28
@@ -665,7 +665,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
 
 14:                                               ; preds = %14, %12
   %15 = phi i64 [ 0, %12 ], [ %31, %14 ]
-  %16 = getelementptr [0 x %struct.kbdiacruc], ptr @accent_table, i64 0, i64 %15
+  %16 = getelementptr %struct.kbdiacruc, ptr @accent_table, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @conv_uni_to_8bit(i32 noundef %17) #19
   %19 = trunc i32 %18 to i8
@@ -817,7 +817,7 @@ define dso_local i32 @vt_do_diacrit(i32 noundef %0, ptr noundef %1, i32 noundef 
   %108 = getelementptr %struct.kbdiacr, ptr %98, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = tail call i32 @conv_8bit_to_uni(i8 noundef zeroext %109) #19
-  %111 = getelementptr [0 x %struct.kbdiacruc], ptr @accent_table, i64 0, i64 %107
+  %111 = getelementptr %struct.kbdiacruc, ptr @accent_table, i64 %107
   store i32 %110, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 1
   %113 = load i8, ptr %112, align 1
@@ -917,7 +917,7 @@ declare dso_local i32 @conv_8bit_to_uni(i8 noundef zeroext) local_unnamed_addr #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3
+  %4 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %3
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   switch i32 %1, label %do_compute_shiftstate.exit [
     i32 0, label %do_compute_shiftstate.exit.sink.split
@@ -961,7 +961,7 @@ define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmode(i32 noundef %0, 
   %24 = icmp eq i16 %23, 8
   %25 = select i1 %24, i16 0, i16 %23
   %26 = zext nneg i16 %25 to i64
-  %27 = getelementptr [9 x i8], ptr @shift_down, i64 0, i64 %26
+  %27 = getelementptr i8, ptr @shift_down, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = add i8 %28, 1
   store i8 %29, ptr %27, align 1
@@ -1012,7 +1012,7 @@ define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmode(i32 noundef %0, 
   %58 = icmp eq i16 %57, 8
   %59 = select i1 %58, i16 0, i16 %57
   %60 = zext nneg i16 %59 to i64
-  %61 = getelementptr [9 x i8], ptr @shift_down, i64 0, i64 %60
+  %61 = getelementptr i8, ptr @shift_down, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = add i8 %62, 1
   store i8 %63, ptr %61, align 1
@@ -1052,7 +1052,7 @@ do_compute_shiftstate.exit:                       ; preds = %68, %34, %do_comput
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmeta(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3
+  %4 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %3
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   switch i32 %1, label %14 [
     i32 3, label %6
@@ -1160,7 +1160,7 @@ define dso_local i32 @vt_do_kbkeycode_ioctl(i32 noundef %0, ptr noundef %1, i32 
 define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.kbentry, align 4
   %6 = zext i32 %3 to i64
-  %7 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %6
+  %7 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !20
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 4) #19
@@ -1181,7 +1181,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   %16 = load i8, ptr %5, align 4
   %17 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   %18 = zext i8 %16 to i64
-  %19 = getelementptr [256 x ptr], ptr @key_maps, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr @key_maps, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %32, label %22
@@ -1243,7 +1243,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
 60:                                               ; preds = %48
   %61 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   %62 = zext i8 %53 to i64
-  %63 = getelementptr [256 x ptr], ptr @key_maps, i64 0, i64 %62
+  %63 = getelementptr ptr, ptr @key_maps, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp ne i8 %53, 0
   %66 = icmp ne ptr %64, null
@@ -1275,7 +1275,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
 78:                                               ; preds = %75
   %79 = and i32 %57, 255
   %80 = zext nneg i32 %76 to i64
-  %81 = getelementptr [15 x i8], ptr @max_vals, i64 0, i64 %80
+  %81 = getelementptr i8, ptr @max_vals, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = icmp samesign ugt i32 %79, %83
@@ -1299,7 +1299,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
 96:                                               ; preds = %92
   %97 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   %98 = zext i8 %53 to i64
-  %99 = getelementptr [256 x ptr], ptr @key_maps, i64 0, i64 %98
+  %99 = getelementptr ptr, ptr @key_maps, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %116
@@ -1425,7 +1425,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
 
 21:                                               ; preds = %17
   %22 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @func_buf_lock) #19
-  %23 = getelementptr [256 x ptr], ptr @func_table, i64 0, i64 %15
+  %23 = getelementptr ptr, ptr @func_table, i64 %15
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   %26 = select i1 %25, ptr @.str, ptr %24
@@ -1495,7 +1495,7 @@ declare dso_local ptr @strndup_user(ptr noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @vt_kdskbsent(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = zext i8 %1 to i64
-  %4 = getelementptr [256 x ptr], ptr @func_table, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @func_table, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7
@@ -1527,7 +1527,7 @@ define internal fastcc ptr @vt_kdskbsent(ptr noundef %0, i8 noundef zeroext %1) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = zext i32 %0 to i64
-  %6 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %5
+  %6 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %5
   switch i32 %1, label %79 [
     i32 19300, label %7
     i32 19301, label %24
@@ -1657,7 +1657,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local noundef range(i32 0, 5) i32 @vt_do_kdgkbmode(i32 noundef %0) local_unnamed_addr #7 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %2, i32 3
+  %3 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %2, i32 3
   %4 = load i8, ptr %3, align 1
   %5 = lshr i8 %4, 4
   %6 = and i8 %5, 7
@@ -1688,7 +1688,7 @@ define dso_local noundef range(i32 0, 5) i32 @vt_do_kdgkbmode(i32 noundef %0) lo
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local range(i32 3, 5) i32 @vt_do_kdgkbmeta(i32 noundef %0) local_unnamed_addr #7 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %2, i32 4
+  %3 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %2, i32 4
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 16
   %6 = icmp eq i8 %5, 0
@@ -1703,7 +1703,7 @@ define dso_local void @vt_reset_unicode(i32 noundef %0) local_unnamed_addr #0 al
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i8 0, i8 48
   %6 = zext i32 %0 to i64
-  %7 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %6, i32 3
+  %7 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %6, i32 3
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, -113
   %10 = or disjoint i8 %9, %5
@@ -1721,7 +1721,7 @@ define dso_local i32 @vt_get_shift_state() local_unnamed_addr #7 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vt_reset_keyboard(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %2
+  %3 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %2
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i8, ptr %5, align 1
@@ -1749,7 +1749,7 @@ define dso_local void @vt_reset_keyboard(i32 noundef %0) local_unnamed_addr #0 a
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local range(i32 0, 2) i32 @vt_get_kbd_mode_bit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 4
+  %4 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %3, i32 4
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 31
   %7 = zext nneg i8 %6 to i32
@@ -1763,7 +1763,7 @@ define dso_local void @vt_set_kbd_mode_bit(i32 noundef %0, i32 noundef %1) local
   %3 = zext i32 %0 to i64
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   %5 = shl nuw i32 1, %1
-  %6 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 4
+  %6 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %3, i32 4
   %7 = load i8, ptr %6, align 1
   %8 = trunc i32 %5 to i8
   %9 = and i8 %8, 31
@@ -1778,7 +1778,7 @@ define dso_local void @vt_clr_kbd_mode_bit(i32 noundef %0, i32 noundef %1) local
   %3 = zext i32 %0 to i64
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @kbd_event_lock) #19
   %5 = shl nuw i32 1, %1
-  %6 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 4
+  %6 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %3, i32 4
   %7 = load i8, ptr %6, align 1
   %8 = trunc i32 %5 to i8
   %9 = xor i8 %8, -1
@@ -1890,12 +1890,12 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 67:                                               ; preds = %63
   %68 = load i32, ptr @fg_console, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %69
+  %70 = getelementptr %struct.vc, ptr @vc_cons, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 416
   %73 = load i16, ptr %72, align 8
   %74 = zext i16 %73 to i64
-  %75 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %74
+  %75 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %74
   store ptr %75, ptr @kbd, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 3
   %77 = load i8, ptr %76, align 1
@@ -2000,7 +2000,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   %135 = phi i1 [ false, %117 ], [ false, %110 ], [ false, %126 ], [ false, %122 ], [ %133, %130 ]
   %136 = load i32, ptr @fg_console, align 4
   %137 = sext i32 %136 to i64
-  %138 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %137
+  %138 = getelementptr %struct.vc, ptr @vc_cons, i64 %137
   %139 = load ptr, ptr %138, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %139, ptr %37, align 8
@@ -2031,7 +2031,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   %153 = getelementptr inbounds nuw i8, ptr %139, i64 416
   %154 = load i16, ptr %153, align 8
   %155 = zext i16 %154 to i64
-  %156 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %155
+  %156 = getelementptr %struct.kbd_struct, ptr @kbd_table, i64 %155
   store ptr %156, ptr @kbd, align 8
   %157 = icmp eq i32 %3, 2
   %158 = zext i1 %157 to i8
@@ -2598,7 +2598,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 
 435:                                              ; preds = %433
   %436 = zext nneg i32 %2 to i64
-  %437 = getelementptr [256 x i16], ptr @x86_keycodes, i64 0, i64 %436
+  %437 = getelementptr i16, ptr @x86_keycodes, i64 %436
   %438 = load i16, ptr %437, align 2
   %439 = icmp eq i16 %438, 0
   br i1 %439, label %499, label %440
@@ -3027,7 +3027,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   %659 = zext nneg i8 %658 to i32
   store i32 %659, ptr %142, align 8
   %660 = sext i32 %654 to i64
-  %661 = getelementptr [256 x ptr], ptr @key_maps, i64 0, i64 %660
+  %661 = getelementptr ptr, ptr @key_maps, i64 %660
   %662 = load ptr, ptr %661, align 8
   %663 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 1, ptr noundef nonnull %37) #19
   %664 = icmp ne i32 %663, 32769
@@ -3063,7 +3063,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   %682 = icmp eq i16 %681, 8
   %683 = select i1 %682, i16 0, i16 %681
   %684 = zext nneg i16 %683 to i64
-  %685 = getelementptr [9 x i8], ptr @shift_down, i64 0, i64 %684
+  %685 = getelementptr i8, ptr @shift_down, i64 %684
   %686 = load i8, ptr %685, align 1
   %687 = add i8 %686, 1
   store i8 %687, ptr %685, align 1
@@ -3140,7 +3140,7 @@ do_compute_shiftstate.exit:                       ; preds = %692, %667
 
 731:                                              ; preds = %725
   %732 = xor i64 %660, 1
-  %733 = getelementptr [256 x ptr], ptr @key_maps, i64 0, i64 %732
+  %733 = getelementptr ptr, ptr @key_maps, i64 %732
   %734 = load ptr, ptr %733, align 8
   %735 = icmp eq ptr %734, null
   br i1 %735, label %739, label %736
@@ -3185,7 +3185,7 @@ do_compute_shiftstate.exit:                       ; preds = %692, %667
 
 755:                                              ; preds = %754, %754, %753, %753, %746
   %756 = zext nneg i8 %741 to i64
-  %757 = getelementptr [16 x ptr], ptr @k_handler, i64 0, i64 %756
+  %757 = getelementptr ptr, ptr @k_handler, i64 %756
   %758 = load ptr, ptr %757, align 8
   %759 = trunc i16 %740 to i8
   %760 = zext i1 %625 to i8
@@ -3327,7 +3327,7 @@ define internal void @kbd_start(ptr noundef readonly captures(none) %0) #0 align
 
 .preheader:                                       ; preds = %4, %20
   %11 = phi i64 [ %21, %20 ], [ 0, %4 ]
-  %12 = getelementptr [12 x %struct.kbd_led_trigger], ptr @kbd_led_triggers, i64 0, i64 %11
+  %12 = getelementptr %struct.kbd_led_trigger, ptr @kbd_led_triggers, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
@@ -3501,7 +3501,7 @@ define internal fastcc i32 @handle_diacr(ptr noundef %0, i32 noundef %1) unnamed
 
 18:                                               ; preds = %30, %11
   %19 = phi i64 [ 0, %11 ], [ %31, %30 ]
-  %20 = getelementptr [0 x %struct.kbdiacruc], ptr @accent_table, i64 0, i64 %19
+  %20 = getelementptr %struct.kbdiacruc, ptr @accent_table, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %5
   br i1 %22, label %23, label %30
@@ -4198,7 +4198,7 @@ define internal void @k_fn(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zer
 6:                                                ; preds = %3
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @func_buf_lock) #19
   %8 = zext i8 %1 to i64
-  %9 = getelementptr [256 x ptr], ptr @func_table, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr @func_table, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %12
@@ -4249,7 +4249,7 @@ define internal void @k_spec(ptr noundef %0, i8 noundef zeroext %1, i8 noundef z
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20, %16
-  %23 = getelementptr [20 x ptr], ptr @fn_handler, i64 0, i64 %5
+  %23 = getelementptr ptr, ptr @fn_handler, i64 %5
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef %0) #19
   br label %25
@@ -4281,7 +4281,7 @@ define internal void @k_pad(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
 
 19:                                               ; preds = %10
   %20 = zext i8 %1 to i64
-  %21 = getelementptr [22 x i8], ptr @k_pad.app_map, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @k_pad.app_map, i64 %20
   %22 = load i8, ptr %21, align 1
   store i8 79, ptr getelementptr inbounds nuw (i8, ptr @applkey.buf, i64 1), align 1
   store i8 %22, ptr getelementptr inbounds nuw (i8, ptr @applkey.buf, i64 2), align 1
@@ -4362,7 +4362,7 @@ define internal void @k_pad(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
 
 42:                                               ; preds = %30, %25
   %43 = zext i8 %1 to i64
-  %44 = getelementptr [22 x i8], ptr @k_pad.pad_chars, i64 0, i64 %43
+  %44 = getelementptr i8, ptr @k_pad.pad_chars, i64 %43
   %45 = load i8, ptr %44, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4482,7 +4482,7 @@ define internal void @k_pad(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @k_dead(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = zext i8 %1 to i64
-  %5 = getelementptr [27 x i8], ptr @k_dead.ret_diacr, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @k_dead.ret_diacr, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = icmp eq i8 %2, 0
@@ -4528,7 +4528,7 @@ define internal void @k_cur(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
 
 6:                                                ; preds = %3
   %7 = zext i8 %1 to i64
-  %8 = getelementptr [5 x i8], ptr @k_cur.cur_chars, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @k_cur.cur_chars, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = load ptr, ptr @kbd, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -4582,7 +4582,7 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
 
 19:                                               ; preds = %9
   %20 = zext i8 %1 to i64
-  %21 = getelementptr [9 x i8], ptr @shift_down, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @shift_down, i64 %20
   %22 = load i8, ptr %21, align 1
   br i1 %11, label %32, label %23
 
@@ -4964,7 +4964,7 @@ define internal void @k_slock(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   %16 = load i8, ptr %9, align 1
   %17 = xor i8 %16, %15
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [256 x ptr], ptr @key_maps, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr @key_maps, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %22 = select i1 %21, i8 %14, i8 %15
@@ -5233,7 +5233,7 @@ define internal void @fn_null(ptr readnone captures(none) %0) #0 align 16 {
   %15 = icmp eq i16 %14, 8
   %16 = select i1 %15, i16 0, i16 %14
   %17 = zext nneg i16 %16 to i64
-  %18 = getelementptr [9 x i8], ptr @shift_down, i64 0, i64 %17
+  %18 = getelementptr i8, ptr @shift_down, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = add i8 %19, 1
   store i8 %20, ptr %18, align 1
@@ -5663,7 +5663,7 @@ define internal void @fn_compose(ptr readnone captures(none) %0) #15 align 16 {
 define internal void @fn_SAK(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load i32, ptr @fg_console, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %3, i32 1
+  %4 = getelementptr %struct.vc, ptr @vc_cons, i64 %3, i32 1
   %5 = load ptr, ptr @system_wq, align 8
   %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %5, ptr noundef %4) #19
   ret void
@@ -5910,7 +5910,7 @@ define internal void @kbd_bh(ptr readnone captures(none) %0) #0 align 16 {
 
 26:                                               ; preds = %37, %23
   %27 = phi i64 [ 0, %23 ], [ %38, %37 ]
-  %28 = getelementptr [12 x %struct.kbd_led_trigger], ptr @kbd_led_triggers, i64 0, i64 %27
+  %28 = getelementptr %struct.kbd_led_trigger, ptr @kbd_led_triggers, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, %25

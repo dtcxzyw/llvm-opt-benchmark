@@ -4649,7 +4649,7 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %74 = sdiv exact i64 %72, 12
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
   %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds nuw [3 x ptr], ptr %22, i64 0, i64 %indvars.iv60
+  %77 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv60
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %14, align 8
   %80 = load ptr, ptr %79, align 8
@@ -4714,7 +4714,7 @@ define linkonce_odr void @_ZN3vcg3tri13UpdateQualityI6CMeshOE14VertexFromFaceERS
   %120 = sdiv exact i64 %118, 12
   %121 = getelementptr inbounds i8, ptr %119, i64 %120
   %122 = load float, ptr %121, align 4
-  %123 = getelementptr inbounds nuw [3 x ptr], ptr %106, i64 0, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %14, align 8
   %126 = load ptr, ptr %125, align 8
@@ -6698,7 +6698,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10VertexSetVERS2_.exit.i: ; preds = %12, %1
 
 25:                                               ; preds = %25, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw [3 x ptr], ptr %24, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
@@ -6817,7 +6817,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE14PerVertexClearERS2_b.exit: ; preds = %_ZN3vc
 
 91:                                               ; preds = %51, %107
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %107 ]
-  %92 = getelementptr inbounds nuw [3 x ptr], ptr %52, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 20
   %95 = load i32, ptr %94, align 4

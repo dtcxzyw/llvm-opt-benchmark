@@ -3146,7 +3146,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nound
 
 switch.lookup:                                    ; preds = %125
   %129 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.llvm_append_function_attributes, i64 0, i64 %129
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.llvm_append_function_attributes, i64 %129
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %llvm_call_convention_from_call.exit
 

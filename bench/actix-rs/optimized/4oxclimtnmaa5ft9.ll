@@ -128,7 +128,7 @@ _ZN12actix_router6quoter11AsciiBitmap7set_bit17h8e79618f057ad9b5E.exit: ; preds 
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 1
   %15 = and i8 %9, 7
   %16 = shl nuw i8 1, %15
-  %17 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   %18 = load i8, ptr %17, align 1, !noundef !5
   %19 = or i8 %18, %16
   store i8 %19, ptr %17, align 1
@@ -202,7 +202,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 "_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit30.thread"
   %34 = lshr i8 %32, 3
   %35 = zext nneg i8 %34 to i64
-  %36 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
   %37 = load i8, ptr %36, align 1, !alias.scope !17, !noalias !13, !noundef !5
   %38 = and i8 %.sroa.65.0.i97, 7
   %39 = shl nuw i8 1, %38
@@ -356,7 +356,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 "_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i52": ; preds = %.noexc23.thread
   %95 = lshr i8 %93, 3
   %96 = zext nneg i8 %95 to i64
-  %97 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %96
   %98 = load i8, ptr %97, align 1, !alias.scope !38, !noundef !5
   %99 = and i8 %.sroa.65.0.i19119, 7
   %100 = shl nuw i8 1, %99

@@ -179,7 +179,7 @@ define void @lv_display_refr_timer(ptr noundef %0) local_unnamed_addr #1 {
   %56 = phi i32 [ 1, %.lr.ph21.i ], [ %107, %.loopexit.i ]
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next26.i, %.loopexit.i ]
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 608
-  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 0, i64 %indvars.iv25.i
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv25.i
   %59 = load i8, ptr %58, align 1, !tbaa !55
   %.not.i = icmp ne i8 %59, 0
   %.not23.i = icmp eq i32 %56, 0
@@ -191,7 +191,7 @@ define void @lv_display_refr_timer(ptr noundef %0) local_unnamed_addr #1 {
   %61 = phi ptr [ %100, %98 ], [ %55, %54 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %98 ], [ 0, %54 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 608
-  %63 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv.i
   %64 = load i8, ptr %63, align 1, !tbaa !55
   %.not17.i = icmp ne i8 %64, 0
   %65 = icmp eq i64 %indvars.iv25.i, %indvars.iv.i
@@ -200,25 +200,25 @@ define void @lv_display_refr_timer(ptr noundef %0) local_unnamed_addr #1 {
 
 66:                                               ; preds = %.lr.ph.i
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 96
-  %68 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %67, i64 0, i64 %indvars.iv25.i
-  %69 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %67, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw %struct.lv_area_t, ptr %67, i64 %indvars.iv25.i
+  %69 = getelementptr inbounds nuw %struct.lv_area_t, ptr %67, i64 %indvars.iv.i
   %70 = call zeroext i1 @lv_area_is_on(ptr noundef nonnull %68, ptr noundef nonnull %69) #9
   %.pre29.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   br i1 %70, label %71, label %98
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.pre29.i, i64 96
-  %73 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %72, i64 0, i64 %indvars.iv25.i
-  %74 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %72, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw %struct.lv_area_t, ptr %72, i64 %indvars.iv25.i
+  %74 = getelementptr inbounds nuw %struct.lv_area_t, ptr %72, i64 %indvars.iv.i
   call void @lv_area_join(ptr noundef nonnull %7, ptr noundef nonnull %73, ptr noundef nonnull %74) #9
   %75 = call i32 @lv_area_get_size(ptr noundef nonnull %7) #9
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 96
-  %78 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %77, i64 0, i64 %indvars.iv25.i
+  %78 = getelementptr inbounds nuw %struct.lv_area_t, ptr %77, i64 %indvars.iv25.i
   %79 = call i32 @lv_area_get_size(ptr noundef nonnull %78) #9
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
-  %82 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %81, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw %struct.lv_area_t, ptr %81, i64 %indvars.iv.i
   %83 = call i32 @lv_area_get_size(ptr noundef nonnull %82) #9
   %84 = add i32 %83, %79
   %85 = icmp ult i32 %75, %84
@@ -227,7 +227,7 @@ define void @lv_display_refr_timer(ptr noundef %0) local_unnamed_addr #1 {
 
 86:                                               ; preds = %71
   %87 = getelementptr inbounds nuw i8, ptr %.pre28.i, i64 96
-  %88 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %87, i64 0, i64 %indvars.iv25.i
+  %88 = getelementptr inbounds nuw %struct.lv_area_t, ptr %87, i64 %indvars.iv25.i
   %89 = load i32, ptr %7, align 4, !tbaa !56
   store i32 %89, ptr %88, align 4, !tbaa !56
   %90 = load i32, ptr %51, align 4, !tbaa !57
@@ -240,7 +240,7 @@ define void @lv_display_refr_timer(ptr noundef %0) local_unnamed_addr #1 {
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 12
   store i32 %94, ptr %95, align 4, !tbaa !59
   %96 = getelementptr inbounds nuw i8, ptr %.pre28.i, i64 608
-  %97 = getelementptr inbounds nuw [32 x i8], ptr %96, i64 0, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %indvars.iv.i
   store i8 1, ptr %97, align 1, !tbaa !55
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   br label %98
@@ -344,7 +344,7 @@ wait_for_flushing.exit.i:                         ; preds = %.preheader.i.i, %12
   %.039.i = phi i16 [ %170, %.loopexit.i20 ], [ 0, %139 ]
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 608
   %149 = zext i16 %.039.i to i64
-  %150 = getelementptr inbounds nuw [32 x i8], ptr %148, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 %149
   %151 = load i8, ptr %150, align 1, !tbaa !55
   %.not31.i = icmp eq i8 %151, 0
   br i1 %.not31.i, label %152, label %.loopexit.i20
@@ -362,7 +362,7 @@ wait_for_flushing.exit.i:                         ; preds = %.preheader.i.i, %12
   %157 = call ptr @lv_ll_get_next(ptr noundef nonnull %156, ptr noundef nonnull %.02736.i) #9
   %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 96
-  %160 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %159, i64 0, i64 %149
+  %160 = getelementptr inbounds nuw %struct.lv_area_t, ptr %159, i64 %149
   %161 = call signext i8 @lv_area_diff(ptr noundef nonnull %5, ptr noundef nonnull %.02736.i, ptr noundef nonnull %160) #9
   %.not33.i = icmp eq i8 %161, -1
   br i1 %.not33.i, label %169, label %.preheader.i
@@ -380,7 +380,7 @@ wait_for_flushing.exit.i:                         ; preds = %.preheader.i.i, %12
   %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 648
   %165 = call ptr @lv_ll_ins_prev(ptr noundef nonnull %164, ptr noundef nonnull %.02736.i) #9
-  %166 = getelementptr inbounds nuw [4 x %struct.lv_area_t], ptr %5, i64 0, i64 %indvars.iv.i22
+  %166 = getelementptr inbounds nuw %struct.lv_area_t, ptr %5, i64 %indvars.iv.i22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %165, ptr noundef nonnull align 16 dereferenceable(16) %166, i64 16, i1 false), !tbaa.struct !69
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i
@@ -463,7 +463,7 @@ refr_sync_areas.exit:                             ; preds = %lv_refr_join_area.e
 
 198:                                              ; preds = %195
   %199 = and i64 %indvars.iv.next.i26, 2147483647
-  %200 = getelementptr inbounds nuw [32 x i8], ptr %193, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr %193, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !55
   %202 = icmp eq i8 %201, 0
   br i1 %202, label %203, label %195, !llvm.loop !75
@@ -505,7 +505,7 @@ refr_sync_areas.exit:                             ; preds = %lv_refr_join_area.e
   %228 = phi ptr [ %205, %.lr.ph47.i ], [ %311, %310 ]
   %indvars.iv56.i = phi i64 [ 0, %.lr.ph47.i ], [ %indvars.iv.next57.i, %310 ]
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 608
-  %230 = getelementptr inbounds nuw [32 x i8], ptr %229, i64 0, i64 %indvars.iv56.i
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 %indvars.iv56.i
   %231 = load i8, ptr %230, align 1, !tbaa !55
   %.not.i27 = icmp eq i8 %231, 0
   br i1 %.not.i27, label %232, label %310
@@ -528,7 +528,7 @@ refr_sync_areas.exit:                             ; preds = %lv_refr_join_area.e
   store volatile i8 %241, ptr %239, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %242 = getelementptr inbounds nuw i8, ptr %228, i64 96
-  %243 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %242, i64 0, i64 %indvars.iv56.i
+  %243 = getelementptr inbounds nuw %struct.lv_area_t, ptr %242, i64 %indvars.iv56.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %243, i64 16, i1 false), !tbaa.struct !69
   %244 = getelementptr inbounds nuw i8, ptr %228, i64 84
   %245 = load i32, ptr %244, align 4, !tbaa !62
@@ -730,7 +730,7 @@ refr_invalid_areas.exit:                          ; preds = %310, %203
   %330 = phi ptr [ %341, %340 ], [ %.pre53, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %340 ], [ 0, %.preheader ]
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 608
-  %332 = getelementptr inbounds nuw [32 x i8], ptr %331, i64 0, i64 %indvars.iv
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 %indvars.iv
   %333 = load i8, ptr %332, align 1, !tbaa !55
   %.not18 = icmp eq i8 %333, 0
   br i1 %.not18, label %334, label %340
@@ -740,7 +740,7 @@ refr_invalid_areas.exit:                          ; preds = %310, %203
   %336 = call ptr @lv_ll_ins_tail(ptr noundef nonnull %335) #9
   %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 96
-  %339 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %338, i64 0, i64 %indvars.iv
+  %339 = getelementptr inbounds nuw %struct.lv_area_t, ptr %338, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %339, i64 16, i1 false), !tbaa.struct !69
   %.pre52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !28
   br label %340
@@ -1528,7 +1528,7 @@ define void @lv_inv_area(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 48:                                               ; preds = %.lr.ph, %43
   %.02850 = phi i16 [ 0, %.lr.ph ], [ %44, %43 ]
   %49 = zext i16 %.02850 to i64
-  %50 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %42, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %struct.lv_area_t, ptr %42, i64 %49
   %51 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %4, ptr noundef nonnull %50, i32 noundef 0) #9
   br i1 %51, label %.loopexit, label %43
 
@@ -1547,7 +1547,7 @@ define void @lv_inv_area(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.0 = phi ptr [ %3, %53 ], [ %4, %._crit_edge ], [ %4, %.preheader ]
   %55 = getelementptr inbounds nuw i8, ptr %.02945, i64 96
   %56 = zext nneg i32 %54 to i64
-  %57 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw %struct.lv_area_t, ptr %55, i64 %56
   %58 = load i32, ptr %.0, align 4, !tbaa !56
   store i32 %58, ptr %57, align 4, !tbaa !56
   %59 = load i32, ptr %.0.sroa.phi, align 4, !tbaa !57

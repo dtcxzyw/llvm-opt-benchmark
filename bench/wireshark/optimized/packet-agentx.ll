@@ -1098,7 +1098,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %18 = shl i32 %indvars.iv66.tr, 2
   %19 = add i32 %17, %18
   %20 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %19)
-  %21 = getelementptr [2048 x i32], ptr %6, i64 0, i64 %indvars.iv66
+  %21 = getelementptr i32, ptr %6, i64 %indvars.iv66
   store i32 %20, ptr %21, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
@@ -1110,7 +1110,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %22 = shl i32 %indvars.iv.tr, 2
   %23 = add i32 %17, %22
   %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %23)
-  %25 = getelementptr [2048 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %25 = getelementptr i32, ptr %6, i64 %indvars.iv
   store i32 %24, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69

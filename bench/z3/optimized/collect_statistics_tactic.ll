@@ -4538,7 +4538,7 @@ _ZN25collect_statistics_tactic12collect_procclEP3var.exit: ; preds = %.noexc58
 141:                                              ; preds = %.lr.ph, %_ZN25collect_statistics_tactic12collect_procclEP3var.exit74
   %142 = phi i32 [ %138, %.lr.ph ], [ %288, %_ZN25collect_statistics_tactic12collect_procclEP3var.exit74 ]
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw [0 x ptr], ptr %140, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw ptr, ptr %140, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !290
   %146 = add nuw i32 %142, 1
   store i32 %146, ptr %137, align 8, !tbaa !289

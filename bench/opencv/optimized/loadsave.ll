@@ -17794,7 +17794,7 @@ define void @_ZN2cv9AnimationC2EiNS_7Scalar_IdEE(ptr noundef nonnull writeonly a
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %5 ]
   %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i.i.i
   %7 = load double, ptr %6, align 8, !tbaa !126
-  %8 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i.i.i
   store double %7, ptr %8, align 8, !tbaa !126
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4

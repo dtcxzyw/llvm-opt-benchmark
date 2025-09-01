@@ -3059,9 +3059,9 @@ for.body59.if.then69_crit_edge:                   ; preds = %for.body59
   br label %if.then69
 
 lor.lhs.false:                                    ; preds = %for.body59
-  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %ulo, i64 0, i64 %indvars.iv117
+  %arrayidx = getelementptr inbounds nuw i8, ptr %ulo, i64 %indvars.iv117
   %11 = load i8, ptr %arrayidx, align 1
-  %arrayidx63 = getelementptr inbounds nuw [4 x i8], ptr %uhi, i64 0, i64 %indvars.iv117
+  %arrayidx63 = getelementptr inbounds nuw i8, ptr %uhi, i64 %indvars.iv117
   %12 = load i8, ptr %arrayidx63, align 1
   %cmp65 = icmp ne i8 %11, %12
   %cmp68.not = icmp eq i64 %indvars.iv117, %10
@@ -3090,8 +3090,8 @@ if.else84:                                        ; preds = %for.end49
 for.body89.preheader:                             ; preds = %if.else84
   %sub86 = add nsw i32 %call50, -1
   %15 = zext nneg i32 %sub86 to i64
-  %arrayidx104.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %ulo, i64 0, i64 %15
-  %arrayidx106.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %uhi, i64 0, i64 %15
+  %arrayidx104.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ulo, i64 %15
+  %arrayidx106.phi.trans.insert = getelementptr inbounds nuw i8, ptr %uhi, i64 %15
   br label %for.body89
 
 for.body89:                                       ; preds = %for.body89.preheader, %for.inc115
@@ -3106,9 +3106,9 @@ for.body89.if.then102_crit_edge:                  ; preds = %for.body89
   br label %if.then102
 
 lor.lhs.false92:                                  ; preds = %for.body89
-  %arrayidx94 = getelementptr inbounds nuw [4 x i8], ptr %ulo, i64 0, i64 %indvars.iv
+  %arrayidx94 = getelementptr inbounds nuw i8, ptr %ulo, i64 %indvars.iv
   %16 = load i8, ptr %arrayidx94, align 1
-  %arrayidx97 = getelementptr inbounds nuw [4 x i8], ptr %uhi, i64 0, i64 %indvars.iv
+  %arrayidx97 = getelementptr inbounds nuw i8, ptr %uhi, i64 %indvars.iv
   %17 = load i8, ptr %arrayidx97, align 1
   %cmp99 = icmp ult i8 %16, %17
   %cmp101 = icmp ne i64 %indvars.iv, 0
@@ -3810,7 +3810,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3re28Compiler9ByteRangeEiib.exit86 ]
   %5 = phi i64 [ %retval.0.retval.0..fca.0.load.i50, %for.body.lr.ph ], [ %8, %_ZN3re28Compiler9ByteRangeEiib.exit86 ]
   %retval.8.retval.8.retval.8.agg.tmp.sroa.2.0.copyload = load i64, ptr %retval.8.retval.8.retval.8..sroa_idx101, align 8
-  %arrayidx11 = getelementptr inbounds nuw [4 x i8], ptr %buf, i64 0, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %buf, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %retval.i61)
   %call.i62 = call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)

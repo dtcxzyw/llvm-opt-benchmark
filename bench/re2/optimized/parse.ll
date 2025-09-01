@@ -2255,7 +2255,7 @@ while.body:                                       ; preds = %while.cond
 
 if.then:                                          ; preds = %while.body
   %inc = add nuw nsw i64 %d.0, 1
-  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr %stk, i64 0, i64 %d.0
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %stk, i64 %d.0
   store ptr %re.addr.0, ptr %arrayidx, align 8
   br label %if.end
 
@@ -2338,7 +2338,7 @@ while.body42.lr.ph:                               ; preds = %if.end39
 while.body42:                                     ; preds = %while.body42.lr.ph, %if.end69
   %d.265 = phi i64 [ %d.0, %while.body42.lr.ph ], [ %dec, %if.end69 ]
   %dec = add i64 %d.265, -1
-  %arrayidx43 = getelementptr inbounds [4 x ptr], ptr %stk, i64 0, i64 %dec
+  %arrayidx43 = getelementptr inbounds ptr, ptr %stk, i64 %dec
   %12 = load ptr, ptr %arrayidx43, align 8
   %nsub_.i49 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %13 = load i16, ptr %nsub_.i49, align 2
@@ -5359,7 +5359,7 @@ sw.default:                                       ; preds = %if.end11
 land.lhs.true:                                    ; preds = %sw.default
   %7 = and i32 %4, 255
   %idxprom.i = zext nneg i32 %7 to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %9 = and i8 %8, 4
   %cmp.i61.not = icmp eq i8 %9, 0

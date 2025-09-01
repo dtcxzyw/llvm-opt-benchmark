@@ -13,11 +13,11 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_filter_encoder_is_supported(i64
   br label %2
 
 2:                                                ; preds = %2, %1
-  %.069.i = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw [10 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.069.i
+  %.068.i = phi i64 [ 0, %1 ], [ %6, %2 ]
+  %3 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.068.i
   %4 = load i64, ptr %3, align 8, !tbaa !4
   %5 = icmp eq i64 %4, %0
-  %6 = add nuw nsw i64 %.069.i, 1
+  %6 = add nuw nsw i64 %.068.i, 1
   %exitcond.i = icmp eq i64 %6, 10
   %or.cond = select i1 %5, i1 true, i1 %exitcond.i
   br i1 %or.cond, label %encoder_find.exit, label %2, !llvm.loop !11
@@ -35,12 +35,12 @@ define dso_local i32 @lzma_filters_update(ptr noundef readonly captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %29, label %9
+  br i1 %8, label %30, label %9
 
 9:                                                ; preds = %2
   %10 = tail call i64 @lzma_raw_coder_memusage(ptr noundef nonnull @coder_find, ptr noundef %1) #9
   %11 = icmp eq i64 %10, -1
-  br i1 %11, label %29, label %.preheader
+  br i1 %11, label %30, label %.preheader
 
 .preheader:                                       ; preds = %9, %.preheader
   %.017 = phi i64 [ %14, %.preheader ], [ 1, %9 ]
@@ -55,32 +55,35 @@ define dso_local i32 @lzma_filters_update(ptr noundef readonly captures(none) %0
   %.not20 = icmp eq i64 %.017, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %15
-  %16 = getelementptr inbounds nuw [5 x %struct.lzma_filter], ptr %3, i64 0, i64 %.017
-  store i64 -1, ptr %16, align 16, !tbaa !21
-  %17 = load ptr, ptr %4, align 8, !tbaa !13
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !17
-  %20 = load ptr, ptr %17, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = call i32 %19(ptr noundef %20, ptr noundef %22, ptr noundef nonnull %1, ptr noundef nonnull %3) #9
+.lr.ph:                                           ; preds = %15
+  %16 = getelementptr %struct.lzma_filter, ptr %3, i64 %.017
+  br label %25
+
+._crit_edge:                                      ; preds = %25, %15
+  %17 = getelementptr inbounds nuw %struct.lzma_filter, ptr %3, i64 %.017
+  store i64 -1, ptr %17, align 16, !tbaa !21
+  %18 = load ptr, ptr %4, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = load ptr, ptr %18, align 8, !tbaa !24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  %24 = call i32 %20(ptr noundef %21, ptr noundef %23, ptr noundef nonnull %1, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %29
+  br label %30
 
-.lr.ph:                                           ; preds = %15, %.lr.ph
-  %.019 = phi i64 [ %28, %.lr.ph ], [ 0, %15 ]
-  %24 = xor i64 %.019, -1
-  %25 = add i64 %.017, %24
-  %26 = getelementptr inbounds nuw [5 x %struct.lzma_filter], ptr %3, i64 0, i64 %25
-  %27 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %.019
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !26
-  %28 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %28, %.017
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+25:                                               ; preds = %.lr.ph, %25
+  %.019 = phi i64 [ 0, %.lr.ph ], [ %29, %25 ]
+  %26 = xor i64 %.019, -1
+  %27 = getelementptr %struct.lzma_filter, ptr %16, i64 %26
+  %28 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %.019
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !26
+  %29 = add nuw i64 %.019, 1
+  %exitcond.not = icmp eq i64 %29, %.017
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !29
 
-29:                                               ; preds = %9, %2, %._crit_edge
-  %.018 = phi i32 [ %23, %._crit_edge ], [ 11, %2 ], [ 8, %9 ]
+30:                                               ; preds = %9, %2, %._crit_edge
+  %.018 = phi i32 [ %24, %._crit_edge ], [ 11, %2 ], [ 8, %9 ]
   ret i32 %.018
 }
 
@@ -103,22 +106,22 @@ declare i32 @lzma_raw_coder_init(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define internal noundef ptr @coder_find(i64 noundef %0) #5 {
-  br label %2
+  br label %4
 
-2:                                                ; preds = %6, %1
-  %.069.i = phi i64 [ 0, %1 ], [ %7, %6 ]
-  %3 = getelementptr inbounds nuw [10 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.069.i
-  %4 = load i64, ptr %3, align 8, !tbaa !4
-  %5 = icmp eq i64 %4, %0
-  br i1 %5, label %encoder_find.exit, label %6
+2:                                                ; preds = %4
+  %3 = add nuw nsw i64 %.068.i, 1
+  %exitcond.i = icmp eq i64 %3, 10
+  br i1 %exitcond.i, label %encoder_find.exit, label %4, !llvm.loop !11
 
-6:                                                ; preds = %2
-  %7 = add nuw nsw i64 %.069.i, 1
-  %exitcond.i = icmp eq i64 %7, 10
-  br i1 %exitcond.i, label %encoder_find.exit, label %2, !llvm.loop !11
+4:                                                ; preds = %2, %1
+  %.068.i = phi i64 [ 0, %1 ], [ %3, %2 ]
+  %5 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.068.i
+  %6 = load i64, ptr %5, align 8, !tbaa !4
+  %7 = icmp eq i64 %6, %0
+  br i1 %7, label %encoder_find.exit, label %2
 
-encoder_find.exit:                                ; preds = %2, %6
-  %spec.select.i = phi ptr [ %3, %2 ], [ null, %6 ]
+encoder_find.exit:                                ; preds = %2, %4
+  %spec.select.i = phi ptr [ null, %2 ], [ %5, %4 ]
   ret ptr %spec.select.i
 }
 
@@ -177,22 +180,22 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
   %4 = phi i64 [ %20, %17 ], [ %3, %.preheader40 ]
   %.01949 = phi i64 [ %.221.ph, %17 ], [ 0, %.preheader40 ]
   %.02648 = phi i64 [ %18, %17 ], [ 0, %.preheader40 ]
-  br label %5
+  br label %7
 
-5:                                                ; preds = %.preheader, %9
-  %.069.i = phi i64 [ %10, %9 ], [ 0, %.preheader ]
-  %6 = getelementptr inbounds nuw [10 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.069.i
-  %7 = load i64, ptr %6, align 8, !tbaa !4
-  %8 = icmp eq i64 %7, %4
-  br i1 %8, label %encoder_find.exit, label %9
+5:                                                ; preds = %7
+  %6 = add nuw nsw i64 %.068.i, 1
+  %exitcond.i = icmp eq i64 %6, 10
+  br i1 %exitcond.i, label %.thread, label %7, !llvm.loop !11
 
-9:                                                ; preds = %5
-  %10 = add nuw nsw i64 %.069.i, 1
-  %exitcond.i = icmp eq i64 %10, 10
-  br i1 %exitcond.i, label %.thread, label %5, !llvm.loop !11
+7:                                                ; preds = %.preheader, %5
+  %.068.i = phi i64 [ %6, %5 ], [ 0, %.preheader ]
+  %8 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.068.i
+  %9 = load i64, ptr %8, align 8, !tbaa !4
+  %10 = icmp eq i64 %9, %4
+  br i1 %10, label %encoder_find.exit, label %5
 
-encoder_find.exit:                                ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
+encoder_find.exit:                                ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   %.not32 = icmp eq ptr %12, null
   br i1 %.not32, label %17, label %13
@@ -218,41 +221,41 @@ encoder_find.exit:                                ; preds = %5
   %spec.select76 = select i1 %21, i64 -1, i64 %.221.ph
   br label %.thread
 
-.thread:                                          ; preds = %9, %.loopexit, %.preheader40, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select76, %.loopexit ], [ -1, %9 ]
+.thread:                                          ; preds = %5, %.loopexit, %.preheader40, %1
+  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select76, %.loopexit ], [ -1, %5 ]
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_properties_size(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !tbaa !21
-  br label %4
+  br label %6
 
-4:                                                ; preds = %8, %2
-  %.069.i = phi i64 [ 0, %2 ], [ %9, %8 ]
-  %5 = getelementptr inbounds nuw [10 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.069.i
-  %6 = load i64, ptr %5, align 8, !tbaa !4
-  %7 = icmp eq i64 %6, %3
-  br i1 %7, label %encoder_find.exit, label %8
+4:                                                ; preds = %6
+  %5 = add nuw nsw i64 %.068.i, 1
+  %exitcond.i = icmp eq i64 %5, 10
+  br i1 %exitcond.i, label %10, label %6, !llvm.loop !11
 
-8:                                                ; preds = %4
-  %9 = add nuw nsw i64 %.069.i, 1
-  %exitcond.i = icmp eq i64 %9, 10
-  br i1 %exitcond.i, label %10, label %4, !llvm.loop !11
+6:                                                ; preds = %4, %2
+  %.068.i = phi i64 [ 0, %2 ], [ %5, %4 ]
+  %7 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.068.i
+  %8 = load i64, ptr %7, align 8, !tbaa !4
+  %9 = icmp eq i64 %8, %3
+  br i1 %9, label %encoder_find.exit, label %4
 
-10:                                               ; preds = %8
+10:                                               ; preds = %4
   %11 = icmp sgt i64 %3, -1
   %12 = select i1 %11, i32 8, i32 11
   br label %23
 
-encoder_find.exit:                                ; preds = %4
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
+encoder_find.exit:                                ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %encoder_find.exit
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = load i32, ptr %17, align 8, !tbaa !35
   store i32 %18, ptr %0, align 4, !tbaa !36
   br label %23
@@ -271,22 +274,22 @@ encoder_find.exit:                                ; preds = %4
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_properties_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !tbaa !21
-  br label %4
+  br label %6
 
-4:                                                ; preds = %8, %2
-  %.069.i = phi i64 [ 0, %2 ], [ %9, %8 ]
-  %5 = getelementptr inbounds nuw [10 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.069.i
-  %6 = load i64, ptr %5, align 8, !tbaa !4
-  %7 = icmp eq i64 %6, %3
-  br i1 %7, label %encoder_find.exit, label %8
+4:                                                ; preds = %6
+  %5 = add nuw nsw i64 %.068.i, 1
+  %exitcond.i = icmp eq i64 %5, 10
+  br i1 %exitcond.i, label %encoder_find.exit.thread, label %6, !llvm.loop !11
 
-8:                                                ; preds = %4
-  %9 = add nuw nsw i64 %.069.i, 1
-  %exitcond.i = icmp eq i64 %9, 10
-  br i1 %exitcond.i, label %encoder_find.exit.thread, label %4, !llvm.loop !11
+6:                                                ; preds = %4, %2
+  %.068.i = phi i64 [ 0, %2 ], [ %5, %4 ]
+  %7 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.068.i
+  %8 = load i64, ptr %7, align 8, !tbaa !4
+  %9 = icmp eq i64 %8, %3
+  br i1 %9, label %encoder_find.exit, label %4
 
-encoder_find.exit:                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
+encoder_find.exit:                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = icmp eq ptr %11, null
   br i1 %12, label %encoder_find.exit.thread, label %13
@@ -297,8 +300,8 @@ encoder_find.exit:                                ; preds = %4
   %16 = tail call i32 %11(ptr noundef %15, ptr noundef %1) #9
   br label %encoder_find.exit.thread
 
-encoder_find.exit.thread:                         ; preds = %8, %encoder_find.exit, %13
-  %.0 = phi i32 [ %16, %13 ], [ 0, %encoder_find.exit ], [ 11, %8 ]
+encoder_find.exit.thread:                         ; preds = %4, %encoder_find.exit, %13
+  %.0 = phi i32 [ %16, %13 ], [ 0, %encoder_find.exit ], [ 11, %4 ]
   ret i32 %.0
 }
 

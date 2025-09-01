@@ -669,7 +669,7 @@ wav_parse_bext_string.exit73.i:                   ; preds = %230
   %.090.i = phi i64 [ %245, %.preheader.i ], [ 0, %239 ]
   %242 = load ptr, ptr %12, align 8, !tbaa !12
   %243 = call i64 @avio_rb64(ptr noundef %242) #10
-  %244 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %indvars.iv.i
+  %244 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
   store i64 %243, ptr %244, align 8, !tbaa !68
   %245 = or i64 %243, %.090.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

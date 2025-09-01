@@ -266,7 +266,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   store i32 %128, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %131 = sext i32 %128 to i64
-  %132 = getelementptr inbounds [0 x %struct.WordEntry], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds %struct.WordEntry, ptr %130, i64 %131
   %133 = icmp sgt i32 %128, 0
   br i1 %133, label %.lr.ph106, label %._crit_edge107
 
@@ -327,7 +327,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   store i16 %168, ptr %175, align 2
   %176 = load i32, ptr %129, align 4
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds [0 x %struct.WordEntry], ptr %130, i64 0, i64 %177
+  %178 = getelementptr inbounds %struct.WordEntry, ptr %130, i64 %177
   %179 = load i32, ptr %.088102, align 4
   %180 = lshr i32 %179, 12
   %181 = lshr i32 %179, 1

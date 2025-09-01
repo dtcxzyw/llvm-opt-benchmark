@@ -99,7 +99,7 @@ define noundef ptr @uhash_openSize_77(ptr noundef %0, ptr noundef %1, ptr nounde
 
 6:                                                ; preds = %5, %10
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !28
   %9 = icmp slt i32 %8, %3
   br i1 %9, label %10, label %.critedge.split.loop.exit11
@@ -152,7 +152,7 @@ define noundef ptr @uhash_openSize_77(ptr noundef %0, ptr noundef %1, ptr nounde
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i8 %29, ptr %30, align 8, !tbaa !18
   %31 = zext nneg i32 %.0.lcssa to i64
-  %32 = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 %33, ptr %34, align 4, !tbaa !19
@@ -290,7 +290,7 @@ define ptr @uhash_initSize_77(ptr noundef captures(ret: address, provenance) %0,
 
 7:                                                ; preds = %6, %11
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !28
   %10 = icmp slt i32 %9, %4
   br i1 %10, label %11, label %.critedge.split.loop.exit11
@@ -329,7 +329,7 @@ define ptr @uhash_initSize_77(ptr noundef captures(ret: address, provenance) %0,
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %23, ptr %24, align 8, !tbaa !18
   %25 = zext nneg i32 %.0.lcssa to i64
-  %26 = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @_ZL6PRIMES, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %27, ptr %28, align 4, !tbaa !19
@@ -567,27 +567,25 @@ define void @uhash_setResizePolicy_77(ptr noundef captures(none) initializes((56
   store i32 0, ptr %3, align 4, !tbaa !3
   %4 = shl nsw i32 %1, 1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %5
+  %6 = getelementptr inbounds float, ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 %5
   %7 = load float, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %7, ptr %8, align 4, !tbaa !16
-  %9 = or disjoint i32 %4, 1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %10
-  %12 = load float, ptr %11, align 4, !tbaa !36
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %12, ptr %13, align 8, !tbaa !17
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %15 = load i32, ptr %14, align 4, !tbaa !19
-  %16 = sitofp i32 %15 to float
-  %17 = fmul float %7, %16
-  %18 = fptosi float %17 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %18, ptr %19, align 4, !tbaa !26
-  %20 = fmul float %12, %16
-  %21 = fptosi float %20 to i32
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %21, ptr %22, align 8, !tbaa !27
+  %9 = getelementptr i8, ptr %6, i64 4
+  %10 = load float, ptr %9, align 4, !tbaa !36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store float %10, ptr %11, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %13 = load i32, ptr %12, align 4, !tbaa !19
+  %14 = sitofp i32 %13 to float
+  %15 = fmul float %7, %14
+  %16 = fptosi float %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %16, ptr %17, align 4, !tbaa !26
+  %18 = fmul float %10, %14
+  %19 = fptosi float %18 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %19, ptr %20, align 8, !tbaa !27
   call fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -632,7 +630,7 @@ define internal fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr no
   %27 = trunc i32 %.0 to i8
   store i8 %27, ptr %6, align 8, !tbaa !18
   %28 = sext i32 %.0 to i64
-  %29 = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr @_ZL6PRIMES, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !28
   store i32 %30, ptr %4, align 4, !tbaa !19
   %31 = sext i32 %30 to i64

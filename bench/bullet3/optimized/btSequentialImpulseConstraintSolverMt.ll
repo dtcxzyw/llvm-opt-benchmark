@@ -2052,7 +2052,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt40internalColle
 37:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.03943 = phi i32 [ 0, %.lr.ph ], [ %.1, %51 ]
-  %38 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %28, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %28, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load float, ptr %39, align 8, !tbaa !137
   %41 = fcmp ugt float %40, %30
@@ -2060,12 +2060,12 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt40internalColle
 
 42:                                               ; preds = %37
   %43 = sext i32 %.03943 to i64
-  %44 = getelementptr inbounds [4 x ptr], ptr %31, i64 0, i64 %43
+  %44 = getelementptr inbounds ptr, ptr %31, i64 %43
   store ptr %38, ptr %44, align 8, !tbaa !138
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %46 = load float, ptr %45, align 8, !tbaa !83
   %47 = fcmp ogt float %46, 0.000000e+00
-  %48 = getelementptr inbounds [4 x i8], ptr %32, i64 0, i64 %43
+  %48 = getelementptr inbounds i8, ptr %32, i64 %43
   %49 = zext i1 %47 to i8
   store i8 %49, ptr %48, align 1, !tbaa !140
   %50 = add nsw i32 %.03943, 1
@@ -2145,7 +2145,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalAlloc
   %31 = load i32, ptr %22, align 4, !tbaa !66
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 156
   store i32 %31, ptr %32, align 4, !tbaa !71
-  %33 = getelementptr inbounds nuw [4 x ptr], ptr %23, i64 0, i64 %indvars.iv66
+  %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv66
   %34 = load ptr, ptr %33, align 8, !tbaa !138
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 136
   store ptr %34, ptr %35, align 8, !tbaa !78
@@ -2167,7 +2167,7 @@ define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalAlloc
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
   %.143.lcssa = phi i32 [ %.04250, %26 ], [ %42, %._crit_edge.loopexit ]
-  %43 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 0, i64 %indvars.iv66
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv66
   %44 = load i8, ptr %43, align 1, !tbaa !140, !range !63, !noundef !93
   %45 = trunc nuw i8 %44 to i1
   %46 = load ptr, ptr %9, align 8, !tbaa !15
@@ -2322,7 +2322,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.147157 = phi i32 [ %.046159, %.lr.ph ], [ %spec.select, %38 ]
-  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1, !tbaa !140, !range !63, !noundef !93
   %41 = trunc nuw i8 %40 to i1
   %42 = add nsw i32 %.147157, 3

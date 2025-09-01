@@ -199,7 +199,7 @@ define dso_local void @exit_aio(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %17 = phi i32 [ 0, %13 ], [ %30, %28 ]
   %18 = phi i32 [ 0, %13 ], [ %31, %28 ]
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [0 x ptr], ptr %14, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %25
@@ -267,7 +267,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @kill_ioctx(ptr noundef %0,
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr [0 x ptr], ptr %12, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %12, i64 %15
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %1
   br i1 %18, label %20, label %19, !prof !6
@@ -282,7 +282,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @kill_ioctx(ptr noundef %0,
 
 20:                                               ; preds = %19, %9
   %.pre-phi = phi i64 [ %.pre3, %19 ], [ %15, %9 ]
-  %21 = getelementptr [0 x ptr], ptr %12, i64 0, i64 %.pre-phi
+  %21 = getelementptr ptr, ptr %12, i64 %.pre-phi
   store volatile ptr null, ptr %21, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %4) #14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -2332,13 +2332,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @ioctx_add_table(ptr nounde
 
 16:                                               ; preds = %35, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %13 ]
-  %17 = getelementptr [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %17 = getelementptr ptr, ptr %14, i64 %indvars.iv
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %35
 
 20:                                               ; preds = %16
-  %21 = getelementptr [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %21 = getelementptr ptr, ptr %14, i64 %indvars.iv
   %22 = trunc nuw i64 %indvars.iv to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %22, ptr %23, align 8
@@ -2787,7 +2787,7 @@ define internal range(i32 -22, 1) i32 @aio_ring_mremap(ptr noundef readonly capt
 19:                                               ; preds = %16, %14
   %20 = phi i32 [ 0, %14 ], [ %17, %16 ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [0 x ptr], ptr %15, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr %15, i64 %21
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %16, label %25
@@ -2898,7 +2898,7 @@ define internal fastcc ptr @lookup_ioctx(i64 noundef %0) unnamed_addr #1 align 1
   %26 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %25, i64 %13) #14, !srcloc !67
   %27 = and i64 %26, %13
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %29 = getelementptr [0 x ptr], ptr %28, i64 0, i64 %27
+  %29 = getelementptr ptr, ptr %28, i64 %27
   %30 = load volatile ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %60, label %32

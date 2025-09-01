@@ -47,7 +47,7 @@ sdsReqType.exit:                                  ; preds = %3, %6, %8, %10
   %or.cond = and i1 %13, %12
   %spec.store.select = select i1 %or.cond, i8 1, i8 %.0.i
   %14 = zext nneg i8 %spec.store.select to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdsAllocSize, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = add i64 %1, 1
@@ -103,14 +103,14 @@ sdsReqType.exit:                                  ; preds = %3, %6, %8, %10
 
 switch.lookup:                                    ; preds = %32
   %39 = zext nneg i8 %spec.store.select to i64
-  %switch.gep82 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %39
+  %switch.gep82 = getelementptr inbounds nuw i64, ptr @switch.table._sdsnewlen.2, i64 %39
   %switch.load83 = load i64, ptr %switch.gep82, align 8
   %40 = icmp ugt i64 %37, %switch.load83
   br i1 %40, label %switch.lookup84, label %42
 
 switch.lookup84:                                  ; preds = %switch.lookup
   %41 = zext nneg i8 %spec.store.select to i64
-  %switch.gep85 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %41
+  %switch.gep85 = getelementptr inbounds nuw i64, ptr @switch.table._sdsnewlen.2, i64 %41
   %switch.load86 = load i64, ptr %switch.gep85, align 8
   store i64 %switch.load86, ptr %4, align 8, !tbaa !11
   br label %42
@@ -365,7 +365,7 @@ define dso_local void @sdsfree(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -395,7 +395,7 @@ define dso_local void @sdsfreegeneric(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -600,7 +600,7 @@ sdslen.exit:                                      ; preds = %37, %40, %43, %47, 
 
 switch.lookup:                                    ; preds = %sdslen.exit
   %59 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -890,7 +890,7 @@ define dso_local ptr @sdsResize(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdsAllocSize, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -991,7 +991,7 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i67, i8 1)
   %.058 = select i1 %.not, i8 %.0.i67, i8 %spec.store.select
   %57 = zext nneg i8 %.058 to i64
-  %switch.gep94 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %57
+  %switch.gep94 = getelementptr inbounds nuw i64, ptr @switch.table.sdsAllocSize, i64 %57
   %switch.load95 = load i64, ptr %switch.gep94, align 8
   %58 = icmp eq i8 %6, %.058
   br i1 %58, label %.thread, label %59
@@ -1178,7 +1178,7 @@ sdsalloc.exit:                                    ; preds = %1, %6, %9, %13, %17
 
 switch.lookup:                                    ; preds = %sdsalloc.exit
   %26 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdsAllocSize, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -1199,7 +1199,7 @@ define dso_local ptr @sdsAllocPtr(ptr noundef readonly captures(ret: address, pr
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -3761,7 +3761,7 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 
 switch.lookup:                                    ; preds = %83
   %88 = zext nneg i8 %86 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %88
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -3821,7 +3821,7 @@ define dso_local void @sdsfreesplitres(ptr noundef %0, i32 noundef %1) local_unn
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -5678,7 +5678,7 @@ sdscatlen.exit:                                   ; preds = %306, %sdssetlen.exi
 
 switch.lookup:                                    ; preds = %376
   %381 = zext nneg i8 %379 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %381
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %381
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -5710,7 +5710,7 @@ sdsfree.exit:                                     ; preds = %.lr.ph152, %sdsHdrS
 
 switch.lookup231:                                 ; preds = %385
   %390 = zext nneg i8 %388 to i64
-  %switch.gep232 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %390
+  %switch.gep232 = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %390
   %switch.load233 = load i64, ptr %switch.gep232, align 8
   br label %sdsfree.exit127
 
@@ -6597,7 +6597,7 @@ sdssetlen.exit.i.i53:                             ; preds = %158, %155, %152, %1
 
 switch.lookup:                                    ; preds = %170
   %175 = zext nneg i8 %173 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %175
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %175
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -6717,7 +6717,7 @@ sdscat.exit60:                                    ; preds = %sdssetlen.exit.i.i5
 
 switch.lookup107:                                 ; preds = %sdscat.exit60
   %227 = zext nneg i8 %225 to i64
-  %switch.gep108 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %227
+  %switch.gep108 = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %227
   %switch.load109 = load i64, ptr %switch.gep108, align 8
   br label %sdsfree.exit63
 
@@ -6748,7 +6748,7 @@ sdscat.exit:                                      ; preds = %sdssetlen.exit.i.i5
 
 switch.lookup110:                                 ; preds = %233
   %238 = zext nneg i8 %236 to i64
-  %switch.gep111 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %238
+  %switch.gep111 = getelementptr inbounds nuw i64, ptr @switch.table.sdstemplate.6, i64 %238
   %switch.load112 = load i64, ptr %switch.gep111, align 8
   br label %sdsHdrSize.exit.i64
 

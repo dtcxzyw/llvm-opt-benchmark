@@ -224,7 +224,7 @@ BufferGetPage.exit21.i:                           ; preds = %120, %114
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i20.i, i64 68
   %131 = load i32, ptr %130, align 4
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw [1024 x i32], ptr %129, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr %129, i64 %132
   store i32 %128, ptr %133, align 4
   %134 = add i32 %131, 1
   store i32 %134, ptr %130, align 4
@@ -647,7 +647,7 @@ BufferGetPage.exit71.i:                           ; preds = %351, %345
   %364 = getelementptr inbounds nuw i8, ptr %.0.i.i70.i, i64 60
   %365 = load i32, ptr %364, align 4
   %366 = zext i32 %365 to i64
-  %367 = getelementptr inbounds nuw [98 x i32], ptr %363, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw i32, ptr %363, i64 %366
   %368 = load i32, ptr %367, align 4
   %369 = add i32 %368, 1
   store i32 %369, ptr %367, align 4
@@ -658,7 +658,7 @@ BufferGetPage.exit71.i:                           ; preds = %351, %345
   %372 = getelementptr inbounds nuw i8, ptr %.0.i.i70.i, i64 68
   %373 = load i32, ptr %372, align 4
   %374 = zext i32 %373 to i64
-  %375 = getelementptr inbounds nuw [1024 x i32], ptr %371, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw i32, ptr %371, i64 %374
   store i32 %.0.i, ptr %375, align 4
   %376 = add i32 %373, 1
   store i32 %376, ptr %372, align 4
@@ -867,7 +867,7 @@ BufferGetPage.exit46.i:                           ; preds = %463, %457
   %486 = load i32, ptr %485, align 4
   %487 = getelementptr inbounds nuw i8, ptr %.0.i.i45.i, i64 76
   %488 = zext i32 %.0.copyload.i to i64
-  %489 = getelementptr inbounds nuw [98 x i32], ptr %487, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw i32, ptr %487, i64 %488
   store i32 %486, ptr %489, align 4
   %490 = getelementptr inbounds nuw i8, ptr %.0.i.i45.i, i64 60
   store i32 %.0.copyload.i, ptr %490, align 4

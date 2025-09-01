@@ -2030,7 +2030,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
 
 ._crit_edge.i:                                    ; preds = %113
   %.phi.trans.insert1.i = zext nneg i32 %115 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i, i64 0, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !31
   %117 = add nuw nsw i32 %115, 1
   br label %179
@@ -2166,7 +2166,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   %185 = fcmp oeq float %184, 1.000000e+00
   %186 = fadd float %184, 0.000000e+00
   %187 = select i1 %185, float 0.000000e+00, float %186
-  %188 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
   store float %187, ptr %188, align 4, !tbaa !170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

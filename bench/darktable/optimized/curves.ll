@@ -340,7 +340,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 
 190:                                              ; preds = %.thread, %183, %._crit_edge219
   %191 = phi i16 [ 0, %._crit_edge219 ], [ %189, %.thread ], [ -1, %183 ]
-  %192 = getelementptr inbounds nuw [65536 x i16], ptr %119, i64 0, i64 %indvars.iv259
+  %192 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv259
   store i16 %191, ptr %192, align 2, !tbaa !25
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next260, 65536
@@ -496,7 +496,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.us.split.us:                     ; preds = %.preheader.split.us.split.us.preheader, %88
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %88 ], [ 0, %.preheader.split.us.split.us.preheader ]
-  %71 = getelementptr inbounds nuw [65536 x i16], ptr %63, i64 0, i64 %indvars.iv113
+  %71 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv113
   store i16 -1, ptr %71, align 2, !tbaa !25
   %72 = trunc nuw nsw i64 %indvars.iv113 to i32
   %73 = uitofp nneg i32 %72 to double
@@ -532,7 +532,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us.split.preheader, %106
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %106 ], [ 0, %.preheader.split.us.split.preheader ]
-  %89 = getelementptr inbounds nuw [65536 x i16], ptr %63, i64 0, i64 %indvars.iv109
+  %89 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv109
   store i16 -1, ptr %89, align 2, !tbaa !25
   %90 = trunc nuw nsw i64 %indvars.iv109 to i32
   %91 = uitofp nneg i32 %90 to double
@@ -571,7 +571,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %124
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %124 ], [ 0, %.preheader.split ]
-  %107 = getelementptr inbounds nuw [65536 x i16], ptr %63, i64 0, i64 %indvars.iv105
+  %107 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv105
   store i16 -1, ptr %107, align 2, !tbaa !25
   %108 = trunc nuw nsw i64 %indvars.iv105 to i32
   %109 = uitofp nneg i32 %108 to double
@@ -624,7 +624,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.split:                           ; preds = %.preheader.split, %144
   %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %.preheader.split ]
-  %127 = getelementptr inbounds nuw [65536 x i16], ptr %63, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv
   store i16 -1, ptr %127, align 2, !tbaa !25
   %128 = trunc nuw nsw i64 %indvars.iv to i32
   %129 = uitofp nneg i32 %128 to double
@@ -701,7 +701,7 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %umin, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [65536 x i16], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr i16, ptr %8, i64 %indvars.iv
   store i16 %load_initial, ptr %11, align 2, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
@@ -709,14 +709,14 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = tail call i32 @llvm.umax.i32(i32 %1, i32 4096)
-  %13 = add nsw i32 %12, -1
-  %14 = zext nneg i32 %13 to i64
+  %13 = zext nneg i32 %12 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread, %7
-  %.01014 = phi i64 [ 65535, %.thread ], [ 65535, %7 ], [ %14, %._crit_edge.loopexit ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  %16 = getelementptr inbounds nuw [65536 x i16], ptr %15, i64 0, i64 %.01014
+  %.01015 = phi i64 [ 65536, %.thread ], [ 65536, %7 ], [ %13, %._crit_edge.loopexit ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  %15 = getelementptr i16, ptr %14, i64 %.01015
+  %16 = getelementptr i8, ptr %15, i64 -2
   %17 = load i16, ptr %16, align 2, !tbaa !25
   %18 = zext i16 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 153000

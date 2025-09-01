@@ -2162,7 +2162,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK9subpaving9context_tINS_11config_
 define weak_odr hidden noundef ptr @_ZNK9subpaving9context_tINS_11config_mpfxEE6clauseixEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !67
   ret ptr %6
 }
@@ -2191,7 +2191,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE6clause7d
   br label %11
 
 11:                                               ; preds = %9, %8
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !67
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -3072,7 +3072,7 @@ define weak_odr hidden noundef i32 @_ZNK9subpaving9context_tINS_11config_mpfxEE8
 define weak_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK9subpaving9context_tINS_11config_mpfxEE8monomial9get_powerEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"class.subpaving::power", ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -3086,7 +3086,7 @@ define weak_odr hidden noundef ptr @_ZNK9subpaving9context_tINS_11config_mpfxEE8
 define weak_odr hidden noundef i32 @_ZNK9subpaving9context_tINS_11config_mpfxEE8monomial1xEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"class.subpaving::power", ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !101
   ret i32 %6
 }
@@ -3123,7 +3123,7 @@ define weak_odr hidden void @_ZNK9subpaving9context_tINS_11config_mpfxEE8monomia
   br label %11
 
 11:                                               ; preds = %9, %.lr.ph.split.us
-  %12 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %7, i64 0, i64 %indvars.iv17
+  %12 = getelementptr inbounds nuw %"class.subpaving::power", ptr %7, i64 %indvars.iv17
   %13 = load i32, ptr %12, align 4, !tbaa !101
   %14 = load ptr, ptr %2, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3162,7 +3162,7 @@ define weak_odr hidden void @_ZNK9subpaving9context_tINS_11config_mpfxEE8monomia
   br label %31
 
 31:                                               ; preds = %29, %.lr.ph.split
-  %32 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %7, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %"class.subpaving::power", ptr %7, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !101
   %34 = load ptr, ptr %2, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -4631,7 +4631,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK9subpaving9context_tINS_11config_
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %"class.subpaving::power", ptr %5, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !101
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
@@ -4845,7 +4845,7 @@ define weak_odr hidden void @_ZNK9subpaving9context_tINS_11config_mpfxEE7display
   br label %17
 
 17:                                               ; preds = %15, %14
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !67
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -5278,7 +5278,7 @@ _ZSt11stable_sortIPPN9subpaving9context_tINS0_11config_mpfxEE4ineqENS4_11lt_var_
 
 _ZN9subpaving9context_tINS_11config_mpfxEE7inc_refEPNS2_4ineqE.exit: ; preds = %52, %55
   %62 = phi ptr [ null, %52 ], [ %.pre, %55 ]
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   store ptr %62, ptr %63, align 8, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5286,7 +5286,7 @@ _ZN9subpaving9context_tINS_11config_mpfxEE7inc_refEPNS2_4ineqE.exit: ; preds = %
 
 64:                                               ; preds = %.lr.ph51, %97
   %indvars.iv57 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next58, %97 ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %indvars.iv57
+  %65 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv57
   %66 = load ptr, ptr %65, align 8, !tbaa !67
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %.not = icmp eq i32 %67, -1
@@ -5297,8 +5297,8 @@ _ZN9subpaving9context_tINS_11config_mpfxEE7inc_refEPNS2_4ineqE.exit: ; preds = %
   br i1 %69, label %75, label %70
 
 70:                                               ; preds = %68
-  %71 = add nsw i64 %indvars.iv57, -1
-  %72 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %71
+  %71 = getelementptr ptr, ptr %51, i64 %indvars.iv57
+  %72 = getelementptr i8, ptr %71, i64 -8
   %73 = load ptr, ptr %72, align 8, !tbaa !67
   %74 = load i32, ptr %73, align 4, !tbaa !3
   %.not31 = icmp eq i32 %67, %74
@@ -5449,7 +5449,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE10del_cla
 
 .thread.us:                                       ; preds = %.lr.ph, %_ZN9subpaving9context_tINS_11config_mpfxEE7dec_refEPNS2_4ineqE.exit.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %_ZN9subpaving9context_tINS_11config_mpfxEE7dec_refEPNS2_4ineqE.exit.us ], [ 0, %.lr.ph ]
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv31
+  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv31
   %14 = load ptr, ptr %13, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 4
@@ -5487,7 +5487,7 @@ _ZN9subpaving9context_tINS_11config_mpfxEE7dec_refEPNS2_4ineqE.exit.us: ; preds 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN9subpaving9context_tINS_11config_mpfxEE7dec_refEPNS2_4ineqE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN9subpaving9context_tINS_11config_mpfxEE7dec_refEPNS2_4ineqE.exit ], [ 0, %.lr.ph ]
   %.027 = phi i32 [ %34, %_ZN9subpaving9context_tINS_11config_mpfxEE7dec_refEPNS2_4ineqE.exit ], [ -1, %.lr.ph ]
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !67
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %.not = icmp eq i32 %34, %.027
@@ -7801,7 +7801,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE18propaga
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK9subpaving9context_tINS_11config_mpfxEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
   %.065104 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNK9subpaving9context_tINS_11config_mpfxEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
   %.068103 = phi i1 [ false, %.lr.ph ], [ %.3, %_ZNK9subpaving9context_tINS_11config_mpfxEE13is_upper_zeroEjPNS2_4nodeE.exit.thread ]
-  %23 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %19, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %"class.subpaving::power", ptr %19, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !101
   %25 = tail call noundef zeroext i1 @_ZNK9subpaving9context_tINS_11config_mpfxEE7is_zeroEjPNS2_4nodeE(ptr noundef nonnull align 8 dereferenceable(656) %0, i32 noundef %24, ptr noundef %2)
   %spec.select = select i1 %25, i1 true, i1 %.068103
@@ -8012,7 +8012,7 @@ _ZN9subpaving9context_tINS_11config_mpfxEE15propagate_boundEjRK4mpfxbbPNS2_4node
 119:                                              ; preds = %.lr.ph110, %125
   %indvars.iv121 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next122, %125 ]
   %.066107 = phi i32 [ -1, %.lr.ph110 ], [ %.167, %125 ]
-  %120 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %115, i64 0, i64 %indvars.iv121
+  %120 = getelementptr inbounds nuw %"class.subpaving::power", ptr %115, i64 %indvars.iv121
   %121 = load i32, ptr %120, align 4, !tbaa !101
   store i8 1, ptr %114, align 8, !tbaa !75
   store ptr %2, ptr %116, align 8, !tbaa !78
@@ -8093,7 +8093,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE25propaga
 
 26:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %27 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %18, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"class.subpaving::power", ptr %18, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !101
   store i8 1, ptr %16, align 8, !tbaa !75
   store ptr %2, ptr %19, align 8, !tbaa !78
@@ -8529,7 +8529,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE27propaga
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %21, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %"class.subpaving::power", ptr %21, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !101
   store i8 1, ptr %20, align 8, !tbaa !75
   store ptr %2, ptr %22, align 8, !tbaa !78
@@ -8610,7 +8610,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE27propaga
 
 67:                                               ; preds = %64, %53
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %69 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %68, i64 0, i64 %.pre-phi
+  %69 = getelementptr inbounds nuw %"class.subpaving::power", ptr %68, i64 %.pre-phi
   %70 = load i32, ptr %69, align 4, !tbaa !101
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %72 = load i8, ptr %71, align 8, !tbaa !93, !range !91, !noundef !92
@@ -18656,7 +18656,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE16propaga
 15:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.034 = phi i32 [ -1, %.lr.ph ], [ %.2.fr, %21 ]
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = tail call noundef i32 @_ZN9subpaving9context_tINS_11config_mpfxEE5valueEPNS2_4ineqEPNS2_4nodeE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef %17, ptr noundef %2)
   switch i32 %18, label %21 [
@@ -18687,7 +18687,7 @@ define weak_odr hidden void @_ZN9subpaving9context_tINS_11config_mpfxEE16propaga
   %24 = phi i32 [ 0, %._crit_edge.thread ], [ %.2.fr, %._crit_edge ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !67
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -21541,7 +21541,7 @@ _ZSt4sortIPN9subpaving5powerENS1_7lt_procEEvT_S4_T0_.exit: ; preds = %_ZN6vector
 
 52:                                               ; preds = %52, %.lr.ph.i32
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i35, %52 ]
-  %53 = getelementptr inbounds nuw [0 x %"class.subpaving::power"], ptr %49, i64 0, i64 %indvars.iv.i34
+  %53 = getelementptr inbounds nuw %"class.subpaving::power", ptr %49, i64 %indvars.iv.i34
   %54 = load i32, ptr %53, align 4, !tbaa !101
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 %55
@@ -22480,7 +22480,7 @@ _ZNK6vectorIPN9subpaving9context_tINS0_11config_mpfxEE6clauseELb0EjE4sizeEv.exit
   br label %88
 
 88:                                               ; preds = %86, %85
-  %89 = getelementptr inbounds nuw [0 x ptr], ptr %84, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i
   %90 = load ptr, ptr %89, align 8, !tbaa !67
   %91 = load i32, ptr %90, align 4, !tbaa !3
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 4

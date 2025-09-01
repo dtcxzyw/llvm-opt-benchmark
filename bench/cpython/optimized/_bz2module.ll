@@ -773,7 +773,7 @@ define internal fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull captures(none)
   br i1 %10, label %11, label %._crit_edge.i
 
 11:                                               ; preds = %9
-  %12 = getelementptr [17 x i64], ptr @BUFFER_BLOCK_SIZE, i64 0, i64 %.val.i
+  %12 = getelementptr i64, ptr @BUFFER_BLOCK_SIZE, i64 %.val.i
   %13 = load i64, ptr %12, align 8, !tbaa !53
   br label %._crit_edge.i
 

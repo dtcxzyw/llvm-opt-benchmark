@@ -479,7 +479,7 @@ define void @_ZN4base11trace_event24AllocationContextTracker18GetContextSnapshot
   %.553 = phi ptr [ %44, %.lr.ph54 ], [ %.0.ptr, %36 ]
   %.03352 = phi i64 [ %41, %.lr.ph54 ], [ %37, %36 ]
   %41 = add i64 %.03352, -1
-  %42 = getelementptr inbounds nuw [128 x ptr], ptr %4, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !32
   %44 = getelementptr inbounds nuw i8, ptr %.553, i64 16
   store i32 2, ptr %.553, align 8, !tbaa !30

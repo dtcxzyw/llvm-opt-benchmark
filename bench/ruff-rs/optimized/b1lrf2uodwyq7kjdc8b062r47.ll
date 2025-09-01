@@ -2743,13 +2743,13 @@ switch.lookup:
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val13 = load i8, ptr %18, align 8, !range !232, !noundef !3
   %19 = zext nneg i8 %.val13 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE", i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i8 %.val13 to i64
-  %switch.gep43 = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.32", i64 0, i64 %20
+  %switch.gep43 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.32", i64 %20
   %switch.load44 = load i64, ptr %switch.gep43, align 8
   %21 = zext nneg i8 %.val13 to i64
-  %switch.gep45 = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.33", i64 0, i64 %21
+  %switch.gep45 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.33", i64 %21
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %switch.load, ptr %17, align 8

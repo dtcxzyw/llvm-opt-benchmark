@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @av_get_sample_fmt_name(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %2
   %.0 = select i1 %or.cond, ptr null, ptr %3
   ret ptr %.0
 }
@@ -24,7 +24,7 @@ define range(i32 -1, 12) i32 @av_get_sample_fmt(ptr noundef readonly captures(no
 
 2:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %3 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %indvars.iv
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #14
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.split.loop.exit8, label %5
@@ -53,7 +53,7 @@ define i32 @av_get_alt_sample_fmt(i32 noundef %0, i32 noundef %1) local_unnamed_
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !6
   %8 = icmp eq i32 %7, %1
@@ -76,7 +76,7 @@ define i32 @av_get_packed_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !6
   %.not = icmp eq i32 %6, 0
@@ -99,7 +99,7 @@ define i32 @av_get_planar_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !6
   %.not = icmp eq i32 %6, 0
@@ -133,7 +133,7 @@ define noundef ptr @av_get_sample_fmt_string(ptr noundef returned writeonly capt
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %13, i64 20, i1 false), !tbaa.struct !12
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -159,7 +159,7 @@ define range(i32 -268435456, 268435456) i32 @av_get_bytes_per_sample(i32 noundef
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %3, i32 1
+  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 1
   %5 = load i32, ptr %4, align 4, !tbaa !15
   %6 = ashr i32 %5, 3
   br label %7
@@ -176,7 +176,7 @@ define i32 @av_sample_fmt_is_planar(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4, !tbaa !6
   br label %6
 
@@ -192,7 +192,7 @@ define i32 @av_samples_get_buffer_size(ptr noundef writeonly captures(address_is
 
 av_sample_fmt_is_planar.exit:                     ; preds = %5
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %6, i32 1
+  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6, i32 1
   %8 = load i32, ptr %7, align 4, !tbaa !15
   %9 = ashr i32 %8, 3
   %10 = icmp slt i32 %2, 1
@@ -266,7 +266,7 @@ define i32 @av_samples_fill_arrays(ptr noundef captures(none) %0, ptr noundef wr
 
 av_sample_fmt_is_planar.exit.i:                   ; preds = %7
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %8, i32 1
+  %9 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8, i32 1
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = ashr i32 %10, 3
   %12 = icmp slt i32 %4, 1
@@ -375,7 +375,7 @@ define i32 @av_samples_alloc(ptr noundef captures(none) %0, ptr noundef writeonl
 
 av_sample_fmt_is_planar.exit.i:                   ; preds = %6
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %7, i32 1
+  %8 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %7, i32 1
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = ashr i32 %9, 3
   %11 = icmp slt i32 %3, 1
@@ -560,7 +560,7 @@ av_get_bytes_per_sample.exit:                     ; preds = %5
   %.fr = freeze i64 %7
   %8 = and i64 %.fr, 1055
   %.not.not = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %6, i32 1
+  %9 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6, i32 1
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = ashr i32 %10, 3
   br i1 %.not.not, label %av_get_bytes_per_sample.exit.thread, label %.lr.ph
@@ -653,7 +653,7 @@ av_get_bytes_per_sample.exit:                     ; preds = %7
   %10 = and i64 %.fr, 1055
   %.not.not = icmp eq i64 %10, 0
   %11 = select i1 %.not.not, i32 %5, i32 1
-  %12 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %8, i32 1
+  %12 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8, i32 1
   %13 = load i32, ptr %12, align 4, !tbaa !15
   %14 = ashr i32 %13, 3
   %spec.select = select i1 %.not.not, i32 1, i32 %5

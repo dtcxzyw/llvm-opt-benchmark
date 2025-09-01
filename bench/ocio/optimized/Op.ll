@@ -946,7 +946,7 @@ define hidden noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev11GetTypeNameENS_6OpD
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GetTypeNameENS_6OpData4TypeE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GetTypeNameENS_6OpData4TypeE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -9061,10 +9061,10 @@ switch.lookup:                                    ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
   %80 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   %81 = zext nneg i32 %2 to i64
-  %switch.gep37 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE.9, i64 0, i64 %81
+  %switch.gep37 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE.9, i64 %81
   %switch.load38 = load i64, ptr %switch.gep37, align 8
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %switch.load, i64 noundef %switch.load38)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %83

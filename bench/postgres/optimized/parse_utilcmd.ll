@@ -2723,7 +2723,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
 
 237:                                              ; preds = %311, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %311 ]
-  %238 = getelementptr inbounds nuw [0 x i16], ptr %228, i64 0, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw i16, ptr %228, i64 %indvars.iv.i
   %239 = load i16, ptr %238, align 2
   %240 = icmp sgt i16 %239, 0
   br i1 %240, label %241, label %252
@@ -2765,7 +2765,7 @@ define internal fastcc void @transformIndexConstraints(ptr noundef nonnull captu
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 84
   %269 = load i32, ptr %268, align 4
   %270 = tail call i32 @GetDefaultOpClass(i32 noundef %266, i32 noundef %269) #8
-  %271 = getelementptr inbounds nuw [0 x i32], ptr %233, i64 0, i64 %indvars.iv.i
+  %271 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv.i
   %272 = load i32, ptr %271, align 4
   %.not465.i = icmp eq i32 %272, %270
   br i1 %.not465.i, label %273, label %285
@@ -4273,7 +4273,7 @@ define dso_local ptr @expandTableLikeClause(ptr noundef %0, ptr noundef readonly
   %.06989.i = phi ptr [ null, %.lr.ph90.i ], [ %270, %263 ]
   %264 = call noundef ptr @palloc0(i64 noundef 24) #8
   store i32 205, ptr %264, align 4
-  %265 = getelementptr inbounds nuw [0 x i16], ptr %245, i64 0, i64 %indvars.iv108.i
+  %265 = getelementptr inbounds nuw i16, ptr %245, i64 %indvars.iv108.i
   %266 = load i16, ptr %265, align 2
   %267 = call ptr @get_attname(i32 noundef %211, i16 noundef signext %266, i1 noundef zeroext false) #8
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 8
@@ -4747,7 +4747,7 @@ list_head.exit:                                   ; preds = %.thread, %163, %168
 191:                                              ; preds = %.lr.ph225, %308
   %indvars.iv238 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next239, %308 ]
   %.0177224 = phi ptr [ %172, %.lr.ph225 ], [ %.1, %308 ]
-  %192 = getelementptr inbounds nuw [0 x i16], ptr %177, i64 0, i64 %indvars.iv238
+  %192 = getelementptr inbounds nuw i16, ptr %177, i64 %indvars.iv238
   %193 = load i16, ptr %192, align 2
   %194 = load ptr, ptr %178, align 8
   %195 = load i32, ptr %194, align 8
@@ -4827,7 +4827,7 @@ list_head.exit:                                   ; preds = %.thread, %163, %168
   %237 = call ptr @pstrdup(ptr noundef nonnull %236) #8
   %238 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store ptr %237, ptr %238, align 8
-  %239 = getelementptr inbounds nuw [0 x i32], ptr %182, i64 0, i64 %indvars.iv238
+  %239 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv238
   %240 = load i32, ptr %239, align 4
   %.not.i206 = icmp eq i32 %240, 0
   br i1 %.not.i206, label %get_collation.exit, label %241
@@ -4872,7 +4872,7 @@ get_collation.exit:                               ; preds = %234, %241, %250
   %.0.i = phi ptr [ %263, %250 ], [ null, %234 ], [ null, %241 ]
   %264 = getelementptr inbounds nuw i8, ptr %202, i64 32
   store ptr %.0.i, ptr %264, align 8
-  %265 = getelementptr inbounds nuw [0 x i32], ptr %183, i64 0, i64 %indvars.iv238
+  %265 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv238
   %266 = load i32, ptr %265, align 4
   %267 = zext i32 %266 to i64
   %268 = call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %267) #8
@@ -4963,7 +4963,7 @@ get_opclass.exit:                                 ; preds = %272, %281
 
 314:                                              ; preds = %.lr.ph227, %320
   %indvars.iv241 = phi i64 [ %190, %.lr.ph227 ], [ %indvars.iv.next242, %320 ]
-  %315 = getelementptr inbounds [0 x i16], ptr %188, i64 0, i64 %indvars.iv241
+  %315 = getelementptr inbounds i16, ptr %188, i64 %indvars.iv241
   %316 = load i16, ptr %315, align 2
   %317 = load ptr, ptr %189, align 8
   %318 = load i32, ptr %317, align 8

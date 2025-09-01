@@ -1021,7 +1021,7 @@ start_threads.exit:                               ; preds = %19
 
 .lr.ph.i:                                         ; preds = %start_threads.exit, %29
   %.05.i13 = phi i64 [ %30, %29 ], [ 0, %start_threads.exit ]
-  %33 = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %.05.i13
+  %33 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i13
   %34 = load i64, ptr %33, align 8, !tbaa !12
   %35 = tail call i32 @pthread_join(i64 noundef %34, ptr noundef null) #11
   %36 = icmp eq i32 %35, 0
@@ -1146,7 +1146,7 @@ start_threads.exit:                               ; preds = %22
 
 .lr.ph.i:                                         ; preds = %start_threads.exit, %31
   %.05.i11 = phi i64 [ %32, %31 ], [ 0, %start_threads.exit ]
-  %35 = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %.05.i11
+  %35 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i11
   %36 = load i64, ptr %35, align 8, !tbaa !12
   %37 = tail call i32 @pthread_join(i64 noundef %36, ptr noundef null) #11
   %38 = icmp eq i32 %37, 0
@@ -1309,7 +1309,7 @@ start_threads.exit:                               ; preds = %11
 
 .lr.ph.i:                                         ; preds = %21, %23
   %.05.i11 = phi i64 [ %24, %23 ], [ 0, %21 ]
-  %27 = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %.05.i11
+  %27 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i11
   %28 = load i64, ptr %27, align 8, !tbaa !12
   %29 = tail call i32 @pthread_join(i64 noundef %28, ptr noundef null) #11
   %30 = icmp eq i32 %29, 0
@@ -1420,7 +1420,7 @@ define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef rang
   %18 = load ptr, ptr @multi_libctx, align 8, !tbaa !16
   %19 = load ptr, ptr %17, align 8, !tbaa !6
   %20 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %18, ptr noundef %19) #11
-  %21 = getelementptr inbounds nuw [5 x ptr], ptr @multi_provider, i64 0, i64 %.017
+  %21 = getelementptr inbounds nuw ptr, ptr @multi_provider, i64 %.017
   store ptr %20, ptr %21, align 8, !tbaa !24
   %22 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 759, ptr noundef nonnull @.str.48, ptr noundef %20) #11
   %.not15 = icmp eq i32 %22, 0
@@ -2590,7 +2590,7 @@ start_threads.exit13:                             ; preds = %.preheader.i8.prehe
 
 .lr.ph.i:                                         ; preds = %start_threads.exit13, %31
   %.05.i14 = phi i64 [ %32, %31 ], [ 0, %start_threads.exit13 ]
-  %35 = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %.05.i14
+  %35 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i14
   %36 = load i64, ptr %35, align 8, !tbaa !12
   %37 = tail call i32 @pthread_join(i64 noundef %36, ptr noundef null) #11
   %38 = icmp eq i32 %37, 0

@@ -1405,7 +1405,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
 
 71:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %72 = getelementptr inbounds nuw [3 x %struct.opj_tcd_band], ptr %66, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %66, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !80
   %75 = load i32, ptr %47, align 4, !tbaa !70

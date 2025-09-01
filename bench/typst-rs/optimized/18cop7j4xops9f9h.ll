@@ -5231,7 +5231,7 @@ _ZN12typst_syntax4node10SyntaxNode4text17h0d9372afac3f611fE.exit: ; preds = %2, 
 
 .lr.ph.i.i:                                       ; preds = %36, %40
   %.05.i.i = phi i64 [ %41, %40 ], [ 0, %36 ]
-  %37 = getelementptr inbounds nuw [0 x i8], ptr %26, i64 0, i64 %.05.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 %.05.i.i
   %38 = load i8, ptr %37, align 1, !alias.scope !1060, !noundef !15
   %39 = icmp eq i8 %38, 92
   br i1 %39, label %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit, label %40
@@ -6907,10 +6907,10 @@ define noundef range(i64 4, 8) i64 @_ZN12typst_syntax3ast4UnOp10precedence17hd69
 define { ptr, i64 } @_ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE(i8 noundef %0) unnamed_addr #9 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE.71, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE.71, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -7003,7 +7003,7 @@ switch.hole_check:                                ; preds = %_ZN12typst_syntax4n
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %32 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i8], ptr @switch.table._ZN12typst_syntax3ast6Binary2op17hdeeff0a3e63c47f3E, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN12typst_syntax3ast6Binary2op17hdeeff0a3e63c47f3E, i64 %32
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h8419cba057ed99adE.exit"
 
@@ -7104,7 +7104,7 @@ define noundef range(i8 0, 20) i8 @_ZN12typst_syntax3ast5BinOp9from_kind17he4773
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i8], ptr @switch.table._ZN12typst_syntax3ast5BinOp9from_kind17he4773db505762777E, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN12typst_syntax3ast5BinOp9from_kind17he4773db505762777E, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -7117,7 +7117,7 @@ switch.lookup:                                    ; preds = %1
 define noundef range(i64 1, 7) i64 @_ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E(i8 noundef %0) unnamed_addr #9 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -7135,10 +7135,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE(i8 noundef %0) unnamed_addr #9 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE.72, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE.72, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

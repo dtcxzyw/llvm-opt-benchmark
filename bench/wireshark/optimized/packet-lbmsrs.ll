@@ -1185,7 +1185,7 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
 
 40:                                               ; preds = %38, %34
   %.068.i = phi i64 [ 0, %34 ], [ %39, %38 ]
-  %41 = getelementptr [17 x %struct._value_string], ptr @rSocketFrameTypeNames, i64 0, i64 %.068.i
+  %41 = getelementptr %struct._value_string, ptr @rSocketFrameTypeNames, i64 %.068.i
   %42 = load i32, ptr %41, align 16
   %43 = zext i32 %42 to i64
   %44 = icmp eq i64 %37, %43
@@ -3779,7 +3779,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 6:                                                ; preds = %2
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %8 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %7
+  %8 = getelementptr i8, ptr %3, i64 %7
   %9 = sub i64 1024, %7
   %10 = tail call i64 @llvm.usub.sat.i64(i64 1024, i64 %7)
   %11 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef %9, i32 noundef 2, i64 noundef %10, ptr noundef nonnull @.str.390, i32 noundef %5)
@@ -3792,7 +3792,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 14:                                               ; preds = %12
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %16 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %3, i64 %15
   %17 = sub i64 1024, %15
   %18 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %15)
   %19 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %16, i64 noundef %17, i32 noundef 2, i64 noundef %18, ptr noundef nonnull @.str.391, i32 noundef %13)
@@ -3805,7 +3805,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 22:                                               ; preds = %20
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %24 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %3, i64 %23
   %25 = sub i64 1024, %23
   %26 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %23)
   %27 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %24, i64 noundef %25, i32 noundef 2, i64 noundef %26, ptr noundef nonnull @.str.392, i32 noundef %21)
@@ -3818,7 +3818,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 30:                                               ; preds = %28
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %32 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %31
+  %32 = getelementptr i8, ptr %3, i64 %31
   %33 = sub i64 1024, %31
   %34 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %31)
   %35 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %32, i64 noundef %33, i32 noundef 2, i64 noundef %34, ptr noundef nonnull @.str.393, i32 noundef %29)
@@ -3831,7 +3831,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 38:                                               ; preds = %36
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %40 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %39
+  %40 = getelementptr i8, ptr %3, i64 %39
   %41 = sub i64 1024, %39
   %42 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %39)
   %43 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %40, i64 noundef %41, i32 noundef 2, i64 noundef %42, ptr noundef nonnull @.str.394, i32 noundef %37)
@@ -3844,7 +3844,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 46:                                               ; preds = %44
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %48 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %47
+  %48 = getelementptr i8, ptr %3, i64 %47
   %49 = sub i64 1024, %47
   %50 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %47)
   %51 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %48, i64 noundef %49, i32 noundef 2, i64 noundef %50, ptr noundef nonnull @.str.395, i32 noundef %45)
@@ -3857,7 +3857,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 54:                                               ; preds = %52
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %56 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %55
+  %56 = getelementptr i8, ptr %3, i64 %55
   %57 = sub i64 1024, %55
   %58 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %55)
   %59 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %56, i64 noundef %57, i32 noundef 2, i64 noundef %58, ptr noundef nonnull @.str.396, i32 noundef %53)
@@ -3870,7 +3870,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 62:                                               ; preds = %60
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %64 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %63
+  %64 = getelementptr i8, ptr %3, i64 %63
   %65 = sub i64 1024, %63
   %66 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %63)
   %67 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %64, i64 noundef %65, i32 noundef 2, i64 noundef %66, ptr noundef nonnull @.str.397, i32 noundef %61)
@@ -3883,7 +3883,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 70:                                               ; preds = %68
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %72 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %71
+  %72 = getelementptr i8, ptr %3, i64 %71
   %73 = sub i64 1024, %71
   %74 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %71)
   %75 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %72, i64 noundef %73, i32 noundef 2, i64 noundef %74, ptr noundef nonnull @.str.398, i32 noundef %69)
@@ -3896,7 +3896,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 78:                                               ; preds = %76
   %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %80 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %79
+  %80 = getelementptr i8, ptr %3, i64 %79
   %81 = sub i64 1024, %79
   %82 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %79)
   %83 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %80, i64 noundef %81, i32 noundef 2, i64 noundef %82, ptr noundef nonnull @.str.399, i32 noundef %77)
@@ -3909,7 +3909,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 86:                                               ; preds = %84
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %88 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %87
+  %88 = getelementptr i8, ptr %3, i64 %87
   %89 = sub i64 1024, %87
   %90 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %87)
   %91 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %88, i64 noundef %89, i32 noundef 2, i64 noundef %90, ptr noundef nonnull @.str.400, i32 noundef %85)
@@ -3922,7 +3922,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 94:                                               ; preds = %92
   %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %96 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %95
+  %96 = getelementptr i8, ptr %3, i64 %95
   %97 = sub i64 1024, %95
   %98 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %95)
   %99 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %96, i64 noundef %97, i32 noundef 2, i64 noundef %98, ptr noundef nonnull @.str.401, i32 noundef %93)
@@ -3935,7 +3935,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 102:                                              ; preds = %100
   %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %104 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %103
+  %104 = getelementptr i8, ptr %3, i64 %103
   %105 = sub i64 1024, %103
   %106 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %103)
   %107 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %104, i64 noundef %105, i32 noundef 2, i64 noundef %106, ptr noundef nonnull @.str.402, i32 noundef %101)
@@ -3948,7 +3948,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 110:                                              ; preds = %108
   %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %112 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %111
+  %112 = getelementptr i8, ptr %3, i64 %111
   %113 = sub i64 1024, %111
   %114 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %111)
   %115 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %112, i64 noundef %113, i32 noundef 2, i64 noundef %114, ptr noundef nonnull @.str.403, i32 noundef %109)
@@ -3961,7 +3961,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 118:                                              ; preds = %116
   %119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %120 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %119
+  %120 = getelementptr i8, ptr %3, i64 %119
   %121 = sub i64 1024, %119
   %122 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %119)
   %123 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %120, i64 noundef %121, i32 noundef 2, i64 noundef %122, ptr noundef nonnull @.str.404, i32 noundef %117)
@@ -3974,7 +3974,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 126:                                              ; preds = %124
   %127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %128 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %127
+  %128 = getelementptr i8, ptr %3, i64 %127
   %129 = sub i64 1024, %127
   %130 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %127)
   %131 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %128, i64 noundef %129, i32 noundef 2, i64 noundef %130, ptr noundef nonnull @.str.405, i32 noundef %125)
@@ -3982,7 +3982,7 @@ define internal fastcc void @update_counts(ptr noundef %0, ptr noundef %1) unnam
 
 132:                                              ; preds = %126, %124
   %133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %134 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %133
+  %134 = getelementptr i8, ptr %3, i64 %133
   %135 = sub i64 1024, %133
   %136 = call i64 @llvm.usub.sat.i64(i64 1024, i64 %133)
   %137 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %134, i64 noundef %135, i32 noundef 2, i64 noundef %136, ptr noundef nonnull @.str.406)

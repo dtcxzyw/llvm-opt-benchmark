@@ -15447,9 +15447,9 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %switch.tableidx = add nsw i64 %15, -1
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN51_$LT$elfshaker..log..Logger$u20$as$u20$log..Log$GT$3log17h9b8688ecde78681bE", i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds ptr, ptr @"switch.table._ZN51_$LT$elfshaker..log..Logger$u20$as$u20$log..Log$GT$3log17h9b8688ecde78681bE", i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep32 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN51_$LT$elfshaker..log..Logger$u20$as$u20$log..Log$GT$3log17h9b8688ecde78681bE.109", i64 0, i64 %switch.tableidx
+  %switch.gep32 = getelementptr inbounds i64, ptr @"switch.table._ZN51_$LT$elfshaker..log..Logger$u20$as$u20$log..Log$GT$3log17h9b8688ecde78681bE.109", i64 %switch.tableidx
   %switch.load33 = load i64, ptr %switch.gep32, align 8
   store ptr %switch.load, ptr %13, align 8
   store i64 %switch.load33, ptr %18, align 8

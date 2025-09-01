@@ -5433,10 +5433,10 @@ define dso_local void @_ZN24cmExtraCodeLiteGenerator18CollectSourceFilesEPK10cmM
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN24cmExtraCodeLiteGenerator18CollectSourceFilesEPK10cmMakefilePK17cmGeneratorTargetRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12cmSourceFileSt4lessISC_ESaISt4pairIKSC_SE_EEERSt3setISC_SG_SaISC_EE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN24cmExtraCodeLiteGenerator18CollectSourceFilesEPK10cmMakefilePK17cmGeneratorTargetRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12cmSourceFileSt4lessISC_ESaISt4pairIKSC_SE_EEERSt3setISC_SG_SaISC_EE, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = zext nneg i32 %13 to i64
-  %switch.gep69 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN24cmExtraCodeLiteGenerator18CollectSourceFilesEPK10cmMakefilePK17cmGeneratorTargetRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12cmSourceFileSt4lessISC_ESaISt4pairIKSC_SE_EEERSt3setISC_SG_SaISC_EE.1, i64 0, i64 %19
+  %switch.gep69 = getelementptr inbounds nuw i64, ptr @switch.table._ZN24cmExtraCodeLiteGenerator18CollectSourceFilesEPK10cmMakefilePK17cmGeneratorTargetRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12cmSourceFileSt4lessISC_ESaISt4pairIKSC_SE_EEERSt3setISC_SG_SaISC_EE.1, i64 %19
   %switch.load70 = load i64, ptr %switch.gep69, align 8
   %20 = load i64, ptr %12, align 8, !tbaa !10
   %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %20, ptr noundef nonnull %switch.load, i64 noundef %switch.load70)

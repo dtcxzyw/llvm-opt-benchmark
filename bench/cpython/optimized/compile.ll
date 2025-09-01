@@ -2396,7 +2396,7 @@ define hidden range(i32 -1, 1) i32 @_PyCompile_PushFBlock(ptr noundef readonly c
   %17 = add nsw i32 %11, 1
   store i32 %17, ptr %10, align 8, !tbaa !59
   %18 = sext i32 %11 to i64
-  %19 = getelementptr [21 x %struct._PyCompile_FBlockInfo], ptr %16, i64 0, i64 %18
+  %19 = getelementptr %struct._PyCompile_FBlockInfo, ptr %16, i64 %18
   store i32 %3, ptr %19, align 8, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %4, ptr %20, align 4, !tbaa !46
@@ -2476,7 +2476,7 @@ define hidden ptr @_PyCompile_TopFBlock(ptr noundef readonly captures(none) %0) 
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %8 = add i32 %5, -1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr [21 x %struct._PyCompile_FBlockInfo], ptr %7, i64 0, i64 %9
+  %10 = getelementptr %struct._PyCompile_FBlockInfo, ptr %7, i64 %9
   %.0 = select i1 %6, ptr null, ptr %10
   ret ptr %.0
 }
@@ -3592,7 +3592,7 @@ Py_DECREF.exit122:                                ; preds = %22, %25, %28
 
 34:                                               ; preds = %.lr.ph158, %Py_DECREF.exit120
   %.083156 = phi i64 [ 0, %.lr.ph158 ], [ %65, %Py_DECREF.exit120 ]
-  %35 = getelementptr [1 x ptr], ptr %33, i64 0, i64 %.083156
+  %35 = getelementptr ptr, ptr %33, i64 %.083156
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = call fastcc ptr @const_cache_insert(ptr noundef %0, ptr noundef %36, i1 noundef zeroext true)
   %.not101 = icmp eq ptr %37, null
@@ -3786,7 +3786,7 @@ _Py_NewRef.exit141:                               ; preds = %97, %102
 
 Py_DECREF.exit110:                                ; preds = %95, %_Py_NewRef.exit141, %105, %108
   %.073 = phi ptr [ %84, %95 ], [ %99, %_Py_NewRef.exit141 ], [ %99, %105 ], [ %99, %108 ]
-  %109 = getelementptr [1 x ptr], ptr %81, i64 0, i64 %.081154
+  %109 = getelementptr ptr, ptr %81, i64 %.081154
   store ptr %.073, ptr %109, align 8, !tbaa !28
   %110 = add i64 %.081154, 1
   %111 = call i32 @_PySet_NextEntry(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11

@@ -686,7 +686,7 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
 54:                                               ; preds = %49
   %55 = add i64 %51, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr [128 x i8], ptr %4, i64 0, i64 %56
+  %57 = getelementptr i8, ptr %4, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 41
   br i1 %59, label %60, label %.thread

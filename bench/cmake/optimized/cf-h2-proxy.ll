@@ -2755,7 +2755,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr readnone capt
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = call fastcc i32 @proxy_h2_fr_print(ptr noundef nonnull %1, ptr noundef %4)
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %29
+  %30 = getelementptr inbounds i8, ptr %4, i64 %29
   store i8 0, ptr %30, align 1, !tbaa !122
   %31 = load i64, ptr %12, align 2
   %32 = and i64 %31, 134217728
@@ -3096,7 +3096,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr readnone captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = call fastcc i32 @proxy_h2_fr_print(ptr noundef %1, ptr noundef %4)
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %4, i64 %28
   store i8 0, ptr %29, align 1, !tbaa !122
   %30 = load i64, ptr %11, align 2
   %31 = and i64 %30, 134217728
@@ -3601,7 +3601,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr noundef readonly captures(none
   br label %74
 
 74:                                               ; preds = %71, %68
-  %75 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %.
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.
   store i8 0, ptr %75, align 1, !tbaa !122
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %77 = load i32, ptr %76, align 4, !tbaa !122

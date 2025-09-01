@@ -419,7 +419,7 @@ define dso_local ptr @lre_compile(ptr noundef writeonly captures(none) %0, ptr n
   %63 = getelementptr inbounds i8, ptr %59, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !12
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [29 x %struct.REOpCode], ptr @reopcode_info, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %struct.REOpCode, ptr @reopcode_info, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !35
   %68 = zext i8 %67 to i32
   switch i8 %64, label %86 [
@@ -1246,7 +1246,7 @@ push_state.exit816:                               ; preds = %653, %600, %542, %4
   %.04448.i = phi i64 [ 0, %.lr.ph.i ], [ %187, %183 ]
   %184 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04448.i
   %185 = load ptr, ptr %184, align 8, !tbaa !7
-  %186 = getelementptr inbounds nuw [0 x ptr], ptr %182, i64 0, i64 %.04448.i
+  %186 = getelementptr inbounds nuw ptr, ptr %182, i64 %.04448.i
   store ptr %185, ptr %186, align 8, !tbaa !70
   %187 = add nuw i64 %.04448.i, 1
   %exitcond.not.i = icmp eq i64 %187, %181
@@ -1336,7 +1336,7 @@ push_state.exit816:                               ; preds = %653, %600, %542, %4
   %.04448.i754 = phi i64 [ 0, %.lr.ph.i753 ], [ %232, %228 ]
   %229 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04448.i754
   %230 = load ptr, ptr %229, align 8, !tbaa !7
-  %231 = getelementptr inbounds nuw [0 x ptr], ptr %227, i64 0, i64 %.04448.i754
+  %231 = getelementptr inbounds nuw ptr, ptr %227, i64 %.04448.i754
   store ptr %230, ptr %231, align 8, !tbaa !70
   %232 = add nuw i64 %.04448.i754, 1
   %exitcond.not.i755 = icmp eq i64 %232, %226
@@ -2337,7 +2337,7 @@ push_state.exit.thread.backedge:                  ; preds = %.lr.ph51.i808, %.pr
   %.04448.i804 = phi i64 [ 0, %.lr.ph.i803 ], [ %728, %724 ]
   %725 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04448.i804
   %726 = load ptr, ptr %725, align 8, !tbaa !7
-  %727 = getelementptr inbounds nuw [0 x ptr], ptr %723, i64 0, i64 %.04448.i804
+  %727 = getelementptr inbounds nuw ptr, ptr %723, i64 %.04448.i804
   store ptr %726, ptr %727, align 8, !tbaa !70
   %728 = add nuw i64 %.04448.i804, 1
   %exitcond.not.i805 = icmp eq i64 %728, %722
@@ -3506,7 +3506,7 @@ re_parse_expect.exit480:                          ; preds = %441
   %495 = getelementptr inbounds i8, ptr %488, i64 %494
   %496 = load i8, ptr %495, align 1, !tbaa !12
   %497 = zext i8 %496 to i64
-  %498 = getelementptr inbounds nuw [29 x %struct.REOpCode], ptr @reopcode_info, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw %struct.REOpCode, ptr @reopcode_info, i64 %497
   %499 = load i8, ptr %498, align 1, !tbaa !35
   %500 = zext i8 %499 to i32
   switch i8 %496, label %re_need_check_advance.exit [
@@ -3909,7 +3909,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name(ptr noundef non
 
 34:                                               ; preds = %33
   %35 = zext nneg i32 %.02837 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @lre_ctype_bits, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @lre_ctype_bits, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !12
   %38 = and i8 %37, 60
   %39 = zext nneg i8 %38 to i32
@@ -3929,7 +3929,7 @@ lre_js_is_ident_first.exit:                       ; preds = %34, %40
 
 43:                                               ; preds = %42
   %44 = zext nneg i32 %.02837 to i64
-  %45 = getelementptr inbounds nuw [256 x i8], ptr @lre_ctype_bits, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @lre_ctype_bits, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !12
   %47 = and i8 %46, 62
   %48 = zext nneg i8 %47 to i32
@@ -4523,7 +4523,7 @@ define internal fastcc i32 @get_class_atom(ptr noundef nonnull captures(none) %0
   %24 = and i32 %.045, 1
   %25 = lshr i32 %.045, 1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [3 x ptr], ptr @char_range_table, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @char_range_table, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !86
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %28, align 2, !tbaa !65
@@ -5102,7 +5102,7 @@ define internal fastcc i32 @re_is_simple_quantifier(ptr noundef readonly capture
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [29 x %struct.REOpCode], ptr @reopcode_info, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.REOpCode, ptr @reopcode_info, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !35
   %10 = zext i8 %9 to i32
   switch i8 %6, label %._crit_edge [

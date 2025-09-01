@@ -3884,7 +3884,7 @@ switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i8, ptr %2, align 4, !range !62, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN14proc_macro_api3msg4flat11SubtreeRepr21write_with_close_span17hc19f3453ebe8f8afE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14proc_macro_api3msg4flat11SubtreeRepr21write_with_close_span17hc19f3453ebe8f8afE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = load i32, ptr %1, align 4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3954,7 +3954,7 @@ switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i8, ptr %2, align 4, !range !62, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN14proc_macro_api3msg4flat11SubtreeRepr21write_with_close_span17hc19f3453ebe8f8afE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14proc_macro_api3msg4flat11SubtreeRepr21write_with_close_span17hc19f3453ebe8f8afE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = load i32, ptr %1, align 4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4

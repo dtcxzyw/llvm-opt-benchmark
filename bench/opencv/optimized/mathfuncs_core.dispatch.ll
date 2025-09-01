@@ -282,12 +282,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge48, %17
   %27 = getelementptr inbounds nuw double, ptr %0, i64 %26
   %28 = load double, ptr %27, align 8, !tbaa !14
   %29 = fptrunc double %28 to float
-  %30 = getelementptr inbounds nuw [128 x float], ptr %9, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   store float %29, ptr %30, align 4, !tbaa !3
   %31 = getelementptr inbounds nuw double, ptr %1, i64 %26
   %32 = load double, ptr %31, align 8, !tbaa !14
   %33 = fptrunc double %32 to float
-  %34 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %33, ptr %34, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = icmp slt i64 %indvars.iv.next, %25
@@ -364,7 +364,7 @@ _ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit: ; preds 
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %indvars.iv50 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next51, %.lr.ph41 ]
-  %71 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv50
+  %71 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv50
   %72 = load float, ptr %71, align 4, !tbaa !3
   %73 = fpext float %72 to double
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv50
@@ -375,7 +375,7 @@ _ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit: ; preds 
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %indvars.iv53 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next54, %.lr.ph43 ]
-  %75 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv53
+  %75 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv53
   %76 = load float, ptr %75, align 4, !tbaa !3
   %77 = fpext float %76 to double
   %gep63 = getelementptr inbounds nuw double, ptr %invariant.gep62, i64 %indvars.iv53
@@ -533,12 +533,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge39, %15
   %25 = getelementptr inbounds nuw double, ptr %0, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !14
   %27 = fptrunc double %26 to float
-  %28 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   store float %27, ptr %28, align 4, !tbaa !3
   %29 = getelementptr inbounds nuw double, ptr %1, i64 %24
   %30 = load double, ptr %29, align 8, !tbaa !14
   %31 = fptrunc double %30 to float
-  %32 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %31, ptr %32, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = icmp slt i64 %indvars.iv.next, %23
@@ -605,7 +605,7 @@ _ZN2cv3hal12cpu_baselineL12fastAtan32f_EPKfS3_Pfib.exit.loopexit: ; preds = %_ZN
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.lr.ph34
   %indvars.iv41 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next42, %.lr.ph34 ]
-  %65 = getelementptr inbounds nuw [128 x float], ptr %9, i64 0, i64 %indvars.iv41
+  %65 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv41
   %66 = load float, ptr %65, align 4, !tbaa !3
   %67 = fpext float %66 to double
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv41

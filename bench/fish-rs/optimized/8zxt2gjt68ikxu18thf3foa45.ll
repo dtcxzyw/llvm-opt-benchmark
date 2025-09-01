@@ -12308,10 +12308,10 @@ switch.lookup:                                    ; preds = %"_ZN103_$LT$alloc..
   call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !1031
   call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !1031
   %541 = zext nneg i8 %.sroa.543.0.copyload45.i to i64
-  %switch.gep = getelementptr inbounds nuw [28 x i64], ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E, i64 0, i64 %541
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E, i64 %541
   %switch.load = load i64, ptr %switch.gep, align 8
   %542 = zext nneg i8 %.sroa.543.0.copyload45.i to i64
-  %switch.gep2710 = getelementptr inbounds nuw [28 x ptr], ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E.217, i64 0, i64 %542
+  %switch.gep2710 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E.217, i64 %542
   %switch.load2711 = load ptr, ptr %switch.gep2710, align 8
   store ptr %switch.load2711, ptr %86, align 8, !noalias !1031
   store i64 %switch.load, ptr %289, align 8, !noalias !1031
@@ -15864,10 +15864,10 @@ _ZN4fish6common10wcs2string17h3d306fb8d8f28166E.exit.i: ; preds = %"_ZN102_$LT$w
 
 switch.lookup2712:                                ; preds = %.loopexit219.i
   %1695 = zext nneg i8 %.sroa.819.0.copyload.i to i64
-  %switch.gep2713 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E.218, i64 0, i64 %1695
+  %switch.gep2713 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E.218, i64 %1695
   %switch.load2714 = load ptr, ptr %switch.gep2713, align 8
   %1696 = zext nneg i8 %.sroa.819.0.copyload.i to i64
-  %switch.gep2715 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E.219, i64 0, i64 %1696
+  %switch.gep2715 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E.219, i64 %1696
   %switch.load2716 = load i64, ptr %switch.gep2715, align 8
   br label %1697
 
@@ -34482,10 +34482,10 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit243.thread: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %218 = zext nneg i8 %.sroa.0.0.i244 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.223, i64 0, i64 %218
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.223, i64 %218
   %switch.load = load i64, ptr %switch.gep, align 8
   %219 = zext nneg i8 %.sroa.0.0.i244 to i64
-  %switch.gep525 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.224, i64 0, i64 %219
+  %switch.gep525 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.224, i64 %219
   %switch.load526 = load ptr, ptr %switch.gep525, align 8
   store ptr %switch.load526, ptr %27, align 8
   %220 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -34530,10 +34530,10 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit243.thread: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %224 = zext nneg i8 %.sroa.0.0.i247 to i64
-  %switch.gep527 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.223, i64 0, i64 %224
+  %switch.gep527 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.223, i64 %224
   %switch.load528 = load i64, ptr %switch.gep527, align 8
   %225 = zext nneg i8 %.sroa.0.0.i247 to i64
-  %switch.gep529 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.224, i64 0, i64 %225
+  %switch.gep529 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.224, i64 %225
   %switch.load530 = load ptr, ptr %switch.gep529, align 8
   store ptr %switch.load530, ptr %25, align 8
   %226 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -34570,10 +34570,10 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit243.thread: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %229 = zext nneg i8 %.sroa.0.0.i247 to i64
-  %switch.gep531 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.223, i64 0, i64 %229
+  %switch.gep531 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.223, i64 %229
   %switch.load532 = load i64, ptr %switch.gep531, align 8
   %230 = zext nneg i8 %.sroa.0.0.i247 to i64
-  %switch.gep533 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.224, i64 0, i64 %230
+  %switch.gep533 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.224, i64 %230
   %switch.load534 = load ptr, ptr %switch.gep533, align 8
   store ptr %switch.load534, ptr %23, align 8
   %231 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -34796,39 +34796,39 @@ _ZN4fish5timer4Unit14convert_micros17hb36f0d67961ecdd7E.exit313: ; preds = %325,
   %spec.select490 = select i1 %333, i16 4, i16 6
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %334 = zext nneg i8 %.sroa.0.0.i244 to i64
-  %switch.gep535 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 0, i64 %334
+  %switch.gep535 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 %334
   %switch.load536 = load i64, ptr %switch.gep535, align 8
   %335 = zext nneg i8 %.sroa.0.0.i244 to i64
-  %switch.gep537 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 0, i64 %335
+  %switch.gep537 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 %335
   %switch.load538 = load ptr, ptr %switch.gep537, align 8
   store ptr %switch.load538, ptr %18, align 8
   %336 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %switch.load536, ptr %336, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %337 = zext nneg i8 %.sroa.0.0.i247 to i64
-  %switch.gep544 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 0, i64 %337
+  %switch.gep544 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 %337
   %switch.load545 = load i64, ptr %switch.gep544, align 8
   %338 = zext nneg i8 %.sroa.0.0.i247 to i64
-  %switch.gep546 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 0, i64 %338
+  %switch.gep546 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 %338
   %switch.load547 = load ptr, ptr %switch.gep546, align 8
   store ptr %switch.load547, ptr %17, align 8
   %339 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %switch.load545, ptr %339, align 8
   %340 = zext nneg i8 %.sroa.0.0.i294 to i64
-  %switch.gep539 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 0, i64 %340
+  %switch.gep539 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 %340
   %switch.load540 = load i64, ptr %switch.gep539, align 8
   %341 = zext nneg i8 %.sroa.0.0.i294 to i64
-  %switch.gep541 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 0, i64 %341
+  %switch.gep541 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 %341
   %switch.load542 = load ptr, ptr %switch.gep541, align 8
   store ptr %switch.load542, ptr %16, align 8
   %342 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %switch.load540, ptr %342, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %343 = zext nneg i8 %.sroa.0.0.i300 to i64
-  %switch.gep548 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 0, i64 %343
+  %switch.gep548 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.231, i64 %343
   %switch.load549 = load i64, ptr %switch.gep548, align 8
   %344 = zext nneg i8 %.sroa.0.0.i300 to i64
-  %switch.gep550 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 0, i64 %344
+  %switch.gep550 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5timer13TimerSnapshot9get_delta17h517dbcea2605fc9eE.232, i64 %344
   %switch.load551 = load ptr, ptr %switch.gep550, align 8
   store ptr %switch.load551, ptr %15, align 8
   %345 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -38349,9 +38349,9 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit25.th
   %79 = icmp eq i32 %1, 5760
   %80 = zext i1 %79 to i8
   %81 = icmp eq i32 %1, 47
-  %switch.tableidx59 = add nsw i32 %1, -9
-  %82 = icmp ult i32 %switch.tableidx59, 24
-  %switch.shifted62 = lshr i32 8388639, %switch.tableidx59
+  %switch.tableidx58 = add nsw i32 %1, -9
+  %82 = icmp ult i32 %switch.tableidx58, 24
+  %switch.shifted62 = lshr i32 8388639, %switch.tableidx58
   %switch.lobit63 = trunc i32 %switch.shifted62 to i1
   %or.cond64 = select i1 %82, i1 %switch.lobit63, i1 false
   br label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer

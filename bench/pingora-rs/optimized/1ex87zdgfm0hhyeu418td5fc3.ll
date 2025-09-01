@@ -4472,9 +4472,9 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %10
 define { ptr, i64 } @_ZN13pingora_cache10CachePhase6as_str17h4eb68ea633446277E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !401, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN13pingora_cache10CachePhase6as_str17h4eb68ea633446277E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13pingora_cache10CachePhase6as_str17h4eb68ea633446277E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN13pingora_cache10CachePhase6as_str17h4eb68ea633446277E.54, i64 0, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13pingora_cache10CachePhase6as_str17h4eb68ea633446277E.54, i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
@@ -4658,10 +4658,10 @@ define { ptr, i64 } @_ZN13pingora_cache9HitStatus6as_str17h8753f6d430e80796E(ptr
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !54, !alias.scope !409, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E.57", i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E.57", i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -7774,10 +7774,10 @@ default.unreachable1:                             ; preds = %2
 define { ptr, i64 } @"_ZN13pingora_cache89_$LT$impl$u20$core..convert..From$LT$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17h22fe91e93181f9c9E"(i8 noundef range(i8 0, 5) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E.57", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E.57", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -7789,10 +7789,10 @@ define { ptr, i64 } @"_ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !54, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E.57", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN13pingora_cache93_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..HitStatus$GT$$u20$for$u20$$RF$str$GT$4from17he347ca969b4f36d4E.57", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

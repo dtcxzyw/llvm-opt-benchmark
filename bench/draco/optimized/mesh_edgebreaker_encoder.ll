@@ -847,7 +847,7 @@ _ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit: 
   %101 = getelementptr inbounds nuw %"struct.std::array", ptr %100, i64 %99
   %102 = urem i32 %.sroa.0.0.copyload.i.i, 3
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.160"], ptr %101, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %"class.draco::IndexType.160", ptr %101, i64 %103
   %.sroa.0.0.copyload4.i.i = load i32, ptr %104, align 4, !tbaa !102
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
@@ -908,7 +908,7 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %121 = getelementptr inbounds nuw %"struct.std::array", ptr %120, i64 %119
   %122 = urem i32 %.sroa.0100.0164.us, 3
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.160"], ptr %121, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw %"class.draco::IndexType.160", ptr %121, i64 %123
   %.sroa.0.0.copyload4.i.i78.us = load i32, ptr %124, align 4, !tbaa !102
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit80.us
 
@@ -996,7 +996,7 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %154 = getelementptr inbounds nuw %"struct.std::array", ptr %153, i64 %152
   %155 = urem i32 %.sroa.0100.0164, 3
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.160"], ptr %154, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw %"class.draco::IndexType.160", ptr %154, i64 %156
   %.sroa.0.0.copyload4.i.i78 = load i32, ptr %157, align 4, !tbaa !102
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit80
 

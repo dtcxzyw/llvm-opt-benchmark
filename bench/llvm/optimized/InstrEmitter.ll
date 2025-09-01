@@ -247,7 +247,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12Den
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %75 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %76 = getelementptr inbounds nuw [234 x ptr], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !55
   %.not170 = icmp eq ptr %77, null
   br i1 %.not170, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %78
@@ -830,7 +830,7 @@ _ZN4llvm12InstrEmitter12CountResultsEPNS_6SDNodeE.exit: ; preds = %17, %_ZNK4llv
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 104
   %90 = zext i16 %.sroa.0.0.copyload.i.i87 to i64
-  %91 = getelementptr inbounds nuw [234 x ptr], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw ptr, ptr %89, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !55
   %.not124 = icmp eq ptr %92, null
   br i1 %.not124, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %93
@@ -1641,7 +1641,7 @@ _ZN4llvm8dyn_castINS_16ConstantFPSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %25
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 104
   %76 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
-  %77 = getelementptr inbounds nuw [234 x ptr], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !55
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %.thread, label %79

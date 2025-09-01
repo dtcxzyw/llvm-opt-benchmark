@@ -626,7 +626,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 83:                                               ; preds = %87
   %84 = add i64 %.1103, 1
-  %85 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr %7, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !36
   %.not80.not = icmp eq ptr %86, null
   br i1 %.not80.not, label %.critedge, label %87, !llvm.loop !41
@@ -1338,7 +1338,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_ndirs(ptr noundef readonly c
 
 4:                                                ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
-  %5 = getelementptr inbounds nuw [6 x ptr], ptr @limits, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr @limits, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = load ptr, ptr %2, align 8, !tbaa !43
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %6) #23

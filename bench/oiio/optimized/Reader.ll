@@ -58,7 +58,7 @@ define hidden void @_ZN3dpx6ReaderD2Ev(ptr noundef nonnull align 8 captures(none
 
 6:                                                ; preds = %13, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %13 ]
-  %7 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %.not10.i = icmp eq ptr %8, null
   br i1 %.not10.i, label %13, label %9
@@ -140,7 +140,7 @@ define hidden void @_ZN3dpx6Reader5ResetEv(ptr noundef nonnull align 8 captures(
 
 6:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %7 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %13, label %9
@@ -232,7 +232,7 @@ define hidden void @_ZN3dpx6Reader11SetInStreamEP8InStream(ptr noundef nonnull a
 
 8:                                                ; preds = %15, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %15 ]
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not10.i = icmp eq ptr %10, null
   br i1 %.not10.i, label %15, label %11
@@ -463,7 +463,7 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %38
 84:                                               ; preds = %38, %37, %32, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %86 = zext nneg i32 %1 to i64
-  %87 = getelementptr inbounds nuw [8 x ptr], ptr %85, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !19
   %89 = icmp eq ptr %88, null
   br i1 %89, label %95, label %100
@@ -471,7 +471,7 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %38
 .thread:                                          ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %91 = zext nneg i32 %1 to i64
-  %92 = getelementptr inbounds nuw [8 x ptr], ptr %90, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !19
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.thread69, label %100

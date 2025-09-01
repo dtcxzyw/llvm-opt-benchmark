@@ -183,7 +183,7 @@ define hidden void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %10, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN15PerfDataManager12_name_spacesE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @_ZN15PerfDataManager12_name_spacesE, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #14
@@ -321,7 +321,7 @@ define hidden void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull 
 
 33:                                               ; preds = %23
   %34 = zext nneg i8 %1 to i64
-  %35 = getelementptr inbounds nuw [20 x i8], ptr @type2char_tab, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @type2char_tab, i64 %34
   %36 = load i8, ptr %35, align 1
   br label %_Z9type2char9BasicType.exit
 

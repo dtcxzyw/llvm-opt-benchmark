@@ -51,7 +51,7 @@ define dso_local void @php_random_mt19937_seed32(ptr noundef captures(none) init
   %8 = mul i32 %7, 1812433253
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds nuw [624 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %10, ptr %11, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 624
@@ -214,7 +214,7 @@ define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #1 {
   %8 = add i32 %6, 1
   store i32 %8, ptr %0, align 4, !tbaa !8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw [624 x i32], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = lshr i32 %11, 11
   %13 = xor i32 %12, %11
@@ -263,7 +263,7 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #2
 
 14:                                               ; preds = %2, %14
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [624 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %16 = call ptr @php_random_bin2hex_le(ptr noundef nonnull %15, i64 noundef 4) #7
   store ptr %16, ptr %3, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -314,7 +314,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %.not34, label %16, label %.loopexit
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw [624 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %18 = tail call zeroext i1 @php_random_hex2bin_le(ptr noundef nonnull %13, ptr noundef nonnull %17) #7
   br i1 %18, label %6, label %.loopexit
 
@@ -392,7 +392,7 @@ define dso_local void @php_random_mt19937_seed_default(ptr noundef captures(none
   %15 = mul i32 %14, 1812433253
   %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   %17 = add i32 %15, %16
-  %18 = getelementptr inbounds nuw [624 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   store i32 %17, ptr %18, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
@@ -550,7 +550,7 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
   %54 = mul i32 %53, 1812433253
   %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   %56 = add i32 %54, %55
-  %57 = getelementptr inbounds nuw [624 x i32], ptr %49, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
   store i32 %56, ptr %57, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
@@ -627,7 +627,7 @@ zend_string_alloc.exit:                           ; preds = %6
 
 ._crit_edge:                                      ; preds = %26, %zend_string_alloc.exit
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %24 = getelementptr inbounds nuw [1 x i8], ptr %23, i64 0, i64 %14
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %14
   store i8 0, ptr %24, align 1, !tbaa !11
   store ptr %18, ptr %1, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -639,7 +639,7 @@ zend_string_alloc.exit:                           ; preds = %6
   %27 = shl i64 %.020, 3
   %28 = lshr i64 %13, %27
   %29 = trunc i64 %28 to i8
-  %30 = getelementptr inbounds nuw [1 x i8], ptr %22, i64 0, i64 %.020
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.020
   store i8 %29, ptr %30, align 1, !tbaa !11
   %31 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %31, %14

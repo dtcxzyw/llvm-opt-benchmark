@@ -295,7 +295,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 82240
   %15 = load i32, ptr %14, align 8, !tbaa !24
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %13, i64 0, i64 %16
+  %17 = getelementptr inbounds %struct.PaDeviceInfo, ptr %13, i64 %16
   store i32 2, ptr %17, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %19 = load i32, ptr %18, align 8, !tbaa !35
@@ -312,7 +312,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 74008
   %28 = load i32, ptr %14, align 8, !tbaa !24
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [1024 x ptr], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
   store ptr %26, ptr %30, align 8, !tbaa !23
   %31 = load ptr, ptr %22, align 8, !tbaa !28
   %32 = shl i64 %12, 32
@@ -321,7 +321,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %34 = tail call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %31, i64 noundef %33) #14
   %35 = load i32, ptr %14, align 8, !tbaa !24
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [1024 x ptr], ptr %27, i64 0, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %27, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = icmp ne ptr %38, null
   %40 = icmp ne ptr %34, null
@@ -647,7 +647,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %74 = getelementptr inbounds nuw [1024 x %struct.PaDeviceInfo], ptr %28, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %28, i64 %indvars.iv
   %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   store ptr %74, ptr %75, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -5885,7 +5885,7 @@ app_malloc.exit:                                  ; preds = %8
   %21 = shl nuw i64 1, %20
   %22 = sdiv i32 %17, 64
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %23
+  %24 = getelementptr inbounds i64, ptr %2, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !24
   %26 = or i64 %21, %25
   store i64 %26, ptr %24, align 8, !tbaa !24

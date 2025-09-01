@@ -176,7 +176,7 @@ define dso_local noundef i32 @acct_gather_filesystem_p_node_update() local_unnam
 
 21:                                               ; preds = %19, %16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %22 = getelementptr inbounds nuw [3 x ptr], ptr @_llite_path.test_paths, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr @_llite_path.test_paths, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr @_llite_path.llite_path, align 8
   %.not6.i.i = icmp eq i64 %indvars.iv.i.i, 2
@@ -582,7 +582,7 @@ define internal fastcc range(i32 -1, 1) i32 @_read_lustre_counters(i1 noundef ze
 
 17:                                               ; preds = %15, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr @_llite_path.test_paths, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr @_llite_path.test_paths, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr @_llite_path.llite_path, align 8
   %.not6.i = icmp eq i64 %indvars.iv.i, 2

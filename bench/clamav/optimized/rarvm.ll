@@ -215,7 +215,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %52 = zext nneg i8 %49 to i64
   %53 = add nuw nsw i64 %52, 4294967280
   %54 = and i64 %53, 4294967295
-  %55 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN5RarVM21ExecuteStandardFilterE18VM_StandardFiltersE5Masks, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZZN5RarVM21ExecuteStandardFilterE18VM_StandardFiltersE5Masks, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !16
   %57 = zext i8 %56 to i32
   %58 = shl nuw nsw i64 1, %54
@@ -569,7 +569,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %62, %.preheade
   %indvars.iv = phi i64 [ 1, %247 ], [ %indvars.iv.next, %249 ]
   %.0215323 = phi i32 [ 0, %247 ], [ %spec.select296, %249 ]
   %.0216322 = phi i32 [ %220, %247 ], [ %spec.select, %249 ]
-  %250 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %251 = load i32, ptr %250, align 4, !tbaa !14
   %252 = icmp ult i32 %251, %.0216322
   %spec.select = tail call i32 @llvm.umin.i32(i32 %251, i32 %.0216322)
@@ -663,7 +663,7 @@ define void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr noundef nonnull read
 
 13:                                               ; preds = %10, %25
   %indvars.iv26 = phi i64 [ 0, %10 ], [ %indvars.iv.next27, %25 ]
-  %14 = getelementptr inbounds nuw [6 x %struct.StandardFilters], ptr @_ZZN5RarVM7PrepareEPhjP18VM_PreparedProgramE7StdList, i64 0, i64 %indvars.iv26
+  %14 = getelementptr inbounds nuw %struct.StandardFilters, ptr @_ZZN5RarVM7PrepareEPhjP18VM_PreparedProgramE7StdList, i64 %indvars.iv26
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !31
   %17 = xor i32 %16, %12

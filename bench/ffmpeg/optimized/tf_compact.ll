@@ -123,7 +123,7 @@ define internal void @compact_print_section_header(ptr noundef %0, ptr noundef %
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw [12 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %.thread.i, label %tf_get_section.exit
@@ -148,7 +148,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %21 = zext nneg i32 %17 to i64
-  %22 = getelementptr inbounds nuw [12 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %.thread.i.i, label %tf_get_parent_section.exit
@@ -160,23 +160,23 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %19, %.thread.i.i
   %.0.i79 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %23, %19 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %122, label %24
+  br i1 %.not, label %120, label %24
 
 24:                                               ; preds = %tf_get_parent_section.exit
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %26 = load i32, ptr %5, align 4, !tbaa !22
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [12 x i32], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds i32, ptr %25, i64 %27
   store i32 1, ptr %28, align 4, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %30 = load i32, ptr %5, align 4, !tbaa !22
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [12 x i32], ptr %29, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %34 = load i32, ptr %5, align 4, !tbaa !22
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [12 x %struct.AVBPrint], ptr %33, i64 0, i64 %35
+  %36 = getelementptr inbounds %struct.AVBPrint, ptr %33, i64 %35
   tail call void @av_bprint_clear(ptr noundef nonnull %36) #9
   %.not66 = icmp eq ptr %.0.i79, null
   br i1 %.not66, label %.critedge, label %37
@@ -207,19 +207,19 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %51 = select i1 %.not.i80, ptr %50, ptr %48
   %52 = load i32, ptr %5, align 4, !tbaa !22
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [12 x %struct.AVBPrint], ptr %33, i64 0, i64 %53
+  %54 = getelementptr inbounds %struct.AVBPrint, ptr %33, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %56 = getelementptr inbounds [12 x i32], ptr %55, i64 0, i64 %53
+  %56 = getelementptr inbounds i32, ptr %55, i64 %53
   store i32 1, ptr %56, align 4, !tbaa !24
   %57 = load i32, ptr %5, align 4, !tbaa !22
-  %58 = add nsw i32 %57, -1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [12 x i32], ptr %29, i64 0, i64 %59
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr i32, ptr %29, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -4
   store i32 1, ptr %60, align 4, !tbaa !24
   %61 = load i32, ptr %5, align 4, !tbaa !22
-  %62 = add nsw i32 %61, -1
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [12 x %struct.AVBPrint], ptr %33, i64 0, i64 %63
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr %struct.AVBPrint, ptr %33, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -1024
   %65 = load ptr, ptr %64, align 8, !tbaa !30
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.27, ptr noundef %65, ptr noundef %51) #9
   %66 = load i32, ptr %38, align 8, !tbaa !25
@@ -260,70 +260,68 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   tail call void @av_bprint_chars(ptr noundef nonnull %54, i8 noundef signext 58, i32 noundef 1) #9
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %85 = load i32, ptr %5, align 4, !tbaa !22
-  %86 = add nsw i32 %85, -1
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [12 x i32], ptr %84, i64 0, i64 %87
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr i32, ptr %84, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 -4
   %89 = load i32, ptr %88, align 4, !tbaa !24
-  %90 = sext i32 %85 to i64
-  %91 = getelementptr inbounds [12 x i32], ptr %84, i64 0, i64 %90
-  store i32 %89, ptr %91, align 4, !tbaa !24
-  br label %122
+  store i32 %89, ptr %87, align 4, !tbaa !24
+  br label %120
 
 ._crit_edge:                                      ; preds = %41
-  %92 = and i32 %44, 3
-  %.not70 = icmp eq i32 %92, 0
-  br i1 %.not70, label %93, label %.critedge
+  %90 = and i32 %44, 3
+  %.not70 = icmp eq i32 %90, 0
+  br i1 %.not70, label %91, label %.critedge
 
-93:                                               ; preds = %._crit_edge
-  %94 = load i32, ptr %5, align 4, !tbaa !22
-  %.not71 = icmp eq i32 %94, 0
-  br i1 %.not71, label %.critedge, label %95
+91:                                               ; preds = %._crit_edge
+  %92 = load i32, ptr %5, align 4, !tbaa !22
+  %.not71 = icmp eq i32 %92, 0
+  br i1 %.not71, label %.critedge, label %93
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %97 = add nsw i32 %94, -1
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [12 x i32], ptr %96, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !24
-  %.not72 = icmp eq i32 %100, 0
-  br i1 %.not72, label %.critedge, label %101
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %95 = sext i32 %92 to i64
+  %96 = getelementptr i32, ptr %94, i64 %95
+  %97 = getelementptr i8, ptr %96, i64 -4
+  %98 = load i32, ptr %97, align 4, !tbaa !24
+  %.not72 = icmp eq i32 %98, 0
+  br i1 %.not72, label %.critedge, label %99
 
-101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %103 = load i8, ptr %102, align 8, !tbaa !19
-  %104 = sext i8 %103 to i32
-  %105 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %105, align 8, !tbaa !35
-  %106 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !36
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %109 = load ptr, ptr %108, align 8, !tbaa !39
-  tail call void %109(ptr noundef %.val, i32 noundef range(i32 -128, 128) %104) #9
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %101 = load i8, ptr %100, align 8, !tbaa !19
+  %102 = sext i8 %101 to i32
+  %103 = getelementptr i8, ptr %0, i64 16
+  %.val = load ptr, ptr %103, align 8, !tbaa !35
+  %104 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %105 = load ptr, ptr %104, align 8, !tbaa !36
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
+  %107 = load ptr, ptr %106, align 8, !tbaa !39
+  tail call void %107(ptr noundef %.val, i32 noundef range(i32 -128, 128) %102) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %24, %101, %95, %93, %._crit_edge
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %111 = load i32, ptr %110, align 8, !tbaa !41
-  %.not73 = icmp eq i32 %111, 0
-  br i1 %.not73, label %122, label %112
+.critedge:                                        ; preds = %24, %99, %93, %91, %._crit_edge
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %109 = load i32, ptr %108, align 8, !tbaa !41
+  %.not73 = icmp eq i32 %109, 0
+  br i1 %.not73, label %120, label %110
 
-112:                                              ; preds = %.critedge
-  %113 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %114 = load i32, ptr %113, align 8, !tbaa !25
-  %115 = and i32 %114, 3
-  %.not74 = icmp eq i32 %115, 0
-  br i1 %.not74, label %116, label %122
+110:                                              ; preds = %.critedge
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %112 = load i32, ptr %111, align 8, !tbaa !25
+  %113 = and i32 %112, 3
+  %.not74 = icmp eq i32 %113, 0
+  br i1 %.not74, label %114, label %120
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !29
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %120 = load i8, ptr %119, align 8, !tbaa !19
-  %121 = sext i8 %120 to i32
-  tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef %118, i32 noundef %121)
-  br label %122
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !29
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %118 = load i8, ptr %117, align 8, !tbaa !19
+  %119 = sext i8 %118 to i32
+  tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef %116, i32 noundef %119)
+  br label %120
 
-122:                                              ; preds = %.loopexit, %116, %112, %.critedge, %tf_get_parent_section.exit
+120:                                              ; preds = %.loopexit, %114, %110, %.critedge, %tf_get_parent_section.exit
   ret void
 }
 
@@ -341,7 +339,7 @@ define internal void @compact_print_section_footer(ptr noundef %0) #1 {
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw [12 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %tf_get_section.exit.thread, label %tf_get_section.exit
@@ -353,14 +351,14 @@ tf_get_section.exit.thread:                       ; preds = %8, %1
 tf_get_section.exit:                              ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = zext nneg i32 %5 to i64
-  %15 = getelementptr inbounds nuw [12 x i32], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !24
   %.not10 = icmp eq i32 %16, 0
   br i1 %.not10, label %17, label %31
 
 17:                                               ; preds = %tf_get_section.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %19 = getelementptr inbounds nuw [12 x i32], ptr %18, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %14
   %20 = load i32, ptr %19, align 4, !tbaa !24
   %.not11 = icmp eq i32 %20, 0
   br i1 %.not11, label %31, label %21
@@ -394,7 +392,7 @@ define internal void @compact_print_int(ptr noundef readonly captures(none) %0, 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4, !tbaa !22
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !24
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %21, label %12
@@ -422,7 +420,7 @@ define internal void @compact_print_int(ptr noundef readonly captures(none) %0, 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %26 = load i32, ptr %7, align 4, !tbaa !22
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [12 x %struct.AVBPrint], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds %struct.AVBPrint, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, ptr noundef %29, ptr noundef %1)
   br label %30
@@ -442,7 +440,7 @@ define internal void @compact_print_str(ptr noundef %0, ptr noundef %1, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load i32, ptr %8, align 4, !tbaa !22
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [12 x i32], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !24
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %22, label %13
@@ -470,7 +468,7 @@ define internal void @compact_print_str(ptr noundef %0, ptr noundef %1, ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %27 = load i32, ptr %8, align 4, !tbaa !22
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [12 x %struct.AVBPrint], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds %struct.AVBPrint, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !30
   tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, ptr noundef %30, ptr noundef %1)
   br label %31

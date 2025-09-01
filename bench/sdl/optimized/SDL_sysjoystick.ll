@@ -337,7 +337,7 @@ IsJoystickDeviceNode.exit.thread.i:               ; preds = %.preheader.i.i5.i.i
   br i1 %cond.i, label %LINUX_InotifyJoystickDetect.exit, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %IsJoystickDeviceNode.exit.thread.i
-  %60 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 %58
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %9, ptr nonnull align 1 %60, i64 %59, i1 false)
   br label %24
 
@@ -1291,7 +1291,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
 
 .lr.ph.i:                                         ; preds = %HandleHat.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %HandleHat.exit.i ]
-  %25 = getelementptr inbounds nuw [32 x %struct.js_event], ptr %3, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw %struct.js_event, ptr %3, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %27 = load i8, ptr %26, align 2
   switch i8 %27, label %HandleHat.exit.i [
@@ -1310,7 +1310,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   %36 = load i16, ptr %35, align 2
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %38 = zext i16 %36 to i64
-  %39 = getelementptr inbounds nuw [767 x i8], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %42 = load i16, ptr %41, align 4
@@ -1336,7 +1336,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   %56 = and i8 %55, 3
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 3660
   %58 = zext nneg i8 %56 to i64
-  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
   %60 = load i8, ptr %59, align 1, !range !5, !noundef !6
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %114
@@ -1349,21 +1349,21 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   tail call void @SDL_AssertJoysticksLocked() #18
   %67 = load ptr, ptr %4, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 3644
-  %69 = getelementptr inbounds nuw [4 x i32], ptr %68, i64 0, i64 %58
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %58
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 120
   %72 = load ptr, ptr %71, align 8
   %73 = sext i32 %70 to i64
   %74 = getelementptr inbounds %struct.hwdata_hat, ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 3664
-  %76 = getelementptr inbounds nuw [4 x %struct.hat_axis_correct], ptr %75, i64 0, i64 %58
+  %76 = getelementptr inbounds nuw %struct.hat_axis_correct, ptr %75, i64 %58
   %77 = icmp slt i16 %65, 0
   br i1 %77, label %78, label %89
 
 78:                                               ; preds = %62
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %80 = zext nneg i8 %63 to i64
-  %81 = getelementptr inbounds nuw [2 x i32], ptr %79, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
   %82 = load i32, ptr %81, align 4
   %.not42.i.i = icmp slt i32 %82, %66
   br i1 %.not42.i.i, label %84, label %83
@@ -1394,7 +1394,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %92 = zext nneg i8 %63 to i64
-  %93 = getelementptr inbounds nuw [2 x i32], ptr %91, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %92
   %94 = load i32, ptr %93, align 4
   %.not41.i.i = icmp sgt i32 %94, %66
   br i1 %.not41.i.i, label %96, label %95
@@ -1415,7 +1415,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
 101:                                              ; preds = %96, %95, %._crit_edge.i.i, %84, %83
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %92, %96 ], [ %80, %84 ], [ %92, %95 ], [ %80, %83 ]
   %.0.i.i = phi i32 [ 1, %._crit_edge.i.i ], [ %spec.select49.i.i, %96 ], [ %spec.select.i.i, %84 ], [ 2, %95 ], [ 0, %83 ]
-  %102 = getelementptr inbounds nuw [2 x i32], ptr %74, i64 0, i64 %.pre-phi.i.i
+  %102 = getelementptr inbounds nuw i32, ptr %74, i64 %.pre-phi.i.i
   %103 = load i32, ptr %102, align 4
   %.not43.i.i = icmp eq i32 %.0.i.i, %103
   br i1 %.not43.i.i, label %HandleHat.exit.i, label %104
@@ -1426,10 +1426,10 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   %106 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [3 x [3 x i8]], ptr @__const.HandleHat.position_map, i64 0, i64 %108
+  %109 = getelementptr inbounds [3 x i8], ptr @__const.HandleHat.position_map, i64 %108
   %110 = load i32, ptr %74, align 4
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds [3 x i8], ptr %109, i64 0, i64 %111
+  %112 = getelementptr inbounds i8, ptr %109, i64 %111
   %113 = load i8, ptr %112, align 1
   tail call void @SDL_SendJoystickHat(i64 noundef %10, ptr noundef nonnull %0, i8 noundef zeroext %105, i8 noundef zeroext %113) #18
   br label %HandleHat.exit.i
@@ -1437,7 +1437,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
 114:                                              ; preds = %54, %44
   %115 = getelementptr inbounds nuw i8, ptr %45, i64 895
   %116 = zext i8 %52 to i64
-  %117 = getelementptr inbounds nuw [63 x i8], ptr %115, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %120 = load i16, ptr %119, align 4
@@ -1513,7 +1513,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
 
 .lr.ph.i24:                                       ; preds = %HandleHat.exit.i26, %.lr.ph.preheader.i22
   %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %indvars.iv.next.i27, %HandleHat.exit.i26 ]
-  %151 = getelementptr inbounds nuw [32 x %struct.input_event], ptr %2, i64 0, i64 %indvars.iv.i25
+  %151 = getelementptr inbounds nuw %struct.input_event, ptr %2, i64 %indvars.iv.i25
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 18
   %153 = load i16, ptr %152, align 2
   %154 = zext i16 %153 to i32
@@ -1544,7 +1544,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   %167 = load ptr, ptr %4, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 128
   %169 = zext i16 %153 to i64
-  %170 = getelementptr inbounds nuw [767 x i8], ptr %168, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 %169
   %171 = load i8, ptr %170, align 1
   %172 = getelementptr inbounds nuw i8, ptr %151, i64 20
   %173 = load i32, ptr %172, align 4
@@ -1562,7 +1562,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   %179 = lshr i32 %178, 1
   %180 = getelementptr inbounds nuw i8, ptr %155, i64 3660
   %181 = zext nneg i32 %179 to i64
-  %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 %181
   %183 = load i8, ptr %182, align 1, !range !5, !noundef !6
   %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %185, label %237
@@ -1575,21 +1575,21 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   call void @SDL_AssertJoysticksLocked() #18
   %190 = load ptr, ptr %4, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 3644
-  %192 = getelementptr inbounds nuw [4 x i32], ptr %191, i64 0, i64 %181
+  %192 = getelementptr inbounds nuw i32, ptr %191, i64 %181
   %193 = load i32, ptr %192, align 4
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 120
   %195 = load ptr, ptr %194, align 8
   %196 = sext i32 %193 to i64
   %197 = getelementptr inbounds %struct.hwdata_hat, ptr %195, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %190, i64 3664
-  %199 = getelementptr inbounds nuw [4 x %struct.hat_axis_correct], ptr %198, i64 0, i64 %181
+  %199 = getelementptr inbounds nuw %struct.hat_axis_correct, ptr %198, i64 %181
   %200 = icmp slt i32 %189, 0
   br i1 %200, label %201, label %212
 
 201:                                              ; preds = %185
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 4
   %203 = zext nneg i32 %187 to i64
-  %204 = getelementptr inbounds nuw [2 x i32], ptr %202, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw i32, ptr %202, i64 %203
   %205 = load i32, ptr %204, align 4
   %.not42.i.i39 = icmp sgt i32 %189, %205
   br i1 %.not42.i.i39, label %207, label %206
@@ -1620,7 +1620,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
 213:                                              ; preds = %212
   %214 = getelementptr inbounds nuw i8, ptr %199, i64 12
   %215 = zext nneg i32 %187 to i64
-  %216 = getelementptr inbounds nuw [2 x i32], ptr %214, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i32, ptr %214, i64 %215
   %217 = load i32, ptr %216, align 4
   %.not41.i.i31 = icmp slt i32 %189, %217
   br i1 %.not41.i.i31, label %219, label %218
@@ -1641,7 +1641,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
 224:                                              ; preds = %219, %218, %._crit_edge.i.i37, %207, %206
   %.pre-phi.i.i32 = phi i64 [ %.pre.i.i38, %._crit_edge.i.i37 ], [ %215, %219 ], [ %203, %207 ], [ %215, %218 ], [ %203, %206 ]
   %.0.i.i33 = phi i32 [ 1, %._crit_edge.i.i37 ], [ %spec.select49.i.i36, %219 ], [ %spec.select.i.i43, %207 ], [ 2, %218 ], [ 0, %206 ]
-  %225 = getelementptr inbounds nuw [2 x i32], ptr %197, i64 0, i64 %.pre-phi.i.i32
+  %225 = getelementptr inbounds nuw i32, ptr %197, i64 %.pre-phi.i.i32
   %226 = load i32, ptr %225, align 4
   %.not43.i.i34 = icmp eq i32 %.0.i.i33, %226
   br i1 %.not43.i.i34, label %HandleHat.exit.i26, label %227
@@ -1652,10 +1652,10 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   %229 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %230 = load i32, ptr %229, align 4
   %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds [3 x [3 x i8]], ptr @__const.HandleHat.position_map, i64 0, i64 %231
+  %232 = getelementptr inbounds [3 x i8], ptr @__const.HandleHat.position_map, i64 %231
   %233 = load i32, ptr %197, align 4
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds [3 x i8], ptr %232, i64 0, i64 %234
+  %235 = getelementptr inbounds i8, ptr %232, i64 %234
   %236 = load i8, ptr %235, align 1
   call void @SDL_SendJoystickHat(i64 noundef %186, ptr noundef nonnull %0, i8 noundef zeroext %228, i8 noundef zeroext %236) #18
   br label %HandleHat.exit.i26
@@ -1667,7 +1667,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   %240 = load ptr, ptr %4, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 1808
   %242 = zext i16 %153 to i64
-  %243 = getelementptr inbounds nuw [63 x %struct.axis_correct], ptr %241, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw %struct.axis_correct, ptr %241, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = load i32, ptr %244, align 4
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 20
@@ -1728,7 +1728,7 @@ AxisCorrect.exit.i:                               ; preds = %276, %274, %256
   %277 = call i64 @SDL_EVDEV_GetEventTimestamp(ptr noundef nonnull %151) #18
   %278 = load ptr, ptr %4, align 8
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 895
-  %280 = getelementptr inbounds nuw [63 x i8], ptr %279, i64 0, i64 %242
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 %242
   %281 = load i8, ptr %280, align 1
   %282 = load i32, ptr %238, align 4
   %283 = trunc i32 %282 to i16
@@ -1745,7 +1745,7 @@ AxisCorrect.exit.i:                               ; preds = %276, %274, %256
   %288 = getelementptr i8, ptr %155, i64 112
   %.val.val.i = load ptr, ptr %288, align 8
   %289 = zext nneg i16 %153 to i64
-  %290 = getelementptr inbounds nuw [2 x i32], ptr %.val.val.i, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw i32, ptr %.val.val.i, i64 %289
   %291 = load i32, ptr %290, align 4
   %292 = add nsw i32 %291, %287
   store i32 %292, ptr %290, align 4
@@ -1819,7 +1819,7 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
 
 .lr.ph125.i:                                      ; preds = %392, %.lr.ph125.preheader.i
   %indvars.iv129.i = phi i64 [ 0, %.lr.ph125.preheader.i ], [ %indvars.iv.next130.i, %392 ]
-  %321 = getelementptr inbounds nuw [32 x %struct.input_event], ptr %2, i64 0, i64 %indvars.iv129.i
+  %321 = getelementptr inbounds nuw %struct.input_event, ptr %2, i64 %indvars.iv129.i
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 18
   %323 = load i16, ptr %322, align 2
   %324 = zext i16 %323 to i64
@@ -1860,11 +1860,11 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
   %339 = sitofp i32 %338 to float
   %340 = fmul float %339, 0x40239D0140000000
   %341 = getelementptr inbounds nuw i8, ptr %325, i64 3572
-  %342 = getelementptr inbounds nuw [3 x float], ptr %341, i64 0, i64 %324
+  %342 = getelementptr inbounds nuw float, ptr %341, i64 %324
   %343 = load float, ptr %342, align 4
   %344 = fdiv float %340, %343
   %345 = getelementptr inbounds nuw i8, ptr %325, i64 3608
-  %346 = getelementptr inbounds nuw [3 x float], ptr %345, i64 0, i64 %324
+  %346 = getelementptr inbounds nuw float, ptr %345, i64 %324
   store float %344, ptr %346, align 4
   br label %392
 
@@ -1876,11 +1876,11 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
   %352 = fmul float %351, 0x3F91DF46A0000000
   %353 = getelementptr inbounds nuw i8, ptr %325, i64 3584
   %354 = and i64 %348, 4294967295
-  %355 = getelementptr inbounds nuw [3 x float], ptr %353, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw float, ptr %353, i64 %354
   %356 = load float, ptr %355, align 4
   %357 = fdiv float %352, %356
   %358 = getelementptr inbounds nuw i8, ptr %325, i64 3596
-  %359 = getelementptr inbounds nuw [3 x float], ptr %358, i64 0, i64 %354
+  %359 = getelementptr inbounds nuw float, ptr %358, i64 %354
   store float %357, ptr %359, align 4
   br label %392
 
@@ -4079,7 +4079,7 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 76:                                               ; preds = %94, %.preheader263.i
   %indvars.iv282.i = phi i64 [ 288, %.preheader263.i ], [ %indvars.iv.next283.i, %94 ]
   %77 = lshr i64 %indvars.iv282.i, 6
-  %78 = getelementptr inbounds nuw [12 x i64], ptr %4, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %4, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %indvars.iv282.i, 63
   %81 = shl nuw i64 1, %80
@@ -4092,11 +4092,11 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   %85 = trunc i32 %84 to i8
   %86 = load ptr, ptr %15, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 128
-  %88 = getelementptr inbounds nuw [767 x i8], ptr %87, i64 0, i64 %indvars.iv282.i
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv282.i
   store i8 %85, ptr %88, align 1
   %89 = load ptr, ptr %15, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 958
-  %91 = getelementptr inbounds nuw [767 x i8], ptr %90, i64 0, i64 %indvars.iv282.i
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv282.i
   store i8 1, ptr %91, align 1
   %92 = load i32, ptr %75, align 8
   %93 = add nsw i32 %92, 1
@@ -4125,7 +4125,7 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 .preheader262.i:                                  ; preds = %94, %113
   %indvars.iv285.i = phi i64 [ %indvars.iv.next286.i, %113 ], [ 0, %94 ]
   %96 = lshr i64 %indvars.iv285.i, 6
-  %97 = getelementptr inbounds nuw [12 x i64], ptr %4, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i64, ptr %4, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = and i64 %indvars.iv285.i, 63
   %100 = shl nuw i64 1, %99
@@ -4138,11 +4138,11 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   %104 = trunc i32 %103 to i8
   %105 = load ptr, ptr %15, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 128
-  %107 = getelementptr inbounds nuw [767 x i8], ptr %106, i64 0, i64 %indvars.iv285.i
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv285.i
   store i8 %104, ptr %107, align 1
   %108 = load ptr, ptr %15, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 958
-  %110 = getelementptr inbounds nuw [767 x i8], ptr %109, i64 0, i64 %indvars.iv285.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv285.i
   store i8 1, ptr %110, align 1
   %111 = load i32, ptr %75, align 8
   %112 = add nsw i32 %111, 1
@@ -4284,14 +4284,14 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   %166 = load ptr, ptr %15, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 3664
   %168 = sext i32 %165 to i64
-  %169 = getelementptr inbounds [4 x %struct.hat_axis_correct], ptr %167, i64 0, i64 %168
+  %169 = getelementptr inbounds %struct.hat_axis_correct, ptr %167, i64 %168
   %170 = load i32, ptr %95, align 8
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 3644
-  %172 = getelementptr inbounds [4 x i32], ptr %171, i64 0, i64 %168
+  %172 = getelementptr inbounds i32, ptr %171, i64 %168
   store i32 %170, ptr %172, align 4
   %173 = load ptr, ptr %15, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 3660
-  %175 = getelementptr inbounds [4 x i8], ptr %174, i64 0, i64 %168
+  %175 = getelementptr inbounds i8, ptr %174, i64 %168
   store i8 1, ptr %175, align 1
   store i8 %66, ptr %169, align 4
   %176 = load i32, ptr %.sroa.gep232.i, align 4
@@ -4344,7 +4344,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %199 = add nuw nsw i64 %indvars.iv292.i, 4294967280
   %200 = lshr i64 %199, 1
   %201 = and i64 %200, 2147483619
-  %202 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 %201
   %203 = load i8, ptr %202, align 1, !range !5, !noundef !6
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %265, label %205
@@ -4360,7 +4360,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %210 = load ptr, ptr %15, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 1808
-  %212 = getelementptr inbounds nuw [63 x %struct.axis_correct], ptr %211, i64 0, i64 %indvars.iv292.i
+  %212 = getelementptr inbounds nuw %struct.axis_correct, ptr %211, i64 %indvars.iv292.i
   %213 = or disjoint i64 %indvars.iv292.i, 2149074240
   %214 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03238, i64 noundef %213, ptr noundef nonnull %12) #18
   %215 = icmp slt i32 %214, 0
@@ -4371,11 +4371,11 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %218 = trunc i32 %217 to i8
   %219 = load ptr, ptr %15, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 895
-  %221 = getelementptr inbounds nuw [63 x i8], ptr %220, i64 0, i64 %indvars.iv292.i
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %indvars.iv292.i
   store i8 %218, ptr %221, align 1
   %222 = load ptr, ptr %15, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 1725
-  %224 = getelementptr inbounds nuw [63 x i8], ptr %223, i64 0, i64 %indvars.iv292.i
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 %indvars.iv292.i
   store i8 1, ptr %224, align 1
   %225 = load i32, ptr %115, align 4
   %226 = getelementptr inbounds nuw i8, ptr %212, i64 16
@@ -4523,11 +4523,11 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %307 = trunc i32 %301 to i8
   %308 = getelementptr inbounds nuw i8, ptr %302, i64 128
   %309 = zext i16 %306 to i64
-  %310 = getelementptr inbounds nuw [767 x i8], ptr %308, i64 0, i64 %309
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 %309
   store i8 %307, ptr %310, align 1
   %311 = load ptr, ptr %15, align 8
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 958
-  %313 = getelementptr inbounds nuw [767 x i8], ptr %312, i64 0, i64 %309
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 %309
   store i8 1, ptr %313, align 1
   %314 = load i32, ptr %299, align 8
   %315 = add nsw i32 %314, 1
@@ -4599,7 +4599,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %348 = getelementptr inbounds nuw i8, ptr %340, i64 3660
   %349 = and i8 %347, 3
   %350 = zext nneg i8 %349 to i64
-  %351 = getelementptr inbounds nuw [4 x i8], ptr %348, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr %348, i64 %350
   %352 = load i8, ptr %351, align 1, !range !5, !noundef !6
   %353 = trunc nuw i8 %352 to i1
   br i1 %353, label %387, label %354
@@ -4609,11 +4609,11 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %356 = add nsw i32 %355, 1
   store i32 %356, ptr %338, align 8
   %357 = getelementptr inbounds nuw i8, ptr %340, i64 3644
-  %358 = getelementptr inbounds nuw [4 x i32], ptr %357, i64 0, i64 %350
+  %358 = getelementptr inbounds nuw i32, ptr %357, i64 %350
   store i32 %355, ptr %358, align 4
   %359 = load ptr, ptr %15, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 3660
-  %361 = getelementptr inbounds nuw [4 x i8], ptr %360, i64 0, i64 %350
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 %350
   store i8 1, ptr %361, align 1
   %362 = load ptr, ptr %15, align 8
   %.idx.i = mul nuw nsw i64 %350, 20
@@ -4641,11 +4641,11 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %378 = trunc i32 %377 to i8
   %379 = getelementptr inbounds nuw i8, ptr %340, i64 895
   %380 = zext i8 %344 to i64
-  %381 = getelementptr inbounds nuw [63 x i8], ptr %379, i64 0, i64 %380
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 %380
   store i8 %378, ptr %381, align 1
   %382 = load ptr, ptr %15, align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 1725
-  %384 = getelementptr inbounds nuw [63 x i8], ptr %383, i64 0, i64 %380
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 %380
   store i8 1, ptr %384, align 1
   %385 = load i32, ptr %337, align 4
   %386 = add nsw i32 %385, 1
@@ -4700,7 +4700,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %410 = sitofp i32 %409 to float
   %411 = load ptr, ptr %15, align 8
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 3572
-  %413 = getelementptr inbounds nuw [3 x float], ptr %412, i64 0, i64 %indvars.iv296.i
+  %413 = getelementptr inbounds nuw float, ptr %412, i64 %indvars.iv296.i
   store float %410, ptr %413, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next297.i = add nuw nsw i64 %indvars.iv296.i, 1
@@ -4740,7 +4740,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %429 = sitofp i32 %428 to float
   %430 = load ptr, ptr %15, align 8
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 3584
-  %432 = getelementptr inbounds nuw [3 x float], ptr %431, i64 0, i64 %indvars.iv300.i
+  %432 = getelementptr inbounds nuw float, ptr %431, i64 %indvars.iv300.i
   store float %429, ptr %432, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next301.i = add nuw nsw i64 %indvars.iv300.i, 1
@@ -4897,7 +4897,7 @@ define internal fastcc void @PollAllValues(i64 noundef %0, ptr noundef %1) unnam
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %60 ]
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1725
-  %9 = getelementptr inbounds nuw [63 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %60
@@ -4914,7 +4914,7 @@ define internal fastcc void @PollAllValues(i64 noundef %0, ptr noundef %1) unnam
   call void @SDL_AssertJoysticksLocked() #18
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1808
-  %21 = getelementptr inbounds nuw [63 x %struct.axis_correct], ptr %20, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.axis_correct, ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 20
@@ -4974,7 +4974,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
   store i32 %.0.i, ptr %3, align 4
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 895
-  %57 = getelementptr inbounds nuw [63 x i8], ptr %56, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   %59 = trunc nsw i32 %.0.i to i16
   call void @SDL_SendJoystickAxis(i64 noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %58, i16 noundef signext %59) #18
@@ -4994,7 +4994,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
   %64 = load ptr, ptr %5, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 3660
   %66 = sext i8 %62 to i64
-  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds i8, ptr %65, i64 %66
   %68 = load i8, ptr %67, align 1, !range !5, !noundef !6
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %HandleHat.exit
@@ -5011,21 +5011,21 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
   call void @SDL_AssertJoysticksLocked() #18
   %77 = load ptr, ptr %5, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 3644
-  %79 = getelementptr inbounds [4 x i32], ptr %78, i64 0, i64 %66
+  %79 = getelementptr inbounds i32, ptr %78, i64 %66
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 120
   %82 = load ptr, ptr %81, align 8
   %83 = sext i32 %80 to i64
   %84 = getelementptr inbounds %struct.hwdata_hat, ptr %82, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %77, i64 3664
-  %86 = getelementptr inbounds [4 x %struct.hat_axis_correct], ptr %85, i64 0, i64 %66
+  %86 = getelementptr inbounds %struct.hat_axis_correct, ptr %85, i64 %66
   %87 = icmp slt i32 %76, 0
   br i1 %87, label %88, label %99
 
 88:                                               ; preds = %75
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %90 = sext i8 %63 to i64
-  %91 = getelementptr inbounds [2 x i32], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds i32, ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4
   %.not42.i = icmp sgt i32 %76, %92
   br i1 %.not42.i, label %94, label %93
@@ -5056,7 +5056,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
 100:                                              ; preds = %99
   %101 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %102 = sext i8 %63 to i64
-  %103 = getelementptr inbounds [2 x i32], ptr %101, i64 0, i64 %102
+  %103 = getelementptr inbounds i32, ptr %101, i64 %102
   %104 = load i32, ptr %103, align 4
   %.not41.i = icmp slt i32 %76, %104
   br i1 %.not41.i, label %106, label %105
@@ -5077,7 +5077,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
 111:                                              ; preds = %106, %105, %._crit_edge.i, %94, %93
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %102, %106 ], [ %90, %94 ], [ %102, %105 ], [ %90, %93 ]
   %.0.i37 = phi i32 [ 1, %._crit_edge.i ], [ %spec.select49.i, %106 ], [ %spec.select.i, %94 ], [ 2, %105 ], [ 0, %93 ]
-  %112 = getelementptr inbounds [2 x i32], ptr %84, i64 0, i64 %.pre-phi.i
+  %112 = getelementptr inbounds i32, ptr %84, i64 %.pre-phi.i
   %113 = load i32, ptr %112, align 4
   %.not43.i = icmp eq i32 %.0.i37, %113
   br i1 %.not43.i, label %HandleHat.exit, label %114
@@ -5088,10 +5088,10 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
   %116 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [3 x [3 x i8]], ptr @__const.HandleHat.position_map, i64 0, i64 %118
+  %119 = getelementptr inbounds [3 x i8], ptr @__const.HandleHat.position_map, i64 %118
   %120 = load i32, ptr %84, align 4
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [3 x i8], ptr %119, i64 0, i64 %121
+  %122 = getelementptr inbounds i8, ptr %119, i64 %121
   %123 = load i8, ptr %122, align 1
   call void @SDL_SendJoystickHat(i64 noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %115, i8 noundef zeroext %123) #18
   br label %HandleHat.exit
@@ -5113,21 +5113,21 @@ HandleHat.exit:                                   ; preds = %114, %111, %70, %.p
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %145 ], [ 0, %124 ]
   %129 = load ptr, ptr %5, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 958
-  %131 = getelementptr inbounds nuw [767 x i8], ptr %130, i64 0, i64 %indvars.iv49
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %indvars.iv49
   %132 = load i8, ptr %131, align 1, !range !5, !noundef !6
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %134, label %145
 
 134:                                              ; preds = %.preheader
   %135 = lshr i64 %indvars.iv49, 6
-  %136 = getelementptr inbounds nuw [12 x i64], ptr %4, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i64, ptr %4, i64 %135
   %137 = load i64, ptr %136, align 8
   %138 = and i64 %indvars.iv49, 63
   %139 = shl nuw i64 1, %138
   %140 = and i64 %137, %139
   %141 = icmp ne i64 %140, 0
   %142 = getelementptr inbounds nuw i8, ptr %129, i64 128
-  %143 = getelementptr inbounds nuw [767 x i8], ptr %142, i64 0, i64 %indvars.iv49
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv49
   %144 = load i8, ptr %143, align 1
   call void @SDL_SendJoystickButton(i64 noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %144, i1 noundef zeroext %141) #18
   br label %145
@@ -5178,10 +5178,10 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   %22 = fmul float %21, 0x3F91DF46A0000000
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 3584
-  %25 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %26 = load float, ptr %25, align 4
   %27 = fdiv float %22, %26
-  %28 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %27, ptr %28, align 4
   br label %29
 
@@ -5228,10 +5228,10 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   %51 = fmul float %50, 0x40239D0140000000
   %52 = load ptr, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 3572
-  %54 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv25
+  %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv25
   %55 = load float, ptr %54, align 4
   %56 = fdiv float %51, %55
-  %57 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv25
+  %57 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv25
   store float %56, ptr %57, align 4
   br label %58
 

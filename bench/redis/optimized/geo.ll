@@ -855,7 +855,7 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %56 ]
   %.06984 = phi i32 [ 0, %5 ], [ %.1, %56 ]
   %.07083 = phi i32 [ 0, %5 ], [ %.171, %56 ]
-  %26 = getelementptr inbounds nuw [9 x %struct.GeoHashBits], ptr %6, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %6, i64 %indvars.iv
   %27 = load i64, ptr %26, align 16, !tbaa !53
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %28, label %31
@@ -872,7 +872,7 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
 
 32:                                               ; preds = %31
   %33 = zext i32 %.07083 to i64
-  %34 = getelementptr inbounds nuw [9 x %struct.GeoHashBits], ptr %6, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %6, i64 %33
   %35 = load i64, ptr %34, align 16, !tbaa !53
   %36 = icmp eq i64 %27, %35
   br i1 %36, label %37, label %43
@@ -2162,7 +2162,7 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.0 = select i1 %49, i64 0, i64 %53
   %54 = getelementptr inbounds nuw i8, ptr @.str.53, i64 %.0
   %55 = load i8, ptr %54, align 1, !tbaa !33
-  %56 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %55, ptr %56, align 1, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -2353,7 +2353,7 @@ extractUnitOrReply.exit.thread:                   ; preds = %.extractUnitOrReply
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i32, ptr %30, align 4, !tbaa !115
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %32
+  %33 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   %35 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %34) #14
   %36 = icmp eq ptr %35, null

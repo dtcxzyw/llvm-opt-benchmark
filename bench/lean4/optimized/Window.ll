@@ -678,7 +678,7 @@ define ptr @l_instToJsonMessageType(i8 noundef zeroext %0) local_unnamed_addr #3
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_instToJsonMessageType___boxed, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_instToJsonMessageType___boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -721,7 +721,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_instToJsonMessageType___boxed, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_instToJsonMessageType___boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_instToJsonMessageType.exit
 
@@ -2598,7 +2598,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Window_0__fromJs
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -4906,7 +4906,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Window_0__toJson
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

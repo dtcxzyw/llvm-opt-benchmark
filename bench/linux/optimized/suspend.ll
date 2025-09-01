@@ -176,7 +176,7 @@ define internal noundef i32 @mem_sleep_default_setup(ptr noundef readonly captur
 
 2:                                                ; preds = %10, %1
   %3 = phi i64 [ 1, %1 ], [ %11, %10 ]
-  %4 = getelementptr [4 x ptr], ptr @mem_sleep_labels, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @mem_sleep_labels, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %5) #13
   %7 = icmp eq i32 %6, 0
@@ -1110,7 +1110,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [4 x ptr], ptr @mem_sleep_labels, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @mem_sleep_labels, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %7) #14
   %9 = load ptr, ptr @enter_state.___tp_str, align 8

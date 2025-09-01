@@ -547,7 +547,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader: ; preds = %169
 
 ._crit_edge.i:                                    ; preds = %196
   %.phi.trans.insert1.i = zext nneg i32 %193 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw [2 x i64], ptr %80, i64 0, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %80, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !10
   %198 = add nuw nsw i32 %193, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit
@@ -727,7 +727,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit: ;
 
 ._crit_edge.i180:                                 ; preds = %292
   %.phi.trans.insert1.i182 = zext nneg i32 %289 to i64
-  %.phi.trans.insert2.i183 = getelementptr inbounds nuw [2 x i64], ptr %80, i64 0, i64 %.phi.trans.insert1.i182
+  %.phi.trans.insert2.i183 = getelementptr inbounds nuw i64, ptr %80, i64 %.phi.trans.insert1.i182
   %.pre.i184 = load i64, ptr %.phi.trans.insert2.i183, align 8, !tbaa !10
   %294 = add nuw nsw i32 %289, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit189
@@ -1707,7 +1707,7 @@ define linkonce_odr noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(pt
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.phi.trans.insert1 = zext nneg i32 %3 to i64
-  %.phi.trans.insert2 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert1
+  %.phi.trans.insert2 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert, i64 %.phi.trans.insert1
   %.pre = load i64, ptr %.phi.trans.insert2, align 8, !tbaa !10
   %5 = add nuw nsw i32 %3, 1
   br label %64

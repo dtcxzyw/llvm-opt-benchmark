@@ -71,7 +71,7 @@ define internal range(i32 -1094995529, 1) i32 @flic_decode_init(ptr noundef %0) 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
   %.04558 = phi ptr [ %5, %.preheader ], [ %16, %13 ]
   %14 = load i32, ptr %.04558, align 1, !tbaa !34
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %.04558, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1034,7 +1034,7 @@ bytestream2_get_byte.exit404.us.i:                ; preds = %404, %bytestream2_g
   %417 = or i32 %414, %416
   %.0287.us.i = or i32 %417, -16777216
   %418 = sext i32 %spec.store.select4.us.i to i64
-  %419 = getelementptr inbounds [256 x i32], ptr %319, i64 0, i64 %418
+  %419 = getelementptr inbounds i32, ptr %319, i64 %418
   %420 = load i32, ptr %419, align 4, !tbaa !35
   %.not373.us.i = icmp eq i32 %420, %.0287.us.i
   br i1 %.not373.us.i, label %422, label %421
@@ -1111,7 +1111,7 @@ bytestream2_get_byte.exit404.i:                   ; preds = %443, %bytestream2_g
   %453 = or disjoint i32 %452, %451
   %454 = or i32 %453, -16777216
   %455 = sext i32 %spec.store.select4.i to i64
-  %456 = getelementptr inbounds [256 x i32], ptr %319, i64 0, i64 %455
+  %456 = getelementptr inbounds i32, ptr %319, i64 %455
   %457 = load i32, ptr %456, align 4, !tbaa !35
   %.not373.i = icmp eq i32 %457, %454
   br i1 %.not373.i, label %459, label %458

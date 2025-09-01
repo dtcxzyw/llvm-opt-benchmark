@@ -283,7 +283,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
 .thread:                                          ; preds = %14, %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr [5 x %struct.acpi_device_power_state], ptr %27, i64 0, i64 %28
+  %29 = getelementptr %struct.acpi_device_power_state, ptr %27, i64 %28
   %30 = load i8, ptr %29, align 8
   %31 = and i8 %30, 1
   %32 = icmp eq i8 %31, 0
@@ -330,7 +330,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %60 = zext nneg i32 %35 to i64
-  %61 = getelementptr [5 x %struct.acpi_device_power_state], ptr %59, i64 0, i64 %60
+  %61 = getelementptr %struct.acpi_device_power_state, ptr %59, i64 %60
   %62 = load i8, ptr %61, align 8
   %63 = and i8 %62, 2
   %64 = icmp eq i8 %63, 0
@@ -1140,7 +1140,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
 
 .preheader:                                       ; preds = %30
   %33 = zext nneg i32 %.promoted to i64
-  %34 = getelementptr [5 x %struct.acpi_device_power_state], ptr %31, i64 0, i64 %33
+  %34 = getelementptr %struct.acpi_device_power_state, ptr %31, i64 %33
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
   %37 = icmp eq i8 %36, 0
@@ -1157,7 +1157,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   br i1 %39, label %40, label %..loopexit_crit_edge, !llvm.loop !7
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr [5 x %struct.acpi_device_power_state], ptr %31, i64 0, i64 %indvars.iv.next
+  %41 = getelementptr %struct.acpi_device_power_state, ptr %31, i64 %indvars.iv.next
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 1
   %44 = icmp eq i8 %43, 0
@@ -1225,7 +1225,7 @@ define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr 
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %27 = getelementptr [5 x %struct.acpi_device_power_state], ptr %26, i64 0, i64 %22
+  %27 = getelementptr %struct.acpi_device_power_state, ptr %26, i64 %22
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
@@ -1317,7 +1317,7 @@ define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr 
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %87 = getelementptr [5 x %struct.acpi_device_power_state], ptr %86, i64 0, i64 %82
+  %87 = getelementptr %struct.acpi_device_power_state, ptr %86, i64 %82
   %88 = load i8, ptr %87, align 8
   %89 = and i8 %88, 1
   %90 = icmp eq i8 %89, 0
@@ -2358,7 +2358,7 @@ acpi_remove_pm_notifier.exit:                     ; preds = %15, %20, %25
 
 81:                                               ; preds = %76
   %82 = getelementptr i8, ptr %6, i64 232
-  %83 = getelementptr [5 x %struct.acpi_device_power_state], ptr %82, i64 0, i64 %78
+  %83 = getelementptr %struct.acpi_device_power_state, ptr %82, i64 %78
   %84 = load i8, ptr %83, align 8
   %85 = and i8 %84, 1
   %86 = icmp eq i8 %85, 0

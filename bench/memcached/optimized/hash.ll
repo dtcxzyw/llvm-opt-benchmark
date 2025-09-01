@@ -22,10 +22,10 @@ define dso_local range(i32 -1, 1) i32 @hash_init(i32 noundef %0) local_unnamed_a
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.hash_init, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.hash_init, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.hash_init.6, i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table.hash_init.6, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   store ptr %switch.load, ptr @hash, align 8, !tbaa !4
   store ptr %switch.load3, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 192), align 8, !tbaa !8

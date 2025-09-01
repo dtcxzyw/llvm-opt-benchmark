@@ -3851,7 +3851,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 100:                                              ; preds = %.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit148
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %101 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %102 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv
   %103 = load i32, ptr %101, align 4, !tbaa !20, !noalias !110
   %104 = load i32, ptr %102, align 4, !tbaa !20, !noalias !110
@@ -4163,7 +4163,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 203:                                              ; preds = %.lr.ph294, %_ZN7testing15AssertionResultD2Ev.exit180
   %indvars.iv309 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next310, %_ZN7testing15AssertionResultD2Ev.exit180 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %204 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_languages, i64 0, i64 %indvars.iv309
+  %204 = getelementptr inbounds nuw ptr, ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_languages, i64 %indvars.iv309
   %205 = load ptr, ptr %204, align 8, !tbaa !54
   %206 = load ptr, ptr %92, align 8, !tbaa !53
   %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv309
@@ -4464,7 +4464,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 306:                                              ; preds = %.lr.ph298, %_ZN7testing15AssertionResultD2Ev.exit212
   %indvars.iv312 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next313, %_ZN7testing15AssertionResultD2Ev.exit212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %307 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_language_code_pairs, i64 0, i64 %indvars.iv312
+  %307 = getelementptr inbounds nuw ptr, ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_language_code_pairs, i64 %indvars.iv312
   %308 = load ptr, ptr %307, align 8, !tbaa !54
   %309 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv312
   %310 = load ptr, ptr %309, align 8, !tbaa !54
@@ -4766,7 +4766,7 @@ _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integra
 408:                                              ; preds = %.lr.ph302, %_ZN7testing15AssertionResultD2Ev.exit258
   %indvars.iv315 = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next316, %_ZN7testing15AssertionResultD2Ev.exit258 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %409 = getelementptr inbounds nuw [2 x i32], ptr %30, i64 0, i64 %indvars.iv315
+  %409 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv315
   %410 = load ptr, ptr %298, align 8, !tbaa !84
   %411 = getelementptr inbounds nuw i32, ptr %410, i64 %indvars.iv315
   %412 = load i32, ptr %409, align 4, !tbaa !20, !noalias !133
@@ -4897,7 +4897,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit245:         ; preds = %442, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i243
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %453 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_descriptions, i64 0, i64 %indvars.iv315
+  %453 = getelementptr inbounds nuw ptr, ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_descriptions, i64 %indvars.iv315
   %454 = load ptr, ptr %453, align 8, !tbaa !54
   %455 = load ptr, ptr %399, align 8, !tbaa !138
   %456 = getelementptr inbounds nuw ptr, ptr %455, i64 %indvars.iv315
@@ -5192,7 +5192,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit277
 
 554:                                              ; preds = %547
-  %555 = getelementptr inbounds nuw [1 x i32], ptr %41, i64 0, i64 %indvars.iv318
+  %555 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv318
   call void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %42, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull align 4 dereferenceable(4) %555, ptr noundef nonnull align 4 dereferenceable(4) %549)
   br label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit277
 

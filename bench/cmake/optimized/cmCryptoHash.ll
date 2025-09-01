@@ -57,7 +57,7 @@ $_ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__sing
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHashC2ENS_4AlgoE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [10 x i32], ptr @_ZL20cmCryptoHashAlgoToId, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @_ZL20cmCryptoHashAlgoToId, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !4
   store i32 %5, ptr %0, align 8, !tbaa !8
   %.b.i = load i1, ptr @_ZL38cmCryptoHash_rhash_library_initialized, align 4
@@ -365,7 +365,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEE
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   %4 = load i32, ptr %1, align 4, !tbaa !31
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [10 x i32], ptr @_ZL20cmCryptoHashAlgoToId, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr @_ZL20cmCryptoHashAlgoToId, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !4
   store i32 %7, ptr %3, align 8, !tbaa !8
   %.b.i.i = load i1, ptr @_ZL38cmCryptoHash_rhash_library_initialized, align 4
@@ -536,7 +536,7 @@ define dso_local void @_ZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhS
   %18 = zext i8 %17 to i32
   %19 = lshr i32 %18, 4
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = load i64, ptr %4, align 8, !tbaa !38
   %24 = add i64 %23, 1
@@ -573,7 +573,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   store i8 0, ptr %37, align 1, !tbaa !41
   %38 = and i32 %18, 15
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = load i64, ptr %4, align 8, !tbaa !38
   %43 = add i64 %42, 1

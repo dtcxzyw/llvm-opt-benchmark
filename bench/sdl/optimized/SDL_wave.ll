@@ -845,7 +845,7 @@ WaveFreeChunkData.exit.i:                         ; preds = %266, %264
 
 switch.lookup:                                    ; preds = %300
   %311 = zext nneg i32 %305 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.SDL_LoadWAV_IO_REAL, i64 0, i64 %311
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_LoadWAV_IO_REAL, i64 %311
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %WaveLoad.exit.thread41
 
@@ -1982,7 +1982,7 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
   %.01922.i.us.i = tail call i32 @llvm.smin.i32(i32 %137, i32 32767)
   %.019.i.us.i = trunc nsw i32 %.01922.i.us.i to i16
   %138 = zext nneg i8 %119 to i64
-  %139 = getelementptr inbounds nuw [16 x i16], ptr @__const.MS_ADPCM_ProcessNibble.adaptive, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i16, ptr @__const.MS_ADPCM_ProcessNibble.adaptive, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
   %142 = mul nuw i32 %141, %121
@@ -2257,11 +2257,11 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %spec.store.select.i.us.i = tail call i8 @llvm.smax.i8(i8 %90, i8 0)
   %100 = tail call i8 @llvm.umin.i8(i8 %spec.store.select.i.us.i, i8 88)
   %101 = zext nneg i8 %100 to i64
-  %102 = getelementptr inbounds nuw [89 x i16], ptr @__const.IMA_ADPCM_ProcessNibble.step_table, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i16, ptr @__const.IMA_ADPCM_ProcessNibble.step_table, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = zext i16 %103 to i32
   %105 = zext nneg i8 %99 to i64
-  %106 = getelementptr inbounds nuw [16 x i8], ptr @__const.IMA_ADPCM_ProcessNibble.index_table_4b, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @__const.IMA_ADPCM_ProcessNibble.index_table_4b, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = add i8 %100, %107
   store i8 %108, ptr %86, align 1
@@ -2385,7 +2385,7 @@ define internal fastcc zeroext i16 @WaveGetFormatGUIDEncoding(ptr noundef nonnul
 
 5:                                                ; preds = %1, %3
   %.06 = phi i64 [ 0, %1 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw [6 x %struct.WaveExtensibleGUID], ptr @extensible_guids, i64 0, i64 %.06
+  %6 = getelementptr inbounds nuw %struct.WaveExtensibleGUID, ptr @extensible_guids, i64 %.06
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %2, ptr noundef nonnull %7, i64 noundef 16) #8
   %9 = icmp eq i32 %8, 0
@@ -2742,7 +2742,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %81
-  %97 = getelementptr inbounds nuw [14 x i16], ptr @__const.MS_ADPCM_Init.presetcoeffs, i64 0, i64 %.06174
+  %97 = getelementptr inbounds nuw i16, ptr @__const.MS_ADPCM_Init.presetcoeffs, i64 %.06174
   %98 = load i16, ptr %97, align 2
   %99 = sext i16 %98 to i32
   %.not68 = icmp eq i32 %spec.select, %99

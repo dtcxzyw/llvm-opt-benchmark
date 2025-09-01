@@ -1310,7 +1310,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %or.cond.us, label %43, label %39
 
 39:                                               ; preds = %.preheader120.split.us
-  %40 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv140, i32 1
+  %40 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv140, i32 1
   %41 = load i32, ptr %40, align 4, !tbaa !79
   %42 = icmp eq i32 %.fr132, %41
   br i1 %42, label %43, label %63
@@ -1327,7 +1327,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   store i16 %.0, ptr %48, align 2, !tbaa !84
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 10, ptr %49, align 4, !tbaa !77
-  %50 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv140
+  %50 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv140
   %51 = load i32, ptr %50, align 8, !tbaa !85
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %51, ptr %52, align 8, !tbaa !60
@@ -1364,7 +1364,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
 .preheader120.split.split.us:                     ; preds = %.preheader120.split, %82
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %82 ], [ 2, %.preheader120.split ]
   %.084123.us124 = phi ptr [ %.185.us127, %82 ], [ null, %.preheader120.split ]
-  %64 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv137
+  %64 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv137
   %65 = load i32, ptr %64, align 8, !tbaa !85
   %66 = icmp eq i32 %30, %65
   br i1 %66, label %67, label %82
@@ -1406,7 +1406,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
 .preheader120.split.split:                        ; preds = %.preheader120.split, %105
   %indvars.iv = phi i64 [ %indvars.iv.next, %105 ], [ 2, %.preheader120.split ]
   %.084123 = phi ptr [ %.185, %105 ], [ null, %.preheader120.split ]
-  %83 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv
   %84 = load i32, ptr %83, align 8, !tbaa !85
   %85 = icmp eq i32 %30, %84
   br i1 %85, label %86, label %105
@@ -1416,7 +1416,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %87, label %92, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv, i32 1
+  %89 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv, i32 1
   %90 = load i32, ptr %89, align 4, !tbaa !79
   %91 = icmp eq i32 %.fr132, %90
   br i1 %91, label %92, label %105
@@ -1483,7 +1483,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %115, label %122, label %118
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv143
+  %119 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
   %120 = load i32, ptr %119, align 8, !tbaa !85
   %121 = icmp eq i32 %109, %120
   br i1 %121, label %122, label %149
@@ -1494,7 +1494,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %or.cond107, label %128, label %124
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv143, i32 1
+  %125 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv143, i32 1
   %126 = load i32, ptr %125, align 4, !tbaa !79
   %127 = icmp eq i32 %108, %126
   br i1 %127, label %128, label %149
@@ -1512,7 +1512,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   store i16 %.0, ptr %134, align 2, !tbaa !89
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 4
   store i32 2, ptr %135, align 4, !tbaa !77
-  %136 = getelementptr inbounds nuw [3 x %struct.anon.18], ptr @numeric_getaddrinfo.list, i64 0, i64 %indvars.iv143
+  %136 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
   %137 = load i32, ptr %136, align 8, !tbaa !85
   %138 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i32 %137, ptr %138, align 8, !tbaa !60
@@ -2392,7 +2392,7 @@ unixsocket_len.exit:                              ; preds = %.preheader
   %176 = icmp eq i64 %indvars.iv, 0
   %177 = select i1 %176, ptr @.str.45, ptr @.str.46
   %178 = call i64 @rb_str_cat_cstr(i64 noundef %2, ptr noundef nonnull %177) #21
-  %179 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 0, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv
   %180 = load i8, ptr %179, align 1, !tbaa !49
   %181 = zext i8 %180 to i32
   %182 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %2, ptr noundef nonnull @.str.47, i32 noundef %181) #21

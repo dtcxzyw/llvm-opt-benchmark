@@ -161,7 +161,7 @@ define void @WriteTableIntoFile(ptr noundef captures(none) %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %.lr.ph
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.WriteTableIntoFile, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.WriteTableIntoFile, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %fputc36 = tail call i32 @fputc(i32 %switch.load, ptr %0)
   br label %8

@@ -708,7 +708,7 @@ define void @"_ZN66_$LT$salsa..runtime..Runtime$u20$as$u20$core..default..Defaul
 
 6:                                                ; preds = %6, %1
   %7 = phi i64 [ 0, %1 ], [ %9, %6 ]
-  %8 = getelementptr inbounds nuw [3 x { { i32 } }], ptr %3, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw { { i32 } }, ptr %3, i64 %7
   store i32 1, ptr %8, align 4
   %9 = add nuw nsw i64 %7, 1
   %exitcond.not.i.i = icmp eq i64 %9, 3
@@ -1010,7 +1010,7 @@ define void @_ZN5salsa7runtime7Runtime21report_synthetic_read17hb9aaca24f39e48e2
 7:                                                ; preds = %2
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %9 = getelementptr inbounds nuw [3 x { { i32 } }], ptr %8, i64 0, i64 %5
+  %9 = getelementptr inbounds nuw { { i32 } }, ptr %8, i64 %5
   %10 = load atomic i32, ptr %9 seq_cst, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %_ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit
@@ -1701,7 +1701,7 @@ define void @"_ZN70_$LT$salsa..runtime..SharedState$u20$as$u20$core..default..De
 
 4:                                                ; preds = %1, %4
   %5 = phi i64 [ 0, %1 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw [3 x { { i32 } }], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw { { i32 } }, ptr %3, i64 %5
   store i32 1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 3

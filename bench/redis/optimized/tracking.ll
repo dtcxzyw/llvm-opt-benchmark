@@ -1321,7 +1321,7 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !91
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %43
+  %44 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !64
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !65
@@ -1453,7 +1453,7 @@ define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnam
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !91
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !65

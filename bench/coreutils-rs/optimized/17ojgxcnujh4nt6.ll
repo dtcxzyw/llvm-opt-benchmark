@@ -73,7 +73,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   unreachable
 
 "_ZN81_$LT$uu_shred..FilenameIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hffdfe69d5228cc5fE.exit.i.i": ; preds = %13
-  %17 = getelementptr inbounds nuw [0 x i8], ptr @anon.ba95d5c43722325c638ee50efa6d0066.23, i64 0, i64 %.val15.i
+  %17 = getelementptr inbounds nuw i8, ptr @anon.ba95d5c43722325c638ee50efa6d0066.23, i64 %.val15.i
   %18 = load i8, ptr %17, align 1, !noalias !34, !noundef !4
   %19 = icmp sgt i8 %18, -1
   br i1 %19, label %20, label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i.i
@@ -619,7 +619,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   unreachable
 
 "_ZN81_$LT$uu_shred..FilenameIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hffdfe69d5228cc5fE.exit.i": ; preds = %13
-  %17 = getelementptr inbounds nuw [0 x i8], ptr @anon.ba95d5c43722325c638ee50efa6d0066.23, i64 0, i64 %.val15
+  %17 = getelementptr inbounds nuw i8, ptr @anon.ba95d5c43722325c638ee50efa6d0066.23, i64 %.val15
   %18 = load i8, ptr %17, align 1, !noundef !4
   %19 = icmp sgt i8 %18, -1
   br i1 %19, label %20, label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i

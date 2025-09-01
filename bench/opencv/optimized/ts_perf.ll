@@ -24883,7 +24883,7 @@ _ZNK7testing8TestInfo11value_paramEv.exit:        ; preds = %_ZNK7testing8TestIn
 
 switch.lookup:                                    ; preds = %630
   %633 = zext nneg i32 %631 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4perf8TestBase13reportMetricsEb, i64 0, i64 %633
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4perf8TestBase13reportMetricsEb, i64 %633
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %634
 

@@ -142,11 +142,11 @@ define range(i32 -1, -2147483648) i32 @connect_host(ptr noundef %0, ptr noundef 
   %59 = shl nuw i64 1, %58
   %60 = lshr i32 %41, 6
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [16 x i64], ptr %9, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %9, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !18
   %64 = or i64 %63, %59
   store i64 %64, ptr %62, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw [16 x i64], ptr %10, i64 0, i64 %61
+  %65 = getelementptr inbounds nuw i64, ptr %10, i64 %61
   %66 = load i64, ptr %65, align 8, !tbaa !18
   %67 = or i64 %66, %59
   store i64 %67, ptr %65, align 8, !tbaa !18
@@ -385,7 +385,7 @@ define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 11:                                               ; preds = %6, %10
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw [4 x ptr], ptr @__const.submit_post.acceptable_methods, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr @__const.submit_post.acceptable_methods, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %13) #12
   %.not103 = icmp eq i32 %14, 0
@@ -505,7 +505,7 @@ define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %83 = shl nuw i64 1, %82
   %84 = lshr i32 %71, 6
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i64, ptr %8, i64 %85
   %87 = zext i32 %5 to i64
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %89 = add nuw nsw i32 %71, 1

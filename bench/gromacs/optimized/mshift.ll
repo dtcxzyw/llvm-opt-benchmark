@@ -451,7 +451,7 @@ define void @_Z7p_graphP8_IO_FILEPKcPK7t_graph(ptr noundef captures(none) %0, pt
   %69 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !41
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z7p_graphP8_IO_FILEPKcPK7t_graph.cc, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr @__const._Z7p_graphP8_IO_FILEPKcPK7t_graph.cc, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !43
   br label %74
 
@@ -777,7 +777,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 .preheader81:                                     ; preds = %13, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %13 ]
-  %28 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
+  %28 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 5
   %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = and i32 %29, 8
   %.not48 = icmp eq i32 %30, 0
@@ -912,7 +912,7 @@ _ZL21determine_graph_partsRK14EdgesGeneratorN3gmx8ArrayRefIiEE.exit: ; preds = %
 78:                                               ; preds = %.preheader, %91
   %indvars.iv91 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next92, %91 ]
   %.03588 = phi i8 [ 0, %.preheader ], [ %.136, %91 ]
-  %79 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv91, i32 5
+  %79 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv91, i32 5
   %80 = load i32, ptr %79, align 4, !tbaa !69
   %81 = and i32 %80, 8
   %.not = icmp eq i32 %81, 0
@@ -1215,7 +1215,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI15InteractionListEbP14E
 
 .lr.ph71:                                         ; preds = %6
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %17, i32 2
+  %18 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %17, i32 2
   %19 = icmp eq i32 %1, 64
   %20 = icmp eq ptr %4, %5
   %21 = load i32, ptr %18, align 16, !tbaa !85
@@ -2363,7 +2363,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc.i
 
 .preheader81.i:                                   ; preds = %23, %47
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %23 ]
-  %38 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i, i32 5
+  %38 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i, i32 5
   %39 = load i32, ptr %38, align 4, !tbaa !69, !noalias !102
   %40 = and i32 %39, 8
   %.not48.i = icmp eq i32 %40, 0
@@ -2498,7 +2498,7 @@ _ZL21determine_graph_partsRK14EdgesGeneratorN3gmx8ArrayRefIiEE.exit.i: ; preds =
 88:                                               ; preds = %101, %.preheader.i
   %indvars.iv91.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next92.i, %101 ]
   %.03588.i = phi i8 [ 0, %.preheader.i ], [ %.136.i, %101 ]
-  %89 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv91.i, i32 5
+  %89 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv91.i, i32 5
   %90 = load i32, ptr %89, align 4, !tbaa !69, !noalias !102
   %91 = and i32 %90, 8
   %.not.i = icmp eq i32 %91, 0
@@ -3014,7 +3014,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGener
 
 .lr.ph72:                                         ; preds = %6
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %10, i32 2
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = icmp eq i32 %1, 64
   %14 = icmp eq ptr %4, %5
@@ -3462,10 +3462,10 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit98.thread: ; preds = 
 123:                                              ; preds = %123, %120
   %indvars.iv.i = phi i64 [ 0, %120 ], [ %indvars.iv.next.i, %123 ]
   %124 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv.i
-  %125 = getelementptr inbounds nuw [3 x float], ptr %124, i64 0, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv.i
   %126 = load float, ptr %125, align 4, !tbaa !120
   %127 = fmul float %126, 5.000000e-01
-  %128 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i
   store float %127, ptr %128, align 4, !tbaa !120
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i, 3
@@ -3635,7 +3635,7 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit98.thread: ; preds = 
   %indvars.iv.i81.i = phi i32 [ %59, %212 ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
   %223 = zext i32 %indvars.iv.i81.i to i64
   %indvars.iv.next54.i.i = add nsw i64 %indvars.iv53.i.i, -1
-  %224 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv.next54.i.i
+  %224 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.next54.i.i
   %225 = load float, ptr %224, align 4, !tbaa !120
   %226 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.next54.i.i
   %227 = load float, ptr %226, align 4, !tbaa !120
@@ -3658,9 +3658,9 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit98.thread: ; preds = 
 
 237:                                              ; preds = %237, %.lr.ph42.i.i
   %indvars.iv50.i.i = phi i64 [ %223, %.lr.ph42.i.i ], [ %indvars.iv.next51.i.i, %237 ]
-  %238 = getelementptr inbounds nuw [3 x float], ptr %236, i64 0, i64 %indvars.iv50.i.i
+  %238 = getelementptr inbounds nuw float, ptr %236, i64 %indvars.iv50.i.i
   %239 = load float, ptr %238, align 4, !tbaa !120
-  %240 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv50.i.i
+  %240 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv50.i.i
   %241 = load float, ptr %240, align 4, !tbaa !120
   %242 = fadd float %239, %241
   store float %242, ptr %240, align 4, !tbaa !120
@@ -3687,9 +3687,9 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit98.thread: ; preds = 
 
 252:                                              ; preds = %252, %.lr.ph.i.i
   %indvars.iv47.i.i = phi i64 [ %223, %.lr.ph.i.i ], [ %indvars.iv.next48.i.i, %252 ]
-  %253 = getelementptr inbounds nuw [3 x float], ptr %251, i64 0, i64 %indvars.iv47.i.i
+  %253 = getelementptr inbounds nuw float, ptr %251, i64 %indvars.iv47.i.i
   %254 = load float, ptr %253, align 4, !tbaa !120
-  %255 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv47.i.i
+  %255 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv47.i.i
   %256 = load float, ptr %255, align 4, !tbaa !120
   %257 = fsub float %256, %254
   store float %257, ptr %255, align 4, !tbaa !120
@@ -3730,7 +3730,7 @@ _ZL14mk_1shift_triciPA3_KfPS_S2_S2_PKiPi.exit.i:  ; preds = %.loopexit.i.i, %247
 
 271:                                              ; preds = %288, %261
   %indvars.iv.i83.i = phi i64 [ 0, %261 ], [ %indvars.iv.next.i85.i, %288 ]
-  %272 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i83.i
+  %272 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i83.i
   %273 = load float, ptr %272, align 4, !tbaa !120
   %274 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i83.i
   %275 = load float, ptr %274, align 4, !tbaa !120

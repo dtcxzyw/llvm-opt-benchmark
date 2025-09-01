@@ -417,7 +417,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 147:                                              ; preds = %.preheader256, %150
   %indvars.iv310 = phi i64 [ 0, %.preheader256 ], [ %indvars.iv.next311, %150 ]
-  %148 = getelementptr inbounds nuw [5 x i16], ptr %46, i64 0, i64 %indvars.iv310
+  %148 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv310
   %149 = load i16, ptr %148, align 2
   %.not = icmp eq i16 %149, 0
   br i1 %.not, label %.critedge, label %150
@@ -587,46 +587,46 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   store float %237, ptr %240, align 4
   store ptr %200, ptr @CurrentMemoryContext, align 8
   %241 = and i64 %indvars.iv310, 4294967295
-  %242 = getelementptr inbounds nuw [5 x i16], ptr %46, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i16, ptr %46, i64 %241
   store i16 4, ptr %242, align 2
   %243 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %244 = load i32, ptr %243, align 4
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %246 = getelementptr inbounds nuw [5 x i32], ptr %245, i64 0, i64 %241
+  %246 = getelementptr inbounds nuw i32, ptr %245, i64 %241
   store i32 %244, ptr %246, align 4
   %247 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %248 = load i32, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %250 = getelementptr inbounds nuw [5 x i32], ptr %249, i64 0, i64 %241
+  %250 = getelementptr inbounds nuw i32, ptr %249, i64 %241
   store i32 %248, ptr %250, align 4
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %252 = getelementptr inbounds nuw [5 x ptr], ptr %251, i64 0, i64 %241
+  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %241
   store ptr %206, ptr %252, align 8
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %254 = getelementptr inbounds nuw [5 x i32], ptr %253, i64 0, i64 %241
+  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %241
   store i32 %203, ptr %254, align 4
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %256 = getelementptr inbounds nuw [5 x ptr], ptr %255, i64 0, i64 %241
+  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %241
   store ptr %202, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %258 = getelementptr inbounds nuw [5 x i32], ptr %257, i64 0, i64 %241
+  %258 = getelementptr inbounds nuw i32, ptr %257, i64 %241
   store i32 %.0, ptr %258, align 4
   %259 = load i32, ptr %18, align 8
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %261 = getelementptr inbounds nuw [5 x i32], ptr %260, i64 0, i64 %241
+  %261 = getelementptr inbounds nuw i32, ptr %260, i64 %241
   store i32 %259, ptr %261, align 4
   %262 = load i16, ptr %208, align 2
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %264 = getelementptr inbounds nuw [5 x i16], ptr %263, i64 0, i64 %241
+  %264 = getelementptr inbounds nuw i16, ptr %263, i64 %241
   store i16 %262, ptr %264, align 2
   %265 = load i8, ptr %207, align 4, !range !4, !noundef !5
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 286
-  %267 = getelementptr inbounds nuw [5 x i8], ptr %266, i64 0, i64 %241
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 %241
   store i8 %265, ptr %267, align 1
   %268 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %269 = load i8, ptr %268, align 8
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %271 = getelementptr inbounds nuw [5 x i8], ptr %270, i64 0, i64 %241
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 %241
   store i8 %269, ptr %271, align 1
   %272 = add nuw i64 %indvars.iv310, 1
   br label %273
@@ -730,23 +730,23 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 326:                                              ; preds = %._crit_edge301
   %sext337 = shl i64 %.1239, 32
   %327 = ashr exact i64 %sext337, 32
-  %328 = getelementptr inbounds [5 x i16], ptr %46, i64 0, i64 %327
+  %328 = getelementptr inbounds i16, ptr %46, i64 %327
   store i16 5, ptr %328, align 2
   %329 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %330 = load i32, ptr %329, align 4
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %332 = getelementptr inbounds [5 x i32], ptr %331, i64 0, i64 %327
+  %332 = getelementptr inbounds i32, ptr %331, i64 %327
   store i32 %330, ptr %332, align 4
   %333 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %334 = load i32, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %336 = getelementptr inbounds [5 x i32], ptr %335, i64 0, i64 %327
+  %336 = getelementptr inbounds i32, ptr %335, i64 %327
   store i32 %334, ptr %336, align 4
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %338 = getelementptr inbounds [5 x ptr], ptr %337, i64 0, i64 %327
+  %338 = getelementptr inbounds ptr, ptr %337, i64 %327
   store ptr %294, ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %340 = getelementptr inbounds [5 x i32], ptr %339, i64 0, i64 %327
+  %340 = getelementptr inbounds i32, ptr %339, i64 %327
   store i32 %291, ptr %340, align 4
   br label %341
 

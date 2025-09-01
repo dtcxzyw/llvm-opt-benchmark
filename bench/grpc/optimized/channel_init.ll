@@ -892,7 +892,7 @@ _ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2024072212AnyInvoc
 define noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 captures(none) dereferenceable(528) %0, i32 noundef %1, i64 %2, ptr %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly byval(%"class.grpc_core::SourceLocation") align 8 captures(none) %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::unique_ptr", align 8
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw [6 x %"class.std::vector.9"], ptr %0, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.std::vector.9", ptr %0, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %11 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #32, !noalias !44
@@ -4410,7 +4410,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit8OrderingES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.23, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit8OrderingES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.23, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_core13AbslStringifyIN4absl12lts_2024072212log_internal13StringifySinkEEEvRT_NS_11ChannelInit8OrderingE.exit
 
@@ -4429,7 +4429,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024072212log_internal10LogMessagelsIN9grpc_core11ChannelInit7VersionETnNSt9enable_ifIXsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS8_, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal10LogMessagelsIN9grpc_core11ChannelInit7VersionETnNSt9enable_ifIXsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS8_, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_core13AbslStringifyIN4absl12lts_2024072212log_internal13StringifySinkEEEvRT_NS_11ChannelInit7VersionE.exit
 
@@ -4453,14 +4453,14 @@ define void @_ZN9grpc_core11ChannelInit7Builder5BuildEv(ptr dead_on_unwind noali
 5:                                                ; preds = %2, %9
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = getelementptr inbounds nuw [6 x %"class.std::vector.9"], ptr %1, i64 0, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw [6 x [2 x %"class.absl::lts_20240722::AnyInvocable.14"]], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %"class.std::vector.9", ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x %"class.absl::lts_20240722::AnyInvocable.14"], ptr %4, i64 %indvars.iv
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique_ptrINS0_18FilterRegistrationESt14default_deleteIS3_EESaIS6_EEPN4absl12lts_2024072212AnyInvocableIKFvRNS_19ChannelStackBuilderEEEE23grpc_channel_stack_type(ptr dead_on_unwind nonnull writable sret(%"struct.grpc_core::ChannelInit::StackConfig") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %7, i32 noundef %8)
           to label %9 unwind label %12
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw [6 x %"struct.grpc_core::ChannelInit::StackConfig"], ptr %0, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %"struct.grpc_core::ChannelInit::StackConfig", ptr %0, i64 %indvars.iv
   %11 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN9grpc_core11ChannelInit11StackConfigaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %3) #34
   call void @_ZN9grpc_core11ChannelInit11StackConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4887,7 +4887,7 @@ define noundef zeroext i1 @_ZNK9grpc_core11ChannelInit11CreateStackEPNS_19Channe
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !265
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [6 x %"struct.grpc_core::ChannelInit::StackConfig"], ptr %0, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.grpc_core::ChannelInit::StackConfig", ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !176
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !176
@@ -5407,7 +5407,7 @@ define void @_ZNK9grpc_core11ChannelInit29AddToInterceptionChainBuilderE23grpc_c
   %9 = alloca %"class.absl::lts_20240722::strings_internal::StringifySink", align 8
   %10 = alloca %"class.absl::lts_20240722::AlphaNum", align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw [6 x %"struct.grpc_core::ChannelInit::StackConfig"], ptr %0, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.grpc_core::ChannelInit::StackConfig", ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !176
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !176
@@ -5995,7 +5995,7 @@ define linkonce_odr noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17M
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit8OrderingES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.23, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit8OrderingES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.23, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_corelsERSoNS_11ChannelInit8OrderingE.exit.i
 
@@ -6016,7 +6016,7 @@ _ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIN9grpc_core11Channe
 
 switch.lookup8:                                   ; preds = %11
   %14 = zext nneg i8 %12 to i64
-  %switch.gep9 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit8OrderingES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.23, i64 0, i64 %14
+  %switch.gep9 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit8OrderingES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.23, i64 %14
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   br label %_ZN9grpc_corelsERSoNS_11ChannelInit8OrderingE.exit.i4
 

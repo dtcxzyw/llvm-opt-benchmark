@@ -968,10 +968,10 @@ define dso_local void @dev_addr_mod(ptr noundef %0, i32 noundef %1, ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @rb_erase(ptr noundef %7, ptr noundef nonnull %8) #10
   %9 = zext i32 %1 to i64
-  %10 = getelementptr [32 x i8], ptr %6, i64 0, i64 %9
+  %10 = getelementptr i8, ptr %6, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %2, i64 %3, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %12 = getelementptr [32 x i8], ptr %11, i64 0, i64 %9
+  %12 = getelementptr i8, ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %2, i64 %3, i1 false)
   %13 = load ptr, ptr %8, align 8
   %14 = icmp eq ptr %13, null

@@ -3403,7 +3403,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp11COBImporter10BuildNodesERKNS_3COB
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %25 = load ptr, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr align 1 %25, i64 %20, i1 false)
-  %26 = getelementptr inbounds nuw [1024 x i8], ptr %24, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %20
   store i8 0, ptr %26, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4035,7 +4035,7 @@ _ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112b
   %346 = load ptr, ptr %11, align 8
   %347 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %59, ptr align 1 %346, i64 %347, i1 false)
-  %348 = getelementptr inbounds nuw [1024 x i8], ptr %59, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw i8, ptr %59, i64 %347
   store i8 0, ptr %348, align 1
   %349 = icmp eq ptr %346, %53
   br i1 %349, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i200, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i199
@@ -4162,7 +4162,7 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %365, %362
 
 switch.lookup:                                    ; preds = %_ZN10aiMaterial11AddPropertyEPKijPKcjj.exit
   %387 = zext nneg i32 %380 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN6Assimp11COBImporter10BuildNodesERKNS_3COB4NodeERKNS1_5SceneEP7aiScene, i64 0, i64 %387
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp11COBImporter10BuildNodesERKNS_3COB4NodeERKNS1_5SceneEP7aiScene, i64 %387
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %14, align 4
   br label %388
@@ -4327,7 +4327,7 @@ _ZNSt10unique_ptrIKN6Assimp3COB8MaterialESt14default_deleteIS3_EED2Ev.exit: ; pr
   %457 = getelementptr inbounds nuw i8, ptr %439, i64 4
   %458 = load ptr, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %457, ptr align 1 %458, i64 %453, i1 false)
-  %459 = getelementptr inbounds nuw [1024 x i8], ptr %457, i64 0, i64 %453
+  %459 = getelementptr inbounds nuw i8, ptr %457, i64 %453
   store i8 0, ptr %459, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit214
 
@@ -4414,7 +4414,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit214:
   %509 = getelementptr inbounds nuw i8, ptr %487, i64 4
   %510 = load ptr, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %509, ptr align 1 %510, i64 %505, i1 false)
-  %511 = getelementptr inbounds nuw [1024 x i8], ptr %509, i64 0, i64 %505
+  %511 = getelementptr inbounds nuw i8, ptr %509, i64 %505
   store i8 0, ptr %511, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit215
 
@@ -4681,7 +4681,7 @@ define hidden void @_ZN6Assimp14ConvertTextureERKSt10shared_ptrINS_3COB7TextureE
   %11 = load ptr, ptr %5, align 8
   %12 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %9, ptr align 1 %11, i64 %12, i1 false)
-  %13 = getelementptr inbounds nuw [1024 x i8], ptr %9, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
   store i8 0, ptr %13, align 1
   %14 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i32 noundef %2, i32 noundef 0)
   %15 = load ptr, ptr %0, align 8
@@ -4998,7 +4998,7 @@ _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit.i:       ; preds = %_ZN6Assimp10SkipSpa
   resume { ptr, i32 } %23
 
 _ZN6Assimp9IsLineEndIcEEbT_.exit.i:               ; preds = %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit.i
-  %24 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %.021.i
+  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %.021.i
   store ptr %.01820.i, ptr %24, align 8
   br label %25
 
@@ -8115,7 +8115,7 @@ _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit.i109:    ; preds = %_ZN6Assimp10SkipSpa
   br label %.body122
 
 _ZN6Assimp9IsLineEndIcEEbT_.exit.i112:            ; preds = %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit.i109
-  %275 = getelementptr inbounds nuw [10 x ptr], ptr %15, i64 0, i64 %.021.i111
+  %275 = getelementptr inbounds nuw ptr, ptr %15, i64 %.021.i111
   store ptr %.01820.i, ptr %275, align 8
   br label %276
 
@@ -10040,7 +10040,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit:                ; preds = %.lr.ph.i
 _ZN6Assimp9strtoul10EPKcPS1_.exit.thread:         ; preds = %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit10.i, %_ZN6Assimp9strtoul10EPKcPS1_.exit
   %.0.lcssa.i24 = phi i32 [ %62, %_ZN6Assimp9strtoul10EPKcPS1_.exit ], [ 0, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit10.i ]
   %69 = zext nneg i32 %.0.lcssa.i24 to i64
-  %70 = getelementptr inbounds nuw [8 x float], ptr @_ZN6AssimpL5unitsE, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw float, ptr @_ZN6AssimpL5unitsE, i64 %69
   %71 = load float, ptr %70, align 4
   br label %78
 
@@ -17151,7 +17151,7 @@ define hidden void @_ZN6Assimp11COBImporter15ReadUnit_BinaryERNS_3COB5SceneERNS_
 
 53:                                               ; preds = %46
   %54 = zext nneg i32 %48 to i64
-  %55 = getelementptr inbounds nuw [8 x float], ptr @_ZN6AssimpL5unitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw float, ptr @_ZN6AssimpL5unitsE, i64 %54
   %56 = load float, ptr %55, align 4
   br label %65
 
@@ -21113,7 +21113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

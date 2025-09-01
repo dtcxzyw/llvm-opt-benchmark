@@ -340,7 +340,7 @@ Psr_ManWriteVerilogIoOrder.exit.i:                ; preds = %39, %29
   br label %62
 
 62:                                               ; preds = %61, %59
-  %63 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %64 = load ptr, ptr %63, align 8, !tbaa !23
   %65 = getelementptr i8, ptr %64, i64 4
   %.val2728.i.i = load i32, ptr %65, align 4, !tbaa !16
@@ -349,10 +349,10 @@ Psr_ManWriteVerilogIoOrder.exit.i:                ; preds = %39, %29
 
 .lr.ph.i15.i:                                     ; preds = %62
   %67 = getelementptr i8, ptr %64, i64 8
-  %68 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !23
   %70 = getelementptr i8, ptr %69, i64 8
-  %71 = getelementptr inbounds nuw [4 x ptr], ptr @__const.Psr_ManWriteVerilogIos.pSigNames, i64 0, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw ptr, ptr @__const.Psr_ManWriteVerilogIos.pSigNames, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8, !tbaa !25
   br label %73
 
@@ -459,8 +459,8 @@ Psr_ManWriteVerilogIos.exit.i:                    ; preds = %80, %62
   %121 = load i32, ptr %120, align 4, !tbaa !10
   tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef nonnull %11, ptr noundef nonnull readonly %31, i32 noundef %121)
   %122 = lshr exact i64 %indvars.iv25.i.i.i, 1
-  %123 = add nuw nsw i64 %122, 1
-  %124 = getelementptr inbounds nuw [4 x ptr], ptr @__const.Psr_ManWriteVerilogMux.pStrs, i64 0, i64 %123
+  %123 = getelementptr inbounds nuw ptr, ptr @__const.Psr_ManWriteVerilogMux.pStrs, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !25
   %fputs.i.i.i = tail call i32 @fputs(ptr %125, ptr nonnull %11)
   %126 = icmp eq i64 %indvars.iv25.i.i.i, 4
@@ -479,7 +479,7 @@ Psr_ManWriteVerilogIos.exit.i:                    ; preds = %80, %62
 
 switch.lookup:                                    ; preds = %130
   %132 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.Psr_ManWriteVerilog, i64 0, i64 %132
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Psr_ManWriteVerilog, i64 %132
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Ptr_TypeToName.exit.i.i
 
@@ -3957,7 +3957,7 @@ Bac_BoxCollectRanges.exit:                        ; preds = %.lr.ph53.i, %1384, 
   %1395 = lshr i8 %1394, 1
   %1396 = getelementptr inbounds nuw i8, ptr %1392, i64 744
   %1397 = zext nneg i8 %1395 to i64
-  %1398 = getelementptr inbounds nuw [73 x ptr], ptr %1396, i64 0, i64 %1397
+  %1398 = getelementptr inbounds nuw ptr, ptr %1396, i64 %1397
   %1399 = load ptr, ptr %1398, align 8, !tbaa !25
   br label %1400
 
@@ -7331,7 +7331,7 @@ Vec_StrPush.exit.i272:                            ; preds = %238, %Vec_StrGrow.e
 
 Vec_StrPrintStr.exit278:                          ; preds = %Vec_StrPush.exit.i272
   %245 = zext nneg i32 %215 to i64
-  %246 = getelementptr inbounds nuw [4 x ptr], ptr @__const.Bac_ManWriteVerilogNtk.pKeyword, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr @__const.Bac_ManWriteVerilogNtk.pKeyword, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !25
   %248 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %247) #14
   %249 = trunc i64 %248 to i32
@@ -10441,7 +10441,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader49 ]
   %72 = urem i32 %.11531, 10
   %73 = trunc nuw nsw i32 %72 to i8
-  %74 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %73, ptr %74, align 1, !tbaa !43
   %75 = udiv i32 %.11531, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10452,7 +10452,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
 76:                                               ; preds = %.preheader, %Vec_StrPush.exit30
   %indvars.iv37 = phi i64 [ %indvars.iv35, %.preheader ], [ %indvars.iv.next38, %Vec_StrPush.exit30 ]
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
-  %77 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv.next38
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next38
   %78 = load i8, ptr %77, align 1, !tbaa !43
   %79 = add i8 %78, 48
   %80 = load i32, ptr %70, align 4, !tbaa !41

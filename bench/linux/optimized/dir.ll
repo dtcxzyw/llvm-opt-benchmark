@@ -844,7 +844,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 238:                                              ; preds = %218
   %239 = zext nneg i8 %228 to i64
-  %240 = getelementptr [8 x i8], ptr @ext4_filetype_table, i64 0, i64 %239
+  %240 = getelementptr i8, ptr @ext4_filetype_table, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   br label %243
@@ -1070,7 +1070,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 389:                                              ; preds = %369
   %390 = zext nneg i8 %379 to i64
-  %391 = getelementptr [8 x i8], ptr @ext4_filetype_table, i64 0, i64 %390
+  %391 = getelementptr i8, ptr @ext4_filetype_table, i64 %390
   %392 = load i8, ptr %391, align 1
   %393 = zext i8 %392 to i32
   br label %394
@@ -1565,7 +1565,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 703:                                              ; preds = %686
   %704 = zext nneg i8 %693 to i64
-  %705 = getelementptr [8 x i8], ptr @ext4_filetype_table, i64 0, i64 %704
+  %705 = getelementptr i8, ptr @ext4_filetype_table, i64 %704
   %706 = load i8, ptr %705, align 1
   %707 = zext i8 %706 to i32
   br label %708

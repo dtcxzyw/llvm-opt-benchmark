@@ -2053,7 +2053,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %81
 113:                                              ; preds = %100, %144
   %exitcond.not = phi i1 [ false, %100 ], [ true, %144 ]
   %indvars.iv = phi i64 [ 1, %100 ], [ 2, %144 ]
-  %114 = getelementptr inbounds nuw [0 x ptr], ptr %104, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
   %115 = load ptr, ptr %114, align 8, !tbaa !118
   call void @_ZN15static_features7acc_numEPK4expr(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr noundef %115)
   %116 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %115)
@@ -5431,7 +5431,7 @@ _ZN15static_features9set_depthEPK4exprj.exit:     ; preds = %.lr.ph.i.i.i, %_ZNK
 74:                                               ; preds = %.lr.ph, %_ZNK15static_features9get_depthEPK4expr.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK15static_features9get_depthEPK4expr.exit ]
   %.03540 = phi i32 [ 0, %.lr.ph ], [ %.sroa.speculated, %_ZNK15static_features9get_depthEPK4expr.exit ]
-  %75 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !118
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4

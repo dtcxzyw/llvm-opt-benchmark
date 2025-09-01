@@ -138,13 +138,13 @@ define range(i32 -22, 1) i32 @ff_vmafmotion_init(ptr noundef writeonly captures(
 
 .preheader:                                       ; preds = %23, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %23 ]
-  %26 = getelementptr inbounds nuw [5 x float], ptr @FILTER_5, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw float, ptr @FILTER_5, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !26
   %28 = fmul nsz float %27, 3.276800e+04
   %29 = fpext nsz float %28 to double
   %30 = tail call i64 @llvm.lrint.i64.f64(double %29)
   %31 = trunc i64 %30 to i16
-  %32 = getelementptr inbounds nuw [5 x i16], ptr %0, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %31, ptr %32, align 2, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

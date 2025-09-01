@@ -2047,7 +2047,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder18writeValueAndFinalEia(ptr noun
   %43 = trunc i32 %42 to i8
   %44 = add nuw nsw i32 %.2, 1
   %45 = zext nneg i32 %.2 to i64
-  %46 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   store i8 %43, ptr %46, align 1, !tbaa !20
   br label %47
 
@@ -2057,7 +2057,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder18writeValueAndFinalEia(ptr noun
   %49 = trunc i32 %1 to i8
   %50 = add nuw nsw i32 %.1, 1
   %51 = zext nneg i32 %.1 to i64
-  %52 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %51
   store i8 %49, ptr %52, align 1, !tbaa !20
   %53 = shl nuw i8 %48, 1
   br label %54

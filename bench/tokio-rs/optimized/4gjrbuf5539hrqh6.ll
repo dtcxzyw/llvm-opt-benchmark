@@ -1722,7 +1722,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.17688124612483408026.exit
 
 86:                                               ; preds = %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.llvm.17688124612483408026.exit27"
   %.val = load ptr, ptr %42, align 8, !nonnull !5, !noundef !5
-  %87 = getelementptr inbounds [0 x ptr], ptr %.val, i64 0, i64 %12
+  %87 = getelementptr inbounds ptr, ptr %.val, i64 %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %88 = load ptr, ptr %87, align 8, !alias.scope !211, !nonnull !5, !noundef !5

@@ -70047,7 +70047,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 115:                                              ; preds = %.preheader, %127
   %.069724 = phi i64 [ 0, %.preheader ], [ %128, %127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %116 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kVals, i64 0, i64 %.069724
+  %116 = getelementptr inbounds nuw i32, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kVals, i64 %.069724
   %117 = load i32, ptr %116, align 4, !tbaa !657
   store i32 %117, ptr %9, align 4, !tbaa !657
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -70129,7 +70129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   %140 = phi ptr [ %.pre728, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %144, %._crit_edge ]
   %141 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %145, %._crit_edge ]
   %.070723 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %146, %._crit_edge ]
-  %142 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.070723
+  %142 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.070723
   %143 = load i8, ptr %142, align 1, !tbaa !32
   %.not = icmp eq ptr %141, %140
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -70161,7 +70161,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 159:                                              ; preds = %.lr.ph, %162
   %.073721 = phi i64 [ 0, %.lr.ph ], [ %163, %162 ]
-  %160 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.073721
+  %160 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.073721
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   br label %._crit_edge.i.i145
 
@@ -70172,7 +70172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 ._crit_edge.i.i145:                               ; preds = %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276
   %.071720 = phi i64 [ 0, %159 ], [ %589, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276 ]
-  %164 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.071720
+  %164 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.071720
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %61, ptr %13, align 8, !tbaa !30
   store i8 37, ptr %61, align 8, !tbaa !32
@@ -71833,7 +71833,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %.not, label %52, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw [5 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev.kFlags, i64 0, i64 %.021
+  %36 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_119AllFlagCombinationsB5cxx11Ev.kFlags, i64 %.021
   %37 = load i8, ptr %36, align 1, !tbaa !32
   %38 = load i64, ptr %5, align 8, !tbaa !33
   %39 = add i64 %38, 1
@@ -72595,7 +72595,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 121:                                              ; preds = %.preheader, %133
   %.076760 = phi i64 [ 0, %.preheader ], [ %134, %133 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %122 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIjE8TestBodyEv.kVals, i64 0, i64 %.076760
+  %122 = getelementptr inbounds nuw i32, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIjE8TestBodyEv.kVals, i64 %.076760
   %123 = load i32, ptr %122, align 4, !tbaa !657
   store i32 %123, ptr %9, align 4, !tbaa !657
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -72677,7 +72677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
   %146 = phi ptr [ %.pre765, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %150, %._crit_edge ]
   %147 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %151, %._crit_edge ]
   %.077759 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %152, %._crit_edge ]
-  %148 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.077759
+  %148 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.077759
   %149 = load i8, ptr %148, align 1, !tbaa !32
   %.not761 = icmp eq ptr %147, %146
   br i1 %.not761, label %._crit_edge, label %.lr.ph
@@ -72709,7 +72709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 165:                                              ; preds = %.lr.ph, %168
   %.080757 = phi i64 [ 0, %.lr.ph ], [ %169, %168 ]
-  %166 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.080757
+  %166 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.080757
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   br label %170
 
@@ -72720,7 +72720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 170:                                              ; preds = %165, %654
   %.079756 = phi i64 [ 0, %165 ], [ %655, %654 ]
-  %171 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.079756
+  %171 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.079756
   switch i8 %149, label %._crit_edge.i.i156 [
     i8 105, label %172
     i8 100, label %172
@@ -74876,7 +74876,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 132:                                              ; preds = %.preheader, %143
   %.073728 = phi i64 [ 0, %.preheader ], [ %144, %143 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %133 = getelementptr inbounds nuw [13 x i32], ptr %8, i64 0, i64 %.073728
+  %133 = getelementptr inbounds nuw i32, ptr %8, i64 %.073728
   %134 = load volatile i32, ptr %133, align 4, !tbaa !657
   store volatile i32 %134, ptr %12, align 4, !tbaa !657
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -74956,7 +74956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_Z
   %156 = phi ptr [ %.pre732, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145 ], [ %160, %._crit_edge ]
   %157 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145 ], [ %161, %._crit_edge ]
   %.074727 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145 ], [ %162, %._crit_edge ]
-  %158 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.074727
+  %158 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.074727
   %159 = load i8, ptr %158, align 1, !tbaa !32
   %.not = icmp eq ptr %157, %156
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -74988,7 +74988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_Z
 
 175:                                              ; preds = %.lr.ph, %178
   %.077725 = phi i64 [ 0, %.lr.ph ], [ %179, %178 ]
-  %176 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %9, i64 0, i64 %.077725
+  %176 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %.077725
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   br label %._crit_edge.i.i149
 
@@ -74999,7 +74999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_Z
 
 ._crit_edge.i.i149:                               ; preds = %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280
   %.075724 = phi i64 [ 0, %175 ], [ %606, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280 ]
-  %180 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %10, i64 0, i64 %.075724
+  %180 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.075724
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %78, ptr %16, align 8, !tbaa !30
   store i8 37, ptr %78, align 8, !tbaa !32
@@ -76944,7 +76944,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 116:                                              ; preds = %.preheader, %129
   %.069737 = phi i64 [ 0, %.preheader ], [ %130, %129 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %117 = getelementptr inbounds nuw [13 x i16], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIsE8TestBodyEv.kVals, i64 0, i64 %.069737
+  %117 = getelementptr inbounds nuw i16, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIsE8TestBodyEv.kVals, i64 %.069737
   %118 = load i16, ptr %117, align 2, !tbaa !2230
   store i16 %118, ptr %9, align 2, !tbaa !2230
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -77027,7 +77027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   %142 = phi ptr [ %.pre741, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %146, %._crit_edge ]
   %143 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %147, %._crit_edge ]
   %.070736 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %148, %._crit_edge ]
-  %144 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.070736
+  %144 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.070736
   %145 = load i8, ptr %144, align 1, !tbaa !32
   %.not = icmp eq ptr %143, %142
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -77059,7 +77059,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 161:                                              ; preds = %.lr.ph, %164
   %.073734 = phi i64 [ 0, %.lr.ph ], [ %165, %164 ]
-  %162 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.073734
+  %162 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.073734
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   br label %._crit_edge.i.i145
 
@@ -77070,7 +77070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 ._crit_edge.i.i145:                               ; preds = %161, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276
   %.071733 = phi i64 [ 0, %161 ], [ %594, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276 ]
-  %166 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.071733
+  %166 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.071733
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %61, ptr %13, align 8, !tbaa !30
   store i8 37, ptr %61, align 8, !tbaa !32
@@ -82830,7 +82830,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 123:                                              ; preds = %.preheader, %136
   %.076786 = phi i64 [ 0, %.preheader ], [ %137, %136 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %124 = getelementptr inbounds nuw [13 x i16], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsItE8TestBodyEv.kVals, i64 0, i64 %.076786
+  %124 = getelementptr inbounds nuw i16, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsItE8TestBodyEv.kVals, i64 %.076786
   %125 = load i16, ptr %124, align 2, !tbaa !2230
   store i16 %125, ptr %9, align 2, !tbaa !2230
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -82913,7 +82913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
   %149 = phi ptr [ %.pre791, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %153, %._crit_edge ]
   %150 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %154, %._crit_edge ]
   %.077785 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %155, %._crit_edge ]
-  %151 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.077785
+  %151 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.077785
   %152 = load i8, ptr %151, align 1, !tbaa !32
   %.not787 = icmp eq ptr %150, %149
   br i1 %.not787, label %._crit_edge, label %.lr.ph
@@ -82945,7 +82945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 168:                                              ; preds = %.lr.ph, %171
   %.080783 = phi i64 [ 0, %.lr.ph ], [ %172, %171 ]
-  %169 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.080783
+  %169 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.080783
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   br label %173
 
@@ -82956,7 +82956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 173:                                              ; preds = %168, %663
   %.079782 = phi i64 [ 0, %168 ], [ %664, %663 ]
-  %174 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.079782
+  %174 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.079782
   switch i8 %152, label %._crit_edge.i.i156 [
     i8 105, label %175
     i8 100, label %175
@@ -85119,7 +85119,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 116:                                              ; preds = %.preheader, %128
   %.069737 = phi i64 [ 0, %.preheader ], [ %129, %128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %117 = getelementptr inbounds nuw [13 x i64], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIxE8TestBodyEv.kVals, i64 0, i64 %.069737
+  %117 = getelementptr inbounds nuw i64, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIxE8TestBodyEv.kVals, i64 %.069737
   %118 = load i64, ptr %117, align 8, !tbaa !31
   store i64 %118, ptr %9, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -85200,7 +85200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   %141 = phi ptr [ %.pre741, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %145, %._crit_edge ]
   %142 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %146, %._crit_edge ]
   %.070736 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %147, %._crit_edge ]
-  %143 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.070736
+  %143 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.070736
   %144 = load i8, ptr %143, align 1, !tbaa !32
   %.not = icmp eq ptr %142, %141
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -85232,7 +85232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 160:                                              ; preds = %.lr.ph, %163
   %.073734 = phi i64 [ 0, %.lr.ph ], [ %164, %163 ]
-  %161 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.073734
+  %161 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.073734
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   br label %._crit_edge.i.i145
 
@@ -85243,7 +85243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 ._crit_edge.i.i145:                               ; preds = %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276
   %.071733 = phi i64 [ 0, %160 ], [ %593, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276 ]
-  %165 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.071733
+  %165 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.071733
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %61, ptr %13, align 8, !tbaa !30
   store i8 37, ptr %61, align 8, !tbaa !32
@@ -87185,7 +87185,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 123:                                              ; preds = %.preheader, %135
   %.076786 = phi i64 [ 0, %.preheader ], [ %136, %135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %124 = getelementptr inbounds nuw [13 x i64], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIyE8TestBodyEv.kVals, i64 0, i64 %.076786
+  %124 = getelementptr inbounds nuw i64, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIyE8TestBodyEv.kVals, i64 %.076786
   %125 = load i64, ptr %124, align 8, !tbaa !31
   store i64 %125, ptr %9, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -87266,7 +87266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
   %148 = phi ptr [ %.pre791, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %152, %._crit_edge ]
   %149 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %153, %._crit_edge ]
   %.077785 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %154, %._crit_edge ]
-  %150 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.077785
+  %150 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.077785
   %151 = load i8, ptr %150, align 1, !tbaa !32
   %.not787 = icmp eq ptr %149, %148
   br i1 %.not787, label %._crit_edge, label %.lr.ph
@@ -87298,7 +87298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 167:                                              ; preds = %.lr.ph, %170
   %.080783 = phi i64 [ 0, %.lr.ph ], [ %171, %170 ]
-  %168 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.080783
+  %168 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.080783
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   br label %172
 
@@ -87309,7 +87309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 172:                                              ; preds = %167, %662
   %.079782 = phi i64 [ 0, %167 ], [ %663, %662 ]
-  %173 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.079782
+  %173 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.079782
   switch i8 %151, label %._crit_edge.i.i156 [
     i8 105, label %174
     i8 100, label %174
@@ -89471,7 +89471,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 116:                                              ; preds = %.preheader, %128
   %.069737 = phi i64 [ 0, %.preheader ], [ %129, %128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %117 = getelementptr inbounds nuw [13 x i64], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIxE8TestBodyEv.kVals, i64 0, i64 %.069737
+  %117 = getelementptr inbounds nuw i64, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIxE8TestBodyEv.kVals, i64 %.069737
   %118 = load i64, ptr %117, align 8, !tbaa !2450
   store i64 %118, ptr %9, align 8, !tbaa !2450
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -89552,7 +89552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   %141 = phi ptr [ %.pre741, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %145, %._crit_edge ]
   %142 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %146, %._crit_edge ]
   %.070736 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %147, %._crit_edge ]
-  %143 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.070736
+  %143 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.070736
   %144 = load i8, ptr %143, align 1, !tbaa !32
   %.not = icmp eq ptr %142, %141
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -89584,7 +89584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 160:                                              ; preds = %.lr.ph, %163
   %.073734 = phi i64 [ 0, %.lr.ph ], [ %164, %163 ]
-  %161 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.073734
+  %161 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.073734
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   br label %._crit_edge.i.i145
 
@@ -89595,7 +89595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 ._crit_edge.i.i145:                               ; preds = %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276
   %.071733 = phi i64 [ 0, %160 ], [ %594, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276 ]
-  %165 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.071733
+  %165 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.071733
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %61, ptr %13, align 8, !tbaa !30
   store i8 37, ptr %61, align 8, !tbaa !32
@@ -95336,7 +95336,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 123:                                              ; preds = %.preheader, %135
   %.076786 = phi i64 [ 0, %.preheader ], [ %136, %135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %124 = getelementptr inbounds nuw [13 x i64], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIyE8TestBodyEv.kVals, i64 0, i64 %.076786
+  %124 = getelementptr inbounds nuw i64, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIyE8TestBodyEv.kVals, i64 %.076786
   %125 = load i64, ptr %124, align 8, !tbaa !2450
   store i64 %125, ptr %9, align 8, !tbaa !2450
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -95417,7 +95417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
   %148 = phi ptr [ %.pre791, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %152, %._crit_edge ]
   %149 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %153, %._crit_edge ]
   %.077785 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %154, %._crit_edge ]
-  %150 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.077785
+  %150 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.077785
   %151 = load i8, ptr %150, align 1, !tbaa !32
   %.not787 = icmp eq ptr %149, %148
   br i1 %.not787, label %._crit_edge, label %.lr.ph
@@ -95449,7 +95449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 167:                                              ; preds = %.lr.ph, %170
   %.080783 = phi i64 [ 0, %.lr.ph ], [ %171, %170 ]
-  %168 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.080783
+  %168 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.080783
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   br label %172
 
@@ -95460,7 +95460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
 
 172:                                              ; preds = %167, %664
   %.079782 = phi i64 [ 0, %167 ], [ %665, %664 ]
-  %173 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.079782
+  %173 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.079782
   switch i8 %151, label %._crit_edge.i.i156 [
     i8 105, label %174
     i8 100, label %174
@@ -97626,7 +97626,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 117:                                              ; preds = %.preheader, %150
   %.069798 = phi i64 [ 0, %.preheader ], [ %151, %150 ]
-  %118 = getelementptr inbounds nuw [13 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIcE8TestBodyEv.kVals, i64 0, i64 %.069798
+  %118 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIcE8TestBodyEv.kVals, i64 %.069798
   %119 = load i8, ptr %118, align 1, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -97762,7 +97762,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
   %163 = phi ptr [ %.pre802, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %167, %._crit_edge ]
   %164 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %168, %._crit_edge ]
   %.070797 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %169, %._crit_edge ]
-  %165 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.070797
+  %165 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.070797
   %166 = load i8, ptr %165, align 1, !tbaa !32
   %.not = icmp eq ptr %164, %163
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -97794,7 +97794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 
 182:                                              ; preds = %.lr.ph, %185
   %.073795 = phi i64 [ 0, %.lr.ph ], [ %186, %185 ]
-  %183 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %8, i64 0, i64 %.073795
+  %183 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %.073795
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   br label %._crit_edge.i.i146
 
@@ -97805,7 +97805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 
 ._crit_edge.i.i146:                               ; preds = %182, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277
   %.071794 = phi i64 [ 0, %182 ], [ %616, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277 ]
-  %187 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %9, i64 0, i64 %.071794
+  %187 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %.071794
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %62, ptr %14, align 8, !tbaa !30
   store i8 37, ptr %62, align 8, !tbaa !32
@@ -99637,7 +99637,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 124:                                              ; preds = %.preheader, %156
   %.076858 = phi i64 [ 0, %.preheader ], [ %157, %156 ]
-  %125 = getelementptr inbounds nuw [13 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIhE8TestBodyEv.kVals, i64 0, i64 %.076858
+  %125 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIhE8TestBodyEv.kVals, i64 %.076858
   %126 = load i8, ptr %125, align 1, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -99772,7 +99772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
   %169 = phi ptr [ %.pre863, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %173, %._crit_edge ]
   %170 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %174, %._crit_edge ]
   %.077857 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %175, %._crit_edge ]
-  %171 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.077857
+  %171 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.077857
   %172 = load i8, ptr %171, align 1, !tbaa !32
   %.not859 = icmp eq ptr %170, %169
   br i1 %.not859, label %._crit_edge, label %.lr.ph
@@ -99804,7 +99804,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
 
 188:                                              ; preds = %.lr.ph, %191
   %.080855 = phi i64 [ 0, %.lr.ph ], [ %192, %191 ]
-  %189 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %8, i64 0, i64 %.080855
+  %189 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %.080855
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   br label %193
 
@@ -99815,7 +99815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
 
 193:                                              ; preds = %188, %685
   %.079854 = phi i64 [ 0, %188 ], [ %686, %685 ]
-  %194 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %9, i64 0, i64 %.079854
+  %194 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %.079854
   switch i8 %172, label %._crit_edge.i.i157 [
     i8 105, label %195
     i8 100, label %195
@@ -101867,7 +101867,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 117:                                              ; preds = %.preheader, %150
   %.069798 = phi i64 [ 0, %.preheader ], [ %151, %150 ]
-  %118 = getelementptr inbounds nuw [13 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIcE8TestBodyEv.kVals, i64 0, i64 %.069798
+  %118 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIcE8TestBodyEv.kVals, i64 %.069798
   %119 = load i8, ptr %118, align 1, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -102003,7 +102003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
   %163 = phi ptr [ %.pre802, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %167, %._crit_edge ]
   %164 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %168, %._crit_edge ]
   %.070797 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %169, %._crit_edge ]
-  %165 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.070797
+  %165 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.070797
   %166 = load i8, ptr %165, align 1, !tbaa !32
   %.not = icmp eq ptr %164, %163
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -102035,7 +102035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 
 182:                                              ; preds = %.lr.ph, %185
   %.073795 = phi i64 [ 0, %.lr.ph ], [ %186, %185 ]
-  %183 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %8, i64 0, i64 %.073795
+  %183 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %.073795
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   br label %._crit_edge.i.i146
 
@@ -102046,7 +102046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 
 ._crit_edge.i.i146:                               ; preds = %182, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277
   %.071794 = phi i64 [ 0, %182 ], [ %616, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277 ]
-  %187 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %9, i64 0, i64 %.071794
+  %187 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %.071794
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %62, ptr %14, align 8, !tbaa !30
   store i8 37, ptr %62, align 8, !tbaa !32
@@ -103865,7 +103865,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 114:                                              ; preds = %.preheader, %126
   %.069725 = phi i64 [ 0, %.preheader ], [ %127, %126 ]
-  %115 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kVals, i64 0, i64 %.069725
+  %115 = getelementptr inbounds nuw i32, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kVals, i64 %.069725
   %116 = load i32, ptr %115, align 4, !tbaa !100
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -103945,7 +103945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
   %139 = phi ptr [ %.pre729, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %143, %._crit_edge ]
   %140 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %144, %._crit_edge ]
   %.070724 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %145, %._crit_edge ]
-  %141 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 0, i64 %.070724
+  %141 = getelementptr inbounds nuw i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwE8TestBodyEv.kConvChars, i64 %.070724
   %142 = load i8, ptr %141, align 1, !tbaa !32
   %.not = icmp eq ptr %140, %139
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -103977,7 +103977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 158:                                              ; preds = %.lr.ph, %161
   %.073722 = phi i64 [ 0, %.lr.ph ], [ %162, %161 ]
-  %159 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.073722
+  %159 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.073722
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   br label %._crit_edge.i.i145
 
@@ -103988,7 +103988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %_Z
 
 ._crit_edge.i.i145:                               ; preds = %158, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276
   %.071721 = phi i64 [ 0, %158 ], [ %588, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276 ]
-  %163 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.071721
+  %163 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.071721
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %60, ptr %12, align 8, !tbaa !30
   store i8 37, ptr %60, align 8, !tbaa !32

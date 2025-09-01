@@ -1525,7 +1525,7 @@ do.body11:                                        ; preds = %do.end5
 
 do.end14:                                         ; preds = %do.end5
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [24 x ptr], ptr @_ZL14error_messages, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZL14error_messages, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   store ptr %1, ptr %last_error, align 8
   %cmp20 = icmp eq i32 %0, 0

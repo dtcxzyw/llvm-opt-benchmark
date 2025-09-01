@@ -29,7 +29,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %7 = uitofp nneg i32 %6 to float
   %8 = fadd nsz float %7, -1.595000e+02
   %9 = fdiv nsz float %8, 1.600000e+02
-  %10 = getelementptr inbounds nuw [64 x float], ptr %3, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %9, ptr %10, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -41,8 +41,8 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %12 = uitofp nneg i32 %11 to float
   %13 = fadd nsz float %12, -3.750000e+01
   %14 = fdiv nsz float %13, 4.000000e+01
-  %15 = add nuw nsw i64 %indvars.iv102, 8
-  %16 = getelementptr inbounds nuw [64 x float], ptr %3, i64 0, i64 %15
+  %15 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv102
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store float %14, ptr %16, align 4, !tbaa !28
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 11
@@ -54,8 +54,8 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %18 = add i32 %17, -13
   %19 = sitofp i32 %18 to float
   %20 = fdiv nsz float %19, 2.000000e+01
-  %21 = add nuw nsw i64 %indvars.iv106, 19
-  %22 = getelementptr inbounds nuw [64 x float], ptr %3, i64 0, i64 %21
+  %21 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv106
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 76
   store float %20, ptr %22, align 4, !tbaa !28
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, 27
@@ -67,8 +67,8 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %24 = uitofp nneg i32 %23 to float
   %25 = fadd nsz float %24, 2.750000e+01
   %26 = fdiv nsz float %25, 4.000000e+01
-  %27 = add nuw nsw i64 %indvars.iv110, 46
-  %28 = getelementptr inbounds nuw [64 x float], ptr %3, i64 0, i64 %27
+  %27 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv110
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 184
   store float %26, ptr %28, align 4, !tbaa !28
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, 11
@@ -86,8 +86,8 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %33 = uitofp nneg i32 %32 to float
   %34 = fadd nsz float %33, 1.525000e+02
   %35 = fdiv nsz float %34, 1.600000e+02
-  %36 = add nuw nsw i64 %indvars.iv114, 57
-  %37 = getelementptr inbounds nuw [64 x float], ptr %3, i64 0, i64 %36
+  %36 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv114
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 228
   store float %35, ptr %37, align 4, !tbaa !28
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, 7
@@ -99,7 +99,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %40 = uitofp nneg i32 %39 to float
   %41 = fadd nsz float %40, -3.350000e+01
   %42 = fdiv nsz float %41, 4.000000e+01
-  %43 = getelementptr inbounds nuw [64 x float], ptr %31, i64 0, i64 %indvars.iv118
+  %43 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv118
   store float %42, ptr %43, align 4, !tbaa !28
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 7
@@ -115,8 +115,8 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %46 = add i32 %45, -13
   %47 = sitofp i32 %46 to float
   %48 = fdiv nsz float %47, 2.000000e+01
-  %49 = add nuw nsw i64 %indvars.iv122, 7
-  %50 = getelementptr inbounds nuw [64 x float], ptr %31, i64 0, i64 %49
+  %49 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv122
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
   store float %48, ptr %50, align 4, !tbaa !28
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 25
@@ -129,10 +129,10 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
 52:                                               ; preds = %.preheader83, %52
   %indvars.iv126 = phi i64 [ 0, %.preheader83 ], [ %indvars.iv.next127, %52 ]
   %53 = sub nuw nsw i64 31, %indvars.iv126
-  %54 = getelementptr inbounds nuw [64 x float], ptr %31, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw float, ptr %31, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !28
   %56 = fneg nsz float %55
-  %57 = getelementptr inbounds nuw [64 x float], ptr %44, i64 0, i64 %indvars.iv126
+  %57 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv126
   store float %56, ptr %57, align 4, !tbaa !28
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 32
@@ -149,7 +149,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %62 = fmul nsz float %61, 0x3FCC28F5C0000000
   %63 = fdiv nsz float %62, 3.000000e+00
   %64 = fadd nsz float %63, 0xBFE3333340000000
-  %65 = getelementptr inbounds nuw [64 x float], ptr %51, i64 0, i64 %indvars.iv130
+  %65 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv130
   store float %64, ptr %65, align 4, !tbaa !28
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next131, 16
@@ -166,7 +166,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %70 = fmul nsz float %69, 0x3FC99999A0000000
   %71 = fdiv nsz float %70, 3.000000e+00
   %72 = fadd nsz float %71, 0xBFD3333340000000
-  %73 = getelementptr inbounds nuw [64 x float], ptr %58, i64 0, i64 %indvars.iv134
+  %73 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv134
   store float %72, ptr %73, align 4, !tbaa !28
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 16
@@ -183,7 +183,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %78 = fmul nsz float %77, 0x3FD70A3D80000000
   %79 = fdiv nsz float %78, 3.000000e+00
   %80 = fadd nsz float %79, 0xBFD99999A0000000
-  %81 = getelementptr inbounds nuw [64 x float], ptr %66, i64 0, i64 %indvars.iv138
+  %81 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv138
   store float %80, ptr %81, align 4, !tbaa !28
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 8
@@ -207,7 +207,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %91 = fmul nsz float %90, 0x3FD5C28F60000000
   %92 = fdiv nsz float %91, 3.000000e+00
   %93 = fadd nsz float %92, 0xBFC99999A0000000
-  %94 = getelementptr inbounds nuw [64 x float], ptr %74, i64 0, i64 %indvars.iv142
+  %94 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv142
   store float %93, ptr %94, align 4, !tbaa !28
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 8
@@ -319,7 +319,7 @@ bytestream2_init.exit:                            ; preds = %22
 bytestream2_get_le32.exit:                        ; preds = %45, %49
   %.sroa.0.3 = phi ptr [ %50, %49 ], [ %29, %45 ]
   %.0.i = phi i32 [ %51, %49 ], [ 0, %45 ]
-  %52 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %.0.i, ptr %52, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -328,8 +328,8 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
 .preheader114:                                    ; preds = %bytestream2_get_le32.exit, %.preheader114
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.preheader114 ], [ 0, %bytestream2_get_le32.exit ]
   %.0102118 = phi i32 [ %57, %.preheader114 ], [ 0, %bytestream2_get_le32.exit ]
-  %53 = getelementptr inbounds nuw [8 x [64 x float]], ptr %11, i64 0, i64 %indvars.iv144
-  %54 = getelementptr inbounds nuw [8 x i8], ptr @bits, i64 0, i64 %indvars.iv144
+  %53 = getelementptr inbounds nuw [64 x float], ptr %11, i64 %indvars.iv144
+  %54 = getelementptr inbounds nuw i8, ptr @bits, i64 %indvars.iv144
   %55 = load i8, ptr %54, align 1, !tbaa !57
   %56 = zext i8 %55 to i32
   %57 = add nuw nsw i32 %.0102118, %56
@@ -345,10 +345,10 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   %66 = xor i32 %notmask.i, -1
   %67 = and i32 %65, %66
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [64 x float], ptr %53, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw float, ptr %53, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !28
   %71 = sub nuw nsw i64 7, %indvars.iv144
-  %72 = getelementptr inbounds nuw [8 x float], ptr %9, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw float, ptr %9, i64 %71
   store float %70, ptr %72, align 4, !tbaa !28
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 8
@@ -368,7 +368,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   %81 = lshr i32 %78, %80
   %82 = and i32 %81, 63
   %83 = sub nuw nsw i64 3, %indvars.iv148
-  %84 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %7, i64 %83
   store i32 %82, ptr %84, align 4, !tbaa !54
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 4
@@ -387,7 +387,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   %92 = lshr i32 %89, %91
   %93 = and i32 %92, 3
   %94 = sub nuw nsw i64 3, %indvars.iv152
-  %95 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %8, i64 %94
   store i32 %93, ptr %95, align 4, !tbaa !54
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 4
@@ -396,7 +396,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
 .preheader:                                       ; preds = %113
   %96 = getelementptr inbounds nuw %struct.ChannelItems, ptr %44, i64 %indvars.iv169
   %97 = sext i32 %spec.select to i64
-  %98 = getelementptr inbounds [64 x float], ptr %33, i64 0, i64 %97
+  %98 = getelementptr inbounds float, ptr %33, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !28
   store float %99, ptr %34, align 8, !tbaa !28
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 4
@@ -408,7 +408,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %113 ], [ 0, %.preheader112 ]
   %.084130 = phi i32 [ %spec.select, %113 ], [ 0, %.preheader112 ]
   %.3128 = phi i32 [ %.6109, %113 ], [ 64, %.preheader112 ]
-  %103 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv157
+  %103 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv157
   %104 = load i32, ptr %103, align 4, !tbaa !54
   %105 = shl i32 %104, 20
   %106 = add i32 %105, 1048576
@@ -511,7 +511,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
 
 171:                                              ; preds = %.preheader, %174
   %indvars.iv165 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next166, %174 ]
-  %172 = getelementptr inbounds nuw [256 x float], ptr %5, i64 0, i64 %indvars.iv165
+  %172 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv165
   %173 = load float, ptr %172, align 4, !tbaa !28
   br label %178
 
@@ -530,9 +530,9 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
 178:                                              ; preds = %171, %178
   %indvars.iv161 = phi i64 [ 0, %171 ], [ %indvars.iv.next162, %178 ]
   %.079131 = phi float [ %173, %171 ], [ %184, %178 ]
-  %179 = getelementptr inbounds nuw [8 x float], ptr %9, i64 0, i64 %indvars.iv161
+  %179 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv161
   %180 = load float, ptr %179, align 4, !tbaa !28
-  %181 = getelementptr inbounds nuw [8 x float], ptr %96, i64 0, i64 %indvars.iv161
+  %181 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv161
   %182 = load float, ptr %181, align 4, !tbaa !28
   %183 = fneg nsz float %180
   %184 = tail call nsz float @llvm.fmuladd.f32(float %183, float %182, float %.079131)

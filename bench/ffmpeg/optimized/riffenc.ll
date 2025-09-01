@@ -858,73 +858,71 @@ define void @ff_riff_write_info(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @ff_metadata_conv(ptr noundef nonnull %4, ptr noundef nonnull @ff_riff_info_conv, ptr noundef null) #8
-  br label %7
+  br label %6
 
-5:                                                ; preds = %7
+5:                                                ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %6 = getelementptr inbounds nuw [37 x [5 x i8]], ptr @riff_tags, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %exitcond.i, label %riff_has_valid_tags.exit.thread, label %7, !llvm.loop !61
+  br i1 %exitcond.i, label %riff_has_valid_tags.exit.thread, label %6, !llvm.loop !61
 
-7:                                                ; preds = %5, %1
+6:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %5 ]
-  %8 = phi ptr [ @riff_tags, %1 ], [ %6, %5 ]
-  %9 = load ptr, ptr %4, align 8, !tbaa !62
-  %10 = tail call ptr @av_dict_get(ptr noundef %9, ptr noundef nonnull %8, ptr noundef null, i32 noundef 1) #8
-  %.not5.i = icmp eq ptr %10, null
+  %7 = getelementptr inbounds nuw [5 x i8], ptr @riff_tags, i64 %indvars.iv.i
+  %8 = load ptr, ptr %4, align 8, !tbaa !62
+  %9 = tail call ptr @av_dict_get(ptr noundef %8, ptr noundef nonnull %7, ptr noundef null, i32 noundef 1) #8
+  %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %5, label %riff_has_valid_tags.exit
 
-riff_has_valid_tags.exit:                         ; preds = %7
+riff_has_valid_tags.exit:                         ; preds = %6
   tail call void @avio_wl32(ptr noundef %3, i32 noundef 1414744396) #8
   tail call void @avio_wl32(ptr noundef %3, i32 noundef -1) #8
-  %11 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 0, i32 noundef 1) #8
+  %10 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 0, i32 noundef 1) #8
   tail call void @avio_wl32(ptr noundef %3, i32 noundef 1330007625) #8
-  br label %12
+  br label %11
 
-12:                                               ; preds = %riff_has_valid_tags.exit, %ff_riff_write_info_tag.exit
+11:                                               ; preds = %riff_has_valid_tags.exit, %ff_riff_write_info_tag.exit
   %indvars.iv = phi i64 [ 0, %riff_has_valid_tags.exit ], [ %indvars.iv.next, %ff_riff_write_info_tag.exit ]
-  %13 = phi ptr [ @riff_tags, %riff_has_valid_tags.exit ], [ %30, %ff_riff_write_info_tag.exit ]
-  %14 = load ptr, ptr %4, align 8, !tbaa !62
-  %15 = tail call ptr @av_dict_get(ptr noundef %14, ptr noundef nonnull %13, ptr noundef null, i32 noundef 1) #8
-  %.not15 = icmp eq ptr %15, null
-  br i1 %.not15, label %ff_riff_write_info_tag.exit, label %16
+  %12 = getelementptr inbounds nuw [5 x i8], ptr @riff_tags, i64 %indvars.iv
+  %13 = load ptr, ptr %4, align 8, !tbaa !62
+  %14 = tail call ptr @av_dict_get(ptr noundef %13, ptr noundef nonnull %12, ptr noundef null, i32 noundef 1) #8
+  %.not15 = icmp eq ptr %14, null
+  br i1 %.not15, label %ff_riff_write_info_tag.exit, label %15
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %2, align 8, !tbaa !60
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #11
-  %21 = add i64 %20, -1
-  %or.cond.i = icmp ult i64 %21, 4294967294
-  br i1 %or.cond.i, label %22, label %ff_riff_write_info_tag.exit
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %2, align 8, !tbaa !60
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !63
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #11
+  %20 = add i64 %19, -1
+  %or.cond.i = icmp ult i64 %20, 4294967294
+  br i1 %or.cond.i, label %21, label %ff_riff_write_info_tag.exit
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %15, align 8, !tbaa !65
-  %24 = load i32, ptr %23, align 1
-  tail call void @avio_wl32(ptr noundef %17, i32 noundef %24) #8
-  %25 = trunc nuw i64 %20 to i32
-  %26 = add nuw i32 %25, 1
-  tail call void @avio_wl32(ptr noundef %17, i32 noundef %26) #8
-  %27 = tail call i32 @avio_put_str(ptr noundef %17, ptr noundef nonnull %19) #8
-  %28 = and i64 %20, 1
-  %.not.not.i = icmp eq i64 %28, 0
-  br i1 %.not.not.i, label %29, label %ff_riff_write_info_tag.exit
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %14, align 8, !tbaa !65
+  %23 = load i32, ptr %22, align 1
+  tail call void @avio_wl32(ptr noundef %16, i32 noundef %23) #8
+  %24 = trunc nuw i64 %19 to i32
+  %25 = add nuw i32 %24, 1
+  tail call void @avio_wl32(ptr noundef %16, i32 noundef %25) #8
+  %26 = tail call i32 @avio_put_str(ptr noundef %16, ptr noundef nonnull %18) #8
+  %27 = and i64 %19, 1
+  %.not.not.i = icmp eq i64 %27, 0
+  br i1 %.not.not.i, label %28, label %ff_riff_write_info_tag.exit
 
-29:                                               ; preds = %22
-  tail call void @avio_w8(ptr noundef %17, i32 noundef 0) #8
+28:                                               ; preds = %21
+  tail call void @avio_w8(ptr noundef %16, i32 noundef 0) #8
   br label %ff_riff_write_info_tag.exit
 
-ff_riff_write_info_tag.exit:                      ; preds = %29, %22, %16, %12
+ff_riff_write_info_tag.exit:                      ; preds = %28, %21, %15, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw [37 x [5 x i8]], ptr @riff_tags, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond, label %31, label %12, !llvm.loop !66
+  br i1 %exitcond, label %29, label %11, !llvm.loop !66
 
-31:                                               ; preds = %ff_riff_write_info_tag.exit
-  tail call void @ff_end_tag(ptr noundef %3, i64 noundef %11)
+29:                                               ; preds = %ff_riff_write_info_tag.exit
+  tail call void @ff_end_tag(ptr noundef %3, i64 noundef %10)
   br label %riff_has_valid_tags.exit.thread
 
-riff_has_valid_tags.exit.thread:                  ; preds = %5, %31
+riff_has_valid_tags.exit.thread:                  ; preds = %5, %29
   ret void
 }
 

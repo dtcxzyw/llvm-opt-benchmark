@@ -1323,7 +1323,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %279, %283, %289
   %301 = icmp eq i32 %300, 2
   %302 = getelementptr inbounds nuw i8, ptr %293, i64 24
   %303 = zext i1 %301 to i64
-  %304 = getelementptr inbounds nuw [0 x ptr], ptr %302, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !12, !noalias !243
   store ptr %305, ptr %20, align 8, !tbaa !14, !alias.scope !243
   %306 = load i64, ptr %305, align 8, !noalias !243
@@ -1367,7 +1367,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %317, %311, %319
   %328 = icmp eq i32 %327, 2
   %329 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %330 = zext i1 %328 to i64
-  %331 = getelementptr inbounds nuw [0 x ptr], ptr %329, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw ptr, ptr %329, i64 %330
   %332 = load ptr, ptr %331, align 8, !tbaa !12, !noalias !246
   store ptr %332, ptr %19, align 8, !tbaa !14, !alias.scope !246
   %333 = load i64, ptr %332, align 8, !noalias !246
@@ -2191,7 +2191,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   store ptr %15, ptr %0, align 8, !tbaa !14
   %16 = load i64, ptr %15, align 8
@@ -2782,7 +2782,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %67, %61, %_ZN4cvc
   %78 = icmp eq i32 %77, 2
   %spec.select.i.i115 = select i1 %78, i64 2, i64 1
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %79, i64 0, i64 %spec.select.i.i115
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %spec.select.i.i115
   %81 = load ptr, ptr %80, align 8, !tbaa !12, !noalias !317
   store ptr %81, ptr %6, align 8, !tbaa !14, !alias.scope !317
   %82 = load i64, ptr %81, align 8, !noalias !317

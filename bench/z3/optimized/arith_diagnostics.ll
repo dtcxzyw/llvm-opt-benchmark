@@ -2964,7 +2964,7 @@ _ZNK3euf6solver10fid2solverEi.exit:               ; preds = %_ZNK6vectorIPN3euf9
 
 switch.lookup:                                    ; preds = %30
   %36 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK5arith16arith_proof_hint8get_hintERN3euf6solverE, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5arith16arith_proof_hint8get_hintERN3euf6solverE, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %37
 

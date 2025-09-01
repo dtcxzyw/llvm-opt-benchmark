@@ -12744,7 +12744,7 @@ _ZN12_GLOBAL__N_121MachineBlockPlacement26getBestNonConflictingEdgesEPKN4llvm17M
   %341 = lshr i32 %340, 4
   %342 = lshr i32 %340, 9
   %343 = xor i32 %341, %342
-  %344 = getelementptr inbounds nuw [2 x %"class.llvm::SmallVector.552"], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %344 = getelementptr inbounds nuw %"class.llvm::SmallVector.552", ptr %8, i64 %indvars.iv.i.i
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %346 = getelementptr inbounds nuw i8, ptr %344, i64 12
   %347 = getelementptr inbounds nuw i8, ptr %344, i64 16

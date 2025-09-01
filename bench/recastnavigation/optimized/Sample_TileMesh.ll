@@ -786,7 +786,7 @@ define dso_local void @_ZN15Sample_TileMesh15handleDebugModeEv(ptr noundef nonnu
 56:                                               ; preds = %48, %56
   %indvars.iv = phi i64 [ 0, %48 ], [ %indvars.iv.next, %56 ]
   %.0913 = phi i32 [ 0, %48 ], [ %spec.select, %56 ]
-  %57 = getelementptr inbounds nuw [18 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, 1
   %60 = xor i8 %59, 1
@@ -2372,7 +2372,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 197:                                              ; preds = %.lr.ph, %196
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %196 ]
   %198 = load ptr, ptr %49, align 8
-  %199 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %200 = load i32, ptr %199, align 4
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %198, i64 %201
@@ -2734,7 +2734,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 switch.lookup:                                    ; preds = %395
   %399 = zext nneg i8 %396 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri, i64 0, i64 %399
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri, i64 %399
   %switch.load = load i16, ptr %switch.gep, align 2
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %401 = load ptr, ptr %400, align 8

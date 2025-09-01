@@ -258,7 +258,7 @@ define internal noundef i32 @vaapi_encode_vp8_init_picture_params(ptr noundef re
   %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %57 ]
   %58 = load i32, ptr %55, align 8, !tbaa !83
   %59 = trunc i32 %58 to i8
-  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
   store i8 %59, ptr %60, align 1, !tbaa !84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -312,7 +312,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_vp8_write_quant_table
 
 20:                                               ; preds = %14, %20
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
   store i16 %18, ptr %21, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

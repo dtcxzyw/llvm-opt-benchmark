@@ -664,7 +664,7 @@ zend_string_alloc.exit:                           ; preds = %15, %17
   store i64 %12, ptr %23, align 8, !tbaa !52
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %8, i64 %12, i1 false)
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %24, i64 0, i64 %12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %12
   store i8 0, ptr %25, align 1, !tbaa !4
   %26 = load ptr, ptr %6, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -1682,7 +1682,7 @@ zend_string_alloc.exit:                           ; preds = %13
   store i64 %23, ptr %30, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %24, i64 %23, i1 false)
-  %32 = getelementptr inbounds nuw [1 x i8], ptr %31, i64 0, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %23
   store i8 0, ptr %32, align 1, !tbaa !4
   %33 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
   %34 = tail call ptr %33(ptr noundef nonnull %.0101, i64 noundef %21, i1 noundef zeroext false) #11

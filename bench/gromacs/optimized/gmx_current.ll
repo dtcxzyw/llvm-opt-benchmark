@@ -1875,10 +1875,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit206:       ; preds = %_ZNKSt7__cxx1112bas
 638:                                              ; preds = %638, %635
   %indvars.iv.i.i = phi i64 [ 0, %635 ], [ %indvars.iv.next.i.i, %638 ]
   %639 = getelementptr inbounds nuw [3 x float], ptr %580, i64 %indvars.iv.i.i
-  %640 = getelementptr inbounds nuw [3 x float], ptr %639, i64 0, i64 %indvars.iv.i.i
+  %640 = getelementptr inbounds nuw float, ptr %639, i64 %indvars.iv.i.i
   %641 = load float, ptr %640, align 4, !tbaa !60
   %642 = fmul float %641, 5.000000e-01
-  %643 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %643 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   store float %642, ptr %643, align 4, !tbaa !60
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -1893,9 +1893,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit206:       ; preds = %_ZNKSt7__cxx1112bas
 .preheader48.i.i:                                 ; preds = %._crit_edge.i.i210, %.preheader49.i.i
   %indvars.iv93.i.i = phi i64 [ 2, %.preheader49.i.i ], [ %indvars.iv.next94.i.i, %._crit_edge.i.i210 ]
   %indvars.iv91.i.i = phi i64 [ 3, %.preheader49.i.i ], [ %indvars.iv.next92.i.i, %._crit_edge.i.i210 ]
-  %646 = getelementptr inbounds nuw [3 x float], ptr %644, i64 0, i64 %indvars.iv93.i.i
-  %647 = getelementptr inbounds nuw [3 x float], ptr %645, i64 0, i64 %indvars.iv93.i.i
-  %648 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv93.i.i
+  %646 = getelementptr inbounds nuw float, ptr %644, i64 %indvars.iv93.i.i
+  %647 = getelementptr inbounds nuw float, ptr %645, i64 %indvars.iv93.i.i
+  %648 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv93.i.i
   %649 = load float, ptr %648, align 4, !tbaa !60
   %650 = fneg float %649
   %651 = load float, ptr %646, align 4, !tbaa !60
@@ -1926,9 +1926,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit206:       ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader45.i.i:                                 ; preds = %.preheader45.i.i.backedge, %.preheader45.lr.ph.i.i
   %indvars.iv80.i.i = phi i64 [ 0, %.preheader45.lr.ph.i.i ], [ %indvars.iv80.i.i.be, %.preheader45.i.i.backedge ]
-  %662 = getelementptr inbounds nuw [3 x float], ptr %655, i64 0, i64 %indvars.iv80.i.i
+  %662 = getelementptr inbounds nuw float, ptr %655, i64 %indvars.iv80.i.i
   %663 = load float, ptr %662, align 4, !tbaa !60
-  %664 = getelementptr inbounds nuw [3 x float], ptr %644, i64 0, i64 %indvars.iv80.i.i
+  %664 = getelementptr inbounds nuw float, ptr %644, i64 %indvars.iv80.i.i
   %665 = load float, ptr %664, align 4, !tbaa !60
   %666 = fadd float %663, %665
   store float %666, ptr %664, align 4, !tbaa !60
@@ -1949,9 +1949,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit206:       ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.backedge, %.preheader.lr.ph.i.i
   %indvars.iv86.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv86.i.i.be, %.preheader.i.i.backedge ]
-  %671 = getelementptr inbounds nuw [3 x float], ptr %661, i64 0, i64 %indvars.iv86.i.i
+  %671 = getelementptr inbounds nuw float, ptr %661, i64 %indvars.iv86.i.i
   %672 = load float, ptr %671, align 4, !tbaa !60
-  %673 = getelementptr inbounds nuw [3 x float], ptr %644, i64 0, i64 %indvars.iv86.i.i
+  %673 = getelementptr inbounds nuw float, ptr %644, i64 %indvars.iv86.i.i
   %674 = load float, ptr %673, align 4, !tbaa !60
   %675 = fsub float %674, %672
   store float %675, ptr %673, align 4, !tbaa !60

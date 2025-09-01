@@ -390,7 +390,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
 
 126:                                              ; preds = %103
   %127 = zext nneg i32 %125 to i64
-  %128 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %127, i32 2
+  %128 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %127, i32 2
   %129 = load i32, ptr %128, align 4, !tbaa !69
   %130 = icmp sgt i32 %129, 1
   br i1 %130, label %131, label %137
@@ -783,7 +783,7 @@ define internal void @shutdown_signal(i32 %0, i16 signext %1, ptr readnone captu
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10, i32 2
   %12 = load i32, ptr %11, align 4, !tbaa !69
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %16
@@ -819,7 +819,7 @@ define internal void @shutdown_signal(i32 %0, i16 signext %1, ptr readnone captu
 
 30:                                               ; preds = %20
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %31, i32 2
   %33 = load i32, ptr %32, align 4, !tbaa !69
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %38
@@ -898,7 +898,7 @@ define internal void @signal_forward_callback(i32 %0, i16 signext %1, ptr nounde
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %27, i32 2
+  %28 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %27, i32 2
   %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %31, label %34

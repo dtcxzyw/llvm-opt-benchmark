@@ -3665,7 +3665,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8indexmap3map
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !31, !noundef !31
-  %11 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -3685,7 +3685,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8indexmap3map
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !31, !noundef !31
-  %11 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -3705,7 +3705,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8indexmap3map
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !31, !noundef !31
-  %11 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -3781,7 +3781,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %.sink18 = phi i64 [ %11, %7 ], [ %21, %"_ZN5salsa7derived28DerivedStorage$LT$Q$C$MP$GT$4slot28_$u7b$$u7b$closure$u7d$$u7d$17haad5d54807562409E.llvm.13102108871640256408.exit" ]
   %26 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !31, !noundef !31
-  %28 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %27, i64 0, i64 %.sink18
+  %28 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %27, i64 %.sink18
   ret ptr %28
 }
 
@@ -3853,7 +3853,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %.sink18 = phi i64 [ %11, %7 ], [ %21, %"_ZN5salsa7derived28DerivedStorage$LT$Q$C$MP$GT$4slot28_$u7b$$u7b$closure$u7d$$u7d$17h04e49028d958702dE.llvm.13102108871640256408.exit" ]
   %26 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !31, !noundef !31
-  %28 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %27, i64 0, i64 %.sink18
+  %28 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %27, i64 %.sink18
   ret ptr %28
 }
 
@@ -3925,7 +3925,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %.sink18 = phi i64 [ %11, %7 ], [ %21, %"_ZN5salsa7derived28DerivedStorage$LT$Q$C$MP$GT$4slot28_$u7b$$u7b$closure$u7d$$u7d$17h61a1de348b5e7828E.llvm.13102108871640256408.exit" ]
   %26 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !31, !noundef !31
-  %28 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %27, i64 0, i64 %.sink18
+  %28 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %27, i64 %.sink18
   ret ptr %28
 }
 
@@ -3945,7 +3945,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN8indexmap3map
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { { { { { i64 } }, { { { ptr, [4 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { { { { { i64 } }, { { { ptr, [4 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %14, i64 %8
   ret ptr %15
 
 16:                                               ; preds = %2
@@ -3969,7 +3969,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN8indexmap3map
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { i64, { { { { i64 } }, { { { { { ptr, i64 } }, {} }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i32, [1 x i32] }], ptr %14, i64 0, i64 %8, i32 1
+  %15 = getelementptr inbounds { i64, { { { { i64 } }, { { { { { ptr, i64 } }, {} }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i32, [1 x i32] }, ptr %14, i64 %8, i32 1
   ret ptr %15
 
 16:                                               ; preds = %2
@@ -3993,7 +3993,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN8indexmap3map
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { { { { { i64 } }, { { ptr, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { { { { { i64 } }, { { ptr, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %14, i64 %8
   ret ptr %15
 
 16:                                               ; preds = %2
@@ -4017,7 +4017,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN8indexmap3map
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { { { { { i64 } }, { { { i64, [2 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { { { { { i64 } }, { { { i64, [2 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %14, i64 %8
   ret ptr %15
 
 16:                                               ; preds = %2
@@ -4041,7 +4041,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %14, i64 %8
   ret ptr %15
 
 16:                                               ; preds = %2
@@ -4065,7 +4065,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %14, i64 %8
   ret ptr %15
 
 16:                                               ; preds = %2
@@ -4089,7 +4089,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { ptr, i64, i32, [1 x i32] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %14, i64 %8
   ret ptr %15
 
 16:                                               ; preds = %2
@@ -4113,7 +4113,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN8indexmap3map
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !31, !noundef !31
-  %15 = getelementptr inbounds [0 x { { { { { i64 } }, { { i32, i32, i8, [3 x i8] } }, [1 x i32] }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { { { { { i64 } }, { { i32, i32, i8, [3 x i8] } }, [1 x i32] }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %14, i64 %8
   ret ptr %15
 
 16:                                               ; preds = %2

@@ -169,7 +169,7 @@ $_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4TypeENS_8ArrayRefINS_9Intrinsic1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm9Intrinsic11getBaseNameEj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [14812 x i32], ptr @_ZL24IntrinsicNameOffsetTable, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @_ZL24IntrinsicNameOffsetTable, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr @_ZL25IntrinsicNameTableStorage, i64 %5
@@ -182,7 +182,7 @@ define dso_local { ptr, i64 } @_ZN4llvm9Intrinsic11getBaseNameEj(i32 noundef %0)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm9Intrinsic7getNameEj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [14812 x i32], ptr @_ZL24IntrinsicNameOffsetTable, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @_ZL24IntrinsicNameOffsetTable, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr @_ZL25IntrinsicNameTableStorage, i64 %5
@@ -209,7 +209,7 @@ define internal fastcc void @_ZL20getIntrinsicNameImplB5cxx11jN4llvm8ArrayRefIPN
   store i8 0, ptr %8, align 1, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw [14812 x i32], ptr @_ZL24IntrinsicNameOffsetTable, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @_ZL24IntrinsicNameOffsetTable, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr @_ZL25IntrinsicNameTableStorage, i64 %15
@@ -440,7 +440,7 @@ define dso_local void @_ZN4llvm9Intrinsic28getIntrinsicInfoTableEntriesEjRNS_15S
   %4 = alloca i32, align 4
   %5 = add i32 %0, -1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [14812 x i16], ptr @_ZL9IIT_Table, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i16, ptr @_ZL9IIT_Table, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1692,7 +1692,7 @@ declare noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(pt
 define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic12isOverloadedEj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = lshr i32 %0, 3
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr inbounds nuw [1852 x i8], ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !17
   %6 = zext i8 %5 to i32
   %7 = and i32 %0, 7
@@ -2015,7 +2015,7 @@ _ZL25lookupLLVMIntrinsicByNameN4llvm8ArrayRefIjEENS_9StringRefES2_.exit: ; preds
 127:                                              ; preds = %116
   %128 = lshr i32 %119, 3
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw [1852 x i8], ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !17
   %132 = zext i8 %131 to i32
   %133 = and i32 %119, 7
@@ -2191,7 +2191,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
 155:                                              ; preds = %2
   %156 = add i32 %1, -1
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw [14811 x i16], ptr @_ZZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEjE25IntrinsicsToAttributesMap, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEjE25IntrinsicsToAttributesMap, i64 %157
   %159 = load i16, ptr %158, align 2, !tbaa !115
   %160 = lshr i16 %159, 8
   %trunc = trunc i16 %159 to i8
@@ -8892,7 +8892,7 @@ define dso_local noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6Mo
 
 .thread:                                          ; preds = %4
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw [14812 x i32], ptr @_ZL24IntrinsicNameOffsetTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL24IntrinsicNameOffsetTable, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr @_ZL25IntrinsicNameTableStorage, i64 %12
@@ -8939,7 +8939,7 @@ declare { ptr, ptr } @_ZN4llvm6Module19getOrInsertFunctionENS_9StringRefEPNS_12F
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm9Intrinsic22getDeclarationIfExistsEPKNS_6ModuleEj(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [14812 x i32], ptr @_ZL24IntrinsicNameOffsetTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @_ZL24IntrinsicNameOffsetTable, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @_ZL25IntrinsicNameTableStorage, i64 %6

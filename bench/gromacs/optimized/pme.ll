@@ -5111,8 +5111,8 @@ _ZNSt6vectorIN9gmx_pme_t8GridsRefESaIS1_EE9push_backEOS1_.exit221: ; preds = %_Z
 
 981:                                              ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i, %979
   %.05.i = phi i64 [ 0, %979 ], [ %997, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i ]
-  %982 = getelementptr inbounds nuw [3 x %"class.std::vector.102"], ptr %980, i64 0, i64 %.05.i
-  %983 = getelementptr inbounds nuw [3 x %"class.std::vector.102"], ptr %40, i64 0, i64 %.05.i
+  %982 = getelementptr inbounds nuw %"class.std::vector.102", ptr %980, i64 %.05.i
+  %983 = getelementptr inbounds nuw %"class.std::vector.102", ptr %40, i64 %.05.i
   %984 = load ptr, ptr %982, align 8, !tbaa !273
   %985 = getelementptr inbounds nuw i8, ptr %982, i64 8
   %986 = getelementptr inbounds nuw i8, ptr %982, i64 16
@@ -5190,8 +5190,8 @@ _ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit:      ; preds = %_ZNSt6vectorIfSaIfE
 
 1019:                                             ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i226, %1017
   %.05.i224 = phi i64 [ 0, %1017 ], [ %1035, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i226 ]
-  %1020 = getelementptr inbounds nuw [3 x %"class.std::vector.102"], ptr %1018, i64 0, i64 %.05.i224
-  %1021 = getelementptr inbounds nuw [3 x %"class.std::vector.102"], ptr %41, i64 0, i64 %.05.i224
+  %1020 = getelementptr inbounds nuw %"class.std::vector.102", ptr %1018, i64 %.05.i224
+  %1021 = getelementptr inbounds nuw %"class.std::vector.102", ptr %41, i64 %.05.i224
   %1022 = load ptr, ptr %1020, align 8, !tbaa !273
   %1023 = getelementptr inbounds nuw i8, ptr %1020, i64 8
   %1024 = getelementptr inbounds nuw i8, ptr %1020, i64 16
@@ -5269,7 +5269,7 @@ _ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit231:   ; preds = %_ZNSt6vectorIfSaIfE
 1057:                                             ; preds = %1050
   %1058 = getelementptr inbounds nuw i8, ptr %966, i64 40
   %1059 = zext i1 %1052 to i64
-  %1060 = getelementptr inbounds nuw [2 x ptr], ptr %1058, i64 0, i64 %1059
+  %1060 = getelementptr inbounds nuw ptr, ptr %1058, i64 %1059
   %1061 = load ptr, ptr %1060, align 8, !tbaa !355
   br label %1062
 
@@ -7264,7 +7264,7 @@ _ZNKSt6vectorI14PmeAndFftGridsSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %20
 40:                                               ; preds = %40, %.lr.ph.i.i.i
   %41 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %51, %40 ]
   %42 = getelementptr inbounds nuw %"class.std::vector.97", ptr %38, i64 %41
-  %43 = getelementptr inbounds nuw [3 x %"class.std::vector.97"], ptr %39, i64 0, i64 %41
+  %43 = getelementptr inbounds nuw %"class.std::vector.97", ptr %39, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !245, !alias.scope !490, !noalias !487
   store ptr %44, ptr %42, align 8, !tbaa !245, !alias.scope !487, !noalias !490
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -9429,7 +9429,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit200: ; preds = %459, %4
   %487 = getelementptr inbounds nuw i8, ptr %.sroa.0372.0415, i64 12
   %488 = load i32, ptr %487, align 4, !tbaa !535
   %489 = sext i32 %488 to i64
-  %490 = getelementptr inbounds nuw [2 x %struct.PmeOutput], ptr %34, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw %struct.PmeOutput, ptr %34, i64 %489
   br i1 %483, label %491, label %492
 
 491:                                              ; preds = %481
@@ -10408,7 +10408,7 @@ _ZL19calc_next_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEE.exit238: ; preds = %.lr.ph.i
   %971 = load i8, ptr %970, align 1, !tbaa !366, !range !389, !noundef !390
   %972 = trunc nuw i8 %971 to i1
   %973 = select i1 %972, float %spec.select190, float 1.000000e+00
-  %974 = getelementptr inbounds nuw [7 x float], ptr @_ZL15lb_scale_factor, i64 0, i64 %.0176431
+  %974 = getelementptr inbounds nuw float, ptr @_ZL15lb_scale_factor, i64 %.0176431
   %975 = load float, ptr %974, align 4, !tbaa !290
   %976 = fmul float %973, %975
   store float %976, ptr %48, align 4, !tbaa !290
@@ -10834,8 +10834,8 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit252: ; preds = %._crit_
 
 .preheader407:                                    ; preds = %1223, %1243
   %indvars.iv463 = phi i64 [ 0, %1223 ], [ %indvars.iv.next464, %1243 ]
-  %1240 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1238, i64 0, i64 %indvars.iv463
-  %1241 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1239, i64 0, i64 %indvars.iv463
+  %1240 = getelementptr inbounds nuw [3 x float], ptr %1238, i64 %indvars.iv463
+  %1241 = getelementptr inbounds nuw [3 x float], ptr %1239, i64 %indvars.iv463
   %1242 = getelementptr inbounds nuw [3 x float], ptr %17, i64 %indvars.iv463
   br label %1244
 
@@ -10846,15 +10846,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit252: ; preds = %._crit_
 
 1244:                                             ; preds = %.preheader407, %1244
   %indvars.iv459 = phi i64 [ 0, %.preheader407 ], [ %indvars.iv.next460, %1244 ]
-  %1245 = getelementptr inbounds nuw [3 x float], ptr %1240, i64 0, i64 %indvars.iv459
+  %1245 = getelementptr inbounds nuw float, ptr %1240, i64 %indvars.iv459
   %1246 = load float, ptr %1245, align 4, !tbaa !290
   %1247 = fpext float %1246 to double
-  %1248 = getelementptr inbounds nuw [3 x float], ptr %1241, i64 0, i64 %indvars.iv459
+  %1248 = getelementptr inbounds nuw float, ptr %1241, i64 %indvars.iv459
   %1249 = load float, ptr %1248, align 4, !tbaa !290
   %1250 = fmul float %spec.select, %1249
   %1251 = fpext float %1250 to double
   %1252 = call double @llvm.fmuladd.f64(double %1225, double %1247, double %1251)
-  %1253 = getelementptr inbounds nuw [3 x float], ptr %1242, i64 0, i64 %indvars.iv459
+  %1253 = getelementptr inbounds nuw float, ptr %1242, i64 %indvars.iv459
   %1254 = load float, ptr %1253, align 4, !tbaa !290
   %1255 = fpext float %1254 to double
   %1256 = fadd double %1252, %1255
@@ -10962,8 +10962,8 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit252: ; preds = %._crit_
 
 .preheader:                                       ; preds = %1313, %1333
   %indvars.iv471 = phi i64 [ 0, %1313 ], [ %indvars.iv.next472, %1333 ]
-  %1330 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1328, i64 0, i64 %indvars.iv471
-  %1331 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1329, i64 0, i64 %indvars.iv471
+  %1330 = getelementptr inbounds nuw [3 x float], ptr %1328, i64 %indvars.iv471
+  %1331 = getelementptr inbounds nuw [3 x float], ptr %1329, i64 %indvars.iv471
   %1332 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv471
   br label %1334
 
@@ -10974,15 +10974,15 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit252: ; preds = %._crit_
 
 1334:                                             ; preds = %.preheader, %1334
   %indvars.iv467 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next468, %1334 ]
-  %1335 = getelementptr inbounds nuw [3 x float], ptr %1330, i64 0, i64 %indvars.iv467
+  %1335 = getelementptr inbounds nuw float, ptr %1330, i64 %indvars.iv467
   %1336 = load float, ptr %1335, align 4, !tbaa !290
   %1337 = fpext float %1336 to double
-  %1338 = getelementptr inbounds nuw [3 x float], ptr %1331, i64 0, i64 %indvars.iv467
+  %1338 = getelementptr inbounds nuw float, ptr %1331, i64 %indvars.iv467
   %1339 = load float, ptr %1338, align 4, !tbaa !290
   %1340 = fmul float %.0170, %1339
   %1341 = fpext float %1340 to double
   %1342 = call double @llvm.fmuladd.f64(double %1315, double %1337, double %1341)
-  %1343 = getelementptr inbounds nuw [3 x float], ptr %1332, i64 0, i64 %indvars.iv467
+  %1343 = getelementptr inbounds nuw float, ptr %1332, i64 %indvars.iv467
   %1344 = load float, ptr %1343, align 4, !tbaa !290
   %1345 = fpext float %1344 to double
   %1346 = fadd double %1342, %1345
@@ -11268,7 +11268,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %75, %86, %
   %105 = shl nuw i64 %104, 32
   %106 = or disjoint i64 %105, %103
   %107 = zext nneg i32 %97 to i64
-  %108 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %.pr, i64 0, i64 %107, i32 2
+  %108 = getelementptr inbounds nuw %struct.wallcc_t, ptr %.pr, i64 %107, i32 2
   store i64 %106, ptr %108, align 8, !tbaa !537
   %109 = getelementptr inbounds nuw i8, ptr %.pr, i64 2584
   %110 = load ptr, ptr %109, align 8, !tbaa !540
@@ -11388,7 +11388,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %75, %86, %
   %191 = shl nuw i64 %190, 32
   %192 = or disjoint i64 %191, %189
   %193 = zext nneg i32 %178 to i64
-  %194 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %175, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw %struct.wallcc_t, ptr %175, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load i64, ptr %195, align 8, !tbaa !537
   %.not.i38 = icmp ult i64 %192, %196

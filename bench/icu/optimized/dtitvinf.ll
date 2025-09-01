@@ -1093,7 +1093,7 @@ define void @_ZN6icu_7716DateIntervalInfo28setIntervalPatternInternallyERKNS_13U
 
 switch.lookup:                                    ; preds = %8
   %11 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !24
@@ -1667,7 +1667,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7716DateInterva
 
 switch.lookup:                                    ; preds = %15
   %18 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %12, i64 %switch.load
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1703,7 +1703,7 @@ define noundef range(i32 0, 10) i32 @_ZN6icu_7716DateIntervalInfo28calendarField
 
 switch.lookup:                                    ; preds = %5
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %9
 
@@ -2391,9 +2391,9 @@ _ZN6icu_7716DateIntervalInfo13parseSkeletonERKNS_13UnicodeStringEPi.exit122: ; p
   %indvars.iv = phi i64 [ %indvars.iv.next, %290 ], [ 0, %_ZN6icu_7716DateIntervalInfo13parseSkeletonERKNS_13UnicodeStringEPi.exit122.preheader ]
   %.054140 = phi i8 [ %.1, %290 ], [ 1, %_ZN6icu_7716DateIntervalInfo13parseSkeletonERKNS_13UnicodeStringEPi.exit122.preheader ]
   %.055139 = phi i32 [ %.156, %290 ], [ 0, %_ZN6icu_7716DateIntervalInfo13parseSkeletonERKNS_13UnicodeStringEPi.exit122.preheader ]
-  %264 = getelementptr inbounds nuw [58 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %264 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %265 = load i32, ptr %264, align 4, !tbaa !12
-  %266 = getelementptr inbounds nuw [58 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %267 = load i32, ptr %266, align 4, !tbaa !12
   %268 = icmp eq i32 %265, %267
   br i1 %268, label %290, label %269
@@ -2995,7 +2995,7 @@ define linkonce_odr hidden void @_ZN6icu_7716DateIntervalInfo16DateIntervalSink2
 
 switch.lookup:                                    ; preds = %12
   %15 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %1, i32 noundef -1, i32 noundef 0)

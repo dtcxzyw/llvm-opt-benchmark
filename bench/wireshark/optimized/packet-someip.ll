@@ -7792,7 +7792,7 @@ proto_item_set_hidden.exit.i.i67:                 ; preds = %149, %146, %137
 
 switch.lookup:                                    ; preds = %proto_item_set_hidden.exit.i.i67
   %158 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %158
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %158
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %159
 
@@ -7993,13 +7993,13 @@ proto_item_set_hidden.exit.i:                     ; preds = %255, %252, %248
   %260 = trunc i64 %259 to i32
   %261 = lshr i32 %260, 12
   %262 = and i32 %261, 7
-  %switch.tableidx216 = add nsw i32 %262, -5
-  %263 = icmp ult i32 %switch.tableidx216, 3
-  br i1 %263, label %switch.lookup215, label %dissect_someip_payload_add_wtlv_if_needed.exit
+  %switch.tableidx215 = add nsw i32 %262, -5
+  %263 = icmp ult i32 %switch.tableidx215, 3
+  br i1 %263, label %switch.lookup216, label %dissect_someip_payload_add_wtlv_if_needed.exit
 
-switch.lookup215:                                 ; preds = %proto_item_set_hidden.exit.i
-  %264 = zext nneg i32 %switch.tableidx216 to i64
-  %switch.gep217 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %264
+switch.lookup216:                                 ; preds = %proto_item_set_hidden.exit.i
+  %264 = zext nneg i32 %switch.tableidx215 to i64
+  %switch.gep217 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %264
   %switch.load218 = load i32, ptr %switch.gep217, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %265 = load ptr, ptr %228, align 8
@@ -8024,11 +8024,11 @@ dissect_someip_payload_add_wtlv_if_needed.exit.thread: ; preds = %235, %dissect_
   %.not.i82 = icmp eq i32 %274, 0
   br i1 %.not.i82, label %280, label %.thread.i80
 
-.thread.i80:                                      ; preds = %switch.lookup215, %dissect_someip_payload_add_wtlv_if_needed.exit.thread
-  %275 = phi i32 [ %272, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %269, %switch.lookup215 ]
-  %276 = phi i32 [ %271, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %267, %switch.lookup215 ]
-  %.0.i84119 = phi i32 [ 0, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load218, %switch.lookup215 ]
-  %.03847.i = phi i32 [ %274, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load218, %switch.lookup215 ]
+.thread.i80:                                      ; preds = %switch.lookup216, %dissect_someip_payload_add_wtlv_if_needed.exit.thread
+  %275 = phi i32 [ %272, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %269, %switch.lookup216 ]
+  %276 = phi i32 [ %271, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %267, %switch.lookup216 ]
+  %.0.i84119 = phi i32 [ 0, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load218, %switch.lookup216 ]
+  %.03847.i = phi i32 [ %274, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load218, %switch.lookup216 ]
   %277 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %241, i32 noundef %3, i32 noundef %.03847.i)
   %278 = icmp slt i64 %277, 0
   %279 = lshr i32 %.03847.i, 3
@@ -8171,13 +8171,13 @@ proto_item_set_hidden.exit.i89:                   ; preds = %338, %335, %331
   %343 = trunc i64 %342 to i32
   %344 = lshr i32 %343, 12
   %345 = and i32 %344, 7
-  %switch.tableidx220 = add nsw i32 %345, -5
-  %346 = icmp ult i32 %switch.tableidx220, 3
-  br i1 %346, label %switch.lookup219, label %dissect_someip_payload_add_wtlv_if_needed.exit92
+  %switch.tableidx219 = add nsw i32 %345, -5
+  %346 = icmp ult i32 %switch.tableidx219, 3
+  br i1 %346, label %switch.lookup220, label %dissect_someip_payload_add_wtlv_if_needed.exit92
 
-switch.lookup219:                                 ; preds = %proto_item_set_hidden.exit.i89
-  %347 = zext nneg i32 %switch.tableidx220 to i64
-  %switch.gep221 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %347
+switch.lookup220:                                 ; preds = %proto_item_set_hidden.exit.i89
+  %347 = zext nneg i32 %switch.tableidx219 to i64
+  %switch.gep221 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %347
   %switch.load222 = load i32, ptr %switch.gep221, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %350
@@ -8191,8 +8191,8 @@ dissect_someip_payload_add_wtlv_if_needed.exit92.thread: ; preds = %324, %dissec
   %349 = load i32, ptr %348, align 8
   br label %350
 
-350:                                              ; preds = %switch.lookup219, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread
-  %.072.i72 = phi i32 [ %349, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread ], [ %switch.load222, %switch.lookup219 ]
+350:                                              ; preds = %switch.lookup220, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread
+  %.072.i72 = phi i32 [ %349, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread ], [ %switch.load222, %switch.lookup220 ]
   %351 = call i32 @tvb_captured_length_remaining(ptr noundef nonnull %0, i32 noundef 0)
   %352 = lshr i32 %.072.i72, 3
   %353 = icmp slt i32 %351, %352
@@ -8328,13 +8328,13 @@ proto_item_set_hidden.exit.i101:                  ; preds = %418, %415, %411
   %423 = trunc i64 %422 to i32
   %424 = lshr i32 %423, 12
   %425 = and i32 %424, 7
-  %switch.tableidx224 = add nsw i32 %425, -5
-  %426 = icmp ult i32 %switch.tableidx224, 3
-  br i1 %426, label %switch.lookup223, label %dissect_someip_payload_add_wtlv_if_needed.exit104
+  %switch.tableidx223 = add nsw i32 %425, -5
+  %426 = icmp ult i32 %switch.tableidx223, 3
+  br i1 %426, label %switch.lookup224, label %dissect_someip_payload_add_wtlv_if_needed.exit104
 
-switch.lookup223:                                 ; preds = %proto_item_set_hidden.exit.i101
-  %427 = zext nneg i32 %switch.tableidx224 to i64
-  %switch.gep225 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %427
+switch.lookup224:                                 ; preds = %proto_item_set_hidden.exit.i101
+  %427 = zext nneg i32 %switch.tableidx223 to i64
+  %switch.gep225 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %427
   %switch.load226 = load i32, ptr %switch.gep225, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %430
@@ -8348,8 +8348,8 @@ dissect_someip_payload_add_wtlv_if_needed.exit104.thread: ; preds = %404, %disse
   %429 = load i32, ptr %428, align 8
   br label %430
 
-430:                                              ; preds = %switch.lookup223, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread
-  %.0.i76 = phi i32 [ %429, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread ], [ %switch.load226, %switch.lookup223 ]
+430:                                              ; preds = %switch.lookup224, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread
+  %.0.i76 = phi i32 [ %429, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread ], [ %switch.load226, %switch.lookup224 ]
   %431 = getelementptr inbounds nuw i8, ptr %387, i64 20
   %432 = load i32, ptr %431, align 4
   %433 = add i32 %432, %.0.i76

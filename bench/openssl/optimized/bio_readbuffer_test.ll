@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
 
 47:                                               ; preds = %45
   %48 = sext i32 %35 to i64
-  %49 = getelementptr inbounds [255 x i8], ptr %2, i64 0, i64 %48
+  %49 = getelementptr inbounds i8, ptr %2, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !13
   %51 = icmp eq i8 %50, 0
   %52 = zext i1 %51 to i32
@@ -203,9 +203,9 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   br i1 %or.cond, label %61, label %69
 
 61:                                               ; preds = %56
-  %62 = add nsw i32 %35, -1
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [255 x i8], ptr %2, i64 0, i64 %63
+  %62 = zext nneg i32 %35 to i64
+  %63 = getelementptr i8, ptr %2, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -1
   %65 = load i8, ptr %64, align 1, !tbaa !13
   %66 = icmp eq i8 %65, 10
   %67 = zext i1 %66 to i32

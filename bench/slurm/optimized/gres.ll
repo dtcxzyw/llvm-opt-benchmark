@@ -2162,7 +2162,7 @@ define dso_local void @gres_get_autodetected_gpus(ptr noundef byval(%struct.node
   %10 = phi ptr [ null, %3 ], [ %61, %59 ]
   %.029 = phi i32 [ 0, %3 ], [ %62, %59 ]
   %11 = sext i32 %.029 to i64
-  %12 = getelementptr inbounds [6 x i32], ptr @__const.gres_get_autodetected_gpus.autodetect_options, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr @__const.gres_get_autodetected_gpus.autodetect_options, i64 %11
   %13 = load i32, ptr %12, align 4
   store volatile i32 %13, ptr @autodetect_flags, align 4
   %14 = call i32 @gpu_plugin_init() #28
@@ -23142,7 +23142,7 @@ switch.lookup:                                    ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._foreach_node_count, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._foreach_node_count, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %switch.load
   %10 = load i64, ptr %9, align 8

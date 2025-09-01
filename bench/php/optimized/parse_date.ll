@@ -1593,7 +1593,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull initiali
   %.pre37029 = phi ptr [ %23, %.lr.ph29991 ], [ %.114340, %.loopexit18040 ]
   %41 = load i8, ptr %.pre37029, align 1, !tbaa !11
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !11
   %45 = and i8 %44, 2
   %.not = icmp eq i8 %45, 0
@@ -1954,7 +1954,7 @@ add_error.exit:                                   ; preds = %.thread.i, %199
 215:                                              ; preds = %.preheader18046
   %216 = load i8, ptr %211, align 1, !tbaa !11
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %217
   %219 = load i8, ptr %218, align 1, !tbaa !11
   %220 = and i8 %219, 2
   %.not17372 = icmp eq i8 %220, 0
@@ -1983,7 +1983,7 @@ add_error.exit:                                   ; preds = %.thread.i, %199
   store ptr %231, ptr %32, align 8, !tbaa !61
   %232 = load i8, ptr %231, align 1, !tbaa !11
   %233 = zext i8 %232 to i64
-  %234 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !11
   %236 = and i8 %235, 4
   %.not17329 = icmp eq i8 %236, 0
@@ -2786,7 +2786,7 @@ add_error.exit:                                   ; preds = %.thread.i, %199
   store ptr %574, ptr %32, align 8, !tbaa !61
   %575 = load i8, ptr %574, align 1, !tbaa !11
   %576 = zext i8 %575 to i64
-  %577 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %576
   %578 = load i8, ptr %577, align 1, !tbaa !11
   %579 = and i8 %578, 8
   %.not17033 = icmp eq i8 %579, 0
@@ -5625,7 +5625,7 @@ add_error.exit17521:                              ; preds = %.thread.i17518, %88
 1733:                                             ; preds = %.preheader17968
   %1734 = load i8, ptr %1729, align 1, !tbaa !11
   %1735 = zext i8 %1734 to i64
-  %1736 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %1735
+  %1736 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %1735
   %1737 = load i8, ptr %1736, align 1, !tbaa !11
   %1738 = and i8 %1737, 4
   %.not17371 = icmp eq i8 %1738, 0
@@ -7750,7 +7750,7 @@ timelib_get_month.exit:                           ; preds = %2265
   %2614 = getelementptr inbounds nuw i8, ptr %.pre37029, i64 2
   %2615 = load i8, ptr %2614, align 1, !tbaa !11
   %2616 = zext i8 %2615 to i64
-  %2617 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %2616
+  %2617 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %2616
   %2618 = load i8, ptr %2617, align 1, !tbaa !11
   %2619 = and i8 %2618, 8
   %.not17034 = icmp eq i8 %2619, 0
@@ -7775,7 +7775,7 @@ timelib_get_month.exit:                           ; preds = %2265
 2625:                                             ; preds = %.preheader17892
   %2626 = load i8, ptr %2621, align 1, !tbaa !11
   %2627 = zext i8 %2626 to i64
-  %2628 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %2627
+  %2628 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %2627
   %2629 = load i8, ptr %2628, align 1, !tbaa !11
   %2630 = and i8 %2629, 8
   %.not17035 = icmp eq i8 %2630, 0
@@ -9363,7 +9363,7 @@ timelib_get_month.exit:                           ; preds = %2265
 3315:                                             ; preds = %3321
   %3316 = load i8, ptr %3322, align 1, !tbaa !11
   %3317 = zext i8 %3316 to i64
-  %3318 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %3317
+  %3318 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %3317
   %3319 = load i8, ptr %3318, align 1, !tbaa !11
   %3320 = and i8 %3319, 16
   %.not16974 = icmp eq i8 %3320, 0
@@ -15442,7 +15442,7 @@ timelib_lookup_month.exit:                        ; preds = %6052
 6092:                                             ; preds = %6089
   %6093 = load i8, ptr %6090, align 1, !tbaa !11
   %6094 = zext i8 %6093 to i64
-  %6095 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %6094
+  %6095 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %6094
   %6096 = load i8, ptr %6095, align 1, !tbaa !11
   %6097 = and i8 %6096, 64
   %.not16952 = icmp eq i8 %6097, 0
@@ -17240,7 +17240,7 @@ timelib_get_nr_ex.exit:                           ; preds = %.lr.ph.i
   %.514368 = phi i8 [ %6931, %6930 ], [ %10131, %10129 ], [ %6984, %6982 ], [ %6988, %6986 ], [ %6992, %6990 ]
   %.292 = phi ptr [ %6924, %6930 ], [ %10130, %10129 ], [ %6983, %6982 ], [ %6987, %6986 ], [ %6991, %6990 ]
   %6933 = zext i8 %.514368 to i64
-  %6934 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %6933
+  %6934 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %6933
   %6935 = load i8, ptr %6934, align 1, !tbaa !11
   %6936 = and i8 %6935, 32
   %.not16980 = icmp eq i8 %6936, 0
@@ -22807,7 +22807,7 @@ timelib_get_nr.exit17665:                         ; preds = %.critedge.i.i17663,
 9491:                                             ; preds = %9489
   %9492 = load i8, ptr %9490, align 1, !tbaa !11
   %9493 = zext i8 %9492 to i64
-  %9494 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %9493
+  %9494 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %9493
   %9495 = load i8, ptr %9494, align 1, !tbaa !11
   %9496 = and i8 %9495, 64
   %.not16954 = icmp eq i8 %9496, 0
@@ -22870,7 +22870,7 @@ timelib_get_nr.exit17665:                         ; preds = %.critedge.i.i17663,
   %9523 = getelementptr inbounds nuw i8, ptr %9522, i64 1
   %9524 = load i8, ptr %9523, align 1, !tbaa !11
   %9525 = zext i8 %9524 to i64
-  %9526 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %9525
+  %9526 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %9525
   %9527 = load i8, ptr %9526, align 1, !tbaa !11
   %9528 = and i8 %9527, 64
   %.not16941 = icmp eq i8 %9528, 0
@@ -30037,7 +30037,7 @@ add_error.exit17686:                              ; preds = %.thread.i17683, %11
   %12827 = getelementptr inbounds nuw i8, ptr %.370, i64 1
   %12828 = load i8, ptr %12827, align 1, !tbaa !11
   %12829 = zext i8 %12828 to i64
-  %12830 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %12829
+  %12830 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %12829
   %12831 = load i8, ptr %12830, align 1, !tbaa !11
   %12832 = and i8 %12831, 64
   %.not16936 = icmp eq i8 %12832, 0
@@ -33855,7 +33855,7 @@ add_error.exit17707:                              ; preds = %.thread.i17704, %13
   store ptr %14639, ptr %32, align 8, !tbaa !61
   %14640 = load i8, ptr %14639, align 1, !tbaa !11
   %14641 = zext i8 %14640 to i64
-  %14642 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %14641
+  %14642 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %14641
   %14643 = load i8, ptr %14642, align 1, !tbaa !11
   %.not16945 = icmp sgt i8 %14643, -1
   br i1 %.not16945, label %14644, label %16176
@@ -33887,7 +33887,7 @@ add_error.exit17707:                              ; preds = %.thread.i17704, %13
   store ptr %14654, ptr %32, align 8, !tbaa !61
   %14655 = load i8, ptr %14654, align 1, !tbaa !11
   %14656 = zext i8 %14655 to i64
-  %14657 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %14656
+  %14657 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %14656
   %14658 = load i8, ptr %14657, align 1, !tbaa !11
   %.not16924 = icmp sgt i8 %14658, -1
   br i1 %.not16924, label %14659, label %16176
@@ -34201,7 +34201,7 @@ add_error.exit17707:                              ; preds = %.thread.i17704, %13
   store ptr %14795, ptr %32, align 8, !tbaa !61
   %14796 = load i8, ptr %14795, align 1, !tbaa !11
   %14797 = zext i8 %14796 to i64
-  %14798 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %14797
+  %14798 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %14797
   %14799 = load i8, ptr %14798, align 1, !tbaa !11
   %.not16803 = icmp sgt i8 %14799, -1
   br i1 %.not16803, label %14800, label %16176
@@ -37105,7 +37105,7 @@ add_error.exit17728:                              ; preds = %.thread.i17725, %16
   %.1014373 = phi i8 [ %16180, %16179 ], [ %16643, %16645 ], [ %16643, %16648 ], [ %16643, %16649 ], [ %17657, %17659 ], [ %17657, %17662 ], [ %17657, %17663 ], [ %16202, %16198 ], [ %16265, %16263 ], [ %16273, %16271 ], [ %16605, %16603 ], [ %16612, %16610 ], [ %16635, %16631 ], [ %16638, %16636 ], [ %16663, %16661 ], [ %16687, %16685 ], [ %16694, %16692 ], [ %17701, %17699 ]
   %.543 = phi ptr [ %16177, %16179 ], [ %16642, %16645 ], [ %16642, %16648 ], [ %16642, %16649 ], [ %17656, %17659 ], [ %17656, %17662 ], [ %17656, %17663 ], [ %16201, %16198 ], [ %16264, %16263 ], [ %16272, %16271 ], [ %16604, %16603 ], [ %16611, %16610 ], [ %16634, %16631 ], [ %16637, %16636 ], [ %16662, %16661 ], [ %16686, %16685 ], [ %16693, %16692 ], [ %17700, %17699 ]
   %16182 = zext i8 %.1014373 to i64
-  %16183 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %16182
+  %16183 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %16182
   %16184 = load i8, ptr %16183, align 1, !tbaa !11
   %.not16948 = icmp sgt i8 %16184, -1
   br i1 %.not16948, label %16185, label %16176
@@ -37322,7 +37322,7 @@ add_error.exit17728:                              ; preds = %.thread.i17725, %16
   store ptr %16275, ptr %32, align 8, !tbaa !61
   %16276 = load i8, ptr %16275, align 1, !tbaa !11
   %16277 = zext i8 %16276 to i64
-  %16278 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %16277
+  %16278 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %16277
   %16279 = load i8, ptr %16278, align 1, !tbaa !11
   %.not16717 = icmp sgt i8 %16279, -1
   br i1 %.not16717, label %16280, label %16176
@@ -37506,7 +37506,7 @@ add_error.exit17728:                              ; preds = %.thread.i17725, %16
   store ptr %16360, ptr %32, align 8, !tbaa !61
   %16361 = load i8, ptr %16360, align 1, !tbaa !11
   %16362 = zext i8 %16361 to i64
-  %16363 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %16362
+  %16363 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %16362
   %16364 = load i8, ptr %16363, align 1, !tbaa !11
   %.not16883 = icmp sgt i8 %16364, -1
   br i1 %.not16883, label %16365, label %16176
@@ -37534,7 +37534,7 @@ add_error.exit17728:                              ; preds = %.thread.i17725, %16
   %.214365.ph = phi i8 [ %16349, %16351 ], [ %14655, %14668 ], [ %12199, %12203 ], [ %10582, %10595 ], [ %10191, %10195 ], [ %8160, %8164 ], [ %7710, %7723 ], [ %7553, %7566 ], [ %7373, %7377 ], [ %7300, %7304 ], [ %7268, %7281 ], [ %7081, %7094 ], [ %7049, %7062 ], [ %7017, %7030 ], [ %6417, %6430 ], [ %6255, %6268 ], [ %6059, %6072 ], [ %5953, %5967 ], [ %4520, %4524 ], [ %3436, %3440 ], [ %1248, %1252 ], [ %1204, %1208 ], [ %1248, %1261 ], [ %1248, %1255 ], [ %1248, %1252 ], [ %11028, %11037 ], [ %11028, %11034 ], [ 9, %11032 ], [ %8160, %8173 ], [ %8160, %8167 ], [ %8160, %8164 ], [ %4520, %4533 ], [ %4520, %4527 ], [ %4520, %4524 ], [ %1204, %1217 ], [ %1204, %1211 ], [ %1204, %1208 ], [ %10687, %10699 ], [ 32, %10694 ], [ 9, %10693 ], [ %7815, %7827 ], [ 32, %7822 ], [ 9, %7821 ], [ %10582, %10600 ], [ 32, %10589 ], [ 9, %10588 ], [ %7710, %7728 ], [ 32, %7717 ], [ 9, %7716 ], [ %7585, %7597 ], [ 32, %7592 ], [ 9, %7591 ], [ %7553, %7571 ], [ 32, %7560 ], [ 9, %7559 ], [ %7373, %7388 ], [ 46, %7383 ], [ %7373, %7377 ], [ %7337, %7349 ], [ 32, %7344 ], [ 9, %7343 ], [ %7300, %7308 ], [ %7300, %7304 ], [ %7268, %7286 ], [ 32, %7275 ], [ 9, %7274 ], [ %7185, %7197 ], [ 32, %7192 ], [ 9, %7191 ], [ %10191, %10206 ], [ 46, %10201 ], [ %10191, %10195 ], [ %7149, %7161 ], [ 32, %7156 ], [ 9, %7155 ], [ %7113, %7125 ], [ 32, %7120 ], [ 9, %7119 ], [ %7081, %7099 ], [ 32, %7088 ], [ 9, %7087 ], [ %10150, %10159 ], [ %10150, %10156 ], [ 9, %10154 ], [ %7049, %7067 ], [ 32, %7056 ], [ 9, %7055 ], [ %7017, %7035 ], [ 32, %7024 ], [ 9, %7023 ], [ %3461, %3470 ], [ %3461, %3467 ], [ 9, %3465 ], [ %7000, %7009 ], [ %7000, %7006 ], [ 9, %7004 ], [ %3436, %3449 ], [ %3436, %3443 ], [ %3436, %3440 ], [ %1010, %1023 ], [ 32, %1017 ], [ 9, %1016 ], [ %6596, %6608 ], [ 32, %6603 ], [ 9, %6602 ], [ %6417, %6435 ], [ 32, %6424 ], [ 9, %6423 ], [ %16361, %16380 ], [ %16361, %16371 ], [ 9, %16369 ], [ %6287, %6299 ], [ 32, %6294 ], [ 9, %6293 ], [ %16349, %16356 ], [ %16349, %16354 ], [ %16349, %16351 ], [ %6255, %6273 ], [ 32, %6262 ], [ 9, %6261 ], [ %14655, %14669 ], [ %14655, %14665 ], [ 9, %14663 ], [ %6172, %6184 ], [ 32, %6179 ], [ 9, %6178 ], [ %12199, %12214 ], [ 46, %12209 ], [ %12828, %12826 ], [ %12199, %12203 ], [ %6136, %6148 ], [ %9524, %9533 ], [ %9524, %9529 ], [ 32, %6143 ], [ 9, %6142 ], [ %14622, %14635 ], [ %14622, %14633 ], [ 32, %14627 ], [ 9, %14626 ], [ %6059, %6077 ], [ 32, %6066 ], [ 9, %6065 ], [ %12143, %12152 ], [ %12143, %12149 ], [ 9, %12147 ], [ %5953, %5972 ], [ %9441, %9445 ], [ %9441, %9437 ], [ 32, %5961 ], [ 9, %5959 ]
   %.47.ph = phi ptr [ %16348, %16351 ], [ %14654, %14668 ], [ %12198, %12203 ], [ %10581, %10595 ], [ %10190, %10195 ], [ %8159, %8164 ], [ %7709, %7723 ], [ %7552, %7566 ], [ %7372, %7377 ], [ %7299, %7304 ], [ %7267, %7281 ], [ %7080, %7094 ], [ %7048, %7062 ], [ %7016, %7030 ], [ %6416, %6430 ], [ %6254, %6268 ], [ %6058, %6072 ], [ %5952, %5967 ], [ %4519, %4524 ], [ %3435, %3440 ], [ %127, %1252 ], [ %1203, %1208 ], [ %127, %1261 ], [ %127, %1255 ], [ %127, %1252 ], [ %11027, %11037 ], [ %11027, %11034 ], [ %11027, %11032 ], [ %8159, %8173 ], [ %8159, %8167 ], [ %8159, %8164 ], [ %4519, %4533 ], [ %4519, %4527 ], [ %4519, %4524 ], [ %1203, %1217 ], [ %1203, %1211 ], [ %1203, %1208 ], [ %10686, %10699 ], [ %10686, %10694 ], [ %10686, %10693 ], [ %7814, %7827 ], [ %7814, %7822 ], [ %7814, %7821 ], [ %10581, %10600 ], [ %10581, %10589 ], [ %10581, %10588 ], [ %7709, %7728 ], [ %7709, %7717 ], [ %7709, %7716 ], [ %7584, %7597 ], [ %7584, %7592 ], [ %7584, %7591 ], [ %7552, %7571 ], [ %7552, %7560 ], [ %7552, %7559 ], [ %7372, %7388 ], [ %7372, %7383 ], [ %7372, %7377 ], [ %7336, %7349 ], [ %7336, %7344 ], [ %7336, %7343 ], [ %7299, %7308 ], [ %7299, %7304 ], [ %7267, %7286 ], [ %7267, %7275 ], [ %7267, %7274 ], [ %7184, %7197 ], [ %7184, %7192 ], [ %7184, %7191 ], [ %10190, %10206 ], [ %10190, %10201 ], [ %10190, %10195 ], [ %7148, %7161 ], [ %7148, %7156 ], [ %7148, %7155 ], [ %7112, %7125 ], [ %7112, %7120 ], [ %7112, %7119 ], [ %7080, %7099 ], [ %7080, %7088 ], [ %7080, %7087 ], [ %10149, %10159 ], [ %10149, %10156 ], [ %10149, %10154 ], [ %7048, %7067 ], [ %7048, %7056 ], [ %7048, %7055 ], [ %7016, %7035 ], [ %7016, %7024 ], [ %7016, %7023 ], [ %3460, %3470 ], [ %3460, %3467 ], [ %3460, %3465 ], [ %6999, %7009 ], [ %6999, %7006 ], [ %6999, %7004 ], [ %3435, %3449 ], [ %3435, %3443 ], [ %3435, %3440 ], [ %1009, %1023 ], [ %1009, %1017 ], [ %1009, %1016 ], [ %6595, %6608 ], [ %6595, %6603 ], [ %6595, %6602 ], [ %6416, %6435 ], [ %6416, %6424 ], [ %6416, %6423 ], [ %16360, %16380 ], [ %16360, %16371 ], [ %16360, %16369 ], [ %6286, %6299 ], [ %6286, %6294 ], [ %6286, %6293 ], [ %16348, %16356 ], [ %16348, %16354 ], [ %16348, %16351 ], [ %6254, %6273 ], [ %6254, %6262 ], [ %6254, %6261 ], [ %14654, %14669 ], [ %14654, %14665 ], [ %14654, %14663 ], [ %6171, %6184 ], [ %6171, %6179 ], [ %6171, %6178 ], [ %12198, %12214 ], [ %12198, %12209 ], [ %12827, %12826 ], [ %12198, %12203 ], [ %6135, %6148 ], [ %9523, %9533 ], [ %9523, %9529 ], [ %6135, %6143 ], [ %6135, %6142 ], [ %14621, %14635 ], [ %14621, %14633 ], [ %14621, %14627 ], [ %14621, %14626 ], [ %6058, %6077 ], [ %6058, %6066 ], [ %6058, %6065 ], [ %12142, %12152 ], [ %12142, %12149 ], [ %12142, %12147 ], [ %5952, %5972 ], [ %9440, %9445 ], [ %9440, %9437 ], [ %5952, %5961 ], [ %5952, %5959 ]
   %16372 = zext i8 %.214365.ph to i64
-  %16373 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %16372
+  %16373 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %16372
   %16374 = load i8, ptr %16373, align 1, !tbaa !11
   %16375 = and i8 %16374, 16
   %.not1697425035 = icmp eq i8 %16375, 0
@@ -40185,7 +40185,7 @@ add_error.exit17760:                              ; preds = %.thread.i17757, %17
   store ptr %17635, ptr %32, align 8, !tbaa !61
   %17636 = load i8, ptr %17635, align 1, !tbaa !11
   %17637 = zext i8 %17636 to i64
-  %17638 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %17637
+  %17638 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %17637
   %17639 = load i8, ptr %17638, align 1, !tbaa !11
   %.not16610 = icmp sgt i8 %17639, -1
   br i1 %.not16610, label %17640, label %16176
@@ -40289,7 +40289,7 @@ add_error.exit17760:                              ; preds = %.thread.i17757, %17
   store ptr %17685, ptr %32, align 8, !tbaa !61
   %17686 = load i8, ptr %17685, align 1, !tbaa !11
   %17687 = zext i8 %17686 to i64
-  %17688 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %17687
+  %17688 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %17687
   %17689 = load i8, ptr %17688, align 1, !tbaa !11
   %.not16426 = icmp sgt i8 %17689, -1
   br i1 %.not16426, label %17690, label %16176
@@ -41726,7 +41726,7 @@ timelib_eat_spaces.exit17783:                     ; preds = %18303, %18306, %183
   store ptr %18355, ptr %32, align 8, !tbaa !61
   %18356 = load i8, ptr %18355, align 1, !tbaa !11
   %18357 = zext i8 %18356 to i64
-  %18358 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %18357
+  %18358 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %18357
   %18359 = load i8, ptr %18358, align 1, !tbaa !11
   %.not16371 = icmp sgt i8 %18359, -1
   br i1 %.not16371, label %18360, label %16176

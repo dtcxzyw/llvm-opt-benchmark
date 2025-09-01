@@ -995,7 +995,7 @@ Prs_ManWriteVerilogIoOrder.exit.i:                ; preds = %Prs_ObjGetName.exit
   br label %157
 
 157:                                              ; preds = %156, %154
-  %158 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %159 = load ptr, ptr %158, align 8, !tbaa !40
   %160 = getelementptr i8, ptr %159, i64 4
   %.val29.i.i = load i32, ptr %160, align 4, !tbaa !22
@@ -1004,10 +1004,10 @@ Prs_ManWriteVerilogIoOrder.exit.i:                ; preds = %Prs_ObjGetName.exit
 
 .lr.ph.i16.i:                                     ; preds = %157
   %162 = getelementptr i8, ptr %159, i64 8
-  %163 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %164 = load ptr, ptr %163, align 8, !tbaa !40
   %165 = getelementptr i8, ptr %164, i64 8
-  %166 = getelementptr inbounds nuw [4 x ptr], ptr @__const.Prs_ManWriteVerilogIos.pSigNames, i64 0, i64 %indvars.iv.i
+  %166 = getelementptr inbounds nuw ptr, ptr @__const.Prs_ManWriteVerilogIos.pSigNames, i64 %indvars.iv.i
   %167 = load ptr, ptr %166, align 8, !tbaa !3
   br label %168
 
@@ -1194,7 +1194,7 @@ Prs_ManWriteVerilogIos.exit.i:                    ; preds = %Prs_ObjGetName.exit
   tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef nonnull %12, ptr noundef nonnull readonly %98, i32 noundef %256)
   %257 = lshr exact i64 %indvars.iv22.i.i.i, 1
   %258 = and i64 %257, 2147483647
-  %259 = getelementptr inbounds nuw [4 x ptr], ptr @__const.Prs_ManWriteVerilogMux.pStrs, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw ptr, ptr @__const.Prs_ManWriteVerilogMux.pStrs, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !3
   %fputs.i.i.i = tail call i32 @fputs(ptr %260, ptr nonnull %12)
   %indvars.iv.next23.i.i.i = add nuw nsw i64 %indvars.iv22.i.i.i, 2
@@ -6648,7 +6648,7 @@ Vec_StrPush.exit.i1313:                           ; preds = %1124, %Vec_StrGrow.
   br i1 %exitcond.not.i1315, label %Vec_StrPrintStr.exit1319, label %1101, !llvm.loop !59
 
 Vec_StrPrintStr.exit1319:                         ; preds = %Vec_StrPush.exit.i1313
-  %1131 = getelementptr inbounds nuw [3 x ptr], ptr @__const.Cba_ManWriteVerilogNtk.pBoxName, i64 0, i64 %1033
+  %1131 = getelementptr inbounds nuw ptr, ptr @__const.Cba_ManWriteVerilogNtk.pBoxName, i64 %1033
   %1132 = load ptr, ptr %1131, align 8, !tbaa !3
   %1133 = tail call ptr (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %4, ptr noundef nonnull @.str.106, ptr noundef %1132)
   %.val857 = load ptr, ptr %592, align 8, !tbaa !23
@@ -6660,7 +6660,7 @@ Vec_StrPrintStr.exit1319:                         ; preds = %Vec_StrPush.exit.i1
   br i1 %1138, label %.lr.ph2603, label %.critedge11
 
 .lr.ph2603:                                       ; preds = %Vec_StrPrintStr.exit1319
-  %1139 = getelementptr inbounds nuw [3 x [4 x ptr]], ptr @__const.Cba_ManWriteVerilogNtk.pInputs, i64 0, i64 %1033
+  %1139 = getelementptr inbounds nuw [4 x ptr], ptr @__const.Cba_ManWriteVerilogNtk.pInputs, i64 %1033
   %1140 = sext i32 %1135 to i64
   br label %1141
 
@@ -6672,7 +6672,7 @@ Vec_StrPrintStr.exit1319:                         ; preds = %Vec_StrPush.exit.i1
   %1143 = load i32, ptr %1142, align 4, !tbaa !24
   %.not821 = icmp eq i64 %indvars.iv2660, 0
   %1144 = select i1 %.not821, ptr @.str.2, ptr @.str.58
-  %1145 = getelementptr inbounds nuw [4 x ptr], ptr %1139, i64 0, i64 %indvars.iv2660
+  %1145 = getelementptr inbounds nuw ptr, ptr %1139, i64 %indvars.iv2660
   %1146 = load ptr, ptr %1145, align 8, !tbaa !3
   %1147 = tail call ptr (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %4, ptr noundef nonnull @.str.88, ptr noundef nonnull %1144, ptr noundef %1146)
   tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %1143, i32 noundef %1, i32 noundef 1)
@@ -6756,7 +6756,7 @@ Vec_StrPush.exit1326:                             ; preds = %.Vec_StrGrow.exit10
   %1181 = phi i32 [ %1137, %Vec_StrPrintStr.exit1319 ], [ %1177, %.critedge11.loopexit ]
   %.not820 = icmp eq i32 %1181, %1180
   %1182 = select i1 %.not820, ptr @.str.2, ptr @.str.58
-  %1183 = getelementptr inbounds nuw [3 x ptr], ptr @__const.Cba_ManWriteVerilogNtk.pOutputs, i64 0, i64 %1033
+  %1183 = getelementptr inbounds nuw ptr, ptr @__const.Cba_ManWriteVerilogNtk.pOutputs, i64 %1033
   %1184 = load ptr, ptr %1183, align 8, !tbaa !3
   %1185 = tail call ptr (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %4, ptr noundef nonnull @.str.88, ptr noundef nonnull %1182, ptr noundef %1184)
   tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %1035, i32 noundef 0, i32 noundef 1)
@@ -13071,7 +13071,7 @@ Cba_TypeIsUnary.exit.thread:                      ; preds = %3813, %3813, %3813,
   %.val996 = load ptr, ptr %0, align 8, !tbaa !49
   %3836 = getelementptr inbounds nuw i8, ptr %.val996, i64 112
   %3837 = zext nneg i8 %615 to i64
-  %3838 = getelementptr inbounds nuw [90 x ptr], ptr %3836, i64 0, i64 %3837
+  %3838 = getelementptr inbounds nuw ptr, ptr %3836, i64 %3837
   %3839 = load ptr, ptr %3838, align 8, !tbaa !3
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %4, ptr noundef %3839)
   %.val935 = load ptr, ptr %592, align 8, !tbaa !23
@@ -13088,7 +13088,7 @@ Cba_TypeIsUnary.exit.thread:                      ; preds = %3813, %3813, %3813,
   %.val997 = load ptr, ptr %0, align 8, !tbaa !49
   %3846 = getelementptr inbounds nuw i8, ptr %.val997, i64 112
   %3847 = zext nneg i8 %615 to i64
-  %3848 = getelementptr inbounds nuw [90 x ptr], ptr %3846, i64 0, i64 %3847
+  %3848 = getelementptr inbounds nuw ptr, ptr %3846, i64 %3847
   %3849 = load ptr, ptr %3848, align 8, !tbaa !3
   %.not801 = icmp eq ptr %3849, null
   br i1 %.not801, label %3879, label %3850
@@ -13112,7 +13112,7 @@ Cba_TypeIsUnary.exit.thread:                      ; preds = %3813, %3813, %3813,
   tail call fastcc void @Vec_StrPush(ptr noundef nonnull %4, i8 noundef signext 32)
   %.val995 = load ptr, ptr %0, align 8, !tbaa !49
   %3856 = getelementptr inbounds nuw i8, ptr %.val995, i64 112
-  %3857 = getelementptr inbounds nuw [90 x ptr], ptr %3856, i64 0, i64 %3847
+  %3857 = getelementptr inbounds nuw ptr, ptr %3856, i64 %3847
   %3858 = load ptr, ptr %3857, align 8, !tbaa !3
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %4, ptr noundef %3858)
   tail call fastcc void @Vec_StrPush(ptr noundef nonnull %4, i8 noundef signext 32)
@@ -13140,7 +13140,7 @@ switch.edge:                                      ; preds = %3850, %3850, %3850
   tail call fastcc void @Vec_StrPush(ptr noundef nonnull %4, i8 noundef signext 32)
   %.val998 = load ptr, ptr %0, align 8, !tbaa !49
   %3870 = getelementptr inbounds nuw i8, ptr %.val998, i64 112
-  %3871 = getelementptr inbounds nuw [90 x ptr], ptr %3870, i64 0, i64 %3847
+  %3871 = getelementptr inbounds nuw ptr, ptr %3870, i64 %3847
   %3872 = load ptr, ptr %3871, align 8, !tbaa !3
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %4, ptr noundef %3872)
   tail call fastcc void @Vec_StrPush(ptr noundef nonnull %4, i8 noundef signext 32)
@@ -14510,7 +14510,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader49 ]
   %72 = urem i32 %.11531, 10
   %73 = trunc nuw nsw i32 %72 to i8
-  %74 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %73, ptr %74, align 1, !tbaa !15
   %75 = udiv i32 %.11531, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14521,7 +14521,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
 76:                                               ; preds = %.preheader, %Vec_StrPush.exit30
   %indvars.iv37 = phi i64 [ %indvars.iv35, %.preheader ], [ %indvars.iv.next38, %Vec_StrPush.exit30 ]
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
-  %77 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv.next38
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next38
   %78 = load i8, ptr %77, align 1, !tbaa !15
   %79 = add i8 %78, 48
   %80 = load i32, ptr %70, align 4, !tbaa !18

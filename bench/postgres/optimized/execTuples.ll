@@ -146,7 +146,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
   %14 = phi i32 [ %7, %.lr.ph ], [ %94, %93 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
   %.0112 = phi i64 [ 0, %.lr.ph ], [ %.1, %93 ]
-  %15 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %9, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %17 = load i8, ptr %16, align 2, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
@@ -291,7 +291,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
 109:                                              ; preds = %.lr.ph116, %206
   %indvars.iv118 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next119, %206 ]
   %.093114 = phi ptr [ %100, %.lr.ph116 ], [ %.194, %206 ]
-  %110 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %106, i64 0, i64 %indvars.iv118
+  %110 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %106, i64 %indvars.iv118
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 6
   %112 = load i8, ptr %111, align 2, !range !5, !noundef !6
   %113 = trunc nuw i8 %112 to i1
@@ -665,7 +665,7 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
 36:                                               ; preds = %.lr.ph137, %131
   %indvars.iv183 = phi i64 [ %35, %.lr.ph137 ], [ %indvars.iv.next184, %131 ]
   %.11134 = phi i32 [ %.05867, %.lr.ph137 ], [ %126, %131 ]
-  %37 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %34, i64 0, i64 %indvars.iv183
+  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv183
   %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv183
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
@@ -858,7 +858,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
 143:                                              ; preds = %.lr.ph, %252
   %indvars.iv = phi i64 [ %142, %.lr.ph ], [ %indvars.iv.next, %252 ]
   %.361132 = phi i32 [ %.05867, %.lr.ph ], [ %247, %252 ]
-  %144 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %141, i64 0, i64 %indvars.iv
+  %144 = getelementptr inbounds %struct.CompactAttribute, ptr %141, i64 %indvars.iv
   %145 = trunc nsw i64 %indvars.iv to i32
   %146 = ashr i32 %145, 3
   %147 = sext i32 %146 to i64
@@ -1078,7 +1078,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %154, %.
 269:                                              ; preds = %254, %364
   %indvars.iv187 = phi i64 [ %268, %254 ], [ %indvars.iv.next188, %364 ]
   %.7139 = phi i32 [ %.159, %254 ], [ %.9, %364 ]
-  %270 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %267, i64 0, i64 %indvars.iv187
+  %270 = getelementptr inbounds %struct.CompactAttribute, ptr %267, i64 %indvars.iv187
   br i1 %.not, label %284, label %271
 
 271:                                              ; preds = %269
@@ -1668,7 +1668,7 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
 36:                                               ; preds = %.lr.ph137, %131
   %indvars.iv183 = phi i64 [ %35, %.lr.ph137 ], [ %indvars.iv.next184, %131 ]
   %.11134 = phi i32 [ %.05867, %.lr.ph137 ], [ %126, %131 ]
-  %37 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %34, i64 0, i64 %indvars.iv183
+  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv183
   %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv183
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
@@ -1861,7 +1861,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
 143:                                              ; preds = %.lr.ph, %252
   %indvars.iv = phi i64 [ %142, %.lr.ph ], [ %indvars.iv.next, %252 ]
   %.361132 = phi i32 [ %.05867, %.lr.ph ], [ %247, %252 ]
-  %144 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %141, i64 0, i64 %indvars.iv
+  %144 = getelementptr inbounds %struct.CompactAttribute, ptr %141, i64 %indvars.iv
   %145 = trunc nsw i64 %indvars.iv to i32
   %146 = ashr i32 %145, 3
   %147 = sext i32 %146 to i64
@@ -2081,7 +2081,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %154, %.
 269:                                              ; preds = %254, %364
   %indvars.iv187 = phi i64 [ %268, %254 ], [ %indvars.iv.next188, %364 ]
   %.7139 = phi i32 [ %.159, %254 ], [ %.9, %364 ]
-  %270 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %267, i64 0, i64 %indvars.iv187
+  %270 = getelementptr inbounds %struct.CompactAttribute, ptr %267, i64 %indvars.iv187
   br i1 %.not, label %284, label %271
 
 271:                                              ; preds = %269
@@ -2687,7 +2687,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
 36:                                               ; preds = %.lr.ph137, %131
   %indvars.iv183 = phi i64 [ %35, %.lr.ph137 ], [ %indvars.iv.next184, %131 ]
   %.11134 = phi i32 [ %.05867, %.lr.ph137 ], [ %126, %131 ]
-  %37 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %34, i64 0, i64 %indvars.iv183
+  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv183
   %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv183
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
@@ -2880,7 +2880,7 @@ fetch_att.exit:                                   ; preds = %80, %83, %86, %89, 
 143:                                              ; preds = %.lr.ph, %252
   %indvars.iv = phi i64 [ %142, %.lr.ph ], [ %indvars.iv.next, %252 ]
   %.361132 = phi i32 [ %.05867, %.lr.ph ], [ %247, %252 ]
-  %144 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %141, i64 0, i64 %indvars.iv
+  %144 = getelementptr inbounds %struct.CompactAttribute, ptr %141, i64 %indvars.iv
   %145 = trunc nsw i64 %indvars.iv to i32
   %146 = ashr i32 %145, 3
   %147 = sext i32 %146 to i64
@@ -3100,7 +3100,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread76, %154, %.
 269:                                              ; preds = %254, %364
   %indvars.iv187 = phi i64 [ %268, %254 ], [ %indvars.iv.next188, %364 ]
   %.7139 = phi i32 [ %.159, %254 ], [ %.9, %364 ]
-  %270 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %267, i64 0, i64 %indvars.iv187
+  %270 = getelementptr inbounds %struct.CompactAttribute, ptr %267, i64 %indvars.iv187
   br i1 %.not, label %284, label %271
 
 271:                                              ; preds = %269

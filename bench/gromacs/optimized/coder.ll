@@ -771,7 +771,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %indvars.iv261 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next262, %107 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv261
   %98 = load i32, ptr %gep, align 4, !tbaa !19
-  %99 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv261
+  %99 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv261
   store i32 0, ptr %99, align 4, !tbaa !19
   %100 = icmp sgt i32 %98, 0
   br i1 %100, label %.sink.split, label %101

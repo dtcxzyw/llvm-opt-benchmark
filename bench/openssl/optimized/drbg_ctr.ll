@@ -305,7 +305,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr noundef rea
 
 12:                                               ; preds = %7, %9
   %.03055 = phi i64 [ 0, %7 ], [ %10, %9 ]
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %.03055
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.03055
   %14 = load i8, ptr %13, align 1, !tbaa !26
   %.not37 = icmp eq i8 %14, 0
   br i1 %.not37, label %9, label %.thread
@@ -321,7 +321,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr noundef rea
 
 18:                                               ; preds = %.preheader52, %15
   %.02956 = phi i64 [ 0, %.preheader52 ], [ %16, %15 ]
-  %19 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.02956
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.02956
   %20 = load i8, ptr %19, align 1, !tbaa !26
   %.not38 = icmp eq i8 %20, 0
   br i1 %.not38, label %15, label %.thread
@@ -337,7 +337,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr noundef rea
 
 24:                                               ; preds = %.preheader50, %21
   %.02857 = phi i64 [ 0, %.preheader50 ], [ %22, %21 ]
-  %25 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %.02857
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %.02857
   %26 = load i8, ptr %25, align 1, !tbaa !26
   %.not39 = icmp eq i8 %26, 0
   br i1 %.not39, label %21, label %.thread
@@ -349,7 +349,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr noundef rea
 
 29:                                               ; preds = %.preheader, %27
   %.058 = phi i64 [ 0, %.preheader ], [ %28, %27 ]
-  %30 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 0, i64 %.058
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.058
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %.not40 = icmp eq i8 %31, 0
   br i1 %.not40, label %27, label %.thread
@@ -991,7 +991,7 @@ ctr_df.exit:                                      ; preds = %135, %137
   %.030.i = phi i64 [ %157, %.lr.ph.i ], [ 0, %150 ]
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 %.030.i
   %153 = load i8, ptr %152, align 1, !tbaa !26
-  %154 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 0, i64 %.030.i
+  %154 = getelementptr inbounds nuw i8, ptr %42, i64 %.030.i
   %155 = load i8, ptr %154, align 1, !tbaa !26
   %156 = xor i8 %155, %153
   store i8 %156, ptr %154, align 1, !tbaa !26
@@ -1013,7 +1013,7 @@ ctr_df.exit:                                      ; preds = %135, %137
   %.131.i = phi i64 [ 0, %.lr.ph33.i ], [ %164, %159 ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.131.i
   %160 = load i8, ptr %gep.i, align 1, !tbaa !26
-  %161 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.131.i
+  %161 = getelementptr inbounds nuw i8, ptr %18, i64 %.131.i
   %162 = load i8, ptr %161, align 1, !tbaa !26
   %163 = xor i8 %162, %160
   store i8 %163, ptr %161, align 1, !tbaa !26
@@ -1036,7 +1036,7 @@ ctr_df.exit:                                      ; preds = %135, %137
   %.030.i62 = phi i64 [ %174, %.lr.ph.i61 ], [ 0, %168 ]
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 %.030.i62
   %170 = load i8, ptr %169, align 1, !tbaa !26
-  %171 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 0, i64 %.030.i62
+  %171 = getelementptr inbounds nuw i8, ptr %42, i64 %.030.i62
   %172 = load i8, ptr %171, align 1, !tbaa !26
   %173 = xor i8 %172, %170
   store i8 %173, ptr %171, align 1, !tbaa !26
@@ -1058,7 +1058,7 @@ ctr_df.exit:                                      ; preds = %135, %137
   %.131.i69 = phi i64 [ 0, %.lr.ph33.i66 ], [ %181, %176 ]
   %gep.i70 = getelementptr i8, ptr %invariant.gep.i67, i64 %.131.i69
   %177 = load i8, ptr %gep.i70, align 1, !tbaa !26
-  %178 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.131.i69
+  %178 = getelementptr inbounds nuw i8, ptr %18, i64 %.131.i69
   %179 = load i8, ptr %178, align 1, !tbaa !26
   %180 = xor i8 %179, %177
   store i8 %180, ptr %178, align 1, !tbaa !26
@@ -1081,7 +1081,7 @@ ctr_XOR.exit72:                                   ; preds = %176, %165, %._crit_
   %.030.i77 = phi i64 [ %190, %.lr.ph.i76 ], [ 0, %184 ]
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 %.030.i77
   %186 = load i8, ptr %185, align 1, !tbaa !26
-  %187 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 0, i64 %.030.i77
+  %187 = getelementptr inbounds nuw i8, ptr %42, i64 %.030.i77
   %188 = load i8, ptr %187, align 1, !tbaa !26
   %189 = xor i8 %188, %186
   store i8 %189, ptr %187, align 1, !tbaa !26
@@ -1103,7 +1103,7 @@ ctr_XOR.exit72:                                   ; preds = %176, %165, %._crit_
   %.131.i84 = phi i64 [ 0, %.lr.ph33.i81 ], [ %197, %192 ]
   %gep.i85 = getelementptr i8, ptr %invariant.gep.i82, i64 %.131.i84
   %193 = load i8, ptr %gep.i85, align 1, !tbaa !26
-  %194 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.131.i84
+  %194 = getelementptr inbounds nuw i8, ptr %18, i64 %.131.i84
   %195 = load i8, ptr %194, align 1, !tbaa !26
   %196 = xor i8 %195, %193
   store i8 %196, ptr %194, align 1, !tbaa !26

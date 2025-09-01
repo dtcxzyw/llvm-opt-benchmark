@@ -192,26 +192,26 @@ SharpYuvInit.exit:                                ; preds = %51, %.sink.split.i
 
 65:                                               ; preds = %.preheader, %65
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !11
   %68 = mul nsw i32 %67, %24
   %69 = add nsw i32 %68, %23
   %70 = sdiv i32 %69, %21
-  %71 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   store i32 %70, ptr %71, align 4, !tbaa !11
-  %72 = getelementptr inbounds nuw [4 x i32], ptr %60, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4, !tbaa !11
   %74 = mul nsw i32 %73, %24
   %75 = add nsw i32 %74, %23
   %76 = sdiv i32 %75, %21
-  %77 = getelementptr inbounds nuw [4 x i32], ptr %61, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
   store i32 %76, ptr %77, align 4, !tbaa !11
-  %78 = getelementptr inbounds nuw [4 x i32], ptr %62, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !11
   %80 = mul nsw i32 %79, %24
   %81 = add nsw i32 %80, %23
   %82 = sdiv i32 %81, %21
-  %83 = getelementptr inbounds nuw [4 x i32], ptr %63, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
   store i32 %82, ptr %83, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

@@ -4404,7 +4404,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit182.thread: ;
 
 504:                                              ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit179, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit185
   %.sink = phi float [ %481, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit179 ], [ %502, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit185 ]
-  %505 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv311
+  %505 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv311
   store float %.sink, ptr %505, align 4
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next312, 3

@@ -562,7 +562,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %.11415 = phi i32 [ %.21416, %7148 ], [ 746, %_ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit ]
   %.2 = phi ptr [ %7149, %7148 ], [ %300, %_ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit ]
   %311 = sext i32 %.11415 to i64
-  %312 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L25_regex_from_state_actionsE, i64 0, i64 %311
+  %312 = getelementptr inbounds i16, ptr @_ZN3ue2L25_regex_from_state_actionsE, i64 %311
   %313 = load i16, ptr %312, align 2
   %314 = sext i16 %313 to i64
   %315 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %314
@@ -590,9 +590,9 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %.31484.lcssa = phi ptr [ %.21483, %_ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit._crit_edge ], [ %spec.select, %.lr.ph13201 ]
   %320 = load i8, ptr %.2, align 1
   %321 = sext i8 %320 to i16
-  %322 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L19_regex_cond_lengthsE, i64 0, i64 %311
+  %322 = getelementptr inbounds i8, ptr @_ZN3ue2L19_regex_cond_lengthsE, i64 %311
   %323 = load i8, ptr %322, align 1
-  %324 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L19_regex_cond_offsetsE, i64 0, i64 %311
+  %324 = getelementptr inbounds i8, ptr @_ZN3ue2L19_regex_cond_offsetsE, i64 %311
   %325 = load i8, ptr %324, align 1
   %326 = sext i8 %325 to i32
   %327 = shl nsw i32 %326, 1
@@ -642,8 +642,8 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %354 = ptrtoint ptr %329 to i64
   %355 = sub i64 %353, %354
   %356 = ashr i64 %355, 2
-  %357 = add nsw i64 %356, %352
-  %358 = getelementptr inbounds [48 x i8], ptr @_ZN3ue2L18_regex_cond_spacesE, i64 0, i64 %357
+  %357 = getelementptr i8, ptr @_ZN3ue2L18_regex_cond_spacesE, i64 %356
+  %358 = getelementptr i8, ptr %357, i64 %352
   %359 = load i8, ptr %358, align 1
   switch i8 %359, label %.loopexit5568 [
     i8 0, label %360
@@ -680,14 +680,14 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
 
 .loopexit5568:                                    ; preds = %369, %368, %364, %360, %351, %._crit_edge13202
   %.01866 = phi i16 [ %321, %._crit_edge13202 ], [ %321, %351 ], [ %spec.select5564, %360 ], [ %spec.select5565, %364 ], [ %spec.select5566, %368 ], [ %321, %369 ]
-  %371 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L18_regex_key_offsetsE, i64 0, i64 %311
+  %371 = getelementptr inbounds i16, ptr @_ZN3ue2L18_regex_key_offsetsE, i64 %311
   %372 = load i16, ptr %371, align 2
   %373 = sext i16 %372 to i64
   %374 = getelementptr inbounds i16, ptr @_ZN3ue2L17_regex_trans_keysE, i64 %373
-  %375 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L20_regex_index_offsetsE, i64 0, i64 %311
+  %375 = getelementptr inbounds i16, ptr @_ZN3ue2L20_regex_index_offsetsE, i64 %311
   %376 = load i16, ptr %375, align 2
   %377 = sext i16 %376 to i32
-  %378 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L21_regex_single_lengthsE, i64 0, i64 %311
+  %378 = getelementptr inbounds i8, ptr @_ZN3ue2L21_regex_single_lengthsE, i64 %311
   %379 = load i8, ptr %378, align 1
   %380 = sext i8 %379 to i32
   %381 = icmp sgt i8 %379, 0
@@ -746,7 +746,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
 406:                                              ; preds = %.thread, %.loopexit5568
   %.01868 = phi i32 [ %377, %.loopexit5568 ], [ %.118694920, %.thread ]
   %.01858 = phi ptr [ %374, %.loopexit5568 ], [ %383, %.thread ]
-  %407 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L20_regex_range_lengthsE, i64 0, i64 %311
+  %407 = getelementptr inbounds i8, ptr @_ZN3ue2L20_regex_range_lengthsE, i64 %311
   %408 = load i8, ptr %407, align 1
   %409 = sext i8 %408 to i32
   %410 = icmp sgt i8 %408, 0
@@ -808,7 +808,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
 438:                                              ; preds = %400, %.loopexit, %406
   %.21870 = phi i32 [ %.31871, %.loopexit ], [ %.01868, %406 ], [ %.11869, %400 ]
   %439 = zext i32 %.21870 to i64
-  %440 = getelementptr inbounds nuw [2675 x i16], ptr @_ZN3ue2L15_regex_indiciesE, i64 0, i64 %439
+  %440 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L15_regex_indiciesE, i64 %439
   %441 = load i16, ptr %440, align 2
   %442 = sext i16 %441 to i64
   br label %443
@@ -837,10 +837,10 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %.21473 = phi i32 [ %.01471, %7157 ], [ %.11472, %438 ]
   %.3 = phi ptr [ %.0, %7157 ], [ %.2, %438 ]
   %444 = and i64 %.41872, 4294967295
-  %445 = getelementptr inbounds nuw [1263 x i16], ptr @_ZN3ue2L18_regex_trans_targsE, i64 0, i64 %444
+  %445 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L18_regex_trans_targsE, i64 %444
   %446 = load i16, ptr %445, align 2
   %447 = sext i16 %446 to i32
-  %448 = getelementptr inbounds nuw [1263 x i16], ptr @_ZN3ue2L20_regex_trans_actionsE, i64 0, i64 %444
+  %448 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L20_regex_trans_actionsE, i64 %444
   %449 = load i16, ptr %448, align 2
   %450 = icmp eq i16 %449, 0
   br i1 %450, label %.loopexit5570, label %451
@@ -19008,7 +19008,7 @@ _ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit: ; preds 
   %.21416 = phi i32 [ %447, %443 ], [ %447, %451 ], [ 790, %563 ], [ %593, %588 ], [ %728, %722 ], [ %740, %734 ], [ %752, %746 ], [ %764, %758 ], [ %776, %770 ], [ %788, %782 ], [ %800, %794 ], [ %812, %806 ], [ %824, %818 ], [ %836, %830 ], [ %848, %842 ], [ %860, %854 ], [ %872, %866 ], [ %884, %878 ], [ %896, %890 ], [ %908, %902 ], [ %920, %914 ], [ %932, %926 ], [ %944, %938 ], [ %956, %950 ], [ %968, %962 ], [ %980, %974 ], [ %992, %986 ], [ %1004, %998 ], [ %1016, %1010 ], [ %1028, %1022 ], [ %1040, %1034 ], [ %1052, %1046 ], [ %1064, %1058 ], [ %1076, %1070 ], [ %1088, %1082 ], [ %1100, %1094 ], [ %1112, %1106 ], [ %1124, %1118 ], [ %1136, %1130 ], [ %1148, %1142 ], [ %1160, %1154 ], [ %1172, %1166 ], [ %1184, %1178 ], [ %1196, %1190 ], [ %1208, %1202 ], [ %1220, %1214 ], [ %1232, %1226 ], [ %1244, %1238 ], [ %1256, %1250 ], [ %1268, %1262 ], [ %1280, %1274 ], [ %1292, %1286 ], [ %1304, %1298 ], [ %1316, %1310 ], [ %1328, %1322 ], [ %1340, %1334 ], [ %1352, %1346 ], [ %1364, %1358 ], [ %1376, %1370 ], [ %1388, %1382 ], [ %1400, %1394 ], [ %1412, %1406 ], [ %1424, %1418 ], [ %1436, %1430 ], [ %1448, %1442 ], [ %1460, %1454 ], [ %1472, %1466 ], [ %1484, %1478 ], [ %1496, %1490 ], [ %1508, %1502 ], [ %1520, %1514 ], [ %1532, %1526 ], [ %1544, %1538 ], [ %1556, %1550 ], [ %1568, %1562 ], [ %1580, %1574 ], [ %1592, %1586 ], [ %1604, %1598 ], [ %1616, %1610 ], [ %1628, %1622 ], [ %1640, %1634 ], [ %1652, %1646 ], [ %1664, %1658 ], [ %1676, %1670 ], [ %1688, %1682 ], [ %1700, %1694 ], [ %1712, %1706 ], [ %1724, %1718 ], [ %1736, %1730 ], [ %1748, %1742 ], [ %1760, %1754 ], [ %1772, %1766 ], [ %1784, %1778 ], [ %1796, %1790 ], [ %1808, %1802 ], [ %1820, %1814 ], [ %1832, %1826 ], [ %1844, %1838 ], [ %1856, %1850 ], [ %1868, %1862 ], [ %1880, %1874 ], [ %1892, %1886 ], [ %1904, %1898 ], [ %1916, %1910 ], [ %1928, %1922 ], [ %1940, %1934 ], [ %1952, %1946 ], [ %1964, %1958 ], [ %1976, %1970 ], [ %1988, %1982 ], [ %2000, %1994 ], [ %2012, %2006 ], [ %2024, %2018 ], [ %2036, %2030 ], [ %2048, %2042 ], [ %2060, %2054 ], [ %2072, %2066 ], [ %2084, %2078 ], [ %2096, %2090 ], [ %2108, %2102 ], [ %2120, %2114 ], [ %2132, %2126 ], [ %2144, %2138 ], [ %2156, %2150 ], [ %2168, %2162 ], [ %2180, %2174 ], [ %2192, %2186 ], [ %2204, %2198 ], [ %2216, %2210 ], [ %2228, %2222 ], [ %2240, %2234 ], [ %2252, %2246 ], [ %2278, %2272 ], [ %2290, %2284 ], [ %2302, %2296 ], [ %2314, %2308 ], [ %2326, %2320 ], [ %2338, %2332 ], [ %2350, %2344 ], [ %2362, %2356 ], [ %2374, %2368 ], [ %2386, %2380 ], [ %2412, %2406 ], [ %2424, %2418 ], [ %2436, %2430 ], [ %2448, %2442 ], [ %2460, %2454 ], [ %2472, %2466 ], [ %2484, %2478 ], [ %2496, %2490 ], [ %2508, %2502 ], [ %2554, %2549 ], [ %2586, %2581 ], [ %2618, %2613 ], [ %2650, %2645 ], [ %2682, %2677 ], [ %2714, %2709 ], [ %2746, %2741 ], [ 843, %2944 ], [ 559, %3022 ], [ 818, %3043 ], [ 559, %3064 ], [ 818, %3085 ], [ 746, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2426 ], [ 819, %3655 ], [ 843, %3679 ], [ 819, %3686 ], [ 819, %3689 ], [ 746, %3691 ], [ %3856, %3850 ], [ 746, %3928 ], [ 746, %3932 ], [ 838, %3997 ], [ 849, %4243 ], [ 787, %4261 ], [ 559, %5191 ], [ 818, %5224 ], [ 559, %5257 ], [ 818, %5290 ], [ 848, %5388 ], [ 836, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3839 ], [ 836, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4042 ], [ %447, %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit ]
   %.4 = phi ptr [ %.3, %443 ], [ %.3, %451 ], [ %549, %563 ], [ %.513170, %588 ], [ %.513170, %722 ], [ %.513170, %734 ], [ %.513170, %746 ], [ %.513170, %758 ], [ %.513170, %770 ], [ %.513170, %782 ], [ %.513170, %794 ], [ %.513170, %806 ], [ %.513170, %818 ], [ %.513170, %830 ], [ %.513170, %842 ], [ %.513170, %854 ], [ %.513170, %866 ], [ %.513170, %878 ], [ %.513170, %890 ], [ %.513170, %902 ], [ %.513170, %914 ], [ %.513170, %926 ], [ %.513170, %938 ], [ %.513170, %950 ], [ %.513170, %962 ], [ %.513170, %974 ], [ %.513170, %986 ], [ %.513170, %998 ], [ %.513170, %1010 ], [ %.513170, %1022 ], [ %.513170, %1034 ], [ %.513170, %1046 ], [ %.513170, %1058 ], [ %.513170, %1070 ], [ %.513170, %1082 ], [ %.513170, %1094 ], [ %.513170, %1106 ], [ %.513170, %1118 ], [ %.513170, %1130 ], [ %.513170, %1142 ], [ %.513170, %1154 ], [ %.513170, %1166 ], [ %.513170, %1178 ], [ %.513170, %1190 ], [ %.513170, %1202 ], [ %.513170, %1214 ], [ %.513170, %1226 ], [ %.513170, %1238 ], [ %.513170, %1250 ], [ %.513170, %1262 ], [ %.513170, %1274 ], [ %.513170, %1286 ], [ %.513170, %1298 ], [ %.513170, %1310 ], [ %.513170, %1322 ], [ %.513170, %1334 ], [ %.513170, %1346 ], [ %.513170, %1358 ], [ %.513170, %1370 ], [ %.513170, %1382 ], [ %.513170, %1394 ], [ %.513170, %1406 ], [ %.513170, %1418 ], [ %.513170, %1430 ], [ %.513170, %1442 ], [ %.513170, %1454 ], [ %.513170, %1466 ], [ %.513170, %1478 ], [ %.513170, %1490 ], [ %.513170, %1502 ], [ %.513170, %1514 ], [ %.513170, %1526 ], [ %.513170, %1538 ], [ %.513170, %1550 ], [ %.513170, %1562 ], [ %.513170, %1574 ], [ %.513170, %1586 ], [ %.513170, %1598 ], [ %.513170, %1610 ], [ %.513170, %1622 ], [ %.513170, %1634 ], [ %.513170, %1646 ], [ %.513170, %1658 ], [ %.513170, %1670 ], [ %.513170, %1682 ], [ %.513170, %1694 ], [ %.513170, %1706 ], [ %.513170, %1718 ], [ %.513170, %1730 ], [ %.513170, %1742 ], [ %.513170, %1754 ], [ %.513170, %1766 ], [ %.513170, %1778 ], [ %.513170, %1790 ], [ %.513170, %1802 ], [ %.513170, %1814 ], [ %.513170, %1826 ], [ %.513170, %1838 ], [ %.513170, %1850 ], [ %.513170, %1862 ], [ %.513170, %1874 ], [ %.513170, %1886 ], [ %.513170, %1898 ], [ %.513170, %1910 ], [ %.513170, %1922 ], [ %.513170, %1934 ], [ %.513170, %1946 ], [ %.513170, %1958 ], [ %.513170, %1970 ], [ %.513170, %1982 ], [ %.513170, %1994 ], [ %.513170, %2006 ], [ %.513170, %2018 ], [ %.513170, %2030 ], [ %.513170, %2042 ], [ %.513170, %2054 ], [ %.513170, %2066 ], [ %.513170, %2078 ], [ %.513170, %2090 ], [ %.513170, %2102 ], [ %.513170, %2114 ], [ %.513170, %2126 ], [ %.513170, %2138 ], [ %.513170, %2150 ], [ %.513170, %2162 ], [ %.513170, %2174 ], [ %.513170, %2186 ], [ %.513170, %2198 ], [ %.513170, %2210 ], [ %.513170, %2222 ], [ %.513170, %2234 ], [ %.513170, %2246 ], [ %2273, %2272 ], [ %2285, %2284 ], [ %2297, %2296 ], [ %2309, %2308 ], [ %2321, %2320 ], [ %2333, %2332 ], [ %2345, %2344 ], [ %2357, %2356 ], [ %2369, %2368 ], [ %2381, %2380 ], [ %2407, %2406 ], [ %2419, %2418 ], [ %2431, %2430 ], [ %2443, %2442 ], [ %2455, %2454 ], [ %2467, %2466 ], [ %2479, %2478 ], [ %2491, %2490 ], [ %2503, %2502 ], [ %.513170, %2549 ], [ %.513170, %2581 ], [ %.513170, %2613 ], [ %.513170, %2645 ], [ %.513170, %2677 ], [ %.513170, %2709 ], [ %.513170, %2741 ], [ %.513170, %2944 ], [ %3008, %3022 ], [ %3029, %3043 ], [ %3050, %3064 ], [ %3071, %3085 ], [ %.513170, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2426 ], [ %3656, %3655 ], [ %.513170, %3679 ], [ %3688, %3686 ], [ %3690, %3689 ], [ %.513170, %3691 ], [ %.513170, %3850 ], [ %.513170, %3928 ], [ %.513170, %3932 ], [ %.513170, %3997 ], [ %.513170, %4243 ], [ %4247, %4261 ], [ %5173, %5191 ], [ %5206, %5224 ], [ %5239, %5257 ], [ %5272, %5290 ], [ %.513170, %5388 ], [ %6482, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3839 ], [ %6957, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4042 ], [ %.6, %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit ]
   %7138 = sext i32 %.21416 to i64
-  %7139 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L23_regex_to_state_actionsE, i64 0, i64 %7138
+  %7139 = getelementptr inbounds i16, ptr @_ZN3ue2L23_regex_to_state_actionsE, i64 %7138
   %7140 = load i16, ptr %7139, align 2
   %7141 = sext i16 %7140 to i64
   %7142 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %7141
@@ -19070,7 +19070,7 @@ _ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit: ; preds 
 
 7152:                                             ; preds = %7150
   %7153 = sext i32 %.01414 to i64
-  %7154 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L16_regex_eof_transE, i64 0, i64 %7153
+  %7154 = getelementptr inbounds i16, ptr @_ZN3ue2L16_regex_eof_transE, i64 %7153
   %7155 = load i16, ptr %7154, align 2
   %7156 = icmp sgt i16 %7155, 0
   br i1 %7156, label %7157, label %7160
@@ -19081,7 +19081,7 @@ _ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit: ; preds 
   br label %443
 
 7160:                                             ; preds = %7152
-  %7161 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L18_regex_eof_actionsE, i64 0, i64 %7153
+  %7161 = getelementptr inbounds i16, ptr @_ZN3ue2L18_regex_eof_actionsE, i64 %7153
   %7162 = load i16, ptr %7161, align 2
   %7163 = sext i16 %7162 to i64
   %7164 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %7163

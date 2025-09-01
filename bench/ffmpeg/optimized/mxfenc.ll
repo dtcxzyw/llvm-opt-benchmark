@@ -544,7 +544,7 @@ mxf_get_mpeg2_codec_ul.exit.thread.i:             ; preds = %mxf_get_mpeg2_codec
 
 185:                                              ; preds = %190, %179
   %indvars.iv.i164 = phi i64 [ 0, %179 ], [ %indvars.iv.next.i165, %190 ]
-  %186 = getelementptr inbounds nuw [20 x %struct.anon], ptr @mxf_dnxhd_codec_uls, i64 0, i64 %indvars.iv.i164
+  %186 = getelementptr inbounds nuw %struct.anon, ptr @mxf_dnxhd_codec_uls, i64 %indvars.iv.i164
   %187 = load i16, ptr %186, align 4, !tbaa !69
   %188 = zext i16 %187 to i32
   %189 = icmp eq i32 %184, %188
@@ -624,7 +624,7 @@ switch.lookup:                                    ; preds = %191
 
 226:                                              ; preds = %230, %223
   %indvars.iv.i170 = phi i64 [ 0, %223 ], [ %indvars.iv.next.i171, %230 ]
-  %227 = getelementptr inbounds nuw [6 x %struct.anon.1], ptr @mxf_prores_codec_uls, i64 0, i64 %indvars.iv.i170
+  %227 = getelementptr inbounds nuw %struct.anon.1, ptr @mxf_prores_codec_uls, i64 %indvars.iv.i170
   %228 = load i32, ptr %227, align 4, !tbaa !75
   %229 = icmp eq i32 %225, %228
   br i1 %229, label %231, label %230
@@ -724,7 +724,7 @@ mxf_parse_prores_frame.exit:                      ; preds = %230
 278:                                              ; preds = %275, %273, %271, %270, %268
   %.032.i = phi i32 [ %269, %270 ], [ %269, %268 ], [ %272, %271 ], [ %274, %273 ], [ %spec.select.i, %275 ]
   %279 = zext nneg i32 %.032.i to i64
-  %280 = getelementptr inbounds nuw [10 x %struct.anon.2], ptr @mxf_dv_uls, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw %struct.anon.2, ptr @mxf_dv_uls, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %.val154, i64 40
   store ptr %280, ptr %281, align 8, !tbaa !78
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 16
@@ -869,7 +869,7 @@ mxf_parse_prores_frame.exit:                      ; preds = %230
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %369
   %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %370
   %371 = zext nneg i32 %.110.i.i.i to i64
-  %372 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %371
   %373 = load i8, ptr %372, align 1, !tbaa !54
   %374 = zext i8 %373 to i32
   %375 = add nuw nsw i32 %.1.i.i.i, %374
@@ -909,7 +909,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %383, %380, %348
   %394 = shl i32 %392, %393
   %395 = lshr i32 %394, 23
   %396 = zext nneg i32 %395 to i64
-  %397 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %396
   %398 = load i8, ptr %397, align 1, !tbaa !54
   %399 = urem i8 %398, 5
   switch i8 %399, label %404 [
@@ -978,7 +978,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %383, %380, %348
 
 .split.us.i:                                      ; preds = %435, %.split.us.preheader.i
   %indvars.iv145.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next146.i, %435 ]
-  %427 = getelementptr inbounds nuw [23 x %struct.anon.3], ptr @mxf_h264_codec_uls, i64 0, i64 %indvars.iv145.i
+  %427 = getelementptr inbounds nuw %struct.anon.3, ptr @mxf_h264_codec_uls, i64 %indvars.iv145.i
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 16
   %429 = load i32, ptr %428, align 8, !tbaa !88
   %430 = icmp eq i32 %425, %429
@@ -998,7 +998,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %383, %380, %348
 .split.i:                                         ; preds = %475, %.split.preheader.i
   %indvars.iv.i179 = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next.i181, %475 ]
   %.088129.i = phi ptr [ null, %.split.preheader.i ], [ %.2.i180, %475 ]
-  %436 = getelementptr inbounds nuw [23 x %struct.anon.3], ptr @mxf_h264_codec_uls, i64 0, i64 %indvars.iv.i179
+  %436 = getelementptr inbounds nuw %struct.anon.3, ptr @mxf_h264_codec_uls, i64 %indvars.iv.i179
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   %438 = load i32, ptr %437, align 8, !tbaa !88
   %439 = icmp eq i32 %412, %438
@@ -1245,7 +1245,7 @@ get_rac.exit.i:                                   ; preds = %544, %539, %528, %5
 551:                                              ; preds = %get_rac.exit.i, %496
   %.0.i185 = phi i32 [ %491, %496 ], [ %548, %get_rac.exit.i ]
   %552 = zext nneg i32 %.0.i185 to i64
-  %553 = getelementptr inbounds nuw [5 x [16 x i8]], ptr @mxf_ffv1_codec_uls, i64 0, i64 %552
+  %553 = getelementptr inbounds nuw [16 x i8], ptr @mxf_ffv1_codec_uls, i64 %552
   %554 = getelementptr inbounds nuw i8, ptr %479, i64 32
   store ptr %553, ptr %554, align 8, !tbaa !68
   %555 = load ptr, ptr %45, align 8, !tbaa !48
@@ -2247,7 +2247,7 @@ klv_ber_length.exit.i.i:                          ; preds = %mxf_write_klv_fill.
   %.110.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %90
   %.1.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.i.i.i, i32 %91
   %92 = zext nneg i32 %.110.i.i.i.i to i64
-  %93 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !54
   %95 = zext i8 %94 to i32
   %96 = add nuw nsw i32 %.1.i.i.i.i, %95
@@ -2967,10 +2967,10 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
 
 170:                                              ; preds = %166, %168, %158, %163, %164
   %.0218 = phi i64 [ %167, %166 ], [ %169, %168 ], [ 0, %158 ], [ 1, %163 ], [ 1, %164 ]
-  %171 = getelementptr inbounds nuw [6 x [16 x i8]], ptr @mxf_d10_codec_uls, i64 0, i64 %.0218
+  %171 = getelementptr inbounds nuw [16 x i8], ptr @mxf_d10_codec_uls, i64 %.0218
   %172 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %171, ptr %172, align 8, !tbaa !68
-  %173 = getelementptr inbounds nuw [6 x [16 x i8]], ptr @mxf_d10_container_uls, i64 0, i64 %.0218
+  %173 = getelementptr inbounds nuw [16 x i8], ptr @mxf_d10_container_uls, i64 %.0218
   %174 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store ptr %173, ptr %174, align 8, !tbaa !78
   store i32 3, ptr %44, align 8, !tbaa !180
@@ -3192,7 +3192,7 @@ choose_chroma_location.exit.thread:               ; preds = %choose_chroma_locat
 
 298:                                              ; preds = %302
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %299 = getelementptr inbounds nuw [10 x %struct.anon.5], ptr @mxf_essence_mappings, i64 0, i64 %indvars.iv.next.i
+  %299 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.next.i
   %300 = load i32, ptr %299, align 8, !tbaa !206
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %exitcond.i, label %mxf_get_essence_container_ul_index.exit.thread, label %302, !llvm.loop !208
@@ -3210,7 +3210,7 @@ mxf_get_essence_container_ul_index.exit.thread:   ; preds = %298
   br i1 %304, label %mxf_get_essence_container_ul_index.exit, label %298
 
 mxf_get_essence_container_ul_index.exit:          ; preds = %302
-  %305 = getelementptr inbounds nuw [10 x %struct.anon.5], ptr @mxf_essence_mappings, i64 0, i64 %indvars.iv.i, i32 1
+  %305 = getelementptr inbounds nuw %struct.anon.5, ptr @mxf_essence_mappings, i64 %indvars.iv.i, i32 1
   %306 = load i32, ptr %305, align 4, !tbaa !209
   store i32 %306, ptr %44, align 8, !tbaa !180
   br label %307
@@ -3224,7 +3224,7 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %302
 
 311:                                              ; preds = %307
   %312 = sext i32 %308 to i64
-  %313 = getelementptr inbounds [13 x %struct.MXFContainerEssenceEntry], ptr @mxf_essence_container_uls, i64 0, i64 %312, i32 2
+  %313 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %312, i32 2
   store ptr %313, ptr %309, align 8, !tbaa !68
   br label %314
 
@@ -3236,15 +3236,15 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %302
   br i1 %.not262, label %318, label %._crit_edge381
 
 318:                                              ; preds = %314
-  %319 = getelementptr inbounds [13 x %struct.MXFContainerEssenceEntry], ptr @mxf_essence_container_uls, i64 0, i64 %317
+  %319 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %317
   store ptr %319, ptr %315, align 8, !tbaa !78
   br label %._crit_edge381
 
 ._crit_edge381:                                   ; preds = %314, %318
   %320 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %321 = getelementptr inbounds [13 x %struct.MXFContainerEssenceEntry], ptr @mxf_essence_container_uls, i64 0, i64 %317, i32 1
+  %321 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %317, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %320, ptr noundef nonnull align 8 dereferenceable(15) %321, i64 15, i1 false)
-  %322 = getelementptr inbounds [13 x i8], ptr %4, i64 0, i64 %317
+  %322 = getelementptr inbounds i8, ptr %4, i64 %317
   %323 = load i8, ptr %322, align 1, !tbaa !54
   %324 = getelementptr inbounds nuw i8, ptr %41, i64 23
   store i8 %323, ptr %324, align 1, !tbaa !54
@@ -3339,7 +3339,7 @@ mxf_get_essence_container_ul_index.exit:          ; preds = %302
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 24
   %373 = load i32, ptr %372, align 8, !tbaa !180
   %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds [13 x i8], ptr %4, i64 0, i64 %374
+  %375 = getelementptr inbounds i8, ptr %4, i64 %374
   %376 = load i8, ptr %375, align 1, !tbaa !54
   %377 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %371, i64 21
@@ -3820,7 +3820,7 @@ mxf_write_klv_fill.exit:                          ; preds = %92, %101
 
 .preheader198.i:                                  ; preds = %._crit_edge.i, %152
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %152 ], [ 0, %._crit_edge.i ]
-  %153 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i.i
+  %153 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i.i
   %154 = load i32, ptr %153, align 4, !tbaa !227
   %155 = icmp eq i32 %154, 17414
   br i1 %155, label %mxf_mark_tag_unused.exit.i, label %152
@@ -3832,7 +3832,7 @@ mxf_write_klv_fill.exit:                          ; preds = %92, %101
 
 mxf_mark_tag_unused.exit.i:                       ; preds = %.preheader198.i
   %157 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %158 = getelementptr inbounds nuw [127 x i8], ptr %157, i64 0, i64 %indvars.iv.i.i.i
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv.i.i.i
   store i8 1, ptr %158, align 1, !tbaa !54
   br label %160
 
@@ -3843,7 +3843,7 @@ mxf_mark_tag_unused.exit.i:                       ; preds = %.preheader198.i
 
 160:                                              ; preds = %159, %mxf_mark_tag_unused.exit.i
   %indvars.iv.i.i90.i = phi i64 [ 0, %mxf_mark_tag_unused.exit.i ], [ %indvars.iv.next.i.i91.i, %159 ]
-  %161 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i90.i
+  %161 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i90.i
   %162 = load i32, ptr %161, align 4, !tbaa !227
   %163 = icmp eq i32 %162, 20481
   br i1 %163, label %mxf_mark_tag_unused.exit93.i, label %159
@@ -3854,7 +3854,7 @@ mxf_mark_tag_unused.exit.i:                       ; preds = %.preheader198.i
   unreachable
 
 mxf_mark_tag_unused.exit93.i:                     ; preds = %160
-  %165 = getelementptr inbounds nuw [127 x i8], ptr %157, i64 0, i64 %indvars.iv.i.i90.i
+  %165 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv.i.i90.i
   store i8 1, ptr %165, align 1, !tbaa !54
   br label %167
 
@@ -3865,7 +3865,7 @@ mxf_mark_tag_unused.exit93.i:                     ; preds = %160
 
 167:                                              ; preds = %166, %mxf_mark_tag_unused.exit93.i
   %indvars.iv.i.i94.i = phi i64 [ 0, %mxf_mark_tag_unused.exit93.i ], [ %indvars.iv.next.i.i95.i, %166 ]
-  %168 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i94.i
+  %168 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i94.i
   %169 = load i32, ptr %168, align 4, !tbaa !227
   %170 = icmp eq i32 %169, 20483
   br i1 %170, label %mxf_mark_tag_unused.exit97.i, label %166
@@ -3876,7 +3876,7 @@ mxf_mark_tag_unused.exit93.i:                     ; preds = %160
   unreachable
 
 mxf_mark_tag_unused.exit97.i:                     ; preds = %167
-  %172 = getelementptr inbounds nuw [127 x i8], ptr %157, i64 0, i64 %indvars.iv.i.i94.i
+  %172 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv.i.i94.i
   store i8 1, ptr %172, align 1, !tbaa !54
   br label %173
 
@@ -3891,7 +3891,7 @@ mxf_mark_tag_unused.exit97.i:                     ; preds = %167
 
 .preheader197.i:                                  ; preds = %173, %174
   %indvars.iv.i.i98.i = phi i64 [ %indvars.iv.next.i.i99.i, %174 ], [ 0, %173 ]
-  %175 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i98.i
+  %175 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i98.i
   %176 = load i32, ptr %175, align 4, !tbaa !227
   %177 = icmp eq i32 %176, 33024
   br i1 %177, label %mxf_mark_tag_unused.exit101.i, label %174
@@ -3903,7 +3903,7 @@ mxf_mark_tag_unused.exit97.i:                     ; preds = %167
 
 mxf_mark_tag_unused.exit101.i:                    ; preds = %.preheader197.i
   %179 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %180 = getelementptr inbounds nuw [127 x i8], ptr %179, i64 0, i64 %indvars.iv.i.i98.i
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 %indvars.iv.i.i98.i
   store i8 1, ptr %180, align 1, !tbaa !54
   br label %181
 
@@ -3917,7 +3917,7 @@ mxf_mark_tag_unused.exit101.i:                    ; preds = %.preheader197.i
 
 .preheader196.i:                                  ; preds = %181, %182
   %indvars.iv.i.i102.i = phi i64 [ %indvars.iv.next.i.i103.i, %182 ], [ 0, %181 ]
-  %183 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i102.i
+  %183 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i102.i
   %184 = load i32, ptr %183, align 4, !tbaa !227
   %185 = icmp eq i32 %184, 33280
   br i1 %185, label %mxf_mark_tag_unused.exit105.i, label %182
@@ -3929,7 +3929,7 @@ mxf_mark_tag_unused.exit101.i:                    ; preds = %.preheader197.i
 
 mxf_mark_tag_unused.exit105.i:                    ; preds = %.preheader196.i
   %187 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %188 = getelementptr inbounds nuw [127 x i8], ptr %187, i64 0, i64 %indvars.iv.i.i102.i
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv.i.i102.i
   store i8 1, ptr %188, align 1, !tbaa !54
   br label %190
 
@@ -3940,7 +3940,7 @@ mxf_mark_tag_unused.exit105.i:                    ; preds = %.preheader196.i
 
 190:                                              ; preds = %189, %mxf_mark_tag_unused.exit105.i
   %indvars.iv.i.i106.i = phi i64 [ 0, %mxf_mark_tag_unused.exit105.i ], [ %indvars.iv.next.i.i107.i, %189 ]
-  %191 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i106.i
+  %191 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i106.i
   %192 = load i32, ptr %191, align 4, !tbaa !227
   %193 = icmp eq i32 %192, 33281
   br i1 %193, label %mxf_mark_tag_unused.exit109.i, label %189
@@ -3951,7 +3951,7 @@ mxf_mark_tag_unused.exit105.i:                    ; preds = %.preheader196.i
   unreachable
 
 mxf_mark_tag_unused.exit109.i:                    ; preds = %190
-  %195 = getelementptr inbounds nuw [127 x i8], ptr %187, i64 0, i64 %indvars.iv.i.i106.i
+  %195 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv.i.i106.i
   store i8 1, ptr %195, align 1, !tbaa !54
   br label %197
 
@@ -3962,7 +3962,7 @@ mxf_mark_tag_unused.exit109.i:                    ; preds = %190
 
 197:                                              ; preds = %196, %mxf_mark_tag_unused.exit109.i
   %indvars.iv.i.i110.i = phi i64 [ 0, %mxf_mark_tag_unused.exit109.i ], [ %indvars.iv.next.i.i111.i, %196 ]
-  %198 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i110.i
+  %198 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i110.i
   %199 = load i32, ptr %198, align 4, !tbaa !227
   %200 = icmp eq i32 %199, 33282
   br i1 %200, label %mxf_mark_tag_unused.exit113.i, label %196
@@ -3973,7 +3973,7 @@ mxf_mark_tag_unused.exit109.i:                    ; preds = %190
   unreachable
 
 mxf_mark_tag_unused.exit113.i:                    ; preds = %197
-  %202 = getelementptr inbounds nuw [127 x i8], ptr %187, i64 0, i64 %indvars.iv.i.i110.i
+  %202 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv.i.i110.i
   store i8 1, ptr %202, align 1, !tbaa !54
   br label %203
 
@@ -3987,7 +3987,7 @@ mxf_mark_tag_unused.exit113.i:                    ; preds = %197
 
 .preheader195.i:                                  ; preds = %203, %204
   %indvars.iv.i.i114.i = phi i64 [ %indvars.iv.next.i.i115.i, %204 ], [ 0, %203 ]
-  %205 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i114.i
+  %205 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i114.i
   %206 = load i32, ptr %205, align 4, !tbaa !227
   %207 = icmp eq i32 %206, 33537
   br i1 %207, label %mxf_mark_tag_unused.exit117.i, label %204
@@ -3999,7 +3999,7 @@ mxf_mark_tag_unused.exit113.i:                    ; preds = %197
 
 mxf_mark_tag_unused.exit117.i:                    ; preds = %.preheader195.i
   %209 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %210 = getelementptr inbounds nuw [127 x i8], ptr %209, i64 0, i64 %indvars.iv.i.i114.i
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i114.i
   store i8 1, ptr %210, align 1, !tbaa !54
   br label %212
 
@@ -4010,7 +4010,7 @@ mxf_mark_tag_unused.exit117.i:                    ; preds = %.preheader195.i
 
 212:                                              ; preds = %211, %mxf_mark_tag_unused.exit117.i
   %indvars.iv.i.i118.i = phi i64 [ 0, %mxf_mark_tag_unused.exit117.i ], [ %indvars.iv.next.i.i119.i, %211 ]
-  %213 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i118.i
+  %213 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i118.i
   %214 = load i32, ptr %213, align 4, !tbaa !227
   %215 = icmp eq i32 %214, 33538
   br i1 %215, label %mxf_mark_tag_unused.exit121.i, label %211
@@ -4021,7 +4021,7 @@ mxf_mark_tag_unused.exit117.i:                    ; preds = %.preheader195.i
   unreachable
 
 mxf_mark_tag_unused.exit121.i:                    ; preds = %212
-  %217 = getelementptr inbounds nuw [127 x i8], ptr %209, i64 0, i64 %indvars.iv.i.i118.i
+  %217 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i118.i
   store i8 1, ptr %217, align 1, !tbaa !54
   br label %219
 
@@ -4032,7 +4032,7 @@ mxf_mark_tag_unused.exit121.i:                    ; preds = %212
 
 219:                                              ; preds = %218, %mxf_mark_tag_unused.exit121.i
   %indvars.iv.i.i122.i = phi i64 [ 0, %mxf_mark_tag_unused.exit121.i ], [ %indvars.iv.next.i.i123.i, %218 ]
-  %220 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i122.i
+  %220 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i122.i
   %221 = load i32, ptr %220, align 4, !tbaa !227
   %222 = icmp eq i32 %221, 33539
   br i1 %222, label %mxf_mark_tag_unused.exit125.i, label %218
@@ -4043,7 +4043,7 @@ mxf_mark_tag_unused.exit121.i:                    ; preds = %212
   unreachable
 
 mxf_mark_tag_unused.exit125.i:                    ; preds = %219
-  %224 = getelementptr inbounds nuw [127 x i8], ptr %209, i64 0, i64 %indvars.iv.i.i122.i
+  %224 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i122.i
   store i8 1, ptr %224, align 1, !tbaa !54
   br label %226
 
@@ -4054,7 +4054,7 @@ mxf_mark_tag_unused.exit125.i:                    ; preds = %219
 
 226:                                              ; preds = %225, %mxf_mark_tag_unused.exit125.i
   %indvars.iv.i.i126.i = phi i64 [ 0, %mxf_mark_tag_unused.exit125.i ], [ %indvars.iv.next.i.i127.i, %225 ]
-  %227 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i126.i
+  %227 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i126.i
   %228 = load i32, ptr %227, align 4, !tbaa !227
   %229 = icmp eq i32 %228, 33540
   br i1 %229, label %mxf_mark_tag_unused.exit129.i, label %225
@@ -4065,7 +4065,7 @@ mxf_mark_tag_unused.exit125.i:                    ; preds = %219
   unreachable
 
 mxf_mark_tag_unused.exit129.i:                    ; preds = %226
-  %231 = getelementptr inbounds nuw [127 x i8], ptr %209, i64 0, i64 %indvars.iv.i.i126.i
+  %231 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv.i.i126.i
   store i8 1, ptr %231, align 1, !tbaa !54
   br label %232
 
@@ -4079,7 +4079,7 @@ mxf_mark_tag_unused.exit129.i:                    ; preds = %226
 
 .preheader194.i:                                  ; preds = %232, %233
   %indvars.iv.i.i130.i = phi i64 [ %indvars.iv.next.i.i131.i, %233 ], [ 0, %232 ]
-  %234 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i130.i
+  %234 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i130.i
   %235 = load i32, ptr %234, align 4, !tbaa !227
   %236 = icmp eq i32 %235, 57305
   br i1 %236, label %mxf_mark_tag_unused.exit133.i, label %233
@@ -4091,7 +4091,7 @@ mxf_mark_tag_unused.exit129.i:                    ; preds = %226
 
 mxf_mark_tag_unused.exit133.i:                    ; preds = %.preheader194.i
   %238 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %239 = getelementptr inbounds nuw [127 x i8], ptr %238, i64 0, i64 %indvars.iv.i.i130.i
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv.i.i130.i
   store i8 1, ptr %239, align 1, !tbaa !54
   br label %241
 
@@ -4102,7 +4102,7 @@ mxf_mark_tag_unused.exit133.i:                    ; preds = %.preheader194.i
 
 241:                                              ; preds = %240, %mxf_mark_tag_unused.exit133.i
   %indvars.iv.i.i134.i = phi i64 [ 0, %mxf_mark_tag_unused.exit133.i ], [ %indvars.iv.next.i.i135.i, %240 ]
-  %242 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i134.i
+  %242 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i134.i
   %243 = load i32, ptr %242, align 4, !tbaa !227
   %244 = icmp eq i32 %243, 57306
   br i1 %244, label %mxf_mark_tag_unused.exit137.i, label %240
@@ -4113,7 +4113,7 @@ mxf_mark_tag_unused.exit133.i:                    ; preds = %.preheader194.i
   unreachable
 
 mxf_mark_tag_unused.exit137.i:                    ; preds = %241
-  %246 = getelementptr inbounds nuw [127 x i8], ptr %238, i64 0, i64 %indvars.iv.i.i134.i
+  %246 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv.i.i134.i
   store i8 1, ptr %246, align 1, !tbaa !54
   br label %248
 
@@ -4124,7 +4124,7 @@ mxf_mark_tag_unused.exit137.i:                    ; preds = %241
 
 248:                                              ; preds = %247, %mxf_mark_tag_unused.exit137.i
   %indvars.iv.i.i138.i = phi i64 [ 0, %mxf_mark_tag_unused.exit137.i ], [ %indvars.iv.next.i.i139.i, %247 ]
-  %249 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i138.i
+  %249 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i138.i
   %250 = load i32, ptr %249, align 4, !tbaa !227
   %251 = icmp eq i32 %250, 57307
   br i1 %251, label %mxf_mark_tag_unused.exit141.i, label %247
@@ -4135,7 +4135,7 @@ mxf_mark_tag_unused.exit137.i:                    ; preds = %241
   unreachable
 
 mxf_mark_tag_unused.exit141.i:                    ; preds = %248
-  %253 = getelementptr inbounds nuw [127 x i8], ptr %238, i64 0, i64 %indvars.iv.i.i138.i
+  %253 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv.i.i138.i
   store i8 1, ptr %253, align 1, !tbaa !54
   br label %254
 
@@ -4149,7 +4149,7 @@ mxf_mark_tag_unused.exit141.i:                    ; preds = %248
 
 .preheader.i:                                     ; preds = %254, %255
   %indvars.iv.i.i142.i = phi i64 [ %indvars.iv.next.i.i143.i, %255 ], [ 0, %254 ]
-  %256 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i142.i
+  %256 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i142.i
   %257 = load i32, ptr %256, align 4, !tbaa !227
   %258 = icmp eq i32 %257, 33792
   br i1 %258, label %mxf_mark_tag_unused.exit145.i, label %255
@@ -4161,7 +4161,7 @@ mxf_mark_tag_unused.exit141.i:                    ; preds = %248
 
 mxf_mark_tag_unused.exit145.i:                    ; preds = %.preheader.i
   %260 = getelementptr inbounds nuw i8, ptr %109, i64 196
-  %261 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i142.i
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i142.i
   store i8 1, ptr %261, align 1, !tbaa !54
   br label %263
 
@@ -4172,7 +4172,7 @@ mxf_mark_tag_unused.exit145.i:                    ; preds = %.preheader.i
 
 263:                                              ; preds = %262, %mxf_mark_tag_unused.exit145.i
   %indvars.iv.i.i146.i = phi i64 [ 0, %mxf_mark_tag_unused.exit145.i ], [ %indvars.iv.next.i.i147.i, %262 ]
-  %264 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i146.i
+  %264 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i146.i
   %265 = load i32, ptr %264, align 4, !tbaa !227
   %266 = icmp eq i32 %265, 33793
   br i1 %266, label %mxf_mark_tag_unused.exit149.i, label %262
@@ -4183,7 +4183,7 @@ mxf_mark_tag_unused.exit145.i:                    ; preds = %.preheader.i
   unreachable
 
 mxf_mark_tag_unused.exit149.i:                    ; preds = %263
-  %268 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i146.i
+  %268 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i146.i
   store i8 1, ptr %268, align 1, !tbaa !54
   br label %270
 
@@ -4194,7 +4194,7 @@ mxf_mark_tag_unused.exit149.i:                    ; preds = %263
 
 270:                                              ; preds = %269, %mxf_mark_tag_unused.exit149.i
   %indvars.iv.i.i150.i = phi i64 [ 0, %mxf_mark_tag_unused.exit149.i ], [ %indvars.iv.next.i.i151.i, %269 ]
-  %271 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i150.i
+  %271 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i150.i
   %272 = load i32, ptr %271, align 4, !tbaa !227
   %273 = icmp eq i32 %272, 33794
   br i1 %273, label %mxf_mark_tag_unused.exit153.i, label %269
@@ -4205,7 +4205,7 @@ mxf_mark_tag_unused.exit149.i:                    ; preds = %263
   unreachable
 
 mxf_mark_tag_unused.exit153.i:                    ; preds = %270
-  %275 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i150.i
+  %275 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i150.i
   store i8 1, ptr %275, align 1, !tbaa !54
   br label %277
 
@@ -4216,7 +4216,7 @@ mxf_mark_tag_unused.exit153.i:                    ; preds = %270
 
 277:                                              ; preds = %276, %mxf_mark_tag_unused.exit153.i
   %indvars.iv.i.i154.i = phi i64 [ 0, %mxf_mark_tag_unused.exit153.i ], [ %indvars.iv.next.i.i155.i, %276 ]
-  %278 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i154.i
+  %278 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i154.i
   %279 = load i32, ptr %278, align 4, !tbaa !227
   %280 = icmp eq i32 %279, 33795
   br i1 %280, label %mxf_mark_tag_unused.exit157.i, label %276
@@ -4227,7 +4227,7 @@ mxf_mark_tag_unused.exit153.i:                    ; preds = %270
   unreachable
 
 mxf_mark_tag_unused.exit157.i:                    ; preds = %277
-  %282 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i154.i
+  %282 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i154.i
   store i8 1, ptr %282, align 1, !tbaa !54
   br label %284
 
@@ -4238,7 +4238,7 @@ mxf_mark_tag_unused.exit157.i:                    ; preds = %277
 
 284:                                              ; preds = %283, %mxf_mark_tag_unused.exit157.i
   %indvars.iv.i.i158.i = phi i64 [ 0, %mxf_mark_tag_unused.exit157.i ], [ %indvars.iv.next.i.i159.i, %283 ]
-  %285 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i158.i
+  %285 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i158.i
   %286 = load i32, ptr %285, align 4, !tbaa !227
   %287 = icmp eq i32 %286, 33796
   br i1 %287, label %mxf_mark_tag_unused.exit161.i, label %283
@@ -4249,7 +4249,7 @@ mxf_mark_tag_unused.exit157.i:                    ; preds = %277
   unreachable
 
 mxf_mark_tag_unused.exit161.i:                    ; preds = %284
-  %289 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i158.i
+  %289 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i158.i
   store i8 1, ptr %289, align 1, !tbaa !54
   br label %291
 
@@ -4260,7 +4260,7 @@ mxf_mark_tag_unused.exit161.i:                    ; preds = %284
 
 291:                                              ; preds = %290, %mxf_mark_tag_unused.exit161.i
   %indvars.iv.i.i162.i = phi i64 [ 0, %mxf_mark_tag_unused.exit161.i ], [ %indvars.iv.next.i.i163.i, %290 ]
-  %292 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i162.i
+  %292 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i162.i
   %293 = load i32, ptr %292, align 4, !tbaa !227
   %294 = icmp eq i32 %293, 33797
   br i1 %294, label %mxf_mark_tag_unused.exit165.i, label %290
@@ -4271,7 +4271,7 @@ mxf_mark_tag_unused.exit161.i:                    ; preds = %284
   unreachable
 
 mxf_mark_tag_unused.exit165.i:                    ; preds = %291
-  %296 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i162.i
+  %296 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i162.i
   store i8 1, ptr %296, align 1, !tbaa !54
   br label %298
 
@@ -4282,7 +4282,7 @@ mxf_mark_tag_unused.exit165.i:                    ; preds = %291
 
 298:                                              ; preds = %297, %mxf_mark_tag_unused.exit165.i
   %indvars.iv.i.i166.i = phi i64 [ 0, %mxf_mark_tag_unused.exit165.i ], [ %indvars.iv.next.i.i167.i, %297 ]
-  %299 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i166.i
+  %299 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i166.i
   %300 = load i32, ptr %299, align 4, !tbaa !227
   %301 = icmp eq i32 %300, 33798
   br i1 %301, label %mxf_mark_tag_unused.exit169.i, label %297
@@ -4293,7 +4293,7 @@ mxf_mark_tag_unused.exit165.i:                    ; preds = %291
   unreachable
 
 mxf_mark_tag_unused.exit169.i:                    ; preds = %298
-  %303 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i166.i
+  %303 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i166.i
   store i8 1, ptr %303, align 1, !tbaa !54
   br label %305
 
@@ -4304,7 +4304,7 @@ mxf_mark_tag_unused.exit169.i:                    ; preds = %298
 
 305:                                              ; preds = %304, %mxf_mark_tag_unused.exit169.i
   %indvars.iv.i.i170.i = phi i64 [ 0, %mxf_mark_tag_unused.exit169.i ], [ %indvars.iv.next.i.i171.i, %304 ]
-  %306 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i170.i
+  %306 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i170.i
   %307 = load i32, ptr %306, align 4, !tbaa !227
   %308 = icmp eq i32 %307, 33799
   br i1 %308, label %mxf_mark_tag_unused.exit173.i, label %304
@@ -4315,7 +4315,7 @@ mxf_mark_tag_unused.exit169.i:                    ; preds = %298
   unreachable
 
 mxf_mark_tag_unused.exit173.i:                    ; preds = %305
-  %310 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i170.i
+  %310 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i170.i
   store i8 1, ptr %310, align 1, !tbaa !54
   br label %312
 
@@ -4326,7 +4326,7 @@ mxf_mark_tag_unused.exit173.i:                    ; preds = %305
 
 312:                                              ; preds = %311, %mxf_mark_tag_unused.exit173.i
   %indvars.iv.i.i174.i = phi i64 [ 0, %mxf_mark_tag_unused.exit173.i ], [ %indvars.iv.next.i.i175.i, %311 ]
-  %313 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i174.i
+  %313 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i174.i
   %314 = load i32, ptr %313, align 4, !tbaa !227
   %315 = icmp eq i32 %314, 33800
   br i1 %315, label %mxf_mark_tag_unused.exit177.i, label %311
@@ -4337,7 +4337,7 @@ mxf_mark_tag_unused.exit173.i:                    ; preds = %305
   unreachable
 
 mxf_mark_tag_unused.exit177.i:                    ; preds = %312
-  %317 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i174.i
+  %317 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i174.i
   store i8 1, ptr %317, align 1, !tbaa !54
   br label %319
 
@@ -4348,7 +4348,7 @@ mxf_mark_tag_unused.exit177.i:                    ; preds = %312
 
 319:                                              ; preds = %318, %mxf_mark_tag_unused.exit177.i
   %indvars.iv.i.i178.i = phi i64 [ 0, %mxf_mark_tag_unused.exit177.i ], [ %indvars.iv.next.i.i179.i, %318 ]
-  %320 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i178.i
+  %320 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i178.i
   %321 = load i32, ptr %320, align 4, !tbaa !227
   %322 = icmp eq i32 %321, 33801
   br i1 %322, label %mxf_mark_tag_unused.exit181.i, label %318
@@ -4359,7 +4359,7 @@ mxf_mark_tag_unused.exit177.i:                    ; preds = %312
   unreachable
 
 mxf_mark_tag_unused.exit181.i:                    ; preds = %319
-  %324 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i178.i
+  %324 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i178.i
   store i8 1, ptr %324, align 1, !tbaa !54
   br label %326
 
@@ -4370,7 +4370,7 @@ mxf_mark_tag_unused.exit181.i:                    ; preds = %319
 
 326:                                              ; preds = %325, %mxf_mark_tag_unused.exit181.i
   %indvars.iv.i.i182.i = phi i64 [ 0, %mxf_mark_tag_unused.exit181.i ], [ %indvars.iv.next.i.i183.i, %325 ]
-  %327 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i182.i
+  %327 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i182.i
   %328 = load i32, ptr %327, align 4, !tbaa !227
   %329 = icmp eq i32 %328, 33802
   br i1 %329, label %mxf_mark_tag_unused.exit185.i, label %325
@@ -4381,7 +4381,7 @@ mxf_mark_tag_unused.exit181.i:                    ; preds = %319
   unreachable
 
 mxf_mark_tag_unused.exit185.i:                    ; preds = %326
-  %331 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i182.i
+  %331 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i182.i
   store i8 1, ptr %331, align 1, !tbaa !54
   br label %333
 
@@ -4392,7 +4392,7 @@ mxf_mark_tag_unused.exit185.i:                    ; preds = %326
 
 333:                                              ; preds = %332, %mxf_mark_tag_unused.exit185.i
   %indvars.iv.i.i186.i = phi i64 [ 0, %mxf_mark_tag_unused.exit185.i ], [ %indvars.iv.next.i.i187.i, %332 ]
-  %334 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i186.i
+  %334 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i186.i
   %335 = load i32, ptr %334, align 4, !tbaa !227
   %336 = icmp eq i32 %335, 33803
   br i1 %336, label %mxf_mark_tag_unused.exit189.i, label %332
@@ -4403,7 +4403,7 @@ mxf_mark_tag_unused.exit185.i:                    ; preds = %326
   unreachable
 
 mxf_mark_tag_unused.exit189.i:                    ; preds = %333
-  %338 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i186.i
+  %338 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i186.i
   store i8 1, ptr %338, align 1, !tbaa !54
   br label %340
 
@@ -4414,7 +4414,7 @@ mxf_mark_tag_unused.exit189.i:                    ; preds = %333
 
 340:                                              ; preds = %339, %mxf_mark_tag_unused.exit189.i
   %indvars.iv.i.i190.i = phi i64 [ 0, %mxf_mark_tag_unused.exit189.i ], [ %indvars.iv.next.i.i191.i, %339 ]
-  %341 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i.i190.i
+  %341 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i.i190.i
   %342 = load i32, ptr %341, align 4, !tbaa !227
   %343 = icmp eq i32 %342, 33804
   br i1 %343, label %mxf_mark_tag_unused.exit193.i, label %339
@@ -4425,7 +4425,7 @@ mxf_mark_tag_unused.exit189.i:                    ; preds = %333
   unreachable
 
 mxf_mark_tag_unused.exit193.i:                    ; preds = %340
-  %345 = getelementptr inbounds nuw [127 x i8], ptr %260, i64 0, i64 %indvars.iv.i.i190.i
+  %345 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i.i190.i
   store i8 1, ptr %345, align 1, !tbaa !54
   br label %346
 
@@ -4436,7 +4436,7 @@ mxf_mark_tag_unused.exit193.i:                    ; preds = %340
 348:                                              ; preds = %348, %346
   %indvars.iv266.i = phi i64 [ 0, %346 ], [ %indvars.iv.next267.i, %348 ]
   %.0235.i = phi i32 [ 127, %346 ], [ %spec.select89.i, %348 ]
-  %349 = getelementptr inbounds nuw [127 x i8], ptr %347, i64 0, i64 %indvars.iv266.i
+  %349 = getelementptr inbounds nuw i8, ptr %347, i64 %indvars.iv266.i
   %350 = load i8, ptr %349, align 1, !tbaa !54
   %.not85.i = icmp ne i8 %350, 0
   %351 = sext i1 %.not85.i to i32
@@ -4464,7 +4464,7 @@ klv_ber_length.exit.i.i:                          ; preds = %352
   %.110.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %358
   %.1.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.i.i.i, i32 %359
   %360 = zext nneg i32 %.110.i.i.i.i to i64
-  %361 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !54
   %363 = zext i8 %362 to i32
   %364 = add nuw nsw i32 %.1.i.i.i.i, %363
@@ -4501,13 +4501,13 @@ klv_encode_ber_length.exit.i:                     ; preds = %372, %klv_ber_lengt
 
 378:                                              ; preds = %386, %klv_encode_ber_length.exit.i
   %indvars.iv269.i = phi i64 [ 0, %klv_encode_ber_length.exit.i ], [ %indvars.iv.next270.i, %386 ]
-  %379 = getelementptr inbounds nuw [127 x i8], ptr %347, i64 0, i64 %indvars.iv269.i
+  %379 = getelementptr inbounds nuw i8, ptr %347, i64 %indvars.iv269.i
   %380 = load i8, ptr %379, align 1, !tbaa !54
   %381 = icmp eq i8 %380, 0
   br i1 %381, label %382, label %386
 
 382:                                              ; preds = %378
-  %383 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv269.i
+  %383 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv269.i
   %384 = load i32, ptr %383, align 4, !tbaa !227
   tail call void @avio_wb16(ptr noundef %110, i32 noundef %384) #14
   %385 = getelementptr inbounds nuw i8, ptr %383, i64 4
@@ -5038,7 +5038,7 @@ define internal fastcc i32 @get_ffv1_unsigned_symbol(ptr noundef nonnull capture
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i8, ptr %1, align 1, !tbaa !54
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !54
   store i8 %17, ptr %1, align 1, !tbaa !54
   %18 = load i32, ptr %3, align 4, !tbaa !98
@@ -5080,7 +5080,7 @@ define internal fastcc i32 @get_ffv1_unsigned_symbol(ptr noundef nonnull capture
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %41 = load i8, ptr %1, align 1, !tbaa !54
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !54
   store i8 %44, ptr %1, align 1, !tbaa !54
   store i32 %8, ptr %3, align 4, !tbaa !98
@@ -5144,7 +5144,7 @@ get_rac.exit:                                     ; preds = %12, %29, %34
 82:                                               ; preds = %70
   %83 = load i8, ptr %74, align 1, !tbaa !54
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !54
   store i8 %86, ptr %74, align 1, !tbaa !54
   %87 = load i32, ptr %3, align 4, !tbaa !98
@@ -5182,7 +5182,7 @@ get_rac.exit:                                     ; preds = %12, %29, %34
   store i32 %105, ptr %0, align 8, !tbaa !100
   %106 = load i8, ptr %74, align 1, !tbaa !54
   %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr %66, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %66, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !54
   store i8 %109, ptr %74, align 1, !tbaa !54
   store i32 %78, ptr %3, align 4, !tbaa !98
@@ -5251,7 +5251,7 @@ get_rac.exit24:                                   ; preds = %82, %96, %101
 143:                                              ; preds = %131
   %144 = load i8, ptr %135, align 1, !tbaa !54
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %13, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !54
   store i8 %147, ptr %135, align 1, !tbaa !54
   %148 = load i32, ptr %3, align 4, !tbaa !98
@@ -5289,7 +5289,7 @@ get_rac.exit24:                                   ; preds = %82, %96, %101
   store i32 %166, ptr %0, align 8, !tbaa !100
   %167 = load i8, ptr %135, align 1, !tbaa !54
   %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds nuw [256 x i8], ptr %66, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %66, i64 %168
   %170 = load i8, ptr %169, align 1, !tbaa !54
   store i8 %170, ptr %135, align 1, !tbaa !54
   store i32 %139, ptr %3, align 4, !tbaa !98
@@ -5592,7 +5592,7 @@ klv_ber_length.exit.i.i:                          ; preds = %44
   %.110.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %59
   %.1.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.i.i.i, i32 %60
   %61 = zext nneg i32 %.110.i.i.i.i to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !54
   %64 = zext i8 %63 to i32
   %65 = add nuw nsw i32 %.1.i.i.i.i, %64
@@ -6080,7 +6080,7 @@ klv_ber_length.exit.i.i42:                        ; preds = %mxf_utf16_local_tag
   %.110.i.i.i.i47 = select i1 %.not11.i.i.i.i46, i32 %spec.select.i.i.i.i44, i32 %247
   %.1.i.i.i.i48 = select i1 %.not11.i.i.i.i46, i32 %spec.select12.i.i.i.i45, i32 %248
   %249 = zext nneg i32 %.110.i.i.i.i47 to i64
-  %250 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !54
   %252 = zext i8 %251 to i32
   %253 = add nuw nsw i32 %.1.i.i.i.i48, %252
@@ -6219,7 +6219,7 @@ mxf_write_content_storage.exit:                   ; preds = %275
 284:                                              ; preds = %mxf_write_content_storage.exit, %.loopexit
   %285 = phi i32 [ %.pre, %mxf_write_content_storage.exit ], [ %800, %.loopexit ]
   %indvars.iv267 = phi i64 [ 0, %mxf_write_content_storage.exit ], [ %indvars.iv.next268, %.loopexit ]
-  %286 = getelementptr inbounds nuw [3 x %struct.MXFPackage], ptr %2, i64 0, i64 %indvars.iv267
+  %286 = getelementptr inbounds nuw %struct.MXFPackage, ptr %2, i64 %indvars.iv267
   %287 = load ptr, ptr %3, align 8, !tbaa !4
   %288 = load ptr, ptr %46, align 8, !tbaa !24
   %289 = add i32 %285, 1
@@ -6528,7 +6528,7 @@ klv_ber_length.exit.i.i.i.i:                      ; preds = %402
   %.110.i.i.i.i.i.i = select i1 %.not11.i.i.i.i.i.i, i32 %spec.select.i.i.i.i.i.i, i32 %410
   %.1.i.i.i.i.i.i = select i1 %.not11.i.i.i.i.i.i, i32 %spec.select12.i.i.i.i.i.i, i32 %411
   %412 = zext nneg i32 %.110.i.i.i.i.i.i to i64
-  %413 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %412
+  %413 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %412
   %414 = load i8, ptr %413, align 1, !tbaa !54
   %415 = zext i8 %414 to i32
   %416 = add nuw nsw i32 %.1.i.i.i.i.i.i, %415
@@ -6613,7 +6613,7 @@ klv_ber_length.exit.i.i89:                        ; preds = %mxf_write_user_comm
   %.110.i.i.i.i94 = select i1 %.not11.i.i.i.i93, i32 %spec.select.i.i.i.i91, i32 %450
   %.1.i.i.i.i95 = select i1 %.not11.i.i.i.i93, i32 %spec.select12.i.i.i.i92, i32 %451
   %452 = zext nneg i32 %.110.i.i.i.i94 to i64
-  %453 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %452
+  %453 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %452
   %454 = load i8, ptr %453, align 1, !tbaa !54
   %455 = zext i8 %454 to i32
   %456 = add nuw nsw i32 %.1.i.i.i.i95, %455
@@ -6666,7 +6666,7 @@ klv_ber_length.exit.i135.i:                       ; preds = %470
   %.110.i.i.i140.i = select i1 %.not11.i.i.i139.i, i32 %spec.select.i.i.i137.i, i32 %483
   %.1.i.i.i141.i = select i1 %.not11.i.i.i139.i, i32 %spec.select12.i.i.i138.i, i32 %484
   %485 = zext nneg i32 %.110.i.i.i140.i to i64
-  %486 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %485
+  %486 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %485
   %487 = load i8, ptr %486, align 1, !tbaa !54
   %488 = zext i8 %487 to i32
   %489 = add nuw nsw i32 %.1.i.i.i141.i, %488
@@ -6852,7 +6852,7 @@ klv_ber_length.exit.i.i.i:                        ; preds = %549
   %.110.i.i.i.i.i = select i1 %.not11.i.i.i.i.i, i32 %spec.select.i.i.i.i.i, i32 %559
   %.1.i.i.i.i.i = select i1 %.not11.i.i.i.i.i, i32 %spec.select12.i.i.i.i.i, i32 %560
   %561 = zext nneg i32 %.110.i.i.i.i.i to i64
-  %562 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %561
+  %562 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %561
   %563 = load i8, ptr %562, align 1, !tbaa !54
   %564 = zext i8 %563 to i32
   %565 = add nuw nsw i32 %.1.i.i.i.i.i, %564
@@ -7420,7 +7420,7 @@ mxf_write_structural_component.exit.i:            ; preds = %776, %774
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 24
   %791 = load i32, ptr %790, align 8, !tbaa !180
   %792 = sext i32 %791 to i64
-  %793 = getelementptr inbounds [13 x %struct.MXFContainerEssenceEntry], ptr @mxf_essence_container_uls, i64 0, i64 %792, i32 3
+  %793 = getelementptr inbounds %struct.MXFContainerEssenceEntry, ptr @mxf_essence_container_uls, i64 %792, i32 3
   %794 = load ptr, ptr %793, align 8, !tbaa !263
   %795 = call i32 %794(ptr noundef nonnull %0, ptr noundef %636) #14
   %796 = icmp sgt i32 %795, -1
@@ -7499,7 +7499,7 @@ define internal fastcc void @mxf_write_local_tag(ptr readonly captures(none) %.2
 
 4:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds nuw [127 x %struct.MXFLocalTagPair], ptr @mxf_local_tag_batch, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw %struct.MXFLocalTagPair, ptr @mxf_local_tag_batch, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4, !tbaa !227
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %mxf_lookup_local_tag.exit, label %3
@@ -7511,7 +7511,7 @@ define internal fastcc void @mxf_write_local_tag(ptr readonly captures(none) %.2
 
 mxf_lookup_local_tag.exit:                        ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %.24.val, i64 196
-  %10 = getelementptr inbounds nuw [127 x i8], ptr %9, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1, !tbaa !54
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %14, label %13

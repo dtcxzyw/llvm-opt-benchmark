@@ -1171,9 +1171,9 @@ _ZN8ImVectorIfE6resizeEiRKf.exit:                 ; preds = %498, %_ZN8ImVectorI
   %541 = phi i32 [ %537, %523 ], [ %546, %540 ]
   %542 = add nsw i32 %541, 3
   %543 = and i32 %542, -4
-  %544 = getelementptr inbounds nuw [6 x i32], ptr %526, i64 0, i64 %indvars.iv.i388
+  %544 = getelementptr inbounds nuw i32, ptr %526, i64 %indvars.iv.i388
   store i32 %543, ptr %544, align 4, !tbaa !273
-  %545 = getelementptr inbounds nuw [6 x i32], ptr %527, i64 0, i64 %indvars.iv.i388
+  %545 = getelementptr inbounds nuw i32, ptr %527, i64 %indvars.iv.i388
   store i32 %539, ptr %545, align 4, !tbaa !273
   %546 = add nsw i32 %543, %539
   %indvars.iv.next.i389 = add nuw nsw i64 %indvars.iv.i388, 1
@@ -1732,9 +1732,9 @@ define dso_local void @_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei(ptr nounde
   %63 = phi i32 [ %18, %2 ], [ %68, %62 ]
   %64 = add nsw i32 %63, 3
   %65 = and i32 %64, -4
-  %66 = getelementptr inbounds nuw [6 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %65, ptr %66, align 4, !tbaa !273
-  %67 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %20, ptr %67, align 4, !tbaa !273
   %68 = add nsw i32 %65, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7328,7 +7328,7 @@ _ZN8ImVectorIcE7reserveEi.exit:                   ; preds = %._ZN8ImVectorIcE7re
   %indvars.iv = phi i64 [ 0, %_ZN8ImVectorIcE7reserveEi.exit ], [ %indvars.iv.next, %50 ]
   %51 = mul nsw i64 %indvars.iv, %39
   %52 = getelementptr inbounds i8, ptr %38, i64 %51
-  %53 = getelementptr inbounds nuw [4 x %struct.MergeGroup], ptr %2, i64 0, i64 %indvars.iv, i32 2
+  %53 = getelementptr inbounds nuw %struct.MergeGroup, ptr %2, i64 %indvars.iv, i32 2
   store ptr %52, ptr %53, align 8, !tbaa !505
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -7460,7 +7460,7 @@ thread-pre-split:                                 ; preds = %91, %83, %95
   %126 = select i1 %125, i32 0, i32 2
   %127 = or disjoint i32 %not., %126
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [4 x %struct.MergeGroup], ptr %2, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw %struct.MergeGroup, ptr %2, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load i32, ptr %130, align 16, !tbaa !516
   %132 = icmp eq i32 %131, 0
@@ -7685,7 +7685,7 @@ _Z21ImBitArraySetBitRangePjii.exit:               ; preds = %208, %_ZN8ImVectorI
   %indvars.iv215 = phi i64 [ 0, %_Z21ImBitArraySetBitRangePjii.exit ], [ %indvars.iv.next216, %320 ]
   %.0152195 = phi ptr [ %203, %_Z21ImBitArraySetBitRangePjii.exit ], [ %.4, %320 ]
   %.0156194 = phi i32 [ %236, %_Z21ImBitArraySetBitRangePjii.exit ], [ %.1157, %320 ]
-  %247 = getelementptr inbounds nuw [4 x %struct.MergeGroup], ptr %2, i64 0, i64 %indvars.iv215
+  %247 = getelementptr inbounds nuw %struct.MergeGroup, ptr %2, i64 %indvars.iv215
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load i32, ptr %248, align 16, !tbaa !516
   %.not163 = icmp eq i32 %249, 0
@@ -8749,7 +8749,7 @@ define dso_local void @_ZN5ImGui15TableSetBgColorEiji(i32 noundef %0, i32 nounde
   %52 = icmp eq i32 %0, 2
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 156
   %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw [2 x i32], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
   store i32 %spec.store.select, ptr %55, align 4, !tbaa !273
   br label %56
 
@@ -13713,7 +13713,7 @@ define dso_local void @_ZN5ImGui14DebugNodeTableEP10ImGuiTable(ptr noundef %0) l
 switch.lookup:                                    ; preds = %58
   %79 = lshr exact i32 %77, 13
   %80 = zext nneg i32 %79 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5ImGui14DebugNodeTableEP10ImGuiTable, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ImGui14DebugNodeTableEP10ImGuiTable, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL33DebugNodeTableGetSizingPolicyDesci.exit
 

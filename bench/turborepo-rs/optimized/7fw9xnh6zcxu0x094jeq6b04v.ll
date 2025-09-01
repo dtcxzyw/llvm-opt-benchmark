@@ -91,7 +91,7 @@ define hidden noundef range(i64 0, 3) i64 @_RNvNtNtCs1GgERC5BdQ8_13unicode_width
   %3 = zext i32 %0 to i64
   %4 = lshr i64 %3, 13
   %5 = and i64 %4, 255
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 %5
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = zext i8 %7 to i64
   %9 = shl nuw nsw i64 %8, 7
@@ -102,7 +102,7 @@ define hidden noundef range(i64 0, 3) i64 @_RNvNtNtCs1GgERC5BdQ8_13unicode_width
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw [2432 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 0, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 %12
   %16 = load i8, ptr %15, align 1, !noundef !4
   %17 = zext i8 %16 to i64
   %18 = shl nuw nsw i64 %17, 4
@@ -117,7 +117,7 @@ define hidden noundef range(i64 0, 3) i64 @_RNvNtNtCs1GgERC5BdQ8_13unicode_width
   unreachable
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds nuw [3808 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 0, i64 %21
+  %25 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 %21
   %26 = load i8, ptr %25, align 1, !noundef !4
   %.tr = trunc i32 %0 to i8
   %27 = shl i8 %.tr, 1
@@ -593,7 +593,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   %7 = zext i32 %1 to i64
   %8 = lshr i64 %7, 13
   %9 = and i64 %8, 255
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 %9
   %11 = load i8, ptr %10, align 1, !noundef !4
   %12 = zext i8 %11 to i64
   %13 = shl nuw nsw i64 %12, 7
@@ -604,7 +604,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds nuw [2432 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 %16
   %20 = load i8, ptr %19, align 1, !noundef !4
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 4
@@ -623,7 +623,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   unreachable
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds nuw [3808 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 0, i64 %25
+  %30 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 %25
   %31 = load i8, ptr %30, align 1, !noundef !4
   %.tr.i = trunc i32 %1 to i8
   %32 = shl i8 %.tr.i, 1
@@ -666,7 +666,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6appe
 11:                                               ; preds = %7, %9
   %.pre-phi = phi i8 [ 1, %9 ], [ %5, %7 ]
   %12 = zext nneg i8 %.pre-phi to i64
-  %13 = getelementptr inbounds nuw [6 x i32], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
   store i32 %1, ptr %13, align 4
   %14 = load i8, ptr %3, align 2, !noundef !4
   %15 = add i8 %14, 1

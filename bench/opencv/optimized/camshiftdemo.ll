@@ -1426,10 +1426,10 @@ _ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310:      ; preds = %552, %546, %539
 
 565:                                              ; preds = %565, %_ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310
   %indvars.iv.i = phi i64 [ 0, %_ZN2cv3Mat2atINS_3VecIhLi3EEEEERT_i.exit310 ], [ %indvars.iv.next.i, %565 ]
-  %566 = getelementptr inbounds nuw [3 x i8], ptr %.0.i309, i64 0, i64 %indvars.iv.i
+  %566 = getelementptr inbounds nuw i8, ptr %.0.i309, i64 %indvars.iv.i
   %567 = load i8, ptr %566, align 1, !tbaa !19
   %568 = uitofp i8 %567 to double
-  %569 = getelementptr inbounds nuw [4 x double], ptr %54, i64 0, i64 %indvars.iv.i
+  %569 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.i
   store double %568, ptr %569, align 8, !tbaa !46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

@@ -512,7 +512,7 @@ define dso_local void @_ZN15ClientInterface10state2NameB5cxx11E11ClientState(ptr
 entry:
   %__dnew.i.i = alloca i64, align 8
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw [10 x ptr], ptr @_ZN15ClientInterface10statenamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN15ClientInterface10statenamesE, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8, !tbaa !12
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !13
@@ -6119,7 +6119,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44)
   call void @llvm.experimental.noalias.scope.decl(metadata !306)
   %idxprom.i = zext i32 %7 to i64
-  %arrayidx.i = getelementptr inbounds nuw [10 x ptr], ptr @_ZN15ClientInterface10statenamesE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN15ClientInterface10statenamesE, i64 %idxprom.i
   %19 = load ptr, ptr %arrayidx.i, align 8, !tbaa !12, !noalias !306
   store ptr %4, ptr %ref.tmp44, align 8, !tbaa !13, !alias.scope !306
   %cmp.i.i = icmp eq ptr %19, null
@@ -6982,7 +6982,7 @@ entry:
   %m_command.i = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load i16, ptr %m_command.i, align 8, !tbaa !314
   %idxprom = zext i16 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [100 x %struct.ClientCommandFactory], ptr @clientCommandFactoryTable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.ClientCommandFactory, ptr @clientCommandFactoryTable, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 16, !tbaa !320
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.true, label %cond.end
@@ -7010,7 +7010,7 @@ entry:
   %m_command.i = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load i16, ptr %m_command.i, align 8, !tbaa !314
   %idxprom = zext i16 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [100 x %struct.ClientCommandFactory], ptr @clientCommandFactoryTable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.ClientCommandFactory, ptr @clientCommandFactoryTable, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 16, !tbaa !320
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.true, label %cond.end
@@ -7063,7 +7063,7 @@ for.body:                                         ; preds = %if.end, %for.body.l
 if.then:                                          ; preds = %for.body
   %2 = load i16, ptr %m_command.i, align 8, !tbaa !314
   %idxprom = zext i16 %2 to i64
-  %arrayidx = getelementptr inbounds nuw [100 x %struct.ClientCommandFactory], ptr @clientCommandFactoryTable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.ClientCommandFactory, ptr @clientCommandFactoryTable, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 16, !tbaa !320
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %cond.true, label %cond.end

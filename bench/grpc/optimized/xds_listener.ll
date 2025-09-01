@@ -2070,7 +2070,7 @@ define void @_ZNK9grpc_core19XdsListenerResource14FilterChainMap8ToStringB5cxx11
   %.sroa.0465.11055 = phi ptr [ %.sroa.0465.01061, %.preheader ], [ %.sroa.0465.2.lcssa, %._crit_edge1049 ]
   %.sroa.11.11054 = phi ptr [ %.sroa.11.01060, %.preheader ], [ %.sroa.11.2.lcssa, %._crit_edge1049 ]
   %.sroa.19474.11053 = phi ptr [ %.sroa.19474.01059, %.preheader ], [ %.sroa.19474.2.lcssa, %._crit_edge1049 ]
-  %79 = getelementptr inbounds nuw [3 x %"class.std::vector.82"], ptr %74, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw %"class.std::vector.82", ptr %74, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !149
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !149

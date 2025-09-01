@@ -1035,7 +1035,7 @@ define void @Rsb_DecPrintTable(ptr noundef readonly captures(none) %0, i32 nound
 
 46:                                               ; preds = %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %41, ptr %47, align 4, !tbaa !3
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1047,7 +1047,7 @@ define void @Rsb_DecPrintTable(ptr noundef readonly captures(none) %0, i32 nound
 
 48:                                               ; preds = %.critedge, %56
   %indvars.iv189 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next190, %56 ]
-  %49 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv189
+  %49 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv189
   %50 = load i32, ptr %49, align 4, !tbaa !3
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %52, label %54
@@ -3871,7 +3871,7 @@ define internal fastcc noundef i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, 
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %.tr5, %13
   %15 = and i64 %indvars.iv.next, 4294967295
-  %16 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !10
   %18 = xor i64 %14, %.tr5
   %19 = and i64 %17, %18
@@ -3889,12 +3889,12 @@ tailrecurse:                                      ; preds = %11, %20, %.tailrecu
   %.pre-phi10 = phi i64 [ %.pre9, %.tailrecurse_crit_edge ], [ %13, %20 ], [ %13, %11 ]
   %.0.lcssa = phi i32 [ %7, %.tailrecurse_crit_edge ], [ %indvars, %20 ], [ %indvars, %11 ]
   %24 = sext i32 %.0.lcssa to i64
-  %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %24
+  %25 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !10
   %27 = and i64 %26, %.tr5
   %28 = shl i64 %27, %.pre-phi10
   %29 = or i64 %28, %27
-  %30 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %24
+  %30 = getelementptr inbounds i64, ptr @s_Truths6, i64 %24
   %31 = load i64, ptr %30, align 8, !tbaa !10
   %32 = and i64 %31, %.tr5
   %33 = lshr i64 %32, %.pre-phi10
@@ -3971,7 +3971,7 @@ define noundef i32 @Rsb_DecVerify(ptr noundef readonly captures(none) %0, i32 no
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %3, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !7
-  %44 = getelementptr inbounds nuw [16 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %43, ptr %44, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4038,7 +4038,7 @@ Abc_TtOr.exit.us.us:                              ; preds = %.lr.ph.i58.us.us, %
   %61 = shl nuw i32 1, %60
   %62 = and i32 %61, %.04274.us.us
   %.not43.us.us.us = icmp eq i32 %62, 0
-  %63 = getelementptr inbounds nuw [16 x ptr], ptr %9, i64 0, i64 %indvars.iv100
+  %63 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv100
   %64 = load ptr, ptr %63, align 8, !tbaa !7
   br i1 %.not43.us.us.us, label %.lr.ph.i52.us.us.us, label %.lr.ph.i.us.us.us
 
@@ -4175,7 +4175,7 @@ define i32 @Rsb_ManPerform(ptr noundef readonly captures(none) %0, i32 noundef %
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds ptr, ptr %3, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !7
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %26, ptr %27, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4260,7 +4260,7 @@ define range(i32 0, 2) i32 @Rsb_ManPerformResub6(ptr noundef readonly captures(n
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i64, ptr %.val35, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw [200 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %14, ptr %15, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

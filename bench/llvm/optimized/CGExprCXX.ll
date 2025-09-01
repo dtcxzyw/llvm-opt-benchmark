@@ -553,7 +553,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %116 = trunc nuw nsw i64 %115 to i32
   %117 = and i32 %116, 15
   %118 = and i64 %115, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %118
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %118
   %switch.load = load i64, ptr %switch.gep, align 8
   %119 = lshr i64 %91, 59
   %120 = and i64 %119, 1
@@ -1487,7 +1487,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %148 = trunc nuw nsw i64 %147 to i32
   %149 = and i32 %148, 15
   %150 = and i64 %147, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %150
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %150
   %switch.load = load i64, ptr %switch.gep, align 8
   %151 = lshr i64 %123, 59
   %152 = and i64 %151, 1
@@ -6311,7 +6311,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitBuiltinNewDeleteC
   %36 = load ptr, ptr %35, align 8, !tbaa !345
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 17432
   %38 = select i1 %4, i64 2, i64 1
-  %39 = getelementptr inbounds nuw [46 x %"class.clang::detail::CXXOperatorIdName"], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"class.clang::detail::CXXOperatorIdName", ptr %37, i64 %38
   %40 = ptrtoint ptr %39 to i64
   %41 = or disjoint i64 %40, 6
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 2112
@@ -12318,7 +12318,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1

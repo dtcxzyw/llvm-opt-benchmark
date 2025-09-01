@@ -136,7 +136,7 @@ define range(i32 0, -1) i32 @Aig_TsiStateHash(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !36
   %7 = and i64 %indvars.iv, 127
-  %8 = getelementptr inbounds nuw [128 x i32], ptr @Aig_TsiStateHash.s_FPrimes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !36
   %10 = mul i32 %9, %6
   %11 = xor i32 %10, %.089
@@ -167,7 +167,7 @@ define range(i32 0, 2) i32 @Aig_TsiStateLookup(ptr noundef readonly captures(non
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !36
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @Aig_TsiStateHash.s_FPrimes, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !36
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -222,7 +222,7 @@ define void @Aig_TsiStateInsert(ptr noundef readonly captures(none) %0, ptr noun
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !36
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @Aig_TsiStateHash.s_FPrimes, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !36
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -668,7 +668,7 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
   %94 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i
   %95 = load i32, ptr %94, align 4, !tbaa !36
   %96 = and i64 %indvars.iv.i.i, 127
-  %97 = getelementptr inbounds nuw [128 x i32], ptr @Aig_TsiStateHash.s_FPrimes, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !36
   %99 = mul i32 %98, %95
   %100 = xor i32 %99, %.089.i.i
@@ -713,7 +713,7 @@ Aig_TsiStateHash.exit.i:                          ; preds = %.lr.ph.i.i, %90
   %109 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i222
   %110 = load i32, ptr %109, align 4, !tbaa !36
   %111 = and i64 %indvars.iv.i.i222, 127
-  %112 = getelementptr inbounds nuw [128 x i32], ptr @Aig_TsiStateHash.s_FPrimes, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !36
   %114 = mul i32 %113, %110
   %115 = xor i32 %114, %.089.i.i223

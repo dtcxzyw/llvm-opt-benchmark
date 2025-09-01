@@ -2897,14 +2897,14 @@ common.resume:                                    ; preds = %80, %54, %68
 149:                                              ; preds = %141
   %150 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i, 255
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %151
   %153 = load i8, ptr %152, align 1, !noalias !802, !noundef !4
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h7c0ca791bd9de494E.exit.i.i.i.i.i.i"
 
 154:                                              ; preds = %141
   %155 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i, 255
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %156
   %158 = load i8, ptr %157, align 1, !noalias !802, !noundef !4
   %159 = lshr i8 %158, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h7c0ca791bd9de494E.exit.i.i.i.i.i.i"
@@ -8355,7 +8355,7 @@ define { ptr, i64 } @_ZN13project_model9workspace16ProjectWorkspace16manifest_or
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i64, ptr %1, align 8, !range !196, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN13project_model9workspace16ProjectWorkspace27find_sysroot_proc_macro_srv17h881d8ae8ba07f052E.68, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13project_model9workspace16ProjectWorkspace27find_sysroot_proc_macro_srv17h881d8ae8ba07f052E.68, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %4 = tail call { ptr, i64 } @"_ZN61_$LT$paths..AbsPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8e2114387a0ad8d6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
@@ -8399,7 +8399,7 @@ switch.lookup:                                    ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8, !range !196, !alias.scope !1644, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN13project_model9workspace16ProjectWorkspace27find_sysroot_proc_macro_srv17h881d8ae8ba07f052E.68, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13project_model9workspace16ProjectWorkspace27find_sysroot_proc_macro_srv17h881d8ae8ba07f052E.68, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %24 = tail call { ptr, i64 } @"_ZN61_$LT$paths..AbsPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8e2114387a0ad8d6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
@@ -8440,7 +8440,7 @@ switch.lookup20:                                  ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i64, ptr %31, align 8, !range !196, !alias.scope !1660, !noundef !4
-  %switch.gep21 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN13project_model9workspace16ProjectWorkspace27find_sysroot_proc_macro_srv17h881d8ae8ba07f052E.68, i64 0, i64 %32
+  %switch.gep21 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13project_model9workspace16ProjectWorkspace27find_sysroot_proc_macro_srv17h881d8ae8ba07f052E.68, i64 %32
   %switch.load22 = load i64, ptr %switch.gep21, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load22
   %34 = tail call { ptr, i64 } @"_ZN61_$LT$paths..AbsPathBuf$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8e2114387a0ad8d6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33)
@@ -11319,8 +11319,8 @@ default.unreachable60:                            ; preds = %2
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.split.i.preheader.i.i.i.i.i, %.preheader.split.backedge.i.i.i.i.i.i
   %.sroa.01.0.i6.i.i.i.i.i = phi i64 [ %52, %.preheader.split.backedge.i.i.i.i.i.i ], [ 0, %.preheader.split.i.preheader.i.i.i.i.i ]
   %52 = add nuw i64 %.sroa.01.0.i6.i.i.i.i.i, 1
-  %53 = getelementptr inbounds [0 x { i64, [11 x i64] }], ptr %.val.i.i.i.i, i64 0, i64 %.sroa.01.0.i6.i.i.i.i.i
-  %54 = getelementptr inbounds [0 x { i64, [11 x i64] }], ptr %.val4.i.i.i.i, i64 0, i64 %.sroa.01.0.i6.i.i.i.i.i
+  %53 = getelementptr inbounds { i64, [11 x i64] }, ptr %.val.i.i.i.i, i64 %.sroa.01.0.i6.i.i.i.i.i
+  %54 = getelementptr inbounds { i64, [11 x i64] }, ptr %.val4.i.i.i.i, i64 %.sroa.01.0.i6.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2318)
@@ -11555,8 +11555,8 @@ _ZN4core3cmp9PartialEq2ne17hde1620411ee8c687E.llvm.16283260474565314852.exit.i.i
 
 154:                                              ; preds = %.preheader.split.i.i.i
   %155 = add i64 %.sroa.01.0.i.i.i, 1
-  %156 = getelementptr inbounds [0 x { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, i8, i8, [5 x i8] }], ptr %.val.i37, i64 0, i64 %.sroa.01.0.i.i.i
-  %157 = getelementptr inbounds [0 x { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, i8, i8, [5 x i8] }], ptr %.val8.i, i64 0, i64 %.sroa.01.0.i.i.i
+  %156 = getelementptr inbounds { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, i8, i8, [5 x i8] }, ptr %.val.i37, i64 %.sroa.01.0.i.i.i
+  %157 = getelementptr inbounds { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [5 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, i8, i8, [5 x i8] }, ptr %.val8.i, i64 %.sroa.01.0.i.i.i
   %158 = call noundef zeroext i1 @"_ZN75_$LT$project_model..project_json..Crate$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdfd40e846e2ce982E.llvm.16283260474565314852"(ptr noalias noundef nonnull readonly align 8 dereferenceable(304) %156, ptr noalias noundef nonnull readonly align 8 dereferenceable(304) %157), !noalias !2371
   br i1 %158, label %.preheader.split.i.i.i, label %.critedge
 
@@ -11679,8 +11679,8 @@ _ZN4core3cmp9PartialEq2ne17hde1620411ee8c687E.llvm.16283260474565314852.exit.i.i
 .lr.ph.i:                                         ; preds = %.preheader.split.i.preheader.i, %.preheader.split.backedge.i.i
   %.sroa.01.0.i6.i = phi i64 [ %210, %.preheader.split.backedge.i.i ], [ 0, %.preheader.split.i.preheader.i ]
   %210 = add nuw i64 %.sroa.01.0.i6.i, 1
-  %211 = getelementptr inbounds [0 x { [3 x i64], i64, [2 x i64] }], ptr %.val, i64 0, i64 %.sroa.01.0.i6.i
-  %212 = getelementptr inbounds [0 x { [3 x i64], i64, [2 x i64] }], ptr %.val34, i64 0, i64 %.sroa.01.0.i6.i
+  %211 = getelementptr inbounds { [3 x i64], i64, [2 x i64] }, ptr %.val, i64 %.sroa.01.0.i6.i
+  %212 = getelementptr inbounds { [3 x i64], i64, [2 x i64] }, ptr %.val34, i64 %.sroa.01.0.i6.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2430)
   call void @llvm.experimental.noalias.scope.decl(metadata !2433)
   call void @llvm.experimental.noalias.scope.decl(metadata !2435)
@@ -12627,7 +12627,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr36drop
   unreachable
 
 347:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h218b66f7ca4ec213E.exit.thread.i"
-  %348 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %264, i64 0, i64 %344, i32 3
+  %348 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %264, i64 %344, i32 3
   %349 = getelementptr i8, ptr %348, i64 8
   %.val.i = load ptr, ptr %349, align 8, !noalias !2555, !nonnull !4, !noundef !4
   %350 = getelementptr i8, ptr %348, i64 16
@@ -12757,7 +12757,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr36drop
   br label %.body167.i
 
 382:                                              ; preds = %378
-  %383 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %264, i64 0, i64 %380
+  %383 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %264, i64 %380
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %385 = load ptr, ptr %384, align 8, !noalias !2555, !nonnull !4, !noundef !4
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 16
@@ -12772,7 +12772,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr36drop
   br i1 %391, label %392, label %.invoke602.i, !prof !2479
 
 392:                                              ; preds = %388
-  %393 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %264, i64 0, i64 %390
+  %393 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %264, i64 %390
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 56
   %395 = load ptr, ptr %394, align 8, !noalias !2555, !nonnull !4, !noundef !4
   %396 = getelementptr inbounds nuw i8, ptr %393, i64 64
@@ -12810,7 +12810,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr36drop
 
 408:                                              ; preds = %404
   %409 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 4
-  %410 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }], ptr %300, i64 0, i64 %406
+  %410 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }, ptr %300, i64 %406
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 76
   %412 = load i8, ptr %411, align 4, !range !2618, !noalias !2555, !noundef !4
   %413 = add nsw i8 %412, -2
@@ -13003,7 +13003,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr36drop
   unreachable
 
 499:                                              ; preds = %492
-  %500 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %264, i64 0, i64 %494
+  %500 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %264, i64 %494
   %.not.i.i173.i = icmp ugt i64 %.0.val188, %494
   br i1 %.not.i.i173.i, label %501, label %_ZN13project_model13build_scripts21WorkspaceBuildScripts10get_output17h2efdd9bb36934e04E.exit.i
 
@@ -13089,7 +13089,7 @@ _ZN13project_model13build_scripts21WorkspaceBuildScripts10get_output17h2efdd9bb3
   unreachable
 
 524:                                              ; preds = %517
-  %525 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %264, i64 0, i64 %.pre-phi.i
+  %525 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %264, i64 %.pre-phi.i
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %525)
           to label %526 unwind label %.loopexit174.i, !noalias !2555
 
@@ -13398,7 +13398,7 @@ _ZN13project_model9workspace18add_proc_macro_dep17h36d61e8736c70faeE.exit.i: ; p
   br i1 %620, label %621, label %.invoke.i, !prof !2479
 
 621:                                              ; preds = %615
-  %622 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %264, i64 0, i64 %619
+  %622 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %264, i64 %619
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 8
   %624 = load ptr, ptr %623, align 8, !noalias !2555, !nonnull !4, !noundef !4
   %625 = getelementptr inbounds nuw i8, ptr %622, i64 16
@@ -13563,7 +13563,7 @@ _ZN13project_model9workspace18add_proc_macro_dep17h36d61e8736c70faeE.exit.i: ; p
 676:                                              ; preds = %672
   %677 = add i64 %.sroa.730.0.i, 1
   %678 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.i, i64 432
-  %679 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %164, i64 0, i64 %673, i32 18
+  %679 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %164, i64 %673, i32 18
   %680 = load i8, ptr %679, align 2, !range !914, !noalias !2517, !noundef !4
   %681 = trunc nuw i8 %680 to i1
   br i1 %681, label %682, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd1b6bf46297c1d66E.exit.thread.i.i"
@@ -13754,7 +13754,7 @@ select.unfold.us.i.i.preheader:                   ; preds = %.split.us.preheader
   br i1 %747, label %._crit_edge334.i, label %615
 
 748:                                              ; preds = %598
-  %749 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %264, i64 0, i64 %600
+  %749 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %264, i64 %600
   %750 = getelementptr inbounds nuw i8, ptr %749, i64 80
   %751 = load ptr, ptr %750, align 8, !noalias !2555, !nonnull !4, !noundef !4
   %752 = getelementptr inbounds nuw i8, ptr %749, i64 88
@@ -14186,7 +14186,7 @@ _ZN13project_model9workspace19handle_rustc_crates17h7af7e45b8c00027eE.exit: ; pr
   unreachable
 
 904:                                              ; preds = %220
-  %905 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %164, i64 0, i64 %224
+  %905 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %164, i64 %224
   %906 = getelementptr i8, ptr %905, i64 80
   %.val = load ptr, ptr %906, align 8, !nonnull !4, !noundef !4
   %907 = getelementptr i8, ptr %905, i64 88
@@ -14511,7 +14511,7 @@ _ZN13project_model9workspace19handle_rustc_crates17h7af7e45b8c00027eE.exit: ; pr
   br label %"_ZN53_$LT$smol_str..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h618261f33d488897E.exit"
 
 1038:                                             ; preds = %1022
-  %1039 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %164, i64 0, i64 %1024, i32 17
+  %1039 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %164, i64 %1024, i32 17
   %1040 = load i8, ptr %1039, align 1, !range !914, !noundef !4
   %1041 = trunc nuw i8 %1040 to i1
   br i1 %1041, label %1042, label %1027
@@ -14635,7 +14635,7 @@ _ZN13project_model9workspace19handle_rustc_crates17h7af7e45b8c00027eE.exit: ; pr
           to label %.body290 unwind label %902
 
 1071:                                             ; preds = %203
-  %1072 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %164, i64 0, i64 %207
+  %1072 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %164, i64 %207
   %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 426
   %1074 = load i8, ptr %1073, align 2, !range !914, !noundef !4
   %1075 = trunc nuw i8 %1074 to i1
@@ -15260,7 +15260,7 @@ _ZN13project_model9workspace7add_dep17h946552460e59eaf9E.exit350: ; preds = %.no
   br label %.split.us.preheader.i
 
 1256:                                             ; preds = %.lr.ph
-  %1257 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }], ptr %176, i64 0, i64 %1180
+  %1257 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }, ptr %176, i64 %1180
   %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 76
   %1259 = load i8, ptr %1258, align 4, !range !2618, !noundef !4
   %1260 = add nsw i8 %1259, -2
@@ -17430,7 +17430,7 @@ _ZN5alloc5slice11stable_sort17hb67d825032e1f01bE.exit: ; preds = %"_ZN97_$LT$all
   br i1 %321, label %322, label %.split.us.i.invoke, !prof !2479
 
 322:                                              ; preds = %.lr.ph.split.us.i
-  %323 = getelementptr inbounds nuw [0 x { i32, [1 x i32] }], ptr %313, i64 0, i64 %320
+  %323 = getelementptr inbounds nuw { i32, [1 x i32] }, ptr %313, i64 %320
   %324 = load i32, ptr %323, align 4, !range !2065, !noalias !3566, !noundef !4
   %trunc.i.us.i = trunc nuw i32 %324 to i1
   br i1 %trunc.i.us.i, label %select.unfold.i.i.invoke, label %.split20.us.i.invoke
@@ -17446,7 +17446,7 @@ _ZN5alloc5slice11stable_sort17hb67d825032e1f01bE.exit: ; preds = %"_ZN97_$LT$all
   br i1 %329, label %330, label %.split.us.i.invoke, !prof !2479
 
 330:                                              ; preds = %.lr.ph.split.i
-  %331 = getelementptr inbounds nuw [0 x { i32, [1 x i32] }], ptr %313, i64 0, i64 %328
+  %331 = getelementptr inbounds nuw { i32, [1 x i32] }, ptr %313, i64 %328
   %332 = load i32, ptr %331, align 4, !range !2065, !noalias !3566, !noundef !4
   %trunc.i.i = trunc nuw i32 %332 to i1
   br i1 %trunc.i.i, label %337, label %.split20.us.i.invoke
@@ -17579,7 +17579,7 @@ select.unfold.i.i.cont:                           ; preds = %select.unfold.i.i.i
 384:                                              ; preds = %372
   %385 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %386 = load ptr, ptr %385, align 8, !nonnull !4, !noundef !4
-  %387 = getelementptr inbounds nuw [0 x { i32, [1 x i32] }], ptr %386, i64 0, i64 %373
+  %387 = getelementptr inbounds nuw { i32, [1 x i32] }, ptr %386, i64 %373
   %388 = load i32, ptr %387, align 4, !range !2065, !noundef !4
   %trunc = trunc nuw i32 %388 to i1
   br i1 %trunc, label %389, label %.split20.us.i.invoke
@@ -18525,7 +18525,7 @@ _ZN13project_model7sysroot8Stitched10proc_macro17h64a96e5869e02587E.exit: ; pred
   br label %459
 
 677:                                              ; preds = %615
-  %678 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 } }], ptr %599, i64 0, i64 %619
+  %678 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 } }, ptr %599, i64 %619
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 56
   %680 = load ptr, ptr %679, align 8, !nonnull !4, !noundef !4
   %681 = getelementptr inbounds nuw i8, ptr %678, i64 64
@@ -18554,7 +18554,7 @@ _ZN13project_model7sysroot8Stitched10proc_macro17h64a96e5869e02587E.exit: ; pred
   br i1 %692, label %693, label %.invoke773, !prof !2479
 
 693:                                              ; preds = %688
-  %694 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 } }], ptr %599, i64 0, i64 %691
+  %694 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 } }, ptr %599, i64 %691
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 8
   %696 = load ptr, ptr %695, align 8, !nonnull !4, !noundef !4
   %697 = getelementptr inbounds nuw i8, ptr %694, i64 16
@@ -18963,8 +18963,8 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$project_model..cargo_works
 
 13:                                               ; preds = %.preheader.split.i.i
   %14 = add i64 %.sroa.01.0.i.i, 1
-  %15 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %.val, i64 0, i64 %.sroa.01.0.i.i
-  %16 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }], ptr %.val2, i64 0, i64 %.sroa.01.0.i.i
+  %15 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %.val, i64 %.sroa.01.0.i.i
+  %16 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %.val2, i64 %.sroa.01.0.i.i
   %17 = tail call noundef zeroext i1 @"_ZN84_$LT$project_model..cargo_workspace..PackageData$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0dcf212a03c90d0E.llvm.16283260474565314852"(ptr noalias noundef nonnull readonly align 8 dereferenceable(432) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(432) %16)
   br i1 %17, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h16d5acc620ce6d14E.exit.thread"
 
@@ -18987,8 +18987,8 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$project_model..cargo_works
 
 22:                                               ; preds = %.preheader.split.i.i10
   %23 = add i64 %.sroa.01.0.i.i11, 1
-  %24 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }], ptr %.val4, i64 0, i64 %.sroa.01.0.i.i11
-  %25 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }], ptr %.val6, i64 0, i64 %.sroa.01.0.i.i11
+  %24 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }, ptr %.val4, i64 %.sroa.01.0.i.i11
+  %25 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }, ptr %.val6, i64 %.sroa.01.0.i.i11
   %26 = tail call noundef zeroext i1 @"_ZN83_$LT$project_model..cargo_workspace..TargetData$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ed0a842bdf87b2aE.llvm.16283260474565314852"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %25)
   br i1 %26, label %.preheader.split.i.i10, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h16d5acc620ce6d14E.exit.thread"
 
@@ -19199,8 +19199,8 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$project_model..cfg..CfgOve
 .lr.ph.i:                                         ; preds = %.preheader.split.i.preheader.i, %.preheader.split.backedge.i.i
   %.sroa.01.0.i6.i = phi i64 [ %8, %.preheader.split.backedge.i.i ], [ 0, %.preheader.split.i.preheader.i ]
   %8 = add nuw i64 %.sroa.01.0.i6.i, 1
-  %9 = getelementptr inbounds [0 x { [24 x i8], i8, [23 x i8] }], ptr %.val6, i64 0, i64 %.sroa.01.0.i6.i
-  %10 = getelementptr inbounds [0 x { [24 x i8], i8, [23 x i8] }], ptr %.val8, i64 0, i64 %.sroa.01.0.i6.i
+  %9 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.val6, i64 %.sroa.01.0.i6.i
+  %10 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.val8, i64 %.sroa.01.0.i6.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3969)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3972)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3974)
@@ -19257,8 +19257,8 @@ _ZN4core3cmp9PartialEq2ne17hb466855d74f1d4d0E.llvm.18220254223257102368.exit.i.i
 .lr.ph.i14:                                       ; preds = %.preheader.split.i.preheader.i12, %.preheader.split.backedge.i.i17
   %.sroa.01.0.i6.i15 = phi i64 [ %28, %.preheader.split.backedge.i.i17 ], [ 0, %.preheader.split.i.preheader.i12 ]
   %28 = add nuw i64 %.sroa.01.0.i6.i15, 1
-  %29 = getelementptr inbounds [0 x { [24 x i8], i8, [23 x i8] }], ptr %.val, i64 0, i64 %.sroa.01.0.i6.i15
-  %30 = getelementptr inbounds [0 x { [24 x i8], i8, [23 x i8] }], ptr %.val4, i64 0, i64 %.sroa.01.0.i6.i15
+  %29 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.val, i64 %.sroa.01.0.i6.i15
+  %30 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.val4, i64 %.sroa.01.0.i6.i15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3986)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3989)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3991)

@@ -39982,7 +39982,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_InputDir_defaultFacetConfig___sp
 6:                                                ; preds = %.lr.ph, %37
   %.02241 = phi i64 [ %1, %.lr.ph ], [ %40, %37 ]
   %.02440 = phi ptr [ %3, %.lr.ph ], [ %39, %37 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02241
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02241
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -40077,7 +40077,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_InputDir_defaultFacetConfig___spec_
   %.02044 = phi i64 [ %36, %52 ], [ %1, %3 ]
   %.02243 = phi ptr [ %.0.i.i30, %52 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02243, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02044
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02044
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

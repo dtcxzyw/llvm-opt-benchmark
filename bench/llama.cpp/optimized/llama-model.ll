@@ -402,7 +402,7 @@ define noundef nonnull ptr @_Z13llm_type_name8llm_type(i32 noundef %0) local_unn
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [63 x ptr], ptr @switch.table._Z13llm_type_name8llm_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z13llm_type_name8llm_type, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -47355,7 +47355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %3
 
 66:                                               ; preds = %"_ZZNK11llama_model11select_buftEiENK3$_0clEP12ggml_context.exit.i.i", %"_ZZNK11llama_model11select_buftEiENK3$_0clEP12ggml_context.exit.preheader.i.i"
   %indvars.iv.i.i = phi i64 [ 0, %"_ZZNK11llama_model11select_buftEiENK3$_0clEP12ggml_context.exit.preheader.i.i" ], [ %indvars.iv.next.i.i, %"_ZZNK11llama_model11select_buftEiENK3$_0clEP12ggml_context.exit.i.i" ]
-  %67 = getelementptr inbounds nuw [10 x ptr], ptr %59, i64 0, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !313
   %.not.i.i3 = icmp eq ptr %68, null
   br i1 %.not.i.i3, label %"_ZZNK11llama_model11select_buftEiENK3$_0clEP12ggml_context.exit.i.i", label %69

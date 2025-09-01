@@ -5260,7 +5260,7 @@ define internal i32 @dissect_z3950(ptr noundef %0, ptr noundef %1, ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr [24 x %struct._ber_choice_t], ptr @PDU_choice, i64 0, i64 %20, i32 3
+  %21 = getelementptr %struct._ber_choice_t, ptr @PDU_choice, i64 %20, i32 3
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -5993,7 +5993,7 @@ define internal i32 @dissect_z3950_T_attributeValue_numeric(i1 noundef zeroext %
 
 switch.lookup:                                    ; preds = %18
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_z3950_T_attributeValue_numeric, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_z3950_T_attributeValue_numeric, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8

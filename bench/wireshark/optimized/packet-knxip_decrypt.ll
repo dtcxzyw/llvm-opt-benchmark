@@ -103,7 +103,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
   %35 = getelementptr i8, ptr %0, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1
   %37 = xor i8 %36, %34
-  %38 = getelementptr [16 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %38 = getelementptr i8, ptr %10, i64 %indvars.iv
   store i8 %37, ptr %38, align 1
   %39 = add i32 %.13841, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -141,7 +141,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nou
   %49 = getelementptr i8, ptr %0, i64 %indvars.iv69
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, %48
-  %52 = getelementptr [16 x i8], ptr %10, i64 0, i64 %indvars.iv69
+  %52 = getelementptr i8, ptr %10, i64 %indvars.iv69
   store i8 %51, ptr %52, align 1
   %53 = add i32 %.13447, -1
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
@@ -278,7 +278,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly captures(address_is_nul
   %.03854 = phi ptr [ %2, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %.04153 = phi i32 [ %3, %.lr.ph.preheader ], [ %44, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %38 = getelementptr i8, ptr %13, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1
   %40 = getelementptr i8, ptr %.03854, i64 1
   %41 = load i8, ptr %.03854, align 1
@@ -324,7 +324,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly captures(address_is_nul
   %.24060 = phi ptr [ %.13965, %48 ], [ %62, %59 ]
   %.24359 = phi i32 [ %.14264, %48 ], [ %66, %59 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %60 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv83
+  %60 = getelementptr i8, ptr %12, i64 %indvars.iv83
   %61 = load i8, ptr %60, align 1
   %62 = getelementptr i8, ptr %.24060, i64 1
   %63 = load i8, ptr %.24060, align 1
@@ -352,7 +352,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly captures(address_is_nul
   %.04471 = phi i8 [ %spec.store.select, %.lr.ph75.preheader ], [ %73, %.lr.ph75 ]
   %.04570 = phi ptr [ %4, %.lr.ph75.preheader ], [ %69, %.lr.ph75 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %67 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv86
+  %67 = getelementptr i8, ptr %13, i64 %indvars.iv86
   %68 = load i8, ptr %67, align 1
   %69 = getelementptr i8, ptr %.04570, i64 1
   %70 = load i8, ptr %.04570, align 1
@@ -644,7 +644,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 
 74:                                               ; preds = %72
   %75 = add nuw nsw i64 %.076178, 1
-  %76 = getelementptr [128 x i8], ptr %6, i64 0, i64 %.076178
+  %76 = getelementptr i8, ptr %6, i64 %.076178
   store i8 %65, ptr %76, align 1
   br label %77
 
@@ -657,7 +657,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 ._crit_edge:                                      ; preds = %77, %.lr.ph179, %60
   %.076.lcssa = phi i64 [ 1, %60 ], [ %.076178, %.lr.ph179 ], [ %.1, %77 ]
   %.lcssa168 = phi i32 [ %62, %60 ], [ %64, %.lr.ph179 ], [ %78, %77 ]
-  %80 = getelementptr [128 x i8], ptr %6, i64 0, i64 %.076.lcssa
+  %80 = getelementptr i8, ptr %6, i64 %.076.lcssa
   store i8 0, ptr %80, align 1
   store i8 0, ptr %7, align 16
   %.not112 = icmp eq i8 %.085174, 0
@@ -732,7 +732,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 110:                                              ; preds = %108
   %111 = trunc i32 %104 to i8
   %112 = add nuw nsw i64 %.2186, 1
-  %113 = getelementptr [128 x i8], ptr %7, i64 0, i64 %.2186
+  %113 = getelementptr i8, ptr %7, i64 %.2186
   store i8 %111, ptr %113, align 1
   br label %114
 
@@ -745,7 +745,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 ._crit_edge188:                                   ; preds = %114, %106, %.preheader
   %.2.lcssa = phi i64 [ 0, %.preheader ], [ %.2186, %106 ], [ %.3, %114 ]
   %.380 = phi i32 [ %102, %.preheader ], [ %107, %106 ], [ %115, %114 ]
-  %117 = getelementptr [128 x i8], ptr %7, i64 0, i64 %.2.lcssa
+  %117 = getelementptr i8, ptr %7, i64 %.2.lcssa
   store i8 0, ptr %117, align 1
   %.not116 = icmp ne i8 %.083175, 0
   %lhsv = load i64, ptr %8, align 16

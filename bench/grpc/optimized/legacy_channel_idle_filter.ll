@@ -50,6 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.18" = type { ptr }
 %"struct.grpc_core::LegacyMaxAgeFilter::Config" = type { %"class.grpc_core::Duration", %"class.grpc_core::Duration", %"class.grpc_core::Duration" }
 %"class.grpc_core::Duration" = type { i64 }
+%"class.grpc_core::PerCpuOptions" = type { i64, i64 }
 %"class.grpc_core::promise_detail::TrySeq" = type { %"struct.grpc_core::promise_detail::SeqState" }
 %"struct.grpc_core::promise_detail::SeqState" = type <{ %union.anon.51, i8, [7 x i8] }>
 %union.anon.51 = type { %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::Sleep, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/ext/filters/channel_idle/legacy_channel_idle_filter.cc:178:13), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/ext/filters/channel_idle/legacy_channel_idle_filter.cc:200:13)>::Running1" }
@@ -136,6 +137,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::internal_any_invocable::CoreImpl.162" = type { %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState", ptr, ptr }
 %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState" = type { %struct.anon.112 }
 %struct.anon.112 = type { ptr, i64 }
+%"class.absl::lts_20240722::random_internal::RandenPoolSeedSeq" = type { i8 }
 %struct.BitGen = type { %"class.absl::lts_20240722::Mutex", %"class.absl::lts_20240722::random_internal::NonsecureURBGBase" }
 %"class.absl::lts_20240722::Mutex" = type { %"struct.std::atomic.26" }
 %"struct.std::atomic.26" = type { %"struct.std::__atomic_base.27" }
@@ -143,8 +145,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::random_internal::NonsecureURBGBase" = type { %"class.absl::lts_20240722::random_internal::randen_engine" }
 %"class.absl::lts_20240722::random_internal::randen_engine" = type { [264 x i8], i64, %"class.absl::lts_20240722::random_internal::Randen" }
 %"class.absl::lts_20240722::random_internal::Randen" = type <{ ptr, i8, [7 x i8] }>
-%"class.absl::lts_20240722::random_internal::RandenPoolSeedSeq" = type { i8 }
-%"class.grpc_core::PerCpuOptions" = type { i64, i64 }
 %"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.134 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -230,11 +230,11 @@ $_ZNSt18bad_variant_accessD0Ev = comdat any
 
 $_ZNKSt18bad_variant_access4whatEv = comdat any
 
+$_ZN9grpc_core10NoDestructINS_6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEEEC2IJNS_13PerCpuOptionsEEEEDpOT_ = comdat any
+
 $_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenE8this_cpuEv = comdat any
 
-$_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE = comdat any
-
-$_ZN4absl12lts_2024072215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_ = comdat any
+$_ZN4absl12lts_2024072215random_internal13randen_engineImEC2IRNS1_17RandenPoolSeedSeqEvEEOT_ = comdat any
 
 $_ZN4absl12lts_2024072215random_internal18DistributionCallerINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEE4ImplINS1_26UniformDistributionWrapperIdEEJRdSC_EEENT_11result_typeESt17integral_constantIbLb0EEPS7_DpOT0_ = comdat any
 
@@ -794,165 +794,172 @@ _ZNSt10unique_ptrIN9grpc_core18LegacyMaxAgeFilterESt14default_deleteIS1_EED2Ev.e
 define linkonce_odr void @_ZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsE(ptr dead_on_unwind noalias writable sret(%"struct.grpc_core::LegacyMaxAgeFilter::Config") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 26, ptr nonnull @.str.10)
-  %6 = extractvalue { i64, i8 } %5, 0
-  %7 = extractvalue { i64, i8 } %5, 1
-  %8 = trunc nuw i8 %7 to i1
-  %.sroa.0.0.i = select i1 %8, i64 %6, i64 9223372036854775807
-  %9 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 27, ptr nonnull @.str.11)
-  %10 = extractvalue { i64, i8 } %9, 0
-  %11 = extractvalue { i64, i8 } %9, 1
-  %12 = trunc nuw i8 %11 to i1
-  %.sroa.0.0.i11 = select i1 %12, i64 %10, i64 9223372036854775807
-  %13 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 32, ptr nonnull @.str.12)
-  %14 = load atomic i8, ptr @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen acquire, align 8
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %19, !prof !60
+  %5 = alloca %"class.grpc_core::PerCpuOptions", align 8
+  %6 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 26, ptr nonnull @.str.10)
+  %7 = extractvalue { i64, i8 } %6, 0
+  %8 = extractvalue { i64, i8 } %6, 1
+  %9 = trunc nuw i8 %8 to i1
+  %.sroa.0.0.i = select i1 %9, i64 %7, i64 9223372036854775807
+  %10 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 27, ptr nonnull @.str.11)
+  %11 = extractvalue { i64, i8 } %10, 0
+  %12 = extractvalue { i64, i8 } %10, 1
+  %13 = trunc nuw i8 %12 to i1
+  %.sroa.0.0.i11 = select i1 %13, i64 %11, i64 9223372036854775807
+  %14 = tail call { i64, i8 } @_ZNK9grpc_core11ChannelArgs24GetDurationFromIntMillisESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 32, ptr nonnull @.str.12)
+  %15 = load atomic i8, ptr @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen acquire, align 8
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %17, label %22, !prof !60
 
-16:                                               ; preds = %2
-  %17 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen) #35
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %19, label %18
+17:                                               ; preds = %2
+  %18 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen) #35
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %22, label %19
 
-18:                                               ; preds = %16
-  invoke void @_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen, i64 1, i64 8)
-          to label %_ZN9grpc_core10NoDestructINS_6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEEEC2IJNS_13PerCpuOptionsEEEEDpOT_.exit unwind label %69
+19:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store i64 1, ptr %5, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 8, ptr %20, align 8
+  invoke void @_ZN9grpc_core10NoDestructINS_6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEEEC2IJNS_13PerCpuOptionsEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %21 unwind label %72
 
-_ZN9grpc_core10NoDestructINS_6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEEEC2IJNS_13PerCpuOptionsEEEEDpOT_.exit: ; preds = %18
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen) #35
-  br label %19
+21:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen) #35
+  br label %22
 
-19:                                               ; preds = %_ZN9grpc_core10NoDestructINS_6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEEEC2IJNS_13PerCpuOptionsEEEEDpOT_.exit, %16, %2
-  %20 = tail call noundef nonnull align 8 dereferenceable(296) ptr @_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen)
-  tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(296) %20)
+22:                                               ; preds = %21, %17, %2
+  %23 = call noundef nonnull align 8 dereferenceable(296) ptr @_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen)
+  call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(296) %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 9.000000e-01, ptr %3, align 8, !tbaa !61
   store double 1.100000e+00, ptr %4, align 8, !tbaa !61
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = invoke noundef double @_ZN4absl12lts_2024072215random_internal18DistributionCallerINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEE4ImplINS1_26UniformDistributionWrapperIdEEJRdSC_EEENT_11result_typeESt17integral_constantIbLb0EEPS7_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %21, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %23 unwind label %27
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = invoke noundef double @_ZN4absl12lts_2024072215random_internal18DistributionCallerINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEE4ImplINS1_26UniformDistributionWrapperIdEEJRdSC_EEENT_11result_typeESt17integral_constantIbLb0EEPS7_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %24, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %26 unwind label %30
 
-23:                                               ; preds = %19
+26:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(296) %20)
-          to label %_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit unwind label %24
+  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(296) %23)
+          to label %_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit unwind label %27
 
-24:                                               ; preds = %23
-  %25 = landingpad { ptr, i32 }
-          catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #39
-  unreachable
-
-27:                                               ; preds = %19
+27:                                               ; preds = %26
   %28 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(296) %20)
-          to label %common.resume unwind label %29
-
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #39
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #39
   unreachable
 
-common.resume:                                    ; preds = %27, %69
-  %common.resume.op = phi { ptr, i32 } [ %70, %69 ], [ %28, %27 ]
+30:                                               ; preds = %22
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(296) %23)
+          to label %common.resume unwind label %32
+
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
+          catch ptr null
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #39
+  unreachable
+
+common.resume:                                    ; preds = %30, %72
+  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit: ; preds = %23
-  switch i64 %.sroa.0.0.i, label %38 [
-    i64 9223372036854775807, label %32
-    i64 -9223372036854775808, label %35
+_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit: ; preds = %26
+  switch i64 %.sroa.0.0.i, label %41 [
+    i64 9223372036854775807, label %35
+    i64 -9223372036854775808, label %38
   ]
 
-32:                                               ; preds = %_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit
-  %33 = fcmp olt double %22, 0.000000e+00
-  br i1 %33, label %_ZN9grpc_coremlENS_8DurationEd.exit, label %34
-
-34:                                               ; preds = %32
-  br label %_ZN9grpc_coremlENS_8DurationEd.exit
-
 35:                                               ; preds = %_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit
-  %36 = fcmp olt double %22, 0.000000e+00
+  %36 = fcmp olt double %25, 0.000000e+00
   br i1 %36, label %_ZN9grpc_coremlENS_8DurationEd.exit, label %37
 
 37:                                               ; preds = %35
   br label %_ZN9grpc_coremlENS_8DurationEd.exit
 
 38:                                               ; preds = %_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit
-  %39 = sitofp i64 %.sroa.0.0.i to double
-  %40 = fmul double %22, %39
-  %41 = fdiv double %40, 1.000000e+03
-  %42 = fmul double %41, 1.000000e+03
-  %43 = fcmp ult double %42, 0x43E0000000000000
-  br i1 %43, label %44, label %_ZN9grpc_coremlENS_8DurationEd.exit
+  %39 = fcmp olt double %25, 0.000000e+00
+  br i1 %39, label %_ZN9grpc_coremlENS_8DurationEd.exit, label %40
 
-44:                                               ; preds = %38
-  %45 = fcmp ugt double %42, 0xC3E0000000000000
-  br i1 %45, label %46, label %_ZN9grpc_coremlENS_8DurationEd.exit
-
-46:                                               ; preds = %44
-  %47 = fptosi double %42 to i64
+40:                                               ; preds = %38
   br label %_ZN9grpc_coremlENS_8DurationEd.exit
 
-_ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %32, %34, %35, %37, %38, %44, %46
-  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %34 ], [ -9223372036854775808, %37 ], [ -9223372036854775808, %32 ], [ 9223372036854775807, %35 ], [ %47, %46 ], [ 9223372036854775807, %38 ], [ -9223372036854775808, %44 ]
+41:                                               ; preds = %_ZZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEEN6BitGen17MakeUniformDoubleEdd.exit
+  %42 = sitofp i64 %.sroa.0.0.i to double
+  %43 = fmul double %25, %42
+  %44 = fdiv double %43, 1.000000e+03
+  %45 = fmul double %44, 1.000000e+03
+  %46 = fcmp ult double %45, 0x43E0000000000000
+  br i1 %46, label %47, label %_ZN9grpc_coremlENS_8DurationEd.exit
+
+47:                                               ; preds = %41
+  %48 = fcmp ugt double %45, 0xC3E0000000000000
+  br i1 %48, label %49, label %_ZN9grpc_coremlENS_8DurationEd.exit
+
+49:                                               ; preds = %47
+  %50 = fptosi double %45 to i64
+  br label %_ZN9grpc_coremlENS_8DurationEd.exit
+
+_ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %35, %37, %38, %40, %41, %47, %49
+  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %37 ], [ -9223372036854775808, %40 ], [ -9223372036854775808, %35 ], [ 9223372036854775807, %38 ], [ %50, %49 ], [ 9223372036854775807, %41 ], [ -9223372036854775808, %47 ]
   store i64 %.sroa.04.0.i, ptr %0, align 8
-  switch i64 %.sroa.0.0.i11, label %54 [
-    i64 9223372036854775807, label %48
-    i64 -9223372036854775808, label %51
+  switch i64 %.sroa.0.0.i11, label %57 [
+    i64 9223372036854775807, label %51
+    i64 -9223372036854775808, label %54
   ]
 
-48:                                               ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit
-  %49 = fcmp olt double %22, 0.000000e+00
-  br i1 %49, label %_ZN9grpc_coremlENS_8DurationEd.exit15, label %50
-
-50:                                               ; preds = %48
-  br label %_ZN9grpc_coremlENS_8DurationEd.exit15
-
 51:                                               ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit
-  %52 = fcmp olt double %22, 0.000000e+00
+  %52 = fcmp olt double %25, 0.000000e+00
   br i1 %52, label %_ZN9grpc_coremlENS_8DurationEd.exit15, label %53
 
 53:                                               ; preds = %51
   br label %_ZN9grpc_coremlENS_8DurationEd.exit15
 
 54:                                               ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit
-  %55 = sitofp i64 %.sroa.0.0.i11 to double
-  %56 = fmul double %22, %55
-  %57 = fdiv double %56, 1.000000e+03
-  %58 = fmul double %57, 1.000000e+03
-  %59 = fcmp ult double %58, 0x43E0000000000000
-  br i1 %59, label %60, label %_ZN9grpc_coremlENS_8DurationEd.exit15
+  %55 = fcmp olt double %25, 0.000000e+00
+  br i1 %55, label %_ZN9grpc_coremlENS_8DurationEd.exit15, label %56
 
-60:                                               ; preds = %54
-  %61 = fcmp ugt double %58, 0xC3E0000000000000
-  br i1 %61, label %62, label %_ZN9grpc_coremlENS_8DurationEd.exit15
-
-62:                                               ; preds = %60
-  %63 = fptosi double %58 to i64
+56:                                               ; preds = %54
   br label %_ZN9grpc_coremlENS_8DurationEd.exit15
 
-_ZN9grpc_coremlENS_8DurationEd.exit15:            ; preds = %48, %50, %51, %53, %54, %60, %62
-  %.sroa.04.0.i14 = phi i64 [ 9223372036854775807, %50 ], [ -9223372036854775808, %53 ], [ -9223372036854775808, %48 ], [ 9223372036854775807, %51 ], [ %63, %62 ], [ 9223372036854775807, %54 ], [ -9223372036854775808, %60 ]
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = extractvalue { i64, i8 } %13, 1
-  %66 = trunc nuw i8 %65 to i1
-  %67 = extractvalue { i64, i8 } %13, 0
-  %.sroa.0.0.i13 = select i1 %66, i64 %67, i64 9223372036854775807
-  store i64 %.sroa.04.0.i14, ptr %64, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i13, ptr %68, align 8, !tbaa !35
+57:                                               ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit
+  %58 = sitofp i64 %.sroa.0.0.i11 to double
+  %59 = fmul double %25, %58
+  %60 = fdiv double %59, 1.000000e+03
+  %61 = fmul double %60, 1.000000e+03
+  %62 = fcmp ult double %61, 0x43E0000000000000
+  br i1 %62, label %63, label %_ZN9grpc_coremlENS_8DurationEd.exit15
+
+63:                                               ; preds = %57
+  %64 = fcmp ugt double %61, 0xC3E0000000000000
+  br i1 %64, label %65, label %_ZN9grpc_coremlENS_8DurationEd.exit15
+
+65:                                               ; preds = %63
+  %66 = fptosi double %61 to i64
+  br label %_ZN9grpc_coremlENS_8DurationEd.exit15
+
+_ZN9grpc_coremlENS_8DurationEd.exit15:            ; preds = %51, %53, %54, %56, %57, %63, %65
+  %.sroa.04.0.i14 = phi i64 [ 9223372036854775807, %53 ], [ -9223372036854775808, %56 ], [ -9223372036854775808, %51 ], [ 9223372036854775807, %54 ], [ %66, %65 ], [ 9223372036854775807, %57 ], [ -9223372036854775808, %63 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %68 = extractvalue { i64, i8 } %14, 1
+  %69 = trunc nuw i8 %68 to i1
+  %70 = extractvalue { i64, i8 } %14, 0
+  %.sroa.0.0.i13 = select i1 %69, i64 %70, i64 9223372036854775807
+  store i64 %.sroa.04.0.i14, ptr %67, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.i13, ptr %71, align 8, !tbaa !35
   ret void
 
-69:                                               ; preds = %18
-  %70 = landingpad { ptr, i32 }
+72:                                               ; preds = %19
+  %73 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE7bit_gen) #35
   br label %common.resume
 }
 
@@ -4733,6 +4740,63 @@ define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef n
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9grpc_core10NoDestructINS_6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEEEC2IJNS_13PerCpuOptionsEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.absl::lts_20240722::random_internal::RandenPoolSeedSeq", align 1
+  %4 = alloca %"class.grpc_core::PerCpuOptions", align 8
+  %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !35
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  store i64 %7, ptr %6, align 8, !tbaa !262
+  %8 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 296)
+  %9 = extractvalue { i64, i1 } %8, 1
+  %10 = extractvalue { i64, i1 } %8, 0
+  %11 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 8)
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = or i1 %9, %12
+  %14 = extractvalue { i64, i1 } %11, 0
+  %15 = select i1 %13, i64 -1, i64 %14
+  %16 = call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #37
+  store i64 %7, ptr %16, align 16
+  %17 = icmp eq i64 %7, 0
+  br i1 %17, label %_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit, label %.preheader
+
+.preheader:                                       ; preds = %2, %19
+  %.idx.i = phi i64 [ %.add.i, %19 ], [ 8, %2 ]
+  %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  store i64 0, ptr %.ptr.ptr.i, align 8, !tbaa !272
+  %18 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !273
+  invoke void @_ZN4absl12lts_2024072215random_internal13randen_engineImEC2IRNS1_17RandenPoolSeedSeqEvEEOT_(ptr noundef nonnull align 8 dereferenceable(288) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %19 unwind label %.loopexit.i
+
+19:                                               ; preds = %.preheader
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !273
+  %.add.i = add nuw nsw i64 %.idx.i, 296
+  %20 = add nuw nsw i64 %.idx.i, 288
+  %21 = icmp eq i64 %20, %10
+  br i1 %21, label %_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit, label %.preheader
+
+.loopexit.i:                                      ; preds = %.preheader
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdaPvm(ptr noundef nonnull %16, i64 noundef %15) #38
+  resume { ptr, i32 } %22
+
+_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit: ; preds = %19, %2
+  %.ptr5.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.ptr5.i, ptr %23, align 8, !tbaa !276
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  ret void
+}
+
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 
@@ -4747,7 +4811,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(296) ptr @_ZN9grpc_c
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i: ; preds = %1
   %2 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4 = load i16, ptr %3, align 2, !tbaa !262
+  %4 = load i16, ptr %3, align 2, !tbaa !277
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %.thread8.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, !prof !54
 
@@ -4755,7 +4819,7 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %1
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
   %6 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %8 = load i16, ptr %7, align 2, !tbaa !262
+  %8 = load i16, ptr %7, align 2, !tbaa !277
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %11, label %.thread7.i, !prof !54
 
@@ -4775,92 +4839,28 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %1
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i: ; preds = %.thread8.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
   %13 = phi i16 [ -1, %.thread8.i ], [ %4, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i ]
   %14 = add i16 %13, -1
-  store i16 %14, ptr %3, align 2, !tbaa !262
+  store i16 %14, ptr %3, align 2, !tbaa !277
   br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
 .thread7.i:                                       ; preds = %11, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %15 = load i16, ptr %7, align 2, !tbaa !262
+  %15 = load i16, ptr %7, align 2, !tbaa !277
   %16 = add i16 %15, -1
-  store i16 %16, ptr %7, align 2, !tbaa !262
+  store i16 %16, ptr %7, align 2, !tbaa !277
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
   br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
 _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, %.thread7.i
   %17 = phi ptr [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i ], [ %6, %.thread7.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i16, ptr %17, align 2, !tbaa !264
+  %19 = load i16, ptr %17, align 2, !tbaa !279
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !265
+  %22 = load i64, ptr %21, align 8, !tbaa !262
   %23 = urem i64 %20, %22
-  %24 = load ptr, ptr %18, align 8, !tbaa !275
+  %24 = load ptr, ptr %18, align 8, !tbaa !276
   %25 = getelementptr inbounds nuw %struct.BitGen, ptr %24, i64 %23
   ret ptr %25
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, i64 %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.absl::lts_20240722::random_internal::RandenPoolSeedSeq", align 1
-  %5 = alloca %"class.grpc_core::PerCpuOptions", align 8
-  store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i64 %8, ptr %7, align 8, !tbaa !265
-  %9 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %8, i64 296)
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  %12 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %11, i64 8)
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = or i1 %10, %13
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = select i1 %14, i64 -1, i64 %15
-  %17 = call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #37
-  store i64 %8, ptr %17, align 16
-  %18 = icmp eq i64 %8, 0
-  br i1 %18, label %.loopexit12, label %.preheader
-
-.preheader:                                       ; preds = %3, %25
-  %.idx = phi i64 [ %.add, %25 ], [ 8, %3 ]
-  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  store i64 0, ptr %.ptr.ptr, align 8, !tbaa !276
-  call void @llvm.experimental.noalias.scope.decl(metadata !277)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !277
-  %19 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 280
-  invoke void @_ZN4absl12lts_2024072215random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %19)
-          to label %.noexc unwind label %.loopexit
-
-.noexc:                                           ; preds = %.preheader
-  %20 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 272
-  store i64 32, ptr %21, align 8, !tbaa !280, !alias.scope !277
-  %22 = ptrtoint ptr %20 to i64
-  %23 = and i64 %22, 8
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %24, i8 0, i64 256, i1 false), !alias.scope !277
-  invoke void @_ZN4absl12lts_2024072215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %20, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %25 unwind label %.loopexit
-
-25:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !277
-  %.add = add nuw nsw i64 %.idx, 296
-  %26 = add nuw nsw i64 %.idx, 288
-  %27 = icmp eq i64 %26, %11
-  br i1 %27, label %.loopexit12, label %.preheader
-
-.loopexit12:                                      ; preds = %25, %3
-  %.ptr5 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.ptr5, ptr %28, align 8, !tbaa !275
-  ret void
-
-.loopexit:                                        ; preds = %.noexc, %.preheader
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdaPvm(ptr noundef nonnull %17, i64 noundef %16) #38
-  resume { ptr, i32 } %29
 }
 
 declare noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
@@ -4877,80 +4877,78 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @_ZN4absl12lts_2024072215random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #0
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #3 comdat align 2 {
-_ZN4absl12lts_2024072215random_internal17RandenPoolSeedSeq8generateIPjEEvT_S5_.exit:
-  %2 = alloca [60 x i32], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %scevgep = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %scevgep, i8 0, i64 208, i1 false), !tbaa !53
-  call void @_ZN4absl12lts_2024072215random_internal10RandenPoolIhE4FillENS0_4SpanIhEE(ptr nonnull %2, i64 32)
-  br label %3
+define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engineImEC2IRNS1_17RandenPoolSeedSeqEvEEOT_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca [60 x i32], align 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  tail call void @_ZN4absl12lts_2024072215random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 32, ptr %5, align 8, !tbaa !280
+  %6 = ptrtoint ptr %0 to i64
+  %7 = and i64 %6, 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %8, i8 0, i64 256, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %scevgep.i.i, i8 0, i64 208, i1 false), !tbaa !53
+  call void @_ZN4absl12lts_2024072215random_internal10RandenPoolIhE4FillENS0_4SpanIhEE(ptr nonnull %3, i64 32)
+  br label %9
 
-3:                                                ; preds = %_ZN4absl12lts_2024072215random_internal17RandenPoolSeedSeq8generateIPjEEvT_S5_.exit, %3
-  %.022 = phi i64 [ 60, %_ZN4absl12lts_2024072215random_internal17RandenPoolSeedSeq8generateIPjEEvT_S5_.exit ], [ %24, %3 ]
-  %4 = add nsw i64 %.022, -4
-  %5 = lshr exact i64 %4, 1
-  %6 = add nsw i64 %.022, -5
-  %7 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %6
-  %8 = add nsw i64 %5, -1
-  %9 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %8
-  %10 = load i32, ptr %7, align 4, !tbaa !53
-  %11 = load i32, ptr %9, align 4, !tbaa !53
-  store i32 %11, ptr %7, align 4, !tbaa !53
-  store i32 %10, ptr %9, align 4, !tbaa !53
-  %12 = add nsw i64 %.022, -6
-  %13 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %12
-  %14 = add nsw i64 %5, -2
-  %15 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %14
-  %16 = load i32, ptr %13, align 8, !tbaa !53
-  %17 = load i32, ptr %15, align 8, !tbaa !53
-  store i32 %17, ptr %13, align 8, !tbaa !53
-  store i32 %16, ptr %15, align 8, !tbaa !53
-  %18 = add nsw i64 %.022, -7
-  %19 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %18
-  %20 = add nsw i64 %5, -3
-  %21 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %20
-  %22 = load i32, ptr %19, align 4, !tbaa !53
-  %23 = load i32, ptr %21, align 4, !tbaa !53
-  store i32 %23, ptr %19, align 4, !tbaa !53
-  store i32 %22, ptr %21, align 4, !tbaa !53
-  %24 = add nsw i64 %.022, -8
-  %25 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %24
-  %26 = add nsw i64 %5, -4
-  %27 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %26
-  %28 = load i32, ptr %25, align 16, !tbaa !53
-  %29 = load i32, ptr %27, align 8, !tbaa !53
-  store i32 %29, ptr %25, align 16, !tbaa !53
-  store i32 %28, ptr %27, align 8, !tbaa !53
-  %30 = icmp ugt i64 %24, 7
-  br i1 %30, label %3, label %31, !llvm.loop !283
+9:                                                ; preds = %9, %2
+  %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
+  %10 = add nsw i64 %.022.i.i, -4
+  %11 = lshr exact i64 %10, 1
+  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %13 = getelementptr i8, ptr %12, i64 -20
+  %14 = getelementptr i32, ptr %3, i64 %11
+  %15 = getelementptr i8, ptr %14, i64 -4
+  %16 = load i32, ptr %13, align 4, !tbaa !53
+  %17 = load i32, ptr %15, align 4, !tbaa !53
+  store i32 %17, ptr %13, align 4, !tbaa !53
+  store i32 %16, ptr %15, align 4, !tbaa !53
+  %18 = getelementptr i8, ptr %12, i64 -24
+  %19 = getelementptr i8, ptr %14, i64 -8
+  %20 = load i32, ptr %18, align 8, !tbaa !53
+  %21 = load i32, ptr %19, align 8, !tbaa !53
+  store i32 %21, ptr %18, align 8, !tbaa !53
+  store i32 %20, ptr %19, align 8, !tbaa !53
+  %22 = getelementptr i8, ptr %12, i64 -28
+  %23 = getelementptr i8, ptr %14, i64 -12
+  %24 = load i32, ptr %22, align 4, !tbaa !53
+  %25 = load i32, ptr %23, align 4, !tbaa !53
+  store i32 %25, ptr %22, align 4, !tbaa !53
+  store i32 %24, ptr %23, align 4, !tbaa !53
+  %26 = add nsw i64 %.022.i.i, -8
+  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %28 = getelementptr i8, ptr %14, i64 -16
+  %29 = load i32, ptr %27, align 16, !tbaa !53
+  %30 = load i32, ptr %28, align 8, !tbaa !53
+  store i32 %30, ptr %27, align 16, !tbaa !53
+  store i32 %29, ptr %28, align 8, !tbaa !53
+  %31 = icmp ugt i64 %26, 7
+  br i1 %31, label %9, label %32, !llvm.loop !283
 
-31:                                               ; preds = %3
-  %32 = ptrtoint ptr %0 to i64
-  %33 = and i64 %32, 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %36 = load i8, ptr %35, align 8, !tbaa !284, !range !143, !noundef !144
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %39
+32:                                               ; preds = %9
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %34 = load i8, ptr %33, align 8, !tbaa !284, !range !143, !noundef !144
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %37
 
-38:                                               ; preds = %31
-  call void @_ZN4absl12lts_2024072215random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef nonnull %2, ptr noundef nonnull %34)
-  br label %_ZNK4absl12lts_2024072215random_internal6Randen6AbsorbEPKvPv.exit
+36:                                               ; preds = %32
+  call void @_ZN4absl12lts_2024072215random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef nonnull %3, ptr noundef nonnull %8)
+  br label %_ZN4absl12lts_2024072215random_internal13randen_engineImE4seedIRNS1_17RandenPoolSeedSeqEEENSt9enable_ifIXntsr3std14is_convertibleIT_mEE5valueEvE4typeEOS8_.exit
 
-39:                                               ; preds = %31
-  call void @_ZN4absl12lts_2024072215random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef nonnull %2, ptr noundef nonnull %34)
-  br label %_ZNK4absl12lts_2024072215random_internal6Randen6AbsorbEPKvPv.exit
+37:                                               ; preds = %32
+  call void @_ZN4absl12lts_2024072215random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef nonnull %3, ptr noundef nonnull %8)
+  br label %_ZN4absl12lts_2024072215random_internal13randen_engineImE4seedIRNS1_17RandenPoolSeedSeqEEENSt9enable_ifIXntsr3std14is_convertibleIT_mEE5valueEvE4typeEOS8_.exit
 
-_ZNK4absl12lts_2024072215random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %38, %39
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i64 32, ptr %40, align 8, !tbaa !280
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+_ZN4absl12lts_2024072215random_internal13randen_engineImE4seedIRNS1_17RandenPoolSeedSeqEEENSt9enable_ifIXntsr3std14is_convertibleIT_mEE5valueEvE4typeEOS8_.exit: ; preds = %36, %37
+  store i64 32, ptr %5, align 8, !tbaa !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
+
+declare void @_ZN4absl12lts_2024072215random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #0
 
 declare void @_ZN4absl12lts_2024072215random_internal10RandenPoolIhE4FillENS0_4SpanIhEE(ptr, i64) local_unnamed_addr #0
 
@@ -5111,7 +5109,7 @@ define internal void @"_ZZN9grpc_core18LegacyMaxAgeFilter8PostInitEvEN3$_08__inv
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #37
   %15 = load ptr, ptr %3, align 8, !tbaa !68
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 1, ptr %16, align 8, !tbaa !276
+  store i64 1, ptr %16, align 8, !tbaa !272
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN9grpc_core18LegacyMaxAgeFilter19ConnectivityWatcherE, i64 16), ptr %14, align 8, !tbaa !7
@@ -9158,7 +9156,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i73:       ; preds = %115
   %.not.i.i80 = phi i1 [ true, %.noexc25 ], [ false, %133 ]
   %.0813.i.i = phi i64 [ 0, %.noexc25 ], [ 1, %133 ]
   %.0912.i.i = phi i64 [ 2, %.noexc25 ], [ %.1.i.i, %133 ]
-  %128 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 0, i64 %.0813.i.i
+  %128 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 %.0813.i.i
   %129 = load i8, ptr %128, align 1, !tbaa !147, !range !143, !noalias !437, !noundef !144
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %133
@@ -9274,7 +9272,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8
   %.not.i.i90 = phi i1 [ true, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit89 ], [ false, %169 ]
   %.0813.i.i91 = phi i64 [ 0, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit89 ], [ 1, %169 ]
   %.0912.i.i92 = phi i64 [ 2, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit89 ], [ %.1.i.i93, %169 ]
-  %164 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 0, i64 %.0813.i.i91
+  %164 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 %.0813.i.i91
   %165 = load i8, ptr %164, align 1, !tbaa !147, !range !143, !noalias !406, !noundef !144
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %167, label %169
@@ -10781,7 +10779,7 @@ define linkonce_odr noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17M
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_corelsERSoNS_11ChannelInit7VersionE.exit.i
 
@@ -10802,7 +10800,7 @@ _ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIN9grpc_core11Channe
 
 switch.lookup8:                                   ; preds = %11
   %14 = zext nneg i8 %12 to i64
-  %switch.gep9 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 0, i64 %14
+  %switch.gep9 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 %14
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   br label %_ZN9grpc_corelsERSoNS_11ChannelInit7VersionE.exit.i4
 
@@ -11395,24 +11393,24 @@ attributes #41 = { cold nounwind }
 !259 = !{!"any p2 pointer", !13, i64 0}
 !260 = !{!258, !259, i64 0}
 !261 = !{!258, !259, i64 16}
-!262 = !{!263, !93, i64 2}
-!263 = !{!"_ZTSN9grpc_core20PerCpuShardingHelper5StateE", !93, i64 0, !93, i64 2}
-!264 = !{!263, !93, i64 0}
-!265 = !{!266, !25, i64 8}
-!266 = !{!"_ZTSN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEE", !267, i64 0, !25, i64 8, !268, i64 16}
-!267 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
-!268 = !{!"_ZTSSt10unique_ptrIA_ZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIS7_EE", !269, i64 0}
-!269 = !{!"_ZTSSt15__uniq_ptr_dataIZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_ELb1ELb1EE", !270, i64 0}
-!270 = !{!"_ZTSSt15__uniq_ptr_implIZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_EE", !271, i64 0}
-!271 = !{!"_ZTSSt5tupleIJPZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_EEE", !272, i64 0}
-!272 = !{!"_ZTSSt11_Tuple_implILm0EJPZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_EEE", !273, i64 0}
-!273 = !{!"_ZTSSt10_Head_baseILm0EPZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenLb0EE", !274, i64 0}
-!274 = !{!"p1 _ZTSZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGen", !13, i64 0}
-!275 = !{!274, !274, i64 0}
-!276 = !{!116, !25, i64 0}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZN4absl12lts_2024072215random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEE13ConstructURBGEv: argument 0"}
-!279 = distinct !{!279, !"_ZN4absl12lts_2024072215random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEE13ConstructURBGEv"}
+!262 = !{!263, !25, i64 8}
+!263 = !{!"_ZTSN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEE", !264, i64 0, !25, i64 8, !265, i64 16}
+!264 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
+!265 = !{!"_ZTSSt10unique_ptrIA_ZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIS7_EE", !266, i64 0}
+!266 = !{!"_ZTSSt15__uniq_ptr_dataIZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_ELb1ELb1EE", !267, i64 0}
+!267 = !{!"_ZTSSt15__uniq_ptr_implIZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_EE", !268, i64 0}
+!268 = !{!"_ZTSSt5tupleIJPZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_EEE", !269, i64 0}
+!269 = !{!"_ZTSSt11_Tuple_implILm0EJPZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenSt14default_deleteIA_S6_EEE", !270, i64 0}
+!270 = !{!"_ZTSSt10_Head_baseILm0EPZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS0_11ChannelArgsEE6BitGenLb0EE", !271, i64 0}
+!271 = !{!"p1 _ZTSZN9grpc_core18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGen", !13, i64 0}
+!272 = !{!116, !25, i64 0}
+!273 = !{!274}
+!274 = distinct !{!274, !275, !"_ZN4absl12lts_2024072215random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEE13ConstructURBGEv: argument 0"}
+!275 = distinct !{!275, !"_ZN4absl12lts_2024072215random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEE13ConstructURBGEv"}
+!276 = !{!271, !271, i64 0}
+!277 = !{!278, !93, i64 2}
+!278 = !{!"_ZTSN9grpc_core20PerCpuShardingHelper5StateE", !93, i64 0, !93, i64 2}
+!279 = !{!278, !93, i64 0}
 !280 = !{!281, !25, i64 264}
 !281 = !{!"_ZTSN4absl12lts_2024072215random_internal13randen_engineImEE", !5, i64 0, !25, i64 264, !282, i64 272}
 !282 = !{!"_ZTSN4absl12lts_2024072215random_internal6RandenE", !13, i64 0, !127, i64 8}

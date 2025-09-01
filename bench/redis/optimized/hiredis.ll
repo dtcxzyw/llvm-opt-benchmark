@@ -580,7 +580,7 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
 
 228:                                              ; preds = %222
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0183, i64 %226, i1 false)
-  %229 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %226
+  %229 = getelementptr inbounds nuw i8, ptr %4, i64 %226
   store i8 0, ptr %229, align 1, !tbaa !22
   %230 = call ptr @hi_sdscatvprintf(ptr noundef %.0174, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %231 = getelementptr inbounds i8, ptr %.4, i64 -1
@@ -1525,7 +1525,7 @@ define void @__redisSetError(ptr noundef initializes((8, 12)) %0, i32 noundef %1
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 127)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %2, i64 %8, i1 false)
-  %9 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   store i8 0, ptr %9, align 1, !tbaa !22
   br label %14
 
@@ -2262,7 +2262,7 @@ define range(i32 -1, 1) i32 @redisBufferRead(ptr noundef %0) local_unnamed_addr 
   %23 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #14
   %24 = call i64 @llvm.umin.i64(i64 %23, i64 127)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr nonnull readonly align 1 %21, i64 %24, i1 false)
-  %25 = getelementptr inbounds nuw [128 x i8], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   store i8 0, ptr %25, align 1, !tbaa !22
   br label %26
 
@@ -2486,7 +2486,7 @@ define range(i32 -1, 1) i32 @redisGetReplyFromReader(ptr noundef captures(none) 
   %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #14
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 127)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr nonnull readonly align 1 %10, i64 %14, i1 false)
-  %15 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   store i8 0, ptr %15, align 1, !tbaa !22
   br label %16
 
@@ -2550,7 +2550,7 @@ redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushRep
   %27 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #14
   %28 = call i64 @llvm.umin.i64(i64 %27, i64 127)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %26, ptr nonnull readonly align 1 %24, i64 %28, i1 false)
-  %29 = getelementptr inbounds nuw [128 x i8], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
   store i8 0, ptr %29, align 1, !tbaa !22
   br label %.loopexit
 
@@ -2607,7 +2607,7 @@ redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushRep
   %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %53) #14
   %56 = call i64 @llvm.umin.i64(i64 %55, i64 127)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr nonnull readonly align 1 %53, i64 %56, i1 false)
-  %57 = getelementptr inbounds nuw [128 x i8], ptr %54, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %56
   store i8 0, ptr %57, align 1, !tbaa !22
   br label %redisBufferRead.exit.thread
 
@@ -2654,7 +2654,7 @@ redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPu
   %76 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %74) #14
   %77 = call i64 @llvm.umin.i64(i64 %76, i64 127)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %75, ptr nonnull readonly align 1 %74, i64 %77, i1 false)
-  %78 = getelementptr inbounds nuw [128 x i8], ptr %75, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 %77
   store i8 0, ptr %78, align 1, !tbaa !22
   br label %.loopexit
 

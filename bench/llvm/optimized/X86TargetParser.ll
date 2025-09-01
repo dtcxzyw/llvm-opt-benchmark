@@ -937,9 +937,9 @@ define dso_local void @_ZN4llvm3X8617getFeaturesForCPUENS_9StringRefERNS_15Small
 
 _ZNK4llvm6BitsetILj129EEcoEv.exit:                ; preds = %30, %_ZNK4llvm6BitsetILj129EEcoEv.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK4llvm6BitsetILj129EEcoEv.exit ], [ 0, %30 ]
-  %33 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8, !tbaa !20
   %37 = and i64 %36, %34
   store i64 %37, ptr %35, align 8, !tbaa !20
@@ -965,14 +965,14 @@ _ZN4llvm6BitsetILj129EEaNERKS1_.exit:             ; preds = %_ZNK4llvm6BitsetILj
   %44 = shl nuw i64 1, %43
   %45 = lshr i64 %indvars.iv, 6
   %46 = and i64 %45, 67108863
-  %47 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %5, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !20
   %49 = and i64 %48, %44
   %.not23 = icmp eq i64 %49, 0
   br i1 %.not23, label %.critedge, label %50
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw [129 x %"struct.(anonymous namespace)::FeatureInfo"], ptr @_ZL12FeatureInfos, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv
   %.val10 = load ptr, ptr %51, align 8
   %52 = getelementptr i8, ptr %51, i64 8
   %.val11 = load i64, ptr %52, align 8
@@ -1165,9 +1165,9 @@ _ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i:     ; preds = %36
 
 43:                                               ; preds = %43, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i ], [ %indvars.iv.next.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [3 x i64], ptr %37, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !20
-  %46 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !20
   %48 = or i64 %47, %45
   store i64 %48, ptr %46, align 8, !tbaa !20
@@ -1191,21 +1191,21 @@ _ZN4llvm6BitsetILj129EEoRERKS1_.exit.i:           ; preds = %43, %49
   %52 = shl nuw i64 1, %51
   %53 = lshr i64 %indvars.iv.next.i, 6
   %54 = and i64 %53, 67108863
-  %55 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %8, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !20
   %57 = and i64 %52, %56
   %.not16.i = icmp eq i64 %57, 0
   br i1 %.not16.i, label %_ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i, label %58
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw [129 x %"struct.(anonymous namespace)::FeatureInfo"], ptr @_ZL12FeatureInfos, i64 0, i64 %indvars.iv.next.i, i32 1
+  %59 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv.next.i, i32 1
   br label %60
 
 60:                                               ; preds = %60, %58
   %indvars.iv.i9.i = phi i64 [ 0, %58 ], [ %indvars.iv.next.i10.i, %60 ]
-  %61 = getelementptr inbounds nuw [3 x i64], ptr %59, i64 0, i64 %indvars.iv.i9.i
+  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %indvars.iv.i9.i
   %62 = load i64, ptr %61, align 8, !tbaa !20
-  %63 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i9.i
+  %63 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i9.i
   %64 = load i64, ptr %63, align 8, !tbaa !20
   %65 = or i64 %64, %62
   store i64 %65, ptr %63, align 8, !tbaa !20
@@ -1230,7 +1230,7 @@ _ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i:         ; preds = %60, %50
   %72 = shl nuw i64 1, %71
   %73 = lshr i64 %70, 6
   %74 = and i64 %73, 67108863
-  %75 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i64, ptr %8, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !20
   %77 = or i64 %76, %72
   store i64 %77, ptr %75, align 8, !tbaa !20
@@ -1250,16 +1250,16 @@ _ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i:         ; preds = %60, %50
 82:                                               ; preds = %101, %80
   %indvars.iv.i18 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i22, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %83 = getelementptr inbounds nuw [129 x %"struct.(anonymous namespace)::FeatureInfo"], ptr @_ZL12FeatureInfos, i64 0, i64 %indvars.iv.i18, i32 1
+  %83 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv.i18, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !tbaa.struct !32
   br label %84
 
 84:                                               ; preds = %84, %82
   %indvars.iv.i.i.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i.i.i, %84 ]
-  %85 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i.i
+  %85 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i.i
   %86 = load i64, ptr %85, align 8, !tbaa !20, !noalias !44
-  %87 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %87 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i
   %88 = load i64, ptr %87, align 8, !tbaa !20, !alias.scope !44
   %89 = and i64 %88, %86
   store i64 %89, ptr %87, align 8, !tbaa !20, !alias.scope !44
@@ -1290,7 +1290,7 @@ _ZNK4llvm6BitsetILj129EE3anyEv.exit.i:            ; preds = %_ZNK4llvm6BitsetILj
   %95 = shl nuw i64 1, %94
   %96 = lshr i64 %indvars.iv.i18, 6
   %97 = and i64 %96, 67108863
-  %98 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr %8, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !20
   %100 = or i64 %99, %95
   store i64 %100, ptr %98, align 8, !tbaa !20
@@ -1318,14 +1318,14 @@ _ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit: ; preds = %_ZL2
   %104 = shl nuw i64 1, %103
   %105 = lshr i64 %indvars.iv, 6
   %106 = and i64 %105, 67108863
-  %107 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i64, ptr %8, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !20
   %109 = and i64 %108, %104
   %.not42 = icmp eq i64 %109, 0
   br i1 %.not42, label %.critedge, label %110
 
 110:                                              ; preds = %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit
-  %111 = getelementptr inbounds nuw [129 x %"struct.(anonymous namespace)::FeatureInfo"], ptr @_ZL12FeatureInfos, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FeatureInfo", ptr @_ZL12FeatureInfos, i64 %indvars.iv
   %112 = getelementptr i8, ptr %111, i64 8
   %.val14 = load i64, ptr %112, align 8
   %113 = icmp ult i64 %.val14, 2
@@ -2161,7 +2161,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit823: ; preds = %_ZN4llv
   %109 = shl nuw i32 1, %108
   %110 = lshr i64 %.sroa.210.103, 5
   %111 = and i64 %110, 134217727
-  %112 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr %3, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !55
   %114 = or i32 %109, %113
   store i32 %114, ptr %112, align 4, !tbaa !55
@@ -2177,7 +2177,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local noundef range(i32 0, 38) i32 @_ZN4llvm3X8618getFeaturePriorityENS0_17ProcessorFeaturesE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [117 x i32], ptr @switch.table._ZN4llvm3X8618getFeaturePriorityENS0_17ProcessorFeaturesE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3X8618getFeaturePriorityENS0_17ProcessorFeaturesE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

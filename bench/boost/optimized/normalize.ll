@@ -2293,7 +2293,7 @@ _ZN5boost4urls11decode_view8iteratormmEv.exit48:  ; preds = %79, %82
 
 91:                                               ; preds = %85
   %92 = urem i64 %71, 3
-  %93 = getelementptr inbounds nuw [4 x i8], ptr @.str.7, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @.str.7, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !9
   br label %96
 

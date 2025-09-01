@@ -130,7 +130,7 @@ define void @rgb2spec_fetch(ptr noundef readonly captures(none) %0, ptr noundef 
   %brmerge = or i1 %9, %12
   %.mux = select i1 %11, float 1.000000e+00, float 0.000000e+00
   %13 = select contract i1 %brmerge, float %.mux, float %8
-  %14 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %13, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -175,10 +175,10 @@ define void @rgb2spec_fetch(ptr noundef readonly captures(none) %0, ptr noundef 
 .preheader:                                       ; preds = %15, %.preheader
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.preheader ], [ 1, %15 ]
   %.0114128 = phi i32 [ %.1, %.preheader ], [ 0, %15 ]
-  %36 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv132
+  %36 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv132
   %37 = load float, ptr %36, align 4
   %38 = zext nneg i32 %.0114128 to i64
-  %39 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %38
   %40 = load float, ptr %39, align 4
   %41 = fcmp contract ult float %37, %40
   %42 = trunc nuw nsw i64 %indvars.iv132 to i32
@@ -189,7 +189,7 @@ define void @rgb2spec_fetch(ptr noundef readonly captures(none) %0, ptr noundef 
 
 43:                                               ; preds = %.preheader
   %44 = zext nneg i32 %.1 to i64
-  %45 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw float, ptr %4, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = add nsw i32 %5, -1
   %48 = sitofp i32 %47 to float
@@ -197,13 +197,13 @@ define void @rgb2spec_fetch(ptr noundef readonly captures(none) %0, ptr noundef 
   %50 = add nuw nsw i32 %.1, 1
   %51 = urem i32 %50, 3
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw float, ptr %4, i64 %52
   %54 = load float, ptr %53, align 4
   %55 = fmul contract float %54, %49
   %56 = add nuw nsw i32 %.1, 2
   %57 = urem i32 %56, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw float, ptr %4, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = fmul contract float %49, %60
   %62 = fptoui float %55 to i32

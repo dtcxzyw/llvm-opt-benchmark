@@ -433,7 +433,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_unknown_critical_crl(i32 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [2 x ptr], ptr @unknown_critical_crls, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @unknown_critical_crls, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4

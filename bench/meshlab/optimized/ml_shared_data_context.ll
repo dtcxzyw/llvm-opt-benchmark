@@ -834,9 +834,9 @@ define void @_ZN29MLPoliciesStandAloneFunctions57computeRequestedRenderingDataCo
 
 42:                                               ; preds = %42, %40
   %indvars.iv.i.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = getelementptr inbounds nuw [9 x i8], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv.i.i
   %44 = load i8, ptr %43, align 1, !noalias !11
-  %45 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %46 = and i8 %44, 1
   store i8 %46, ptr %45, align 1, !alias.scope !11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -849,9 +849,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ], [ %indvars.iv.next.i9.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i ]
-  %47 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i8.i
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i8.i
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i8.i
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i8.i
   %50 = and i8 %48, 1
   store i8 %50, ptr %49, align 1
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
@@ -1951,9 +1951,9 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %1
 
 190:                                              ; preds = %190, %188
   %indvars.iv.i.i = phi i64 [ 0, %188 ], [ %indvars.iv.next.i.i, %190 ]
-  %191 = getelementptr inbounds nuw [9 x i8], ptr %189, i64 0, i64 %indvars.iv.i.i
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 %indvars.iv.i.i
   %192 = load i8, ptr %191, align 1, !noalias !17
-  %193 = getelementptr inbounds nuw [7 x i8], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i
   %194 = and i8 %192, 1
   store i8 %194, ptr %193, align 1, !alias.scope !17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1966,9 +1966,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ], [ %indvars.iv.next.i9.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i ]
-  %195 = getelementptr inbounds nuw [7 x i8], ptr %2, i64 0, i64 %indvars.iv.i8.i
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i8.i
   %196 = load i8, ptr %195, align 1
-  %197 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i8.i
+  %197 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i8.i
   %198 = and i8 %196, 1
   store i8 %198, ptr %197, align 1
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
@@ -2132,9 +2132,9 @@ define noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo1
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i ]
-  %6 = getelementptr inbounds nuw [7 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %9 = and i8 %7, 1
   store i8 %9, ptr %8, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2162,9 +2162,9 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit: ; pr
 
 20:                                               ; preds = %20, %19
   %indvars.iv.i.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i
   %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %24 = and i8 %22, 1
   store i8 %24, ptr %23, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2208,9 +2208,9 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i ], [ %indvars.iv.next.i.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr inbounds nuw [9 x i8], ptr %43, i64 0, i64 %indvars.iv.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv.i.i.i
   %47 = and i8 %45, 1
   store i8 %47, ptr %46, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2695,9 +2695,9 @@ define void @_ZN29MLPoliciesStandAloneFunctions36updatedRendAttsAccordingToPrior
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i ]
-  %7 = getelementptr inbounds nuw [7 x i8], ptr %1, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %10 = and i8 %8, 1
   store i8 %10, ptr %9, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2710,9 +2710,9 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit: ; pr
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i9: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i9, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit
   %indvars.iv.i10 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit ], [ %indvars.iv.next.i11, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i9 ]
-  %11 = getelementptr inbounds nuw [7 x i8], ptr %2, i64 0, i64 %indvars.iv.i10
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i10
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i10
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i10
   %14 = and i8 %12, 1
   store i8 %14, ptr %13, align 1
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
@@ -2795,9 +2795,9 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i9: ; pre
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14, %37
   %indvars.iv.i15 = phi i64 [ 0, %37 ], [ %indvars.iv.next.i16, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14 ]
-  %68 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i15
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i15
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i15
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i15
   %71 = and i8 %69, 1
   store i8 %71, ptr %70, align 1
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
@@ -2882,9 +2882,9 @@ _ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit: ; preds = %._crit_edge.
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %32
   %indvars.iv.i.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i ]
-  %37 = getelementptr inbounds nuw [7 x i8], ptr %9, i64 0, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i.i
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds nuw [7 x i8], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
   %40 = and i8 %38, 1
   store i8 %40, ptr %39, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2912,9 +2912,9 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
 
 49:                                               ; preds = %49, %48
   %indvars.iv.i.i.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i.i.i, %49 ]
-  %50 = getelementptr inbounds nuw [7 x i8], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i.i
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i.i
   %53 = and i8 %51, 1
   store i8 %53, ptr %52, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2931,9 +2931,9 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i ]
-  %56 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i.i.i
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds nuw [9 x i8], ptr %47, i64 0, i64 %indvars.iv.i.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i.i.i
   %59 = and i8 %57, 1
   store i8 %59, ptr %58, align 1
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -3029,9 +3029,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30, %95
   %indvars.iv.i.i31 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i.i32, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30 ]
-  %99 = getelementptr inbounds nuw [7 x i8], ptr %9, i64 0, i64 %indvars.iv.i.i31
+  %99 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i.i31
   %100 = load i8, ptr %99, align 1
-  %101 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i31
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i31
   %102 = and i8 %100, 1
   store i8 %102, ptr %101, align 1
   %indvars.iv.next.i.i32 = add nuw nsw i64 %indvars.iv.i.i31, 1
@@ -3055,9 +3055,9 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30: ; 
 
 110:                                              ; preds = %110, %109
   %indvars.iv.i.i.i36 = phi i64 [ 0, %109 ], [ %indvars.iv.next.i.i.i37, %110 ]
-  %111 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i36
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i36
   %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i36
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i36
   %114 = and i8 %112, 1
   store i8 %114, ptr %113, align 1
   %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
@@ -3088,9 +3088,9 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i42
   %indvars.iv.i.i.i.i44 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i42 ], [ %indvars.iv.next.i.i.i.i45, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43 ]
-  %129 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i44
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i.i44
   %130 = load i8, ptr %129, align 1
-  %131 = getelementptr inbounds nuw [9 x i8], ptr %128, i64 0, i64 %indvars.iv.i.i.i.i44
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv.i.i.i.i44
   %132 = and i8 %130, 1
   store i8 %132, ptr %131, align 1
   %indvars.iv.next.i.i.i.i45 = add nuw nsw i64 %indvars.iv.i.i.i.i44, 1
@@ -3520,9 +3520,9 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i:                ; preds = %27, %24
 
 33:                                               ; preds = %33, %32
   %indvars.iv.i.i.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i.i.i, %33 ]
-  %34 = getelementptr inbounds nuw [9 x i8], ptr %18, i64 0, i64 %indvars.iv.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i.i.i
   %35 = load i8, ptr %34, align 1, !noalias !26
-  %36 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   %37 = and i8 %35, 1
   store i8 %37, ptr %36, align 1, !alias.scope !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3677,9 +3677,9 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i15:            ; preds = %_ZN15MLRenderingDat
 
 61:                                               ; preds = %61, %60
   %indvars.iv.i.i.i.i18 = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i.i.i19, %61 ]
-  %62 = getelementptr inbounds nuw [9 x i8], ptr %55, i64 0, i64 %indvars.iv.i.i.i.i18
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i.i.i.i18
   %63 = load i8, ptr %62, align 1, !noalias !29
-  %64 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i18
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i.i.i18
   %65 = and i8 %63, 1
   store i8 %65, ptr %64, align 1, !alias.scope !29
   %indvars.iv.next.i.i.i.i19 = add nuw nsw i64 %indvars.iv.i.i.i.i18, 1
@@ -3779,9 +3779,9 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i43:            ; preds = %_ZN15MLRenderingDat
 
 113:                                              ; preds = %113, %112
   %indvars.iv.i.i.i.i46 = phi i64 [ 0, %112 ], [ %indvars.iv.next.i.i.i.i47, %113 ]
-  %114 = getelementptr inbounds nuw [9 x i8], ptr %107, i64 0, i64 %indvars.iv.i.i.i.i46
+  %114 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv.i.i.i.i46
   %115 = load i8, ptr %114, align 1, !noalias !32
-  %116 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i46
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i46
   %117 = and i8 %115, 1
   store i8 %117, ptr %116, align 1, !alias.scope !32
   %indvars.iv.next.i.i.i.i47 = add nuw nsw i64 %indvars.iv.i.i.i.i46, 1
@@ -3835,9 +3835,9 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i57:            ; preds = %131
 
 140:                                              ; preds = %140, %139
   %indvars.iv.i.i.i.i60 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i.i.i.i61, %140 ]
-  %141 = getelementptr inbounds nuw [9 x i8], ptr %134, i64 0, i64 %indvars.iv.i.i.i.i60
+  %141 = getelementptr inbounds nuw i8, ptr %134, i64 %indvars.iv.i.i.i.i60
   %142 = load i8, ptr %141, align 1, !noalias !35
-  %143 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i60
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i.i60
   %144 = and i8 %142, 1
   store i8 %144, ptr %143, align 1, !alias.scope !35
   %indvars.iv.next.i.i.i.i61 = add nuw nsw i64 %indvars.iv.i.i.i.i60, 1
@@ -3923,9 +3923,9 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i85:            ; preds = %173
 
 182:                                              ; preds = %182, %181
   %indvars.iv.i.i.i.i88 = phi i64 [ 0, %181 ], [ %indvars.iv.next.i.i.i.i89, %182 ]
-  %183 = getelementptr inbounds nuw [9 x i8], ptr %176, i64 0, i64 %indvars.iv.i.i.i.i88
+  %183 = getelementptr inbounds nuw i8, ptr %176, i64 %indvars.iv.i.i.i.i88
   %184 = load i8, ptr %183, align 1, !noalias !38
-  %185 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i88
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i.i.i88
   %186 = and i8 %184, 1
   store i8 %186, ptr %185, align 1, !alias.scope !38
   %indvars.iv.next.i.i.i.i89 = add nuw nsw i64 %indvars.iv.i.i.i.i88, 1
@@ -4104,9 +4104,9 @@ define void @_ZN29MLPoliciesStandAloneFunctions49disableRedundatRenderingDataAcc
 
 21:                                               ; preds = %21, %19
   %indvars.iv.i.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i.i, %21 ]
-  %22 = getelementptr inbounds nuw [9 x i8], ptr %20, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i.i
   %23 = load i8, ptr %22, align 1, !noalias !41
-  %24 = getelementptr inbounds nuw [7 x i8], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i
   %25 = and i8 %23, 1
   store i8 %25, ptr %24, align 1, !alias.scope !41
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4119,9 +4119,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ], [ %indvars.iv.next.i9.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i ]
-  %26 = getelementptr inbounds nuw [7 x i8], ptr %2, i64 0, i64 %indvars.iv.i8.i
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i8.i
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i8.i
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i8.i
   %29 = and i8 %27, 1
   store i8 %29, ptr %28, align 1
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
@@ -4507,9 +4507,9 @@ define noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo1
 
 19:                                               ; preds = %19, %17
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %19 ]
-  %20 = getelementptr inbounds nuw [9 x i8], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i.i
   %21 = load i8, ptr %20, align 1, !noalias !45
-  %22 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i
   %23 = and i8 %21, 1
   store i8 %23, ptr %22, align 1, !alias.scope !45
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4522,9 +4522,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ], [ %indvars.iv.next.i9.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i ]
-  %24 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i8.i
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i8.i
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i8.i
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i8.i
   %27 = and i8 %25, 1
   store i8 %27, ptr %26, align 1
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
@@ -4557,7 +4557,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
 
 33:                                               ; preds = %29
   %34 = zext nneg i32 %2 to i64
-  %35 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 %34
   store i8 %7, ptr %35, align 1
   %36 = call noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(7) %6)
   br label %37

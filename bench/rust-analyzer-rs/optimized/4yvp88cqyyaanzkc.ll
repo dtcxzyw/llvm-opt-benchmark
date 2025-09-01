@@ -2418,7 +2418,7 @@ switch.lookup:
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 4
   %3 = zext nneg i8 %.sroa.5.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %.sroa.0.0.copyload, ptr %0, align 4, !alias.scope !784, !noalias !787
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2443,7 +2443,7 @@ switch.lookup:
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 4
   %3 = zext nneg i8 %.sroa.4.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %.sroa.0.0.copyload, ptr %0, align 4, !alias.scope !789, !noalias !792
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2688,7 +2688,7 @@ define internal fastcc void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..in_plac
   br i1 %6, label %"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0795613c4adf82f8E.exit", label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw [0 x { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { { i64, ptr, {} }, i64 } }, ptr, i8, [7 x i8] }], ptr %.0.val, i64 0, i64 %.0.i.i
+  %8 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { { i64, ptr, {} }, i64 } }, ptr, i8, [7 x i8] }, ptr %.0.val, i64 %.0.i.i
   %9 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$proc_macro_api..ProcMacro$GT$17hb804232c43c3acb8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %5 unwind label %12
@@ -2704,7 +2704,7 @@ define internal fastcc void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..in_plac
   br label %10
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds [0 x { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { { i64, ptr, {} }, i64 } }, ptr, i8, [7 x i8] }], ptr %.0.val, i64 0, i64 %.1.i.i
+  %15 = getelementptr inbounds { { { { { { { { i64, ptr, {} }, i64 } } } } } }, { { { i64, ptr, {} }, i64 } }, ptr, i8, [7 x i8] }, ptr %.0.val, i64 %.1.i.i
   %16 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$proc_macro_api..ProcMacro$GT$17hb804232c43c3acb8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %15) #32
           to label %10 unwind label %18
@@ -4173,7 +4173,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8d
 
 .lr.ph.i.us.i.i.i:                                ; preds = %29, %33
   %.05.i.us.i.i.i = phi i64 [ %34, %33 ], [ 0, %29 ]
-  %30 = getelementptr inbounds nuw [0 x i8], ptr %23, i64 0, i64 %.05.i.us.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.05.i.us.i.i.i
   %31 = load i8, ptr %30, align 1, !alias.scope !1531, !noalias !1530, !noundef !23
   %32 = icmp eq i8 %31, %25
   br i1 %32, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i, label %33
@@ -4230,7 +4230,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %53, %57
   %.05.i.i.i.i = phi i64 [ %58, %57 ], [ 0, %53 ]
-  %54 = getelementptr inbounds nuw [0 x i8], ptr %47, i64 0, i64 %.05.i.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %.05.i.i.i.i
   %55 = load i8, ptr %54, align 1, !alias.scope !1531, !noalias !1530, !noundef !23
   %56 = icmp eq i8 %55, %49
   br i1 %56, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %57
@@ -4820,7 +4820,7 @@ switch.lookup:
   %.sroa.75.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.75.0.copyload = load i8, ptr %.sroa.75.0..sroa_idx, align 4
   %2 = zext nneg i8 %.sroa.75.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1752)
   %3 = load ptr, ptr %0, align 8, !alias.scope !1752, !noalias !1755, !nonnull !23, !align !107, !noundef !23
@@ -4851,7 +4851,7 @@ switch.lookup:
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 4
   %3 = zext nneg i8 %.sroa.6.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.01.4.vec.insert = insertelement <4 x i32> %2, i32 %switch.load, i64 1
   %.sroa.01.12.vec.insert = shufflevector <4 x i32> %.sroa.01.4.vec.insert, <4 x i32> %2, <4 x i32> <i32 0, i32 1, i32 6, i32 7>

@@ -1540,7 +1540,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit50:          ; preds = %75
   %92 = phi i32 [ %66, %.lr.ph167 ], [ %114, %108 ]
   %indvars.iv173 = phi i64 [ %90, %.lr.ph167 ], [ %93, %108 ]
   %93 = add nsw i64 %indvars.iv173, -1
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr %89, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw ptr, ptr %89, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !114
   %96 = load i32, ptr %54, align 4, !tbaa !137
   %.not.i51 = icmp ult i32 %92, %96
@@ -1655,7 +1655,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit71:           ; preds = %120
   %137 = phi i32 [ %66, %.lr.ph ], [ %159, %153 ]
   %indvars.iv = phi i64 [ %135, %.lr.ph ], [ %138, %153 ]
   %138 = add nsw i64 %indvars.iv, -1
-  %139 = getelementptr inbounds nuw [0 x ptr], ptr %134, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw ptr, ptr %134, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !114
   %141 = load i32, ptr %54, align 4, !tbaa !137
   %.not.i72 = icmp ult i32 %137, %141
@@ -2152,7 +2152,7 @@ define hidden void @_ZN4goal11process_andEbP3appS1_PN18dependency_managerIN11ast
 15:                                               ; preds = %12
   %16 = icmp eq i64 %indvars.iv, 0
   %17 = and i1 %1, %16
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !114
   %20 = load ptr, ptr %0, align 8, !tbaa !102
   %21 = trunc nuw i64 %indvars.iv to i32
@@ -2228,7 +2228,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %18
   br i1 %.not.i, label %37, label %_ZN4goal11process_andEbP3appS1_PN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyER7obj_refI4exprS3_ERS8_IS0_S3_E.exit
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !114
   %40 = load ptr, ptr %0, align 8, !tbaa !102
   %41 = trunc nuw i64 %indvars.iv to i32
@@ -2423,7 +2423,7 @@ define hidden void @_ZN4goal14process_not_orEbP3appS1_PN18dependency_managerIN11
   br i1 %.not, label %17, label %._crit_edge
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !114
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
@@ -4414,10 +4414,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85: ; preds = %_ZStl
   %270 = load i32, ptr %269, align 8
   %271 = lshr i32 %270, 30
   %272 = zext nneg i32 %271 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4goal25display_with_dependenciesERSo, i64 0, i64 %272
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4goal25display_with_dependenciesERSo, i64 %272
   %switch.load = load ptr, ptr %switch.gep, align 8
   %273 = zext nneg i32 %271 to i64
-  %switch.gep269 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4goal25display_with_dependenciesERSo.2, i64 0, i64 %273
+  %switch.gep269 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4goal25display_with_dependenciesERSo.2, i64 %273
   %switch.load270 = load i64, ptr %switch.gep269, align 8
   %274 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %switch.load, i64 noundef %switch.load270)
           to label %_ZlsRSoN4goal9precisionE.exit unwind label %40
@@ -4959,10 +4959,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %._cri
   %151 = load i32, ptr %150, align 8
   %152 = lshr i32 %151, 30
   %153 = zext nneg i32 %152 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4goal25display_with_dependenciesERSo, i64 0, i64 %153
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4goal25display_with_dependenciesERSo, i64 %153
   %switch.load = load ptr, ptr %switch.gep, align 8
   %154 = zext nneg i32 %152 to i64
-  %switch.gep132 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4goal25display_with_dependenciesERSo.2, i64 0, i64 %154
+  %switch.gep132 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4goal25display_with_dependenciesERSo.2, i64 %154
   %switch.load133 = load i64, ptr %switch.gep132, align 8
   %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load, i64 noundef %switch.load133)
           to label %_ZlsRSoN4goal9precisionE.exit unwind label %33
@@ -11265,7 +11265,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !116
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

@@ -1595,7 +1595,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %.preheader21, %105
   %96 = phi i64 [ %106, %105 ], [ 0, %.preheader21 ]
-  %97 = getelementptr [6 x ptr], ptr @allow_duplicates, i64 0, i64 %96
+  %97 = getelementptr ptr, ptr @allow_duplicates, i64 %96
   %98 = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5

@@ -5136,7 +5136,7 @@ rb_get_path.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 switch.lookup:                                    ; preds = %32
   %37 = lshr exact i32 %35, 12
   %38 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.rb_stat_ftype, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_stat_ftype, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rb_file_ftype.exit
 
@@ -8823,7 +8823,7 @@ define internal i64 @rb_stat_inspect(i64 noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %16, %15
-  %19 = getelementptr [13 x %struct.anon.8], ptr @rb_stat_inspect.member, i64 0, i64 %.02731
+  %19 = getelementptr %struct.anon.8, ptr @rb_stat_inspect.member, i64 %.02731
   %20 = load ptr, ptr %19, align 16, !tbaa !284
   %21 = tail call i64 @rb_str_cat_cstr(i64 noundef %11, ptr noundef %20) #22
   %22 = tail call i64 @rb_str_cat(i64 noundef %11, ptr noundef nonnull @.str.151, i64 noundef 1) #22
@@ -8915,7 +8915,7 @@ get_stat.exit:                                    ; preds = %1
 switch.lookup:                                    ; preds = %get_stat.exit
   %12 = lshr exact i32 %10, 12
   %13 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.rb_stat_ftype, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_stat_ftype, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rb_file_ftype.exit
 
@@ -11539,7 +11539,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %47 ], [ %46, %rb_get_path.exit ]
   %48 = load i32, ptr %24, align 8, !tbaa !26
   %49 = sext i32 %48 to i64
-  %50 = getelementptr [0 x %struct.apply_filename], ptr %25, i64 0, i64 %49
+  %50 = getelementptr %struct.apply_filename, ptr %25, i64 %49
   store ptr %.sroa.2.0.i, ptr %50, align 8, !tbaa !337
   %.idx32 = shl nsw i64 %49, 4
   %51 = getelementptr i8, ptr %25, i64 %.idx32
@@ -11691,7 +11691,7 @@ define internal noalias noundef ptr @no_gvl_apply2files(ptr noundef captures(non
   %storemerge10 = phi i32 [ 0, %.lr.ph ], [ %22, %20 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !333
   %10 = sext i32 %storemerge10 to i64
-  %11 = getelementptr [0 x %struct.apply_filename], ptr %6, i64 0, i64 %10
+  %11 = getelementptr %struct.apply_filename, ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !337
   %13 = load ptr, ptr %7, align 8, !tbaa !333
   %14 = tail call i32 %9(ptr noundef %12, ptr noundef %13) #22

@@ -920,7 +920,7 @@ serialize_more.exit231:                           ; preds = %lightudV.exit, %392
   %408 = ashr i64 %407, 47
   %409 = tail call i64 @llvm.umax.i64(i64 %408, i64 -14)
   %spec.select213 = xor i64 %409, -1
-  %410 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select213
+  %410 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select213
   %411 = load ptr, ptr %410, align 8, !tbaa !68
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %.pre-phi278, i32 noundef 3810, ptr noundef %411) #12
   unreachable
@@ -1649,7 +1649,7 @@ serialize_ru124.exit.thread4:                     ; preds = %7, %thread-pre-spli
 
 switch.lookup:                                    ; preds = %serialize_ru124.exit.thread4
   %15 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table.lj_serialize_peektype, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lj_serialize_peektype, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %serialize_ru124.exit.thread
 

@@ -886,7 +886,7 @@ pmix_bfrops_base_tma_argv_count.exit.i68:         ; preds = %.lr.ph.i.i64, %.pre
 pmix_strncpy.exit81:                              ; preds = %.lr.ph.i75, %88, %85
   %.08.lcssa.i80 = phi ptr [ %4, %85 ], [ %91, %88 ], [ %.0811.i77, %.lr.ph.i75 ]
   store i8 0, ptr %.08.lcssa.i80, align 1, !tbaa !3
-  %92 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %9
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   store i8 0, ptr %92, align 1, !tbaa !3
   %93 = icmp eq ptr %.0528104, null
   br i1 %93, label %94, label %.preheader.i.i82

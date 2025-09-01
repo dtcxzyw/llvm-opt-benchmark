@@ -2940,7 +2940,7 @@ define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, 
 32:                                               ; preds = %30
   %33 = load i64, ptr %0, align 16
   %34 = lshr i64 %33, 58
-  %35 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %34
+  %35 = getelementptr ptr, ptr @node_data, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %26 to i64
   tail call void @__mod_node_page_state(ptr noundef %36, i32 noundef 17, i64 noundef %37) #17
@@ -3086,7 +3086,7 @@ define dso_local void @folio_add_new_anon_rmap(ptr noundef %0, ptr noundef reado
 44:                                               ; preds = %.loopexit, %33
   %45 = load i64, ptr %0, align 16
   %46 = lshr i64 %45, 58
-  %47 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr @node_data, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = sext i32 %11 to i64
   tail call void @__mod_node_page_state(ptr noundef %48, i32 noundef 17, i64 noundef %49) #17
@@ -3172,7 +3172,7 @@ define dso_local void @folio_add_file_rmap_ptes(ptr noundef %0, ptr noundef %1, 
 30:                                               ; preds = %28
   %31 = load i64, ptr %0, align 16
   %32 = lshr i64 %31, 58
-  %33 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %32
+  %33 = getelementptr ptr, ptr @node_data, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %24 to i64
   tail call void @__mod_node_page_state(ptr noundef %34, i32 noundef 18, i64 noundef %35) #17
@@ -3258,7 +3258,7 @@ define dso_local void @folio_remove_rmap_ptes(ptr noundef %0, ptr noundef %1, i3
   %37 = sub i32 0, %24
   %38 = load i64, ptr %0, align 16
   %39 = lshr i64 %38, 58
-  %40 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %39
+  %40 = getelementptr ptr, ptr @node_data, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %37 to i64
   tail call void @__mod_node_page_state(ptr noundef %41, i32 noundef %36, i64 noundef %42) #17
@@ -4202,7 +4202,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %510 = icmp eq i64 %509, 0
   %511 = select i1 %510, i32 0, i32 3
   %512 = zext nneg i32 %511 to i64
-  %513 = getelementptr [4 x %struct.percpu_counter], ptr %114, i64 0, i64 %512
+  %513 = getelementptr %struct.percpu_counter, ptr %114, i64 %512
   %514 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %513, i64 noundef -1, i32 noundef %514) #17
   call void @mm_trace_rss_stat(ptr noundef %13, i32 noundef %511) #17
@@ -4256,7 +4256,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %540 = icmp eq i64 %539, 0
   %541 = select i1 %540, i32 18, i32 17
   %542 = lshr i64 %536, 58
-  %543 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %542
+  %543 = getelementptr ptr, ptr @node_data, i64 %542
   %544 = load ptr, ptr %543, align 8
   call void @__mod_node_page_state(ptr noundef %544, i32 noundef %541, i64 noundef -1) #17
   %545 = load volatile i64, ptr %0, align 8
@@ -5217,7 +5217,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %462 = icmp eq i64 %461, 0
   %463 = select i1 %462, i32 18, i32 17
   %464 = lshr i64 %458, 58
-  %465 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %464
+  %465 = getelementptr ptr, ptr @node_data, i64 %464
   %466 = load ptr, ptr %465, align 8
   call void @__mod_node_page_state(ptr noundef %466, i32 noundef %463, i64 noundef -1) #17
   %467 = load volatile i64, ptr %0, align 8

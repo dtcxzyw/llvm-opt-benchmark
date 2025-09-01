@@ -33640,7 +33640,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %69, %.critedge
   store ptr %.sink, ptr %97, align 8, !tbaa !397
   %116 = call i32 @Gia_ManDecideWhereToAdd(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw ptr, ptr %3, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !397
   %.val77 = load ptr, ptr %4, align 8, !tbaa !12
   %120 = ptrtoint ptr %119 to i64
@@ -33712,7 +33712,7 @@ Vec_IntPush.exit102:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %124, ptr %152, align 4, !tbaa !11
   %153 = xor i32 %116, 1
   %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr %3, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !397
   %.val76 = load ptr, ptr %4, align 8, !tbaa !12
   %157 = ptrtoint ptr %156 to i64

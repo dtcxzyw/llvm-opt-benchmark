@@ -13518,7 +13518,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %88 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %89, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %90 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %90 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %91 = load i32, ptr %90, align 4, !tbaa !53
   %92 = zext i32 %91 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %92
@@ -20469,7 +20469,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %88 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %89, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %90 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %90 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %91 = load i32, ptr %90, align 4, !tbaa !53
   %92 = zext i32 %91 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %92
@@ -26582,7 +26582,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %88 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %89, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %90 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %90 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %91 = load i32, ptr %90, align 4, !tbaa !53
   %92 = zext i32 %91 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %92
@@ -37272,7 +37272,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %88 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %89, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %90 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %90 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %91 = load i32, ptr %90, align 4, !tbaa !53
   %92 = zext i32 %91 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %92
@@ -43384,7 +43384,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %87 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %88, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %90 = load i32, ptr %89, align 4, !tbaa !53
   %91 = zext i32 %90 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %91
@@ -49484,7 +49484,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %87 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %88, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %90 = load i32, ptr %89, align 4, !tbaa !53
   %91 = zext i32 %90 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %91
@@ -55584,7 +55584,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %87 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %88, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %90 = load i32, ptr %89, align 4, !tbaa !53
   %91 = zext i32 %90 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %91
@@ -61692,7 +61692,7 @@ define internal void @_ZN12_GLOBAL__N_144ZipfDistributionTypedTest_SerializeTest
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %87 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %88, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %90 = load i32, ptr %89, align 4, !tbaa !53
   %91 = zext i32 %90 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %91

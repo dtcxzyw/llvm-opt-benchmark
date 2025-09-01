@@ -276,7 +276,7 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %.02429.i = phi ptr [ %110, %.lr.ph.i ], [ %.2114, %104 ]
   %107 = load i16, ptr %.02429.i, align 1, !tbaa !39
   %108 = sext i16 %107 to i32
-  %109 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   store i32 %108, ptr %109, align 4, !tbaa !38
   %110 = getelementptr inbounds nuw i8, ptr %.02429.i, i64 2
   %111 = getelementptr inbounds nuw i8, ptr %.030.i, i64 2
@@ -297,11 +297,11 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 114:                                              ; preds = %.lr.ph35.i
   %115 = and i8 %113, 127
   %116 = zext nneg i8 %115 to i64
-  %117 = getelementptr inbounds nuw [128 x i16], ptr @vmdaudio_table, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i16, ptr @vmdaudio_table, i64 %116
   %118 = load i16, ptr %117, align 2, !tbaa !46
   %119 = zext i16 %118 to i32
   %120 = sext i32 %.12732.i to i64
-  %121 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 %120
+  %121 = getelementptr inbounds i32, ptr %5, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !38
   %123 = sub nsw i32 %122, %119
   store i32 %123, ptr %121, align 4, !tbaa !38
@@ -309,11 +309,11 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 
 124:                                              ; preds = %.lr.ph35.i
   %125 = zext nneg i8 %113 to i64
-  %126 = getelementptr inbounds nuw [128 x i16], ptr @vmdaudio_table, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i16, ptr @vmdaudio_table, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !46
   %128 = zext i16 %127 to i32
   %129 = sext i32 %.12732.i to i64
-  %130 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 %129
+  %130 = getelementptr inbounds i32, ptr %5, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !38
   %132 = add nsw i32 %131, %128
   store i32 %132, ptr %130, align 4, !tbaa !38
@@ -322,7 +322,7 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 133:                                              ; preds = %124, %114
   %134 = phi i32 [ %132, %124 ], [ %123, %114 ]
   %.pre-phi.i = phi i64 [ %129, %124 ], [ %120, %114 ]
-  %135 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 %.pre-phi.i
+  %135 = getelementptr inbounds i32, ptr %5, i64 %.pre-phi.i
   %136 = tail call i32 @llvm.smax.i32(i32 %134, i32 -32768)
   %137 = tail call i32 @llvm.smin.i32(i32 %136, i32 32767)
   %.0.i.i = trunc nsw i32 %137 to i16

@@ -327,7 +327,7 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw28parseLeicaInternalBodySerialEj(p
 
 .preheader:                                       ; preds = %13, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 3, %13 ]
-  %17 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !72
   %19 = sext i8 %18 to i32
   %isdigittmp = add nsw i32 %19, -48
@@ -628,7 +628,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %139 ]
   %141 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %142 = uitofp i16 %141 to float
-  %143 = getelementptr inbounds nuw [4 x float], ptr %83, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv
   store float %142, ptr %143, align 4, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -892,7 +892,7 @@ _ZN6LibRaw18parseLeicaLensNameEj.exit101:         ; preds = %227
 
 .preheader.i:                                     ; preds = %260, %263
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %263 ], [ 3, %260 ]
-  %264 = getelementptr inbounds nuw [64 x i8], ptr %65, i64 0, i64 %indvars.iv.i
+  %264 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.i
   %265 = load i8, ptr %264, align 1, !tbaa !72
   %266 = sext i8 %265 to i32
   %isdigittmp.i = add nsw i32 %266, -48

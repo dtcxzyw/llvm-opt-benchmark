@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @utf16be_mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF16, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @EncLen_UTF16, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   ret i32 %5
 }
@@ -167,7 +167,7 @@ define internal i32 @utf16be_mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr n
   store i8 0, ptr %3, align 1, !tbaa !4
   %14 = load i8, ptr %6, align 1, !tbaa !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @OnigEncAsciiToLowerCaseTable, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4
   store i8 %17, ptr %13, align 1, !tbaa !4
   %18 = load ptr, ptr %1, align 8, !tbaa !9
@@ -333,7 +333,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %.01424 = phi ptr [ %21, %19 ], [ %0, %2 ]
   %4 = load i8, ptr %.01424, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF16, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr @EncLen_UTF16, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i64 %5, 252
   %9 = icmp eq i64 %8, 216

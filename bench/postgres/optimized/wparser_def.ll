@@ -944,12 +944,12 @@ define dso_local i64 @prsd_lextype(ptr noundef readnone captures(none) %0) local
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr inbounds nuw [24 x ptr], ptr @tok_alias, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @tok_alias, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @pstrdup(ptr noundef %8) #16
   %10 = getelementptr i8, ptr %4, i64 -16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds nuw [24 x ptr], ptr @lex_descr, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr @lex_descr, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @pstrdup(ptr noundef %12) #16
   %14 = getelementptr i8, ptr %4, i64 -8
@@ -1144,7 +1144,7 @@ define internal fastcc zeroext i1 @TParserGet(ptr noundef %0) unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw [77 x %struct.TParserStateAction], ptr @Actions, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %struct.TParserStateAction, ptr @Actions, i64 %47
   %49 = load ptr, ptr %48, align 16
   br label %50
 

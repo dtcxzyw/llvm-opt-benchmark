@@ -2475,7 +2475,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
 
 .preheader.i:                                     ; preds = %142, %149
   %.0813.i.i.i.i = phi i64 [ %150, %149 ], [ 0, %142 ]
-  %151 = getelementptr inbounds nuw [4 x i64], ptr %104, i64 0, i64 %.0813.i.i.i.i
+  %151 = getelementptr inbounds nuw i64, ptr %104, i64 %.0813.i.i.i.i
   %152 = load i64, ptr %151, align 8
   %.not.i.i.i.i = icmp eq i64 %152, -1
   br i1 %.not.i.i.i.i, label %149, label %.critedge.i.i.i.i.i.i.i
@@ -3727,7 +3727,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
 
 .preheader.i32:                                   ; preds = %605, %611
   %.0813.i.i.i.i33 = phi i64 [ %612, %611 ], [ 0, %605 ]
-  %613 = getelementptr inbounds nuw [4 x i64], ptr %569, i64 0, i64 %.0813.i.i.i.i33
+  %613 = getelementptr inbounds nuw i64, ptr %569, i64 %.0813.i.i.i.i33
   %614 = load i64, ptr %613, align 8
   %.not.i.i.i.i34 = icmp eq i64 %614, -1
   br i1 %.not.i.i.i.i34, label %611, label %.critedge.i.i.i.i.i.i.i35

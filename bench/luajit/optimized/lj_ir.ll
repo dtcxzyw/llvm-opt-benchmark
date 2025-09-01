@@ -261,7 +261,7 @@ lj_ir_nextins.exit:                               ; preds = %1, %6
   %14 = load i8, ptr %13, align 1, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw [101 x i16], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 6
   store i16 %18, ptr %19, align 2, !tbaa !33
@@ -296,7 +296,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden i32 @lj_ir_call(ptr noundef initializes((184, 190)) %0, i32 noundef %1, ...) local_unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %struct.CCallInfo, ptr @lj_ir_callinfo, i64 %4, i32 1
   %6 = load i32, ptr %5, align 8, !tbaa !36
   %7 = and i32 %6, 255
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -500,7 +500,7 @@ define hidden i32 @lj_ir_k64(ptr noundef captures(none) %0, i32 noundef %1, i64 
   %7 = select i1 %6, i32 14, i32 21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw [101 x i16], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
   %.0.in27 = load i16, ptr %10, align 2, !tbaa !33
   %.not28 = icmp eq i16 %.0.in27, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -959,7 +959,7 @@ define hidden i32 @lj_ir_kptr_(ptr noundef captures(none) %0, i32 noundef %1, pt
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [101 x i16], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i16, ptr %6, i64 %7
   %.0.in24 = load i16, ptr %8, align 2, !tbaa !33
   %.not25 = icmp eq i16 %.0.in24, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
@@ -1469,7 +1469,7 @@ define hidden void @lj_ir_rollback(ptr noundef captures(none) %0, i32 noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 5
   %17 = load i8, ptr %16, align 1, !tbaa !33
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [101 x i16], ptr %8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i16, ptr %8, i64 %18
   store i16 %15, ptr %19, align 2, !tbaa !34
   %.wide = icmp ugt i64 %12, %10
   br i1 %.wide, label %11, label %._crit_edge.loopexit, !llvm.loop !54

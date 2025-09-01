@@ -236,7 +236,7 @@ define internal range(i32 0, 2) i32 @test_qlog_filter(i32 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds [32 x %struct.filter_spec], ptr @filters, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.filter_spec, ptr @filters, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = call i32 @ossl_qlog_set_filter(ptr noundef %4, ptr noundef %9) #6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8

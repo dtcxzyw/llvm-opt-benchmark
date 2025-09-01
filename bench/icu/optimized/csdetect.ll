@@ -844,7 +844,7 @@ _ZN6icu_7726CharsetRecog_IBM420_ar_ltrC2Ev.exit.i: ; preds = %285
 
 323:                                              ; preds = %328, %322
   %indvars.iv.i = phi i64 [ 0, %322 ], [ %indvars.iv.next.i, %328 ]
-  %324 = getelementptr inbounds nuw [28 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+  %324 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %325 = load ptr, ptr %324, align 8, !tbaa !14
   %326 = icmp eq ptr %325, null
   br i1 %326, label %327, label %328

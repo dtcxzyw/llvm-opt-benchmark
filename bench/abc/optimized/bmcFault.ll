@@ -3996,7 +3996,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %148 = sdiv exact i64 %147, 12
   %149 = trunc i64 %148 to i32
   %150 = shl i32 %149, 1
-  %151 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %indvars.iv178
+  %151 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv178
   store i32 %150, ptr %151, align 4, !tbaa !34
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %152 = load i32, ptr %8, align 4, !tbaa !34
@@ -4230,7 +4230,7 @@ Gia_ManAppendCi.exit136:                          ; preds = %.Vec_IntGrow.exit10
   %277 = sdiv exact i64 %276, 12
   %278 = trunc i64 %277 to i32
   %279 = shl i32 %278, 1
-  %280 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %indvars.iv184
+  %280 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv184
   store i32 %279, ptr %280, align 4, !tbaa !34
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %281 = load i32, ptr %8, align 4, !tbaa !34

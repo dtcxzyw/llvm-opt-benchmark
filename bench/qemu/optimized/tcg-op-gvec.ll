@@ -4381,7 +4381,7 @@ simd_desc.exit:                                   ; preds = %118, %119
 
 161:                                              ; preds = %160
   %162 = zext nneg i32 %.0149196 to i64
-  %163 = getelementptr inbounds nuw [3 x ptr], ptr @do_dup.fns, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw ptr, ptr @do_dup.fns, i64 %162
   %164 = load ptr, ptr %163, align 8
   tail call void %164(ptr noundef %79, ptr noundef %136, ptr noundef nonnull %.tr219270392) #10
   br label %180
@@ -4393,7 +4393,7 @@ simd_desc.exit:                                   ; preds = %118, %119
   %167 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_extrl_i64_i32(ptr noundef %167, ptr noundef nonnull %.tr220271391) #10
   %168 = zext nneg i32 %.0149196 to i64
-  %169 = getelementptr inbounds nuw [3 x ptr], ptr @do_dup.fns, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr @do_dup.fns, i64 %168
   %170 = load ptr, ptr %169, align 8
   tail call void %170(ptr noundef %79, ptr noundef %136, ptr noundef %167) #10
   tail call void @tcg_temp_free_i32(ptr noundef %167) #10
@@ -4408,7 +4408,7 @@ simd_desc.exit:                                   ; preds = %118, %119
   %175 = trunc i64 %.1155 to i32
   %176 = tail call ptr @tcg_constant_i32(i32 noundef %175) #10
   %177 = zext nneg i32 %.0149196 to i64
-  %178 = getelementptr inbounds nuw [3 x ptr], ptr @do_dup.fns, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw ptr, ptr @do_dup.fns, i64 %177
   %179 = load ptr, ptr %178, align 8
   tail call void %179(ptr noundef %79, ptr noundef %136, ptr noundef %176) #10
   br label %180
@@ -4700,7 +4700,7 @@ check_size_align.exit:                            ; preds = %7, %9
 117:                                              ; preds = %116, %117
   %indvars.iv = phi i64 [ 0, %116 ], [ %indvars.iv.next, %117 ]
   %118 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  %119 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %118, ptr %119, align 8
   %120 = load ptr, ptr @tcg_env, align 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -4725,7 +4725,7 @@ check_size_align.exit:                            ; preds = %7, %9
 
 129:                                              ; preds = %.preheader141, %129
   %indvars.iv157 = phi i64 [ 0, %.preheader141 ], [ %indvars.iv.next158, %129 ]
-  %130 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv157
+  %130 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv157
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr @tcg_env, align 8
   %indvars.iv157.tr = trunc i64 %indvars.iv157 to i32
@@ -4747,7 +4747,7 @@ check_size_align.exit:                            ; preds = %7, %9
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.preheader ], [ 0, %.preheader.preheader ]
-  %139 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv161
+  %139 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv161
   %140 = load ptr, ptr %139, align 8
   tail call void @tcg_temp_free_i64(ptr noundef %140) #10
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
@@ -5038,7 +5038,7 @@ define dso_local void @tcg_gen_gvec_add(i32 noundef %0, i32 noundef %1, i32 noun
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_add.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_add.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -5118,7 +5118,7 @@ define dso_local void @tcg_gen_gvec_adds(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen2s], ptr @tcg_gen_gvec_adds.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen2s, ptr @tcg_gen_gvec_adds.g, i64 %8
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %3, ptr noundef nonnull %9)
   ret void
 }
@@ -5197,7 +5197,7 @@ define dso_local void @tcg_gen_gvec_addi(i32 noundef %0, i32 noundef %1, i32 nou
   %8 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %8)
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr inbounds nuw [4 x %struct.GVecGen2s], ptr @tcg_gen_gvec_adds.g, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.GVecGen2s, ptr @tcg_gen_gvec_adds.g, i64 %9
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull %10)
   ret void
 }
@@ -5207,7 +5207,7 @@ define dso_local void @tcg_gen_gvec_subs(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen2s], ptr @tcg_gen_gvec_subs.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen2s, ptr @tcg_gen_gvec_subs.g, i64 %8
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %3, ptr noundef nonnull %9)
   ret void
 }
@@ -5370,7 +5370,7 @@ define dso_local void @tcg_gen_gvec_sub(i32 noundef %0, i32 noundef %1, i32 noun
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_sub.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_sub.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -5448,7 +5448,7 @@ define dso_local void @tcg_gen_gvec_mul(i32 noundef %0, i32 noundef %1, i32 noun
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_mul.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_mul.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -5532,7 +5532,7 @@ define dso_local void @tcg_gen_gvec_muls(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen2s], ptr @tcg_gen_gvec_muls.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen2s, ptr @tcg_gen_gvec_muls.g, i64 %8
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %3, ptr noundef nonnull %9)
   ret void
 }
@@ -5611,7 +5611,7 @@ define dso_local void @tcg_gen_gvec_muli(i32 noundef %0, i32 noundef %1, i32 nou
   %8 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %8)
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr inbounds nuw [4 x %struct.GVecGen2s], ptr @tcg_gen_gvec_muls.g, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.GVecGen2s, ptr @tcg_gen_gvec_muls.g, i64 %9
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull %10)
   ret void
 }
@@ -5621,7 +5621,7 @@ define dso_local void @tcg_gen_gvec_ssadd(i32 noundef %0, i32 noundef %1, i32 no
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_ssadd.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_ssadd.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -5701,7 +5701,7 @@ define dso_local void @tcg_gen_gvec_sssub(i32 noundef %0, i32 noundef %1, i32 no
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_sssub.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_sssub.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -5781,7 +5781,7 @@ define dso_local void @tcg_gen_gvec_usadd(i32 noundef %0, i32 noundef %1, i32 no
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_usadd.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_usadd.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -5877,7 +5877,7 @@ define dso_local void @tcg_gen_gvec_ussub(i32 noundef %0, i32 noundef %1, i32 no
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_ussub.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_ussub.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -5973,7 +5973,7 @@ define dso_local void @tcg_gen_gvec_smin(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_smin.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_smin.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -6057,7 +6057,7 @@ define dso_local void @tcg_gen_gvec_umin(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_umin.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_umin.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -6141,7 +6141,7 @@ define dso_local void @tcg_gen_gvec_smax(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_smax.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_smax.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -6225,7 +6225,7 @@ define dso_local void @tcg_gen_gvec_umax(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_umax.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_umax.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -6352,7 +6352,7 @@ define dso_local void @tcg_gen_gvec_neg(i32 noundef %0, i32 noundef %1, i32 noun
   %6 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %6)
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [4 x %struct.GVecGen2], ptr @tcg_gen_gvec_neg.g, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.GVecGen2, ptr @tcg_gen_gvec_neg.g, i64 %7
   tail call void @tcg_gen_gvec_2(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %8)
   ret void
 }
@@ -6426,7 +6426,7 @@ define dso_local void @tcg_gen_gvec_abs(i32 noundef %0, i32 noundef %1, i32 noun
   %6 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %6)
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [4 x %struct.GVecGen2], ptr @tcg_gen_gvec_abs.g, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.GVecGen2, ptr @tcg_gen_gvec_abs.g, i64 %7
   tail call void @tcg_gen_gvec_2(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %8)
   ret void
 }
@@ -7283,7 +7283,7 @@ check_size_align.exit.i:                          ; preds = %18, %16
 
 31:                                               ; preds = %6
   %32 = zext nneg i32 %0 to i64
-  %33 = getelementptr inbounds nuw [4 x %struct.GVecGen2i], ptr @tcg_gen_gvec_shli.g, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %struct.GVecGen2i, ptr @tcg_gen_gvec_shli.g, i64 %32
   tail call void @tcg_gen_gvec_2i(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i64 noundef %3, ptr noundef nonnull %33)
   br label %tcg_gen_gvec_mov.exit
 
@@ -7457,7 +7457,7 @@ check_size_align.exit.i:                          ; preds = %18, %16
 
 31:                                               ; preds = %6
   %32 = zext nneg i32 %0 to i64
-  %33 = getelementptr inbounds nuw [4 x %struct.GVecGen2i], ptr @tcg_gen_gvec_shri.g, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %struct.GVecGen2i, ptr @tcg_gen_gvec_shri.g, i64 %32
   tail call void @tcg_gen_gvec_2i(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i64 noundef %3, ptr noundef nonnull %33)
   br label %tcg_gen_gvec_mov.exit
 
@@ -7667,7 +7667,7 @@ check_size_align.exit.i:                          ; preds = %18, %16
 
 31:                                               ; preds = %6
   %32 = zext nneg i32 %0 to i64
-  %33 = getelementptr inbounds nuw [4 x %struct.GVecGen2i], ptr @tcg_gen_gvec_sari.g, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %struct.GVecGen2i, ptr @tcg_gen_gvec_sari.g, i64 %32
   tail call void @tcg_gen_gvec_2i(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i64 noundef %3, ptr noundef nonnull %33)
   br label %tcg_gen_gvec_mov.exit
 
@@ -7835,7 +7835,7 @@ check_size_align.exit.i:                          ; preds = %18, %16
 
 31:                                               ; preds = %6
   %32 = zext nneg i32 %0 to i64
-  %33 = getelementptr inbounds nuw [4 x %struct.GVecGen2i], ptr @tcg_gen_gvec_rotli.g, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %struct.GVecGen2i, ptr @tcg_gen_gvec_rotli.g, i64 %32
   tail call void @tcg_gen_gvec_2i(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i64 noundef %3, ptr noundef nonnull %33)
   br label %tcg_gen_gvec_mov.exit
 
@@ -7975,7 +7975,7 @@ check_size_align.exit.i.i:                        ; preds = %23, %21
 
 36:                                               ; preds = %6
   %37 = zext nneg i32 %0 to i64
-  %38 = getelementptr inbounds nuw [4 x %struct.GVecGen2i], ptr @tcg_gen_gvec_rotli.g, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %struct.GVecGen2i, ptr @tcg_gen_gvec_rotli.g, i64 %37
   tail call void @tcg_gen_gvec_2i(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i64 noundef %14, ptr noundef nonnull %38)
   br label %tcg_gen_gvec_rotli.exit
 
@@ -8399,7 +8399,7 @@ simd_desc.exit:                                   ; preds = %172, %174
   tail call void @tcg_gen_addi_i64(ptr noundef %170, ptr noundef %188, i64 noundef range(i64 0, 4294967296) %189) #10
   %190 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %191 = zext nneg i32 %0 to i64
-  %192 = getelementptr inbounds nuw [4 x ptr], ptr %190, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw ptr, ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8
   tail call void %193(ptr noundef %169, ptr noundef %170, ptr noundef %171) #10
   tail call void @tcg_temp_free_ptr(ptr noundef %169) #10
@@ -8491,7 +8491,7 @@ define dso_local void @tcg_gen_gvec_shlv(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_shlv.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_shlv.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -8600,7 +8600,7 @@ define dso_local void @tcg_gen_gvec_shrv(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_shrv.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_shrv.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -8709,7 +8709,7 @@ define dso_local void @tcg_gen_gvec_sarv(i32 noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_sarv.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_sarv.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -8818,7 +8818,7 @@ define dso_local void @tcg_gen_gvec_rotlv(i32 noundef %0, i32 noundef %1, i32 no
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_rotlv.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_rotlv.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -8927,7 +8927,7 @@ define dso_local void @tcg_gen_gvec_rotrv(i32 noundef %0, i32 noundef %1, i32 no
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.GVecGen3], ptr @tcg_gen_gvec_rotrv.g, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.GVecGen3, ptr @tcg_gen_gvec_rotrv.g, i64 %8
   tail call void @tcg_gen_gvec_3(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
 }
@@ -9256,7 +9256,7 @@ expand_cmp_i32.exit:                              ; preds = %.lr.ph.i108
   %.193 = phi i32 [ %3, %.thread ], [ %4, %94 ]
   %.191 = phi i32 [ %4, %.thread ], [ %3, %94 ]
   %.pn = phi i64 [ %91, %.thread ], [ %98, %94 ]
-  %.0.in = getelementptr inbounds nuw [16 x ptr], ptr @tcg_gen_gvec_cmp.fns, i64 0, i64 %.pn
+  %.0.in = getelementptr inbounds nuw ptr, ptr @tcg_gen_gvec_cmp.fns, i64 %.pn
   %.0 = load ptr, ptr %.0.in, align 8
   %102 = zext i32 %1 to i64
   %103 = getelementptr inbounds nuw ptr, ptr %.0, i64 %102
@@ -9991,7 +9991,7 @@ check_size_impl.exit138:                          ; preds = %94
 
 119:                                              ; preds = %113, %.thread
   %.pn = phi i64 [ %110, %.thread ], [ %115, %113 ]
-  %.0107.in = getelementptr inbounds nuw [16 x ptr], ptr @tcg_gen_gvec_cmps.fns, i64 0, i64 %.pn
+  %.0107.in = getelementptr inbounds nuw ptr, ptr @tcg_gen_gvec_cmps.fns, i64 %.pn
   %.0107 = load ptr, ptr %.0107.in, align 8
   %120 = zext i1 %.not124 to i32
   %121 = zext i32 %1 to i64

@@ -752,7 +752,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 55:                                               ; preds = %.lr.ph, %_ZN26collect_uninterp_consts_ns4procclEP3app.exit
   %56 = phi i32 [ %52, %.lr.ph ], [ %134, %_ZN26collect_uninterp_consts_ns4procclEP3app.exit ]
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !38
   %60 = add nuw i32 %56, 1
   store i32 %60, ptr %51, align 8, !tbaa !97
@@ -1690,7 +1690,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 62:                                               ; preds = %.lr.ph, %140
   %63 = phi i32 [ %59, %.lr.ph ], [ %141, %140 ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !38
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !97
@@ -2411,7 +2411,7 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %_ZNK17array_recogni
   %76 = add i32 %75, -1
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw [0 x ptr], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !38
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4

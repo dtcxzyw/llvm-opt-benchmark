@@ -1662,7 +1662,7 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
   br i1 %.not.i, label %._crit_edge.i, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw [512 x i8], ptr %11, i64 0, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 %19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i16, ptr %23, align 8, !tbaa !54
   %25 = zext i16 %24 to i64
@@ -1694,7 +1694,7 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
 sub_0:                                            ; preds = %._crit_edge.i, %32
   %34 = phi i64 [ %27, %._crit_edge.i ], [ 0, %32 ]
   %35 = phi i64 [ %20, %._crit_edge.i ], [ %33, %32 ]
-  %36 = getelementptr inbounds nuw [512 x i8], ptr %11, i64 0, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 19
   %38 = load i8, ptr %37, align 1
   %.not19 = icmp eq i8 %38, 46

@@ -111,7 +111,7 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not72, label %52, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1, !tbaa !16
   %51 = getelementptr inbounds nuw i8, ptr %.257, i64 1
   store i8 %50, ptr %.257, align 1, !tbaa !16
@@ -154,7 +154,7 @@ define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr no
 
 61:                                               ; preds = %60
   %62 = zext i32 %.3 to i64
-  %63 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %.253, i64 1
   store i8 %64, ptr %.253, align 1, !tbaa !16

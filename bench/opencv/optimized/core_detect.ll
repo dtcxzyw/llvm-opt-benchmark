@@ -268,7 +268,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
 80:                                               ; preds = %.lr.ph280, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit
   %81 = phi ptr [ %.pre301, %.lr.ph280 ], [ %110, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
   %.042279 = phi i64 [ 0, %.lr.ph280 ], [ %111, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
-  %82 = getelementptr inbounds nuw [9 x [2 x double]], ptr @__const.InferBbox.arr, i64 0, i64 %.042279
+  %82 = getelementptr inbounds nuw [2 x double], ptr @__const.InferBbox.arr, i64 %.042279
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load double, ptr %83, align 8, !tbaa !58
   %85 = load double, ptr %82, align 16, !tbaa !58
@@ -756,7 +756,7 @@ _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit132: ; preds = %_ZNSt6vector
 
 298:                                              ; preds = %.lr.ph290, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   %.0289 = phi i64 [ 0, %.lr.ph290 ], [ %321, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
-  %299 = getelementptr inbounds nuw [20 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.0289
+  %299 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.0289
   %300 = load ptr, ptr %270, align 8, !tbaa !82
   %301 = load ptr, ptr %271, align 8, !tbaa !83
   %.not.i = icmp eq ptr %300, %301

@@ -179,7 +179,7 @@ _ZN6vectorIcLb0EjE9push_backERKc.exit:            ; preds = %10, %16
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %62 = zext i32 %56 to i64
-  %63 = getelementptr inbounds nuw [1024 x i8], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !24
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %64, ptr %65, align 8, !tbaa !28
@@ -766,7 +766,7 @@ _ZN6vectorIcLb0EjE9push_backERKc.exit.i:          ; preds = %129, %123
 
 167:                                              ; preds = %163
   %168 = zext i32 %164 to i64
-  %169 = getelementptr inbounds nuw [1024 x i8], ptr %20, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %20, i64 %168
   %170 = load i8, ptr %169, align 1, !tbaa !24
   store i8 %170, ptr %8, align 8, !tbaa !28
   %171 = add nuw i32 %164, 1
@@ -889,7 +889,7 @@ define hidden noundef range(i32 4, 10) i32 @_ZN4smt27scanner16read_symbol_coreEv
 9:                                                ; preds = %.lr.ph, %.backedge
   %10 = load i8, ptr %5, align 8, !tbaa !28
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !24
   switch i8 %13, label %32 [
     i8 97, label %14
@@ -3336,7 +3336,7 @@ define hidden void @_ZN4smt27scannerC2ER11cmd_contextRSib(ptr noundef nonnull al
 48:                                               ; preds = %4, %48
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %48 ]
   %49 = trunc i64 %indvars.iv to i8
-  %50 = getelementptr inbounds nuw [256 x i8], ptr %30, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv
   store i8 %49, ptr %50, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -3402,7 +3402,7 @@ define hidden noundef range(i32 1, 10) i32 @_ZN4smt27scanner4scanEv(ptr noundef 
 15:                                               ; preds = %.lr.ph, %_ZN4smt27scanner18read_signed_numberEv.exit
   %16 = phi i8 [ %9, %.lr.ph ], [ %161, %_ZN4smt27scanner18read_signed_numberEv.exit ]
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !24
   switch i8 %19, label %126 [
     i8 32, label %20

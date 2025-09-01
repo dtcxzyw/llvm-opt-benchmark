@@ -6000,7 +6000,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 78:                                               ; preds = %.lr.ph, %209
   %79 = phi i32 [ %75, %.lr.ph ], [ %210, %209 ]
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [0 x ptr], ptr %77, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %77, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !116
   %83 = add nuw i32 %79, 1
   store i32 %83, ptr %74, align 8, !tbaa !263

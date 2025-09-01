@@ -250,103 +250,97 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %15 = fmul float %14, 0x400921FB60000000
   %16 = fmul float %15, 2.000000e+00
   %17 = tail call noundef float @cosf(float noundef %16) #15
-  %18 = shl nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %18
-  store float %17, ptr %19, align 8
-  %20 = tail call noundef float @sinf(float noundef %16) #15
-  %21 = or disjoint i64 %18, 1
-  %22 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %21
-  store float %20, ptr %22, align 4
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %18 = getelementptr inbounds nuw i8, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %.idx
+  store float %17, ptr %18, align 8
+  %19 = tail call noundef float @sinf(float noundef %16) #15
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store float %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit78, label %11, !llvm.loop !4
 
 .loopexit78:                                      ; preds = %11, %9
-  %23 = fadd float %1, %4
+  %21 = fadd float %1, %4
+  %22 = fmul float %21, 5.000000e-01
+  %23 = fadd float %3, %6
   %24 = fmul float %23, 5.000000e-01
-  %25 = fadd float %3, %6
+  %25 = fsub float %4, %1
   %26 = fmul float %25, 5.000000e-01
-  %27 = fsub float %4, %1
+  %27 = fsub float %6, %3
   %28 = fmul float %27, 5.000000e-01
-  %29 = fsub float %6, %3
-  %30 = fmul float %29, 5.000000e-01
-  br label %31
+  br label %29
 
-31:                                               ; preds = %.loopexit78, %31
-  %indvars.iv84 = phi i64 [ 0, %.loopexit78 ], [ %indvars.iv.next85, %31 ]
-  %.07381 = phi i32 [ 15, %.loopexit78 ], [ %70, %31 ]
-  %32 = shl nuw nsw i32 %.07381, 1
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %33
-  %35 = load float, ptr %34, align 8
-  %36 = tail call float @llvm.fmuladd.f32(float %35, float %28, float %24)
-  %37 = or disjoint i32 %32, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %38
-  %40 = load float, ptr %39, align 4
-  %41 = tail call float @llvm.fmuladd.f32(float %40, float %30, float %26)
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %36, float noundef %2, float noundef %41, i32 noundef %7)
-  %45 = shl nuw nsw i64 %indvars.iv84, 1
-  %46 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %45
-  %47 = load float, ptr %46, align 8
-  %48 = tail call float @llvm.fmuladd.f32(float %47, float %28, float %24)
-  %49 = or disjoint i64 %45, 1
-  %50 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %49
-  %51 = load float, ptr %50, align 4
-  %52 = tail call float @llvm.fmuladd.f32(float %51, float %30, float %26)
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %48, float noundef %2, float noundef %52, i32 noundef %7)
-  %56 = load float, ptr %34, align 8
-  %57 = tail call float @llvm.fmuladd.f32(float %56, float %28, float %24)
-  %58 = load float, ptr %39, align 4
-  %59 = tail call float @llvm.fmuladd.f32(float %58, float %30, float %26)
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %57, float noundef %5, float noundef %59, i32 noundef %7)
-  %63 = load float, ptr %46, align 8
-  %64 = tail call float @llvm.fmuladd.f32(float %63, float %28, float %24)
-  %65 = load float, ptr %50, align 4
-  %66 = tail call float @llvm.fmuladd.f32(float %65, float %30, float %26)
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %64, float noundef %5, float noundef %66, i32 noundef %7)
+29:                                               ; preds = %.loopexit78, %29
+  %indvars.iv84 = phi i64 [ 0, %.loopexit78 ], [ %indvars.iv.next85, %29 ]
+  %.07381 = phi i64 [ 15, %.loopexit78 ], [ %indvars.iv84, %29 ]
+  %30 = shl nuw i64 %.07381, 1
+  %31 = and i64 %30, 4294967294
+  %32 = getelementptr inbounds nuw float, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %31
+  %33 = load float, ptr %32, align 8
+  %34 = tail call float @llvm.fmuladd.f32(float %33, float %26, float %22)
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %36 = load float, ptr %35, align 4
+  %37 = tail call float @llvm.fmuladd.f32(float %36, float %28, float %24)
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %40 = load ptr, ptr %39, align 8
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %34, float noundef %2, float noundef %37, i32 noundef %7)
+  %.idx91 = shl nuw nsw i64 %indvars.iv84, 3
+  %41 = getelementptr inbounds nuw i8, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %.idx91
+  %42 = load float, ptr %41, align 8
+  %43 = tail call float @llvm.fmuladd.f32(float %42, float %26, float %22)
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %45 = load float, ptr %44, align 4
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float %28, float %24)
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %43, float noundef %2, float noundef %46, i32 noundef %7)
+  %50 = load float, ptr %32, align 8
+  %51 = tail call float @llvm.fmuladd.f32(float %50, float %26, float %22)
+  %52 = load float, ptr %35, align 4
+  %53 = tail call float @llvm.fmuladd.f32(float %52, float %28, float %24)
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %51, float noundef %5, float noundef %53, i32 noundef %7)
+  %57 = load float, ptr %41, align 8
+  %58 = tail call float @llvm.fmuladd.f32(float %57, float %26, float %22)
+  %59 = load float, ptr %44, align 4
+  %60 = tail call float @llvm.fmuladd.f32(float %59, float %28, float %24)
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %58, float noundef %5, float noundef %60, i32 noundef %7)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %70 = trunc nuw nsw i64 %indvars.iv84 to i32
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 16
-  br i1 %exitcond87.not, label %.preheader, label %31, !llvm.loop !6
+  br i1 %exitcond87.not, label %.preheader, label %29, !llvm.loop !6
 
-.preheader:                                       ; preds = %31, %.preheader
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader ], [ 0, %31 ]
-  %71 = shl nuw nsw i64 %indvars.iv88, 1
-  %72 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %71
-  %73 = load float, ptr %72, align 16
-  %74 = tail call float @llvm.fmuladd.f32(float %73, float %28, float %24)
-  %75 = or disjoint i64 %71, 1
-  %76 = getelementptr inbounds nuw [32 x float], ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 0, i64 %75
-  %77 = load float, ptr %76, align 4
-  %78 = tail call float @llvm.fmuladd.f32(float %77, float %30, float %26)
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %74, float noundef %2, float noundef %78, i32 noundef %7)
-  %82 = load float, ptr %72, align 16
-  %83 = tail call float @llvm.fmuladd.f32(float %82, float %28, float %24)
-  %84 = load float, ptr %76, align 4
-  %85 = tail call float @llvm.fmuladd.f32(float %84, float %30, float %26)
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8
-  tail call void %88(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %83, float noundef %5, float noundef %85, i32 noundef %7)
+.preheader:                                       ; preds = %29, %.preheader
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader ], [ 0, %29 ]
+  %.idx92 = shl nuw nsw i64 %indvars.iv88, 3
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZ20duAppendCylinderWireP11duDebugDrawffffffjE3dir, i64 %.idx92
+  %65 = load float, ptr %64, align 16
+  %66 = tail call float @llvm.fmuladd.f32(float %65, float %26, float %22)
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %68 = load float, ptr %67, align 4
+  %69 = tail call float @llvm.fmuladd.f32(float %68, float %28, float %24)
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %66, float noundef %2, float noundef %69, i32 noundef %7)
+  %73 = load float, ptr %64, align 16
+  %74 = tail call float @llvm.fmuladd.f32(float %73, float %26, float %22)
+  %75 = load float, ptr %67, align 4
+  %76 = tail call float @llvm.fmuladd.f32(float %75, float %28, float %24)
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %79 = load ptr, ptr %78, align 8
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %74, float noundef %5, float noundef %76, i32 noundef %7)
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
-  %89 = icmp samesign ult i64 %indvars.iv88, 12
-  br i1 %89, label %.preheader, label %.loopexit, !llvm.loop !7
+  %80 = icmp samesign ult i64 %indvars.iv88, 12
+  br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %8
   ret void
@@ -712,7 +706,7 @@ define void @_Z13duAppendArrowP11duDebugDrawffffffffj(ptr noundef %0, float noun
 ; Function Attrs: mustprogress uwtable
 define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %53, label %8
+  br i1 %.not, label %46, label %8
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr %0, align 8
@@ -734,13 +728,12 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   %17 = fmul float %16, 0x400921FB60000000
   %18 = fmul float %17, 2.000000e+00
   %19 = tail call float @cosf(float noundef %18) #15
-  %20 = shl nuw nsw i64 %indvars.iv.i, 1
-  %21 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %20
-  store float %19, ptr %21, align 8
-  %22 = tail call float @sinf(float noundef %18) #15
-  %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %23
-  store float %22, ptr %24, align 4
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %20 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx.i
+  store float %19, ptr %20, align 8
+  %21 = tail call float @sinf(float noundef %18) #15
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store float %21, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
   br i1 %exitcond.not.i, label %.loopexit31.i.preheader, label %13, !llvm.loop !9
@@ -750,46 +743,42 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
 
 .loopexit31.i:                                    ; preds = %.loopexit31.i.preheader, %.loopexit31.i
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %.loopexit31.i ], [ 0, %.loopexit31.i.preheader ]
-  %.034.i = phi i32 [ %49, %.loopexit31.i ], [ 39, %.loopexit31.i.preheader ]
-  %25 = shl nuw nsw i32 %.034.i, 1
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %26
-  %28 = load float, ptr %27, align 8
-  %29 = tail call float @llvm.fmuladd.f32(float %28, float %4, float %1)
-  %30 = or disjoint i32 %25, 1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %31
-  %33 = load float, ptr %32, align 4
-  %34 = tail call float @llvm.fmuladd.f32(float %33, float %4, float %3)
-  %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %29, float noundef %2, float noundef %34, i32 noundef %5)
-  %38 = shl nuw nsw i64 %indvars.iv36.i, 1
-  %39 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %38
-  %40 = load float, ptr %39, align 8
-  %41 = tail call float @llvm.fmuladd.f32(float %40, float %4, float %1)
-  %42 = or disjoint i64 %38, 1
-  %43 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %42
-  %44 = load float, ptr %43, align 4
-  %45 = tail call float @llvm.fmuladd.f32(float %44, float %4, float %3)
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %41, float noundef %2, float noundef %45, i32 noundef %5)
+  %.034.i = phi i64 [ %indvars.iv36.i, %.loopexit31.i ], [ 39, %.loopexit31.i.preheader ]
+  %23 = shl nuw i64 %.034.i, 1
+  %24 = and i64 %23, 4294967294
+  %25 = getelementptr inbounds nuw float, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %24
+  %26 = load float, ptr %25, align 8
+  %27 = tail call float @llvm.fmuladd.f32(float %26, float %4, float %1)
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %29 = load float, ptr %28, align 4
+  %30 = tail call float @llvm.fmuladd.f32(float %29, float %4, float %3)
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %27, float noundef %2, float noundef %30, i32 noundef %5)
+  %.idx40.i = shl nuw nsw i64 %indvars.iv36.i, 3
+  %34 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx40.i
+  %35 = load float, ptr %34, align 8
+  %36 = tail call float @llvm.fmuladd.f32(float %35, float %4, float %1)
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %38 = load float, ptr %37, align 4
+  %39 = tail call float @llvm.fmuladd.f32(float %38, float %4, float %3)
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  %42 = load ptr, ptr %41, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %36, float noundef %2, float noundef %39, i32 noundef %5)
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %49 = trunc nuw nsw i64 %indvars.iv36.i to i32
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 40
   br i1 %exitcond39.not.i, label %_Z14duAppendCircleP11duDebugDrawffffj.exit, label %.loopexit31.i, !llvm.loop !10
 
 _Z14duAppendCircleP11duDebugDrawffffj.exit:       ; preds = %.loopexit31.i
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %53
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br label %46
 
-53:                                               ; preds = %7, %_Z14duAppendCircleP11duDebugDrawffffj.exit
+46:                                               ; preds = %7, %_Z14duAppendCircleP11duDebugDrawffffj.exit
   ret void
 }
 
@@ -814,13 +803,12 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   %13 = fmul float %12, 0x400921FB60000000
   %14 = fmul float %13, 2.000000e+00
   %15 = tail call float @cosf(float noundef %14) #15
-  %16 = shl nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %16
-  store float %15, ptr %17, align 8
-  %18 = tail call float @sinf(float noundef %14) #15
-  %19 = or disjoint i64 %16, 1
-  %20 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %19
-  store float %18, ptr %20, align 4
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %16 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx
+  store float %15, ptr %16, align 8
+  %17 = tail call float @sinf(float noundef %14) #15
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store float %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
   br i1 %exitcond.not, label %.loopexit31.preheader, label %9, !llvm.loop !9
@@ -830,35 +818,31 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
 
 .loopexit31:                                      ; preds = %.loopexit31.preheader, %.loopexit31
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.loopexit31 ], [ 0, %.loopexit31.preheader ]
-  %.034 = phi i32 [ %45, %.loopexit31 ], [ 39, %.loopexit31.preheader ]
-  %21 = shl nuw nsw i32 %.034, 1
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %22
-  %24 = load float, ptr %23, align 8
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float %4, float %1)
-  %26 = or disjoint i32 %21, 1
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %27
-  %29 = load float, ptr %28, align 4
-  %30 = tail call float @llvm.fmuladd.f32(float %29, float %4, float %3)
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %25, float noundef %2, float noundef %30, i32 noundef %5)
-  %34 = shl nuw nsw i64 %indvars.iv36, 1
-  %35 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %34
-  %36 = load float, ptr %35, align 8
-  %37 = tail call float @llvm.fmuladd.f32(float %36, float %4, float %1)
-  %38 = or disjoint i64 %34, 1
-  %39 = getelementptr inbounds nuw [80 x float], ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 0, i64 %38
-  %40 = load float, ptr %39, align 4
-  %41 = tail call float @llvm.fmuladd.f32(float %40, float %4, float %3)
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %37, float noundef %2, float noundef %41, i32 noundef %5)
+  %.034 = phi i64 [ %indvars.iv36, %.loopexit31 ], [ 39, %.loopexit31.preheader ]
+  %19 = shl nuw i64 %.034, 1
+  %20 = and i64 %19, 4294967294
+  %21 = getelementptr inbounds nuw float, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %20
+  %22 = load float, ptr %21, align 8
+  %23 = tail call float @llvm.fmuladd.f32(float %22, float %4, float %1)
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %25 = load float, ptr %24, align 4
+  %26 = tail call float @llvm.fmuladd.f32(float %25, float %4, float %3)
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %23, float noundef %2, float noundef %26, i32 noundef %5)
+  %.idx40 = shl nuw nsw i64 %indvars.iv36, 3
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZ14duAppendCircleP11duDebugDrawffffjE3dir, i64 %.idx40
+  %31 = load float, ptr %30, align 8
+  %32 = tail call float @llvm.fmuladd.f32(float %31, float %4, float %1)
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %34 = load float, ptr %33, align 4
+  %35 = tail call float @llvm.fmuladd.f32(float %34, float %4, float %3)
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %32, float noundef %2, float noundef %35, i32 noundef %5)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %45 = trunc nuw nsw i64 %indvars.iv36 to i32
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 40
   br i1 %exitcond39.not, label %.loopexit, label %.loopexit31, !llvm.loop !10
 
@@ -1037,48 +1021,48 @@ define void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef %0, float nounde
 
 34:                                               ; preds = %10, %34
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %34 ]
-  %.04648 = phi ptr [ @_ZZ11duAppendBoxP11duDebugDrawffffffPKjE4inds, %10 ], [ %71, %34 ]
-  %35 = load i8, ptr %.04648, align 1
+  %.04651 = phi ptr [ @_ZZ11duAppendBoxP11duDebugDrawffffffPKjE4inds, %10 ], [ %67, %34 ]
+  %35 = load i8, ptr %.04651, align 1
   %36 = zext i8 %35 to i64
-  %37 = mul nuw nsw i64 %36, 3
-  %38 = getelementptr inbounds nuw [24 x float], ptr %9, i64 0, i64 %37
-  %39 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  %40 = load i32, ptr %39, align 4
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %38, i32 noundef %40)
-  %44 = getelementptr inbounds nuw i8, ptr %.04648, i64 1
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i64
-  %47 = mul nuw nsw i64 %46, 3
-  %48 = getelementptr inbounds nuw [24 x float], ptr %9, i64 0, i64 %47
-  %49 = load i32, ptr %39, align 4
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %48, i32 noundef %49)
-  %53 = getelementptr inbounds nuw i8, ptr %.04648, i64 2
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i64
-  %56 = mul nuw nsw i64 %55, 3
-  %57 = getelementptr inbounds nuw [24 x float], ptr %9, i64 0, i64 %56
-  %58 = load i32, ptr %39, align 4
-  %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %57, i32 noundef %58)
-  %62 = getelementptr inbounds nuw i8, ptr %.04648, i64 3
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i64
-  %65 = mul nuw nsw i64 %64, 3
-  %66 = getelementptr inbounds nuw [24 x float], ptr %9, i64 0, i64 %65
-  %67 = load i32, ptr %39, align 4
-  %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %66, i32 noundef %67)
-  %71 = getelementptr inbounds nuw i8, ptr %.04648, i64 4
+  %.idx = mul nuw nsw i64 %36, 12
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %39 = load i32, ptr %38, align 4
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load ptr, ptr %41, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %37, i32 noundef %39)
+  %43 = getelementptr inbounds nuw i8, ptr %.04651, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i64
+  %.idx48 = mul nuw nsw i64 %45, 12
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx48
+  %47 = load i32, ptr %38, align 4
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %50 = load ptr, ptr %49, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %46, i32 noundef %47)
+  %51 = getelementptr inbounds nuw i8, ptr %.04651, i64 2
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i64
+  %.idx49 = mul nuw nsw i64 %53, 12
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx49
+  %55 = load i32, ptr %38, align 4
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %54, i32 noundef %55)
+  %59 = getelementptr inbounds nuw i8, ptr %.04651, i64 3
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i64
+  %.idx50 = mul nuw nsw i64 %61, 12
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx50
+  %63 = load i32, ptr %38, align 4
+  %64 = load ptr, ptr %0, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %66 = load ptr, ptr %65, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %62, i32 noundef %63)
+  %67 = getelementptr inbounds nuw i8, ptr %.04651, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !11
@@ -1129,182 +1113,171 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %15 = fmul float %14, 0x400921FB60000000
   %16 = fmul float %15, 2.000000e+00
   %17 = tail call float @cosf(float noundef %16) #15
-  %18 = shl nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %18
-  store float %17, ptr %19, align 8
-  %20 = tail call float @sinf(float noundef %16) #15
-  %21 = or disjoint i64 %18, 1
-  %22 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %21
-  store float %20, ptr %22, align 4
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %18 = getelementptr inbounds nuw i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx
+  store float %17, ptr %18, align 8
+  %19 = tail call float @sinf(float noundef %16) #15
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store float %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit137, label %11, !llvm.loop !12
 
 .loopexit137:                                     ; preds = %11, %9
-  %23 = and i32 %7, 255
-  %24 = lshr i32 %7, 8
+  %21 = and i32 %7, 255
+  %22 = lshr i32 %7, 8
+  %23 = and i32 %22, 255
+  %24 = lshr i32 %7, 16
   %25 = and i32 %24, 255
-  %26 = lshr i32 %7, 16
-  %27 = and i32 %26, 255
-  %28 = and i32 %7, -16777216
+  %26 = and i32 %7, -16777216
+  %27 = mul nuw nsw i32 %21, 160
+  %28 = lshr i32 %27, 8
   %29 = mul nuw nsw i32 %23, 160
-  %30 = lshr i32 %29, 8
-  %31 = mul nuw nsw i32 %25, 160
-  %32 = and i32 %31, 65280
-  %33 = mul nuw nsw i32 %27, 40960
-  %34 = and i32 %33, 16711680
-  %35 = or disjoint i32 %30, %28
-  %36 = or disjoint i32 %35, %32
-  %37 = or disjoint i32 %36, %34
-  %38 = fadd float %1, %4
+  %30 = and i32 %29, 65280
+  %31 = mul nuw nsw i32 %25, 40960
+  %32 = and i32 %31, 16711680
+  %33 = or disjoint i32 %28, %26
+  %34 = or disjoint i32 %33, %30
+  %35 = or disjoint i32 %34, %32
+  %36 = fadd float %1, %4
+  %37 = fmul float %36, 5.000000e-01
+  %38 = fadd float %3, %6
   %39 = fmul float %38, 5.000000e-01
-  %40 = fadd float %3, %6
+  %40 = fsub float %4, %1
   %41 = fmul float %40, 5.000000e-01
-  %42 = fsub float %4, %1
+  %42 = fsub float %6, %3
   %43 = fmul float %42, 5.000000e-01
-  %44 = fsub float %6, %3
-  %45 = fmul float %44, 5.000000e-01
-  br label %46
+  br label %44
 
-46:                                               ; preds = %.loopexit137, %46
-  %indvars.iv144 = phi i64 [ 2, %.loopexit137 ], [ %indvars.iv.next145, %46 ]
-  %47 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
+44:                                               ; preds = %.loopexit137, %44
+  %indvars.iv144 = phi i64 [ 2, %.loopexit137 ], [ %indvars.iv.next145, %44 ]
+  %45 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float %41, float %37)
+  %47 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %43, float %39)
-  %49 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
-  %50 = tail call float @llvm.fmuladd.f32(float %49, float %45, float %41)
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %48, float noundef %2, float noundef %50, i32 noundef %37)
-  %54 = shl nuw nsw i64 %indvars.iv144, 1
-  %55 = add nsw i64 %54, -2
-  %56 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %55
-  %57 = load float, ptr %56, align 8
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %46, float noundef %2, float noundef %48, i32 noundef %35)
+  %.idx156 = shl i64 %indvars.iv144, 3
+  %52 = getelementptr i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx156
+  %53 = getelementptr i8, ptr %52, i64 -8
+  %54 = load float, ptr %53, align 8
+  %55 = tail call float @llvm.fmuladd.f32(float %54, float %41, float %37)
+  %56 = getelementptr i8, ptr %52, i64 -4
+  %57 = load float, ptr %56, align 4
   %58 = tail call float @llvm.fmuladd.f32(float %57, float %43, float %39)
-  %59 = add nsw i64 %54, -1
-  %60 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %59
-  %61 = load float, ptr %60, align 4
-  %62 = tail call float @llvm.fmuladd.f32(float %61, float %45, float %41)
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %58, float noundef %2, float noundef %62, i32 noundef %37)
-  %66 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %54
-  %67 = load float, ptr %66, align 8
-  %68 = tail call float @llvm.fmuladd.f32(float %67, float %43, float %39)
-  %69 = or disjoint i64 %54, 1
-  %70 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %69
-  %71 = load float, ptr %70, align 4
-  %72 = tail call float @llvm.fmuladd.f32(float %71, float %45, float %41)
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %68, float noundef %2, float noundef %72, i32 noundef %37)
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %55, float noundef %2, float noundef %58, i32 noundef %35)
+  %62 = load float, ptr %52, align 8
+  %63 = tail call float @llvm.fmuladd.f32(float %62, float %41, float %37)
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %65 = load float, ptr %64, align 4
+  %66 = tail call float @llvm.fmuladd.f32(float %65, float %43, float %39)
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
+  %69 = load ptr, ptr %68, align 8
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %63, float noundef %2, float noundef %66, i32 noundef %35)
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 16
-  br i1 %exitcond147.not, label %.preheader136, label %46, !llvm.loop !13
+  br i1 %exitcond147.not, label %.preheader136, label %44, !llvm.loop !13
 
-.preheader136:                                    ; preds = %46, %.preheader136
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.preheader136 ], [ 2, %46 ]
-  %76 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
-  %77 = tail call float @llvm.fmuladd.f32(float %76, float %43, float %39)
-  %78 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
-  %79 = tail call float @llvm.fmuladd.f32(float %78, float %45, float %41)
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %77, float noundef %5, float noundef %79, i32 noundef %7)
-  %83 = shl nuw nsw i64 %indvars.iv148, 1
-  %84 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %83
-  %85 = load float, ptr %84, align 8
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float %43, float %39)
-  %87 = or disjoint i64 %83, 1
-  %88 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %87
-  %89 = load float, ptr %88, align 4
-  %90 = tail call float @llvm.fmuladd.f32(float %89, float %45, float %41)
-  %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %86, float noundef %5, float noundef %90, i32 noundef %7)
-  %94 = add nsw i64 %83, -2
-  %95 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %94
-  %96 = load float, ptr %95, align 8
-  %97 = tail call float @llvm.fmuladd.f32(float %96, float %43, float %39)
-  %98 = add nsw i64 %83, -1
-  %99 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %98
-  %100 = load float, ptr %99, align 4
-  %101 = tail call float @llvm.fmuladd.f32(float %100, float %45, float %41)
-  %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %104 = load ptr, ptr %103, align 8
-  tail call void %104(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %97, float noundef %5, float noundef %101, i32 noundef %7)
+.preheader136:                                    ; preds = %44, %.preheader136
+  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.preheader136 ], [ 2, %44 ]
+  %70 = load float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, align 16
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float %41, float %37)
+  %72 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 4), align 4
+  %73 = tail call float @llvm.fmuladd.f32(float %72, float %43, float %39)
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %71, float noundef %5, float noundef %73, i32 noundef %7)
+  %.idx157 = shl i64 %indvars.iv148, 3
+  %77 = getelementptr i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx157
+  %78 = load float, ptr %77, align 8
+  %79 = tail call float @llvm.fmuladd.f32(float %78, float %41, float %37)
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %81 = load float, ptr %80, align 4
+  %82 = tail call float @llvm.fmuladd.f32(float %81, float %43, float %39)
+  %83 = load ptr, ptr %0, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %85 = load ptr, ptr %84, align 8
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %79, float noundef %5, float noundef %82, i32 noundef %7)
+  %86 = getelementptr i8, ptr %77, i64 -8
+  %87 = load float, ptr %86, align 8
+  %88 = tail call float @llvm.fmuladd.f32(float %87, float %41, float %37)
+  %89 = getelementptr i8, ptr %77, i64 -4
+  %90 = load float, ptr %89, align 4
+  %91 = tail call float @llvm.fmuladd.f32(float %90, float %43, float %39)
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  %94 = load ptr, ptr %93, align 8
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %88, float noundef %5, float noundef %91, i32 noundef %7)
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 16
   br i1 %exitcond151.not, label %.preheader, label %.preheader136, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader136, %.preheader
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.preheader ], [ 0, %.preheader136 ]
-  %.0142 = phi i32 [ %157, %.preheader ], [ 15, %.preheader136 ]
-  %105 = shl nuw nsw i64 %indvars.iv152, 1
-  %106 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %105
+  %.0142 = phi i64 [ %indvars.iv152, %.preheader ], [ 15, %.preheader136 ]
+  %.idx158 = shl nuw nsw i64 %indvars.iv152, 3
+  %95 = getelementptr inbounds nuw i8, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %.idx158
+  %96 = load float, ptr %95, align 8
+  %97 = tail call float @llvm.fmuladd.f32(float %96, float %41, float %37)
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  %99 = load float, ptr %98, align 4
+  %100 = tail call float @llvm.fmuladd.f32(float %99, float %43, float %39)
+  %101 = load ptr, ptr %0, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  %103 = load ptr, ptr %102, align 8
+  tail call void %103(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %97, float noundef %2, float noundef %100, i32 noundef %35)
+  %104 = shl nuw i64 %.0142, 1
+  %105 = and i64 %104, 4294967294
+  %106 = getelementptr inbounds nuw float, ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 %105
   %107 = load float, ptr %106, align 8
-  %108 = tail call float @llvm.fmuladd.f32(float %107, float %43, float %39)
-  %109 = or disjoint i64 %105, 1
-  %110 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %109
-  %111 = load float, ptr %110, align 4
-  %112 = tail call float @llvm.fmuladd.f32(float %111, float %45, float %41)
-  %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 48
-  %115 = load ptr, ptr %114, align 8
-  tail call void %115(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %108, float noundef %2, float noundef %112, i32 noundef %37)
-  %116 = shl nuw nsw i32 %.0142, 1
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %117
-  %119 = load float, ptr %118, align 8
-  %120 = tail call float @llvm.fmuladd.f32(float %119, float %43, float %39)
-  %121 = or disjoint i32 %116, 1
-  %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %122
-  %124 = load float, ptr %123, align 4
-  %125 = tail call float @llvm.fmuladd.f32(float %124, float %45, float %41)
+  %108 = tail call float @llvm.fmuladd.f32(float %107, float %41, float %37)
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %110 = load float, ptr %109, align 4
+  %111 = tail call float @llvm.fmuladd.f32(float %110, float %43, float %39)
+  %112 = load ptr, ptr %0, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
+  %114 = load ptr, ptr %113, align 8
+  tail call void %114(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %108, float noundef %2, float noundef %111, i32 noundef %35)
+  %115 = load float, ptr %106, align 8
+  %116 = tail call float @llvm.fmuladd.f32(float %115, float %41, float %37)
+  %117 = load float, ptr %109, align 4
+  %118 = tail call float @llvm.fmuladd.f32(float %117, float %43, float %39)
+  %119 = load ptr, ptr %0, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 48
+  %121 = load ptr, ptr %120, align 8
+  tail call void %121(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %116, float noundef %5, float noundef %118, i32 noundef %7)
+  %122 = load float, ptr %95, align 8
+  %123 = tail call float @llvm.fmuladd.f32(float %122, float %41, float %37)
+  %124 = load float, ptr %98, align 4
+  %125 = tail call float @llvm.fmuladd.f32(float %124, float %43, float %39)
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %128 = load ptr, ptr %127, align 8
-  tail call void %128(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %120, float noundef %2, float noundef %125, i32 noundef %37)
-  %129 = load float, ptr %118, align 8
-  %130 = tail call float @llvm.fmuladd.f32(float %129, float %43, float %39)
-  %131 = load float, ptr %123, align 4
-  %132 = tail call float @llvm.fmuladd.f32(float %131, float %45, float %41)
+  tail call void %128(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %123, float noundef %2, float noundef %125, i32 noundef %35)
+  %129 = load float, ptr %106, align 8
+  %130 = tail call float @llvm.fmuladd.f32(float %129, float %41, float %37)
+  %131 = load float, ptr %109, align 4
+  %132 = tail call float @llvm.fmuladd.f32(float %131, float %43, float %39)
   %133 = load ptr, ptr %0, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %135 = load ptr, ptr %134, align 8
   tail call void %135(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %130, float noundef %5, float noundef %132, i32 noundef %7)
-  %136 = load float, ptr %106, align 8
-  %137 = tail call float @llvm.fmuladd.f32(float %136, float %43, float %39)
-  %138 = load float, ptr %110, align 4
-  %139 = tail call float @llvm.fmuladd.f32(float %138, float %45, float %41)
+  %136 = load float, ptr %95, align 8
+  %137 = tail call float @llvm.fmuladd.f32(float %136, float %41, float %37)
+  %138 = load float, ptr %98, align 4
+  %139 = tail call float @llvm.fmuladd.f32(float %138, float %43, float %39)
   %140 = load ptr, ptr %0, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %142 = load ptr, ptr %141, align 8
-  tail call void %142(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %137, float noundef %2, float noundef %139, i32 noundef %37)
-  %143 = load float, ptr %118, align 8
-  %144 = tail call float @llvm.fmuladd.f32(float %143, float %43, float %39)
-  %145 = load float, ptr %123, align 4
-  %146 = tail call float @llvm.fmuladd.f32(float %145, float %45, float %41)
-  %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 48
-  %149 = load ptr, ptr %148, align 8
-  tail call void %149(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %144, float noundef %5, float noundef %146, i32 noundef %7)
-  %150 = load float, ptr %106, align 8
-  %151 = tail call float @llvm.fmuladd.f32(float %150, float %43, float %39)
-  %152 = load float, ptr %110, align 4
-  %153 = tail call float @llvm.fmuladd.f32(float %152, float %45, float %41)
-  %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 48
-  %156 = load ptr, ptr %155, align 8
-  tail call void %156(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %151, float noundef %5, float noundef %153, i32 noundef %7)
+  tail call void %142(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %137, float noundef %5, float noundef %139, i32 noundef %7)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %157 = trunc nuw nsw i64 %indvars.iv152 to i32
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 16
   br i1 %exitcond155.not, label %.loopexit, label %.preheader, !llvm.loop !15
 

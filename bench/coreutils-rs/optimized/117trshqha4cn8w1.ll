@@ -67,7 +67,7 @@ define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit.i": ; preds = %17
-  %22 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %8, i64 0, i64 %19, i32 2
+  %22 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %19, i32 2
   %23 = load i64, ptr %22, align 8, !alias.scope !6, !noalias !21, !noundef !4
   %switch.i.i.i.i = icmp sgt i64 %.sroa.05.0.i, %23
   %.sroa.3.0.i.i.i.i = select i1 %switch.i.i.i.i, ptr %18, ptr %.sroa.6.0.i
@@ -1184,7 +1184,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit": ; preds = %14
-  %19 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %4, i64 0, i64 %16, i32 2
+  %19 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %4, i64 %16, i32 2
   %20 = load i64, ptr %19, align 8, !noalias !263, !noundef !4
   %switch.i.i.i = icmp sgt i64 %.sroa.05.0, %20
   %.sroa.3.0.i.i.i = select i1 %switch.i.i.i, ptr %15, ptr %.sroa.6.0

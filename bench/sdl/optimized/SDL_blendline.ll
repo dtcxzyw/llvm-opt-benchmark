@@ -5074,7 +5074,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %68 = add nsw i32 %.12197, -1
   %69 = load i8, ptr %57, align 4
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = load i16, ptr %.217142196, align 2
   %74 = zext i16 %73 to i32
@@ -5089,7 +5089,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %83 = zext i8 %82 to i32
   %84 = load i8, ptr %60, align 1
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %61, align 4
   %89 = and i32 %88, %74
@@ -5102,7 +5102,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %96 = zext i8 %95 to i32
   %97 = load i8, ptr %63, align 2
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = load i32, ptr %64, align 4
   %102 = and i32 %101, %74
@@ -5206,7 +5206,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %171 = add nsw i32 %.117162193, -1
   %172 = load i8, ptr %160, align 4
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %173
   %175 = load ptr, ptr %174, align 8
   %176 = load i16, ptr %.217202192, align 2
   %177 = zext i16 %176 to i32
@@ -5221,7 +5221,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %186 = zext i8 %185 to i32
   %187 = load i8, ptr %163, align 1
   %188 = zext i8 %187 to i64
-  %189 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = load i32, ptr %164, align 4
   %192 = and i32 %191, %177
@@ -5234,7 +5234,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %199 = zext i8 %198 to i32
   %200 = load i8, ptr %166, align 2
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %201
   %203 = load ptr, ptr %202, align 8
   %204 = load i32, ptr %167, align 4
   %205 = and i32 %204, %177
@@ -5341,7 +5341,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %274 = add nsw i32 %.117222189, -1
   %275 = load i8, ptr %263, align 4
   %276 = zext i8 %275 to i64
-  %277 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %276
   %278 = load ptr, ptr %277, align 8
   %279 = load i16, ptr %.217252188, align 2
   %280 = zext i16 %279 to i32
@@ -5356,7 +5356,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %289 = zext i8 %288 to i32
   %290 = load i8, ptr %266, align 1
   %291 = zext i8 %290 to i64
-  %292 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %291
   %293 = load ptr, ptr %292, align 8
   %294 = load i32, ptr %267, align 4
   %295 = and i32 %294, %280
@@ -5369,7 +5369,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %302 = zext i8 %301 to i32
   %303 = load i8, ptr %269, align 2
   %304 = zext i8 %303 to i64
-  %305 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %304
   %306 = load ptr, ptr %305, align 8
   %307 = load i32, ptr %270, align 4
   %308 = and i32 %307, %280
@@ -5464,7 +5464,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %371 = add nsw i32 %.117272185, -1
   %372 = load i8, ptr %360, align 4
   %373 = zext i8 %372 to i64
-  %374 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %373
   %375 = load ptr, ptr %374, align 8
   %376 = load i16, ptr %.217302184, align 2
   %377 = zext i16 %376 to i32
@@ -5479,7 +5479,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %386 = zext i8 %385 to i32
   %387 = load i8, ptr %363, align 1
   %388 = zext i8 %387 to i64
-  %389 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %388
   %390 = load ptr, ptr %389, align 8
   %391 = load i32, ptr %364, align 4
   %392 = and i32 %391, %377
@@ -5492,7 +5492,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %399 = zext i8 %398 to i32
   %400 = load i8, ptr %366, align 2
   %401 = zext i8 %400 to i64
-  %402 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %401
   %403 = load ptr, ptr %402, align 8
   %404 = load i32, ptr %367, align 4
   %405 = and i32 %404, %377
@@ -5593,7 +5593,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %471 = add nsw i32 %.117512181, -1
   %472 = load i8, ptr %460, align 4
   %473 = zext i8 %472 to i64
-  %474 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %473
   %475 = load ptr, ptr %474, align 8
   %476 = load i16, ptr %.217542180, align 2
   %477 = zext i16 %476 to i32
@@ -5608,7 +5608,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %486 = zext i8 %485 to i32
   %487 = load i8, ptr %463, align 1
   %488 = zext i8 %487 to i64
-  %489 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %488
   %490 = load ptr, ptr %489, align 8
   %491 = load i32, ptr %464, align 4
   %492 = and i32 %491, %477
@@ -5621,7 +5621,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %499 = zext i8 %498 to i32
   %500 = load i8, ptr %466, align 2
   %501 = zext i8 %500 to i64
-  %502 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %501
   %503 = load ptr, ptr %502, align 8
   %504 = load i32, ptr %467, align 4
   %505 = and i32 %504, %477
@@ -5833,7 +5833,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %645 = add nsw i32 %.117622173, -1
   %646 = load i8, ptr %633, align 4
   %647 = zext i8 %646 to i64
-  %648 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %647
+  %648 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %647
   %649 = load ptr, ptr %648, align 8
   %650 = load i16, ptr %.217652172, align 2
   %651 = zext i16 %650 to i32
@@ -5848,7 +5848,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %660 = zext i8 %659 to i32
   %661 = load i8, ptr %636, align 1
   %662 = zext i8 %661 to i64
-  %663 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %662
+  %663 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %662
   %664 = load ptr, ptr %663, align 8
   %665 = load i32, ptr %637, align 4
   %666 = and i32 %665, %651
@@ -5861,7 +5861,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %673 = zext i8 %672 to i32
   %674 = load i8, ptr %639, align 2
   %675 = zext i8 %674 to i64
-  %676 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %675
+  %676 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %675
   %677 = load ptr, ptr %676, align 8
   %678 = load i32, ptr %640, align 4
   %679 = and i32 %678, %651
@@ -5965,7 +5965,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %751 = add nsw i32 %.117672169, -1
   %752 = load i8, ptr %739, align 4
   %753 = zext i8 %752 to i64
-  %754 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %753
   %755 = load ptr, ptr %754, align 8
   %756 = load i16, ptr %.217892168, align 2
   %757 = zext i16 %756 to i32
@@ -5980,7 +5980,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %766 = zext i8 %765 to i32
   %767 = load i8, ptr %742, align 1
   %768 = zext i8 %767 to i64
-  %769 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %768
+  %769 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %768
   %770 = load ptr, ptr %769, align 8
   %771 = load i32, ptr %743, align 4
   %772 = and i32 %771, %757
@@ -5993,7 +5993,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %779 = zext i8 %778 to i32
   %780 = load i8, ptr %745, align 2
   %781 = zext i8 %780 to i64
-  %782 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %781
+  %782 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %781
   %783 = load ptr, ptr %782, align 8
   %784 = load i32, ptr %746, align 4
   %785 = and i32 %784, %757
@@ -6100,7 +6100,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %857 = add nsw i32 %.117912165, -1
   %858 = load i8, ptr %845, align 4
   %859 = zext i8 %858 to i64
-  %860 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %859
+  %860 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %859
   %861 = load ptr, ptr %860, align 8
   %862 = load i16, ptr %.217952164, align 2
   %863 = zext i16 %862 to i32
@@ -6115,7 +6115,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %872 = zext i8 %871 to i32
   %873 = load i8, ptr %848, align 1
   %874 = zext i8 %873 to i64
-  %875 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %874
+  %875 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %874
   %876 = load ptr, ptr %875, align 8
   %877 = load i32, ptr %849, align 4
   %878 = and i32 %877, %863
@@ -6128,7 +6128,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %885 = zext i8 %884 to i32
   %886 = load i8, ptr %851, align 2
   %887 = zext i8 %886 to i64
-  %888 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %887
+  %888 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %887
   %889 = load ptr, ptr %888, align 8
   %890 = load i32, ptr %852, align 4
   %891 = and i32 %890, %863
@@ -6223,7 +6223,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %957 = add nsw i32 %.117972161, -1
   %958 = load i8, ptr %945, align 4
   %959 = zext i8 %958 to i64
-  %960 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %959
+  %960 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %959
   %961 = load ptr, ptr %960, align 8
   %962 = load i16, ptr %.218002160, align 2
   %963 = zext i16 %962 to i32
@@ -6238,7 +6238,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %972 = zext i8 %971 to i32
   %973 = load i8, ptr %948, align 1
   %974 = zext i8 %973 to i64
-  %975 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %974
+  %975 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %974
   %976 = load ptr, ptr %975, align 8
   %977 = load i32, ptr %949, align 4
   %978 = and i32 %977, %963
@@ -6251,7 +6251,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %985 = zext i8 %984 to i32
   %986 = load i8, ptr %951, align 2
   %987 = zext i8 %986 to i64
-  %988 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %987
+  %988 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %987
   %989 = load ptr, ptr %988, align 8
   %990 = load i32, ptr %952, align 4
   %991 = and i32 %990, %963
@@ -6352,7 +6352,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1060 = add nsw i32 %.118022157, -1
   %1061 = load i8, ptr %1048, align 4
   %1062 = zext i8 %1061 to i64
-  %1063 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1062
+  %1063 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1062
   %1064 = load ptr, ptr %1063, align 8
   %1065 = load i16, ptr %.218052156, align 2
   %1066 = zext i16 %1065 to i32
@@ -6367,7 +6367,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1075 = zext i8 %1074 to i32
   %1076 = load i8, ptr %1051, align 1
   %1077 = zext i8 %1076 to i64
-  %1078 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1077
+  %1078 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1077
   %1079 = load ptr, ptr %1078, align 8
   %1080 = load i32, ptr %1052, align 4
   %1081 = and i32 %1080, %1066
@@ -6380,7 +6380,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1088 = zext i8 %1087 to i32
   %1089 = load i8, ptr %1054, align 2
   %1090 = zext i8 %1089 to i64
-  %1091 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1090
+  %1091 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1090
   %1092 = load ptr, ptr %1091, align 8
   %1093 = load i32, ptr %1055, align 4
   %1094 = and i32 %1093, %1066
@@ -6607,7 +6607,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1241 = add nsw i32 %.218332149, -1
   %1242 = load i8, ptr %1229, align 4
   %1243 = zext i8 %1242 to i64
-  %1244 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1243
+  %1244 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1243
   %1245 = load ptr, ptr %1244, align 8
   %1246 = load i16, ptr %.218392148, align 2
   %1247 = zext i16 %1246 to i32
@@ -6622,7 +6622,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1256 = zext i8 %1255 to i32
   %1257 = load i8, ptr %1232, align 1
   %1258 = zext i8 %1257 to i64
-  %1259 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1258
+  %1259 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1258
   %1260 = load ptr, ptr %1259, align 8
   %1261 = load i32, ptr %1233, align 4
   %1262 = and i32 %1261, %1247
@@ -6635,7 +6635,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1269 = zext i8 %1268 to i32
   %1270 = load i8, ptr %1235, align 2
   %1271 = zext i8 %1270 to i64
-  %1272 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1271
+  %1272 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1271
   %1273 = load ptr, ptr %1272, align 8
   %1274 = load i32, ptr %1236, align 4
   %1275 = and i32 %1274, %1247
@@ -6750,7 +6750,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1347 = add nsw i32 %.218422145, -1
   %1348 = load i8, ptr %1335, align 4
   %1349 = zext i8 %1348 to i64
-  %1350 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1349
+  %1350 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1349
   %1351 = load ptr, ptr %1350, align 8
   %1352 = load i16, ptr %.218672144, align 2
   %1353 = zext i16 %1352 to i32
@@ -6765,7 +6765,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1362 = zext i8 %1361 to i32
   %1363 = load i8, ptr %1338, align 1
   %1364 = zext i8 %1363 to i64
-  %1365 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1364
+  %1365 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1364
   %1366 = load ptr, ptr %1365, align 8
   %1367 = load i32, ptr %1339, align 4
   %1368 = and i32 %1367, %1353
@@ -6778,7 +6778,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1375 = zext i8 %1374 to i32
   %1376 = load i8, ptr %1341, align 2
   %1377 = zext i8 %1376 to i64
-  %1378 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1377
+  %1378 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1377
   %1379 = load ptr, ptr %1378, align 8
   %1380 = load i32, ptr %1342, align 4
   %1381 = and i32 %1380, %1353
@@ -6896,7 +6896,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1453 = add nsw i32 %.218702141, -1
   %1454 = load i8, ptr %1441, align 4
   %1455 = zext i8 %1454 to i64
-  %1456 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1455
+  %1456 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1455
   %1457 = load ptr, ptr %1456, align 8
   %1458 = load i16, ptr %.218772140, align 2
   %1459 = zext i16 %1458 to i32
@@ -6911,7 +6911,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1468 = zext i8 %1467 to i32
   %1469 = load i8, ptr %1444, align 1
   %1470 = zext i8 %1469 to i64
-  %1471 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1470
+  %1471 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1470
   %1472 = load ptr, ptr %1471, align 8
   %1473 = load i32, ptr %1445, align 4
   %1474 = and i32 %1473, %1459
@@ -6924,7 +6924,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1481 = zext i8 %1480 to i32
   %1482 = load i8, ptr %1447, align 2
   %1483 = zext i8 %1482 to i64
-  %1484 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1483
+  %1484 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1483
   %1485 = load ptr, ptr %1484, align 8
   %1486 = load i32, ptr %1448, align 4
   %1487 = and i32 %1486, %1459
@@ -7030,7 +7030,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1553 = add nsw i32 %.218802137, -1
   %1554 = load i8, ptr %1541, align 4
   %1555 = zext i8 %1554 to i64
-  %1556 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1555
+  %1556 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1555
   %1557 = load ptr, ptr %1556, align 8
   %1558 = load i16, ptr %.218862136, align 2
   %1559 = zext i16 %1558 to i32
@@ -7045,7 +7045,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1568 = zext i8 %1567 to i32
   %1569 = load i8, ptr %1544, align 1
   %1570 = zext i8 %1569 to i64
-  %1571 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1570
+  %1571 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1570
   %1572 = load ptr, ptr %1571, align 8
   %1573 = load i32, ptr %1545, align 4
   %1574 = and i32 %1573, %1559
@@ -7058,7 +7058,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1581 = zext i8 %1580 to i32
   %1582 = load i8, ptr %1547, align 2
   %1583 = zext i8 %1582 to i64
-  %1584 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1583
+  %1584 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1583
   %1585 = load ptr, ptr %1584, align 8
   %1586 = load i32, ptr %1548, align 4
   %1587 = and i32 %1586, %1559
@@ -7170,7 +7170,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1656 = add nsw i32 %.219082133, -1
   %1657 = load i8, ptr %1644, align 4
   %1658 = zext i8 %1657 to i64
-  %1659 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1658
+  %1659 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1658
   %1660 = load ptr, ptr %1659, align 8
   %1661 = load i16, ptr %.219152132, align 2
   %1662 = zext i16 %1661 to i32
@@ -7185,7 +7185,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1671 = zext i8 %1670 to i32
   %1672 = load i8, ptr %1647, align 1
   %1673 = zext i8 %1672 to i64
-  %1674 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1673
+  %1674 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1673
   %1675 = load ptr, ptr %1674, align 8
   %1676 = load i32, ptr %1648, align 4
   %1677 = and i32 %1676, %1662
@@ -7198,7 +7198,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1684 = zext i8 %1683 to i32
   %1685 = load i8, ptr %1650, align 2
   %1686 = zext i8 %1685 to i64
-  %1687 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1686
+  %1687 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1686
   %1688 = load ptr, ptr %1687, align 8
   %1689 = load i32, ptr %1651, align 4
   %1690 = and i32 %1689, %1662
@@ -7432,7 +7432,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1832 = getelementptr inbounds i8, ptr %1829, i64 %1831
   %1833 = load i8, ptr %1814, align 4
   %1834 = zext i8 %1833 to i64
-  %1835 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1834
+  %1835 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1834
   %1836 = load ptr, ptr %1835, align 8
   %1837 = load i16, ptr %1832, align 2
   %1838 = zext i16 %1837 to i32
@@ -7447,7 +7447,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1847 = zext i8 %1846 to i32
   %1848 = load i8, ptr %1817, align 1
   %1849 = zext i8 %1848 to i64
-  %1850 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1849
+  %1850 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1849
   %1851 = load ptr, ptr %1850, align 8
   %1852 = load i32, ptr %1818, align 4
   %1853 = and i32 %1852, %1838
@@ -7460,7 +7460,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1860 = zext i8 %1859 to i32
   %1861 = load i8, ptr %1820, align 2
   %1862 = zext i8 %1861 to i64
-  %1863 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1862
+  %1863 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1862
   %1864 = load ptr, ptr %1863, align 8
   %1865 = load i32, ptr %1821, align 4
   %1866 = and i32 %1865, %1838
@@ -7586,7 +7586,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1940 = getelementptr inbounds i8, ptr %1937, i64 %1939
   %1941 = load i8, ptr %1922, align 4
   %1942 = zext i8 %1941 to i64
-  %1943 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1942
+  %1943 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1942
   %1944 = load ptr, ptr %1943, align 8
   %1945 = load i16, ptr %1940, align 2
   %1946 = zext i16 %1945 to i32
@@ -7601,7 +7601,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1955 = zext i8 %1954 to i32
   %1956 = load i8, ptr %1925, align 1
   %1957 = zext i8 %1956 to i64
-  %1958 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1957
+  %1958 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1957
   %1959 = load ptr, ptr %1958, align 8
   %1960 = load i32, ptr %1926, align 4
   %1961 = and i32 %1960, %1946
@@ -7614,7 +7614,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %1968 = zext i8 %1967 to i32
   %1969 = load i8, ptr %1928, align 2
   %1970 = zext i8 %1969 to i64
-  %1971 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1970
+  %1971 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1970
   %1972 = load ptr, ptr %1971, align 8
   %1973 = load i32, ptr %1929, align 4
   %1974 = and i32 %1973, %1946
@@ -7743,7 +7743,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2048 = getelementptr inbounds i8, ptr %2045, i64 %2047
   %2049 = load i8, ptr %2030, align 4
   %2050 = zext i8 %2049 to i64
-  %2051 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2050
+  %2051 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2050
   %2052 = load ptr, ptr %2051, align 8
   %2053 = load i16, ptr %2048, align 2
   %2054 = zext i16 %2053 to i32
@@ -7758,7 +7758,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2063 = zext i8 %2062 to i32
   %2064 = load i8, ptr %2033, align 1
   %2065 = zext i8 %2064 to i64
-  %2066 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2065
+  %2066 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2065
   %2067 = load ptr, ptr %2066, align 8
   %2068 = load i32, ptr %2034, align 4
   %2069 = and i32 %2068, %2054
@@ -7771,7 +7771,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2076 = zext i8 %2075 to i32
   %2077 = load i8, ptr %2036, align 2
   %2078 = zext i8 %2077 to i64
-  %2079 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2078
+  %2079 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2078
   %2080 = load ptr, ptr %2079, align 8
   %2081 = load i32, ptr %2037, align 4
   %2082 = and i32 %2081, %2054
@@ -7888,7 +7888,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2150 = getelementptr inbounds i8, ptr %2147, i64 %2149
   %2151 = load i8, ptr %2132, align 4
   %2152 = zext i8 %2151 to i64
-  %2153 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2152
+  %2153 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2152
   %2154 = load ptr, ptr %2153, align 8
   %2155 = load i16, ptr %2150, align 2
   %2156 = zext i16 %2155 to i32
@@ -7903,7 +7903,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2165 = zext i8 %2164 to i32
   %2166 = load i8, ptr %2135, align 1
   %2167 = zext i8 %2166 to i64
-  %2168 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2167
+  %2168 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2167
   %2169 = load ptr, ptr %2168, align 8
   %2170 = load i32, ptr %2136, align 4
   %2171 = and i32 %2170, %2156
@@ -7916,7 +7916,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2178 = zext i8 %2177 to i32
   %2179 = load i8, ptr %2138, align 2
   %2180 = zext i8 %2179 to i64
-  %2181 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2180
+  %2181 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2180
   %2182 = load ptr, ptr %2181, align 8
   %2183 = load i32, ptr %2139, align 4
   %2184 = and i32 %2183, %2156
@@ -8039,7 +8039,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2255 = getelementptr inbounds i8, ptr %2252, i64 %2254
   %2256 = load i8, ptr %2237, align 4
   %2257 = zext i8 %2256 to i64
-  %2258 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2257
+  %2258 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2257
   %2259 = load ptr, ptr %2258, align 8
   %2260 = load i16, ptr %2255, align 2
   %2261 = zext i16 %2260 to i32
@@ -8054,7 +8054,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2270 = zext i8 %2269 to i32
   %2271 = load i8, ptr %2240, align 1
   %2272 = zext i8 %2271 to i64
-  %2273 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2272
+  %2273 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2272
   %2274 = load ptr, ptr %2273, align 8
   %2275 = load i32, ptr %2241, align 4
   %2276 = and i32 %2275, %2261
@@ -8067,7 +8067,7 @@ define internal void @SDL_BlendLine_RGB2(ptr noundef readonly captures(none) %0,
   %2283 = zext i8 %2282 to i32
   %2284 = load i8, ptr %2243, align 2
   %2285 = zext i8 %2284 to i64
-  %2286 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2285
+  %2286 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2285
   %2287 = load ptr, ptr %2286, align 8
   %2288 = load i32, ptr %2244, align 4
   %2289 = and i32 %2288, %2261
@@ -12490,7 +12490,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %70 = add nsw i32 %.12325, -1
   %71 = load i8, ptr %57, align 4
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %.218422324, align 4
   %76 = load i32, ptr %58, align 4
@@ -12504,7 +12504,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %84 = zext i8 %83 to i32
   %85 = load i8, ptr %60, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %61, align 4
   %90 = and i32 %89, %75
@@ -12517,7 +12517,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %97 = zext i8 %96 to i32
   %98 = load i8, ptr %63, align 2
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr %64, align 4
   %103 = and i32 %102, %75
@@ -12530,7 +12530,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %110 = zext i8 %109 to i32
   %111 = load i8, ptr %66, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = load i32, ptr %67, align 4
   %116 = and i32 %115, %75
@@ -12643,7 +12643,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %192 = add nsw i32 %.118442321, -1
   %193 = load i8, ptr %179, align 4
   %194 = zext i8 %193 to i64
-  %195 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = load i32, ptr %.218482320, align 4
   %198 = load i32, ptr %180, align 4
@@ -12657,7 +12657,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %206 = zext i8 %205 to i32
   %207 = load i8, ptr %182, align 1
   %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = load i32, ptr %183, align 4
   %212 = and i32 %211, %197
@@ -12670,7 +12670,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %219 = zext i8 %218 to i32
   %220 = load i8, ptr %185, align 2
   %221 = zext i8 %220 to i64
-  %222 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %221
   %223 = load ptr, ptr %222, align 8
   %224 = load i32, ptr %186, align 4
   %225 = and i32 %224, %197
@@ -12683,7 +12683,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %232 = zext i8 %231 to i32
   %233 = load i8, ptr %188, align 1
   %234 = zext i8 %233 to i64
-  %235 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %234
   %236 = load ptr, ptr %235, align 8
   %237 = load i32, ptr %189, align 4
   %238 = and i32 %237, %197
@@ -12800,7 +12800,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %314 = add nsw i32 %.118502317, -1
   %315 = load i8, ptr %301, align 4
   %316 = zext i8 %315 to i64
-  %317 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %316
   %318 = load ptr, ptr %317, align 8
   %319 = load i32, ptr %.218532316, align 4
   %320 = load i32, ptr %302, align 4
@@ -12814,7 +12814,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %328 = zext i8 %327 to i32
   %329 = load i8, ptr %304, align 1
   %330 = zext i8 %329 to i64
-  %331 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %330
   %332 = load ptr, ptr %331, align 8
   %333 = load i32, ptr %305, align 4
   %334 = and i32 %333, %319
@@ -12827,7 +12827,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %341 = zext i8 %340 to i32
   %342 = load i8, ptr %307, align 2
   %343 = zext i8 %342 to i64
-  %344 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %343
   %345 = load ptr, ptr %344, align 8
   %346 = load i32, ptr %308, align 4
   %347 = and i32 %346, %319
@@ -12840,7 +12840,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %354 = zext i8 %353 to i32
   %355 = load i8, ptr %310, align 1
   %356 = zext i8 %355 to i64
-  %357 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %356
   %358 = load ptr, ptr %357, align 8
   %359 = load i32, ptr %311, align 4
   %360 = and i32 %359, %319
@@ -12939,7 +12939,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %427 = add nsw i32 %.118552313, -1
   %428 = load i8, ptr %414, align 4
   %429 = zext i8 %428 to i64
-  %430 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %429
   %431 = load ptr, ptr %430, align 8
   %432 = load i32, ptr %.218582312, align 4
   %433 = load i32, ptr %415, align 4
@@ -12953,7 +12953,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %441 = zext i8 %440 to i32
   %442 = load i8, ptr %417, align 1
   %443 = zext i8 %442 to i64
-  %444 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %443
+  %444 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %443
   %445 = load ptr, ptr %444, align 8
   %446 = load i32, ptr %418, align 4
   %447 = and i32 %446, %432
@@ -12966,7 +12966,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %454 = zext i8 %453 to i32
   %455 = load i8, ptr %420, align 2
   %456 = zext i8 %455 to i64
-  %457 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %456
   %458 = load ptr, ptr %457, align 8
   %459 = load i32, ptr %421, align 4
   %460 = and i32 %459, %432
@@ -12979,7 +12979,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %467 = zext i8 %466 to i32
   %468 = load i8, ptr %423, align 1
   %469 = zext i8 %468 to i64
-  %470 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %469
   %471 = load ptr, ptr %470, align 8
   %472 = load i32, ptr %424, align 4
   %473 = and i32 %472, %432
@@ -13084,7 +13084,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %543 = add nsw i32 %.118792309, -1
   %544 = load i8, ptr %530, align 4
   %545 = zext i8 %544 to i64
-  %546 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %545
   %547 = load ptr, ptr %546, align 8
   %548 = load i32, ptr %.218822308, align 4
   %549 = load i32, ptr %531, align 4
@@ -13098,7 +13098,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %557 = zext i8 %556 to i32
   %558 = load i8, ptr %533, align 1
   %559 = zext i8 %558 to i64
-  %560 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %559
+  %560 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %559
   %561 = load ptr, ptr %560, align 8
   %562 = load i32, ptr %534, align 4
   %563 = and i32 %562, %548
@@ -13111,7 +13111,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %570 = zext i8 %569 to i32
   %571 = load i8, ptr %536, align 2
   %572 = zext i8 %571 to i64
-  %573 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %572
+  %573 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %572
   %574 = load ptr, ptr %573, align 8
   %575 = load i32, ptr %537, align 4
   %576 = and i32 %575, %548
@@ -13124,7 +13124,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %583 = zext i8 %582 to i32
   %584 = load i8, ptr %539, align 1
   %585 = zext i8 %584 to i64
-  %586 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %585
+  %586 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %585
   %587 = load ptr, ptr %586, align 8
   %588 = load i32, ptr %540, align 4
   %589 = and i32 %588, %548
@@ -13346,7 +13346,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %739 = add nsw i32 %.118902301, -1
   %740 = load i8, ptr %725, align 4
   %741 = zext i8 %740 to i64
-  %742 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %741
+  %742 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %741
   %743 = load ptr, ptr %742, align 8
   %744 = load i32, ptr %.218932300, align 4
   %745 = load i32, ptr %726, align 4
@@ -13360,7 +13360,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %753 = zext i8 %752 to i32
   %754 = load i8, ptr %728, align 1
   %755 = zext i8 %754 to i64
-  %756 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %755
+  %756 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %755
   %757 = load ptr, ptr %756, align 8
   %758 = load i32, ptr %729, align 4
   %759 = and i32 %758, %744
@@ -13373,7 +13373,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %766 = zext i8 %765 to i32
   %767 = load i8, ptr %731, align 2
   %768 = zext i8 %767 to i64
-  %769 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %768
+  %769 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %768
   %770 = load ptr, ptr %769, align 8
   %771 = load i32, ptr %732, align 4
   %772 = and i32 %771, %744
@@ -13386,7 +13386,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %779 = zext i8 %778 to i32
   %780 = load i8, ptr %734, align 1
   %781 = zext i8 %780 to i64
-  %782 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %781
+  %782 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %781
   %783 = load ptr, ptr %782, align 8
   %784 = load i32, ptr %735, align 4
   %785 = and i32 %784, %744
@@ -13499,7 +13499,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %864 = add nsw i32 %.118952297, -1
   %865 = load i8, ptr %850, align 4
   %866 = zext i8 %865 to i64
-  %867 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %866
+  %867 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %866
   %868 = load ptr, ptr %867, align 8
   %869 = load i32, ptr %.219172296, align 4
   %870 = load i32, ptr %851, align 4
@@ -13513,7 +13513,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %878 = zext i8 %877 to i32
   %879 = load i8, ptr %853, align 1
   %880 = zext i8 %879 to i64
-  %881 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %880
+  %881 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %880
   %882 = load ptr, ptr %881, align 8
   %883 = load i32, ptr %854, align 4
   %884 = and i32 %883, %869
@@ -13526,7 +13526,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %891 = zext i8 %890 to i32
   %892 = load i8, ptr %856, align 2
   %893 = zext i8 %892 to i64
-  %894 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %893
+  %894 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %893
   %895 = load ptr, ptr %894, align 8
   %896 = load i32, ptr %857, align 4
   %897 = and i32 %896, %869
@@ -13539,7 +13539,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %904 = zext i8 %903 to i32
   %905 = load i8, ptr %859, align 1
   %906 = zext i8 %905 to i64
-  %907 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %906
+  %907 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %906
   %908 = load ptr, ptr %907, align 8
   %909 = load i32, ptr %860, align 4
   %910 = and i32 %909, %869
@@ -13656,7 +13656,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %989 = add nsw i32 %.119192293, -1
   %990 = load i8, ptr %975, align 4
   %991 = zext i8 %990 to i64
-  %992 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %991
+  %992 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %991
   %993 = load ptr, ptr %992, align 8
   %994 = load i32, ptr %.219232292, align 4
   %995 = load i32, ptr %976, align 4
@@ -13670,7 +13670,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1003 = zext i8 %1002 to i32
   %1004 = load i8, ptr %978, align 1
   %1005 = zext i8 %1004 to i64
-  %1006 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1005
+  %1006 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1005
   %1007 = load ptr, ptr %1006, align 8
   %1008 = load i32, ptr %979, align 4
   %1009 = and i32 %1008, %994
@@ -13683,7 +13683,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1016 = zext i8 %1015 to i32
   %1017 = load i8, ptr %981, align 2
   %1018 = zext i8 %1017 to i64
-  %1019 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1018
+  %1019 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1018
   %1020 = load ptr, ptr %1019, align 8
   %1021 = load i32, ptr %982, align 4
   %1022 = and i32 %1021, %994
@@ -13696,7 +13696,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1029 = zext i8 %1028 to i32
   %1030 = load i8, ptr %984, align 1
   %1031 = zext i8 %1030 to i64
-  %1032 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1031
+  %1032 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1031
   %1033 = load ptr, ptr %1032, align 8
   %1034 = load i32, ptr %985, align 4
   %1035 = and i32 %1034, %994
@@ -13795,7 +13795,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1105 = add nsw i32 %.119252289, -1
   %1106 = load i8, ptr %1091, align 4
   %1107 = zext i8 %1106 to i64
-  %1108 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1107
+  %1108 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1107
   %1109 = load ptr, ptr %1108, align 8
   %1110 = load i32, ptr %.219282288, align 4
   %1111 = load i32, ptr %1092, align 4
@@ -13809,7 +13809,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1119 = zext i8 %1118 to i32
   %1120 = load i8, ptr %1094, align 1
   %1121 = zext i8 %1120 to i64
-  %1122 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1121
+  %1122 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1121
   %1123 = load ptr, ptr %1122, align 8
   %1124 = load i32, ptr %1095, align 4
   %1125 = and i32 %1124, %1110
@@ -13822,7 +13822,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1132 = zext i8 %1131 to i32
   %1133 = load i8, ptr %1097, align 2
   %1134 = zext i8 %1133 to i64
-  %1135 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1134
+  %1135 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1134
   %1136 = load ptr, ptr %1135, align 8
   %1137 = load i32, ptr %1098, align 4
   %1138 = and i32 %1137, %1110
@@ -13835,7 +13835,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1145 = zext i8 %1144 to i32
   %1146 = load i8, ptr %1100, align 1
   %1147 = zext i8 %1146 to i64
-  %1148 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1147
+  %1148 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1147
   %1149 = load ptr, ptr %1148, align 8
   %1150 = load i32, ptr %1101, align 4
   %1151 = and i32 %1150, %1110
@@ -13940,7 +13940,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1224 = add nsw i32 %.119302285, -1
   %1225 = load i8, ptr %1210, align 4
   %1226 = zext i8 %1225 to i64
-  %1227 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1226
+  %1227 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1226
   %1228 = load ptr, ptr %1227, align 8
   %1229 = load i32, ptr %.219332284, align 4
   %1230 = load i32, ptr %1211, align 4
@@ -13954,7 +13954,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1238 = zext i8 %1237 to i32
   %1239 = load i8, ptr %1213, align 1
   %1240 = zext i8 %1239 to i64
-  %1241 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1240
+  %1241 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1240
   %1242 = load ptr, ptr %1241, align 8
   %1243 = load i32, ptr %1214, align 4
   %1244 = and i32 %1243, %1229
@@ -13967,7 +13967,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1251 = zext i8 %1250 to i32
   %1252 = load i8, ptr %1216, align 2
   %1253 = zext i8 %1252 to i64
-  %1254 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1253
+  %1254 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1253
   %1255 = load ptr, ptr %1254, align 8
   %1256 = load i32, ptr %1217, align 4
   %1257 = and i32 %1256, %1229
@@ -13980,7 +13980,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1264 = zext i8 %1263 to i32
   %1265 = load i8, ptr %1219, align 1
   %1266 = zext i8 %1265 to i64
-  %1267 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1266
+  %1267 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1266
   %1268 = load ptr, ptr %1267, align 8
   %1269 = load i32, ptr %1220, align 4
   %1270 = and i32 %1269, %1229
@@ -14217,7 +14217,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1427 = add nsw i32 %.219612277, -1
   %1428 = load i8, ptr %1413, align 4
   %1429 = zext i8 %1428 to i64
-  %1430 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1429
+  %1430 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1429
   %1431 = load ptr, ptr %1430, align 8
   %1432 = load i32, ptr %.219672276, align 4
   %1433 = load i32, ptr %1414, align 4
@@ -14231,7 +14231,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1441 = zext i8 %1440 to i32
   %1442 = load i8, ptr %1416, align 1
   %1443 = zext i8 %1442 to i64
-  %1444 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1443
+  %1444 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1443
   %1445 = load ptr, ptr %1444, align 8
   %1446 = load i32, ptr %1417, align 4
   %1447 = and i32 %1446, %1432
@@ -14244,7 +14244,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1454 = zext i8 %1453 to i32
   %1455 = load i8, ptr %1419, align 2
   %1456 = zext i8 %1455 to i64
-  %1457 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1456
+  %1457 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1456
   %1458 = load ptr, ptr %1457, align 8
   %1459 = load i32, ptr %1420, align 4
   %1460 = and i32 %1459, %1432
@@ -14257,7 +14257,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1467 = zext i8 %1466 to i32
   %1468 = load i8, ptr %1422, align 1
   %1469 = zext i8 %1468 to i64
-  %1470 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1469
+  %1470 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1469
   %1471 = load ptr, ptr %1470, align 8
   %1472 = load i32, ptr %1423, align 4
   %1473 = and i32 %1472, %1432
@@ -14381,7 +14381,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1552 = add nsw i32 %.219702273, -1
   %1553 = load i8, ptr %1538, align 4
   %1554 = zext i8 %1553 to i64
-  %1555 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1554
+  %1555 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1554
   %1556 = load ptr, ptr %1555, align 8
   %1557 = load i32, ptr %.219952272, align 4
   %1558 = load i32, ptr %1539, align 4
@@ -14395,7 +14395,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1566 = zext i8 %1565 to i32
   %1567 = load i8, ptr %1541, align 1
   %1568 = zext i8 %1567 to i64
-  %1569 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1568
+  %1569 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1568
   %1570 = load ptr, ptr %1569, align 8
   %1571 = load i32, ptr %1542, align 4
   %1572 = and i32 %1571, %1557
@@ -14408,7 +14408,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1579 = zext i8 %1578 to i32
   %1580 = load i8, ptr %1544, align 2
   %1581 = zext i8 %1580 to i64
-  %1582 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1581
+  %1582 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1581
   %1583 = load ptr, ptr %1582, align 8
   %1584 = load i32, ptr %1545, align 4
   %1585 = and i32 %1584, %1557
@@ -14421,7 +14421,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1592 = zext i8 %1591 to i32
   %1593 = load i8, ptr %1547, align 1
   %1594 = zext i8 %1593 to i64
-  %1595 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1594
+  %1595 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1594
   %1596 = load ptr, ptr %1595, align 8
   %1597 = load i32, ptr %1548, align 4
   %1598 = and i32 %1597, %1557
@@ -14549,7 +14549,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1677 = add nsw i32 %.219982269, -1
   %1678 = load i8, ptr %1663, align 4
   %1679 = zext i8 %1678 to i64
-  %1680 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1679
+  %1680 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1679
   %1681 = load ptr, ptr %1680, align 8
   %1682 = load i32, ptr %.220052268, align 4
   %1683 = load i32, ptr %1664, align 4
@@ -14563,7 +14563,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1691 = zext i8 %1690 to i32
   %1692 = load i8, ptr %1666, align 1
   %1693 = zext i8 %1692 to i64
-  %1694 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1693
+  %1694 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1693
   %1695 = load ptr, ptr %1694, align 8
   %1696 = load i32, ptr %1667, align 4
   %1697 = and i32 %1696, %1682
@@ -14576,7 +14576,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1704 = zext i8 %1703 to i32
   %1705 = load i8, ptr %1669, align 2
   %1706 = zext i8 %1705 to i64
-  %1707 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1706
+  %1707 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1706
   %1708 = load ptr, ptr %1707, align 8
   %1709 = load i32, ptr %1670, align 4
   %1710 = and i32 %1709, %1682
@@ -14589,7 +14589,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1717 = zext i8 %1716 to i32
   %1718 = load i8, ptr %1672, align 1
   %1719 = zext i8 %1718 to i64
-  %1720 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1719
+  %1720 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1719
   %1721 = load ptr, ptr %1720, align 8
   %1722 = load i32, ptr %1673, align 4
   %1723 = and i32 %1722, %1682
@@ -14699,7 +14699,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1793 = add nsw i32 %.220082265, -1
   %1794 = load i8, ptr %1779, align 4
   %1795 = zext i8 %1794 to i64
-  %1796 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1795
+  %1796 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1795
   %1797 = load ptr, ptr %1796, align 8
   %1798 = load i32, ptr %.220142264, align 4
   %1799 = load i32, ptr %1780, align 4
@@ -14713,7 +14713,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1807 = zext i8 %1806 to i32
   %1808 = load i8, ptr %1782, align 1
   %1809 = zext i8 %1808 to i64
-  %1810 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1809
+  %1810 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1809
   %1811 = load ptr, ptr %1810, align 8
   %1812 = load i32, ptr %1783, align 4
   %1813 = and i32 %1812, %1798
@@ -14726,7 +14726,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1820 = zext i8 %1819 to i32
   %1821 = load i8, ptr %1785, align 2
   %1822 = zext i8 %1821 to i64
-  %1823 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1822
+  %1823 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1822
   %1824 = load ptr, ptr %1823, align 8
   %1825 = load i32, ptr %1786, align 4
   %1826 = and i32 %1825, %1798
@@ -14739,7 +14739,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1833 = zext i8 %1832 to i32
   %1834 = load i8, ptr %1788, align 1
   %1835 = zext i8 %1834 to i64
-  %1836 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1835
+  %1836 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1835
   %1837 = load ptr, ptr %1836, align 8
   %1838 = load i32, ptr %1789, align 4
   %1839 = and i32 %1838, %1798
@@ -14855,7 +14855,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1912 = add nsw i32 %.220362261, -1
   %1913 = load i8, ptr %1898, align 4
   %1914 = zext i8 %1913 to i64
-  %1915 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1914
+  %1915 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1914
   %1916 = load ptr, ptr %1915, align 8
   %1917 = load i32, ptr %.220432260, align 4
   %1918 = load i32, ptr %1899, align 4
@@ -14869,7 +14869,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1926 = zext i8 %1925 to i32
   %1927 = load i8, ptr %1901, align 1
   %1928 = zext i8 %1927 to i64
-  %1929 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1928
+  %1929 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1928
   %1930 = load ptr, ptr %1929, align 8
   %1931 = load i32, ptr %1902, align 4
   %1932 = and i32 %1931, %1917
@@ -14882,7 +14882,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1939 = zext i8 %1938 to i32
   %1940 = load i8, ptr %1904, align 2
   %1941 = zext i8 %1940 to i64
-  %1942 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1941
+  %1942 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1941
   %1943 = load ptr, ptr %1942, align 8
   %1944 = load i32, ptr %1905, align 4
   %1945 = and i32 %1944, %1917
@@ -14895,7 +14895,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %1952 = zext i8 %1951 to i32
   %1953 = load i8, ptr %1907, align 1
   %1954 = zext i8 %1953 to i64
-  %1955 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1954
+  %1955 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1954
   %1956 = load ptr, ptr %1955, align 8
   %1957 = load i32, ptr %1908, align 4
   %1958 = and i32 %1957, %1917
@@ -15139,7 +15139,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2110 = getelementptr inbounds i8, ptr %2107, i64 %2109
   %2111 = load i8, ptr %2090, align 4
   %2112 = zext i8 %2111 to i64
-  %2113 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2112
+  %2113 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2112
   %2114 = load ptr, ptr %2113, align 8
   %2115 = load i32, ptr %2110, align 4
   %2116 = load i32, ptr %2091, align 4
@@ -15153,7 +15153,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2124 = zext i8 %2123 to i32
   %2125 = load i8, ptr %2093, align 1
   %2126 = zext i8 %2125 to i64
-  %2127 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2126
+  %2127 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2126
   %2128 = load ptr, ptr %2127, align 8
   %2129 = load i32, ptr %2094, align 4
   %2130 = and i32 %2129, %2115
@@ -15166,7 +15166,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2137 = zext i8 %2136 to i32
   %2138 = load i8, ptr %2096, align 2
   %2139 = zext i8 %2138 to i64
-  %2140 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2139
+  %2140 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2139
   %2141 = load ptr, ptr %2140, align 8
   %2142 = load i32, ptr %2097, align 4
   %2143 = and i32 %2142, %2115
@@ -15179,7 +15179,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2150 = zext i8 %2149 to i32
   %2151 = load i8, ptr %2099, align 1
   %2152 = zext i8 %2151 to i64
-  %2153 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2152
+  %2153 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2152
   %2154 = load ptr, ptr %2153, align 8
   %2155 = load i32, ptr %2100, align 4
   %2156 = and i32 %2155, %2115
@@ -15314,7 +15314,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2237 = getelementptr inbounds i8, ptr %2234, i64 %2236
   %2238 = load i8, ptr %2217, align 4
   %2239 = zext i8 %2238 to i64
-  %2240 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2239
+  %2240 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2239
   %2241 = load ptr, ptr %2240, align 8
   %2242 = load i32, ptr %2237, align 4
   %2243 = load i32, ptr %2218, align 4
@@ -15328,7 +15328,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2251 = zext i8 %2250 to i32
   %2252 = load i8, ptr %2220, align 1
   %2253 = zext i8 %2252 to i64
-  %2254 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2253
+  %2254 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2253
   %2255 = load ptr, ptr %2254, align 8
   %2256 = load i32, ptr %2221, align 4
   %2257 = and i32 %2256, %2242
@@ -15341,7 +15341,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2264 = zext i8 %2263 to i32
   %2265 = load i8, ptr %2223, align 2
   %2266 = zext i8 %2265 to i64
-  %2267 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2266
+  %2267 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2266
   %2268 = load ptr, ptr %2267, align 8
   %2269 = load i32, ptr %2224, align 4
   %2270 = and i32 %2269, %2242
@@ -15354,7 +15354,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2277 = zext i8 %2276 to i32
   %2278 = load i8, ptr %2226, align 1
   %2279 = zext i8 %2278 to i64
-  %2280 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2279
+  %2280 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2279
   %2281 = load ptr, ptr %2280, align 8
   %2282 = load i32, ptr %2227, align 4
   %2283 = and i32 %2282, %2242
@@ -15493,7 +15493,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2364 = getelementptr inbounds i8, ptr %2361, i64 %2363
   %2365 = load i8, ptr %2344, align 4
   %2366 = zext i8 %2365 to i64
-  %2367 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2366
+  %2367 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2366
   %2368 = load ptr, ptr %2367, align 8
   %2369 = load i32, ptr %2364, align 4
   %2370 = load i32, ptr %2345, align 4
@@ -15507,7 +15507,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2378 = zext i8 %2377 to i32
   %2379 = load i8, ptr %2347, align 1
   %2380 = zext i8 %2379 to i64
-  %2381 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2380
+  %2381 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2380
   %2382 = load ptr, ptr %2381, align 8
   %2383 = load i32, ptr %2348, align 4
   %2384 = and i32 %2383, %2369
@@ -15520,7 +15520,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2391 = zext i8 %2390 to i32
   %2392 = load i8, ptr %2350, align 2
   %2393 = zext i8 %2392 to i64
-  %2394 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2393
+  %2394 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2393
   %2395 = load ptr, ptr %2394, align 8
   %2396 = load i32, ptr %2351, align 4
   %2397 = and i32 %2396, %2369
@@ -15533,7 +15533,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2404 = zext i8 %2403 to i32
   %2405 = load i8, ptr %2353, align 1
   %2406 = zext i8 %2405 to i64
-  %2407 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2406
+  %2407 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2406
   %2408 = load ptr, ptr %2407, align 8
   %2409 = load i32, ptr %2354, align 4
   %2410 = and i32 %2409, %2369
@@ -15654,7 +15654,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2482 = getelementptr inbounds i8, ptr %2479, i64 %2481
   %2483 = load i8, ptr %2462, align 4
   %2484 = zext i8 %2483 to i64
-  %2485 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2484
+  %2485 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2484
   %2486 = load ptr, ptr %2485, align 8
   %2487 = load i32, ptr %2482, align 4
   %2488 = load i32, ptr %2463, align 4
@@ -15668,7 +15668,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2496 = zext i8 %2495 to i32
   %2497 = load i8, ptr %2465, align 1
   %2498 = zext i8 %2497 to i64
-  %2499 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2498
+  %2499 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2498
   %2500 = load ptr, ptr %2499, align 8
   %2501 = load i32, ptr %2466, align 4
   %2502 = and i32 %2501, %2487
@@ -15681,7 +15681,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2509 = zext i8 %2508 to i32
   %2510 = load i8, ptr %2468, align 2
   %2511 = zext i8 %2510 to i64
-  %2512 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2511
+  %2512 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2511
   %2513 = load ptr, ptr %2512, align 8
   %2514 = load i32, ptr %2469, align 4
   %2515 = and i32 %2514, %2487
@@ -15694,7 +15694,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2522 = zext i8 %2521 to i32
   %2523 = load i8, ptr %2471, align 1
   %2524 = zext i8 %2523 to i64
-  %2525 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2524
+  %2525 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2524
   %2526 = load ptr, ptr %2525, align 8
   %2527 = load i32, ptr %2472, align 4
   %2528 = and i32 %2527, %2487
@@ -15821,7 +15821,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2603 = getelementptr inbounds i8, ptr %2600, i64 %2602
   %2604 = load i8, ptr %2583, align 4
   %2605 = zext i8 %2604 to i64
-  %2606 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2605
+  %2606 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2605
   %2607 = load ptr, ptr %2606, align 8
   %2608 = load i32, ptr %2603, align 4
   %2609 = load i32, ptr %2584, align 4
@@ -15835,7 +15835,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2617 = zext i8 %2616 to i32
   %2618 = load i8, ptr %2586, align 1
   %2619 = zext i8 %2618 to i64
-  %2620 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2619
+  %2620 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2619
   %2621 = load ptr, ptr %2620, align 8
   %2622 = load i32, ptr %2587, align 4
   %2623 = and i32 %2622, %2608
@@ -15848,7 +15848,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2630 = zext i8 %2629 to i32
   %2631 = load i8, ptr %2589, align 2
   %2632 = zext i8 %2631 to i64
-  %2633 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2632
+  %2633 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2632
   %2634 = load ptr, ptr %2633, align 8
   %2635 = load i32, ptr %2590, align 4
   %2636 = and i32 %2635, %2608
@@ -15861,7 +15861,7 @@ define internal void @SDL_BlendLine_RGBA4(ptr noundef readonly captures(none) %0
   %2643 = zext i8 %2642 to i32
   %2644 = load i8, ptr %2592, align 1
   %2645 = zext i8 %2644 to i64
-  %2646 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2645
+  %2646 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2645
   %2647 = load ptr, ptr %2646, align 8
   %2648 = load i32, ptr %2593, align 4
   %2649 = and i32 %2648, %2608
@@ -16152,7 +16152,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %68 = add nsw i32 %.12197, -1
   %69 = load i8, ptr %57, align 4
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %.217142196, align 4
   %74 = load i32, ptr %58, align 4
@@ -16166,7 +16166,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %82 = zext i8 %81 to i32
   %83 = load i8, ptr %60, align 1
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = load i32, ptr %61, align 4
   %88 = and i32 %87, %73
@@ -16179,7 +16179,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %95 = zext i8 %94 to i32
   %96 = load i8, ptr %63, align 2
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr %64, align 4
   %101 = and i32 %100, %73
@@ -16282,7 +16282,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %169 = add nsw i32 %.117162193, -1
   %170 = load i8, ptr %158, align 4
   %171 = zext i8 %170 to i64
-  %172 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = load i32, ptr %.217202192, align 4
   %175 = load i32, ptr %159, align 4
@@ -16296,7 +16296,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %183 = zext i8 %182 to i32
   %184 = load i8, ptr %161, align 1
   %185 = zext i8 %184 to i64
-  %186 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %185
   %187 = load ptr, ptr %186, align 8
   %188 = load i32, ptr %162, align 4
   %189 = and i32 %188, %174
@@ -16309,7 +16309,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %196 = zext i8 %195 to i32
   %197 = load i8, ptr %164, align 2
   %198 = zext i8 %197 to i64
-  %199 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = load i32, ptr %165, align 4
   %202 = and i32 %201, %174
@@ -16415,7 +16415,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %270 = add nsw i32 %.117222189, -1
   %271 = load i8, ptr %259, align 4
   %272 = zext i8 %271 to i64
-  %273 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %272
   %274 = load ptr, ptr %273, align 8
   %275 = load i32, ptr %.217252188, align 4
   %276 = load i32, ptr %260, align 4
@@ -16429,7 +16429,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %284 = zext i8 %283 to i32
   %285 = load i8, ptr %262, align 1
   %286 = zext i8 %285 to i64
-  %287 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %286
   %288 = load ptr, ptr %287, align 8
   %289 = load i32, ptr %263, align 4
   %290 = and i32 %289, %275
@@ -16442,7 +16442,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %297 = zext i8 %296 to i32
   %298 = load i8, ptr %265, align 2
   %299 = zext i8 %298 to i64
-  %300 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %299
   %301 = load ptr, ptr %300, align 8
   %302 = load i32, ptr %266, align 4
   %303 = and i32 %302, %275
@@ -16536,7 +16536,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %365 = add nsw i32 %.117272185, -1
   %366 = load i8, ptr %354, align 4
   %367 = zext i8 %366 to i64
-  %368 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %367
   %369 = load ptr, ptr %368, align 8
   %370 = load i32, ptr %.217302184, align 4
   %371 = load i32, ptr %355, align 4
@@ -16550,7 +16550,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %379 = zext i8 %378 to i32
   %380 = load i8, ptr %357, align 1
   %381 = zext i8 %380 to i64
-  %382 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %381
   %383 = load ptr, ptr %382, align 8
   %384 = load i32, ptr %358, align 4
   %385 = and i32 %384, %370
@@ -16563,7 +16563,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %392 = zext i8 %391 to i32
   %393 = load i8, ptr %360, align 2
   %394 = zext i8 %393 to i64
-  %395 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %394
   %396 = load ptr, ptr %395, align 8
   %397 = load i32, ptr %361, align 4
   %398 = and i32 %397, %370
@@ -16663,7 +16663,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %463 = add nsw i32 %.117512181, -1
   %464 = load i8, ptr %452, align 4
   %465 = zext i8 %464 to i64
-  %466 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %465
+  %466 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %465
   %467 = load ptr, ptr %466, align 8
   %468 = load i32, ptr %.217542180, align 4
   %469 = load i32, ptr %453, align 4
@@ -16677,7 +16677,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %477 = zext i8 %476 to i32
   %478 = load i8, ptr %455, align 1
   %479 = zext i8 %478 to i64
-  %480 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %479
   %481 = load ptr, ptr %480, align 8
   %482 = load i32, ptr %456, align 4
   %483 = and i32 %482, %468
@@ -16690,7 +16690,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %490 = zext i8 %489 to i32
   %491 = load i8, ptr %458, align 2
   %492 = zext i8 %491 to i64
-  %493 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %492
   %494 = load ptr, ptr %493, align 8
   %495 = load i32, ptr %459, align 4
   %496 = and i32 %495, %468
@@ -16900,7 +16900,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %634 = add nsw i32 %.117622173, -1
   %635 = load i8, ptr %622, align 4
   %636 = zext i8 %635 to i64
-  %637 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %636
+  %637 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %636
   %638 = load ptr, ptr %637, align 8
   %639 = load i32, ptr %.217652172, align 4
   %640 = load i32, ptr %623, align 4
@@ -16914,7 +16914,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %648 = zext i8 %647 to i32
   %649 = load i8, ptr %625, align 1
   %650 = zext i8 %649 to i64
-  %651 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %650
+  %651 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %650
   %652 = load ptr, ptr %651, align 8
   %653 = load i32, ptr %626, align 4
   %654 = and i32 %653, %639
@@ -16927,7 +16927,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %661 = zext i8 %660 to i32
   %662 = load i8, ptr %628, align 2
   %663 = zext i8 %662 to i64
-  %664 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %663
+  %664 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %663
   %665 = load ptr, ptr %664, align 8
   %666 = load i32, ptr %629, align 4
   %667 = and i32 %666, %639
@@ -17030,7 +17030,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %738 = add nsw i32 %.117672169, -1
   %739 = load i8, ptr %726, align 4
   %740 = zext i8 %739 to i64
-  %741 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %740
+  %741 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %740
   %742 = load ptr, ptr %741, align 8
   %743 = load i32, ptr %.217892168, align 4
   %744 = load i32, ptr %727, align 4
@@ -17044,7 +17044,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %752 = zext i8 %751 to i32
   %753 = load i8, ptr %729, align 1
   %754 = zext i8 %753 to i64
-  %755 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %754
+  %755 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %754
   %756 = load ptr, ptr %755, align 8
   %757 = load i32, ptr %730, align 4
   %758 = and i32 %757, %743
@@ -17057,7 +17057,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %765 = zext i8 %764 to i32
   %766 = load i8, ptr %732, align 2
   %767 = zext i8 %766 to i64
-  %768 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %767
+  %768 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %767
   %769 = load ptr, ptr %768, align 8
   %770 = load i32, ptr %733, align 4
   %771 = and i32 %770, %743
@@ -17163,7 +17163,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %842 = add nsw i32 %.117912165, -1
   %843 = load i8, ptr %830, align 4
   %844 = zext i8 %843 to i64
-  %845 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %844
+  %845 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %844
   %846 = load ptr, ptr %845, align 8
   %847 = load i32, ptr %.217952164, align 4
   %848 = load i32, ptr %831, align 4
@@ -17177,7 +17177,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %856 = zext i8 %855 to i32
   %857 = load i8, ptr %833, align 1
   %858 = zext i8 %857 to i64
-  %859 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %858
+  %859 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %858
   %860 = load ptr, ptr %859, align 8
   %861 = load i32, ptr %834, align 4
   %862 = and i32 %861, %847
@@ -17190,7 +17190,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %869 = zext i8 %868 to i32
   %870 = load i8, ptr %836, align 2
   %871 = zext i8 %870 to i64
-  %872 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %871
+  %872 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %871
   %873 = load ptr, ptr %872, align 8
   %874 = load i32, ptr %837, align 4
   %875 = and i32 %874, %847
@@ -17284,7 +17284,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %940 = add nsw i32 %.117972161, -1
   %941 = load i8, ptr %928, align 4
   %942 = zext i8 %941 to i64
-  %943 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %942
+  %943 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %942
   %944 = load ptr, ptr %943, align 8
   %945 = load i32, ptr %.218002160, align 4
   %946 = load i32, ptr %929, align 4
@@ -17298,7 +17298,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %954 = zext i8 %953 to i32
   %955 = load i8, ptr %931, align 1
   %956 = zext i8 %955 to i64
-  %957 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %956
+  %957 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %956
   %958 = load ptr, ptr %957, align 8
   %959 = load i32, ptr %932, align 4
   %960 = and i32 %959, %945
@@ -17311,7 +17311,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %967 = zext i8 %966 to i32
   %968 = load i8, ptr %934, align 2
   %969 = zext i8 %968 to i64
-  %970 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %969
+  %970 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %969
   %971 = load ptr, ptr %970, align 8
   %972 = load i32, ptr %935, align 4
   %973 = and i32 %972, %945
@@ -17411,7 +17411,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1041 = add nsw i32 %.118022157, -1
   %1042 = load i8, ptr %1029, align 4
   %1043 = zext i8 %1042 to i64
-  %1044 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1043
+  %1044 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1043
   %1045 = load ptr, ptr %1044, align 8
   %1046 = load i32, ptr %.218052156, align 4
   %1047 = load i32, ptr %1030, align 4
@@ -17425,7 +17425,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1055 = zext i8 %1054 to i32
   %1056 = load i8, ptr %1032, align 1
   %1057 = zext i8 %1056 to i64
-  %1058 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1057
+  %1058 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1057
   %1059 = load ptr, ptr %1058, align 8
   %1060 = load i32, ptr %1033, align 4
   %1061 = and i32 %1060, %1046
@@ -17438,7 +17438,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1068 = zext i8 %1067 to i32
   %1069 = load i8, ptr %1035, align 2
   %1070 = zext i8 %1069 to i64
-  %1071 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1070
+  %1071 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1070
   %1072 = load ptr, ptr %1071, align 8
   %1073 = load i32, ptr %1036, align 4
   %1074 = and i32 %1073, %1046
@@ -17663,7 +17663,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1219 = add nsw i32 %.218332149, -1
   %1220 = load i8, ptr %1207, align 4
   %1221 = zext i8 %1220 to i64
-  %1222 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1221
+  %1222 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1221
   %1223 = load ptr, ptr %1222, align 8
   %1224 = load i32, ptr %.218392148, align 4
   %1225 = load i32, ptr %1208, align 4
@@ -17677,7 +17677,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1233 = zext i8 %1232 to i32
   %1234 = load i8, ptr %1210, align 1
   %1235 = zext i8 %1234 to i64
-  %1236 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1235
+  %1236 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1235
   %1237 = load ptr, ptr %1236, align 8
   %1238 = load i32, ptr %1211, align 4
   %1239 = and i32 %1238, %1224
@@ -17690,7 +17690,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1246 = zext i8 %1245 to i32
   %1247 = load i8, ptr %1213, align 2
   %1248 = zext i8 %1247 to i64
-  %1249 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1248
+  %1249 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1248
   %1250 = load ptr, ptr %1249, align 8
   %1251 = load i32, ptr %1214, align 4
   %1252 = and i32 %1251, %1224
@@ -17804,7 +17804,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1323 = add nsw i32 %.218422145, -1
   %1324 = load i8, ptr %1311, align 4
   %1325 = zext i8 %1324 to i64
-  %1326 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1325
+  %1326 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1325
   %1327 = load ptr, ptr %1326, align 8
   %1328 = load i32, ptr %.218672144, align 4
   %1329 = load i32, ptr %1312, align 4
@@ -17818,7 +17818,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1337 = zext i8 %1336 to i32
   %1338 = load i8, ptr %1314, align 1
   %1339 = zext i8 %1338 to i64
-  %1340 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1339
+  %1340 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1339
   %1341 = load ptr, ptr %1340, align 8
   %1342 = load i32, ptr %1315, align 4
   %1343 = and i32 %1342, %1328
@@ -17831,7 +17831,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1350 = zext i8 %1349 to i32
   %1351 = load i8, ptr %1317, align 2
   %1352 = zext i8 %1351 to i64
-  %1353 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1352
+  %1353 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1352
   %1354 = load ptr, ptr %1353, align 8
   %1355 = load i32, ptr %1318, align 4
   %1356 = and i32 %1355, %1328
@@ -17948,7 +17948,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1427 = add nsw i32 %.218702141, -1
   %1428 = load i8, ptr %1415, align 4
   %1429 = zext i8 %1428 to i64
-  %1430 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1429
+  %1430 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1429
   %1431 = load ptr, ptr %1430, align 8
   %1432 = load i32, ptr %.218772140, align 4
   %1433 = load i32, ptr %1416, align 4
@@ -17962,7 +17962,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1441 = zext i8 %1440 to i32
   %1442 = load i8, ptr %1418, align 1
   %1443 = zext i8 %1442 to i64
-  %1444 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1443
+  %1444 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1443
   %1445 = load ptr, ptr %1444, align 8
   %1446 = load i32, ptr %1419, align 4
   %1447 = and i32 %1446, %1432
@@ -17975,7 +17975,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1454 = zext i8 %1453 to i32
   %1455 = load i8, ptr %1421, align 2
   %1456 = zext i8 %1455 to i64
-  %1457 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1456
+  %1457 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1456
   %1458 = load ptr, ptr %1457, align 8
   %1459 = load i32, ptr %1422, align 4
   %1460 = and i32 %1459, %1432
@@ -18080,7 +18080,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1525 = add nsw i32 %.218802137, -1
   %1526 = load i8, ptr %1513, align 4
   %1527 = zext i8 %1526 to i64
-  %1528 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1527
+  %1528 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1527
   %1529 = load ptr, ptr %1528, align 8
   %1530 = load i32, ptr %.218862136, align 4
   %1531 = load i32, ptr %1514, align 4
@@ -18094,7 +18094,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1539 = zext i8 %1538 to i32
   %1540 = load i8, ptr %1516, align 1
   %1541 = zext i8 %1540 to i64
-  %1542 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1541
+  %1542 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1541
   %1543 = load ptr, ptr %1542, align 8
   %1544 = load i32, ptr %1517, align 4
   %1545 = and i32 %1544, %1530
@@ -18107,7 +18107,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1552 = zext i8 %1551 to i32
   %1553 = load i8, ptr %1519, align 2
   %1554 = zext i8 %1553 to i64
-  %1555 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1554
+  %1555 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1554
   %1556 = load ptr, ptr %1555, align 8
   %1557 = load i32, ptr %1520, align 4
   %1558 = and i32 %1557, %1530
@@ -18218,7 +18218,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1626 = add nsw i32 %.219082133, -1
   %1627 = load i8, ptr %1614, align 4
   %1628 = zext i8 %1627 to i64
-  %1629 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1628
+  %1629 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1628
   %1630 = load ptr, ptr %1629, align 8
   %1631 = load i32, ptr %.219152132, align 4
   %1632 = load i32, ptr %1615, align 4
@@ -18232,7 +18232,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1640 = zext i8 %1639 to i32
   %1641 = load i8, ptr %1617, align 1
   %1642 = zext i8 %1641 to i64
-  %1643 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1642
+  %1643 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1642
   %1644 = load ptr, ptr %1643, align 8
   %1645 = load i32, ptr %1618, align 4
   %1646 = and i32 %1645, %1631
@@ -18245,7 +18245,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1653 = zext i8 %1652 to i32
   %1654 = load i8, ptr %1620, align 2
   %1655 = zext i8 %1654 to i64
-  %1656 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1655
+  %1656 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1655
   %1657 = load ptr, ptr %1656, align 8
   %1658 = load i32, ptr %1621, align 4
   %1659 = and i32 %1658, %1631
@@ -18477,7 +18477,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1799 = getelementptr inbounds i8, ptr %1796, i64 %1798
   %1800 = load i8, ptr %1781, align 4
   %1801 = zext i8 %1800 to i64
-  %1802 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1801
+  %1802 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1801
   %1803 = load ptr, ptr %1802, align 8
   %1804 = load i32, ptr %1799, align 4
   %1805 = load i32, ptr %1782, align 4
@@ -18491,7 +18491,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1813 = zext i8 %1812 to i32
   %1814 = load i8, ptr %1784, align 1
   %1815 = zext i8 %1814 to i64
-  %1816 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1815
+  %1816 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1815
   %1817 = load ptr, ptr %1816, align 8
   %1818 = load i32, ptr %1785, align 4
   %1819 = and i32 %1818, %1804
@@ -18504,7 +18504,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1826 = zext i8 %1825 to i32
   %1827 = load i8, ptr %1787, align 2
   %1828 = zext i8 %1827 to i64
-  %1829 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1828
+  %1829 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1828
   %1830 = load ptr, ptr %1829, align 8
   %1831 = load i32, ptr %1788, align 4
   %1832 = and i32 %1831, %1804
@@ -18629,7 +18629,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1905 = getelementptr inbounds i8, ptr %1902, i64 %1904
   %1906 = load i8, ptr %1887, align 4
   %1907 = zext i8 %1906 to i64
-  %1908 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1907
+  %1908 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1907
   %1909 = load ptr, ptr %1908, align 8
   %1910 = load i32, ptr %1905, align 4
   %1911 = load i32, ptr %1888, align 4
@@ -18643,7 +18643,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1919 = zext i8 %1918 to i32
   %1920 = load i8, ptr %1890, align 1
   %1921 = zext i8 %1920 to i64
-  %1922 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1921
+  %1922 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1921
   %1923 = load ptr, ptr %1922, align 8
   %1924 = load i32, ptr %1891, align 4
   %1925 = and i32 %1924, %1910
@@ -18656,7 +18656,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %1932 = zext i8 %1931 to i32
   %1933 = load i8, ptr %1893, align 2
   %1934 = zext i8 %1933 to i64
-  %1935 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1934
+  %1935 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1934
   %1936 = load ptr, ptr %1935, align 8
   %1937 = load i32, ptr %1894, align 4
   %1938 = and i32 %1937, %1910
@@ -18784,7 +18784,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2011 = getelementptr inbounds i8, ptr %2008, i64 %2010
   %2012 = load i8, ptr %1993, align 4
   %2013 = zext i8 %2012 to i64
-  %2014 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2013
+  %2014 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2013
   %2015 = load ptr, ptr %2014, align 8
   %2016 = load i32, ptr %2011, align 4
   %2017 = load i32, ptr %1994, align 4
@@ -18798,7 +18798,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2025 = zext i8 %2024 to i32
   %2026 = load i8, ptr %1996, align 1
   %2027 = zext i8 %2026 to i64
-  %2028 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2027
+  %2028 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2027
   %2029 = load ptr, ptr %2028, align 8
   %2030 = load i32, ptr %1997, align 4
   %2031 = and i32 %2030, %2016
@@ -18811,7 +18811,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2038 = zext i8 %2037 to i32
   %2039 = load i8, ptr %1999, align 2
   %2040 = zext i8 %2039 to i64
-  %2041 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2040
+  %2041 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2040
   %2042 = load ptr, ptr %2041, align 8
   %2043 = load i32, ptr %2000, align 4
   %2044 = and i32 %2043, %2016
@@ -18927,7 +18927,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2111 = getelementptr inbounds i8, ptr %2108, i64 %2110
   %2112 = load i8, ptr %2093, align 4
   %2113 = zext i8 %2112 to i64
-  %2114 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2113
+  %2114 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2113
   %2115 = load ptr, ptr %2114, align 8
   %2116 = load i32, ptr %2111, align 4
   %2117 = load i32, ptr %2094, align 4
@@ -18941,7 +18941,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2125 = zext i8 %2124 to i32
   %2126 = load i8, ptr %2096, align 1
   %2127 = zext i8 %2126 to i64
-  %2128 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2127
+  %2128 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2127
   %2129 = load ptr, ptr %2128, align 8
   %2130 = load i32, ptr %2097, align 4
   %2131 = and i32 %2130, %2116
@@ -18954,7 +18954,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2138 = zext i8 %2137 to i32
   %2139 = load i8, ptr %2099, align 2
   %2140 = zext i8 %2139 to i64
-  %2141 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2140
+  %2141 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2140
   %2142 = load ptr, ptr %2141, align 8
   %2143 = load i32, ptr %2100, align 4
   %2144 = and i32 %2143, %2116
@@ -19076,7 +19076,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2214 = getelementptr inbounds i8, ptr %2211, i64 %2213
   %2215 = load i8, ptr %2196, align 4
   %2216 = zext i8 %2215 to i64
-  %2217 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2216
+  %2217 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2216
   %2218 = load ptr, ptr %2217, align 8
   %2219 = load i32, ptr %2214, align 4
   %2220 = load i32, ptr %2197, align 4
@@ -19090,7 +19090,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2228 = zext i8 %2227 to i32
   %2229 = load i8, ptr %2199, align 1
   %2230 = zext i8 %2229 to i64
-  %2231 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2230
+  %2231 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2230
   %2232 = load ptr, ptr %2231, align 8
   %2233 = load i32, ptr %2200, align 4
   %2234 = and i32 %2233, %2219
@@ -19103,7 +19103,7 @@ define internal void @SDL_BlendLine_RGB4(ptr noundef readonly captures(none) %0,
   %2241 = zext i8 %2240 to i32
   %2242 = load i8, ptr %2202, align 2
   %2243 = zext i8 %2242 to i64
-  %2244 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %2243
+  %2244 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2243
   %2245 = load ptr, ptr %2244, align 8
   %2246 = load i32, ptr %2203, align 4
   %2247 = and i32 %2246, %2219

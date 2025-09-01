@@ -395,14 +395,14 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 
 112:                                              ; preds = %112, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %112 ]
-  %113 = getelementptr inbounds nuw [32 x %struct.anon], ptr %111, i64 0, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw %struct.anon, ptr %111, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 8, !tbaa !53, !noalias !49
-  %115 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   store i32 %114, ptr %115, align 4, !tbaa !32, !noalias !49
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %117 = load i32, ptr %116, align 4, !tbaa !22, !noalias !49
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
   store i64 %118, ptr %119, align 8, !tbaa !20, !noalias !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

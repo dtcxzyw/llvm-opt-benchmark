@@ -142,7 +142,7 @@ define void @CRYPTO_gcm128_setiv(ptr noundef initializes((48, 80), (376, 384)) %
   %.06770 = phi i64 [ 0, %.preheader69 ], [ %25, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %.072, i64 %.06770
   %21 = load i8, ptr %20, align 1, !tbaa !12
-  %22 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %.06770
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %.06770
   %23 = load i8, ptr %22, align 1, !tbaa !12
   %24 = xor i8 %23, %21
   store i8 %24, ptr %22, align 1, !tbaa !12
@@ -168,7 +168,7 @@ define void @CRYPTO_gcm128_setiv(ptr noundef initializes((48, 80), (376, 384)) %
   %.174 = phi i64 [ %36, %.preheader ], [ 0, %._crit_edge ]
   %31 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %.174
   %32 = load i8, ptr %31, align 1, !tbaa !12
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %.174
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %.174
   %34 = load i8, ptr %33, align 1, !tbaa !12
   %35 = xor i8 %34, %32
   store i8 %35, ptr %33, align 1, !tbaa !12
@@ -258,7 +258,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   %17 = getelementptr inbounds nuw i8, ptr %.15061, i64 1
   %18 = load i8, ptr %.15061, align 1, !tbaa !12
   %19 = zext i32 %.163 to i64
-  %20 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = xor i8 %21, %18
   store i8 %22, ptr %20, align 1, !tbaa !12
@@ -315,7 +315,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   %.04566 = phi i64 [ 0, %47 ], [ %55, %49 ]
   %50 = getelementptr inbounds nuw i8, ptr %.251, i64 %.04566
   %51 = load i8, ptr %50, align 1, !tbaa !12
-  %52 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 0, i64 %.04566
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.04566
   %53 = load i8, ptr %52, align 1, !tbaa !12
   %54 = xor i8 %53, %51
   store i8 %54, ptr %52, align 1, !tbaa !12
@@ -408,14 +408,14 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %37 = getelementptr inbounds nuw i8, ptr %.1193, i64 1
   %38 = load i8, ptr %.1193, align 1, !tbaa !12
   %39 = zext nneg i32 %.1153190 to i64
-  %40 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !12
   %42 = xor i8 %41, %38
   %43 = getelementptr inbounds nuw i8, ptr %.1141192, i64 1
   store i8 %42, ptr %.1141192, align 1, !tbaa !12
   %44 = add i32 %.2161189, 1
   %45 = zext i32 %.2161189 to i64
-  %46 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 %45
   store i8 %42, ptr %46, align 1, !tbaa !12
   %47 = add nsw i64 %.1147191, -1
   %48 = add nuw nsw i32 %.1153190, 1
@@ -584,14 +584,14 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %119 = zext i32 %.2154224 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.4, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !12
-  %122 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 0, i64 %119
+  %122 = getelementptr inbounds nuw i8, ptr %113, i64 %119
   %123 = load i8, ptr %122, align 1, !tbaa !12
   %124 = xor i8 %123, %121
   %125 = getelementptr inbounds nuw i8, ptr %.4144, i64 %119
   store i8 %124, ptr %125, align 1, !tbaa !12
   %126 = add i32 %.5164223, 1
   %127 = zext i32 %.5164223 to i64
-  %128 = getelementptr inbounds nuw [48 x i8], ptr %116, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %116, i64 %127
   store i8 %124, ptr %128, align 1, !tbaa !12
   %129 = add i32 %.2154224, 1
   %.not176 = icmp eq i64 %118, 0
@@ -679,10 +679,10 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %38 = load i8, ptr %.1190, align 1, !tbaa !12
   %39 = add i32 %.2159186, 1
   %40 = zext i32 %.2159186 to i64
-  %41 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %40
   store i8 %38, ptr %41, align 1, !tbaa !12
   %42 = zext nneg i32 %.1151187 to i64
-  %43 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !12
   %45 = xor i8 %44, %38
   %46 = getelementptr inbounds nuw i8, ptr %.1139189, i64 1
@@ -850,9 +850,9 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %118 = load i8, ptr %117, align 1, !tbaa !12
   %119 = add i32 %.5162222, 1
   %120 = zext i32 %.5162222 to i64
-  %121 = getelementptr inbounds nuw [48 x i8], ptr %113, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %113, i64 %120
   store i8 %118, ptr %121, align 1, !tbaa !12
-  %122 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 0, i64 %116
+  %122 = getelementptr inbounds nuw i8, ptr %110, i64 %116
   %123 = load i8, ptr %122, align 1, !tbaa !12
   %124 = xor i8 %123, %118
   %125 = getelementptr inbounds nuw i8, ptr %.4142, i64 %116
@@ -940,14 +940,14 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %36 = getelementptr inbounds nuw i8, ptr %.1162, i64 1
   %37 = load i8, ptr %.1162, align 1, !tbaa !12
   %38 = zext nneg i32 %.1131159 to i64
-  %39 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !12
   %41 = xor i8 %40, %37
   %42 = getelementptr inbounds nuw i8, ptr %.1123161, i64 1
   store i8 %41, ptr %.1123161, align 1, !tbaa !12
   %43 = add i32 %.2137158, 1
   %44 = zext i32 %.2137158 to i64
-  %45 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 %44
   store i8 %41, ptr %45, align 1, !tbaa !12
   %46 = add nsw i64 %.1127160, -1
   %47 = add nuw nsw i32 %.1131159, 1
@@ -1070,14 +1070,14 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %98 = zext i32 %.2132179 to i64
   %99 = getelementptr inbounds nuw i8, ptr %.3, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !12
-  %101 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 0, i64 %98
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 %98
   %102 = load i8, ptr %101, align 1, !tbaa !12
   %103 = xor i8 %102, %100
   %104 = getelementptr inbounds nuw i8, ptr %.3125, i64 %98
   store i8 %103, ptr %104, align 1, !tbaa !12
   %105 = add i32 %.5178, 1
   %106 = zext i32 %.5178 to i64
-  %107 = getelementptr inbounds nuw [48 x i8], ptr %95, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %95, i64 %106
   store i8 %103, ptr %107, align 1, !tbaa !12
   %108 = add i32 %.2132179, 1
   %.not148 = icmp eq i64 %97, 0
@@ -1163,10 +1163,10 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %37 = load i8, ptr %.1162, align 1, !tbaa !12
   %38 = add i32 %.2137158, 1
   %39 = zext i32 %.2137158 to i64
-  %40 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 %39
   store i8 %37, ptr %40, align 1, !tbaa !12
   %41 = zext nneg i32 %.1131159 to i64
-  %42 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !12
   %44 = xor i8 %43, %37
   %45 = getelementptr inbounds nuw i8, ptr %.1123161, i64 1
@@ -1294,9 +1294,9 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %100 = load i8, ptr %99, align 1, !tbaa !12
   %101 = add i32 %.5178, 1
   %102 = zext i32 %.5178 to i64
-  %103 = getelementptr inbounds nuw [48 x i8], ptr %95, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %95, i64 %102
   store i8 %100, ptr %103, align 1, !tbaa !12
-  %104 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 0, i64 %98
+  %104 = getelementptr inbounds nuw i8, ptr %92, i64 %98
   %105 = load i8, ptr %104, align 1, !tbaa !12
   %106 = xor i8 %105, %100
   %107 = getelementptr inbounds nuw i8, ptr %.3125, i64 %98

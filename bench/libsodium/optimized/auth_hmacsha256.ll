@@ -56,7 +56,7 @@ define dso_local noundef i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %0
   %.025 = phi i64 [ %18, %.lr.ph ], [ 0, %11 ]
   %13 = getelementptr i8, ptr %.022, i64 %.025
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr [64 x i8], ptr %4, i64 0, i64 %.025
+  %15 = getelementptr i8, ptr %4, i64 %.025
   %16 = load i8, ptr %15, align 1
   %17 = xor i8 %16, %14
   store i8 %17, ptr %15, align 1
@@ -75,7 +75,7 @@ define dso_local noundef i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %0
   %.126 = phi i64 [ %27, %.lr.ph28 ], [ 0, %._crit_edge ]
   %22 = getelementptr i8, ptr %.022, i64 %.126
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr [64 x i8], ptr %4, i64 0, i64 %.126
+  %24 = getelementptr i8, ptr %4, i64 %.126
   %25 = load i8, ptr %24, align 1
   %26 = xor i8 %25, %23
   store i8 %26, ptr %24, align 1

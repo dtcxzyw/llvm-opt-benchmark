@@ -426,7 +426,7 @@ define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #7 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [102 x ptr], ptr @error_mapping, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @error_mapping, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !61
   br label %6
 

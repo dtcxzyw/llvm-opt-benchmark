@@ -298,7 +298,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 113:                                              ; preds = %111
   %114 = zext i1 %108 to i64
-  %115 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !19
   %117 = zext i16 %116 to i32
   %118 = shl nuw nsw i32 %117, 7
@@ -307,7 +307,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %119 = select i1 %.cmp144, i32 %.089.frozen, i32 %.urem
   %120 = add nsw i32 %118, %119
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %121
+  %122 = getelementptr inbounds i16, ptr @_pcre2_ucd_stage2_8, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !19
   %124 = zext i16 %123 to i64
   %125 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %124
@@ -720,7 +720,7 @@ thread-pre-split:                                 ; preds = %5
   %61 = shl nuw nsw i32 1, %60
   %62 = lshr i32 %.0275437, 3
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %20, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !17
   %66 = trunc nuw i32 %61 to i8
   %67 = or i8 %65, %66
@@ -1094,7 +1094,7 @@ thread-pre-split:                                 ; preds = %5
   %265 = getelementptr inbounds nuw i8, ptr %gep.i, i64 512
   %266 = load i8, ptr %265, align 1, !tbaa !17
   %267 = xor i8 %266, -1
-  %268 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i
+  %268 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i
   %269 = load i8, ptr %268, align 1, !tbaa !17
   %270 = or i8 %269, %267
   store i8 %270, ptr %268, align 1, !tbaa !17
@@ -1119,7 +1119,7 @@ thread-pre-split:                                 ; preds = %5
   %gep.i326 = getelementptr inbounds nuw i8, ptr %invariant.gep.i324, i64 %indvars.iv.i325
   %275 = getelementptr inbounds nuw i8, ptr %gep.i326, i64 512
   %276 = load i8, ptr %275, align 1, !tbaa !17
-  %277 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i325
+  %277 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i325
   %278 = load i8, ptr %277, align 1, !tbaa !17
   %279 = or i8 %278, %276
   store i8 %279, ptr %277, align 1, !tbaa !17
@@ -1153,7 +1153,7 @@ thread-pre-split:                                 ; preds = %5
   %295 = shl nuw i8 1, %294
   %296 = lshr i8 %293, 3
   %297 = zext nneg i8 %296 to i64
-  %298 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw i8, ptr %20, i64 %297
   %299 = load i8, ptr %298, align 1, !tbaa !17
   %300 = or i8 %295, %299
   store i8 %300, ptr %298, align 1, !tbaa !17
@@ -1175,7 +1175,7 @@ thread-pre-split:                                 ; preds = %5
   %306 = getelementptr inbounds nuw i8, ptr %gep.i333, i64 512
   %307 = load i8, ptr %306, align 1, !tbaa !17
   %308 = xor i8 %307, -1
-  %309 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i332
+  %309 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i332
   %310 = load i8, ptr %309, align 1, !tbaa !17
   %311 = or i8 %310, %308
   store i8 %311, ptr %309, align 1, !tbaa !17
@@ -1199,7 +1199,7 @@ thread-pre-split:                                 ; preds = %5
   %gep.i343 = getelementptr inbounds nuw i8, ptr %314, i64 %indvars.iv.i342
   %316 = getelementptr inbounds nuw i8, ptr %gep.i343, i64 512
   %317 = load i8, ptr %316, align 1, !tbaa !17
-  %318 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i342
+  %318 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i342
   %319 = load i8, ptr %318, align 1, !tbaa !17
   %320 = or i8 %319, %317
   store i8 %320, ptr %318, align 1, !tbaa !17
@@ -1233,7 +1233,7 @@ thread-pre-split:                                 ; preds = %5
   %336 = shl nuw i8 1, %335
   %337 = lshr i8 %334, 3
   %338 = zext nneg i8 %337 to i64
-  %339 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw i8, ptr %20, i64 %338
   %340 = load i8, ptr %339, align 1, !tbaa !17
   %341 = or i8 %336, %340
   store i8 %341, ptr %339, align 1, !tbaa !17
@@ -1256,7 +1256,7 @@ thread-pre-split:                                 ; preds = %5
   %347 = getelementptr inbounds nuw i8, ptr %gep.i354, i64 512
   %348 = load i8, ptr %347, align 1, !tbaa !17
   %349 = xor i8 %348, -1
-  %350 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i353
+  %350 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i353
   %351 = load i8, ptr %350, align 1, !tbaa !17
   %352 = or i8 %351, %349
   store i8 %352, ptr %350, align 1, !tbaa !17
@@ -1281,7 +1281,7 @@ thread-pre-split:                                 ; preds = %5
   %gep.i364 = getelementptr inbounds nuw i8, ptr %invariant.gep.i362, i64 %indvars.iv.i363
   %357 = getelementptr inbounds nuw i8, ptr %gep.i364, i64 512
   %358 = load i8, ptr %357, align 1, !tbaa !17
-  %359 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i363
+  %359 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i363
   %360 = load i8, ptr %359, align 1, !tbaa !17
   %361 = or i8 %360, %358
   store i8 %361, ptr %359, align 1, !tbaa !17
@@ -1315,7 +1315,7 @@ thread-pre-split:                                 ; preds = %5
   %377 = shl nuw i8 1, %376
   %378 = lshr i8 %375, 3
   %379 = zext nneg i8 %378 to i64
-  %380 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %379
+  %380 = getelementptr inbounds nuw i8, ptr %20, i64 %379
   %381 = load i8, ptr %380, align 1, !tbaa !17
   %382 = or i8 %377, %381
   store i8 %382, ptr %380, align 1, !tbaa !17
@@ -1411,7 +1411,7 @@ thread-pre-split:                                 ; preds = %5
   %421 = getelementptr inbounds nuw i8, ptr %gep.i375, i64 512
   %422 = load i8, ptr %421, align 1, !tbaa !17
   %423 = xor i8 %422, -1
-  %424 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i374
+  %424 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i374
   %425 = load i8, ptr %424, align 1, !tbaa !17
   %426 = or i8 %425, %423
   store i8 %426, ptr %424, align 1, !tbaa !17
@@ -1436,7 +1436,7 @@ thread-pre-split:                                 ; preds = %5
   %gep.i385 = getelementptr inbounds nuw i8, ptr %invariant.gep.i383, i64 %indvars.iv.i384
   %431 = getelementptr inbounds nuw i8, ptr %gep.i385, i64 512
   %432 = load i8, ptr %431, align 1, !tbaa !17
-  %433 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i384
+  %433 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i384
   %434 = load i8, ptr %433, align 1, !tbaa !17
   %435 = or i8 %434, %432
   store i8 %435, ptr %433, align 1, !tbaa !17
@@ -1470,7 +1470,7 @@ thread-pre-split:                                 ; preds = %5
   %451 = shl nuw i8 1, %450
   %452 = lshr i8 %449, 3
   %453 = zext nneg i8 %452 to i64
-  %454 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw i8, ptr %20, i64 %453
   %455 = load i8, ptr %454, align 1, !tbaa !17
   %456 = or i8 %451, %455
   store i8 %456, ptr %454, align 1, !tbaa !17
@@ -1492,7 +1492,7 @@ thread-pre-split:                                 ; preds = %5
   %462 = getelementptr inbounds nuw i8, ptr %gep.i396, i64 512
   %463 = load i8, ptr %462, align 1, !tbaa !17
   %464 = xor i8 %463, -1
-  %465 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i395
+  %465 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i395
   %466 = load i8, ptr %465, align 1, !tbaa !17
   %467 = or i8 %466, %464
   store i8 %467, ptr %465, align 1, !tbaa !17
@@ -1516,7 +1516,7 @@ thread-pre-split:                                 ; preds = %5
   %gep.i406 = getelementptr inbounds nuw i8, ptr %470, i64 %indvars.iv.i405
   %472 = getelementptr inbounds nuw i8, ptr %gep.i406, i64 512
   %473 = load i8, ptr %472, align 1, !tbaa !17
-  %474 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i405
+  %474 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i405
   %475 = load i8, ptr %474, align 1, !tbaa !17
   %476 = or i8 %475, %473
   store i8 %476, ptr %474, align 1, !tbaa !17
@@ -1550,7 +1550,7 @@ thread-pre-split:                                 ; preds = %5
   %492 = shl nuw i8 1, %491
   %493 = lshr i8 %490, 3
   %494 = zext nneg i8 %493 to i64
-  %495 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %494
+  %495 = getelementptr inbounds nuw i8, ptr %20, i64 %494
   %496 = load i8, ptr %495, align 1, !tbaa !17
   %497 = or i8 %492, %496
   store i8 %497, ptr %495, align 1, !tbaa !17
@@ -1573,7 +1573,7 @@ thread-pre-split:                                 ; preds = %5
   %503 = getelementptr inbounds nuw i8, ptr %gep.i417, i64 512
   %504 = load i8, ptr %503, align 1, !tbaa !17
   %505 = xor i8 %504, -1
-  %506 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i416
+  %506 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i416
   %507 = load i8, ptr %506, align 1, !tbaa !17
   %508 = or i8 %507, %505
   store i8 %508, ptr %506, align 1, !tbaa !17
@@ -1598,7 +1598,7 @@ thread-pre-split:                                 ; preds = %5
   %gep.i427 = getelementptr inbounds nuw i8, ptr %invariant.gep.i425, i64 %indvars.iv.i426
   %513 = getelementptr inbounds nuw i8, ptr %gep.i427, i64 512
   %514 = load i8, ptr %513, align 1, !tbaa !17
-  %515 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i426
+  %515 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i426
   %516 = load i8, ptr %515, align 1, !tbaa !17
   %517 = or i8 %516, %514
   store i8 %517, ptr %515, align 1, !tbaa !17
@@ -1632,7 +1632,7 @@ thread-pre-split:                                 ; preds = %5
   %533 = shl nuw i8 1, %532
   %534 = lshr i8 %531, 3
   %535 = zext nneg i8 %534 to i64
-  %536 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %535
+  %536 = getelementptr inbounds nuw i8, ptr %20, i64 %535
   %537 = load i8, ptr %536, align 1, !tbaa !17
   %538 = or i8 %533, %537
   store i8 %538, ptr %536, align 1, !tbaa !17
@@ -1904,7 +1904,7 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %571
   %671 = shl nuw i8 1, %670
   %672 = lshr i8 %664, 3
   %673 = zext nneg i8 %672 to i64
-  %674 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %673
+  %674 = getelementptr inbounds nuw i8, ptr %20, i64 %673
   %675 = load i8, ptr %674, align 1, !tbaa !17
   %676 = or i8 %675, %671
   store i8 %676, ptr %674, align 1, !tbaa !17
@@ -1939,7 +1939,7 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %571
   %687 = shl nuw i8 1, %686
   %688 = lshr i8 %.0271502, 3
   %689 = zext nneg i8 %688 to i64
-  %690 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %689
+  %690 = getelementptr inbounds nuw i8, ptr %20, i64 %689
   %691 = load i8, ptr %690, align 1, !tbaa !17
   %692 = or i8 %691, %687
   store i8 %692, ptr %690, align 1, !tbaa !17
@@ -2001,7 +2001,7 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %571
   %indvars.iv536 = phi i64 [ %indvars.iv.next537, %.preheader486 ], [ 0, %712 ]
   %713 = getelementptr inbounds nuw i8, ptr %.2282453, i64 %indvars.iv536
   %714 = load i8, ptr %713, align 1, !tbaa !17
-  %715 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv536
+  %715 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv536
   %716 = load i8, ptr %715, align 1, !tbaa !17
   %717 = or i8 %716, %714
   store i8 %717, ptr %715, align 1, !tbaa !17
@@ -2042,7 +2042,7 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %571
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader487 ], [ 0, %712 ]
   %736 = getelementptr inbounds nuw i8, ptr %.2282453, i64 %indvars.iv
   %737 = load i8, ptr %736, align 1, !tbaa !17
-  %738 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv
+  %738 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %739 = load i8, ptr %738, align 1, !tbaa !17
   %740 = or i8 %739, %737
   store i8 %740, ptr %738, align 1, !tbaa !17
@@ -2480,7 +2480,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %131 = phi i8 [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %33, %31 ], [ %129, %119 ]
   %.3388 = phi ptr [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %spec.select501, %31 ], [ %128, %119 ]
   %132 = zext i8 %131 to i64
-  %133 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !17
   %135 = zext i8 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %.3388, i64 %135
@@ -2500,7 +2500,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 
 147:                                              ; preds = %31, %31, %31, %31
   %148 = zext i8 %33 to i64
-  %149 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !17
   %151 = zext i8 %150 to i64
   %152 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 %151
@@ -2539,7 +2539,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 174:                                              ; preds = %170
   %175 = and i8 %172, 63
   %176 = zext nneg i8 %175 to i64
-  %177 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_utf8_table4, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_pcre2_utf8_table4, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !17
   %179 = zext i8 %178 to i64
   %180 = getelementptr inbounds nuw i8, ptr %169, i64 %179
@@ -2577,7 +2577,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 204:                                              ; preds = %200
   %205 = and i8 %202, 63
   %206 = zext nneg i8 %205 to i64
-  %207 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_utf8_table4, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr @_pcre2_utf8_table4, i64 %206
   %208 = load i8, ptr %207, align 1, !tbaa !17
   %209 = zext i8 %208 to i64
   %210 = getelementptr inbounds nuw i8, ptr %199, i64 %209
@@ -2632,7 +2632,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %spec.select515.idx = select i1 %switch514, i64 2, i64 0
   %spec.select515 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 %spec.select515.idx
   %242 = zext nneg i8 %33 to i64
-  %243 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !17
   %245 = zext i8 %244 to i64
   %246 = getelementptr inbounds nuw i8, ptr %spec.select515, i64 %245
@@ -2646,7 +2646,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %spec.select518.idx = select i1 %switch517, i64 2, i64 0
   %spec.select518 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 %spec.select518.idx
   %250 = zext nneg i8 %33 to i64
-  %251 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %250
   %252 = load i8, ptr %251, align 1, !tbaa !17
   %253 = zext i8 %252 to i64
   %254 = getelementptr inbounds nuw i8, ptr %spec.select518, i64 %253
@@ -2986,7 +2986,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %.6372 = phi i32 [ 0, %291 ], [ 0, %290 ], [ %.8374, %._crit_edge605 ], [ %387, %384 ], [ 2147483647, %295 ], [ %spec.select505, %366 ], [ %spec.select505, %369 ]
   %.pn493.in = load i8, ptr %spec.select501, align 1, !tbaa !17
   %.pn493 = zext i8 %.pn493.in to i64
-  %.pn.in.in = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %.pn493
+  %.pn.in.in = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %.pn493
   %.pn.in = load i8, ptr %.pn.in.in, align 1, !tbaa !17
   %.pn = zext i8 %.pn.in to i64
   %.14399 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 %.pn
@@ -3142,7 +3142,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 
 505:                                              ; preds = %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31
   %506 = zext nneg i8 %33 to i64
-  %507 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %506
   %508 = load i8, ptr %507, align 1, !tbaa !17
   %509 = zext i8 %508 to i64
   %510 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 %509
@@ -3157,7 +3157,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 515:                                              ; preds = %511
   %516 = and i8 %513, 63
   %517 = zext nneg i8 %516 to i64
-  %518 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_utf8_table4, i64 0, i64 %517
+  %518 = getelementptr inbounds nuw i8, ptr @_pcre2_utf8_table4, i64 %517
   %519 = load i8, ptr %518, align 1, !tbaa !17
   %520 = zext i8 %519 to i64
   %521 = getelementptr inbounds nuw i8, ptr %510, i64 %520
@@ -3165,7 +3165,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 
 522:                                              ; preds = %31, %31, %31, %31, %31
   %523 = zext i8 %33 to i64
-  %524 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %523
+  %524 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %523
   %525 = load i8, ptr %524, align 1, !tbaa !17
   %526 = zext i8 %525 to i64
   %527 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 1
@@ -3177,7 +3177,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 
 532:                                              ; preds = %31, %31, %31, %31, %31, %31, %31
   %533 = zext i8 %33 to i64
-  %534 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %533
+  %534 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %533
   %535 = load i8, ptr %534, align 1, !tbaa !17
   %536 = zext i8 %535 to i64
   %537 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 %536
@@ -3205,7 +3205,7 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = lshr i32 %9, 3
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !17
   %17 = trunc nuw i32 %11 to i8
   %18 = or i8 %16, %17
@@ -3343,14 +3343,14 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
 120:                                              ; preds = %118
   %121 = lshr i32 %.0, 7
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !19
   %125 = zext i16 %124 to i32
   %126 = shl nuw nsw i32 %125, 7
   %127 = and i32 %.0, 127
   %128 = or disjoint i32 %126, %127
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !19
   %132 = zext i16 %131 to i64
   %133 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %132, i32 4
@@ -3366,7 +3366,7 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
   %140 = shl nuw i8 1, %139
   %141 = lshr i8 %138, 3
   %142 = zext nneg i8 %141 to i64
-  %143 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %12, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !17
   %145 = or i8 %140, %144
   store i8 %145, ptr %143, align 1, !tbaa !17
@@ -3382,7 +3382,7 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
   %150 = shl nuw nsw i32 1, %149
   %151 = lshr i32 %135, 3
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr %12, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !17
   %155 = trunc nuw i32 %150 to i8
   %156 = or i8 %154, %155
@@ -3400,7 +3400,7 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
   %165 = shl nuw i8 1, %164
   %166 = lshr i8 %163, 3
   %167 = zext nneg i8 %166 to i64
-  %168 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr %12, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !17
   %170 = or i8 %165, %169
   store i8 %170, ptr %168, align 1, !tbaa !17

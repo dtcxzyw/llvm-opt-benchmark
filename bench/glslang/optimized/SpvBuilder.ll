@@ -10901,7 +10901,7 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209: ; preds = %_ZN3spv7Buil
 
 switch.lookup:                                    ; preds = %435
   %437 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatE, i64 0, i64 %437
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatE, i64 %437
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit"
 
@@ -26684,7 +26684,7 @@ _ZNK3spv7Builder16getNumComponentsEj.exit41:      ; preds = %92, %97, %108
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %127 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %128 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %128, ptr %127, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -26696,7 +26696,7 @@ _ZNK3spv7Builder16getNumComponentsEj.exit41:      ; preds = %92, %97, %108
   %129 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv55
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %6, i64 %131
   %133 = trunc i64 %indvars.iv55 to i32
   %134 = add i32 %.0.i.i.i4071, %133
   store i32 %134, ptr %132, align 4
@@ -26776,7 +26776,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit46:   ; preds = %155, %163
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
   %indvars.iv60 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next61, %.lr.ph52 ]
-  %164 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv60
+  %164 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv60
   %165 = load i32, ptr %164, align 4
   tail call void @_ZN3spv11Instruction19addImmediateOperandEj(ptr noundef nonnull align 8 dereferenceable(96) %60, i32 noundef %165)
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -28968,7 +28968,7 @@ _ZNK3spv7Builder12getImageTypeEj.exit:            ; preds = %_ZNK3spv7Builder9ge
 
 switch.lookup:                                    ; preds = %_ZNK3spv7Builder12getImageTypeEj.exit
   %34 = zext nneg i32 %32 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN3spv7Builder22createTextureQueryCallENS_2OpERKNS0_17TextureParametersEb, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3spv7Builder22createTextureQueryCallENS_2OpERKNS0_17TextureParametersEb, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %35
 
@@ -31135,8 +31135,8 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEES7_EbT_S8_T0_.ex
 
 .preheader290:                                    ; preds = %315, %326
   %indvars.iv403 = phi i64 [ 0, %315 ], [ %indvars.iv.next404, %326 ]
-  %318 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %8, i64 0, i64 %indvars.iv403
-  %319 = getelementptr inbounds nuw [4 x i32], ptr %318, i64 0, i64 %indvars.iv403
+  %318 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 %indvars.iv403
+  %319 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv403
   br label %320
 
 320:                                              ; preds = %.preheader290, %325
@@ -31149,7 +31149,7 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEES7_EbT_S8_T0_.ex
   br label %325
 
 323:                                              ; preds = %320
-  %324 = getelementptr inbounds nuw [4 x i32], ptr %318, i64 0, i64 %indvars.iv
+  %324 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv
   store i32 %317, ptr %324, align 4
   br label %325
 
@@ -31199,8 +31199,8 @@ _ZNK3spv7Builder8isScalarEj.exit:                 ; preds = %337, %339
 
 .preheader:                                       ; preds = %_ZNK3spv7Builder8isScalarEj.exit, %.preheader
   %indvars.iv416 = phi i64 [ %indvars.iv.next417, %.preheader ], [ 0, %_ZNK3spv7Builder8isScalarEj.exit ]
-  %348 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %8, i64 0, i64 %indvars.iv416
-  %349 = getelementptr inbounds nuw [4 x i32], ptr %348, i64 0, i64 %indvars.iv416
+  %348 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 %indvars.iv416
+  %349 = getelementptr inbounds nuw i32, ptr %348, i64 %indvars.iv416
   store i32 %.pre430, ptr %349, align 4
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next417, 4
@@ -31288,7 +31288,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not359, label %._crit_edge333.thread, label %.lr.ph332
 
 .lr.ph332:                                        ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i169
-  %389 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %8, i64 0, i64 %indvars.iv411
+  %389 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 %indvars.iv411
   br label %390
 
 390:                                              ; preds = %.lr.ph332, %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit180
@@ -31352,7 +31352,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit178:       ; preds = %394, %_ZNSt6vectorI
   %417 = phi ptr [ %392, %394 ], [ %415, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i177 ]
   %418 = phi ptr [ %391, %394 ], [ %410, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i177 ]
   %419 = call noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %.pre430, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %420 = getelementptr inbounds nuw [4 x i32], ptr %389, i64 0, i64 %indvars.iv407
+  %420 = getelementptr inbounds nuw i32, ptr %389, i64 %indvars.iv407
   store i32 %419, ptr %420, align 4
   store ptr %418, ptr %380, align 8
   %421 = icmp ne i32 %419, 0
@@ -31679,10 +31679,10 @@ _ZNK3spv7Builder16getNumComponentsEj.exit188:     ; preds = %549, %554, %565
 _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit190: ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit.i186, %579, %576, %_ZNK3spv7Builder16getNumComponentsEj.exit188
   %.1 = phi i32 [ %.099, %_ZNK3spv7Builder16getNumComponentsEj.exit188 ], [ %577, %576 ], [ %577, %579 ], [ %.099, %_ZNK3spv7Builder9getTypeIdEj.exit.i186 ]
   %580 = zext i32 %.1102 to i64
-  %581 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %8, i64 0, i64 %580
+  %581 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 %580
   %582 = add i32 %.1104, 1
   %583 = zext i32 %.1104 to i64
-  %584 = getelementptr inbounds nuw [4 x i32], ptr %581, i64 0, i64 %583
+  %584 = getelementptr inbounds nuw i32, ptr %581, i64 %583
   store i32 %.1, ptr %584, align 4
   %585 = icmp eq i32 %582, %60
   %spec.select = select i1 %585, i32 0, i32 %582
@@ -31771,7 +31771,7 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit192:   ; preds = %.loopexit, %605, %6
   br i1 %.not361, label %656, label %.lr.ph342
 
 .lr.ph342:                                        ; preds = %624
-  %625 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %8, i64 0, i64 %indvars.iv425
+  %625 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 %indvars.iv425
   br label %626
 
 626:                                              ; preds = %.lr.ph342, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit200
@@ -31779,7 +31779,7 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit192:   ; preds = %.loopexit, %605, %6
   %627 = phi ptr [ null, %.lr.ph342 ], [ %652, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit200 ]
   %628 = phi ptr [ null, %.lr.ph342 ], [ %654, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit200 ]
   %629 = phi ptr [ null, %.lr.ph342 ], [ %653, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit200 ]
-  %630 = getelementptr inbounds nuw [4 x i32], ptr %625, i64 0, i64 %indvars.iv420
+  %630 = getelementptr inbounds nuw i32, ptr %625, i64 %indvars.iv420
   %.not.i193 = icmp eq ptr %628, %627
   br i1 %.not.i193, label %633, label %631
 

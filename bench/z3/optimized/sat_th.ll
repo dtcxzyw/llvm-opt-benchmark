@@ -561,7 +561,7 @@ _ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit58:    ; preds = %84, %87
 
 117:                                              ; preds = %112
   %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %111, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw ptr, ptr %111, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !34
   %121 = add nuw i32 %115, 1
   store i32 %121, ptr %114, align 8, !tbaa !33

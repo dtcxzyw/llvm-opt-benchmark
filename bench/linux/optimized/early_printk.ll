@@ -211,7 +211,7 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
   %22 = select i1 %19, i1 true, i1 %21
   %23 = and i64 %17, 1
   %24 = select i1 %22, i64 0, i64 %23
-  %25 = getelementptr [2 x i32], ptr @early_serial_init.bases, i64 0, i64 %24
+  %25 = getelementptr i32, ptr @early_serial_init.bases, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   br label %28

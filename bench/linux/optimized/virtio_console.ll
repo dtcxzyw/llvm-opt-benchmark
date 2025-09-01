@@ -270,7 +270,7 @@ define internal fastcc void @free_buf(ptr noundef %0) unnamed_addr #3 align 16 {
 
 .preheader:                                       ; preds = %1, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %1 ]
-  %6 = getelementptr [0 x %struct.scatterlist], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr %struct.scatterlist, ptr %2, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, -4
   %9 = inttoptr i64 %8 to ptr
@@ -1509,7 +1509,7 @@ define internal fastcc i32 @fill_queue(ptr noundef %0, ptr noundef %1) unnamed_a
 
 .preheader.i4:                                    ; preds = %.preheader.i, %73
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ 0, %.preheader.i ]
-  %37 = getelementptr [0 x %struct.scatterlist], ptr %33, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr %struct.scatterlist, ptr %33, i64 %indvars.iv.i
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, -4
   %40 = inttoptr i64 %39 to ptr
@@ -4448,7 +4448,7 @@ define internal fastcc void @remove_vqs(ptr noundef readonly captures(none) %0) 
 
 .preheader.i:                                     ; preds = %.preheader9, %52
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader9 ]
-  %16 = getelementptr [0 x %struct.scatterlist], ptr %12, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr %struct.scatterlist, ptr %12, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, -4
   %19 = inttoptr i64 %18 to ptr
@@ -4547,7 +4547,7 @@ free_buf.exit:                                    ; preds = %.loopexit.i, %59
 
 .preheader.i4:                                    ; preds = %.preheader, %106
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %106 ], [ 0, %.preheader ]
-  %70 = getelementptr [0 x %struct.scatterlist], ptr %66, i64 0, i64 %indvars.iv.i5
+  %70 = getelementptr %struct.scatterlist, ptr %66, i64 %indvars.iv.i5
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, -4
   %73 = inttoptr i64 %72 to ptr

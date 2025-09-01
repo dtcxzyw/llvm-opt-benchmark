@@ -850,11 +850,11 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %62
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc11 unwind label %62
+          to label %.noexc11 unwind label %58
 
 .noexc11:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i8 noundef signext 45)
@@ -870,7 +870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   %26 = zext nneg i32 %.lobit to i64
   %27 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26)
-          to label %28 unwind label %62
+          to label %28 unwind label %58
 
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %29 = icmp ugt i32 %4, 99
@@ -882,65 +882,61 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %33, %.lr.ph.i12 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %46, %.lr.ph.i12 ], [ %30, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %44, %.lr.ph.i12 ], [ %30, %.lr.ph.preheader.i ]
   %31 = urem i32 %.020.i, 100
   %32 = shl nuw nsw i32 %31, 1
   %33 = udiv i32 %.020.i, 100
-  %34 = or disjoint i32 %32, 1
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %34 = zext nneg i32 %32 to i64
+  %35 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
-  %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 2
-  %43 = add i32 %.01819.i, -1
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
-  store i8 %42, ptr %45, align 1
-  %46 = add i32 %.01819.i, -2
-  %47 = icmp ugt i32 %.020.i, 9999
-  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !6
+  %40 = load i8, ptr %35, align 2
+  %41 = add i32 %.01819.i, -1
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 %42
+  store i8 %40, ptr %43, align 1
+  %44 = add i32 %.01819.i, -2
+  %45 = icmp ugt i32 %.020.i, 9999
+  br i1 %45, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %48, label %49, label %59
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %46, label %47, label %55
 
-49:                                               ; preds = %._crit_edge.i
-  %50 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %51 = or disjoint i32 %50, 1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %54, ptr %55, align 1
-  %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 2
+47:                                               ; preds = %._crit_edge.i
+  %48 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %52, ptr %53, align 1
+  %54 = load i8, ptr %50, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %61 = or disjoint i8 %60, 48
+55:                                               ; preds = %._crit_edge.i
+  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
-  %storemerge.i = phi i8 [ %61, %59 ], [ %58, %49 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %47, %55
+  %storemerge.i = phi i8 [ %57, %55 ], [ %54, %47 ]
   store i8 %storemerge.i, ptr %27, align 1
   ret void
 
-62:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %63 = landingpad { ptr, i32 }
+58:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
+  %59 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %24, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %25, %24 ]
-  %64 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %64) #30
+.body:                                            ; preds = %24, %58
+  %eh.lpad-body = phi { ptr, i32 } [ %59, %58 ], [ %25, %24 ]
+  %60 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %60) #30
   unreachable
 }
 
@@ -3805,7 +3801,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %8 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -1
   %9 = load i8, ptr %8, align 1, !noalias !31
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1, !noalias !31
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -3815,7 +3811,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %15 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -2
   %16 = load i8, ptr %15, align 1, !noalias !31
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !31
   %20 = and i8 %19, 8
   %.not9 = icmp eq i8 %20, 0
@@ -3825,7 +3821,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %22 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -3
   %23 = load i8, ptr %22, align 1, !noalias !31
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1, !noalias !31
   %27 = and i8 %26, 8
   %.not10 = icmp eq i8 %27, 0
@@ -3835,7 +3831,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %29 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -4
   %30 = load i8, ptr %29, align 1, !noalias !31
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !noalias !31
   %34 = and i8 %33, 8
   %.not11 = icmp eq i8 %34, 0
@@ -3860,7 +3856,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %40 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i, i64 -1
   %41 = load i8, ptr %40, align 1, !noalias !31
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !noalias !31
   %45 = and i8 %44, 8
   %.not12 = icmp eq i8 %45, 0
@@ -3871,7 +3867,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %47 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i, i64 -1
   %48 = load i8, ptr %47, align 1, !noalias !31
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %49
   %51 = load i8, ptr %50, align 1, !noalias !31
   %52 = and i8 %51, 8
   %.not13 = icmp eq i8 %52, 0
@@ -3882,7 +3878,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %54 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i, i64 -1
   %55 = load i8, ptr %54, align 1, !noalias !31
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %56
   %58 = load i8, ptr %57, align 1, !noalias !31
   %59 = and i8 %58, 8
   %.not14 = icmp eq i8 %59, 0

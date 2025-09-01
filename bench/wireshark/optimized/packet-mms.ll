@@ -3045,7 +3045,7 @@ define hidden i32 @dissect_mms_MMSpdu(i1 zeroext %0, ptr noundef %1, i32 noundef
 
 20:                                               ; preds = %16
   %21 = sext i32 %19 to i64
-  %22 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %21, i32 1
+  %22 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8
   %.not120 = icmp eq ptr %23, null
   br i1 %.not120, label %348, label %24
@@ -3273,7 +3273,7 @@ define hidden i32 @dissect_mms_MMSpdu(i1 zeroext %0, ptr noundef %1, i32 noundef
   %154 = call fastcc ptr @private_data_get_preCinfo(ptr %151)
   %155 = load i32, ptr %7, align 4
   %156 = sext i32 %155 to i64
-  %157 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %156, i32 1
+  %157 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %156, i32 1
   %158 = load ptr, ptr %157, align 8
   %.val129 = load ptr, ptr %142, align 8
   %159 = call fastcc ptr @private_data_get_moreCinfo(ptr %.val129)
@@ -3435,7 +3435,7 @@ define hidden i32 @dissect_mms_MMSpdu(i1 zeroext %0, ptr noundef %1, i32 noundef
   %253 = call fastcc ptr @private_data_get_preCinfo(ptr %250)
   %254 = load i32, ptr %7, align 4
   %255 = sext i32 %254 to i64
-  %256 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %255, i32 1
+  %256 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %255, i32 1
   %257 = load ptr, ptr %256, align 8
   %.val136 = load ptr, ptr %241, align 8
   %258 = call fastcc ptr @private_data_get_moreCinfo(ptr %.val136)
@@ -3471,7 +3471,7 @@ private_data_get_preCinfo.exit:                   ; preds = %259, %271
   %.0.i.i = phi ptr [ %273, %271 ], [ %270, %259 ]
   %278 = load i32, ptr %7, align 4
   %279 = sext i32 %278 to i64
-  %280 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %279, i32 1
+  %280 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %279, i32 1
   %281 = load ptr, ptr %280, align 8
   %.val137 = load ptr, ptr %260, align 8
   %282 = getelementptr inbounds nuw i8, ptr %.val137, i64 408
@@ -3541,7 +3541,7 @@ private_data_get_preCinfo.exit150:                ; preds = %309, %317
   %.0.i.i149 = phi ptr [ %319, %317 ], [ %316, %309 ]
   %324 = load i32, ptr %7, align 4
   %325 = sext i32 %324 to i64
-  %326 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %325, i32 1
+  %326 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %325, i32 1
   %327 = load ptr, ptr %326, align 8
   %.val138 = load ptr, ptr %298, align 8
   %328 = getelementptr inbounds nuw i8, ptr %.val138, i64 408
@@ -3573,7 +3573,7 @@ private_data_get_moreCinfo.exit153:               ; preds = %private_data_get_pr
 343:                                              ; preds = %297
   %344 = load i32, ptr %7, align 4
   %345 = sext i32 %344 to i64
-  %346 = getelementptr [15 x %struct._value_string], ptr @mms_MMSpdu_vals, i64 0, i64 %345, i32 1
+  %346 = getelementptr %struct._value_string, ptr @mms_MMSpdu_vals, i64 %345, i32 1
   %347 = load ptr, ptr %346, align 8
   call void @col_append_str(ptr noundef %308, i32 noundef 25, ptr noundef %347)
   br label %348

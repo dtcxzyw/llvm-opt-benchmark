@@ -782,22 +782,22 @@ define linkonce_odr void @_ZSt11make_uniqueISt23mersenne_twister_engineImLm32ELm
   br label %6
 
 6:                                                ; preds = %6, %2
-  %7 = phi i64 [ %5, %2 ], [ %12, %6 ]
-  %.011.i.i = phi i64 [ 1, %2 ], [ %14, %6 ]
-  %8 = lshr i64 %7, 30
-  %9 = xor i64 %8, %7
+  %store_forwarded = phi i64 [ %5, %2 ], [ %12, %6 ]
+  %.011.i.i = phi i64 [ 1, %2 ], [ %13, %6 ]
+  %7 = getelementptr i64, ptr %3, i64 %.011.i.i
+  %8 = lshr i64 %store_forwarded, 30
+  %9 = xor i64 %8, %store_forwarded
   %10 = mul nuw nsw i64 %9, 1812433253
   %11 = add nuw i64 %10, %.011.i.i
   %12 = and i64 %11, 4294967295
-  %13 = getelementptr inbounds nuw [624 x i64], ptr %3, i64 0, i64 %.011.i.i
-  store i64 %12, ptr %13, align 8, !tbaa !14
-  %14 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %14, 624
-  br i1 %exitcond.not.i.i, label %15, label %6, !llvm.loop !29
+  store i64 %12, ptr %7, align 8, !tbaa !14
+  %13 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %13, 624
+  br i1 %exitcond.not.i.i, label %14, label %6, !llvm.loop !29
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4992
-  store i64 624, ptr %16, align 8, !tbaa !30
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4992
+  store i64 624, ptr %15, align 8, !tbaa !30
   store ptr %3, ptr %0, align 8, !tbaa !27
   ret void
 }

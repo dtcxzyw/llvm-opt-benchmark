@@ -1120,19 +1120,19 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
 
 153:                                              ; preds = %153, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %153 ]
-  %154 = getelementptr inbounds nuw [32 x i32], ptr %151, i64 0, i64 %indvars.iv.i
+  %154 = getelementptr inbounds nuw i32, ptr %151, i64 %indvars.iv.i
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds nuw [32 x i32], ptr %152, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i
   %157 = load i32, ptr %156, align 4
   %158 = add i32 %155, -8
   %159 = add i32 %158, %157
-  %160 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %160 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %161 = icmp slt i32 %159, 0
   %162 = sub nsw i32 0, %159
   %spec.select = tail call i32 @llvm.smax.i32(i32 %159, i32 0)
   %spec.select247 = select i1 %161, i32 %162, i32 0
   store i32 %spec.select, ptr %160, align 4
-  %163 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
   store i32 %spec.select247, ptr %163, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1164,9 +1164,9 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
 .preheader.lr.ph.i117:                            ; preds = %.preheader118.i
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %172 = sext i32 %129 to i64
-  %173 = getelementptr inbounds [32 x i32], ptr %171, i64 0, i64 %172
-  %174 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %172
-  %175 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %172
+  %173 = getelementptr inbounds i32, ptr %171, i64 %172
+  %174 = getelementptr inbounds i32, ptr %13, i64 %172
+  %175 = getelementptr inbounds i32, ptr %12, i64 %172
   %176 = icmp sgt i32 %129, 0
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %178 = load i32, ptr %15, align 8
@@ -1201,13 +1201,13 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %.2113125.us.i = phi ptr [ %.2113123.us.i, %.lr.ph127.us.i ], [ %.2113.us.i, %182 ]
   %183 = load i8, ptr %.0105130.us.i, align 1
   %184 = zext i8 %183 to i32
-  %185 = getelementptr inbounds nuw [32 x i32], ptr %167, i64 0, i64 %indvars.iv163.i
+  %185 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv163.i
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, %184
-  %188 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv163.i
+  %188 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv163.i
   %189 = load i32, ptr %188, align 4
   %190 = lshr i32 %187, %189
-  %191 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv163.i
+  %191 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv163.i
   %192 = load i32, ptr %191, align 4
   %193 = shl i32 %190, %192
   %194 = trunc i32 %193 to i8
@@ -1278,13 +1278,13 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %.5141.us.i = phi ptr [ %.5139.us.i, %.lr.ph143.us.i ], [ %.5.us.i, %220 ]
   %221 = load i8, ptr %.1106146.us.i, align 1
   %222 = zext i8 %221 to i32
-  %223 = getelementptr inbounds nuw [32 x i32], ptr %171, i64 0, i64 %indvars.iv168.i
+  %223 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv168.i
   %224 = load i32, ptr %223, align 4
   %225 = and i32 %224, %222
-  %226 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv168.i
+  %226 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv168.i
   %227 = load i32, ptr %226, align 4
   %228 = lshr i32 %225, %227
-  %229 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv168.i
+  %229 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv168.i
   %230 = load i32, ptr %229, align 4
   %231 = shl i32 %228, %230
   %232 = trunc i32 %231 to i8
@@ -1391,19 +1391,19 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
 
 289:                                              ; preds = %289, %.lr.ph.i176
   %indvars.iv.i178 = phi i64 [ 0, %.lr.ph.i176 ], [ %indvars.iv.next.i181, %289 ]
-  %290 = getelementptr inbounds nuw [32 x i32], ptr %287, i64 0, i64 %indvars.iv.i178
+  %290 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv.i178
   %291 = load i32, ptr %290, align 4
-  %292 = getelementptr inbounds nuw [32 x i32], ptr %288, i64 0, i64 %indvars.iv.i178
+  %292 = getelementptr inbounds nuw i32, ptr %288, i64 %indvars.iv.i178
   %293 = load i32, ptr %292, align 4
   %294 = add i32 %291, -8
   %295 = add i32 %294, %293
-  %296 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv.i178
+  %296 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i178
   %297 = icmp slt i32 %295, 0
   %298 = sub nsw i32 0, %295
   %spec.select248 = tail call i32 @llvm.smax.i32(i32 %295, i32 0)
   %spec.select249 = select i1 %297, i32 %298, i32 0
   store i32 %spec.select248, ptr %296, align 4
-  %299 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv.i178
+  %299 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i178
   store i32 %spec.select249, ptr %299, align 4
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i178, 1
   %exitcond.not.i182 = icmp eq i64 %indvars.iv.next.i181, %wide.trip.count.i177
@@ -1435,9 +1435,9 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
 .preheader.lr.ph.i150:                            ; preds = %.preheader118.i149
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %308 = sext i32 %265 to i64
-  %309 = getelementptr inbounds [32 x i32], ptr %307, i64 0, i64 %308
-  %310 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %308
-  %311 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %308
+  %309 = getelementptr inbounds i32, ptr %307, i64 %308
+  %310 = getelementptr inbounds i32, ptr %11, i64 %308
+  %311 = getelementptr inbounds i32, ptr %10, i64 %308
   %312 = icmp sgt i32 %265, 0
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %314 = load i32, ptr %15, align 8
@@ -1472,13 +1472,13 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
   %.2113125.us.i144 = phi ptr [ %.2113123.us.i142, %.lr.ph127.us.i138 ], [ %.2113.us.i146, %318 ]
   %319 = load i16, ptr %.0105130.us.i140, align 2
   %320 = zext i16 %319 to i32
-  %321 = getelementptr inbounds nuw [32 x i32], ptr %303, i64 0, i64 %indvars.iv163.i143
+  %321 = getelementptr inbounds nuw i32, ptr %303, i64 %indvars.iv163.i143
   %322 = load i32, ptr %321, align 4
   %323 = and i32 %322, %320
-  %324 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv163.i143
+  %324 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv163.i143
   %325 = load i32, ptr %324, align 4
   %326 = lshr i32 %323, %325
-  %327 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv163.i143
+  %327 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv163.i143
   %328 = load i32, ptr %327, align 4
   %329 = shl i32 %326, %328
   %330 = trunc i32 %329 to i8
@@ -1549,13 +1549,13 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
   %.5141.us.i171 = phi ptr [ %.5139.us.i169, %.lr.ph143.us.i165 ], [ %.5.us.i173, %356 ]
   %357 = load i16, ptr %.1106146.us.i167, align 2
   %358 = zext i16 %357 to i32
-  %359 = getelementptr inbounds nuw [32 x i32], ptr %307, i64 0, i64 %indvars.iv168.i170
+  %359 = getelementptr inbounds nuw i32, ptr %307, i64 %indvars.iv168.i170
   %360 = load i32, ptr %359, align 4
   %361 = and i32 %360, %358
-  %362 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv168.i170
+  %362 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv168.i170
   %363 = load i32, ptr %362, align 4
   %364 = lshr i32 %361, %363
-  %365 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv168.i170
+  %365 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv168.i170
   %366 = load i32, ptr %365, align 4
   %367 = shl i32 %364, %366
   %368 = trunc i32 %367 to i8
@@ -1664,19 +1664,19 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
 
 425:                                              ; preds = %425, %.lr.ph.i240
   %indvars.iv.i242 = phi i64 [ 0, %.lr.ph.i240 ], [ %indvars.iv.next.i245, %425 ]
-  %426 = getelementptr inbounds nuw [32 x i32], ptr %423, i64 0, i64 %indvars.iv.i242
+  %426 = getelementptr inbounds nuw i32, ptr %423, i64 %indvars.iv.i242
   %427 = load i32, ptr %426, align 4
-  %428 = getelementptr inbounds nuw [32 x i32], ptr %424, i64 0, i64 %indvars.iv.i242
+  %428 = getelementptr inbounds nuw i32, ptr %424, i64 %indvars.iv.i242
   %429 = load i32, ptr %428, align 4
   %430 = add i32 %427, -8
   %431 = add i32 %430, %429
-  %432 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv.i242
+  %432 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i242
   %433 = icmp slt i32 %431, 0
   %434 = sub nsw i32 0, %431
   %spec.select250 = tail call i32 @llvm.smax.i32(i32 %431, i32 0)
   %spec.select251 = select i1 %433, i32 %434, i32 0
   store i32 %spec.select250, ptr %432, align 4
-  %435 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv.i242
+  %435 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i242
   store i32 %spec.select251, ptr %435, align 4
   %indvars.iv.next.i245 = add nuw nsw i64 %indvars.iv.i242, 1
   %exitcond.not.i246 = icmp eq i64 %indvars.iv.next.i245, %wide.trip.count.i241
@@ -1723,13 +1723,13 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   %indvars.iv163.i207.us = phi i64 [ 0, %.lr.ph127.us.i202.us ], [ %indvars.iv.next164.i209.us, %446 ]
   %.2113125.us.i208.us = phi ptr [ %.2113123.us.i206.us, %.lr.ph127.us.i202.us ], [ %.2113.us.i210.us, %446 ]
   %447 = load i32, ptr %.0105130.us.i204.us, align 4
-  %448 = getelementptr inbounds nuw [32 x i32], ptr %438, i64 0, i64 %indvars.iv163.i207.us
+  %448 = getelementptr inbounds nuw i32, ptr %438, i64 %indvars.iv163.i207.us
   %449 = load i32, ptr %448, align 4
   %450 = and i32 %449, %447
-  %451 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv163.i207.us
+  %451 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv163.i207.us
   %452 = load i32, ptr %451, align 4
   %453 = lshr i32 %450, %452
-  %454 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv163.i207.us
+  %454 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv163.i207.us
   %455 = load i32, ptr %454, align 4
   %456 = shl i32 %453, %455
   %457 = trunc i32 %456 to i8
@@ -1767,9 +1767,9 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
 .preheader.lr.ph.i214:                            ; preds = %.preheader118.i213
   %469 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %470 = sext i32 %401 to i64
-  %471 = getelementptr inbounds [32 x i32], ptr %469, i64 0, i64 %470
-  %472 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 %470
-  %473 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 %470
+  %471 = getelementptr inbounds i32, ptr %469, i64 %470
+  %472 = getelementptr inbounds i32, ptr %9, i64 %470
+  %473 = getelementptr inbounds i32, ptr %8, i64 %470
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %475 = load i32, ptr %15, align 8
   %476 = icmp sgt i32 %475, 0
@@ -1809,13 +1809,13 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   %indvars.iv168.i234.us = phi i64 [ 0, %.lr.ph143.us.i229.us ], [ %indvars.iv.next169.i236.us, %489 ]
   %.5141.us.i235.us = phi ptr [ %.5139.us.i233.us, %.lr.ph143.us.i229.us ], [ %.5.us.i237.us, %489 ]
   %490 = load i32, ptr %.1106146.us.i231.us, align 4
-  %491 = getelementptr inbounds nuw [32 x i32], ptr %469, i64 0, i64 %indvars.iv168.i234.us
+  %491 = getelementptr inbounds nuw i32, ptr %469, i64 %indvars.iv168.i234.us
   %492 = load i32, ptr %491, align 4
   %493 = and i32 %492, %490
-  %494 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv168.i234.us
+  %494 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv168.i234.us
   %495 = load i32, ptr %494, align 4
   %496 = lshr i32 %493, %495
-  %497 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv168.i234.us
+  %497 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv168.i234.us
   %498 = load i32, ptr %497, align 4
   %499 = shl i32 %496, %498
   %500 = trunc i32 %499 to i8
@@ -2207,13 +2207,13 @@ define internal fastcc i32 @storeImageArray(ptr noundef %0, ptr noundef readonly
 
 switch.lookup:                                    ; preds = %24
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table.storeImageArray, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.storeImageArray, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep171 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.storeImageArray.15, i64 0, i64 %33
+  %switch.gep171 = getelementptr inbounds nuw i64, ptr @switch.table.storeImageArray.15, i64 %33
   %switch.load172 = load i64, ptr %switch.gep171, align 8
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep173 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.storeImageArray.16, i64 0, i64 %34
+  %switch.gep173 = getelementptr inbounds nuw i64, ptr @switch.table.storeImageArray.16, i64 %34
   %switch.load174 = load i64, ptr %switch.gep173, align 8
   br label %35
 
@@ -3505,19 +3505,19 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 
 215:                                              ; preds = %215, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %215 ]
-  %216 = getelementptr inbounds nuw [32 x i32], ptr %213, i64 0, i64 %indvars.iv.i
+  %216 = getelementptr inbounds nuw i32, ptr %213, i64 %indvars.iv.i
   %217 = load i32, ptr %216, align 4
-  %218 = getelementptr inbounds nuw [32 x i32], ptr %214, i64 0, i64 %indvars.iv.i
+  %218 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv.i
   %219 = load i32, ptr %218, align 4
   %220 = add i32 %217, -8
   %221 = add i32 %220, %219
-  %222 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %222 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %223 = icmp slt i32 %221, 0
   %224 = sub nsw i32 0, %221
   %spec.select = tail call i32 @llvm.smax.i32(i32 %221, i32 0)
   %spec.select230 = select i1 %223, i32 %224, i32 0
   store i32 %spec.select, ptr %222, align 4
-  %225 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %225 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %spec.select230, ptr %225, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3579,13 +3579,13 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %.297131.i = phi ptr [ %261, %.lr.ph132.i ], [ %.196135.i, %.preheader.i ]
   %249 = load i8, ptr %.089136.i, align 1
   %250 = zext i8 %249 to i32
-  %251 = getelementptr inbounds nuw [32 x i32], ptr %235, i64 0, i64 %indvars.iv155.i
+  %251 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv155.i
   %252 = load i32, ptr %251, align 4
   %253 = and i32 %252, %250
-  %254 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv155.i
+  %254 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv155.i
   %255 = load i32, ptr %254, align 4
   %256 = lshr i32 %253, %255
-  %257 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv155.i
+  %257 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv155.i
   %258 = load i32, ptr %257, align 4
   %259 = shl i32 %256, %258
   %260 = trunc i32 %259 to i8
@@ -3656,13 +3656,13 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   %.5117.i = phi ptr [ %302, %.lr.ph118.i ], [ %.4121.i, %.preheader111.i ]
   %290 = load i8, ptr %.190122.i, align 1
   %291 = zext i8 %290 to i32
-  %292 = getelementptr inbounds nuw [32 x i32], ptr %229, i64 0, i64 %indvars.iv152.i
+  %292 = getelementptr inbounds nuw i32, ptr %229, i64 %indvars.iv152.i
   %293 = load i32, ptr %292, align 4
   %294 = and i32 %293, %291
-  %295 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv152.i
+  %295 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv152.i
   %296 = load i32, ptr %295, align 4
   %297 = lshr i32 %294, %296
-  %298 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv152.i
+  %298 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv152.i
   %299 = load i32, ptr %298, align 4
   %300 = shl i32 %297, %299
   %301 = trunc i32 %300 to i8
@@ -3986,19 +3986,19 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
 
 74:                                               ; preds = %74, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %74 ]
-  %75 = getelementptr inbounds nuw [32 x i32], ptr %69, i64 0, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw [32 x i32], ptr %70, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %76, -8
   %80 = add i32 %79, %78
-  %81 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %82 = icmp slt i32 %80, 0
   %83 = sub nsw i32 0, %80
   %spec.select = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %spec.select1 = select i1 %82, i32 %83, i32 0
   store i32 %spec.select, ptr %81, align 4
-  %84 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   store i32 %spec.select1, ptr %84, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4037,13 +4037,13 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
   %.2136.i = phi ptr [ %.1110138.i, %.lr.ph137.preheader.i ], [ %107, %.lr.ph137.i ]
   %94 = load i8, ptr %.2136.i, align 1
   %95 = zext i8 %94 to i32
-  %96 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv151.i
+  %96 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv151.i
   %97 = load i32, ptr %96, align 4
   %98 = shl i32 %95, %97
-  %99 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv151.i
+  %99 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv151.i
   %100 = load i32, ptr %99, align 4
   %101 = ashr i32 %98, %100
-  %102 = getelementptr inbounds nuw [32 x i32], ptr %73, i64 0, i64 %indvars.iv151.i
+  %102 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv151.i
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %101, %103
   %105 = trunc i32 %104 to i8
@@ -4200,19 +4200,19 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
 
 193:                                              ; preds = %193, %.lr.ph.i33
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i38, %193 ]
-  %194 = getelementptr inbounds nuw [32 x i32], ptr %186, i64 0, i64 %indvars.iv.i35
+  %194 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.i35
   %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds nuw [32 x i32], ptr %187, i64 0, i64 %indvars.iv.i35
+  %196 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv.i35
   %197 = load i32, ptr %196, align 4
   %198 = add i32 %195, -8
   %199 = add i32 %198, %197
-  %200 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv.i35
+  %200 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i35
   %201 = icmp slt i32 %199, 0
   %202 = sub nsw i32 0, %199
   %spec.select2 = tail call i32 @llvm.smax.i32(i32 %199, i32 0)
   %spec.select3 = select i1 %201, i32 %202, i32 0
   store i32 %spec.select2, ptr %200, align 4
-  %203 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv.i35
+  %203 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i35
   store i32 %spec.select3, ptr %203, align 4
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i34
@@ -4251,13 +4251,13 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
   %.2136.i29 = phi ptr [ %.1109138.i, %.lr.ph137.preheader.i25 ], [ %228, %.lr.ph137.i27 ]
   %215 = load i8, ptr %.2136.i29, align 1
   %216 = zext i8 %215 to i32
-  %217 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv151.i28
+  %217 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv151.i28
   %218 = load i32, ptr %217, align 4
   %219 = shl i32 %216, %218
-  %220 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv151.i28
+  %220 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv151.i28
   %221 = load i32, ptr %220, align 4
   %222 = ashr i32 %219, %221
-  %223 = getelementptr inbounds nuw [32 x i32], ptr %190, i64 0, i64 %indvars.iv151.i28
+  %223 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv151.i28
   %224 = load i32, ptr %223, align 4
   %225 = and i32 %222, %224
   %226 = trunc i32 %225 to i16
@@ -4422,19 +4422,19 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
 
 318:                                              ; preds = %318, %.lr.ph.i72
   %indvars.iv.i74 = phi i64 [ 0, %.lr.ph.i72 ], [ %indvars.iv.next.i77, %318 ]
-  %319 = getelementptr inbounds nuw [32 x i32], ptr %311, i64 0, i64 %indvars.iv.i74
+  %319 = getelementptr inbounds nuw i32, ptr %311, i64 %indvars.iv.i74
   %320 = load i32, ptr %319, align 4
-  %321 = getelementptr inbounds nuw [32 x i32], ptr %312, i64 0, i64 %indvars.iv.i74
+  %321 = getelementptr inbounds nuw i32, ptr %312, i64 %indvars.iv.i74
   %322 = load i32, ptr %321, align 4
   %323 = add i32 %320, -8
   %324 = add i32 %323, %322
-  %325 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv.i74
+  %325 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i74
   %326 = icmp slt i32 %324, 0
   %327 = sub nsw i32 0, %324
   %spec.select4 = tail call i32 @llvm.smax.i32(i32 %324, i32 0)
   %spec.select5 = select i1 %326, i32 %327, i32 0
   store i32 %spec.select4, ptr %325, align 4
-  %328 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv.i74
+  %328 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i74
   store i32 %spec.select5, ptr %328, align 4
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i73
@@ -4473,13 +4473,13 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
   %.2136.i68 = phi ptr [ %.1109138.i59, %.lr.ph137.preheader.i64 ], [ %352, %.lr.ph137.i66 ]
   %340 = load i8, ptr %.2136.i68, align 1
   %341 = zext i8 %340 to i32
-  %342 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv151.i67
+  %342 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv151.i67
   %343 = load i32, ptr %342, align 4
   %344 = shl i32 %341, %343
-  %345 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv151.i67
+  %345 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv151.i67
   %346 = load i32, ptr %345, align 4
   %347 = ashr i32 %344, %346
-  %348 = getelementptr inbounds nuw [32 x i32], ptr %315, i64 0, i64 %indvars.iv151.i67
+  %348 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv151.i67
   %349 = load i32, ptr %348, align 4
   %350 = and i32 %347, %349
   %351 = or i32 %350, %339
@@ -5613,7 +5613,7 @@ freeArray.exit:                                   ; preds = %114, %115
 .preheader192:                                    ; preds = %121, %.preheader192
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %.preheader192 ], [ 0, %121 ]
   %123 = trunc i64 %indvars.iv228 to i8
-  %124 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %indvars.iv228
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv228
   store i8 %123, ptr %124, align 1
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next229, 256
@@ -6233,7 +6233,7 @@ freeDataArray.exit:                               ; preds = %70, %71
 .preheader166:                                    ; preds = %89, %.preheader166
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader166 ], [ 0, %89 ]
   %91 = trunc i64 %indvars.iv to i8
-  %92 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %91, ptr %92, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -6263,7 +6263,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %97 = load ptr, ptr %96, align 8
   %98 = trunc nuw nsw i64 %indvars.iv190 to i32
   %99 = tail call ptr %97(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %98) #14
-  %100 = getelementptr inbounds nuw [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv190
+  %100 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %10, i64 %indvars.iv190
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr null, ptr %101, align 8
@@ -6312,7 +6312,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 1776
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv194
+  %123 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %10, i64 %indvars.iv194
   %124 = load ptr, ptr %123, align 8
   %125 = tail call ptr %122(ptr noundef nonnull %0, ptr noundef %124, ptr noundef null) #14
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -6333,7 +6333,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %128 = load ptr, ptr %0, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 1784
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv210
+  %131 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %10, i64 %indvars.iv210
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %134 = load ptr, ptr %133, align 8
@@ -6355,7 +6355,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   br label %186
 
 141:                                              ; preds = %.lr.ph172
-  %142 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv194
+  %142 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv194
   store ptr %125, ptr %142, align 8
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
@@ -6374,7 +6374,7 @@ freeDataArray.exit:                               ; preds = %70, %71
 
 146:                                              ; preds = %.lr.ph174, %146
   %indvars.iv199 = phi i64 [ %119, %.lr.ph174 ], [ %indvars.iv.next200, %146 ]
-  %147 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv199
+  %147 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv199
   store ptr %118, ptr %147, align 8
   %indvars.iv.next200 = add nsw i64 %indvars.iv199, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next200 to i32
@@ -6383,7 +6383,7 @@ freeDataArray.exit:                               ; preds = %70, %71
 
 .lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
   %indvars.iv202 = phi i64 [ %145, %.lr.ph176.preheader ], [ %indvars.iv.next203, %.lr.ph176 ]
-  %148 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv202
+  %148 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv202
   store ptr %12, ptr %148, align 8
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %149 = trunc nuw i64 %indvars.iv.next203 to i32
@@ -6429,7 +6429,7 @@ freeDataArray.exit:                               ; preds = %70, %71
   %164 = load ptr, ptr %0, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 1784
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv205
+  %167 = getelementptr inbounds nuw %struct.LookupArrayInfo, ptr %10, i64 %indvars.iv205
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %170 = load ptr, ptr %169, align 8
@@ -6696,19 +6696,19 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR(ptr noundef %0, ptr
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [32 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw [32 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %33, -8
   %37 = add i32 %36, %35
-  %38 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %39 = icmp slt i32 %37, 0
   %40 = sub nsw i32 0, %37
   %spec.select = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
   %spec.select9 = select i1 %39, i32 %40, i32 0
   store i32 %spec.select, ptr %38, align 4
-  %41 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %spec.select9, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6774,13 +6774,13 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR(ptr noundef %0, ptr
   %.297131 = phi ptr [ %81, %.lr.ph132 ], [ %.196135, %.preheader ]
   %69 = load i16, ptr %.089136, align 2
   %70 = zext i16 %69 to i32
-  %71 = getelementptr inbounds nuw [32 x i32], ptr %55, i64 0, i64 %indvars.iv155
+  %71 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv155
   %72 = load i32, ptr %71, align 4
   %73 = and i32 %72, %70
-  %74 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv155
+  %74 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv155
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %73, %75
-  %77 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv155
+  %77 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv155
   %78 = load i32, ptr %77, align 4
   %79 = shl i32 %76, %78
   %80 = trunc i32 %79 to i8
@@ -6851,13 +6851,13 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedSCR(ptr noundef %0, ptr
   %.5117 = phi ptr [ %122, %.lr.ph118 ], [ %.4121, %.preheader111 ]
   %110 = load i16, ptr %.190122, align 2
   %111 = zext i16 %110 to i32
-  %112 = getelementptr inbounds nuw [32 x i32], ptr %47, i64 0, i64 %indvars.iv152
+  %112 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv152
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, %111
-  %115 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv152
+  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv152
   %116 = load i32, ptr %115, align 4
   %117 = lshr i32 %114, %116
-  %118 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv152
+  %118 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv152
   %119 = load i32, ptr %118, align 4
   %120 = shl i32 %117, %119
   %121 = trunc i32 %120 to i8
@@ -6953,19 +6953,19 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedICR(ptr noundef %0, ptr
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [32 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw [32 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %33, -8
   %37 = add i32 %36, %35
-  %38 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %39 = icmp slt i32 %37, 0
   %40 = sub nsw i32 0, %37
   %spec.select = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
   %spec.select9 = select i1 %39, i32 %40, i32 0
   store i32 %spec.select, ptr %38, align 4
-  %41 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %spec.select9, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7030,13 +7030,13 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedICR(ptr noundef %0, ptr
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.lr.ph132 ], [ 0, %.preheader ]
   %.297131 = phi ptr [ %80, %.lr.ph132 ], [ %.196135, %.preheader ]
   %69 = load i32, ptr %.089136, align 4
-  %70 = getelementptr inbounds nuw [32 x i32], ptr %55, i64 0, i64 %indvars.iv155
+  %70 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv155
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, %69
-  %73 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv155
+  %73 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv155
   %74 = load i32, ptr %73, align 4
   %75 = lshr i32 %72, %74
-  %76 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv155
+  %76 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv155
   %77 = load i32, ptr %76, align 4
   %78 = shl i32 %75, %77
   %79 = trunc i32 %78 to i8
@@ -7106,13 +7106,13 @@ define internal fastcc range(i32 -1, 1) i32 @expandPackedICR(ptr noundef %0, ptr
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.lr.ph118 ], [ 0, %.preheader111 ]
   %.5117 = phi ptr [ %120, %.lr.ph118 ], [ %.4121, %.preheader111 ]
   %109 = load i32, ptr %.190122, align 4
-  %110 = getelementptr inbounds nuw [32 x i32], ptr %47, i64 0, i64 %indvars.iv152
+  %110 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv152
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, %109
-  %113 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv152
+  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv152
   %114 = load i32, ptr %113, align 4
   %115 = lshr i32 %112, %114
-  %116 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv152
+  %116 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv152
   %117 = load i32, ptr %116, align 4
   %118 = shl i32 %115, %117
   %119 = trunc i32 %118 to i8
@@ -7365,19 +7365,19 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [32 x i32], ptr %63, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw [32 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %67, -8
   %71 = add i32 %70, %69
-  %72 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %73 = icmp slt i32 %71, 0
   %74 = sub nsw i32 0, %71
   %spec.select = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
   %spec.select4 = select i1 %73, i32 %74, i32 0
   store i32 %spec.select, ptr %72, align 4
-  %75 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %spec.select4, ptr %75, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7394,10 +7394,10 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
 
 .lr.ph190:                                        ; preds = %.preheader171
   %78 = sext i32 %9 to i64
-  %79 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %78
-  %80 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds i32, ptr %5, i64 %78
+  %80 = getelementptr inbounds i32, ptr %6, i64 %78
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %82 = getelementptr inbounds [32 x i32], ptr %81, i64 0, i64 %78
+  %82 = getelementptr inbounds i32, ptr %81, i64 %78
   br label %84
 
 .preheader170:                                    ; preds = %._crit_edge
@@ -7446,13 +7446,13 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   %.2148176 = phi ptr [ %.2148, %.lr.ph178 ], [ %.2148174, %89 ]
   %102 = load i8, ptr %.2148176, align 1
   %103 = zext i8 %102 to i32
-  %104 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv212
+  %104 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv212
   %105 = load i32, ptr %104, align 4
   %106 = shl i32 %103, %105
-  %107 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv212
+  %107 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv212
   %108 = load i32, ptr %107, align 4
   %109 = ashr i32 %106, %108
-  %110 = getelementptr inbounds nuw [32 x i32], ptr %81, i64 0, i64 %indvars.iv212
+  %110 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv212
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %109, %111
   %113 = trunc i32 %112 to i8
@@ -7525,13 +7525,13 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   %.5193 = phi ptr [ %.5191, %.lr.ph194.preheader ], [ %.5, %.lr.ph194 ]
   %140 = load i8, ptr %.5193, align 1
   %141 = zext i8 %140 to i32
-  %142 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv216
+  %142 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv216
   %143 = load i32, ptr %142, align 4
   %144 = shl i32 %141, %143
-  %145 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv216
+  %145 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv216
   %146 = load i32, ptr %145, align 4
   %147 = ashr i32 %144, %146
-  %148 = getelementptr inbounds nuw [32 x i32], ptr %83, i64 0, i64 %indvars.iv216
+  %148 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv216
   %149 = load i32, ptr %148, align 4
   %150 = and i32 %147, %149
   %151 = trunc i32 %150 to i8
@@ -7670,19 +7670,19 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [32 x i32], ptr %63, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw [32 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %67, -8
   %71 = add i32 %70, %69
-  %72 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %73 = icmp slt i32 %71, 0
   %74 = sub nsw i32 0, %71
   %spec.select = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
   %spec.select7 = select i1 %73, i32 %74, i32 0
   store i32 %spec.select, ptr %72, align 4
-  %75 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %spec.select7, ptr %75, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7699,10 +7699,10 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
 
 .preheader170.lr.ph:                              ; preds = %.preheader171
   %78 = sext i32 %9 to i64
-  %79 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %78
-  %80 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds i32, ptr %5, i64 %78
+  %80 = getelementptr inbounds i32, ptr %6, i64 %78
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %82 = getelementptr inbounds [32 x i32], ptr %81, i64 0, i64 %78
+  %82 = getelementptr inbounds i32, ptr %81, i64 %78
   %83 = load i32, ptr %44, align 8
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.preheader170, label %.loopexit
@@ -7755,13 +7755,13 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %.2146176 = phi ptr [ %.2146, %.lr.ph178 ], [ %.2146174, %93 ]
   %106 = load i8, ptr %.2146176, align 1
   %107 = zext i8 %106 to i32
-  %108 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv211
+  %108 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv211
   %109 = load i32, ptr %108, align 4
   %110 = shl i32 %107, %109
-  %111 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv211
+  %111 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv211
   %112 = load i32, ptr %111, align 4
   %113 = ashr i32 %110, %112
-  %114 = getelementptr inbounds nuw [32 x i32], ptr %81, i64 0, i64 %indvars.iv211
+  %114 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv211
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %113, %115
   %117 = trunc i32 %116 to i16
@@ -7843,13 +7843,13 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %.5191 = phi ptr [ %.5189, %.lr.ph192.preheader ], [ %.5, %.lr.ph192 ]
   %148 = load i8, ptr %.5191, align 1
   %149 = zext i8 %148 to i32
-  %150 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv215
+  %150 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv215
   %151 = load i32, ptr %150, align 4
   %152 = shl i32 %149, %151
-  %153 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv215
+  %153 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv215
   %154 = load i32, ptr %153, align 4
   %155 = ashr i32 %152, %154
-  %156 = getelementptr inbounds nuw [32 x i32], ptr %85, i64 0, i64 %indvars.iv215
+  %156 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv215
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %155, %157
   %159 = trunc i32 %158 to i16
@@ -7997,19 +7997,19 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [32 x i32], ptr %63, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw [32 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %67, -8
   %71 = add i32 %70, %69
-  %72 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %73 = icmp slt i32 %71, 0
   %74 = sub nsw i32 0, %71
   %spec.select = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
   %spec.select7 = select i1 %73, i32 %74, i32 0
   store i32 %spec.select, ptr %72, align 4
-  %75 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %spec.select7, ptr %75, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8026,10 +8026,10 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
 
 .preheader170.lr.ph:                              ; preds = %.preheader171
   %78 = sext i32 %9 to i64
-  %79 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %78
-  %80 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds i32, ptr %5, i64 %78
+  %80 = getelementptr inbounds i32, ptr %6, i64 %78
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %82 = getelementptr inbounds [32 x i32], ptr %81, i64 0, i64 %78
+  %82 = getelementptr inbounds i32, ptr %81, i64 %78
   %83 = load i32, ptr %44, align 8
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.preheader170, label %.loopexit
@@ -8081,13 +8081,13 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %.2146176 = phi ptr [ %.2146, %.lr.ph178 ], [ %.2146174, %93 ]
   %105 = load i8, ptr %.2146176, align 1
   %106 = zext i8 %105 to i32
-  %107 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv211
+  %107 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv211
   %108 = load i32, ptr %107, align 4
   %109 = shl i32 %106, %108
-  %110 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv211
+  %110 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv211
   %111 = load i32, ptr %110, align 4
   %112 = ashr i32 %109, %111
-  %113 = getelementptr inbounds nuw [32 x i32], ptr %81, i64 0, i64 %indvars.iv211
+  %113 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv211
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %112, %114
   %116 = or i32 %104, %115
@@ -8168,13 +8168,13 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %.5191 = phi ptr [ %.5189, %.lr.ph192.preheader ], [ %.5, %.lr.ph192 ]
   %146 = load i8, ptr %.5191, align 1
   %147 = zext i8 %146 to i32
-  %148 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv215
+  %148 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv215
   %149 = load i32, ptr %148, align 4
   %150 = shl i32 %147, %149
-  %151 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv215
+  %151 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv215
   %152 = load i32, ptr %151, align 4
   %153 = ashr i32 %150, %152
-  %154 = getelementptr inbounds nuw [32 x i32], ptr %85, i64 0, i64 %indvars.iv215
+  %154 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv215
   %155 = load i32, ptr %154, align 4
   %156 = and i32 %153, %155
   %157 = or i32 %145, %156

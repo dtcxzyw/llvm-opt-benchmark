@@ -67,8 +67,8 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.01.0, i64 1)
-  %7 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds [0 x i64], ptr %2, i64 0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds i64, ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds i64, ptr %2, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN97_$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f6d03f96233119eE"(ptr align 8 %7, ptr align 8 %8)
   br i1 %9, label %.preheader.split, label %.critedge
 
@@ -89,7 +89,7 @@ define { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %10, i64 0, i64 %4, i32 1
+  %11 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %10, i64 %4, i32 1
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !6, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noundef !3

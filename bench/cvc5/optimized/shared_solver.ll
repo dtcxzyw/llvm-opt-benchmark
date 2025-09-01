@@ -1107,7 +1107,7 @@ define hidden void @_ZN4cvc58internal6theory12SharedSolver19preNotifySharedFactE
   %31 = load i32, ptr %8, align 4, !tbaa !151
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw [14 x ptr], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !77
   store ptr %21, ptr %9, align 8, !tbaa !121
   call void @_ZN4cvc58internal6theory6Theory13addSharedTermENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(280) %35, ptr noundef nonnull %9)

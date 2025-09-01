@@ -273,7 +273,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
 
 74:                                               ; preds = %66
   %75 = and i64 %70, 4294967295
-  %76 = getelementptr [64 x i8], ptr @cubic_root.v, i64 0, i64 %75
+  %76 = getelementptr i8, ptr @cubic_root.v, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = add nuw nsw i32 %78, 35
@@ -288,7 +288,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   %86 = zext nneg i32 %85 to i64
   %87 = lshr i64 %70, %86
   %88 = and i64 %87, 4294967295
-  %89 = getelementptr [64 x i8], ptr @cubic_root.v, i64 0, i64 %88
+  %89 = getelementptr i8, ptr @cubic_root.v, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %91, 10

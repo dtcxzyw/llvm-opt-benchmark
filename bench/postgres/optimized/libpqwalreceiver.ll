@@ -187,15 +187,15 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
 20:                                               ; preds = %.sink.split, %6
   %.057 = phi i32 [ 1, %6 ], [ %.057.ph, %.sink.split ]
   %21 = zext nneg i32 %.057 to i64
-  %22 = getelementptr inbounds nuw [6 x ptr], ptr %7, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %21
   store ptr @.str.9, ptr %22, align 8
-  %23 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %21
   store ptr %4, ptr %23, align 8
   %24 = add nuw nsw i32 %.057, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [6 x ptr], ptr %7, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %25
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %25
   store ptr null, ptr %27, align 8
   %28 = tail call ptr @palloc0(i64 noundef 24) #11
   %29 = call ptr @PQconnectStartParams(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1) #11
@@ -1305,7 +1305,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %.thread31
   %26 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.libpqrcv_create_slot, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.libpqrcv_create_slot, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull %switch.load) #11
   br label %27
@@ -1570,7 +1570,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
 
 53:                                               ; preds = %51, %48
   %.sink.i = phi ptr [ %52, %51 ], [ null, %48 ]
-  %54 = getelementptr inbounds nuw [1664 x ptr], ptr %5, i64 0, i64 %indvars.iv57.i
+  %54 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv57.i
   store ptr %.sink.i, ptr %54, align 8
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i

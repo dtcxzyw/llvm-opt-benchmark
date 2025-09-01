@@ -19740,10 +19740,10 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit197:    ; preds = %.thread318, %_ZNKSt
 
 switch.lookup:                                    ; preds = %489
   %492 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvE, i64 0, i64 %492
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvE, i64 %492
   %switch.load = load i64, ptr %switch.gep, align 8
   %493 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep438 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvE.204, i64 0, i64 %493
+  %switch.gep438 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvE.204, i64 %493
   %switch.load439 = load ptr, ptr %switch.gep438, align 8
   br label %_ZN4llvm5ErrorD2Ev.exit232
 

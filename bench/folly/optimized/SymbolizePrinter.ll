@@ -393,7 +393,7 @@ define { ptr, ptr } @_ZN5folly10symbolizer16AddressFormatter6formatEm(ptr nounde
   %.010 = phi ptr [ %8, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %.079 = phi i64 [ %9, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %5 = and i64 %.079, 15
-  %6 = getelementptr inbounds nuw [17 x i8], ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !10
   %8 = getelementptr inbounds i8, ptr %.010, i64 -1
   store i8 %7, ptr %.010, align 1, !tbaa !10
@@ -474,7 +474,7 @@ define void @_ZN5folly10symbolizer16SymbolizePrinter5printERKNS0_15SymbolizedFra
   %.021.i = phi i64 [ %42, %.lr.ph.i ], [ %36, %.lr.ph.preheader.i ]
   %.01320.i = phi ptr [ %41, %.lr.ph.i ], [ %37, %.lr.ph.preheader.i ]
   %38 = and i64 %.021.i, 15
-  %39 = getelementptr inbounds nuw [17 x i8], ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !10
   %41 = getelementptr inbounds i8, ptr %.01320.i, i64 -1
   store i8 %40, ptr %.01320.i, align 1, !tbaa !10
@@ -537,7 +537,7 @@ _ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE.exit: ; preds = %51, %
   %.010.i = phi ptr [ %69, %.lr.ph.i41 ], [ %65, %.lr.ph.preheader.i40 ]
   %.079.i = phi i64 [ %70, %.lr.ph.i41 ], [ %63, %.lr.ph.preheader.i40 ]
   %66 = and i64 %.079.i, 15
-  %67 = getelementptr inbounds nuw [17 x i8], ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !10
   %69 = getelementptr inbounds i8, ptr %.010.i, i64 -1
   store i8 %68, ptr %.010.i, align 1, !tbaa !10
@@ -751,7 +751,7 @@ _ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE.exit49: ; preds = %140
 
 178:                                              ; preds = %182, %175
   %.08.i3.i.i.i = phi i64 [ 0, %175 ], [ %183, %182 ]
-  %179 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i3.i.i.i
+  %179 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i3.i.i.i
   %180 = load i64, ptr %179, align 8, !tbaa !60
   %181 = icmp ult i64 %177, %180
   br i1 %181, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i, label %182, !prof !61
@@ -776,7 +776,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %178
   %186 = add i64 %.014.i4.i.i.i, -2
   %187 = udiv i64 %.0.i5.i.i.i, 100
   %188 = urem i64 %.0.i5.i.i.i, 100
-  %189 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %188
   %190 = load i16, ptr %189, align 2, !tbaa !64
   %191 = getelementptr inbounds nuw i8, ptr %9, i64 %186
   store i16 %190, ptr %191, align 1
@@ -787,7 +787,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %178
   %spec.select.i11.i.i.i = phi i64 [ %184, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %spec.select.i12.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %184, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %186, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %177, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %187, %.lr.ph.i.i.i ]
-  %193 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
+  %193 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %194 = load i16, ptr %193, align 2, !tbaa !64
   %195 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %195, label %196, label %197, !prof !61
@@ -1016,7 +1016,7 @@ define void @_ZN5folly10symbolizer16SymbolizePrinter10printTerseERKNS0_15Symboli
   %.021 = phi i64 [ %32, %.lr.ph ], [ %26, %.lr.ph.preheader ]
   %.01320 = phi ptr [ %31, %.lr.ph ], [ %27, %.lr.ph.preheader ]
   %28 = and i64 %.021, 15
-  %29 = getelementptr inbounds nuw [17 x i8], ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN5folly10symbolizer12_GLOBAL__N_19kHexCharsE.const, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !10
   %31 = getelementptr inbounds i8, ptr %.01320, i64 -1
   store i8 %30, ptr %.01320, align 1, !tbaa !10
@@ -1061,7 +1061,7 @@ define void @_ZN5folly10symbolizer16SymbolizePrinter5colorENS1_5ColorE(ptr nound
 
 14:                                               ; preds = %7, %13
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN5folly10symbolizer16SymbolizePrinter9kColorMapE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @_ZN5folly10symbolizer16SymbolizePrinter9kColorMapE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !69
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #32
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
@@ -1513,7 +1513,7 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
   %17 = trunc nuw nsw i64 %14 to i8
   %18 = sub nuw nsw i8 23, %17
   store i8 %18, ptr %7, align 1, !tbaa !10
-  %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   store i8 0, ptr %19, align 1, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   br label %66

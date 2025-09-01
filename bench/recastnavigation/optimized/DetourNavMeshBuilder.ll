@@ -233,10 +233,10 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit:          ; preds = %74, %92, %93, %94, 
 
 switch.lookup:                                    ; preds = %_ZL20classifyOffMeshPointPKfS0_S0_.exit
   %115 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi, i64 0, i64 %115
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi, i64 %115
   %switch.load = load i32, ptr %switch.gep, align 4
   %116 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep773 = getelementptr inbounds nuw [12 x i8], ptr @switch.table._Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi.2, i64 0, i64 %116
+  %switch.gep773 = getelementptr inbounds nuw i8, ptr @switch.table._Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi.2, i64 %116
   %switch.load774 = load i8, ptr %switch.gep773, align 1
   br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit512
 
@@ -768,7 +768,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %410, label %._crit_edge602, label %411
 
 411:                                              ; preds = %407
-  %412 = getelementptr inbounds nuw [6 x i16], ptr %405, i64 0, i64 %indvars.iv688
+  %412 = getelementptr inbounds nuw i16, ptr %405, i64 %indvars.iv688
   store i16 %409, ptr %412, align 2
   %gep761 = getelementptr inbounds nuw i16, ptr %invariant.gep760, i64 %indvars.iv688
   %413 = load i16, ptr %gep761, align 2
@@ -803,7 +803,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 .sink.split:                                      ; preds = %414, %420, %416, %418, %419, %417
   %.sink = phi i16 [ -32766, %417 ], [ -32762, %419 ], [ -32768, %418 ], [ -32764, %416 ], [ %421, %420 ], [ 0, %414 ]
-  %422 = getelementptr inbounds nuw [6 x i16], ptr %406, i64 0, i64 %indvars.iv688
+  %422 = getelementptr inbounds nuw i16, ptr %406, i64 %indvars.iv688
   store i16 %.sink, ptr %422, align 2
   br label %423
 
@@ -1885,13 +1885,13 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
 
 61:                                               ; preds = %.lr.ph97, %61
   %indvars.iv109 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next110, %61 ]
-  %62 = getelementptr inbounds nuw [6 x i16], ptr %59, i64 0, i64 %indvars.iv109
+  %62 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv109
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %64 = load i8, ptr %62, align 1
   %65 = load i8, ptr %63, align 1
   store i8 %65, ptr %62, align 1
   store i8 %64, ptr %63, align 1
-  %66 = getelementptr inbounds nuw [6 x i16], ptr %60, i64 0, i64 %indvars.iv109
+  %66 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv109
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = load i8, ptr %66, align 1
   %69 = load i8, ptr %67, align 1
@@ -1990,13 +1990,13 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
 
 117:                                              ; preds = %.lr.ph104, %117
   %indvars.iv122 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next123, %117 ]
-  %118 = getelementptr inbounds nuw [3 x i16], ptr %115, i64 0, i64 %indvars.iv122
+  %118 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv122
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 1
   %120 = load i8, ptr %118, align 1
   %121 = load i8, ptr %119, align 1
   store i8 %121, ptr %118, align 1
   store i8 %120, ptr %119, align 1
-  %122 = getelementptr inbounds nuw [3 x i16], ptr %116, i64 0, i64 %indvars.iv122
+  %122 = getelementptr inbounds nuw i16, ptr %116, i64 %indvars.iv122
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %124 = load i8, ptr %122, align 1
   %125 = load i8, ptr %123, align 1
@@ -2032,7 +2032,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
 
 139:                                              ; preds = %.lr.ph107, %139
   %indvars.iv129 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next130, %139 ]
-  %140 = getelementptr inbounds nuw [6 x float], ptr %138, i64 0, i64 %indvars.iv129
+  %140 = getelementptr inbounds nuw float, ptr %138, i64 %indvars.iv129
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 3
   %142 = load i8, ptr %140, align 1
   %143 = load i8, ptr %141, align 1

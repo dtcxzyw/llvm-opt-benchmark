@@ -3304,7 +3304,7 @@ realloc_and_append.exit.thread713:                ; preds = %40, %realloc_and_ap
 
 582:                                              ; preds = %575
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %24, i8 32, i64 %580, i1 false)
-  %583 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 0, i64 %580
+  %583 = getelementptr inbounds nuw i8, ptr %24, i64 %580
   store i8 0, ptr %583, align 1, !tbaa !7
   br label %indentation.exit
 
@@ -3345,7 +3345,7 @@ indentation.exit:                                 ; preds = %582, %584
 
 597:                                              ; preds = %593
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %23, i8 32, i64 %595, i1 false)
-  %598 = getelementptr inbounds nuw [256 x i8], ptr %23, i64 0, i64 %595
+  %598 = getelementptr inbounds nuw i8, ptr %23, i64 %595
   store i8 0, ptr %598, align 1, !tbaa !7
   br label %indentation.exit693
 
@@ -3396,7 +3396,7 @@ indentation.exit693:                              ; preds = %597, %599
 
 612:                                              ; preds = %608
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %22, i8 32, i64 %610, i1 false)
-  %613 = getelementptr inbounds nuw [256 x i8], ptr %22, i64 0, i64 %610
+  %613 = getelementptr inbounds nuw i8, ptr %22, i64 %610
   store i8 0, ptr %613, align 1, !tbaa !7
   br label %indentation.exit694
 
@@ -3483,7 +3483,7 @@ indentation.exit694:                              ; preds = %612, %614
 
 651:                                              ; preds = %647
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %21, i8 32, i64 %649, i1 false)
-  %652 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 0, i64 %649
+  %652 = getelementptr inbounds nuw i8, ptr %21, i64 %649
   store i8 0, ptr %652, align 1, !tbaa !7
   br label %indentation.exit695
 
@@ -3641,7 +3641,7 @@ indentation.exit695:                              ; preds = %651, %653
 
 723:                                              ; preds = %717
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %20, i8 32, i64 %720, i1 false)
-  %724 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %720
+  %724 = getelementptr inbounds nuw i8, ptr %20, i64 %720
   store i8 0, ptr %724, align 1, !tbaa !7
   br label %indentation.exit696
 
@@ -3674,7 +3674,7 @@ indentation.exit696:                              ; preds = %723, %725
 
 736:                                              ; preds = %729
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %19, i8 32, i64 %734, i1 false)
-  %737 = getelementptr inbounds nuw [256 x i8], ptr %19, i64 0, i64 %734
+  %737 = getelementptr inbounds nuw i8, ptr %19, i64 %734
   store i8 0, ptr %737, align 1, !tbaa !7
   br label %indentation.exit697
 
@@ -3704,7 +3704,7 @@ indentation.exit697:                              ; preds = %736, %738
 
 748:                                              ; preds = %744
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %18, i8 32, i64 %746, i1 false)
-  %749 = getelementptr inbounds nuw [256 x i8], ptr %18, i64 0, i64 %746
+  %749 = getelementptr inbounds nuw i8, ptr %18, i64 %746
   store i8 0, ptr %749, align 1, !tbaa !7
   br label %indentation.exit698
 
@@ -3747,7 +3747,7 @@ indentation.exit698:                              ; preds = %748, %750
 
 764:                                              ; preds = %760
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %17, i8 32, i64 %761, i1 false)
-  %765 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 0, i64 %761
+  %765 = getelementptr inbounds nuw i8, ptr %17, i64 %761
   store i8 0, ptr %765, align 1, !tbaa !7
   br label %indentation.exit699
 
@@ -3781,7 +3781,7 @@ indentation.exit699:                              ; preds = %764, %766
 
 777:                                              ; preds = %770
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %16, i8 32, i64 %775, i1 false)
-  %778 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 0, i64 %775
+  %778 = getelementptr inbounds nuw i8, ptr %16, i64 %775
   store i8 0, ptr %778, align 1, !tbaa !7
   br label %indentation.exit700
 
@@ -3848,7 +3848,7 @@ indentation.exit700:                              ; preds = %777, %779
 
 806:                                              ; preds = %802
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %15, i8 32, i64 %803, i1 false)
-  %807 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %803
+  %807 = getelementptr inbounds nuw i8, ptr %15, i64 %803
   store i8 0, ptr %807, align 1, !tbaa !7
   br label %indentation.exit701
 
@@ -3891,7 +3891,7 @@ indentation.exit701:                              ; preds = %806, %808
 
 819:                                              ; preds = %812
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %14, i8 32, i64 %817, i1 false)
-  %820 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %817
+  %820 = getelementptr inbounds nuw i8, ptr %14, i64 %817
   store i8 0, ptr %820, align 1, !tbaa !7
   br label %indentation.exit702
 
@@ -3952,7 +3952,7 @@ indentation.exit702:                              ; preds = %819, %821
 
 845:                                              ; preds = %840
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %13, i8 32, i64 %842, i1 false)
-  %846 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %842
+  %846 = getelementptr inbounds nuw i8, ptr %13, i64 %842
   store i8 0, ptr %846, align 1, !tbaa !7
   br label %indentation.exit703
 
@@ -3996,7 +3996,7 @@ indentation.exit703:                              ; preds = %845, %847
 
 858:                                              ; preds = %851
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %12, i8 32, i64 %856, i1 false)
-  %859 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %856
+  %859 = getelementptr inbounds nuw i8, ptr %12, i64 %856
   store i8 0, ptr %859, align 1, !tbaa !7
   br label %indentation.exit704
 
@@ -4036,7 +4036,7 @@ indentation.exit704:                              ; preds = %858, %860
 .lr.ph768:                                        ; preds = %.lr.ph768.preheader, %868
   %indvars.iv = phi i64 [ 0, %.lr.ph768.preheader ], [ %indvars.iv.next, %868 ]
   %.7767 = phi ptr [ %861, %.lr.ph768.preheader ], [ %873, %868 ]
-  %869 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %indvars.iv
+  %869 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
   %870 = load i64, ptr %869, align 8, !tbaa !15
   %871 = trunc i64 %870 to i32
   %872 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.64, i32 noundef %871) #20
@@ -4098,7 +4098,7 @@ indentation.exit704:                              ; preds = %858, %860
 
 897:                                              ; preds = %892
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %11, i8 32, i64 %894, i1 false)
-  %898 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %894
+  %898 = getelementptr inbounds nuw i8, ptr %11, i64 %894
   store i8 0, ptr %898, align 1, !tbaa !7
   br label %indentation.exit705
 
@@ -4171,7 +4171,7 @@ indentation.exit705:                              ; preds = %897, %899
 
 923:                                              ; preds = %918
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 32, i64 %921, i1 false)
-  %924 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %921
+  %924 = getelementptr inbounds nuw i8, ptr %10, i64 %921
   store i8 0, ptr %924, align 1, !tbaa !7
   br label %indentation.exit706
 
@@ -4283,7 +4283,7 @@ H5LTdtype_to_text.exit.thread:                    ; preds = %935
 
 965:                                              ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 32, i64 %962, i1 false)
-  %966 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %962
+  %966 = getelementptr inbounds nuw i8, ptr %8, i64 %962
   store i8 0, ptr %966, align 1, !tbaa !7
   br label %indentation.exit708
 
@@ -4322,7 +4322,7 @@ indentation.exit708:                              ; preds = %965, %967
 
 978:                                              ; preds = %971
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %976, i1 false)
-  %979 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %976
+  %979 = getelementptr inbounds nuw i8, ptr %7, i64 %976
   store i8 0, ptr %979, align 1, !tbaa !7
   br label %indentation.exit709
 
@@ -4383,7 +4383,7 @@ indentation.exit709:                              ; preds = %978, %980
 
 1004:                                             ; preds = %999
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %6, i8 32, i64 %1001, i1 false)
-  %1005 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %1001
+  %1005 = getelementptr inbounds nuw i8, ptr %6, i64 %1001
   store i8 0, ptr %1005, align 1, !tbaa !7
   br label %indentation.exit710
 
@@ -4641,7 +4641,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
 .lr.ph150:                                        ; preds = %._crit_edge, %39
   %42 = add i64 %4, 3
   %43 = icmp ult i64 %42, 80
-  %44 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %42
   %smax162 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %wide.trip.count163 = zext nneg i32 %smax162 to i64
   br label %46
@@ -4691,7 +4691,7 @@ indentation.exit:                                 ; preds = %47, %48
   %58 = zext nneg i32 %57 to i64
   %59 = add nuw nsw i64 %58, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, i8 32, i64 %59, i1 false)
-  %60 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 %58
   store i8 0, ptr %60, align 1, !tbaa !7
   %61 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef nonnull %54, ptr noundef nonnull %7)
   %.not116 = icmp eq ptr %61, null
@@ -4739,10 +4739,10 @@ indentation.exit:                                 ; preds = %47, %48
 
 .thread:                                          ; preds = %.loopexit.thread
   %76 = tail call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @.str.62)
-  %77 = add i64 %4, 4
-  %78 = add i64 %4, 5
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %78, i1 false)
-  %79 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %77
+  %77 = add i64 %4, 5
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %77, i1 false)
+  %78 = getelementptr i8, ptr %7, i64 %4
+  %79 = getelementptr i8, ptr %78, i64 4
   store i8 0, ptr %79, align 1, !tbaa !7
   %80 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %76, ptr noundef nonnull %7)
   %81 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %80, ptr noundef nonnull @.str.82)

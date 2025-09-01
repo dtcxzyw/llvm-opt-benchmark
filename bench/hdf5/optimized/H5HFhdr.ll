@@ -200,14 +200,14 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase1(ptr noundef %0) local_
 
 30:                                               ; preds = %29
   %31 = lshr i64 %27, 24
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !40
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 24
   br label %H5VM_limit_enc_size.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %28
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %28
   %38 = load i8, ptr %37, align 1, !tbaa !40
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 16
@@ -219,14 +219,14 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase1(ptr noundef %0) local_
 
 42:                                               ; preds = %41
   %43 = lshr i64 %27, 8
-  %44 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !40
   %46 = zext i8 %45 to i32
   %47 = add nuw nsw i32 %46, 8
   br label %H5VM_limit_enc_size.exit
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %27
+  %49 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %27
   %50 = load i8, ptr %49, align 1, !tbaa !40
   %51 = zext i8 %50 to i32
   br label %H5VM_limit_enc_size.exit
@@ -246,14 +246,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %30, %36, %42, %48
 
 55:                                               ; preds = %54
   %56 = lshr i64 %27, 24
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !40
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %59, 24
   br label %H5VM_limit_enc_size.exit13
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %28
+  %62 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %28
   %63 = load i8, ptr %62, align 1, !tbaa !40
   %64 = zext i8 %63 to i32
   %65 = add nuw nsw i32 %64, 16
@@ -265,14 +265,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %30, %36, %42, %48
 
 67:                                               ; preds = %66
   %68 = lshr i64 %27, 8
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !40
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %71, 8
   br label %H5VM_limit_enc_size.exit13
 
 73:                                               ; preds = %66
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %27
+  %74 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %27
   %75 = load i8, ptr %74, align 1, !tbaa !40
   %76 = zext i8 %75 to i32
   br label %H5VM_limit_enc_size.exit13
@@ -1522,7 +1522,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   %76 = mul i64 %1, 125613361
   %77 = lshr i64 %76, 27
   %78 = and i64 %77, 31
-  %79 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %78
   br label %80
 
 80:                                               ; preds = %215, %72
@@ -1618,7 +1618,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   %138 = mul i64 %137, 125613361
   %139 = lshr i64 %138, 27
   %140 = and i64 %139, 31
-  %141 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !78
   %143 = load i32, ptr %4, align 4, !tbaa !78
   %144 = add i32 %136, 2

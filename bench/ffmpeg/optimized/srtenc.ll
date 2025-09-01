@@ -254,7 +254,7 @@ define internal fastcc void @srt_style_apply(ptr noundef %0, ptr noundef %1) unn
   %43 = add nsw i32 %39, 1
   store i32 %43, ptr %38, align 8, !tbaa !58
   %44 = sext i32 %39 to i64
-  %45 = getelementptr inbounds [64 x i8], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds i8, ptr %42, i64 %44
   store i8 102, ptr %45, align 1, !tbaa !59
   br label %srt_stack_push.exit
 
@@ -276,7 +276,7 @@ srt_stack_push.exit:                              ; preds = %41, %37, %14
   %54 = add nsw i32 %50, 1
   store i32 %54, ptr %49, align 8, !tbaa !58
   %55 = sext i32 %50 to i64
-  %56 = getelementptr inbounds [64 x i8], ptr %53, i64 0, i64 %55
+  %56 = getelementptr inbounds i8, ptr %53, i64 %55
   store i8 98, ptr %56, align 1, !tbaa !59
   br label %srt_stack_push.exit52
 
@@ -298,7 +298,7 @@ srt_stack_push.exit52:                            ; preds = %52, %48, %srt_stack
   %65 = add nsw i32 %61, 1
   store i32 %65, ptr %60, align 8, !tbaa !58
   %66 = sext i32 %61 to i64
-  %67 = getelementptr inbounds [64 x i8], ptr %64, i64 0, i64 %66
+  %67 = getelementptr inbounds i8, ptr %64, i64 %66
   store i8 105, ptr %67, align 1, !tbaa !59
   br label %srt_stack_push.exit54
 
@@ -320,7 +320,7 @@ srt_stack_push.exit54:                            ; preds = %63, %59, %srt_stack
   %76 = add nsw i32 %72, 1
   store i32 %76, ptr %71, align 8, !tbaa !58
   %77 = sext i32 %72 to i64
-  %78 = getelementptr inbounds [64 x i8], ptr %75, i64 0, i64 %77
+  %78 = getelementptr inbounds i8, ptr %75, i64 %77
   store i8 117, ptr %78, align 1, !tbaa !59
   br label %srt_stack_push.exit56
 
@@ -409,7 +409,7 @@ define internal void @srt_style_cb(ptr noundef %0, i8 noundef signext %1, i32 no
 12:                                               ; preds = %9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %13 = and i64 %indvars.iv.next.i.i, 4294967295
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !59
   %16 = icmp eq i8 %15, %1
   br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !64
@@ -442,7 +442,7 @@ srt_stack_pop.exit.i:                             ; preds = %22
   %25 = add nsw i32 %23, -1
   store i32 %25, ptr %20, align 8, !tbaa !58
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !59
   %.fr.i = freeze i8 %28
   %29 = sext i8 %.fr.i to i32
@@ -469,7 +469,7 @@ srt_stack_push.exit.i:                            ; preds = %34
   %39 = add nsw i32 %36, 1
   store i32 %39, ptr %35, align 8, !tbaa !58
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds [64 x i8], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %38, i64 %40
   store i8 %1, ptr %41, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
@@ -514,7 +514,7 @@ define internal void @srt_color_cb(ptr noundef %0, i32 noundef %1, i32 noundef %
 15:                                               ; preds = %12
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %16 = and i64 %indvars.iv.next.i.i, 4294967295
-  %17 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !59
   %19 = icmp eq i8 %18, 102
   br i1 %19, label %.split.loop.exit.i.i, label %12, !llvm.loop !64
@@ -539,7 +539,7 @@ srt_stack_pop.exit.i:                             ; preds = %.lr.ph.i
   %24 = add nsw i32 %22, -1
   store i32 %24, ptr %6, align 8, !tbaa !58
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !59
   %.fr.i = freeze i8 %27
   %28 = sext i8 %.fr.i to i32
@@ -564,7 +564,7 @@ srt_stack_push.exit.i:                            ; preds = %33
   %36 = add nsw i32 %7, 1
   store i32 %36, ptr %6, align 8, !tbaa !58
   %37 = sext i32 %7 to i64
-  %38 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr %35, i64 %37
   store i8 102, ptr %38, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
@@ -611,7 +611,7 @@ define internal void @srt_font_name_cb(ptr noundef %0, ptr noundef %1) #1 {
 12:                                               ; preds = %9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %13 = and i64 %indvars.iv.next.i.i, 4294967295
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !59
   %16 = icmp eq i8 %15, 102
   br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !64
@@ -636,7 +636,7 @@ srt_stack_pop.exit.i:                             ; preds = %.lr.ph.i
   %21 = add nsw i32 %19, -1
   store i32 %21, ptr %3, align 8, !tbaa !58
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !59
   %.fr.i = freeze i8 %24
   %25 = sext i8 %.fr.i to i32
@@ -661,7 +661,7 @@ srt_stack_push.exit.i:                            ; preds = %30
   %33 = add nsw i32 %4, 1
   store i32 %33, ptr %3, align 8, !tbaa !58
   %34 = sext i32 %4 to i64
-  %35 = getelementptr inbounds [64 x i8], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr %32, i64 %34
   store i8 102, ptr %35, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
@@ -701,7 +701,7 @@ define internal void @srt_font_size_cb(ptr noundef %0, i32 noundef %1) #1 {
 12:                                               ; preds = %9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %13 = and i64 %indvars.iv.next.i.i, 4294967295
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !59
   %16 = icmp eq i8 %15, 102
   br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !64
@@ -726,7 +726,7 @@ srt_stack_pop.exit.i:                             ; preds = %.lr.ph.i
   %21 = add nsw i32 %19, -1
   store i32 %21, ptr %3, align 8, !tbaa !58
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !59
   %.fr.i = freeze i8 %24
   %25 = sext i8 %.fr.i to i32
@@ -751,7 +751,7 @@ srt_stack_push.exit.i:                            ; preds = %30
   %33 = add nsw i32 %4, 1
   store i32 %33, ptr %3, align 8, !tbaa !58
   %34 = sext i32 %4 to i64
-  %35 = getelementptr inbounds [64 x i8], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr %32, i64 %34
   store i8 102, ptr %35, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
@@ -806,7 +806,7 @@ srt_stack_pop.exit.i:                             ; preds = %6
   %9 = add nsw i32 %7, -1
   store i32 %9, ptr %3, align 8, !tbaa !58
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !59
   %.fr.i = freeze i8 %12
   %13 = sext i8 %.fr.i to i32
@@ -852,7 +852,7 @@ srt_stack_pop.exit.i:                             ; preds = %5
   %8 = add nsw i32 %6, -1
   store i32 %8, ptr %2, align 8, !tbaa !58
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !59
   %.fr.i = freeze i8 %11
   %12 = sext i8 %.fr.i to i32

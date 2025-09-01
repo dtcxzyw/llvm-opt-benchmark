@@ -109,7 +109,7 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmp_tuple(ptr noundef 
   store i16 %13, ptr %14, align 4
   %15 = load i8, ptr %3, align 4
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [19 x i8], ptr @invmap, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @invmap, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = add i8 %18, -1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr readn
   %30 = mul nsw i64 %29, -56
   %31 = getelementptr i8, ptr %24, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -16
-  %33 = getelementptr [2 x %struct.nf_conntrack_tuple_hash], ptr %31, i64 0, i64 %29, i32 1, i32 1
+  %33 = getelementptr %struct.nf_conntrack_tuple_hash, ptr %31, i64 %29, i32 1, i32 1
   %34 = load i64, ptr %5, align 8
   %35 = load i64, ptr %33, align 8
   %36 = getelementptr i8, ptr %5, i64 8

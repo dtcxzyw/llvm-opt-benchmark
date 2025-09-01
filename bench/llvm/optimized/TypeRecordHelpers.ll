@@ -485,7 +485,7 @@ define dso_local noundef range(i64 0, 33) i64 @_ZN4llvm8codeview26getSizeInBytes
 switch.lookup:                                    ; preds = %5
   %18 = lshr exact i32 %6, 8
   %19 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %20
 

@@ -43,7 +43,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Vector_pmap___spec__1___rarg(ptr noundef
   %.02148 = phi i64 [ %2, %.lr.ph ], [ %41, %lean_dec.exit ]
   %.02347 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i33, %lean_dec.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02347, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.02148
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.02148
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -675,7 +675,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Init_Data_Vector_Attach_0__Vec
   %.02148 = phi i64 [ %2, %.lr.ph ], [ %41, %lean_dec.exit ]
   %.02347 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i33, %lean_dec.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02347, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.02148
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.02148
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -978,7 +978,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Vector_unattach___spec__1___rarg(i64 nou
   %.01740 = phi i64 [ %30, %46 ], [ %1, %3 ]
   %.01939 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01740
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01740
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

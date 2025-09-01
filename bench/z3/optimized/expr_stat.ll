@@ -105,7 +105,7 @@ define hidden void @_Z13get_expr_statP4exprR9expr_stat(ptr noundef %0, ptr nound
   %40 = phi i32 [ %14, %.lr.ph ], [ %62, %56 ]
   %indvars.iv = phi i64 [ %38, %.lr.ph ], [ %41, %56 ]
   %41 = add nsw i64 %indvars.iv, -1
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !27
   %44 = load i32, ptr %6, align 4, !tbaa !10
   %.not.i25 = icmp ult i32 %40, %44
@@ -394,7 +394,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit:
   %24 = phi i32 [ %10, %.lr.ph ], [ %44, %._crit_edge.i27 ]
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %25, %._crit_edge.i27 ]
   %25 = add nsw i64 %indvars.iv, -1
-  %26 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %.not.i13 = icmp ult i32 %24, %23
   br i1 %.not.i13, label %._crit_edge.i27, label %28

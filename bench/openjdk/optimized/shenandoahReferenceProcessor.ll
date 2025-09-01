@@ -409,7 +409,7 @@ define hidden noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor18discover_re
 switch.lookup:                                    ; preds = %5
   %9 = ptrtoint ptr %1 to i64
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4, i64 noundef %9, ptr noundef nonnull %switch.load)
   br label %11
@@ -422,7 +422,7 @@ switch.lookup:                                    ; preds = %5
   %16 = zext i32 %13 to i64
   %17 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %15, i64 %16, i32 2
   %18 = zext i32 %2 to i64
-  %19 = getelementptr inbounds nuw [5 x i64], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 1
   store i64 %21, ptr %19, align 8
@@ -627,7 +627,7 @@ _ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit.thread._crit_edge: ; pred
 
 switch.lookup:                                    ; preds = %115
   %119 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 0, i64 %119
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 %119
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.20, i64 noundef %8, ptr noundef nonnull %switch.load)
   br label %120
@@ -636,7 +636,7 @@ switch.lookup:                                    ; preds = %115
   %121 = load ptr, ptr %72, align 8
   %122 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %121, i64 %.pre-phi, i32 3
   %123 = zext i32 %2 to i64
-  %124 = getelementptr inbounds nuw [5 x i64], ptr %122, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i64, ptr %122, i64 %123
   %125 = load i64, ptr %124, align 8
   %126 = add i64 %125, 1
   store i64 %126, ptr %124, align 8
@@ -778,7 +778,7 @@ _ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread._crit_edge: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %76
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.20, i64 noundef %8, ptr noundef nonnull %switch.load)
   br label %81
@@ -787,7 +787,7 @@ switch.lookup:                                    ; preds = %76
   %82 = load ptr, ptr %63, align 8
   %83 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %82, i64 %.pre-phi, i32 3
   %84 = zext i32 %2 to i64
-  %85 = getelementptr inbounds nuw [5 x i64], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr %83, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, 1
   store i64 %87, ptr %85, align 8
@@ -1146,7 +1146,7 @@ _ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13Referenc
 
 switch.lookup:                                    ; preds = %207
   %211 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 0, i64 %211
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 %211
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.27, i64 noundef %130, ptr noundef nonnull %switch.load)
   br label %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit
@@ -1155,7 +1155,7 @@ _ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.
   %212 = load ptr, ptr %64, align 8
   %213 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %212, i64 %65, i32 4
   %214 = zext i8 %127 to i64
-  %215 = getelementptr inbounds nuw [5 x i64], ptr %213, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw i64, ptr %213, i64 %214
   %216 = load i64, ptr %215, align 8
   %217 = add i64 %216, 1
   store i64 %217, ptr %215, align 8
@@ -1623,7 +1623,7 @@ _ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.e
 
 switch.lookup:                                    ; preds = %158
   %162 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 0, i64 %162
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 %162
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.27, i64 noundef %100, ptr noundef nonnull %switch.load)
   br label %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit
@@ -1632,7 +1632,7 @@ _ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit: ;
   %163 = load ptr, ptr %42, align 8
   %164 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %163, i64 %43, i32 4
   %165 = zext i8 %97 to i64
-  %166 = getelementptr inbounds nuw [5 x i64], ptr %164, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i64, ptr %164, i64 %165
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, 1
   store i64 %168, ptr %166, align 8
@@ -1882,21 +1882,21 @@ define hidden void @_ZN28ShenandoahReferenceProcessor18collect_statisticsEv(ptr 
 
 13:                                               ; preds = %.preheader, %13
   %.017 = phi i64 [ 0, %.preheader ], [ %29, %13 ]
-  %14 = getelementptr inbounds nuw [5 x i64], ptr %10, i64 0, i64 %.017
+  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %.017
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %.017
+  %16 = getelementptr inbounds nuw i64, ptr %2, i64 %.017
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8
-  %19 = getelementptr inbounds nuw [5 x i64], ptr %11, i64 0, i64 %.017
+  %19 = getelementptr inbounds nuw i64, ptr %11, i64 %.017
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw [5 x i64], ptr %3, i64 0, i64 %.017
+  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %.017
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %20
   store i64 %23, ptr %21, align 8
-  %24 = getelementptr inbounds nuw [5 x i64], ptr %12, i64 0, i64 %.017
+  %24 = getelementptr inbounds nuw i64, ptr %12, i64 %.017
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %.017
+  %26 = getelementptr inbounds nuw i64, ptr %4, i64 %.017
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %25
   store i64 %28, ptr %26, align 8
@@ -2961,7 +2961,7 @@ define linkonce_odr hidden noundef ptr @_ZN28ShenandoahReferenceProcessor4dropI9
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.26, i64 noundef %.pre9, ptr noundef nonnull %switch.load)
   br label %._crit_edge
@@ -3057,7 +3057,7 @@ define linkonce_odr hidden noundef ptr @_ZN28ShenandoahReferenceProcessor4dropIP
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN28ShenandoahReferenceProcessor4dropIP7oopDescEES2_S2_13ReferenceType, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.26, i64 noundef %.pre9, ptr noundef nonnull %switch.load)
   br label %._crit_edge

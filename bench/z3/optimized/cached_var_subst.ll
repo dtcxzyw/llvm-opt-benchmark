@@ -117,9 +117,9 @@ define hidden noundef zeroext i1 @_ZNK16cached_var_subst11key_eq_procclEPNS_3key
 
 14:                                               ; preds = %14, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !11
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !11
   %.not15 = icmp eq ptr %16, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -759,7 +759,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %99 = phi ptr [ %117, %115 ], [ %64, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %115 ], [ 0, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %101 = getelementptr inbounds nuw [0 x ptr], ptr %100, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
   %102 = load ptr, ptr %101, align 8, !tbaa !11
   %.not.i.i.i.i28 = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i28, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i29, label %103
@@ -1608,9 +1608,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableI17default_map
 
 56:                                               ; preds = %55, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %55 ]
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %indvars.iv.i.i.i
+  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i.i.i
   %58 = load ptr, ptr %57, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw [0 x ptr], ptr %34, i64 0, i64 %indvars.iv.i.i.i
+  %59 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i.i.i
   %60 = load ptr, ptr %59, align 8, !tbaa !11
   %.not15.i.i.i = icmp eq ptr %58, %60
   br i1 %.not15.i.i.i, label %55, label %_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit.thread
@@ -1694,9 +1694,9 @@ _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table
 
 89:                                               ; preds = %88, %.lr.ph.i.i.i60
   %indvars.iv.i.i.i62 = phi i64 [ 0, %.lr.ph.i.i.i60 ], [ %indvars.iv.next.i.i.i64, %88 ]
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %86, i64 0, i64 %indvars.iv.i.i.i62
+  %90 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i.i.i62
   %91 = load ptr, ptr %90, align 8, !tbaa !11
-  %92 = getelementptr inbounds nuw [0 x ptr], ptr %37, i64 0, i64 %indvars.iv.i.i.i62
+  %92 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i.i.i62
   %93 = load ptr, ptr %92, align 8, !tbaa !11
   %.not15.i.i.i63 = icmp eq ptr %91, %93
   br i1 %.not15.i.i.i63, label %88, label %_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit66.thread
@@ -1950,9 +1950,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIPN16cac
 
 44:                                               ; preds = %43, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %43 ]
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %indvars.iv.i.i.i
+  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i.i.i
   %46 = load ptr, ptr %45, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %indvars.iv.i.i.i
+  %47 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i.i.i
   %48 = load ptr, ptr %47, align 8, !tbaa !11
   %.not15.i.i.i = icmp eq ptr %46, %48
   br i1 %.not15.i.i.i, label %43, label %_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit.thread
@@ -2007,9 +2007,9 @@ _ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table
 
 68:                                               ; preds = %67, %.lr.ph.i.i.i37
   %indvars.iv.i.i.i39 = phi i64 [ 0, %.lr.ph.i.i.i37 ], [ %indvars.iv.next.i.i.i41, %67 ]
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %65, i64 0, i64 %indvars.iv.i.i.i39
+  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i.i.i39
   %70 = load ptr, ptr %69, align 8, !tbaa !11
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv.i.i.i39
+  %71 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i.i39
   %72 = load ptr, ptr %71, align 8, !tbaa !11
   %.not15.i.i.i40 = icmp eq ptr %70, %72
   br i1 %.not15.i.i.i40, label %67, label %_ZNK14core_hashtableI17default_map_entryIPN16cached_var_subst3keyEP4exprEN9table2mapIS6_NS1_13key_hash_procENS1_11key_eq_procEE15entry_hash_procENSA_13entry_eq_procEE6equalsERK9_key_dataIS3_S5_ESH_.exit43.thread

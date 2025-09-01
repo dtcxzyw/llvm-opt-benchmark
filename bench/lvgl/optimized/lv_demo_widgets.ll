@@ -1188,7 +1188,7 @@ shop_create.exit:                                 ; preds = %314, %315
   call void @lv_obj_remove_flag(ptr noundef %395, i32 noundef 1024) #5
   %399 = add i32 %.052.i, 1
   %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw [8 x i32], ptr @color_changer_create.palette, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw i32, ptr @color_changer_create.palette, i64 %400
   %402 = load i32, ptr %401, align 4, !tbaa !3
   %.not.i = icmp eq i32 %402, 19
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17

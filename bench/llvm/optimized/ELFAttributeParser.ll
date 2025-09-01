@@ -1158,7 +1158,7 @@ define dso_local void @_ZN4llvm18ELFAttributeParser5parseENS_8ArrayRefIhEENS_10e
   %.019.i = phi i64 [ %56, %.thread.i ], [ %36, %.thread.i.preheader ]
   %.117.i = phi ptr [ %55, %.thread.i ], [ %34, %.thread.i.preheader ]
   %52 = and i64 %.019.i, 15
-  %53 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !7, !noalias !136
   %55 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %54, ptr %55, align 1, !tbaa !7, !noalias !136
@@ -1446,7 +1446,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %143, %._ZN4llvmplER
   %.019.i46 = phi i64 [ %180, %.thread.i45 ], [ %158, %_ZN4llvmplERKNS_5TwineES2_.exit44 ]
   %.117.i48 = phi ptr [ %179, %.thread.i45 ], [ %159, %_ZN4llvmplERKNS_5TwineES2_.exit44 ]
   %176 = and i64 %.019.i46, 15
-  %177 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !7, !noalias !169
   %179 = getelementptr inbounds i8, ptr %.117.i48, i64 -1
   store i8 %178, ptr %179, align 1, !tbaa !7, !noalias !169

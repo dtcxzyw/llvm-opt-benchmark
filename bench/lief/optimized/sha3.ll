@@ -115,7 +115,7 @@ define hidden noundef i32 @mbedtls_sha3_update(ptr noundef %0, ptr noundef reado
   %18 = shl nuw i64 %14, %17
   %19 = lshr i32 %11, 3
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [25 x i64], ptr %0, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !15
   %23 = xor i64 %18, %22
   store i64 %23, ptr %21, align 8, !tbaa !15
@@ -154,7 +154,7 @@ define hidden noundef i32 @mbedtls_sha3_update(ptr noundef %0, ptr noundef reado
   %41 = shl i64 %.0.copyload.i, %40
   %42 = lshr i32 %37, 3
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [25 x i64], ptr %0, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !15
   %46 = xor i64 %41, %45
   store i64 %46, ptr %44, align 8, !tbaa !15
@@ -201,7 +201,7 @@ define hidden noundef i32 @mbedtls_sha3_update(ptr noundef %0, ptr noundef reado
   %68 = shl nuw i64 %63, %67
   %69 = lshr i32 %64, 3
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [25 x i64], ptr %0, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i64, ptr %0, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !15
   %73 = xor i64 %68, %72
   store i64 %73, ptr %71, align 8, !tbaa !15
@@ -283,7 +283,7 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 160
   %45 = load i64, ptr %44, align 8, !tbaa !15
   %46 = xor i64 %43, %45
-  %47 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %46, ptr %47, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -295,13 +295,13 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   %48 = add nuw i64 %indvars.iv278, 4294967295
   %49 = and i64 %48, 4294967295
   %50 = select i1 %.cmp, i64 4, i64 %49
-  %51 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %2, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !15
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %53 = icmp eq i64 %indvars.iv.next279, 5
   %54 = and i64 %indvars.iv.next279, 4294967295
   %55 = select i1 %53, i64 0, i64 %54
-  %56 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %2, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !15
   %58 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 1)
   %59 = xor i64 %58, %52
@@ -333,7 +333,7 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   %75 = add nuw i64 %indvars.iv283, 4294967295
   %76 = lshr i64 %75, 2
   %77 = and i64 %76, 1073741823
-  %78 = getelementptr inbounds nuw [6 x i32], ptr @rho, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr @rho, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !7
   %80 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv283
   %81 = load i64, ptr %80, align 8, !tbaa !15
@@ -510,7 +510,7 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   %217 = and i64 %129, %216
   %218 = xor i64 %217, %130
   store i64 %218, ptr %14, align 8, !tbaa !15
-  %219 = getelementptr inbounds nuw [24 x i8], ptr @iota_r_packed, i64 0, i64 %indvars.iv286
+  %219 = getelementptr inbounds nuw i8, ptr @iota_r_packed, i64 %indvars.iv286
   %220 = load i8, ptr %219, align 1, !tbaa !4
   %221 = zext i8 %220 to i64
   %222 = shl i64 %221, 57
@@ -554,7 +554,7 @@ define hidden range(i32 -118, 1) i32 @mbedtls_sha3_finish(ptr noundef %0, ptr no
   %15 = shl nuw nsw i64 6, %14
   %16 = lshr i32 %11, 3
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [25 x i64], ptr %0, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = xor i64 %15, %19
   store i64 %20, ptr %18, align 8, !tbaa !15
@@ -568,7 +568,7 @@ define hidden range(i32 -118, 1) i32 @mbedtls_sha3_finish(ptr noundef %0, ptr no
   %28 = shl nuw i64 128, %27
   %29 = ashr i32 %24, 3
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [25 x i64], ptr %0, i64 0, i64 %30
+  %31 = getelementptr inbounds i64, ptr %0, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !15
   %33 = xor i64 %28, %32
   store i64 %33, ptr %31, align 8, !tbaa !15
@@ -584,7 +584,7 @@ define hidden range(i32 -118, 1) i32 @mbedtls_sha3_finish(ptr noundef %0, ptr no
   %35 = load i32, ptr %10, align 8, !tbaa !14
   %36 = lshr i32 %35, 3
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [25 x i64], ptr %0, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !15
   %40 = shl i32 %35, 3
   %41 = and i32 %40, 56
@@ -719,8 +719,8 @@ switch.lookup:
   %5 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw [2 x [4 x i8]], ptr @test_data, i64 0, i64 %6
-  %8 = getelementptr inbounds nuw [2 x i64], ptr @test_data_len, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @test_data, i64 %6
+  %8 = getelementptr inbounds nuw i64, ptr @test_data_len, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %switch.tableidx = add nsw i32 %2, -1
@@ -764,22 +764,22 @@ default.unreachable32:                            ; preds = %17
   ]
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw [2 x [28 x i8]], ptr @test_hash_sha3_224, i64 0, i64 %6
+  %19 = getelementptr inbounds nuw [28 x i8], ptr @test_hash_sha3_224, i64 %6
   %20 = call i32 @memcmp(ptr noundef nonnull dereferenceable(28) %5, ptr noundef nonnull dereferenceable(28) %19, i64 noundef 28) #13
   br label %30
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw [2 x [32 x i8]], ptr @test_hash_sha3_256, i64 0, i64 %6
+  %22 = getelementptr inbounds nuw [32 x i8], ptr @test_hash_sha3_256, i64 %6
   %23 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %5, ptr noundef nonnull dereferenceable(32) %22, i64 noundef 32) #13
   br label %30
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [2 x [48 x i8]], ptr @test_hash_sha3_384, i64 0, i64 %6
+  %25 = getelementptr inbounds nuw [48 x i8], ptr @test_hash_sha3_384, i64 %6
   %26 = call i32 @memcmp(ptr noundef nonnull dereferenceable(48) %5, ptr noundef nonnull dereferenceable(48) %25, i64 noundef 48) #13
   br label %30
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds nuw [2 x [64 x i8]], ptr @test_hash_sha3_512, i64 0, i64 %6
+  %28 = getelementptr inbounds nuw [64 x i8], ptr @test_hash_sha3_512, i64 %6
   %29 = call i32 @memcmp(ptr noundef nonnull dereferenceable(64) %5, ptr noundef nonnull dereferenceable(64) %28, i64 noundef 64) #13
   br label %30
 

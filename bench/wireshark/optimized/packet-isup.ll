@@ -3492,7 +3492,7 @@ define internal noundef i32 @msg_stats_tree_packet(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bicc.38, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
@@ -3704,10 +3704,10 @@ define internal i32 @dissect_bicc(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bicc, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep37 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %8
+  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bicc.38, i64 %8
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %9
 
@@ -4107,7 +4107,7 @@ define internal fastcc void @dissect_isup_message(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_isup_message, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_isup_message, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = load i32, ptr @hf_isup_message_type, align 4
   %11 = zext i8 %7 to i32

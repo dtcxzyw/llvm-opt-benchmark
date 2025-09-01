@@ -235,7 +235,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %24, %28, %34
   %50 = icmp eq i32 %49, 2
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %52 = zext i1 %50 to i64
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !35, !noalias !34
   store ptr %54, ptr %5, align 8, !tbaa !3, !alias.scope !34
   %55 = load i64, ptr %54, align 8, !noalias !34

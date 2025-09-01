@@ -128,8 +128,8 @@ pkcs12_parse_pbe_params.exit.i:                   ; preds = %58, %55
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.033.i
   %68 = load i8, ptr %67, align 1, !tbaa !16
   %69 = shl nuw nsw i64 %.033.i, 1
-  %70 = or disjoint i64 %69, 1
-  %71 = getelementptr inbounds nuw [258 x i8], ptr %14, i64 0, i64 %70
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store i8 %68, ptr %71, align 1, !tbaa !16
   %72 = add nuw nsw i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %72, %5
@@ -307,8 +307,8 @@ pkcs12_fill_buffer.exit:                          ; preds = %.preheader.i, %25
   br i1 %.old2.not.i98, label %pkcs12_fill_buffer.exit99, label %.preheader.i95
 
 pkcs12_fill_buffer.exit99:                        ; preds = %.preheader.i95, %pkcs12_fill_buffer.exit
-  %.not125 = icmp eq i64 %1, 0
-  br i1 %.not125, label %.loopexit119, label %.lr.ph
+  %.not126 = icmp eq i64 %1, 0
+  br i1 %.not126, label %.loopexit119, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pkcs12_fill_buffer.exit99
   %41 = sext i32 %8 to i64
@@ -317,18 +317,18 @@ pkcs12_fill_buffer.exit99:                        ; preds = %.preheader.i95, %pk
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %43 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %6) #6
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit119.sink.split, label %.lr.ph142
+  br i1 %44, label %.loopexit119.sink.split, label %.lr.ph143
 
-.lr.ph142:                                        ; preds = %.lr.ph, %.loopexit
+.lr.ph143:                                        ; preds = %.lr.ph, %.loopexit
   %45 = phi ptr [ %98, %.loopexit ], [ %43, %.lr.ph ]
-  %.081126141 = phi ptr [ %64, %.loopexit ], [ %0, %.lr.ph ]
-  %.078127140 = phi i64 [ %63, %.loopexit ], [ %1, %.lr.ph ]
+  %.081127142 = phi ptr [ %64, %.loopexit ], [ %0, %.lr.ph ]
+  %.078128141 = phi i64 [ %63, %.loopexit ], [ %1, %.lr.ph ]
   call void @mbedtls_md_init(ptr noundef nonnull %10) #6
   %46 = call i32 @mbedtls_md_setup(ptr noundef nonnull %10, ptr noundef nonnull %45, i32 noundef 0) #6
   %.not.i100 = icmp eq i32 %46, 0
   br i1 %.not.i100, label %47, label %.loopexit119.sink.split
 
-47:                                               ; preds = %.lr.ph142
+47:                                               ; preds = %.lr.ph143
   %48 = call i32 @mbedtls_md_starts(ptr noundef nonnull %10) #6
   %.not33.i = icmp eq i32 %48, 0
   br i1 %.not33.i, label %49, label %calculate_hashes.exit.thread113
@@ -380,10 +380,10 @@ calculate_hashes.exit.thread113:                  ; preds = %47, %49, %52, %55, 
 .loopexit118:                                     ; preds = %59, %.preheader.i102
   call void @mbedtls_md_free(ptr noundef nonnull %10) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %62 = call i64 @llvm.umin.i64(i64 %.078127140, i64 %32)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.081126141, ptr nonnull align 16 %15, i64 %62, i1 false)
-  %63 = sub i64 %.078127140, %62
-  %64 = getelementptr inbounds nuw i8, ptr %.081126141, i64 %62
+  %62 = call i64 @llvm.umin.i64(i64 %.078128141, i64 %32)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.081127142, ptr nonnull align 16 %15, i64 %62, i1 false)
+  %63 = sub i64 %.078128141, %62
+  %64 = getelementptr inbounds nuw i8, ptr %.081127142, i64 %62
   %65 = icmp eq i64 %63, 0
   br i1 %65, label %.loopexit119, label %66
 
@@ -403,34 +403,33 @@ calculate_hashes.exit.thread113:                  ; preds = %47, %49, %52, %55, 
 pkcs12_fill_buffer.exit109.preheader:             ; preds = %.preheader.i104, %66
   br label %pkcs12_fill_buffer.exit109
 
-pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.exit109.preheader, %70
-  %.0 = phi i64 [ %71, %70 ], [ %., %pkcs12_fill_buffer.exit109.preheader ]
-  %.not90 = icmp eq i64 %.0, 0
-  br i1 %.not90, label %75, label %70
+pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.exit109.preheader, %pkcs12_fill_buffer.exit109
+  %.0121 = phi i64 [ %74, %pkcs12_fill_buffer.exit109 ], [ %., %pkcs12_fill_buffer.exit109.preheader ]
+  %70 = getelementptr i8, ptr %14, i64 %.0121
+  %71 = getelementptr i8, ptr %70, i64 -1
+  %72 = load i8, ptr %71, align 1, !tbaa !16
+  %73 = add i8 %72, 1
+  store i8 %73, ptr %71, align 1, !tbaa !16
+  %.not91 = icmp ne i8 %73, 0
+  %74 = add i64 %.0121, -1
+  %.not90 = icmp eq i64 %74, 0
+  %or.cond130 = or i1 %.not91, %.not90
+  br i1 %or.cond130, label %75, label %pkcs12_fill_buffer.exit109, !llvm.loop !20
 
-70:                                               ; preds = %pkcs12_fill_buffer.exit109
-  %71 = add nsw i64 %.0, -1
-  %72 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !16
-  %74 = add i8 %73, 1
-  store i8 %74, ptr %72, align 1, !tbaa !16
-  %.not91 = icmp eq i8 %74, 0
-  br i1 %.not91, label %pkcs12_fill_buffer.exit109, label %75, !llvm.loop !20
-
-75:                                               ; preds = %70, %pkcs12_fill_buffer.exit109
+75:                                               ; preds = %pkcs12_fill_buffer.exit109
   br i1 %29, label %.preheader116, label %.loopexit117
 
 .preheader116:                                    ; preds = %75, %.preheader116
-  %.1122 = phi i64 [ %76, %.preheader116 ], [ %., %75 ]
-  %.079121 = phi i16 [ %85, %.preheader116 ], [ 0, %75 ]
-  %76 = add i64 %.1122, -1
-  %77 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %76
+  %.1123 = phi i64 [ %76, %.preheader116 ], [ %., %75 ]
+  %.079122 = phi i16 [ %85, %.preheader116 ], [ 0, %75 ]
+  %76 = add i64 %.1123, -1
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !16
   %79 = zext i8 %78 to i16
-  %80 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %76
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 %76
   %81 = load i8, ptr %80, align 1, !tbaa !16
   %82 = zext i8 %81 to i16
-  %83 = add nuw nsw i16 %.079121, %79
+  %83 = add nuw nsw i16 %.079122, %79
   %84 = add nuw nsw i16 %83, %82
   %85 = lshr i16 %84, 8
   %86 = trunc i16 %84 to i8
@@ -442,16 +441,16 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
   br i1 %27, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit117, %.preheader
-  %.2124 = phi i64 [ %87, %.preheader ], [ %., %.loopexit117 ]
-  %.180123 = phi i16 [ %96, %.preheader ], [ 0, %.loopexit117 ]
-  %87 = add i64 %.2124, -1
-  %88 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %87
+  %.2125 = phi i64 [ %87, %.preheader ], [ %., %.loopexit117 ]
+  %.180124 = phi i16 [ %96, %.preheader ], [ 0, %.loopexit117 ]
+  %87 = add i64 %.2125, -1
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !16
   %90 = zext i8 %89 to i16
-  %91 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %87
+  %91 = getelementptr inbounds nuw i8, ptr %14, i64 %87
   %92 = load i8, ptr %91, align 1, !tbaa !16
   %93 = zext i8 %92 to i16
-  %94 = add nuw nsw i16 %.180123, %90
+  %94 = add nuw nsw i16 %.180124, %90
   %95 = add nuw nsw i16 %94, %93
   %96 = lshr i16 %95, 8
   %97 = trunc i16 %95 to i8
@@ -463,9 +462,9 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %98 = call ptr @mbedtls_md_info_from_type(i32 noundef %6) #6
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.loopexit119.sink.split, label %.lr.ph142
+  br i1 %99, label %.loopexit119.sink.split, label %.lr.ph143
 
-.loopexit119.sink.split:                          ; preds = %.loopexit, %.lr.ph142, %.lr.ph, %calculate_hashes.exit.thread113
+.loopexit119.sink.split:                          ; preds = %.loopexit, %.lr.ph143, %.lr.ph, %calculate_hashes.exit.thread113
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit119
 

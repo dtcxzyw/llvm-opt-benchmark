@@ -171,7 +171,7 @@ define internal noundef i32 @exp_pdu_data_port_type_populate_data(ptr noundef re
 
 switch.lookup:                                    ; preds = %4
   %12 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @switch.table.exp_pdu_data_port_type_populate_data, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.exp_pdu_data_port_type_populate_data, i64 %12
   %switch.load = load i8, ptr %switch.gep, align 1
   %13 = getelementptr i8, ptr %2, i64 4
   store i8 0, ptr %13, align 1

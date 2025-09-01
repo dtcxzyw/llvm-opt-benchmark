@@ -342,11 +342,11 @@ define internal range(i32 0, 2) i32 @test_insert() #0 {
 
 2:                                                ; preds = %0, %2
   %.027168 = phi i64 [ 0, %0 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw %struct.int_st, ptr %1, i64 %.027168, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = trunc nuw nsw i64 %.027168 to i32
-  %5 = getelementptr inbounds nuw [20 x %struct.int_st], ptr %1, i64 0, i64 %.027168
-  store i32 %4, ptr %5, align 8, !tbaa !18
+  %3 = getelementptr inbounds nuw %struct.int_st, ptr %1, i64 %.027168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %5 = trunc nuw nsw i64 %.027168 to i32
+  store i32 %5, ptr %3, align 8, !tbaa !18
   %6 = add nuw nsw i64 %.027168, 1
   %exitcond.not = icmp eq i64 %6, 20
   br i1 %exitcond.not, label %ossl_list_int_insert_after.exit73, label %2, !llvm.loop !22

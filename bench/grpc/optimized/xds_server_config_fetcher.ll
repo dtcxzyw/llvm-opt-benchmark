@@ -7987,7 +7987,7 @@ define linkonce_odr void @_ZN9grpc_core19XdsListenerResource14FilterChainMap13De
   %.idx.i = mul nuw nsw i64 %5, 24
   %.add4 = add nuw nsw i64 %.idx.i, 144
   %.ptr7 = getelementptr inbounds nuw i8, ptr %0, i64 %.add4
-  %6 = getelementptr inbounds nuw [3 x %"class.std::vector.345"], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.std::vector.345", ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !199
   %9 = load ptr, ptr %6, align 8, !tbaa !196
@@ -24112,7 +24112,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core19XdsListenerResource21Htt
   %.not.i.i = phi i1 [ true, %2 ], [ false, %13 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %13 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %13 ]
-  %8 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %8 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_St10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEEEmv.__found, i64 %.0813.i.i
   %9 = load i8, ptr %8, align 1, !tbaa !228, !range !27, !noundef !28
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %13

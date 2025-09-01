@@ -228,7 +228,7 @@ define void @CRYPTO_cfb128_1_encrypt(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %cfbr_encrypt_block.exit.us
-  %.016.us = phi i64 [ %39, %cfbr_encrypt_block.exit.us ], [ 0, %.lr.ph ]
+  %.016.us = phi i64 [ %38, %cfbr_encrypt_block.exit.us ], [ 0, %.lr.ph ]
   %11 = lshr i64 %.016.us, 3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !7
@@ -245,88 +245,88 @@ define void @CRYPTO_cfb128_1_encrypt(ptr noundef readonly captures(none) %0, ptr
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
   %21 = load i8, ptr %4, align 1, !tbaa !7
   store i8 %20, ptr %10, align 16, !tbaa !7
-  %.pre20 = load i8, ptr %9, align 16, !tbaa !7
   br label %22
 
 22:                                               ; preds = %.lr.ph.split.us, %22
-  %23 = phi i8 [ %.pre20, %.lr.ph.split.us ], [ %26, %22 ]
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %24, %22 ]
-  %24 = add nuw nsw i64 %indvars.iv.i.us, 1
-  %25 = getelementptr inbounds nuw [33 x i8], ptr %9, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !7
-  %27 = tail call i8 @llvm.fshl.i8(i8 %23, i8 %26, i8 1)
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.us
-  store i8 %27, ptr %28, align 1, !tbaa !7
-  %exitcond.not.i.us = icmp eq i64 %24, 16
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %22 ]
+  %gep.i.us = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i.us
+  %23 = load i8, ptr %gep.i.us, align 1, !tbaa !7
+  %24 = getelementptr inbounds nuw i8, ptr %gep.i.us, i64 1
+  %25 = load i8, ptr %24, align 1, !tbaa !7
+  %26 = tail call i8 @llvm.fshl.i8(i8 %23, i8 %25, i8 1)
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.us
+  store i8 %26, ptr %27, align 1, !tbaa !7
+  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 16
   br i1 %exitcond.not.i.us, label %cfbr_encrypt_block.exit.us, label %22, !llvm.loop !19
 
 cfbr_encrypt_block.exit.us:                       ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %11
-  %30 = load i8, ptr %29, align 1, !tbaa !7
-  %31 = zext i8 %30 to i32
-  %32 = xor i32 %18, -1
-  %33 = and i32 %31, %32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %11
+  %29 = load i8, ptr %28, align 1, !tbaa !7
+  %30 = zext i8 %29 to i32
+  %31 = xor i32 %18, -1
+  %32 = and i32 %30, %31
   %.masked = and i8 %21, -128
-  %34 = xor i8 %.masked, %20
-  %35 = zext i8 %34 to i32
-  %36 = lshr exact i32 %35, %16
-  %37 = or i32 %33, %36
-  %38 = trunc nuw i32 %37 to i8
-  store i8 %38, ptr %29, align 1, !tbaa !7
-  %39 = add nuw i64 %.016.us, 1
-  %exitcond19.not = icmp eq i64 %39, %2
+  %33 = xor i8 %.masked, %20
+  %34 = zext i8 %33 to i32
+  %35 = lshr exact i32 %34, %16
+  %36 = or i32 %32, %35
+  %37 = trunc nuw i32 %36 to i8
+  store i8 %37, ptr %28, align 1, !tbaa !7
+  %38 = add nuw i64 %.016.us, 1
+  %exitcond19.not = icmp eq i64 %38, %2
   br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cfbr_encrypt_block.exit
-  %.016 = phi i64 [ %69, %cfbr_encrypt_block.exit ], [ 0, %.lr.ph ]
-  %40 = lshr i64 %.016, 3
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !7
-  %43 = zext i8 %42 to i32
-  %44 = trunc i64 %.016 to i32
-  %45 = and i32 %44, 7
-  %46 = xor i32 %45, 7
-  %47 = shl nuw nsw i32 1, %46
-  %48 = and i32 %47, %43
-  %.not = icmp eq i32 %48, 0
-  %49 = select i1 %.not, i8 0, i8 -128
+  %.016 = phi i64 [ %67, %cfbr_encrypt_block.exit ], [ 0, %.lr.ph ]
+  %39 = lshr i64 %.016, 3
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !7
+  %42 = zext i8 %41 to i32
+  %43 = trunc i64 %.016 to i32
+  %44 = and i32 %43, 7
+  %45 = xor i32 %44, 7
+  %46 = shl nuw nsw i32 1, %45
+  %47 = and i32 %46, %42
+  %.not = icmp eq i32 %47, 0
+  %48 = select i1 %.not, i8 0, i8 -128
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
-  %50 = load i8, ptr %4, align 1, !tbaa !7
-  %51 = xor i8 %50, %49
-  store i8 %51, ptr %10, align 16, !tbaa !7
-  %.pre = load i8, ptr %9, align 16, !tbaa !7
-  br label %52
+  %49 = load i8, ptr %4, align 1, !tbaa !7
+  %50 = xor i8 %49, %48
+  store i8 %50, ptr %10, align 16, !tbaa !7
+  br label %51
 
-52:                                               ; preds = %52, %.lr.ph.split
-  %53 = phi i8 [ %.pre, %.lr.ph.split ], [ %56, %52 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split ], [ %54, %52 ]
-  %54 = add nuw nsw i64 %indvars.iv.i, 1
-  %55 = getelementptr inbounds nuw [33 x i8], ptr %9, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !7
-  %57 = tail call i8 @llvm.fshl.i8(i8 %53, i8 %56, i8 1)
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
-  store i8 %57, ptr %58, align 1, !tbaa !7
-  %exitcond.not.i = icmp eq i64 %54, 16
-  br i1 %exitcond.not.i, label %cfbr_encrypt_block.exit, label %52, !llvm.loop !19
+51:                                               ; preds = %51, %.lr.ph.split
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i, %51 ]
+  %gep.i = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
+  %52 = load i8, ptr %gep.i, align 1, !tbaa !7
+  %53 = getelementptr inbounds nuw i8, ptr %gep.i, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !7
+  %55 = tail call i8 @llvm.fshl.i8(i8 %52, i8 %54, i8 1)
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
+  store i8 %55, ptr %56, align 1, !tbaa !7
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %cfbr_encrypt_block.exit, label %51, !llvm.loop !19
 
-cfbr_encrypt_block.exit:                          ; preds = %52
+cfbr_encrypt_block.exit:                          ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %40
-  %60 = load i8, ptr %59, align 1, !tbaa !7
-  %61 = zext i8 %60 to i32
-  %62 = xor i32 %47, -1
-  %63 = and i32 %61, %62
-  %64 = and i8 %51, -128
-  %65 = zext i8 %64 to i32
-  %66 = lshr exact i32 %65, %45
-  %67 = or i32 %63, %66
-  %68 = trunc nuw i32 %67 to i8
-  store i8 %68, ptr %59, align 1, !tbaa !7
-  %69 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %69, %2
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 %39
+  %58 = load i8, ptr %57, align 1, !tbaa !7
+  %59 = zext i8 %58 to i32
+  %60 = xor i32 %46, -1
+  %61 = and i32 %59, %60
+  %62 = and i8 %50, -128
+  %63 = zext i8 %62 to i32
+  %64 = lshr exact i32 %63, %44
+  %65 = or i32 %61, %64
+  %66 = trunc nuw i32 %65 to i8
+  store i8 %66, ptr %57, align 1, !tbaa !7
+  %67 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %67, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %cfbr_encrypt_block.exit, %cfbr_encrypt_block.exit.us, %8

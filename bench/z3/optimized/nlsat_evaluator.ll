@@ -271,7 +271,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat9evaluator3imp9eval_ineq
 13:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.025 = phi i32 [ 1, %.lr.ph ], [ %39, %38 ]
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -8
@@ -797,7 +797,7 @@ _ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit: ; preds = %._crit_edge, %
 
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !53
   %63 = ptrtoint ptr %62 to i64
   %64 = and i64 %63, -8
@@ -985,7 +985,7 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit: ; preds
 
 .noexc:                                           ; preds = %140, %85, %.loopexit.sink.split.i, %124
   %.3.i = phi i32 [ 0, %124 ], [ %155, %.loopexit.sink.split.i ], [ 0, %85 ], [ 0, %140 ]
-  %156 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %indvars.iv.i84
+  %156 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i84
   %157 = load ptr, ptr %156, align 8, !tbaa !53
   %158 = ptrtoint ptr %157 to i64
   %159 = and i64 %158, 7

@@ -144,20 +144,20 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 .preheader.i:                                     ; preds = %42, %55
   %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %55 ], [ 0, %42 ]
   %43 = shl nuw nsw i64 %indvars.iv12.i, 4
-  %44 = getelementptr [16 x i8], ptr @char_from_hex.hex_lookup, i64 0, i64 %indvars.iv12.i
+  %44 = getelementptr i8, ptr @char_from_hex.hex_lookup, i64 %indvars.iv12.i
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr [256 x [256 x i8]], ptr @s_tableValues, i64 0, i64 %46
+  %47 = getelementptr [256 x i8], ptr @s_tableValues, i64 %46
   br label %48
 
 48:                                               ; preds = %48, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %48 ]
   %49 = add nuw nsw i64 %indvars.iv.i, %43
   %50 = trunc i64 %49 to i8
-  %51 = getelementptr [16 x i8], ptr @char_from_hex.hex_lookup, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr i8, ptr @char_from_hex.hex_lookup, i64 %indvars.iv.i
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr [256 x i8], ptr %47, i64 0, i64 %53
+  %54 = getelementptr i8, ptr %47, i64 %53
   store i8 %50, ptr %54, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -961,7 +961,7 @@ switch.early.test:                                ; preds = %36
   br i1 %.not412, label %.critedge25, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr [3 x i8], ptr %19, i64 0, i64 %indvars.iv670
+  %68 = getelementptr i8, ptr %19, i64 %indvars.iv670
   store i8 %61, ptr %68, align 1
   %indvars.iv.next671 = add nuw nsw i64 %indvars.iv670, 1
   %69 = getelementptr i8, ptr %0, i64 %indvars.iv.next673
@@ -989,7 +989,7 @@ switch.early.test:                                ; preds = %36
   br i1 %.not399757, label %.thread761, label %.critedge25
 
 77:                                               ; preds = %.critedge3.thread
-  %78 = getelementptr [3 x i8], ptr %19, i64 0, i64 %indvars.iv.next671
+  %78 = getelementptr i8, ptr %19, i64 %indvars.iv.next671
   store i8 0, ptr %78, align 1
   %79 = icmp eq i64 %indvars.iv670, 0
   br i1 %79, label %80, label %.thread761
@@ -1613,7 +1613,7 @@ sub_1472:                                         ; preds = %sub_0471
   br i1 %.not434, label %.critedge25, label %349
 
 349:                                              ; preds = %.lr.ph579
-  %350 = getelementptr [17 x i8], ptr %21, i64 0, i64 %indvars.iv711
+  %350 = getelementptr i8, ptr %21, i64 %indvars.iv711
   store i8 %344, ptr %350, align 1
   %indvars.iv.next715 = add nsw i64 %indvars.iv714, 1
   %indvars.iv.next712 = add nuw nsw i64 %indvars.iv711, 1
@@ -1636,7 +1636,7 @@ sub_1472:                                         ; preds = %sub_0471
   br i1 %342, label %.thread777, label %.critedge25
 
 .lr.ph586:                                        ; preds = %.critedge30
-  %358 = getelementptr [17 x i8], ptr %21, i64 0, i64 %indvars.iv.next712
+  %358 = getelementptr i8, ptr %21, i64 %indvars.iv.next712
   store i8 0, ptr %358, align 1
   br label %367
 
@@ -1669,7 +1669,7 @@ sub_1472:                                         ; preds = %sub_0471
   %368 = phi i32 [ 0, %.lr.ph586 ], [ %374, %367 ]
   %.0357584 = phi i32 [ 1, %.lr.ph586 ], [ %375, %367 ]
   %indvars.iv.next717 = add nsw i64 %indvars.iv716, -1
-  %369 = getelementptr [17 x i8], ptr %21, i64 0, i64 %indvars.iv.next717
+  %369 = getelementptr i8, ptr %21, i64 %indvars.iv.next717
   %370 = load i8, ptr %369, align 1
   %371 = sext i8 %370 to i32
   %372 = add nsw i32 %371, -48
@@ -1691,7 +1691,7 @@ sub_1472:                                         ; preds = %sub_0471
   br i1 %.not433, label %.critedge25, label %382
 
 382:                                              ; preds = %.lr.ph593
-  %383 = getelementptr [5 x i8], ptr %22, i64 0, i64 %indvars.iv721
+  %383 = getelementptr i8, ptr %22, i64 %indvars.iv721
   store i8 %377, ptr %383, align 1
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %indvars.iv.next720 = add nsw i64 %indvars.iv719, 1
@@ -2165,9 +2165,9 @@ define internal fastcc noundef zeroext i1 @process_parsed_line(ptr noundef %0, p
   %112 = getelementptr i8, ptr %111, i64 1
   %.val100 = load i8, ptr %112, align 1
   %113 = zext i8 %.val99 to i64
-  %114 = getelementptr [256 x [256 x i8]], ptr @s_tableValues, i64 0, i64 %113
+  %114 = getelementptr [256 x i8], ptr @s_tableValues, i64 %113
   %115 = zext i8 %.val100 to i64
-  %116 = getelementptr [256 x i8], ptr %114, i64 0, i64 %115
+  %116 = getelementptr i8, ptr %114, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = trunc nuw nsw i64 %indvars.iv to i32
   %119 = lshr exact i32 %118, 1
@@ -2221,9 +2221,9 @@ define internal fastcc noundef zeroext i1 @process_parsed_line(ptr noundef %0, p
   %142 = getelementptr i8, ptr %16, i64 2
   %.val20.i = load i8, ptr %142, align 1
   %143 = zext i8 %.val19.i to i64
-  %144 = getelementptr [256 x [256 x i8]], ptr @s_tableValues, i64 0, i64 %143
+  %144 = getelementptr [256 x i8], ptr @s_tableValues, i64 %143
   %145 = zext i8 %.val20.i to i64
-  %146 = getelementptr [256 x i8], ptr %144, i64 0, i64 %145
+  %146 = getelementptr i8, ptr %144, i64 %145
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i16
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -2292,8 +2292,8 @@ define internal fastcc noundef zeroext i1 @process_parsed_line(ptr noundef %0, p
   %190 = getelementptr i8, ptr %16, i64 10
   %.val.i = load i8, ptr %190, align 1
   %191 = zext i8 %.val.i to i64
-  %192 = getelementptr [256 x [256 x i8]], ptr @s_tableValues, i64 0, i64 %191
-  %193 = getelementptr [256 x i8], ptr %192, i64 0, i64 %185
+  %192 = getelementptr [256 x i8], ptr @s_tableValues, i64 %191
+  %193 = getelementptr i8, ptr %192, i64 %185
   %194 = load i8, ptr %193, align 1
   br label %set_aal_info.exit
 
@@ -2702,12 +2702,12 @@ define internal zeroext i1 @catapult_dct2000_dump(ptr noundef %0, ptr noundef %1
   %151 = load i8, ptr %150, align 1
   %152 = lshr i8 %151, 4
   %153 = zext nneg i8 %152 to i64
-  %154 = getelementptr [16 x i8], ptr @char_from_hex.hex_lookup, i64 0, i64 %153
+  %154 = getelementptr i8, ptr @char_from_hex.hex_lookup, i64 %153
   %155 = load i8, ptr %154, align 1
   store i8 %155, ptr %7, align 1
   %156 = and i8 %151, 15
   %157 = zext nneg i8 %156 to i64
-  %158 = getelementptr [16 x i8], ptr @char_from_hex.hex_lookup, i64 0, i64 %157
+  %158 = getelementptr i8, ptr @char_from_hex.hex_lookup, i64 %157
   %159 = load i8, ptr %158, align 1
   store i8 %159, ptr %143, align 1
   %160 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2, ptr noundef %3)

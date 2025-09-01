@@ -3680,7 +3680,7 @@ define void @_ZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10Sp
   %.0..promoted502 = phi i32 [ undef, %4 ], [ %.0..promoted503, %653 ]
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %653 ]
   %28 = phi ptr [ @.str.8, %4 ], [ %655, %653 ]
-  %29 = phi ptr [ @_ZZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionEE14hlslIntrinsics, %4 ], [ %654, %653 ]
+  %29 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionEE14hlslIntrinsics, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = icmp ne i32 %31, 13
@@ -3701,7 +3701,7 @@ define void @_ZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10Sp
 
 42:                                               ; preds = %38
   %43 = zext nneg i32 %.0105477 to i64
-  %44 = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr %15, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %43
   %45 = select i1 %32, ptr %44, ptr %14
   %46 = load ptr, ptr %33, align 8
   %47 = icmp eq ptr %46, null
@@ -3993,7 +3993,7 @@ _ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread:      ; preds = %.split.i, %_ZN12_GL
   %.not447 = icmp eq i32 %.04.i.fr, 0
   %spec.select = select i1 %.not447, i32 %.0407, i32 %.04.i.fr
   %spec.select444 = call i32 @llvm.umax.i32(i32 %.04.i.fr, i32 1)
-  %122 = load ptr, ptr %34, align 8
+  %122 = load ptr, ptr %34, align 16
   %123 = icmp eq ptr %122, null
   br i1 %123, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.lr.ph
 
@@ -4028,7 +4028,7 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141:        ; preds = %_ZN12_GLOBAL__N_110
   %127 = load ptr, ptr %35, align 8
   %.not115 = icmp eq ptr %127, null
   %.0106. = select i1 %.not115, ptr %.0106471, ptr %127
-  %128 = load ptr, ptr %36, align 8
+  %128 = load ptr, ptr %36, align 16
   %.not116 = icmp eq ptr %128, null
   %129 = select i1 %.not116, ptr %.0109460, ptr %128
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -5731,7 +5731,7 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread:    ; preds = %_ZN12_GLOBAL__N_110
 653:                                              ; preds = %652, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread
   %.0..promoted503 = phi i32 [ %.0..promoted501, %652 ], [ %.0..promoted505, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %654 = getelementptr inbounds nuw [302 x %struct.anon], ptr @_ZZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionEE14hlslIntrinsics, i64 0, i64 %indvars.iv.next
+  %654 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionEE14hlslIntrinsics, i64 %indvars.iv.next
   %655 = load ptr, ptr %654, align 16
   %.not = icmp eq ptr %655, null
   br i1 %.not, label %656, label %.preheader451, !llvm.loop !17
@@ -9902,7 +9902,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7glslan
 define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7glslang18TBuiltInParseables14getStageStringB5cxx11E11EShLanguage(ptr noundef nonnull align 8 dereferenceable(608) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [14 x %"class.std::__cxx11::basic_string"], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %4
   ret ptr %5
 }
 

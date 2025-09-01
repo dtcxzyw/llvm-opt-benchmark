@@ -4810,7 +4810,7 @@ define internal noundef i32 @pmix41_bfrops_base_pack_general_int(ptr readnone ca
 
 9:                                                ; preds = %5
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10, i32 2
   %12 = load i32, ptr %11, align 4, !tbaa !69
   %13 = icmp sgt i32 %12, 19
   br i1 %13, label %14, label %15
@@ -4834,7 +4834,7 @@ define internal noundef i32 @pmix41_bfrops_base_pack_general_int(ptr readnone ca
 
 switch.lookup:                                    ; preds = %15
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_psquash, i64 32), align 8, !tbaa !71
   %21 = call i32 %20(i16 noundef zeroext %4, ptr noundef nonnull %6) #14
@@ -4920,7 +4920,7 @@ define internal noundef i32 @pmix41_bfrops_base_unpack_general_int(ptr readnone 
 
 9:                                                ; preds = %5
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10, i32 2
   %12 = load i32, ptr %11, align 4, !tbaa !69
   %13 = icmp sgt i32 %12, 19
   br i1 %13, label %14, label %16
@@ -4953,7 +4953,7 @@ define internal noundef i32 @pmix41_bfrops_base_unpack_general_int(ptr readnone 
 
 switch.lookup:                                    ; preds = %22
   %26 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.pmix41_bfrops_base_unpack_general_int, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_psquash, i64 32), align 8, !tbaa !71
   %28 = call i32 %27(i16 noundef zeroext %4, ptr noundef nonnull %7) #14

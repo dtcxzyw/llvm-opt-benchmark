@@ -310,7 +310,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind16Node
   %14 = add nuw nsw i32 %12, 1
   %15 = select i1 %13, i32 0, i32 %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [380 x i32], ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %20, label %150
@@ -4368,7 +4368,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind16Node
   %14 = add nuw nsw i32 %12, 1
   %15 = select i1 %13, i32 0, i32 %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [380 x i32], ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %20, label %402
@@ -7388,7 +7388,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal
 define hidden noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %0) local_unnamed_addr #7 {
   %2 = add i32 %0, 1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [380 x i32], ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   ret i32 %5
 }
@@ -10338,7 +10338,7 @@ _ZN4cvc58internal16FiniteFieldValueD2Ev.exit:     ; preds = %_ZN4cvc58internal7I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN4cvc58internal4kind8metakind18getMinArityForKindENS1_6Kind_tE(i32 noundef %0) local_unnamed_addr #7 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [379 x i32], ptr @_ZZN4cvc58internal4kind8metakind18getMinArityForKindENS1_6Kind_tEE3lbs, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind8metakind18getMinArityForKindENS1_6Kind_tEE3lbs, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !67
   ret i32 %4
 }
@@ -10346,7 +10346,7 @@ define hidden noundef i32 @_ZN4cvc58internal4kind8metakind18getMinArityForKindEN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN4cvc58internal4kind8metakind18getMaxArityForKindENS1_6Kind_tE(i32 noundef %0) local_unnamed_addr #7 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [379 x i32], ptr @_ZZN4cvc58internal4kind8metakind18getMaxArityForKindENS1_6Kind_tEE3ubs, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind8metakind18getMaxArityForKindENS1_6Kind_tEE3ubs, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !67
   ret i32 %4
 }

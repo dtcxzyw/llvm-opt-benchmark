@@ -1466,7 +1466,7 @@ define hidden i32 @SDL_WasInit_REAL(i32 noundef %0) local_unnamed_addr #4 {
   %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %5 = xor i32 %4, 31
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [32 x i8], ptr @SDL_SubsystemRefCount, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @SDL_SubsystemRefCount, i64 %6
   %8 = load i8, ptr %7, align 1
   %.not24 = icmp eq i8 %8, 0
   %9 = select i1 %.not24, i32 0, i32 %0
@@ -1489,7 +1489,7 @@ define hidden i32 @SDL_WasInit_REAL(i32 noundef %0) local_unnamed_addr #4 {
   br i1 %.not22, label %22, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw [32 x i8], ptr @SDL_SubsystemRefCount, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr @SDL_SubsystemRefCount, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %.not23 = icmp eq i8 %17, 0
   br i1 %.not23, label %22, label %18

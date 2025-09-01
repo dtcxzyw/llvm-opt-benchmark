@@ -9,35 +9,33 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i8 @ff_linear_int_to_srgb_u8(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 1
-  br i1 %2, label %24, label %3
+  br i1 %2, label %22, label %3
 
 3:                                                ; preds = %1
   %4 = icmp samesign ugt i32 %0, 65534
-  br i1 %4, label %24, label %5
+  br i1 %4, label %22, label %5
 
 5:                                                ; preds = %3
   %6 = mul nuw nsw i32 %0, 511
   %7 = udiv i32 %6, 65535
   %8 = urem i32 %6, 65535
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @linear2srgb, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = zext i8 %11 to i32
-  %13 = add nuw nsw i32 %7, 1
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !4
-  %17 = zext i8 %16 to i32
-  %18 = sub nsw i32 %17, %12
-  %19 = mul nsw i32 %18, %8
-  %20 = add nsw i32 %19, 32767
-  %21 = sdiv i32 %20, 65535
-  %22 = trunc i32 %21 to i8
-  %23 = add i8 %11, %22
-  br label %24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %14 = load i8, ptr %13, align 1, !tbaa !4
+  %15 = zext i8 %14 to i32
+  %16 = sub nsw i32 %15, %12
+  %17 = mul nsw i32 %16, %8
+  %18 = add nsw i32 %17, 32767
+  %19 = sdiv i32 %18, 65535
+  %20 = trunc i32 %19 to i8
+  %21 = add i8 %11, %20
+  br label %22
 
-24:                                               ; preds = %3, %1, %5
-  %.0 = phi i8 [ %23, %5 ], [ 0, %1 ], [ -1, %3 ]
+22:                                               ; preds = %3, %1, %5
+  %.0 = phi i8 [ %21, %5 ], [ 0, %1 ], [ -1, %3 ]
   ret i8 %.0
 }
 
@@ -46,16 +44,16 @@ define { i64, i32 } @ff_srgb_u8_to_oklab_int(i32 noundef %0) local_unnamed_addr 
   %2 = lshr i32 %0, 16
   %3 = and i32 %2, 255
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i16], ptr @srgb2linear, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @srgb2linear, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !7
   %7 = lshr i32 %0, 8
   %8 = and i32 %7, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i16], ptr @srgb2linear, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i16, ptr @srgb2linear, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !7
   %12 = and i32 %0, 255
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i16], ptr @srgb2linear, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr @srgb2linear, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !7
   %16 = zext i16 %6 to i64
   %17 = mul nuw nsw i64 %16, 27015
@@ -438,108 +436,102 @@ div_round64.exit46:                               ; preds = %51, %53
   %83 = udiv i32 %82, 65535
   %84 = urem i32 %82, 65535
   %85 = zext nneg i32 %83 to i64
-  %86 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @linear2srgb, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !4
   %88 = zext i8 %87 to i32
-  %89 = add nuw nsw i32 %83, 1
-  %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !4
-  %93 = zext i8 %92 to i32
-  %94 = sub nsw i32 %93, %88
-  %95 = mul nsw i32 %94, %84
-  %96 = add nsw i32 %95, 32767
-  %97 = sdiv i32 %96, 65535
-  %98 = trunc i32 %97 to i8
-  %99 = add i8 %87, %98
-  %100 = zext i8 %99 to i32
-  %101 = shl nuw nsw i32 %100, 16
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 1
+  %90 = load i8, ptr %89, align 1, !tbaa !4
+  %91 = zext i8 %90 to i32
+  %92 = sub nsw i32 %91, %88
+  %93 = mul nsw i32 %92, %84
+  %94 = add nsw i32 %93, 32767
+  %95 = sdiv i32 %94, 65535
+  %96 = trunc i32 %95 to i8
+  %97 = add i8 %87, %96
+  %98 = zext i8 %97 to i32
+  %99 = shl nuw nsw i32 %98, 16
   br label %ff_linear_int_to_srgb_u8.exit
 
 ff_linear_int_to_srgb_u8.exit:                    ; preds = %div_round64.exit46, %79, %81
-  %.0.i = phi i32 [ %101, %81 ], [ 0, %div_round64.exit46 ], [ 16711680, %79 ]
-  %102 = mul nsw i64 %67, -83127
-  %103 = mul nsw i64 %69, 171030
-  %104 = mul nsw i64 %71, -22368
-  %105 = add nsw i64 %102, 32767
-  %106 = add nsw i64 %105, %103
-  %107 = add nsw i64 %106, %104
-  %108 = sdiv i64 %107, 65535
-  %109 = trunc i64 %108 to i32
-  %110 = icmp slt i32 %109, 1
+  %.0.i = phi i32 [ %99, %81 ], [ 0, %div_round64.exit46 ], [ 16711680, %79 ]
+  %100 = mul nsw i64 %67, -83127
+  %101 = mul nsw i64 %69, 171030
+  %102 = mul nsw i64 %71, -22368
+  %103 = add nsw i64 %100, 32767
+  %104 = add nsw i64 %103, %101
+  %105 = add nsw i64 %104, %102
+  %106 = sdiv i64 %105, 65535
+  %107 = trunc i64 %106 to i32
+  %108 = icmp slt i32 %107, 1
+  br i1 %108, label %ff_linear_int_to_srgb_u8.exit48, label %109
+
+109:                                              ; preds = %ff_linear_int_to_srgb_u8.exit
+  %110 = icmp samesign ugt i32 %107, 65534
   br i1 %110, label %ff_linear_int_to_srgb_u8.exit48, label %111
 
-111:                                              ; preds = %ff_linear_int_to_srgb_u8.exit
-  %112 = icmp samesign ugt i32 %109, 65534
-  br i1 %112, label %ff_linear_int_to_srgb_u8.exit48, label %113
-
-113:                                              ; preds = %111
-  %114 = mul nuw nsw i32 %109, 511
-  %115 = udiv i32 %114, 65535
-  %116 = urem i32 %114, 65535
-  %117 = zext nneg i32 %115 to i64
-  %118 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !4
-  %120 = zext i8 %119 to i32
-  %121 = add nuw nsw i32 %115, 1
-  %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !4
-  %125 = zext i8 %124 to i32
-  %126 = sub nsw i32 %125, %120
-  %127 = mul nsw i32 %126, %116
-  %128 = add nsw i32 %127, 32767
-  %129 = sdiv i32 %128, 65535
-  %130 = trunc i32 %129 to i8
-  %131 = add i8 %119, %130
-  %132 = zext i8 %131 to i32
-  %133 = shl nuw nsw i32 %132, 8
+111:                                              ; preds = %109
+  %112 = mul nuw nsw i32 %107, 511
+  %113 = udiv i32 %112, 65535
+  %114 = urem i32 %112, 65535
+  %115 = zext nneg i32 %113 to i64
+  %116 = getelementptr inbounds nuw i8, ptr @linear2srgb, i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !4
+  %118 = zext i8 %117 to i32
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 1
+  %120 = load i8, ptr %119, align 1, !tbaa !4
+  %121 = zext i8 %120 to i32
+  %122 = sub nsw i32 %121, %118
+  %123 = mul nsw i32 %122, %114
+  %124 = add nsw i32 %123, 32767
+  %125 = sdiv i32 %124, 65535
+  %126 = trunc i32 %125 to i8
+  %127 = add i8 %117, %126
+  %128 = zext i8 %127 to i32
+  %129 = shl nuw nsw i32 %128, 8
   br label %ff_linear_int_to_srgb_u8.exit48
 
-ff_linear_int_to_srgb_u8.exit48:                  ; preds = %ff_linear_int_to_srgb_u8.exit, %111, %113
-  %.0.i47 = phi i32 [ %133, %113 ], [ 0, %ff_linear_int_to_srgb_u8.exit ], [ 65280, %111 ]
-  %134 = mul nsw i64 %67, -275
-  %135 = mul nsw i64 %69, -46099
-  %136 = mul nsw i64 %71, 111909
-  %137 = add nsw i64 %134, 32767
-  %138 = add nsw i64 %137, %135
-  %139 = add nsw i64 %138, %136
-  %140 = sdiv i64 %139, 65535
-  %141 = trunc i64 %140 to i32
-  %142 = icmp slt i32 %141, 1
-  br i1 %142, label %ff_linear_int_to_srgb_u8.exit50, label %143
+ff_linear_int_to_srgb_u8.exit48:                  ; preds = %ff_linear_int_to_srgb_u8.exit, %109, %111
+  %.0.i47 = phi i32 [ %129, %111 ], [ 0, %ff_linear_int_to_srgb_u8.exit ], [ 65280, %109 ]
+  %130 = mul nsw i64 %67, -275
+  %131 = mul nsw i64 %69, -46099
+  %132 = mul nsw i64 %71, 111909
+  %133 = add nsw i64 %130, 32767
+  %134 = add nsw i64 %133, %131
+  %135 = add nsw i64 %134, %132
+  %136 = sdiv i64 %135, 65535
+  %137 = trunc i64 %136 to i32
+  %138 = icmp slt i32 %137, 1
+  br i1 %138, label %ff_linear_int_to_srgb_u8.exit50, label %139
 
-143:                                              ; preds = %ff_linear_int_to_srgb_u8.exit48
-  %144 = icmp samesign ugt i32 %141, 65534
-  br i1 %144, label %ff_linear_int_to_srgb_u8.exit50, label %145
+139:                                              ; preds = %ff_linear_int_to_srgb_u8.exit48
+  %140 = icmp samesign ugt i32 %137, 65534
+  br i1 %140, label %ff_linear_int_to_srgb_u8.exit50, label %141
 
-145:                                              ; preds = %143
-  %146 = mul nuw nsw i32 %141, 511
-  %147 = udiv i32 %146, 65535
-  %148 = urem i32 %146, 65535
-  %149 = zext nneg i32 %147 to i64
-  %150 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %149
-  %151 = load i8, ptr %150, align 1, !tbaa !4
-  %152 = zext i8 %151 to i32
-  %153 = add nuw nsw i32 %147, 1
-  %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds nuw [512 x i8], ptr @linear2srgb, i64 0, i64 %154
-  %156 = load i8, ptr %155, align 1, !tbaa !4
-  %157 = zext i8 %156 to i32
-  %158 = sub nsw i32 %157, %152
-  %159 = mul nsw i32 %158, %148
-  %160 = add nsw i32 %159, 32767
-  %161 = sdiv i32 %160, 65535
-  %162 = trunc i32 %161 to i8
-  %163 = add i8 %151, %162
-  %164 = zext i8 %163 to i32
+141:                                              ; preds = %139
+  %142 = mul nuw nsw i32 %137, 511
+  %143 = udiv i32 %142, 65535
+  %144 = urem i32 %142, 65535
+  %145 = zext nneg i32 %143 to i64
+  %146 = getelementptr inbounds nuw i8, ptr @linear2srgb, i64 %145
+  %147 = load i8, ptr %146, align 1, !tbaa !4
+  %148 = zext i8 %147 to i32
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 1
+  %150 = load i8, ptr %149, align 1, !tbaa !4
+  %151 = zext i8 %150 to i32
+  %152 = sub nsw i32 %151, %148
+  %153 = mul nsw i32 %152, %144
+  %154 = add nsw i32 %153, 32767
+  %155 = sdiv i32 %154, 65535
+  %156 = trunc i32 %155 to i8
+  %157 = add i8 %147, %156
+  %158 = zext i8 %157 to i32
   br label %ff_linear_int_to_srgb_u8.exit50
 
-ff_linear_int_to_srgb_u8.exit50:                  ; preds = %ff_linear_int_to_srgb_u8.exit48, %143, %145
-  %.0.i49 = phi i32 [ %164, %145 ], [ 0, %ff_linear_int_to_srgb_u8.exit48 ], [ 255, %143 ]
-  %165 = or disjoint i32 %.0.i47, %.0.i
-  %166 = or disjoint i32 %165, %.0.i49
-  ret i32 %166
+ff_linear_int_to_srgb_u8.exit50:                  ; preds = %ff_linear_int_to_srgb_u8.exit48, %139, %141
+  %.0.i49 = phi i32 [ %158, %141 ], [ 0, %ff_linear_int_to_srgb_u8.exit48 ], [ 255, %139 ]
+  %159 = or disjoint i32 %.0.i47, %.0.i
+  %160 = or disjoint i32 %159, %.0.i49
+  ret i32 %160
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

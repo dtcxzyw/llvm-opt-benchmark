@@ -149,7 +149,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_decode_frame_header(ptr noundef %0
 
 90:                                               ; preds = %76
   %91 = zext nneg i32 %84 to i64
-  %92 = getelementptr inbounds nuw [8 x i8], ptr @sample_size_table, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @sample_size_table, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !13
   %94 = sext i8 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -284,7 +284,7 @@ get_utf8.exit:                                    ; preds = %.preheader.i
 
 177:                                              ; preds = %get_utf8.exit
   %178 = zext nneg i32 %41 to i64
-  %179 = getelementptr inbounds nuw [16 x i32], ptr @ff_flac_blocksize_table, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i32, ptr @ff_flac_blocksize_table, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !23
   br label %181
 
@@ -298,7 +298,7 @@ get_utf8.exit:                                    ; preds = %.preheader.i
 
 185:                                              ; preds = %181
   %186 = zext nneg i32 %51 to i64
-  %187 = getelementptr inbounds nuw [16 x i32], ptr @ff_flac_sample_rate_table, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i32, ptr @ff_flac_sample_rate_table, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !23
   br label %227
 
@@ -461,9 +461,9 @@ define void @ff_flac_set_channel_layout(ptr noundef %0, i32 noundef %1) local_un
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
-  %12 = add nsw i32 %1, -1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [8 x %struct.AVChannelLayout], ptr @flac_channel_layouts, i64 0, i64 %13
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr %struct.AVChannelLayout, ptr @flac_channel_layouts, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !47
   br label %16
 
@@ -501,7 +501,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
 13:                                               ; preds = %3
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.11, i32 noundef %10) #6
   store i32 16, ptr %11, align 4, !tbaa !49
-  br label %89
+  br label %90
 
 14:                                               ; preds = %3
   %15 = add nuw nsw i32 %4, 40
@@ -549,7 +549,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
 51:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %48) #6
   store i32 16, ptr %49, align 8, !tbaa !54
-  br label %89
+  br label %90
 
 52:                                               ; preds = %14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -569,41 +569,42 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
 
 61:                                               ; preds = %52, %59
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %55) #6
-  %62 = zext nneg i32 %36 to i64
-  %63 = getelementptr inbounds nuw [8 x %struct.AVChannelLayout], ptr @flac_channel_layouts, i64 0, i64 %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !tbaa.struct !47
+  %62 = zext nneg i32 %38 to i64
+  %63 = getelementptr %struct.AVChannelLayout, ptr @flac_channel_layouts, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false), !tbaa.struct !47
   br label %ff_flac_set_channel_layout.exit
 
 ff_flac_set_channel_layout.exit:                  ; preds = %59, %61
-  %64 = lshr i32 %47, 3
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 %65
-  %67 = load i32, ptr %66, align 1, !tbaa !13
-  %68 = and i32 %67, 15
-  %69 = lshr exact i32 %4, 3
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 12
-  %73 = load i32, ptr %72, align 1, !tbaa !13
-  %74 = and i32 %73, 65535
-  %75 = tail call i32 @llvm.bswap.i32(i32 %74)
-  %76 = add nuw nsw i32 %4, 112
-  %77 = lshr exact i32 %76, 3
-  %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 %78
-  %80 = load i32, ptr %79, align 1, !tbaa !13
-  %81 = tail call i32 @llvm.bswap.i32(i32 %80)
-  %82 = lshr i32 %81, 16
-  %83 = or disjoint i32 %82, %75
-  %84 = zext nneg i32 %68 to i64
-  %85 = shl nuw nsw i64 %84, 32
-  %86 = zext i32 %83 to i64
-  %87 = or disjoint i64 %85, %86
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %87, ptr %88, align 8, !tbaa !57
-  br label %89
+  %65 = lshr i32 %47, 3
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 %66
+  %68 = load i32, ptr %67, align 1, !tbaa !13
+  %69 = and i32 %68, 15
+  %70 = lshr exact i32 %4, 3
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  %74 = load i32, ptr %73, align 1, !tbaa !13
+  %75 = and i32 %74, 65535
+  %76 = tail call i32 @llvm.bswap.i32(i32 %75)
+  %77 = add nuw nsw i32 %4, 112
+  %78 = lshr exact i32 %77, 3
+  %79 = zext nneg i32 %78 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 %79
+  %81 = load i32, ptr %80, align 1, !tbaa !13
+  %82 = tail call i32 @llvm.bswap.i32(i32 %81)
+  %83 = lshr i32 %82, 16
+  %84 = or disjoint i32 %83, %76
+  %85 = zext nneg i32 %69 to i64
+  %86 = shl nuw nsw i64 %85, 32
+  %87 = zext i32 %84 to i64
+  %88 = or disjoint i64 %86, %87
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %88, ptr %89, align 8, !tbaa !57
+  br label %90
 
-89:                                               ; preds = %ff_flac_set_channel_layout.exit, %51, %13
+90:                                               ; preds = %ff_flac_set_channel_layout.exit, %51, %13
   %.0 = phi i32 [ -1094995529, %13 ], [ -1094995529, %51 ], [ 0, %ff_flac_set_channel_layout.exit ]
   ret i32 %.0
 }

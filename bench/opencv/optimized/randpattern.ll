@@ -2408,7 +2408,7 @@ _ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit:         ; preds = %574, %571
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %627 ]
   %643 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv.i.i.i.i.i.i
   %644 = load double, ptr %643, align 8, !tbaa !119
-  %645 = getelementptr inbounds nuw [3 x double], ptr %.sroa.9.0, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %645 = getelementptr inbounds nuw double, ptr %.sroa.9.0, i64 %indvars.iv.i.i.i.i.i.i
   store double %644, ptr %645, align 8, !tbaa !119
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 3
@@ -2456,7 +2456,7 @@ _ZNKSt6vectorIN2cv3VecIdLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %646
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %660 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %661 = getelementptr inbounds nuw double, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %662 = load double, ptr %661, align 8, !tbaa !119
-  %663 = getelementptr inbounds nuw [3 x double], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %663 = getelementptr inbounds nuw double, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %662, ptr %663, align 8, !tbaa !119
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 3
@@ -4021,7 +4021,7 @@ _ZNK2cv3Mat2atINS_3VecIdLi2EEEEERKT_i.exit:       ; preds = %83, %80
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %136 ]
   %152 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i.i.i.i.i.i
   %153 = load double, ptr %152, align 8, !tbaa !119
-  %154 = getelementptr inbounds nuw [3 x double], ptr %.sroa.9.0, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %154 = getelementptr inbounds nuw double, ptr %.sroa.9.0, i64 %indvars.iv.i.i.i.i.i.i
   store double %153, ptr %154, align 8, !tbaa !119
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 3
@@ -4069,7 +4069,7 @@ _ZNKSt6vectorIN2cv3VecIdLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %155
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %169 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %170 = getelementptr inbounds nuw double, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %171 = load double, ptr %170, align 8, !tbaa !119
-  %172 = getelementptr inbounds nuw [3 x double], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %172 = getelementptr inbounds nuw double, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %171, ptr %172, align 8, !tbaa !119
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 3

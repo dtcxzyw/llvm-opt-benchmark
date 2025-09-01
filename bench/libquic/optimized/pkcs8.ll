@@ -89,7 +89,7 @@ define internal fastcc range(i32 0, 2) i32 @pass_to_pass_raw(i32 noundef %0, ptr
 
 17:                                               ; preds = %16, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw [4 x %struct.pbe_suite], ptr @kBuiltinPBE, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw %struct.pbe_suite, ptr @kBuiltinPBE, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 8, !tbaa !23
   %20 = icmp eq i32 %19, %0
   br i1 %20, label %get_pbe_suite.exit, label %16
@@ -1091,7 +1091,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   %76 = getelementptr i8, ptr %74, i64 %.0143.us
   %77 = load i8, ptr %76, align 1, !tbaa !27
   %78 = zext i8 %77 to i32
-  %79 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %.0143.us
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 %.0143.us
   %80 = load i8, ptr %79, align 1, !tbaa !27
   %81 = zext i8 %80 to i32
   %82 = add nuw nsw i32 %.089142.us, %78
@@ -1111,9 +1111,9 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
 89:                                               ; preds = %73, %89
   %.295140 = phi i64 [ 0, %73 ], [ %94, %89 ]
   %90 = urem i64 %.295140, %68
-  %91 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %12, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !27
-  %93 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %.295140
+  %93 = getelementptr inbounds nuw i8, ptr %14, i64 %.295140
   store i8 %92, ptr %93, align 1, !tbaa !27
   %94 = add nuw i64 %.295140, 1
   %exitcond159.not = icmp eq i64 %94, %.fr114
@@ -2116,7 +2116,7 @@ define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr noundef readonly captu
 
 17:                                               ; preds = %16, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %16 ]
-  %18 = getelementptr inbounds nuw [4 x %struct.pbe_suite], ptr @kBuiltinPBE, i64 0, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw %struct.pbe_suite, ptr @kBuiltinPBE, i64 %indvars.iv.i.i
   %19 = load i32, ptr %18, align 8, !tbaa !23
   %20 = icmp eq i32 %19, %15
   br i1 %20, label %get_pbe_suite.exit.i, label %16

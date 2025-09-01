@@ -114,7 +114,7 @@ define dso_local range(i32 1, 4) i32 @lre_case_conv(ptr noundef writeonly captur
   %12 = add i32 %.03348, %.03447
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [370 x i32], ptr @case_conv_table1, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @case_conv_table1, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = lshr i32 %16, 15
   %18 = icmp ult i32 %1, %17
@@ -168,7 +168,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   %14 = shl i32 %4, 8
   %15 = and i32 %14, 3840
   %16 = zext i32 %3 to i64
-  %17 = getelementptr inbounds nuw [370 x i8], ptr @case_conv_table2, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @case_conv_table2, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %15, %19
@@ -203,7 +203,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
 28:                                               ; preds = %25, %22
   %29 = sub nsw i32 %1, %21
   %30 = zext nneg i32 %20 to i64
-  %31 = getelementptr inbounds nuw [370 x i32], ptr @case_conv_table1, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @case_conv_table1, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !7
   %33 = lshr i32 %32, 15
   %34 = add nsw i32 %29, %33
@@ -247,7 +247,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
 56:                                               ; preds = %54
   %57 = lshr i32 %20, 6
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !14
   %61 = zext i16 %60 to i32
   %62 = add nsw i32 %55, %61
@@ -259,7 +259,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
 64:                                               ; preds = %54
   %65 = and i32 %19, 63
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !14
   %69 = zext i16 %68 to i32
   %70 = add nsw i32 %55, %69
@@ -281,7 +281,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
 
 79:                                               ; preds = %77
   %80 = zext nneg i32 %20 to i64
-  %81 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !14
   %83 = zext i16 %82 to i32
   %84 = icmp eq i32 %2, 2
@@ -297,7 +297,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
 
 90:                                               ; preds = %87
   %91 = zext nneg i32 %20 to i64
-  %92 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !14
   %94 = zext i16 %93 to i32
   br label %160
@@ -309,14 +309,14 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   %97 = sub nsw i32 %1, %21
   %98 = lshr i32 %20, 6
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !14
   %102 = zext i16 %101 to i32
   %103 = add nsw i32 %97, %102
   store i32 %103, ptr %0, align 4, !tbaa !7
   %104 = and i32 %19, 63
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !14
   %108 = zext i16 %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -331,14 +331,14 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   %113 = sub nsw i32 %1, %21
   %114 = lshr i32 %20, 6
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !14
   %118 = zext i16 %117 to i32
   %119 = add nsw i32 %113, %118
   store i32 %119, ptr %0, align 4, !tbaa !7
   %120 = and i32 %19, 63
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !14
   %124 = zext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -366,20 +366,20 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
 134:                                              ; preds = %132
   %135 = lshr exact i32 %15, 8
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %136
   %138 = load i16, ptr %137, align 2, !tbaa !14
   %139 = zext i16 %138 to i32
   store i32 %139, ptr %0, align 4, !tbaa !7
   %140 = lshr i32 %19, 4
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !14
   %144 = zext i16 %143 to i32
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %144, ptr %145, align 4, !tbaa !7
   %146 = and i32 %19, 15
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i16, ptr @case_conv_ext, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !14
   %150 = zext i16 %149 to i32
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -445,7 +445,7 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
   %12 = add i32 %.03246, %.03345
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [370 x i32], ptr @case_conv_table1, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @case_conv_table1, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = lshr i32 %16, 15
   %18 = icmp ult i32 %0, %17
@@ -529,7 +529,7 @@ define dso_local range(i32 0, 2) i32 @lre_is_cased(i32 noundef %0) local_unnamed
   %3 = add i32 %.023, %.01622
   %4 = lshr i32 %3, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [370 x i32], ptr @case_conv_table1, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr @case_conv_table1, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = lshr i32 %7, 15
   %9 = icmp ult i32 %0, %8
@@ -1698,13 +1698,13 @@ sort_cc.exit:                                     ; preds = %unicode_get_cc.exit
   %249 = add i32 %.02933.i.i, %.02834.i.i
   %250 = sdiv i32 %249, 2
   %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds [945 x i16], ptr @unicode_comp_table, i64 0, i64 %251
+  %252 = getelementptr inbounds i16, ptr @unicode_comp_table, i64 %251
   %253 = load i16, ptr %252, align 2, !tbaa !14
   %254 = zext i16 %253 to i32
   %255 = lshr i32 %254, 6
   %256 = and i32 %254, 63
   %257 = zext nneg i32 %255 to i64
-  %258 = getelementptr inbounds nuw [699 x i32], ptr @unicode_decomp_table1, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i32, ptr @unicode_decomp_table1, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !7
   %260 = lshr i32 %259, 14
   %261 = lshr i32 %259, 7
@@ -1838,7 +1838,7 @@ define internal fastcc void @to_nfd_rec(ptr noundef nonnull %0, ptr noundef read
   %27 = add i32 %.02533.i, %.02434.i
   %28 = sdiv i32 %27, 2
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [699 x i32], ptr @unicode_decomp_table1, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @unicode_decomp_table1, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !7
   %32 = lshr i32 %31, 14
   %33 = icmp ult i32 %12, %32
@@ -2776,7 +2776,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   %.265100 = phi i32 [ %102, %.lr.ph ], [ %.164106, %.preheader ]
   %102 = add i32 %.265100, 1
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [370 x i32], ptr @case_conv_table1, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr @case_conv_table1, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !7
   %106 = lshr i32 %105, 15
   %107 = lshr i32 %105, 8
@@ -3009,7 +3009,7 @@ define internal fastcc range(i32 -1, 1) i32 @unicode_case1(ptr noundef captures(
   br i1 %.not60, label %16, label %12
 
 12:                                               ; preds = %.preheader109
-  %13 = getelementptr inbounds nuw [3 x i32], ptr @__const.unicode_case1.tab_run_mask, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr @__const.unicode_case1.tab_run_mask, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !7
   %15 = or i32 %14, %.047110
   br label %16
@@ -3022,7 +3022,7 @@ define internal fastcc range(i32 -1, 1) i32 @unicode_case1(ptr noundef captures(
 
 17:                                               ; preds = %.preheader, %.loopexit
   %indvars.iv117 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next118, %.loopexit ]
-  %18 = getelementptr inbounds nuw [370 x i32], ptr @case_conv_table1, i64 0, i64 %indvars.iv117
+  %18 = getelementptr inbounds nuw i32, ptr @case_conv_table1, i64 %indvars.iv117
   %19 = load i32, ptr %18, align 4, !tbaa !7
   %20 = lshr i32 %19, 4
   %21 = and i32 %20, 15
@@ -3409,28 +3409,27 @@ unicode_find_name.exit:                           ; preds = %14
 
 22:                                               ; preds = %unicode_find_name.exit
   %23 = icmp samesign ult i32 %.01929.i, 30
-  br i1 %23, label %24, label %28
+  %24 = zext nneg i32 %.01929.i to i64
+  br i1 %23, label %25, label %28
 
-24:                                               ; preds = %22
-  %25 = zext nneg i32 %.01929.i to i64
-  %26 = shl nuw nsw i64 1, %25
+25:                                               ; preds = %22
+  %26 = shl nuw nsw i64 1, %24
   %27 = trunc nuw nsw i64 %26 to i32
-  br label %33
+  br label %32
 
 28:                                               ; preds = %22
-  %29 = add nsw i32 %.01929.i, -30
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [8 x i32], ptr @unicode_gc_mask_table, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !7
-  br label %33
+  %29 = getelementptr i32, ptr @unicode_gc_mask_table, i64 %24
+  %30 = getelementptr i8, ptr %29, i64 -120
+  %31 = load i32, ptr %30, align 4, !tbaa !7
+  br label %32
 
-33:                                               ; preds = %28, %24
-  %.0 = phi i32 [ %27, %24 ], [ %32, %28 ]
-  %34 = tail call fastcc i32 @unicode_general_category1(ptr noundef %0, i32 noundef %.0)
+32:                                               ; preds = %28, %25
+  %.0 = phi i32 [ %27, %25 ], [ %31, %28 ]
+  %33 = tail call fastcc i32 @unicode_general_category1(ptr noundef %0, i32 noundef %.0)
   br label %unicode_find_name.exit.thread
 
-unicode_find_name.exit.thread:                    ; preds = %18, %unicode_find_name.exit, %33
-  %.07 = phi i32 [ %34, %33 ], [ -2, %unicode_find_name.exit ], [ -2, %18 ]
+unicode_find_name.exit.thread:                    ; preds = %18, %unicode_find_name.exit, %32
+  %.07 = phi i32 [ %33, %32 ], [ -2, %unicode_find_name.exit ], [ -2, %18 ]
   ret i32 %.07
 }
 
@@ -3900,7 +3899,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %.042.ph = phi i32 [ 0, %1 ], [ %.042.ph.be, %.outer.backedge ]
   %8 = add i32 %.042.ph, -1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [4 x %struct.CharRange], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.CharRange, ptr %3, i64 %9
   br label %11
 
 11:                                               ; preds = %.outer, %128
@@ -3960,7 +3959,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %38 = load i32, ptr %37, align 4, !tbaa !7
   %39 = add i32 %.042.ph, 1
   %40 = sext i32 %.042.ph to i64
-  %41 = getelementptr inbounds [4 x %struct.CharRange], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds %struct.CharRange, ptr %3, i64 %40
   %42 = load ptr, ptr %6, align 8, !tbaa !19
   %43 = load ptr, ptr %7, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -4001,7 +4000,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %60 = load i32, ptr %59, align 4, !tbaa !7
   %61 = add i32 %.042.ph, 1
   %62 = sext i32 %.042.ph to i64
-  %63 = getelementptr inbounds [4 x %struct.CharRange], ptr %3, i64 0, i64 %62
+  %63 = getelementptr inbounds %struct.CharRange, ptr %3, i64 %62
   %64 = load ptr, ptr %6, align 8, !tbaa !19
   %65 = load ptr, ptr %7, align 8, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -4038,7 +4037,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %82 = load i32, ptr %81, align 4, !tbaa !7
   %83 = add i32 %.042.ph, 1
   %84 = sext i32 %.042.ph to i64
-  %85 = getelementptr inbounds [4 x %struct.CharRange], ptr %3, i64 0, i64 %84
+  %85 = getelementptr inbounds %struct.CharRange, ptr %3, i64 %84
   %86 = load ptr, ptr %6, align 8, !tbaa !19
   %87 = load ptr, ptr %7, align 8, !tbaa !23
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
@@ -4055,12 +4054,12 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
 92:                                               ; preds = %22, %22, %22
   %93 = add i32 %.042.ph, -2
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [4 x %struct.CharRange], ptr %3, i64 0, i64 %94
+  %95 = getelementptr inbounds %struct.CharRange, ptr %3, i64 %94
   %96 = add i32 %.042.ph, -1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [4 x %struct.CharRange], ptr %3, i64 0, i64 %97
+  %98 = getelementptr inbounds %struct.CharRange, ptr %3, i64 %97
   %99 = sext i32 %.042.ph to i64
-  %100 = getelementptr inbounds [4 x %struct.CharRange], ptr %3, i64 0, i64 %99
+  %100 = getelementptr inbounds %struct.CharRange, ptr %3, i64 %99
   %101 = load ptr, ptr %6, align 8, !tbaa !19
   %102 = load ptr, ptr %7, align 8, !tbaa !23
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -4177,7 +4176,7 @@ cr_copy.exit:                                     ; preds = %.cr_copy.exit_crit_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %160 = getelementptr inbounds nuw [4 x %struct.CharRange], ptr %3, i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw %struct.CharRange, ptr %3, i64 %indvars.iv
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %162 = load ptr, ptr %161, align 8, !tbaa !23
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 16
@@ -4200,9 +4199,9 @@ cr_copy.exit:                                     ; preds = %.cr_copy.exit_crit_
 define internal fastcc range(i32 -1, 1) i32 @unicode_prop1(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #6 {
 .lr.ph:
   %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds [50 x ptr], ptr @unicode_prop_table, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @unicode_prop_table, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !62
-  %5 = getelementptr inbounds [50 x i16], ptr @unicode_prop_len_table, i64 0, i64 %2
+  %5 = getelementptr inbounds i16, ptr @unicode_prop_len_table, i64 %2
   %6 = load i16, ptr %5, align 2, !tbaa !14
   %7 = zext i16 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
@@ -4393,18 +4392,17 @@ define dso_local range(i32 0, 2) i32 @lre_is_space_non_ascii(i32 noundef %0) loc
 
 5:                                                ; preds = %1, %2
   %.01216 = phi i64 [ 5, %1 ], [ %3, %2 ]
-  %6 = getelementptr inbounds nuw [21 x i16], ptr @char_range_s, i64 0, i64 %.01216
+  %6 = getelementptr inbounds nuw i16, ptr @char_range_s, i64 %.01216
   %7 = load i16, ptr %6, align 2, !tbaa !14
   %8 = zext i16 %7 to i32
   %9 = icmp ult i32 %0, %8
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %5
-  %11 = add nuw nsw i64 %.01216, 1
-  %12 = getelementptr inbounds nuw [21 x i16], ptr @char_range_s, i64 0, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !14
-  %14 = zext i16 %13 to i32
-  %.not = icmp ult i32 %0, %14
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %12 = load i16, ptr %11, align 2, !tbaa !14
+  %13 = zext i16 %12 to i32
+  %.not = icmp ult i32 %0, %13
   br i1 %.not, label %.thread, label %2
 
 .thread:                                          ; preds = %5, %2, %10
@@ -4421,7 +4419,7 @@ declare i32 @dbuf_put(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 define internal fastcc range(i32 -20, -2147483648) i32 @unicode_decomp_entry(ptr noundef nonnull writeonly captures(none) %0, i32 noundef range(i32 0, 262270) %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 0, 262144) %3, i32 noundef range(i32 0, 128) %4, i32 noundef range(i32 0, 64) %5) unnamed_addr #12 {
   %7 = icmp eq i32 %5, 0
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [699 x i16], ptr @unicode_decomp_table2, i64 0, i64 %8
+  %9 = getelementptr inbounds i16, ptr @unicode_decomp_table2, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !14
   br i1 %7, label %11, label %13
 
@@ -4568,9 +4566,9 @@ unicode_get_short_code.exit.thread:               ; preds = %66
   br label %78
 
 70:                                               ; preds = %66
-  %71 = add nsw i32 %64, -208
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [2 x i16], ptr @unicode_get_short_code.unicode_short_table, i64 0, i64 %72
+  %71 = zext i8 %63 to i64
+  %72 = getelementptr i16, ptr @unicode_get_short_code.unicode_short_table, i64 %71
+  %73 = getelementptr i8, ptr %72, i64 -416
   %74 = load i16, ptr %73, align 2, !tbaa !14
   %75 = zext i16 %74 to i32
   br label %unicode_get_short_code.exit
@@ -4685,9 +4683,9 @@ unicode_get_short_code.exit:                      ; preds = %.lr.ph174, %70
   br label %unicode_get_short_code.exit158
 
 132:                                              ; preds = %128
-  %133 = add nsw i32 %126, -208
-  %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds nuw [2 x i16], ptr @unicode_get_short_code.unicode_short_table, i64 0, i64 %134
+  %133 = zext i8 %125 to i64
+  %134 = getelementptr i16, ptr @unicode_get_short_code.unicode_short_table, i64 %133
+  %135 = getelementptr i8, ptr %134, i64 -416
   %136 = load i16, ptr %135, align 2, !tbaa !14
   %137 = zext i16 %136 to i32
   br label %unicode_get_short_code.exit158
@@ -4741,9 +4739,9 @@ unicode_get_short_code.exit158:                   ; preds = %123, %130, %132
   br label %unicode_get_short_code.exit160
 
 165:                                              ; preds = %161
-  %166 = add nsw i32 %159, -208
-  %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw [2 x i16], ptr @unicode_get_short_code.unicode_short_table, i64 0, i64 %167
+  %166 = zext i8 %158 to i64
+  %167 = getelementptr i16, ptr @unicode_get_short_code.unicode_short_table, i64 %166
+  %168 = getelementptr i8, ptr %167, i64 -416
   %169 = load i16, ptr %168, align 2, !tbaa !14
   %170 = zext i16 %169 to i32
   br label %unicode_get_short_code.exit160
@@ -4796,9 +4794,9 @@ unicode_get_short_code.exit160:                   ; preds = %154, %163, %165
   br label %unicode_get_short_code.exit163
 
 192:                                              ; preds = %188
-  %193 = add nsw i32 %186, -208
-  %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw [2 x i16], ptr @unicode_get_short_code.unicode_short_table, i64 0, i64 %194
+  %193 = zext i8 %185 to i64
+  %194 = getelementptr i16, ptr @unicode_get_short_code.unicode_short_table, i64 %193
+  %195 = getelementptr i8, ptr %194, i64 -416
   %196 = load i16, ptr %195, align 2, !tbaa !14
   %197 = zext i16 %196 to i32
   br label %unicode_get_short_code.exit163

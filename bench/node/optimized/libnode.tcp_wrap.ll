@@ -3883,7 +3883,7 @@ do.body22:                                        ; preds = %if.then14
   unreachable
 
 do.end25:                                         ; preds = %if.then14
-  %arrayidx26 = getelementptr inbounds nuw [63 x i8], ptr %ip, i64 0, i64 %call16
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %ip, i64 %call16
   store i8 37, ptr %arrayidx26, align 1
   %sub27 = sub nuw nsw i64 62, %call16
   store i64 %sub27, ptr %scopeidlen, align 8

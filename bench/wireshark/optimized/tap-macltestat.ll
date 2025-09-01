@@ -282,7 +282,7 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %100 = zext i16 %90 to i64
-  %101 = getelementptr [65535 x i8], ptr %99, i64 0, i64 %100
+  %101 = getelementptr i8, ptr %99, i64 %100
   %102 = load i8, ptr %101, align 1
   %.not.i139 = icmp eq i8 %102, 0
   br i1 %.not.i139, label %103, label %105
@@ -296,7 +296,7 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
 105:                                              ; preds = %103, %98
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 65575
   %107 = zext i16 %88 to i64
-  %108 = getelementptr [65535 x i8], ptr %106, i64 0, i64 %107
+  %108 = getelementptr i8, ptr %106, i64 %107
   %109 = load i8, ptr %108, align 1
   %.not11.i = icmp eq i8 %109, 0
   br i1 %.not11.i, label %110, label %update_ueid_rnti_counts.exit
@@ -394,7 +394,7 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
 158:                                              ; preds = %154
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %160 = zext i16 %150 to i64
-  %161 = getelementptr [65535 x i8], ptr %159, i64 0, i64 %160
+  %161 = getelementptr i8, ptr %159, i64 %160
   %162 = load i8, ptr %161, align 1
   %.not.i144 = icmp eq i8 %162, 0
   br i1 %.not.i144, label %163, label %165
@@ -408,7 +408,7 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
 165:                                              ; preds = %163, %158
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 65575
   %167 = zext i16 %149 to i64
-  %168 = getelementptr [65535 x i8], ptr %166, i64 0, i64 %167
+  %168 = getelementptr i8, ptr %166, i64 %167
   %169 = load i8, ptr %168, align 1
   %.not11.i145 = icmp eq i8 %169, 0
   br i1 %.not11.i145, label %170, label %update_ueid_rnti_counts.exit.thread
@@ -528,7 +528,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
 234:                                              ; preds = %.preheader, %234
   %indvars.iv167 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next168, %234 ]
   %235 = phi i32 [ %.promoted162, %.preheader ], [ %238, %234 ]
-  %236 = getelementptr [33 x i32], ptr %226, i64 0, i64 %indvars.iv167
+  %236 = getelementptr i32, ptr %226, i64 %indvars.iv167
   %237 = load i32, ptr %236, align 4
   %238 = add i32 %235, %237
   store i32 %238, ptr %227, align 4
@@ -619,7 +619,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
 287:                                              ; preds = %.preheader156, %287
   %indvars.iv = phi i64 [ 0, %.preheader156 ], [ %indvars.iv.next, %287 ]
   %288 = phi i32 [ %.promoted, %.preheader156 ], [ %291, %287 ]
-  %289 = getelementptr [33 x i32], ptr %279, i64 0, i64 %indvars.iv
+  %289 = getelementptr i32, ptr %279, i64 %indvars.iv
   %290 = load i32, ptr %289, align 4
   %291 = add i32 %288, %290
   store i32 %291, ptr %280, align 4
@@ -700,7 +700,7 @@ define internal void @mac_lte_stat_draw(ptr noundef readonly captures(none) %0) 
 
 50:                                               ; preds = %._crit_edge, %50
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr [15 x ptr], ptr @ue_titles, i64 0, i64 %indvars.iv
+  %51 = getelementptr ptr, ptr @ue_titles, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %52)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

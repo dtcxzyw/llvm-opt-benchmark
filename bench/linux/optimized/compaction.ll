@@ -2187,7 +2187,7 @@ define dso_local void @reset_isolation_suitable(ptr noundef captures(address) %0
 
 2:                                                ; preds = %9, %1
   %3 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %4 = getelementptr [4 x %struct.zone], ptr %0, i64 0, i64 %3
+  %4 = getelementptr %struct.zone, ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -3568,7 +3568,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 408:                                              ; preds = %404
   %409 = load i64, ptr %134, align 16
   %410 = lshr i64 %409, 58
-  %411 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %410
+  %411 = getelementptr ptr, ptr @node_data, i64 %410
   %412 = load ptr, ptr %411, align 8
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 13440
   %414 = icmp eq ptr %413, %231
@@ -3731,7 +3731,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %511 = shl i64 %510, 32
   %512 = ashr exact i64 %511, 32
   tail call void @__mod_node_page_state(ptr noundef %412, i32 noundef %497, i64 noundef %512) #16
-  %513 = getelementptr [4 x %struct.zone], ptr %412, i64 0, i64 %499
+  %513 = getelementptr %struct.zone, ptr %412, i64 %499
   %514 = add nuw nsw i32 %497, 1
   tail call void @__mod_zone_page_state(ptr noundef %513, i32 noundef %514, i64 noundef %510) #16
   %515 = load volatile i64, ptr %134, align 8
@@ -3752,7 +3752,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 526:                                              ; preds = %522, %.thread49
   %527 = phi i64 [ %525, %522 ], [ 1, %.thread49 ]
   %528 = lshr i64 %519, 58
-  %529 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %528
+  %529 = getelementptr ptr, ptr @node_data, i64 %528
   %530 = load ptr, ptr %529, align 8
   tail call void @mod_node_page_state(ptr noundef %530, i32 noundef %518, i64 noundef %527) #16
   br label %531
@@ -4255,7 +4255,7 @@ define dso_local noundef zeroext i1 @compaction_zonelist_suitable(ptr noundef re
   %43 = load ptr, ptr %31, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %39, 63
-  %46 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %45
+  %46 = getelementptr i64, ptr @__per_cpu_offset, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %44
   %49 = inttoptr i64 %48 to ptr
@@ -4750,7 +4750,7 @@ define dso_local void @wakeup_kcompactd(ptr noundef %0, i32 noundef %1, i32 noun
 22:                                               ; preds = %38, %20
   %23 = phi i32 [ 0, %20 ], [ %39, %38 ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr [4 x %struct.zone], ptr %0, i64 0, i64 %24
+  %25 = getelementptr %struct.zone, ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
@@ -4830,7 +4830,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @kcompactd_run(i32 noundef %0) local_unnamed_addr #6 section ".meminit.text" align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @node_data, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 13344
   %6 = load ptr, ptr %5, align 32
@@ -4872,7 +4872,7 @@ define internal noundef i32 @kcompactd(ptr noundef initializes((13308, 13316)) %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 13120
   %7 = load i32, ptr %6, align 64
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [64 x [1 x %struct.cpumask]], ptr @node_to_cpumask_map, i64 0, i64 %8
+  %9 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %15, label %12
@@ -5091,7 +5091,7 @@ define internal noundef i32 @kcompactd(ptr noundef initializes((13308, 13316)) %
 .preheader:                                       ; preds = %128, %255
   %131 = phi i32 [ %256, %255 ], [ 0, %128 ]
   %132 = sext i32 %131 to i64
-  %133 = getelementptr [4 x %struct.zone], ptr %0, i64 0, i64 %132
+  %133 = getelementptr %struct.zone, ptr %0, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 152
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %135, 0
@@ -5368,7 +5368,7 @@ define internal noundef i32 @kcompactd(ptr noundef initializes((13308, 13316)) %
 279:                                              ; preds = %.preheader80, %298
   %280 = phi i64 [ %300, %298 ], [ 0, %.preheader80 ]
   %281 = phi i32 [ %299, %298 ], [ 0, %.preheader80 ]
-  %282 = getelementptr [4 x %struct.zone], ptr %0, i64 0, i64 %280
+  %282 = getelementptr %struct.zone, ptr %0, i64 %280
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 152
   %284 = load i64, ptr %283, align 8
   %285 = icmp eq i64 %284, 0
@@ -5405,7 +5405,7 @@ define internal noundef i32 @kcompactd(ptr noundef initializes((13308, 13316)) %
 .preheader35:                                     ; preds = %302, %326
   %308 = phi i64 [ %328, %326 ], [ 0, %302 ]
   %309 = phi i32 [ %327, %326 ], [ 0, %302 ]
-  %310 = getelementptr [4 x %struct.zone], ptr %0, i64 0, i64 %308
+  %310 = getelementptr %struct.zone, ptr %0, i64 %308
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 152
   %312 = load i64, ptr %311, align 8
   %313 = icmp eq i64 %312, 0
@@ -5444,7 +5444,7 @@ define internal noundef i32 @kcompactd(ptr noundef initializes((13308, 13316)) %
 
 331:                                              ; preds = %341, %330
   %332 = phi i64 [ 0, %330 ], [ %342, %341 ]
-  %333 = getelementptr [4 x %struct.zone], ptr %0, i64 0, i64 %332
+  %333 = getelementptr %struct.zone, ptr %0, i64 %332
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 152
   %335 = load i64, ptr %334, align 8
   %336 = icmp eq i64 %335, 0
@@ -5471,7 +5471,7 @@ define internal noundef i32 @kcompactd(ptr noundef initializes((13308, 13316)) %
 345:                                              ; preds = %364, %344
   %346 = phi i64 [ 0, %344 ], [ %366, %364 ]
   %347 = phi i32 [ 0, %344 ], [ %365, %364 ]
-  %348 = getelementptr [4 x %struct.zone], ptr %0, i64 0, i64 %346
+  %348 = getelementptr %struct.zone, ptr %0, i64 %346
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 152
   %350 = load i64, ptr %349, align 8
   %351 = icmp eq i64 %350, 0
@@ -5532,7 +5532,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @kcompactd_stop(i32 noundef %0) local_unnamed_addr #6 section ".meminit.text" align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @node_data, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 13344
   %6 = load ptr, ptr %5, align 32
@@ -6041,11 +6041,11 @@ define internal fastcc noundef zeroext i1 @__reset_isolation_pfn(ptr noundef rea
 73:                                               ; preds = %65
   %74 = load i64, ptr %70, align 16
   %75 = lshr i64 %74, 58
-  %76 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %75
+  %76 = getelementptr ptr, ptr @node_data, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = lshr i64 %74, 56
   %79 = and i64 %78, 3
-  %80 = getelementptr [4 x %struct.zone], ptr %77, i64 0, i64 %79
+  %80 = getelementptr %struct.zone, ptr %77, i64 %79
   %81 = icmp eq ptr %80, %0
   br i1 %81, label %82, label %.thread
 
@@ -6811,7 +6811,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 3
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr [4 x i64], ptr %8, i64 0, i64 %41
+  %42 = getelementptr i64, ptr %8, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %45 = load i64, ptr %44, align 32
@@ -6873,7 +6873,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %76 = load ptr, ptr %7, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1040
   %78 = zext i1 %16 to i64
-  %79 = getelementptr [2 x i64], ptr %77, i64 0, i64 %78
+  %79 = getelementptr i64, ptr %77, i64 %78
   %80 = load i64, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %80, ptr %81, align 8
@@ -7095,10 +7095,10 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %219 = phi i64 [ %214, %212 ], [ %216, %215 ]
   %220 = load ptr, ptr %7, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 192
-  %222 = getelementptr [11 x %struct.free_area], ptr %221, i64 0, i64 %219
+  %222 = getelementptr %struct.free_area, ptr %221, i64 %219
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !annotation !25
-  %223 = getelementptr [4 x %struct.list_head], ptr %222, i64 0, i64 %213
+  %223 = getelementptr %struct.list_head, ptr %222, i64 %213
   %224 = load volatile ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, %223
   br i1 %225, label %226, label %245
@@ -7262,7 +7262,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %327 = phi i64 [ %284, %314 ], [ %427, %425 ]
   %328 = load ptr, ptr %7, align 8
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 192
-  %330 = getelementptr [11 x %struct.free_area], ptr %329, i64 0, i64 %325
+  %330 = getelementptr %struct.free_area, ptr %329, i64 %325
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 64
   %332 = load i64, ptr %331, align 8
   %333 = icmp eq i64 %332, 0
@@ -8166,7 +8166,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %67 = load ptr, ptr %11, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 192
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr [11 x %struct.free_area], ptr %68, i64 0, i64 %69
+  %70 = getelementptr %struct.free_area, ptr %68, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %72 = load i64, ptr %71, align 8
   %73 = icmp eq i64 %72, 0
@@ -9189,7 +9189,7 @@ define internal noundef i64 @compact_store(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %12
   tail call void @lru_add_drain_all() #16
-  %18 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %13
+  %18 = getelementptr ptr, ptr @node_data, i64 %13
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
@@ -9208,7 +9208,7 @@ define internal noundef i64 @compact_store(ptr noundef readonly captures(none) %
 
 26:                                               ; preds = %34, %17
   %27 = phi i64 [ 0, %17 ], [ %35, %34 ]
-  %28 = getelementptr [4 x %struct.zone], ptr %19, i64 0, i64 %27
+  %28 = getelementptr %struct.zone, ptr %19, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
@@ -9282,12 +9282,12 @@ define internal noundef i32 @kcompactd_cpu_online(i32 %0) #1 align 16 {
   %8 = phi i64 [ %34, %43 ], [ %.pre7, %.preheader.preheader ]
   %9 = phi i32 [ %45, %43 ], [ %6, %.preheader.preheader ]
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr @node_data, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 13120
   %14 = load i32, ptr %13, align 64
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [64 x [1 x %struct.cpumask]], ptr @node_to_cpumask_map, i64 0, i64 %15
+  %16 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, %8
   %19 = icmp eq i64 %18, 0
@@ -9385,7 +9385,7 @@ define internal i32 @sysctl_compaction_handler(ptr noundef %0, i32 noundef %1, p
 28:                                               ; preds = %53, %21
   %29 = phi i32 [ %19, %21 ], [ %55, %53 ]
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %30
+  %31 = getelementptr ptr, ptr @node_data, i64 %30
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
@@ -9398,7 +9398,7 @@ define internal i32 @sysctl_compaction_handler(ptr noundef %0, i32 noundef %1, p
 
 33:                                               ; preds = %41, %28
   %34 = phi i64 [ 0, %28 ], [ %42, %41 ]
-  %35 = getelementptr [4 x %struct.zone], ptr %32, i64 0, i64 %34
+  %35 = getelementptr %struct.zone, ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
@@ -9466,7 +9466,7 @@ define internal i32 @compaction_proactiveness_sysctl_handler(ptr noundef %0, i32
 .preheader:                                       ; preds = %16, %65
   %20 = phi i32 [ %67, %65 ], [ %18, %16 ]
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr @node_data, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 13352
   %25 = load i8, ptr %24, align 8, !range !44, !noundef !45

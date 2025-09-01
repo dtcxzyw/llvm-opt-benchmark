@@ -162,7 +162,7 @@ sub_2:                                            ; preds = %sub_1
 
 .preheader.i.i:                                   ; preds = %42, %65
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %65 ], [ 0, %42 ]
-  %49 = getelementptr inbounds nuw [3 x ptr], ptr @allowed_group_strings, i64 0, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr @allowed_group_strings, i64 %indvars.iv.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !13
   %51 = load i8, ptr %15, align 1, !tbaa !15
   %52 = zext i8 %51 to i64
@@ -222,7 +222,7 @@ is_phi_group.exit.i:                              ; preds = %58
   %.02129.i = phi ptr [ %80, %.lr.ph.i ], [ %16, %71 ]
   %76 = load i8, ptr %.02129.i, align 2, !tbaa !19
   %77 = zext i8 %76 to i32
-  %78 = getelementptr inbounds nuw [64 x i32], ptr %17, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
   store i32 %77, ptr %78, align 4, !tbaa !21
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %77)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -291,7 +291,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   %.lcssa7294 = phi i32 [ 0, %.lr.ph90 ], [ %.lcssa7293, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %104 = getelementptr inbounds nuw [64 x i32], ptr %90, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !21
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 15, ptr noundef nonnull @.str.5, i32 noundef %105) #10
   %putchar = call i32 @putchar(i32 10)

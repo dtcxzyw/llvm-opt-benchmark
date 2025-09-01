@@ -7545,7 +7545,7 @@ define hidden void @_ZN9ty_server6server3api8requests10diagnostic17to_lsp_diagno
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %93 = call noundef i8 @_ZN7ruff_db10diagnostic10Diagnostic8severity17h0cfe7b08bb452d23E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   %94 = zext nneg i8 %93 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN9ty_server6server3api8requests10diagnostic17to_lsp_diagnostic17h8483104dbc0abd42E, i64 0, i64 %94
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN9ty_server6server3api8requests10diagnostic17to_lsp_diagnostic17h8483104dbc0abd42E, i64 %94
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)

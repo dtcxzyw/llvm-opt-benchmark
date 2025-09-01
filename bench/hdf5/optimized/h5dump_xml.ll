@@ -889,7 +889,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
 
 switch.lookup:                                    ; preds = %124
   %140 = zext nneg i32 %125 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_print_datatype, i64 0, i64 %140
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xml_print_datatype, i64 %140
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %141
 
@@ -1002,7 +1002,7 @@ switch.lookup:                                    ; preds = %124
 
 switch.lookup218:                                 ; preds = %221
   %223 = zext nneg i32 %198 to i64
-  %switch.gep219 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_print_datatype.1, i64 0, i64 %223
+  %switch.gep219 = getelementptr inbounds nuw ptr, ptr @switch.table.xml_print_datatype.1, i64 %223
   %switch.load220 = load ptr, ptr %switch.gep219, align 8
   br label %224
 
@@ -1414,7 +1414,7 @@ switch.lookup218:                                 ; preds = %221
   store i32 1, ptr %509, align 8, !tbaa !41
   %522 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %523 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
-  %524 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %524 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %525 = load i64, ptr %524, align 8, !tbaa !4
   %526 = trunc i64 %525 to i32
   %527 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.148, ptr noundef %523, i32 noundef %526) #14
@@ -1694,12 +1694,12 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
-  %61 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !4
   store i32 1, ptr %38, align 8, !tbaa !41
   %63 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %64 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !4
   switch i64 %62, label %71 [
     i64 -1, label %67
@@ -5222,7 +5222,7 @@ check_filters.exit:                               ; preds = %174, %261
 
 switch.lookup:                                    ; preds = %364
   %376 = zext nneg i32 %374 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_dump_dataset, i64 0, i64 %376
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xml_dump_dataset, i64 %376
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %377
 
@@ -5239,7 +5239,7 @@ switch.lookup:                                    ; preds = %364
 
 switch.lookup192:                                 ; preds = %377
   %384 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep193 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_dump_dataset.2, i64 0, i64 %384
+  %switch.gep193 = getelementptr inbounds nuw ptr, ptr @switch.table.xml_dump_dataset.2, i64 %384
   %switch.load194 = load ptr, ptr %switch.gep193, align 8
   br label %385
 

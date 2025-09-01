@@ -44,12 +44,12 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %17 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef %1) #6
+  %17 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %0, ptr noundef %1) #7
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %5
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 119, ptr noundef nonnull @.str, i32 noundef 508) #6
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 119, ptr noundef nonnull @.str, i32 noundef 508) #7
   br label %81
 
 19:                                               ; preds = %5
@@ -83,7 +83,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   br i1 %38, label %ecp_nistz256_bignum_to_field_elem.exit.thread, label %39
 
 ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 515) #6
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 515) #7
   br label %81
 
 39:                                               ; preds = %31
@@ -99,125 +99,125 @@ ecp_nistz256_bignum_to_field_elem.exit.thread:    ; preds = %31, %23, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %16) #6
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %16) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %6) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %6) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %7) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %7) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %8) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %16) #7
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %16) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %6) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %6) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %7) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %7) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %8) #7
   br label %44
 
 44:                                               ; preds = %44, %39
   %.018.i = phi i32 [ 0, %39 ], [ %45, %44 ]
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %45 = add nuw nsw i32 %.018.i, 1
   %exitcond.not.i = icmp eq i32 %45, 7
   br i1 %exitcond.not.i, label %46, label %44, !llvm.loop !14
 
 46:                                               ; preds = %44
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %8) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %9) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %8) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %9) #7
   br label %47
 
 47:                                               ; preds = %47, %46
   %.119.i = phi i32 [ 0, %46 ], [ %48, %47 ]
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %48 = add nuw nsw i32 %.119.i, 1
   %exitcond25.not.i = icmp eq i32 %48, 15
   br i1 %exitcond25.not.i, label %49, label %47, !llvm.loop !16
 
 49:                                               ; preds = %47
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %10) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %10) #7
   br label %50
 
 50:                                               ; preds = %50, %49
   %.220.i = phi i32 [ 0, %49 ], [ %51, %50 ]
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %51 = add nuw nsw i32 %.220.i, 1
   %exitcond26.not.i = icmp eq i32 %51, 31
   br i1 %exitcond26.not.i, label %52, label %50, !llvm.loop !17
 
 52:                                               ; preds = %50
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %16) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %16) #7
   br label %53
 
 53:                                               ; preds = %53, %52
   %.321.i = phi i32 [ 0, %52 ], [ %54, %53 ]
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %54 = add nuw nsw i32 %.321.i, 1
   %exitcond27.not.i = icmp eq i32 %54, 128
   br i1 %exitcond27.not.i, label %55, label %53, !llvm.loop !18
 
 55:                                               ; preds = %53
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #7
   br label %56
 
 56:                                               ; preds = %56, %55
   %.422.i = phi i32 [ 0, %55 ], [ %57, %56 ]
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %57 = add nuw nsw i32 %.422.i, 1
   %exitcond28.not.i = icmp eq i32 %57, 32
   br i1 %exitcond28.not.i, label %58, label %56, !llvm.loop !19
 
 58:                                               ; preds = %56
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #7
   br label %59
 
 59:                                               ; preds = %59, %58
   %.523.i = phi i32 [ 0, %58 ], [ %60, %59 ]
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %60 = add nuw nsw i32 %.523.i, 1
   %exitcond29.not.i = icmp eq i32 %60, 16
   br i1 %exitcond29.not.i, label %61, label %59, !llvm.loop !20
 
 61:                                               ; preds = %59
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %9) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %9) #7
   br label %62
 
 62:                                               ; preds = %62, %61
   %.624.i = phi i32 [ 0, %61 ], [ %63, %62 ]
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %63 = add nuw nsw i32 %.624.i, 1
   %exitcond30.not.i = icmp eq i32 %63, 8
   br i1 %exitcond30.not.i, label %ecp_nistz256_mod_inverse.exit, label %62, !llvm.loop !21
 
 ecp_nistz256_mod_inverse.exit:                    ; preds = %62
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %8) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %7) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %6) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #6
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %16) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %8) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %7) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %6) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %16) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %12, ptr noundef nonnull %13) #6
-  call void @ecp_nistz256_from_mont(ptr noundef nonnull %12, ptr noundef nonnull %12) #6
+  call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %12, ptr noundef nonnull %13) #7
+  call void @ecp_nistz256_from_mont(ptr noundef nonnull %12, ptr noundef nonnull %12) #7
   %.not22 = icmp eq ptr %2, null
   br i1 %.not22, label %72, label %64
 
 64:                                               ; preds = %ecp_nistz256_mod_inverse.exit
-  %65 = call ptr @bn_wexpand(ptr noundef nonnull %2, i64 noundef 4) #6
+  %65 = call ptr @bn_wexpand(ptr noundef nonnull %2, i64 noundef 4) #7
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %64
-  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 530) #6
+  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 530) #7
   br label %81
 
 68:                                               ; preds = %64
@@ -226,8 +226,8 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %62
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %70, align 8, !tbaa !22
   %71 = load ptr, ptr %2, align 8, !tbaa !13
-  call void @ecp_nistz256_mul_mont(ptr noundef %71, ptr noundef nonnull %12, ptr noundef nonnull %14) #6
-  call void @bn_correct_top(ptr noundef nonnull %2) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef %71, ptr noundef nonnull %12, ptr noundef nonnull %14) #7
+  call void @bn_correct_top(ptr noundef nonnull %2) #7
   br label %72
 
 72:                                               ; preds = %68, %ecp_nistz256_mod_inverse.exit
@@ -235,13 +235,13 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %62
   br i1 %.not23, label %81, label %73
 
 73:                                               ; preds = %72
-  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
-  %74 = call ptr @bn_wexpand(ptr noundef nonnull %3, i64 noundef 4) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %12) #7
+  %74 = call ptr @bn_wexpand(ptr noundef nonnull %3, i64 noundef 4) #7
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %73
-  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 542) #6
+  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 542) #7
   br label %81
 
 77:                                               ; preds = %73
@@ -250,8 +250,8 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %62
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %79, align 8, !tbaa !22
   %80 = load ptr, ptr %3, align 8, !tbaa !13
-  call void @ecp_nistz256_mul_mont(ptr noundef %80, ptr noundef nonnull %13, ptr noundef nonnull %15) #6
-  call void @bn_correct_top(ptr noundef nonnull %3) #6
+  call void @ecp_nistz256_mul_mont(ptr noundef %80, ptr noundef nonnull %13, ptr noundef nonnull %15) #7
+  call void @bn_correct_top(ptr noundef nonnull %3) #7
   br label %81
 
 81:                                               ; preds = %72, %77, %76, %67, %ecp_nistz256_bignum_to_field_elem.exit.thread, %18
@@ -276,15 +276,15 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %183, label %14
+  br i1 %.not, label %148, label %14
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @BN_num_bits(ptr noundef nonnull %2) #6
+  %15 = tail call i32 @BN_num_bits(ptr noundef nonnull %2) #7
   %16 = icmp ugt i32 %15, 256
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @BN_is_negative(ptr noundef nonnull %2) #6
+  %18 = tail call i32 @BN_is_negative(ptr noundef nonnull %2) #7
   %.not99 = icmp eq i32 %18, 0
   br i1 %.not99, label %31, label %19
 
@@ -293,26 +293,26 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @BN_CTX_new() #6
+  %22 = tail call ptr @BN_CTX_new() #7
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread117, label %24
 
 24:                                               ; preds = %21, %19
   %.286 = phi ptr [ null, %19 ], [ %22, %21 ]
   %.276 = phi ptr [ %5, %19 ], [ %22, %21 ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %.276) #6
-  %25 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.276) #6
+  tail call void @BN_CTX_start(ptr noundef nonnull %.276) #7
+  %25 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.276) #7
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread125, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = tail call i32 @BN_nnmod(ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull %28, ptr noundef nonnull %.276) #6
+  %29 = tail call i32 @BN_nnmod(ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull %28, ptr noundef nonnull %.276) #7
   %.not100 = icmp eq i32 %29, 0
   br i1 %.not100, label %30, label %31
 
 30:                                               ; preds = %27
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 408) #6
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 408) #7
   br label %.thread125
 
 31:                                               ; preds = %27, %17
@@ -328,620 +328,533 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %35, label %.lr.ph, label %.lr.ph136.preheader
 
 .lr.ph:                                           ; preds = %31
-  %36 = shl nsw i32 %34, 3
+  %36 = shl i32 %34, 3
   %37 = load ptr, ptr %.1, align 8, !tbaa !13
-  %38 = zext nneg i32 %36 to i64
-  br label %43
+  %smax = tail call i32 @llvm.smax.i32(i32 %36, i32 8)
+  %38 = zext nneg i32 %smax to i64
+  %39 = add nsw i64 %38, -1
+  %40 = and i64 %39, -8
+  %41 = add nuw nsw i64 %40, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(1) %37, i64 %41, i1 false)
+  %42 = sext i32 %36 to i64
+  br label %47
 
-.preheader:                                       ; preds = %43
-  %39 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %40 = icmp samesign ult i64 %indvars.iv, 25
-  br i1 %40, label %.lr.ph136.preheader, label %._crit_edge
+.preheader:                                       ; preds = %47
+  %43 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %44 = icmp samesign ult i64 %indvars.iv, 25
+  br i1 %44, label %.lr.ph136.preheader, label %._crit_edge
 
 .lr.ph136.preheader:                              ; preds = %31, %.preheader
-  %.079.lcssa159 = phi i32 [ %39, %.preheader ], [ 0, %31 ]
-  %41 = zext nneg i32 %.079.lcssa159 to i64
-  %scevgep = getelementptr i8, ptr %13, i64 %41
-  %narrow = sub nuw nsw i32 33, %.079.lcssa159
-  %42 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %42, i1 false), !tbaa !23
+  %.079.lcssa160 = phi i32 [ %43, %.preheader ], [ 0, %31 ]
+  %45 = zext nneg i32 %.079.lcssa160 to i64
+  %scevgep = getelementptr i8, ptr %13, i64 %45
+  %narrow = sub nuw nsw i32 33, %.079.lcssa160
+  %46 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %46, i1 false), !tbaa !23
   br label %._crit_edge
 
-43:                                               ; preds = %.lr.ph, %43
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !24
-  %46 = trunc i64 %45 to i8
-  %47 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %indvars.iv
-  store i8 %46, ptr %47, align 8, !tbaa !23
-  %48 = lshr i64 %45, 8
-  %49 = trunc i64 %48 to i8
-  %50 = or disjoint i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %50
-  store i8 %49, ptr %51, align 1, !tbaa !23
-  %52 = lshr i64 %45, 16
-  %53 = trunc i64 %52 to i8
-  %54 = or disjoint i64 %indvars.iv, 2
-  %55 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %54
-  store i8 %53, ptr %55, align 2, !tbaa !23
-  %56 = lshr i64 %45, 24
-  %57 = trunc i64 %56 to i8
-  %58 = or disjoint i64 %indvars.iv, 3
-  %59 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %58
-  store i8 %57, ptr %59, align 1, !tbaa !23
-  %60 = lshr i64 %45, 32
-  %61 = trunc i64 %60 to i8
-  %62 = or disjoint i64 %indvars.iv, 4
-  %63 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %62
-  store i8 %61, ptr %63, align 4, !tbaa !23
-  %64 = lshr i64 %45, 40
-  %65 = trunc i64 %64 to i8
-  %66 = or disjoint i64 %indvars.iv, 5
-  %67 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %66
-  store i8 %65, ptr %67, align 1, !tbaa !23
-  %68 = lshr i64 %45, 48
-  %69 = trunc i64 %68 to i8
-  %70 = or disjoint i64 %indvars.iv, 6
-  %71 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %70
-  store i8 %69, ptr %71, align 2, !tbaa !23
-  %72 = lshr i64 %45, 56
-  %73 = trunc nuw i64 %72 to i8
-  %74 = or disjoint i64 %indvars.iv, 7
-  %75 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %74
-  store i8 %73, ptr %75, align 1, !tbaa !23
+47:                                               ; preds = %.lr.ph, %47
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %76 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %76, label %43, label %.preheader, !llvm.loop !26
+  %48 = icmp slt i64 %indvars.iv.next, %42
+  br i1 %48, label %47, label %.preheader, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph136.preheader, %.preheader
-  %77 = load i8, ptr %13, align 16, !tbaa !23
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 1
-  %80 = and i32 %79, 254
-  %81 = lshr i32 %80, 7
-  %82 = sub nsw i32 0, %81
-  %83 = xor i32 %80, 255
-  %84 = and i32 %83, %82
-  %85 = icmp samesign ult i32 %80, 128
-  %86 = select i1 %85, i32 %80, i32 0
-  %87 = or i32 %84, %86
-  %88 = lshr i32 %87, 1
-  %89 = sub nsw i32 %87, %88
-  %90 = and i32 %82, 1
-  call void @ecp_nistz256_select_w7(ptr noundef nonnull %12, ptr noundef nonnull @ecp_nistz256_precomputed, i32 noundef %89) #6
-  %91 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %92 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @ecp_nistz256_neg(ptr noundef nonnull %91, ptr noundef nonnull %92) #6
-  %93 = zext nneg i32 %90 to i64
-  %94 = sub nsw i64 0, %93
-  %95 = add nsw i64 %93, -1
-  %96 = load i64, ptr %91, align 32, !tbaa !24
-  %97 = and i64 %96, %94
-  %98 = load i64, ptr %92, align 32, !tbaa !24
-  %99 = and i64 %95, %98
-  %100 = xor i64 %99, %97
-  store i64 %100, ptr %92, align 32, !tbaa !24
-  %101 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %102 = load i64, ptr %101, align 8, !tbaa !24
-  %103 = and i64 %102, %94
-  %104 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %105 = load i64, ptr %104, align 8, !tbaa !24
-  %106 = and i64 %105, %95
-  %107 = xor i64 %106, %103
-  store i64 %107, ptr %104, align 8, !tbaa !24
-  %108 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %109 = load i64, ptr %108, align 16, !tbaa !24
-  %110 = and i64 %109, %94
-  %111 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %112 = load i64, ptr %111, align 16, !tbaa !24
-  %113 = and i64 %112, %95
-  %114 = xor i64 %113, %110
-  store i64 %114, ptr %111, align 16, !tbaa !24
-  %115 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %116 = load i64, ptr %115, align 8, !tbaa !24
-  %117 = and i64 %116, %94
-  %118 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %119 = load i64, ptr %118, align 8, !tbaa !24
-  %120 = and i64 %119, %95
-  %121 = xor i64 %120, %117
-  store i64 %121, ptr %118, align 8, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %91, ptr noundef nonnull align 16 dereferenceable(32) @ONE, i64 32, i1 false)
-  %122 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %123 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %124 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %125 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %126 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %127 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %128 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %129 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  br label %130
+  %49 = load i8, ptr %13, align 16, !tbaa !23
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 1
+  %52 = and i32 %51, 254
+  %53 = lshr i32 %52, 7
+  %54 = sub nsw i32 0, %53
+  %55 = xor i32 %52, 255
+  %56 = and i32 %55, %54
+  %57 = icmp samesign ult i32 %52, 128
+  %58 = select i1 %57, i32 %52, i32 0
+  %59 = or i32 %56, %58
+  %60 = lshr i32 %59, 1
+  %61 = sub nsw i32 %59, %60
+  %62 = and i32 %54, 1
+  call void @ecp_nistz256_select_w7(ptr noundef nonnull %12, ptr noundef nonnull @ecp_nistz256_precomputed, i32 noundef %61) #7
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  call void @ecp_nistz256_neg(ptr noundef nonnull %63, ptr noundef nonnull %64) #7
+  %65 = zext nneg i32 %62 to i64
+  %66 = sub nsw i64 0, %65
+  %67 = add nsw i64 %65, -1
+  %68 = load i64, ptr %63, align 32, !tbaa !25
+  %69 = and i64 %68, %66
+  %70 = load i64, ptr %64, align 32, !tbaa !25
+  %71 = and i64 %67, %70
+  %72 = xor i64 %71, %69
+  store i64 %72, ptr %64, align 32, !tbaa !25
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %74 = load i64, ptr %73, align 8, !tbaa !25
+  %75 = and i64 %74, %66
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %77 = load i64, ptr %76, align 8, !tbaa !25
+  %78 = and i64 %77, %67
+  %79 = xor i64 %78, %75
+  store i64 %79, ptr %76, align 8, !tbaa !25
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %81 = load i64, ptr %80, align 16, !tbaa !25
+  %82 = and i64 %81, %66
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %84 = load i64, ptr %83, align 16, !tbaa !25
+  %85 = and i64 %84, %67
+  %86 = xor i64 %85, %82
+  store i64 %86, ptr %83, align 16, !tbaa !25
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %88 = load i64, ptr %87, align 8, !tbaa !25
+  %89 = and i64 %88, %66
+  %90 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %91 = load i64, ptr %90, align 8, !tbaa !25
+  %92 = and i64 %91, %67
+  %93 = xor i64 %92, %89
+  store i64 %93, ptr %90, align 8, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %63, ptr noundef nonnull align 16 dereferenceable(32) @ONE, i64 32, i1 false)
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  br label %102
 
-130:                                              ; preds = %._crit_edge, %130
-  %indvars.iv143 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next144, %130 ]
-  %.077138 = phi i32 [ 7, %._crit_edge ], [ %147, %130 ]
-  %131 = add nsw i32 %.077138, -1
-  %132 = lshr i32 %131, 3
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !23
-  %136 = zext i8 %135 to i32
-  %137 = add nuw nsw i32 %132, 1
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [33 x i8], ptr %13, i64 0, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !23
-  %141 = zext i8 %140 to i32
-  %142 = shl nuw nsw i32 %141, 8
-  %143 = or disjoint i32 %142, %136
-  %144 = and i32 %131, 7
-  %145 = lshr i32 %143, %144
-  %146 = and i32 %145, 255
-  %147 = add nuw nsw i32 %.077138, 7
-  %148 = lshr i32 %146, 7
-  %149 = sub nsw i32 0, %148
-  %150 = xor i32 %146, 255
-  %151 = and i32 %150, %149
-  %152 = icmp samesign ult i32 %146, 128
-  %153 = select i1 %152, i32 %146, i32 0
-  %154 = or i32 %151, %153
-  %155 = lshr i32 %154, 1
-  %156 = sub nsw i32 %154, %155
-  %157 = and i32 %149, 1
-  %158 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr @ecp_nistz256_precomputed, i64 %indvars.iv143
-  call void @ecp_nistz256_select_w7(ptr noundef nonnull %11, ptr noundef nonnull %158, i32 noundef %156) #6
-  call void @ecp_nistz256_neg(ptr noundef nonnull %122, ptr noundef nonnull %123) #6
-  %159 = zext nneg i32 %157 to i64
-  %160 = sub nsw i64 0, %159
-  %161 = add nsw i64 %159, -1
-  %162 = load i64, ptr %122, align 32, !tbaa !24
-  %163 = and i64 %162, %160
-  %164 = load i64, ptr %123, align 32, !tbaa !24
-  %165 = and i64 %161, %164
-  %166 = xor i64 %165, %163
-  store i64 %166, ptr %123, align 32, !tbaa !24
-  %167 = load i64, ptr %124, align 8, !tbaa !24
-  %168 = and i64 %167, %160
-  %169 = load i64, ptr %125, align 8, !tbaa !24
-  %170 = and i64 %161, %169
-  %171 = xor i64 %170, %168
-  store i64 %171, ptr %125, align 8, !tbaa !24
-  %172 = load i64, ptr %126, align 16, !tbaa !24
-  %173 = and i64 %172, %160
-  %174 = load i64, ptr %127, align 16, !tbaa !24
-  %175 = and i64 %174, %161
-  %176 = xor i64 %175, %173
-  store i64 %176, ptr %127, align 16, !tbaa !24
-  %177 = load i64, ptr %128, align 8, !tbaa !24
-  %178 = and i64 %177, %160
-  %179 = load i64, ptr %129, align 8, !tbaa !24
-  %180 = and i64 %179, %161
-  %181 = xor i64 %180, %178
-  store i64 %181, ptr %129, align 8, !tbaa !24
-  call void @ecp_nistz256_point_add_affine(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %11) #6
+102:                                              ; preds = %._crit_edge, %102
+  %indvars.iv143 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next144, %102 ]
+  %.077138 = phi i32 [ 7, %._crit_edge ], [ %112, %102 ]
+  %103 = add nsw i32 %.077138, -1
+  %104 = lshr i32 %103, 3
+  %105 = zext nneg i32 %104 to i64
+  %106 = getelementptr inbounds nuw i8, ptr %13, i64 %105
+  %107 = load i16, ptr %106, align 1
+  %108 = zext i16 %107 to i32
+  %109 = and i32 %103, 7
+  %110 = lshr i32 %108, %109
+  %111 = and i32 %110, 255
+  %112 = add nuw nsw i32 %.077138, 7
+  %113 = lshr i32 %111, 7
+  %114 = sub nsw i32 0, %113
+  %115 = xor i32 %111, 255
+  %116 = and i32 %115, %114
+  %117 = icmp samesign ult i32 %111, 128
+  %118 = select i1 %117, i32 %111, i32 0
+  %119 = or i32 %116, %118
+  %120 = lshr i32 %119, 1
+  %121 = sub nsw i32 %119, %120
+  %122 = and i32 %114, 1
+  %123 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr @ecp_nistz256_precomputed, i64 %indvars.iv143
+  call void @ecp_nistz256_select_w7(ptr noundef nonnull %11, ptr noundef nonnull %123, i32 noundef %121) #7
+  call void @ecp_nistz256_neg(ptr noundef nonnull %94, ptr noundef nonnull %95) #7
+  %124 = zext nneg i32 %122 to i64
+  %125 = sub nsw i64 0, %124
+  %126 = add nsw i64 %124, -1
+  %127 = load i64, ptr %94, align 32, !tbaa !25
+  %128 = and i64 %127, %125
+  %129 = load i64, ptr %95, align 32, !tbaa !25
+  %130 = and i64 %126, %129
+  %131 = xor i64 %130, %128
+  store i64 %131, ptr %95, align 32, !tbaa !25
+  %132 = load i64, ptr %96, align 8, !tbaa !25
+  %133 = and i64 %132, %125
+  %134 = load i64, ptr %97, align 8, !tbaa !25
+  %135 = and i64 %134, %126
+  %136 = xor i64 %135, %133
+  store i64 %136, ptr %97, align 8, !tbaa !25
+  %137 = load i64, ptr %98, align 16, !tbaa !25
+  %138 = and i64 %137, %125
+  %139 = load i64, ptr %99, align 16, !tbaa !25
+  %140 = and i64 %139, %126
+  %141 = xor i64 %140, %138
+  store i64 %141, ptr %99, align 16, !tbaa !25
+  %142 = load i64, ptr %100, align 8, !tbaa !25
+  %143 = and i64 %142, %125
+  %144 = load i64, ptr %101, align 8, !tbaa !25
+  %145 = and i64 %144, %126
+  %146 = xor i64 %145, %143
+  store i64 %146, ptr %101, align 8, !tbaa !25
+  call void @ecp_nistz256_point_add_affine(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %11) #7
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next144, 37
-  br i1 %exitcond.not, label %182, label %130, !llvm.loop !27
+  br i1 %exitcond.not, label %147, label %102, !llvm.loop !27
 
-182:                                              ; preds = %130
+147:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %183
+  br label %148
 
-183:                                              ; preds = %182, %6
-  %.088 = phi i1 [ %32, %182 ], [ true, %6 ]
-  %.084 = phi ptr [ %.185, %182 ], [ null, %6 ]
-  %.074 = phi ptr [ %.175, %182 ], [ %5, %6 ]
+148:                                              ; preds = %147, %6
+  %.088 = phi i1 [ %32, %147 ], [ true, %6 ]
+  %.084 = phi ptr [ %.185, %147 ], [ null, %6 ]
+  %.074 = phi ptr [ %.175, %147 ], [ %5, %6 ]
   %.not101 = icmp eq ptr %4, null
-  br i1 %.not101, label %395, label %184
+  br i1 %.not101, label %326, label %149
 
-184:                                              ; preds = %183
+149:                                              ; preds = %148
   %spec.store.select = select i1 %.not, ptr %12, ptr %11
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %185 = call i32 @BN_num_bits(ptr noundef nonnull %4) #6
-  %186 = icmp ugt i32 %185, 256
-  br i1 %186, label %189, label %187
+  %150 = call i32 @BN_num_bits(ptr noundef nonnull %4) #7
+  %151 = icmp ugt i32 %150, 256
+  br i1 %151, label %154, label %152
 
-187:                                              ; preds = %184
-  %188 = call i32 @BN_is_negative(ptr noundef nonnull %4) #6
-  %.not.i = icmp eq i32 %188, 0
-  br i1 %.not.i, label %202, label %189
+152:                                              ; preds = %149
+  %153 = call i32 @BN_is_negative(ptr noundef nonnull %4) #7
+  %.not.i = icmp eq i32 %153, 0
+  br i1 %.not.i, label %167, label %154
 
-189:                                              ; preds = %187, %184
-  %190 = icmp eq ptr %.074, null
-  br i1 %190, label %191, label %194
+154:                                              ; preds = %152, %149
+  %155 = icmp eq ptr %.074, null
+  br i1 %155, label %156, label %159
 
-191:                                              ; preds = %189
-  %192 = call ptr @BN_CTX_new() #6
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %.thread, label %194
+156:                                              ; preds = %154
+  %157 = call ptr @BN_CTX_new() #7
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %.thread, label %159
 
-.thread:                                          ; preds = %191
-  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 249) #6
-  call void @BN_CTX_free(ptr noundef null) #6
+.thread:                                          ; preds = %156
+  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 249) #7
+  call void @BN_CTX_free(ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %406
+  br label %337
 
-194:                                              ; preds = %191, %189
-  %.1132.i = phi ptr [ null, %189 ], [ %192, %191 ]
-  %.1124.i = phi ptr [ %.074, %189 ], [ %192, %191 ]
-  call void @BN_CTX_start(ptr noundef nonnull %.1124.i) #6
-  %195 = call ptr @BN_CTX_get(ptr noundef nonnull %.1124.i) #6
-  %196 = icmp eq ptr %195, null
-  br i1 %196, label %197, label %198
+159:                                              ; preds = %156, %154
+  %.1132.i = phi ptr [ null, %154 ], [ %157, %156 ]
+  %.1124.i = phi ptr [ %.074, %154 ], [ %157, %156 ]
+  call void @BN_CTX_start(ptr noundef nonnull %.1124.i) #7
+  %160 = call ptr @BN_CTX_get(ptr noundef nonnull %.1124.i) #7
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %162, label %163
 
-197:                                              ; preds = %194
-  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 258) #6
+162:                                              ; preds = %159
+  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 258) #7
   br label %.thread167.i
 
-198:                                              ; preds = %194
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %200 = call i32 @BN_nnmod(ptr noundef nonnull %195, ptr noundef nonnull %4, ptr noundef nonnull %199, ptr noundef nonnull %.1124.i) #6
-  %.not139.i = icmp eq i32 %200, 0
-  br i1 %.not139.i, label %201, label %202
+163:                                              ; preds = %159
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %165 = call i32 @BN_nnmod(ptr noundef nonnull %160, ptr noundef nonnull %4, ptr noundef nonnull %164, ptr noundef nonnull %.1124.i) #7
+  %.not139.i = icmp eq i32 %165, 0
+  br i1 %.not139.i, label %166, label %167
 
-201:                                              ; preds = %198
-  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 262) #6
+166:                                              ; preds = %163
+  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 262) #7
   br label %.thread167.i
 
-202:                                              ; preds = %198, %187
-  %.0131.i = phi ptr [ null, %187 ], [ %.1132.i, %198 ]
-  %.not144.i = phi i1 [ true, %187 ], [ false, %198 ]
-  %.0123.i = phi ptr [ %.074, %187 ], [ %.1124.i, %198 ]
-  %.0122.i = phi ptr [ %4, %187 ], [ %195, %198 ]
-  %203 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 8
-  %204 = load i32, ptr %203, align 8, !tbaa !6
-  %205 = icmp sgt i32 %204, 0
-  br i1 %205, label %.lr.ph.i, label %.lr.ph178.preheader.i
+167:                                              ; preds = %163, %152
+  %.0131.i = phi ptr [ null, %152 ], [ %.1132.i, %163 ]
+  %.not144.i = phi i1 [ true, %152 ], [ false, %163 ]
+  %.0123.i = phi ptr [ %.074, %152 ], [ %.1124.i, %163 ]
+  %.0122.i = phi ptr [ %4, %152 ], [ %160, %163 ]
+  %168 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 8
+  %169 = load i32, ptr %168, align 8, !tbaa !6
+  %170 = icmp sgt i32 %169, 0
+  br i1 %170, label %.lr.ph.i, label %.lr.ph178.preheader.i
 
-.lr.ph.i:                                         ; preds = %202
-  %206 = shl nsw i32 %204, 3
-  %207 = load ptr, ptr %.0122.i, align 8, !tbaa !13
-  %208 = zext nneg i32 %206 to i64
-  br label %213
+.lr.ph.i:                                         ; preds = %167
+  %171 = shl i32 %169, 3
+  %172 = load ptr, ptr %.0122.i, align 8, !tbaa !13
+  %smax.i = call i32 @llvm.smax.i32(i32 %171, i32 8)
+  %173 = zext nneg i32 %smax.i to i64
+  %174 = add nsw i64 %173, -1
+  %175 = and i64 %174, -8
+  %176 = add nuw nsw i64 %175, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %172, i64 %176, i1 false)
+  %177 = call i32 @llvm.smax.i32(i32 %171, i32 8)
+  %smax146 = zext nneg i32 %177 to i64
+  %178 = add nsw i64 %smax146, -1
+  %179 = and i64 %178, -8
+  %180 = trunc nuw nsw i64 %179 to i32
+  %181 = add nuw i32 %180, 8
+  %182 = icmp samesign ult i64 %179, 25
+  br i1 %182, label %.lr.ph178.preheader.i, label %._crit_edge.i
 
-.preheader.i:                                     ; preds = %213
-  %209 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %210 = icmp samesign ult i64 %indvars.iv.i, 25
-  br i1 %210, label %.lr.ph178.preheader.i, label %._crit_edge.i
-
-.lr.ph178.preheader.i:                            ; preds = %.preheader.i, %202
-  %.0125.lcssa191.i = phi i32 [ %209, %.preheader.i ], [ 0, %202 ]
-  %211 = zext nneg i32 %.0125.lcssa191.i to i64
-  %scevgep.i = getelementptr i8, ptr %8, i64 %211
+.lr.ph178.preheader.i:                            ; preds = %.lr.ph.i, %167
+  %.0125.lcssa191.i = phi i32 [ %181, %.lr.ph.i ], [ 0, %167 ]
+  %183 = zext nneg i32 %.0125.lcssa191.i to i64
+  %scevgep.i = getelementptr i8, ptr %8, i64 %183
   %narrow.i = sub nuw nsw i32 33, %.0125.lcssa191.i
-  %212 = zext nneg i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %212, i1 false), !tbaa !23
+  %184 = zext nneg i32 %narrow.i to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %184, i1 false), !tbaa !23
   br label %._crit_edge.i
 
-213:                                              ; preds = %213, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %213 ]
-  %214 = getelementptr inbounds nuw i8, ptr %207, i64 %indvars.iv.i
-  %215 = load i64, ptr %214, align 8, !tbaa !24
-  %216 = trunc i64 %215 to i8
-  %217 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %indvars.iv.i
-  store i8 %216, ptr %217, align 8, !tbaa !23
-  %218 = lshr i64 %215, 8
-  %219 = trunc i64 %218 to i8
-  %220 = or disjoint i64 %indvars.iv.i, 1
-  %221 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %220
-  store i8 %219, ptr %221, align 1, !tbaa !23
-  %222 = lshr i64 %215, 16
-  %223 = trunc i64 %222 to i8
-  %224 = or disjoint i64 %indvars.iv.i, 2
-  %225 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %224
-  store i8 %223, ptr %225, align 2, !tbaa !23
-  %226 = lshr i64 %215, 24
-  %227 = trunc i64 %226 to i8
-  %228 = or disjoint i64 %indvars.iv.i, 3
-  %229 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %228
-  store i8 %227, ptr %229, align 1, !tbaa !23
-  %230 = lshr i64 %215, 32
-  %231 = trunc i64 %230 to i8
-  %232 = or disjoint i64 %indvars.iv.i, 4
-  %233 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %232
-  store i8 %231, ptr %233, align 4, !tbaa !23
-  %234 = lshr i64 %215, 40
-  %235 = trunc i64 %234 to i8
-  %236 = or disjoint i64 %indvars.iv.i, 5
-  %237 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %236
-  store i8 %235, ptr %237, align 1, !tbaa !23
-  %238 = lshr i64 %215, 48
-  %239 = trunc i64 %238 to i8
-  %240 = or disjoint i64 %indvars.iv.i, 6
-  %241 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %240
-  store i8 %239, ptr %241, align 2, !tbaa !23
-  %242 = lshr i64 %215, 56
-  %243 = trunc nuw i64 %242 to i8
-  %244 = or disjoint i64 %indvars.iv.i, 7
-  %245 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %244
-  store i8 %243, ptr %245, align 1, !tbaa !23
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %246 = icmp samesign ult i64 %indvars.iv.next.i, %208
-  br i1 %246, label %213, label %.preheader.i, !llvm.loop !28
+._crit_edge.i:                                    ; preds = %.lr.ph178.preheader.i, %.lr.ph.i
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %186 = load i32, ptr %185, align 8, !tbaa !6
+  %187 = icmp sgt i32 %186, 4
+  br i1 %187, label %ecp_nistz256_bignum_to_field_elem.exit.thread.i, label %188
 
-._crit_edge.i:                                    ; preds = %.lr.ph178.preheader.i, %.preheader.i
-  %247 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %248 = load i32, ptr %247, align 8, !tbaa !6
-  %249 = icmp sgt i32 %248, 4
-  br i1 %249, label %ecp_nistz256_bignum_to_field_elem.exit.thread.i, label %250
-
-250:                                              ; preds = %._crit_edge.i
-  %251 = getelementptr inbounds nuw i8, ptr %3, i64 8
+188:                                              ; preds = %._crit_edge.i
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %252 = load ptr, ptr %251, align 8, !tbaa !13
-  %253 = sext i32 %248 to i64
-  %254 = shl nsw i64 %253, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %7, ptr align 8 %252, i64 %254, i1 false)
-  %255 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %256 = load i32, ptr %255, align 8, !tbaa !6
-  %257 = icmp sgt i32 %256, 4
-  br i1 %257, label %ecp_nistz256_bignum_to_field_elem.exit.thread.i, label %258
+  %190 = load ptr, ptr %189, align 8, !tbaa !13
+  %191 = sext i32 %186 to i64
+  %192 = shl nsw i64 %191, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %7, ptr align 8 %190, i64 %192, i1 false)
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %194 = load i32, ptr %193, align 8, !tbaa !6
+  %195 = icmp sgt i32 %194, 4
+  br i1 %195, label %ecp_nistz256_bignum_to_field_elem.exit.thread.i, label %196
 
-258:                                              ; preds = %250
-  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %260 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %260, i8 0, i64 32, i1 false)
-  %261 = load ptr, ptr %259, align 8, !tbaa !13
-  %262 = sext i32 %256 to i64
-  %263 = shl nsw i64 %262, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %260, ptr align 8 %261, i64 %263, i1 false)
-  %264 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %265 = load i32, ptr %264, align 8, !tbaa !6
-  %266 = icmp sgt i32 %265, 4
-  br i1 %266, label %ecp_nistz256_bignum_to_field_elem.exit.thread.i, label %267
+196:                                              ; preds = %188
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %198, i8 0, i64 32, i1 false)
+  %199 = load ptr, ptr %197, align 8, !tbaa !13
+  %200 = sext i32 %194 to i64
+  %201 = shl nsw i64 %200, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %198, ptr align 8 %199, i64 %201, i1 false)
+  %202 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %203 = load i32, ptr %202, align 8, !tbaa !6
+  %204 = icmp sgt i32 %203, 4
+  br i1 %204, label %ecp_nistz256_bignum_to_field_elem.exit.thread.i, label %205
 
-ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %258, %250, %._crit_edge.i
-  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 297) #6
-  br label %393
+ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %196, %188, %._crit_edge.i
+  call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 297) #7
+  br label %324
 
-267:                                              ; preds = %258
-  %268 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %269 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %269, i8 0, i64 32, i1 false)
-  %270 = load ptr, ptr %268, align 8, !tbaa !13
-  %271 = sext i32 %265 to i64
-  %272 = shl nsw i64 %271, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %269, ptr align 8 %270, i64 %272, i1 false)
-  %273 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %273, ptr noundef nonnull %7) #6
-  %274 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %274, ptr noundef nonnull %273, ptr noundef nonnull %7) #6
-  %275 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %275, ptr noundef nonnull %273) #6
-  %276 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %276, ptr noundef nonnull %274) #6
-  %277 = getelementptr inbounds nuw i8, ptr %7, i64 672
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %277, ptr noundef nonnull %275) #6
-  %278 = getelementptr inbounds nuw i8, ptr %7, i64 1056
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %278, ptr noundef nonnull %276) #6
-  %279 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %279, ptr noundef nonnull %275, ptr noundef nonnull %7) #6
-  %280 = getelementptr inbounds nuw i8, ptr %7, i64 576
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %280, ptr noundef nonnull %276, ptr noundef nonnull %7) #6
-  %281 = getelementptr inbounds nuw i8, ptr %7, i64 768
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %281, ptr noundef nonnull %277, ptr noundef nonnull %7) #6
-  %282 = getelementptr inbounds nuw i8, ptr %7, i64 1152
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %282, ptr noundef nonnull %278, ptr noundef nonnull %7) #6
-  %283 = getelementptr inbounds nuw i8, ptr %7, i64 1248
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %283, ptr noundef nonnull %280) #6
-  %284 = getelementptr inbounds nuw i8, ptr %7, i64 864
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %284, ptr noundef nonnull %279) #6
-  %285 = getelementptr inbounds nuw i8, ptr %7, i64 1344
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %285, ptr noundef nonnull %283, ptr noundef nonnull %7) #6
-  %286 = getelementptr inbounds nuw i8, ptr %7, i64 960
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %286, ptr noundef nonnull %284, ptr noundef nonnull %7) #6
-  %287 = getelementptr inbounds nuw i8, ptr %7, i64 1440
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %287, ptr noundef nonnull %285, ptr noundef nonnull %7) #6
-  %288 = getelementptr inbounds nuw i8, ptr %8, i64 31
-  %289 = load i8, ptr %288, align 1, !tbaa !23
-  %290 = lshr i8 %289, 6
-  %291 = zext nneg i8 %290 to i32
-  %292 = lshr i32 %291, 1
-  %293 = sub nsw i32 %291, %292
-  call void @ecp_nistz256_select_w5(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %7, i32 noundef %293) #6
-  %294 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %295 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %296 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %297 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %298 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %299 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %300 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  br label %301
+205:                                              ; preds = %196
+  %206 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %207 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %207, i8 0, i64 32, i1 false)
+  %208 = load ptr, ptr %206, align 8, !tbaa !13
+  %209 = sext i32 %203 to i64
+  %210 = shl nsw i64 %209, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %207, ptr align 8 %208, i64 %210, i1 false)
+  %211 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %211, ptr noundef nonnull %7) #7
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %212, ptr noundef nonnull %211, ptr noundef nonnull %7) #7
+  %213 = getelementptr inbounds nuw i8, ptr %7, i64 288
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %213, ptr noundef nonnull %211) #7
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 480
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %214, ptr noundef nonnull %212) #7
+  %215 = getelementptr inbounds nuw i8, ptr %7, i64 672
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %215, ptr noundef nonnull %213) #7
+  %216 = getelementptr inbounds nuw i8, ptr %7, i64 1056
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %216, ptr noundef nonnull %214) #7
+  %217 = getelementptr inbounds nuw i8, ptr %7, i64 384
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %217, ptr noundef nonnull %213, ptr noundef nonnull %7) #7
+  %218 = getelementptr inbounds nuw i8, ptr %7, i64 576
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %218, ptr noundef nonnull %214, ptr noundef nonnull %7) #7
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 768
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %219, ptr noundef nonnull %215, ptr noundef nonnull %7) #7
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 1152
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %220, ptr noundef nonnull %216, ptr noundef nonnull %7) #7
+  %221 = getelementptr inbounds nuw i8, ptr %7, i64 1248
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %221, ptr noundef nonnull %218) #7
+  %222 = getelementptr inbounds nuw i8, ptr %7, i64 864
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %222, ptr noundef nonnull %217) #7
+  %223 = getelementptr inbounds nuw i8, ptr %7, i64 1344
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %223, ptr noundef nonnull %221, ptr noundef nonnull %7) #7
+  %224 = getelementptr inbounds nuw i8, ptr %7, i64 960
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %224, ptr noundef nonnull %222, ptr noundef nonnull %7) #7
+  %225 = getelementptr inbounds nuw i8, ptr %7, i64 1440
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %225, ptr noundef nonnull %223, ptr noundef nonnull %7) #7
+  %226 = getelementptr inbounds nuw i8, ptr %8, i64 31
+  %227 = load i8, ptr %226, align 1, !tbaa !23
+  %228 = lshr i8 %227, 6
+  %229 = zext nneg i8 %228 to i32
+  %230 = lshr i32 %229, 1
+  %231 = sub nsw i32 %229, %230
+  call void @ecp_nistz256_select_w5(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %7, i32 noundef %231) #7
+  %232 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %233 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %237 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  br label %239
 
-301:                                              ; preds = %352, %267
-  %.0121179.i = phi i32 [ 255, %267 ], [ %353, %352 ]
+239:                                              ; preds = %283, %205
+  %.0121179.i = phi i32 [ 255, %205 ], [ %284, %283 ]
   %.not143.i = icmp eq i32 %.0121179.i, 255
-  br i1 %.not143.i, label %352, label %302
+  br i1 %.not143.i, label %283, label %240
 
-302:                                              ; preds = %301
-  %303 = add nsw i32 %.0121179.i, -1
-  %304 = lshr i32 %303, 3
-  %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %305
-  %307 = load i8, ptr %306, align 1, !tbaa !23
-  %308 = zext i8 %307 to i32
-  %309 = add nuw nsw i32 %304, 1
-  %310 = zext nneg i32 %309 to i64
-  %311 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %310
-  %312 = load i8, ptr %311, align 1, !tbaa !23
-  %313 = zext i8 %312 to i32
-  %314 = shl nuw nsw i32 %313, 8
-  %315 = or disjoint i32 %314, %308
-  %316 = and i32 %303, 7
-  %317 = lshr i32 %315, %316
-  %318 = and i32 %317, 63
-  %319 = lshr i32 %318, 5
-  %320 = sub nsw i32 0, %319
-  %321 = xor i32 %318, 63
-  %322 = and i32 %321, %320
-  %323 = icmp samesign ult i32 %318, 32
-  %324 = select i1 %323, i32 %318, i32 0
-  %325 = or i32 %322, %324
-  %326 = lshr i32 %325, 1
-  %327 = sub nsw i32 %325, %326
-  %328 = and i32 %320, 1
-  call void @ecp_nistz256_select_w5(ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef %327) #6
-  call void @ecp_nistz256_neg(ptr noundef nonnull %9, ptr noundef nonnull %294) #6
-  %329 = zext nneg i32 %328 to i64
-  %330 = sub nsw i64 0, %329
-  %331 = add nsw i64 %329, -1
-  %332 = load i64, ptr %9, align 16, !tbaa !24
-  %333 = and i64 %332, %330
-  %334 = load i64, ptr %294, align 32, !tbaa !24
-  %335 = and i64 %331, %334
-  %336 = xor i64 %335, %333
-  store i64 %336, ptr %294, align 32, !tbaa !24
-  %337 = load i64, ptr %295, align 8, !tbaa !24
-  %338 = and i64 %337, %330
-  %339 = load i64, ptr %296, align 8, !tbaa !24
-  %340 = and i64 %331, %339
-  %341 = xor i64 %340, %338
-  store i64 %341, ptr %296, align 8, !tbaa !24
-  %342 = load i64, ptr %297, align 16, !tbaa !24
-  %343 = and i64 %342, %330
-  %344 = load i64, ptr %298, align 16, !tbaa !24
-  %345 = and i64 %344, %331
-  %346 = xor i64 %345, %343
-  store i64 %346, ptr %298, align 16, !tbaa !24
-  %347 = load i64, ptr %299, align 8, !tbaa !24
-  %348 = and i64 %347, %330
-  %349 = load i64, ptr %300, align 8, !tbaa !24
-  %350 = and i64 %349, %331
-  %351 = xor i64 %350, %348
-  store i64 %351, ptr %300, align 8, !tbaa !24
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %10) #6
-  br label %352
+240:                                              ; preds = %239
+  %241 = add nsw i32 %.0121179.i, -1
+  %242 = lshr i32 %241, 3
+  %243 = zext nneg i32 %242 to i64
+  %244 = getelementptr inbounds nuw i8, ptr %8, i64 %243
+  %245 = load i16, ptr %244, align 1
+  %246 = zext i16 %245 to i32
+  %247 = and i32 %241, 7
+  %248 = lshr i32 %246, %247
+  %249 = and i32 %248, 63
+  %250 = lshr i32 %249, 5
+  %251 = sub nsw i32 0, %250
+  %252 = xor i32 %249, 63
+  %253 = and i32 %252, %251
+  %254 = icmp samesign ult i32 %249, 32
+  %255 = select i1 %254, i32 %249, i32 0
+  %256 = or i32 %253, %255
+  %257 = lshr i32 %256, 1
+  %258 = sub nsw i32 %256, %257
+  %259 = and i32 %251, 1
+  call void @ecp_nistz256_select_w5(ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef %258) #7
+  call void @ecp_nistz256_neg(ptr noundef nonnull %9, ptr noundef nonnull %232) #7
+  %260 = zext nneg i32 %259 to i64
+  %261 = sub nsw i64 0, %260
+  %262 = add nsw i64 %260, -1
+  %263 = load i64, ptr %9, align 16, !tbaa !25
+  %264 = and i64 %263, %261
+  %265 = load i64, ptr %232, align 32, !tbaa !25
+  %266 = and i64 %262, %265
+  %267 = xor i64 %266, %264
+  store i64 %267, ptr %232, align 32, !tbaa !25
+  %268 = load i64, ptr %233, align 8, !tbaa !25
+  %269 = and i64 %268, %261
+  %270 = load i64, ptr %234, align 8, !tbaa !25
+  %271 = and i64 %270, %262
+  %272 = xor i64 %271, %269
+  store i64 %272, ptr %234, align 8, !tbaa !25
+  %273 = load i64, ptr %235, align 16, !tbaa !25
+  %274 = and i64 %273, %261
+  %275 = load i64, ptr %236, align 16, !tbaa !25
+  %276 = and i64 %275, %262
+  %277 = xor i64 %276, %274
+  store i64 %277, ptr %236, align 16, !tbaa !25
+  %278 = load i64, ptr %237, align 8, !tbaa !25
+  %279 = and i64 %278, %261
+  %280 = load i64, ptr %238, align 8, !tbaa !25
+  %281 = and i64 %280, %262
+  %282 = xor i64 %281, %279
+  store i64 %282, ptr %238, align 8, !tbaa !25
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %10) #7
+  br label %283
 
-352:                                              ; preds = %302, %301
-  %353 = add nsw i32 %.0121179.i, -5
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #6
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #6
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #6
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #6
-  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #6
-  %354 = icmp ugt i32 %353, 4
-  br i1 %354, label %301, label %355, !llvm.loop !29
+283:                                              ; preds = %240, %239
+  %284 = add nsw i32 %.0121179.i, -5
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
+  call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
+  %285 = icmp ugt i32 %284, 4
+  br i1 %285, label %239, label %286, !llvm.loop !28
 
-355:                                              ; preds = %352
-  %356 = load i8, ptr %8, align 16, !tbaa !23
-  %357 = zext i8 %356 to i32
-  %358 = shl nuw nsw i32 %357, 1
-  %359 = and i32 %358, 62
-  %360 = lshr i32 %359, 5
-  %361 = sub nsw i32 0, %360
-  %362 = xor i32 %359, 63
-  %363 = and i32 %362, %361
-  %364 = icmp samesign ult i32 %359, 32
-  %365 = select i1 %364, i32 %359, i32 0
-  %366 = or i32 %363, %365
-  %367 = lshr i32 %366, 1
-  %368 = sub nsw i32 %366, %367
-  %369 = and i32 %361, 1
-  call void @ecp_nistz256_select_w5(ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef %368) #6
-  call void @ecp_nistz256_neg(ptr noundef nonnull %9, ptr noundef nonnull %294) #6
-  %370 = zext nneg i32 %369 to i64
-  %371 = sub nsw i64 0, %370
-  %372 = add nsw i64 %370, -1
-  %373 = load i64, ptr %9, align 16, !tbaa !24
-  %374 = and i64 %373, %371
-  %375 = load i64, ptr %294, align 32, !tbaa !24
-  %376 = and i64 %372, %375
-  %377 = xor i64 %376, %374
-  store i64 %377, ptr %294, align 32, !tbaa !24
-  %378 = load i64, ptr %295, align 8, !tbaa !24
-  %379 = and i64 %378, %371
-  %380 = load i64, ptr %296, align 8, !tbaa !24
-  %381 = and i64 %380, %372
-  %382 = xor i64 %381, %379
-  store i64 %382, ptr %296, align 8, !tbaa !24
-  %383 = load i64, ptr %297, align 16, !tbaa !24
-  %384 = and i64 %383, %371
-  %385 = load i64, ptr %298, align 16, !tbaa !24
-  %386 = and i64 %385, %372
-  %387 = xor i64 %386, %384
-  store i64 %387, ptr %298, align 16, !tbaa !24
-  %388 = load i64, ptr %299, align 8, !tbaa !24
-  %389 = and i64 %388, %371
-  %390 = load i64, ptr %300, align 8, !tbaa !24
-  %391 = and i64 %390, %372
-  %392 = xor i64 %391, %389
-  store i64 %392, ptr %300, align 8, !tbaa !24
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %10) #6
-  br label %393
+286:                                              ; preds = %283
+  %287 = load i8, ptr %8, align 16, !tbaa !23
+  %288 = zext i8 %287 to i32
+  %289 = shl nuw nsw i32 %288, 1
+  %290 = and i32 %289, 62
+  %291 = lshr i32 %290, 5
+  %292 = sub nsw i32 0, %291
+  %293 = xor i32 %290, 63
+  %294 = and i32 %293, %292
+  %295 = icmp samesign ult i32 %290, 32
+  %296 = select i1 %295, i32 %290, i32 0
+  %297 = or i32 %294, %296
+  %298 = lshr i32 %297, 1
+  %299 = sub nsw i32 %297, %298
+  %300 = and i32 %292, 1
+  call void @ecp_nistz256_select_w5(ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef %299) #7
+  call void @ecp_nistz256_neg(ptr noundef nonnull %9, ptr noundef nonnull %232) #7
+  %301 = zext nneg i32 %300 to i64
+  %302 = sub nsw i64 0, %301
+  %303 = add nsw i64 %301, -1
+  %304 = load i64, ptr %9, align 16, !tbaa !25
+  %305 = and i64 %304, %302
+  %306 = load i64, ptr %232, align 32, !tbaa !25
+  %307 = and i64 %303, %306
+  %308 = xor i64 %307, %305
+  store i64 %308, ptr %232, align 32, !tbaa !25
+  %309 = load i64, ptr %233, align 8, !tbaa !25
+  %310 = and i64 %309, %302
+  %311 = load i64, ptr %234, align 8, !tbaa !25
+  %312 = and i64 %311, %303
+  %313 = xor i64 %312, %310
+  store i64 %313, ptr %234, align 8, !tbaa !25
+  %314 = load i64, ptr %235, align 16, !tbaa !25
+  %315 = and i64 %314, %302
+  %316 = load i64, ptr %236, align 16, !tbaa !25
+  %317 = and i64 %316, %303
+  %318 = xor i64 %317, %315
+  store i64 %318, ptr %236, align 16, !tbaa !25
+  %319 = load i64, ptr %237, align 8, !tbaa !25
+  %320 = and i64 %319, %302
+  %321 = load i64, ptr %238, align 8, !tbaa !25
+  %322 = and i64 %321, %303
+  %323 = xor i64 %322, %320
+  store i64 %323, ptr %238, align 8, !tbaa !25
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %10) #7
+  br label %324
 
-393:                                              ; preds = %355, %ecp_nistz256_bignum_to_field_elem.exit.thread.i
-  %.0128.i = phi i32 [ 1, %355 ], [ 0, %ecp_nistz256_bignum_to_field_elem.exit.thread.i ]
+324:                                              ; preds = %286, %ecp_nistz256_bignum_to_field_elem.exit.thread.i
+  %.0128.i = phi i32 [ 1, %286 ], [ 0, %ecp_nistz256_bignum_to_field_elem.exit.thread.i ]
   br i1 %.not144.i, label %ecp_nistz256_windowed_mul.exit, label %.thread167.i
 
-.thread167.i:                                     ; preds = %393, %201, %197
-  %.2175.i = phi ptr [ %.0123.i, %393 ], [ %.1124.i, %201 ], [ %.1124.i, %197 ]
-  %.0128174.i = phi i32 [ %.0128.i, %393 ], [ 0, %201 ], [ 0, %197 ]
-  %.2133173.i = phi ptr [ %.0131.i, %393 ], [ %.1132.i, %201 ], [ %.1132.i, %197 ]
-  call void @BN_CTX_end(ptr noundef %.2175.i) #6
+.thread167.i:                                     ; preds = %324, %166, %162
+  %.2175.i = phi ptr [ %.0123.i, %324 ], [ %.1124.i, %166 ], [ %.1124.i, %162 ]
+  %.0128174.i = phi i32 [ %.0128.i, %324 ], [ 0, %166 ], [ 0, %162 ]
+  %.2133173.i = phi ptr [ %.0131.i, %324 ], [ %.1132.i, %166 ], [ %.1132.i, %162 ]
+  call void @BN_CTX_end(ptr noundef %.2175.i) #7
   br label %ecp_nistz256_windowed_mul.exit
 
-ecp_nistz256_windowed_mul.exit:                   ; preds = %393, %.thread167.i
-  %.0128166.i = phi i32 [ %.0128174.i, %.thread167.i ], [ %.0128.i, %393 ]
-  %.2133165.i = phi ptr [ %.2133173.i, %.thread167.i ], [ %.0131.i, %393 ]
-  call void @BN_CTX_free(ptr noundef %.2133165.i) #6
+ecp_nistz256_windowed_mul.exit:                   ; preds = %324, %.thread167.i
+  %.0128166.i = phi i32 [ %.0128174.i, %.thread167.i ], [ %.0128.i, %324 ]
+  %.2133165.i = phi ptr [ %.2133173.i, %.thread167.i ], [ %.0131.i, %324 ]
+  call void @BN_CTX_free(ptr noundef %.2133165.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not102 = icmp eq i32 %.0128166.i, 0
   %brmerge = or i1 %.not, %.not102
-  br i1 %brmerge, label %394, label %.thread114
+  br i1 %brmerge, label %325, label %.thread114
 
 .thread114:                                       ; preds = %ecp_nistz256_windowed_mul.exit
-  call void @ecp_nistz256_point_add(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %11) #6
-  br label %395
+  call void @ecp_nistz256_point_add(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %11) #7
+  br label %326
 
-394:                                              ; preds = %ecp_nistz256_windowed_mul.exit
-  br i1 %.not102, label %406, label %395
+325:                                              ; preds = %ecp_nistz256_windowed_mul.exit
+  br i1 %.not102, label %337, label %326
 
-395:                                              ; preds = %.thread114, %394, %183
-  %396 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %397 = call i32 @bn_set_words(ptr noundef nonnull %396, ptr noundef nonnull %12, i64 noundef 4) #6
-  %.not103 = icmp eq i32 %397, 0
-  br i1 %.not103, label %407, label %398
+326:                                              ; preds = %.thread114, %325, %148
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %328 = call i32 @bn_set_words(ptr noundef nonnull %327, ptr noundef nonnull %12, i64 noundef 4) #7
+  %.not103 = icmp eq i32 %328, 0
+  br i1 %.not103, label %338, label %329
 
-398:                                              ; preds = %395
-  %399 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %400 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %401 = call i32 @bn_set_words(ptr noundef nonnull %399, ptr noundef nonnull %400, i64 noundef 4) #6
-  %.not104 = icmp eq i32 %401, 0
-  br i1 %.not104, label %407, label %402
+329:                                              ; preds = %326
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %331 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %332 = call i32 @bn_set_words(ptr noundef nonnull %330, ptr noundef nonnull %331, i64 noundef 4) #7
+  %.not104 = icmp eq i32 %332, 0
+  br i1 %.not104, label %338, label %333
 
-402:                                              ; preds = %398
-  %403 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %404 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %405 = call i32 @bn_set_words(ptr noundef nonnull %403, ptr noundef nonnull %404, i64 noundef 4) #6
-  %.not105 = icmp eq i32 %405, 0
-  br i1 %.not105, label %407, label %406
+333:                                              ; preds = %329
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %335 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %336 = call i32 @bn_set_words(ptr noundef nonnull %334, ptr noundef nonnull %335, i64 noundef 4) #7
+  %.not105 = icmp eq i32 %336, 0
+  br i1 %.not105, label %338, label %337
 
-406:                                              ; preds = %.thread, %402, %394
-  %.078 = phi i32 [ 0, %394 ], [ 1, %402 ], [ 0, %.thread ]
+337:                                              ; preds = %.thread, %333, %325
+  %.078 = phi i32 [ 0, %325 ], [ 1, %333 ], [ 0, %.thread ]
   br i1 %.088, label %.thread117, label %.thread125
 
-.thread125:                                       ; preds = %30, %24, %406
-  %.3133 = phi ptr [ %.074, %406 ], [ %.276, %24 ], [ %.276, %30 ]
-  %.078132 = phi i32 [ %.078, %406 ], [ 0, %24 ], [ 0, %30 ]
-  %.387131 = phi ptr [ %.084, %406 ], [ %.286, %24 ], [ %.286, %30 ]
-  call void @BN_CTX_end(ptr noundef %.3133) #6
+.thread125:                                       ; preds = %30, %24, %337
+  %.3133 = phi ptr [ %.074, %337 ], [ %.276, %24 ], [ %.276, %30 ]
+  %.078132 = phi i32 [ %.078, %337 ], [ 0, %24 ], [ 0, %30 ]
+  %.387131 = phi ptr [ %.084, %337 ], [ %.286, %24 ], [ %.286, %30 ]
+  call void @BN_CTX_end(ptr noundef %.3133) #7
   br label %.thread117
 
-.thread117:                                       ; preds = %21, %.thread125, %406
-  %.078124 = phi i32 [ %.078132, %.thread125 ], [ %.078, %406 ], [ 0, %21 ]
-  %.387123 = phi ptr [ %.387131, %.thread125 ], [ %.084, %406 ], [ null, %21 ]
-  call void @BN_CTX_free(ptr noundef %.387123) #6
-  br label %407
+.thread117:                                       ; preds = %21, %.thread125, %337
+  %.078124 = phi i32 [ %.078132, %.thread125 ], [ %.078, %337 ], [ 0, %21 ]
+  %.387123 = phi ptr [ %.387131, %.thread125 ], [ %.084, %337 ], [ null, %21 ]
+  call void @BN_CTX_free(ptr noundef %.387123) #7
+  br label %338
 
-407:                                              ; preds = %395, %398, %402, %.thread117
-  %.0 = phi i32 [ %.078124, %.thread117 ], [ 0, %402 ], [ 0, %398 ], [ 0, %395 ]
+338:                                              ; preds = %326, %329, %333, %.thread117
+  %.0 = phi i32 [ %.078124, %.thread117 ], [ 0, %333 ], [ 0, %329 ], [ 0, %326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
@@ -1011,13 +924,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -1045,9 +962,8 @@ attributes #6 = { nounwind }
 !21 = distinct !{!21, !15}
 !22 = !{!7, !12, i64 16}
 !23 = !{!10, !10, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"long", !10, i64 0}
-!26 = distinct !{!26, !15}
+!24 = distinct !{!24, !15}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !10, i64 0}
 !27 = distinct !{!27, !15}
 !28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}

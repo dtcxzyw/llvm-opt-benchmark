@@ -719,7 +719,7 @@ define zeroext i8 @lv_style_prop_lookup_flags(i8 noundef zeroext %0) local_unnam
 
 5:                                                ; preds = %3
   %6 = zext i8 %0 to i64
-  %7 = getelementptr inbounds nuw [141 x i8], ptr @lv_style_builtin_prop_flag_lookup_table, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @lv_style_builtin_prop_flag_lookup_table, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !12
   br label %20
 

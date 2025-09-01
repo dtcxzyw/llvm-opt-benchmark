@@ -210,7 +210,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr [15 x i32], ptr %7, i64 0, i64 %81
+  %82 = getelementptr i32, ptr %7, i64 %81
   store i32 3, ptr %82, align 4
   %83 = tail call ptr @ata_link_next(ptr noundef nonnull %78, ptr noundef %0, i32 noundef 0) #9
   %84 = icmp eq ptr %83, null
@@ -258,7 +258,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i32, ptr %108, align 8
   %110 = sext i32 %109 to i64
-  %111 = getelementptr [15 x i32], ptr %7, i64 0, i64 %110
+  %111 = getelementptr i32, ptr %7, i64 %110
   store i32 3, ptr %111, align 4
   %112 = call ptr @ata_link_next(ptr noundef nonnull %107, ptr noundef %0, i32 noundef 0) #9
   store ptr %112, ptr %8, align 8
@@ -384,7 +384,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
 
 .thread28:                                        ; preds = %169, %170
   %176 = phi i64 [ %174, %170 ], [ 0, %169 ]
-  %177 = getelementptr [7 x i32], ptr @sata_pmp_read_gscr.gscr_to_read, i64 0, i64 %176
+  %177 = getelementptr i32, ptr @sata_pmp_read_gscr.gscr_to_read, i64 %176
   %178 = load i32, ptr %177, align 4
   %179 = load ptr, ptr %13, align 64
   %180 = load ptr, ptr %179, align 64
@@ -1352,7 +1352,7 @@ define dso_local i32 @sata_pmp_attach(ptr noundef captures(none) %0) local_unnam
 
 64:                                               ; preds = %58, %50
   %65 = phi i64 [ 0, %50 ], [ %62, %58 ]
-  %66 = getelementptr [7 x i32], ptr @sata_pmp_read_gscr.gscr_to_read, i64 0, i64 %65
+  %66 = getelementptr i32, ptr @sata_pmp_read_gscr.gscr_to_read, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %0, align 64
   %69 = load ptr, ptr %68, align 64

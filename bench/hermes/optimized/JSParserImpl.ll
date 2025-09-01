@@ -827,7 +827,7 @@ cond.true.i923.split:                             ; preds = %for.body
 
 _ZN4llvh9StringRefC2EPKc.exit925:                 ; preds = %for.body.split, %cond.true.i923.split
   %phi.call = phi ptr [ %call.i293, %cond.true.i923.split ], [ %call.i291, %for.body.split ]
-  %arrayidx = getelementptr inbounds nuw [122 x ptr], ptr %tokenIdent_, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %tokenIdent_, i64 %indvars.iv
   store ptr %phi.call, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp.not = icmp eq i64 %indvars.iv.next, 122
@@ -18812,7 +18812,7 @@ if.then5:                                         ; preds = %entry
   %agg.tmp10.sroa.2.0.range_11.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp10.sroa.2.0.copyload = load ptr, ptr %agg.tmp10.sroa.2.0.range_11.sroa_idx, align 8
   %token_.i1 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 992
+  %arrayidx.i.i = getelementptr i8, ptr %1, i64 992
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   store i32 38, ptr %token_.i1, align 8
   %ident_.i.i2 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -19536,7 +19536,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %19 = load i32, ptr %18, align 8
   %tokenIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 1776
   %idxprom.i = zext i32 %19 to i64
-  %arrayidx.i = getelementptr inbounds nuw [122 x ptr], ptr %tokenIdent_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %tokenIdent_.i, i64 %idxprom.i
   %20 = load ptr, ptr %arrayidx.i, align 8
   %21 = inttoptr i64 %1 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i, i8 0, i64 16, i1 false)
@@ -19602,7 +19602,7 @@ entry:
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry
   %tokenIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 1776
   %idxprom.i = zext nneg i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw [122 x ptr], ptr %tokenIdent_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %tokenIdent_.i, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %lexer_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call2.i = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 0) #16
@@ -19726,7 +19726,7 @@ cleanup:                                          ; preds = %if.end, %_ZN6hermes
 sw.bb34:                                          ; preds = %entry, %entry
   %tokenIdent_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 1776
   %idxprom.i12 = zext nneg i32 %1 to i64
-  %arrayidx.i13 = getelementptr inbounds nuw [122 x ptr], ptr %tokenIdent_.i11, i64 0, i64 %idxprom.i12
+  %arrayidx.i13 = getelementptr inbounds nuw ptr, ptr %tokenIdent_.i11, i64 %idxprom.i12
   %24 = load ptr, ptr %arrayidx.i13, align 8
   %lexer_.i21 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call2.i22 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i21, i32 noundef 0) #16
@@ -20090,7 +20090,7 @@ _ZN6hermes6parser6detail12_GLOBAL__N_119getPrecedenceExceptEPKNS0_5TokenENS0_9To
   %topExprStartLoc.sroa.0.0124 = phi ptr [ %retval.sroa.0.0.copyload.i, %_ZN6hermes6parser6detail12_GLOBAL__N_119getPrecedenceExceptEPKNS0_5TokenENS0_9TokenKindE.exit.lr.ph ], [ %retval.sroa.0.0.copyload.i55, %_ZN6hermes6parser6detail12JSParserImpl24convertIdentOpIfPossibleEv.exit85 ]
   %topExpr.0123 = phi ptr [ %storemerge, %_ZN6hermes6parser6detail12_GLOBAL__N_119getPrecedenceExceptEPKNS0_5TokenENS0_9TokenKindE.exit.lr.ph ], [ %topExpr.2, %_ZN6hermes6parser6detail12JSParserImpl24convertIdentOpIfPossibleEv.exit85 ]
   %idxprom.i.i = zext i32 %.val126 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [122 x i32], ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 %idxprom.i.i
   %15 = load i32, ptr %arrayidx.i.i, align 4
   %tobool.not = icmp eq i32 %15, 0
   br i1 %tobool.not, label %while.cond79thread-pre-split, label %while.cond17thread-pre-split
@@ -20107,7 +20107,7 @@ land.rhs.preheader:                               ; preds = %while.cond17thread-
   %opKind148 = getelementptr inbounds i8, ptr %add.ptr.i.i146, i64 -16
   %16 = load i32, ptr %opKind148, align 8
   %idxprom.i149 = zext i32 %16 to i64
-  %arrayidx.i28150 = getelementptr inbounds nuw [122 x i32], ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 0, i64 %idxprom.i149
+  %arrayidx.i28150 = getelementptr inbounds nuw i32, ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 %idxprom.i149
   %17 = load i32, ptr %arrayidx.i28150, align 4
   %cmp.not151 = icmp ugt i32 %15, %17
   br i1 %cmp.not151, label %while.end.loopexit, label %while.body21
@@ -20119,7 +20119,7 @@ land.rhs:                                         ; preds = %if.end30
   %opKind = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
   %18 = load i32, ptr %opKind, align 8
   %idxprom.i = zext i32 %18 to i64
-  %arrayidx.i28 = getelementptr inbounds nuw [122 x i32], ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 0, i64 %idxprom.i
+  %arrayidx.i28 = getelementptr inbounds nuw i32, ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 %idxprom.i
   %19 = load i32, ptr %arrayidx.i28, align 4
   %cmp.not = icmp ugt i32 %15, %19
   br i1 %cmp.not, label %while.end.loopexit, label %while.body21, !llvm.loop !38
@@ -20468,7 +20468,7 @@ cond.end:                                         ; preds = %_ZN6hermes6ESTree4N
   %opKind = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
   %27 = load i32, ptr %opKind, align 8
   %idxprom.i = zext i32 %27 to i64
-  %arrayidx.i29 = getelementptr inbounds nuw [122 x i32], ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 0, i64 %idxprom.i
+  %arrayidx.i29 = getelementptr inbounds nuw i32, ptr @_ZZN6hermes6parser6detail12_GLOBAL__N_113getPrecedenceENS0_9TokenKindEE10precedence, i64 %idxprom.i
   %28 = load i32, ptr %arrayidx.i29, align 4
   %29 = load i32, ptr %call2.i, align 8
   %cmp.i = icmp eq i32 %29, 7
@@ -20505,7 +20505,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %tokenIdent_.i = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %idxprom.i = zext i32 %opKind to i64
-  %arrayidx.i = getelementptr inbounds nuw [122 x ptr], ptr %tokenIdent_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %tokenIdent_.i, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp5 = icmp eq i32 %opKind, 87
   %2 = add i32 %opKind, -85
@@ -26237,7 +26237,7 @@ if.then.i:                                        ; preds = %if.else
   br label %if.end21.i
 
 if.then5.i:                                       ; preds = %if.else
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %arrayidx.i.i.i = getelementptr i8, ptr %0, i64 1008
   %38 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i32 38, ptr %token_.i.i, align 8
   %ident_.i.i2.i = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -26345,7 +26345,7 @@ if.then.i137:                                     ; preds = %if.else95
   br label %if.end21.i102
 
 if.then5.i92:                                     ; preds = %if.else95
-  %arrayidx.i.i.i100 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %arrayidx.i.i.i100 = getelementptr i8, ptr %0, i64 1008
   %54 = load ptr, ptr %arrayidx.i.i.i100, align 8
   store i32 38, ptr %token_.i.i, align 8
   %ident_.i.i2.i101 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -26691,7 +26691,7 @@ if.then5.i617:                                    ; preds = %if.else165
   %agg.tmp10.sroa.0.0.copyload.i = load ptr, ptr %range_.i182, align 8
   %agg.tmp10.sroa.2.0.copyload.i = load ptr, ptr %86, align 8
   %token_.i1.i = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %arrayidx.i.i.i618 = getelementptr inbounds nuw i8, ptr %108, i64 992
+  %arrayidx.i.i.i618 = getelementptr i8, ptr %108, i64 992
   %110 = load ptr, ptr %arrayidx.i.i.i618, align 8
   store i32 38, ptr %token_.i1.i, align 8
   %ident_.i.i2.i619 = getelementptr inbounds nuw i8, ptr %108, i64 88
@@ -26790,7 +26790,7 @@ if.then5.i243:                                    ; preds = %if.else168
   %agg.tmp10.sroa.0.0.copyload.i247 = load ptr, ptr %range_.i182, align 8
   %agg.tmp10.sroa.2.0.copyload.i249 = load ptr, ptr %86, align 8
   %token_.i1.i250 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %arrayidx.i.i.i251 = getelementptr inbounds nuw i8, ptr %121, i64 992
+  %arrayidx.i.i.i251 = getelementptr i8, ptr %121, i64 992
   %123 = load ptr, ptr %arrayidx.i.i.i251, align 8
   store i32 38, ptr %token_.i1.i250, align 8
   %ident_.i.i2.i252 = getelementptr inbounds nuw i8, ptr %121, i64 88
@@ -27080,7 +27080,7 @@ if.then.i450:                                     ; preds = %if.else210
   br label %if.end21.i415
 
 if.then5.i405:                                    ; preds = %if.else210
-  %arrayidx.i.i.i413 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %arrayidx.i.i.i413 = getelementptr i8, ptr %0, i64 1008
   %170 = load ptr, ptr %arrayidx.i.i.i413, align 8
   store i32 38, ptr %token_.i.i352, align 8
   %ident_.i.i2.i414 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -27311,7 +27311,7 @@ if.end269:                                        ; preds = %if.then258.if.end26
   %203 = phi i32 [ %.pre585, %if.then258.if.end269_crit_edge ], [ 93, %land.lhs.true250 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %if.end243 ], [ %189, %_ZNK6hermes6parser6detail12JSParserImpl11checkAssignEv.exit ]
   %tokenIdent_.i = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %idxprom.i = zext i32 %203 to i64
-  %arrayidx.i = getelementptr inbounds nuw [122 x ptr], ptr %tokenIdent_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %tokenIdent_.i, i64 %idxprom.i
   %204 = load ptr, ptr %arrayidx.i, align 8
   %op = getelementptr inbounds nuw i8, ptr %state, i64 32
   store ptr %204, ptr %op, align 8

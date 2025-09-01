@@ -93,7 +93,7 @@ define internal range(i32 -1094995529, 1) i32 @aa_read_header(ptr noundef %0) #1
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %26 = tail call i64 @avio_skip(ptr noundef %13, i64 noundef 4) #10
   %27 = tail call i32 @avio_rb32(ptr noundef %13) #10
-  %28 = getelementptr inbounds nuw [16 x %struct.toc_entry], ptr %4, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.toc_entry, ptr %4, i64 %indvars.iv
   store i32 %27, ptr %28, align 8, !tbaa !28
   %29 = tail call i32 @avio_rb32(ptr noundef %13) #10
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -146,11 +146,11 @@ define internal range(i32 -1094995529, 1) i32 @aa_read_header(ptr noundef %0) #1
 
 .preheader:                                       ; preds = %44, %.preheader
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.preheader ], [ 0, %44 ]
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv225
+  %46 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv225
   %47 = load i32, ptr %46, align 4, !tbaa !33
   %48 = call i32 @llvm.bswap.i32(i32 %47)
   %49 = shl nuw nsw i64 %indvars.iv225, 2
-  %50 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %49
   store i32 %48, ptr %50, align 4, !tbaa !11
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next226, 4
@@ -334,7 +334,7 @@ select.unfold:                                    ; preds = %60, %select.unfold.
 ._crit_edge220:                                   ; preds = %._crit_edge220.loopexit, %111
   %.0141.lcssa = phi i64 [ -1, %111 ], [ %spec.select, %._crit_edge220.loopexit ]
   %.0132.lcssa = phi i64 [ -1, %111 ], [ %113, %._crit_edge220.loopexit ]
-  %114 = getelementptr inbounds [16 x %struct.toc_entry], ptr %4, i64 0, i64 %.0132.lcssa
+  %114 = getelementptr inbounds %struct.toc_entry, ptr %4, i64 %.0132.lcssa
   %115 = load i32, ptr %114, align 8, !tbaa !28
   %116 = zext i32 %115 to i64
   %117 = call i64 @avio_seek(ptr noundef %13, i64 noundef %116, i32 noundef 0) #10
@@ -353,7 +353,7 @@ select.unfold:                                    ; preds = %60, %select.unfold.
   %indvars.iv234 = phi i64 [ 1, %.lr.ph219.preheader ], [ %indvars.iv.next235, %.lr.ph219 ]
   %.0132217 = phi i32 [ -1, %.lr.ph219.preheader ], [ %spec.select176, %.lr.ph219 ]
   %.0141215 = phi i64 [ -1, %.lr.ph219.preheader ], [ %spec.select, %.lr.ph219 ]
-  %124 = getelementptr inbounds nuw [16 x %struct.toc_entry], ptr %4, i64 0, i64 %indvars.iv234, i32 1
+  %124 = getelementptr inbounds nuw %struct.toc_entry, ptr %4, i64 %indvars.iv234, i32 1
   %125 = load i32, ptr %124, align 4, !tbaa !30
   %126 = zext i32 %125 to i64
   %127 = icmp slt i64 %.0141215, %126

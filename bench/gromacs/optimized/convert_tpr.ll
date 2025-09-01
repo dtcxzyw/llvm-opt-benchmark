@@ -2558,8 +2558,8 @@ _ZSt8_DestroyIP13gmx_moltype_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i
 
 197:                                              ; preds = %_ZL11reduce_atomiPKiP6t_atomPPPcPiP9t_resinfo.exit.preheader, %_ZL12reduce_ilistN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEEP15InteractionListiPKc.exit
   %indvars.iv = phi i64 [ 0, %_ZL11reduce_atomiPKiP6t_atomPPPcPiP9t_resinfo.exit.preheader ], [ %indvars.iv.next, %_ZL12reduce_ilistN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEEP15InteractionListiPKc.exit ]
-  %198 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %179, i64 0, i64 %indvars.iv
-  %199 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw %struct.InteractionList, ptr %179, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %201 = load i32, ptr %200, align 16, !tbaa !269
   %202 = load ptr, ptr %199, align 16, !tbaa !271
@@ -3512,10 +3512,10 @@ _ZSt8_DestroyIP14gmx_molblock_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Des
 
 592:                                              ; preds = %_ZN3gmx11ListOfListsIiED2Ev.exit, %_ZN15InteractionListaSEOS_.exit
   %indvars.iv327 = phi i64 [ 0, %_ZN3gmx11ListOfListsIiED2Ev.exit ], [ %indvars.iv.next328, %_ZN15InteractionListaSEOS_.exit ]
-  %593 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %179, i64 0, i64 %indvars.iv327
+  %593 = getelementptr inbounds nuw %struct.InteractionList, ptr %179, i64 %indvars.iv327
   %594 = load ptr, ptr %181, align 8, !tbaa !267
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 80
-  %596 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %595, i64 0, i64 %indvars.iv327
+  %596 = getelementptr inbounds nuw %struct.InteractionList, ptr %595, i64 %indvars.iv327
   %597 = load ptr, ptr %596, align 8, !tbaa !272
   %598 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %599 = getelementptr inbounds nuw i8, ptr %596, i64 16
@@ -4408,7 +4408,7 @@ define linkonce_odr void @_ZN13gmx_moltype_tC2ERKS_(ptr noundef nonnull align 8 
   %.idx.i = mul nuw nsw i64 %5, 24
   %.add7 = add nuw nsw i64 %.idx.i, 80
   %.ptr10 = getelementptr inbounds nuw i8, ptr %0, i64 %.add7
-  %6 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !274
   %9 = load ptr, ptr %6, align 8, !tbaa !272

@@ -240,14 +240,14 @@ RSTRING_PTR.exit22.i:                             ; preds = %24, %17
   %27 = zext i8 %26 to i32
   %28 = lshr i32 %27, 4
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !21
   %32 = shl nuw nsw i64 %.023.i, 1
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %32
   store i8 %31, ptr %33, align 1, !tbaa !21
   %34 = and i32 %27, 15
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %37, ptr %38, align 1, !tbaa !21
@@ -455,14 +455,14 @@ RSTRING_PTR.exit22.i.i:                           ; preds = %33, %26
   %36 = zext i8 %35 to i32
   %37 = lshr i32 %36, 4
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !21
   %41 = shl nuw nsw i64 %.023.i.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i.i, i64 %41
   store i8 %40, ptr %42, align 1, !tbaa !21
   %43 = and i32 %36, 15
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i8 %46, ptr %47, align 1, !tbaa !21
@@ -628,14 +628,14 @@ RSTRING_PTR.exit22.i:                             ; preds = %41, %34
   %44 = zext i8 %43 to i32
   %45 = lshr i32 %44, 4
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !21
   %49 = shl nuw nsw i64 %.023.i, 1
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %49
   store i8 %48, ptr %50, align 1, !tbaa !21
   %51 = and i32 %44, 15
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !21
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store i8 %54, ptr %55, align 1, !tbaa !21
@@ -715,14 +715,14 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
   %30 = zext i8 %29 to i32
   %31 = lshr i32 %30, 4
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !21
   %35 = shl nuw nsw i64 %.023.i, 1
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %35
   store i8 %34, ptr %36, align 1, !tbaa !21
   %37 = and i32 %30, 15
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 %40, ptr %41, align 1, !tbaa !21
@@ -858,14 +858,14 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
   %30 = zext i8 %29 to i32
   %31 = lshr i32 %30, 4
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !21
   %35 = shl nuw nsw i64 %.023.i, 1
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %35
   store i8 %34, ptr %36, align 1, !tbaa !21
   %37 = and i32 %30, 15
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @hexencode_str_new.hex, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 %40, ptr %41, align 1, !tbaa !21

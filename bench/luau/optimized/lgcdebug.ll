@@ -118,7 +118,7 @@ define hidden void @_Z9luaC_dumpP9lua_StatePvPFPKcS0_hE(ptr noundef %0, ptr noun
 
 .split.us:                                        ; preds = %3, %32
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %32 ], [ 0, %3 ]
-  %26 = getelementptr inbounds nuw [256 x i64], ptr %25, i64 0, i64 %indvars.iv44
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv44
   %27 = load i64, ptr %26, align 8, !tbaa !36
   %.not.us = icmp eq i64 %27, 0
   br i1 %.not.us, label %32, label %28
@@ -142,7 +142,7 @@ define hidden void @_Z9luaC_dumpP9lua_StatePvPFPKcS0_hE(ptr noundef %0, ptr noun
 
 .split:                                           ; preds = %3, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %3 ]
-  %36 = getelementptr inbounds nuw [256 x i64], ptr %25, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !36
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %44, label %38
@@ -1391,7 +1391,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
   %153 = load ptr, ptr %152, align 8, !tbaa !4
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 2944
   %155 = zext nneg i32 %129 to i64
-  %156 = getelementptr inbounds nuw [11 x ptr], ptr %154, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr %154, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !118
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.51, ptr noundef nonnull %158) #8

@@ -674,7 +674,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %224 = ashr exact i64 %.pre208, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %223, ptr nonnull align 1 %193, i64 %224, i1 false)
-  %225 = getelementptr inbounds [64 x i8], ptr %223, i64 0, i64 %224
+  %225 = getelementptr inbounds i8, ptr %223, i64 %224
   store i8 0, ptr %225, align 1, !tbaa !19
   %226 = shl i64 %205, 32
   %sext234 = add i64 %226, 4294967296
@@ -710,7 +710,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
 
 242:                                              ; preds = %237, %241
   %.sink = phi i8 [ 47, %241 ], [ 95, %237 ]
-  %243 = getelementptr inbounds [68 x i8], ptr %6, i64 0, i64 %231
+  %243 = getelementptr inbounds i8, ptr %6, i64 %231
   store i8 %.sink, ptr %243, align 1, !tbaa !19
   %.1 = shl i64 %229, 32
   %sext235 = add i64 %.1, 4294967296
@@ -719,7 +719,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
 
 244:                                              ; preds = %242, %._crit_edge205
   %.pre-phi = phi i64 [ %.pre204, %242 ], [ %227, %._crit_edge205 ]
-  %245 = getelementptr inbounds [68 x i8], ptr %6, i64 0, i64 %.pre-phi
+  %245 = getelementptr inbounds i8, ptr %6, i64 %.pre-phi
   store i8 0, ptr %245, align 1, !tbaa !19
   %246 = load i32, ptr %90, align 4, !tbaa !29
   %247 = icmp sgt i32 %246, 0
@@ -1474,7 +1474,7 @@ define void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 
 
 .preheader157:                                    ; preds = %66, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %66 ]
-  %76 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !59
   %.not150 = icmp eq ptr %77, null
   br i1 %.not150, label %81, label %78
@@ -1565,7 +1565,7 @@ define void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 
 123:                                              ; preds = %118
   %sext135 = add i64 %sext133, -4294967296
   %124 = ashr exact i64 %sext135, 32
-  %125 = getelementptr inbounds [68 x i8], ptr %6, i64 0, i64 %124
+  %125 = getelementptr inbounds i8, ptr %6, i64 %124
   store i8 %2, ptr %125, align 1, !tbaa !19
   br label %126
 
@@ -1574,10 +1574,10 @@ define void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 
   %.0116.in = phi i64 [ %119, %118 ], [ %119, %123 ], [ %117, %116 ]
   %.0116 = trunc i64 %.0116.in to i32
   %127 = add nsw i32 %.0116, 1
-  %128 = getelementptr inbounds [68 x i8], ptr %6, i64 0, i64 %.pre-phi
+  %128 = getelementptr inbounds i8, ptr %6, i64 %.pre-phi
   store i8 47, ptr %128, align 1, !tbaa !19
   %129 = sext i32 %127 to i64
-  %130 = getelementptr inbounds [68 x i8], ptr %6, i64 0, i64 %129
+  %130 = getelementptr inbounds i8, ptr %6, i64 %129
   store i8 0, ptr %130, align 1, !tbaa !19
   br i1 %.not130, label %167, label %131
 
@@ -1866,7 +1866,7 @@ _ZN6icu_777Package11allocStringEai.exit151:       ; preds = %207
   %296 = select i1 %295, i64 3, i64 -1
   %297 = select i1 %294, i64 1, i64 %296
   %298 = select i1 %293, i64 0, i64 %297
-  %299 = getelementptr inbounds [4 x ptr], ptr %8, i64 0, i64 %298
+  %299 = getelementptr inbounds ptr, ptr %8, i64 %298
   %300 = load ptr, ptr %299, align 8, !tbaa !59
   %.not144 = icmp eq ptr %300, null
   br i1 %.not144, label %315, label %301
@@ -1933,7 +1933,7 @@ _ZN6icu_777Package11allocStringEai.exit151:       ; preds = %207
 
 339:                                              ; preds = %337, %339
   %indvars.iv194 = phi i64 [ 0, %337 ], [ %indvars.iv.next195, %339 ]
-  %340 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv194
+  %340 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv194
   %341 = load ptr, ptr %340, align 8, !tbaa !59
   call void @udata_closeSwapper_77(ptr noundef %341)
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1

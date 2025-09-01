@@ -21756,7 +21756,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers7lobster16LobsterGenerator11
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit
 
@@ -21788,7 +21788,7 @@ _ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit:       ; preds = %3, %switch.lookup
 
 switch.lookup26:                                  ; preds = %11
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep27 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE.11, i64 0, i64 %21
+  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11flatbuffers7lobster16LobsterGenerator11GenTypeNameB5cxx11ERKNS_4TypeE.11, i64 %21
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   br label %.invoke
 
@@ -24642,7 +24642,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers7lobster16LobsterGenerator9G
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !685)
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers7lobster16LobsterGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers7lobster16LobsterGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !65, !noalias !685
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %14, ptr %6, align 8, !tbaa !4, !alias.scope !685

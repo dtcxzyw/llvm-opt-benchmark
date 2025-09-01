@@ -622,8 +622,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %indvars.iv143 = phi i64 [ 0, %.preheader111.critedge ], [ 1, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 1.000000e+00, ptr %2, align 4, !tbaa !74
-  %33 = getelementptr inbounds nuw [2 x ptr], ptr %24, i64 0, i64 %indvars.iv143
-  %34 = getelementptr inbounds nuw [2 x ptr], ptr %30, i64 0, i64 %indvars.iv143
+  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv143
+  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv143
   %35 = load i32, ptr %20, align 4, !tbaa !32
   %36 = call i32 @av_tx_init(ptr noundef nonnull %33, ptr noundef nonnull %34, i32 noundef 0, i32 noundef 0, i32 noundef %35, ptr noundef nonnull %2, i64 noundef 0) #10
   %37 = icmp sgt i32 %36, -1
@@ -639,7 +639,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %39 = load i32, ptr %22, align 8, !tbaa !72
   %40 = sext i32 %39 to i64
   %41 = call noalias ptr @av_calloc(i64 noundef %40, i64 noundef 8) #10
-  %42 = getelementptr inbounds nuw [2 x ptr], ptr %26, i64 0, i64 %indvars.iv146
+  %42 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv146
   store ptr %41, ptr %42, align 8, !tbaa !62
   %.not82 = icmp eq ptr %41, null
   br i1 %.not82, label %.thread, label %43
@@ -648,7 +648,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %44 = load i32, ptr %22, align 8, !tbaa !72
   %45 = sext i32 %44 to i64
   %46 = call noalias ptr @av_calloc(i64 noundef %45, i64 noundef 8) #10
-  %47 = getelementptr inbounds nuw [2 x ptr], ptr %25, i64 0, i64 %indvars.iv146
+  %47 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv146
   store ptr %46, ptr %47, align 8, !tbaa !62
   %.not83 = icmp eq ptr %46, null
   br i1 %.not83, label %.thread, label %38
@@ -1590,7 +1590,7 @@ define internal noundef i32 @run_channel_fft(ptr noundef readonly captures(none)
   %15 = load i32, ptr %14, align 8, !tbaa !45
   %16 = icmp sgt i32 %15, 0
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %18 = getelementptr inbounds [2 x ptr], ptr %17, i64 0, i64 %11
+  %18 = getelementptr inbounds ptr, ptr %17, i64 %11
   %19 = load ptr, ptr %18, align 8, !tbaa !62
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -1600,13 +1600,13 @@ define internal noundef i32 @run_channel_fft(ptr noundef readonly captures(none)
 
 ._crit_edge:                                      ; preds = %29, %4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %21 = getelementptr inbounds [2 x ptr], ptr %20, i64 0, i64 %11
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %11
   %22 = load ptr, ptr %21, align 8, !tbaa !105
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %24 = getelementptr inbounds [2 x ptr], ptr %23, i64 0, i64 %11
+  %24 = getelementptr inbounds ptr, ptr %23, i64 %11
   %25 = load ptr, ptr %24, align 8, !tbaa !106
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %27 = getelementptr inbounds [2 x ptr], ptr %26, i64 0, i64 %11
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %11
   %28 = load ptr, ptr %27, align 8, !tbaa !62
   tail call void %22(ptr noundef %25, ptr noundef %28, ptr noundef %19, i64 noundef 8) #10
   ret i32 0

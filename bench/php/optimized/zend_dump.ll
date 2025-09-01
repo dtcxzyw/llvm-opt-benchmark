@@ -371,7 +371,7 @@ define hidden void @zend_dump_const(ptr noundef readonly captures(none) %0) loca
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw [1 x i8], ptr %29, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   store i8 0, ptr %32, align 1, !tbaa !12
   br label %smart_str_0.exit
 
@@ -419,7 +419,7 @@ smart_str_free_ex.exit:                           ; preds = %50, %45, %41, %._cr
   %51 = phi ptr [ %65, %63 ], [ %35, %smart_str_0.exit ]
   %.012 = phi i64 [ %64, %63 ], [ 0, %smart_str_0.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = getelementptr inbounds nuw [1 x i8], ptr %52, i64 0, i64 %.012
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.012
   %54 = load i8, ptr %53, align 1, !tbaa !12
   %55 = icmp eq i8 %54, 34
   br i1 %55, label %56, label %59
@@ -2672,7 +2672,7 @@ define dso_local void @zend_dump_op_array(ptr noundef readonly captures(none) %0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !79
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !100
   %.not165 = icmp eq ptr %15, null
   br i1 %.not165, label %19, label %16

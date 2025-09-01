@@ -357,8 +357,8 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit.i.i.i.i.i
   %.sink11.i6.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sink11.i4.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.sink11.i.i.i.i.i.i.i.i.i.i.i.i, %71 ]
   %61 = phi i1 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %74, %71 ]
   %.sink12.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %61, ptr %57, ptr %10
-  %62 = add i64 %.sink11.i6.i.i.i.i.i.i.i.i.i.i.i, -1
-  %63 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %62
+  %62 = getelementptr i64, ptr %.sink12.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.sink11.i6.i.i.i.i.i.i.i.i.i.i.i
+  %63 = getelementptr i8, ptr %62, i64 -8
   %64 = load i64, ptr %63, align 8, !noalias !63, !noundef !9
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.llvm.12878139696234281404.exit.i.i.i.i.i.i.i.i.i
@@ -496,8 +496,8 @@ common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %83, %"_ZN4core3ptr4
   %.sink11.i6.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sink11.i4.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sink11.i.i1.i.i.i.i.i.i.i.i.i.i.i.i, %118 ]
   %108 = phi i1 [ %102, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %121, %118 ]
   %.sink12.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %108, ptr %104, ptr %10
-  %109 = add i64 %.sink11.i6.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %110 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %109
+  %109 = getelementptr i64, ptr %.sink12.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.sink11.i6.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %110 = getelementptr i8, ptr %109, i64 -8
   %111 = load i64, ptr %110, align 8, !noalias !63, !noundef !9
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %113, label %_ZN14num_bigint_dig7biguint7BigUint24assign_from_slice_native17h85597c1d136ffb34E.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -1185,8 +1185,8 @@ define hidden void @_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23
   %.sink11.i6.i = phi i64 [ %.sink11.i4.i, %.lr.ph.i ], [ %.sink11.i.i, %22 ]
   %12 = phi i1 [ %6, %.lr.ph.i ], [ %25, %22 ]
   %.sink12.i.i = select i1 %12, ptr %8, ptr %1
-  %13 = add i64 %.sink11.i6.i, -1
-  %14 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i, i64 0, i64 %13
+  %13 = getelementptr i64, ptr %.sink12.i.i, i64 %.sink11.i6.i
+  %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !noundef !9
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %_ZN14num_bigint_dig7biguint7BigUint9normalize17hc438c2434ec17572E.llvm.12878139696234281404.exit
@@ -1235,8 +1235,8 @@ define hidden noundef i64 @_ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbb
 9:                                                ; preds = %1
   %10 = load ptr, ptr %0, align 8, !alias.scope !233, !noalias !236, !nonnull !9
   %.sink12.i3 = select i1 %4, ptr %10, ptr %0
-  %11 = add i64 %.sink11.i, -1
-  %12 = getelementptr inbounds [0 x i64], ptr %.sink12.i3, i64 0, i64 %11
+  %11 = getelementptr i64, ptr %.sink12.i3, i64 %.sink11.i
+  %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8, !noundef !9
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 false)
   %15 = shl i64 %.sink11.i, 6
@@ -1265,8 +1265,8 @@ define hidden void @_ZN14num_bigint_dig7biguint7BigUint9normalize17hc438c2434ec1
   %.sink11.i6 = phi i64 [ %.sink11.i4, %.lr.ph ], [ %.sink11.i, %21 ]
   %11 = phi i1 [ %5, %.lr.ph ], [ %24, %21 ]
   %.sink12.i = select i1 %11, ptr %7, ptr %0
-  %12 = add i64 %.sink11.i6, -1
-  %13 = getelementptr inbounds [0 x i64], ptr %.sink12.i, i64 0, i64 %12
+  %12 = getelementptr i64, ptr %.sink12.i, i64 %.sink11.i6
+  %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8, !noundef !9
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %._crit_edge
@@ -1377,8 +1377,8 @@ define hidden void @_ZN3rsa3key13RsaPrivateKey3new17haacf8dc009c6daf7E(ptr dead_
   %.sink11.i6.i.i.i = phi i64 [ 1, %3 ], [ %.sink11.i.i.i.i, %24 ]
   %14 = phi i1 [ false, %3 ], [ %27, %24 ]
   %.sink12.i.i.i.i = select i1 %14, ptr inttoptr (i64 65537 to ptr), ptr %9
-  %15 = add i64 %.sink11.i6.i.i.i, -1
-  %16 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i.i.i, i64 0, i64 %15
+  %15 = getelementptr i64, ptr %.sink12.i.i.i.i, i64 %.sink11.i6.i.i.i
+  %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !noundef !9
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %"_ZN83_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..convert..From$LT$u64$GT$$GT$4from17hfaca642ec6a65af5E.llvm.12878139696234281404.exit"
@@ -1683,10 +1683,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !303, !noundef !9
   %.val = load i8, ptr %2, align 1, !range !304, !noundef !9
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [41 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h60799119989d7804E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h60799119989d7804E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [41 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h60799119989d7804E.25", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h60799119989d7804E.25", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2649,8 +2649,8 @@ _ZN4rand3rng3Rng4fill17hb366f69680802677E.llvm.12878139696234281404.exit: ; pred
   %.sink11.i6.i.i = phi i64 [ %.sink11.i4.i.i, %.lr.ph.i.i ], [ %.sink11.i.i.i, %67 ]
   %57 = phi i1 [ %51, %.lr.ph.i.i ], [ %70, %67 ]
   %.sink12.i.i.i = select i1 %57, ptr %53, ptr %6
-  %58 = add i64 %.sink11.i6.i.i, -1
-  %59 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i.i, i64 0, i64 %58
+  %58 = getelementptr i64, ptr %.sink12.i.i.i, i64 %.sink11.i6.i.i
+  %59 = getelementptr i8, ptr %58, i64 -8
   %60 = load i64, ptr %59, align 8, !noalias !431, !noundef !9
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %62, label %.loopexit
@@ -2694,7 +2694,7 @@ _ZN4rand3rng3Rng4fill17hb366f69680802677E.llvm.12878139696234281404.exit: ; pred
 77:                                               ; preds = %71
   %78 = load ptr, ptr %7, align 8, !alias.scope !443, !noalias !448, !nonnull !9
   %.sink10.i.i = select i1 %73, ptr %78, ptr %7
-  %79 = getelementptr inbounds nuw [0 x i64], ptr %.sink10.i.i, i64 0, i64 %8
+  %79 = getelementptr inbounds nuw i64, ptr %.sink10.i.i, i64 %8
   %80 = sub nuw nsw i64 64, %9
   %81 = load i64, ptr %79, align 8, !noundef !9
   %82 = lshr i64 %81, %80
@@ -2745,8 +2745,8 @@ define hidden void @"_ZN57_$LT$R$u20$as$u20$num_bigint_dig..bigrand..RandBigInt$
 _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.llvm.12878139696234281404.exit: ; preds = %3
   %12 = load ptr, ptr %2, align 8, !alias.scope !468, !noalias !471, !nonnull !9
   %.sink12.i3.i = select i1 %7, ptr %12, ptr %2
-  %13 = add i64 %.sink11.i, -1
-  %14 = getelementptr inbounds [0 x i64], ptr %.sink12.i3.i, i64 0, i64 %13
+  %13 = getelementptr i64, ptr %.sink12.i3.i, i64 %.sink11.i
+  %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !noundef !9
   %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 false)
   %17 = shl i64 %.sink11.i, 6
@@ -3222,7 +3222,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds i64, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -3313,8 +3313,8 @@ define hidden void @"_ZN83_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core.
   %.sink11.i6.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %.sink11.i.i.i, %18 ]
   %8 = phi i1 [ false, %.lr.ph.i.i ], [ %21, %18 ]
   %.sink12.i.i.i = select i1 %8, ptr %3, ptr %2
-  %9 = add i64 %.sink11.i6.i.i, -1
-  %10 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i.i, i64 0, i64 %9
+  %9 = getelementptr i64, ptr %.sink12.i.i.i, i64 %.sink11.i6.i.i
+  %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !noalias !640, !noundef !9
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.llvm.12878139696234281404.exit
@@ -3364,7 +3364,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$smallve
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6f88e0488daf53f9E.llvm.12878139696234281404.exit": ; preds = %3
   %11 = load ptr, ptr %0, align 8, !alias.scope !653, !noalias !656, !nonnull !9
   %.sink10.i = select i1 %6, ptr %11, ptr %0
-  %12 = getelementptr inbounds [0 x i64], ptr %.sink10.i, i64 0, i64 %1
+  %12 = getelementptr inbounds i64, ptr %.sink10.i, i64 %1
   ret ptr %12
 }
 

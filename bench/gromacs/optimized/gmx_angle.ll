@@ -914,7 +914,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
   %325 = sext i32 %.148.us.i to i64
   %326 = getelementptr inbounds [3 x float], ptr %299, i64 %325
   %327 = zext nneg i32 %.13946.us.i to i64
-  %328 = getelementptr inbounds nuw [3 x float], ptr %326, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw float, ptr %326, i64 %327
   store float %324, ptr %328, align 4, !tbaa !25
   %329 = add nuw nsw i32 %.13946.us.i, 1
   %330 = icmp eq i32 %329, 3

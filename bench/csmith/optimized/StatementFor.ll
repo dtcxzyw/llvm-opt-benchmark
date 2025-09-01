@@ -625,7 +625,7 @@ select.unfold.i:                                  ; preds = %.noexc162, %.noexc1
 
 .noexc178:                                        ; preds = %.noexc177
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw [6 x i32], ptr @__const._ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.t_ops, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i32, ptr @__const._ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.t_ops, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !81
   %204 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !12
   %.not.i173 = icmp eq i32 %204, 0

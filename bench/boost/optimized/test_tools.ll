@@ -554,13 +554,13 @@ define noundef zeroext i1 @_ZN5boost10test_tools9tt_detail16report_assertionERKN
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %spec.select to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = zext nneg i32 %spec.select to i64
-  %switch.gep16 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.1, i64 0, i64 %19
+  %switch.gep16 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.1, i64 %19
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %20 = zext nneg i32 %spec.select to i64
-  %switch.gep18 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.2, i64 0, i64 %20
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.2, i64 %20
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %21 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1052,7 +1052,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit204: ; preds = %.thread.i203, 
   %237 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull %24)
   %238 = add nsw i32 %4, -2
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !29
   store ptr %241, ptr %25, align 8, !tbaa !30
   %strlen.i.i206 = call noundef i64 @strlen(ptr nonnull dereferenceable(1) %241)
@@ -1103,7 +1103,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit221: ; preds = %_ZN5boost9unit
   store ptr getelementptr inbounds nuw (i8, ptr @.str.11, i64 2), ptr %256, align 8, !tbaa !32
   %257 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %28)
   %258 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 8 dereferenceable(8) %257, ptr noundef nonnull align 8 dereferenceable(9) %224)
-  %259 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %239
+  %259 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %239
   %260 = load ptr, ptr %259, align 8, !tbaa !29
   store ptr %260, ptr %29, align 8, !tbaa !30
   %strlen.i.i219 = call noundef i64 @strlen(ptr nonnull dereferenceable(1) %260)
@@ -3258,7 +3258,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit184: ; preds = %208,
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit186: ; preds = %219, %227
   %230 = add nsw i32 %4, -2
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !29
   %234 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #30
   %235 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %233, i64 noundef %234)
@@ -3311,7 +3311,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit194: ; preds = %_ZSt
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = tail call noundef nonnull align 8 dereferenceable(8) ptr %261(ptr noundef nonnull align 8 dereferenceable(9) %205, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %263 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %231
+  %263 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %231
   %264 = load ptr, ptr %263, align 8, !tbaa !29
   %265 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #30
   %266 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull %264, i64 noundef %265)

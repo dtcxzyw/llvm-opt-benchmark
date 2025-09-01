@@ -1393,7 +1393,7 @@ define hidden ptr @_ctypes_callproc(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %31
   %.093130.us = phi i64 [ %28, %31 ], [ 0, %.lr.ph.split.us.preheader ]
   %.094129.us = phi ptr [ %32, %31 ], [ %18, %.lr.ph.split.us.preheader ]
-  %26 = getelementptr [1 x ptr], ptr %25, i64 0, i64 %.093130.us
+  %26 = getelementptr ptr, ptr %25, i64 %.093130.us
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = add nuw nsw i64 %.093130.us, 1
   %29 = call fastcc i32 @ConvParam(ptr noundef %0, ptr noundef %27, i64 noundef %28, ptr noundef %.094129.us)
@@ -1408,13 +1408,13 @@ define hidden ptr @_ctypes_callproc(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %63
   %.093130 = phi i64 [ %.pre-phi, %63 ], [ 0, %.lr.ph.split.preheader ]
   %.094129 = phi ptr [ %64, %63 ], [ %18, %.lr.ph.split.preheader ]
-  %33 = getelementptr [1 x ptr], ptr %23, i64 0, i64 %.093130
+  %33 = getelementptr ptr, ptr %23, i64 %.093130
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = icmp sgt i64 %.val107, %.093130
   br i1 %35, label %36, label %57
 
 36:                                               ; preds = %.lr.ph.split
-  %37 = getelementptr [1 x ptr], ptr %24, i64 0, i64 %.093130
+  %37 = getelementptr ptr, ptr %24, i64 %.093130
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = tail call ptr @PyObject_CallOneArg(ptr noundef %38, ptr noundef %34) #10
   %40 = icmp eq ptr %39, null
@@ -2465,7 +2465,7 @@ PyStgInfo_FromAny.exit:                           ; preds = %17, %11
   %34 = getelementptr i64, ptr %33, i64 %.01118
   %35 = load i64, ptr %34, align 8, !tbaa !64
   %36 = tail call ptr @PyLong_FromSsize_t(i64 noundef %35) #10
-  %37 = getelementptr [1 x ptr], ptr %31, i64 0, i64 %.01118
+  %37 = getelementptr ptr, ptr %31, i64 %.01118
   store ptr %36, ptr %37, align 8, !tbaa !3
   %38 = add nuw nsw i64 %.01118, 1
   %39 = load i32, ptr %23, align 8, !tbaa !62

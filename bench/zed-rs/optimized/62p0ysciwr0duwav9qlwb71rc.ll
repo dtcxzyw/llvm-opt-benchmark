@@ -7198,7 +7198,7 @@ _ZN3std4path4Path12canonicalize17hdb0295b9d3983fefE.exit.i: ; preds = %977
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %1376, %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17h037fbc68b40bc68bE.llvm.148755494358810581.exit.i.i.i.i.i.i"
   %.sroa.0.07.i.i.i.i.i.i = phi i64 [ %1379, %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17h037fbc68b40bc68bE.llvm.148755494358810581.exit.i.i.i.i.i.i" ], [ 0, %1376 ]
-  %1378 = getelementptr inbounds [0 x { i64, [7 x i64] }], ptr %.val.cast.i.i.i, i64 0, i64 %.sroa.0.07.i.i.i.i.i.i
+  %1378 = getelementptr inbounds { i64, [7 x i64] }, ptr %.val.cast.i.i.i, i64 %.sroa.0.07.i.i.i.i.i.i
   %1379 = add nuw i64 %.sroa.0.07.i.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1726)
   %1380 = load i64, ptr %1378, align 8, !range !1305, !alias.scope !1729, !noalias !1730, !noundef !5
@@ -11178,7 +11178,7 @@ define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$gpui..executor..Ta
 
 .lr.ph.i.i.i.i:                                   ; preds = %5, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %12, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i" ], [ 0, %5 ]
-  %11 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }], ptr %7, i64 0, i64 %.sroa.0.09.i.i.i.i
+  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %7, i64 %.sroa.0.09.i.i.i.i
   %12 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2931)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2934)
@@ -12404,7 +12404,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %36, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i = phi i64 [ %43, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i" ], [ 0, %36 ]
-  %42 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }], ptr %38, i64 0, i64 %.sroa.0.09.i.i.i.i.i
+  %42 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %38, i64 %.sroa.0.09.i.i.i.i.i
   %43 = add nuw i64 %.sroa.0.09.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3521)
@@ -13132,7 +13132,7 @@ define internal fastcc void @"_ZN4core3ptr135drop_in_place$LT$gpui..executor..Ta
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %7, %"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE.exit.i.i.i.i.i"
   %.sroa.0.07.i.i.i.i.i = phi i64 [ %14, %"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE.exit.i.i.i.i.i" ], [ 0, %7 ]
-  %13 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %9, i64 0, i64 %.sroa.0.07.i.i.i.i.i
+  %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %9, i64 %.sroa.0.07.i.i.i.i.i
   %14 = add nuw i64 %.sroa.0.07.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3784)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3787)
@@ -27837,7 +27837,7 @@ default.unreachable819:                           ; preds = %1462, %1431, %1416,
 
 143:                                              ; preds = %138
   %144 = add i64 %142, -1
-  %145 = getelementptr inbounds [0 x i8], ptr %140, i64 0, i64 %144
+  %145 = getelementptr inbounds i8, ptr %140, i64 %144
   %146 = load i8, ptr %145, align 1, !noalias !7822, !noundef !5
   %147 = icmp eq i8 %146, 0
   %spec.select.i = select i1 %147, i64 %144, i64 %142
@@ -35716,7 +35716,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN4core3
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %150, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i = phi i64 [ %156, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i" ], [ 0, %150 ]
-  %155 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }], ptr %151, i64 0, i64 %.sroa.0.09.i.i.i.i.i
+  %155 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %151, i64 %.sroa.0.09.i.i.i.i.i
   %156 = add nuw i64 %.sroa.0.09.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !9203)
   call void @llvm.experimental.noalias.scope.decl(metadata !9206)

@@ -74,7 +74,7 @@ randombytes_internal_random_stir_if_needed.exit:  ; preds = %8, %9
 
 randombytes_internal_random_xorhwrand.exit:       ; preds = %randombytes_internal_random_stir_if_needed.exit, %19
   %25 = phi i64 [ 480, %randombytes_internal_random_stir_if_needed.exit ], [ %.pre, %19 ]
-  %26 = getelementptr [512 x i8], ptr %13, i64 0, i64 %25
+  %26 = getelementptr i8, ptr %13, i64 %25
   br label %27
 
 27:                                               ; preds = %27, %randombytes_internal_random_xorhwrand.exit
@@ -102,7 +102,7 @@ randombytes_internal_random_xorkey.exit:          ; preds = %27
   %38 = add i64 %37, -4
   store i64 %38, ptr %2, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %40 = getelementptr [512 x i8], ptr %39, i64 0, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 %38
   %41 = load i32, ptr %40, align 1
   store i32 0, ptr %40, align 1
   ret i32 %41
@@ -325,7 +325,7 @@ randombytes_internal_random_stir_if_needed.exit:  ; preds = %7, %8
   %.04 = phi i64 [ 0, %randombytes_internal_random_stir_if_needed.exit ], [ %21, %15 ]
   %16 = getelementptr i8, ptr %3, i64 %.04
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr [32 x i8], ptr %13, i64 0, i64 %.04
+  %18 = getelementptr i8, ptr %13, i64 %.04
   %19 = load i8, ptr %18, align 1
   %20 = xor i8 %19, %17
   store i8 %20, ptr %18, align 1

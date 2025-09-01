@@ -120,7 +120,7 @@ define internal i32 @photocd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 43:                                               ; preds = %33, %35, %28
   %44 = phi i64 [ 2, %33 ], [ %42, %35 ], [ 0, %28 ]
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %46 = getelementptr inbounds nuw [6 x %struct.ImageInfo], ptr @img_info, i64 0, i64 %44
+  %46 = getelementptr inbounds nuw %struct.ImageInfo, ptr @img_info, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i16, ptr %47, align 4, !tbaa !42
   %49 = zext i16 %48 to i32
@@ -186,7 +186,7 @@ bytestream2_init.exit:                            ; preds = %64
 
 85:                                               ; preds = %75
   %86 = sext i32 %73 to i64
-  %87 = getelementptr inbounds [6 x %struct.ImageInfo], ptr @img_info, i64 0, i64 %86
+  %87 = getelementptr inbounds %struct.ImageInfo, ptr @img_info, i64 %86
   %88 = load i32, ptr %87, align 8, !tbaa !51
   %89 = icmp slt i32 %88, 0
   %..i.i159 = tail call i32 @llvm.smin.i32(i32 %88, i32 %66)
@@ -328,7 +328,7 @@ bytestream2_init.exit:                            ; preds = %64
 
 181:                                              ; preds = %177, %180
   %indvars.iv = phi i64 [ 0, %177 ], [ %indvars.iv.next, %180 ]
-  %182 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %179, i64 0, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw %struct.VLC, ptr %179, i64 %indvars.iv
   %.val = load ptr, ptr %5, align 8, !tbaa !31
   %183 = tail call fastcc i32 @read_hufftable(ptr %.val, ptr noundef nonnull %182)
   %184 = icmp slt i32 %183, 0
@@ -363,7 +363,7 @@ bytestream2_init.exit:                            ; preds = %64
 
 199:                                              ; preds = %195, %198
   %indvars.iv189 = phi i64 [ 0, %195 ], [ %indvars.iv.next190, %198 ]
-  %200 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %179, i64 0, i64 %indvars.iv189
+  %200 = getelementptr inbounds nuw %struct.VLC, ptr %179, i64 %indvars.iv189
   %.val164 = load ptr, ptr %5, align 8, !tbaa !31
   %201 = tail call fastcc i32 @read_hufftable(ptr %.val164, ptr noundef nonnull %200)
   %202 = icmp slt i32 %201, 0
@@ -472,7 +472,7 @@ define internal noundef i32 @photocd_decode_close(ptr noundef readonly captures(
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.VLC, ptr %4, i64 %indvars.iv
   tail call void @ff_vlc_free(ptr noundef nonnull %7) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1113,14 +1113,14 @@ bytestream2_get_byte.exit:                        ; preds = %19, %20
   %41 = load i8, ptr %36, align 1, !tbaa !35
   %42 = tail call i16 @llvm.bswap.i16(i16 %37)
   %43 = add nuw nsw i8 %35, 1
-  %44 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   store i8 %43, ptr %44, align 1, !tbaa !35
   %narrow = sub nuw nsw i8 15, %35
   %45 = zext nneg i8 %narrow to i16
   %46 = lshr i16 %42, %45
-  %47 = getelementptr inbounds nuw [256 x i16], ptr %30, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
   store i16 %46, ptr %47, align 2, !tbaa !73
-  %48 = getelementptr inbounds nuw [256 x i8], ptr %31, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
   store i8 %41, ptr %48, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1192,7 +1192,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_huff(ptr noundef re
   %.sroa.65.7 = phi ptr [ %21, %26 ], [ %33, %29 ]
   %.sroa.0.6 = phi i64 [ 0, %26 ], [ %32, %29 ]
   %34 = zext nneg i32 %3 to i64
-  %35 = getelementptr inbounds nuw [6 x %struct.ImageInfo], ptr @img_info, i64 0, i64 %34, i32 2
+  %35 = getelementptr inbounds nuw %struct.ImageInfo, ptr @img_info, i64 %34, i32 2
   %36 = load i16, ptr %35, align 2, !tbaa !45
   %37 = zext i16 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1535,15 +1535,15 @@ bits_skip_be.exit109:                             ; preds = %168, %180, %bits_pr
   br i1 %185, label %bits_init8_be.exit.thread, label %186
 
 186:                                              ; preds = %bits_skip_be.exit109
-  %187 = getelementptr inbounds nuw [4 x i8], ptr @__const.decode_huff.type2idx, i64 0, i64 %184
+  %187 = getelementptr inbounds nuw i8, ptr @__const.decode_huff.type2idx, i64 %184
   %188 = load i8, ptr %187, align 1, !tbaa !35
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw ptr, ptr %1, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !50
   %192 = icmp ugt i64 %.sroa.0.20258, 4611686018427387903
   %193 = zext i1 %192 to i32
   %194 = lshr i32 %150, %193
-  %195 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %189
+  %195 = getelementptr inbounds nuw i32, ptr %38, i64 %189
   %196 = load i32, ptr %195, align 4, !tbaa !54
   %197 = mul nsw i32 %196, %194
   %198 = sext i32 %197 to i64
@@ -1561,7 +1561,7 @@ bits_skip_be.exit109:                             ; preds = %168, %180, %bits_pr
   br label %.preheader
 
 .lr.ph234:                                        ; preds = %186
-  %203 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %40, i64 0, i64 %189
+  %203 = getelementptr inbounds nuw %struct.VLC, ptr %40, i64 %189
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %wide.trip.count = zext nneg i32 %202 to i64
   br label %205

@@ -7416,7 +7416,7 @@ define hidden void @_ZN11opencv_test37BinaryOpTest_absdiffScalarDouble_Test12Per
 
 35:                                               ; preds = %35, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   %37 = load double, ptr %36, align 8, !tbaa !61
   %38 = fmul double %37, 5.000000e-01
   store double %38, ptr %36, align 8, !tbaa !61
@@ -8855,7 +8855,7 @@ define hidden void @_ZN11opencv_test33BinaryOpTest_addScalarDouble_Test12PerfTes
 
 35:                                               ; preds = %35, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   %37 = load double, ptr %36, align 8, !tbaa !61
   %38 = fmul double %37, 5.000000e-01
   store double %38, ptr %36, align 8, !tbaa !61
@@ -10289,7 +10289,7 @@ define hidden void @_ZN11opencv_test38BinaryOpTest_subtractScalarDouble_Test12Pe
 
 35:                                               ; preds = %35, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   %37 = load double, ptr %36, align 8, !tbaa !61
   %38 = fmul double %37, 5.000000e-01
   store double %38, ptr %36, align 8, !tbaa !61
@@ -14701,7 +14701,7 @@ define hidden void @_ZN11opencv_test36ArithmMixedTest_addScalarDouble_Test12Perf
 
 32:                                               ; preds = %32, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   %34 = load double, ptr %33, align 8, !tbaa !61
   %35 = fmul double %34, 5.000000e-01
   store double %35, ptr %33, align 8, !tbaa !61
@@ -16136,7 +16136,7 @@ define hidden void @_ZN11opencv_test41ArithmMixedTest_subtractScalarDouble_Test1
 
 32:                                               ; preds = %32, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   %34 = load double, ptr %33, align 8, !tbaa !61
   %35 = fmul double %34, 5.000000e-01
   store double %35, ptr %33, align 8, !tbaa !61

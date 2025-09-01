@@ -2489,7 +2489,7 @@ _ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader:  ; preds = %.lr.ph.i
   %.01730 = phi i32 [ %32, %_ZL15encodeComponentj.exit ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
   %.02629 = phi i32 [ %28, %_ZL15encodeComponentj.exit ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !143
   %12 = zext i32 %11 to i64
   %13 = sub i64 %.032, %12
@@ -5971,7 +5971,7 @@ define dso_local range(i64 0, 4294967298) i64 @_ZNK4llvm11DIBasicType13getSigned
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm11DIBasicType13getSignednessEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm11DIBasicType13getSignednessEv, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %6
 
@@ -6866,7 +6866,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %95, %99
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %122
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %122 ]
-  %104 = getelementptr inbounds nuw [15 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !192
   %106 = load ptr, ptr %33, align 8, !tbaa !361
   %107 = getelementptr inbounds i8, ptr %106, i64 -16
@@ -7378,14 +7378,21 @@ define dso_local void @_ZN4llvm6DIFileC2ERNS_11LLVMContextENS_8Metadata11Storage
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm6DIFile23getChecksumKindAsStringENS0_12ChecksumKindE(i32 noundef %0) local_unnamed_addr #12 align 2 {
-_ZN4llvm9StringRefC2EPKc.exit:
-  %1 = add nsw i32 %0, -1
-  %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds [3 x ptr], ptr @_ZL16ChecksumKindName, i64 0, i64 %2
-  %4 = load ptr, ptr %3, align 8, !tbaa !46
-  %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #25
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %5, 1
+  %2 = sext i32 %0 to i64
+  %3 = getelementptr ptr, ptr @_ZL16ChecksumKindName, i64 %2
+  %4 = getelementptr i8, ptr %3, i64 -8
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %.not.i = icmp eq ptr %5, null
+  br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %6
+
+6:                                                ; preds = %1
+  %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
+  br label %_ZN4llvm9StringRefC2EPKc.exit
+
+_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %1, %6
+  %8 = phi i64 [ %7, %6 ], [ 0, %1 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %5, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %8, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -7681,7 +7688,7 @@ define dso_local noundef ptr @_ZN4llvm13DICompileUnit18emissionKindStringENS0_17
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm13DICompileUnit18emissionKindStringENS0_17DebugEmissionKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm13DICompileUnit18emissionKindStringENS0_17DebugEmissionKindE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -7698,7 +7705,7 @@ define dso_local noundef ptr @_ZN4llvm13DICompileUnit19nameTableKindStringENS0_1
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm13DICompileUnit19nameTableKindStringENS0_18DebugNameTableKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm13DICompileUnit19nameTableKindStringENS0_18DebugNameTableKindE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

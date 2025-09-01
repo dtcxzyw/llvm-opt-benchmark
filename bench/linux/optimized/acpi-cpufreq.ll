@@ -173,7 +173,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
+  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_info to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -618,7 +618,7 @@ define internal noundef range(i32 -19, 1) i32 @acpi_cpufreq_target(ptr noundef %
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %10
   %17 = inttoptr i64 %16 to ptr
@@ -650,9 +650,9 @@ define internal noundef range(i32 -19, 1) i32 @acpi_cpufreq_target(ptr noundef %
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 63
-  %37 = add nuw nsw i32 %36, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %38
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 8
   %40 = lshr i32 %35, 6
   %41 = zext nneg i32 %40 to i64
   %42 = sub nsw i64 0, %41
@@ -739,7 +739,7 @@ define internal noundef range(i32 -19, 1) i32 @acpi_cpufreq_target(ptr noundef %
   %93 = ptrtoint ptr %92 to i64
   %94 = load i32, ptr %82, align 8
   %95 = zext i32 %94 to i64
-  %96 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %95
+  %96 = getelementptr i64, ptr @__per_cpu_offset, i64 %95
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %93
   %99 = inttoptr i64 %98 to ptr
@@ -792,7 +792,7 @@ define internal noundef range(i32 -19, 1) i32 @acpi_cpufreq_target(ptr noundef %
   %124 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %125 = load i32, ptr %124, align 8
   %126 = zext i32 %125 to i64
-  %127 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %126
+  %127 = getelementptr i64, ptr @__per_cpu_offset, i64 %126
   %128 = load i64, ptr %127, align 8
   %129 = load ptr, ptr @acpi_perf_data, align 8
   %130 = ptrtoint ptr %129 to i64
@@ -832,7 +832,7 @@ define internal noundef range(i32 -19, 1) i32 @acpi_cpufreq_target(ptr noundef %
   %157 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %158 = load i32, ptr %157, align 8
   %159 = zext i32 %158 to i64
-  %160 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %159
+  %160 = getelementptr i64, ptr @__per_cpu_offset, i64 %159
   %161 = load i64, ptr %160, align 8
   %162 = add i64 %161, %156
   %163 = inttoptr i64 %162 to ptr
@@ -951,7 +951,7 @@ define internal i32 @acpi_cpufreq_fast_switch(ptr noundef readonly captures(none
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %43
+  %44 = getelementptr i64, ptr @__per_cpu_offset, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %40
   %47 = inttoptr i64 %46 to ptr
@@ -1239,7 +1239,7 @@ define internal fastcc i64 @acpi_cpufreq_guess_freq(i32 %.8.val) unnamed_addr #5
   %1 = load ptr, ptr @acpi_perf_data, align 8
   %2 = ptrtoint ptr %1 to i64
   %3 = zext i32 %.8.val to i64
-  %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
   %7 = inttoptr i64 %6 to ptr
@@ -1322,7 +1322,7 @@ define internal i32 @get_cur_freq_on_cpu(i32 noundef %0) #2 align 16 {
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %15
   %22 = inttoptr i64 %21 to ptr
@@ -1331,9 +1331,9 @@ define internal i32 @get_cur_freq_on_cpu(i32 noundef %0) #2 align 16 {
   %25 = getelementptr %struct.cpufreq_frequency_table, ptr %11, i64 %24, i32 2
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %0, 63
-  %28 = add nuw nsw i32 %27, 1
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %29
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 8
   %31 = lshr i32 %0, 6
   %32 = zext nneg i32 %31 to i64
   %33 = sub nsw i64 0, %32
@@ -1397,7 +1397,7 @@ define internal i32 @get_cur_freq_on_cpu(i32 noundef %0) #2 align 16 {
   %66 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %68
+  %69 = getelementptr i64, ptr @__per_cpu_offset, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = load ptr, ptr @acpi_perf_data, align 8
   %72 = ptrtoint ptr %71 to i64
@@ -1437,7 +1437,7 @@ define internal i32 @get_cur_freq_on_cpu(i32 noundef %0) #2 align 16 {
   %99 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %101
+  %102 = getelementptr i64, ptr @__per_cpu_offset, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %98
   %105 = inttoptr i64 %104 to ptr
@@ -1800,7 +1800,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @acpi_cpufreq_early_init() 
 
 15:                                               ; preds = %11
   %16 = and i64 %12, 63
-  %17 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %16
+  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %5
   %20 = inttoptr i64 %19 to ptr

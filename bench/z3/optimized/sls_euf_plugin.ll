@@ -1871,14 +1871,14 @@ define hidden noundef zeroext i1 @_ZNK3sls10euf_plugin8value_eqclEP3appS3_(ptr n
   %16 = load ptr, ptr %0, align 8, !tbaa !292
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !68
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %14
   %20 = load ptr, ptr %19, align 8, !tbaa !140
   call void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %4, ptr noundef nonnull align 8 dereferenceable(321) %18, ptr noundef %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = load ptr, ptr %0, align 8, !tbaa !292
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !68
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %14
+  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %14
   %25 = load ptr, ptr %24, align 8, !tbaa !140
   invoke void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %5, ptr noundef nonnull align 8 dereferenceable(321) %23, ptr noundef %25)
           to label %26 unwind label %50
@@ -2779,7 +2779,7 @@ _ZNK11ast_manager11is_distinctEPK4expr.exit:      ; preds = %60
   br i1 %81, label %_ZNK3euf6egraph4findEP4expr.exit37, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i33
 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i33: ; preds = %77
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %75, i64 0, i64 %indvars.iv70
+  %82 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv70
   %83 = load ptr, ptr %82, align 8, !tbaa !140
   %84 = load i32, ptr %83, align 4, !tbaa !138
   %85 = getelementptr inbounds i8, ptr %80, i64 -4
@@ -2809,7 +2809,7 @@ _ZNK3euf6egraph4findEP4expr.exit37:               ; preds = %_ZNK6vectorIPN3euf5
   br i1 %95, label %_ZNK3euf6egraph4findEP4expr.exit42, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i38
 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i38: ; preds = %.lr.ph
-  %96 = getelementptr inbounds nuw [0 x ptr], ptr %75, i64 0, i64 %indvars.iv67
+  %96 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv67
   %97 = load ptr, ptr %96, align 8, !tbaa !140
   %98 = load i32, ptr %97, align 4, !tbaa !138
   %99 = getelementptr inbounds i8, ptr %94, i64 -4
@@ -3703,14 +3703,14 @@ _ZNK14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS
   %132 = load ptr, ptr %27, align 8, !tbaa !292
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !68
-  %135 = getelementptr inbounds nuw [0 x ptr], ptr %127, i64 0, i64 %130
+  %135 = getelementptr inbounds nuw ptr, ptr %127, i64 %130
   %136 = load ptr, ptr %135, align 8, !tbaa !140
   call void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %2, ptr noundef nonnull align 8 dereferenceable(321) %134, ptr noundef %136)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %137 = load ptr, ptr %27, align 8, !tbaa !292
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8, !tbaa !68
-  %140 = getelementptr inbounds nuw [0 x ptr], ptr %85, i64 0, i64 %130
+  %140 = getelementptr inbounds nuw ptr, ptr %85, i64 %130
   %141 = load ptr, ptr %140, align 8, !tbaa !140
   invoke void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %3, ptr noundef nonnull align 8 dereferenceable(321) %139, ptr noundef %141)
           to label %142 unwind label %166
@@ -3836,14 +3836,14 @@ _ZNK3sls10euf_plugin8value_eqclEP3appS3_.exit49:  ; preds = %_ZN7obj_refI4expr11
   %185 = load ptr, ptr %27, align 8, !tbaa !292
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8, !tbaa !68
-  %188 = getelementptr inbounds nuw [0 x ptr], ptr %180, i64 0, i64 %183
+  %188 = getelementptr inbounds nuw ptr, ptr %180, i64 %183
   %189 = load ptr, ptr %188, align 8, !tbaa !140
   call void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %4, ptr noundef nonnull align 8 dereferenceable(321) %187, ptr noundef %189)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %190 = load ptr, ptr %27, align 8, !tbaa !292
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8, !tbaa !68
-  %193 = getelementptr inbounds nuw [0 x ptr], ptr %85, i64 0, i64 %183
+  %193 = getelementptr inbounds nuw ptr, ptr %85, i64 %183
   %194 = load ptr, ptr %193, align 8, !tbaa !140
   invoke void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %5, ptr noundef nonnull align 8 dereferenceable(321) %192, ptr noundef %194)
           to label %195 unwind label %219
@@ -4991,14 +4991,14 @@ _ZNK14core_hashtableI18default_hash_entryIP3appEN3sls10euf_plugin10value_hashENS
   %155 = load ptr, ptr %34, align 8, !tbaa !292
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8, !tbaa !68
-  %158 = getelementptr inbounds nuw [0 x ptr], ptr %150, i64 0, i64 %153
+  %158 = getelementptr inbounds nuw ptr, ptr %150, i64 %153
   %159 = load ptr, ptr %158, align 8, !tbaa !140
   call void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %2, ptr noundef nonnull align 8 dereferenceable(321) %157, ptr noundef %159)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %160 = load ptr, ptr %34, align 8, !tbaa !292
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !68
-  %163 = getelementptr inbounds nuw [0 x ptr], ptr %108, i64 0, i64 %153
+  %163 = getelementptr inbounds nuw ptr, ptr %108, i64 %153
   %164 = load ptr, ptr %163, align 8, !tbaa !140
   invoke void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %3, ptr noundef nonnull align 8 dereferenceable(321) %162, ptr noundef %164)
           to label %165 unwind label %189
@@ -5124,14 +5124,14 @@ _ZNK3sls10euf_plugin8value_eqclEP3appS3_.exit184: ; preds = %_ZN7obj_refI4expr11
   %208 = load ptr, ptr %34, align 8, !tbaa !292
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8, !tbaa !68
-  %211 = getelementptr inbounds nuw [0 x ptr], ptr %203, i64 0, i64 %206
+  %211 = getelementptr inbounds nuw ptr, ptr %203, i64 %206
   %212 = load ptr, ptr %211, align 8, !tbaa !140
   call void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %4, ptr noundef nonnull align 8 dereferenceable(321) %210, ptr noundef %212)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %213 = load ptr, ptr %34, align 8, !tbaa !292
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8, !tbaa !68
-  %216 = getelementptr inbounds nuw [0 x ptr], ptr %108, i64 0, i64 %206
+  %216 = getelementptr inbounds nuw ptr, ptr %108, i64 %206
   %217 = load ptr, ptr %216, align 8, !tbaa !140
   invoke void @_ZN3sls7context9get_valueEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %5, ptr noundef nonnull align 8 dereferenceable(321) %215, ptr noundef %217)
           to label %218 unwind label %242
@@ -5324,9 +5324,9 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit92:       ; preds = %_ZN7obj_refI4expr11
   %indvars.iv = phi i64 [ %281, %.lr.ph ], [ %287, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %287 = add nsw i64 %indvars.iv, -1
   %288 = load ptr, ptr %41, align 8, !tbaa !61
-  %289 = getelementptr inbounds nuw [0 x ptr], ptr %108, i64 0, i64 %287
+  %289 = getelementptr inbounds nuw ptr, ptr %108, i64 %287
   %290 = load ptr, ptr %289, align 8, !tbaa !140
-  %291 = getelementptr inbounds nuw [0 x ptr], ptr %280, i64 0, i64 %287
+  %291 = getelementptr inbounds nuw ptr, ptr %280, i64 %287
   %292 = load ptr, ptr %291, align 8, !tbaa !140
   %293 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %288, i32 noundef 0, i32 noundef 2, ptr noundef %290, ptr noundef %292)
           to label %_ZN11ast_manager5mk_eqEP4exprS1_.exit93 unwind label %284
@@ -5821,7 +5821,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %488, label %_ZNK3euf6egraph4findEP4expr.exit, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %483
-  %489 = getelementptr inbounds nuw [0 x ptr], ptr %480, i64 0, i64 %indvars.iv319
+  %489 = getelementptr inbounds nuw ptr, ptr %480, i64 %indvars.iv319
   %490 = load ptr, ptr %489, align 8, !tbaa !140
   %491 = load i32, ptr %490, align 4, !tbaa !138
   %492 = getelementptr inbounds i8, ptr %487, i64 -4
@@ -5856,7 +5856,7 @@ _ZNK3euf6egraph4findEP4expr.exit:                 ; preds = %483, %_ZNK6vectorIP
   br i1 %505, label %_ZNK3euf6egraph4findEP4expr.exit116, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i112
 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i112: ; preds = %500
-  %506 = getelementptr inbounds nuw [0 x ptr], ptr %480, i64 0, i64 %indvars.iv316
+  %506 = getelementptr inbounds nuw ptr, ptr %480, i64 %indvars.iv316
   %507 = load ptr, ptr %506, align 8, !tbaa !140
   %508 = load i32, ptr %507, align 4, !tbaa !138
   %509 = getelementptr inbounds i8, ptr %504, i64 -4

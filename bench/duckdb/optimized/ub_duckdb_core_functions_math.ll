@@ -12122,12 +12122,12 @@ common.resume:                                    ; preds = %298, %26
 28:                                               ; preds = %3
   %29 = sub nsw i32 %23, %21
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %30
+  %31 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !145
   %33 = trunc i64 %32 to i16
   %34 = sub nsw i32 0, %21
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %35
+  %36 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !145
   %38 = trunc i64 %37 to i16
   %39 = sdiv i16 %33, 2
@@ -12762,12 +12762,12 @@ common.resume:                                    ; preds = %277, %26
 28:                                               ; preds = %3
   %29 = sub nsw i32 %23, %21
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %30
+  %31 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !145
   %33 = trunc i64 %32 to i32
   %34 = sub nsw i32 0, %21
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %35
+  %36 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !145
   %38 = trunc i64 %37 to i32
   %39 = sdiv i32 %33, 2
@@ -13381,11 +13381,11 @@ common.resume:                                    ; preds = %275, %26
 28:                                               ; preds = %3
   %29 = sub nsw i32 %23, %21
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %30
+  %31 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !145
   %33 = sub nsw i32 0, %21
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %34
+  %35 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = sdiv i64 %32, 2
   %38 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0)
@@ -14021,7 +14021,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp.
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %51 = sub nsw i32 %45, %43
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %52
+  %53 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %52
   %.sroa.01.0.copyload = load i64, ptr %53, align 16, !tbaa !145
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !145
@@ -14031,7 +14031,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp.
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %55 = sub nsw i32 0, %43
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %56
+  %57 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %56
   %.sroa.0.0.copyload = load i64, ptr %57, align 16, !tbaa !145
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !145
@@ -14859,7 +14859,7 @@ define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIsNS_13N
   %17 = load i32, ptr %16, align 8, !tbaa !121
   %18 = sub nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %19
+  %20 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !145
   %22 = trunc i64 %21 to i16
   %23 = sdiv i16 %22, 2
@@ -15452,7 +15452,7 @@ define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIiNS_13N
   %17 = load i32, ptr %16, align 8, !tbaa !121
   %18 = sub nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %19
+  %20 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !145
   %22 = trunc i64 %21 to i32
   %23 = sdiv i32 %22, 2
@@ -16063,7 +16063,7 @@ define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIlNS_13N
   %17 = load i32, ptr %16, align 8, !tbaa !121
   %18 = sub nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %19
+  %20 = getelementptr inbounds i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !145
   %22 = sdiv i64 %21, 2
   %23 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0)
@@ -16689,7 +16689,7 @@ define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionINS_9hug
   %32 = load i32, ptr %31, align 8, !tbaa !121
   %33 = sub nsw i32 %30, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %34
+  %35 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %34
   %.sroa.01.0.copyload = load i64, ptr %35, align 16, !tbaa !145
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !145
@@ -69095,7 +69095,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr %5, align 2, !tbaa !161
@@ -69124,7 +69124,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   %17 = trunc i64 %16 to i32
   store i32 %17, ptr %5, align 4, !tbaa !37
@@ -69153,7 +69153,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   store i64 %16, ptr %5, align 8, !tbaa !145
   %17 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
@@ -69181,7 +69181,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %14
   %.sroa.01.0.copyload.i = load i64, ptr %15, align 16, !tbaa !145
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !145
@@ -73563,7 +73563,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr %5, align 2, !tbaa !161
@@ -73592,7 +73592,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   %17 = trunc i64 %16 to i32
   store i32 %17, ptr %5, align 4, !tbaa !37
@@ -73621,7 +73621,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   store i64 %16, ptr %5, align 8, !tbaa !145
   %17 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
@@ -73649,7 +73649,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %14
   %.sroa.01.0.copyload.i = load i64, ptr %15, align 16, !tbaa !145
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !145
@@ -77875,7 +77875,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr %5, align 2, !tbaa !161
@@ -77904,7 +77904,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   %17 = trunc i64 %16 to i32
   store i32 %17, ptr %5, align 4, !tbaa !37
@@ -77933,7 +77933,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelp
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !145
   store i64 %16, ptr %5, align 8, !tbaa !145
   %17 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
@@ -77961,7 +77961,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_
   %13 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %14
   %.sroa.01.0.copyload.i = load i64, ptr %15, align 16, !tbaa !145
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !145
@@ -85627,7 +85627,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelp
   %14 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !145
   %18 = trunc i64 %17 to i16
   store i16 %18, ptr %5, align 2, !tbaa !161
@@ -85663,7 +85663,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelp
   %14 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !145
   %18 = trunc i64 %17 to i32
   store i32 %18, ptr %5, align 4, !tbaa !37
@@ -85699,7 +85699,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelp
   %14 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !145
   store i64 %17, ptr %5, align 8, !tbaa !145
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -85735,7 +85735,7 @@ define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_
   %15 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %16
   %.sroa.01.0.copyload.i = load i64, ptr %17, align 16, !tbaa !145
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !145

@@ -228,7 +228,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.15687 = phi i64 [ %9, %.lr.ph ], [ 0, %.preheader81 ]
   %.05986 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader81 ]
   %9 = add nuw nsw i64 %.15687, 1
-  %10 = getelementptr inbounds nuw [129 x ptr], ptr %3, i64 0, i64 %.15687
+  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %.15687
   store ptr %.05986, ptr %10, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %.05986, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !3
@@ -239,7 +239,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
 
 .loopexit82:                                      ; preds = %.lr.ph, %.preheader81, %7
   %.055 = phi i64 [ 0, %7 ], [ 0, %.preheader81 ], [ %9, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [129 x ptr], ptr %3, i64 0, i64 %.055
+  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %.055
   store ptr null, ptr %16, align 8, !tbaa !24
   br i1 %6, label %.loopexit80, label %.preheader79
 
@@ -252,7 +252,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.189 = phi i64 [ %18, %.lr.ph90 ], [ 0, %.preheader79 ]
   %.16088 = phi ptr [ %20, %.lr.ph90 ], [ %1, %.preheader79 ]
   %18 = add nuw nsw i64 %.189, 1
-  %19 = getelementptr inbounds nuw [129 x ptr], ptr %4, i64 0, i64 %.189
+  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %.189
   store ptr %.16088, ptr %19, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %.16088, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !3
@@ -263,7 +263,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
 
 .loopexit80:                                      ; preds = %.lr.ph90, %.preheader79, %.loopexit82
   %.054 = phi i64 [ 0, %.loopexit82 ], [ 0, %.preheader79 ], [ %18, %.lr.ph90 ]
-  %25 = getelementptr inbounds nuw [129 x ptr], ptr %4, i64 0, i64 %.054
+  %25 = getelementptr inbounds nuw ptr, ptr %4, i64 %.054
   store ptr null, ptr %25, align 8, !tbaa !24
   %26 = or i64 %.054, %.055
   %or.cond3 = icmp eq i64 %26, 0

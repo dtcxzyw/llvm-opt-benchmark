@@ -3630,7 +3630,7 @@ define void @_ZN6icu_7716RBBITableBuilder11exportTableEPv(ptr noundef nonnull re
 
 _ZNK6icu_779UVector3210elementAtiEi.exit53.us.us: ; preds = %94, %88
   %100 = phi i16 [ %99, %94 ], [ 0, %88 ]
-  %101 = getelementptr inbounds nuw [1 x i16], ptr %87, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv
   store i16 %100, ptr %101, align 2, !tbaa !116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3675,7 +3675,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit53.us.us: ; preds = %94, %88
 
 _ZNK6icu_779UVector3210elementAtiEi.exit.us.us:   ; preds = %119, %113
   %125 = phi i8 [ %124, %119 ], [ 0, %113 ]
-  %126 = getelementptr inbounds nuw [1 x i8], ptr %109, i64 0, i64 %indvars.iv71
+  %126 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv71
   store i8 %125, ptr %126, align 1, !tbaa !116
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
@@ -4308,7 +4308,7 @@ define void @_ZN6icu_7716RBBITableBuilder15exportSafeTableEPv(ptr noundef nonnul
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit41.us.us: ; preds = %60, %51
   %.0.i.i39.us.us = phi i16 [ %65, %60 ], [ -1, %51 ]
-  %66 = getelementptr inbounds nuw [1 x i16], ptr %50, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv
   store i16 %.0.i.i39.us.us, ptr %66, align 2, !tbaa !116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4353,7 +4353,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit41.us.us: ; preds = %60, %51
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.us.us:   ; preds = %82, %73
   %.0.i.i.us.us = phi i8 [ %88, %82 ], [ -1, %73 ]
-  %89 = getelementptr inbounds nuw [1 x i8], ptr %69, i64 0, i64 %indvars.iv61
+  %89 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv61
   store i8 %.0.i.i.us.us, ptr %89, align 1, !tbaa !116
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64

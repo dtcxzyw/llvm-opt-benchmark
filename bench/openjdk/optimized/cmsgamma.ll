@@ -335,7 +335,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 .lr.ph.i.i:                                       ; preds = %86, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %86 ]
-  %83 = getelementptr inbounds nuw [20 x i32], ptr %80, i64 0, i64 %indvars.iv.i.i
+  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i.i
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %.pre.i, %84
   br i1 %85, label %.loopexit, label %86
@@ -356,7 +356,7 @@ IsInSet.exit.thread.i:                            ; preds = %86, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %91
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %91 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %88 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
+  %88 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %.pre.i, %89
   br i1 %90, label %.loopexit, label %91
@@ -727,7 +727,7 @@ define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds nuw [20 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %.pre.i, %10
   br i1 %11, label %.loopexit, label %12
@@ -748,7 +748,7 @@ IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %17
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %17 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %14 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
+  %14 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %.pre.i, %15
   br i1 %16, label %.loopexit, label %17
@@ -774,8 +774,8 @@ IsInSet.exit38.thread.i:                          ; preds = %17
   store i32 %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 84
   %sext = shl i64 %indvars.iv.i34.lcssa.sink.i, 32
-  %22 = ashr exact i64 %sext, 32
-  %23 = getelementptr inbounds [20 x i32], ptr %21, i64 0, i64 %22
+  %22 = ashr exact i64 %sext, 30
+  %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = shl i32 %24, 3
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1099,7 +1099,7 @@ define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr noundef readonly ca
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %22 ]
-  %19 = getelementptr inbounds nuw [20 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %10, %20
   br i1 %21, label %.loopexit71, label %22
@@ -1120,7 +1120,7 @@ IsInSet.exit.thread.i:                            ; preds = %22, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %27
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %27 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %24 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 0, i64 %indvars.iv.i34.i
+  %24 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %10, %25
   br i1 %26, label %.loopexit71, label %27

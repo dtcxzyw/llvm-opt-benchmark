@@ -782,10 +782,10 @@ define dso_local i32 @rb_hash_stlike_foreach(i64 noundef %0, ptr noundef %1, i64
 
 .lr.ph.split.us.i.i:                              ; preds = %.critedge.us.i.i, %.lr.ph.i.i
   %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %.critedge.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %16 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv44.i.i
+  %16 = getelementptr i8, ptr %14, i64 %indvars.iv44.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !22
   %18 = icmp eq i8 %17, -1
-  %19 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv44.i.i
+  %19 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv44.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !45
   %.not35.us.i.i = icmp eq i64 %20, 36
   %or.cond.i.i = select i1 %18, i1 %.not35.us.i.i, i1 false
@@ -889,10 +889,10 @@ define hidden i32 @rb_hash_stlike_foreach_with_replace(i64 noundef %0, ptr nound
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %42
   %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %42 ], [ 0, %.lr.ph.i.i ]
-  %19 = getelementptr [8 x i8], ptr %17, i64 0, i64 %indvars.iv44.i.i
+  %19 = getelementptr i8, ptr %17, i64 %indvars.iv44.i.i
   %20 = load i8, ptr %19, align 1, !tbaa !22
   %21 = icmp eq i8 %20, -1
-  %22 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %18, i64 0, i64 %indvars.iv44.i.i
+  %22 = getelementptr %struct.ar_table_pair_struct, ptr %18, i64 %indvars.iv44.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !45
   %.not35.us.i.i = icmp eq i64 %23, 36
   %or.cond.i.i = select i1 %21, i1 %.not35.us.i.i, i1 false
@@ -957,10 +957,10 @@ RHASH_AR_TABLE_SIZE_DEC.exit.us.i.i:              ; preds = %40, %35
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %71
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %71 ], [ 0, %.lr.ph.i.i ]
-  %43 = getelementptr [8 x i8], ptr %17, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr i8, ptr %17, i64 %indvars.iv.i.i
   %44 = load i8, ptr %43, align 1, !tbaa !22
   %45 = icmp eq i8 %44, -1
-  %46 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr %struct.ar_table_pair_struct, ptr %18, i64 %indvars.iv.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !45
   %.not35.i.i = icmp eq i64 %47, 36
   %or.cond59.i.i = select i1 %45, i1 %.not35.i.i, i1 false
@@ -1184,10 +1184,10 @@ define internal noundef i64 @hash_foreach_call(i64 noundef %0) #0 {
 
 18:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %19 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr i8, ptr %14, i64 %indvars.iv.i
   %20 = load i8, ptr %19, align 1, !tbaa !22
   %21 = icmp eq i8 %20, -1
-  %22 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv.i
   %23 = load i64, ptr %22, align 8, !tbaa !45
   %.not13.i = icmp eq i64 %23, 36
   %or.cond.i = select i1 %21, i1 %.not13.i, i1 false
@@ -1244,7 +1244,7 @@ ensure_ar_table.exit.i:                           ; preds = %ar_cleared_entry.ex
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %.lr.ph.i.i
-  %44 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !45
   %46 = tail call fastcc i32 @ar_equal(i64 noundef %23, i64 noundef %45)
   %.not.i.i = icmp eq i32 %46, 0
@@ -1589,7 +1589,7 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next56.i, %.lr.ph.split.us.i ]
-  %17 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %16, i64 0, i64 %indvars.iv55.i
+  %17 = getelementptr %struct.ar_table_pair_struct, ptr %16, i64 %indvars.iv55.i
   %18 = load i64, ptr %17, align 8, !tbaa !45
   %19 = getelementptr i64, ptr %3, i64 %indvars.iv55.i
   store i64 %18, ptr %19, align 8, !tbaa !7
@@ -1614,7 +1614,7 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %22 = getelementptr [8 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %22 = getelementptr i64, ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !7
   %24 = icmp eq i64 %23, 36
   br i1 %24, label %27, label %25
@@ -1625,7 +1625,7 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 
 27:                                               ; preds = %.lr.ph, %25
   %28 = phi i64 [ %26, %25 ], [ 0, %.lr.ph ]
-  %29 = getelementptr [8 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %29 = getelementptr i64, ptr %2, i64 %indvars.iv
   store i64 %28, ptr %29, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1643,7 +1643,7 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 
 .lr.ph.split.us38.i:                              ; preds = %41, %.lr.ph.i37
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i37 ], [ %indvars.iv.next.i, %41 ]
-  %33 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %32, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr %struct.ar_table_pair_struct, ptr %32, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 8, !tbaa !45
   %35 = icmp eq i64 %34, 36
   br i1 %35, label %41, label %36
@@ -1758,7 +1758,7 @@ define internal fastcc range(i32 -1, 2) i32 @ar_update(i64 noundef %0, i64 nound
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %.lr.ph.i.i
-  %25 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %20, i64 0, i64 %indvars.iv.i.i
+  %25 = getelementptr %struct.ar_table_pair_struct, ptr %20, i64 %indvars.iv.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !45
   %27 = tail call fastcc i32 @ar_equal(i64 noundef %1, i64 noundef %26)
   %.not.i.i = icmp eq i32 %27, 0
@@ -1775,7 +1775,7 @@ define internal fastcc range(i32 -1, 2) i32 @ar_update(i64 noundef %0, i64 nound
 
 30:                                               ; preds = %29
   %31 = and i64 %indvars.iv.i.i, 4294967295
-  %32 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %20, i64 0, i64 %31
+  %32 = getelementptr %struct.ar_table_pair_struct, ptr %20, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !45
   store i64 %33, ptr %5, align 8, !tbaa !7
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1833,12 +1833,12 @@ ar_add_direct_with_hash.exit.thread:              ; preds = %49, %53
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = zext nneg i32 %.0.i to i64
-  %59 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %57, i64 0, i64 %58
+  %59 = getelementptr %struct.ar_table_pair_struct, ptr %57, i64 %58
   store i64 %45, ptr %59, align 8, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %46, ptr %60, align 8, !tbaa !47
   %61 = trunc i64 %7 to i8
-  %62 = getelementptr [8 x i8], ptr %56, i64 0, i64 %58
+  %62 = getelementptr i8, ptr %56, i64 %58
   store i8 %61, ptr %62, align 1, !tbaa !22
   %63 = load i64, ptr %8, align 8, !tbaa !11
   %64 = and i64 %63, -16711681
@@ -1856,7 +1856,7 @@ ar_add_direct_with_hash.exit.thread:              ; preds = %49, %53
   %73 = add i64 %0, 24
   %74 = inttoptr i64 %73 to ptr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %75, i64 0, i64 %.02941
+  %76 = getelementptr %struct.ar_table_pair_struct, ptr %75, i64 %.02941
   %77 = load i64, ptr %5, align 8, !tbaa !7
   %.not34 = icmp eq i64 %37, %77
   br i1 %.not34, label %79, label %78
@@ -1878,9 +1878,9 @@ ar_add_direct_with_hash.exit.thread:              ; preds = %49, %53
   %84 = add i64 %0, 24
   %85 = inttoptr i64 %84 to ptr
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %86, i64 0, i64 %.02941
+  %87 = getelementptr %struct.ar_table_pair_struct, ptr %86, i64 %.02941
   store i64 36, ptr %87, align 8, !tbaa !45
-  %88 = getelementptr [8 x i8], ptr %85, i64 0, i64 %.02941
+  %88 = getelementptr i8, ptr %85, i64 %.02941
   store i8 -1, ptr %88, align 1, !tbaa !22
   %89 = load i64, ptr %8, align 8, !tbaa !11
   %90 = trunc i64 %89 to i32
@@ -2201,7 +2201,7 @@ define hidden i32 @rb_hash_stlike_lookup(i64 noundef %0, i64 noundef %1, ptr nou
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
-  %30 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %25, i64 0, i64 %indvars.iv.i.i.i.i
+  %30 = getelementptr %struct.ar_table_pair_struct, ptr %25, i64 %indvars.iv.i.i.i.i
   %31 = load i64, ptr %30, align 8, !tbaa !45
   %32 = tail call fastcc i32 @ar_equal(i64 noundef %1, i64 noundef %31)
   %.not.i.i.i.i = icmp eq i32 %32, 0
@@ -2286,7 +2286,7 @@ define dso_local i64 @rb_hash_aref(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
-  %27 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %22, i64 0, i64 %indvars.iv.i.i.i.i
+  %27 = getelementptr %struct.ar_table_pair_struct, ptr %22, i64 %indvars.iv.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !45
   %29 = tail call fastcc i32 @ar_equal(i64 noundef %1, i64 noundef %28)
   %.not.i.i.i.i = icmp eq i32 %29, 0
@@ -2414,7 +2414,7 @@ define dso_local i64 @rb_hash_lookup2(i64 noundef %0, i64 noundef %1, i64 nounde
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
-  %27 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %22, i64 0, i64 %indvars.iv.i.i.i.i
+  %27 = getelementptr %struct.ar_table_pair_struct, ptr %22, i64 %indvars.iv.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !45
   %29 = tail call fastcc i32 @ar_equal(i64 noundef %1, i64 noundef %28)
   %.not.i.i.i.i = icmp eq i32 %29, 0
@@ -2535,7 +2535,7 @@ rb_check_arity.exit:                              ; preds = %3
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %.lr.ph.i.i.i.i
-  %35 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %30, i64 0, i64 %indvars.iv.i.i.i.i
+  %35 = getelementptr %struct.ar_table_pair_struct, ptr %30, i64 %indvars.iv.i.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !45
   %37 = tail call fastcc i32 @ar_equal(i64 noundef %7, i64 noundef %36)
   %.not.i.i.i.i = icmp eq i32 %37, 0
@@ -2760,7 +2760,7 @@ define hidden i32 @rb_hash_stlike_delete(i64 noundef %0, ptr noundef %1, ptr nou
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %.lr.ph.i.i.i
-  %29 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %24, i64 0, i64 %indvars.iv.i.i.i
+  %29 = getelementptr %struct.ar_table_pair_struct, ptr %24, i64 %indvars.iv.i.i.i
   %30 = load i64, ptr %29, align 8, !tbaa !45
   %31 = tail call fastcc i32 @ar_equal(i64 noundef %17, i64 noundef %30)
   %.not.i.i.i = icmp eq i32 %31, 0
@@ -2798,9 +2798,9 @@ ar_find_entry.exit.thread.i:                      ; preds = %32, %ar_find_entry.
 
 41:                                               ; preds = %36, %35
   %42 = and i64 %indvars.iv.i.i.i, 4294967295
-  %43 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %24, i64 0, i64 %42
+  %43 = getelementptr %struct.ar_table_pair_struct, ptr %24, i64 %42
   store i64 36, ptr %43, align 8, !tbaa !45
-  %44 = getelementptr [8 x i8], ptr %23, i64 0, i64 %42
+  %44 = getelementptr i8, ptr %23, i64 %42
   store i8 -1, ptr %44, align 1, !tbaa !22
   %45 = load i64, ptr %4, align 8, !tbaa !11
   %46 = trunc i64 %45 to i32
@@ -3569,10 +3569,10 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
 30:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %.020.i = phi ptr [ %16, %.lr.ph.i ], [ %.1.i, %37 ]
-  %31 = getelementptr [8 x i8], ptr %27, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr i8, ptr %27, i64 %indvars.iv.i
   %32 = load i8, ptr %31, align 1, !tbaa !22
   %33 = icmp eq i8 %32, -1
-  %34 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %28, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr %struct.ar_table_pair_struct, ptr %28, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !45
   %.not.i20 = icmp eq i64 %35, 36
   %or.cond23.i = select i1 %33, i1 %.not.i20, i1 false
@@ -3685,13 +3685,13 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
 32:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
   %.020.i = phi ptr [ %19, %.lr.ph.i ], [ %.1.i, %41 ]
-  %33 = getelementptr [8 x i8], ptr %28, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr i8, ptr %28, i64 %indvars.iv.i
   %34 = load i8, ptr %33, align 1, !tbaa !22
   %35 = icmp eq i8 %34, -1
   br i1 %35, label %ar_cleared_entry.exit.i, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.i:                          ; preds = %32
-  %36 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %29, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr %struct.ar_table_pair_struct, ptr %29, i64 %indvars.iv.i
   %37 = load i64, ptr %36, align 8, !tbaa !45
   %.not.i25 = icmp eq i64 %37, 36
   br i1 %.not.i25, label %41, label %ar_cleared_entry.exit.thread.i
@@ -3783,7 +3783,7 @@ define hidden range(i64 0, 21) i64 @rb_hash_has_key(i64 noundef %0, i64 noundef 
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
-  %25 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %20, i64 0, i64 %indvars.iv.i.i.i.i
+  %25 = getelementptr %struct.ar_table_pair_struct, ptr %20, i64 %indvars.iv.i.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !45
   %27 = tail call fastcc i32 @ar_equal(i64 noundef %1, i64 noundef %26)
   %.not.i.i.i.i = icmp eq i32 %27, 0
@@ -6147,7 +6147,7 @@ RARRAY_AREF.exit47:                               ; preds = %82, %85
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %.lr.ph.i.i.i.i
-  %109 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %63, i64 0, i64 %indvars.iv.i.i.i.i
+  %109 = getelementptr %struct.ar_table_pair_struct, ptr %63, i64 %indvars.iv.i.i.i.i
   %110 = load i64, ptr %109, align 8, !tbaa !45
   %111 = call fastcc i32 @ar_equal(i64 noundef %90, i64 noundef %110)
   %.not.i.i.i.i = icmp eq i32 %111, 0
@@ -6289,10 +6289,10 @@ RHASH_EMPTY_P.exit:                               ; preds = %27, %30
 
 .lr.ph.split.i.i.i.us:                            ; preds = %.lr.ph.i.i.i, %59
   %indvars.iv.i.i.i.us = phi i64 [ %indvars.iv.next.i.i.i.us, %59 ], [ 0, %.lr.ph.i.i.i ]
-  %51 = getelementptr [8 x i8], ptr %45, i64 0, i64 %indvars.iv.i.i.i.us
+  %51 = getelementptr i8, ptr %45, i64 %indvars.iv.i.i.i.us
   %52 = load i8, ptr %51, align 1, !tbaa !22
   %53 = icmp eq i8 %52, -1
-  %54 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %46, i64 0, i64 %indvars.iv.i.i.i.us
+  %54 = getelementptr %struct.ar_table_pair_struct, ptr %46, i64 %indvars.iv.i.i.i.us
   %55 = load i64, ptr %54, align 8, !tbaa !45
   %.not35.i.i.i.us = icmp eq i64 %55, 36
   %or.cond59.i.i.i.us = select i1 %53, i1 %.not35.i.i.i.us, i1 false
@@ -6311,10 +6311,10 @@ ensure_ar_table.exit.i.i.i.us:                    ; preds = %.lr.ph.split.i.i.i.
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i, %83
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %83 ], [ 0, %.lr.ph.i.i.i ]
-  %60 = getelementptr [8 x i8], ptr %45, i64 0, i64 %indvars.iv.i.i.i
+  %60 = getelementptr i8, ptr %45, i64 %indvars.iv.i.i.i
   %61 = load i8, ptr %60, align 1, !tbaa !22
   %62 = icmp eq i8 %61, -1
-  %63 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %46, i64 0, i64 %indvars.iv.i.i.i
+  %63 = getelementptr %struct.ar_table_pair_struct, ptr %46, i64 %indvars.iv.i.i.i
   %64 = load i64, ptr %63, align 8, !tbaa !45
   %.not35.i.i.i = icmp eq i64 %64, 36
   %or.cond59.i.i.i = select i1 %62, i1 %.not35.i.i.i, i1 false
@@ -6487,10 +6487,10 @@ RHASH_TABLE_EMPTY_P.exit.thread:                  ; preds = %rb_hash_modify_chec
 
 .lr.ph.split.i.i.i:                               ; preds = %59, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %59 ], [ 0, %.lr.ph.i.i.i ]
-  %36 = getelementptr [8 x i8], ptr %34, i64 0, i64 %indvars.iv.i.i.i
+  %36 = getelementptr i8, ptr %34, i64 %indvars.iv.i.i.i
   %37 = load i8, ptr %36, align 1, !tbaa !22
   %38 = icmp eq i8 %37, -1
-  %39 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %35, i64 0, i64 %indvars.iv.i.i.i
+  %39 = getelementptr %struct.ar_table_pair_struct, ptr %35, i64 %indvars.iv.i.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !45
   %.not35.i.i.i = icmp eq i64 %40, 36
   %or.cond59.i.i.i = select i1 %38, i1 %.not35.i.i.i, i1 false
@@ -6689,20 +6689,20 @@ rb_hash_modify_check.exit:                        ; preds = %rbimpl_RB_TYPE_P_fa
 
 34:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr [8 x i8], ptr %31, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr i8, ptr %31, i64 %indvars.iv.i
   %36 = load i8, ptr %35, align 1, !tbaa !22
   %37 = icmp eq i8 %36, -1
   br i1 %37, label %ar_cleared_entry.exit.i, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.i:                          ; preds = %34
-  %38 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %32, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr %struct.ar_table_pair_struct, ptr %32, i64 %indvars.iv.i
   %39 = load i64, ptr %38, align 8, !tbaa !45
   %.not28.i = icmp eq i64 %39, 36
   br i1 %.not28.i, label %33, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.exit.i, %34
-  %40 = getelementptr [8 x i8], ptr %31, i64 0, i64 %indvars.iv.i
-  %41 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %32, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr i8, ptr %31, i64 %indvars.iv.i
+  %41 = getelementptr %struct.ar_table_pair_struct, ptr %32, i64 %indvars.iv.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !47
   store i64 %43, ptr %24, align 8, !tbaa !7
@@ -10643,17 +10643,17 @@ define internal fastcc noundef i64 @hash_copy(i64 noundef returned %0, i64 nound
 
 38:                                               ; preds = %.lr.ph, %rb_obj_written.exit27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %rb_obj_written.exit27 ]
-  %39 = getelementptr [8 x i8], ptr %36, i64 0, i64 %indvars.iv
+  %39 = getelementptr i8, ptr %36, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1, !tbaa !22
   %41 = icmp eq i8 %40, -1
-  %42 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %37, i64 0, i64 %indvars.iv
+  %42 = getelementptr %struct.ar_table_pair_struct, ptr %37, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8, !tbaa !45
   %.not = icmp eq i64 %43, 36
   %or.cond = select i1 %41, i1 %.not, i1 false
   br i1 %or.cond, label %rb_obj_written.exit27, label %ar_cleared_entry.exit.thread
 
 ar_cleared_entry.exit.thread:                     ; preds = %38
-  %44 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %37, i64 0, i64 %indvars.iv
+  %44 = getelementptr %struct.ar_table_pair_struct, ptr %37, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !47
   tail call void @rb_st_add_direct(ptr noundef nonnull %27, i64 noundef %43, i64 noundef %46) #28
@@ -10738,13 +10738,13 @@ define internal fastcc range(i32 0, 16) i32 @ar_compact_table(i64 noundef %0) un
   %indvars.iv60 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next61, %ar_cleared_entry.exit.thread ]
   %indvars.iv = phi i64 [ 1, %.lr.ph53.preheader ], [ %indvars.iv.next, %ar_cleared_entry.exit.thread ]
   %.03352 = phi i32 [ 0, %.lr.ph53.preheader ], [ %.3, %ar_cleared_entry.exit.thread ]
-  %15 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv60
+  %15 = getelementptr i8, ptr %12, i64 %indvars.iv60
   %16 = load i8, ptr %15, align 1, !tbaa !22
   %17 = icmp eq i8 %16, -1
   br i1 %17, label %ar_cleared_entry.exit, label %ar_cleared_entry.exit.thread
 
 ar_cleared_entry.exit:                            ; preds = %.lr.ph53
-  %18 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %13, i64 0, i64 %indvars.iv60
+  %18 = getelementptr %struct.ar_table_pair_struct, ptr %13, i64 %indvars.iv60
   %19 = load i64, ptr %18, align 8, !tbaa !45
   %.not = icmp eq i64 %19, 36
   br i1 %.not, label %20, label %ar_cleared_entry.exit.thread
@@ -10763,19 +10763,19 @@ ar_cleared_entry.exit:                            ; preds = %.lr.ph53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv58 = phi i64 [ %umax, %.lr.ph.preheader ], [ %indvars.iv.next59, %35 ]
-  %25 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv58
+  %25 = getelementptr i8, ptr %12, i64 %indvars.iv58
   %26 = load i8, ptr %25, align 1, !tbaa !22
   %27 = icmp eq i8 %26, -1
   br i1 %27, label %ar_cleared_entry.exit39, label %ar_cleared_entry.exit39.thread
 
 ar_cleared_entry.exit39:                          ; preds = %.lr.ph
-  %28 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %13, i64 0, i64 %indvars.iv58
+  %28 = getelementptr %struct.ar_table_pair_struct, ptr %13, i64 %indvars.iv58
   %29 = load i64, ptr %28, align 8, !tbaa !45
   %.not44 = icmp eq i64 %29, 36
   br i1 %.not44, label %35, label %ar_cleared_entry.exit39.thread
 
 ar_cleared_entry.exit39.thread:                   ; preds = %.lr.ph, %ar_cleared_entry.exit39
-  %30 = getelementptr [8 x i8], ptr %12, i64 0, i64 %indvars.iv58
+  %30 = getelementptr i8, ptr %12, i64 %indvars.iv58
   %31 = trunc nuw i64 %indvars.iv58 to i32
   %32 = getelementptr %struct.ar_table_pair_struct, ptr %13, i64 %indvars.iv58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !156
@@ -10848,7 +10848,7 @@ define internal fastcc void @ar_insert(i64 noundef %0, i64 noundef %1, i64 nound
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = tail call fastcc i32 @ar_equal(i64 noundef %1, i64 noundef %21)
   %.not.i.i = icmp eq i32 %22, 0
@@ -10893,13 +10893,13 @@ ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_en
   %indvars.iv60.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next61.i, %ar_cleared_entry.exit.thread.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph53.preheader.i ], [ %indvars.iv.next.i, %ar_cleared_entry.exit.thread.i ]
   %.03352.i = phi i32 [ 0, %.lr.ph53.preheader.i ], [ %.3.i, %ar_cleared_entry.exit.thread.i ]
-  %36 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv60.i
+  %36 = getelementptr i8, ptr %14, i64 %indvars.iv60.i
   %37 = load i8, ptr %36, align 1, !tbaa !22
   %38 = icmp eq i8 %37, -1
   br i1 %38, label %ar_cleared_entry.exit.i, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.i:                          ; preds = %.lr.ph53.i
-  %39 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv60.i
+  %39 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv60.i
   %40 = load i64, ptr %39, align 8, !tbaa !45
   %.not.i24 = icmp eq i64 %40, 36
   br i1 %.not.i24, label %41, label %ar_cleared_entry.exit.thread.i
@@ -10918,19 +10918,19 @@ ar_cleared_entry.exit.i:                          ; preds = %.lr.ph53.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
   %indvars.iv58.i = phi i64 [ %umax.i, %.lr.ph.preheader.i ], [ %indvars.iv.next59.i, %56 ]
-  %46 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv58.i
+  %46 = getelementptr i8, ptr %14, i64 %indvars.iv58.i
   %47 = load i8, ptr %46, align 1, !tbaa !22
   %48 = icmp eq i8 %47, -1
   br i1 %48, label %ar_cleared_entry.exit39.i, label %ar_cleared_entry.exit39.thread.i
 
 ar_cleared_entry.exit39.i:                        ; preds = %.lr.ph.i
-  %49 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %indvars.iv58.i
+  %49 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv58.i
   %50 = load i64, ptr %49, align 8, !tbaa !45
   %.not44.i = icmp eq i64 %50, 36
   br i1 %.not44.i, label %56, label %ar_cleared_entry.exit39.thread.i
 
 ar_cleared_entry.exit39.thread.i:                 ; preds = %ar_cleared_entry.exit39.i, %.lr.ph.i
-  %51 = getelementptr [8 x i8], ptr %14, i64 0, i64 %indvars.iv58.i
+  %51 = getelementptr i8, ptr %14, i64 %indvars.iv58.i
   %52 = trunc nuw i64 %indvars.iv58.i to i32
   %53 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv58.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !156
@@ -10965,11 +10965,11 @@ ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.ex
 ar_compact_table.exit:                            ; preds = %.ar_compact_table.exit_crit_edge, %.loopexit.i
   %.pre-phi = phi i32 [ %.pre, %.ar_compact_table.exit_crit_edge ], [ %60, %.loopexit.i ]
   %63 = zext nneg i32 %28 to i64
-  %64 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %15, i64 0, i64 %63
+  %64 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %63
   store i64 %1, ptr %64, align 8, !tbaa !45
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %2, ptr %65, align 8, !tbaa !47
-  %66 = getelementptr [8 x i8], ptr %14, i64 0, i64 %63
+  %66 = getelementptr i8, ptr %14, i64 %63
   store i8 %9, ptr %66, align 1, !tbaa !22
   %67 = load i64, ptr %4, align 8, !tbaa !11
   %68 = and i64 %67, -16711681
@@ -11671,7 +11671,7 @@ define internal range(i32 0, 2) i32 @eql_i(i64 noundef %0, i64 noundef %1, i64 n
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %.lr.ph.i.i.i.i
-  %30 = getelementptr [8 x %struct.ar_table_pair_struct], ptr %25, i64 0, i64 %indvars.iv.i.i.i.i
+  %30 = getelementptr %struct.ar_table_pair_struct, ptr %25, i64 %indvars.iv.i.i.i.i
   %31 = load i64, ptr %30, align 8, !tbaa !45
   %32 = tail call fastcc i32 @ar_equal(i64 noundef %0, i64 noundef %31)
   %.not.i.i.i.i = icmp eq i32 %32, 0

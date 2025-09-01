@@ -184,13 +184,13 @@ switch.lookup:                                    ; preds = %2
   br label %credential_set_capability.exit
 
 credential_set_capability.exit:                   ; preds = %2, %switch.lookup
-  %switch.tableidx7 = add i32 %1, -1
-  %7 = icmp ult i32 %switch.tableidx7, 3
-  br i1 %7, label %switch.lookup6, label %credential_set_capability.exit5
+  %switch.tableidx6 = add i32 %1, -1
+  %7 = icmp ult i32 %switch.tableidx6, 3
+  br i1 %7, label %switch.lookup7, label %credential_set_capability.exit5
 
-switch.lookup6:                                   ; preds = %credential_set_capability.exit
+switch.lookup7:                                   ; preds = %credential_set_capability.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %switch.cast8 = trunc nuw i32 %switch.tableidx7 to i24
+  %switch.cast8 = trunc nuw i32 %switch.tableidx6 to i24
   %switch.shiftamt9 = shl nuw nsw i24 %switch.cast8, 3
   %switch.downshift10 = lshr i24 262657, %switch.shiftamt9
   %switch.masked11 = trunc i24 %switch.downshift10 to i8
@@ -199,7 +199,7 @@ switch.lookup6:                                   ; preds = %credential_set_capa
   store i8 %10, ptr %8, align 4
   br label %credential_set_capability.exit5
 
-credential_set_capability.exit5:                  ; preds = %credential_set_capability.exit, %switch.lookup6
+credential_set_capability.exit5:                  ; preds = %credential_set_capability.exit, %switch.lookup7
   ret void
 }
 
@@ -403,9 +403,9 @@ define dso_local range(i32 -1, 1) i32 @credential_read(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %switch.tableidx106 = add i32 %2, -1
-  %22 = icmp ult i32 %switch.tableidx106, 3
-  %switch.cast107 = trunc nuw i32 %switch.tableidx106 to i24
+  %switch.tableidx105 = add i32 %2, -1
+  %22 = icmp ult i32 %switch.tableidx105, 3
+  %switch.cast107 = trunc nuw i32 %switch.tableidx105 to i24
   %switch.shiftamt108 = shl nuw nsw i24 %switch.cast107, 3
   %switch.downshift109 = lshr i24 262657, %switch.shiftamt108
   %switch.masked110 = trunc i24 %switch.downshift109 to i8
@@ -567,9 +567,9 @@ switch.lookup:                                    ; preds = %82
   %.not85.not = xor i1 %.not85, true
   %.not113 = xor i1 %22, true
   %brmerge = or i1 %.not85.not, %.not113
-  br i1 %brmerge, label %credential_set_capability.exit, label %switch.lookup105
+  br i1 %brmerge, label %credential_set_capability.exit, label %switch.lookup106
 
-switch.lookup105:                                 ; preds = %85
+switch.lookup106:                                 ; preds = %85
   %87 = load i8, ptr %12, align 4
   %88 = or i8 %87, %switch.masked110
   store i8 %88, ptr %12, align 4
@@ -660,7 +660,7 @@ switch.lookup105:                                 ; preds = %85
   store i16 %127, ptr %8, align 8
   br label %credential_set_capability.exit
 
-credential_set_capability.exit:                   ; preds = %85, %82, %switch.lookup105, %switch.lookup, %32, %44, %54, %64, %76, %91, %109, %119, %122, %120, %114, %103, %106, %72, %59, %49, %39
+credential_set_capability.exit:                   ; preds = %85, %82, %switch.lookup106, %switch.lookup, %32, %44, %54, %64, %76, %91, %109, %119, %122, %120, %114, %103, %106, %72, %59, %49, %39
   %128 = call i32 @strbuf_getline(ptr noundef nonnull %4, ptr noundef %1) #19
   %.not = icmp eq i32 %128, -1
   br i1 %.not, label %credential_set_capability.exit.thread98, label %24

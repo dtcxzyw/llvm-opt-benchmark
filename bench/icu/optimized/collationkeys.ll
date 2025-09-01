@@ -669,7 +669,7 @@ define void @_ZN6icu_7713CollationKeys26writeSortKeyUpToQuaternaryERNS_17Collati
   %18 = load i32, ptr %17, align 8, !tbaa !23
   %19 = ashr i32 %18, 12
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [16 x i32], ptr @_ZN6icu_77L10levelMasksE, i64 0, i64 %20
+  %21 = getelementptr inbounds i32, ptr @_ZN6icu_77L10levelMasksE, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = lshr i32 %18, 7
   %24 = and i32 %23, 8

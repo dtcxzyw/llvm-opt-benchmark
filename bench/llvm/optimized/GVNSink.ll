@@ -13655,7 +13655,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110ValueTable16createMemoryE
   %5 = lshr i16 %4, 7
   %6 = and i16 %5, 7
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %7, i64 1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %7, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !338, !range !69, !noundef !113
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %19, label %11
@@ -13685,7 +13685,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110ValueTable16createMemoryE
   %5 = lshr i16 %4, 7
   %6 = and i16 %5, 7
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %7, i64 1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %7, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !338, !range !69, !noundef !113
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %19, label %11

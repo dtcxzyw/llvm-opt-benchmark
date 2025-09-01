@@ -108,7 +108,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers11mkNegateCTTENS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4cvc58internal6theory11quantifiers11mkNegateCTTENS2_11CegTermTypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4cvc58internal6theory11quantifiers11mkNegateCTTENS2_11CegTermTypeE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

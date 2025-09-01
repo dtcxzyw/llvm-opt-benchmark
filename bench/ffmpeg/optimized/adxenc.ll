@@ -159,7 +159,7 @@ define internal range(i32 -2147483648, 1) i32 @adx_encode_frame(ptr noundef %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %adx_encode.exit ]
   %.164 = phi ptr [ %.060, %.lr.ph ], [ %152, %adx_encode.exit ]
   %66 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
-  %67 = getelementptr inbounds nuw [6 x %struct.ADXChannelState], ptr %61, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %struct.ADXChannelState, ptr %61, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !38
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !40

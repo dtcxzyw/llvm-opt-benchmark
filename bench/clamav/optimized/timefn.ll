@@ -353,7 +353,7 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull writeonly align 8 c
 
 33:                                               ; preds = %26
   %34 = zext nneg i32 %31 to i64
-  %35 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !34
   %37 = mul nsw i32 %36, 10
   %38 = load i32, ptr %.015, align 4, !tbaa !32

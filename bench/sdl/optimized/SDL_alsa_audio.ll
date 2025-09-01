@@ -718,7 +718,7 @@ define internal void @ALSA_DetectDevices(ptr noundef writeonly captures(none) %0
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %16
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr @ALSA_guess_device_prefix.prefixes, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr @ALSA_guess_device_prefix.prefixes, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = call i64 @SDL_strlen_REAL(ptr noundef %18) #8
   %20 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull %15, ptr noundef %18, i64 noundef %19) #8
@@ -2237,7 +2237,7 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
 
 ._crit_edge.i.i:                                  ; preds = %25
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw [9 x [8 x i32]], ptr @sdl_channel_maps, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i32], ptr @sdl_channel_maps, i64 %31
   %33 = shl nuw nsw i64 %31, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 16 %32, i64 %33, i1 false)
   %34 = load ptr, ptr %.03857.i.i, align 8
@@ -2302,7 +2302,7 @@ alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
 54:                                               ; preds = %60
   %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
   %55 = and i64 %indvars.iv.next64.i.i, 4294967295
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %17, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i32, ptr %49, i64 %55
   %59 = load i32, ptr %58, align 4
@@ -2365,7 +2365,7 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 
 ._crit_edge.i5.i:                                 ; preds = %72
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds nuw [9 x [8 x i32]], ptr @sdl_channel_maps, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i32], ptr @sdl_channel_maps, i64 %78
   %80 = shl nuw nsw i64 %78, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 16 %79, i64 %80, i1 false)
   %81 = load ptr, ptr %.04573.i.i, align 8
@@ -2428,7 +2428,7 @@ alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i
 .preheader.i.i:                                   ; preds = %..loopexit_crit_edge.i.i, %.preheader.preheader.i.i
   %indvars.iv79.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next80.i.i, %..loopexit_crit_edge.i.i ]
   %.03865.i.i = phi i32 [ 0, %.preheader.preheader.i.i ], [ %.1.i.i, %..loopexit_crit_edge.i.i ]
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %indvars.iv79.i.i
+  %99 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv79.i.i
   %100 = load i32, ptr %99, align 4
   br label %103
 
@@ -2525,7 +2525,7 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %110
 
 ._crit_edge.i:                                    ; preds = %124
   %130 = zext i32 %127 to i64
-  %131 = getelementptr inbounds nuw [9 x [8 x i32]], ptr @sdl_channel_maps, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i32], ptr @sdl_channel_maps, i64 %130
   %132 = shl nuw nsw i64 %130, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %116, ptr nonnull align 16 %131, i64 %132, i1 false)
   %133 = load ptr, ptr %.04677.i, align 8
@@ -2588,7 +2588,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
 .preheader.i:                                     ; preds = %..loopexit_crit_edge.i, %.preheader.preheader.i
   %indvars.iv83.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next84.i, %..loopexit_crit_edge.i ]
   %.03969.i = phi i32 [ 0, %.preheader.preheader.i ], [ %.1.i, %..loopexit_crit_edge.i ]
-  %151 = getelementptr inbounds nuw [8 x i32], ptr %116, i64 0, i64 %indvars.iv83.i
+  %151 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv83.i
   %152 = load i32, ptr %151, align 4
   br label %155
 
@@ -2671,14 +2671,14 @@ alsa_chmap_cfg_unordered.exit:                    ; preds = %alsa_chmap_has_dupl
   %179 = zext i32 %.012.i to i64
   %180 = getelementptr inbounds nuw i32, ptr %176, i64 %179
   store i32 -1, ptr %180, align 4
-  %181 = getelementptr inbounds nuw [8 x i32], ptr %116, i64 0, i64 %179
+  %181 = getelementptr inbounds nuw i32, ptr %116, i64 %179
   %182 = load i32, ptr %181, align 4
   br label %183
 
 183:                                              ; preds = %183, %178
   %.0.i.i = phi i32 [ 0, %178 ], [ %188, %183 ]
   %184 = zext i32 %.0.i.i to i64
-  %185 = getelementptr inbounds nuw [8 x i32], ptr %177, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i32, ptr %177, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, %182
   %188 = add i32 %.0.i.i, 1
@@ -2808,13 +2808,13 @@ has_pos.exit43:                                   ; preds = %.preheader45
 
 switch.lookup:                                    ; preds = %20
   %21 = zext nneg i32 %.2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = zext nneg i32 %.2 to i64
-  %switch.gep79 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.1, i64 0, i64 %22
+  %switch.gep79 = getelementptr inbounds nuw i32, ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.1, i64 %22
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   %23 = zext nneg i32 %.2 to i64
-  %switch.gep81 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.2, i64 0, i64 %23
+  %switch.gep81 = getelementptr inbounds nuw ptr, ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.2, i64 %23
   %switch.load82 = load ptr, ptr %switch.gep81, align 8
   br label %.thread
 

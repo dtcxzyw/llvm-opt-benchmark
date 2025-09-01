@@ -24,7 +24,7 @@ define hidden noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef capture
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %11, i32 31)
   %12 = zext nneg i32 %.sroa.speculated.i to i64
   %13 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef %7, i64 noundef %12) #8
-  %14 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   store i8 0, ptr %14, align 1, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !4
@@ -90,7 +90,7 @@ define hidden noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef captu
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %12, i32 31)
   %13 = zext nneg i32 %.sroa.speculated.i to i64
   %14 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %8, i64 noundef %13) #8
-  %15 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   store i8 0, ptr %15, align 1, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %6, ptr %7, align 8, !tbaa !4
@@ -203,11 +203,11 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr @_ZL25_double_parser_trans_keys, i64 %16
   %18 = sext i32 %.065.i to i64
-  %19 = getelementptr inbounds [9 x i8], ptr @_ZL28_double_parser_index_offsets, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr @_ZL28_double_parser_index_offsets, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !9
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr @_ZL23_double_parser_indicies, i64 %21
-  %23 = getelementptr inbounds [9 x i8], ptr @_ZL24_double_parser_key_spans, i64 0, i64 %18
+  %23 = getelementptr inbounds i8, ptr @_ZL24_double_parser_key_spans, i64 %18
   %24 = load i8, ptr %23, align 1, !tbaa !9
   %25 = sext i8 %24 to i32
   %26 = load i8, ptr %17, align 2, !tbaa !9
@@ -232,7 +232,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %38 = getelementptr inbounds i8, ptr %22, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !9
   %40 = sext i8 %39 to i64
-  %41 = getelementptr inbounds [10 x i8], ptr @_ZL26_double_parser_trans_targs, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr @_ZL26_double_parser_trans_targs, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !9
   %43 = sext i8 %42 to i32
   %44 = shl nuw i64 1, %40
@@ -241,7 +241,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   br i1 %.not89.i, label %46, label %67
 
 46:                                               ; preds = %35
-  %47 = getelementptr inbounds [10 x i8], ptr @_ZL28_double_parser_trans_actions, i64 0, i64 %40
+  %47 = getelementptr inbounds i8, ptr @_ZL28_double_parser_trans_actions, i64 %40
   %48 = load i8, ptr %47, align 1, !tbaa !9
   switch i8 %48, label %67 [
     i8 1, label %49

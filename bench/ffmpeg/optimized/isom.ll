@@ -38,7 +38,7 @@ define i32 @ff_mov_iso639_to_lang(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph.split:                                     ; preds = %2, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [139 x [4 x i8]], ptr @mov_mdhd_language_map, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @mov_mdhd_language_map, i64 %indvars.iv
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #7
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit.loopexit44, label %8
@@ -111,7 +111,7 @@ define range(i32 0, 2) i32 @ff_mov_lang_to_iso639(i32 noundef %0, ptr noundef wr
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw [139 x [4 x i8]], ptr @mov_mdhd_language_map, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @mov_mdhd_language_map, i64 %13
   %15 = load i8, ptr %14, align 4, !tbaa !4
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %.loopexit, label %16
@@ -353,7 +353,7 @@ ff_mp4_read_descr.exit:                           ; preds = %20, %21
 
 69:                                               ; preds = %61
   %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds [3 x i16], ptr @ff_mpa_freq_tab, i64 0, i64 %70
+  %71 = getelementptr inbounds i16, ptr @ff_mpa_freq_tab, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !36
   %73 = zext i16 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 152

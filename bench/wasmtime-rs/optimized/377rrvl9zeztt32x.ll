@@ -775,8 +775,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 
 19:                                               ; preds = %.preheader.split.i.i.i.i.i.i
   %20 = add i64 %.sroa.01.0.i.i.i.i.i.i, 1
-  %21 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %.val.i.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i.i
-  %22 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %.val2.i.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i.i
+  %21 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
+  %22 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val2.i.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
@@ -6259,7 +6259,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %126, label %"_ZN4core3ptr78drop_in_place$LT$$u5b$wasmtime_environ..component..types..RecordField$u5d$$GT$17h7abcc09d68e1ff20E.llvm.11357125133562502446.exit.i.i", label %127
 
 127:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..component..types..RecordField$GT$17hcc4a12c36b891a9dE.exit.i.i.i"
-  %128 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }], ptr %124, i64 0, i64 %.0.i.i.i
+  %128 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %124, i64 %.0.i.i.i
   %129 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2e7100becf028dcE.llvm.11357125133562502446"(ptr noalias noundef nonnull align 8 dereferenceable(32) %128)
           to label %"_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..component..types..RecordField$GT$17hcc4a12c36b891a9dE.exit.i.i.i" unwind label %131, !noalias !1766
@@ -6275,7 +6275,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..component..types..RecordField$GT$17hcc4a12c36b891a9dE.exit7.i.i.i"
 
 133:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..component..types..RecordField$GT$17hcc4a12c36b891a9dE.exit7.i.i.i"
-  %134 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }], ptr %124, i64 0, i64 %.1.i.i.i
+  %134 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %124, i64 %.1.i.i.i
   %135 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc2e7100becf028dcE.llvm.11357125133562502446"(ptr noalias noundef nonnull align 8 dereferenceable(32) %134)
           to label %"_ZN4core3ptr68drop_in_place$LT$wasmtime_environ..component..types..RecordField$GT$17hcc4a12c36b891a9dE.exit7.i.i.i" unwind label %136, !noalias !1766
@@ -10958,8 +10958,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha736
 
 33:                                               ; preds = %.preheader.split.i.i.i.i.i
   %34 = add i64 %.sroa.01.0.i.i.i.i.i, 1
-  %35 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %.val.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
-  %36 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %.val2.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
+  %35 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
+  %36 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val2.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2978), !noalias !2964
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2981), !noalias !2964
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2983), !noalias !2964
@@ -12311,8 +12311,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 19:                                               ; preds = %.preheader.split.i.i.i.i
   %20 = add i64 %.sroa.01.0.i.i.i.i, 1
-  %21 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %.val.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
-  %22 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %.val2.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
+  %21 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i
+  %22 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val2.i.i, i64 %.sroa.01.0.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3229)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3231)
@@ -12663,8 +12663,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.split.i.i.i.i, %.backedge.i.i.i.i
   %.sroa.01.012.i.i.i.i = phi i64 [ %13, %.backedge.i.i.i.i ], [ 0, %.preheader.split.i.i.i.i ]
   %13 = add nuw i64 %.sroa.01.012.i.i.i.i, 1
-  %14 = getelementptr inbounds [0 x { i32, [2 x i32] }], ptr %.val.i.i, i64 0, i64 %.sroa.01.012.i.i.i.i
-  %15 = getelementptr inbounds [0 x { i32, [2 x i32] }], ptr %.val2.i.i, i64 0, i64 %.sroa.01.012.i.i.i.i
+  %14 = getelementptr inbounds { i32, [2 x i32] }, ptr %.val.i.i, i64 %.sroa.01.012.i.i.i.i
+  %15 = getelementptr inbounds { i32, [2 x i32] }, ptr %.val2.i.i, i64 %.sroa.01.012.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3333)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3335)
@@ -12733,8 +12733,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 .lr.ph.i.i12.i.i:                                 ; preds = %.preheader.split.i.i10.i.i, %.backedge.i.i17.i.i
   %.sroa.01.012.i.i13.i.i = phi i64 [ %42, %.backedge.i.i17.i.i ], [ 0, %.preheader.split.i.i10.i.i ]
   %42 = add nuw i64 %.sroa.01.012.i.i13.i.i, 1
-  %43 = getelementptr inbounds [0 x { i32, [2 x i32] }], ptr %.val4.i.i, i64 0, i64 %.sroa.01.012.i.i13.i.i
-  %44 = getelementptr inbounds [0 x { i32, [2 x i32] }], ptr %.val6.i.i, i64 0, i64 %.sroa.01.012.i.i13.i.i
+  %43 = getelementptr inbounds { i32, [2 x i32] }, ptr %.val4.i.i, i64 %.sroa.01.012.i.i13.i.i
+  %44 = getelementptr inbounds { i32, [2 x i32] }, ptr %.val6.i.i, i64 %.sroa.01.012.i.i13.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3358)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3361)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3363)

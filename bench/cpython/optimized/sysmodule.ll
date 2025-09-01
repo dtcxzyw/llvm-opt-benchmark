@@ -8793,7 +8793,7 @@ define internal range(i32 -1, 1) i32 @profile_trampoline(ptr noundef %0, ptr nou
   store ptr %1, ptr %5, align 16, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr [8 x ptr], ptr @whatstrings, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr @whatstrings, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !93
   store ptr %12, ptr %9, align 8, !tbaa !93
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8884,7 +8884,7 @@ define internal range(i32 -1, 1) i32 @trace_trampoline(ptr noundef %0, ptr nound
   store ptr %1, ptr %5, align 16, !tbaa !93
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = sext i32 %2 to i64
-  %18 = getelementptr [8 x ptr], ptr @whatstrings, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr @whatstrings, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !93
   store ptr %19, ptr %16, align 8, !tbaa !93
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9319,7 +9319,7 @@ define internal fastcc ptr @list_stdlib_module_names() unnamed_addr #0 {
 
 4:                                                ; preds = %.preheader, %13
   %.01925 = phi i64 [ 0, %.preheader ], [ %15, %13 ]
-  %5 = getelementptr [291 x ptr], ptr @_Py_stdlib_module_names, i64 0, i64 %.01925
+  %5 = getelementptr ptr, ptr @_Py_stdlib_module_names, i64 %.01925
   %6 = load ptr, ptr %5, align 8, !tbaa !213
   %7 = tail call ptr @PyUnicode_FromString(ptr noundef %6) #15
   %.not = icmp eq ptr %7, null
@@ -9337,7 +9337,7 @@ define internal fastcc ptr @list_stdlib_module_names() unnamed_addr #0 {
   br i1 %12, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr [1 x ptr], ptr %3, i64 0, i64 %.01925
+  %14 = getelementptr ptr, ptr %3, i64 %.01925
   store ptr %7, ptr %14, align 8, !tbaa !93
   %15 = add nuw nsw i64 %.01925, 1
   %exitcond = icmp eq i64 %15, 291

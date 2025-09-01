@@ -1649,7 +1649,7 @@ thread-pre-split.i:                               ; preds = %_ZN5folly28RegexMat
   %24 = phi ptr [ %26, %22 ], [ %.sroa.06.017, %_ZN5folly28RegexMatchCacheDynamicBitset5resetEv.exit ]
   %25 = add nsw i64 %23, -1
   %26 = getelementptr inbounds i8, ptr %24, i64 -16
-  %27 = getelementptr inbounds nuw [14 x i8], ptr %21, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %25
   %28 = load i8, ptr %27, align 1, !tbaa !42
   %.not.i = icmp eq i8 %28, 0
   br i1 %.not.i, label %22, label %.lr.ph.backedge, !prof !43, !llvm.loop !44
@@ -1681,7 +1681,7 @@ thread-pre-split.i:                               ; preds = %_ZN5folly28RegexMat
   %44 = icmp ne ptr %33, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds i8, ptr %.017.i.i, i64 -240
-  %46 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %45, i64 0, i64 %43
+  %46 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %45, i64 %43
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %thread-pre-split.i, %39
@@ -2301,7 +2301,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   %.sroa.029.1 = lshr i32 %.sroa.029.042, %.pn38
   %.sroa.7.1 = add i32 %.sroa.7.1.in, 1
   %28 = zext i32 %.sroa.7.1.in to i64
-  %29 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %20, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %20, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !105
   tail call void @llvm.prefetch.p0(ptr %30, i32 0, i32 3, i32 1)
   %.not36 = icmp eq i32 %.sroa.029.1, 0
@@ -2326,7 +2326,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   %.sroa.734.1 = add i32 %.sroa.734.1.in, 1
   %.sroa.032.1 = lshr i32 %.sroa.032.044, %.pn
   %37 = zext i32 %.sroa.734.1.in to i64
-  %38 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %20, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %20, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !105
   %.not.i27 = icmp eq ptr %39, null
   br i1 %.not.i27, label %_ZN5folly3f146detail19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvE11destroyItemERPSt4pairIKS3_S5_E.exit, label %40
@@ -2742,7 +2742,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge, %148
   %150 = phi ptr [ %152, %148 ], [ %.sroa.0417.0577, %._crit_edge ]
   %151 = add nsw i64 %149, -1
   %152 = getelementptr inbounds i8, ptr %150, i64 -8
-  %153 = getelementptr inbounds nuw [14 x i8], ptr %147, i64 0, i64 %151
+  %153 = getelementptr inbounds nuw i8, ptr %147, i64 %151
   %154 = load i8, ptr %153, align 1, !tbaa !42
   %.not.i = icmp eq i8 %154, 0
   br i1 %.not.i, label %148, label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !144
@@ -2774,7 +2774,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge, %148
   %170 = icmp ne ptr %159, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %170)
   %171 = getelementptr inbounds i8, ptr %.017.i.i, i64 -112
-  %172 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %171, i64 0, i64 %169
+  %172 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %171, i64 %169
   br label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %165
@@ -3230,7 +3230,7 @@ thread-pre-split.i109:                            ; preds = %._crit_edge584, %34
   %342 = phi ptr [ %344, %340 ], [ %.sroa.0405.0586, %._crit_edge584 ]
   %343 = add nsw i64 %341, -1
   %344 = getelementptr inbounds i8, ptr %342, i64 -16
-  %345 = getelementptr inbounds nuw [14 x i8], ptr %339, i64 0, i64 %343
+  %345 = getelementptr inbounds nuw i8, ptr %339, i64 %343
   %346 = load i8, ptr %345, align 1, !tbaa !42
   %.not.i110 = icmp eq i8 %346, 0
   br i1 %.not.i110, label %340, label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !44
@@ -3262,7 +3262,7 @@ thread-pre-split.i109:                            ; preds = %._crit_edge584, %34
   %362 = icmp ne ptr %351, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %362)
   %363 = getelementptr inbounds i8, ptr %.017.i.i114, i64 -240
-  %364 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %363, i64 0, i64 %361
+  %364 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %363, i64 %361
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i109, %357
@@ -3359,7 +3359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   %411 = and i32 %410, %.sroa.08.0.i
   %412 = zext nneg i32 %409 to i64
   call void @llvm.assume(i1 %406)
-  %413 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %399, i64 0, i64 %412
+  %413 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %399, i64 %412
   %414 = load i64, ptr %413, align 8, !tbaa !36
   %415 = icmp eq i64 %.sroa.7397.0582, %414
   br i1 %415, label %_ZNK5folly28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE14value_at_indexEm.exit, label %.critedge.i.i121, !prof !22, !llvm.loop !164
@@ -3821,7 +3821,7 @@ thread-pre-split.i170:                            ; preds = %._crit_edge593, %59
   %600 = phi ptr [ %602, %598 ], [ %.sroa.0388.0595, %._crit_edge593 ]
   %601 = add nsw i64 %599, -1
   %602 = getelementptr inbounds i8, ptr %600, i64 -16
-  %603 = getelementptr inbounds nuw [14 x i8], ptr %597, i64 0, i64 %601
+  %603 = getelementptr inbounds nuw i8, ptr %597, i64 %601
   %604 = load i8, ptr %603, align 1, !tbaa !42
   %.not.i171 = icmp eq i8 %604, 0
   br i1 %.not.i171, label %598, label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !183
@@ -3853,7 +3853,7 @@ thread-pre-split.i170:                            ; preds = %._crit_edge593, %59
   %620 = icmp ne ptr %609, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %620)
   %621 = getelementptr inbounds i8, ptr %.017.i.i175, i64 -240
-  %622 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %621, i64 0, i64 %619
+  %622 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %621, i64 %619
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i170, %615
@@ -3950,7 +3950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181: ; preds = %_Z
   %669 = and i32 %668, %.sroa.08.0.i186
   %670 = zext nneg i32 %667 to i64
   call void @llvm.assume(i1 %664)
-  %671 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %657, i64 0, i64 %670
+  %671 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %657, i64 %670
   %672 = load i64, ptr %671, align 8, !tbaa !36
   %673 = icmp eq i64 %.sroa.7.0591, %672
   br i1 %673, label %_ZNK5folly28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE14value_at_indexEm.exit190, label %.critedge.i.i185, !prof !22, !llvm.loop !164
@@ -4707,7 +4707,7 @@ _ZNK5folly19grow_capacity_by_fnclINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.03048 = phi ptr [ %0, %.lr.ph ], [ %.131, %72 ]
   %29 = load i8, ptr %.049, align 1, !tbaa !42
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5folly6detail12cEscapeTableE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail12cEscapeTableE, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !42
   switch i8 %32, label %57 [
     i8 80, label %33
@@ -7355,7 +7355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
 94:                                               ; preds = %.lr.ph
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 57
   %96 = zext i8 %90 to i64
-  %97 = getelementptr inbounds nuw [256 x i8], ptr %95, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !42
   br label %_ZNKSt5ctypeIcE5widenEc.exit
 
@@ -7467,7 +7467,7 @@ _ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4p
   %133 = load i8, ptr %132, align 1, !tbaa !42
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 313
   %135 = zext i8 %133 to i64
-  %136 = getelementptr inbounds nuw [256 x i8], ptr %134, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
   %137 = load i8, ptr %136, align 1, !tbaa !42
   %.not.i70 = icmp eq i8 %137, 0
   br i1 %.not.i70, label %138, label %_ZNKSt5ctypeIcE6narrowEcc.exit
@@ -7676,7 +7676,7 @@ _ZNKSt7__cxx118messagesIcE3getEiiiRKNS_12basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %.not45, label %225, label %210
 
 210:                                              ; preds = %_ZNKSt7__cxx118messagesIcE3getEiiiRKNS_12basic_stringIcSt11char_traitsIcESaIcEEE.exit95
-  %211 = getelementptr inbounds nuw [16 x i32], ptr @_ZZN5boost16re_detail_10740031cpp_regex_traits_implementationIcE4initEvE5masks, i64 0, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw i32, ptr @_ZZN5boost16re_detail_10740031cpp_regex_traits_implementationIcE4initEvE5masks, i64 %indvars.iv
   %212 = load i32, ptr %211, align 4, !tbaa !32
   %213 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %200, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %214 unwind label %217
@@ -12730,14 +12730,14 @@ _ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i: ; preds
 _ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i: ; preds = %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %93
   %94 = ptrtoint ptr %83 to i64
   %95 = sub i64 %94, ptrtoint (ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges to i64)
-  %96 = shl i64 %95, 28
-  %sext = add i64 %96, 4294967296
-  %97 = ashr i64 %sext, 32
+  %sext = shl i64 %95, 28
+  %96 = ashr i64 %sext, 32
   br label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
 
 _ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit: ; preds = %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i, %85, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i
-  %.0.i = phi i64 [ %97, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i ], [ 0, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i ], [ 0, %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i ], [ 0, %85 ]
-  %98 = getelementptr inbounds nuw [22 x i32], ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 0, i64 %.0.i
+  %.0.i = phi i64 [ %96, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i ], [ -1, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i ], [ -1, %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i ], [ -1, %85 ]
+  %97 = getelementptr i32, ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 %.0.i
+  %98 = getelementptr i8, ptr %97, i64 4
   br label %99
 
 99:                                               ; preds = %53, %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
@@ -12845,7 +12845,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   %15 = load ptr, ptr %11, align 8, !tbaa !341
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = zext i8 %14 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !42
   switch i8 %19, label %302 [
     i8 1, label %20
@@ -13580,7 +13580,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   %7 = load ptr, ptr %3, align 8, !tbaa !341
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = zext i8 %6 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !42
   switch i8 %11, label %189 [
     i8 12, label %12
@@ -15134,7 +15134,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %51 = load ptr, ptr %49, align 8, !tbaa !341
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = zext i8 %50 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !42
   switch i8 %55, label %60 [
     i8 8, label %56
@@ -15501,7 +15501,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %249 = load ptr, ptr %247, align 8, !tbaa !341
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
   %251 = zext i8 %248 to i64
-  %252 = getelementptr inbounds nuw [256 x i8], ptr %250, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr %250, i64 %251
   %253 = load i8, ptr %252, align 1, !tbaa !42
   %.not23 = icmp eq i8 %253, 2
   br i1 %.not23, label %254, label %_ZN5boost16re_detail_10740016indexed_bit_flag3setEm.exit
@@ -15812,7 +15812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
   %59 = load ptr, ptr %57, align 8, !tbaa !341
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = zext i8 %58 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !42
   switch i8 %63, label %946 [
     i8 23, label %64
@@ -16773,7 +16773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216: ; preds = %_Z
 565:                                              ; preds = %535
   %566 = load i8, ptr %536, align 1, !tbaa !42
   %567 = zext i8 %566 to i64
-  %568 = getelementptr inbounds nuw [256 x i8], ptr %60, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw i8, ptr %60, i64 %567
   %569 = load i8, ptr %568, align 1, !tbaa !42
   %570 = icmp eq i8 %569, 15
   br i1 %570, label %.lr.ph298, label %609
@@ -16782,7 +16782,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216: ; preds = %_Z
   %571 = phi ptr [ %577, %576 ], [ %536, %565 ]
   %572 = load i8, ptr %571, align 1, !tbaa !42
   %573 = zext i8 %572 to i64
-  %574 = getelementptr inbounds nuw [256 x i8], ptr %60, i64 0, i64 %573
+  %574 = getelementptr inbounds nuw i8, ptr %60, i64 %573
   %575 = load i8, ptr %574, align 1, !tbaa !42
   %.not116 = icmp eq i8 %575, 16
   br i1 %.not116, label %605, label %576
@@ -17169,7 +17169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235: ; preds = %_Z
 750:                                              ; preds = %719
   %751 = load i8, ptr %720, align 1, !tbaa !42
   %752 = zext i8 %751 to i64
-  %753 = getelementptr inbounds nuw [256 x i8], ptr %60, i64 0, i64 %752
+  %753 = getelementptr inbounds nuw i8, ptr %60, i64 %752
   %754 = load i8, ptr %753, align 1, !tbaa !42
   %755 = icmp eq i8 %754, 15
   %756 = icmp eq i8 %754, 20
@@ -17374,7 +17374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit247: ; preds = %_Z
   %837 = phi ptr [ %831, %.lr.ph ], [ %844, %843 ]
   %838 = load i8, ptr %837, align 1, !tbaa !42
   %839 = zext i8 %838 to i64
-  %840 = getelementptr inbounds nuw [256 x i8], ptr %835, i64 0, i64 %839
+  %840 = getelementptr inbounds nuw i8, ptr %835, i64 %839
   %841 = load i8, ptr %840, align 1, !tbaa !42
   %842 = zext i8 %841 to i32
   %.not104 = icmp eq i32 %.068, %842
@@ -17505,7 +17505,7 @@ _ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit: ; pr
   %903 = load ptr, ptr %901, align 8, !tbaa !341
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 32
   %905 = zext i8 %902 to i64
-  %906 = getelementptr inbounds nuw [256 x i8], ptr %904, i64 0, i64 %905
+  %906 = getelementptr inbounds nuw i8, ptr %904, i64 %905
   %907 = load i8, ptr %906, align 1, !tbaa !42
   %908 = zext i8 %907 to i32
   %.not105 = icmp eq i32 %.068, %908
@@ -17919,7 +17919,7 @@ _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit.thread: ; preds = %125, %_ZN5boo
   %133 = load ptr, ptr %131, align 8, !tbaa !341
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %135 = zext i8 %132 to i64
-  %136 = getelementptr inbounds nuw [256 x i8], ptr %134, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
   %137 = load i8, ptr %136, align 1, !tbaa !42
   %138 = icmp eq i8 %137, 8
   br i1 %138, label %139, label %141
@@ -17945,7 +17945,7 @@ _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit.thread: ; preds = %125, %_ZN5boo
   %149 = load ptr, ptr %147, align 8, !tbaa !341
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %151 = zext i8 %148 to i64
-  %152 = getelementptr inbounds nuw [256 x i8], ptr %150, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !42
   %154 = icmp eq i8 %153, 7
   br i1 %154, label %155, label %157
@@ -18500,7 +18500,7 @@ _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit99.thread: ; preds = %409, %_ZN5b
   %423 = load ptr, ptr %372, align 8, !tbaa !341
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 32
   %425 = zext i8 %422 to i64
-  %426 = getelementptr inbounds nuw [256 x i8], ptr %424, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw i8, ptr %424, i64 %425
   %427 = load i8, ptr %426, align 1, !tbaa !42
   switch i8 %427, label %.critedge4 [
     i8 6, label %.critedge66
@@ -18581,7 +18581,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %459 = getelementptr inbounds nuw i8, ptr %.promoted192197, i64 1
   %460 = load i8, ptr %459, align 1, !tbaa !42
   %461 = zext i8 %460 to i64
-  %462 = getelementptr inbounds nuw [256 x i8], ptr %424, i64 0, i64 %461
+  %462 = getelementptr inbounds nuw i8, ptr %424, i64 %461
   %463 = load i8, ptr %462, align 1, !tbaa !42
   %464 = icmp eq i8 %463, 8
   br i1 %464, label %465, label %.critedge4.thread
@@ -18589,7 +18589,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
 465:                                              ; preds = %458
   %466 = load i8, ptr %456, align 1, !tbaa !42
   %467 = zext i8 %466 to i64
-  %468 = getelementptr inbounds nuw [256 x i8], ptr %424, i64 0, i64 %467
+  %468 = getelementptr inbounds nuw i8, ptr %424, i64 %467
   %469 = load i8, ptr %468, align 1, !tbaa !42
   %470 = icmp eq i8 %469, 13
   br i1 %470, label %.preheader, label %.critedge4.thread
@@ -18604,7 +18604,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %472, ptr %8, align 8, !tbaa !452
   %473 = load i8, ptr %.promoted192196, align 1, !tbaa !42
   %474 = zext i8 %473 to i64
-  %475 = getelementptr inbounds nuw [256 x i8], ptr %424, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw i8, ptr %424, i64 %474
   %476 = load i8, ptr %475, align 1, !tbaa !42
   %.not63 = icmp eq i8 %476, 2
   br i1 %.not63, label %.backedge, label %.preheader, !llvm.loop !576
@@ -19022,7 +19022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
   store ptr %storemerge79, ptr %17, align 8, !tbaa !452
   %107 = load i8, ptr %storemerge79, align 1, !tbaa !42
   %108 = zext i8 %107 to i64
-  %109 = getelementptr inbounds nuw [256 x i8], ptr %78, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %78, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !42
   %.not80 = icmp eq i8 %110, 15
   br i1 %.not80, label %111, label %106, !llvm.loop !579
@@ -19157,7 +19157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   store ptr %storemerge73, ptr %17, align 8, !tbaa !452
   %162 = load i8, ptr %storemerge73, align 1, !tbaa !42
   %163 = zext i8 %162 to i64
-  %164 = getelementptr inbounds nuw [256 x i8], ptr %132, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr %132, i64 %163
   %165 = load i8, ptr %164, align 1, !tbaa !42
   %.not74 = icmp eq i8 %165, 15
   br i1 %.not74, label %166, label %161, !llvm.loop !580
@@ -19348,7 +19348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %_Z
   store ptr %storemerge67, ptr %17, align 8, !tbaa !452
   %241 = load i8, ptr %storemerge67, align 1, !tbaa !42
   %242 = zext i8 %241 to i64
-  %243 = getelementptr inbounds nuw [256 x i8], ptr %212, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr %212, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !42
   %.not68 = icmp eq i8 %244, 15
   br i1 %.not68, label %245, label %240, !llvm.loop !582
@@ -19360,7 +19360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %_Z
 _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit112.thread205: ; preds = %195, %._ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit112.thread205_crit_edge
   %.pre-phi = phi i64 [ %.pre294, %._ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit112.thread205_crit_edge ], [ %200, %195 ]
   %247 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %248 = getelementptr inbounds nuw [256 x i8], ptr %247, i64 0, i64 %.pre-phi
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 %.pre-phi
   %249 = load i8, ptr %248, align 1, !tbaa !42
   %250 = icmp eq i8 %249, 27
   br i1 %250, label %.preheader227, label %323
@@ -19535,7 +19535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_Z
   store ptr %storemerge60, ptr %17, align 8, !tbaa !452
   %316 = load i8, ptr %storemerge60, align 1, !tbaa !42
   %317 = zext i8 %316 to i64
-  %318 = getelementptr inbounds nuw [256 x i8], ptr %247, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw i8, ptr %247, i64 %317
   %319 = load i8, ptr %318, align 1, !tbaa !42
   %.not61 = icmp eq i8 %319, 15
   br i1 %.not61, label %320, label %.preheader223, !llvm.loop !584
@@ -19754,7 +19754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168: ; preds = %_Z
   store ptr %storemerge54, ptr %17, align 8, !tbaa !452
   %408 = load i8, ptr %storemerge54, align 1, !tbaa !42
   %409 = zext i8 %408 to i64
-  %410 = getelementptr inbounds nuw [256 x i8], ptr %379, i64 0, i64 %409
+  %410 = getelementptr inbounds nuw i8, ptr %379, i64 %409
   %411 = load i8, ptr %410, align 1, !tbaa !42
   %.not55 = icmp eq i8 %411, 15
   br i1 %.not55, label %412, label %407, !llvm.loop !586
@@ -19769,7 +19769,7 @@ _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit158.thread210: ; preds = %361, %3
 414:                                              ; preds = %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit158.thread210
   %415 = getelementptr inbounds nuw i8, ptr %.pre289.pre, i64 32
   %416 = zext i8 %336 to i64
-  %417 = getelementptr inbounds nuw [256 x i8], ptr %415, i64 0, i64 %416
+  %417 = getelementptr inbounds nuw i8, ptr %415, i64 %416
   %418 = load i8, ptr %417, align 1, !tbaa !42
   %419 = icmp eq i8 %418, 12
   br i1 %419, label %420, label %451
@@ -19931,7 +19931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180: ; preds = %_Z
   %.promoted259 = phi ptr [ %421, %._crit_edge ], [ %335, %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit158.thread210 ]
   %481 = getelementptr inbounds nuw i8, ptr %.pre289.pre, i64 32
   %482 = zext i8 %480 to i64
-  %483 = getelementptr inbounds nuw [256 x i8], ptr %481, i64 0, i64 %482
+  %483 = getelementptr inbounds nuw i8, ptr %481, i64 %482
   %484 = load i8, ptr %483, align 1, !tbaa !42
   %485 = icmp eq i8 %484, 16
   br i1 %485, label %486, label %.preheader226
@@ -19965,7 +19965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180: ; preds = %_Z
   store ptr %storemerge46, ptr %17, align 8, !tbaa !452
   %499 = load i8, ptr %storemerge46, align 1, !tbaa !42
   %500 = zext i8 %499 to i64
-  %501 = getelementptr inbounds nuw [256 x i8], ptr %481, i64 0, i64 %500
+  %501 = getelementptr inbounds nuw i8, ptr %481, i64 %500
   %502 = load i8, ptr %501, align 1, !tbaa !42
   %.not47 = icmp eq i8 %502, 15
   br i1 %.not47, label %503, label %.preheader226, !llvm.loop !587
@@ -20572,7 +20572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   %59 = load ptr, ptr %57, align 8, !tbaa !341
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = zext i8 %58 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !42
   switch i8 %63, label %.invoke [
     i8 4, label %64
@@ -20711,7 +20711,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %115, ptr %6, align 8, !tbaa !452
   %116 = load i8, ptr %115, align 1, !tbaa !42
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw [256 x i8], ptr %60, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %60, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !42
   switch i8 %119, label %.thread [
     i8 22, label %120
@@ -20890,7 +20890,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   store ptr %storemerge418, ptr %26, align 8, !tbaa !452
   %37 = load i8, ptr %storemerge418, align 1, !tbaa !42
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr %35, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !42
   %.not419 = icmp eq i8 %40, 1
   %41 = getelementptr inbounds i8, ptr %storemerge418, i64 -1
@@ -20968,7 +20968,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %73 = load ptr, ptr %33, align 8, !tbaa !341
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = zext i8 %72 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !42
   %78 = icmp eq i8 %77, 13
   br i1 %78, label %.preheader636, label %86
@@ -20983,7 +20983,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %81, ptr %26, align 8, !tbaa !452
   %82 = load i8, ptr %79, align 1, !tbaa !42
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr %74, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !42
   %.not417 = icmp eq i8 %85, 2
   br i1 %.not417, label %.critedge, label %.preheader636, !llvm.loop !597
@@ -21090,7 +21090,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %155 = load ptr, ptr %151, align 8, !tbaa !341
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = zext i8 %154 to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !42
   switch i8 %159, label %1078 [
     i8 11, label %160
@@ -21131,7 +21131,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %169 = load i8, ptr %.promoted723.pre, align 1, !tbaa !42
   %170 = getelementptr inbounds nuw i8, ptr %.pre797, i64 32
   %171 = zext i8 %169 to i64
-  %172 = getelementptr inbounds nuw [256 x i8], ptr %170, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !42
   %.not344 = icmp eq i8 %173, 2
   br i1 %.not344, label %.thread598, label %174
@@ -21146,7 +21146,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge345, ptr %26, align 8, !tbaa !452
   %177 = load i8, ptr %storemerge345, align 1, !tbaa !42
   %178 = zext i8 %177 to i64
-  %179 = getelementptr inbounds nuw [256 x i8], ptr %175, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 %178
   %180 = load i8, ptr %179, align 1, !tbaa !42
   %.not346 = icmp eq i8 %180, 1
   br i1 %.not346, label %181, label %176, !llvm.loop !598
@@ -21370,7 +21370,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %294 = load i8, ptr %.promoted721.pre, align 1, !tbaa !42
   %295 = getelementptr inbounds nuw i8, ptr %.pre795, i64 32
   %296 = zext i8 %294 to i64
-  %297 = getelementptr inbounds nuw [256 x i8], ptr %295, i64 0, i64 %296
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 %296
   %298 = load i8, ptr %297, align 1, !tbaa !42
   %.not336 = icmp eq i8 %298, 2
   br i1 %.not336, label %334, label %299
@@ -21385,7 +21385,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge339, ptr %26, align 8, !tbaa !452
   %302 = load i8, ptr %storemerge339, align 1, !tbaa !42
   %303 = zext i8 %302 to i64
-  %304 = getelementptr inbounds nuw [256 x i8], ptr %300, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw i8, ptr %300, i64 %303
   %305 = load i8, ptr %304, align 1, !tbaa !42
   %.not340 = icmp eq i8 %305, 1
   br i1 %.not340, label %306, label %301, !llvm.loop !601
@@ -21578,7 +21578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465: ; preds = %_Z
   store ptr %storemerge331, ptr %26, align 8, !tbaa !452
   %386 = load i8, ptr %storemerge331, align 1, !tbaa !42
   %387 = zext i8 %386 to i64
-  %388 = getelementptr inbounds nuw [256 x i8], ptr %384, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw i8, ptr %384, i64 %387
   %389 = load i8, ptr %388, align 1, !tbaa !42
   %.not332 = icmp eq i8 %389, 1
   br i1 %.not332, label %390, label %385, !llvm.loop !602
@@ -21784,7 +21784,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge329, ptr %26, align 8, !tbaa !452
   %492 = load i8, ptr %storemerge329, align 1, !tbaa !42
   %493 = zext i8 %492 to i64
-  %494 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %493
+  %494 = getelementptr inbounds nuw i8, ptr %156, i64 %493
   %495 = load i8, ptr %494, align 1, !tbaa !42
   %.not330 = icmp eq i8 %495, 1
   %496 = getelementptr inbounds i8, ptr %storemerge329, i64 -1
@@ -21802,7 +21802,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 503:                                              ; preds = %488
   %504 = load i8, ptr %489, align 1, !tbaa !42
   %505 = zext i8 %504 to i64
-  %506 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw i8, ptr %156, i64 %505
   %507 = load i8, ptr %506, align 1, !tbaa !42
   switch i8 %507, label %529 [
     i8 53, label %.thread
@@ -21918,7 +21918,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge319, ptr %26, align 8, !tbaa !452
   %570 = load i8, ptr %storemerge319, align 1, !tbaa !42
   %571 = zext i8 %570 to i64
-  %572 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %571
+  %572 = getelementptr inbounds nuw i8, ptr %156, i64 %571
   %573 = load i8, ptr %572, align 1, !tbaa !42
   %.not320 = icmp eq i8 %573, 1
   %574 = getelementptr inbounds i8, ptr %storemerge319, i64 -1
@@ -21954,7 +21954,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge316, ptr %26, align 8, !tbaa !452
   %592 = load i8, ptr %storemerge316, align 1, !tbaa !42
   %593 = zext i8 %592 to i64
-  %594 = getelementptr inbounds nuw [256 x i8], ptr %590, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw i8, ptr %590, i64 %593
   %595 = load i8, ptr %594, align 1, !tbaa !42
   %.not317 = icmp eq i8 %595, 1
   br i1 %.not317, label %596, label %591, !llvm.loop !605
@@ -21994,7 +21994,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge314, ptr %26, align 8, !tbaa !452
   %611 = load i8, ptr %storemerge314, align 1, !tbaa !42
   %612 = zext i8 %611 to i64
-  %613 = getelementptr inbounds nuw [256 x i8], ptr %609, i64 0, i64 %612
+  %613 = getelementptr inbounds nuw i8, ptr %609, i64 %612
   %614 = load i8, ptr %613, align 1, !tbaa !42
   %.not315 = icmp eq i8 %614, 1
   %615 = getelementptr inbounds i8, ptr %storemerge314, i64 -1
@@ -22037,7 +22037,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %storemerge301.idx701 = phi i64 [ 2, %.lr.ph703 ], [ %storemerge301.add, %634 ]
   %630 = load i8, ptr %storemerge301.ptr702, align 1, !tbaa !42
   %631 = zext i8 %630 to i64
-  %632 = getelementptr inbounds nuw [256 x i8], ptr %626, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw i8, ptr %626, i64 %631
   %633 = load i8, ptr %632, align 1, !tbaa !42
   %.not303 = icmp eq i8 %633, 2
   br i1 %.not303, label %639, label %634
@@ -22055,7 +22055,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge304, ptr %26, align 8, !tbaa !452
   %635 = load i8, ptr %storemerge304, align 1, !tbaa !42
   %636 = zext i8 %635 to i64
-  %637 = getelementptr inbounds nuw [256 x i8], ptr %628, i64 0, i64 %636
+  %637 = getelementptr inbounds nuw i8, ptr %628, i64 %636
   %638 = load i8, ptr %637, align 1, !tbaa !42
   %.not305 = icmp eq i8 %638, 1
   br i1 %.not305, label %654, label %.critedge12, !llvm.loop !608
@@ -22122,7 +22122,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %674 = load ptr, ptr %671, align 8, !tbaa !341
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 32
   %676 = zext i8 %673 to i64
-  %677 = getelementptr inbounds nuw [256 x i8], ptr %675, i64 0, i64 %676
+  %677 = getelementptr inbounds nuw i8, ptr %675, i64 %676
   %678 = load i8, ptr %677, align 1, !tbaa !42
   %.not307 = icmp eq i8 %678, 2
   br i1 %.not307, label %689, label %.preheader662
@@ -22133,7 +22133,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   store ptr %storemerge310, ptr %26, align 8, !tbaa !452
   %679 = load i8, ptr %storemerge310, align 1, !tbaa !42
   %680 = zext i8 %679 to i64
-  %681 = getelementptr inbounds nuw [256 x i8], ptr %675, i64 0, i64 %680
+  %681 = getelementptr inbounds nuw i8, ptr %675, i64 %680
   %682 = load i8, ptr %681, align 1, !tbaa !42
   %.not311 = icmp eq i8 %682, 1
   br i1 %.not311, label %683, label %.preheader662, !llvm.loop !609
@@ -22159,7 +22159,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   store ptr %storemerge308, ptr %26, align 8, !tbaa !452
   %693 = load i8, ptr %storemerge308, align 1, !tbaa !42
   %694 = zext i8 %693 to i64
-  %695 = getelementptr inbounds nuw [256 x i8], ptr %675, i64 0, i64 %694
+  %695 = getelementptr inbounds nuw i8, ptr %675, i64 %694
   %696 = load i8, ptr %695, align 1, !tbaa !42
   %.not309 = icmp eq i8 %696, 1
   %697 = getelementptr inbounds i8, ptr %storemerge308, i64 -1
@@ -22213,7 +22213,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   store ptr %storemerge298, ptr %26, align 8, !tbaa !452
   %711 = load i8, ptr %storemerge298, align 1, !tbaa !42
   %712 = zext i8 %711 to i64
-  %713 = getelementptr inbounds nuw [256 x i8], ptr %708, i64 0, i64 %712
+  %713 = getelementptr inbounds nuw i8, ptr %708, i64 %712
   %714 = load i8, ptr %713, align 1, !tbaa !42
   %.not299 = icmp eq i8 %714, 1
   br i1 %.not299, label %715, label %.critedge14, !llvm.loop !612
@@ -22285,7 +22285,7 @@ _ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit507: ;
   store ptr %storemerge293, ptr %26, align 8, !tbaa !452
   %748 = load i8, ptr %storemerge293, align 1, !tbaa !42
   %749 = zext i8 %748 to i64
-  %750 = getelementptr inbounds nuw [256 x i8], ptr %746, i64 0, i64 %749
+  %750 = getelementptr inbounds nuw i8, ptr %746, i64 %749
   %751 = load i8, ptr %750, align 1, !tbaa !42
   %.not294 = icmp eq i8 %751, 1
   br i1 %.not294, label %752, label %747, !llvm.loop !613
@@ -22367,7 +22367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   %783 = load ptr, ptr %781, align 8, !tbaa !341
   %784 = getelementptr inbounds nuw i8, ptr %783, i64 32
   %785 = zext i8 %782 to i64
-  %786 = getelementptr inbounds nuw [256 x i8], ptr %784, i64 0, i64 %785
+  %786 = getelementptr inbounds nuw i8, ptr %784, i64 %785
   %787 = load i8, ptr %786, align 1, !tbaa !42
   %.not287 = icmp eq i8 %787, 2
   br i1 %.not287, label %798, label %.preheader664
@@ -22378,7 +22378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge290, ptr %26, align 8, !tbaa !452
   %788 = load i8, ptr %storemerge290, align 1, !tbaa !42
   %789 = zext i8 %788 to i64
-  %790 = getelementptr inbounds nuw [256 x i8], ptr %784, i64 0, i64 %789
+  %790 = getelementptr inbounds nuw i8, ptr %784, i64 %789
   %791 = load i8, ptr %790, align 1, !tbaa !42
   %.not291 = icmp eq i8 %791, 1
   br i1 %.not291, label %792, label %.preheader664, !llvm.loop !614
@@ -22403,7 +22403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge288, ptr %26, align 8, !tbaa !452
   %801 = load i8, ptr %storemerge288, align 1, !tbaa !42
   %802 = zext i8 %801 to i64
-  %803 = getelementptr inbounds nuw [256 x i8], ptr %784, i64 0, i64 %802
+  %803 = getelementptr inbounds nuw i8, ptr %784, i64 %802
   %804 = load i8, ptr %803, align 1, !tbaa !42
   %.not289 = icmp eq i8 %804, 1
   %805 = getelementptr inbounds i8, ptr %storemerge288, i64 -1
@@ -22456,7 +22456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge278, ptr %26, align 8, !tbaa !452
   %825 = load i8, ptr %storemerge278, align 1, !tbaa !42
   %826 = zext i8 %825 to i64
-  %827 = getelementptr inbounds nuw [256 x i8], ptr %823, i64 0, i64 %826
+  %827 = getelementptr inbounds nuw i8, ptr %823, i64 %826
   %828 = load i8, ptr %827, align 1, !tbaa !42
   %.not279 = icmp eq i8 %828, 1
   br i1 %.not279, label %829, label %824, !llvm.loop !617
@@ -22480,7 +22480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   %840 = load ptr, ptr %837, align 8, !tbaa !341
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 32
   %842 = zext i8 %839 to i64
-  %843 = getelementptr inbounds nuw [256 x i8], ptr %841, i64 0, i64 %842
+  %843 = getelementptr inbounds nuw i8, ptr %841, i64 %842
   %844 = load i8, ptr %843, align 1, !tbaa !42
   %.not272 = icmp eq i8 %844, 2
   br i1 %.not272, label %855, label %.preheader666
@@ -22491,7 +22491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge275, ptr %26, align 8, !tbaa !452
   %845 = load i8, ptr %storemerge275, align 1, !tbaa !42
   %846 = zext i8 %845 to i64
-  %847 = getelementptr inbounds nuw [256 x i8], ptr %841, i64 0, i64 %846
+  %847 = getelementptr inbounds nuw i8, ptr %841, i64 %846
   %848 = load i8, ptr %847, align 1, !tbaa !42
   %.not276 = icmp eq i8 %848, 1
   br i1 %.not276, label %849, label %.preheader666, !llvm.loop !618
@@ -22517,7 +22517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge273, ptr %26, align 8, !tbaa !452
   %859 = load i8, ptr %storemerge273, align 1, !tbaa !42
   %860 = zext i8 %859 to i64
-  %861 = getelementptr inbounds nuw [256 x i8], ptr %841, i64 0, i64 %860
+  %861 = getelementptr inbounds nuw i8, ptr %841, i64 %860
   %862 = load i8, ptr %861, align 1, !tbaa !42
   %.not274 = icmp eq i8 %862, 1
   %863 = getelementptr inbounds i8, ptr %storemerge273, i64 -1
@@ -22547,7 +22547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   %879 = load ptr, ptr %876, align 8, !tbaa !341
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 32
   %881 = zext i8 %878 to i64
-  %882 = getelementptr inbounds nuw [256 x i8], ptr %880, i64 0, i64 %881
+  %882 = getelementptr inbounds nuw i8, ptr %880, i64 %881
   %883 = load i8, ptr %882, align 1, !tbaa !42
   %.not263 = icmp eq i8 %883, 2
   br i1 %.not263, label %894, label %.preheader654
@@ -22558,7 +22558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge266, ptr %26, align 8, !tbaa !452
   %884 = load i8, ptr %storemerge266, align 1, !tbaa !42
   %885 = zext i8 %884 to i64
-  %886 = getelementptr inbounds nuw [256 x i8], ptr %880, i64 0, i64 %885
+  %886 = getelementptr inbounds nuw i8, ptr %880, i64 %885
   %887 = load i8, ptr %886, align 1, !tbaa !42
   %.not267 = icmp eq i8 %887, 1
   br i1 %.not267, label %888, label %.preheader654, !llvm.loop !620
@@ -22584,7 +22584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge264, ptr %26, align 8, !tbaa !452
   %898 = load i8, ptr %storemerge264, align 1, !tbaa !42
   %899 = zext i8 %898 to i64
-  %900 = getelementptr inbounds nuw [256 x i8], ptr %880, i64 0, i64 %899
+  %900 = getelementptr inbounds nuw i8, ptr %880, i64 %899
   %901 = load i8, ptr %900, align 1, !tbaa !42
   %.not265 = icmp eq i8 %901, 1
   %902 = getelementptr inbounds i8, ptr %storemerge264, i64 -1
@@ -22604,7 +22604,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   %911 = load ptr, ptr %910, align 8, !tbaa !341
   %912 = getelementptr inbounds nuw i8, ptr %911, i64 32
   %913 = zext i8 %603 to i64
-  %914 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %913
+  %914 = getelementptr inbounds nuw i8, ptr %912, i64 %913
   %915 = load i8, ptr %914, align 1, !tbaa !42
   %.not245 = icmp eq i8 %915, 8
   br i1 %.not245, label %926, label %.preheader659
@@ -22615,7 +22615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge260, ptr %26, align 8, !tbaa !452
   %916 = load i8, ptr %storemerge260, align 1, !tbaa !42
   %917 = zext i8 %916 to i64
-  %918 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %917
+  %918 = getelementptr inbounds nuw i8, ptr %912, i64 %917
   %919 = load i8, ptr %918, align 1, !tbaa !42
   %.not261 = icmp eq i8 %919, 1
   br i1 %.not261, label %920, label %.preheader659, !llvm.loop !622
@@ -22640,7 +22640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge258, ptr %26, align 8, !tbaa !452
   %929 = load i8, ptr %storemerge258, align 1, !tbaa !42
   %930 = zext i8 %929 to i64
-  %931 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %930
+  %931 = getelementptr inbounds nuw i8, ptr %912, i64 %930
   %932 = load i8, ptr %931, align 1, !tbaa !42
   %.not259 = icmp eq i8 %932, 1
   %933 = getelementptr inbounds i8, ptr %storemerge258, i64 -1
@@ -22658,7 +22658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
 940:                                              ; preds = %926
   %941 = load i8, ptr %927, align 1, !tbaa !42
   %942 = zext i8 %941 to i64
-  %943 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %942
+  %943 = getelementptr inbounds nuw i8, ptr %912, i64 %942
   %944 = load i8, ptr %943, align 1, !tbaa !42
   switch i8 %944, label %.preheader656 [
     i8 20, label %945
@@ -22677,7 +22677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge256, ptr %26, align 8, !tbaa !452
   %948 = load i8, ptr %storemerge256, align 1, !tbaa !42
   %949 = zext i8 %948 to i64
-  %950 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %949
+  %950 = getelementptr inbounds nuw i8, ptr %912, i64 %949
   %951 = load i8, ptr %950, align 1, !tbaa !42
   %.not257 = icmp eq i8 %951, 1
   %952 = getelementptr inbounds i8, ptr %storemerge256, i64 -1
@@ -22695,7 +22695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
 959:                                              ; preds = %945
   %960 = load i8, ptr %946, align 1, !tbaa !42
   %961 = zext i8 %960 to i64
-  %962 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %961
+  %962 = getelementptr inbounds nuw i8, ptr %912, i64 %961
   %963 = load i8, ptr %962, align 1, !tbaa !42
   switch i8 %963, label %.preheader658 [
     i8 37, label %974
@@ -22708,7 +22708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge253, ptr %26, align 8, !tbaa !452
   %964 = load i8, ptr %storemerge253, align 1, !tbaa !42
   %965 = zext i8 %964 to i64
-  %966 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %965
+  %966 = getelementptr inbounds nuw i8, ptr %912, i64 %965
   %967 = load i8, ptr %966, align 1, !tbaa !42
   %.not254 = icmp eq i8 %967, 1
   br i1 %.not254, label %968, label %.preheader658, !llvm.loop !625
@@ -22733,7 +22733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge248, ptr %26, align 8, !tbaa !452
   %976 = load i8, ptr %storemerge248, align 1, !tbaa !42
   %977 = zext i8 %976 to i64
-  %978 = getelementptr inbounds nuw [256 x i8], ptr %912, i64 0, i64 %977
+  %978 = getelementptr inbounds nuw i8, ptr %912, i64 %977
   %979 = load i8, ptr %978, align 1, !tbaa !42
   %.not249 = icmp eq i8 %979, 1
   br i1 %.not249, label %980, label %.preheader656, !llvm.loop !626
@@ -22758,7 +22758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   store ptr %storemerge, ptr %26, align 8, !tbaa !452
   %988 = load i8, ptr %storemerge, align 1, !tbaa !42
   %989 = zext i8 %988 to i64
-  %990 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %989
+  %990 = getelementptr inbounds nuw i8, ptr %156, i64 %989
   %991 = load i8, ptr %990, align 1, !tbaa !42
   %.not = icmp eq i8 %991, 1
   br i1 %.not, label %992, label %.preheader668, !llvm.loop !627
@@ -22880,7 +22880,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge327, ptr %26, align 8, !tbaa !452
   %1045 = load i8, ptr %storemerge327, align 1, !tbaa !42
   %1046 = zext i8 %1045 to i64
-  %1047 = getelementptr inbounds nuw [256 x i8], ptr %1043, i64 0, i64 %1046
+  %1047 = getelementptr inbounds nuw i8, ptr %1043, i64 %1046
   %1048 = load i8, ptr %1047, align 1, !tbaa !42
   %.not328 = icmp eq i8 %1048, 1
   %1049 = getelementptr inbounds i8, ptr %storemerge327, i64 -1
@@ -22920,7 +22920,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge324, ptr %26, align 8, !tbaa !452
   %1064 = load i8, ptr %storemerge324, align 1, !tbaa !42
   %1065 = zext i8 %1064 to i64
-  %1066 = getelementptr inbounds nuw [256 x i8], ptr %1058, i64 0, i64 %1065
+  %1066 = getelementptr inbounds nuw i8, ptr %1058, i64 %1065
   %1067 = load i8, ptr %1066, align 1, !tbaa !42
   %.not325 = icmp eq i8 %1067, 1
   br i1 %.not325, label %1068, label %.critedge18, !llvm.loop !634
@@ -22954,7 +22954,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %1080, ptr %26, align 8, !tbaa !452
   %1081 = load i8, ptr %1080, align 1, !tbaa !42
   %1082 = zext i8 %1081 to i64
-  %1083 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %1082
+  %1083 = getelementptr inbounds nuw i8, ptr %156, i64 %1082
   %1084 = load i8, ptr %1083, align 1, !tbaa !42
   %.not372 = icmp eq i8 %1084, 2
   br i1 %.not372, label %.thread598, label %.preheader645
@@ -22965,7 +22965,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge413, ptr %26, align 8, !tbaa !452
   %1085 = load i8, ptr %storemerge413, align 1, !tbaa !42
   %1086 = zext i8 %1085 to i64
-  %1087 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %1086
+  %1087 = getelementptr inbounds nuw i8, ptr %156, i64 %1086
   %1088 = load i8, ptr %1087, align 1, !tbaa !42
   %.not414 = icmp eq i8 %1088, 1
   br i1 %.not414, label %1089, label %.preheader645, !llvm.loop !635
@@ -22996,7 +22996,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %storemerge365.idx733 = phi i64 [ %storemerge365.add, %1103 ], [ 1, %.lr.ph735.preheader ]
   %1099 = load i8, ptr %storemerge365.ptr734, align 1, !tbaa !42
   %1100 = zext i8 %1099 to i64
-  %1101 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %1100
+  %1101 = getelementptr inbounds nuw i8, ptr %156, i64 %1100
   %1102 = load i8, ptr %1101, align 1, !tbaa !42
   %.not367 = icmp eq i8 %1102, 2
   br i1 %.not367, label %1108, label %1103
@@ -23018,7 +23018,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge368, ptr %26, align 8, !tbaa !452
   %1104 = load i8, ptr %storemerge368, align 1, !tbaa !42
   %1105 = zext i8 %1104 to i64
-  %1106 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %1105
+  %1106 = getelementptr inbounds nuw i8, ptr %156, i64 %1105
   %1107 = load i8, ptr %1106, align 1, !tbaa !42
   %.not369 = icmp eq i8 %1107, 1
   br i1 %.not369, label %1121, label %.critedge20, !llvm.loop !637
@@ -23070,7 +23070,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i525: ; preds = %.lr.ph.i.i521
   store ptr %storemerge363, ptr %26, align 8, !tbaa !452
   %1132 = load i8, ptr %storemerge363, align 1, !tbaa !42
   %1133 = zext i8 %1132 to i64
-  %1134 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %1133
+  %1134 = getelementptr inbounds nuw i8, ptr %156, i64 %1133
   %1135 = load i8, ptr %1134, align 1, !tbaa !42
   %.not364 = icmp eq i8 %1135, 1
   %1136 = getelementptr inbounds i8, ptr %storemerge363, i64 -1
@@ -23105,7 +23105,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i525: ; preds = %.lr.ph.i.i521
   %storemerge356.idx727 = phi i64 [ %storemerge356.add, %1152 ], [ 2, %.lr.ph729.preheader ]
   %1148 = load i8, ptr %storemerge356.ptr728, align 1, !tbaa !42
   %1149 = zext i8 %1148 to i64
-  %1150 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %1149
+  %1150 = getelementptr inbounds nuw i8, ptr %156, i64 %1149
   %1151 = load i8, ptr %1150, align 1, !tbaa !42
   %.not358 = icmp eq i8 %1151, 2
   br i1 %.not358, label %1157, label %1152
@@ -23127,7 +23127,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i525: ; preds = %.lr.ph.i.i521
   store ptr %storemerge359, ptr %26, align 8, !tbaa !452
   %1153 = load i8, ptr %storemerge359, align 1, !tbaa !42
   %1154 = zext i8 %1153 to i64
-  %1155 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %1154
+  %1155 = getelementptr inbounds nuw i8, ptr %156, i64 %1154
   %1156 = load i8, ptr %1155, align 1, !tbaa !42
   %.not360 = icmp eq i8 %1156, 1
   br i1 %.not360, label %1170, label %.critedge22, !llvm.loop !640
@@ -23185,7 +23185,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i533: ; preds = %.lr.ph.i.i529
   store ptr %storemerge353, ptr %26, align 8, !tbaa !452
   %1185 = load i8, ptr %storemerge353, align 1, !tbaa !42
   %1186 = zext i8 %1185 to i64
-  %1187 = getelementptr inbounds nuw [256 x i8], ptr %1183, i64 0, i64 %1186
+  %1187 = getelementptr inbounds nuw i8, ptr %1183, i64 %1186
   %1188 = load i8, ptr %1187, align 1, !tbaa !42
   %.not354 = icmp eq i8 %1188, 1
   br i1 %.not354, label %1189, label %1184, !llvm.loop !641
@@ -23215,7 +23215,7 @@ _ZN5boost10hash_rangeIPKcEEmT_S3_.exit.loopexit.i533: ; preds = %.lr.ph.i.i529
   %1206 = load ptr, ptr %1204, align 8, !tbaa !341
   %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 32
   %1208 = zext i8 %1205 to i64
-  %1209 = getelementptr inbounds nuw [256 x i8], ptr %1207, i64 0, i64 %1208
+  %1209 = getelementptr inbounds nuw i8, ptr %1207, i64 %1208
   %1210 = load i8, ptr %1209, align 1, !tbaa !42
   %1211 = icmp ne i8 %1210, 2
   br i1 %1211, label %1220, label %1212
@@ -23269,7 +23269,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge350, ptr %26, align 8, !tbaa !452
   %1230 = load i8, ptr %storemerge350, align 1, !tbaa !42
   %1231 = zext i8 %1230 to i64
-  %1232 = getelementptr inbounds nuw [256 x i8], ptr %1207, i64 0, i64 %1231
+  %1232 = getelementptr inbounds nuw i8, ptr %1207, i64 %1231
   %1233 = load i8, ptr %1232, align 1, !tbaa !42
   %.not351 = icmp eq i8 %1233, 1
   br i1 %.not351, label %1234, label %.preheader644, !llvm.loop !642
@@ -23317,7 +23317,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge407, ptr %26, align 8, !tbaa !452
   %1251 = load i8, ptr %storemerge407, align 1, !tbaa !42
   %1252 = zext i8 %1251 to i64
-  %1253 = getelementptr inbounds nuw [256 x i8], ptr %1249, i64 0, i64 %1252
+  %1253 = getelementptr inbounds nuw i8, ptr %1249, i64 %1252
   %1254 = load i8, ptr %1253, align 1, !tbaa !42
   %.not408 = icmp eq i8 %1254, 1
   br i1 %.not408, label %.noexc.i, label %1250, !llvm.loop !643
@@ -23417,7 +23417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit545: ; preds = %_Z
   store ptr %storemerge404, ptr %26, align 8, !tbaa !452
   %1290 = load i8, ptr %storemerge404, align 1, !tbaa !42
   %1291 = zext i8 %1290 to i64
-  %1292 = getelementptr inbounds nuw [256 x i8], ptr %1288, i64 0, i64 %1291
+  %1292 = getelementptr inbounds nuw i8, ptr %1288, i64 %1291
   %1293 = load i8, ptr %1292, align 1, !tbaa !42
   %.not405 = icmp eq i8 %1293, 1
   br i1 %.not405, label %1294, label %1289, !llvm.loop !644
@@ -23565,7 +23565,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   store ptr %storemerge376, ptr %26, align 8, !tbaa !452
   %1359 = load i8, ptr %storemerge376, align 1, !tbaa !42
   %1360 = zext i8 %1359 to i64
-  %1361 = getelementptr inbounds nuw [256 x i8], ptr %1357, i64 0, i64 %1360
+  %1361 = getelementptr inbounds nuw i8, ptr %1357, i64 %1360
   %1362 = load i8, ptr %1361, align 1, !tbaa !42
   %.not377 = icmp eq i8 %1362, 1
   br i1 %.not377, label %1363, label %1358, !llvm.loop !648
@@ -23707,7 +23707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit561: ; preds = %_Z
   store ptr %storemerge388, ptr %26, align 8, !tbaa !452
   %1425 = load i8, ptr %storemerge388, align 1, !tbaa !42
   %1426 = zext i8 %1425 to i64
-  %1427 = getelementptr inbounds nuw [256 x i8], ptr %1423, i64 0, i64 %1426
+  %1427 = getelementptr inbounds nuw i8, ptr %1423, i64 %1426
   %1428 = load i8, ptr %1427, align 1, !tbaa !42
   %.not389 = icmp eq i8 %1428, 1
   br i1 %.not389, label %1429, label %1424, !llvm.loop !649
@@ -23810,7 +23810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit567: ; preds = %_Z
   store ptr %storemerge383, ptr %26, align 8, !tbaa !452
   %1471 = load i8, ptr %storemerge383, align 1, !tbaa !42
   %1472 = zext i8 %1471 to i64
-  %1473 = getelementptr inbounds nuw [256 x i8], ptr %1469, i64 0, i64 %1472
+  %1473 = getelementptr inbounds nuw i8, ptr %1469, i64 %1472
   %1474 = load i8, ptr %1473, align 1, !tbaa !42
   %.not384 = icmp eq i8 %1474, 1
   br i1 %.not384, label %1475, label %1470, !llvm.loop !650
@@ -23908,7 +23908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573: ; preds = %_Z
   store ptr %storemerge395, ptr %26, align 8, !tbaa !452
   %1511 = load i8, ptr %storemerge395, align 1, !tbaa !42
   %1512 = zext i8 %1511 to i64
-  %1513 = getelementptr inbounds nuw [256 x i8], ptr %1509, i64 0, i64 %1512
+  %1513 = getelementptr inbounds nuw i8, ptr %1509, i64 %1512
   %1514 = load i8, ptr %1513, align 1, !tbaa !42
   %.not396 = icmp eq i8 %1514, 1
   br i1 %.not396, label %1515, label %1510, !llvm.loop !651
@@ -24223,7 +24223,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   store ptr %storemerge52, ptr %11, align 8, !tbaa !452
   %22 = load i8, ptr %storemerge52, align 1, !tbaa !42
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !42
   %.not53 = icmp eq i8 %25, 1
   %26 = getelementptr inbounds i8, ptr %storemerge52, i64 -1
@@ -24325,7 +24325,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge47, ptr %11, align 8, !tbaa !452
   %66 = load i8, ptr %storemerge47, align 1, !tbaa !42
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr %64, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !42
   %.not48 = icmp eq i8 %69, 1
   %70 = getelementptr inbounds i8, ptr %storemerge47, i64 -1
@@ -24399,7 +24399,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %102 = load ptr, ptr %62, align 8, !tbaa !341
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %104 = zext i8 %101 to i64
-  %105 = getelementptr inbounds nuw [256 x i8], ptr %103, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !42
   %107 = icmp eq i8 %106, 2
   br i1 %107, label %.thread, label %108
@@ -24422,7 +24422,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %112 = load i8, ptr %.promoted117194, align 1, !tbaa !42
   %113 = getelementptr inbounds nuw i8, ptr %.pre142192, i64 32
   %114 = zext i8 %112 to i64
-  %115 = getelementptr inbounds nuw [256 x i8], ptr %113, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !42
   %.not43 = icmp eq i8 %116, 2
   br i1 %.not43, label %153, label %117
@@ -24439,7 +24439,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge44, ptr %11, align 8, !tbaa !452
   %120 = load i8, ptr %storemerge44, align 1, !tbaa !42
   %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds nuw [256 x i8], ptr %118, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !42
   %.not45 = icmp eq i8 %123, 1
   br i1 %.not45, label %124, label %119, !llvm.loop !660
@@ -24531,7 +24531,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge41, ptr %11, align 8, !tbaa !452
   %164 = load i8, ptr %storemerge41, align 1, !tbaa !42
   %165 = zext i8 %164 to i64
-  %166 = getelementptr inbounds nuw [256 x i8], ptr %162, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !42
   %.not42 = icmp eq i8 %167, 1
   %168 = getelementptr inbounds i8, ptr %storemerge41, i64 -1
@@ -24621,7 +24621,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %205 = load ptr, ptr %.pre136, align 8, !tbaa !341
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 32
   %207 = zext i8 %204 to i64
-  %208 = getelementptr inbounds nuw [256 x i8], ptr %206, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 %207
   %209 = load i8, ptr %208, align 1, !tbaa !42
   %.not37 = icmp eq i8 %209, 2
   br i1 %.not37, label %224, label %210
@@ -24637,7 +24637,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge38, ptr %11, align 8, !tbaa !452
   %214 = load i8, ptr %storemerge38, align 1, !tbaa !42
   %215 = zext i8 %214 to i64
-  %216 = getelementptr inbounds nuw [256 x i8], ptr %212, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !42
   %.not39 = icmp eq i8 %217, 1
   br i1 %.not39, label %218, label %213, !llvm.loop !668
@@ -24675,7 +24675,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge35, ptr %11, align 8, !tbaa !452
   %235 = load i8, ptr %storemerge35, align 1, !tbaa !42
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw [256 x i8], ptr %233, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !42
   %.not36 = icmp eq i8 %238, 1
   %239 = getelementptr inbounds i8, ptr %storemerge35, i64 -1
@@ -24765,7 +24765,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %276 = load ptr, ptr %.pre132, align 8, !tbaa !341
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 32
   %278 = zext i8 %275 to i64
-  %279 = getelementptr inbounds nuw [256 x i8], ptr %277, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 %278
   %280 = load i8, ptr %279, align 1, !tbaa !42
   %.not31 = icmp eq i8 %280, 2
   br i1 %.not31, label %295, label %281
@@ -24781,7 +24781,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge32, ptr %11, align 8, !tbaa !452
   %285 = load i8, ptr %storemerge32, align 1, !tbaa !42
   %286 = zext i8 %285 to i64
-  %287 = getelementptr inbounds nuw [256 x i8], ptr %283, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 %286
   %288 = load i8, ptr %287, align 1, !tbaa !42
   %.not33 = icmp eq i8 %288, 1
   br i1 %.not33, label %289, label %284, !llvm.loop !673
@@ -24824,7 +24824,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge29, ptr %11, align 8, !tbaa !452
   %309 = load i8, ptr %storemerge29, align 1, !tbaa !42
   %310 = zext i8 %309 to i64
-  %311 = getelementptr inbounds nuw [256 x i8], ptr %307, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw i8, ptr %307, i64 %310
   %312 = load i8, ptr %311, align 1, !tbaa !42
   %.not30 = icmp eq i8 %312, 1
   %313 = getelementptr inbounds i8, ptr %storemerge29, i64 -1
@@ -24914,7 +24914,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %350 = load ptr, ptr %.pre128, align 8, !tbaa !341
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 32
   %352 = zext i8 %349 to i64
-  %353 = getelementptr inbounds nuw [256 x i8], ptr %351, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw i8, ptr %351, i64 %352
   %354 = load i8, ptr %353, align 1, !tbaa !42
   %.not25 = icmp eq i8 %354, 2
   br i1 %.not25, label %369, label %355
@@ -24930,7 +24930,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge26, ptr %11, align 8, !tbaa !452
   %359 = load i8, ptr %storemerge26, align 1, !tbaa !42
   %360 = zext i8 %359 to i64
-  %361 = getelementptr inbounds nuw [256 x i8], ptr %357, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr %357, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !42
   %.not27 = icmp eq i8 %362, 1
   br i1 %.not27, label %363, label %358, !llvm.loop !682
@@ -24973,7 +24973,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge23, ptr %11, align 8, !tbaa !452
   %383 = load i8, ptr %storemerge23, align 1, !tbaa !42
   %384 = zext i8 %383 to i64
-  %385 = getelementptr inbounds nuw [256 x i8], ptr %381, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw i8, ptr %381, i64 %384
   %386 = load i8, ptr %385, align 1, !tbaa !42
   %.not24 = icmp eq i8 %386, 1
   %387 = getelementptr inbounds i8, ptr %storemerge23, i64 -1
@@ -25063,7 +25063,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %424 = load ptr, ptr %.pre124, align 8, !tbaa !341
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 32
   %426 = zext i8 %423 to i64
-  %427 = getelementptr inbounds nuw [256 x i8], ptr %425, i64 0, i64 %426
+  %427 = getelementptr inbounds nuw i8, ptr %425, i64 %426
   %428 = load i8, ptr %427, align 1, !tbaa !42
   %.not19 = icmp eq i8 %428, 2
   br i1 %.not19, label %443, label %429
@@ -25079,7 +25079,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge20, ptr %11, align 8, !tbaa !452
   %433 = load i8, ptr %storemerge20, align 1, !tbaa !42
   %434 = zext i8 %433 to i64
-  %435 = getelementptr inbounds nuw [256 x i8], ptr %431, i64 0, i64 %434
+  %435 = getelementptr inbounds nuw i8, ptr %431, i64 %434
   %436 = load i8, ptr %435, align 1, !tbaa !42
   %.not21 = icmp eq i8 %436, 1
   br i1 %.not21, label %437, label %432, !llvm.loop !687
@@ -25122,7 +25122,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge17, ptr %11, align 8, !tbaa !452
   %457 = load i8, ptr %storemerge17, align 1, !tbaa !42
   %458 = zext i8 %457 to i64
-  %459 = getelementptr inbounds nuw [256 x i8], ptr %455, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr %455, i64 %458
   %460 = load i8, ptr %459, align 1, !tbaa !42
   %.not18 = icmp eq i8 %460, 1
   %461 = getelementptr inbounds i8, ptr %storemerge17, i64 -1
@@ -25212,7 +25212,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %498 = load ptr, ptr %.pre, align 8, !tbaa !341
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 32
   %500 = zext i8 %497 to i64
-  %501 = getelementptr inbounds nuw [256 x i8], ptr %499, i64 0, i64 %500
+  %501 = getelementptr inbounds nuw i8, ptr %499, i64 %500
   %502 = load i8, ptr %501, align 1, !tbaa !42
   %.not = icmp eq i8 %502, 2
   br i1 %.not, label %517, label %503
@@ -25228,7 +25228,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge, ptr %11, align 8, !tbaa !452
   %507 = load i8, ptr %storemerge, align 1, !tbaa !42
   %508 = zext i8 %507 to i64
-  %509 = getelementptr inbounds nuw [256 x i8], ptr %505, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw i8, ptr %505, i64 %508
   %510 = load i8, ptr %509, align 1, !tbaa !42
   %.not16 = icmp eq i8 %510, 1
   br i1 %.not16, label %511, label %506, !llvm.loop !692
@@ -25265,7 +25265,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge49, ptr %11, align 8, !tbaa !452
   %528 = load i8, ptr %storemerge49, align 1, !tbaa !42
   %529 = zext i8 %528 to i64
-  %530 = getelementptr inbounds nuw [256 x i8], ptr %526, i64 0, i64 %529
+  %530 = getelementptr inbounds nuw i8, ptr %526, i64 %529
   %531 = load i8, ptr %530, align 1, !tbaa !42
   %.not50 = icmp eq i8 %531, 1
   br i1 %.not50, label %532, label %527, !llvm.loop !693
@@ -25907,7 +25907,7 @@ define linkonce_odr noundef i32 @_ZN5boost16re_detail_10740018basic_regex_parser
   store ptr %storemerge, ptr %8, align 8, !tbaa !452
   %31 = load i8, ptr %storemerge, align 1, !tbaa !42
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !42
   %.not = icmp eq i8 %34, 1
   %35 = getelementptr inbounds i8, ptr %storemerge, i64 -1
@@ -25997,7 +25997,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge24, ptr %8, align 8, !tbaa !452
   %72 = load i8, ptr %storemerge24, align 1, !tbaa !42
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw [256 x i8], ptr %70, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !42
   %.not25 = icmp eq i8 %75, 1
   %76 = getelementptr inbounds i8, ptr %storemerge24, i64 -1
@@ -26112,7 +26112,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge22, ptr %8, align 8, !tbaa !452
   %124 = load i8, ptr %storemerge22, align 1, !tbaa !42
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw [256 x i8], ptr %122, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !42
   %.not23 = icmp eq i8 %127, 1
   %128 = getelementptr inbounds i8, ptr %storemerge22, i64 -1
@@ -26449,7 +26449,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   %17 = load ptr, ptr %16, align 8, !tbaa !341
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = zext i8 %14 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !42
   %.not1028 = icmp eq i8 %21, 1
   br i1 %.not1028, label %._crit_edge, label %.lr.ph29
@@ -26460,7 +26460,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   store ptr %23, ptr %6, align 8, !tbaa !452
   %24 = load i8, ptr %23, align 1, !tbaa !42
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr %18, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !42
   %.not10 = icmp eq i8 %27, 1
   br i1 %.not10, label %._crit_edge, label %.lr.ph29, !llvm.loop !738
@@ -26551,7 +26551,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   store ptr %storemerge, ptr %6, align 8, !tbaa !452
   %64 = load i8, ptr %storemerge, align 1, !tbaa !42
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [256 x i8], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !42
   %.not9 = icmp eq i8 %67, 1
   %68 = getelementptr inbounds i8, ptr %storemerge, i64 -1
@@ -26964,7 +26964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
   %57 = load ptr, ptr %55, align 8, !tbaa !341
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = zext i8 %56 to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !42
   switch i8 %61, label %482 [
     i8 28, label %483
@@ -27013,7 +27013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
   store ptr %storemerge110, ptr %21, align 8, !tbaa !452
   %72 = load i8, ptr %storemerge110, align 1, !tbaa !42
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !42
   %.not111 = icmp eq i8 %75, 12
   %76 = getelementptr inbounds i8, ptr %storemerge110, i64 -1
@@ -27106,7 +27106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %_Z
   store ptr %storemerge106, ptr %21, align 8, !tbaa !452
   %111 = load i8, ptr %storemerge106, align 1, !tbaa !42
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %58, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !42
   %.not107 = icmp eq i8 %114, 12
   %115 = getelementptr inbounds i8, ptr %storemerge106, i64 -1
@@ -27186,7 +27186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 144:                                              ; preds = %108
   %145 = load i8, ptr %109, align 1, !tbaa !42
   %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %58, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !42
   %149 = icmp eq i8 %148, 15
   br i1 %149, label %150, label %236
@@ -27202,7 +27202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   store ptr %storemerge102, ptr %21, align 8, !tbaa !452
   %153 = load i8, ptr %storemerge102, align 1, !tbaa !42
   %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %58, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !42
   %.not103 = icmp eq i8 %156, 12
   %157 = getelementptr inbounds i8, ptr %storemerge102, i64 -1
@@ -27296,7 +27296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %_Z
   %194 = load i8, ptr %188, align 1, !tbaa !42
   %195 = getelementptr inbounds nuw i8, ptr %.pre218, i64 32
   %196 = zext i8 %194 to i64
-  %197 = getelementptr inbounds nuw [256 x i8], ptr %195, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 %196
   %198 = load i8, ptr %197, align 1, !tbaa !42
   %.not96 = icmp eq i8 %198, 16
   br i1 %.not96, label %233, label %199
@@ -27311,7 +27311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %_Z
   store ptr %storemerge97, ptr %21, align 8, !tbaa !452
   %202 = load i8, ptr %storemerge97, align 1, !tbaa !42
   %203 = zext i8 %202 to i64
-  %204 = getelementptr inbounds nuw [256 x i8], ptr %200, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 %203
   %205 = load i8, ptr %204, align 1, !tbaa !42
   %.not98 = icmp eq i8 %205, 12
   br i1 %.not98, label %206, label %201, !llvm.loop !749
@@ -27416,7 +27416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   store ptr %storemerge91, ptr %21, align 8, !tbaa !452
   %246 = load i8, ptr %storemerge91, align 1, !tbaa !42
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw [256 x i8], ptr %244, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr %244, i64 %247
   %249 = load i8, ptr %248, align 1, !tbaa !42
   %.not92 = icmp eq i8 %249, 12
   br i1 %.not92, label %250, label %245, !llvm.loop !750
@@ -27517,7 +27517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %_Z
   store ptr %storemerge85, ptr %21, align 8, !tbaa !452
   %286 = load i8, ptr %storemerge85, align 1, !tbaa !42
   %287 = zext i8 %286 to i64
-  %288 = getelementptr inbounds nuw [256 x i8], ptr %284, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr %284, i64 %287
   %289 = load i8, ptr %288, align 1, !tbaa !42
   %.not86 = icmp eq i8 %289, 12
   br i1 %.not86, label %.noexc.i156, label %285, !llvm.loop !751
@@ -27625,7 +27625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %_Z
   store ptr %storemerge80, ptr %21, align 8, !tbaa !452
   %330 = load i8, ptr %storemerge80, align 1, !tbaa !42
   %331 = zext i8 %330 to i64
-  %332 = getelementptr inbounds nuw [256 x i8], ptr %328, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw i8, ptr %328, i64 %331
   %333 = load i8, ptr %332, align 1, !tbaa !42
   %.not81 = icmp eq i8 %333, 12
   br i1 %.not81, label %334, label %329, !llvm.loop !752
@@ -27726,7 +27726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   store ptr %storemerge77, ptr %21, align 8, !tbaa !452
   %369 = load i8, ptr %storemerge77, align 1, !tbaa !42
   %370 = zext i8 %369 to i64
-  %371 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %370
+  %371 = getelementptr inbounds nuw i8, ptr %58, i64 %370
   %372 = load i8, ptr %371, align 1, !tbaa !42
   %.not78 = icmp eq i8 %372, 12
   %373 = getelementptr inbounds i8, ptr %storemerge77, i64 -1
@@ -27744,7 +27744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
 380:                                              ; preds = %366
   %381 = load i8, ptr %367, align 1, !tbaa !42
   %382 = zext i8 %381 to i64
-  %383 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw i8, ptr %58, i64 %382
   %384 = load i8, ptr %383, align 1, !tbaa !42
   %385 = icmp eq i8 %384, 15
   br i1 %385, label %.lr.ph, label %444
@@ -27753,7 +27753,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   %386 = phi ptr [ %392, %391 ], [ %367, %380 ]
   %387 = load i8, ptr %386, align 1, !tbaa !42
   %388 = zext i8 %387 to i64
-  %389 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw i8, ptr %58, i64 %388
   %390 = load i8, ptr %389, align 1, !tbaa !42
   %.not69 = icmp eq i8 %390, 16
   br i1 %.not69, label %402, label %391
@@ -27770,7 +27770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   store ptr %storemerge71, ptr %21, align 8, !tbaa !452
   %393 = load i8, ptr %storemerge71, align 1, !tbaa !42
   %394 = zext i8 %393 to i64
-  %395 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw i8, ptr %58, i64 %394
   %396 = load i8, ptr %395, align 1, !tbaa !42
   %.not72 = icmp eq i8 %396, 12
   br i1 %.not72, label %.thread, label %.critedge, !llvm.loop !755
@@ -27811,7 +27811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   store ptr %storemerge, ptr %21, align 8, !tbaa !452
   %412 = load i8, ptr %storemerge, align 1, !tbaa !42
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [256 x i8], ptr %410, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i8, ptr %410, i64 %413
   %415 = load i8, ptr %414, align 1, !tbaa !42
   %.not70 = icmp eq i8 %415, 12
   br i1 %.not70, label %425, label %411, !llvm.loop !759
@@ -27896,7 +27896,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   store ptr %storemerge73, ptr %21, align 8, !tbaa !452
   %449 = load i8, ptr %storemerge73, align 1, !tbaa !42
   %450 = zext i8 %449 to i64
-  %451 = getelementptr inbounds nuw [256 x i8], ptr %447, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr %447, i64 %450
   %452 = load i8, ptr %451, align 1, !tbaa !42
   %.not74 = icmp eq i8 %452, 12
   br i1 %.not74, label %453, label %448, !llvm.loop !760
@@ -28146,7 +28146,7 @@ _ZN5boost16re_detail_10740016indexed_bit_flag4testEm.exit.thread: ; preds = %28,
   store ptr %storemerge, ptr %4, align 8, !tbaa !452
   %89 = load i8, ptr %storemerge, align 1, !tbaa !42
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [256 x i8], ptr %87, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !42
   %.not9 = icmp eq i8 %92, 12
   br i1 %.not9, label %93, label %88, !llvm.loop !765
@@ -28249,7 +28249,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   %.ptr36 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx34
   %14 = load i8, ptr %.ptr36, align 1, !tbaa !42
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !42
   %.not15 = icmp eq i8 %17, 12
   %.add35 = add nuw nsw i64 %.idx34, 1
@@ -28336,7 +28336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 46:                                               ; preds = %.critedge
   %47 = load i8, ptr %.ptr39, align 1, !tbaa !42
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !42
   %51 = icmp eq i8 %50, 47
   br i1 %51, label %52, label %10, !llvm.loop !770
@@ -30269,7 +30269,7 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit104: ; preds = %_ZNK5boost16cpp
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit104
-  %88 = getelementptr inbounds nuw [256 x i8], ptr %51, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv
   store i8 1, ptr %88, align 1, !tbaa !42
   br label %89
 
@@ -30455,7 +30455,7 @@ _ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
   br i1 %169, label %170, label %180
 
 170:                                              ; preds = %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit124
-  %171 = getelementptr inbounds nuw [256 x i8], ptr %51, i64 0, i64 %indvars.iv248
+  %171 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv248
   store i8 1, ptr %171, align 1, !tbaa !42
   br label %180
 
@@ -30745,7 +30745,7 @@ _ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit.thread.i: ; preds = %278, 
   br i1 %or.cond, label %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit.thread, label %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit.thread193
 
 _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit.thread: ; preds = %280, %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit.thread.i, %278, %267, %257
-  %290 = getelementptr inbounds nuw [256 x i8], ptr %51, i64 0, i64 %indvars.iv252
+  %290 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv252
   store i8 1, ptr %290, align 1, !tbaa !42
   br label %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit.thread193
 
@@ -30881,7 +30881,7 @@ _ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit.thread.i150: ; preds = %34
   br i1 %or.cond200, label %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit158.thread, label %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit158.thread197
 
 _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit158.thread197: ; preds = %341, %342
-  %352 = getelementptr inbounds nuw [256 x i8], ptr %51, i64 0, i64 %indvars.iv256
+  %352 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv256
   store i8 1, ptr %352, align 1, !tbaa !42
   br label %_ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit158.thread
 
@@ -31080,7 +31080,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %423, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread199
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %419, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %424 = getelementptr inbounds nuw [256 x i8], ptr %51, i64 0, i64 %indvars.iv260
+  %424 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv260
   store i8 1, ptr %424, align 1, !tbaa !42
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread199
 
@@ -31142,7 +31142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
 
 .preheader:                                       ; preds = %._crit_edge240, %.preheader
   %indvars.iv264 = phi i64 [ %indvars.iv.next265, %.preheader ], [ 0, %._crit_edge240 ]
-  %440 = getelementptr inbounds nuw [256 x i8], ptr %51, i64 0, i64 %indvars.iv264
+  %440 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv264
   %441 = load i8, ptr %440, align 1, !tbaa !42
   %.not94 = icmp eq i8 %441, 0
   %442 = zext i1 %.not94 to i8
@@ -32448,7 +32448,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %45 = load ptr, ptr %43, align 8, !tbaa !341
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = zext i8 %44 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !42
   %50 = icmp eq i8 %49, 14
   br i1 %50, label %51, label %123
@@ -32525,7 +32525,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
 83:                                               ; preds = %51
   %84 = load i8, ptr %52, align 1, !tbaa !42
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr %46, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %46, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !42
   %.not = icmp eq i8 %87, 10
   br i1 %.not, label %122, label %88
@@ -32540,7 +32540,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %92 = load ptr, ptr %89, align 8, !tbaa !341
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = zext i8 %91 to i64
-  %95 = getelementptr inbounds nuw [256 x i8], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !42
   %97 = icmp eq i8 %96, 14
   br i1 %97, label %98, label %121
@@ -32564,7 +32564,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
 108:                                              ; preds = %98
   %109 = load i8, ptr %100, align 1, !tbaa !42
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw [256 x i8], ptr %93, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %93, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !42
   %113 = icmp eq i8 %112, 10
   br i1 %113, label %114, label %115
@@ -32727,7 +32727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
   %60 = load ptr, ptr %58, align 8, !tbaa !341
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = zext i8 %59 to i64
-  %63 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !42
   switch i8 %64, label %430 [
     i8 5, label %65
@@ -32917,7 +32917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   %134 = phi ptr [ %139, %141 ], [ %104, %103 ]
   %135 = load i8, ptr %134, align 1, !tbaa !42
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %61, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !42
   %.not93 = icmp eq i8 %138, 36
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 1
@@ -33005,7 +33005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 169:                                              ; preds = %.critedge
   %170 = load i8, ptr %139, align 1, !tbaa !42
   %171 = zext i8 %170 to i64
-  %172 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr %61, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !42
   %.not94 = icmp eq i8 %173, 10
   br i1 %.not94, label %202, label %174
@@ -33084,7 +33084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 202:                                              ; preds = %169
   %203 = load i8, ptr %74, align 1, !tbaa !42
   %204 = zext i8 %203 to i64
-  %205 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %61, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !42
   %.not95 = icmp eq i8 %206, 4
   %spec.select = select i1 %.not95, ptr %104, ptr %74
@@ -33117,7 +33117,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
   %224 = load ptr, ptr %222, align 8, !tbaa !341
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = zext i8 %223 to i64
-  %227 = getelementptr inbounds nuw [256 x i8], ptr %225, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 %226
   %228 = load i8, ptr %227, align 1, !tbaa !42
   %229 = icmp eq i8 %228, 10
   br i1 %229, label %230, label %241
@@ -33125,7 +33125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 230:                                              ; preds = %221
   %231 = load i8, ptr %spec.select, align 1, !tbaa !42
   %232 = zext i8 %231 to i64
-  %233 = getelementptr inbounds nuw [256 x i8], ptr %225, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr %225, i64 %232
   %234 = load i8, ptr %233, align 1, !tbaa !42
   switch i8 %234, label %241 [
     i8 20, label %235
@@ -33347,7 +33347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %_Z
   %319 = phi ptr [ %324, %326 ], [ %290, %289 ]
   %320 = load i8, ptr %319, align 1, !tbaa !42
   %321 = zext i8 %320 to i64
-  %322 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw i8, ptr %61, i64 %321
   %323 = load i8, ptr %322, align 1, !tbaa !42
   %.not79 = icmp eq i8 %323, 37
   %324 = getelementptr inbounds nuw i8, ptr %319, i64 1
@@ -33441,7 +33441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
 354:                                              ; preds = %.critedge2
   %355 = load i8, ptr %324, align 1, !tbaa !42
   %356 = zext i8 %355 to i64
-  %357 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw i8, ptr %61, i64 %356
   %358 = load i8, ptr %357, align 1, !tbaa !42
   %.not80 = icmp eq i8 %358, 10
   br i1 %.not80, label %386, label %.noexc.i177
@@ -33659,7 +33659,7 @@ define linkonce_odr void @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12
   %14 = load ptr, ptr %10, align 8, !tbaa !341
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = zext i8 %13 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !42
   switch i8 %18, label %218 [
     i8 14, label %19
@@ -33684,7 +33684,7 @@ define linkonce_odr void @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12
 28:                                               ; preds = %23
   %29 = load i8, ptr %24, align 1, !tbaa !42
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !42
   %.not20 = icmp eq i8 %32, 10
   br i1 %.not20, label %62, label %33
@@ -33862,7 +33862,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
 110:                                              ; preds = %76
   %111 = load i8, ptr %79, align 1, !tbaa !42
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %15, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !42
   %.not = icmp eq i8 %114, 5
   br i1 %.not, label %117, label %115
@@ -33962,7 +33962,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %158 = phi ptr [ %163, %165 ], [ %150, %149 ]
   %159 = load i8, ptr %158, align 1, !tbaa !42
   %160 = zext i8 %159 to i64
-  %161 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr %15, i64 %160
   %162 = load i8, ptr %161, align 1, !tbaa !42
   %.not17 = icmp eq i8 %162, 5
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 1
@@ -33988,7 +33988,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
 171:                                              ; preds = %.critedge
   %172 = load i8, ptr %163, align 1, !tbaa !42
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr %15, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !42
   %.not18 = icmp eq i8 %175, 10
   br i1 %.not18, label %182, label %176
@@ -34532,7 +34532,7 @@ _ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_reg
   %47 = load ptr, ptr %45, align 8, !tbaa !341
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = zext i8 %46 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !42
   switch i8 %51, label %393 [
     i8 1, label %52
@@ -35428,7 +35428,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex
   store ptr %storemerge, ptr %30, align 8, !tbaa !452
   %41 = load i8, ptr %storemerge, align 1, !tbaa !42
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !42
   %.not = icmp eq i8 %44, 12
   %45 = getelementptr inbounds i8, ptr %storemerge, i64 -1
@@ -38569,7 +38569,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit288: ; preds = %335, %337
   %346 = phi i8 [ %336, %335 ], [ %345, %337 ]
   %347 = zext i8 %346 to i64
-  %348 = getelementptr inbounds nuw [256 x i8], ptr %334, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw i8, ptr %334, i64 %347
   %349 = load i8, ptr %348, align 1, !tbaa !42
   %.not233 = icmp eq i8 %349, 0
   br i1 %.not233, label %356, label %350
@@ -38614,7 +38614,7 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit288: ; preds = %335, %337
 
 368:                                              ; preds = %365, %376
   %indvars.iv = phi i64 [ 0, %365 ], [ %indvars.iv.next, %376 ]
-  %369 = getelementptr inbounds nuw [256 x i8], ptr %361, i64 0, i64 %indvars.iv
+  %369 = getelementptr inbounds nuw i8, ptr %361, i64 %indvars.iv
   %370 = load i8, ptr %369, align 1, !tbaa !42
   %371 = and i8 %370, 3
   %.not231 = icmp eq i8 %371, 0
@@ -41897,7 +41897,7 @@ _ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit
   %175 = load ptr, ptr %7, align 8, !tbaa !975
   %176 = load i32, ptr %175, align 8, !tbaa !42
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %177
   %.unpack.i = load i64, ptr %178, align 16, !tbaa !42
   %179 = and i64 %.unpack.i, 1
   %.not.i14 = icmp eq i64 %179, 0
@@ -42771,7 +42771,7 @@ _ZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7
   %46 = phi ptr [ %115, %.backedge ], [ %45, %44 ]
   %47 = load i32, ptr %46, align 8, !tbaa !461
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw [34 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE16match_all_statesEvE14s_match_vtableB5cxx11, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE16match_all_statesEvE14s_match_vtableB5cxx11, i64 %48
   %.unpack = load i64, ptr %49, align 16, !tbaa !42
   %50 = load i64, ptr %33, align 8, !tbaa !962
   %51 = add nsw i64 %50, 1
@@ -42848,7 +42848,7 @@ _ZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7
   %84 = load ptr, ptr %10, align 8, !tbaa !975
   %85 = load i32, ptr %84, align 8, !tbaa !42
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %86
   %.unpack.i = load i64, ptr %87, align 16, !tbaa !42
   %88 = and i64 %.unpack.i, 1
   %.not.i = icmp eq i64 %88, 0
@@ -42919,7 +42919,7 @@ _ZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7
   %117 = load ptr, ptr %10, align 8, !tbaa !975
   %118 = load i32, ptr %117, align 8, !tbaa !42
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %119
   %.unpack.i25 = load i64, ptr %120, align 16, !tbaa !42
   %121 = and i64 %.unpack.i25, 1
   %.not.i26 = icmp eq i64 %121, 0
@@ -43512,7 +43512,7 @@ _ZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7
   %72 = load ptr, ptr %69, align 8, !tbaa !975
   %73 = load i32, ptr %72, align 8, !tbaa !42
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %74
   %.unpack.i = load i64, ptr %75, align 16, !tbaa !42
   %76 = and i64 %.unpack.i, 1
   %.not.i = icmp eq i64 %76, 0
@@ -43575,7 +43575,7 @@ _ZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7
   %100 = load ptr, ptr %97, align 8, !tbaa !975
   %101 = load i32, ptr %100, align 8, !tbaa !42
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %102
   %.unpack.i32 = load i64, ptr %103, align 16, !tbaa !42
   %104 = and i64 %.unpack.i32, 1
   %.not.i33 = icmp eq i64 %104, 0
@@ -43696,7 +43696,7 @@ _ZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7
   %159 = load ptr, ptr %156, align 8, !tbaa !975
   %160 = load i32, ptr %159, align 8, !tbaa !42
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %161
   %.unpack.i36 = load i64, ptr %162, align 16, !tbaa !42
   %163 = and i64 %.unpack.i36, 1
   %.not.i37 = icmp eq i64 %163, 0
@@ -46402,7 +46402,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
 _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit: ; preds = %7, %15
   %25 = phi i8 [ %24, %15 ], [ %11, %7 ]
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !42
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %35, label %29
@@ -51799,7 +51799,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
   %28 = load ptr, ptr %9, align 8, !tbaa !975
   %29 = load i32, ptr %28, align 8, !tbaa !42
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %30
   %.unpack.i = load i64, ptr %31, align 16, !tbaa !42
   %32 = and i64 %.unpack.i, 1
   %.not.i = icmp eq i64 %32, 0
@@ -53994,7 +53994,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
   %13 = load ptr, ptr %3, align 8, !tbaa !975
   %14 = load i32, ptr %13, align 8, !tbaa !42
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %15
   %.unpack.i = load i64, ptr %16, align 16, !tbaa !42
   %17 = and i64 %.unpack.i, 1
   %.not.i = icmp eq i64 %17, 0
@@ -54108,7 +54108,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
   %13 = load ptr, ptr %3, align 8, !tbaa !975
   %14 = load i32, ptr %13, align 8, !tbaa !42
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %15
   %.unpack.i = load i64, ptr %16, align 16, !tbaa !42
   %17 = and i64 %.unpack.i, 1
   %.not.i = icmp eq i64 %17, 0
@@ -54155,7 +54155,7 @@ _ZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7
   %36 = load ptr, ptr %3, align 8, !tbaa !975
   %37 = load i32, ptr %36, align 8, !tbaa !42
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [19 x { i64, i64 }], ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN5boost16re_detail_10740012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6unwindEbE14s_unwind_tableB5cxx11, i64 %38
   %.unpack.i8 = load i64, ptr %39, align 16, !tbaa !42
   %40 = and i64 %.unpack.i8, 1
   %.not.i9 = icmp eq i64 %40, 0
@@ -54839,7 +54839,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   %.sroa.029.1 = lshr i32 %.sroa.029.041, %.pn37
   %.sroa.7.1 = add i32 %.sroa.7.1.in, 1
   %26 = zext i32 %.sroa.7.1.in to i64
-  %27 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %18, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %18, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !105
   tail call void @llvm.prefetch.p0(ptr %28, i32 0, i32 3, i32 1)
   %.not = icmp eq i32 %.sroa.029.1, 0
@@ -54864,7 +54864,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   %.sroa.734.1 = add i32 %.sroa.734.1.in, 1
   %.sroa.032.1 = lshr i32 %.sroa.032.043, %.pn
   %35 = zext i32 %.sroa.734.1.in to i64
-  %36 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %18, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %18, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !105
   %.not.i27 = icmp eq ptr %37, null
   br i1 %.not.i27, label %_ZN5folly3f146detail19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvE11destroyItemERPSt4pairIKS3_S5_E.exit, label %38
@@ -55125,7 +55125,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorISt17ba
   %63 = phi ptr [ %65, %61 ], [ %.sroa.023.037, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
   %64 = add nsw i64 %62, -1
   %65 = getelementptr inbounds i8, ptr %63, i64 -8
-  %66 = getelementptr inbounds nuw [14 x i8], ptr %60, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 %64
   %67 = load i8, ptr %66, align 1, !tbaa !42
   %.not.i = icmp eq i8 %67, 0
   br i1 %.not.i, label %61, label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !144
@@ -55157,7 +55157,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorISt17ba
   %83 = icmp ne ptr %72, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds i8, ptr %.017.i.i, i64 -112
-  %85 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %84, i64 0, i64 %82
+  %85 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %84, i64 %82
   br label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %78
@@ -55331,7 +55331,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorIPKNSt7
   %52 = phi ptr [ %54, %50 ], [ %.sroa.016.029, %_ZNSt6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE9push_backERKS7_.exit ]
   %53 = add nsw i64 %51, -1
   %54 = getelementptr inbounds i8, ptr %52, i64 -16
-  %55 = getelementptr inbounds nuw [14 x i8], ptr %49, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 %53
   %56 = load i8, ptr %55, align 1, !tbaa !42
   %.not.i14 = icmp eq i8 %56, 0
   br i1 %.not.i14, label %50, label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !44
@@ -55363,7 +55363,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorIPKNSt7
   %72 = icmp ne ptr %61, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %72)
   %73 = getelementptr inbounds i8, ptr %.017.i.i, i64 -240
-  %74 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %73, i64 0, i64 %71
+  %74 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %73, i64 %71
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %67
@@ -55885,7 +55885,7 @@ _ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyEN
   %353 = and i32 %352, %.sroa.08.0.i
   %354 = zext nneg i32 %351 to i64
   call void @llvm.assume(i1 %348)
-  %355 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %341, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %341, i64 %354
   %356 = load ptr, ptr %355, align 8, !tbaa !166
   %357 = icmp eq ptr %309, %356
   br i1 %357, label %_ZNK5folly28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE14index_of_valueERKS3_.exit, label %.critedge.i.i, !prof !22, !llvm.loop !1101
@@ -55943,7 +55943,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge, %378
   %380 = phi ptr [ %382, %378 ], [ %.sroa.01267.01815, %._crit_edge ]
   %381 = add nsw i64 %379, -1
   %382 = getelementptr inbounds i8, ptr %380, i64 -8
-  %383 = getelementptr inbounds nuw [14 x i8], ptr %377, i64 0, i64 %381
+  %383 = getelementptr inbounds nuw i8, ptr %377, i64 %381
   %384 = load i8, ptr %383, align 1, !tbaa !42
   %.not.i466 = icmp eq i8 %384, 0
   br i1 %.not.i466, label %378, label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !144
@@ -55975,7 +55975,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge, %378
   %400 = icmp ne ptr %389, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %400)
   %401 = getelementptr inbounds i8, ptr %.017.i.i, i64 -112
-  %402 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %401, i64 0, i64 %399
+  %402 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %401, i64 %399
   br label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %395
@@ -56039,7 +56039,7 @@ _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_str
   %441 = and i32 %440, %.sroa.01378.0
   %442 = zext nneg i32 %439 to i64
   call void @llvm.assume(i1 %435)
-  %443 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %436, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %436, i64 %442
   %444 = load ptr, ptr %369, align 8, !tbaa !84
   %445 = load i32, ptr %443, align 4, !tbaa !32
   %446 = zext i32 %445 to i64
@@ -56780,7 +56780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit519: ; preds = %_Z
   %725 = and i32 %724, %.sroa.09.0.i
   %726 = zext nneg i32 %723 to i64
   call void @llvm.assume(i1 %720)
-  %727 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %713, i64 0, i64 %726
+  %727 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %713, i64 %726
   %728 = load ptr, ptr %727, align 8, !tbaa !146
   %729 = icmp eq ptr %687, %728
   br i1 %729, label %735, label %.critedge.i.i521, !prof !22, !llvm.loop !1153
@@ -56859,7 +56859,7 @@ _ZN5folly7get_ptrINS_10F14FastMapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %769 = and i32 %768, %.sroa.07.0.i
   %770 = zext nneg i32 %767 to i64
   call void @llvm.assume(i1 %763)
-  %771 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %764, i64 0, i64 %770
+  %771 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %764, i64 %770
   %772 = load i32, ptr %771, align 4, !tbaa !32
   %773 = zext i32 %772 to i64
   %774 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %754, i64 %773
@@ -56915,7 +56915,7 @@ _ZN5folly7get_ptrINS_10F14FastMapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %805 = and i32 %804, %.sroa.01382.0
   %806 = zext nneg i32 %803 to i64
   call void @llvm.assume(i1 %799)
-  %807 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %800, i64 0, i64 %806
+  %807 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %800, i64 %806
   %808 = load ptr, ptr %783, align 8, !tbaa !84
   %809 = load i32, ptr %807, align 4, !tbaa !32
   %810 = zext i32 %809 to i64
@@ -58205,7 +58205,7 @@ thread-pre-split.i645:                            ; preds = %1245, %1248
   %1250 = phi ptr [ %1252, %1248 ], [ %.sroa.01259.01812, %1245 ]
   %1251 = add nsw i64 %1249, -1
   %1252 = getelementptr inbounds i8, ptr %1250, i64 -16
-  %1253 = getelementptr inbounds nuw [14 x i8], ptr %1247, i64 0, i64 %1251
+  %1253 = getelementptr inbounds nuw i8, ptr %1247, i64 %1251
   %1254 = load i8, ptr %1253, align 1, !tbaa !42
   %.not.i646 = icmp eq i8 %1254, 0
   br i1 %.not.i646, label %1248, label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !44
@@ -58237,7 +58237,7 @@ thread-pre-split.i645:                            ; preds = %1245, %1248
   %1270 = icmp ne ptr %1259, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %1270)
   %1271 = getelementptr inbounds i8, ptr %.017.i.i650, i64 -240
-  %1272 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %1271, i64 0, i64 %1269
+  %1272 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %1271, i64 %1269
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i645, %1265
@@ -58358,7 +58358,7 @@ _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_str
   %1356 = and i32 %1355, %.sroa.09.0.i660
   %1357 = zext nneg i32 %1354 to i64
   call void @llvm.assume(i1 %1351)
-  %1358 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %1344, i64 0, i64 %1357
+  %1358 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %1344, i64 %1357
   %1359 = load ptr, ptr %1358, align 8, !tbaa !146
   %1360 = icmp eq ptr %1318, %1359
   br i1 %1360, label %_ZN5folly7get_ptrINS_10F14FastMapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryENS_23HeterogeneousAccessHashIS9_vEENS_26HeterogeneousAccessEqualToIS9_vEESaISt4pairIKS9_SB_EEEES9_EEDaRKT_RKT0_.exit, label %.critedge.i.i659, !prof !22, !llvm.loop !1253
@@ -58548,7 +58548,7 @@ thread-pre-split.i694:                            ; preds = %._crit_edge1826, %1
   %1423 = phi ptr [ %1425, %1421 ], [ %.sroa.01241.01828, %._crit_edge1826 ]
   %1424 = add nsw i64 %1422, -1
   %1425 = getelementptr inbounds i8, ptr %1423, i64 -16
-  %1426 = getelementptr inbounds nuw [14 x i8], ptr %1420, i64 0, i64 %1424
+  %1426 = getelementptr inbounds nuw i8, ptr %1420, i64 %1424
   %1427 = load i8, ptr %1426, align 1, !tbaa !42
   %.not.i695 = icmp eq i8 %1427, 0
   br i1 %.not.i695, label %1421, label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !183
@@ -58580,7 +58580,7 @@ thread-pre-split.i694:                            ; preds = %._crit_edge1826, %1
   %1443 = icmp ne ptr %1432, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %1443)
   %1444 = getelementptr inbounds i8, ptr %.017.i.i699, i64 -240
-  %1445 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %1444, i64 0, i64 %1442
+  %1445 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %1444, i64 %1442
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i694, %1438
@@ -58642,7 +58642,7 @@ _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_str
   %1482 = and i32 %1481, %.sroa.08.0.i707
   %1483 = zext nneg i32 %1480 to i64
   call void @llvm.assume(i1 %1477)
-  %1484 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %1470, i64 0, i64 %1483
+  %1484 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %1470, i64 %1483
   %1485 = load i64, ptr %1484, align 8, !tbaa !36
   %1486 = icmp eq i64 %.sroa.7.01824, %1485
   br i1 %1486, label %_ZNK5folly28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE14value_at_indexEm.exit, label %.critedge.i.i706, !prof !22, !llvm.loop !164
@@ -58716,7 +58716,7 @@ _ZNK5folly28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE14value_at_i
   %1531 = and i32 %1530, %.sroa.07.0.i715
   %1532 = zext nneg i32 %1529 to i64
   call void @llvm.assume(i1 %1525)
-  %1533 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %1526, i64 0, i64 %1532
+  %1533 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %1526, i64 %1532
   %1534 = load i32, ptr %1533, align 4, !tbaa !32
   %1535 = zext i32 %1534 to i64
   %1536 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %1516, i64 %1535
@@ -58980,7 +58980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734: ; preds = %_Z
   %1651 = and i32 %1650, %.sroa.01374.0
   %1652 = zext nneg i32 %1649 to i64
   call void @llvm.assume(i1 %1645)
-  %1653 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %1646, i64 0, i64 %1652
+  %1653 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %1646, i64 %1652
   %1654 = load ptr, ptr %1611, align 8, !tbaa !84
   %1655 = load i32, ptr %1653, align 4, !tbaa !32
   %1656 = zext i32 %1655 to i64
@@ -59395,7 +59395,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset9get_valueEm.exit771: ; preds = %1783, %
   %1820 = and i32 %1819, %.sroa.07.0.i776
   %1821 = zext nneg i32 %1818 to i64
   call void @llvm.assume(i1 %1815)
-  %1822 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %1808, i64 0, i64 %1821
+  %1822 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %1808, i64 %1821
   %1823 = load ptr, ptr %1822, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1493, ptr noundef nonnull align 8 dereferenceable(32) %1823, i64 32)
   %.not9.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
@@ -59467,7 +59467,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset9get_valueEm.exit771: ; preds = %1783, %
   %1870 = and i32 %1869, %.sroa.01370.0
   %1871 = zext nneg i32 %1868 to i64
   call void @llvm.assume(i1 %1864)
-  %1872 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %1865, i64 0, i64 %1871
+  %1872 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %1865, i64 %1871
   %1873 = load ptr, ptr %1830, align 8, !tbaa !84
   %1874 = load i32, ptr %1872, align 4, !tbaa !32
   %1875 = zext i32 %1874 to i64
@@ -59907,7 +59907,7 @@ _ZN5folly28RegexMatchCacheDynamicBitset14index_set_view14const_iteratorppEv.exit
   %2051 = and i32 %2050, %.sroa.08.0.i814
   %2052 = zext nneg i32 %2049 to i64
   call void @llvm.assume(i1 %2046)
-  %2053 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %2039, i64 0, i64 %2052
+  %2053 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %2039, i64 %2052
   %2054 = load ptr, ptr %2053, align 8, !tbaa !166
   %2055 = icmp eq ptr %2013, %2054
   br i1 %2055, label %_ZNK5folly28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE14index_of_valueERKS3_.exit818, label %.critedge.i.i813, !prof !22, !llvm.loop !1101
@@ -59973,7 +59973,7 @@ _ZNK5folly28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE14index_of_v
   %2091 = and i32 %2090, %.sroa.07.0.i823
   %2092 = zext nneg i32 %2089 to i64
   call void @llvm.assume(i1 %2086)
-  %2093 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %2079, i64 0, i64 %2092
+  %2093 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %2079, i64 %2092
   %2094 = load ptr, ptr %2093, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i.i825 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %2013, ptr noundef nonnull align 8 dereferenceable(32) %2094, i64 32)
   %.not9.i.i.i.i.i.i.i.i.i826 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i825, 0
@@ -60074,7 +60074,7 @@ _ZN5folly7get_ptrINS_10F14NodeMapINS_18RegexMatchCacheKeyENS_15RegexMatchCache17
   %2153 = and i32 %2152, %.sroa.09.0.i838
   %2154 = zext nneg i32 %2151 to i64
   call void @llvm.assume(i1 %2148)
-  %2155 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %2141, i64 0, i64 %2154
+  %2155 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %2141, i64 %2154
   %2156 = load ptr, ptr %2155, align 8, !tbaa !146
   %2157 = icmp eq ptr %2115, %2156
   br i1 %2157, label %2226, label %.critedge.i.i837, !prof !22, !llvm.loop !1153
@@ -60662,7 +60662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit895: ; preds = %_Z
   %2372 = and i32 %2371, %.sroa.09.0.i900
   %2373 = zext nneg i32 %2370 to i64
   call void @llvm.assume(i1 %2367)
-  %2374 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %2360, i64 0, i64 %2373
+  %2374 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %2360, i64 %2373
   %2375 = load ptr, ptr %2374, align 8, !tbaa !146
   %2376 = icmp eq ptr %2115, %2375
   br i1 %2376, label %2382, label %.critedge.i.i899, !prof !22, !llvm.loop !1253
@@ -60743,7 +60743,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset9get_valueEm.exit911: ; preds = %2377, %
   %2416 = and i32 %2415, %.sroa.01366.0
   %2417 = zext nneg i32 %2414 to i64
   call void @llvm.assume(i1 %2410)
-  %2418 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %2411, i64 0, i64 %2417
+  %2418 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %2411, i64 %2417
   %2419 = load ptr, ptr %2111, align 8, !tbaa !84
   %2420 = load i32, ptr %2418, align 4, !tbaa !32
   %2421 = zext i32 %2420 to i64
@@ -61137,7 +61137,7 @@ define noundef zeroext i1 @_ZNK5folly15RegexMatchCache8hasRegexERKNS_18RegexMatc
   %30 = and i32 %29, %.sroa.010.0
   %31 = zext nneg i32 %28 to i64
   tail call void @llvm.assume(i1 %26)
-  %32 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %19, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %19, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32)
   %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -61379,7 +61379,7 @@ _ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stri
   %125 = and i32 %124, %.sroa.044.0.i
   %126 = zext nneg i32 %123 to i64
   call void @llvm.assume(i1 %120)
-  %127 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %113, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %113, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !146, !noalias !1418
   %129 = icmp eq ptr %86, %128
   br i1 %129, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE19tryEmplaceValueImplISB_JRKSt21piecewise_construct_tSt5tupleIJRKSB_EESK_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkISP_ISL_SD_EEEEEbESP_ImmERKT_DpOT0_.exit, label %.critedge.i.i109, !prof !22, !llvm.loop !1153
@@ -61471,7 +61471,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_tra
   %.sroa.038.0.in.i = xor i16 %.sroa.038.0.in.in.i, 16383
   %171 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in.i, i1 true)
   %172 = zext nneg i16 %171 to i64
-  %173 = getelementptr inbounds nuw [14 x i8], ptr %.031.i, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i8, ptr %.031.i, i64 %172
   %174 = load i8, ptr %173, align 1, !tbaa !42, !noalias !1418
   %175 = icmp eq i8 %174, 0
   br i1 %175, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE6setTagEmm.exit.i, label %176
@@ -61484,7 +61484,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_tra
   %177 = trunc nuw i64 %97 to i8
   store i8 %177, ptr %173, align 1, !tbaa !42, !noalias !1418
   %178 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
-  %179 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %178, i64 0, i64 %172
+  %179 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %178, i64 %172
   %180 = icmp ne ptr %.031.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %180)
   %181 = load ptr, ptr %.sroa.055.086, align 8, !tbaa !146, !noalias !1418
@@ -61674,7 +61674,7 @@ _ZN5folly10nextPowTwoImEET_S1_.exit.i:            ; preds = %_ZN5folly28RegexMat
   %274 = and i32 %273, %.sroa.042.0.i
   %275 = zext nneg i32 %272 to i64
   call void @llvm.assume(i1 %268)
-  %276 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %269, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %269, i64 %275
   %277 = load i32, ptr %276, align 4, !tbaa !32, !noalias !1438
   %278 = zext i32 %277 to i64
   %279 = getelementptr inbounds nuw ptr, ptr %259, i64 %278
@@ -61772,7 +61772,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %.sroa.036.0.in.i = xor i16 %.sroa.036.0.in.in.i, 4095
   %324 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.036.0.in.i, i1 true)
   %325 = zext nneg i16 %324 to i64
-  %326 = getelementptr inbounds nuw [14 x i8], ptr %.029.i, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw i8, ptr %.029.i, i64 %325
   %327 = load i8, ptr %326, align 1, !tbaa !42, !noalias !1438
   %328 = icmp eq i8 %327, 0
   br i1 %328, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i, label %329
@@ -61785,7 +61785,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i: ; preds = %323
   %330 = trunc nuw i64 %245 to i8
   store i8 %330, ptr %326, align 1, !tbaa !42, !noalias !1438
   %331 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
-  %332 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %331, i64 0, i64 %325
+  %332 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %331, i64 %325
   %333 = icmp ne ptr %.029.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %333)
   %334 = load i64, ptr %83, align 8, !tbaa !56, !noalias !1438
@@ -61823,7 +61823,7 @@ thread-pre-split.i:                               ; preds = %.noexc46, %347
   %349 = phi ptr [ %351, %347 ], [ %.sroa.055.086, %.noexc46 ]
   %350 = add nsw i64 %348, -1
   %351 = getelementptr inbounds i8, ptr %349, i64 -16
-  %352 = getelementptr inbounds nuw [14 x i8], ptr %346, i64 0, i64 %350
+  %352 = getelementptr inbounds nuw i8, ptr %346, i64 %350
   %353 = load i8, ptr %352, align 1, !tbaa !42
   %.not.i = icmp eq i8 %353, 0
   br i1 %.not.i, label %347, label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !44
@@ -61855,7 +61855,7 @@ thread-pre-split.i:                               ; preds = %.noexc46, %347
   %369 = icmp ne ptr %358, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %369)
   %370 = getelementptr inbounds i8, ptr %.017.i.i, i64 -240
-  %371 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %370, i64 0, i64 %368
+  %371 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %370, i64 %368
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %364
@@ -62164,7 +62164,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   %36 = and i32 %35, %.sroa.044.0
   %37 = zext nneg i32 %34 to i64
   tail call void @llvm.assume(i1 %31)
-  %38 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %24, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %24, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32)
   %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -62181,7 +62181,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   br i1 %.not.i, label %.thread67, label %21, !llvm.loop !1298
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %24, i64 0, i64 %37
+  %46 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %24, i64 %37
   br label %93
 
 .thread67:                                        ; preds = %42, %40, %8
@@ -62258,7 +62258,7 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchC
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 16383
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.031, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !42
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEE6setTagEmm.exit, label %88
@@ -62271,7 +62271,7 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchC
   %89 = trunc i64 %3 to i8
   store i8 %89, ptr %85, align 1, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %91 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %90, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %90, i64 %84
   %92 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %92)
   tail call void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE13insertAtBlankIJRKSt21piecewise_construct_tSt5tupleIJRKS4_EESD_IJEEEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairISE_S6_EEEEESK_ImmEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull %91, i64 %84, i64 %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -62550,13 +62550,13 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyE
 50:                                               ; preds = %46, %63
   %.0151 = phi i64 [ 0, %46 ], [ %64, %63 ]
   %.043150 = phi i64 [ 0, %46 ], [ %.1, %63 ]
-  %51 = getelementptr inbounds nuw [14 x i8], ptr %19, i64 0, i64 %.0151
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 %.0151
   %52 = load i8, ptr %51, align 1, !tbaa !42
   %.not132 = icmp eq i8 %52, 0
   br i1 %.not132, label %63, label %53, !prof !43
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw [14 x i8], ptr %30, i64 0, i64 %.043150
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 %.043150
   %55 = load i8, ptr %54, align 1, !tbaa !42
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %58, label %57
@@ -62567,9 +62567,9 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyE
 
 58:                                               ; preds = %53
   store i8 %52, ptr %54, align 1, !tbaa !42
-  %59 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %47, i64 0, i64 %.043150
+  %59 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %.043150
   call void @llvm.assume(i1 %48)
-  %60 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %49, i64 0, i64 %.0151
+  %60 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %49, i64 %.0151
   %61 = load ptr, ptr %60, align 8, !tbaa !105
   store ptr %61, ptr %59, align 8, !tbaa !105
   store ptr null, ptr %60, align 8, !tbaa !105
@@ -62584,7 +62584,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyE
 
 66:                                               ; preds = %63
   %67 = add i64 %.1, -1
-  %68 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %47, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %67
   %69 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %69)
   %70 = and i64 %67, 255
@@ -62681,7 +62681,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.088.1 = lshr i32 %.sroa.088.0139, %.pn131
   %98 = zext i32 %.sroa.8.1.in to i64
-  %99 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %90, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %90, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !105
   call void @llvm.prefetch.p0(ptr %100, i32 0, i32 3, i32 1)
   %.not129 = icmp eq i32 %.sroa.088.1, 0
@@ -62708,12 +62708,12 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %.sroa.893.1 = add i32 %.sroa.893.1.in, 1
   %.sroa.091.1 = lshr i32 %.sroa.091.0142, %.pn
   %108 = zext i32 %.sroa.893.1.in to i64
-  %109 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %90, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %90, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !105
   %111 = load i64, ptr %110, align 8, !tbaa !36
   %112 = lshr i64 %111, 56
   %113 = or i64 %112, 128
-  %114 = getelementptr inbounds nuw [14 x i8], ptr %.056149, i64 0, i64 %108
+  %114 = getelementptr inbounds nuw i8, ptr %.056149, i64 %108
   %115 = load i8, ptr %114, align 1, !tbaa !42
   %116 = zext i8 %115 to i64
   %117 = icmp eq i64 %113, %116
@@ -62766,7 +62766,7 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchC
   %141 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %141, ptr %140, align 1, !tbaa !42
   %142 = zext nneg i8 %.lcssa.i to i64
-  %143 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !42
   %145 = icmp eq i8 %144, 0
   br i1 %145, label %147, label %146
@@ -62783,7 +62783,7 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchC
   %151 = add i8 %150, %.018.lcssa.i
   store i8 %151, ptr %149, align 2, !tbaa !109
   %152 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %153 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %152, i64 0, i64 %142
+  %153 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %152, i64 %142
   %154 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %154)
   %155 = load ptr, ptr %109, align 8, !tbaa !105
@@ -62812,7 +62812,7 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchC
   %167 = zext nneg i8 %162 to i64
   %168 = add nsw i64 %167, -1
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %170 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %169, i64 0, i64 %168
+  %170 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %169, i64 %168
   %171 = icmp ne ptr %166, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %171)
   %172 = icmp ult i8 %162, 17
@@ -62978,7 +62978,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   %6 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i = mul i64 %2, -8
   %7 = getelementptr inbounds i8, ptr %6, i64 %.neg.i.i
-  %8 = getelementptr inbounds nuw [14 x i8], ptr %7, i64 0, i64 %2
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %2
   %9 = load i8, ptr %8, align 1, !tbaa !42
   %.not.i = icmp sgt i8 %9, -1
   br i1 %.not.i, label %10, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEE8clearTagEm.exit
@@ -63091,7 +63091,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %37 = and i32 %36, %.sroa.044.0
   %38 = zext nneg i32 %35 to i64
   tail call void @llvm.assume(i1 %32)
-  %39 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %25, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %25, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !166
   %41 = icmp eq ptr %21, %40
   br i1 %41, label %.loopexit, label %.critedge.i, !prof !22, !llvm.loop !1101
@@ -63180,7 +63180,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEE25incrOutbou
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 16383
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.031, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !42
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEE6setTagEmm.exit, label %88
@@ -63193,7 +63193,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEE6setTagEmm.e
   %89 = trunc i64 %3 to i8
   store i8 %89, ptr %85, align 1, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %91 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %90, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %90, i64 %84
   %92 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %92)
   %93 = load i64, ptr %6, align 8, !tbaa !1400
@@ -63405,7 +63405,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheK
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 88
   store ptr %12, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !159
   %44 = icmp eq i64 %1, 0
-  br i1 %44, label %182, label %45
+  br i1 %44, label %181, label %45
 
 45:                                               ; preds = %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE16initializeChunksEPhmm.exit
   %or.cond = and i1 %26, %21
@@ -63420,13 +63420,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheK
 50:                                               ; preds = %46, %66
   %.0134 = phi i64 [ 0, %46 ], [ %67, %66 ]
   %.042133 = phi i64 [ 0, %46 ], [ %.1, %66 ]
-  %51 = getelementptr inbounds nuw [14 x i8], ptr %19, i64 0, i64 %.0134
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 %.0134
   %52 = load i8, ptr %51, align 1, !tbaa !42
   %.not119 = icmp eq i8 %52, 0
   br i1 %.not119, label %66, label %53, !prof !43
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw [14 x i8], ptr %30, i64 0, i64 %.042133
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 %.042133
   %55 = load i8, ptr %54, align 1, !tbaa !42
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %58, label %57
@@ -63437,9 +63437,9 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheK
 
 58:                                               ; preds = %53
   store i8 %52, ptr %54, align 1, !tbaa !42
-  %59 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %47, i64 0, i64 %.042133
+  %59 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %47, i64 %.042133
   call void @llvm.assume(i1 %48)
-  %60 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %49, i64 0, i64 %.0134
+  %60 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %49, i64 %.0134
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %60, align 8, !tbaa !166
   store ptr %62, ptr %59, align 8, !tbaa !1514
@@ -63456,8 +63456,8 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheK
   br i1 %68, label %50, label %69, !llvm.loop !1528
 
 69:                                               ; preds = %66
-  %70 = add i64 %.1, -1
-  %71 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %47, i64 0, i64 %70
+  %70 = add i64 %.1, 255
+  %71 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %30, i64 %.1
   %72 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %72)
   %73 = and i64 %70, 255
@@ -63467,7 +63467,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheK
   %76 = or i64 %73, %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %76, ptr %77, align 8, !tbaa !36
-  br label %182
+  br label %181
 
 78:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -63555,7 +63555,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.081.1 = lshr i32 %.sroa.081.0126, %.pn
   %101 = zext i32 %.sroa.8.1.in to i64
-  %102 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %92, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %92, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !166
   %104 = ptrtoint ptr %103 to i64
   %105 = zext i64 %104 to i128
@@ -63568,7 +63568,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %112 = lshr i64 %111, 15
   %113 = and i64 %112, 127
   %114 = or disjoint i64 %113, 128
-  %115 = getelementptr inbounds nuw [14 x i8], ptr %.054132, i64 0, i64 %101
+  %115 = getelementptr inbounds nuw i8, ptr %.054132, i64 %101
   %116 = load i8, ptr %115, align 1, !tbaa !42
   %117 = zext i8 %116 to i64
   %118 = icmp eq i64 %114, %117
@@ -63622,7 +63622,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEE25incrOutbou
   %143 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %143, ptr %142, align 1, !tbaa !42
   %144 = zext nneg i8 %.lcssa.i to i64
-  %145 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !42
   %147 = icmp eq i8 %146, 0
   br i1 %147, label %149, label %148
@@ -63639,7 +63639,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEE25incrOutbou
   %153 = add i8 %152, %.018.lcssa.i
   store i8 %153, ptr %151, align 2, !tbaa !67
   %154 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %155 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %154, i64 0, i64 %144
+  %155 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %154, i64 %144
   %156 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %156)
   %157 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -63670,43 +63670,42 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEE25incrOutbou
   %171 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.119", ptr %170, i64 %.041
   %172 = zext nneg i8 %167 to i64
   %173 = add nsw i64 %172, -1
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  %175 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %174, i64 0, i64 %173
-  %176 = icmp ne ptr %171, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  %174 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %171, i64 %172
+  %175 = icmp ne ptr %171, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %175)
+  %176 = icmp ult i8 %167, 17
   call void @llvm.assume(i1 %176)
-  %177 = icmp ult i8 %167, 17
-  call void @llvm.assume(i1 %177)
-  %178 = ptrtoint ptr %175 to i64
-  %179 = or i64 %173, %178
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %179, ptr %180, align 8, !tbaa !36
-  br i1 %.not, label %181, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
+  %177 = ptrtoint ptr %174 to i64
+  %178 = or i64 %173, %177
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %178, ptr %179, align 8, !tbaa !36
+  br i1 %.not, label %180, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-181:                                              ; preds = %169
+180:                                              ; preds = %169
   call void @_ZdlPvm(ptr noundef nonnull %.0117, i64 noundef %4) #39
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %169, %181
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %169, %180
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %182
+  br label %181
 
-182:                                              ; preds = %69, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE16initializeChunksEPhmm.exit
+181:                                              ; preds = %69, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE16initializeChunksEPhmm.exit
   store i8 1, ptr %16, align 1, !tbaa !883
-  %183 = load i64, ptr %10, align 8, !tbaa !36
-  %.not.i.i.i = icmp eq i64 %183, 0
-  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %184
+  %182 = load i64, ptr %10, align 8, !tbaa !36
+  %.not.i.i.i = icmp eq i64 %182, 0
+  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %183
 
-184:                                              ; preds = %182
-  %185 = load ptr, ptr %9, align 8, !tbaa !1519
-  %.not.i.i.i.i = icmp eq ptr %185, null
-  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %186
+183:                                              ; preds = %181
+  %184 = load ptr, ptr %9, align 8, !tbaa !1519
+  %.not.i.i.i.i = icmp eq ptr %184, null
+  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %185
 
-186:                                              ; preds = %184
-  %187 = load i64, ptr %11, align 8, !tbaa !36
-  call void @_ZdlPvm(ptr noundef nonnull %185, i64 noundef %187) #38
+185:                                              ; preds = %183
+  %186 = load i64, ptr %11, align 8, !tbaa !36
+  call void @_ZdlPvm(ptr noundef nonnull %184, i64 noundef %186) #38
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %182, %184, %186
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNS_18RegexMatchCacheKeyEmvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %181, %183, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -63839,7 +63838,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %37 = and i32 %36, %.sroa.044.0
   %38 = zext nneg i32 %35 to i64
   tail call void @llvm.assume(i1 %32)
-  %39 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %25, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %25, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !36
   %41 = icmp eq i64 %21, %40
   br i1 %41, label %.loopexit, label %.critedge.i, !prof !22, !llvm.loop !164
@@ -63928,7 +63927,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEE25incrOutbou
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 16383
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.031, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !42
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %_ZN5folly3f146detail8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEE6setTagEmm.exit, label %88
@@ -63941,7 +63940,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEE6setTagEmm.e
   %89 = trunc i64 %3 to i8
   store i8 %89, ptr %85, align 1, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %91 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %90, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %90, i64 %84
   %92 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %92)
   %93 = load i64, ptr %6, align 8, !tbaa !159
@@ -64153,7 +64152,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCache
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 88
   store ptr %12, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !159
   %44 = icmp eq i64 %1, 0
-  br i1 %44, label %181, label %45
+  br i1 %44, label %180, label %45
 
 45:                                               ; preds = %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE16initializeChunksEPhmm.exit
   %or.cond = and i1 %26, %21
@@ -64168,13 +64167,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCache
 50:                                               ; preds = %46, %66
   %.0134 = phi i64 [ 0, %46 ], [ %67, %66 ]
   %.042133 = phi i64 [ 0, %46 ], [ %.1, %66 ]
-  %51 = getelementptr inbounds nuw [14 x i8], ptr %19, i64 0, i64 %.0134
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 %.0134
   %52 = load i8, ptr %51, align 1, !tbaa !42
   %.not119 = icmp eq i8 %52, 0
   br i1 %.not119, label %66, label %53, !prof !43
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw [14 x i8], ptr %30, i64 0, i64 %.042133
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 %.042133
   %55 = load i8, ptr %54, align 1, !tbaa !42
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %58, label %57
@@ -64185,9 +64184,9 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCache
 
 58:                                               ; preds = %53
   store i8 %52, ptr %54, align 1, !tbaa !42
-  %59 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %47, i64 0, i64 %.042133
+  %59 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %47, i64 %.042133
   call void @llvm.assume(i1 %48)
-  %60 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %49, i64 0, i64 %.0134
+  %60 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %49, i64 %.0134
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %60, align 8, !tbaa !36
   store i64 %62, ptr %59, align 8, !tbaa !1544
@@ -64204,8 +64203,8 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCache
   br i1 %68, label %50, label %69, !llvm.loop !1560
 
 69:                                               ; preds = %66
-  %70 = add i64 %.1, -1
-  %71 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %47, i64 0, i64 %70
+  %70 = add i64 %.1, 255
+  %71 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %30, i64 %.1
   %72 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %72)
   %73 = and i64 %70, 255
@@ -64215,7 +64214,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCache
   %76 = or i64 %73, %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %76, ptr %77, align 8, !tbaa !36
-  br label %181
+  br label %180
 
 78:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -64303,7 +64302,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.081.1 = lshr i32 %.sroa.081.0126, %.pn
   %101 = zext i32 %.sroa.8.1.in to i64
-  %102 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %92, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %92, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !36
   %104 = zext i64 %103 to i128
   %105 = mul nuw i128 %104, 14181476777654086739
@@ -64315,7 +64314,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %111 = lshr i64 %110, 15
   %112 = and i64 %111, 127
   %113 = or disjoint i64 %112, 128
-  %114 = getelementptr inbounds nuw [14 x i8], ptr %.054132, i64 0, i64 %101
+  %114 = getelementptr inbounds nuw i8, ptr %.054132, i64 %101
   %115 = load i8, ptr %114, align 1, !tbaa !42
   %116 = zext i8 %115 to i64
   %117 = icmp eq i64 %113, %116
@@ -64369,7 +64368,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEE25incrOutbou
   %142 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %142, ptr %141, align 1, !tbaa !42
   %143 = zext nneg i8 %.lcssa.i to i64
-  %144 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !42
   %146 = icmp eq i8 %145, 0
   br i1 %146, label %148, label %147
@@ -64386,7 +64385,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEE25incrOutbou
   %152 = add i8 %151, %.018.lcssa.i
   store i8 %152, ptr %150, align 2, !tbaa !57
   %153 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %154 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %153, i64 0, i64 %143
+  %154 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %153, i64 %143
   %155 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %155)
   %156 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -64417,43 +64416,42 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEE25incrOutbou
   %170 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.117", ptr %169, i64 %.041
   %171 = zext nneg i8 %166 to i64
   %172 = add nsw i64 %171, -1
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %174 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %173, i64 0, i64 %172
-  %175 = icmp ne ptr %170, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  %173 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %170, i64 %171
+  %174 = icmp ne ptr %170, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %174)
+  %175 = icmp ult i8 %166, 17
   call void @llvm.assume(i1 %175)
-  %176 = icmp ult i8 %166, 17
-  call void @llvm.assume(i1 %176)
-  %177 = ptrtoint ptr %174 to i64
-  %178 = or i64 %172, %177
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %178, ptr %179, align 8, !tbaa !36
-  br i1 %.not, label %180, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
+  %176 = ptrtoint ptr %173 to i64
+  %177 = or i64 %172, %176
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %177, ptr %178, align 8, !tbaa !36
+  br i1 %.not, label %179, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-180:                                              ; preds = %168
+179:                                              ; preds = %168
   call void @_ZdlPvm(ptr noundef nonnull %.0117, i64 noundef %4) #39
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %168, %180
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %168, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %181
+  br label %180
 
-181:                                              ; preds = %69, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE16initializeChunksEPhmm.exit
+180:                                              ; preds = %69, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE16initializeChunksEPhmm.exit
   store i8 1, ptr %16, align 1, !tbaa !883
-  %182 = load i64, ptr %10, align 8, !tbaa !36
-  %.not.i.i.i = icmp eq i64 %182, 0
-  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %183
+  %181 = load i64, ptr %10, align 8, !tbaa !36
+  %.not.i.i.i = icmp eq i64 %181, 0
+  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %182
 
-183:                                              ; preds = %181
-  %184 = load ptr, ptr %9, align 8, !tbaa !1551
-  %.not.i.i.i.i = icmp eq ptr %184, null
-  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %185
+182:                                              ; preds = %180
+  %183 = load ptr, ptr %9, align 8, !tbaa !1551
+  %.not.i.i.i.i = icmp eq ptr %183, null
+  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %184
 
-185:                                              ; preds = %183
-  %186 = load i64, ptr %11, align 8, !tbaa !36
-  call void @_ZdlPvm(ptr noundef nonnull %184, i64 noundef %186) #38
+184:                                              ; preds = %182
+  %185 = load i64, ptr %11, align 8, !tbaa !36
+  call void @_ZdlPvm(ptr noundef nonnull %183, i64 noundef %185) #38
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %181, %183, %185
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPKNS_18RegexMatchCacheKeyEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %180, %182, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -64676,7 +64674,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheK
 
 24:                                               ; preds = %.noexc
   %25 = add i64 %.sroa.10.0.i, -1
-  %26 = getelementptr inbounds nuw [14 x i8], ptr %7, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !42
   %.not.i = icmp eq i8 %27, 0
   br i1 %.not.i, label %.noexc, label %_ZN5folly15catch_exceptionIRZNS_28RegexMatchCacheIndexedVectorIPKNS_18RegexMatchCacheKeyEE12insert_valueERKS4_EUlvE_PDoFvvEJEvEET2_OT_OT0_DpOT1_.exit, !prof !43, !llvm.loop !1581
@@ -64763,7 +64761,7 @@ thread-pre-split.i.i:                             ; preds = %21, %24
   %26 = phi ptr [ %28, %24 ], [ %1, %21 ]
   %27 = add i64 %25, -1
   %28 = getelementptr inbounds i8, ptr %26, i64 -16
-  %29 = getelementptr inbounds nuw [14 x i8], ptr %23, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %27
   %30 = load i8, ptr %29, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i, label %24, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEEEE17precheckedAdvanceEv.exit.i, !prof !43, !llvm.loop !1581
@@ -64786,7 +64784,7 @@ thread-pre-split.i.i:                             ; preds = %21, %24
   %41 = icmp ne ptr %31, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -240
-  %43 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %42, i64 0, i64 %40
+  %43 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %42, i64 %40
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEEEE17precheckedAdvanceEv.exit.i
 
 _ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEEEE17precheckedAdvanceEv.exit.i: ; preds = %thread-pre-split.i.i, %36, %19
@@ -64804,7 +64802,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNS_18RegexMatchCacheK
   %48 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i = mul i64 %2, -16
   %49 = getelementptr inbounds i8, ptr %48, i64 %.neg.i.i.i
-  %50 = getelementptr inbounds nuw [14 x i8], ptr %49, i64 0, i64 %2
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %2
   %51 = load i8, ptr %50, align 1, !tbaa !42
   %.not.i.i7 = icmp sgt i8 %51, -1
   br i1 %.not.i.i7, label %52, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNS_18RegexMatchCacheKeyEmEE8clearTagEm.exit.i
@@ -64922,7 +64920,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %39 = and i32 %38, %.sroa.044.0
   %40 = zext nneg i32 %37 to i64
   tail call void @llvm.assume(i1 %33)
-  %41 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %34, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %34, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !32
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %23, i64 %43
@@ -64941,7 +64939,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   br i1 %.not.i, label %.thread67, label %25, !llvm.loop !1156
 
 52:                                               ; preds = %36
-  %53 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %34, i64 0, i64 %40
+  %53 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %34, i64 %40
   br label %119
 
 .thread67:                                        ; preds = %49, %47, %..thread67_crit_edge
@@ -65022,7 +65020,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %7
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 4095
   %92 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %93 = zext nneg i16 %92 to i64
-  %94 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %.031, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !42
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %97
@@ -65035,7 +65033,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %91
   %98 = trunc i64 %3 to i8
   store i8 %98, ptr %94, align 1, !tbaa !42
   %99 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %100 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %99, i64 0, i64 %93
+  %100 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %99, i64 %93
   %101 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %101)
   %102 = load i64, ptr %9, align 8, !tbaa !56
@@ -65315,13 +65313,13 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNS_18RegexMatchCache
 77:                                               ; preds = %73, %89
   %.0130 = phi i64 [ 0, %73 ], [ %90, %89 ]
   %.034129 = phi i64 [ 0, %73 ], [ %.1, %89 ]
-  %78 = getelementptr inbounds nuw [14 x i8], ptr %20, i64 0, i64 %.0130
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 %.0130
   %79 = load i8, ptr %78, align 1, !tbaa !42
   %.not112 = icmp eq i8 %79, 0
   br i1 %.not112, label %89, label %80, !prof !43
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw [14 x i8], ptr %41, i64 0, i64 %.034129
+  %81 = getelementptr inbounds nuw i8, ptr %41, i64 %.034129
   %82 = load i8, ptr %81, align 1, !tbaa !42
   %83 = icmp eq i8 %82, 0
   br i1 %83, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %84
@@ -65332,9 +65330,9 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNS_18RegexMatchCache
 
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %80
   store i8 %79, ptr %81, align 1, !tbaa !42
-  %85 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %74, i64 0, i64 %.034129
+  %85 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %74, i64 %.034129
   call void @llvm.assume(i1 %75)
-  %86 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %76, i64 0, i64 %.0130
+  %86 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %76, i64 %.0130
   %87 = load i32, ptr %86, align 4, !tbaa !32
   store i32 %87, ptr %85, align 4, !tbaa !32
   %88 = add nuw i64 %.034129, 1
@@ -65415,7 +65413,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %106, %108
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.069.1 = lshr i32 %.sroa.069.0118, %.pn111
   %112 = zext i32 %.sroa.8.1.in to i64
-  %113 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %104, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %104, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !32
   %115 = zext i32 %114 to i64
   %116 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %105, i64 %115
@@ -65444,7 +65442,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %106, %108
   %.sroa.874.1 = add i32 %.sroa.874.1.in, 1
   %.sroa.072.1 = lshr i32 %.sroa.072.0121, %.pn
   %124 = zext i32 %.sroa.874.1.in to i64
-  %125 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %104, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %104, i64 %124
   %126 = load ptr, ptr %0, align 8, !tbaa !79
   %127 = load i32, ptr %125, align 4, !tbaa !32
   %128 = zext i32 %127 to i64
@@ -65461,7 +65459,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %106, %108
   %139 = lshr i64 %138, 15
   %140 = and i64 %139, 127
   %141 = or disjoint i64 %140, 128
-  %142 = getelementptr inbounds nuw [14 x i8], ptr %.042128, i64 0, i64 %124
+  %142 = getelementptr inbounds nuw i8, ptr %.042128, i64 %124
   %143 = load i8, ptr %142, align 1, !tbaa !42
   %144 = zext i8 %143 to i64
   %145 = icmp eq i64 %141, %144
@@ -65515,7 +65513,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %170 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %170, ptr %169, align 1, !tbaa !42
   %171 = zext nneg i8 %.lcssa.i to i64
-  %172 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !42
   %174 = icmp eq i8 %173, 0
   br i1 %174, label %176, label %175
@@ -65532,7 +65530,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %180 = add i8 %179, %.018.lcssa.i
   store i8 %180, ptr %178, align 2, !tbaa !86
   %181 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %182 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %181, i64 0, i64 %171
+  %182 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %181, i64 %171
   %183 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %183)
   %184 = load i32, ptr %125, align 4, !tbaa !32
@@ -65791,7 +65789,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %37 = and i32 %36, %.sroa.044.0
   %38 = zext nneg i32 %35 to i64
   tail call void @llvm.assume(i1 %32)
-  %39 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %25, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %25, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !146
   %41 = icmp eq ptr %21, %40
   br i1 %41, label %.loopexit, label %.critedge.i, !prof !22, !llvm.loop !1153
@@ -65880,7 +65878,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_tra
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 16383
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.031, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !42
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE6setTagEmm.exit, label %88
@@ -65893,7 +65891,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_tra
   %89 = trunc i64 %3 to i8
   store i8 %89, ptr %85, align 1, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %91 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %90, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %90, i64 %84
   %92 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %92)
   %93 = load i64, ptr %6, align 8, !tbaa !1621
@@ -66105,11 +66103,11 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 88
   store ptr %12, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !159
   %44 = icmp eq i64 %1, 0
-  br i1 %44, label %191, label %45
+  br i1 %44, label %189, label %45
 
 45:                                               ; preds = %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE16initializeChunksEPhmm.exit
   %or.cond = and i1 %26, %21
-  br i1 %or.cond, label %.lr.ph138, label %77
+  br i1 %or.cond, label %.lr.ph138, label %76
 
 .lr.ph138:                                        ; preds = %45
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -66120,13 +66118,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
 49:                                               ; preds = %.lr.ph138, %65
   %.0137 = phi i64 [ 0, %.lr.ph138 ], [ %66, %65 ]
   %.042136 = phi i64 [ 0, %.lr.ph138 ], [ %.1, %65 ]
-  %50 = getelementptr inbounds nuw [14 x i8], ptr %19, i64 0, i64 %.0137
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 %.0137
   %51 = load i8, ptr %50, align 1, !tbaa !42
   %.not122 = icmp eq i8 %51, 0
   br i1 %.not122, label %65, label %52, !prof !43
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw [14 x i8], ptr %30, i64 0, i64 %.042136
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 %.042136
   %54 = load i8, ptr %53, align 1, !tbaa !42
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %57, label %56
@@ -66137,9 +66135,9 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
 
 57:                                               ; preds = %52
   store i8 %51, ptr %53, align 1, !tbaa !42
-  %58 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %46, i64 0, i64 %.042136
+  %58 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %46, i64 %.042136
   call void @llvm.assume(i1 %47)
-  %59 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %48, i64 0, i64 %.0137
+  %59 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %48, i64 %.0137
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %59, align 8, !tbaa !146
   store ptr %61, ptr %58, align 8, !tbaa !1423
@@ -66157,42 +66155,41 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
   br i1 %67, label %49, label %._crit_edge, !llvm.loop !1636
 
 ._crit_edge:                                      ; preds = %65
-  %68 = add i64 %.1, -1
-  %69 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %70 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %69, i64 0, i64 %68
-  %71 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %71)
-  %72 = and i64 %68, 255
-  %73 = icmp samesign ult i64 %72, 16
-  call void @llvm.assume(i1 %73)
-  %74 = ptrtoint ptr %70 to i64
-  %75 = or i64 %72, %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %75, ptr %76, align 8, !tbaa !36
-  br label %191
+  %68 = add i64 %.1, 255
+  %69 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %30, i64 %.1
+  %70 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %70)
+  %71 = and i64 %68, 255
+  %72 = icmp samesign ult i64 %71, 16
+  call void @llvm.assume(i1 %72)
+  %73 = ptrtoint ptr %69 to i64
+  %74 = or i64 %71, %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %74, ptr %75, align 8, !tbaa !36
+  br label %189
 
-77:                                               ; preds = %45
+76:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.not = icmp ugt i64 %4, 256
-  br i1 %.not, label %78, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit
+  br i1 %.not, label %77, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit
 
-78:                                               ; preds = %77
-  %79 = icmp slt i64 %4, 0
-  br i1 %79, label %80, label %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, !prof !43
+77:                                               ; preds = %76
+  %78 = icmp slt i64 %4, 0
+  br i1 %78, label %79, label %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, !prof !43
 
-80:                                               ; preds = %78
+79:                                               ; preds = %77
   invoke void @_ZSt17__throw_bad_allocv() #41
-          to label %.noexc unwind label %82
+          to label %.noexc unwind label %81
 
-.noexc:                                           ; preds = %80
+.noexc:                                           ; preds = %79
   unreachable
 
-_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %78
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #42
-          to label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit unwind label %82
+_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %77
+  %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #42
+          to label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit unwind label %81
 
-82:                                               ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %80
-  %83 = landingpad { ptr, i32 }
+81:                                               ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %79
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #38
@@ -66205,232 +66202,231 @@ _ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  resume { ptr, i32 } %83
+  resume { ptr, i32 } %82
 
-_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %77
-  %.0120 = phi ptr [ %18, %77 ], [ %81, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i ]
+_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %76
+  %.0120 = phi ptr [ %18, %76 ], [ %80, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0120, i8 0, i64 %4, i1 false)
-  %84 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %19, i64 %2
-  br label %85
+  %83 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %19, i64 %2
+  br label %84
 
-.loopexit:                                        ; preds = %169, %85
-  %.157.lcssa = phi i64 [ %.056133, %85 ], [ %93, %169 ]
+.loopexit:                                        ; preds = %168, %84
+  %.157.lcssa = phi i64 [ %.056133, %84 ], [ %92, %168 ]
   %.not60 = icmp eq i64 %.157.lcssa, 0
-  br i1 %.not60, label %170, label %85, !llvm.loop !1637
+  br i1 %.not60, label %169, label %84, !llvm.loop !1637
 
-85:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit, %.loopexit
-  %.pn63134 = phi ptr [ %84, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit ], [ %.055135, %.loopexit ]
+84:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit, %.loopexit
+  %.pn63134 = phi ptr [ %83, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit ], [ %.055135, %.loopexit ]
   %.056133 = phi i64 [ %1, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit ], [ %.157.lcssa, %.loopexit ]
   %.055135 = getelementptr inbounds i8, ptr %.pn63134, i64 -256
-  %86 = load <16 x i8>, ptr %.055135, align 16, !tbaa !42
-  %87 = icmp slt <16 x i8> %86, zeroinitializer
-  %88 = bitcast <16 x i1> %87 to i16
-  %89 = and i16 %88, 16383
-  %.not121128 = icmp eq i16 %89, 0
+  %85 = load <16 x i8>, ptr %.055135, align 16, !tbaa !42
+  %86 = icmp slt <16 x i8> %85, zeroinitializer
+  %87 = bitcast <16 x i1> %86 to i16
+  %88 = and i16 %87, 16383
+  %.not121128 = icmp eq i16 %88, 0
   br i1 %.not121128, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %85
-  %.sroa.084.0.extract.trunc = zext nneg i16 %89 to i32
-  %90 = icmp ne ptr %.055135, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %90)
-  %91 = getelementptr inbounds i8, ptr %.pn63134, i64 -240
-  br label %92
+.lr.ph:                                           ; preds = %84
+  %.sroa.084.0.extract.trunc = zext nneg i16 %88 to i32
+  %89 = icmp ne ptr %.055135, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %89)
+  %90 = getelementptr inbounds i8, ptr %.pn63134, i64 -240
+  br label %91
 
-92:                                               ; preds = %.lr.ph, %169
-  %.157131 = phi i64 [ %.056133, %.lr.ph ], [ %93, %169 ]
-  %.sroa.8.0130 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %169 ]
-  %.sroa.084.0129 = phi i32 [ %.sroa.084.0.extract.trunc, %.lr.ph ], [ %.sroa.084.1, %169 ]
-  %93 = add i64 %.157131, -1
-  %94 = and i32 %.sroa.084.0129, 1
-  %.not.i76 = icmp eq i32 %94, 0
-  br i1 %.not.i76, label %95, label %99, !prof !43
+91:                                               ; preds = %.lr.ph, %168
+  %.157131 = phi i64 [ %.056133, %.lr.ph ], [ %92, %168 ]
+  %.sroa.8.0130 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %168 ]
+  %.sroa.084.0129 = phi i32 [ %.sroa.084.0.extract.trunc, %.lr.ph ], [ %.sroa.084.1, %168 ]
+  %92 = add i64 %.157131, -1
+  %93 = and i32 %.sroa.084.0129, 1
+  %.not.i76 = icmp eq i32 %93, 0
+  br i1 %.not.i76, label %94, label %98, !prof !43
 
-95:                                               ; preds = %92
-  %96 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.084.0129, i1 true)
-  %97 = add i32 %.sroa.8.0130, %96
-  %98 = add nuw nsw i32 %96, 1
-  br label %99
+94:                                               ; preds = %91
+  %95 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.084.0129, i1 true)
+  %96 = add i32 %.sroa.8.0130, %95
+  %97 = add nuw nsw i32 %95, 1
+  br label %98
 
-99:                                               ; preds = %92, %95
-  %.pn = phi i32 [ %98, %95 ], [ 1, %92 ]
-  %.sroa.8.1.in = phi i32 [ %97, %95 ], [ %.sroa.8.0130, %92 ]
+98:                                               ; preds = %91, %94
+  %.pn = phi i32 [ %97, %94 ], [ 1, %91 ]
+  %.sroa.8.1.in = phi i32 [ %96, %94 ], [ %.sroa.8.0130, %91 ]
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.084.1 = lshr i32 %.sroa.084.0129, %.pn
-  %100 = zext i32 %.sroa.8.1.in to i64
-  %101 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %91, i64 0, i64 %100
-  %102 = load ptr, ptr %101, align 8, !tbaa !146
-  %103 = ptrtoint ptr %102 to i64
-  %104 = zext i64 %103 to i128
-  %105 = mul nuw i128 %104, 14181476777654086739
-  %106 = lshr i128 %105, 64
-  %107 = trunc nuw i128 %106 to i64
-  %108 = mul i64 %103, -4265267296055464877
-  %109 = xor i64 %108, %107
-  %110 = mul i64 %109, -4265267296055464877
-  %111 = lshr i64 %110, 15
-  %112 = and i64 %111, 127
-  %113 = or disjoint i64 %112, 128
-  %114 = getelementptr inbounds nuw [14 x i8], ptr %.055135, i64 0, i64 %100
-  %115 = load i8, ptr %114, align 1, !tbaa !42
-  %116 = zext i8 %115 to i64
-  %117 = icmp eq i64 %113, %116
-  br i1 %117, label %119, label %118
+  %99 = zext i32 %.sroa.8.1.in to i64
+  %100 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %90, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !146
+  %102 = ptrtoint ptr %101 to i64
+  %103 = zext i64 %102 to i128
+  %104 = mul nuw i128 %103, 14181476777654086739
+  %105 = lshr i128 %104, 64
+  %106 = trunc nuw i128 %105 to i64
+  %107 = mul i64 %102, -4265267296055464877
+  %108 = xor i64 %107, %106
+  %109 = mul i64 %108, -4265267296055464877
+  %110 = lshr i64 %109, 15
+  %111 = and i64 %110, 127
+  %112 = or disjoint i64 %111, 128
+  %113 = getelementptr inbounds nuw i8, ptr %.055135, i64 %99
+  %114 = load i8, ptr %113, align 1, !tbaa !42
+  %115 = zext i8 %114 to i64
+  %116 = icmp eq i64 %112, %115
+  br i1 %116, label %118, label %117
 
-118:                                              ; preds = %99
+117:                                              ; preds = %98
   call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.96) #44
   unreachable
 
-119:                                              ; preds = %99
-  %120 = lshr i64 %110, 22
-  %121 = shl nuw nsw i64 %113, 1
-  %122 = or disjoint i64 %121, 1
-  %123 = load i64, ptr %37, align 8, !tbaa !56
-  %124 = and i64 %123, 255
-  %notmask.i.i = shl nsw i64 -1, %124
-  %125 = xor i64 %notmask.i.i, -1
-  %126 = load ptr, ptr %0, align 8, !tbaa !90
-  %127 = and i64 %120, %125
-  %128 = getelementptr inbounds nuw i8, ptr %.0120, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !42
-  %130 = icmp ult i8 %129, 14
-  br i1 %130, label %._crit_edge.i, label %.lr.ph.i78, !prof !1498
+118:                                              ; preds = %98
+  %119 = lshr i64 %109, 22
+  %120 = shl nuw nsw i64 %112, 1
+  %121 = or disjoint i64 %120, 1
+  %122 = load i64, ptr %37, align 8, !tbaa !56
+  %123 = and i64 %122, 255
+  %notmask.i.i = shl nsw i64 -1, %123
+  %124 = xor i64 %notmask.i.i, -1
+  %125 = load ptr, ptr %0, align 8, !tbaa !90
+  %126 = and i64 %119, %124
+  %127 = getelementptr inbounds nuw i8, ptr %.0120, i64 %126
+  %128 = load i8, ptr %127, align 1, !tbaa !42
+  %129 = icmp ult i8 %128, 14
+  br i1 %129, label %._crit_edge.i, label %.lr.ph.i78, !prof !1498
 
-.lr.ph.i78:                                       ; preds = %119, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i
-  %131 = phi i64 [ %137, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ], [ %127, %119 ]
-  %132 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %126, i64 %131, i32 2
-  %133 = load i8, ptr %132, align 1, !tbaa !1421
-  %.not.i.i = icmp eq i8 %133, -2
-  br i1 %.not.i.i, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i, label %134
+.lr.ph.i78:                                       ; preds = %118, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i
+  %130 = phi i64 [ %136, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ], [ %126, %118 ]
+  %131 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %125, i64 %130, i32 2
+  %132 = load i8, ptr %131, align 1, !tbaa !1421
+  %.not.i.i = icmp eq i8 %132, -2
+  br i1 %.not.i.i, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i, label %133
 
-134:                                              ; preds = %.lr.ph.i78
-  %135 = add i8 %133, 1
-  store i8 %135, ptr %132, align 1, !tbaa !1421
+133:                                              ; preds = %.lr.ph.i78
+  %134 = add i8 %132, 1
+  store i8 %134, ptr %131, align 1, !tbaa !1421
   br label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i
 
-_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i: ; preds = %134, %.lr.ph.i78
-  %136 = add i64 %122, %131
-  %137 = and i64 %136, %125
-  %138 = getelementptr inbounds nuw i8, ptr %.0120, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !42
-  %140 = icmp ult i8 %139, 14
-  br i1 %140, label %._crit_edge.i, label %.lr.ph.i78, !prof !1499, !llvm.loop !1638
+_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i: ; preds = %133, %.lr.ph.i78
+  %135 = add i64 %121, %130
+  %136 = and i64 %135, %124
+  %137 = getelementptr inbounds nuw i8, ptr %.0120, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !42
+  %139 = icmp ult i8 %138, 14
+  br i1 %139, label %._crit_edge.i, label %.lr.ph.i78, !prof !1499, !llvm.loop !1638
 
-._crit_edge.i:                                    ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i, %119
-  %.lcssa22.i = phi i64 [ %127, %119 ], [ %137, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ]
-  %.018.lcssa.i = phi i8 [ 0, %119 ], [ 16, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ]
-  %.lcssa.i = phi i8 [ %129, %119 ], [ %139, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ]
-  %.lcssa21.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %126, i64 %.lcssa22.i
-  %141 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.lcssa22.i
-  %142 = add nuw nsw i8 %.lcssa.i, 1
-  store i8 %142, ptr %141, align 1, !tbaa !42
-  %143 = zext nneg i8 %.lcssa.i to i64
-  %144 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %143
-  %145 = load i8, ptr %144, align 1, !tbaa !42
-  %146 = icmp eq i8 %145, 0
-  br i1 %146, label %148, label %147
+._crit_edge.i:                                    ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i, %118
+  %.lcssa22.i = phi i64 [ %126, %118 ], [ %136, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ]
+  %.018.lcssa.i = phi i8 [ 0, %118 ], [ 16, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ]
+  %.lcssa.i = phi i8 [ %128, %118 ], [ %138, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE25incrOutboundOverflowCountEv.exit.i ]
+  %.lcssa21.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %125, i64 %.lcssa22.i
+  %140 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.lcssa22.i
+  %141 = add nuw nsw i8 %.lcssa.i, 1
+  store i8 %141, ptr %140, align 1, !tbaa !42
+  %142 = zext nneg i8 %.lcssa.i to i64
+  %143 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %142
+  %144 = load i8, ptr %143, align 1, !tbaa !42
+  %145 = icmp eq i8 %144, 0
+  br i1 %145, label %147, label %146
 
-147:                                              ; preds = %._crit_edge.i
+146:                                              ; preds = %._crit_edge.i
   call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.96) #44
   unreachable
 
-148:                                              ; preds = %._crit_edge.i
-  %149 = trunc nuw i64 %113 to i8
-  store i8 %149, ptr %144, align 1, !tbaa !42
-  %150 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 14
-  %151 = load i8, ptr %150, align 2, !tbaa !97
-  %152 = add i8 %151, %.018.lcssa.i
-  store i8 %152, ptr %150, align 2, !tbaa !97
-  %153 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %154 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %153, i64 0, i64 %143
-  %155 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %155)
-  %156 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %157 = load ptr, ptr %101, align 8, !tbaa !146
-  store ptr %157, ptr %154, align 8, !tbaa !1423
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %159 = load i64, ptr %156, align 8, !tbaa !36
-  store i64 0, ptr %156, align 8, !tbaa !36
-  store i64 %159, ptr %158, align 8, !tbaa !40
-  %160 = load i64, ptr %156, align 8, !tbaa !36
-  %161 = icmp slt i64 %160, 0
-  br i1 %161, label %162, label %169
+147:                                              ; preds = %._crit_edge.i
+  %148 = trunc nuw i64 %112 to i8
+  store i8 %148, ptr %143, align 1, !tbaa !42
+  %149 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 14
+  %150 = load i8, ptr %149, align 2, !tbaa !97
+  %151 = add i8 %150, %.018.lcssa.i
+  store i8 %151, ptr %149, align 2, !tbaa !97
+  %152 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
+  %153 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %152, i64 %142
+  %154 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %154)
+  %155 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %156 = load ptr, ptr %100, align 8, !tbaa !146
+  store ptr %156, ptr %153, align 8, !tbaa !1423
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %158 = load i64, ptr %155, align 8, !tbaa !36
+  store i64 0, ptr %155, align 8, !tbaa !36
+  store i64 %158, ptr %157, align 8, !tbaa !40
+  %159 = load i64, ptr %155, align 8, !tbaa !36
+  %160 = icmp slt i64 %159, 0
+  br i1 %160, label %161, label %168
 
-162:                                              ; preds = %148
-  %163 = shl i64 %160, 1
-  %164 = inttoptr i64 %163 to ptr
-  %165 = load ptr, ptr %164, align 8, !tbaa !37
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %168, label %167
+161:                                              ; preds = %147
+  %162 = shl i64 %159, 1
+  %163 = inttoptr i64 %162 to ptr
+  %164 = load ptr, ptr %163, align 8, !tbaa !37
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %167, label %166
 
-167:                                              ; preds = %162
-  call void @_ZdaPv(ptr noundef nonnull %165) #39
+166:                                              ; preds = %161
+  call void @_ZdaPv(ptr noundef nonnull %164) #39
+  br label %167
+
+167:                                              ; preds = %166, %161
+  call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef 16) #39
   br label %168
 
-168:                                              ; preds = %167, %162
-  call void @_ZdlPvm(ptr noundef nonnull %164, i64 noundef 16) #39
-  br label %169
-
-169:                                              ; preds = %168, %148
-  store i64 0, ptr %156, align 8, !tbaa !40
+168:                                              ; preds = %167, %147
+  store i64 0, ptr %155, align 8, !tbaa !40
   %.not121 = icmp eq i32 %.sroa.084.1, 0
-  br i1 %.not121, label %.loopexit, label %92, !llvm.loop !1639
+  br i1 %.not121, label %.loopexit, label %91, !llvm.loop !1639
 
-170:                                              ; preds = %.loopexit
-  %171 = load i64, ptr %37, align 8, !tbaa !56
-  %172 = and i64 %171, 255
-  %173 = shl nuw i64 1, %172
-  br label %174
+169:                                              ; preds = %.loopexit
+  %170 = load i64, ptr %37, align 8, !tbaa !56
+  %171 = and i64 %170, 255
+  %172 = shl nuw i64 1, %171
+  br label %173
 
-174:                                              ; preds = %170, %174
-  %.041.in = phi i64 [ %173, %170 ], [ %.041, %174 ]
+173:                                              ; preds = %169, %173
+  %.041.in = phi i64 [ %172, %169 ], [ %.041, %173 ]
   %.041 = add i64 %.041.in, -1
-  %175 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.041
-  %176 = load i8, ptr %175, align 1, !tbaa !42
-  %177 = icmp eq i8 %176, 0
-  br i1 %177, label %174, label %178, !llvm.loop !1640
+  %174 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.041
+  %175 = load i8, ptr %174, align 1, !tbaa !42
+  %176 = icmp eq i8 %175, 0
+  br i1 %176, label %173, label %177, !llvm.loop !1640
 
-178:                                              ; preds = %174
-  %179 = load ptr, ptr %0, align 8, !tbaa !90
-  %180 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %179, i64 %.041
-  %181 = zext nneg i8 %176 to i64
-  %182 = add nsw i64 %181, -1
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %184 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %183, i64 0, i64 %182
-  %185 = icmp ne ptr %180, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %185)
-  %186 = icmp ult i8 %176, 17
-  call void @llvm.assume(i1 %186)
-  %187 = ptrtoint ptr %184 to i64
-  %188 = or i64 %182, %187
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %188, ptr %189, align 8, !tbaa !36
-  br i1 %.not, label %190, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %0, align 8, !tbaa !90
+  %179 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.104", ptr %178, i64 %.041
+  %180 = zext nneg i8 %175 to i64
+  %181 = add nsw i64 %180, -1
+  %182 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %179, i64 %180
+  %183 = icmp ne ptr %179, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %183)
+  %184 = icmp ult i8 %175, 17
+  call void @llvm.assume(i1 %184)
+  %185 = ptrtoint ptr %182 to i64
+  %186 = or i64 %181, %185
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %186, ptr %187, align 8, !tbaa !36
+  br i1 %.not, label %188, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-190:                                              ; preds = %178
+188:                                              ; preds = %177
   call void @_ZdlPvm(ptr noundef nonnull %.0120, i64 noundef %4) #39
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %178, %190
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %177, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %191
+  br label %189
 
-191:                                              ; preds = %._crit_edge, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE16initializeChunksEPhmm.exit
+189:                                              ; preds = %._crit_edge, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE16initializeChunksEPhmm.exit
   store i8 1, ptr %16, align 1, !tbaa !883
-  %192 = load i64, ptr %10, align 8, !tbaa !36
-  %.not.i.i.i = icmp eq i64 %192, 0
-  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %193
+  %190 = load i64, ptr %10, align 8, !tbaa !36
+  %.not.i.i.i = icmp eq i64 %190, 0
+  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %191
+
+191:                                              ; preds = %189
+  %192 = load ptr, ptr %9, align 8, !tbaa !1627
+  %.not.i.i.i.i = icmp eq ptr %192, null
+  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %193
 
 193:                                              ; preds = %191
-  %194 = load ptr, ptr %9, align 8, !tbaa !1627
-  %.not.i.i.i.i = icmp eq ptr %194, null
-  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %195
-
-195:                                              ; preds = %193
-  %196 = load i64, ptr %11, align 8, !tbaa !36
-  call void @_ZdlPvm(ptr noundef nonnull %194, i64 noundef %196) #38
+  %194 = load i64, ptr %11, align 8, !tbaa !36
+  call void @_ZdlPvm(ptr noundef nonnull %192, i64 noundef %194) #38
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %191, %193, %195
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %189, %191, %193
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -66661,7 +66657,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %37 = and i32 %36, %.sroa.042.0
   %38 = zext nneg i32 %35 to i64
   tail call void @llvm.assume(i1 %31)
-  %39 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %32, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %32, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !32
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw ptr, ptr %21, i64 %41
@@ -66680,7 +66676,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   br i1 %.not.i, label %.thread65, label %23, !llvm.loop !1104
 
 50:                                               ; preds = %34
-  %51 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %32, i64 0, i64 %38
+  %51 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %32, i64 %38
   br label %111
 
 .thread65:                                        ; preds = %47, %45, %..thread65_crit_edge
@@ -66761,7 +66757,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %7
   %.sroa.036.0.in = xor i16 %.sroa.036.0.in.in, 4095
   %90 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.036.0.in, i1 true)
   %91 = zext nneg i16 %90 to i64
-  %92 = getelementptr inbounds nuw [14 x i8], ptr %.029, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %.029, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !42
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %95
@@ -66774,7 +66770,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %89
   %96 = trunc i64 %3 to i8
   store i8 %96, ptr %92, align 1, !tbaa !42
   %97 = getelementptr inbounds nuw i8, ptr %.029, i64 16
-  %98 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %97, i64 0, i64 %91
+  %98 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %97, i64 %91
   %99 = icmp ne ptr %.029, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %99)
   %100 = load i64, ptr %7, align 8, !tbaa !56
@@ -67021,13 +67017,13 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_s
 66:                                               ; preds = %62, %78
   %.0130 = phi i64 [ 0, %62 ], [ %79, %78 ]
   %.034129 = phi i64 [ 0, %62 ], [ %.1, %78 ]
-  %67 = getelementptr inbounds nuw [14 x i8], ptr %20, i64 0, i64 %.0130
+  %67 = getelementptr inbounds nuw i8, ptr %20, i64 %.0130
   %68 = load i8, ptr %67, align 1, !tbaa !42
   %.not112 = icmp eq i8 %68, 0
   br i1 %.not112, label %78, label %69, !prof !43
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw [14 x i8], ptr %41, i64 0, i64 %.034129
+  %70 = getelementptr inbounds nuw i8, ptr %41, i64 %.034129
   %71 = load i8, ptr %70, align 1, !tbaa !42
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %73
@@ -67038,9 +67034,9 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_s
 
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %69
   store i8 %68, ptr %70, align 1, !tbaa !42
-  %74 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %63, i64 0, i64 %.034129
+  %74 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %63, i64 %.034129
   call void @llvm.assume(i1 %64)
-  %75 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %65, i64 0, i64 %.0130
+  %75 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %65, i64 %.0130
   %76 = load i32, ptr %75, align 4, !tbaa !32
   store i32 %76, ptr %74, align 4, !tbaa !32
   %77 = add nuw i64 %.034129, 1
@@ -67121,7 +67117,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %95, %97
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.069.1 = lshr i32 %.sroa.069.0118, %.pn111
   %101 = zext i32 %.sroa.8.1.in to i64
-  %102 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %93, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %93, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !32
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw ptr, ptr %94, i64 %104
@@ -67150,7 +67146,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %95, %97
   %.sroa.874.1 = add i32 %.sroa.874.1.in, 1
   %.sroa.072.1 = lshr i32 %.sroa.072.0121, %.pn
   %113 = zext i32 %.sroa.874.1.in to i64
-  %114 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %93, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %93, i64 %113
   %115 = load ptr, ptr %0, align 8, !tbaa !84
   %116 = load i32, ptr %114, align 4, !tbaa !32
   %117 = zext i32 %116 to i64
@@ -67167,7 +67163,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %95, %97
   %128 = lshr i64 %127, 15
   %129 = and i64 %128, 127
   %130 = or disjoint i64 %129, 128
-  %131 = getelementptr inbounds nuw [14 x i8], ptr %.042128, i64 0, i64 %113
+  %131 = getelementptr inbounds nuw i8, ptr %.042128, i64 %113
   %132 = load i8, ptr %131, align 1, !tbaa !42
   %133 = zext i8 %132 to i64
   %134 = icmp eq i64 %130, %133
@@ -67221,7 +67217,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %159 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %159, ptr %158, align 1, !tbaa !42
   %160 = zext nneg i8 %.lcssa.i to i64
-  %161 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %160
   %162 = load i8, ptr %161, align 1, !tbaa !42
   %163 = icmp eq i8 %162, 0
   br i1 %163, label %165, label %164
@@ -67238,7 +67234,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %169 = add i8 %168, %.018.lcssa.i
   store i8 %169, ptr %167, align 2, !tbaa !86
   %170 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %171 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %170, i64 0, i64 %160
+  %171 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %170, i64 %160
   %172 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %172)
   %173 = load i32, ptr %114, align 4, !tbaa !32
@@ -67468,7 +67464,7 @@ define void @_ZN5folly15RegexMatchCache10eraseRegexERKNS_18RegexMatchCacheKeyE(p
   %35 = and i32 %34, %.sroa.0265.0
   %36 = zext nneg i32 %33 to i64
   tail call void @llvm.assume(i1 %30)
-  %37 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %23, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32)
   %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -67485,7 +67481,7 @@ define void @_ZN5folly15RegexMatchCache10eraseRegexERKNS_18RegexMatchCacheKeyE(p
   br i1 %.not.i.i, label %_ZN5folly3f146detail11F14BasicMapINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE4findERKS4_.exit.thread, label %20, !llvm.loop !1298
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %23, i64 0, i64 %36
+  %45 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %23, i64 %36
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %38, ptr %3, align 8, !tbaa !166
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -67543,7 +67539,7 @@ define void @_ZN5folly15RegexMatchCache10eraseRegexERKNS_18RegexMatchCacheKeyE(p
   %85 = and i32 %84, %.sroa.08.0.i
   %86 = zext nneg i32 %83 to i64
   tail call void @llvm.assume(i1 %80)
-  %87 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %73, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %73, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !166
   %89 = icmp eq ptr %38, %88
   br i1 %89, label %95, label %.critedge.i.i151, !prof !22, !llvm.loop !1101
@@ -67627,7 +67623,7 @@ define void @_ZN5folly15RegexMatchCache10eraseRegexERKNS_18RegexMatchCacheKeyE(p
   %133 = and i32 %132, %.sroa.0273.0
   %134 = zext nneg i32 %131 to i64
   tail call void @llvm.assume(i1 %128)
-  %135 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %129, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %129, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !32
   %137 = zext i32 %136 to i64
   %138 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %120, i64 %137
@@ -67706,7 +67702,7 @@ define void @_ZN5folly15RegexMatchCache10eraseRegexERKNS_18RegexMatchCacheKeyE(p
   %185 = and i32 %184, %.sroa.09.0.i
   %186 = zext nneg i32 %183 to i64
   tail call void @llvm.assume(i1 %180)
-  %187 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %173, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %173, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !146
   %189 = icmp eq ptr %148, %188
   br i1 %189, label %_ZN5folly7get_ptrINS_10F14FastMapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryENS_23HeterogeneousAccessHashIS9_vEENS_26HeterogeneousAccessEqualToIS9_vEESaISt4pairIKS9_SB_EEEES9_EEDaRT_RKT0_.exit, label %.critedge.i.i.i, !prof !22, !llvm.loop !1253
@@ -67838,7 +67834,7 @@ _ZN5folly28RegexMatchCacheDynamicBitset9set_valueEmb.exit: ; preds = %202, %_ZN5
   %234 = and i32 %233, %.sroa.0308.0
   %235 = zext nneg i32 %232 to i64
   tail call void @llvm.assume(i1 %229)
-  %236 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %230, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %230, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !32
   %238 = icmp eq i32 %136, %237
   br i1 %238, label %.noexc118.loopexit, label %.critedge.i, !prof !22, !llvm.loop !1674
@@ -67854,7 +67850,7 @@ _ZN5folly28RegexMatchCacheDynamicBitset9set_valueEmb.exit: ; preds = %202, %_ZN5
   br i1 %.not.i, label %.noexc118, label %.noexc127, !llvm.loop !1675
 
 .noexc118.loopexit:                               ; preds = %.noexc128
-  %244 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %230, i64 0, i64 %235
+  %244 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %230, i64 %235
   br label %.noexc118
 
 .noexc118:                                        ; preds = %239, %241, %.noexc118.loopexit
@@ -67925,7 +67921,7 @@ _ZN5folly28RegexMatchCacheDynamicBitset9set_valueEmb.exit: ; preds = %202, %_ZN5
   %283 = and i32 %282, %.sroa.0279.0
   %284 = zext nneg i32 %281 to i64
   tail call void @llvm.assume(i1 %279)
-  %285 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %272, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %272, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !146
   %287 = icmp eq ptr %247, %286
   br i1 %287, label %303, label %.critedge.i.i71, !prof !22, !llvm.loop !1153
@@ -68070,7 +68066,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5emptyEv.exit: ; preds =
 
 336:                                              ; preds = %.noexc111
   %337 = add nsw i64 %.sroa.10290.0, -1
-  %338 = getelementptr inbounds nuw [14 x i8], ptr %333, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw i8, ptr %333, i64 %337
   %339 = load i8, ptr %338, align 1, !tbaa !42
   %.not417 = icmp eq i8 %339, 0
   br i1 %.not417, label %.noexc111, label %_ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE5eraseENS1_22ValueContainerIteratorIPSt4pairIKSB_SD_EEE.exit, !prof !43, !llvm.loop !183
@@ -68137,7 +68133,7 @@ _ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIPKNSt7__cxx1112basi
 
 364:                                              ; preds = %.noexc147
   %365 = add nsw i64 %.sroa.10317.0, -1
-  %366 = getelementptr inbounds nuw [14 x i8], ptr %355, i64 0, i64 %365
+  %366 = getelementptr inbounds nuw i8, ptr %355, i64 %365
   %367 = load i8, ptr %366, align 1, !tbaa !42
   %.not420 = icmp eq i8 %367, 0
   br i1 %.not420, label %.noexc147, label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFMNS_15RegexMatchCacheEDoFvvEPS3_EELb1EED2Ev.exit, !prof !43, !llvm.loop !144
@@ -68243,7 +68239,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly28RegexMatchCacheIndexedVectorI
   %40 = and i32 %39, %.sroa.056.0
   %41 = zext nneg i32 %38 to i64
   tail call void @llvm.assume(i1 %36)
-  %42 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %29, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %29, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !166
   %44 = icmp eq ptr %3, %43
   br i1 %44, label %50, label %.critedge.i.i, !prof !22, !llvm.loop !1101
@@ -68366,7 +68362,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
 
 98:                                               ; preds = %.noexc9
   %99 = add nsw i64 %.sroa.10.0, -1
-  %100 = getelementptr inbounds nuw [14 x i8], ptr %80, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %80, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !42
   %.not80 = icmp eq i8 %101, 0
   br i1 %.not80, label %.noexc9, label %.loopexit, !prof !43, !llvm.loop !1581
@@ -68458,7 +68454,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %154 = and i32 %153, %.sroa.012.0.i.i.i
   %155 = zext nneg i32 %152 to i64
   tail call void @llvm.assume(i1 %149)
-  %156 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %142, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %142, i64 %155
   %157 = load i64, ptr %156, align 8, !tbaa !36
   %158 = icmp eq i64 %52, %157
   br i1 %158, label %164, label %.critedge.i.i.i.i, !prof !22, !llvm.loop !164
@@ -68552,7 +68548,7 @@ thread-pre-split.i.i:                             ; preds = %31, %34
   %36 = phi ptr [ %38, %34 ], [ %1, %31 ]
   %37 = add i64 %35, -1
   %38 = getelementptr inbounds i8, ptr %36, i64 -16
-  %39 = getelementptr inbounds nuw [14 x i8], ptr %33, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %37
   %40 = load i8, ptr %39, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %40, 0
   br i1 %.not.i.i, label %34, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEEE17precheckedAdvanceEv.exit.i, !prof !43, !llvm.loop !183
@@ -68575,7 +68571,7 @@ thread-pre-split.i.i:                             ; preds = %31, %34
   %51 = icmp ne ptr %41, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -240
-  %53 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %52, i64 0, i64 %50
+  %53 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %52, i64 %50
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEEE17precheckedAdvanceEv.exit.i
 
 _ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEEEE17precheckedAdvanceEv.exit.i: ; preds = %thread-pre-split.i.i, %46, %29
@@ -68593,7 +68589,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
   %58 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i = mul i64 %2, -16
   %59 = getelementptr inbounds i8, ptr %58, i64 %.neg.i.i.i
-  %60 = getelementptr inbounds nuw [14 x i8], ptr %59, i64 0, i64 %2
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
   %61 = load i8, ptr %60, align 1, !tbaa !42
   %.not.i.i7 = icmp sgt i8 %61, -1
   br i1 %.not.i.i7, label %62, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEEE8clearTagEm.exit.i
@@ -68777,7 +68773,7 @@ _ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMat
   %78 = and i32 %77, %.sroa.018.0
   %79 = zext nneg i32 %76 to i64
   call void @llvm.assume(i1 %72)
-  %80 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %73, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %73, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !32
   %82 = icmp eq i32 %81, %37
   br i1 %82, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, label %.critedge.i, !prof !22, !llvm.loop !1674
@@ -68790,7 +68786,7 @@ _ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMat
   br label %64, !llvm.loop !1675
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %75
-  %87 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %73, i64 0, i64 %79
+  %87 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %73, i64 %79
   store i32 %7, ptr %87, align 4, !tbaa !32
   %88 = icmp ne ptr %6, null
   call void @llvm.assume(i1 %88)
@@ -68858,7 +68854,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %32 = add i64 %30, -256
   %33 = or disjoint i64 %32, %31
   store i64 %33, ptr %28, align 8, !tbaa !56
-  %34 = getelementptr inbounds nuw [14 x i8], ptr %6, i64 0, i64 %2
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %2
   %35 = load i8, ptr %34, align 1, !tbaa !42
   %.not.i.i.i = icmp sgt i8 %35, -1
   br i1 %.not.i.i.i, label %36, label %_ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i
@@ -68960,7 +68956,7 @@ thread-pre-split.i.i:                             ; preds = %21, %24
   %26 = phi ptr [ %28, %24 ], [ %1, %21 ]
   %27 = add i64 %25, -1
   %28 = getelementptr inbounds i8, ptr %26, i64 -16
-  %29 = getelementptr inbounds nuw [14 x i8], ptr %23, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %27
   %30 = load i8, ptr %29, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i, label %24, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEEEE17precheckedAdvanceEv.exit.i, !prof !43, !llvm.loop !1681
@@ -68983,7 +68979,7 @@ thread-pre-split.i.i:                             ; preds = %21, %24
   %41 = icmp ne ptr %31, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -240
-  %43 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %42, i64 0, i64 %40
+  %43 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %42, i64 %40
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEEEE17precheckedAdvanceEv.exit.i
 
 _ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEEEE17precheckedAdvanceEv.exit.i: ; preds = %thread-pre-split.i.i, %36, %19
@@ -69001,7 +68997,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPKNS_18RegexMatchCache
   %48 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i = mul i64 %2, -16
   %49 = getelementptr inbounds i8, ptr %48, i64 %.neg.i.i.i
-  %50 = getelementptr inbounds nuw [14 x i8], ptr %49, i64 0, i64 %2
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %2
   %51 = load i8, ptr %50, align 1, !tbaa !42
   %.not.i.i7 = icmp sgt i8 %51, -1
   br i1 %.not.i.i7, label %52, label %_ZN5folly3f146detail8F14ChunkISt4pairIKmPKNS_18RegexMatchCacheKeyEEE8clearTagEm.exit.i
@@ -69163,7 +69159,7 @@ thread-pre-split.i.i:                             ; preds = %48, %51
   %53 = phi ptr [ %55, %51 ], [ %1, %48 ]
   %54 = add i64 %52, -1
   %55 = getelementptr inbounds i8, ptr %53, i64 -8
-  %56 = getelementptr inbounds nuw [14 x i8], ptr %50, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 %54
   %57 = load i8, ptr %56, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %57, 0
   br i1 %.not.i.i, label %51, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEEE17precheckedAdvanceEv.exit.i, !prof !43, !llvm.loop !144
@@ -69186,7 +69182,7 @@ thread-pre-split.i.i:                             ; preds = %48, %51
   %68 = icmp ne ptr %58, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -112
-  %70 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %69, i64 0, i64 %67
+  %70 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %69, i64 %67
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEEE17precheckedAdvanceEv.exit.i
 
 _ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEEE17precheckedAdvanceEv.exit.i: ; preds = %thread-pre-split.i.i, %63, %46
@@ -69205,7 +69201,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyE
   %76 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i = mul i64 %2, -8
   %77 = getelementptr inbounds i8, ptr %76, i64 %.neg.i.i.i
-  %78 = getelementptr inbounds nuw [14 x i8], ptr %77, i64 0, i64 %2
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %2
   %79 = load i8, ptr %78, align 1, !tbaa !42
   %.not.i.i7 = icmp sgt i8 %79, -1
   br i1 %.not.i.i7, label %80, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEE8clearTagEm.exit.i
@@ -69325,7 +69321,7 @@ define noundef zeroext i1 @_ZNK5folly15RegexMatchCache9hasStringEPKNSt7__cxx1112
   %39 = and i32 %38, %.sroa.038.0
   %40 = zext nneg i32 %37 to i64
   tail call void @llvm.assume(i1 %35)
-  %41 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %28, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %28, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !146
   %43 = icmp eq ptr %1, %42
   br i1 %43, label %_ZNK5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE8containsERKSB_.exit, label %.critedge.i.i, !prof !22, !llvm.loop !1253
@@ -69379,7 +69375,7 @@ define noundef zeroext i1 @_ZNK5folly15RegexMatchCache9hasStringEPKNSt7__cxx1112
   %69 = and i32 %68, %.sroa.043.0
   %70 = zext nneg i32 %67 to i64
   tail call void @llvm.assume(i1 %65)
-  %71 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %58, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %58, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !146
   %73 = icmp eq ptr %1, %72
   br i1 %73, label %_ZNK5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache23StringQueueForwardEntryEvvvEEE8containsERKSB_.exit, label %.critedge.i.i12, !prof !22, !llvm.loop !1153
@@ -69592,7 +69588,7 @@ _ZN5folly3f146detail21NodeContainerIteratorIPSt4pairIKNS_18RegexMatchCacheKeyENS
   %117 = and i32 %116, %.sroa.08.0.i
   %118 = zext nneg i32 %115 to i64
   call void @llvm.assume(i1 %112)
-  %119 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %105, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %105, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !166
   %121 = icmp eq ptr %79, %120
   br i1 %121, label %127, label %.critedge.i.i, !prof !22, !llvm.loop !1101
@@ -69714,7 +69710,7 @@ thread-pre-split.i:                               ; preds = %.noexc39, %170
   %172 = phi ptr [ %174, %170 ], [ %.sroa.050.084, %.noexc39 ]
   %173 = add nsw i64 %171, -1
   %174 = getelementptr inbounds i8, ptr %172, i64 -8
-  %175 = getelementptr inbounds nuw [14 x i8], ptr %169, i64 0, i64 %173
+  %175 = getelementptr inbounds nuw i8, ptr %169, i64 %173
   %176 = load i8, ptr %175, align 1, !tbaa !42
   %.not.i40 = icmp eq i8 %176, 0
   br i1 %.not.i40, label %170, label %_ZN5folly3f146detail21NodeContainerIteratorIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !144
@@ -69746,7 +69742,7 @@ thread-pre-split.i:                               ; preds = %.noexc39, %170
   %192 = icmp ne ptr %181, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %192)
   %193 = getelementptr inbounds i8, ptr %.017.i.i, i64 -112
-  %194 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %193, i64 0, i64 %191
+  %194 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %193, i64 %191
   br label %_ZN5folly3f146detail21NodeContainerIteratorIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail21NodeContainerIteratorIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %187
@@ -69838,7 +69834,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %37 = and i32 %36, %.sroa.044.0
   %38 = zext nneg i32 %35 to i64
   tail call void @llvm.assume(i1 %32)
-  %39 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %25, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %25, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !146
   %41 = icmp eq ptr %21, %40
   br i1 %41, label %.loopexit, label %.critedge.i, !prof !22, !llvm.loop !1253
@@ -69927,7 +69923,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_tra
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 16383
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.031, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !42
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE6setTagEmm.exit, label %88
@@ -69940,7 +69936,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_tra
   %89 = trunc i64 %3 to i8
   store i8 %89, ptr %85, align 1, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %91 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %90, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %90, i64 %84
   %92 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %92)
   %93 = load i64, ptr %6, align 8, !tbaa !1621
@@ -70152,11 +70148,11 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 88
   store ptr %12, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !159
   %44 = icmp eq i64 %1, 0
-  br i1 %44, label %191, label %45
+  br i1 %44, label %189, label %45
 
 45:                                               ; preds = %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE16initializeChunksEPhmm.exit
   %or.cond = and i1 %26, %21
-  br i1 %or.cond, label %.lr.ph138, label %77
+  br i1 %or.cond, label %.lr.ph138, label %76
 
 .lr.ph138:                                        ; preds = %45
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -70167,13 +70163,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
 49:                                               ; preds = %.lr.ph138, %65
   %.0137 = phi i64 [ 0, %.lr.ph138 ], [ %66, %65 ]
   %.042136 = phi i64 [ 0, %.lr.ph138 ], [ %.1, %65 ]
-  %50 = getelementptr inbounds nuw [14 x i8], ptr %19, i64 0, i64 %.0137
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 %.0137
   %51 = load i8, ptr %50, align 1, !tbaa !42
   %.not122 = icmp eq i8 %51, 0
   br i1 %.not122, label %65, label %52, !prof !43
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw [14 x i8], ptr %30, i64 0, i64 %.042136
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 %.042136
   %54 = load i8, ptr %53, align 1, !tbaa !42
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %57, label %56
@@ -70184,9 +70180,9 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
 
 57:                                               ; preds = %52
   store i8 %51, ptr %53, align 1, !tbaa !42
-  %58 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %46, i64 0, i64 %.042136
+  %58 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %46, i64 %.042136
   call void @llvm.assume(i1 %47)
-  %59 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %48, i64 0, i64 %.0137
+  %59 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %48, i64 %.0137
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %59, align 8, !tbaa !146
   store ptr %61, ptr %58, align 8, !tbaa !1726
@@ -70204,42 +70200,41 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
   br i1 %67, label %49, label %._crit_edge, !llvm.loop !1743
 
 ._crit_edge:                                      ; preds = %65
-  %68 = add i64 %.1, -1
-  %69 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %70 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %69, i64 0, i64 %68
-  %71 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %71)
-  %72 = and i64 %68, 255
-  %73 = icmp samesign ult i64 %72, 16
-  call void @llvm.assume(i1 %73)
-  %74 = ptrtoint ptr %70 to i64
-  %75 = or i64 %72, %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %75, ptr %76, align 8, !tbaa !36
-  br label %191
+  %68 = add i64 %.1, 255
+  %69 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %30, i64 %.1
+  %70 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %70)
+  %71 = and i64 %68, 255
+  %72 = icmp samesign ult i64 %71, 16
+  call void @llvm.assume(i1 %72)
+  %73 = ptrtoint ptr %69 to i64
+  %74 = or i64 %71, %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %74, ptr %75, align 8, !tbaa !36
+  br label %189
 
-77:                                               ; preds = %45
+76:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.not = icmp ugt i64 %4, 256
-  br i1 %.not, label %78, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit
+  br i1 %.not, label %77, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit
 
-78:                                               ; preds = %77
-  %79 = icmp slt i64 %4, 0
-  br i1 %79, label %80, label %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, !prof !43
+77:                                               ; preds = %76
+  %78 = icmp slt i64 %4, 0
+  br i1 %78, label %79, label %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, !prof !43
 
-80:                                               ; preds = %78
+79:                                               ; preds = %77
   invoke void @_ZSt17__throw_bad_allocv() #41
-          to label %.noexc unwind label %82
+          to label %.noexc unwind label %81
 
-.noexc:                                           ; preds = %80
+.noexc:                                           ; preds = %79
   unreachable
 
-_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %78
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #42
-          to label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit unwind label %82
+_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %77
+  %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #42
+          to label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit unwind label %81
 
-82:                                               ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %80
-  %83 = landingpad { ptr, i32 }
+81:                                               ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %79
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #38
@@ -70252,232 +70247,231 @@ _ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  resume { ptr, i32 } %83
+  resume { ptr, i32 } %82
 
-_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %77
-  %.0120 = phi ptr [ %18, %77 ], [ %81, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i ]
+_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %76
+  %.0120 = phi ptr [ %18, %76 ], [ %80, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0120, i8 0, i64 %4, i1 false)
-  %84 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %19, i64 %2
-  br label %85
+  %83 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %19, i64 %2
+  br label %84
 
-.loopexit:                                        ; preds = %169, %85
-  %.157.lcssa = phi i64 [ %.056133, %85 ], [ %93, %169 ]
+.loopexit:                                        ; preds = %168, %84
+  %.157.lcssa = phi i64 [ %.056133, %84 ], [ %92, %168 ]
   %.not60 = icmp eq i64 %.157.lcssa, 0
-  br i1 %.not60, label %170, label %85, !llvm.loop !1744
+  br i1 %.not60, label %169, label %84, !llvm.loop !1744
 
-85:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit, %.loopexit
-  %.pn63134 = phi ptr [ %84, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit ], [ %.055135, %.loopexit ]
+84:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit, %.loopexit
+  %.pn63134 = phi ptr [ %83, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit ], [ %.055135, %.loopexit ]
   %.056133 = phi i64 [ %1, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit ], [ %.157.lcssa, %.loopexit ]
   %.055135 = getelementptr inbounds i8, ptr %.pn63134, i64 -256
-  %86 = load <16 x i8>, ptr %.055135, align 16, !tbaa !42
-  %87 = icmp slt <16 x i8> %86, zeroinitializer
-  %88 = bitcast <16 x i1> %87 to i16
-  %89 = and i16 %88, 16383
-  %.not121128 = icmp eq i16 %89, 0
+  %85 = load <16 x i8>, ptr %.055135, align 16, !tbaa !42
+  %86 = icmp slt <16 x i8> %85, zeroinitializer
+  %87 = bitcast <16 x i1> %86 to i16
+  %88 = and i16 %87, 16383
+  %.not121128 = icmp eq i16 %88, 0
   br i1 %.not121128, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %85
-  %.sroa.084.0.extract.trunc = zext nneg i16 %89 to i32
-  %90 = icmp ne ptr %.055135, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %90)
-  %91 = getelementptr inbounds i8, ptr %.pn63134, i64 -240
-  br label %92
+.lr.ph:                                           ; preds = %84
+  %.sroa.084.0.extract.trunc = zext nneg i16 %88 to i32
+  %89 = icmp ne ptr %.055135, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %89)
+  %90 = getelementptr inbounds i8, ptr %.pn63134, i64 -240
+  br label %91
 
-92:                                               ; preds = %.lr.ph, %169
-  %.157131 = phi i64 [ %.056133, %.lr.ph ], [ %93, %169 ]
-  %.sroa.8.0130 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %169 ]
-  %.sroa.084.0129 = phi i32 [ %.sroa.084.0.extract.trunc, %.lr.ph ], [ %.sroa.084.1, %169 ]
-  %93 = add i64 %.157131, -1
-  %94 = and i32 %.sroa.084.0129, 1
-  %.not.i76 = icmp eq i32 %94, 0
-  br i1 %.not.i76, label %95, label %99, !prof !43
+91:                                               ; preds = %.lr.ph, %168
+  %.157131 = phi i64 [ %.056133, %.lr.ph ], [ %92, %168 ]
+  %.sroa.8.0130 = phi i32 [ 0, %.lr.ph ], [ %.sroa.8.1, %168 ]
+  %.sroa.084.0129 = phi i32 [ %.sroa.084.0.extract.trunc, %.lr.ph ], [ %.sroa.084.1, %168 ]
+  %92 = add i64 %.157131, -1
+  %93 = and i32 %.sroa.084.0129, 1
+  %.not.i76 = icmp eq i32 %93, 0
+  br i1 %.not.i76, label %94, label %98, !prof !43
 
-95:                                               ; preds = %92
-  %96 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.084.0129, i1 true)
-  %97 = add i32 %.sroa.8.0130, %96
-  %98 = add nuw nsw i32 %96, 1
-  br label %99
+94:                                               ; preds = %91
+  %95 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.084.0129, i1 true)
+  %96 = add i32 %.sroa.8.0130, %95
+  %97 = add nuw nsw i32 %95, 1
+  br label %98
 
-99:                                               ; preds = %92, %95
-  %.pn = phi i32 [ %98, %95 ], [ 1, %92 ]
-  %.sroa.8.1.in = phi i32 [ %97, %95 ], [ %.sroa.8.0130, %92 ]
+98:                                               ; preds = %91, %94
+  %.pn = phi i32 [ %97, %94 ], [ 1, %91 ]
+  %.sroa.8.1.in = phi i32 [ %96, %94 ], [ %.sroa.8.0130, %91 ]
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.084.1 = lshr i32 %.sroa.084.0129, %.pn
-  %100 = zext i32 %.sroa.8.1.in to i64
-  %101 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %91, i64 0, i64 %100
-  %102 = load ptr, ptr %101, align 8, !tbaa !146
-  %103 = ptrtoint ptr %102 to i64
-  %104 = zext i64 %103 to i128
-  %105 = mul nuw i128 %104, 14181476777654086739
-  %106 = lshr i128 %105, 64
-  %107 = trunc nuw i128 %106 to i64
-  %108 = mul i64 %103, -4265267296055464877
-  %109 = xor i64 %108, %107
-  %110 = mul i64 %109, -4265267296055464877
-  %111 = lshr i64 %110, 15
-  %112 = and i64 %111, 127
-  %113 = or disjoint i64 %112, 128
-  %114 = getelementptr inbounds nuw [14 x i8], ptr %.055135, i64 0, i64 %100
-  %115 = load i8, ptr %114, align 1, !tbaa !42
-  %116 = zext i8 %115 to i64
-  %117 = icmp eq i64 %113, %116
-  br i1 %117, label %119, label %118
+  %99 = zext i32 %.sroa.8.1.in to i64
+  %100 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %90, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !146
+  %102 = ptrtoint ptr %101 to i64
+  %103 = zext i64 %102 to i128
+  %104 = mul nuw i128 %103, 14181476777654086739
+  %105 = lshr i128 %104, 64
+  %106 = trunc nuw i128 %105 to i64
+  %107 = mul i64 %102, -4265267296055464877
+  %108 = xor i64 %107, %106
+  %109 = mul i64 %108, -4265267296055464877
+  %110 = lshr i64 %109, 15
+  %111 = and i64 %110, 127
+  %112 = or disjoint i64 %111, 128
+  %113 = getelementptr inbounds nuw i8, ptr %.055135, i64 %99
+  %114 = load i8, ptr %113, align 1, !tbaa !42
+  %115 = zext i8 %114 to i64
+  %116 = icmp eq i64 %112, %115
+  br i1 %116, label %118, label %117
 
-118:                                              ; preds = %99
+117:                                              ; preds = %98
   call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.96) #44
   unreachable
 
-119:                                              ; preds = %99
-  %120 = lshr i64 %110, 22
-  %121 = shl nuw nsw i64 %113, 1
-  %122 = or disjoint i64 %121, 1
-  %123 = load i64, ptr %37, align 8, !tbaa !56
-  %124 = and i64 %123, 255
-  %notmask.i.i = shl nsw i64 -1, %124
-  %125 = xor i64 %notmask.i.i, -1
-  %126 = load ptr, ptr %0, align 8, !tbaa !1075
-  %127 = and i64 %120, %125
-  %128 = getelementptr inbounds nuw i8, ptr %.0120, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !42
-  %130 = icmp ult i8 %129, 14
-  br i1 %130, label %._crit_edge.i, label %.lr.ph.i78, !prof !1498
+118:                                              ; preds = %98
+  %119 = lshr i64 %109, 22
+  %120 = shl nuw nsw i64 %112, 1
+  %121 = or disjoint i64 %120, 1
+  %122 = load i64, ptr %37, align 8, !tbaa !56
+  %123 = and i64 %122, 255
+  %notmask.i.i = shl nsw i64 -1, %123
+  %124 = xor i64 %notmask.i.i, -1
+  %125 = load ptr, ptr %0, align 8, !tbaa !1075
+  %126 = and i64 %119, %124
+  %127 = getelementptr inbounds nuw i8, ptr %.0120, i64 %126
+  %128 = load i8, ptr %127, align 1, !tbaa !42
+  %129 = icmp ult i8 %128, 14
+  br i1 %129, label %._crit_edge.i, label %.lr.ph.i78, !prof !1498
 
-.lr.ph.i78:                                       ; preds = %119, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i
-  %131 = phi i64 [ %137, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ], [ %127, %119 ]
-  %132 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %126, i64 %131, i32 2
-  %133 = load i8, ptr %132, align 1, !tbaa !1722
-  %.not.i.i = icmp eq i8 %133, -2
-  br i1 %.not.i.i, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i, label %134
+.lr.ph.i78:                                       ; preds = %118, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i
+  %130 = phi i64 [ %136, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ], [ %126, %118 ]
+  %131 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %125, i64 %130, i32 2
+  %132 = load i8, ptr %131, align 1, !tbaa !1722
+  %.not.i.i = icmp eq i8 %132, -2
+  br i1 %.not.i.i, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i, label %133
 
-134:                                              ; preds = %.lr.ph.i78
-  %135 = add i8 %133, 1
-  store i8 %135, ptr %132, align 1, !tbaa !1722
+133:                                              ; preds = %.lr.ph.i78
+  %134 = add i8 %132, 1
+  store i8 %134, ptr %131, align 1, !tbaa !1722
   br label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i
 
-_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i: ; preds = %134, %.lr.ph.i78
-  %136 = add i64 %122, %131
-  %137 = and i64 %136, %125
-  %138 = getelementptr inbounds nuw i8, ptr %.0120, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !42
-  %140 = icmp ult i8 %139, 14
-  br i1 %140, label %._crit_edge.i, label %.lr.ph.i78, !prof !1499, !llvm.loop !1745
+_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i: ; preds = %133, %.lr.ph.i78
+  %135 = add i64 %121, %130
+  %136 = and i64 %135, %124
+  %137 = getelementptr inbounds nuw i8, ptr %.0120, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !42
+  %139 = icmp ult i8 %138, 14
+  br i1 %139, label %._crit_edge.i, label %.lr.ph.i78, !prof !1499, !llvm.loop !1745
 
-._crit_edge.i:                                    ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i, %119
-  %.lcssa22.i = phi i64 [ %127, %119 ], [ %137, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ]
-  %.018.lcssa.i = phi i8 [ 0, %119 ], [ 16, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ]
-  %.lcssa.i = phi i8 [ %129, %119 ], [ %139, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ]
-  %.lcssa21.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %126, i64 %.lcssa22.i
-  %141 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.lcssa22.i
-  %142 = add nuw nsw i8 %.lcssa.i, 1
-  store i8 %142, ptr %141, align 1, !tbaa !42
-  %143 = zext nneg i8 %.lcssa.i to i64
-  %144 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %143
-  %145 = load i8, ptr %144, align 1, !tbaa !42
-  %146 = icmp eq i8 %145, 0
-  br i1 %146, label %148, label %147
+._crit_edge.i:                                    ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i, %118
+  %.lcssa22.i = phi i64 [ %126, %118 ], [ %136, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ]
+  %.018.lcssa.i = phi i8 [ 0, %118 ], [ 16, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ]
+  %.lcssa.i = phi i8 [ %128, %118 ], [ %138, %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE25incrOutboundOverflowCountEv.exit.i ]
+  %.lcssa21.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %125, i64 %.lcssa22.i
+  %140 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.lcssa22.i
+  %141 = add nuw nsw i8 %.lcssa.i, 1
+  store i8 %141, ptr %140, align 1, !tbaa !42
+  %142 = zext nneg i8 %.lcssa.i to i64
+  %143 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %142
+  %144 = load i8, ptr %143, align 1, !tbaa !42
+  %145 = icmp eq i8 %144, 0
+  br i1 %145, label %147, label %146
 
-147:                                              ; preds = %._crit_edge.i
+146:                                              ; preds = %._crit_edge.i
   call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.96) #44
   unreachable
 
-148:                                              ; preds = %._crit_edge.i
-  %149 = trunc nuw i64 %113 to i8
-  store i8 %149, ptr %144, align 1, !tbaa !42
-  %150 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 14
-  %151 = load i8, ptr %150, align 2, !tbaa !1725
-  %152 = add i8 %151, %.018.lcssa.i
-  store i8 %152, ptr %150, align 2, !tbaa !1725
-  %153 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %154 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %153, i64 0, i64 %143
-  %155 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %155)
-  %156 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %157 = load ptr, ptr %101, align 8, !tbaa !146
-  store ptr %157, ptr %154, align 8, !tbaa !1726
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %159 = load i64, ptr %156, align 8, !tbaa !36
-  store i64 0, ptr %156, align 8, !tbaa !36
-  store i64 %159, ptr %158, align 8, !tbaa !40
-  %160 = load i64, ptr %156, align 8, !tbaa !36
-  %161 = icmp slt i64 %160, 0
-  br i1 %161, label %162, label %169
+147:                                              ; preds = %._crit_edge.i
+  %148 = trunc nuw i64 %112 to i8
+  store i8 %148, ptr %143, align 1, !tbaa !42
+  %149 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 14
+  %150 = load i8, ptr %149, align 2, !tbaa !1725
+  %151 = add i8 %150, %.018.lcssa.i
+  store i8 %151, ptr %149, align 2, !tbaa !1725
+  %152 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
+  %153 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %152, i64 %142
+  %154 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %154)
+  %155 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %156 = load ptr, ptr %100, align 8, !tbaa !146
+  store ptr %156, ptr %153, align 8, !tbaa !1726
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %158 = load i64, ptr %155, align 8, !tbaa !36
+  store i64 0, ptr %155, align 8, !tbaa !36
+  store i64 %158, ptr %157, align 8, !tbaa !40
+  %159 = load i64, ptr %155, align 8, !tbaa !36
+  %160 = icmp slt i64 %159, 0
+  br i1 %160, label %161, label %168
 
-162:                                              ; preds = %148
-  %163 = shl i64 %160, 1
-  %164 = inttoptr i64 %163 to ptr
-  %165 = load ptr, ptr %164, align 8, !tbaa !37
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %168, label %167
+161:                                              ; preds = %147
+  %162 = shl i64 %159, 1
+  %163 = inttoptr i64 %162 to ptr
+  %164 = load ptr, ptr %163, align 8, !tbaa !37
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %167, label %166
 
-167:                                              ; preds = %162
-  call void @_ZdaPv(ptr noundef nonnull %165) #39
+166:                                              ; preds = %161
+  call void @_ZdaPv(ptr noundef nonnull %164) #39
+  br label %167
+
+167:                                              ; preds = %166, %161
+  call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef 16) #39
   br label %168
 
-168:                                              ; preds = %167, %162
-  call void @_ZdlPvm(ptr noundef nonnull %164, i64 noundef 16) #39
-  br label %169
-
-169:                                              ; preds = %168, %148
-  store i64 0, ptr %156, align 8, !tbaa !40
+168:                                              ; preds = %167, %147
+  store i64 0, ptr %155, align 8, !tbaa !40
   %.not121 = icmp eq i32 %.sroa.084.1, 0
-  br i1 %.not121, label %.loopexit, label %92, !llvm.loop !1746
+  br i1 %.not121, label %.loopexit, label %91, !llvm.loop !1746
 
-170:                                              ; preds = %.loopexit
-  %171 = load i64, ptr %37, align 8, !tbaa !56
-  %172 = and i64 %171, 255
-  %173 = shl nuw i64 1, %172
-  br label %174
+169:                                              ; preds = %.loopexit
+  %170 = load i64, ptr %37, align 8, !tbaa !56
+  %171 = and i64 %170, 255
+  %172 = shl nuw i64 1, %171
+  br label %173
 
-174:                                              ; preds = %170, %174
-  %.041.in = phi i64 [ %173, %170 ], [ %.041, %174 ]
+173:                                              ; preds = %169, %173
+  %.041.in = phi i64 [ %172, %169 ], [ %.041, %173 ]
   %.041 = add i64 %.041.in, -1
-  %175 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.041
-  %176 = load i8, ptr %175, align 1, !tbaa !42
-  %177 = icmp eq i8 %176, 0
-  br i1 %177, label %174, label %178, !llvm.loop !1747
+  %174 = getelementptr inbounds nuw i8, ptr %.0120, i64 %.041
+  %175 = load i8, ptr %174, align 1, !tbaa !42
+  %176 = icmp eq i8 %175, 0
+  br i1 %176, label %173, label %177, !llvm.loop !1747
 
-178:                                              ; preds = %174
-  %179 = load ptr, ptr %0, align 8, !tbaa !1075
-  %180 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %179, i64 %.041
-  %181 = zext nneg i8 %176 to i64
-  %182 = add nsw i64 %181, -1
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %184 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %183, i64 0, i64 %182
-  %185 = icmp ne ptr %180, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %185)
-  %186 = icmp ult i8 %176, 17
-  call void @llvm.assume(i1 %186)
-  %187 = ptrtoint ptr %184 to i64
-  %188 = or i64 %182, %187
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %188, ptr %189, align 8, !tbaa !36
-  br i1 %.not, label %190, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %0, align 8, !tbaa !1075
+  %179 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.110", ptr %178, i64 %.041
+  %180 = zext nneg i8 %175 to i64
+  %181 = add nsw i64 %180, -1
+  %182 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %179, i64 %180
+  %183 = icmp ne ptr %179, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %183)
+  %184 = icmp ult i8 %175, 17
+  call void @llvm.assume(i1 %184)
+  %185 = ptrtoint ptr %182 to i64
+  %186 = or i64 %181, %185
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %186, ptr %187, align 8, !tbaa !36
+  br i1 %.not, label %188, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-190:                                              ; preds = %178
+188:                                              ; preds = %177
   call void @_ZdlPvm(ptr noundef nonnull %.0120, i64 noundef %4) #39
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %178, %190
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit: ; preds = %177, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %191
+  br label %189
 
-191:                                              ; preds = %._crit_edge, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE16initializeChunksEPhmm.exit
+189:                                              ; preds = %._crit_edge, %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EED2Ev.exit, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE16initializeChunksEPhmm.exit
   store i8 1, ptr %16, align 1, !tbaa !883
-  %192 = load i64, ptr %10, align 8, !tbaa !36
-  %.not.i.i.i = icmp eq i64 %192, 0
-  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %193
+  %190 = load i64, ptr %10, align 8, !tbaa !36
+  %.not.i.i.i = icmp eq i64 %190, 0
+  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %191
+
+191:                                              ; preds = %189
+  %192 = load ptr, ptr %9, align 8, !tbaa !1734
+  %.not.i.i.i.i = icmp eq ptr %192, null
+  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %193
 
 193:                                              ; preds = %191
-  %194 = load ptr, ptr %9, align 8, !tbaa !1734
-  %.not.i.i.i.i = icmp eq ptr %194, null
-  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %195
-
-195:                                              ; preds = %193
-  %196 = load i64, ptr %11, align 8, !tbaa !36
-  call void @_ZdlPvm(ptr noundef nonnull %194, i64 noundef %196) #38
+  %194 = load i64, ptr %11, align 8, !tbaa !36
+  call void @_ZdlPvm(ptr noundef nonnull %192, i64 noundef %194) #38
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %191, %193, %195
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %189, %191, %193
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -70616,7 +70610,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %39 = and i32 %38, %.sroa.044.0
   %40 = zext nneg i32 %37 to i64
   tail call void @llvm.assume(i1 %33)
-  %41 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %34, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %34, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !32
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %23, i64 %43
@@ -70635,7 +70629,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   br i1 %.not.i, label %.thread67, label %25, !llvm.loop !1156
 
 52:                                               ; preds = %36
-  %53 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %34, i64 0, i64 %40
+  %53 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %34, i64 %40
   br label %119
 
 .thread67:                                        ; preds = %49, %47, %..thread67_crit_edge
@@ -70716,7 +70710,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %7
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 4095
   %92 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %93 = zext nneg i16 %92 to i64
-  %94 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %.031, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !42
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %97
@@ -70729,7 +70723,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %91
   %98 = trunc i64 %3 to i8
   store i8 %98, ptr %94, align 1, !tbaa !42
   %99 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %100 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %99, i64 0, i64 %93
+  %100 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %99, i64 %93
   %101 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %101)
   %102 = load i64, ptr %9, align 8, !tbaa !56
@@ -70829,7 +70823,7 @@ define void @_ZN5folly15RegexMatchCache11eraseStringEPKNSt7__cxx1112basic_string
   %40 = and i32 %39, %.sroa.0295.0
   %41 = zext nneg i32 %38 to i64
   tail call void @llvm.assume(i1 %36)
-  %42 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %29, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %29, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !146
   %44 = icmp eq ptr %1, %43
   br i1 %44, label %50, label %.critedge.i.i38, !prof !22, !llvm.loop !1153
@@ -70938,7 +70932,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5beginEv.exit: ; preds =
 
 91:                                               ; preds = %.noexc99
   %92 = add nsw i64 %.sroa.10314.0, -1
-  %93 = getelementptr inbounds nuw [14 x i8], ptr %73, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %73, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !42
   %.not429 = icmp eq i8 %94, 0
   br i1 %.not429, label %.noexc99, label %.noexc80, !prof !43, !llvm.loop !183
@@ -71030,7 +71024,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5beginEv.exit: ; preds =
   %146 = and i32 %145, %.sroa.08.0.i
   %147 = zext nneg i32 %144 to i64
   call void @llvm.assume(i1 %141)
-  %148 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %134, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %134, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !36
   %150 = icmp eq i64 %.sroa.7263.0483, %149
   br i1 %150, label %.noexc28, label %.critedge.i.i158, !prof !22, !llvm.loop !164
@@ -71107,7 +71101,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5beginEv.exit: ; preds =
   %193 = and i32 %192, %.sroa.0289.0
   %194 = zext nneg i32 %191 to i64
   call void @llvm.assume(i1 %188)
-  %195 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %189, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %189, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !32
   %197 = zext i32 %196 to i64
   %198 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %180, i64 %197
@@ -71203,7 +71197,7 @@ _ZN5folly3f146detail16F14VectorSetImplIPKNSt7__cxx1112basic_stringIcSt11char_tra
   %255 = and i32 %254, %.sroa.0332.0
   %256 = zext nneg i32 %253 to i64
   call void @llvm.assume(i1 %250)
-  %257 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %251, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %251, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !32
   %259 = icmp eq i32 %258, %217
   br i1 %259, label %.noexc106.loopexit, label %.critedge.i, !prof !22, !llvm.loop !1674
@@ -71219,7 +71213,7 @@ _ZN5folly3f146detail16F14VectorSetImplIPKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not.i, label %.noexc106, label %.noexc115, !llvm.loop !1675
 
 .noexc106.loopexit:                               ; preds = %.noexc116
-  %265 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %251, i64 0, i64 %256
+  %265 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %251, i64 %256
   br label %.noexc106
 
 .noexc106:                                        ; preds = %260, %262, %.noexc106.loopexit
@@ -71326,7 +71320,7 @@ _ZN5folly28RegexMatchCacheDynamicBitset14index_set_view14const_iteratorppEv.exit
   %321 = and i32 %320, %.sroa.0305.0
   %322 = zext nneg i32 %319 to i64
   call void @llvm.assume(i1 %317)
-  %323 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %310, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %310, i64 %322
   %324 = load ptr, ptr %323, align 8, !tbaa !146
   %325 = icmp eq ptr %284, %324
   br i1 %325, label %331, label %.critedge.i.i62, !prof !22, !llvm.loop !1253
@@ -71434,7 +71428,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5beginEv.exit198: ; pred
 
 371:                                              ; preds = %.noexc136
   %372 = add nsw i64 %.sroa.10341.0, -1
-  %373 = getelementptr inbounds nuw [14 x i8], ptr %353, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr %353, i64 %372
   %374 = load i8, ptr %373, align 1, !tbaa !42
   %.not436 = icmp eq i8 %374, 0
   br i1 %.not436, label %.noexc136, label %_ZN5folly6detail14ScopeGuardImplISt5_BindIFMNS_15RegexMatchCacheEDoFvvEPS3_EELb1EED2Ev.exit, !prof !43, !llvm.loop !44
@@ -71526,7 +71520,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5beginEv.exit198: ; pred
   %426 = and i32 %425, %.sroa.08.0.i218
   %427 = zext nneg i32 %424 to i64
   call void @llvm.assume(i1 %421)
-  %428 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %414, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %414, i64 %427
   %429 = load i64, ptr %428, align 8, !tbaa !36
   %430 = icmp eq i64 %.sroa.7.0489, %429
   br i1 %430, label %436, label %.critedge.i.i217, !prof !22, !llvm.loop !164
@@ -71595,7 +71589,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5beginEv.exit198: ; pred
   %467 = and i32 %466, %.sroa.07.0.i
   %468 = zext nneg i32 %465 to i64
   call void @llvm.assume(i1 %462)
-  %469 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %455, i64 0, i64 %468
+  %469 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %455, i64 %468
   %470 = load ptr, ptr %469, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %438, ptr noundef nonnull align 8 dereferenceable(32) %470, i64 32)
   %.not9.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
@@ -71722,7 +71716,7 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorSetImplIPKNSt7__
   %44 = and i32 %43, %.sroa.04.0
   %45 = zext nneg i32 %42 to i64
   tail call void @llvm.assume(i1 %38)
-  %46 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %39, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %39, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !32
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %29, i64 %48
@@ -71741,7 +71735,7 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorSetImplIPKNSt7__
   br i1 %.not.i, label %_ZN5folly3f146detail16F14VectorSetImplIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEESaISA_ESt17integral_constantIbLb0EEE15eraseUnderlyingIRKNS_16variadic_noop_fnEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_.exit, label %30, !llvm.loop !1104
 
 57:                                               ; preds = %41
-  %58 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %39, i64 0, i64 %45
+  %58 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %39, i64 %45
   %59 = getelementptr inbounds nuw ptr, ptr %29, i64 %48
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb0EEEEE13eraseIterIntoIRKNS_16variadic_noop_fnEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %58, i64 %45, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %60 = load i64, ptr %22, align 8, !tbaa !56
@@ -71807,7 +71801,7 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorSetImplIPKNSt7__
   %103 = and i32 %102, %.sroa.018.0.i
   %104 = zext nneg i32 %101 to i64
   tail call void @llvm.assume(i1 %97)
-  %105 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %98, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %98, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !32
   %107 = icmp eq i32 %106, %63
   br i1 %107, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb0EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit.i, label %.critedge.i.i, !prof !22, !llvm.loop !1764
@@ -71820,7 +71814,7 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorSetImplIPKNSt7__
   br label %89, !llvm.loop !1765
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb0EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit.i: ; preds = %100
-  %112 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %98, i64 0, i64 %104
+  %112 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %98, i64 %104
   store i32 %47, ptr %112, align 4, !tbaa !32
   %113 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %113)
@@ -71874,7 +71868,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %32 = add i64 %30, -256
   %33 = or disjoint i64 %32, %31
   store i64 %33, ptr %28, align 8, !tbaa !56
-  %34 = getelementptr inbounds nuw [14 x i8], ptr %6, i64 0, i64 %2
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %2
   %35 = load i8, ptr %34, align 1, !tbaa !42
   %.not.i.i.i = icmp sgt i8 %35, -1
   br i1 %.not.i.i.i, label %36, label %_ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i
@@ -71998,7 +71992,7 @@ thread-pre-split.i.i:                             ; preds = %31, %34
   %36 = phi ptr [ %38, %34 ], [ %1, %31 ]
   %37 = add i64 %35, -1
   %38 = getelementptr inbounds i8, ptr %36, i64 -16
-  %39 = getelementptr inbounds nuw [14 x i8], ptr %33, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %37
   %40 = load i8, ptr %39, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %40, 0
   br i1 %.not.i.i, label %34, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEEE17precheckedAdvanceEv.exit.i, !prof !43, !llvm.loop !44
@@ -72021,7 +72015,7 @@ thread-pre-split.i.i:                             ; preds = %31, %34
   %51 = icmp ne ptr %41, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -240
-  %53 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %52, i64 0, i64 %50
+  %53 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %52, i64 %50
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEEE17precheckedAdvanceEv.exit.i
 
 _ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEEE17precheckedAdvanceEv.exit.i: ; preds = %thread-pre-split.i.i, %46, %29
@@ -72039,7 +72033,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKNSt7__cxx1112basic_st
   %58 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i = mul i64 %2, -16
   %59 = getelementptr inbounds i8, ptr %58, i64 %.neg.i.i.i
-  %60 = getelementptr inbounds nuw [14 x i8], ptr %59, i64 0, i64 %2
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
   %61 = load i8, ptr %60, align 1, !tbaa !42
   %.not.i.i7 = icmp sgt i8 %61, -1
   br i1 %.not.i.i7, label %62, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEE8clearTagEm.exit.i
@@ -72276,7 +72270,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorIPKNSt7
   %73 = phi ptr [ %75, %71 ], [ %.sroa.020.031, %_ZNSt6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE9push_backERKS7_.exit ]
   %74 = add nsw i64 %72, -1
   %75 = getelementptr inbounds i8, ptr %73, i64 -16
-  %76 = getelementptr inbounds nuw [14 x i8], ptr %70, i64 0, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 %74
   %77 = load i8, ptr %76, align 1, !tbaa !42
   %.not.i18 = icmp eq i8 %77, 0
   br i1 %.not.i18, label %71, label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !44
@@ -72308,7 +72302,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorIPKNSt7
   %93 = icmp ne ptr %82, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %93)
   %94 = getelementptr inbounds i8, ptr %.017.i.i, i64 -240
-  %95 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %94, i64 0, i64 %92
+  %95 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %94, i64 %92
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %88
@@ -72384,7 +72378,7 @@ define noundef zeroext i1 @_ZNK5folly15RegexMatchCache20isReadyToFindMatchesERKN
   %30 = and i32 %29, %.sroa.032.0
   %31 = zext nneg i32 %28 to i64
   tail call void @llvm.assume(i1 %26)
-  %32 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %19, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %19, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32)
   %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -72456,7 +72450,7 @@ define noundef zeroext i1 @_ZNK5folly15RegexMatchCache20isReadyToFindMatchesERKN
   %77 = and i32 %76, %.sroa.038.0
   %78 = zext nneg i32 %75 to i64
   tail call void @llvm.assume(i1 %72)
-  %79 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %73, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %73, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !32
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %64, i64 %81
@@ -72665,7 +72659,7 @@ _ZN6google12Check_EQImplIbbEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %94 = and i32 %93, %.sroa.0467.0
   %95 = zext nneg i32 %92 to i64
   call void @llvm.assume(i1 %89)
-  %96 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %90, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %90, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !32
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %66, i64 %98
@@ -72963,7 +72957,7 @@ thread-pre-split.i:                               ; preds = %217, %220
   %222 = phi ptr [ %224, %220 ], [ %.sroa.0398.0632, %217 ]
   %223 = add nsw i64 %221, -1
   %224 = getelementptr inbounds i8, ptr %222, i64 -16
-  %225 = getelementptr inbounds nuw [14 x i8], ptr %219, i64 0, i64 %223
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 %223
   %226 = load i8, ptr %225, align 1, !tbaa !42
   %.not.i276 = icmp eq i8 %226, 0
   br i1 %.not.i276, label %220, label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge, !prof !43, !llvm.loop !44
@@ -72995,7 +72989,7 @@ thread-pre-split.i:                               ; preds = %217, %220
   %242 = icmp ne ptr %231, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %242)
   %243 = getelementptr inbounds i8, ptr %.017.i.i279, i64 -240
-  %244 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %243, i64 0, i64 %241
+  %244 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %243, i64 %241
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge
 
 _ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15RegexMatchCache17MatchToRegexEntryEEEppEv.exit.backedge: ; preds = %thread-pre-split.i, %237
@@ -73039,7 +73033,7 @@ _ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPKNSt7__cxx1112basic_stri
   %259 = and i32 %258, %.sroa.0419.0
   %260 = zext nneg i32 %257 to i64
   call void @llvm.assume(i1 %254)
-  %261 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %255, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %255, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !32
   %263 = zext i32 %262 to i64
   %264 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %66, i64 %263
@@ -73134,7 +73128,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit286: ; preds = %283
   %306 = and i32 %305, %.sroa.0461.0
   %307 = zext nneg i32 %304 to i64
   call void @llvm.assume(i1 %301)
-  %308 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %302, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %302, i64 %307
   %309 = load i32, ptr %308, align 4, !tbaa !32
   %310 = icmp eq i32 %262, %309
   br i1 %310, label %.noexc228.loopexit, label %.critedge.i, !prof !22, !llvm.loop !1674
@@ -73150,7 +73144,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit286: ; preds = %283
   br i1 %.not.i, label %.noexc228, label %.noexc237, !llvm.loop !1675
 
 .noexc228.loopexit:                               ; preds = %.noexc238
-  %316 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %302, i64 0, i64 %307
+  %316 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %302, i64 %307
   br label %.noexc228
 
 .noexc228:                                        ; preds = %311, %313, %.noexc228.loopexit
@@ -73314,7 +73308,7 @@ _ZN5folly3f146detail21VectorContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11cha
   %400 = and i32 %399, %.sroa.0425.0
   %401 = zext nneg i32 %398 to i64
   call void @llvm.assume(i1 %396)
-  %402 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %389, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %389, i64 %401
   %403 = load ptr, ptr %402, align 8, !tbaa !146
   %404 = icmp eq ptr %364, %403
   br i1 %404, label %420, label %.critedge.i.i160, !prof !22, !llvm.loop !1153
@@ -73519,7 +73513,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5emptyEv.exit: ; preds =
 
 475:                                              ; preds = %.noexc221
   %476 = add nsw i64 %.sroa.10.0, -1
-  %477 = getelementptr inbounds nuw [14 x i8], ptr %472, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw i8, ptr %472, i64 %476
   %478 = load i8, ptr %477, align 1, !tbaa !42
   %.not588 = icmp eq i8 %478, 0
   br i1 %.not588, label %.noexc221, label %.noexc202, !prof !43, !llvm.loop !183
@@ -73607,7 +73601,7 @@ _ZNK5folly28RegexMatchCacheDynamicBitset14index_set_view5emptyEv.exit: ; preds =
   %527 = and i32 %526, %.sroa.0435.0
   %528 = zext nneg i32 %525 to i64
   call void @llvm.assume(i1 %523)
-  %529 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %516, i64 0, i64 %528
+  %529 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %516, i64 %528
   %530 = load ptr, ptr %529, align 8, !tbaa !146
   %531 = icmp eq ptr %491, %530
   br i1 %531, label %545, label %.critedge.i.i184, !prof !22, !llvm.loop !1253
@@ -73933,7 +73927,7 @@ define nonnull ptr @_ZNK5folly15RegexMatchCache17findMatchesUnsafeERKNS_18RegexM
   %34 = and i32 %33, %.sroa.013.0
   %35 = zext nneg i32 %32 to i64
   tail call void @llvm.assume(i1 %29)
-  %36 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %22, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %22, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32)
   %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -74022,7 +74016,7 @@ define void @_ZNK5folly15RegexMatchCache11findMatchesB5cxx11ERKNS_18RegexMatchCa
   %35 = and i32 %34, %.sroa.013.0.i
   %36 = zext nneg i32 %33 to i64
   tail call void @llvm.assume(i1 %30)
-  %37 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %23, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !105
   %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32)
   %.not9.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
@@ -74151,7 +74145,7 @@ thread-pre-split.i:                               ; preds = %15, %18
   %20 = phi ptr [ %22, %18 ], [ %.sroa.013.02659, %15 ]
   %21 = add nsw i64 %19, -1
   %22 = getelementptr inbounds i8, ptr %20, i64 -8
-  %23 = getelementptr inbounds nuw [14 x i8], ptr %17, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %21
   %24 = load i8, ptr %23, align 1, !tbaa !42
   %.not.i = icmp eq i8 %24, 0
   br i1 %.not.i, label %18, label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit, !prof !43, !llvm.loop !144
@@ -74183,7 +74177,7 @@ thread-pre-split.i:                               ; preds = %15, %18
   %40 = icmp ne ptr %29, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds i8, ptr %.017.i.i, i64 -112
-  %42 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %41, i64 0, i64 %39
+  %42 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %41, i64 %39
   br label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit
 
 _ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEEEppEv.exit: ; preds = %thread-pre-split.i, %35
@@ -74770,7 +74764,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorIN5foll
   %41 = phi ptr [ %43, %39 ], [ %.sroa.025.059, %_ZNSt6vectorIN5folly18RegexMatchCacheKeyESaIS1_EE9push_backERKS1_.exit ]
   %42 = add nsw i64 %40, -1
   %43 = getelementptr inbounds i8, ptr %41, i64 -8
-  %44 = getelementptr inbounds nuw [14 x i8], ptr %38, i64 0, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 %42
   %45 = load i8, ptr %44, align 1, !tbaa !42
   %.not.i16 = icmp eq i8 %45, 0
   br i1 %.not.i16, label %39, label %.lr.ph.backedge, !prof !43, !llvm.loop !144
@@ -74802,7 +74796,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt6vectorIN5foll
   %61 = icmp ne ptr %50, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %61)
   %62 = getelementptr inbounds i8, ptr %.017.i.i, i64 -112
-  %63 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %62, i64 0, i64 %60
+  %63 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %62, i64 %60
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %thread-pre-split.i, %56

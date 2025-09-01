@@ -290,7 +290,7 @@ define void @_ZN12grep_printer4util16DecimalFormatter3new17he39beca9a61e8051E(pt
   %8 = urem i64 %.0, 10
   %9 = trunc nuw nsw i64 %8 to i8
   %10 = udiv i64 %.0, 10
-  %11 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %5
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %5
   %12 = or disjoint i8 %9, 48
   store i8 %12, ptr %11, align 1
   %13 = icmp ult i64 %.0, 10
@@ -387,7 +387,7 @@ define { i64, i64 } @_ZN12grep_printer4util17trim_ascii_prefix17h89201b5f705bab5
 
 28:                                               ; preds = %.preheader, %28
   %.05.i.i.i.i.i.i = phi i64 [ %32, %28 ], [ 0, %.preheader ]
-  %29 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.0.i.i.i.i.i, i64 0, i64 %.05.i.i.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 %.05.i.i.i.i.i.i
   %30 = load i8, ptr %29, align 1, !alias.scope !49, !noalias !52, !noundef !7
   %31 = icmp ne i8 %30, %27
   %32 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1
@@ -441,7 +441,7 @@ _ZN12grep_matcher5Match10with_start17hefe228fe30061136E.exit: ; preds = %"_ZN115
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN12grep_printer4util20trim_line_terminator17hd23889c6be8a46c9E(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(16) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define void @_ZN12grep_printer4util20trim_line_terminator17hd23889c6be8a46c9E(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(16) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca [2 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i64, align 8
@@ -469,14 +469,14 @@ define void @_ZN12grep_printer4util20trim_line_terminator17hd23889c6be8a46c9E(pt
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4cfb0ca7a0793490E.exit": ; preds = %16
   %.not = icmp eq i64 %14, %12
-  br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit"
+  %20 = getelementptr i8, ptr %1, i64 %14
+  %21 = getelementptr i8, ptr %20, i64 -1
+  %22 = icmp eq ptr %21, null
+  %23 = or i1 %.not, %22
+  br i1 %23, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h25bec61a9d84985bE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4cfb0ca7a0793490E.exit"
-  %20 = getelementptr inbounds i8, ptr %1, i64 %12
-  %21 = xor i64 %12, -1
-  %22 = add i64 %14, %21
-  %23 = getelementptr inbounds [0 x i8], ptr %20, i64 0, i64 %22
-  %.val4.i = load i8, ptr %23, align 1, !alias.scope !65, !noundef !7
+  %.val4.i = load i8, ptr %21, align 1, !alias.scope !65, !noundef !7
   %trunc.i.i = trunc nuw i8 %9 to i1
   %.0.i.i = select i1 %trunc.i.i, i8 10, i8 %11
   %24 = icmp eq i8 %.val4.i, %.0.i.i

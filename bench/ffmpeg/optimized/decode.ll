@@ -3366,7 +3366,7 @@ update_frame_props.exit:                          ; preds = %.critedge.i, %115, 
 
 .lr.ph.i:                                         ; preds = %153, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %153 ]
-  %155 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %156 = load ptr, ptr %155, align 8, !tbaa !116
   %.not27.i = icmp eq ptr %156, null
   br i1 %.not27.i, label %157, label %153
@@ -3378,7 +3378,7 @@ update_frame_props.exit:                          ; preds = %.critedge.i, %115, 
 
 .lr.ph32.split.i:                                 ; preds = %.preheader.i, %161
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %161 ], [ %wide.trip.count.i, %.preheader.i ]
-  %158 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv37.i
+  %158 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv37.i
   %159 = load ptr, ptr %158, align 8, !tbaa !116
   %.not26.i = icmp eq ptr %159, null
   br i1 %.not26.i, label %161, label %160
@@ -3944,7 +3944,7 @@ define i32 @ff_decode_preinit(ptr noundef %0) local_unnamed_addr #0 {
   %.1 = phi i32 [ %103, %105 ], [ %.085126, %.lr.ph ]
   %111 = add i32 %.0127, 1
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw [0 x %struct.SideDataMap], ptr @ff_sd_global_map, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !196
   %115 = icmp ugt i32 %114, 37
   br i1 %115, label %._crit_edge, label %.lr.ph, !llvm.loop !263

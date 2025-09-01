@@ -943,7 +943,7 @@ define hidden noundef zeroext range(i8 6, 100) i8 @_Z12as_BasicTypeP9ValueType(p
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._Z12as_BasicTypeP9ValueType, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._Z12as_BasicTypeP9ValueType, i64 %7
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

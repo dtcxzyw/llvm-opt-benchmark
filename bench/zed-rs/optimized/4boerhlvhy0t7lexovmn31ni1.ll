@@ -59315,7 +59315,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %30
   %.sroa.01.05.i.i = phi i64 [ %31, %30 ], [ 0, %.preheader.i.i ]
-  %27 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %.sroa.01.05.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.01.05.i.i
   %28 = load i8, ptr %27, align 1, !alias.scope !19520, !noundef !4
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread186", label %30
@@ -59813,7 +59813,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %30
   %.sroa.01.05.i.i = phi i64 [ %31, %30 ], [ 0, %.preheader.i.i ]
-  %27 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %.sroa.01.05.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.01.05.i.i
   %28 = load i8, ptr %27, align 1, !alias.scope !19581, !noundef !4
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit.thread186", label %30

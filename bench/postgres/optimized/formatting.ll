@@ -2048,7 +2048,7 @@ define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %347
   %354 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.do_to_timestamp, i64 0, i64 %354
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.do_to_timestamp, i64 %354
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %355
 
@@ -3913,7 +3913,7 @@ thread-pre-split:                                 ; preds = %1198, %1201
 
 1319:                                             ; preds = %1313, %1315, %1310
   %1320 = phi i64 [ 0, %1310 ], [ 1, %1313 ], [ %1318, %1315 ]
-  %1321 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @do_to_timestamp.ysum, i64 0, i64 %1320
+  %1321 = getelementptr inbounds nuw [13 x i32], ptr @do_to_timestamp.ysum, i64 %1320
   br label %1322
 
 1322:                                             ; preds = %1319, %1325
@@ -5246,7 +5246,7 @@ suff_search.exit134.thread:                       ; preds = %262, %251, %suff_se
   %309 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %310 = sext i32 %308 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %309, ptr nonnull align 1 %.7, i64 %310, i1 false)
-  %311 = getelementptr inbounds [5 x i8], ptr %309, i64 0, i64 %310
+  %311 = getelementptr inbounds i8, ptr %309, i64 %310
   store i8 0, ptr %311, align 1
   %312 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr null, ptr %312, align 8
@@ -5298,7 +5298,7 @@ is_separator_char.exit.thread:                    ; preds = %322, %320
   %335 = getelementptr inbounds nuw i8, ptr %.091207, i64 1
   %336 = sext i32 %321 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %335, ptr nonnull align 1 %.8, i64 %336, i1 false)
-  %337 = getelementptr inbounds [5 x i8], ptr %335, i64 0, i64 %336
+  %337 = getelementptr inbounds i8, ptr %335, i64 %336
   store i8 0, ptr %337, align 1
   store ptr null, ptr %276, align 8
   %338 = getelementptr inbounds nuw i8, ptr %.091207, i64 6
@@ -5343,7 +5343,7 @@ define internal fastcc ptr @DCH_cache_fetch(ptr noundef %0, i1 noundef zeroext %
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %6 = getelementptr inbounds nuw [20 x ptr], ptr @DCHCache, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw ptr, ptr @DCHCache, i64 %indvars.iv.i.i
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2044
   %9 = load i32, ptr %8, align 4
@@ -5365,7 +5365,7 @@ DCH_prevent_counter_overflow.exit.i:              ; preds = %._crit_edge.i.i, %2
 
 13:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %14 = getelementptr inbounds nuw [20 x ptr], ptr @DCHCache, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr @DCHCache, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2041
   %17 = load i8, ptr %16, align 1, !range !4, !noundef !5
@@ -5410,7 +5410,7 @@ DCH_prevent_counter_overflow.exit.i10:            ; preds = %27
 .preheader.i:                                     ; preds = %31, %41
   %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i13, %41 ], [ 1, %31 ]
   %.123.i = phi ptr [ %spec.select.i12, %41 ], [ %32, %31 ]
-  %36 = getelementptr inbounds nuw [20 x ptr], ptr @DCHCache, i64 0, i64 %indvars.iv.i11
+  %36 = getelementptr inbounds nuw ptr, ptr @DCHCache, i64 %indvars.iv.i11
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2041
   %39 = load i8, ptr %38, align 1, !range !4, !noundef !5
@@ -5447,7 +5447,7 @@ DCH_prevent_counter_overflow.exit.i10.thread:     ; preds = %DCH_prevent_counter
   %55 = tail call ptr @MemoryContextAllocZero(ptr noundef %54, i64 noundef 2048) #18
   %56 = load i32, ptr @n_DCHCache, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [20 x ptr], ptr @DCHCache, i64 0, i64 %57
+  %58 = getelementptr inbounds ptr, ptr @DCHCache, i64 %57
   store ptr %55, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 2041
   store i8 0, ptr %59, align 1
@@ -5779,7 +5779,7 @@ define internal fastcc ptr @NUM_cache(i32 noundef range(i32 1, 268435455) %0, pt
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %16 = getelementptr inbounds nuw [20 x ptr], ptr @NUMCache, i64 0, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw ptr, ptr @NUMCache, i64 %indvars.iv.i.i.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 972
   %19 = load i32, ptr %18, align 4
@@ -5800,7 +5800,7 @@ NUM_prevent_counter_overflow.exit.i.i:            ; preds = %._crit_edge.i.i.i, 
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %31 ]
-  %22 = getelementptr inbounds nuw [20 x ptr], ptr @NUMCache, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr @NUMCache, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 969
   %25 = load i8, ptr %24, align 1, !range !4, !noundef !5
@@ -5839,7 +5839,7 @@ NUM_prevent_counter_overflow.exit.i18.i:          ; preds = %31
 .preheader.i.i:                                   ; preds = %35, %45
   %indvars.iv.i19.i = phi i64 [ %indvars.iv.next.i21.i, %45 ], [ 1, %35 ]
   %.121.i.i = phi ptr [ %spec.select.i20.i, %45 ], [ %36, %35 ]
-  %40 = getelementptr inbounds nuw [20 x ptr], ptr @NUMCache, i64 0, i64 %indvars.iv.i19.i
+  %40 = getelementptr inbounds nuw ptr, ptr @NUMCache, i64 %indvars.iv.i19.i
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 969
   %43 = load i8, ptr %42, align 1, !range !4, !noundef !5
@@ -5875,7 +5875,7 @@ NUM_prevent_counter_overflow.exit.i18.thread.i:   ; preds = %NUM_prevent_counter
   %58 = tail call ptr @MemoryContextAllocZero(ptr noundef %57, i64 noundef 1016) #18
   %59 = load i32, ptr @n_NUMCache, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [20 x ptr], ptr @NUMCache, i64 0, i64 %60
+  %61 = getelementptr inbounds ptr, ptr @NUMCache, i64 %60
   store ptr %58, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 969
   store i8 0, ptr %62, align 1
@@ -7108,9 +7108,9 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %480, %
 
 .thread.i:                                        ; preds = %.thread.fold.split263.i, %.thread.fold.split.i, %.fold.split183.i, %.fold.split182.i, %.fold.split181.i, %.fold.split.i, %511
   %514 = phi i32 [ 100, %.fold.split183.i ], [ 50, %.fold.split182.i ], [ 10, %.fold.split181.i ], [ 5, %.fold.split.i ], [ 1, %511 ], [ 500, %.thread.fold.split.i ], [ 1000, %.thread.fold.split263.i ]
-  %515 = getelementptr inbounds nuw [15 x i8], ptr %9, i64 0, i64 %indvars.iv.i
+  %515 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
   store i8 %513, ptr %515, align 1
-  %516 = getelementptr inbounds nuw [15 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %516 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   store i32 %514, ptr %516, align 4
   %517 = getelementptr inbounds nuw i8, ptr %510, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7141,9 +7141,9 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %480, %
   %.0155213.i = phi i1 [ false, %.lr.ph220.i ], [ %.1156.i, %582 ]
   %.0160212.i = phi i32 [ 0, %.lr.ph220.i ], [ %.1161.i, %582 ]
   %522 = sext i32 %.0128217.i to i64
-  %523 = getelementptr inbounds [15 x i8], ptr %9, i64 0, i64 %522
+  %523 = getelementptr inbounds i8, ptr %9, i64 %522
   %524 = load i8, ptr %523, align 1
-  %525 = getelementptr inbounds [15 x i32], ptr %10, i64 0, i64 %522
+  %525 = getelementptr inbounds i32, ptr %10, i64 %522
   %526 = load i32, ptr %525, align 4
   %.not179.i = icmp sge i32 %526, %.0150214.i
   %or.cond185.not.i = select i1 %.0155213.i, i1 %.not179.i, i1 false
@@ -7196,9 +7196,9 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %480, %
 545:                                              ; preds = %543
   %546 = add nsw i32 %.0128217.i, 1
   %547 = sext i32 %546 to i64
-  %548 = getelementptr inbounds [15 x i8], ptr %9, i64 0, i64 %547
+  %548 = getelementptr inbounds i8, ptr %9, i64 %547
   %549 = load i8, ptr %548, align 1
-  %550 = getelementptr inbounds [15 x i32], ptr %10, i64 0, i64 %547
+  %550 = getelementptr inbounds i32, ptr %10, i64 %547
   %551 = load i32, ptr %550, align 4
   %552 = icmp slt i32 %526, %551
   br i1 %552, label %553, label %577
@@ -7955,7 +7955,7 @@ define internal fastcc noundef ptr @int_to_roman(i32 noundef %0) unnamed_addr #0
 .loopexit.sink.split:                             ; preds = %14, %18, %17
   %rm100.sink = phi ptr [ @rm10, %17 ], [ @rm1, %18 ], [ @rm100, %14 ]
   %19 = zext nneg i32 %12 to i64
-  %20 = getelementptr inbounds nuw [10 x ptr], ptr %rm100.sink, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %rm100.sink, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %21) #18
   br label %.loopexit
@@ -9521,7 +9521,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
 332:                                              ; preds = %327
   %333 = add i32 %326, -1
   %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds [0 x ptr], ptr @localized_full_months, i64 0, i64 %334
+  %335 = getelementptr inbounds ptr, ptr @localized_full_months, i64 %334
   %336 = load ptr, ptr %335, align 8
   %337 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %336) #19
   %338 = tail call noundef ptr @str_toupper(ptr noundef nonnull %336, i64 noundef %337, i32 noundef %4)
@@ -9553,7 +9553,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %354 = select i1 %.not773, i32 -9, i32 0
   %355 = add i32 %326, -1
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds [13 x ptr], ptr @months_full, i64 0, i64 %356
+  %357 = getelementptr inbounds ptr, ptr @months_full, i64 %356
   %358 = load ptr, ptr %357, align 8
   %359 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %358) #19
   %360 = tail call ptr @pnstrdup(ptr noundef nonnull %358, i64 noundef %359) #18
@@ -9603,7 +9603,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i854, %352
 380:                                              ; preds = %375
   %381 = add i32 %374, -1
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds [0 x ptr], ptr @localized_full_months, i64 0, i64 %382
+  %383 = getelementptr inbounds ptr, ptr @localized_full_months, i64 %382
   %384 = load ptr, ptr %383, align 8
   %385 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %384) #19
   %386 = tail call noundef ptr @str_initcap(ptr noundef nonnull %384, i64 noundef %385, i32 noundef %4)
@@ -9635,7 +9635,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i854, %352
   %402 = select i1 %.not769, i32 -9, i32 0
   %403 = add i32 %374, -1
   %404 = sext i32 %403 to i64
-  %405 = getelementptr inbounds [13 x ptr], ptr @months_full, i64 0, i64 %404
+  %405 = getelementptr inbounds ptr, ptr @months_full, i64 %404
   %406 = load ptr, ptr %405, align 8
   %407 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.54, i32 noundef %402, ptr noundef %406) #18
   br label %.sink.split
@@ -9668,7 +9668,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i854, %352
 421:                                              ; preds = %416
   %422 = add i32 %415, -1
   %423 = sext i32 %422 to i64
-  %424 = getelementptr inbounds [0 x ptr], ptr @localized_full_months, i64 0, i64 %423
+  %424 = getelementptr inbounds ptr, ptr @localized_full_months, i64 %423
   %425 = load ptr, ptr %424, align 8
   %426 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %425) #19
   %427 = tail call noundef ptr @str_tolower(ptr noundef nonnull %425, i64 noundef %426, i32 noundef %4)
@@ -9700,7 +9700,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i854, %352
   %443 = select i1 %.not765, i32 -9, i32 0
   %444 = add i32 %415, -1
   %445 = sext i32 %444 to i64
-  %446 = getelementptr inbounds [13 x ptr], ptr @months_full, i64 0, i64 %445
+  %446 = getelementptr inbounds ptr, ptr @months_full, i64 %445
   %447 = load ptr, ptr %446, align 8
   %448 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %447) #19
   %449 = tail call ptr @pnstrdup(ptr noundef nonnull %447, i64 noundef %448) #18
@@ -9749,7 +9749,7 @@ asc_tolower_z.exit861:                            ; preds = %.lr.ph.i.i858, %441
   br i1 %.not761, label %486, label %470
 
 470:                                              ; preds = %464
-  %471 = getelementptr inbounds [0 x ptr], ptr @localized_abbrev_months, i64 0, i64 %469
+  %471 = getelementptr inbounds ptr, ptr @localized_abbrev_months, i64 %469
   %472 = load ptr, ptr %471, align 8
   %473 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %472) #19
   %474 = tail call noundef ptr @str_toupper(ptr noundef nonnull %472, i64 noundef %473, i32 noundef %4)
@@ -9772,7 +9772,7 @@ asc_tolower_z.exit861:                            ; preds = %.lr.ph.i.i858, %441
   unreachable
 
 486:                                              ; preds = %464
-  %487 = getelementptr inbounds [0 x ptr], ptr @months, i64 0, i64 %469
+  %487 = getelementptr inbounds ptr, ptr @months, i64 %469
   %488 = load ptr, ptr %487, align 8
   %489 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %488) #19
   %490 = tail call ptr @pnstrdup(ptr noundef nonnull %488, i64 noundef %489) #18
@@ -9822,7 +9822,7 @@ asc_toupper_z.exit866:                            ; preds = %.lr.ph.i.i863, %486
   br i1 %.not758, label %527, label %511
 
 511:                                              ; preds = %505
-  %512 = getelementptr inbounds [0 x ptr], ptr @localized_abbrev_months, i64 0, i64 %510
+  %512 = getelementptr inbounds ptr, ptr @localized_abbrev_months, i64 %510
   %513 = load ptr, ptr %512, align 8
   %514 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %513) #19
   %515 = tail call noundef ptr @str_initcap(ptr noundef nonnull %513, i64 noundef %514, i32 noundef %4)
@@ -9845,7 +9845,7 @@ asc_toupper_z.exit866:                            ; preds = %.lr.ph.i.i863, %486
   unreachable
 
 527:                                              ; preds = %505
-  %528 = getelementptr inbounds [0 x ptr], ptr @months, i64 0, i64 %510
+  %528 = getelementptr inbounds ptr, ptr @months, i64 %510
   %529 = load ptr, ptr %528, align 8
   br label %530
 
@@ -9881,7 +9881,7 @@ asc_toupper_z.exit866:                            ; preds = %.lr.ph.i.i863, %486
   br i1 %.not755, label %562, label %546
 
 546:                                              ; preds = %540
-  %547 = getelementptr inbounds [0 x ptr], ptr @localized_abbrev_months, i64 0, i64 %545
+  %547 = getelementptr inbounds ptr, ptr @localized_abbrev_months, i64 %545
   %548 = load ptr, ptr %547, align 8
   %549 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %548) #19
   %550 = tail call noundef ptr @str_tolower(ptr noundef nonnull %548, i64 noundef %549, i32 noundef %4)
@@ -9904,7 +9904,7 @@ asc_toupper_z.exit866:                            ; preds = %.lr.ph.i.i863, %486
   unreachable
 
 562:                                              ; preds = %540
-  %563 = getelementptr inbounds [0 x ptr], ptr @months, i64 0, i64 %545
+  %563 = getelementptr inbounds ptr, ptr @months, i64 %545
   %564 = load ptr, ptr %563, align 8
   %565 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %564) #19
   %566 = tail call ptr @pnstrdup(ptr noundef nonnull %564, i64 noundef %565) #18
@@ -9980,7 +9980,7 @@ asc_tolower_z.exit871:                            ; preds = %.lr.ph.i.i868, %562
 603:                                              ; preds = %598
   %604 = load i32, ptr %10, align 4
   %605 = sext i32 %604 to i64
-  %606 = getelementptr inbounds [0 x ptr], ptr @localized_full_days, i64 0, i64 %605
+  %606 = getelementptr inbounds ptr, ptr @localized_full_days, i64 %605
   %607 = load ptr, ptr %606, align 8
   %608 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %607) #19
   %609 = tail call noundef ptr @str_toupper(ptr noundef nonnull %607, i64 noundef %608, i32 noundef %4)
@@ -10012,7 +10012,7 @@ asc_tolower_z.exit871:                            ; preds = %.lr.ph.i.i868, %562
   %625 = select i1 %.not748, i32 -9, i32 0
   %626 = load i32, ptr %10, align 4
   %627 = sext i32 %626 to i64
-  %628 = getelementptr inbounds [0 x ptr], ptr @days, i64 0, i64 %627
+  %628 = getelementptr inbounds ptr, ptr @days, i64 %627
   %629 = load ptr, ptr %628, align 8
   %630 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %629) #19
   %631 = tail call ptr @pnstrdup(ptr noundef nonnull %629, i64 noundef %630) #18
@@ -10057,7 +10057,7 @@ asc_toupper_z.exit876:                            ; preds = %.lr.ph.i.i873, %623
 649:                                              ; preds = %644
   %650 = load i32, ptr %10, align 4
   %651 = sext i32 %650 to i64
-  %652 = getelementptr inbounds [0 x ptr], ptr @localized_full_days, i64 0, i64 %651
+  %652 = getelementptr inbounds ptr, ptr @localized_full_days, i64 %651
   %653 = load ptr, ptr %652, align 8
   %654 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %653) #19
   %655 = tail call noundef ptr @str_initcap(ptr noundef nonnull %653, i64 noundef %654, i32 noundef %4)
@@ -10089,7 +10089,7 @@ asc_toupper_z.exit876:                            ; preds = %.lr.ph.i.i873, %623
   %671 = select i1 %.not745, i32 -9, i32 0
   %672 = load i32, ptr %10, align 4
   %673 = sext i32 %672 to i64
-  %674 = getelementptr inbounds [0 x ptr], ptr @days, i64 0, i64 %673
+  %674 = getelementptr inbounds ptr, ptr @days, i64 %673
   %675 = load ptr, ptr %674, align 8
   %676 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.54, i32 noundef %671, ptr noundef %675) #18
   br label %.sink.split
@@ -10117,7 +10117,7 @@ asc_toupper_z.exit876:                            ; preds = %.lr.ph.i.i873, %623
 688:                                              ; preds = %683
   %689 = load i32, ptr %10, align 4
   %690 = sext i32 %689 to i64
-  %691 = getelementptr inbounds [0 x ptr], ptr @localized_full_days, i64 0, i64 %690
+  %691 = getelementptr inbounds ptr, ptr @localized_full_days, i64 %690
   %692 = load ptr, ptr %691, align 8
   %693 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %692) #19
   %694 = tail call noundef ptr @str_tolower(ptr noundef nonnull %692, i64 noundef %693, i32 noundef %4)
@@ -10149,7 +10149,7 @@ asc_toupper_z.exit876:                            ; preds = %.lr.ph.i.i873, %623
   %710 = select i1 %.not742, i32 -9, i32 0
   %711 = load i32, ptr %10, align 4
   %712 = sext i32 %711 to i64
-  %713 = getelementptr inbounds [0 x ptr], ptr @days, i64 0, i64 %712
+  %713 = getelementptr inbounds ptr, ptr @days, i64 %712
   %714 = load ptr, ptr %713, align 8
   %715 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %714) #19
   %716 = tail call ptr @pnstrdup(ptr noundef nonnull %714, i64 noundef %715) #18
@@ -10193,7 +10193,7 @@ asc_tolower_z.exit881:                            ; preds = %.lr.ph.i.i878, %708
   br i1 %.not739, label %751, label %735
 
 735:                                              ; preds = %729
-  %736 = getelementptr inbounds [0 x ptr], ptr @localized_abbrev_days, i64 0, i64 %734
+  %736 = getelementptr inbounds ptr, ptr @localized_abbrev_days, i64 %734
   %737 = load ptr, ptr %736, align 8
   %738 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %737) #19
   %739 = tail call noundef ptr @str_toupper(ptr noundef nonnull %737, i64 noundef %738, i32 noundef %4)
@@ -10216,7 +10216,7 @@ asc_tolower_z.exit881:                            ; preds = %.lr.ph.i.i878, %708
   unreachable
 
 751:                                              ; preds = %729
-  %752 = getelementptr inbounds [8 x ptr], ptr @days_short, i64 0, i64 %734
+  %752 = getelementptr inbounds ptr, ptr @days_short, i64 %734
   %753 = load ptr, ptr %752, align 8
   %754 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %753) #19
   %755 = tail call ptr @pnstrdup(ptr noundef nonnull %753, i64 noundef %754) #18
@@ -10261,7 +10261,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i883, %751
   br i1 %.not737, label %790, label %774
 
 774:                                              ; preds = %768
-  %775 = getelementptr inbounds [0 x ptr], ptr @localized_abbrev_days, i64 0, i64 %773
+  %775 = getelementptr inbounds ptr, ptr @localized_abbrev_days, i64 %773
   %776 = load ptr, ptr %775, align 8
   %777 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %776) #19
   %778 = tail call noundef ptr @str_initcap(ptr noundef nonnull %776, i64 noundef %777, i32 noundef %4)
@@ -10284,7 +10284,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i883, %751
   unreachable
 
 790:                                              ; preds = %768
-  %791 = getelementptr inbounds [8 x ptr], ptr @days_short, i64 0, i64 %773
+  %791 = getelementptr inbounds ptr, ptr @days_short, i64 %773
   %792 = load ptr, ptr %791, align 8
   br label %793
 
@@ -10315,7 +10315,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i883, %751
   br i1 %.not735, label %823, label %807
 
 807:                                              ; preds = %801
-  %808 = getelementptr inbounds [0 x ptr], ptr @localized_abbrev_days, i64 0, i64 %806
+  %808 = getelementptr inbounds ptr, ptr @localized_abbrev_days, i64 %806
   %809 = load ptr, ptr %808, align 8
   %810 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %809) #19
   %811 = tail call noundef ptr @str_tolower(ptr noundef nonnull %809, i64 noundef %810, i32 noundef %4)
@@ -10338,7 +10338,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i883, %751
   unreachable
 
 823:                                              ; preds = %801
-  %824 = getelementptr inbounds [8 x ptr], ptr @days_short, i64 0, i64 %806
+  %824 = getelementptr inbounds ptr, ptr @days_short, i64 %806
   %825 = load ptr, ptr %824, align 8
   %826 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %825) #19
   %827 = tail call ptr @pnstrdup(ptr noundef nonnull %825, i64 noundef %826) #18

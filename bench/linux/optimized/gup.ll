@@ -240,7 +240,7 @@ define dso_local ptr @try_grab_folio(ptr noundef %0, i32 noundef %1, i32 noundef
   %76 = sext i32 %1 to i64
   %77 = load i64, ptr %44, align 16
   %78 = lshr i64 %77, 58
-  %79 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %78
+  %79 = getelementptr ptr, ptr @node_data, i64 %78
   %80 = load ptr, ptr %79, align 8
   tail call void @mod_node_page_state(ptr noundef %80, i32 noundef 35, i64 noundef %76) #9
   br label %81
@@ -532,7 +532,7 @@ define dso_local noundef range(i32 -12, 1) i32 @try_grab_page(ptr noundef %0, i3
 54:                                               ; preds = %53, %51
   %55 = load i64, ptr %28, align 16
   %56 = lshr i64 %55, 58
-  %57 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %56
+  %57 = getelementptr ptr, ptr @node_data, i64 %56
   %58 = load ptr, ptr %57, align 8
   tail call void @mod_node_page_state(ptr noundef %58, i32 noundef 35, i64 noundef 1) #9
   br label %59
@@ -600,7 +600,7 @@ define dso_local void @unpin_user_page(ptr noundef %0) #0 align 16 {
 36:                                               ; preds = %28
   %37 = load i64, ptr %30, align 16
   %38 = lshr i64 %37, 58
-  %39 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %38
+  %39 = getelementptr ptr, ptr @node_data, i64 %38
   %40 = load ptr, ptr %39, align 8
   tail call void @mod_node_page_state(ptr noundef %40, i32 noundef 36, i64 noundef 1) #9
   %41 = load volatile i64, ptr %30, align 16
@@ -649,7 +649,7 @@ define internal fastcc void @gup_put_folio(ptr noundef %0, i32 noundef %1, i32 n
   %14 = sext i32 %1 to i64
   %15 = load i64, ptr %0, align 16
   %16 = lshr i64 %15, 58
-  %17 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr @node_data, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void @mod_node_page_state(ptr noundef %18, i32 noundef 36, i64 noundef %14) #9
   %19 = load volatile i64, ptr %0, align 16
@@ -888,7 +888,7 @@ define dso_local void @unpin_user_pages_dirty_lock(ptr noundef readonly captures
   %93 = sext i32 %73 to i64
   %94 = load i64, ptr %35, align 16
   %95 = lshr i64 %94, 58
-  %96 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %95
+  %96 = getelementptr ptr, ptr @node_data, i64 %95
   %97 = load ptr, ptr %96, align 8
   tail call void @mod_node_page_state(ptr noundef %97, i32 noundef 36, i64 noundef %93) #9
   %98 = load volatile i64, ptr %35, align 16
@@ -1059,7 +1059,7 @@ define dso_local void @unpin_user_pages(ptr noundef readonly captures(none) %0, 
   %81 = sext i32 %73 to i64
   %82 = load i64, ptr %35, align 16
   %83 = lshr i64 %82, 58
-  %84 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %83
+  %84 = getelementptr ptr, ptr @node_data, i64 %83
   %85 = load ptr, ptr %84, align 8
   tail call void @mod_node_page_state(ptr noundef %85, i32 noundef 36, i64 noundef %81) #9
   %86 = load volatile i64, ptr %35, align 16
@@ -1227,7 +1227,7 @@ define dso_local void @unpin_user_page_range_dirty_lock(ptr noundef %0, i64 noun
   %78 = sext i32 %58 to i64
   %79 = load i64, ptr %35, align 16
   %80 = lshr i64 %79, 58
-  %81 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %80
+  %81 = getelementptr ptr, ptr @node_data, i64 %80
   %82 = load ptr, ptr %81, align 8
   tail call void @mod_node_page_state(ptr noundef %82, i32 noundef 36, i64 noundef %78) #9
   %83 = load volatile i64, ptr %35, align 16
@@ -5195,7 +5195,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 
 352:                                              ; preds = %345
   %353 = lshr i64 %328, 58
-  %354 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %353
+  %354 = getelementptr ptr, ptr @node_data, i64 %353
   %355 = load ptr, ptr %354, align 8
   call void @mod_node_page_state(ptr noundef %355, i32 noundef 36, i64 noundef 1) #9
   %356 = load volatile i64, ptr %321, align 8
@@ -5247,7 +5247,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 382:                                              ; preds = %375
   %383 = load i64, ptr %321, align 16
   %384 = lshr i64 %383, 58
-  %385 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %384
+  %385 = getelementptr ptr, ptr @node_data, i64 %384
   %386 = load ptr, ptr %385, align 8
   call void @mod_node_page_state(ptr noundef %386, i32 noundef 36, i64 noundef 1) #9
   %387 = load volatile i64, ptr %321, align 16
@@ -5337,7 +5337,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 434:                                              ; preds = %427
   %435 = load i64, ptr %321, align 16
   %436 = lshr i64 %435, 58
-  %437 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %436
+  %437 = getelementptr ptr, ptr @node_data, i64 %436
   %438 = load ptr, ptr %437, align 8
   call void @mod_node_page_state(ptr noundef %438, i32 noundef 36, i64 noundef 1) #9
   %439 = load volatile i64, ptr %321, align 16
@@ -5496,7 +5496,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 528:                                              ; preds = %521
   %529 = load i64, ptr %321, align 16
   %530 = lshr i64 %529, 58
-  %531 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %530
+  %531 = getelementptr ptr, ptr @node_data, i64 %530
   %532 = load ptr, ptr %531, align 8
   call void @mod_node_page_state(ptr noundef %532, i32 noundef 36, i64 noundef 1) #9
   %533 = load volatile i64, ptr %321, align 16
@@ -5684,7 +5684,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %641 = sext i32 %598 to i64
   %642 = load i64, ptr %599, align 16
   %643 = lshr i64 %642, 58
-  %644 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %643
+  %644 = getelementptr ptr, ptr @node_data, i64 %643
   %645 = load ptr, ptr %644, align 8
   call void @mod_node_page_state(ptr noundef %645, i32 noundef 36, i64 noundef %641) #9
   %646 = load volatile i64, ptr %599, align 16
@@ -5748,7 +5748,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %678 = sext i32 %598 to i64
   %679 = load i64, ptr %599, align 16
   %680 = lshr i64 %679, 58
-  %681 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %680
+  %681 = getelementptr ptr, ptr @node_data, i64 %680
   %682 = load ptr, ptr %681, align 8
   call void @mod_node_page_state(ptr noundef %682, i32 noundef 36, i64 noundef %678) #9
   %683 = load volatile i64, ptr %599, align 16
@@ -5989,7 +5989,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %799 = sext i32 %791 to i64
   %800 = load i64, ptr %753, align 16
   %801 = lshr i64 %800, 58
-  %802 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %801
+  %802 = getelementptr ptr, ptr @node_data, i64 %801
   %803 = load ptr, ptr %802, align 8
   call void @mod_node_page_state(ptr noundef %803, i32 noundef 36, i64 noundef %799) #9
   %804 = load volatile i64, ptr %753, align 16
@@ -7026,7 +7026,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 474:                                              ; preds = %470, %459
   %475 = phi i64 [ %473, %470 ], [ 1, %459 ]
   %476 = lshr i64 %467, 58
-  %477 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %476
+  %477 = getelementptr ptr, ptr @node_data, i64 %476
   %478 = load ptr, ptr %477, align 8
   call void @mod_node_page_state(ptr noundef %478, i32 noundef %466, i64 noundef %475) #9
   br label %479
@@ -7140,7 +7140,7 @@ define internal fastcc i64 @__gup_longterm_locked(ptr noundef %0, i64 noundef %1
 545:                                              ; preds = %537
   %546 = load i64, ptr %539, align 16
   %547 = lshr i64 %546, 58
-  %548 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %547
+  %548 = getelementptr ptr, ptr @node_data, i64 %547
   %549 = load ptr, ptr %548, align 8
   call void @mod_node_page_state(ptr noundef %549, i32 noundef 36, i64 noundef 1) #9
   %550 = load volatile i64, ptr %539, align 16
@@ -7707,7 +7707,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nou
   %106 = sext i32 %60 to i64
   %107 = load i64, ptr %61, align 16
   %108 = lshr i64 %107, 58
-  %109 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %108
+  %109 = getelementptr ptr, ptr @node_data, i64 %108
   %110 = load ptr, ptr %109, align 8
   tail call void @mod_node_page_state(ptr noundef %110, i32 noundef 36, i64 noundef %106) #9
   %111 = load volatile i64, ptr %61, align 16
@@ -7863,7 +7863,7 @@ gup_must_unshare.exit.thread4:                    ; preds = %gup_must_unshare.ex
   %203 = sext i32 %60 to i64
   %204 = load i64, ptr %61, align 16
   %205 = lshr i64 %204, 58
-  %206 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %205
+  %206 = getelementptr ptr, ptr @node_data, i64 %205
   %207 = load ptr, ptr %206, align 8
   tail call void @mod_node_page_state(ptr noundef %207, i32 noundef 36, i64 noundef %203) #9
   %208 = load volatile i64, ptr %61, align 16

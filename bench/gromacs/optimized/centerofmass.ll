@@ -196,7 +196,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %41
 
 63:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %63
   %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %63 ]
-  %64 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
   %65 = load float, ptr %64, align 4, !tbaa !4
   %66 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %67 = load float, ptr %66, align 4, !tbaa !4
@@ -329,7 +329,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %42
 
 64:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %64
   %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !4
   %67 = fdiv float %66, %59
   %68 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
@@ -599,9 +599,9 @@ _Z12gmx_calc_cogPK10gmx_mtop_tPA3_fiPKiPf.exit:   ; preds = %12, %6
 56:                                               ; preds = %69, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph.us ]
   %.139.us = phi i1 [ %.2.us, %69 ], [ %.041.us, %.lr.ph.us ]
-  %57 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !4
-  %59 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !4
   %61 = fsub float %58, %60
   %62 = call noundef float @llvm.fabs.f32(float %61)
@@ -788,9 +788,9 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us:  ; preds = %59
 87:                                               ; preds = %99, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %99 ], [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us ]
   %.179.us = phi i1 [ %.2.us, %99 ], [ %.05682.us, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit67.us ]
-  %88 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv97
+  %88 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv97
   %89 = load float, ptr %88, align 4, !tbaa !4
-  %90 = getelementptr inbounds nuw [3 x float], ptr %76, i64 0, i64 %indvars.iv97
+  %90 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv97
   %91 = load float, ptr %90, align 4, !tbaa !4
   %92 = fsub float %89, %91
   %93 = call noundef float @llvm.fabs.f32(float %92)
@@ -877,7 +877,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %113
 
 135:                                              ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %135
   %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %135 ]
-  %136 = getelementptr inbounds nuw [3 x float], ptr %132, i64 0, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv
   %137 = load float, ptr %136, align 4, !tbaa !4
   %138 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %139 = load float, ptr %138, align 4, !tbaa !4
@@ -1122,9 +1122,9 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %53
 
 75:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %75
   %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %75 ]
-  %76 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv
   %77 = load float, ptr %76, align 4, !tbaa !4
-  %78 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %79 = load float, ptr %78, align 4, !tbaa !4
   %80 = tail call float @llvm.fmuladd.f32(float %70, float %77, float %79)
   store float %80, ptr %78, align 4, !tbaa !4
@@ -1278,10 +1278,10 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %55
 
 77:                                               ; preds = %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, %77
   %indvars.iv = phi i64 [ 0, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw [3 x float], ptr %74, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv
   %79 = load float, ptr %78, align 4, !tbaa !4
   %80 = fdiv float %79, %72
-  %81 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %82 = load float, ptr %81, align 4, !tbaa !4
   %83 = fadd float %82, %80
   store float %83, ptr %81, align 4, !tbaa !4

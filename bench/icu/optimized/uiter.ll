@@ -1129,7 +1129,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 22:                                               ; preds = %20
   %23 = and i32 %16, 15
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @.str, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !14
   %27 = zext i8 %26 to i32
   %28 = sext i32 %12 to i64
@@ -1158,7 +1158,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %44 = zext i8 %43 to i32
   %45 = lshr i32 %44, 4
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !14
   %49 = sext i8 %48 to i32
   %50 = shl nuw nsw i32 1, %38
@@ -1293,7 +1293,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 117:                                              ; preds = %115
   %118 = and i32 %111, 15
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @.str, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !14
   %122 = zext i8 %121 to i32
   %123 = sext i32 %107 to i64
@@ -1322,7 +1322,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %139 = zext i8 %138 to i32
   %140 = lshr i32 %139, 4
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !14
   %144 = sext i8 %143 to i32
   %145 = shl nuw nsw i32 1, %133
@@ -1443,7 +1443,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 202:                                              ; preds = %200
   %203 = and i32 %196, 15
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr @.str, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !14
   %207 = zext i8 %206 to i32
   %208 = sext i32 %192 to i64
@@ -1472,7 +1472,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %224 = zext i8 %223 to i32
   %225 = lshr i32 %224, 4
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %226
   %228 = load i8, ptr %227, align 1, !tbaa !14
   %229 = sext i8 %228 to i32
   %230 = shl nuw nsw i32 1, %218
@@ -1777,7 +1777,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 109:                                              ; preds = %107
   %110 = and i32 %103, 15
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @.str, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !14
   %114 = zext i8 %113 to i32
   %115 = sext i32 %99 to i64
@@ -1806,7 +1806,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   %131 = zext i8 %130 to i32
   %132 = lshr i32 %131, 4
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !14
   %136 = sext i8 %135 to i32
   %137 = shl nuw nsw i32 1, %125
@@ -2088,7 +2088,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCh
 26:                                               ; preds = %24
   %27 = and i32 %19, 15
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @.str, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = zext i8 %30 to i32
   %32 = sext i32 %15 to i64
@@ -2117,7 +2117,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCh
   %48 = zext i8 %47 to i32
   %49 = lshr i32 %48, 4
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !14
   %53 = sext i8 %52 to i32
   %54 = shl nuw nsw i32 1, %42
@@ -2242,7 +2242,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
 31:                                               ; preds = %29
   %32 = and i32 %24, 15
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @.str, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !14
   %36 = zext i8 %35 to i32
   %37 = sext i32 %20 to i64
@@ -2271,7 +2271,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %53 = zext i8 %52 to i32
   %54 = lshr i32 %53, 4
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !14
   %58 = sext i8 %57 to i32
   %59 = shl nuw nsw i32 1, %47

@@ -734,7 +734,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %148, %147
   %151 = load i32, ptr %150, align 4
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 2
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %153
+  %154 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %153
   %155 = load i16, ptr %154, align 2
   %156 = and i16 %155, 128
   %.not.i.i.i = icmp eq i16 %156, 0
@@ -1034,7 +1034,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %10, %11
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %16
+  %17 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 128
   %.not.i.i = icmp eq i16 %19, 0
@@ -1863,7 +1863,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %51, %_ZN8ciMethod4c
   %87 = zext i8 %86 to i32
   store i32 %87, ptr %74, align 4
   %88 = zext i8 %86 to i64
-  %89 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %88
   %90 = load i32, ptr %89, align 4
   store i32 %90, ptr %75, align 8
   %91 = icmp ult i32 %90, 239
@@ -1876,7 +1876,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %85
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %85
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = and i8 %95, 15
   %97 = zext nneg i8 %96 to i64
@@ -1915,7 +1915,7 @@ _ZN16ciBytecodeStream4nextEv.exit.thread89:       ; preds = %_ZN16ciBytecodeStre
 
 111:                                              ; preds = %110
   %112 = sext i32 %102 to i64
-  %113 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %112
+  %113 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = and i16 %114, 1
   %.not.i53 = icmp eq i16 %115, 0
@@ -2085,7 +2085,7 @@ _ZN10ciTypeFlow15flow_exceptionsEP13GrowableArrayIPNS_5BlockEEPS0_IP15ciInstance
 184:                                              ; preds = %183
   %185 = load i32, ptr %75, align 8
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %186
+  %187 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %186
   %188 = load i16, ptr %187, align 2
   %189 = and i16 %188, 1
   %.not.i56 = icmp eq i16 %189, 0
@@ -2332,7 +2332,7 @@ define hidden void @_ZN10ciTypeFlow11StateVector14push_translateEP6ciType(ptr no
   store ptr %1, ptr %24, align 8
   %25 = load i8, ptr %3, align 8
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @type2size, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 2
   br i1 %29, label %30, label %45
@@ -3552,7 +3552,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %15, %14
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %20
+  %21 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %20
   %22 = load i16, ptr %21, align 2
   %.0.i.i.i.i.i.i = load i16, ptr %19, align 1
   %23 = lshr i16 %22, 4
@@ -3631,7 +3631,7 @@ _ZN7ciField4typeEv.exit.i:                        ; preds = %15, %11
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %22 = load i8, ptr %21, align 8
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @type2size, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 2
   br i1 %26, label %27, label %_ZN10ciTypeFlow11StateVector12do_putstaticEP16ciBytecodeStream.exit
@@ -3693,7 +3693,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %11, %15
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %22 = load i8, ptr %21, align 8
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @type2size, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 2
   br i1 %26, label %27, label %29
@@ -3732,7 +3732,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %12, %11
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %17
+  %18 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 128
   %.not.i.i.i = icmp eq i16 %20, 0
@@ -8515,7 +8515,7 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow8can_trapER16ciBytecodeStream(p
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %5
+  %6 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 1
   %.not = icmp eq i16 %8, 0
@@ -9833,7 +9833,7 @@ define hidden noundef i32 @_ZN10ciTypeFlow4Loop14profiled_countEv(ptr noundef no
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %53
+  %54 = getelementptr inbounds ptr, ptr @_ZN9Bytecodes5_nameE, i64 %53
   %55 = load ptr, ptr %54, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.5, i32 noundef 2573, ptr noundef nonnull @.str.11, ptr noundef %55) #15
   unreachable
@@ -9963,7 +9963,7 @@ define linkonce_odr hidden noundef i32 @_ZN16ciBytecodeStream4nextEv(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %9, ptr %10, align 4
   %11 = zext i8 %8 to i64
-  %12 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %13, ptr %14, align 8
@@ -9977,7 +9977,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread:  ; preds = %7
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %7
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 15
   %21 = zext nneg i8 %20 to i64

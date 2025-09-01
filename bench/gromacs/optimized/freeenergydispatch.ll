@@ -630,7 +630,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %52 = shl nuw i64 1, %51
   %53 = sdiv i32 %49, 64
   %54 = sext i32 %53 to i64
-  %invariant.gep.i = getelementptr [2 x i64], ptr %47, i64 0, i64 %54
+  %invariant.gep.i = getelementptr i64, ptr %47, i64 %54
   br label %64
 
 .preheader.i:                                     ; preds = %64, %29
@@ -647,7 +647,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch27setupFepThreadedForceBufferEi
   %61 = shl nuw i64 1, %60
   %62 = sdiv i32 %58, 64
   %63 = sext i32 %62 to i64
-  %invariant.gep30.i = getelementptr [2 x i64], ptr %56, i64 0, i64 %63
+  %invariant.gep30.i = getelementptr i64, ptr %56, i64 %63
   br label %71
 
 64:                                               ; preds = %64, %.lr.ph.i
@@ -714,7 +714,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %103 = shl nuw i64 1, %102
   %104 = sdiv i32 %100, 64
   %105 = sext i32 %104 to i64
-  %invariant.gep.i29 = getelementptr [2 x i64], ptr %98, i64 0, i64 %105
+  %invariant.gep.i29 = getelementptr i64, ptr %98, i64 %105
   br label %115
 
 .preheader.i33:                                   ; preds = %115, %80
@@ -731,7 +731,7 @@ _ZN3gmx12_GLOBAL__N_131setReductionMaskFromFepPairlistERKNS_12AtomPairlistEPNS_1
   %112 = shl nuw i64 1, %111
   %113 = sdiv i32 %109, 64
   %114 = sext i32 %113 to i64
-  %invariant.gep30.i36 = getelementptr [2 x i64], ptr %107, i64 0, i64 %114
+  %invariant.gep30.i36 = getelementptr i64, ptr %107, i64 %114
   br label %122
 
 115:                                              ; preds = %115, %.lr.ph.i28
@@ -1146,7 +1146,7 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i:              ; preds = %_ZSt4fillIPfiEvT_S1
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i ], [ 0, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i ]
   %185 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv40.i
   %186 = load float, ptr %185, align 4, !tbaa !33
-  %187 = getelementptr inbounds nuw [7 x float], ptr %28, i64 0, i64 %indvars.iv40.i
+  %187 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv40.i
   store float %186, ptr %187, align 4, !tbaa !33
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %.not.us.i = icmp eq i64 %indvars.iv.next41.i, 7
@@ -1187,10 +1187,10 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i: ; preds = %_ZSt4fillIPfiEvT_S1
 
 205:                                              ; preds = %205, %.split.us.i
   %indvars.iv.i.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next.i.i, %205 ]
-  %206 = getelementptr inbounds nuw [7 x float], ptr %29, i64 0, i64 %indvars.iv.i.i
+  %206 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i.i
   %207 = load float, ptr %206, align 4, !tbaa !33
   %208 = fpext float %207 to double
-  %209 = getelementptr inbounds nuw [7 x double], ptr %204, i64 0, i64 %indvars.iv.i.i
+  %209 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv.i.i
   %210 = load double, ptr %209, align 8, !tbaa !140
   %211 = fadd double %210, %208
   store double %211, ptr %209, align 8, !tbaa !140
@@ -1209,13 +1209,13 @@ _ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPert
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i
   %indvars.iv.i = phi i64 [ 0, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i ], [ %indvars.iv.next.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i ]
-  %217 = getelementptr inbounds nuw [7 x %"class.std::vector.142"], ptr %188, i64 0, i64 %indvars.iv.i
+  %217 = getelementptr inbounds nuw %"class.std::vector.142", ptr %188, i64 %indvars.iv.i
   %218 = load ptr, ptr %217, align 8, !tbaa !139
   %219 = getelementptr double, ptr %218, i64 %.037.i
   %220 = getelementptr i8, ptr %219, i64 -8
   %221 = load double, ptr %220, align 8, !tbaa !140
   %222 = fptrunc double %221 to float
-  %223 = getelementptr inbounds nuw [7 x float], ptr %28, i64 0, i64 %indvars.iv.i
+  %223 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i
   store float %222, ptr %223, align 4, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 7

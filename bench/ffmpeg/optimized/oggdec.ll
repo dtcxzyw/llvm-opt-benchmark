@@ -1391,7 +1391,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 49:                                               ; preds = %46, %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %50 = getelementptr inbounds nuw [16 x ptr], ptr @ogg_codecs, i64 0, i64 %indvars.iv.next.i
+  %50 = getelementptr inbounds nuw ptr, ptr @ogg_codecs, i64 %indvars.iv.next.i
   %51 = load ptr, ptr %50, align 8, !tbaa !115
   %.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %.not.i, label %52, label %41, !llvm.loop !116
@@ -1431,7 +1431,7 @@ ogg_find_codec.exit:                              ; preds = %46
   %indvars.iv.next = add nsw i64 %indvars.iv320, 1
   %63 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %63, ptr %27, align 8, !tbaa !80
-  %64 = getelementptr inbounds [255 x i8], ptr %58, i64 0, i64 %indvars.iv320
+  %64 = getelementptr inbounds i8, ptr %58, i64 %indvars.iv320
   %65 = load i8, ptr %64, align 1, !tbaa !11
   %66 = zext i8 %65 to i32
   %67 = add i32 %62, %66
@@ -1667,7 +1667,7 @@ ogg_find_codec.exit:                              ; preds = %46
 
 165:                                              ; preds = %.lr.ph205, %164
   %indvars.iv236 = phi i64 [ %163, %.lr.ph205 ], [ %indvars.iv.next237, %164 ]
-  %166 = getelementptr inbounds [255 x i8], ptr %58, i64 0, i64 %indvars.iv236
+  %166 = getelementptr inbounds i8, ptr %58, i64 %indvars.iv236
   %167 = load i8, ptr %166, align 1, !tbaa !11
   %.not154 = icmp eq i8 %167, -1
   br i1 %.not154, label %164, label %168
@@ -1723,7 +1723,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
   %.0157 = phi i32 [ %59, %57 ], [ 0, %.preheader204 ]
   %19 = and i32 %.0157, 3
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = icmp eq i8 %22, 79
   br i1 %23, label %24, label %44
@@ -1732,7 +1732,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
   %25 = add nuw nsw i32 %.0157, 1
   %26 = and i32 %25, 3
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !11
   %30 = icmp eq i8 %29, 103
   br i1 %30, label %31, label %44
@@ -1740,7 +1740,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
 31:                                               ; preds = %24
   %32 = xor i32 %19, 2
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !11
   %36 = icmp eq i8 %35, 103
   br i1 %36, label %37, label %44
@@ -1749,7 +1749,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
   %38 = add nuw nsw i32 %.0157, 3
   %39 = and i32 %38, 3
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !11
   %43 = icmp eq i8 %42, 83
   br i1 %43, label %60, label %44
@@ -1840,7 +1840,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @ogg_read_page(ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0162206 = phi i32 [ 0, %.lr.ph.preheader ], [ %89, %.lr.ph ]
-  %86 = getelementptr inbounds nuw [255 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %87 = load i8, ptr %86, align 1, !tbaa !11
   %88 = zext i8 %87 to i32
   %89 = add nuw nsw i32 %.0162206, %88
@@ -2099,7 +2099,7 @@ data_packets_seen.exit:                           ; preds = %151
   %indvars.iv.next212 = add nsw i64 %indvars.iv211, 1
   %202 = trunc nsw i64 %indvars.iv.next212 to i32
   store i32 %202, ptr %176, align 8, !tbaa !80
-  %203 = getelementptr inbounds [255 x i8], ptr %185, i64 0, i64 %indvars.iv211
+  %203 = getelementptr inbounds i8, ptr %185, i64 %indvars.iv211
   %204 = load i8, ptr %203, align 1, !tbaa !11
   %205 = zext i8 %204 to i32
   %206 = load i32, ptr %198, align 8, !tbaa !74
@@ -2223,7 +2223,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @ogg_replace_stream(ptr nou
 
 18:                                               ; preds = %15, %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw [16 x ptr], ptr @ogg_codecs, i64 0, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw ptr, ptr @ogg_codecs, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8, !tbaa !115
   %.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %.not.i, label %ogg_find_codec.exit, label %.preheader, !llvm.loop !116
@@ -2398,7 +2398,7 @@ define internal fastcc range(i32 -12, 1) i32 @ogg_save(ptr noundef %0) unnamed_a
   br i1 %.not37, label %41, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds nuw [1 x %struct.ogg_stream], ptr %23, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.ogg_stream, ptr %23, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !95
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !73

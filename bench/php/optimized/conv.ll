@@ -521,7 +521,7 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly 
   %8 = and i32 %.01826, 15
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i32 %.01826, 4
-  %11 = getelementptr inbounds nuw [17 x i8], ptr @lexbor_conv_dec_to_hex.map_str, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr @lexbor_conv_dec_to_hex.map_str, i64 %9
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.017
   store i8 %12, ptr %13, align 1, !tbaa !4

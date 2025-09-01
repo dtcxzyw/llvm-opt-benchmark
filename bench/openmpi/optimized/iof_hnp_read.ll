@@ -54,7 +54,7 @@ define void @prte_iof_hnp_read_local_handler(i32 noundef %0, i16 noundef signext
 
 13:                                               ; preds = %3
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %14, i32 2
+  %15 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %14, i32 2
   %16 = load i32, ptr %15, align 4, !tbaa !26
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.thread, label %28
@@ -448,7 +448,7 @@ pmix_obj_run_destructors.exit128:                 ; preds = %.lr.ph.i125, %170
 
 209:                                              ; preds = %199
   %210 = zext nneg i32 %208 to i64
-  %211 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %210, i32 2
+  %211 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %210, i32 2
   %212 = load i32, ptr %211, align 4, !tbaa !26
   %213 = icmp sgt i32 %212, 0
   br i1 %213, label %214, label %218

@@ -111,21 +111,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_lb_aqP11pr
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = lshr i64 %1, 15
   %18 = and i64 %17, 31
-  %19 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %21 = lshr i64 %20, 12
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 39056
   %23 = and i64 %21, 255
-  %24 = getelementptr inbounds nuw [256 x i64], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = icmp eq i64 %25, %21
   br i1 %26, label %27, label %33, !prof !142
 
 27:                                               ; preds = %13
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 32912
-  %29 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %28, i64 0, i64 %23
+  %29 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %28, i64 %23
   %30 = load ptr, ptr %29, align 8, !tbaa !143
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %20
   %32 = load i8, ptr %31, align 1
@@ -170,7 +170,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %34, %37, %41
 
 47:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
   %48 = sext i8 %.sroa.0.0.copyload.i to i64
-  %49 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %46
+  %49 = getelementptr inbounds nuw i64, ptr %16, i64 %46
   store i64 %48, ptr %49, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -224,21 +224,21 @@ define noundef i64 @_Z16fast_rv64i_lb_aqP11processor_t6insn_tm(ptr noundef captu
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = lshr i64 %1, 15
   %18 = and i64 %17, 31
-  %19 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %21 = lshr i64 %20, 12
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 39056
   %23 = and i64 %21, 255
-  %24 = getelementptr inbounds nuw [256 x i64], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = icmp eq i64 %25, %21
   br i1 %26, label %27, label %33, !prof !142
 
 27:                                               ; preds = %13
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 32912
-  %29 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %28, i64 0, i64 %23
+  %29 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %28, i64 %23
   %30 = load ptr, ptr %29, align 8, !tbaa !143
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %20
   %32 = load i8, ptr %31, align 1
@@ -283,7 +283,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %34, %37, %41
 
 47:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
   %48 = sext i8 %.sroa.0.0.copyload.i to i64
-  %49 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %46
+  %49 = getelementptr inbounds nuw i64, ptr %16, i64 %46
   store i64 %48, ptr %49, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -321,21 +321,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_lb_aqP11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw [32 x i64], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %22 = lshr i64 %21, 12
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 39056
   %24 = and i64 %22, 255
-  %25 = getelementptr inbounds nuw [256 x i64], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = icmp eq i64 %26, %22
   br i1 %27, label %28, label %34, !prof !142
 
 28:                                               ; preds = %14
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 32912
-  %30 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %29, i64 0, i64 %24
+  %30 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %29, i64 %24
   %31 = load ptr, ptr %30, align 8, !tbaa !143
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %21
   %33 = load i8, ptr %32, align 1
@@ -389,7 +389,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %35, %38, %42
   br i1 %.not.i20, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %52
 
 52:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
-  %53 = getelementptr inbounds nuw [32 x i64], ptr %17, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw i64, ptr %17, i64 %49
   store i64 %46, ptr %53, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -515,21 +515,21 @@ define noundef i64 @_Z18logged_rv64i_lb_aqP11processor_t6insn_tm(ptr noundef %0,
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw [32 x i64], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %22 = lshr i64 %21, 12
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 39056
   %24 = and i64 %22, 255
-  %25 = getelementptr inbounds nuw [256 x i64], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = icmp eq i64 %26, %22
   br i1 %27, label %28, label %34, !prof !142
 
 28:                                               ; preds = %14
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 32912
-  %30 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %29, i64 0, i64 %24
+  %30 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %29, i64 %24
   %31 = load ptr, ptr %30, align 8, !tbaa !143
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %21
   %33 = load i8, ptr %32, align 1
@@ -583,7 +583,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %35, %38, %42
   br i1 %.not.i20, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %52
 
 52:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
-  %53 = getelementptr inbounds nuw [32 x i64], ptr %17, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw i64, ptr %17, i64 %49
   store i64 %46, ptr %53, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -654,21 +654,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_lb_aqP11pr
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %35 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %26
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %26
   %36 = load i64, ptr %35, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %37 = lshr i64 %36, 12
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 39056
   %39 = and i64 %37, 255
-  %40 = getelementptr inbounds nuw [256 x i64], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %37
   br i1 %42, label %43, label %49, !prof !142
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 32912
-  %45 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %44, i64 0, i64 %39
+  %45 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %44, i64 %39
   %46 = load ptr, ptr %45, align 8, !tbaa !143
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %36
   %48 = load i8, ptr %47, align 1
@@ -711,7 +711,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %50, %53, %57
 
 61:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
   %62 = sext i8 %.sroa.0.0.copyload.i to i64
-  %63 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %15
+  %63 = getelementptr inbounds nuw i64, ptr %34, i64 %15
   store i64 %62, ptr %63, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -784,21 +784,21 @@ define noundef i64 @_Z16fast_rv64e_lb_aqP11processor_t6insn_tm(ptr noundef captu
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %35 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %26
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %26
   %36 = load i64, ptr %35, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %37 = lshr i64 %36, 12
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 39056
   %39 = and i64 %37, 255
-  %40 = getelementptr inbounds nuw [256 x i64], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %37
   br i1 %42, label %43, label %49, !prof !142
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 32912
-  %45 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %44, i64 0, i64 %39
+  %45 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %44, i64 %39
   %46 = load ptr, ptr %45, align 8, !tbaa !143
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %36
   %48 = load i8, ptr %47, align 1
@@ -841,7 +841,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %50, %53, %57
 
 61:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
   %62 = sext i8 %.sroa.0.0.copyload.i to i64
-  %63 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %15
+  %63 = getelementptr inbounds nuw i64, ptr %34, i64 %15
   store i64 %62, ptr %63, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -913,21 +913,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_lb_aqP11
 
 34:                                               ; preds = %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %36 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %27
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %27
   %37 = load i64, ptr %36, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %38 = lshr i64 %37, 12
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 39056
   %40 = and i64 %38, 255
-  %41 = getelementptr inbounds nuw [256 x i64], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !3
   %43 = icmp eq i64 %42, %38
   br i1 %43, label %44, label %50, !prof !142
 
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 32912
-  %46 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %45, i64 0, i64 %40
+  %46 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %45, i64 %40
   %47 = load ptr, ptr %46, align 8, !tbaa !143
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %37
   %49 = load i8, ptr %48, align 1
@@ -979,7 +979,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %51, %54, %58
   br i1 %.not.i26, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %66
 
 66:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %16
+  %67 = getelementptr inbounds nuw i64, ptr %35, i64 %16
   store i64 %62, ptr %67, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1053,21 +1053,21 @@ define noundef i64 @_Z18logged_rv64e_lb_aqP11processor_t6insn_tm(ptr noundef %0,
 
 34:                                               ; preds = %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %36 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %27
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %27
   %37 = load i64, ptr %36, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !140
   %38 = lshr i64 %37, 12
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 39056
   %40 = and i64 %38, 255
-  %41 = getelementptr inbounds nuw [256 x i64], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !3
   %43 = icmp eq i64 %42, %38
   br i1 %43, label %44, label %50, !prof !142
 
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 32912
-  %46 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %45, i64 0, i64 %40
+  %46 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %45, i64 %40
   %47 = load ptr, ptr %46, align 8, !tbaa !143
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %37
   %49 = load i8, ptr %48, align 1
@@ -1119,7 +1119,7 @@ _ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit:        ; preds = %51, %54, %58
   br i1 %.not.i26, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %66
 
 66:                                               ; preds = %_ZN5mmu_t4loadIaEET_m13xlate_flags_t.exit
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %16
+  %67 = getelementptr inbounds nuw i64, ptr %35, i64 %16
   store i64 %62, ptr %67, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

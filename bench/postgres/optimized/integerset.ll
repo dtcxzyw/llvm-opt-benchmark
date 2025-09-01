@@ -168,7 +168,7 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
 55:                                               ; preds = %54
   %56 = add i32 %.053.i.i.ph, 1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [17 x %struct.simple8b_mode], ptr @simple8b_modes, i64 0, i64 %57
+  %58 = getelementptr inbounds %struct.simple8b_mode, ptr @simple8b_modes, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
@@ -271,7 +271,7 @@ tailrecurse.i.i:                                  ; preds = %133, %97
 
 tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   %.phi.trans.insert.i.i = sext i32 %.tr47.i.i to i64
-  %.phi.trans.insert56.i.i = getelementptr inbounds [11 x ptr], ptr %25, i64 0, i64 %.phi.trans.insert.i.i
+  %.phi.trans.insert56.i.i = getelementptr inbounds ptr, ptr %25, i64 %.phi.trans.insert.i.i
   %.pre.i.i = load ptr, ptr %.phi.trans.insert56.i.i, align 8
   br label %128
 
@@ -311,7 +311,7 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   store i16 1, ptr %122, align 2
   store ptr %118, ptr %42, align 8
   %126 = sext i32 %.tr47.i.i to i64
-  %127 = getelementptr inbounds [11 x ptr], ptr %25, i64 0, i64 %126
+  %127 = getelementptr inbounds ptr, ptr %25, i64 %126
   store ptr %118, ptr %127, align 8
   br label %128
 
@@ -324,7 +324,7 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   br i1 %132, label %intset_update_upper.exit.i, label %133
 
 133:                                              ; preds = %128
-  %134 = getelementptr inbounds [11 x ptr], ptr %25, i64 0, i64 %.pre-phi.i.i
+  %134 = getelementptr inbounds ptr, ptr %25, i64 %.pre-phi.i.i
   %135 = load ptr, ptr %0, align 8
   %136 = tail call ptr @MemoryContextAlloc(ptr noundef %135, i64 noundef 1032) #10
   %137 = tail call i64 @GetMemoryChunkSpace(ptr noundef %136) #10
@@ -347,10 +347,10 @@ intset_update_upper.exit.i:                       ; preds = %128
   %145 = getelementptr inbounds nuw i8, ptr %129, i64 2
   %146 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %147 = zext nneg i16 %131 to i64
-  %148 = getelementptr inbounds nuw [64 x i64], ptr %146, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i64, ptr %146, i64 %147
   store i64 %46, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %129, i64 520
-  %150 = getelementptr inbounds nuw [64 x ptr], ptr %149, i64 0, i64 %147
+  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %147
   store ptr %.tr48.i.i, ptr %150, align 8
   %151 = add nuw nsw i16 %131, 1
   store i16 %151, ptr %145, align 2
@@ -365,7 +365,7 @@ intset_update_upper.exit.i:                       ; preds = %128
   %156 = add i16 %153, 1
   store i16 %156, ptr %155, align 2
   %157 = zext i16 %153 to i64
-  %158 = getelementptr inbounds nuw [64 x %struct.leaf_item], ptr %154, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw %struct.leaf_item, ptr %154, i64 %157
   store i64 %46, ptr %158, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %.056.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8
@@ -381,7 +381,7 @@ intset_update_upper.exit.i:                       ; preds = %128
   br i1 %164, label %165, label %intset_flush_buffered_values.exit
 
 165:                                              ; preds = %._crit_edge.i
-  %166 = getelementptr inbounds [482 x i64], ptr %23, i64 0, i64 %160
+  %166 = getelementptr inbounds i64, ptr %23, i64 %160
   %167 = sub i32 %163, %159
   %168 = sext i32 %167 to i64
   %169 = shl nsw i64 %168, 3
@@ -399,7 +399,7 @@ intset_flush_buffered_values.exit:                ; preds = %._crit_edge.i, %165
   %173 = phi i32 [ %171, %intset_flush_buffered_values.exit ], [ %20, %18 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %175 = sext i32 %173 to i64
-  %176 = getelementptr inbounds [482 x i64], ptr %174, i64 0, i64 %175
+  %176 = getelementptr inbounds i64, ptr %174, i64 %175
   store i64 %1, ptr %176, align 8
   %177 = load i32, ptr %19, align 8
   %178 = add i32 %177, 1
@@ -454,7 +454,7 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
 
 18:                                               ; preds = %intset_binsrch_uint64.exit
   %19 = sext i32 %spec.select21.i to i64
-  %20 = getelementptr inbounds [482 x i64], ptr %7, i64 0, i64 %19
+  %20 = getelementptr inbounds i64, ptr %7, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, %1
   br label %.critedge
@@ -509,7 +509,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %43 = getelementptr inbounds nuw i8, ptr %.03766, i64 520
   %44 = add i32 %spec.select19.us.i, -1
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [64 x ptr], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.039 = add nsw i32 %.03967, -1
   %48 = icmp sgt i32 %.03967, 1
@@ -550,7 +550,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
 62:                                               ; preds = %intset_binsrch_leaf.exit
   %63 = add i32 %.1.i, -1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [64 x %struct.leaf_item], ptr %49, i64 0, i64 %64
+  %65 = getelementptr inbounds %struct.leaf_item, ptr %49, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, %1
   br i1 %67, label %.critedge, label %68
@@ -559,7 +559,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %70 = load i64, ptr %69, align 8
   %71 = lshr i64 %70, 60
-  %72 = getelementptr inbounds nuw [17 x %struct.simple8b_mode], ptr @simple8b_modes, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %struct.simple8b_mode, ptr @simple8b_modes, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
@@ -686,13 +686,13 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr nou
   %31 = add nsw i32 %24, 1
   store i32 %31, ptr %7, align 8
   %32 = sext i32 %24 to i64
-  %33 = getelementptr inbounds [64 x %struct.leaf_item], ptr %30, i64 0, i64 %32
+  %33 = getelementptr inbounds %struct.leaf_item, ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8
   store i64 %34, ptr %8, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, 60
-  %38 = getelementptr inbounds nuw [17 x %struct.simple8b_mode], ptr @simple8b_modes, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %struct.simple8b_mode, ptr @simple8b_modes, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = load i8, ptr %38, align 2

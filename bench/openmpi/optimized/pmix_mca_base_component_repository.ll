@@ -682,7 +682,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %26 = phi i8 [ %29, %.lr.ph ], [ %25, %.preheader ]
-  %27 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %26, ptr %27, align 1, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.next
@@ -692,7 +692,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %30 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %.lcssa
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.lcssa
   store i8 0, ptr %30, align 1, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.lcssa
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1

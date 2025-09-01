@@ -66,7 +66,7 @@ define dso_local void @emit_asm(ptr noundef readonly captures(none) %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.emit_asm, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.emit_asm, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = load ptr, ptr %2, align 8, !tbaa !4
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull %switch.load, i32 noundef 4) #4
@@ -174,7 +174,7 @@ emit_asm_label.exit68:                            ; preds = %42, %51, %55, %62
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %emit_asm_reloc.exit
   %indvars.iv = phi i64 [ %67, %.lr.ph.preheader ], [ %indvars.iv.next, %emit_asm_reloc.exit ]
   %.06281 = phi i32 [ %46, %.lr.ph.preheader ], [ %199, %emit_asm_reloc.exit ]
-  %68 = getelementptr inbounds [200 x %struct.BuildReloc], ptr %39, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds %struct.BuildReloc, ptr %39, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !26
   %.not66 = icmp sgt i32 %69, %48
   br i1 %.not66, label %.critedge.loopexit, label %70
@@ -240,7 +240,7 @@ emit_asm_label.exit68:                            ; preds = %42, %51, %55, %62
 104:                                              ; preds = %98
   %105 = and i8 %91, 127
   %106 = zext nneg i8 %105 to i64
-  %107 = getelementptr inbounds nuw [16 x ptr], ptr @jccnames, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw ptr, ptr @jccnames, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !32
   %109 = add nsw i32 %71, -2
   br label %113

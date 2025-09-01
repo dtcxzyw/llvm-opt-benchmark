@@ -2403,7 +2403,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt10PointLight3PhiENS_18Sa
 
 13:                                               ; preds = %26, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %26 ]
-  %14 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %15 = load float, ptr %14, align 4, !tbaa !77
   %16 = tail call noundef i64 @lroundf(float noundef %15) #38, !tbaa !86
   %17 = load i32, ptr %8, align 8, !tbaa !72
@@ -2424,7 +2424,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt10PointLight3PhiENS_18Sa
 
 26:                                               ; preds = %23, %21, %13
   %.sink.i = phi float [ %25, %23 ], [ 0.000000e+00, %21 ], [ 0.000000e+00, %13 ]
-  %27 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   store float %.sink.i, ptr %27, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -2444,7 +2444,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 29:                                               ; preds = %29, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %29 ]
-  %30 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i
   %31 = load float, ptr %30, align 4, !tbaa !77
   %32 = fmul float %28, %31
   store float %32, ptr %30, align 4, !tbaa !77
@@ -2643,7 +2643,7 @@ define dso_local void @_ZNK4pbrt10PointLight8SampleLeENS_6Point2IfEES2_RNS_18Sam
 
 54:                                               ; preds = %67, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %67 ]
-  %55 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %56 = load float, ptr %55, align 4, !tbaa !77
   %57 = tail call noundef i64 @lroundf(float noundef %56) #38, !tbaa !86
   %58 = load i32, ptr %49, align 8, !tbaa !72
@@ -2664,7 +2664,7 @@ define dso_local void @_ZNK4pbrt10PointLight8SampleLeENS_6Point2IfEES2_RNS_18Sam
 
 67:                                               ; preds = %64, %62, %54
   %.sink.i24 = phi float [ %66, %64 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %54 ]
-  %68 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   store float %.sink.i24, ptr %68, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -2683,7 +2683,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 69:                                               ; preds = %69, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %69 ]
-  %70 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   %71 = load float, ptr %70, align 4, !tbaa !77
   %72 = fmul float %47, %71
   store float %72, ptr %70, align 4, !tbaa !77
@@ -3199,7 +3199,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt12DistantLight3PhiENS_18
 
 15:                                               ; preds = %28, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %28 ]
-  %16 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %17 = load float, ptr %16, align 4, !tbaa !77
   %18 = tail call noundef i64 @lroundf(float noundef %17) #38, !tbaa !86
   %19 = load i32, ptr %10, align 8, !tbaa !72
@@ -3220,7 +3220,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt12DistantLight3PhiENS_18
 
 28:                                               ; preds = %25, %23, %15
   %.sink.i = phi float [ %27, %25 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %15 ]
-  %29 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
   store float %.sink.i, ptr %29, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -3239,7 +3239,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 30:                                               ; preds = %30, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %30 ]
-  %31 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i
   %32 = load float, ptr %31, align 4, !tbaa !77
   %33 = fmul float %8, %32
   store float %33, ptr %31, align 4, !tbaa !77
@@ -3259,7 +3259,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %30
 
 34:                                               ; preds = %34, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i1 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i2, %34 ]
-  %35 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i1
+  %35 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i1
   %36 = load float, ptr %35, align 4, !tbaa !77
   %37 = fmul float %36, 0x400921FB60000000
   store float %37, ptr %35, align 4, !tbaa !77
@@ -3282,7 +3282,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %34
 
 41:                                               ; preds = %41, %_ZNK4pbrt15SampledSpectrummlEf.exit
   %indvars.iv.i9 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit ], [ %indvars.iv.next.i10, %41 ]
-  %42 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i9
+  %42 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i9
   %43 = load float, ptr %42, align 4, !tbaa !77
   %44 = fmul float %40, %43
   store float %44, ptr %42, align 4, !tbaa !77
@@ -3384,7 +3384,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %6, %44
 
 65:                                               ; preds = %78, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %indvars.iv.next.i, %78 ]
-  %66 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %67 = load float, ptr %66, align 4, !tbaa !77
   %68 = tail call noundef i64 @lroundf(float noundef %67) #38, !tbaa !86
   %69 = load i32, ptr %60, align 8, !tbaa !72
@@ -3405,7 +3405,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %6, %44
 
 78:                                               ; preds = %75, %73, %65
   %.sink.i = phi float [ %77, %75 ], [ 0.000000e+00, %73 ], [ 0.000000e+00, %65 ]
-  %79 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   store float %.sink.i, ptr %79, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -3424,7 +3424,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 80:                                               ; preds = %80, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %80 ]
-  %81 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   %82 = load float, ptr %81, align 4, !tbaa !77
   %83 = fmul float %58, %82
   store float %83, ptr %81, align 4, !tbaa !77
@@ -3892,7 +3892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
 
 .preheader.i.i.i:                                 ; preds = %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
   %indvars.iv12.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %indvars.iv.next13.i.i.i, %93 ]
-  %92 = getelementptr inbounds nuw [4 x [4 x float]], ptr %91, i64 0, i64 %indvars.iv12.i.i.i
+  %92 = getelementptr inbounds nuw [4 x float], ptr %91, i64 %indvars.iv12.i.i.i
   br label %94
 
 93:                                               ; preds = %94
@@ -3904,7 +3904,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %94 ]
   %95 = icmp eq i64 %indvars.iv12.i.i.i, %indvars.iv.i.i.i
   %96 = uitofp i1 %95 to float
-  %97 = getelementptr inbounds nuw [4 x float], ptr %92, i64 0, i64 %indvars.iv.i.i.i
+  %97 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i.i.i
   store float %96, ptr %97, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -3924,7 +3924,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i:        ; preds = %93
 
 .preheader.i2.i:                                  ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i, %102
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %102 ], [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i ]
-  %101 = getelementptr inbounds nuw [4 x [4 x float]], ptr %91, i64 0, i64 %indvars.iv21.i.i
+  %101 = getelementptr inbounds nuw [4 x float], ptr %91, i64 %indvars.iv21.i.i
   br label %103
 
 102:                                              ; preds = %103
@@ -4264,7 +4264,7 @@ define dso_local void @_ZN4pbrt15ProjectionLightC2ENS_9TransformENS_15MediumInte
 
 .preheader.i.i:                                   ; preds = %87, %8
   %indvars.iv12.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next13.i.i, %87 ]
-  %86 = getelementptr inbounds nuw [4 x [4 x float]], ptr %85, i64 0, i64 %indvars.iv12.i.i
+  %86 = getelementptr inbounds nuw [4 x float], ptr %85, i64 %indvars.iv12.i.i
   br label %88
 
 87:                                               ; preds = %88
@@ -4276,7 +4276,7 @@ define dso_local void @_ZN4pbrt15ProjectionLightC2ENS_9TransformENS_15MediumInte
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %88 ]
   %89 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %90 = uitofp i1 %89 to float
-  %91 = getelementptr inbounds nuw [4 x float], ptr %86, i64 0, i64 %indvars.iv.i.i
+  %91 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i.i
   store float %90, ptr %91, align 4, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -4288,7 +4288,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %87
 
 .preheader.i1.i:                                  ; preds = %94, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv12.i2.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ %indvars.iv.next13.i6.i, %94 ]
-  %93 = getelementptr inbounds nuw [4 x [4 x float]], ptr %92, i64 0, i64 %indvars.iv12.i2.i
+  %93 = getelementptr inbounds nuw [4 x float], ptr %92, i64 %indvars.iv12.i2.i
   br label %95
 
 94:                                               ; preds = %95
@@ -4300,7 +4300,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %87
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %95 ]
   %96 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %97 = uitofp i1 %96 to float
-  %98 = getelementptr inbounds nuw [4 x float], ptr %93, i64 0, i64 %indvars.iv.i3.i
+  %98 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i3.i
   store float %97, ptr %98, align 4, !tbaa !77
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -4312,7 +4312,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %94
 
 .preheader.i.i55:                                 ; preds = %101, %_ZN4pbrt9TransformC2Ev.exit
   %indvars.iv12.i.i56 = phi i64 [ 0, %_ZN4pbrt9TransformC2Ev.exit ], [ %indvars.iv.next13.i.i60, %101 ]
-  %100 = getelementptr inbounds nuw [4 x [4 x float]], ptr %99, i64 0, i64 %indvars.iv12.i.i56
+  %100 = getelementptr inbounds nuw [4 x float], ptr %99, i64 %indvars.iv12.i.i56
   br label %102
 
 101:                                              ; preds = %102
@@ -4324,7 +4324,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %94
   %indvars.iv.i.i57 = phi i64 [ 0, %.preheader.i.i55 ], [ %indvars.iv.next.i.i58, %102 ]
   %103 = icmp eq i64 %indvars.iv12.i.i56, %indvars.iv.i.i57
   %104 = uitofp i1 %103 to float
-  %105 = getelementptr inbounds nuw [4 x float], ptr %100, i64 0, i64 %indvars.iv.i.i57
+  %105 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv.i.i57
   store float %104, ptr %105, align 4, !tbaa !77
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, 4
@@ -4336,7 +4336,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i62:        ; preds = %101
 
 .preheader.i1.i63:                                ; preds = %108, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i62
   %indvars.iv12.i2.i64 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i62 ], [ %indvars.iv.next13.i6.i68, %108 ]
-  %107 = getelementptr inbounds nuw [4 x [4 x float]], ptr %106, i64 0, i64 %indvars.iv12.i2.i64
+  %107 = getelementptr inbounds nuw [4 x float], ptr %106, i64 %indvars.iv12.i2.i64
   br label %109
 
 108:                                              ; preds = %109
@@ -4348,7 +4348,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i62:        ; preds = %101
   %indvars.iv.i3.i65 = phi i64 [ 0, %.preheader.i1.i63 ], [ %indvars.iv.next.i4.i66, %109 ]
   %110 = icmp eq i64 %indvars.iv12.i2.i64, %indvars.iv.i3.i65
   %111 = uitofp i1 %110 to float
-  %112 = getelementptr inbounds nuw [4 x float], ptr %107, i64 0, i64 %indvars.iv.i3.i65
+  %112 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv.i3.i65
   store float %111, ptr %112, align 4, !tbaa !77
   %indvars.iv.next.i4.i66 = add nuw nsw i64 %indvars.iv.i3.i65, 1
   %exitcond.not.i5.i67 = icmp eq i64 %indvars.iv.next.i4.i66, 4
@@ -5581,7 +5581,7 @@ define dso_local void @_ZNK4pbrt15ProjectionLight8SampleLiENS_18LightSampleConte
 
 123:                                              ; preds = %123, %6
   %indvars.iv.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i, %123 ]
-  %124 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %124 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   %125 = load float, ptr %124, align 4, !tbaa !77
   %126 = fdiv float %125, %82
   store float %126, ptr %124, align 4, !tbaa !77
@@ -5600,7 +5600,7 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit:              ; preds = %123
 
 128:                                              ; preds = %128, %_ZNK4pbrt15SampledSpectrumdvEf.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrumdvEf.exit ], [ %indvars.iv.next.i, %128 ]
-  %129 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %130 = load float, ptr %129, align 4, !tbaa !77
   %131 = fcmp une float %130, 0.000000e+00
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5795,7 +5795,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt15ProjectionLight1IENS_7
 
 91:                                               ; preds = %91, %80
   %indvars.iv.i.i50 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i51, %91 ]
-  %92 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i50
+  %92 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i50
   %93 = load float, ptr %92, align 4, !tbaa !77
   %94 = fmul float %87, %93
   store float %94, ptr %92, align 4, !tbaa !77
@@ -6006,7 +6006,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIllumi
 
 21:                                               ; preds = %34, %16
   %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %34 ]
-  %22 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4, !tbaa !77
   %24 = tail call noundef i64 @lroundf(float noundef %23) #38, !tbaa !86
   %25 = load i32, ptr %7, align 8, !tbaa !72
@@ -6027,7 +6027,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIllumi
 
 34:                                               ; preds = %31, %29, %21
   %.sink.i = phi float [ %33, %31 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %21 ]
-  %35 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   store float %.sink.i, ptr %35, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -6045,9 +6045,9 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 37:                                               ; preds = %37, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i6 = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i7, %37 ]
-  %38 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i6
+  %38 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i6
   %39 = load float, ptr %38, align 4, !tbaa !77
-  %40 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i6
+  %40 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i6
   %41 = load float, ptr %40, align 4
   %42 = fmul float %39, %41
   store float %42, ptr %40, align 4
@@ -6064,7 +6064,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %37
 
 43:                                               ; preds = %8, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit ]
-  %44 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !77
   %46 = tail call noundef float @llvm.fma.f32(float %45, float %15, float %14)
   %47 = tail call noundef float @llvm.fma.f32(float %45, float %46, float %12)
@@ -6089,7 +6089,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %37
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit:         ; preds = %50, %53
   %.0.i.i = phi float [ %52, %50 ], [ %58, %53 ]
   %59 = fmul float %9, %.0.i.i
-  %60 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -6196,7 +6196,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit._crit_edge:    ; preds = %_ZN4pbrt15SampledSp
 
 55:                                               ; preds = %55, %_ZN4pbrt15SampledSpectrumC2Ef.exit._crit_edge
   %indvars.iv.i.i60 = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit._crit_edge ], [ %indvars.iv.next.i.i61, %55 ]
-  %56 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i60
+  %56 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i60
   %57 = load float, ptr %56, align 4, !tbaa !77
   %58 = fmul float %54, %57
   store float %58, ptr %56, align 4, !tbaa !77
@@ -6220,7 +6220,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %55
 
 61:                                               ; preds = %61, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i65 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i66, %61 ]
-  %62 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i65
+  %62 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i65
   %63 = load float, ptr %62, align 4, !tbaa !77
   %64 = fdiv float %63, %60
   store float %64, ptr %62, align 4, !tbaa !77
@@ -6374,7 +6374,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %_ZN4pbrt15SampledSp
 
 154:                                              ; preds = %167, %149
   %indvars.iv.i.i82 = phi i64 [ 0, %149 ], [ %indvars.iv.next.i.i83, %167 ]
-  %155 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i82
+  %155 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i82
   %156 = load float, ptr %155, align 4, !tbaa !77
   %157 = call noundef i64 @lroundf(float noundef %156) #38, !tbaa !86
   %158 = load i32, ptr %143, align 8, !tbaa !72
@@ -6395,7 +6395,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %_ZN4pbrt15SampledSp
 
 167:                                              ; preds = %164, %162, %154
   %.sink.i.i = phi float [ %166, %164 ], [ 0.000000e+00, %162 ], [ 0.000000e+00, %154 ]
-  %168 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i82
+  %168 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i82
   store float %.sink.i.i, ptr %168, align 4, !tbaa !77
   %indvars.iv.next.i.i83 = add nuw nsw i64 %indvars.iv.i.i82, 1
   %exitcond.not.i.i84 = icmp eq i64 %indvars.iv.next.i.i83, 4
@@ -6411,9 +6411,9 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i: ; pr
 
 169:                                              ; preds = %169, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i
   %indvars.iv.i.i6.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i ], [ %indvars.iv.next.i.i7.i, %169 ]
-  %170 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i6.i
+  %170 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i6.i
   %171 = load float, ptr %170, align 4, !tbaa !77
-  %172 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i6.i
+  %172 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i6.i
   %173 = load float, ptr %172, align 4
   %174 = fmul float %171, %173
   store float %174, ptr %172, align 4
@@ -6429,7 +6429,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i:        ; preds = %169
 
 175:                                              ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i, %144
   %indvars.iv.i = phi i64 [ 0, %144 ], [ %indvars.iv.next.i, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i ]
-  %176 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %177 = load float, ptr %176, align 4, !tbaa !77
   %178 = call noundef float @llvm.fma.f32(float %177, float %148, float %147)
   %179 = call noundef float @llvm.fma.f32(float %177, float %178, float %146)
@@ -6454,7 +6454,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i:        ; preds = %169
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i:       ; preds = %185, %182
   %.0.i.i.i = phi float [ %184, %182 ], [ %190, %185 ]
   %191 = fmul float %145, %.0.i.i.i
-  %192 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %192 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
   store float %191, ptr %192, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -6471,7 +6471,7 @@ _ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds
 
 193:                                              ; preds = %193, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i90 = phi i64 [ 0, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i91, %193 ]
-  %194 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i90
+  %194 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i90
   %195 = load float, ptr %194, align 4, !tbaa !77
   %196 = fmul float %137, %195
   store float %196, ptr %194, align 4, !tbaa !77
@@ -6489,9 +6489,9 @@ _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %193
 
 197:                                              ; preds = %197, %_ZNK4pbrt15SampledSpectrummlEf.exit
   %indvars.iv.i95 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit ], [ %indvars.iv.next.i96, %197 ]
-  %198 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv.i95
+  %198 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i95
   %199 = load float, ptr %198, align 4, !tbaa !77
-  %200 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i95
+  %200 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i95
   %201 = load float, ptr %200, align 4, !tbaa !77
   %202 = fadd float %199, %201
   store float %202, ptr %200, align 4, !tbaa !77
@@ -7828,7 +7828,7 @@ define dso_local void @_ZNK4pbrt15ProjectionLight8SampleLeENS_6Point2IfEES2_RNS_
 
 117:                                              ; preds = %117, %109
   %indvars.iv.i.i = phi i64 [ 0, %109 ], [ %indvars.iv.next.i.i, %117 ]
-  %118 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i.i
+  %118 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i
   %119 = load float, ptr %118, align 4, !tbaa !77
   %120 = fmul float %111, %119
   store float %120, ptr %118, align 4, !tbaa !77
@@ -9098,7 +9098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234: ; preds = %_Z
 
 .preheader.i.i:                                   ; preds = %251, %249
   %indvars.iv12.i.i = phi i64 [ 0, %249 ], [ %indvars.iv.next13.i.i, %251 ]
-  %250 = getelementptr inbounds nuw [4 x [4 x float]], ptr %25, i64 0, i64 %indvars.iv12.i.i
+  %250 = getelementptr inbounds nuw [4 x float], ptr %25, i64 %indvars.iv12.i.i
   br label %252
 
 251:                                              ; preds = %252
@@ -9110,7 +9110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234: ; preds = %_Z
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %252 ]
   %253 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %254 = uitofp i1 %253 to float
-  %255 = getelementptr inbounds nuw [4 x float], ptr %250, i64 0, i64 %indvars.iv.i.i
+  %255 = getelementptr inbounds nuw float, ptr %250, i64 %indvars.iv.i.i
   store float %254, ptr %255, align 4, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -9122,7 +9122,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %251
 
 .preheader.i1.i:                                  ; preds = %258, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv12.i2.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ %indvars.iv.next13.i6.i, %258 ]
-  %257 = getelementptr inbounds nuw [4 x [4 x float]], ptr %256, i64 0, i64 %indvars.iv12.i2.i
+  %257 = getelementptr inbounds nuw [4 x float], ptr %256, i64 %indvars.iv12.i2.i
   br label %259
 
 258:                                              ; preds = %259
@@ -9134,7 +9134,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %251
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %259 ]
   %260 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %261 = uitofp i1 %260 to float
-  %262 = getelementptr inbounds nuw [4 x float], ptr %257, i64 0, i64 %indvars.iv.i3.i
+  %262 = getelementptr inbounds nuw float, ptr %257, i64 %indvars.iv.i3.i
   store float %261, ptr %262, align 4, !tbaa !77
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -9146,7 +9146,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %258
 
 .preheader.i.i238:                                ; preds = %264, %_ZN4pbrt9TransformC2Ev.exit
   %indvars.iv12.i.i239 = phi i64 [ 0, %_ZN4pbrt9TransformC2Ev.exit ], [ %indvars.iv.next13.i.i243, %264 ]
-  %263 = getelementptr inbounds nuw [4 x [4 x float]], ptr %26, i64 0, i64 %indvars.iv12.i.i239
+  %263 = getelementptr inbounds nuw [4 x float], ptr %26, i64 %indvars.iv12.i.i239
   br label %265
 
 264:                                              ; preds = %265
@@ -9158,7 +9158,7 @@ _ZN4pbrt9TransformC2Ev.exit:                      ; preds = %258
   %indvars.iv.i.i240 = phi i64 [ 0, %.preheader.i.i238 ], [ %indvars.iv.next.i.i241, %265 ]
   %266 = icmp eq i64 %indvars.iv12.i.i239, %indvars.iv.i.i240
   %267 = uitofp i1 %266 to float
-  %268 = getelementptr inbounds nuw [4 x float], ptr %263, i64 0, i64 %indvars.iv.i.i240
+  %268 = getelementptr inbounds nuw float, ptr %263, i64 %indvars.iv.i.i240
   store float %267, ptr %268, align 4, !tbaa !77
   %indvars.iv.next.i.i241 = add nuw nsw i64 %indvars.iv.i.i240, 1
   %exitcond.not.i.i242 = icmp eq i64 %indvars.iv.next.i.i241, 4
@@ -9170,7 +9170,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i245:       ; preds = %264
 
 .preheader.i1.i246:                               ; preds = %271, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i245
   %indvars.iv12.i2.i247 = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i245 ], [ %indvars.iv.next13.i6.i251, %271 ]
-  %270 = getelementptr inbounds nuw [4 x [4 x float]], ptr %269, i64 0, i64 %indvars.iv12.i2.i247
+  %270 = getelementptr inbounds nuw [4 x float], ptr %269, i64 %indvars.iv12.i2.i247
   br label %272
 
 271:                                              ; preds = %272
@@ -9182,7 +9182,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i245:       ; preds = %264
   %indvars.iv.i3.i248 = phi i64 [ 0, %.preheader.i1.i246 ], [ %indvars.iv.next.i4.i249, %272 ]
   %273 = icmp eq i64 %indvars.iv12.i2.i247, %indvars.iv.i3.i248
   %274 = uitofp i1 %273 to float
-  %275 = getelementptr inbounds nuw [4 x float], ptr %270, i64 0, i64 %indvars.iv.i3.i248
+  %275 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv.i3.i248
   store float %274, ptr %275, align 4, !tbaa !77
   %indvars.iv.next.i4.i249 = add nuw nsw i64 %indvars.iv.i3.i248, 1
   %exitcond.not.i5.i250 = icmp eq i64 %indvars.iv.next.i4.i249, 4
@@ -10911,7 +10911,7 @@ define dso_local void @_ZNK4pbrt16GoniometricLight8SampleLiENS_18LightSampleCont
 
 122:                                              ; preds = %122, %6
   %indvars.iv.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i, %122 ]
-  %123 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %123 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   %124 = load float, ptr %123, align 4, !tbaa !77
   %125 = fdiv float %124, %81
   store float %125, ptr %123, align 4, !tbaa !77
@@ -10978,7 +10978,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt16Goniometr
 
 17:                                               ; preds = %30, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %30 ]
-  %18 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !77
   %20 = tail call noundef i64 @lroundf(float noundef %19) #38, !tbaa !86
   %21 = load i32, ptr %12, align 8, !tbaa !72
@@ -10999,7 +10999,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt16Goniometr
 
 30:                                               ; preds = %27, %25, %17
   %.sink.i = phi float [ %29, %27 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %17 ]
-  %31 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   store float %.sink.i, ptr %31, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -11018,7 +11018,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 32:                                               ; preds = %32, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %32 ]
-  %33 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
   %34 = load float, ptr %33, align 4, !tbaa !77
   %35 = fmul float %10, %34
   store float %35, ptr %33, align 4, !tbaa !77
@@ -11056,7 +11056,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %32
 
 48:                                               ; preds = %48, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i12 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i13, %48 ]
-  %49 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i12
+  %49 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i12
   %50 = load float, ptr %49, align 4, !tbaa !77
   %51 = fmul float %47, %50
   store float %51, ptr %49, align 4, !tbaa !77
@@ -11131,7 +11131,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt16GoniometricLight3PhiEN
 
 29:                                               ; preds = %42, %._crit_edge120
   %indvars.iv.i = phi i64 [ 0, %._crit_edge120 ], [ %indvars.iv.next.i, %42 ]
-  %30 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %31 = load float, ptr %30, align 4, !tbaa !77
   %32 = call noundef i64 @lroundf(float noundef %31) #38, !tbaa !86
   %33 = load i32, ptr %24, align 8, !tbaa !72
@@ -11152,7 +11152,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt16GoniometricLight3PhiEN
 
 42:                                               ; preds = %39, %37, %29
   %.sink.i = phi float [ %41, %39 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %29 ]
-  %43 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   store float %.sink.i, ptr %43, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -11171,7 +11171,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 44:                                               ; preds = %44, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %44 ]
-  %45 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i
   %46 = load float, ptr %45, align 4, !tbaa !77
   %47 = fmul float %22, %46
   store float %47, ptr %45, align 4, !tbaa !77
@@ -11191,7 +11191,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %44
 
 48:                                               ; preds = %48, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i16 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i17, %48 ]
-  %49 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i16
+  %49 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i16
   %50 = load float, ptr %49, align 4, !tbaa !77
   %51 = fmul float %50, 4.000000e+00
   store float %51, ptr %49, align 4, !tbaa !77
@@ -11211,7 +11211,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %48
 
 52:                                               ; preds = %52, %_ZNK4pbrt15SampledSpectrummlEf.exit
   %indvars.iv.i24 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit ], [ %indvars.iv.next.i25, %52 ]
-  %53 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i24
+  %53 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i24
   %54 = load float, ptr %53, align 4, !tbaa !77
   %55 = fmul float %54, 0x400921FB60000000
   store float %55, ptr %53, align 4, !tbaa !77
@@ -11231,7 +11231,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit32:            ; preds = %52
 
 56:                                               ; preds = %56, %_ZNK4pbrt15SampledSpectrummlEf.exit32
   %indvars.iv.i33 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit32 ], [ %indvars.iv.next.i34, %56 ]
-  %57 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i33
+  %57 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i33
   %58 = load float, ptr %57, align 4, !tbaa !77
   %59 = fmul float %.0.lcssa, %58
   store float %59, ptr %57, align 4, !tbaa !77
@@ -11257,7 +11257,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit41:            ; preds = %56
 
 62:                                               ; preds = %62, %_ZNK4pbrt15SampledSpectrummlEf.exit41
   %indvars.iv.i.i44 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit41 ], [ %indvars.iv.next.i.i45, %62 ]
-  %63 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i44
+  %63 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i44
   %64 = load float, ptr %63, align 4, !tbaa !77
   %65 = fdiv float %64, %61
   store float %65, ptr %63, align 4, !tbaa !77
@@ -13644,7 +13644,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %516
 
 .preheader.i.i.i:                                 ; preds = %534, %531
   %indvars.iv12.i.i.i = phi i64 [ 0, %531 ], [ %indvars.iv.next13.i.i.i, %534 ]
-  %533 = getelementptr inbounds nuw [4 x [4 x float]], ptr %532, i64 0, i64 %indvars.iv12.i.i.i
+  %533 = getelementptr inbounds nuw [4 x float], ptr %532, i64 %indvars.iv12.i.i.i
   br label %535
 
 534:                                              ; preds = %535
@@ -13656,7 +13656,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %516
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %535 ]
   %536 = icmp eq i64 %indvars.iv12.i.i.i, %indvars.iv.i.i.i
   %537 = uitofp i1 %536 to float
-  %538 = getelementptr inbounds nuw [4 x float], ptr %533, i64 0, i64 %indvars.iv.i.i.i
+  %538 = getelementptr inbounds nuw float, ptr %533, i64 %indvars.iv.i.i.i
   store float %537, ptr %538, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -13679,7 +13679,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i:        ; preds = %534
 
 .preheader.i2.i:                                  ; preds = %.noexc263, %543
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %543 ], [ 0, %.noexc263 ]
-  %542 = getelementptr inbounds nuw [4 x [4 x float]], ptr %532, i64 0, i64 %indvars.iv21.i.i
+  %542 = getelementptr inbounds nuw [4 x float], ptr %532, i64 %indvars.iv21.i.i
   br label %544
 
 543:                                              ; preds = %544
@@ -15643,7 +15643,7 @@ _ZN4pstd8optionalIN4pbrt11ShapeSampleEEptEv.exit: ; preds = %6
 
 129:                                              ; preds = %129, %102
   %indvars.iv.i = phi i64 [ 0, %102 ], [ %indvars.iv.next.i, %129 ]
-  %130 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !77
   %132 = fcmp une float %131, 0.000000e+00
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -15855,7 +15855,7 @@ _ZNK4pbrt16DiffuseAreaLight11AlphaMaskedERKNS_11InteractionE.exit: ; preds = %44
 
 88:                                               ; preds = %88, %77
   %indvars.iv.i.i44 = phi i64 [ 0, %77 ], [ %indvars.iv.next.i.i45, %88 ]
-  %89 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv.i.i44
+  %89 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i44
   %90 = load float, ptr %89, align 4, !tbaa !77
   %91 = fmul float %84, %90
   store float %91, ptr %89, align 4, !tbaa !77
@@ -15952,7 +15952,7 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %92, %128, %129
 
 140:                                              ; preds = %153, %131
   %indvars.iv.i = phi i64 [ 0, %131 ], [ %indvars.iv.next.i, %153 ]
-  %141 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %142 = load float, ptr %141, align 4, !tbaa !77
   %143 = call noundef i64 @lroundf(float noundef %142) #38, !tbaa !86
   %144 = load i32, ptr %135, align 8, !tbaa !72
@@ -15973,7 +15973,7 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %92, %128, %129
 
 153:                                              ; preds = %150, %148, %140
   %.sink.i = phi float [ %152, %150 ], [ 0.000000e+00, %148 ], [ 0.000000e+00, %140 ]
-  %154 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv.i
+  %154 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i
   store float %.sink.i, ptr %154, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -15992,7 +15992,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 155:                                              ; preds = %155, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i51 = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i52, %155 ]
-  %156 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i.i51
+  %156 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i51
   %157 = load float, ptr %156, align 4, !tbaa !77
   %158 = fmul float %133, %157
   store float %158, ptr %156, align 4, !tbaa !77
@@ -16136,7 +16136,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:
 
 39:                                               ; preds = %39, %._crit_edge127
   %indvars.iv.i = phi i64 [ 0, %._crit_edge127 ], [ %indvars.iv.next.i, %39 ]
-  %40 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   %41 = load float, ptr %40, align 4, !tbaa !77
   %42 = fmul float %38, %41
   store float %42, ptr %40, align 4, !tbaa !77
@@ -16203,7 +16203,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:
 
 61:                                               ; preds = %74, %56
   %indvars.iv.i.i36 = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i37, %74 ]
-  %62 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i36
+  %62 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i36
   %63 = load float, ptr %62, align 4, !tbaa !77
   %64 = call noundef i64 @lroundf(float noundef %63) #38, !tbaa !86
   %65 = load i32, ptr %50, align 8, !tbaa !72
@@ -16224,7 +16224,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:
 
 74:                                               ; preds = %71, %69, %61
   %.sink.i.i = phi float [ %73, %71 ], [ 0.000000e+00, %69 ], [ 0.000000e+00, %61 ]
-  %75 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i36
+  %75 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i36
   store float %.sink.i.i, ptr %75, align 4, !tbaa !77
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, 4
@@ -16240,9 +16240,9 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i: ; pr
 
 76:                                               ; preds = %76, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i
   %indvars.iv.i.i6.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i ], [ %indvars.iv.next.i.i7.i, %76 ]
-  %77 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i6.i
+  %77 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i6.i
   %78 = load float, ptr %77, align 4, !tbaa !77
-  %79 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i6.i
+  %79 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i6.i
   %80 = load float, ptr %79, align 4
   %81 = fmul float %78, %80
   store float %81, ptr %79, align 4
@@ -16258,7 +16258,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i:        ; preds = %76
 
 82:                                               ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i, %51
   %indvars.iv.i33 = phi i64 [ 0, %51 ], [ %indvars.iv.next.i34, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i ]
-  %83 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i33
+  %83 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i33
   %84 = load float, ptr %83, align 4, !tbaa !77
   %85 = call noundef float @llvm.fma.f32(float %84, float %55, float %54)
   %86 = call noundef float @llvm.fma.f32(float %84, float %85, float %53)
@@ -16283,7 +16283,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i:        ; preds = %76
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i:       ; preds = %92, %89
   %.0.i.i.i = phi float [ %91, %89 ], [ %97, %92 ]
   %98 = fmul float %52, %.0.i.i.i
-  %99 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i33
+  %99 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i33
   store float %98, ptr %99, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 4
@@ -16299,9 +16299,9 @@ _ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds
 
 100:                                              ; preds = %100, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i41 = phi i64 [ 0, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i42, %100 ]
-  %101 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i41
+  %101 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i41
   %102 = load float, ptr %101, align 4, !tbaa !77
-  %103 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i41
+  %103 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i41
   %104 = load float, ptr %103, align 4, !tbaa !77
   %105 = fadd float %102, %104
   store float %105, ptr %103, align 4, !tbaa !77
@@ -16528,7 +16528,7 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %_ZNK4pbrt5Image10Ge
 
 197:                                              ; preds = %210, %190
   %indvars.iv.i46 = phi i64 [ 0, %190 ], [ %indvars.iv.next.i48, %210 ]
-  %198 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i46
+  %198 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i46
   %199 = load float, ptr %198, align 4, !tbaa !77
   %200 = tail call noundef i64 @lroundf(float noundef %199) #38, !tbaa !86
   %201 = load i32, ptr %192, align 8, !tbaa !72
@@ -16549,7 +16549,7 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %_ZNK4pbrt5Image10Ge
 
 210:                                              ; preds = %207, %205, %197
   %.sink.i = phi float [ %209, %207 ], [ 0.000000e+00, %205 ], [ 0.000000e+00, %197 ]
-  %211 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i46
+  %211 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i46
   store float %.sink.i, ptr %211, align 4, !tbaa !77
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 4
@@ -16570,7 +16570,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 214:                                              ; preds = %214, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i52 = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i53, %214 ]
-  %215 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i52
+  %215 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i52
   %216 = load float, ptr %215, align 4, !tbaa !77
   %217 = fmul float %213, %216
   store float %217, ptr %215, align 4, !tbaa !77
@@ -16601,7 +16601,7 @@ _ZN4pbrt15SampledSpectrummLEf.exit:               ; preds = %39, %_ZNK4pbrt15Sam
 
 225:                                              ; preds = %225, %_ZN4pbrt15SampledSpectrummLEf.exit
   %indvars.iv.i.i60 = phi i64 [ 0, %_ZN4pbrt15SampledSpectrummLEf.exit ], [ %indvars.iv.next.i.i61, %225 ]
-  %226 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %indvars.iv.i.i60
+  %226 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i.i60
   %227 = load float, ptr %226, align 4, !tbaa !77
   %228 = fmul float %224, %227
   store float %228, ptr %226, align 4, !tbaa !77
@@ -19120,7 +19120,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt20UniformInfiniteLight2L
 
 14:                                               ; preds = %27, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %27 ]
-  %15 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4, !tbaa !77
   %17 = tail call noundef i64 @lroundf(float noundef %16) #38, !tbaa !86
   %18 = load i32, ptr %9, align 8, !tbaa !72
@@ -19141,7 +19141,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt20UniformInfiniteLight2L
 
 27:                                               ; preds = %24, %22, %14
   %.sink.i = phi float [ %26, %24 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %14 ]
-  %28 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
   store float %.sink.i, ptr %28, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -19160,7 +19160,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 29:                                               ; preds = %29, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %29 ]
-  %30 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i
   %31 = load float, ptr %30, align 4, !tbaa !77
   %32 = fmul float %7, %31
   store float %32, ptr %30, align 4, !tbaa !77
@@ -19206,7 +19206,7 @@ define dso_local void @_ZNK4pbrt20UniformInfiniteLight8SampleLiENS_18LightSample
 
 22:                                               ; preds = %35, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %35 ]
-  %23 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4, !tbaa !77
   %25 = tail call noundef i64 @lroundf(float noundef %24) #38, !tbaa !86
   %26 = load i32, ptr %17, align 8, !tbaa !72
@@ -19227,7 +19227,7 @@ define dso_local void @_ZNK4pbrt20UniformInfiniteLight8SampleLiENS_18LightSample
 
 35:                                               ; preds = %32, %30, %22
   %.sink.i = phi float [ %34, %32 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %22 ]
-  %36 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   store float %.sink.i, ptr %36, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -19246,7 +19246,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 37:                                               ; preds = %37, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %37 ]
-  %38 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   %39 = load float, ptr %38, align 4, !tbaa !77
   %40 = fmul float %15, %39
   store float %40, ptr %38, align 4, !tbaa !77
@@ -19358,7 +19358,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt20UniformInfiniteLight3P
 
 15:                                               ; preds = %28, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %28 ]
-  %16 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %17 = load float, ptr %16, align 4, !tbaa !77
   %18 = tail call noundef i64 @lroundf(float noundef %17) #38, !tbaa !86
   %19 = load i32, ptr %10, align 8, !tbaa !72
@@ -19379,7 +19379,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt20UniformInfiniteLight3P
 
 28:                                               ; preds = %25, %23, %15
   %.sink.i = phi float [ %27, %25 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %15 ]
-  %29 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   store float %.sink.i, ptr %29, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -19401,7 +19401,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 33:                                               ; preds = %33, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %33 ]
-  %34 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i
   %35 = load float, ptr %34, align 4, !tbaa !77
   %36 = fmul float %32, %35
   store float %36, ptr %34, align 4, !tbaa !77
@@ -19489,7 +19489,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %6, %29
 
 50:                                               ; preds = %63, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %indvars.iv.next.i, %63 ]
-  %51 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %52 = load float, ptr %51, align 4, !tbaa !77
   %53 = tail call noundef i64 @lroundf(float noundef %52) #38, !tbaa !86
   %54 = load i32, ptr %45, align 8, !tbaa !72
@@ -19510,7 +19510,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %6, %29
 
 63:                                               ; preds = %60, %58, %50
   %.sink.i = phi float [ %62, %60 ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %50 ]
-  %64 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   store float %.sink.i, ptr %64, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -19529,7 +19529,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 65:                                               ; preds = %65, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %65 ]
-  %66 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   %67 = load float, ptr %66, align 4, !tbaa !77
   %68 = fmul float %43, %67
   store float %68, ptr %66, align 4, !tbaa !77
@@ -20780,7 +20780,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:
 
 41:                                               ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.us, %36
   %indvars.iv.i.us = phi i64 [ 0, %36 ], [ %indvars.iv.next.i.us, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.us ]
-  %42 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.us
+  %42 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.us
   %43 = load float, ptr %42, align 4, !tbaa !77
   %44 = call noundef float @llvm.fma.f32(float %43, float %40, float %39)
   %45 = call noundef float @llvm.fma.f32(float %43, float %44, float %38)
@@ -20805,7 +20805,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.us:    ; preds = %54, %48
   %.0.i.i.i.us = phi float [ %56, %54 ], [ %53, %48 ]
   %57 = fmul float %37, %.0.i.i.i.us
-  %58 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.us
+  %58 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.us
   store float %57, ptr %58, align 4
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 4
@@ -20823,7 +20823,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.us:    ; preds = %54, %48
 
 64:                                               ; preds = %77, %59
   %indvars.iv.i.i38.us = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i39.us, %77 ]
-  %65 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i38.us
+  %65 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i38.us
   %66 = load float, ptr %65, align 4, !tbaa !77
   %67 = call noundef i64 @lroundf(float noundef %66) #38, !tbaa !86
   %68 = load i32, ptr %35, align 8, !tbaa !72
@@ -20844,7 +20844,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.us:    ; preds = %54, %48
 
 77:                                               ; preds = %74, %72, %64
   %.sink.i.i.us = phi float [ %76, %74 ], [ 0.000000e+00, %72 ], [ 0.000000e+00, %64 ]
-  %78 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i.i38.us
+  %78 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i38.us
   store float %.sink.i.i.us, ptr %78, align 4, !tbaa !77
   %indvars.iv.next.i.i39.us = add nuw nsw i64 %indvars.iv.i.i38.us, 1
   %exitcond.not.i.i40.us = icmp eq i64 %indvars.iv.next.i.i39.us, 4
@@ -20860,9 +20860,9 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.us: ;
 
 79:                                               ; preds = %79, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.us
   %indvars.iv.i.i6.i.us = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.us ], [ %indvars.iv.next.i.i7.i.us, %79 ]
-  %80 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i6.i.us
+  %80 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i6.i.us
   %81 = load float, ptr %80, align 4, !tbaa !77
-  %82 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i6.i.us
+  %82 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i6.i.us
   %83 = load float, ptr %82, align 4
   %84 = fmul float %81, %83
   store float %84, ptr %82, align 4
@@ -20886,9 +20886,9 @@ _ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit.us: ; pr
 
 85:                                               ; preds = %85, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit.us
   %indvars.iv.i46.us = phi i64 [ 0, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit.us ], [ %indvars.iv.next.i47.us, %85 ]
-  %86 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i46.us
+  %86 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i46.us
   %87 = load float, ptr %86, align 4, !tbaa !77
-  %88 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i46.us
+  %88 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i46.us
   %89 = load float, ptr %88, align 4, !tbaa !77
   %90 = fadd float %87, %89
   store float %90, ptr %88, align 4, !tbaa !77
@@ -21091,7 +21091,7 @@ _ZN4pbrt3RGBixEi.exit.us:                         ; preds = %175, %174, %_ZNK4pb
 
 184:                                              ; preds = %184, %._crit_edge102
   %indvars.iv.i.i29 = phi i64 [ 0, %._crit_edge102 ], [ %indvars.iv.next.i.i30, %184 ]
-  %185 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i29
+  %185 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i29
   %186 = load float, ptr %185, align 4, !tbaa !77
   %187 = fmul float %183, %186
   store float %187, ptr %185, align 4, !tbaa !77
@@ -21114,7 +21114,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %184
 
 190:                                              ; preds = %190, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i32 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i33, %190 ]
-  %191 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i32
+  %191 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i32
   %192 = load float, ptr %191, align 4, !tbaa !77
   %193 = fdiv float %192, %189
   store float %193, ptr %191, align 4, !tbaa !77
@@ -21259,7 +21259,7 @@ define dso_local void @_ZNK4pbrt18ImageInfiniteLight8SampleLeENS_6Point2IfEES2_R
 
 76:                                               ; preds = %76, %.noexc136
   %indvars.iv.i.i.i = phi i64 [ 0, %.noexc136 ], [ %indvars.iv.next.i.i.i, %76 ]
-  %77 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %77 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i.i
   %78 = load float, ptr %77, align 4, !tbaa !77
   %79 = fmul float %72, %78
   store float %79, ptr %77, align 4, !tbaa !77
@@ -21999,7 +21999,7 @@ _ZNK4pbrt16ImageChannelDesc10IsIdentityEv.exit:   ; preds = %146
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %158 ]
   %170 = load ptr, ptr %6, align 8, !tbaa !512
   %171 = getelementptr inbounds nuw %"class.pbrt::Point3.8", ptr %170, i64 %indvars.iv
-  %172 = getelementptr inbounds nuw [4 x %"class.pbrt::Point3.8"], ptr %35, i64 0, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw %"class.pbrt::Point3.8", ptr %35, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %172, ptr noundef nonnull align 4 dereferenceable(12) %171, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -23461,7 +23461,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit._crit_edge:    ; preds = %_ZN4pbrt15SampledSp
 
 63:                                               ; preds = %63, %_ZN4pbrt15SampledSpectrumC2Ef.exit._crit_edge
   %indvars.iv.i.i40 = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit._crit_edge ], [ %indvars.iv.next.i.i41, %63 ]
-  %64 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i40
+  %64 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i40
   %65 = load float, ptr %64, align 4, !tbaa !77
   %66 = fmul float %62, %65
   store float %66, ptr %64, align 4, !tbaa !77
@@ -23485,7 +23485,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %63
 
 69:                                               ; preds = %69, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i.i45 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i.i46, %69 ]
-  %70 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i45
+  %70 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i45
   %71 = load float, ptr %70, align 4, !tbaa !77
   %72 = fdiv float %71, %68
   store float %72, ptr %70, align 4, !tbaa !77
@@ -23592,7 +23592,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %_ZN4pbrt15SampledSp
 
 118:                                              ; preds = %131, %113
   %indvars.iv.i.i55 = phi i64 [ 0, %113 ], [ %indvars.iv.next.i.i56, %131 ]
-  %119 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i55
+  %119 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i55
   %120 = load float, ptr %119, align 4, !tbaa !77
   %121 = call noundef i64 @lroundf(float noundef %120) #38, !tbaa !86
   %122 = load i32, ptr %107, align 8, !tbaa !72
@@ -23613,7 +23613,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %_ZN4pbrt15SampledSp
 
 131:                                              ; preds = %128, %126, %118
   %.sink.i.i = phi float [ %130, %128 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %118 ]
-  %132 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i55
+  %132 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i55
   store float %.sink.i.i, ptr %132, align 4, !tbaa !77
   %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i55, 1
   %exitcond.not.i.i57 = icmp eq i64 %indvars.iv.next.i.i56, 4
@@ -23629,9 +23629,9 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i: ; pr
 
 133:                                              ; preds = %133, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i
   %indvars.iv.i.i6.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i ], [ %indvars.iv.next.i.i7.i, %133 ]
-  %134 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i6.i
+  %134 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i6.i
   %135 = load float, ptr %134, align 4, !tbaa !77
-  %136 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i6.i
+  %136 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i6.i
   %137 = load float, ptr %136, align 4
   %138 = fmul float %135, %137
   store float %138, ptr %136, align 4
@@ -23647,7 +23647,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i:        ; preds = %133
 
 139:                                              ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i, %108
   %indvars.iv.i = phi i64 [ 0, %108 ], [ %indvars.iv.next.i, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i ]
-  %140 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %141 = load float, ptr %140, align 4, !tbaa !77
   %142 = call noundef float @llvm.fma.f32(float %141, float %112, float %111)
   %143 = call noundef float @llvm.fma.f32(float %141, float %142, float %110)
@@ -23672,7 +23672,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i:        ; preds = %133
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i:       ; preds = %149, %146
   %.0.i.i.i = phi float [ %148, %146 ], [ %154, %149 ]
   %155 = fmul float %109, %.0.i.i.i
-  %156 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
   store float %155, ptr %156, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -23689,7 +23689,7 @@ _ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds
 
 157:                                              ; preds = %157, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i63 = phi i64 [ 0, %_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i64, %157 ]
-  %158 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i.i63
+  %158 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i63
   %159 = load float, ptr %158, align 4, !tbaa !77
   %160 = fdiv float %159, %102
   store float %160, ptr %158, align 4, !tbaa !77
@@ -23707,9 +23707,9 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit71:            ; preds = %157
 
 161:                                              ; preds = %161, %_ZNK4pbrt15SampledSpectrumdvEf.exit71
   %indvars.iv.i72 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrumdvEf.exit71 ], [ %indvars.iv.next.i73, %161 ]
-  %162 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i72
+  %162 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i72
   %163 = load float, ptr %162, align 4, !tbaa !77
-  %164 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i72
+  %164 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i72
   %165 = load float, ptr %164, align 4, !tbaa !77
   %166 = fadd float %163, %165
   store float %166, ptr %164, align 4, !tbaa !77
@@ -24078,7 +24078,7 @@ _ZN4pstd8optionalIN4pbrt6Point2IfEEEdeEv.exit25:  ; preds = %53
 
 73:                                               ; preds = %73, %.noexc27
   %indvars.iv.i.i.i = phi i64 [ 0, %.noexc27 ], [ %indvars.iv.next.i.i.i, %73 ]
-  %74 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %74 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i
   %75 = load float, ptr %74, align 4, !tbaa !77
   %76 = fmul float %69, %75
   store float %76, ptr %74, align 4, !tbaa !77
@@ -24371,7 +24371,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt24PortalImageInfiniteLig
 
 20:                                               ; preds = %20, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i
   %22 = load float, ptr %21, align 4, !tbaa !77
   %23 = fmul float %16, %22
   store float %23, ptr %21, align 4, !tbaa !77
@@ -24596,7 +24596,7 @@ _ZN4pstd8optionalIN4pbrt6Point2IfEEEdeEv.exit63:  ; preds = %66
 
 85:                                               ; preds = %85, %.noexc64
   %indvars.iv.i.i.i = phi i64 [ 0, %.noexc64 ], [ %indvars.iv.next.i.i.i, %85 ]
-  %86 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %86 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i.i
   %87 = load float, ptr %86, align 4, !tbaa !77
   %88 = fmul float %81, %87
   store float %88, ptr %86, align 4, !tbaa !77
@@ -25419,7 +25419,7 @@ define dso_local void @_ZNK4pbrt24PortalImageInfiniteLight8SampleLeENS_6Point2If
 
 150:                                              ; preds = %150, %.noexc127
   %indvars.iv.i.i.i = phi i64 [ 0, %.noexc127 ], [ %indvars.iv.next.i.i.i, %150 ]
-  %151 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %151 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i.i
   %152 = load float, ptr %151, align 4, !tbaa !77
   %153 = fmul float %146, %152
   store float %153, ptr %151, align 4, !tbaa !77
@@ -25957,7 +25957,7 @@ _ZN4pbrt10SmoothStepEfff.exit:                    ; preds = %12, %15
 
 33:                                               ; preds = %46, %_ZN4pbrt10SmoothStepEfff.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN4pbrt10SmoothStepEfff.exit ], [ %indvars.iv.next.i, %46 ]
-  %34 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   %35 = load float, ptr %34, align 4, !tbaa !77
   %36 = tail call noundef i64 @lroundf(float noundef %35) #38, !tbaa !86
   %37 = load i32, ptr %28, align 8, !tbaa !72
@@ -25978,7 +25978,7 @@ _ZN4pbrt10SmoothStepEfff.exit:                    ; preds = %12, %15
 
 46:                                               ; preds = %43, %41, %33
   %.sink.i = phi float [ %45, %43 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %33 ]
-  %47 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
   store float %.sink.i, ptr %47, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -25998,7 +25998,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 49:                                               ; preds = %49, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %49 ]
-  %50 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i
   %51 = load float, ptr %50, align 4, !tbaa !77
   %52 = fmul float %48, %51
   store float %52, ptr %50, align 4, !tbaa !77
@@ -26036,7 +26036,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt9SpotLight3PhiENS_18Samp
 
 16:                                               ; preds = %29, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %29 ]
-  %17 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %18 = load float, ptr %17, align 4, !tbaa !77
   %19 = tail call noundef i64 @lroundf(float noundef %18) #38, !tbaa !86
   %20 = load i32, ptr %11, align 8, !tbaa !72
@@ -26057,7 +26057,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt9SpotLight3PhiENS_18Samp
 
 29:                                               ; preds = %26, %24, %16
   %.sink.i = phi float [ %28, %26 ], [ 0.000000e+00, %24 ], [ 0.000000e+00, %16 ]
-  %30 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   store float %.sink.i, ptr %30, align 4, !tbaa !77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -26076,7 +26076,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 
 31:                                               ; preds = %31, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i, %31 ]
-  %32 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
   %33 = load float, ptr %32, align 4, !tbaa !77
   %34 = fmul float %9, %33
   store float %34, ptr %32, align 4, !tbaa !77
@@ -26096,7 +26096,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %31
 
 35:                                               ; preds = %35, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit
   %indvars.iv.i1 = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit ], [ %indvars.iv.next.i2, %35 ]
-  %36 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i1
+  %36 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i1
   %37 = load float, ptr %36, align 4, !tbaa !77
   %38 = fmul float %37, 2.000000e+00
   store float %38, ptr %36, align 4, !tbaa !77
@@ -26116,7 +26116,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %35
 
 39:                                               ; preds = %39, %_ZNK4pbrt15SampledSpectrummlEf.exit
   %indvars.iv.i9 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit ], [ %indvars.iv.next.i10, %39 ]
-  %40 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i9
+  %40 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i9
   %41 = load float, ptr %40, align 4, !tbaa !77
   %42 = fmul float %41, 0x400921FB60000000
   store float %42, ptr %40, align 4, !tbaa !77
@@ -26144,7 +26144,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit17:            ; preds = %39
 
 51:                                               ; preds = %51, %_ZNK4pbrt15SampledSpectrummlEf.exit17
   %indvars.iv.i18 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit17 ], [ %indvars.iv.next.i19, %51 ]
-  %52 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i18
+  %52 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i18
   %53 = load float, ptr %52, align 4, !tbaa !77
   %54 = fmul float %50, %53
   store float %54, ptr %52, align 4, !tbaa !77
@@ -26630,7 +26630,7 @@ _ZN4pbrt10SmoothStepEfff.exit.i36:                ; preds = %169, %166
 
 187:                                              ; preds = %200, %_ZN4pbrt10SmoothStepEfff.exit.i36
   %indvars.iv.i.i = phi i64 [ 0, %_ZN4pbrt10SmoothStepEfff.exit.i36 ], [ %indvars.iv.next.i.i, %200 ]
-  %188 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %188 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i
   %189 = load float, ptr %188, align 4, !tbaa !77
   %190 = call noundef i64 @lroundf(float noundef %189) #38, !tbaa !86
   %191 = load i32, ptr %182, align 8, !tbaa !72
@@ -26651,7 +26651,7 @@ _ZN4pbrt10SmoothStepEfff.exit.i36:                ; preds = %169, %166
 
 200:                                              ; preds = %197, %195, %187
   %.sink.i.i = phi float [ %199, %197 ], [ 0.000000e+00, %195 ], [ 0.000000e+00, %187 ]
-  %201 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %201 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   store float %.sink.i.i, ptr %201, align 4, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -26671,7 +26671,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i: ; pr
 
 203:                                              ; preds = %203, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i ], [ %indvars.iv.next.i.i.i, %203 ]
-  %204 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %204 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i
   %205 = load float, ptr %204, align 4, !tbaa !77
   %206 = fmul float %202, %205
   store float %206, ptr %204, align 4, !tbaa !77
@@ -27193,7 +27193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
 
 .preheader.i.i.i:                                 ; preds = %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
   %indvars.iv12.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ], [ %indvars.iv.next13.i.i.i, %135 ]
-  %134 = getelementptr inbounds nuw [4 x [4 x float]], ptr %133, i64 0, i64 %indvars.iv12.i.i.i
+  %134 = getelementptr inbounds nuw [4 x float], ptr %133, i64 %indvars.iv12.i.i.i
   br label %136
 
 135:                                              ; preds = %136
@@ -27205,7 +27205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %136 ]
   %137 = icmp eq i64 %indvars.iv12.i.i.i, %indvars.iv.i.i.i
   %138 = uitofp i1 %137 to float
-  %139 = getelementptr inbounds nuw [4 x float], ptr %134, i64 0, i64 %indvars.iv.i.i.i
+  %139 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv.i.i.i
   store float %138, ptr %139, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -27225,7 +27225,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i:        ; preds = %135
 
 .preheader.i.i:                                   ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i, %144
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %144 ], [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i ]
-  %143 = getelementptr inbounds nuw [4 x [4 x float]], ptr %133, i64 0, i64 %indvars.iv21.i.i
+  %143 = getelementptr inbounds nuw [4 x float], ptr %133, i64 %indvars.iv21.i.i
   br label %145
 
 144:                                              ; preds = %145
@@ -27586,7 +27586,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt5Light3PhiENS_18SampledW
 
 25:                                               ; preds = %38, %18
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i.i.i.i, %38 ]
-  %26 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %26 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i.i.i.i.i
   %27 = load float, ptr %26, align 4, !tbaa !77
   %28 = tail call noundef i64 @lroundf(float noundef %27) #38, !tbaa !86
   %29 = load i32, ptr %.val20.i.i, align 8, !tbaa !72
@@ -27607,7 +27607,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt5Light3PhiENS_18SampledW
 
 38:                                               ; preds = %35, %33, %25
   %.sink.i.i.i.i.i = phi float [ %37, %35 ], [ 0.000000e+00, %33 ], [ 0.000000e+00, %25 ]
-  %39 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %39 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i.i.i.i
   store float %.sink.i.i.i.i.i, ptr %39, align 4, !tbaa !77
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -27627,7 +27627,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i.i.i
 
 41:                                               ; preds = %41, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %41 ]
-  %42 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %42 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.i.i.i.i.i
   %43 = load float, ptr %42, align 4, !tbaa !77
   %44 = fmul float %40, %43
   store float %44, ptr %42, align 4, !tbaa !77
@@ -27661,7 +27661,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i.i.i
 
 54:                                               ; preds = %67, %45
   %indvars.iv.i.i.i30.i.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.i.i33.i.i, %67 ]
-  %55 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i.i.i30.i.i
+  %55 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i.i30.i.i
   %56 = load float, ptr %55, align 4, !tbaa !77
   %57 = tail call noundef i64 @lroundf(float noundef %56) #38, !tbaa !86
   %58 = load i32, ptr %49, align 8, !tbaa !72
@@ -27682,7 +27682,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i.i.i
 
 67:                                               ; preds = %64, %62, %54
   %.sink.i.i.i32.i.i = phi float [ %66, %64 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %54 ]
-  %68 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i.i.i30.i.i
+  %68 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i30.i.i
   store float %.sink.i.i.i32.i.i, ptr %68, align 4, !tbaa !77
   %indvars.iv.next.i.i.i33.i.i = add nuw nsw i64 %indvars.iv.i.i.i30.i.i, 1
   %exitcond.not.i.i.i34.i.i = icmp eq i64 %indvars.iv.next.i.i.i33.i.i, 4
@@ -27701,7 +27701,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i35.i
 
 69:                                               ; preds = %69, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i35.i.i
   %indvars.iv.i.i.i.i40.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i35.i.i ], [ %indvars.iv.next.i.i.i.i41.i.i, %69 ]
-  %70 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i.i.i40.i.i
+  %70 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i.i40.i.i
   %71 = load float, ptr %70, align 4, !tbaa !77
   %72 = fmul float %47, %71
   store float %72, ptr %70, align 4, !tbaa !77
@@ -27721,7 +27721,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i.i.i.i: ; preds = %69
 
 73:                                               ; preds = %73, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i.i.i.i
   %indvars.iv.i1.i.i.i.i = phi i64 [ 0, %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i.i.i.i ], [ %indvars.iv.next.i2.i.i.i.i, %73 ]
-  %74 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv.i1.i.i.i.i
+  %74 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i1.i.i.i.i
   %75 = load float, ptr %74, align 4, !tbaa !77
   %76 = fmul float %75, 0x400921FB60000000
   store float %76, ptr %74, align 4, !tbaa !77
@@ -27744,7 +27744,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit.i.i.i.i:      ; preds = %73
 
 80:                                               ; preds = %80, %_ZNK4pbrt15SampledSpectrummlEf.exit.i.i.i.i
   %indvars.iv.i9.i.i.i.i = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit.i.i.i.i ], [ %indvars.iv.next.i10.i.i.i.i, %80 ]
-  %81 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i9.i.i.i.i
+  %81 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i9.i.i.i.i
   %82 = load float, ptr %81, align 4, !tbaa !77
   %83 = fmul float %79, %82
   store float %83, ptr %81, align 4, !tbaa !77
@@ -27796,7 +27796,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit.i.i.i.i:      ; preds = %73
 
 103:                                              ; preds = %116, %92
   %indvars.iv.i.i.i45.i.i = phi i64 [ 0, %92 ], [ %indvars.iv.next.i.i.i48.i.i, %116 ]
-  %104 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i45.i.i
+  %104 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i45.i.i
   %105 = load float, ptr %104, align 4, !tbaa !77
   %106 = tail call noundef i64 @lroundf(float noundef %105) #38, !tbaa !86
   %107 = load i32, ptr %98, align 8, !tbaa !72
@@ -27817,7 +27817,7 @@ _ZNK4pbrt15SampledSpectrummlEf.exit.i.i.i.i:      ; preds = %73
 
 116:                                              ; preds = %113, %111, %103
   %.sink.i.i.i47.i.i = phi float [ %115, %113 ], [ 0.000000e+00, %111 ], [ 0.000000e+00, %103 ]
-  %117 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i45.i.i
+  %117 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i45.i.i
   store float %.sink.i.i.i47.i.i, ptr %117, align 4, !tbaa !77
   %indvars.iv.next.i.i.i48.i.i = add nuw nsw i64 %indvars.iv.i.i.i45.i.i, 1
   %exitcond.not.i.i.i49.i.i = icmp eq i64 %indvars.iv.next.i.i.i48.i.i, 4
@@ -27839,7 +27839,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i50.i
 
 121:                                              ; preds = %121, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i50.i.i
   %indvars.iv.i.i.i.i55.i.i = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit.i.i50.i.i ], [ %indvars.iv.next.i.i.i.i56.i.i, %121 ]
-  %122 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i55.i.i
+  %122 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i.i55.i.i
   %123 = load float, ptr %122, align 4, !tbaa !77
   %124 = fmul float %120, %123
   store float %124, ptr %122, align 4, !tbaa !77
@@ -30564,7 +30564,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt13RGBColorSpace5T
   %8 = phi float [ 0.000000e+00, %3 ], [ %29, %.split.i ]
   %indvars.iv42.i = phi i64 [ 0, %3 ], [ %indvars.iv.next43.i, %.split.i ]
   %9 = trunc nuw nsw i64 %indvars.iv42.i to i32
-  %10 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv42.i
+  %10 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv42.i
   switch i32 %9, label %_ZN4pbrt3RGBixEi.exit.split.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit.split.us.i
     i32 1, label %_ZN4pbrt3RGBixEi.exit.split.us21.i

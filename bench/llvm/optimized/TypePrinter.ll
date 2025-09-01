@@ -848,10 +848,10 @@ define dso_local { ptr, i64 } @_ZN5clang23getParameterABISpellingENS_12Parameter
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3517,7 +3517,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8, !tbaa !91
   store i8 0, ptr %3, align 8, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i2:                                 ; preds = %2, %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3527,7 +3527,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 8, ptr %6, align 8, !tbaa !91
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %7, align 8, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i4:                                 ; preds = %2, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3537,7 +3537,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 7, ptr %9, align 8, !tbaa !91
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %10, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i6:                                 ; preds = %2, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3547,7 +3547,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 9, ptr %12, align 8, !tbaa !91
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %13, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i8:                                 ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3557,7 +3557,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 10, ptr %15, align 8, !tbaa !91
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 0, ptr %16, align 2, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i10:                                ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3567,7 +3567,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 9, ptr %18, align 8, !tbaa !91
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %19, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i12:                                ; preds = %2, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3577,7 +3577,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 15, ptr %21, align 8, !tbaa !91
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 0, ptr %22, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i14:                                ; preds = %2, %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3587,7 +3587,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 13, ptr %24, align 8, !tbaa !91
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 0, ptr %25, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i16:                                ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3597,7 +3597,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 10, ptr %27, align 8, !tbaa !91
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 0, ptr %28, align 2, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i18:                                ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3607,7 +3607,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 12, ptr %30, align 8, !tbaa !91
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %31, align 4, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i20:                                ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3617,7 +3617,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 10, ptr %33, align 8, !tbaa !91
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 0, ptr %34, align 2, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i22:                                ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3627,7 +3627,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 14, ptr %36, align 8, !tbaa !91
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 0, ptr %37, align 2, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i24:                                ; preds = %2
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3637,7 +3637,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 14, ptr %39, align 8, !tbaa !91
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 0, ptr %40, align 2, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i26:                                ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3647,7 +3647,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 7, ptr %42, align 8, !tbaa !91
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %43, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i28:                                ; preds = %2
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3657,7 +3657,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 11, ptr %45, align 8, !tbaa !91
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 0, ptr %46, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i30:                                ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3667,7 +3667,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 13, ptr %48, align 8, !tbaa !91
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 0, ptr %49, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 ._crit_edge.i.i32:                                ; preds = %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3677,7 +3677,7 @@ define dso_local void @_ZN5clang10Qualifiers20getAddrSpaceAsStringB5cxx11ENS_6La
   store i64 9, ptr %51, align 8, !tbaa !91
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %52, align 1, !tbaa !13
-  br label %110
+  br label %106
 
 53:                                               ; preds = %2
   %54 = add i32 %1, -22
@@ -3736,57 +3736,53 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %67, %65, %61, %57, 
 
 .lr.ph.i2.i:                                      ; preds = %.lr.ph.i2.i, %.lr.ph.preheader.i.i
   %.020.i.i = phi i32 [ %81, %.lr.ph.i2.i ], [ %54, %.lr.ph.preheader.i.i ]
-  %.01819.i.i = phi i32 [ %94, %.lr.ph.i2.i ], [ %78, %.lr.ph.preheader.i.i ]
+  %.01819.i.i = phi i32 [ %92, %.lr.ph.i2.i ], [ %78, %.lr.ph.preheader.i.i ]
   %79 = urem i32 %.020.i.i, 100
   %80 = shl nuw nsw i32 %79, 1
   %81 = udiv i32 %.020.i.i, 100
-  %82 = or disjoint i32 %80, 1
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %83
+  %82 = zext nneg i32 %80 to i64
+  %83 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !13, !noalias !111
   %86 = zext i32 %.01819.i.i to i64
   %87 = getelementptr inbounds nuw i8, ptr %73, i64 %86
   store i8 %85, ptr %87, align 1, !tbaa !13
-  %88 = zext nneg i32 %80 to i64
-  %89 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %88
-  %90 = load i8, ptr %89, align 2, !tbaa !13, !noalias !111
-  %91 = add i32 %.01819.i.i, -1
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %73, i64 %92
-  store i8 %90, ptr %93, align 1, !tbaa !13
-  %94 = add i32 %.01819.i.i, -2
-  %95 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %95, label %.lr.ph.i2.i, label %._crit_edge.i.i34, !llvm.loop !115
+  %88 = load i8, ptr %83, align 2, !tbaa !13, !noalias !111
+  %89 = add i32 %.01819.i.i, -1
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw i8, ptr %73, i64 %90
+  store i8 %88, ptr %91, align 1, !tbaa !13
+  %92 = add i32 %.01819.i.i, -2
+  %93 = icmp ugt i32 %.020.i.i, 9999
+  br i1 %93, label %.lr.ph.i2.i, label %._crit_edge.i.i34, !llvm.loop !115
 
 ._crit_edge.i.i34:                                ; preds = %.lr.ph.i2.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %.0.lcssa.i.i = phi i32 [ %54, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i ], [ %81, %.lr.ph.i2.i ]
-  %96 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
-  br i1 %96, label %97, label %107
+  %94 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
+  br i1 %94, label %95, label %103
 
-97:                                               ; preds = %._crit_edge.i.i34
-  %98 = shl nuw nsw i32 %.0.lcssa.i.i, 1
-  %99 = or disjoint i32 %98, 1
-  %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !13, !noalias !111
-  %103 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  store i8 %102, ptr %103, align 1, !tbaa !13
-  %104 = zext nneg i32 %98 to i64
-  %105 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 2, !tbaa !13, !noalias !111
+95:                                               ; preds = %._crit_edge.i.i34
+  %96 = shl nuw nsw i32 %.0.lcssa.i.i, 1
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
+  %100 = load i8, ptr %99, align 1, !tbaa !13, !noalias !111
+  %101 = getelementptr inbounds nuw i8, ptr %73, i64 1
+  store i8 %100, ptr %101, align 1, !tbaa !13
+  %102 = load i8, ptr %98, align 2, !tbaa !13, !noalias !111
   br label %_ZNSt7__cxx119to_stringEj.exit
 
-107:                                              ; preds = %._crit_edge.i.i34
-  %108 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
-  %109 = or disjoint i8 %108, 48
+103:                                              ; preds = %._crit_edge.i.i34
+  %104 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
+  %105 = or disjoint i8 %104, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
-_ZNSt7__cxx119to_stringEj.exit:                   ; preds = %97, %107
-  %storemerge.i.i = phi i8 [ %109, %107 ], [ %106, %97 ]
+_ZNSt7__cxx119to_stringEj.exit:                   ; preds = %95, %103
+  %storemerge.i.i = phi i8 [ %105, %103 ], [ %102, %95 ]
   store i8 %storemerge.i.i, ptr %73, align 1, !tbaa !13
-  br label %110
+  br label %106
 
-110:                                              ; preds = %_ZNSt7__cxx119to_stringEj.exit, %._crit_edge.i.i32, %._crit_edge.i.i30, %._crit_edge.i.i28, %._crit_edge.i.i26, %._crit_edge.i.i24, %._crit_edge.i.i22, %._crit_edge.i.i20, %._crit_edge.i.i18, %._crit_edge.i.i16, %._crit_edge.i.i14, %._crit_edge.i.i12, %._crit_edge.i.i10, %._crit_edge.i.i8, %._crit_edge.i.i6, %._crit_edge.i.i4, %._crit_edge.i.i2, %._crit_edge.i.i
+106:                                              ; preds = %_ZNSt7__cxx119to_stringEj.exit, %._crit_edge.i.i32, %._crit_edge.i.i30, %._crit_edge.i.i28, %._crit_edge.i.i26, %._crit_edge.i.i24, %._crit_edge.i.i22, %._crit_edge.i.i20, %._crit_edge.i.i18, %._crit_edge.i.i16, %._crit_edge.i.i14, %._crit_edge.i.i12, %._crit_edge.i.i10, %._crit_edge.i.i8, %._crit_edge.i.i6, %._crit_edge.i.i4, %._crit_edge.i.i2, %._crit_edge.i.i
   ret void
 }
 
@@ -7367,7 +7363,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %728 = trunc nuw nsw i64 %727 to i32
   %729 = and i32 %728, 15
   %730 = and i64 %727, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %730
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %730
   %switch.load = load i64, ptr %switch.gep, align 8
   %731 = lshr i64 %702, 59
   %732 = and i64 %731, 1
@@ -7447,7 +7443,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %776 = trunc nuw nsw i64 %775 to i32
   %777 = and i32 %776, 15
   %778 = and i64 %775, 15
-  %switch.gep47 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %778
+  %switch.gep47 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %778
   %switch.load48 = load i64, ptr %switch.gep47, align 8
   %779 = lshr i64 %750, 59
   %780 = and i64 %779, 1
@@ -7737,10 +7733,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit141.i:            ; preds = %915, %913
   %.0.i.i140.i = phi ptr [ %914, %913 ], [ %2, %915 ]
   %switch.tableidx = add nsw i8 %814, -1
   %918 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep49 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 0, i64 %918
+  %switch.gep49 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 %918
   %switch.load50 = load i64, ptr %switch.gep49, align 8
   %919 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep51 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 0, i64 %919
+  %switch.gep51 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 %919
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   %920 = getelementptr inbounds nuw i8, ptr %.0.i.i140.i, i64 24
   %921 = load ptr, ptr %920, align 8, !tbaa !3
@@ -8435,7 +8431,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %1299 = trunc nuw nsw i64 %1298 to i32
   %1300 = and i32 %1299, 15
   %1301 = and i64 %1298, 15
-  %switch.gep53 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %1301
+  %switch.gep53 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %1301
   %switch.load54 = load i64, ptr %switch.gep53, align 8
   %1302 = getelementptr inbounds nuw i8, ptr %1287, i64 8
   %1303 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %1302, i64 %1293
@@ -8460,7 +8456,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i
   %1318 = and i64 %1298, 15
-  %switch.gep55 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %1318
+  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %1318
   %switch.load56 = load i64, ptr %switch.gep55, align 8
   %1319 = getelementptr inbounds nuw ptr, ptr %1306, i64 %switch.load56
   %1320 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %1319, i64 %1309
@@ -24982,7 +24978,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1

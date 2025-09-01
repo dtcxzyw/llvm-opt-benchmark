@@ -33,10 +33,10 @@ define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2b
 
 5:                                                ; preds = %5, %3
   %.06.i = phi i64 [ 0, %3 ], [ %11, %5 ]
-  %6 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 0, i64 %.06.i
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.06.i
   %7 = load i8, ptr %6, align 1, !alias.scope !7, !noalias !4, !noundef !9
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %8
   %10 = trunc nuw nsw i64 %.06.i to i8
   store i8 %10, ptr %9, align 1, !alias.scope !4, !noalias !7
   %11 = add nuw nsw i64 %.06.i, 1
@@ -154,13 +154,13 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %39, label %40, label %50, !prof !22
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %9
+  %41 = getelementptr inbounds i8, ptr %1, i64 %9
   %42 = load i8, ptr %41, align 1, !noundef !9
   %43 = lshr i8 %42, 2
   %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds nuw [64 x i8], ptr %38, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 %44
   %46 = load i8, ptr %45, align 1, !noundef !9
-  %47 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.1.lcssa
+  %47 = getelementptr inbounds i8, ptr %3, i64 %.1.lcssa
   store i8 %46, ptr %47, align 1
   %48 = add i64 %9, 1
   %49 = icmp ult i64 %48, %2
@@ -180,14 +180,14 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   unreachable
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %48
+  %56 = getelementptr inbounds i8, ptr %1, i64 %48
   %57 = load i8, ptr %56, align 1, !noundef !9
   %58 = tail call i8 @llvm.fshl.i8(i8 %42, i8 %57, i8 4)
   %59 = and i8 %58, 63
   %60 = zext nneg i8 %59 to i64
-  %61 = getelementptr inbounds nuw [64 x i8], ptr %38, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 %60
   %62 = load i8, ptr %61, align 1, !noundef !9
-  %63 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %52
+  %63 = getelementptr inbounds i8, ptr %3, i64 %52
   store i8 %62, ptr %63, align 1
   %64 = add nuw i64 %.1.lcssa, 2
   %65 = icmp ult i64 %64, %4
@@ -212,9 +212,9 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %.sink = phi i64 [ 2, %92 ], [ 3, %67 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %72 = zext nneg i8 %.sink230 to i64
-  %73 = getelementptr inbounds nuw [64 x i8], ptr %71, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %72
   %74 = load i8, ptr %73, align 1, !noundef !9
-  %75 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.sink226
+  %75 = getelementptr inbounds i8, ptr %3, i64 %.sink226
   store i8 %74, ptr %75, align 1
   %76 = add nuw i64 %.1.lcssa, %.sink
   br label %77
@@ -229,13 +229,13 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %82 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %9
+  %82 = getelementptr inbounds i8, ptr %1, i64 %9
   %83 = load i8, ptr %82, align 1, !noundef !9
   %84 = lshr i8 %83, 2
   %85 = zext nneg i8 %84 to i64
-  %86 = getelementptr inbounds nuw [64 x i8], ptr %81, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 %85
   %87 = load i8, ptr %86, align 1, !noundef !9
-  %88 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.1.lcssa
+  %88 = getelementptr inbounds i8, ptr %3, i64 %.1.lcssa
   store i8 %87, ptr %88, align 1
   %89 = add nuw i64 %.1.lcssa, 1
   %90 = icmp ult i64 %89, %4
@@ -259,7 +259,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %98 = load i8, ptr %30, align 1, !noundef !9
   %99 = lshr i8 %98, 2
   %100 = zext nneg i8 %99 to i64
-  %101 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 %100
   %102 = load i8, ptr %101, align 1, !noundef !9
   store i8 %102, ptr %97, align 1
   %103 = getelementptr inbounds nuw i8, ptr %30, i64 1
@@ -267,7 +267,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %105 = tail call i8 @llvm.fshl.i8(i8 %98, i8 %104, i8 4)
   %106 = and i8 %105, 63
   %107 = zext nneg i8 %106 to i64
-  %108 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %11, i64 %107
   %109 = load i8, ptr %108, align 1, !noundef !9
   %110 = getelementptr inbounds nuw i8, ptr %97, i64 1
   store i8 %109, ptr %110, align 1
@@ -276,13 +276,13 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %113 = tail call i8 @llvm.fshl.i8(i8 %104, i8 %112, i8 2)
   %114 = and i8 %113, 63
   %115 = zext nneg i8 %114 to i64
-  %116 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 %115
   %117 = load i8, ptr %116, align 1, !noundef !9
   %118 = getelementptr inbounds nuw i8, ptr %97, i64 2
   store i8 %117, ptr %118, align 1
   %119 = and i8 %112, 63
   %120 = zext nneg i8 %119 to i64
-  %121 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %11, i64 %120
   %122 = load i8, ptr %121, align 1, !noundef !9
   %123 = getelementptr inbounds nuw i8, ptr %97, i64 3
   store i8 %122, ptr %123, align 1
@@ -294,48 +294,48 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %.val.i.i = load i64, ptr %16, align 1, !alias.scope !23, !noalias !28
   %127 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i)
   %128 = lshr i64 %127, 58
-  %129 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 %128
   %130 = load i8, ptr %129, align 1, !noundef !9
   store i8 %130, ptr %126, align 1
   %131 = lshr i64 %127, 52
   %132 = and i64 %131, 63
-  %133 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 %132
   %134 = load i8, ptr %133, align 1, !noundef !9
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 1
   store i8 %134, ptr %135, align 1
   %136 = lshr i64 %127, 46
   %137 = and i64 %136, 63
-  %138 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 %137
   %139 = load i8, ptr %138, align 1, !noundef !9
   %140 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i8 %139, ptr %140, align 1
   %141 = lshr i64 %127, 40
   %142 = and i64 %141, 63
-  %143 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 %142
   %144 = load i8, ptr %143, align 1, !noundef !9
   %145 = getelementptr inbounds nuw i8, ptr %126, i64 3
   store i8 %144, ptr %145, align 1
   %146 = lshr i64 %127, 34
   %147 = and i64 %146, 63
-  %148 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 %147
   %149 = load i8, ptr %148, align 1, !noundef !9
   %150 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i8 %149, ptr %150, align 1
   %151 = lshr i64 %127, 28
   %152 = and i64 %151, 63
-  %153 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr %7, i64 %152
   %154 = load i8, ptr %153, align 1, !noundef !9
   %155 = getelementptr inbounds nuw i8, ptr %126, i64 5
   store i8 %154, ptr %155, align 1
   %156 = lshr i64 %127, 22
   %157 = and i64 %156, 63
-  %158 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 %157
   %159 = load i8, ptr %158, align 1, !noundef !9
   %160 = getelementptr inbounds nuw i8, ptr %126, i64 6
   store i8 %159, ptr %160, align 1
   %161 = lshr i64 %127, 16
   %162 = and i64 %161, 63
-  %163 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 %162
   %164 = load i8, ptr %163, align 1, !noundef !9
   %165 = getelementptr inbounds nuw i8, ptr %126, i64 7
   store i8 %164, ptr %165, align 1
@@ -343,49 +343,49 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %.val.i.i109 = load i64, ptr %166, align 1, !alias.scope !30, !noalias !35
   %167 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i109)
   %168 = lshr i64 %167, 58
-  %169 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %7, i64 %168
   %170 = load i8, ptr %169, align 1, !noundef !9
   %171 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i8 %170, ptr %171, align 1
   %172 = lshr i64 %167, 52
   %173 = and i64 %172, 63
-  %174 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 %173
   %175 = load i8, ptr %174, align 1, !noundef !9
   %176 = getelementptr inbounds nuw i8, ptr %126, i64 9
   store i8 %175, ptr %176, align 1
   %177 = lshr i64 %167, 46
   %178 = and i64 %177, 63
-  %179 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr %7, i64 %178
   %180 = load i8, ptr %179, align 1, !noundef !9
   %181 = getelementptr inbounds nuw i8, ptr %126, i64 10
   store i8 %180, ptr %181, align 1
   %182 = lshr i64 %167, 40
   %183 = and i64 %182, 63
-  %184 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i8, ptr %7, i64 %183
   %185 = load i8, ptr %184, align 1, !noundef !9
   %186 = getelementptr inbounds nuw i8, ptr %126, i64 11
   store i8 %185, ptr %186, align 1
   %187 = lshr i64 %167, 34
   %188 = and i64 %187, 63
-  %189 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 %188
   %190 = load i8, ptr %189, align 1, !noundef !9
   %191 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i8 %190, ptr %191, align 1
   %192 = lshr i64 %167, 28
   %193 = and i64 %192, 63
-  %194 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %7, i64 %193
   %195 = load i8, ptr %194, align 1, !noundef !9
   %196 = getelementptr inbounds nuw i8, ptr %126, i64 13
   store i8 %195, ptr %196, align 1
   %197 = lshr i64 %167, 22
   %198 = and i64 %197, 63
-  %199 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 %198
   %200 = load i8, ptr %199, align 1, !noundef !9
   %201 = getelementptr inbounds nuw i8, ptr %126, i64 14
   store i8 %200, ptr %201, align 1
   %202 = lshr i64 %167, 16
   %203 = and i64 %202, 63
-  %204 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 %203
   %205 = load i8, ptr %204, align 1, !noundef !9
   %206 = getelementptr inbounds nuw i8, ptr %126, i64 15
   store i8 %205, ptr %206, align 1
@@ -393,49 +393,49 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %.val.i.i111 = load i64, ptr %207, align 1, !alias.scope !37, !noalias !42
   %208 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i111)
   %209 = lshr i64 %208, 58
-  %210 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr %7, i64 %209
   %211 = load i8, ptr %210, align 1, !noundef !9
   %212 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i8 %211, ptr %212, align 1
   %213 = lshr i64 %208, 52
   %214 = and i64 %213, 63
-  %215 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw i8, ptr %7, i64 %214
   %216 = load i8, ptr %215, align 1, !noundef !9
   %217 = getelementptr inbounds nuw i8, ptr %126, i64 17
   store i8 %216, ptr %217, align 1
   %218 = lshr i64 %208, 46
   %219 = and i64 %218, 63
-  %220 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 %219
   %221 = load i8, ptr %220, align 1, !noundef !9
   %222 = getelementptr inbounds nuw i8, ptr %126, i64 18
   store i8 %221, ptr %222, align 1
   %223 = lshr i64 %208, 40
   %224 = and i64 %223, 63
-  %225 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr %7, i64 %224
   %226 = load i8, ptr %225, align 1, !noundef !9
   %227 = getelementptr inbounds nuw i8, ptr %126, i64 19
   store i8 %226, ptr %227, align 1
   %228 = lshr i64 %208, 34
   %229 = and i64 %228, 63
-  %230 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw i8, ptr %7, i64 %229
   %231 = load i8, ptr %230, align 1, !noundef !9
   %232 = getelementptr inbounds nuw i8, ptr %126, i64 20
   store i8 %231, ptr %232, align 1
   %233 = lshr i64 %208, 28
   %234 = and i64 %233, 63
-  %235 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr %7, i64 %234
   %236 = load i8, ptr %235, align 1, !noundef !9
   %237 = getelementptr inbounds nuw i8, ptr %126, i64 21
   store i8 %236, ptr %237, align 1
   %238 = lshr i64 %208, 22
   %239 = and i64 %238, 63
-  %240 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr %7, i64 %239
   %241 = load i8, ptr %240, align 1, !noundef !9
   %242 = getelementptr inbounds nuw i8, ptr %126, i64 22
   store i8 %241, ptr %242, align 1
   %243 = lshr i64 %208, 16
   %244 = and i64 %243, 63
-  %245 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr %7, i64 %244
   %246 = load i8, ptr %245, align 1, !noundef !9
   %247 = getelementptr inbounds nuw i8, ptr %126, i64 23
   store i8 %246, ptr %247, align 1
@@ -443,49 +443,49 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %.val.i.i113 = load i64, ptr %248, align 1, !alias.scope !44, !noalias !49
   %249 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i113)
   %250 = lshr i64 %249, 58
-  %251 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 %250
   %252 = load i8, ptr %251, align 1, !noundef !9
   %253 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store i8 %252, ptr %253, align 1
   %254 = lshr i64 %249, 52
   %255 = and i64 %254, 63
-  %256 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr %7, i64 %255
   %257 = load i8, ptr %256, align 1, !noundef !9
   %258 = getelementptr inbounds nuw i8, ptr %126, i64 25
   store i8 %257, ptr %258, align 1
   %259 = lshr i64 %249, 46
   %260 = and i64 %259, 63
-  %261 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %7, i64 %260
   %262 = load i8, ptr %261, align 1, !noundef !9
   %263 = getelementptr inbounds nuw i8, ptr %126, i64 26
   store i8 %262, ptr %263, align 1
   %264 = lshr i64 %249, 40
   %265 = and i64 %264, 63
-  %266 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr %7, i64 %265
   %267 = load i8, ptr %266, align 1, !noundef !9
   %268 = getelementptr inbounds nuw i8, ptr %126, i64 27
   store i8 %267, ptr %268, align 1
   %269 = lshr i64 %249, 34
   %270 = and i64 %269, 63
-  %271 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw i8, ptr %7, i64 %270
   %272 = load i8, ptr %271, align 1, !noundef !9
   %273 = getelementptr inbounds nuw i8, ptr %126, i64 28
   store i8 %272, ptr %273, align 1
   %274 = lshr i64 %249, 28
   %275 = and i64 %274, 63
-  %276 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw i8, ptr %7, i64 %275
   %277 = load i8, ptr %276, align 1, !noundef !9
   %278 = getelementptr inbounds nuw i8, ptr %126, i64 29
   store i8 %277, ptr %278, align 1
   %279 = lshr i64 %249, 22
   %280 = and i64 %279, 63
-  %281 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw i8, ptr %7, i64 %280
   %282 = load i8, ptr %281, align 1, !noundef !9
   %283 = getelementptr inbounds nuw i8, ptr %126, i64 30
   store i8 %282, ptr %283, align 1
   %284 = lshr i64 %249, 16
   %285 = and i64 %284, 63
-  %286 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw i8, ptr %7, i64 %285
   %287 = load i8, ptr %286, align 1, !noundef !9
   %288 = getelementptr inbounds nuw i8, ptr %126, i64 31
   store i8 %287, ptr %288, align 1
@@ -540,7 +540,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %25, label %40, label %35
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %17
+  %27 = getelementptr inbounds i8, ptr %2, i64 %17
   %28 = load i8, ptr %27, align 1, !alias.scope !68, !noalias !69, !noundef !9
   %.not4.i.i = icmp eq i8 %28, 61
   br i1 %.not4.i.i, label %18, label %30
@@ -551,7 +551,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
 
 30:                                               ; preds = %26
   %31 = zext i8 %28 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 %31
   %33 = load i8, ptr %32, align 1, !alias.scope !72, !noalias !73, !noundef !9
   %34 = icmp eq i8 %33, -1
   br i1 %34, label %40, label %18
@@ -633,7 +633,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %62 = load i8, ptr %.sroa.0194.01128.i, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 %63
   %65 = load i8, ptr %64, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %66 = icmp eq i8 %65, -1
   br i1 %66, label %.loopexit385.i, label %67
@@ -642,7 +642,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 1
   %69 = load i8, ptr %68, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 %70
   %72 = load i8, ptr %71, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %73 = icmp eq i8 %72, -1
   br i1 %73, label %134, label %74
@@ -651,7 +651,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 2
   %76 = load i8, ptr %75, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 %77
   %79 = load i8, ptr %78, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %80 = icmp eq i8 %79, -1
   br i1 %80, label %131, label %81
@@ -660,7 +660,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 3
   %83 = load i8, ptr %82, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 %84
   %86 = load i8, ptr %85, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %87 = icmp eq i8 %86, -1
   br i1 %87, label %128, label %88
@@ -669,7 +669,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 4
   %90 = load i8, ptr %89, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 %91
   %93 = load i8, ptr %92, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %94 = icmp eq i8 %93, -1
   br i1 %94, label %125, label %95
@@ -678,7 +678,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 5
   %97 = load i8, ptr %96, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %9, i64 %98
   %100 = load i8, ptr %99, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %101 = icmp eq i8 %100, -1
   br i1 %101, label %122, label %102
@@ -687,7 +687,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 6
   %104 = load i8, ptr %103, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %9, i64 %105
   %107 = load i8, ptr %106, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %108 = icmp eq i8 %107, -1
   br i1 %108, label %119, label %109
@@ -696,7 +696,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 7
   %111 = load i8, ptr %110, align 1, !alias.scope !92, !noalias !93, !noundef !9
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 %112
   %114 = load i8, ptr %113, align 1, !alias.scope !96, !noalias !97, !noundef !9
   %115 = icmp eq i8 %114, -1
   br i1 %115, label %116, label %203
@@ -762,7 +762,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %147 = load i8, ptr %.sroa.0218.01136.i, align 1, !alias.scope !106, !noalias !107, !noundef !9
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr %9, i64 %148
   %150 = load i8, ptr %149, align 1, !alias.scope !110, !noalias !111, !noundef !9
   %151 = icmp eq i8 %150, -1
   br i1 %151, label %.loopexit.i, label %152
@@ -771,7 +771,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.0218.01136.i, i64 1
   %154 = load i8, ptr %153, align 1, !alias.scope !106, !noalias !107, !noundef !9
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %9, i64 %155
   %157 = load i8, ptr %156, align 1, !alias.scope !110, !noalias !111, !noundef !9
   %158 = icmp eq i8 %157, -1
   br i1 %158, label %181, label %159
@@ -780,7 +780,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0218.01136.i, i64 2
   %161 = load i8, ptr %160, align 1, !alias.scope !106, !noalias !107, !noundef !9
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %9, i64 %162
   %164 = load i8, ptr %163, align 1, !alias.scope !110, !noalias !111, !noundef !9
   %165 = icmp eq i8 %164, -1
   br i1 %165, label %177, label %166
@@ -789,7 +789,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.0218.01136.i, i64 3
   %168 = load i8, ptr %167, align 1, !alias.scope !106, !noalias !107, !noundef !9
   %169 = zext i8 %168 to i64
-  %170 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr %9, i64 %169
   %171 = load i8, ptr %170, align 1, !alias.scope !110, !noalias !111, !noundef !9
   %172 = icmp eq i8 %171, -1
   br i1 %172, label %173, label %185
@@ -880,7 +880,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %230 = load i8, ptr %228, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %231 = zext i8 %230 to i64
-  %232 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %9, i64 %231
   %233 = load i8, ptr %232, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %234 = icmp eq i8 %233, -1
   br i1 %234, label %.loopexit386.i, label %235
@@ -889,7 +889,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 9
   %237 = load i8, ptr %236, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %238 = zext i8 %237 to i64
-  %239 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %9, i64 %238
   %240 = load i8, ptr %239, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %241 = icmp eq i8 %240, -1
   br i1 %241, label %.loopexit386.i, label %242
@@ -898,7 +898,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %243 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 10
   %244 = load i8, ptr %243, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %245 = zext i8 %244 to i64
-  %246 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw i8, ptr %9, i64 %245
   %247 = load i8, ptr %246, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %248 = icmp eq i8 %247, -1
   br i1 %248, label %.loopexit386.i, label %249
@@ -907,7 +907,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 11
   %251 = load i8, ptr %250, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %252 = zext i8 %251 to i64
-  %253 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr %9, i64 %252
   %254 = load i8, ptr %253, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %255 = icmp eq i8 %254, -1
   br i1 %255, label %.loopexit386.i, label %256
@@ -916,7 +916,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 12
   %258 = load i8, ptr %257, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %259 = zext i8 %258 to i64
-  %260 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw i8, ptr %9, i64 %259
   %261 = load i8, ptr %260, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %262 = icmp eq i8 %261, -1
   br i1 %262, label %.loopexit386.i, label %263
@@ -925,7 +925,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %264 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 13
   %265 = load i8, ptr %264, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr %9, i64 %266
   %268 = load i8, ptr %267, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %269 = icmp eq i8 %268, -1
   br i1 %269, label %.loopexit386.i, label %270
@@ -934,7 +934,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 14
   %272 = load i8, ptr %271, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %273 = zext i8 %272 to i64
-  %274 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr %9, i64 %273
   %275 = load i8, ptr %274, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %276 = icmp eq i8 %275, -1
   br i1 %276, label %.loopexit386.i, label %277
@@ -943,7 +943,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %278 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 15
   %279 = load i8, ptr %278, align 1, !alias.scope !129, !noalias !130, !noundef !9
   %280 = zext i8 %279 to i64
-  %281 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw i8, ptr %9, i64 %280
   %282 = load i8, ptr %281, align 1, !alias.scope !133, !noalias !134, !noundef !9
   %283 = icmp eq i8 %282, -1
   br i1 %283, label %.loopexit386.i, label %287
@@ -997,7 +997,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %314 = load i8, ptr %312, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %315 = zext i8 %314 to i64
-  %316 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i8, ptr %9, i64 %315
   %317 = load i8, ptr %316, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %318 = icmp eq i8 %317, -1
   br i1 %318, label %.loopexit387.i, label %319
@@ -1006,7 +1006,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %320 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 17
   %321 = load i8, ptr %320, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %322 = zext i8 %321 to i64
-  %323 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr %9, i64 %322
   %324 = load i8, ptr %323, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %325 = icmp eq i8 %324, -1
   br i1 %325, label %.loopexit387.i, label %326
@@ -1015,7 +1015,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %327 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 18
   %328 = load i8, ptr %327, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %329 = zext i8 %328 to i64
-  %330 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %9, i64 %329
   %331 = load i8, ptr %330, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %332 = icmp eq i8 %331, -1
   br i1 %332, label %.loopexit387.i, label %333
@@ -1024,7 +1024,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %334 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 19
   %335 = load i8, ptr %334, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %336 = zext i8 %335 to i64
-  %337 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw i8, ptr %9, i64 %336
   %338 = load i8, ptr %337, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %339 = icmp eq i8 %338, -1
   br i1 %339, label %.loopexit387.i, label %340
@@ -1033,7 +1033,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 20
   %342 = load i8, ptr %341, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %343 = zext i8 %342 to i64
-  %344 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw i8, ptr %9, i64 %343
   %345 = load i8, ptr %344, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %346 = icmp eq i8 %345, -1
   br i1 %346, label %.loopexit387.i, label %347
@@ -1042,7 +1042,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %348 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 21
   %349 = load i8, ptr %348, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %350 = zext i8 %349 to i64
-  %351 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr %9, i64 %350
   %352 = load i8, ptr %351, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %353 = icmp eq i8 %352, -1
   br i1 %353, label %.loopexit387.i, label %354
@@ -1051,7 +1051,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %355 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 22
   %356 = load i8, ptr %355, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %357 = zext i8 %356 to i64
-  %358 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %357
+  %358 = getelementptr inbounds nuw i8, ptr %9, i64 %357
   %359 = load i8, ptr %358, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %360 = icmp eq i8 %359, -1
   br i1 %360, label %.loopexit387.i, label %361
@@ -1060,7 +1060,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 23
   %363 = load i8, ptr %362, align 1, !alias.scope !146, !noalias !147, !noundef !9
   %364 = zext i8 %363 to i64
-  %365 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i8, ptr %9, i64 %364
   %366 = load i8, ptr %365, align 1, !alias.scope !150, !noalias !151, !noundef !9
   %367 = icmp eq i8 %366, -1
   br i1 %367, label %.loopexit387.i, label %371
@@ -1112,7 +1112,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %398 = load i8, ptr %396, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %399 = zext i8 %398 to i64
-  %400 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw i8, ptr %9, i64 %399
   %401 = load i8, ptr %400, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %402 = icmp eq i8 %401, -1
   br i1 %402, label %.loopexit388.i, label %403
@@ -1121,7 +1121,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %404 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 25
   %405 = load i8, ptr %404, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %406 = zext i8 %405 to i64
-  %407 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw i8, ptr %9, i64 %406
   %408 = load i8, ptr %407, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %409 = icmp eq i8 %408, -1
   br i1 %409, label %.loopexit388.i, label %410
@@ -1130,7 +1130,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %411 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 26
   %412 = load i8, ptr %411, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i8, ptr %9, i64 %413
   %415 = load i8, ptr %414, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %416 = icmp eq i8 %415, -1
   br i1 %416, label %.loopexit388.i, label %417
@@ -1139,7 +1139,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %418 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 27
   %419 = load i8, ptr %418, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %420 = zext i8 %419 to i64
-  %421 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %420
+  %421 = getelementptr inbounds nuw i8, ptr %9, i64 %420
   %422 = load i8, ptr %421, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %423 = icmp eq i8 %422, -1
   br i1 %423, label %.loopexit388.i, label %424
@@ -1148,7 +1148,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %425 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 28
   %426 = load i8, ptr %425, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %427 = zext i8 %426 to i64
-  %428 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw i8, ptr %9, i64 %427
   %429 = load i8, ptr %428, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %430 = icmp eq i8 %429, -1
   br i1 %430, label %.loopexit388.i, label %431
@@ -1157,7 +1157,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %432 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 29
   %433 = load i8, ptr %432, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %434 = zext i8 %433 to i64
-  %435 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %434
+  %435 = getelementptr inbounds nuw i8, ptr %9, i64 %434
   %436 = load i8, ptr %435, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %437 = icmp eq i8 %436, -1
   br i1 %437, label %.loopexit388.i, label %438
@@ -1166,7 +1166,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %439 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 30
   %440 = load i8, ptr %439, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %441 = zext i8 %440 to i64
-  %442 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %441
+  %442 = getelementptr inbounds nuw i8, ptr %9, i64 %441
   %443 = load i8, ptr %442, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %444 = icmp eq i8 %443, -1
   br i1 %444, label %.loopexit388.i, label %445
@@ -1175,7 +1175,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   %446 = getelementptr inbounds nuw i8, ptr %.sroa.0194.01128.i, i64 31
   %447 = load i8, ptr %446, align 1, !alias.scope !163, !noalias !164, !noundef !9
   %448 = zext i8 %447 to i64
-  %449 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %448
+  %449 = getelementptr inbounds nuw i8, ptr %9, i64 %448
   %450 = load i8, ptr %449, align 1, !alias.scope !167, !noalias !168, !noundef !9
   %451 = icmp eq i8 %450, -1
   br i1 %451, label %.loopexit388.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit.i"
@@ -1263,10 +1263,10 @@ define void @_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174
 
 4:                                                ; preds = %2, %4
   %.06 = phi i64 [ 0, %2 ], [ %10, %4 ]
-  %5 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.06
   %6 = load i8, ptr %5, align 1, !noundef !9
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = trunc nuw nsw i64 %.06 to i8
   store i8 %9, ptr %8, align 1
   %10 = add nuw nsw i64 %.06, 1

@@ -30885,7 +30885,7 @@ _ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold10MappedFileESt14default_d
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.01098 = phi i64 [ %52, %.lr.ph99 ], [ 1, %.preheader ]
-  %51 = getelementptr inbounds nuw [3 x %"struct.std::atomic.154"], ptr %31, i64 0, i64 %.01098
+  %51 = getelementptr inbounds nuw %"struct.std::atomic.154", ptr %31, i64 %.01098
   store atomic i64 %27, ptr %51 release, align 8
   %52 = add nuw nsw i64 %.01098, 1
   %exitcond103.not = icmp eq i64 %52, %invariant.umin
@@ -32598,7 +32598,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ec
   %12 = load ptr, ptr %11, align 8, !tbaa !1041
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 313
   %14 = zext i8 %10 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !13
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %17, label %_ZNKSt5ctypeIcE6narrowEcc.exit
@@ -33047,7 +33047,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_po
   %13 = load ptr, ptr %12, align 8, !tbaa !1041
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 313
   %15 = zext i8 %9 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !13
   %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %18, label %_ZNKSt5ctypeIcE6narrowEcc.exit
@@ -33336,7 +33336,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE17_M_eat_escape_aw
   %7 = load ptr, ptr %6, align 8, !tbaa !1041
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 313
   %9 = zext i8 %5 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !13
   %.not.i = icmp eq i8 %11, 0
   br i1 %.not.i, label %12, label %_ZNKSt5ctypeIcE6narrowEcc.exit
@@ -33545,7 +33545,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail8_ScannerIcE14_M_scan_normalEv
   %9 = load ptr, ptr %8, align 8, !tbaa !1041
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 313
   %11 = zext i8 %5 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !13
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %14, label %_ZNKSt5ctypeIcE6narrowEcc.exit
@@ -33821,7 +33821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit: ; preds = 
   %134 = load ptr, ptr %8, align 8, !tbaa !1041
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 313
   %136 = zext i8 %.0 to i64
-  %137 = getelementptr inbounds nuw [256 x i8], ptr %135, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !13
   %.not.i38 = icmp eq i8 %138, 0
   br i1 %.not.i38, label %139, label %_ZNKSt5ctypeIcE6narrowEcc.exit41
@@ -41166,7 +41166,7 @@ _ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit: ; pr
   %.not.i = icmp eq i8 %81, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %83 = lshr i64 %indvars.iv.i, 6
-  %84 = getelementptr inbounds nuw [4 x i64], ptr %75, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i64, ptr %75, i64 %83
   %85 = and i64 %indvars.iv.i, 63
   %86 = shl nuw i64 1, %85
   br i1 %.not.i, label %90, label %87
@@ -41228,7 +41228,7 @@ define linkonce_odr dso_local i32 @_ZNKSt7__cxx1112regex_traitsIcE16lookup_class
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef signext i8 %16(ptr noundef nonnull align 8 dereferenceable(570) %6, i8 noundef signext %13) #15
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !13
   %.not.i = icmp eq i8 %20, 0
   br i1 %.not.i, label %21, label %_ZNKSt5ctypeIcE6narrowEcc.exit
@@ -42387,7 +42387,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbcEN
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %6 = zext i8 %4 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !20
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
@@ -43120,7 +43120,7 @@ _ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit: ; pr
   %.not.i = icmp eq i8 %81, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %83 = lshr i64 %indvars.iv.i, 6
-  %84 = getelementptr inbounds nuw [4 x i64], ptr %75, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i64, ptr %75, i64 %83
   %85 = and i64 %indvars.iv.i, 63
   %86 = shl nuw i64 1, %85
   br i1 %.not.i, label %90, label %87
@@ -43661,7 +43661,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbcEN
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %6 = zext i8 %4 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !20
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
@@ -44298,7 +44298,7 @@ _ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit: ; pr
   %.not.i = icmp eq i8 %81, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %83 = lshr i64 %indvars.iv.i, 6
-  %84 = getelementptr inbounds nuw [4 x i64], ptr %75, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i64, ptr %75, i64 %83
   %85 = and i64 %indvars.iv.i, 63
   %86 = shl nuw i64 1, %85
   br i1 %.not.i, label %90, label %87
@@ -44580,7 +44580,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbcEN
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %6 = zext i8 %4 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !20
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
@@ -45210,7 +45210,7 @@ _ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit: ; pr
   %.not.i = icmp eq i8 %81, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %83 = lshr i64 %indvars.iv.i, 6
-  %84 = getelementptr inbounds nuw [4 x i64], ptr %75, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i64, ptr %75, i64 %83
   %85 = and i64 %indvars.iv.i, 63
   %86 = shl nuw i64 1, %85
   br i1 %.not.i, label %90, label %87
@@ -45735,7 +45735,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbcEN
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %6 = zext i8 %4 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !20
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
@@ -48592,7 +48592,7 @@ define linkonce_odr dso_local void @_ZNKSt7__cxx1112regex_traitsIcE18lookup_coll
   %.025 = phi ptr [ %2, %.lr.ph ], [ %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %13 = load i8, ptr %.025, align 1, !tbaa !13
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !13
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %17, label %_ZNKSt5ctypeIcE6narrowEcc.exit
@@ -48675,7 +48675,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 57
   %49 = and i64 %44, 255
-  %50 = getelementptr inbounds nuw [256 x i8], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !13
   br label %_ZNKSt5ctypeIcE5widenEc.exit
 
@@ -55923,7 +55923,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIN9__
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 313
   %30 = zext i8 %26 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i, label %33, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i
@@ -55967,7 +55967,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit.i:                 ; preds = %38, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 313
   %55 = zext i8 %51 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %.not.i.i4 = icmp eq i8 %57, 0
   br i1 %.not.i.i4, label %58, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i5
@@ -56046,7 +56046,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIN9__
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 313
   %26 = zext i8 %22 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i, label %29, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i
@@ -57267,7 +57267,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIN9__
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 313
   %30 = zext i8 %26 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i, label %33, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i
@@ -57311,7 +57311,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit.i:                 ; preds = %38, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 313
   %55 = zext i8 %51 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %.not.i.i4 = icmp eq i8 %57, 0
   br i1 %.not.i.i4, label %58, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i5
@@ -57390,7 +57390,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIN9__
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 313
   %26 = zext i8 %22 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i, label %29, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i
@@ -58288,7 +58288,7 @@ _ZN3tbb6detail2d113segment_tableISt10unique_ptrIA_hSt14default_deleteIS4_EENS1_2
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.01098 = phi i64 [ %52, %.lr.ph99 ], [ 1, %.preheader ]
-  %51 = getelementptr inbounds nuw [3 x %"struct.std::atomic.146"], ptr %31, i64 0, i64 %.01098
+  %51 = getelementptr inbounds nuw %"struct.std::atomic.146", ptr %31, i64 %.01098
   store atomic i64 %27, ptr %51 release, align 8
   %52 = add nuw nsw i64 %.01098, 1
   %exitcond103.not = icmp eq i64 %52, %invariant.umin
@@ -60635,7 +60635,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIPKcS
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 313
   %30 = zext i8 %26 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i, label %33, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i
@@ -60679,7 +60679,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit.i:                 ; preds = %38, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 313
   %55 = zext i8 %51 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %.not.i.i3 = icmp eq i8 %57, 0
   br i1 %.not.i.i3, label %58, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i4
@@ -60758,7 +60758,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIPKcS
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 313
   %26 = zext i8 %22 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i, label %29, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i
@@ -61924,7 +61924,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIPKcS
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 313
   %30 = zext i8 %26 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i, label %33, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i
@@ -61968,7 +61968,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit.i:                 ; preds = %38, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 313
   %55 = zext i8 %51 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %.not.i.i3 = icmp eq i8 %57, 0
   br i1 %.not.i.i3, label %58, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i4
@@ -62047,7 +62047,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail9_ExecutorIPKcS
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 313
   %26 = zext i8 %22 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i, label %29, label %_ZNKSt5ctypeIcE6narrowEcc.exit.i

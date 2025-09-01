@@ -81,7 +81,7 @@ define hidden void @VP8LBitsEntropyUnrefined(ptr noalias noundef readonly captur
 
 22:                                               ; preds = %17
   %23 = zext nneg i32 %16 to i64
-  %24 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
@@ -117,7 +117,7 @@ VP8LFastSLog2.exit:                               ; preds = %22, %26
   %39 = phi i32 [ %37, %._crit_edge ], [ 0, %3 ]
   %40 = phi i64 [ %35, %._crit_edge ], [ 0, %3 ]
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit25
 
@@ -600,12 +600,12 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 109:                                              ; preds = %106, %109
   %indvars.iv = phi i64 [ 0, %106 ], [ %indvars.iv.next, %109 ]
-  %110 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %111 = load i8, ptr %110, align 1, !tbaa !29
-  %112 = getelementptr inbounds nuw [5 x i8], ptr %107, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1, !tbaa !29
   %114 = or i8 %113, %111
-  %115 = getelementptr inbounds nuw [5 x i8], ptr %108, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv
   store i8 %114, ptr %115, align 1, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -736,9 +736,9 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 
 178:                                              ; preds = %176, %178
   %indvars.iv140 = phi i64 [ 0, %176 ], [ %indvars.iv.next141, %178 ]
-  %179 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv140
+  %179 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv140
   %180 = load i8, ptr %179, align 1, !tbaa !29
-  %181 = getelementptr inbounds nuw [5 x i8], ptr %177, i64 0, i64 %indvars.iv140
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 %indvars.iv140
   %182 = load i8, ptr %181, align 1, !tbaa !29
   %183 = or i8 %182, %180
   store i8 %183, ptr %181, align 1, !tbaa !29
@@ -866,7 +866,7 @@ define internal i32 @FastLog2Slow_C(i32 noundef %0) #7 {
   %5 = sub nsw i32 24, %4
   %6 = lshr i32 %0, %5
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %10 = shl nsw i32 %5, 23
   %11 = add i32 %9, %10
@@ -916,7 +916,7 @@ define internal i64 @FastSLog2Slow_C(i32 noundef %0) #7 {
   %11 = zext nneg i32 %10 to i64
   %12 = mul nuw nsw i64 %11, 12102203
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !9
   %16 = zext i32 %15 to i64
   %17 = shl nsw i64 %7, 23
@@ -1051,7 +1051,7 @@ define internal i64 @CombinedShannonEntropy_C(ptr noundef readonly captures(none
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
@@ -1069,7 +1069,7 @@ VP8LFastSLog2.exit:                               ; preds = %12, %16
 
 23:                                               ; preds = %VP8LFastSLog2.exit
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit35
 
@@ -1094,7 +1094,7 @@ VP8LFastSLog2.exit35:                             ; preds = %23, %27
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %7 to i64
-  %38 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit36
 
@@ -1122,7 +1122,7 @@ VP8LFastSLog2.exit36:                             ; preds = %36, %40
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %.131 to i64
-  %50 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit37
 
@@ -1138,7 +1138,7 @@ VP8LFastSLog2.exit37:                             ; preds = %48, %52
 
 57:                                               ; preds = %VP8LFastSLog2.exit37
   %58 = zext nneg i32 %.129 to i64
-  %59 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit38
 
@@ -1179,7 +1179,7 @@ define internal i64 @ShannonEntropy_C(ptr noundef readonly captures(none) %0, i3
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
@@ -1208,7 +1208,7 @@ VP8LFastSLog2.exit:                               ; preds = %9, %13
   %.012.lcssa27 = phi i32 [ %.1, %._crit_edge ], [ 0, %2 ]
   %.013.lcssa26 = phi i64 [ %.114, %._crit_edge ], [ 0, %2 ]
   %20 = zext nneg i32 %.012.lcssa27 to i64
-  %21 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit16
 
@@ -1276,7 +1276,7 @@ define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) 
 
 28:                                               ; preds = %23
   %29 = zext nneg i32 %.02630 to i64
-  %30 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !12, !noalias !50
   br label %VP8LFastSLog2.exit.i
 
@@ -1307,13 +1307,13 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
   %46 = zext i1 %45 to i32
   %47 = icmp ne i32 %.02630, 0
   %48 = zext i1 %47 to i64
-  %49 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !9, !alias.scope !45, !noalias !51
   %51 = add nsw i32 %50, %46
   store i32 %51, ptr %49, align 4, !tbaa !9, !alias.scope !45, !noalias !51
-  %52 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %12, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 %48
   %53 = zext i1 %45 to i64
-  %54 = getelementptr inbounds nuw [2 x i32], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !9, !alias.scope !45, !noalias !51
   %56 = add nsw i32 %55, %22
   store i32 %56, ptr %54, align 4, !tbaa !9, !alias.scope !45, !noalias !51
@@ -1358,7 +1358,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
 
 74:                                               ; preds = %67
   %75 = zext nneg i32 %.026.lcssa to i64
-  %76 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !12, !noalias !61
   br label %VP8LFastSLog2.exit.i20
 
@@ -1387,14 +1387,14 @@ GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LF
   %91 = zext i1 %90 to i32
   %92 = icmp ne i32 %.026.lcssa, 0
   %93 = zext i1 %92 to i64
-  %94 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr %3, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !9, !alias.scope !56, !noalias !62
   %96 = add nsw i32 %95, %91
   store i32 %96, ptr %94, align 4, !tbaa !9, !alias.scope !56, !noalias !62
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %98 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %97, i64 0, i64 %93
+  %98 = getelementptr inbounds nuw [2 x i32], ptr %97, i64 %93
   %99 = zext i1 %90 to i64
-  %100 = getelementptr inbounds nuw [2 x i32], ptr %98, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %98, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !9, !alias.scope !56, !noalias !62
   %102 = add nsw i32 %101, %66
   store i32 %102, ptr %100, align 4, !tbaa !9, !alias.scope !56, !noalias !62
@@ -1403,7 +1403,7 @@ GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LF
 
 104:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
   %105 = zext nneg i32 %89 to i64
-  %106 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
@@ -1476,7 +1476,7 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly capture
 
 34:                                               ; preds = %29
   %35 = zext nneg i32 %.02933 to i64
-  %36 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !12, !noalias !71
   br label %VP8LFastSLog2.exit.i
 
@@ -1507,13 +1507,13 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
   %52 = zext i1 %51 to i32
   %53 = icmp ne i32 %.02933, 0
   %54 = zext i1 %53 to i64
-  %55 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !9, !alias.scope !66, !noalias !72
   %57 = add nsw i32 %56, %52
   store i32 %57, ptr %55, align 4, !tbaa !9, !alias.scope !66, !noalias !72
-  %58 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %15, i64 0, i64 %54
+  %58 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 %54
   %59 = zext i1 %51 to i64
-  %60 = getelementptr inbounds nuw [2 x i32], ptr %58, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !9, !alias.scope !66, !noalias !72
   %62 = add nsw i32 %61, %28
   store i32 %62, ptr %60, align 4, !tbaa !9, !alias.scope !66, !noalias !72
@@ -1558,7 +1558,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
 
 80:                                               ; preds = %73
   %81 = zext nneg i32 %.029.lcssa to i64
-  %82 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %81
   %83 = load i64, ptr %82, align 8, !tbaa !12, !noalias !82
   br label %VP8LFastSLog2.exit.i23
 
@@ -1587,14 +1587,14 @@ GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LF
   %97 = zext i1 %96 to i32
   %98 = icmp ne i32 %.029.lcssa, 0
   %99 = zext i1 %98 to i64
-  %100 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %4, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !9, !alias.scope !77, !noalias !83
   %102 = add nsw i32 %101, %97
   store i32 %102, ptr %100, align 4, !tbaa !9, !alias.scope !77, !noalias !83
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %104 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %103, i64 0, i64 %99
+  %104 = getelementptr inbounds nuw [2 x i32], ptr %103, i64 %99
   %105 = zext i1 %96 to i64
-  %106 = getelementptr inbounds nuw [2 x i32], ptr %104, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !9, !alias.scope !77, !noalias !83
   %108 = add nsw i32 %107, %72
   store i32 %108, ptr %106, align 4, !tbaa !9, !alias.scope !77, !noalias !83
@@ -1603,7 +1603,7 @@ GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LF
 
 110:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
   %111 = zext nneg i32 %95 to i64
-  %112 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 

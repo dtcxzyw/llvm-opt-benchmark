@@ -4378,7 +4378,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.e
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 360
   %150 = load i32, ptr %149, align 4, !tbaa !345, !noalias !973
   %151 = zext nneg i32 %150 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac22GenerateConstantStringEPKN5clang13StringLiteralE, i64 0, i64 %151
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac22GenerateConstantStringEPKN5clang13StringLiteralE, i64 %151
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZN4llvm12GlobalObject10setSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %145, ptr nonnull %switch.load, i64 45) #27, !noalias !973
   store ptr %145, ptr %35, align 8, !tbaa !977, !noalias !973
@@ -13538,16 +13538,16 @@ switch.lookup:
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val42 = load i32, ptr %7, align 8
   %8 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %3 to i64
-  %switch.gep59 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb.56, i64 0, i64 %9
+  %switch.gep59 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb.56, i64 %9
   %switch.load60 = load i64, ptr %switch.gep59, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep61 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb.57, i64 0, i64 %10
+  %switch.gep61 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb.57, i64 %10
   %switch.load62 = load ptr, ptr %switch.gep61, align 8
   %11 = zext nneg i32 %3 to i64
-  %switch.gep63 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb.58, i64 0, i64 %11
+  %switch.gep63 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20CreateCStringLiteralEN4llvm9StringRefENS_13ObjCLabelTypeEbb.58, i64 %11
   %switch.load64 = load i64, ptr %switch.gep63, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !840
@@ -25024,8 +25024,8 @@ _ZN12_GLOBAL__N_112_GLOBAL__N_119ProtocolMethodListsC2Ev.exit: ; preds = %3
   %25 = and i24 %24, 131072
   %.not.i = icmp eq i24 %25, 0
   %26 = zext i1 %.not.i to i64
-  %27 = or disjoint i64 %22, %26
-  %28 = getelementptr inbounds nuw [4 x %"class.llvm::SmallVector.1355"], ptr %0, i64 0, i64 %27
+  %27 = getelementptr inbounds nuw %"class.llvm::SmallVector.1355", ptr %0, i64 %22
+  %28 = getelementptr inbounds nuw %"class.llvm::SmallVector.1355", ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !353
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -30315,10 +30315,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
 switch.lookup:                                    ; preds = %293
   %299 = lshr i32 %297, 4
   %300 = zext nneg i32 %299 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20getBitmapBlockLayoutEb, i64 0, i64 %300
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20getBitmapBlockLayoutEb, i64 %300
   %switch.load = load ptr, ptr %switch.gep, align 8
   %301 = zext nneg i32 %299 to i64
-  %switch.gep245 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20getBitmapBlockLayoutEb.59, i64 0, i64 %301
+  %switch.gep245 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac20getBitmapBlockLayoutEb.59, i64 %301
   %switch.load246 = load i32, ptr %switch.gep245, align 4
   %302 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   br label %303

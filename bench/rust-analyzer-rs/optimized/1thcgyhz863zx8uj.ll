@@ -384,7 +384,7 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$alloc..ffi..c_str..CString..new..Spe
 
 .lr.ph.i:                                         ; preds = %12, %16
   %.05.i = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %6, i64 0, i64 %.05.i
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.05.i
   %14 = load i8, ptr %13, align 1, !alias.scope !81, !noundef !4
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %16
@@ -1041,7 +1041,7 @@ define internal void @"_ZN4stdx7process16streaming_output28_$u7b$$u7b$closure$u7
 
 .lr.ph.i.us.i.i.i.i:                              ; preds = %75, %79
   %.05.i.us.i.i.i.i = phi i64 [ %80, %79 ], [ 0, %75 ]
-  %76 = getelementptr inbounds nuw [0 x i8], ptr %69, i64 0, i64 %.05.i.us.i.i.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 %.05.i.us.i.i.i.i
   %77 = load i8, ptr %76, align 1, !alias.scope !192, !noalias !195, !noundef !4
   %78 = icmp eq i8 %77, %71
   br i1 %78, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i, label %79
@@ -1098,7 +1098,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %98, %102
   %.05.i.i.i.i.i = phi i64 [ %103, %102 ], [ 0, %98 ]
-  %99 = getelementptr inbounds nuw [0 x i8], ptr %92, i64 0, i64 %.05.i.i.i.i.i
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 %.05.i.i.i.i.i
   %100 = load i8, ptr %99, align 1, !alias.scope !192, !noalias !195, !noundef !4
   %101 = icmp eq i8 %100, %94
   br i1 %101, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i, label %102

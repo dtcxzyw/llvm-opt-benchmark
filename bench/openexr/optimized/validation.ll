@@ -946,7 +946,7 @@ define internal fastcc i32 @validate_part_type(ptr noundef %0, ptr noundef captu
 
 switch.lookup:                                    ; preds = %29
   %31 = zext nneg i32 %.pre to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.validate_part_type, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.validate_part_type, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 

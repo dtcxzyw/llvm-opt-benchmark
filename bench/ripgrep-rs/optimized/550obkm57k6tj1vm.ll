@@ -699,7 +699,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %22, align 8, !nonnull !5, !noundef !5
-  %80 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %79, i64 0, i64 %75, i32 2
+  %80 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %79, i64 %75, i32 2
   %81 = load i32, ptr %80, align 4, !noundef !5
   %82 = icmp ne i32 %81, 0
   %83 = zext i1 %82 to i8
@@ -736,7 +736,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %22, align 8, !alias.scope !31, !nonnull !5, !noundef !5
-  %102 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %101, i64 0, i64 %97, i32 1
+  %102 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %101, i64 %97, i32 1
   %103 = load i32, ptr %102, align 4, !noalias !31, !noundef !5
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %106, label %125
@@ -772,7 +772,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 120:                                              ; preds = %115
   %121 = load ptr, ptr %112, align 8, !noalias !34, !nonnull !5, !noundef !5
-  %122 = getelementptr inbounds nuw [0 x <{ i8, i32, i32 }>], ptr %121, i64 0, i64 %116
+  %122 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %121, i64 %116
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %122, i64 5
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !34
   %.sroa.626.1.copyload = load i8, ptr %122, align 1, !noalias !38
@@ -786,7 +786,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 125:                                              ; preds = %100
   %126 = zext i8 %68 to i64
-  %127 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr %24, i64 %126
   %128 = load i8, ptr %127, align 1, !alias.scope !31, !noundef !5
   %129 = zext i8 %128 to i64
   %130 = zext i32 %103 to i64
@@ -797,7 +797,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 134:                                              ; preds = %125
   %135 = load ptr, ptr %26, align 8, !alias.scope !31, !nonnull !5, !noundef !5
-  %136 = getelementptr inbounds nuw [0 x i32], ptr %135, i64 0, i64 %131
+  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %131
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit
 
 137:                                              ; preds = %125

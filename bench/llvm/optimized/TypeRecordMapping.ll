@@ -1078,7 +1078,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %24, %20
   %.019.i = phi i64 [ %59, %.thread.i ], [ %39, %.thread.i.preheader ]
   %.117.i = phi ptr [ %58, %.thread.i ], [ %37, %.thread.i.preheader ]
   %55 = and i64 %.019.i, 15
-  %56 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !39, !noalias !89
   %58 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %57, ptr %58, align 1, !tbaa !39, !noalias !89
@@ -2555,7 +2555,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   %.019.i = phi i64 [ %194, %.thread.i ], [ %178, %.thread.i.preheader ]
   %.117.i = phi ptr [ %193, %.thread.i ], [ %98, %.thread.i.preheader ]
   %190 = and i64 %.019.i, 15
-  %191 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %190
   %192 = load i8, ptr %191, align 1, !tbaa !39, !noalias !147
   %193 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %192, ptr %193, align 1, !tbaa !39, !noalias !147
@@ -4018,7 +4018,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   %.019.i = phi i64 [ %197, %.thread.i ], [ %181, %.thread.i.preheader ]
   %.117.i = phi ptr [ %196, %.thread.i ], [ %99, %.thread.i.preheader ]
   %193 = and i64 %.019.i, 15
-  %194 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !39, !noalias !184
   %196 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %195, ptr %196, align 1, !tbaa !39, !noalias !184
@@ -11008,7 +11008,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   %.019.i.i = phi i64 [ %319, %.thread.i.i ], [ %303, %.thread.i.preheader.i ]
   %.117.i.i = phi ptr [ %318, %.thread.i.i ], [ %222, %.thread.i.preheader.i ]
   %315 = and i64 %.019.i.i, 15
-  %316 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %315
   %317 = load i8, ptr %316, align 1, !tbaa !39, !noalias !445
   %318 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %317, ptr %318, align 1, !tbaa !39, !noalias !445

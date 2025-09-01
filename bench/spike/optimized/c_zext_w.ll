@@ -133,14 +133,13 @@ define noundef i64 @_Z19fast_rv64i_c_zext_wP11processor_t6insn_tm(ptr noundef ca
 
 18:                                               ; preds = %11
   %19 = add i64 %2, 2
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %21 = lshr i64 %1, 7
-  %22 = and i64 %21, 7
-  %23 = or disjoint i64 %22, 8
-  %24 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %23
-  %25 = load i64, ptr %24, align 8, !tbaa !14
-  %26 = and i64 %25, 4294967295
-  store i64 %26, ptr %24, align 8, !tbaa !14
+  %20 = lshr i64 %1, 7
+  %21 = and i64 %20, 7
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
+  %24 = load i64, ptr %23, align 8, !tbaa !14
+  %25 = and i64 %24, 4294967295
+  store i64 %25, ptr %23, align 8, !tbaa !14
   ret i64 %19
 }
 
@@ -205,7 +204,7 @@ define noundef i64 @_Z21logged_rv64i_c_zext_wP11processor_t6insn_tm(ptr noundef 
   %22 = lshr i64 %1, 7
   %23 = and i64 %22, 7
   %24 = or disjoint i64 %23, 8
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %21, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = and i64 %26, 4294967295
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -361,14 +360,13 @@ define noundef i64 @_Z19fast_rv64e_c_zext_wP11processor_t6insn_tm(ptr noundef ca
 18:                                               ; preds = %11
   %19 = lshr i64 %1, 7
   %20 = and i64 %19, 7
-  %21 = or disjoint i64 %20, 8
-  %22 = add i64 %2, 2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %24 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %21
-  %25 = load i64, ptr %24, align 8, !tbaa !14
-  %26 = and i64 %25, 4294967295
-  store i64 %26, ptr %24, align 8, !tbaa !14
-  ret i64 %22
+  %21 = add i64 %2, 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %20
+  %24 = load i64, ptr %23, align 8, !tbaa !14
+  %25 = and i64 %24, 4294967295
+  store i64 %25, ptr %23, align 8, !tbaa !14
+  ret i64 %21
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
@@ -429,7 +427,7 @@ define noundef i64 @_Z21logged_rv64e_c_zext_wP11processor_t6insn_tm(ptr noundef 
   %22 = or disjoint i64 %21, 8
   %23 = add i64 %2, 2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %22
+  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %22
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = and i64 %26, 4294967295
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3840

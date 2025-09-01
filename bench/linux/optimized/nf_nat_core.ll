@@ -377,7 +377,7 @@ hash_by_src.exit:                                 ; preds = %52, %63
 
 148:                                              ; preds = %141
   %149 = zext nneg i32 %145 to i64
-  %150 = getelementptr [4 x i32], ptr %127, i64 0, i64 %149
+  %150 = getelementptr i32, ptr %127, i64 %149
   %151 = load i32, ptr %150, align 4
   %152 = load i16, ptr @nf_ct_zone_dflt, align 2
   %153 = zext i16 %152 to i32
@@ -454,15 +454,15 @@ hash_by_src.exit:                                 ; preds = %52, %63
   br i1 %218, label %219, label %.split.us._crit_edge
 
 .split.us._crit_edge:                             ; preds = %.split.us
-  %.phi.trans.insert43 = getelementptr [4 x i32], ptr %130, i64 0, i64 %215
+  %.phi.trans.insert43 = getelementptr i32, ptr %130, i64 %215
   %.pre44 = load i32, ptr %.phi.trans.insert43, align 4
   br label %228
 
 219:                                              ; preds = %.split.us
-  %220 = getelementptr [4 x i32], ptr %129, i64 0, i64 %215
+  %220 = getelementptr i32, ptr %129, i64 %215
   %221 = load i32, ptr %220, align 4
   %222 = call i32 @llvm.bswap.i32(i32 %221)
-  %223 = getelementptr [4 x i32], ptr %130, i64 0, i64 %215
+  %223 = getelementptr i32, ptr %130, i64 %215
   %224 = load i32, ptr %223, align 4
   %225 = call i32 @llvm.bswap.i32(i32 %224)
   %reass.sub34 = sub i32 %225, %222
@@ -480,11 +480,11 @@ hash_by_src.exit:                                 ; preds = %52, %63
   %235 = trunc nuw i64 %234 to i32
   %236 = add i32 %230, %235
   %237 = call i32 @llvm.bswap.i32(i32 %236)
-  %238 = getelementptr [4 x i32], ptr %128, i64 0, i64 %215
+  %238 = getelementptr i32, ptr %128, i64 %215
   store i32 %237, ptr %238, align 4
   %239 = icmp eq i32 %237, %229
   %240 = select i1 %239, i8 %216, i8 1
-  %241 = getelementptr [4 x i32], ptr %127, i64 0, i64 %215
+  %241 = getelementptr i32, ptr %127, i64 %215
   %242 = load i32, ptr %241, align 4
   %243 = xor i32 %242, %217
   %244 = add nuw nsw i64 %215, 1
@@ -502,15 +502,15 @@ hash_by_src.exit:                                 ; preds = %52, %63
   br i1 %250, label %251, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %247
-  %.phi.trans.insert = getelementptr [4 x i32], ptr %130, i64 0, i64 %248
+  %.phi.trans.insert = getelementptr i32, ptr %130, i64 %248
   %.pre42 = load i32, ptr %.phi.trans.insert, align 4
   br label %260
 
 251:                                              ; preds = %247
-  %252 = getelementptr [4 x i32], ptr %129, i64 0, i64 %248
+  %252 = getelementptr i32, ptr %129, i64 %248
   %253 = load i32, ptr %252, align 4
   %254 = call i32 @llvm.bswap.i32(i32 %253)
-  %255 = getelementptr [4 x i32], ptr %130, i64 0, i64 %248
+  %255 = getelementptr i32, ptr %130, i64 %248
   %256 = load i32, ptr %255, align 4
   %257 = call i32 @llvm.bswap.i32(i32 %256)
   %reass.sub = sub i32 %257, %254
@@ -527,7 +527,7 @@ hash_by_src.exit:                                 ; preds = %52, %63
   %266 = trunc nuw i64 %265 to i32
   %267 = add i32 %262, %266
   %268 = call i32 @llvm.bswap.i32(i32 %267)
-  %269 = getelementptr [4 x i32], ptr %128, i64 0, i64 %248
+  %269 = getelementptr i32, ptr %128, i64 %248
   store i32 %268, ptr %269, align 4
   %270 = icmp eq i32 %268, %261
   %271 = select i1 %270, i8 %249, i8 1
@@ -1047,7 +1047,7 @@ hash_by_src.exit:                                 ; preds = %52, %63
   %571 = call fastcc i32 @hash_by_src(ptr noundef %15, ptr noundef nonnull %570)
   %572 = and i32 %571, 1023
   %573 = zext nneg i32 %572 to i64
-  %574 = getelementptr [1024 x %struct.spinlock], ptr @nf_nat_locks, i64 0, i64 %573
+  %574 = getelementptr %struct.spinlock, ptr @nf_nat_locks, i64 %573
   call void @_raw_spin_lock_bh(ptr noundef %574) #13
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %576 = load ptr, ptr @nf_nat_bysource, align 8
@@ -1307,7 +1307,7 @@ define dso_local i32 @nf_nat_inet_fn(ptr noundef %0, ptr noundef %1, ptr noundef
 
 56:                                               ; preds = %51, %49
   %57 = phi i64 [ 0, %49 ], [ %52, %51 ]
-  %58 = getelementptr [0 x %struct.nf_hook_entry], ptr %50, i64 0, i64 %57
+  %58 = getelementptr %struct.nf_hook_entry, ptr %50, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8
@@ -1446,7 +1446,7 @@ define dso_local i32 @nf_nat_register_fn(ptr noundef %0, i8 noundef zeroext %1, 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #13
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -1462,7 +1462,7 @@ define dso_local i32 @nf_nat_register_fn(ptr noundef %0, i8 noundef zeroext %1, 
 
 16:                                               ; preds = %5
   %17 = zext nneg i8 %1 to i64
-  %18 = getelementptr [11 x %struct.nf_nat_hooks_net], ptr %11, i64 0, i64 %17
+  %18 = getelementptr %struct.nf_nat_hooks_net, ptr %11, i64 %17
   %19 = icmp eq i32 %4, 0
   br i1 %19, label %.thread, label %.preheader14, !prof !37
 
@@ -1640,7 +1640,7 @@ define dso_local void @nf_nat_unregister_fn(ptr noundef %0, i8 noundef zeroext %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #13
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -1650,7 +1650,7 @@ define dso_local void @nf_nat_unregister_fn(ptr noundef %0, i8 noundef zeroext %
 
 14:                                               ; preds = %4
   %15 = zext nneg i8 %1 to i64
-  %16 = getelementptr [11 x %struct.nf_nat_hooks_net], ptr %10, i64 0, i64 %15
+  %16 = getelementptr %struct.nf_nat_hooks_net, ptr %10, i64 %15
   tail call void @mutex_lock(ptr noundef nonnull @nf_nat_proto_mutex) #13
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
@@ -1812,7 +1812,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_proto_clean(ptr noundef %0, 
   %32 = tail call fastcc i32 @hash_by_src(ptr noundef %30, ptr noundef nonnull %31)
   %33 = and i32 %32, 1023
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr [1024 x %struct.spinlock], ptr @nf_nat_locks, i64 0, i64 %34
+  %35 = getelementptr %struct.spinlock, ptr @nf_nat_locks, i64 %34
   tail call void @_raw_spin_lock_bh(ptr noundef %35) #13
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = load ptr, ptr %36, align 8
@@ -2055,7 +2055,7 @@ define internal void @nf_nat_cleanup_conntrack(ptr noundef %0) #0 align 16 {
   %5 = tail call fastcc i32 @hash_by_src(ptr noundef %3, ptr noundef nonnull %4)
   %6 = and i32 %5, 1023
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [1024 x %struct.spinlock], ptr @nf_nat_locks, i64 0, i64 %7
+  %8 = getelementptr %struct.spinlock, ptr @nf_nat_locks, i64 %7
   tail call void @_raw_spin_lock_bh(ptr noundef %8) #13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8

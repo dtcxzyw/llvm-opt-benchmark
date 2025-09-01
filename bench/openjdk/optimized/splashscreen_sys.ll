@@ -1102,10 +1102,10 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw [256 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %92 = load i64, ptr %91, align 8
   %93 = trunc i64 %92 to i32
-  %94 = getelementptr inbounds nuw [256 x i32], ptr %89, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
   store i32 %93, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1128,11 +1128,11 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv90 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next91, %.lr.ph87 ]
-  %101 = getelementptr inbounds nuw [256 x i64], ptr %8, i64 0, i64 %indvars.iv90
+  %101 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv90
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds nuw [256 x %struct.XColor], ptr %9, i64 0, i64 %indvars.iv90
+  %103 = getelementptr inbounds nuw %struct.XColor, ptr %9, i64 %indvars.iv90
   store i64 %102, ptr %103, align 16
-  %104 = getelementptr inbounds [256 x i32], ptr %98, i64 0, i64 %102
+  %104 = getelementptr inbounds i32, ptr %98, i64 %102
   %105 = load i32, ptr %104, align 4
   %106 = lshr i32 %105, 16
   %107 = trunc nuw i32 %106 to i16
@@ -1278,10 +1278,10 @@ define hidden void @SplashDonePlatform(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [256 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

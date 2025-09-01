@@ -171,7 +171,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 
 69:                                               ; preds = %62
   %70 = sext i32 %.0208 to i64
-  %71 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %70
+  %71 = getelementptr inbounds i8, ptr %5, i64 %70
   store i8 1, ptr %71, align 1, !tbaa !13
   br label %72
 
@@ -181,7 +181,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 
 74:                                               ; preds = %72
   %75 = sext i32 %.0206 to i64
-  %76 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %75
+  %76 = getelementptr inbounds i8, ptr %5, i64 %75
   store i8 1, ptr %76, align 1, !tbaa !13
   br label %77
 
@@ -278,7 +278,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   br i1 %125, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
 
 126:                                              ; preds = %110
-  %127 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %indvars.iv.next282
+  %127 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next282
   %128 = load i8, ptr %127, align 1, !tbaa !13
   %.not229 = icmp eq i8 %128, 0
   br i1 %.not229, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18

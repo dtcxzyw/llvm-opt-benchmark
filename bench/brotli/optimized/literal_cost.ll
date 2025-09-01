@@ -47,7 +47,7 @@ define hidden void @BrotliEstimateBitCostsForLiterals(i64 noundef %0, i64 nounde
 
 UTF8Position.exit.i.i:                            ; preds = %19, %17, %.lr.ph.i.i
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i, %19 ], [ 1, %17 ]
-  %21 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %.0.i.i.i
+  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i.i
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8, !tbaa !6
@@ -93,7 +93,7 @@ UTF8Position.exit.i.i:                            ; preds = %19, %17, %.lr.ph.i.
   %41 = load i64, ptr %40, align 8, !tbaa !6
   %42 = add i64 %41, 1
   store i64 %42, ptr %40, align 8, !tbaa !6
-  %43 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0111133.i
+  %43 = getelementptr inbounds nuw i64, ptr %8, i64 %.0111133.i
   %44 = load i64, ptr %43, align 8, !tbaa !6
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !6
@@ -164,7 +164,7 @@ UTF8Position.exit123.i:                           ; preds = %71, %69, %54
   %80 = load i64, ptr %79, align 8, !tbaa !6
   %81 = add i64 %80, -1
   store i64 %81, ptr %79, align 8, !tbaa !6
-  %82 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0.i122.i
+  %82 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i122.i
   %83 = load i64, ptr %82, align 8, !tbaa !6
   %84 = add i64 %83, -1
   store i64 %84, ptr %82, align 8, !tbaa !6
@@ -210,7 +210,7 @@ UTF8Position.exit126.i:                           ; preds = %102, %100, %88
   %110 = load i64, ptr %109, align 8, !tbaa !6
   %111 = add i64 %110, 1
   store i64 %111, ptr %109, align 8, !tbaa !6
-  %112 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0.i125.i
+  %112 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i125.i
   %113 = load i64, ptr %112, align 8, !tbaa !6
   %114 = add i64 %113, 1
   store i64 %114, ptr %112, align 8, !tbaa !6
@@ -259,13 +259,13 @@ UTF8Position.exit129.i:                           ; preds = %132, %130, %115
   %140 = getelementptr inbounds nuw i64, ptr %139, i64 %138
   %141 = load i64, ptr %140, align 8, !tbaa !6
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %141, i64 1)
-  %142 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0.i128.i
+  %142 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i128.i
   %143 = load i64, ptr %142, align 8, !tbaa !6
   %144 = icmp ult i64 %143, 256
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %UTF8Position.exit129.i
-  %146 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %143
+  %146 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %143
   %147 = load double, ptr %146, align 8, !tbaa !11
   br label %FastLog2.exit.i
 
@@ -280,7 +280,7 @@ FastLog2.exit.i:                                  ; preds = %148, %145
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %FastLog2.exit.i
-  %153 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %spec.store.select.i
+  %153 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %spec.store.select.i
   %154 = load double, ptr %153, align 8, !tbaa !11
   br label %FastLog2.exit119.i
 
@@ -390,7 +390,7 @@ EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %FastLog2.exit119.i,
   br i1 %216, label %217, label %220
 
 217:                                              ; preds = %208
-  %218 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.2
+  %218 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.2
   %219 = load double, ptr %218, align 8, !tbaa !11
   br label %FastLog2.exit
 
@@ -405,7 +405,7 @@ FastLog2.exit:                                    ; preds = %217, %220
   br i1 %223, label %224, label %227
 
 224:                                              ; preds = %FastLog2.exit
-  %225 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %spec.store.select
+  %225 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %spec.store.select
   %226 = load double, ptr %225, align 8, !tbaa !11
   br label %FastLog2.exit65
 

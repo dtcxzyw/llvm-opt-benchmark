@@ -986,7 +986,7 @@ Ivy_NodeFindCutsMerge.exit:                       ; preds = %.critedge2.i117, %.
   %459 = add i16 %447, 1
   store i16 %459, ptr %442, align 4, !tbaa !46
   %460 = sext i16 %447 to i64
-  %461 = getelementptr inbounds [6 x i32], ptr %445, i64 0, i64 %460
+  %461 = getelementptr inbounds i32, ptr %445, i64 %460
   store i32 %.val102, ptr %461, align 4, !tbaa !32
   br label %462
 

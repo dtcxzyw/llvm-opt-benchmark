@@ -327,7 +327,7 @@ define internal void @init_histogram() #2 {
   %6 = fadd nsz double %5, 6.910000e-01
   %7 = fdiv nsz double %6, 1.000000e+01
   %8 = tail call nsz double @llvm.pow.f64(double 1.000000e+01, double %7)
-  %9 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %indvars.iv
   store double %8, ptr %9, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000
@@ -342,7 +342,7 @@ define internal void @init_histogram() #2 {
   %14 = fadd nsz double %13, 6.910000e-01
   %15 = fdiv nsz double %14, 1.000000e+01
   %16 = tail call nsz double @llvm.pow.f64(double 1.000000e+01, double %15)
-  %17 = getelementptr inbounds nuw [1001 x double], ptr @histogram_energy_boundaries, i64 0, i64 %indvars.iv11
+  %17 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %indvars.iv11
   store double %16, ptr %17, align 8, !tbaa !29
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 1001
@@ -634,7 +634,7 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
   %.0.i.i.i = phi i64 [ 0, %84 ], [ %.0..i.i.i, %87 ]
   %88 = add nuw i64 %.0.i.i.i, %.08.i.i.i
   %89 = lshr i64 %88, 1
-  %90 = getelementptr inbounds nuw [1001 x double], ptr @histogram_energy_boundaries, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !29
   %92 = fcmp nsz ult double %82, %91
   %..08.i.i.i = select i1 %92, i64 %89, i64 %.08.i.i.i
@@ -818,7 +818,7 @@ ebur128_energy_shortterm.exit.i:                  ; preds = %ebur128_calc_gating
   %.0.i.i = phi i64 [ 0, %160 ], [ %.0..i.i, %163 ]
   %164 = add nuw i64 %.0.i.i, %.08.i.i
   %165 = lshr i64 %164, 1
-  %166 = getelementptr inbounds nuw [1001 x double], ptr @histogram_energy_boundaries, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %165
   %167 = load double, ptr %166, align 8, !tbaa !29
   %168 = fcmp nsz ult double %.3.i, %167
   %..08.i.i = select i1 %168, i64 %165, i64 %.08.i.i
@@ -914,7 +914,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_relative_threshold(ptr noundef readonly
   %12 = getelementptr inbounds nuw i64, ptr %9, i64 %.02021.i
   %13 = load i64, ptr %12, align 8, !tbaa !48
   %14 = uitofp i64 %13 to double
-  %15 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.02021.i
+  %15 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.02021.i
   %16 = load double, ptr %15, align 8, !tbaa !29
   %17 = tail call nsz double @llvm.fmuladd.f64(double %14, double %16, double %11)
   %18 = trunc i64 %13 to i32
@@ -967,7 +967,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_global(ptr noundef readonly ca
   %11 = getelementptr inbounds nuw i64, ptr %8, i64 %.02021.i.i
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = uitofp i64 %12 to double
-  %14 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.02021.i.i
+  %14 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.02021.i.i
   %15 = load double, ptr %14, align 8, !tbaa !29
   %16 = tail call nsz double @llvm.fmuladd.f64(double %13, double %15, double %10)
   %17 = trunc i64 %12 to i32
@@ -993,7 +993,7 @@ ebur128_calc_relative_threshold.exit.i:           ; preds = %9
   %.0.i.i = phi i64 [ %.0..i.i, %.preheader2.i ], [ 0, %23 ]
   %26 = add nuw i64 %.0.i.i, %.08.i.i
   %27 = lshr i64 %26, 1
-  %28 = getelementptr inbounds nuw [1001 x double], ptr @histogram_energy_boundaries, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !29
   %30 = fcmp nsz ult double %22, %29
   %..08.i.i = select i1 %30, i64 %27, i64 %.08.i.i
@@ -1003,7 +1003,7 @@ ebur128_calc_relative_threshold.exit.i:           ; preds = %9
   br i1 %.not.i42.i, label %find_histogram_index.exit.i, label %.preheader2.i, !llvm.loop !47
 
 find_histogram_index.exit.i:                      ; preds = %.preheader2.i
-  %32 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.0..i.i
+  %32 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.0..i.i
   %33 = load double, ptr %32, align 8, !tbaa !29
   %34 = fcmp nsz ogt double %22, %33
   %35 = zext i1 %34 to i64
@@ -1022,7 +1022,7 @@ find_histogram_index.exit.i:                      ; preds = %.preheader2.i
   %37 = getelementptr inbounds nuw i64, ptr %8, i64 %.0317.us.i
   %38 = load i64, ptr %37, align 8, !tbaa !48
   %39 = uitofp i64 %38 to double
-  %40 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.0317.us.i
+  %40 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.0317.us.i
   %41 = load double, ptr %40, align 8, !tbaa !29
   %42 = tail call nsz double @llvm.fmuladd.f64(double %39, double %41, double %.1365.us.i)
   %43 = add i64 %38, %.1346.us.i
@@ -1256,25 +1256,25 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
   %.27084 = phi double [ %.06887, %.preheader80 ], [ %28, %18 ]
   %19 = getelementptr inbounds nuw i64, ptr %17, i64 %.06286
   %20 = load i64, ptr %19, align 8, !tbaa !48
-  %21 = getelementptr inbounds nuw [1000 x i64], ptr %4, i64 0, i64 %.06286
+  %21 = getelementptr inbounds nuw i64, ptr %4, i64 %.06286
   %22 = load i64, ptr %21, align 8, !tbaa !48
   %23 = add i64 %22, %20
   store i64 %23, ptr %21, align 8, !tbaa !48
   %24 = add i64 %20, %.26685
   %25 = uitofp i64 %20 to double
-  %26 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.06286
+  %26 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.06286
   %27 = load double, ptr %26, align 8, !tbaa !29
   %28 = tail call nsz double @llvm.fmuladd.f64(double %25, double %27, double %.27084)
   %29 = add nuw nsw i64 %.06286, 1
-  %exitcond113.not = icmp eq i64 %29, 1000
-  br i1 %exitcond113.not, label %.loopexit, label %18, !llvm.loop !54
+  %exitcond114.not = icmp eq i64 %29, 1000
+  br i1 %exitcond114.not, label %.loopexit, label %18, !llvm.loop !54
 
 .loopexit:                                        ; preds = %18, %.lr.ph90
   %.169 = phi nsz double [ %.06887, %.lr.ph90 ], [ %28, %18 ]
   %.165 = phi i64 [ %.06488, %.lr.ph90 ], [ %24, %18 ]
   %30 = add nuw i64 %.189, 1
-  %exitcond114.not = icmp eq i64 %30, %1
-  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !55
+  %exitcond115.not = icmp eq i64 %30, %1
+  br i1 %exitcond115.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not = icmp eq i64 %.165, 0
@@ -1293,7 +1293,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
   %.0.i = phi i64 [ %.0..i, %.preheader ], [ 0, %31 ]
   %37 = add nuw i64 %.0.i, %.08.i
   %38 = lshr i64 %37, 1
-  %39 = getelementptr inbounds nuw [1001 x double], ptr @histogram_energy_boundaries, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !29
   %41 = fcmp nsz ult double %34, %40
   %..08.i = select i1 %41, i64 %38, i64 %.08.i
@@ -1303,7 +1303,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
   br i1 %.not.i, label %find_histogram_index.exit, label %.preheader, !llvm.loop !47
 
 find_histogram_index.exit:                        ; preds = %.preheader
-  %43 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.0..i
+  %43 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.0..i
   %44 = load double, ptr %43, align 8, !tbaa !29
   %45 = fcmp nsz ogt double %34, %44
   %46 = zext i1 %45 to i64
@@ -1312,18 +1312,18 @@ find_histogram_index.exit:                        ; preds = %.preheader
   br i1 %47, label %.lr.ph95.preheader, label %.loopexit82.sink.split
 
 .lr.ph95.preheader:                               ; preds = %31, %find_histogram_index.exit
-  %.0129 = phi i64 [ %.0, %find_histogram_index.exit ], [ 0, %31 ]
+  %.0131 = phi i64 [ %.0, %find_histogram_index.exit ], [ 0, %31 ]
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
-  %.16393 = phi i64 [ %51, %.lr.ph95 ], [ %.0129, %.lr.ph95.preheader ]
+  %.16393 = phi i64 [ %51, %.lr.ph95 ], [ %.0131, %.lr.ph95.preheader ]
   %.36792 = phi i64 [ %50, %.lr.ph95 ], [ 0, %.lr.ph95.preheader ]
-  %48 = getelementptr inbounds nuw [1000 x i64], ptr %4, i64 0, i64 %.16393
+  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %.16393
   %49 = load i64, ptr %48, align 8, !tbaa !48
   %50 = add i64 %49, %.36792
   %51 = add nuw i64 %.16393, 1
-  %exitcond115.not = icmp eq i64 %51, 1000
-  br i1 %exitcond115.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !56
+  %exitcond116.not = icmp eq i64 %51, 1000
+  br i1 %exitcond116.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !56
 
 ._crit_edge96:                                    ; preds = %.lr.ph95
   %.not74 = icmp eq i64 %50, 0
@@ -1337,10 +1337,10 @@ find_histogram_index.exit:                        ; preds = %.preheader
   br label %57
 
 57:                                               ; preds = %52, %57
-  %.299 = phi i64 [ %.0129, %52 ], [ %58, %57 ]
+  %.299 = phi i64 [ %.0131, %52 ], [ %58, %57 ]
   %.498 = phi i64 [ 0, %52 ], [ %61, %57 ]
   %58 = add i64 %.299, 1
-  %59 = getelementptr inbounds nuw [1000 x i64], ptr %4, i64 0, i64 %.299
+  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %.299
   %60 = load i64, ptr %59, align 8, !tbaa !48
   %61 = add i64 %60, %.498
   %.not75 = icmp ugt i64 %61, %56
@@ -1349,37 +1349,39 @@ find_histogram_index.exit:                        ; preds = %.preheader
 62:                                               ; preds = %57
   %63 = tail call nsz double @llvm.fmuladd.f64(double %54, double 0x3FEE666666666666, double 5.000000e-01)
   %64 = fptoui double %63 to i64
-  %65 = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.299
-  %66 = load double, ptr %65, align 8, !tbaa !29
+  %65 = getelementptr double, ptr @histogram_energies, i64 %58
+  %66 = getelementptr i8, ptr %65, i64 -8
+  %67 = load double, ptr %66, align 8, !tbaa !29
   %.not76100 = icmp ugt i64 %61, %64
   br i1 %.not76100, label %._crit_edge105, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %62, %.lr.ph104
-  %.3102 = phi i64 [ %67, %.lr.ph104 ], [ %58, %62 ]
-  %.5101 = phi i64 [ %70, %.lr.ph104 ], [ %61, %62 ]
-  %67 = add i64 %.3102, 1
-  %68 = getelementptr inbounds nuw [1000 x i64], ptr %4, i64 0, i64 %.3102
-  %69 = load i64, ptr %68, align 8, !tbaa !48
-  %70 = add i64 %69, %.5101
-  %.not76 = icmp ugt i64 %70, %64
+  %.3102 = phi i64 [ %68, %.lr.ph104 ], [ %58, %62 ]
+  %.5101 = phi i64 [ %71, %.lr.ph104 ], [ %61, %62 ]
+  %68 = add i64 %.3102, 1
+  %69 = getelementptr inbounds nuw i64, ptr %4, i64 %.3102
+  %70 = load i64, ptr %69, align 8, !tbaa !48
+  %71 = add i64 %70, %.5101
+  %.not76 = icmp ugt i64 %71, %64
   br i1 %.not76, label %._crit_edge105.loopexit, label %.lr.ph104, !llvm.loop !58
 
 ._crit_edge105.loopexit:                          ; preds = %.lr.ph104
-  %.phi.trans.insert = getelementptr inbounds nuw [1000 x double], ptr @histogram_energies, i64 0, i64 %.3102
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !29
+  %.phi.trans.insert = getelementptr double, ptr @histogram_energies, i64 %68
+  %.phi.trans.insert117 = getelementptr i8, ptr %.phi.trans.insert, i64 -8
+  %.pre = load double, ptr %.phi.trans.insert117, align 8, !tbaa !29
   br label %._crit_edge105
 
 ._crit_edge105:                                   ; preds = %._crit_edge105.loopexit, %62
-  %71 = phi double [ %66, %62 ], [ %.pre, %._crit_edge105.loopexit ]
-  %72 = tail call nsz double @llvm.log10.f64(double %71)
-  %73 = tail call nsz noundef double @llvm.fmuladd.f64(double %72, double 1.000000e+01, double -6.910000e-01)
-  %74 = tail call nsz double @llvm.log10.f64(double %66)
-  %75 = tail call nsz noundef double @llvm.fmuladd.f64(double %74, double 1.000000e+01, double -6.910000e-01)
-  %76 = fsub nsz double %73, %75
+  %72 = phi double [ %67, %62 ], [ %.pre, %._crit_edge105.loopexit ]
+  %73 = tail call nsz double @llvm.log10.f64(double %72)
+  %74 = tail call nsz noundef double @llvm.fmuladd.f64(double %73, double 1.000000e+01, double -6.910000e-01)
+  %75 = tail call nsz double @llvm.log10.f64(double %67)
+  %76 = tail call nsz noundef double @llvm.fmuladd.f64(double %75, double 1.000000e+01, double -6.910000e-01)
+  %77 = fsub nsz double %74, %76
   br label %.loopexit82.sink.split
 
 .loopexit82.sink.split:                           ; preds = %._crit_edge96, %find_histogram_index.exit, %._crit_edge, %3, %._crit_edge105
-  %.sink = phi double [ %76, %._crit_edge105 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %find_histogram_index.exit ], [ 0.000000e+00, %._crit_edge96 ]
+  %.sink = phi double [ %77, %._crit_edge105 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %find_histogram_index.exit ], [ 0.000000e+00, %._crit_edge96 ]
   store double %.sink, ptr %2, align 8, !tbaa !29
   br label %.loopexit82
 
@@ -1568,7 +1570,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %71 = load ptr, ptr %70, align 8, !tbaa !41
   %72 = getelementptr double, ptr %71, i64 %2
   %73 = zext nneg i32 %spec.store.select.us to i64
-  %74 = getelementptr inbounds nuw [5 x [5 x double]], ptr %52, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [5 x double], ptr %52, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 24

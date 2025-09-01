@@ -766,10 +766,10 @@ define internal void @pgoutput_change(ptr noundef %0, ptr noundef %1, ptr nounde
   %.096 = phi ptr [ null, %69 ], [ %74, %72 ], [ %83, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %86 = zext i32 %13 to i64
-  %87 = getelementptr inbounds nuw [3 x i32], ptr @pgoutput_row_filter.map_changetype_pubaction, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr @pgoutput_row_filter.map_changetype_pubaction, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [3 x ptr], ptr %85, i64 0, i64 %89
+  %90 = getelementptr inbounds ptr, ptr %85, i64 %89
   %91 = load ptr, ptr %90, align 8
   %.not96.i = icmp eq ptr %91, null
   br i1 %.not96.i, label %pgoutput_row_filter.exit.thread, label %92
@@ -2478,13 +2478,13 @@ init_tuple_slot.exit:                             ; preds = %168, %181
 
 279:                                              ; preds = %286, %.critedge.i
   %indvars.iv118.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next119.i, %286 ]
-  %280 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %indvars.iv118.i
+  %280 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv118.i
   %281 = load i8, ptr %280, align 1, !range !3, !noundef !4
   %282 = trunc nuw i8 %281 to i1
   br i1 %282, label %283, label %286
 
 283:                                              ; preds = %279
-  %284 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv118.i
+  %284 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv118.i
   %285 = load ptr, ptr %284, align 8
   call void @list_free_deep(ptr noundef %285) #13
   store ptr null, ptr %284, align 8
@@ -2556,7 +2556,7 @@ pgoutput_ensure_entry_cxt.exit.i:                 ; preds = %292, %288
 
 321:                                              ; preds = %341, %pgoutput_ensure_entry_cxt.exit.i
   %indvars.iv124.i = phi i64 [ 0, %pgoutput_ensure_entry_cxt.exit.i ], [ %indvars.iv.next125.i, %341 ]
-  %322 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv124.i
+  %322 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv124.i
   %323 = load ptr, ptr %322, align 8
   %324 = icmp eq ptr %323, null
   br i1 %324, label %341, label %.preheader.i
@@ -2591,7 +2591,7 @@ pgoutput_ensure_entry_cxt.exit.i:                 ; preds = %292, %288
   %337 = call ptr @make_orclause(ptr noundef %.079.lcssa.i) #13
   %338 = load ptr, ptr %87, align 8
   %339 = call ptr @ExecPrepareExpr(ptr noundef %337, ptr noundef %338) #13
-  %340 = getelementptr inbounds nuw [3 x ptr], ptr %88, i64 0, i64 %indvars.iv124.i
+  %340 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv124.i
   store ptr %339, ptr %340, align 8
   br label %341
 

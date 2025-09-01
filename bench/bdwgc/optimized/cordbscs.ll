@@ -426,7 +426,7 @@ CORD__call_oom_fn.exit104:                        ; preds = %80, %82
   %104 = icmp ult i64 %.01213.i, %103
   %105 = select i1 %104, i64 %.01114.i, i64 0
   %106 = add i64 %105, %.01213.i
-  %107 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.i108
+  %107 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.i108
   store i64 %106, ptr %107, align 8, !tbaa !29
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 48
@@ -449,7 +449,7 @@ CORD_init_min_len.exit:                           ; preds = %102
   %indvars.iv.i = phi i64 [ 0, %108 ], [ %indvars.iv.next.i, %110 ]
   %112 = getelementptr inbounds nuw %struct.ForestElement, ptr %4, i64 %indvars.iv.i
   store ptr null, ptr %112, align 16, !tbaa !32
-  %113 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.i
   %114 = load i64, ptr %113, align 8, !tbaa !29
   %115 = icmp ugt i64 %114, %109
   br i1 %115, label %CORD_init_forest.exit, label %110
@@ -547,7 +547,7 @@ define ptr @CORD_balance(ptr noundef %0) local_unnamed_addr #2 {
   %10 = icmp ult i64 %.01213.i, %9
   %11 = select i1 %10, i64 %.01114.i, i64 0
   %12 = add i64 %11, %.01213.i
-  %13 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.i
   store i64 %12, ptr %13, align 8, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 48
@@ -571,7 +571,7 @@ CORD_init_min_len.exit:                           ; preds = %8
   %indvars.iv.i9 = phi i64 [ 0, %14 ], [ %indvars.iv.next.i10, %17 ]
   %19 = getelementptr inbounds nuw %struct.ForestElement, ptr %2, i64 %indvars.iv.i9
   store ptr null, ptr %19, align 16, !tbaa !32
-  %20 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.i9
+  %20 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.i9
   %21 = load i64, ptr %20, align 8, !tbaa !29
   %22 = icmp ugt i64 %21, %16
   br i1 %22, label %CORD_init_forest.exit, label %17
@@ -743,7 +743,7 @@ define internal fastcc ptr @CORD_from_fn_inner(ptr noundef %0, ptr noundef %1, i
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.03143
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.03143
   store i8 %10, ptr %12, align 1, !tbaa !11
   %13 = add nuw i64 %.03143, 1
   %exitcond.not = icmp eq i64 %13, %2
@@ -1285,7 +1285,7 @@ CORD__call_oom_fn.exit.i133:                      ; preds = %176, %174
   br i1 %.not.i154, label %207, label %194
 
 194:                                              ; preds = %185
-  %195 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.03143.i153
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 %.03143.i153
   store i8 %193, ptr %195, align 1, !tbaa !11
   %196 = add nuw nsw i64 %.03143.i153, 1
   %exitcond.not.i155 = icmp eq i64 %196, %2
@@ -1779,7 +1779,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %.137.i = phi ptr [ %10, %9 ], [ %.036.i53, %.lr.ph55 ]
   %.1.i = phi i64 [ %13, %9 ], [ %.0.i54, %.lr.ph55 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %15 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next103
+  %15 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.next103
   %16 = load i64, ptr %15, align 8, !tbaa !29
   %17 = icmp ugt i64 %.tr43.lcssa, %16
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -1795,7 +1795,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %.0.i.lcssa = phi i64 [ 0, %.preheader ], [ %.1.i, %._crit_edge.loopexit ]
   %19 = tail call ptr @CORD_cat(ptr noundef %.036.i.lcssa, ptr noundef nonnull %.tr.lcssa)
   %20 = add i64 %.0.i.lcssa, %.tr43.lcssa
-  %21 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %.040.i.lcssa
+  %21 = getelementptr inbounds nuw i64, ptr @min_len, i64 %.040.i.lcssa
   %22 = load i64, ptr %21, align 8, !tbaa !29
   %.not.i59 = icmp ult i64 %20, %22
   br i1 %.not.i59, label %CORD_add_forest.exit, label %.lr.ph64
@@ -1821,7 +1821,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
   %.339.i = phi ptr [ %26, %25 ], [ %.238.i61, %.lr.ph64 ]
   %.3.i = phi i64 [ %29, %25 ], [ %.2.i62, %.lr.ph64 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %31 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next110
+  %31 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.next110
   %32 = load i64, ptr %31, align 8, !tbaa !29
   %.not.i = icmp ult i64 %.3.i, %32
   br i1 %.not.i, label %CORD_add_forest.exit, label %.lr.ph64, !llvm.loop !46
@@ -1842,7 +1842,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
 
 40:                                               ; preds = %36
   %41 = sext i8 %38 to i64
-  %42 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %41
+  %42 = getelementptr inbounds i64, ptr @min_len, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !29
   %44 = icmp ult i64 %.tr4350, %43
   br i1 %44, label %45, label %77
@@ -1931,7 +1931,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
   %.137.i40 = phi ptr [ %83, %82 ], [ %.036.i3069, %.lr.ph72 ]
   %.1.i41 = phi i64 [ %86, %82 ], [ %.0.i3170, %.lr.ph72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next
+  %88 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.next
   %89 = load i64, ptr %88, align 8, !tbaa !29
   %90 = icmp ugt i64 %.tr4350, %89
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
@@ -1947,7 +1947,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
   %.0.i31.lcssa = phi i64 [ 0, %77 ], [ %.1.i41, %._crit_edge73.loopexit ]
   %92 = tail call ptr @CORD_cat(ptr noundef %.036.i30.lcssa, ptr noundef nonnull %.tr49)
   %93 = add i64 %.0.i31.lcssa, %.tr4350
-  %94 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %.040.i29.lcssa
+  %94 = getelementptr inbounds nuw i64, ptr @min_len, i64 %.040.i29.lcssa
   %95 = load i64, ptr %94, align 8, !tbaa !29
   %.not.i3577 = icmp ult i64 %93, %95
   br i1 %.not.i3577, label %CORD_add_forest.exit, label %.lr.ph82
@@ -1973,7 +1973,7 @@ tailrecurse:                                      ; preds = %65, %68, %49
   %.339.i37 = phi ptr [ %99, %98 ], [ %.238.i3379, %.lr.ph82 ]
   %.3.i38 = phi i64 [ %102, %98 ], [ %.2.i3480, %.lr.ph82 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %104 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %indvars.iv.next100
+  %104 = getelementptr inbounds nuw i64, ptr @min_len, i64 %indvars.iv.next100
   %105 = load i64, ptr %104, align 8, !tbaa !29
   %.not.i35 = icmp ult i64 %.3.i38, %105
   br i1 %.not.i35, label %CORD_add_forest.exit, label %.lr.ph82, !llvm.loop !46
@@ -2006,7 +2006,7 @@ define signext i8 @CORD__pos_fetch(ptr noundef readonly captures(none) %0) local
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [49 x %struct.CORD_pe], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.CORD_pe, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !13
@@ -2051,7 +2051,7 @@ define void @CORD__next(ptr noundef %0) local_unnamed_addr #2 {
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds [49 x %struct.CORD_pe], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.CORD_pe, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !50
   store i64 %3, ptr %0, align 8, !tbaa !52
   %14 = load i8, ptr %13, align 1, !tbaa !11
@@ -2083,7 +2083,7 @@ define void @CORD__next(ptr noundef %0) local_unnamed_addr #2 {
   %.04762 = phi i64 [ 0, %.lr.ph63 ], [ %32, %28 ]
   %29 = add i64 %26, %.04762
   %30 = tail call signext i8 %22(i64 noundef %29, ptr noundef %24) #17
-  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 0, i64 %.04762
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.04762
   store i8 %30, ptr %31, align 1, !tbaa !11
   %32 = add nuw nsw i64 %.04762, 1
   %exitcond.not = icmp eq i64 %32, %umax
@@ -2145,7 +2145,7 @@ define internal fastcc void @CORD_extend_path(ptr noundef captures(none) %0) unn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !47
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [49 x %struct.CORD_pe], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.CORD_pe, ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = load i64, ptr %0, align 8, !tbaa !52
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2300,7 +2300,7 @@ define void @CORD__prev(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   br i1 %15, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %14
-  %16 = getelementptr inbounds nuw [49 x %struct.CORD_pe], ptr %2, i64 0, i64 %9
+  %16 = getelementptr inbounds nuw %struct.CORD_pe, ptr %2, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
@@ -2363,7 +2363,7 @@ define signext i8 @CORD_pos_fetch(ptr noundef readonly captures(none) %0) local_
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = sext i32 %15 to i64
-  %22 = getelementptr inbounds [49 x %struct.CORD_pe], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds %struct.CORD_pe, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1, !tbaa !13
@@ -2461,7 +2461,7 @@ thread-pre-split:                                 ; preds = %1, %4
   br i1 %22, label %.lr.ph.preheader.i, label %.critedge.i
 
 .lr.ph.preheader.i:                               ; preds = %21
-  %23 = getelementptr inbounds nuw [49 x %struct.CORD_pe], ptr %10, i64 0, i64 %16
+  %23 = getelementptr inbounds nuw %struct.CORD_pe, ptr %10, i64 %16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i

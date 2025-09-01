@@ -315,7 +315,7 @@ _ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaI
 
 102:                                              ; preds = %98
   %103 = shl i32 %100, %96
-  %104 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   store i32 %103, ptr %104, align 4, !tbaa !18
   %105 = add nuw nsw i32 %100, %.03854.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -843,7 +843,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder17foundPa
 
 10:                                               ; preds = %6
   %11 = shl i32 %8, %4
-  %12 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %11, ptr %12, align 4, !tbaa !18
   %13 = add nuw nsw i32 %8, %.03854
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1025,7 +1025,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
 70:                                               ; preds = %38, %.thread147
   %indvars.iv199 = phi i64 [ 0, %38 ], [ %indvars.iv.next200, %.thread147 ]
   %.097187 = phi float [ %26, %38 ], [ %.198151, %.thread147 ]
-  %71 = getelementptr inbounds nuw [7 x float], ptr %5, i64 0, i64 %indvars.iv199
+  %71 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv199
   %72 = load float, ptr %71, align 4, !tbaa !50
   %73 = fcmp uge float %72, 0.000000e+00
   %74 = fcmp ult float %72, %61
@@ -1074,7 +1074,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
 97:                                               ; preds = %87, %.thread
   %indvars.iv = phi i64 [ 0, %87 ], [ %indvars.iv.next, %.thread ]
   %.4101185 = phi float [ %.097187, %87 ], [ %.6103133, %.thread ]
-  %98 = getelementptr inbounds nuw [7 x float], ptr %7, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %99 = load float, ptr %98, align 4, !tbaa !50
   %100 = fcmp uge float %99, 0.000000e+00
   %101 = fcmp ult float %99, %68
@@ -11601,7 +11601,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
 
 143:                                              ; preds = %139
   %144 = shl i32 %141, %137
-  %145 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   store i32 %144, ptr %145, align 4, !tbaa !18
   %146 = add nuw nsw i32 %141, %.03854.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -12077,7 +12077,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
 
 146:                                              ; preds = %142
   %147 = shl i32 %144, %140
-  %148 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   store i32 %147, ptr %148, align 4, !tbaa !18
   %149 = add nuw nsw i32 %144, %.03854.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

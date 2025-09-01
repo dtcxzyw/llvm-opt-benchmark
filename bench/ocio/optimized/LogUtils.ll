@@ -440,7 +440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %40
 
 switch.lookup:                                    ; preds = %1
   %53 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil20ConvertStyleToStringENS0_8LogStyleE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil20ConvertStyleToStringENS0_8LogStyleE, i64 %53
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 
@@ -1070,7 +1070,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_5dev7LogUtil15Get
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil15GetLogDirectionENS0_8LogStyleE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil15GetLogDirectionENS0_8LogStyleE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

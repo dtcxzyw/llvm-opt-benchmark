@@ -778,9 +778,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
 
 47:                                               ; preds = %33
   %48 = zext nneg i32 %17 to i64
-  %49 = getelementptr inbounds nuw [10 x [10 x ptr]], ptr @_ZZN2cv8superres7arrCopyERKNS_11_InputArrayERKNS_12_OutputArrayEE5funcs, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZN2cv8superres7arrCopyERKNS_11_InputArrayERKNS_12_OutputArrayEE5funcs, i64 %48
   %50 = zext nneg i32 %19 to i64
-  %51 = getelementptr inbounds nuw [10 x ptr], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !48
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %53, label %66
@@ -1477,9 +1477,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
 
 42:                                               ; preds = %26
   %43 = zext nneg i32 %12 to i64
-  %44 = getelementptr inbounds nuw [5 x [5 x i32]], ptr @_ZZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE5codes, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [5 x i32], ptr @_ZZN12_GLOBAL__N_111convertToCnERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE5codes, i64 %43
   %45 = zext nneg i32 %2 to i64
-  %46 = getelementptr inbounds nuw [5 x i32], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !20
   %48 = icmp sgt i32 %47, -1
   br i1 %48, label %62, label %49
@@ -1692,10 +1692,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
 
 41:                                               ; preds = %27, %27
   %42 = zext nneg i32 %2 to i64
-  %43 = getelementptr inbounds nuw [7 x double], ptr @_ZZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE7maxVals, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw double, ptr @_ZZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE7maxVals, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !68
   %45 = sext i32 %12 to i64
-  %46 = getelementptr inbounds [7 x double], ptr @_ZZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE7maxVals, i64 0, i64 %45
+  %46 = getelementptr inbounds double, ptr @_ZZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE7maxVals, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !68
   %48 = fdiv double %44, %47
   %49 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0)

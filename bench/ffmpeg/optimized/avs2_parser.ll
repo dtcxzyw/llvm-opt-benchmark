@@ -347,7 +347,7 @@ define internal fastcc void @parse_avs2_seq_header(ptr noundef writeonly capture
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %103, ptr %104, align 4, !tbaa !28
   %105 = zext nneg i32 %87 to i64
-  %106 = getelementptr inbounds nuw [16 x %struct.AVRational], ptr @ff_avs2_frame_rate_tab, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_avs2_frame_rate_tab, i64 %105
   %107 = load i32, ptr %106, align 8, !tbaa !29
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 100
   store i32 %107, ptr %108, align 4, !tbaa !31
@@ -362,10 +362,10 @@ define internal fastcc void @parse_avs2_seq_header(ptr noundef writeonly capture
   %. = tail call i32 @llvm.smax.i32(i32 %113, i32 %114)
   store i32 %., ptr %112, align 4, !tbaa !49
   %115 = zext nneg i32 %55 to i64
-  %116 = getelementptr inbounds nuw [8 x i8], ptr @parse_avs2_seq_header.precision, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @parse_avs2_seq_header.precision, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !19
   %118 = zext i8 %117 to i32
-  %119 = getelementptr inbounds nuw [8 x i8], ptr @parse_avs2_seq_header.precision, i64 0, i64 %.0
+  %119 = getelementptr inbounds nuw i8, ptr @parse_avs2_seq_header.precision, i64 %.0
   %120 = load i8, ptr %119, align 1, !tbaa !19
   %121 = zext i8 %120 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %14, i32 noundef %25, i32 noundef %35, i32 noundef %45, i32 noundef %118, i32 noundef %121, i32 noundef %78, i32 noundef %107, i32 noundef %110, i32 noundef %96) #3

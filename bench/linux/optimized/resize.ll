@@ -279,7 +279,7 @@ define dso_local i32 @ext4_list_backups(ptr noundef readonly captures(none) %0, 
 22:                                               ; preds = %19
   %23 = add nuw i64 %20, 4294967295
   %24 = and i64 %23, 4294967295
-  %25 = getelementptr [2 x i32], ptr %14, i64 0, i64 %24
+  %25 = getelementptr i32, ptr %14, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add nuw nsw i64 %20, 1
   %28 = trunc i64 %27 to i32
@@ -1313,7 +1313,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 360:                                              ; preds = %357, %.loopexit144
   %361 = phi i64 [ 0, %.loopexit144 ], [ %358, %357 ]
-  %362 = getelementptr [3 x i32], ptr %6, i64 0, i64 %361
+  %362 = getelementptr i32, ptr %6, i64 %361
   %363 = load i32, ptr %362, align 4
   %364 = getelementptr i64, ptr %94, i64 %361
   %365 = load i64, ptr %364, align 8
@@ -3005,7 +3005,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %175, label %.loopexit94, label %180
 
 176:                                              ; preds = %170
-  %177 = getelementptr [15 x i32], ptr %150, i64 0, i64 %171
+  %177 = getelementptr i32, ptr %150, i64 %171
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %.loopexit94
@@ -4556,7 +4556,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %38 = phi i64 [ 1, %33 ], [ 2, %35 ]
   %39 = add nuw nsw i64 %38, 4294967295
   %40 = and i64 %39, 4294967295
-  %41 = getelementptr [2 x i32], ptr %34, i64 0, i64 %40
+  %41 = getelementptr i32, ptr %34, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = add nuw nsw i64 %38, 1
   %44 = icmp eq i32 %42, 0
@@ -4821,7 +4821,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %203 = phi i64 [ %208, %200 ], [ %199, %198 ]
   %204 = add nuw nsw i64 %203, 4294967295
   %205 = and i64 %204, 4294967295
-  %206 = getelementptr [2 x i32], ptr %194, i64 0, i64 %205
+  %206 = getelementptr i32, ptr %194, i64 %205
   %207 = load i32, ptr %206, align 4
   %208 = add nuw nsw i64 %203, 1
   %209 = icmp eq i32 %207, 0
@@ -5168,7 +5168,7 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   %80 = phi i64 [ 2, %77 ], [ %76, %75 ]
   %81 = add nuw nsw i64 %80, 4294967295
   %82 = and i64 %81, 4294967295
-  %83 = getelementptr [2 x i32], ptr %11, i64 0, i64 %82
+  %83 = getelementptr i32, ptr %11, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = add nuw nsw i64 %80, 1
   %86 = icmp eq i32 %84, 0

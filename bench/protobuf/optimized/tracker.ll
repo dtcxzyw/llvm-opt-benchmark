@@ -1654,7 +1654,7 @@ if.then5.i.i.i.i18.i:                             ; preds = %.noexc21.i
 invoke.cont1.i:                                   ; preds = %if.then5.i.i.i.i18.i, %.noexc21.i, %call1.i.i.i.i.noexc19.i, %if.then.i.i9.i, %land.lhs.true.i
   %12 = load i8, ptr %type_.i.i.i, align 2, !noalias !18
   %idxprom.i.i = zext i8 %12 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i.i, align 4, !noalias !18
   %cmp.not.i = icmp eq i32 %13, 10
   br i1 %cmp.not.i, label %invoke.cont1, label %invoke.cont3.i
@@ -1835,7 +1835,7 @@ invoke.cont3:                                     ; preds = %.noexc37, %call1.i.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %field, i64 2
   %40 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %40 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %41 = load i32, ptr %arrayidx.i, align 4
   %cmp = icmp eq i32 %41, 9
   br i1 %cmp, label %if.then5, label %if.else17
@@ -2301,7 +2301,7 @@ if.then5.i.i.i.i114:                              ; preds = %.noexc117
 invoke.cont18:                                    ; preds = %.noexc117, %call1.i.i.i.i.noexc115, %if.then.i.i104, %if.else17, %if.then5.i.i.i.i114
   %113 = load i8, ptr %type_.i.i, align 2
   %idxprom.i110 = zext i8 %113 to i64
-  %arrayidx.i111 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i110
+  %arrayidx.i111 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i110
   %114 = load i32, ptr %arrayidx.i111, align 4
   %cmp20.not = icmp eq i32 %114, 10
   br i1 %cmp20.not, label %lor.lhs.false, label %if.then23
@@ -2393,7 +2393,7 @@ if.then5.i.i.i.i.i151:                            ; preds = %.noexc.i149
 invoke.cont8.i:                                   ; preds = %if.then5.i.i.i.i.i151, %.noexc.i149, %call1.i.i.i.i.noexc.i137, %if.then.i.i.i132, %invoke.cont6.i
   %127 = load i8, ptr %type_.i.i, align 2, !noalias !48
   %idxprom.i.i140 = zext i8 %127 to i64
-  %arrayidx.i.i141 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i.i140
+  %arrayidx.i.i141 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i140
   %128 = load i32, ptr %arrayidx.i.i141, align 4, !noalias !48
   %cmp.not.i142 = icmp eq i32 %128, 10
   br i1 %cmp.not.i142, label %invoke.cont25, label %invoke.cont12.i143
@@ -3990,7 +3990,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i

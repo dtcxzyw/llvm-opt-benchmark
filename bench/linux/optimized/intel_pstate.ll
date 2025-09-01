@@ -847,7 +847,7 @@ define internal fastcc zeroext i1 @intel_pstate_platform_pwr_mgmt_exists() unnam
 
 16:                                               ; preds = %13
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr [16 x %struct.acpi_platform_list], ptr @plat_info, i64 0, i64 %17, i32 6
+  %18 = getelementptr %struct.acpi_platform_list, ptr @plat_info, i64 %17, i32 6
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %29 [
     i32 0, label %20
@@ -1398,7 +1398,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_energy_performance_
 .thread8:                                         ; preds = %56, %59, %47, %50, %53, %65
   %69 = phi i32 [ 0, %65 ], [ %64, %59 ], [ 1, %47 ], [ 2, %50 ], [ 3, %53 ], [ 4, %56 ]
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr [6 x ptr], ptr @energy_perf_strings, i64 0, i64 %70
+  %71 = getelementptr ptr, ptr @energy_perf_strings, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %72) #26
   br label %.thread7
@@ -1494,7 +1494,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
 
 54:                                               ; preds = %52
   %55 = and i64 %32, 4294967295
-  %56 = getelementptr [5 x i32], ptr @epp_values, i64 0, i64 %55
+  %56 = getelementptr i32, ptr @epp_values, i64 %55
   %57 = load i32, ptr %56, align 4
   br label %58
 
@@ -1578,7 +1578,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   br i1 %101, label %105, label %102
 
 102:                                              ; preds = %100
-  %103 = getelementptr [5 x i32], ptr @epp_values, i64 0, i64 %32
+  %103 = getelementptr i32, ptr @epp_values, i64 %32
   %104 = load i32, ptr %103, align 4
   br label %109
 
@@ -1679,7 +1679,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_energy_performance_
 3:                                                ; preds = %3, %2
   %4 = phi i64 [ 0, %2 ], [ %10, %3 ]
   %5 = phi i32 [ 0, %2 ], [ %12, %3 ]
-  %6 = getelementptr [6 x ptr], ptr @energy_perf_strings, i64 0, i64 %4
+  %6 = getelementptr ptr, ptr @energy_perf_strings, i64 %4
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %5 to i64
   %9 = getelementptr i8, ptr %1, i64 %8
@@ -5028,7 +5028,7 @@ define internal i32 @silvermont_get_scaling() #0 align 16 {
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = getelementptr [5 x i32], ptr @silvermont_get_scaling.silvermont_freq_table, i64 0, i64 %8
+  %12 = getelementptr i32, ptr @silvermont_get_scaling.silvermont_freq_table, i64 %8
   %13 = load i32, ptr %12, align 4
   ret i32 %13
 }
@@ -5168,7 +5168,7 @@ define internal i32 @airmont_get_scaling() #0 align 16 {
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = getelementptr [9 x i32], ptr @airmont_get_scaling.airmont_freq_table, i64 0, i64 %8
+  %12 = getelementptr i32, ptr @airmont_get_scaling.airmont_freq_table, i64 %8
   %13 = load i32, ptr %12, align 4
   ret i32 %13
 }
@@ -5222,7 +5222,7 @@ define internal fastcc noundef zeroext i1 @intel_pstate_no_acpi_pss() unnamed_ad
   store i64 -1, ptr %1, align 8
   store ptr null, ptr %2, align 8
   %13 = and i64 %10, 63
-  %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @processors to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -5311,7 +5311,7 @@ define internal fastcc noundef zeroext i1 @intel_pstate_has_acpi_ppc() unnamed_a
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @processors to i64)
   %16 = inttoptr i64 %15 to ptr

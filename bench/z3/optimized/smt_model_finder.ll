@@ -7251,7 +7251,7 @@ define linkonce_odr hidden noundef ptr @_ZN3smt2mf10auf_solver4evalEP4exprb(ptr 
   %5 = alloca %class.obj_ref, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = zext i1 %2 to i64
-  %8 = getelementptr inbounds nuw [2 x %class.obj_map], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %class.obj_map, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !628
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -11574,7 +11574,7 @@ _ZN3smt2mf17instantiation_setclEP4expr.exit:      ; preds = %32
 49:                                               ; preds = %.lr.ph, %_ZN3smt2mf17instantiation_setclEP4expr.exit66
   %50 = phi i32 [ %46, %.lr.ph ], [ %125, %_ZN3smt2mf17instantiation_setclEP4expr.exit66 ]
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !39
   %54 = add nuw i32 %50, 1
   store i32 %54, ptr %45, align 8, !tbaa !927
@@ -14084,7 +14084,7 @@ define linkonce_odr hidden void @_ZN3smt2mf19quantifier_analyzer13process_u_appE
 
 14:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
@@ -14240,7 +14240,7 @@ define linkonce_odr hidden void @_ZN3smt2mf19quantifier_analyzer13process_i_appE
 
 12:                                               ; preds = %.lr.ph26, %31
   %indvars.iv = phi i64 [ 1, %.lr.ph26 ], [ %indvars.iv.next, %31 ]
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
@@ -14633,7 +14633,7 @@ define linkonce_odr hidden void @_ZN3smt2mf5f_var11process_aufEP10quantifierRNS0
   %8 = load i32, ptr %7, align 8, !tbaa !956
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !663
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %14 = tail call noundef ptr @_ZN3smt2mf10auf_solver7mk_nodeER3mapISt4pairIP3astjEPNS0_4nodeE9pair_hashI12obj_ptr_hashIS4_E13unsigned_hashE10default_eqIS6_EES5_jP4sort(ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %12)
@@ -14661,7 +14661,7 @@ define linkonce_odr hidden void @_ZN3smt2mf5f_var18populate_inst_setsEP10quantif
   %8 = load i32, ptr %7, align 8, !tbaa !956
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !663
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %14 = tail call noundef ptr @_ZN3smt2mf10auf_solver7mk_nodeER3mapISt4pairIP3astjEPNS0_4nodeE9pair_hashI12obj_ptr_hashIS4_E13unsigned_hashE10default_eqIS6_EES5_jP4sort(ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %12)
@@ -14730,7 +14730,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %37, %_ZNK3smt7
   %46 = load i32, ptr %7, align 8, !tbaa !956
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw [0 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !14
   %51 = load ptr, ptr %50, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 36
@@ -14951,7 +14951,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %87, %_ZNK3smt7
   %96 = load i32, ptr %86, align 8, !tbaa !956
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !14
   %101 = load ptr, ptr %100, align 8, !tbaa !16
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 36
@@ -15283,7 +15283,7 @@ define linkonce_odr hidden void @_ZN3smt2mf17f_var_plus_offset11process_aufEP10q
   %8 = load i32, ptr %7, align 8, !tbaa !956
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !663
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %14 = tail call noundef ptr @_ZN3smt2mf10auf_solver7mk_nodeER3mapISt4pairIP3astjEPNS0_4nodeE9pair_hashI12obj_ptr_hashIS4_E13unsigned_hashE10default_eqIS6_EES5_jP4sort(ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %12)
@@ -15318,7 +15318,7 @@ define linkonce_odr hidden void @_ZN3smt2mf17f_var_plus_offset18populate_inst_se
   %16 = load i32, ptr %15, align 8, !tbaa !956
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !663
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %22 = tail call noundef ptr @_ZN3smt2mf10auf_solver7mk_nodeER3mapISt4pairIP3astjEPNS0_4nodeE9pair_hashI12obj_ptr_hashIS4_E13unsigned_hashE10default_eqIS6_EES5_jP4sort(ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %14, i32 noundef %16, ptr noundef %20)
@@ -15465,7 +15465,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %86, %_ZNK3smt7
   %101 = load i32, ptr %15, align 8, !tbaa !956
   %102 = getelementptr inbounds nuw i8, ptr %87, i64 112
   %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds nuw [0 x ptr], ptr %102, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !14
   %106 = load ptr, ptr %105, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -15745,7 +15745,7 @@ define linkonce_odr hidden void @_ZN3smt2mf17f_var_plus_offset19populate_inst_se
   %8 = load i32, ptr %7, align 8, !tbaa !956
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !663
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %14 = tail call noundef ptr @_ZN3smt2mf10auf_solver7mk_nodeER3mapISt4pairIP3astjEPNS0_4nodeE9pair_hashI12obj_ptr_hashIS4_E13unsigned_hashE10default_eqIS6_EES5_jP4sort(ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %12)
@@ -17517,7 +17517,7 @@ _ZN3smt2mf10select_var19get_array_func_declEP3appRNS0_10auf_solverE.exit: ; pred
   %71 = add i32 %70, -1
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw [0 x ptr], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !663
   %76 = invoke noundef ptr @_ZN3smt2mf10auf_solver7mk_nodeER3mapISt4pairIP3astjEPNS0_4nodeE9pair_hashI12obj_ptr_hashIS4_E13unsigned_hashE10default_eqIS6_EES5_jP4sort(ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %68, i32 noundef %71, ptr noundef %75)
           to label %_ZN3smt2mf10auf_solver9get_A_f_iEP9func_declj.exit unwind label %79
@@ -17664,7 +17664,7 @@ _ZN3smt2mf10select_var19get_array_func_declEP3appRNS0_10auf_solverE.exit: ; pred
   %58 = add i32 %57, -1
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %60 = zext i32 %58 to i64
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %59, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !663
   %63 = invoke noundef ptr @_ZN3smt2mf10auf_solver7mk_nodeER3mapISt4pairIP3astjEPNS0_4nodeE9pair_hashI12obj_ptr_hashIS4_E13unsigned_hashE10default_eqIS6_EES5_jP4sort(ptr noundef nonnull align 8 dereferenceable(344) %2, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull %55, i32 noundef %58, ptr noundef %62)
           to label %64 unwind label %225
@@ -17720,7 +17720,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %.noexc49, %_ZN
   %90 = load i32, ptr %19, align 8, !tbaa !961
   %91 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %92 = zext i32 %90 to i64
-  %93 = getelementptr inbounds nuw [0 x ptr], ptr %91, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !14
   %95 = load ptr, ptr %94, align 8, !tbaa !16
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 36
@@ -19974,7 +19974,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   %92 = phi ptr [ %276, %275 ], [ %.ph180, %.outer ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %275 ], [ %indvars.iv.ph, %.outer ]
   %93 = load ptr, ptr %21, align 8, !tbaa !658
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr %89, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8, !tbaa !663
   %96 = trunc nuw i64 %indvars.iv to i32
   %97 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %93, i32 noundef %96, ptr noundef %95)
@@ -20720,7 +20720,7 @@ _ZN3smt2mf10auf_solverclEP4expr.exit:             ; preds = %_ZNK17array_recogni
 63:                                               ; preds = %.lr.ph, %_ZN3smt2mf10auf_solverclEP4expr.exit68
   %64 = phi i32 [ %60, %.lr.ph ], [ %149, %_ZN3smt2mf10auf_solverclEP4expr.exit68 ]
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !39
   %68 = add nuw i32 %64, 1
   store i32 %68, ptr %59, align 8, !tbaa !927

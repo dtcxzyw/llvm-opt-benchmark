@@ -2112,10 +2112,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !53, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !54, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [57 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb279b6d2997a1637E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb279b6d2997a1637E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [57 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb279b6d2997a1637E.249", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb279b6d2997a1637E.249", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -27443,10 +27443,10 @@ define internal noundef zeroext i1 @"_ZN66_$LT$ruff_db..diagnostic..Severity$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !5, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN66_$LT$ruff_db..diagnostic..Severity$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc415a8bed719662E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN66_$LT$ruff_db..diagnostic..Severity$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc415a8bed719662E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN66_$LT$ruff_db..diagnostic..Severity$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc415a8bed719662E.250", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN66_$LT$ruff_db..diagnostic..Severity$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc415a8bed719662E.250", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -38288,10 +38288,10 @@ switch.lookup:                                    ; preds = %.noexc26
   store ptr %42, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %43 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [31 x i64], ptr @switch.table._ZN18ty_python_semantic5types10diagnostic59report_runtime_check_against_non_runtime_checkable_protocol17hdc64be1d500e2890E, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN18ty_python_semantic5types10diagnostic59report_runtime_check_against_non_runtime_checkable_protocol17hdc64be1d500e2890E, i64 %43
   %switch.load = load i64, ptr %switch.gep, align 8
   %44 = zext nneg i8 %3 to i64
-  %switch.gep42 = getelementptr inbounds nuw [31 x ptr], ptr @switch.table._ZN18ty_python_semantic5types10diagnostic59report_runtime_check_against_non_runtime_checkable_protocol17hdc64be1d500e2890E.251, i64 0, i64 %44
+  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN18ty_python_semantic5types10diagnostic59report_runtime_check_against_non_runtime_checkable_protocol17hdc64be1d500e2890E.251, i64 %44
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   store ptr %switch.load43, ptr %20, align 8
   %45 = getelementptr inbounds nuw i8, ptr %20, i64 8

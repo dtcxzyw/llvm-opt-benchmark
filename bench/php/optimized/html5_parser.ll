@@ -170,7 +170,7 @@ get_libxml_namespace_href.exit:                   ; preds = %41, %42, %43
   store i64 %.sink.i, ptr %50, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %.str.6.sink.i, i64 %.sink.i, i1 false)
-  %52 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 0, i64 %.sink.i
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.sink.i
   store i8 0, ptr %52, align 1, !tbaa !48
   %53 = call ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef %8, ptr noundef null, ptr noundef nonnull %47) #11
   %54 = load i32, ptr %48, align 4, !tbaa !48

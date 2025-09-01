@@ -865,7 +865,7 @@ define hidden noundef zeroext i1 @_ZN2cv16videoio_registry22checkDeprecatedBacke
 
 2:                                                ; preds = %2, %1
   %.057 = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw [5 x %"struct.cv::VideoDeprecatedBackendInfo"], ptr @_ZN2cv12_GLOBAL__N_119deprecated_backendsE, i64 0, i64 %.057
+  %3 = getelementptr inbounds nuw %"struct.cv::VideoDeprecatedBackendInfo", ptr @_ZN2cv12_GLOBAL__N_119deprecated_backendsE, i64 %.057
   %4 = load i32, ptr %3, align 16, !tbaa !52
   %5 = icmp eq i32 %4, %0
   %6 = add nuw nsw i64 %.057, 1
@@ -901,7 +901,7 @@ define void @_ZN2cv16videoio_registry14getBackendNameB5cxx11ENS_16VideoCaptureAP
 
 .critedge:                                        ; preds = %2, %9
   %.02446 = phi i64 [ %10, %9 ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw [8 x %"struct.cv::VideoBackendInfo"], ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 0, i64 %.02446
+  %11 = getelementptr inbounds nuw %"struct.cv::VideoBackendInfo", ptr @_ZN2cv12_GLOBAL__N_116builtin_backendsE, i64 %.02446
   %12 = load i32, ptr %11, align 8, !tbaa !61
   %.not = icmp eq i32 %12, %1
   br i1 %.not, label %13, label %9
@@ -965,7 +965,7 @@ define void @_ZN2cv16videoio_registry14getBackendNameB5cxx11ENS_16VideoCaptureAP
 
 .critedge30.preheader:                            ; preds = %9, %.critedge30
   %.047 = phi i64 [ %32, %.critedge30 ], [ 0, %9 ]
-  %33 = getelementptr inbounds nuw [5 x %"struct.cv::VideoDeprecatedBackendInfo"], ptr @_ZN2cv12_GLOBAL__N_119deprecated_backendsE, i64 0, i64 %.047
+  %33 = getelementptr inbounds nuw %"struct.cv::VideoDeprecatedBackendInfo", ptr @_ZN2cv12_GLOBAL__N_119deprecated_backendsE, i64 %.047
   %34 = load i32, ptr %33, align 16, !tbaa !52
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %36, label %.critedge30

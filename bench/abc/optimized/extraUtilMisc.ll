@@ -152,7 +152,7 @@ define noundef nonnull ptr @Extra_DeriveRadixCode(i32 noundef %0, i32 noundef %1
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089 = phi i32 [ %0, %.lr.ph.preheader ], [ %7, %.lr.ph ]
   %5 = srem i32 %.089, %1
-  %6 = getelementptr inbounds nuw [100 x i32], ptr @Extra_DeriveRadixCode.Code, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr @Extra_DeriveRadixCode.Code, i64 %indvars.iv
   store i32 %5, ptr %6, align 4, !tbaa !3
   %7 = sdiv i32 %.089, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -178,7 +178,7 @@ define i32 @Extra_CountOnes(ptr noundef readonly captures(none) %0, i32 noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !12
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i32], ptr @Extra_CountOnes.bit_count, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @Extra_CountOnes.bit_count, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = add nsw i32 %8, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -263,7 +263,7 @@ Extra_ArrayAlloc.exit:                            ; preds = %13, %Extra_Factoria
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = trunc i64 %indvars.iv to i8
-  %21 = getelementptr inbounds nuw [50 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %20, ptr %21, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -619,7 +619,7 @@ define i32 @Extra_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = xor i32 %10, -1
   %12 = and i32 %.01920, %11
@@ -670,7 +670,7 @@ define i32 @Extra_TruthCanonN(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not.i.us, label %17, label %8
 
 8:                                                ; preds = %.lr.ph.i.us
-  %9 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i.us
+  %9 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i.us
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = xor i32 %10, -1
   %12 = and i32 %.01920.i.us, %11
@@ -728,7 +728,7 @@ define i32 @Extra_TruthCanonNN(i32 noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not.i.us, label %21, label %12
 
 12:                                               ; preds = %.lr.ph.i.us
-  %13 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i.us
+  %13 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i.us
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = xor i32 %14, -1
   %16 = and i32 %.01920.i.us, %15
@@ -754,7 +754,7 @@ define i32 @Extra_TruthCanonNN(i32 noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %.not.i28.us, label %34, label %25
 
 25:                                               ; preds = %.lr.ph.i25.us
-  %26 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i26.us
+  %26 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i26.us
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = xor i32 %27, -1
   %29 = and i32 %.01920.i27.us, %28
@@ -870,7 +870,7 @@ Extra_ArrayAlloc.exit.i:                          ; preds = %21, %Extra_Factoria
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i20 ]
   %28 = trunc i64 %indvars.iv.i to i8
-  %29 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %28, ptr %29, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -964,7 +964,7 @@ Extra_ArrayAlloc.exit.i36:                        ; preds = %46, %Extra_Factoria
 .lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i41, %.lr.ph.i39 ]
   %53 = trunc i64 %indvars.iv.i40 to i8
-  %54 = getelementptr inbounds nuw [50 x i8], ptr %3, i64 0, i64 %indvars.iv.i40
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i40
   store i8 %53, ptr %54, align 1, !tbaa !12
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i38
@@ -1079,7 +1079,7 @@ Extra_ArrayAlloc.exit.i:                          ; preds = %20, %Extra_Factoria
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i28 ]
   %27 = trunc i64 %indvars.iv.i to i8
-  %28 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %27, ptr %28, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1166,7 +1166,7 @@ Extra_ArrayAlloc.exit.i44:                        ; preds = %44, %Extra_Factoria
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47, %.lr.ph.preheader.i45
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.preheader.i45 ], [ %indvars.iv.next.i49, %.lr.ph.i47 ]
   %51 = trunc i64 %indvars.iv.i48 to i8
-  %52 = getelementptr inbounds nuw [50 x i8], ptr %3, i64 0, i64 %indvars.iv.i48
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i48
   store i8 %51, ptr %52, align 1, !tbaa !12
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i46
@@ -1216,7 +1216,7 @@ Extra_Permutations.exit56:                        ; preds = %.lr.ph.i47, %Extra_
   br i1 %.not.i, label %74, label %65
 
 65:                                               ; preds = %.lr.ph.i59
-  %66 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i60
+  %66 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i60
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = xor i32 %67, -1
   %69 = and i32 %.01920.i, %68
@@ -1422,7 +1422,7 @@ Extra_ArrayAlloc.exit.i:                          ; preds = %20, %Extra_Factoria
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i44 ]
   %27 = trunc i64 %indvars.iv.i to i8
-  %28 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %27, ptr %28, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1509,7 +1509,7 @@ Extra_ArrayAlloc.exit.i60:                        ; preds = %44, %Extra_Factoria
 .lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i61
   %indvars.iv.i64 = phi i64 [ 0, %.lr.ph.preheader.i61 ], [ %indvars.iv.next.i65, %.lr.ph.i63 ]
   %51 = trunc i64 %indvars.iv.i64 to i8
-  %52 = getelementptr inbounds nuw [50 x i8], ptr %3, i64 0, i64 %indvars.iv.i64
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i64
   store i8 %51, ptr %52, align 1, !tbaa !12
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i62
@@ -1565,7 +1565,7 @@ Extra_Permutations.exit72:                        ; preds = %.lr.ph.i63, %Extra_
   br i1 %.not.i, label %78, label %69
 
 69:                                               ; preds = %.lr.ph.i75
-  %70 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i76
+  %70 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i76
   %71 = load i32, ptr %70, align 4, !tbaa !3
   %72 = xor i32 %71, -1
   %73 = and i32 %.01920.i, %72
@@ -1696,7 +1696,7 @@ Extra_TruthPermute.exit:                          ; preds = %.loopexit.i, %109
   br i1 %.not.i96, label %122, label %113
 
 113:                                              ; preds = %.lr.ph.i93
-  %114 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i94
+  %114 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i94
   %115 = load i32, ptr %114, align 4, !tbaa !3
   %116 = xor i32 %115, -1
   %117 = and i32 %.01920.i95, %116
@@ -1853,7 +1853,7 @@ define void @Extra_Truth4VarNPN(ptr noundef writeonly captures(address_is_null) 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %7 ]
   %13 = trunc i64 %indvars.iv.i to i8
-  %14 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %13, ptr %14, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1906,7 +1906,7 @@ Extra_Permutations.exit:                          ; preds = %.lr.ph.i
   br i1 %.not.i, label %43, label %34
 
 34:                                               ; preds = %.lr.ph.i126
-  %35 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i127
+  %35 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i127
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = xor i32 %36, -1
   %38 = and i32 %.01920.i, %37
@@ -2054,7 +2054,7 @@ Extra_TruthPolarize.exit:                         ; preds = %82, %Extra_TruthPer
   br i1 %.not.i140, label %104, label %95
 
 95:                                               ; preds = %.lr.ph.i137
-  %96 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i138
+  %96 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i138
   %97 = load i32, ptr %96, align 4, !tbaa !3
   %98 = xor i32 %97, -1
   %99 = and i32 %.01920.i139, %98
@@ -2309,7 +2309,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %6, %Extra_ArrayAllo
   br i1 %.not.i.us, label %30, label %21
 
 21:                                               ; preds = %.lr.ph.i.us
-  %22 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i70.us
+  %22 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i70.us
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = xor i32 %23, -1
   %25 = and i32 %.01920.i.us, %24
@@ -2494,7 +2494,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %10, %Extra_ArrayAll
   br i1 %.not.i.us, label %33, label %24
 
 24:                                               ; preds = %.lr.ph.i.us
-  %25 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i66.us
+  %25 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i66.us
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = xor i32 %26, -1
   %28 = and i32 %.01920.i.us, %27
@@ -2564,7 +2564,7 @@ Extra_TruthPolarize.exit.us:                      ; preds = %33
   br i1 %.not.i, label %69, label %60
 
 60:                                               ; preds = %.lr.ph.i
-  %61 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i66
+  %61 = getelementptr inbounds nuw i32, ptr @Extra_TruthPolarize.Signs, i64 %indvars.iv.i66
   %62 = load i32, ptr %61, align 4, !tbaa !3
   %63 = xor i32 %62, -1
   %64 = and i32 %.01920.i, %63
@@ -2679,14 +2679,14 @@ define zeroext i16 @Extra_TruthPerm4One(i32 noundef %0, i32 noundef %1) local_un
   br label %30
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds [16 x i16], ptr @Extra_TruthPerm4One.Cases, i64 0, i64 %3
+  %9 = getelementptr inbounds i16, ptr @Extra_TruthPerm4One.Cases, i64 %3
   %10 = load i16, ptr %9, align 2, !tbaa !39
   %11 = and i64 %4, 276
   %.not25 = icmp eq i64 %11, 0
   br i1 %.not25, label %.preheader28, label %30
 
 .preheader28:                                     ; preds = %8
-  %12 = getelementptr inbounds [16 x [4 x i32]], ptr @Extra_TruthPerm4One.Perms, i64 0, i64 %3
+  %12 = getelementptr inbounds [4 x i32], ptr @Extra_TruthPerm4One.Perms, i64 %3
   br label %13
 
 13:                                               ; preds = %.preheader28, %26
@@ -2700,7 +2700,7 @@ define zeroext i16 @Extra_TruthPerm4One(i32 noundef %0, i32 noundef %1) local_un
 .preheader:                                       ; preds = %13, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %13 ]
   %.01930 = phi i32 [ %.120, %.preheader ], [ 0, %13 ]
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %.02231
@@ -2742,14 +2742,14 @@ define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds [32 x i32], ptr @Extra_TruthPerm5One.Cases, i64 0, i64 %3
+  %7 = getelementptr inbounds i32, ptr @Extra_TruthPerm5One.Cases, i64 %3
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = and i64 %4, 65812
   %.not25 = icmp eq i64 %9, 0
   br i1 %.not25, label %.preheader28, label %.loopexit
 
 .preheader28:                                     ; preds = %6
-  %10 = getelementptr inbounds [32 x [5 x i32]], ptr @Extra_TruthPerm5One.Perms, i64 0, i64 %3
+  %10 = getelementptr inbounds [5 x i32], ptr @Extra_TruthPerm5One.Perms, i64 %3
   br label %11
 
 11:                                               ; preds = %.preheader28, %24
@@ -2763,7 +2763,7 @@ define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 .preheader:                                       ; preds = %11, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %11 ]
   %.01930 = phi i32 [ %.120, %.preheader ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw [5 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = shl nuw i32 1, %15
   %17 = and i32 %16, %.02231
@@ -2795,7 +2795,7 @@ define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Extra_TruthPerm6One(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #8 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [64 x i32], ptr @Extra_TruthPerm6One.Cases, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @Extra_TruthPerm6One.Cases, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = shl nuw i64 1, %4
   %8 = and i64 %7, -9223372034707259253
@@ -2835,7 +2835,7 @@ define void @Extra_TruthPerm6One(ptr noundef readonly captures(none) %0, i32 nou
   store i32 0, ptr %2, align 4, !tbaa !3
   store i32 0, ptr %16, align 4, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = getelementptr inbounds [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %4
+  %23 = getelementptr inbounds [6 x i32], ptr @Extra_TruthPerm6One.Perms, i64 %4
   br label %24
 
 24:                                               ; preds = %21, %69
@@ -2855,7 +2855,7 @@ define void @Extra_TruthPerm6One(ptr noundef readonly captures(none) %0, i32 nou
 .preheader:                                       ; preds = %28, %.preheader
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader ], [ 0, %28 ]
   %.058 = phi i32 [ %.1, %.preheader ], [ 0, %28 ]
-  %32 = getelementptr inbounds nuw [6 x i32], ptr %23, i64 0, i64 %indvars.iv61
+  %32 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv61
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = shl nuw i32 1, %33
   %35 = and i32 %34, %.04759
@@ -2896,7 +2896,7 @@ define void @Extra_TruthPerm6One(ptr noundef readonly captures(none) %0, i32 nou
 .preheader54:                                     ; preds = %48, %.preheader54
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader54 ], [ 0, %48 ]
   %.256 = phi i32 [ %.3, %.preheader54 ], [ 0, %48 ]
-  %53 = getelementptr inbounds nuw [6 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !3
   %55 = shl nuw i32 1, %54
   %56 = and i32 %55, %.04759
@@ -2940,7 +2940,7 @@ define void @Extra_TruthPerm6One(ptr noundef readonly captures(none) %0, i32 nou
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #8 {
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @Extra_TruthExpand.Cases, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @Extra_TruthExpand.Cases, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !12
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.preheader, label %14
@@ -2973,14 +2973,14 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr noundef reado
 
 .lr.ph148:                                        ; preds = %.preheader117
   %17 = zext nneg i8 %8 to i64
-  %18 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @Extra_TruthExpand.uTruths, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i32], ptr @Extra_TruthExpand.uTruths, i64 %17
   %19 = zext nneg i32 %1 to i64
   %20 = shl nuw nsw i64 %19, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr nonnull align 16 %18, i64 %20, i1 false), !tbaa !3
   br label %.loopexit
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw [256 x [8 x i8]], ptr @Extra_TruthExpand.Perms, i64 0, i64 %6
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @Extra_TruthExpand.Perms, i64 %6
   switch i32 %1, label %106 [
     i32 1, label %23
     i32 2, label %48
@@ -3272,14 +3272,14 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   br i1 %.not.i, label %17, label %Extra_TruthPerm4One.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw [16 x i16], ptr @Extra_TruthPerm4One.Cases, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i16, ptr @Extra_TruthPerm4One.Cases, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !39
   %20 = and i64 %15, 276
   %.not25.i = icmp eq i64 %20, 0
   br i1 %.not25.i, label %.preheader28.i, label %Extra_TruthPerm4One.exit
 
 .preheader28.i:                                   ; preds = %17
-  %21 = getelementptr inbounds nuw [16 x [4 x i32]], ptr @Extra_TruthPerm4One.Perms, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i32], ptr @Extra_TruthPerm4One.Perms, i64 %indvars.iv
   br label %22
 
 22:                                               ; preds = %35, %.preheader28.i
@@ -3293,7 +3293,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 .preheader.i:                                     ; preds = %22, %.preheader.i
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.preheader.i ], [ 0, %22 ]
   %.01930.i = phi i32 [ %.120.i, %.preheader.i ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv.i12
+  %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i12
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = shl nuw i32 1, %26
   %28 = and i32 %27, %.02231.i
@@ -3373,14 +3373,14 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   br i1 %.not.i, label %16, label %Extra_TruthPerm5One.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw [32 x i32], ptr @Extra_TruthPerm5One.Cases, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr @Extra_TruthPerm5One.Cases, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = and i64 %14, 65812
   %.not25.i = icmp eq i64 %19, 0
   br i1 %.not25.i, label %.preheader28.i, label %Extra_TruthPerm5One.exit
 
 .preheader28.i:                                   ; preds = %16
-  %20 = getelementptr inbounds nuw [32 x [5 x i32]], ptr @Extra_TruthPerm5One.Perms, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPerm5One.Perms, i64 %indvars.iv
   br label %21
 
 21:                                               ; preds = %34, %.preheader28.i
@@ -3394,7 +3394,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 .preheader.i:                                     ; preds = %21, %.preheader.i
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %.preheader.i ], [ 0, %21 ]
   %.01930.i = phi i32 [ %.120.i, %.preheader.i ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw [5 x i32], ptr %20, i64 0, i64 %indvars.iv.i14
+  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i14
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = shl nuw i32 1, %25
   %27 = and i32 %26, %.02231.i
@@ -3471,7 +3471,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_TruthPerm
 .preheader.i:                                     ; preds = %11, %.preheader.i
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %.preheader.i ], [ 0, %11 ]
   %.01930.i = phi i32 [ %.120.i, %.preheader.i ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw [5 x i32], ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 460), i64 0, i64 %indvars.iv.i16
+  %14 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 460), i64 %indvars.iv.i16
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = shl nuw i32 1, %15
   %17 = and i32 %16, %.02231.i
@@ -3512,7 +3512,7 @@ Extra_TruthPerm5One.exit:                         ; preds = %24
 .preheader.i22:                                   ; preds = %28, %.preheader.i22
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i27, %.preheader.i22 ], [ 0, %28 ]
   %.01930.i24 = phi i32 [ %.120.i26, %.preheader.i22 ], [ 0, %28 ]
-  %31 = getelementptr inbounds nuw [5 x i32], ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 540), i64 0, i64 %indvars.iv.i23
+  %31 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 540), i64 %indvars.iv.i23
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = shl nuw i32 1, %32
   %34 = and i32 %33, %.02231.i20
@@ -3552,7 +3552,7 @@ Extra_TruthPerm5One.exit31:                       ; preds = %41
 .preheader.i35:                                   ; preds = %44, %.preheader.i35
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i40, %.preheader.i35 ], [ 0, %44 ]
   %.01930.i37 = phi i32 [ %.120.i39, %.preheader.i35 ], [ 0, %44 ]
-  %47 = getelementptr inbounds nuw [5 x i32], ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 580), i64 0, i64 %indvars.iv.i36
+  %47 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 580), i64 %indvars.iv.i36
   %48 = load i32, ptr %47, align 4, !tbaa !3
   %49 = shl nuw i32 1, %48
   %50 = and i32 %49, %.02231.i33
@@ -3592,7 +3592,7 @@ Extra_TruthPerm5One.exit44:                       ; preds = %57
 .preheader.i48:                                   ; preds = %60, %.preheader.i48
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i53, %.preheader.i48 ], [ 0, %60 ]
   %.01930.i50 = phi i32 [ %.120.i52, %.preheader.i48 ], [ 0, %60 ]
-  %63 = getelementptr inbounds nuw [5 x i32], ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 600), i64 0, i64 %indvars.iv.i49
+  %63 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @Extra_TruthPerm5One.Perms, i64 600), i64 %indvars.iv.i49
   %64 = load i32, ptr %63, align 4, !tbaa !3
   %65 = shl nuw i32 1, %64
   %66 = and i32 %65, %.02231.i46
@@ -3659,7 +3659,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 15:                                               ; preds = %Extra_ArrayAlloc.exit.preheader, %Extra_TruthPerm6One.exit
   %indvars.iv = phi i64 [ 0, %Extra_ArrayAlloc.exit.preheader ], [ %indvars.iv.next, %Extra_TruthPerm6One.exit ]
   %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %17 = getelementptr inbounds nuw [64 x i32], ptr @Extra_TruthPerm6One.Cases, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr @Extra_TruthPerm6One.Cases, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = shl nuw i64 1, %indvars.iv
   %20 = and i64 %19, -9223372034707259253
@@ -3695,7 +3695,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 30:                                               ; preds = %23
   store i32 0, ptr %16, align 4, !tbaa !3
   store i32 0, ptr %25, align 4, !tbaa !3
-  %31 = getelementptr inbounds nuw [64 x [6 x i32]], ptr @Extra_TruthPerm6One.Perms, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [6 x i32], ptr @Extra_TruthPerm6One.Perms, i64 %indvars.iv
   br label %32
 
 32:                                               ; preds = %75, %30
@@ -3714,7 +3714,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 .preheader.i:                                     ; preds = %36, %.preheader.i
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.preheader.i ], [ 0, %36 ]
   %.058.i = phi i32 [ %.1.i, %.preheader.i ], [ 0, %36 ]
-  %39 = getelementptr inbounds nuw [6 x i32], ptr %31, i64 0, i64 %indvars.iv61.i
+  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv61.i
   %40 = load i32, ptr %39, align 4, !tbaa !3
   %41 = shl nuw i32 1, %40
   %42 = and i32 %41, %.04759.i
@@ -3754,7 +3754,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
 .preheader54.i:                                   ; preds = %55, %.preheader54.i
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %.preheader54.i ], [ 0, %55 ]
   %.256.i = phi i32 [ %.3.i, %.preheader54.i ], [ 0, %55 ]
-  %59 = getelementptr inbounds nuw [6 x i32], ptr %31, i64 0, i64 %indvars.iv.i13
+  %59 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i13
   %60 = load i32, ptr %59, align 4, !tbaa !3
   %61 = shl nuw i32 1, %60
   %62 = and i32 %61, %.04759.i
@@ -4272,7 +4272,7 @@ define noundef i64 @Extra_Truth6MinimumExact(i64 noundef %0, ptr noundef readonl
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %12
+  %13 = getelementptr inbounds i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !93
   %15 = xor i64 %14, -1
   %16 = and i64 %.12324, %15
@@ -4290,7 +4290,7 @@ define noundef i64 @Extra_Truth6MinimumExact(i64 noundef %0, ptr noundef readonl
   %24 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %26
+  %27 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = and i64 %28, %22
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -4342,112 +4342,112 @@ define noundef i64 @Extra_Truth6MinimumHeuristic(i64 noundef %0) local_unnamed_a
   %23 = add nuw nsw i64 %22, %21
   %24 = trunc i64 %23 to i32
   %25 = icmp samesign ult i32 %24, 32
-  br i1 %25, label %.preheader.i, label %91
+  br i1 %25, label %.preheader.i, label %92
 
-26:                                               ; preds = %89
+26:                                               ; preds = %90
   %27 = add nuw nsw i32 %.01521.i, 1
   %exitcond.not.i = icmp eq i32 %27, 10
   br i1 %exitcond.not.i, label %Extra_Truth6MinimumRoundMany.exit, label %.preheader.i, !llvm.loop !98
 
 .preheader.i:                                     ; preds = %1, %26
   %.01521.i = phi i32 [ %27, %26 ], [ 0, %1 ]
-  %.01620.i = phi i64 [ %88, %26 ], [ %0, %1 ]
+  %.01620.i = phi i64 [ %89, %26 ], [ %0, %1 ]
   br label %28
 
 28:                                               ; preds = %28, %.preheader.i
-  %29 = phi i64 [ -4294967296, %.preheader.i ], [ %31, %28 ]
   %indvars.iv.i = phi i64 [ 4, %.preheader.i ], [ %indvars.iv.next.i, %28 ]
-  %.219.i = phi i64 [ %.01620.i, %.preheader.i ], [ %88, %28 ]
-  %30 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i
-  %31 = load i64, ptr %30, align 8, !tbaa !93
-  %32 = xor i64 %31, -1
-  %33 = and i64 %.219.i, %32
-  %34 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %35 = shl nuw i32 1, %34
-  %36 = zext i32 %35 to i64
-  %37 = shl i64 %33, %36
-  %38 = and i64 %31, %.219.i
-  %39 = lshr i64 %38, %36
-  %40 = or i64 %37, %39
-  %41 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i, i64 %40)
-  %42 = xor i64 %29, -1
-  %43 = and i64 %.219.i, %42
-  %44 = shl nuw i32 2, %34
-  %45 = zext i32 %44 to i64
-  %46 = shl i64 %43, %45
-  %47 = and i64 %.219.i, %29
-  %48 = lshr i64 %47, %45
-  %49 = or i64 %46, %48
-  %50 = tail call noundef i64 @llvm.umin.i64(i64 %41, i64 %49)
-  %51 = and i64 %49, %32
-  %52 = shl i64 %51, %36
-  %53 = and i64 %49, %31
-  %54 = lshr i64 %53, %36
-  %55 = or i64 %52, %54
-  %56 = tail call noundef i64 @llvm.umin.i64(i64 %50, i64 %55)
-  %57 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i
-  %58 = load i64, ptr %57, align 8, !tbaa !93
-  %59 = and i64 %58, %.219.i
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !93
-  %62 = and i64 %61, %.219.i
-  %63 = shl i64 %62, %36
-  %64 = or i64 %63, %59
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %66 = load i64, ptr %65, align 8, !tbaa !93
-  %67 = and i64 %66, %.219.i
-  %68 = lshr i64 %67, %36
-  %69 = or i64 %64, %68
-  %70 = tail call noundef i64 @llvm.umin.i64(i64 %56, i64 %69)
-  %71 = and i64 %69, %32
-  %72 = shl i64 %71, %36
-  %73 = and i64 %69, %31
-  %74 = lshr i64 %73, %36
-  %75 = or i64 %72, %74
-  %76 = tail call noundef i64 @llvm.umin.i64(i64 %70, i64 %75)
-  %77 = and i64 %69, %42
-  %78 = shl i64 %77, %45
-  %79 = and i64 %69, %29
-  %80 = lshr i64 %79, %45
-  %81 = or i64 %78, %80
-  %82 = tail call noundef i64 @llvm.umin.i64(i64 %76, i64 %81)
-  %83 = and i64 %81, %32
-  %84 = shl i64 %83, %36
-  %85 = and i64 %81, %31
-  %86 = lshr i64 %85, %36
-  %87 = or i64 %84, %86
-  %88 = tail call noundef i64 @llvm.umin.i64(i64 %82, i64 %87)
+  %.219.i = phi i64 [ %.01620.i, %.preheader.i ], [ %89, %28 ]
+  %29 = getelementptr inbounds nuw i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv.i
+  %30 = load i64, ptr %29, align 8, !tbaa !93
+  %31 = xor i64 %30, -1
+  %32 = and i64 %.219.i, %31
+  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %34 = shl nuw i32 1, %33
+  %35 = zext i32 %34 to i64
+  %36 = shl i64 %32, %35
+  %37 = and i64 %30, %.219.i
+  %38 = lshr i64 %37, %35
+  %39 = or i64 %36, %38
+  %40 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i, i64 %39)
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !93
+  %43 = xor i64 %42, -1
+  %44 = and i64 %.219.i, %43
+  %45 = shl nuw i32 2, %33
+  %46 = zext i32 %45 to i64
+  %47 = shl i64 %44, %46
+  %48 = and i64 %42, %.219.i
+  %49 = lshr i64 %48, %46
+  %50 = or i64 %47, %49
+  %51 = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %50)
+  %52 = and i64 %50, %31
+  %53 = shl i64 %52, %35
+  %54 = and i64 %50, %30
+  %55 = lshr i64 %54, %35
+  %56 = or i64 %53, %55
+  %57 = tail call noundef i64 @llvm.umin.i64(i64 %51, i64 %56)
+  %58 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i
+  %59 = load i64, ptr %58, align 8, !tbaa !93
+  %60 = and i64 %59, %.219.i
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %62 = load i64, ptr %61, align 8, !tbaa !93
+  %63 = and i64 %62, %.219.i
+  %64 = shl i64 %63, %35
+  %65 = or i64 %64, %60
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %67 = load i64, ptr %66, align 8, !tbaa !93
+  %68 = and i64 %67, %.219.i
+  %69 = lshr i64 %68, %35
+  %70 = or i64 %65, %69
+  %71 = tail call noundef i64 @llvm.umin.i64(i64 %57, i64 %70)
+  %72 = and i64 %70, %31
+  %73 = shl i64 %72, %35
+  %74 = and i64 %70, %30
+  %75 = lshr i64 %74, %35
+  %76 = or i64 %73, %75
+  %77 = tail call noundef i64 @llvm.umin.i64(i64 %71, i64 %76)
+  %78 = and i64 %70, %43
+  %79 = shl i64 %78, %46
+  %80 = and i64 %70, %42
+  %81 = lshr i64 %80, %46
+  %82 = or i64 %79, %81
+  %83 = tail call noundef i64 @llvm.umin.i64(i64 %77, i64 %82)
+  %84 = and i64 %82, %31
+  %85 = shl i64 %84, %35
+  %86 = and i64 %82, %30
+  %87 = lshr i64 %86, %35
+  %88 = or i64 %85, %87
+  %89 = tail call noundef i64 @llvm.umin.i64(i64 %83, i64 %88)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %89, label %28, !llvm.loop !99
+  br i1 %.not.i, label %90, label %28, !llvm.loop !99
 
-89:                                               ; preds = %28
-  %90 = icmp eq i64 %.01620.i, %88
-  br i1 %90, label %Extra_Truth6MinimumRoundMany.exit, label %26
+90:                                               ; preds = %28
+  %91 = icmp eq i64 %.01620.i, %89
+  br i1 %91, label %Extra_Truth6MinimumRoundMany.exit, label %26
 
-91:                                               ; preds = %1
+92:                                               ; preds = %1
   %.not = icmp eq i32 %24, 32
-  br i1 %.not, label %.preheader.i21, label %92
+  br i1 %.not, label %.preheader.i21, label %93
 
-92:                                               ; preds = %91
-  %93 = xor i64 %0, -1
+93:                                               ; preds = %92
+  %94 = xor i64 %0, -1
   br label %.preheader.i11
 
-94:                                               ; preds = %157
-  %95 = add nuw nsw i32 %.01521.i12, 1
-  %exitcond.not.i18 = icmp eq i32 %95, 10
+95:                                               ; preds = %159
+  %96 = add nuw nsw i32 %.01521.i12, 1
+  %exitcond.not.i18 = icmp eq i32 %96, 10
   br i1 %exitcond.not.i18, label %Extra_Truth6MinimumRoundMany.exit, label %.preheader.i11, !llvm.loop !98
 
-.preheader.i11:                                   ; preds = %94, %92
-  %.01521.i12 = phi i32 [ 0, %92 ], [ %95, %94 ]
-  %.01620.i13 = phi i64 [ %93, %92 ], [ %156, %94 ]
-  br label %96
+.preheader.i11:                                   ; preds = %95, %93
+  %.01521.i12 = phi i32 [ 0, %93 ], [ %96, %95 ]
+  %.01620.i13 = phi i64 [ %94, %93 ], [ %158, %95 ]
+  br label %97
 
-96:                                               ; preds = %96, %.preheader.i11
-  %97 = phi i64 [ -4294967296, %.preheader.i11 ], [ %99, %96 ]
-  %indvars.iv.i14 = phi i64 [ 4, %.preheader.i11 ], [ %indvars.iv.next.i16, %96 ]
-  %.219.i15 = phi i64 [ %.01620.i13, %.preheader.i11 ], [ %156, %96 ]
-  %98 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i14
+97:                                               ; preds = %97, %.preheader.i11
+  %indvars.iv.i14 = phi i64 [ 4, %.preheader.i11 ], [ %indvars.iv.next.i16, %97 ]
+  %.219.i15 = phi i64 [ %.01620.i13, %.preheader.i11 ], [ %158, %97 ]
+  %98 = getelementptr inbounds nuw i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv.i14
   %99 = load i64, ptr %98, align 8, !tbaa !93
   %100 = xor i64 %99, -1
   %101 = and i64 %.219.i15, %100
@@ -4459,235 +4459,239 @@ define noundef i64 @Extra_Truth6MinimumHeuristic(i64 noundef %0) local_unnamed_a
   %107 = lshr i64 %106, %104
   %108 = or i64 %105, %107
   %109 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i15, i64 %108)
-  %110 = xor i64 %97, -1
-  %111 = and i64 %.219.i15, %110
-  %112 = shl nuw i32 2, %102
-  %113 = zext i32 %112 to i64
-  %114 = shl i64 %111, %113
-  %115 = and i64 %.219.i15, %97
-  %116 = lshr i64 %115, %113
-  %117 = or i64 %114, %116
-  %118 = tail call noundef i64 @llvm.umin.i64(i64 %109, i64 %117)
-  %119 = and i64 %117, %100
-  %120 = shl i64 %119, %104
-  %121 = and i64 %117, %99
-  %122 = lshr i64 %121, %104
-  %123 = or i64 %120, %122
-  %124 = tail call noundef i64 @llvm.umin.i64(i64 %118, i64 %123)
-  %125 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i14
-  %126 = load i64, ptr %125, align 8, !tbaa !93
-  %127 = and i64 %126, %.219.i15
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %129 = load i64, ptr %128, align 8, !tbaa !93
-  %130 = and i64 %129, %.219.i15
-  %131 = shl i64 %130, %104
-  %132 = or i64 %131, %127
-  %133 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %134 = load i64, ptr %133, align 8, !tbaa !93
-  %135 = and i64 %134, %.219.i15
-  %136 = lshr i64 %135, %104
-  %137 = or i64 %132, %136
-  %138 = tail call noundef i64 @llvm.umin.i64(i64 %124, i64 %137)
-  %139 = and i64 %137, %100
-  %140 = shl i64 %139, %104
-  %141 = and i64 %137, %99
-  %142 = lshr i64 %141, %104
-  %143 = or i64 %140, %142
-  %144 = tail call noundef i64 @llvm.umin.i64(i64 %138, i64 %143)
-  %145 = and i64 %137, %110
-  %146 = shl i64 %145, %113
-  %147 = and i64 %137, %97
-  %148 = lshr i64 %147, %113
-  %149 = or i64 %146, %148
-  %150 = tail call noundef i64 @llvm.umin.i64(i64 %144, i64 %149)
-  %151 = and i64 %149, %100
-  %152 = shl i64 %151, %104
-  %153 = and i64 %149, %99
-  %154 = lshr i64 %153, %104
-  %155 = or i64 %152, %154
-  %156 = tail call noundef i64 @llvm.umin.i64(i64 %150, i64 %155)
+  %110 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %111 = load i64, ptr %110, align 8, !tbaa !93
+  %112 = xor i64 %111, -1
+  %113 = and i64 %.219.i15, %112
+  %114 = shl nuw i32 2, %102
+  %115 = zext i32 %114 to i64
+  %116 = shl i64 %113, %115
+  %117 = and i64 %111, %.219.i15
+  %118 = lshr i64 %117, %115
+  %119 = or i64 %116, %118
+  %120 = tail call noundef i64 @llvm.umin.i64(i64 %109, i64 %119)
+  %121 = and i64 %119, %100
+  %122 = shl i64 %121, %104
+  %123 = and i64 %119, %99
+  %124 = lshr i64 %123, %104
+  %125 = or i64 %122, %124
+  %126 = tail call noundef i64 @llvm.umin.i64(i64 %120, i64 %125)
+  %127 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i14
+  %128 = load i64, ptr %127, align 8, !tbaa !93
+  %129 = and i64 %128, %.219.i15
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %131 = load i64, ptr %130, align 8, !tbaa !93
+  %132 = and i64 %131, %.219.i15
+  %133 = shl i64 %132, %104
+  %134 = or i64 %133, %129
+  %135 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %136 = load i64, ptr %135, align 8, !tbaa !93
+  %137 = and i64 %136, %.219.i15
+  %138 = lshr i64 %137, %104
+  %139 = or i64 %134, %138
+  %140 = tail call noundef i64 @llvm.umin.i64(i64 %126, i64 %139)
+  %141 = and i64 %139, %100
+  %142 = shl i64 %141, %104
+  %143 = and i64 %139, %99
+  %144 = lshr i64 %143, %104
+  %145 = or i64 %142, %144
+  %146 = tail call noundef i64 @llvm.umin.i64(i64 %140, i64 %145)
+  %147 = and i64 %139, %112
+  %148 = shl i64 %147, %115
+  %149 = and i64 %139, %111
+  %150 = lshr i64 %149, %115
+  %151 = or i64 %148, %150
+  %152 = tail call noundef i64 @llvm.umin.i64(i64 %146, i64 %151)
+  %153 = and i64 %151, %100
+  %154 = shl i64 %153, %104
+  %155 = and i64 %151, %99
+  %156 = lshr i64 %155, %104
+  %157 = or i64 %154, %156
+  %158 = tail call noundef i64 @llvm.umin.i64(i64 %152, i64 %157)
   %indvars.iv.next.i16 = add nsw i64 %indvars.iv.i14, -1
   %.not.i17 = icmp eq i64 %indvars.iv.i14, 0
-  br i1 %.not.i17, label %157, label %96, !llvm.loop !99
+  br i1 %.not.i17, label %159, label %97, !llvm.loop !99
 
-157:                                              ; preds = %96
-  %158 = icmp eq i64 %.01620.i13, %156
-  br i1 %158, label %Extra_Truth6MinimumRoundMany.exit, label %94
+159:                                              ; preds = %97
+  %160 = icmp eq i64 %.01620.i13, %158
+  br i1 %160, label %Extra_Truth6MinimumRoundMany.exit, label %95
 
-159:                                              ; preds = %222
-  %160 = add nuw nsw i32 %.01521.i22, 1
-  %exitcond.not.i28 = icmp eq i32 %160, 10
+161:                                              ; preds = %225
+  %162 = add nuw nsw i32 %.01521.i22, 1
+  %exitcond.not.i28 = icmp eq i32 %162, 10
   br i1 %exitcond.not.i28, label %Extra_Truth6MinimumRoundMany.exit30, label %.preheader.i21, !llvm.loop !98
 
-.preheader.i21:                                   ; preds = %91, %159
-  %.01521.i22 = phi i32 [ %160, %159 ], [ 0, %91 ]
-  %.01620.i23 = phi i64 [ %221, %159 ], [ %0, %91 ]
-  br label %161
+.preheader.i21:                                   ; preds = %92, %161
+  %.01521.i22 = phi i32 [ %162, %161 ], [ 0, %92 ]
+  %.01620.i23 = phi i64 [ %224, %161 ], [ %0, %92 ]
+  br label %163
 
-161:                                              ; preds = %161, %.preheader.i21
-  %162 = phi i64 [ -4294967296, %.preheader.i21 ], [ %164, %161 ]
-  %indvars.iv.i24 = phi i64 [ 4, %.preheader.i21 ], [ %indvars.iv.next.i26, %161 ]
-  %.219.i25 = phi i64 [ %.01620.i23, %.preheader.i21 ], [ %221, %161 ]
-  %163 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i24
-  %164 = load i64, ptr %163, align 8, !tbaa !93
-  %165 = xor i64 %164, -1
-  %166 = and i64 %.219.i25, %165
-  %167 = trunc nuw nsw i64 %indvars.iv.i24 to i32
-  %168 = shl nuw i32 1, %167
-  %169 = zext i32 %168 to i64
-  %170 = shl i64 %166, %169
-  %171 = and i64 %164, %.219.i25
-  %172 = lshr i64 %171, %169
-  %173 = or i64 %170, %172
-  %174 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i25, i64 %173)
-  %175 = xor i64 %162, -1
-  %176 = and i64 %.219.i25, %175
-  %177 = shl nuw i32 2, %167
-  %178 = zext i32 %177 to i64
-  %179 = shl i64 %176, %178
-  %180 = and i64 %.219.i25, %162
-  %181 = lshr i64 %180, %178
-  %182 = or i64 %179, %181
-  %183 = tail call noundef i64 @llvm.umin.i64(i64 %174, i64 %182)
-  %184 = and i64 %182, %165
-  %185 = shl i64 %184, %169
-  %186 = and i64 %182, %164
-  %187 = lshr i64 %186, %169
-  %188 = or i64 %185, %187
-  %189 = tail call noundef i64 @llvm.umin.i64(i64 %183, i64 %188)
-  %190 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i24
-  %191 = load i64, ptr %190, align 8, !tbaa !93
-  %192 = and i64 %191, %.219.i25
-  %193 = getelementptr inbounds nuw i8, ptr %190, i64 8
+163:                                              ; preds = %163, %.preheader.i21
+  %indvars.iv.i24 = phi i64 [ 4, %.preheader.i21 ], [ %indvars.iv.next.i26, %163 ]
+  %.219.i25 = phi i64 [ %.01620.i23, %.preheader.i21 ], [ %224, %163 ]
+  %164 = getelementptr inbounds nuw i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv.i24
+  %165 = load i64, ptr %164, align 8, !tbaa !93
+  %166 = xor i64 %165, -1
+  %167 = and i64 %.219.i25, %166
+  %168 = trunc nuw nsw i64 %indvars.iv.i24 to i32
+  %169 = shl nuw i32 1, %168
+  %170 = zext i32 %169 to i64
+  %171 = shl i64 %167, %170
+  %172 = and i64 %165, %.219.i25
+  %173 = lshr i64 %172, %170
+  %174 = or i64 %171, %173
+  %175 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i25, i64 %174)
+  %176 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %177 = load i64, ptr %176, align 8, !tbaa !93
+  %178 = xor i64 %177, -1
+  %179 = and i64 %.219.i25, %178
+  %180 = shl nuw i32 2, %168
+  %181 = zext i32 %180 to i64
+  %182 = shl i64 %179, %181
+  %183 = and i64 %177, %.219.i25
+  %184 = lshr i64 %183, %181
+  %185 = or i64 %182, %184
+  %186 = tail call noundef i64 @llvm.umin.i64(i64 %175, i64 %185)
+  %187 = and i64 %185, %166
+  %188 = shl i64 %187, %170
+  %189 = and i64 %185, %165
+  %190 = lshr i64 %189, %170
+  %191 = or i64 %188, %190
+  %192 = tail call noundef i64 @llvm.umin.i64(i64 %186, i64 %191)
+  %193 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i24
   %194 = load i64, ptr %193, align 8, !tbaa !93
   %195 = and i64 %194, %.219.i25
-  %196 = shl i64 %195, %169
-  %197 = or i64 %196, %192
-  %198 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %199 = load i64, ptr %198, align 8, !tbaa !93
-  %200 = and i64 %199, %.219.i25
-  %201 = lshr i64 %200, %169
-  %202 = or i64 %197, %201
-  %203 = tail call noundef i64 @llvm.umin.i64(i64 %189, i64 %202)
-  %204 = and i64 %202, %165
-  %205 = shl i64 %204, %169
-  %206 = and i64 %202, %164
-  %207 = lshr i64 %206, %169
-  %208 = or i64 %205, %207
-  %209 = tail call noundef i64 @llvm.umin.i64(i64 %203, i64 %208)
-  %210 = and i64 %202, %175
-  %211 = shl i64 %210, %178
-  %212 = and i64 %202, %162
-  %213 = lshr i64 %212, %178
-  %214 = or i64 %211, %213
-  %215 = tail call noundef i64 @llvm.umin.i64(i64 %209, i64 %214)
-  %216 = and i64 %214, %165
-  %217 = shl i64 %216, %169
-  %218 = and i64 %214, %164
-  %219 = lshr i64 %218, %169
-  %220 = or i64 %217, %219
-  %221 = tail call noundef i64 @llvm.umin.i64(i64 %215, i64 %220)
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  %197 = load i64, ptr %196, align 8, !tbaa !93
+  %198 = and i64 %197, %.219.i25
+  %199 = shl i64 %198, %170
+  %200 = or i64 %199, %195
+  %201 = getelementptr inbounds nuw i8, ptr %193, i64 16
+  %202 = load i64, ptr %201, align 8, !tbaa !93
+  %203 = and i64 %202, %.219.i25
+  %204 = lshr i64 %203, %170
+  %205 = or i64 %200, %204
+  %206 = tail call noundef i64 @llvm.umin.i64(i64 %192, i64 %205)
+  %207 = and i64 %205, %166
+  %208 = shl i64 %207, %170
+  %209 = and i64 %205, %165
+  %210 = lshr i64 %209, %170
+  %211 = or i64 %208, %210
+  %212 = tail call noundef i64 @llvm.umin.i64(i64 %206, i64 %211)
+  %213 = and i64 %205, %178
+  %214 = shl i64 %213, %181
+  %215 = and i64 %205, %177
+  %216 = lshr i64 %215, %181
+  %217 = or i64 %214, %216
+  %218 = tail call noundef i64 @llvm.umin.i64(i64 %212, i64 %217)
+  %219 = and i64 %217, %166
+  %220 = shl i64 %219, %170
+  %221 = and i64 %217, %165
+  %222 = lshr i64 %221, %170
+  %223 = or i64 %220, %222
+  %224 = tail call noundef i64 @llvm.umin.i64(i64 %218, i64 %223)
   %indvars.iv.next.i26 = add nsw i64 %indvars.iv.i24, -1
   %.not.i27 = icmp eq i64 %indvars.iv.i24, 0
-  br i1 %.not.i27, label %222, label %161, !llvm.loop !99
+  br i1 %.not.i27, label %225, label %163, !llvm.loop !99
 
-222:                                              ; preds = %161
-  %223 = icmp eq i64 %.01620.i23, %221
-  br i1 %223, label %Extra_Truth6MinimumRoundMany.exit30, label %159
+225:                                              ; preds = %163
+  %226 = icmp eq i64 %.01620.i23, %224
+  br i1 %226, label %Extra_Truth6MinimumRoundMany.exit30, label %161
 
-Extra_Truth6MinimumRoundMany.exit30:              ; preds = %159, %222
-  %.lcssa.lcssa.i29 = phi i64 [ %.01620.i23, %222 ], [ %221, %159 ]
-  %224 = xor i64 %0, -1
+Extra_Truth6MinimumRoundMany.exit30:              ; preds = %161, %225
+  %.lcssa.lcssa.i29 = phi i64 [ %.01620.i23, %225 ], [ %224, %161 ]
+  %227 = xor i64 %0, -1
   br label %.preheader.i31
 
-225:                                              ; preds = %288
-  %226 = add nuw nsw i32 %.01521.i32, 1
-  %exitcond.not.i38 = icmp eq i32 %226, 10
+228:                                              ; preds = %292
+  %229 = add nuw nsw i32 %.01521.i32, 1
+  %exitcond.not.i38 = icmp eq i32 %229, 10
   br i1 %exitcond.not.i38, label %Extra_Truth6MinimumRoundMany.exit40, label %.preheader.i31, !llvm.loop !98
 
-.preheader.i31:                                   ; preds = %225, %Extra_Truth6MinimumRoundMany.exit30
-  %.01521.i32 = phi i32 [ 0, %Extra_Truth6MinimumRoundMany.exit30 ], [ %226, %225 ]
-  %.01620.i33 = phi i64 [ %224, %Extra_Truth6MinimumRoundMany.exit30 ], [ %287, %225 ]
-  br label %227
+.preheader.i31:                                   ; preds = %228, %Extra_Truth6MinimumRoundMany.exit30
+  %.01521.i32 = phi i32 [ 0, %Extra_Truth6MinimumRoundMany.exit30 ], [ %229, %228 ]
+  %.01620.i33 = phi i64 [ %227, %Extra_Truth6MinimumRoundMany.exit30 ], [ %291, %228 ]
+  br label %230
 
-227:                                              ; preds = %227, %.preheader.i31
-  %228 = phi i64 [ -4294967296, %.preheader.i31 ], [ %230, %227 ]
-  %indvars.iv.i34 = phi i64 [ 4, %.preheader.i31 ], [ %indvars.iv.next.i36, %227 ]
-  %.219.i35 = phi i64 [ %.01620.i33, %.preheader.i31 ], [ %287, %227 ]
-  %229 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i34
-  %230 = load i64, ptr %229, align 8, !tbaa !93
-  %231 = xor i64 %230, -1
-  %232 = and i64 %.219.i35, %231
-  %233 = trunc nuw nsw i64 %indvars.iv.i34 to i32
-  %234 = shl nuw i32 1, %233
-  %235 = zext i32 %234 to i64
-  %236 = shl i64 %232, %235
-  %237 = and i64 %230, %.219.i35
-  %238 = lshr i64 %237, %235
-  %239 = or i64 %236, %238
-  %240 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i35, i64 %239)
-  %241 = xor i64 %228, -1
-  %242 = and i64 %.219.i35, %241
-  %243 = shl nuw i32 2, %233
-  %244 = zext i32 %243 to i64
-  %245 = shl i64 %242, %244
-  %246 = and i64 %.219.i35, %228
-  %247 = lshr i64 %246, %244
-  %248 = or i64 %245, %247
-  %249 = tail call noundef i64 @llvm.umin.i64(i64 %240, i64 %248)
-  %250 = and i64 %248, %231
-  %251 = shl i64 %250, %235
-  %252 = and i64 %248, %230
-  %253 = lshr i64 %252, %235
-  %254 = or i64 %251, %253
-  %255 = tail call noundef i64 @llvm.umin.i64(i64 %249, i64 %254)
-  %256 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i34
-  %257 = load i64, ptr %256, align 8, !tbaa !93
-  %258 = and i64 %257, %.219.i35
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %260 = load i64, ptr %259, align 8, !tbaa !93
-  %261 = and i64 %260, %.219.i35
-  %262 = shl i64 %261, %235
-  %263 = or i64 %262, %258
-  %264 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  %265 = load i64, ptr %264, align 8, !tbaa !93
-  %266 = and i64 %265, %.219.i35
-  %267 = lshr i64 %266, %235
-  %268 = or i64 %263, %267
-  %269 = tail call noundef i64 @llvm.umin.i64(i64 %255, i64 %268)
-  %270 = and i64 %268, %231
-  %271 = shl i64 %270, %235
-  %272 = and i64 %268, %230
-  %273 = lshr i64 %272, %235
-  %274 = or i64 %271, %273
-  %275 = tail call noundef i64 @llvm.umin.i64(i64 %269, i64 %274)
-  %276 = and i64 %268, %241
-  %277 = shl i64 %276, %244
-  %278 = and i64 %268, %228
-  %279 = lshr i64 %278, %244
-  %280 = or i64 %277, %279
-  %281 = tail call noundef i64 @llvm.umin.i64(i64 %275, i64 %280)
-  %282 = and i64 %280, %231
-  %283 = shl i64 %282, %235
-  %284 = and i64 %280, %230
-  %285 = lshr i64 %284, %235
-  %286 = or i64 %283, %285
-  %287 = tail call noundef i64 @llvm.umin.i64(i64 %281, i64 %286)
+230:                                              ; preds = %230, %.preheader.i31
+  %indvars.iv.i34 = phi i64 [ 4, %.preheader.i31 ], [ %indvars.iv.next.i36, %230 ]
+  %.219.i35 = phi i64 [ %.01620.i33, %.preheader.i31 ], [ %291, %230 ]
+  %231 = getelementptr inbounds nuw i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %indvars.iv.i34
+  %232 = load i64, ptr %231, align 8, !tbaa !93
+  %233 = xor i64 %232, -1
+  %234 = and i64 %.219.i35, %233
+  %235 = trunc nuw nsw i64 %indvars.iv.i34 to i32
+  %236 = shl nuw i32 1, %235
+  %237 = zext i32 %236 to i64
+  %238 = shl i64 %234, %237
+  %239 = and i64 %232, %.219.i35
+  %240 = lshr i64 %239, %237
+  %241 = or i64 %238, %240
+  %242 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i35, i64 %241)
+  %243 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %244 = load i64, ptr %243, align 8, !tbaa !93
+  %245 = xor i64 %244, -1
+  %246 = and i64 %.219.i35, %245
+  %247 = shl nuw i32 2, %235
+  %248 = zext i32 %247 to i64
+  %249 = shl i64 %246, %248
+  %250 = and i64 %244, %.219.i35
+  %251 = lshr i64 %250, %248
+  %252 = or i64 %249, %251
+  %253 = tail call noundef i64 @llvm.umin.i64(i64 %242, i64 %252)
+  %254 = and i64 %252, %233
+  %255 = shl i64 %254, %237
+  %256 = and i64 %252, %232
+  %257 = lshr i64 %256, %237
+  %258 = or i64 %255, %257
+  %259 = tail call noundef i64 @llvm.umin.i64(i64 %253, i64 %258)
+  %260 = getelementptr inbounds nuw [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %indvars.iv.i34
+  %261 = load i64, ptr %260, align 8, !tbaa !93
+  %262 = and i64 %261, %.219.i35
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  %264 = load i64, ptr %263, align 8, !tbaa !93
+  %265 = and i64 %264, %.219.i35
+  %266 = shl i64 %265, %237
+  %267 = or i64 %266, %262
+  %268 = getelementptr inbounds nuw i8, ptr %260, i64 16
+  %269 = load i64, ptr %268, align 8, !tbaa !93
+  %270 = and i64 %269, %.219.i35
+  %271 = lshr i64 %270, %237
+  %272 = or i64 %267, %271
+  %273 = tail call noundef i64 @llvm.umin.i64(i64 %259, i64 %272)
+  %274 = and i64 %272, %233
+  %275 = shl i64 %274, %237
+  %276 = and i64 %272, %232
+  %277 = lshr i64 %276, %237
+  %278 = or i64 %275, %277
+  %279 = tail call noundef i64 @llvm.umin.i64(i64 %273, i64 %278)
+  %280 = and i64 %272, %245
+  %281 = shl i64 %280, %248
+  %282 = and i64 %272, %244
+  %283 = lshr i64 %282, %248
+  %284 = or i64 %281, %283
+  %285 = tail call noundef i64 @llvm.umin.i64(i64 %279, i64 %284)
+  %286 = and i64 %284, %233
+  %287 = shl i64 %286, %237
+  %288 = and i64 %284, %232
+  %289 = lshr i64 %288, %237
+  %290 = or i64 %287, %289
+  %291 = tail call noundef i64 @llvm.umin.i64(i64 %285, i64 %290)
   %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i34, -1
   %.not.i37 = icmp eq i64 %indvars.iv.i34, 0
-  br i1 %.not.i37, label %288, label %227, !llvm.loop !99
+  br i1 %.not.i37, label %292, label %230, !llvm.loop !99
 
-288:                                              ; preds = %227
-  %289 = icmp eq i64 %.01620.i33, %287
-  br i1 %289, label %Extra_Truth6MinimumRoundMany.exit40, label %225
+292:                                              ; preds = %230
+  %293 = icmp eq i64 %.01620.i33, %291
+  br i1 %293, label %Extra_Truth6MinimumRoundMany.exit40, label %228
 
-Extra_Truth6MinimumRoundMany.exit40:              ; preds = %225, %288
-  %.lcssa.lcssa.i39 = phi i64 [ %.01620.i33, %288 ], [ %287, %225 ]
-  %290 = tail call noundef i64 @llvm.umin.i64(i64 %.lcssa.lcssa.i29, i64 %.lcssa.lcssa.i39)
+Extra_Truth6MinimumRoundMany.exit40:              ; preds = %228, %292
+  %.lcssa.lcssa.i39 = phi i64 [ %.01620.i33, %292 ], [ %291, %228 ]
+  %294 = tail call noundef i64 @llvm.umin.i64(i64 %.lcssa.lcssa.i29, i64 %.lcssa.lcssa.i39)
   br label %Extra_Truth6MinimumRoundMany.exit
 
-Extra_Truth6MinimumRoundMany.exit:                ; preds = %157, %94, %89, %26, %Extra_Truth6MinimumRoundMany.exit40
-  %.0 = phi i64 [ %290, %Extra_Truth6MinimumRoundMany.exit40 ], [ %88, %26 ], [ %.01620.i, %89 ], [ %156, %94 ], [ %.01620.i13, %157 ]
+Extra_Truth6MinimumRoundMany.exit:                ; preds = %159, %95, %90, %26, %Extra_Truth6MinimumRoundMany.exit40
+  %.0 = phi i64 [ %294, %Extra_Truth6MinimumRoundMany.exit40 ], [ %89, %26 ], [ %.01620.i, %90 ], [ %158, %95 ], [ %.01620.i13, %159 ]
   ret i64 %.0
 }
 
@@ -4868,7 +4872,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %24 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i9
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %26
+  %27 = getelementptr inbounds i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = xor i64 %28, -1
   %30 = and i64 %.12324.i, %29
@@ -4886,7 +4890,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %38 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv34.i
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %40
+  %41 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !93
   %43 = and i64 %42, %36
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -5022,7 +5026,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %34 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i29
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %36
+  %37 = getelementptr inbounds i64, ptr @Extra_Truth6ChangePhase.Truth6, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !93
   %39 = xor i64 %38, -1
   %40 = and i64 %.12324.i, %39
@@ -5040,7 +5044,7 @@ Extra_GreyCodeSchedule.exit:                      ; preds = %._crit_edge.i
   %48 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv34.i
   %49 = load i32, ptr %48, align 4, !tbaa !3
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %50
+  %51 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !93
   %53 = and i64 %52, %46
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -5440,7 +5444,7 @@ Extra_Transpose64p.exit.us:                       ; preds = %36
   %42 = add nsw i64 %49, %indvars.iv
   %43 = mul nsw i64 %42, %10
   %gep = getelementptr i64, ptr %invariant.gep, i64 %43
-  %44 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv31
+  %44 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv31
   store ptr %gep, ptr %44, align 8, !tbaa !115
   %45 = add nsw i64 %13, %indvars.iv
   %46 = mul nsw i64 %45, %11
@@ -5547,7 +5551,7 @@ Extra_Transpose64p.exit.us:                       ; preds = %35
   %41 = add nsw i64 %49, %indvars.iv
   %42 = mul nsw i64 %41, %10
   %gep = getelementptr i64, ptr %invariant.gep, i64 %42
-  %43 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv29
+  %43 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv29
   store ptr %gep, ptr %43, align 8, !tbaa !115
   %44 = getelementptr ptr, ptr %12, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !15
@@ -5784,7 +5788,7 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
   %43 = add nsw i64 %48, %indvars.iv.i23
   %gep.i.idx = mul nuw nsw i64 %43, 1600
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %gep.i.idx
-  %44 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv31.i
+  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv31.i
   store ptr %gep.i, ptr %44, align 8, !tbaa !115
   %45 = add nsw i64 %14, %indvars.iv.i23
   %gep48.i.idx = mul nuw nsw i64 %45, 800

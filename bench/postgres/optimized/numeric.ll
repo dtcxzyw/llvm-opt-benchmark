@@ -2198,7 +2198,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
 
 .lr.ph193:                                        ; preds = %124, %158
   %.0149192 = phi i64 [ %159, %158 ], [ %spec.store.select1, %124 ]
-  %129 = getelementptr inbounds nuw [10 x %struct.numeric], ptr %5, i64 0, i64 %.0149192
+  %129 = getelementptr inbounds nuw %struct.numeric, ptr %5, i64 %.0149192
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
@@ -2287,7 +2287,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   br i1 %175, label %191, label %176
 
 176:                                              ; preds = %170
-  %177 = getelementptr inbounds [10 x %struct.numeric], ptr %5, i64 0, i64 %.0149.lcssa254
+  %177 = getelementptr inbounds %struct.numeric, ptr %5, i64 %.0149.lcssa254
   %178 = call fastcc i32 @sub_abs(ptr noundef nonnull %4, ptr noundef nonnull %177, ptr noundef nonnull %4)
   %.not167 = icmp eq i32 %178, 0
   br i1 %.not167, label %179, label %.loopexit178
@@ -2437,7 +2437,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
 
 243:                                              ; preds = %.preheader, %247
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %247 ], [ 1, %.preheader ]
-  %244 = getelementptr inbounds nuw [10 x %struct.numeric], ptr %5, i64 0, i64 %indvars.iv234, i32 5
+  %244 = getelementptr inbounds nuw %struct.numeric, ptr %5, i64 %indvars.iv234, i32 5
   %245 = load ptr, ptr %244, align 8
   %.not169 = icmp eq ptr %245, null
   br i1 %.not169, label %247, label %246
@@ -3048,7 +3048,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_decimal(ptr noundef readonly capt
   %25 = load ptr, ptr %22, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds nuw [30 x i8], ptr %23, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %0, align 8
@@ -3111,7 +3111,7 @@ alloc_var.exit:                                   ; preds = %2
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw [30 x i8], ptr %27, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1
   %31 = load ptr, ptr %24, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv

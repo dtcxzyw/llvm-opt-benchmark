@@ -9295,7 +9295,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Sync
   br label %lean_dec.exit32
 
 lean_dec.exit32:                                  ; preds = %22, %21, %19, %13
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.02453
+  %23 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02453
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -46696,7 +46696,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Sync
   br label %lean_dec.exit32
 
 lean_dec.exit32:                                  ; preds = %22, %21, %19, %13
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.02453
+  %23 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02453
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -76468,7 +76468,7 @@ lean_dec.exit64:                                  ; preds = %32, %31, %29, %lean
 
 36:                                               ; preds = %lean_nat_lt.exit.thread116, %lean_nat_lt.exit.thread, %lean_nat_lt.exit
   %37 = lshr i64 %14, 1
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %10, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, 1
@@ -77906,7 +77906,7 @@ lean_nat_eq.exit:                                 ; preds = %36
   %47 = ptrtoint ptr %33 to i64
   %48 = lshr i64 %47, 1
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %49, i64 0, i64 %48
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !10
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, 1
@@ -79941,7 +79941,7 @@ lean_nat_eq.exit1324:                             ; preds = %lean_dec.exit883
   tail call void @lean_free_object(ptr noundef nonnull %4) #7
   %805 = lshr i64 %743, 1
   %806 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %807 = getelementptr inbounds nuw [0 x ptr], ptr %806, i64 0, i64 %805
+  %807 = getelementptr inbounds nuw ptr, ptr %806, i64 %805
   %808 = load ptr, ptr %807, align 8, !tbaa !10
   %809 = ptrtoint ptr %808 to i64
   %810 = and i64 %809, 1
@@ -82279,7 +82279,7 @@ lean_nat_eq.exit1330:                             ; preds = %lean_dec_ref.exit13
 1680:                                             ; preds = %1677, %lean_nat_eq.exit1330
   %1681 = lshr i64 %1578, 1
   %1682 = getelementptr inbounds nuw i8, ptr %1557, i64 24
-  %1683 = getelementptr inbounds nuw [0 x ptr], ptr %1682, i64 0, i64 %1681
+  %1683 = getelementptr inbounds nuw ptr, ptr %1682, i64 %1681
   %1684 = load ptr, ptr %1683, align 8, !tbaa !10
   %1685 = ptrtoint ptr %1684 to i64
   %1686 = and i64 %1685, 1
@@ -90558,7 +90558,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Sync
   br label %lean_dec.exit32
 
 lean_dec.exit32:                                  ; preds = %22, %21, %19, %13
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.02453
+  %23 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02453
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -95473,7 +95473,7 @@ lean_nat_eq.exit:                                 ; preds = %lean_dec.exit94
 91:                                               ; preds = %88, %lean_nat_eq.exit
   %92 = lshr i64 %69, 1
   %93 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr %93, i64 0, i64 %92
+  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %92
   %95 = load ptr, ptr %94, align 8, !tbaa !10
   %96 = ptrtoint ptr %95 to i64
   %97 = and i64 %96, 1
@@ -96931,7 +96931,7 @@ lean_nat_eq.exit:                                 ; preds = %lean_dec_ref.exit66
   tail call void @lean_free_object(ptr noundef nonnull %3) #7
   %174 = lshr i64 %82, 1
   %175 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %176 = getelementptr inbounds nuw [0 x ptr], ptr %175, i64 0, i64 %174
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %174
   %177 = load ptr, ptr %176, align 8, !tbaa !10
   %178 = ptrtoint ptr %177 to i64
   %179 = and i64 %178, 1
@@ -98727,7 +98727,7 @@ lean_nat_eq.exit676:                              ; preds = %lean_dec_ref.exit66
 841:                                              ; preds = %838, %lean_nat_eq.exit676
   %842 = lshr i64 %750, 1
   %843 = getelementptr inbounds nuw i8, ptr %719, i64 24
-  %844 = getelementptr inbounds nuw [0 x ptr], ptr %843, i64 0, i64 %842
+  %844 = getelementptr inbounds nuw ptr, ptr %843, i64 %842
   %845 = load ptr, ptr %844, align 8, !tbaa !10
   %846 = ptrtoint ptr %845 to i64
   %847 = and i64 %846, 1
@@ -102104,7 +102104,7 @@ lean_nat_eq.exit:                                 ; preds = %lean_dec_ref.exit66
   tail call void @lean_free_object(ptr noundef nonnull %3) #7
   %174 = lshr i64 %82, 1
   %175 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %176 = getelementptr inbounds nuw [0 x ptr], ptr %175, i64 0, i64 %174
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %174
   %177 = load ptr, ptr %176, align 8, !tbaa !10
   %178 = ptrtoint ptr %177 to i64
   %179 = and i64 %178, 1
@@ -103900,7 +103900,7 @@ lean_nat_eq.exit676:                              ; preds = %lean_dec_ref.exit66
 841:                                              ; preds = %838, %lean_nat_eq.exit676
   %842 = lshr i64 %750, 1
   %843 = getelementptr inbounds nuw i8, ptr %719, i64 24
-  %844 = getelementptr inbounds nuw [0 x ptr], ptr %843, i64 0, i64 %842
+  %844 = getelementptr inbounds nuw ptr, ptr %843, i64 %842
   %845 = load ptr, ptr %844, align 8, !tbaa !10
   %846 = ptrtoint ptr %845 to i64
   %847 = and i64 %846, 1
@@ -111288,7 +111288,7 @@ lean_nat_eq.exit:                                 ; preds = %lean_dec_ref.exit42
   tail call void @lean_free_object(ptr noundef nonnull %3) #7
   %164 = lshr i64 %72, 1
   %165 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %166 = getelementptr inbounds nuw [0 x ptr], ptr %165, i64 0, i64 %164
+  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %164
   %167 = load ptr, ptr %166, align 8, !tbaa !10
   %168 = ptrtoint ptr %167 to i64
   %169 = and i64 %168, 1
@@ -112524,7 +112524,7 @@ lean_nat_eq.exit437:                              ; preds = %lean_dec_ref.exit42
 629:                                              ; preds = %626, %lean_nat_eq.exit437
   %630 = lshr i64 %538, 1
   %631 = getelementptr inbounds nuw i8, ptr %507, i64 24
-  %632 = getelementptr inbounds nuw [0 x ptr], ptr %631, i64 0, i64 %630
+  %632 = getelementptr inbounds nuw ptr, ptr %631, i64 %630
   %633 = load ptr, ptr %632, align 8, !tbaa !10
   %634 = ptrtoint ptr %633 to i64
   %635 = and i64 %634, 1
@@ -120035,7 +120035,7 @@ lean_nat_eq.exit:                                 ; preds = %lean_dec_ref.exit42
   tail call void @lean_free_object(ptr noundef nonnull %3) #7
   %164 = lshr i64 %72, 1
   %165 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %166 = getelementptr inbounds nuw [0 x ptr], ptr %165, i64 0, i64 %164
+  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %164
   %167 = load ptr, ptr %166, align 8, !tbaa !10
   %168 = ptrtoint ptr %167 to i64
   %169 = and i64 %168, 1
@@ -121271,7 +121271,7 @@ lean_nat_eq.exit437:                              ; preds = %lean_dec_ref.exit42
 629:                                              ; preds = %626, %lean_nat_eq.exit437
   %630 = lshr i64 %538, 1
   %631 = getelementptr inbounds nuw i8, ptr %507, i64 24
-  %632 = getelementptr inbounds nuw [0 x ptr], ptr %631, i64 0, i64 %630
+  %632 = getelementptr inbounds nuw ptr, ptr %631, i64 %630
   %633 = load ptr, ptr %632, align 8, !tbaa !10
   %634 = ptrtoint ptr %633 to i64
   %635 = and i64 %634, 1

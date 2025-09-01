@@ -233,7 +233,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
 
 .lr.ph.i:                                         ; preds = %122, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %122 ]
-  %94 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %91, i64 0, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %91, i64 %indvars.iv.i
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i8, ptr %95, align 4, !range !4, !noundef !5
   %97 = trunc nuw i8 %96 to i1
@@ -248,7 +248,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   br i1 %102, label %122, label %103
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %90, i64 0, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %90, i64 %indvars.iv.i
   %105 = icmp eq i16 %100, 0
   br i1 %105, label %106, label %check_attrmap_match.exit.thread
 
@@ -593,7 +593,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %12 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %8, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %8, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i8, ptr %13, align 4, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
@@ -609,7 +609,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
   br i1 %21, label %41, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %7, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %7, i64 %indvars.iv.i
   %24 = icmp eq i16 %19, 0
   br i1 %24, label %25, label %check_attrmap_match.exit.thread
 

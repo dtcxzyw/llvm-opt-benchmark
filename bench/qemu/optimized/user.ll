@@ -429,7 +429,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %52 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1
   tail call void @gdb_read_byte(i8 noundef zeroext %53) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

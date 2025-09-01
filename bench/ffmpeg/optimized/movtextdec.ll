@@ -75,20 +75,20 @@ define internal i32 @mov_text_init(ptr noundef %0) #0 {
   br i1 %16, label %.sink.split.i, label %23
 
 17:                                               ; preds = %9
-  %switch.tableidx45 = add i8 %14, 1
-  %18 = icmp ult i8 %switch.tableidx45, 3
+  %switch.tableidx44 = add i8 %14, 1
+  %18 = icmp ult i8 %switch.tableidx44, 3
   br i1 %18, label %.sink.split.i, label %23
 
 19:                                               ; preds = %9
-  %switch.tableidx49 = add i8 %14, 1
-  %20 = icmp ult i8 %switch.tableidx49, 3
+  %switch.tableidx48 = add i8 %14, 1
+  %20 = icmp ult i8 %switch.tableidx48, 3
   br i1 %20, label %.sink.split.i, label %23
 
 .sink.split.i:                                    ; preds = %19, %17, %15
-  %switch.tableidx49.sink = phi i8 [ %switch.tableidx, %15 ], [ %switch.tableidx45, %17 ], [ %switch.tableidx49, %19 ]
+  %switch.tableidx48.sink = phi i8 [ %switch.tableidx, %15 ], [ %switch.tableidx44, %17 ], [ %switch.tableidx48, %19 ]
   %switch.table.mov_text_init.3.sink = phi ptr [ @switch.table.mov_text_init, %15 ], [ @switch.table.mov_text_init.2, %17 ], [ @switch.table.mov_text_init.3, %19 ]
-  %21 = zext nneg i8 %switch.tableidx49.sink to i64
-  %switch.gep50 = getelementptr inbounds nuw [3 x i32], ptr %switch.table.mov_text_init.3.sink, i64 0, i64 %21
+  %21 = zext nneg i8 %switch.tableidx48.sink to i64
+  %switch.gep50 = getelementptr inbounds nuw i32, ptr %switch.table.mov_text_init.3.sink, i64 %21
   %switch.load51 = load i32, ptr %switch.gep50, align 4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 %switch.load51, ptr %22, align 8, !tbaa !37
@@ -427,7 +427,7 @@ mov_text_cleanup.exit:                            ; preds = %20, %30
 
 .preheader:                                       ; preds = %62, %.preheader.backedge
   %.06087 = phi i64 [ %.06087.be, %.preheader.backedge ], [ 0, %62 ]
-  %67 = getelementptr inbounds nuw [4 x %struct.Box], ptr @box_types, i64 0, i64 %.06087
+  %67 = getelementptr inbounds nuw %struct.Box, ptr @box_types, i64 %.06087
   %68 = load i32, ptr %67, align 16, !tbaa !64
   %69 = icmp eq i32 %47, %68
   br i1 %69, label %70, label %81

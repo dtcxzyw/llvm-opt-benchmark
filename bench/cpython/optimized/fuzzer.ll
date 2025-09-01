@@ -810,7 +810,7 @@ _run_fuzz.exit56:                                 ; preds = %fuzz_sre_compile.ex
 
 .preheader.i:                                     ; preds = %250, %258
   %.01116.i = phi i64 [ %261, %258 ], [ 0, %250 ]
-  %255 = getelementptr [24 x ptr], ptr @regex_patterns, i64 0, i64 %.01116.i
+  %255 = getelementptr ptr, ptr @regex_patterns, i64 %.01116.i
   %256 = load ptr, ptr %255, align 8, !tbaa !16
   %257 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %248, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, ptr noundef %256) #9
   %.not.not.not.i.not = icmp eq ptr %257, null
@@ -1342,19 +1342,19 @@ _run_fuzz.exit68:                                 ; preds = %fuzz_elementtree_pa
   %447 = load i8, ptr %0, align 1, !tbaa !22
   %448 = urem i8 %447, 3
   %449 = zext nneg i8 %448 to i64
-  %450 = getelementptr [3 x i32], ptr @start_vals, i64 0, i64 %449
+  %450 = getelementptr i32, ptr @start_vals, i64 %449
   %451 = load i32, ptr %450, align 4, !tbaa !19
   %452 = getelementptr i8, ptr %0, i64 1
   %453 = load i8, ptr %452, align 1, !tbaa !22
   %454 = and i8 %453, 3
   %455 = zext nneg i8 %454 to i64
-  %456 = getelementptr [4 x i32], ptr @optimize_vals, i64 0, i64 %455
+  %456 = getelementptr i32, ptr @optimize_vals, i64 %455
   %457 = load i32, ptr %456, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %458 = getelementptr i8, ptr %0, i64 2
   %459 = add nsw i64 %1, -2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 1 %458, i64 %459, i1 false)
-  %460 = getelementptr [16384 x i8], ptr %3, i64 0, i64 %459
+  %460 = getelementptr i8, ptr %3, i64 %459
   store i8 0, ptr %460, align 1, !tbaa !22
   %461 = call ptr @Py_CompileStringExFlags(ptr noundef nonnull %3, ptr noundef nonnull @.str.50, i32 noundef %451, ptr noundef null, i32 noundef %457) #9
   %462 = icmp eq ptr %461, null

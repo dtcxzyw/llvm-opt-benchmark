@@ -759,7 +759,7 @@ _ZN5ceres8internal17TypedLinearSolverINS0_17BlockSparseMatrixEED2Ev.exit: ; pred
 
 25:                                               ; preds = %1, %30
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %30 ]
-  %26 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !66
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %30, label %28
@@ -1165,7 +1165,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
 
 169:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit, %191
   %indvars.iv = phi i64 [ 0, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES1_EEEERS1_RKNS_9DenseBaseIT_EE.exit ], [ %indvars.iv.next, %191 ]
-  %170 = getelementptr inbounds nuw [4 x ptr], ptr %159, i64 0, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv
   %171 = load ptr, ptr %170, align 8, !tbaa !66
   %172 = icmp eq ptr %171, null
   br i1 %172, label %173, label %191

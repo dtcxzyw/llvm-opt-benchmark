@@ -197,7 +197,7 @@ define internal i32 @hmac_final(ptr noundef %0, ptr noundef %1) #2 align 16 {
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %15 = sext i32 %9 to i64
-  %16 = getelementptr [0 x i8], ptr %14, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %14, i64 %15
   %17 = tail call i32 @crypto_shash_import(ptr noundef nonnull %10, ptr noundef %16) #7
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
@@ -228,7 +228,7 @@ define internal i32 @hmac_finup(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %17 = sext i32 %11 to i64
-  %18 = getelementptr [0 x i8], ptr %16, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %16, i64 %17
   %19 = tail call i32 @crypto_shash_import(ptr noundef nonnull %12, ptr noundef %18) #7
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
@@ -275,7 +275,7 @@ define internal i32 @hmac_setkey(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = sext i32 %12 to i64
-  %17 = getelementptr [0 x i8], ptr %15, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %15, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %18, i8 0, i64 368, i1 false), !annotation !5

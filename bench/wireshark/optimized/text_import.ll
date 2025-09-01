@@ -144,7 +144,7 @@ switch.lookup:                                    ; preds = %3
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %5, i64 %12
   %14 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.parse_data, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_data, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 180
   %16 = load i32, ptr %15, align 4
@@ -207,7 +207,7 @@ switch.lookup:                                    ; preds = %3
   %.0458.i.us = phi i64 [ %.146.i.us, %.loopexit.i.us ], [ 0, %.lr.ph11.i.split.us.split.preheader ]
   %36 = load i8, ptr %.212.us, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr [256 x i8], ptr %19, i64 0, i64 %37
+  %38 = getelementptr i8, ptr %19, i64 %37
   %39 = load i8, ptr %38, align 1
   switch i8 %39, label %40 [
     i8 -1, label %.split.us
@@ -243,7 +243,7 @@ switch.lookup:                                    ; preds = %3
 49:                                               ; preds = %.lr.ph11.i.split
   %50 = load i8, ptr %.212, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr [256 x i8], ptr %19, i64 0, i64 %51
+  %52 = getelementptr i8, ptr %19, i64 %51
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %55 [
     i8 -1, label %.split.us
@@ -1750,7 +1750,7 @@ define internal fastcc void @append_to_preamble(ptr noundef %0) unnamed_addr #0 
   %5 = add i32 %3, 1
   store i32 %5, ptr @packet_preamble_len, align 4
   %6 = sext i32 %3 to i64
-  %7 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @packet_preamble, i64 %6
   store i8 32, ptr %7, align 1
   %8 = sext i32 %5 to i64
   br label %9
@@ -1773,7 +1773,7 @@ define internal fastcc void @append_to_preamble(ptr noundef %0) unnamed_addr #0 
   br i1 %or.cond, label %29, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %10
+  %18 = getelementptr i8, ptr @packet_preamble, i64 %10
   %19 = tail call i64 @g_strlcpy(ptr noundef %18, ptr noundef nonnull %0, i64 noundef 2048)
   %20 = trunc i64 %14 to i32
   %21 = load i32, ptr @packet_preamble_len, align 4
@@ -1887,7 +1887,7 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i1 noundef zeroext 
   store i32 %7, ptr %5, align 4
   %8 = load i32, ptr @packet_preamble_len, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @packet_preamble, i64 %9
   store i8 0, ptr %10, align 1
   %11 = load i8, ptr @has_direction, align 1, !range !10, !noundef !11
   %12 = trunc nuw i8 %11 to i1
@@ -1920,8 +1920,8 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i1 noundef zeroext 
 .critedge.i.i:                                    ; preds = %.critedge.preheader.i.i
   %26 = getelementptr i8, ptr %.0184.i.i, i64 1
   %27 = load i8, ptr %26, align 1
-  %exitcond17.i = icmp eq ptr %26, getelementptr inbounds nuw (i8, ptr @.str.33, i64 2)
-  br i1 %exitcond17.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !26
+  %exitcond18.i = icmp eq ptr %26, getelementptr inbounds nuw (i8, ptr @.str.33, i64 2)
+  br i1 %exitcond18.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !26
 
 .critedge.preheader.i.i:                          ; preds = %16, %.critedge.i.i
   %28 = phi i8 [ %27, %.critedge.i.i ], [ 111, %16 ]
@@ -1951,7 +1951,7 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
 37:                                               ; preds = %.critedge.i, %_parse_dir.exit.i
   %.0.i = phi i32 [ %36, %_parse_dir.exit.i ], [ %41, %.critedge.i ]
   %38 = sext i32 %.0.i to i64
-  %39 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %38
+  %39 = getelementptr i8, ptr @packet_preamble, i64 %38
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %42 [
     i8 32, label %.critedge.i
@@ -1964,7 +1964,7 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
   br label %37, !llvm.loop !31
 
 42:                                               ; preds = %37
-  %43 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %38
+  %43 = getelementptr i8, ptr @packet_preamble, i64 %38
   %44 = sub i32 %8, %.0.i
   store i32 %44, ptr @packet_preamble_len, align 4
   %45 = add i32 %44, 1
@@ -2021,8 +2021,8 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
 
 .preheader.i:                                     ; preds = %71
   %73 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) @packet_preamble, i32 noundef 13) #18
-  %.not1516.i = icmp eq ptr %73, null
-  br i1 %.not1516.i, label %.loopexit.i, label %.lr.ph.i
+  %.not1517.i = icmp eq ptr %73, null
+  br i1 %.not1517.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %74 = phi ptr [ %75, %.lr.ph.i ], [ %73, %.preheader.i ]
@@ -2415,7 +2415,7 @@ define hidden range(i32 0, 9) i32 @text_import(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.text_import, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.text_import, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr @offset_base, align 4
   br label %14

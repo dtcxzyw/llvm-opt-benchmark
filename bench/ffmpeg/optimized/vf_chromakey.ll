@@ -289,8 +289,8 @@ define internal noundef i32 @do_chromakey_slice(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ %indvars.iv.next, %get_pixel_uv.exit ], [ 0, %.preheader ]
   %48 = add nuw nsw i64 %indvars.iv, %indvars.iv54
   %49 = add nuw nsw i64 %indvars.iv, %45
-  %50 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %49
-  %51 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %49
   %52 = icmp eq i64 %48, 0
   %53 = icmp sgt i64 %48, %41
   %or.cond = or i1 %52, %53
@@ -556,8 +556,8 @@ do_chromakey_pixel16.exit.us:                     ; preds = %81, %78
 
 91:                                               ; preds = %.preheader.split.us58
   %92 = add nuw nsw i64 %indvars.iv64, %116
-  %93 = getelementptr inbounds nuw [9 x i16], ptr %6, i64 0, i64 %92
-  %94 = getelementptr inbounds nuw [9 x i16], ptr %5, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i16, ptr %6, i64 %92
+  %94 = getelementptr inbounds nuw i16, ptr %5, i64 %92
   %95 = trunc i64 %89 to i32
   %96 = add i32 %95, -1
   %97 = lshr i32 %96, %37
@@ -609,9 +609,9 @@ get_pixel16_uv.exit.us57:                         ; preds = %91, %.preheader.spl
 
 120:                                              ; preds = %4, %120
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %120 ]
-  %121 = getelementptr inbounds nuw [9 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   store i16 %12, ptr %121, align 2, !tbaa !55
-  %122 = getelementptr inbounds nuw [9 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   store i16 %14, ptr %122, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9

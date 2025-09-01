@@ -586,7 +586,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef %0, ptr nou
   %11 = alloca ptr, align 8
   %12 = alloca [5 x ptr], align 16
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds [60 x %struct.share__option], ptr @long_options_, i64 0, i64 %13
+  %14 = getelementptr inbounds %struct.share__option, ptr @long_options_, i64 %13
   %15 = load ptr, ptr %14, align 16, !tbaa !41
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(17) @.str.1) #19
   %17 = icmp eq i32 %16, 0
@@ -1494,7 +1494,7 @@ find_shorthand_operation.exit337:                 ; preds = %446, %.loopexit
 477:                                              ; preds = %467, %477
   %.0355 = phi i64 [ 0, %467 ], [ %483, %477 ]
   %478 = tail call fastcc ptr @append_shorthand_operation(ptr noundef %2, i32 noundef 22)
-  %479 = getelementptr inbounds nuw [5 x ptr], ptr %12, i64 0, i64 %.0355
+  %479 = getelementptr inbounds nuw ptr, ptr %12, i64 %.0355
   %480 = load ptr, ptr %479, align 8, !tbaa !22
   %481 = tail call ptr @local_strdup(ptr noundef %480) #18
   %482 = getelementptr inbounds nuw i8, ptr %478, i64 8

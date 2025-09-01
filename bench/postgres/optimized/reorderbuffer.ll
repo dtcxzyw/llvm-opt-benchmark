@@ -4275,7 +4275,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
 96:                                               ; preds = %96, %.lr.ph106.i
   %97 = phi i64 [ 0, %.lr.ph106.i ], [ %102, %96 ]
   %.082104.i = phi i32 [ 0, %.lr.ph106.i ], [ %101, %96 ]
-  %98 = getelementptr inbounds [0 x %struct.ReorderBufferIterTXNEntry], ptr %95, i64 0, i64 %97
+  %98 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %95, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   store i32 -1, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -4361,7 +4361,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
 133:                                              ; preds = %130
   call fastcc void @ReorderBufferSerializeTXN(ptr noundef %0, ptr noundef nonnull %127)
   %134 = sext i32 %.284110.i to i64
-  %135 = getelementptr inbounds [0 x %struct.ReorderBufferIterTXNEntry], ptr %125, i64 0, i64 %134
+  %135 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %125, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %138 = call fastcc i64 @ReorderBufferRestoreChanges(ptr noundef %0, ptr noundef nonnull %127, ptr noundef nonnull %136, ptr noundef nonnull %137)
@@ -4373,7 +4373,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %.val.i = load ptr, ptr %140, align 8
   %141 = getelementptr inbounds i8, ptr %.val.i, i64 -64
   %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds [0 x %struct.ReorderBufferIterTXNEntry], ptr %125, i64 0, i64 %.pre-phi.i
+  %143 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %125, i64 %.pre-phi.i
   store i64 %142, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %141, ptr %144, align 8
@@ -4429,7 +4429,7 @@ ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   %173 = getelementptr inbounds nuw i8, ptr %.0.380, i64 32
   %sext.i = shl i64 %172, 32
   %174 = ashr exact i64 %sext.i, 32
-  %175 = getelementptr inbounds [0 x %struct.ReorderBufferIterTXNEntry], ptr %173, i64 0, i64 %174
+  %175 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %173, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %.0.380, i64 16
   %177 = getelementptr inbounds nuw i8, ptr %.0.380, i64 24
   %178 = load ptr, ptr %177, align 8
@@ -6800,11 +6800,11 @@ define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %sext = shl i64 %0, 32
   %5 = ashr exact i64 %sext, 32
-  %6 = getelementptr inbounds [0 x %struct.ReorderBufferIterTXNEntry], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %4, i64 %5
   %7 = load i64, ptr %6, align 8
   %sext11 = shl i64 %1, 32
   %8 = ashr exact i64 %sext11, 32
-  %9 = getelementptr inbounds [0 x %struct.ReorderBufferIterTXNEntry], ptr %4, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %4, i64 %8
   %10 = load i64, ptr %9, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %10, i64 %7)
   ret i32 %.0
@@ -8014,28 +8014,28 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  %8 = add nsw i32 %1, -1
-  br i1 %.not.i, label %9, label %47
+  br i1 %.not.i, label %8, label %47
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %10, i64 0, i64 %11
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = zext nneg i32 %1 to i64
+  %11 = getelementptr %struct.CompactAttribute, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -16
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %45
 
-15:                                               ; preds = %9
+15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 %18
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
+  %22 = getelementptr i8, ptr %11, i64 -10
   %23 = load i8, ptr %22, align 2, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %25 = getelementptr i8, ptr %11, i64 -12
   %26 = load i16, ptr %25, align 4
   br i1 %24, label %27, label %43
 
@@ -8078,29 +8078,30 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %44 = ptrtoint ptr %21 to i64
   br label %fetch_att.exit
 
-45:                                               ; preds = %9
+45:                                               ; preds = %8
   %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #19
   br label %fetch_att.exit
 
 47:                                               ; preds = %4
-  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %.val20 = load i8, ptr %48, align 1
-  %49 = zext i8 %.val20 to i32
-  %50 = shl nuw nsw i32 1, %8
-  %51 = and i32 %50, %49
-  %.not.i21 = icmp eq i32 %51, 0
-  br i1 %.not.i21, label %52, label %53
+  %48 = add nsw i32 %1, -1
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %.val20 = load i8, ptr %49, align 1
+  %50 = zext i8 %.val20 to i32
+  %51 = shl nuw nsw i32 1, %48
+  %52 = and i32 %51, %50
+  %.not.i21 = icmp eq i32 %52, 0
+  br i1 %.not.i21, label %53, label %54
 
-52:                                               ; preds = %47
+53:                                               ; preds = %47
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-53:                                               ; preds = %47
-  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #19
+54:                                               ; preds = %47
+  %55 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #19
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %53, %52
-  %.1 = phi i64 [ 0, %52 ], [ %54, %53 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
+fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %54, %53
+  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 

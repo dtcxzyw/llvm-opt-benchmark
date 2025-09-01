@@ -239,7 +239,7 @@ relationHasPrimaryKey.exit.thread:                ; preds = %17, %11, %.lr.ph.i
 57:                                               ; preds = %.lr.ph, %93
   %58 = phi i32 [ %49, %.lr.ph ], [ %94, %93 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %59 = getelementptr inbounds nuw [32 x i16], ptr %51, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv
   %60 = load i16, ptr %59, align 2
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %66
@@ -620,7 +620,7 @@ list_head.exit159.i:                              ; preds = %158, %list_head.exi
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %355 ]
   %.0175.i = phi ptr [ %155, %.lr.ph.i ], [ %..i.i, %355 ]
   %.0134174.i = phi ptr [ %161, %.lr.ph.i ], [ %.1.i, %355 ]
-  %176 = getelementptr inbounds nuw [32 x i16], ptr %170, i64 0, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw i16, ptr %170, i64 %indvars.iv.i
   %177 = load i16, ptr %176, align 2
   %178 = load i32, ptr %168, align 8
   %179 = sext i32 %178 to i64
@@ -1121,9 +1121,9 @@ AppendAttributeTuples.exit:                       ; preds = %429, %417, %Initial
 
 449:                                              ; preds = %449, %.lr.ph.i261
   %indvars.iv.i262 = phi i64 [ 0, %.lr.ph.i261 ], [ %indvars.iv.next.i263, %449 ]
-  %450 = getelementptr inbounds nuw [32 x i16], ptr %447, i64 0, i64 %indvars.iv.i262
+  %450 = getelementptr inbounds nuw i16, ptr %447, i64 %indvars.iv.i262
   %451 = load i16, ptr %450, align 2
-  %452 = getelementptr inbounds nuw [0 x i16], ptr %448, i64 0, i64 %indvars.iv.i262
+  %452 = getelementptr inbounds nuw i16, ptr %448, i64 %indvars.iv.i262
   store i16 %451, ptr %452, align 2
   %indvars.iv.next.i263 = add nuw nsw i64 %indvars.iv.i262, 1
   %453 = load i32, ptr %57, align 4
@@ -1334,7 +1334,7 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
 
 555:                                              ; preds = %.outer, %558
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %558 ], [ %indvars.iv326.ph, %.outer ]
-  %556 = getelementptr inbounds nuw [32 x i16], ptr %551, i64 0, i64 %indvars.iv326
+  %556 = getelementptr inbounds nuw i16, ptr %551, i64 %indvars.iv326
   %557 = load i16, ptr %556, align 2
   %.not237 = icmp eq i16 %557, 0
   br i1 %.not237, label %558, label %.thread
@@ -2521,9 +2521,9 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   %85 = getelementptr i8, ptr %84, i64 28
   %86 = getelementptr i8, ptr %85, i64 %.idx
   %87 = call ptr @lappend(ptr noundef %.0101, ptr noundef nonnull %86) #11
-  %88 = getelementptr inbounds nuw [32 x i16], ptr %70, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds nuw [32 x i16], ptr %71, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv
   store i16 %89, ptr %90, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i32, ptr %46, align 4
@@ -2658,9 +2658,9 @@ define dso_local ptr @BuildIndexInfo(ptr noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw [0 x i16], ptr %40, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv
   %44 = load i16, ptr %43, align 2
-  %45 = getelementptr inbounds nuw [32 x i16], ptr %41, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
   store i16 %44, ptr %45, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3481,9 +3481,9 @@ define dso_local ptr @BuildDummyIndexInfo(ptr noundef %0) local_unnamed_addr #0 
 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw [0 x i16], ptr %39, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2
-  %44 = getelementptr inbounds nuw [32 x i16], ptr %40, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv
   store i16 %43, ptr %44, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3553,7 +3553,7 @@ define dso_local zeroext i1 @CompareIndexInfo(ptr noundef readonly captures(none
 
 40:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %41 = getelementptr inbounds nuw [32 x i16], ptr %37, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2
   %43 = sext i16 %42 to i32
   %44 = icmp slt i32 %36, %43
@@ -3567,7 +3567,7 @@ define dso_local zeroext i1 @CompareIndexInfo(ptr noundef readonly captures(none
   unreachable
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw [32 x i16], ptr %38, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv
   %50 = load i16, ptr %49, align 2
   %51 = or i16 %50, %42
   %or.cond = icmp eq i16 %51, 0
@@ -3853,7 +3853,7 @@ list_head.exit:                                   ; preds = %._crit_edge43, %16
 35:                                               ; preds = %.lr.ph, %slot_getsysattr.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %slot_getsysattr.exit ]
   %.02941 = phi ptr [ %22, %.lr.ph ], [ %.1, %slot_getsysattr.exit ]
-  %36 = getelementptr inbounds nuw [32 x i16], ptr %26, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4947,7 +4947,7 @@ list_length.exit:                                 ; preds = %2
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
   %17 = load i32, ptr %7, align 4
   %18 = sext i32 %17 to i64
@@ -4986,7 +4986,7 @@ define dso_local void @RestoreReindexState(ptr noundef readonly captures(none) %
 11:                                               ; preds = %.lr.ph, %11
   %12 = phi ptr [ %.pre, %.lr.ph ], [ %15, %11 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @lappend_oid(ptr noundef %12, i32 noundef %14) #11
   store ptr %15, ptr @pendingReindexedIndexes, align 8

@@ -147,7 +147,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit151
   br label %lean_dec.exit152
 
 lean_dec.exit152:                                 ; preds = %44, %43, %41, %35
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0133302
+  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0133302
   %46 = load ptr, ptr %45, align 8, !tbaa !10
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, 1

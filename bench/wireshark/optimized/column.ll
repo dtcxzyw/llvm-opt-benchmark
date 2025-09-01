@@ -330,7 +330,7 @@ define ptr @col_format_to_string(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -362,7 +362,7 @@ define ptr @try_convert_to_column_field(ptr noundef %0) local_unnamed_addr #1 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr [8 x %struct._value_string], ptr @try_convert_to_column_field.migrated_fields, i64 0, i64 %5
+  %6 = getelementptr %struct._value_string, ptr @try_convert_to_column_field.migrated_fields, i64 %5
   %7 = load i32, ptr %6, align 16
   %8 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @col_format_abbrev.alist_vals)
   br label %9
@@ -479,7 +479,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
 
 col_format_to_string.exit.i:                      ; preds = %col_format_to_string.exit.i.preheader, %55
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %col_format_to_string.exit.i.preheader ]
-  %51 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @strcmp(ptr noundef readonly %1, ptr noundef %52) #11
   %54 = icmp eq i32 %53, 0
@@ -548,7 +548,7 @@ define range(i32 -1, 47) i32 @get_column_format_from_str(ptr noundef readonly ca
 
 col_format_to_string.exit:                        ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %2 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv
+  %2 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %3) #11
   %5 = icmp eq i32 %4, 0
@@ -600,7 +600,7 @@ define hidden noalias ptr @column_fmt_data_to_str(ptr noundef readonly captures(
 
 .thread:                                          ; preds = %6, %16
   %17 = zext nneg i32 %4 to i64
-  %18 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %col_format_to_string.exit
 
@@ -628,7 +628,7 @@ define void @try_convert_to_custom_column(ptr noundef captures(none) %0) local_u
 2:                                                ; preds = %1, %13
   %3 = phi ptr [ %.pre, %1 ], [ %14, %13 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %4 = getelementptr [17 x %struct.deprecated_columns], ptr @migrated_columns, i64 0, i64 %indvars.iv
+  %4 = getelementptr %struct.deprecated_columns, ptr @migrated_columns, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef %5, ptr noundef %3) #11
   %7 = icmp eq i32 %6, 0
@@ -662,7 +662,7 @@ define void @column_dump_column_formats() local_unnamed_addr #1 {
 
 col_format_to_string.exit:                        ; preds = %0, %8
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
-  %1 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv
+  %1 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %indvars.iv
   %2 = load ptr, ptr %1, align 8
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = tail call ptr @try_val_to_str(i32 noundef %3, ptr noundef nonnull @col_format_desc.dlist_vals)
@@ -739,7 +739,7 @@ col_format_to_string.exit:                        ; preds = %0, %8
 
 .thread.i:                                        ; preds = %40, %30
   %41 = zext nneg i32 %28 to i64
-  %42 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %41
+  %42 = getelementptr ptr, ptr @col_format_to_string.slist, i64 %41
   %43 = load ptr, ptr %42, align 8
   br label %col_format_to_string.exit.i
 
@@ -957,7 +957,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i:                                    ; preds = %9
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr [10 x ptr], ptr @ts_ymd, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr @ts_ymd, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -976,7 +976,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i1:                                   ; preds = %17
   %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr [10 x ptr], ptr @ts_ydoy, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr @ts_ydoy, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -995,7 +995,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i4:                                   ; preds = %25
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr [10 x ptr], ptr @ts_ymd_utc, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr @ts_ymd_utc, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1014,7 +1014,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i7:                                   ; preds = %33
   %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr [10 x ptr], ptr @ts_ydoy_utc, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr @ts_ydoy_utc, i64 %35
   %37 = load ptr, ptr %36, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1033,7 +1033,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i10:                                  ; preds = %41
   %43 = zext nneg i32 %39 to i64
-  %44 = getelementptr [10 x ptr], ptr @ts_abstime, i64 0, i64 %43
+  %44 = getelementptr ptr, ptr @ts_abstime, i64 %43
   %45 = load ptr, ptr %44, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1052,7 +1052,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i13:                                  ; preds = %49
   %51 = zext nneg i32 %47 to i64
-  %52 = getelementptr [10 x ptr], ptr @ts_abstime_utc, i64 0, i64 %51
+  %52 = getelementptr ptr, ptr @ts_abstime_utc, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1071,7 +1071,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i16:                                  ; preds = %57
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr [10 x ptr], ptr @ts_rel_delta_time, i64 0, i64 %59
+  %60 = getelementptr ptr, ptr @ts_rel_delta_time, i64 %59
   %61 = load ptr, ptr %60, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1090,7 +1090,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i20:                                  ; preds = %65
   %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr [10 x ptr], ptr @ts_rel_delta_time, i64 0, i64 %67
+  %68 = getelementptr ptr, ptr @ts_rel_delta_time, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1109,7 +1109,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
 
 .sink.split.i24:                                  ; preds = %73
   %75 = zext nneg i32 %71 to i64
-  %76 = getelementptr [10 x ptr], ptr @ts_rel_delta_time, i64 0, i64 %75
+  %76 = getelementptr ptr, ptr @ts_rel_delta_time, i64 %75
   %77 = load ptr, ptr %76, align 8
   br label %get_timestamp_column_longest_string.exit
 
@@ -1276,7 +1276,7 @@ define internal fastcc ptr @get_timestamp_column_longest_string(i32 noundef %0, 
 .sink.split:                                      ; preds = %33, %29, %25, %21, %17, %13, %9, %5
   %ts_epoch_time.sink = phi ptr [ @ts_ymd, %5 ], [ @ts_ymd_utc, %9 ], [ @ts_ydoy, %13 ], [ @ts_ydoy_utc, %17 ], [ @ts_abstime, %21 ], [ @ts_abstime_utc, %25 ], [ @ts_rel_delta_time, %29 ], [ @ts_epoch_time, %33 ]
   %36 = zext nneg i32 %1 to i64
-  %37 = getelementptr [10 x ptr], ptr %ts_epoch_time.sink, i64 0, i64 %36
+  %37 = getelementptr ptr, ptr %ts_epoch_time.sink, i64 %36
   %38 = load ptr, ptr %37, align 8
   br label %39
 

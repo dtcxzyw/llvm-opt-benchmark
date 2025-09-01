@@ -2784,7 +2784,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13FPPassManager13runOnFunctionERNS_
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 208
   %23 = add i32 %.08.i, 1
   %24 = zext i32 %.08.i to i64
-  %25 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %24
   store ptr %22, ptr %25, align 8, !tbaa !191
   %.not.i = icmp eq ptr %20, %17
   br i1 %.not.i, label %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, label %19
@@ -13457,7 +13457,7 @@ _ZN4llvm7PMStack3popEv.exit:                      ; preds = %.lr.ph, %29, %._cri
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 208
   %70 = add i32 %.08.i, 1
   %71 = zext i32 %.08.i to i64
-  %72 = getelementptr inbounds nuw [6 x ptr], ptr %scevgep.i.i.i, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %scevgep.i.i.i, i64 %71
   store ptr %69, ptr %72, align 8, !tbaa !191
   %.not.i = icmp eq ptr %67, %66
   br i1 %.not.i, label %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, label %.lr.ph.i

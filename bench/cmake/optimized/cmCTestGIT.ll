@@ -12479,7 +12479,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT12CommitParser11NextSectionEv
   %6 = srem i32 %5, 3
   store i32 %6, ptr %3, align 8, !tbaa !103
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [3 x i8], ptr @_ZN10cmCTestGIT12CommitParser10SectionSepE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN10cmCTestGIT12CommitParser10SectionSepE, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %9, ptr %10, align 8, !tbaa !118

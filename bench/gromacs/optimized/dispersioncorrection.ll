@@ -884,10 +884,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge369, %24
 
 337:                                              ; preds = %331, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %338 = fptrunc double %.13 to float
-  %339 = getelementptr inbounds nuw [2 x float], ptr %93, i64 0, i64 %indvars.iv491
+  %339 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv491
   store float %338, ptr %339, align 4, !tbaa !159
   %340 = fptrunc double %.13204 to float
-  %341 = getelementptr inbounds nuw [2 x float], ptr %94, i64 0, i64 %indvars.iv491
+  %341 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv491
   store float %340, ptr %341, align 4, !tbaa !159
   %342 = load i32, ptr %80, align 4, !tbaa !197
   %343 = icmp ne i32 %342, 0

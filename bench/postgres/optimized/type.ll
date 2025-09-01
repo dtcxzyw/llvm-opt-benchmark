@@ -1259,7 +1259,7 @@ sub_1163:                                         ; preds = %sub_0162
 
 switch.lookup:                                    ; preds = %141
   %144 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %144
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ECPGdump_a_simple.1, i64 %144
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type.exit
 
@@ -1269,9 +1269,9 @@ get_type.exit:                                    ; preds = %switch.lookup, %143
   br label %151
 
 146:                                              ; preds = %139
-  %switch.tableidx188 = add i32 %2, -1
-  %147 = icmp ult i32 %switch.tableidx188, 32
-  %switch.shifted190 = lshr i32 -477118465, %switch.tableidx188
+  %switch.tableidx187 = add i32 %2, -1
+  %147 = icmp ult i32 %switch.tableidx187, 32
+  %switch.shifted190 = lshr i32 -477118465, %switch.tableidx187
   %switch.lobit191 = trunc i32 %switch.shifted190 to i1
   %or.cond194 = select i1 %147, i1 %switch.lobit191, i1 false
   br i1 %or.cond194, label %switch.lookup189, label %148
@@ -1281,8 +1281,8 @@ get_type.exit:                                    ; preds = %switch.lookup, %143
   br label %get_type.exit144
 
 switch.lookup189:                                 ; preds = %146
-  %149 = zext nneg i32 %switch.tableidx188 to i64
-  %switch.gep192 = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %149
+  %149 = zext nneg i32 %switch.tableidx187 to i64
+  %switch.gep192 = getelementptr inbounds nuw ptr, ptr @switch.table.ECPGdump_a_simple.1, i64 %149
   %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %get_type.exit144
 
@@ -1429,7 +1429,7 @@ define dso_local noundef ptr @get_dtype(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table.get_dtype, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_dtype, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

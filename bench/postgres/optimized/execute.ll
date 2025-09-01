@@ -3123,7 +3123,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 159:                                              ; preds = %152
   %160 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %161 = zext nneg i32 %.0191359 to i64
-  %162 = getelementptr inbounds nuw [1 x %struct.sqlvar_struct], ptr %160, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw %struct.sqlvar_struct, ptr %160, i64 %161
   %163 = load i16, ptr %162, align 8
   %164 = sext i16 %163 to i32
   store i32 %164, ptr %5, align 8

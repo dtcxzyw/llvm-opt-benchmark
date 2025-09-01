@@ -1266,7 +1266,7 @@ define hidden void @_ZN4cvc58internal4Subs11addEqualityENS0_12NodeTemplateILb1EE
   %13 = icmp eq i32 %12, 2
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = zext i1 %13 to i64
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !38, !noalias !41
   store ptr %17, ptr %3, align 8, !tbaa !11, !alias.scope !41
   %18 = load i64, ptr %17, align 8, !noalias !41
@@ -1312,7 +1312,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %23, %29, %31
   %41 = icmp eq i32 %40, 2
   %spec.select.i.i = select i1 %41, i64 2, i64 1
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %43 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %spec.select.i.i
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %spec.select.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !38, !noalias !44
   store ptr %44, ptr %4, align 8, !tbaa !11, !alias.scope !44
   %45 = load i64, ptr %44, align 8, !noalias !44

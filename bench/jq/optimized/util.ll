@@ -449,14 +449,14 @@ define dso_local { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_un
   %.sroa.022.2 = phi i64 [ %.sroa.022.0, %32 ], [ %36, %34 ]
   %.sroa.19.2 = phi ptr [ %.sroa.19.0, %32 ], [ %37, %34 ]
   %39 = load i64, ptr %7, align 8, !tbaa !29
-  %40 = add i64 %39, -1
-  %41 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %40
+  %40 = getelementptr i8, ptr %6, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 -1
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = icmp eq i8 %42, 10
   br i1 %43, label %44, label %53
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %40
+  %45 = getelementptr i8, ptr %40, i64 -1
   store i8 0, ptr %45, align 1, !tbaa !4
   %46 = load i64, ptr %7, align 8, !tbaa !29
   %47 = trunc i64 %46 to i32
@@ -926,7 +926,7 @@ thread-pre-split102:                              ; preds = %.thread98, %65, %ne
 
 .preheader:                                       ; preds = %93, %99
   %.0106 = phi i64 [ %100, %99 ], [ 4095, %93 ]
-  %96 = getelementptr inbounds nuw [4096 x i8], ptr %69, i64 0, i64 %.0106
+  %96 = getelementptr inbounds nuw i8, ptr %69, i64 %.0106
   %97 = load i8, ptr %96, align 1, !tbaa !4
   %98 = icmp eq i8 %97, 0
   br i1 %98, label %101, label %99

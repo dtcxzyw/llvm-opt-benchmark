@@ -65,7 +65,7 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader178.lr.ph.thread:                       ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %27, i64 %30, i1 false)
-  %32 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %30
   store i8 0, ptr %32, align 1, !tbaa !4
   br label %.preheader178.preheader
 
@@ -257,7 +257,7 @@ sub_1:                                            ; preds = %sub_0
 
 86:                                               ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.1107, i64 %.094, i1 false)
-  %87 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 0, i64 %.094
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 %.094
   store i8 0, ptr %87, align 1, !tbaa !4
   %88 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 47) #9
   %.not134 = icmp eq ptr %88, null
@@ -333,9 +333,9 @@ sub_1:                                            ; preds = %sub_0
 
 112:                                              ; preds = %111
   %113 = zext nneg i32 %103 to i64
-  %114 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 %113
   %115 = load i8, ptr %114, align 1, !tbaa !4
-  %116 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %113
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 %113
   %117 = load i8, ptr %116, align 1, !tbaa !4
   %118 = xor i8 %117, %115
   %119 = zext i8 %118 to i32

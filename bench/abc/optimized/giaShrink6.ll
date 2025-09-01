@@ -1125,7 +1125,7 @@ define i64 @Shr_ManComputeTruth6(ptr noundef %0, ptr noundef %1, ptr noundef rea
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i32, ptr %.val17, i64 %14
   store i32 %.val16.pre, ptr %15, align 4, !tbaa !64
-  %16 = getelementptr inbounds nuw [8 x i64], ptr @Truth, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr @Truth, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !42
   %18 = getelementptr inbounds i64, ptr %.val18, i64 %14
   store i64 %17, ptr %18, align 8, !tbaa !42
@@ -1185,7 +1185,7 @@ define void @Shr_ManComputeTruths(ptr noundef readonly captures(none) %0, i32 no
   %.val42 = load ptr, ptr %8, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !64
-  %22 = getelementptr inbounds nuw [8 x i64], ptr @Truth, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr @Truth, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !42
   %.val51 = load ptr, ptr %9, align 8, !tbaa !39
   %24 = sext i32 %21 to i64
@@ -2028,7 +2028,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds i32, ptr %.val17.i, i64 %356
   store i32 %.val16.pre.i, ptr %357, align 4, !tbaa !64
-  %358 = getelementptr inbounds nuw [8 x i64], ptr @Truth, i64 0, i64 %indvars.iv.i
+  %358 = getelementptr inbounds nuw i64, ptr @Truth, i64 %indvars.iv.i
   %359 = load i64, ptr %358, align 8, !tbaa !42
   %360 = getelementptr inbounds i64, ptr %.val18.i200, i64 %356
   store i64 %359, ptr %360, align 8, !tbaa !42
@@ -2080,7 +2080,7 @@ Shr_ManComputeTruth6.exit:                        ; preds = %353, %.critedge2
 
 .lr.ph240.split:                                  ; preds = %.lr.ph240.split.preheader, %392
   %indvars.iv260 = phi i64 [ 0, %.lr.ph240.split.preheader ], [ %indvars.iv.next261, %392 ]
-  %379 = getelementptr inbounds nuw [8 x i64], ptr @Truth, i64 0, i64 %indvars.iv260
+  %379 = getelementptr inbounds nuw i64, ptr @Truth, i64 %indvars.iv260
   %380 = load i64, ptr %379, align 8, !tbaa !42
   %381 = icmp eq i64 %369, %380
   %382 = xor i64 %380, %369
@@ -2137,7 +2137,7 @@ Shr_ManComputeTruth6.exit:                        ; preds = %353, %.critedge2
   br i1 %.not148, label %417, label %405
 
 405:                                              ; preds = %.lr.ph245.split
-  %406 = getelementptr inbounds nuw [8 x i64], ptr @Truth, i64 0, i64 %indvars.iv263
+  %406 = getelementptr inbounds nuw i64, ptr @Truth, i64 %indvars.iv263
   %407 = load i64, ptr %406, align 8, !tbaa !42
   %408 = and i64 %407, %.0125244
   %409 = trunc nuw nsw i64 %indvars.iv263 to i32

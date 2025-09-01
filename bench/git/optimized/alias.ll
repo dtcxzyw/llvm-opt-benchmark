@@ -305,7 +305,7 @@ define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %0, pt
 
 6:                                                ; preds = %.lr.ph
   %7 = zext i8 %5 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !14
   %10 = and i8 %9, 1
   %.not107 = icmp eq i8 %10, 0
@@ -327,7 +327,7 @@ define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %0, pt
 
 18:                                               ; preds = %14
   %19 = zext i8 %17 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !14
   %22 = and i8 %21, 1
   %.not109 = icmp eq i8 %22, 0
@@ -488,7 +488,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 define dso_local ptr @split_cmdline_strerror(i32 noundef %0) local_unnamed_addr #3 {
   %2 = xor i32 %0, -1
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [3 x ptr], ptr @split_cmdline_errors, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @split_cmdline_errors, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   ret ptr %5
 }

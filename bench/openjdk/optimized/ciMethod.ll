@@ -1897,9 +1897,9 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %.04664 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %68 ]
   %.04863 = phi i32 [ 0, %.lr.ph ], [ %76, %68 ]
   %69 = shl i32 %.04863, 1
-  %70 = or disjoint i32 %69, 1
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [1 x i64], ptr %67, i64 0, i64 %71
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr i64, ptr %67, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8
   %.fr101 = freeze i64 %73
   %74 = icmp ne i64 %.fr101, 0
@@ -1923,9 +1923,9 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %.04267 = phi i32 [ 0, %.lr.ph69 ], [ %.143, %_ZN13ciCallProfile12add_receiverEP7ciKlassi.exit ]
   %.04466 = phi i32 [ 0, %.lr.ph69 ], [ %120, %_ZN13ciCallProfile12add_receiverEP7ciKlassi.exit ]
   %84 = shl i32 %.04466, 1
-  %85 = or disjoint i32 %84, 1
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [1 x i64], ptr %80, i64 0, i64 %86
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr i64, ptr %80, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = inttoptr i64 %88 to ptr
   %90 = icmp eq i64 %88, 0
@@ -1934,7 +1934,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 91:                                               ; preds = %83
   %92 = add i32 %84, 2
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [1 x i64], ptr %80, i64 0, i64 %93
+  %94 = getelementptr inbounds i64, ptr %80, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = and i64 %95, 4294967295
   %97 = add nuw nsw i64 %96, %82
@@ -1953,17 +1953,17 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 102:                                              ; preds = %106, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %101, %.lr.ph.i ], [ %indvars.iv.next.i, %106 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %103 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.next.i
+  %103 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next.i
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %spec.store.select, %104
   br i1 %105, label %106, label %.critedge.loopexit.split.loop.exit19.i
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw [3 x ptr], ptr %19, i64 0, i64 %indvars.iv.next.i
+  %107 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next.i
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw [3 x ptr], ptr %19, i64 0, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   store ptr %108, ptr %109, align 8
-  %110 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
   store i32 %104, ptr %110, align 4
   %111 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %111, label %102, label %.critedge.i, !llvm.loop !18
@@ -1975,9 +1975,9 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 .critedge.i:                                      ; preds = %106, %.critedge.loopexit.split.loop.exit19.i, %91
   %.0.lcssa.i = phi i32 [ %99, %91 ], [ %112, %.critedge.loopexit.split.loop.exit19.i ], [ 0, %106 ]
   %113 = sext i32 %.0.lcssa.i to i64
-  %114 = getelementptr inbounds [3 x ptr], ptr %19, i64 0, i64 %113
+  %114 = getelementptr inbounds ptr, ptr %19, i64 %113
   store ptr %89, ptr %114, align 8
-  %115 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 %113
+  %115 = getelementptr inbounds i32, ptr %18, i64 %113
   store i32 %spec.store.select, ptr %115, align 4
   %116 = load i32, ptr %0, align 8
   %117 = icmp slt i32 %116, 2
@@ -2227,17 +2227,17 @@ define hidden void @_ZN13ciCallProfile12add_receiverEP7ciKlassi(ptr noundef nonn
 9:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %10 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %2, %11
   br i1 %12, label %13, label %.critedge.loopexit.split.loop.exit19
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %11, ptr %17, align 4
   %18 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %18, label %9, label %.critedge, !llvm.loop !18
@@ -2250,9 +2250,9 @@ define hidden void @_ZN13ciCallProfile12add_receiverEP7ciKlassi(ptr noundef nonn
   %.0.lcssa = phi i32 [ %4, %3 ], [ %19, %.critedge.loopexit.split.loop.exit19 ], [ 0, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = sext i32 %.0.lcssa to i64
-  %22 = getelementptr inbounds [3 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
   store ptr %1, ptr %22, align 8
-  %23 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %21
+  %23 = getelementptr inbounds i32, ptr %5, i64 %21
   store i32 %2, ptr %23, align 4
   %24 = load i32, ptr %0, align 8
   %25 = icmp slt i32 %24, 2
@@ -2315,12 +2315,12 @@ define hidden noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKl
   %27 = load i64, ptr @TypeProfileWidth, align 8
   %28 = trunc i64 %27 to i32
   %29 = shl i32 %28, 1
-  %30 = or disjoint i32 %29, 1
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds [1 x i64], ptr %33, i64 0, i64 %34
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = sext i32 %29 to i64
+  %34 = getelementptr i64, ptr %32, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
   %38 = sdiv i32 %37, 2
@@ -2361,7 +2361,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKl
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = sext i32 %60 to i64
-  %65 = getelementptr inbounds [1 x i64], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds i64, ptr %63, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = icmp ult i64 %66, 2
   %68 = and i64 %66, 2
@@ -2378,7 +2378,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKl
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = sext i32 %74 to i64
-  %79 = getelementptr inbounds [1 x i64], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds i64, ptr %77, i64 %78
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %80, 1
   %.not.i.i.i34 = icmp eq i64 %81, 0
@@ -2433,12 +2433,12 @@ define hidden noundef zeroext i1 @_ZN8ciMethod20return_profiled_typeEiRP7ciKlass
   %26 = load i64, ptr @TypeProfileWidth, align 8
   %27 = trunc i64 %26 to i32
   %28 = shl i32 %27, 1
-  %29 = or disjoint i32 %28, 1
-  %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds [1 x i64], ptr %32, i64 0, i64 %33
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = sext i32 %28 to i64
+  %33 = getelementptr i64, ptr %31, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 1
   %.not29 = icmp eq i64 %36, 0
@@ -2474,7 +2474,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod20return_profiled_typeEiRP7ciKlass
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = sext i32 %54 to i64
-  %59 = getelementptr inbounds [1 x i64], ptr %57, i64 0, i64 %58
+  %59 = getelementptr inbounds i64, ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = icmp ult i64 %60, 2
   %62 = and i64 %60, 2
@@ -2490,7 +2490,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod20return_profiled_typeEiRP7ciKlass
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = sext i32 %67 to i64
-  %72 = getelementptr inbounds [1 x i64], ptr %70, i64 0, i64 %71
+  %72 = getelementptr inbounds i64, ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %73, 1
   %.not.i.i.i25 = icmp eq i64 %74, 0
@@ -2552,7 +2552,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod23parameter_profiled_typeEiRP7ciKl
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds [1 x i64], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds i64, ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = icmp ult i64 %37, 2
   %39 = and i64 %37, 2
@@ -2569,7 +2569,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod23parameter_profiled_typeEiRP7ciKl
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = sext i32 %45 to i64
-  %50 = getelementptr inbounds [1 x i64], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds i64, ptr %48, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1
   %.not.i.i.i = icmp eq i64 %52, 0
@@ -3235,7 +3235,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %3, %11
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 %25, ptr %26, align 4
   %27 = zext i8 %24 to i64
-  %28 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %29, ptr %30, align 8
@@ -3249,7 +3249,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %23
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %23
   %33 = zext nneg i32 %29 to i64
-  %34 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 15
   %37 = zext nneg i8 %36 to i64
@@ -3317,7 +3317,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %4, %12
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 %26, ptr %27, align 4
   %28 = zext i8 %25 to i64
-  %29 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %30, ptr %31, align 8
@@ -3331,7 +3331,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %24
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %24
   %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = and i8 %36, 15
   %38 = zext nneg i8 %37 to i64
@@ -3397,7 +3397,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %2, %10
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 %24, ptr %25, align 4
   %26 = zext i8 %23 to i64
-  %27 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 %28, ptr %29, align 8
@@ -3411,7 +3411,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %22
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %22
   %32 = zext nneg i32 %28 to i64
-  %33 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 15
   %36 = zext nneg i8 %35 to i64

@@ -152,7 +152,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
 
 34:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %36 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %33
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %33
   store i64 %6, ptr %36, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -213,7 +213,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
 
 32:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %34 = getelementptr inbounds nuw [32 x i64], ptr %33, i64 0, i64 %31
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %31
   store i64 %4, ptr %34, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -281,7 +281,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
 
 38:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %40 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %35
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %35
   store i64 %7, ptr %40, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -435,7 +435,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
 
 36:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %38 = getelementptr inbounds nuw [32 x i64], ptr %37, i64 0, i64 %33
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %33
   store i64 %5, ptr %38, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -509,7 +509,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %12
   %40 = shl i64 %2, 32
   %41 = add i64 %40, 17179869184
   %42 = ashr exact i64 %41, 32
-  %43 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %5
+  %43 = getelementptr inbounds nuw i64, ptr %39, i64 %5
   store i64 %42, ptr %43, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -595,7 +595,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %12
 38:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %40 = add i64 %2, 4
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %5
+  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %5
   store i64 %40, ptr %41, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -679,7 +679,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %13
 
 45:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %47 = getelementptr inbounds nuw [32 x i64], ptr %46, i64 0, i64 %6
+  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %6
   store i64 %41, ptr %47, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -763,7 +763,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %13
 
 43:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %45 = getelementptr inbounds nuw [32 x i64], ptr %44, i64 0, i64 %6
+  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %6
   store i64 %39, ptr %45, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

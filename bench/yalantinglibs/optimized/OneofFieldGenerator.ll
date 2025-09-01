@@ -982,7 +982,7 @@ invoke.cont16:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %30 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %31 = load i32, ptr %arrayidx.i, align 4
   %32 = load ptr, ptr %d_.i, align 8
   switch i32 %31, label %sw.default [
@@ -2113,23 +2113,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i32 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i32 %rem.i, 1
   %div.i = udiv i32 %__val.addr.016.i, 100
-  %add.i9 = or disjoint i32 %mul.i, 1
-  %idxprom.i = zext nneg i32 %add.i9 to i64
-  %arrayidx.i10 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
-  %7 = load i8, ptr %arrayidx.i10, align 1
+  %7 = zext nneg i32 %mul.i to i64
+  %8 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %7
+  %arrayidx.i9 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %9 = load i8, ptr %arrayidx.i9, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 %idxprom1.i
-  store i8 %7, ptr %arrayidx2.i, align 1
-  %idxprom3.i = zext nneg i32 %mul.i to i64
-  %arrayidx4.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
-  %8 = load i8, ptr %arrayidx4.i, align 2
+  store i8 %9, ptr %arrayidx2.i, align 1
+  %10 = load i8, ptr %8, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 %idxprom6.i
-  store i8 %8, ptr %arrayidx7.i, align 1
+  store i8 %10, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
-  %cmp.i11 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i11, label %while.body.i, label %while.end.i, !llvm.loop !23
+  %cmp.i10 = icmp ugt i32 %__val.addr.016.i, 9999
+  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !23
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont ], [ %div.i, %while.body.i ]
@@ -2138,24 +2136,22 @@ while.end.i:                                      ; preds = %while.body.i, %invo
 
 if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
-  %add12.i = or disjoint i32 %mul11.i, 1
-  %idxprom13.i = zext nneg i32 %add12.i to i64
-  %arrayidx14.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
-  %9 = load i8, ptr %arrayidx14.i, align 1
+  %11 = zext nneg i32 %mul11.i to i64
+  %12 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %11
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %13 = load i8, ptr %arrayidx14.i, align 1
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
-  store i8 %9, ptr %arrayidx15.i, align 1
-  %idxprom16.i = zext nneg i32 %mul11.i to i64
-  %arrayidx17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
-  %10 = load i8, ptr %arrayidx17.i, align 2
+  store i8 %13, ptr %arrayidx15.i, align 1
+  %14 = load i8, ptr %12, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %11 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %11, 48
+  %15 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %15, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %10, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %14, %if.then.i ]
   store i8 %storemerge.i, ptr %arrayidx.i, align 1
   ret void
 }
@@ -3038,7 +3034,7 @@ invoke.cont14:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %29 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %30 = load i32, ptr %arrayidx.i, align 4
   switch i32 %30, label %sw.default [
     i32 10, label %sw.bb
@@ -3841,23 +3837,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i32 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i32 %rem.i, 1
   %div.i = udiv i32 %__val.addr.016.i, 100
-  %add.i3 = or disjoint i32 %mul.i, 1
-  %idxprom.i = zext nneg i32 %add.i3 to i64
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
-  %8 = load i8, ptr %arrayidx.i, align 1
+  %8 = zext nneg i32 %mul.i to i64
+  %9 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %10 = load i8, ptr %arrayidx.i, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %6, i64 %idxprom1.i
-  store i8 %8, ptr %arrayidx2.i, align 1
-  %idxprom3.i = zext nneg i32 %mul.i to i64
-  %arrayidx4.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
-  %9 = load i8, ptr %arrayidx4.i, align 2
+  store i8 %10, ptr %arrayidx2.i, align 1
+  %11 = load i8, ptr %9, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %6, i64 %idxprom6.i
-  store i8 %9, ptr %arrayidx7.i, align 1
+  store i8 %11, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
-  %cmp.i4 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i4, label %while.body.i, label %while.end.i, !llvm.loop !23
+  %cmp.i3 = icmp ugt i32 %__val.addr.016.i, 9999
+  br i1 %cmp.i3, label %while.body.i, label %while.end.i, !llvm.loop !23
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i32 [ %__val, %invoke.cont ], [ %div.i, %while.body.i ]
@@ -3866,24 +3860,22 @@ while.end.i:                                      ; preds = %while.body.i, %invo
 
 if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
-  %add12.i = or disjoint i32 %mul11.i, 1
-  %idxprom13.i = zext nneg i32 %add12.i to i64
-  %arrayidx14.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
-  %10 = load i8, ptr %arrayidx14.i, align 1
+  %12 = zext nneg i32 %mul11.i to i64
+  %13 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %12
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %14 = load i8, ptr %arrayidx14.i, align 1
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %10, ptr %arrayidx15.i, align 1
-  %idxprom16.i = zext nneg i32 %mul11.i to i64
-  %arrayidx17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
-  %11 = load i8, ptr %arrayidx17.i, align 2
+  store i8 %14, ptr %arrayidx15.i, align 1
+  %15 = load i8, ptr %13, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %12 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %12, 48
+  %16 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %16, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %11, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %15, %if.then.i ]
   store i8 %storemerge.i, ptr %6, align 1
   ret void
 }
@@ -4396,7 +4388,7 @@ invoke.cont16:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %30 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %31 = load i32, ptr %arrayidx.i, align 4
   switch i32 %31, label %sw.default [
     i32 10, label %sw.bb
@@ -5920,7 +5912,7 @@ _ZNK6google8protobuf15FieldDescriptor9type_nameEv.exit: ; preds = %entry, %_ZN6g
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)

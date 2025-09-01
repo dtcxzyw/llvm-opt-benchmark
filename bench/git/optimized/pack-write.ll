@@ -985,7 +985,7 @@ define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr no
 13:                                               ; preds = %3
   %sext13 = add i64 %9, 21474836480
   %14 = ashr exact i64 %sext13, 32
-  %15 = getelementptr inbounds [70 x i8], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr %4, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !30
   %17 = icmp eq i8 %16, 10
   br i1 %17, label %18, label %30

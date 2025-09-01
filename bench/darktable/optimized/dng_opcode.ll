@@ -175,7 +175,7 @@ _get_float.exit:                                  ; preds = %_get_float.exit, %.
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 76
   %.val90 = load i32, ptr %81, align 1
   %82 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.val90) #5, !srcloc !63
-  %83 = getelementptr inbounds nuw [0 x float], ptr %76, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
   store i32 %82, ptr %83, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -325,7 +325,7 @@ _get_long.exit96:                                 ; preds = %34
 .preheader:                                       ; preds = %.preheader.preheader, %57
   %indvars.iv123 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next124, %57 ]
   %55 = mul nuw nsw i64 %indvars.iv123, 6
-  %56 = getelementptr inbounds nuw [3 x [6 x float]], ptr %10, i64 0, i64 %indvars.iv123
+  %56 = getelementptr inbounds nuw [6 x float], ptr %10, i64 %indvars.iv123
   br label %_get_double.exit
 
 57:                                               ; preds = %_get_double.exit
@@ -343,7 +343,7 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %62 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val88) #5, !srcloc !61
   %63 = bitcast i64 %62 to double
   %64 = fptrunc reassoc nsz arcp contract afn double %63 to float
-  %65 = getelementptr inbounds nuw [6 x float], ptr %56, i64 0, i64 %indvars.iv119
+  %65 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv119
   store float %64, ptr %65, align 4, !tbaa !65
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 6
@@ -357,7 +357,7 @@ _get_double.exit:                                 ; preds = %_get_double.exit, %
   %68 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.val86) #5, !srcloc !61
   %69 = bitcast i64 %68 to double
   %70 = fptrunc reassoc nsz arcp contract afn double %69 to float
-  %71 = getelementptr inbounds nuw [5 x float], ptr %7, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   store float %70, ptr %71, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

@@ -2141,7 +2141,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_back_merge(ptr n
   %103 = and i32 %100, 1
   %104 = select i1 %102, i32 2, i32 %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr [4 x i64], ptr %99, i64 0, i64 %105
+  %106 = getelementptr i64, ptr %99, i64 %105
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %106, ptr elementtype(i64) %106) #14, !srcloc !52
   %107 = load ptr, ptr %95, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 49
@@ -2163,7 +2163,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_back_merge(ptr n
   %122 = and i32 %119, 1
   %123 = select i1 %121, i32 2, i32 %122
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr [4 x i64], ptr %118, i64 0, i64 %124
+  %125 = getelementptr i64, ptr %118, i64 %124
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %125, ptr elementtype(i64) %125) #14, !srcloc !53
   br label %126
 
@@ -2525,7 +2525,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr 
   %203 = and i32 %200, 1
   %204 = select i1 %202, i32 2, i32 %203
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr [4 x i64], ptr %199, i64 0, i64 %205
+  %206 = getelementptr i64, ptr %199, i64 %205
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %206, ptr elementtype(i64) %206) #14, !srcloc !52
   %207 = load ptr, ptr %195, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 49
@@ -2547,7 +2547,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr 
   %222 = and i32 %219, 1
   %223 = select i1 %221, i32 2, i32 %222
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr [4 x i64], ptr %218, i64 0, i64 %224
+  %225 = getelementptr i64, ptr %218, i64 %224
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, ptr elementtype(i64) %225) #14, !srcloc !53
   br label %226
 
@@ -2725,7 +2725,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_discard_merge(pt
   %98 = and i32 %95, 1
   %99 = select i1 %97, i32 2, i32 %98
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr [4 x i64], ptr %94, i64 0, i64 %100
+  %101 = getelementptr i64, ptr %94, i64 %100
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %101, ptr elementtype(i64) %101) #14, !srcloc !52
   %102 = load ptr, ptr %90, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 49
@@ -2747,7 +2747,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_discard_merge(pt
   %117 = and i32 %114, 1
   %118 = select i1 %116, i32 2, i32 %117
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr [4 x i64], ptr %113, i64 0, i64 %119
+  %120 = getelementptr i64, ptr %113, i64 %119
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %120, ptr elementtype(i64) %120) #14, !srcloc !53
   br label %121
 
@@ -3288,7 +3288,7 @@ define internal fastcc void @blk_account_io_merge_request(ptr noundef readonly c
   %20 = and i32 %17, 1
   %21 = select i1 %19, i32 2, i32 %20
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr [4 x i64], ptr %16, i64 0, i64 %22
+  %23 = getelementptr i64, ptr %16, i64 %22
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, ptr elementtype(i64) %23) #14, !srcloc !62
   %24 = load ptr, ptr %12, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 49
@@ -3310,7 +3310,7 @@ define internal fastcc void @blk_account_io_merge_request(ptr noundef readonly c
   %39 = and i32 %36, 1
   %40 = select i1 %38, i32 2, i32 %39
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr [4 x i64], ptr %35, i64 0, i64 %41
+  %42 = getelementptr i64, ptr %35, i64 %41
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %42, ptr elementtype(i64) %42) #14, !srcloc !63
   br label %43
 

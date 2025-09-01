@@ -112,11 +112,11 @@ define void @_ZN3gmx4Grid8GeometryC2ENS_12PairlistTypeE(ptr noundef nonnull writ
   store i8 %5, ptr %0, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [5 x i32], ptr @_ZN3gmxL23IClusterSizePerListTypeE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL23IClusterSizePerListTypeE, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !11
   store i32 %9, ptr %6, align 4, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds nuw [5 x i32], ptr @_ZN3gmxL23JClusterSizePerListTypeE, i64 0, i64 %7
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL23JClusterSizePerListTypeE, i64 %7
   %12 = load i32, ptr %11, align 4, !tbaa !11
   store i32 %12, ptr %10, align 4, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1230,16 +1230,16 @@ define void @_ZN3gmx4Grid13setDimensionsEiiiRKNS_11BasicVectorIfEES4_Pff(ptr nou
 
 28:                                               ; preds = %8, %43
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %43 ]
-  %29 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !96
-  %31 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !96
   %33 = fsub float %30, %32
   %34 = fcmp olt float %33, 0x3DDB7CDFE0000000
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !96
   %38 = tail call noundef float @llvm.fabs.f32(float %37)
   %39 = fmul float %38, 0x3E80000000000000
@@ -1334,14 +1334,14 @@ _ZN3gmxL19getTargetCellLengthERKNS_4Grid8GeometryEf.exit: ; preds = %59, %67
   %89 = phi i1 [ true, %80 ], [ false, %88 ]
   %indvars.iv47.sroa.phi.sroa.speculated = phi float [ %14, %80 ], [ %19, %88 ]
   %indvars.iv47 = phi i64 [ 0, %80 ], [ 1, %88 ]
-  %90 = getelementptr inbounds nuw [2 x i32], ptr %83, i64 0, i64 %indvars.iv47
+  %90 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv47
   %91 = load i32, ptr %90, align 4, !tbaa !11
   %92 = sitofp i32 %91 to float
   %93 = fdiv float %indvars.iv47.sroa.phi.sroa.speculated, %92
-  %94 = getelementptr inbounds nuw [2 x float], ptr %84, i64 0, i64 %indvars.iv47
+  %94 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv47
   store float %93, ptr %94, align 4, !tbaa !96
   %95 = fdiv float 1.000000e+00, %93
-  %96 = getelementptr inbounds nuw [2 x float], ptr %85, i64 0, i64 %indvars.iv47
+  %96 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv47
   store float %95, ptr %96, align 4, !tbaa !96
   br i1 %89, label %88, label %86, !llvm.loop !114
 
@@ -1645,7 +1645,7 @@ define void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS
 45:                                               ; preds = %.lr.ph.i
   %46 = add nsw i32 %.0508.i, 1
   %47 = sext i32 %.0508.i to i64
-  %48 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %47
+  %48 = getelementptr inbounds i32, ptr %8, i64 %47
   store i32 %.pre.i, ptr %48, align 4, !tbaa !11
   %49 = trunc nsw i64 %indvars.iv24.i to i32
   br label %54
@@ -1653,7 +1653,7 @@ define void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS
 50:                                               ; preds = %.lr.ph.i
   %51 = add nsw i32 %.0489.i, 1
   %52 = sext i32 %.0489.i to i64
-  %53 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %52
+  %53 = getelementptr inbounds i32, ptr %9, i64 %52
   store i32 %.pre.i, ptr %53, align 4, !tbaa !11
   br label %54
 
@@ -2597,7 +2597,7 @@ define internal fastcc void @_ZN3gmxL10sort_atomsEibibPiiNS_8ArrayRefIKNS_11Basi
   %15 = fmul float %5, %14
   %16 = inttoptr i64 %.0.val to ptr
   %17 = zext nneg i32 %0 to i64
-  %invariant.gep56 = getelementptr [3 x float], ptr %16, i64 0, i64 %17
+  %invariant.gep56 = getelementptr float, ptr %16, i64 %17
   %18 = inttoptr i64 %.0.val1 to ptr
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %22
@@ -4170,7 +4170,7 @@ _ZN3gmxL20print_bbsizes_simpleEP8_IO_FILERKNS_4GridE.exit: ; preds = %._crit_edg
   %388 = load float, ptr %gep.i, align 4, !tbaa !96
   %389 = fsub float %387, %388
   %390 = fpext float %389 to double
-  %391 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv.i92
+  %391 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i92
   %392 = load double, ptr %391, align 8, !tbaa !230
   %393 = fadd double %392, %390
   store double %393, ptr %391, align 8, !tbaa !230

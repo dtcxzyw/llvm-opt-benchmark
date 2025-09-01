@@ -142,7 +142,7 @@ thread-pre-split:                                 ; preds = %20
 
 26:                                               ; preds = %24
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %27
   %29 = sub nsw i64 128, %27
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %29, i1 false)
   br label %.preheader66
@@ -152,10 +152,10 @@ thread-pre-split:                                 ; preds = %20
 
 30:                                               ; preds = %.preheader66, %30
   %.04360 = phi i64 [ %35, %30 ], [ 0, %.preheader66 ]
-  %31 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.04360
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 %.04360
   %32 = load i8, ptr %31, align 1, !tbaa !17
   %33 = xor i8 %32, 54
-  %34 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 0, i64 %.04360
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %.04360
   store i8 %33, ptr %34, align 1, !tbaa !17
   %35 = add nuw nsw i64 %.04360, 1
   %exitcond.not = icmp eq i64 %35, 128
@@ -175,10 +175,10 @@ thread-pre-split:                                 ; preds = %20
 
 .preheader:                                       ; preds = %39, %.preheader
   %.14461 = phi i64 [ %46, %.preheader ], [ 0, %39 ]
-  %42 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.14461
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 %.14461
   %43 = load i8, ptr %42, align 1, !tbaa !17
   %44 = xor i8 %43, 92
-  %45 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 0, i64 %.14461
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 %.14461
   store i8 %44, ptr %45, align 1, !tbaa !17
   %46 = add nuw nsw i64 %.14461, 1
   %exitcond62.not = icmp eq i64 %46, 128

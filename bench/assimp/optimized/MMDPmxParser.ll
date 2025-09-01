@@ -1328,7 +1328,7 @@ define hidden void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonn
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [4 x [4 x float]], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x float], ptr %11, i64 %indvars.iv
   %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %16, i64 noundef 16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i8, ptr %9, align 1

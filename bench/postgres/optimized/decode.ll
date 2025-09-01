@@ -57,7 +57,7 @@ define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 57
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %25
   %27 = load ptr, ptr %26, align 8, !noalias !4
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %28, label %GetRmgr.exit, !prof !7

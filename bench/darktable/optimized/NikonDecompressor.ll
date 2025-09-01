@@ -614,7 +614,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor23createPrefixCodeDecoderINS_
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [6 x %"struct.std::array.0"], ptr @_ZN8rawspeed17NikonDecompressor10nikon_treeE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.std::array.0", ptr @_ZN8rawspeed17NikonDecompressor10nikon_treeE, i64 %5
   %7 = invoke noundef i32 @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagEE18setNCodesPerLengthENS_6BufferE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nonnull %6, i32 16)
           to label %8 unwind label %42
 
@@ -1883,7 +1883,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 2272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false), !alias.scope !179
   %52 = zext i32 %46 to i64
-  %53 = getelementptr inbounds nuw [6 x %"struct.std::array.0"], ptr @_ZN8rawspeed17NikonDecompressor10nikon_treeE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %"struct.std::array.0", ptr @_ZN8rawspeed17NikonDecompressor10nikon_treeE, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %55
 
@@ -1894,7 +1894,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %57 = load i8, ptr %56, align 1, !tbaa !62, !noalias !179
   %58 = zext i8 %57 to i32
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %59 = getelementptr inbounds nuw [17 x i32], ptr %54, i64 0, i64 %indvars.iv.next.i.i.i
+  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next.i.i.i
   store i32 %58, ptr %59, align 4, !tbaa !31, !alias.scope !179
   %60 = add i32 %.078.i.i.i, %58
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
@@ -1917,7 +1917,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv.i6.i.i
   %67 = load i8, ptr %66, align 1, !tbaa !62, !noalias !179
   %68 = zext i8 %67 to i32
-  %69 = getelementptr inbounds nuw [256 x i32], ptr %64, i64 0, i64 %indvars.iv.i6.i.i
+  %69 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.i6.i.i
   store i32 %68, ptr %69, align 4, !tbaa !31, !alias.scope !179
   %indvars.iv.next.i7.i.i = add nuw nsw i64 %indvars.iv.i6.i.i, 1
   %exitcond.not.i8.i.i = icmp eq i64 %indvars.iv.next.i7.i.i, %wide.trip.count.i.i.i
@@ -1931,7 +1931,7 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefI
 .preheader76.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i, %_ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefIKhEE.exit.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 1, %_ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefIKhEE.exit.i.i ], [ %indvars.iv.next.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.05883.i.i.i.i = phi i32 [ 0, %_ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefIKhEE.exit.i.i ], [ %.1.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %70 = getelementptr inbounds nuw [17 x i32], ptr %54, i64 0, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i.i.i.i
   %71 = load i32, ptr %70, align 4, !tbaa !31, !alias.scope !179
   %.not7279.i.i.i.i = icmp slt i32 %71, 1
   br i1 %.not7279.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
@@ -1962,7 +1962,7 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefI
 
 79:                                               ; preds = %._crit_edge.i.i.i.i
   %80 = sext i32 %.1.lcssa.i.i.i.i to i64
-  %81 = getelementptr inbounds nuw [257 x i8], ptr %6, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 %80
   store i8 0, ptr %81, align 1, !tbaa !62, !noalias !179
   %82 = load i8, ptr %6, align 1, !tbaa !62, !noalias !179
   %83 = sext i8 %82 to i32
@@ -1973,7 +1973,7 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefI
   %.063.i.i.i.i = phi i16 [ 0, %79 ], [ %97, %._crit_edge87.i.i.i.i ]
   %.2.i.i.i.i = phi i32 [ 0, %79 ], [ %.3.lcssa.i.i.i.i, %._crit_edge87.i.i.i.i ]
   %85 = sext i32 %.2.i.i.i.i to i64
-  %86 = getelementptr inbounds nuw [257 x i8], ptr %6, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !62, !noalias !179
   %.not.i.i.i.i = icmp eq i8 %87, 0
   br i1 %.not.i.i.i.i, label %100, label %.preheader75.i.i.i.i
@@ -1986,11 +1986,11 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefI
 .lr.ph86.i.i.i.i:                                 ; preds = %.preheader75.i.i.i.i, %.lr.ph86.i.i.i.i
   %indvars.iv102.i.i.i.i = phi i64 [ %indvars.iv.next103.i.i.i.i, %.lr.ph86.i.i.i.i ], [ %85, %.preheader75.i.i.i.i ]
   %.16484.i.i.i.i = phi i16 [ %91, %.lr.ph86.i.i.i.i ], [ %.063.i.i.i.i, %.preheader75.i.i.i.i ]
-  %90 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %indvars.iv102.i.i.i.i
+  %90 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv102.i.i.i.i
   store i16 %.16484.i.i.i.i, ptr %90, align 2, !tbaa !13, !noalias !179
   %indvars.iv.next103.i.i.i.i = add nsw i64 %indvars.iv102.i.i.i.i, 1
   %91 = add i16 %.16484.i.i.i.i, 1
-  %92 = getelementptr inbounds nuw [257 x i8], ptr %6, i64 0, i64 %indvars.iv.next103.i.i.i.i
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.next103.i.i.i.i
   %93 = load i8, ptr %92, align 1, !tbaa !62, !noalias !179
   %94 = sext i8 %93 to i32
   %95 = icmp eq i32 %.065.i.i.i.i, %94
@@ -2018,34 +2018,34 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor13setCodeValuesENS_10Array1DRefI
 104:                                              ; preds = %124, %100
   %indvars.iv104.i.i.i.i = phi i64 [ 1, %100 ], [ %indvars.iv.next105.i.i.i.i, %124 ]
   %.491.i.i.i.i = phi i32 [ 0, %100 ], [ %.574.i.i.i.i, %124 ]
-  %105 = getelementptr inbounds nuw [17 x i32], ptr %54, i64 0, i64 %indvars.iv104.i.i.i.i
+  %105 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv104.i.i.i.i
   %106 = load i32, ptr %105, align 4, !tbaa !31, !alias.scope !179
   %.not71.i.i.i.i = icmp eq i32 %106, 0
   br i1 %.not71.i.i.i.i, label %.thread.i.i.i.i, label %109
 
 .thread.i.i.i.i:                                  ; preds = %104
-  %107 = getelementptr inbounds nuw [17 x i16], ptr %103, i64 0, i64 %indvars.iv104.i.i.i.i
+  %107 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv104.i.i.i.i
   store i16 255, ptr %107, align 2, !tbaa !13, !alias.scope !179
-  %108 = getelementptr inbounds nuw [18 x i32], ptr %102, i64 0, i64 %indvars.iv104.i.i.i.i
+  %108 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv104.i.i.i.i
   store i32 -1, ptr %108, align 4, !tbaa !31, !alias.scope !179
   br label %124
 
 109:                                              ; preds = %104
   %110 = trunc i32 %.491.i.i.i.i to i16
-  %111 = getelementptr inbounds nuw [17 x i16], ptr %103, i64 0, i64 %indvars.iv104.i.i.i.i
+  %111 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv104.i.i.i.i
   store i16 %110, ptr %111, align 2, !tbaa !13, !alias.scope !179
   %112 = sext i32 %.491.i.i.i.i to i64
-  %113 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i16, ptr %7, i64 %112
   %114 = load i16, ptr %113, align 2, !tbaa !13, !noalias !179
-  %115 = getelementptr inbounds nuw [17 x i16], ptr %101, i64 0, i64 %indvars.iv104.i.i.i.i
+  %115 = getelementptr inbounds nuw i16, ptr %101, i64 %indvars.iv104.i.i.i.i
   store i16 %114, ptr %115, align 2, !tbaa !13, !alias.scope !179
   %116 = add i32 %106, %.491.i.i.i.i
-  %117 = add nsw i32 %116, -1
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %118
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr i16, ptr %7, i64 %117
+  %119 = getelementptr i8, ptr %118, i64 -2
   %120 = load i16, ptr %119, align 2, !tbaa !13, !noalias !179
   %121 = zext i16 %120 to i32
-  %122 = getelementptr inbounds nuw [18 x i32], ptr %102, i64 0, i64 %indvars.iv104.i.i.i.i
+  %122 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv104.i.i.i.i
   store i32 %121, ptr %122, align 4, !tbaa !31, !alias.scope !179
   %123 = icmp sgt i32 %116, 256
   br i1 %123, label %.invoke.i.i, label %124
@@ -2071,16 +2071,16 @@ _ZNSt5arrayIjLm256EE4fillERKj.exit.preheader.i.i.i.i: ; preds = %124
 
 129:                                              ; preds = %_ZNSt5arrayIjLm256EE4fillERKj.exit.i.i.i.i, %.lr.ph94.i.i.i.i
   %indvars.iv112.i.i.i.i = phi i64 [ 0, %.lr.ph94.i.i.i.i ], [ %indvars.iv.next113.i.i.i.i, %_ZNSt5arrayIjLm256EE4fillERKj.exit.i.i.i.i ]
-  %130 = getelementptr inbounds nuw [257 x i8], ptr %6, i64 0, i64 %indvars.iv112.i.i.i.i
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv112.i.i.i.i
   %131 = load i8, ptr %130, align 1, !tbaa !62, !noalias !179
   %132 = sext i8 %131 to i32
   %133 = icmp slt i8 %131, 9
   br i1 %133, label %134, label %_ZNSt5arrayIjLm256EE4fillERKj.exit.i.i.i.i
 
 134:                                              ; preds = %129
-  %135 = getelementptr inbounds nuw [256 x i32], ptr %128, i64 0, i64 %indvars.iv112.i.i.i.i
+  %135 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv112.i.i.i.i
   %136 = load i32, ptr %135, align 4, !tbaa !31, !alias.scope !179
-  %137 = getelementptr inbounds nuw [257 x i16], ptr %7, i64 0, i64 %indvars.iv112.i.i.i.i
+  %137 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv112.i.i.i.i
   %138 = load i16, ptr %137, align 2, !tbaa !13, !noalias !179
   %139 = zext i16 %138 to i32
   %140 = sub nsw i32 8, %132
@@ -2089,9 +2089,9 @@ _ZNSt5arrayIjLm256EE4fillERKj.exit.preheader.i.i.i.i: ; preds = %124
   br i1 %.not69.i.i.i.i, label %148, label %142
 
 142:                                              ; preds = %134
-  %143 = add nsw i32 %132, 24
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds nuw [32 x i32], ptr @_ZN8rawspeed12_GLOBAL__N_17bitMaskE, i64 0, i64 %144
+  %143 = sext i8 %131 to i64
+  %144 = getelementptr i32, ptr @_ZN8rawspeed12_GLOBAL__N_17bitMaskE, i64 %143
+  %145 = getelementptr i8, ptr %144, i64 96
   %146 = load i32, ptr %145, align 4, !tbaa !31, !noalias !179
   %147 = or i32 %146, %141
   br label %148
@@ -2120,7 +2120,7 @@ _ZNSt5arrayIjLm256EE4fillERKj.exit.preheader.i.i.i.i: ; preds = %124
 
 156:                                              ; preds = %156, %.preheader.i.i.i.i
   %indvars.iv108.i.i.i.i = phi i64 [ %153, %.preheader.i.i.i.i ], [ %indvars.iv.next109.i.i.i.i, %156 ]
-  %157 = getelementptr inbounds nuw [256 x i32], ptr %126, i64 0, i64 %indvars.iv108.i.i.i.i
+  %157 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv108.i.i.i.i
   store i32 %152, ptr %157, align 4, !tbaa !31, !alias.scope !179
   %indvars.iv.next109.i.i.i.i = add nsw i64 %indvars.iv108.i.i.i.i, 1
   %lftr.wideiv.i.i.i.i = trunc i64 %indvars.iv.next109.i.i.i.i to i32
@@ -2149,7 +2149,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i:     ; preds = %_ZNKSt6vectorIiSaIi
   %163 = shl nuw i16 %.047.tr.i.i.i.i.i, 2
   %164 = lshr i16 %.047.tr.i.i.i.i.i, 6
   %165 = zext nneg i16 %164 to i64
-  %166 = getelementptr inbounds nuw [256 x i32], ptr %126, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i32, ptr %126, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !31, !alias.scope !179
   %168 = and i32 %167, 15
   %.not.i.i.i.i.i = icmp eq i32 %168, 0
@@ -2180,7 +2180,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i:     ; preds = %_ZNKSt6vectorIiSaIi
   %181 = shl i32 %.04553.i.i.i.i.i, 1
   %182 = or disjoint i32 %180, %181
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %183 = getelementptr inbounds nuw [18 x i32], ptr %102, i64 0, i64 %indvars.iv.next.i.i.i.i.i
+  %183 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv.next.i.i.i.i.i
   %184 = load i32, ptr %183, align 4, !tbaa !31, !alias.scope !179
   %185 = icmp sgt i32 %182, %184
   br i1 %185, label %175, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !190
@@ -2193,7 +2193,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i:     ; preds = %_ZNKSt6vectorIiSaIi
   %.1.lcssa.i.i.i.i.i = phi i32 [ 8, %171 ], [ %186, %._crit_edge.loopexit.i.i.i.i.i ]
   %.045.lcssa.i.i.i.i.i = phi i32 [ %172, %171 ], [ %182, %._crit_edge.loopexit.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i = phi i64 [ 8, %171 ], [ %indvars.iv.next.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ]
-  %187 = getelementptr inbounds nuw [17 x i16], ptr %103, i64 0, i64 %.lcssa.i.i.i.i.i
+  %187 = getelementptr inbounds nuw i16, ptr %103, i64 %.lcssa.i.i.i.i.i
   %188 = load i16, ptr %187, align 2, !tbaa !13, !alias.scope !179
   %189 = icmp eq i16 %188, 255
   br i1 %189, label %190, label %192
@@ -2205,13 +2205,13 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i:     ; preds = %_ZNKSt6vectorIiSaIi
 
 192:                                              ; preds = %._crit_edge.i.i.i.i.i
   %193 = sext i16 %188 to i32
-  %194 = getelementptr inbounds nuw [17 x i16], ptr %101, i64 0, i64 %.lcssa.i.i.i.i.i
+  %194 = getelementptr inbounds nuw i16, ptr %101, i64 %.lcssa.i.i.i.i.i
   %195 = load i16, ptr %194, align 2, !tbaa !13, !alias.scope !179
   %196 = zext i16 %195 to i32
   %197 = add i32 %.045.lcssa.i.i.i.i.i, %193
   %198 = sub i32 %197, %196
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds nuw [256 x i32], ptr %160, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i32, ptr %160, i64 %199
   %201 = load i32, ptr %200, align 4, !tbaa !31, !alias.scope !179
   br label %202
 
@@ -2337,7 +2337,7 @@ _ZN8rawspeed17NikonDecompressor23createPrefixCodeDecoderINS_12_GLOBAL__N_120Niko
   %indvars.iv93.i = phi i64 [ %259, %.lr.ph.i ], [ %indvars.iv.next94.i, %277 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %269 = and i64 %indvars.iv93.i, 1
-  %270 = getelementptr inbounds nuw [2 x %"struct.std::array.23"], ptr %256, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw %"struct.std::array.23", ptr %256, i64 %269
   %271 = load i64, ptr %270, align 4, !tbaa !62
   store i64 %271, ptr %9, align 8, !tbaa !62
   %272 = icmp samesign ult i64 %indvars.iv93.i, %263
@@ -2439,7 +2439,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 319:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.i
   %320 = lshr i64 %307, 56
-  %321 = getelementptr inbounds nuw [256 x i32], ptr %126, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i32, ptr %126, i64 %320
   %322 = load i32, ptr %321, align 4, !tbaa !31
   %323 = and i32 %322, 15
   %.not46.i.i = icmp eq i32 %323, 0
@@ -2477,7 +2477,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %341 = shl i32 %.04253.i.i, 1
   %342 = or disjoint i32 %341, %338
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %343 = getelementptr inbounds nuw [18 x i32], ptr %102, i64 0, i64 %indvars.iv.next.i.i
+  %343 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv.next.i.i
   %344 = load i32, ptr %343, align 4, !tbaa !31
   %345 = icmp sgt i32 %342, %344
   br i1 %345, label %.lr.ph.i.i, label %346, !llvm.loop !202
@@ -2501,16 +2501,16 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.042.lcssa80.i.i = phi i32 [ %342, %346 ], [ %330, %329 ]
   %350 = phi i32 [ %339, %346 ], [ %331, %329 ]
   %.pre.i6379.i.i = phi i64 [ %340, %346 ], [ %332, %329 ]
-  %351 = getelementptr inbounds nuw [17 x i16], ptr %103, i64 0, i64 %.lcssa81.i.i
+  %351 = getelementptr inbounds nuw i16, ptr %103, i64 %.lcssa81.i.i
   %352 = load i16, ptr %351, align 2, !tbaa !13
   %353 = sext i16 %352 to i32
-  %354 = getelementptr inbounds nuw [17 x i16], ptr %101, i64 0, i64 %.lcssa81.i.i
+  %354 = getelementptr inbounds nuw i16, ptr %101, i64 %.lcssa81.i.i
   %355 = load i16, ptr %354, align 2, !tbaa !13
   %356 = zext i16 %355 to i32
   %357 = add i32 %.042.lcssa80.i.i, %353
   %358 = sub i32 %357, %356
   %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds nuw [256 x i32], ptr %160, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw i32, ptr %160, i64 %359
   %361 = load i32, ptr %360, align 4, !tbaa !31
   br label %362
 
@@ -2620,7 +2620,7 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor16decodeDifferenceERNS_14BitStre
   %413 = phi i32 [ %315, %313 ], [ %363, %362 ], [ %399, %410 ], [ %399, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.i.i ]
   %.040.i.i = phi i32 [ %318, %313 ], [ -32768, %362 ], [ %411, %410 ], [ %405, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.i.i ]
   %414 = and i64 %indvars.iv.i, 1
-  %415 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %414
+  %415 = getelementptr inbounds nuw i32, ptr %9, i64 %414
   %416 = load i32, ptr %415, align 4, !tbaa !31
   %417 = add nsw i32 %416, %.040.i.i
   store i32 %417, ptr %415, align 4, !tbaa !31
@@ -2628,7 +2628,7 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor16decodeDifferenceERNS_14BitStre
   br i1 %418, label %419, label %422
 
 419:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressor16decodeDifferenceERNS_14BitStreamerMSBE.exit.i
-  %420 = getelementptr inbounds nuw [2 x i32], ptr %270, i64 0, i64 %414
+  %420 = getelementptr inbounds nuw i32, ptr %270, i64 %414
   store i32 %417, ptr %420, align 4, !tbaa !31
   br label %422
 
@@ -2929,7 +2929,7 @@ _ZN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDec
   %indvars.iv87 = phi i64 [ %50, %.lr.ph ], [ %indvars.iv.next88, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = and i64 %indvars.iv87, 1
-  %105 = getelementptr inbounds nuw [2 x %"struct.std::array.23"], ptr %33, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw %"struct.std::array.23", ptr %33, i64 %104
   %106 = load i64, ptr %105, align 4, !tbaa !62
   store i64 %106, ptr %6, align 8, !tbaa !62
   %107 = load ptr, ptr %41, align 8
@@ -3205,7 +3205,7 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getI
 _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE16decodeDifferenceINS_14BitStreamerMSBEEEiRT_.exit: ; preds = %227, %223, %222, %217, %.noexc
   %.0.i = phi i32 [ %165, %.noexc ], [ -32768, %223 ], [ -32768, %222 ], [ %.0.i.i, %227 ], [ 0, %217 ]
   %239 = and i64 %indvars.iv, 1
-  %240 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i32, ptr %6, i64 %239
   %241 = load i32, ptr %240, align 4, !tbaa !31
   %242 = add nsw i32 %241, %.0.i
   store i32 %242, ptr %240, align 4, !tbaa !31
@@ -3213,7 +3213,7 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDe
   br i1 %243, label %244, label %248
 
 244:                                              ; preds = %_ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEE16decodeDifferenceINS_14BitStreamerMSBEEEiRT_.exit
-  %245 = getelementptr inbounds nuw [2 x i32], ptr %105, i64 0, i64 %239
+  %245 = getelementptr inbounds nuw i32, ptr %105, i64 %239
   store i32 %242, ptr %245, align 4, !tbaa !31
   br label %248
 

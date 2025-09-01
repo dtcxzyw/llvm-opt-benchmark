@@ -85,7 +85,7 @@ define internal range(i32 -1163346256, 1) i32 @decode_init(ptr noundef captures(
 28:                                               ; preds = %.preheader43, %28
   %indvars.iv = phi i64 [ %23, %.preheader43 ], [ %indvars.iv.next, %28 ]
   %.03546 = phi i32 [ -14, %.preheader43 ], [ %31, %28 ]
-  %29 = getelementptr inbounds [128 x [2 x i32]], ptr %22, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds [2 x i32], ptr %22, i64 %indvars.iv
   store i32 %.03546, ptr %29, align 8, !tbaa !38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -105,7 +105,7 @@ define internal range(i32 -1163346256, 1) i32 @decode_init(ptr noundef captures(
 34:                                               ; preds = %.preheader, %34
   %indvars.iv56 = phi i64 [ %32, %.preheader ], [ %indvars.iv.next57, %34 ]
   %.050 = phi i32 [ -5, %.preheader ], [ %37, %34 ]
-  %35 = getelementptr inbounds [16 x [2 x i32]], ptr %25, i64 0, i64 %indvars.iv56
+  %35 = getelementptr inbounds [2 x i32], ptr %25, i64 %indvars.iv56
   store i32 %.050, ptr %35, align 8, !tbaa !38
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -1684,7 +1684,7 @@ bytestream2_get_byte.exit394.thread.us.i:         ; preds = %726
   %749 = phi ptr [ %498, %bytestream2_get_byte.exit394.thread.us.i ], [ %730, %bytestream2_get_byte.exit394.us.i ]
   %.0.i39323.us.i = phi i32 [ 0, %bytestream2_get_byte.exit394.thread.us.i ], [ %732, %bytestream2_get_byte.exit394.us.i ]
   %750 = zext nneg i32 %.0.i39323.us.i to i64
-  %751 = getelementptr inbounds nuw [128 x [2 x i32]], ptr %485, i64 0, i64 %750
+  %751 = getelementptr inbounds nuw [2 x i32], ptr %485, i64 %750
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 4
   %753 = load i32, ptr %752, align 4, !tbaa !38
   %754 = add nsw i32 %753, %713
@@ -1782,7 +1782,7 @@ bytestream2_get_byte.exit392.us.i:                ; preds = %789, %785
   %.0260.us.i = phi i32 [ %780, %779 ], [ %791, %bytestream2_get_byte.exit392.us.i ]
   %794 = xor i32 %.1282164.us.i, 1
   %795 = sext i32 %.0260.us.i to i64
-  %796 = getelementptr inbounds [16 x [2 x i32]], ptr %486, i64 0, i64 %795
+  %796 = getelementptr inbounds [2 x i32], ptr %486, i64 %795
   %797 = getelementptr inbounds nuw i8, ptr %796, i64 4
   %798 = load i32, ptr %797, align 4, !tbaa !38
   %799 = add nsw i32 %798, %819

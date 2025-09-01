@@ -294,7 +294,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
 
 156:                                              ; preds = %150, %164
   %indvars.iv = phi i64 [ 0, %150 ], [ %indvars.iv.next, %164 ]
-  %157 = getelementptr inbounds nuw [17 x %struct.AVRational], ptr @ff_h2645_pixel_aspect, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %indvars.iv
   %158 = load i32, ptr %157, align 8, !tbaa !100
   %159 = icmp eq i32 %154, %158
   br i1 %159, label %160, label %164
@@ -463,7 +463,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %243
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %244
   %245 = zext nneg i32 %.110.i to i64
-  %246 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %245
   %247 = load i8, ptr %246, align 1, !tbaa !132
   %248 = zext i8 %247 to i32
   %249 = add nuw nsw i32 %.1.i, %248
@@ -496,7 +496,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   %.110.i237 = select i1 %.not11.i236, i32 %spec.select.i234, i32 %265
   %.1.i238 = select i1 %.not11.i236, i32 %spec.select12.i235, i32 %266
   %267 = zext nneg i32 %.110.i237 to i64
-  %268 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %267
   %269 = load i8, ptr %268, align 1, !tbaa !132
   %270 = zext i8 %269 to i32
   %271 = add nuw nsw i32 %.1.i238, %270

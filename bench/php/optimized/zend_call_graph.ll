@@ -196,7 +196,7 @@ zend_arena_alloc.exit148:                         ; preds = %52, %54
   %86 = getelementptr inbounds nuw i8, ptr %31, i64 208
   %87 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [6 x ptr], ptr %86, i64 0, i64 %88
+  %89 = getelementptr inbounds ptr, ptr %86, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !67
   %.not139 = icmp eq ptr %90, null
   br i1 %.not139, label %95, label %91
@@ -345,7 +345,7 @@ zend_arena_alloc.exit:                            ; preds = %123, %125
   %narrow = call i32 @llvm.usub.sat.i32(i32 %166, i32 1)
   %.0 = zext i32 %narrow to i64
   %167 = getelementptr inbounds nuw i8, ptr %.0124152, i64 64
-  %168 = getelementptr inbounds nuw [1 x %struct._zend_send_arg_info], ptr %167, i64 0, i64 %.0
+  %168 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %167, i64 %.0
   store ptr %.0123153, ptr %168, align 8, !tbaa !80
   br label %172
 
@@ -517,7 +517,7 @@ define internal void @zend_op_array_collect(ptr noundef %0, ptr noundef captures
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
   store ptr %7, ptr %11, align 8, !tbaa !89
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !87
@@ -769,7 +769,7 @@ zend_arena_alloc.exit:                            ; preds = %23, %25
 
 60:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %61 = getelementptr inbounds nuw [1 x %struct._zend_send_arg_info], ptr %59, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %59, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !80
   %.not33 = icmp eq ptr %62, null
   br i1 %.not33, label %68, label %63
@@ -813,7 +813,7 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = load i32, ptr %10, align 8, !tbaa !91
   %12 = zext i32 %11 to i64

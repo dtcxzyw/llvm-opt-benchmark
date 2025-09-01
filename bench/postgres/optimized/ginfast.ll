@@ -810,17 +810,17 @@ BufferGetPage.exit.i:                             ; preds = %132, %128
   %.179.i = phi i32 [ %177, %BufferGetPage.exit72.i ], [ %.0.i94, %143 ]
   %.06678.i = phi i64 [ %176, %BufferGetPage.exit72.i ], [ 0, %143 ]
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %145
+  %146 = getelementptr inbounds i32, ptr %8, i64 %145
   store i32 %.179.i, ptr %146, align 4
   %147 = call i32 @ReadBuffer(ptr noundef %15, i32 noundef %.179.i) #9
   %148 = load i32, ptr %79, align 8
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %149
+  %150 = getelementptr inbounds i32, ptr %7, i64 %149
   store i32 %147, ptr %150, align 4
   call void @LockBuffer(i32 noundef %147, i32 noundef 2) #9
   %151 = load i32, ptr %79, align 8
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %152
+  %153 = getelementptr inbounds i32, ptr %7, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %156, label %162
@@ -927,7 +927,7 @@ BufferGetPage.exit72.i:                           ; preds = %162, %156
 
 .lr.ph85.i:                                       ; preds = %209, %BufferGetPage.exit74.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %BufferGetPage.exit74.i ], [ 0, %209 ]
-  %212 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %212 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %213 = load i32, ptr %212, align 4
   %214 = icmp slt i32 %213, 0
   br i1 %214, label %215, label %221
@@ -997,7 +997,7 @@ BufferGetPage.exit74.i:                           ; preds = %221, %215
   %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %.lr.ph89.i ], [ 0, %249 ]
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %252 = trunc i64 %indvars.iv.next109.i to i8
-  %253 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv108.i
+  %253 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv108.i
   %254 = load i32, ptr %253, align 4
   call void @XLogRegisterBuffer(i8 noundef zeroext %252, i32 noundef %254, i8 noundef zeroext 6) #9
   %255 = load i32, ptr %79, align 8
@@ -1020,7 +1020,7 @@ BufferGetPage.exit74.i:                           ; preds = %221, %215
 
 .lr.ph93.i:                                       ; preds = %._crit_edge90.i, %BufferGetPage.exit76.i
   %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %BufferGetPage.exit76.i ], [ 0, %._crit_edge90.i ]
-  %264 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv111.i
+  %264 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv111.i
   %265 = load i32, ptr %264, align 4
   %266 = icmp slt i32 %265, 0
   br i1 %266, label %267, label %273
@@ -1059,7 +1059,7 @@ BufferGetPage.exit76.i:                           ; preds = %273, %267
 
 .lr.ph96.i:                                       ; preds = %.loopexit.i, %.lr.ph96.i
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %.lr.ph96.i ], [ 0, %.loopexit.i ]
-  %285 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv114.i
+  %285 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv114.i
   %286 = load i32, ptr %285, align 4
   call void @UnlockReleaseBuffer(i32 noundef %286) #9
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
@@ -1084,7 +1084,7 @@ BufferGetPage.exit76.i:                           ; preds = %273, %267
 
 .lr.ph100.split.i:                                ; preds = %._crit_edge97.i, %.lr.ph100.split.i
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %.lr.ph100.split.i ], [ 0, %._crit_edge97.i ]
-  %296 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %indvars.iv117.i
+  %296 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv117.i
   %297 = load i32, ptr %296, align 4
   call void @RecordFreeIndexPage(ptr noundef %15, i32 noundef %297) #9
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
@@ -1342,7 +1342,7 @@ define internal fastcc void @processPendingPage(ptr noundef nonnull %0, ptr noun
   %20 = zext nneg i16 %.039 to i64
   %21 = add nuw nsw i64 %20, 4294967295
   %22 = and i64 %21, 4294967295
-  %23 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.ItemIdData, ptr %16, i64 %22
   %.val34 = load i32, ptr %23, align 4
   %24 = and i32 %.val34, 32767
   %25 = zext nneg i32 %24 to i64

@@ -189,7 +189,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN12vmIntrinsics17predicates_neededE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12vmIntrinsics17predicates_neededE13vmIntrinsicID, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12vmIntrinsics17predicates_neededE13vmIntrinsicID, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -825,7 +825,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 
 10:                                               ; preds = %8
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds [421 x ptr], ptr @_ZL23vm_intrinsic_name_table, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -983,7 +983,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit:               ; preds = %20
   %sext = shl i64 %indvars.iv.i, 32
   %36 = ashr exact i64 %sext, 32
   %37 = lshr i64 %36, 4
-  %38 = getelementptr inbounds nuw [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @_ZL26vm_intrinsic_control_words, i64 %37
   %39 = lshr exact i64 %sext, 31
   %40 = load i32, ptr %38, align 4, !noalias !9
   %41 = trunc i64 %39 to i32
@@ -1052,7 +1052,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24:             ; preds = %60
   %sext64 = shl i64 %indvars.iv.i13, 32
   %66 = ashr exact i64 %sext64, 32
   %67 = lshr i64 %66, 4
-  %68 = getelementptr inbounds nuw [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr @_ZL26vm_intrinsic_control_words, i64 %67
   %69 = lshr exact i64 %sext64, 31
   %70 = load i32, ptr %68, align 4, !noalias !17
   %71 = trunc i64 %69 to i32
@@ -1075,7 +1075,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
 81:                                               ; preds = %._crit_edge74, %1
   %82 = sext i32 %0 to i64
   %83 = lshr i64 %82, 4
-  %84 = getelementptr inbounds nuw [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr @_ZL26vm_intrinsic_control_words, i64 %83
   %85 = shl i32 %0, 1
   %86 = and i32 %85, 30
   %87 = load i32, ptr %84, align 4, !noalias !21
@@ -3656,7 +3656,7 @@ define hidden noundef range(i32 0, 421) i32 @_ZN12vmIntrinsics12find_id_implE10v
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN12vmIntrinsics20class_has_intrinsicsE10vmSymbolID(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [1170 x i8], ptr @_ZL18_intrinsics_lookup, i64 0, i64 %2
+  %3 = getelementptr inbounds i8, ptr @_ZL18_intrinsics_lookup, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -3690,7 +3690,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.
 
 12:                                               ; preds = %10
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds [421 x ptr], ptr @_ZL23vm_intrinsic_name_table, i64 0, i64 %13
+  %14 = getelementptr inbounds ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %_ZN12vmIntrinsics7name_atE13vmIntrinsicID.exit
 

@@ -3004,7 +3004,7 @@ _ZL11_window_minPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
 
 90:                                               ; preds = %90, %88
   %.067.i.i = phi i64 [ 0, %88 ], [ %92, %90 ]
-  %91 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %.067.i.i
+  %91 = getelementptr inbounds nuw float, ptr %7, i64 %.067.i.i
   store float 0x47EFFFFFE0000000, ptr %91, align 4, !tbaa !13, !noalias !824
   %92 = add nuw nsw i64 %.067.i.i, 1
   %exitcond.not.i70.i = icmp eq i64 %92, 16
@@ -3177,7 +3177,7 @@ _ZL13_box_min_vertILm16EEvjPfS0_ijm.exit.i:       ; preds = %_ZL16_load_update_m
 
 154:                                              ; preds = %154, %152
   %.067.i77.i = phi i64 [ 0, %152 ], [ %156, %154 ]
-  %155 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.067.i77.i
+  %155 = getelementptr inbounds nuw float, ptr %6, i64 %.067.i77.i
   store float 0x47EFFFFFE0000000, ptr %155, align 4, !tbaa !13, !noalias !866
   %156 = add nuw nsw i64 %.067.i77.i, 1
   %exitcond.not.i78.i = icmp eq i64 %156, 4
@@ -3638,7 +3638,7 @@ _ZL11_window_maxPKfi.exit.i.i:                    ; preds = %.lr.ph.i, %_ZL11_wi
 
 88:                                               ; preds = %88, %86
   %.067.i.i = phi i64 [ 0, %86 ], [ %90, %88 ]
-  %89 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %.067.i.i
+  %89 = getelementptr inbounds nuw float, ptr %7, i64 %.067.i.i
   store float 0xC7EFFFFFE0000000, ptr %89, align 4, !tbaa !13, !noalias !945
   %90 = add nuw nsw i64 %.067.i.i, 1
   %exitcond.not.i70.i = icmp eq i64 %90, 16
@@ -3809,7 +3809,7 @@ _ZL13_box_max_vertILm16EEvjPfS0_mjm.exit.i:       ; preds = %_ZL16_load_update_m
 
 151:                                              ; preds = %151, %149
   %.067.i77.i = phi i64 [ 0, %149 ], [ %153, %151 ]
-  %152 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.067.i77.i
+  %152 = getelementptr inbounds nuw float, ptr %6, i64 %.067.i77.i
   store float 0xC7EFFFFFE0000000, ptr %152, align 4, !tbaa !13, !noalias !986
   %153 = add nuw nsw i64 %.067.i77.i, 1
   %exitcond.not.i78.i = icmp eq i64 %153, 4

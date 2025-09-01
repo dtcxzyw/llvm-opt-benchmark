@@ -2385,7 +2385,7 @@ _ZN3smt11farkas_util5mergeEjj.exit:               ; preds = %27, %44, %.noexc15,
 68:                                               ; preds = %.lr.ph, %124
   %69 = phi ptr [ %.pre, %.lr.ph ], [ %125, %124 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %124 ]
-  %70 = getelementptr inbounds nuw [0 x ptr], ptr %67, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !32
   %72 = icmp eq ptr %69, null
   br i1 %72, label %79, label %73

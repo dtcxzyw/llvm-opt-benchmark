@@ -550,7 +550,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %175
   %189 = add i32 %171, -1
   store i32 %189, ptr %170, align 8, !tbaa !680
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw [16 x ptr], ptr %188, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw ptr, ptr %188, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !699
   store i8 0, ptr %192, align 8, !tbaa !682
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 424
@@ -608,7 +608,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 1
   %212 = load i8, ptr %210, align 8, !tbaa !682
   %213 = zext i8 %212 to i64
-  %214 = getelementptr inbounds nuw [10 x i8], ptr %211, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 %213
   store i8 2, ptr %214, align 1, !tbaa !8
   %215 = load ptr, ptr %35, align 8, !tbaa !675
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
@@ -616,14 +616,14 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %218 = add i8 %217, 1
   store i8 %218, ptr %215, align 8, !tbaa !682
   %219 = zext i8 %217 to i64
-  %220 = getelementptr inbounds nuw [10 x i64], ptr %216, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i64, ptr %216, i64 %219
   store i64 %165, ptr %220, align 8, !tbaa !623
   %.sroa.0.0.copyload.i175 = load i64, ptr %155, align 8, !tbaa !623
   %sext982 = shl i64 %.sroa.0.0.copyload.i175, 32
   %221 = ashr exact i64 %sext982, 32
   %222 = getelementptr inbounds nuw i8, ptr %215, i64 1
   %223 = zext i8 %218 to i64
-  %224 = getelementptr inbounds nuw [10 x i8], ptr %222, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 %223
   store i8 2, ptr %224, align 1, !tbaa !8
   %225 = load ptr, ptr %35, align 8, !tbaa !675
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
@@ -631,7 +631,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %228 = add i8 %227, 1
   store i8 %228, ptr %225, align 8, !tbaa !682
   %229 = zext i8 %227 to i64
-  %230 = getelementptr inbounds nuw [10 x i64], ptr %226, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw i64, ptr %226, i64 %229
   store i64 %221, ptr %230, align 8, !tbaa !623
   %231 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %232 = load i8, ptr %231, align 8, !tbaa !703, !range !705, !noundef !706
@@ -751,7 +751,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i611:   ; preds = %269
   %283 = add i32 %265, -1
   store i32 %283, ptr %264, align 8, !tbaa !680
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw [16 x ptr], ptr %282, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw ptr, ptr %282, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !699
   store i8 0, ptr %286, align 8, !tbaa !682
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 424
@@ -809,7 +809,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 1
   %306 = load i8, ptr %304, align 8, !tbaa !682
   %307 = zext i8 %306 to i64
-  %308 = getelementptr inbounds nuw [10 x i8], ptr %305, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 %307
   store i8 2, ptr %308, align 1, !tbaa !8
   %309 = load ptr, ptr %36, align 8, !tbaa !675
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
@@ -817,13 +817,13 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %312 = add i8 %311, 1
   store i8 %312, ptr %309, align 8, !tbaa !682
   %313 = zext i8 %311 to i64
-  %314 = getelementptr inbounds nuw [10 x i64], ptr %310, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw i64, ptr %310, i64 %313
   store i64 %259, ptr %314, align 8, !tbaa !623
   %sext984 = shl i64 %151, 32
   %315 = ashr exact i64 %sext984, 32
   %316 = getelementptr inbounds nuw i8, ptr %309, i64 1
   %317 = zext i8 %312 to i64
-  %318 = getelementptr inbounds nuw [10 x i8], ptr %316, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 %317
   store i8 2, ptr %318, align 1, !tbaa !8
   %319 = load ptr, ptr %36, align 8, !tbaa !675
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
@@ -831,7 +831,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %322 = add i8 %321, 1
   store i8 %322, ptr %319, align 8, !tbaa !682
   %323 = zext i8 %321 to i64
-  %324 = getelementptr inbounds nuw [10 x i64], ptr %320, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw i64, ptr %320, i64 %323
   store i64 %315, ptr %324, align 8, !tbaa !623
   %325 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %326 = load i8, ptr %325, align 8, !tbaa !703, !range !705, !noundef !706
@@ -918,7 +918,7 @@ _ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i: ; preds = %349
   %362 = load i32, ptr %361, align 8, !tbaa !717
   %363 = add i32 %362, -1
   %364 = zext i32 %363 to i64
-  %365 = getelementptr inbounds nuw [7 x ptr], ptr %73, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw ptr, ptr %73, i64 %364
   %366 = load ptr, ptr %365, align 8, !tbaa !3
   %367 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %366, i1 noundef zeroext false) #15
   %368 = load ptr, ptr %360, align 8, !tbaa !715
@@ -5120,10 +5120,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %switch.loo
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i32 %134(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %131) #15
   %136 = zext nneg i32 %135 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 0, i64 %136
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 %136
   %switch.load = load i64, ptr %switch.gep, align 8
   %137 = zext nneg i32 %135 to i64
-  %switch.gep1 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 0, i64 %137
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 %137
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   store i8 5, ptr %81, align 8, !tbaa !724
   store i8 1, ptr %82, align 1, !tbaa !721
@@ -5882,7 +5882,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit44: ; preds = %
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %156 = load ptr, ptr %155, align 8, !tbaa !1231
   %157 = zext i32 %3 to i64
-  %158 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !1232
   %160 = sext i32 %159 to i64
   %161 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %156, i64 noundef %160, i1 noundef zeroext false) #15
@@ -6100,11 +6100,11 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
   %260 = trunc nuw i8 %.val.i60 to i1
   %switch.tableidx = add nsw i32 %3, -2
   %261 = zext nneg i32 %switch.tableidx to i64
-  br i1 %260, label %switch.lookup, label %switch.lookup181
+  br i1 %260, label %switch.lookup, label %switch.lookup182
 
 switch.lookup:                                    ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i.i.i)
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %261
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %261
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(232) %27)
@@ -6379,9 +6379,9 @@ _ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingEN5
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0.i.i.i)
   br label %_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicUpdateEN4llvm14AtomicOrderingEN5clang7CodeGen6RValueEb.exit
 
-switch.lookup181:                                 ; preds = %258
+switch.lookup182:                                 ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i.i6.i)
-  %switch.gep183 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %261
+  %switch.gep183 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %261
   %switch.load184 = load i32, ptr %switch.gep183, align 4
   %370 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %27, i32 noundef %switch.load184, i1 noundef zeroext %4, i1 noundef zeroext true)
   %371 = load ptr, ptr %27, align 8, !tbaa !747
@@ -6433,13 +6433,13 @@ switch.lookup181:                                 ; preds = %258
   %401 = icmp eq i32 %398, %400
   br i1 %401, label %402, label %403
 
-402:                                              ; preds = %switch.lookup181
+402:                                              ; preds = %switch.lookup182
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %395) #15
   %.pre.i.i.i = load i32, ptr %396, align 4
   br label %403
 
-403:                                              ; preds = %402, %switch.lookup181
-  %404 = phi i32 [ %.pre.i.i.i, %402 ], [ %397, %switch.lookup181 ]
+403:                                              ; preds = %402, %switch.lookup182
+  %404 = phi i32 [ %.pre.i.i.i, %402 ], [ %397, %switch.lookup182 ]
   %405 = add i32 %404, 1
   %406 = and i32 %405, 134217727
   %407 = and i32 %404, -134217728
@@ -7434,11 +7434,11 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_
   %26 = trunc nuw i8 %.val.i to i1
   %switch.tableidx = add nsw i32 %2, -2
   %27 = zext nneg i32 %switch.tableidx to i64
-  br i1 %26, label %switch.lookup, label %switch.lookup7
+  br i1 %26, label %switch.lookup, label %switch.lookup8
 
 switch.lookup:                                    ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo16CreateTempAllocaEv(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(232) %24)
@@ -7660,9 +7660,9 @@ _ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingERK
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicUpdateEN4llvm14AtomicOrderingERKNS1_12function_refIFN5clang7CodeGen6RValueES6_EEEb.exit
 
-switch.lookup7:                                   ; preds = %5
+switch.lookup8:                                   ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %switch.gep9 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %27
+  %switch.gep9 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 %27
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   %127 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %24, i32 noundef %switch.load10, i1 noundef zeroext %4, i1 noundef zeroext true)
   %128 = load ptr, ptr %24, align 8, !tbaa !747
@@ -7714,13 +7714,13 @@ switch.lookup7:                                   ; preds = %5
   %158 = icmp eq i32 %155, %157
   br i1 %158, label %159, label %160
 
-159:                                              ; preds = %switch.lookup7
+159:                                              ; preds = %switch.lookup8
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %152) #15
   %.pre.i.i.i = load i32, ptr %153, align 4
   br label %160
 
-160:                                              ; preds = %159, %switch.lookup7
-  %161 = phi i32 [ %.pre.i.i.i, %159 ], [ %154, %switch.lookup7 ]
+160:                                              ; preds = %159, %switch.lookup8
+  %161 = phi i32 [ %.pre.i.i.i, %159 ], [ %154, %switch.lookup8 ]
   %162 = add i32 %161, 1
   %163 = and i32 %162, 134217727
   %164 = and i32 %161, -134217728
@@ -8255,7 +8255,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !680
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !699
   br label %49
 
@@ -9805,7 +9805,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %25, %32
 
 switch.lookup:                                    ; preds = %36
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL27emitAtomicCmpXchgFailureSetRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprEbNS0_7AddressES5_S5_S5_PN4llvm5ValueEmNS6_14AtomicOrderingEh, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -11477,7 +11477,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit21: ; preds = %
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 72
   %123 = load ptr, ptr %122, align 8, !tbaa !1231
   %124 = zext i32 %2 to i64
-  %125 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !1232
   %127 = sext i32 %126 to i64
   %128 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %123, i64 noundef %127, i1 noundef zeroext false) #15
@@ -12716,7 +12716,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit33: ; preds = %
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 72
   %155 = load ptr, ptr %154, align 8, !tbaa !1231
   %156 = zext i32 %3 to i64
-  %157 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !1232
   %159 = sext i32 %158 to i64
   %160 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %155, i64 noundef %159, i1 noundef zeroext false) #15
@@ -12783,7 +12783,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit41: ; preds = %
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 72
   %192 = load ptr, ptr %191, align 8, !tbaa !1231
   %193 = zext i32 %4 to i64
-  %194 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !1232
   %196 = sext i32 %195 to i64
   %197 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %192, i64 noundef %196, i1 noundef zeroext false) #15

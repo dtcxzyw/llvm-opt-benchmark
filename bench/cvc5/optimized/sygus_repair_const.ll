@@ -3050,7 +3050,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %114, %118, %124
   %139 = icmp eq i32 %137, 2
   %140 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %141 = zext i1 %139 to i64
-  %142 = getelementptr inbounds nuw [0 x ptr], ptr %140, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !27, !noalias !338
   store ptr %143, ptr %17, align 8, !tbaa !48, !alias.scope !338
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext false)

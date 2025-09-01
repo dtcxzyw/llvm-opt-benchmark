@@ -153,7 +153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %58 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 1
+  %58 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 1
   %59 = load ptr, ptr %58, align 8, !tbaa !29
   store ptr %49, ptr %9, align 8, !tbaa !3
   %60 = icmp eq ptr %59, null

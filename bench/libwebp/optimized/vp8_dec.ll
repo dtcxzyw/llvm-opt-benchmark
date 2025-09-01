@@ -700,7 +700,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 19:                                               ; preds = %14, %16
   %20 = phi i8 [ %18, %16 ], [ 0, %14 ]
-  %21 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %20, ptr %21, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -719,7 +719,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 27:                                               ; preds = %22, %24
   %28 = phi i8 [ %26, %24 ], [ 0, %22 ]
-  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv41
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv41
   store i8 %28, ptr %29, align 1, !tbaa !31
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 4
@@ -743,7 +743,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 35:                                               ; preds = %.preheader, %32
   %36 = phi i8 [ %34, %32 ], [ -1, %.preheader ]
-  %37 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 0, i64 %indvars.iv45
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45
   store i8 %36, ptr %37, align 1, !tbaa !31
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 3
@@ -800,7 +800,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 17:                                               ; preds = %15
   %18 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !32
   br label %20
 
@@ -817,7 +817,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 23:                                               ; preds = %21
   %24 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv35
+  %25 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv35
   store i32 %24, ptr %25, align 4, !tbaa !32
   br label %26
 
@@ -950,7 +950,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 798
   %23 = load i8, ptr %22, align 2, !tbaa !82
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %21, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %struct.VP8QuantMatrix, ptr %21, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(768) %13, i8 0, i64 768, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %27 = load i8, ptr %26, align 4, !tbaa !83
@@ -1210,11 +1210,11 @@ ParseResiduals.exit:                              ; preds = %145, %151
   %178 = getelementptr inbounds nuw i8, ptr %13, i64 798
   %179 = load i8, ptr %178, align 2, !tbaa !82
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %177, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %177, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %183 = load i8, ptr %182, align 4, !tbaa !83
   %184 = zext i8 %183 to i64
-  %185 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %181, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw %struct.VP8FInfo, ptr %181, i64 %184
   %186 = load i32, ptr %185, align 4
   store i32 %186, ptr %176, align 1
   %187 = getelementptr inbounds nuw i8, ptr %176, i64 2
@@ -1313,7 +1313,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   %35 = load i32, ptr %28, align 8, !tbaa !27
   %36 = and i32 %35, %storemerge33.i
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %27, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %27, i64 %37
   %39 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %29, ptr noundef nonnull %0) #13
   %.not25.i = icmp eq i32 %39, 0
   br i1 %.not25.i, label %43, label %.preheader.i
@@ -1469,7 +1469,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
   %9 = getelementptr inbounds ptr, ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds [3 x [11 x i8]], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds [11 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1541,10 +1541,10 @@ VP8LoadNewBytes.exit.i:                           ; preds = %33, %27, %17
 
 50:                                               ; preds = %47
   %51 = zext nneg i32 %.0.i to i64
-  %52 = getelementptr inbounds nuw [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @kVP8Log2Range, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !31, !noalias !109
   %54 = zext i8 %53 to i32
-  %55 = getelementptr inbounds nuw [128 x i8], ptr @kVP8NewRange, i64 0, i64 %51
+  %55 = getelementptr inbounds nuw i8, ptr @kVP8NewRange, i64 %51
   %56 = load i8, ptr %55, align 1, !tbaa !31, !noalias !109
   %57 = zext i8 %56 to i32
   %58 = sub nsw i32 %34, %54
@@ -1626,10 +1626,10 @@ VP8LoadNewBytes.exit.i34:                         ; preds = %77, %72, %.preheade
 
 94:                                               ; preds = %91
   %95 = zext nneg i32 %.0.i36 to i64
-  %96 = getelementptr inbounds nuw [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @kVP8Log2Range, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !31, !noalias !120
   %98 = zext i8 %97 to i32
-  %99 = getelementptr inbounds nuw [128 x i8], ptr @kVP8NewRange, i64 0, i64 %95
+  %99 = getelementptr inbounds nuw i8, ptr @kVP8NewRange, i64 %95
   %100 = load i8, ptr %99, align 1, !tbaa !31, !noalias !120
   %101 = zext i8 %100 to i32
   %102 = sub nsw i32 %79, %98
@@ -1714,10 +1714,10 @@ VP8LoadNewBytes.exit.i41:                         ; preds = %128, %123, %108
 
 144:                                              ; preds = %142
   %145 = zext nneg i32 %.0.i43 to i64
-  %146 = getelementptr inbounds nuw [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @kVP8Log2Range, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !31, !noalias !128
   %148 = zext i8 %147 to i32
-  %149 = getelementptr inbounds nuw [128 x i8], ptr @kVP8NewRange, i64 0, i64 %145
+  %149 = getelementptr inbounds nuw i8, ptr @kVP8NewRange, i64 %145
   %150 = load i8, ptr %149, align 1, !tbaa !31, !noalias !128
   %151 = zext i8 %150 to i32
   %152 = sub nsw i32 %130, %148
@@ -1802,7 +1802,7 @@ VP8GetSigned.exit:                                ; preds = %159, %166, %172
   %197 = trunc i32 %196 to i16
   %sext = shl i64 %indvars.iv, 32
   %198 = ashr exact i64 %sext, 32
-  %199 = getelementptr inbounds [16 x i8], ptr @kZigzag, i64 0, i64 %198
+  %199 = getelementptr inbounds i8, ptr @kZigzag, i64 %198
   %200 = load i8, ptr %199, align 1, !tbaa !31
   %201 = zext i8 %200 to i64
   %202 = getelementptr inbounds nuw i16, ptr %5, i64 %201
@@ -1825,7 +1825,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, pt
   %9 = getelementptr inbounds ptr, ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds [3 x [11 x i8]], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds [11 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2130,7 +2130,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
   %181 = trunc i32 %180 to i16
   %sext = shl i64 %indvars.iv, 32
   %182 = ashr exact i64 %sext, 32
-  %183 = getelementptr inbounds [16 x i8], ptr @kZigzag, i64 0, i64 %182
+  %183 = getelementptr inbounds i8, ptr @kZigzag, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !31
   %185 = zext i8 %184 to i64
   %186 = getelementptr inbounds nuw i16, ptr %5, i64 %185
@@ -2826,7 +2826,7 @@ VP8GetBit.exit80:                                 ; preds = %369, %375
   %384 = select i1 %328, i32 2, i32 0
   %385 = or disjoint i32 %384, %378
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw [4 x ptr], ptr @kCat3456, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw ptr, ptr @kCat3456, i64 %386
   %388 = load ptr, ptr %387, align 8, !tbaa !243
   %389 = load i8, ptr %388, align 1, !tbaa !31
   %.not3589 = icmp eq i8 %389, 0

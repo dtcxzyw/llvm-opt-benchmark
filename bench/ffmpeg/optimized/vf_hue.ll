@@ -481,8 +481,8 @@ create_chrominance_lut.exit.thread:               ; preds = %111
   %149 = add i32 %148, 8421376
   %150 = mul i32 %147, %135
   %151 = add i32 %150, 8421376
-  %152 = getelementptr inbounds nuw [256 x [256 x i8]], ptr %144, i64 0, i64 %indvars.iv63.i
-  %153 = getelementptr inbounds nuw [256 x [256 x i8]], ptr %145, i64 0, i64 %indvars.iv63.i
+  %152 = getelementptr inbounds nuw [256 x i8], ptr %144, i64 %indvars.iv63.i
+  %153 = getelementptr inbounds nuw [256 x i8], ptr %145, i64 %indvars.iv63.i
   br label %156
 
 .preheader54.i:                                   ; preds = %171
@@ -505,14 +505,14 @@ create_chrominance_lut.exit.thread:               ; preds = %111
   %165 = sext i1 %isnotneg.i.i to i8
   %166 = trunc nuw i32 %161 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %166, i8 %165
-  %167 = getelementptr inbounds nuw [256 x i8], ptr %152, i64 0, i64 %indvars.iv.i
+  %167 = getelementptr inbounds nuw i8, ptr %152, i64 %indvars.iv.i
   store i8 %.0.i.i, ptr %167, align 1, !tbaa !67
   %.not.i45.i = icmp ult i32 %164, 256
   %isnotneg.i46.i = icmp sgt i32 %164, -1
   %168 = sext i1 %isnotneg.i46.i to i8
   %169 = trunc nuw i32 %164 to i8
   %.0.i47.i = select i1 %.not.i45.i, i8 %169, i8 %168
-  %170 = getelementptr inbounds nuw [256 x i8], ptr %153, i64 0, i64 %indvars.iv.i
+  %170 = getelementptr inbounds nuw i8, ptr %153, i64 %indvars.iv.i
   store i8 %.0.i47.i, ptr %170, align 1, !tbaa !67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -531,8 +531,8 @@ create_chrominance_lut.exit.thread:               ; preds = %111
   %175 = add i32 %174, 33587200
   %176 = mul i32 %173, %135
   %177 = add i32 %176, 33587200
-  %178 = getelementptr inbounds nuw [1024 x [1024 x i16]], ptr %154, i64 0, i64 %indvars.iv71.i
-  %179 = getelementptr inbounds nuw [1024 x [1024 x i16]], ptr %155, i64 0, i64 %indvars.iv71.i
+  %178 = getelementptr inbounds nuw [1024 x i16], ptr %154, i64 %indvars.iv71.i
+  %179 = getelementptr inbounds nuw [1024 x i16], ptr %155, i64 %indvars.iv71.i
   br label %180
 
 180:                                              ; preds = %180, %.preheader.i
@@ -548,12 +548,12 @@ create_chrominance_lut.exit.thread:               ; preds = %111
   %189 = tail call i32 @llvm.smax.i32(i32 %185, i32 0)
   %190 = tail call i32 @llvm.umin.i32(i32 %189, i32 1023)
   %191 = trunc nuw nsw i32 %190 to i16
-  %192 = getelementptr inbounds nuw [1024 x i16], ptr %178, i64 0, i64 %indvars.iv67.i
+  %192 = getelementptr inbounds nuw i16, ptr %178, i64 %indvars.iv67.i
   store i16 %191, ptr %192, align 2, !tbaa !71
   %193 = tail call i32 @llvm.smax.i32(i32 %188, i32 0)
   %194 = tail call i32 @llvm.umin.i32(i32 %193, i32 1023)
   %195 = trunc nuw nsw i32 %194 to i16
-  %196 = getelementptr inbounds nuw [1024 x i16], ptr %179, i64 0, i64 %indvars.iv67.i
+  %196 = getelementptr inbounds nuw i16, ptr %179, i64 %indvars.iv67.i
   store i16 %195, ptr %196, align 2, !tbaa !71
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 1024
@@ -596,7 +596,7 @@ create_chrominance_lut.exit:                      ; preds = %197
   %210 = sext i1 %isnotneg.i.i157 to i8
   %211 = trunc nuw i32 %209 to i8
   %.0.i.i158 = select i1 %.not.i.i156, i8 %211, i8 %210
-  %212 = getelementptr inbounds nuw [256 x i8], ptr %203, i64 0, i64 %indvars.iv.i155
+  %212 = getelementptr inbounds nuw i8, ptr %203, i64 %indvars.iv.i155
   store i8 %.0.i.i158, ptr %212, align 1, !tbaa !67
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i155, 1
   %exitcond.not.i160 = icmp eq i64 %indvars.iv.next.i159, 256
@@ -611,7 +611,7 @@ create_chrominance_lut.exit:                      ; preds = %197
   %218 = tail call i32 @llvm.smax.i32(i32 %217, i32 0)
   %219 = tail call i32 @llvm.umin.i32(i32 %218, i32 1023)
   %220 = trunc nuw nsw i32 %219 to i16
-  %221 = getelementptr inbounds nuw [65536 x i16], ptr %204, i64 0, i64 %indvars.iv17.i
+  %221 = getelementptr inbounds nuw i16, ptr %204, i64 %indvars.iv17.i
   store i16 %220, ptr %221, align 2, !tbaa !71
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 65536
@@ -728,14 +728,14 @@ create_luma_lut.exit:                             ; preds = %213, %198
   %293 = load i16, ptr %292, align 2, !tbaa !71
   %narrow32.us.i = tail call i16 @llvm.umin.i16(i16 %293, i16 1023)
   %294 = zext nneg i16 %narrow.us.i to i64
-  %295 = getelementptr inbounds nuw [1024 x [1024 x i16]], ptr %285, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw [1024 x i16], ptr %285, i64 %294
   %296 = zext nneg i16 %narrow32.us.i to i64
-  %297 = getelementptr inbounds nuw [1024 x i16], ptr %295, i64 0, i64 %296
+  %297 = getelementptr inbounds nuw i16, ptr %295, i64 %296
   %298 = load i16, ptr %297, align 2, !tbaa !71
   %299 = getelementptr inbounds nuw i16, ptr %.038.us.i, i64 %indvars.iv.i162
   store i16 %298, ptr %299, align 2, !tbaa !71
-  %300 = getelementptr inbounds nuw [1024 x [1024 x i16]], ptr %286, i64 0, i64 %294
-  %301 = getelementptr inbounds nuw [1024 x i16], ptr %300, i64 0, i64 %296
+  %300 = getelementptr inbounds nuw [1024 x i16], ptr %286, i64 %294
+  %301 = getelementptr inbounds nuw i16, ptr %300, i64 %296
   %302 = load i16, ptr %301, align 2, !tbaa !71
   %303 = getelementptr inbounds nuw i16, ptr %.02537.us.i, i64 %indvars.iv.i162
   store i16 %302, ptr %303, align 2, !tbaa !71
@@ -790,7 +790,7 @@ apply_lut10.exit:                                 ; preds = %._crit_edge.us.i, %
   %324 = getelementptr inbounds nuw i16, ptr %.01417.us.i, i64 %indvars.iv.i170
   %325 = load i16, ptr %324, align 2, !tbaa !71
   %326 = zext i16 %325 to i64
-  %327 = getelementptr inbounds nuw [65536 x i16], ptr %320, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i16, ptr %320, i64 %326
   %328 = load i16, ptr %327, align 2, !tbaa !71
   %329 = getelementptr inbounds nuw i16, ptr %.01318.us.i, i64 %indvars.iv.i170
   store i16 %328, ptr %329, align 2, !tbaa !71
@@ -856,14 +856,14 @@ apply_lut10.exit:                                 ; preds = %._crit_edge.us.i, %
   %362 = getelementptr inbounds nuw i8, ptr %.02932.us.i, i64 %indvars.iv.i180
   %363 = load i8, ptr %362, align 1, !tbaa !67
   %364 = zext i8 %361 to i64
-  %365 = getelementptr inbounds nuw [256 x [256 x i8]], ptr %355, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw [256 x i8], ptr %355, i64 %364
   %366 = zext i8 %363 to i64
-  %367 = getelementptr inbounds nuw [256 x i8], ptr %365, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw i8, ptr %365, i64 %366
   %368 = load i8, ptr %367, align 1, !tbaa !67
   %369 = getelementptr inbounds nuw i8, ptr %.035.us.i, i64 %indvars.iv.i180
   store i8 %368, ptr %369, align 1, !tbaa !67
-  %370 = getelementptr inbounds nuw [256 x [256 x i8]], ptr %356, i64 0, i64 %364
-  %371 = getelementptr inbounds nuw [256 x i8], ptr %370, i64 0, i64 %366
+  %370 = getelementptr inbounds nuw [256 x i8], ptr %356, i64 %364
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 %366
   %372 = load i8, ptr %371, align 1, !tbaa !67
   %373 = getelementptr inbounds nuw i8, ptr %.02534.us.i, i64 %indvars.iv.i180
   store i8 %372, ptr %373, align 1, !tbaa !67
@@ -921,7 +921,7 @@ apply_lut.exit:                                   ; preds = %._crit_edge.us.i183
   %397 = getelementptr inbounds nuw i8, ptr %.01417.us.i192, i64 %indvars.iv.i193
   %398 = load i8, ptr %397, align 1, !tbaa !67
   %399 = zext i8 %398 to i64
-  %400 = getelementptr inbounds nuw [256 x i8], ptr %393, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw i8, ptr %393, i64 %399
   %401 = load i8, ptr %400, align 1, !tbaa !67
   %402 = getelementptr inbounds nuw i8, ptr %.01318.us.i191, i64 %indvars.iv.i193
   store i8 %401, ptr %402, align 1, !tbaa !67

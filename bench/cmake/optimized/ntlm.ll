@@ -405,7 +405,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %49
-  %91 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %88
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %91, ptr noundef nonnull align 16 dereferenceable(24) %7, i64 24, i1 false)
   %92 = add nuw nsw i64 %88, 24
   br label %93
@@ -423,7 +423,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br label %147
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %.0131
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 %.0131
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr align 1 %.1130, i64 %95, i1 false)
   %101 = load ptr, ptr @Curl_cfree, align 8, !tbaa !81
   %102 = load ptr, ptr %10, align 8, !tbaa !85
@@ -439,7 +439,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br label %147
 
 108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %96
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 %96
   br i1 %.not, label %135, label %110
 
 110:                                              ; preds = %108
@@ -462,7 +462,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 
 .loopexit169:                                     ; preds = %.lr.ph.i, %110
   %118 = add i64 %96, %52
-  %119 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 %118
   %120 = and i64 %26, 9223372036854775807
   %.not.i152 = icmp eq i64 %120, 0
   br i1 %.not.i152, label %.loopexit, label %.lr.ph.i153
@@ -482,7 +482,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 
 .loopexit:                                        ; preds = %.lr.ph.i153, %.loopexit169
   %127 = add i64 %118, %53
-  %128 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 %127
   br label %.lr.ph.i158
 
 .lr.ph.i158:                                      ; preds = %.loopexit, %.lr.ph.i158
@@ -501,10 +501,10 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 135:                                              ; preds = %108
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull align 1 %.0124, i64 %.0120, i1 false)
   %136 = add i64 %96, %.0120
-  %137 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull align 1 %.1126, i64 %26, i1 false)
   %138 = add i64 %136, %26
-  %139 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %139, ptr noundef nonnull align 1 dereferenceable(11) @Curl_auth_create_ntlm_type3_message.host, i64 11, i1 false)
   br label %unicodecpy.exit161
 

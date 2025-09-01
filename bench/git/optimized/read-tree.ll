@@ -600,7 +600,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   %259 = add nsw i32 %258, 1
   store i32 %259, ptr @nr_trees, align 4, !tbaa !67
   %260 = sext i32 %258 to i64
-  %261 = getelementptr inbounds [8 x ptr], ptr @trees, i64 0, i64 %260
+  %261 = getelementptr inbounds ptr, ptr @trees, i64 %260
   store ptr %255, ptr %261, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -771,7 +771,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
 
 .lr.ph91:                                         ; preds = %329, %340
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %340 ], [ 0, %329 ]
-  %336 = getelementptr inbounds nuw [8 x ptr], ptr @trees, i64 0, i64 %indvars.iv101
+  %336 = getelementptr inbounds nuw ptr, ptr @trees, i64 %indvars.iv101
   %337 = load ptr, ptr %336, align 8, !tbaa !69
   %338 = call i32 @parse_tree_gently(ptr noundef %337, i32 noundef 0) #11
   %339 = icmp sgt i32 %338, -1

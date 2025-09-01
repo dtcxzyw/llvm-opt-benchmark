@@ -925,9 +925,9 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   unreachable
 
 77:                                               ; preds = %.thread.thread, %72, %68, %.thread
-  %.sroa.07.0.lcssa132 = phi i64 [ 0, %.thread.thread ], [ %.sroa.07.0.lcssa, %72 ], [ %.sroa.07.0.lcssa, %68 ], [ 0, %.thread ]
-  %78 = sub nuw i64 %2, %.sroa.07.0.lcssa132
-  %79 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.0.lcssa132
+  %.sroa.07.0.lcssa133 = phi i64 [ 0, %.thread.thread ], [ %.sroa.07.0.lcssa, %72 ], [ %.sroa.07.0.lcssa, %68 ], [ 0, %.thread ]
+  %78 = sub nuw i64 %2, %.sroa.07.0.lcssa133
+  %79 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.0.lcssa133
   invoke void @_RNvCsaz5AFKTGGYY_5regex6escape(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %79, i64 noundef %78)
           to label %80 unwind label %.loopexit.split-lp
 
@@ -1127,10 +1127,10 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 
 162:                                              ; preds = %158
   %163 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
-  %164 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %163, i64 0, i64 %150
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %164 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %163, i64 %161
+  %165 = getelementptr i8, ptr %164, i64 -16
   %166 = load ptr, ptr %165, align 8, !nonnull !5, !noundef !5
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %167 = getelementptr i8, ptr %164, i64 -8
   %168 = load i64, ptr %167, align 8, !noundef !5
   %169 = invoke noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull readonly align 1 %166, i64 noundef %168, ptr noalias noundef nonnull readonly align 1 @anon.e4b090d371393d367d84486e7564616a.14, i64 noundef 2)
           to label %170 unwind label %.loopexit

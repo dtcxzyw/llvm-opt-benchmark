@@ -399,7 +399,7 @@ define internal fastcc noundef range(i32 0, 16387) i32 @acpi_ex_name_segment(ptr
 16:                                               ; preds = %.preheader
   %17 = getelementptr i8, ptr %12, i64 1
   %18 = load i8, ptr %12, align 1
-  %19 = getelementptr [5 x i8], ptr %3, i64 0, i64 %11
+  %19 = getelementptr i8, ptr %3, i64 %11
   store i8 %18, ptr %19, align 1
   %20 = add nuw nsw i64 %11, 1
   %21 = icmp eq i64 %20, 4

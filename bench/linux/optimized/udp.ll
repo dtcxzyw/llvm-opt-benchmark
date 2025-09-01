@@ -1406,7 +1406,7 @@ define dso_local i32 @__udp6_lib_err(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 79:                                               ; preds = %.preheader, %91
   %80 = phi i64 [ %92, %91 ], [ 0, %.preheader ]
-  %81 = getelementptr [8 x ptr], ptr @ip6tun_encaps, i64 0, i64 %80
+  %81 = getelementptr ptr, ptr @ip6tun_encaps, i64 %80
   %82 = load volatile ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %91, label %84
@@ -1968,13 +1968,13 @@ udp6_unicast_rcv_skb.exit:                        ; preds = %126, %.thread19, %1
   %214 = getelementptr inbounds nuw i8, ptr %204, i64 64
   %215 = add i32 %208, -1
   %216 = sext i32 %215 to i64
-  %217 = getelementptr [1 x %struct.xfrm_offload], ptr %214, i64 0, i64 %216
+  %217 = getelementptr %struct.xfrm_offload, ptr %214, i64 %216
   %218 = icmp eq ptr %217, null
   br i1 %218, label %.thread27, label %219
 
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %221 = getelementptr [6 x ptr], ptr %220, i64 0, i64 %216
+  %221 = getelementptr ptr, ptr %220, i64 %216
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 656
   %224 = load i8, ptr %223, align 8
@@ -4884,7 +4884,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_one_skb(p
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %32 = add i32 %25, -1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr [1 x %struct.xfrm_offload], ptr %31, i64 0, i64 %33
+  %34 = getelementptr %struct.xfrm_offload, ptr %31, i64 %33
   br label %.thread.i
 
 .thread.i:                                        ; preds = %30, %27, %23, %14, %2
@@ -4925,7 +4925,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_one_skb(p
   %57 = load i32, ptr %55, align 8
   %58 = add i32 %57, -1
   %59 = sext i32 %58 to i64
-  %60 = getelementptr [6 x ptr], ptr %56, i64 0, i64 %59
+  %60 = getelementptr ptr, ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 656
   %63 = load i8, ptr %62, align 8

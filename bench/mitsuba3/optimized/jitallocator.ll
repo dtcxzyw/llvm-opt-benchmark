@@ -1456,7 +1456,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 26:                                               ; preds = %.preheader13
   %27 = lshr i32 %24, 31
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i64], ptr %14, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %14, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !51
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
@@ -1841,7 +1841,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 30:                                               ; preds = %.preheader15
   %31 = lshr i32 %28, 31
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %18, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !51
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
@@ -2121,7 +2121,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
 26:                                               ; preds = %.preheader5
   %27 = lshr i32 %24, 31
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i64], ptr %14, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %14, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !51
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
@@ -2272,7 +2272,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %20
   %25 = load i64, ptr %24, align 8, !tbaa !51
   %26 = and i64 %25, 1
   %27 = or i64 %26, %13
@@ -2340,7 +2340,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %68 = load i64, ptr %67, align 8, !tbaa !51
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
-  %71 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %21
+  %71 = getelementptr inbounds nuw i64, ptr %17, i64 %21
   %72 = load i64, ptr %71, align 8, !tbaa !51
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
@@ -2349,11 +2349,11 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %77 = zext i1 %76 to i64
   %78 = xor i1 %76, true
   %79 = zext i1 %78 to i64
-  %80 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %16, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !51
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds nuw [2 x i64], ptr %83, i64 0, i64 %77
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %77
   %85 = load i64, ptr %84, align 8, !tbaa !51
   %86 = and i64 %85, -2
   br i1 %75, label %87, label %90
@@ -2367,7 +2367,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %91 = inttoptr i64 %86 to ptr
   %92 = icmp ne i64 %86, 0
   tail call void @llvm.assume(i1 %92)
-  %93 = getelementptr inbounds nuw [2 x i64], ptr %91, i64 0, i64 %79
+  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %79
   %94 = load i64, ptr %93, align 8, !tbaa !51
   %95 = and i64 %94, -2
   %96 = and i64 %85, 1
@@ -2387,7 +2387,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %106 = and i64 %105, 1
   %107 = or disjoint i64 %106, %86
   store i64 %107, ptr %80, align 8, !tbaa !51
-  %108 = getelementptr inbounds nuw [2 x i64], ptr %91, i64 0, i64 %77
+  %108 = getelementptr inbounds nuw i64, ptr %91, i64 %77
   %109 = load i64, ptr %108, align 8, !tbaa !51
   %110 = and i64 %109, -2
   %111 = or disjoint i64 %110, %106
@@ -2429,7 +2429,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %135 = zext i1 %134 to i64
   %136 = icmp eq ptr %16, null
   %137 = select i1 %136, ptr %18, ptr %16
-  %138 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %135
+  %138 = getelementptr inbounds nuw i64, ptr %55, i64 %135
   %139 = load i64, ptr %138, align 8, !tbaa !51
   %140 = and i64 %139, -2
   %141 = inttoptr i64 %140 to ptr
@@ -2508,7 +2508,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %36, label %37, label %194
 
 37:                                               ; preds = %11
-  %38 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw i64, ptr %20, i64 %30
   %39 = load i64, ptr %38, align 8, !tbaa !51
   %40 = and i64 %39, -2
   %41 = icmp eq i64 %40, 0
@@ -2523,7 +2523,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 
 47:                                               ; preds = %42, %37
   %48 = zext i1 %28 to i64
-  %49 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %20, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !51
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
@@ -2537,7 +2537,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %57, label %74, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %30
+  %59 = getelementptr inbounds nuw i64, ptr %52, i64 %30
   %60 = load i64, ptr %59, align 8, !tbaa !51
   %61 = and i64 %60, -2
   %62 = and i64 %50, 1
@@ -2571,7 +2571,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %80, label %194, label %81
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds nuw [2 x i64], ptr %79, i64 0, i64 %76
+  %82 = getelementptr inbounds nuw i64, ptr %79, i64 %76
   %83 = load i64, ptr %82, align 8, !tbaa !51
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
@@ -2585,13 +2585,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw [2 x i64], ptr %79, i64 0, i64 %17
+  %92 = getelementptr inbounds nuw i64, ptr %79, i64 %17
   %93 = load i64, ptr %92, align 8, !tbaa !51
   %94 = and i64 %93, -2
   br label %112
 
 95:                                               ; preds = %87, %81
-  %96 = getelementptr inbounds nuw [2 x i64], ptr %79, i64 0, i64 %17
+  %96 = getelementptr inbounds nuw i64, ptr %79, i64 %17
   %97 = load i64, ptr %96, align 8, !tbaa !51
   %98 = and i64 %97, -2
   %99 = icmp eq i64 %98, 0
@@ -2628,7 +2628,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %119 = load i64, ptr %.sroa.sel4, align 8, !tbaa !51
   %120 = and i64 %119, -2
   %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds nuw [2 x i64], ptr %79, i64 0, i64 %17
+  %122 = getelementptr inbounds nuw i64, ptr %79, i64 %17
   %123 = icmp eq i64 %113, 0
   br i1 %123, label %155, label %124
 
@@ -2642,11 +2642,11 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 129:                                              ; preds = %124
   %130 = xor i1 %75, true
   %131 = zext i1 %130 to i64
-  %132 = getelementptr inbounds nuw [2 x i64], ptr %79, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr %79, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !51
   %134 = and i64 %133, -2
   %135 = inttoptr i64 %134 to ptr
-  %136 = getelementptr inbounds nuw [2 x i64], ptr %135, i64 0, i64 %76
+  %136 = getelementptr inbounds nuw i64, ptr %135, i64 %76
   %137 = load i64, ptr %136, align 8, !tbaa !51
   %138 = and i64 %137, -2
   %139 = and i64 %133, 1
@@ -2666,7 +2666,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %149 = and i64 %148, 1
   %150 = or disjoint i64 %149, %134
   store i64 %150, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8, !tbaa !51
-  %151 = getelementptr inbounds nuw [2 x i64], ptr %135, i64 0, i64 %17
+  %151 = getelementptr inbounds nuw i64, ptr %135, i64 %17
   %152 = load i64, ptr %151, align 8, !tbaa !51
   %153 = and i64 %152, -2
   %154 = or disjoint i64 %153, %149
@@ -2733,7 +2733,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 
 194:                                              ; preds = %179, %105, %74, %58, %42, %11
   %195 = phi ptr [ %15, %11 ], [ %15, %42 ], [ %52, %58 ], [ %15, %74 ], [ %15, %179 ], [ %15, %105 ]
-  %196 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %30
+  %196 = getelementptr inbounds nuw i64, ptr %20, i64 %30
   %197 = load i64, ptr %196, align 8, !tbaa !51
   %198 = icmp ugt i64 %197, 1
   br i1 %198, label %11, label %199, !llvm.loop !96
@@ -2745,7 +2745,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %203 = load i64, ptr %20, align 8, !tbaa !51
   %204 = icmp ult i64 %203, 2
   %205 = zext i1 %204 to i64
-  %206 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i64, ptr %20, i64 %205
   %207 = load i64, ptr %206, align 8, !tbaa !51
   %208 = and i64 %207, -2
   %.sroa.sel7 = select i1 %202, ptr %200, ptr %195
@@ -2772,7 +2772,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 
 221:                                              ; preds = %217, %213
   %222 = phi i64 [ %220, %217 ], [ 1, %213 ]
-  %223 = getelementptr inbounds nuw [2 x i64], ptr %215, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i64, ptr %215, i64 %222
   %224 = load i64, ptr %223, align 8, !tbaa !51
   %225 = and i64 %224, -2
   %226 = inttoptr i64 %225 to ptr
@@ -2783,7 +2783,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %228 = phi i64 [ %222, %221 ], [ %242, %.preheader ]
   %229 = phi ptr [ %215, %221 ], [ %238, %.preheader ]
   %230 = phi i64 [ %224, %221 ], [ %244, %.preheader ]
-  %231 = getelementptr inbounds nuw [2 x i64], ptr %229, i64 0, i64 %228
+  %231 = getelementptr inbounds nuw i64, ptr %229, i64 %228
   %232 = and i64 %230, 1
   %233 = or disjoint i64 %232, %19
   store i64 %233, ptr %231, align 8, !tbaa !51
@@ -2801,7 +2801,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %240 = load ptr, ptr %239, align 8, !tbaa !45
   %241 = icmp ult ptr %240, %10
   %242 = zext i1 %241 to i64
-  %243 = getelementptr inbounds nuw [2 x i64], ptr %238, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i64, ptr %238, i64 %242
   %244 = load i64, ptr %243, align 8, !tbaa !51
   %245 = and i64 %244, -2
   %246 = inttoptr i64 %245 to ptr

@@ -132,7 +132,7 @@ define ptr @av_iamf_param_definition_alloc(i32 noundef %0, i32 noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.av_iamf_param_definition_alloc, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.av_iamf_param_definition_alloc, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext i32 %1 to i64
   %7 = mul nuw nsw i64 %switch.load, %6
@@ -614,7 +614,7 @@ define internal noundef ptr @param_definition_child_iterate(ptr noundef captures
 
 switch.lookup:                                    ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.param_definition_child_iterate, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds ptr, ptr @switch.table.param_definition_child_iterate, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = add nuw nsw i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
@@ -718,7 +718,7 @@ define internal noundef ptr @submix_presentation_child_iterate(ptr noundef captu
 
 switch.lookup:                                    ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.submix_presentation_child_iterate, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds ptr, ptr @switch.table.submix_presentation_child_iterate, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = add nuw nsw i64 %4, 1
   %6 = inttoptr i64 %5 to ptr

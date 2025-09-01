@@ -33123,7 +33123,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %46, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !77
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %.critedge86, label %49
@@ -70612,7 +70612,7 @@ define linkonce_odr hidden void @_ZN7testing8internal23CartesianProductHolder4IN
   %indvars.iv.i.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i.i.i, %6 ]
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i.i
   %8 = load i32, ptr %7, align 4, !tbaa !77
-  %9 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %indvars.iv.i.i.i
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i.i
   store i32 %8, ptr %9, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -70627,7 +70627,7 @@ _ZN2cv3VecIiLi4EEC2ERKS1_.exit.i:                 ; preds = %6
   %indvars.iv.i.i3.i = phi i64 [ 0, %_ZN2cv3VecIiLi4EEC2ERKS1_.exit.i ], [ %indvars.iv.next.i.i4.i, %12 ]
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i3.i
   %14 = load i32, ptr %13, align 4, !tbaa !77
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.i.i3.i
+  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i3.i
   store i32 %14, ptr %15, align 4, !tbaa !77
   %indvars.iv.next.i.i4.i = add nuw nsw i64 %indvars.iv.i.i3.i, 1
   %exitcond.not.i.i5.i = icmp eq i64 %indvars.iv.next.i.i4.i, 4
@@ -71644,7 +71644,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorR
   %indvars.iv.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i.i, %9 ]
   %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !77
-  %12 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
   store i32 %11, ptr %12, align 4, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -72986,7 +72986,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv3dnn14dnn4_v202412237BackendE
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv3dnn14dnn4_v202412237BackendENS5_6TargetEEEEdeEv.exit ], [ %indvars.iv.next.i.i.i.i.i, %70 ]
   %71 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i.i.i.i.i
   %72 = load i32, ptr %71, align 4, !tbaa !77
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %69, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i.i.i.i.i
   store i32 %72, ptr %73, align 4, !tbaa !77
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -108626,7 +108626,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv3VecIiLi4EEEibS2_IJNS3_3dnn14
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv3VecIiLi4EEEibS2_IJNS3_3dnn14dnn4_v202412237BackendENS7_6TargetEEEEEEdeEv.exit ], [ %indvars.iv.next.i.i.i.i.i.i, %245 ]
   %246 = getelementptr inbounds nuw i32, ptr %244, i64 %indvars.iv.i.i.i.i.i.i
   %247 = load i32, ptr %246, align 4, !tbaa !77
-  %248 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %248 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %247, ptr %248, align 4, !tbaa !77
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -109274,7 +109274,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv3VecIiLi4EEEibS2_IJNS3_3dnn14
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %_ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv3VecIiLi4EEEibS2_IJNS3_3dnn14dnn4_v202412237BackendENS7_6TargetEEEEEEdeEv.exit100 ], [ %indvars.iv.next.i.i.i.i.i, %475 ]
   %476 = getelementptr inbounds nuw i32, ptr %474, i64 %indvars.iv.i.i.i.i.i
   %477 = load i32, ptr %476, align 4, !tbaa !77
-  %478 = getelementptr inbounds nuw [4 x i32], ptr %46, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %478 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i.i.i.i.i
   store i32 %477, ptr %478, align 4, !tbaa !77
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -109857,7 +109857,7 @@ define linkonce_odr hidden void @_ZN7testing8internal18TuplePrefixPrinterILm2EE1
 
 5:                                                ; preds = %5, %2
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i.i.i.i, %5 ]
-  %6 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i.i.i.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !77
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %7)
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.304, i64 noundef 2)

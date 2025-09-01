@@ -3226,7 +3226,7 @@ _ZNSt12_Vector_baseI16EllipticKeyPointSaIS0_EE11_M_allocateEm.exit.i: ; preds = 
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i.i.i.i.i.i, %45 ]
   %46 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i.i.i.i.i.i.i
   %47 = load double, ptr %46, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw [4 x double], ptr %43, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv.i.i.i.i.i.i.i
   store double %47, ptr %48, align 8, !tbaa !3
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 4
@@ -3816,7 +3816,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIP16EllipticKeyPointSt6vectorIS2_SaIS2_E
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %83 ]
   %84 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %85 = load double, ptr %84, align 8, !tbaa !3
-  %86 = getelementptr inbounds nuw [4 x double], ptr %81, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %86 = getelementptr inbounds nuw double, ptr %81, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %85, ptr %86, align 8, !tbaa !3
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4

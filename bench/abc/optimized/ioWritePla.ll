@@ -949,7 +949,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr noundef captures(none) %0, p
   %46 = trunc nuw nsw i64 %indvars.iv98 to i32
   %47 = lshr i32 %.04976.us, %46
   %48 = and i32 %47, 1
-  %49 = getelementptr inbounds nuw [1000 x i32], ptr %5, i64 0, i64 %indvars.iv98
+  %49 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv98
   store i32 %48, ptr %49, align 4, !tbaa !33
   %50 = or disjoint i32 %48, 48
   %fputc54.us = call i32 @fputc(i32 %50, ptr %0)
@@ -979,7 +979,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr noundef captures(none) %0, p
   %53 = trunc nuw nsw i64 %indvars.iv92 to i32
   %54 = lshr i32 %.04976.us79, %53
   %55 = and i32 %54, 1
-  %56 = getelementptr inbounds nuw [1000 x i32], ptr %5, i64 0, i64 %indvars.iv92
+  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv92
   store i32 %55, ptr %56, align 4, !tbaa !33
   %57 = or disjoint i32 %55, 48
   %fputc54.us83 = tail call i32 @fputc(i32 %57, ptr %0)
@@ -1363,7 +1363,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMintermsM(ptr noundef captures(none) %0, 
 
 switch.lookup:                                    ; preds = %.lr.ph74
   %44 = zext nneg i32 %42 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.Io_WriteMoPlaOneIntMintermsM, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Io_WriteMoPlaOneIntMintermsM, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %fputc62 = tail call i32 @fputc(i32 %switch.load, ptr %0)
   br label %45

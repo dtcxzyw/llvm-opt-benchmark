@@ -283,7 +283,7 @@ define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 
   %.in = xor i8 %110, %.138
   %111 = add nuw nsw i32 %.2, 1
   %112 = zext nneg i32 %.2 to i64
-  %113 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %23, i64 %112
   store i8 %.in, ptr %113, align 1, !tbaa !26
   %.pre43 = load ptr, ptr %3, align 8, !tbaa !16
   br label %114
@@ -307,7 +307,7 @@ define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 0, i64 %.039
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.039
   %125 = load i8, ptr %124, align 1, !tbaa !26
   %126 = xor i8 %125, 1
   br label %.sink.split
@@ -319,7 +319,7 @@ define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 0, i64 %.039
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.039
   %133 = load i8, ptr %132, align 1, !tbaa !26
   br label %.sink.split
 
@@ -327,7 +327,7 @@ define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 
   %.sink = phi i8 [ %126, %122 ], [ 1, %119 ], [ %133, %130 ], [ 0, %127 ]
   %134 = add nuw nsw i32 %.3, 1
   %135 = zext nneg i32 %.3 to i64
-  %136 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %23, i64 %135
   store i8 %.sink, ptr %136, align 1, !tbaa !26
   br label %137
 
@@ -472,7 +472,7 @@ define void @_ZN3zmq12ws_encoder_t10size_readyEv(ptr noundef nonnull align 8 der
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %.urem = and i32 %.222, 3
   %35 = zext nneg i32 %.urem to i64
-  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !26
   %38 = xor i8 %37, %34
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 %.01821

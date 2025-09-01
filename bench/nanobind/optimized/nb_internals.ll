@@ -905,7 +905,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #14 {
   %.074144 = phi i64 [ 0, %.lr.ph ], [ %16, %12 ]
   %.075143 = phi i64 [ 0, %.lr.ph ], [ %19, %12 ]
   %.076142 = phi i64 [ 0, %.lr.ph ], [ %20, %12 ]
-  %13 = getelementptr inbounds nuw [1 x %"struct.nanobind::detail::nb_shard"], ptr %9, i64 0, i64 %.076142
+  %13 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_shard", ptr %9, i64 %.076142
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %.074144
@@ -935,7 +935,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #14 {
   %28 = phi i64 [ %24, %.lr.ph162 ], [ %72, %._crit_edge155 ]
   %.081160 = phi i32 [ 0, %.lr.ph162 ], [ %.283, %._crit_edge155 ]
   %.086159 = phi i64 [ 0, %.lr.ph162 ], [ %73, %._crit_edge155 ]
-  %29 = getelementptr inbounds nuw [1 x %"struct.nanobind::detail::nb_shard"], ptr %25, i64 0, i64 %.086159
+  %29 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_shard", ptr %25, i64 %.086159
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load i64, ptr %30, align 8
   %.not.i.i = icmp eq i64 %31, 0

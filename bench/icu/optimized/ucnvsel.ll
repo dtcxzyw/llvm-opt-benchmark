@@ -1042,7 +1042,7 @@ define internal fastcc noundef i32 @_ZL12ucnvsel_swapPK12UDataSwapperPKviPvP10UE
   %49 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !29
   %51 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %50)
-  %52 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1640,7 +1640,7 @@ define noundef ptr @ucnvsel_selectForUTF8_77(ptr noundef %0, ptr noundef %1, i32
 50:                                               ; preds = %47
   %51 = and i32 %37, 15
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @.str, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !24
   %55 = zext i8 %54 to i32
   %56 = load i8, ptr %35, align 1, !tbaa !24

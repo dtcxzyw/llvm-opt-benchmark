@@ -474,7 +474,7 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %72 = add nuw nsw i8 %67, 1
   store i8 %72, ptr %66, align 2
   %73 = zext nneg i8 %67 to i64
-  %74 = getelementptr [4 x i8], ptr %71, i64 0, i64 %73
+  %74 = getelementptr i8, ptr %71, i64 %73
   store i8 %70, ptr %74, align 1
   %75 = load i8, ptr %66, align 2
   %76 = icmp eq i8 %75, 4

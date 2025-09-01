@@ -1545,7 +1545,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   %.016.i = phi i32 [ %39, %38 ], [ %39, %38 ], [ %.1.i, %48 ], [ %.1.i, %48 ]
   %51 = load i32, ptr %9, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %52
+  %53 = getelementptr inbounds i8, ptr %8, i64 %52
   store i8 0, ptr %53, align 1
   %54 = load i32, ptr %9, align 8
   %55 = add nsw i32 %54, -1
@@ -1584,7 +1584,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
 69:                                               ; preds = %68
   %70 = load i32, ptr %9, align 8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %71
+  %72 = getelementptr inbounds i8, ptr %8, i64 %71
   store i8 1, ptr %72, align 1
   %73 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %2)
   %74 = tail call noundef i32 @_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef 168, ptr noundef nonnull %2, i32 noundef %73)
@@ -1593,7 +1593,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
 75:                                               ; preds = %68
   %76 = load i32, ptr %9, align 8
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %77
+  %78 = getelementptr inbounds i8, ptr %8, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %86
@@ -1616,7 +1616,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   store i32 %90, ptr %11, align 8
   %91 = load i32, ptr %9, align 8
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %92
+  %93 = getelementptr inbounds i8, ptr %8, i64 %92
   store i8 0, ptr %93, align 1
   %94 = load i32, ptr %9, align 8
   %95 = add nsw i32 %94, -1
@@ -1636,7 +1636,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
 99:                                               ; preds = %98
   %100 = load i32, ptr %9, align 8
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %101
+  %102 = getelementptr inbounds i8, ptr %8, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %110
@@ -1692,7 +1692,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
 124:                                              ; preds = %98
   %125 = load i32, ptr %9, align 8
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %126
+  %127 = getelementptr inbounds i8, ptr %8, i64 %126
   %128 = load i8, ptr %127, align 1
   %129 = trunc i8 %128 to i1
   br i1 %129, label %130, label %.outer.backedge
@@ -1724,7 +1724,7 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext15extraTokenCheckEi
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -2028,7 +2028,7 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
 .preheader143:                                    ; preds = %tailrecurse, %95
   %.0114154 = phi i32 [ %96, %95 ], [ 3, %tailrecurse ]
   %97 = zext nneg i32 %.0114154 to i64
-  %98 = getelementptr inbounds nuw [4 x %"struct.glslang::(anonymous namespace)::TUnop"], ptr @_ZN7glslang12_GLOBAL__N_14unopE, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw %"struct.glslang::(anonymous namespace)::TUnop", ptr @_ZN7glslang12_GLOBAL__N_14unopE, i64 %97
   %99 = load i32, ptr %98, align 16
   %100 = icmp eq i32 %99, %.tr136
   br i1 %100, label %101, label %95
@@ -2036,7 +2036,7 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
 101:                                              ; preds = %.preheader143
   %102 = tail call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %6)
   %103 = tail call noundef i32 @_ZN7glslang10TPpContext4evalEiibRiRbPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef %102, i32 noundef 12, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
-  %104 = getelementptr inbounds nuw [4 x %"struct.glslang::(anonymous namespace)::TUnop"], ptr @_ZN7glslang12_GLOBAL__N_14unopE, i64 0, i64 %97, i32 1
+  %104 = getelementptr inbounds nuw %"struct.glslang::(anonymous namespace)::TUnop", ptr @_ZN7glslang12_GLOBAL__N_14unopE, i64 %97, i32 1
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr %4, align 4
   %107 = tail call noundef i32 %105(i32 noundef %106) #18
@@ -2075,7 +2075,7 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
 .preheader:                                       ; preds = %119, %124
   %.0113155 = phi i32 [ %125, %124 ], [ 17, %119 ]
   %120 = zext nneg i32 %.0113155 to i64
-  %121 = getelementptr inbounds nuw [18 x %"struct.glslang::(anonymous namespace)::TBinop"], ptr @_ZN7glslang12_GLOBAL__N_15binopE, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw %"struct.glslang::(anonymous namespace)::TBinop", ptr @_ZN7glslang12_GLOBAL__N_15binopE, i64 %120
   %122 = load i32, ptr %121, align 16
   %123 = icmp eq i32 %122, %.2157
   br i1 %123, label %126, label %124
@@ -3463,7 +3463,7 @@ define noundef i32 @_ZN7glslang10TPpContext10CPPincludeEPNS_8TPpTokenE(ptr nound
 
 ._crit_edge.i:                                    ; preds = %56
   %39 = sext i32 %.1.i to i64
-  %40 = getelementptr inbounds [1025 x i8], ptr %30, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr %30, i64 %39
   store i8 0, ptr %40, align 1
   br i1 %.115.i, label %41, label %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread
 
@@ -3491,7 +3491,7 @@ define noundef i32 @_ZN7glslang10TPpContext10CPPincludeEPNS_8TPpTokenE(ptr nound
   %52 = trunc i32 %47 to i8
   %53 = add nsw i32 %.01320.i, 1
   %54 = sext i32 %.01320.i to i64
-  %55 = getelementptr inbounds [1025 x i8], ptr %30, i64 0, i64 %54
+  %55 = getelementptr inbounds i8, ptr %30, i64 %54
   store i8 %52, ptr %55, align 1
   br label %56
 
@@ -3538,7 +3538,7 @@ define noundef i32 @_ZN7glslang10TPpContext10CPPincludeEPNS_8TPpTokenE(ptr nound
 
 ._crit_edge.i63:                                  ; preds = %99
   %82 = sext i32 %.1.i62 to i64
-  %83 = getelementptr inbounds [1025 x i8], ptr %73, i64 0, i64 %82
+  %83 = getelementptr inbounds i8, ptr %73, i64 %82
   store i8 0, ptr %83, align 1
   br i1 %.115.i61, label %84, label %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread
 
@@ -3566,7 +3566,7 @@ define noundef i32 @_ZN7glslang10TPpContext10CPPincludeEPNS_8TPpTokenE(ptr nound
   %95 = trunc i32 %90 to i8
   %96 = add nsw i32 %.01320.i59, 1
   %97 = sext i32 %.01320.i59 to i64
-  %98 = getelementptr inbounds [1025 x i8], ptr %73, i64 0, i64 %97
+  %98 = getelementptr inbounds i8, ptr %73, i64 %97
   store i8 %95, ptr %98, align 1
   br label %99
 
@@ -3973,7 +3973,7 @@ define noundef range(i32 -1, 162) i32 @_ZN7glslang10TPpContext14scanHeaderNameEP
 
 ._crit_edge:                                      ; preds = %37
   %20 = sext i32 %.1 to i64
-  %21 = getelementptr inbounds [1025 x i8], ptr %10, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %10, i64 %20
   store i8 0, ptr %21, align 1
   br i1 %.115, label %22, label %.loopexit
 
@@ -4001,7 +4001,7 @@ define noundef range(i32 -1, 162) i32 @_ZN7glslang10TPpContext14scanHeaderNameEP
   %33 = trunc i32 %28 to i8
   %34 = add nsw i32 %.01320, 1
   %35 = sext i32 %.01320 to i64
-  %36 = getelementptr inbounds [1025 x i8], ptr %10, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 %35
   store i8 %33, ptr %36, align 1
   br label %37
 
@@ -5255,7 +5255,7 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [65 x i8], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds i8, ptr %12, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %25
@@ -5273,7 +5273,7 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
 
 25:                                               ; preds = %19, %11
   %.pre-phi = phi i64 [ %.pre44, %19 ], [ %15, %11 ]
-  %26 = getelementptr inbounds [65 x i8], ptr %12, i64 0, i64 %.pre-phi
+  %26 = getelementptr inbounds i8, ptr %12, i64 %.pre-phi
   store i8 1, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %28 = load i32, ptr %27, align 8
@@ -5315,7 +5315,7 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %53 = load i32, ptr %52, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [65 x i8], ptr %51, i64 0, i64 %54
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %.preheader45
@@ -5363,7 +5363,7 @@ define noundef range(i32 -1, 11) i32 @_ZN7glslang10TPpContext11readCPPlineEPNS_8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %81 = load i32, ptr %80, align 8
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [65 x i8], ptr %79, i64 0, i64 %82
+  %83 = getelementptr inbounds i8, ptr %79, i64 %82
   store i8 0, ptr %83, align 1
   %84 = load i32, ptr %80, align 8
   %85 = add nsw i32 %84, -1
@@ -8173,49 +8173,47 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %30, %.lr.ph.i11 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %41, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %40, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
   %28 = urem i64 %.020.i, 100
   %29 = shl nuw nsw i64 %28, 1
   %30 = udiv i64 %.020.i, 100
-  %31 = or disjoint i64 %29, 1
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %31
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 %34
   store i8 %33, ptr %35, align 1
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %29
-  %37 = load i8, ptr %36, align 2
-  %38 = add i32 %.01819.i, -1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
-  store i8 %37, ptr %40, align 1
-  %41 = add i32 %.01819.i, -2
-  %42 = icmp ugt i64 %.020.i, 9999
-  br i1 %42, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !106
+  %36 = load i8, ptr %31, align 2
+  %37 = add i32 %.01819.i, -1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 %38
+  store i8 %36, ptr %39, align 1
+  %40 = add i32 %.01819.i, -2
+  %41 = icmp ugt i64 %.020.i, 9999
+  br i1 %41, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !106
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %43, label %44, label %52
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %42, label %43, label %50
 
-44:                                               ; preds = %._crit_edge.i
-  %45 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %45
-  %51 = load i8, ptr %50, align 2
+43:                                               ; preds = %._crit_edge.i
+  %44 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %45 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %47, ptr %48, align 1
+  %49 = load i8, ptr %45, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %54 = or disjoint i8 %53, 48
+50:                                               ; preds = %._crit_edge.i
+  %51 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %52 = or disjoint i8 %51, 48
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %44, %52
-  %storemerge.i = phi i8 [ %54, %52 ], [ %51, %44 ]
+_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %43, %50
+  %storemerge.i = phi i8 [ %52, %50 ], [ %49, %43 ]
   store i8 %storemerge.i, ptr %25, align 1
   ret void
 }

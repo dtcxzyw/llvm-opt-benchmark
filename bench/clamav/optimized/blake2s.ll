@@ -35,7 +35,7 @@ define void @_Z13blake2sp_initP14blake2sp_state(ptr noundef captures(none) initi
 
 12:                                               ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.blake2s_state, ptr %0, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(281) %13, i8 0, i64 240, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 272
   store i64 0, ptr %14, align 8, !tbaa !3
@@ -162,7 +162,7 @@ define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr noundef captures(none)
 
 .split:                                           ; preds = %8, %.thread.i
   %.04968 = phi i64 [ 0, %8 ], [ %26, %.thread.i ]
-  %14 = getelementptr inbounds nuw [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.04968
+  %14 = getelementptr inbounds nuw %struct.blake2s_state, ptr %0, i64 %.04968
   %15 = shl nuw nsw i64 %.04968, 6
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 272
@@ -233,7 +233,7 @@ define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr noundef captures(none)
   %.04770.us = phi i64 [ %86, %_ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us ], [ 0, %48 ]
   %50 = shl nuw nsw i64 %.04770.us, 6
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 %50
-  %52 = getelementptr inbounds nuw [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.04770.us
+  %52 = getelementptr inbounds nuw %struct.blake2s_state, ptr %0, i64 %.04770.us
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 272
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 240
   %55 = getelementptr i8, ptr %52, i64 256
@@ -349,7 +349,7 @@ define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr noundef captures(none) %0
   br i1 %13, label %.lr.ph.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
 
 .lr.ph.i:                                         ; preds = %10
-  %14 = getelementptr inbounds nuw [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.02043
+  %14 = getelementptr inbounds nuw %struct.blake2s_state, ptr %0, i64 %.02043
   %15 = sub nuw i64 %11, %12
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %15, i64 64)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 %12
@@ -409,8 +409,8 @@ define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr noundef captures(none) %0
   br i1 %46, label %.lr.ph, label %.thread.i
 
 _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %.thread.i, %10
-  %47 = getelementptr inbounds nuw [8 x %struct.blake2s_state], ptr %0, i64 0, i64 %.02043
-  %48 = getelementptr inbounds nuw [8 x [32 x i8]], ptr %3, i64 0, i64 %.02043
+  %47 = getelementptr inbounds nuw %struct.blake2s_state, ptr %0, i64 %.02043
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %.02043
   call fastcc void @_ZL13blake2s_finalP13blake2s_statePh(ptr noundef %47, ptr noundef nonnull %48)
   %49 = add nuw nsw i64 %.02043, 1
   %exitcond.not = icmp eq i64 %49, 8
@@ -424,7 +424,7 @@ _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %.thread.i, %10
 .split:                                           ; preds = %.preheader, %.thread.i27
   %.pre.i24 = phi i64 [ %.pre.i24.pre, %.preheader ], [ %57, %.thread.i27 ]
   %.050 = phi i64 [ 0, %.preheader ], [ %58, %.thread.i27 ]
-  %51 = getelementptr inbounds nuw [8 x [32 x i8]], ptr %3, i64 0, i64 %.050
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %.050
   %52 = sub i64 128, %.pre.i24
   %53 = icmp ult i64 %52, 32
   br i1 %53, label %.lr.ph46, label %.thread.i27
@@ -653,10 +653,10 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %51 = phi i32 [ %26, %.preheader42 ], [ %169, %36 ]
   %52 = phi i32 [ -1521486534, %.preheader42 ], [ %194, %36 ]
   %53 = add i32 %38, %37
-  %54 = getelementptr inbounds nuw [10 x [16 x i8]], ptr @_ZL13blake2s_sigma, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr @_ZL13blake2s_sigma, i64 %indvars.iv
   %55 = load i8, ptr %54, align 16, !tbaa !34
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !12
   %59 = add i32 %53, %58
   %60 = xor i32 %39, %59
@@ -668,7 +668,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !34
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !12
   %71 = add i32 %65, %70
   %72 = xor i32 %71, %61
@@ -680,7 +680,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %79 = load i8, ptr %78, align 2, !tbaa !34
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr %2, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !12
   %83 = add i32 %77, %82
   %84 = xor i32 %43, %83
@@ -692,7 +692,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %90 = getelementptr inbounds nuw i8, ptr %54, i64 3
   %91 = load i8, ptr %90, align 1, !tbaa !34
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %2, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !12
   %95 = add i32 %89, %94
   %96 = xor i32 %95, %85
@@ -704,7 +704,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %102 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %103 = load i8, ptr %102, align 4, !tbaa !34
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %2, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !12
   %107 = add i32 %101, %106
   %108 = xor i32 %47, %107
@@ -716,7 +716,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %114 = getelementptr inbounds nuw i8, ptr %54, i64 5
   %115 = load i8, ptr %114, align 1, !tbaa !34
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i32, ptr %2, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !12
   %119 = add i32 %113, %118
   %120 = xor i32 %119, %109
@@ -728,7 +728,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %126 = getelementptr inbounds nuw i8, ptr %54, i64 6
   %127 = load i8, ptr %126, align 2, !tbaa !34
   %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i32, ptr %2, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !12
   %131 = add i32 %125, %130
   %132 = xor i32 %51, %131
@@ -740,7 +740,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %138 = getelementptr inbounds nuw i8, ptr %54, i64 7
   %139 = load i8, ptr %138, align 1, !tbaa !34
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr %2, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !12
   %143 = add i32 %137, %142
   %144 = xor i32 %143, %133
@@ -752,7 +752,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %150 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %151 = load i8, ptr %150, align 8, !tbaa !34
   %152 = zext i8 %151 to i64
-  %153 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i32, ptr %2, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !12
   %155 = add i32 %149, %154
   %156 = xor i32 %155, %145
@@ -764,7 +764,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %162 = getelementptr inbounds nuw i8, ptr %54, i64 9
   %163 = load i8, ptr %162, align 1, !tbaa !34
   %164 = zext i8 %163 to i64
-  %165 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr %2, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !12
   %167 = add i32 %161, %166
   %168 = xor i32 %167, %157
@@ -776,7 +776,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %174 = getelementptr inbounds nuw i8, ptr %54, i64 10
   %175 = load i8, ptr %174, align 2, !tbaa !34
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i32, ptr %2, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !12
   %179 = add i32 %173, %178
   %180 = xor i32 %179, %73
@@ -788,7 +788,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %186 = getelementptr inbounds nuw i8, ptr %54, i64 11
   %187 = load i8, ptr %186, align 1, !tbaa !34
   %188 = zext i8 %187 to i64
-  %189 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i32, ptr %2, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !12
   %191 = add i32 %185, %190
   %192 = xor i32 %191, %181
@@ -800,7 +800,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %198 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %199 = load i8, ptr %198, align 4, !tbaa !34
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i32, ptr %2, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !12
   %203 = add i32 %197, %202
   %204 = xor i32 %203, %97
@@ -812,7 +812,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %210 = getelementptr inbounds nuw i8, ptr %54, i64 13
   %211 = load i8, ptr %210, align 1, !tbaa !34
   %212 = zext i8 %211 to i64
-  %213 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw i32, ptr %2, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !12
   %215 = add i32 %209, %214
   %216 = xor i32 %215, %205
@@ -824,7 +824,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %222 = getelementptr inbounds nuw i8, ptr %54, i64 14
   %223 = load i8, ptr %222, align 2, !tbaa !34
   %224 = zext i8 %223 to i64
-  %225 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i32, ptr %2, i64 %224
   %226 = load i32, ptr %225, align 4, !tbaa !12
   %227 = add i32 %221, %226
   %228 = xor i32 %227, %121
@@ -836,7 +836,7 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %234 = getelementptr inbounds nuw i8, ptr %54, i64 15
   %235 = load i8, ptr %234, align 1, !tbaa !34
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i32, ptr %2, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !12
   %239 = add i32 %233, %238
   %240 = xor i32 %239, %229
@@ -854,19 +854,18 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   ret void
 
 246:                                              ; preds = %.preheader, %246
-  %.076 = phi i64 [ 0, %.preheader ], [ %256, %246 ]
+  %.076 = phi i64 [ 0, %.preheader ], [ %255, %246 ]
   %247 = getelementptr inbounds nuw i32, ptr %35, i64 %.076
   %248 = load i32, ptr %247, align 4, !tbaa !12
-  %249 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %.076
+  %249 = getelementptr inbounds nuw i32, ptr %3, i64 %.076
   %250 = load i32, ptr %249, align 4, !tbaa !12
   %251 = xor i32 %250, %248
-  %252 = or disjoint i64 %.076, 8
-  %253 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %252
-  %254 = load i32, ptr %253, align 4, !tbaa !12
-  %255 = xor i32 %251, %254
-  store i32 %255, ptr %247, align 4, !tbaa !12
-  %256 = add nuw nsw i64 %.076, 1
-  %exitcond93.not = icmp eq i64 %256, 8
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 32
+  %253 = load i32, ptr %252, align 4, !tbaa !12
+  %254 = xor i32 %251, %253
+  store i32 %254, ptr %247, align 4, !tbaa !12
+  %255 = add nuw nsw i64 %.076, 1
+  %exitcond93.not = icmp eq i64 %255, 8
   br i1 %exitcond93.not, label %245, label %246, !llvm.loop !36
 }
 

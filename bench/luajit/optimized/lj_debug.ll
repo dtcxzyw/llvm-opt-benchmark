@@ -261,7 +261,7 @@ define hidden ptr @lj_debug_uvnamev(ptr noundef readonly captures(none) %0, i32 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.GCRef, ptr %21, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !15
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -306,7 +306,7 @@ define hidden ptr @lj_debug_uvnamev(ptr noundef readonly captures(none) %0, i32 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %44 = zext nneg i32 %1 to i64
-  %45 = getelementptr inbounds nuw [1 x %union.TValue], ptr %43, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %union.TValue, ptr %43, i64 %44
   store ptr %45, ptr %2, align 8, !tbaa !29
   store ptr %9, ptr %3, align 8, !tbaa !30
   br label %lj_debug_uvname.exit.thread
@@ -351,7 +351,7 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
   %21 = lshr i32 %19, 8
   %22 = and i32 %21, 255
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !25
   %26 = and i16 %25, 7
   switch i16 %26, label %35 [
@@ -505,7 +505,7 @@ debug_varname.exit:                               ; preds = %44, %.loopexit.i, %
   %75 = lshr i32 %73, 8
   %76 = and i32 %75, 255
   %77 = zext nneg i32 %74 to i64
-  %78 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !25
   %80 = and i16 %79, 7
   switch i16 %80, label %133 [
@@ -704,7 +704,7 @@ define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none)
   %44 = load i32, ptr %43, align 4, !tbaa !18
   %45 = and i32 %44, 255
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !25
   %49 = lshr i16 %48, 11
   switch i16 %49, label %57 [
@@ -728,7 +728,7 @@ define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none)
   %60 = inttoptr i64 %59 to ptr
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 424
   %62 = zext nneg i16 %49 to i64
-  %63 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.GCRef, ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !40
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -2516,7 +2516,7 @@ debug_framepc.exit:                               ; preds = %174, %191
   %200 = load i32, ptr %199, align 4, !tbaa !18
   %201 = and i32 %200, 255
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !25
   %205 = lshr i16 %204, 11
   switch i16 %205, label %lj_debug_funcname.exit.thread137 [
@@ -2529,7 +2529,7 @@ lj_debug_funcname.exit.thread137:                 ; preds = %197
   %207 = inttoptr i64 %206 to ptr
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 424
   %209 = zext nneg i16 %205 to i64
-  %210 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %208, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw %struct.GCRef, ptr %208, i64 %209
   %211 = load i64, ptr %210, align 8, !tbaa !40
   %212 = inttoptr i64 %211 to ptr
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24

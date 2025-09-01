@@ -1288,7 +1288,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %.0101 = phi ptr [ %1, %.lr.ph ], [ %85, %84 ]
   %35 = load i8, ptr %.0101, align 1, !tbaa !54
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !54
   %39 = icmp ugt i8 %38, 63
   br i1 %39, label %.critedge85, label %42
@@ -1302,7 +1302,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %43 = getelementptr inbounds nuw i8, ptr %.0101, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !54
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !54
   %48 = icmp ugt i8 %47, 63
   br i1 %48, label %.critedge85, label %49
@@ -1311,7 +1311,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %50 = getelementptr inbounds nuw i8, ptr %.0101, i64 2
   %51 = load i8, ptr %50, align 1, !tbaa !54
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !54
   %55 = icmp ugt i8 %54, 63
   br i1 %55, label %.critedge85, label %56
@@ -1320,7 +1320,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %57 = getelementptr inbounds nuw i8, ptr %.0101, i64 3
   %58 = load i8, ptr %57, align 1, !tbaa !54
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !54
   %62 = icmp ugt i8 %61, 63
   br i1 %62, label %.critedge85, label %63
@@ -1394,7 +1394,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
 99:                                               ; preds = %._crit_edge
   %100 = load i8, ptr %.0.lcssa, align 1, !tbaa !54
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !54
   %104 = icmp ugt i8 %103, 63
   br i1 %104, label %.critedge85, label %105
@@ -1403,7 +1403,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %106 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %107 = load i8, ptr %106, align 1, !tbaa !54
   %108 = zext i8 %107 to i64
-  %109 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !54
   %111 = icmp ugt i8 %110, 63
   br i1 %111, label %.critedge85, label %112
@@ -1450,7 +1450,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
 132:                                              ; preds = %._crit_edge
   %133 = load i8, ptr %.0.lcssa, align 1, !tbaa !54
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !54
   %137 = icmp ugt i8 %136, 63
   br i1 %137, label %.critedge85, label %138
@@ -1459,7 +1459,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %139 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %140 = load i8, ptr %139, align 1, !tbaa !54
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !54
   %144 = icmp ugt i8 %143, 63
   br i1 %144, label %.critedge85, label %145
@@ -1468,7 +1468,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %146 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   %147 = load i8, ptr %146, align 1, !tbaa !54
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !54
   %151 = icmp ugt i8 %150, 63
   br i1 %151, label %.critedge85, label %152
@@ -3654,7 +3654,7 @@ _ZN9grpc_core11HPackParser15ParseInputInnerEPNS0_5InputE.exit: ; preds = %50, %5
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1304
   %71 = call noundef i32 @_ZN9grpc_core18Histogram_65536_269BucketForEi(i32 noundef %68)
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [26 x %"struct.std::atomic"], ptr %70, i64 0, i64 %72
+  %73 = getelementptr inbounds %"struct.std::atomic", ptr %70, i64 %72
   %74 = atomicrmw add ptr %73, i64 1 monotonic, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %92, label %75
@@ -4902,7 +4902,7 @@ _ZN9grpc_core16HpackParseResultD2Ev.exit25:       ; preds = %131, %127, %124
   %146 = load ptr, ptr %145, align 8, !tbaa !116
   %147 = add nsw i32 %139, -1
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw [61 x %"struct.grpc_core::HPackTable::Memento"], ptr %146, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %146, i64 %148
   br label %_ZN9grpc_core10HPackTable6LookupEj.exit.i
 
 150:                                              ; preds = %138
@@ -4958,7 +4958,7 @@ _ZN9grpc_core11HPackParser6Parser25FinishHeaderOmitFromTableERKNS_10HPackTable7M
   %172 = load ptr, ptr %171, align 8, !tbaa !116
   %173 = add i64 %163, 4294967295
   %174 = and i64 %173, 4294967295
-  %175 = getelementptr inbounds nuw [61 x %"struct.grpc_core::HPackTable::Memento"], ptr %172, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %172, i64 %174
   br label %_ZN9grpc_core10HPackTable6LookupEj.exit.i31
 
 176:                                              ; preds = %168
@@ -5003,7 +5003,7 @@ _ZN9grpc_core11HPackParser6Parser25FinishHeaderOmitFromTableERKNS_10HPackTable7M
   %193 = load ptr, ptr %192, align 8, !tbaa !116
   %194 = add nsw i32 %186, -1
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw [61 x %"struct.grpc_core::HPackTable::Memento"], ptr %193, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %193, i64 %195
   br label %_ZN9grpc_core10HPackTable6LookupEj.exit.i39
 
 197:                                              ; preds = %185
@@ -7120,7 +7120,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser11Start
   %13 = load ptr, ptr %12, align 8, !tbaa !116
   %14 = add nsw i32 %1, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [61 x %"struct.grpc_core::HPackTable::Memento"], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %13, i64 %15
   br label %_ZN9grpc_core10HPackTable6LookupEj.exit
 
 17:                                               ; preds = %3
@@ -8083,7 +8083,7 @@ define linkonce_odr void @_ZN9grpc_core11HPackParser6Parser9LogHeaderERKNS_10HPa
 
 switch.lookup:                                    ; preds = %2
   %17 = zext nneg i8 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9grpc_core11HPackParser6Parser9LogHeaderERKNS_10HPackTable7MementoE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core11HPackParser6Parser9LogHeaderERKNS_10HPackTable7MementoE, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %4, align 8, !tbaa !55
   br label %18
@@ -16523,7 +16523,7 @@ _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit:    ; preds = %.invoke, %16, %12, 
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %26, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
   %35 = phi i64 [ 0, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit ], [ %34, %26 ]
-  %36 = getelementptr inbounds nuw [2 x %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable"], ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEE6vtable, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEE6vtable, i64 %35
   store ptr %36, ptr %0, align 8, !tbaa !249
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %20, ptr %37, align 8, !tbaa !293
@@ -18079,7 +18079,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPa
 429:                                              ; preds = %421
   %430 = load i64, ptr %8, align 8, !tbaa !71
   %431 = and i64 %430, 31
-  %432 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon13table2_0_ops_E, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon13table2_0_ops_E, i64 %431
   %433 = load i8, ptr %432, align 1, !tbaa !54
   %434 = zext i8 %433 to i64
   %435 = and i64 %434, 3
@@ -18090,7 +18090,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPa
 
 436:                                              ; preds = %429
   %437 = lshr i64 %434, 2
-  %438 = getelementptr inbounds nuw [10 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table2_0_emit_E, i64 0, i64 %437
+  %438 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table2_0_emit_E, i64 %437
   %439 = load i8, ptr %438, align 1, !tbaa !54
   %.val.i = load ptr, ptr %0, align 8, !tbaa !655
   %440 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -18166,7 +18166,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 468:                                              ; preds = %421
   %469 = load i64, ptr %8, align 8, !tbaa !71
   %470 = and i64 %469, 63
-  %471 = getelementptr inbounds nuw [64 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon13table3_0_ops_E, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon13table3_0_ops_E, i64 %470
   %472 = load i8, ptr %471, align 1, !tbaa !54
   %473 = zext i8 %472 to i64
   %474 = and i64 %473, 3
@@ -18181,7 +18181,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 476:                                              ; preds = %468
   %477 = lshr i64 %473, 2
-  %478 = getelementptr inbounds nuw [36 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table3_0_emit_E, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table3_0_emit_E, i64 %477
   %479 = load i8, ptr %478, align 1, !tbaa !54
   %.val64.i = load ptr, ptr %0, align 8, !tbaa !655
   %480 = getelementptr inbounds nuw i8, ptr %.val64.i, i64 8
@@ -18254,7 +18254,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %508 = load i64, ptr %8, align 8, !tbaa !71
   %509 = lshr i64 %508, 6
   %510 = and i64 %509, 1
-  %511 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table4_ops_E, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table4_ops_E, i64 %510
   %512 = load ptr, ptr %511, align 8, !tbaa !55
   %513 = and i64 %508, 63
   %514 = getelementptr inbounds nuw i8, ptr %512, i64 %513
@@ -18272,7 +18272,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 519:                                              ; preds = %507
   %520 = lshr i64 %516, 2
-  %521 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table4_emit_E, i64 0, i64 %510
+  %521 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table4_emit_E, i64 %510
   %522 = load ptr, ptr %521, align 8, !tbaa !55
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 %520
   %524 = load i8, ptr %523, align 1, !tbaa !54
@@ -18347,7 +18347,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %553 = load i64, ptr %8, align 8, !tbaa !71
   %554 = lshr i64 %553, 7
   %555 = and i64 %554, 1
-  %556 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table5_ops_E, i64 0, i64 %555
+  %556 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table5_ops_E, i64 %555
   %557 = load ptr, ptr %556, align 8, !tbaa !55
   %558 = and i64 %553, 127
   %559 = getelementptr inbounds nuw i8, ptr %557, i64 %558
@@ -18365,7 +18365,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 564:                                              ; preds = %552
   %565 = lshr i64 %561, 2
-  %566 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table5_emit_E, i64 0, i64 %555
+  %566 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table5_emit_E, i64 %555
   %567 = load ptr, ptr %566, align 8, !tbaa !55
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 %565
   %569 = load i8, ptr %568, align 1, !tbaa !54
@@ -18440,7 +18440,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %598 = load i64, ptr %8, align 8, !tbaa !71
   %599 = lshr i64 %598, 5
   %600 = and i64 %599, 15
-  %601 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table6_ops_E, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table6_ops_E, i64 %600
   %602 = load ptr, ptr %601, align 8, !tbaa !55
   %603 = and i64 %598, 31
   %604 = getelementptr inbounds nuw i8, ptr %602, i64 %603
@@ -18458,7 +18458,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 609:                                              ; preds = %597
   %610 = lshr i64 %606, 2
-  %611 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table6_emit_E, i64 0, i64 %600
+  %611 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table6_emit_E, i64 %600
   %612 = load ptr, ptr %611, align 8, !tbaa !55
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 %610
   %614 = load i8, ptr %613, align 1, !tbaa !54
@@ -18533,7 +18533,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %643 = load i64, ptr %8, align 8, !tbaa !71
   %644 = lshr i64 %643, 6
   %645 = and i64 %644, 15
-  %646 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table7_ops_E, i64 0, i64 %645
+  %646 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table7_ops_E, i64 %645
   %647 = load ptr, ptr %646, align 8, !tbaa !55
   %648 = and i64 %643, 63
   %649 = getelementptr inbounds nuw i8, ptr %647, i64 %648
@@ -18549,7 +18549,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 653:                                              ; preds = %642
   %654 = lshr i64 %651, 2
-  %655 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 0, i64 %645
+  %655 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 %645
   %656 = load ptr, ptr %655, align 8, !tbaa !55
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 %654
   %658 = load i8, ptr %657, align 1, !tbaa !54
@@ -18567,7 +18567,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 662:                                              ; preds = %642
   %663 = lshr i64 %651, 2
-  %664 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 0, i64 %645
+  %664 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 %645
   %665 = load ptr, ptr %664, align 8, !tbaa !55
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 %663
   %667 = load i8, ptr %666, align 1, !tbaa !54
@@ -18582,9 +18582,9 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
   %669 = load i64, ptr %8, align 8, !tbaa !71
   %670 = lshr i64 %669, 6
   %671 = and i64 %670, 31
-  %672 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table8_inner_E, i64 0, i64 %671
+  %672 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table8_inner_E, i64 %671
   %673 = load ptr, ptr %672, align 8, !tbaa !656
-  %674 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table8_outer_E, i64 0, i64 %671
+  %674 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table8_outer_E, i64 %671
   %675 = load ptr, ptr %674, align 8, !tbaa !55
   %676 = and i64 %669, 63
   %677 = getelementptr inbounds nuw i8, ptr %675, i64 %676
@@ -18607,7 +18607,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 685:                                              ; preds = %668
   %686 = lshr i64 %682, 2
-  %687 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 0, i64 %671
+  %687 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 %671
   %688 = load ptr, ptr %687, align 8, !tbaa !55
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 %686
   %690 = load i8, ptr %689, align 1, !tbaa !54
@@ -18621,7 +18621,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 693:                                              ; preds = %668
   %694 = lshr i64 %682, 2
-  %695 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 0, i64 %671
+  %695 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 %671
   %696 = load ptr, ptr %695, align 8, !tbaa !55
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 %694
   %698 = load i8, ptr %697, align 1, !tbaa !54
@@ -18633,7 +18633,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
   %700 = load i64, ptr %8, align 8, !tbaa !71
   %701 = lshr i64 %700, 5
   %702 = and i64 %701, 127
-  %703 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table9_ops_E, i64 0, i64 %702
+  %703 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table9_ops_E, i64 %702
   %704 = load ptr, ptr %703, align 8, !tbaa !55
   %705 = and i64 %700, 31
   %706 = getelementptr inbounds nuw i8, ptr %704, i64 %705
@@ -18653,7 +18653,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 711:                                              ; preds = %699
   %712 = lshr i64 %708, 2
-  %713 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 0, i64 %702
+  %713 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 %702
   %714 = load ptr, ptr %713, align 8, !tbaa !55
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 %712
   %716 = load i8, ptr %715, align 1, !tbaa !54
@@ -18667,7 +18667,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 719:                                              ; preds = %699
   %720 = lshr i64 %708, 2
-  %721 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 0, i64 %702
+  %721 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 %702
   %722 = load ptr, ptr %721, align 8, !tbaa !55
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 %720
   %724 = load i8, ptr %723, align 1, !tbaa !54
@@ -18679,9 +18679,9 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
   %726 = load i64, ptr %8, align 8, !tbaa !71
   %727 = lshr i64 %726, 6
   %728 = and i64 %727, 127
-  %729 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table10_inner_E, i64 0, i64 %728
+  %729 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table10_inner_E, i64 %728
   %730 = load ptr, ptr %729, align 8, !tbaa !656
-  %731 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table10_outer_E, i64 0, i64 %728
+  %731 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table10_outer_E, i64 %728
   %732 = load ptr, ptr %731, align 8, !tbaa !55
   %733 = and i64 %726, 63
   %734 = getelementptr inbounds nuw i8, ptr %732, i64 %733
@@ -18704,7 +18704,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 742:                                              ; preds = %725
   %743 = lshr i64 %739, 2
-  %744 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 0, i64 %728
+  %744 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 %728
   %745 = load ptr, ptr %744, align 8, !tbaa !55
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 %743
   %747 = load i8, ptr %746, align 1, !tbaa !54
@@ -18718,7 +18718,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 750:                                              ; preds = %725
   %751 = lshr i64 %739, 2
-  %752 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 0, i64 %728
+  %752 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 %728
   %753 = load ptr, ptr %752, align 8, !tbaa !55
   %754 = getelementptr inbounds nuw i8, ptr %753, i64 %751
   %755 = load i8, ptr %754, align 1, !tbaa !54
@@ -18730,9 +18730,9 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
   %757 = load i64, ptr %8, align 8, !tbaa !71
   %758 = lshr i64 %757, 6
   %759 = and i64 %758, 255
-  %760 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table11_inner_E, i64 0, i64 %759
+  %760 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table11_inner_E, i64 %759
   %761 = load ptr, ptr %760, align 8, !tbaa !656
-  %762 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table11_outer_E, i64 0, i64 %759
+  %762 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table11_outer_E, i64 %759
   %763 = load ptr, ptr %762, align 8, !tbaa !55
   %764 = and i64 %757, 63
   %765 = getelementptr inbounds nuw i8, ptr %763, i64 %764
@@ -18755,7 +18755,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 773:                                              ; preds = %756
   %774 = lshr i64 %770, 2
-  %775 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 0, i64 %759
+  %775 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 %759
   %776 = load ptr, ptr %775, align 8, !tbaa !55
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 %774
   %778 = load i8, ptr %777, align 1, !tbaa !54
@@ -18769,7 +18769,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
 
 781:                                              ; preds = %756
   %782 = lshr i64 %770, 2
-  %783 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 0, i64 %759
+  %783 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 %759
   %784 = load ptr, ptr %783, align 8, !tbaa !55
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 %782
   %786 = load i8, ptr %785, align 1, !tbaa !54
@@ -18785,9 +18785,9 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
   %791 = lshr i64 %788, %790
   %792 = lshr i64 %791, 6
   %793 = and i64 %792, 511
-  %794 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table1_inner_E, i64 0, i64 %793
+  %794 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table1_inner_E, i64 %793
   %795 = load ptr, ptr %794, align 8, !tbaa !656
-  %796 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table1_outer_E, i64 0, i64 %793
+  %796 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table1_outer_E, i64 %793
   %797 = load ptr, ptr %796, align 8, !tbaa !55
   %798 = and i64 %791, 63
   %799 = getelementptr inbounds nuw i8, ptr %797, i64 %798
@@ -18811,7 +18811,7 @@ default.unreachable365:                           ; preds = %"_ZN9grpc_core11Huf
   ]
 
 811:                                              ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.thread"
-  %812 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %793
+  %812 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 %793
   %813 = load ptr, ptr %812, align 8, !tbaa !55
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 %808
   %815 = load i8, ptr %814, align 1, !tbaa !54
@@ -19023,7 +19023,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit39"
 
 901:                                              ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.thread"
-  %902 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %793
+  %902 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 %793
   %903 = load ptr, ptr %902, align 8, !tbaa !55
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 %808
   %905 = load i8, ptr %904, align 1, !tbaa !54
@@ -19165,7 +19165,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh.exit39"
 
 962:                                              ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.thread"
-  %963 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %793
+  %963 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 %793
   %964 = load ptr, ptr %963, align 8, !tbaa !55
   %965 = getelementptr inbounds nuw i8, ptr %964, i64 %808
   %966 = load i8, ptr %965, align 1, !tbaa !54
@@ -19285,7 +19285,7 @@ _ZN9grpc_core17HuffDecoderCommon7GetOp13Em.exit.i.i: ; preds = %998
   %.cmp.i.i = icmp ult i64 %1009, -12
   %1010 = select i1 %.cmp.i.i, i64 4, i64 3
   %1011 = select i1 %1008, i64 %1007, i64 %1010
-  %1012 = getelementptr inbounds nuw [5 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table13_0_inner_E, i64 0, i64 %1011
+  %1012 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table13_0_inner_E, i64 %1011
   %1013 = load i8, ptr %1012, align 1, !tbaa !54
   %1014 = zext i8 %1013 to i64
   %1015 = and i64 %1014, 3
@@ -19374,7 +19374,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 1048:                                             ; preds = %998
   %1049 = load i64, ptr %8, align 8, !tbaa !71
   %1050 = and i64 %1049, 31
-  %1051 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table14_0_ops_E, i64 0, i64 %1050
+  %1051 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table14_0_ops_E, i64 %1050
   %1052 = load i8, ptr %1051, align 1, !tbaa !54
   %1053 = zext i8 %1052 to i64
   %1054 = and i64 %1053, 3
@@ -19389,7 +19389,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 1056:                                             ; preds = %1048
   %1057 = lshr i64 %1053, 2
-  %1058 = getelementptr inbounds nuw [11 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table14_0_emit_E, i64 0, i64 %1057
+  %1058 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table14_0_emit_E, i64 %1057
   %1059 = load i8, ptr %1058, align 1, !tbaa !54
   %.val12.i.i = load ptr, ptr %0, align 8, !tbaa !655
   %1060 = getelementptr inbounds nuw i8, ptr %.val12.i.i, i64 8
@@ -19461,7 +19461,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 1087:                                             ; preds = %998
   %1088 = load i64, ptr %8, align 8, !tbaa !71
   %1089 = and i64 %1088, 63
-  %1090 = getelementptr inbounds nuw [64 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table15_0_ops_E, i64 0, i64 %1089
+  %1090 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table15_0_ops_E, i64 %1089
   %1091 = load i8, ptr %1090, align 1, !tbaa !54
   %1092 = zext i8 %1091 to i64
   %1093 = and i64 %1092, 3
@@ -19476,7 +19476,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 1095:                                             ; preds = %1087
   %1096 = lshr i64 %1092, 2
-  %1097 = getelementptr inbounds nuw [24 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table15_0_emit_E, i64 0, i64 %1096
+  %1097 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table15_0_emit_E, i64 %1096
   %1098 = load i8, ptr %1097, align 1, !tbaa !54
   %.val.i.i = load ptr, ptr %0, align 8, !tbaa !655
   %1099 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
@@ -19552,10 +19552,10 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %1129 = zext nneg i32 %1128 to i64
   %1130 = lshr i64 %1126, %1129
   %1131 = and i64 %1130, 127
-  %1132 = getelementptr inbounds nuw [128 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_outer_E, i64 0, i64 %1131
+  %1132 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_outer_E, i64 %1131
   %1133 = load i8, ptr %1132, align 1, !tbaa !54
   %1134 = zext i8 %1133 to i64
-  %1135 = getelementptr inbounds nuw [70 x i16], ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_inner_E, i64 0, i64 %1134
+  %1135 = getelementptr inbounds nuw i16, ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_inner_E, i64 %1134
   %1136 = load i16, ptr %1135, align 2, !tbaa !148
   %1137 = zext i16 %1136 to i64
   %1138 = and i16 %1136, 7
@@ -19590,7 +19590,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 1143:                                             ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E9RefillTo7Ev.exit.thread.i"
   %1144 = lshr i64 %1137, 8
-  %1145 = getelementptr inbounds nuw [50 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table12_0_emit_E, i64 0, i64 %1144
+  %1145 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table12_0_emit_E, i64 %1144
   %1146 = load i8, ptr %1145, align 1, !tbaa !54
   %.val.i70 = load ptr, ptr %0, align 8, !tbaa !655
   %1147 = getelementptr inbounds nuw i8, ptr %.val.i70, i64 8
@@ -21513,7 +21513,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %1917 = lshr i64 %1915, 1
   %1918 = add nsw i64 %1915, -2
   %1919 = select i1 %1916, i64 %1917, i64 %1918
-  %1920 = getelementptr inbounds nuw [6 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table36_0_inner_E, i64 0, i64 %1919
+  %1920 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table36_0_inner_E, i64 %1919
   %1921 = load i8, ptr %1920, align 1, !tbaa !54
   %1922 = and i8 %1921, 3
   %1923 = zext nneg i8 %1922 to i32
@@ -21521,7 +21521,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   store i32 %1924, ptr %5, align 8, !tbaa !72
   %1925 = lshr i8 %1921, 2
   %1926 = zext nneg i8 %1925 to i64
-  %1927 = getelementptr inbounds nuw [6 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table36_0_emit_E, i64 0, i64 %1926
+  %1927 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table36_0_emit_E, i64 %1926
   %1928 = load i8, ptr %1927, align 1, !tbaa !54
   %.val.i255.i = load ptr, ptr %0, align 8, !tbaa !655
   %1929 = getelementptr inbounds nuw i8, ptr %.val.i255.i, i64 8
@@ -21625,7 +21625,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 1963:                                             ; preds = %1960
   %1964 = load i64, ptr %8, align 8, !tbaa !71
   %1965 = and i64 %1964, 15
-  %1966 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table33_0_inner_E, i64 0, i64 %1965
+  %1966 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table33_0_inner_E, i64 %1965
   %1967 = load i8, ptr %1966, align 1, !tbaa !54
   %trunc.i.i263.i = trunc i8 %1967 to i1
   br i1 %trunc.i.i263.i, label %2000, label %1968
@@ -21633,7 +21633,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 1968:                                             ; preds = %1963
   %1969 = lshr exact i8 %1967, 1
   %1970 = zext nneg i8 %1969 to i64
-  %1971 = getelementptr inbounds nuw [15 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table33_0_emit_E, i64 0, i64 %1970
+  %1971 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table33_0_emit_E, i64 %1970
   %1972 = load i8, ptr %1971, align 1, !tbaa !54
   %.val.i.i264.i = load ptr, ptr %0, align 8, !tbaa !655
   %1973 = getelementptr inbounds nuw i8, ptr %.val.i.i264.i, i64 8
@@ -21713,7 +21713,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %2004 = zext nneg i32 %2003 to i64
   %2005 = lshr i64 %2001, %2004
   %2006 = and i64 %2005, 31
-  %2007 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table32_0_ops_E, i64 0, i64 %2006
+  %2007 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table32_0_ops_E, i64 %2006
   %2008 = load i8, ptr %2007, align 1, !tbaa !54
   %2009 = and i8 %2008, 7
   %2010 = zext nneg i8 %2009 to i32
@@ -21721,7 +21721,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   store i32 %2011, ptr %5, align 8, !tbaa !72
   %2012 = lshr i8 %2008, 3
   %2013 = zext nneg i8 %2012 to i64
-  %2014 = getelementptr inbounds nuw [17 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table32_0_emit_E, i64 0, i64 %2013
+  %2014 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table32_0_emit_E, i64 %2013
   %2015 = load i8, ptr %2014, align 1, !tbaa !54
   %.val.i273.i = load ptr, ptr %0, align 8, !tbaa !655
   %2016 = getelementptr inbounds nuw i8, ptr %.val.i273.i, i64 8
@@ -21836,7 +21836,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2055:                                             ; preds = %2047
   %2056 = load i64, ptr %8, align 8, !tbaa !71
   %2057 = and i64 %2056, 31
-  %2058 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table39_0_ops_E, i64 0, i64 %2057
+  %2058 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table39_0_ops_E, i64 %2057
   %2059 = load i8, ptr %2058, align 1, !tbaa !54
   %2060 = zext i8 %2059 to i64
   %2061 = and i64 %2060, 3
@@ -21847,7 +21847,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2062:                                             ; preds = %2055
   %2063 = lshr i64 %2060, 2
-  %2064 = getelementptr inbounds nuw [17 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table39_0_emit_E, i64 0, i64 %2063
+  %2064 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table39_0_emit_E, i64 %2063
   %2065 = load i8, ptr %2064, align 1, !tbaa !54
   %.val13.i.i.i = load ptr, ptr %0, align 8, !tbaa !655
   %2066 = getelementptr inbounds nuw i8, ptr %.val13.i.i.i, i64 8
@@ -21923,7 +21923,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2094:                                             ; preds = %2047
   %2095 = load i64, ptr %8, align 8, !tbaa !71
   %2096 = and i64 %2095, 63
-  %2097 = getelementptr inbounds nuw [64 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table40_0_ops_E, i64 0, i64 %2096
+  %2097 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table40_0_ops_E, i64 %2096
   %2098 = load i8, ptr %2097, align 1, !tbaa !54
   %2099 = zext i8 %2098 to i64
   %2100 = and i64 %2099, 3
@@ -21938,7 +21938,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2102:                                             ; preds = %2094
   %2103 = lshr i64 %2099, 2
-  %2104 = getelementptr inbounds nuw [46 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 0, i64 %2103
+  %2104 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 %2103
   %2105 = load i8, ptr %2104, align 1, !tbaa !54
   %.val12.i.i.i = load ptr, ptr %0, align 8, !tbaa !655
   %2106 = getelementptr inbounds nuw i8, ptr %.val12.i.i.i, i64 8
@@ -22010,7 +22010,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2133:                                             ; preds = %2047
   %2134 = load i64, ptr %8, align 8, !tbaa !71
   %2135 = and i64 %2134, 127
-  %2136 = getelementptr inbounds nuw [128 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table41_0_ops_E, i64 0, i64 %2135
+  %2136 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table41_0_ops_E, i64 %2135
   %2137 = load i8, ptr %2136, align 1, !tbaa !54
   %2138 = zext i8 %2137 to i64
   %2139 = and i64 %2138, 3
@@ -22025,7 +22025,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2141:                                             ; preds = %2133
   %2142 = lshr i64 %2138, 2
-  %2143 = getelementptr inbounds nuw [46 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 0, i64 %2142
+  %2143 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 %2142
   %2144 = load i8, ptr %2143, align 1, !tbaa !54
   %.val.i.i282.i = load ptr, ptr %0, align 8, !tbaa !655
   %2145 = getelementptr inbounds nuw i8, ptr %.val.i.i282.i, i64 8
@@ -22102,7 +22102,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %2176 = lshr i64 %2172, %2175
   %2177 = lshr i64 %2176, 5
   %2178 = and i64 %2177, 7
-  %2179 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table38_ops_E, i64 0, i64 %2178
+  %2179 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table38_ops_E, i64 %2178
   %2180 = load ptr, ptr %2179, align 8, !tbaa !656
   %2181 = and i64 %2176, 31
   %2182 = getelementptr inbounds nuw i16, ptr %2180, i64 %2181
@@ -22118,7 +22118,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2189:                                             ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E9RefillTo8Ev.exit.thread.i.i"
   %2190 = lshr i64 %2184, 5
-  %2191 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table38_emit_E, i64 0, i64 %2178
+  %2191 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table38_emit_E, i64 %2178
   %2192 = load ptr, ptr %2191, align 8, !tbaa !55
   %2193 = getelementptr inbounds nuw i8, ptr %2192, i64 %2190
   %2194 = load i8, ptr %2193, align 1, !tbaa !54
@@ -23344,7 +23344,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPa
 430:                                              ; preds = %422
   %431 = load i64, ptr %8, align 8, !tbaa !84
   %432 = and i64 %431, 31
-  %433 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon13table2_0_ops_E, i64 0, i64 %432
+  %433 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon13table2_0_ops_E, i64 %432
   %434 = load i8, ptr %433, align 1, !tbaa !54
   %435 = zext i8 %434 to i64
   %436 = and i64 %435, 3
@@ -23355,7 +23355,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPa
 
 437:                                              ; preds = %430
   %438 = lshr i64 %435, 2
-  %439 = getelementptr inbounds nuw [10 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table2_0_emit_E, i64 0, i64 %438
+  %439 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table2_0_emit_E, i64 %438
   %440 = load i8, ptr %439, align 1, !tbaa !54
   %441 = load ptr, ptr %0, align 8, !tbaa !659
   %442 = load i32, ptr %441, align 4, !tbaa !54
@@ -23449,7 +23449,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 478:                                              ; preds = %422
   %479 = load i64, ptr %8, align 8, !tbaa !84
   %480 = and i64 %479, 63
-  %481 = getelementptr inbounds nuw [64 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon13table3_0_ops_E, i64 0, i64 %480
+  %481 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon13table3_0_ops_E, i64 %480
   %482 = load i8, ptr %481, align 1, !tbaa !54
   %483 = zext i8 %482 to i64
   %484 = and i64 %483, 3
@@ -23464,7 +23464,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 486:                                              ; preds = %478
   %487 = lshr i64 %483, 2
-  %488 = getelementptr inbounds nuw [36 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table3_0_emit_E, i64 0, i64 %487
+  %488 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table3_0_emit_E, i64 %487
   %489 = load i8, ptr %488, align 1, !tbaa !54
   %490 = load ptr, ptr %0, align 8, !tbaa !659
   %491 = load i32, ptr %490, align 4, !tbaa !54
@@ -23555,7 +23555,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %527 = load i64, ptr %8, align 8, !tbaa !84
   %528 = lshr i64 %527, 6
   %529 = and i64 %528, 1
-  %530 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table4_ops_E, i64 0, i64 %529
+  %530 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table4_ops_E, i64 %529
   %531 = load ptr, ptr %530, align 8, !tbaa !55
   %532 = and i64 %527, 63
   %533 = getelementptr inbounds nuw i8, ptr %531, i64 %532
@@ -23573,7 +23573,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 538:                                              ; preds = %526
   %539 = lshr i64 %535, 2
-  %540 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table4_emit_E, i64 0, i64 %529
+  %540 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table4_emit_E, i64 %529
   %541 = load ptr, ptr %540, align 8, !tbaa !55
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 %539
   %543 = load i8, ptr %542, align 1, !tbaa !54
@@ -23666,7 +23666,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %581 = load i64, ptr %8, align 8, !tbaa !84
   %582 = lshr i64 %581, 7
   %583 = and i64 %582, 1
-  %584 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table5_ops_E, i64 0, i64 %583
+  %584 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table5_ops_E, i64 %583
   %585 = load ptr, ptr %584, align 8, !tbaa !55
   %586 = and i64 %581, 127
   %587 = getelementptr inbounds nuw i8, ptr %585, i64 %586
@@ -23684,7 +23684,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 592:                                              ; preds = %580
   %593 = lshr i64 %589, 2
-  %594 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table5_emit_E, i64 0, i64 %583
+  %594 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table5_emit_E, i64 %583
   %595 = load ptr, ptr %594, align 8, !tbaa !55
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 %593
   %597 = load i8, ptr %596, align 1, !tbaa !54
@@ -23777,7 +23777,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %635 = load i64, ptr %8, align 8, !tbaa !84
   %636 = lshr i64 %635, 5
   %637 = and i64 %636, 15
-  %638 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table6_ops_E, i64 0, i64 %637
+  %638 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table6_ops_E, i64 %637
   %639 = load ptr, ptr %638, align 8, !tbaa !55
   %640 = and i64 %635, 31
   %641 = getelementptr inbounds nuw i8, ptr %639, i64 %640
@@ -23795,7 +23795,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 646:                                              ; preds = %634
   %647 = lshr i64 %643, 2
-  %648 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table6_emit_E, i64 0, i64 %637
+  %648 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table6_emit_E, i64 %637
   %649 = load ptr, ptr %648, align 8, !tbaa !55
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 %647
   %651 = load i8, ptr %650, align 1, !tbaa !54
@@ -23888,7 +23888,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %689 = load i64, ptr %8, align 8, !tbaa !84
   %690 = lshr i64 %689, 6
   %691 = and i64 %690, 15
-  %692 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table7_ops_E, i64 0, i64 %691
+  %692 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table7_ops_E, i64 %691
   %693 = load ptr, ptr %692, align 8, !tbaa !55
   %694 = and i64 %689, 63
   %695 = getelementptr inbounds nuw i8, ptr %693, i64 %694
@@ -23904,7 +23904,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 699:                                              ; preds = %688
   %700 = lshr i64 %697, 2
-  %701 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 0, i64 %691
+  %701 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 %691
   %702 = load ptr, ptr %701, align 8, !tbaa !55
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 %700
   %704 = load i8, ptr %703, align 1, !tbaa !54
@@ -23920,7 +23920,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 708:                                              ; preds = %688
   %709 = lshr i64 %697, 2
-  %710 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 0, i64 %691
+  %710 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table7_emit_E, i64 %691
   %711 = load ptr, ptr %710, align 8, !tbaa !55
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 %709
   %713 = load i8, ptr %712, align 1, !tbaa !54
@@ -23934,9 +23934,9 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
   %715 = load i64, ptr %8, align 8, !tbaa !84
   %716 = lshr i64 %715, 6
   %717 = and i64 %716, 31
-  %718 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table8_inner_E, i64 0, i64 %717
+  %718 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table8_inner_E, i64 %717
   %719 = load ptr, ptr %718, align 8, !tbaa !656
-  %720 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table8_outer_E, i64 0, i64 %717
+  %720 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table8_outer_E, i64 %717
   %721 = load ptr, ptr %720, align 8, !tbaa !55
   %722 = and i64 %715, 63
   %723 = getelementptr inbounds nuw i8, ptr %721, i64 %722
@@ -23959,7 +23959,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 731:                                              ; preds = %714
   %732 = lshr i64 %728, 2
-  %733 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 0, i64 %717
+  %733 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 %717
   %734 = load ptr, ptr %733, align 8, !tbaa !55
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 %732
   %736 = load i8, ptr %735, align 1, !tbaa !54
@@ -23971,7 +23971,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 739:                                              ; preds = %714
   %740 = lshr i64 %728, 2
-  %741 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 0, i64 %717
+  %741 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table8_emit_E, i64 %717
   %742 = load ptr, ptr %741, align 8, !tbaa !55
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 %740
   %744 = load i8, ptr %743, align 1, !tbaa !54
@@ -23982,7 +23982,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
   %746 = load i64, ptr %8, align 8, !tbaa !84
   %747 = lshr i64 %746, 5
   %748 = and i64 %747, 127
-  %749 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon11table9_ops_E, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon11table9_ops_E, i64 %748
   %750 = load ptr, ptr %749, align 8, !tbaa !55
   %751 = and i64 %746, 31
   %752 = getelementptr inbounds nuw i8, ptr %750, i64 %751
@@ -24002,7 +24002,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 757:                                              ; preds = %745
   %758 = lshr i64 %754, 2
-  %759 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 0, i64 %748
+  %759 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 %748
   %760 = load ptr, ptr %759, align 8, !tbaa !55
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 %758
   %762 = load i8, ptr %761, align 1, !tbaa !54
@@ -24014,7 +24014,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 765:                                              ; preds = %745
   %766 = lshr i64 %754, 2
-  %767 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 0, i64 %748
+  %767 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table9_emit_E, i64 %748
   %768 = load ptr, ptr %767, align 8, !tbaa !55
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 %766
   %770 = load i8, ptr %769, align 1, !tbaa !54
@@ -24025,9 +24025,9 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
   %772 = load i64, ptr %8, align 8, !tbaa !84
   %773 = lshr i64 %772, 6
   %774 = and i64 %773, 127
-  %775 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table10_inner_E, i64 0, i64 %774
+  %775 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table10_inner_E, i64 %774
   %776 = load ptr, ptr %775, align 8, !tbaa !656
-  %777 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table10_outer_E, i64 0, i64 %774
+  %777 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table10_outer_E, i64 %774
   %778 = load ptr, ptr %777, align 8, !tbaa !55
   %779 = and i64 %772, 63
   %780 = getelementptr inbounds nuw i8, ptr %778, i64 %779
@@ -24050,7 +24050,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 788:                                              ; preds = %771
   %789 = lshr i64 %785, 2
-  %790 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 0, i64 %774
+  %790 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 %774
   %791 = load ptr, ptr %790, align 8, !tbaa !55
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 %789
   %793 = load i8, ptr %792, align 1, !tbaa !54
@@ -24062,7 +24062,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 796:                                              ; preds = %771
   %797 = lshr i64 %785, 2
-  %798 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 0, i64 %774
+  %798 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table10_emit_E, i64 %774
   %799 = load ptr, ptr %798, align 8, !tbaa !55
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 %797
   %801 = load i8, ptr %800, align 1, !tbaa !54
@@ -24073,9 +24073,9 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
   %803 = load i64, ptr %8, align 8, !tbaa !84
   %804 = lshr i64 %803, 6
   %805 = and i64 %804, 255
-  %806 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table11_inner_E, i64 0, i64 %805
+  %806 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table11_inner_E, i64 %805
   %807 = load ptr, ptr %806, align 8, !tbaa !656
-  %808 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon14table11_outer_E, i64 0, i64 %805
+  %808 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon14table11_outer_E, i64 %805
   %809 = load ptr, ptr %808, align 8, !tbaa !55
   %810 = and i64 %803, 63
   %811 = getelementptr inbounds nuw i8, ptr %809, i64 %810
@@ -24098,7 +24098,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 819:                                              ; preds = %802
   %820 = lshr i64 %816, 2
-  %821 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 0, i64 %805
+  %821 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 %805
   %822 = load ptr, ptr %821, align 8, !tbaa !55
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 %820
   %824 = load i8, ptr %823, align 1, !tbaa !54
@@ -24110,7 +24110,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
 
 827:                                              ; preds = %802
   %828 = lshr i64 %816, 2
-  %829 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 0, i64 %805
+  %829 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table11_emit_E, i64 %805
   %830 = load ptr, ptr %829, align 8, !tbaa !55
   %831 = getelementptr inbounds nuw i8, ptr %830, i64 %828
   %832 = load i8, ptr %831, align 1, !tbaa !54
@@ -24125,9 +24125,9 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
   %837 = lshr i64 %834, %836
   %838 = lshr i64 %837, 6
   %839 = and i64 %838, 511
-  %840 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table1_inner_E, i64 0, i64 %839
+  %840 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table1_inner_E, i64 %839
   %841 = load ptr, ptr %840, align 8, !tbaa !656
-  %842 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table1_outer_E, i64 0, i64 %839
+  %842 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table1_outer_E, i64 %839
   %843 = load ptr, ptr %842, align 8, !tbaa !55
   %844 = and i64 %837, 63
   %845 = getelementptr inbounds nuw i8, ptr %843, i64 %844
@@ -24151,7 +24151,7 @@ default.unreachable359:                           ; preds = %"_ZN9grpc_core11Huf
   ]
 
 857:                                              ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.thread"
-  %858 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %839
+  %858 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 %839
   %859 = load ptr, ptr %858, align 8, !tbaa !55
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 %854
   %861 = load i8, ptr %860, align 1, !tbaa !54
@@ -24417,7 +24417,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit34"
 
 974:                                              ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.thread"
-  %975 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %839
+  %975 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 %839
   %976 = load ptr, ptr %975, align 8, !tbaa !55
   %977 = getelementptr inbounds nuw i8, ptr %976, i64 %854
   %978 = load i8, ptr %977, align 1, !tbaa !54
@@ -24595,7 +24595,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh.exit34"
 
 1053:                                             ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.thread"
-  %1054 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 0, i64 %839
+  %1054 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table1_emit_E, i64 %839
   %1055 = load ptr, ptr %1054, align 8, !tbaa !55
   %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 %854
   %1057 = load i8, ptr %1056, align 1, !tbaa !54
@@ -24733,7 +24733,7 @@ _ZN9grpc_core17HuffDecoderCommon7GetOp13Em.exit.i.i: ; preds = %1098
   %.cmp.i.i = icmp ult i64 %1109, -12
   %1110 = select i1 %.cmp.i.i, i64 4, i64 3
   %1111 = select i1 %1108, i64 %1107, i64 %1110
-  %1112 = getelementptr inbounds nuw [5 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table13_0_inner_E, i64 0, i64 %1111
+  %1112 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table13_0_inner_E, i64 %1111
   %1113 = load i8, ptr %1112, align 1, !tbaa !54
   %1114 = zext i8 %1113 to i64
   %1115 = and i64 %1114, 3
@@ -24832,7 +24832,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 1154:                                             ; preds = %1098
   %1155 = load i64, ptr %8, align 8, !tbaa !84
   %1156 = and i64 %1155, 31
-  %1157 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table14_0_ops_E, i64 0, i64 %1156
+  %1157 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table14_0_ops_E, i64 %1156
   %1158 = load i8, ptr %1157, align 1, !tbaa !54
   %1159 = zext i8 %1158 to i64
   %1160 = and i64 %1159, 3
@@ -24847,7 +24847,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 1162:                                             ; preds = %1154
   %1163 = lshr i64 %1159, 2
-  %1164 = getelementptr inbounds nuw [11 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table14_0_emit_E, i64 0, i64 %1163
+  %1164 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table14_0_emit_E, i64 %1163
   %1165 = load i8, ptr %1164, align 1, !tbaa !54
   %1166 = load ptr, ptr %0, align 8, !tbaa !659
   %1167 = load i32, ptr %1166, align 4, !tbaa !54
@@ -24937,7 +24937,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 1202:                                             ; preds = %1098
   %1203 = load i64, ptr %8, align 8, !tbaa !84
   %1204 = and i64 %1203, 63
-  %1205 = getelementptr inbounds nuw [64 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table15_0_ops_E, i64 0, i64 %1204
+  %1205 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table15_0_ops_E, i64 %1204
   %1206 = load i8, ptr %1205, align 1, !tbaa !54
   %1207 = zext i8 %1206 to i64
   %1208 = and i64 %1207, 3
@@ -24952,7 +24952,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 1210:                                             ; preds = %1202
   %1211 = lshr i64 %1207, 2
-  %1212 = getelementptr inbounds nuw [24 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table15_0_emit_E, i64 0, i64 %1211
+  %1212 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table15_0_emit_E, i64 %1211
   %1213 = load i8, ptr %1212, align 1, !tbaa !54
   %1214 = load ptr, ptr %0, align 8, !tbaa !659
   %1215 = load i32, ptr %1214, align 4, !tbaa !54
@@ -25046,10 +25046,10 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %1253 = zext nneg i32 %1252 to i64
   %1254 = lshr i64 %1250, %1253
   %1255 = and i64 %1254, 127
-  %1256 = getelementptr inbounds nuw [128 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_outer_E, i64 0, i64 %1255
+  %1256 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_outer_E, i64 %1255
   %1257 = load i8, ptr %1256, align 1, !tbaa !54
   %1258 = zext i8 %1257 to i64
-  %1259 = getelementptr inbounds nuw [70 x i16], ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_inner_E, i64 0, i64 %1258
+  %1259 = getelementptr inbounds nuw i16, ptr @_ZN9grpc_core17HuffDecoderCommon16table12_0_inner_E, i64 %1258
   %1260 = load i16, ptr %1259, align 2, !tbaa !148
   %1261 = zext i16 %1260 to i64
   %1262 = and i16 %1260, 7
@@ -25084,7 +25084,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 1267:                                             ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E9RefillTo7Ev.exit.thread.i"
   %1268 = lshr i64 %1261, 8
-  %1269 = getelementptr inbounds nuw [50 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table12_0_emit_E, i64 0, i64 %1268
+  %1269 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table12_0_emit_E, i64 %1268
   %1270 = load i8, ptr %1269, align 1, !tbaa !54
   %1271 = load ptr, ptr %0, align 8, !tbaa !659
   %1272 = load i32, ptr %1271, align 4, !tbaa !54
@@ -27215,7 +27215,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %2164 = lshr i64 %2162, 1
   %2165 = add nsw i64 %2162, -2
   %2166 = select i1 %2163, i64 %2164, i64 %2165
-  %2167 = getelementptr inbounds nuw [6 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table36_0_inner_E, i64 0, i64 %2166
+  %2167 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table36_0_inner_E, i64 %2166
   %2168 = load i8, ptr %2167, align 1, !tbaa !54
   %2169 = and i8 %2168, 3
   %2170 = zext nneg i8 %2169 to i32
@@ -27223,7 +27223,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   store i32 %2171, ptr %5, align 8, !tbaa !85
   %2172 = lshr i8 %2168, 2
   %2173 = zext nneg i8 %2172 to i64
-  %2174 = getelementptr inbounds nuw [6 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table36_0_emit_E, i64 0, i64 %2173
+  %2174 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table36_0_emit_E, i64 %2173
   %2175 = load i8, ptr %2174, align 1, !tbaa !54
   %2176 = load ptr, ptr %0, align 8, !tbaa !659
   %2177 = load i32, ptr %2176, align 4, !tbaa !54
@@ -27345,7 +27345,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2219:                                             ; preds = %2216
   %2220 = load i64, ptr %8, align 8, !tbaa !84
   %2221 = and i64 %2220, 15
-  %2222 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon16table33_0_inner_E, i64 0, i64 %2221
+  %2222 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon16table33_0_inner_E, i64 %2221
   %2223 = load i8, ptr %2222, align 1, !tbaa !54
   %trunc.i.i244.i = trunc i8 %2223 to i1
   br i1 %trunc.i.i244.i, label %2265, label %2224
@@ -27353,7 +27353,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2224:                                             ; preds = %2219
   %2225 = lshr exact i8 %2223, 1
   %2226 = zext nneg i8 %2225 to i64
-  %2227 = getelementptr inbounds nuw [15 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table33_0_emit_E, i64 0, i64 %2226
+  %2227 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table33_0_emit_E, i64 %2226
   %2228 = load i8, ptr %2227, align 1, !tbaa !54
   %2229 = load ptr, ptr %0, align 8, !tbaa !659
   %2230 = load i32, ptr %2229, align 4, !tbaa !54
@@ -27451,7 +27451,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %2269 = zext nneg i32 %2268 to i64
   %2270 = lshr i64 %2266, %2269
   %2271 = and i64 %2270, 31
-  %2272 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table32_0_ops_E, i64 0, i64 %2271
+  %2272 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table32_0_ops_E, i64 %2271
   %2273 = load i8, ptr %2272, align 1, !tbaa !54
   %2274 = and i8 %2273, 7
   %2275 = zext nneg i8 %2274 to i32
@@ -27459,7 +27459,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   store i32 %2276, ptr %5, align 8, !tbaa !85
   %2277 = lshr i8 %2273, 3
   %2278 = zext nneg i8 %2277 to i64
-  %2279 = getelementptr inbounds nuw [17 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table32_0_emit_E, i64 0, i64 %2278
+  %2279 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table32_0_emit_E, i64 %2278
   %2280 = load i8, ptr %2279, align 1, !tbaa !54
   %2281 = load ptr, ptr %0, align 8, !tbaa !659
   %2282 = load i32, ptr %2281, align 4, !tbaa !54
@@ -27592,7 +27592,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2329:                                             ; preds = %2321
   %2330 = load i64, ptr %8, align 8, !tbaa !84
   %2331 = and i64 %2330, 31
-  %2332 = getelementptr inbounds nuw [32 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table39_0_ops_E, i64 0, i64 %2331
+  %2332 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table39_0_ops_E, i64 %2331
   %2333 = load i8, ptr %2332, align 1, !tbaa !54
   %2334 = zext i8 %2333 to i64
   %2335 = and i64 %2334, 3
@@ -27603,7 +27603,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2336:                                             ; preds = %2329
   %2337 = lshr i64 %2334, 2
-  %2338 = getelementptr inbounds nuw [17 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table39_0_emit_E, i64 0, i64 %2337
+  %2338 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table39_0_emit_E, i64 %2337
   %2339 = load i8, ptr %2338, align 1, !tbaa !54
   %2340 = load ptr, ptr %0, align 8, !tbaa !659
   %2341 = load i32, ptr %2340, align 4, !tbaa !54
@@ -27697,7 +27697,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2377:                                             ; preds = %2321
   %2378 = load i64, ptr %8, align 8, !tbaa !84
   %2379 = and i64 %2378, 63
-  %2380 = getelementptr inbounds nuw [64 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table40_0_ops_E, i64 0, i64 %2379
+  %2380 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table40_0_ops_E, i64 %2379
   %2381 = load i8, ptr %2380, align 1, !tbaa !54
   %2382 = zext i8 %2381 to i64
   %2383 = and i64 %2382, 3
@@ -27712,7 +27712,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2385:                                             ; preds = %2377
   %2386 = lshr i64 %2382, 2
-  %2387 = getelementptr inbounds nuw [46 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 0, i64 %2386
+  %2387 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 %2386
   %2388 = load i8, ptr %2387, align 1, !tbaa !54
   %2389 = load ptr, ptr %0, align 8, !tbaa !659
   %2390 = load i32, ptr %2389, align 4, !tbaa !54
@@ -27802,7 +27802,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 2425:                                             ; preds = %2321
   %2426 = load i64, ptr %8, align 8, !tbaa !84
   %2427 = and i64 %2426, 127
-  %2428 = getelementptr inbounds nuw [128 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon14table41_0_ops_E, i64 0, i64 %2427
+  %2428 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon14table41_0_ops_E, i64 %2427
   %2429 = load i8, ptr %2428, align 1, !tbaa !54
   %2430 = zext i8 %2429 to i64
   %2431 = and i64 %2430, 3
@@ -27817,7 +27817,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2433:                                             ; preds = %2425
   %2434 = lshr i64 %2430, 2
-  %2435 = getelementptr inbounds nuw [46 x i8], ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 0, i64 %2434
+  %2435 = getelementptr inbounds nuw i8, ptr @_ZN9grpc_core17HuffDecoderCommon15table40_0_emit_E, i64 %2434
   %2436 = load i8, ptr %2435, align 1, !tbaa !54
   %2437 = load ptr, ptr %0, align 8, !tbaa !659
   %2438 = load i32, ptr %2437, align 4, !tbaa !54
@@ -27912,7 +27912,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %2477 = lshr i64 %2473, %2476
   %2478 = lshr i64 %2477, 5
   %2479 = and i64 %2478, 7
-  %2480 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon12table38_ops_E, i64 0, i64 %2479
+  %2480 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon12table38_ops_E, i64 %2479
   %2481 = load ptr, ptr %2480, align 8, !tbaa !656
   %2482 = and i64 %2477, 31
   %2483 = getelementptr inbounds nuw i16, ptr %2481, i64 %2482
@@ -27928,7 +27928,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 2490:                                             ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E9RefillTo8Ev.exit.thread.i.i"
   %2491 = lshr i64 %2485, 5
-  %2492 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN9grpc_core17HuffDecoderCommon13table38_emit_E, i64 0, i64 %2479
+  %2492 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core17HuffDecoderCommon13table38_emit_E, i64 %2479
   %2493 = load ptr, ptr %2492, align 8, !tbaa !55
   %2494 = getelementptr inbounds nuw i8, ptr %2493, i64 %2491
   %2495 = load i8, ptr %2494, align 1, !tbaa !54

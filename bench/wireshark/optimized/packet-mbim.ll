@@ -10479,7 +10479,7 @@ define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noun
 
 13:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
-  %14 = getelementptr [25 x %struct.mbim_uuid], ptr @mbim_uuid_service_id_vals, i64 0, i64 %indvars.iv, i32 1
+  %14 = getelementptr %struct.mbim_uuid, ptr @mbim_uuid_service_id_vals, i64 %indvars.iv, i32 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef dereferenceable(16) %14, i64 16)
   %15 = icmp eq i32 %bcmp, 0
   br i1 %15, label %.thread.loopexit, label %16
@@ -10568,7 +10568,7 @@ define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonl
 
 10:                                               ; preds = %6
   %11 = zext nneg i8 %4 to i64
-  %12 = getelementptr [25 x %struct.mbim_uuid_info_], ptr @mbim_uuid_info, i64 0, i64 %11
+  %12 = getelementptr %struct.mbim_uuid_info_, ptr @mbim_uuid_info, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %3, align 4
@@ -11394,7 +11394,7 @@ define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noun
   %55 = load ptr, ptr %7, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = zext nneg i8 %48 to i64
-  %58 = getelementptr [25 x %struct.mbim_uuid_info_], ptr @mbim_uuid_info, i64 0, i64 %57
+  %58 = getelementptr %struct.mbim_uuid_info_, ptr @mbim_uuid_info, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   br i1 %54, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -11997,7 +11997,7 @@ define internal fastcc void @mbim_dissect_set_ussd(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %34
   %42 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.mbim_dissect_ussd_info, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbim_dissect_ussd_info, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   %43 = load i32, ptr @hf_mbim_set_ussd_ussd_payload_text, align 4
   %44 = load i32, ptr %6, align 4
@@ -12326,7 +12326,7 @@ define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_req(ptr n
 
 7:                                                ; preds = %10, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %10 ]
-  %8 = getelementptr [25 x %struct.mbim_uuid], ptr @mbim_uuid_service_id_vals, i64 0, i64 %indvars.iv.i, i32 1
+  %8 = getelementptr %struct.mbim_uuid, ptr @mbim_uuid_service_id_vals, i64 %indvars.iv.i, i32 1
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef dereferenceable(16) %8, i64 16)
   %9 = icmp eq i32 %bcmp.i, 0
   br i1 %9, label %.thread.loopexit.i, label %10
@@ -14158,7 +14158,7 @@ define internal fastcc void @mbim_dissect_pin_list_info(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %31 ]
   %.02 = phi i32 [ %2, %3 ], [ %32, %31 ]
   %5 = load i32, ptr @ett_mbim_pin, align 4
-  %6 = getelementptr [10 x ptr], ptr @mbim_dissect_pin_list_info.pin_list, i64 0, i64 %indvars.iv
+  %6 = getelementptr ptr, ptr @mbim_dissect_pin_list_info.pin_list, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.02, i32 noundef 16, i32 noundef %5, ptr noundef null, ptr noundef %7)
   %9 = load i32, ptr @hf_mbim_pin_list_pin_mode, align 4
@@ -15099,7 +15099,7 @@ define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, p
   %65 = load ptr, ptr %7, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = zext nneg i8 %51 to i64
-  %68 = getelementptr [25 x %struct.mbim_uuid_info_], ptr @mbim_uuid_info, i64 0, i64 %67
+  %68 = getelementptr %struct.mbim_uuid_info_, ptr @mbim_uuid_info, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   br i1 %64, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -15707,7 +15707,7 @@ define internal fastcc void @mbim_dissect_ussd_info(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %37
   %45 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.mbim_dissect_ussd_info, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbim_dissect_ussd_info, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %46 = load i32, ptr @hf_mbim_ussd_info_ussd_payload_text, align 4
   %47 = load i32, ptr %6, align 4
@@ -18512,7 +18512,7 @@ define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr 
 
 7:                                                ; preds = %4, %10
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %10 ]
-  %8 = getelementptr [14 x %struct.mbim_uuid], ptr @mbim_uuid_context_type_vals, i64 0, i64 %indvars.iv, i32 1
+  %8 = getelementptr %struct.mbim_uuid, ptr @mbim_uuid_context_type_vals, i64 %indvars.iv, i32 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef dereferenceable(16) %8, i64 16)
   %9 = icmp eq i32 %bcmp, 0
   br i1 %9, label %.split.loop.exit, label %10

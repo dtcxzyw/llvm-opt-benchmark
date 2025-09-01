@@ -1086,7 +1086,7 @@ define dso_local range(i32 -2147483648, 1) i32 @vfs_dedupe_file_range(ptr nounde
 
 53:                                               ; preds = %53, %50
   %54 = phi i64 [ 0, %50 ], [ %58, %53 ]
-  %55 = getelementptr [0 x %struct.file_dedupe_range_info], ptr %51, i64 0, i64 %54
+  %55 = getelementptr %struct.file_dedupe_range_info, ptr %51, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i64 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 24

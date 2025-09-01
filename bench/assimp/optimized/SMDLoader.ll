@@ -1984,7 +1984,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
 .preheader:                                       ; preds = %412, %_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjfEEERS1_DpOT_.exit
   %indvars.iv442 = phi i64 [ 0, %412 ], [ %indvars.iv.next443, %_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjfEEERS1_DpOT_.exit ]
   %.2393 = phi i32 [ %.1395, %412 ], [ %562, %_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjfEEERS1_DpOT_.exit ]
-  %413 = getelementptr inbounds nuw [3 x %"struct.Assimp::SMD::Vertex"], ptr %391, i64 0, i64 %indvars.iv442
+  %413 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %391, i64 %indvars.iv442
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 40
   %415 = getelementptr inbounds nuw i8, ptr %413, i64 48
   %416 = load ptr, ptr %415, align 8
@@ -2458,7 +2458,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjfEEERS1_DpOT_.exit: ; preds = 
   %645 = getelementptr inbounds nuw i8, ptr %643, i64 4
   %646 = load ptr, ptr %638, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %645, ptr align 1 %646, i64 %640, i1 false)
-  %647 = getelementptr inbounds nuw [1024 x i8], ptr %645, i64 0, i64 %640
+  %647 = getelementptr inbounds nuw i8, ptr %645, i64 %640
   store i8 0, ptr %647, align 1
   %.pre462 = load ptr, ptr %92, align 8
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -3509,7 +3509,7 @@ define void @_ZN6Assimp11SMDImporter15AddBoneChildrenEP6aiNodej(ptr noundef nonn
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %47 = load ptr, ptr %31, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr align 1 %47, i64 %42, i1 false)
-  %48 = getelementptr inbounds nuw [1024 x i8], ptr %46, i64 0, i64 %42
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %42
   store i8 0, ptr %48, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -5264,7 +5264,7 @@ define void @_ZN6Assimp11SMDImporter21CreateOutputAnimationEiRKNSt7__cxx1112basi
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %26 = sext i32 %spec.store.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr nonnull align 1 %22, i64 %26, i1 false)
-  %27 = getelementptr inbounds [1024 x i8], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr %25, i64 %26
   store i8 0, ptr %27, align 1
   br label %28
 
@@ -5318,7 +5318,7 @@ define void @_ZN6Assimp11SMDImporter21CreateOutputAnimationEiRKNSt7__cxx1112basi
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %55 = load ptr, ptr %.sroa.050.061, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr align 1 %55, i64 %50, i1 false)
-  %56 = getelementptr inbounds nuw [1024 x i8], ptr %54, i64 0, i64 %50
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %50
   store i8 0, ptr %56, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -6631,7 +6631,7 @@ _ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; pred
   %spec.store.select = select i1 %110, i32 0, i32 %109
   %111 = getelementptr inbounds i8, ptr %108, i64 -192
   %112 = zext i32 %spec.store.select to i64
-  %113 = getelementptr inbounds nuw [3 x %"struct.Assimp::SMD::Vertex"], ptr %111, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %111, i64 %112
   call void @_ZN6Assimp11SMDImporter11ParseVertexEPKcPS2_S2_RNS_3SMD6VertexEb(ptr noundef nonnull align 8 dereferenceable(226) %0, ptr noundef nonnull %24, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %113, i1 noundef zeroext true)
   %.pre.pre = load ptr, ptr %6, align 8
   br label %.outer, !llvm.loop !95
@@ -7142,7 +7142,7 @@ _ZNSt12_Vector_baseIN6Assimp3SMD4FaceESaIS2_EE11_M_allocateEm.exit: ; preds = %5
 23:                                               ; preds = %23, %.lr.ph.i.i.i
   %24 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %36, %23 ]
   %25 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %21, i64 %24
-  %26 = getelementptr inbounds nuw [3 x %"struct.Assimp::SMD::Vertex"], ptr %22, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %22, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 40, i1 false), !alias.scope !102
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -10274,7 +10274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -12295,7 +12295,7 @@ _ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.
 28:                                               ; preds = %28, %.lr.ph.i.i.i
   %29 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %41, %28 ]
   %30 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw [3 x %"struct.Assimp::SMD::Vertex"], ptr %27, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %27, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %31, i64 40, i1 false), !alias.scope !181
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -12362,7 +12362,7 @@ _ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pred
 58:                                               ; preds = %58, %.lr.ph.i.i.i16
   %59 = phi i64 [ 0, %.lr.ph.i.i.i16 ], [ %71, %58 ]
   %60 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %56, i64 %59
-  %61 = getelementptr inbounds nuw [3 x %"struct.Assimp::SMD::Vertex"], ptr %57, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw %"struct.Assimp::SMD::Vertex", ptr %57, i64 %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(64) %61, i64 40, i1 false), !alias.scope !187
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 40

@@ -145,7 +145,7 @@ define internal void @vector_clipf_c(ptr noundef writeonly captures(none) %0, pt
   %15 = select nsz i1 %14, float %13, float %3
   %16 = fcmp nsz ogt float %15, %4
   %..i = select nsz i1 %16, float %4, float %15
-  %17 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %..i, ptr %17, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

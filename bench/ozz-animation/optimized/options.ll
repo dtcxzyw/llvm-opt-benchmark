@@ -563,7 +563,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !55
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !4
@@ -655,7 +655,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i9: ; preds = %_ZStlsISt11char_t
 ._crit_edge:                                      ; preds = %44, %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit.thread.thread, %.preheader
   %98 = add nsw i32 %5, 1
   store i32 %98, ptr %4, align 8, !tbaa !22
-  %99 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %8
+  %99 = getelementptr inbounds ptr, ptr %0, i64 %8
   store ptr %1, ptr %99, align 8, !tbaa !55
   %100 = sext i32 %98 to i64
   %101 = getelementptr inbounds ptr, ptr %0, i64 %100
@@ -2025,7 +2025,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIbE9Pa
 
 .preheader.i:                                     ; preds = %.preheader49.i, %17
   %.02953.i = phi i64 [ %18, %17 ], [ 0, %.preheader49.i ]
-  %19 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.true_options, i64 0, i64 %.02953.i
+  %19 = getelementptr inbounds nuw ptr, ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.true_options, i64 %.02953.i
   %20 = load ptr, ptr %19, align 8, !tbaa !77
   br label %21
 
@@ -2057,7 +2057,7 @@ _ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit.i: ; preds = %21
 
 .critedge.preheader.i:                            ; preds = %17, %.critedge.i
   %.054.i = phi i64 [ %35, %.critedge.i ], [ 0, %17 ]
-  %36 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.false_options, i64 0, i64 %.054.i
+  %36 = getelementptr inbounds nuw ptr, ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.false_options, i64 %.054.i
   %37 = load ptr, ptr %36, align 8, !tbaa !77
   br label %38
 
@@ -3417,7 +3417,7 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph ], [ 0, %.critedge ]
-  %38 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv156
+  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv156
   %39 = load ptr, ptr %38, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 25
   store i8 0, ptr %40, align 1, !tbaa !13
@@ -3447,7 +3447,7 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph135:                                        ; preds = %.preheader120, %66
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %66 ], [ 0, %.preheader120 ]
-  %54 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv159
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv159
   %55 = load ptr, ptr %54, align 8, !tbaa !55
   %56 = load ptr, ptr %55, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -3656,7 +3656,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77: ; preds = %_ZStlsISt11char_
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %153
   %indvars.iv167 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next168, %153 ]
-  %154 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv167
+  %154 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv167
   %155 = load ptr, ptr %154, align 8, !tbaa !55
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 25
   %157 = load i8, ptr %156, align 1, !tbaa !13, !range !73, !noundef !74
@@ -3669,7 +3669,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77: ; preds = %_ZStlsISt11char_
   br i1 %163, label %153, label %164
 
 164:                                              ; preds = %.lr.ph142
-  %165 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv167
+  %165 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv167
   %166 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.13, i64 noundef 17)
   %167 = load ptr, ptr %165, align 8, !tbaa !55
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -3736,7 +3736,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i82: ; preds = %_ZStlsISt11char_
 .lr.ph144:                                        ; preds = %153, %_ZN3ozz7options6Option8ValidateEi.exit75.thread
   %201 = phi i32 [ %207, %_ZN3ozz7options6Option8ValidateEi.exit75.thread ], [ %117, %153 ]
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %_ZN3ozz7options6Option8ValidateEi.exit75.thread ], [ 0, %153 ]
-  %202 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv172
+  %202 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv172
   %203 = load ptr, ptr %202, align 8, !tbaa !55
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %205 = load ptr, ptr %204, align 8, !tbaa !14
@@ -4809,7 +4809,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit141: ; preds = %1
 
 .lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40, %270
   %indvars.iv = phi i64 [ %indvars.iv.next, %270 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40 ]
-  %216 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %217 = load ptr, ptr %216, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !54
@@ -4962,7 +4962,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit146: ; preds = %2
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
   %indvars.iv271 = phi i64 [ 0, %._crit_edge.i.i.lr.ph ], [ %indvars.iv.next272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ]
-  %294 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv271
+  %294 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv271
   %295 = load ptr, ptr %294, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

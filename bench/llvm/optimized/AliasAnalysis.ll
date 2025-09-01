@@ -2065,7 +2065,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
   %8 = lshr i16 %7, 7
   %9 = and i16 %8, 7
   %10 = zext nneg i16 %9 to i64
-  %11 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %10, i64 1
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %10, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !49, !range !50, !noundef !51
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %33, label %14
@@ -2134,7 +2134,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
   %8 = lshr i16 %7, 7
   %9 = and i16 %8, 7
   %10 = zext nneg i16 %9 to i64
-  %11 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %10, i64 1
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %10, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !49, !range !50, !noundef !51
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %35, label %14
@@ -2373,7 +2373,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
   %8 = lshr i16 %7, 2
   %9 = and i16 %8, 7
   %10 = zext nneg i16 %9 to i64
-  %11 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %10, i64 2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %10, i64 2
   %12 = load i8, ptr %11, align 2, !tbaa !49, !range !50, !noundef !51
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %33, label %14
@@ -2442,7 +2442,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm9AAResults13getModRe
   %8 = lshr i16 %7, 1
   %9 = and i16 %8, 7
   %10 = zext nneg i16 %9 to i64
-  %11 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %10, i64 2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %10, i64 2
   %12 = load i8, ptr %11, align 2, !tbaa !49, !range !50, !noundef !51
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %33, label %14
@@ -2667,7 +2667,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105: ; pred
   %72 = lshr i16 %71, 7
   %73 = and i16 %72, 7
   %74 = zext nneg i16 %73 to i64
-  %75 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %74, i64 1
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %74, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !49, !range !50, !noundef !51
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %_ZN4llvm9AAResults13getModRefInfoEPKNS_9VAArgInstERKNS_14MemoryLocationERNS_11AAQueryInfoE.exit, label %78
@@ -2727,7 +2727,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105: ; pred
   %100 = lshr i16 %99, 7
   %101 = and i16 %100, 7
   %102 = zext nneg i16 %101 to i64
-  %103 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %102, i64 1
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %102, i64 1
   %104 = load i8, ptr %103, align 1, !tbaa !49, !range !50, !noundef !51
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %_ZN4llvm9AAResults13getModRefInfoEPKNS_9VAArgInstERKNS_14MemoryLocationERNS_11AAQueryInfoE.exit, label %106
@@ -2801,7 +2801,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105: ; pred
   %134 = lshr i16 %133, 2
   %135 = and i16 %134, 7
   %136 = zext nneg i16 %135 to i64
-  %137 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %136, i64 2
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %136, i64 2
   %138 = load i8, ptr %137, align 2, !tbaa !49, !range !50, !noundef !51
   %139 = trunc nuw i8 %138 to i1
   br i1 %139, label %_ZN4llvm9AAResults13getModRefInfoEPKNS_9VAArgInstERKNS_14MemoryLocationERNS_11AAQueryInfoE.exit, label %140
@@ -2861,7 +2861,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread105: ; pred
   %162 = lshr i16 %161, 1
   %163 = and i16 %162, 7
   %164 = zext nneg i16 %163 to i64
-  %165 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %164, i64 2
+  %165 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %164, i64 2
   %166 = load i8, ptr %165, align 2, !tbaa !49, !range !50, !noundef !51
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %_ZN4llvm9AAResults13getModRefInfoEPKNS_9VAArgInstERKNS_14MemoryLocationERNS_11AAQueryInfoE.exit, label %168

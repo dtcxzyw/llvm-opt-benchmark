@@ -316,7 +316,7 @@ TLSX_Remove.exit:                                 ; preds = %.lr.ph, %11, %.crit
 34:                                               ; preds = %22
   %35 = load i32, ptr %23, align 4, !tbaa !3
   %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds nuw [10 x i16], ptr %21, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
   store i16 %36, ptr %37, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -493,7 +493,7 @@ TLSX_Remove.exit:                                 ; preds = %.lr.ph, %11, %.crit
 34:                                               ; preds = %22
   %35 = load i32, ptr %23, align 4, !tbaa !3
   %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds nuw [10 x i16], ptr %21, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
   store i16 %36, ptr %37, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -793,7 +793,7 @@ define range(i32 -173, 8) i32 @wolfSSL_GetHmacType(ptr noundef readonly captures
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLS_hmac, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.TLS_hmac, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %wolfSSL_GetHmacType_ex.exit
 
@@ -816,7 +816,7 @@ define range(i32 -173, 8) i32 @wolfSSL_GetHmacType_ex(ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLS_hmac, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.TLS_hmac, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 
@@ -924,7 +924,7 @@ define i32 @TLS_hmac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
 
 switch.lookup:                                    ; preds = %40
   %45 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLS_hmac, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.TLS_hmac, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %wolfSSL_GetHmacType.exit
 
@@ -998,13 +998,13 @@ define internal fastcc i32 @Hmac_UpdateFinal_CT(ptr noundef nonnull %0, ptr noun
 
 switch.lookup:                                    ; preds = %7
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.Hmac_UpdateFinal_CT, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Hmac_UpdateFinal_CT, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep192 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.Hmac_UpdateFinal_CT.28, i64 0, i64 %15
+  %switch.gep192 = getelementptr inbounds nuw i32, ptr @switch.table.Hmac_UpdateFinal_CT.28, i64 %15
   %switch.load193 = load i32, ptr %switch.gep192, align 4
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep194 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.Hmac_UpdateFinal_CT.29, i64 0, i64 %16
+  %switch.gep194 = getelementptr inbounds nuw i32, ptr @switch.table.Hmac_UpdateFinal_CT.29, i64 %16
   %switch.load195 = load i32, ptr %switch.gep194, align 4
   %17 = add nsw i32 %switch.load, -1
   %18 = add i32 %3, 12
@@ -1242,14 +1242,14 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
 
 142:                                              ; preds = %135
   %143 = sub nsw i64 %indvars.iv, %104
-  %144 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr %9, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !51
   %146 = select i1 %119, i8 %145, i8 %140
   br label %147
 
 147:                                              ; preds = %142, %135
   %.1 = phi i8 [ %146, %142 ], [ %141, %135 ]
-  %148 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %.1, ptr %148, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1320,7 +1320,7 @@ Hmac_HashFinalRaw.exit:                           ; preds = %161, %163, %165, %1
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph ], [ 0, %.preheader ]
-  %169 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 0, i64 %indvars.iv174
+  %169 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv174
   %170 = load i8, ptr %169, align 1, !tbaa !51
   %171 = and i8 %170, %115
   %172 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv174
@@ -2616,7 +2616,7 @@ define internal fastcc range(i32 -173, 2) i32 @TLSX_PopulateSupportedGroups(ptr 
 
 10:                                               ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %11 = getelementptr inbounds nuw [10 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !64
   %13 = tail call i32 @TLSX_UseSupportedCurve(ptr noundef %1, i16 noundef zeroext %12, ptr poison)
   %.not48 = icmp eq i32 %13, 1
@@ -2998,10 +2998,10 @@ TLSX_Find.exit.preheader:                         ; preds = %.lr.ph.i
 
 switch.lookup:                                    ; preds = %.lr.ph.split.us
   %18 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep299 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %19
+  %switch.gep299 = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 %19
   %switch.load300 = load i32, ptr %switch.gep299, align 4
   %20 = icmp eq i32 %.0103133.us, 0
   br i1 %20, label %21, label %25
@@ -3127,20 +3127,20 @@ TLSX_Find.exit.us:                                ; preds = %.lr.ph.split.us, %4
   %.097134.us161 = phi i32 [ %.198.us183, %TLSX_Find.exit.us181 ], [ 80, %.lr.ph.split ]
   %.0103133.us162 = phi i32 [ %.1104.us182, %TLSX_Find.exit.us181 ], [ 0, %.lr.ph.split ]
   %51 = load i16, ptr %.0110140.us155, align 8, !tbaa !110
-  %switch.tableidx303 = add i16 %51, -21
-  %52 = icmp ult i16 %switch.tableidx303, 5
-  %switch.maskindex305 = trunc i16 %switch.tableidx303 to i8
+  %switch.tableidx302 = add i16 %51, -21
+  %52 = icmp ult i16 %switch.tableidx302, 5
+  %switch.maskindex305 = trunc i16 %switch.tableidx302 to i8
   %switch.shifted306 = lshr i8 29, %switch.maskindex305
   %switch.lobit307 = trunc i8 %switch.shifted306 to i1
   %or.cond312 = select i1 %52, i1 %switch.lobit307, i1 false
   br i1 %or.cond312, label %switch.lookup304, label %TLSX_Find.exit.us181
 
 switch.lookup304:                                 ; preds = %.lr.ph.split.split.us
-  %53 = zext nneg i16 %switch.tableidx303 to i64
-  %switch.gep308 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %53
+  %53 = zext nneg i16 %switch.tableidx302 to i64
+  %switch.gep308 = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 %53
   %switch.load309 = load i32, ptr %switch.gep308, align 4
-  %54 = zext nneg i16 %switch.tableidx303 to i64
-  %switch.gep310 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %54
+  %54 = zext nneg i16 %switch.tableidx302 to i64
+  %switch.gep310 = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 %54
   %switch.load311 = load i32, ptr %switch.gep310, align 4
   %55 = icmp eq i32 %.0103133.us162, 0
   br i1 %55, label %56, label %60
@@ -3245,20 +3245,20 @@ TLSX_Find.exit.us181:                             ; preds = %.lr.ph.split.split.
   %.097134 = phi i32 [ %.198, %TLSX_Find.exit ], [ 80, %.lr.ph.split ]
   %.0103133 = phi i32 [ %.1104, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
   %81 = load i16, ptr %.0110140, align 8, !tbaa !110
-  %switch.tableidx314 = add i16 %81, -21
-  %82 = icmp ult i16 %switch.tableidx314, 5
-  %switch.maskindex316 = trunc i16 %switch.tableidx314 to i8
+  %switch.tableidx313 = add i16 %81, -21
+  %82 = icmp ult i16 %switch.tableidx313, 5
+  %switch.maskindex316 = trunc i16 %switch.tableidx313 to i8
   %switch.shifted317 = lshr i8 29, %switch.maskindex316
   %switch.lobit318 = trunc i8 %switch.shifted317 to i1
   %or.cond323 = select i1 %82, i1 %switch.lobit318, i1 false
   br i1 %or.cond323, label %switch.lookup315, label %TLSX_Find.exit
 
 switch.lookup315:                                 ; preds = %.lr.ph.split.split
-  %83 = zext nneg i16 %switch.tableidx314 to i64
-  %switch.gep319 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %83
+  %83 = zext nneg i16 %switch.tableidx313 to i64
+  %switch.gep319 = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 %83
   %switch.load320 = load i32, ptr %switch.gep319, align 4
-  %84 = zext nneg i16 %switch.tableidx314 to i64
-  %switch.gep321 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %84
+  %84 = zext nneg i16 %switch.tableidx313 to i64
+  %switch.gep321 = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 %84
   %switch.load322 = load i32, ptr %switch.gep321, align 4
   %85 = icmp eq i32 %.0103133, 0
   br i1 %85, label %86, label %90
@@ -4052,10 +4052,10 @@ define i32 @TLSX_KeyShare_GenKey(ptr noundef %0, ptr noundef %1) local_unnamed_a
 switch.lookup:                                    ; preds = %108
   %111 = load ptr, ptr %109, align 8, !tbaa !151
   %112 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.TLSX_KeyShare_GenKey, i64 0, i64 %112
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_KeyShare_GenKey, i64 %112
   %switch.load = load i32, ptr %switch.gep, align 4
   %113 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep40 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.TLSX_KeyShare_Process, i64 0, i64 %113
+  %switch.gep40 = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_KeyShare_Process, i64 %113
   %switch.load41 = load i32, ptr %switch.gep40, align 4
   %114 = icmp eq ptr %111, null
   br i1 %114, label %115, label %.thread61.i
@@ -4913,7 +4913,7 @@ define internal fastcc i32 @TLSX_KeyShare_Process(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %99
   %103 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.TLSX_KeyShare_Process, i64 0, i64 %103
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.TLSX_KeyShare_Process, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %105 = load ptr, ptr %104, align 8, !tbaa !166
@@ -6251,7 +6251,7 @@ TLSX_SignatureAlgorithms_FreeAll.exit.i:          ; preds = %74
 
 .preheader:                                       ; preds = %.preheader150, %134
   %indvars.iv184 = phi i64 [ 0, %.preheader150 ], [ %indvars.iv.next185, %134 ]
-  %128 = getelementptr inbounds nuw [10 x i16], ptr %126, i64 0, i64 %indvars.iv184
+  %128 = getelementptr inbounds nuw i16, ptr %126, i64 %indvars.iv184
   %129 = load i16, ptr %128, align 2, !tbaa !64
   br label %131
 
@@ -6262,7 +6262,7 @@ TLSX_SignatureAlgorithms_FreeAll.exit.i:          ; preds = %74
 
 131:                                              ; preds = %.preheader, %130
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %130 ]
-  %132 = getelementptr inbounds nuw [5 x i16], ptr @preferredGroup, i64 0, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw i16, ptr @preferredGroup, i64 %indvars.iv
   %133 = load i16, ptr %132, align 2, !tbaa !64
   %.not237 = icmp eq i16 %133, %129
   br i1 %.not237, label %.loopexit218, label %130
@@ -8079,7 +8079,7 @@ define i32 @TLSX_Parse(ptr noundef %0, ptr noundef readonly captures(address) %1
   %..i = select i1 %40, i16 63, i16 %29
   %42 = lshr i16 %..i, 3
   %43 = zext nneg i16 %42 to i64
-  %44 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !51
   %46 = trunc i16 %..i to i8
   %47 = and i8 %46, 7

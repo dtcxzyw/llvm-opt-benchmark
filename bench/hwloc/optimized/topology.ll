@@ -514,7 +514,7 @@ hwloc__find_insert_memory_parent.exit.thread:     ; preds = %76, %32, %hwloc__fi
   %96 = icmp ugt i32 %5, 13
   %97 = icmp eq i32 %5, 4
   %98 = zext i32 %5 to i64
-  %99 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %98
   %100 = add i32 %5, -1
   %or.cond3.i.i.i = icmp ult i32 %100, 13
   br label %.lr.ph235.i
@@ -736,7 +736,7 @@ thread-pre-split.i:                               ; preds = %179, %178
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %185, %174, %171, %130
   %207 = zext i32 %.pre.i.i to i64
-  %208 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !31
   %210 = load i32, ptr %99, align 4, !tbaa !31
   %211 = icmp ugt i32 %.pre.i.i, 13
@@ -2271,9 +2271,9 @@ define hidden range(i32 -1, 1) i32 @hwloc__topology_dup(ptr noundef writeonly ca
 
 69:                                               ; preds = %16, %69
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %69 ]
-  %70 = getelementptr inbounds nuw [20 x i32], ptr %67, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !31
-  %72 = getelementptr inbounds nuw [20 x i32], ptr %68, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
   store i32 %71, ptr %72, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -2326,9 +2326,9 @@ hwloc_tma_malloc.exit.i.us:                       ; preds = %hwloc_tma_malloc.ex
 
 .preheader.split.us:                              ; preds = %.preheader, %101
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %101 ], [ 0, %.preheader ]
-  %95 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %92, i64 0, i64 %indvars.iv82
+  %95 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %92, i64 %indvars.iv82
   %96 = load i32, ptr %95, align 8, !tbaa !109
-  %97 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %93, i64 0, i64 %indvars.iv82
+  %97 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %93, i64 %indvars.iv82
   store i32 %96, ptr %97, align 8, !tbaa !109
   %.not60.us = icmp eq i32 %96, 0
   br i1 %.not60.us, label %101, label %hwloc_tma_malloc.exit.i62.us
@@ -2384,9 +2384,9 @@ hwloc_tma_calloc.exit:                            ; preds = %hwloc_tma_malloc.ex
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %129
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %129 ], [ 0, %.preheader.split.preheader ]
-  %120 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %118, i64 0, i64 %indvars.iv78
+  %120 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %118, i64 %indvars.iv78
   %121 = load i32, ptr %120, align 8, !tbaa !109
-  %122 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %117, i64 0, i64 %indvars.iv78
+  %122 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %117, i64 %indvars.iv78
   store i32 %121, ptr %122, align 8, !tbaa !109
   %.not60 = icmp eq i32 %121, 0
   br i1 %.not60, label %129, label %hwloc_tma_malloc.exit.i62
@@ -2873,7 +2873,7 @@ hwloc_tma_malloc.exit:                            ; preds = %95, %98
   %131 = sub nsw i32 -3, %128
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %133 = zext i32 %131 to i64
-  %134 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %132, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %132, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !111
   %137 = load i32, ptr %134, align 8, !tbaa !109
@@ -3403,10 +3403,10 @@ define i32 @hwloc_compare_types(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 
 5:                                                ; preds = %2
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = zext i32 %0 to i64
-  %10 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !31
   %12 = icmp ugt i32 %1, 13
   %13 = add i32 %0, -1
@@ -3933,7 +3933,7 @@ define hidden range(i32 -1, 1) i32 @hwloc__reconnect(ptr noundef %0, i64 noundef
   store i32 0, ptr %38, align 8, !tbaa !115
   %39 = load i32, ptr %37, align 8, !tbaa !35
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [20 x i32], ptr %34, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %40
   store i32 0, ptr %41, align 4, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 52
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 88
@@ -4011,10 +4011,10 @@ define hidden range(i32 -1, 1) i32 @hwloc__reconnect(ptr noundef %0, i64 noundef
 
 71:                                               ; preds = %64
   %72 = zext i32 %68 to i64
-  %73 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = zext i32 %67 to i64
-  %76 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !31
   %78 = icmp ugt i32 %68, 13
   %79 = add i32 %67, -1
@@ -4121,10 +4121,10 @@ hwloc_type_cmp.exit.i:                            ; preds = %97, %92, %81
 
 124:                                              ; preds = %117
   %125 = zext i32 %121 to i64
-  %126 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !31
   %128 = zext i32 %120 to i64
-  %129 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !31
   %131 = icmp ugt i32 %121, 13
   %132 = add i32 %120, -1
@@ -4253,7 +4253,7 @@ hwloc_type_cmp.exit214.i:                         ; preds = %144, %134
   store ptr null, ptr %188, align 8, !tbaa !123
   %189 = load i32, ptr %.1181.i, align 8, !tbaa !35
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw [20 x i32], ptr %34, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i32, ptr %34, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !31
   %193 = icmp eq i32 %192, -1
   %spec.select325.i = select i1 %193, i32 %.pre295.pre.i, i32 -2
@@ -4414,7 +4414,7 @@ hwloc_connect_levels.exit:                        ; preds = %238, %52
   %269 = load i32, ptr %267, align 8, !tbaa !35
   %.fr12.i.i = freeze i32 %269
   %270 = zext i32 %268 to i64
-  %271 = getelementptr inbounds nuw [20 x i32], ptr %254, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw i32, ptr %254, i64 %270
   %272 = load i32, ptr %271, align 4, !tbaa !31
   %273 = icmp eq i32 %272, 2
   br i1 %273, label %274, label %287
@@ -4457,7 +4457,7 @@ hwloc_dont_merge_group_level.exit.i:              ; preds = %280, %276
   %288 = phi i1 [ true, %274 ], [ false, %257 ], [ %.not237.i, %hwloc_dont_merge_group_level.exit.i ]
   %.0224.i = phi i32 [ 1, %274 ], [ 0, %257 ], [ %spec.select250.i, %hwloc_dont_merge_group_level.exit.i ]
   %289 = zext i32 %.fr12.i.i to i64
-  %290 = getelementptr inbounds nuw [20 x i32], ptr %254, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw i32, ptr %254, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !31
   %292 = icmp eq i32 %291, 2
   br i1 %292, label %293, label %306
@@ -4514,9 +4514,9 @@ hwloc_dont_merge_group_level.exit264.i:           ; preds = %299, %295
   br i1 %or.cond7.i, label %312, label %317
 
 312:                                              ; preds = %311
-  %313 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_priority, i64 0, i64 %270
+  %313 = getelementptr inbounds nuw i32, ptr @obj_type_priority, i64 %270
   %314 = load i32, ptr %313, align 4, !tbaa !31
-  %315 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_priority, i64 0, i64 %289
+  %315 = getelementptr inbounds nuw i32, ptr @obj_type_priority, i64 %289
   %316 = load i32, ptr %315, align 4, !tbaa !31
   %.not239.i = icmp slt i32 %314, %316
   %..i23 = zext i1 %.not239.i to i32
@@ -5384,7 +5384,7 @@ hwloc_compare_levels_structure.exit.thread.i:     ; preds = %342, %.lr.ph.split.
 
 ._crit_edge380.i:                                 ; preds = %.lr.ph379.i, %704
   %717 = zext i32 %708 to i64
-  %718 = getelementptr inbounds nuw [20 x i32], ptr %702, i64 0, i64 %717
+  %718 = getelementptr inbounds nuw i32, ptr %702, i64 %717
   %719 = load i32, ptr %718, align 4, !tbaa !31
   %720 = icmp eq i32 %719, -1
   %.1..i = select i1 %720, i32 %.pre430.i, i32 -2
@@ -5424,7 +5424,7 @@ hwloc_filter_levels_keep_structure.exit:          ; preds = %._crit_edge380.i, %
 
 734:                                              ; preds = %.loopexit.i, %729
   %indvars.iv16.i = phi i64 [ 0, %729 ], [ %indvars.iv.next17.i, %.loopexit.i ]
-  %735 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %723, i64 0, i64 %indvars.iv16.i
+  %735 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %723, i64 %indvars.iv16.i
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 16
   %.026.i.i = load ptr, ptr %736, align 8, !tbaa !50
   %.not27.i.i = icmp eq ptr %.026.i.i, null
@@ -7281,7 +7281,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_set_type_filter(ptr noundef captures
   %spec.store.select.i = select i1 %or.cond5.i, i32 0, i32 %2
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw [20 x i32], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
   store i32 %spec.store.select.i, ptr %36, align 4, !tbaa !31
   br label %hwloc__topology_set_type_filter.exit
 
@@ -7344,7 +7344,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_set_all_types_filter(ptr noundef cap
   %25 = icmp samesign ult i64 %indvars.iv28, 16
   %or.cond5.i.us = and i1 %8, %25
   %spec.store.select.i.us = select i1 %or.cond5.i.us, i32 0, i32 2
-  %26 = getelementptr inbounds nuw [20 x i32], ptr %9, i64 0, i64 %indvars.iv28
+  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv28
   store i32 %spec.store.select.i.us, ptr %26, align 4, !tbaa !31
   br label %hwloc__topology_set_type_filter.exit.us
 
@@ -7373,7 +7373,7 @@ hwloc__topology_set_type_filter.exit.us:          ; preds = %24, %22, %19, %15
   %33 = icmp samesign ult i64 %indvars.iv, 16
   %or.cond5.i.us11 = and i1 %8, %33
   %spec.store.select.i.us12 = select i1 %or.cond5.i.us11, i32 0, i32 %1
-  %34 = getelementptr inbounds nuw [20 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %spec.store.select.i.us12, ptr %34, align 4, !tbaa !31
   br label %hwloc__topology_set_type_filter.exit.us13
 
@@ -7393,7 +7393,7 @@ hwloc__topology_set_type_filter.exit.us13:        ; preds = %32, %30
   br label %hwloc__topology_set_type_filter.exit.us18.us
 
 38:                                               ; preds = %.preheader.split.split.split.us.split.us
-  %39 = getelementptr inbounds nuw [20 x i32], ptr %9, i64 0, i64 %indvars.iv24
+  %39 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv24
   store i32 0, ptr %39, align 4, !tbaa !31
   br label %hwloc__topology_set_type_filter.exit.us18.us
 
@@ -7429,7 +7429,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_set_cache_types_filter(ptr noundef c
 
 hwloc__topology_set_type_filter.exit.us:          ; preds = %.preheader, %hwloc__topology_set_type_filter.exit.us
   %indvars.iv11 = phi i64 [ %indvars.iv.next12, %hwloc__topology_set_type_filter.exit.us ], [ 5, %.preheader ]
-  %8 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %indvars.iv11
+  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv11
   store i32 %1, ptr %8, align 4, !tbaa !31
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 13
@@ -7452,7 +7452,7 @@ hwloc__topology_set_type_filter.exit.us:          ; preds = %.preheader, %hwloc_
   br label %hwloc__topology_set_type_filter.exit
 
 14:                                               ; preds = %.preheader.split
-  %15 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %spec.store.select.i, ptr %15, align 4, !tbaa !31
   br label %hwloc__topology_set_type_filter.exit
 
@@ -7483,7 +7483,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_set_icache_types_filter(ptr noundef 
 
 hwloc__topology_set_type_filter.exit.us:          ; preds = %.preheader, %hwloc__topology_set_type_filter.exit.us
   %indvars.iv11 = phi i64 [ %indvars.iv.next12, %hwloc__topology_set_type_filter.exit.us ], [ 10, %.preheader ]
-  %8 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %indvars.iv11
+  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv11
   store i32 %1, ptr %8, align 4, !tbaa !31
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 13
@@ -7496,7 +7496,7 @@ hwloc__topology_set_type_filter.exit.us:          ; preds = %.preheader, %hwloc_
 
 hwloc__topology_set_type_filter.exit:             ; preds = %.preheader, %hwloc__topology_set_type_filter.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %hwloc__topology_set_type_filter.exit ], [ 10, %.preheader ]
-  %11 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %spec.store.select.i, ptr %11, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
@@ -7556,7 +7556,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_get_type_filter(ptr noundef readonly
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [20 x i32], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !31
   store i32 %11, ptr %2, align 4, !tbaa !31
   br label %12
@@ -7702,7 +7702,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_load(ptr noundef %0) local_unnamed_a
 
 24:                                               ; preds = %20, %23
   %indvars.iv = phi i64 [ 5, %20 ], [ %indvars.iv.next, %23 ]
-  %25 = getelementptr inbounds nuw [20 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !31
   %.not81 = icmp eq i32 %26, 1
   br i1 %.not81, label %23, label %27
@@ -10218,7 +10218,7 @@ define internal fastcc range(i32 0, 2) i32 @find_same_type(ptr noundef readonly 
   %5 = add i32 %.fr, -1
   %or.cond.i.i = icmp ult i32 %5, 13
   %6 = zext i32 %.fr to i64
-  %7 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %6
   %8 = icmp ugt i32 %.fr, 13
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br i1 %or.cond.i.i, label %.lr.ph.split, label %.lr.ph.split.us
@@ -10231,7 +10231,7 @@ define internal fastcc range(i32 0, 2) i32 @find_same_type(ptr noundef readonly 
   %.013.us = phi ptr [ %.011, %.lr.ph.split.us ], [ %.0.us, %18 ]
   %12 = load i32, ptr %.013.us, align 8, !tbaa !35
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %16 = add i32 %12, -1
   %or.cond3.i.i.us = icmp ult i32 %16, 13
@@ -10289,7 +10289,7 @@ define internal fastcc range(i32 0, 2) i32 @find_same_type(ptr noundef readonly 
 41:                                               ; preds = %.lr.ph.split
   %42 = load i32, ptr %7, align 4, !tbaa !31
   %43 = zext nneg i32 %39 to i64
-  %44 = getelementptr inbounds nuw [20 x i32], ptr @obj_type_order, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !31
   %46 = add nsw i32 %39, -1
   %or.cond3.i.i = icmp ult i32 %46, 13
@@ -10837,7 +10837,7 @@ define internal fastcc void @hwloc__filter_bridges(ptr noundef captures(none) %0
   %.02230 = phi ptr [ %4, %.lr.ph ], [ %spec.select, %33 ]
   %9 = load i32, ptr %.031, align 8, !tbaa !35
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [20 x i32], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !31
   tail call fastcc void @hwloc__filter_bridges(ptr noundef %0, ptr noundef nonnull %.031, i32 noundef %6)
   %13 = getelementptr inbounds nuw i8, ptr %.031, i64 40

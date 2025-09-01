@@ -1031,7 +1031,7 @@ if.then.i:                                        ; preds = %_ZN9LogStreamlsIRA9
   %m_command.i = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %5 = load i16, ptr %m_command.i, align 8, !tbaa !29
   %idxprom = zext i16 %5 to i64
-  %arrayidx = getelementptr inbounds nuw [84 x %struct.ToServerCommandHandler], ptr @toServerCommandTable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.ToServerCommandHandler, ptr @toServerCommandTable, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 16, !tbaa !36
   %tobool.not.i.i6 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i6, label %if.then.i.i7, label %if.else.i.i

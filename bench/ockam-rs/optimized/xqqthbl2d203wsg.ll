@@ -5974,7 +5974,7 @@ common.resume.i:                                  ; preds = %70, %46, %38, %25
   %58 = or disjoint i64 %56, %57
   %59 = call i64 @llvm.bswap.i64(i64 %58)
   call void @llvm.experimental.noalias.scope.decl(metadata !935)
-  %60 = getelementptr [0 x i8], ptr %42, i64 0, i64 %52
+  %60 = getelementptr i8, ptr %42, i64 %52
   store i8 -128, ptr %60, align 1, !alias.scope !938, !noalias !939
   %61 = icmp eq i8 %51, 63
   br i1 %61, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1572bd2a18041a5aE.exit.thread.thread.i.i.i.i.i", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1572bd2a18041a5aE.exit.thread.i.i.i.i.i"

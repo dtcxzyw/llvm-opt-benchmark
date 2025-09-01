@@ -469,8 +469,8 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not80.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %18 = add nuw nsw i64 %indvars.iv.i, 2
-  %19 = getelementptr inbounds nuw [16 x i32], ptr @indexes, i64 0, i64 %18
+  %18 = getelementptr inbounds nuw i32, ptr @indexes, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = icmp eq i64 %indvars.iv.i, 4
   %21 = icmp samesign ugt i64 %indvars.iv.i, 3
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -632,8 +632,8 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %99 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %100 = sext i16 %99 to i32
   %101 = add nsw i32 %100, 1
-  %102 = add nuw nsw i64 %.038.lcssa125.i, 2
-  %103 = getelementptr inbounds nuw [16 x i32], ptr @indexes, i64 0, i64 %102
+  %102 = getelementptr inbounds nuw i32, ptr @indexes, i64 %.038.lcssa125.i
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 %101, ptr %103, align 4, !tbaa !7
   br label %storeMappingData.exit
 

@@ -1387,7 +1387,7 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_mk(ptr noundef %0, i8 no
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lean_io_prim_handle_mk, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lean_io_prim_handle_mk, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -1412,18 +1412,18 @@ switch.lookup:                                    ; preds = %3
   unreachable
 
 17:                                               ; preds = %6
-  %switch.tableidx36 = add i8 %1, -1
-  %18 = icmp ult i8 %switch.tableidx36, 4
-  br i1 %18, label %switch.lookup35, label %20
+  %switch.tableidx35 = add i8 %1, -1
+  %18 = icmp ult i8 %switch.tableidx35, 4
+  br i1 %18, label %switch.lookup36, label %20
 
-switch.lookup35:                                  ; preds = %17
-  %19 = zext nneg i8 %switch.tableidx36 to i64
-  %switch.gep37 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.lean_io_prim_handle_mk.13, i64 0, i64 %19
+switch.lookup36:                                  ; preds = %17
+  %19 = zext nneg i8 %switch.tableidx35 to i64
+  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table.lean_io_prim_handle_mk.13, i64 %19
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %20
 
-20:                                               ; preds = %switch.lookup35, %17
-  %.017 = phi ptr [ @.str.1, %17 ], [ %switch.load38, %switch.lookup35 ]
+20:                                               ; preds = %switch.lookup36, %17
+  %.017 = phi ptr [ @.str.1, %17 ], [ %switch.load38, %switch.lookup36 ]
   %21 = tail call noalias ptr @fdopen(i32 noundef %8, ptr noundef nonnull %.017) #27
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %29
@@ -4234,8 +4234,8 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %lean_decode_uv_erro
   br label %110
 
 36:                                               ; preds = %17
-  %37 = add i64 %18, -1
-  %38 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %37
+  %37 = getelementptr i8, ptr %3, i64 %18
+  %38 = getelementptr i8, ptr %37, i64 -1
   %39 = load i8, ptr %38, align 1, !tbaa !36
   %.not = icmp eq i8 %39, 47
   br i1 %.not, label %49, label %40
@@ -4521,8 +4521,8 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %lean_decode_uv_erro
   br label %78
 
 34:                                               ; preds = %15
-  %35 = add i64 %16, -1
-  %36 = getelementptr inbounds nuw [4096 x i8], ptr %2, i64 0, i64 %35
+  %35 = getelementptr i8, ptr %2, i64 %16
+  %36 = getelementptr i8, ptr %35, i64 -1
   %37 = load i8, ptr %36, align 1, !tbaa !36
   %.not = icmp eq i8 %37, 47
   br i1 %.not, label %47, label %38

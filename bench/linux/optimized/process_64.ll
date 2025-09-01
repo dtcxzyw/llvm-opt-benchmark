@@ -333,75 +333,74 @@ define dso_local range(i64 0, 4294967296) i64 @x86_fsgsbase_read_task(ptr nounde
   %3 = lshr i16 %1, 3
   %4 = and i16 %1, 4
   %5 = icmp eq i16 %4, 0
-  br i1 %5, label %6, label %25, !prof !24
+  br i1 %5, label %6, label %24, !prof !24
 
 6:                                                ; preds = %2
   %7 = add i16 %1, -120
   %8 = icmp ult i16 %7, -24
-  br i1 %8, label %56, label %9, !prof !36
+  br i1 %8, label %55, label %9, !prof !36
 
 9:                                                ; preds = %6
-  %10 = add nsw i16 %3, -12
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2816
-  %12 = zext nneg i16 %10 to i64
-  %13 = getelementptr [3 x %struct.desc_struct], ptr %11, i64 0, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %15 = load i16, ptr %14, align 1
-  %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %18 = load i32, ptr %17, align 1
-  %19 = shl i32 %18, 16
-  %20 = and i32 %19, 16711680
-  %21 = and i32 %18, -16777216
-  %22 = or disjoint i32 %21, %16
-  %23 = or disjoint i32 %22, %20
-  %24 = zext i32 %23 to i64
-  br label %56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2816
+  %11 = zext nneg i16 %3 to i64
+  %12 = getelementptr %struct.desc_struct, ptr %10, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -94
+  %14 = load i16, ptr %13, align 1
+  %15 = zext i16 %14 to i32
+  %16 = getelementptr i8, ptr %12, i64 -92
+  %17 = load i32, ptr %16, align 1
+  %18 = shl i32 %17, 16
+  %19 = and i32 %18, 16711680
+  %20 = and i32 %17, -16777216
+  %21 = or disjoint i32 %20, %15
+  %22 = or disjoint i32 %21, %19
+  %23 = zext i32 %22 to i64
+  br label %55
 
-25:                                               ; preds = %2
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1064
-  tail call void @mutex_lock(ptr noundef nonnull %28) #11
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1048
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %53, label %33, !prof !37
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1064
+  tail call void @mutex_lock(ptr noundef nonnull %27) #11
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1048
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %52, label %32, !prof !37
 
-33:                                               ; preds = %25
-  %34 = zext nneg i16 %3 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ugt i32 %36, %34
-  br i1 %37, label %38, label %53, !prof !24
+32:                                               ; preds = %24
+  %33 = zext nneg i16 %3 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp ugt i32 %35, %33
+  br i1 %36, label %37, label %52, !prof !24
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %31, align 8
-  %40 = zext nneg i16 %3 to i64
-  %41 = getelementptr %struct.desc_struct, ptr %39, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %43 = load i16, ptr %42, align 1
-  %44 = zext i16 %43 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %46 = load i32, ptr %45, align 1
-  %47 = shl i32 %46, 16
-  %48 = and i32 %47, 16711680
-  %49 = and i32 %46, -16777216
-  %50 = or disjoint i32 %49, %44
-  %51 = or disjoint i32 %50, %48
-  %52 = zext i32 %51 to i64
-  br label %53
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %30, align 8
+  %39 = zext nneg i16 %3 to i64
+  %40 = getelementptr %struct.desc_struct, ptr %38, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  %42 = load i16, ptr %41, align 1
+  %43 = zext i16 %42 to i32
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %45 = load i32, ptr %44, align 1
+  %46 = shl i32 %45, 16
+  %47 = and i32 %46, 16711680
+  %48 = and i32 %45, -16777216
+  %49 = or disjoint i32 %48, %43
+  %50 = or disjoint i32 %49, %47
+  %51 = zext i32 %50 to i64
+  br label %52
 
-53:                                               ; preds = %38, %33, %25
-  %54 = phi i64 [ %52, %38 ], [ 0, %33 ], [ 0, %25 ]
-  %55 = getelementptr inbounds nuw i8, ptr %29, i64 1064
-  tail call void @mutex_unlock(ptr noundef nonnull %55) #11
-  br label %56
+52:                                               ; preds = %37, %32, %24
+  %53 = phi i64 [ %51, %37 ], [ 0, %32 ], [ 0, %24 ]
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 1064
+  tail call void @mutex_unlock(ptr noundef nonnull %54) #11
+  br label %55
 
-56:                                               ; preds = %53, %9, %6
-  %57 = phi i64 [ 0, %6 ], [ %24, %9 ], [ %54, %53 ]
-  ret i64 %57
+55:                                               ; preds = %52, %9, %6
+  %56 = phi i64 [ 0, %6 ], [ %23, %9 ], [ %53, %52 ]
+  ret i64 %56
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -523,7 +522,7 @@ define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly captures(address
 
 9:                                                ; preds = %8
   %10 = tail call i64 asm sideeffect "rdfsbase $0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !34
-  br label %80
+  br label %79
 
 11:                                               ; preds = %8
   %12 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073741568) #11, !srcloc !6
@@ -532,11 +531,11 @@ define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly captures(address
   %15 = shl i64 %14, 32
   %16 = or i64 %15, %13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #11
-          to label %80 [label %17], !srcloc !7
+          to label %79 [label %17], !srcloc !7
 
 17:                                               ; preds = %11
   tail call void @do_trace_read_msr(i32 noundef -1073741568, i64 noundef %16, i32 noundef 0) #11
-  br label %80
+  br label %79
 
 18:                                               ; preds = %1
   br i1 %7, label %19, label %23
@@ -550,81 +549,80 @@ define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly captures(address
 23:                                               ; preds = %19, %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2856
   %25 = load i64, ptr %24, align 8
-  br label %80
+  br label %79
 
 26:                                               ; preds = %19
   %27 = lshr i16 %21, 3
   %28 = and i16 %21, 4
   %29 = icmp eq i16 %28, 0
-  br i1 %29, label %30, label %49, !prof !24
+  br i1 %29, label %30, label %48, !prof !24
 
 30:                                               ; preds = %26
   %31 = add i16 %21, -120
   %32 = icmp ult i16 %31, -24
-  br i1 %32, label %80, label %33, !prof !36
+  br i1 %32, label %79, label %33, !prof !36
 
 33:                                               ; preds = %30
-  %34 = add nsw i16 %27, -12
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2816
-  %36 = zext nneg i16 %34 to i64
-  %37 = getelementptr [3 x %struct.desc_struct], ptr %35, i64 0, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %39 = load i16, ptr %38, align 1
-  %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %42 = load i32, ptr %41, align 1
-  %43 = shl i32 %42, 16
-  %44 = and i32 %43, 16711680
-  %45 = and i32 %42, -16777216
-  %46 = or disjoint i32 %45, %40
-  %47 = or disjoint i32 %46, %44
-  %48 = zext i32 %47 to i64
-  br label %80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2816
+  %35 = zext nneg i16 %27 to i64
+  %36 = getelementptr %struct.desc_struct, ptr %34, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -94
+  %38 = load i16, ptr %37, align 1
+  %39 = zext i16 %38 to i32
+  %40 = getelementptr i8, ptr %36, i64 -92
+  %41 = load i32, ptr %40, align 1
+  %42 = shl i32 %41, 16
+  %43 = and i32 %42, 16711680
+  %44 = and i32 %41, -16777216
+  %45 = or disjoint i32 %44, %39
+  %46 = or disjoint i32 %45, %43
+  %47 = zext i32 %46 to i64
+  br label %79
 
-49:                                               ; preds = %26
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1064
-  tail call void @mutex_lock(ptr noundef nonnull %52) #11
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1048
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %77, label %57, !prof !37
+48:                                               ; preds = %26
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1064
+  tail call void @mutex_lock(ptr noundef nonnull %51) #11
+  %52 = load ptr, ptr %49, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1048
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %76, label %56, !prof !37
 
-57:                                               ; preds = %49
-  %58 = zext nneg i16 %27 to i32
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp ugt i32 %60, %58
-  br i1 %61, label %62, label %77, !prof !24
+56:                                               ; preds = %48
+  %57 = zext nneg i16 %27 to i32
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp ugt i32 %59, %57
+  br i1 %60, label %61, label %76, !prof !24
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %55, align 8
-  %64 = zext nneg i16 %27 to i64
-  %65 = getelementptr %struct.desc_struct, ptr %63, i64 %64
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 2
-  %67 = load i16, ptr %66, align 1
-  %68 = zext i16 %67 to i32
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %70 = load i32, ptr %69, align 1
-  %71 = shl i32 %70, 16
-  %72 = and i32 %71, 16711680
-  %73 = and i32 %70, -16777216
-  %74 = or disjoint i32 %73, %68
-  %75 = or disjoint i32 %74, %72
-  %76 = zext i32 %75 to i64
-  br label %77
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %54, align 8
+  %63 = zext nneg i16 %27 to i64
+  %64 = getelementptr %struct.desc_struct, ptr %62, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 2
+  %66 = load i16, ptr %65, align 1
+  %67 = zext i16 %66 to i32
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %69 = load i32, ptr %68, align 1
+  %70 = shl i32 %69, 16
+  %71 = and i32 %70, 16711680
+  %72 = and i32 %69, -16777216
+  %73 = or disjoint i32 %72, %67
+  %74 = or disjoint i32 %73, %71
+  %75 = zext i32 %74 to i64
+  br label %76
 
-77:                                               ; preds = %62, %57, %49
-  %78 = phi i64 [ %76, %62 ], [ 0, %57 ], [ 0, %49 ]
-  %79 = getelementptr inbounds nuw i8, ptr %53, i64 1064
-  tail call void @mutex_unlock(ptr noundef nonnull %79) #11
-  br label %80
+76:                                               ; preds = %61, %56, %48
+  %77 = phi i64 [ %75, %61 ], [ 0, %56 ], [ 0, %48 ]
+  %78 = getelementptr inbounds nuw i8, ptr %52, i64 1064
+  tail call void @mutex_unlock(ptr noundef nonnull %78) #11
+  br label %79
 
-80:                                               ; preds = %77, %33, %30, %23, %17, %11, %9
-  %81 = phi i64 [ %25, %23 ], [ %10, %9 ], [ %16, %11 ], [ %16, %17 ], [ 0, %30 ], [ %48, %33 ], [ %78, %77 ]
-  ret i64 %81
+79:                                               ; preds = %76, %33, %30, %23, %17, %11, %9
+  %80 = phi i64 [ %25, %23 ], [ %10, %9 ], [ %16, %11 ], [ %16, %17 ], [ 0, %30 ], [ %47, %33 ], [ %77, %76 ]
+  ret i64 %80
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -651,11 +649,11 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly captures(address
   %12 = call fastcc i64 @__rdgsbase_inactive()
   %13 = and i64 %11, 512
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %85, label %15
+  br i1 %14, label %84, label %15
 
 15:                                               ; preds = %10
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !35
-  br label %85
+  br label %84
 
 16:                                               ; preds = %9
   %17 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073741566) #11, !srcloc !6
@@ -664,11 +662,11 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly captures(address
   %20 = shl i64 %19, 32
   %21 = or i64 %20, %18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #11
-          to label %85 [label %22], !srcloc !7
+          to label %84 [label %22], !srcloc !7
 
 22:                                               ; preds = %16
   tail call void @do_trace_read_msr(i32 noundef -1073741566, i64 noundef %21, i32 noundef 0) #11
-  br label %85
+  br label %84
 
 23:                                               ; preds = %1
   br i1 %8, label %24, label %28
@@ -682,81 +680,80 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly captures(address
 28:                                               ; preds = %24, %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2864
   %30 = load i64, ptr %29, align 16
-  br label %85
+  br label %84
 
 31:                                               ; preds = %24
   %32 = lshr i16 %26, 3
   %33 = and i16 %26, 4
   %34 = icmp eq i16 %33, 0
-  br i1 %34, label %35, label %54, !prof !24
+  br i1 %34, label %35, label %53, !prof !24
 
 35:                                               ; preds = %31
   %36 = add i16 %26, -120
   %37 = icmp ult i16 %36, -24
-  br i1 %37, label %85, label %38, !prof !36
+  br i1 %37, label %84, label %38, !prof !36
 
 38:                                               ; preds = %35
-  %39 = add nsw i16 %32, -12
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2816
-  %41 = zext nneg i16 %39 to i64
-  %42 = getelementptr [3 x %struct.desc_struct], ptr %40, i64 0, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  %44 = load i16, ptr %43, align 1
-  %45 = zext i16 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %47 = load i32, ptr %46, align 1
-  %48 = shl i32 %47, 16
-  %49 = and i32 %48, 16711680
-  %50 = and i32 %47, -16777216
-  %51 = or disjoint i32 %50, %45
-  %52 = or disjoint i32 %51, %49
-  %53 = zext i32 %52 to i64
-  br label %85
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2816
+  %40 = zext nneg i16 %32 to i64
+  %41 = getelementptr %struct.desc_struct, ptr %39, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 -94
+  %43 = load i16, ptr %42, align 1
+  %44 = zext i16 %43 to i32
+  %45 = getelementptr i8, ptr %41, i64 -92
+  %46 = load i32, ptr %45, align 1
+  %47 = shl i32 %46, 16
+  %48 = and i32 %47, 16711680
+  %49 = and i32 %46, -16777216
+  %50 = or disjoint i32 %49, %44
+  %51 = or disjoint i32 %50, %48
+  %52 = zext i32 %51 to i64
+  br label %84
 
-54:                                               ; preds = %31
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1064
-  tail call void @mutex_lock(ptr noundef nonnull %57) #11
-  %58 = load ptr, ptr %55, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1048
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %82, label %62, !prof !37
+53:                                               ; preds = %31
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1064
+  tail call void @mutex_lock(ptr noundef nonnull %56) #11
+  %57 = load ptr, ptr %54, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1048
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %81, label %61, !prof !37
 
-62:                                               ; preds = %54
-  %63 = zext nneg i16 %32 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp ugt i32 %65, %63
-  br i1 %66, label %67, label %82, !prof !24
+61:                                               ; preds = %53
+  %62 = zext nneg i16 %32 to i32
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ugt i32 %64, %62
+  br i1 %65, label %66, label %81, !prof !24
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %60, align 8
-  %69 = zext nneg i16 %32 to i64
-  %70 = getelementptr %struct.desc_struct, ptr %68, i64 %69
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
-  %72 = load i16, ptr %71, align 1
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %75 = load i32, ptr %74, align 1
-  %76 = shl i32 %75, 16
-  %77 = and i32 %76, 16711680
-  %78 = and i32 %75, -16777216
-  %79 = or disjoint i32 %78, %73
-  %80 = or disjoint i32 %79, %77
-  %81 = zext i32 %80 to i64
-  br label %82
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %59, align 8
+  %68 = zext nneg i16 %32 to i64
+  %69 = getelementptr %struct.desc_struct, ptr %67, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
+  %71 = load i16, ptr %70, align 1
+  %72 = zext i16 %71 to i32
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %74 = load i32, ptr %73, align 1
+  %75 = shl i32 %74, 16
+  %76 = and i32 %75, 16711680
+  %77 = and i32 %74, -16777216
+  %78 = or disjoint i32 %77, %72
+  %79 = or disjoint i32 %78, %76
+  %80 = zext i32 %79 to i64
+  br label %81
 
-82:                                               ; preds = %67, %62, %54
-  %83 = phi i64 [ %81, %67 ], [ 0, %62 ], [ 0, %54 ]
-  %84 = getelementptr inbounds nuw i8, ptr %58, i64 1064
-  tail call void @mutex_unlock(ptr noundef nonnull %84) #11
-  br label %85
+81:                                               ; preds = %66, %61, %53
+  %82 = phi i64 [ %80, %66 ], [ 0, %61 ], [ 0, %53 ]
+  %83 = getelementptr inbounds nuw i8, ptr %57, i64 1064
+  tail call void @mutex_unlock(ptr noundef nonnull %83) #11
+  br label %84
 
-85:                                               ; preds = %82, %38, %35, %28, %22, %16, %15, %10
-  %86 = phi i64 [ %30, %28 ], [ %12, %10 ], [ %12, %15 ], [ %21, %16 ], [ %21, %22 ], [ 0, %35 ], [ %53, %38 ], [ %83, %82 ]
-  ret i64 %86
+84:                                               ; preds = %81, %38, %35, %28, %22, %16, %15, %10
+  %85 = phi i64 [ %30, %28 ], [ %12, %10 ], [ %12, %15 ], [ %21, %16 ], [ %21, %22 ], [ 0, %35 ], [ %52, %38 ], [ %82, %81 ]
+  ret i64 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1021,7 +1018,7 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
 
 65:                                               ; preds = %62, %59
   %66 = zext i32 %9 to i64
-  %67 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %66
+  %67 = getelementptr i64, ptr @__per_cpu_offset, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, ptrtoint (ptr @gdt_page to i64)
   %70 = inttoptr i64 %69 to ptr
@@ -1031,7 +1028,7 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
   %72 = phi i64 [ 0, %65 ], [ %77, %71 ]
   %73 = getelementptr %struct.desc_struct, ptr %70, i64 %72
   %74 = getelementptr i8, ptr %73, i64 96
-  %75 = getelementptr [3 x %struct.desc_struct], ptr %7, i64 0, i64 %72
+  %75 = getelementptr %struct.desc_struct, ptr %7, i64 %72
   %76 = load i64, ptr %75, align 8
   store i64 %76, ptr %74, align 1
   %77 = add nuw nsw i64 %72, 1

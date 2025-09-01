@@ -192,7 +192,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_in
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %20, %19, %17, %11
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.02757
+  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %.02757
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -2181,7 +2181,7 @@ lean_dec.exit61:                                  ; preds = %30, %29, %27, %lean
   %.046122 = phi i64 [ %4, %.lr.ph ], [ %143, %142 ]
   %.049121 = phi ptr [ %5, %.lr.ph ], [ %69, %142 ]
   %.052120 = phi ptr [ %8, %.lr.ph ], [ %79, %142 ]
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.046122
+  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %.046122
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 1
@@ -2583,7 +2583,7 @@ lean_dec.exit68:                                  ; preds = %30, %29, %27, %lean
   %.052133 = phi i64 [ %4, %.lr.ph ], [ %151, %150 ]
   %.055132 = phi ptr [ %5, %.lr.ph ], [ %77, %150 ]
   %.058131 = phi ptr [ %8, %.lr.ph ], [ %87, %150 ]
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.052133
+  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %.052133
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 1

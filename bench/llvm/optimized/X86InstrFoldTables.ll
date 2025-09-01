@@ -88,10 +88,10 @@ define dso_local noundef ptr @_ZN4llvm15lookupFoldTableEjj(i32 noundef %0, i32 n
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm15lookupFoldTableEjj, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm15lookupFoldTableEjj, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %1 to i64
-  %switch.gep17 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm15lookupFoldTableEjj.4, i64 0, i64 %5
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm15lookupFoldTableEjj.4, i64 %5
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i
 
@@ -143,10 +143,10 @@ define dso_local noundef ptr @_ZN4llvm24lookupBroadcastFoldTableEjj(i32 noundef 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj.5, i64 0, i64 %5
+  %switch.gep14 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj.5, i64 %5
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i
 

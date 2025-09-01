@@ -2084,7 +2084,7 @@ common.resume:                                    ; preds = %34, %28, %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = urem i64 %2, %16
   %.val = load ptr, ptr %40, align 8, !nonnull !10, !noundef !10
-  %44 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }], ptr %.val, i64 0, i64 %43
+  %44 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }, ptr %.val, i64 %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
   %45 = cmpxchg ptr %44, i32 0, i32 1 acquire monotonic, align 4, !noalias !354
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %45, 1
@@ -5059,7 +5059,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.032.lcssa58 = phi i64 [ %21, %._crit_edge ], [ %5, %2 ]
   %.035.lcssa57 = phi i64 [ %22, %._crit_edge ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.035.lcssa57
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.035.lcssa57
   %9 = trunc nuw nsw i64 %.032.lcssa58 to i8
   store i8 %9, ptr %8, align 1
   %umin = add nuw nsw i64 %.035.lcssa57, 1
@@ -5093,7 +5093,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
 
 17:                                               ; preds = %.lr.ph
   %18 = trunc i64 %.03247 to i8
-  %19 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.03546
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %.03546
   %20 = or i8 %18, -128
   store i8 %20, ptr %19, align 1
   %21 = lshr i64 %.03247, 7
@@ -9219,7 +9219,7 @@ define hidden void @_ZN19ockam_transport_tcp6portal14portal_message13PortalMessa
   br label %15
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %17
+  %24 = getelementptr inbounds i8, ptr %1, i64 %17
   %25 = load i8, ptr %24, align 1, !noundef !10
   %26 = add nuw i64 %17, 1
   store i64 %26, ptr %5, align 8
@@ -12655,7 +12655,7 @@ define void @"_ZN106_$LT$ockam_transport_tcp..transport..hostname_port..Hostname
 
 .lr.ph.i.i:                                       ; preds = %38, %42
   %.05.i.i = phi i64 [ %43, %42 ], [ 0, %38 ]
-  %39 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.05.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %.05.i.i
   %40 = load i8, ptr %39, align 1, !alias.scope !2148, !noundef !10
   %41 = icmp eq i8 %40, 91
   br i1 %41, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h4a12ac69a03f4950E.exit.thread139", label %42
@@ -13039,7 +13039,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
 
 166:                                              ; preds = %162
   %.val.i.i.i = load ptr, ptr %149, align 8, !noalias !2223, !nonnull !10, !noundef !10
-  %167 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }], ptr %.val.i.i.i, i64 0, i64 %154
+  %167 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }, ptr %.val.i.i.i, i64 %154
   call void @llvm.experimental.noalias.scope.decl(metadata !2225)
   %168 = cmpxchg ptr %167, i32 0, i32 1 acquire monotonic, align 4, !noalias !2228
   %.sroa.18.0.in.i.i.i.i.i = extractvalue { i32, i1 } %168, 1
@@ -13383,7 +13383,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.2700039803678404653.exit.th
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h53d361e781918b53E.exit.i.i": ; preds = %271
   %.val.i.i = load ptr, ptr %269, align 8, !noalias !2244, !nonnull !10, !noundef !10
-  %275 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %.val.i.i, i64 0, i64 %272
+  %275 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i, i64 %272
   %276 = load i32, ptr %275, align 4, !noalias !2244, !noundef !10
   %277 = zext i32 %276 to i64
   %278 = add nuw nsw i64 %277, 1
@@ -13487,7 +13487,7 @@ _ZN14regex_automata4util8captures8Captures9get_group17h8fdad89bd8b93066E.exit: ;
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h53d361e781918b53E.exit.i.i57": ; preds = %316
   %.val.i.i58 = load ptr, ptr %314, align 8, !noalias !2270, !nonnull !10, !noundef !10
-  %322 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %.val.i.i58, i64 0, i64 %317
+  %322 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i58, i64 %317
   %323 = load i32, ptr %322, align 4, !noalias !2270, !noundef !10
   %324 = zext i32 %323 to i64
   %325 = add nuw nsw i64 %324, 2

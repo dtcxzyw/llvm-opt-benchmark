@@ -1684,7 +1684,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
 496:                                              ; preds = %486
   %497 = load i16, ptr %487, align 1
   store ptr %488, ptr %409, align 8
-  %498 = getelementptr inbounds nuw [3 x i16], ptr %.sroa.0742.0869, i64 0, i64 %indvars.iv
+  %498 = getelementptr inbounds nuw i16, ptr %.sroa.0742.0869, i64 %indvars.iv
   store i16 %497, ptr %498, align 2
   %.not257 = icmp ult i16 %497, %421
   br i1 %.not257, label %503, label %499
@@ -1763,7 +1763,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391.preheader: ; preds = %512
 .preheader829:                                    ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391.preheader, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391
   %indvars.iv934 = phi i64 [ 0, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391.preheader ], [ %indvars.iv.next935, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391 ]
   %.promoted863866 = phi ptr [ %513, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391.preheader ], [ %531, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391 ]
-  %520 = getelementptr inbounds nuw [3 x [2 x i8]], ptr %515, i64 0, i64 %indvars.iv934
+  %520 = getelementptr inbounds nuw [2 x i8], ptr %515, i64 %indvars.iv934
   br label %528
 
 521:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391
@@ -1816,7 +1816,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391: ; preds = %538
 538:                                              ; preds = %528
   %539 = load i8, ptr %530, align 1
   store ptr %531, ptr %409, align 8
-  %540 = getelementptr inbounds nuw [2 x i8], ptr %520, i64 0, i64 %indvars.iv931
+  %540 = getelementptr inbounds nuw i8, ptr %520, i64 %indvars.iv931
   store i8 %539, ptr %540, align 1
   br i1 %529, label %528, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit391, !llvm.loop !24
 
@@ -3906,7 +3906,7 @@ _ZN10aiMaterial11AddPropertyEPK9aiColor3DjPKcjj.exit: ; preds = %1289
   store i32 %1308, ptr %37, align 4
   %1309 = load ptr, ptr %1307, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1202, ptr align 1 %1309, i64 %1304, i1 false)
-  %1310 = getelementptr inbounds nuw [1024 x i8], ptr %1202, i64 0, i64 %1304
+  %1310 = getelementptr inbounds nuw i8, ptr %1202, i64 %1304
   store i8 0, ptr %1310, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4012,7 +4012,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN6Assimp6Unreal7TempMatESt6vectorIS4_S
   %1356 = load ptr, ptr %1343, align 8
   %1357 = getelementptr inbounds nuw i32, ptr %1356, i64 %indvars.iv941
   store i32 %1355, ptr %1357, align 4
-  %1358 = getelementptr inbounds nuw [3 x i16], ptr %.sroa.0634.0900, i64 0, i64 %indvars.iv941
+  %1358 = getelementptr inbounds nuw i16, ptr %.sroa.0634.0900, i64 %indvars.iv941
   %1359 = load i16, ptr %1358, align 2
   %1360 = zext i16 %1359 to i64
   %1361 = getelementptr inbounds nuw %class.aiVector3t, ptr %652, i64 %1360
@@ -4021,7 +4021,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN6Assimp6Unreal7TempMatESt6vectorIS4_S
   %1364 = zext i32 %1363 to i64
   %1365 = getelementptr inbounds nuw %class.aiVector3t, ptr %1362, i64 %1364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1365, ptr noundef nonnull align 4 dereferenceable(12) %1361, i64 12, i1 false)
-  %1366 = getelementptr inbounds nuw [3 x [2 x i8]], ptr %1346, i64 0, i64 %indvars.iv941
+  %1366 = getelementptr inbounds nuw [2 x i8], ptr %1346, i64 %indvars.iv941
   %1367 = load i8, ptr %1366, align 2
   %1368 = uitofp i8 %1367 to float
   %1369 = fdiv float %1368, 2.550000e+02
@@ -5127,7 +5127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

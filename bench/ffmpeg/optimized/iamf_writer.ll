@@ -162,7 +162,7 @@ define range(i32 -2147483648, 1) i32 @ff_iamf_add_audio_element(ptr noundef capt
 
 57:                                               ; preds = %51, %56
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %56 ]
-  %58 = getelementptr inbounds nuw [10 x %struct.AVChannelLayout], ptr @ff_iamf_scalable_ch_layouts, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @ff_iamf_scalable_ch_layouts, i64 %indvars.iv
   %59 = tail call i32 @av_channel_layout_compare(ptr noundef nonnull %55, ptr noundef nonnull %58) #9
   %.not199 = icmp eq i32 %59, 0
   br i1 %.not199, label %.thread245, label %56
@@ -174,7 +174,7 @@ define range(i32 -2147483648, 1) i32 @ff_iamf_add_audio_element(ptr noundef capt
 
 .preheader283:                                    ; preds = %56, %60
   %indvars.iv337 = phi i64 [ %indvars.iv.next338, %60 ], [ 0, %56 ]
-  %61 = getelementptr inbounds nuw [13 x %struct.AVChannelLayout], ptr @ff_iamf_expanded_scalable_ch_layouts, i64 0, i64 %indvars.iv337
+  %61 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @ff_iamf_expanded_scalable_ch_layouts, i64 %indvars.iv337
   %62 = tail call i32 @av_channel_layout_compare(ptr noundef nonnull %55, ptr noundef nonnull %61) #9
   %.not200 = icmp eq i32 %62, 0
   br i1 %.not200, label %.thread245, label %60
@@ -1701,7 +1701,7 @@ av_iamf_param_definition_get_subblock.exit.i:     ; preds = %172
 
 251:                                              ; preds = %254, %246
   %indvars.iv.i95.i = phi i64 [ 0, %246 ], [ %indvars.iv.next.i96.i, %254 ]
-  %252 = getelementptr inbounds nuw [10 x %struct.AVChannelLayout], ptr @ff_iamf_scalable_ch_layouts, i64 0, i64 %indvars.iv.i95.i
+  %252 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @ff_iamf_scalable_ch_layouts, i64 %indvars.iv.i95.i
   %253 = call i32 @av_channel_layout_compare(ptr noundef nonnull %250, ptr noundef nonnull %252) #9
   %.not.i.i = icmp eq i32 %253, 0
   br i1 %.not.i.i, label %put_bits.exit52.loopexit.i.i, label %254
@@ -1713,7 +1713,7 @@ av_iamf_param_definition_get_subblock.exit.i:     ; preds = %172
 
 .preheader.i.i:                                   ; preds = %254, %257
   %indvars.iv178.i.i = phi i64 [ %indvars.iv.next179.i.i, %257 ], [ 0, %254 ]
-  %255 = getelementptr inbounds nuw [13 x %struct.AVChannelLayout], ptr @ff_iamf_expanded_scalable_ch_layouts, i64 0, i64 %indvars.iv178.i.i
+  %255 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @ff_iamf_expanded_scalable_ch_layouts, i64 %indvars.iv178.i.i
   %256 = call i32 @av_channel_layout_compare(ptr noundef nonnull %250, ptr noundef nonnull %255) #9
   %.not39.i.i = icmp eq i32 %256, 0
   br i1 %.not39.i.i, label %258, label %257
@@ -2304,7 +2304,7 @@ ff_iamf_get_param_definition.exit180.i:           ; preds = %.lr.ph339.i, %.crit
 
 552:                                              ; preds = %555, %.preheader.i
   %indvars.iv367.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next368.i, %555 ]
-  %553 = getelementptr inbounds nuw [14 x %struct.IAMFSoundSystemMap], ptr @ff_iamf_sound_system_map, i64 0, i64 %indvars.iv367.i, i32 1
+  %553 = getelementptr inbounds nuw %struct.IAMFSoundSystemMap, ptr @ff_iamf_sound_system_map, i64 %indvars.iv367.i, i32 1
   %554 = call i32 @av_channel_layout_compare(ptr noundef nonnull %551, ptr noundef nonnull %553) #9
   %.not157.i = icmp eq i32 %554, 0
   br i1 %.not157.i, label %put_bits.exit186.i, label %555
@@ -2325,7 +2325,7 @@ put_bits.exit186.i:                               ; preds = %552
 
 put_bits.exit190.i:                               ; preds = %put_bits.exit186.i
   %557 = and i64 %indvars.iv367.i, 4294967295
-  %558 = getelementptr inbounds nuw [14 x %struct.IAMFSoundSystemMap], ptr @ff_iamf_sound_system_map, i64 0, i64 %557
+  %558 = getelementptr inbounds nuw %struct.IAMFSoundSystemMap, ptr @ff_iamf_sound_system_map, i64 %557
   %559 = load i32, ptr %558, align 16, !tbaa !195
   %560 = shl i32 %559, 26
   %561 = or i32 %560, -2147483648
@@ -2822,13 +2822,13 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %av_iamf_param_defin
   br i1 %.not114, label %.loopexit, label %.preheader150
 
 .preheader150:                                    ; preds = %150
-  %158 = getelementptr inbounds nuw [6 x [12 x i8]], ptr %149, i64 0, i64 %indvars.iv175
+  %158 = getelementptr inbounds nuw [12 x i8], ptr %149, i64 %indvars.iv175
   br label %159
 
 159:                                              ; preds = %.preheader150, %159
   %indvars.iv = phi i64 [ 0, %.preheader150 ], [ %indvars.iv.next, %159 ]
   %.093152 = phi i32 [ 0, %.preheader150 ], [ %166, %159 ]
-  %160 = getelementptr inbounds nuw [12 x i8], ptr %158, i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv
   %161 = load i8, ptr %160, align 1, !tbaa !17
   %162 = icmp ne i8 %161, 0
   %163 = zext i1 %162 to i32
@@ -2844,7 +2844,7 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %av_iamf_param_defin
   %.194154 = phi i32 [ %172, %.lr.ph ], [ %166, %159 ]
   %167 = trunc nuw nsw i64 %indvars.iv167 to i32
   %168 = shl nuw nsw i32 2, %167
-  %169 = getelementptr inbounds nuw [12 x i8], ptr %158, i64 0, i64 %indvars.iv167
+  %169 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv167
   %170 = load i8, ptr %169, align 1, !tbaa !17
   %.not117 = icmp eq i8 %170, 0
   %171 = select i1 %.not117, i32 0, i32 %168
@@ -2863,7 +2863,7 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %av_iamf_param_defin
 
 175:                                              ; preds = %._crit_edge, %181
   %indvars.iv171 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next172, %181 ]
-  %176 = getelementptr inbounds nuw [12 x i8], ptr %158, i64 0, i64 %indvars.iv171
+  %176 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv171
   %177 = load i8, ptr %176, align 1, !tbaa !17
   %.not116 = icmp eq i8 %177, 0
   br i1 %.not116, label %181, label %178

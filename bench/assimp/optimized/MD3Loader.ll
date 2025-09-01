@@ -2926,7 +2926,7 @@ define hidden void @_ZN6Assimp8Q3Shader23ConvertShaderToMaterialEP10aiMaterialRK
   %24 = load ptr, ptr %19, align 8
   %25 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 1 %24, i64 %25, i1 false)
-  %26 = getelementptr inbounds nuw [1024 x i8], ptr %16, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 %25
   store i8 0, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.026.041, i64 48
   %28 = load i32, ptr %27, align 8
@@ -10931,7 +10931,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   %621 = trunc nuw nsw i64 %618 to i32
   store i32 %621, ptr %20, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %386, ptr align 1 %.pre842, i64 %618, i1 false)
-  %622 = getelementptr inbounds nuw [1024 x i8], ptr %386, i64 0, i64 %618
+  %622 = getelementptr inbounds nuw i8, ptr %386, i64 %618
   store i8 0, ptr %622, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -11029,7 +11029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386: ; preds = %_Z
   store i32 %652, ptr %25, align 4
   %653 = load ptr, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %388, ptr align 1 %653, i64 %648, i1 false)
-  %654 = getelementptr inbounds nuw [1024 x i8], ptr %388, i64 0, i64 %648
+  %654 = getelementptr inbounds nuw i8, ptr %388, i64 %648
   store i8 0, ptr %654, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit387
 
@@ -11398,7 +11398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %_Z
   %788 = load ptr, ptr %787, align 8
   %789 = getelementptr inbounds nuw i32, ptr %788, i64 %indvars.iv
   store i32 %.1227731, ptr %789, align 4
-  %790 = getelementptr inbounds nuw [3 x i32], ptr %.0237733, i64 0, i64 %indvars.iv
+  %790 = getelementptr inbounds nuw i32, ptr %.0237733, i64 %indvars.iv
   %791 = load i32, ptr %790, align 4
   %792 = load i32, ptr %410, align 4
   %.not274 = icmp ult i32 %791, %792
@@ -11798,7 +11798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419: ; preds = %_Z
   %969 = getelementptr inbounds nuw i8, ptr %950, i64 4
   %970 = sext i32 %spec.store.select.i420 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %969, ptr nonnull align 1 %.0230751, i64 %970, i1 false)
-  %971 = getelementptr inbounds [1024 x i8], ptr %969, i64 0, i64 %970
+  %971 = getelementptr inbounds i8, ptr %969, i64 %970
   store i8 0, ptr %971, align 1
   %972 = load ptr, ptr %908, align 8
   %973 = getelementptr inbounds nuw i8, ptr %950, i64 1096
@@ -11823,7 +11823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419: ; preds = %_Z
 
 .preheader:                                       ; preds = %966, %994
   %indvars.iv829 = phi i64 [ 0, %966 ], [ %indvars.iv.next830, %994 ]
-  %987 = getelementptr inbounds nuw [3 x [3 x float]], ptr %984, i64 0, i64 %indvars.iv829
+  %987 = getelementptr inbounds nuw [3 x float], ptr %984, i64 %indvars.iv829
   br label %995
 
 988:                                              ; preds = %994
@@ -11842,7 +11842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419: ; preds = %_Z
 
 995:                                              ; preds = %.preheader, %_ZN12aiMatrix4x4tIfEixEj.exit
   %indvars.iv825 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next826, %_ZN12aiMatrix4x4tIfEixEj.exit ]
-  %996 = getelementptr inbounds nuw [3 x float], ptr %987, i64 0, i64 %indvars.iv825
+  %996 = getelementptr inbounds nuw float, ptr %987, i64 %indvars.iv825
   %997 = load float, ptr %996, align 4
   %998 = trunc nuw nsw i64 %indvars.iv825 to i32
   switch i32 %998, label %default.unreachable [

@@ -7011,7 +7011,7 @@ define noundef ptr @_ZN6icu_7713MessageFormat23createAppropriateFormatERNS_13Uni
 
 74:                                               ; preds = %71
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw [5 x i32], ptr @_ZL11DATE_STYLES, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @_ZL11DATE_STYLES, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !144
   br label %78
 

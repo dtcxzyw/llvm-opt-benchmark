@@ -2652,7 +2652,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.cont: ; preds = %_ZNK6vectorIP4sortL
 80:                                               ; preds = %.lr.ph, %136
   %81 = phi ptr [ %.pre, %.lr.ph ], [ %137, %136 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %136 ]
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !74
   %84 = icmp eq ptr %81, null
   br i1 %84, label %91, label %85

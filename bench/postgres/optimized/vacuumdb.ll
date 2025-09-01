@@ -1110,7 +1110,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 107:                                              ; preds = %105
   %108 = sext i32 %2 to i64
-  %109 = getelementptr inbounds [3 x ptr], ptr @__const.vacuum_one_database.stage_messages, i64 0, i64 %108
+  %109 = getelementptr inbounds ptr, ptr @__const.vacuum_one_database.stage_messages, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.64, ptr noundef %5, ptr noundef %106, ptr noundef %110) #10
   br label %114
@@ -1325,7 +1325,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 180:                                              ; preds = %._crit_edge190
   %181 = sext i32 %2 to i64
-  %182 = getelementptr inbounds [3 x ptr], ptr @__const.vacuum_one_database.stage_commands, i64 0, i64 %181
+  %182 = getelementptr inbounds ptr, ptr @__const.vacuum_one_database.stage_commands, i64 %181
   %183 = load ptr, ptr %182, align 8
   call void @executeCommand(ptr noundef %15, ptr noundef %183, i1 noundef zeroext %6) #10
   br label %184

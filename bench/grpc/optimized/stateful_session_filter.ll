@@ -1718,7 +1718,7 @@ _ZN9grpc_core5Arena10ManagedNewINS_24XdsOverrideHostAttributeEJRSt17basic_string
   %.sroa.7.021.i = phi i64 [ %storemerge.lcssa.i.i, %_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EE15ForwardIteratorppEv.exit.i ], [ 0, %351 ]
   %.sroa.010.020.i = phi ptr [ %.sroa.010.2.i, %_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EE15ForwardIteratorppEv.exit.i ], [ %350, %351 ]
   %355 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 16
-  %356 = getelementptr inbounds nuw [4 x %"class.grpc_core::ManualConstructor"], ptr %355, i64 0, i64 %.sroa.7.021.i
+  %356 = getelementptr inbounds nuw %"class.grpc_core::ManualConstructor", ptr %355, i64 %.sroa.7.021.i
   %357 = load ptr, ptr %343, align 8, !tbaa !26
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 16
   %359 = load ptr, ptr %358, align 8
@@ -4064,7 +4064,7 @@ _ZN9grpc_core5Arena3NewINS_13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttr
   %49 = load i64, ptr %48, align 8, !tbaa !139
   %50 = add i64 %49, 1
   store i64 %50, ptr %48, align 8, !tbaa !139
-  %51 = getelementptr inbounds nuw [4 x %"class.grpc_core::ManualConstructor"], ptr %47, i64 0, i64 %49
+  %51 = getelementptr inbounds nuw %"class.grpc_core::ManualConstructor", ptr %47, i64 %49
   ret ptr %51
 }
 
@@ -4114,7 +4114,7 @@ _ZN9grpc_core19XdsClusterAttribute8TypeNameEv.exit: ; preds = %1, %4, %7
   %.sroa.7.018.i = phi i64 [ %storemerge.lcssa.i.i, %_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EE20ConstForwardIteratorppEv.exit.i ], [ 0, %14 ]
   %.sroa.011.017.i = phi ptr [ %.sroa.011.2.i, %_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EE20ConstForwardIteratorppEv.exit.i ], [ %13, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.017.i, i64 16
-  %19 = getelementptr inbounds nuw [4 x %"class.grpc_core::ManualConstructor"], ptr %18, i64 0, i64 %.sroa.7.018.i
+  %19 = getelementptr inbounds nuw %"class.grpc_core::ManualConstructor", ptr %18, i64 %.sroa.7.018.i
   %20 = load ptr, ptr %19, align 8, !tbaa !141
   %21 = load ptr, ptr %20, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -4205,7 +4205,7 @@ _ZN9grpc_core22XdsRouteStateAttribute8TypeNameEv.exit: ; preds = %1, %4, %8
   %.sroa.7.018.i = phi i64 [ %storemerge.lcssa.i.i, %_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EE20ConstForwardIteratorppEv.exit.i ], [ 0, %18 ]
   %.sroa.011.017.i = phi ptr [ %.sroa.011.2.i, %_ZN9grpc_core13ChunkedVectorIPNS_21ServiceConfigCallData22CallAttributeInterfaceELm4EE20ConstForwardIteratorppEv.exit.i ], [ %17, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.011.017.i, i64 16
-  %23 = getelementptr inbounds nuw [4 x %"class.grpc_core::ManualConstructor"], ptr %22, i64 0, i64 %.sroa.7.018.i
+  %23 = getelementptr inbounds nuw %"class.grpc_core::ManualConstructor", ptr %22, i64 %.sroa.7.018.i
   %24 = load ptr, ptr %23, align 8, !tbaa !141
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16

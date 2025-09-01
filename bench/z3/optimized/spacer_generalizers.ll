@@ -2398,7 +2398,7 @@ thread-pre-split.i.i:                             ; preds = %.thread178.i.i, %10
 113:                                              ; preds = %_ZN6spacer12_GLOBAL__N_118collect_array_procclEP3app.exit.i.i, %.lr.ph.i.i
   %114 = phi i32 [ %110, %.lr.ph.i.i ], [ %210, %_ZN6spacer12_GLOBAL__N_118collect_array_procclEP3app.exit.i.i ]
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw [0 x ptr], ptr %112, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw ptr, ptr %112, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !35
   %118 = add nuw i32 %114, 1
   store i32 %118, ptr %109, align 8, !tbaa !249

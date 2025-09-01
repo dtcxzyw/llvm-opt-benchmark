@@ -8061,7 +8061,7 @@ define hidden noundef i32 @_Z11apply_minusN2lp16lconstraint_kindE(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._Z11apply_minusN2lp16lconstraint_kindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z11apply_minusN2lp16lconstraint_kindE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -28515,7 +28515,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK3nla4core14get_var_weightEj(ptr 
 
 switch.lookup:                                    ; preds = %2
   %12 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN3nla4core23set_active_vars_weightsERNS_11nex_creatorE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3nla4core23set_active_vars_weightsERNS_11nex_creatorE, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %13
 
@@ -28685,7 +28685,7 @@ _ZN3nla11nex_creator18set_number_of_varsEj.exit:  ; preds = %_ZNK6vectorIjLb0EjE
 
 switch.lookup:                                    ; preds = %42
   %52 = zext nneg i32 %49 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN3nla4core23set_active_vars_weightsERNS_11nex_creatorE, i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3nla4core23set_active_vars_weightsERNS_11nex_creatorE, i64 %52
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %53
 
@@ -30909,7 +30909,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %22, %28
 36:                                               ; preds = %.preheader, %105
   %37 = phi i1 [ true, %.preheader ], [ false, %105 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %105 ]
-  %38 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !379
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 1073741824
@@ -41190,7 +41190,7 @@ define linkonce_odr hidden void @_ZNK3nla7var_eqsINS_7emonicsEE10explain_eqERKNS
 
 10:                                               ; preds = %13, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %13 ]
-  %11 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !379
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZNK3nla16eq_justification3endEv.exit, label %13

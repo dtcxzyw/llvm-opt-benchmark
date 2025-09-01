@@ -2231,8 +2231,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 790:                                              ; preds = %811, %.lr.ph108.i
   %791 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #27
-  %792 = add i64 %791, -1
-  %793 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %792
+  %792 = getelementptr i8, ptr %3, i64 %791
+  %793 = getelementptr i8, ptr %792, i64 -1
   store i8 0, ptr %793, align 1, !tbaa !44
   %794 = load i8, ptr %3, align 16, !tbaa !44
   %795 = and i8 %794, -33

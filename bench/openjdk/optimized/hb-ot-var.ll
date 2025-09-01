@@ -1608,7 +1608,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %157 = and i32 %148, 65535
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %158 = zext nneg i32 %150 to i64
-  %159 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.178"], ptr %140, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw %"struct.OT::OffsetTo.178", ptr %140, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %162 = load i8, ptr %161, align 1
@@ -1833,7 +1833,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = zext i32 %2 to i64
-  %17 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = shl nuw i16 %19, 8
@@ -1844,7 +1844,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %25 = sext i16 %24 to i32
   %26 = sub i32 %1, %25
   %27 = zext i32 %3 to i64
-  %28 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %15, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %15, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i16
   %31 = shl nuw i16 %30, 8
@@ -1859,7 +1859,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 38:                                               ; preds = %4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %40 = zext i32 %2 to i64
-  %41 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %39, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i16
   %44 = shl nuw i16 %43, 8
@@ -1874,7 +1874,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 50:                                               ; preds = %38
   %51 = sub i32 %1, %49
   %52 = zext i32 %3 to i64
-  %53 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %39, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %39, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i16
   %56 = shl nuw i16 %55, 8
@@ -1897,7 +1897,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %75 ]
-  %gep = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %41, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %41, i64 %indvars.iv
   %66 = load i8, ptr %gep, align 1
   %67 = zext i8 %66 to i16
   %68 = shl nuw i16 %67, 8
@@ -1921,8 +1921,8 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 .critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit61, %63
   %.044.lcssa = phi i32 [ 1, %63 ], [ %76, %.critedge.loopexit.split.loop.exit61 ], [ %64, %75 ]
   %77 = zext i32 %.044.lcssa to i64
-  %78 = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %77
-  %79 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %78, i64 0, i64 %40
+  %78 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %77
+  %79 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %78, i64 %40
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i16
   %82 = shl nuw i16 %81, 8
@@ -1937,7 +1937,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 88:                                               ; preds = %.critedge
   %89 = sub i32 %1, %87
   %90 = zext i32 %3 to i64
-  %91 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %78, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %78, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i16
   %94 = shl nuw i16 %93, 8
@@ -1952,8 +1952,8 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 101:                                              ; preds = %.critedge
   %102 = add i32 %.044.lcssa, -1
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [1 x %"struct.OT::AxisValueMap"], ptr %39, i64 0, i64 %103
-  %105 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %104, i64 0, i64 %40
+  %104 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %103
+  %105 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %104, i64 %40
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i16
   %108 = shl nuw i16 %107, 8
@@ -1966,7 +1966,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 114:                                              ; preds = %101
   %115 = zext i32 %3 to i64
-  %116 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %104, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %104, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i16
   %119 = shl nuw i16 %118, 8
@@ -1981,7 +1981,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %126 = sext i16 %112 to i32
   %127 = sub nsw i32 %87, %126
   %128 = zext i32 %3 to i64
-  %129 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %104, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %104, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i16
   %132 = shl nuw i16 %131, 8
@@ -1990,7 +1990,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %135 = zext i8 %134 to i16
   %136 = or disjoint i16 %132, %135
   %137 = sitofp i16 %136 to float
-  %138 = getelementptr inbounds nuw [2 x %"struct.OT::HBFixed"], ptr %78, i64 0, i64 %128
+  %138 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %78, i64 %128
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i16
   %141 = shl nuw i16 %140, 8
@@ -2235,7 +2235,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.04757 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %81, %.lr.ph.split ]
   %.05255 = phi ptr [ %45, %.lr.ph.split.preheader ], [ %62, %.lr.ph.split ]
-  %53 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %48, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %48, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
@@ -2286,7 +2286,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv82 = phi i64 [ %52, %.lr.ph65 ], [ %indvars.iv.next83, %86 ]
   %.164 = phi float [ %.047.lcssa, %.lr.ph65 ], [ %105, %86 ]
   %.04863 = phi ptr [ %.052.lcssa, %.lr.ph65 ], [ %96, %86 ]
-  %87 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %51, i64 0, i64 %indvars.iv82
+  %87 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %51, i64 %indvars.iv82
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
@@ -2313,7 +2313,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv87 = phi i64 [ %84, %.lr.ph72 ], [ %indvars.iv.next88, %106 ]
   %.04671 = phi ptr [ %.048.lcssa, %.lr.ph72 ], [ %116, %106 ]
   %.270 = phi float [ %.1.lcssa, %.lr.ph72 ], [ %119, %106 ]
-  %107 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %83, i64 0, i64 %indvars.iv87
+  %107 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %83, i64 %indvars.iv87
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = shl nuw nsw i32 %109, 8
@@ -3652,7 +3652,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %116 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.178"], ptr %4, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %"struct.OT::OffsetTo.178", ptr %4, i64 %indvars.iv
   %117 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count

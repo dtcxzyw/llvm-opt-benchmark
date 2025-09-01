@@ -63,7 +63,7 @@ define internal void @json_print_section_header(ptr noundef %0, ptr readnone cap
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw [12 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %.thread.i, label %tf_get_section.exit
@@ -88,7 +88,7 @@ tf_get_section.exit:                              ; preds = %8, %.thread.i
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds nuw [12 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %.thread.i.i, label %tf_get_parent_section.exit
@@ -112,9 +112,9 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = add nsw i32 %26, -1
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [12 x i32], ptr %28, i64 0, i64 %30
+  %29 = sext i32 %26 to i64
+  %30 = getelementptr i32, ptr %28, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !22
   %.not38 = icmp eq i32 %32, 0
   br i1 %.not38, label %39, label %33
@@ -217,7 +217,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %88 = load i32, ptr %4, align 4, !tbaa !20
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [12 x i32], ptr %87, i64 0, i64 %89
+  %90 = getelementptr inbounds i32, ptr %87, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !22
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !22
@@ -250,7 +250,7 @@ define internal void @json_print_section_footer(ptr noundef %0) #1 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw [12 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %tf_get_section.exit.thread, label %11
@@ -358,7 +358,7 @@ define internal void @json_print_int(ptr noundef %0, ptr noundef readonly captur
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw [12 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %.thread.i, label %tf_get_section.exit
@@ -383,7 +383,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %21 = zext nneg i32 %17 to i64
-  %22 = getelementptr inbounds nuw [12 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %.thread.i.i, label %tf_get_parent_section.exit
@@ -403,7 +403,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i32, ptr %5, align 4, !tbaa !20
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [12 x i32], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr %27, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !22
   %.not18 = icmp eq i32 %31, 0
   br i1 %.not18, label %32, label %37
@@ -469,7 +469,7 @@ define internal void @json_print_str(ptr noundef %0, ptr noundef readonly captur
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw [12 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %.thread.i, label %tf_get_section.exit
@@ -494,7 +494,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %21 = zext nneg i32 %17 to i64
-  %22 = getelementptr inbounds nuw [12 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %.thread.i.i, label %tf_get_parent_section.exit
@@ -513,7 +513,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i32, ptr %5, align 4, !tbaa !20
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [12 x i32], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr %27, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !22
   %.not18 = icmp eq i32 %31, 0
   br i1 %.not18, label %32, label %37
@@ -600,7 +600,7 @@ define internal fastcc ptr @json_escape_str(ptr noundef nonnull %0, ptr noundef 
   tail call void @av_bprint_chars(ptr noundef nonnull %0, i8 noundef signext 92, i32 noundef 1) #7
   %9 = ptrtoint ptr %memchr to i64
   %10 = sub i64 %9, ptrtoint (ptr @json_escape_str.json_escape to i64)
-  %11 = getelementptr inbounds [8 x i8], ptr @json_escape_str.json_subst, i64 0, i64 %10
+  %11 = getelementptr inbounds i8, ptr @json_escape_str.json_subst, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !37
   tail call void @av_bprint_chars(ptr noundef nonnull %0, i8 noundef signext %12, i32 noundef 1) #7
   br label %18

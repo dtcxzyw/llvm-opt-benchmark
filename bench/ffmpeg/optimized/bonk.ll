@@ -166,7 +166,7 @@ define internal range(i32 -1094995529, 1) i32 @bonk_init(ptr noundef initializes
   %89 = uitofp nneg i32 %88 to double
   %90 = tail call nsz double @llvm.sqrt.f64(double %89)
   %91 = fptoui double %90 to i8
-  %92 = getelementptr inbounds nuw [2048 x i8], ptr %86, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv
   store i8 %91, ptr %92, align 1, !tbaa !30
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !46
@@ -345,10 +345,10 @@ define internal i32 @bonk_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
 
 105:                                              ; preds = %.lr.ph, %105
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
-  %106 = getelementptr inbounds nuw [2048 x i8], ptr %101, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv
   %107 = load i8, ptr %106, align 1, !tbaa !30
   %108 = zext i8 %107 to i32
-  %109 = getelementptr inbounds nuw [2048 x i32], ptr %94, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv
   %110 = load i32, ptr %109, align 4, !tbaa !51
   %111 = mul nsw i32 %110, %108
   store i32 %111, ptr %109, align 4, !tbaa !51
@@ -392,8 +392,8 @@ define internal i32 @bonk_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %137 = load i32, ptr %66, align 8, !tbaa !40
   %138 = load i32, ptr %68, align 4, !tbaa !39
   %139 = mul nsw i32 %138, %137
-  %140 = getelementptr inbounds nuw [2 x [2048 x i32]], ptr %132, i64 0, i64 %indvars.iv282
-  %141 = getelementptr inbounds nuw [2 x ptr], ptr %133, i64 0, i64 %indvars.iv282
+  %140 = getelementptr inbounds nuw [2048 x i32], ptr %132, i64 %indvars.iv282
+  %141 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv282
   %142 = load ptr, ptr %141, align 8, !tbaa !44
   %143 = icmp sgt i32 %136, 1
   br i1 %143, label %.lr.ph30.preheader.i, label %predictor_init_state.exit
@@ -708,7 +708,7 @@ predictor_calc_error.exit221:                     ; preds = %.lr.ph.i212, %.lr.p
   %281 = phi i32 [ %286, %._crit_edge260 ], [ %.pre307329332, %.lr.ph262 ]
   %282 = phi i32 [ %287, %._crit_edge260 ], [ %.pre308.pre311333, %.lr.ph262 ]
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %._crit_edge260 ], [ 0, %.lr.ph262 ]
-  %283 = getelementptr inbounds nuw [2 x ptr], ptr %279, i64 0, i64 %indvars.iv291
+  %283 = getelementptr inbounds nuw ptr, ptr %279, i64 %indvars.iv291
   %284 = load ptr, ptr %283, align 8, !tbaa !44
   %285 = icmp sgt i32 %282, 0
   br i1 %285, label %.lr.ph259, label %._crit_edge260
@@ -760,7 +760,7 @@ predictor_calc_error.exit221:                     ; preds = %.lr.ph.i212, %.lr.p
   %indvars.iv299 = phi i64 [ 0, %.lr.ph265.us.preheader ], [ %indvars.iv.next300, %._crit_edge266.us ]
   %303 = getelementptr inbounds nuw ptr, ptr %300, i64 %indvars.iv299
   %304 = load ptr, ptr %303, align 8, !tbaa !78
-  %305 = getelementptr inbounds nuw [2 x ptr], ptr %301, i64 0, i64 %indvars.iv299
+  %305 = getelementptr inbounds nuw ptr, ptr %301, i64 %indvars.iv299
   %306 = load ptr, ptr %305, align 8, !tbaa !44
   br label %307
 

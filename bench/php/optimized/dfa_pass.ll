@@ -162,7 +162,7 @@ define hidden i32 @zend_dfa_optimize_calls(ptr noundef %0, ptr noundef %1) local
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !38
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [6 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8, !tbaa !40
@@ -687,7 +687,7 @@ define hidden void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef %1, p
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %21 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !38
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [6 x ptr], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !39
   %.not949 = icmp eq ptr %24, null
   br i1 %.not949, label %27, label %25
@@ -5151,7 +5151,7 @@ define internal fastcc void @zend_ssa_remove_nops(ptr noundef %0, ptr noundef re
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %23 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !38
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [6 x ptr], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %.loopexit6, label %27

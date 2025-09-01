@@ -167,7 +167,7 @@ define dso_local range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed
   br i1 %64, label %.lr.ph35, label %._crit_edge
 
 .lr.ph35:                                         ; preds = %.preheader
-  %65 = getelementptr inbounds nuw [5 x i8], ptr @prep_is_required, i64 0, i64 %indvars.iv43
+  %65 = getelementptr inbounds nuw i8, ptr @prep_is_required, i64 %indvars.iv43
   %66 = trunc nuw nsw i64 %indvars.iv43 to i32
   br label %67
 
@@ -650,7 +650,7 @@ define dso_local zeroext i1 @prep_g_required(i32 noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
-  %7 = getelementptr inbounds nuw [5 x i8], ptr @prep_is_required, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @prep_is_required, i64 %6
   %8 = load i8, ptr %7, align 1, !range !11, !noundef !12
   %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not7 = icmp eq i32 %9, 0

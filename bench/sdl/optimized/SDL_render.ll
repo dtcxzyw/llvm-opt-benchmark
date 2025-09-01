@@ -567,7 +567,7 @@ define hidden ptr @SDL_GetRenderDriver_REAL(i32 noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [6 x ptr], ptr @render_drivers, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @render_drivers, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -800,7 +800,7 @@ select.unfold.preheader:                          ; preds = %.thread, %select.un
 
 .thread201:                                       ; preds = %56, %62, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = getelementptr inbounds nuw [6 x ptr], ptr @render_drivers, i64 0, i64 %indvars.iv.next
+  %69 = getelementptr inbounds nuw ptr, ptr @render_drivers, i64 %indvars.iv.next
   %70 = load ptr, ptr %69, align 8
   %.not178 = icmp eq i64 %indvars.iv.next, 5
   br i1 %.not178, label %select.unfold, label %56, !llvm.loop !9
@@ -824,7 +824,7 @@ select.unfold..critedge_crit_edge:                ; preds = %select.unfold
 
 73:                                               ; preds = %72, %78
   %indvars.iv230 = phi i64 [ 0, %72 ], [ %indvars.iv.next231, %78 ]
-  %74 = getelementptr inbounds nuw [6 x ptr], ptr @render_drivers, i64 0, i64 %indvars.iv230
+  %74 = getelementptr inbounds nuw ptr, ptr @render_drivers, i64 %indvars.iv230
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call zeroext i1 %76(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %0) #15
@@ -3234,9 +3234,9 @@ define hidden noundef ptr @SDL_CreateTextureFromSurface_REAL(ptr noundef %0, ptr
 34:                                               ; preds = %33
   %35 = lshr i32 %25, 20
   %36 = and i32 %35, 15
-  %switch.tableidx454 = add nsw i32 %36, -2
-  %37 = icmp ult i32 %switch.tableidx454, 5
-  %switch.maskindex457 = trunc nsw i32 %switch.tableidx454 to i8
+  %switch.tableidx453 = add nsw i32 %36, -2
+  %37 = icmp ult i32 %switch.tableidx453, 5
+  %switch.maskindex457 = trunc nsw i32 %switch.tableidx453 to i8
   %switch.shifted458 = lshr i8 27, %switch.maskindex457
   %switch.lobit459 = trunc i8 %switch.shifted458 to i1
   %or.cond461 = select i1 %37, i1 %switch.lobit459, i1 false
@@ -12636,7 +12636,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 3, %111 ]
   %.0295398 = phi i32 [ %.1296, %.preheader ], [ 0, %111 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %114 = getelementptr inbounds [3 x i32], ptr %13, i64 0, i64 %indvars.iv.next
+  %114 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, %.0282
   %117 = icmp eq i32 %115, %.0283

@@ -17,13 +17,13 @@ define void @swri_resample_dsp_init(ptr noundef captures(none) %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.swri_resample_dsp_init, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.swri_resample_dsp_init, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.swri_resample_dsp_init.1, i64 0, i64 %6
+  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table.swri_resample_dsp_init.1, i64 %6
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep15 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.swri_resample_dsp_init.2, i64 0, i64 %7
+  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.swri_resample_dsp_init.2, i64 %7
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %switch.load, ptr %8, align 8, !tbaa !14

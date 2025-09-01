@@ -589,7 +589,7 @@ define noundef nonnull ptr @_ZN14AtomProperties4propEi(ptr noundef nonnull reado
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [5 x %struct.AtomProperty], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.AtomProperty, ptr %4, i64 %5
   ret ptr %6
 }
 
@@ -609,7 +609,7 @@ define noundef zeroext i1 @_ZN14AtomProperties15setAtomPropertyEiRKNSt7__cxx1112
   %12 = load ptr, ptr %0, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [5 x %struct.AtomProperty], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds %struct.AtomProperty, ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 368
   %17 = load i8, ptr %12, align 8, !tbaa !9, !range !48, !noundef !49
   %18 = trunc nuw i8 %17 to i1
@@ -776,7 +776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit: ; preds = %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %77 = load ptr, ptr %0, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = getelementptr inbounds [5 x %struct.AtomProperty], ptr %78, i64 0, i64 %14
+  %79 = getelementptr inbounds %struct.AtomProperty, ptr %78, i64 %14
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 368
   %81 = invoke fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr noundef nonnull %79, ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8)
           to label %82 unwind label %102
@@ -942,18 +942,18 @@ define internal fastcc noundef zeroext i1 @_ZL13setPropertiesP12AtomPropertyRKSt
 
 29:                                               ; preds = %4
   %30 = sext i32 %2 to i64
-  %31 = getelementptr inbounds [5 x ptr], ptr @__const._ZL13setPropertiesP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEEib.fns, i64 0, i64 %30
+  %31 = getelementptr inbounds ptr, ptr @__const._ZL13setPropertiesP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEEib.fns, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !34
   %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #22
   %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %33, i64 noundef 0, i64 noundef %35, ptr noundef nonnull %32, i64 noundef %36)
-  %38 = getelementptr inbounds [5 x double], ptr %18, i64 0, i64 %30
+  %38 = getelementptr inbounds double, ptr %18, i64 %30
   %39 = load double, ptr %38, align 8, !tbaa !62
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %39, ptr %40, align 8, !tbaa !59
-  %41 = getelementptr inbounds [5 x double], ptr %17, i64 0, i64 %30
+  %41 = getelementptr inbounds double, ptr %17, i64 %30
   %42 = load double, ptr %41, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

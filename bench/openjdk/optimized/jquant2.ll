@@ -393,7 +393,7 @@ define internal void @prescan_quantize(ptr noundef readonly captures(none) %0, p
   %26 = load i8, ptr %25, align 1
   %27 = lshr i8 %26, 3
   %28 = zext nneg i8 %27 to i64
-  %29 = getelementptr inbounds nuw [32 x i16], ptr %24, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i16, ptr %24, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = add i16 %30, 1
   %32 = icmp eq i16 %31, 0
@@ -660,7 +660,7 @@ median_cut.exit.i:                                ; preds = %82, %find_biggest_c
   %.05897.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %.361.i.i, %._crit_edge87.split.i.i ]
   %111 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv131.i.i
   %112 = load ptr, ptr %111, align 8
-  %invariant.gep.i.i = getelementptr [32 x i16], ptr %112, i64 0, i64 %103
+  %invariant.gep.i.i = getelementptr i16, ptr %112, i64 %103
   %113 = trunc nsw i64 %indvars.iv131.i.i to i32
   %114 = shl i32 %113, 3
   %115 = or disjoint i32 %114, 4
@@ -938,7 +938,7 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %106 = getelementptr inbounds nuw [32 x i16], ptr %103, i64 %105
   %107 = lshr i32 %99, 3
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw [32 x i16], ptr %106, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i16, ptr %106, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = icmp eq i16 %110, 0
   br i1 %111, label %112, label %113
@@ -1057,7 +1057,7 @@ define internal void @pass2_no_dither(ptr noundef readonly captures(none) %0, pt
   %29 = zext nneg i8 %22 to i64
   %30 = getelementptr inbounds nuw [32 x i16], ptr %28, i64 %29
   %31 = zext nneg i8 %25 to i64
-  %32 = getelementptr inbounds nuw [32 x i16], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %35, label %39
@@ -1131,7 +1131,7 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %indvars.iv156 = phi i64 [ %17, %.preheader15.preheader ], [ %indvars.iv.next157, %._crit_edge30.split ]
   %19 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv156
   %20 = load ptr, ptr %19, align 8
-  %invariant.gep = getelementptr [32 x i16], ptr %20, i64 0, i64 %14
+  %invariant.gep = getelementptr i16, ptr %20, i64 %14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader15, %._crit_edge
@@ -1192,7 +1192,7 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %indvars.iv167 = phi i64 [ %32, %.preheader12.preheader ], [ %indvars.iv.next168, %._crit_edge45.split ]
   %34 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv167
   %35 = load ptr, ptr %34, align 8
-  %invariant.gep46 = getelementptr [32 x i16], ptr %35, i64 0, i64 %29
+  %invariant.gep46 = getelementptr i16, ptr %35, i64 %29
   br label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader12, %._crit_edge41
@@ -1258,7 +1258,7 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %49 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv171
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds [32 x i16], ptr %50, i64 %indvars.iv176
-  %52 = getelementptr inbounds [32 x i16], ptr %51, i64 0, i64 %44
+  %52 = getelementptr inbounds i16, ptr %51, i64 %44
   br label %53
 
 53:                                               ; preds = %.lr.ph57, %57
@@ -1319,7 +1319,7 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %66 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv183
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds [32 x i16], ptr %67, i64 %indvars.iv188
-  %69 = getelementptr inbounds [32 x i16], ptr %68, i64 0, i64 %61
+  %69 = getelementptr inbounds i16, ptr %68, i64 %61
   br label %70
 
 70:                                               ; preds = %.lr.ph72, %74
@@ -1380,7 +1380,7 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %83 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv192
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds [32 x i16], ptr %84, i64 %78
-  %86 = getelementptr inbounds [32 x i16], ptr %85, i64 0, i64 %indvars.iv197
+  %86 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv197
   br label %87
 
 87:                                               ; preds = %.lr.ph87, %91
@@ -1441,7 +1441,7 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %100 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv204
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds [32 x i16], ptr %101, i64 %95
-  %103 = getelementptr inbounds [32 x i16], ptr %102, i64 0, i64 %indvars.iv209
+  %103 = getelementptr inbounds i16, ptr %102, i64 %indvars.iv209
   br label %104
 
 104:                                              ; preds = %.lr.ph102, %108
@@ -1509,7 +1509,7 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %.0130 = phi i64 [ 0, %.preheader.preheader ], [ %.us-phi, %._crit_edge124 ]
   %128 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv218
   %129 = load ptr, ptr %128, align 8
-  %invariant.gep126 = getelementptr [32 x i16], ptr %129, i64 0, i64 %123
+  %invariant.gep126 = getelementptr i16, ptr %129, i64 %123
   br i1 %.not240113, label %._crit_edge124, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.preheader, %._crit_edge119
@@ -1701,7 +1701,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   %98 = sub nsw i32 %84, %.sink207.i
   %99 = mul nsw i32 %98, %98
   %.2.i = add nuw nsw i32 %.1.i, %99
-  %100 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %.2136.i, ptr %100, align 4
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.2.i, i32 %.0137167.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1711,7 +1711,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 .lr.ph170.i:                                      ; preds = %97, %108
   %indvars.iv173.i = phi i64 [ %indvars.iv.next174.i, %108 ], [ 0, %97 ]
   %.0139169.i = phi i32 [ %.1140.i, %108 ], [ 0, %97 ]
-  %101 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv173.i
+  %101 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv173.i
   %102 = load i32, ptr %101, align 4
   %.not.i = icmp sgt i32 %102, %spec.select.i
   br i1 %.not.i, label %108, label %103
@@ -1874,7 +1874,7 @@ find_best_colors.exit:                            ; preds = %167, %.preheader71.
   %175 = load ptr, ptr %gep, align 8
   %176 = getelementptr inbounds nuw [32 x i16], ptr %175, i64 %indvars.iv
   %177 = getelementptr inbounds nuw [32 x i16], ptr %176, i64 %172
-  %178 = getelementptr inbounds nuw [32 x i16], ptr %177, i64 0, i64 %171
+  %178 = getelementptr inbounds nuw i16, ptr %177, i64 %171
   %scevgep = getelementptr i8, ptr %.149, i64 3
   br label %179
 

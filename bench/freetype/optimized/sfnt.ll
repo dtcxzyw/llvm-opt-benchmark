@@ -6204,7 +6204,7 @@ woff_open_font.exit.i:                            ; preds = %.thread265.i.i
 
 461:                                              ; preds = %454
   %462 = zext nneg i8 %455 to i64
-  %463 = getelementptr inbounds nuw [63 x i32], ptr @woff2_known_tags.known_tags, i64 0, i64 %462
+  %463 = getelementptr inbounds nuw i32, ptr @woff2_known_tags.known_tags, i64 %462
   %464 = load i32, ptr %463, align 4, !tbaa !16
   %465 = getelementptr inbounds nuw i8, ptr %451, i64 4
   store i32 %464, ptr %465, align 4, !tbaa !210
@@ -12952,7 +12952,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
   br i1 %.not117, label %234, label %232
 
 232:                                              ; preds = %228
-  %233 = getelementptr inbounds nuw [4 x %struct.FT_Vector_], ptr %4, i64 0, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %4, i64 %indvars.iv
   call void @FT_Vector_Transform(ptr noundef nonnull %233, ptr noundef nonnull %230) #27
   %.pre152 = load ptr, ptr %227, align 8, !tbaa !259
   %.phi.trans.insert153 = getelementptr inbounds nuw i8, ptr %.pre152, i64 48
@@ -12969,7 +12969,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
 238:                                              ; preds = %234
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 32
   %240 = load i64, ptr %239, align 8, !tbaa !563
-  %241 = getelementptr inbounds nuw [4 x %struct.FT_Vector_], ptr %4, i64 0, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %4, i64 %indvars.iv
   %242 = load i64, ptr %241, align 16, !tbaa !560
   %243 = add nsw i64 %242, %240
   store i64 %243, ptr %241, align 16, !tbaa !560
@@ -23705,7 +23705,7 @@ murmur_hash_3_128.exit.i:                         ; preds = %536, %._crit_edge.i
   %.12321.i = phi ptr [ %.11324.i, %606 ], [ %613, %608 ]
   %609 = and i32 %.0323.i, 15
   %610 = zext nneg i32 %609 to i64
-  %611 = getelementptr inbounds nuw [16 x i8], ptr @hexdigits, i64 0, i64 %610
+  %611 = getelementptr inbounds nuw i8, ptr @hexdigits, i64 %610
   %612 = load i8, ptr %611, align 1, !tbaa !15
   %613 = getelementptr inbounds i8, ptr %.12321.i, i64 -1
   store i8 %612, ptr %.12321.i, align 1, !tbaa !15
@@ -23977,7 +23977,7 @@ define internal range(i32 0, 129) i32 @sfnt_is_postscript(i32 noundef %0) #8 {
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 3
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [16 x i8], ptr @sfnt_ps_map, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @sfnt_ps_map, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !15
   %7 = zext i8 %6 to i32
   %8 = and i32 %0, 7

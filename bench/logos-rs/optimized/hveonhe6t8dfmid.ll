@@ -1022,7 +1022,7 @@ define hidden void @_ZN13logos_codegen6parser10definition21bytes_to_regex_string
 44:                                               ; preds = %43
   %45 = lshr i8 %37, 4
   %46 = zext nneg i8 %45 to i64
-  %47 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13logos_codegen6parser10definition21bytes_to_regex_string6DIGITS17hef2a86d211e0c0abE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZN13logos_codegen6parser10definition21bytes_to_regex_string6DIGITS17hef2a86d211e0c0abE, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   invoke void @_ZN5alloc6string6String4push17hc852acb2157d3890E(ptr nonnull align 8 %7, i32 %49)
@@ -1034,7 +1034,7 @@ define hidden void @_ZN13logos_codegen6parser10definition21bytes_to_regex_string
 51:                                               ; preds = %44
   %52 = and i8 %37, 15
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13logos_codegen6parser10definition21bytes_to_regex_string6DIGITS17hef2a86d211e0c0abE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN13logos_codegen6parser10definition21bytes_to_regex_string6DIGITS17hef2a86d211e0c0abE, i64 %53
   %55 = load i8, ptr %54, align 1
   br label %.invoke
 

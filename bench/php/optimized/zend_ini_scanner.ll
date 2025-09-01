@@ -436,7 +436,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   %106 = phi ptr [ %101, %103 ], [ %504, %501 ], [ %456, %455 ], [ %332, %331 ], [ %243, %242 ], [ %336, %344 ], [ %336, %348 ], [ %336, %354 ], [ %336, %360 ], [ %336, %364 ], [ %508, %507 ], [ %383, %382 ], [ %247, %253 ], [ %247, %254 ], [ %387, %386 ], [ %257, %263 ], [ %257, %264 ], [ %516, %515 ], [ %448, %447 ], [ %267, %266 ], [ %452, %451 ], [ %271, %270 ], [ %247, %250 ], [ %257, %260 ], [ %336, %343 ], [ %336, %347 ], [ %336, %357 ]
   %.01835 = phi i8 [ %104, %103 ], [ %505, %501 ], [ %457, %455 ], [ %333, %331 ], [ %244, %242 ], [ %337, %344 ], [ %337, %348 ], [ %337, %354 ], [ %337, %360 ], [ %337, %364 ], [ %509, %507 ], [ %384, %382 ], [ %248, %253 ], [ %248, %254 ], [ %388, %386 ], [ %258, %263 ], [ %258, %264 ], [ %517, %515 ], [ %449, %447 ], [ %268, %266 ], [ %453, %451 ], [ %272, %270 ], [ %248, %250 ], [ %258, %260 ], [ %337, %343 ], [ %337, %347 ], [ %337, %357 ]
   %107 = zext i8 %.01835 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !14
   %110 = and i8 %109, 16
   %.not2239 = icmp eq i8 %110, 0
@@ -540,7 +540,7 @@ zend_string_alloc.exit2283:                       ; preds = %136, %138
   store i64 %.lcssa2465, ptr %144, align 8, !tbaa !53
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %145, ptr align 1 %131, i64 range(i64 -2147483648, 4294967296) %.lcssa2465, i1 false)
-  %146 = getelementptr inbounds nuw [1 x i8], ptr %145, i64 0, i64 %.lcssa2465
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %.lcssa2465
   store i8 0, ptr %146, align 1, !tbaa !14
   store ptr %141, ptr %0, align 8, !tbaa !14
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -957,7 +957,7 @@ zend_string_alloc.exit2282:                       ; preds = %303, %305
   store i64 %.lcssa2462, ptr %311, align 8, !tbaa !53
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %312, ptr align 1 %298, i64 range(i64 -2147483648, 4294967296) %.lcssa2462, i1 false)
-  %313 = getelementptr inbounds nuw [1 x i8], ptr %312, i64 0, i64 %.lcssa2462
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 %.lcssa2462
   store i8 0, ptr %313, align 1, !tbaa !14
   store ptr %308, ptr %0, align 8, !tbaa !14
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1669,7 +1669,7 @@ zend_string_alloc.exit2279:                       ; preds = %564, %566
   %619 = phi ptr [ %614, %616 ], [ %703, %702 ]
   %.11836 = phi i8 [ %617, %616 ], [ %704, %702 ]
   %620 = zext i8 %.11836 to i64
-  %621 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %620
+  %621 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.5, i64 %620
   %622 = load i8, ptr %621, align 1, !tbaa !14
   %623 = and i8 %622, 4
   %.not2213 = icmp eq i8 %623, 0
@@ -1722,7 +1722,7 @@ zend_string_alloc.exit2278:                       ; preds = %641, %643
   store i64 %636, ptr %649, align 8, !tbaa !53
   %650 = getelementptr inbounds nuw i8, ptr %646, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %650, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %636, i1 false)
-  %651 = getelementptr inbounds nuw [1 x i8], ptr %650, i64 0, i64 %636
+  %651 = getelementptr inbounds nuw i8, ptr %650, i64 %636
   store i8 0, ptr %651, align 1, !tbaa !14
   store ptr %646, ptr %0, align 8, !tbaa !14
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1954,7 +1954,7 @@ zend_string_alloc.exit2277:                       ; preds = %742, %744
   store i64 %737, ptr %750, align 8, !tbaa !53
   %751 = getelementptr inbounds nuw i8, ptr %747, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %751, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %737, i1 false)
-  %752 = getelementptr inbounds nuw [1 x i8], ptr %751, i64 0, i64 %737
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 %737
   store i8 0, ptr %752, align 1, !tbaa !14
   store ptr %747, ptr %0, align 8, !tbaa !14
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1972,7 +1972,7 @@ zend_string_alloc.exit2277:                       ; preds = %742, %744
 757:                                              ; preds = %.preheader2320
   %758 = load i8, ptr %755, align 1, !tbaa !14
   %759 = zext i8 %758 to i64
-  %760 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %759
+  %760 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.5, i64 %759
   %761 = load i8, ptr %760, align 1, !tbaa !14
   %762 = and i8 %761, 32
   %.not2201 = icmp eq i8 %762, 0
@@ -2054,7 +2054,7 @@ zend_string_alloc.exit2276:                       ; preds = %789, %791
   store i64 %784, ptr %797, align 8, !tbaa !53
   %798 = getelementptr inbounds nuw i8, ptr %794, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %798, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %784, i1 false)
-  %799 = getelementptr inbounds nuw [1 x i8], ptr %798, i64 0, i64 %784
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 %784
   store i8 0, ptr %799, align 1, !tbaa !14
   store ptr %794, ptr %0, align 8, !tbaa !14
   %800 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2273,7 +2273,7 @@ zend_string_alloc.exit2275:                       ; preds = %893, %895
   store i64 %888, ptr %901, align 8, !tbaa !53
   %902 = getelementptr inbounds nuw i8, ptr %898, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %902, ptr nonnull align 1 %887, i64 range(i64 -2147483648, 4294967296) %888, i1 false)
-  %903 = getelementptr inbounds nuw [1 x i8], ptr %902, i64 0, i64 %888
+  %903 = getelementptr inbounds nuw i8, ptr %902, i64 %888
   store i8 0, ptr %903, align 1, !tbaa !14
   store ptr %898, ptr %0, align 8, !tbaa !14
   %904 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2397,7 +2397,7 @@ zend_string_alloc.exit2275:                       ; preds = %893, %895
   %949 = phi ptr [ %944, %946 ], [ %1033, %1032 ]
   %.21837 = phi i8 [ %947, %946 ], [ %1034, %1032 ]
   %950 = zext i8 %.21837 to i64
-  %951 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %950
+  %951 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.5, i64 %950
   %952 = load i8, ptr %951, align 1, !tbaa !14
   %953 = and i8 %952, 4
   %.not2193 = icmp eq i8 %953, 0
@@ -2450,7 +2450,7 @@ zend_string_alloc.exit2274:                       ; preds = %971, %973
   store i64 %966, ptr %979, align 8, !tbaa !53
   %980 = getelementptr inbounds nuw i8, ptr %976, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %980, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %966, i1 false)
-  %981 = getelementptr inbounds nuw [1 x i8], ptr %980, i64 0, i64 %966
+  %981 = getelementptr inbounds nuw i8, ptr %980, i64 %966
   store i8 0, ptr %981, align 1, !tbaa !14
   store ptr %976, ptr %0, align 8, !tbaa !14
   %982 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2682,7 +2682,7 @@ zend_string_alloc.exit2273:                       ; preds = %1072, %1074
   store i64 %1067, ptr %1080, align 8, !tbaa !53
   %1081 = getelementptr inbounds nuw i8, ptr %1077, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1081, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1067, i1 false)
-  %1082 = getelementptr inbounds nuw [1 x i8], ptr %1081, i64 0, i64 %1067
+  %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 %1067
   store i8 0, ptr %1082, align 1, !tbaa !14
   store ptr %1077, ptr %0, align 8, !tbaa !14
   %1083 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2700,7 +2700,7 @@ zend_string_alloc.exit2273:                       ; preds = %1072, %1074
 1087:                                             ; preds = %.preheader2403
   %1088 = load i8, ptr %1085, align 1, !tbaa !14
   %1089 = zext i8 %1088 to i64
-  %1090 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.5, i64 0, i64 %1089
+  %1090 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.5, i64 %1089
   %1091 = load i8, ptr %1090, align 1, !tbaa !14
   %1092 = and i8 %1091, 32
   %.not2181 = icmp eq i8 %1092, 0
@@ -2782,7 +2782,7 @@ zend_string_alloc.exit2272:                       ; preds = %1119, %1121
   store i64 %1114, ptr %1127, align 8, !tbaa !53
   %1128 = getelementptr inbounds nuw i8, ptr %1124, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1128, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1114, i1 false)
-  %1129 = getelementptr inbounds nuw [1 x i8], ptr %1128, i64 0, i64 %1114
+  %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 %1114
   store i8 0, ptr %1129, align 1, !tbaa !14
   store ptr %1124, ptr %0, align 8, !tbaa !14
   %1130 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3046,7 +3046,7 @@ zend_string_alloc.exit2271:                       ; preds = %1243, %1245
   store i64 %1238, ptr %1251, align 8, !tbaa !53
   %1252 = getelementptr inbounds nuw i8, ptr %1248, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1252, ptr nonnull align 1 %1237, i64 range(i64 -2147483648, 4294967296) %1238, i1 false)
-  %1253 = getelementptr inbounds nuw [1 x i8], ptr %1252, i64 0, i64 %1238
+  %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 %1238
   store i8 0, ptr %1253, align 1, !tbaa !14
   store ptr %1248, ptr %0, align 8, !tbaa !14
   %1254 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3190,7 +3190,7 @@ zend_string_alloc.exit2271:                       ; preds = %1243, %1245
   %.41846 = phi i32 [ 0, %1273 ], [ 0, %1416 ], [ 2, %1565 ], [ 2, %1567 ], [ 2, %1572 ], [ 2, %1576 ], [ 2, %1856 ], [ 2, %1858 ], [ 2, %1863 ], [ 2, %1867 ], [ 2, %1869 ], [ 2, %1874 ], [ 2, %2225 ], [ 2, %2227 ], [ 2, %2232 ], [ 2, %2236 ], [ 2, %2238 ], [ 2, %2243 ], [ 2, %2269 ], [ 2, %2271 ], [ 2, %2276 ], [ 2, %2280 ], [ 2, %2282 ], [ 2, %2287 ], [ 3, %2353 ], [ 3, %2357 ], [ 3, %2364 ], [ 3, %2370 ], [ 3, %2371 ], [ 3, %2375 ], [ 3, %2376 ], [ 2, %2291 ], [ 2, %2297 ], [ 2, %2247 ], [ 2, %2253 ], [ 2, %1878 ], [ 2, %1884 ], [ 2, %1585 ], [ 2, %1590 ], [ 2, %1594 ], [ 2, %1595 ], [ 2, %1612 ], [ 2, %1617 ], [ 2, %1621 ], [ 3, %1897 ], [ 3, %1908 ], [ 3, %1915 ], [ 3, %1920 ], [ 3, %1926 ], [ 3, %1929 ], [ 3, %1931 ], [ 2, %1962 ], [ 2, %1964 ], [ 2, %1969 ], [ 2, %1973 ], [ 2, %1975 ], [ 2, %1980 ], [ 2, %2308 ], [ 2, %2310 ], [ 2, %2315 ], [ 2, %2319 ], [ 2, %2321 ], [ 2, %2326 ], [ 5, %2434 ], [ 5, %2437 ], [ 5, %2444 ], [ 5, %2450 ], [ 5, %2451 ], [ 5, %2454 ], [ 5, %2455 ], [ 2, %2330 ], [ 2, %2336 ], [ 2, %1984 ], [ 2, %1990 ], [ 2, %1630 ], [ 2, %1631 ], [ 2, %1638 ], [ 2, %1640 ], [ 2, %1656 ], [ 2, %1661 ], [ 2, %1665 ], [ 2, %2001 ], [ 2, %2003 ], [ 2, %2008 ], [ 2, %2012 ], [ 2, %2014 ], [ 2, %2019 ], [ 2, %2023 ], [ 2, %2029 ], [ 4, %2046 ], [ 4, %2049 ], [ 4, %2056 ], [ 4, %2062 ], [ 4, %2063 ], [ 4, %2066 ], [ 4, %2067 ], [ 2, %1674 ], [ 2, %1675 ], [ 2, %1682 ], [ 2, %1684 ], [ 2, %1694 ], [ 2, %1696 ], [ 2, %1701 ], [ 2, %1705 ], [ 2, %1707 ], [ 2, %1712 ], [ 2, %2101 ], [ 2, %2103 ], [ 2, %2108 ], [ 2, %2112 ], [ 2, %2114 ], [ 2, %2119 ], [ 2, %2390 ], [ 2, %2392 ], [ 2, %2397 ], [ 2, %2401 ], [ 2, %2403 ], [ 2, %2408 ], [ 2, %2412 ], [ 2, %2418 ], [ 2, %2123 ], [ 2, %2129 ], [ 2, %1716 ], [ 2, %1722 ], [ 2, %1733 ], [ 2, %1735 ], [ 2, %1740 ], [ 2, %1744 ], [ 2, %1746 ], [ 2, %1751 ], [ 2, %2140 ], [ 2, %2142 ], [ 2, %2147 ], [ 2, %2151 ], [ 2, %2153 ], [ 2, %2158 ], [ 2, %2162 ], [ 2, %2168 ], [ 2, %1755 ], [ 2, %1761 ], [ 2, %1582 ], [ 2, %1606 ], [ 2, %1607 ], [ 2, %1650 ], [ 2, %1651 ], [ 2, %1718 ], [ 2, %1721 ], [ 2, %1757 ], [ 2, %1760 ], [ 2, %1880 ], [ 2, %1883 ], [ 3, %1900 ], [ 3, %1903 ], [ 2, %1986 ], [ 2, %1989 ], [ 2, %2025 ], [ 2, %2028 ], [ 4, %2053 ], [ 2, %2125 ], [ 2, %2128 ], [ 2, %2164 ], [ 2, %2167 ], [ 2, %2249 ], [ 2, %2252 ], [ 2, %2293 ], [ 2, %2296 ], [ 2, %2332 ], [ 2, %2335 ], [ 3, %2361 ], [ 2, %2414 ], [ 2, %2417 ], [ 5, %2441 ]
   %.3 = phi i8 [ %1274, %1273 ], [ %1418, %1416 ], [ %1559, %1565 ], [ %1559, %1567 ], [ %1559, %1572 ], [ %1559, %1576 ], [ %1850, %1856 ], [ %1850, %1858 ], [ %1850, %1863 ], [ %1850, %1867 ], [ %1850, %1869 ], [ %1850, %1874 ], [ %2219, %2225 ], [ %2219, %2227 ], [ %2219, %2232 ], [ %2219, %2236 ], [ %2219, %2238 ], [ %2219, %2243 ], [ %2263, %2269 ], [ %2263, %2271 ], [ %2263, %2276 ], [ %2263, %2280 ], [ %2263, %2282 ], [ %2263, %2287 ], [ %2342, %2353 ], [ %2342, %2357 ], [ %2342, %2364 ], [ %2342, %2370 ], [ %2342, %2371 ], [ %2342, %2375 ], [ %2342, %2376 ], [ %2263, %2291 ], [ %2263, %2297 ], [ %2219, %2247 ], [ %2219, %2253 ], [ %1850, %1878 ], [ %1850, %1884 ], [ %1559, %1585 ], [ 96, %1590 ], [ 123, %1594 ], [ %1559, %1595 ], [ %1600, %1612 ], [ 60, %1617 ], [ %1600, %1621 ], [ %1889, %1897 ], [ %1889, %1908 ], [ %1889, %1915 ], [ %1889, %1920 ], [ %1889, %1926 ], [ 123, %1929 ], [ %1889, %1931 ], [ %1956, %1962 ], [ %1956, %1964 ], [ %1956, %1969 ], [ %1956, %1973 ], [ %1956, %1975 ], [ %1956, %1980 ], [ %2302, %2308 ], [ %2302, %2310 ], [ %2302, %2315 ], [ %2302, %2319 ], [ %2302, %2321 ], [ %2302, %2326 ], [ %2423, %2434 ], [ %2423, %2437 ], [ %2423, %2444 ], [ %2423, %2450 ], [ %2423, %2451 ], [ %2423, %2454 ], [ %2423, %2455 ], [ %2302, %2330 ], [ %2302, %2336 ], [ %1956, %1984 ], [ %1956, %1990 ], [ %1600, %1630 ], [ 96, %1631 ], [ 123, %1638 ], [ %1600, %1640 ], [ %1644, %1656 ], [ 60, %1661 ], [ %1644, %1665 ], [ %1995, %2001 ], [ %1995, %2003 ], [ %1995, %2008 ], [ %1995, %2012 ], [ %1995, %2014 ], [ %1995, %2019 ], [ %1995, %2023 ], [ %1995, %2029 ], [ %2035, %2046 ], [ %2035, %2049 ], [ %2035, %2056 ], [ %2035, %2062 ], [ %2035, %2063 ], [ %2035, %2066 ], [ %2035, %2067 ], [ %1644, %1674 ], [ 96, %1675 ], [ 123, %1682 ], [ %1644, %1684 ], [ %1688, %1694 ], [ %1688, %1696 ], [ %1688, %1701 ], [ %1688, %1705 ], [ %1688, %1707 ], [ %1688, %1712 ], [ %2095, %2101 ], [ %2095, %2103 ], [ %2095, %2108 ], [ %2095, %2112 ], [ %2095, %2114 ], [ %2095, %2119 ], [ %2384, %2390 ], [ %2384, %2392 ], [ %2384, %2397 ], [ %2384, %2401 ], [ %2384, %2403 ], [ %2384, %2408 ], [ %2384, %2412 ], [ %2384, %2418 ], [ %2095, %2123 ], [ %2095, %2129 ], [ %1688, %1716 ], [ %1688, %1722 ], [ %1727, %1733 ], [ %1727, %1735 ], [ %1727, %1740 ], [ %1727, %1744 ], [ %1727, %1746 ], [ %1727, %1751 ], [ %2134, %2140 ], [ %2134, %2142 ], [ %2134, %2147 ], [ %2134, %2151 ], [ %2134, %2153 ], [ %2134, %2158 ], [ %2134, %2162 ], [ %2134, %2168 ], [ %1727, %1755 ], [ %1727, %1761 ], [ %1559, %1582 ], [ %1600, %1606 ], [ %1600, %1607 ], [ %1644, %1650 ], [ %1644, %1651 ], [ %1688, %1718 ], [ %1688, %1721 ], [ %1727, %1757 ], [ %1727, %1760 ], [ %1850, %1880 ], [ %1850, %1883 ], [ %1889, %1900 ], [ %1889, %1903 ], [ %1956, %1986 ], [ %1956, %1989 ], [ %1995, %2025 ], [ %1995, %2028 ], [ %2035, %2053 ], [ %2095, %2125 ], [ %2095, %2128 ], [ %2134, %2164 ], [ %2134, %2167 ], [ %2219, %2249 ], [ %2219, %2252 ], [ %2263, %2293 ], [ %2263, %2296 ], [ %2302, %2332 ], [ %2302, %2335 ], [ %2342, %2361 ], [ %2384, %2414 ], [ %2384, %2417 ], [ %2423, %2441 ]
   %1276 = zext i8 %.3 to i64
-  %1277 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %1276
+  %1277 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.6, i64 %1276
   %1278 = load i8, ptr %1277, align 1, !tbaa !14
   %1279 = and i8 %1278, 2
   %.not2170 = icmp eq i8 %1279, 0
@@ -3254,7 +3254,7 @@ zend_string_alloc.exit2270:                       ; preds = %1297, %1299
   store i64 %1292, ptr %1305, align 8, !tbaa !53
   %1306 = getelementptr inbounds nuw i8, ptr %1302, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1306, ptr align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1292, i1 false)
-  %1307 = getelementptr inbounds nuw [1 x i8], ptr %1306, i64 0, i64 %1292
+  %1307 = getelementptr inbounds nuw i8, ptr %1306, i64 %1292
   store i8 0, ptr %1307, align 1, !tbaa !14
   store ptr %1302, ptr %0, align 8, !tbaa !14
   %1308 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3346,7 +3346,7 @@ zend_ini_copy_typed_value.exit2286:               ; preds = %1340, %1342
   store i64 %1335, ptr %1348, align 8, !tbaa !53
   %1349 = getelementptr inbounds nuw i8, ptr %1345, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1349, ptr nonnull readonly align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1335, i1 false)
-  %1350 = getelementptr inbounds nuw [1 x i8], ptr %1349, i64 0, i64 %1335
+  %1350 = getelementptr inbounds nuw i8, ptr %1349, i64 %1335
   store i8 0, ptr %1350, align 1, !tbaa !14
   store ptr %1345, ptr %0, align 8, !tbaa !14
   %1351 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3383,7 +3383,7 @@ zend_string_alloc.exit2269:                       ; preds = %1359, %1361
   store i64 %1354, ptr %1367, align 8, !tbaa !53
   %1368 = getelementptr inbounds nuw i8, ptr %1364, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1368, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1354, i1 false)
-  %1369 = getelementptr inbounds nuw [1 x i8], ptr %1368, i64 0, i64 %1354
+  %1369 = getelementptr inbounds nuw i8, ptr %1368, i64 %1354
   store i8 0, ptr %1369, align 1, !tbaa !14
   store ptr %1364, ptr %0, align 8, !tbaa !14
   %1370 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3621,7 +3621,7 @@ zend_string_alloc.exit2268:                       ; preds = %1470, %1472
   store i64 %1465, ptr %1478, align 8, !tbaa !53
   %1479 = getelementptr inbounds nuw i8, ptr %1475, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1479, ptr align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1465, i1 false)
-  %1480 = getelementptr inbounds nuw [1 x i8], ptr %1479, i64 0, i64 %1465
+  %1480 = getelementptr inbounds nuw i8, ptr %1479, i64 %1465
   store i8 0, ptr %1480, align 1, !tbaa !14
   store ptr %1475, ptr %0, align 8, !tbaa !14
   %1481 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3663,7 +3663,7 @@ zend_string_alloc.exit2268:                       ; preds = %1470, %1472
 1494:                                             ; preds = %1490
   %1495 = load i8, ptr %1492, align 1, !tbaa !14
   %1496 = zext i8 %1495 to i64
-  %1497 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %1496
+  %1497 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.6, i64 %1496
   %1498 = load i8, ptr %1497, align 1, !tbaa !14
   %1499 = and i8 %1498, 32
   %.not2154 = icmp eq i8 %1499, 0
@@ -3784,7 +3784,7 @@ zend_string_alloc.exit2267:                       ; preds = %1545, %1547
   store i64 %1540, ptr %1553, align 8, !tbaa !53
   %1554 = getelementptr inbounds nuw i8, ptr %1550, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1554, ptr align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1540, i1 false)
-  %1555 = getelementptr inbounds nuw [1 x i8], ptr %1554, i64 0, i64 %1540
+  %1555 = getelementptr inbounds nuw i8, ptr %1554, i64 %1540
   store i8 0, ptr %1555, align 1, !tbaa !14
   store ptr %1550, ptr %0, align 8, !tbaa !14
   %1556 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4905,7 +4905,7 @@ zend_string_alloc.exit2266:                       ; preds = %1945, %1947
   store ptr %2034, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
   %2035 = load i8, ptr %2034, align 1, !tbaa !14
   %2036 = zext i8 %2035 to i64
-  %2037 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2036
+  %2037 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.6, i64 %2036
   %2038 = load i8, ptr %2037, align 1, !tbaa !14
   %2039 = and i8 %2038, 32
   %.not2118 = icmp eq i8 %2039, 0
@@ -5300,7 +5300,7 @@ zend_string_alloc.exit2264:                       ; preds = %2205, %2207
   store i64 %2200, ptr %2213, align 8, !tbaa !53
   %2214 = getelementptr inbounds nuw i8, ptr %2210, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2214, ptr nonnull align 1 %2194, i64 range(i64 -2147483648, 4294967296) %2200, i1 false)
-  %2215 = getelementptr inbounds nuw [1 x i8], ptr %2214, i64 0, i64 %2200
+  %2215 = getelementptr inbounds nuw i8, ptr %2214, i64 %2200
   store i8 0, ptr %2215, align 1, !tbaa !14
   store ptr %2210, ptr %0, align 8, !tbaa !14
   %2216 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5602,7 +5602,7 @@ zend_string_alloc.exit2264:                       ; preds = %2205, %2207
   store ptr %2341, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
   %2342 = load i8, ptr %2341, align 1, !tbaa !14
   %2343 = zext i8 %2342 to i64
-  %2344 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2343
+  %2344 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.6, i64 %2343
   %2345 = load i8, ptr %2344, align 1, !tbaa !14
   %2346 = and i8 %2345, 32
   %.not2151 = icmp eq i8 %2346, 0
@@ -5799,7 +5799,7 @@ zend_string_alloc.exit2264:                       ; preds = %2205, %2207
   store ptr %2422, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
   %2423 = load i8, ptr %2422, align 1, !tbaa !14
   %2424 = zext i8 %2423 to i64
-  %2425 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2424
+  %2425 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.6, i64 %2424
   %2426 = load i8, ptr %2425, align 1, !tbaa !14
   %2427 = and i8 %2426, 32
   %.not2131 = icmp eq i8 %2427, 0
@@ -5940,7 +5940,7 @@ zend_string_alloc.exit2263:                       ; preds = %2469, %2471
 
 2482:                                             ; preds = %26
   %2483 = zext i8 %28 to i64
-  %2484 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.7, i64 0, i64 %2483
+  %2484 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.7, i64 %2483
   %2485 = load i8, ptr %2484, align 1, !tbaa !14
   %2486 = and i8 %2485, 64
   %.not2102 = icmp eq i8 %2486, 0
@@ -5966,7 +5966,7 @@ zend_string_alloc.exit2263:                       ; preds = %2469, %2471
 2494:                                             ; preds = %.preheader2415
   %2495 = load i8, ptr %2492, align 1, !tbaa !14
   %2496 = zext i8 %2495 to i64
-  %2497 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.7, i64 0, i64 %2496
+  %2497 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.7, i64 %2496
   %2498 = load i8, ptr %2497, align 1, !tbaa !14
   %2499 = and i8 %2498, 64
   %.not2104 = icmp eq i8 %2499, 0
@@ -6005,7 +6005,7 @@ zend_string_alloc.exit2262:                       ; preds = %2510, %2512
   store i64 %2505, ptr %2518, align 8, !tbaa !53
   %2519 = getelementptr inbounds nuw i8, ptr %2515, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2519, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2505, i1 false)
-  %2520 = getelementptr inbounds nuw [1 x i8], ptr %2519, i64 0, i64 %2505
+  %2520 = getelementptr inbounds nuw i8, ptr %2519, i64 %2505
   store i8 0, ptr %2520, align 1, !tbaa !14
   store ptr %2515, ptr %0, align 8, !tbaa !14
   %2521 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6180,7 +6180,7 @@ zend_string_alloc.exit.i:                         ; preds = %2590, %2588
   store i64 %2583, ptr %2596, align 8, !tbaa !53
   %2597 = getelementptr inbounds nuw i8, ptr %2593, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2597, ptr nonnull readonly align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2583, i1 false)
-  %2598 = getelementptr inbounds nuw [1 x i8], ptr %2597, i64 0, i64 %2583
+  %2598 = getelementptr inbounds nuw i8, ptr %2597, i64 %2583
   store i8 0, ptr %2598, align 1, !tbaa !14
   store ptr %2593, ptr %0, align 8, !tbaa !14
   %2599 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6284,7 +6284,7 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
 2635:                                             ; preds = %.preheader2420
   %2636 = load i8, ptr %2633, align 1, !tbaa !14
   %2637 = zext i8 %2636 to i64
-  %2638 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.8, i64 0, i64 %2637
+  %2638 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.8, i64 %2637
   %2639 = load i8, ptr %2638, align 1, !tbaa !14
   %.not2101 = icmp sgt i8 %2639, -1
   br i1 %.not2101, label %2640, label %.preheader2420
@@ -6433,7 +6433,7 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
   %2701 = phi ptr [ %2696, %2698 ], [ %2781, %2780 ]
   %.4 = phi i8 [ %2699, %2698 ], [ %2782, %2780 ]
   %2702 = zext i8 %.4 to i64
-  %2703 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.9, i64 0, i64 %2702
+  %2703 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.9, i64 %2702
   %2704 = load i8, ptr %2703, align 1, !tbaa !14
   %2705 = and i8 %2704, 8
   %.not2095 = icmp eq i8 %2705, 0
@@ -6486,7 +6486,7 @@ zend_string_alloc.exit2261:                       ; preds = %2723, %2725
   store i64 %2718, ptr %2731, align 8, !tbaa !53
   %2732 = getelementptr inbounds nuw i8, ptr %2728, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2732, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2718, i1 false)
-  %2733 = getelementptr inbounds nuw [1 x i8], ptr %2732, i64 0, i64 %2718
+  %2733 = getelementptr inbounds nuw i8, ptr %2732, i64 %2718
   store i8 0, ptr %2733, align 1, !tbaa !14
   store ptr %2728, ptr %0, align 8, !tbaa !14
   %2734 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6715,7 +6715,7 @@ zend_string_alloc.exit2260:                       ; preds = %2821, %2823
   store i64 %2816, ptr %2829, align 8, !tbaa !53
   %2830 = getelementptr inbounds nuw i8, ptr %2826, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2830, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2816, i1 false)
-  %2831 = getelementptr inbounds nuw [1 x i8], ptr %2830, i64 0, i64 %2816
+  %2831 = getelementptr inbounds nuw i8, ptr %2830, i64 %2816
   store i8 0, ptr %2831, align 1, !tbaa !14
   store ptr %2826, ptr %0, align 8, !tbaa !14
   %2832 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6733,7 +6733,7 @@ zend_string_alloc.exit2260:                       ; preds = %2821, %2823
 2836:                                             ; preds = %.preheader2430
   %2837 = load i8, ptr %2834, align 1, !tbaa !14
   %2838 = zext i8 %2837 to i64
-  %2839 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.9, i64 0, i64 %2838
+  %2839 = getelementptr inbounds nuw i8, ptr @ini_lex.yybm.9, i64 %2838
   %2840 = load i8, ptr %2839, align 1, !tbaa !14
   %2841 = and i8 %2840, 64
   %.not2077 = icmp eq i8 %2841, 0
@@ -6815,7 +6815,7 @@ zend_string_alloc.exit2259:                       ; preds = %2866, %2868
   store i64 %2861, ptr %2874, align 8, !tbaa !53
   %2875 = getelementptr inbounds nuw i8, ptr %2871, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2875, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2861, i1 false)
-  %2876 = getelementptr inbounds nuw [1 x i8], ptr %2875, i64 0, i64 %2861
+  %2876 = getelementptr inbounds nuw i8, ptr %2875, i64 %2861
   store i8 0, ptr %2876, align 1, !tbaa !14
   store ptr %2871, ptr %0, align 8, !tbaa !14
   %2877 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7203,7 +7203,7 @@ zend_string_alloc.exit2258:                       ; preds = %3015, %3017
   store i64 %.lcssa2533, ptr %3023, align 8, !tbaa !53
   %3024 = getelementptr inbounds nuw i8, ptr %3020, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3024, ptr nonnull align 1 %3010, i64 range(i64 -2147483648, 4294967296) %.lcssa2533, i1 false)
-  %3025 = getelementptr inbounds nuw [1 x i8], ptr %3024, i64 0, i64 %.lcssa2533
+  %3025 = getelementptr inbounds nuw i8, ptr %3024, i64 %.lcssa2533
   store i8 0, ptr %3025, align 1, !tbaa !14
   store ptr %3020, ptr %0, align 8, !tbaa !14
   %3026 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7462,7 +7462,7 @@ zend_ini_copy_typed_value.exit2293:               ; preds = %3111, %3113
   store i64 %3106, ptr %3119, align 8, !tbaa !53
   %3120 = getelementptr inbounds nuw i8, ptr %3116, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3120, ptr readonly align 1 %3101, i64 range(i64 -2147483648, 4294967296) %3106, i1 false)
-  %3121 = getelementptr inbounds nuw [1 x i8], ptr %3120, i64 0, i64 %3106
+  %3121 = getelementptr inbounds nuw i8, ptr %3120, i64 %3106
   store i8 0, ptr %3121, align 1, !tbaa !14
   store ptr %3116, ptr %0, align 8, !tbaa !14
   %3122 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7499,7 +7499,7 @@ zend_string_alloc.exit:                           ; preds = %3130, %3132
   store i64 %3125, ptr %3138, align 8, !tbaa !53
   %3139 = getelementptr inbounds nuw i8, ptr %3135, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3139, ptr align 1 %3101, i64 range(i64 -2147483648, 4294967296) %3125, i1 false)
-  %3140 = getelementptr inbounds nuw [1 x i8], ptr %3139, i64 0, i64 %3125
+  %3140 = getelementptr inbounds nuw i8, ptr %3139, i64 %3125
   store i8 0, ptr %3140, align 1, !tbaa !14
   store ptr %3135, ptr %0, align 8, !tbaa !14
   %3141 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7691,7 +7691,7 @@ zend_string_alloc.exit:                           ; preds = %12, %14
   store i64 %7, ptr %20, align 8, !tbaa !53
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %2, i64 range(i64 -2147483648, 4294967296) %7, i1 false)
-  %22 = getelementptr inbounds nuw [1 x i8], ptr %21, i64 0, i64 %7
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %7
   store i8 0, ptr %22, align 1, !tbaa !14
   store ptr %17, ptr %0, align 8, !tbaa !14
   br label %23

@@ -92,7 +92,7 @@ define dso_local void @SharedInvalShmemInit() local_unnamed_addr #0 {
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw [0 x %struct.ProcState], ptr %23, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.ProcState, ptr %23, i64 %indvars.iv
   store i32 0, ptr %30, align 8
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %31 = getelementptr i8, ptr %24, i64 %.idx
@@ -121,7 +121,7 @@ define dso_local void @SharedInvalShmemInit() local_unnamed_addr #0 {
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 65552
   store i32 0, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 65568
-  %43 = getelementptr inbounds nuw [0 x %struct.ProcState], ptr %42, i64 0, i64 %.0.lcssa
+  %43 = getelementptr inbounds nuw %struct.ProcState, ptr %42, i64 %.0.lcssa
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 65560
   store ptr %43, ptr %44, align 8
   br label %45
@@ -166,7 +166,7 @@ define dso_local void @SharedInvalBackendInit(i1 noundef zeroext %0) local_unnam
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 65568
   %19 = zext nneg i32 %3 to i64
-  %20 = getelementptr inbounds nuw [0 x %struct.ProcState], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.ProcState, ptr %18, i64 %19
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 768
   %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %22, i32 noundef 0) #9
@@ -247,7 +247,7 @@ define internal void @CleanupInvalidationState(i32 %0, i64 noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 65568
   %8 = load i32, ptr @MyProcNumber, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [0 x %struct.ProcState], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.ProcState, ptr %7, i64 %9
   %11 = load i32, ptr @nextLocalTransactionId, align 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %11, ptr %12, align 4
@@ -355,7 +355,7 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
   %26 = add nsw i32 %.03235, -1
   %27 = srem i32 %.03036, 4096
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [4096 x %union.SharedInvalidationMessage], ptr %7, i64 0, i64 %28
+  %29 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %7, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %.137, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %.137, i64 16, i1 false)
   %31 = add i32 %.03036, 1
@@ -448,7 +448,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [0 x %struct.ProcState], ptr %20, i64 0, i64 %27
+  %28 = getelementptr inbounds %struct.ProcState, ptr %20, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -612,7 +612,7 @@ define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 65568
   %5 = load i32, ptr @MyProcNumber, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x %struct.ProcState], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.ProcState, ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %9 = load i8, ptr %8, align 2, !range !4, !noundef !5
   %10 = trunc nuw i8 %9 to i1
@@ -671,7 +671,7 @@ define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, 
   %34 = getelementptr inbounds nuw %union.SharedInvalidationMessage, ptr %0, i64 %indvars.iv
   %35 = srem i32 %31, 4096
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [4096 x %union.SharedInvalidationMessage], ptr %27, i64 0, i64 %36
+  %37 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %27, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   %38 = load i32, ptr %25, align 4
   %39 = add i32 %38, 1

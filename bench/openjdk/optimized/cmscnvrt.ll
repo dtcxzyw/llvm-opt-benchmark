@@ -964,7 +964,7 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
 
 181:                                              ; preds = %.preheader, %181
   %indvars.iv = phi i64 [ %indvars.iv.next, %181 ], [ 0, %.preheader ]
-  %182 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %183 = load double, ptr %182, align 8
   %184 = fdiv double %183, 0x3FFFFFE000000000
   store double %184, ptr %182, align 8
@@ -1349,13 +1349,13 @@ define internal ptr @BlackPreservingKOnlyIntents(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %.lr.ph
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.BlackPreservingKPlaneIntents, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.BlackPreservingKPlaneIntents, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %TranslateNonICCIntents.exit
 
 TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %12, %.lr.ph ]
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %.0.i, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1457,7 +1457,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
   %indvars.iv86 = phi i64 [ %54, %.lr.ph82.preheader ], [ %indvars.iv.next87, %55 ]
   %56 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv86
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv86
+  %58 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv86
   %59 = load i32, ptr %58, align 4
   %60 = call ptr @_cmsReadDevicelinkLUT(ptr noundef %57, i32 noundef %59) #7
   %61 = icmp eq ptr %60, null
@@ -1525,13 +1525,13 @@ define internal ptr @BlackPreservingKPlaneIntents(ptr noundef %0, i32 noundef %1
 
 switch.lookup:                                    ; preds = %.lr.ph
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.BlackPreservingKPlaneIntents, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.BlackPreservingKPlaneIntents, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %TranslateNonICCIntents.exit
 
 TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %12, %.lr.ph ]
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %.0.i, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1655,7 +1655,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   %indvars.iv100 = phi i64 [ %73, %.lr.ph94.preheader ], [ %indvars.iv.next101, %80 ]
   %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv100
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv100
+  %76 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv100
   %77 = load i32, ptr %76, align 4
   %78 = call ptr @_cmsReadDevicelinkLUT(ptr noundef %75, i32 noundef %77) #7
   %79 = icmp eq ptr %78, null
@@ -1809,7 +1809,7 @@ define internal noundef i32 @BlackPreservingSampler(ptr noundef readonly capture
   %12 = uitofp i16 %11 to double
   %13 = fdiv double %12, 6.553500e+04
   %14 = fptrunc double %13 to float
-  %15 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1876,7 +1876,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %33, %40, %42
 
 51:                                               ; preds = %49, %_cmsQuickSaturateWord.exit50
   %indvars.iv62 = phi i64 [ 0, %49 ], [ %indvars.iv.next63, %_cmsQuickSaturateWord.exit50 ]
-  %52 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv62
+  %52 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv62
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
   %55 = fmul double %54, 6.553500e+04

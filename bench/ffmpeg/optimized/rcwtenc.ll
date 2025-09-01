@@ -153,7 +153,7 @@ rcwt_flush_cluster.exit31:                        ; preds = %37, %41
 61:                                               ; preds = %52
   %62 = load i32, ptr %4, align 8, !tbaa !28
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [196605 x i8], ptr %32, i64 0, i64 %63
+  %64 = getelementptr inbounds i8, ptr %32, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %64, ptr noundef nonnull align 1 dereferenceable(3) %55, i64 3, i1 false)
   %65 = load i32, ptr %4, align 8, !tbaa !28
   %66 = add nsw i32 %65, 3

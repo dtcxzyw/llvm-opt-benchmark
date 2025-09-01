@@ -2105,7 +2105,7 @@ _ZN3sat8parallel11vector_pool14end_add_vectorEv.exit: ; preds = %._crit_edge, %6
 
 68:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %54, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw %"class.sat::literal", ptr %54, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !232
   %71 = load i32, ptr %55, align 4, !tbaa !23
   %72 = add i32 %71, 1

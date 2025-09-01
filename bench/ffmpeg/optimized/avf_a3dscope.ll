@@ -57,7 +57,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw [60 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   tail call void @av_frame_free(ptr noundef nonnull %7) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 60
@@ -471,7 +471,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %310 = load i32, ptr %291, align 4, !tbaa !28
   %311 = sitofp i32 %310 to float
   %312 = fdiv nsz float 1.000000e+00, %311
-  %313 = getelementptr inbounds nuw [60 x ptr], ptr %47, i64 0, i64 %indvars.iv.next144.i
+  %313 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next144.i
   %314 = load ptr, ptr %313, align 8, !tbaa !32
   %.not103.i = icmp eq ptr %314, null
   br i1 %.not103.i, label %.loopexit.i, label %315

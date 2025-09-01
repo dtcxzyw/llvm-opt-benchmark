@@ -191,7 +191,7 @@ define dso_local zeroext i16 @virtio_pci_get_trans_devid(i16 noundef zeroext %0)
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %4 = getelementptr inbounds nuw [9 x %struct.VirtIOPCIIDInfo], ptr @virtio_pci_id_info, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw %struct.VirtIOPCIIDInfo, ptr @virtio_pci_id_info, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %virtio_pci_get_id_info.exit, label %2
@@ -219,7 +219,7 @@ define dso_local zeroext i16 @virtio_pci_get_class_id(i16 noundef zeroext %0) lo
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %4 = getelementptr inbounds nuw [9 x %struct.VirtIOPCIIDInfo], ptr @virtio_pci_id_info, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw %struct.VirtIOPCIIDInfo, ptr @virtio_pci_id_info, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %virtio_pci_get_id_info.exit, label %2
@@ -3078,7 +3078,7 @@ virtio_set_disabled.exit48:                       ; preds = %73, %72, %virtio_se
 
 99:                                               ; preds = %114, %89
   %indvars.iv.i.i = phi i64 [ 0, %89 ], [ %indvars.iv.next.i.i, %114 ]
-  %100 = getelementptr inbounds nuw [5 x %struct.VirtIOPCIRegion], ptr %96, i64 0, i64 %indvars.iv.i.i
+  %100 = getelementptr inbounds nuw %struct.VirtIOPCIRegion, ptr %96, i64 %indvars.iv.i.i
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 272
   %102 = load i32, ptr %101, align 16
   %.not.i.i = icmp ult i32 %94, %102
@@ -3215,7 +3215,7 @@ define internal i32 @virtio_read_config(ptr noundef %0, i32 noundef %1, i32 noun
 
 35:                                               ; preds = %50, %25
   %indvars.iv.i.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i, %50 ]
-  %36 = getelementptr inbounds nuw [5 x %struct.VirtIOPCIRegion], ptr %32, i64 0, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw %struct.VirtIOPCIRegion, ptr %32, i64 %indvars.iv.i.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 272
   %38 = load i32, ptr %37, align 16
   %.not.i.i = icmp ult i32 %30, %38
@@ -3388,7 +3388,7 @@ virtio_bus_get_device.exit:                       ; preds = %3
 36:                                               ; preds = %32
   %37 = zext nneg i32 %34 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 5380
-  %39 = getelementptr inbounds nuw [2 x i32], ptr %38, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %37
   %40 = load i32, ptr %39, align 4
   br label %.loopexit
 
@@ -3598,7 +3598,7 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %23 = zext nneg i32 %20 to i64
   %24 = trunc i64 %2 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 5380
-  %26 = getelementptr inbounds nuw [2 x i32], ptr %25, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %23
   store i32 %24, ptr %26, align 4
   %27 = load i64, ptr %25, align 4
   %28 = tail call i32 @virtio_set_features(ptr noundef nonnull %8, i64 noundef %27) #15
@@ -3715,12 +3715,12 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 162
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw [1024 x %struct.VirtIOPCIQueue], ptr %83, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %83, i64 %86
   store i16 %82, ptr %87, align 4
   %88 = load i16, ptr %84, align 2
   %89 = zext i16 %88 to i32
   %90 = zext i16 %88 to i64
-  %91 = getelementptr inbounds nuw [1024 x %struct.VirtIOPCIQueue], ptr %83, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %83, i64 %90
   %92 = load i16, ptr %91, align 4
   %93 = zext i16 %92 to i32
   tail call void @virtio_queue_set_num(ptr noundef nonnull %8, i32 noundef %89, i32 noundef %93) #15
@@ -3809,14 +3809,14 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %137 = zext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 5388
   %139 = zext i16 %136 to i64
-  %140 = getelementptr inbounds nuw [1024 x %struct.VirtIOPCIQueue], ptr %138, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %138, i64 %139
   %141 = load i16, ptr %140, align 4
   %142 = zext i16 %141 to i32
   tail call void @virtio_queue_set_num(ptr noundef nonnull %8, i32 noundef %137, i32 noundef %142) #15
   %143 = load i16, ptr %135, align 2
   %144 = zext i16 %143 to i32
   %145 = zext i16 %143 to i64
-  %146 = getelementptr inbounds nuw [1024 x %struct.VirtIOPCIQueue], ptr %138, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %138, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %148 = load i64, ptr %147, align 4
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 12

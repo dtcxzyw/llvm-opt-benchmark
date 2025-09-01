@@ -5005,7 +5005,7 @@ _ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector23GetPlanePerimeterPointsERN5Eig
   call void @free(ptr noundef %2010) #4, !noalias !150
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !150
   %2011 = urem i64 %.0254.i, 6
-  %2012 = getelementptr inbounds nuw [6 x %"class.Eigen::Matrix"], ptr @_ZZN6open3d8geometry12_GLOBAL__N_124ExtractPatchesFromPlanesERKSt6vectorISt10shared_ptrINS1_13PlaneDetectorEESaIS5_EERS2_IS3_INS0_19OrientedBoundingBoxEESaISB_EEE6colors, i64 0, i64 %2011
+  %2012 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr @_ZZN6open3d8geometry12_GLOBAL__N_124ExtractPatchesFromPlanesERKSt6vectorISt10shared_ptrINS1_13PlaneDetectorEESaIS5_EERS2_IS3_INS0_19OrientedBoundingBoxEESaISB_EEE6colors, i64 %2011
   %2013 = load ptr, ptr %25, align 8, !tbaa !215
   %2014 = getelementptr inbounds nuw i8, ptr %2013, i64 168
   %2015 = load <2 x double>, ptr %2012, align 8, !tbaa !13
@@ -5760,7 +5760,7 @@ define internal fastcc noundef zeroext i1 @_ZN6open3d8geometry12_GLOBAL__N_129Sp
   br i1 %exitcond.not.i.i, label %_ZNK6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchy19CalculateChildIndexERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE.exit.i, label %48, !llvm.loop !233
 
 _ZNK6open3d8geometry12_GLOBAL__N_123BoundaryVolumeHierarchy19CalculateChildIndexERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE.exit.i: ; preds = %48
-  %61 = getelementptr inbounds nuw [8 x %"class.std::shared_ptr"], ptr %39, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %39, i64 %59
   %.val16.i = load ptr, ptr %61, align 8, !tbaa !231
   %.not.i.i = icmp eq ptr %.val16.i, null
   br i1 %.not.i.i, label %62, label %153

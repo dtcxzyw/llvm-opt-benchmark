@@ -50169,9 +50169,9 @@ _ZN11ruff_server7session7Session12key_from_url17hfb097f85dc4aca5eE.exit.i: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !5554
   %584 = load i64, ptr %29, align 8, !range !844, !noalias !5554, !noundef !24
   %585 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN140_$LT$ruff_server..server..api..requests..execute_command..ExecuteCommand$u20$as$u20$ruff_server..server..api..traits..SyncRequestHandler$GT$3run17h06936e0bfe160624E", i64 0, i64 %584
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN140_$LT$ruff_server..server..api..requests..execute_command..ExecuteCommand$u20$as$u20$ruff_server..server..api..traits..SyncRequestHandler$GT$3run17h06936e0bfe160624E", i64 %584
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep528 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN140_$LT$ruff_server..server..api..requests..execute_command..ExecuteCommand$u20$as$u20$ruff_server..server..api..traits..SyncRequestHandler$GT$3run17h06936e0bfe160624E.210", i64 0, i64 %584
+  %switch.gep528 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_server..server..api..requests..execute_command..ExecuteCommand$u20$as$u20$ruff_server..server..api..traits..SyncRequestHandler$GT$3run17h06936e0bfe160624E.210", i64 %584
   %switch.load529 = load i64, ptr %switch.gep528, align 8
   store ptr %switch.load, ptr %30, align 8, !noalias !5554
   store i64 %switch.load529, ptr %585, align 8, !noalias !5554
@@ -51541,10 +51541,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$ruff_server..edit..PositionEncodi
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !568, !noundef !24
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E.211", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E.211", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

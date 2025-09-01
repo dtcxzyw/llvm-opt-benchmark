@@ -403,7 +403,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn15NetNeedsUpgradeERKN12opencv_caffe1
   %indvars.iv.i4 = phi i64 [ 0, %.lr.ph.i3 ], [ %indvars.iv.next.i5, %28 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = getelementptr inbounds nuw [268435454 x ptr], ptr %10, i64 0, i64 %indvars.iv.i4
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i4
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %14 = load ptr, ptr %13, align 8, !tbaa !13
@@ -417,7 +417,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn15NetNeedsUpgradeERKN12opencv_caffe1
 20:                                               ; preds = %8
   %21 = load ptr, ptr %7, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = getelementptr inbounds nuw [268435454 x ptr], ptr %22, i64 0, i64 %indvars.iv.i4
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i4
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load i32, ptr %25, align 8, !tbaa !3
@@ -452,7 +452,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn21NetNeedsV0ToV1UpgradeERKN12opencv_
 
 7:                                                ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [268435454 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 4, !tbaa !17
@@ -500,7 +500,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12open
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = getelementptr inbounds nuw [268435454 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %11 = load ptr, ptr %10, align 8, !tbaa !13
@@ -514,7 +514,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12open
 17:                                               ; preds = %5
   %18 = load ptr, ptr %4, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = getelementptr inbounds nuw [268435454 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load i32, ptr %22, align 8, !tbaa !3
@@ -627,7 +627,7 @@ _ZN12opencv_caffe12NetParameter8set_nameIRKNSt7__cxx1112basic_stringIcSt11char_t
   %.02138 = phi i1 [ true, %.lr.ph ], [ %68, %67 ]
   %47 = load ptr, ptr %33, align 8, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = getelementptr inbounds nuw [268435454 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !12
   %51 = load ptr, ptr %35, align 8, !tbaa !11
   %.not.i.i.i.i = icmp eq ptr %51, null
@@ -644,7 +644,7 @@ _ZN12opencv_caffe12NetParameter8set_nameIRKNSt7__cxx1112basic_stringIcSt11char_t
   %58 = add nsw i32 %53, 1
   store i32 %58, ptr %36, align 8, !tbaa !3
   %59 = sext i32 %53 to i64
-  %60 = getelementptr inbounds [268435454 x ptr], ptr %57, i64 0, i64 %59
+  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !12
   br label %_ZN12opencv_caffe12NetParameter10add_layersEv.exit
 
@@ -693,7 +693,7 @@ _ZN12opencv_caffe12NetParameter10add_layersEv.exit: ; preds = %56, %.noexc28
   %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %_ZN12opencv_caffe12NetParameter9add_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %82 = load ptr, ptr %40, align 8, !tbaa !11
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = getelementptr inbounds nuw [268435454 x ptr], ptr %83, i64 0, i64 %indvars.iv44
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv44
   %85 = load ptr, ptr %84, align 8, !tbaa !12
   %86 = load ptr, ptr %42, align 8, !tbaa !11
   %.not.i.i.i = icmp eq ptr %86, null
@@ -710,7 +710,7 @@ _ZN12opencv_caffe12NetParameter10add_layersEv.exit: ; preds = %56, %.noexc28
   %93 = add nsw i32 %88, 1
   store i32 %93, ptr %43, align 8, !tbaa !3
   %94 = sext i32 %88 to i64
-  %95 = getelementptr inbounds [268435454 x ptr], ptr %92, i64 0, i64 %94
+  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !12
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit.i
 
@@ -1028,7 +1028,7 @@ _ZN12opencv_caffe12NetParameter12clear_layersEv.exit: ; preds = %2, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %167 ]
   %162 = load ptr, ptr %34, align 8, !tbaa !11
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %164 = getelementptr inbounds nuw [268435454 x ptr], ptr %163, i64 0, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8, !tbaa !12
   %166 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %165)
           to label %167 unwind label %171
@@ -1066,7 +1066,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
   %indvars.iv522 = phi i64 [ 0, %.lr.ph511 ], [ %indvars.iv.next523, %._crit_edge ]
   %178 = load ptr, ptr %38, align 8, !tbaa !11
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %180 = getelementptr inbounds nuw [268435454 x ptr], ptr %179, i64 0, i64 %indvars.iv522
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv522
   %181 = load ptr, ptr %180, align 8, !tbaa !12
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 248
   %183 = load ptr, ptr %182, align 8, !tbaa !72
@@ -1097,7 +1097,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
   %199 = add nsw i32 %194, 1
   store i32 %199, ptr %15, align 8, !tbaa !3
   %200 = sext i32 %194 to i64
-  %201 = getelementptr inbounds [268435454 x ptr], ptr %198, i64 0, i64 %200
+  %201 = getelementptr inbounds ptr, ptr %198, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !12
   br label %_ZN12opencv_caffe12NetParameter10add_layersEv.exit
 
@@ -1145,7 +1145,7 @@ _ZN12opencv_caffe12NetParameter10add_layersEv.exit: ; preds = %197, %.noexc
   %indvars.iv516 = phi i64 [ 0, %.lr.ph506 ], [ %indvars.iv.next517, %_ZN12opencv_caffe16V1LayerParameter10set_bottomEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %220 = load ptr, ptr %213, align 8, !tbaa !11
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %222 = getelementptr inbounds nuw [268435454 x ptr], ptr %221, i64 0, i64 %indvars.iv516
+  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv516
   %223 = load ptr, ptr %222, align 8, !tbaa !12
   %224 = load ptr, ptr %27, align 8, !tbaa !67
   %.not10.i.i.i = icmp eq ptr %224, null
@@ -1611,7 +1611,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
   %366 = load ptr, ptr %38, align 8, !tbaa !11
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = sext i32 %361 to i64
-  %369 = getelementptr inbounds [268435454 x ptr], ptr %367, i64 0, i64 %368
+  %369 = getelementptr inbounds ptr, ptr %367, i64 %368
   %370 = load ptr, ptr %369, align 8, !tbaa !12
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 248
   %372 = load ptr, ptr %371, align 8, !tbaa !72
@@ -2285,7 +2285,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140: ; preds = %601
   %608 = load ptr, ptr %40, align 8, !tbaa !11
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 8
   %610 = sext i32 %607 to i64
-  %611 = getelementptr inbounds [268435454 x ptr], ptr %609, i64 0, i64 %610
+  %611 = getelementptr inbounds ptr, ptr %609, i64 %610
   %612 = load ptr, ptr %611, align 8, !tbaa !12
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 16
   %614 = load i32, ptr %613, align 4, !tbaa !17
@@ -2318,7 +2318,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i: ; preds = %
   store ptr %627, ptr %616, align 8, !tbaa !72
   %.pre531 = load ptr, ptr %40, align 8, !tbaa !11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre531, i64 8
-  %.phi.trans.insert532 = getelementptr inbounds [268435454 x ptr], ptr %.phi.trans.insert, i64 0, i64 %610
+  %.phi.trans.insert532 = getelementptr inbounds ptr, ptr %.phi.trans.insert, i64 %610
   %.pre533 = load ptr, ptr %.phi.trans.insert532, align 8, !tbaa !12
   br label %628
 
@@ -2343,7 +2343,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i: ; preds = %
   %643 = getelementptr inbounds nuw i8, ptr %629, i64 48
   %644 = load ptr, ptr %643, align 8, !tbaa !11
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
-  %646 = getelementptr inbounds nuw [268435454 x ptr], ptr %645, i64 0, i64 %indvars.iv516
+  %646 = getelementptr inbounds nuw ptr, ptr %645, i64 %indvars.iv516
   %647 = load ptr, ptr %646, align 8, !tbaa !12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %647, ptr noundef nonnull align 8 dereferenceable(32) %642)
           to label %_ZN12opencv_caffe16V1LayerParameter10set_bottomEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %648
@@ -2371,7 +2371,7 @@ _ZN12opencv_caffe16V1LayerParameter10set_bottomEiRKNSt7__cxx1112basic_stringIcSt
   %indvars.iv519 = phi i64 [ 0, %.lr.ph509 ], [ %indvars.iv.next520, %714 ]
   %657 = load ptr, ptr %217, align 8, !tbaa !11
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 8
-  %659 = getelementptr inbounds nuw [268435454 x ptr], ptr %658, i64 0, i64 %indvars.iv519
+  %659 = getelementptr inbounds nuw ptr, ptr %658, i64 %indvars.iv519
   %660 = load ptr, ptr %659, align 8, !tbaa !12
   %661 = load ptr, ptr %27, align 8, !tbaa !67
   %.not10.i.i.i.i146 = icmp eq ptr %661, null
@@ -2698,7 +2698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12opencv_caffe16V1LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %62 = load ptr, ptr %50, align 8, !tbaa !11
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = getelementptr inbounds nuw [268435454 x ptr], ptr %63, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !12
   %66 = load ptr, ptr %52, align 8, !tbaa !11
   %.not.i.i.i = icmp eq ptr %66, null
@@ -2715,7 +2715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %73 = add nsw i32 %68, 1
   store i32 %73, ptr %53, align 8, !tbaa !3
   %74 = sext i32 %68 to i64
-  %75 = getelementptr inbounds [268435454 x ptr], ptr %72, i64 0, i64 %74
+  %75 = getelementptr inbounds ptr, ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !12
   br label %_ZN12opencv_caffe16V1LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2772,7 +2772,7 @@ _ZN12opencv_caffe16V1LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt1
   %indvars.iv642 = phi i64 [ 0, %.lr.ph635 ], [ %indvars.iv.next643, %_ZN12opencv_caffe16V1LayerParameter7add_topERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %101 = load ptr, ptr %57, align 8, !tbaa !11
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = getelementptr inbounds nuw [268435454 x ptr], ptr %102, i64 0, i64 %indvars.iv642
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv642
   %104 = load ptr, ptr %103, align 8, !tbaa !12
   %105 = load ptr, ptr %59, align 8, !tbaa !11
   %.not.i.i.i251 = icmp eq ptr %105, null
@@ -2789,7 +2789,7 @@ _ZN12opencv_caffe16V1LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt1
   %112 = add nsw i32 %107, 1
   store i32 %112, ptr %60, align 8, !tbaa !3
   %113 = sext i32 %107 to i64
-  %114 = getelementptr inbounds [268435454 x ptr], ptr %111, i64 0, i64 %113
+  %114 = getelementptr inbounds ptr, ptr %111, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !12
   br label %_ZN12opencv_caffe16V1LayerParameter7add_topERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -8831,7 +8831,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %12 = load ptr, ptr %7, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = getelementptr inbounds nuw [268435454 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 496
   %17 = load i32, ptr %16, align 8, !tbaa !169
@@ -8860,7 +8860,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
 ._crit_edge:                                      ; preds = %25
   %.pre = load ptr, ptr %7, align 8, !tbaa !11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.phi.trans.insert67 = getelementptr inbounds nuw [268435454 x ptr], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv
+  %.phi.trans.insert67 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %indvars.iv
   %.pre68 = load ptr, ptr %.phi.trans.insert67, align 8, !tbaa !12
   %.phi.trans.insert69 = getelementptr inbounds nuw i8, ptr %.pre68, i64 496
   %.pre70 = load i32, ptr %.phi.trans.insert69, align 8, !tbaa !169
@@ -8894,7 +8894,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
 ._crit_edge71:                                    ; preds = %37
   %.pre72 = load ptr, ptr %7, align 8, !tbaa !11
   %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %.pre72, i64 8
-  %.phi.trans.insert74 = getelementptr inbounds nuw [268435454 x ptr], ptr %.phi.trans.insert73, i64 0, i64 %indvars.iv
+  %.phi.trans.insert74 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert73, i64 %indvars.iv
   %.pre75 = load ptr, ptr %.phi.trans.insert74, align 8, !tbaa !12
   %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %.pre75, i64 496
   %.pre77 = load i32, ptr %.phi.trans.insert76, align 8, !tbaa !169
@@ -8985,7 +8985,7 @@ define hidden void @_ZN2cv3dnn28UpgradeNetDataTransformationEPN12opencv_caffe12N
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %306 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = getelementptr inbounds nuw [268435454 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 496
   %12 = load i32, ptr %11, align 8, !tbaa !169
@@ -9021,7 +9021,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i: ; preds = %
   store ptr %29, ptr %18, align 8, !tbaa !243
   %.pre = load ptr, ptr %5, align 8, !tbaa !11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.phi.trans.insert104 = getelementptr inbounds nuw [268435454 x ptr], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv
+  %.phi.trans.insert104 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %indvars.iv
   %.pre105 = load ptr, ptr %.phi.trans.insert104, align 8, !tbaa !12
   %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %.pre105, i64 16
   %.pre107 = load i32, ptr %.phi.trans.insert106, align 4, !tbaa !17
@@ -9164,7 +9164,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %63, 
 106:                                              ; preds = %94, %97, %6
   %107 = load ptr, ptr %5, align 8, !tbaa !11
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = getelementptr inbounds nuw [268435454 x ptr], ptr %108, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8, !tbaa !12
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 496
   %112 = load i32, ptr %111, align 8, !tbaa !169
@@ -9200,7 +9200,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i72: ; preds =
   store ptr %129, ptr %118, align 8, !tbaa !245
   %.pre108 = load ptr, ptr %5, align 8, !tbaa !11
   %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %.pre108, i64 8
-  %.phi.trans.insert110 = getelementptr inbounds nuw [268435454 x ptr], ptr %.phi.trans.insert109, i64 0, i64 %indvars.iv
+  %.phi.trans.insert110 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert109, i64 %indvars.iv
   %.pre111 = load ptr, ptr %.phi.trans.insert110, align 8, !tbaa !12
   %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %.pre111, i64 16
   %.pre113 = load i32, ptr %.phi.trans.insert112, align 4, !tbaa !17
@@ -9343,7 +9343,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit80: ; preds = %16
 206:                                              ; preds = %194, %197, %106
   %207 = load ptr, ptr %5, align 8, !tbaa !11
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %209 = getelementptr inbounds nuw [268435454 x ptr], ptr %208, i64 0, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv
   %210 = load ptr, ptr %209, align 8, !tbaa !12
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 496
   %212 = load i32, ptr %211, align 8, !tbaa !169
@@ -9379,7 +9379,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i82: ; preds =
   store ptr %229, ptr %218, align 8, !tbaa !283
   %.pre114 = load ptr, ptr %5, align 8, !tbaa !11
   %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %.pre114, i64 8
-  %.phi.trans.insert116 = getelementptr inbounds nuw [268435454 x ptr], ptr %.phi.trans.insert115, i64 0, i64 %indvars.iv
+  %.phi.trans.insert116 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert115, i64 %indvars.iv
   %.pre117 = load ptr, ptr %.phi.trans.insert116, align 8, !tbaa !12
   %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %.pre117, i64 16
   %.pre119 = load i32, ptr %.phi.trans.insert118, align 4, !tbaa !17
@@ -9556,7 +9556,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn18UpgradeNetAsNeededERKNSt7__cxx1112
 
 21:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
-  %22 = getelementptr inbounds nuw [268435454 x ptr], ptr %20, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 4, !tbaa !17
@@ -10541,7 +10541,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit82: ; preds = %_ZStl
   %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.i83 ], [ %indvars.iv.next.i85, %434 ]
   %415 = load ptr, ptr %413, align 8, !tbaa !11
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  %417 = getelementptr inbounds nuw [268435454 x ptr], ptr %416, i64 0, i64 %indvars.iv.i84
+  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %indvars.iv.i84
   %418 = load ptr, ptr %417, align 8, !tbaa !12
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 216
   %420 = load ptr, ptr %419, align 8, !tbaa !13
@@ -10555,7 +10555,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit82: ; preds = %_ZStl
 426:                                              ; preds = %414
   %427 = load ptr, ptr %413, align 8, !tbaa !11
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 8
-  %429 = getelementptr inbounds nuw [268435454 x ptr], ptr %428, i64 0, i64 %indvars.iv.i84
+  %429 = getelementptr inbounds nuw ptr, ptr %428, i64 %indvars.iv.i84
   %430 = load ptr, ptr %429, align 8, !tbaa !12
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 104
   %432 = load i32, ptr %431, align 8, !tbaa !3
@@ -10648,7 +10648,7 @@ _ZN2cv3dnn11GLogWrapperD2Ev.exit89:               ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %500 ], [ 0, %_ZN2cv3dnn11GLogWrapperD2Ev.exit89 ]
   %474 = load ptr, ptr %413, align 8, !tbaa !11
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  %476 = getelementptr inbounds nuw [268435454 x ptr], ptr %475, i64 0, i64 %indvars.iv.i91
+  %476 = getelementptr inbounds nuw ptr, ptr %475, i64 %indvars.iv.i91
   %477 = load ptr, ptr %476, align 8, !tbaa !12
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 216
   %479 = load ptr, ptr %478, align 8, !tbaa !13
@@ -10662,7 +10662,7 @@ _ZN2cv3dnn11GLogWrapperD2Ev.exit89:               ; preds = %_ZNKSt7__cxx1112bas
 485:                                              ; preds = %.lr.ph.i90
   %486 = load ptr, ptr %413, align 8, !tbaa !11
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 8
-  %488 = getelementptr inbounds nuw [268435454 x ptr], ptr %487, i64 0, i64 %indvars.iv.i91
+  %488 = getelementptr inbounds nuw ptr, ptr %487, i64 %indvars.iv.i91
   %489 = load ptr, ptr %488, align 8, !tbaa !12
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 104
   %491 = load i32, ptr %490, align 8, !tbaa !3
@@ -11052,7 +11052,7 @@ _ZN12opencv_caffe12NetParameter12clear_layersEv.exit: ; preds = %_ZN12opencv_caf
   %.141 = phi i1 [ %22, %.lr.ph ], [ %.2, %152 ]
   %111 = load ptr, ptr %76, align 8, !tbaa !11
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = getelementptr inbounds nuw [268435454 x ptr], ptr %112, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !12
   %115 = load ptr, ptr %78, align 8, !tbaa !11
   %.not.i.i.i.i = icmp eq ptr %115, null
@@ -11069,7 +11069,7 @@ _ZN12opencv_caffe12NetParameter12clear_layersEv.exit: ; preds = %_ZN12opencv_caf
   %122 = add nsw i32 %117, 1
   store i32 %122, ptr %20, align 8, !tbaa !3
   %123 = sext i32 %117 to i64
-  %124 = getelementptr inbounds [268435454 x ptr], ptr %121, i64 0, i64 %123
+  %124 = getelementptr inbounds ptr, ptr %121, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !12
   br label %_ZN12opencv_caffe12NetParameter9add_layerEv.exit
 
@@ -11189,7 +11189,7 @@ define hidden void @_ZN2cv3dnn19UpgradeNetBatchNormEPN12opencv_caffe12NetParamet
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = getelementptr inbounds nuw [268435454 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %12 = load ptr, ptr %11, align 8, !tbaa !13
@@ -11203,7 +11203,7 @@ define hidden void @_ZN2cv3dnn19UpgradeNetBatchNormEPN12opencv_caffe12NetParamet
 18:                                               ; preds = %6
   %19 = load ptr, ptr %5, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = getelementptr inbounds nuw [268435454 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %24 = load i32, ptr %23, align 8, !tbaa !3
@@ -11321,7 +11321,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12opencv_caffe14LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %37 = load ptr, ptr %25, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = getelementptr inbounds nuw [268435454 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !12
   %41 = load ptr, ptr %27, align 8, !tbaa !11
   %.not.i.i.i = icmp eq ptr %41, null
@@ -11338,7 +11338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %48 = add nsw i32 %43, 1
   store i32 %48, ptr %28, align 8, !tbaa !3
   %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %49
+  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !12
   br label %_ZN12opencv_caffe14LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -11390,7 +11390,7 @@ _ZN12opencv_caffe14LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11c
   %indvars.iv451 = phi i64 [ 0, %.lr.ph423 ], [ %indvars.iv.next452, %_ZN12opencv_caffe14LayerParameter7add_topERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %72 = load ptr, ptr %32, align 8, !tbaa !11
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = getelementptr inbounds nuw [268435454 x ptr], ptr %73, i64 0, i64 %indvars.iv451
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv451
   %75 = load ptr, ptr %74, align 8, !tbaa !12
   %76 = load ptr, ptr %34, align 8, !tbaa !11
   %.not.i.i.i204 = icmp eq ptr %76, null
@@ -11407,7 +11407,7 @@ _ZN12opencv_caffe14LayerParameter10add_bottomERKNSt7__cxx1112basic_stringIcSt11c
   %83 = add nsw i32 %78, 1
   store i32 %83, ptr %35, align 8, !tbaa !3
   %84 = sext i32 %78 to i64
-  %85 = getelementptr inbounds [268435454 x ptr], ptr %82, i64 0, i64 %84
+  %85 = getelementptr inbounds ptr, ptr %82, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !12
   br label %_ZN12opencv_caffe14LayerParameter7add_topERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -11519,7 +11519,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %103,
   %143 = add nsw i32 %138, 1
   store i32 %143, ptr %126, align 8, !tbaa !3
   %144 = sext i32 %138 to i64
-  %145 = getelementptr inbounds [268435454 x ptr], ptr %142, i64 0, i64 %144
+  %145 = getelementptr inbounds ptr, ptr %142, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !12
   br label %_ZN12opencv_caffe14LayerParameter11add_includeEv.exit
 
@@ -11533,7 +11533,7 @@ _ZN12opencv_caffe14LayerParameter11add_includeEv.exit: ; preds = %141, %147
   %.0.i.i.i.i = phi ptr [ %146, %141 ], [ %150, %147 ]
   %151 = load ptr, ptr %127, align 8, !tbaa !11
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %153 = getelementptr inbounds nuw [268435454 x ptr], ptr %152, i64 0, i64 %indvars.iv454
+  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv454
   %154 = load ptr, ptr %153, align 8, !tbaa !12
   tail call void @_ZN12opencv_caffe12NetStateRule8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %154)
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
@@ -11566,7 +11566,7 @@ _ZN12opencv_caffe14LayerParameter11add_includeEv.exit: ; preds = %141, %147
   %169 = add nsw i32 %164, 1
   store i32 %169, ptr %133, align 8, !tbaa !3
   %170 = sext i32 %164 to i64
-  %171 = getelementptr inbounds [268435454 x ptr], ptr %168, i64 0, i64 %170
+  %171 = getelementptr inbounds ptr, ptr %168, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !12
   br label %_ZN12opencv_caffe14LayerParameter11add_excludeEv.exit
 
@@ -11580,7 +11580,7 @@ _ZN12opencv_caffe14LayerParameter11add_excludeEv.exit: ; preds = %167, %173
   %.0.i.i.i.i209 = phi ptr [ %172, %167 ], [ %176, %173 ]
   %177 = load ptr, ptr %134, align 8, !tbaa !11
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = getelementptr inbounds nuw [268435454 x ptr], ptr %178, i64 0, i64 %indvars.iv457
+  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv457
   %180 = load ptr, ptr %179, align 8, !tbaa !12
   tail call void @_ZN12opencv_caffe12NetStateRule8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i209, ptr noundef nonnull align 8 dereferenceable(88) %180)
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
@@ -11717,11 +11717,11 @@ _ZN12opencv_caffe14LayerParameter9add_paramEv.exit: ; preds = %242, %244
 ._crit_edge432:                                   ; preds = %_ZN12opencv_caffe14LayerParameter9add_paramEv.exit, %.preheader417
   %250 = load ptr, ptr %226, align 8, !tbaa !11
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %252 = getelementptr inbounds nuw [268435454 x ptr], ptr %251, i64 0, i64 %indvars.iv460
+  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv460
   %253 = load ptr, ptr %252, align 8, !tbaa !12
   %254 = load ptr, ptr %227, align 8, !tbaa !11
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %256 = getelementptr inbounds nuw [268435454 x ptr], ptr %255, i64 0, i64 %indvars.iv460
+  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv460
   %257 = load ptr, ptr %256, align 8, !tbaa !12
   %258 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %259 = load i32, ptr %258, align 4, !tbaa !17
@@ -11892,7 +11892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223: ; preds = %_Z
 332:                                              ; preds = %._crit_edge436
   %333 = load ptr, ptr %235, align 8, !tbaa !11
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  %335 = getelementptr inbounds nuw [268435454 x ptr], ptr %334, i64 0, i64 %indvars.iv463
+  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %indvars.iv463
   %336 = load ptr, ptr %335, align 8, !tbaa !12
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load i32, ptr %337, align 4, !tbaa !17
@@ -11958,7 +11958,7 @@ _ZN12opencv_caffe14LayerParameter9add_paramEv.exit226: ; preds = %358, %360
 ._crit_edge440:                                   ; preds = %_ZN12opencv_caffe14LayerParameter9add_paramEv.exit226, %.preheader413
   %366 = load ptr, ptr %279, align 8, !tbaa !11
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %368 = getelementptr inbounds nuw [268435454 x ptr], ptr %367, i64 0, i64 %indvars.iv466
+  %368 = getelementptr inbounds nuw ptr, ptr %367, i64 %indvars.iv466
   %369 = load ptr, ptr %368, align 8, !tbaa !12
   %370 = load ptr, ptr %280, align 8, !tbaa !178
   %371 = getelementptr inbounds nuw float, ptr %370, i64 %indvars.iv466
@@ -12028,7 +12028,7 @@ _ZN12opencv_caffe14LayerParameter9add_paramEv.exit229: ; preds = %394, %396
 ._crit_edge444:                                   ; preds = %_ZN12opencv_caffe14LayerParameter9add_paramEv.exit229, %.preheader411
   %402 = load ptr, ptr %351, align 8, !tbaa !11
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  %404 = getelementptr inbounds nuw [268435454 x ptr], ptr %403, i64 0, i64 %indvars.iv469
+  %404 = getelementptr inbounds nuw ptr, ptr %403, i64 %indvars.iv469
   %405 = load ptr, ptr %404, align 8, !tbaa !12
   %406 = load ptr, ptr %352, align 8, !tbaa !178
   %407 = getelementptr inbounds nuw float, ptr %406, i64 %indvars.iv469
@@ -13759,7 +13759,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %41
 
 switch.lookup:                                    ; preds = %1
   %45 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table._ZN2cv3dnn18UpgradeV1LayerTypeEN12opencv_caffe26V1LayerParameter_LayerTypeE, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv3dnn18UpgradeV1LayerTypeEN12opencv_caffe26V1LayerParameter_LayerTypeE, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %46
 

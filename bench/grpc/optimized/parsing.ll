@@ -510,7 +510,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %4
   %110 = load i8, ptr %.0306, align 1, !tbaa !228
   %111 = zext i8 %110 to i32
   %112 = zext i32 %108 to i64
-  %113 = getelementptr inbounds nuw [25 x i8], ptr @.str.2, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !228
   %115 = sext i8 %114 to i32
   %.not148 = icmp eq i32 %111, %115
@@ -4454,9 +4454,9 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 87:                                               ; preds = %61
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %89 = zext i8 %63 to i64
-  %90 = getelementptr inbounds nuw [2 x i32], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
   store i32 2, ptr %90, align 4, !tbaa !526
-  %91 = getelementptr inbounds nuw [2 x ptr], ptr @_ZL20maybe_complete_funcs, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw ptr, ptr @_ZL20maybe_complete_funcs, i64 %89
   %92 = load ptr, ptr %91, align 8, !tbaa !434
   invoke void %92(ptr noundef %2, ptr noundef nonnull %3)
           to label %93 unwind label %54
@@ -5052,7 +5052,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17b
   %54 = sub nuw nsw i64 56, %53
   %55 = lshr i64 %47, %54
   %56 = shl nuw nsw i64 %55, 1
-  %57 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl12lts_2024072216numbers_internal9kHexTableE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072216numbers_internal9kHexTableE, i64 %56
   %58 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 %58
   %60 = load i16, ptr %57, align 2

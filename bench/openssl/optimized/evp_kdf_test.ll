@@ -530,7 +530,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_128() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %18 = getelementptr inbounds nuw [3 x [5 x i8]], ptr @test_kdf_kbkdf_6803_128.constants, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [5 x i8], ptr @test_kdf_kbkdf_6803_128.constants, i64 %indvars.iv
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.71, ptr noundef nonnull %18, i64 noundef 5) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -556,7 +556,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_128() #0 {
   br i1 %.not20, label %.critedge, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw [3 x [16 x i8]], ptr @test_kdf_kbkdf_6803_128.outputs, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @test_kdf_kbkdf_6803_128.outputs, i64 %indvars.iv
   %27 = call i32 @test_mem_eq(ptr noundef nonnull @.str.53, i32 noundef 1049, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull %26, i64 noundef 16) #6
   %.not22 = icmp eq i32 %27, 0
   call void @EVP_KDF_CTX_free(ptr noundef %20) #6
@@ -619,7 +619,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_256() #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %18 = getelementptr inbounds nuw [3 x [5 x i8]], ptr @test_kdf_kbkdf_6803_256.constants, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [5 x i8], ptr @test_kdf_kbkdf_6803_256.constants, i64 %indvars.iv
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.71, ptr noundef nonnull %18, i64 noundef 5) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -645,7 +645,7 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_256() #0 {
   br i1 %.not20, label %.critedge, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @test_kdf_kbkdf_6803_256.outputs, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [32 x i8], ptr @test_kdf_kbkdf_6803_256.outputs, i64 %indvars.iv
   %27 = call i32 @test_mem_eq(ptr noundef nonnull @.str.53, i32 noundef 1115, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %26, i64 noundef 32) #6
   %.not22 = icmp eq i32 %27, 0
   call void @EVP_KDF_CTX_free(ptr noundef %20) #6

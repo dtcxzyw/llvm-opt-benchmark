@@ -2475,7 +2475,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i50: ; pr
   store i8 0, ptr %91, align 1, !tbaa !12
   %92 = ashr i32 %45, 4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [17 x i8], ptr @__const._ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB5cxx11ERKSt6vectorINS0_18AlternativeServiceESaIS2_EE.kNibbleToHex, i64 0, i64 %93
+  %94 = getelementptr inbounds i8, ptr @__const._ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB5cxx11ERKSt6vectorINS0_18AlternativeServiceESaIS2_EE.kNibbleToHex, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !12
   %96 = load i64, ptr %11, align 8, !tbaa !9
   %97 = add i64 %96, 1
@@ -2512,7 +2512,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i54: ; pr
   store i8 0, ptr %110, align 1, !tbaa !12
   %111 = and i32 %45, 15
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [17 x i8], ptr @__const._ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB5cxx11ERKSt6vectorINS0_18AlternativeServiceESaIS2_EE.kNibbleToHex, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @__const._ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB5cxx11ERKSt6vectorINS0_18AlternativeServiceESaIS2_EE.kNibbleToHex, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !12
   %115 = load i64, ptr %11, align 8, !tbaa !9
   %116 = add i64 %115, 1

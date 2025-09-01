@@ -17069,7 +17069,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %8 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -1
   %9 = load i8, ptr %8, align 1, !noalias !103
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1, !noalias !103
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -17079,7 +17079,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %15 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -2
   %16 = load i8, ptr %15, align 1, !noalias !103
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !103
   %20 = and i8 %19, 8
   %.not9 = icmp eq i8 %20, 0
@@ -17089,7 +17089,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %22 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -3
   %23 = load i8, ptr %22, align 1, !noalias !103
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1, !noalias !103
   %27 = and i8 %26, 8
   %.not10 = icmp eq i8 %27, 0
@@ -17099,7 +17099,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %29 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -4
   %30 = load i8, ptr %29, align 1, !noalias !103
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !noalias !103
   %34 = and i8 %33, 8
   %.not11 = icmp eq i8 %34, 0
@@ -17124,7 +17124,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %40 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i, i64 -1
   %41 = load i8, ptr %40, align 1, !noalias !103
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !noalias !103
   %45 = and i8 %44, 8
   %.not12 = icmp eq i8 %45, 0
@@ -17135,7 +17135,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %47 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i, i64 -1
   %48 = load i8, ptr %47, align 1, !noalias !103
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %49
   %51 = load i8, ptr %50, align 1, !noalias !103
   %52 = and i8 %51, 8
   %.not13 = icmp eq i8 %52, 0
@@ -17146,7 +17146,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %54 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i, i64 -1
   %55 = load i8, ptr %54, align 1, !noalias !103
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %56
   %58 = load i8, ptr %57, align 1, !noalias !103
   %59 = and i8 %58, 8
   %.not14 = icmp eq i8 %59, 0
@@ -17202,7 +17202,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %.02946.i.i.i = phi ptr [ %36, %35 ], [ %0, %.lr.ph.i.i.i.preheader ]
   %9 = load i8, ptr %.02946.i.i.i, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -17212,7 +17212,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 8
   %.not5 = icmp eq i8 %20, 0
@@ -17222,7 +17222,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 8
   %.not6 = icmp eq i8 %27, 0
@@ -17232,7 +17232,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 8
   %.not7 = icmp eq i8 %34, 0
@@ -17261,7 +17261,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
 40:                                               ; preds = %._crit_edge.i.i.i
   %41 = load i8, ptr %.029.lcssa.i.i.i, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = and i8 %44, 8
   %.not8 = icmp eq i8 %45, 0
@@ -17275,7 +17275,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %.1.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 8
   %.not9 = icmp eq i8 %53, 0
@@ -17289,7 +17289,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %.2.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i, align 1
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = and i8 %60, 8
   %.not10 = icmp eq i8 %61, 0
@@ -20609,7 +20609,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EE6insertIPZNKS1_16strings_intern
   %40 = phi i64 [ %64, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre17, %.preheader.preheader ]
   %41 = phi ptr [ %57, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %69, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %42 = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %4, i64 0, i64 %.0
+  %42 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %40, ptr %43, align 8

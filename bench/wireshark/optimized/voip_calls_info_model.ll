@@ -536,7 +536,7 @@ _ZN7QStringD2Ev.exit99:                           ; preds = %91, %_ZN17QArrayDat
 
 104:                                              ; preds = %101, %97
   %105 = zext i32 %99 to i64
-  %106 = getelementptr [0 x ptr], ptr @voip_protocol_name, i64 0, i64 %105
+  %106 = getelementptr ptr, ptr @voip_protocol_name, i64 %105
   %107 = load ptr, ptr %106, align 8
   br label %108
 
@@ -752,7 +752,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit139:           ; preds = %169, %_ZN17QArrayDa
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %175 = load i32, ptr %39, align 8
   %176 = zext i32 %175 to i64
-  %177 = getelementptr [8 x ptr], ptr @voip_call_state_name, i64 0, i64 %176
+  %177 = getelementptr ptr, ptr @voip_call_state_name, i64 %176
   %178 = load ptr, ptr %177, align 8
   call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable_or_null(24) %13, ptr noundef %178)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %13)

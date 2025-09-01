@@ -803,7 +803,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core7unicode12unicode_data11white
 9:                                                ; preds = %1
   %10 = and i32 %0, 255
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %11
   %13 = load i8, ptr %12, align 1, !noundef !5
   br label %14
 
@@ -815,7 +815,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core7unicode12unicode_data11white
 16:                                               ; preds = %1
   %17 = and i32 %0, 255
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %18
   %20 = load i8, ptr %19, align 1, !noundef !5
   %21 = lshr i8 %20, 1
   br label %14
@@ -1386,7 +1386,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr %85, align 8, !noalias !172, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %98, i64 0, i64 %84
+  %99 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %98, i64 %84
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hfbd9d8b293f1174fE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %99)
           to label %101 unwind label %.thread.loopexit.i.i, !noalias !172
 
@@ -6064,7 +6064,7 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit: ; preds = %6
   br i1 %11, label %12, label %15, !prof !175
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %2
+  %13 = getelementptr i32, ptr %0, i64 %2
   %14 = load i32, ptr %13, align 4, !range !4, !noundef !5
   switch i32 %14, label %16 [
     i32 32, label %.critedge
@@ -6105,14 +6105,14 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit: ; preds = %6
 26:                                               ; preds = %18
   %27 = and i32 %14, 255
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %28
   %30 = load i8, ptr %29, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 31:                                               ; preds = %18
   %32 = and i32 %14, 255
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %33
   %35 = load i8, ptr %34, align 1, !noundef !5
   %36 = lshr i8 %35, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -6123,10 +6123,9 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %37, label %.critedge, label %.critedge25
 
 .critedge25:                                      ; preds = %18, %16, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
-  %38 = add i64 %2, -1
-  %39 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4, !range !4, !noundef !5
-  switch i32 %40, label %41 [
+  %38 = getelementptr i8, ptr %13, i64 -4
+  %39 = load i32, ptr %38, align 4, !range !4, !noundef !5
+  switch i32 %39, label %40 [
     i32 32, label %.critedge
     i32 13, label %.critedge
     i32 12, label %.critedge
@@ -6135,30 +6134,30 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
     i32 9, label %.critedge
   ]
 
-41:                                               ; preds = %.critedge25
-  %42 = icmp samesign ugt i32 %40, 127
-  br i1 %42, label %43, label %.critedge30.split
+40:                                               ; preds = %.critedge25
+  %41 = icmp samesign ugt i32 %39, 127
+  br i1 %41, label %42, label %.critedge30.split
 
-43:                                               ; preds = %41
-  %44 = tail call fastcc noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E(i32 noundef %40)
-  %45 = icmp uge i64 %2, %3
-  %or.cond52.not = or i1 %45, %44
+42:                                               ; preds = %40
+  %43 = tail call fastcc noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E(i32 noundef %39)
+  %44 = icmp uge i64 %2, %3
+  %or.cond52.not = or i1 %44, %43
   br i1 %or.cond52.not, label %.critedge, label %.lr.ph.preheader
 
-.critedge30.split:                                ; preds = %41
+.critedge30.split:                                ; preds = %40
   %.old = icmp ult i64 %2, %3
   br i1 %.old, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %.critedge30.split, %43
-  %46 = add nuw i64 %2, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 %46)
+.lr.ph.preheader:                                 ; preds = %.critedge30.split, %42
+  %45 = add nuw i64 %2, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 %45)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge34
-  %.037 = phi i64 [ %53, %.critedge34 ], [ %2, %.lr.ph.preheader ]
-  %47 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %.037
-  %48 = load i32, ptr %47, align 4, !range !4, !noundef !5
-  switch i32 %48, label %49 [
+  %.037 = phi i64 [ %52, %.critedge34 ], [ %2, %.lr.ph.preheader ]
+  %46 = getelementptr inbounds i32, ptr %0, i64 %.037
+  %47 = load i32, ptr %46, align 4, !range !4, !noundef !5
+  switch i32 %47, label %48 [
     i32 32, label %.critedge
     i32 13, label %.critedge
     i32 12, label %.critedge
@@ -6167,21 +6166,21 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
     i32 9, label %.critedge
   ]
 
-49:                                               ; preds = %.lr.ph
-  %50 = icmp samesign ugt i32 %48, 127
-  br i1 %50, label %51, label %.critedge34
+48:                                               ; preds = %.lr.ph
+  %49 = icmp samesign ugt i32 %47, 127
+  br i1 %49, label %50, label %.critedge34
 
-51:                                               ; preds = %49
-  %52 = tail call fastcc noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E(i32 noundef %48)
-  br i1 %52, label %.critedge, label %.critedge34
+50:                                               ; preds = %48
+  %51 = tail call fastcc noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E(i32 noundef %47)
+  br i1 %51, label %.critedge, label %.critedge34
 
-.critedge34:                                      ; preds = %49, %51
-  %53 = add nuw i64 %.037, 1
-  %54 = icmp ult i64 %53, %3
-  br i1 %54, label %.lr.ph, label %.critedge
+.critedge34:                                      ; preds = %48, %50
+  %52 = add nuw i64 %.037, 1
+  %53 = icmp ult i64 %52, %3
+  br i1 %53, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %51, %.critedge34, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.split, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %12, %12, %12, %12, %12, %12, %43, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit
-  %.1 = phi i64 [ %2, %.critedge25 ], [ %2, %12 ], [ %2, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit ], [ %2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit ], [ %2, %43 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge30.split ], [ %.037, %51 ], [ %umax, %.critedge34 ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ]
+.critedge:                                        ; preds = %50, %.critedge34, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.split, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %.critedge25, %12, %12, %12, %12, %12, %12, %42, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit
+  %.1 = phi i64 [ %2, %.critedge25 ], [ %2, %12 ], [ %2, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit ], [ %2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit ], [ %2, %42 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %12 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge25 ], [ %2, %.critedge30.split ], [ %.037, %50 ], [ %umax, %.critedge34 ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ], [ %.037, %.lr.ph ]
   ret i64 %.1
 }
 
@@ -6214,7 +6213,7 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit: ; preds = %6
   br i1 %12, label %13, label %16, !prof !175
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %11
+  %14 = getelementptr inbounds i32, ptr %0, i64 %11
   %15 = load i32, ptr %14, align 4, !range !4, !noundef !5
   switch i32 %15, label %17 [
     i32 32, label %.critedge
@@ -6255,14 +6254,14 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit: ; preds = %6
 27:                                               ; preds = %19
   %28 = and i32 %15, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %29
   %31 = load i8, ptr %30, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 32:                                               ; preds = %19
   %33 = and i32 %15, 255
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %34
   %36 = load i8, ptr %35, align 1, !noundef !5
   %37 = lshr i8 %36, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -6277,7 +6276,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %39, label %40, label %43, !prof !175
 
 40:                                               ; preds = %.critedge25
-  %41 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %3
+  %41 = getelementptr inbounds i32, ptr %0, i64 %3
   %42 = load i32, ptr %41, align 4, !range !4, !noundef !5
   switch i32 %42, label %44 [
     i32 32, label %.critedge
@@ -6317,7 +6316,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br i1 %50, label %51, label %54, !prof !175
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %49
+  %52 = getelementptr inbounds i32, ptr %0, i64 %49
   %53 = load i32, ptr %52, align 4, !range !4, !noundef !5
   switch i32 %53, label %55 [
     i32 32, label %.critedge
@@ -6372,7 +6371,7 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit.preheader.split: ; pre
 
 .lr.ph:                                           ; preds = %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit.preheader.split, %.critedge
   %.039 = phi i64 [ %34, %.critedge ], [ %2, %_ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit.preheader.split ]
-  %9 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %.039
+  %9 = getelementptr inbounds i32, ptr %0, i64 %.039
   %10 = load i32, ptr %9, align 4, !range !4, !noundef !5
   switch i32 %10, label %12 [
     i32 32, label %.critedge
@@ -6414,14 +6413,14 @@ _ZN6uu_ptx20assert_str_integrity17hd01f6ce8f3091f8fE.exit.preheader.split: ; pre
 22:                                               ; preds = %14
   %23 = and i32 %10, 255
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %24
   %26 = load i8, ptr %25, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 27:                                               ; preds = %14
   %28 = and i32 %10, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %29
   %31 = load i8, ptr %30, align 1, !noundef !5
   %32 = lshr i8 %31, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -6450,7 +6449,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   ret { i64, i64 } %38
 
 39:                                               ; preds = %.lr.ph45
-  %40 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %35
+  %40 = getelementptr inbounds i32, ptr %0, i64 %35
   %41 = load i32, ptr %40, align 4, !range !4, !noundef !5
   switch i32 %41, label %43 [
     i32 32, label %.critedge30
@@ -6491,14 +6490,14 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 53:                                               ; preds = %45
   %54 = and i32 %41, 255
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %55
   %57 = load i8, ptr %56, align 1, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit34
 
 58:                                               ; preds = %45
   %59 = and i32 %41, 255
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %60
   %62 = load i8, ptr %61, align 1, !noundef !5
   %63 = lshr i8 %62, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit34
@@ -7537,7 +7536,7 @@ define internal fastcc void @_ZN6uu_ptx17format_roff_field17hb7a4cc03cba5a584E(p
 
 .lr.ph.i.i.i.i:                                   ; preds = %13, %17
   %.05.i.i.i.i = phi i64 [ %18, %17 ], [ 0, %13 ]
-  %14 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %.05.i.i.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.05.i.i.i.i
   %15 = load i8, ptr %14, align 1, !alias.scope !1289, !noalias !1292, !noundef !5
   %16 = icmp eq i8 %15, 34
   br i1 %16, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %17
@@ -8568,7 +8567,7 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
 431:                                              ; preds = %424
   %432 = getelementptr inbounds i8, ptr %413, i64 -48
   %433 = load ptr, ptr %432, align 8, !nonnull !5, !noundef !5
-  %434 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %433, i64 0, i64 %426
+  %434 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %433, i64 %426
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %436 = load ptr, ptr %435, align 8, !nonnull !5, !noundef !5
   %437 = getelementptr inbounds nuw i8, ptr %434, i64 16
@@ -8777,7 +8776,7 @@ _ZN6uu_ptx13get_reference17h1322caebf3ec6335E.exit: ; preds = %.noexc128, %443, 
   %492 = load ptr, ptr %491, align 8, !nonnull !5, !noundef !5
   %493 = load i64, ptr %437, align 8, !noundef !5
   %494 = load ptr, ptr %435, align 8, !nonnull !5, !noundef !5
-  %495 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %492, i64 0, i64 %426
+  %495 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %492, i64 %426
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
   %497 = load ptr, ptr %496, align 8, !nonnull !5, !noundef !5
   %498 = getelementptr inbounds nuw i8, ptr %495, i64 16
@@ -9522,7 +9521,7 @@ _ZN6uu_ptx16format_roff_line17h43697399666bba14E.exit: ; preds = %.noexc142, %68
   %696 = load ptr, ptr %695, align 8, !nonnull !5, !noundef !5
   %697 = load i64, ptr %437, align 8, !noundef !5
   %698 = load ptr, ptr %435, align 8, !nonnull !5, !noundef !5
-  %699 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %696, i64 0, i64 %426
+  %699 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %696, i64 %426
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 8
   %701 = load ptr, ptr %700, align 8, !nonnull !5, !noundef !5
   %702 = getelementptr inbounds nuw i8, ptr %699, i64 16

@@ -2531,7 +2531,7 @@ edonkey_tree_add_metatag_name.exit325:            ; preds = %96, %99
 
 lookup_str_index.exit.i:                          ; preds = %110
   %117 = and i64 %indvars.iv.i.i, 4294967295
-  %118 = getelementptr [42 x %struct._value_string], ptr @edonkey_special_tags, i64 0, i64 %117
+  %118 = getelementptr %struct._value_string, ptr @edonkey_special_tags, i64 %117
   %119 = load i32, ptr %118, align 16
   %120 = trunc i32 %119 to i8
   br label %edonkey_metatag_name_get_type.exit
@@ -3493,7 +3493,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %98 = trunc i64 %97 to i32
   %99 = add i32 %91, %98
   %100 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %99)
-  %101 = getelementptr [16 x i8], ptr %10, i64 0, i64 %96
+  %101 = getelementptr i8, ptr %10, i64 %96
   store i8 %100, ptr %101, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -3522,7 +3522,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %111 = trunc nuw nsw i64 %110 to i32
   %112 = add i32 %104, %111
   %113 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %112)
-  %114 = getelementptr [16 x i8], ptr %11, i64 0, i64 %109
+  %114 = getelementptr i8, ptr %11, i64 %109
   store i8 %113, ptr %114, align 1
   %indvars.iv.next351 = add nsw i64 %indvars.iv350, -1
   %.not378 = icmp eq i64 %indvars.iv350, 0
@@ -3541,9 +3541,9 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %indvars.iv368 = phi i64 [ 0, %116 ], [ %indvars.iv.next369, %129 ]
   %indvars.iv366 = phi i64 [ 8, %116 ], [ %indvars.iv.next367, %129 ]
   %indvars.iv358 = phi i64 [ 0, %116 ], [ %indvars.iv.next359, %129 ]
-  %119 = getelementptr [16 x i8], ptr %10, i64 0, i64 %indvars.iv368
+  %119 = getelementptr i8, ptr %10, i64 %indvars.iv368
   %120 = load i8, ptr %119, align 1
-  %121 = getelementptr [16 x i8], ptr %11, i64 0, i64 %indvars.iv368
+  %121 = getelementptr i8, ptr %11, i64 %indvars.iv368
   %122 = load i8, ptr %121, align 1
   %123 = xor i8 %122, %120
   %124 = zext i8 %123 to i32
@@ -3557,7 +3557,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %spec.select383 = select i1 %.not308, i8 48, i8 49
   %126 = select i1 %.not308, i32 0, i32 %.0299339
   %spec.select384 = sub i32 %.0297340, %126
-  %127 = getelementptr [129 x i8], ptr %12, i64 0, i64 %indvars.iv360
+  %127 = getelementptr i8, ptr %12, i64 %indvars.iv360
   store i8 %spec.select383, ptr %127, align 1
   %128 = sdiv i32 %.0299339, 2
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
@@ -3879,7 +3879,7 @@ define internal fastcc noundef i32 @dissect_kademlia_hash(ptr noundef %0, ptr no
   %11 = shl i32 %indvars.iv.tr.i, 2
   %12 = add i32 %11, %2
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %12)
-  %14 = getelementptr [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr i32, ptr %7, i64 %indvars.iv.i
   store i32 %13, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -3907,7 +3907,7 @@ kademlia_hash.exit:                               ; preds = %10
   %26 = shl i32 %indvars.iv.tr.i.i, 2
   %27 = add i32 %26, %2
   %28 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %27)
-  %29 = getelementptr [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %29 = getelementptr i32, ptr %6, i64 %indvars.iv.i.i
   store i32 %28, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -4123,7 +4123,7 @@ define internal noundef i32 @dissect_kademlia_tag(ptr noundef %0, ptr noundef %1
   %41 = shl i32 %indvars.iv.tr.i.i, 2
   %42 = add i32 %41, %21
   %43 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %42)
-  %44 = getelementptr [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr i32, ptr %6, i64 %indvars.iv.i.i
   store i32 %43, ptr %44, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -4151,7 +4151,7 @@ kademlia_hash.exit.i:                             ; preds = %40
   %56 = shl i32 %indvars.iv.tr.i.i.i, 2
   %57 = add i32 %56, %21
   %58 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %57)
-  %59 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %59 = getelementptr i32, ptr %5, i64 %indvars.iv.i.i.i
   store i32 %58, ptr %59, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4

@@ -98,7 +98,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %47, align 8
-  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %45, i32 noundef %11, i64 noundef %9, i64 noundef %48) #4
+  %49 = tail call i64 @FunctionCall2Coll(ptr noundef %45, i32 noundef %11, i64 noundef %9, i64 noundef %48) #4
   %50 = icmp ne i64 %49, 0
   br i1 %50, label %51, label %67
 
@@ -133,7 +133,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %70 = load ptr, ptr %46, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8
-  %73 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %69, i32 noundef %11, i64 noundef %9, i64 noundef %72) #4
+  %73 = tail call i64 @FunctionCall2Coll(ptr noundef %69, i32 noundef %11, i64 noundef %9, i64 noundef %72) #4
   %.not = icmp eq i64 %73, 0
   br i1 %.not, label %92, label %74
 
@@ -177,47 +177,47 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @minmax_get_strategy_procinfo(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @minmax_get_strategy_procinfo(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
-  %8 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %2
-  br i1 %.not, label %18, label %.preheader
+  br i1 %.not, label %19, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %13 = getelementptr i8, ptr %11, i64 -32
+  %13 = getelementptr i8, ptr %11, i64 -40
   br label %14
 
 14:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %14 ]
   %15 = mul nuw nsw i64 %indvars.iv, 48
   %16 = getelementptr i8, ptr %13, i64 %15
-  store i32 0, ptr %16, align 8
+  %17 = getelementptr i8, ptr %16, i64 8
+  store i32 0, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %17, label %14, !llvm.loop !6
+  br i1 %exitcond.not, label %18, label %14, !llvm.loop !6
 
-17:                                               ; preds = %14
+18:                                               ; preds = %14
   store i32 %2, ptr %11, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %4
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = zext i16 %3 to i32
-  %21 = add nsw i32 %20, -1
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [5 x %struct.FmgrInfo], ptr %19, i64 0, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+19:                                               ; preds = %18, %4
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %21 = zext i16 %3 to i64
+  %22 = getelementptr %struct.FmgrInfo, ptr %20, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 -48
+  %24 = getelementptr i8, ptr %22, i64 -40
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %57
+  br i1 %26, label %27, label %58
 
-27:                                               ; preds = %18
+27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 360
@@ -240,26 +240,27 @@ define internal fastcc nonnull ptr @minmax_get_strategy_procinfo(ptr noundef rea
   %46 = sext i16 %3 to i64
   %47 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %40, i64 noundef %44, i64 noundef %45, i64 noundef %46) #4
   %.not35 = icmp eq ptr %47, null
-  br i1 %.not35, label %48, label %52
+  br i1 %.not35, label %48, label %53
 
 48:                                               ; preds = %27
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %49)
-  %50 = load i32, ptr %42, align 4
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20, i32 noundef %50, i32 noundef %2, i32 noundef %33) #4
+  %49 = zext i16 %3 to i32
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %50)
+  %51 = load i32, ptr %42, align 4
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %49, i32 noundef %51, i32 noundef %2, i32 noundef %33) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.minmax_get_strategy_procinfo) #4
   unreachable
 
-52:                                               ; preds = %27
-  %53 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %47, i16 noundef signext 7) #4
-  %54 = trunc i64 %53 to i32
+53:                                               ; preds = %27
+  %54 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %47, i16 noundef signext 7) #4
+  %55 = trunc i64 %54 to i32
   tail call void @ReleaseSysCache(ptr noundef nonnull %47) #4
-  %55 = tail call i32 @get_opcode(i32 noundef %54) #4
-  %56 = load ptr, ptr %0, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %55, ptr noundef nonnull %23, ptr noundef %56) #4
-  br label %57
+  %56 = tail call i32 @get_opcode(i32 noundef %55) #4
+  %57 = load ptr, ptr %0, align 8
+  tail call void @fmgr_info_cxt(i32 noundef %56, ptr noundef %23, ptr noundef %57) #4
+  br label %58
 
-57:                                               ; preds = %52, %18
+58:                                               ; preds = %53, %19
   ret ptr %23
 }
 
@@ -301,7 +302,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
-  %26 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #4
+  %26 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #4
   br label %51
 
 27:                                               ; preds = %1
@@ -309,7 +310,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %30, align 8
-  %32 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #4
+  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #4
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %51, label %33
 
@@ -318,7 +319,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %35 = load ptr, ptr %29, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %34, i32 noundef %12, i64 noundef %37, i64 noundef %18) #4
+  %38 = tail call i64 @FunctionCall2Coll(ptr noundef %34, i32 noundef %12, i64 noundef %37, i64 noundef %18) #4
   br label %51
 
 39:                                               ; preds = %1, %1
@@ -327,7 +328,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8
-  %45 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %12, i64 noundef %44, i64 noundef %18) #4
+  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %12, i64 noundef %44, i64 noundef %18) #4
   br label %51
 
 46:                                               ; preds = %1
@@ -383,7 +384,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %30, align 8
-  %32 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %12, i64 noundef %28, i64 noundef %31) #4
+  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %25, i32 noundef %12, i64 noundef %28, i64 noundef %31) #4
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %51, label %33
 
@@ -423,7 +424,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %57 = load ptr, ptr %29, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8
-  %60 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %53, i32 noundef %12, i64 noundef %56, i64 noundef %59) #4
+  %60 = tail call i64 @FunctionCall2Coll(ptr noundef %53, i32 noundef %12, i64 noundef %56, i64 noundef %59) #4
   %.not34 = icmp eq i64 %60, 0
   br i1 %.not34, label %82, label %61
 

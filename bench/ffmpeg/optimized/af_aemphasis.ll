@@ -241,13 +241,13 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %.thread
   %78 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x double], ptr @switch.table.config_input, i64 0, i64 %78
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.config_input, i64 %78
   %switch.load = load double, ptr %switch.gep, align 8
   %79 = zext nneg i32 %14 to i64
-  %switch.gep235 = getelementptr inbounds nuw [7 x double], ptr @switch.table.config_input.1, i64 0, i64 %79
+  %switch.gep235 = getelementptr inbounds nuw double, ptr @switch.table.config_input.1, i64 %79
   %switch.load236 = load double, ptr %switch.gep235, align 8
   %80 = zext nneg i32 %14 to i64
-  %switch.gep237 = getelementptr inbounds nuw [7 x double], ptr @switch.table.config_input.2, i64 0, i64 %80
+  %switch.gep237 = getelementptr inbounds nuw double, ptr @switch.table.config_input.2, i64 %80
   %switch.load238 = load double, ptr %switch.gep237, align 8
   br label %.thread167
 

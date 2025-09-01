@@ -1213,7 +1213,7 @@ thread-pre-split:                                 ; preds = %176
 
 292:                                              ; preds = %300, %284
   %indvars.iv.i = phi i64 [ 0, %284 ], [ %indvars.iv.next.i, %300 ]
-  %293 = getelementptr inbounds nuw [256 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 0, i64 %indvars.iv.i
+  %293 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %indvars.iv.i
   %294 = load i16, ptr %293, align 2, !tbaa !177
   %295 = icmp sgt i16 %294, 0
   br i1 %295, label %296, label %300
@@ -1221,7 +1221,7 @@ thread-pre-split:                                 ; preds = %176
 296:                                              ; preds = %292
   %297 = trunc i64 %indvars.iv.i to i16
   %298 = zext nneg i16 %294 to i64
-  %299 = getelementptr inbounds nuw [349 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 %298
   store i16 %297, ptr %299, align 2, !tbaa !177
   br label %300
 

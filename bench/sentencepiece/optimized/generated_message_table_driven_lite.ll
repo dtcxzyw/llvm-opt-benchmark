@@ -4251,7 +4251,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1215: ; preds = %76, %76
   %2171 = add nsw i32 %2166, 1
   store i32 %2171, ptr %2165, align 8, !tbaa !102
   %2172 = sext i32 %2166 to i64
-  %2173 = getelementptr inbounds [268435454 x ptr], ptr %2170, i64 0, i64 %2172
+  %2173 = getelementptr inbounds ptr, ptr %2170, i64 %2172
   %2174 = load ptr, ptr %2173, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit
 
@@ -4318,7 +4318,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %2208 = add nsw i32 %2207, 1
   store i32 %2208, ptr %2206, align 8, !tbaa !102
   %2209 = sext i32 %2207 to i64
-  %2210 = getelementptr inbounds [268435454 x ptr], ptr %2205, i64 0, i64 %2209
+  %2210 = getelementptr inbounds ptr, ptr %2205, i64 %2209
   store ptr %.sink6.i.i.i.i.i.i, ptr %2210, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit
 
@@ -4636,7 +4636,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2380 = add nsw i32 %2375, 1
   store i32 %2380, ptr %2374, align 8, !tbaa !102
   %2381 = sext i32 %2375 to i64
-  %2382 = getelementptr inbounds [268435454 x ptr], ptr %2379, i64 0, i64 %2381
+  %2382 = getelementptr inbounds ptr, ptr %2379, i64 %2381
   %2383 = load ptr, ptr %2382, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
@@ -4671,7 +4671,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2403 = add nsw i32 %2402, 1
   store i32 %2403, ptr %2401, align 8, !tbaa !102
   %2404 = sext i32 %2402 to i64
-  %2405 = getelementptr inbounds [268435454 x ptr], ptr %2400, i64 0, i64 %2404
+  %2405 = getelementptr inbounds ptr, ptr %2400, i64 %2404
   store ptr %2398, ptr %2405, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
@@ -4819,7 +4819,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   %2482 = add nsw i32 %2477, 1
   store i32 %2482, ptr %2476, align 8, !tbaa !102
   %2483 = sext i32 %2477 to i64
-  %2484 = getelementptr inbounds [268435454 x ptr], ptr %2481, i64 0, i64 %2483
+  %2484 = getelementptr inbounds ptr, ptr %2481, i64 %2483
   %2485 = load ptr, ptr %2484, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1245
 
@@ -4854,7 +4854,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   %2505 = add nsw i32 %2504, 1
   store i32 %2505, ptr %2503, align 8, !tbaa !102
   %2506 = sext i32 %2504 to i64
-  %2507 = getelementptr inbounds [268435454 x ptr], ptr %2502, i64 0, i64 %2506
+  %2507 = getelementptr inbounds ptr, ptr %2502, i64 %2506
   store ptr %2500, ptr %2507, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1245
 
@@ -11062,7 +11062,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1219: ; preds = %89, %89
   %2184 = add nsw i32 %2179, 1
   store i32 %2184, ptr %2178, align 8, !tbaa !102
   %2185 = sext i32 %2179 to i64
-  %2186 = getelementptr inbounds [268435454 x ptr], ptr %2183, i64 0, i64 %2185
+  %2186 = getelementptr inbounds ptr, ptr %2183, i64 %2185
   %2187 = load ptr, ptr %2186, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit
 
@@ -11129,7 +11129,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %2221 = add nsw i32 %2220, 1
   store i32 %2221, ptr %2219, align 8, !tbaa !102
   %2222 = sext i32 %2220 to i64
-  %2223 = getelementptr inbounds [268435454 x ptr], ptr %2218, i64 0, i64 %2222
+  %2223 = getelementptr inbounds ptr, ptr %2218, i64 %2222
   store ptr %.sink6.i.i.i.i.i.i, ptr %2223, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit
 
@@ -11447,7 +11447,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2393 = add nsw i32 %2388, 1
   store i32 %2393, ptr %2387, align 8, !tbaa !102
   %2394 = sext i32 %2388 to i64
-  %2395 = getelementptr inbounds [268435454 x ptr], ptr %2392, i64 0, i64 %2394
+  %2395 = getelementptr inbounds ptr, ptr %2392, i64 %2394
   %2396 = load ptr, ptr %2395, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
@@ -11482,7 +11482,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2416 = add nsw i32 %2415, 1
   store i32 %2416, ptr %2414, align 8, !tbaa !102
   %2417 = sext i32 %2415 to i64
-  %2418 = getelementptr inbounds [268435454 x ptr], ptr %2413, i64 0, i64 %2417
+  %2418 = getelementptr inbounds ptr, ptr %2413, i64 %2417
   store ptr %2411, ptr %2418, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
@@ -11630,7 +11630,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   %2495 = add nsw i32 %2490, 1
   store i32 %2495, ptr %2489, align 8, !tbaa !102
   %2496 = sext i32 %2490 to i64
-  %2497 = getelementptr inbounds [268435454 x ptr], ptr %2494, i64 0, i64 %2496
+  %2497 = getelementptr inbounds ptr, ptr %2494, i64 %2496
   %2498 = load ptr, ptr %2497, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1249
 
@@ -11665,7 +11665,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   %2518 = add nsw i32 %2517, 1
   store i32 %2518, ptr %2516, align 8, !tbaa !102
   %2519 = sext i32 %2517 to i64
-  %2520 = getelementptr inbounds [268435454 x ptr], ptr %2515, i64 0, i64 %2519
+  %2520 = getelementptr inbounds ptr, ptr %2515, i64 %2519
   store ptr %2513, ptr %2520, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1249
 
@@ -17873,7 +17873,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1219: ; preds = %89, %89
   %2184 = add nsw i32 %2179, 1
   store i32 %2184, ptr %2178, align 8, !tbaa !102
   %2185 = sext i32 %2179 to i64
-  %2186 = getelementptr inbounds [268435454 x ptr], ptr %2183, i64 0, i64 %2185
+  %2186 = getelementptr inbounds ptr, ptr %2183, i64 %2185
   %2187 = load ptr, ptr %2186, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit
 
@@ -17940,7 +17940,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %2221 = add nsw i32 %2220, 1
   store i32 %2221, ptr %2219, align 8, !tbaa !102
   %2222 = sext i32 %2220 to i64
-  %2223 = getelementptr inbounds [268435454 x ptr], ptr %2218, i64 0, i64 %2222
+  %2223 = getelementptr inbounds ptr, ptr %2218, i64 %2222
   store ptr %.sink6.i.i.i.i.i.i, ptr %2223, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit
 
@@ -18258,7 +18258,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2393 = add nsw i32 %2388, 1
   store i32 %2393, ptr %2387, align 8, !tbaa !102
   %2394 = sext i32 %2388 to i64
-  %2395 = getelementptr inbounds [268435454 x ptr], ptr %2392, i64 0, i64 %2394
+  %2395 = getelementptr inbounds ptr, ptr %2392, i64 %2394
   %2396 = load ptr, ptr %2395, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
@@ -18293,7 +18293,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2416 = add nsw i32 %2415, 1
   store i32 %2416, ptr %2414, align 8, !tbaa !102
   %2417 = sext i32 %2415 to i64
-  %2418 = getelementptr inbounds [268435454 x ptr], ptr %2413, i64 0, i64 %2417
+  %2418 = getelementptr inbounds ptr, ptr %2413, i64 %2417
   store ptr %2411, ptr %2418, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
@@ -18441,7 +18441,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   %2495 = add nsw i32 %2490, 1
   store i32 %2495, ptr %2489, align 8, !tbaa !102
   %2496 = sext i32 %2490 to i64
-  %2497 = getelementptr inbounds [268435454 x ptr], ptr %2494, i64 0, i64 %2496
+  %2497 = getelementptr inbounds ptr, ptr %2494, i64 %2496
   %2498 = load ptr, ptr %2497, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1249
 
@@ -18476,7 +18476,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   %2518 = add nsw i32 %2517, 1
   store i32 %2518, ptr %2516, align 8, !tbaa !102
   %2519 = sext i32 %2517 to i64
-  %2520 = getelementptr inbounds [268435454 x ptr], ptr %2515, i64 0, i64 %2519
+  %2520 = getelementptr inbounds ptr, ptr %2515, i64 %2519
   store ptr %2513, ptr %2520, align 8, !tbaa !105
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1249
 

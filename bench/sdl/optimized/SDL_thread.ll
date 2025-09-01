@@ -42,27 +42,27 @@ define hidden ptr @SDL_GetTLS_REAL(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %0) #6
-  %7 = add nsw i32 %6, -1
-  %8 = tail call ptr @SDL_SYS_GetTLSData() #6
-  %9 = icmp eq ptr %8, null
-  %10 = icmp slt i32 %6, 1
-  %or.cond = select i1 %9, i1 true, i1 %10
-  br i1 %or.cond, label %18, label %11
+  %7 = tail call ptr @SDL_SYS_GetTLSData() #6
+  %8 = icmp eq ptr %7, null
+  %9 = icmp slt i32 %6, 1
+  %or.cond = select i1 %8, i1 true, i1 %9
+  br i1 %or.cond, label %18, label %10
 
-11:                                               ; preds = %5
-  %12 = load i32, ptr %8, align 8
-  %.not.not = icmp sgt i32 %6, %12
-  br i1 %.not.not, label %18, label %13
+10:                                               ; preds = %5
+  %11 = load i32, ptr %7, align 8
+  %.not.not = icmp sgt i32 %6, %11
+  br i1 %.not.not, label %18, label %12
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = zext nneg i32 %7 to i64
-  %16 = getelementptr inbounds nuw [1 x %struct.anon], ptr %14, i64 0, i64 %15
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %14 = zext nneg i32 %6 to i64
+  %15 = getelementptr %struct.anon, ptr %13, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -16
   %17 = load ptr, ptr %16, align 8
   br label %18
 
-18:                                               ; preds = %5, %11, %13, %3
-  %.0 = phi ptr [ null, %3 ], [ %17, %13 ], [ null, %11 ], [ null, %5 ]
+18:                                               ; preds = %5, %10, %12, %3
+  %.0 = phi ptr [ null, %3 ], [ %17, %12 ], [ null, %10 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -96,7 +96,6 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
 
 15:                                               ; preds = %10, %7
   %.037.in = phi i32 [ %14, %10 ], [ %8, %7 ]
-  %.037 = add nsw i32 %.037.in, -1
   %16 = tail call ptr @SDL_SYS_GetTLSData() #6
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %17
@@ -149,11 +148,12 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
 39:                                               ; preds = %37, %17
   %.035 = phi ptr [ %24, %37 ], [ %16, %17 ]
   %40 = getelementptr inbounds nuw i8, ptr %.035, i64 8
-  %41 = sext i32 %.037 to i64
-  %42 = getelementptr inbounds [1 x %struct.anon], ptr %40, i64 0, i64 %41
-  store ptr %1, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %2, ptr %43, align 8
+  %41 = sext i32 %.037.in to i64
+  %42 = getelementptr %struct.anon, ptr %40, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 -16
+  store ptr %1, ptr %43, align 8
+  %44 = getelementptr i8, ptr %42, i64 -8
+  store ptr %2, ptr %44, align 8
   br label %.critedge47
 
 .critedge47:                                      ; preds = %36, %.critedge, %39, %5
@@ -190,7 +190,7 @@ define hidden void @SDL_CleanupTLS_REAL() local_unnamed_addr #0 {
 5:                                                ; preds = %.lr.ph, %12
   %6 = phi i32 [ %2, %.lr.ph ], [ %13, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %7 = getelementptr inbounds nuw [1 x %struct.anon], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %4, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not12 = icmp eq ptr %9, null
@@ -237,7 +237,7 @@ define hidden void @SDL_QuitTLSData() local_unnamed_addr #0 {
 5:                                                ; preds = %12, %.lr.ph.i
   %6 = phi i32 [ %2, %.lr.ph.i ], [ %13, %12 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %7 = getelementptr inbounds nuw [1 x %struct.anon], ptr %4, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %4, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not12.i = icmp eq ptr %9, null
@@ -468,27 +468,27 @@ define hidden ptr @SDL_GetErrBuf(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_GetErrBuf.tls_errbuf) #6
-  %5 = add nsw i32 %4, -1
-  %6 = tail call ptr @SDL_SYS_GetTLSData() #6
-  %7 = icmp eq ptr %6, null
-  %8 = icmp slt i32 %4, 1
-  %or.cond.i = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond.i, label %SDL_GetTLS_REAL.exit, label %9
+  %5 = tail call ptr @SDL_SYS_GetTLSData() #6
+  %6 = icmp eq ptr %5, null
+  %7 = icmp slt i32 %4, 1
+  %or.cond.i = select i1 %6, i1 true, i1 %7
+  br i1 %or.cond.i, label %SDL_GetTLS_REAL.exit, label %8
 
-9:                                                ; preds = %1
-  %10 = load i32, ptr %6, align 8
-  %.not.not.i = icmp sgt i32 %4, %10
-  br i1 %.not.not.i, label %SDL_GetTLS_REAL.exit, label %11
+8:                                                ; preds = %1
+  %9 = load i32, ptr %5, align 8
+  %.not.not.i = icmp sgt i32 %4, %9
+  br i1 %.not.not.i, label %SDL_GetTLS_REAL.exit, label %10
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw [1 x %struct.anon], ptr %12, i64 0, i64 %13
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = zext nneg i32 %4 to i64
+  %13 = getelementptr %struct.anon, ptr %11, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -16
   %15 = load ptr, ptr %14, align 8
   br label %SDL_GetTLS_REAL.exit
 
-SDL_GetTLS_REAL.exit:                             ; preds = %1, %9, %11
-  %.0.i = phi ptr [ %15, %11 ], [ null, %9 ], [ null, %1 ]
+SDL_GetTLS_REAL.exit:                             ; preds = %1, %8, %10
+  %.0.i = phi ptr [ %15, %10 ], [ null, %8 ], [ null, %1 ]
   %.not = icmp eq ptr %.0.i, null
   %brmerge.not = and i1 %0, %.not
   br i1 %brmerge.not, label %16, label %27
@@ -584,7 +584,7 @@ define hidden void @SDL_RunThread(ptr noundef initializes((0, 8), (16, 20)) %0) 
 15:                                               ; preds = %22, %.lr.ph.i
   %16 = phi i32 [ %12, %.lr.ph.i ], [ %23, %22 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %17 = getelementptr inbounds nuw [1 x %struct.anon], ptr %14, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %14, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not12.i = icmp eq ptr %19, null

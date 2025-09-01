@@ -929,7 +929,7 @@ _ZN7QStringD2Ev.exit123:                          ; preds = %196, %_ZN17QArrayDa
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 304
   %208 = load ptr, ptr %207, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %209 = getelementptr [4 x %struct.anon.9], ptr @__const.ImportTextDialog.encodings, i64 0, i64 %indvars.iv
+  %209 = getelementptr %struct.anon.9, ptr @__const.ImportTextDialog.encodings, i64 %indvars.iv
   %210 = load ptr, ptr %209, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i.i124 = icmp eq ptr %210, null

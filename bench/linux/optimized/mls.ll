@@ -26,7 +26,7 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
   %13 = phi i1 [ true, %5 ], [ false, %126 ]
   %14 = phi i64 [ 0, %5 ], [ 1, %126 ]
   %15 = phi i32 [ 1, %5 ], [ %130, %126 ]
-  %16 = getelementptr [2 x %struct.mls_level], ptr %6, i64 0, i64 %14
+  %16 = getelementptr %struct.mls_level, ptr %6, i64 %14
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -1
   %19 = load ptr, ptr %7, align 8
@@ -220,7 +220,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   %16 = phi i64 [ 0, %6 ], [ 1, %136 ]
   %.pn = phi ptr [ %7, %6 ], [ %129, %136 ]
   %17 = getelementptr i8, ptr %.pn, i64 1
-  %18 = getelementptr [2 x %struct.mls_level], ptr %8, i64 0, i64 %16
+  %18 = getelementptr %struct.mls_level, ptr %8, i64 %16
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   %21 = load ptr, ptr %9, align 8
@@ -693,7 +693,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %58, align 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr [2 x %struct.mls_level], ptr %45, i64 0, i64 %49
+  %63 = getelementptr %struct.mls_level, ptr %45, i64 %49
   store i32 %62, ptr %63, align 8
   %64 = icmp eq ptr %57, null
   br i1 %64, label %.loopexit22, label %65
@@ -878,9 +878,9 @@ define dso_local i32 @mls_range_set(ptr noundef %0, ptr noundef %1) local_unname
 4:                                                ; preds = %4, %2
   %5 = phi i1 [ true, %2 ], [ false, %4 ]
   %6 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %7 = getelementptr [2 x %struct.mls_level], ptr %1, i64 0, i64 %6
+  %7 = getelementptr %struct.mls_level, ptr %1, i64 %6
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr [2 x %struct.mls_level], ptr %3, i64 0, i64 %6
+  %9 = getelementptr %struct.mls_level, ptr %3, i64 %6
   store i32 %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1052,7 +1052,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
 17:                                               ; preds = %.loopexit, %10
   %18 = phi i1 [ true, %10 ], [ false, %.loopexit ]
   %19 = phi i64 [ 0, %10 ], [ 1, %.loopexit ]
-  %20 = getelementptr [2 x %struct.mls_level], ptr %11, i64 0, i64 %19
+  %20 = getelementptr %struct.mls_level, ptr %11, i64 %19
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, -1
   %23 = load ptr, ptr %12, align 8
@@ -1066,7 +1066,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
 29:                                               ; preds = %17
   %30 = load ptr, ptr %27, align 8
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr [2 x %struct.mls_level], ptr %14, i64 0, i64 %19
+  %32 = getelementptr %struct.mls_level, ptr %14, i64 %19
   store i32 %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -1212,9 +1212,9 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
 24:                                               ; preds = %24, %22
   %.not9 = phi i1 [ false, %22 ], [ true, %24 ]
   %25 = phi i64 [ 0, %22 ], [ 1, %24 ]
-  %26 = getelementptr [2 x %struct.mls_level], ptr %20, i64 0, i64 %25
+  %26 = getelementptr %struct.mls_level, ptr %20, i64 %25
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr [2 x %struct.mls_level], ptr %23, i64 0, i64 %25
+  %28 = getelementptr %struct.mls_level, ptr %23, i64 %25
   store i32 %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8

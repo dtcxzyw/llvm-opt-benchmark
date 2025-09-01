@@ -197,7 +197,7 @@ define dso_local noundef ptr @callthunks_translate_call_dest(ptr noundef %0) loc
   br i1 %33, label %43, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr [7 x %struct.module_memory], ptr %26, i64 0, i64 %28
+  %35 = getelementptr %struct.module_memory, ptr %26, i64 %28
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -476,7 +476,7 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly cap
   br i1 %72, label %82, label %73
 
 73:                                               ; preds = %66
-  %74 = getelementptr [7 x %struct.module_memory], ptr %65, i64 0, i64 %67
+  %74 = getelementptr %struct.module_memory, ptr %65, i64 %67
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 8

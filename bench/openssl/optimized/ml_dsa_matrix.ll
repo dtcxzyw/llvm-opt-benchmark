@@ -53,9 +53,9 @@ vector_zero.exit:                                 ; preds = %3, %7
 
 21:                                               ; preds = %21, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %21 ]
-  %22 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !15
-  %24 = getelementptr inbounds nuw [256 x i32], ptr %20, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = add i32 %25, %23
   %27 = add i32 %26, -8380417

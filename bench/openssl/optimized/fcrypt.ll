@@ -36,7 +36,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %or.cond, label %60, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw [128 x i8], ptr @con_salt, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr @con_salt, i64 %11
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 2
@@ -52,7 +52,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %or.cond5, label %60, label %25
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds nuw [128 x i8], ptr @con_salt, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr @con_salt, i64 %23
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 6
@@ -68,7 +68,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %.06176, i64 1
   %34 = shl i8 %31, 1
-  %35 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %34, ptr %35, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -110,7 +110,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
   %.06878 = phi i32 [ 0, %.preheader ], [ %52, %43 ]
   %44 = shl i8 %.05880, 1
   %45 = zext i32 %.16679 to i64
-  %46 = getelementptr inbounds nuw [9 x i8], ptr %7, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !3
   %48 = and i8 %47, %.181
   %.not73 = icmp ne i8 %48, 0
@@ -127,7 +127,7 @@ define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr nound
 
 53:                                               ; preds = %43
   %54 = zext i8 %spec.select to i64
-  %55 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv90
   store i8 %56, ptr %57, align 1, !tbaa !3

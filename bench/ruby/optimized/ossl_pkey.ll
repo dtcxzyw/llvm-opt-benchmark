@@ -200,7 +200,7 @@ define ptr @ossl_pkey_read_generic(ptr noundef %0, i64 noundef %1) local_unnamed
 .preheader:                                       ; preds = %2, %28
   %5 = phi i1 [ true, %2 ], [ false, %28 ]
   %indvars.iv21 = phi i64 [ 0, %2 ], [ 1, %28 ]
-  %6 = getelementptr inbounds nuw [2 x ptr], ptr @__const.ossl_pkey_read_generic.input_types, i64 0, i64 %indvars.iv21
+  %6 = getelementptr inbounds nuw ptr, ptr @__const.ossl_pkey_read_generic.input_types, i64 %indvars.iv21
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   br label %9
 
@@ -211,7 +211,7 @@ define ptr @ossl_pkey_read_generic(ptr noundef %0, i64 noundef %1) local_unnamed
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw [3 x i32], ptr @__const.ossl_pkey_read_generic.selections, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr @__const.ossl_pkey_read_generic.selections, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !21

@@ -1223,7 +1223,7 @@ define void @_ZN6icu_7715CollationLoaderC2EPKNS_19CollationCacheEntryERKNS_6Loca
 
 48:                                               ; preds = %42
   %49 = sext i32 %41 to i64
-  %50 = getelementptr inbounds [16 x i8], ptr %15, i64 0, i64 %49
+  %50 = getelementptr inbounds i8, ptr %15, i64 %49
   store i8 0, ptr %50, align 1, !tbaa !26
   %51 = icmp eq i32 %41, 0
   br i1 %51, label %60, label %52

@@ -20375,7 +20375,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.01229.i = phi i64 [ 0, %.preheader.i ], [ %40, %.thread24.i ]
   %29 = add i64 %.01229.i, %.01030.i
   %30 = lshr i64 %29, 1
-  %31 = getelementptr inbounds nuw [63 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %30
   %.val15.i = load i8, ptr %31, align 16, !tbaa !91
   %32 = getelementptr i8, ptr %31, i64 1
   %.val16.i = load i8, ptr %32, align 1
@@ -20407,7 +20407,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i, label %42, label %28, !llvm.loop !355
 
 42:                                               ; preds = %.thread24.i
-  %43 = getelementptr inbounds nuw [63 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %40
+  %43 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %40
   %.val17.i = load i8, ptr %43, align 16, !tbaa !91
   %44 = icmp eq i8 %.val17.i, %26
   br i1 %44, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
@@ -21722,7 +21722,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %.01229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %714, %.thread24.i.i ]
   %703 = add i64 %.01229.i.i, %.01030.i.i
   %704 = lshr i64 %703, 1
-  %705 = getelementptr inbounds nuw [63 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %704
+  %705 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %704
   %.val15.i.i = load i8, ptr %705, align 16, !tbaa !91
   %706 = getelementptr i8, ptr %705, i64 1
   %.val16.i.i = load i8, ptr %706, align 1
@@ -21754,7 +21754,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i23.i, label %716, label %702, !llvm.loop !355
 
 716:                                              ; preds = %.thread24.i.i
-  %717 = getelementptr inbounds nuw [63 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %714
+  %717 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %714
   %.val17.i.i = load i8, ptr %717, align 16, !tbaa !91
   %718 = icmp eq i8 %.val17.i.i, %700
   br i1 %718, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, label %.critedge83
@@ -42408,7 +42408,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 792
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !58
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4, !tbaa !58
@@ -50012,10 +50012,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %1, align 4, !tbaa !238
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.556, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.556, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %switch.load2, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %switch.load, 1
@@ -50290,7 +50290,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.01229.i = phi i64 [ 0, %.preheader.i ], [ %27, %.thread24.i ]
   %16 = add i64 %.01229.i, %.01030.i
   %17 = lshr i64 %16, 1
-  %18 = getelementptr inbounds nuw [63 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %17
   %.val15.i = load i8, ptr %18, align 16, !tbaa !91
   %19 = getelementptr i8, ptr %18, i64 1
   %.val16.i = load i8, ptr %19, align 1
@@ -50322,7 +50322,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i, label %29, label %15, !llvm.loop !355
 
 29:                                               ; preds = %.thread24.i
-  %30 = getelementptr inbounds nuw [63 x %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo"], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 0, i64 %27
+  %30 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %27
   %.val17.i = load i8, ptr %30, align 16, !tbaa !91
   %31 = icmp eq i8 %.val17.i, %13
   br i1 %31, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -52916,7 +52916,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit171: ; preds = %203, %._ZN4llvm
 234:                                              ; preds = %229
   %235 = lshr i32 %.084.fr.lcssa311, 4
   %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds nuw [17 x i8], ptr @__const._ZNK4llvm16itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.Hex, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr @__const._ZNK4llvm16itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.Hex, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !91
   %239 = load i64, ptr %3, align 8, !tbaa !349
   %240 = add i64 %239, 1
@@ -52956,7 +52956,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit187: ; preds = %234, %._ZN4llvm
 .thread246:                                       ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit171, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit187, %229
   %252 = and i32 %.084.fr.lcssa311, 15
   %253 = zext nneg i32 %252 to i64
-  %254 = getelementptr inbounds nuw [17 x i8], ptr @__const._ZNK4llvm16itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.Hex, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr @__const._ZNK4llvm16itanium_demangle9NodeArray13printAsStringERNS0_12OutputBufferE.Hex, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !91
   %256 = load i64, ptr %3, align 8, !tbaa !349
   %257 = add i64 %256, 1

@@ -997,8 +997,8 @@ _ZN19interaction_const_tD2Ev.exit:                ; preds = %_ZNSt10unique_ptrI2
 
 70:                                               ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i.i.i, %64
   %.05.i.i.i = phi i64 [ 0, %64 ], [ %86, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i.i.i ]
-  %71 = getelementptr inbounds nuw [5 x %"class.std::vector.3"], ptr %68, i64 0, i64 %.05.i.i.i
-  %72 = getelementptr inbounds nuw [5 x %"class.std::vector.3"], ptr %69, i64 0, i64 %.05.i.i.i
+  %71 = getelementptr inbounds nuw %"class.std::vector.3", ptr %68, i64 %.05.i.i.i
+  %72 = getelementptr inbounds nuw %"class.std::vector.3", ptr %69, i64 %.05.i.i.i
   %73 = load ptr, ptr %71, align 8, !tbaa !175
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -3120,7 +3120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %51
   %94 = load i8, ptr %93, align 8, !tbaa !273, !range !228, !noundef !229
   %95 = trunc nuw i8 %94 to i1
   %96 = select i1 %95, i64 2, i64 1
-  %97 = getelementptr inbounds nuw [5 x %"class.std::vector.3"], ptr %92, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw %"class.std::vector.3", ptr %92, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !175
   store ptr %98, ptr %14, align 8, !tbaa !4
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3289,7 +3289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %158
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEN3gmx12ArrayRefIterIfEEET0_T_SB_SA_.exit
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEN3gmx12ArrayRefIterIfEEET0_T_SB_SA_.exit ]
-  %169 = getelementptr inbounds nuw [5 x %"class.std::vector.3"], ptr %92, i64 0, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw %"class.std::vector.3", ptr %92, i64 %indvars.iv
   %170 = load ptr, ptr %169, align 8, !tbaa !278
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !278

@@ -256,7 +256,7 @@ _trim.exit54:                                     ; preds = %.lr.ph.i51, %.crite
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i55 ], [ 0, %_trim.exit54 ]
   %122 = phi ptr [ %124, %.lr.ph.i55 ], [ %121, %_trim.exit54 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %123 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   store ptr %122, ptr %123, align 8
   %124 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #13
   %125 = icmp ne ptr %124, null
@@ -333,7 +333,7 @@ _trim.exit.thread.i:                              ; preds = %.lr.ph.i.i, %_trim.
   %.03067.i = phi i32 [ 0, %_trim.exit.i ], [ 1, %139 ], [ 1, %.critedge.i.i ], [ 1, %129 ], [ 1, %.lr.ph.i.i ]
   %162 = add nuw nsw i32 %.03067.i, 1
   %163 = zext nneg i32 %.03067.i to i64
-  %164 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw ptr, ptr %3, i64 %163
   %165 = load ptr, ptr %164, align 8
   %.not.i39.i = icmp eq ptr %165, null
   br i1 %.not.i39.i, label %_trim.exit51.i, label %.preheader.i40.i
@@ -394,7 +394,7 @@ _trim.exit51.i:                                   ; preds = %.lr.ph.i48.i, %174,
   %.1.i = phi i32 [ 0, %_trim.exit.i ], [ %162, %_trim.exit.thread.i ], [ %162, %.critedge.i45.i ], [ %162, %174 ], [ 0, %_trim.exit54 ], [ %162, %.lr.ph.i48.i ]
   %.0.i56 = phi ptr [ null, %_trim.exit.i ], [ null, %_trim.exit.thread.i ], [ %.015.i41.i, %.critedge.i45.i ], [ %.015.i41.i, %174 ], [ null, %_trim.exit54 ], [ %.015.i41.i, %.lr.ph.i48.i ]
   %196 = zext nneg i32 %.1.i to i64
-  %197 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw ptr, ptr %3, i64 %196
   %198 = load ptr, ptr %197, align 8
   %.not.i52.i = icmp eq ptr %198, null
   br i1 %.not.i52.i, label %_trim.exit64.i, label %.preheader.i53.i

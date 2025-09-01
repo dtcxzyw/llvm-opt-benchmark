@@ -5229,7 +5229,7 @@ _ZNK3smt5enode15get_num_parentsEv.exit.i:         ; preds = %_ZNK6vectorIP3appLb
 
 37:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !730
   %40 = load i32, ptr %39, align 4, !tbaa !756
   %41 = zext i32 %40 to i64
@@ -25258,7 +25258,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %250, %242
 
 .lr.ph581:                                        ; preds = %.lr.ph581.preheader, %_ZN8rationalD2Ev.exit193
   %indvars.iv = phi i64 [ 1, %.lr.ph581.preheader ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit193 ]
-  %265 = getelementptr inbounds nuw [0 x ptr], ptr %245, i64 0, i64 %indvars.iv
+  %265 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv
   %266 = load ptr, ptr %265, align 8, !tbaa !730
   %267 = load ptr, ptr %24, align 8, !tbaa !563
   %268 = getelementptr inbounds nuw %class.rational, ptr %267, i64 %55
@@ -45278,7 +45278,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3smt10theory_lra3imp12assert_b
   %5 = alloca %class.inf_rational, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %7 = zext i1 %2 to i64
-  %8 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !652
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %11 = load ptr, ptr %10, align 8, !tbaa !557
@@ -70118,7 +70118,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %22, %28
 36:                                               ; preds = %.preheader, %105
   %37 = phi i1 [ true, %.preheader ], [ false, %105 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %105 ]
-  %38 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !833
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 1073741824

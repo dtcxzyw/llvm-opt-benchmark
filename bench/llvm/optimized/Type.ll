@@ -18259,8 +18259,8 @@ _ZNK5clang4Type12isScalarTypeEv.exit.thread42:    ; preds = %switch.hole_check, 
   %73 = load ptr, ptr %.pre-phi94, align 8, !tbaa !371
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i8, ptr %74, align 16
-  %switch.tableidx110 = add i8 %75, -14
-  %76 = icmp ult i8 %switch.tableidx110, 44
+  %switch.tableidx109 = add i8 %75, -14
+  %76 = icmp ult i8 %switch.tableidx109, 44
   br i1 %76, label %switch.hole_check111, label %77
 
 77:                                               ; preds = %switch.hole_check111, %_ZNK5clang4Type12isScalarTypeEv.exit.thread42
@@ -18321,7 +18321,7 @@ switch.hole_check:                                ; preds = %.thread26.i
   br i1 %switch.lobit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread42
 
 switch.hole_check111:                             ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.thread42
-  %switch.maskindex113 = zext nneg i8 %switch.tableidx110 to i64
+  %switch.maskindex113 = zext nneg i8 %switch.tableidx109 to i64
   %switch.shifted114 = lshr i64 13194944839681, %switch.maskindex113
   %switch.lobit115 = trunc i64 %switch.shifted114 to i1
   br i1 %switch.lobit115, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread, label %77
@@ -19007,7 +19007,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5clang15TypeWithKeyword21getKey
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang15TypeWithKeyword21getKeywordForTypeSpecEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang15TypeWithKeyword21getKeywordForTypeSpecEj, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -19019,9 +19019,9 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 5) i32 @_ZN5clang15TypeWithKeyword25getTagTypeKindForTypeSpecEj(i32 noundef %0) local_unnamed_addr #13 align 2 {
 switch.lookup:
-  %switch.tableidx = add nsw i32 %0, -23
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang15TypeWithKeyword25getTagTypeKindForTypeSpecEj, i64 0, i64 %1
+  %1 = sext i32 %0 to i64
+  %2 = getelementptr i32, ptr @switch.table._ZN5clang15TypeWithKeyword25getTagTypeKindForTypeSpecEj, i64 %1
+  %switch.gep = getelementptr i8, ptr %2, i64 -92
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19047,10 +19047,10 @@ define dso_local noundef zeroext i1 @_ZN5clang15TypeWithKeyword20KeywordIsTagTyp
 define dso_local { ptr, i64 } @_ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE(i32 noundef %0) local_unnamed_addr #13 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE.122, i64 0, i64 %2
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE.122, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load4, 1
@@ -19306,7 +19306,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 16
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [58 x ptr], ptr @switch.table._ZNK5clang4Type16getTypeClassNameEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang4Type16getTypeClassNameEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -21527,10 +21527,10 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %.thread._crit_edge,
 define dso_local { ptr, i64 } @_ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE(i32 noundef %0) local_unnamed_addr #13 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [24 x i64], ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [24 x ptr], ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE.123, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12FunctionType18getNameForCallConvENS_11CallingConvE.123, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -22160,7 +22160,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %374 = trunc nuw nsw i64 %373 to i32
   %375 = and i32 %374, 15
   %376 = and i64 %373, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %376
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %376
   %switch.load = load i64, ptr %switch.gep, align 8
   %377 = lshr i64 %350, 59
   %378 = and i64 %377, 1
@@ -22240,7 +22240,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %424 = trunc nuw nsw i64 %423 to i32
   %425 = and i32 %424, 15
   %426 = and i64 %423, 15
-  %switch.gep144 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %426
+  %switch.gep144 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %426
   %switch.load145 = load i64, ptr %switch.gep144, align 8
   %427 = lshr i64 %398, 59
   %428 = and i64 %427, 1
@@ -22355,7 +22355,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i
   %501 = lshr i64 %477, 54
   %502 = and i64 %501, 15
-  %switch.gep146 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %502
+  %switch.gep146 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %502
   %switch.load147 = load i64, ptr %switch.gep146, align 8
   %503 = trunc nuw nsw i64 %501 to i32
   %504 = and i32 %503, 15
@@ -22444,7 +22444,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %555 = trunc nuw nsw i64 %554 to i32
   %556 = and i32 %555, 15
   %557 = and i64 %554, 15
-  %switch.gep148 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %557
+  %switch.gep148 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %557
   %switch.load149 = load i64, ptr %switch.gep148, align 8
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15TrailingObjectsIN5clang17FunctionProtoTypeEJNS1_8QualTypeENS1_14SourceLocationENS1_12FunctionType26FunctionTypeExtraBitfieldsENS5_25FunctionTypeArmAttributesENS5_13ExceptionTypeEPNS1_4ExprEPNS1_12FunctionDeclENS5_16ExtParameterInfoENS1_10QualifiersENS1_14FunctionEffectENS1_19EffectConditionExprEEE18getTrailingObjectsISG_EEPT_v.exit, label %558
 
@@ -23647,7 +23647,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = and i32 %61, 15
   %63 = and i64 %60, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   %64 = lshr i64 %31, 59
   %65 = and i64 %64, 1
@@ -23721,7 +23721,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 15
   %105 = and i64 %102, 15
-  %switch.gep9 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %105
+  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   %106 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %106, i64 %97
@@ -23744,7 +23744,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %121 = and i64 %102, 15
-  %switch.gep11 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %121
+  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load12
   %123 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %122, i64 %112
@@ -30704,10 +30704,10 @@ define dso_local { ptr, i64 } @_ZNK5clang14FunctionEffect4nameEv(ptr noundef non
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !tbaa !631
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -31793,10 +31793,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN
 switch.lookup:
   %2 = load i8, ptr %1, align 8, !tbaa !631
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep15 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %4
+  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 %4
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !746
@@ -32110,10 +32110,10 @@ define dso_local void @_ZNK5clang27FunctionEffectWithCondition11descriptionB5cxx
 switch.lookup:
   %2 = load i8, ptr %1, align 8, !tbaa !631
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !764, !alias.scope !765
@@ -32889,7 +32889,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1
@@ -41865,10 +41865,10 @@ define linkonce_odr hidden void @_ZN4llvm10interleaveIN5clang21FunctionEffectKin
 
 switch.lookup:                                    ; preds = %6
   %8 = and i64 %1, 255
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = and i64 %1, 255
-  %switch.gep37 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %9
+  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 %9
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !746
@@ -41955,10 +41955,10 @@ _ZN5clang21FunctionEffectKindSet8iteratorppEv.exit: ; preds = %_ZNKSt6bitsetILm4
 
 _ZZN4llvm10interleaveIN5clang21FunctionEffectKindSetEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS5_E_S4_S5_EEvS8_RT1_S9_RKNS_9StringRefEENKUlvE_clEv.exit: ; preds = %42, %44, %45
   %48 = and i64 %.sroa.3.030, 255
-  %switch.gep40 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 0, i64 %48
+  %switch.gep40 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.133, i64 %48
   %switch.load41 = load i64, ptr %switch.gep40, align 8
   %49 = and i64 %.sroa.3.030, 255
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 0, i64 %49
+  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm10interleaveIN5clang21FunctionEffectKindSet8iteratorEZNS_15interleaveCommaIS2_NS_11raw_ostreamENS1_14FunctionEffectEEEvRKT_RT0_EUlRKS6_E_ZNS_10interleaveIS2_SE_S5_S6_EEvS9_RT1_SA_RKNS_9StringRefEEUlvE_vEEvS7_S7_SA_SG_.134, i64 %49
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   %50 = load ptr, ptr %10, align 8, !tbaa !746
   %51 = load ptr, ptr %12, align 8, !tbaa !750

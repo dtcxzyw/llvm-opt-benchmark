@@ -1571,7 +1571,7 @@ proto_item_set_hidden.exit.i141:                  ; preds = %365, %362, %359
   %438 = load i64, ptr %7, align 8
   %439 = trunc i64 %438 to i32
   %440 = zext nneg i32 %.0139166.i.i to i64
-  %441 = getelementptr [512 x i32], ptr %414, i64 0, i64 %440
+  %441 = getelementptr i32, ptr %414, i64 %440
   store i32 %439, ptr %441, align 4
   br label %442
 
@@ -1692,7 +1692,7 @@ proto_item_set_hidden.exit.i141:                  ; preds = %365, %362, %359
   %508 = urem i64 %.reass.i.i, %411
   %509 = trunc nuw nsw i64 %508 to i32
   %510 = zext nneg i32 %505 to i64
-  %511 = getelementptr [512 x i32], ptr %414, i64 0, i64 %510
+  %511 = getelementptr i32, ptr %414, i64 %510
   store i32 %509, ptr %511, align 4
   br label %512
 

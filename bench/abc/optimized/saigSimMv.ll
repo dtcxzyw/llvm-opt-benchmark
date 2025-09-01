@@ -1186,7 +1186,7 @@ define range(i32 0, -1) i32 @Saig_MvSimHash(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !78
   %7 = and i64 %indvars.iv, 15
-  %8 = getelementptr inbounds nuw [16 x i32], ptr @Saig_MvSimHash.s_SPrimes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @Saig_MvSimHash.s_SPrimes, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !78
   %10 = mul i32 %9, %6
   %11 = xor i32 %10, %.089
@@ -1254,7 +1254,7 @@ define range(i32 1, 0) i32 @Saig_MvSaveState(ptr noundef readonly captures(none)
   %27 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !78
   %29 = and i64 %indvars.iv.i.i, 15
-  %30 = getelementptr inbounds nuw [16 x i32], ptr @Saig_MvSimHash.s_SPrimes, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr @Saig_MvSimHash.s_SPrimes, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !78
   %32 = mul i32 %31, %28
   %33 = xor i32 %32, %.089.i.i

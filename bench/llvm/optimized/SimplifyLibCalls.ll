@@ -9477,16 +9477,16 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
 
 switch.lookup:                                    ; preds = %70
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   %74 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep264 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE.60, i64 0, i64 %74
+  %switch.gep264 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE.60, i64 %74
   %switch.load265 = load i32, ptr %switch.gep264, align 4
   %75 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep266 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE.61, i64 0, i64 %75
+  %switch.gep266 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE.61, i64 %75
   %switch.load267 = load i32, ptr %switch.gep266, align 4
   %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep268 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE.62, i64 0, i64 %76
+  %switch.gep268 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier17replacePowWithExpEPNS_8CallInstERNS_13IRBuilderBaseE.62, i64 %76
   %switch.load269 = load i32, ptr %switch.gep268, align 4
   %77 = load ptr, ptr %59, align 8, !tbaa !89
   %78 = call { ptr, i64 } @_ZNK4llvm17TargetLibraryInfo7getNameENS_7LibFuncE(ptr noundef nonnull align 8 dereferenceable(80) %77, i32 noundef %switch.load)
@@ -10154,7 +10154,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm17TargetLibraryInfo7getNameENS
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = lshr i64 %4, 6
-  %6 = getelementptr inbounds nuw [9 x i64], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = and i64 %4, 63
   %9 = shl nuw i64 1, %8
@@ -10166,7 +10166,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit: ; preds = %2
   %11 = load ptr, ptr %0, align 8, !tbaa !205
   %12 = lshr i32 %1, 2
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [131 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !112
   %16 = zext i8 %15 to i32
   %17 = shl i32 %1, 1
@@ -10179,7 +10179,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit: ; preds = %2
   ]
 
 21:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit
-  %22 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %4
+  %22 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %4
   %.sroa.05.0.copyload = load ptr, ptr %22, align 16, !tbaa !54
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !55
@@ -12017,19 +12017,19 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %3, %17, %_ZN4llvm16
 
 switch.lookup:                                    ; preds = %48
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep180 = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.63, i64 0, i64 %52
+  %switch.gep180 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.63, i64 %52
   %switch.load181 = load i32, ptr %switch.gep180, align 4
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep182 = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.64, i64 0, i64 %53
+  %switch.gep182 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.64, i64 %53
   %switch.load183 = load i32, ptr %switch.gep182, align 4
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep184 = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.65, i64 0, i64 %54
+  %switch.gep184 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.65, i64 %54
   %switch.load185 = load i32, ptr %switch.gep184, align 4
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep186 = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.66, i64 0, i64 %55
+  %switch.gep186 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier11optimizeLogEPNS_8CallInstERNS_13IRBuilderBaseE.66, i64 %55
   %switch.load187 = load i32, ptr %switch.gep186, align 4
   %56 = call noundef zeroext i1 @_ZNK4llvm11Instruction9hasNoNaNsEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #27
   br i1 %56, label %57, label %.thread
@@ -12627,7 +12627,7 @@ switch.lookup:                                    ; preds = %65
   %switch.offset = add nsw i32 %66, -220
   %switch.offset59 = add nsw i32 %66, -217
   %88 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm17LibCallSimplifier14mergeSqrtToExpEPNS_8CallInstERNS_13IRBuilderBaseE, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm17LibCallSimplifier14mergeSqrtToExpEPNS_8CallInstERNS_13IRBuilderBaseE, i64 %88
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %89
 

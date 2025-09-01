@@ -3167,7 +3167,7 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr readnone captures(none) %1)
 
 55:                                               ; preds = %.critedge, %53
   %56 = phi i64 [ 1, %53 ], [ %72, %.critedge ]
-  %57 = getelementptr [11 x %struct.resource], ptr %54, i64 0, i64 %56
+  %57 = getelementptr %struct.resource, ptr %54, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 0
@@ -4521,7 +4521,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #3 align 16 {
 
 422:                                              ; preds = %422, %227
   %423 = phi i64 [ 0, %227 ], [ %429, %422 ]
-  %424 = getelementptr [38 x ptr], ptr @e1000_regdump.reg_name, i64 0, i64 %423
+  %424 = getelementptr ptr, ptr @e1000_regdump.reg_name, i64 %423
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr i32, ptr %3, i64 %423
   %427 = load i32, ptr %426, align 4
@@ -6801,7 +6801,7 @@ __skb_put.exit:                                   ; preds = %65
   %588 = zext i32 %587 to i64
   %589 = getelementptr i8, ptr %586, i64 %588
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 48
-  %591 = getelementptr [17 x %struct.bio_vec], ptr %590, i64 0, i64 %583
+  %591 = getelementptr %struct.bio_vec, ptr %590, i64 %583
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 8
   %593 = load i32, ptr %592, align 8
   %594 = icmp eq i32 %593, 0
@@ -8685,7 +8685,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %151 = load ptr, ptr %42, align 8
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %153 = zext i8 %150 to i64
-  %154 = getelementptr [17 x %struct.bio_vec], ptr %152, i64 0, i64 %153
+  %154 = getelementptr %struct.bio_vec, ptr %152, i64 %153
   store ptr %151, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 12
   store i32 0, ptr %155, align 4
@@ -8794,7 +8794,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %224 = load ptr, ptr %42, align 8
   %225 = getelementptr inbounds nuw i8, ptr %221, i64 48
   %226 = zext i8 %223 to i64
-  %227 = getelementptr [17 x %struct.bio_vec], ptr %225, i64 0, i64 %226
+  %227 = getelementptr %struct.bio_vec, ptr %225, i64 %226
   store ptr %224, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 12
   store i32 0, ptr %228, align 4

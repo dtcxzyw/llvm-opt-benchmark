@@ -2769,7 +2769,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit48:               ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %39, align 8, !tbaa !123
   store i8 0, ptr %40, align 8, !tbaa !149
   %225 = sext i32 %.0.i70 to i64
-  %226 = getelementptr inbounds nuw [10 x ptr], ptr @__const._ZN3gmxL17enumValueToStringENS_14IMDMessageTypeE.imdMessageTypeNames, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmxL17enumValueToStringENS_14IMDMessageTypeE.imdMessageTypeNames, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !15
   %228 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull @.str.34, ptr noundef nonnull @_ZN3gmxL6IMDstrE, ptr noundef %227)
           to label %229 unwind label %239
@@ -5496,7 +5496,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread.preheader: ; preds = %.lr.ph
   %.not.i.i.i.i.i.us = phi i1 [ true, %72 ], [ false, %84 ]
   %.0813.i.i.i.i.i.us = phi i64 [ 0, %72 ], [ 1, %84 ]
   %.0912.i.i.i.i.i.us = phi i64 [ 2, %72 ], [ %.1.i.i.i.i.i.us, %84 ]
-  %79 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.us
+  %79 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i.us
   %80 = load i8, ptr %79, align 1, !tbaa !240, !range !138, !noundef !139
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %84

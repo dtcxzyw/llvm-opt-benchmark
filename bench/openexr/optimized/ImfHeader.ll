@@ -6905,7 +6905,7 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_121checkIsNullTerminatedILm
 
 6:                                                ; preds = %2, %4
   %.0916 = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %.0916
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.0916
   %8 = load i8, ptr %7, align 1, !tbaa !44
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %25, label %4

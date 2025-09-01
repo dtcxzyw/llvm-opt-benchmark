@@ -48,7 +48,7 @@ define hidden range(i32 0, 2) i32 @gtk_load(ptr noundef %0, i32 noundef %1, i32 
   %12 = phi i1 [ true, %.lr.ph.i.i ], [ false, %11 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %11 ]
   %.019.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %11 ]
-  %13 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw %struct.GtkLib, ptr @gtk_libs, i64 %indvars.iv.i.i
   %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
   store ptr %13, ptr %14, align 8
   %15 = load i32, ptr %13, align 8
@@ -155,7 +155,7 @@ get_libs_order.exit.thread:                       ; preds = %51
   %57 = phi i1 [ true, %.lr.ph.i ], [ false, %56 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %56 ]
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %56 ]
-  %58 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw %struct.GtkLib, ptr @gtk_libs, i64 %indvars.iv.i
   %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i
   store ptr %58, ptr %59, align 8
   %60 = load i32, ptr %58, align 8
@@ -307,7 +307,7 @@ define hidden range(i32 0, 2) i32 @gtk_check_version(i32 noundef %0) local_unnam
   %9 = phi i1 [ true, %.lr.ph.i.i ], [ false, %8 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %8 ]
   %.019.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %8 ]
-  %10 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw %struct.GtkLib, ptr @gtk_libs, i64 %indvars.iv.i.i
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
   store ptr %10, ptr %11, align 8
   %12 = load i32, ptr %10, align 8
@@ -382,7 +382,7 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   %38 = phi i1 [ true, %.lr.ph.i.i4 ], [ false, %37 ]
   %indvars.iv.i.i5 = phi i64 [ 0, %.lr.ph.i.i4 ], [ 1, %37 ]
   %.019.i.i6 = phi i32 [ 0, %.lr.ph.i.i4 ], [ %spec.select.i.i7, %37 ]
-  %39 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i5
+  %39 = getelementptr inbounds nuw %struct.GtkLib, ptr @gtk_libs, i64 %indvars.iv.i.i5
   %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i5
   store ptr %39, ptr %40, align 8
   %41 = load i32, ptr %39, align 8

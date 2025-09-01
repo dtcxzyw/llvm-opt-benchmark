@@ -4274,7 +4274,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !776, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noalias !776, !noundef !4
   store ptr %5, ptr %0, align 8, !alias.scope !769, !noalias !779
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4309,7 +4309,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !787, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noalias !787, !noundef !4
   store ptr %5, ptr %0, align 8, !alias.scope !780, !noalias !789
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4344,7 +4344,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !797, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noalias !797, !noundef !4
   store ptr %5, ptr %0, align 8, !alias.scope !790, !noalias !799
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4379,7 +4379,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !807, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noalias !807, !noundef !4
   store ptr %5, ptr %0, align 8, !alias.scope !800, !noalias !809
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4414,7 +4414,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !817, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noalias !817, !noundef !4
   store ptr %5, ptr %0, align 8, !alias.scope !810, !noalias !819
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5040,7 +5040,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$typst..foundations.
 
 25:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit.i.i.i.i"
   %26 = add i64 %.0.i.i.i.i, 1
-  %27 = getelementptr inbounds [0 x { i8, [7 x i8], { i8, [31 x i8] } }], ptr %22, i64 0, i64 %.0.i.i.i.i, i32 2
+  %27 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %22, i64 %.0.i.i.i.i, i32 2
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17hebd6cf5df5b3455bE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27)
           to label %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit.i.i.i.i" unwind label %29
 
@@ -5056,7 +5056,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$typst..foundations.
 
 31:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i"
   %32 = add i64 %.1.i.i.i.i, 1
-  %33 = getelementptr inbounds [0 x { i8, [7 x i8], { i8, [31 x i8] } }], ptr %22, i64 0, i64 %.1.i.i.i.i, i32 2
+  %33 = getelementptr inbounds { i8, [7 x i8], { i8, [31 x i8] } }, ptr %22, i64 %.1.i.i.i.i, i32 2
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17hebd6cf5df5b3455bE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(32) %33)
           to label %"_ZN4core3ptr66drop_in_place$LT$$LP$u8$C$typst..foundations..value..Value$RP$$GT$17h218ca1f56e0fbf53E.llvm.17057414408856058071.exit7.i.i.i.i" unwind label %34
 
@@ -6804,7 +6804,7 @@ switch.lookup:
   %19 = zext i32 %5 to i64
   %20 = mul nuw i64 %19, %18
   %21 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN86_$LT$image..codecs..png..PngEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h7b2bee59423eaceeE", i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$image..codecs..png..PngEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h7b2bee59423eaceeE", i64 %21
   %switch.load = load i64, ptr %switch.gep, align 8
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
   %23 = extractvalue { i64, i1 } %22, 0
@@ -8204,7 +8204,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noundef !4
   store ptr %5, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8245,7 +8245,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noundef !4
   store ptr %5, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8286,7 +8286,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noundef !4
   store ptr %5, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8327,7 +8327,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noundef !4
   store ptr %5, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8368,7 +8368,7 @@ define hidden void @"_ZN9typst_pdf7pattern14write_patterns28_$u7b$$u7b$closure$u
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = extractvalue { ptr, i64 } %4, 1
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds i32, ptr %15, i64 %9
   %18 = load i32, ptr %17, align 4, !range !5, !noundef !4
   store ptr %5, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8

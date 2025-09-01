@@ -2441,7 +2441,7 @@ define noundef ptr @Pdr_ManDeriveCex(ptr noundef readonly captures(none) %0) loc
 27:                                               ; preds = %.lr.ph47, %47
   %28 = phi i32 [ %23, %.lr.ph47 ], [ %48, %47 ]
   %indvars.iv = phi i64 [ %26, %.lr.ph47 ], [ %indvars.iv.next, %47 ]
-  %29 = getelementptr inbounds [0 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !33
   %31 = and i32 %30, 1
   %.not38 = icmp eq i32 %31, 0
@@ -2583,7 +2583,7 @@ define noundef ptr @Pdr_ManDeriveCexAbs(ptr noundef captures(none) %0) local_unn
   %37 = phi ptr [ %30, %.lr.ph159.preheader ], [ %84, %83 ]
   %indvars.iv192 = phi i64 [ %36, %.lr.ph159.preheader ], [ %indvars.iv.next193, %83 ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %39 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %indvars.iv192
+  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv192
   %40 = load i32, ptr %39, align 4, !tbaa !33
   %41 = ashr i32 %40, 1
   %42 = icmp slt i32 %41, %.val153
@@ -2777,7 +2777,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 134:                                              ; preds = %.lr.ph171, %167
   %indvars.iv198 = phi i64 [ %133, %.lr.ph171 ], [ %indvars.iv.next199, %167 ]
-  %135 = getelementptr inbounds [0 x i32], ptr %132, i64 0, i64 %indvars.iv198
+  %135 = getelementptr inbounds i32, ptr %132, i64 %indvars.iv198
   %136 = load i32, ptr %135, align 4, !tbaa !33
   %137 = and i32 %136, 1
   %.not134 = icmp eq i32 %137, 0

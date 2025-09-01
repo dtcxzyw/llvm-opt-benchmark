@@ -1157,7 +1157,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE6resizeEm.exit: ; preds = %17, %19, %_ZSt8_De
   %.03237 = phi i1 [ false, %.lr.ph ], [ %spec.select, %22 ]
   %.03336 = phi i64 [ %.val.i, %.lr.ph ], [ %23, %22 ]
   %23 = add i64 %.03336, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !63
   %26 = tail call noundef ptr @_ZN4lean16object_compactor9to_offsetEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %25)
   %27 = load ptr, ptr @_ZN4lean13g_null_offsetE, align 8, !tbaa !63
@@ -1292,7 +1292,7 @@ _ZN4lean16object_compactor16save_max_sharingEP11lean_objectS2_m.exit: ; preds = 
   %91 = load ptr, ptr %6, align 8, !tbaa !52
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %.038
   %93 = load ptr, ptr %92, align 8, !tbaa !63
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %.038
+  %94 = getelementptr inbounds nuw ptr, ptr %62, i64 %.038
   store ptr %93, ptr %94, align 8, !tbaa !63
   %95 = add nuw i64 %.038, 1
   %exitcond.not = icmp eq i64 %95, %.val.i

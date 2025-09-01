@@ -2027,7 +2027,7 @@ define hidden i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %1) local_unnam
 
 435:                                              ; preds = %.lr.ph1135, %431
   %indvars.iv1253 = phi i64 [ 0, %.lr.ph1135 ], [ %indvars.iv.next1254, %431 ]
-  %436 = getelementptr inbounds nuw [16 x i32], ptr %430, i64 0, i64 %indvars.iv1253
+  %436 = getelementptr inbounds nuw i32, ptr %430, i64 %indvars.iv1253
   %437 = load i32, ptr %436, align 4
   %.not1005 = icmp ne i32 %437, 0
   %438 = zext i1 %.not1005 to i32
@@ -2036,7 +2036,7 @@ define hidden i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not1006, label %440, label %.loopexit
 
 440:                                              ; preds = %435
-  %441 = getelementptr inbounds nuw [16 x i8], ptr %419, i64 0, i64 %indvars.iv1253
+  %441 = getelementptr inbounds nuw i8, ptr %419, i64 %indvars.iv1253
   %442 = load i8, ptr %441, align 1
   %443 = zext i8 %442 to i32
   %444 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef %443, i64 noundef 7) #13
@@ -3357,7 +3357,7 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
   %126 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %124, i64 %indvars.iv298, i32 0, i32 1
   %127 = load i64, ptr %126, align 8
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv298
+  %129 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv298
   store i32 %128, ptr %129, align 4
   %130 = icmp ugt i32 %128, 65535
   %spec.select = select i1 %130, i32 1, i32 %.0163232
@@ -3382,7 +3382,7 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
 
 .preheader.split.us:                              ; preds = %.preheader, %138
   %indvars.iv307 = phi i64 [ %indvars.iv.next308, %138 ], [ 0, %.preheader ]
-  %134 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv307
+  %134 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv307
   %135 = load i32, ptr %134, align 4
   %136 = trunc i32 %135 to i16
   %137 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %15, i16 noundef zeroext %136) #13
@@ -3396,7 +3396,7 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
 
 .preheader.split:                                 ; preds = %.preheader, %142
   %indvars.iv303 = phi i64 [ %indvars.iv.next304, %142 ], [ 0, %.preheader ]
-  %139 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv303
+  %139 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv303
   %140 = load i32, ptr %139, align 4
   %141 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %15, i32 noundef %140) #13
   %.not216 = icmp eq i32 %141, 0
@@ -5927,12 +5927,12 @@ define internal fastcc i32 @avifItemPropertyDedupFinish(ptr noundef nonnull %0, 
 
 46:                                               ; preds = %42
   %47 = zext nneg i8 %44 to i64
-  %48 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 %47
   store i8 %.1, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %50 = load i8, ptr %43, align 4
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [16 x i32], ptr %49, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %51
   store i32 %3, ptr %52, align 4
   %53 = load i8, ptr %43, align 4
   %54 = add i8 %53, 1

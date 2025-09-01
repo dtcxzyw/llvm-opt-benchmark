@@ -117,7 +117,7 @@ define ptr @OSSL_EC_curve_nid2name(i32 noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %3
   %.08 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %.08
+  %5 = getelementptr inbounds nuw %struct.ec_name2nid_st, ptr @curve_list, i64 %.08
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !5
   %8 = icmp eq i32 %7, %0
@@ -144,7 +144,7 @@ define i32 @ossl_ec_curve_name2nid(ptr noundef %0) local_unnamed_addr #1 {
 
 .preheader12:                                     ; preds = %1, %2
   %.06.i = phi i64 [ %3, %2 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %.06.i
+  %4 = getelementptr inbounds nuw %struct.ec_name2nid_st, ptr @nist_curves, i64 %.06.i
   %5 = load ptr, ptr %4, align 16, !tbaa !12
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #5
   %7 = icmp eq i32 %6, 0
@@ -166,7 +166,7 @@ ossl_ec_curve_nist2nid_int.exit:                  ; preds = %.preheader12
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %.0815 = phi i64 [ %11, %10 ], [ 0, %.preheader.preheader ]
-  %12 = getelementptr inbounds nuw [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %.0815
+  %12 = getelementptr inbounds nuw %struct.ec_name2nid_st, ptr @curve_list, i64 %.0815
   %13 = load ptr, ptr %12, align 16, !tbaa !12
   %14 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %13, ptr noundef nonnull %0) #6
   %15 = icmp eq i32 %14, 0
@@ -193,7 +193,7 @@ define i32 @ossl_ec_curve_nist2nid_int(ptr noundef readonly captures(none) %0) l
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw %struct.ec_name2nid_st, ptr @nist_curves, i64 %.06
   %6 = load ptr, ptr %5, align 16, !tbaa !12
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #5
   %8 = icmp eq i32 %7, 0
@@ -222,7 +222,7 @@ define ptr @ossl_ec_curve_nid2nist_int(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw %struct.ec_name2nid_st, ptr @nist_curves, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !5
   %8 = icmp eq i32 %7, %0

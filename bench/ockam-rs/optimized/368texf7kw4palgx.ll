@@ -370,7 +370,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.exit.thread.i: ;
 
 27:                                               ; preds = %15
   %28 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %29 = getelementptr inbounds [0 x { { ptr } }], ptr %28, i64 0, i64 %.011
+  %29 = getelementptr inbounds { { ptr } }, ptr %28, i64 %.011
   %30 = load atomic i64, ptr %29 monotonic, align 8
   %31 = inttoptr i64 %30 to ptr
   %32 = icmp eq i64 %30, 0
@@ -415,7 +415,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.exit.thread.i: ;
 
 45:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h199be27d8a1a20fdE.exit.i"
   %46 = load ptr, ptr %0, align 8, !noalias !66, !nonnull !4, !align !5, !noundef !4
-  %47 = getelementptr inbounds [0 x { { ptr } }], ptr %46, i64 0, i64 %.011
+  %47 = getelementptr inbounds { { ptr } }, ptr %46, i64 %.011
   %48 = ptrtoint ptr %35 to i64
   %49 = cmpxchg ptr %47, i64 0, i64 %48 acq_rel acquire, align 8, !noalias !66
   %50 = extractvalue { i64, i1 } %49, 1

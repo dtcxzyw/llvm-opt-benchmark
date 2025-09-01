@@ -704,7 +704,7 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !123, !nonnull !5, !align !40, !noundef !5
-  %16 = getelementptr inbounds [0 x { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }], ptr %15, i64 0, i64 %1
+  %16 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %15, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !123
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !123
   %17 = load i64, ptr %3, align 8, !range !125, !noalias !123, !noundef !5
@@ -785,7 +785,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter6traits8iterator8Iterator8find_map5che
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !alias.scope !137, !nonnull !5, !align !40, !noundef !5
-  %9 = getelementptr inbounds [0 x { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }], ptr %8, i64 0, i64 %1
+  %9 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %8, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !137
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9), !noalias !137
   %10 = load i64, ptr %3, align 8, !range !125, !noalias !137, !noundef !5
@@ -846,7 +846,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter8adapters6filter15filter_try_fold28_$u
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !152, !nonnull !5, !align !40, !noundef !5
-  %15 = getelementptr inbounds [0 x { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }], ptr %14, i64 0, i64 %1
+  %15 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %14, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !152
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !152
   %16 = load i64, ptr %3, align 8, !range !125, !noalias !152, !noundef !5
@@ -913,7 +913,7 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$alloc..ffi..c_str..CString..new..Spe
 
 .lr.ph.i:                                         ; preds = %12, %16
   %.05.i = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %6, i64 0, i64 %.05.i
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.05.i
   %14 = load i8, ptr %13, align 1, !alias.scope !160, !noundef !5
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit, label %16
@@ -1002,7 +1002,7 @@ define hidden { ptr, ptr } @"_ZN10rayon_core8registry12WorkerThread5steal28_$u7b
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !nonnull !5, !align !40, !noundef !5
-  %9 = getelementptr inbounds [0 x { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }], ptr %8, i64 0, i64 %1
+  %9 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %8, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
   %10 = load i64, ptr %3, align 8, !range !125, !noundef !5

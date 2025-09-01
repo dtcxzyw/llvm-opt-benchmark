@@ -299,7 +299,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit: ; preds = %34
 133:                                              ; preds = %128
   %134 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %135 = zext nneg i32 %.04589 to i64
-  %136 = getelementptr inbounds nuw [8 x %class.btVector3], ptr %5, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %136, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !32
   %137 = add nuw nsw i32 %.04589, 1
   br label %200

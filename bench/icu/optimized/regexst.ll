@@ -548,8 +548,8 @@ define void @_ZN6icu_7715RegexStaticSetsC2EP10UErrorCode(ptr noundef nonnull ali
 
 .preheader:                                       ; preds = %116, %_ZN6icu_7712Regex8BitSet4initEPKNS_10UnicodeSetE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_7712Regex8BitSet4initEPKNS_10UnicodeSetE.exit ], [ 0, %116 ]
-  %194 = getelementptr inbounds nuw [13 x %"struct.icu_77::Regex8BitSet"], ptr %.ptr49, i64 0, i64 %indvars.iv
-  %195 = getelementptr inbounds nuw [13 x %"class.icu_77::UnicodeSet"], ptr %.ptr41, i64 0, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %.ptr49, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %.ptr41, i64 %indvars.iv
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader, %206
@@ -566,7 +566,7 @@ define void @_ZN6icu_7715RegexStaticSetsC2EP10UErrorCode(ptr noundef nonnull ali
   %199 = shl nuw nsw i32 1, %198
   %200 = lshr i32 %.08.i, 3
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw [32 x i8], ptr %194, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %194, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !12
   %204 = trunc nuw i32 %199 to i8
   %205 = or i8 %203, %204

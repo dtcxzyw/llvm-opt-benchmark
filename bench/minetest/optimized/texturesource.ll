@@ -20521,7 +20521,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 
 for.body:                                         ; preds = %for.inc, %for.cond.preheader
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx18 = getelementptr inbounds nuw [8 x %"class.std::__cxx11::basic_string"], ptr %transform_names, i64 0, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %transform_names, i64 %indvars.iv
   %15 = load i8, ptr %add.ptr.i, align 1, !tbaa !36
   %conv = sext i8 %15 to i64
   %16 = or disjoint i64 %indvars.iv, 48

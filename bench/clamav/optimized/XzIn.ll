@@ -274,7 +274,7 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = call i32 %13(ptr noundef %1, ptr noundef nonnull %10, i32 noundef 2) #9
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %154
+  br i1 %.not, label %15, label %158
 
 15:                                               ; preds = %5
   %16 = load i64, ptr %10, align 8, !tbaa !23
@@ -284,10 +284,10 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = load i64, ptr %2, align 8, !tbaa !23
   %18 = and i64 %17, 3
-  %.not.i85 = icmp ne i64 %18, 0
+  %.not.i87 = icmp ne i64 %18, 0
   %19 = icmp slt i64 %17, 12
-  %or.cond149.i86 = or i1 %19, %.not.i85
-  br i1 %or.cond149.i86, label %.thread73.sink.split, label %.lr.ph
+  %or.cond149.i88 = or i1 %19, %.not.i87
+  br i1 %or.cond149.i88, label %.thread73.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 10
@@ -304,7 +304,7 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %.not62 = icmp eq ptr %3, null
   br label %31
 
-31:                                               ; preds = %.lr.ph, %150
+31:                                               ; preds = %.lr.ph, %154
   store i64 -12, ptr %2, align 8, !tbaa !23
   %32 = load ptr, ptr %12, align 8, !tbaa !24
   %33 = call i32 %32(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #9
@@ -319,7 +319,7 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 36:                                               ; preds = %34
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %20, ptr noundef nonnull dereferenceable(2) @XZ_FOOTER_SIG, i64 2)
   %.not134.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not134.i, label %69, label %37
+  br i1 %.not134.i, label %73, label %37
 
 37:                                               ; preds = %36
   %38 = load i64, ptr %2, align 8, !tbaa !23
@@ -327,13 +327,13 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   store i64 %39, ptr %2, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = icmp slt i64 %38, 0
-  br i1 %40, label %.loopexit.i, label %.lr.ph.i
+  br i1 %40, label %.loopexit.i, label %.lr.ph181.i
 
-.lr.ph.i:                                         ; preds = %37, %65
-  %41 = phi i64 [ %66, %65 ], [ %39, %37 ]
-  %.0117176.i = phi i64 [ %42, %65 ], [ 0, %37 ]
+.lr.ph181.i:                                      ; preds = %37, %69
+  %41 = phi i64 [ %70, %69 ], [ %39, %37 ]
+  %.0117179.i = phi i64 [ %42, %69 ], [ 0, %37 ]
   %spec.select.i = call i64 @llvm.umin.i64(i64 %41, i64 1024)
-  %42 = add nuw nsw i64 %spec.select.i, %.0117176.i
+  %42 = add nuw nsw i64 %spec.select.i, %.0117179.i
   %43 = sub nsw i64 0, %spec.select.i
   store i64 %43, ptr %2, align 8, !tbaa !23
   %44 = load ptr, ptr %12, align 8, !tbaa !24
@@ -341,262 +341,268 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %.not135.i = icmp eq i32 %45, 0
   br i1 %.not135.i, label %46, label %.loopexit.i
 
-46:                                               ; preds = %.lr.ph.i
+46:                                               ; preds = %.lr.ph181.i
   %47 = call i32 @LookInStream_Read2(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef %spec.select.i, i32 noundef 17) #9
   %.not136.i = icmp eq i32 %47, 0
-  br i1 %.not136.i, label %.preheader, label %.loopexit.i
+  br i1 %.not136.i, label %.lr.ph.preheader.i, label %.loopexit.i
 
-.preheader:                                       ; preds = %46, %49
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %49 ], [ %spec.select.i, %46 ]
-  %48 = icmp sgt i64 %indvars.iv.i, -1
-  br i1 %48, label %49, label %.loopexit.i
+.lr.ph.preheader.i:                               ; preds = %46
+  %48 = trunc nuw nsw i64 %spec.select.i to i32
+  br label %.lr.ph.i
 
-49:                                               ; preds = %.preheader
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %50 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %indvars.iv.next.i
-  %51 = load i8, ptr %50, align 1, !tbaa !7
-  %.not137.i = icmp eq i8 %51, 0
-  br i1 %.not137.i, label %.preheader, label %52
+.lr.ph.i:                                         ; preds = %53, %.lr.ph.preheader.i
+  %.0119176.i = phi i32 [ %54, %53 ], [ %48, %.lr.ph.preheader.i ]
+  %49 = zext nneg i32 %.0119176.i to i64
+  %50 = getelementptr i8, ptr %7, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -1
+  %52 = load i8, ptr %51, align 1, !tbaa !7
+  %.not137.i = icmp eq i8 %52, 0
+  br i1 %.not137.i, label %53, label %56
 
-52:                                               ; preds = %49
-  %.not138.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not138.i, label %65, label %.thread.i
+53:                                               ; preds = %.lr.ph.i
+  %54 = add nsw i32 %.0119176.i, -1
+  %55 = icmp sgt i32 %.0119176.i, 0
+  br i1 %55, label %.lr.ph.i, label %.loopexit.i
 
-.thread.i:                                        ; preds = %52
-  %53 = and i64 %indvars.iv.i, 3
-  %.not139.i = icmp eq i64 %53, 0
-  br i1 %.not139.i, label %54, label %.loopexit.i
+56:                                               ; preds = %.lr.ph.i
+  %.not138.i = icmp eq i32 %.0119176.i, 0
+  br i1 %.not138.i, label %69, label %.thread.i
 
-54:                                               ; preds = %.thread.i
-  %55 = load i64, ptr %2, align 8, !tbaa !23
-  %56 = add nsw i64 %55, %indvars.iv.i
-  store i64 %56, ptr %2, align 8, !tbaa !23
-  %57 = icmp slt i64 %56, 12
-  br i1 %57, label %.loopexit.i, label %58
+.thread.i:                                        ; preds = %56
+  %57 = and i32 %.0119176.i, 3
+  %.not139.i = icmp eq i32 %57, 0
+  br i1 %.not139.i, label %58, label %.loopexit.i
 
-58:                                               ; preds = %54
-  %59 = add nsw i64 %56, -12
-  store i64 %59, ptr %2, align 8, !tbaa !23
-  %60 = load ptr, ptr %12, align 8, !tbaa !24
-  %61 = call i32 %60(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #9
-  %.not140.i = icmp eq i32 %61, 0
-  br i1 %.not140.i, label %62, label %.loopexit.i
+58:                                               ; preds = %.thread.i
+  %59 = load i64, ptr %2, align 8, !tbaa !23
+  %60 = add nsw i64 %59, %49
+  store i64 %60, ptr %2, align 8, !tbaa !23
+  %61 = icmp slt i64 %60, 12
+  br i1 %61, label %.loopexit.i, label %62
 
 62:                                               ; preds = %58
-  %63 = call i32 @LookInStream_Read2(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 12, i32 noundef 17) #9
-  %.not141.i = icmp eq i32 %63, 0
-  br i1 %.not141.i, label %64, label %.loopexit.i
+  %63 = add nsw i64 %60, -12
+  store i64 %63, ptr %2, align 8, !tbaa !23
+  %64 = load ptr, ptr %12, align 8, !tbaa !24
+  %65 = call i32 %64(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #9
+  %.not140.i = icmp eq i32 %65, 0
+  br i1 %.not140.i, label %66, label %.loopexit.i
 
-64:                                               ; preds = %62
+66:                                               ; preds = %62
+  %67 = call i32 @LookInStream_Read2(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 12, i32 noundef 17) #9
+  %.not141.i = icmp eq i32 %67, 0
+  br i1 %.not141.i, label %68, label %.loopexit.i
+
+68:                                               ; preds = %66
   %bcmp142.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %20, ptr noundef nonnull dereferenceable(2) @XZ_FOOTER_SIG, i64 2)
   %.not143.i = icmp eq i32 %bcmp142.i, 0
   br i1 %.not143.i, label %.thread162.i, label %.loopexit.i
 
-65:                                               ; preds = %52
+69:                                               ; preds = %56
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %66 = load i64, ptr %2, align 8, !tbaa !23
-  %67 = icmp slt i64 %66, 12
-  %68 = icmp samesign ugt i64 %42, 65536
-  %or.cond.i = select i1 %67, i1 true, i1 %68
-  br i1 %or.cond.i, label %.loopexit.i, label %.lr.ph.i
+  %70 = load i64, ptr %2, align 8, !tbaa !23
+  %71 = icmp slt i64 %70, 12
+  %72 = icmp samesign ugt i64 %42, 65536
+  %or.cond.i = select i1 %71, i1 true, i1 %72
+  br i1 %or.cond.i, label %.loopexit.i, label %.lr.ph181.i
 
-.thread162.i:                                     ; preds = %64
+.thread162.i:                                     ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %69
+  br label %73
 
-.loopexit.i:                                      ; preds = %64, %62, %58, %54, %.thread.i, %37, %65, %46, %.lr.ph.i, %.preheader
-  %.5.ph.i = phi i32 [ 17, %.preheader ], [ %47, %46 ], [ %45, %.lr.ph.i ], [ 17, %65 ], [ 17, %37 ], [ %63, %62 ], [ %61, %58 ], [ 17, %.thread.i ], [ 17, %54 ], [ 17, %64 ]
+.loopexit.i:                                      ; preds = %68, %66, %62, %58, %.thread.i, %37, %69, %46, %.lr.ph181.i, %53
+  %.5.ph.i = phi i32 [ 17, %53 ], [ %47, %46 ], [ %45, %.lr.ph181.i ], [ 17, %69 ], [ 17, %37 ], [ %67, %66 ], [ %65, %62 ], [ 17, %.thread.i ], [ 17, %58 ], [ 17, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread73.sink.split
 
-69:                                               ; preds = %.thread162.i, %36
-  %70 = load i8, ptr %21, align 4, !tbaa !7
-  %71 = zext i8 %70 to i16
-  %72 = shl nuw i16 %71, 8
-  %73 = load i8, ptr %22, align 1, !tbaa !7
-  %74 = zext i8 %73 to i16
-  %75 = or disjoint i16 %72, %74
-  store i16 %75, ptr %11, align 8, !tbaa !26
-  %76 = icmp ult i16 %75, 16
-  br i1 %76, label %77, label %.thread73.sink.split
+73:                                               ; preds = %.thread162.i, %36
+  %74 = load i8, ptr %21, align 4, !tbaa !7
+  %75 = zext i8 %74 to i16
+  %76 = shl nuw i16 %75, 8
+  %77 = load i8, ptr %22, align 1, !tbaa !7
+  %78 = zext i8 %77 to i16
+  %79 = or disjoint i16 %76, %78
+  store i16 %79, ptr %11, align 8, !tbaa !26
+  %80 = icmp ult i16 %79, 16
+  br i1 %80, label %81, label %.thread73.sink.split
 
-77:                                               ; preds = %69
-  %78 = load i32, ptr %6, align 4, !tbaa !7
-  %79 = call i32 @CrcCalc(ptr noundef nonnull %23, i64 noundef 6) #9
-  %.not144.i = icmp eq i32 %78, %79
-  br i1 %.not144.i, label %80, label %.thread73.sink.split
+81:                                               ; preds = %73
+  %82 = load i32, ptr %6, align 4, !tbaa !7
+  %83 = call i32 @CrcCalc(ptr noundef nonnull %23, i64 noundef 6) #9
+  %.not144.i = icmp eq i32 %82, %83
+  br i1 %.not144.i, label %84, label %.thread73.sink.split
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr %23, align 4, !tbaa !7
-  %82 = sext i32 %81 to i64
-  %83 = shl nsw i64 %82, 2
-  %84 = sub nsw i64 -16, %83
-  store i64 %84, ptr %2, align 8, !tbaa !23
-  %85 = load ptr, ptr %12, align 8, !tbaa !24
-  %86 = call i32 %85(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #9
-  %.not145.i = icmp eq i32 %86, 0
-  br i1 %.not145.i, label %87, label %.thread73.sink.split
+84:                                               ; preds = %81
+  %85 = load i32, ptr %23, align 4, !tbaa !7
+  %86 = sext i32 %85 to i64
+  %87 = shl nsw i64 %86, 2
+  %88 = sub nsw i64 -16, %87
+  store i64 %88, ptr %2, align 8, !tbaa !23
+  %89 = load ptr, ptr %12, align 8, !tbaa !24
+  %90 = call i32 %89(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #9
+  %.not145.i = icmp eq i32 %90, 0
+  br i1 %.not145.i, label %91, label %.thread73.sink.split
 
-87:                                               ; preds = %80
-  %88 = add nsw i64 %83, 4
-  %89 = call fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %88, ptr noundef %4)
-  %.not146.i = icmp eq i32 %89, 0
-  br i1 %.not146.i, label %90, label %.thread73.sink.split
+91:                                               ; preds = %84
+  %92 = add nsw i64 %87, 4
+  %93 = call fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %92, ptr noundef %4)
+  %.not146.i = icmp eq i32 %93, 0
+  br i1 %.not146.i, label %94, label %.thread73.sink.split
 
-90:                                               ; preds = %87
-  %91 = load i64, ptr %24, align 8, !tbaa !8
-  %.not20.i.i = icmp eq i64 %91, 0
+94:                                               ; preds = %91
+  %95 = load i64, ptr %24, align 8, !tbaa !8
+  %.not20.i.i = icmp eq i64 %95, 0
   br i1 %.not20.i.i, label %Xz_GetPackSize.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %90
-  %92 = load ptr, ptr %25, align 8, !tbaa !14
-  br label %95
+.lr.ph.i.i:                                       ; preds = %94
+  %96 = load ptr, ptr %25, align 8, !tbaa !14
+  br label %99
 
-93:                                               ; preds = %95
-  %94 = add nuw i64 %.01217.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %94, %91
-  br i1 %exitcond.not.i.i, label %Xz_GetPackSize.exit.i, label %95
+97:                                               ; preds = %99
+  %98 = add nuw i64 %.01217.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %98, %95
+  br i1 %exitcond.not.i.i, label %Xz_GetPackSize.exit.i, label %99
 
-95:                                               ; preds = %93, %.lr.ph.i.i
-  %.01217.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %94, %93 ]
-  %.01316.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %100, %93 ]
-  %96 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %92, i64 %.01217.i.i, i32 1
-  %97 = load i64, ptr %96, align 8, !tbaa !17
-  %98 = add i64 %97, 3
-  %99 = and i64 %98, -4
-  %100 = add i64 %99, %.01316.i.i
-  %.not.i.i = icmp ult i64 %100, %.01316.i.i
-  br i1 %.not.i.i, label %.thread73.sink.split, label %93
+99:                                               ; preds = %97, %.lr.ph.i.i
+  %.01217.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %98, %97 ]
+  %.01316.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %104, %97 ]
+  %100 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %96, i64 %.01217.i.i, i32 1
+  %101 = load i64, ptr %100, align 8, !tbaa !17
+  %102 = add i64 %101, 3
+  %103 = and i64 %102, -4
+  %104 = add i64 %103, %.01316.i.i
+  %.not.i.i = icmp ult i64 %104, %.01316.i.i
+  br i1 %.not.i.i, label %.thread73.sink.split, label %97
 
-Xz_GetPackSize.exit.i:                            ; preds = %93, %90
-  %.2.i.i = phi i64 [ 0, %90 ], [ %100, %93 ]
-  %101 = add nsw i64 %83, 16
-  %102 = add i64 %101, %.2.i.i
-  %103 = icmp slt i64 %102, 0
-  %104 = icmp slt i64 %.2.i.i, 0
-  %or.cond16.i = select i1 %104, i1 true, i1 %103
-  br i1 %or.cond16.i, label %.thread73.sink.split, label %105
+Xz_GetPackSize.exit.i:                            ; preds = %97, %94
+  %.2.i.i = phi i64 [ 0, %94 ], [ %104, %97 ]
+  %105 = add nsw i64 %87, 16
+  %106 = add i64 %105, %.2.i.i
+  %107 = icmp slt i64 %106, 0
+  %108 = icmp slt i64 %.2.i.i, 0
+  %or.cond16.i = select i1 %108, i1 true, i1 %107
+  br i1 %or.cond16.i, label %.thread73.sink.split, label %109
 
-105:                                              ; preds = %Xz_GetPackSize.exit.i
-  %106 = sub nsw i64 0, %102
-  store i64 %106, ptr %2, align 8, !tbaa !23
-  %107 = load ptr, ptr %12, align 8, !tbaa !24
-  %108 = call i32 %107(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #9
-  %.not147.i = icmp eq i32 %108, 0
-  br i1 %.not147.i, label %109, label %.thread73.sink.split
+109:                                              ; preds = %Xz_GetPackSize.exit.i
+  %110 = sub nsw i64 0, %106
+  store i64 %110, ptr %2, align 8, !tbaa !23
+  %111 = load ptr, ptr %12, align 8, !tbaa !24
+  %112 = call i32 %111(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 1) #9
+  %.not147.i = icmp eq i32 %112, 0
+  br i1 %.not147.i, label %113, label %.thread73.sink.split
 
-109:                                              ; preds = %105
+113:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @SecToRead_CreateVTable(ptr noundef nonnull %9) #9
   store ptr %1, ptr %26, align 8, !tbaa !27
-  %110 = call i32 @Xz_ReadHeader(ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %.not148.i = icmp eq i32 %110, 0
-  br i1 %.not148.i, label %111, label %Xz_ReadBackward.exit.thread68
+  %114 = call i32 @Xz_ReadHeader(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %.not148.i = icmp eq i32 %114, 0
+  br i1 %.not148.i, label %115, label %Xz_ReadBackward.exit.thread68
 
-111:                                              ; preds = %109
-  %112 = load i16, ptr %11, align 8, !tbaa !26
-  %113 = load i16, ptr %8, align 2, !tbaa !30
-  %114 = icmp eq i16 %112, %113
-  br i1 %114, label %115, label %Xz_ReadBackward.exit.thread68
+115:                                              ; preds = %113
+  %116 = load i16, ptr %11, align 8, !tbaa !26
+  %117 = load i16, ptr %8, align 2, !tbaa !30
+  %118 = icmp eq i16 %116, %117
+  br i1 %118, label %119, label %Xz_ReadBackward.exit.thread68
 
-Xz_ReadBackward.exit.thread68:                    ; preds = %111, %109
-  %.15.i.ph = phi i32 [ %110, %109 ], [ 16, %111 ]
+Xz_ReadBackward.exit.thread68:                    ; preds = %115, %113
+  %.15.i.ph = phi i32 [ %114, %113 ], [ 16, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread73.sink.split
 
-115:                                              ; preds = %111
+119:                                              ; preds = %115
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %116 = load i64, ptr %2, align 8, !tbaa !23
-  store i64 %116, ptr %27, align 8, !tbaa !31
-  %117 = load i64, ptr %0, align 8, !tbaa !18
-  %118 = load i64, ptr %28, align 8, !tbaa !32
-  %119 = icmp eq i64 %117, %118
-  br i1 %119, label %120, label %._crit_edge
+  %120 = load i64, ptr %2, align 8, !tbaa !23
+  store i64 %120, ptr %27, align 8, !tbaa !31
+  %121 = load i64, ptr %0, align 8, !tbaa !18
+  %122 = load i64, ptr %28, align 8, !tbaa !32
+  %123 = icmp eq i64 %121, %122
+  br i1 %123, label %124, label %._crit_edge
 
-._crit_edge:                                      ; preds = %115
+._crit_edge:                                      ; preds = %119
   %.pre = load ptr, ptr %29, align 8, !tbaa !20
-  br label %133
+  br label %137
 
-120:                                              ; preds = %115
-  %121 = lshr i64 %117, 2
-  %122 = add i64 %117, 1
-  %123 = add i64 %122, %121
-  %124 = load ptr, ptr %4, align 8, !tbaa !33
-  %125 = mul i64 %123, 40
-  %126 = call ptr %124(ptr noundef nonnull %4, i64 noundef %125) #9
-  %.not60 = icmp eq ptr %126, null
-  br i1 %.not60, label %.sink.split, label %127
+124:                                              ; preds = %119
+  %125 = lshr i64 %121, 2
+  %126 = add i64 %121, 1
+  %127 = add i64 %126, %125
+  %128 = load ptr, ptr %4, align 8, !tbaa !33
+  %129 = mul i64 %127, 40
+  %130 = call ptr %128(ptr noundef nonnull %4, i64 noundef %129) #9
+  %.not60 = icmp eq ptr %130, null
+  br i1 %.not60, label %.sink.split, label %131
 
-127:                                              ; preds = %120
-  store i64 %123, ptr %28, align 8, !tbaa !32
-  %128 = load ptr, ptr %29, align 8, !tbaa !20
-  %129 = load i64, ptr %0, align 8, !tbaa !18
-  %130 = mul i64 %129, 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr align 8 %128, i64 %130, i1 false)
-  %131 = load ptr, ptr %30, align 8, !tbaa !21
+131:                                              ; preds = %124
+  store i64 %127, ptr %28, align 8, !tbaa !32
   %132 = load ptr, ptr %29, align 8, !tbaa !20
-  call void %131(ptr noundef nonnull %4, ptr noundef %132) #9
-  store ptr %126, ptr %29, align 8, !tbaa !20
-  %.pre108 = load i64, ptr %0, align 8, !tbaa !18
-  br label %133
+  %133 = load i64, ptr %0, align 8, !tbaa !18
+  %134 = mul i64 %133, 40
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr align 8 %132, i64 %134, i1 false)
+  %135 = load ptr, ptr %30, align 8, !tbaa !21
+  %136 = load ptr, ptr %29, align 8, !tbaa !20
+  call void %135(ptr noundef nonnull %4, ptr noundef %136) #9
+  store ptr %130, ptr %29, align 8, !tbaa !20
+  %.pre112 = load i64, ptr %0, align 8, !tbaa !18
+  br label %137
 
-133:                                              ; preds = %._crit_edge, %127
-  %134 = phi i64 [ %117, %._crit_edge ], [ %.pre108, %127 ]
-  %135 = phi ptr [ %.pre, %._crit_edge ], [ %126, %127 ]
-  %136 = add i64 %134, 1
-  store i64 %136, ptr %0, align 8, !tbaa !18
-  %137 = getelementptr inbounds nuw %struct.CXzStream, ptr %135, i64 %134
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !34
-  %138 = load i64, ptr %2, align 8, !tbaa !23
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %.sink.split, label %140
+137:                                              ; preds = %._crit_edge, %131
+  %138 = phi i64 [ %121, %._crit_edge ], [ %.pre112, %131 ]
+  %139 = phi ptr [ %.pre, %._crit_edge ], [ %130, %131 ]
+  %140 = add i64 %138, 1
+  store i64 %140, ptr %0, align 8, !tbaa !18
+  %141 = getelementptr inbounds nuw %struct.CXzStream, ptr %139, i64 %138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %141, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !34
+  %142 = load i64, ptr %2, align 8, !tbaa !23
+  %143 = icmp eq i64 %142, 0
+  br i1 %143, label %.sink.split, label %144
 
-140:                                              ; preds = %133
-  %141 = load ptr, ptr %12, align 8, !tbaa !24
-  %142 = call i32 %141(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #9
-  %.not61 = icmp eq i32 %142, 0
-  br i1 %.not61, label %143, label %.sink.split
+144:                                              ; preds = %137
+  %145 = load ptr, ptr %12, align 8, !tbaa !24
+  %146 = call i32 %145(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0) #9
+  %.not61 = icmp eq i32 %146, 0
+  br i1 %.not61, label %147, label %.sink.split
 
-143:                                              ; preds = %140
-  br i1 %.not62, label %150, label %144
+147:                                              ; preds = %144
+  br i1 %.not62, label %154, label %148
 
-144:                                              ; preds = %143
-  %145 = load ptr, ptr %3, align 8, !tbaa !37
-  %146 = load i64, ptr %10, align 8, !tbaa !23
-  %147 = load i64, ptr %2, align 8, !tbaa !23
-  %148 = sub nsw i64 %146, %147
-  %149 = call i32 %145(ptr noundef nonnull %3, i64 noundef %148, i64 noundef -1) #9
-  %.not63 = icmp eq i32 %149, 0
-  br i1 %.not63, label %150, label %.sink.split
+148:                                              ; preds = %147
+  %149 = load ptr, ptr %3, align 8, !tbaa !37
+  %150 = load i64, ptr %10, align 8, !tbaa !23
+  %151 = load i64, ptr %2, align 8, !tbaa !23
+  %152 = sub nsw i64 %150, %151
+  %153 = call i32 %149(ptr noundef nonnull %3, i64 noundef %152, i64 noundef -1) #9
+  %.not63 = icmp eq i32 %153, 0
+  br i1 %.not63, label %154, label %.sink.split
 
-.thread73.sink.split:                             ; preds = %105, %87, %80, %34, %31, %150, %69, %77, %Xz_GetPackSize.exit.i, %95, %.loopexit.i, %15, %Xz_ReadBackward.exit.thread68
-  %.4.ph.ph = phi i32 [ %.15.i.ph, %Xz_ReadBackward.exit.thread68 ], [ %.5.ph.i, %.loopexit.i ], [ 17, %15 ], [ 16, %95 ], [ 16, %Xz_GetPackSize.exit.i ], [ 16, %77 ], [ 4, %69 ], [ 17, %150 ], [ %33, %31 ], [ %35, %34 ], [ %86, %80 ], [ %89, %87 ], [ %108, %105 ]
+.thread73.sink.split:                             ; preds = %109, %91, %84, %34, %31, %154, %73, %81, %Xz_GetPackSize.exit.i, %99, %.loopexit.i, %15, %Xz_ReadBackward.exit.thread68
+  %.4.ph.ph = phi i32 [ %.15.i.ph, %Xz_ReadBackward.exit.thread68 ], [ %.5.ph.i, %.loopexit.i ], [ 17, %15 ], [ 16, %99 ], [ 16, %Xz_GetPackSize.exit.i ], [ 16, %81 ], [ 4, %73 ], [ 17, %154 ], [ %33, %31 ], [ %35, %34 ], [ %90, %84 ], [ %93, %91 ], [ %112, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
-150:                                              ; preds = %143, %144
+154:                                              ; preds = %147, %148
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @Xz_Construct(ptr noundef nonnull %11) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %151 = load i64, ptr %2, align 8, !tbaa !23
-  %152 = and i64 %151, 3
-  %.not.i = icmp ne i64 %152, 0
-  %153 = icmp slt i64 %151, 12
-  %or.cond149.i = or i1 %153, %.not.i
+  %155 = load i64, ptr %2, align 8, !tbaa !23
+  %156 = and i64 %155, 3
+  %.not.i = icmp ne i64 %156, 0
+  %157 = icmp slt i64 %155, 12
+  %or.cond149.i = or i1 %157, %.not.i
   br i1 %or.cond149.i, label %.thread73.sink.split, label %31
 
-.sink.split:                                      ; preds = %133, %120, %144, %140, %.thread73.sink.split
-  %.1.ph = phi i32 [ %.4.ph.ph, %.thread73.sink.split ], [ 2, %120 ], [ %142, %140 ], [ 10, %144 ], [ 0, %133 ]
+.sink.split:                                      ; preds = %137, %124, %148, %144, %.thread73.sink.split
+  %.1.ph = phi i32 [ %.4.ph.ph, %.thread73.sink.split ], [ 2, %124 ], [ %146, %144 ], [ 10, %148 ], [ 0, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %154
+  br label %158
 
-154:                                              ; preds = %.sink.split, %5
+158:                                              ; preds = %.sink.split, %5
   %.1 = phi i32 [ %14, %5 ], [ %.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1

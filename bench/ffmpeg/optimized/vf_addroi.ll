@@ -57,16 +57,16 @@ define internal range(i32 -2147483648, 1) i32 @addroi_init(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = tail call i32 @av_expr_parse(ptr noundef nonnull %8, ptr noundef %10, ptr noundef nonnull @addroi_var_names, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %0) #5
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %6
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw [4 x i8], ptr @addroi_param_names, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr @addroi_param_names, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !23
   %17 = sext i8 %16 to i32
   %18 = load ptr, ptr %14, align 8, !tbaa !22
@@ -87,7 +87,7 @@ define internal void @addroi_uninit(ptr noundef readonly captures(none) %0) #0 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   tail call void @av_expr_free(ptr noundef %7) #5
   store ptr null, ptr %6, align 8, !tbaa !24
@@ -347,14 +347,14 @@ default.unreachable:                              ; preds = %17
 
 31:                                               ; preds = %27, %23, %21, %19
   %.1 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %26, %23 ], [ %30, %27 ]
-  %32 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = call nsz double @av_expr_eval(ptr noundef %33, ptr noundef nonnull %2, ptr noundef null) #5
   %35 = fcmp nsz olt double %34, 0.000000e+00
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw [4 x i8], ptr @addroi_param_names, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr @addroi_param_names, i64 %indvars.iv
   %38 = load i8, ptr %37, align 1, !tbaa !23
   %39 = sext i8 %38 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 24, ptr noundef nonnull @.str.6, double noundef %34, i32 noundef %39) #5
@@ -366,7 +366,7 @@ default.unreachable:                              ; preds = %17
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw [4 x i8], ptr @addroi_param_names, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr @addroi_param_names, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !23
   %46 = sext i8 %45 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 24, ptr noundef nonnull @.str.7, double noundef %34, i32 noundef %46, i32 noundef %.1, i32 noundef %.1) #5
@@ -375,7 +375,7 @@ default.unreachable:                              ; preds = %17
 47:                                               ; preds = %40, %43, %36
   %.029 = phi nsz double [ 0.000000e+00, %36 ], [ %41, %43 ], [ %34, %40 ]
   %48 = fptosi double %.029 to i32
-  %49 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   store i32 %48, ptr %49, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

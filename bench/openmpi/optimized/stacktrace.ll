@@ -610,9 +610,9 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly captu
   br i1 %51, label %switch.lookup, label %76
 
 52:                                               ; preds = %47
-  %switch.tableidx96 = add i32 %49, -1
-  %53 = icmp ult i32 %switch.tableidx96, 8
-  br i1 %53, label %switch.lookup95, label %76
+  %switch.tableidx95 = add i32 %49, -1
+  %53 = icmp ult i32 %switch.tableidx95, 8
+  br i1 %53, label %switch.lookup96, label %76
 
 54:                                               ; preds = %47
   %switch.selectcmp = icmp eq i32 %49, 2
@@ -622,9 +622,9 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly captu
   br label %76
 
 55:                                               ; preds = %47
-  %switch.tableidx100 = add i32 %49, -1
-  %56 = icmp ult i32 %switch.tableidx100, 3
-  br i1 %56, label %switch.lookup99, label %76
+  %switch.tableidx99 = add i32 %49, -1
+  %56 = icmp ult i32 %switch.tableidx99, 3
+  br i1 %56, label %switch.lookup100, label %76
 
 57:                                               ; preds = %47
   %switch.selectcmp87 = icmp eq i32 %49, 2
@@ -634,14 +634,14 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly captu
   br label %76
 
 58:                                               ; preds = %47
-  %switch.tableidx104 = add i32 %49, -1
-  %59 = icmp ult i32 %switch.tableidx104, 6
-  br i1 %59, label %switch.lookup103, label %76
+  %switch.tableidx103 = add i32 %49, -1
+  %59 = icmp ult i32 %switch.tableidx103, 6
+  br i1 %59, label %switch.lookup104, label %76
 
 60:                                               ; preds = %47
-  %switch.tableidx108 = add i32 %49, -1
-  %61 = icmp ult i32 %switch.tableidx108, 6
-  br i1 %61, label %switch.lookup107, label %76
+  %switch.tableidx107 = add i32 %49, -1
+  %61 = icmp ult i32 %switch.tableidx107, 6
+  br i1 %61, label %switch.lookup108, label %76
 
 62:                                               ; preds = %47
   switch i32 %49, label %76 [
@@ -681,36 +681,36 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %50
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.show_stackframe, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %76
 
-switch.lookup95:                                  ; preds = %52
-  %72 = zext nneg i32 %switch.tableidx96 to i64
-  %switch.gep97 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.show_stackframe.1, i64 0, i64 %72
+switch.lookup96:                                  ; preds = %52
+  %72 = zext nneg i32 %switch.tableidx95 to i64
+  %switch.gep97 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.1, i64 %72
   %switch.load98 = load ptr, ptr %switch.gep97, align 8
   br label %76
 
-switch.lookup99:                                  ; preds = %55
-  %73 = zext nneg i32 %switch.tableidx100 to i64
-  %switch.gep101 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.show_stackframe.2, i64 0, i64 %73
+switch.lookup100:                                 ; preds = %55
+  %73 = zext nneg i32 %switch.tableidx99 to i64
+  %switch.gep101 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.2, i64 %73
   %switch.load102 = load ptr, ptr %switch.gep101, align 8
   br label %76
 
-switch.lookup103:                                 ; preds = %58
-  %74 = zext nneg i32 %switch.tableidx104 to i64
-  %switch.gep105 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.show_stackframe.3, i64 0, i64 %74
+switch.lookup104:                                 ; preds = %58
+  %74 = zext nneg i32 %switch.tableidx103 to i64
+  %switch.gep105 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.3, i64 %74
   %switch.load106 = load ptr, ptr %switch.gep105, align 8
   br label %76
 
-switch.lookup107:                                 ; preds = %60
-  %75 = zext nneg i32 %switch.tableidx108 to i64
-  %switch.gep109 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.show_stackframe.4, i64 0, i64 %75
+switch.lookup108:                                 ; preds = %60
+  %75 = zext nneg i32 %switch.tableidx107 to i64
+  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.4, i64 %75
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   br label %76
 
-76:                                               ; preds = %switch.lookup107, %60, %switch.lookup103, %58, %switch.lookup99, %55, %switch.lookup95, %52, %switch.lookup, %50, %57, %54, %62, %63, %64, %65, %66, %67, %68, %69, %70
-  %.0 = phi ptr [ @.str.14, %62 ], [ @.str.51, %63 ], [ @.str.52, %64 ], [ @.str.53, %65 ], [ @.str.54, %66 ], [ @.str.55, %67 ], [ @.str.56, %68 ], [ @.str.57, %69 ], [ @.str.58, %70 ], [ @.str.14, %50 ], [ @.str.14, %52 ], [ @.str.14, %55 ], [ @.str.14, %58 ], [ @.str.14, %60 ], [ %switch.select86, %54 ], [ %switch.select90, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load98, %switch.lookup95 ], [ %switch.load102, %switch.lookup99 ], [ %switch.load106, %switch.lookup103 ], [ %switch.load110, %switch.lookup107 ]
+76:                                               ; preds = %switch.lookup108, %60, %switch.lookup104, %58, %switch.lookup100, %55, %switch.lookup96, %52, %switch.lookup, %50, %57, %54, %62, %63, %64, %65, %66, %67, %68, %69, %70
+  %.0 = phi ptr [ @.str.14, %62 ], [ @.str.51, %63 ], [ @.str.52, %64 ], [ @.str.53, %65 ], [ @.str.54, %66 ], [ @.str.55, %67 ], [ @.str.56, %68 ], [ @.str.57, %69 ], [ @.str.58, %70 ], [ @.str.14, %50 ], [ @.str.14, %52 ], [ @.str.14, %55 ], [ @.str.14, %58 ], [ @.str.14, %60 ], [ %switch.select86, %54 ], [ %switch.select90, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load98, %switch.lookup96 ], [ %switch.load102, %switch.lookup100 ], [ %switch.load106, %switch.lookup104 ], [ %switch.load110, %switch.lookup108 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !32
   %.not81 = icmp eq i32 %78, 0

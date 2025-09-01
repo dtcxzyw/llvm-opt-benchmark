@@ -1609,7 +1609,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %.0379543632 = phi ptr [ %559, %558 ], [ %496, %.lr.ph634.preheader ]
   %.18544631 = phi i32 [ %.19, %558 ], [ %.17551, %.lr.ph634.preheader ]
   %498 = getelementptr inbounds nuw i8, ptr %.0379543632, i64 40
-  %499 = getelementptr inbounds nuw [2 x i32], ptr %498, i64 0, i64 %indvars.iv562
+  %499 = getelementptr inbounds nuw i32, ptr %498, i64 %indvars.iv562
   %500 = load i32, ptr %499, align 4, !tbaa !69
   %501 = load i32, ptr %484, align 4, !tbaa !170
   %502 = shl nuw i32 1, %500
@@ -1624,15 +1624,15 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %511 = and i32 %506, %509
   %512 = shl i32 %500, 2
   %513 = zext i32 %512 to i64
-  %514 = getelementptr inbounds nuw [64 x float], ptr %485, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw float, ptr %485, i64 %513
   %515 = getelementptr inbounds nuw i8, ptr %504, i64 68
-  %516 = getelementptr inbounds nuw [64 x float], ptr %515, i64 0, i64 %513
+  %516 = getelementptr inbounds nuw float, ptr %515, i64 %513
   %517 = zext i32 %500 to i64
-  %518 = getelementptr inbounds nuw [16 x float], ptr %486, i64 0, i64 %517
+  %518 = getelementptr inbounds nuw float, ptr %486, i64 %517
   %519 = load float, ptr %518, align 4, !tbaa !171
   %520 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %519)
   %521 = getelementptr inbounds nuw i8, ptr %504, i64 324
-  %522 = getelementptr inbounds nuw [16 x float], ptr %521, i64 0, i64 %517
+  %522 = getelementptr inbounds nuw float, ptr %521, i64 %517
   %523 = load float, ptr %522, align 4, !tbaa !171
   %524 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %523)
   %525 = icmp ne i32 %503, 0
@@ -1689,7 +1689,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %550 = load ptr, ptr %536, align 8, !tbaa !173
   %551 = getelementptr inbounds nuw float, ptr %514, i64 %indvars.iv
   %552 = load float, ptr %551, align 4, !tbaa !171
-  %553 = getelementptr inbounds nuw [4 x [2 x [25 x i8]]], ptr %7, i64 0, i64 %indvars.iv
+  %553 = getelementptr inbounds nuw [2 x [25 x i8]], ptr %7, i64 %indvars.iv
   call void %550(float noundef %552, float noundef %520, ptr noundef nonnull %553, i32 noundef 25) #17
   %554 = load ptr, ptr %536, align 8, !tbaa !173
   %555 = getelementptr inbounds nuw float, ptr %516, i64 %indvars.iv

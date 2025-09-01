@@ -102,7 +102,7 @@ define noundef zeroext i1 @_ZNK5folly17SocketOptionValue6hasIntEv(ptr noundef no
   %.not.i.i = phi i1 [ true, %1 ], [ false, %10 ]
   %.0813.i.i = phi i64 [ 0, %1 ], [ 1, %10 ]
   %.0912.i.i = phi i64 [ 2, %1 ], [ %.1.i.i, %10 ]
-  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %5 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i
   %6 = load i8, ptr %5, align 1, !tbaa !20, !range !22, !noundef !23
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -137,7 +137,7 @@ define noundef zeroext i1 @_ZNK5folly17SocketOptionValue9hasStringEv(ptr noundef
   %.not.i.i = phi i1 [ true, %1 ], [ false, %10 ]
   %.0813.i.i = phi i64 [ 0, %1 ], [ 1, %10 ]
   %.0912.i.i = phi i64 [ 2, %1 ], [ %.1.i.i, %10 ]
-  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 0, i64 %.0813.i.i
+  %5 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 %.0813.i.i
   %6 = load i8, ptr %5, align 1, !tbaa !20, !range !22, !noundef !23
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -170,7 +170,7 @@ define void @_ZNK5folly17SocketOptionValue8toStringB5cxx11Ev(ptr dead_on_unwind 
   %.not.i.i.i = phi i1 [ true, %2 ], [ false, %14 ]
   %.0813.i.i.i = phi i64 [ 0, %2 ], [ 1, %14 ]
   %.0912.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i, %14 ]
-  %9 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i
   %10 = load i8, ptr %9, align 1, !tbaa !20, !range !22, !noundef !23
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %14
@@ -336,7 +336,7 @@ define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueES2_(ptr noundef 
   %.not.i.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -364,7 +364,7 @@ _ZNK5folly17SocketOptionValue6hasIntEv.exit:      ; preds = %9, %11
   %.not.i.i.i11 = phi i1 [ true, %14 ], [ false, %23 ]
   %.0813.i.i.i12 = phi i64 [ 0, %14 ], [ 1, %23 ]
   %.0912.i.i.i13 = phi i64 [ 2, %14 ], [ %.1.i.i.i14, %23 ]
-  %18 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i12
+  %18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i12
   %19 = load i8, ptr %18, align 1, !tbaa !20, !range !22, !noundef !23
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %23
@@ -390,7 +390,7 @@ _ZNK5folly17SocketOptionValue6hasIntEv.exit16:    ; preds = %21, %23
   %.not.i.i.i17 = phi i1 [ false, %32 ], [ true, %.preheader47 ]
   %.0813.i.i.i18 = phi i64 [ 1, %32 ], [ 0, %.preheader47 ]
   %.0912.i.i.i19 = phi i64 [ %.1.i.i.i20, %32 ], [ 2, %.preheader47 ]
-  %27 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i18
+  %27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i18
   %28 = load i8, ptr %27, align 1, !tbaa !20, !range !22, !noundef !23
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %32
@@ -420,7 +420,7 @@ _ZNK5folly17SocketOptionValue6hasIntEv.exit22:    ; preds = %30, %32
   %.not.i.i.i23 = phi i1 [ true, %34 ], [ false, %43 ]
   %.0813.i.i.i24 = phi i64 [ 0, %34 ], [ 1, %43 ]
   %.0912.i.i.i25 = phi i64 [ 2, %34 ], [ %.1.i.i.i26, %43 ]
-  %38 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i24
+  %38 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i24
   %39 = load i8, ptr %38, align 1, !tbaa !20, !range !22, !noundef !23
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %43
@@ -473,7 +473,7 @@ _ZNK5folly17SocketOptionValue5asIntEv.exit31:     ; preds = %_ZNK5folly17SocketO
   %.not.i.i.i32 = phi i1 [ false, %62 ], [ true, %.preheader ]
   %.0813.i.i.i33 = phi i64 [ 1, %62 ], [ 0, %.preheader ]
   %.0912.i.i.i34 = phi i64 [ %.1.i.i.i35, %62 ], [ 2, %.preheader ]
-  %57 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 0, i64 %.0813.i.i.i33
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 %.0813.i.i.i33
   %58 = load i8, ptr %57, align 1, !tbaa !20, !range !22, !noundef !23
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %62
@@ -500,7 +500,7 @@ _ZNK5folly17SocketOptionValue9hasStringEv.exit:   ; preds = %60, %62
   %.not.i.i.i37 = phi i1 [ true, %64 ], [ false, %73 ]
   %.0813.i.i.i38 = phi i64 [ 0, %64 ], [ 1, %73 ]
   %.0912.i.i.i39 = phi i64 [ 2, %64 ], [ %.1.i.i.i40, %73 ]
-  %68 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 0, i64 %.0813.i.i.i38
+  %68 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 %.0813.i.i.i38
   %69 = load i8, ptr %68, align 1, !tbaa !20, !range !22, !noundef !23
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %73
@@ -577,7 +577,7 @@ define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueEi(ptr noundef no
   %.not.i.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -628,7 +628,7 @@ define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueERKNSt7__cxx1112b
   %.not.i.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 0, i64 %.0813.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 %.0813.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -700,7 +700,7 @@ define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueEi(ptr noundef no
   %.not.i.i.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -751,7 +751,7 @@ define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueERKNSt7__cxx1112b
   %.not.i.i.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 0, i64 %.0813.i.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EEmv.__found, i64 %.0813.i.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20, !range !22, !noundef !23
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11

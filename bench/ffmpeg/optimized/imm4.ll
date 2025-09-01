@@ -387,7 +387,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra(ptr noundef r
 
 .thread:                                          ; preds = %11
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw [3 x i8], ptr @intra_cb, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @intra_cb, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !47
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 68
@@ -608,7 +608,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_inter(ptr noundef r
 
 .thread:                                          ; preds = %12
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw [3 x i8], ptr @inter_cb, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @inter_cb, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !47
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 68
@@ -1156,10 +1156,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %.tr = trunc nuw nsw i32 %29 to i16
   %33 = shl nuw nsw i16 %.tr, 3
   %34 = select i1 %32, i16 1024, i16 %33
-  %35 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %10, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [64 x i16], ptr %10, i64 %indvars.iv
   %36 = load i8, ptr %9, align 1, !tbaa !47
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw [64 x i16], ptr %35, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i16, ptr %35, i64 %37
   store i16 %34, ptr %38, align 2, !tbaa !71
   br label %39
 
@@ -1178,7 +1178,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %47 = load ptr, ptr %1, align 8, !tbaa !38
   %48 = load i32, ptr %12, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 208
-  %50 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %49, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [64 x i16], ptr %49, i64 %indvars.iv
   %.promoted.i = load i32, ptr %11, align 8, !tbaa !42
   br label %51
 
@@ -1288,7 +1288,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %129 = getelementptr inbounds nuw i8, ptr %46, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !47
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw [64 x i16], ptr %50, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i16, ptr %50, i64 %131
   store i16 %127, ptr %132, align 2, !tbaa !71
   %.not60.i = icmp ne i32 %.051.i, 0
   %133 = add nuw nsw i32 %121, 1
@@ -1311,7 +1311,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
 139:                                              ; preds = %138
   %140 = load i8, ptr %46, align 1, !tbaa !47
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw [64 x i16], ptr %50, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i16, ptr %50, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !71
   %144 = shl i16 %143, 1
   store i16 %144, ptr %142, align 2, !tbaa !71
@@ -1321,21 +1321,21 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %145 = getelementptr inbounds nuw i8, ptr %.val, i64 129
   %146 = load i8, ptr %145, align 1, !tbaa !47
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds nuw [64 x i16], ptr %50, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i16, ptr %50, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !71
   %150 = shl i16 %149, 1
   store i16 %150, ptr %148, align 2, !tbaa !71
   %151 = getelementptr inbounds nuw i8, ptr %.val, i64 136
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [64 x i16], ptr %50, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i16, ptr %50, i64 %153
   %155 = load i16, ptr %154, align 2, !tbaa !71
   %156 = shl i16 %155, 1
   store i16 %156, ptr %154, align 2, !tbaa !71
   %157 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %158 = load i8, ptr %157, align 1, !tbaa !47
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw [64 x i16], ptr %50, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i16, ptr %50, i64 %159
   %161 = load i16, ptr %160, align 2, !tbaa !71
   %162 = shl i16 %161, 1
   store i16 %162, ptr %160, align 2, !tbaa !71

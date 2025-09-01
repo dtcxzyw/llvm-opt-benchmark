@@ -256,7 +256,7 @@ define hidden void @_ZN10serde_json2de10from_trait17h0c9e5f1d9c5eb928E(ptr noali
 23:                                               ; preds = %27, %.lr.ph.i.i
   %24 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %28, %27 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %25 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds i8, ptr %22, i64 %24
   %26 = load i8, ptr %25, align 1, !noalias !26, !noundef !4
   switch i8 %26, label %29 [
     i8 32, label %27
@@ -417,7 +417,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %21 = phi i64 [ %12, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit.lr.ph" ], [ %73, %.critedge24 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %22 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 %21
+  %22 = getelementptr inbounds i8, ptr %16, i64 %21
   %23 = load i8, ptr %22, align 1, !noalias !63, !noundef !4
   %24 = add i8 %23, -48
   %or.cond = icmp ult i8 %24, 10
@@ -598,7 +598,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !alias.scope !73, !noalias !76, !nonnull !4, !align !24, !noundef !4
-  %20 = getelementptr inbounds [0 x i8], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds i8, ptr %19, i64 %13
   %21 = load i8, ptr %20, align 1, !noalias !78, !noundef !4
   %22 = add nuw i64 %13, 1
   store i64 %22, ptr %12, align 8, !alias.scope !73, !noalias !76
@@ -625,7 +625,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br i1 %or.cond1, label %57, label %54
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit": ; preds = %27
-  %30 = getelementptr inbounds [0 x i8], ptr %19, i64 0, i64 %22
+  %30 = getelementptr inbounds i8, ptr %19, i64 %22
   %31 = load i8, ptr %30, align 1, !noalias !79, !noundef !4
   %32 = add i8 %31, -48
   %or.cond = icmp ult i8 %32, 10
@@ -729,7 +729,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit28": ; preds = %57, %.critedge23
   %.062 = phi i64 [ %95, %.critedge23 ], [ %59, %57 ]
   %60 = phi i64 [ %93, %.critedge23 ], [ %22, %57 ]
-  %61 = getelementptr inbounds [0 x i8], ptr %19, i64 0, i64 %60
+  %61 = getelementptr inbounds i8, ptr %19, i64 %60
   %62 = load i8, ptr %61, align 1, !noalias !92, !noundef !4
   %63 = add i8 %62, -48
   %or.cond2 = icmp ult i8 %63, 10
@@ -877,7 +877,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit": ; preds = %5
   %16 = load ptr, ptr %10, align 8, !alias.scope !117, !noalias !118, !nonnull !4, !align !24, !noundef !4
-  %17 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 %13
+  %17 = getelementptr inbounds i8, ptr %16, i64 %13
   %18 = load i8, ptr %17, align 1, !noalias !121, !noundef !4
   switch i8 %18, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit.thread" [
     i8 43, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit.thread.sink.split"
@@ -902,7 +902,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 23:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit.thread"
   %24 = load ptr, ptr %10, align 8, !alias.scope !122, !noalias !125, !nonnull !4, !align !24, !noundef !4
-  %25 = getelementptr inbounds [0 x i8], ptr %24, i64 0, i64 %21
+  %25 = getelementptr inbounds i8, ptr %24, i64 %21
   %26 = load i8, ptr %25, align 1, !noalias !127, !noundef !4
   %27 = add nuw i64 %21, 1
   store i64 %27, ptr %11, align 8, !alias.scope !122, !noalias !125
@@ -941,7 +941,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit29": ; preds = %35, %.critedge25
   %.01047 = phi i32 [ %81, %.critedge25 ], [ %36, %35 ]
   %38 = phi i64 [ %43, %.critedge25 ], [ %27, %35 ]
-  %39 = getelementptr inbounds [0 x i8], ptr %24, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr %24, i64 %38
   %40 = load i8, ptr %39, align 1, !noalias !128, !noundef !4
   %41 = add i8 %40, -48
   %or.cond1 = icmp ult i8 %41, 10
@@ -1081,7 +1081,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   %.016 = phi i32 [ 0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit.lr.ph" ], [ %20, %18 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %14 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !157, !noundef !4
   %16 = add i8 %15, -48
   %or.cond = icmp ult i8 %16, 10
@@ -1209,7 +1209,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   %14 = phi i64 [ %11, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit.lr.ph" ], [ %19, %18 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  %15 = getelementptr inbounds [0 x i8], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1, !noalias !180, !noundef !4
   %17 = add i8 %16, -48
   %or.cond = icmp ult i8 %17, 10
@@ -1348,7 +1348,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
   %17 = phi i64 [ %10, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h001d836c47e53b45E.exit.lr.ph" ], [ %23, %22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %18 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr %12, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !203, !noundef !4
   %20 = add i8 %19, -48
   %or.cond = icmp ult i8 %20, 10
@@ -1484,7 +1484,7 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
 69:                                               ; preds = %73, %.lr.ph.i
   %70 = phi i64 [ %.promoted.i60, %.lr.ph.i ], [ %74, %73 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222), !noalias !207
-  %71 = getelementptr inbounds [0 x i8], ptr %68, i64 0, i64 %70
+  %71 = getelementptr inbounds i8, ptr %68, i64 %70
   %72 = load i8, ptr %71, align 1, !noalias !223, !noundef !4
   switch i8 %72, label %77 [
     i8 32, label %73
@@ -1549,7 +1549,7 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
 
 88:                                               ; preds = %84
   %.sroa.0.0.i55.add = add nuw nsw i64 %.sroa.0.0.i55.idx, 1
-  %89 = getelementptr inbounds [0 x i8], ptr %68, i64 0, i64 %82
+  %89 = getelementptr inbounds i8, ptr %68, i64 %82
   %90 = load i8, ptr %89, align 1, !noalias !241, !noundef !4
   %91 = add nuw i64 %82, 1
   store i64 %91, ptr %63, align 8, !alias.scope !243, !noalias !244
@@ -1592,7 +1592,7 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
 
 104:                                              ; preds = %100
   %.sroa.0.0.i49.add = add nuw nsw i64 %.sroa.0.0.i49.idx, 1
-  %105 = getelementptr inbounds [0 x i8], ptr %68, i64 0, i64 %98
+  %105 = getelementptr inbounds i8, ptr %68, i64 %98
   %106 = load i8, ptr %105, align 1, !noalias !259, !noundef !4
   %107 = add nuw i64 %98, 1
   store i64 %107, ptr %63, align 8, !alias.scope !261, !noalias !262
@@ -1635,7 +1635,7 @@ define internal fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de.
 
 120:                                              ; preds = %116
   %.sroa.0.0.i.add = add nuw nsw i64 %.sroa.0.0.i.idx, 1
-  %121 = getelementptr inbounds [0 x i8], ptr %68, i64 0, i64 %114
+  %121 = getelementptr inbounds i8, ptr %68, i64 %114
   %122 = load i8, ptr %121, align 1, !noalias !277, !noundef !4
   %123 = add nuw i64 %114, 1
   store i64 %123, ptr %63, align 8, !alias.scope !279, !noalias !280
@@ -1832,7 +1832,7 @@ _ZN10serde_json2de12ParserNumber5visit17he559ebf9a20d4e5bE.exit42: ; preds = %15
 184:                                              ; preds = %188, %.lr.ph.i.i89
   %185 = phi i64 [ %.promoted.i.i86511, %.lr.ph.i.i89 ], [ %189, %188 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !320), !noalias !310
-  %186 = getelementptr inbounds [0 x i8], ptr %183, i64 0, i64 %185
+  %186 = getelementptr inbounds i8, ptr %183, i64 %185
   %187 = load i8, ptr %186, align 1, !noalias !321, !noundef !4
   switch i8 %187, label %191 [
     i8 32, label %188
@@ -1876,7 +1876,7 @@ _ZN10serde_json2de12ParserNumber5visit17he559ebf9a20d4e5bE.exit42: ; preds = %15
 
 .lr.ph.i15.i:                                     ; preds = %195, %201
   %198 = phi i64 [ %202, %201 ], [ %196, %195 ]
-  %199 = getelementptr inbounds [0 x i8], ptr %183, i64 0, i64 %198
+  %199 = getelementptr inbounds i8, ptr %183, i64 %198
   %200 = load i8, ptr %199, align 1, !noalias !333, !noundef !4
   switch i8 %200, label %.thread239 [
     i8 32, label %201
@@ -2061,7 +2061,7 @@ common.resume:                                    ; preds = %.body, %425, %.body
 237:                                              ; preds = %241, %.lr.ph.i.i15
   %238 = phi i64 [ %.promoted.i.i12, %.lr.ph.i.i15 ], [ %242, %241 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !366), !noalias !207
-  %239 = getelementptr inbounds [0 x i8], ptr %236, i64 0, i64 %238
+  %239 = getelementptr inbounds i8, ptr %236, i64 %238
   %240 = load i8, ptr %239, align 1, !noalias !367, !noundef !4
   switch i8 %240, label %244 [
     i8 32, label %241
@@ -2109,7 +2109,7 @@ common.resume:                                    ; preds = %.body, %425, %.body
 
 .lr.ph.i10.i:                                     ; preds = %246, %252
   %249 = phi i64 [ %253, %252 ], [ %247, %246 ]
-  %250 = getelementptr inbounds [0 x i8], ptr %236, i64 0, i64 %249
+  %250 = getelementptr inbounds i8, ptr %236, i64 %249
   %251 = load i8, ptr %250, align 1, !noalias !380, !noundef !4
   switch i8 %251, label %256 [
     i8 32, label %252
@@ -2300,7 +2300,7 @@ common.resume:                                    ; preds = %.body, %425, %.body
 
 .lr.ph.i.i.i:                                     ; preds = %299, %306
   %303 = phi i64 [ %307, %306 ], [ %300, %299 ]
-  %304 = getelementptr inbounds [0 x i8], ptr %68, i64 0, i64 %303
+  %304 = getelementptr inbounds i8, ptr %68, i64 %303
   %305 = load i8, ptr %304, align 1, !noalias !412, !noundef !4
   switch i8 %305, label %.thread.i.i [
     i8 32, label %306
@@ -2490,7 +2490,7 @@ _ZN5serde2de9MapAccess10next_value17h9b91f22ac98e543fE.exit.i: ; preds = %324
 347:                                              ; preds = %351, %.lr.ph.i.i.i68
   %348 = phi i64 [ %.promoted.i.i.i62507, %.lr.ph.i.i.i68 ], [ %352, %351 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !478), !noalias !443
-  %349 = getelementptr inbounds [0 x i8], ptr %346, i64 0, i64 %348
+  %349 = getelementptr inbounds i8, ptr %346, i64 %348
   %350 = load i8, ptr %349, align 1, !noalias !479, !noundef !4
   switch i8 %350, label %.loopexit35.i.i [
     i8 32, label %351
@@ -2526,7 +2526,7 @@ _ZN5serde2de9MapAccess10next_value17h9b91f22ac98e543fE.exit.i: ; preds = %324
 
 .lr.ph.i15.i.i69:                                 ; preds = %354, %360
   %357 = phi i64 [ %361, %360 ], [ %355, %354 ]
-  %358 = getelementptr inbounds [0 x i8], ptr %346, i64 0, i64 %357
+  %358 = getelementptr inbounds i8, ptr %346, i64 %357
   %359 = load i8, ptr %358, align 1, !noalias !491, !noundef !4
   switch i8 %359, label %364 [
     i8 32, label %360
@@ -2621,7 +2621,7 @@ _ZN5serde2de9MapAccess10next_value17h9b91f22ac98e543fE.exit.i: ; preds = %324
 376:                                              ; preds = %380, %.lr.ph.i.i11.i
   %377 = phi i64 [ %.promoted.i.i9.i, %.lr.ph.i.i11.i ], [ %381, %380 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !524), !noalias !443
-  %378 = getelementptr inbounds [0 x i8], ptr %375, i64 0, i64 %377
+  %378 = getelementptr inbounds i8, ptr %375, i64 %377
   %379 = load i8, ptr %378, align 1, !noalias !525, !noundef !4
   switch i8 %379, label %383 [
     i8 32, label %380
@@ -2827,7 +2827,7 @@ _ZN5serde2de9MapAccess10next_entry17h6e73c26337fa9732E.exit.i: ; preds = %"_ZN75
 414:                                              ; preds = %418, %.lr.ph.i.i
   %415 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %419, %418 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !575), !noalias !207
-  %416 = getelementptr inbounds [0 x i8], ptr %413, i64 0, i64 %415
+  %416 = getelementptr inbounds i8, ptr %413, i64 %415
   %417 = load i8, ptr %416, align 1, !noalias !576, !noundef !4
   switch i8 %417, label %421 [
     i8 32, label %418
@@ -5054,7 +5054,7 @@ define internal fastcc void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$a
 12:                                               ; preds = %16, %.lr.ph.i.i
   %13 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %17, %16 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !847)
-  %14 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !848, !noundef !4
   switch i8 %15, label %19 [
     i8 32, label %16
@@ -6022,7 +6022,7 @@ define void @"_ZN6diesel5mysql5types13date_and_time6chrono163_$LT$impl$u20$diese
 8:                                                ; preds = %3
   %9 = lshr i32 %6, 3
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [733 x i8], ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.29, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.29, i64 %10
   %12 = load i8, ptr %11, align 1, !noalias !1015, !noundef !4
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 3
@@ -6110,7 +6110,7 @@ define void @"_ZN6diesel5mysql5types13date_and_time6chrono161_$LT$impl$u20$diese
 8:                                                ; preds = %3
   %9 = lshr i32 %6, 3
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [733 x i8], ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.29, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.29, i64 %10
   %12 = load i8, ptr %11, align 1, !noundef !4
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 3
@@ -8393,10 +8393,10 @@ define noundef zeroext i1 @"_ZN106_$LT$diesel..sqlite..connection..bind_collecto
 switch.lookup:
   %2 = load i32, ptr %0, align 8, !range !597, !noundef !4
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN106_$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$u20$as$u20$core..fmt..Display$GT$3fmt17hb5e1349dd87fc4d4E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN106_$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$u20$as$u20$core..fmt..Display$GT$3fmt17hb5e1349dd87fc4d4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN106_$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$u20$as$u20$core..fmt..Display$GT$3fmt17hb5e1349dd87fc4d4E.14", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN106_$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$u20$as$u20$core..fmt..Display$GT$3fmt17hb5e1349dd87fc4d4E.14", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -2259,7 +2259,7 @@ define dso_local void @tag_pages_for_writeback(ptr noundef %0, i64 noundef %1, i
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %55 = getelementptr [64 x ptr], ptr %54, i64 0, i64 %48
+  %55 = getelementptr ptr, ptr %54, i64 %48
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %.critedge5.backedge
@@ -2362,7 +2362,7 @@ define dso_local i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr noun
 47:                                               ; preds = %137, %45
   %48 = phi i64 [ 0, %45 ], [ %139, %137 ]
   %49 = phi i32 [ %39, %45 ], [ %138, %137 ]
-  %50 = getelementptr [15 x ptr], ptr %38, i64 0, i64 %48
+  %50 = getelementptr ptr, ptr %38, i64 %48
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load i64, ptr %52, align 16
@@ -2727,18 +2727,18 @@ define dso_local zeroext i1 @folio_clear_dirty_for_io(ptr noundef %0) #0 align 1
   %49 = phi i64 [ %47, %44 ], [ 1, %40 ]
   %50 = sub nsw i64 0, %49
   %51 = lshr i64 %41, 58
-  %52 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %51
+  %52 = getelementptr ptr, ptr @node_data, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = shl i64 %50, 32
   %55 = ashr exact i64 %54, 32
   tail call void @mod_node_page_state(ptr noundef %53, i32 noundef 20, i64 noundef %55) #11
   %56 = load i64, ptr %0, align 16
   %57 = lshr i64 %56, 58
-  %58 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %57
+  %58 = getelementptr ptr, ptr @node_data, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = lshr i64 %56, 56
   %61 = and i64 %60, 3
-  %62 = getelementptr [4 x %struct.zone], ptr %59, i64 0, i64 %61
+  %62 = getelementptr %struct.zone, ptr %59, i64 %61
   tail call void @mod_zone_page_state(ptr noundef %62, i32 noundef 6, i64 noundef %50) #11
   %63 = load i32, ptr @nr_cpu_ids, align 4
   %64 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %63, i32 -1) #12, !srcloc !22
@@ -2845,7 +2845,7 @@ define dso_local i32 @do_writepages(ptr noundef %0, ptr noundef %1) local_unname
 51:                                               ; preds = %48
   %52 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #12, !srcloc !65
   %53 = sext i32 %52 to i64
-  %54 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %53
+  %54 = getelementptr ptr, ptr @node_data, i64 %53
   %55 = load ptr, ptr %54, align 8
   call void @reclaim_throttle(ptr noundef %55, i32 noundef 0) #11
   br label %33, !llvm.loop !66
@@ -2960,18 +2960,18 @@ define dso_local void @folio_account_cleaned(ptr noundef %0, ptr noundef %1) loc
   %11 = phi i64 [ %9, %6 ], [ 1, %2 ]
   %12 = sub nsw i64 0, %11
   %13 = lshr i64 %3, 58
-  %14 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr @node_data, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = shl i64 %12, 32
   %17 = ashr exact i64 %16, 32
   tail call void @mod_node_page_state(ptr noundef %15, i32 noundef 20, i64 noundef %17) #11
   %18 = load i64, ptr %0, align 16
   %19 = lshr i64 %18, 58
-  %20 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr @node_data, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = lshr i64 %18, 56
   %23 = and i64 %22, 3
-  %24 = getelementptr [4 x %struct.zone], ptr %21, i64 0, i64 %23
+  %24 = getelementptr %struct.zone, ptr %21, i64 %23
   tail call void @mod_zone_page_state(ptr noundef %24, i32 noundef 6, i64 noundef %12) #11
   %25 = load i32, ptr @nr_cpu_ids, align 4
   %26 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %25, i32 -1) #12, !srcloc !22
@@ -3086,22 +3086,22 @@ define dso_local void @__folio_mark_dirty(ptr noundef %0, ptr noundef %1, i32 no
   %57 = trunc nuw i64 %55 to i32
   %58 = load i64, ptr %0, align 16
   %59 = lshr i64 %58, 58
-  %60 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %59
+  %60 = getelementptr ptr, ptr @node_data, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = shl nuw i64 %55, 32
   %63 = ashr exact i64 %62, 32
   tail call void @__mod_node_page_state(ptr noundef %61, i32 noundef 20, i64 noundef %63) #11
   %64 = load i64, ptr %0, align 16
   %65 = lshr i64 %64, 58
-  %66 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %65
+  %66 = getelementptr ptr, ptr @node_data, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = lshr i64 %64, 56
   %69 = and i64 %68, 3
-  %70 = getelementptr [4 x %struct.zone], ptr %67, i64 0, i64 %69
+  %70 = getelementptr %struct.zone, ptr %67, i64 %69
   tail call void @__mod_zone_page_state(ptr noundef %70, i32 noundef 6, i64 noundef %55) #11
   %71 = load i64, ptr %0, align 16
   %72 = lshr i64 %71, 58
-  %73 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %72
+  %73 = getelementptr ptr, ptr @node_data, i64 %72
   %74 = load ptr, ptr %73, align 8
   tail call void @__mod_node_page_state(ptr noundef %74, i32 noundef 31, i64 noundef %55) #11
   %75 = load i32, ptr @nr_cpu_ids, align 4
@@ -3263,7 +3263,7 @@ define dso_local noundef zeroext i1 @folio_redirty_for_writepage(ptr noundef cap
   %46 = sub nsw i64 0, %13
   %47 = load i64, ptr %1, align 16
   %48 = lshr i64 %47, 58
-  %49 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %48
+  %49 = getelementptr ptr, ptr @node_data, i64 %48
   %50 = load ptr, ptr %49, align 8
   tail call void @mod_node_page_state(ptr noundef %50, i32 noundef 31, i64 noundef %46) #11
   %51 = load i32, ptr @nr_cpu_ids, align 4
@@ -3426,18 +3426,18 @@ folio_account_cleaned.exit:                       ; preds = %15, %19
   %23 = phi i64 [ %22, %19 ], [ 1, %15 ]
   %24 = sub nsw i64 0, %23
   %25 = lshr i64 %16, 58
-  %26 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %25
+  %26 = getelementptr ptr, ptr @node_data, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = shl i64 %24, 32
   %29 = ashr exact i64 %28, 32
   tail call void @mod_node_page_state(ptr noundef %27, i32 noundef 20, i64 noundef %29) #11
   %30 = load i64, ptr %0, align 16
   %31 = lshr i64 %30, 58
-  %32 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %31
+  %32 = getelementptr ptr, ptr @node_data, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = lshr i64 %30, 56
   %35 = and i64 %34, 3
-  %36 = getelementptr [4 x %struct.zone], ptr %33, i64 0, i64 %35
+  %36 = getelementptr %struct.zone, ptr %33, i64 %35
   tail call void @mod_zone_page_state(ptr noundef %36, i32 noundef 6, i64 noundef %24) #11
   %37 = load i32, ptr @nr_cpu_ids, align 4
   %38 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %37, i32 -1) #12, !srcloc !22
@@ -3621,22 +3621,22 @@ define dso_local zeroext i1 @__folio_end_writeback(ptr noundef %0) local_unnamed
   %102 = sub nsw i64 0, %10
   %103 = load i64, ptr %0, align 16
   %104 = lshr i64 %103, 58
-  %105 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %104
+  %105 = getelementptr ptr, ptr @node_data, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = shl i64 %102, 32
   %108 = ashr exact i64 %107, 32
   tail call void @mod_node_page_state(ptr noundef %106, i32 noundef 21, i64 noundef %108) #11
   %109 = load i64, ptr %0, align 16
   %110 = lshr i64 %109, 58
-  %111 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %110
+  %111 = getelementptr ptr, ptr @node_data, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = lshr i64 %109, 56
   %114 = and i64 %113, 3
-  %115 = getelementptr [4 x %struct.zone], ptr %112, i64 0, i64 %114
+  %115 = getelementptr %struct.zone, ptr %112, i64 %114
   tail call void @mod_zone_page_state(ptr noundef %115, i32 noundef 6, i64 noundef %102) #11
   %116 = load i64, ptr %0, align 16
   %117 = lshr i64 %116, 58
-  %118 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %117
+  %118 = getelementptr ptr, ptr @node_data, i64 %117
   %119 = load ptr, ptr %118, align 8
   tail call void @mod_node_page_state(ptr noundef %119, i32 noundef 32, i64 noundef %10) #11
   ret i1 %101
@@ -3786,18 +3786,18 @@ define dso_local void @__folio_start_writeback(ptr noundef %0, i1 noundef zeroex
 80:                                               ; preds = %77, %75
   %81 = load i64, ptr %0, align 16
   %82 = lshr i64 %81, 58
-  %83 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %82
+  %83 = getelementptr ptr, ptr @node_data, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = shl nuw i64 %12, 32
   %86 = ashr exact i64 %85, 32
   call void @mod_node_page_state(ptr noundef %84, i32 noundef 21, i64 noundef %86) #11
   %87 = load i64, ptr %0, align 16
   %88 = lshr i64 %87, 58
-  %89 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %88
+  %89 = getelementptr ptr, ptr @node_data, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = lshr i64 %87, 56
   %92 = and i64 %91, 3
-  %93 = getelementptr [4 x %struct.zone], ptr %90, i64 0, i64 %92
+  %93 = getelementptr %struct.zone, ptr %90, i64 %92
   call void @mod_zone_page_state(ptr noundef %93, i32 noundef 6, i64 noundef %12) #11
   %94 = load volatile i64, ptr %0, align 16
   ret void

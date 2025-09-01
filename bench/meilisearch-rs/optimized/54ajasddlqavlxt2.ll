@@ -242,7 +242,7 @@ default.unreachable.i.i.i:                        ; preds = %44
 _ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit.i.i: ; preds = %49
   %58 = icmp ne ptr %.sroa.0.sroa.8.0.copyload.i.i, null
   call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 0, i64 %56
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %56
   %60 = load i8, ptr %59, align 1, !noalias !33, !noundef !4
   %61 = and i8 %.sroa.0.sroa.17.0.copyload.i.i, 15
   %62 = zext nneg i8 %61 to i64
@@ -365,13 +365,13 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i: ; pred
 111:                                              ; preds = %108
   %112 = icmp ne ptr %.sroa.0.sroa.8.0.copyload.i.i, null
   call void @llvm.assume(i1 %112)
-  %113 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 0, i64 %109
+  %113 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %109
   br label %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i
 
 114:                                              ; preds = %105
-  %115 = add nsw i8 %106, -1
-  %116 = zext nneg i8 %115 to i64
-  %117 = getelementptr inbounds nuw [256 x i8], ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 0, i64 %116
+  %115 = zext nneg i8 %106 to i64
+  %116 = getelementptr i8, ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 %115
+  %117 = getelementptr i8, ptr %116, i64 -1
   br label %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i
 
 _ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i: ; preds = %114, %111
@@ -393,7 +393,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i: ; preds 
 125:                                              ; preds = %122
   %126 = icmp ne ptr %.sroa.0.sroa.8.0.copyload.i.i, null
   call void @llvm.assume(i1 %126)
-  %127 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 0, i64 %123
+  %127 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %123
   br label %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i
 
 .invoke412:                                       ; preds = %122, %108, %49
@@ -406,9 +406,9 @@ _ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i: ; preds 
   unreachable
 
 130:                                              ; preds = %119
-  %131 = add nsw i8 %120, -1
-  %132 = zext nneg i8 %131 to i64
-  %133 = getelementptr inbounds nuw [256 x i8], ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 0, i64 %132
+  %131 = zext nneg i8 %120 to i64
+  %132 = getelementptr i8, ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 %131
+  %133 = getelementptr i8, ptr %132, i64 -1
   br label %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i
 
 _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i: ; preds = %130, %125
@@ -1008,13 +1008,13 @@ default.unreachable:                              ; preds = %60
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %13, align 8, !noalias !119, !nonnull !4, !align !67, !noundef !4
-  %74 = getelementptr inbounds [0 x i8], ptr %73, i64 0, i64 %69
+  %74 = getelementptr inbounds i8, ptr %73, i64 %69
   br label %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i
 
 75:                                               ; preds = %64
-  %76 = add nsw i8 %65, -1
-  %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 0, i64 %77
+  %76 = zext nneg i8 %65 to i64
+  %77 = getelementptr i8, ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 -1
   br label %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i
 
 _ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i: ; preds = %75, %72
@@ -1038,13 +1038,13 @@ _ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i: ; preds 
 
 88:                                               ; preds = %83
   %89 = load ptr, ptr %13, align 8, !noalias !119, !nonnull !4, !align !67, !noundef !4
-  %90 = getelementptr inbounds [0 x i8], ptr %89, i64 0, i64 %85
+  %90 = getelementptr inbounds i8, ptr %89, i64 %85
   br label %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i
 
 91:                                               ; preds = %80
-  %92 = add nsw i8 %81, -1
-  %93 = zext nneg i8 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 0, i64 %93
+  %92 = zext nneg i8 %81 to i64
+  %93 = getelementptr i8, ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 -1
   br label %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i
 
 _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i: ; preds = %91, %88
@@ -1116,29 +1116,29 @@ _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i: ; preds = %9
   br i1 %128, label %278, label %.invoke1138.i, !prof !32
 
 129:                                              ; preds = %._crit_edge.i
-  %130 = add i64 %58, -1
   %.val69.i = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !alias.scope !110, !noalias !113, !nonnull !4, !noundef !4
-  %131 = getelementptr inbounds [0 x { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }], ptr %.val69.i, i64 0, i64 %130
+  %130 = getelementptr { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }, ptr %.val69.i, i64 %58
+  %131 = getelementptr i8, ptr %130, i64 -80
   br i1 %switch346.i, label %270, label %132
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %133 = getelementptr i8, ptr %130, i64 -64
   %.sroa.0277.0.copyload.i = load ptr, ptr %133, align 8, !noalias !113
-  %.sroa.10284.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %.sroa.10284.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -56
   %.sroa.10284.0.copyload.i = load i64, ptr %.sroa.10284.0..sroa_idx.i, align 8, !noalias !113
-  %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %.sroa.17.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -48
   %.sroa.17.0.copyload.i = load i64, ptr %.sroa.17.0..sroa_idx.i, align 8, !noalias !113
-  %.sroa.20.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %.sroa.20.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -40
   %.sroa.20.0.copyload.i = load i64, ptr %.sroa.20.0..sroa_idx.i, align 8, !noalias !113
-  %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 48
+  %.sroa.27.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -32
   %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !113
-  %.sroa.30.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 56
+  %.sroa.30.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -24
   %.sroa.30.0.copyload.i = load i64, ptr %.sroa.30.0..sroa_idx.i, align 8, !noalias !113
-  %.sroa.33303.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 72
+  %.sroa.33303.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -8
   %.sroa.33303.0.copyload.i = load i8, ptr %.sroa.33303.0..sroa_idx.i, align 8, !noalias !113
-  %.sroa.34.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 73
+  %.sroa.34.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -7
   %.sroa.34.0.copyload.i = load i8, ptr %.sroa.34.0..sroa_idx.i, align 1, !noalias !113
-  %.sroa.37.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 74
+  %.sroa.37.0..sroa_idx.i = getelementptr i8, ptr %130, i64 -6
   %.sroa.37.0.copyload.i = load i8, ptr %.sroa.37.0..sroa_idx.i, align 2, !noalias !113
   %134 = load i64, ptr %131, align 8, !noalias !113, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5311.i)
@@ -1481,7 +1481,7 @@ _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i: ; preds = %.noexc3
 
 278:                                              ; preds = %123
   %279 = load ptr, ptr %13, align 8, !noalias !119, !nonnull !4, !align !67, !noundef !4
-  %280 = getelementptr inbounds [0 x i8], ptr %279, i64 0, i64 %127
+  %280 = getelementptr inbounds i8, ptr %279, i64 %127
   %281 = load i8, ptr %280, align 1, !noalias !170, !noundef !4
   %282 = zext i8 %281 to i64
   %.not.i.i.i = icmp ugt i64 %100, %282
@@ -1539,11 +1539,11 @@ _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i: ; preds = %.noexc3
   %311 = select i1 %or.cond.i.i.i.i, i64 -257, i64 -1
   %312 = icmp ult i64 %302, %292
   %313 = icmp ne i8 %287, 0
-  %314 = getelementptr inbounds [0 x i8], ptr %293, i64 0, i64 %302
+  %314 = getelementptr inbounds i8, ptr %293, i64 %302
   %315 = icmp uge i64 %302, %292
-  %316 = add nsw i8 %287, -1
-  %317 = zext nneg i8 %316 to i64
-  %318 = getelementptr inbounds nuw [256 x i8], ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 0, i64 %317
+  %316 = zext nneg i8 %287 to i64
+  %317 = getelementptr i8, ptr @anon.e9210886d2176cd81ab0181827bc3854.19, i64 %316
+  %318 = getelementptr i8, ptr %317, i64 -1
   %narrow.i.i.i.i = add nuw nsw i8 %298, 1
   %319 = zext nneg i8 %narrow.i.i.i.i to i64
   %brmerge610.not.i = select i1 %288, i1 %315, i1 false
@@ -1581,7 +1581,7 @@ _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i: ; preds = %.noexc3
   br i1 %332, label %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit.i.i.i, label %.invoke1138.i, !prof !32
 
 _ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit.i.i.i: ; preds = %331
-  %333 = getelementptr inbounds [0 x i8], ptr %293, i64 0, i64 %.reass.i
+  %333 = getelementptr inbounds i8, ptr %293, i64 %.reass.i
   %334 = load i8, ptr %333, align 1, !noalias !172, !noundef !4
   br i1 %297, label %_ZN3fst3raw4node13StateAnyTrans6output17he05c692fa0ca8c51E.exit.i.i.i, label %335
 
@@ -2271,7 +2271,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..in_pla
 
 11:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit.i.i", %.lr.ph.i.i
   %.sroa.0.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %13, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit.i.i" ]
-  %12 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.sroa.0.07.i.i
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.07.i.i
   %13 = add nuw i64 %.sroa.0.07.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !253
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
@@ -2308,7 +2308,7 @@ define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..in_pla
   br label %22
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.sroa.0.1.i.i
+  %27 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.1.i.i
   %28 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #24
           to label %22 unwind label %29, !noalias !250
@@ -3707,7 +3707,7 @@ define noundef range(i8 0, 35) i8 @_ZN17meilisearch_types4keys6Action9from_repr1
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [34 x i8], ptr @switch.table._ZN17meilisearch_types4keys6Action9from_repr17ha326ea39f7c2c7a6E, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17meilisearch_types4keys6Action9from_repr17ha326ea39f7c2c7a6E, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -3759,7 +3759,7 @@ define noundef range(i8 0, 35) i8 @"_ZN17meilisearch_types4keys1_85_$LT$impl$u20
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !446, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [34 x i8], ptr @"switch.table._ZN17meilisearch_types4keys1_85_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..keys..Action$GT$8previous17h140e0a0e3c659edeE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN17meilisearch_types4keys1_85_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..keys..Action$GT$8previous17h140e0a0e3c659edeE", i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

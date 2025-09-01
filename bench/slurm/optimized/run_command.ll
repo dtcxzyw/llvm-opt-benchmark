@@ -207,7 +207,7 @@ define dso_local range(i32 -1, 1) i32 @run_command_init(i32 noundef %0, ptr noun
 
 20:                                               ; preds = %17
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %18, i64 4095)
-  %21 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %spec.store.select
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %spec.store.select
   store i8 0, ptr %21, align 1
   %22 = call ptr @xstrdup(ptr noundef nonnull %4) #12
   br label %25

@@ -43,13 +43,13 @@ define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef 
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2199023255552
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %87, label %11
+  br i1 %10, label %85, label %11
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 8) #8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %87, label %15
+  br i1 %14, label %85, label %15
 
 15:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
@@ -58,7 +58,7 @@ define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef 
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %17 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 24) #8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %85, label %19
+  br i1 %18, label %83, label %19
 
 19:                                               ; preds = %15
   %20 = load i16, ptr %1, align 8
@@ -87,114 +87,112 @@ define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef 
   %33 = phi i32 [ 2, %30 ], [ 1, %19 ]
   call void @sg_init_one(ptr noundef nonnull %6, ptr noundef nonnull %13, i32 noundef 8) #9
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr [4 x ptr], ptr %4, i64 0, i64 %34
+  %35 = getelementptr ptr, ptr %4, i64 %34
   store ptr %6, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %43, label %39
+  br i1 %38, label %41, label %39
 
 39:                                               ; preds = %32
-  %40 = add nuw nsw i32 %33, 1
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr [4 x ptr], ptr %4, i64 0, i64 %41
-  store ptr %37, ptr %42, align 8
-  br label %43
+  %40 = getelementptr i8, ptr %35, i64 8
+  store ptr %37, ptr %40, align 8
+  br label %41
 
-43:                                               ; preds = %39, %32
-  %44 = phi i32 [ 2, %39 ], [ 1, %32 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  call void @mutex_lock(ptr noundef nonnull %46) #9
-  %47 = load i16, ptr %1, align 8
+41:                                               ; preds = %39, %32
+  %42 = phi i32 [ 2, %39 ], [ 1, %32 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  call void @mutex_lock(ptr noundef nonnull %44) #9
+  %45 = load i16, ptr %1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !5
-  %48 = load ptr, ptr %45, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %select.unfold, label %50
+  %46 = load ptr, ptr %43, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %select.unfold, label %48
 
-50:                                               ; preds = %43
-  %51 = icmp ugt i16 %47, 1
-  br i1 %51, label %52, label %59
+48:                                               ; preds = %41
+  %49 = icmp ugt i16 %45, 1
+  br i1 %49, label %50, label %57
 
-52:                                               ; preds = %50
-  %53 = zext nneg i16 %47 to i64
-  %54 = shl nuw i64 1, %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %56, %54
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %select.unfold, label %59
+50:                                               ; preds = %48
+  %51 = zext nneg i16 %45 to i64
+  %52 = shl nuw i64 1, %51
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %54 = load i64, ptr %53, align 8
+  %55 = and i64 %54, %52
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %select.unfold, label %57
 
-59:                                               ; preds = %52, %50
-  %60 = call i32 @virtqueue_add_sgs(ptr noundef nonnull %48, ptr noundef nonnull %4, i32 noundef %33, i32 noundef %44, ptr noundef nonnull %4, i32 noundef 3264) #9
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %select.unfold, label %62
+57:                                               ; preds = %50, %48
+  %58 = call i32 @virtqueue_add_sgs(ptr noundef nonnull %46, ptr noundef nonnull %4, i32 noundef %33, i32 noundef %42, ptr noundef nonnull %4, i32 noundef 3264) #9
+  %59 = icmp slt i32 %58, 0
+  br i1 %59, label %select.unfold, label %60
 
-62:                                               ; preds = %59
-  %63 = call zeroext i1 @virtqueue_kick(ptr noundef nonnull %48) #9
-  br i1 %63, label %64, label %select.unfold, !prof !6
+60:                                               ; preds = %57
+  %61 = call zeroext i1 @virtqueue_kick(ptr noundef nonnull %46) #9
+  br i1 %61, label %62, label %select.unfold, !prof !6
 
-64:                                               ; preds = %62
-  %65 = call ptr @virtqueue_get_buf(ptr noundef nonnull %48, ptr noundef nonnull %3) #9
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.preheader, label %.loopexit
+62:                                               ; preds = %60
+  %63 = call ptr @virtqueue_get_buf(ptr noundef nonnull %46, ptr noundef nonnull %3) #9
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %64, %68
-  %67 = call zeroext i1 @virtqueue_is_broken(ptr noundef nonnull %48) #9
-  br i1 %67, label %.loopexit, label %68
+.preheader:                                       ; preds = %62, %66
+  %65 = call zeroext i1 @virtqueue_is_broken(ptr noundef nonnull %46) #9
+  br i1 %65, label %.loopexit, label %66
 
-68:                                               ; preds = %.preheader
+66:                                               ; preds = %.preheader
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %69 = call ptr @virtqueue_get_buf(ptr noundef nonnull %48, ptr noundef nonnull %3) #9
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !8
+  %67 = call ptr @virtqueue_get_buf(ptr noundef nonnull %46, ptr noundef nonnull %3) #9
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %.preheader, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %68, %.preheader, %64
-  %71 = call zeroext i1 @virtqueue_is_broken(ptr noundef nonnull %48) #9
-  br i1 %71, label %select.unfold, label %73
+.loopexit:                                        ; preds = %66, %.preheader, %62
+  %69 = call zeroext i1 @virtqueue_is_broken(ptr noundef nonnull %46) #9
+  br i1 %69, label %select.unfold, label %71
 
-select.unfold:                                    ; preds = %.loopexit, %43, %52, %59, %62
-  %.ph = phi i32 [ -5, %62 ], [ -5, %59 ], [ -95, %52 ], [ -5, %43 ], [ -5, %.loopexit ]
+select.unfold:                                    ; preds = %.loopexit, %41, %50, %57, %60
+  %.ph = phi i32 [ -5, %60 ], [ -5, %57 ], [ -95, %50 ], [ -5, %41 ], [ -5, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @mutex_unlock(ptr noundef nonnull %46) #9
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %72, ptr noundef nonnull @.str, i32 noundef %.ph) #10
-  br label %83
+  call void @mutex_unlock(ptr noundef nonnull %44) #9
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %70, ptr noundef nonnull @.str, i32 noundef %.ph) #10
+  br label %81
 
-73:                                               ; preds = %.loopexit
+71:                                               ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @mutex_unlock(ptr noundef nonnull %46) #9
-  %74 = load i16, ptr %13, align 8
-  %75 = icmp eq i16 %74, 0
-  br i1 %75, label %83, label %76
+  call void @mutex_unlock(ptr noundef nonnull %44) #9
+  %72 = load i16, ptr %13, align 8
+  %73 = icmp eq i16 %72, 0
+  br i1 %73, label %81, label %74
 
-76:                                               ; preds = %73
-  %77 = zext i16 %74 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %80 = load i16, ptr %79, align 2
-  %81 = zext i16 %80 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %78, ptr noundef nonnull @.str.1, i32 noundef %77, i32 noundef %81) #10
-  %82 = sub nsw i32 0, %77
-  br label %83
+74:                                               ; preds = %71
+  %75 = zext i16 %72 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  %78 = load i16, ptr %77, align 2
+  %79 = zext i16 %78 to i32
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %76, ptr noundef nonnull @.str.1, i32 noundef %75, i32 noundef %79) #10
+  %80 = sub nsw i32 0, %75
+  br label %81
 
-83:                                               ; preds = %76, %73, %select.unfold
-  %84 = phi i32 [ %.ph, %select.unfold ], [ %82, %76 ], [ 0, %73 ]
+81:                                               ; preds = %74, %71, %select.unfold
+  %82 = phi i32 [ %.ph, %select.unfold ], [ %80, %74 ], [ 0, %71 ]
   call void @kfree(ptr noundef nonnull %17) #9
+  br label %83
+
+83:                                               ; preds = %81, %15
+  %84 = phi i32 [ %82, %81 ], [ -12, %15 ]
+  call void @kfree(ptr noundef nonnull %13) #9
   br label %85
 
-85:                                               ; preds = %83, %15
-  %86 = phi i32 [ %84, %83 ], [ -12, %15 ]
-  call void @kfree(ptr noundef nonnull %13) #9
-  br label %87
-
-87:                                               ; preds = %85, %11, %2
-  %88 = phi i32 [ %86, %85 ], [ -95, %2 ], [ -12, %11 ]
+85:                                               ; preds = %83, %11, %2
+  %86 = phi i32 [ %84, %83 ], [ -95, %2 ], [ -12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %88
+  ret i32 %86
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -983,7 +981,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr noundef readonly captu
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 920
-  %66 = getelementptr [11 x %struct.resource], ptr %65, i64 0, i64 %64
+  %66 = getelementptr %struct.resource, ptr %65, i64 %64
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %62, %56
   %69 = icmp ult i64 %68, %56

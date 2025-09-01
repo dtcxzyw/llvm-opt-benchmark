@@ -130,7 +130,7 @@ Vec_IntGrow.exit33:                               ; preds = %Vec_IntPush.exit, %
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %46 = call ptr (...) @bmcg_sat_solver_start() #18
-  %47 = getelementptr inbounds nuw [100 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   store ptr %46, ptr %47, align 8, !tbaa !43
   %48 = call i32 @bmcg_sat_solver_addvar(ptr noundef %46) #18
   %49 = load ptr, ptr %47, align 8, !tbaa !43
@@ -261,7 +261,7 @@ Vec_IntErase.exit17:                              ; preds = %Vec_IntErase.exit, 
 33:                                               ; preds = %.lr.ph, %38
   %34 = phi ptr [ %28, %.lr.ph ], [ %39, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %35 = getelementptr inbounds nuw [100 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %38, label %37
@@ -2102,7 +2102,7 @@ define ptr @Bmcg_ManGenerateCex(ptr noundef readonly captures(none) %0, i32 noun
   %23 = getelementptr i8, ptr %0, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = sext i32 %3 to i64
-  %26 = getelementptr inbounds [100 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
   %27 = getelementptr i8, ptr %0, i64 72
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 20
   br label %29

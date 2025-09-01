@@ -27650,7 +27650,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit90:              ; preds = %139, %_ZSt4copyIN9_
   %190 = getelementptr double, ptr %189, i64 %.017.lcssa.i.i96
   %191 = load double, ptr %190, align 8, !tbaa !51
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %192 = getelementptr inbounds [8 x double], ptr %6, i64 0, i64 %indvars.iv
+  %192 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
   store double %191, ptr %192, align 8, !tbaa !51
   %193 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %194 = load i32, ptr %193, align 4, !tbaa !52

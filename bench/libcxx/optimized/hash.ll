@@ -73,577 +73,579 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477: ; preds = %17
   %25 = ptrtoint ptr %.1.i.i.i.i475 to i64
   %26 = sub i64 %25, ptrtoint (ptr @_ZNSt3__112_GLOBAL__N_17indicesE to i64)
   %27 = ashr exact i64 %26, 2
-  br label %28
+  %28 = getelementptr inbounds nuw i8, ptr @_ZNSt3__112_GLOBAL__N_17indicesE, i64 %26
+  br label %29
 
-28:                                               ; preds = %.thread500, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477
-  %spec.select468.sink = phi i64 [ %spec.select468, %.thread500 ], [ %27, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477 ]
-  %.sink = phi i64 [ %381, %.thread500 ], [ %16, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477 ]
+29:                                               ; preds = %.thread500, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477
+  %.sink617.in = phi ptr [ %381, %.thread500 ], [ %28, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477 ]
+  %.sink = phi i64 [ %380, %.thread500 ], [ %16, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477 ]
   %.0318 = phi i64 [ %spec.select, %.thread500 ], [ %15, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477 ]
-  %29 = getelementptr inbounds nuw [48 x i32], ptr @_ZNSt3__112_GLOBAL__N_17indicesE, i64 0, i64 %spec.select468.sink
-  %30 = load i32, ptr %29, align 4, !tbaa !4
-  %31 = zext i32 %30 to i64
-  %32 = add i64 %.sink, %31
-  br label %35
-
-33:                                               ; preds = %41
-  %34 = add nuw nsw i64 %.0315509, 1
-  %exitcond.not = icmp eq i64 %34, 47
-  br i1 %exitcond.not, label %.preheader504, label %35, !llvm.loop !10
-
-35:                                               ; preds = %28, %33
-  %.0315509 = phi i64 [ 5, %28 ], [ %34, %33 ]
-  %36 = getelementptr inbounds nuw [48 x i32], ptr @_ZNSt3__112_GLOBAL__N_112small_primesE, i64 0, i64 %.0315509
-  %37 = load i32, ptr %36, align 4, !tbaa !4
-  %38 = zext i32 %37 to i64
-  %39 = udiv i64 %32, %38
-  %40 = icmp ult i64 %39, %38
-  br i1 %40, label %.thread485, label %41
-
-41:                                               ; preds = %35
-  %42 = mul i64 %39, %38
-  %.not.not = icmp eq i64 %32, %42
-  br i1 %.not.not, label %.thread500, label %33
-
-.preheader504:                                    ; preds = %33, %374
-  %.0 = phi i64 [ %377, %374 ], [ 211, %33 ]
-  %43 = udiv i64 %32, %.0
-  %44 = icmp ult i64 %43, %.0
-  br i1 %44, label %.thread485, label %45
-
-45:                                               ; preds = %.preheader504
-  %46 = mul nuw i64 %43, %.0
-  %47 = icmp eq i64 %32, %46
-  br i1 %47, label %.thread500, label %48
-
-48:                                               ; preds = %45
-  %49 = add i64 %.0, 10
-  %50 = udiv i64 %32, %49
-  %51 = icmp ult i64 %50, %49
-  br i1 %51, label %.thread485, label %52
-
-52:                                               ; preds = %48
-  %53 = mul nuw i64 %50, %49
-  %54 = icmp eq i64 %32, %53
-  br i1 %54, label %.thread500, label %55
-
-55:                                               ; preds = %52
-  %56 = add i64 %.0, 12
-  %57 = udiv i64 %32, %56
-  %58 = icmp ult i64 %57, %56
-  br i1 %58, label %.thread485, label %59
-
-59:                                               ; preds = %55
-  %60 = mul nuw i64 %57, %56
-  %61 = icmp eq i64 %32, %60
-  br i1 %61, label %.thread500, label %62
-
-62:                                               ; preds = %59
-  %63 = add i64 %.0, 16
-  %64 = udiv i64 %32, %63
-  %65 = icmp ult i64 %64, %63
-  br i1 %65, label %.thread485, label %66
-
-66:                                               ; preds = %62
-  %67 = mul nuw i64 %64, %63
-  %68 = icmp eq i64 %32, %67
-  br i1 %68, label %.thread500, label %69
-
-69:                                               ; preds = %66
-  %70 = add i64 %.0, 18
-  %71 = udiv i64 %32, %70
-  %72 = icmp ult i64 %71, %70
-  br i1 %72, label %.thread485, label %73
-
-73:                                               ; preds = %69
-  %74 = mul nuw i64 %71, %70
-  %75 = icmp eq i64 %32, %74
-  br i1 %75, label %.thread500, label %76
-
-76:                                               ; preds = %73
-  %77 = add i64 %.0, 22
-  %78 = udiv i64 %32, %77
-  %79 = icmp ult i64 %78, %77
-  br i1 %79, label %.thread485, label %80
-
-80:                                               ; preds = %76
-  %81 = mul nuw i64 %78, %77
-  %82 = icmp eq i64 %32, %81
-  br i1 %82, label %.thread500, label %83
-
-83:                                               ; preds = %80
-  %84 = add i64 %.0, 28
-  %85 = udiv i64 %32, %84
-  %86 = icmp ult i64 %85, %84
-  br i1 %86, label %.thread485, label %87
-
-87:                                               ; preds = %83
-  %88 = mul nuw i64 %85, %84
-  %89 = icmp eq i64 %32, %88
-  br i1 %89, label %.thread500, label %90
-
-90:                                               ; preds = %87
-  %91 = add i64 %.0, 30
-  %92 = udiv i64 %32, %91
-  %93 = icmp ult i64 %92, %91
-  br i1 %93, label %.thread485, label %94
-
-94:                                               ; preds = %90
-  %95 = mul nuw i64 %92, %91
-  %96 = icmp eq i64 %32, %95
-  br i1 %96, label %.thread500, label %97
-
-97:                                               ; preds = %94
-  %98 = add i64 %.0, 36
-  %99 = udiv i64 %32, %98
-  %100 = icmp ult i64 %99, %98
-  br i1 %100, label %.thread485, label %101
-
-101:                                              ; preds = %97
-  %102 = mul nuw i64 %99, %98
-  %103 = icmp eq i64 %32, %102
-  br i1 %103, label %.thread500, label %104
-
-104:                                              ; preds = %101
-  %105 = add i64 %.0, 40
-  %106 = udiv i64 %32, %105
-  %107 = icmp ult i64 %106, %105
-  br i1 %107, label %.thread485, label %108
-
-108:                                              ; preds = %104
-  %109 = mul nuw i64 %106, %105
-  %110 = icmp eq i64 %32, %109
-  br i1 %110, label %.thread500, label %111
-
-111:                                              ; preds = %108
-  %112 = add i64 %.0, 42
-  %113 = udiv i64 %32, %112
-  %114 = icmp ult i64 %113, %112
-  br i1 %114, label %.thread485, label %115
-
-115:                                              ; preds = %111
-  %116 = mul nuw i64 %113, %112
-  %117 = icmp eq i64 %32, %116
-  br i1 %117, label %.thread500, label %118
-
-118:                                              ; preds = %115
-  %119 = add i64 %.0, 46
-  %120 = udiv i64 %32, %119
-  %121 = icmp ult i64 %120, %119
-  br i1 %121, label %.thread485, label %122
-
-122:                                              ; preds = %118
-  %123 = mul nuw i64 %120, %119
-  %124 = icmp eq i64 %32, %123
-  br i1 %124, label %.thread500, label %125
-
-125:                                              ; preds = %122
-  %126 = add i64 %.0, 52
-  %127 = udiv i64 %32, %126
-  %128 = icmp ult i64 %127, %126
-  br i1 %128, label %.thread485, label %129
-
-129:                                              ; preds = %125
-  %130 = mul nuw i64 %127, %126
-  %131 = icmp eq i64 %32, %130
-  br i1 %131, label %.thread500, label %132
-
-132:                                              ; preds = %129
-  %133 = add i64 %.0, 58
-  %134 = udiv i64 %32, %133
-  %135 = icmp ult i64 %134, %133
-  br i1 %135, label %.thread485, label %136
-
-136:                                              ; preds = %132
-  %137 = mul nuw i64 %134, %133
-  %138 = icmp eq i64 %32, %137
-  br i1 %138, label %.thread500, label %139
-
-139:                                              ; preds = %136
-  %140 = add i64 %.0, 60
-  %141 = udiv i64 %32, %140
-  %142 = icmp ult i64 %141, %140
-  br i1 %142, label %.thread485, label %143
-
-143:                                              ; preds = %139
-  %144 = mul nuw i64 %141, %140
-  %145 = icmp eq i64 %32, %144
-  br i1 %145, label %.thread500, label %146
-
-146:                                              ; preds = %143
-  %147 = add i64 %.0, 66
-  %148 = udiv i64 %32, %147
-  %149 = icmp ult i64 %148, %147
-  br i1 %149, label %.thread485, label %150
-
-150:                                              ; preds = %146
-  %151 = mul nuw i64 %148, %147
-  %152 = icmp eq i64 %32, %151
-  br i1 %152, label %.thread500, label %153
-
-153:                                              ; preds = %150
-  %154 = add i64 %.0, 70
-  %155 = udiv i64 %32, %154
-  %156 = icmp ult i64 %155, %154
-  br i1 %156, label %.thread485, label %157
-
-157:                                              ; preds = %153
-  %158 = mul nuw i64 %155, %154
-  %159 = icmp eq i64 %32, %158
-  br i1 %159, label %.thread500, label %160
-
-160:                                              ; preds = %157
-  %161 = add i64 %.0, 72
-  %162 = udiv i64 %32, %161
-  %163 = icmp ult i64 %162, %161
-  br i1 %163, label %.thread485, label %164
-
-164:                                              ; preds = %160
-  %165 = mul nuw i64 %162, %161
-  %166 = icmp eq i64 %32, %165
-  br i1 %166, label %.thread500, label %167
-
-167:                                              ; preds = %164
-  %168 = add i64 %.0, 78
-  %169 = udiv i64 %32, %168
-  %170 = icmp ult i64 %169, %168
-  br i1 %170, label %.thread485, label %171
-
-171:                                              ; preds = %167
-  %172 = mul nuw i64 %169, %168
-  %173 = icmp eq i64 %32, %172
-  br i1 %173, label %.thread500, label %174
-
-174:                                              ; preds = %171
-  %175 = add i64 %.0, 82
-  %176 = udiv i64 %32, %175
-  %177 = icmp ult i64 %176, %175
-  br i1 %177, label %.thread485, label %178
-
-178:                                              ; preds = %174
-  %179 = mul nuw i64 %176, %175
-  %180 = icmp eq i64 %32, %179
-  br i1 %180, label %.thread500, label %181
-
-181:                                              ; preds = %178
-  %182 = add i64 %.0, 88
-  %183 = udiv i64 %32, %182
-  %184 = icmp ult i64 %183, %182
-  br i1 %184, label %.thread485, label %185
-
-185:                                              ; preds = %181
-  %186 = mul nuw i64 %183, %182
-  %187 = icmp eq i64 %32, %186
-  br i1 %187, label %.thread500, label %188
-
-188:                                              ; preds = %185
-  %189 = add i64 %.0, 96
-  %190 = udiv i64 %32, %189
-  %191 = icmp ult i64 %190, %189
-  br i1 %191, label %.thread485, label %192
-
-192:                                              ; preds = %188
-  %193 = mul nuw i64 %190, %189
-  %194 = icmp eq i64 %32, %193
-  br i1 %194, label %.thread500, label %195
-
-195:                                              ; preds = %192
-  %196 = add i64 %.0, 100
-  %197 = udiv i64 %32, %196
-  %198 = icmp ult i64 %197, %196
-  br i1 %198, label %.thread485, label %199
-
-199:                                              ; preds = %195
-  %200 = mul nuw i64 %197, %196
-  %201 = icmp eq i64 %32, %200
-  br i1 %201, label %.thread500, label %202
-
-202:                                              ; preds = %199
-  %203 = add i64 %.0, 102
-  %204 = udiv i64 %32, %203
-  %205 = icmp ult i64 %204, %203
-  br i1 %205, label %.thread485, label %206
-
-206:                                              ; preds = %202
-  %207 = mul nuw i64 %204, %203
-  %208 = icmp eq i64 %32, %207
-  br i1 %208, label %.thread500, label %209
-
-209:                                              ; preds = %206
-  %210 = add i64 %.0, 106
-  %211 = udiv i64 %32, %210
-  %212 = icmp ult i64 %211, %210
-  br i1 %212, label %.thread485, label %213
-
-213:                                              ; preds = %209
-  %214 = mul nuw i64 %211, %210
-  %215 = icmp eq i64 %32, %214
-  br i1 %215, label %.thread500, label %216
-
-216:                                              ; preds = %213
-  %217 = add i64 %.0, 108
-  %218 = udiv i64 %32, %217
-  %219 = icmp ult i64 %218, %217
-  br i1 %219, label %.thread485, label %220
-
-220:                                              ; preds = %216
-  %221 = mul nuw i64 %218, %217
-  %222 = icmp eq i64 %32, %221
-  br i1 %222, label %.thread500, label %223
-
-223:                                              ; preds = %220
-  %224 = add i64 %.0, 112
-  %225 = udiv i64 %32, %224
-  %226 = icmp ult i64 %225, %224
-  br i1 %226, label %.thread485, label %227
-
-227:                                              ; preds = %223
-  %228 = mul nuw i64 %225, %224
-  %229 = icmp eq i64 %32, %228
-  br i1 %229, label %.thread500, label %230
-
-230:                                              ; preds = %227
-  %231 = add i64 %.0, 120
-  %232 = udiv i64 %32, %231
-  %233 = icmp ult i64 %232, %231
-  br i1 %233, label %.thread485, label %234
-
-234:                                              ; preds = %230
-  %235 = mul nuw i64 %232, %231
-  %236 = icmp eq i64 %32, %235
-  br i1 %236, label %.thread500, label %237
-
-237:                                              ; preds = %234
-  %238 = add i64 %.0, 126
-  %239 = udiv i64 %32, %238
-  %240 = icmp ult i64 %239, %238
-  br i1 %240, label %.thread485, label %241
-
-241:                                              ; preds = %237
-  %242 = mul nuw i64 %239, %238
-  %243 = icmp eq i64 %32, %242
-  br i1 %243, label %.thread500, label %244
-
-244:                                              ; preds = %241
-  %245 = add i64 %.0, 130
-  %246 = udiv i64 %32, %245
-  %247 = icmp ult i64 %246, %245
-  br i1 %247, label %.thread485, label %248
-
-248:                                              ; preds = %244
-  %249 = mul nuw i64 %246, %245
-  %250 = icmp eq i64 %32, %249
-  br i1 %250, label %.thread500, label %251
-
-251:                                              ; preds = %248
-  %252 = add i64 %.0, 136
-  %253 = udiv i64 %32, %252
-  %254 = icmp ult i64 %253, %252
-  br i1 %254, label %.thread485, label %255
-
-255:                                              ; preds = %251
-  %256 = mul nuw i64 %253, %252
-  %257 = icmp eq i64 %32, %256
-  br i1 %257, label %.thread500, label %258
-
-258:                                              ; preds = %255
-  %259 = add i64 %.0, 138
-  %260 = udiv i64 %32, %259
-  %261 = icmp ult i64 %260, %259
-  br i1 %261, label %.thread485, label %262
-
-262:                                              ; preds = %258
-  %263 = mul nuw i64 %260, %259
-  %264 = icmp eq i64 %32, %263
-  br i1 %264, label %.thread500, label %265
-
-265:                                              ; preds = %262
-  %266 = add i64 %.0, 142
-  %267 = udiv i64 %32, %266
-  %268 = icmp ult i64 %267, %266
-  br i1 %268, label %.thread485, label %269
-
-269:                                              ; preds = %265
-  %270 = mul nuw i64 %267, %266
-  %271 = icmp eq i64 %32, %270
-  br i1 %271, label %.thread500, label %272
-
-272:                                              ; preds = %269
-  %273 = add i64 %.0, 148
-  %274 = udiv i64 %32, %273
-  %275 = icmp ult i64 %274, %273
-  br i1 %275, label %.thread485, label %276
-
-276:                                              ; preds = %272
-  %277 = mul nuw i64 %274, %273
-  %278 = icmp eq i64 %32, %277
-  br i1 %278, label %.thread500, label %279
-
-279:                                              ; preds = %276
-  %280 = add i64 %.0, 150
-  %281 = udiv i64 %32, %280
-  %282 = icmp ult i64 %281, %280
-  br i1 %282, label %.thread485, label %283
-
-283:                                              ; preds = %279
-  %284 = mul nuw i64 %281, %280
-  %285 = icmp eq i64 %32, %284
-  br i1 %285, label %.thread500, label %286
-
-286:                                              ; preds = %283
-  %287 = add i64 %.0, 156
-  %288 = udiv i64 %32, %287
-  %289 = icmp ult i64 %288, %287
-  br i1 %289, label %.thread485, label %290
-
-290:                                              ; preds = %286
-  %291 = mul nuw i64 %288, %287
-  %292 = icmp eq i64 %32, %291
-  br i1 %292, label %.thread500, label %293
-
-293:                                              ; preds = %290
-  %294 = add i64 %.0, 162
-  %295 = udiv i64 %32, %294
-  %296 = icmp ult i64 %295, %294
-  br i1 %296, label %.thread485, label %297
-
-297:                                              ; preds = %293
-  %298 = mul nuw i64 %295, %294
-  %299 = icmp eq i64 %32, %298
-  br i1 %299, label %.thread500, label %300
-
-300:                                              ; preds = %297
-  %301 = add i64 %.0, 166
-  %302 = udiv i64 %32, %301
-  %303 = icmp ult i64 %302, %301
-  br i1 %303, label %.thread485, label %304
-
-304:                                              ; preds = %300
-  %305 = mul nuw i64 %302, %301
-  %306 = icmp eq i64 %32, %305
-  br i1 %306, label %.thread500, label %307
-
-307:                                              ; preds = %304
-  %308 = add i64 %.0, 168
-  %309 = udiv i64 %32, %308
-  %310 = icmp ult i64 %309, %308
-  br i1 %310, label %.thread485, label %311
-
-311:                                              ; preds = %307
-  %312 = mul nuw i64 %309, %308
-  %313 = icmp eq i64 %32, %312
-  br i1 %313, label %.thread500, label %314
-
-314:                                              ; preds = %311
-  %315 = add i64 %.0, 172
-  %316 = udiv i64 %32, %315
-  %317 = icmp ult i64 %316, %315
-  br i1 %317, label %.thread485, label %318
-
-318:                                              ; preds = %314
-  %319 = mul nuw i64 %316, %315
-  %320 = icmp eq i64 %32, %319
-  br i1 %320, label %.thread500, label %321
-
-321:                                              ; preds = %318
-  %322 = add i64 %.0, 178
-  %323 = udiv i64 %32, %322
-  %324 = icmp ult i64 %323, %322
-  br i1 %324, label %.thread485, label %325
-
-325:                                              ; preds = %321
-  %326 = mul nuw i64 %323, %322
-  %327 = icmp eq i64 %32, %326
-  br i1 %327, label %.thread500, label %328
-
-328:                                              ; preds = %325
-  %329 = add i64 %.0, 180
-  %330 = udiv i64 %32, %329
-  %331 = icmp ult i64 %330, %329
-  br i1 %331, label %.thread485, label %332
-
-332:                                              ; preds = %328
-  %333 = mul nuw i64 %330, %329
-  %334 = icmp eq i64 %32, %333
-  br i1 %334, label %.thread500, label %335
-
-335:                                              ; preds = %332
-  %336 = add i64 %.0, 186
-  %337 = udiv i64 %32, %336
-  %338 = icmp ult i64 %337, %336
-  br i1 %338, label %.thread485, label %339
-
-339:                                              ; preds = %335
-  %340 = mul nuw i64 %337, %336
-  %341 = icmp eq i64 %32, %340
-  br i1 %341, label %.thread500, label %342
-
-342:                                              ; preds = %339
-  %343 = add i64 %.0, 190
-  %344 = udiv i64 %32, %343
-  %345 = icmp ult i64 %344, %343
-  br i1 %345, label %.thread485, label %346
-
-346:                                              ; preds = %342
-  %347 = mul nuw i64 %344, %343
-  %348 = icmp eq i64 %32, %347
-  br i1 %348, label %.thread500, label %349
-
-349:                                              ; preds = %346
-  %350 = add i64 %.0, 192
-  %351 = udiv i64 %32, %350
-  %352 = icmp ult i64 %351, %350
-  br i1 %352, label %.thread485, label %353
-
-353:                                              ; preds = %349
-  %354 = mul nuw i64 %351, %350
-  %355 = icmp eq i64 %32, %354
-  br i1 %355, label %.thread500, label %356
-
-356:                                              ; preds = %353
-  %357 = add i64 %.0, 196
-  %358 = udiv i64 %32, %357
-  %359 = icmp ult i64 %358, %357
-  br i1 %359, label %.thread485, label %360
-
-360:                                              ; preds = %356
-  %361 = mul nuw i64 %358, %357
-  %362 = icmp eq i64 %32, %361
-  br i1 %362, label %.thread500, label %363
-
-363:                                              ; preds = %360
-  %364 = add i64 %.0, 198
-  %365 = udiv i64 %32, %364
-  %366 = icmp ult i64 %365, %364
-  br i1 %366, label %.thread485, label %367
-
-367:                                              ; preds = %363
-  %368 = mul nuw i64 %365, %364
-  %369 = icmp eq i64 %32, %368
-  br i1 %369, label %.thread500, label %370
-
-370:                                              ; preds = %367
-  %371 = add i64 %.0, 208
-  %372 = udiv i64 %32, %371
-  %373 = icmp ult i64 %372, %371
-  br i1 %373, label %.thread485, label %374
-
-374:                                              ; preds = %370
-  %375 = mul nuw i64 %372, %371
-  %376 = icmp eq i64 %32, %375
-  %377 = add i64 %.0, 210
-  br i1 %376, label %.thread500, label %.preheader504
-
-.thread500:                                       ; preds = %41, %374, %367, %360, %353, %346, %339, %332, %325, %318, %311, %304, %297, %290, %283, %276, %269, %262, %255, %248, %241, %234, %227, %220, %213, %206, %199, %192, %185, %178, %171, %164, %157, %150, %143, %136, %129, %122, %115, %108, %101, %94, %87, %80, %73, %66, %59, %52, %45
-  %378 = add i64 %spec.select468.sink, 1
-  %379 = icmp eq i64 %378, 48
-  %380 = zext i1 %379 to i64
-  %spec.select = add i64 %.0318, %380
-  %spec.select468 = select i1 %379, i64 0, i64 %378
-  %381 = mul i64 %spec.select, 210
-  br label %28, !llvm.loop !11
-
-.thread485:                                       ; preds = %35, %370, %363, %356, %349, %342, %335, %328, %321, %314, %307, %300, %293, %286, %279, %272, %265, %258, %251, %244, %237, %230, %223, %216, %209, %202, %195, %188, %181, %174, %167, %160, %153, %146, %139, %132, %125, %118, %111, %104, %97, %90, %83, %76, %69, %62, %55, %48, %.preheader504, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit
-  %.0309 = phi i64 [ %11, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit ], [ %32, %.preheader504 ], [ %32, %48 ], [ %32, %55 ], [ %32, %62 ], [ %32, %69 ], [ %32, %76 ], [ %32, %83 ], [ %32, %90 ], [ %32, %97 ], [ %32, %104 ], [ %32, %111 ], [ %32, %118 ], [ %32, %125 ], [ %32, %132 ], [ %32, %139 ], [ %32, %146 ], [ %32, %153 ], [ %32, %160 ], [ %32, %167 ], [ %32, %174 ], [ %32, %181 ], [ %32, %188 ], [ %32, %195 ], [ %32, %202 ], [ %32, %209 ], [ %32, %216 ], [ %32, %223 ], [ %32, %230 ], [ %32, %237 ], [ %32, %244 ], [ %32, %251 ], [ %32, %258 ], [ %32, %265 ], [ %32, %272 ], [ %32, %279 ], [ %32, %286 ], [ %32, %293 ], [ %32, %300 ], [ %32, %307 ], [ %32, %314 ], [ %32, %321 ], [ %32, %328 ], [ %32, %335 ], [ %32, %342 ], [ %32, %349 ], [ %32, %356 ], [ %32, %363 ], [ %32, %370 ], [ %32, %35 ]
+  %.0316 = phi i64 [ %spec.select468, %.thread500 ], [ %27, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477 ]
+  %.sink617 = load i32, ptr %.sink617.in, align 4, !tbaa !4
+  %30 = zext i32 %.sink617 to i64
+  %31 = add i64 %.sink, %30
+  br label %34
+
+32:                                               ; preds = %40
+  %33 = add nuw nsw i64 %.0315509, 1
+  %exitcond.not = icmp eq i64 %33, 47
+  br i1 %exitcond.not, label %.preheader504, label %34, !llvm.loop !10
+
+34:                                               ; preds = %29, %32
+  %.0315509 = phi i64 [ 5, %29 ], [ %33, %32 ]
+  %35 = getelementptr inbounds nuw i32, ptr @_ZNSt3__112_GLOBAL__N_112small_primesE, i64 %.0315509
+  %36 = load i32, ptr %35, align 4, !tbaa !4
+  %37 = zext i32 %36 to i64
+  %38 = udiv i64 %31, %37
+  %39 = icmp ult i64 %38, %37
+  br i1 %39, label %.thread485, label %40
+
+40:                                               ; preds = %34
+  %41 = mul i64 %38, %37
+  %.not.not = icmp eq i64 %31, %41
+  br i1 %.not.not, label %.thread500, label %32
+
+.preheader504:                                    ; preds = %32, %373
+  %.0 = phi i64 [ %376, %373 ], [ 211, %32 ]
+  %42 = udiv i64 %31, %.0
+  %43 = icmp ult i64 %42, %.0
+  br i1 %43, label %.thread485, label %44
+
+44:                                               ; preds = %.preheader504
+  %45 = mul nuw i64 %42, %.0
+  %46 = icmp eq i64 %31, %45
+  br i1 %46, label %.thread500, label %47
+
+47:                                               ; preds = %44
+  %48 = add i64 %.0, 10
+  %49 = udiv i64 %31, %48
+  %50 = icmp ult i64 %49, %48
+  br i1 %50, label %.thread485, label %51
+
+51:                                               ; preds = %47
+  %52 = mul nuw i64 %49, %48
+  %53 = icmp eq i64 %31, %52
+  br i1 %53, label %.thread500, label %54
+
+54:                                               ; preds = %51
+  %55 = add i64 %.0, 12
+  %56 = udiv i64 %31, %55
+  %57 = icmp ult i64 %56, %55
+  br i1 %57, label %.thread485, label %58
+
+58:                                               ; preds = %54
+  %59 = mul nuw i64 %56, %55
+  %60 = icmp eq i64 %31, %59
+  br i1 %60, label %.thread500, label %61
+
+61:                                               ; preds = %58
+  %62 = add i64 %.0, 16
+  %63 = udiv i64 %31, %62
+  %64 = icmp ult i64 %63, %62
+  br i1 %64, label %.thread485, label %65
+
+65:                                               ; preds = %61
+  %66 = mul nuw i64 %63, %62
+  %67 = icmp eq i64 %31, %66
+  br i1 %67, label %.thread500, label %68
+
+68:                                               ; preds = %65
+  %69 = add i64 %.0, 18
+  %70 = udiv i64 %31, %69
+  %71 = icmp ult i64 %70, %69
+  br i1 %71, label %.thread485, label %72
+
+72:                                               ; preds = %68
+  %73 = mul nuw i64 %70, %69
+  %74 = icmp eq i64 %31, %73
+  br i1 %74, label %.thread500, label %75
+
+75:                                               ; preds = %72
+  %76 = add i64 %.0, 22
+  %77 = udiv i64 %31, %76
+  %78 = icmp ult i64 %77, %76
+  br i1 %78, label %.thread485, label %79
+
+79:                                               ; preds = %75
+  %80 = mul nuw i64 %77, %76
+  %81 = icmp eq i64 %31, %80
+  br i1 %81, label %.thread500, label %82
+
+82:                                               ; preds = %79
+  %83 = add i64 %.0, 28
+  %84 = udiv i64 %31, %83
+  %85 = icmp ult i64 %84, %83
+  br i1 %85, label %.thread485, label %86
+
+86:                                               ; preds = %82
+  %87 = mul nuw i64 %84, %83
+  %88 = icmp eq i64 %31, %87
+  br i1 %88, label %.thread500, label %89
+
+89:                                               ; preds = %86
+  %90 = add i64 %.0, 30
+  %91 = udiv i64 %31, %90
+  %92 = icmp ult i64 %91, %90
+  br i1 %92, label %.thread485, label %93
+
+93:                                               ; preds = %89
+  %94 = mul nuw i64 %91, %90
+  %95 = icmp eq i64 %31, %94
+  br i1 %95, label %.thread500, label %96
+
+96:                                               ; preds = %93
+  %97 = add i64 %.0, 36
+  %98 = udiv i64 %31, %97
+  %99 = icmp ult i64 %98, %97
+  br i1 %99, label %.thread485, label %100
+
+100:                                              ; preds = %96
+  %101 = mul nuw i64 %98, %97
+  %102 = icmp eq i64 %31, %101
+  br i1 %102, label %.thread500, label %103
+
+103:                                              ; preds = %100
+  %104 = add i64 %.0, 40
+  %105 = udiv i64 %31, %104
+  %106 = icmp ult i64 %105, %104
+  br i1 %106, label %.thread485, label %107
+
+107:                                              ; preds = %103
+  %108 = mul nuw i64 %105, %104
+  %109 = icmp eq i64 %31, %108
+  br i1 %109, label %.thread500, label %110
+
+110:                                              ; preds = %107
+  %111 = add i64 %.0, 42
+  %112 = udiv i64 %31, %111
+  %113 = icmp ult i64 %112, %111
+  br i1 %113, label %.thread485, label %114
+
+114:                                              ; preds = %110
+  %115 = mul nuw i64 %112, %111
+  %116 = icmp eq i64 %31, %115
+  br i1 %116, label %.thread500, label %117
+
+117:                                              ; preds = %114
+  %118 = add i64 %.0, 46
+  %119 = udiv i64 %31, %118
+  %120 = icmp ult i64 %119, %118
+  br i1 %120, label %.thread485, label %121
+
+121:                                              ; preds = %117
+  %122 = mul nuw i64 %119, %118
+  %123 = icmp eq i64 %31, %122
+  br i1 %123, label %.thread500, label %124
+
+124:                                              ; preds = %121
+  %125 = add i64 %.0, 52
+  %126 = udiv i64 %31, %125
+  %127 = icmp ult i64 %126, %125
+  br i1 %127, label %.thread485, label %128
+
+128:                                              ; preds = %124
+  %129 = mul nuw i64 %126, %125
+  %130 = icmp eq i64 %31, %129
+  br i1 %130, label %.thread500, label %131
+
+131:                                              ; preds = %128
+  %132 = add i64 %.0, 58
+  %133 = udiv i64 %31, %132
+  %134 = icmp ult i64 %133, %132
+  br i1 %134, label %.thread485, label %135
+
+135:                                              ; preds = %131
+  %136 = mul nuw i64 %133, %132
+  %137 = icmp eq i64 %31, %136
+  br i1 %137, label %.thread500, label %138
+
+138:                                              ; preds = %135
+  %139 = add i64 %.0, 60
+  %140 = udiv i64 %31, %139
+  %141 = icmp ult i64 %140, %139
+  br i1 %141, label %.thread485, label %142
+
+142:                                              ; preds = %138
+  %143 = mul nuw i64 %140, %139
+  %144 = icmp eq i64 %31, %143
+  br i1 %144, label %.thread500, label %145
+
+145:                                              ; preds = %142
+  %146 = add i64 %.0, 66
+  %147 = udiv i64 %31, %146
+  %148 = icmp ult i64 %147, %146
+  br i1 %148, label %.thread485, label %149
+
+149:                                              ; preds = %145
+  %150 = mul nuw i64 %147, %146
+  %151 = icmp eq i64 %31, %150
+  br i1 %151, label %.thread500, label %152
+
+152:                                              ; preds = %149
+  %153 = add i64 %.0, 70
+  %154 = udiv i64 %31, %153
+  %155 = icmp ult i64 %154, %153
+  br i1 %155, label %.thread485, label %156
+
+156:                                              ; preds = %152
+  %157 = mul nuw i64 %154, %153
+  %158 = icmp eq i64 %31, %157
+  br i1 %158, label %.thread500, label %159
+
+159:                                              ; preds = %156
+  %160 = add i64 %.0, 72
+  %161 = udiv i64 %31, %160
+  %162 = icmp ult i64 %161, %160
+  br i1 %162, label %.thread485, label %163
+
+163:                                              ; preds = %159
+  %164 = mul nuw i64 %161, %160
+  %165 = icmp eq i64 %31, %164
+  br i1 %165, label %.thread500, label %166
+
+166:                                              ; preds = %163
+  %167 = add i64 %.0, 78
+  %168 = udiv i64 %31, %167
+  %169 = icmp ult i64 %168, %167
+  br i1 %169, label %.thread485, label %170
+
+170:                                              ; preds = %166
+  %171 = mul nuw i64 %168, %167
+  %172 = icmp eq i64 %31, %171
+  br i1 %172, label %.thread500, label %173
+
+173:                                              ; preds = %170
+  %174 = add i64 %.0, 82
+  %175 = udiv i64 %31, %174
+  %176 = icmp ult i64 %175, %174
+  br i1 %176, label %.thread485, label %177
+
+177:                                              ; preds = %173
+  %178 = mul nuw i64 %175, %174
+  %179 = icmp eq i64 %31, %178
+  br i1 %179, label %.thread500, label %180
+
+180:                                              ; preds = %177
+  %181 = add i64 %.0, 88
+  %182 = udiv i64 %31, %181
+  %183 = icmp ult i64 %182, %181
+  br i1 %183, label %.thread485, label %184
+
+184:                                              ; preds = %180
+  %185 = mul nuw i64 %182, %181
+  %186 = icmp eq i64 %31, %185
+  br i1 %186, label %.thread500, label %187
+
+187:                                              ; preds = %184
+  %188 = add i64 %.0, 96
+  %189 = udiv i64 %31, %188
+  %190 = icmp ult i64 %189, %188
+  br i1 %190, label %.thread485, label %191
+
+191:                                              ; preds = %187
+  %192 = mul nuw i64 %189, %188
+  %193 = icmp eq i64 %31, %192
+  br i1 %193, label %.thread500, label %194
+
+194:                                              ; preds = %191
+  %195 = add i64 %.0, 100
+  %196 = udiv i64 %31, %195
+  %197 = icmp ult i64 %196, %195
+  br i1 %197, label %.thread485, label %198
+
+198:                                              ; preds = %194
+  %199 = mul nuw i64 %196, %195
+  %200 = icmp eq i64 %31, %199
+  br i1 %200, label %.thread500, label %201
+
+201:                                              ; preds = %198
+  %202 = add i64 %.0, 102
+  %203 = udiv i64 %31, %202
+  %204 = icmp ult i64 %203, %202
+  br i1 %204, label %.thread485, label %205
+
+205:                                              ; preds = %201
+  %206 = mul nuw i64 %203, %202
+  %207 = icmp eq i64 %31, %206
+  br i1 %207, label %.thread500, label %208
+
+208:                                              ; preds = %205
+  %209 = add i64 %.0, 106
+  %210 = udiv i64 %31, %209
+  %211 = icmp ult i64 %210, %209
+  br i1 %211, label %.thread485, label %212
+
+212:                                              ; preds = %208
+  %213 = mul nuw i64 %210, %209
+  %214 = icmp eq i64 %31, %213
+  br i1 %214, label %.thread500, label %215
+
+215:                                              ; preds = %212
+  %216 = add i64 %.0, 108
+  %217 = udiv i64 %31, %216
+  %218 = icmp ult i64 %217, %216
+  br i1 %218, label %.thread485, label %219
+
+219:                                              ; preds = %215
+  %220 = mul nuw i64 %217, %216
+  %221 = icmp eq i64 %31, %220
+  br i1 %221, label %.thread500, label %222
+
+222:                                              ; preds = %219
+  %223 = add i64 %.0, 112
+  %224 = udiv i64 %31, %223
+  %225 = icmp ult i64 %224, %223
+  br i1 %225, label %.thread485, label %226
+
+226:                                              ; preds = %222
+  %227 = mul nuw i64 %224, %223
+  %228 = icmp eq i64 %31, %227
+  br i1 %228, label %.thread500, label %229
+
+229:                                              ; preds = %226
+  %230 = add i64 %.0, 120
+  %231 = udiv i64 %31, %230
+  %232 = icmp ult i64 %231, %230
+  br i1 %232, label %.thread485, label %233
+
+233:                                              ; preds = %229
+  %234 = mul nuw i64 %231, %230
+  %235 = icmp eq i64 %31, %234
+  br i1 %235, label %.thread500, label %236
+
+236:                                              ; preds = %233
+  %237 = add i64 %.0, 126
+  %238 = udiv i64 %31, %237
+  %239 = icmp ult i64 %238, %237
+  br i1 %239, label %.thread485, label %240
+
+240:                                              ; preds = %236
+  %241 = mul nuw i64 %238, %237
+  %242 = icmp eq i64 %31, %241
+  br i1 %242, label %.thread500, label %243
+
+243:                                              ; preds = %240
+  %244 = add i64 %.0, 130
+  %245 = udiv i64 %31, %244
+  %246 = icmp ult i64 %245, %244
+  br i1 %246, label %.thread485, label %247
+
+247:                                              ; preds = %243
+  %248 = mul nuw i64 %245, %244
+  %249 = icmp eq i64 %31, %248
+  br i1 %249, label %.thread500, label %250
+
+250:                                              ; preds = %247
+  %251 = add i64 %.0, 136
+  %252 = udiv i64 %31, %251
+  %253 = icmp ult i64 %252, %251
+  br i1 %253, label %.thread485, label %254
+
+254:                                              ; preds = %250
+  %255 = mul nuw i64 %252, %251
+  %256 = icmp eq i64 %31, %255
+  br i1 %256, label %.thread500, label %257
+
+257:                                              ; preds = %254
+  %258 = add i64 %.0, 138
+  %259 = udiv i64 %31, %258
+  %260 = icmp ult i64 %259, %258
+  br i1 %260, label %.thread485, label %261
+
+261:                                              ; preds = %257
+  %262 = mul nuw i64 %259, %258
+  %263 = icmp eq i64 %31, %262
+  br i1 %263, label %.thread500, label %264
+
+264:                                              ; preds = %261
+  %265 = add i64 %.0, 142
+  %266 = udiv i64 %31, %265
+  %267 = icmp ult i64 %266, %265
+  br i1 %267, label %.thread485, label %268
+
+268:                                              ; preds = %264
+  %269 = mul nuw i64 %266, %265
+  %270 = icmp eq i64 %31, %269
+  br i1 %270, label %.thread500, label %271
+
+271:                                              ; preds = %268
+  %272 = add i64 %.0, 148
+  %273 = udiv i64 %31, %272
+  %274 = icmp ult i64 %273, %272
+  br i1 %274, label %.thread485, label %275
+
+275:                                              ; preds = %271
+  %276 = mul nuw i64 %273, %272
+  %277 = icmp eq i64 %31, %276
+  br i1 %277, label %.thread500, label %278
+
+278:                                              ; preds = %275
+  %279 = add i64 %.0, 150
+  %280 = udiv i64 %31, %279
+  %281 = icmp ult i64 %280, %279
+  br i1 %281, label %.thread485, label %282
+
+282:                                              ; preds = %278
+  %283 = mul nuw i64 %280, %279
+  %284 = icmp eq i64 %31, %283
+  br i1 %284, label %.thread500, label %285
+
+285:                                              ; preds = %282
+  %286 = add i64 %.0, 156
+  %287 = udiv i64 %31, %286
+  %288 = icmp ult i64 %287, %286
+  br i1 %288, label %.thread485, label %289
+
+289:                                              ; preds = %285
+  %290 = mul nuw i64 %287, %286
+  %291 = icmp eq i64 %31, %290
+  br i1 %291, label %.thread500, label %292
+
+292:                                              ; preds = %289
+  %293 = add i64 %.0, 162
+  %294 = udiv i64 %31, %293
+  %295 = icmp ult i64 %294, %293
+  br i1 %295, label %.thread485, label %296
+
+296:                                              ; preds = %292
+  %297 = mul nuw i64 %294, %293
+  %298 = icmp eq i64 %31, %297
+  br i1 %298, label %.thread500, label %299
+
+299:                                              ; preds = %296
+  %300 = add i64 %.0, 166
+  %301 = udiv i64 %31, %300
+  %302 = icmp ult i64 %301, %300
+  br i1 %302, label %.thread485, label %303
+
+303:                                              ; preds = %299
+  %304 = mul nuw i64 %301, %300
+  %305 = icmp eq i64 %31, %304
+  br i1 %305, label %.thread500, label %306
+
+306:                                              ; preds = %303
+  %307 = add i64 %.0, 168
+  %308 = udiv i64 %31, %307
+  %309 = icmp ult i64 %308, %307
+  br i1 %309, label %.thread485, label %310
+
+310:                                              ; preds = %306
+  %311 = mul nuw i64 %308, %307
+  %312 = icmp eq i64 %31, %311
+  br i1 %312, label %.thread500, label %313
+
+313:                                              ; preds = %310
+  %314 = add i64 %.0, 172
+  %315 = udiv i64 %31, %314
+  %316 = icmp ult i64 %315, %314
+  br i1 %316, label %.thread485, label %317
+
+317:                                              ; preds = %313
+  %318 = mul nuw i64 %315, %314
+  %319 = icmp eq i64 %31, %318
+  br i1 %319, label %.thread500, label %320
+
+320:                                              ; preds = %317
+  %321 = add i64 %.0, 178
+  %322 = udiv i64 %31, %321
+  %323 = icmp ult i64 %322, %321
+  br i1 %323, label %.thread485, label %324
+
+324:                                              ; preds = %320
+  %325 = mul nuw i64 %322, %321
+  %326 = icmp eq i64 %31, %325
+  br i1 %326, label %.thread500, label %327
+
+327:                                              ; preds = %324
+  %328 = add i64 %.0, 180
+  %329 = udiv i64 %31, %328
+  %330 = icmp ult i64 %329, %328
+  br i1 %330, label %.thread485, label %331
+
+331:                                              ; preds = %327
+  %332 = mul nuw i64 %329, %328
+  %333 = icmp eq i64 %31, %332
+  br i1 %333, label %.thread500, label %334
+
+334:                                              ; preds = %331
+  %335 = add i64 %.0, 186
+  %336 = udiv i64 %31, %335
+  %337 = icmp ult i64 %336, %335
+  br i1 %337, label %.thread485, label %338
+
+338:                                              ; preds = %334
+  %339 = mul nuw i64 %336, %335
+  %340 = icmp eq i64 %31, %339
+  br i1 %340, label %.thread500, label %341
+
+341:                                              ; preds = %338
+  %342 = add i64 %.0, 190
+  %343 = udiv i64 %31, %342
+  %344 = icmp ult i64 %343, %342
+  br i1 %344, label %.thread485, label %345
+
+345:                                              ; preds = %341
+  %346 = mul nuw i64 %343, %342
+  %347 = icmp eq i64 %31, %346
+  br i1 %347, label %.thread500, label %348
+
+348:                                              ; preds = %345
+  %349 = add i64 %.0, 192
+  %350 = udiv i64 %31, %349
+  %351 = icmp ult i64 %350, %349
+  br i1 %351, label %.thread485, label %352
+
+352:                                              ; preds = %348
+  %353 = mul nuw i64 %350, %349
+  %354 = icmp eq i64 %31, %353
+  br i1 %354, label %.thread500, label %355
+
+355:                                              ; preds = %352
+  %356 = add i64 %.0, 196
+  %357 = udiv i64 %31, %356
+  %358 = icmp ult i64 %357, %356
+  br i1 %358, label %.thread485, label %359
+
+359:                                              ; preds = %355
+  %360 = mul nuw i64 %357, %356
+  %361 = icmp eq i64 %31, %360
+  br i1 %361, label %.thread500, label %362
+
+362:                                              ; preds = %359
+  %363 = add i64 %.0, 198
+  %364 = udiv i64 %31, %363
+  %365 = icmp ult i64 %364, %363
+  br i1 %365, label %.thread485, label %366
+
+366:                                              ; preds = %362
+  %367 = mul nuw i64 %364, %363
+  %368 = icmp eq i64 %31, %367
+  br i1 %368, label %.thread500, label %369
+
+369:                                              ; preds = %366
+  %370 = add i64 %.0, 208
+  %371 = udiv i64 %31, %370
+  %372 = icmp ult i64 %371, %370
+  br i1 %372, label %.thread485, label %373
+
+373:                                              ; preds = %369
+  %374 = mul nuw i64 %371, %370
+  %375 = icmp eq i64 %31, %374
+  %376 = add i64 %.0, 210
+  br i1 %375, label %.thread500, label %.preheader504
+
+.thread500:                                       ; preds = %40, %373, %366, %359, %352, %345, %338, %331, %324, %317, %310, %303, %296, %289, %282, %275, %268, %261, %254, %247, %240, %233, %226, %219, %212, %205, %198, %191, %184, %177, %170, %163, %156, %149, %142, %135, %128, %121, %114, %107, %100, %93, %86, %79, %72, %65, %58, %51, %44
+  %377 = add i64 %.0316, 1
+  %378 = icmp eq i64 %377, 48
+  %379 = zext i1 %378 to i64
+  %spec.select = add i64 %.0318, %379
+  %spec.select468 = select i1 %378, i64 0, i64 %377
+  %380 = mul i64 %spec.select, 210
+  %381 = getelementptr inbounds nuw i32, ptr @_ZNSt3__112_GLOBAL__N_17indicesE, i64 %spec.select468
+  br label %29, !llvm.loop !11
+
+.thread485:                                       ; preds = %34, %369, %362, %355, %348, %341, %334, %327, %320, %313, %306, %299, %292, %285, %278, %271, %264, %257, %250, %243, %236, %229, %222, %215, %208, %201, %194, %187, %180, %173, %166, %159, %152, %145, %138, %131, %124, %117, %110, %103, %96, %89, %82, %75, %68, %61, %54, %47, %.preheader504, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit
+  %.0309 = phi i64 [ %11, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit ], [ %31, %.preheader504 ], [ %31, %47 ], [ %31, %54 ], [ %31, %61 ], [ %31, %68 ], [ %31, %75 ], [ %31, %82 ], [ %31, %89 ], [ %31, %96 ], [ %31, %103 ], [ %31, %110 ], [ %31, %117 ], [ %31, %124 ], [ %31, %131 ], [ %31, %138 ], [ %31, %145 ], [ %31, %152 ], [ %31, %159 ], [ %31, %166 ], [ %31, %173 ], [ %31, %180 ], [ %31, %187 ], [ %31, %194 ], [ %31, %201 ], [ %31, %208 ], [ %31, %215 ], [ %31, %222 ], [ %31, %229 ], [ %31, %236 ], [ %31, %243 ], [ %31, %250 ], [ %31, %257 ], [ %31, %264 ], [ %31, %271 ], [ %31, %278 ], [ %31, %285 ], [ %31, %292 ], [ %31, %299 ], [ %31, %306 ], [ %31, %313 ], [ %31, %320 ], [ %31, %327 ], [ %31, %334 ], [ %31, %341 ], [ %31, %348 ], [ %31, %355 ], [ %31, %362 ], [ %31, %369 ], [ %31, %34 ]
   ret i64 %.0309
 }
 

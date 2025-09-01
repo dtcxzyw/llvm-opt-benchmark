@@ -399,7 +399,7 @@ define noundef range(i8 0, 4) i8 @_ZN10serde_json5error5Error8classify17h110cf38
 switch.lookup:
   %1 = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
   %2 = load i64, ptr %1, align 8, !range !35, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [25 x i8], ptr @switch.table._ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -1418,9 +1418,9 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   br i1 %123, label %124, label %.invoke204, !prof !149
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds [0 x i8], ptr %91, i64 0, i64 %121
+  %125 = getelementptr inbounds i8, ptr %91, i64 %121
   %126 = load i8, ptr %125, align 1, !alias.scope !144, !noalias !150, !noundef !4
-  %127 = getelementptr inbounds [0 x i8], ptr %87, i64 0, i64 %122
+  %127 = getelementptr inbounds i8, ptr %87, i64 %122
   %128 = load i8, ptr %127, align 1, !alias.scope !142, !noalias !148, !noundef !4
   %.not.i.us = icmp eq i8 %126, %128
   br i1 %.not.i.us, label %.split.us, label %.split80.us
@@ -1468,9 +1468,9 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   unreachable
 
 142:                                              ; preds = %135
-  %143 = getelementptr inbounds [0 x i8], ptr %91, i64 0, i64 %.sroa.09.0.i
+  %143 = getelementptr inbounds i8, ptr %91, i64 %.sroa.09.0.i
   %144 = load i8, ptr %143, align 1, !alias.scope !144, !noalias !150, !noundef !4
-  %145 = getelementptr inbounds [0 x i8], ptr %87, i64 0, i64 %136
+  %145 = getelementptr inbounds i8, ptr %87, i64 %136
   %146 = load i8, ptr %145, align 1, !alias.scope !142, !noalias !148, !noundef !4
   %.not26.i = icmp eq i8 %144, %146
   br i1 %.not26.i, label %130, label %149

@@ -1288,7 +1288,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo13ToggleFeatureEm(ptr dead_on_un
   %6 = shl nuw i64 1, %5
   %7 = lshr i64 %2, 6
   %8 = and i64 %7, 67108863
-  %9 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !8
   %11 = xor i64 %10, %6
   store i64 %11, ptr %9, align 8, !tbaa !8
@@ -1303,9 +1303,9 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo13ToggleFeatureERKNS_13FeatureBi
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8, !tbaa !8
-  %8 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8, !tbaa !8
   %10 = xor i64 %9, %7
   store i64 %10, ptr %8, align 8, !tbaa !8
@@ -1336,9 +1336,9 @@ define internal fastcc void @_ZL14SetImpliedBitsRN4llvm13FeatureBitsetERKS0_NS_8
 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw [5 x i64], ptr %1, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8, !tbaa !8
-  %8 = getelementptr inbounds nuw [5 x i64], ptr %0, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8, !tbaa !8
   %10 = or i64 %9, %7
   store i64 %10, ptr %8, align 8, !tbaa !8
@@ -1364,7 +1364,7 @@ _ZN4llvm13FeatureBitsetoRERKS0_.exit:             ; preds = %5
   %16 = shl nuw i64 1, %15
   %17 = lshr i32 %13, 6
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [5 x i64], ptr %1, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !8
   %21 = and i64 %16, %20
   %.not14 = icmp eq i64 %21, 0
@@ -1399,7 +1399,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo28ClearFeatureBitsTransitivelyER
   %10 = shl nuw i64 1, %9
   %11 = lshr i32 %.08, 6
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !8
   %15 = and i64 %14, %10
   %.not = icmp eq i64 %15, 0
@@ -1407,7 +1407,7 @@ define dso_local void @_ZN4llvm15MCSubtargetInfo28ClearFeatureBitsTransitivelyER
 
 16:                                               ; preds = %7
   %17 = xor i64 %10, -1
-  %18 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %12
+  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %12
   %19 = load i64, ptr %18, align 8, !tbaa !8
   %20 = and i64 %19, %17
   store i64 %20, ptr %18, align 8, !tbaa !8
@@ -1443,7 +1443,7 @@ define internal fastcc void @_ZL16ClearImpliedBitsRN4llvm13FeatureBitsetEjNS_8Ar
 11:                                               ; preds = %.lr.ph, %28
   %.015 = phi ptr [ %2, %.lr.ph ], [ %29, %28 ]
   %12 = getelementptr inbounds nuw i8, ptr %.015, i64 24
-  %13 = getelementptr inbounds nuw [5 x i64], ptr %12, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %10
   %14 = load i64, ptr %13, align 8, !tbaa !8
   %15 = and i64 %14, %8
   %.not13 = icmp eq i64 %15, 0
@@ -1458,7 +1458,7 @@ define internal fastcc void @_ZL16ClearImpliedBitsRN4llvm13FeatureBitsetEjNS_8Ar
   %22 = xor i64 %21, -1
   %23 = lshr i32 %18, 6
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [5 x i64], ptr %0, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %0, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !8
   %27 = and i64 %26, %22
   store i64 %27, ptr %25, align 8, !tbaa !8
@@ -1506,7 +1506,7 @@ _ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit: ; preds = %4, %6
   %18 = shl nuw i64 1, %17
   %19 = lshr i32 %15, 6
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [5 x i64], ptr %13, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %13, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !8
   %23 = and i64 %18, %22
   %.not25 = icmp eq i64 %23, 0
@@ -1769,7 +1769,7 @@ _ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit: ; preds = %5, %7
 19:                                               ; preds = %12
   %20 = lshr i32 %15, 6
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [5 x i64], ptr %0, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !8
   %24 = or i64 %18, %23
   store i64 %24, ptr %22, align 8, !tbaa !8
@@ -1781,7 +1781,7 @@ _ZN4llvm17SubtargetFeatures9StripFlagENS_9StringRefE.exit: ; preds = %5, %7
   %27 = xor i64 %18, -1
   %28 = lshr i32 %15, 6
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [5 x i64], ptr %0, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %0, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !8
   %32 = and i64 %31, %27
   store i64 %32, ptr %30, align 8, !tbaa !8
@@ -1927,9 +1927,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15MCSubtargetInfo13checkFeaturesEN
 
 17:                                               ; preds = %17, %._crit_edge
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i, %17 ]
-  %18 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !8, !noalias !80
-  %20 = getelementptr inbounds nuw [5 x i64], ptr %9, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !8, !alias.scope !80
   %22 = and i64 %21, %19
   store i64 %22, ptr %20, align 8, !tbaa !8, !alias.scope !80
@@ -2256,7 +2256,7 @@ define dso_local void @_ZNK4llvm15MCSubtargetInfo27getEnabledProcessorFeaturesEv
   %16 = shl nuw i64 1, %15
   %17 = lshr i32 %.0.val.i.i, 6
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !8
   %21 = and i64 %16, %20
   %.not6.i.i = icmp eq i64 %21, 0

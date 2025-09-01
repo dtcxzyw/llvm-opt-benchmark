@@ -222,7 +222,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   %14 = trunc i64 %13 to i32
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = mul i32 %15, %14
-  %17 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 8
@@ -230,53 +230,53 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
 
 .preheader355:                                    ; preds = %12, %41
   %indvars.iv418 = phi i64 [ %indvars.iv.next419, %41 ], [ 0, %12 ]
-  %18 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %indvars.iv418
+  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv418
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [8 x [25 x double]], ptr %7, i64 0, i64 %indvars.iv418
-  %21 = getelementptr inbounds nuw [8 x [25 x double]], ptr %3, i64 0, i64 %indvars.iv418
+  %20 = getelementptr inbounds nuw [25 x double], ptr %7, i64 %indvars.iv418
+  %21 = getelementptr inbounds nuw [25 x double], ptr %3, i64 %indvars.iv418
   %22 = trunc nuw nsw i64 %indvars.iv418 to i32
   br label %25
 
 .preheader354:                                    ; preds = %25
-  %23 = getelementptr inbounds nuw [8 x [25 x double]], ptr %8, i64 0, i64 %indvars.iv418
-  %24 = getelementptr inbounds nuw [8 x [25 x double]], ptr %4, i64 0, i64 %indvars.iv418
+  %23 = getelementptr inbounds nuw [25 x double], ptr %8, i64 %indvars.iv418
+  %24 = getelementptr inbounds nuw [25 x double], ptr %4, i64 %indvars.iv418
   br label %31
 
 25:                                               ; preds = %.preheader355, %25
   %indvars.iv403 = phi i64 [ 0, %.preheader355 ], [ %indvars.iv.next404, %25 ]
-  %26 = getelementptr inbounds nuw [25 x double], ptr %20, i64 0, i64 %indvars.iv403
+  %26 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv403
   %27 = call noundef double @_Z12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRd(i32 noundef %22, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %28 = getelementptr inbounds nuw [25 x double], ptr %21, i64 0, i64 %indvars.iv403
+  %28 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv403
   store double %27, ptr %28, align 8, !tbaa !10
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next404, 25
   br i1 %exitcond.not, label %.preheader354, label %25, !llvm.loop !12
 
 .preheader353:                                    ; preds = %31
-  %29 = getelementptr inbounds nuw [8 x [25 x double]], ptr %9, i64 0, i64 %indvars.iv418
-  %30 = getelementptr inbounds nuw [8 x [25 x double]], ptr %5, i64 0, i64 %indvars.iv418
+  %29 = getelementptr inbounds nuw [25 x double], ptr %9, i64 %indvars.iv418
+  %30 = getelementptr inbounds nuw [25 x double], ptr %5, i64 %indvars.iv418
   br label %37
 
 31:                                               ; preds = %.preheader354, %31
   %indvars.iv406 = phi i64 [ 0, %.preheader354 ], [ %indvars.iv.next407, %31 ]
-  %32 = getelementptr inbounds nuw [25 x double], ptr %23, i64 0, i64 %indvars.iv406
+  %32 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv406
   %33 = call noundef double @_Z12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRd(i32 noundef %22, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %32)
-  %34 = getelementptr inbounds nuw [25 x double], ptr %24, i64 0, i64 %indvars.iv406
+  %34 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv406
   store double %33, ptr %34, align 8, !tbaa !10
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next407, 25
   br i1 %exitcond409.not, label %.preheader353, label %31, !llvm.loop !13
 
 .preheader352:                                    ; preds = %37
-  %35 = getelementptr inbounds nuw [8 x [25 x double]], ptr %10, i64 0, i64 %indvars.iv418
-  %36 = getelementptr inbounds nuw [8 x [25 x double]], ptr %6, i64 0, i64 %indvars.iv418
+  %35 = getelementptr inbounds nuw [25 x double], ptr %10, i64 %indvars.iv418
+  %36 = getelementptr inbounds nuw [25 x double], ptr %6, i64 %indvars.iv418
   br label %42
 
 37:                                               ; preds = %.preheader353, %37
   %indvars.iv410 = phi i64 [ 0, %.preheader353 ], [ %indvars.iv.next411, %37 ]
-  %38 = getelementptr inbounds nuw [25 x double], ptr %29, i64 0, i64 %indvars.iv410
+  %38 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv410
   %39 = call noundef double @_Z12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRd(i32 noundef %22, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %38)
-  %40 = getelementptr inbounds nuw [25 x double], ptr %30, i64 0, i64 %indvars.iv410
+  %40 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv410
   store double %39, ptr %40, align 8, !tbaa !10
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next411, 25
@@ -289,9 +289,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
 
 42:                                               ; preds = %.preheader352, %42
   %indvars.iv414 = phi i64 [ 0, %.preheader352 ], [ %indvars.iv.next415, %42 ]
-  %43 = getelementptr inbounds nuw [25 x double], ptr %35, i64 0, i64 %indvars.iv414
+  %43 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv414
   %44 = call noundef double @_Z12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRd(i32 noundef %22, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %43)
-  %45 = getelementptr inbounds nuw [25 x double], ptr %36, i64 0, i64 %indvars.iv414
+  %45 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv414
   store double %44, ptr %45, align 8, !tbaa !10
   %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next415, 25
@@ -415,7 +415,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit190: ; preds = %_ZNSt9basic_iosI
 
 .preheader:                                       ; preds = %41, %_ZSt4sortIPdEvT_S1_.exit266
   %indvars.iv422 = phi i64 [ %indvars.iv.next423, %_ZSt4sortIPdEvT_S1_.exit266 ], [ 0, %41 ]
-  %112 = getelementptr inbounds nuw [8 x [25 x double]], ptr %3, i64 0, i64 %indvars.iv422
+  %112 = getelementptr inbounds nuw [25 x double], ptr %3, i64 %indvars.iv422
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 200
   call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %112, ptr noundef nonnull %113, i64 noundef 8)
   %scevgep.i.i.i = getelementptr i8, ptr %112, i64 8
@@ -483,7 +483,7 @@ _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i9.i.i.i, label %_ZSt4sortIPdEvT_S1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !52
 
 _ZSt4sortIPdEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i
-  %130 = getelementptr inbounds nuw [8 x [25 x double]], ptr %4, i64 0, i64 %indvars.iv422
+  %130 = getelementptr inbounds nuw [25 x double], ptr %4, i64 %indvars.iv422
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 200
   call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %130, ptr noundef nonnull %131, i64 noundef 8)
   %scevgep.i.i.i192 = getelementptr i8, ptr %130, i64 8
@@ -551,7 +551,7 @@ _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i9.i.i.i207, label %_ZSt4sortIPdEvT_S1_.exit216, label %.lr.ph.i.i.i.i202, !llvm.loop !52
 
 _ZSt4sortIPdEvT_S1_.exit216:                      ; preds = %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i205
-  %148 = getelementptr inbounds nuw [8 x [25 x double]], ptr %5, i64 0, i64 %indvars.iv422
+  %148 = getelementptr inbounds nuw [25 x double], ptr %5, i64 %indvars.iv422
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 200
   call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %148, ptr noundef nonnull %149, i64 noundef 8)
   %scevgep.i.i.i217 = getelementptr i8, ptr %148, i64 8
@@ -619,7 +619,7 @@ _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i9.i.i.i232, label %_ZSt4sortIPdEvT_S1_.exit241, label %.lr.ph.i.i.i.i227, !llvm.loop !52
 
 _ZSt4sortIPdEvT_S1_.exit241:                      ; preds = %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i230
-  %166 = getelementptr inbounds nuw [8 x [25 x double]], ptr %6, i64 0, i64 %indvars.iv422
+  %166 = getelementptr inbounds nuw [25 x double], ptr %6, i64 %indvars.iv422
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 200
   call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %166, ptr noundef nonnull %167, i64 noundef 8)
   %scevgep.i.i.i242 = getelementptr i8, ptr %166, i64 8
@@ -820,19 +820,19 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %260,
   %.0171383 = phi double [ 0.000000e+00, %_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit190 ], [ %.1172, %switch.lookup ]
   %.0173382 = phi double [ 0.000000e+00, %_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit190 ], [ %.1174, %switch.lookup ]
   %.0175381 = phi i32 [ 0, %_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit190 ], [ %.1176, %switch.lookup ]
-  %271 = getelementptr inbounds nuw [8 x [25 x double]], ptr %3, i64 0, i64 %indvars.iv426
+  %271 = getelementptr inbounds nuw [25 x double], ptr %3, i64 %indvars.iv426
   %272 = load double, ptr %271, align 8, !tbaa !10
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %274 = load double, ptr %273, align 8, !tbaa !10
-  %275 = getelementptr inbounds nuw [8 x [25 x double]], ptr %4, i64 0, i64 %indvars.iv426
+  %275 = getelementptr inbounds nuw [25 x double], ptr %4, i64 %indvars.iv426
   %276 = load double, ptr %275, align 8, !tbaa !10
   %277 = getelementptr inbounds nuw i8, ptr %275, i64 32
   %278 = load double, ptr %277, align 8, !tbaa !10
-  %279 = getelementptr inbounds nuw [8 x [25 x double]], ptr %5, i64 0, i64 %indvars.iv426
+  %279 = getelementptr inbounds nuw [25 x double], ptr %5, i64 %indvars.iv426
   %280 = load double, ptr %279, align 8, !tbaa !10
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 32
   %282 = load double, ptr %281, align 8, !tbaa !10
-  %283 = getelementptr inbounds nuw [8 x [25 x double]], ptr %6, i64 0, i64 %indvars.iv426
+  %283 = getelementptr inbounds nuw [25 x double], ptr %6, i64 %indvars.iv426
   %284 = load double, ptr %283, align 8, !tbaa !10
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 32
   %286 = load double, ptr %285, align 8, !tbaa !10
@@ -941,7 +941,7 @@ _ZSt10accumulateIPddET0_T_S2_S1_.exit315:         ; preds = %.lr.ph.i310
   br i1 %318, label %325, label %319
 
 319:                                              ; preds = %_ZSt10accumulateIPddET0_T_S2_S1_.exit315
-  %320 = getelementptr inbounds nuw [8 x [25 x double]], ptr %7, i64 0, i64 %indvars.iv426
+  %320 = getelementptr inbounds nuw [25 x double], ptr %7, i64 %indvars.iv426
   br label %.lr.ph.i317
 
 .lr.ph.i317:                                      ; preds = %319, %.lr.ph.i317
@@ -966,7 +966,7 @@ _ZSt10accumulateIPddET0_T_S2_S1_.exit322:         ; preds = %.lr.ph.i317
   br i1 %328, label %335, label %329
 
 329:                                              ; preds = %325
-  %330 = getelementptr inbounds nuw [8 x [25 x double]], ptr %8, i64 0, i64 %indvars.iv426
+  %330 = getelementptr inbounds nuw [25 x double], ptr %8, i64 %indvars.iv426
   br label %.lr.ph.i324
 
 .lr.ph.i324:                                      ; preds = %329, %.lr.ph.i324
@@ -991,7 +991,7 @@ _ZSt10accumulateIPddET0_T_S2_S1_.exit329:         ; preds = %.lr.ph.i324
   br i1 %338, label %345, label %339
 
 339:                                              ; preds = %335
-  %340 = getelementptr inbounds nuw [8 x [25 x double]], ptr %9, i64 0, i64 %indvars.iv426
+  %340 = getelementptr inbounds nuw [25 x double], ptr %9, i64 %indvars.iv426
   br label %.lr.ph.i331
 
 .lr.ph.i331:                                      ; preds = %339, %.lr.ph.i331
@@ -1016,7 +1016,7 @@ _ZSt10accumulateIPddET0_T_S2_S1_.exit336:         ; preds = %.lr.ph.i331
   br i1 %348, label %355, label %349
 
 349:                                              ; preds = %345
-  %350 = getelementptr inbounds nuw [8 x [25 x double]], ptr %10, i64 0, i64 %indvars.iv426
+  %350 = getelementptr inbounds nuw [25 x double], ptr %10, i64 %indvars.iv426
   br label %.lr.ph.i338
 
 .lr.ph.i338:                                      ; preds = %349, %.lr.ph.i338
@@ -1060,7 +1060,7 @@ switch.lookup:                                    ; preds = %355, %_ZSt10accumul
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   store i64 17, ptr %369, align 8, !tbaa !19
   %370 = and i64 %indvars.iv426, 4294967295
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 0, i64 %370
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 %370
   %switch.load = load ptr, ptr %switch.gep, align 8
   %371 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #21
   %372 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load, i64 noundef %371)
@@ -7234,7 +7234,7 @@ define dso_local noundef nonnull ptr @_Z13benchmarkName13BenchmarkType(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

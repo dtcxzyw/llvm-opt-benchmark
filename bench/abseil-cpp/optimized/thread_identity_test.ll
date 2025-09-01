@@ -3274,7 +3274,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4absl1
 5:                                                ; preds = %_ZN4absl9MutexLockD2Ev.exit.i.i.i.i.i, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %_ZN4absl9MutexLockD2Ev.exit.i.i.i.i.i ]
   %6 = load ptr, ptr %2, align 8, !tbaa !111
-  %7 = getelementptr inbounds nuw [3 x %"class.absl::Mutex"], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %7 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %6, i64 %indvars.iv.i.i.i.i.i
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZN4absl9MutexLockD2Ev.exit.i.i.i.i.i unwind label %8

@@ -5562,10 +5562,10 @@ define void @_ZNK6casadi15KinsolInterface12kinsol_errorERKNSt7__cxx1112basic_str
 
 switch.lookup:                                    ; preds = %4
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZNK6casadi15KinsolInterface12kinsol_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK6casadi15KinsolInterface12kinsol_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep182 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZNK6casadi15KinsolInterface12kinsol_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib.1, i64 0, i64 %23
+  %switch.gep182 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK6casadi15KinsolInterface12kinsol_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib.1, i64 %23
   %switch.load183 = load ptr, ptr %switch.gep182, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)

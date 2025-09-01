@@ -125,12 +125,12 @@ define noundef i64 @_Z18fast_rv64i_fmv_d_xP11processor_t6insn_tm(ptr noundef cap
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw [32 x i64], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %23 = lshr i64 %1, 7
   %24 = and i64 %23, 31
-  %25 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %struct.float128_t, ptr %22, i64 %24
   store i64 %21, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
@@ -192,7 +192,7 @@ define noundef i64 @_Z20logged_rv64i_fmv_d_xP11processor_t6insn_tm(ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = lshr i64 %1, 15
   %20 = and i64 %19, 31
-  %21 = getelementptr inbounds nuw [32 x i64], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -207,7 +207,7 @@ define noundef i64 @_Z20logged_rv64i_fmv_d_xP11processor_t6insn_tm(ptr noundef %
   store i64 -1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %30 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %29, i64 0, i64 %25
+  %30 = getelementptr inbounds nuw %struct.float128_t, ptr %29, i64 %25
   store i64 %22, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
@@ -363,12 +363,12 @@ define noundef i64 @_Z18fast_rv64e_fmv_d_xP11processor_t6insn_tm(ptr noundef cap
 24:                                               ; preds = %13
   %25 = add i64 %2, 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %27 = getelementptr inbounds nuw [32 x i64], ptr %26, i64 0, i64 %17
+  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %17
   %28 = load i64, ptr %27, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %30 = lshr i64 %1, 7
   %31 = and i64 %30, 31
-  %32 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %29, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.float128_t, ptr %29, i64 %31
   store i64 %28, ptr %32, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
@@ -439,7 +439,7 @@ define noundef i64 @_Z20logged_rv64e_fmv_d_xP11processor_t6insn_tm(ptr noundef %
 25:                                               ; preds = %14
   %26 = add i64 %2, 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %28 = getelementptr inbounds nuw [32 x i64], ptr %27, i64 0, i64 %18
+  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %18
   %29 = load i64, ptr %28, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -454,7 +454,7 @@ define noundef i64 @_Z20logged_rv64e_fmv_d_xP11processor_t6insn_tm(ptr noundef %
   store i64 -1, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %37 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %36, i64 0, i64 %32
+  %37 = getelementptr inbounds nuw %struct.float128_t, ptr %36, i64 %32
   store i64 %29, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 -1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22

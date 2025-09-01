@@ -8325,7 +8325,7 @@ lean_alloc_ctor.exit737:                          ; preds = %780
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit737
   %789 = zext nneg i8 %.val600 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeLspMessage, i64 0, i64 %789
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeLspMessage, i64 %789
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %790
 

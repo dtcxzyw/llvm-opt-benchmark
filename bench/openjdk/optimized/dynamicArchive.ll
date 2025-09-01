@@ -296,10 +296,10 @@ define hidden void @_ZN21DynamicArchiveBuilder11init_headerEv(ptr noundef nonnul
   %18 = load ptr, ptr %12, align 8
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = getelementptr inbounds nuw [4 x %struct.CDSFileMapRegion], ptr %20, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.CDSFileMapRegion, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 796
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   store i32 %22, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1392,9 +1392,9 @@ define hidden noundef zeroext i1 @_ZN14DynamicArchive8validateEP11FileMapInfo(pt
 
 16:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw [4 x %struct.CDSFileMapRegion], ptr %12, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.CDSFileMapRegion, ptr %12, i64 %indvars.iv
   %20 = load i32, ptr %19, align 8
   %.not11 = icmp eq i32 %18, %20
   br i1 %.not11, label %25, label %21
@@ -1441,7 +1441,7 @@ define hidden void @_ZN20DynamicArchiveHeader5printEP12outputStream(ptr noundef 
 
 18:                                               ; preds = %2, %18
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17, i32 noundef %21, i32 noundef %20) #11
@@ -1654,7 +1654,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #11
@@ -1885,7 +1885,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1899,7 +1899,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -1965,7 +1965,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -2216,7 +2216,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -2238,7 +2238,7 @@ define linkonce_odr hidden void @_ZN21DynamicArchiveBuilder13iterate_rootsEP16Me
 
 4:                                                ; preds = %.critedge.thread.i, %2
   %indvars.iv.i = phi i64 [ 4, %2 ], [ %indvars.iv.next.i, %.critedge.thread.i ]
-  %5 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN8Universe17_typeArrayKlassesE, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw ptr, ptr @_ZN8Universe17_typeArrayKlassesE, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
   %.not12.i = icmp eq ptr %6, null
@@ -2458,10 +2458,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN21Dynami
   %41 = load ptr, ptr %35, align 8
   %42 = load ptr, ptr %29, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = getelementptr inbounds nuw [4 x %struct.CDSFileMapRegion], ptr %43, i64 0, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw %struct.CDSFileMapRegion, ptr %43, i64 %indvars.iv.i
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 796
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %46, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
   store i32 %45, ptr %47, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

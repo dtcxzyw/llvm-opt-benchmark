@@ -305,7 +305,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
 
 .preheader.i:                                     ; preds = %153, %122
   %indvars.iv31.i = phi i64 [ 0, %122 ], [ %indvars.iv.next32.i, %153 ]
-  %126 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %121, i64 0, i64 %indvars.iv31.i
+  %126 = getelementptr inbounds nuw %struct.tedge_t, ptr %121, i64 %indvars.iv31.i
   %127 = load ptr, ptr %126, align 8, !tbaa !37
   %128 = load ptr, ptr %127, align 8, !tbaa !26
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -314,7 +314,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
 
 131:                                              ; preds = %152, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %152 ]
-  %132 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %125, i64 0, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw %struct.tedge_t, ptr %125, i64 %indvars.iv.i
   %133 = load ptr, ptr %132, align 8, !tbaa !37
   %134 = load ptr, ptr %133, align 8, !tbaa !26
   %135 = icmp eq ptr %128, %134
@@ -383,7 +383,7 @@ connecttris.exit:                                 ; preds = %153
   %161 = urem i64 %159, %160
   %162 = getelementptr inbounds nuw %struct.triangle_t, ptr %157, i64 %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %162, i64 80, i1 false), !tbaa.struct !50
-  %163 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %113, i64 0, i64 %indvars.iv.i261
+  %163 = getelementptr inbounds nuw %struct.tedge_t, ptr %113, i64 %indvars.iv.i261
   %164 = load ptr, ptr %163, align 8, !tbaa !37
   %165 = load ptr, ptr %164, align 8, !tbaa !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %162, i64 80, i1 false), !tbaa.struct !50
@@ -466,7 +466,7 @@ pointintri.exit._crit_edge.thread:                ; preds = %.preheader304, %poi
   %196 = urem i64 %194, %195
   %197 = getelementptr inbounds nuw %struct.triangle_t, ptr %192, i64 %196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %197, i64 80, i1 false), !tbaa.struct !50
-  %198 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %185, i64 0, i64 %indvars.iv.i264
+  %198 = getelementptr inbounds nuw %struct.tedge_t, ptr %185, i64 %indvars.iv.i264
   %199 = load ptr, ptr %198, align 8, !tbaa !37
   %200 = load ptr, ptr %199, align 8, !tbaa !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %197, i64 80, i1 false), !tbaa.struct !50
@@ -684,7 +684,7 @@ add2dq.exit:                                      ; preds = %247, %252
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8, !tbaa !39
   %303 = and i64 %indvars.iv, 4294967295
-  %304 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %266, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw %struct.tedge_t, ptr %266, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !37
   %306 = load ptr, ptr %305, align 8, !tbaa !26
   %307 = load ptr, ptr %302, align 8, !tbaa !26

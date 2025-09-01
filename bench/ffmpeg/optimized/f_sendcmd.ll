@@ -504,7 +504,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %173
 
 173:                                              ; preds = %172, %171
-  %174 = getelementptr inbounds nuw [3 x ptr], ptr @make_command_flags_str.flag_strings, i64 0, i64 %indvars.iv.i.i.i.i
+  %174 = getelementptr inbounds nuw ptr, ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i.i.i.i
   %175 = load ptr, ptr %174, align 8, !tbaa !26
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, ptr noundef %175) #11
   br label %176
@@ -688,7 +688,7 @@ parse_intervals.exit.thread59:                    ; preds = %parse_interval.exit
   br label %237
 
 237:                                              ; preds = %236, %235
-  %238 = getelementptr inbounds nuw [3 x ptr], ptr @make_command_flags_str.flag_strings, i64 0, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw ptr, ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i
   %239 = load ptr, ptr %238, align 8, !tbaa !26
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.12, ptr noundef %239) #11
   br label %240
@@ -898,7 +898,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %63
 
 63:                                               ; preds = %62, %61
-  %64 = getelementptr inbounds nuw [3 x ptr], ptr @make_command_flags_str.flag_strings, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw ptr, ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8, !tbaa !26
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, ptr noundef %65) #11
   br label %66

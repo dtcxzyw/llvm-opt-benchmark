@@ -23730,7 +23730,7 @@ switch.lookup:                                    ; preds = %14
   %25 = load i64, ptr %13, align 8, !range !251, !noundef !8
   %26 = add nsw i64 %25, -2
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 6)
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN9toml_edit5array5Array7replace17h85b4a1017caf410eE, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9toml_edit5array5Array7replace17h85b4a1017caf410eE, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

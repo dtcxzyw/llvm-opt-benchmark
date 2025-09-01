@@ -1821,7 +1821,7 @@ define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x flo
   %.02742 = phi i32 [ 1, %11 ], [ %.128, %b2AABB_Overlaps.exit.thread ]
   %15 = add nsw i32 %.02742, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !39
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %b2AABB_Overlaps.exit.thread, label %20, !llvm.loop !50
@@ -1880,7 +1880,7 @@ define i64 @b2DynamicTree_Query(ptr noundef readonly captures(none) %0, <2 x flo
   %52 = load i32, ptr %51, align 8, !tbaa !16
   %53 = add nuw nsw i32 %.02742, 1
   %54 = zext nneg i32 %.02742 to i64
-  %55 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %54
   store i32 %52, ptr %55, align 4, !tbaa !39
   br label %b2AABB_Overlaps.exit.thread
 
@@ -1986,7 +1986,7 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %.082191 = phi i32 [ 1, %b2Normalize.exit ], [ %.183, %b2AABB_Overlaps.exit.thread ]
   %46 = add nsw i32 %.082191, -1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [1024 x i32], ptr %6, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %6, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !39
   %50 = icmp eq i32 %49, -1
   br i1 %50, label %b2AABB_Overlaps.exit.thread, label %51, !llvm.loop !54
@@ -2129,7 +2129,7 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %142 = fadd float %140, %141
   %143 = fcmp olt float %137, %142
   %144 = zext nneg i32 %.082191 to i64
-  %145 = getelementptr inbounds nuw [1024 x i32], ptr %6, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %6, i64 %144
   %. = select i1 %143, i32 %123, i32 %112
   %.199 = select i1 %143, i32 %112, i32 %123
   store i32 %., ptr %48, align 4, !tbaa !39
@@ -2252,7 +2252,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.sroa.13.0272 = phi <2 x float> [ %.sroa.073.0.copyload, %.lr.ph.preheader ], [ %.sroa.02.4.vec.insert.i174, %.lr.ph ]
   %.sroa.073.0271 = phi <2 x float> [ %.sroa.073.0.copyload, %.lr.ph.preheader ], [ %.sroa.02.4.vec.insert.i168, %.lr.ph ]
-  %58 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %1, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
   %59 = load <2 x float>, ptr %58, align 4
   %.sroa.01.0.vec.extract.i163 = extractelement <2 x float> %.sroa.073.0271, i64 0
   %.sroa.0.0.vec.extract.i164 = extractelement <2 x float> %59, i64 0
@@ -2285,7 +2285,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %.0112274 = phi i32 [ 1, %._crit_edge ], [ %.1113, %b2AABB_Overlaps.exit.thread ]
   %69 = add nsw i32 %.0112274, -1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr %7, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !39
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %b2AABB_Overlaps.exit.thread, label %74, !llvm.loop !61
@@ -2435,7 +2435,7 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %173 = fadd float %171, %172
   %174 = fcmp olt float %168, %173
   %175 = zext nneg i32 %.0112274 to i64
-  %176 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw i32, ptr %7, i64 %175
   %. = select i1 %174, i32 %154, i32 %143
   %.284 = select i1 %174, i32 %143, i32 %154
   store i32 %., ptr %71, align 4, !tbaa !39
@@ -2564,7 +2564,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 52:                                               ; preds = %._crit_edge62.split.us.us
   %53 = add nsw i32 %.052.lcssa.us, -1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %54
+  %55 = getelementptr inbounds i32, ptr %4, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !39
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds %struct.b2TreeNode, ptr %30, i64 %57
@@ -2584,7 +2584,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %64 = load i32, ptr %63, align 8, !tbaa !16
   %65 = add nsw i32 %.05259.us.us, 1
   %66 = sext i32 %.05259.us.us to i64
-  %67 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %66
+  %67 = getelementptr inbounds i32, ptr %4, i64 %66
   store i32 %64, ptr %67, align 4, !tbaa !39
   br label %68
 
@@ -2665,7 +2665,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %105 = load i32, ptr %104, align 8, !tbaa !16
   %106 = add nsw i32 %.05259, 1
   %107 = sext i32 %.05259 to i64
-  %108 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %107
+  %108 = getelementptr inbounds i32, ptr %4, i64 %107
   store i32 %105, ptr %108, align 4, !tbaa !39
   br label %109
 
@@ -2693,7 +2693,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 123:                                              ; preds = %._crit_edge
   %124 = add nsw i32 %.052.lcssa, -1
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds [1024 x i32], ptr %4, i64 0, i64 %125
+  %126 = getelementptr inbounds i32, ptr %4, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !39
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds %struct.b2TreeNode, ptr %30, i64 %128

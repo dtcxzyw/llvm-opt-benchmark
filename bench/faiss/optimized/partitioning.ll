@@ -296,7 +296,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
 89:                                               ; preds = %.lr.ph.i80
   %90 = add nuw nsw i32 %.02028.i, 1
   %91 = zext nneg i32 %.02028.i to i64
-  %92 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw float, ptr %7, i64 %91
   store float %86, ptr %92, align 4, !tbaa !16
   %.not.i83 = icmp eq i32 %90, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -715,7 +715,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
 89:                                               ; preds = %.lr.ph.i80
   %90 = add nuw nsw i32 %.02028.i, 1
   %91 = zext nneg i32 %.02028.i to i64
-  %92 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw float, ptr %7, i64 %91
   store float %86, ptr %92, align 4, !tbaa !16
   %.not.i83 = icmp eq i32 %90, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -1079,7 +1079,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
 86:                                               ; preds = %.lr.ph.i80
   %87 = add nuw nsw i32 %.02028.i, 1
   %88 = zext nneg i32 %.02028.i to i64
-  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr %7, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -1442,7 +1442,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
 86:                                               ; preds = %.lr.ph.i80
   %87 = add nuw nsw i32 %.02028.i, 1
   %88 = zext nneg i32 %.02028.i to i64
-  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr %7, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -1805,7 +1805,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
 86:                                               ; preds = %.lr.ph.i80
   %87 = add nuw nsw i32 %.02028.i, 1
   %88 = zext nneg i32 %.02028.i to i64
-  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr %7, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -2168,7 +2168,7 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
 86:                                               ; preds = %.lr.ph.i80
   %87 = add nuw nsw i32 %.02028.i, 1
   %88 = zext nneg i32 %.02028.i to i64
-  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr %7, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -2323,9 +2323,9 @@ _ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16ui
 
 13:                                               ; preds = %13, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i
   %15 = load i16, ptr %14, align 2, !tbaa !14
-  %16 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %spec.store.select = tail call i16 @llvm.umin.i16(i16 %15, i16 %17)
   store i16 %spec.store.select, ptr %16, align 2
@@ -2335,9 +2335,9 @@ _ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16ui
 
 _ZN5faiss12simd16uint168accu_minERKS0_.exit:      ; preds = %13, %_ZN5faiss12simd16uint168accu_minERKS0_.exit
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %_ZN5faiss12simd16uint168accu_minERKS0_.exit ], [ 0, %13 ]
-  %18 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i33
+  %18 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i33
   %19 = load i16, ptr %18, align 2, !tbaa !14
-  %20 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 0, i64 %indvars.iv.i33
+  %20 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i33
   %21 = load i16, ptr %20, align 2, !tbaa !14
   %spec.store.select39 = tail call i16 @llvm.umax.i16(i16 %19, i16 %21)
   store i16 %spec.store.select39, ptr %20, align 2
@@ -2359,17 +2359,16 @@ _ZN5faiss12simd16uint168accu_maxERKS0_.exit:      ; preds = %_ZN5faiss12simd16ui
 
 27:                                               ; preds = %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge, %27
   %indvars.iv = phi i64 [ 1, %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !31
   %30 = load i16, ptr %2, align 2, !tbaa !31
   %31 = tail call i16 @llvm.umin.i16(i16 %29, i16 %30)
   store i16 %31, ptr %2, align 2, !tbaa !31
-  %32 = or disjoint i64 %indvars.iv, 16
-  %33 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %32
-  %34 = load i16, ptr %3, align 2, !tbaa !31
-  %35 = load i16, ptr %33, align 2, !tbaa !31
-  %36 = tail call i16 @llvm.umax.i16(i16 %34, i16 %35)
-  store i16 %36, ptr %3, align 2, !tbaa !31
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %33 = load i16, ptr %3, align 2, !tbaa !31
+  %34 = load i16, ptr %32, align 2, !tbaa !31
+  %35 = tail call i16 @llvm.umax.i16(i16 %33, i16 %34)
+  store i16 %35, ptr %3, align 2, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %25, label %27, !llvm.loop !52
@@ -2381,19 +2380,19 @@ _ZN5faiss12simd16uint168accu_maxERKS0_.exit:      ; preds = %_ZN5faiss12simd16ui
   ret void
 
 .lr.ph47:                                         ; preds = %25, %.lr.ph47
-  %.046 = phi i64 [ %44, %.lr.ph47 ], [ %26, %25 ]
-  %37 = getelementptr inbounds nuw i16, ptr %0, i64 %.046
-  %38 = load i16, ptr %37, align 2, !tbaa !31
-  %39 = load i16, ptr %2, align 2, !tbaa !31
-  %40 = tail call i16 @llvm.umin.i16(i16 %38, i16 %39)
-  store i16 %40, ptr %2, align 2, !tbaa !31
-  %41 = load i16, ptr %3, align 2, !tbaa !31
-  %42 = load i16, ptr %37, align 2, !tbaa !31
-  %43 = tail call i16 @llvm.umax.i16(i16 %41, i16 %42)
-  store i16 %43, ptr %3, align 2, !tbaa !31
-  %44 = add nuw i64 %.046, 1
-  %45 = icmp ult i64 %44, %1
-  br i1 %45, label %.lr.ph47, label %._crit_edge, !llvm.loop !53
+  %.046 = phi i64 [ %43, %.lr.ph47 ], [ %26, %25 ]
+  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %.046
+  %37 = load i16, ptr %36, align 2, !tbaa !31
+  %38 = load i16, ptr %2, align 2, !tbaa !31
+  %39 = tail call i16 @llvm.umin.i16(i16 %37, i16 %38)
+  store i16 %39, ptr %2, align 2, !tbaa !31
+  %40 = load i16, ptr %3, align 2, !tbaa !31
+  %41 = load i16, ptr %36, align 2, !tbaa !31
+  %42 = tail call i16 @llvm.umax.i16(i16 %40, i16 %41)
+  store i16 %42, ptr %3, align 2, !tbaa !31
+  %43 = add nuw i64 %.046, 1
+  %44 = icmp ult i64 %43, %1
+  br i1 %44, label %.lr.ph47, label %._crit_edge, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

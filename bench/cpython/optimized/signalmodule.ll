@@ -1103,7 +1103,7 @@ define hidden void @_PySignal_Fini() local_unnamed_addr #1 {
   %6 = getelementptr i8, ptr %5, i64 8
   %7 = load atomic i64, ptr %6 seq_cst, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
   store atomic i32 0, ptr %9 monotonic, align 8
   store atomic i64 0, ptr %6 seq_cst, align 8
   %10 = icmp ne i64 %7, 0
@@ -1303,7 +1303,7 @@ _PyThreadState_GetFrame.exit:                     ; preds = %8, %_PyFrame_IsInco
 
 22:                                               ; preds = %_PyThreadState_GetFrame.exit, %Py_DECREF.exit.thread
   %indvars.iv = phi i64 [ 1, %_PyThreadState_GetFrame.exit ], [ %indvars.iv.next, %Py_DECREF.exit.thread ]
-  %23 = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 0, i64 %indvars.iv
+  %23 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
   %24 = load atomic i32, ptr %23 monotonic, align 8
   %.not39 = icmp eq i32 %24, 0
   br i1 %.not39, label %Py_DECREF.exit.thread, label %25
@@ -1493,7 +1493,7 @@ compare_handler.exit15:                           ; preds = %18
   br i1 %.not21, label %trip_signal.exit, label %compare_handler.exit15.thread
 
 compare_handler.exit15.thread:                    ; preds = %18, %compare_handler.exit.thread, %compare_handler.exit15
-  %21 = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 0, i64 %5
+  %21 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %5
   store atomic i32 1, ptr %21 seq_cst, align 8
   store atomic i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2200) seq_cst, align 8
   tail call void @_PyEval_SignalReceived() #15
@@ -1566,7 +1566,7 @@ define hidden range(i32 -1, 1) i32 @_PySignal_Init(i32 noundef %0) local_unnamed
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %4 ]
-  %8 = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 0, i64 %indvars.iv
+  %8 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
   store atomic i32 0, ptr %8 monotonic, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
@@ -1683,7 +1683,7 @@ define hidden void @_PySignal_AfterFork() local_unnamed_addr #3 {
 
 3:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 1, %2 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 0, i64 %indvars.iv.i
+  %4 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv.i
   store atomic i32 0, ptr %4 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
@@ -3315,7 +3315,7 @@ define internal void @signal_handler(i32 noundef %0) #1 {
   %3 = tail call ptr @__errno_location() #16
   %4 = load i32, ptr %3, align 4, !tbaa !199
   %5 = sext i32 %0 to i64
-  %6 = getelementptr [65 x %struct.anon.3], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 0, i64 %5
+  %6 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %5
   store atomic i32 1, ptr %6 seq_cst, align 8
   store atomic i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2200) seq_cst, align 8
   tail call void @_PyEval_SignalReceived() #15

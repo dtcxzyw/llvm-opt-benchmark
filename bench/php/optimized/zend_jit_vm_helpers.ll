@@ -860,7 +860,7 @@ define hidden i32 @zend_jit_profile_helper(ptr noundef %0) local_unnamed_addr #0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %5 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [6 x ptr], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !81
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8, !tbaa !82
@@ -886,7 +886,7 @@ define hidden i32 @zend_jit_func_counter_helper(ptr noundef %0) local_unnamed_ad
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %5 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [6 x ptr], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = load ptr, ptr %0, align 8, !tbaa !59
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 80), align 8, !tbaa !98
@@ -913,8 +913,8 @@ define hidden i32 @zend_jit_func_counter_helper(ptr noundef %0) local_unnamed_ad
   %24 = ptrtoint ptr %9 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %27 = ashr exact i64 %26, 5
-  %28 = getelementptr inbounds [1 x ptr], ptr %21, i64 0, i64 %27
+  %27 = ashr exact i64 %26, 2
+  %28 = getelementptr inbounds i8, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !81
   %30 = tail call i32 %29(ptr noundef nonnull %0) #7
   br label %31
@@ -933,7 +933,7 @@ define hidden i32 @zend_jit_loop_counter_helper(ptr noundef %0) local_unnamed_ad
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %5 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [6 x ptr], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = load ptr, ptr %0, align 8, !tbaa !59
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 72), align 8, !tbaa !109
@@ -960,8 +960,8 @@ define hidden i32 @zend_jit_loop_counter_helper(ptr noundef %0) local_unnamed_ad
   %24 = ptrtoint ptr %9 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %27 = ashr exact i64 %26, 5
-  %28 = getelementptr inbounds [1 x ptr], ptr %21, i64 0, i64 %27
+  %27 = ashr exact i64 %26, 2
+  %28 = getelementptr inbounds i8, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !81
   %30 = tail call i32 %29(ptr noundef nonnull %0) #7
   br label %31
@@ -1110,7 +1110,7 @@ define hidden i32 @zend_jit_func_trace_helper(ptr noundef %0) local_unnamed_addr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [6 x ptr], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load i64, ptr %12, align 8, !tbaa !115
@@ -1154,7 +1154,7 @@ define hidden i32 @zend_jit_ret_trace_helper(ptr noundef %0) local_unnamed_addr 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [6 x ptr], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load i64, ptr %12, align 8, !tbaa !115
@@ -1198,7 +1198,7 @@ define hidden i32 @zend_jit_loop_trace_helper(ptr noundef %0) local_unnamed_addr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [6 x ptr], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load i64, ptr %12, align 8, !tbaa !115
@@ -1245,7 +1245,7 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %15 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [6 x ptr], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !81
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %20 = load i64, ptr %19, align 8, !tbaa !115
@@ -2068,7 +2068,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 208
   %410 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds [6 x ptr], ptr %409, i64 0, i64 %411
+  %412 = getelementptr inbounds ptr, ptr %409, i64 %411
   %413 = load ptr, ptr %412, align 8, !tbaa !81
   %.not776 = icmp eq ptr %413, null
   br i1 %.not776, label %.critedge, label %414, !prof !21
@@ -2190,7 +2190,7 @@ zend_jit_trace_recursive_call_count.exit:         ; preds = %.lr.ph.i, %453
   %.3675 = phi i32 [ %.0672, %467 ], [ %449, %463 ]
   %471 = add nsw i32 %.0587, %.0589
   %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds [14 x ptr], ptr %8, i64 0, i64 %472
+  %473 = getelementptr inbounds ptr, ptr %8, i64 %472
   store ptr %454, ptr %473, align 8, !tbaa !136
   %474 = add nsw i32 %.0587, 1
   br label %601
@@ -2315,7 +2315,7 @@ zend_jit_trace_recursive_ret_count.exit:          ; preds = %.lr.ph.i870, %516
   %.3671 = phi i32 [ %.0668, %529 ], [ %512, %525 ]
   %.3667 = phi i32 [ %.0664, %529 ], [ %.0589, %525 ]
   %533 = sext i32 %.0589 to i64
-  %534 = getelementptr inbounds [14 x ptr], ptr %8, i64 0, i64 %533
+  %534 = getelementptr inbounds ptr, ptr %8, i64 %533
   store ptr %517, ptr %534, align 8, !tbaa !136
   %535 = add nsw i32 %.0589, 1
   %.not796 = icmp eq ptr %477, null
@@ -2497,7 +2497,7 @@ zend_jit_trace_bad_stop_event.exit883:            ; preds = %571
   %618 = getelementptr inbounds nuw i8, ptr %611, i64 208
   %619 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %620 = sext i32 %619 to i64
-  %621 = getelementptr inbounds [6 x ptr], ptr %618, i64 0, i64 %620
+  %621 = getelementptr inbounds ptr, ptr %618, i64 %620
   %622 = load ptr, ptr %621, align 8, !tbaa !16
   %.not807 = icmp eq ptr %622, null
   br i1 %.not807, label %623, label %.critedge861
@@ -3105,7 +3105,7 @@ define internal fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef 
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %22 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !80
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [6 x ptr], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %.not48 = icmp eq ptr %25, null
   br i1 %.not48, label %26, label %.critedge59

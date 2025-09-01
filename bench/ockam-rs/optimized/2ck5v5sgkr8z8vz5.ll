@@ -489,7 +489,7 @@ default.unreachable:                              ; preds = %67
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !54
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !54
-  %86 = getelementptr inbounds nuw [2 x i64], ptr %11, i64 0, i64 %83
+  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !54, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !54
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !54
@@ -1563,7 +1563,7 @@ default.unreachable:                              ; preds = %67
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !211
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !211
-  %86 = getelementptr inbounds nuw [2 x i64], ptr %11, i64 0, i64 %83
+  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !211, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !211
@@ -8274,7 +8274,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17
   store <8 x i8> <i8 1, i8 11, i8 13, i8 7, i8 9, i8 3, i8 5, i8 15>, ptr %3, align 8
   %4 = lshr i64 %0, 1
   %5 = and i64 %4, 7
-  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
   %7 = load i8, ptr %6, align 1, !noundef !7
   %8 = zext i8 %7 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12058,7 +12058,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !7, !align !52, !noundef !7
-  %29 = getelementptr inbounds nuw [256 x ptr], ptr %28, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 
@@ -12301,7 +12301,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha90b17fe551a040aE.exit": ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %.val = load ptr, ptr %17, align 8, !nonnull !7, !noundef !7
-  %18 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %.val, i64 0, i64 %13
+  %18 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %.val, i64 %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   br i1 %.off, label %23, label %22
@@ -12329,7 +12329,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hcec23f6c89055883E.exit": ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %.val32 = load ptr, ptr %27, align 8, !nonnull !7, !noundef !7
-  %28 = getelementptr inbounds [0 x { { i64, i64 }, { i64, i64 }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }], ptr %.val32, i64 0, i64 %20
+  %28 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %.val32, i64 %20
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8, !range !8, !noundef !7
   %trunc = trunc nuw i64 %30 to i1
@@ -12467,7 +12467,7 @@ switch.lookup:
   %3 = add nsw i64 %2, -3
   %4 = icmp ult i64 %3, 12
   %5 = select i1 %4, i64 %3, i64 10
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E", i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.17971264473161138775"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)
   ret i8 %switch.load

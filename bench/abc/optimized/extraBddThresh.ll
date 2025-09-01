@@ -249,7 +249,7 @@ define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 nounde
 .lr.ph64.i.us.us.us.us.us:                        ; preds = %18
   %45 = trunc nuw nsw i64 %indvars.iv71 to i32
   %46 = shl nuw nsw i32 1, %45
-  %47 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv71
+  %47 = getelementptr inbounds nuw [3 x i64], ptr @s_PMasks, i64 %indvars.iv71
   %48 = load i64, ptr %47, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !9
@@ -436,7 +436,7 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i3
 .lr.ph64.i.us.us.us.us.us:                        ; preds = %18
   %45 = trunc nuw nsw i64 %indvars.iv71 to i32
   %46 = shl nuw nsw i32 1, %45
-  %47 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv71
+  %47 = getelementptr inbounds nuw [3 x i64], ptr @s_PMasks, i64 %indvars.iv71
   %48 = load i64, ptr %47, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !9
@@ -559,7 +559,7 @@ define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 n
 
 16:                                               ; preds = %9, %.lr.ph
   %.024.sink = phi i32 [ %.024, %.lr.ph ], [ %spec.select, %9 ]
-  %17 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %.024.sink, ptr %17, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3208,7 +3208,7 @@ Abc_TtNegVar.exit.us:                             ; preds = %Abc_TtNegVar.exit.t
   %11 = shl nuw i32 1, %10
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %9, %12
-  %14 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv59
+  %14 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv59
   %15 = load i64, ptr %14, align 8, !tbaa !9
   %16 = xor i64 %13, -1
   %17 = and i64 %15, %16
@@ -3218,7 +3218,7 @@ Abc_TtNegVar.exit.us:                             ; preds = %Abc_TtNegVar.exit.t
 
 Abc_TtPosVar.exit.us:                             ; preds = %Abc_TtNegVar.exit.us
   %19 = lshr i64 %9, %12
-  %20 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv59
+  %20 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv59
   %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = xor i64 %19, -1
   %23 = and i64 %21, %22
@@ -3243,7 +3243,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = shl nuw nsw i32 1, %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8, !tbaa !9
   br label %33
 
@@ -3316,7 +3316,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = shl nuw nsw i32 1, %57
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8, !tbaa !9
   br label %63
 
@@ -3429,7 +3429,7 @@ define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = shl nuw nsw i32 1, %18
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !9
   br label %24
 
@@ -3498,7 +3498,7 @@ Abc_TtNegVar.exit:                                ; preds = %14
   %49 = shl nuw i32 1, %48
   %50 = zext nneg i32 %49 to i64
   %51 = shl i64 %47, %50
-  %52 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !9
   %54 = xor i64 %51, -1
   %55 = and i64 %53, %54
@@ -3515,7 +3515,7 @@ Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
   %60 = shl nuw i32 1, %59
   %61 = zext i32 %60 to i64
   %62 = shl i64 %58, %61
-  %63 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8, !tbaa !9
   %65 = and i64 %62, %64
   %66 = and i64 %64, %58
@@ -3535,7 +3535,7 @@ Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
   %72 = trunc nuw nsw i64 %indvars.iv to i32
   %73 = shl nuw nsw i32 1, %72
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %76 = load i64, ptr %75, align 8, !tbaa !9
   br label %77
 
@@ -3727,7 +3727,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
 
 50:                                               ; preds = %43, %.lr.ph.i69
   %.024.sink.i = phi i32 [ %.024.i, %.lr.ph.i69 ], [ %spec.select.i71, %43 ]
-  %51 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i70
+  %51 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i70
   store i32 %.024.sink.i, ptr %51, align 4, !tbaa !3
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %10
@@ -3837,7 +3837,7 @@ define void @Extra_ThreshCheckTest() local_unnamed_addr #0 {
   %6 = shl nuw nsw i32 1, %5
   %7 = zext nneg i32 %6 to i64
   %8 = lshr i64 -6302637592877692800, %7
-  %9 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = and i64 %8, -6302637592877692800
   %12 = xor i64 %11, -6302637592877692800
@@ -3845,7 +3845,7 @@ define void @Extra_ThreshCheckTest() local_unnamed_addr #0 {
   %14 = icmp eq i64 %13, 0
   %15 = zext i1 %14 to i32
   %16 = shl i64 -6302637592877692800, %7
-  %17 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !9
   %19 = and i64 %16, -6302637592877692800
   %20 = xor i64 %19, -6302637592877692800

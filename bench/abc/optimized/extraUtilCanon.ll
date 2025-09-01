@@ -52,15 +52,15 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 11:                                               ; preds = %5
   %12 = load i8, ptr %1, align 1, !tbaa !10
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr @s_Truths3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @s_Truths3, i64 %13
   store ptr %14, ptr %2, align 8, !tbaa !3
   %15 = load i8, ptr %1, align 1, !tbaa !10
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x [9 x i8]], ptr @s_Phases3, i64 0, i64 %16, i64 1
+  %17 = getelementptr inbounds nuw [9 x i8], ptr @s_Phases3, i64 %16, i64 1
   store ptr %17, ptr %3, align 8, !tbaa !11
   %18 = load i8, ptr %1, align 1, !tbaa !10
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x [9 x i8]], ptr @s_Phases3, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [9 x i8], ptr @s_Phases3, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !10
   %22 = sext i8 %21 to i32
   br label %216
@@ -131,11 +131,11 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %.0177 = phi i32 [ %46, %30 ], [ %71, %49 ], [ %74, %72 ]
   %.0170 = phi i32 [ %38, %30 ], [ %60, %49 ], [ %73, %72 ]
   %76 = sext i32 %0 to i64
-  %77 = getelementptr inbounds [7 x [2 x [2 x i32]]], ptr @Extra_TruthCanonN_rec.uTruthStore, i64 0, i64 %76
+  %77 = getelementptr inbounds [2 x [2 x i32]], ptr @Extra_TruthCanonN_rec.uTruthStore, i64 %76
   %78 = zext nneg i32 %4 to i64
-  %79 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %77, i64 0, i64 %78
-  %80 = getelementptr inbounds [7 x [2 x [64 x i8]]], ptr @Extra_TruthCanonN_rec.uPhaseStore, i64 0, i64 %76
-  %81 = getelementptr inbounds nuw [2 x [64 x i8]], ptr %80, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i32], ptr %77, i64 %78
+  %80 = getelementptr inbounds [2 x [64 x i8]], ptr @Extra_TruthCanonN_rec.uPhaseStore, i64 %76
+  %81 = getelementptr inbounds nuw [64 x i8], ptr %80, i64 %78
   %82 = icmp eq i32 %.0177, 0
   br i1 %82, label %83, label %93
 

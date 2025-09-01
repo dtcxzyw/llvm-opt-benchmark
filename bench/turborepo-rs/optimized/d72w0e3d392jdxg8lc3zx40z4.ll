@@ -233,7 +233,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCs8mTrBI1s
 
 .lr.ph:                                           ; preds = %2, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit
   %.sroa.0.08 = phi i64 [ %5, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %0, i64 0, i64 %.sroa.0.08
+  %4 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.08
   %5 = add nuw i64 %.sroa.0.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
@@ -278,7 +278,7 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
 
 .lr.ph.i.i:                                       ; preds = %6, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i
   %.sroa.0.08.i.i = phi i64 [ %13, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i.i ], [ 0, %6 ]
-  %12 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %10, i64 0, i64 %.sroa.0.08.i.i
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %10, i64 %.sroa.0.08.i.i
   %13 = add nuw i64 %.sroa.0.08.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -552,7 +552,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt100
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.011.034.i.i.i, i64 25
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.011.034.i.i.i, i64 24
   %58 = load i8, ptr %57, align 4, !range !116, !alias.scope !144, !noalias !147, !noundef !4
-  %59 = getelementptr inbounds nuw [0 x { [9 x i32] }], ptr %45, i64 0, i64 %.sroa.7.033.i.i.i
+  %59 = getelementptr inbounds nuw { [9 x i32] }, ptr %45, i64 %.sroa.7.033.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %59, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.011.034.i.i.i, i64 24, i1 false), !noalias !149
   %.sroa.422.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i8 %58, ptr %.sroa.422.0..sroa_idx.i.i.i, align 4, !noalias !140
@@ -774,7 +774,7 @@ define void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turb
 
 .lr.ph.i:                                         ; preds = %6, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i
   %.sroa.0.08.i = phi i64 [ %13, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEBK_.exit.i ], [ 0, %6 ]
-  %12 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %10, i64 0, i64 %.sroa.0.08.i
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %10, i64 %.sroa.0.08.i
   %13 = add nuw i64 %.sroa.0.08.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
@@ -1131,7 +1131,7 @@ define void @_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.011.034.i, i64 25
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.034.i, i64 24
   %27 = load i8, ptr %26, align 4, !range !116, !alias.scope !229, !noalias !232, !noundef !4
-  %28 = getelementptr inbounds nuw [0 x { [9 x i32] }], ptr %13, i64 0, i64 %.sroa.7.033.i
+  %28 = getelementptr inbounds nuw { [9 x i32] }, ptr %13, i64 %.sroa.7.033.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %28, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.011.034.i, i64 24, i1 false), !noalias !223
   %.sroa.422.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i8 %27, ptr %.sroa.422.0..sroa_idx.i, align 4, !noalias !228

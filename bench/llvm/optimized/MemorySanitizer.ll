@@ -7195,7 +7195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i.i: ; preds = 
   %710 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_115MemorySanitizer31getOrInsertMsanMetadataFunctionIJPN4llvm11PointerTypeEEEENS2_14FunctionCalleeERNS2_6ModuleENS2_9StringRefEDpT_(ptr noundef nonnull align 8 dereferenceable(744) %2, ptr noundef nonnull align 8 dereferenceable(841) %373, ptr %707, i64 %708, ptr noundef %709)
   %711 = extractvalue { ptr, ptr } %710, 0
   %712 = extractvalue { ptr, ptr } %710, 1
-  %713 = getelementptr inbounds nuw [4 x %"class.llvm::FunctionCallee"], ptr %612, i64 0, i64 %indvars.iv.i.i
+  %713 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %612, i64 %indvars.iv.i.i
   store ptr %711, ptr %713, align 8, !tbaa !482
   %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %713, i64 8
   store ptr %712, ptr %.sroa.410.0..sroa_idx.i.i, align 8, !tbaa !483
@@ -7205,7 +7205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i.i: ; preds = 
   %717 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_115MemorySanitizer31getOrInsertMsanMetadataFunctionIJPN4llvm11PointerTypeEEEENS2_14FunctionCalleeERNS2_6ModuleENS2_9StringRefEDpT_(ptr noundef nonnull align 8 dereferenceable(744) %2, ptr noundef nonnull align 8 dereferenceable(841) %373, ptr %714, i64 %715, ptr noundef %716)
   %718 = extractvalue { ptr, ptr } %717, 0
   %719 = extractvalue { ptr, ptr } %717, 1
-  %720 = getelementptr inbounds nuw [4 x %"class.llvm::FunctionCallee"], ptr %613, i64 0, i64 %indvars.iv.i.i
+  %720 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %613, i64 %indvars.iv.i.i
   store ptr %718, ptr %720, align 8, !tbaa !482
   %.sroa.48.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %720, i64 8
   store ptr %719, ptr %.sroa.48.0..sroa_idx.i.i, align 8, !tbaa !483
@@ -7784,7 +7784,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJPNS_11IntegerTypeES3_EEENS_14FunctionCalle
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %968 = extractvalue { ptr, ptr } %964, 0
   %969 = extractvalue { ptr, ptr } %964, 1
-  %970 = getelementptr inbounds nuw [4 x %"class.llvm::FunctionCallee"], ptr %862, i64 0, i64 %.0131.i.i
+  %970 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %862, i64 %.0131.i.i
   store ptr %968, ptr %970, align 8, !tbaa !482
   %.sroa.413.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %970, i64 8
   store ptr %969, ptr %.sroa.413.0..sroa_idx.i.i, align 8, !tbaa !483
@@ -7998,7 +7998,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJPNS_11IntegerTypeEPNS_11PointerTypeES3_EEE
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %1046 = extractvalue { ptr, ptr } %1042, 0
   %1047 = extractvalue { ptr, ptr } %1042, 1
-  %1048 = getelementptr inbounds nuw [4 x %"class.llvm::FunctionCallee"], ptr %871, i64 0, i64 %.0131.i.i
+  %1048 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %871, i64 %.0131.i.i
   store ptr %1046, ptr %1048, align 8, !tbaa !482
   %.sroa.48.0..sroa_idx.i79.i = getelementptr inbounds nuw i8, ptr %1048, i64 8
   store ptr %1047, ptr %.sroa.48.0..sroa_idx.i79.i, align 8, !tbaa !483
@@ -10754,7 +10754,7 @@ switch.lookup:                                    ; preds = %1067
   %1070 = lshr i16 %1069, 7
   %1071 = and i16 %1070, 7
   %1072 = zext nneg i16 %1071 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv, i64 0, i64 %1072
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv, i64 %1072
   %switch.load = load i16, ptr %switch.gep, align 2
   %1073 = and i16 %1069, -897
   %1074 = or disjoint i16 %switch.load, %1073
@@ -10885,7 +10885,7 @@ switch.lookup36:                                  ; preds = %526
   %1125 = lshr i16 %1124, 2
   %1126 = and i16 %1125, 7
   %1127 = zext nneg i16 %1126 to i64
-  %switch.gep37 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.75, i64 0, i64 %1127
+  %switch.gep37 = getelementptr inbounds nuw i16, ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.75, i64 %1127
   %switch.load38 = load i16, ptr %switch.gep37, align 2
   %1128 = and i16 %1124, -29
   %1129 = or disjoint i16 %switch.load38, %1128
@@ -10899,7 +10899,7 @@ switch.lookup39:                                  ; preds = %526
   %1132 = lshr i16 %1131, 1
   %1133 = and i16 %1132, 7
   %1134 = zext nneg i16 %1133 to i64
-  %switch.gep40 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.76, i64 0, i64 %1134
+  %switch.gep40 = getelementptr inbounds nuw i16, ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.76, i64 %1134
   %switch.load41 = load i16, ptr %switch.gep40, align 2
   %1135 = and i16 %1131, -15
   %1136 = or disjoint i16 %switch.load41, %1135
@@ -14648,7 +14648,7 @@ switch.lookup42:                                  ; preds = %_ZN12_GLOBAL__N_122
   %2736 = lshr i16 %2735, 7
   %2737 = and i16 %2736, 7
   %2738 = zext nneg i16 %2737 to i64
-  %switch.gep43 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.77, i64 0, i64 %2738
+  %switch.gep43 = getelementptr inbounds nuw i16, ptr @switch.table._ZN12_GLOBAL__N_122MemorySanitizerVisitor13runOnFunctionEv.77, i64 %2738
   %switch.load44 = load i16, ptr %switch.gep43, align 2
   %2739 = and i16 %2735, -897
   %2740 = or disjoint i16 %switch.load44, %2739
@@ -14830,7 +14830,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor19instrumentWithCallsEPN4llvm5ValueE.ex
 
 2822:                                             ; preds = %2818
   %2823 = getelementptr inbounds nuw i8, ptr %2819, i64 248
-  %2824 = getelementptr inbounds nuw [4 x %"class.llvm::FunctionCallee"], ptr %2823, i64 0, i64 %2816
+  %2824 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %2823, i64 %2816
   %.sroa.014.0.copyload.i.i = load ptr, ptr %2824, align 8, !tbaa !482
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2824, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !483
@@ -44094,7 +44094,7 @@ _ZN12_GLOBAL__N_122MemorySanitizerVisitor19instrumentWithCallsEPN4llvm5ValueE.ex
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 184
-  %44 = getelementptr inbounds nuw [4 x %"class.llvm::FunctionCallee"], ptr %43, i64 0, i64 %35
+  %44 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %43, i64 %35
   %.sroa.013.0.copyload = load ptr, ptr %44, align 8, !tbaa !482
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !483

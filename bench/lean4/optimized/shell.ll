@@ -11070,7 +11070,7 @@ define linkonce_odr hidden void @_ZN4lean9array_refINS_10string_refEEC2ERKNS_6bu
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %27, %26, %24, %18
   %28 = phi ptr [ %19, %18 ], [ %19, %24 ], [ %19, %26 ], [ %.pre.i, %27 ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.017.i
+  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %.017.i
   store ptr %28, ptr %29, align 8, !tbaa !55
   %30 = add nuw nsw i64 %.017.i, 1
   %31 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -11382,7 +11382,7 @@ define linkonce_odr hidden void @_ZN4lean9array_refINS_4nameEEC2ERKNS_6bufferIS1
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %27, %26, %24, %18
   %28 = phi ptr [ %19, %18 ], [ %19, %24 ], [ %19, %26 ], [ %.pre.i, %27 ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.017.i
+  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %.017.i
   store ptr %28, ptr %29, align 8, !tbaa !55
   %30 = add nuw nsw i64 %.017.i, 1
   %31 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8

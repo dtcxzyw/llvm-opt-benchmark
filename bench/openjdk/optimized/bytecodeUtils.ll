@@ -308,7 +308,7 @@ define hidden void @_ZN21SimulatedOperandStack4pushE21StackSlotAnalysisData(ptr 
   %3 = lshr i32 %1, 17
   %4 = and i32 %3, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr @type2size, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 2
   %9 = and i32 %1, 33423360
@@ -805,14 +805,14 @@ define hidden noundef i32 @_ZN23ExceptionMessageBuilder14do_instructionEi(ptr no
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit.i:   ; preds = %14, %2
   %16 = phi i32 [ %15, %14 ], [ %13, %2 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %19, 239
   br i1 %20, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i:     ; preds = %_ZN9Bytecodes12java_code_atEPK6MethodPh.exit.i
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 15
   %25 = zext nneg i8 %24 to i32
@@ -873,7 +873,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %_ZN9Bytecodes7code_
   %52 = phi i32 [ %47, %49 ], [ %47, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ], [ %45, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.thread ]
   %53 = phi i32 [ %51, %49 ], [ %48, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ], [ %45, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.thread ]
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %54
+  %55 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %1, 1
   %58 = icmp eq i32 %56, 196
@@ -894,7 +894,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %_ZN9Bytecodes7code_
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
   %66 = phi i32 [ %65, %63 ], [ %62, %59 ]
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %67
+  %68 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = add nsw i32 %1, 2
   br label %71
@@ -1109,7 +1109,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
 
 72:                                               ; preds = %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71
   %73 = zext nneg i32 %.0331 to i64
-  %74 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = and i32 %1, 65535
   %77 = zext i8 %75 to i32
@@ -1227,7 +1227,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
   %141 = add i32 %.promoted.i, -2
   store i32 %141, ptr %37, align 8
   %142 = zext nneg i32 %.0331 to i64
-  %143 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = and i32 %1, 65535
   %146 = zext i8 %144 to i32
@@ -1268,7 +1268,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
 
 _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
   %166 = zext nneg i32 %.0331 to i64
-  %167 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %166
   %168 = load i8, ptr %167, align 1
   %169 = icmp slt i8 %168, 0
   br i1 %169, label %.lr.ph.preheader.i, label %.loopexit
@@ -1286,7 +1286,7 @@ _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
   %175 = or i64 %174, 1
   store i64 %175, ptr %173, align 8
   %176 = zext nneg i32 %.0331 to i64
-  %177 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = icmp slt i8 %178, 0
   br i1 %179, label %.lr.ph.preheader.i345, label %.loopexit
@@ -1304,7 +1304,7 @@ _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
   %185 = or i64 %184, 2
   store i64 %185, ptr %183, align 8
   %186 = zext nneg i32 %.0331 to i64
-  %187 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %186
   %188 = load i8, ptr %187, align 1
   %189 = icmp slt i8 %188, 0
   br i1 %189, label %.lr.ph.preheader.i348, label %.loopexit
@@ -1322,7 +1322,7 @@ _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
   %195 = or i64 %194, 4
   store i64 %195, ptr %193, align 8
   %196 = zext nneg i32 %.0331 to i64
-  %197 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %196
   %198 = load i8, ptr %197, align 1
   %199 = icmp slt i8 %198, 0
   br i1 %199, label %.lr.ph.preheader.i351, label %.loopexit
@@ -1340,7 +1340,7 @@ _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
   %205 = or i64 %204, 8
   store i64 %205, ptr %203, align 8
   %206 = zext nneg i32 %.0331 to i64
-  %207 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %206
   %208 = load i8, ptr %207, align 1
   %209 = icmp slt i8 %208, 0
   br i1 %209, label %.lr.ph.preheader.i354, label %.loopexit
@@ -1354,7 +1354,7 @@ _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
 
 212:                                              ; preds = %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71
   %213 = zext nneg i32 %.0331 to i64
-  %214 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %213
   %215 = load i8, ptr %214, align 1
   %216 = icmp slt i8 %215, 0
   br i1 %216, label %.lr.ph.preheader.i357, label %.loopexit
@@ -1508,10 +1508,10 @@ _ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit: ; preds = %158, %160
 
 300:                                              ; preds = %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71
   %301 = zext nneg i32 %.0331 to i64
-  %302 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %301
   %303 = load i8, ptr %302, align 1
   %304 = zext i8 %303 to i64
-  %305 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw i32, ptr @type2size, i64 %304
   %306 = load i32, ptr %305, align 4
   %307 = icmp sgt i32 %306, 0
   br i1 %307, label %.lr.ph.preheader.i386, label %_ZN21SimulatedOperandStack3popEi.exit388
@@ -1533,10 +1533,10 @@ _ZN21SimulatedOperandStack3popEi.exit388:         ; preds = %300, %.lr.ph.prehea
 
 314:                                              ; preds = %71, %71, %71, %71
   %315 = zext nneg i32 %.0331 to i64
-  %316 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %315
   %317 = load i8, ptr %316, align 1
   %318 = zext i8 %317 to i64
-  %319 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw i32, ptr @type2size, i64 %318
   %320 = load i32, ptr %319, align 4
   %321 = icmp sgt i32 %320, 0
   br i1 %321, label %.lr.ph.preheader.i389, label %_ZN21SimulatedOperandStack3popEi.exit391
@@ -1557,10 +1557,10 @@ _ZN21SimulatedOperandStack3popEi.exit391:         ; preds = %314, %.lr.ph.prehea
 
 327:                                              ; preds = %71, %71, %71, %71, %71, %71
   %328 = zext nneg i32 %.0331 to i64
-  %329 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %328
   %330 = load i8, ptr %329, align 1
   %331 = zext i8 %330 to i64
-  %332 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw i32, ptr @type2size, i64 %331
   %333 = load i32, ptr %332, align 4
   %334 = icmp sgt i32 %333, -1
   br i1 %334, label %.lr.ph.preheader.i392, label %_ZN21SimulatedOperandStack3popEi.exit394
@@ -1585,7 +1585,7 @@ _ZN21SimulatedOperandStack3popEi.exit394:         ; preds = %327, %.lr.ph.prehea
   %341 = add i32 %.promoted.i396, -1
   store i32 %341, ptr %37, align 8
   %342 = zext nneg i32 %.0331 to i64
-  %343 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = and i32 %1, 65535
   %346 = zext i8 %344 to i32
@@ -1599,7 +1599,7 @@ _ZN21SimulatedOperandStack3popEi.exit394:         ; preds = %327, %.lr.ph.prehea
   %350 = add i32 %.promoted.i398, -2
   store i32 %350, ptr %37, align 8
   %351 = zext nneg i32 %.0331 to i64
-  %352 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %351
   %353 = load i8, ptr %352, align 1
   %354 = and i32 %1, 65535
   %355 = zext i8 %353 to i32
@@ -1610,7 +1610,7 @@ _ZN21SimulatedOperandStack3popEi.exit394:         ; preds = %327, %.lr.ph.prehea
 
 358:                                              ; preds = %71, %71, %71, %71, %71
   %359 = zext nneg i32 %.0331 to i64
-  %360 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %359
   %361 = load i8, ptr %360, align 1
   %362 = icmp slt i8 %361, 1
   br i1 %362, label %.lr.ph.preheader.i399, label %_ZN21SimulatedOperandStack3popEi.exit401
@@ -1631,7 +1631,7 @@ _ZN21SimulatedOperandStack3popEi.exit401:         ; preds = %358, %.lr.ph.prehea
 
 367:                                              ; preds = %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71, %71
   %368 = zext nneg i32 %.0331 to i64
-  %369 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %368
   %370 = load i8, ptr %369, align 1
   %371 = icmp slt i8 %370, 0
   br i1 %371, label %.lr.ph.preheader.i402, label %_ZN21SimulatedOperandStack3popEi.exit404
@@ -1858,7 +1858,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422: ; preds =
 
 479:                                              ; preds = %71, %71, %71, %71, %71, %71, %71
   %480 = zext nneg i32 %.0331 to i64
-  %481 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %480
+  %481 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %480
   %482 = load i8, ptr %481, align 1
   %483 = icmp slt i8 %482, 0
   br i1 %483, label %.lr.ph.preheader.i423, label %._crit_edge.thread
@@ -1888,7 +1888,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422: ; preds =
   %500 = getelementptr inbounds nuw i64, ptr %498, i64 %499
   %501 = load ptr, ptr %500, align 8
   %502 = zext nneg i32 %.0331 to i64
-  %503 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %502
+  %503 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %502
   %504 = load i8, ptr %503, align 1
   %505 = icmp slt i8 %504, 1
   br i1 %505, label %.lr.ph.preheader.i427, label %_ZN21SimulatedOperandStack3popEi.exit429
@@ -1935,10 +1935,10 @@ _ZN21SimulatedOperandStack3popEi.exit429:         ; preds = %486, %.lr.ph.prehea
   %534 = sext i8 %533 to i32
   %535 = tail call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %534) #12
   %536 = zext i8 %535 to i64
-  %537 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %536
+  %537 = getelementptr inbounds nuw i32, ptr @type2size, i64 %536
   %538 = load i32, ptr %537, align 4
   %539 = zext nneg i32 %.0331 to i64
-  %540 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes6_depthE, i64 0, i64 %539
+  %540 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes6_depthE, i64 %539
   %541 = load i8, ptr %540, align 1
   %542 = xor i8 %541, -1
   %543 = sext i8 %542 to i32
@@ -2023,7 +2023,7 @@ _ZN21SimulatedOperandStack3popEi.exit440:         ; preds = %570, %.lr.ph.prehea
   %583 = add i32 %.promoted.i442, -1
   store i32 %583, ptr %37, align 8
   %584 = zext nneg i32 %.0331 to i64
-  %585 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %584
+  %585 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes12_result_typeE, i64 %584
   %586 = load i8, ptr %585, align 1
   %587 = and i32 %1, 65535
   %588 = zext i8 %586 to i32
@@ -2442,7 +2442,7 @@ define hidden noundef i32 @_ZN23ExceptionMessageBuilder17get_NPE_null_slotEi(ptr
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %2, %13
   %15 = phi i32 [ %14, %13 ], [ %12, %2 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %1, 1
   %20 = icmp eq i32 %18, 196
@@ -2463,7 +2463,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %2, %13
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit39:   ; preds = %21, %25
   %28 = phi i32 [ %27, %25 ], [ %24, %21 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %1, 2
   br label %33
@@ -2530,7 +2530,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit39:   ; preds = %21, %25
   %55 = sext i8 %54 to i32
   %56 = tail call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %55) #12
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr @type2size, i64 %57
   %59 = load i32, ptr %58, align 4
   br label %85
 
@@ -2636,7 +2636,7 @@ define hidden noundef zeroext i1 @_ZN23ExceptionMessageBuilder16print_NPE_cause0
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %26, %36
   %38 = phi i32 [ %37, %36 ], [ %35, %26 ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %39
+  %40 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = add nuw nsw i32 %25, 1
   %43 = icmp eq i32 %41, 196
@@ -2657,7 +2657,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %26, %36
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit115:  ; preds = %44, %48
   %51 = phi i32 [ %50, %48 ], [ %47, %44 ]
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %52
+  %53 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = add nuw nsw i32 %25, 2
   br label %56
@@ -3032,7 +3032,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
 77:                                               ; preds = %74
   %78 = load i8, ptr %73, align 8
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr @type2size, i64 %79
   %81 = load i32, ptr %80, align 4
   %.not51 = icmp sge i32 %3, %.04762
   %82 = add nsw i32 %81, %.04762
@@ -3287,7 +3287,7 @@ define hidden void @_ZN23ExceptionMessageBuilder23print_NPE_failed_actionEP12out
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %3, %13
   %15 = phi i32 [ %14, %13 ], [ %12, %3 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %2, 1
   %20 = icmp eq i32 %18, 196
@@ -3308,7 +3308,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %3, %13
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit55:   ; preds = %21, %25
   %28 = phi i32 [ %27, %25 ], [ %24, %21 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %2, 2
   br label %33

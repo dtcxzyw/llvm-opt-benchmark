@@ -893,7 +893,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 22:                                               ; preds = %22, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h2cd2f614aa79a344E.exit.i.i.i"
   %.sroa.02.03.i.i.i = phi i64 [ 0, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h2cd2f614aa79a344E.exit.i.i.i" ], [ %23, %22 ]
   %23 = add nuw nsw i64 %.sroa.02.03.i.i.i, 1
-  %24 = getelementptr inbounds nuw [0 x float], ptr %21, i64 0, i64 %.sroa.02.03.i.i.i
+  %24 = getelementptr inbounds nuw float, ptr %21, i64 %.sroa.02.03.i.i.i
   %25 = uitofp nneg i64 %.sroa.02.03.i.i.i to float
   store float %25, ptr %24, align 4, !noalias !241
   %exitcond.not.i.i.i = icmp eq i64 %23, 1536
@@ -3534,7 +3534,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$semantic_index..project_ind
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h152ac66da61cecddE.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %8, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h152ac66da61cecddE.exit.i.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.sroa.0.09.i.i.i
+  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.09.i.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !987)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !990)
@@ -5683,7 +5683,7 @@ define hidden void @"_ZN4core3ptr132drop_in_place$LT$semantic_index..project_ind
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %6, %"_ZN4core3ptr67drop_in_place$LT$semantic_index..embedding_index..EmbeddedChunk$GT$17h8393d423593fa8dfE.exit.i.i.i.i.i.i"
   %.sroa.0.08.i.i.i.i.i.i = phi i64 [ %13, %"_ZN4core3ptr67drop_in_place$LT$semantic_index..embedding_index..EmbeddedChunk$GT$17h8393d423593fa8dfE.exit.i.i.i.i.i.i" ], [ 0, %6 ]
-  %12 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { [32 x i8], { i64, i64 } } }], ptr %8, i64 0, i64 %.sroa.0.08.i.i.i.i.i.i
+  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { [32 x i8], { i64, i64 } } }, ptr %8, i64 %.sroa.0.08.i.i.i.i.i.i
   %13 = add nuw i64 %.sroa.0.08.i.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1653)
@@ -20556,7 +20556,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 27:                                               ; preds = %27, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h2cd2f614aa79a344E.exit.i.i"
   %.sroa.02.03.i.i = phi i64 [ 0, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h2cd2f614aa79a344E.exit.i.i" ], [ %28, %27 ]
   %28 = add nuw nsw i64 %.sroa.02.03.i.i, 1
-  %29 = getelementptr inbounds nuw [0 x float], ptr %26, i64 0, i64 %.sroa.02.03.i.i
+  %29 = getelementptr inbounds nuw float, ptr %26, i64 %.sroa.02.03.i.i
   %30 = uitofp nneg i64 %.sroa.02.03.i.i to float
   store float %30, ptr %29, align 4, !noalias !4948
   %exitcond.not.i.i = icmp eq i64 %28, 1536
@@ -23371,7 +23371,7 @@ define hidden void @"_ZN14semantic_index13project_index12ProjectIndex6search28_$
   br i1 %55, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hb6b33b1bdee293ecE.exit", label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds [0 x { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }], ptr %53, i64 0, i64 %.sroa.0.0.i.i
+  %57 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %53, i64 %.sroa.0.0.i.i
   %58 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr64drop_in_place$LT$semantic_index..project_index..SearchResult$GT$17h10e138296ee5203eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %57)
           to label %54 unwind label %61, !noalias !5648
@@ -23387,7 +23387,7 @@ define hidden void @"_ZN14semantic_index13project_index12ProjectIndex6search28_$
   br label %59
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds [0 x { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }], ptr %53, i64 0, i64 %.sroa.0.1.i.i
+  %64 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %53, i64 %.sroa.0.1.i.i
   %65 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr64drop_in_place$LT$semantic_index..project_index..SearchResult$GT$17h10e138296ee5203eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %64) #46
           to label %59 unwind label %66, !noalias !5648

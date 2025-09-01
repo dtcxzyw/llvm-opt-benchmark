@@ -215,7 +215,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %29 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %28, i1 noundef zeroext true)
   %.sroa.7.8.insert.ext = and i64 %23, 3
   %30 = and i64 %sum.shift, 7
-  %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !9
   %33 = icmp eq i8 %.sroa.8.3.us.i, 1
   %.sroa.6.0.insert.shift = select i1 %33, i64 72057594037927936, i64 0

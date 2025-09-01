@@ -718,7 +718,7 @@ define hidden noundef ptr @"_ZN110_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h24e6d6636fb26deaE.exit": ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 288
   %20 = load ptr, ptr %19, align 8, !alias.scope !7, !noalias !10, !nonnull !5, !noundef !5
-  %21 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }], ptr %20, i64 0, i64 %14
+  %21 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %20, i64 %14
   %22 = load i32, ptr %21, align 4, !range !13, !noundef !5
   %23 = icmp eq i32 %22, 23
   br i1 %23, label %33, label %30
@@ -1988,14 +1988,14 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
 57:                                               ; preds = %49
   %58 = and i32 %.sroa.4.0.i.ph10.i17.i.i, 255
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %59
   %61 = load i8, ptr %60, align 1, !noalias !147, !noundef !5
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i"
 
 62:                                               ; preds = %49
   %63 = and i32 %.sroa.4.0.i.ph10.i17.i.i, 255
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %64
   %66 = load i8, ptr %65, align 1, !noalias !147, !noundef !5
   %67 = lshr i8 %66, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i"
@@ -2119,14 +2119,14 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_
 121:                                              ; preds = %113
   %122 = and i32 %.sroa.4.1.i.ph10.i9.i.i, 255
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %123
   %125 = load i8, ptr %124, align 1, !noalias !159, !noundef !5
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i11"
 
 126:                                              ; preds = %113
   %127 = and i32 %.sroa.4.1.i.ph10.i9.i.i, 255
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %128
   %130 = load i8, ptr %129, align 1, !noalias !159, !noundef !5
   %131 = lshr i8 %130, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4e31948b9277a2a6E.exit.i.i11"
@@ -2215,7 +2215,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
 
 .lr.ph.i.us.i:                                    ; preds = %27, %31
   %.05.i.us.i = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.05.i.us.i
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.05.i.us.i
   %29 = load i8, ptr %28, align 1, !alias.scope !167, !noalias !166, !noundef !5
   %30 = icmp eq i8 %29, %23
   br i1 %30, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %31
@@ -2272,7 +2272,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i: ; preds = %31
 
 .lr.ph.i.i:                                       ; preds = %51, %55
   %.05.i.i = phi i64 [ %56, %55 ], [ 0, %51 ]
-  %52 = getelementptr inbounds nuw [0 x i8], ptr %45, i64 0, i64 %.05.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 %.05.i.i
   %53 = load i8, ptr %52, align 1, !alias.scope !167, !noalias !166, !noundef !5
   %54 = icmp eq i8 %53, %47
   br i1 %54, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %55
@@ -2925,7 +2925,7 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$alloc..ffi..c_str..CString..new..Spe
 
 .lr.ph.i:                                         ; preds = %12, %16
   %.05.i = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %6, i64 0, i64 %.05.i
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.05.i
   %14 = load i8, ptr %13, align 1, !alias.scope !277, !noundef !5
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %16
@@ -15681,10 +15681,10 @@ define { ptr, i64 } @_ZN13wasmtime_wasi8bindings4sync9generated4wasi10filesystem
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !2409, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x i64], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [37 x ptr], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15696,10 +15696,10 @@ define { ptr, i64 } @_ZN13wasmtime_wasi8bindings4sync9generated4wasi10filesystem
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !2409, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x i64], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [37 x ptr], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15722,16 +15722,16 @@ switch.lookup:
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.216, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b82b72e5464fb32eff3f9e6738e25968.217)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x ptr], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i8 %6 to i64
-  %switch.gep111 = getelementptr inbounds nuw [37 x i64], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 0, i64 %10
+  %switch.gep111 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %10
   %switch.load112 = load i64, ptr %switch.gep111, align 8
   %11 = zext nneg i8 %6 to i64
-  %switch.gep113 = getelementptr inbounds nuw [37 x i64], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 0, i64 %11
+  %switch.gep113 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 %11
   %switch.load114 = load i64, ptr %switch.gep113, align 8
   %12 = zext nneg i8 %6 to i64
-  %switch.gep115 = getelementptr inbounds nuw [37 x ptr], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 0, i64 %12
+  %switch.gep115 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 %12
   %switch.load116 = load ptr, ptr %switch.gep115, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8
@@ -15762,10 +15762,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i8, ptr %0, align 1, !range !2409, !alias.scope !2515, !noundef !5
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x i64], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i8 %6 to i64
-  %switch.gep3 = getelementptr inbounds nuw [37 x ptr], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 0, i64 %8
+  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %8
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   store ptr %switch.load4, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8

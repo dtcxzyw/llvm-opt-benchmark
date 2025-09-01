@@ -107,7 +107,7 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
 
 33:                                               ; preds = %27
   %34 = zext i8 %29 to i64
-  %35 = getelementptr inbounds nuw [18 x i32], ptr %4, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %34
   store i32 %24, ptr %35, align 4, !tbaa !43
   %36 = or i32 %31, %.03748
   br label %37
@@ -128,7 +128,7 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
   br i1 %.not, label %47, label %41
 
 41:                                               ; preds = %.preheader46
-  %42 = getelementptr inbounds nuw [18 x i32], ptr %4, i64 0, i64 %indvars.iv54
+  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv54
   %43 = load i32, ptr %42, align 4, !tbaa !43
   %44 = add nsw i32 %.350, 1
   %45 = sext i32 %.350 to i64
@@ -176,7 +176,7 @@ define void @ff_dca_downmix_to_stereo_fixed(ptr noundef readonly captures(none) 
   %11 = lshr i32 %spec.select.i, 8
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %11
   %12 = zext nneg i32 %.110.i to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !48
   %15 = zext i8 %14 to i32
   %spec.select12.i = select i1 %.not.i, i32 0, i32 16
@@ -302,7 +302,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
   %11 = lshr i32 %spec.select.i, 8
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %11
   %12 = zext nneg i32 %.110.i to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !48
   %15 = zext i8 %14 to i32
   %spec.select12.i = select i1 %.not.i, i32 0, i32 16

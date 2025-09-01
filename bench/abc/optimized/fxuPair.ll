@@ -84,8 +84,8 @@ define i32 @Fxu_PairHashKeyArray(ptr noundef readnone captures(none) %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.019 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %8 = add nuw nsw i64 %indvars.iv, 100
-  %9 = getelementptr inbounds nuw [304 x i32], ptr @s_Primes, i64 0, i64 %8
+  %8 = getelementptr inbounds nuw i32, ptr @s_Primes, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !17
@@ -98,8 +98,8 @@ define i32 @Fxu_PairHashKeyArray(ptr noundef readnone captures(none) %0, ptr nou
 .lr.ph22:                                         ; preds = %.lr.ph22.preheader, %.lr.ph22
   %indvars.iv26 = phi i64 [ 0, %.lr.ph22.preheader ], [ %indvars.iv.next27, %.lr.ph22 ]
   %.121 = phi i32 [ %.0.lcssa, %.lr.ph22.preheader ], [ %21, %.lr.ph22 ]
-  %15 = add nuw nsw i64 %indvars.iv26, 200
-  %16 = getelementptr inbounds nuw [304 x i32], ptr @s_Primes, i64 0, i64 %15
+  %15 = getelementptr inbounds nuw i32, ptr @s_Primes, i64 %indvars.iv26
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 800
   %17 = load i32, ptr %16, align 4, !tbaa !17
   %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv26
   %19 = load i32, ptr %18, align 4, !tbaa !17
@@ -172,9 +172,9 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %20
-  %23 = add nsw i32 %.056.ph65, 100
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %24
+  %23 = sext i32 %.056.ph65 to i64
+  %24 = getelementptr i32, ptr @s_Primes, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 400
   %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = mul nsw i32 %26, %13
   br label %.outer64.backedge
@@ -188,9 +188,9 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   br label %.outer64
 
 28:                                               ; preds = %20
-  %29 = add nsw i32 %.054, 200
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %30
+  %29 = sext i32 %.054 to i64
+  %30 = getelementptr i32, ptr @s_Primes, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 800
   %32 = load i32, ptr %31, align 4, !tbaa !17
   %33 = mul nsw i32 %32, %14
   %34 = xor i32 %33, %.0
@@ -205,9 +205,9 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   br i1 %or.cond3, label %47, label %40
 
 40:                                               ; preds = %38
-  %41 = add nsw i32 %.056.ph65, 100
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %42
+  %41 = sext i32 %.056.ph65 to i64
+  %42 = getelementptr i32, ptr @s_Primes, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 400
   %44 = load i32, ptr %43, align 4, !tbaa !17
   %45 = load i32, ptr %.052.ph72, align 8, !tbaa !10
   %46 = mul nsw i32 %45, %44
@@ -218,9 +218,9 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   br i1 %or.cond5, label %48, label %59
 
 48:                                               ; preds = %47
-  %49 = add nsw i32 %.054, 200
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %50
+  %49 = sext i32 %.054 to i64
+  %50 = getelementptr i32, ptr @s_Primes, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 800
   %52 = load i32, ptr %51, align 4, !tbaa !17
   %53 = load i32, ptr %.050, align 8, !tbaa !10
   %54 = mul nsw i32 %53, %52

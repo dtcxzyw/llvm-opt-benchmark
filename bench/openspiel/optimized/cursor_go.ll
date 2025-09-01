@@ -1623,7 +1623,7 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %79, %74, %71
   %indvars.iv.i = phi i64 [ 0, %.noexc.i ], [ %indvars.iv.next.i, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
   %85 = phi ptr [ %82, %.noexc.i ], [ %.sroa.9.0, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
   %86 = phi ptr [ %83, %.noexc.i ], [ %108, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %87 = getelementptr inbounds nuw [9 x i16], ptr @_ZZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw i16, ptr @_ZZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 %indvars.iv.i
   %.not.i.i = icmp eq ptr %85, %86
   br i1 %.not.i.i, label %90, label %88
 
@@ -2658,7 +2658,7 @@ _ZNK4absl7debian24SpanIfEixEm.exit:               ; preds = %53
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8108
   %75 = load i8, ptr %74, align 4
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [2 x %"struct.std::pair.18"], ptr %73, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %73, i64 %76
   %78 = load i64, ptr %77, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %78 to i32
   %.sroa.2.0.extract.shift = lshr i64 %78, 32
@@ -2870,7 +2870,7 @@ define void @_ZNK10open_spiel9cursor_go13CursorGoState12LegalActionsEv(ptr dead_
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8108
   %9 = load i8, ptr %8, align 4
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [2 x %"struct.std::pair.18"], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %7, i64 %10
   %.sroa.05.0.copyload = load i64, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8112
   %13 = load i32, ptr %12, align 8
@@ -3279,7 +3279,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br label %19
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw [6 x %"class.absl::debian2::string_view"], ptr @_ZZNK10open_spiel9cursor_go13CursorGoState14ActionToStringB5cxx11EilE12kActionNames, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr @_ZZNK10open_spiel9cursor_go13CursorGoState14ActionToStringB5cxx11EilE12kActionNames, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load ptr, ptr %10, align 8, !noalias !28
   %.not.i = icmp eq ptr %11, null
@@ -3419,7 +3419,7 @@ define void @_ZNK10open_spiel9cursor_go13CursorGoState8ToStringB5cxx11Ev(ptr dea
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8108
   %62 = load i8, ptr %61, align 4
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw [2 x %"struct.std::pair.18"], ptr %60, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %60, i64 %63
   %.sroa.0.0.copyload = load i64, ptr %64, align 8
   %65 = invoke noundef zeroext i16 @_ZN10open_spiel2go23VirtualPointFrom2DPointESt4pairIiiE(i64 %.sroa.0.0.copyload)
           to label %66 unwind label %24
@@ -3648,7 +3648,7 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState13DoApplyActionEl(ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8108
   %17 = load i8, ptr %16, align 4
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [2 x %"struct.std::pair.18"], ptr %15, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %15, i64 %18
   %.sroa.06.0.copyload = load i64, ptr %19, align 8
   %20 = tail call noundef zeroext i16 @_ZN10open_spiel2go23VirtualPointFrom2DPointESt4pairIiiE(i64 %.sroa.06.0.copyload)
   br label %21
@@ -3721,7 +3721,7 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState13DoApplyActionEl(ptr nound
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8108
   %53 = load i8, ptr %52, align 4
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [2 x %"struct.std::pair.18"], ptr %51, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %51, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 8
@@ -3732,7 +3732,7 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState13DoApplyActionEl(ptr nound
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8108
   %61 = load i8, ptr %60, align 4
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [2 x %"struct.std::pair.18"], ptr %59, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %59, i64 %62
   %64 = load i32, ptr %63, align 8
   %65 = add nsw i32 %64, -1
   store i32 %65, ptr %63, align 8

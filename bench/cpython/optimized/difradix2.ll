@@ -10,7 +10,7 @@ define hidden void @fnt_dif2(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %2, align 8, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %6
+  %7 = getelementptr i64, ptr @mpd_moduli, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = lshr i64 %1, 1
   %.not = icmp ult i64 %1, 2

@@ -382,7 +382,7 @@ define hidden noundef i64 @_ZN2cv6base6413base64_encodeEPKhPhmm(ptr noundef %0, 
   %19 = zext i8 %14 to i32
   %20 = lshr i32 %19, 2
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %.05364, i64 1
   store i8 %23, ptr %.05364, align 1, !tbaa !19
@@ -392,7 +392,7 @@ define hidden noundef i64 @_ZN2cv6base6413base64_encodeEPKhPhmm(ptr noundef %0, 
   %28 = and i32 %27, 48
   %29 = or disjoint i32 %26, %28
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %.05364, i64 2
   store i8 %32, ptr %24, align 1, !tbaa !19
@@ -402,13 +402,13 @@ define hidden noundef i64 @_ZN2cv6base6413base64_encodeEPKhPhmm(ptr noundef %0, 
   %37 = and i32 %36, 60
   %38 = or disjoint i32 %35, %37
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %.05364, i64 3
   store i8 %41, ptr %33, align 1, !tbaa !19
   %43 = and i32 %34, 63
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %.05364, i64 4
   store i8 %46, ptr %42, align 1, !tbaa !19
@@ -432,14 +432,14 @@ define hidden noundef i64 @_ZN2cv6base6413base64_encodeEPKhPhmm(ptr noundef %0, 
   %54 = zext i8 %53 to i32
   %55 = lshr i32 %54, 2
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 1
   store i8 %58, ptr %.053.lcssa, align 1, !tbaa !19
   %60 = shl nuw nsw i32 %54, 4
   %61 = and i32 %60, 48
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %62
   %64 = load i8, ptr %63, align 16, !tbaa !19
   %65 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 2
   store i8 %64, ptr %59, align 1, !tbaa !19
@@ -453,7 +453,7 @@ define hidden noundef i64 @_ZN2cv6base6413base64_encodeEPKhPhmm(ptr noundef %0, 
   %69 = zext i8 %67 to i32
   %70 = lshr i32 %69, 2
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !19
   %74 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 1
   store i8 %73, ptr %.053.lcssa, align 1, !tbaa !19
@@ -463,14 +463,14 @@ define hidden noundef i64 @_ZN2cv6base6413base64_encodeEPKhPhmm(ptr noundef %0, 
   %78 = lshr i32 %77, 4
   %79 = or disjoint i32 %76, %78
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !19
   %83 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 2
   store i8 %82, ptr %74, align 1, !tbaa !19
   %84 = shl nuw nsw i32 %77, 2
   %85 = and i32 %84, 60
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %86
   %88 = load i8, ptr %87, align 4, !tbaa !19
   store i8 %88, ptr %83, align 1, !tbaa !19
   br label %89
@@ -1174,7 +1174,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   %78 = zext i8 %73 to i32
   %79 = lshr i32 %78, 2
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !19
   %83 = getelementptr inbounds nuw i8, ptr %.05364.i, i64 1
   store i8 %82, ptr %.05364.i, align 1, !tbaa !19
@@ -1184,7 +1184,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   %87 = and i32 %86, 48
   %88 = or disjoint i32 %85, %87
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !19
   %92 = getelementptr inbounds nuw i8, ptr %.05364.i, i64 2
   store i8 %91, ptr %83, align 1, !tbaa !19
@@ -1194,13 +1194,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   %96 = and i32 %95, 60
   %97 = or disjoint i32 %94, %96
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !19
   %101 = getelementptr inbounds nuw i8, ptr %.05364.i, i64 3
   store i8 %100, ptr %92, align 1, !tbaa !19
   %102 = and i32 %93, 63
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !19
   %106 = getelementptr inbounds nuw i8, ptr %.05364.i, i64 4
   store i8 %105, ptr %101, align 1, !tbaa !19
@@ -1226,14 +1226,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   %110 = zext i8 %109 to i32
   %111 = lshr i32 %110, 2
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !19
   %115 = getelementptr inbounds nuw i8, ptr %.053.lcssa.i, i64 1
   store i8 %114, ptr %.053.lcssa.i, align 1, !tbaa !19
   %116 = shl nuw nsw i32 %110, 4
   %117 = and i32 %116, 48
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %118
   %120 = load i8, ptr %119, align 16, !tbaa !19
   %121 = getelementptr inbounds nuw i8, ptr %.053.lcssa.i, i64 2
   store i8 %120, ptr %115, align 1, !tbaa !19
@@ -1247,7 +1247,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   %125 = zext i8 %123 to i32
   %126 = lshr i32 %125, 2
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !19
   %130 = getelementptr inbounds nuw i8, ptr %.053.lcssa.i, i64 1
   store i8 %129, ptr %.053.lcssa.i, align 1, !tbaa !19
@@ -1257,14 +1257,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   %134 = lshr i32 %133, 4
   %135 = or disjoint i32 %132, %134
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !19
   %139 = getelementptr inbounds nuw i8, ptr %.053.lcssa.i, i64 2
   store i8 %138, ptr %130, align 1, !tbaa !19
   %140 = shl nuw nsw i32 %133, 2
   %141 = and i32 %140, 60
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [65 x i8], ptr @_ZN2cv6base64L14base64_mappingE, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @_ZN2cv6base64L14base64_mappingE, i64 %142
   %144 = load i8, ptr %143, align 4, !tbaa !19
   store i8 %144, ptr %139, align 1, !tbaa !19
   br label %145
@@ -1323,7 +1323,7 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit.i: ; preds = %164, %157
   %172 = load i32, ptr %171, align 4, !tbaa !150
   %173 = sext i32 %172 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 32, i64 %173, i1 false)
-  %174 = getelementptr inbounds [80 x i8], ptr %4, i64 0, i64 %173
+  %174 = getelementptr inbounds i8, ptr %4, i64 %173
   store i8 0, ptr %174, align 1, !tbaa !19
   %175 = load ptr, ptr %158, align 8, !tbaa !3
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
@@ -2332,7 +2332,7 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit: ; preds = %26, %33
   %41 = load i32, ptr %40, align 4, !tbaa !150
   %42 = sext i32 %41 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 32, i64 %42, i1 false)
-  %43 = getelementptr inbounds [80 x i8], ptr %3, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %3, i64 %42
   store i8 0, ptr %43, align 1, !tbaa !19
   %44 = load ptr, ptr %27, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24

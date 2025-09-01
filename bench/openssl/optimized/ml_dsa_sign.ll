@@ -392,10 +392,10 @@ vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i192.i, %vec
 
 194:                                              ; preds = %194, %.lr.ph.i195.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i195.i ], [ %indvars.iv.next.i.i.i, %194 ]
-  %195 = getelementptr inbounds nuw [256 x i32], ptr %191, i64 0, i64 %indvars.iv.i.i.i
+  %195 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.i.i.i
   %196 = load i32, ptr %195, align 4, !tbaa !39
   %197 = call i32 @ossl_ml_dsa_key_compress_high_bits(i32 noundef %196, i32 noundef %61) #5
-  %198 = getelementptr inbounds nuw [256 x i32], ptr %193, i64 0, i64 %indvars.iv.i.i.i
+  %198 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i.i.i
   store i32 %197, ptr %198, align 4, !tbaa !39
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
@@ -498,9 +498,9 @@ vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vec
 
 233:                                              ; preds = %233, %.lr.ph.i217.i
   %indvars.iv.i.i218.i = phi i64 [ 0, %.lr.ph.i217.i ], [ %indvars.iv.next.i.i219.i, %233 ]
-  %234 = getelementptr inbounds nuw [256 x i32], ptr %230, i64 0, i64 %indvars.iv.i.i218.i
+  %234 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv.i.i218.i
   %235 = load i32, ptr %234, align 4, !tbaa !39
-  %236 = getelementptr inbounds nuw [256 x i32], ptr %231, i64 0, i64 %indvars.iv.i.i218.i
+  %236 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv.i.i218.i
   %237 = load i32, ptr %236, align 4, !tbaa !39
   %238 = add i32 %237, %235
   %239 = add i32 %238, -8380417
@@ -513,7 +513,7 @@ vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vec
   %245 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %244) #6, !srcloc !44
   %246 = and i32 %245, %239
   %247 = or i32 %246, %243
-  %248 = getelementptr inbounds nuw [256 x i32], ptr %232, i64 0, i64 %indvars.iv.i.i218.i
+  %248 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i.i218.i
   store i32 %247, ptr %248, align 4, !tbaa !39
   %indvars.iv.next.i.i219.i = add nuw nsw i64 %indvars.iv.i.i218.i, 1
   %exitcond.not.i.i220.i = icmp eq i64 %indvars.iv.next.i.i219.i, 256
@@ -540,9 +540,9 @@ vector_add.exit.i:                                ; preds = %poly_add.exit.i.i, 
 
 253:                                              ; preds = %253, %.lr.ph.i222.i
   %indvars.iv.i.i224.i = phi i64 [ 0, %.lr.ph.i222.i ], [ %indvars.iv.next.i.i225.i, %253 ]
-  %254 = getelementptr inbounds nuw [256 x i32], ptr %250, i64 0, i64 %indvars.iv.i.i224.i
+  %254 = getelementptr inbounds nuw i32, ptr %250, i64 %indvars.iv.i.i224.i
   %255 = load i32, ptr %254, align 4, !tbaa !39
-  %256 = getelementptr inbounds nuw [256 x i32], ptr %251, i64 0, i64 %indvars.iv.i.i224.i
+  %256 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.i.i224.i
   %257 = load i32, ptr %256, align 4, !tbaa !39
   %258 = add i32 %255, 8380417
   %259 = sub i32 %258, %257
@@ -556,7 +556,7 @@ vector_add.exit.i:                                ; preds = %poly_add.exit.i.i, 
   %266 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %265) #6, !srcloc !44
   %267 = and i32 %266, %260
   %268 = or i32 %267, %264
-  %269 = getelementptr inbounds nuw [256 x i32], ptr %252, i64 0, i64 %indvars.iv.i.i224.i
+  %269 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv.i.i224.i
   store i32 %268, ptr %269, align 4, !tbaa !39
   %indvars.iv.next.i.i225.i = add nuw nsw i64 %indvars.iv.i.i224.i, 1
   %exitcond.not.i.i226.i = icmp eq i64 %indvars.iv.next.i.i225.i, 256
@@ -580,7 +580,7 @@ vector_sub.exit.i:                                ; preds = %poly_sub.exit.i.i, 
 
 274:                                              ; preds = %274, %.lr.ph.i229.i
   %indvars.iv.i.i231.i = phi i64 [ 0, %.lr.ph.i229.i ], [ %indvars.iv.next.i.i232.i, %274 ]
-  %275 = getelementptr inbounds nuw [256 x i32], ptr %273, i64 0, i64 %indvars.iv.i.i231.i
+  %275 = getelementptr inbounds nuw i32, ptr %273, i64 %indvars.iv.i.i231.i
   %276 = load i32, ptr %275, align 4, !tbaa !39
   %277 = call i32 @ossl_ml_dsa_key_compress_low_bits(i32 noundef %276, i32 noundef %61) #5
   store i32 %277, ptr %275, align 4, !tbaa !39
@@ -607,7 +607,7 @@ vector_low_bits.exit.i:                           ; preds = %poly_low_bits.exit.
 282:                                              ; preds = %282, %.lr.ph.i235.i
   %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i235.i ], [ %304, %282 ]
   %indvars.iv.i.i237.i = phi i64 [ 0, %.lr.ph.i235.i ], [ %indvars.iv.next.i.i239.i, %282 ]
-  %283 = getelementptr inbounds nuw [256 x i32], ptr %281, i64 0, i64 %indvars.iv.i.i237.i
+  %283 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv.i.i237.i
   %284 = load i32, ptr %283, align 4, !tbaa !39
   %285 = sub i32 4190208, %284
   %286 = or i32 %285, %284
@@ -655,7 +655,7 @@ vector_max.exit.i:                                ; preds = %poly_max.exit.i.i, 
 307:                                              ; preds = %307, %.lr.ph.i243.i
   %.1.i246.i = phi i32 [ %.023.i245.i, %.lr.ph.i243.i ], [ %327, %307 ]
   %indvars.iv.i.i247.i = phi i64 [ 0, %.lr.ph.i243.i ], [ %indvars.iv.next.i.i250.i, %307 ]
-  %308 = getelementptr inbounds nuw [256 x i32], ptr %306, i64 0, i64 %indvars.iv.i.i247.i
+  %308 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv.i.i247.i
   %309 = load i32, ptr %308, align 4, !tbaa !39
   %isnotneg.i.i.i.i = icmp sgt i32 %309, -1
   %.neg.i.i.i.i.i248.i = sext i1 %isnotneg.i.i.i.i to i32
@@ -758,14 +758,14 @@ vector_ntt_inverse.exit262.i:                     ; preds = %.lr.ph.i260.i, %vec
 
 363:                                              ; preds = %363, %.lr.ph.i264.i
   %indvars.iv.i.i265.i = phi i64 [ 0, %.lr.ph.i264.i ], [ %indvars.iv.next.i.i266.i, %363 ]
-  %364 = getelementptr inbounds nuw [256 x i32], ptr %358, i64 0, i64 %indvars.iv.i.i265.i
+  %364 = getelementptr inbounds nuw i32, ptr %358, i64 %indvars.iv.i.i265.i
   %365 = load i32, ptr %364, align 4, !tbaa !39
-  %366 = getelementptr inbounds nuw [256 x i32], ptr %359, i64 0, i64 %indvars.iv.i.i265.i
+  %366 = getelementptr inbounds nuw i32, ptr %359, i64 %indvars.iv.i.i265.i
   %367 = load i32, ptr %366, align 4, !tbaa !39
-  %368 = getelementptr inbounds nuw [256 x i32], ptr %361, i64 0, i64 %indvars.iv.i.i265.i
+  %368 = getelementptr inbounds nuw i32, ptr %361, i64 %indvars.iv.i.i265.i
   %369 = load i32, ptr %368, align 4, !tbaa !39
   %370 = call i32 @ossl_ml_dsa_key_compress_make_hint(i32 noundef %365, i32 noundef %367, i32 noundef %61, i32 noundef %369) #5
-  %371 = getelementptr inbounds nuw [256 x i32], ptr %362, i64 0, i64 %indvars.iv.i.i265.i
+  %371 = getelementptr inbounds nuw i32, ptr %362, i64 %indvars.iv.i.i265.i
   store i32 %370, ptr %371, align 4, !tbaa !39
   %indvars.iv.next.i.i266.i = add nuw nsw i64 %indvars.iv.i.i265.i, 1
   %exitcond.not.i.i267.i = icmp eq i64 %indvars.iv.next.i.i266.i, 256
@@ -795,7 +795,7 @@ vector_make_hint.exit.i:                          ; preds = %vector_make_hint.ex
 374:                                              ; preds = %374, %.lr.ph.i269.i
   %.1.i272.i = phi i32 [ %.023.i271.i, %.lr.ph.i269.i ], [ %396, %374 ]
   %indvars.iv.i.i273.i = phi i64 [ 0, %.lr.ph.i269.i ], [ %indvars.iv.next.i.i276.i, %374 ]
-  %375 = getelementptr inbounds nuw [256 x i32], ptr %373, i64 0, i64 %indvars.iv.i.i273.i
+  %375 = getelementptr inbounds nuw i32, ptr %373, i64 %indvars.iv.i.i273.i
   %376 = load i32, ptr %375, align 4, !tbaa !39
   %377 = sub i32 4190208, %376
   %378 = or i32 %377, %376
@@ -844,7 +844,7 @@ vector_max.exit281.i:                             ; preds = %poly_max.exit.i278.
 399:                                              ; preds = %399, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %399 ]
   %.12.i.i = phi i32 [ %.04.i283.i, %.preheader.i.i ], [ %402, %399 ]
-  %400 = getelementptr inbounds nuw [256 x i32], ptr %398, i64 0, i64 %indvars.iv.i.i
+  %400 = getelementptr inbounds nuw i32, ptr %398, i64 %indvars.iv.i.i
   %401 = load i32, ptr %400, align 4, !tbaa !39
   %402 = add i32 %401, %.12.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1139,10 +1139,10 @@ shake_xof_2.exit.i:                               ; preds = %106
 
 123:                                              ; preds = %123, %120
   %indvars.iv.i.i.i = phi i64 [ 0, %120 ], [ %indvars.iv.next.i.i.i, %123 ]
-  %124 = getelementptr inbounds nuw [256 x i32], ptr %121, i64 0, i64 %indvars.iv.i.i.i
+  %124 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i.i.i
   %125 = load i32, ptr %124, align 4, !tbaa !39
   %126 = shl i32 %125, 13
-  %127 = getelementptr inbounds nuw [256 x i32], ptr %122, i64 0, i64 %indvars.iv.i.i.i
+  %127 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i.i.i
   store i32 %126, ptr %127, align 4, !tbaa !39
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
@@ -1188,7 +1188,7 @@ vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i109.i, %._c
 134:                                              ; preds = %134, %.lr.ph.i112.i
   %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i112.i ], [ %156, %134 ]
   %indvars.iv.i.i113.i = phi i64 [ 0, %.lr.ph.i112.i ], [ %indvars.iv.next.i.i114.i, %134 ]
-  %135 = getelementptr inbounds nuw [256 x i32], ptr %133, i64 0, i64 %indvars.iv.i.i113.i
+  %135 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i.i113.i
   %136 = load i32, ptr %135, align 4, !tbaa !39
   %137 = sub i32 4190208, %136
   %138 = or i32 %137, %136
@@ -1247,9 +1247,9 @@ vector_ntt.exit.i:                                ; preds = %.lr.ph.i119.i, %vec
 
 165:                                              ; preds = %165, %.lr.ph.i123.i
   %indvars.iv.i.i124.i = phi i64 [ 0, %.lr.ph.i123.i ], [ %indvars.iv.next.i.i125.i, %165 ]
-  %166 = getelementptr inbounds nuw [256 x i32], ptr %163, i64 0, i64 %indvars.iv.i.i124.i
+  %166 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv.i.i124.i
   %167 = load i32, ptr %166, align 4, !tbaa !39
-  %168 = getelementptr inbounds nuw [256 x i32], ptr %164, i64 0, i64 %indvars.iv.i.i124.i
+  %168 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv.i.i124.i
   %169 = load i32, ptr %168, align 4, !tbaa !39
   %170 = add i32 %167, 8380417
   %171 = sub i32 %170, %169
@@ -1297,9 +1297,9 @@ vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i130.i
 
 191:                                              ; preds = %191, %.lr.ph.i134.i
   %indvars.iv.i.i135.i = phi i64 [ 0, %.lr.ph.i134.i ], [ %indvars.iv.next.i.i136.i, %191 ]
-  %192 = getelementptr inbounds nuw [256 x i32], ptr %188, i64 0, i64 %indvars.iv.i.i135.i
+  %192 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i.i135.i
   %193 = load i32, ptr %192, align 4, !tbaa !39
-  %194 = getelementptr inbounds nuw [256 x i32], ptr %190, i64 0, i64 %indvars.iv.i.i135.i
+  %194 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv.i.i135.i
   %195 = load i32, ptr %194, align 4, !tbaa !39
   %196 = call i32 @ossl_ml_dsa_key_compress_use_hint(i32 noundef %193, i32 noundef %195, i32 noundef %47) #5
   store i32 %196, ptr %194, align 4, !tbaa !39

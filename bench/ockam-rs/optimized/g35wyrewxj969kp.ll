@@ -1089,10 +1089,10 @@ define hidden void @"_ZN14elliptic_curve10secret_key18SecretKey$LT$C$GT$10from_b
 6:                                                ; preds = %6, %2
   %.0.i4.i.i = phi i64 [ 0, %2 ], [ %17, %6 ]
   %.014.i3.i.i = phi i64 [ 0, %2 ], [ %18, %6 ]
-  %7 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.014.i3.i.i
+  %7 = getelementptr inbounds nuw i64, ptr %4, i64 %.014.i3.i.i
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = zext i64 %8 to i128
-  %10 = getelementptr inbounds nuw [4 x i64], ptr @anon.5994e10fffdafa843df54943a4559014.47.llvm.7939504722297667161, i64 0, i64 %.014.i3.i.i
+  %10 = getelementptr inbounds nuw i64, ptr @anon.5994e10fffdafa843df54943a4559014.47.llvm.7939504722297667161, i64 %.014.i3.i.i
   %11 = load i64, ptr %10, align 8, !alias.scope !235, !noalias !238, !noundef !4
   %12 = zext i64 %11 to i128
   %13 = ashr i64 %.0.i4.i.i, 63
@@ -6831,7 +6831,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !align !16, !noundef !4
-  %29 = getelementptr inbounds nuw [256 x ptr], ptr %28, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 

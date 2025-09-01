@@ -3698,9 +3698,9 @@ define range(i32 -21, 1) i32 @arkStep_SetButcherTables(ptr noundef %0) local_unn
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %27 = load i32, ptr %26, align 8, !tbaa !135
-  %switch.tableidx72 = add i32 %27, -1
-  %28 = icmp ult i32 %switch.tableidx72, 5
-  br i1 %28, label %switch.lookup71, label %29
+  %switch.tableidx71 = add i32 %27, -1
+  %28 = icmp ult i32 %switch.tableidx71, 5
+  br i1 %28, label %switch.lookup72, label %29
 
 29:                                               ; preds = %25
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 2262, ptr noundef nonnull @__func__.arkStep_SetButcherTables, ptr noundef nonnull @.str, ptr noundef nonnull @.str.59) #13
@@ -3709,32 +3709,32 @@ define range(i32 -21, 1) i32 @arkStep_SetButcherTables(ptr noundef %0) local_unn
 .thread:                                          ; preds = %18, %24
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %31 = load i32, ptr %30, align 8, !tbaa !135
-  %switch.tableidx76 = add i32 %31, -1
-  %32 = icmp ult i32 %switch.tableidx76, 9
-  br i1 %32, label %switch.lookup75, label %33
+  %switch.tableidx75 = add i32 %31, -1
+  %32 = icmp ult i32 %switch.tableidx75, 9
+  br i1 %32, label %switch.lookup76, label %33
 
 33:                                               ; preds = %.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 2284, ptr noundef nonnull @__func__.arkStep_SetButcherTables, ptr noundef nonnull @.str, ptr noundef nonnull @.str.60) #13
   br label %.thread60
 
-switch.lookup75:                                  ; preds = %.thread
-  %34 = zext nneg i32 %switch.tableidx76 to i64
-  %switch.gep77 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.arkStep_SetButcherTables.3, i64 0, i64 %34
+switch.lookup76:                                  ; preds = %.thread
+  %34 = zext nneg i32 %switch.tableidx75 to i64
+  %switch.gep77 = getelementptr inbounds nuw i32, ptr @switch.table.arkStep_SetButcherTables.3, i64 %34
   %switch.load78 = load i32, ptr %switch.gep77, align 4
   br label %.thread60
 
-.thread60:                                        ; preds = %switch.lookup75, %33
-  %.040.ph.ph = phi i32 [ 21, %33 ], [ %switch.load78, %switch.lookup75 ]
+.thread60:                                        ; preds = %switch.lookup76, %33
+  %.040.ph.ph = phi i32 [ 21, %33 ], [ %switch.load78, %switch.lookup76 ]
   %35 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.040.ph.ph) #13
   store ptr %35, ptr %9, align 8, !tbaa !125
   br label %42
 
 switch.lookup:                                    ; preds = %19
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.arkStep_SetButcherTables, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.arkStep_SetButcherTables, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep69 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.arkStep_SetButcherTables.1, i64 0, i64 %37
+  %switch.gep69 = getelementptr inbounds nuw i32, ptr @switch.table.arkStep_SetButcherTables.1, i64 %37
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %38
 
@@ -3745,14 +3745,14 @@ switch.lookup:                                    ; preds = %19
   store ptr %39, ptr %9, align 8, !tbaa !125
   br label %.thread56
 
-switch.lookup71:                                  ; preds = %25
-  %40 = zext nneg i32 %switch.tableidx72 to i64
-  %switch.gep73 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.arkStep_SetButcherTables.2, i64 0, i64 %40
+switch.lookup72:                                  ; preds = %25
+  %40 = zext nneg i32 %switch.tableidx71 to i64
+  %switch.gep73 = getelementptr inbounds nuw i32, ptr @switch.table.arkStep_SetButcherTables.2, i64 %40
   %switch.load74 = load i32, ptr %switch.gep73, align 4
   br label %.thread56
 
-.thread56:                                        ; preds = %switch.lookup71, %29, %38
-  %.0395358 = phi i32 [ %.039.ph, %38 ], [ 111, %29 ], [ %switch.load74, %switch.lookup71 ]
+.thread56:                                        ; preds = %switch.lookup72, %29, %38
+  %.0395358 = phi i32 [ %.039.ph, %38 ], [ 111, %29 ], [ %switch.load74, %switch.lookup72 ]
   %41 = tail call ptr @ARKodeButcherTable_LoadDIRK(i32 noundef %.0395358) #13
   store ptr %41, ptr %12, align 8, !tbaa !124
   %.pre64 = load ptr, ptr %9, align 8, !tbaa !125

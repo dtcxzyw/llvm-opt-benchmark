@@ -197,7 +197,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
 
 56:                                               ; preds = %52
   %57 = and i64 %53, 63
-  %58 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %57
+  %58 = getelementptr i64, ptr @__per_cpu_offset, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %43
   %61 = inttoptr i64 %60 to ptr
@@ -229,7 +229,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
 
 .preheader6:                                      ; preds = %73
   %77 = and i64 %74, 63
-  %78 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %77
+  %78 = getelementptr i64, ptr @__per_cpu_offset, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %43
   %81 = inttoptr i64 %80 to ptr
@@ -334,7 +334,7 @@ define internal void @fq_flush_timeout(ptr noundef %0) #1 align 16 {
   %28 = load ptr, ptr %15, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %24, 63
-  %31 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %30
+  %31 = getelementptr i64, ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %29
   %34 = inttoptr i64 %33 to ptr
@@ -503,7 +503,7 @@ define dso_local void @iommu_put_dma_cookie(ptr noundef captures(none) %0) local
 
 55:                                               ; preds = %51
   %56 = and i64 %52, 63
-  %57 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %56
+  %57 = getelementptr i64, ptr @__per_cpu_offset, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, %44
   %60 = inttoptr i64 %59 to ptr
@@ -1230,7 +1230,7 @@ define internal fastcc void @fq_ring_free(ptr noundef %0, ptr noundef %1) unname
 19:                                               ; preds = %26, %17
   %20 = phi i32 [ %12, %17 ], [ %36, %26 ]
   %21 = zext i32 %20 to i64
-  %22 = getelementptr [0 x %struct.iova_fq_entry], ptr %13, i64 0, i64 %21
+  %22 = getelementptr %struct.iova_fq_entry, ptr %13, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %24, %6
@@ -1496,7 +1496,7 @@ define internal noundef ptr @iommu_dma_alloc_noncontiguous(ptr noundef %0, i64 n
 
 12:                                               ; preds = %8, %5
   %13 = phi i64 [ 0, %5 ], [ %11, %8 ]
-  %14 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %13, i64 5
+  %14 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13, i64 5
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %3, i64 noundef 24) #19
   %17 = icmp eq ptr %16, null
@@ -3184,7 +3184,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
 78:                                               ; preds = %71
   %79 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %80 = zext i32 %73 to i64
-  %81 = getelementptr [0 x %struct.iova_fq_entry], ptr %74, i64 0, i64 %80
+  %81 = getelementptr %struct.iova_fq_entry, ptr %74, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load i64, ptr %82, align 8
   %84 = icmp ult i64 %83, %67
@@ -3192,7 +3192,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
 
 85:                                               ; preds = %.lr.ph
   %86 = zext i32 %102 to i64
-  %87 = getelementptr [0 x %struct.iova_fq_entry], ptr %74, i64 0, i64 %86
+  %87 = getelementptr %struct.iova_fq_entry, ptr %74, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %89 = load i64, ptr %88, align 8
   %90 = icmp ult i64 %89, %67
@@ -3269,7 +3269,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
 
 .preheader.i.preheader:                           ; preds = %127
   %131 = zext i32 %128 to i64
-  %132 = getelementptr [0 x %struct.iova_fq_entry], ptr %74, i64 0, i64 %131
+  %132 = getelementptr %struct.iova_fq_entry, ptr %74, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %134 = load i64, ptr %133, align 8
   %135 = icmp ult i64 %134, %123
@@ -3277,7 +3277,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
 
 .preheader.i:                                     ; preds = %.lr.ph7
   %136 = zext i32 %152 to i64
-  %137 = getelementptr [0 x %struct.iova_fq_entry], ptr %74, i64 0, i64 %136
+  %137 = getelementptr %struct.iova_fq_entry, ptr %74, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %139 = load i64, ptr %138, align 8
   %140 = icmp ult i64 %139, %123
@@ -3323,7 +3323,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   %162 = and i32 %161, %160
   store i32 %162, ptr %75, align 8
   %163 = zext i32 %155 to i64
-  %164 = getelementptr [0 x %struct.iova_fq_entry], ptr %74, i64 0, i64 %163
+  %164 = getelementptr %struct.iova_fq_entry, ptr %74, i64 %163
   store i64 %53, ptr %164, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i64 %54, ptr %165, align 8

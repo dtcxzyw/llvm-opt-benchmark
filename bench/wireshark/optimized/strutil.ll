@@ -413,7 +413,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %33 = phi i8 [ %54, %.thread.us._crit_edge ], [ %8, %.lr.ph.split.us.preheader ]
   %.177.us = phi ptr [ %53, %.thread.us._crit_edge ], [ %0, %.lr.ph.split.us.preheader ]
   %34 = zext i8 %33 to i64
-  %35 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = icmp slt i8 %36, 0
   br i1 %37, label %.split.us, label %38
@@ -422,7 +422,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %39 = getelementptr i8, ptr %.177.us, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %41
+  %42 = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = icmp slt i8 %43, 0
   br i1 %44, label %.split79.us, label %45
@@ -441,7 +441,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %53 = getelementptr i8, ptr %.177.us, i64 3
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
-  %56 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %55
+  %56 = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = icmp sgt i8 %57, -1
   br i1 %58, label %.thread.us._crit_edge, label %.thread.us
@@ -474,7 +474,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %65 = phi i8 [ %82, %77 ], [ %8, %.lr.ph.split.split.us.preheader ]
   %.177.us85 = phi ptr [ %81, %77 ], [ %0, %.lr.ph.split.split.us.preheader ]
   %66 = zext i8 %65 to i64
-  %67 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %66
+  %67 = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = icmp slt i8 %68, 0
   br i1 %69, label %.split.us, label %70
@@ -483,7 +483,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   %71 = getelementptr i8, ptr %.177.us85, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i64
-  %74 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %73
+  %74 = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = icmp slt i8 %75, 0
   br i1 %76, label %.split79.us, label %77
@@ -499,7 +499,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
   br i1 %.not43.us86, label %.thread51, label %.lr.ph.split.split.us, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %31, %29, %27, %25, %.lr.ph.split
-  %.phi.trans.insert = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %11
+  %.phi.trans.insert = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %11
   %.pre112 = load i8, ptr %.phi.trans.insert, align 1
   %83 = icmp slt i8 %.pre112, 0
   br i1 %83, label %.split.us, label %84
@@ -511,7 +511,7 @@ define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef
 84:                                               ; preds = %.lr.ph.split.split
   %85 = load i8, ptr %16, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %86
+  %87 = getelementptr i8, ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = icmp slt i8 %88, 0
   br i1 %89, label %.split79.us, label %.threadthread-pre-split
@@ -689,10 +689,10 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %7 = load ptr, ptr @g_ascii_table, align 8
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %._crit_edge103
-  %8 = phi i8 [ %15, %._crit_edge103 ], [ %6, %.lr.ph ]
-  %.080.us = phi ptr [ %.1.us, %._crit_edge103 ], [ null, %.lr.ph ]
-  %.04979.us = phi ptr [ %19, %._crit_edge103 ], [ %0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %._crit_edge104
+  %8 = phi i8 [ %15, %._crit_edge104 ], [ %6, %.lr.ph ]
+  %.080.us = phi ptr [ %.1.us, %._crit_edge104 ], [ null, %.lr.ph ]
+  %.04979.us = phi ptr [ %19, %._crit_edge104 ], [ %0, %.lr.ph ]
   %9 = zext i8 %8 to i64
   %10 = getelementptr i16, ptr %7, i64 %9
   %11 = load i16, ptr %10, align 2
@@ -705,16 +705,16 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
 13:                                               ; preds = %.lr.ph.split.us
   %14 = getelementptr i8, ptr %.04979.us, i64 1
   %15 = load i8, ptr %14, align 1
-  br i1 %.not66.us, label %16, label %._crit_edge103
+  br i1 %.not66.us, label %16, label %._crit_edge104
 
 16:                                               ; preds = %13
   %.not67.us = icmp eq i8 %15, 0
   %17 = getelementptr i8, ptr %.04979.us, i64 -1
   %18 = icmp eq ptr %17, %.080.us
   %or.cond71.us = select i1 %.not67.us, i1 true, i1 %18
-  br i1 %or.cond71.us, label %.loopexit, label %._crit_edge103
+  br i1 %or.cond71.us, label %.loopexit, label %._crit_edge104
 
-._crit_edge103:                                   ; preds = %13, %16
+._crit_edge104:                                   ; preds = %13, %16
   %.1.us = phi ptr [ %.04979.us, %16 ], [ %.080.us, %13 ]
   %19 = getelementptr i8, ptr %.04979.us, i64 1
   %.not.us = icmp eq i8 %15, 0
@@ -734,11 +734,11 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   br i1 %or.cond68, label %25, label %.loopexit
 
 25:                                               ; preds = %.lr.ph.split
-  br i1 %.not66, label %26, label %._crit_edge104
+  br i1 %.not66, label %26, label %._crit_edge105
 
-._crit_edge104:                                   ; preds = %25
-  %.phi.trans.insert105 = getelementptr i8, ptr %.04979, i64 1
-  %.pre106 = load i8, ptr %.phi.trans.insert105, align 1
+._crit_edge105:                                   ; preds = %25
+  %.phi.trans.insert106 = getelementptr i8, ptr %.04979, i64 1
+  %.pre107 = load i8, ptr %.phi.trans.insert106, align 1
   br label %33
 
 26:                                               ; preds = %25
@@ -754,15 +754,15 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %or.cond71 = select i1 %.not67, i1 true, i1 %32
   br i1 %or.cond71, label %.loopexit, label %33
 
-33:                                               ; preds = %._crit_edge104, %28
-  %34 = phi i8 [ %.pre106, %._crit_edge104 ], [ %30, %28 ]
-  %.1 = phi ptr [ %.080, %._crit_edge104 ], [ %.04979, %28 ]
+33:                                               ; preds = %._crit_edge105, %28
+  %34 = phi i8 [ %.pre107, %._crit_edge105 ], [ %30, %28 ]
+  %.1 = phi ptr [ %.080, %._crit_edge105 ], [ %.04979, %28 ]
   %35 = getelementptr i8, ptr %.04979, i64 1
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %._crit_edge103, %33
-  %.0.lcssa = phi ptr [ %.1, %33 ], [ %.1.us, %._crit_edge103 ]
+._crit_edge:                                      ; preds = %._crit_edge104, %33
+  %.0.lcssa = phi ptr [ %.1, %33 ], [ %.1.us, %._crit_edge104 ]
   %.not60 = icmp eq ptr %.0.lcssa, null
   br i1 %.not60, label %.loopexit, label %36
 
@@ -771,8 +771,8 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %spec.select.idx = zext i1 %not. to i64
   %spec.select = getelementptr i8, ptr %0, i64 %spec.select.idx
   %37 = load i8, ptr %spec.select, align 1
-  %.not6188 = icmp eq i8 %37, 0
-  br i1 %.not6188, label %.loopexit, label %.preheader.lr.ph
+  %.not6189 = icmp eq i8 %37, 0
+  br i1 %.not6189, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %36
   %38 = select i1 %2, i32 0, i32 2
@@ -782,9 +782,9 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
   %41 = phi i8 [ %37, %.preheader.lr.ph ], [ %83, %.thread ]
-  %.291 = phi ptr [ %spec.select, %.preheader.lr.ph ], [ %spec.select69, %.thread ]
-  %.05290 = phi i32 [ %38, %.preheader.lr.ph ], [ %82, %.thread ]
-  %.05689 = phi i32 [ 0, %.preheader.lr.ph ], [ %.15775, %.thread ]
+  %.292 = phi ptr [ %spec.select, %.preheader.lr.ph ], [ %spec.select69, %.thread ]
+  %.05291 = phi i32 [ %38, %.preheader.lr.ph ], [ %82, %.thread ]
+  %.05690 = phi i32 [ 0, %.preheader.lr.ph ], [ %.15775, %.thread ]
   %42 = zext i8 %41 to i64
   %43 = getelementptr i16, ptr %39, i64 %42
   %44 = load i16, ptr %43, align 2
@@ -794,7 +794,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
 
 .lr.ph84:                                         ; preds = %.preheader, %.lr.ph84
   %46 = phi i8 [ %52, %.lr.ph84 ], [ %41, %.preheader ]
-  %.383 = phi ptr [ %51, %.lr.ph84 ], [ %.291, %.preheader ]
+  %.383 = phi ptr [ %51, %.lr.ph84 ], [ %.292, %.preheader ]
   %.05382 = phi i32 [ %50, %.lr.ph84 ], [ 0, %.preheader ]
   %47 = mul i32 %.05382, 10
   %48 = sext i8 %46 to i32
@@ -812,8 +812,8 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
 ._crit_edge85:                                    ; preds = %.lr.ph84, %.preheader
   %57 = phi i8 [ %41, %.preheader ], [ %52, %.lr.ph84 ]
   %.053.lcssa = phi i32 [ 0, %.preheader ], [ %50, %.lr.ph84 ]
-  %.3.lcssa = phi ptr [ %.291, %.preheader ], [ %51, %.lr.ph84 ]
-  switch i32 %.05290, label %.preheader127 [
+  %.3.lcssa = phi ptr [ %.292, %.preheader ], [ %51, %.lr.ph84 ]
+  switch i32 %.05291, label %.preheader128 [
     i32 0, label %58
     i32 1, label %60
   ]
@@ -823,27 +823,27 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   br i1 %59, label %.loopexit, label %.thread
 
 60:                                               ; preds = %._crit_edge85
-  %61 = icmp samesign ult i32 %.05689, 2
+  %61 = icmp samesign ult i32 %.05690, 2
   %62 = icmp ugt i32 %.053.lcssa, 39
   %or.cond3 = select i1 %61, i1 %62, i1 false
   br i1 %or.cond3, label %.loopexit, label %63
 
 63:                                               ; preds = %60
-  %64 = mul nuw nsw i32 %.05689, 40
+  %64 = mul nuw nsw i32 %.05690, 40
   %65 = add i32 %.053.lcssa, %64
-  br label %.preheader127
+  br label %.preheader128
 
-.preheader127:                                    ; preds = %._crit_edge85, %63
+.preheader128:                                    ; preds = %._crit_edge85, %63
   %.255.ph = phi i32 [ %65, %63 ], [ %.053.lcssa, %._crit_edge85 ]
   br label %66
 
-66:                                               ; preds = %.preheader127, %66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 5, %.preheader127 ]
-  %.255 = phi i32 [ %70, %66 ], [ %.255.ph, %.preheader127 ]
+66:                                               ; preds = %.preheader128, %66
+  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 5, %.preheader128 ]
+  %.255 = phi i32 [ %70, %66 ], [ %.255.ph, %.preheader128 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %67 = trunc i32 %.255 to i8
   %68 = or i8 %67, -128
-  %69 = getelementptr [5 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %69 = getelementptr i8, ptr %4, i64 %indvars.iv.next
   store i8 %68, ptr %69, align 1
   %70 = lshr i32 %.255, 7
   %71 = icmp ugt i32 %.255, 127
@@ -852,20 +852,20 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   br i1 %73, label %66, label %74, !llvm.loop !14
 
 74:                                               ; preds = %66
-  %75 = getelementptr [5 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %75 = getelementptr i8, ptr %4, i64 %indvars.iv.next
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   %77 = load i8, ptr %40, align 1
   %78 = and i8 %77, 127
   store i8 %78, ptr %40, align 1
   %79 = sub i32 6, %76
   %80 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef %75, i32 noundef %79)
-  %.pre107 = load i8, ptr %.3.lcssa, align 1
+  %.pre108 = load i8, ptr %.3.lcssa, align 1
   br label %.thread
 
 .thread:                                          ; preds = %58, %74
-  %81 = phi i8 [ %.pre107, %74 ], [ %57, %58 ]
-  %.15775 = phi i32 [ %.05689, %74 ], [ %.053.lcssa, %58 ]
-  %82 = add i32 %.05290, 1
+  %81 = phi i8 [ %.pre108, %74 ], [ %57, %58 ]
+  %.15775 = phi i32 [ %.05690, %74 ], [ %.053.lcssa, %58 ]
+  %82 = add i32 %.05291, 1
   %.not64 = icmp ne i8 %81, 0
   %spec.select69.idx = zext i1 %.not64 to i64
   %spec.select69 = getelementptr i8, ptr %.3.lcssa, i64 %spec.select69.idx
@@ -1210,7 +1210,7 @@ define void @IA5_7BIT_decode(ptr noundef %0, ptr noundef readonly captures(none)
 
 8:                                                ; preds = %.lr.ph
   %9 = zext nneg i8 %6 to i64
-  %10 = getelementptr [128 x i32], ptr @IA5_default_alphabet, i64 0, i64 %9
+  %10 = getelementptr i32, ptr @IA5_default_alphabet, i64 %9
   %11 = load i32, ptr %10, align 4
   br label %char_def_ia5_alphabet_decode.exit
 
@@ -1304,7 +1304,7 @@ define i64 @ws_label_strcpy(ptr noundef writeonly captures(none) %0, i64 noundef
   %15 = getelementptr i8, ptr %3, i64 %.0126137
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr [256 x i32], ptr @ws_utf8_seqlen, i64 0, i64 %17
+  %18 = getelementptr i32, ptr @ws_utf8_seqlen, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i32 %19, 1
@@ -1415,13 +1415,13 @@ switch.lookup:                                    ; preds = %38
   %68 = zext i8 %67 to i32
   %69 = lshr i32 %68, 4
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %70
+  %71 = getelementptr i8, ptr @_hex, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = getelementptr i8, ptr %65, i64 2
   store i8 %72, ptr %73, align 1
   %74 = and i32 %68, 15
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %75
+  %76 = getelementptr i8, ptr @_hex, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = getelementptr i8, ptr %65, i64 3
   store i8 %77, ptr %78, align 1
@@ -1462,13 +1462,13 @@ switch.lookup:                                    ; preds = %38
   %97 = zext i8 %96 to i32
   %98 = lshr i32 %97, 4
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %99
+  %100 = getelementptr i8, ptr @_hex, i64 %99
   %101 = load i8, ptr %100, align 1
   %102 = getelementptr i8, ptr %92, i64 4
   store i8 %101, ptr %102, align 1
   %103 = and i32 %97, 15
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %104
+  %105 = getelementptr i8, ptr @_hex, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = getelementptr i8, ptr %92, i64 5
   store i8 %106, ptr %107, align 1

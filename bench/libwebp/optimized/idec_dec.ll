@@ -984,7 +984,7 @@ IDecError.exit56.i:                               ; preds = %215, %212
   %226 = load i32, ptr %192, align 4, !tbaa !74
   %227 = and i32 %226, %224
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %201, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %201, i64 %228
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %230 = load ptr, ptr %203, align 8, !tbaa !79
   %231 = getelementptr inbounds i8, ptr %230, i64 -2
@@ -1830,7 +1830,7 @@ define internal fastcc void @DoRemap(ptr noundef nonnull captures(none) initiali
 31:                                               ; preds = %26, %29, %18
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 440
   %33 = zext i32 %20 to i64
-  %34 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !72
   %37 = load ptr, ptr %4, align 8, !tbaa !27

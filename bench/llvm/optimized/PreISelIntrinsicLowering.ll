@@ -1905,7 +1905,7 @@ _ZL17lowerLoadRelativeRN4llvm8FunctionE.exit:     ; preds = %518, %427, %431
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i.i: ; preds = %668
   %682 = getelementptr inbounds nuw i8, ptr %677, i64 104
   %683 = zext i16 %681 to i64
-  %684 = getelementptr inbounds nuw [234 x ptr], ptr %682, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw ptr, ptr %682, i64 %683
   %685 = load ptr, ptr %684, align 8, !tbaa !210
   %.not.i.i.i = icmp eq ptr %685, null
   br i1 %.not.i.i.i, label %693, label %686
@@ -1917,8 +1917,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i.i: ; preds = %668
 _ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.i.i: ; preds = %686
   %687 = getelementptr inbounds nuw i8, ptr %677, i64 5486
   %688 = zext nneg i32 %679 to i64
-  %689 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %687, i64 0, i64 %683
-  %690 = getelementptr inbounds nuw [496 x i8], ptr %689, i64 0, i64 %688
+  %689 = getelementptr inbounds nuw [496 x i8], ptr %687, i64 %683
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 %688
   %691 = load i8, ptr %690, align 1, !tbaa !212
   %692 = icmp eq i8 %691, 2
   br i1 %692, label %693, label %.thread.i60

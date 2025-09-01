@@ -583,7 +583,7 @@ define internal void @_ZN12_GLOBAL__N_144RandomDistributionsTest_UniformExamples
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %48 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %49, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %50 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %51 = load i32, ptr %50, align 4, !tbaa !7
   %52 = zext i32 %51 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %52
@@ -4610,7 +4610,7 @@ define internal void @_ZN12_GLOBAL__N_150RandomDistributionsTest_UniformNonsense
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %115 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %116, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %117 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %117 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %118 = load i32, ptr %117, align 4, !tbaa !7
   %119 = zext i32 %118 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %119
@@ -9112,7 +9112,7 @@ define internal void @_ZN12_GLOBAL__N_140RandomDistributionsTest_UniformReal_Tes
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %21 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %22, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !7
   %25 = zext i32 %24 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %25
@@ -9818,7 +9818,7 @@ define internal void @_ZN12_GLOBAL__N_139RandomDistributionsTest_UniformInt_Test
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %21 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %22, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !7
   %25 = zext i32 %24 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %25
@@ -10540,7 +10540,7 @@ define internal void @_ZN12_GLOBAL__N_140RandomDistributionsTest_Exponential_Tes
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %22 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %23, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !7
   %26 = zext i32 %25 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %26
@@ -11925,7 +11925,7 @@ define internal void @_ZN12_GLOBAL__N_143RandomDistributionsTest_PoissonDefault_
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %24 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %25, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %26 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.016.i.i.i.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = zext i32 %27 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %28
@@ -12831,7 +12831,7 @@ define internal void @_ZN12_GLOBAL__N_141RandomDistributionsTest_PoissonLarge_Te
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %24 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %25, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %26 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.016.i.i.i.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = zext i32 %27 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %28
@@ -13521,7 +13521,7 @@ define internal void @_ZN12_GLOBAL__N_138RandomDistributionsTest_Bernoulli_Test8
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %12 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %13, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %15 = load i32, ptr %14, align 4, !tbaa !7
   %16 = zext i32 %15 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %16
@@ -13826,7 +13826,7 @@ define internal void @_ZN12_GLOBAL__N_133RandomDistributionsTest_Beta_Test8TestB
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %15 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %16, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %18 = load i32, ptr %17, align 4, !tbaa !7
   %19 = zext i32 %18 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %19
@@ -14532,7 +14532,7 @@ define internal void @_ZN12_GLOBAL__N_133RandomDistributionsTest_Zipf_Test8TestB
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %14 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %15, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.016.i.i.i.i.i
+  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = zext i32 %17 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %18
@@ -14976,7 +14976,7 @@ define internal void @_ZN12_GLOBAL__N_144RandomDistributionsTest_ZipfWithZeroMax
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %14 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %15, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.016.i.i.i.i.i
+  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = zext i32 %17 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %18
@@ -15487,7 +15487,7 @@ define internal void @_ZN12_GLOBAL__N_137RandomDistributionsTest_Gaussian_Test8T
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %23 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %24, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.016.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
   %26 = load i32, ptr %25, align 4, !tbaa !7
   %27 = zext i32 %26 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %27
@@ -16138,13 +16138,13 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %20 = xor i64 %19, 4607182418800017408
   %21 = bitcast i64 %20 to double
   %22 = and i64 %7, 127
-  %23 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !38
   %25 = fmul double %24, %21
   %26 = tail call noundef double @llvm.fabs.f64(double %25)
   %27 = add nuw nsw i32 %9, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !38
   %31 = fcmp olt double %26, %30
   br i1 %31, label %select.unfold.loopexit, label %32
@@ -16241,9 +16241,9 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17Non
   %reass.sub = sub nsw i64 %79, %78
   %80 = add nsw i64 %reass.sub, 4602678819172646912
   %81 = bitcast i64 %80 to double
-  %82 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %28
+  %82 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %28
   %83 = load double, ptr %82, align 8, !tbaa !38
-  %84 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %22
+  %84 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %22
   %85 = load double, ptr %84, align 8, !tbaa !38
   %86 = fsub double %85, %83
   %87 = tail call double @llvm.fmuladd.f64(double %81, double %86, double %83)
@@ -16339,7 +16339,7 @@ define internal void @_ZN12_GLOBAL__N_139RandomDistributionsTest_LogUniform_Test
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %14 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %15, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.016.i.i.i.i.i
+  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = zext i32 %17 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %18

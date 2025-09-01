@@ -1123,7 +1123,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
 360:                                              ; preds = %360, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta89
   %.07.i.i.i.i.i = phi i64 [ 0, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta89 ], [ %366, %360 ]
   %.056.i.i.i.i.i = phi i32 [ 0, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkSta89 ], [ %365, %360 ]
-  %361 = getelementptr inbounds nuw [3 x i16], ptr %293, i64 0, i64 %.07.i.i.i.i.i
+  %361 = getelementptr inbounds nuw i16, ptr %293, i64 %.07.i.i.i.i.i
   %362 = load i16, ptr %361, align 2, !tbaa !399
   %363 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %362)
   %364 = zext nneg i16 %363 to i32
@@ -1959,7 +1959,7 @@ _ZNK12_GLOBAL__N_115DataSendContext12max_outgoingEv.exit.i.i: ; preds = %.lr.ph.
 
 .preheader.i.i:                                   ; preds = %742, %.preheader.i.i
   %.057.i.i.i.i.i = phi i64 [ %746, %.preheader.i.i ], [ 0, %742 ]
-  %744 = getelementptr inbounds nuw [3 x i16], ptr %743, i64 0, i64 %.057.i.i.i.i.i
+  %744 = getelementptr inbounds nuw i16, ptr %743, i64 %.057.i.i.i.i.i
   %745 = load i16, ptr %744, align 2, !tbaa !399
   %.not.i.i.i4.i.i = icmp eq i16 %745, 0
   %746 = add nuw nsw i64 %.057.i.i.i.i.i, 1
@@ -2102,7 +2102,7 @@ _ZN12_GLOBAL__N_118StreamWriteContext9FlushDataEv.exit: ; preds = %_ZN12_GLOBAL_
 
 807:                                              ; preds = %807, %.critedge10.i
   %.057.i.i.i.i = phi i64 [ 0, %.critedge10.i ], [ %810, %807 ]
-  %808 = getelementptr inbounds nuw [3 x i16], ptr %805, i64 0, i64 %.057.i.i.i.i
+  %808 = getelementptr inbounds nuw i16, ptr %805, i64 %.057.i.i.i.i
   %809 = load i16, ptr %808, align 2, !tbaa !399
   %.not.i.i.i.i47 = icmp eq i16 %809, 0
   %810 = add nuw nsw i64 %.057.i.i.i.i, 1
@@ -5610,7 +5610,7 @@ define linkonce_odr void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_20G
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw [3 x i32], ptr %0, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !393
   %20 = load i32, ptr %16, align 8, !tbaa !612
   %21 = icmp ugt i32 %19, %20
@@ -6236,7 +6236,7 @@ define linkonce_odr void @_ZN9grpc_core20hpack_encoder_detail10CompressorINS_18G
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !393
   %20 = load i32, ptr %16, align 8, !tbaa !612
   %21 = icmp ugt i32 %19, %20

@@ -125,7 +125,7 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
 
 30:                                               ; preds = %29
   %31 = add nsw i64 %indvars.iv, -1
-  %32 = getelementptr inbounds nuw [6 x %struct.AsmArgType], ptr %22, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.AsmArgType, ptr %22, i64 %31
   %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %31
   %34 = load ptr, ptr %33, align 8
   %.sroa.0.0.copyload = load i64, ptr %32, align 4
@@ -140,9 +140,9 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
 
 38:                                               ; preds = %38, %36
   %indvars.iv.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw [4 x i64], ptr %37, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %42 = load i64, ptr %41, align 8
   %43 = or i64 %42, %40
   store i64 %43, ptr %41, align 8
@@ -250,7 +250,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %49 = zext nneg i32 %47 to i64
   %50 = shl nuw i64 1, %49
   %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %1, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %50, %53
   store i64 %54, ptr %52, align 8
@@ -554,7 +554,7 @@ max_supported_imm_int.exit.thread.i.i:            ; preds = %max_supported_imm_i
 
 switch.lookup:                                    ; preds = %200
   %203 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sema_check_asm_arg, i64 0, i64 %203
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.sema_check_asm_arg, i64 %203
   %switch.load = load i64, ptr %switch.gep, align 8
   %204 = and i64 %switch.load, %.sroa.3.0.copyload.i
   br label %205

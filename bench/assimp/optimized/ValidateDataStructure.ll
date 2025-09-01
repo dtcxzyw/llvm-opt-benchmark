@@ -1980,7 +1980,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %_ZNSt6vectorIbSaIbE
 
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %148, %155
   %indvars.iv329 = phi i64 [ %indvars.iv.next330, %155 ], [ 0, %148 ]
-  %151 = getelementptr inbounds nuw [8 x ptr], ptr %150, i64 0, i64 %indvars.iv329
+  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv329
   %152 = load ptr, ptr %151, align 8
   %.not.i.not = icmp eq ptr %152, null
   br i1 %.not.i.not, label %.split267.us, label %155
@@ -2001,7 +2001,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %148, %155
 
 _ZNK6aiMesh15HasVertexColorsEj.exit179:           ; preds = %.split267.us, %162
   %indvars.iv333 = phi i64 [ %indvars.iv.next334, %162 ], [ %indvars.iv329, %.split267.us ]
-  %157 = getelementptr inbounds nuw [8 x ptr], ptr %150, i64 0, i64 %indvars.iv333
+  %157 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv333
   %158 = load ptr, ptr %157, align 8
   %.not.i177.not = icmp eq ptr %158, null
   br i1 %.not.i177.not, label %162, label %159
@@ -3291,7 +3291,7 @@ split.cont:                                       ; preds = %split.invoke
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %.preheader125, %110
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %110 ], [ 0, %.preheader125 ]
-  %108 = getelementptr inbounds nuw [8 x ptr], ptr %105, i64 0, i64 %indvars.iv193
+  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv193
   %109 = load ptr, ptr %108, align 8
   %.not.i.not = icmp eq ptr %109, null
   br i1 %.not.i.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit268, label %110

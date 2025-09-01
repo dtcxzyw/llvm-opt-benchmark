@@ -560,7 +560,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit907.i.i:          ; preds = %.thread1107.i.i
   br i1 %150, label %151, label %.critedge.split.loop.exit1630.i.i
 
 151:                                              ; preds = %.preheader1381.i.i
-  %152 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1507.i.i
+  %152 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1507.i.i
   %153 = load i32, ptr %152, align 4
   %154 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1507.i.i
   store i32 %153, ptr %154, align 4
@@ -612,7 +612,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit913.i.i:          ; preds = %.thread1113.i.i
   br i1 %168, label %169, label %.critedge2.split.loop.exit1632.i.i
 
 169:                                              ; preds = %.preheader1380.i.i
-  %170 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1510.i.i
+  %170 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1510.i.i
   %171 = load i32, ptr %170, align 4
   %172 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1510.i.i
   store i32 %171, ptr %172, align 4
@@ -664,7 +664,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit919.i.i:          ; preds = %.thread1119.i.i
   br i1 %186, label %187, label %.critedge4.split.loop.exit1634.i.i
 
 187:                                              ; preds = %.preheader1379.i.i
-  %188 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1513.i.i
+  %188 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1513.i.i
   %189 = load i32, ptr %188, align 4
   %190 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1513.i.i
   store i32 %189, ptr %190, align 4
@@ -716,7 +716,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit925.i.i:          ; preds = %.thread1125.i.i
   br i1 %204, label %205, label %.critedge6.split.loop.exit1636.i.i
 
 205:                                              ; preds = %.preheader1378.i.i
-  %206 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1516.i.i
+  %206 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1516.i.i
   %207 = load i32, ptr %206, align 4
   %208 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1516.i.i
   store i32 %207, ptr %208, align 4
@@ -768,7 +768,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit931.i.i:          ; preds = %.thread1131.i.i
   br i1 %222, label %223, label %.critedge8.split.loop.exit1638.i.i
 
 223:                                              ; preds = %.preheader1377.i.i
-  %224 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1519.i.i
+  %224 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1519.i.i
   %225 = load i32, ptr %224, align 4
   %226 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1519.i.i
   store i32 %225, ptr %226, align 4
@@ -820,7 +820,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit937.i.i:          ; preds = %.thread1137.i.i
   br i1 %240, label %241, label %.critedge10.split.loop.exit1640.i.i
 
 241:                                              ; preds = %.preheader1376.i.i
-  %242 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1522.i.i
+  %242 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1522.i.i
   %243 = load i32, ptr %242, align 4
   %244 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1522.i.i
   store i32 %243, ptr %244, align 4
@@ -872,7 +872,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit943.i.i:          ; preds = %.thread1143.i.i
   br i1 %258, label %259, label %.critedge12.split.loop.exit1642.i.i
 
 259:                                              ; preds = %.preheader1375.i.i
-  %260 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1525.i.i
+  %260 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1525.i.i
   %261 = load i32, ptr %260, align 4
   %262 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1525.i.i
   store i32 %261, ptr %262, align 4
@@ -924,7 +924,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit949.i.i:          ; preds = %.thread1149.i.i
   br i1 %276, label %277, label %.critedge14.split.loop.exit1644.i.i
 
 277:                                              ; preds = %.preheader1374.i.i
-  %278 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1528.i.i
+  %278 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1528.i.i
   %279 = load i32, ptr %278, align 4
   %280 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1528.i.i
   store i32 %279, ptr %280, align 4
@@ -1255,7 +1255,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit997.thread.tail.i.i: ; preds = %sub_1.i.i
   br i1 %377, label %378, label %.critedge16.split.loop.exit1660.i.i
 
 378:                                              ; preds = %.preheader.i.i
-  %379 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1552.i.i
+  %379 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1552.i.i
   %380 = load i32, ptr %379, align 4
   %381 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1552.i.i
   store i32 %380, ptr %381, align 4
@@ -1306,7 +1306,7 @@ sub_11296.i.i:                                    ; preds = %sub_0.i.i
   br i1 %399, label %400, label %.critedge18.split.loop.exit1658.i.i
 
 400:                                              ; preds = %.preheader1367.i.i
-  %401 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1549.i.i
+  %401 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1549.i.i
   %402 = load i32, ptr %401, align 4
   %403 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1549.i.i
   store i32 %402, ptr %403, align 4
@@ -1357,7 +1357,7 @@ sub_11301.i.i:                                    ; preds = %sub_0.i.i
   br i1 %421, label %422, label %.critedge20.split.loop.exit1656.i.i
 
 422:                                              ; preds = %.preheader1368.i.i
-  %423 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1546.i.i
+  %423 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1546.i.i
   %424 = load i32, ptr %423, align 4
   %425 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1546.i.i
   store i32 %424, ptr %425, align 4
@@ -1408,7 +1408,7 @@ sub_11306.i.i:                                    ; preds = %sub_0.i.i
   br i1 %443, label %444, label %.critedge22.split.loop.exit1654.i.i
 
 444:                                              ; preds = %.preheader1369.i.i
-  %445 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1543.i.i
+  %445 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1543.i.i
   %446 = load i32, ptr %445, align 4
   %447 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1543.i.i
   store i32 %446, ptr %447, align 4
@@ -1459,7 +1459,7 @@ sub_11311.i.i:                                    ; preds = %sub_0.i.i
   br i1 %465, label %466, label %.critedge24.split.loop.exit1652.i.i
 
 466:                                              ; preds = %.preheader1370.i.i
-  %467 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1540.i.i
+  %467 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1540.i.i
   %468 = load i32, ptr %467, align 4
   %469 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1540.i.i
   store i32 %468, ptr %469, align 4
@@ -1510,7 +1510,7 @@ sub_11316.i.i:                                    ; preds = %sub_0.i.i
   br i1 %487, label %488, label %.critedge26.split.loop.exit1650.i.i
 
 488:                                              ; preds = %.preheader1371.i.i
-  %489 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1537.i.i
+  %489 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1537.i.i
   %490 = load i32, ptr %489, align 4
   %491 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1537.i.i
   store i32 %490, ptr %491, align 4
@@ -1563,7 +1563,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   br i1 %509, label %510, label %.critedge28.split.loop.exit1648.i.i
 
 510:                                              ; preds = %.preheader1372.i.i
-  %511 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1534.i.i
+  %511 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1534.i.i
   %512 = load i32, ptr %511, align 4
   %513 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1534.i.i
   store i32 %512, ptr %513, align 4
@@ -1608,7 +1608,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   br i1 %529, label %530, label %.critedge30.split.loop.exit1646.i.i
 
 530:                                              ; preds = %.preheader1373.i.i
-  %531 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1531.i.i
+  %531 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1531.i.i
   %532 = load i32, ptr %531, align 4
   %533 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1531.i.i
   store i32 %532, ptr %533, align 4
@@ -1676,7 +1676,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1003.i.i:         ; preds = %.thread1215.i.i
   br i1 %557, label %558, label %.critedge32.split.loop.exit1626.i.i
 
 558:                                              ; preds = %.preheader1383.i.i
-  %559 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1501.i.i
+  %559 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1501.i.i
   %560 = load i32, ptr %559, align 4
   %561 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1501.i.i
   store i32 %560, ptr %561, align 4
@@ -1783,7 +1783,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1012.thread.tail.i.i: ; preds = %sub_11330.i.i
   br i1 %593, label %594, label %.critedge34.split.loop.exit1628.i.i
 
 594:                                              ; preds = %.preheader1382.i.i
-  %595 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1504.i.i
+  %595 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1504.i.i
   %596 = load i32, ptr %595, align 4
   %597 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1504.i.i
   store i32 %596, ptr %597, align 4
@@ -1851,7 +1851,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1018.i.i:         ; preds = %.thread1226.i.i
   br i1 %621, label %622, label %.critedge36.split.loop.exit1618.i.i
 
 622:                                              ; preds = %.preheader1387.i.i
-  %623 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1489.i.i
+  %623 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1489.i.i
   %624 = load i32, ptr %623, align 4
   %625 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1489.i.i
   store i32 %624, ptr %625, align 4
@@ -1903,7 +1903,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1024.i.i:         ; preds = %.thread1232.i.i
   br i1 %639, label %640, label %.critedge38.split.loop.exit1620.i.i
 
 640:                                              ; preds = %.preheader1386.i.i
-  %641 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1492.i.i
+  %641 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1492.i.i
   %642 = load i32, ptr %641, align 4
   %643 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1492.i.i
   store i32 %642, ptr %643, align 4
@@ -2025,7 +2025,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1036.thread.tail.i.i: ; preds = %sub_11334.i.i
   br i1 %680, label %681, label %.critedge40.split.loop.exit1624.i.i
 
 681:                                              ; preds = %.preheader1384.i.i
-  %682 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1498.i.i
+  %682 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1498.i.i
   %683 = load i32, ptr %682, align 4
   %684 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1498.i.i
   store i32 %683, ptr %684, align 4
@@ -2076,7 +2076,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   br i1 %702, label %703, label %.critedge42.split.loop.exit1622.i.i
 
 703:                                              ; preds = %.preheader1385.i.i
-  %704 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1495.i.i
+  %704 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1495.i.i
   %705 = load i32, ptr %704, align 4
   %706 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1495.i.i
   store i32 %705, ptr %706, align 4
@@ -2109,7 +2109,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   br i1 %718, label %719, label %.critedge44.split.loop.exit1616.i.i
 
 719:                                              ; preds = %.preheader1388.i.i
-  %720 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.94, i64 0, i64 %indvars.iv1486.i.i
+  %720 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.94, i64 %indvars.iv1486.i.i
   %721 = load i32, ptr %720, align 4
   %722 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1486.i.i
   store i32 %721, ptr %722, align 4
@@ -2212,7 +2212,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1045.i.i:         ; preds = %.thread1251.i.i
   br i1 %763, label %764, label %.critedge46.split.loop.exit1612.i.i
 
 764:                                              ; preds = %.preheader1390.i.i
-  %765 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1480.i.i
+  %765 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1480.i.i
   %766 = load i32, ptr %765, align 4
   %767 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1480.i.i
   store i32 %766, ptr %767, align 4
@@ -2300,7 +2300,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1051.thread.tail.i.i: ; preds = %sub_11343.i.i
   br i1 %794, label %795, label %.critedge48.split.loop.exit1614.i.i
 
 795:                                              ; preds = %.preheader1389.i.i
-  %796 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1483.i.i
+  %796 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1483.i.i
   %797 = load i32, ptr %796, align 4
   %798 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1483.i.i
   store i32 %797, ptr %798, align 4
@@ -2382,7 +2382,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1057.i.i:         ; preds = %.thread1261.i.i
   br i1 %828, label %829, label %.critedge50.split.loop.exit1608.i.i
 
 829:                                              ; preds = %.preheader1392.i.i
-  %830 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1474.i.i
+  %830 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1474.i.i
   %831 = load i32, ptr %830, align 4
   %832 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1474.i.i
   store i32 %831, ptr %832, align 4
@@ -2468,7 +2468,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1063.thread.tail.i.i: ; preds = %sub_11352.i.i
   br i1 %859, label %860, label %.critedge52.split.loop.exit1610.i.i
 
 860:                                              ; preds = %.preheader1391.i.i
-  %861 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1477.i.i
+  %861 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1477.i.i
   %862 = load i32, ptr %861, align 4
   %863 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1477.i.i
   store i32 %862, ptr %863, align 4
@@ -2547,7 +2547,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i: ; preds = %883, %_ZL14subt
   br i1 %894, label %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i, label %.critedge54.split.loop.exit1606.i.i
 
 _ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i:       ; preds = %_ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i
-  %895 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.107, i64 0, i64 %indvars.iv1471.i.i
+  %895 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.107, i64 %indvars.iv1471.i.i
   %896 = load i32, ptr %895, align 4
   %897 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1471.i.i
   store i32 %896, ptr %897, align 4
@@ -2607,7 +2607,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1077.i.i:         ; preds = %.thread1272.i.i
   br i1 %918, label %919, label %.critedge56.split.loop.exit1602.i.i
 
 919:                                              ; preds = %.preheader1394.i.i
-  %920 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1465.i.i
+  %920 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1465.i.i
   %921 = load i32, ptr %920, align 4
   %922 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1465.i.i
   store i32 %921, ptr %922, align 4
@@ -2693,7 +2693,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1083.thread.tail.i.i: ; preds = %sub_11360.i.i
   br i1 %949, label %950, label %.critedge58.split.loop.exit1604.i.i
 
 950:                                              ; preds = %.preheader1393.i.i
-  %951 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1468.i.i
+  %951 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1468.i.i
   %952 = load i32, ptr %951, align 4
   %953 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1468.i.i
   store i32 %952, ptr %953, align 4
@@ -2786,7 +2786,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1092.i.i:         ; preds = %.thread1283.i.i
   br i1 %989, label %990, label %.critedge60.split.loop.exit1598.i.i
 
 990:                                              ; preds = %.preheader1396.i.i
-  %991 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv.i.i
+  %991 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv.i.i
   %992 = load i32, ptr %991, align 4
   %993 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
   store i32 %992, ptr %993, align 4
@@ -2884,7 +2884,7 @@ sub_01364.i.i:                                    ; preds = %_ZL12lang_matchesPK
   br i1 %1026, label %1027, label %.critedge62.split.loop.exit1600.i.i
 
 1027:                                             ; preds = %.preheader1395.i.i
-  %1028 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1462.i.i
+  %1028 = getelementptr inbounds nuw i32, ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 %indvars.iv1462.i.i
   %1029 = load i32, ptr %1028, align 4
   %1030 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv1462.i.i
   store i32 %1029, ptr %1030, align 4
@@ -3395,14 +3395,14 @@ _ZL7FROMHEXh.exit:                                ; preds = %29, %32
   %39 = shl i8 %35, 4
   %40 = lshr exact i64 %indvars.iv64, 1
   %41 = and i64 %40, 2147483647
-  %42 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 %41
   store i8 %39, ptr %42, align 1
   br label %49
 
 43:                                               ; preds = %_ZL7FROMHEXh.exit
   %44 = lshr i64 %indvars.iv64, 1
   %45 = and i64 %44, 2147483647
-  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = add i8 %47, %35
   store i8 %48, ptr %46, align 1
@@ -3427,7 +3427,7 @@ _ZL7FROMHEXh.exit:                                ; preds = %29, %32
 
 57:                                               ; preds = %.preheader55
   %58 = tail call noundef zeroext i8 %4(i8 noundef zeroext %51), !callees !45
-  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %58, ptr %59, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3836,7 +3836,7 @@ _ZL31hb_ot_ambiguous_tag_to_languagej.exit:       ; preds = %5, %6, %7, %8, %9, 
 
 .preheader31:                                     ; preds = %.preheader31.preheader, %85
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %.preheader31.preheader ]
-  %86 = getelementptr inbounds nuw [203 x %struct.LangTag], ptr @_ZL13ot_languages2, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw %struct.LangTag, ptr @_ZL13ot_languages2, i64 %indvars.iv
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, %0
@@ -3855,7 +3855,7 @@ _ZL31hb_ot_ambiguous_tag_to_languagej.exit:       ; preds = %5, %6, %7, %8, %9, 
 
 .preheader:                                       ; preds = %85, %93
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %93 ], [ 0, %85 ]
-  %94 = getelementptr inbounds nuw [1212 x %struct.LangTag], ptr @_ZL13ot_languages3, i64 0, i64 %indvars.iv39
+  %94 = getelementptr inbounds nuw %struct.LangTag, ptr @_ZL13ot_languages3, i64 %indvars.iv39
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, %0

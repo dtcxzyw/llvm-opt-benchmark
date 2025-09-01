@@ -3310,7 +3310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.split
-  %106 = getelementptr inbounds nuw [7 x i8], ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 0, i64 %.01030
+  %106 = getelementptr inbounds nuw i8, ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 %.01030
   %107 = load i8, ptr %106, align 1, !tbaa !66
   br label %.lr.ph.i
 

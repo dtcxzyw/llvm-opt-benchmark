@@ -76,7 +76,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024 = hidden unnamed_addr constant <{ [740 x i8] }> <{ [740 x i8] c"\00\00\00\FF\00\008\00\03\00 \FF\00\00\00\FF\00\00\00\FF\00\008\00\00\00\00\FF\00\008\00\00\008\00\00\00\00\FF\00\00\00\FF\00\008\01\00\00\00\FF\00\008\01\00\00\01\01\04\00!\02\06\00A\FF\06\00A\FF\09\00I\02\0B\009\02\00\00I\03\00\00I\03\00\00I\03\00\00I\03\00\00I\04\00\00I\04\00\00I\04\00\00I\04\00\00I\04\0C\00!\05\0C\00X\05\0C\00!\06\0C\00!\06\0C\00X\06\0C\00!\07\0C\00!\07\0C\00X\07\0E\009\01\0E\009\01\10\00X\08\12\009\01\12\009\01\14\009\01\14\009\01\16\009\01\16\009\01\00\00\01\05\00\008\05\00\00\01\01\00\00\01\05\00\008\05\00\00\01\01\00\00\01\05\00\00\01\05\00\00\01\05\00\00\01\01\00\008\01\00\00\01\01\00\00\01\01\00\00\01\01\00\00\01\09\18\00\01\FF\19\00\01\FF\00\00\01\0A\06\00A\FF\00\00\01\0B\00\00\00\FF\1A\00i\0C\1A\00i\0C\1C\00i\0C\1C\00i\0C \009\0A \009\0A!\00!\09#\00Y\0D \009\00\00\00I\0D\00\00I\0D\00\00)\0D\00\00)\0D\00\00I\0D\00\00I\0D\00\00I\0D\00\00I\0E\00\00I\0E\00\00I\00\00\00I\00\00\00I\00\00\00I\00\00\00)\00\00\00)\00\00\00)\00\00\00)\00\00\00)\00\00\00)\00\00\00)\00\1D\00i\00%\00j\00%\00J\00%\00J\00%\00J\00%\00J\00%\00J\09%\00J\09\00\00I\07\1D\00i\00%\00j\00\00\00I\0F\00\00I\0F\00\00I\0F\00\00)\0F\00\00I\0F\00\00I\0F\00\00I\0F\00\00)\00\00\00)\00\00\00)\00*\00I\0D*\00I\0D\00\00)\0D\00\00)\0D*\00I\0D*\00I\0D*\00I\0D\00\00)\0D\00\00)\0D\00\00)\0D\00\00)\00\00\00)\00\00\00)\00\00\00)\00\00\00)\10\00\00)\0D#\00Y\11\00\00I\11\00\00I\11\00\00I\11\00\00I\11\00\00)\11\1C\00i\11\00\00)\11\00\00)\11\00\00I\11\00\00I\11\00\00I\11\00\00)\11\00\00)\11\00\00)\11\00\00)\11 \009\0B \009\0B-\00!\05\04\00!\0A\1A\00!\00/\00!\001\00Y\121\00Y\121\00Y\124\009\134\009\134\009\134\009\13\00\00I\136\00A\FF9\00!\009\00!\009\00!\14/\00!\14;\00!\FF<\00!\FF>\00!\00>\00!\00@\00!\03@\00!\03@\00!\03B\00!\15B\00!\15D\00:\10G\00Y\09I\00A\09I\00i\09\0C\00!\09\0C\00X\09\00\00\00\FFM\009\16" }>, align 2
 @anon.7173b3c5b10b09ddf4bd2faf440a3554.82.llvm.17911367524062806024 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.67.llvm.17911367524062806024, [16 x i8] c"(\00\00\00\00\00\00\00\C2\00\00\00\09\00\00\00" }>, align 8
 @anon.7173b3c5b10b09ddf4bd2faf440a3554.83 = private unnamed_addr constant <{ [256 x i8] }> <{ [256 x i8] c"Q7\00\02\95\AE\88\94X=\0D\16\00\1F:~N\B1\05WY\7F\9En\A4\00\B9\18_\13r\11\1E\87\01BA\8DR{\00i\B0Iluf+z\91@\0B\00\8B\00\00\92O\0F\1B\85\00\8E\90\005o\A6\B2\AB\00\00x\86\A0\89\AC\00e)\00\09\8A\00j\00^\B6\00\08#Z&b\80\00S\96\00\00\00\00\00q\00\00*\00\00\00G9\00\00\00\00\00[\9B\00y30\A1Da(\AA%\00\A8t\00L\A9\00$\8F\00]\07\19'\9D\12\141\00ck\0As-\00\00H\00\1C\00\00\00\002\B3h\00\B8\00\00\8CF\22\03?C/`mTU\04,g}d\83\82\93p\81\A2\A5\00\1A.\00\00E\A7\00\98\0064\9A8\1D\B4\00\99\00\00 \AD\00\15\06PV\00\B5<\00\9F\00\0Ev\A3\00\17\00\00>\\\00\10w\9C\0C!\AFJ\97\00MK\00\00\00\00;\84\00|\B7\00" }>, align 1
-@anon.7173b3c5b10b09ddf4bd2faf440a3554.85 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.67.llvm.17911367524062806024, [16 x i8] c"(\00\00\00\00\00\00\00\DD\00\00\00.\00\00\00" }>, align 8
 @anon.7173b3c5b10b09ddf4bd2faf440a3554.86 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"Unknown opcode" }>, align 1
 @anon.7173b3c5b10b09ddf4bd2faf440a3554.87.llvm.17911367524062806024 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.67.llvm.17911367524062806024, [16 x i8] c"(\00\00\00\00\00\00\00:\01\00\00H\00\00\00" }>, align 8
 @anon.7173b3c5b10b09ddf4bd2faf440a3554.88.llvm.17911367524062806024 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.67.llvm.17911367524062806024, [16 x i8] c"(\00\00\00\00\00\00\00P\01\00\00-\00\00\00" }>, align 8
@@ -2009,10 +2008,10 @@ switch.lookup:
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !90
   %13 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %.0.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 0, i64 %14
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 %14
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !90
@@ -2520,10 +2519,10 @@ switch.lookup:
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !103
   %13 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %.0.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 0, i64 %14
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 %14
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !103
@@ -2671,7 +2670,7 @@ switch.lookup:
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !116
   %13 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !116
@@ -2819,7 +2818,7 @@ switch.lookup:
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !129
   %13 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !129
@@ -3331,7 +3330,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..vec..Ve
 
 5:                                                ; preds = %1, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..PReg$GT$$GT$17h7ef2cb946059073fE.exit"
   %.06 = phi i64 [ 0, %1 ], [ %7, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..PReg$GT$$GT$17h7ef2cb946059073fE.exit" ]
-  %6 = getelementptr inbounds nuw [3 x { { i64, ptr, {} }, i64 }], ptr %0, i64 0, i64 %.06
+  %6 = getelementptr inbounds nuw { { i64, ptr, {} }, i64 }, ptr %0, i64 %.06
   %7 = add nuw nsw i64 %.06, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !200
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9c75ef18044939d8E.llvm.16803308262639080379"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -3371,7 +3370,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$$u5b$alloc..vec..Ve
   br label %16
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw [3 x { { i64, ptr, {} }, i64 }], ptr %0, i64 0, i64 %.1
+  %21 = getelementptr inbounds nuw { { i64, ptr, {} }, i64 }, ptr %0, i64 %.1
   %22 = add nuw nsw i64 %.1, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..PReg$GT$$GT$17h7ef2cb946059073fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #37
           to label %16 unwind label %24
@@ -5585,7 +5584,7 @@ define noundef range(i64 0, 32769) i64 @_ZN17cranelift_codegen8machinst7helpers7
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i
 
@@ -6354,7 +6353,7 @@ define noundef i32 @_ZN17cranelift_codegen2ir12instructions9BlockCall5block17had
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !685, !noalias !682, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw [0 x i32], ptr %14, i64 0, i64 %6
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %6
   %16 = load i32, ptr %15, align 4, !noalias !688, !noundef !4
   ret i32 %16
 }
@@ -6584,7 +6583,7 @@ define noundef zeroext i1 @"_ZN92_$LT$cranelift_codegen..ir..instructions..Displ
 _ZN17cranelift_codegen2ir12instructions9BlockCall5block17had534358836d7d43E.exit: ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !731, !noalias !730, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %17
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %17
   %26 = load i32, ptr %25, align 4, !noalias !732, !noundef !4
   store i32 %26, ptr %9, align 4
   store ptr %9, ptr %10, align 8
@@ -6783,8 +6782,8 @@ define noundef range(i8 0, 36) i8 @_ZN17cranelift_codegen2ir12instructions6Opcod
   %3 = icmp ult i8 %2, -71
   tail call void @llvm.assume(i1 %3)
   %4 = zext i8 %0 to i64
-  %5 = add nsw i64 %4, -1
-  %6 = getelementptr inbounds nuw [185 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 0, i64 %5
+  %5 = getelementptr i8, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 -1
   %7 = load i8, ptr %6, align 1, !range !764, !noundef !4
   ret i8 %7
 }
@@ -6795,8 +6794,8 @@ define i32 @_ZN17cranelift_codegen2ir12instructions6Opcode11constraints17h372659
   %3 = icmp ult i8 %2, -71
   tail call void @llvm.assume(i1 %3)
   %4 = zext i8 %0 to i64
-  %5 = add nsw i64 %4, -1
-  %6 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %5
+  %5 = getelementptr { i16, i8, i8 }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 -4
   %.sroa.0.0.copyload = load i32, ptr %6, align 2
   ret i32 %.sroa.0.0.copyload
 }
@@ -6815,7 +6814,7 @@ define void @"_ZN90_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$c
   %4 = tail call noundef i64 @_ZN24cranelift_codegen_shared13constant_hash11simple_hash17h6b831c9996b813baE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !765)
   %5 = and i64 %4, 255
-  %6 = getelementptr inbounds nuw [0 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.83, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.83, i64 %5
   %7 = load i8, ptr %6, align 1, !range !768, !alias.scope !769, !noalias !772, !noundef !4
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %.loopexit, label %"_ZN17cranelift_codegen2ir12instructions166_$LT$impl$u20$cranelift_codegen..constant_hash..Table$LT$$RF$str$GT$$u20$for$u20$$u5b$core..option..Option$LT$cranelift_codegen..ir..instructions..Opcode$GT$$u5d$$GT$3key17h779b40dee9fc2d89E.exit.i"
@@ -6843,7 +6842,7 @@ define void @"_ZN90_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$c
   %17 = add i64 %.071316.i, 1
   %18 = add i64 %10, %17
   %19 = and i64 %18, 255
-  %20 = getelementptr inbounds nuw [0 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.83, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.83, i64 %19
   %21 = load i8, ptr %20, align 1, !range !768, !alias.scope !785, !noalias !772, !noundef !4
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %.loopexit, label %"_ZN17cranelift_codegen2ir12instructions166_$LT$impl$u20$cranelift_codegen..constant_hash..Table$LT$$RF$str$GT$$u20$for$u20$$u5b$core..option..Option$LT$cranelift_codegen..ir..instructions..Opcode$GT$$u5d$$GT$3key17h779b40dee9fc2d89E.exit.i"
@@ -6852,25 +6851,15 @@ define void @"_ZN90_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$c
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.86, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 14, ptr %23, align 8
-  br label %31
+  br label %26
 
 24:                                               ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h98dacc3e884c27aaE.llvm.1715581770924364745.exit.i"
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.83, i64 0, i64 %10
-  %26 = load i8, ptr %25, align 1, !range !768, !noundef !4
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %24
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.85) #36
-  unreachable
-
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %26, ptr %30, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %9, ptr %25, align 8
   store ptr null, ptr %0, align 8
-  br label %31
+  br label %26
 
-31:                                               ; preds = %29, %.loopexit
+26:                                               ; preds = %24, %.loopexit
   ret void
 }
 
@@ -7255,7 +7244,7 @@ define { i32, i32 } @_ZN17cranelift_codegen2ir12instructions15InstructionData17l
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData17load_store_offset17ha6819904257c5e64E, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData17load_store_offset17ha6819904257c5e64E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %5, align 4, !noundef !4
@@ -7458,7 +7447,7 @@ define hidden void @_ZN17cranelift_codegen2ir12instructions15InstructionData22si
 
 switch.lookup:                                    ; preds = %6
   %11 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i
 
@@ -7478,7 +7467,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %4
     i8 16, label %28
   ]
 
-_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit.sink.split: ; preds = %switch.lookup16, %23
+_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit.sink.split: ; preds = %switch.lookup17, %23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %narrow.i4 = sub nsw i32 0, %.0.i
   %18 = load i64, ptr %17, align 8, !noundef !4
@@ -7489,7 +7478,7 @@ _ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de
   store i64 %22, ptr %17, align 8
   br label %_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit
 
-_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit: ; preds = %28, %_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit.sink.split, %switch.lookup16, %23, %2, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
+_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit: ; preds = %28, %_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit.sink.split, %switch.lookup17, %23, %2, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
   ret void
 
 23:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
@@ -7504,12 +7493,12 @@ _ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de
 28:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %30 = load i8, ptr %29, align 2, !range !818, !noundef !4
-  %switch.tableidx17 = add nsw i8 %30, -2
-  %31 = icmp ult i8 %switch.tableidx17, 8
-  br i1 %31, label %switch.lookup16, label %_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit
+  %switch.tableidx16 = add nsw i8 %30, -2
+  %31 = icmp ult i8 %switch.tableidx16, 8
+  br i1 %31, label %switch.lookup17, label %_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit
 
-switch.lookup16:                                  ; preds = %28
-  %32 = shl nuw nsw i8 %switch.tableidx17, 3
+switch.lookup17:                                  ; preds = %28
+  %32 = shl nuw nsw i8 %switch.tableidx16, 3
   %switch.shiftamt = zext nneg i8 %32 to i64
   %switch.downshift = lshr i64 650777868657755910, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
@@ -7582,7 +7571,7 @@ define noundef i16 @_ZN17cranelift_codegen2ir12instructions17OpcodeConstraints11
   br i1 %11, label %12, label %15, !prof !687
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw [79 x { i8, [3 x i8] }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.94.llvm.17911367524062806024, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.94.llvm.17911367524062806024, i64 %10
   call void @_ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024(ptr noalias noundef nonnull sret({ i16, [4 x i16] }) align 2 captures(none) dereferenceable(10) %7, ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %13, i16 noundef %2)
   %14 = load i16, ptr %7, align 2, !range !837, !noundef !4
   %trunc = trunc nuw i16 %14 to i1
@@ -7633,7 +7622,7 @@ define void @_ZN17cranelift_codegen2ir12instructions17OpcodeConstraints25value_a
   br i1 %9, label %10, label %12, !prof !687
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw [79 x { i8, [3 x i8] }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.94.llvm.17911367524062806024, i64 0, i64 %8
+  %11 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.94.llvm.17911367524062806024, i64 %8
   tail call void @_ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024(ptr noalias noundef nonnull sret({ i16, [4 x i16] }) align 2 captures(none) dereferenceable(10) %0, ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %11, i16 noundef %3)
   ret void
 
@@ -7655,7 +7644,7 @@ define void @_ZN17cranelift_codegen2ir12instructions17OpcodeConstraints12ctrl_ty
 5:                                                ; preds = %2
   %.sroa.4.0.extract.shift.i = lshr i32 %1, 24
   %.sroa.4.0.extract.trunc.i = zext nneg i32 %.sroa.4.0.extract.shift.i to i64
-  %6 = getelementptr inbounds nuw [23 x { i16, i16, i8, i8, i8, [1 x i8] }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.99.llvm.17911367524062806024, i64 0, i64 %.sroa.4.0.extract.trunc.i
+  %6 = getelementptr inbounds nuw { i16, i16, i8, i8, i8, [1 x i8] }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.99.llvm.17911367524062806024, i64 %.sroa.4.0.extract.trunc.i
   %7 = load i64, ptr %6, align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i64 %7, ptr %8, align 2
@@ -7779,7 +7768,7 @@ _ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831f
 
 switch.lookup:                                    ; preds = %38
   %41 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen2ir12instructions12ValueTypeSet8contains17hbd81f61bf30cd358E, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen2ir12instructions12ValueTypeSet8contains17hbd81f61bf30cd358E, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i27
 
@@ -7979,9 +7968,9 @@ _ZN17cranelift_codegen2ir5types4Type9as_truthy17h75d8340c6c40f430E.exit: ; preds
   %48 = and i16 %2, 15
   %49 = or disjoint i16 %48, 112
   %.0.i.i53 = select i1 %47, i16 %2, i16 %49
-  %switch.tableidx129 = add nsw i16 %.0.i.i53, -118
-  %50 = icmp ult i16 %switch.tableidx129, 6
-  %switch.maskindex132 = trunc i16 %switch.tableidx129 to i8
+  %switch.tableidx128 = add nsw i16 %.0.i.i53, -118
+  %50 = icmp ult i16 %switch.tableidx128, 6
+  %switch.maskindex132 = trunc i16 %switch.tableidx128 to i8
   %switch.shifted133 = lshr i8 47, %switch.maskindex132
   %switch.lobit134 = trunc i8 %switch.shifted133 to i1
   %or.cond137 = select i1 %50, i1 %switch.lobit134, i1 false
@@ -8088,7 +8077,7 @@ _ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit62:
   ret void
 
 79:                                               ; preds = %12
-  %80 = getelementptr inbounds nuw [23 x { i16, i16, i8, i8, i8, [1 x i8] }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.99.llvm.17911367524062806024, i64 0, i64 %15
+  %80 = getelementptr inbounds nuw { i16, i16, i8, i8, i8, [1 x i8] }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.99.llvm.17911367524062806024, i64 %15
   %81 = load i64, ptr %80, align 2
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i64 %81, ptr %82, align 2
@@ -8104,7 +8093,7 @@ _ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit62:
 
 switch.lookup:                                    ; preds = %41
   %85 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.102, i64 0, i64 %85
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.102, i64 %85
   %switch.load = load i16, ptr %switch.gep, align 2
   %86 = and i16 %2, 240
   %87 = or disjoint i16 %switch.load, %86
@@ -8117,8 +8106,8 @@ switch.lookup:                                    ; preds = %41
   unreachable
 
 switch.lookup131:                                 ; preds = %46
-  %90 = zext nneg i16 %switch.tableidx129 to i64
-  %switch.gep135 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.105, i64 0, i64 %90
+  %90 = zext nneg i16 %switch.tableidx128 to i64
+  %switch.gep135 = getelementptr inbounds nuw i16, ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.105, i64 %90
   %switch.load136 = load i16, ptr %switch.gep135, align 2
   %91 = and i16 %2, 240
   %92 = or disjoint i16 %switch.load136, %91
@@ -8131,17 +8120,17 @@ switch.lookup131:                                 ; preds = %46
   %96 = and i16 %2, 15
   %97 = or disjoint i16 %96, 112
   %.0.i.i.i = select i1 %95, i16 %2, i16 %97
-  %switch.tableidx139 = add nsw i16 %.0.i.i.i, -119
-  %98 = icmp ult i16 %switch.tableidx139, 6
-  %switch.maskindex141 = trunc i16 %switch.tableidx139 to i8
+  %switch.tableidx138 = add nsw i16 %.0.i.i.i, -119
+  %98 = icmp ult i16 %switch.tableidx138, 6
+  %switch.maskindex141 = trunc i16 %switch.tableidx138 to i8
   %switch.shifted142 = lshr i8 47, %switch.maskindex141
   %switch.lobit143 = trunc i8 %switch.shifted142 to i1
   %or.cond146 = select i1 %98, i1 %switch.lobit143, i1 false
   br i1 %or.cond146, label %switch.lookup140, label %_ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E.exit.thread
 
 switch.lookup140:                                 ; preds = %94
-  %99 = zext nneg i16 %switch.tableidx139 to i64
-  %switch.gep144 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.102, i64 0, i64 %99
+  %99 = zext nneg i16 %switch.tableidx138 to i64
+  %switch.gep144 = getelementptr inbounds nuw i16, ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.102, i64 %99
   %switch.load145 = load i16, ptr %switch.gep144, align 2
   %100 = and i16 %2, 240
   %101 = or disjoint i16 %switch.load145, %100
@@ -8177,17 +8166,17 @@ _ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E.exit.threa
 
 _ZN17cranelift_codegen2ir5types4Type17dynamic_to_vector17h78abe57dfa7d4511E.exit69: ; preds = %51
   %106 = and i16 %2, 15
-  %switch.tableidx148 = add nsw i16 %106, -7
-  %107 = icmp ult i16 %switch.tableidx148, 6
-  %switch.maskindex150 = trunc nsw i16 %switch.tableidx148 to i8
+  %switch.tableidx147 = add nsw i16 %106, -7
+  %107 = icmp ult i16 %switch.tableidx147, 6
+  %switch.maskindex150 = trunc nsw i16 %switch.tableidx147 to i8
   %switch.shifted151 = lshr i8 47, %switch.maskindex150
   %switch.lobit152 = trunc i8 %switch.shifted151 to i1
   %or.cond155 = select i1 %107, i1 %switch.lobit152, i1 false
   br i1 %or.cond155, label %switch.lookup149, label %_ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E.exit80.thread
 
 switch.lookup149:                                 ; preds = %_ZN17cranelift_codegen2ir5types4Type17dynamic_to_vector17h78abe57dfa7d4511E.exit69
-  %108 = zext nneg i16 %switch.tableidx148 to i64
-  %switch.gep153 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.102, i64 0, i64 %108
+  %108 = zext nneg i16 %switch.tableidx147 to i64
+  %switch.gep153 = getelementptr inbounds nuw i16, ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.102, i64 %108
   %switch.load154 = load i16, ptr %switch.gep153, align 2
   %109 = and i16 %2, 240
   %110 = xor i16 %109, 128
@@ -8227,18 +8216,18 @@ _ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E.exit80.thr
   unreachable
 
 117:                                              ; preds = %114
-  %switch.tableidx157 = add i16 %switch.load154, -6
-  %118 = icmp ult i16 %switch.tableidx157, 10
-  br i1 %118, label %switch.lookup156, label %_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit
+  %switch.tableidx156 = add i16 %switch.load154, -6
+  %118 = icmp ult i16 %switch.tableidx156, 10
+  br i1 %118, label %switch.lookup157, label %_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit
 
-switch.lookup156:                                 ; preds = %117
-  %119 = zext nneg i16 %switch.tableidx157 to i64
-  %switch.gep158 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %119
+switch.lookup157:                                 ; preds = %117
+  %119 = zext nneg i16 %switch.tableidx156 to i64
+  %switch.gep158 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %119
   %switch.load159 = load i32, ptr %switch.gep158, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit
 
-_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit: ; preds = %switch.lookup156, %117
-  %.0.i.i.i82 = phi i32 [ 0, %117 ], [ %switch.load159, %switch.lookup156 ]
+_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit: ; preds = %switch.lookup157, %117
+  %.0.i.i.i82 = phi i32 [ 0, %117 ], [ %switch.load159, %switch.lookup157 ]
   %120 = add nsw i16 %110, -96
   %121 = lshr exact i16 %120, 4
   %122 = zext nneg i16 %121 to i32
@@ -8260,9 +8249,9 @@ _ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit
   %130 = or disjoint i16 %55, 112
   %131 = icmp samesign ult i16 %2, 128
   %.0.i.i.i83 = select i1 %131, i16 %2, i16 %130
-  %switch.tableidx161 = add nsw i16 %.0.i.i.i83, -118
-  %132 = icmp ult i16 %switch.tableidx161, 6
-  %switch.maskindex163 = trunc i16 %switch.tableidx161 to i8
+  %switch.tableidx160 = add nsw i16 %.0.i.i.i83, -118
+  %132 = icmp ult i16 %switch.tableidx160, 6
+  %switch.maskindex163 = trunc i16 %switch.tableidx160 to i8
   %switch.shifted164 = lshr i8 47, %switch.maskindex163
   %switch.lobit165 = trunc i8 %switch.shifted164 to i1
   %or.cond168 = select i1 %132, i1 %switch.lobit165, i1 false
@@ -8272,9 +8261,9 @@ _ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit
 
 _ZN17cranelift_codegen2ir5types4Type17dynamic_to_vector17h78abe57dfa7d4511E.exit86: ; preds = %53
   %133 = add i16 %2, -128
-  %switch.tableidx170 = add nsw i16 %55, -6
-  %134 = icmp ult i16 %switch.tableidx170, 6
-  %switch.maskindex172 = trunc nsw i16 %switch.tableidx170 to i8
+  %switch.tableidx169 = add nsw i16 %55, -6
+  %134 = icmp ult i16 %switch.tableidx169, 6
+  %switch.maskindex172 = trunc nsw i16 %switch.tableidx169 to i8
   %switch.shifted173 = lshr i8 47, %switch.maskindex172
   %switch.lobit174 = trunc i8 %switch.shifted173 to i1
   %or.cond177 = select i1 %134, i1 %switch.lobit174, i1 false
@@ -8285,8 +8274,8 @@ _ZN17cranelift_codegen2ir5types4Type17dynamic_to_vector17h78abe57dfa7d4511E.exit
   unreachable
 
 136:                                              ; preds = %129
-  %137 = zext nneg i16 %switch.tableidx161 to i64
-  %switch.gep166 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.105, i64 0, i64 %137
+  %137 = zext nneg i16 %switch.tableidx160 to i64
+  %switch.gep166 = getelementptr inbounds nuw i16, ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.105, i64 %137
   %switch.load167 = load i16, ptr %switch.gep166, align 2
   %138 = and i16 %2, 240
   %139 = add nsw i16 %138, -16
@@ -8296,8 +8285,8 @@ _ZN17cranelift_codegen2ir5types4Type17dynamic_to_vector17h78abe57dfa7d4511E.exit
   br label %78
 
 switch.lookup171:                                 ; preds = %_ZN17cranelift_codegen2ir5types4Type17dynamic_to_vector17h78abe57dfa7d4511E.exit86
-  %142 = zext nneg i16 %switch.tableidx170 to i64
-  %switch.gep175 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.105, i64 0, i64 %142
+  %142 = zext nneg i16 %switch.tableidx169 to i64
+  %switch.gep175 = getelementptr inbounds nuw i16, ptr @switch.table._ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024.105, i64 %142
   %switch.load176 = load i16, ptr %switch.gep175, align 2
   %143 = and i16 %133, 128
   %.0.i4.not.i89 = icmp eq i16 %143, 0
@@ -8318,18 +8307,18 @@ switch.lookup171:                                 ; preds = %_ZN17cranelift_code
   unreachable
 
 149:                                              ; preds = %145
-  %switch.tableidx179 = add i16 %switch.load176, -6
-  %150 = icmp ult i16 %switch.tableidx179, 10
-  br i1 %150, label %switch.lookup178, label %_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit97
+  %switch.tableidx178 = add i16 %switch.load176, -6
+  %150 = icmp ult i16 %switch.tableidx178, 10
+  br i1 %150, label %switch.lookup179, label %_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit97
 
-switch.lookup178:                                 ; preds = %149
-  %151 = zext nneg i16 %switch.tableidx179 to i64
-  %switch.gep180 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %151
+switch.lookup179:                                 ; preds = %149
+  %151 = zext nneg i16 %switch.tableidx178 to i64
+  %switch.gep180 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %151
   %switch.load181 = load i32, ptr %switch.gep180, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit97
 
-_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit97: ; preds = %switch.lookup178, %149
-  %.0.i.i.i94 = phi i32 [ 0, %149 ], [ %switch.load181, %switch.lookup178 ]
+_ZN17cranelift_codegen2ir5types4Type17vector_to_dynamic17h5351f82c6531b793E.exit97: ; preds = %switch.lookup179, %149
+  %.0.i.i.i94 = phi i32 [ 0, %149 ], [ %switch.load181, %switch.lookup179 ]
   %152 = add nsw i16 %146, -128
   %153 = lshr exact i16 %152, 4
   %154 = zext nneg i16 %153 to i32
@@ -9520,7 +9509,7 @@ _ZN17cranelift_codegen8machinst3abi15ArgsAccumulator8args_mut17h309ebf22ef8f38d0
 
 switch.lookup:                                    ; preds = %183
   %188 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %188
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %188
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i238.us.us
 
@@ -9623,18 +9612,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.us.us: ; pre
   %235 = and i16 %229, 15
   %236 = or disjoint i16 %235, 112
   %.0.i.i.i.i = select i1 %234, i16 %229, i16 %236
-  %switch.tableidx1357 = add nsw i16 %.0.i.i.i.i, -118
-  %237 = icmp ult i16 %switch.tableidx1357, 10
-  br i1 %237, label %switch.lookup1356, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
+  %switch.tableidx1356 = add nsw i16 %.0.i.i.i.i, -118
+  %237 = icmp ult i16 %switch.tableidx1356, 10
+  br i1 %237, label %switch.lookup1357, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-switch.lookup1356:                                ; preds = %233
-  %238 = zext nneg i16 %switch.tableidx1357 to i64
-  %switch.gep1358 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %238
+switch.lookup1357:                                ; preds = %233
+  %238 = zext nneg i16 %switch.tableidx1356 to i64
+  %switch.gep1358 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %238
   %switch.load1359 = load i32, ptr %switch.gep1358, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup1356, %233
-  %.0.i.i.i = phi i32 [ 0, %233 ], [ %switch.load1359, %switch.lookup1356 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup1357, %233
+  %.0.i.i.i = phi i32 [ 0, %233 ], [ %switch.load1359, %switch.lookup1357 ]
   %239 = call i16 @llvm.usub.sat.i16(i16 %229, i16 112)
   %240 = lshr i16 %239, 4
   %241 = zext nneg i16 %240 to i32
@@ -9772,18 +9761,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit: ; preds = %
   %293 = and i16 %260, 15
   %294 = or disjoint i16 %293, 112
   %.0.i.i.i245 = select i1 %292, i16 %260, i16 %294
-  %switch.tableidx1361 = add nsw i16 %.0.i.i.i245, -118
-  %295 = icmp ult i16 %switch.tableidx1361, 10
-  br i1 %295, label %switch.lookup1360, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
+  %switch.tableidx1360 = add nsw i16 %.0.i.i.i245, -118
+  %295 = icmp ult i16 %switch.tableidx1360, 10
+  br i1 %295, label %switch.lookup1361, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-switch.lookup1360:                                ; preds = %291
-  %296 = zext nneg i16 %switch.tableidx1361 to i64
-  %switch.gep1362 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %296
+switch.lookup1361:                                ; preds = %291
+  %296 = zext nneg i16 %switch.tableidx1360 to i64
+  %switch.gep1362 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %296
   %switch.load1363 = load i32, ptr %switch.gep1362, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup1360, %291
-  %.0.i.i246 = phi i32 [ 0, %291 ], [ %switch.load1363, %switch.lookup1360 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup1361, %291
+  %.0.i.i246 = phi i32 [ 0, %291 ], [ %switch.load1363, %switch.lookup1361 ]
   %297 = call i16 @llvm.usub.sat.i16(i16 %260, i16 112)
   %298 = lshr i16 %297, 4
   %299 = zext nneg i16 %298 to i32
@@ -9830,18 +9819,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; pre
 
 311:                                              ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
   %312 = and i16 %260, 15
-  %switch.tableidx1365 = add nsw i16 %312, -6
-  %313 = icmp ult i16 %switch.tableidx1365, 10
-  br i1 %313, label %switch.lookup1364, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit254
+  %switch.tableidx1364 = add nsw i16 %312, -6
+  %313 = icmp ult i16 %switch.tableidx1364, 10
+  br i1 %313, label %switch.lookup1365, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit254
 
-switch.lookup1364:                                ; preds = %311
-  %314 = zext nneg i16 %switch.tableidx1365 to i64
-  %switch.gep1366 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %314
+switch.lookup1365:                                ; preds = %311
+  %314 = zext nneg i16 %switch.tableidx1364 to i64
+  %switch.gep1366 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %314
   %switch.load1367 = load i32, ptr %switch.gep1366, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit254
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit254: ; preds = %switch.lookup1364, %311
-  %.0.i.i252 = phi i32 [ 0, %311 ], [ %switch.load1367, %switch.lookup1364 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit254: ; preds = %switch.lookup1365, %311
+  %.0.i.i252 = phi i32 [ 0, %311 ], [ %switch.load1367, %switch.lookup1365 ]
   %315 = add nsw i16 %260, -112
   %316 = lshr i16 %315, 4
   %317 = zext nneg i16 %316 to i32
@@ -10260,7 +10249,7 @@ default.unreachable.i:                            ; preds = %436
   br label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit334.thread
 
 switch.lookup1378:                                ; preds = %438
-  %switch.gep1379 = getelementptr inbounds nuw [9 x i8], ptr @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$16compute_arg_locs17h0c45442e5d49b4e5E.110", i64 0, i64 %.3187748
+  %switch.gep1379 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$16compute_arg_locs17h0c45442e5d49b4e5E.110", i64 %.3187748
   %switch.load1380 = load i8, ptr %switch.gep1379, align 1
   br label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit334.thread
 
@@ -10366,18 +10355,18 @@ default.unreachable.i345:                         ; preds = %460
   %474 = and i16 %470, 15
   %475 = or disjoint i16 %474, 112
   %.0.i.i.i.i349 = select i1 %473, i16 %470, i16 %475
-  %switch.tableidx1383 = add nsw i16 %.0.i.i.i.i349, -118
-  %476 = icmp ult i16 %switch.tableidx1383, 10
-  br i1 %476, label %switch.lookup1382, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i350
+  %switch.tableidx1382 = add nsw i16 %.0.i.i.i.i349, -118
+  %476 = icmp ult i16 %switch.tableidx1382, 10
+  br i1 %476, label %switch.lookup1383, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i350
 
-switch.lookup1382:                                ; preds = %472
-  %477 = zext nneg i16 %switch.tableidx1383 to i64
-  %switch.gep1384 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %477
+switch.lookup1383:                                ; preds = %472
+  %477 = zext nneg i16 %switch.tableidx1382 to i64
+  %switch.gep1384 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %477
   %switch.load1385 = load i32, ptr %switch.gep1384, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i350
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i350: ; preds = %switch.lookup1382, %472
-  %.0.i.i.i351 = phi i32 [ 0, %472 ], [ %switch.load1385, %switch.lookup1382 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i350: ; preds = %switch.lookup1383, %472
+  %.0.i.i.i351 = phi i32 [ 0, %472 ], [ %switch.load1385, %switch.lookup1383 ]
   %478 = call i16 @llvm.usub.sat.i16(i16 %470, i16 112)
   %479 = lshr i16 %478, 4
   %480 = zext nneg i16 %479 to i32
@@ -12559,7 +12548,7 @@ switch.lookup:                                    ; preds = %_ZN8smallvec10infal
   %101 = add i64 %100, 1
   store i64 %101, ptr %.05.i24, align 8, !alias.scope !1265, !noalias !1266
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$19gen_clobber_restore17h5f662ec19114a2d5E", i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20$as$u20$cranelift_codegen..machinst..abi..ABIMachineSpec$GT$19gen_clobber_restore17h5f662ec19114a2d5E", i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   %102 = shl nuw nsw i32 %switch.load, %66
   %103 = lshr exact i32 %102, 3
@@ -15424,10 +15413,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1, !range !1650, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -15463,10 +15452,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1699
   %5 = load i8, ptr %0, align 1, !range !1650, !alias.scope !1696, !noalias !1701, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$cranelift_codegen..isa..x64..inst..args..AluRmiROpcode$u20$as$u20$core..fmt..Display$GT$3fmt17he84e9ff88c460bd8E.113", i64 %7
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !1699
@@ -15975,10 +15964,10 @@ switch.lookup:
   %5 = load i8, ptr %0, align 1, !range !1798, !noundef !4
   %switch.tableidx = xor i8 %5, -128
   %6 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE.114", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..SseOpcode$u20$as$u20$core..fmt..Debug$GT$3fmt17ha3ba5b964ff8fbdaE.114", i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -16390,7 +16379,7 @@ define hidden noundef range(i16 118, 121) i16 @_ZN17cranelift_codegen3isa3x644in
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !561, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args7ExtMode8src_type17hd0ab44cdf1fb7a41E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args7ExtMode8src_type17hd0ab44cdf1fb7a41E, i64 %2
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
 }
@@ -16404,7 +16393,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1, !range !561, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -16440,7 +16429,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1875
   %5 = load i8, ptr %0, align 1, !range !561, !alias.scope !1872, !noalias !1877, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$cranelift_codegen..isa..x64..inst..args..ExtMode$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ee800c1636cb01E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !1875
@@ -16475,7 +16464,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1, !range !561, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -16511,7 +16500,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1893
   %5 = load i8, ptr %0, align 1, !range !561, !alias.scope !1890, !noalias !1895, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$cranelift_codegen..isa..x64..inst..args..ShiftKind$u20$as$u20$core..fmt..Display$GT$3fmt17h7d6ae14eb0225714E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !1893
@@ -16541,7 +16530,7 @@ switch.lookup:
 define noundef range(i8 2, 16) i8 @_ZN17cranelift_codegen3isa3x644inst4args2CC10from_intcc17h207d38cc0d64ff10E(i8 noundef %0) unnamed_addr #11 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC10from_intcc17h207d38cc0d64ff10E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC10from_intcc17h207d38cc0d64ff10E, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -16551,7 +16540,7 @@ define noundef range(i8 0, 16) i8 @_ZN17cranelift_codegen3isa3x644inst4args2CC6i
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !1902, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC6invert17hff1f08ea409a4c7bE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4args2CC6invert17hff1f08ea409a4c7bE, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -16572,10 +16561,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1, !range !1902, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -16611,10 +16600,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1912
   %5 = load i8, ptr %0, align 1, !range !1902, !alias.scope !1909, !noalias !1914, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep1 = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$cranelift_codegen..isa..x64..inst..args..CC$u20$as$u20$core..fmt..Display$GT$3fmt17hc969b42963cf454cE.116", i64 %7
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8, !noalias !1912
@@ -16682,7 +16671,7 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %12 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @"switch.table._ZN137_$LT$cranelift_codegen..isa..x64..inst..args..FcmpImm$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..condcodes..FloatCC$GT$$GT$4from17h110582d0790c8fa6E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN137_$LT$cranelift_codegen..isa..x64..inst..args..FcmpImm$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..condcodes..FloatCC$GT$$GT$4from17h110582d0790c8fa6E", i64 %12
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -17010,7 +16999,7 @@ switch.lookup:                                    ; preds = %2, %2, %2, %2, %2, 
   %.0.val = load i8, ptr %18, align 1, !range !1798, !noundef !4
   %switch.tableidx = xor i8 %.0.val, -128
   %19 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i8], ptr @"switch.table._ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$20available_in_any_isa17h6fb63b6d959bb2d2E", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN17cranelift_codegen3isa3x644inst81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$20available_in_any_isa17h6fb63b6d959bb2d2E", i64 %19
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %0, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23036,7 +23025,7 @@ switch.lookup2586:                                ; preds = %switch.lookup2581
 switch.lookup2591:                                ; preds = %switch.lookup2421
   call void @llvm.lifetime.start.p0(ptr nonnull %603)
   %1885 = zext nneg i8 %841 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN17cranelift_codegen3isa3x644inst139_$LT$impl$u20$cranelift_codegen..machinst..reg..PrettyPrint$u20$for$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$12pretty_print17hdd6123750c436a24E", i64 0, i64 %1885
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN17cranelift_codegen3isa3x644inst139_$LT$impl$u20$cranelift_codegen..machinst..reg..PrettyPrint$u20$for$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$12pretty_print17hdd6123750c436a24E", i64 %1885
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %603, align 8
   %1886 = getelementptr inbounds nuw i8, ptr %603, i64 8
@@ -33940,7 +33929,7 @@ define noundef range(i8 0, 6) i8 @"_ZN17cranelift_codegen3isa3x644inst131_$LT$im
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @"switch.table._ZN17cranelift_codegen3isa3x644inst131_$LT$impl$u20$cranelift_codegen..machinst..MachInst$u20$for$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7is_term17hc62a5629790a2964E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN17cranelift_codegen3isa3x644inst131_$LT$impl$u20$cranelift_codegen..machinst..MachInst$u20$for$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$7is_term17hc62a5629790a2964E", i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %5
 
@@ -34124,7 +34113,7 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit17: ; pred
 
 switch.lookup:                                    ; preds = %50
   %53 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -34342,7 +34331,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %8
 
 switch.lookup:                                    ; preds = %34
   %37 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -34731,7 +34720,7 @@ define { ptr, i64 } @_ZN17cranelift_codegen8settings5Value7as_enum17h9932c9670d9
   ret { ptr, i64 } %14
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %3, i64 0, i64 %10
+  %16 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %10
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4
@@ -34836,7 +34825,7 @@ _ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit: ; preds 
   br label %39
 
 30:                                               ; preds = %13
-  %31 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %9, i64 0, i64 %16
+  %31 = getelementptr inbounds nuw { ptr, i64 }, ptr %9, i64 %16
   %32 = load ptr, ptr %31, align 8, !noalias !3475, !nonnull !4, !align !5, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i64, ptr %33, align 8, !noalias !3475, !noundef !4
@@ -34965,7 +34954,7 @@ define noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..settings..Value$u20$as$
   unreachable
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %14, i64 0, i64 %21
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %14, i64 %21
   %26 = load ptr, ptr %25, align 8, !noalias !3490, !nonnull !4, !align !5, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !3490, !noundef !4
@@ -35181,7 +35170,7 @@ define internal fastcc void @_ZN17cranelift_codegen8settings7Builder6lookup17hf0
   %13 = load i64, ptr %12, align 8, !alias.scope !3539, !noalias !3536, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !3530, !noalias !3536, !nonnull !4, !align !30
-  %16 = getelementptr inbounds [0 x i16], ptr %11, i64 0, i64 %9
+  %16 = getelementptr inbounds i16, ptr %11, i64 %9
   %17 = load i16, ptr %16, align 2, !noalias !3543, !noundef !4
   %18 = zext i16 %17 to i64
   %19 = icmp ugt i64 %13, %18
@@ -35197,7 +35186,7 @@ define internal fastcc void @_ZN17cranelift_codegen8settings7Builder6lookup17hf0
   %.071316.i = phi i64 [ %29, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h98dacc3e884c27aaE.llvm.1715581770924364745.exit.thread.i" ], [ 0, %.lr.ph.i ]
   %23 = phi i64 [ %31, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h98dacc3e884c27aaE.llvm.1715581770924364745.exit.thread.i" ], [ %9, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3546)
-  %24 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 }, i32, { i8, [3 x i8] } }], ptr %15, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, i32, { i8, [3 x i8] } }, ptr %15, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !3545, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %26, %2
@@ -35213,7 +35202,7 @@ define internal fastcc void @_ZN17cranelift_codegen8settings7Builder6lookup17hf0
   %29 = add i64 %.071316.i, 1
   %30 = add i64 %23, %29
   %31 = and i64 %30, %8
-  %32 = getelementptr inbounds [0 x i16], ptr %11, i64 0, i64 %31
+  %32 = getelementptr inbounds i16, ptr %11, i64 %31
   %33 = load i16, ptr %32, align 2, !noalias !3558, !noundef !4
   %34 = zext i16 %33 to i64
   %35 = icmp ugt i64 %13, %34
@@ -35249,7 +35238,7 @@ define internal fastcc void @_ZN17cranelift_codegen8settings7Builder6lookup17hf0
   unreachable
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 }, i32, { i8, [3 x i8] } }], ptr %15, i64 0, i64 %43
+  %47 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, i32, { i8, [3 x i8] } }, ptr %15, i64 %43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i32, ptr %48, align 8, !noundef !4
   %50 = zext i32 %49 to i64
@@ -35328,7 +35317,7 @@ _ZN17cranelift_codegen8settings7Builder7set_bit17h0e1700706cdfbb09E.exit: ; pred
   %.val38 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %.sroa.235.0.extract.shift = lshr i32 %.sroa.411.0.copyload, 8
   %.sroa.235.0.extract.trunc = trunc i32 %.sroa.235.0.extract.shift to i8
-  %17 = getelementptr inbounds [0 x i8], ptr %.val38, i64 0, i64 %.sroa.010.0.copyload
+  %17 = getelementptr inbounds i8, ptr %.val38, i64 %.sroa.010.0.copyload
   %18 = and i8 %.sroa.235.0.extract.trunc, 7
   %19 = shl nuw i8 1, %18
   %20 = load i8, ptr %17, align 1, !noundef !4
@@ -35788,7 +35777,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %.loopexit
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val101 = load ptr, ptr %121, align 8, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds [0 x i8], ptr %.val101, i64 0, i64 %.sroa.041.0.copyload
+  %122 = getelementptr inbounds i8, ptr %.val101, i64 %.sroa.041.0.copyload
   %123 = and i8 %.sroa.293.0.extract.trunc, 7
   %124 = shl nuw i8 1, %123
   br i1 %.sroa.6.sroa.0.0121.ph, label %130, label %126
@@ -35861,7 +35850,7 @@ _ZN17cranelift_codegen8settings7Builder7set_bit17h0e1700706cdfbb09E.exit: ; pred
 149:                                              ; preds = %140
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %151 = load ptr, ptr %150, align 8, !nonnull !4, !align !5, !noundef !4
-  %152 = getelementptr inbounds [0 x i8], ptr %151, i64 0, i64 %.sroa.041.0.copyload
+  %152 = getelementptr inbounds i8, ptr %151, i64 %.sroa.041.0.copyload
   store i8 %32, ptr %152, align 1
   br label %138
 
@@ -35896,7 +35885,7 @@ _ZN17cranelift_codegen8settings7Builder7set_bit17h0e1700706cdfbb09E.exit: ; pred
   %161 = trunc nuw i64 %.013.i.i to i8
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %163 = load ptr, ptr %162, align 8, !nonnull !4, !align !5, !noundef !4
-  %164 = getelementptr inbounds [0 x i8], ptr %163, i64 0, i64 %.sroa.041.0.copyload
+  %164 = getelementptr inbounds i8, ptr %163, i64 %.sroa.041.0.copyload
   store i8 %161, ptr %164, align 1
   br label %138
 
@@ -36006,7 +35995,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8settings13PredicateView4test17
   br i1 %5, label %6, label %14, !prof !687
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %8 = load i8, ptr %7, align 1, !noundef !4
   %9 = trunc i64 %2 to i8
   %10 = and i8 %9, 7
@@ -37409,7 +37398,7 @@ common.resume:                                    ; preds = %46, %58, %30
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf727c6c6b8270600E.exit": ; preds = %4
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 352
   %37 = load ptr, ptr %36, align 8, !alias.scope !3975, !noalias !3978, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %37, i64 0, i64 %17
+  %38 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %37, i64 %17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !3980, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -37535,7 +37524,7 @@ _ZN17cranelift_codegen8verifier14VerifierErrors8nonfatal17h8e6e27155247a667E.exi
 
 _ZN17cranelift_codegen2ir12instructions9BlockCall5block17had534358836d7d43E.exit: ; preds = %75
   %81 = load ptr, ptr %45, align 8, !alias.scope !4026, !noalias !4025, !nonnull !4, !noundef !4
-  %82 = getelementptr inbounds nuw [0 x i32], ptr %81, i64 0, i64 %76
+  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %76
   %83 = load i32, ptr %82, align 4, !noalias !4027, !noundef !4
   %84 = tail call noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verifier12verify_block17hb3b5c17ad32252caE(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %83, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br i1 %84, label %.loopexit, label %70
@@ -37740,7 +37729,7 @@ define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verif
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %.192.val, i64 192
   %23 = load ptr, ptr %22, align 8, !alias.scope !4075, !noalias !4076, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x i64], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %17
   %25 = load i64, ptr %24, align 8, !noalias !4069, !noundef !4
   %26 = lshr i64 %25, 48
   %27 = trunc nuw i64 %26 to i16
@@ -37762,7 +37751,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 
 switch.lookup:                                    ; preds = %30
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier14verify_bitcast17hc74eab17e1c0de94E, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier14verify_bitcast17hc74eab17e1c0de94E, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = tail call i16 @llvm.usub.sat.i16(i16 %16, i16 112)
   %37 = lshr i16 %36, 4
@@ -37785,18 +37774,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; pre
   %45 = and i16 %27, 15
   %46 = or disjoint i16 %45, 112
   %.0.i.i.i17 = select i1 %44, i16 %28, i16 %46
-  %switch.tableidx42 = add nsw i16 %.0.i.i.i17, -118
-  %47 = icmp ult i16 %switch.tableidx42, 10
-  br i1 %47, label %switch.lookup41, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit21.thread
+  %switch.tableidx41 = add nsw i16 %.0.i.i.i17, -118
+  %47 = icmp ult i16 %switch.tableidx41, 10
+  br i1 %47, label %switch.lookup42, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit21.thread
 
-switch.lookup41:                                  ; preds = %43
-  %48 = zext nneg i16 %switch.tableidx42 to i64
-  %switch.gep43 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %48
+switch.lookup42:                                  ; preds = %43
+  %48 = zext nneg i16 %switch.tableidx41 to i64
+  %switch.gep43 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %48
   %switch.load44 = load i32, ptr %switch.gep43, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit21.thread
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit21.thread: ; preds = %switch.lookup41, %43
-  %.0.i.i19 = phi i32 [ 0, %43 ], [ %switch.load44, %switch.lookup41 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit21.thread: ; preds = %switch.lookup42, %43
+  %.0.i.i19 = phi i32 [ 0, %43 ], [ %switch.load44, %switch.lookup42 ]
   %49 = tail call i16 @llvm.usub.sat.i16(i16 %28, i16 112)
   %50 = lshr i16 %49, 4
   %51 = zext nneg i16 %50 to i32
@@ -37831,18 +37820,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit26.thread: ; p
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %switch.tableidx46 = add nsw i16 %.0.i.i.i17, -118
-  %55 = icmp ult i16 %switch.tableidx46, 10
-  br i1 %55, label %switch.lookup45, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit26
+  %switch.tableidx45 = add nsw i16 %.0.i.i.i17, -118
+  %55 = icmp ult i16 %switch.tableidx45, 10
+  br i1 %55, label %switch.lookup46, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit26
 
-switch.lookup45:                                  ; preds = %54
-  %56 = zext nneg i16 %switch.tableidx46 to i64
-  %switch.gep47 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %56
+switch.lookup46:                                  ; preds = %54
+  %56 = zext nneg i16 %switch.tableidx45 to i64
+  %switch.gep47 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %56
   %switch.load48 = load i32, ptr %switch.gep47, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit26
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit26: ; preds = %switch.lookup45, %54
-  %.0.i.i24 = phi i32 [ 0, %54 ], [ %switch.load48, %switch.lookup45 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit26: ; preds = %switch.lookup46, %54
+  %.0.i.i24 = phi i32 [ 0, %54 ], [ %switch.load48, %switch.lookup46 ]
   %57 = shl nuw nsw i32 %.0.i.i24, %51
   store i32 %57, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -37853,18 +37842,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit26: ; preds = 
   %60 = and i16 %16, 15
   %61 = or disjoint i16 %60, 112
   %.0.i.i.i27 = select i1 %59, i16 %16, i16 %61
-  %switch.tableidx50 = add nsw i16 %.0.i.i.i27, -118
-  %62 = icmp ult i16 %switch.tableidx50, 10
-  br i1 %62, label %switch.lookup49, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i28
+  %switch.tableidx49 = add nsw i16 %.0.i.i.i27, -118
+  %62 = icmp ult i16 %switch.tableidx49, 10
+  br i1 %62, label %switch.lookup50, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i28
 
-switch.lookup49:                                  ; preds = %58
-  %63 = zext nneg i16 %switch.tableidx50 to i64
-  %switch.gep51 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %63
+switch.lookup50:                                  ; preds = %58
+  %63 = zext nneg i16 %switch.tableidx49 to i64
+  %switch.gep51 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %63
   %switch.load52 = load i32, ptr %switch.gep51, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i28
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i28: ; preds = %switch.lookup49, %58
-  %.0.i.i29 = phi i32 [ 0, %58 ], [ %switch.load52, %switch.lookup49 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i28: ; preds = %switch.lookup50, %58
+  %.0.i.i29 = phi i32 [ 0, %58 ], [ %switch.load52, %switch.lookup50 ]
   %64 = tail call i16 @llvm.usub.sat.i16(i16 %16, i16 112)
   %65 = lshr i16 %64, 4
   %66 = zext nneg i16 %65 to i32
@@ -38101,7 +38090,7 @@ define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verif
 
 switch.lookup:                                    ; preds = %16
   %21 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
@@ -38755,7 +38744,7 @@ define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verif
 _ZN17cranelift_codegen2ir12instructions9BlockCall5block17had534358836d7d43E.exit: ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %19 = load ptr, ptr %18, align 8, !alias.scope !4316, !noalias !4315, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %12
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %12
   %21 = load i32, ptr %20, align 4, !noalias !4317, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4319)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4322)
@@ -38773,7 +38762,7 @@ _ZN17cranelift_codegen2ir12instructions9BlockCall5block17had534358836d7d43E.exit
 "_ZN124_$LT$cranelift_codegen..ir..dfg..Blocks$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Block$GT$$GT$5index17h254b33c7ad09a62dE.exit.i": ; preds = %_ZN17cranelift_codegen2ir12instructions9BlockCall5block17had534358836d7d43E.exit
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %28 = load ptr, ptr %27, align 8, !alias.scope !4328, !noalias !4329, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw [0 x i32], ptr %28, i64 0, i64 %22
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4335)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4337)
@@ -38893,7 +38882,7 @@ define internal fastcc void @_ZN17cranelift_codegen8verifier8Verifier19typecheck
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7cb4a19f6dc9b62fE.exit": ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 280
   %28 = load ptr, ptr %27, align 8, !alias.scope !4358, !noalias !4361, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %28, i64 0, i64 %22
+  %29 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %28, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load i8, ptr %30, align 8, !range !1426, !noundef !4
@@ -40847,7 +40836,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6
 
 389:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecdb323e9420072aE.llvm.6092180546091225645.exit.i.i"
   %390 = load ptr, ptr %.sroa.4151.0..sroa_idx.i, align 8, !alias.scope !4751, !noalias !4741, !nonnull !4, !noundef !4
-  %391 = getelementptr inbounds nuw [0 x i32], ptr %390, i64 0, i64 %385
+  %391 = getelementptr inbounds nuw i32, ptr %390, i64 %385
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hdbe5e47403a0fc8bE.llvm.6092180546091225645.exit.i.i"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hdbe5e47403a0fc8bE.llvm.6092180546091225645.exit.i.i": ; preds = %389, %387
@@ -40867,7 +40856,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6
   %398 = phi i64 [ %427, %"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h55264eeae280b98cE.exit" ], [ %396, %393 ]
   %399 = phi i64 [ %417, %"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h55264eeae280b98cE.exit" ], [ %395, %393 ]
   %400 = load ptr, ptr %335, align 8, !alias.scope !4754, !noalias !4757, !nonnull !4, !noundef !4
-  %401 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %400, i64 0, i64 %399
+  %401 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %400, i64 %399
   %402 = load i8, ptr %401, align 8, !range !561, !noalias !4736, !noundef !4
   switch i8 %402, label %450 [
     i8 1, label %404
@@ -40935,7 +40924,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6
 
 "_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$20resize_for_index_mut17h55264eeae280b98cE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecdb323e9420072aE.llvm.6092180546091225645.exit.i42.i", %.noexc
   %425 = load ptr, ptr %.sroa.4151.0..sroa_idx.i, align 8, !noalias !4736, !nonnull !4, !noundef !4
-  %.0.i.i45.i = getelementptr inbounds nuw [0 x i32], ptr %425, i64 0, i64 %417
+  %.0.i.i45.i = getelementptr inbounds nuw i32, ptr %425, i64 %417
   %426 = trunc i64 %408 to i32
   store i32 %426, ptr %.0.i.i45.i, align 4, !noalias !4736
   %427 = load i64, ptr %333, align 8, !alias.scope !4754, !noalias !4757, !noundef !4
@@ -41027,7 +41016,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6
   br i1 %453, label %454, label %.invoke.i, !prof !687
 
 454:                                              ; preds = %450
-  %455 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %400, i64 0, i64 %452
+  %455 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %400, i64 %452
   %456 = load i8, ptr %455, align 8, !range !561, !noalias !4736, !noundef !4
   switch i8 %456, label %457 [
     i8 0, label %462
@@ -41125,7 +41114,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6
   br i1 %486, label %487, label %.invoke.i, !prof !687
 
 487:                                              ; preds = %484
-  %488 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %400, i64 0, i64 %485
+  %488 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %400, i64 %485
   %489 = invoke noundef i16 @_ZN17cranelift_codegen2ir11globalvalue15GlobalValueData11global_type17hb028c4deaedd5093E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %488, ptr noundef nonnull align 1 %343, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %345)
           to label %490 unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !4736
 
@@ -41330,7 +41319,7 @@ default.unreachable.i.i:                          ; preds = %.noexc70.i
   unreachable
 
 544:                                              ; preds = %538
-  %545 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %400, i64 0, i64 %539
+  %545 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %400, i64 %539
   %546 = invoke noundef i16 @_ZN17cranelift_codegen2ir11globalvalue15GlobalValueData11global_type17hb028c4deaedd5093E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %545, ptr noundef nonnull align 1 %343, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %345)
           to label %547 unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !4736
 
@@ -41537,7 +41526,7 @@ _ZN17cranelift_codegen8verifier8Verifier20verify_global_values17h6c30f6cdef0214a
 
 switch.lookup:                                    ; preds = %626
   %631 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %631
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %631
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread.i
 
@@ -41614,18 +41603,18 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %617
   %656 = load i32, ptr %291, align 4, !noalias !4896, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %289), !noalias !4896
   call void @llvm.lifetime.start.p0(ptr nonnull %288), !noalias !4896
-  %switch.tableidx6750 = add nsw i16 %.0.i.i.i.i.i, -118
-  %657 = icmp ult i16 %switch.tableidx6750, 10
-  br i1 %657, label %switch.lookup6749, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i26.i
+  %switch.tableidx6749 = add nsw i16 %.0.i.i.i.i.i, -118
+  %657 = icmp ult i16 %switch.tableidx6749, 10
+  br i1 %657, label %switch.lookup6750, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i26.i
 
-switch.lookup6749:                                ; preds = %655
-  %658 = zext nneg i16 %switch.tableidx6750 to i64
-  %switch.gep6751 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %658
+switch.lookup6750:                                ; preds = %655
+  %658 = zext nneg i16 %switch.tableidx6749 to i64
+  %switch.gep6751 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %658
   %switch.load6752 = load i32, ptr %switch.gep6751, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i26.i
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i26.i: ; preds = %switch.lookup6749, %655
-  %.0.i.i.i27.i = phi i32 [ 0, %655 ], [ %switch.load6752, %switch.lookup6749 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i26.i: ; preds = %switch.lookup6750, %655
+  %.0.i.i.i27.i = phi i32 [ 0, %655 ], [ %switch.load6752, %switch.lookup6750 ]
   %659 = shl nuw nsw i32 %.0.i.i.i27.i, %634
   %660 = lshr exact i32 %659, 3
   store i32 %660, ptr %288, align 4, !noalias !4896
@@ -41705,18 +41694,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i: ; preds =
   %681 = load i32, ptr %291, align 4, !noalias !4896, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %287), !noalias !4896
   call void @llvm.lifetime.start.p0(ptr nonnull %286), !noalias !4896
-  %switch.tableidx6754 = add nsw i16 %.0.i.i.i.i.i, -118
-  %682 = icmp ult i16 %switch.tableidx6754, 10
-  br i1 %682, label %switch.lookup6753, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i39.i
+  %switch.tableidx6753 = add nsw i16 %.0.i.i.i.i.i, -118
+  %682 = icmp ult i16 %switch.tableidx6753, 10
+  br i1 %682, label %switch.lookup6754, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i39.i
 
-switch.lookup6753:                                ; preds = %680
-  %683 = zext nneg i16 %switch.tableidx6754 to i64
-  %switch.gep6755 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 0, i64 %683
+switch.lookup6754:                                ; preds = %680
+  %683 = zext nneg i16 %switch.tableidx6753 to i64
+  %switch.gep6755 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.121, i64 %683
   %switch.load6756 = load i32, ptr %switch.gep6755, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i39.i
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i39.i: ; preds = %switch.lookup6753, %680
-  %.0.i.i.i40.i = phi i32 [ 0, %680 ], [ %switch.load6756, %switch.lookup6753 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i39.i: ; preds = %switch.lookup6754, %680
+  %.0.i.i.i40.i = phi i32 [ 0, %680 ], [ %switch.load6756, %switch.lookup6754 ]
   %684 = shl nuw nsw i32 %.0.i.i.i40.i, %634
   %685 = lshr exact i32 %684, 3
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit47.i
@@ -41817,7 +41806,7 @@ _ZN17cranelift_codegen8verifier8Verifier19verify_memory_types17haf6255e3e5d1c39b
 "_ZN124_$LT$cranelift_codegen..ir..dfg..Blocks$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Block$GT$$GT$5index17h254b33c7ad09a62dE.exit.i.i": ; preds = %708
   %714 = getelementptr inbounds nuw i8, ptr %332, i64 96
   %715 = load ptr, ptr %714, align 8, !alias.scope !4990, !noalias !4991, !nonnull !4, !noundef !4
-  %716 = getelementptr inbounds nuw [0 x i32], ptr %715, i64 0, i64 %709
+  %716 = getelementptr inbounds nuw i32, ptr %715, i64 %709
   %717 = getelementptr inbounds nuw i8, ptr %332, i64 136
   call void @llvm.experimental.noalias.scope.decl(metadata !4995)
   call void @llvm.experimental.noalias.scope.decl(metadata !4998)
@@ -41872,7 +41861,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph16num_block_params17h0f4d84b0ebb54ad
 
 "_ZN124_$LT$cranelift_codegen..ir..dfg..Blocks$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Block$GT$$GT$5index17h254b33c7ad09a62dE.exit.i30.i": ; preds = %734
   %738 = load ptr, ptr %714, align 8, !alias.scope !5021, !noalias !5022, !nonnull !4, !noundef !4
-  %739 = getelementptr inbounds nuw [0 x i32], ptr %738, i64 0, i64 %709
+  %739 = getelementptr inbounds nuw i32, ptr %738, i64 %709
   call void @llvm.experimental.noalias.scope.decl(metadata !5026)
   call void @llvm.experimental.noalias.scope.decl(metadata !5029)
   call void @llvm.experimental.noalias.scope.decl(metadata !5031)
@@ -42031,7 +42020,7 @@ _ZN17cranelift_codegen8verifier8Verifier28typecheck_entry_block_params17hb8b0dcd
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba07533f0c4126c5E.exit.i"
   %801 = load ptr, ptr %761, align 8, !alias.scope !5080, !noalias !5081, !nonnull !4, !noundef !4
-  %802 = getelementptr inbounds nuw [0 x i64], ptr %801, i64 0, i64 %797
+  %802 = getelementptr inbounds nuw i64, ptr %801, i64 %797
   %803 = load i64, ptr %802, align 8, !noalias !5074, !noundef !4
   %804 = lshr i64 %803, 48
   %805 = trunc nuw i64 %804 to i16
@@ -42042,7 +42031,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   br i1 %exitcond.not.i, label %811, label %808, !prof !1097
 
 808:                                              ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i
-  %809 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i16, i8, [1 x i8] }], ptr %807, i64 0, i64 %.sroa.75.029.i, i32 1
+  %809 = getelementptr inbounds nuw { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %807, i64 %.sroa.75.029.i, i32 1
   %810 = load i16, ptr %809, align 4, !noundef !4
   %.not29.i = icmp eq i16 %806, %810
   br i1 %.not29.i, label %812, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit37.i
@@ -42059,7 +42048,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit37.i: ; preds = %808
   call void @llvm.lifetime.start.p0(ptr nonnull %274), !noalias !4975
-  %814 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i16, i8, [1 x i8] }], ptr %807, i64 0, i64 %.sroa.75.029.i
+  %814 = getelementptr inbounds nuw { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %807, i64 %.sroa.75.029.i
   store ptr %276, ptr %274, align 8, !noalias !4975
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %763, align 8, !noalias !4975
   store ptr %814, ptr %764, align 8, !noalias !4975
@@ -43213,10 +43202,10 @@ _ZN17cranelift_codegen8verifier8Verifier15encodable_as_bb17ha5ef6ed011f56175E.ex
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i": ; preds = %1380
   %1385 = load ptr, ptr %972, align 8, !alias.scope !5279, !noalias !5280, !nonnull !4, !noundef !4
-  %1386 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1385, i64 0, i64 %.pre-phi
+  %1386 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1385, i64 %.pre-phi
   %1387 = load i8, ptr %1386, align 8, !range !764, !alias.scope !5284, !noalias !5270, !noundef !4
   %1388 = zext nneg i8 %1387 to i64
-  %switch.gep6758 = getelementptr inbounds nuw [36 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 0, i64 %1388
+  %switch.gep6758 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 %1388
   %switch.load6759 = load i64, ptr %switch.gep6758, align 8
   %1389 = getelementptr inbounds nuw i8, ptr %1386, i64 %switch.load6759
   %.0.i.i139 = load i8, ptr %1389, align 1, !range !757, !alias.scope !5284, !noalias !5270, !noundef !4
@@ -43457,7 +43446,7 @@ _ZN17cranelift_codegen8verifier14VerifierErrors5fatal17h750a59078906dc55E.exit.i
 
 "_ZN124_$LT$cranelift_codegen..ir..dfg..Blocks$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Block$GT$$GT$5index17h254b33c7ad09a62dE.exit.i.i146": ; preds = %1460
   %1464 = load ptr, ptr %975, align 8, !alias.scope !5355, !noalias !5356, !nonnull !4, !noundef !4
-  %1465 = getelementptr inbounds nuw [0 x i32], ptr %1464, i64 0, i64 %1393
+  %1465 = getelementptr inbounds nuw i32, ptr %1464, i64 %1393
   call void @llvm.experimental.noalias.scope.decl(metadata !5360)
   call void @llvm.experimental.noalias.scope.decl(metadata !5363)
   call void @llvm.experimental.noalias.scope.decl(metadata !5365)
@@ -43799,16 +43788,16 @@ _ZN17cranelift_codegen8verifier8Verifier15block_integrity17h52392460704a4eeaE.ex
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i162": ; preds = %.loopexit
   %1567 = load ptr, ptr %972, align 8, !alias.scope !5459, !noalias !5464, !nonnull !4, !noundef !4
-  %1568 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1567, i64 0, i64 %.pre-phi
+  %1568 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1567, i64 %.pre-phi
   %1569 = load i8, ptr %1568, align 8, !range !764, !alias.scope !5465, !noundef !4
   %1570 = zext nneg i8 %1569 to i64
-  %switch.gep6761 = getelementptr inbounds nuw [36 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 0, i64 %1570
+  %switch.gep6761 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 %1570
   %switch.load6762 = load i64, ptr %switch.gep6761, align 8
   %1571 = getelementptr inbounds nuw i8, ptr %1568, i64 %switch.load6762
   %.0.i.i165 = load i8, ptr %1571, align 1, !range !757, !alias.scope !5465, !noundef !4
   %1572 = zext i8 %.0.i.i165 to i64
-  %1573 = add nsw i64 %1572, -1
-  %1574 = getelementptr inbounds nuw [185 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 0, i64 %1573
+  %1573 = getelementptr i8, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 %1572
+  %1574 = getelementptr i8, ptr %1573, i64 -1
   %1575 = load i8, ptr %1574, align 1, !range !764, !noalias !5468, !noundef !4
   %.not.i166 = icmp eq i8 %1575, %1569
   br i1 %.not.i166, label %1576, label %1594
@@ -43938,7 +43927,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i.i.i": ; preds = %1602
   %1606 = load ptr, ptr %972, align 8, !alias.scope !5503, !noalias !5510, !nonnull !4, !noundef !4
-  %1607 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1606, i64 0, i64 %.pre-phi
+  %1607 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1606, i64 %.pre-phi
   %1608 = call { ptr, i64 } @_ZN17cranelift_codegen2ir12instructions15InstructionData9arguments17h7f504047c7342d24E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1607, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %976), !noalias !5511
   %1609 = extractvalue { ptr, i64 } %1608, 0
   %1610 = icmp ne ptr %1609, null
@@ -45058,7 +45047,7 @@ _ZN17cranelift_codegen8verifier8Verifier15verify_inst_arg17hd4fdf49c1e0bd171E.ex
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit.thread.i.i"
   %1873 = load ptr, ptr %972, align 8, !alias.scope !5847, !noalias !5848, !nonnull !4, !noundef !4
-  %1874 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1873, i64 0, i64 %.pre-phi
+  %1874 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1873, i64 %.pre-phi
   %1875 = load i8, ptr %1874, align 8, !range !764, !noundef !4
   switch i8 %1875, label %default.unreachable [
     i8 0, label %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread4014
@@ -46156,16 +46145,16 @@ _ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a0
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i189": ; preds = %2137
   %2141 = load ptr, ptr %972, align 8, !alias.scope !6063, !noalias !6068, !nonnull !4, !noundef !4
-  %2142 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2141, i64 0, i64 %.pre-phi
+  %2142 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2141, i64 %.pre-phi
   %2143 = load i8, ptr %2142, align 8, !range !764, !alias.scope !6069, !noundef !4
   %2144 = zext nneg i8 %2143 to i64
-  %switch.gep6764 = getelementptr inbounds nuw [36 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 0, i64 %2144
+  %switch.gep6764 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 %2144
   %switch.load6765 = load i64, ptr %switch.gep6764, align 8
   %2145 = getelementptr inbounds nuw i8, ptr %2142, i64 %switch.load6765
   %.0.i.i192 = load i8, ptr %2145, align 1, !range !757, !alias.scope !6069, !noundef !4
   %2146 = zext i8 %.0.i.i192 to i64
-  %2147 = add nsw i64 %2146, -1
-  %2148 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2147
+  %2147 = getelementptr { i16, i8, i8 }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 %2146
+  %2148 = getelementptr i8, ptr %2147, i64 -4
   %.sroa.0.0.copyload.i.i = load i32, ptr %2148, align 2, !noalias !6072
   %2149 = icmp ult i32 %.sroa.0.0.copyload.i.i, 385875968
   br i1 %2149, label %2150, label %_ZN17cranelift_codegen2ir12instructions17OpcodeConstraints12ctrl_typeset17h41e7c56eefbd9b88E.exit.thread.i
@@ -46173,7 +46162,7 @@ _ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a0
 2150:                                             ; preds = %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i189"
   %.sroa.4.0.extract.shift.i.i.i = lshr i32 %.sroa.0.0.copyload.i.i, 24
   %.sroa.4.0.extract.trunc.i.i.i = zext nneg i32 %.sroa.4.0.extract.shift.i.i.i to i64
-  %2151 = getelementptr inbounds nuw [23 x { i16, i16, i8, i8, i8, [1 x i8] }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.99.llvm.17911367524062806024, i64 0, i64 %.sroa.4.0.extract.trunc.i.i.i
+  %2151 = getelementptr inbounds nuw { i16, i16, i8, i8, i8, [1 x i8] }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.99.llvm.17911367524062806024, i64 %.sroa.4.0.extract.trunc.i.i.i
   %2152 = load i64, ptr %2151, align 2, !noalias !6073
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !6072
   store i64 %2152, ptr %100, align 8, !noalias !6072
@@ -46392,7 +46381,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2ee47f3fde85f27E.exit.i.i202"
   %2213 = load ptr, ptr %1172, align 8, !alias.scope !6131, !noalias !6132, !nonnull !4, !noundef !4
-  %2214 = getelementptr inbounds nuw [0 x i64], ptr %2213, i64 0, i64 %2206
+  %2214 = getelementptr inbounds nuw i64, ptr %2213, i64 %2206
   %2215 = load i64, ptr %2214, align 8, !noalias !6125, !noundef !4
   %2216 = lshr i64 %2215, 48
   %2217 = trunc nuw i64 %2216 to i16
@@ -46698,25 +46687,25 @@ _ZN17cranelift_codegen8verifier8Verifier17typecheck_results17hdba9bf9fd0ea1db9E.
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i.i205": ; preds = %_ZN17cranelift_codegen8verifier8Verifier17typecheck_results17hdba9bf9fd0ea1db9E.exit.i
   %2273 = load ptr, ptr %972, align 8, !alias.scope !6182, !noalias !6183, !nonnull !4, !noundef !4
-  %2274 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2273, i64 0, i64 %.pre-phi
+  %2274 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2273, i64 %.pre-phi
   %2275 = load i8, ptr %2274, align 8, !range !764, !alias.scope !6186, !noundef !4
   %2276 = zext nneg i8 %2275 to i64
-  %switch.gep6767 = getelementptr inbounds nuw [36 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 0, i64 %2276
+  %switch.gep6767 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 %2276
   %switch.load6768 = load i64, ptr %switch.gep6767, align 8
   %2277 = getelementptr inbounds nuw i8, ptr %2274, i64 %switch.load6768
   %.0.i.i.i207 = load i8, ptr %2277, align 1, !range !757, !alias.scope !6186, !noundef !4
   %2278 = zext i8 %.0.i.i.i207 to i64
-  %2279 = add nsw i64 %2278, -1
-  %2280 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2279
+  %2279 = getelementptr { i16, i8, i8 }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 %2278
+  %2280 = getelementptr i8, ptr %2279, i64 -4
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %2280, align 2, !noalias !6189
   %2281 = zext nneg i8 %2275 to i64
-  %switch.gep6775 = getelementptr inbounds nuw [36 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 0, i64 %2281
+  %switch.gep6775 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 %2281
   %switch.load6776 = load i64, ptr %switch.gep6775, align 8
   %2282 = getelementptr inbounds nuw i8, ptr %2274, i64 %switch.load6776
   %.0.i.i.i13.i = load i8, ptr %2282, align 1, !range !757, !alias.scope !6190, !noalias !6193, !noundef !4
   %2283 = zext i8 %.0.i.i.i13.i to i64
-  %2284 = add nsw i64 %2283, -1
-  %2285 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2284
+  %2284 = getelementptr { i16, i8, i8 }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 %2283
+  %2285 = getelementptr i8, ptr %2284, i64 -4
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %2285, align 2, !noalias !6196
   %sum.shift.i.i.i.i = lshr i32 %.sroa.0.0.copyload.i.i.i.i, 21
   %2286 = and i32 %sum.shift.i.i.i.i, 7
@@ -46771,7 +46760,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph15inst_fixed_args17h384b9cc25119b9eb
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i18.i: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba07533f0c4126c5E.exit.i.i"
   %2306 = load ptr, ptr %1172, align 8, !alias.scope !6206, !noalias !6207, !nonnull !4, !noundef !4
-  %2307 = getelementptr inbounds nuw [0 x i64], ptr %2306, i64 0, i64 %2302
+  %2307 = getelementptr inbounds nuw i64, ptr %2306, i64 %2302
   %2308 = load i64, ptr %2307, align 8, !noalias !6200, !noundef !4
   %2309 = lshr i64 %2308, 48
   %2310 = trunc nuw i64 %2309 to i16
@@ -46787,7 +46776,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
   unreachable
 
 _ZN17cranelift_codegen2ir12instructions17OpcodeConstraints25value_argument_constraint17h92c4c1692d69dc71E.exit.i.i: ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i18.i
-  %2315 = getelementptr inbounds nuw [79 x { i8, [3 x i8] }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.94.llvm.17911367524062806024, i64 0, i64 %2312
+  %2315 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.94.llvm.17911367524062806024, i64 %2312
   call void @_ZN17cranelift_codegen2ir12instructions17OperandConstraint7resolve17hdcfd662e15a03cd4E.llvm.17911367524062806024(ptr noalias noundef nonnull sret({ i16, [4 x i16] }) align 2 captures(none) dereferenceable(10) %67, ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %2315, i16 noundef %.0.i193)
   %2316 = load i16, ptr %67, align 2, !range !837, !noalias !6189, !noundef !4
   %trunc.i.i = trunc nuw i16 %2316 to i1
@@ -47096,7 +47085,7 @@ _ZN17cranelift_codegen8verifier8Verifier20typecheck_fixed_args17h48e1087bef6e36a
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i32.i": ; preds = %_ZN17cranelift_codegen8verifier8Verifier20typecheck_fixed_args17h48e1087bef6e36a8E.exit.i
   %2379 = load ptr, ptr %972, align 8, !alias.scope !6276, !noalias !6277, !nonnull !4, !noundef !4
-  %2380 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2379, i64 0, i64 %.pre-phi
+  %2380 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2379, i64 %.pre-phi
   %2381 = load i8, ptr %2380, align 8, !range !764, !noalias !6284, !noundef !4
   switch i8 %2381, label %.loopexit.i33.i [
     i8 5, label %2388
@@ -47118,7 +47107,7 @@ _ZN17cranelift_codegen8verifier8Verifier20typecheck_fixed_args17h48e1087bef6e36a
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit51.i.i": ; preds = %.loopexit.i33.i
   %2385 = load ptr, ptr %972, align 8, !alias.scope !6292, !noalias !6293, !nonnull !4, !noundef !4
-  %2386 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2385, i64 0, i64 %.pre-phi
+  %2386 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2385, i64 %.pre-phi
   call void @_ZN17cranelift_codegen2ir12instructions15InstructionData12analyze_call17h03767b8c06c73010E(ptr noalias noundef nonnull sret({ i32, [5 x i32] }) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2386, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %976)
   %2387 = load i32, ptr %48, align 8, !range !1422, !noalias !6285, !noundef !4
   switch i32 %2387, label %default.unreachable [
@@ -47142,7 +47131,7 @@ _ZN17cranelift_codegen8verifier8Verifier20typecheck_fixed_args17h48e1087bef6e36a
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hf727c6c6b8270600E.exit.i.i": ; preds = %2388
   %2395 = load ptr, ptr %994, align 8, !alias.scope !6296, !noalias !6299, !nonnull !4, !noundef !4
-  %2396 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %2395, i64 0, i64 %2391
+  %2396 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %2395, i64 %2391
   %2397 = getelementptr inbounds nuw i8, ptr %2396, i64 8
   %2398 = load ptr, ptr %2397, align 8, !alias.scope !6302, !noalias !6284, !nonnull !4, !noundef !4
   %2399 = getelementptr inbounds nuw i8, ptr %2396, i64 16
@@ -47195,7 +47184,7 @@ _ZN17cranelift_codegen8verifier8Verifier20typecheck_fixed_args17h48e1087bef6e36a
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2f93e25d49e63c1bE.exit.i.i": ; preds = %2416
   %2424 = load ptr, ptr %1251, align 8, !alias.scope !6305, !noalias !6308, !nonnull !4, !noundef !4
-  %2425 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] }, i32, i8, [3 x i8] }], ptr %2424, i64 0, i64 %2420, i32 1
+  %2425 = getelementptr inbounds nuw { { i8, [23 x i8] }, i32, i8, [3 x i8] }, ptr %2424, i64 %2420, i32 1
   %2426 = load i32, ptr %2425, align 8, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !6310)
   %2427 = zext i32 %2426 to i64
@@ -47209,7 +47198,7 @@ _ZN17cranelift_codegen8verifier8Verifier20typecheck_fixed_args17h48e1087bef6e36a
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7cb4a19f6dc9b62fE.exit.i.i": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2f93e25d49e63c1bE.exit.i.i"
   %2431 = load ptr, ptr %1249, align 8, !alias.scope !6310, !noalias !6313, !nonnull !4, !noundef !4
-  %2432 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %2431, i64 0, i64 %2427
+  %2432 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %2431, i64 %2427
   %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 8
   %2434 = load ptr, ptr %2433, align 8, !nonnull !4, !noundef !4
   %2435 = getelementptr inbounds nuw i8, ptr %2432, i64 16
@@ -47234,7 +47223,7 @@ _ZN17cranelift_codegen8verifier8Verifier20typecheck_fixed_args17h48e1087bef6e36a
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7cb4a19f6dc9b62fE.exit52.i.i": ; preds = %2439
   %2447 = load ptr, ptr %1249, align 8, !alias.scope !6315, !noalias !6318, !nonnull !4, !noundef !4
-  %2448 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %2447, i64 0, i64 %2443
+  %2448 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %2447, i64 %2443
   %2449 = getelementptr inbounds nuw i8, ptr %2448, i64 8
   %2450 = load ptr, ptr %2449, align 8, !nonnull !4, !noundef !4
   %2451 = getelementptr inbounds nuw i8, ptr %2448, i64 16
@@ -47257,7 +47246,7 @@ _ZN17cranelift_codegen8verifier8Verifier23typecheck_variable_args17h6e0cd74a1445
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i35.i": ; preds = %_ZN17cranelift_codegen8verifier8Verifier23typecheck_variable_args17h6e0cd74a1445a2f1E.exit.i
   %2458 = load ptr, ptr %972, align 8, !alias.scope !6326, !noalias !6327, !nonnull !4, !noundef !4
-  %2459 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2458, i64 0, i64 %.pre-phi
+  %2459 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2458, i64 %.pre-phi
   %2460 = load i8, ptr %2459, align 8, !range !764, !noalias !6334, !noundef !4
   switch i8 %2460, label %_ZN17cranelift_codegen8verifier8Verifier16typecheck_return17h17052563f55cf852E.exit.i [
     i8 7, label %2461
@@ -47298,7 +47287,7 @@ _ZN17cranelift_codegen8verifier8Verifier23typecheck_variable_args17h6e0cd74a1445
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2f93e25d49e63c1bE.exit.i37.i": ; preds = %2473
   %2480 = load ptr, ptr %1251, align 8, !alias.scope !6335, !noalias !6338, !nonnull !4, !noundef !4
-  %2481 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] }, i32, i8, [3 x i8] }], ptr %2480, i64 0, i64 %2476, i32 1
+  %2481 = getelementptr inbounds nuw { { i8, [23 x i8] }, i32, i8, [3 x i8] }, ptr %2480, i64 %2476, i32 1
   %2482 = load i32, ptr %2481, align 8, !noalias !6334, !noundef !4
   call fastcc void @_ZN17cranelift_codegen8verifier8Verifier19typecheck_tail_call17h54e4f4fb6d7e9af4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %.sroa.7.02082, i32 noundef %2482, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN17cranelift_codegen8verifier8Verifier16typecheck_return17h17052563f55cf852E.exit.i
@@ -47371,7 +47360,7 @@ _ZN17cranelift_codegen8verifier8Verifier16typecheck_return17h17052563f55cf852E.e
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i38.i": ; preds = %_ZN17cranelift_codegen8verifier8Verifier16typecheck_return17h17052563f55cf852E.exit.i
   %2508 = load ptr, ptr %972, align 8, !alias.scope !6359, !noalias !6360, !nonnull !4, !noundef !4
-  %2509 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2508, i64 0, i64 %.pre-phi
+  %2509 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2508, i64 %.pre-phi
   %2510 = load i8, ptr %2509, align 8, !range !764, !noalias !6365, !noundef !4
   %2511 = icmp ne i8 %2510, 32
   %brmerge = select i1 %2511, i1 true, i1 %.not.i39.i208
@@ -47409,7 +47398,7 @@ _ZN17cranelift_codegen8verifier8Verifier16typecheck_return17h17052563f55cf852E.e
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit.i.i: ; preds = %2520
   %2526 = load ptr, ptr %977, align 8, !alias.scope !6379, !noalias !6380, !nonnull !4, !noundef !4
-  %2527 = getelementptr inbounds nuw [0 x i32], ptr %2526, i64 0, i64 %2521
+  %2527 = getelementptr inbounds nuw i32, ptr %2526, i64 %2521
   %2528 = load i32, ptr %2527, align 4, !noalias !6381, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !6383)
   call void @llvm.experimental.noalias.scope.decl(metadata !6386)
@@ -47424,7 +47413,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.e
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i42.i: ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit.i.i
   %2533 = load ptr, ptr %1172, align 8, !alias.scope !6389, !noalias !6390, !nonnull !4, !noundef !4
-  %2534 = getelementptr inbounds nuw [0 x i64], ptr %2533, i64 0, i64 %2529
+  %2534 = getelementptr inbounds nuw i64, ptr %2533, i64 %2529
   %2535 = load i64, ptr %2534, align 8, !noalias !6393, !noundef !4
   %2536 = lshr i64 %2535, 48
   %2537 = trunc nuw i64 %2536 to i16
@@ -47443,7 +47432,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hdc2a91296872b4ceE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i42.i
   %2543 = load ptr, ptr %1256, align 8, !alias.scope !6394, !noalias !6397, !nonnull !4, !noundef !4
-  %2544 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %2543, i64 0, i64 %2539
+  %2544 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %2543, i64 %2539
   %2545 = call noundef i16 @_ZN17cranelift_codegen2ir11globalvalue15GlobalValueData11global_type17hb028c4deaedd5093E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2544, ptr noundef nonnull align 1 %1254, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1255), !noalias !6365
   store i16 %2545, ptr %44, align 2, !noalias !6366
   %.not5.i.i = icmp eq i16 %2538, %2545
@@ -47601,7 +47590,7 @@ _ZN17cranelift_codegen8verifier8Verifier9typecheck17hc35987f6a81d570dE.exit: ; p
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i240": ; preds = %_ZN17cranelift_codegen8verifier8Verifier9typecheck17hc35987f6a81d570dE.exit
   %2574 = load ptr, ptr %972, align 8, !alias.scope !6438, !noalias !6443, !nonnull !4, !noundef !4
-  %2575 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2574, i64 0, i64 %.pre-phi
+  %2575 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2574, i64 %.pre-phi
   %2576 = load i8, ptr %2575, align 8, !range !764, !noalias !6448, !noundef !4
   switch i8 %2576, label %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread [
     i8 4, label %2577
@@ -47661,7 +47650,7 @@ _ZN17cranelift_codegen8verifier8Verifier9typecheck17hc35987f6a81d570dE.exit: ; p
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit.i242: ; preds = %2598
   %2604 = load ptr, ptr %1172, align 8, !alias.scope !6458, !noalias !6459, !nonnull !4, !noundef !4
-  %2605 = getelementptr inbounds nuw [0 x i64], ptr %2604, i64 0, i64 %2600
+  %2605 = getelementptr inbounds nuw i64, ptr %2604, i64 %2600
   %2606 = load i64, ptr %2605, align 8, !noalias !6462, !noundef !4
   %2607 = lshr i64 %2606, 48
   %2608 = trunc nuw i64 %2607 to i16
@@ -48211,7 +48200,7 @@ _ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b
 
 "_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i263": ; preds = %2745
   %2749 = load ptr, ptr %972, align 8, !alias.scope !6591, !noalias !6596, !nonnull !4, !noundef !4
-  %2750 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2749, i64 0, i64 %.pre-phi
+  %2750 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2749, i64 %.pre-phi
   %2751 = load i8, ptr %2750, align 8, !range !764, !noalias !6604, !noundef !4
   %2752 = icmp eq i8 %2751, 35
   br i1 %2752, label %2753, label %.backedge
@@ -48224,17 +48213,17 @@ _ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b
 
 2757:                                             ; preds = %2753
   %2758 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12ctrl_typevar17hdfb58d954b9d252eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %332, i32 noundef %.sroa.7.02082), !noalias !6604
-  %switch.tableidx6770 = add i16 %2758, -118
-  %2759 = icmp ult i16 %switch.tableidx6770, 4
-  br i1 %2759, label %switch.lookup6769, label %2760
+  %switch.tableidx6769 = add i16 %2758, -118
+  %2759 = icmp ult i16 %switch.tableidx6769, 4
+  br i1 %2759, label %switch.lookup6770, label %2760
 
 2760:                                             ; preds = %2757
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.911) #36, !noalias !6604
   unreachable
 
-switch.lookup6769:                                ; preds = %2757
-  %2761 = zext nneg i16 %switch.tableidx6770 to i64
-  %switch.gep6771 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.126, i64 0, i64 %2761
+switch.lookup6770:                                ; preds = %2757
+  %2761 = zext nneg i16 %switch.tableidx6769 to i64
+  %switch.gep6771 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen8verifier8Verifier3run17h8c6dc6b43e3a5d2aE.126, i64 %2761
   %switch.load6772 = load i64, ptr %switch.gep6771, align 8
   %2762 = getelementptr inbounds nuw i8, ptr %2750, i64 8
   %2763 = load i64, ptr %2762, align 8, !alias.scope !6605, !noalias !6604, !noundef !4
@@ -48242,7 +48231,7 @@ switch.lookup6769:                                ; preds = %2757
   %.not.i265 = icmp eq i64 %2764, 0
   br i1 %.not.i265, label %.backedge, label %2765
 
-2765:                                             ; preds = %switch.lookup6769
+2765:                                             ; preds = %switch.lookup6770
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6604
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6604
   store ptr %332, ptr %6, align 8, !noalias !6604
@@ -48305,7 +48294,7 @@ switch.lookup6769:                                ; preds = %2757
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !6604
   br i1 %2772, label %.loopexit362, label %.backedge
 
-.backedge:                                        ; preds = %2753, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i263", %switch.lookup6769, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i268"
+.backedge:                                        ; preds = %2753, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i263", %switch.lookup6770, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i268"
   br i1 %.sroa.0275.1.ph, label %1366, label %1357
 }
 
@@ -48423,7 +48412,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4brif17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %25 = load ptr, ptr %24, align 8, !alias.scope !6687, !noalias !6688, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds nuw [0 x i64], ptr %25, i64 0, i64 %19
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %19
   %27 = load i64, ptr %26, align 8, !noalias !6681, !noundef !4
   %28 = lshr i64 %27, 48
   %29 = trunc nuw i64 %28 to i16
@@ -48445,7 +48434,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8, !alias.scope !6702, !noalias !6703, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %37, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %37, i64 %31
   store i8 6, ptr %38, align 8, !noalias !6708
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 1
   store i8 2, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !6708
@@ -48651,7 +48640,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !6846, !noalias !6841, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !6847, !noundef !4
   ret i32 %42
 }
@@ -48681,7 +48670,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder11extra
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %16 = load ptr, ptr %15, align 8, !alias.scope !6861, !noalias !6862, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds nuw [0 x i64], ptr %16, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %10
   %18 = load i64, ptr %17, align 8, !noalias !6855, !noundef !4
   %19 = lshr i64 %18, 48
   %20 = trunc nuw i64 %19 to i16
@@ -48770,7 +48759,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder10BinaryImm817h87cae9d76b161174E.l
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %60 = load ptr, ptr %59, align 8, !alias.scope !6916, !noalias !6911, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds nuw [0 x i32], ptr %60, i64 0, i64 %53
+  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %53
   %62 = load i32, ptr %61, align 4, !noalias !6917, !noundef !4
   ret i32 %62
 }
@@ -48794,7 +48783,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4load17
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !alias.scope !6930, !noalias !6931, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %13, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %13, i64 %7
   store i8 18, ptr %14, align 8, !noalias !6936
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 30, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !6936
@@ -48853,7 +48842,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4Load17hfa3011acfe45b45fE.llvm.179
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = load ptr, ptr %36, align 8, !alias.scope !6954, !noalias !6949, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %30
   %39 = load i32, ptr %38, align 4, !noalias !6955, !noundef !4
   ret i32 %39
 }
@@ -48877,7 +48866,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4load17
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !alias.scope !6968, !noalias !6969, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %13, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %13, i64 %7
   store i8 18, ptr %14, align 8, !noalias !6974
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 30, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !6974
@@ -48936,7 +48925,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4Load17hfa3011acfe45b45fE.llvm.179
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = load ptr, ptr %36, align 8, !alias.scope !6992, !noalias !6987, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %30
   %39 = load i32, ptr %38, align 4, !noalias !6993, !noundef !4
   ret i32 %39
 }
@@ -48958,7 +48947,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder5store1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8, !alias.scope !7000, !noalias !7001, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x i64], ptr %13, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %7
   %15 = load i64, ptr %14, align 8, !noalias !6994, !noundef !4
   %16 = lshr i64 %15, 48
   %17 = trunc nuw i64 %16 to i16
@@ -48980,7 +48969,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8, !alias.scope !7015, !noalias !7016, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %25, i64 0, i64 %19
+  %26 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %25, i64 %19
   store i8 25, ptr %26, align 8, !noalias !7021
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 1
   store i8 31, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7021
@@ -49092,7 +49081,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder9StackLoad17h6844471e29bd47c2E.llv
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %41 = load ptr, ptr %40, align 8, !alias.scope !7079, !noalias !7074, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw [0 x i32], ptr %41, i64 0, i64 %34
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %34
   %43 = load i32, ptr %42, align 4, !noalias !7080, !noundef !4
   ret i32 %43
 }
@@ -49175,7 +49164,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder16DynamicStackLoad17h643facaf7d87f
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !7132, !noalias !7127, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !7133, !noundef !4
   ret i32 %42
 }
@@ -49258,7 +49247,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder16UnaryGlobalValue17h1f835f657c204
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !7185, !noalias !7180, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !7186, !noundef !4
   ret i32 %42
 }
@@ -49282,7 +49271,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder12symbo
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !alias.scope !7199, !noalias !7200, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %11, i64 %5
   store i8 32, ptr %12, align 8, !noalias !7205
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 54, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7205
@@ -49337,7 +49326,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder16UnaryGlobalValue17h6f42fa3351506
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load ptr, ptr %34, align 8, !alias.scope !7223, !noalias !7218, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds nuw [0 x i32], ptr %35, i64 0, i64 %28
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %28
   %37 = load i32, ptr %36, align 4, !noalias !7224, !noundef !4
   ret i32 %37
 }
@@ -49361,7 +49350,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder9tls_va
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !alias.scope !7237, !noalias !7238, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %11, i64 %5
   store i8 32, ptr %12, align 8, !noalias !7243
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 55, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7243
@@ -49416,7 +49405,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder16UnaryGlobalValue17h6f42fa3351506
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load ptr, ptr %34, align 8, !alias.scope !7261, !noalias !7256, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds nuw [0 x i32], ptr %35, i64 0, i64 %28
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %28
   %37 = load i32, ptr %36, align 4, !noalias !7262, !noundef !4
   ret i32 %37
 }
@@ -49499,7 +49488,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h577df6da89ea6fb3E.llvm
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !7314, !noalias !7309, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !7315, !noundef !4
   ret i32 %42
 }
@@ -49523,7 +49512,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !alias.scope !7328, !noalias !7329, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %11, i64 %5
   store i8 35, ptr %12, align 8, !noalias !7334
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 61, ptr %.sroa.4.0..sroa_idx.i, align 1, !noalias !7334
@@ -49578,7 +49567,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h0bc314d6102b8dcaE.llvm
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load ptr, ptr %34, align 8, !alias.scope !7352, !noalias !7347, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds nuw [0 x i32], ptr %35, i64 0, i64 %28
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %28
   %37 = load i32, ptr %36, align 4, !noalias !7353, !noundef !4
   ret i32 %37
 }
@@ -49661,7 +49650,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder8UnaryImm17h577df6da89ea6fb3E.llvm
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !7405, !noalias !7400, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !7406, !noundef !4
   ret i32 %42
 }
@@ -49744,7 +49733,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder11UnaryIeee3217hdb4a1e88b5d0cc6fE.
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 144
   %39 = load ptr, ptr %38, align 8, !alias.scope !7458, !noalias !7453, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw [0 x i32], ptr %39, i64 0, i64 %32
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %32
   %41 = load i32, ptr %40, align 4, !noalias !7459, !noundef !4
   ret i32 %41
 }
@@ -49827,7 +49816,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder11UnaryIeee6417hba152e010f83882fE.
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 144
   %39 = load ptr, ptr %38, align 8, !alias.scope !7511, !noalias !7506, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw [0 x i32], ptr %39, i64 0, i64 %32
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %32
   %41 = load i32, ptr %40, align 4, !noalias !7512, !noundef !4
   ret i32 %41
 }
@@ -49857,7 +49846,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder6select
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %17 = load ptr, ptr %16, align 8, !alias.scope !7526, !noalias !7527, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw [0 x i64], ptr %17, i64 0, i64 %11
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %11
   %19 = load i64, ptr %18, align 8, !noalias !7520, !noundef !4
   %20 = lshr i64 %19, 48
   %21 = trunc nuw i64 %20 to i16
@@ -49948,7 +49937,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder7Ternary17hbd18eeb470fd7bd2E.llvm.
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %43, i64 144
   %61 = load ptr, ptr %60, align 8, !alias.scope !7581, !noalias !7576, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw [0 x i32], ptr %61, i64 0, i64 %54
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %54
   %63 = load i32, ptr %62, align 4, !noalias !7582, !noundef !4
   ret i32 %63
 }
@@ -49978,7 +49967,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder9bitsel
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %17 = load ptr, ptr %16, align 8, !alias.scope !7596, !noalias !7597, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw [0 x i64], ptr %17, i64 0, i64 %11
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %11
   %19 = load i64, ptr %18, align 8, !noalias !7590, !noundef !4
   %20 = lshr i64 %19, 48
   %21 = trunc nuw i64 %20 to i16
@@ -50069,7 +50058,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder7Ternary17hbd18eeb470fd7bd2E.llvm.
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %43, i64 144
   %61 = load ptr, ptr %60, align 8, !alias.scope !7651, !noalias !7646, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw [0 x i32], ptr %61, i64 0, i64 %54
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %54
   %63 = load i32, ptr %62, align 4, !noalias !7652, !noundef !4
   ret i32 %63
 }
@@ -50094,7 +50083,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder9bitsel
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %14 = load ptr, ptr %13, align 8, !alias.scope !7664, !noalias !7665, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw [0 x i64], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %8
   %16 = load i64, ptr %15, align 8, !noalias !7658, !noundef !4
   %17 = lshr i64 %16, 48
   %18 = trunc nuw i64 %17 to i16
@@ -50174,7 +50163,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder7Ternary17h180578d4941911a2E.llvm.
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %53 = load ptr, ptr %52, align 8, !alias.scope !7712, !noalias !7707, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds nuw [0 x i32], ptr %53, i64 0, i64 %46
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %46
   %55 = load i32, ptr %54, align 4, !noalias !7713, !noundef !4
   ret i32 %55
 }
@@ -50196,7 +50185,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4icmp17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load ptr, ptr %11, align 8, !alias.scope !7720, !noalias !7721, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x i64], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %6
   %14 = load i64, ptr %13, align 8, !noalias !7714, !noundef !4
   %15 = lshr i64 %14, 48
   %16 = trunc nuw i64 %15 to i16
@@ -50218,7 +50207,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !alias.scope !7735, !noalias !7736, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %24, i64 0, i64 %18
+  %25 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %24, i64 %18
   store i8 15, ptr %25, align 8, !noalias !7741
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 75, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7741
@@ -50277,7 +50266,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder10IntCompare17h5b4936baab1ed04dE.l
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %48 = load ptr, ptr %47, align 8, !alias.scope !7759, !noalias !7754, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %41
+  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %41
   %50 = load i32, ptr %49, align 4, !noalias !7760, !noundef !4
   ret i32 %50
 }
@@ -50299,7 +50288,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4iadd17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !7767, !noalias !7768, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !7761, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -50321,7 +50310,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !7782, !noalias !7783, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !7788
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 77, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7788
@@ -50378,7 +50367,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !7806, !noalias !7801, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !7807, !noundef !4
   ret i32 %49
 }
@@ -50400,7 +50389,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4isub17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !7814, !noalias !7815, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !7808, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -50422,7 +50411,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !7829, !noalias !7830, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !7835
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 78, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7835
@@ -50479,7 +50468,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !7853, !noalias !7848, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !7854, !noundef !4
   ret i32 %49
 }
@@ -50501,7 +50490,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4imul17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !7861, !noalias !7862, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !7855, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -50523,7 +50512,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !7876, !noalias !7877, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !7882
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 81, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7882
@@ -50580,7 +50569,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !7900, !noalias !7895, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !7901, !noundef !4
   ret i32 %49
 }
@@ -50602,7 +50591,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4udiv17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !7908, !noalias !7909, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !7902, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -50624,7 +50613,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !7923, !noalias !7924, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !7929
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 86, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7929
@@ -50681,7 +50670,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !7947, !noalias !7942, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !7948, !noundef !4
   ret i32 %49
 }
@@ -50703,7 +50692,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4sdiv17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !7955, !noalias !7956, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !7949, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -50725,7 +50714,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !7970, !noalias !7971, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !7976
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 87, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !7976
@@ -50782,7 +50771,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !7994, !noalias !7989, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !7995, !noundef !4
   ret i32 %49
 }
@@ -50804,7 +50793,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4urem17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8002, !noalias !8003, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !7996, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -50826,7 +50815,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8017, !noalias !8018, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8023
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 88, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8023
@@ -50883,7 +50872,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8041, !noalias !8036, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8042, !noundef !4
   ret i32 %49
 }
@@ -50905,7 +50894,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4srem17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8049, !noalias !8050, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8043, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -50927,7 +50916,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8064, !noalias !8065, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8070
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 89, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8070
@@ -50984,7 +50973,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8088, !noalias !8083, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8089, !noundef !4
   ret i32 %49
 }
@@ -51006,7 +50995,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4band17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8096, !noalias !8097, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8090, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51028,7 +51017,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8111, !noalias !8112, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8117
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 108, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8117
@@ -51085,7 +51074,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8135, !noalias !8130, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8136, !noundef !4
   ret i32 %49
 }
@@ -51107,7 +51096,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder3bor17h
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8143, !noalias !8144, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8137, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51129,7 +51118,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8158, !noalias !8159, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8164
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 109, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8164
@@ -51186,7 +51175,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8182, !noalias !8177, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8183, !noundef !4
   ret i32 %49
 }
@@ -51208,7 +51197,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4bxor17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8190, !noalias !8191, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8184, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51230,7 +51219,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8205, !noalias !8206, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8211
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 110, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8211
@@ -51287,7 +51276,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8229, !noalias !8224, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8230, !noundef !4
   ret i32 %49
 }
@@ -51312,7 +51301,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4bnot17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %12 = load ptr, ptr %11, align 8, !alias.scope !8242, !noalias !8243, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x i64], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %6
   %14 = load i64, ptr %13, align 8, !noalias !8236, !noundef !4
   %15 = lshr i64 %14, 48
   %16 = trunc nuw i64 %15 to i16
@@ -51388,7 +51377,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %33, i64 144
   %51 = load ptr, ptr %50, align 8, !alias.scope !8290, !noalias !8285, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds nuw [0 x i32], ptr %51, i64 0, i64 %44
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %44
   %53 = load i32, ptr %52, align 4, !noalias !8291, !noundef !4
   ret i32 %53
 }
@@ -51410,7 +51399,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4rotl17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8298, !noalias !8299, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8292, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51432,7 +51421,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8313, !noalias !8314, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8319
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 118, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8319
@@ -51489,7 +51478,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8337, !noalias !8332, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8338, !noundef !4
   ret i32 %49
 }
@@ -51511,7 +51500,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4rotr17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8345, !noalias !8346, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8339, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51533,7 +51522,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8360, !noalias !8361, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8366
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 119, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8366
@@ -51590,7 +51579,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8384, !noalias !8379, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8385, !noundef !4
   ret i32 %49
 }
@@ -51612,7 +51601,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4ishl17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8392, !noalias !8393, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8386, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51634,7 +51623,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8407, !noalias !8408, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8413
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 122, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8413
@@ -51691,7 +51680,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8431, !noalias !8426, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8432, !noundef !4
   ret i32 %49
 }
@@ -51713,7 +51702,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4ushr17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8439, !noalias !8440, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8433, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51735,7 +51724,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8454, !noalias !8455, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8460
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 123, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8460
@@ -51792,7 +51781,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8478, !noalias !8473, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8479, !noundef !4
   ret i32 %49
 }
@@ -51814,7 +51803,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4sshr17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !8486, !noalias !8487, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !8480, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -51836,7 +51825,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i.i": ; preds = %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !8501, !noalias !8502, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   store i8 2, ptr %24, align 8, !noalias !8507
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 124, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !8507
@@ -51893,7 +51882,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6Binary17hef8be87889978a92E.llvm.1
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !alias.scope !8525, !noalias !8520, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %40
   %49 = load i32, ptr %48, align 4, !noalias !8526, !noundef !4
   ret i32 %49
 }
@@ -51918,7 +51907,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4fcmp17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %14 = load ptr, ptr %13, align 8, !alias.scope !8538, !noalias !8539, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw [0 x i64], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %8
   %16 = load i64, ptr %15, align 8, !noalias !8532, !noundef !4
   %17 = lshr i64 %16, 48
   %18 = trunc nuw i64 %17 to i16
@@ -51998,7 +51987,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder12FloatCompare17hee075e2d239c8907E
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %53 = load ptr, ptr %52, align 8, !alias.scope !8586, !noalias !8581, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds nuw [0 x i32], ptr %53, i64 0, i64 %46
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %46
   %55 = load i32, ptr %54, align 4, !noalias !8587, !noundef !4
   ret i32 %55
 }
@@ -52083,7 +52072,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder12LoadNoOffset17haaf09c57cb62afaaE
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %41 = load ptr, ptr %40, align 8, !alias.scope !8639, !noalias !8634, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw [0 x i32], ptr %41, i64 0, i64 %34
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %34
   %43 = load i32, ptr %42, align 4, !noalias !8640, !noundef !4
   ret i32 %43
 }
@@ -52166,7 +52155,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !8692, !noalias !8687, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !8693, !noundef !4
   ret i32 %42
 }
@@ -52249,7 +52238,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !8745, !noalias !8740, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !8746, !noundef !4
   ret i32 %42
 }
@@ -52332,7 +52321,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder5Unary17hb727a0687f904131E.llvm.17
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.exit: ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %40 = load ptr, ptr %39, align 8, !alias.scope !8798, !noalias !8793, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !noalias !8799, !noundef !4
   ret i32 %42
 }
@@ -52355,7 +52344,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder6Binar
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i": ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !alias.scope !8809, !noalias !8810, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %13, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %13, i64 %7
   store i8 2, ptr %14, align 8, !noalias !8800
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %2, ptr %.sroa.2.0..sroa_idx, align 1, !noalias !8800
@@ -52457,7 +52446,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder4Brif1
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i": ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !alias.scope !8867, !noalias !8868, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %14, i64 %8
   store i8 6, ptr %15, align 8, !noalias !8858
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 %2, ptr %.sroa.2.0..sroa_idx, align 1, !noalias !8858
@@ -52607,7 +52596,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder10IntC
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i": ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !alias.scope !8960, !noalias !8961, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %14, i64 %8
   store i8 15, ptr %15, align 8, !noalias !8951
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 %2, ptr %.sroa.2.0..sroa_idx, align 1, !noalias !8951
@@ -52705,7 +52694,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder4Load1
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i": ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !alias.scope !9017, !noalias !9018, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %14, i64 %8
   store i8 18, ptr %15, align 8, !noalias !9008
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 %2, ptr %.sroa.2.0..sroa_idx, align 1, !noalias !9008
@@ -52855,7 +52844,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder5Store
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i": ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !alias.scope !9110, !noalias !9111, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %15, i64 0, i64 %9
+  %16 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %15, i64 %9
   store i8 25, ptr %16, align 8, !noalias !9101
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 %2, ptr %.sroa.2.0..sroa_idx, align 1, !noalias !9101
@@ -53161,7 +53150,7 @@ define hidden { i32, ptr } @_ZN17cranelift_codegen2ir7builder11InstBuilder16Unar
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i": ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !alias.scope !9312, !noalias !9313, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %12, i64 %6
   store i8 32, ptr %13, align 8, !noalias !9303
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
   store i8 %2, ptr %.sroa.2.0..sroa_idx, align 1, !noalias !9303
@@ -53304,7 +53293,7 @@ _ZN17cranelift_codegen2ir12instructions15InstructionData22sign_extend_immediates
 "_ZN125_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..IndexMut$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$9index_mut17h4b2ba27c9d748d9aE.exit.i": ; preds = %_ZN17cranelift_codegen2ir12instructions15InstructionData22sign_extend_immediates17h3449aa89678febbbE.llvm.17911367524062806024.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !alias.scope !9405, !noalias !9406, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %11, i64 %5
   store i8 35, ptr %12, align 8, !noalias !9396
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %2, ptr %.sroa.4.0..sroa_idx, align 1, !noalias !9396
@@ -53386,7 +53375,7 @@ define internal noundef zeroext i1 @"_ZN86_$LT$cranelift_codegen..ir..extfunc..A
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !905, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN86_$LT$cranelift_codegen..ir..extfunc..ArgumentExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h615cc8cd7ac02e02E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$cranelift_codegen..ir..extfunc..ArgumentExtension$u20$as$u20$core..fmt..Debug$GT$3fmt17h615cc8cd7ac02e02E", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 4)
   ret i1 %4
@@ -53417,7 +53406,7 @@ define noundef range(i8 1, -70) i8 @_ZN17cranelift_codegen2ir12instructions15Ins
 switch.lookup:
   %1 = load i8, ptr %0, align 8, !range !764, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i8, ptr %3, align 1, !range !757, !noundef !4
@@ -54587,10 +54576,10 @@ define hidden { ptr, i64 } @_ZN17cranelift_codegen2ir12instructions11opcode_name
 switch.lookup:
   %switch.tableidx = xor i8 %0, -128
   %1 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x ptr], ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [256 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE.128, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen2ir12instructions11opcode_name17h17a1313bad5b635bE.128, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -55938,7 +55927,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags1
   br i1 %4, label %5, label %13, !prof !687
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 0, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = trunc nuw nsw i64 %1 to i8
   %9 = and i8 %8, 7
@@ -56307,7 +56296,7 @@ define noundef zeroext i1 @"_ZN83_$LT$cranelift_codegen..isa..x64..settings..Fla
   br i1 %33, label %34, label %38, !prof !687
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %32
   %36 = load i8, ptr %35, align 1, !noundef !4
   %37 = call noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail8Template17format_toml_value17habde71dbdf6af2e7E(ptr noalias noundef readonly align 8 dereferenceable(96) @_ZN17cranelift_codegen3isa3x648settings8TEMPLATE17h5ab13de9a546a892E, i32 %.sroa.04.0.copyload, i8 noundef %36, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %37, label %.loopexit, label %39
@@ -56421,10 +56410,10 @@ define noundef zeroext i1 @"_ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !905, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E.129", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..OptLevel$u20$as$u20$core..fmt..Display$GT$3fmt17h831042fcbb93a931E.129", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -56472,10 +56461,10 @@ define noundef zeroext i1 @"_ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !44, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E.130", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$cranelift_codegen..settings..TlsModel$u20$as$u20$core..fmt..Display$GT$3fmt17h958dbf1783d78750E.130", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -56530,10 +56519,10 @@ define noundef zeroext i1 @"_ZN83_$LT$cranelift_codegen..settings..LibcallCallCo
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1650, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E.131", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$cranelift_codegen..settings..LibcallCallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hfe3b5798ee465248E.131", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -56653,7 +56642,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen8settings5Flags18numbere
   br i1 %5, label %6, label %14, !prof !687
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw [9 x i8], ptr %0, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %8 = load i8, ptr %7, align 1, !noundef !4
   %9 = trunc nuw nsw i64 %1 to i8
   %10 = and i8 %9, 7
@@ -57059,7 +57048,7 @@ define noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..settings..Flags$u20$as$
   br i1 %33, label %34, label %38, !prof !687
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw [9 x i8], ptr %0, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %32
   %36 = load i8, ptr %35, align 1, !noundef !4
   %37 = call noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail8Template17format_toml_value17habde71dbdf6af2e7E(ptr noalias noundef readonly align 8 dereferenceable(96) @_ZN17cranelift_codegen8settings8TEMPLATE17hf0645a931d92d253E, i32 %.sroa.04.0.copyload, i8 noundef %36, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %37, label %.loopexit, label %39

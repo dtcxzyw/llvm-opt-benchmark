@@ -6657,7 +6657,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %31
 
 50:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !68
   %53 = invoke noundef zeroext i1 @_ZN3smt23theory_dense_diff_logicINS_6mi_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %54 unwind label %48
@@ -26508,7 +26508,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %31
 
 50:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !68
   %53 = invoke noundef zeroext i1 @_ZN3smt23theory_dense_diff_logicINS_5i_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %54 unwind label %48
@@ -40315,7 +40315,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %31
 
 50:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !68
   %53 = invoke noundef zeroext i1 @_ZN3smt23theory_dense_diff_logicINS_7smi_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %54 unwind label %48
@@ -52774,7 +52774,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %31
 
 50:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !68
   %53 = invoke noundef zeroext i1 @_ZN3smt23theory_dense_diff_logicINS_6si_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %54 unwind label %48

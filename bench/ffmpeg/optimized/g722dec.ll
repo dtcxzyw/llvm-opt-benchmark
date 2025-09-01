@@ -55,7 +55,7 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %9 = load i32, ptr %8, align 8, !tbaa !37
   %10 = sub nsw i32 8, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [3 x ptr], ptr @low_inv_quants, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr @low_inv_quants, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !39
@@ -144,7 +144,7 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %78 = load i16, ptr %37, align 2, !tbaa !31
   %79 = sext i16 %78 to i32
   %80 = zext nneg i32 %50 to i64
-  %81 = getelementptr inbounds nuw [4 x i16], ptr @ff_g722_high_inv_quant, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i16, ptr @ff_g722_high_inv_quant, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !48
   %83 = sext i16 %82 to i32
   %84 = mul nsw i32 %83, %79
@@ -158,19 +158,19 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %90 = add nsw i32 %.0.i58, %.0.i
   %91 = trunc nsw i32 %90 to i16
   %92 = load i32, ptr %39, align 4, !tbaa !34
-  %93 = add nsw i32 %92, 1
-  %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds [1024 x i16], ptr %38, i64 0, i64 %94
-  store i16 %91, ptr %95, align 2, !tbaa !48
-  %96 = sub nsw i32 %.0.i, %.0.i58
-  %97 = trunc nsw i32 %96 to i16
-  %98 = add nsw i32 %92, 2
-  store i32 %98, ptr %39, align 4, !tbaa !34
-  %99 = sext i32 %93 to i64
-  %100 = getelementptr inbounds [1024 x i16], ptr %38, i64 0, i64 %99
-  store i16 %97, ptr %100, align 2, !tbaa !48
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds i16, ptr %38, i64 %93
+  store i16 %91, ptr %94, align 2, !tbaa !48
+  %95 = sub nsw i32 %.0.i, %.0.i58
+  %96 = trunc nsw i32 %95 to i16
+  %97 = add nsw i32 %92, 2
+  store i32 %97, ptr %39, align 4, !tbaa !34
+  %98 = sext i32 %92 to i64
+  %99 = getelementptr i16, ptr %38, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 2
+  store i16 %96, ptr %100, align 2, !tbaa !48
   %101 = load ptr, ptr %40, align 8, !tbaa !50
-  %102 = sext i32 %98 to i64
+  %102 = sext i32 %97 to i64
   %103 = getelementptr inbounds i16, ptr %38, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 -48
   call void %101(ptr noundef nonnull %104, ptr noundef nonnull %5) #6

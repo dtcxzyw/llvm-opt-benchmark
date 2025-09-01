@@ -2267,7 +2267,7 @@ thread-pre-split:                                 ; preds = %_Z17is_uninterp_con
 61:                                               ; preds = %.lr.ph, %_ZN30is_non_propositional_predicateclEP3app.exit
   %62 = phi i32 [ %58, %.lr.ph ], [ %157, %_ZN30is_non_propositional_predicateclEP3app.exit ]
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !74
   %66 = add nuw i32 %62, 1
   store i32 %66, ptr %57, align 8, !tbaa !73
@@ -4386,7 +4386,7 @@ thread-pre-split:                                 ; preds = %_Z17is_uninterp_con
 62:                                               ; preds = %.lr.ph, %_ZN21is_non_qfbv_predicateclEP3app.exit
   %63 = phi i32 [ %59, %.lr.ph ], [ %168, %_ZN21is_non_qfbv_predicateclEP3app.exit ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !74
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !73
@@ -5487,7 +5487,7 @@ thread-pre-split:                                 ; preds = %_Z11is_uninterpPK4e
 63:                                               ; preds = %.lr.ph, %_ZN24is_non_qfaufbv_predicateclEP3app.exit
   %64 = phi i32 [ %60, %.lr.ph ], [ %176, %_ZN24is_non_qfaufbv_predicateclEP3app.exit ]
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !74
   %68 = add nuw i32 %64, 1
   store i32 %68, ptr %59, align 8, !tbaa !73
@@ -6596,7 +6596,7 @@ thread-pre-split:                                 ; preds = %_Z11is_uninterpPK4e
 62:                                               ; preds = %.lr.ph, %_ZN23is_non_qfufbv_predicateclEP3app.exit
   %63 = phi i32 [ %59, %.lr.ph ], [ %162, %_ZN23is_non_qfufbv_predicateclEP3app.exit ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !74
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !73
@@ -7659,7 +7659,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 63:                                               ; preds = %.lr.ph, %_ZN16num_consts_probe4procclEP3app.exit
   %64 = phi i32 [ %60, %.lr.ph ], [ %162, %_ZN16num_consts_probe4procclEP3app.exit ]
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !74
   %68 = add nuw i32 %64, 1
   store i32 %68, ptr %59, align 8, !tbaa !73
@@ -8650,7 +8650,7 @@ thread-pre-split:                                 ; preds = %226, %.thread-pre-s
 62:                                               ; preds = %.lr.ph, %139
   %63 = phi i32 [ %59, %.lr.ph ], [ %140, %139 ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !74
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !73
@@ -9568,7 +9568,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 62:                                               ; preds = %.lr.ph, %139
   %63 = phi i32 [ %59, %.lr.ph ], [ %140, %139 ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !74
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !73

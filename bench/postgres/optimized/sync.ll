@@ -122,7 +122,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 18:                                               ; preds = %13
   %19 = load i16, ptr %9, align 8
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %20, i32 1
+  %21 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %20, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 %22(ptr noundef nonnull %9, ptr noundef nonnull %1) #9
   %24 = icmp slt i32 %23, 0
@@ -334,7 +334,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = load i16, ptr %24, align 8
   %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %44
+  %45 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 %46(ptr noundef nonnull %24, ptr noundef nonnull %4) #9
   %48 = icmp eq i32 %47, 0
@@ -354,7 +354,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = load i16, ptr %24, align 8
   %55 = sext i16 %54 to i64
-  %56 = getelementptr inbounds [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %55
+  %56 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef nonnull %24, ptr noundef nonnull %4) #9
   %59 = icmp eq i32 %58, 0
@@ -524,7 +524,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 
 17:                                               ; preds = %.lr.ph
   %18 = sext i16 %14 to i64
-  %19 = getelementptr inbounds [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %18, i32 2
+  %19 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %18, i32 2
   %20 = load ptr, ptr %19, align 8
   %21 = call zeroext i1 %20(ptr noundef nonnull %0, ptr noundef nonnull %13) #9
   br i1 %21, label %22, label %24
@@ -567,7 +567,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 
 37:                                               ; preds = %.lr.ph46
   %38 = sext i16 %34 to i64
-  %39 = getelementptr inbounds [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %38, i32 2
+  %39 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %38, i32 2
   %40 = load ptr, ptr %39, align 8
   %41 = call zeroext i1 %40(ptr noundef nonnull %0, ptr noundef nonnull %33) #9
   br i1 %41, label %42, label %44

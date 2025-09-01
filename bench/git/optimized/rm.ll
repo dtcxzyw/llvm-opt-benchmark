@@ -568,7 +568,7 @@ submodules_absorb_gitdir_if_needed.exit:          ; preds = %get_ours_cache_pos.
 
 243:                                              ; preds = %245, %239
   %.0811.i.i = phi i64 [ 0, %239 ], [ %246, %245 ]
-  %244 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %244 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i103 = icmp eq ptr %242, %244
   br i1 %.not.i.i103, label %.split.loop.exit9.i.i, label %245
 

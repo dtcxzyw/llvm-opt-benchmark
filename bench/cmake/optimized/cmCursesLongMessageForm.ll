@@ -618,7 +618,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %scevgep = getelementptr nuw i8, ptr %2, i64 %spec.store.select
   %24 = sub nuw nsw i64 512, %spec.store.select
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %24, i1 false), !tbaa !15
-  %25 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %narrow
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %narrow
   store i8 0, ptr %25, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -637,7 +637,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   %31 = sub i64 512, %29
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %31, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #18
-  %33 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %narrow
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %narrow
   store i8 0, ptr %33, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, i64 3, i1 false)

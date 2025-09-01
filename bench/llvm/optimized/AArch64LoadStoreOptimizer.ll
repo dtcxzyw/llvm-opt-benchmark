@@ -6595,7 +6595,7 @@ _ZL10isTagStoreRKN4llvm12MachineInstrE.exit.i.i:  ; preds = %1596
 1601:                                             ; preds = %.loopexit161.i.i, %_ZL10isTagStoreRKN4llvm12MachineInstrE.exit.i.i
   %.048174.i.i = phi i32 [ 0, %_ZL10isTagStoreRKN4llvm12MachineInstrE.exit.i.i ], [ %1624, %.loopexit161.i.i ]
   %1602 = zext i32 %.048174.i.i to i64
-  %1603 = getelementptr inbounds nuw [2 x %"class.llvm::Register"], ptr %13, i64 0, i64 %1602
+  %1603 = getelementptr inbounds nuw %"class.llvm::Register", ptr %13, i64 %1602
   %1604 = load i32, ptr %1603, align 4, !tbaa !692
   %1605 = icmp eq i32 %1604, %1571
   br i1 %1605, label %_ZN12_GLOBAL__N_119AArch64LoadStoreOpt30findMatchingUpdateInsnBackwardEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjRb.exit.i, label %1606

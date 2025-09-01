@@ -2061,10 +2061,10 @@ define void @_ZN16uv_configuration17dependency_groups23DependencyGroupsHistory15
 switch.lookup:                                    ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %65 = zext nneg i8 %49 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE, i64 %65
   %switch.load = load i64, ptr %switch.gep, align 8
   %66 = zext nneg i8 %49 to i64
-  %switch.gep55 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE.19, i64 0, i64 %66
+  %switch.gep55 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE.19, i64 %66
   %switch.load56 = load ptr, ptr %switch.gep55, align 8
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %switch.load56, ptr %67, align 8
@@ -2531,10 +2531,10 @@ define { ptr, i64 } @_ZN16uv_configuration17dependency_groups7DevMode7as_flag17h
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !421, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE.19, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration17dependency_groups7DevMode7as_flag17h8320d685c7f167abE.19, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

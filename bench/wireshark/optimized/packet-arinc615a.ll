@@ -302,7 +302,7 @@ define internal noundef zeroext i1 @dissect_a615a_heur(ptr noundef %0, ptr nound
 
 .preheader:                                       ; preds = %26, %258
   %indvars.iv = phi i64 [ %indvars.iv.next, %258 ], [ 0, %26 ]
-  %29 = getelementptr [12 x %struct._string_pair], ptr @a615a_file, i64 0, i64 %indvars.iv
+  %29 = getelementptr %struct._string_pair, ptr @a615a_file, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 16
   %31 = tail call i32 @g_str_has_suffix(ptr noundef nonnull %27, ptr noundef %30)
   %.not25 = icmp eq i32 %31, 0
@@ -321,7 +321,7 @@ define internal noundef zeroext i1 @dissect_a615a_heur(ptr noundef %0, ptr nound
   %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39)
   %41 = load i32, ptr @hf_a615a_file_type, align 4
   %42 = and i64 %indvars.iv, 4294967295
-  %43 = getelementptr [12 x %struct._string_pair], ptr @a615a_file, i64 0, i64 %42, i32 1
+  %43 = getelementptr %struct._string_pair, ptr @a615a_file, i64 %42, i32 1
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %44)
   %.not.i.i = icmp eq ptr %45, null

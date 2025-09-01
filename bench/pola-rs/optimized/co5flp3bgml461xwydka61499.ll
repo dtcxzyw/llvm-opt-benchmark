@@ -26908,10 +26908,10 @@ define internal noundef zeroext i1 @"_ZN83_$LT$polars_parquet_format..thrift..pr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !3201, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E.271", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E.271", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -45528,9 +45528,9 @@ switch.lookup:                                    ; preds = %3110
   %3126 = icmp ne i64 %3124, 2
   tail call void @llvm.assume(i1 %3126)
   %3127 = select i1 %3125, i64 %3124, i64 2
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN17polars_mem_engine7planner2lp25create_physical_plan_impl28_$u7b$$u7b$closure$u7d$$u7d$17h9da87487a724333aE", i64 0, i64 %3127
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN17polars_mem_engine7planner2lp25create_physical_plan_impl28_$u7b$$u7b$closure$u7d$$u7d$17h9da87487a724333aE", i64 %3127
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2379 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN17polars_mem_engine7planner2lp25create_physical_plan_impl28_$u7b$$u7b$closure$u7d$$u7d$17h9da87487a724333aE.272", i64 0, i64 %3127
+  %switch.gep2379 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN17polars_mem_engine7planner2lp25create_physical_plan_impl28_$u7b$$u7b$closure$u7d$$u7d$17h9da87487a724333aE.272", i64 %3127
   %switch.load2380 = load ptr, ptr %switch.gep2379, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %227)
   call void @llvm.lifetime.start.p0(ptr nonnull %226)

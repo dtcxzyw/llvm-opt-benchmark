@@ -706,7 +706,7 @@ define noundef i32 @_Z10gmx_xpm2psiPPc(i32 noundef %0, ptr noundef %1) local_unn
 
 .preheader:                                       ; preds = %159, %161
   %indvars.iv = phi i64 [ %indvars.iv.next, %161 ], [ 0, %159 ]
-  %162 = getelementptr inbounds nuw [3 x float], ptr @_ZZ10gmx_xpm2psiPPcE4grad, i64 0, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw float, ptr @_ZZ10gmx_xpm2psiPPcE4grad, i64 %indvars.iv
   %163 = load float, ptr %162, align 4, !tbaa !30
   %164 = fcmp olt float %163, 0.000000e+00
   %165 = fcmp ogt float %163, 1.000000e+00
@@ -719,7 +719,7 @@ define noundef i32 @_Z10gmx_xpm2psiPPc(i32 noundef %0, ptr noundef %1) local_unn
           to label %167 unwind label %172
 
 167:                                              ; preds = %166
-  %168 = getelementptr inbounds nuw [3 x float], ptr @_ZZ10gmx_xpm2psiPPcE4grad, i64 0, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw float, ptr @_ZZ10gmx_xpm2psiPPcE4grad, i64 %indvars.iv
   %169 = load float, ptr %168, align 4, !tbaa !30
   %170 = fpext float %169 to double
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %30, i32 noundef 1564, ptr noundef nonnull @.str.96, double noundef %170) #28
@@ -2581,14 +2581,14 @@ _ZNSt12_Vector_baseI9t_mappingSaIS0_EEC2EmRKS1_.exit.i.i.i.i: ; preds = %_ZNSt6v
 954:                                              ; preds = %.lr.ph.i.i85.i
   %955 = urem i64 %.04482.i.i.i, %931
   %956 = udiv i64 %.04482.i.i.i, %931
-  %957 = getelementptr inbounds nuw [89 x i8], ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 0, i64 %955
+  %957 = getelementptr inbounds nuw i8, ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 %955
   %958 = load i8, ptr %957, align 1, !tbaa !15, !noalias !112
   %959 = getelementptr inbounds nuw %struct.t_mapping, ptr %929, i64 %.04482.i.i.i
   store i8 %958, ptr %959, align 8, !tbaa !118, !noalias !112
   br i1 %949, label %960, label %964
 
 960:                                              ; preds = %954
-  %961 = getelementptr inbounds nuw [89 x i8], ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 0, i64 %956
+  %961 = getelementptr inbounds nuw i8, ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 %956
   %962 = load i8, ptr %961, align 1, !tbaa !15, !noalias !112
   %963 = getelementptr inbounds nuw i8, ptr %959, i64 1
   store i8 %962, ptr %963, align 1, !tbaa !119, !noalias !112
@@ -2632,14 +2632,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i.i.i: ; pred
 981:                                              ; preds = %.lr.ph87.i.i.i
   %982 = urem i64 %.185.i.i.i, %931
   %983 = udiv i64 %.185.i.i.i, %931
-  %984 = getelementptr inbounds nuw [89 x i8], ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 0, i64 %982
+  %984 = getelementptr inbounds nuw i8, ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 %982
   %985 = load i8, ptr %984, align 1, !tbaa !15, !noalias !112
   %986 = getelementptr inbounds nuw %struct.t_mapping, ptr %929, i64 %.185.i.i.i
   store i8 %985, ptr %986, align 8, !tbaa !118, !noalias !112
   br i1 %951, label %987, label %991
 
 987:                                              ; preds = %981
-  %988 = getelementptr inbounds nuw [89 x i8], ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 0, i64 %983
+  %988 = getelementptr inbounds nuw i8, ptr @_ZZL8add_mapsN3gmx8ArrayRefI9t_mappingEES2_E6mapper, i64 %983
   %989 = load i8, ptr %988, align 1, !tbaa !15, !noalias !112
   %990 = getelementptr inbounds nuw i8, ptr %986, i64 1
   store i8 %989, ptr %990, align 1, !tbaa !119, !noalias !112
@@ -7889,7 +7889,7 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge589, %_Z
 
 1371:                                             ; preds = %1366
   %1372 = sext i32 %1370 to i64
-  %1373 = getelementptr inbounds [4 x ptr], ptr @_ZL10linecolors, i64 0, i64 %1372
+  %1373 = getelementptr inbounds ptr, ptr @_ZL10linecolors, i64 %1372
   %1374 = load ptr, ptr %1373, align 8, !tbaa !200
   invoke void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef nonnull %42, ptr noundef %1374)
           to label %.noexc360 unwind label %.loopexit.split-lp502.loopexit.split-lp.loopexit
@@ -7964,7 +7964,7 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge589, %_Z
 
 1412:                                             ; preds = %.loopexit79.i
   %1413 = sext i32 %1411 to i64
-  %1414 = getelementptr inbounds [4 x ptr], ptr @_ZL10linecolors, i64 0, i64 %1413
+  %1414 = getelementptr inbounds ptr, ptr @_ZL10linecolors, i64 %1413
   %1415 = load ptr, ptr %1414, align 8, !tbaa !200
   invoke void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef nonnull %42, ptr noundef %1415)
           to label %.noexc362 unwind label %.loopexit.split-lp502.loopexit.split-lp.loopexit
@@ -8514,7 +8514,7 @@ define internal fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %0, ptr noun
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader.us
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %._crit_edge.us.us ], [ 0, %.preheader.us ]
   %30 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %29) #29, !tbaa !4
-  %31 = getelementptr inbounds nuw [4 x float], ptr @__const._ZL12tick_spacingiPffcS_S_.major_fact, i64 0, i64 %indvars.iv102
+  %31 = getelementptr inbounds nuw float, ptr @__const._ZL12tick_spacingiPffcS_S_.major_fact, i64 %indvars.iv102
   %32 = load float, ptr %31, align 4, !tbaa !30
   %33 = fmul float %30, %32
   %34 = fpext float %33 to double
@@ -8585,7 +8585,7 @@ define internal fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %0, ptr noun
   %.pre-phi = phi i32 [ %.pre, %.split89.us._crit_edge ], [ %62, %.split89.us.thread ]
   %.2 = phi float [ %33, %.split89.us._crit_edge ], [ %.sroa.speculated58, %.split89.us.thread ]
   store float %.2, ptr %4, align 4, !tbaa !30
-  %66 = getelementptr inbounds nuw [4 x float], ptr @__const._ZL12tick_spacingiPffcS_S_.minor_fact, i64 0, i64 %.us-phi90109
+  %66 = getelementptr inbounds nuw float, ptr @__const._ZL12tick_spacingiPffcS_S_.minor_fact, i64 %.us-phi90109
   %67 = load float, ptr %66, align 4, !tbaa !30
   %68 = fdiv float %.2, %67
   store float %68, ptr %5, align 4, !tbaa !30

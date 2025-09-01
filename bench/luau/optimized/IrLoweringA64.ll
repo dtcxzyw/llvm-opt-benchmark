@@ -2452,7 +2452,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 switch.lookup:                                    ; preds = %1310
   %.mask = and i32 %1285, 15
   %1313 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrInstEjRKNS0_7IrBlockE, i64 0, i64 %1313
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrInstEjRKNS0_7IrBlockE, i64 %1313
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
 
@@ -7445,7 +7445,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4Luau7CodeGen3A6415getConditionInt
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN4Luau7CodeGen3A6415getConditionIntENS0_11IrConditionE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7CodeGen3A6415getConditionIntENS0_11IrConditionE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

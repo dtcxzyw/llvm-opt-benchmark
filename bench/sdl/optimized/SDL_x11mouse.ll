@@ -60,9 +60,9 @@ define hidden void @X11_InitMouse(ptr noundef readnone captures(none) %0) local_
 
 switch.lookup:                                    ; preds = %1, %switch.lookup
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %switch.lookup ]
-  %11 = getelementptr inbounds nuw [10 x ptr], ptr @sys_cursors, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
   %12 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.X11_InitMouse, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.X11_InitMouse, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = tail call ptr @X11_CreateSystemCursor(i32 noundef %switch.load)
   store ptr %13, ptr %11, align 8
@@ -413,7 +413,7 @@ define internal noundef ptr @X11_CreateSystemCursor(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %.thread
   %14 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @switch.table.X11_CreateSystemCursor, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.X11_CreateSystemCursor, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %15
 
@@ -905,7 +905,7 @@ define hidden void @X11_QuitMouse(ptr noundef readonly captures(none) %0) local_
 
 4:                                                ; preds = %1, %X11_FreeCursor.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %X11_FreeCursor.exit ]
-  %5 = getelementptr inbounds nuw [10 x ptr], ptr @sys_cursors, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -980,7 +980,7 @@ define hidden void @X11_SetHitTestCursor(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [10 x ptr], ptr @sys_cursors, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @X11_ShowCursor(ptr noundef %6)
   br label %8

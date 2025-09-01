@@ -289,7 +289,7 @@ bsearch.exit:                                     ; preds = %42
 
 84:                                               ; preds = %79
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %77, i64 %82, i1 false)
-  %85 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 %82
   store i8 0, ptr %85, align 1, !tbaa !25
   %86 = load ptr, ptr %15, align 8, !tbaa !32
   %87 = call i32 @curl_easy_header(ptr noundef %86, ptr noundef nonnull %5, i64 noundef 0, i32 noundef 1, i32 noundef -1, ptr noundef nonnull %6) #7
@@ -350,7 +350,7 @@ bsearch.exit:                                     ; preds = %42
 
 116:                                              ; preds = %111
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %.4101, i64 %114, i1 false)
-  %117 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %114
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 %114
   store i8 0, ptr %117, align 1, !tbaa !25
   %118 = call noalias ptr @fopen(ptr noundef nonnull %7, ptr noundef nonnull %.0104)
   %.not141 = icmp eq ptr %118, null
@@ -550,7 +550,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
   %26 = phi ptr [ null, %13 ], [ %.lcssa, %._crit_edge157 ], [ null, %.lr.ph156 ]
   %.0 = phi i1 [ false, %13 ], [ true, %._crit_edge157 ], [ false, %.lr.ph156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %108
+  br label %109
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -560,7 +560,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
   %32 = load ptr, ptr %8, align 8
   %33 = icmp ne ptr %32, null
   %or.cond = select i1 %31, i1 %33, i1 false
-  br label %108
+  br label %109
 
 34:                                               ; preds = %5
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -675,14 +675,14 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not80, label %._crit_edge, label %.lr.ph123, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.thread99
-  br i1 %.259, label %108, label %._crit_edge.thread
+  br i1 %.259, label %109, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %70 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %9) #7
   %.not81 = icmp eq ptr %70, null
   %spec.store.select = select i1 %.not81, ptr @.str.81, ptr %70
   store ptr %spec.store.select, ptr %8, align 8
-  br label %108
+  br label %109
 
 71:                                               ; preds = %37
   store ptr @.str.81, ptr %8, align 8, !tbaa !46
@@ -710,7 +710,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
 80:                                               ; preds = %76, %78
   %81 = phi ptr [ %79, %78 ], [ %75, %76 ]
   store ptr %81, ptr %8, align 8, !tbaa !46
-  br label %108
+  br label %109
 
 82:                                               ; preds = %34
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 208
@@ -720,7 +720,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
 
 85:                                               ; preds = %82
   store ptr %84, ptr %8, align 8, !tbaa !46
-  br label %108
+  br label %109
 
 86:                                               ; preds = %34
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -730,7 +730,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
 
 89:                                               ; preds = %86
   store ptr %88, ptr %8, align 8, !tbaa !46
-  br label %108
+  br label %109
 
 90:                                               ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -764,29 +764,29 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not20.i, label %switch.lookup, label %urlpart.exit.thread143
 
 switch.lookup:                                    ; preds = %98, %.thread.i
-  %switch.tableidx = add nsw i32 %36, -19
-  %102 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @switch.table.writeString, i64 0, i64 %102
+  %102 = sext i32 %36 to i64
+  %103 = getelementptr i32, ptr @switch.table.writeString, i64 %102
+  %switch.gep = getelementptr i8, ptr %103, i64 -76
   %switch.load = load i32, ptr %switch.gep, align 4
-  %103 = load ptr, ptr %7, align 8, !tbaa !46
-  %104 = call i32 @curl_url_set(ptr noundef nonnull %94, i32 noundef 0, ptr noundef %103, i32 noundef 520) #7
-  %.not23.i = icmp eq i32 %104, 0
-  br i1 %.not23.i, label %105, label %urlpart.exit.thread143
+  %104 = load ptr, ptr %7, align 8, !tbaa !46
+  %105 = call i32 @curl_url_set(ptr noundef nonnull %94, i32 noundef 0, ptr noundef %104, i32 noundef 520) #7
+  %.not23.i = icmp eq i32 %105, 0
+  br i1 %.not23.i, label %106, label %urlpart.exit.thread143
 
-105:                                              ; preds = %switch.lookup
-  %106 = call i32 @curl_url_get(ptr noundef nonnull %94, i32 noundef %switch.load, ptr noundef nonnull %6, i32 noundef 1) #7
-  %.not25.i = icmp eq i32 %106, 0
+106:                                              ; preds = %switch.lookup
+  %107 = call i32 @curl_url_get(ptr noundef nonnull %94, i32 noundef %switch.load, ptr noundef nonnull %6, i32 noundef 1) #7
+  %.not25.i = icmp eq i32 %107, 0
   %.pre.i = load ptr, ptr %6, align 8
-  %107 = icmp ne ptr %.pre.i, null
-  %or.cond.i = select i1 %.not25.i, i1 %107, i1 false
+  %108 = icmp ne ptr %.pre.i, null
+  %or.cond.i = select i1 %.not25.i, i1 %108, i1 false
   br i1 %or.cond.i, label %urlpart.exit.thread146, label %urlpart.exit
 
-urlpart.exit.thread146:                           ; preds = %105
+urlpart.exit.thread146:                           ; preds = %106
   store ptr %.pre.i, ptr %8, align 8, !tbaa !46
   call void @curl_url_cleanup(ptr noundef nonnull %94) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %108
+  br label %109
 
 urlpart.exit.thread143:                           ; preds = %switch.lookup, %98
   call void @curl_url_cleanup(ptr noundef nonnull %94) #7
@@ -794,45 +794,45 @@ urlpart.exit.thread143:                           ; preds = %switch.lookup, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread104
 
-urlpart.exit:                                     ; preds = %105
+urlpart.exit:                                     ; preds = %106
   call void @curl_url_cleanup(ptr noundef nonnull %94) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread104
 
-108:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread146, %27, %.loopexit, %89, %85, %80
-  %109 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %84, %85 ], [ %88, %89 ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread146 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
+109:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread146, %27, %.loopexit, %89, %85, %80
+  %110 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %84, %85 ], [ %88, %89 ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread146 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
   %.055 = phi ptr [ null, %.loopexit ], [ null, %80 ], [ null, %85 ], [ null, %89 ], [ null, %27 ], [ %.pre.i, %urlpart.exit.thread146 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
   %.3 = phi i1 [ %.0, %.loopexit ], [ true, %80 ], [ true, %85 ], [ true, %89 ], [ %or.cond, %27 ], [ true, %urlpart.exit.thread146 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
-  %110 = icmp ne ptr %109, null
-  %or.cond3 = select i1 %.3, i1 %110, i1 false
-  br i1 %or.cond3, label %111, label %.thread104
+  %111 = icmp ne ptr %110, null
+  %or.cond3 = select i1 %.3, i1 %111, i1 false
+  br i1 %or.cond3, label %112, label %.thread104
 
-111:                                              ; preds = %108
-  br i1 %4, label %112, label %116
+112:                                              ; preds = %109
+  br i1 %4, label %113, label %117
 
-112:                                              ; preds = %111
-  %113 = load ptr, ptr %1, align 8, !tbaa !26
-  %114 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef %113) #7
-  %115 = load ptr, ptr %8, align 8, !tbaa !46
-  call void @jsonWriteString(ptr noundef %0, ptr noundef %115, i1 noundef zeroext false) #7
-  br label %121
+113:                                              ; preds = %112
+  %114 = load ptr, ptr %1, align 8, !tbaa !26
+  %115 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef %114) #7
+  %116 = load ptr, ptr %8, align 8, !tbaa !46
+  call void @jsonWriteString(ptr noundef %0, ptr noundef %116, i1 noundef zeroext false) #7
+  br label %122
 
-116:                                              ; preds = %111
-  %117 = call i32 @fputs(ptr noundef nonnull %109, ptr noundef %0)
-  br label %121
+117:                                              ; preds = %112
+  %118 = call i32 @fputs(ptr noundef nonnull %110, ptr noundef %0)
+  br label %122
 
-.thread104:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread143, %90, %86, %82, %72, %71, %34, %108
-  %.055109 = phi ptr [ %.055, %108 ], [ null, %34 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %86 ], [ null, %90 ], [ null, %urlpart.exit.thread143 ], [ null, %93 ], [ null, %urlpart.exit ]
-  br i1 %4, label %118, label %121
+.thread104:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread143, %90, %86, %82, %72, %71, %34, %109
+  %.055109 = phi ptr [ %.055, %109 ], [ null, %34 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %86 ], [ null, %90 ], [ null, %urlpart.exit.thread143 ], [ null, %93 ], [ null, %urlpart.exit ]
+  br i1 %4, label %119, label %122
 
-118:                                              ; preds = %.thread104
-  %119 = load ptr, ptr %1, align 8, !tbaa !26
-  %120 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %0, ptr noundef nonnull @.str.83, ptr noundef %119) #7
-  br label %121
+119:                                              ; preds = %.thread104
+  %120 = load ptr, ptr %1, align 8, !tbaa !26
+  %121 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %0, ptr noundef nonnull @.str.83, ptr noundef %120) #7
+  br label %122
 
-121:                                              ; preds = %.thread104, %118, %112, %116
-  %.055108 = phi ptr [ %.055109, %.thread104 ], [ %.055109, %118 ], [ %.055, %112 ], [ %.055, %116 ]
+122:                                              ; preds = %.thread104, %119, %113, %117
+  %.055108 = phi ptr [ %.055109, %.thread104 ], [ %.055109, %119 ], [ %.055, %113 ], [ %.055, %117 ]
   call void @curl_free(ptr noundef %.055108) #7
   call void @curlx_dyn_free(ptr noundef nonnull %9) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

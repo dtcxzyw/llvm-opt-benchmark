@@ -500,7 +500,7 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
 
 185:                                              ; preds = %183, %185
   %indvars.iv = phi i64 [ 0, %183 ], [ %indvars.iv.next, %185 ]
-  %186 = getelementptr inbounds nuw [16 x %struct.dlist_head], ptr %184, i64 0, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw %struct.dlist_head, ptr %184, i64 %indvars.iv
   store ptr %186, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store ptr %186, ptr %187, align 8
@@ -596,7 +596,7 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %15
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.InitProcess, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.InitProcess, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %19
 

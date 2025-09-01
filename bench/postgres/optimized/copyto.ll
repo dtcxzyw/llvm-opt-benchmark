@@ -1734,9 +1734,9 @@ CopySendChar.exit94:                              ; preds = %96, %97
   br i1 %120, label %121, label %173
 
 121:                                              ; preds = %118
-  %switch.tableidx294 = add nsw i8 %119, -8
-  %122 = icmp ult i8 %switch.tableidx294, 6
-  br i1 %122, label %switch.lookup293, label %123
+  %switch.tableidx293 = add nsw i8 %119, -8
+  %122 = icmp ult i8 %switch.tableidx293, 6
+  br i1 %122, label %switch.lookup294, label %123
 
 123:                                              ; preds = %121
   %124 = icmp eq i8 %119, %5
@@ -1748,15 +1748,15 @@ CopySendChar.exit94:                              ; preds = %96, %97
   %.not = icmp eq i8 %127, 0
   br i1 %.not, label %.loopexit, label %118, !llvm.loop !25
 
-switch.lookup293:                                 ; preds = %121
-  %128 = shl nuw nsw i8 %switch.tableidx294, 3
+switch.lookup294:                                 ; preds = %121
+  %128 = shl nuw nsw i8 %switch.tableidx293, 3
   %switch.shiftamt296 = zext nneg i8 %128 to i48
   %switch.downshift297 = lshr i48 125784399180898, %switch.shiftamt296
   %switch.masked298 = trunc i48 %switch.downshift297 to i8
   br label %.loopexit312
 
-.loopexit312:                                     ; preds = %123, %switch.lookup293
-  %.175 = phi i8 [ %switch.masked298, %switch.lookup293 ], [ %5, %123 ]
+.loopexit312:                                     ; preds = %123, %switch.lookup294
+  %.175 = phi i8 [ %switch.masked298, %switch.lookup294 ], [ %5, %123 ]
   %129 = icmp ugt ptr %.3137, %.278.ph142
   br i1 %129, label %130, label %135
 

@@ -90,7 +90,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_initkey(ptr noundef %0) #1 {
   br i1 %.not42, label %.loopexit, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %.03646
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 %.03646
   %34 = load i64, ptr %2, align 16
   store i64 %34, ptr %33, align 1
   %35 = add nuw nsw i32 %.03845, 1
@@ -107,7 +107,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_initkey(ptr noundef %0) #1 {
   br i1 %.not41, label %.loopexit, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 0, i64 %.13748
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 %.13748
   %41 = load i64, ptr %2, align 16
   store i64 %41, ptr %40, align 1
   %42 = add i32 %.13947, 1
@@ -316,9 +316,9 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_cipher(ptr noundef %0, ptr noun
 
 101:                                              ; preds = %101, %99
   %.04156.i = phi i64 [ 0, %99 ], [ %107, %101 ]
-  %102 = getelementptr inbounds nuw [12 x i8], ptr %100, i64 0, i64 %.04156.i
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 %.04156.i
   %103 = load i8, ptr %102, align 1, !tbaa !17
-  %104 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 0, i64 %.04156.i
+  %104 = getelementptr inbounds nuw i8, ptr %16, i64 %.04156.i
   %105 = load i8, ptr %104, align 1, !tbaa !17
   %106 = xor i8 %105, %103
   store i8 %106, ptr %104, align 1, !tbaa !17
@@ -368,7 +368,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_cipher(ptr noundef %0, ptr noun
   %122 = add nuw nsw i64 %.02023.i.i, %.025.i.i
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !17
-  %125 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.02023.i.i
+  %125 = getelementptr inbounds nuw i8, ptr %12, i64 %.02023.i.i
   %126 = load i8, ptr %125, align 1, !tbaa !17
   %127 = xor i8 %126, %124
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 %122
@@ -460,7 +460,7 @@ aes_gcm_siv_encrypt.exit:                         ; preds = %72, %aes_gcm_siv_ct
   %155 = add nuw nsw i64 %.02023.i.i32, %.025.i.i28
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !17
-  %158 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.02023.i.i32
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 %.02023.i.i32
   %159 = load i8, ptr %158, align 1, !tbaa !17
   %160 = xor i8 %159, %157
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 %155
@@ -541,9 +541,9 @@ aes_gcm_siv_ctr32.exit.i38:                       ; preds = %._crit_edge28.loope
 
 194:                                              ; preds = %194, %192
   %.04156.i42 = phi i64 [ 0, %192 ], [ %200, %194 ]
-  %195 = getelementptr inbounds nuw [12 x i8], ptr %193, i64 0, i64 %.04156.i42
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 %.04156.i42
   %196 = load i8, ptr %195, align 1, !tbaa !17
-  %197 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %.04156.i42
+  %197 = getelementptr inbounds nuw i8, ptr %9, i64 %.04156.i42
   %198 = load i8, ptr %197, align 1, !tbaa !17
   %199 = xor i8 %198, %196
   store i8 %199, ptr %197, align 1, !tbaa !17

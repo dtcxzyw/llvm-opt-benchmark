@@ -1041,7 +1041,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i: ; preds 
 191:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !170
   %.val101.i.i.i.i.i.i = load ptr, ptr %177, align 8, !noalias !170, !nonnull !7, !noundef !7
-  %192 = getelementptr inbounds [0 x { { { i32, i32 }, i32, i32 }, i32, i32, i32 }], ptr %.val101.i.i.i.i.i.i, i64 0, i64 %185
+  %192 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %.val101.i.i.i.i.i.i, i64 %185
   invoke void @_ZN3std7process5Child8try_wait17h309081c7df6a7d00E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull align 4 dereferenceable(28) %192)
           to label %196 unwind label %194, !noalias !153
 

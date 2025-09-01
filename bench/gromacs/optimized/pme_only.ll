@@ -964,7 +964,7 @@ _ZNSt10unique_ptrIN3gmx22StatePropagatorDataGpuESt14default_deleteIS1_EED2Ev.exi
   %246 = getelementptr inbounds nuw i8, ptr %17, i64 52
   %247 = select i1 %111, i32 19, i32 18
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %3, i64 0, i64 %248, i32 2
+  %249 = getelementptr inbounds nuw %struct.wallcc_t, ptr %3, i64 %248, i32 2
   %250 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %251 = getelementptr inbounds nuw i8, ptr %25, i64 5
   %252 = getelementptr inbounds nuw i8, ptr %25, i64 6
@@ -983,7 +983,7 @@ _ZNSt10unique_ptrIN3gmx22StatePropagatorDataGpuESt14default_deleteIS1_EED2Ev.exi
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %265 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %266 = getelementptr inbounds nuw i8, ptr %25, i64 13
-  %267 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %3, i64 0, i64 %248
+  %267 = getelementptr inbounds nuw %struct.wallcc_t, ptr %3, i64 %248
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %270 = getelementptr inbounds nuw i8, ptr %11, i64 88

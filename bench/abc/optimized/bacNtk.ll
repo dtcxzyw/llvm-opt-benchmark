@@ -122,7 +122,7 @@ define void @Bac_ManSetupTypes(ptr noundef writeonly captures(none) %0, ptr noun
 
 3:                                                ; preds = %.preheader, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 1, %.preheader ]
-  %4 = getelementptr inbounds nuw [73 x %struct.Bac_Pair_t_], ptr @s_Types, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw %struct.Bac_Pair_t_, ptr @s_Types, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = zext i32 %5 to i64
   %7 = icmp eq i64 %indvars.iv, %6
@@ -140,7 +140,7 @@ define void @Bac_ManSetupTypes(ptr noundef writeonly captures(none) %0, ptr noun
 
 Bac_GetTypeId.exit:                               ; preds = %8, %.split.loop.exit9.i
   %.06.i = phi i64 [ %9, %.split.loop.exit9.i ], [ -1, %8 ]
-  %10 = getelementptr inbounds [73 x %struct.Bac_Pair_t_], ptr @s_Types, i64 0, i64 %.06.i
+  %10 = getelementptr inbounds %struct.Bac_Pair_t_, ptr @s_Types, i64 %.06.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
@@ -162,10 +162,10 @@ define noundef nonnull ptr @Bac_NtkGenerateName(ptr noundef readonly captures(no
   %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [73 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 744
-  %10 = getelementptr inbounds nuw [73 x ptr], ptr %9, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Bac_NtkGenerateName.Buffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.98, ptr noundef %8) #21
   %13 = getelementptr i8, ptr %2, i64 4
@@ -224,7 +224,7 @@ define i32 @Bac_NameToType(ptr noundef readonly captures(none) %0) local_unnamed
 
 6:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw [73 x %struct.Bac_Pair_t_], ptr @s_Types, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.Bac_Pair_t_, ptr @s_Types, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22

@@ -32713,7 +32713,7 @@ define void @_ZN23LBMLBTRUTransportDialog27sourcesDetailCurrentChangedEi(ptr nou
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN23LBMLBTRUTransportDialog27sourcesDetailCurrentChangedEi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN23LBMLBTRUTransportDialog27sourcesDetailCurrentChangedEi, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -33280,7 +33280,7 @@ define void @_ZN23LBMLBTRUTransportDialog29receiversDetailCurrentChangedEi(ptr n
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN23LBMLBTRUTransportDialog29receiversDetailCurrentChangedEi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN23LBMLBTRUTransportDialog29receiversDetailCurrentChangedEi, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8

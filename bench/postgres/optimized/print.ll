@@ -6960,15 +6960,15 @@ define dso_local void @refresh_utf8format(ptr noundef readonly captures(none) %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [2 x %struct.unicodeStyleBorderFormat], ptr getelementptr inbounds nuw (i8, ptr @unicode_style, i64 192), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.unicodeStyleBorderFormat, ptr getelementptr inbounds nuw (i8, ptr @unicode_style, i64 192), i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [2 x %struct.unicodeStyleRowFormat], ptr @unicode_style, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.unicodeStyleRowFormat, ptr @unicode_style, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x %struct.unicodeStyleColumnFormat], ptr getelementptr inbounds nuw (i8, ptr @unicode_style, i64 80), i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %struct.unicodeStyleColumnFormat, ptr getelementptr inbounds nuw (i8, ptr @unicode_style, i64 80), i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 8), align 8
@@ -6976,7 +6976,7 @@ define dso_local void @refresh_utf8format(ptr noundef readonly captures(none) %0
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 16), align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %19 = getelementptr inbounds nuw [2 x ptr], ptr %18, i64 0, i64 %4
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %4
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 24), align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -6985,22 +6985,22 @@ define dso_local void @refresh_utf8format(ptr noundef readonly captures(none) %0
   %23 = load ptr, ptr %9, align 8
   store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 40), align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %25 = getelementptr inbounds nuw [2 x ptr], ptr %24, i64 0, i64 %4
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %4
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 48), align 8
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %28 = getelementptr inbounds nuw [2 x ptr], ptr %27, i64 0, i64 %8
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %8
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 56), align 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %30, i64 0, i64 %4
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %4
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 64), align 8
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 72), align 8
   %33 = load ptr, ptr %5, align 8
   store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 80), align 8
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %35 = getelementptr inbounds nuw [2 x ptr], ptr %34, i64 0, i64 %4
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %4
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 88), align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -7037,7 +7037,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 define internal fastcc void @_print_horizontal_line(i32 noundef range(i32 0, -2147483648) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i32 noundef range(i32 0, 3) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw [4 x %struct.printTextLineFormat], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.printTextLineFormat, ptr %7, i64 %8
   %10 = icmp eq i16 %2, 1
   br i1 %10, label %11, label %14
 
@@ -7178,7 +7178,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr noundef readonly ca
   %pg_asciiformat..i = select i1 %.not.i, ptr @pg_asciiformat, ptr %9
   %10 = getelementptr inbounds nuw i8, ptr %pg_asciiformat..i, i64 8
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr inbounds nuw [4 x %struct.printTextLineFormat], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.printTextLineFormat, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i16, ptr %13, align 8
   %15 = icmp ne i16 %14, 2

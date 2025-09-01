@@ -2279,7 +2279,7 @@ define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %134
   %136 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.process_control_avps.2, i64 0, i64 %136
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.process_control_avps.2, i64 %136
   %switch.load = load i64, ptr %switch.gep, align 8
   %137 = getelementptr inbounds nuw i8, ptr %.0.i129.i, i64 %switch.load
   store i32 %121, ptr %137, align 4
@@ -3443,17 +3443,17 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
 
 808:                                              ; preds = %800, %798
   %.0.i610 = phi ptr [ %802, %800 ], [ %.0637669, %798 ]
-  %switch.tableidx771 = add i32 %.0557671, -7
-  %809 = icmp ult i32 %switch.tableidx771, 5
-  %switch.maskindex773 = trunc i32 %switch.tableidx771 to i8
+  %switch.tableidx770 = add i32 %.0557671, -7
+  %809 = icmp ult i32 %switch.tableidx770, 5
+  %switch.maskindex773 = trunc i32 %switch.tableidx770 to i8
   %switch.shifted774 = lshr i8 27, %switch.maskindex773
   %switch.lobit775 = trunc i8 %switch.shifted774 to i1
   %or.cond778 = select i1 %809, i1 %switch.lobit775, i1 false
   br i1 %or.cond778, label %switch.lookup772, label %store_ccid.exit
 
 switch.lookup772:                                 ; preds = %808
-  %810 = zext nneg i32 %switch.tableidx771 to i64
-  %switch.gep776 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.process_control_avps.2, i64 0, i64 %810
+  %810 = zext nneg i32 %switch.tableidx770 to i64
+  %switch.gep776 = getelementptr inbounds nuw i64, ptr @switch.table.process_control_avps.2, i64 %810
   %switch.load777 = load i64, ptr %switch.gep776, align 8
   %811 = getelementptr inbounds nuw i8, ptr %.0.i610, i64 %switch.load777
   store i32 %796, ptr %811, align 4
@@ -3535,7 +3535,7 @@ switch.lookup772:                                 ; preds = %808
 
 switch.lookup779:                                 ; preds = %847
   %850 = zext nneg i16 %848 to i64
-  %switch.gep780 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.process_control_avps.3, i64 0, i64 %850
+  %switch.gep780 = getelementptr inbounds nuw i32, ptr @switch.table.process_control_avps.3, i64 %850
   %switch.load781 = load i32, ptr %switch.gep780, align 4
   br label %851
 

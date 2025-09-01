@@ -648,7 +648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i76: ; pre
 173:                                              ; preds = %.lr.ph, %185
   %174 = phi ptr [ %.pre, %.lr.ph ], [ %186, %185 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %185 ]
-  %175 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8, !tbaa !3
   %177 = icmp eq ptr %174, null
   br i1 %177, label %184, label %178
@@ -1265,7 +1265,7 @@ define hidden noundef ptr @_Z18get_clause_literalR11ast_managerP4exprj(ptr nound
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   br label %10
 

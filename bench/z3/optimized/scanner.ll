@@ -520,7 +520,7 @@ _ZN6vectorIcLb1EjE9push_backERKc.exit:            ; preds = %17, %23
   store i32 %31, ptr %29, align 4, !tbaa !40
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = zext i8 %1 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !32
   %36 = icmp eq i8 %35, 43
   %37 = icmp ne i8 %35, 97
@@ -624,7 +624,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %41, %83, %91
 97:                                               ; preds = %95
   %.mask = and i32 %.0.i, 255
   %98 = zext nneg i32 %.mask to i64
-  %99 = getelementptr inbounds nuw [256 x i8], ptr %32, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %32, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !32
   %101 = icmp eq i8 %100, 48
   br i1 %101, label %102, label %.lr.ph
@@ -663,7 +663,7 @@ _ZN7scanner9read_charEv.exit._crit_edge:          ; preds = %_ZN7scanner9read_ch
   %117 = trunc i32 %.02158 to i8
   %.mask23 = and i32 %.02158, 255
   %118 = zext nneg i32 %.mask23 to i64
-  %119 = getelementptr inbounds nuw [256 x i8], ptr %32, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %32, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !32
   switch i8 %120, label %216 [
     i8 43, label %121
@@ -1086,7 +1086,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %81, %113
   %.0.i = phi i32 [ %85, %81 ], [ %120, %113 ]
   %121 = and i32 %.0.i, 255
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [256 x i8], ptr %62, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %62, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !32
   %125 = icmp eq i8 %124, 48
   br i1 %125, label %.loopexit, label %198
@@ -1545,7 +1545,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %26, %58, %66
   %.0.i = phi i32 [ %30, %26 ], [ %65, %58 ], [ -1, %66 ]
   %.mask = and i32 %.0.i, 255
   %67 = zext nneg i32 %.mask to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !32
   switch i8 %69, label %125 [
     i8 48, label %70
@@ -4521,7 +4521,7 @@ _ZN6bufferIcLb1ELj16EE6resizeEjRKc.exit.preheader: ; preds = %_ZN6bufferIcLb1ELj
 _ZN6bufferIcLb1ELj16EE6resizeEjRKc.exit:          ; preds = %_ZN6bufferIcLb1ELj16EE6resizeEjRKc.exit.preheader, %_ZN6bufferIcLb1ELj16EE6resizeEjRKc.exit
   %indvars.iv = phi i64 [ 0, %_ZN6bufferIcLb1ELj16EE6resizeEjRKc.exit.preheader ], [ %indvars.iv.next, %_ZN6bufferIcLb1ELj16EE6resizeEjRKc.exit ]
   %65 = trunc i64 %indvars.iv to i8
-  %66 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
   store i8 %65, ptr %66, align 1, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -4787,7 +4787,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %18, %50, %58
   %.0.i = phi i32 [ %22, %18 ], [ %57, %50 ], [ -1, %58 ]
   %.mask = and i32 %.0.i, 255
   %59 = zext nneg i32 %.mask to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !32
   switch i8 %61, label %79 [
     i8 32, label %86

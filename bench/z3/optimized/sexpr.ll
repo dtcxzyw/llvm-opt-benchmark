@@ -117,7 +117,7 @@ define hidden noundef i32 @_ZNK5sexpr16get_num_childrenEv(ptr noundef nonnull re
 define hidden noundef ptr @_ZNK5sexpr9get_childEj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   ret ptr %6
 }
@@ -1795,7 +1795,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %25, %16
 
 .invoke:                                          ; preds = %30
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %29, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = icmp eq i32 %31, 0
   %37 = select i1 %36, ptr @.str.3, ptr @.str.4
@@ -1994,7 +1994,7 @@ _ZN6vectorIP5sexprLb0EjE4backEv.exit:             ; preds = %_ZNK6vectorIP5sexpr
 34:                                               ; preds = %.lr.ph, %57
   %35 = phi ptr [ %19, %.lr.ph ], [ %58, %57 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %36 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !9
@@ -2163,7 +2163,7 @@ define hidden noundef ptr @_ZN13sexpr_manager12mk_compositeEjPKP5sexprjj(ptr nou
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   store ptr %17, ptr %18, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !9

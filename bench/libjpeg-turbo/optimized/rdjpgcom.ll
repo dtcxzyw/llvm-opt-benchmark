@@ -596,7 +596,7 @@ read_1_byte.exit11.i:                             ; preds = %read_2_bytes.exit
 
 switch.lookup:                                    ; preds = %read_1_byte.exit11.i
   %126 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.scan_JPEG_header, i64 0, i64 %126
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.scan_JPEG_header, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %127
 

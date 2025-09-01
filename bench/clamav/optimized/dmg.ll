@@ -711,7 +711,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 255:                                              ; preds = %252
   %256 = add i32 %.0217467552, -1
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i32, ptr %3, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !3
   %260 = icmp slt i32 %253, %259
   br i1 %260, label %.critedge292, label %261
@@ -737,7 +737,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 265:                                              ; preds = %.critedge292.thread, %.critedge292, %.critedge292
   %266 = phi i32 [ 4, %.critedge292.thread ], [ %264, %.critedge292 ], [ %264, %.critedge292 ]
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i32, ptr %3, i64 %267
   store i32 -1, ptr %268, align 4, !tbaa !3
   br label %.thread431
 

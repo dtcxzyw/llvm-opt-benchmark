@@ -167,7 +167,7 @@ define dso_local i32 @Curl_output_aws_sigv4(ptr noundef %0, i1 noundef zeroext %
 
 52:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %27, i64 %49, i1 false)
-  %53 = getelementptr inbounds nuw [65 x i8], ptr %9, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 %49
   store i8 0, ptr %53, align 1, !tbaa !88
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %55 = load i64, ptr %54, align 2
@@ -219,7 +219,7 @@ define dso_local i32 @Curl_output_aws_sigv4(ptr noundef %0, i1 noundef zeroext %
 
 77:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %68, i64 %74, i1 false)
-  %78 = getelementptr inbounds nuw [65 x i8], ptr %8, i64 0, i64 %74
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 %74
   store i8 0, ptr %78, align 1, !tbaa !88
   %79 = load i64, ptr %54, align 2
   %80 = and i64 %79, 134217728
@@ -1315,13 +1315,13 @@ switch.early.test73:                              ; preds = %26
 49:                                               ; preds = %45, %41
   %50 = lshr i8 %40, 4
   %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr inbounds nuw [17 x i8], ptr @__const.canon_string.hex, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @__const.canon_string.hex, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !88
   store i8 %53, ptr %9, align 1, !tbaa !88
   %54 = load i8, ptr %.04475, align 1, !tbaa !88
   %55 = and i8 %54, 15
   %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds nuw [17 x i8], ptr @__const.canon_string.hex, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const.canon_string.hex, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !88
   store i8 %58, ptr %10, align 1, !tbaa !88
   %59 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef 3) #12

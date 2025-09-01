@@ -946,7 +946,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous
 
 switch.lookup:                                    ; preds = %2
   %21 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5boost3log11v2_mt_posix5sinks3aux9anonymous24severity_level_to_stringENS1_7trivial14severity_levelE.exit
 
@@ -3096,7 +3096,7 @@ define linkonce_odr hidden void @_ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous
 
 switch.lookup:                                    ; preds = %2
   %21 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5boost3log11v2_mt_posix5sinks3aux9anonymous15message_printerclERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5boost3log11v2_mt_posix5sinks3aux9anonymous24severity_level_to_stringENS1_7trivial14severity_levelE.exit
 

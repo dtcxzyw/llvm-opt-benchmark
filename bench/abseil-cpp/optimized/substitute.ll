@@ -358,7 +358,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2EPKv(ptr noundef nonnu
   %.010 = phi ptr [ %5, %4 ], [ %11, %7 ]
   %.0 = phi i64 [ %6, %4 ], [ %12, %7 ]
   %8 = and i64 %.0, 15
-  %9 = getelementptr inbounds nuw [17 x i8], ptr @_ZN4absl16numbers_internal8kHexCharE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal8kHexCharE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = getelementptr inbounds i8, ptr %.010, i64 -1
   store i8 %10, ptr %11, align 1, !tbaa !4
@@ -394,7 +394,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3HexE(ptr noundef 
   %.016 = phi ptr [ %4, %3 ], [ %9, %5 ]
   %.015 = phi i64 [ %1, %3 ], [ %10, %5 ]
   %6 = and i64 %.015, 15
-  %7 = getelementptr inbounds nuw [17 x i8], ptr @_ZN4absl16numbers_internal8kHexCharE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal8kHexCharE, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !4
   %9 = getelementptr inbounds i8, ptr %.016, i64 -1
   store i8 %8, ptr %9, align 1, !tbaa !4

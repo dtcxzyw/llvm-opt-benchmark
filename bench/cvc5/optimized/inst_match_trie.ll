@@ -223,7 +223,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13InstMat
   %22 = icmp eq i32 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !14, !noalias !11
   store ptr %26, ptr %9, align 8, !tbaa !3, !alias.scope !11
   %27 = load i64, ptr %26, align 8, !noalias !11
@@ -766,7 +766,7 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers13InstMatchTrie5printE
   %22 = icmp eq i32 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !14, !noalias !38
   store ptr %26, ptr %5, align 8, !tbaa !3, !alias.scope !38
   %27 = load i64, ptr %26, align 8, !noalias !38
@@ -1260,7 +1260,7 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers13InstMatchTrie17getIn
   %22 = icmp eq i32 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !14, !noalias !74
   store ptr %26, ptr %5, align 8, !tbaa !3, !alias.scope !74
   %27 = load i64, ptr %26, align 8, !noalias !74
@@ -2022,7 +2022,7 @@ _ZN4cvc57context3CDOIbE3setERKb.exit:             ; preds = %18, %27
   %38 = icmp eq i32 %37, 2
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %40 = zext i1 %38 to i64
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !14, !noalias !107
   store ptr %42, ptr %9, align 8, !tbaa !3, !alias.scope !107
   %43 = load i64, ptr %42, align 8, !noalias !107
@@ -2508,7 +2508,7 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers15CDInstMatchTrie5prin
   %26 = icmp eq i32 %25, 2
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = zext i1 %26 to i64
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !14, !noalias !113
   store ptr %30, ptr %5, align 8, !tbaa !3, !alias.scope !113
   %31 = load i64, ptr %30, align 8, !noalias !113
@@ -3006,7 +3006,7 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers15CDInstMatchTrie17get
   %26 = icmp eq i32 %25, 2
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = zext i1 %26 to i64
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !14, !noalias !117
   store ptr %30, ptr %5, align 8, !tbaa !3, !alias.scope !117
   %31 = load i64, ptr %30, align 8, !noalias !117

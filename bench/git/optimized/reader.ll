@@ -1255,7 +1255,7 @@ table_iter_init.exit:                             ; preds = %10
 
 26:                                               ; preds = %table_iter_init.exit, %60
   %.01236 = phi i64 [ 0, %table_iter_init.exit ], [ %61, %60 ]
-  %27 = getelementptr inbounds nuw [3 x %struct.anon], ptr @__const.reftable_reader_print_blocks.sections, i64 0, i64 %.01236
+  %27 = getelementptr inbounds nuw %struct.anon, ptr @__const.reftable_reader_print_blocks.sections, i64 %.01236
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !70
   %30 = trunc i32 %29 to i8

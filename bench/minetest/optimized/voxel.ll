@@ -571,7 +571,7 @@ _ZNK14NodeDefManager3getEt.exit279:               ; preds = %cond.false.i272, %_
   br i1 %tobool139.not, label %if.end161, label %if.else141
 
 if.else141:                                       ; preds = %_ZNK14NodeDefManager3getEt.exit279
-  %arrayidx.i.i = getelementptr inbounds nuw [65536 x %struct.ContentLightingFlags], ptr %m_content_lighting_flag_cache.i.i, i64 0, i64 %conv.i250
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %conv.i250
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !32
   %45 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %45, 0

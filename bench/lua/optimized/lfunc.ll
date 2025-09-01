@@ -75,7 +75,7 @@ define hidden void @luaF_initupvals(ptr noundef %0, ptr noundef %1) local_unname
   store ptr %9, ptr %10, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %11, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw [1 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %8, ptr %12, align 8, !tbaa !14
   %13 = load i8, ptr %6, align 1, !tbaa !19
   %14 = and i8 %13, 32

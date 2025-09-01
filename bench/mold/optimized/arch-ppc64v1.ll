@@ -6627,7 +6627,7 @@ thread-pre-split.i.i:                             ; preds = %200
 
 .lr.ph.i.i.i:                                     ; preds = %106
   %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %102, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1, !tbaa !260
   %111 = icmp ult i8 %.pre.i.i.i, %109
   br i1 %111, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
@@ -6651,7 +6651,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %124, label %125, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
 
 125:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i
-  %126 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %116
+  %126 = getelementptr inbounds nuw i8, ptr %102, i64 %116
   %127 = add i8 %115, 1
   %128 = and i8 %127, 7
   %129 = zext nneg i8 %128 to i64
@@ -6672,7 +6672,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %139 = load i8, ptr %126, align 1, !tbaa !260
   %140 = add i8 %139, 1
   store i8 %140, ptr %126, align 1, !tbaa !260
-  %141 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %129
+  %141 = getelementptr inbounds nuw i8, ptr %102, i64 %129
   store i8 %140, ptr %141, align 1, !tbaa !260
   %142 = add nuw nsw i8 %114, 1
   %exitcond.not.i.i.i = icmp eq i8 %142, 8
@@ -6711,7 +6711,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 .thread.i.i:                                      ; preds = %150
   %153 = zext nneg i8 %107 to i64
   %154 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %103, i64 %153
-  %155 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %153
+  %155 = getelementptr inbounds nuw i8, ptr %102, i64 %153
   %156 = load i8, ptr %155, align 1, !tbaa !260
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !479
@@ -6763,7 +6763,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 
 180:                                              ; preds = %150
   %181 = zext i8 %145 to i64
-  %182 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr %102, i64 %181
   %183 = load i8, ptr %182, align 1, !tbaa !260
   %184 = icmp ult i8 %183, %151
   br i1 %184, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSB_7PPC64V1EEESt6vectorISF_SaISF_EEEEZNSB_19ppc64v1_rewrite_opdERNSB_7ContextISD_EEE3$_0SF_EEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
@@ -9419,7 +9419,7 @@ thread-pre-split.i.i:                             ; preds = %259
 
 .lr.ph.i.i.i:                                     ; preds = %136
   %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %132, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %132, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1, !tbaa !260
   %141 = icmp ult i8 %.pre.i.i.i, %139
   br i1 %141, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
@@ -9443,7 +9443,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %154, label %155, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
 
 155:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i
-  %156 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 0, i64 %146
+  %156 = getelementptr inbounds nuw i8, ptr %132, i64 %146
   %157 = add i8 %145, 1
   %158 = and i8 %157, 7
   %159 = zext nneg i8 %158 to i64
@@ -9464,7 +9464,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %169 = load i8, ptr %156, align 1, !tbaa !260
   %170 = add i8 %169, 1
   store i8 %170, ptr %156, align 1, !tbaa !260
-  %171 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 0, i64 %159
+  %171 = getelementptr inbounds nuw i8, ptr %132, i64 %159
   store i8 %170, ptr %171, align 1, !tbaa !260
   %172 = add nuw nsw i8 %144, 1
   %exitcond.not.i.i.i = icmp eq i8 %172, 8
@@ -9503,7 +9503,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 .thread.i.i:                                      ; preds = %180
   %183 = zext nneg i8 %137 to i64
   %184 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %133, i64 %183
-  %185 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 0, i64 %183
+  %185 = getelementptr inbounds nuw i8, ptr %132, i64 %183
   %186 = load i8, ptr %185, align 1, !tbaa !260
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !479
@@ -9555,7 +9555,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 
 210:                                              ; preds = %180
   %211 = zext i8 %175 to i64
-  %212 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr %132, i64 %211
   %213 = load i8, ptr %212, align 1, !tbaa !260
   %214 = icmp ult i8 %213, %181
   br i1 %214, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSB_7PPC64V1EEESt6vectorISF_SaISF_EEEEZNSB_20ppc64v1_scan_symbolsERNSB_7ContextISD_EEE3$_0SF_EEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"

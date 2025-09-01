@@ -234,7 +234,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl9(ptr noundef %0, ptr
   %55 = phi i64 [ %.pre360, %.lr.ph ], [ %67, %54 ]
   %.0347.i182 = phi i64 [ 0, %.lr.ph ], [ %68, %54 ]
   %56 = lshr exact i64 %.0347.i182, 3
-  %57 = getelementptr inbounds nuw [512 x i8], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !7
   %59 = zext i8 %58 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
@@ -261,7 +261,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl9(ptr noundef %0, ptr
   %73 = and i64 %.lcssa180, 7
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %75 = lshr i64 %.lcssa180, 3
-  %76 = getelementptr inbounds nuw [512 x i8], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !7
   %78 = zext i8 %77 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
@@ -1656,7 +1656,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
+  %954 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %FastLog2.exit.i
@@ -1687,7 +1687,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %FastLog2.exit23.i
 
@@ -2242,7 +2242,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl11(ptr noundef %0, pt
   %55 = phi i64 [ %.pre360, %.lr.ph ], [ %67, %54 ]
   %.0347.i182 = phi i64 [ 0, %.lr.ph ], [ %68, %54 ]
   %56 = lshr exact i64 %.0347.i182, 3
-  %57 = getelementptr inbounds nuw [512 x i8], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !7
   %59 = zext i8 %58 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
@@ -2269,7 +2269,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl11(ptr noundef %0, pt
   %73 = and i64 %.lcssa180, 7
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %75 = lshr i64 %.lcssa180, 3
-  %76 = getelementptr inbounds nuw [512 x i8], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !7
   %78 = zext i8 %77 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
@@ -3664,7 +3664,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
+  %954 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %FastLog2.exit.i
@@ -3695,7 +3695,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %FastLog2.exit23.i
 
@@ -4250,7 +4250,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl13(ptr noundef %0, pt
   %55 = phi i64 [ %.pre360, %.lr.ph ], [ %67, %54 ]
   %.0347.i182 = phi i64 [ 0, %.lr.ph ], [ %68, %54 ]
   %56 = lshr exact i64 %.0347.i182, 3
-  %57 = getelementptr inbounds nuw [512 x i8], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !7
   %59 = zext i8 %58 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !696)
@@ -4277,7 +4277,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl13(ptr noundef %0, pt
   %73 = and i64 %.lcssa180, 7
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %75 = lshr i64 %.lcssa180, 3
-  %76 = getelementptr inbounds nuw [512 x i8], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !7
   %78 = zext i8 %77 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !691)
@@ -5672,7 +5672,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
+  %954 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %FastLog2.exit.i
@@ -5703,7 +5703,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %FastLog2.exit23.i
 
@@ -6258,7 +6258,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl15(ptr noundef %0, pt
   %55 = phi i64 [ %.pre360, %.lr.ph ], [ %67, %54 ]
   %.0347.i182 = phi i64 [ 0, %.lr.ph ], [ %68, %54 ]
   %56 = lshr exact i64 %.0347.i182, 3
-  %57 = getelementptr inbounds nuw [512 x i8], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !7
   %59 = zext i8 %58 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1001)
@@ -6285,7 +6285,7 @@ define internal fastcc void @BrotliCompressFragmentFastImpl15(ptr noundef %0, pt
   %73 = and i64 %.lcssa180, 7
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %75 = lshr i64 %.lcssa180, 3
-  %76 = getelementptr inbounds nuw [512 x i8], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !7
   %78 = zext i8 %77 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !996)
@@ -7680,7 +7680,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
+  %954 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %FastLog2.exit.i
@@ -7711,7 +7711,7 @@ FastLog2.exit.i:                                  ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %FastLog2.exit23.i
 

@@ -28,8 +28,8 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 5:                                                ; preds = %.preheader, %.thread83
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread83 ]
   %6 = phi ptr [ @.str.1, %.preheader ], [ %25, %.thread83 ]
-  %7 = phi ptr [ @conf_list, %.preheader ], [ %24, %.thread83 ]
   %.039102 = phi i32 [ %1, %.preheader ], [ %.44387, %.thread83 ]
+  %7 = getelementptr inbounds nuw %struct.finder, ptr @conf_list, i64 %indvars.iv
   %8 = tail call ptr @curl_getenv(ptr noundef nonnull %6) #5
   %.not64 = icmp eq ptr %8, null
   br i1 %.not64, label %.thread83, label %9
@@ -81,7 +81,7 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 .thread83:                                        ; preds = %.thread83.sink.split, %21, %5
   %.44387 = phi i32 [ %.039102, %5 ], [ %.342, %21 ], [ %.44387.ph, %.thread83.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw [6 x %struct.finder], ptr @conf_list, i64 0, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw %struct.finder, ptr @conf_list, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !15
   %exitcond = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond, label %26, label %5, !llvm.loop !16
@@ -142,7 +142,7 @@ define internal fastcc noalias ptr @checkhome(ptr noundef nonnull %0, ptr nounde
 
 .split.us:                                        ; preds = %3, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const.checkhome.pref, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr @__const.checkhome.pref, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = sext i8 %7 to i32
   %9 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.6, ptr noundef nonnull %0, i32 noundef %8, ptr noundef nonnull %5) #5

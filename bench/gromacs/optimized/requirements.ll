@@ -1608,8 +1608,8 @@ define void @_ZNK3gmx31OutputRequirementOptionDirector7processEv(ptr dead_on_unw
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %15 ]
   %16 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !111
-  %18 = getelementptr inbounds nuw [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   store float %17, ptr %19, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

@@ -989,7 +989,7 @@ sub_1:                                            ; preds = %sub_0
   %199 = zext i8 %193 to i32
   %200 = add nsw i32 %199, -48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %201 = getelementptr [32 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %201 = getelementptr i32, ptr %6, i64 %indvars.iv.i
   store i32 %200, ptr %201, align 4
   %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, 1
   %202 = icmp slt i64 %indvars.iv.next52.i, %188
@@ -1015,7 +1015,7 @@ sub_1:                                            ; preds = %sub_0
   %.02445.i = phi i32 [ %213, %.preheader.i ], [ 1, %._crit_edge.i ]
   %.02544.i = phi i32 [ %212, %.preheader.i ], [ 0, %._crit_edge.i ]
   %208 = add nsw i64 %indvars.iv56.i, -1
-  %209 = getelementptr [32 x i32], ptr %6, i64 0, i64 %208
+  %209 = getelementptr i32, ptr %6, i64 %208
   %210 = load i32, ptr %209, align 4
   %211 = mul i32 %210, %.02445.i
   %212 = add i32 %211, %.02544.i
@@ -1253,7 +1253,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 318:                                              ; preds = %315, %312
   %.sink211.i = phi i32 [ %317, %315 ], [ 0, %312 ]
-  %319 = getelementptr [64 x i32], ptr %309, i64 0, i64 %indvars.iv.i574
+  %319 = getelementptr i32, ptr %309, i64 %indvars.iv.i574
   store i32 %.sink211.i, ptr %319, align 4
   %indvars.iv.next.i575 = add nuw nsw i64 %indvars.iv.i574, 1
   %320 = load i32, ptr %304, align 8
@@ -1286,7 +1286,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 335:                                              ; preds = %331, %327
   %.sink213.i = phi i32 [ %334, %331 ], [ 0, %327 ]
-  %336 = getelementptr [64 x i32], ptr %326, i64 0, i64 %indvars.iv186.i
+  %336 = getelementptr i32, ptr %326, i64 %indvars.iv186.i
   store i32 %.sink213.i, ptr %336, align 4
   %indvars.iv.next187.i = add nuw nsw i64 %indvars.iv186.i, 1
   %337 = load i32, ptr %304, align 8
@@ -1330,7 +1330,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 358:                                              ; preds = %352, %350
   %.sink215.i = phi i8 [ %357, %352 ], [ 0, %350 ]
   %.3.i = phi i32 [ %353, %352 ], [ %.2172.i, %350 ]
-  %359 = getelementptr [16 x i8], ptr %347, i64 0, i64 %indvars.iv189.i
+  %359 = getelementptr i8, ptr %347, i64 %indvars.iv189.i
   store i8 %.sink215.i, ptr %359, align 1
   %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next190.i, %348
@@ -1352,7 +1352,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 367:                                              ; preds = %362, %360
   %.sink217.i = phi i32 [ %366, %362 ], [ 0, %360 ]
   %.5.i = phi i32 [ %363, %362 ], [ %.4177.i, %360 ]
-  %368 = getelementptr [16 x i32], ptr %349, i64 0, i64 %indvars.iv192.i
+  %368 = getelementptr i32, ptr %349, i64 %indvars.iv192.i
   store i32 %.sink217.i, ptr %368, align 4
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %369 = load i32, ptr %345, align 4
@@ -1460,7 +1460,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %420 = zext i8 %414 to i32
   %421 = add nsw i32 %420, -48
   %indvars.iv.next.i587 = add nuw nsw i64 %indvars.iv.i585, 1
-  %422 = getelementptr [32 x i32], ptr %5, i64 0, i64 %indvars.iv.i585
+  %422 = getelementptr i32, ptr %5, i64 %indvars.iv.i585
   store i32 %421, ptr %422, align 4
   %indvars.iv.next52.i588 = add nsw i64 %indvars.iv51.i584, 1
   %423 = icmp slt i64 %indvars.iv.next52.i588, %409
@@ -1486,7 +1486,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %.02445.i596 = phi i32 [ %434, %.preheader.i594 ], [ 1, %._crit_edge.i589 ]
   %.02544.i597 = phi i32 [ %433, %.preheader.i594 ], [ 0, %._crit_edge.i589 ]
   %429 = add nsw i64 %indvars.iv56.i595, -1
-  %430 = getelementptr [32 x i32], ptr %5, i64 0, i64 %429
+  %430 = getelementptr i32, ptr %5, i64 %429
   %431 = load i32, ptr %430, align 4
   %432 = mul i32 %431, %.02445.i596
   %433 = add i32 %432, %.02544.i597
@@ -2047,7 +2047,7 @@ switch.hole_check:                                ; preds = %attach_rlc_info.exi
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %714 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [21 x ptr], ptr @switch.table.dissect_catapult_dct2000, i64 0, i64 %714
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_catapult_dct2000, i64 %714
   %switch.load = load ptr, ptr %switch.gep, align 8
   %715 = call ptr @find_dissector(ptr noundef nonnull %switch.load)
   %.not100.i = icmp eq ptr %715, null
@@ -2409,7 +2409,7 @@ proto_item_set_generated.exit:                    ; preds = %789, %793, %796
   %spec.select.i621 = select i1 %or.cond5.i620, i8 %909, i8 -1
   %.0.i622 = select i1 %or.cond.i619, i8 %907, i8 %spec.select.i621
   %910 = add i8 %.0.i622, %904
-  %911 = getelementptr [200 x i8], ptr @dissect_catapult_dct2000.nrup_data, i64 0, i64 %indvars.iv757
+  %911 = getelementptr i8, ptr @dissect_catapult_dct2000.nrup_data, i64 %indvars.iv757
   store i8 %910, ptr %911, align 1
   %indvars.iv.next756 = add nuw nsw i64 %indvars.iv755, 2
   %indvars.iv.next758 = add nuw nsw i64 %indvars.iv757, 1
@@ -2430,7 +2430,7 @@ proto_item_set_generated.exit:                    ; preds = %789, %793, %796
   %918 = phi i32 [ %919, %.preheader ], [ %897, %._crit_edge722 ]
   %919 = add i32 %918, 1
   %920 = sext i32 %918 to i64
-  %921 = getelementptr [200 x i8], ptr @dissect_catapult_dct2000.nrup_data, i64 0, i64 %920
+  %921 = getelementptr i8, ptr @dissect_catapult_dct2000.nrup_data, i64 %920
   store i8 0, ptr %921, align 1
   %922 = add nsw i32 %.0506724, 1
   %exitcond759.not = icmp eq i32 %922, 4
@@ -2670,7 +2670,7 @@ proto_item_set_generated.exit:                    ; preds = %789, %793, %796
   %spec.select.i629 = select i1 %or.cond5.i628, i8 %1040, i8 -1
   %.0.i630 = select i1 %or.cond.i627, i8 %1038, i8 %spec.select.i629
   %1041 = add i8 %.0.i630, %1033
-  %1042 = getelementptr [36000 x i8], ptr @dissect_catapult_dct2000.eth_data, i64 0, i64 %indvars.iv760
+  %1042 = getelementptr i8, ptr @dissect_catapult_dct2000.eth_data, i64 %indvars.iv760
   store i8 %1041, ptr %1042, align 1
   %1043 = add i32 %.0497730, 2
   %indvars.iv.next761 = add nuw nsw i64 %indvars.iv760, 1
@@ -3521,7 +3521,7 @@ define internal fastcc i32 @parse_outhdr_string(ptr noundef readonly captures(no
   %17 = zext i8 %11 to i32
   %18 = add nsw i32 %17, -48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %19 = getelementptr i32, ptr %4, i64 %indvars.iv
   store i32 %18, ptr %19, align 4
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %20 = icmp slt i64 %indvars.iv.next52, %6
@@ -3551,7 +3551,7 @@ define internal fastcc i32 @parse_outhdr_string(ptr noundef readonly captures(no
   %.02445 = phi i32 [ 1, %.preheader.preheader ], [ %32, %.preheader ]
   %.02544 = phi i32 [ 0, %.preheader.preheader ], [ %31, %.preheader ]
   %27 = add nsw i64 %indvars.iv56, -1
-  %28 = getelementptr [32 x i32], ptr %4, i64 0, i64 %27
+  %28 = getelementptr i32, ptr %4, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = mul i32 %29, %.02445
   %31 = add i32 %30, %.02544
@@ -4405,8 +4405,8 @@ sub_1:                                            ; preds = %sub_0
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr i8, ptr %32, i64 2
   %35 = zext i16 %.04359 to i64
-  %36 = getelementptr [20 x i32], ptr %5, i64 0, i64 %35
-  %37 = getelementptr [20 x i32], ptr %6, i64 0, i64 %35
+  %36 = getelementptr i32, ptr %5, i64 %35
+  %37 = getelementptr i32, ptr %6, i64 %35
   %38 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %34, ptr noundef nonnull @.str.421, ptr noundef %36, ptr noundef %37) #13
   %.not49 = icmp eq i32 %38, 2
   br i1 %.not49, label %26, label %39
@@ -4456,15 +4456,15 @@ sub_1:                                            ; preds = %sub_0
 62:                                               ; preds = %.lr.ph62, %62
   %.161 = phi i16 [ 0, %.lr.ph62 ], [ %72, %62 ]
   %63 = zext i16 %.161 to i64
-  %64 = getelementptr [20 x i32], ptr %5, i64 0, i64 %63
+  %64 = getelementptr i32, ptr %5, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = trunc i32 %65 to i16
-  %67 = getelementptr [20 x i16], ptr %47, i64 0, i64 %63
+  %67 = getelementptr i16, ptr %47, i64 %63
   store i16 %66, ptr %67, align 2
-  %68 = getelementptr [20 x i32], ptr %6, i64 0, i64 %63
+  %68 = getelementptr i32, ptr %6, i64 %63
   %69 = load i32, ptr %68, align 4
   %70 = trunc i32 %69 to i16
-  %71 = getelementptr [20 x i16], ptr %48, i64 0, i64 %63
+  %71 = getelementptr i16, ptr %48, i64 %63
   store i16 %70, ptr %71, align 2
   %72 = add i16 %.161, 1
   %73 = zext i16 %72 to i32
@@ -4836,7 +4836,7 @@ switch.lookup:                                    ; preds = %5
 160:                                              ; preds = %160, %156
   %indvars.iv.i = phi i64 [ 0, %156 ], [ %indvars.iv.next.i, %160 ]
   %161 = shl nuw nsw i64 %indvars.iv.i, 1
-  %162 = getelementptr [33 x i8], ptr @get_key.key, i64 0, i64 %161
+  %162 = getelementptr i8, ptr @get_key.key, i64 %161
   %163 = sub nuw nsw i64 33, %161
   %164 = trunc nuw nsw i64 %indvars.iv.i to i32
   %165 = add i32 %157, %164
@@ -5634,7 +5634,7 @@ define internal fastcc void @get_key(ptr noundef %0, i32 noundef %1) unnamed_add
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr [33 x i8], ptr @get_key.key, i64 0, i64 %5
+  %6 = getelementptr i8, ptr @get_key.key, i64 %5
   %7 = sub nuw nsw i64 33, %5
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = add i32 %1, %8

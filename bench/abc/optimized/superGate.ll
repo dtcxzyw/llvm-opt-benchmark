@@ -316,14 +316,14 @@ Super_ManStop.exit:                               ; preds = %98, %101
 
 125:                                              ; preds = %125, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %125 ]
-  %126 = getelementptr inbounds nuw [6 x float], ptr %124, i64 0, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv.i
   store float -9.999000e+03, ptr %126, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count84.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %125, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %125
-  %127 = getelementptr inbounds nuw [6 x float], ptr %124, i64 0, i64 %indvars.iv81.i
+  %127 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv81.i
   store float 0.000000e+00, ptr %127, align 4, !tbaa !39
   %128 = load ptr, ptr %113, align 8, !tbaa !34
   %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv81.i
@@ -354,7 +354,7 @@ Super_AddGateToTable.exit.i:                      ; preds = %132, %._crit_edge.i
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %116, align 4, !tbaa !49
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %139 = getelementptr inbounds nuw [10 x ptr], ptr %117, i64 0, i64 %indvars.iv81.i
+  %139 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv81.i
   store ptr %119, ptr %139, align 8, !tbaa !42
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next82.i, %wide.trip.count84.i
@@ -2392,7 +2392,7 @@ Abc_Clock.exit.i111:                              ; preds = %980, %._crit_edge72
 993:                                              ; preds = %999, %.lr.ph.i118
   %indvars.iv.i120 = phi i64 [ 0, %.lr.ph.i118 ], [ %indvars.iv.next.i122, %999 ]
   %.03665.i = phi i32 [ 0, %.lr.ph.i118 ], [ %.1.i121, %999 ]
-  %994 = getelementptr inbounds nuw [6 x float], ptr %992, i64 0, i64 %indvars.iv.i120
+  %994 = getelementptr inbounds nuw float, ptr %992, i64 %indvars.iv.i120
   %995 = load float, ptr %994, align 4, !tbaa !39
   %996 = fpext float %995 to double
   %997 = fcmp olt double %996, 0xC0C3877FDF3B645A
@@ -4669,7 +4669,7 @@ define void @Super_WriteLibraryGateName_rec(ptr noundef readonly captures(none) 
   br label %21
 
 21:                                               ; preds = %20, %19
-  %22 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   tail call void @Super_WriteLibraryGateName_rec(ptr noundef %23, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4726,7 +4726,7 @@ define void @Super_WriteLibraryGate(ptr noundef %0, ptr noundef readonly capture
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [6 x float], ptr %17, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   %20 = load float, ptr %19, align 4, !tbaa !39
   %21 = fcmp oeq float %20, -9.999000e+03
   %22 = fpext float %20 to double
@@ -4774,7 +4774,7 @@ define void @Super_WriteLibraryTreeFile_rec(ptr noundef captures(none) %0, ptr n
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [6 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   tail call void @Super_WriteLibraryTreeFile_rec(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4806,7 +4806,7 @@ define void @Super_WriteLibraryTreeFile_rec(ptr noundef captures(none) %0, ptr n
 
 27:                                               ; preds = %.lr.ph30, %27
   %indvars.iv33 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next34, %27 ]
-  %28 = getelementptr inbounds nuw [6 x ptr], ptr %26, i64 0, i64 %indvars.iv33
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv33
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
@@ -4848,7 +4848,7 @@ define void @Super_WriteLibraryTreeStr_rec(ptr noundef captures(none) %0, ptr no
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [6 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   tail call void @Super_WriteLibraryTreeStr_rec(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5098,7 +5098,7 @@ Vec_StrPush.exit.i46:                             ; preds = %114, %Vec_StrGrow.e
   %119 = sext i32 %117 to i64
   %120 = getelementptr inbounds i8, ptr %116, i64 %119
   store i8 32, ptr %120, align 1, !tbaa !103
-  %121 = getelementptr inbounds nuw [6 x ptr], ptr %93, i64 0, i64 %indvars.iv78
+  %121 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv78
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 8
@@ -5180,7 +5180,7 @@ Vec_StrPush.exit.i58:                             ; preds = %148, %Vec_StrGrow.e
   %.11525.i = phi i32 [ %158, %.preheader24.i ], [ %126, %.preheader24.i.preheader ]
   %155 = urem i32 %.11525.i, 10
   %156 = trunc nuw nsw i32 %155 to i8
-  %157 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i53
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i53
   store i8 %156, ptr %157, align 1, !tbaa !103
   %158 = udiv i32 %.11525.i, 10
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
@@ -5191,7 +5191,7 @@ Vec_StrPush.exit.i58:                             ; preds = %148, %Vec_StrGrow.e
 .preheader.i:                                     ; preds = %.preheader24.i, %Vec_StrPush.exit23.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %Vec_StrPush.exit23.i ], [ %indvars.iv29.i, %.preheader24.i ]
   %indvars.iv.next32.i = add nsw i64 %indvars.iv31.i, -1
-  %159 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.next32.i
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.next32.i
   %160 = load i8, ptr %159, align 1, !tbaa !103
   %161 = add i8 %160, 48
   %162 = load i32, ptr %92, align 4, !tbaa !10
@@ -5672,7 +5672,7 @@ Vec_StrPush.exit48:                               ; preds = %.Vec_StrGrow.exit10
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv61 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next62, %.lr.ph56 ]
-  %126 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv61
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv61
   %127 = load i8, ptr %126, align 1, !tbaa !103
   %.val34 = load ptr, ptr %7, align 8, !tbaa !3
   %128 = getelementptr i8, ptr %.val34, i64 %indvars.iv61
@@ -5973,7 +5973,7 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr noundef captu
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
   %.181 = phi i32 [ %.058, %.lr.ph ], [ %.3, %84 ]
   %.16080 = phi i32 [ %.059, %.lr.ph ], [ %.362, %84 ]
-  %65 = getelementptr inbounds nuw [6 x float], ptr %63, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !39
   %67 = fpext float %66 to double
   %68 = fcmp oeq float %66, -9.999000e+03

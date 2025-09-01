@@ -3649,7 +3649,7 @@ define hidden void @_ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi(
 
 switch.lookup:                                    ; preds = %72
   %77 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi, i64 0, i64 %77
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi, i64 %77
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %78
 
@@ -5649,7 +5649,7 @@ define hidden void @_ZN14MacroAssembler7jump_ccEN9Assembler9ConditionE14AddressL
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %68, align 8
   %69 = zext i32 %1 to i64
-  %70 = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 %69
   %71 = load i32, ptr %70, align 4
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %71, ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @.str, i32 noundef 2365) #18
   %72 = load ptr, ptr %2, align 8
@@ -7546,7 +7546,7 @@ define hidden void @_ZN14MacroAssembler10cond_inc32EN9Assembler9ConditionE14Addr
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 -1, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -7583,7 +7583,7 @@ define hidden noundef range(i32 0, 16) i32 @_ZN14MacroAssembler16negate_conditio
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -18901,7 +18901,7 @@ define hidden void @_ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8Register7A
 
 switch.lookup:                                    ; preds = %16
   %23 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @.str, i32 noundef 5110) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 21, i1 false)
@@ -18950,7 +18950,7 @@ define hidden void @_ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2
 
 switch.lookup:                                    ; preds = %9
   %16 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14MacroAssembler6cmov32EN9Assembler9ConditionE8RegisterS2_, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @.str, i32 noundef 5121) #18
   call void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %3) #18
@@ -21240,7 +21240,7 @@ define hidden void @_ZN14MacroAssembler13fill64_maskedEj8Registeri11XMMRegister9
 
 32:                                               ; preds = %9
   %33 = zext i32 %1 to i64
-  %34 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN14MacroAssembler13fill32_maskedEj8Registeri11XMMRegister9KRegisterS0_S0_.type, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @__const._ZN14MacroAssembler13fill32_maskedEj8Registeri11XMMRegister9KRegisterS0_S0_.type, i64 %33
   %35 = load i8, ptr %34, align 1
   store i32 %2, ptr %14, align 8
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -21293,7 +21293,7 @@ define hidden void @_ZN14MacroAssembler13fill32_maskedEj8Registeri11XMMRegister9
   %9 = alloca %class.Address, align 8
   %10 = alloca %class.Address, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN14MacroAssembler13fill32_maskedEj8Registeri11XMMRegister9KRegisterS0_S0_.type, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @__const._ZN14MacroAssembler13fill32_maskedEj8Registeri11XMMRegister9KRegisterS0_S0_.type, i64 %11
   %13 = load i8, ptr %12, align 1
   store i32 %2, ptr %10, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -36022,7 +36022,7 @@ switch.lookup:                                    ; preds = %1, %switch.lookup
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %12, i32 noundef %.012, i32 noundef %10)
   %14 = mul nuw nsw i32 %10, 10
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [80 x i8], ptr %7, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 32767
@@ -36040,7 +36040,7 @@ switch.lookup:                                    ; preds = %1, %switch.lookup
   %31 = ashr i32 %29, %30
   %32 = and i32 %31, 3
   %33 = zext nneg i32 %32 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK9FPU_State5printEv, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9FPU_State5printEv, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef nonnull %switch.load)
   %35 = add nuw nsw i32 %.012, 1
@@ -36141,12 +36141,12 @@ switch.lookup:
   %3 = lshr i32 %2, 10
   %4 = and i32 %3, 3
   %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK11ControlWord5printEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11ControlWord5printEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = lshr i32 %2, 8
   %7 = and i32 %6, 3
   %8 = zext nneg i32 %7 to i64
-  %switch.gep12 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK11ControlWord5printEv.2, i64 0, i64 %8
+  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11ControlWord5printEv.2, i64 %8
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   store i8 32, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1

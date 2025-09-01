@@ -497,7 +497,7 @@ define dso_local i32 @getJsonbOffset(ptr noundef readonly captures(none) %0, i32
 
 8:                                                ; preds = %5
   %9 = and i64 %indvars.iv.next, 2147483647
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 268435455
   %13 = add i32 %12, %.08
@@ -513,7 +513,7 @@ define dso_local i32 @getJsonbOffset(ptr noundef readonly captures(none) %0, i32
 define dso_local i32 @getJsonbLength(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [0 x i32], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
   %.not = icmp sgt i32 %6, -1
   br i1 %.not, label %20, label %7
@@ -532,7 +532,7 @@ define dso_local i32 @getJsonbLength(ptr noundef readonly captures(none) %0, i32
 
 12:                                               ; preds = %9
   %13 = and i64 %indvars.iv.next.i, 2147483647
-  %14 = getelementptr inbounds nuw [0 x i32], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 268435455
   %17 = add i32 %16, %.08.i
@@ -1089,7 +1089,7 @@ switch.early.test:                                ; preds = %55
 
 110:                                              ; preds = %107
   %111 = and i64 %indvars.iv.next.i, 2147483647
-  %112 = getelementptr inbounds nuw [0 x i32], ptr %105, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr %105, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 268435455
   %115 = add i32 %114, %.08.i
@@ -1362,7 +1362,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
 define internal fastcc void @fillJsonbValue(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 28
   %11 = and i32 %10, 7
@@ -1403,7 +1403,7 @@ define internal fastcc void @fillJsonbValue(ptr noundef readonly captures(none) 
 
 24:                                               ; preds = %21
   %25 = and i64 %indvars.iv.next.i.i, 2147483647
-  %26 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 268435455
   %29 = add i32 %28, %.08.i.i
@@ -1474,7 +1474,7 @@ getJsonbLength.exit:                              ; preds = %getJsonbOffset.exit
 
 57:                                               ; preds = %54
   %58 = and i64 %indvars.iv.next.i.i34, 2147483647
-  %59 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 268435455
   %62 = add i32 %61, %.08.i.i33
@@ -1608,7 +1608,7 @@ define dso_local ptr @getKeyJsonValueFromContainer(ptr noundef %0, ptr noundef r
 
 22:                                               ; preds = %19
   %23 = and i64 %indvars.iv.next.i, 2147483647
-  %24 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %9, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 268435455
   %27 = add i32 %26, %.08.i
@@ -1620,7 +1620,7 @@ getJsonbOffset.exit:                              ; preds = %19, %22
   %28 = zext i32 %.1.i to i64
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 %28
   %30 = sext i32 %17 to i64
-  %31 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %30
+  %31 = getelementptr inbounds i32, ptr %9, i64 %30
   %32 = load i32, ptr %31, align 4
   %.not.i48 = icmp sgt i32 %32, -1
   br i1 %.not.i48, label %43, label %.preheader
@@ -1635,7 +1635,7 @@ getJsonbOffset.exit:                              ; preds = %19, %22
 
 35:                                               ; preds = %.preheader
   %36 = and i64 %indvars.iv.next.i.i, 2147483647
-  %37 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 268435455
   %40 = add i32 %39, %.08.i.i
@@ -1691,7 +1691,7 @@ lengthCompareJsonbString.exit:                    ; preds = %getJsonbLength.exit
 
 58:                                               ; preds = %55
   %59 = and i64 %indvars.iv.next.i52, 2147483647
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %9, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 268435455
   %63 = add i32 %62, %.08.i51
@@ -1739,7 +1739,7 @@ define dso_local ptr @getIthJsonbValueFromContainer(ptr noundef %0, i32 noundef 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = tail call ptr @palloc(i64 noundef 32) #13
   %15 = zext nneg i32 %1 to i64
   br label %16
@@ -1754,7 +1754,7 @@ define dso_local ptr @getIthJsonbValueFromContainer(ptr noundef %0, i32 noundef 
 
 19:                                               ; preds = %16
   %20 = and i64 %indvars.iv.next.i, 2147483647
-  %21 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %11, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 268435455
   %24 = add i32 %23, %.08.i

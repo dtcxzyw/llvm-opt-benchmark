@@ -400,7 +400,7 @@ entry:
   call void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %server, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %idxprom = zext i32 %action to i64
-  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @_ZZN10ServerList12sendAnnounceENS_14AnnounceActionEtRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEdjfRKS7_SD_RKS1_I7ModSpecSaISE_EEbE8aa_names, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZZN10ServerList12sendAnnounceENS_14AnnounceActionEtRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEdjfRKS7_SD_RKS1_I7ModSpecSaISE_EEbE8aa_names, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8, !tbaa !12
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef %0)
           to label %invoke.cont unwind label %lpad

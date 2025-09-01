@@ -79,7 +79,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN3vfs3Vfs4iter28_$u7b$$u7b$closure$u7d$$u7d$17h3611bd0fa2243d88E.llvm.16399167019466869338.exit": ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %12 = load ptr, ptr %11, align 8, !alias.scope !11, !noalias !14, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %6
   %14 = load i8, ptr %13, align 1, !range !17, !noalias !16, !noundef !4
   %switch.i = icmp samesign ult i8 %14, 2
   ret i1 %switch.i
@@ -617,7 +617,7 @@ define internal fastcc noundef zeroext i1 @"_ZN8indexmap3map4core10equivalent28_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
   %10 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %11 = getelementptr inbounds [0 x { { { i64, [3 x i64] } }, i64, {} }], ptr %9, i64 0, i64 %.0.val
+  %11 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %9, i64 %.0.val
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
@@ -786,7 +786,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %54, label %55, label %.split.us.i.invoke, !prof !15
 
 55:                                               ; preds = %.lr.ph.us.i
-  %56 = getelementptr inbounds [0 x { { { i64, [3 x i64] } }, i64, {} }], ptr %9, i64 0, i64 %.val.i.i.i.us.us.i
+  %56 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %9, i64 %.val.i.i.i.us.us.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261), !noalias !264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265), !noalias !264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268), !noalias !264
@@ -846,7 +846,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %79, label %80, label %.split.us.i.invoke, !prof !15
 
 80:                                               ; preds = %.lr.ph.i
-  %81 = getelementptr inbounds [0 x { { { i64, [3 x i64] } }, i64, {} }], ptr %9, i64 0, i64 %.val.i.i.i.i
+  %81 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %9, i64 %.val.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !261), !noalias !264
   call void @llvm.experimental.noalias.scope.decl(metadata !265), !noalias !264
   call void @llvm.experimental.noalias.scope.decl(metadata !268), !noalias !264
@@ -1219,7 +1219,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   br i1 %39, label %40, label %.split.us, !prof !15
 
 40:                                               ; preds = %.lr.ph.us
-  %41 = getelementptr inbounds [0 x { { { i64, [3 x i64] } }, i64, {} }], ptr %7, i64 0, i64 %.val.i.i.i.us.us
+  %41 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %7, i64 %.val.i.i.i.us.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352), !noalias !355
   tail call void @llvm.experimental.noalias.scope.decl(metadata !356), !noalias !355
   tail call void @llvm.experimental.noalias.scope.decl(metadata !359), !noalias !355
@@ -1278,7 +1278,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   br i1 %66, label %67, label %.split.us, !prof !15
 
 67:                                               ; preds = %.lr.ph
-  %68 = getelementptr inbounds [0 x { { { i64, [3 x i64] } }, i64, {} }], ptr %7, i64 0, i64 %.val.i.i.i
+  %68 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %7, i64 %.val.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !352), !noalias !355
   call void @llvm.experimental.noalias.scope.decl(metadata !356), !noalias !355
   call void @llvm.experimental.noalias.scope.decl(metadata !359), !noalias !355
@@ -1547,7 +1547,7 @@ define hidden noundef zeroext i1 @"_ZN3vfs3Vfs4iter28_$u7b$$u7b$closure$u7d$$u7d
 _ZN3vfs3Vfs3get17h1b648ad72e54dad2E.exit:         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %11 = load ptr, ptr %10, align 8, !alias.scope !420, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i8], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
   %13 = load i8, ptr %12, align 1, !range !17, !noalias !420, !noundef !4
   %switch = icmp samesign ult i8 %13, 2
   ret i1 %switch

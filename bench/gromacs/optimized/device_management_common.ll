@@ -1106,7 +1106,7 @@ define void @_Z33getDeviceCompatibilityDescriptionB5cxx11N3gmx8ArrayRefIKSt10uni
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load i32, ptr %14, align 8, !tbaa !32
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [11 x ptr], ptr @_ZL19c_deviceStateString, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @_ZL19c_deviceStateString, i64 %16
   br label %18
 
 18:                                               ; preds = %4, %11

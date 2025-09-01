@@ -798,7 +798,7 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
 54:                                               ; preds = %51, %cache_single_string.exit61
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %cache_single_string.exit61 ]
   %.25374 = phi ptr [ %1, %51 ], [ %76, %cache_single_string.exit61 ]
-  %55 = getelementptr inbounds nuw [8 x ptr], ptr @localized_abbrev_days, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr @localized_abbrev_days, i64 %indvars.iv
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.25374) #25
   %57 = trunc i64 %56 to i32
   %58 = call ptr @pg_any_to_server(ptr noundef nonnull %.25374, i32 noundef %57, i32 noundef %spec.store.select) #21
@@ -823,7 +823,7 @@ define dso_local void @cache_locale_time() local_unnamed_addr #0 {
 
 cache_single_string.exit:                         ; preds = %63, %64
   %65 = getelementptr inbounds nuw i8, ptr %.25374, i64 80
-  %66 = getelementptr inbounds nuw [8 x ptr], ptr @localized_full_days, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr @localized_full_days, i64 %indvars.iv
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #25
   %68 = trunc i64 %67 to i32
   %69 = call ptr @pg_any_to_server(ptr noundef nonnull %65, i32 noundef %68, i32 noundef %spec.store.select) #21
@@ -860,7 +860,7 @@ cache_single_string.exit61:                       ; preds = %74, %75
 78:                                               ; preds = %77, %cache_single_string.exit67
   %indvars.iv82 = phi i64 [ 0, %77 ], [ %indvars.iv.next83, %cache_single_string.exit67 ]
   %.35476 = phi ptr [ %76, %77 ], [ %100, %cache_single_string.exit67 ]
-  %79 = getelementptr inbounds nuw [13 x ptr], ptr @localized_abbrev_months, i64 0, i64 %indvars.iv82
+  %79 = getelementptr inbounds nuw ptr, ptr @localized_abbrev_months, i64 %indvars.iv82
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.35476) #25
   %81 = trunc i64 %80 to i32
   %82 = call ptr @pg_any_to_server(ptr noundef nonnull %.35476, i32 noundef %81, i32 noundef %spec.store.select) #21
@@ -885,7 +885,7 @@ cache_single_string.exit61:                       ; preds = %74, %75
 
 cache_single_string.exit64:                       ; preds = %87, %88
   %89 = getelementptr inbounds nuw i8, ptr %.35476, i64 80
-  %90 = getelementptr inbounds nuw [13 x ptr], ptr @localized_full_months, i64 0, i64 %indvars.iv82
+  %90 = getelementptr inbounds nuw ptr, ptr @localized_full_months, i64 %indvars.iv82
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #25
   %92 = trunc i64 %91 to i32
   %93 = call ptr @pg_any_to_server(ptr noundef nonnull %89, i32 noundef %92, i32 noundef %spec.store.select) #21

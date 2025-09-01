@@ -1608,11 +1608,11 @@ _ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14ac
   %141 = load float, ptr %43, align 8
   %142 = fpext float %141 to double
   %143 = select i1 %.not, double %142, double 1.000000e+00
-  %144 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %44, i64 0, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %44, i64 %indvars.iv
   %145 = load ptr, ptr %1, align 8, !tbaa !59
-  %146 = getelementptr inbounds nuw [3 x float], ptr %145, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv
   %147 = load float, ptr %146, align 4, !tbaa !19
-  %148 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %149 = load i32, ptr %148, align 4, !tbaa !23
   %150 = sitofp i32 %149 to float
   %151 = fsub float %147, %150
@@ -1893,7 +1893,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %37
   %.idx.i = shl nuw nsw i64 %57, 3
   %.add10 = add nuw nsw i64 %.idx.i, 176
   %.ptr13 = getelementptr inbounds nuw i8, ptr %0, i64 %.add10
-  %58 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %55, i64 %57
   invoke void @_ZN3gmx19GaussianOn1DLatticeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.ptr13, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %59 unwind label %62
 
@@ -1994,8 +1994,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx16GaussTransform3D
 
 19:                                               ; preds = %19, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %30, %19 ]
-  %20 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %17, i64 0, i64 %.05.i.i
-  %21 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %18, i64 0, i64 %.05.i.i
+  %20 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %17, i64 %.05.i.i
+  %21 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %18, i64 %.05.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = load ptr, ptr %20, align 8, !tbaa !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 16, i1 false)

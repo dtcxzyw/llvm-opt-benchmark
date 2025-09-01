@@ -91,7 +91,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 47:                                               ; preds = %44
   %48 = zext nneg i32 %15 to i64
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !37
   %51 = zext i8 %50 to i32
   %52 = add nuw nsw i32 %.083, %51
@@ -141,7 +141,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %79 = fmul nsz float %78, 0x3FC391F420000000
   %80 = tail call nsz float @llvm.exp.f32(float %79)
   %81 = fmul nsz float %80, %73
-  %82 = getelementptr inbounds nuw [96 x float], ptr %75, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
   store float %81, ptr %82, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 96
@@ -153,8 +153,8 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 85:                                               ; preds = %83, %90
   %indvars.iv99 = phi i64 [ 1, %83 ], [ %indvars.iv.next100, %90 ]
-  %86 = add nsw i64 %indvars.iv99, -1
-  %87 = getelementptr inbounds [25 x i16], ptr @ff_wma_critical_freqs, i64 0, i64 %86
+  %86 = getelementptr i16, ptr @ff_wma_critical_freqs, i64 %indvars.iv99
+  %87 = getelementptr i8, ptr %86, i64 -2
   %88 = load i16, ptr %87, align 2, !tbaa !52
   %89 = zext i16 %88 to i64
   %.not93 = icmp sgt i64 %67, %89
@@ -188,14 +188,14 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv103 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next104, %.lr.ph ]
-  %100 = add nsw i64 %indvars.iv103, -1
-  %101 = getelementptr inbounds [25 x i16], ptr @ff_wma_critical_freqs, i64 0, i64 %100
+  %100 = getelementptr i16, ptr @ff_wma_critical_freqs, i64 %indvars.iv103
+  %101 = getelementptr i8, ptr %100, i64 -2
   %102 = load i16, ptr %101, align 2, !tbaa !52
   %103 = zext i16 %102 to i32
   %104 = shl i32 %103, %.1
   %105 = sdiv i32 %104, %68
   %106 = and i32 %105, -2
-  %107 = getelementptr inbounds nuw [26 x i32], ptr %99, i64 0, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv103
   store i32 %106, ptr %107, align 4, !tbaa !56
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %108 = icmp samesign ult i64 %indvars.iv.next104, %98
@@ -204,7 +204,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 ._crit_edge:                                      ; preds = %.lr.ph, %92
   %109 = phi ptr [ %94, %92 ], [ %96, %.lr.ph ]
   %.pre-phi = phi i64 [ %indvars.iv99, %92 ], [ %98, %.lr.ph ]
-  %110 = getelementptr inbounds nuw [26 x i32], ptr %109, i64 0, i64 %.pre-phi
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %.pre-phi
   store i32 %58, ptr %110, align 4, !tbaa !56
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 1, ptr %111, align 4, !tbaa !58
@@ -577,9 +577,9 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   store i32 %223, ptr %11, align 8, !tbaa !75
   %224 = call i32 @llvm.umin.i32(i32 %221, i32 95)
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw [96 x float], ptr %23, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw float, ptr %23, i64 %225
   %227 = load float, ptr %226, align 4, !tbaa !49
-  %228 = getelementptr inbounds nuw [25 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %228 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   store float %227, ptr %228, align 4, !tbaa !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -634,7 +634,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %255 = call i32 @llvm.umin.i32(i32 %207, i32 %254)
   store i32 %255, ptr %11, align 8, !tbaa !75
   %256 = zext nneg i32 %253 to i64
-  %257 = getelementptr inbounds nuw [16 x i8], ptr @rle_length_tab, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw i8, ptr @rle_length_tab, i64 %256
   %258 = load i8, ptr %257, align 1, !tbaa !37
   %259 = zext i8 %258 to i32
   %260 = shl nuw nsw i32 %259, 3
@@ -682,7 +682,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %282 = shl nsw i64 %281, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %279, i8 0, i64 %282, i1 false)
   %283 = sext i32 %.0148203.i to i64
-  %284 = getelementptr inbounds [26 x i32], ptr %24, i64 0, i64 %283
+  %284 = getelementptr inbounds i32, ptr %24, i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !56
   %286 = icmp ult i32 %285, %..0146.i
   br i1 %286, label %.lr.ph197.i, label %.loopexit179.i
@@ -690,7 +690,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
 .lr.ph197.i:                                      ; preds = %277, %.lr.ph197.i
   %indvars.iv236.i = phi i64 [ %indvars.iv.next237.i, %.lr.ph197.i ], [ %283, %277 ]
   %indvars.iv.next237.i = add nsw i64 %indvars.iv236.i, 1
-  %287 = getelementptr inbounds [26 x i32], ptr %24, i64 0, i64 %indvars.iv.next237.i
+  %287 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.next237.i
   %288 = load i32, ptr %287, align 4, !tbaa !56
   %289 = icmp ult i32 %288, %..0146.i
   br i1 %289, label %.lr.ph197.i, label %..loopexit179_crit_edge.i, !llvm.loop !84
@@ -701,7 +701,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   %.3151187.i = phi i32 [ %.0148203.i, %.lr.ph189.i ], [ %.4152.i, %328 ]
   %.3156186.i = phi float [ %.0153202.i, %.lr.ph189.i ], [ %.4157.i, %328 ]
   %291 = sext i32 %.3151187.i to i64
-  %292 = getelementptr inbounds [26 x i32], ptr %24, i64 0, i64 %291
+  %292 = getelementptr inbounds i32, ptr %24, i64 %291
   %293 = load i32, ptr %292, align 4, !tbaa !56
   %294 = trunc nsw i64 %indvars.iv231.i to i32
   %295 = icmp eq i32 %293, %294
@@ -709,7 +709,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
 
 296:                                              ; preds = %290
   %297 = add nsw i32 %.3151187.i, 1
-  %298 = getelementptr inbounds [25 x float], ptr %3, i64 0, i64 %291
+  %298 = getelementptr inbounds float, ptr %3, i64 %291
   %299 = load float, ptr %298, align 4, !tbaa !49
   br label %300
 
@@ -767,7 +767,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
 
 ..loopexit179_crit_edge.i:                        ; preds = %.lr.ph197.i
   %330 = trunc nsw i64 %indvars.iv.next237.i to i32
-  %331 = getelementptr inbounds [25 x float], ptr %3, i64 0, i64 %indvars.iv236.i
+  %331 = getelementptr inbounds float, ptr %3, i64 %indvars.iv236.i
   %332 = load float, ptr %331, align 4, !tbaa !49
   br label %.loopexit179.i
 
@@ -856,7 +856,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br label %.loopexit.i
 
 .lr.ph223.i:                                      ; preds = %.preheader178.i
-  %355 = getelementptr inbounds [6 x [256 x float]], ptr %29, i64 0, i64 %354
+  %355 = getelementptr inbounds [256 x float], ptr %29, i64 %354
   %356 = getelementptr inbounds ptr, ptr %66, i64 %354
   %357 = load ptr, ptr %356, align 8, !tbaa !90
   %358 = sitofp i32 %351 to float
@@ -867,7 +867,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
 360:                                              ; preds = %360, %.lr.ph223.i
   %indvars.iv247.i = phi i64 [ 0, %.lr.ph223.i ], [ %indvars.iv.next248.i, %360 ]
   %.0141222.i = phi i32 [ %359, %.lr.ph223.i ], [ %371, %360 ]
-  %361 = getelementptr inbounds nuw [256 x float], ptr %355, i64 0, i64 %indvars.iv247.i
+  %361 = getelementptr inbounds nuw float, ptr %355, i64 %indvars.iv247.i
   %362 = load float, ptr %361, align 4, !tbaa !49
   %363 = sub nsw i32 %351, %.0141222.i
   %364 = sitofp i32 %363 to float
@@ -885,7 +885,7 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
 
 .loopexit.i:                                      ; preds = %360, %.preheader178.i..loopexit.i_crit_edge
   %372 = phi ptr [ %.pre79, %.preheader178.i..loopexit.i_crit_edge ], [ %357, %360 ]
-  %373 = getelementptr inbounds [6 x [256 x float]], ptr %29, i64 0, i64 %354
+  %373 = getelementptr inbounds [256 x float], ptr %29, i64 %354
   %374 = load i32, ptr %13, align 8, !tbaa !45
   %375 = sub nsw i32 %374, %350
   %376 = sext i32 %375 to i64

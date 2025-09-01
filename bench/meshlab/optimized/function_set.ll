@@ -3759,7 +3759,7 @@ _ZN7QStringD2Ev.exit378:                          ; preds = %_ZN7QStringD2Ev.exi
 .noexc387:                                        ; preds = %._crit_edge819, %620
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %620 ], [ 0, %._crit_edge819 ]
   %597 = load i32, ptr %8, align 4
-  %598 = getelementptr inbounds nuw [14 x i32], ptr @_ZN9pymeshlabL16capabilitiesBitsE, i64 0, i64 %indvars.iv.i
+  %598 = getelementptr inbounds nuw i32, ptr @_ZN9pymeshlabL16capabilitiesBitsE, i64 %indvars.iv.i
   %599 = load i32, ptr %598, align 4
   %600 = and i32 %599, %597
   %.not.i379 = icmp eq i32 %600, 0
@@ -3769,7 +3769,7 @@ _ZN7QStringD2Ev.exit378:                          ; preds = %_ZN7QStringD2Ev.exi
   %602 = load i32, ptr %9, align 4
   %603 = and i32 %602, %599
   %604 = icmp ne i32 %603, 0
-  %605 = getelementptr inbounds nuw [14 x %class.QString], ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 0, i64 %indvars.iv.i
+  %605 = getelementptr inbounds nuw %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 %indvars.iv.i
   store ptr @_ZN10QArrayData11shared_nullE, ptr %11, align 8
   invoke void @_ZN8RichBoolC1ERK7QStringbS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %605, i1 noundef zeroext %604, ptr noundef nonnull align 8 dereferenceable(8) %605, ptr noundef nonnull align 8 dereferenceable(8) %605, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %606 unwind label %613
@@ -6180,7 +6180,7 @@ define void @_ZN9pymeshlab11FunctionSet20updateSaveParametersEP8IOPluginRK7QStri
 13:                                               ; preds = %4, %37
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %37 ]
   %14 = load i32, ptr %5, align 4
-  %15 = getelementptr inbounds nuw [14 x i32], ptr @_ZN9pymeshlabL16capabilitiesBitsE, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr @_ZN9pymeshlabL16capabilitiesBitsE, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, %14
   %.not = icmp eq i32 %17, 0
@@ -6190,7 +6190,7 @@ define void @_ZN9pymeshlab11FunctionSet20updateSaveParametersEP8IOPluginRK7QStri
   %19 = load i32, ptr %6, align 4
   %20 = and i32 %19, %16
   %21 = icmp ne i32 %20, 0
-  %22 = getelementptr inbounds nuw [14 x %class.QString], ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %class.QString, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 %indvars.iv
   store ptr @_ZN10QArrayData11shared_nullE, ptr %8, align 8
   invoke void @_ZN8RichBoolC1ERK7QStringbS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %22, i1 noundef zeroext %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %22, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %23 unwind label %30
@@ -9353,7 +9353,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.th
 
 81:                                               ; preds = %.preheader104, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
   %indvars.iv = phi i64 [ 0, %.preheader104 ], [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit ]
-  %82 = getelementptr inbounds nuw [3 x ptr], ptr %80, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8
   %.not54 = icmp eq ptr %83, null
   br i1 %.not54, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %84
@@ -11228,7 +11228,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %99 = sdiv exact i64 %98, 48
   %100 = load ptr, ptr %95, align 8
   %101 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %100, i64 %99
-  %102 = getelementptr inbounds nuw [3 x ptr], ptr %101, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8
   %.not57 = icmp eq ptr %103, null
   br i1 %.not57, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %104
@@ -11326,7 +11326,7 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %154 = sdiv exact i64 %153, 48
   %155 = load ptr, ptr %150, align 8
   %156 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %155, i64 %154
-  %157 = getelementptr inbounds nuw [3 x ptr], ptr %156, i64 0, i64 %indvars.iv153
+  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv153
   %158 = load ptr, ptr %157, align 8
   %.not56 = icmp eq ptr %158, null
   br i1 %.not56, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %159
@@ -12403,7 +12403,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNor
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i, %.preheader.i.i.preheader.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %.preheader.i.i.preheader.i.i.i ]
-  %19 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %.013.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %19 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.013.i.i.i, i64 %indvars.iv.i.i.i.i.i
   store float 0.000000e+00, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0.000000e+00, ptr %20, align 4
@@ -12447,7 +12447,7 @@ _ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_EE12_M_
 
 .preheader.i.i.i.i.i33:                           ; preds = %.preheader.i.i.i.i.i33, %.preheader.i.i.preheader.i.i.i30
   %indvars.iv.i.i.i.i.i34 = phi i64 [ %indvars.iv.next.i.i.i.i.i35, %.preheader.i.i.i.i.i33 ], [ 0, %.preheader.i.i.preheader.i.i.i30 ]
-  %32 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %.013.i.i.i31, i64 0, i64 %indvars.iv.i.i.i.i.i34
+  %32 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.013.i.i.i31, i64 %indvars.iv.i.i.i.i.i34
   store float 0.000000e+00, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store float 0.000000e+00, ptr %33, align 4

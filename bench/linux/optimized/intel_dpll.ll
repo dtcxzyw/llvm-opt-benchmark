@@ -1875,7 +1875,7 @@ define dso_local void @chv_enable_pll(ptr noundef readonly captures(none) %0) lo
   %133 = load i32, ptr %129, align 4
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 3428
   %135 = sext i32 %5 to i64
-  %136 = getelementptr [4 x i32], ptr %134, i64 0, i64 %135
+  %136 = getelementptr i32, ptr %134, i64 %135
   store i32 %133, ptr %136, align 4
   %137 = load ptr, ptr %9, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32

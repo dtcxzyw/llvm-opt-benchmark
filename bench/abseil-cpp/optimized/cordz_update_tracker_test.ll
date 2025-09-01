@@ -556,7 +556,7 @@ define internal void @_ZN4absl13cord_internal12_GLOBAL__N_155CordzUpdateTracker_
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %2, i64 %11
   %13 = load atomic i64, ptr %12 monotonic, align 8
   store i64 %13, ptr %5, align 8, !tbaa !22
   call void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIiEEEclIlEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -2643,7 +2643,7 @@ define internal void @_ZN4absl13cord_internal12_GLOBAL__N_132CordzUpdateTracker_
   %.015.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.015.idx23
   %11 = load i32, ptr %.015.ptr, align 4, !tbaa !20
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %2, i64 %12
   %14 = load atomic i64, ptr %13 monotonic, align 8
   %15 = add nsw i64 %14, %.01424
   store atomic i64 %15, ptr %13 monotonic, align 8
@@ -3506,8 +3506,8 @@ define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordzUpdateTracker_
 
 .preheader.i:                                     ; preds = %.preheader.i, %9
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 0, %9 ]
-  %10 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %11 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %3, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %2, i64 %indvars.iv.i.i
   %12 = load atomic i64, ptr %11 monotonic, align 8
   store atomic i64 %12, ptr %10 monotonic, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3524,7 +3524,7 @@ _ZN4absl13cord_internal18CordzUpdateTrackerC2ERKS1_.exit.preheader: ; preds = %.
   %.023.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.023.idx33
   %15 = load i32, ptr %.023.ptr, align 4, !tbaa !20
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %2, i64 %16
   %18 = load atomic i64, ptr %17 monotonic, align 8
   %19 = add nsw i64 %18, %.02134
   store atomic i64 %19, ptr %17 monotonic, align 8
@@ -3548,7 +3548,7 @@ _ZN4absl13cord_internal18CordzUpdateTrackerC2ERKS1_.exit.preheader: ; preds = %.
   store i64 %.12236, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %3, i64 %24
   %26 = load atomic i64, ptr %25 monotonic, align 8
   store i64 %26, ptr %6, align 8, !tbaa !22
   call void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIlEEEclIlEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -3722,8 +3722,8 @@ define internal void @_ZN4absl13cord_internal12_GLOBAL__N_138CordzUpdateTracker_
 
 .preheader:                                       ; preds = %13, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %13 ]
-  %9 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %3, i64 0, i64 %indvars.iv.i
-  %10 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %2, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %3, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %2, i64 %indvars.iv.i
   %11 = load atomic i64, ptr %10 monotonic, align 8
   store atomic i64 %11, ptr %9 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3740,7 +3740,7 @@ _ZN4absl13cord_internal18CordzUpdateTrackeraSERKS1_.exit.preheader: ; preds = %.
   %.023.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.023.idx33
   %14 = load i32, ptr %.023.ptr, align 4, !tbaa !20
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %2, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %2, i64 %15
   %17 = load atomic i64, ptr %16 monotonic, align 8
   %18 = add nsw i64 %17, %.02134
   store atomic i64 %18, ptr %16 monotonic, align 8
@@ -3764,7 +3764,7 @@ _ZN4absl13cord_internal18CordzUpdateTrackeraSERKS1_.exit.preheader: ; preds = %.
   store i64 %.12236, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %3, i64 %23
   %25 = load atomic i64, ptr %24 monotonic, align 8
   store i64 %25, ptr %6, align 8, !tbaa !22
   call void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIlEEEclIlEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -4002,7 +4002,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i: ; preds = %14
   %.011.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.011.idx18
   %25 = load i32, ptr %.011.ptr, align 4, !tbaa !20
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %4, i64 %26
   %28 = load atomic i64, ptr %27 monotonic, align 8
   %29 = add nsw i64 %28, %.01217
   store atomic i64 %29, ptr %27 monotonic, align 8
@@ -4113,7 +4113,7 @@ _ZNK4absl12Notification15HasBeenNotifiedEv.exit.preheader.i.i.i.i.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = load ptr, ptr %17, align 8, !tbaa !157
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %24, i64 %25
   %27 = load atomic i64, ptr %26 monotonic, align 8
   store i64 %27, ptr %4, align 8, !tbaa !22
   call void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AnyOfMatcherImplEJNS0_9EqMatcherIiEES5_EEEEclIlEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %2, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -4260,7 +4260,7 @@ _ZNK4absl12Notification15HasBeenNotifiedEv.exit.preheader.i.i.i.i.i.backedge: ; 
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %68 = load ptr, ptr %64, align 8, !tbaa !157
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %68, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %68, i64 %69
   %71 = load atomic i64, ptr %70 monotonic, align 8
   store i64 %71, ptr %9, align 8, !tbaa !22
   call void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIiEEEclIlEENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %9)

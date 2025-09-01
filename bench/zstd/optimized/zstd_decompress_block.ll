@@ -1766,10 +1766,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr nou
 
 38:                                               ; preds = %38, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw [3 x i32], ptr %36, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4, !tbaa !28
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw [3 x i64], ptr %37, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i
   store i64 %41, ptr %42, align 8, !tbaa !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -2238,7 +2238,7 @@ ZSTD_initFseState.exit214.i:                      ; preds = %226, %224, %218, %2
   br label %337
 
 333:                                              ; preds = %320
-  %334 = getelementptr inbounds nuw [3 x i64], ptr %37, i64 0, i64 %329
+  %334 = getelementptr inbounds nuw i64, ptr %37, i64 %329
   %335 = load i64, ptr %334, align 8, !tbaa !43, !noalias !79
   %.not.i6.i = icmp eq i64 %335, 0
   %336 = select i1 %.not.i6.i, i64 -1, i64 %335
@@ -2455,7 +2455,7 @@ ZSTD_decodeSequence.exit.i:                       ; preds = %432, %430, %424, %4
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %456, i32 0, i32 3, i32 1)
   %457 = add i64 %450, %.sroa.7.0.i
-  %458 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %indvars.iv624.i
+  %458 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %indvars.iv624.i
   store i64 %.sroa.0271.0.i, ptr %458, align 8, !tbaa !43
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %458, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !43
@@ -2569,7 +2569,7 @@ ZSTD_decodeSequence.exit.i:                       ; preds = %432, %430, %424, %4
   br label %538
 
 534:                                              ; preds = %520
-  %535 = getelementptr inbounds nuw [3 x i64], ptr %37, i64 0, i64 %529
+  %535 = getelementptr inbounds nuw i64, ptr %37, i64 %529
   %536 = load i64, ptr %535, align 8, !tbaa !43, !noalias !86
   %.not.i8.i = icmp eq i64 %536, 0
   %537 = select i1 %.not.i8.i, i64 -1, i64 %536
@@ -2793,7 +2793,7 @@ ZSTD_decodeSequence.exit14.i:                     ; preds = %646, %643, %637, %6
   %664 = load ptr, ptr %7, align 8, !tbaa !64
   %665 = and i32 %.1239.i582.i, 7
   %666 = zext nneg i32 %665 to i64
-  %667 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %666
+  %667 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %666
   %668 = load i64, ptr %667, align 8, !tbaa !94
   %669 = getelementptr inbounds nuw i8, ptr %664, i64 %668
   %670 = load ptr, ptr %26, align 8, !tbaa !32
@@ -3016,7 +3016,7 @@ ZSTD_wildcopy.exit179.i:                          ; preds = %734, %727, %723
   br i1 %771, label %772, label %794
 
 772:                                              ; preds = %770
-  %773 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.11.0.copyload
+  %773 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.11.0.copyload
   %774 = load i32, ptr %773, align 4, !tbaa !28
   %775 = load i8, ptr %.0445.i, align 1, !tbaa !7
   store i8 %775, ptr %.0444.i, align 1, !tbaa !7
@@ -3032,7 +3032,7 @@ ZSTD_wildcopy.exit179.i:                          ; preds = %734, %727, %723
   %783 = load i8, ptr %782, align 1, !tbaa !7
   %784 = getelementptr inbounds nuw i8, ptr %.0444.i, i64 3
   store i8 %783, ptr %784, align 1, !tbaa !7
-  %785 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.11.0.copyload
+  %785 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.11.0.copyload
   %786 = load i32, ptr %785, align 4, !tbaa !28
   %787 = zext i32 %786 to i64
   %788 = getelementptr inbounds nuw i8, ptr %.0445.i, i64 %787
@@ -3239,7 +3239,7 @@ ZSTD_wildcopy.exit95.i:                           ; preds = %852, %844, %840
   br i1 %889, label %890, label %912
 
 890:                                              ; preds = %888
-  %891 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1048.0.copyload
+  %891 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1048.0.copyload
   %892 = load i32, ptr %891, align 4, !tbaa !28
   %893 = load i8, ptr %.0433.i, align 1, !tbaa !7
   store i8 %893, ptr %.0432.i, align 1, !tbaa !7
@@ -3255,7 +3255,7 @@ ZSTD_wildcopy.exit95.i:                           ; preds = %852, %844, %840
   %901 = load i8, ptr %900, align 1, !tbaa !7
   %902 = getelementptr inbounds nuw i8, ptr %.0432.i, i64 3
   store i8 %901, ptr %902, align 1, !tbaa !7
-  %903 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1048.0.copyload
+  %903 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1048.0.copyload
   %904 = load i32, ptr %903, align 4, !tbaa !28
   %905 = zext i32 %904 to i64
   %906 = getelementptr inbounds nuw i8, ptr %.0433.i, i64 %905
@@ -3324,7 +3324,7 @@ ZSTD_overlapCopy8.exit194.i:                      ; preds = %912, %890
 939:                                              ; preds = %ZSTD_decodeSequence.exit14.i
   %940 = and i32 %.1239.i582.i, 7
   %941 = zext nneg i32 %940 to i64
-  %942 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %941
+  %942 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %941
   %.sroa.020.0.copyload = load i64, ptr %942, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %942, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
@@ -3446,7 +3446,7 @@ ZSTD_wildcopy.exit158.i:                          ; preds = %964, %956, %952
   br i1 %1001, label %1002, label %1024
 
 1002:                                             ; preds = %1000
-  %1003 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.10.0.copyload
+  %1003 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.10.0.copyload
   %1004 = load i32, ptr %1003, align 4, !tbaa !28
   %1005 = load i8, ptr %.0442.i, align 1, !tbaa !7
   store i8 %1005, ptr %.0441.i, align 1, !tbaa !7
@@ -3462,7 +3462,7 @@ ZSTD_wildcopy.exit158.i:                          ; preds = %964, %956, %952
   %1013 = load i8, ptr %1012, align 1, !tbaa !7
   %1014 = getelementptr inbounds nuw i8, ptr %.0441.i, i64 3
   store i8 %1013, ptr %1014, align 1, !tbaa !7
-  %1015 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.10.0.copyload
+  %1015 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.10.0.copyload
   %1016 = load i32, ptr %1015, align 4, !tbaa !28
   %1017 = zext i32 %1016 to i64
   %1018 = getelementptr inbounds nuw i8, ptr %.0442.i, i64 %1017
@@ -3545,7 +3545,7 @@ ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %1044, %.preheader54
   tail call void @llvm.prefetch.p0(ptr nonnull %1059, i32 0, i32 3, i32 1)
   %1060 = and i32 %.1239.i582.i, 7
   %1061 = zext nneg i32 %1060 to i64
-  %1062 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %1061
+  %1062 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %1061
   store i64 %.sroa.0.0.i, ptr %1062, align 8, !tbaa !43
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1062, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !43
@@ -3606,7 +3606,7 @@ ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %1044, %.preheader54
   %.2240.i592.i = phi i32 [ %1071, %.lr.ph600.i ], [ %1463, %1462 ]
   %1080 = and i32 %.2240.i592.i, 7
   %1081 = zext nneg i32 %1080 to i64
-  %1082 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %1081
+  %1082 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %1081
   %1083 = load i32, ptr %14, align 8, !tbaa !33
   %1084 = icmp eq i32 %1083, 2
   br i1 %1084, label %1085, label %1350
@@ -3835,7 +3835,7 @@ ZSTD_wildcopy.exit137.i:                          ; preds = %1153, %1146, %1142
   br i1 %1190, label %1191, label %1213
 
 1191:                                             ; preds = %1189
-  %1192 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1132.0.copyload
+  %1192 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1132.0.copyload
   %1193 = load i32, ptr %1192, align 4, !tbaa !28
   %1194 = load i8, ptr %.0439.i, align 1, !tbaa !7
   store i8 %1194, ptr %.0438.i, align 1, !tbaa !7
@@ -3851,7 +3851,7 @@ ZSTD_wildcopy.exit137.i:                          ; preds = %1153, %1146, %1142
   %1202 = load i8, ptr %1201, align 1, !tbaa !7
   %1203 = getelementptr inbounds nuw i8, ptr %.0438.i, i64 3
   store i8 %1202, ptr %1203, align 1, !tbaa !7
-  %1204 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1132.0.copyload
+  %1204 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1132.0.copyload
   %1205 = load i32, ptr %1204, align 4, !tbaa !28
   %1206 = zext i32 %1205 to i64
   %1207 = getelementptr inbounds nuw i8, ptr %.0439.i, i64 %1206
@@ -4043,7 +4043,7 @@ ZSTD_wildcopy.exit.i:                             ; preds = %1263, %1255, %1251
   br i1 %1300, label %1301, label %1323
 
 1301:                                             ; preds = %1299
-  %1302 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1056.0.copyload
+  %1302 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1056.0.copyload
   %1303 = load i32, ptr %1302, align 4, !tbaa !28
   %1304 = load i8, ptr %.0431.i, align 1, !tbaa !7
   store i8 %1304, ptr %.0.i, align 1, !tbaa !7
@@ -4059,7 +4059,7 @@ ZSTD_wildcopy.exit.i:                             ; preds = %1263, %1255, %1251
   %1312 = load i8, ptr %1311, align 1, !tbaa !7
   %1313 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
   store i8 %1312, ptr %1313, align 1, !tbaa !7
-  %1314 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1056.0.copyload
+  %1314 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1056.0.copyload
   %1315 = load i32, ptr %1314, align 4, !tbaa !28
   %1316 = zext i32 %1315 to i64
   %1317 = getelementptr inbounds nuw i8, ptr %.0431.i, i64 %1316
@@ -4247,7 +4247,7 @@ ZSTD_wildcopy.exit116.i:                          ; preds = %1372, %1364, %1360
   br i1 %1409, label %1410, label %1432
 
 1410:                                             ; preds = %1408
-  %1411 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1040.0.copyload
+  %1411 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1040.0.copyload
   %1412 = load i32, ptr %1411, align 4, !tbaa !28
   %1413 = load i8, ptr %.0436.i, align 1, !tbaa !7
   store i8 %1413, ptr %.0435.i, align 1, !tbaa !7
@@ -4263,7 +4263,7 @@ ZSTD_wildcopy.exit116.i:                          ; preds = %1372, %1364, %1360
   %1421 = load i8, ptr %1420, align 1, !tbaa !7
   %1422 = getelementptr inbounds nuw i8, ptr %.0435.i, i64 3
   store i8 %1421, ptr %1422, align 1, !tbaa !7
-  %1423 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1040.0.copyload
+  %1423 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1040.0.copyload
   %1424 = load i32, ptr %1423, align 4, !tbaa !28
   %1425 = zext i32 %1424 to i64
   %1426 = getelementptr inbounds nuw i8, ptr %.0436.i, i64 %1425
@@ -4344,10 +4344,10 @@ ZSTD_execSequenceSplitLitBuffer.exit45.i:         ; preds = %1452, %.preheader53
 
 1464:                                             ; preds = %1464, %.preheader.i
   %indvars.iv630.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next631.i, %1464 ]
-  %1465 = getelementptr inbounds nuw [3 x i64], ptr %37, i64 0, i64 %indvars.iv630.i
+  %1465 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv630.i
   %1466 = load i64, ptr %1465, align 8, !tbaa !43
   %1467 = trunc i64 %1466 to i32
-  %1468 = getelementptr inbounds nuw [3 x i32], ptr %36, i64 0, i64 %indvars.iv630.i
+  %1468 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv630.i
   store i32 %1467, ptr %1468, align 4, !tbaa !28
   %indvars.iv.next631.i = add nuw nsw i64 %indvars.iv630.i, 1
   %exitcond633.not.i = icmp eq i64 %indvars.iv.next631.i, 3
@@ -4486,10 +4486,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 31:                                               ; preds = %31, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [3 x i32], ptr %29, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4, !tbaa !28
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [3 x i64], ptr %30, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i
   store i64 %34, ptr %35, align 8, !tbaa !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -4933,7 +4933,7 @@ ZSTD_initFseState.exit25.i:                       ; preds = %215, %213, %207, %2
   br label %315
 
 311:                                              ; preds = %297
-  %312 = getelementptr inbounds nuw [3 x i64], ptr %30, i64 0, i64 %306
+  %312 = getelementptr inbounds nuw i64, ptr %30, i64 %306
   %313 = load i64, ptr %312, align 8, !tbaa !43, !noalias !106
   %.not.i183.i.i = icmp eq i64 %313, 0
   %314 = select i1 %.not.i183.i.i, i64 -1, i64 %313
@@ -5289,7 +5289,7 @@ ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i:  ; preds = %479
   br i1 %507, label %508, label %530
 
 508:                                              ; preds = %506
-  %509 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink.i
+  %509 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink.i
   %510 = load i32, ptr %509, align 4, !tbaa !28
   %511 = load i8, ptr %.0145.i, align 1, !tbaa !7
   store i8 %511, ptr %.0.i, align 1, !tbaa !7
@@ -5305,7 +5305,7 @@ ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i:  ; preds = %479
   %519 = load i8, ptr %518, align 1, !tbaa !7
   %520 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
   store i8 %519, ptr %520, align 1, !tbaa !7
-  %521 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink.i
+  %521 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink.i
   %522 = load i32, ptr %521, align 4, !tbaa !28
   %523 = zext i32 %522 to i64
   %524 = getelementptr inbounds nuw i8, ptr %.0145.i, i64 %523
@@ -5615,7 +5615,7 @@ ZSTD_wildcopy.exit251.i.i:                        ; preds = %631, %624, %620
   br i1 %669, label %670, label %692
 
 670:                                              ; preds = %668
-  %671 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink.i
+  %671 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink.i
   %672 = load i32, ptr %671, align 4, !tbaa !28
   %673 = load i8, ptr %.0149.i, align 1, !tbaa !7
   store i8 %673, ptr %.0151.i, align 1, !tbaa !7
@@ -5631,7 +5631,7 @@ ZSTD_wildcopy.exit251.i.i:                        ; preds = %631, %624, %620
   %681 = load i8, ptr %680, align 1, !tbaa !7
   %682 = getelementptr inbounds nuw i8, ptr %.0151.i, i64 3
   store i8 %681, ptr %682, align 1, !tbaa !7
-  %683 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink.i
+  %683 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink.i
   %684 = load i32, ptr %683, align 4, !tbaa !28
   %685 = zext i32 %684 to i64
   %686 = getelementptr inbounds nuw i8, ptr %.0149.i, i64 %685
@@ -5821,7 +5821,7 @@ ZSTD_overlapCopy8.exit287.i.i:                    ; preds = %692, %670
   br label %803
 
 799:                                              ; preds = %785
-  %800 = getelementptr inbounds nuw [3 x i64], ptr %30, i64 0, i64 %794
+  %800 = getelementptr inbounds nuw i64, ptr %30, i64 %794
   %801 = load i64, ptr %800, align 8, !tbaa !43, !noalias !116
   %.not.i.i.i = icmp eq i64 %801, 0
   %802 = select i1 %.not.i.i.i, i64 -1, i64 %801
@@ -6162,7 +6162,7 @@ ZSTD_execSequence.exit.i.thread.i:                ; preds = %957
   br i1 %985, label %986, label %1008
 
 986:                                              ; preds = %984
-  %987 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink409.i
+  %987 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink409.i
   %988 = load i32, ptr %987, align 4, !tbaa !28
   %989 = load i8, ptr %.0146.i, align 1, !tbaa !7
   store i8 %989, ptr %.0148.i, align 1, !tbaa !7
@@ -6178,7 +6178,7 @@ ZSTD_execSequence.exit.i.thread.i:                ; preds = %957
   %997 = load i8, ptr %996, align 1, !tbaa !7
   %998 = getelementptr inbounds nuw i8, ptr %.0148.i, i64 3
   store i8 %997, ptr %998, align 1, !tbaa !7
-  %999 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink409.i
+  %999 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink409.i
   %1000 = load i32, ptr %999, align 4, !tbaa !28
   %1001 = zext i32 %1000 to i64
   %1002 = getelementptr inbounds nuw i8, ptr %.0146.i, i64 %1001
@@ -6269,10 +6269,10 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %1028, %.preheader23
 
 .preheader.i:                                     ; preds = %.thread207.i, %.preheader.i
   %indvars.iv300.i = phi i64 [ %indvars.iv.next301.i, %.preheader.i ], [ 0, %.thread207.i ]
-  %1043 = getelementptr inbounds nuw [3 x i64], ptr %30, i64 0, i64 %indvars.iv300.i
+  %1043 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv300.i
   %1044 = load i64, ptr %1043, align 8, !tbaa !43
   %1045 = trunc i64 %1044 to i32
-  %1046 = getelementptr inbounds nuw [3 x i32], ptr %29, i64 0, i64 %indvars.iv300.i
+  %1046 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv300.i
   store i32 %1045, ptr %1046, align 4, !tbaa !28
   %indvars.iv.next301.i = add nuw nsw i64 %indvars.iv300.i, 1
   %exitcond303.not.i = icmp eq i64 %indvars.iv.next301.i, 3
@@ -6424,10 +6424,10 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
 
 39:                                               ; preds = %39, %35
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
-  %40 = getelementptr inbounds nuw [3 x i32], ptr %37, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 4, !tbaa !28
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [3 x i64], ptr %38, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv.i
   store i64 %42, ptr %43, align 8, !tbaa !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6876,7 +6876,7 @@ ZSTD_initFseState.exit25.i:                       ; preds = %223, %221, %215, %2
   br label %324
 
 320:                                              ; preds = %306
-  %321 = getelementptr inbounds nuw [3 x i64], ptr %38, i64 0, i64 %315
+  %321 = getelementptr inbounds nuw i64, ptr %38, i64 %315
   %322 = load i64, ptr %321, align 8, !tbaa !43, !noalias !127
   %.not.i.i.i = icmp eq i64 %322, 0
   %323 = select i1 %.not.i.i.i, i64 -1, i64 %322
@@ -7217,7 +7217,7 @@ ZSTD_execSequence.exit.i.thread.i:                ; preds = %478
   br i1 %506, label %507, label %529
 
 507:                                              ; preds = %505
-  %508 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink.i
+  %508 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink.i
   %509 = load i32, ptr %508, align 4, !tbaa !28
   %510 = load i8, ptr %.062.i, align 1, !tbaa !7
   store i8 %510, ptr %.0.i, align 1, !tbaa !7
@@ -7233,7 +7233,7 @@ ZSTD_execSequence.exit.i.thread.i:                ; preds = %478
   %518 = load i8, ptr %517, align 1, !tbaa !7
   %519 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
   store i8 %518, ptr %519, align 1, !tbaa !7
-  %520 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink.i
+  %520 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink.i
   %521 = load i32, ptr %520, align 4, !tbaa !28
   %522 = zext i32 %521 to i64
   %523 = getelementptr inbounds nuw i8, ptr %.062.i, i64 %522
@@ -7322,10 +7322,10 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %549, %.preheader87.
 
 .preheader.i:                                     ; preds = %560, %.preheader.i
   %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %.preheader.i ], [ 0, %560 ]
-  %565 = getelementptr inbounds nuw [3 x i64], ptr %38, i64 0, i64 %indvars.iv102.i
+  %565 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv102.i
   %566 = load i64, ptr %565, align 8, !tbaa !43
   %567 = trunc i64 %566 to i32
-  %568 = getelementptr inbounds nuw [3 x i32], ptr %37, i64 0, i64 %indvars.iv102.i
+  %568 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv102.i
   store i32 %567, ptr %568, align 4, !tbaa !28
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next103.i, 3
@@ -7560,10 +7560,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 
 34:                                               ; preds = %30, %34
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw [3 x i32], ptr %32, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !28
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [3 x i64], ptr %33, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
   store i64 %37, ptr %38, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -8032,7 +8032,7 @@ ZSTD_initFseState.exit214:                        ; preds = %212, %214, %220, %2
   br label %333
 
 329:                                              ; preds = %316
-  %330 = getelementptr inbounds nuw [3 x i64], ptr %33, i64 0, i64 %325
+  %330 = getelementptr inbounds nuw i64, ptr %33, i64 %325
   %331 = load i64, ptr %330, align 8, !tbaa !43, !noalias !133
   %.not.i6 = icmp eq i64 %331, 0
   %332 = select i1 %.not.i6, i64 -1, i64 %331
@@ -8249,7 +8249,7 @@ ZSTD_decodeSequence.exit:                         ; preds = %426, %428, %420, %4
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %452, i32 0, i32 3, i32 1)
   %453 = add i64 %446, %.sroa.7.0
-  %454 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %indvars.iv624
+  %454 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %indvars.iv624
   store i64 %.sroa.0271.0, ptr %454, align 8, !tbaa !43
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %454, i64 8
   store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !43
@@ -8363,7 +8363,7 @@ ZSTD_decodeSequence.exit:                         ; preds = %426, %428, %420, %4
   br label %534
 
 530:                                              ; preds = %516
-  %531 = getelementptr inbounds nuw [3 x i64], ptr %33, i64 0, i64 %525
+  %531 = getelementptr inbounds nuw i64, ptr %33, i64 %525
   %532 = load i64, ptr %531, align 8, !tbaa !43, !noalias !136
   %.not.i8 = icmp eq i64 %532, 0
   %533 = select i1 %.not.i8, i64 -1, i64 %532
@@ -8587,7 +8587,7 @@ ZSTD_decodeSequence.exit14:                       ; preds = %639, %642, %633, %6
   %660 = load ptr, ptr %7, align 8, !tbaa !64
   %661 = and i32 %.1239.i582, 7
   %662 = zext nneg i32 %661 to i64
-  %663 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %662
+  %663 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %662
   %664 = load i64, ptr %663, align 8, !tbaa !94
   %665 = getelementptr inbounds nuw i8, ptr %660, i64 %664
   %666 = load ptr, ptr %22, align 8, !tbaa !32
@@ -8810,7 +8810,7 @@ ZSTD_wildcopy.exit179:                            ; preds = %731, %724, %720
   br i1 %768, label %769, label %791
 
 769:                                              ; preds = %767
-  %770 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.11.0.copyload
+  %770 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.11.0.copyload
   %771 = load i32, ptr %770, align 4, !tbaa !28
   %772 = load i8, ptr %.0445, align 1, !tbaa !7
   store i8 %772, ptr %.0444, align 1, !tbaa !7
@@ -8826,7 +8826,7 @@ ZSTD_wildcopy.exit179:                            ; preds = %731, %724, %720
   %780 = load i8, ptr %779, align 1, !tbaa !7
   %781 = getelementptr inbounds nuw i8, ptr %.0444, i64 3
   store i8 %780, ptr %781, align 1, !tbaa !7
-  %782 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.11.0.copyload
+  %782 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.11.0.copyload
   %783 = load i32, ptr %782, align 4, !tbaa !28
   %784 = zext i32 %783 to i64
   %785 = getelementptr inbounds nuw i8, ptr %.0445, i64 %784
@@ -9038,7 +9038,7 @@ ZSTD_wildcopy.exit95:                             ; preds = %851, %842, %838
   br i1 %888, label %889, label %911
 
 889:                                              ; preds = %887
-  %890 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1069.0.copyload
+  %890 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1069.0.copyload
   %891 = load i32, ptr %890, align 4, !tbaa !28
   %892 = load i8, ptr %.0433, align 1, !tbaa !7
   store i8 %892, ptr %.0432, align 1, !tbaa !7
@@ -9054,7 +9054,7 @@ ZSTD_wildcopy.exit95:                             ; preds = %851, %842, %838
   %900 = load i8, ptr %899, align 1, !tbaa !7
   %901 = getelementptr inbounds nuw i8, ptr %.0432, i64 3
   store i8 %900, ptr %901, align 1, !tbaa !7
-  %902 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1069.0.copyload
+  %902 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1069.0.copyload
   %903 = load i32, ptr %902, align 4, !tbaa !28
   %904 = zext i32 %903 to i64
   %905 = getelementptr inbounds nuw i8, ptr %.0433, i64 %904
@@ -9123,7 +9123,7 @@ ZSTD_overlapCopy8.exit194:                        ; preds = %889, %911
 938:                                              ; preds = %ZSTD_decodeSequence.exit14
   %939 = and i32 %.1239.i582, 7
   %940 = zext nneg i32 %939 to i64
-  %941 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %940
+  %941 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %940
   %.sroa.040.0.copyload = load i64, ptr %941, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %941, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
@@ -9246,7 +9246,7 @@ ZSTD_wildcopy.exit158:                            ; preds = %964, %955, %951
   br i1 %1001, label %1002, label %1024
 
 1002:                                             ; preds = %1000
-  %1003 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.10.0.copyload
+  %1003 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.10.0.copyload
   %1004 = load i32, ptr %1003, align 4, !tbaa !28
   %1005 = load i8, ptr %.0442, align 1, !tbaa !7
   store i8 %1005, ptr %.0441, align 1, !tbaa !7
@@ -9262,7 +9262,7 @@ ZSTD_wildcopy.exit158:                            ; preds = %964, %955, %951
   %1013 = load i8, ptr %1012, align 1, !tbaa !7
   %1014 = getelementptr inbounds nuw i8, ptr %.0441, i64 3
   store i8 %1013, ptr %1014, align 1, !tbaa !7
-  %1015 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.10.0.copyload
+  %1015 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.10.0.copyload
   %1016 = load i32, ptr %1015, align 4, !tbaa !28
   %1017 = zext i32 %1016 to i64
   %1018 = getelementptr inbounds nuw i8, ptr %.0442, i64 %1017
@@ -9345,7 +9345,7 @@ ZSTD_execSequenceSplitLitBuffer.exit:             ; preds = %ZSTD_overlapCopy8.e
   tail call void @llvm.prefetch.p0(ptr nonnull %1059, i32 0, i32 3, i32 1)
   %1060 = and i32 %.1239.i582, 7
   %1061 = zext nneg i32 %1060 to i64
-  %1062 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %1061
+  %1062 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %1061
   store i64 %.sroa.0.0, ptr %1062, align 8, !tbaa !43
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1062, i64 8
   store i64 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !43
@@ -9406,7 +9406,7 @@ ZSTD_execSequenceSplitLitBuffer.exit:             ; preds = %ZSTD_overlapCopy8.e
   %.2240.i592 = phi i32 [ %1071, %.lr.ph600 ], [ %1467, %1466 ]
   %1080 = and i32 %.2240.i592, 7
   %1081 = zext nneg i32 %1080 to i64
-  %1082 = getelementptr inbounds nuw [8 x %struct.seq_t], ptr %8, i64 0, i64 %1081
+  %1082 = getelementptr inbounds nuw %struct.seq_t, ptr %8, i64 %1081
   %1083 = load i32, ptr %10, align 8, !tbaa !33
   %1084 = icmp eq i32 %1083, 2
   br i1 %1084, label %1085, label %1353
@@ -9635,7 +9635,7 @@ ZSTD_wildcopy.exit137:                            ; preds = %1154, %1147, %1143
   br i1 %1191, label %1192, label %1214
 
 1192:                                             ; preds = %1190
-  %1193 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1153.0.copyload
+  %1193 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1153.0.copyload
   %1194 = load i32, ptr %1193, align 4, !tbaa !28
   %1195 = load i8, ptr %.0439, align 1, !tbaa !7
   store i8 %1195, ptr %.0438, align 1, !tbaa !7
@@ -9651,7 +9651,7 @@ ZSTD_wildcopy.exit137:                            ; preds = %1154, %1147, %1143
   %1203 = load i8, ptr %1202, align 1, !tbaa !7
   %1204 = getelementptr inbounds nuw i8, ptr %.0438, i64 3
   store i8 %1203, ptr %1204, align 1, !tbaa !7
-  %1205 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1153.0.copyload
+  %1205 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1153.0.copyload
   %1206 = load i32, ptr %1205, align 4, !tbaa !28
   %1207 = zext i32 %1206 to i64
   %1208 = getelementptr inbounds nuw i8, ptr %.0439, i64 %1207
@@ -9846,7 +9846,7 @@ ZSTD_wildcopy.exit:                               ; preds = %1266, %1257, %1253
   br i1 %1303, label %1304, label %1326
 
 1304:                                             ; preds = %1302
-  %1305 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1077.0.copyload
+  %1305 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1077.0.copyload
   %1306 = load i32, ptr %1305, align 4, !tbaa !28
   %1307 = load i8, ptr %.0431, align 1, !tbaa !7
   store i8 %1307, ptr %.0, align 1, !tbaa !7
@@ -9862,7 +9862,7 @@ ZSTD_wildcopy.exit:                               ; preds = %1266, %1257, %1253
   %1315 = load i8, ptr %1314, align 1, !tbaa !7
   %1316 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   store i8 %1315, ptr %1316, align 1, !tbaa !7
-  %1317 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1077.0.copyload
+  %1317 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1077.0.copyload
   %1318 = load i32, ptr %1317, align 4, !tbaa !28
   %1319 = zext i32 %1318 to i64
   %1320 = getelementptr inbounds nuw i8, ptr %.0431, i64 %1319
@@ -10051,7 +10051,7 @@ ZSTD_wildcopy.exit116:                            ; preds = %1376, %1367, %1363
   br i1 %1413, label %1414, label %1436
 
 1414:                                             ; preds = %1412
-  %1415 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sroa.1061.0.copyload
+  %1415 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sroa.1061.0.copyload
   %1416 = load i32, ptr %1415, align 4, !tbaa !28
   %1417 = load i8, ptr %.0436, align 1, !tbaa !7
   store i8 %1417, ptr %.0435, align 1, !tbaa !7
@@ -10067,7 +10067,7 @@ ZSTD_wildcopy.exit116:                            ; preds = %1376, %1367, %1363
   %1425 = load i8, ptr %1424, align 1, !tbaa !7
   %1426 = getelementptr inbounds nuw i8, ptr %.0435, i64 3
   store i8 %1425, ptr %1426, align 1, !tbaa !7
-  %1427 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sroa.1061.0.copyload
+  %1427 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sroa.1061.0.copyload
   %1428 = load i32, ptr %1427, align 4, !tbaa !28
   %1429 = zext i32 %1428 to i64
   %1430 = getelementptr inbounds nuw i8, ptr %.0436, i64 %1429
@@ -10148,10 +10148,10 @@ ZSTD_execSequenceSplitLitBuffer.exit45:           ; preds = %ZSTD_overlapCopy8.e
 
 1468:                                             ; preds = %.preheader, %1468
   %indvars.iv630 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next631, %1468 ]
-  %1469 = getelementptr inbounds nuw [3 x i64], ptr %33, i64 0, i64 %indvars.iv630
+  %1469 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv630
   %1470 = load i64, ptr %1469, align 8, !tbaa !43
   %1471 = trunc i64 %1470 to i32
-  %1472 = getelementptr inbounds nuw [3 x i32], ptr %32, i64 0, i64 %indvars.iv630
+  %1472 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv630
   store i32 %1471, ptr %1472, align 4, !tbaa !28
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %exitcond633.not = icmp eq i64 %indvars.iv.next631, 3
@@ -10442,7 +10442,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %18, label %19, label %41
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %8
+  %20 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %8
   %21 = load i32, ptr %20, align 4, !tbaa !28
   %22 = load i8, ptr %2, align 1, !tbaa !7
   store i8 %22, ptr %0, align 1, !tbaa !7
@@ -10458,7 +10458,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   %30 = load i8, ptr %29, align 1, !tbaa !7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %30, ptr %31, align 1, !tbaa !7
-  %32 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %8
+  %32 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %8
   %33 = load i32, ptr %32, align 4, !tbaa !28
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 %34
@@ -10790,10 +10790,10 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 
 27:                                               ; preds = %23, %27
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [3 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !28
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
   store i64 %30, ptr %31, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -11237,7 +11237,7 @@ ZSTD_initFseState.exit25:                         ; preds = %201, %203, %209, %2
   br label %311
 
 307:                                              ; preds = %293
-  %308 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %302
+  %308 = getelementptr inbounds nuw i64, ptr %26, i64 %302
   %309 = load i64, ptr %308, align 8, !tbaa !43, !noalias !142
   %.not.i183.i = icmp eq i64 %309, 0
   %310 = select i1 %.not.i183.i, i64 -1, i64 %309
@@ -11593,7 +11593,7 @@ ZSTD_execSequenceSplitLitBuffer.exit.i.thread:    ; preds = %475
   br i1 %503, label %504, label %526
 
 504:                                              ; preds = %502
-  %505 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink
+  %505 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink
   %506 = load i32, ptr %505, align 4, !tbaa !28
   %507 = load i8, ptr %.0145, align 1, !tbaa !7
   store i8 %507, ptr %.0, align 1, !tbaa !7
@@ -11609,7 +11609,7 @@ ZSTD_execSequenceSplitLitBuffer.exit.i.thread:    ; preds = %475
   %515 = load i8, ptr %514, align 1, !tbaa !7
   %516 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   store i8 %515, ptr %516, align 1, !tbaa !7
-  %517 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink
+  %517 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink
   %518 = load i32, ptr %517, align 4, !tbaa !28
   %519 = zext i32 %518 to i64
   %520 = getelementptr inbounds nuw i8, ptr %.0145, i64 %519
@@ -11919,7 +11919,7 @@ ZSTD_wildcopy.exit251.i:                          ; preds = %627, %620, %616
   br i1 %665, label %666, label %688
 
 666:                                              ; preds = %664
-  %667 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink
+  %667 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink
   %668 = load i32, ptr %667, align 4, !tbaa !28
   %669 = load i8, ptr %.0149, align 1, !tbaa !7
   store i8 %669, ptr %.0151, align 1, !tbaa !7
@@ -11935,7 +11935,7 @@ ZSTD_wildcopy.exit251.i:                          ; preds = %627, %620, %616
   %677 = load i8, ptr %676, align 1, !tbaa !7
   %678 = getelementptr inbounds nuw i8, ptr %.0151, i64 3
   store i8 %677, ptr %678, align 1, !tbaa !7
-  %679 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink
+  %679 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink
   %680 = load i32, ptr %679, align 4, !tbaa !28
   %681 = zext i32 %680 to i64
   %682 = getelementptr inbounds nuw i8, ptr %.0149, i64 %681
@@ -12125,7 +12125,7 @@ ZSTD_overlapCopy8.exit287.i:                      ; preds = %688, %666
   br label %799
 
 795:                                              ; preds = %781
-  %796 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %790
+  %796 = getelementptr inbounds nuw i64, ptr %26, i64 %790
   %797 = load i64, ptr %796, align 8, !tbaa !43, !noalias !145
   %.not.i.i = icmp eq i64 %797, 0
   %798 = select i1 %.not.i.i, i64 -1, i64 %797
@@ -12466,7 +12466,7 @@ ZSTD_execSequence.exit.i.thread:                  ; preds = %953
   br i1 %981, label %982, label %1004
 
 982:                                              ; preds = %980
-  %983 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink409
+  %983 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink409
   %984 = load i32, ptr %983, align 4, !tbaa !28
   %985 = load i8, ptr %.0146, align 1, !tbaa !7
   store i8 %985, ptr %.0148, align 1, !tbaa !7
@@ -12482,7 +12482,7 @@ ZSTD_execSequence.exit.i.thread:                  ; preds = %953
   %993 = load i8, ptr %992, align 1, !tbaa !7
   %994 = getelementptr inbounds nuw i8, ptr %.0148, i64 3
   store i8 %993, ptr %994, align 1, !tbaa !7
-  %995 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink409
+  %995 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink409
   %996 = load i32, ptr %995, align 4, !tbaa !28
   %997 = zext i32 %996 to i64
   %998 = getelementptr inbounds nuw i8, ptr %.0146, i64 %997
@@ -12573,10 +12573,10 @@ ZSTD_execSequence.exit.i:                         ; preds = %1024, %.preheader23
 
 .preheader:                                       ; preds = %.thread207, %.preheader
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %.preheader ], [ 0, %.thread207 ]
-  %1039 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %indvars.iv300
+  %1039 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv300
   %1040 = load i64, ptr %1039, align 8, !tbaa !43
   %1041 = trunc i64 %1040 to i32
-  %1042 = getelementptr inbounds nuw [3 x i32], ptr %25, i64 0, i64 %indvars.iv300
+  %1042 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv300
   store i32 %1041, ptr %1042, align 4, !tbaa !28
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %exitcond303.not = icmp eq i64 %indvars.iv.next301, 3
@@ -12714,10 +12714,10 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
 
 35:                                               ; preds = %31, %35
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw [3 x i32], ptr %33, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !28
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [3 x i64], ptr %34, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
   store i64 %38, ptr %39, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -13166,7 +13166,7 @@ ZSTD_initFseState.exit25:                         ; preds = %209, %211, %217, %2
   br label %320
 
 316:                                              ; preds = %302
-  %317 = getelementptr inbounds nuw [3 x i64], ptr %34, i64 0, i64 %311
+  %317 = getelementptr inbounds nuw i64, ptr %34, i64 %311
   %318 = load i64, ptr %317, align 8, !tbaa !43, !noalias !148
   %.not.i.i = icmp eq i64 %318, 0
   %319 = select i1 %.not.i.i, i64 -1, i64 %318
@@ -13507,7 +13507,7 @@ ZSTD_execSequence.exit.i.thread:                  ; preds = %474
   br i1 %502, label %503, label %525
 
 503:                                              ; preds = %501
-  %504 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec64table, i64 0, i64 %.sink
+  %504 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec64table, i64 %.sink
   %505 = load i32, ptr %504, align 4, !tbaa !28
   %506 = load i8, ptr %.062, align 1, !tbaa !7
   store i8 %506, ptr %.0, align 1, !tbaa !7
@@ -13523,7 +13523,7 @@ ZSTD_execSequence.exit.i.thread:                  ; preds = %474
   %514 = load i8, ptr %513, align 1, !tbaa !7
   %515 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   store i8 %514, ptr %515, align 1, !tbaa !7
-  %516 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_overlapCopy8.dec32table, i64 0, i64 %.sink
+  %516 = getelementptr inbounds nuw i32, ptr @ZSTD_overlapCopy8.dec32table, i64 %.sink
   %517 = load i32, ptr %516, align 4, !tbaa !28
   %518 = zext i32 %517 to i64
   %519 = getelementptr inbounds nuw i8, ptr %.062, i64 %518
@@ -13612,10 +13612,10 @@ ZSTD_execSequence.exit.i:                         ; preds = %545, %.preheader87,
 
 .preheader:                                       ; preds = %556, %.preheader
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.preheader ], [ 0, %556 ]
-  %561 = getelementptr inbounds nuw [3 x i64], ptr %34, i64 0, i64 %indvars.iv102
+  %561 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv102
   %562 = load i64, ptr %561, align 8, !tbaa !43
   %563 = trunc i64 %562 to i32
-  %564 = getelementptr inbounds nuw [3 x i32], ptr %33, i64 0, i64 %indvars.iv102
+  %564 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv102
   store i32 %563, ptr %564, align 4, !tbaa !28
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 3

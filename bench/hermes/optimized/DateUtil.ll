@@ -421,7 +421,7 @@ _ZN6hermes2vmL10isLeapYearEd.exit.i.i:            ; preds = %if.end.i.i.i
   br i1 %cmp6.i.i.i, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %land.lhs.true, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %for.body
-  %arrayidx6 = getelementptr inbounds nuw [11 x i8], ptr @__const._ZN6hermes2vm13monthFromTimeEd.kDaysInMonthNonLeap, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr @__const._ZN6hermes2vm13monthFromTimeEd.kDaysInMonthNonLeap, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx6, align 1
   %6 = sitofp i8 %5 to double
   br label %cond.end
@@ -471,27 +471,27 @@ _ZN6hermes2vmL10isLeapYearEd.exit.i.i:            ; preds = %if.end.i.i.i
   br label %_ZN6hermes2vm10inLeapYearEd.exit.thread
 
 _ZN6hermes2vm10inLeapYearEd.exit.thread:          ; preds = %entry, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i, %0
-  %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink = phi ptr [ @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, %0 ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %entry ]
+  %1 = phi ptr [ @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, %0 ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %_ZN6hermes2vmL10isLeapYearEd.exit.i.i ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %entry ]
   %call46 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t)
-  %idxprom.i7 = zext nneg i32 %call46 to i64
-  %arrayidx2.i9 = getelementptr inbounds nuw [13 x i16], ptr %_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable.sink, i64 0, i64 %idxprom.i7
+  %idxprom.i8 = zext nneg i32 %call46 to i64
   %div.i = fdiv double %t, 8.640000e+07
-  %1 = tail call noundef double @llvm.floor.f64(double %div.i)
+  %2 = tail call noundef double @llvm.floor.f64(double %div.i)
   %sub5.i = fadd double %call1, -1.601000e+03
   %div6.i = fdiv double %sub5.i, 4.000000e+02
-  %2 = tail call double @llvm.floor.f64(double %div6.i)
+  %3 = tail call double @llvm.floor.f64(double %div6.i)
   %sub.i = fadd double %call1, -1.970000e+03
   %sub1.i = fadd double %call1, -1.969000e+03
   %div.i4 = fmul double %sub1.i, 2.500000e-01
-  %3 = tail call double @llvm.floor.f64(double %div.i4)
-  %4 = tail call double @llvm.fmuladd.f64(double %sub.i, double 3.650000e+02, double %3)
+  %4 = tail call double @llvm.floor.f64(double %div.i4)
+  %5 = tail call double @llvm.fmuladd.f64(double %sub.i, double 3.650000e+02, double %4)
   %sub2.i = fadd double %call1, -1.901000e+03
   %div3.i = fdiv double %sub2.i, 1.000000e+02
-  %5 = tail call double @llvm.floor.f64(double %div3.i)
-  %sub4.i = fsub double %4, %5
-  %add.i = fadd double %2, %sub4.i
-  %sub = fsub double %1, %add.i
-  %cond.i = load i16, ptr %arrayidx2.i9, align 2
+  %6 = tail call double @llvm.floor.f64(double %div3.i)
+  %sub4.i = fsub double %5, %6
+  %add.i = fadd double %3, %sub4.i
+  %sub = fsub double %2, %add.i
+  %cond.in.i = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i8
+  %cond.i = load i16, ptr %cond.in.i, align 2
   %conv = uitofp i16 %cond.i to double
   %sub6 = fsub double %sub, %conv
   %add = fadd double %sub6, 1.000000e+00
@@ -624,7 +624,7 @@ _ZN6hermes2vmL10isLeapYearEi.exit.thread6.i:      ; preds = %if.end.i.i, %if.end
   %rem3.lhs.trunc.i = add nsw i8 %3, 42
   %rem38.i = srem i8 %rem3.lhs.trunc.i, 28
   %idxprom.i = sext i8 %rem38.i to i64
-  %arrayidx.i = getelementptr inbounds [28 x i32], ptr @_ZN6hermes2vmL26epochDaysForYear2006To2033E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i32, ptr @_ZN6hermes2vmL26epochDaysForYear2006To2033E, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
   br label %_ZN6hermes2vmL25equivalentYearAsEpochDaysEii.exit
 
@@ -923,34 +923,33 @@ if.end.i:                                         ; preds = %if.end
 if.end4.i:                                        ; preds = %if.end.i
   %call.i4.i = tail call noundef double @fmod(double noundef %add, double noundef 4.000000e+02) #17
   %cmp6.i = fcmp oeq double %call.i4.i, 0.000000e+00
+  %10 = select i1 %cmp6.i, ptr @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, ptr @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable
   br label %_ZN6hermes2vmL10isLeapYearEd.exit
 
 _ZN6hermes2vmL10isLeapYearEd.exit:                ; preds = %if.end, %if.end.i, %if.end4.i
-  %retval.0.i = phi i1 [ false, %if.end ], [ true, %if.end.i ], [ %cmp6.i, %if.end4.i ]
+  %retval.0.i = phi ptr [ @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, %if.end ], [ @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, %if.end.i ], [ %10, %if.end4.i ]
   %sub.i.i = fadd double %add, -1.970000e+03
   %sub1.i.i = fadd double %add, -1.969000e+03
   %div.i.i = fmul double %sub1.i.i, 2.500000e-01
-  %10 = tail call double @llvm.floor.f64(double %div.i.i)
-  %11 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double 3.650000e+02, double %10)
+  %11 = tail call double @llvm.floor.f64(double %div.i.i)
+  %12 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double 3.650000e+02, double %11)
   %sub2.i.i = fadd double %add, -1.901000e+03
   %div3.i.i = fdiv double %sub2.i.i, 1.000000e+02
-  %12 = tail call double @llvm.floor.f64(double %div3.i.i)
-  %sub4.i.i = fsub double %11, %12
+  %13 = tail call double @llvm.floor.f64(double %div3.i.i)
+  %sub4.i.i = fsub double %12, %13
   %sub5.i.i = fadd double %add, -1.601000e+03
   %div6.i.i = fdiv double %sub5.i.i, 4.000000e+02
-  %13 = tail call double @llvm.floor.f64(double %div6.i.i)
-  %add.i.i = fadd double %13, %sub4.i.i
+  %14 = tail call double @llvm.floor.f64(double %div6.i.i)
+  %add.i.i = fadd double %14, %sub4.i.i
   %mul.i = fmul double %add.i.i, 8.640000e+07
   %div8 = fdiv double %mul.i, 8.640000e+07
-  %14 = tail call double @llvm.floor.f64(double %div8)
+  %15 = tail call double @llvm.floor.f64(double %div8)
   %conv = fptoui double %cond.i to i32
   %idxprom.i = zext i32 %conv to i64
-  %arrayidx.i = getelementptr inbounds nuw [13 x i16], ptr @_ZZN6hermes2vmL12dayFromMonthEjbE13leapYearTable, i64 0, i64 %idxprom.i
-  %arrayidx2.i = getelementptr inbounds nuw [13 x i16], ptr @_ZZN6hermes2vmL12dayFromMonthEjbE13standardTable, i64 0, i64 %idxprom.i
-  %spec.select = select i1 %retval.0.i, ptr %arrayidx.i, ptr %arrayidx2.i
-  %cond.i7 = load i16, ptr %spec.select, align 2
+  %cond.in.i = getelementptr inbounds nuw i16, ptr %retval.0.i, i64 %idxprom.i
+  %cond.i7 = load i16, ptr %cond.in.i, align 2
   %conv10 = uitofp i16 %cond.i7 to double
-  %add11 = fadd double %14, %conv10
+  %add11 = fadd double %15, %conv10
   %add12 = fadd double %8, %add11
   %sub = fadd double %add12, -1.000000e+00
   br label %return
@@ -1257,9 +1256,9 @@ entry:
   %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr @_ZN6hermes2vmL12weekdayNamesE, i64 %idxprom
   %idxprom5 = zext nneg i32 %call1 to i64
-  %arrayidx6 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vmL10monthNamesE, i64 %idxprom5
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %Fmt.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr @.str.4, ptr %Fmt.i.i.i, align 8, !alias.scope !14
@@ -1413,9 +1412,9 @@ entry:
   %cond.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %call.i.i.i
   %conv.i.i = fptosi double %cond.i.i.i to i32
   %idxprom.i = sext i32 %conv.i.i to i64
-  %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6hermes2vmL12weekdayNamesE, i64 %idxprom.i
   %idxprom5.i = zext nneg i32 %call1.i to i64
-  %arrayidx6.i = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vmL10monthNamesE, i64 %idxprom5.i
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %Fmt.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.4, ptr %Fmt.i.i.i.i, align 8, !alias.scope !23
@@ -1570,9 +1569,9 @@ entry:
   %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr @_ZN6hermes2vmL12weekdayNamesE, i64 %idxprom
   %idxprom5 = zext nneg i32 %call1 to i64
-  %arrayidx6 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vmL10monthNamesE, i64 %idxprom5
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %Fmt.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr @.str.8, ptr %Fmt.i.i.i, align 8, !alias.scope !32
@@ -3562,7 +3561,7 @@ if.end19.i:                                       ; preds = %"_ZZN6hermes2vmL11p
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end19.i
   %indvars.iv.i.i = phi i64 [ 0, %if.end19.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vmL10monthNamesE, i64 %indvars.iv.i.i
   %216 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i192.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %216) #18
   store ptr %216, ptr %ref.tmp.i.i, align 8
@@ -3607,7 +3606,7 @@ if.end29.i:                                       ; preds = %if.then26.i30
 
 for.body.i201.i:                                  ; preds = %for.inc.i206.i, %if.end29.i
   %indvars.iv.i202.i = phi i64 [ 0, %if.end29.i ], [ %indvars.iv.next.i207.i, %for.inc.i206.i ]
-  %arrayidx.i203.i = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %indvars.iv.i202.i
+  %arrayidx.i203.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vmL10monthNamesE, i64 %indvars.iv.i202.i
   %225 = load ptr, ptr %arrayidx.i203.i, align 8
   %call.i.i204.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %225) #18
   store ptr %225, ptr %ref.tmp.i200.i, align 8

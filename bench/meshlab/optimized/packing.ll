@@ -1525,14 +1525,14 @@ split:                                            ; preds = %208, %_ZNSt6vectorI
 
 447:                                              ; preds = %.preheader430, %447
   %indvars.iv631 = phi i64 [ 0, %.preheader430 ], [ %indvars.iv.next632, %447 ]
-  %448 = getelementptr inbounds nuw [3 x ptr], ptr %445, i64 0, i64 %indvars.iv631
+  %448 = getelementptr inbounds nuw ptr, ptr %445, i64 %indvars.iv631
   %449 = load ptr, ptr %448, align 8
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %450, i8 0, i64 16, i1 false)
   %451 = load ptr, ptr %448, align 8
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 40
   store i16 0, ptr %452, align 2
-  %453 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %446, i64 0, i64 %indvars.iv631
+  %453 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %446, i64 %indvars.iv631
   %indvars.iv.next632 = add nuw nsw i64 %indvars.iv631, 1
   %exitcond634.not = icmp eq i64 %indvars.iv.next632, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %453, i8 0, i64 18, i1 false)
@@ -1554,7 +1554,7 @@ split:                                            ; preds = %208, %_ZNSt6vectorI
 
 463:                                              ; preds = %454, %463
   %indvars.iv = phi i64 [ 0, %454 ], [ %indvars.iv.next, %463 ]
-  %464 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %458, i64 0, i64 %indvars.iv
+  %464 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %458, i64 %indvars.iv
   %.sroa.0288.0.copyload = load double, ptr %464, align 8
   %.sroa.2289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %464, i64 8
   %.sroa.2289.0.copyload = load double, ptr %.sroa.2289.0..sroa_idx, align 8
@@ -1583,7 +1583,7 @@ split:                                            ; preds = %208, %_ZNSt6vectorI
   %487 = fptrunc double %486 to float
   %488 = fpext float %484 to double
   %489 = fpext float %487 to double
-  %490 = getelementptr inbounds nuw [3 x ptr], ptr %461, i64 0, i64 %indvars.iv
+  %490 = getelementptr inbounds nuw ptr, ptr %461, i64 %indvars.iv
   %491 = load ptr, ptr %490, align 8
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 24
   store double %488, ptr %492, align 8
@@ -10498,13 +10498,13 @@ define void @_Z16ExtractOutline2dR9FaceGroup(ptr dead_on_unwind noalias writable
   br i1 %.not184, label %30, label %_ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE5clearEv.exit
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw [3 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %22
   br i1 %33, label %34, label %_ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE5clearEv.exit
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw [3 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit
@@ -10516,18 +10516,18 @@ _ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit:        ; preds = %114, %34
   %.sroa.19.0 = phi ptr [ %36, %34 ], [ %storemerge.i.i, %114 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0158.0, i64 32
   %40 = sext i32 %.sroa.10.0 to i64
-  %41 = getelementptr inbounds [3 x ptr], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %.sroa.0158.0
   br i1 %43, label %_ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit.thread, label %_ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit
 
 _ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit:   ; preds = %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0158.0, i64 56
-  %45 = getelementptr inbounds [3 x i8], ptr %44, i64 0, i64 %40
+  %45 = getelementptr inbounds i8, ptr %44, i64 %40
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %48 = sext i8 %46 to i64
-  %49 = getelementptr inbounds [3 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %.sroa.0158.0, %50
   br i1 %51, label %_ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit.thread, label %52
@@ -10549,7 +10549,7 @@ _ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit.thread: ; preds = %_ZNK3vcg4face3
 
 58:                                               ; preds = %62, %_ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit.thread
   %indvars.iv.i = phi i64 [ 0, %_ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit.thread ], [ %indvars.iv.next.i, %62 ]
-  %59 = getelementptr inbounds nuw [3 x ptr], ptr %57, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %.sroa.19.0, %60
   br i1 %61, label %_ZNK3vcg4face3PosI8MeshFaceE4VIndEv.exit, label %62
@@ -10562,7 +10562,7 @@ _ZN3vcg4face3PosI8MeshFaceE10IsManifoldEv.exit.thread: ; preds = %_ZNK3vcg4face3
 _ZNK3vcg4face3PosI8MeshFaceE4VIndEv.exit:         ; preds = %62, %58
   %.05.i = phi i64 [ %indvars.iv.i, %58 ], [ -1, %62 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0158.0, i64 96
-  %64 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %63, i64 0, i64 %.05.i
+  %64 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %63, i64 %.05.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0154, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   %65 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %38, %65
@@ -10639,7 +10639,7 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
   %93 = srem i32 %92, 3
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds [3 x ptr], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds ptr, ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, %.sroa.19.0
   br i1 %98, label %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i, label %99
@@ -10653,15 +10653,15 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vec
 _ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i:       ; preds = %99, %89
   %.pre-phi.i.i = phi i64 [ %95, %89 ], [ %.pre.i.i, %99 ]
   %102 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %103 = getelementptr inbounds [3 x ptr], ptr %102, i64 0, i64 %.pre-phi.i.i
+  %103 = getelementptr inbounds ptr, ptr %102, i64 %.pre-phi.i.i
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 56
-  %106 = getelementptr inbounds [3 x i8], ptr %105, i64 0, i64 %.pre-phi.i.i
+  %106 = getelementptr inbounds i8, ptr %105, i64 %.pre-phi.i.i
   %107 = load i8, ptr %106, align 1
   %108 = sext i8 %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %110 = sext i8 %107 to i64
-  %111 = getelementptr inbounds [3 x ptr], ptr %109, i64 0, i64 %110
+  %111 = getelementptr inbounds ptr, ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, %104
   br i1 %113, label %114, label %89, !llvm.loop !145
@@ -10672,10 +10672,10 @@ _ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i:       ; preds = %99, %89
   %116 = srem i16 %.lhs.trunc.i, 3
   %117 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %118 = sext i16 %116 to i64
-  %119 = getelementptr inbounds [3 x ptr], ptr %117, i64 0, i64 %118
+  %119 = getelementptr inbounds ptr, ptr %117, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, %.sroa.19.0
-  %122 = getelementptr inbounds [3 x ptr], ptr %117, i64 0, i64 %110
+  %122 = getelementptr inbounds ptr, ptr %117, i64 %110
   %storemerge.in.i.i = select i1 %121, ptr %122, ptr %119
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
   %.not.i44 = icmp ne ptr %104, %22
@@ -11955,7 +11955,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %.critedge
 
 185:                                              ; preds = %.lr.ph, %185
   %indvars.iv127 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next128, %185 ]
-  %186 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %183, i64 0, i64 %indvars.iv127
+  %186 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %183, i64 %indvars.iv127
   %187 = load double, ptr %186, align 8
   %188 = fadd double %175, %187
   store double %188, ptr %186, align 8
@@ -11963,7 +11963,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %.critedge
   %190 = load double, ptr %189, align 8
   %191 = fadd double %177, %190
   store double %191, ptr %189, align 8
-  %192 = getelementptr inbounds nuw [3 x ptr], ptr %184, i64 0, i64 %indvars.iv127
+  %192 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv127
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull align 8 dereferenceable(16) %186, i64 16, i1 false)

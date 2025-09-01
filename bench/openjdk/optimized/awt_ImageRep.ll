@@ -675,7 +675,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %.0208255.us = phi ptr [ %.0204259.us, %.preheader.us ], [ %208, %203 ]
   %204 = load i8, ptr %.0207256.us, align 1
   %205 = zext i8 %204 to i64
-  %206 = getelementptr inbounds nuw [256 x i8], ptr %19, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr %19, i64 %205
   %207 = load i8, ptr %206, align 1
   store i8 %207, ptr %.0208255.us, align 1
   %208 = getelementptr inbounds i8, ptr %.0208255.us, i64 %192

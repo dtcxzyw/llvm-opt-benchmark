@@ -11069,7 +11069,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %53 = lshr i32 %1, 6
   %54 = and i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %52, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !50
   %58 = or i64 %57, %51
   store i64 %58, ptr %56, align 8, !tbaa !50

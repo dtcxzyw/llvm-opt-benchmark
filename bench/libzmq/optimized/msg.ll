@@ -1655,14 +1655,14 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9set_groupEPKc(ptr noundef non
   store i32 0, ptr %13, align 4, !tbaa !20
   store atomic i32 1, ptr %13 seq_cst, align 4
   %14 = tail call ptr @strncpy(ptr noundef %11, ptr noundef nonnull readonly %1, i64 noundef %3) #23
-  %15 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %3
   store i8 0, ptr %15, align 1, !tbaa !3
   br label %_ZN3zmq5msg_t9set_groupEPKcm.exit
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull readonly %1, i64 noundef %3) #23
-  %19 = getelementptr inbounds nuw [15 x i8], ptr %17, i64 0, i64 %3
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %3
   store i8 0, ptr %19, align 1, !tbaa !3
   br label %_ZN3zmq5msg_t9set_groupEPKcm.exit
 
@@ -1698,14 +1698,14 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9set_groupEPKcm(ptr noundef no
   store i32 0, ptr %13, align 4, !tbaa !20
   store atomic i32 1, ptr %13 seq_cst, align 4
   %14 = tail call ptr @strncpy(ptr noundef %11, ptr noundef %1, i64 noundef %2) #23
-  %15 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %2
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %2
   store i8 0, ptr %15, align 1, !tbaa !3
   br label %20
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %2) #23
-  %19 = getelementptr inbounds nuw [15 x i8], ptr %17, i64 0, i64 %2
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %2
   store i8 0, ptr %19, align 1, !tbaa !3
   br label %20
 

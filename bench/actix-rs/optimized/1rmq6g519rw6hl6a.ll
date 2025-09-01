@@ -462,7 +462,7 @@ default.unreachable498:                           ; preds = %57
 
 80:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i", %77
   %.06.i = phi i64 [ 0, %77 ], [ %82, %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i" ]
-  %81 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.06.i
+  %81 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.06.i
   %82 = add nuw nsw i64 %.06.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %83 = load i64, ptr %81, align 8, !range !47, !alias.scope !48, !noundef !8
@@ -508,7 +508,7 @@ default.unreachable498:                           ; preds = %57
   br label %92
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.1.i
+  %97 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.1.i
   %98 = add nuw nsw i64 %.1.i, 1
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E"(ptr noalias noundef align 8 dereferenceable(24) %97) #24
           to label %92 unwind label %99
@@ -655,7 +655,7 @@ common.resume:                                    ; preds = %325, %92, %"_ZN4cor
   br i1 %exitcond471, label %163, label %153, !prof !70
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.sroa.8.0441
+  %154 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.sroa.8.0441
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %155 = load i64, ptr %154, align 8, !range !47, !alias.scope !71, !noundef !8
   %switch.i = icmp slt i64 %155, -9223372036854775806
@@ -961,7 +961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 257:                                              ; preds = %253
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %259 = load ptr, ptr %258, align 8, !nonnull !8, !noundef !8
-  %260 = getelementptr inbounds [0 x { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }], ptr %259, i64 0, i64 %251
+  %260 = getelementptr inbounds { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }, ptr %259, i64 %251
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -1100,7 +1100,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 313:                                              ; preds = %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i289", %.thread385
   %.06.i283 = phi i64 [ 0, %.thread385 ], [ %315, %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i289" ]
-  %314 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.06.i283
+  %314 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.06.i283
   %315 = add nuw nsw i64 %.06.i283, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %316 = load i64, ptr %314, align 8, !range !47, !alias.scope !104, !noundef !8
@@ -1146,7 +1146,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %325
 
 329:                                              ; preds = %325
-  %330 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.1.i285
+  %330 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.1.i285
   %331 = add nuw nsw i64 %.1.i285, 1
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E"(ptr noalias noundef align 8 dereferenceable(24) %330) #24
           to label %325 unwind label %332
@@ -1161,7 +1161,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.086.0448 = phi i64 [ 0, %.lr.ph450 ], [ %335, %347 ]
   %335 = add nuw nsw i64 %.sroa.086.0448, 1
   %336 = load ptr, ptr %306, align 8, !nonnull !8, !noundef !8
-  %337 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %336, i64 0, i64 %.sroa.086.0448
+  %337 = getelementptr inbounds nuw { ptr, i64 }, ptr %336, i64 %.sroa.086.0448
   %338 = load ptr, ptr %337, align 8, !nonnull !8, !align !68, !noundef !8
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %340 = load i64, ptr %339, align 8, !noundef !8
@@ -1184,7 +1184,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   unreachable
 
 345:                                              ; preds = %341
-  %346 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.sroa.086.0448
+  %346 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.sroa.086.0448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %346, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %346, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   invoke void @"_ZN12actix_router4path13Path$LT$T$GT$3add17hb64de7e3dd41f6b6E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %302, ptr noalias noundef nonnull readonly align 1 %338, i64 noundef %340, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
@@ -1222,7 +1222,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %exitcond, label %365, label %355, !prof !70
 
 355:                                              ; preds = %352
-  %356 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.sroa.8339.0438
+  %356 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.sroa.8339.0438
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %357 = load i64, ptr %356, align 8, !range !47, !alias.scope !116, !noundef !8
   %switch.i291 = icmp slt i64 %357, -9223372036854775806
@@ -1634,7 +1634,7 @@ default.unreachable498:                           ; preds = %57
 
 80:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i", %77
   %.06.i = phi i64 [ 0, %77 ], [ %82, %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i" ]
-  %81 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.06.i
+  %81 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.06.i
   %82 = add nuw nsw i64 %.06.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %83 = load i64, ptr %81, align 8, !range !47, !alias.scope !148, !noundef !8
@@ -1680,7 +1680,7 @@ default.unreachable498:                           ; preds = %57
   br label %92
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.1.i
+  %97 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.1.i
   %98 = add nuw nsw i64 %.1.i, 1
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E"(ptr noalias noundef align 8 dereferenceable(24) %97) #24
           to label %92 unwind label %99
@@ -1827,7 +1827,7 @@ common.resume:                                    ; preds = %325, %92, %"_ZN4cor
   br i1 %exitcond471, label %163, label %153, !prof !70
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.sroa.8.0441
+  %154 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.sroa.8.0441
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
   %155 = load i64, ptr %154, align 8, !range !47, !alias.scope !169, !noundef !8
   %switch.i = icmp slt i64 %155, -9223372036854775806
@@ -2133,7 +2133,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 257:                                              ; preds = %253
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %259 = load ptr, ptr %258, align 8, !nonnull !8, !noundef !8
-  %260 = getelementptr inbounds [0 x { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }], ptr %259, i64 0, i64 %251
+  %260 = getelementptr inbounds { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }, ptr %259, i64 %251
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -2272,7 +2272,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 313:                                              ; preds = %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i289", %.thread385
   %.06.i283 = phi i64 [ 0, %.thread385 ], [ %315, %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit.i289" ]
-  %314 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.06.i283
+  %314 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.06.i283
   %315 = add nuw nsw i64 %.06.i283, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %316 = load i64, ptr %314, align 8, !range !47, !alias.scope !201, !noundef !8
@@ -2318,7 +2318,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %325
 
 329:                                              ; preds = %325
-  %330 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.1.i285
+  %330 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.1.i285
   %331 = add nuw nsw i64 %.1.i285, 1
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E"(ptr noalias noundef align 8 dereferenceable(24) %330) #24
           to label %325 unwind label %332
@@ -2333,7 +2333,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.086.0448 = phi i64 [ 0, %.lr.ph450 ], [ %335, %347 ]
   %335 = add nuw nsw i64 %.sroa.086.0448, 1
   %336 = load ptr, ptr %306, align 8, !nonnull !8, !noundef !8
-  %337 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %336, i64 0, i64 %.sroa.086.0448
+  %337 = getelementptr inbounds nuw { ptr, i64 }, ptr %336, i64 %.sroa.086.0448
   %338 = load ptr, ptr %337, align 8, !nonnull !8, !align !68, !noundef !8
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %340 = load i64, ptr %339, align 8, !noundef !8
@@ -2356,7 +2356,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   unreachable
 
 345:                                              ; preds = %341
-  %346 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.sroa.086.0448
+  %346 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.sroa.086.0448
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %346, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %346, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   invoke void @"_ZN12actix_router4path13Path$LT$T$GT$3add17hb64de7e3dd41f6b6E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %302, ptr noalias noundef nonnull readonly align 1 %338, i64 noundef %340, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
@@ -2394,7 +2394,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %exitcond, label %365, label %355, !prof !70
 
 355:                                              ; preds = %352
-  %356 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %47, i64 0, i64 %.sroa.8339.0438
+  %356 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %47, i64 %.sroa.8339.0438
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %357 = load i64, ptr %356, align 8, !range !47, !alias.scope !213, !noundef !8
   %switch.i291 = icmp slt i64 %357, -9223372036854775806
@@ -4608,10 +4608,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !68, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !395, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h69aea7d610fd51a6E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h69aea7d610fd51a6E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h69aea7d610fd51a6E.54", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h69aea7d610fd51a6E.54", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -5037,7 +5037,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$$u5b$actix_router..
 
 5:                                                ; preds = %1, %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit"
   %.06 = phi i64 [ 0, %1 ], [ %7, %"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E.exit" ]
-  %6 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %0, i64 0, i64 %.06
+  %6 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %0, i64 %.06
   %7 = add nuw nsw i64 %.06, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
   %8 = load i64, ptr %6, align 8, !range !47, !alias.scope !483, !noundef !8
@@ -5086,7 +5086,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$$u5b$actix_router..
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw [16 x { i64, [2 x i64] }], ptr %0, i64 0, i64 %.1
+  %23 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %0, i64 %.1
   %24 = add nuw nsw i64 %.1, 1
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$actix_router..path..PathItem$GT$17h590d52b3887a20c0E"(ptr noalias noundef align 8 dereferenceable(24) %23) #24
           to label %18 unwind label %26
@@ -6342,7 +6342,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %90, align 8, !noalias !877, !nonnull !8, !noundef !8
-  %104 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %103, i64 0, i64 %89
+  %104 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %103, i64 %89
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h0cd673032c12e291E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 %104)
           to label %106 unwind label %.thread.loopexit.i.i, !noalias !877
 
@@ -7008,7 +7008,7 @@ default.unreachable:                              ; preds = %1
 
 switch.lookup:                                    ; preds = %1
   %4 = lshr i64 %2, 32
-  %switch.gep = getelementptr inbounds nuw [41 x i16], ptr @"switch.table._ZN89_$LT$std..io..error..Error$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17h02dbffcc2bd2e242E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN89_$LT$std..io..error..Error$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17h02dbffcc2bd2e242E", i64 %4
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.thread
 

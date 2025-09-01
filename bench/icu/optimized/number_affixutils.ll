@@ -290,7 +290,7 @@ define range(i8 39, 46) i8 @_ZN6icu_776number4impl10AffixUtils15getFieldForTypeE
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -406,7 +406,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 
 switch.lookup:                                    ; preds = %59
   %65 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 %65
   %switch.load = load i8, ptr %switch.gep, align 1
   %66 = add nsw i32 %.02846, %2
   %67 = invoke noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(64) %7, i8 %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %5)

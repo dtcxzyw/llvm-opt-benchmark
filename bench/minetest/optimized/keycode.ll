@@ -996,12 +996,12 @@ invoke.cont:                                      ; preds = %entry
   %conv2 = zext i8 %1 to i32
   %shr = lshr i32 %conv2, 4
   %idxprom3 = zext nneg i32 %shr to i64
-  %arrayidx4 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom3
   %2 = load i8, ptr %arrayidx4, align 1, !tbaa !21
   store i8 %2, ptr %buf2, align 1, !tbaa !21
   %and7 = and i32 %conv2, 15
   %idxprom8 = zext nneg i32 %and7 to i64
-  %arrayidx9 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom8
   %3 = load i8, ptr %arrayidx9, align 1, !tbaa !21
   store i8 %3, ptr %arrayidx10, align 1, !tbaa !21
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2) #25
@@ -1032,12 +1032,12 @@ invoke.cont12:                                    ; preds = %_ZNKSt7__cxx1112bas
   %conv2.1 = zext i8 %6 to i32
   %shr.1 = lshr i32 %conv2.1, 4
   %idxprom3.1 = zext nneg i32 %shr.1 to i64
-  %arrayidx4.1 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom3.1
+  %arrayidx4.1 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom3.1
   %7 = load i8, ptr %arrayidx4.1, align 1, !tbaa !21
   store i8 %7, ptr %buf2, align 1, !tbaa !21
   %and7.1 = and i32 %conv2.1, 15
   %idxprom8.1 = zext nneg i32 %and7.1 to i64
-  %arrayidx9.1 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom8.1
+  %arrayidx9.1 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom8.1
   %8 = load i8, ptr %arrayidx9.1, align 1, !tbaa !21
   store i8 %8, ptr %arrayidx10, align 1, !tbaa !21
   %call.i.i.1 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2) #25
@@ -1056,12 +1056,12 @@ invoke.cont12.1:                                  ; preds = %_ZNKSt7__cxx1112bas
   %conv2.2 = zext i8 %10 to i32
   %shr.2 = lshr i32 %conv2.2, 4
   %idxprom3.2 = zext nneg i32 %shr.2 to i64
-  %arrayidx4.2 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom3.2
+  %arrayidx4.2 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom3.2
   %11 = load i8, ptr %arrayidx4.2, align 1, !tbaa !21
   store i8 %11, ptr %buf2, align 1, !tbaa !21
   %and7.2 = and i32 %conv2.2, 15
   %idxprom8.2 = zext nneg i32 %and7.2 to i64
-  %arrayidx9.2 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom8.2
+  %arrayidx9.2 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom8.2
   %12 = load i8, ptr %arrayidx9.2, align 1, !tbaa !21
   store i8 %12, ptr %arrayidx10, align 1, !tbaa !21
   %call.i.i.2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2) #25
@@ -1080,12 +1080,12 @@ invoke.cont12.2:                                  ; preds = %_ZNKSt7__cxx1112bas
   %conv2.3 = zext i8 %14 to i32
   %shr.3 = lshr i32 %conv2.3, 4
   %idxprom3.3 = zext nneg i32 %shr.3 to i64
-  %arrayidx4.3 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom3.3
+  %arrayidx4.3 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom3.3
   %15 = load i8, ptr %arrayidx4.3, align 1, !tbaa !21
   store i8 %15, ptr %buf2, align 1, !tbaa !21
   %and7.3 = and i32 %conv2.3, 15
   %idxprom8.3 = zext nneg i32 %and7.3 to i64
-  %arrayidx9.3 = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom8.3
+  %arrayidx9.3 = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom8.3
   %16 = load i8, ptr %arrayidx9.3, align 1, !tbaa !21
   store i8 %16, ptr %arrayidx10, align 1, !tbaa !21
   %call.i.i.3 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2) #25

@@ -1720,7 +1720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 155:                                              ; preds = %155, %.lr.ph.i17
   %.06.i = phi i64 [ 0, %.lr.ph.i17 ], [ %160, %155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !184
-  %156 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 0, i64 %.06.i
+  %156 = getelementptr inbounds nuw i8, ptr %133, i64 %.06.i
   %157 = load i8, ptr %156, align 1, !tbaa !13, !noalias !184
   %158 = zext i8 %157 to i64
   store i64 %158, ptr %10, align 8, !tbaa !195, !alias.scope !197, !noalias !184
@@ -3443,7 +3443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 296:                                              ; preds = %296, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %301, %296 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !326
-  %297 = getelementptr inbounds nuw [32 x i8], ptr %274, i64 0, i64 %.06.i
+  %297 = getelementptr inbounds nuw i8, ptr %274, i64 %.06.i
   %298 = load i8, ptr %297, align 1, !tbaa !13, !noalias !326
   %299 = zext i8 %298 to i64
   store i64 %299, ptr %12, align 8, !tbaa !195, !alias.scope !329, !noalias !326
@@ -3570,7 +3570,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit103:              ; preds = %329, %331
   %.019.i = phi i64 [ %351, %.thread.i ], [ %334, %_ZN4llvm11raw_ostreamlsEPKc.exit103 ]
   %.117.i = phi ptr [ %350, %.thread.i ], [ %198, %_ZN4llvm11raw_ostreamlsEPKc.exit103 ]
   %347 = and i64 %.019.i, 15
-  %348 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %347
   %349 = load i8, ptr %348, align 1, !tbaa !13, !noalias !332
   %350 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %349, ptr %350, align 1, !tbaa !13, !noalias !332
@@ -3697,7 +3697,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit115:              ; preds = %381, %383
   %.019.i118 = phi i64 [ %404, %.thread.i116 ], [ %387, %_ZN4llvm11raw_ostreamlsEPKc.exit115 ]
   %.117.i120 = phi ptr [ %403, %.thread.i116 ], [ %203, %_ZN4llvm11raw_ostreamlsEPKc.exit115 ]
   %400 = and i64 %.019.i118, 15
-  %401 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %400
   %402 = load i8, ptr %401, align 1, !tbaa !13, !noalias !336
   %403 = getelementptr inbounds i8, ptr %.117.i120, i64 -1
   store i8 %402, ptr %403, align 1, !tbaa !13, !noalias !336
@@ -3824,7 +3824,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit133:              ; preds = %434, %436
   %.019.i136 = phi i64 [ %457, %.thread.i134 ], [ %440, %_ZN4llvm11raw_ostreamlsEPKc.exit133 ]
   %.117.i138 = phi ptr [ %456, %.thread.i134 ], [ %208, %_ZN4llvm11raw_ostreamlsEPKc.exit133 ]
   %453 = and i64 %.019.i136, 15
-  %454 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %453
   %455 = load i8, ptr %454, align 1, !tbaa !13, !noalias !339
   %456 = getelementptr inbounds i8, ptr %.117.i138, i64 -1
   store i8 %455, ptr %456, align 1, !tbaa !13, !noalias !339

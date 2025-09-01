@@ -2641,7 +2641,7 @@ define internal void @process_ls_ref(ptr noundef readonly captures(none) %0) #0 
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %40 = load i8, ptr %39, align 4, !tbaa !11
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i8], ptr @remote_dir_exists, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @remote_dir_exists, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !11
   %44 = icmp eq i8 %43, -1
   br i1 %44, label %45, label %57
@@ -2654,13 +2654,13 @@ define internal void @process_ls_ref(ptr noundef readonly captures(none) %0) #0 
   store i32 %46, ptr %3, align 4, !tbaa !12
   %47 = lshr i32 %46, 4
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [17 x i8], ptr @get_remote_object_list.hex, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @get_remote_object_list.hex, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !11
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %50, ptr %51, align 1, !tbaa !11
   %52 = and i32 %46, 15
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [17 x i8], ptr @get_remote_object_list.hex, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @get_remote_object_list.hex, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !11
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %55, ptr %56, align 1, !tbaa !11
@@ -2898,7 +2898,7 @@ define internal void @process_ls_object(ptr noundef readonly captures(none) %0) 
 13:                                               ; preds = %9
   %14 = load i32, ptr %4, align 4, !tbaa !12
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @remote_dir_exists, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @remote_dir_exists, i64 %15
   store i8 1, ptr %16, align 1, !tbaa !11
   br label %skip_prefix.exit
 
@@ -2930,7 +2930,7 @@ define internal void @process_ls_object(ptr noundef readonly captures(none) %0) 
 
 28:                                               ; preds = %30, %24
   %.0811.i.i = phi i64 [ 0, %24 ], [ %31, %30 ]
-  %29 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %29 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %27, %29
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %30
 
@@ -3146,7 +3146,7 @@ start_fetch_loose.exit:                           ; preds = %17, %18, %release_r
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i8, ptr %50, align 4, !tbaa !11
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @remote_dir_exists, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @remote_dir_exists, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !11
   %55 = icmp eq i8 %54, 1
   br i1 %55, label %56, label %57
@@ -3399,7 +3399,7 @@ define internal void @process_response(ptr noundef initializes((84, 88), (344, 3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i8, ptr %30, align 4, !tbaa !11
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @remote_dir_exists, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @remote_dir_exists, i64 %32
   store i8 1, ptr %33, align 1, !tbaa !11
   tail call fastcc void @start_put(ptr noundef nonnull %0)
   br label %finish_request.exit
@@ -3950,7 +3950,7 @@ define internal fastcc void @fetch_symref(ptr noundef %0, ptr noundef nonnull ca
 
 15:                                               ; preds = %17, %10
   %.0811.i.i = phi i64 [ 0, %10 ], [ %18, %17 ]
-  %16 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %16 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %14, %16
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %17
 
@@ -4165,7 +4165,7 @@ define internal fastcc range(i32 0, 2) i32 @add_send_request(ptr noundef %0, ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 4, !tbaa !11
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @remote_dir_exists, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @remote_dir_exists, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !11
   %10 = icmp eq i8 %9, -1
   br i1 %10, label %11, label %23
@@ -4178,13 +4178,13 @@ define internal fastcc range(i32 0, 2) i32 @add_send_request(ptr noundef %0, ptr
   store i32 %12, ptr %4, align 4, !tbaa !12
   %13 = lshr i32 %12, 4
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [17 x i8], ptr @get_remote_object_list.hex, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @get_remote_object_list.hex, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %16, ptr %17, align 1, !tbaa !11
   %18 = and i32 %12, 15
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [17 x i8], ptr @get_remote_object_list.hex, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @get_remote_object_list.hex, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %21, ptr %22, align 1, !tbaa !11

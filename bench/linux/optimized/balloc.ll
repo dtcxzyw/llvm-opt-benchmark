@@ -721,7 +721,7 @@ define dso_local ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef 
   %83 = load ptr, ptr %82, align 8
   %84 = and i32 %1, 127
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr [128 x %struct.bgl_lock], ptr %83, i64 0, i64 %85
+  %86 = getelementptr %struct.bgl_lock, ptr %83, i64 %85
   %87 = tail call i32 @_raw_spin_trylock(ptr noundef %86) #14
   %88 = icmp eq i32 %87, 0
   %89 = load ptr, ptr %4, align 8
@@ -840,7 +840,7 @@ ext4_has_group_desc_csum.exit.thread6:            ; preds = %122, %ext4_lock_gro
   %143 = load ptr, ptr %4, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 424
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr [128 x %struct.bgl_lock], ptr %145, i64 0, i64 %85
+  %146 = getelementptr %struct.bgl_lock, ptr %145, i64 %85
   tail call void @_raw_spin_unlock(ptr noundef %146) #14
   tail call void @unlock_buffer(ptr noundef nonnull %48) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_read_block_bitmap_nowait, i32 noundef 526, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %140) #14
@@ -872,7 +872,7 @@ ext4_has_group_desc_csum.exit.thread6:            ; preds = %122, %ext4_lock_gro
   %159 = load ptr, ptr %4, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 424
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr [128 x %struct.bgl_lock], ptr %161, i64 0, i64 %85
+  %162 = getelementptr %struct.bgl_lock, ptr %161, i64 %85
   tail call void @_raw_spin_unlock(ptr noundef %162) #14
   tail call void @unlock_buffer(ptr noundef nonnull %48) #14
   br label %189
@@ -881,7 +881,7 @@ ext4_has_group_desc_csum.exit.thread:             ; preds = %119, %126, %ext4_ha
   %163 = phi ptr [ %112, %119 ], [ %.pre.i, %126 ], [ %129, %ext4_has_group_desc_csum.exit.thread6 ], [ %.pre.i, %ext4_has_group_desc_csum.exit ]
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 424
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr [128 x %struct.bgl_lock], ptr %165, i64 0, i64 %85
+  %166 = getelementptr %struct.bgl_lock, ptr %165, i64 %85
   tail call void @_raw_spin_unlock(ptr noundef %166) #14
   %167 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %48, i32 1) #14, !srcloc !12
   %168 = icmp ult i8 %167, 2
@@ -1509,7 +1509,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   %47 = load ptr, ptr %46, align 8
   %48 = and i32 %2, 127
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr [128 x %struct.bgl_lock], ptr %47, i64 0, i64 %49
+  %50 = getelementptr %struct.bgl_lock, ptr %47, i64 %49
   %51 = tail call i32 @_raw_spin_trylock(ptr noundef %50) #14
   %52 = icmp eq i32 %51, 0
   %53 = load ptr, ptr %5, align 8
@@ -1690,7 +1690,7 @@ ext4_valid_block_bitmap.exit:                     ; preds = %151, %93, %105, %11
 167:                                              ; preds = %79
   %168 = getelementptr inbounds nuw i8, ptr %82, i64 424
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr [128 x %struct.bgl_lock], ptr %169, i64 0, i64 %49
+  %170 = getelementptr %struct.bgl_lock, ptr %169, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %170) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 423, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.12, i32 noundef %2) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
@@ -1699,7 +1699,7 @@ ext4_valid_block_bitmap.exit:                     ; preds = %151, %93, %105, %11
 171:                                              ; preds = %ext4_valid_block_bitmap.exit
   %172 = getelementptr inbounds nuw i8, ptr %.pre16, i64 424
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr [128 x %struct.bgl_lock], ptr %173, i64 0, i64 %49
+  %174 = getelementptr %struct.bgl_lock, ptr %173, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %174) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 432, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %2, i64 noundef %165) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
@@ -1768,7 +1768,7 @@ ext4_valid_block_bitmap.exit.thread:              ; preds = %.ext4_valid_block_b
   %222 = load ptr, ptr %5, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 424
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr [128 x %struct.bgl_lock], ptr %224, i64 0, i64 %49
+  %225 = getelementptr %struct.bgl_lock, ptr %224, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %225) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 441, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %2, i64 noundef %218) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
@@ -1789,7 +1789,7 @@ ext4_valid_block_bitmap_padding.exit.thread:      ; preds = %201, %213
   %232 = load ptr, ptr %5, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 424
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr [128 x %struct.bgl_lock], ptr %234, i64 0, i64 %49
+  %235 = getelementptr %struct.bgl_lock, ptr %234, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %235) #14
   br label %.thread8
 

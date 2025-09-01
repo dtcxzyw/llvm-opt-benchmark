@@ -191,7 +191,7 @@ au_read_annotation.exit.thread:                   ; preds = %28
 
 40:                                               ; preds = %39, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %39 ]
-  %41 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @au_read_annotation.keys, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [7 x i8], ptr @au_read_annotation.keys, i64 %indvars.iv.i
   %42 = load ptr, ptr %3, align 8, !tbaa !28
   %43 = call i32 @av_strcasecmp(ptr noundef nonnull %41, ptr noundef %42) #6
   %44 = icmp eq i32 %43, 0
@@ -260,7 +260,7 @@ au_read_annotation.exit:                          ; preds = %21, %50
 
 65:                                               ; preds = %62
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw [4 x i8], ptr @__const.au_read_header.bpcss, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @__const.au_read_header.bpcss, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !12
   %69 = zext i8 %68 to i32
   br label %72
@@ -396,7 +396,7 @@ define internal range(i32 -22, 1) i32 @au_write_header(ptr noundef %0) #1 {
 19:                                               ; preds = %28, %17
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %28 ]
   %.0121.i = phi i32 [ 0, %17 ], [ %.1.i, %28 ]
-  %20 = getelementptr inbounds nuw [5 x [7 x i8]], ptr @au_get_annotations.keys, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [7 x i8], ptr @au_get_annotations.keys, i64 %indvars.iv.i
   %21 = call ptr @av_dict_get(ptr noundef %.val, ptr noundef nonnull %20, ptr noundef null, i32 noundef 0) #6
   %.not15.i = icmp eq ptr %21, null
   br i1 %.not15.i, label %28, label %22

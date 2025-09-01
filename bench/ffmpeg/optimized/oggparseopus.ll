@@ -237,7 +237,7 @@ define internal range(i32 -2147483648, 2) i32 @opus_packet(ptr noundef %0, i32 n
   %.095142 = phi ptr [ %81, %.lr.ph ], [ %88, %opus_duration.exit127.thread ]
   %.096141 = phi ptr [ %81, %.lr.ph ], [ %.197, %opus_duration.exit127.thread ]
   %.098140 = phi i32 [ %76, %.lr.ph ], [ %.2, %opus_duration.exit127.thread ]
-  %85 = getelementptr inbounds [255 x i8], ptr %82, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds i8, ptr %82, i64 %indvars.iv
   %86 = load i8, ptr %85, align 1, !tbaa !43
   %87 = zext i8 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %.095142, i64 %87

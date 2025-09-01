@@ -179,7 +179,7 @@ define noundef ptr @_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE(ptr 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -196,7 +196,7 @@ define noundef ptr @_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t(ptr nounde
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -214,7 +214,7 @@ define noundef ptr @_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeEleme
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -3603,7 +3603,7 @@ define void @_Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementE
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
 
@@ -3616,7 +3616,7 @@ _Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit: ; preds = %switch.
 
 switch.lookup229:                                 ; preds = %_Z21_gmx_selelem_type_strRKN3gmx20SelectionTreeElementE.exit
   %14 = zext nneg i32 %12 to i64
-  %switch.gep230 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 0, i64 %14
+  %switch.gep230 = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.11, i64 %14
   %switch.load231 = load ptr, ptr %switch.gep230, align 8
   br label %_Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit
 
@@ -3793,7 +3793,7 @@ _Z23_gmx_sel_value_type_strPK18gmx_ana_selvalue_t.exit: ; preds = %switch.lookup
 
 switch.lookup232:                                 ; preds = %89
   %93 = zext nneg i32 %91 to i64
-  %switch.gep233 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 0, i64 %93
+  %switch.gep233 = getelementptr inbounds nuw ptr, ptr @switch.table._Z23_gmx_selelem_print_treeP8_IO_FILERKN3gmx20SelectionTreeElementEbi.12, i64 %93
   %switch.load234 = load ptr, ptr %switch.gep233, align 8
   br label %_Z29_gmx_selelem_boolean_type_strRKN3gmx20SelectionTreeElementE.exit
 

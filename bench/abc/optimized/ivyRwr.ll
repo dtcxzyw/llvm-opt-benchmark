@@ -251,7 +251,7 @@ Abc_Clock.exit164.i:                              ; preds = %125, %Abc_Clock.exi
 
 137:                                              ; preds = %145, %.preheader205.i
   %indvars.iv.i = phi i64 [ 0, %.preheader205.i ], [ %indvars.iv.next.i, %145 ]
-  %138 = getelementptr inbounds nuw [6 x i32], ptr %135, i64 0, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.i
   %139 = load i32, ptr %138, align 4, !tbaa !37
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds ptr, ptr %.val157.val.i, i64 %140
@@ -397,7 +397,7 @@ Vec_PtrFill.exit.i:                               ; preds = %202, %Vec_PtrGrow.e
   %207 = getelementptr inbounds nuw i8, ptr %179, i64 %indvars.iv228.i
   %208 = load i8, ptr %207, align 1, !tbaa !51
   %209 = sext i8 %208 to i64
-  %210 = getelementptr inbounds [6 x i32], ptr %135, i64 0, i64 %209
+  %210 = getelementptr inbounds i32, ptr %135, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !37
   %.val158.i = load ptr, ptr %36, align 8, !tbaa !20
   %212 = getelementptr i8, ptr %.val158.i, i64 8
@@ -1020,7 +1020,7 @@ Abc_Clock.exit184.i:                              ; preds = %494, %._crit_edge22
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 %.0139.lcssa.i
   %520 = load i8, ptr %519, align 1, !tbaa !51
   %521 = zext i8 %520 to i64
-  %522 = getelementptr inbounds nuw [222 x i32], ptr %74, i64 0, i64 %521
+  %522 = getelementptr inbounds nuw i32, ptr %74, i64 %521
   %523 = load i32, ptr %522, align 4, !tbaa !37
   %524 = add nsw i32 %523, 1
   store i32 %524, ptr %522, align 4, !tbaa !37
@@ -1333,7 +1333,7 @@ define i32 @Ivy_NodeGetTruth_rec(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw [5 x i32], ptr @Ivy_NodeGetTruth_rec.uMasks, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr @Ivy_NodeGetTruth_rec.uMasks, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !37
   br label %common.ret39
 

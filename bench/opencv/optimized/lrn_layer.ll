@@ -3178,8 +3178,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %indvars.iv.i.us = phi i64 [ 2, %76 ], [ %indvars.iv.next.i.us, %78 ]
   %79 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i.us
   %80 = load i32, ptr %79, align 4, !tbaa !76, !noalias !114
-  %81 = add nsw i64 %indvars.iv.i.us, -2
-  %82 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %81
+  %81 = getelementptr i32, ptr %12, i64 %indvars.iv.i.us
+  %82 = getelementptr i8, ptr %81, i64 -8
   store i32 %80, ptr %82, align 4, !tbaa !76, !noalias !114
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
@@ -3218,8 +3218,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %indvars.iv.i46.us = phi i64 [ 2, %99 ], [ %indvars.iv.next.i47.us, %101 ]
   %102 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv.i46.us
   %103 = load i32, ptr %102, align 4, !tbaa !76, !noalias !121
-  %104 = add nsw i64 %indvars.iv.i46.us, -2
-  %105 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 %104
+  %104 = getelementptr i32, ptr %9, i64 %indvars.iv.i46.us
+  %105 = getelementptr i8, ptr %104, i64 -8
   store i32 %103, ptr %105, align 4, !tbaa !76, !noalias !121
   %indvars.iv.next.i47.us = add nuw nsw i64 %indvars.iv.i46.us, 1
   %exitcond.not.i48.us = icmp eq i64 %indvars.iv.next.i47.us, %wide.trip.count.i45.us

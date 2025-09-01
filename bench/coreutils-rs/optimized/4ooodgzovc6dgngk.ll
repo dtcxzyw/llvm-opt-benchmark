@@ -2405,7 +2405,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds [0 x i8], ptr %114, i64 0, i64 %112
+  %115 = getelementptr inbounds i8, ptr %114, i64 %112
   %116 = load i8, ptr %115, align 1, !noundef !4
   %117 = icmp eq i8 %116, %10
   br i1 %117, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h0fad102017a034dcE.exit", label %124

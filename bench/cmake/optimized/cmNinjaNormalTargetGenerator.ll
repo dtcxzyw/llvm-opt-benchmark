@@ -14091,7 +14091,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 3871:                                             ; preds = %3852, %._crit_edge3156
   %indvars.iv = phi i64 [ 0, %3852 ], [ %indvars.iv.next, %._crit_edge3156 ]
-  %3872 = getelementptr inbounds nuw [3 x ptr], ptr %202, i64 0, i64 %indvars.iv
+  %3872 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv
   %3873 = load ptr, ptr %3872, align 8, !tbaa !411
   %3874 = load ptr, ptr %3873, align 8, !tbaa !415
   %3875 = getelementptr inbounds nuw i8, ptr %3873, i64 8
@@ -14100,7 +14100,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not30843152, label %._crit_edge3156, label %.lr.ph3155
 
 .lr.ph3155:                                       ; preds = %3871
-  %3877 = getelementptr inbounds nuw [3 x ptr], ptr %205, i64 0, i64 %indvars.iv
+  %3877 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv
   br label %3878
 
 ._crit_edge3156:                                  ; preds = %4072, %3871

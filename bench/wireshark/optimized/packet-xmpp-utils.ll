@@ -657,7 +657,7 @@ define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %22
   %23 = zext nneg i32 %4 to i64
-  %24 = getelementptr [20 x i32], ptr @ett_unknown, i64 0, i64 %23
+  %24 = getelementptr i32, ptr @ett_unknown, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = add nuw nsw i32 %4, 1
   br label %27

@@ -408,7 +408,7 @@ define internal ptr @call_readline(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = call i32 @fileno(ptr noundef %25) #14
   %27 = sdiv i32 %26, 64
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [16 x i64], ptr %4, i64 0, i64 %28
+  %29 = getelementptr i64, ptr %4, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !28
   %31 = or i64 %30, %24
   store i64 %31, ptr %29, align 8, !tbaa !28

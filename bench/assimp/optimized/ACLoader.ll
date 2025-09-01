@@ -1124,7 +1124,7 @@ _ZN6Assimp8SkipLineIcEEbPPKT_S3_.exit.i105:       ; preds = %254, %252
   store i32 %284, ptr %.0533, align 4
   %285 = load ptr, ptr %174, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %176, ptr align 1 %285, i64 %281, i1 false)
-  %286 = getelementptr inbounds nuw [1024 x i8], ptr %176, i64 0, i64 %281
+  %286 = getelementptr inbounds nuw i8, ptr %176, i64 %281
   store i8 0, ptr %286, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4246,7 +4246,7 @@ define hidden void @_ZN6Assimp12AC3DImporter15ConvertMaterialERKNS0_6ObjectERKNS
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load ptr, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 1 %17, i64 %11, i1 false)
-  %18 = getelementptr inbounds nuw [1024 x i8], ptr %16, i64 0, i64 %11
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %11
   store i8 0, ptr %18, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4274,7 +4274,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %33 = load ptr, ptr %22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr align 1 %33, i64 %28, i1 false)
-  %34 = getelementptr inbounds nuw [1024 x i8], ptr %32, i64 0, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %28
   store i8 0, ptr %34, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35
 
@@ -6047,7 +6047,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %823, %822, %_ZNSt6v
   %836 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %837 = load ptr, ptr %829, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %836, ptr align 1 %837, i64 %831, i1 false)
-  %838 = getelementptr inbounds nuw [1024 x i8], ptr %836, i64 0, i64 %831
+  %838 = getelementptr inbounds nuw i8, ptr %836, i64 %831
   store i8 0, ptr %838, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -9677,7 +9677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

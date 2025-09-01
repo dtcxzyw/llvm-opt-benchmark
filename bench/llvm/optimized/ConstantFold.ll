@@ -5008,23 +5008,23 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   br i1 %160, label %switch.lookup, label %.thread222
 
 161:                                              ; preds = %153
-  %switch.tableidx245 = add i32 %.tr, -32
-  %162 = icmp ult i32 %switch.tableidx245, 10
-  %switch.maskindex = trunc i32 %switch.tableidx245 to i16
+  %switch.tableidx244 = add i32 %.tr, -32
+  %162 = icmp ult i32 %switch.tableidx244, 10
+  %switch.maskindex = trunc i32 %switch.tableidx244 to i16
   %switch.shifted = lshr i16 963, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond262 = select i1 %162, i1 %switch.lobit, i1 false
   br i1 %or.cond262, label %switch.lookup246, label %.thread222
 
 163:                                              ; preds = %153
-  %switch.tableidx250 = add i32 %.tr, -32
-  %164 = icmp ult i32 %switch.tableidx250, 6
-  br i1 %164, label %switch.lookup249, label %.thread222
+  %switch.tableidx249 = add i32 %.tr, -32
+  %164 = icmp ult i32 %switch.tableidx249, 6
+  br i1 %164, label %switch.lookup250, label %.thread222
 
 165:                                              ; preds = %153
-  %switch.tableidx254 = add i32 %.tr, -32
-  %166 = icmp ult i32 %switch.tableidx254, 10
-  %switch.maskindex257 = trunc i32 %switch.tableidx254 to i16
+  %switch.tableidx253 = add i32 %.tr, -32
+  %166 = icmp ult i32 %switch.tableidx253, 10
+  %switch.maskindex257 = trunc i32 %switch.tableidx253 to i16
   %switch.shifted258 = lshr i16 963, %switch.maskindex257
   %switch.lobit259 = trunc i16 %switch.shifted258 to i1
   %or.cond263 = select i1 %166, i1 %switch.lobit259, i1 false
@@ -5065,30 +5065,30 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
 
 switch.lookup:                                    ; preds = %159
   %183 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_, i64 0, i64 %183
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_, i64 %183
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.thread217
 
 switch.lookup246:                                 ; preds = %161
-  %184 = zext nneg i32 %switch.tableidx245 to i64
-  %switch.gep247 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.21, i64 0, i64 %184
+  %184 = zext nneg i32 %switch.tableidx244 to i64
+  %switch.gep247 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.21, i64 %184
   %switch.load248 = load i64, ptr %switch.gep247, align 8
   br label %.thread217
 
-switch.lookup249:                                 ; preds = %163
-  %185 = zext nneg i32 %switch.tableidx250 to i64
-  %switch.gep251 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.22, i64 0, i64 %185
+switch.lookup250:                                 ; preds = %163
+  %185 = zext nneg i32 %switch.tableidx249 to i64
+  %switch.gep251 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.22, i64 %185
   %switch.load252 = load i64, ptr %switch.gep251, align 8
   br label %.thread217
 
 switch.lookup256:                                 ; preds = %165
-  %186 = zext nneg i32 %switch.tableidx254 to i64
-  %switch.gep260 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.23, i64 0, i64 %186
+  %186 = zext nneg i32 %switch.tableidx253 to i64
+  %switch.gep260 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm30ConstantFoldCompareInstructionENS_7CmpInst9PredicateEPNS_8ConstantES3_.23, i64 %186
   %switch.load261 = load i64, ptr %switch.gep260, align 8
   br label %.thread217
 
-.thread217:                                       ; preds = %switch.lookup256, %switch.lookup249, %switch.lookup246, %switch.lookup, %179, %176, %173, %170, %167, %156, %182
-  %.0220 = phi i64 [ 0, %182 ], [ %158, %156 ], [ 1, %167 ], [ 1, %170 ], [ 1, %173 ], [ 1, %176 ], [ 1, %179 ], [ %switch.load, %switch.lookup ], [ %switch.load248, %switch.lookup246 ], [ %switch.load252, %switch.lookup249 ], [ %switch.load261, %switch.lookup256 ]
+.thread217:                                       ; preds = %switch.lookup256, %switch.lookup250, %switch.lookup246, %switch.lookup, %179, %176, %173, %170, %167, %156, %182
+  %.0220 = phi i64 [ 0, %182 ], [ %158, %156 ], [ 1, %167 ], [ 1, %170 ], [ 1, %173 ], [ 1, %176 ], [ 1, %179 ], [ %switch.load, %switch.lookup ], [ %switch.load248, %switch.lookup246 ], [ %switch.load252, %switch.lookup250 ], [ %switch.load261, %switch.lookup256 ]
   %187 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %.0108, i64 noundef %.0220, i1 noundef zeroext false) #11
   br label %.thread207
 

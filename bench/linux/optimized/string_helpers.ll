@@ -98,7 +98,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
 
 12:                                               ; preds = %10
   %13 = zext i32 %2 to i64
-  %14 = getelementptr [2 x i32], ptr @string_get_size.divisor, i64 0, i64 %13
+  %14 = getelementptr i32, ptr @string_get_size.divisor, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   br label %20
@@ -108,7 +108,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %18 = phi i64 [ %1, %10 ], [ %23, %20 ]
   %19 = icmp ult i64 %0, 4294967296
   %.phi.trans.insert = zext i32 %2 to i64
-  %.phi.trans.insert24 = getelementptr [2 x i32], ptr @string_get_size.divisor, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert24 = getelementptr i32, ptr @string_get_size.divisor, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert24, align 4
   %.pre25 = zext i32 %.pre to i64
   br i1 %19, label %.loopexit, label %.preheader43
@@ -170,7 +170,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %57 = lshr i32 %56, 10
   %58 = select i1 %55, i32 %57, i32 %44
   %59 = sext i32 %50 to i64
-  %60 = getelementptr [3 x i32], ptr @string_get_size.rounding, i64 0, i64 %59
+  %60 = getelementptr i32, ptr @string_get_size.rounding, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, %58
   %63 = icmp ugt i32 %62, 999
@@ -184,7 +184,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %69 = select i1 %63, i32 %68, i32 %62
   %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 8, ptr noundef nonnull @.str.17, i32 noundef %69) #17
   %71 = sext i32 %53 to i64
-  %72 = getelementptr [8 x i8], ptr %6, i64 0, i64 %71
+  %72 = getelementptr i8, ptr %6, i64 %71
   store i8 0, ptr %72, align 1
   br label %73
 
@@ -197,7 +197,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %75 = phi i64 [ 0, %..thread_crit_edge ], [ %65, %73 ]
   %76 = phi i32 [ 0, %..thread_crit_edge ], [ %45, %73 ]
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr [2 x ptr], ptr @string_get_size.units_str, i64 0, i64 %.pre-phi28
+  %78 = getelementptr ptr, ptr @string_get_size.units_str, i64 %.pre-phi28
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr ptr, ptr %79, i64 %77
   %81 = load ptr, ptr %80, align 8
@@ -556,7 +556,7 @@ define dso_local i32 @string_escape_mem(ptr noundef readonly captures(none) %0, 
 
 58:                                               ; preds = %56, %53
   %59 = zext nneg i8 %42 to i64
-  %60 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %59
+  %60 = getelementptr i8, ptr @_ctype, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, -105
   %63 = icmp eq i8 %62, 0
@@ -581,7 +581,7 @@ define dso_local i32 @string_escape_mem(ptr noundef readonly captures(none) %0, 
 
 71:                                               ; preds = %68
   %72 = zext i8 %42 to i64
-  %73 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %72
+  %73 = getelementptr i8, ptr @_ctype, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = and i8 %74, -105
   %76 = icmp eq i8 %75, 0
@@ -590,7 +590,7 @@ define dso_local i32 @string_escape_mem(ptr noundef readonly captures(none) %0, 
 
 .thread21:                                        ; preds = %56
   %78 = zext i8 %42 to i64
-  %79 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %78
+  %79 = getelementptr i8, ptr @_ctype, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, -105
   %82 = icmp eq i8 %81, 0
@@ -797,7 +797,7 @@ define dso_local i32 @string_escape_mem(ptr noundef readonly captures(none) %0, 
 163:                                              ; preds = %160
   %164 = lshr i8 %42, 4
   %165 = zext nneg i8 %164 to i64
-  %166 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %165
+  %166 = getelementptr i8, ptr @hex_asc, i64 %165
   %167 = load i8, ptr %166, align 1
   store i8 %167, ptr %161, align 1
   br label %168
@@ -810,7 +810,7 @@ define dso_local i32 @string_escape_mem(ptr noundef readonly captures(none) %0, 
 171:                                              ; preds = %168
   %172 = and i8 %42, 15
   %173 = zext nneg i8 %172 to i64
-  %174 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %173
+  %174 = getelementptr i8, ptr @hex_asc, i64 %173
   %175 = load i8, ptr %174, align 1
   store i8 %175, ptr %169, align 1
   br label %.thread23, !llvm.loop !15
@@ -940,7 +940,7 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly captures(address_is_
 58:                                               ; preds = %55
   %59 = lshr i8 %48, 4
   %60 = zext nneg i8 %59 to i64
-  %61 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %60
+  %61 = getelementptr i8, ptr @hex_asc, i64 %60
   %62 = load i8, ptr %61, align 1
   store i8 %62, ptr %56, align 1
   br label %63
@@ -953,7 +953,7 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly captures(address_is_
 66:                                               ; preds = %63
   %67 = and i8 %48, 15
   %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %68
+  %69 = getelementptr i8, ptr @hex_asc, i64 %68
   %70 = load i8, ptr %69, align 1
   store i8 %70, ptr %64, align 1
   br label %71, !llvm.loop !15
@@ -1007,7 +1007,7 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly captures(address_is_
 94:                                               ; preds = %91
   %95 = lshr i8 %79, 4
   %96 = zext nneg i8 %95 to i64
-  %97 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %96
+  %97 = getelementptr i8, ptr @hex_asc, i64 %96
   %98 = load i8, ptr %97, align 1
   store i8 %98, ptr %92, align 1
   br label %99
@@ -1020,7 +1020,7 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly captures(address_is_
 102:                                              ; preds = %99
   %103 = and i8 %79, 15
   %104 = zext nneg i8 %103 to i64
-  %105 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %104
+  %105 = getelementptr i8, ptr @hex_asc, i64 %104
   %106 = load i8, ptr %105, align 1
   store i8 %106, ptr %100, align 1
   br label %107, !llvm.loop !15
@@ -1456,7 +1456,7 @@ define dso_local noundef ptr @skip_spaces(ptr noundef readonly captures(ret: add
   %3 = phi ptr [ %0, %1 ], [ %10, %2 ]
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %5
+  %6 = getelementptr i8, ptr @_ctype, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 32
   %9 = icmp eq i8 %8, 0
@@ -1486,7 +1486,7 @@ define dso_local noundef ptr @strim(ptr noundef captures(address, ret: address, 
 10:                                               ; preds = %6
   %11 = load i8, ptr %8, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @_ctype, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 32
   %16 = icmp eq i8 %15, 0
@@ -1500,7 +1500,7 @@ define dso_local noundef ptr @strim(ptr noundef captures(address, ret: address, 
   %19 = phi ptr [ %0, %17 ], [ %26, %18 ]
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @_ctype, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 32
   %25 = icmp eq i8 %24, 0

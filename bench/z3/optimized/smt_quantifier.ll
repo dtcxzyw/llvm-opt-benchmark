@@ -418,10 +418,10 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %53
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !36
   call void @_ZN3smt18quantifier_manager25log_justification_to_rootERSoPNS_5enodeER13obj_hashtableIS2_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(10544) %3, ptr noundef nonnull align 8 dereferenceable(976) %4)
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !36
   call void @_ZN3smt18quantifier_manager25log_justification_to_rootERSoPNS_5enodeER13obj_hashtableIS2_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(10544) %3, ptr noundef nonnull align 8 dereferenceable(976) %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -553,10 +553,10 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %47
 
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !36
   tail call void @_ZN3smt18quantifier_manager25log_justification_to_rootERSoPNS_5enodeER13obj_hashtableIS2_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(10544) %3, ptr noundef nonnull align 8 dereferenceable(976) %4)
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !36
   tail call void @_ZN3smt18quantifier_manager25log_justification_to_rootERSoPNS_5enodeER13obj_hashtableIS2_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %68, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(10544) %3, ptr noundef nonnull align 8 dereferenceable(976) %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -584,14 +584,14 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %47
 81:                                               ; preds = %._crit_edge, %81
   %indvars.iv104 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next105, %81 ]
   %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.11, i64 noundef 3)
-  %83 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %indvars.iv104
+  %83 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv104
   %84 = load ptr, ptr %83, align 8, !tbaa !36
   %85 = load ptr, ptr %84, align 8, !tbaa !23
   %86 = load i32, ptr %85, align 4, !tbaa !48
   %87 = zext i32 %86 to i64
   %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %87)
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.12, i64 noundef 2)
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %indvars.iv104
+  %90 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv104
   %91 = load ptr, ptr %90, align 8, !tbaa !36
   %92 = load ptr, ptr %91, align 8, !tbaa !23
   %93 = load i32, ptr %92, align 4, !tbaa !48

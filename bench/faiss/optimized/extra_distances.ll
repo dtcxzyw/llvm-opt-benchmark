@@ -6947,7 +6947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %5
   %31 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
   %33 = shl i64 %0, 2

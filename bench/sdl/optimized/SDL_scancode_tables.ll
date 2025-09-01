@@ -23,7 +23,7 @@ define hidden ptr @SDL_GetScancodeTable(i32 noundef %0, ptr noundef writeonly ca
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw [5 x %struct.anon], ptr @SDL_scancode_tables, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @SDL_scancode_tables, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %3
@@ -56,7 +56,7 @@ define hidden i32 @SDL_GetScancodeFromTable(i32 noundef %0, i32 noundef %1) loca
 
 4:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds nuw [5 x %struct.anon], ptr @SDL_scancode_tables, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @SDL_scancode_tables, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %3

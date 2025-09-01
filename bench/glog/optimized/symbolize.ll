@@ -512,7 +512,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit67: ; preds =
 53:                                               ; preds = %51
   %54 = add nuw nsw i64 %.032.i.i, 1
   %55 = and i64 %.035.i.i, 15
-  %56 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !25
   %58 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 1
   store i8 %57, ptr %.029.i.i, align 1, !tbaa !25
@@ -947,7 +947,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit85: ; preds =
 213:                                              ; preds = %211
   %214 = add nuw nsw i64 %.032.i.i87, 1
   %215 = and i64 %.035.i.i86, 15
-  %216 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !25
   %218 = getelementptr inbounds nuw i8, ptr %.029.i.i88, i64 1
   store i8 %217, ptr %.029.i.i88, align 1, !tbaa !25
@@ -1919,7 +1919,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %.052 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds nuw [16 x %struct.Elf64_Shdr], ptr %6, i64 0, i64 %.052
+  %25 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %6, i64 %.052
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !43
   %28 = icmp eq i32 %27, %3
@@ -1992,7 +1992,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 .lr.ph:                                           ; preds = %.preheader, %69
   %29 = phi i64 [ %71, %69 ], [ 0, %.preheader ]
   %.05815 = phi i32 [ %70, %69 ], [ 0, %.preheader ]
-  %30 = getelementptr inbounds nuw [32 x %struct.Elf64_Sym], ptr %7, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %7, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !48
   %.not65 = icmp eq i64 %32, 0

@@ -1815,7 +1815,7 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
   %62 = phi i8 [ 0, %.critedge ], [ 1, %.critedge.preheader.preheader ]
   %.not20 = phi i1 [ true, %.critedge ], [ false, %.critedge.preheader.preheader ]
   %indvars.iv = phi i64 [ 1, %.critedge ], [ 0, %.critedge.preheader.preheader ]
-  %63 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE.genNonLocTypes, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr @__const._ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE.genNonLocTypes, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !78
   %65 = load ptr, ptr %9, align 8, !tbaa !67
   %66 = load ptr, ptr %65, align 8, !tbaa !18
@@ -2711,7 +2711,7 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
   %24 = load ptr, ptr %5, align 8, !tbaa !82
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #20, !srcloc !84
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds [129 x i16], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds i16, ptr %4, i64 %25
   store i16 0, ptr %26, align 2, !tbaa !72
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %28 = load ptr, ptr %27, align 8, !tbaa !69
@@ -2768,7 +2768,7 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
 
 52:                                               ; preds = %44
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds [4 x i8], ptr %9, i64 0, i64 %53
+  %54 = getelementptr inbounds i8, ptr %9, i64 %53
   store i8 0, ptr %54, align 1, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !18
@@ -3189,7 +3189,7 @@ define noundef ptr @_ZN6icu_778TZGNCore22getPartialLocationNameERKNS_13UnicodeSt
 
 35:                                               ; preds = %27
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds [4 x i8], ptr %9, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr %9, i64 %36
   store i8 0, ptr %37, align 1, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !18

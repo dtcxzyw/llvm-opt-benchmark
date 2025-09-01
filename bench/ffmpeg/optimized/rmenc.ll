@@ -62,7 +62,7 @@ define internal range(i32 -1163346256, 1) i32 @rm_write_header(ptr noundef %0) #
   store i32 %16, ptr %15, align 4, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !35
-  %19 = getelementptr inbounds nuw [2 x %struct.StreamInfo], ptr %3, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.StreamInfo, ptr %3, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i32 %16, ptr %20, align 8, !tbaa !36
@@ -278,7 +278,7 @@ define internal noundef i32 @rm_write_trailer(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw [2 x %struct.StreamInfo], ptr %3, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.StreamInfo, ptr %3, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !63
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 28
@@ -339,7 +339,7 @@ define internal fastcc range(i32 -22, 1) i32 @rv10_write_header(ptr noundef %0, 
   %.0213272 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %.0220271 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1221, %.lr.ph ]
   %.0226269 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [2 x %struct.StreamInfo], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.StreamInfo, ptr %4, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !41
   %14 = add nsw i32 %13, %.0226269
@@ -404,7 +404,7 @@ define internal fastcc range(i32 -22, 1) i32 @rv10_write_header(ptr noundef %0, 
   %indvars.iv291 = phi i64 [ 0, %32 ], [ %indvars.iv.next292, %50 ]
   %.0215280 = phi i32 [ 18, %32 ], [ %.1216, %50 ]
   %40 = load ptr, ptr %38, align 8, !tbaa !70
-  %41 = getelementptr inbounds nuw [4 x ptr], ptr @ff_rm_metadata, i64 0, i64 %indvars.iv291
+  %41 = getelementptr inbounds nuw ptr, ptr @ff_rm_metadata, i64 %indvars.iv291
   %42 = load ptr, ptr %41, align 8, !tbaa !71
   %43 = tail call ptr @av_dict_get(ptr noundef %40, ptr noundef %42, ptr noundef null, i32 noundef 0) #6
   %.not243 = icmp eq ptr %43, null
@@ -437,7 +437,7 @@ define internal fastcc range(i32 -22, 1) i32 @rv10_write_header(ptr noundef %0, 
 53:                                               ; preds = %51, %put_str.exit
   %indvars.iv295 = phi i64 [ 0, %51 ], [ %indvars.iv.next296, %put_str.exit ]
   %54 = load ptr, ptr %38, align 8, !tbaa !70
-  %55 = getelementptr inbounds nuw [4 x ptr], ptr @ff_rm_metadata, i64 0, i64 %indvars.iv295
+  %55 = getelementptr inbounds nuw ptr, ptr @ff_rm_metadata, i64 %indvars.iv295
   %56 = load ptr, ptr %55, align 8, !tbaa !71
   %57 = tail call ptr @av_dict_get(ptr noundef %54, ptr noundef %56, ptr noundef null, i32 noundef 0) #6
   %.not242 = icmp eq ptr %57, null
@@ -474,7 +474,7 @@ put_str.exit:                                     ; preds = %.lr.ph.i, %61
 
 .lr.ph283:                                        ; preds = %.preheader, %.thread
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %.thread ], [ 0, %.preheader ]
-  %70 = getelementptr inbounds nuw [2 x %struct.StreamInfo], ptr %4, i64 0, i64 %indvars.iv300
+  %70 = getelementptr inbounds nuw %struct.StreamInfo, ptr %4, i64 %indvars.iv300
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load ptr, ptr %71, align 8, !tbaa !42
   %73 = load i32, ptr %72, align 8, !tbaa !43

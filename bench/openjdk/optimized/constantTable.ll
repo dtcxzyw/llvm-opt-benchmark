@@ -293,7 +293,7 @@ _ZN17GrowableArrayViewIN13ConstantTable8ConstantEE4sortEPFiPS1_S3_E.exit: ; pred
 
 16:                                               ; preds = %.lr.ph
   %17 = zext i8 %15 to i64
-  %18 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -320,7 +320,7 @@ switch.hole_check:                                ; preds = %24
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN13ConstantTable26calculate_offsets_and_sizeEv, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13ConstantTable26calculate_offsets_and_sizeEv, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL13constant_sizePN13ConstantTable8ConstantE.exit
 
@@ -664,7 +664,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %2, align 4
   %8 = zext i8 %1 to i64
-  %9 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = mul nsw i32 %10, %7
   %12 = tail call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %11, i32 noundef %3) #10
@@ -976,7 +976,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(
 
 30:                                               ; preds = %5
   %31 = zext i8 %3 to i64
-  %32 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %31
   %33 = load i32, ptr %32, align 4
   br label %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit
 
@@ -1334,7 +1334,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
 define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef readnone captures(none) %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i32, ptr %4, align 4
   %7 = zext i8 %3 to i64
-  %8 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = mul nsw i32 %9, %6
   tail call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr poison, i8 noundef zeroext %3, ptr noundef nonnull %4, i32 noundef %10)
@@ -1350,7 +1350,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11, i32 1
   %13 = load i8, ptr %12, align 4
   switch i8 %13, label %48 [
     i8 11, label %14

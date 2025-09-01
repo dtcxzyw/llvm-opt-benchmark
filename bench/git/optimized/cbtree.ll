@@ -44,7 +44,7 @@ define dso_local ptr @cb_insert(ptr noundef captures(none) %0, ptr noundef %1, i
   %26 = or i64 %22, %25
   %27 = add nuw nsw i64 %26, 1
   %28 = lshr i64 %27, 8
-  %29 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %12, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !13
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, 1
@@ -62,9 +62,9 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
 
 34:                                               ; preds = %.lr.ph, %39
   %.06179 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %35 = getelementptr inbounds nuw [0 x i8], ptr %33, i64 0, i64 %.06179
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.06179
   %36 = load i8, ptr %35, align 1, !tbaa !12
-  %37 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %.06179
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 %.06179
   %38 = load i8, ptr %37, align 1, !tbaa !12
   %.not70 = icmp eq i8 %36, %38
   br i1 %.not70, label %39, label %41
@@ -98,7 +98,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i8 %60, ptr %61, align 4, !tbaa !12
   %62 = sub nuw nsw i64 1, %57
-  %63 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %1, i64 %62
   store ptr %1, ptr %63, align 8, !tbaa !13
   %64 = load ptr, ptr %0, align 8, !tbaa !13
   %65 = ptrtoint ptr %64 to i64
@@ -138,7 +138,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   br i1 %or.cond, label %._crit_edge, label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %.lr.ph113
-  %87 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %79
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 %79
   %88 = load i8, ptr %87, align 1, !tbaa !12
   %89 = or i8 %84, %88
   %90 = zext i8 %89 to i64
@@ -154,7 +154,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
 ._crit_edge:                                      ; preds = %.lr.ph113, %._crit_edge93, %.lr.ph82, %.lr.ph82.preheader, %41
   %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph82.preheader ], [ %94, %.lr.ph82 ], [ %94, %._crit_edge93 ], [ %81, %.lr.ph113 ]
   %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph82.preheader ], [ %93, %.lr.ph82 ], [ %93, %._crit_edge93 ], [ %.06381112, %.lr.ph113 ]
-  %98 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %57
+  %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %57
   store ptr %97, ptr %98, align 8, !tbaa !13
   %99 = ptrtoint ptr %1 to i64
   %100 = add i64 %99, 1
@@ -199,7 +199,7 @@ define dso_local ptr @cb_lookup(ptr noundef readonly captures(none) %0, ptr noun
   %23 = or i64 %19, %22
   %24 = add nuw nsw i64 %23, 1
   %25 = lshr i64 %24, 8
-  %26 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %9, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
@@ -270,7 +270,7 @@ define dso_local void @cb_each(ptr noundef readonly captures(none) %0, ptr nound
   %26 = or i64 %22, %25
   %27 = add nuw nsw i64 %26, 1
   %28 = lshr i64 %27, 8
-  %29 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %12, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !13
   %spec.select = select i1 %16, ptr %30, ptr %.02533
   %31 = ptrtoint ptr %30 to i64
@@ -285,7 +285,7 @@ define dso_local void @cb_each(ptr noundef readonly captures(none) %0, ptr nound
 
 35:                                               ; preds = %.lr.ph36, %33
   %.02635 = phi i64 [ 0, %.lr.ph36 ], [ %34, %33 ]
-  %36 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %.02635
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 %.02635
   %37 = load i8, ptr %36, align 1, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %.02635
   %39 = load i8, ptr %38, align 1, !tbaa !12

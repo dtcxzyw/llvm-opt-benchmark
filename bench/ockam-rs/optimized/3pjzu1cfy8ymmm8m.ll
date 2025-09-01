@@ -2388,7 +2388,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$$u5b$ockam_abac..policy..st
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr91drop_in_place$LT$ockam_abac..policy..storage..resource_policy_repository_sql..PolicyRow$GT$17h961cf5295a6e2780E.exit"
   %.07 = phi i64 [ %5, %"_ZN4core3ptr91drop_in_place$LT$ockam_abac..policy..storage..resource_policy_repository_sql..PolicyRow$GT$17h961cf5295a6e2780E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }], ptr %0, i64 0, i64 %.07
+  %4 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %0, i64 %.07
   %5 = add nuw i64 %.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !516)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !519)
@@ -2480,7 +2480,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$$u5b$ockam_abac..policy..st
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr96drop_in_place$LT$ockam_abac..policy..storage..resource_type_policy_repository_sql..PolicyRow$GT$17h2e88db2446d22be6E.exit"
   %.07 = phi i64 [ %5, %"_ZN4core3ptr96drop_in_place$LT$ockam_abac..policy..storage..resource_type_policy_repository_sql..PolicyRow$GT$17h2e88db2446d22be6E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }], ptr %0, i64 0, i64 %.07
+  %4 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %0, i64 %.07
   %5 = add nuw i64 %.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !583)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !586)
@@ -4973,7 +4973,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$ockam_abac..expr..Val$u
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr42drop_in_place$LT$ockam_abac..expr..Val$GT$17h9983975546030ea4E.llvm.12929368810573836545.exit"
   %.07 = phi i64 [ %5, %"_ZN4core3ptr42drop_in_place$LT$ockam_abac..expr..Val$GT$17h9983975546030ea4E.llvm.12929368810573836545.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %0, i64 0, i64 %.07
+  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %.07
   %5 = add nuw i64 %.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1130)
   %6 = load i8, ptr %4, align 8, !range !166, !alias.scope !1130, !noundef !9
@@ -5023,7 +5023,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$ockam_abac..expr..Val$u
   br label %16
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %0, i64 0, i64 %.1
+  %21 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %.1
   %22 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$ockam_abac..expr..Val$GT$17h9983975546030ea4E.llvm.12929368810573836545"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #34
           to label %16 unwind label %24
@@ -6912,7 +6912,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..policy..storage..resource_type_policy_repository_sql..PolicyRow$GT$$GT$17hb6bc8839fc90e477E.exit", %"_ZN4core3ptr96drop_in_place$LT$ockam_abac..policy..storage..resource_type_policy_repository_sql..PolicyRow$GT$17h2e88db2446d22be6E.exit.i"
   %.07.i = phi i64 [ %12, %"_ZN4core3ptr96drop_in_place$LT$ockam_abac..policy..storage..resource_type_policy_repository_sql..PolicyRow$GT$17h2e88db2446d22be6E.exit.i" ], [ 0, %"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..policy..storage..resource_type_policy_repository_sql..PolicyRow$GT$$GT$17hb6bc8839fc90e477E.exit" ]
-  %11 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }], ptr %2, i64 0, i64 %.07.i
+  %11 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %2, i64 %.07.i
   %12 = add nuw i64 %.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1569)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1572)
@@ -6990,7 +6990,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..expr..Val$GT$$GT$17h661ecf2a943a6e55E.exit", %"_ZN4core3ptr42drop_in_place$LT$ockam_abac..expr..Val$GT$17h9983975546030ea4E.llvm.12929368810573836545.exit.i"
   %.07.i = phi i64 [ %12, %"_ZN4core3ptr42drop_in_place$LT$ockam_abac..expr..Val$GT$17h9983975546030ea4E.llvm.12929368810573836545.exit.i" ], [ 0, %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..expr..Val$GT$$GT$17h661ecf2a943a6e55E.exit" ]
-  %11 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %2, i64 0, i64 %.07.i
+  %11 = getelementptr inbounds { i8, [31 x i8] }, ptr %2, i64 %.07.i
   %12 = add nuw i64 %.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1636)
   %13 = load i8, ptr %11, align 8, !range !166, !alias.scope !1639, !noundef !9
@@ -7037,7 +7037,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %2, i64 0, i64 %.1.i
+  %28 = getelementptr inbounds { i8, [31 x i8] }, ptr %2, i64 %.1.i
   %29 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$ockam_abac..expr..Val$GT$17h9983975546030ea4E.llvm.12929368810573836545"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28) #34
           to label %23 unwind label %31
@@ -7077,7 +7077,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..policy..storage..resource_policy_repository_sql..PolicyRow$GT$$GT$17h1f77e0bb940c4355E.exit", %"_ZN4core3ptr91drop_in_place$LT$ockam_abac..policy..storage..resource_policy_repository_sql..PolicyRow$GT$17h961cf5295a6e2780E.exit.i"
   %.07.i = phi i64 [ %12, %"_ZN4core3ptr91drop_in_place$LT$ockam_abac..policy..storage..resource_policy_repository_sql..PolicyRow$GT$17h961cf5295a6e2780E.exit.i" ], [ 0, %"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_abac..policy..storage..resource_policy_repository_sql..PolicyRow$GT$$GT$17h1f77e0bb940c4355E.exit" ]
-  %11 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }], ptr %2, i64 0, i64 %.07.i
+  %11 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %2, i64 %.07.i
   %12 = add nuw i64 %.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1673)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1676)

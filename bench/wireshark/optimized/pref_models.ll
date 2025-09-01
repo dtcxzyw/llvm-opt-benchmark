@@ -530,10 +530,10 @@ define void @_ZN9PrefsItemC2EN10PrefsModel14PrefsModelTypeEPS_(ptr noundef align
 
 switch.lookup:                                    ; preds = %8
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN10PrefsModel10typeToHelpEi, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10PrefsModel10typeToHelpEi, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep7 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN10PrefsModel10typeToHelpEi.2, i64 0, i64 %12
+  %switch.gep7 = getelementptr inbounds nuw i64, ptr @switch.table._ZN10PrefsModel10typeToHelpEi.2, i64 %12
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %switch.load, ptr %13, align 8, !alias.scope !6
@@ -1000,10 +1000,10 @@ define void @_ZN10PrefsModel10typeToHelpEi(ptr dead_on_unwind noalias writable w
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN10PrefsModel10typeToHelpEi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10PrefsModel10typeToHelpEi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep154 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN10PrefsModel10typeToHelpEi.2, i64 0, i64 %5
+  %switch.gep154 = getelementptr inbounds nuw i64, ptr @switch.table._ZN10PrefsModel10typeToHelpEi.2, i64 %5
   %switch.load155 = load i64, ptr %switch.gep154, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %switch.load, ptr %6, align 8

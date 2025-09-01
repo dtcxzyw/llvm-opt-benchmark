@@ -72,7 +72,7 @@ define dso_local void @percpu_counter_set(ptr noundef %0, i64 noundef %1) #0 ali
   %16 = load ptr, ptr %4, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %12, 63
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %17
   %22 = inttoptr i64 %21 to ptr
@@ -196,7 +196,7 @@ define dso_local i64 @__percpu_counter_sum(ptr noundef %0) #0 align 16 {
   %20 = load ptr, ptr %8, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %16, 63
-  %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
+  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = inttoptr i64 %25 to ptr
@@ -397,7 +397,7 @@ define dso_local range(i32 -1, 2) i32 @__percpu_counter_compare(ptr noundef %0, 
   %33 = load ptr, ptr %21, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %29, 63
-  %36 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %35
+  %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %34
   %39 = inttoptr i64 %38 to ptr
@@ -530,7 +530,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   %65 = load ptr, ptr %12, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %61, 63
-  %68 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %67
+  %68 = getelementptr i64, ptr @__per_cpu_offset, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %66
   %71 = inttoptr i64 %70 to ptr
@@ -629,7 +629,7 @@ define internal noundef i32 @percpu_counter_cpu_dead(i32 noundef %0) #0 align 16
 
 7:                                                ; preds = %1
   %8 = zext i32 %0 to i64
-  %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
+  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
   br label %10
 
 10:                                               ; preds = %10, %7

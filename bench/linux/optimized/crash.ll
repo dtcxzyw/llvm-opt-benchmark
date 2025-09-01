@@ -244,7 +244,7 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr [16 x %struct.kexec_segment], ptr %56, i64 0, i64 %59
+  %60 = getelementptr %struct.kexec_segment, ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = load i64, ptr %4, align 8
@@ -304,7 +304,7 @@ define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr noundef read
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr [0 x %struct.range], ptr %4, i64 0, i64 %7
+  %8 = getelementptr %struct.range, ptr %4, i64 %7
   store i64 %3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8

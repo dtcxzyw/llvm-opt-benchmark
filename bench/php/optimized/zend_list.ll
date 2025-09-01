@@ -801,7 +801,7 @@ define dso_local ptr @zend_register_persistent_resource(ptr noundef readonly cap
   store i64 %1, ptr %11, align 8, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %0, i64 %1, i1 false)
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %12, i64 0, i64 %1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %1
   store i8 0, ptr %13, align 1, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #15

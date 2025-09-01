@@ -469,7 +469,7 @@ define void @_ZN10open_spiel7mancala12MancalaState13DoApplyActionEl(ptr noundef 
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %8 = getelementptr inbounds [14 x i32], ptr %7, i64 0, i64 %1
+  %8 = getelementptr inbounds i32, ptr %7, i64 %1
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -509,7 +509,7 @@ define void @_ZN10open_spiel7mancala12MancalaState13DoApplyActionEl(ptr noundef 
   %24 = zext i1 %23 to i32
   %spec.select.i = add nuw nsw i32 %21, %24
   %25 = sext i32 %spec.select.i to i64
-  %26 = getelementptr inbounds [14 x i32], ptr %7, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr %7, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -518,7 +518,7 @@ define void @_ZN10open_spiel7mancala12MancalaState13DoApplyActionEl(ptr noundef 
   br i1 %exitcond.not, label %30, label %18, !llvm.loop !4
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds [14 x i32], ptr %7, i64 0, i64 %25
+  %31 = getelementptr inbounds i32, ptr %7, i64 %25
   %32 = icmp eq i32 %27, 0
   %.pre22 = load i32, ptr %17, align 4
   br i1 %32, label %33, label %48
@@ -534,7 +534,7 @@ define void @_ZN10open_spiel7mancala12MancalaState13DoApplyActionEl(ptr noundef 
 37:                                               ; preds = %33
   %38 = sub nsw i32 14, %spec.select.i
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [14 x i32], ptr %7, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %7, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %48
@@ -542,7 +542,7 @@ define void @_ZN10open_spiel7mancala12MancalaState13DoApplyActionEl(ptr noundef 
 43:                                               ; preds = %37
   %44 = add nuw nsw i32 %41, 1
   %..i = select i1 %34, i64 7, i64 0
-  %45 = getelementptr inbounds nuw [14 x i32], ptr %7, i64 0, i64 %..i
+  %45 = getelementptr inbounds nuw i32, ptr %7, i64 %..i
   %46 = load i32, ptr %45, align 4
   %47 = add nsw i32 %44, %46
   store i32 %47, ptr %45, align 4
@@ -658,7 +658,7 @@ define void @_ZNK10open_spiel7mancala12MancalaState12LegalActionsEv(ptr dead_on_
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ 0, %8 ]
   %16 = phi ptr [ %50, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ null, %8 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %17 = getelementptr inbounds nuw [14 x i32], ptr %12, i64 0, i64 %indvars.iv.next52
+  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next52
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
@@ -766,7 +766,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23 ], [ 0, %8 ]
   %52 = phi ptr [ %80, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23 ], [ null, %8 ]
   %53 = sub nuw nsw i64 13, %indvars.iv
-  %54 = getelementptr inbounds nuw [14 x i32], ptr %12, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %12, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23
@@ -1198,7 +1198,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 29:                                               ; preds = %.preheader33, %44
   %indvars.iv = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next, %44 ]
   %30 = sub nuw nsw i64 13, %indvars.iv
-  %31 = getelementptr inbounds nuw [14 x i32], ptr %24, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = invoke noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %32, ptr noundef nonnull %25)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1395,7 +1395,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 93:                                               ; preds = %92
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %94 = getelementptr inbounds nuw [14 x i32], ptr %24, i64 0, i64 %indvars.iv.next42
+  %94 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next42
   %95 = load i32, ptr %94, align 4
   %96 = invoke noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %95, ptr noundef nonnull %88)
           to label %.noexc26 unwind label %.loopexit
@@ -1467,7 +1467,7 @@ define noundef zeroext i1 @_ZNK10open_spiel7mancala12MancalaState10IsTerminalEv(
 12:                                               ; preds = %12, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
   %13 = sub nuw nsw i64 13, %indvars.iv
-  %14 = getelementptr inbounds nuw [14 x i32], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1482,7 +1482,7 @@ define noundef zeroext i1 @_ZNK10open_spiel7mancala12MancalaState10IsTerminalEv(
 
 17:                                               ; preds = %.preheader23
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %18 = getelementptr inbounds nuw [14 x i32], ptr %11, i64 0, i64 %indvars.iv.next19
+  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next19
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %.preheader23, !llvm.loop !16

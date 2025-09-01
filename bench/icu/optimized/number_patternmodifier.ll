@@ -1130,7 +1130,7 @@ common.resume:                                    ; preds = %52, %81, %67, %37
 _ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit: ; preds = %35
   store ptr %36, ptr %scevgep.i.i35, align 8, !tbaa !52, !alias.scope !63
   %39 = zext i32 %29 to i64
-  %40 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::AdoptingSignumModifierStore"], ptr %24, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %"class.icu_77::number::impl::AdoptingSignumModifierStore", ptr %24, i64 %39
   %41 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_776number4impl27AdoptingSignumModifierStoreaSEOS2_(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   call void @_ZN6icu_776number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   %.027.add = add nuw nsw i64 %.027.idx38, 4
@@ -1359,7 +1359,7 @@ define void @_ZNK6icu_776number4impl24ImmutablePatternModifier13applyToMicrosERN
   %13 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity6signumEv(ptr noundef nonnull align 8 dereferenceable(66) %2)
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   br label %39
 
@@ -1443,7 +1443,7 @@ define noundef ptr @_ZNK6icu_776number4impl24ImmutablePatternModifier11getModifi
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !52
   br label %19
 
@@ -2301,7 +2301,7 @@ define linkonce_odr noundef ptr @_ZNK6icu_776number4impl21AdoptingModifierStore1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = icmp eq ptr %9, null
   %11 = icmp ne i32 %2, 5
@@ -2310,7 +2310,7 @@ define linkonce_odr noundef ptr @_ZNK6icu_776number4impl21AdoptingModifierStore1
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr %13, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %7
   %15 = load ptr, ptr %14, align 8, !tbaa !52
   br label %16
 

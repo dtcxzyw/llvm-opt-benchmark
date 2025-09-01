@@ -1257,7 +1257,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
 
 switch.lookup:                                    ; preds = %16
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.Abc_TruthDecPerform, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Abc_TruthDecPerform, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %19
 
@@ -1581,7 +1581,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %160 = shl nuw i32 1, %159
   %161 = zext nneg i32 %160 to i64
   %162 = lshr i64 %.fr18.us.i, %161
-  %163 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv53.i
+  %163 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv53.i
   %164 = load i64, ptr %163, align 8, !tbaa !6
   %.fr.us.i = freeze i64 %162
   %165 = xor i64 %.fr.us.i, %.fr18.us.i
@@ -1612,7 +1612,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %169 = trunc nuw nsw i64 %indvars.iv.i to i32
   %170 = shl nuw nsw i32 1, %169
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
+  %172 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv.i
   %173 = load i64, ptr %172, align 8, !tbaa !6
   br label %175
 
@@ -2091,7 +2091,7 @@ Vec_IntFill.exit.i.i:                             ; preds = %.lr.ph.i15.i.i, %Ve
   %100 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv.i.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !23
   %102 = and i64 %indvars.iv.i.i.i.i, 7
-  %103 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !23
   %105 = mul i32 %104, %101
   %106 = add i32 %105, %.012.i.i.i.i
@@ -2250,7 +2250,7 @@ Vec_MemHashResize.exit.i:                         ; preds = %.lr.ph32.i.i, %.lr.
   %170 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i.i
   %171 = load i32, ptr %170, align 4, !tbaa !23
   %172 = and i64 %indvars.iv.i.i.i, 7
-  %173 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !23
   %175 = mul i32 %174, %171
   %176 = add i32 %175, %.012.i.i22.i

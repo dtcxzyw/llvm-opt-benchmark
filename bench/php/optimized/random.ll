@@ -726,33 +726,32 @@ define dso_local noalias noundef ptr @php_random_bin2hex_le(ptr noundef readonly
   br label %11
 
 ._crit_edge:                                      ; preds = %11, %2
-  %.014.lcssa = phi i64 [ 0, %2 ], [ %24, %11 ]
+  %.014.lcssa = phi i64 [ 0, %2 ], [ %23, %11 ]
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %10 = getelementptr inbounds nuw [1 x i8], ptr %9, i64 0, i64 %.014.lcssa
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.014.lcssa
   store i8 0, ptr %10, align 1, !tbaa !71
   ret ptr %3
 
 11:                                               ; preds = %.lr.ph, %11
-  %.016 = phi i64 [ 0, %.lr.ph ], [ %26, %11 ]
-  %.01415 = phi i64 [ 0, %.lr.ph ], [ %24, %11 ]
+  %.016 = phi i64 [ 0, %.lr.ph ], [ %25, %11 ]
+  %.01415 = phi i64 [ 0, %.lr.ph ], [ %23, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.016
   %13 = load i8, ptr %12, align 1, !tbaa !71
   %14 = lshr i8 %13, 4
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw [17 x i8], ptr @hexconvtab, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @hexconvtab, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !71
-  %18 = or disjoint i64 %.01415, 1
-  %19 = getelementptr inbounds nuw [1 x i8], ptr %8, i64 0, i64 %.01415
-  store i8 %17, ptr %19, align 1, !tbaa !71
-  %20 = and i8 %13, 15
-  %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr inbounds nuw [17 x i8], ptr @hexconvtab, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !71
-  %24 = add i64 %.01415, 2
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %8, i64 0, i64 %18
-  store i8 %23, ptr %25, align 1, !tbaa !71
-  %26 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %26, %1
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %.01415
+  store i8 %17, ptr %18, align 1, !tbaa !71
+  %19 = and i8 %13, 15
+  %20 = zext nneg i8 %19 to i64
+  %21 = getelementptr inbounds nuw i8, ptr @hexconvtab, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !71
+  %23 = add i64 %.01415, 2
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store i8 %22, ptr %24, align 1, !tbaa !71
+  %25 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %25, %1
   br i1 %exitcond.not, label %._crit_edge, label %11
 }
 
@@ -1661,7 +1660,7 @@ zend_string_release_ex.exit:                      ; preds = %29, %32, %37
 
 40:                                               ; preds = %zend_string_alloc.exit
   %41 = load i64, ptr %3, align 8, !tbaa !86
-  %42 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %25, i64 %41
   store i8 0, ptr %42, align 1, !tbaa !71
   store ptr %21, ptr %1, align 8, !tbaa !71
   %43 = load i32, ptr %22, align 4, !tbaa !71
@@ -1859,7 +1858,7 @@ define dso_local i64 @php_random_generate_fallback_seed_ex(ptr noundef %0) local
 33:                                               ; preds = %27, %33
   %.08 = phi i64 [ 0, %27 ], [ %40, %33 ]
   %.067 = phi i64 [ 0, %27 ], [ %39, %33 ]
-  %34 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 0, i64 %.08
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.08
   %35 = load i8, ptr %34, align 1, !tbaa !71
   %36 = zext i8 %35 to i64
   %37 = shl nuw nsw i64 %.08, 3

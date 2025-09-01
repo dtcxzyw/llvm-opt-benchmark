@@ -6922,19 +6922,19 @@ sls_flag_use_localtime_filename.exit:             ; preds = %.thread35.i, %100, 
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 8509
   %199 = call i32 @ff_get_line(ptr noundef %197, ptr noundef nonnull %198, i32 noundef 4097) #17
   %200 = call i64 @strcspn(ptr noundef nonnull %198, ptr noundef nonnull @.str.205) #18
-  %201 = getelementptr inbounds nuw [4097 x i8], ptr %198, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 %200
   store i8 0, ptr %201, align 1, !tbaa !102
   %202 = load ptr, ptr %8, align 8, !tbaa !178
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 4412
   %204 = call i32 @ff_get_line(ptr noundef %202, ptr noundef nonnull %203, i32 noundef 4097) #17
   %205 = call i64 @strcspn(ptr noundef nonnull %203, ptr noundef nonnull @.str.205) #18
-  %206 = getelementptr inbounds nuw [4097 x i8], ptr %203, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 %205
   store i8 0, ptr %206, align 1, !tbaa !102
   %207 = load ptr, ptr %8, align 8, !tbaa !178
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 12639
   %209 = call i32 @ff_get_line(ptr noundef %207, ptr noundef nonnull %208, i32 noundef 33) #17
   %210 = call i64 @strcspn(ptr noundef nonnull %208, ptr noundef nonnull @.str.205) #18
-  %211 = getelementptr inbounds nuw [33 x i8], ptr %208, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 %210
   store i8 0, ptr %211, align 1, !tbaa !102
   %212 = call i32 @ff_format_io_close(ptr noundef nonnull %0, ptr noundef nonnull %8) #17
   %213 = load i8, ptr %198, align 1, !tbaa !102

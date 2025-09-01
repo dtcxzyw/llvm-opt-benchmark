@@ -494,9 +494,9 @@ define hidden void @_ZN2cv3hal12cpu_baseline5add8uEPKhmS3_mPhmii(ptr noundef rea
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = zext i8 %13 to i64
   %17 = zext i8 %15 to i64
-  %18 = or disjoint i64 %16, 256
-  %19 = add nuw nsw i64 %18, %17
-  %20 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %19
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN2cv12g_Saturate8uE, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 256
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %.02025.us.i, i64 %indvars.iv.i
   store i8 %21, ptr %22, align 1, !tbaa !3
@@ -1077,9 +1077,9 @@ define hidden void @_ZN2cv3hal12cpu_baseline5sub8uEPKhmS3_mPhmii(ptr noundef rea
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = zext i8 %13 to i64
   %17 = zext i8 %15 to i64
-  %18 = or disjoint i64 %16, 256
-  %19 = sub nuw nsw i64 %18, %17
-  %20 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %19
+  %18 = sub nsw i64 %16, %17
+  %19 = getelementptr i8, ptr @_ZN2cv12g_Saturate8uE, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 256
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %.02025.us.i, i64 %indvars.iv.i
   store i8 %21, ptr %22, align 1, !tbaa !3
@@ -1634,9 +1634,9 @@ define hidden void @_ZN2cv3hal12cpu_baseline5min8uEPKhmS3_mPhmii(ptr noundef rea
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = zext i8 %13 to i64
   %17 = zext i8 %15 to i64
-  %18 = or disjoint i64 %16, 256
-  %19 = sub nuw nsw i64 %18, %17
-  %20 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %19
+  %18 = sub nsw i64 %16, %17
+  %19 = getelementptr i8, ptr @_ZN2cv12g_Saturate8uE, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 256
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = sub i8 %13, %21
   %23 = getelementptr inbounds nuw i8, ptr %.02025.us.i, i64 %indvars.iv.i
@@ -2181,10 +2181,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline5max8uEPKhmS3_mPhmii(ptr noundef rea
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.in.i = phi i32 [ %23, %._crit_edge.us.i ], [ %7, %.preheader.us.preheader.i ]
-  %.01926.us.i = phi ptr [ %24, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
-  %.02025.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %4, %.preheader.us.preheader.i ]
-  %.02124.us.i = phi ptr [ %25, %._crit_edge.us.i ], [ %2, %.preheader.us.preheader.i ]
+  %.in.i = phi i32 [ %24, %._crit_edge.us.i ], [ %7, %.preheader.us.preheader.i ]
+  %.01926.us.i = phi ptr [ %25, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
+  %.02025.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %4, %.preheader.us.preheader.i ]
+  %.02124.us.i = phi ptr [ %26, %._crit_edge.us.i ], [ %2, %.preheader.us.preheader.i ]
   br label %11
 
 11:                                               ; preds = %11, %.preheader.us.i
@@ -2195,43 +2195,43 @@ define hidden void @_ZN2cv3hal12cpu_baseline5max8uEPKhmS3_mPhmii(ptr noundef rea
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = zext i8 %13 to i64
   %17 = zext i8 %15 to i64
-  %reass.sub = sub nsw i64 %17, %16
-  %18 = add nsw i64 %reass.sub, 256
-  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !3
-  %21 = add i8 %20, %13
-  %22 = getelementptr inbounds nuw i8, ptr %.02025.us.i, i64 %indvars.iv.i
-  store i8 %21, ptr %22, align 1, !tbaa !3
+  %18 = sub nsw i64 %17, %16
+  %19 = getelementptr i8, ptr @_ZN2cv12g_Saturate8uE, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 256
+  %21 = load i8, ptr %20, align 1, !tbaa !3
+  %22 = add i8 %21, %13
+  %23 = getelementptr inbounds nuw i8, ptr %.02025.us.i, i64 %indvars.iv.i
+  store i8 %22, ptr %23, align 1, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %11, !llvm.loop !64
 
 ._crit_edge.us.i:                                 ; preds = %11
-  %23 = add nsw i32 %.in.i, -1
-  %24 = getelementptr inbounds nuw i8, ptr %.01926.us.i, i64 %1
-  %25 = getelementptr inbounds nuw i8, ptr %.02124.us.i, i64 %3
-  %26 = getelementptr inbounds nuw i8, ptr %.02025.us.i, i64 %5
-  %.not.us.i = icmp eq i32 %23, 0
+  %24 = add nsw i32 %.in.i, -1
+  %25 = getelementptr inbounds nuw i8, ptr %.01926.us.i, i64 %1
+  %26 = getelementptr inbounds nuw i8, ptr %.02124.us.i, i64 %3
+  %27 = getelementptr inbounds nuw i8, ptr %.02025.us.i, i64 %5
+  %.not.us.i = icmp eq i32 %24, 0
   br i1 %.not.us.i, label %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, label %.preheader.us.i, !llvm.loop !65
 
 _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit: ; preds = %._crit_edge.us.i, %8
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %29
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %30
 
-29:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit
+30:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %9)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %30
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %31
 
-30:                                               ; preds = %29
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #13
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
@@ -6466,13 +6466,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef 
   %36 = getelementptr inbounds nuw i8, ptr %.0223.us.i.i, i64 %indvars.iv.i21.i
   %37 = load i8, ptr %36, align 1, !tbaa !3
   %38 = zext i8 %35 to i64
-  %39 = add nuw nsw i64 %38, 128
-  %40 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %39
+  %39 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 512
   %41 = load float, ptr %40, align 4, !tbaa !25
   %42 = fmul float %41, %11
   %43 = zext i8 %37 to i64
-  %44 = add nuw nsw i64 %43, 128
-  %45 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %44
+  %44 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 512
   %46 = load float, ptr %45, align 4, !tbaa !25
   %47 = fmul float %42, %46
   %48 = insertelement <4 x float> poison, float %47, i64 0
@@ -7651,13 +7651,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline5div8uEPKhmS3_mPhmiiPKd(ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %.0195.us.i.i, i64 %indvars.iv.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !3
   %19 = zext i8 %18 to i64
-  %20 = add nuw nsw i64 %19, 128
-  %21 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %20
+  %20 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 512
   %22 = load float, ptr %21, align 4, !tbaa !25
   %23 = fmul float %22, %11
   %24 = zext i8 %15 to i64
-  %25 = add nuw nsw i64 %24, 128
-  %26 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %25
+  %25 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 512
   %27 = load float, ptr %26, align 4, !tbaa !25
   %28 = fdiv float %23, %27
   %29 = insertelement <4 x float> poison, float %28, i64 0
@@ -8573,8 +8573,8 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr
   %26 = getelementptr inbounds nuw i8, ptr %.02225.us.i.i, i64 %indvars.iv.i.i
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %28 = zext i8 %25 to i64
-  %29 = add nuw nsw i64 %28, 128
-  %30 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %29
+  %29 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 512
   %31 = load float, ptr %30, align 4, !tbaa !25
   %32 = uitofp i8 %27 to float
   %33 = call float @llvm.fmuladd.f32(float %31, float %12, float %32)
@@ -8618,12 +8618,12 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr
   %48 = getelementptr inbounds nuw i8, ptr %.02225.us.i27.i, i64 %indvars.iv.i28.i
   %49 = load i8, ptr %48, align 1, !tbaa !3
   %50 = zext i8 %47 to i64
-  %51 = add nuw nsw i64 %50, 128
-  %52 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %51
+  %51 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 512
   %53 = load float, ptr %52, align 4, !tbaa !25
   %54 = zext i8 %49 to i64
-  %55 = add nuw nsw i64 %54, 128
-  %56 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %55
+  %55 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 512
   %57 = load float, ptr %56, align 4, !tbaa !25
   %58 = fmul float %57, %15
   %59 = call float @llvm.fmuladd.f32(float %53, float %12, float %58)
@@ -10114,8 +10114,8 @@ define hidden void @_ZN2cv3hal12cpu_baseline7recip8uEPKhmPhmiiPKd(ptr noundef re
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i64
-  %16 = add nuw nsw i64 %15, 128
-  %17 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %16
+  %16 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 512
   %18 = load float, ptr %17, align 4, !tbaa !25
   %19 = fdiv float %9, %18
   %20 = insertelement <4 x float> poison, float %19, i64 0
@@ -10707,9 +10707,9 @@ define void @_ZN2cv3hal5add8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = zext i8 %15 to i64
   %19 = zext i8 %17 to i64
-  %20 = or disjoint i64 %18, 256
-  %21 = add nuw nsw i64 %20, %19
-  %22 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %21
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN2cv12g_Saturate8uE, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 256
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
   store i8 %23, ptr %24, align 1, !tbaa !3
@@ -11338,9 +11338,9 @@ define void @_ZN2cv3hal5sub8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = zext i8 %15 to i64
   %19 = zext i8 %17 to i64
-  %20 = or disjoint i64 %18, 256
-  %21 = sub nuw nsw i64 %20, %19
-  %22 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %21
+  %20 = sub nsw i64 %18, %19
+  %21 = getelementptr i8, ptr @_ZN2cv12g_Saturate8uE, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 256
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
   store i8 %23, ptr %24, align 1, !tbaa !3
@@ -11966,9 +11966,9 @@ define void @_ZN2cv3hal5min8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = zext i8 %15 to i64
   %19 = zext i8 %17 to i64
-  %20 = or disjoint i64 %18, 256
-  %21 = sub nuw nsw i64 %20, %19
-  %22 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %21
+  %20 = sub nsw i64 %18, %19
+  %21 = getelementptr i8, ptr @_ZN2cv12g_Saturate8uE, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 256
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = sub i8 %15, %23
   %25 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
@@ -12565,7 +12565,7 @@ define void @_ZN2cv3hal5max8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5max8uEPKhmS2_mPhmiiPvE25__cv_trace_location_fn545)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline5max8uEPKhmS3_mPhmiiE25__cv_trace_location_fn545)
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %9
   %.not23.i.i = icmp ne i32 %7, 0
@@ -12578,10 +12578,10 @@ define void @_ZN2cv3hal5max8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
-  %.in.i.i = phi i32 [ %25, %._crit_edge.us.i.i ], [ %7, %.preheader.us.preheader.i.i ]
-  %.01926.us.i.i = phi ptr [ %26, %._crit_edge.us.i.i ], [ %0, %.preheader.us.preheader.i.i ]
-  %.02025.us.i.i = phi ptr [ %28, %._crit_edge.us.i.i ], [ %4, %.preheader.us.preheader.i.i ]
-  %.02124.us.i.i = phi ptr [ %27, %._crit_edge.us.i.i ], [ %2, %.preheader.us.preheader.i.i ]
+  %.in.i.i = phi i32 [ %26, %._crit_edge.us.i.i ], [ %7, %.preheader.us.preheader.i.i ]
+  %.01926.us.i.i = phi ptr [ %27, %._crit_edge.us.i.i ], [ %0, %.preheader.us.preheader.i.i ]
+  %.02025.us.i.i = phi ptr [ %29, %._crit_edge.us.i.i ], [ %4, %.preheader.us.preheader.i.i ]
+  %.02124.us.i.i = phi ptr [ %28, %._crit_edge.us.i.i ], [ %2, %.preheader.us.preheader.i.i ]
   br label %13
 
 13:                                               ; preds = %13, %.preheader.us.i.i
@@ -12592,70 +12592,70 @@ define void @_ZN2cv3hal5max8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = zext i8 %15 to i64
   %19 = zext i8 %17 to i64
-  %reass.sub = sub nsw i64 %19, %18
-  %20 = add nsw i64 %reass.sub, 256
-  %21 = getelementptr inbounds nuw [0 x i8], ptr @_ZN2cv12g_Saturate8uE, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !3
-  %23 = add i8 %22, %15
-  %24 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
-  store i8 %23, ptr %24, align 1, !tbaa !3
+  %20 = sub nsw i64 %19, %18
+  %21 = getelementptr i8, ptr @_ZN2cv12g_Saturate8uE, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 256
+  %23 = load i8, ptr %22, align 1, !tbaa !3
+  %24 = add i8 %23, %15
+  %25 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
+  store i8 %24, ptr %25, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !64
 
 ._crit_edge.us.i.i:                               ; preds = %13
-  %25 = add nsw i32 %.in.i.i, -1
-  %26 = getelementptr inbounds nuw i8, ptr %.01926.us.i.i, i64 %1
-  %27 = getelementptr inbounds nuw i8, ptr %.02124.us.i.i, i64 %3
-  %28 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %5
-  %.not.us.i.i = icmp eq i32 %25, 0
+  %26 = add nsw i32 %.in.i.i, -1
+  %27 = getelementptr inbounds nuw i8, ptr %.01926.us.i.i, i64 %1
+  %28 = getelementptr inbounds nuw i8, ptr %.02124.us.i.i, i64 %3
+  %29 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %5
+  %.not.us.i.i = icmp eq i32 %26, 0
   br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i, label %.preheader.us.i.i, !llvm.loop !65
 
 _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i: ; preds = %._crit_edge.us.i.i, %.noexc
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !9
-  %.not.i.i = icmp eq i32 %30, 0
-  br i1 %.not.i.i, label %.critedge, label %31
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !9
+  %.not.i.i = icmp eq i32 %31, 0
+  br i1 %.not.i.i, label %.critedge, label %32
 
-31:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
+32:                                               ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %10)
-          to label %.critedge unwind label %32
+          to label %.critedge unwind label %33
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 
-.critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
+.critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %37
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %37, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %38
 
-37:                                               ; preds = %.critedge
+38:                                               ; preds = %.critedge
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %11)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %38
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %39
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %38
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #13
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-41:                                               ; preds = %9
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %9
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14761,13 +14761,13 @@ define void @_ZN2cv3hal5div8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %18 = getelementptr inbounds nuw i8, ptr %.0195.us.i.i.i, i64 %indvars.iv.i.i.i
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %20 = zext i8 %19 to i64
-  %21 = add nuw nsw i64 %20, 128
-  %22 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %21
+  %21 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 512
   %23 = load float, ptr %22, align 4, !tbaa !25
   %24 = fmul float %23, %12
   %25 = zext i8 %16 to i64
-  %26 = add nuw nsw i64 %25, 128
-  %27 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %26
+  %26 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 512
   %28 = load float, ptr %27, align 4, !tbaa !25
   %29 = fdiv float %24, %28
   %30 = insertelement <4 x float> poison, float %29, i64 0
@@ -15668,8 +15668,8 @@ define void @_ZN2cv3hal7recip8uEPKhmS2_mPhmiiPv(ptr noundef readnone captures(no
 
 17:                                               ; preds = %14
   %18 = zext i8 %16 to i64
-  %19 = add nuw nsw i64 %18, 128
-  %20 = getelementptr inbounds nuw [0 x float], ptr @_ZN2cv10g_8x32fTabE, i64 0, i64 %19
+  %19 = getelementptr inbounds nuw float, ptr @_ZN2cv10g_8x32fTabE, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 512
   %21 = load float, ptr %20, align 4, !tbaa !25
   %22 = fdiv float %12, %21
   %23 = insertelement <4 x float> poison, float %22, i64 0

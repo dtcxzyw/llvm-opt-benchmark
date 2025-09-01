@@ -4924,7 +4924,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i: ; preds = %_ZSt6fill_nI
   %58 = and i64 %indvars.iv17, 63
   %59 = shl nuw i64 1, %58
   %60 = lshr i64 %indvars.iv17, 6
-  %61 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i64, ptr %7, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = or i64 %62, %59
   store i64 %63, ptr %61, align 8
@@ -4998,7 +4998,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %.split,
   %77 = and i64 %indvars.iv, 63
   %78 = shl nuw i64 1, %77
   %79 = lshr i64 %indvars.iv, 6
-  %80 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %7, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = or i64 %81, %78
   store i64 %82, ptr %80, align 8

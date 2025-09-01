@@ -666,7 +666,7 @@ select.unfold.i:                                  ; preds = %154, %152, %150, %1
 162:                                              ; preds = %.preheader35.i
   %163 = load i32, ptr %5, align 4
   %164 = zext nneg i32 %.138.i to i64
-  %165 = getelementptr inbounds nuw [5 x i32], ptr @cpu_bind, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr @cpu_bind, i64 %164
   store i32 %163, ptr %165, align 4
   br label %.loopexit36.i
 
@@ -695,7 +695,7 @@ _knl_numa_token.exit.i:                           ; preds = %select.unfold.i, %1
   %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %186 ], [ 0, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %172 = getelementptr inbounds nuw [5 x i32], ptr @cpu_bind, i64 0, i64 %indvars.iv.i108
+  %172 = getelementptr inbounds nuw i32, ptr @cpu_bind, i64 %indvars.iv.i108
   %173 = load i32, ptr %172, align 4
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %186, label %175
@@ -1508,7 +1508,7 @@ define internal noalias noundef ptr @_ume_agent(ptr readnone captures(none) %0) 
   br i1 %64, label %70, label %65
 
 65:                                               ; preds = %55
-  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %63
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 %63
   store i8 0, ptr %66, align 1
   %67 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #14
   %68 = trunc i64 %67 to i32
@@ -3468,7 +3468,7 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
 
 49:                                               ; preds = %48
   %50 = zext nneg i32 %storemerge36 to i64
-  %51 = getelementptr inbounds nuw [5 x i32], ptr @mcdram_pct, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr @mcdram_pct, i64 %50
   %52 = load i32, ptr %51, align 4
   %.fr = freeze i32 %52
   %53 = icmp eq i32 %.fr, -1
@@ -3485,10 +3485,10 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
 .lr.ph55:                                         ; preds = %54
   %56 = icmp sgt i32 %.024, -1
   %57 = zext nneg i32 %.024 to i64
-  %58 = getelementptr inbounds nuw [5 x i32], ptr @cpu_bind, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr @cpu_bind, i64 %57
   %59 = icmp sgt i32 %.227, -1
   %60 = zext nneg i32 %.227 to i64
-  %61 = getelementptr inbounds nuw [5 x i32], ptr @mcdram_pct, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @mcdram_pct, i64 %60
   br i1 %59, label %.lr.ph55.split, label %.lr.ph55.split.us
 
 .lr.ph55.split.us:                                ; preds = %.lr.ph55

@@ -72,7 +72,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %.0118 = phi i1 [ true, %.lr.ph ], [ %.1, %79 ]
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 80
   %.val113 = load ptr, ptr %33, align 8
@@ -160,7 +160,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 83:                                               ; preds = %.lr.ph121, %133
   %indvars.iv139 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next140, %133 ]
   %.3120 = phi i1 [ %.0.lcssa, %.lr.ph121 ], [ %.6, %133 ]
-  %84 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %indvars.iv139
+  %84 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv139
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %85, i64 80
   %.val114 = load ptr, ptr %86, align 8

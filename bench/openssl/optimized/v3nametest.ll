@@ -144,7 +144,7 @@ define internal range(i32 0, 2) i32 @call_run_cert(i32 noundef %0) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [10 x %struct.set_name_fn], ptr @name_fns, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.set_name_fn, ptr @name_fns, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 350, ptr noundef nonnull @.str.3, ptr noundef %8) #7
@@ -437,7 +437,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 .preheader60:                                     ; preds = %5, %20
   %.04461 = phi i64 [ %21, %20 ], [ 0, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %7 = getelementptr inbounds nuw [27 x %struct.gennamedata], ptr @gennames, i64 0, i64 %.04461
+  %7 = getelementptr inbounds nuw %struct.gennamedata, ptr @gennames, i64 %.04461
   store ptr %7, ptr %1, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !19

@@ -512,7 +512,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -681,7 +681,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #8
@@ -909,7 +909,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -923,7 +923,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -989,7 +989,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -1443,7 +1443,7 @@ _ZNK14LoaderTreeNode11loader_nameEv.exit:         ; preds = %5, %_ZNK14LoaderTre
 
 .lr.ph.i:                                         ; preds = %_ZNK14LoaderTreeNode11loader_nameEv.exit, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZNK14LoaderTreeNode11loader_nameEv.exit ]
-  %54 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %56, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1500,7 +1500,7 @@ _ZN13BranchTracker4MarkC2ERS_b.exit:              ; preds = %71
   %.not143 = icmp eq ptr %77, null
   %78 = select i1 %.not143, i8 32, i8 124
   %79 = sext i32 %72 to i64
-  %80 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 %79
+  %80 = getelementptr inbounds i8, ptr %2, i64 %79
   store i8 %78, ptr %80, align 1
   %.pre.i.i = load i32, ptr %51, align 4
   %81 = add nsw i32 %.pre.i.i, 1
@@ -1521,7 +1521,7 @@ _ZN13BranchTracker4MarkC2ERS_b.exit91:            ; preds = %_ZN13BranchTracker4
   %.not144 = icmp eq ptr %85, null
   %86 = select i1 %.not144, i8 32, i8 124
   %87 = sext i32 %81 to i64
-  %88 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 %87
+  %88 = getelementptr inbounds i8, ptr %2, i64 %87
   store i8 %86, ptr %88, align 1
   %.pre.i.i90 = load i32, ptr %51, align 4
   %89 = add nsw i32 %.pre.i.i90, 1
@@ -1535,7 +1535,7 @@ _ZN13BranchTracker4MarkC2ERS_b.exit91:            ; preds = %_ZN13BranchTracker4
 
 .lr.ph.i92:                                       ; preds = %.lr.ph.i92.preheader, %.lr.ph.i92
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i94, %.lr.ph.i92 ], [ 0, %.lr.ph.i92.preheader ]
-  %92 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i93
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i93
   %93 = load i8, ptr %92, align 1
   %94 = sext i8 %93 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %94, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1557,7 +1557,7 @@ _ZN13BranchTracker5printEP12outputStream.exit95:  ; preds = %.lr.ph.i92, %_ZN13B
 
 .lr.ph.i96:                                       ; preds = %99, %.lr.ph.i96
   %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i98, %.lr.ph.i96 ], [ 0, %99 ]
-  %102 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i97
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i97
   %103 = load i8, ptr %102, align 1
   %104 = sext i8 %103 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %104, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1577,7 +1577,7 @@ _ZN13BranchTracker5printEP12outputStream.exit99:  ; preds = %.lr.ph.i96, %99
 
 .lr.ph.i100:                                      ; preds = %_ZN13BranchTracker5printEP12outputStream.exit99, %.lr.ph.i100
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i102, %.lr.ph.i100 ], [ 0, %_ZN13BranchTracker5printEP12outputStream.exit99 ]
-  %112 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i101
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i101
   %113 = load i8, ptr %112, align 1
   %114 = sext i8 %113 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %114, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1598,7 +1598,7 @@ _ZN13BranchTracker5printEP12outputStream.exit103: ; preds = %.lr.ph.i100, %_ZN13
 
 .lr.ph.i104:                                      ; preds = %_ZN13BranchTracker5printEP12outputStream.exit103, %.lr.ph.i104
   %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i106, %.lr.ph.i104 ], [ 0, %_ZN13BranchTracker5printEP12outputStream.exit103 ]
-  %123 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i105
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i105
   %124 = load i8, ptr %123, align 1
   %125 = sext i8 %124 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %125, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1617,7 +1617,7 @@ _ZN13BranchTracker5printEP12outputStream.exit107: ; preds = %.lr.ph.i104, %_ZN13
 
 .lr.ph.i108:                                      ; preds = %_ZN13BranchTracker5printEP12outputStream.exit107, %.lr.ph.i108
   %indvars.iv.i109 = phi i64 [ %indvars.iv.next.i110, %.lr.ph.i108 ], [ 0, %_ZN13BranchTracker5printEP12outputStream.exit107 ]
-  %132 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i109
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i109
   %133 = load i8, ptr %132, align 1
   %134 = sext i8 %133 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %134, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1648,7 +1648,7 @@ _ZN13BranchTracker5printEP12outputStream.exit111: ; preds = %.lr.ph.i108, %_ZN13
 
 .lr.ph.i112:                                      ; preds = %.preheader145, %.lr.ph.i112
   %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i114, %.lr.ph.i112 ], [ 0, %.preheader145 ]
-  %144 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i113
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i113
   %145 = load i8, ptr %144, align 1
   %146 = sext i8 %145 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %146, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1679,7 +1679,7 @@ _ZN13BranchTracker5printEP12outputStream.exit115: ; preds = %.lr.ph.i112, %.preh
 
 .lr.ph.i116:                                      ; preds = %156, %.lr.ph.i116
   %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %.lr.ph.i116 ], [ 0, %156 ]
-  %159 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i117
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i117
   %160 = load i8, ptr %159, align 1
   %161 = sext i8 %160 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %161, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1702,7 +1702,7 @@ _ZN13BranchTracker5printEP12outputStream.exit119: ; preds = %.lr.ph.i116, %156
 
 .lr.ph.i120:                                      ; preds = %_ZN13BranchTracker5printEP12outputStream.exit119, %.lr.ph.i120
   %indvars.iv.i121 = phi i64 [ %indvars.iv.next.i122, %.lr.ph.i120 ], [ 0, %_ZN13BranchTracker5printEP12outputStream.exit119 ]
-  %171 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i121
+  %171 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i121
   %172 = load i8, ptr %171, align 1
   %173 = sext i8 %172 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %173, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1730,7 +1730,7 @@ _ZN13BranchTracker5printEP12outputStream.exit123: ; preds = %.lr.ph.i120, %_ZN13
 
 .lr.ph.i124:                                      ; preds = %.preheader, %.lr.ph.i124
   %indvars.iv.i125 = phi i64 [ %indvars.iv.next.i126, %.lr.ph.i124 ], [ 0, %.preheader ]
-  %182 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i125
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i125
   %183 = load i8, ptr %182, align 1
   %184 = sext i8 %183 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %184, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1771,7 +1771,7 @@ _ZN13BranchTracker5printEP12outputStream.exit127: ; preds = %.lr.ph.i124, %.preh
 
 .lr.ph.i128:                                      ; preds = %199, %.lr.ph.i128
   %indvars.iv.i129 = phi i64 [ %indvars.iv.next.i130, %.lr.ph.i128 ], [ 0, %199 ]
-  %202 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i129
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i129
   %203 = load i8, ptr %202, align 1
   %204 = sext i8 %203 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %204, i32 noundef 5, ptr noundef nonnull @.str.41) #8
@@ -1794,7 +1794,7 @@ _ZN13BranchTracker5printEP12outputStream.exit131: ; preds = %.lr.ph.i128, %199
 
 .lr.ph.i132:                                      ; preds = %_ZN13BranchTracker5printEP12outputStream.exit131, %.lr.ph.i132
   %indvars.iv.i133 = phi i64 [ %indvars.iv.next.i134, %.lr.ph.i132 ], [ 0, %_ZN13BranchTracker5printEP12outputStream.exit131 ]
-  %214 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.i133
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i133
   %215 = load i8, ptr %214, align 1
   %216 = sext i8 %215 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %216, i32 noundef 5, ptr noundef nonnull @.str.41) #8

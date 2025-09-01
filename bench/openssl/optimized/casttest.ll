@@ -41,11 +41,11 @@ define internal range(i32 0, 2) i32 @cast_test_vector(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [3 x i32], ptr @k_len, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @k_len, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !4
   call void @CAST_set_key(ptr noundef nonnull %2, i32 noundef %6, ptr noundef nonnull @k) #4
   call void @CAST_ecb_encrypt(ptr noundef nonnull @in, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 1) #4
-  %7 = getelementptr inbounds [3 x [8 x i8]], ptr @c, i64 0, i64 %4
+  %7 = getelementptr inbounds [8 x i8], ptr @c, i64 %4
   %8 = call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 72, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull %7, i64 noundef 8) #4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %10

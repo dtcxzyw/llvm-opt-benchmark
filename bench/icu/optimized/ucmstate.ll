@@ -84,7 +84,7 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
 
 10:                                               ; preds = %2
   %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds [128 x [256 x i32]], ptr %0, i64 0, i64 %11
+  %12 = getelementptr inbounds [256 x i32], ptr %0, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %13
 
@@ -98,7 +98,7 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 131072
-  %17 = getelementptr inbounds [128 x i32], ptr %16, i64 0, i64 %11
+  %17 = getelementptr inbounds i32, ptr %16, i64 %11
   %18 = tail call ptr @u_skipWhitespace(ptr noundef %1)
   %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.52, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 7) #17
   %20 = icmp eq i32 %19, 0
@@ -789,7 +789,7 @@ define void @ucm_processStates(ptr noundef captures(none) %0, i8 noundef signext
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.0115 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %59 ]
-  %60 = getelementptr inbounds nuw [128 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4, !tbaa !11
   %62 = and i32 %61, 15
   %.not100 = icmp ne i32 %62, 1
@@ -820,7 +820,7 @@ define void @ucm_processStates(ptr noundef captures(none) %0, i8 noundef signext
 
 .preheader102:                                    ; preds = %69, %77
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %77 ], [ 0, %69 ]
-  %71 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv137
+  %71 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv137
   %72 = load i32, ptr %71, align 4, !tbaa !11
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %77
@@ -861,12 +861,12 @@ define void @ucm_processStates(ptr noundef captures(none) %0, i8 noundef signext
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %indvars.iv145 = phi i64 [ %84, %.preheader.lr.ph ], [ %indvars.iv.next146, %.loopexit ]
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, -1
-  %86 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %indvars.iv.next146
+  %86 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %indvars.iv.next146
   br label %87
 
 87:                                               ; preds = %.preheader, %115
   %indvars.iv141 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next142, %115 ]
-  %88 = getelementptr inbounds nuw [256 x i32], ptr %86, i64 0, i64 %indvars.iv141
+  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv141
   %89 = load i32, ptr %88, align 4, !tbaa !11
   %90 = lshr i32 %89, 24
   %91 = and i32 %90, 127
@@ -884,7 +884,7 @@ define void @ucm_processStates(ptr noundef captures(none) %0, i8 noundef signext
 97:                                               ; preds = %87
   %98 = icmp slt i32 %89, 0
   %99 = zext nneg i32 %91 to i64
-  %100 = getelementptr inbounds nuw [128 x i32], ptr %83, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %83, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = and i32 %101, 15
   %.not99 = icmp eq i32 %102, 1
@@ -1001,7 +1001,7 @@ define void @ucm_processStates(ptr noundef captures(none) %0, i8 noundef signext
 
 156:                                              ; preds = %.lr.ph123, %165
   %indvars.iv148 = phi i64 [ %155, %.lr.ph123 ], [ %indvars.iv.next149, %165 ]
-  %157 = getelementptr inbounds nuw [128 x i32], ptr %154, i64 0, i64 %indvars.iv148
+  %157 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv148
   %158 = load i32, ptr %157, align 4, !tbaa !11
   %159 = and i32 %158, 15
   %160 = icmp eq i32 %159, 1
@@ -1051,20 +1051,20 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
   %indvars.iv117 = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next118, %.thread ]
   %.197 = phi i8 [ 1, %.lr.ph.preheader ], [ %.2, %.thread ]
   %indvars.iv.next118 = add nsw i64 %indvars.iv117, -1
-  %10 = getelementptr inbounds nuw [128 x i32], ptr %5, i64 0, i64 %indvars.iv.next118
+  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next118
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = and i32 %11, 16
   %.not85 = icmp eq i32 %12, 0
   br i1 %.not85, label %.preheader90, label %.thread
 
 .preheader90:                                     ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %indvars.iv.next118
+  %13 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %indvars.iv.next118
   br label %14
 
 14:                                               ; preds = %.preheader90, %25
   %indvars.iv = phi i64 [ 0, %.preheader90 ], [ %indvars.iv.next, %25 ]
   %.07992 = phi i32 [ 0, %.preheader90 ], [ %.180, %25 ]
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %25
@@ -1097,7 +1097,7 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
 .preheader:                                       ; preds = %25, %41
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %41 ], [ 0, %25 ]
   %.28194 = phi i32 [ %.4, %41 ], [ %.180, %25 ]
-  %26 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %indvars.iv113
+  %26 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv113
   %27 = load i32, ptr %26, align 4, !tbaa !11
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %29, label %41
@@ -1105,7 +1105,7 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
 29:                                               ; preds = %.preheader
   %30 = lshr i32 %27, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [128 x i32], ptr %5, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !11
   %34 = and i32 %33, 16
   %.not86 = icmp eq i32 %34, 0
@@ -1115,7 +1115,7 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
   %36 = and i32 %27, 2130706432
   %37 = or i32 %36, %.28194
   store i32 %37, ptr %26, align 4, !tbaa !11
-  %38 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %31
   %39 = load i32, ptr %38, align 4, !tbaa !11
   %40 = add i32 %39, %.28194
   br label %41
@@ -1131,7 +1131,7 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
   br i1 %.not87, label %.thread, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %indvars.iv.next118
+  %44 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next118
   store i32 %.4, ptr %44, align 4, !tbaa !11
   %45 = load i32, ptr %10, align 4, !tbaa !11
   %46 = or i32 %45, 16
@@ -1169,21 +1169,21 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
   %56 = phi i32 [ %73, %.loopexit ], [ %.pre.pr, %.lr.ph101.split.us ]
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit ], [ 1, %.lr.ph101.split.us ]
   %.5105 = phi i32 [ %.6, %.loopexit ], [ %54, %.lr.ph101.split.us ]
-  %57 = getelementptr inbounds nuw [128 x i32], ptr %5, i64 0, i64 %indvars.iv123
+  %57 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv123
   %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = and i32 %58, 15
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %61, label %.loopexit
 
 61:                                               ; preds = %.lr.ph108
-  %62 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %indvars.iv123
+  %62 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv123
   %63 = load i32, ptr %62, align 4, !tbaa !11
-  %64 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %indvars.iv123
+  %64 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %indvars.iv123
   br label %65
 
 65:                                               ; preds = %61, %71
   %indvars.iv119 = phi i64 [ 0, %61 ], [ %indvars.iv.next120, %71 ]
-  %66 = getelementptr inbounds nuw [256 x i32], ptr %64, i64 0, i64 %indvars.iv119
+  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv119
   %67 = load i32, ptr %66, align 4, !tbaa !11
   %68 = icmp sgt i32 %67, -1
   br i1 %68, label %69, label %71
@@ -1266,12 +1266,12 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
 
 .preheader:                                       ; preds = %5, %20
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %20 ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %indvars.iv53
+  %11 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %indvars.iv53
   br label %12
 
 12:                                               ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %13 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !11
   %15 = and i32 %14, -2130706433
   %16 = icmp eq i32 %15, -2147418114
@@ -1308,7 +1308,7 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
   %30 = icmp eq i8 %29, 12
   %..i = zext i1 %30 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
-  %31 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %..i
+  %31 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %..i
   br label %33
 
 .preheader213.i:                                  ; preds = %43
@@ -1321,7 +1321,7 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
 
 33:                                               ; preds = %43, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %43 ]
-  %34 = getelementptr inbounds nuw [256 x i32], ptr %31, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 4, !tbaa !11
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %43
@@ -1329,7 +1329,7 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
 37:                                               ; preds = %33
   %38 = lshr i32 %35, 24
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i16, ptr %6, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !44
   %42 = add i16 %41, 1
   store i16 %42, ptr %40, align 2, !tbaa !44
@@ -1343,10 +1343,10 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv247.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next248.i, %.lr.ph.i ]
   %.0217.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %44 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv247.i
+  %44 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv247.i
   %45 = load i16, ptr %44, align 2, !tbaa !44
   %46 = zext nneg i32 %.0217.i to i64
-  %47 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %6, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !44
   %49 = icmp ugt i16 %45, %48
   %50 = trunc nuw nsw i64 %indvars.iv247.i to i32
@@ -1359,7 +1359,7 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
   %.0.lcssa.i = phi i32 [ 0, %.preheader213.i ], [ %spec.select.i, %.lr.ph.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %51 = zext nneg i32 %.0.lcssa.i to i64
-  %52 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %51
   %53 = icmp sgt i32 %3, 0
   %wide.trip.count.i.i = zext i32 %3 to i64
   br label %54
@@ -1367,7 +1367,7 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
 54:                                               ; preds = %114, %._crit_edge.i
   %indvars.iv251.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next252.i, %114 ]
   %.0179221.i = phi i32 [ 0, %._crit_edge.i ], [ %.1180.i, %114 ]
-  %55 = getelementptr inbounds nuw [256 x i32], ptr %31, i64 0, i64 %indvars.iv251.i
+  %55 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv251.i
   %56 = load i32, ptr %55, align 4, !tbaa !11
   %57 = icmp sgt i32 %56, -1
   %58 = lshr i32 %56, 24
@@ -1377,12 +1377,12 @@ define void @ucm_optimizeStates(ptr noundef captures(none) %0, ptr noundef captu
 
 60:                                               ; preds = %54
   %61 = and i32 %56, 16777215
-  %62 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv251.i
+  %62 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv251.i
   br i1 %53, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %60, %ucm_findFallback.exit.us.i
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %ucm_findFallback.exit.us.i ], [ 0, %60 ]
-  %63 = getelementptr inbounds nuw [256 x i32], ptr %52, i64 0, i64 %indvars.iv60
+  %63 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv60
   %64 = load i32, ptr %63, align 4, !tbaa !11
   %65 = lshr i32 %64, 20
   %66 = and i32 %65, 15
@@ -1437,7 +1437,7 @@ ucm_findFallback.exit.us.i:                       ; preds = %ucm_findFallback.ex
 
 .split.i:                                         ; preds = %60, %ucm_findFallback.exit.i
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %ucm_findFallback.exit.i ], [ 0, %60 ]
-  %89 = getelementptr inbounds nuw [256 x i32], ptr %52, i64 0, i64 %indvars.iv56
+  %89 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv56
   %90 = load i32, ptr %89, align 4, !tbaa !11
   %91 = lshr i32 %90, 20
   %92 = and i32 %91, 15
@@ -1541,9 +1541,9 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
   store i32 %141, ptr %8, align 4, !tbaa !3
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 131072
   %143 = sext i32 %138 to i64
-  %144 = getelementptr inbounds [128 x i32], ptr %142, i64 0, i64 %143
+  %144 = getelementptr inbounds i32, ptr %142, i64 %143
   store i32 0, ptr %144, align 4, !tbaa !11
-  %145 = getelementptr inbounds [128 x [256 x i32]], ptr %0, i64 0, i64 %143
+  %145 = getelementptr inbounds [256 x i32], ptr %0, i64 %143
   br label %147
 
 .preheader212.i:                                  ; preds = %147
@@ -1552,14 +1552,14 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
 
 147:                                              ; preds = %147, %137
   %indvars.iv255.i = phi i64 [ 0, %137 ], [ %indvars.iv.next256.i, %147 ]
-  %148 = getelementptr inbounds nuw [256 x i32], ptr %52, i64 0, i64 %indvars.iv255.i
+  %148 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv255.i
   %149 = load i32, ptr %148, align 4, !tbaa !11
   %150 = and i32 %149, 14680064
   %switch.i = icmp eq i32 %150, 4194304
   %151 = and i32 %149, -16777216
   %152 = or disjoint i32 %151, 6356990
   %.sink.i = select i1 %switch.i, i32 %152, i32 %149
-  %153 = getelementptr inbounds nuw [256 x i32], ptr %145, i64 0, i64 %indvars.iv255.i
+  %153 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv255.i
   store i32 %.sink.i, ptr %153, align 4, !tbaa !11
   %indvars.iv.next256.i = add nuw nsw i64 %indvars.iv255.i, 1
   %exitcond258.not.i = icmp eq i64 %indvars.iv.next256.i, 256
@@ -1572,13 +1572,13 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
 
 156:                                              ; preds = %164, %.preheader212.i
   %indvars.iv259.i = phi i64 [ 0, %.preheader212.i ], [ %indvars.iv.next260.i, %164 ]
-  %157 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv259.i
+  %157 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv259.i
   %158 = load i16, ptr %157, align 2, !tbaa !44
   %.not193.i = icmp eq i16 %158, 0
   br i1 %.not193.i, label %164, label %159
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds nuw [256 x i32], ptr %31, i64 0, i64 %indvars.iv259.i
+  %160 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv259.i
   %161 = load i32, ptr %160, align 4, !tbaa !11
   %162 = and i32 %161, -2130706433
   %163 = or i32 %162, %146
@@ -1592,7 +1592,7 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
 
 .lr.ph226.i:                                      ; preds = %.preheader211.i, %.lr.ph226.i
   %indvars.iv263.i = phi i64 [ %indvars.iv.next264.i, %.lr.ph226.i ], [ 0, %.preheader211.i ]
-  %165 = getelementptr inbounds nuw [128 x i32], ptr %142, i64 0, i64 %indvars.iv263.i
+  %165 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv263.i
   %166 = load i32, ptr %165, align 4, !tbaa !11
   %167 = and i32 %166, -17
   store i32 %167, ptr %165, align 4, !tbaa !11
@@ -1661,7 +1661,7 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
 
 .lr.ph238.split.us.i:                             ; preds = %.lr.ph238.i, %.loopexit208.split.us.us.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.loopexit208.split.us.us.i ], [ 0, %.lr.ph238.i ]
-  %192 = getelementptr inbounds nuw [128 x i32], ptr %142, i64 0, i64 %indvars.iv292.i
+  %192 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv292.i
   %193 = load i32, ptr %192, align 4, !tbaa !11
   %194 = and i32 %193, 15
   %195 = icmp eq i32 %194, 1
@@ -1673,13 +1673,13 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
   br i1 %exitcond296.not.i, label %.preheader.i, label %.lr.ph238.split.us.i, !llvm.loop !55
 
 .preheader207.us.i:                               ; preds = %.lr.ph238.split.us.i
-  %196 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %indvars.iv292.i
+  %196 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %indvars.iv292.i
   %197 = getelementptr inbounds nuw [256 x i32], ptr %132, i64 %indvars.iv292.i
   br label %198
 
 198:                                              ; preds = %.loopexit.split.us235.us.i, %.preheader207.us.i
   %indvars.iv288.i = phi i64 [ %indvars.iv.next289.i, %.loopexit.split.us235.us.i ], [ 0, %.preheader207.us.i ]
-  %199 = getelementptr inbounds nuw [256 x i32], ptr %196, i64 0, i64 %indvars.iv288.i
+  %199 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv288.i
   %200 = load i32, ptr %199, align 4, !tbaa !11
   %201 = icmp sgt i32 %200, -1
   br i1 %201, label %202, label %.loopexit.split.us235.us.i
@@ -1691,17 +1691,17 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
 
 .split231.us236.us.i:                             ; preds = %202
   %204 = and i32 %200, 16777215
-  %205 = getelementptr inbounds nuw [256 x i32], ptr %197, i64 0, i64 %indvars.iv288.i
+  %205 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv288.i
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = and i32 %206, 16777215
   %208 = zext nneg i32 %203 to i64
-  %209 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %208
   %210 = getelementptr inbounds nuw [256 x i32], ptr %132, i64 %208
   br label %211
 
 211:                                              ; preds = %ucm_findFallback.exit203.thread.us234.us.i, %.split231.us236.us.i
   %indvars.iv284.i = phi i64 [ %indvars.iv.next285.i, %ucm_findFallback.exit203.thread.us234.us.i ], [ 0, %.split231.us236.us.i ]
-  %212 = getelementptr inbounds nuw [256 x i32], ptr %209, i64 0, i64 %indvars.iv284.i
+  %212 = getelementptr inbounds nuw i32, ptr %209, i64 %indvars.iv284.i
   %213 = load i32, ptr %212, align 4, !tbaa !11
   %214 = lshr i32 %213, 20
   %215 = and i32 %214, 15
@@ -1713,7 +1713,7 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
 216:                                              ; preds = %211
   %217 = and i32 %213, 65535
   %218 = add nuw nsw i32 %217, %204
-  %219 = getelementptr inbounds nuw [256 x i32], ptr %210, i64 0, i64 %indvars.iv284.i
+  %219 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv284.i
   %220 = load i32, ptr %219, align 4, !tbaa !11
   %221 = and i32 %220, 65535
   %222 = add nuw nsw i32 %221, %207
@@ -1732,7 +1732,7 @@ ucm_findFallback.exit.i:                          ; preds = %ucm_findFallback.ex
 231:                                              ; preds = %211
   %232 = and i32 %213, 65535
   %233 = add nuw nsw i32 %232, %204
-  %234 = getelementptr inbounds nuw [256 x i32], ptr %210, i64 0, i64 %indvars.iv284.i
+  %234 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv284.i
   %235 = load i32, ptr %234, align 4, !tbaa !11
   %236 = and i32 %235, 65535
   %237 = add nuw nsw i32 %236, %207
@@ -1787,20 +1787,20 @@ ucm_findFallback.exit203.thread.us234.us.i:       ; preds = %247, %ucm_findFallb
 
 .lr.ph238.split.i:                                ; preds = %.lr.ph238.i, %.loopexit208.split.i
   %indvars.iv279.i = phi i64 [ %indvars.iv.next280.i, %.loopexit208.split.i ], [ 0, %.lr.ph238.i ]
-  %252 = getelementptr inbounds nuw [128 x i32], ptr %142, i64 0, i64 %indvars.iv279.i
+  %252 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv279.i
   %253 = load i32, ptr %252, align 4, !tbaa !11
   %254 = and i32 %253, 15
   %255 = icmp eq i32 %254, 1
   br i1 %255, label %.preheader207.i, label %.loopexit208.split.i
 
 .preheader207.i:                                  ; preds = %.lr.ph238.split.i
-  %256 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %indvars.iv279.i
+  %256 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %indvars.iv279.i
   %257 = getelementptr inbounds nuw [256 x i32], ptr %132, i64 %indvars.iv279.i
   br label %258
 
 258:                                              ; preds = %.loopexit.split.us.i, %.preheader207.i
   %indvars.iv275.i = phi i64 [ 0, %.preheader207.i ], [ %indvars.iv.next276.i, %.loopexit.split.us.i ]
-  %259 = getelementptr inbounds nuw [256 x i32], ptr %256, i64 0, i64 %indvars.iv275.i
+  %259 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv275.i
   %260 = load i32, ptr %259, align 4, !tbaa !11
   %261 = icmp sgt i32 %260, -1
   br i1 %261, label %262, label %.loopexit.split.us.i
@@ -1812,17 +1812,17 @@ ucm_findFallback.exit203.thread.us234.us.i:       ; preds = %247, %ucm_findFallb
 
 .split231.us.i:                                   ; preds = %262
   %264 = and i32 %260, 16777215
-  %265 = getelementptr inbounds nuw [256 x i32], ptr %257, i64 0, i64 %indvars.iv275.i
+  %265 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv275.i
   %266 = load i32, ptr %265, align 4, !tbaa !11
   %267 = and i32 %266, 16777215
   %268 = zext nneg i32 %263 to i64
-  %269 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %268
+  %269 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %268
   %270 = getelementptr inbounds nuw [256 x i32], ptr %132, i64 %268
   br label %271
 
 271:                                              ; preds = %ucm_findFallback.exit203.thread.us.i, %.split231.us.i
   %indvars.iv271.i = phi i64 [ %indvars.iv.next272.i, %ucm_findFallback.exit203.thread.us.i ], [ 0, %.split231.us.i ]
-  %272 = getelementptr inbounds nuw [256 x i32], ptr %269, i64 0, i64 %indvars.iv271.i
+  %272 = getelementptr inbounds nuw i32, ptr %269, i64 %indvars.iv271.i
   %273 = load i32, ptr %272, align 4, !tbaa !11
   %274 = lshr i32 %273, 20
   %275 = and i32 %274, 15
@@ -1834,7 +1834,7 @@ ucm_findFallback.exit203.thread.us234.us.i:       ; preds = %247, %ucm_findFallb
 276:                                              ; preds = %271
   %277 = and i32 %273, 65535
   %278 = add nuw nsw i32 %277, %264
-  %279 = getelementptr inbounds nuw [256 x i32], ptr %270, i64 0, i64 %indvars.iv271.i
+  %279 = getelementptr inbounds nuw i32, ptr %270, i64 %indvars.iv271.i
   %280 = load i32, ptr %279, align 4, !tbaa !11
   %281 = and i32 %280, 65535
   %282 = add nuw nsw i32 %281, %267
@@ -1853,7 +1853,7 @@ ucm_findFallback.exit203.thread.us234.us.i:       ; preds = %247, %ucm_findFallb
 291:                                              ; preds = %271
   %292 = and i32 %273, 65535
   %293 = add nuw nsw i32 %292, %264
-  %294 = getelementptr inbounds nuw [256 x i32], ptr %270, i64 0, i64 %indvars.iv271.i
+  %294 = getelementptr inbounds nuw i32, ptr %270, i64 %indvars.iv271.i
   %295 = load i32, ptr %294, align 4, !tbaa !11
   %296 = and i32 %295, 65535
   %297 = add nuw nsw i32 %296, %267
@@ -1916,7 +1916,7 @@ _ZL17compactToUnicode2P9UCMStatesPPtP16_MBCSToUFallbackia.exit: ; preds = %115, 
 
 313:                                              ; preds = %325, %.lr.ph.i32
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i34, %325 ]
-  %314 = getelementptr inbounds nuw [128 x i32], ptr %312, i64 0, i64 %indvars.iv.i33
+  %314 = getelementptr inbounds nuw i32, ptr %312, i64 %indvars.iv.i33
   %315 = load i32, ptr %314, align 4, !tbaa !11
   %316 = and i32 %315, 15
   %317 = icmp eq i32 %316, 1
@@ -2007,11 +2007,11 @@ define i32 @ucm_countChars(ptr noundef readonly captures(none) %0, ptr noundef r
   %.150 = phi i64 [ %40, %38 ], [ %.150.ph, %.lr.ph.outer ]
   %.03047 = phi i32 [ %42, %38 ], [ 0, %.lr.ph.outer ]
   %17 = and i64 %.150, 255
-  %18 = getelementptr inbounds nuw [128 x [256 x i32]], ptr %0, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i32], ptr %18, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !11
   %24 = icmp sgt i32 %23, -1
   br i1 %24, label %38, label %25
@@ -2121,7 +2121,7 @@ declare void @uprv_free_77(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef i32 @_ZL14findUnassignedP9UCMStatesPtP16_MBCSToUFallbackiiij(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #6 {
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds [128 x [256 x i32]], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds [256 x i32], ptr %0, i64 %8
   %10 = icmp sgt i32 %3, 0
   %wide.trip.count.i = zext nneg i32 %3 to i64
   %11 = shl i32 %6, 8
@@ -2133,7 +2133,7 @@ define internal fastcc noundef i32 @_ZL14findUnassignedP9UCMStatesPtP16_MBCSToUF
   %.058 = phi i8 [ 0, %7 ], [ %.1, %ucm_findFallback.exit ]
   %.04157 = phi i32 [ 0, %7 ], [ %.142, %ucm_findFallback.exit ]
   %.04356 = phi i32 [ 0, %7 ], [ %.144, %ucm_findFallback.exit ]
-  %14 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !11
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %30

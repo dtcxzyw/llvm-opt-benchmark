@@ -122,7 +122,7 @@ define dso_local void @process_trailers_lists(ptr noundef %0, ptr noundef readon
   %23 = getelementptr i8, ptr %22, i64 -1
   %24 = load i8, ptr %23, align 1, !tbaa !19
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !19
   %28 = and i8 %27, 6
   %.not4.i.i.i = icmp eq i8 %28, 0
@@ -146,7 +146,7 @@ token_len_without_separator.exit.i.i:             ; preds = %29, %.lr.ph.i.i.i, 
   %34 = getelementptr i8, ptr %33, i64 -1
   %35 = load i8, ptr %34, align 1, !tbaa !19
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !19
   %39 = and i8 %38, 6
   %.not4.i17.i.i = icmp eq i8 %39, 0
@@ -735,7 +735,7 @@ define internal range(i32 -1, 1) i32 @git_trailer_config(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %13, %15
   %.0107 = phi i64 [ 0, %13 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @trailer_config_items, i64 0, i64 %.0107
+  %18 = getelementptr inbounds nuw %struct.anon.0, ptr @trailer_config_items, i64 %.0107
   %19 = load ptr, ptr %18, align 16, !tbaa !42
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %14) #15
   %.not50 = icmp eq i32 %20, 0
@@ -1225,7 +1225,7 @@ define dso_local void @parse_trailers_from_command_line_args(ptr noundef %0, ptr
 
 20:                                               ; preds = %19
   %21 = zext i8 %16 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !19
   %24 = and i8 %23, 6
   %.not20.i = icmp ne i8 %24, 0
@@ -1449,7 +1449,7 @@ define internal fastcc void @parse_trailer(ptr noundef %0, ptr noundef %1, ptr n
   %18 = getelementptr i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1, !tbaa !19
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !19
   %23 = and i8 %22, 6
   %.not4.i = icmp eq i8 %23, 0
@@ -1591,7 +1591,7 @@ define dso_local ptr @parse_trailers(ptr noundef readonly captures(none) %0, ptr
 
 28:                                               ; preds = %27
   %29 = zext i8 %24 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !19
   %32 = and i8 %31, 6
   %.not20.i = icmp ne i8 %32, 0
@@ -1759,7 +1759,7 @@ trailer_config_init.exit:                         ; preds = %2, %5
 18:                                               ; preds = %12
   %19 = load i8, ptr %scevgep.i, align 1, !tbaa !19
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !19
   %23 = and i8 %22, 1
   %.not14.i = icmp eq i8 %23, 0
@@ -1812,7 +1812,7 @@ find_end_of_log_message.exit:                     ; preds = %.loopexit.i, %trail
 
 43:                                               ; preds = %.preheader160.i
   %44 = zext i8 %42 to i64
-  %45 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !19
   %47 = and i8 %46, 1
   %.not10.i.i = icmp eq i8 %47, 0
@@ -1893,7 +1893,7 @@ last_line.exit.i:                                 ; preds = %65, %.loopexit161.i
 
 74:                                               ; preds = %.preheader159.i
   %75 = zext i8 %73 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !19
   %78 = and i8 %77, 1
   %.not10.i110.i = icmp eq i8 %78, 0
@@ -1960,7 +1960,7 @@ is_blank_line.exit111.i:                          ; preds = %74
 
 100:                                              ; preds = %99
   %101 = zext i8 %96 to i64
-  %102 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !19
   %104 = and i8 %103, 6
   %.not20.i.i = icmp ne i8 %104, 0
@@ -1994,7 +1994,7 @@ find_separator.exit.i:                            ; preds = %.lr.ph.i112.i
 
 115:                                              ; preds = %find_separator.exit.i
   %116 = zext i8 %95 to i64
-  %117 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !19
   %119 = and i8 %118, 1
   %.not97.i = icmp eq i8 %119, 0
@@ -2036,7 +2036,7 @@ token_matches_item.exit.i:                        ; preds = %125
 
 find_separator.exit.thread.i:                     ; preds = %108, %107, %106, %115, %find_separator.exit.i, %93
   %129 = zext i8 %95 to i64
-  %130 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !19
   %132 = and i8 %131, 1
   %.not101.i = icmp eq i8 %132, 0
@@ -2125,7 +2125,7 @@ find_trailer_block_start.exit:                    ; preds = %last_line.exit118.i
   %164 = load ptr, ptr %163, align 8, !tbaa !58
   %165 = load i8, ptr %164, align 1, !tbaa !19
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %166
   %168 = load i8, ptr %167, align 1, !tbaa !19
   %169 = and i8 %168, 1
   %.not58 = icmp eq i8 %169, 0
@@ -2194,7 +2194,7 @@ st_mult.exit:                                     ; preds = %178
 
 196:                                              ; preds = %195
   %197 = zext i8 %192 to i64
-  %198 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !19
   %200 = and i8 %199, 6
   %.not20.i = icmp ne i8 %200, 0
@@ -2282,7 +2282,7 @@ find_separator.exit.thread:                       ; preds = %203, %202, %204, %f
 
 227:                                              ; preds = %225
   %228 = zext i8 %226 to i64
-  %229 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %228
   %230 = load i8, ptr %229, align 1, !tbaa !19
   %231 = and i8 %230, 1
   %.not10.i.i70 = icmp eq i8 %231, 0
@@ -2350,7 +2350,7 @@ define internal fastcc void @unfold_value(ptr noundef captures(none) %0) unnamed
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %.123
   %19 = load i8, ptr %18, align 1, !tbaa !19
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !19
   %23 = and i8 %22, 1
   %.not = icmp eq i8 %23, 0
@@ -2645,7 +2645,7 @@ strbuf_setlen.exit69:                             ; preds = %strbuf_setlen.exit,
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !19
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !19
   %70 = and i8 %69, 1
   %.not.i = icmp eq i8 %70, 0
@@ -2988,7 +2988,7 @@ define dso_local range(i32 0, 2) i32 @trailer_iterator_advance(ptr noundef %0) l
 
 27:                                               ; preds = %26
   %28 = zext i8 %17 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !19
   %31 = and i8 %30, 6
   %.not20.i = icmp ne i8 %31, 0
@@ -3353,7 +3353,7 @@ define internal fastcc range(i32 0, 2) i32 @check_if_different(ptr noundef reado
   %16 = getelementptr i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !19
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !19
   %21 = and i8 %20, 6
   %.not4.i.i.i = icmp eq i8 %21, 0
@@ -3377,7 +3377,7 @@ token_len_without_separator.exit.i.i:             ; preds = %22, %.lr.ph.i.i.i, 
   %27 = getelementptr i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !19
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !19
   %32 = and i8 %31, 6
   %.not4.i17.i.i = icmp eq i8 %32, 0

@@ -2536,7 +2536,7 @@ if.end.i:                                         ; preds = %if.end24
 _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %7, %if.then.i ], [ %conv.i, %if.end.i ]
   %idxprom = sext i32 %retval.0.i to i64
-  %arrayidx = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds %"struct.std::atomic.6", ptr %next_, i64 %idxprom
   %9 = load atomic i64, ptr %arrayidx monotonic, align 8
   %atomic-temp.i.0.i = inttoptr i64 %9 to ptr
   %cmp27.not = icmp eq i64 %9, 0
@@ -2738,7 +2738,7 @@ if.end.i66:                                       ; preds = %if.end60
 _ZN3re23DFA7ByteMapEi.exit74:                     ; preds = %if.then.i72, %if.end.i66
   %retval.0.i71 = phi i32 [ %50, %if.then.i72 ], [ %conv.i70, %if.end.i66 ]
   %idxprom85 = sext i32 %retval.0.i71 to i64
-  %arrayidx86 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom85
+  %arrayidx86 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_, i64 %idxprom85
   %52 = ptrtoint ptr %call81 to i64
   store atomic i64 %52, ptr %arrayidx86 release, align 8
   br label %return
@@ -2842,7 +2842,7 @@ _ZN3re23DFA8RWLocker14LockForWritingEv.exit:      ; preds = %entry, %if.then.i
 
 for.body:                                         ; preds = %_ZN3re23DFA8RWLocker14LockForWritingEv.exit, %for.body
   %indvars.iv = phi i64 [ 0, %_ZN3re23DFA8RWLocker14LockForWritingEv.exit ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_, i64 %indvars.iv
   store atomic i64 0, ptr %arrayidx monotonic, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -3174,7 +3174,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx21 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom20
   %20 = load i8, ptr %arrayidx21, align 1
   %idxprom22 = zext i8 %20 to i64
-  %arrayidx23 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom22
   %21 = load atomic i64, ptr %arrayidx23 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %21 to ptr
   %cmp25 = icmp eq i64 %21, 0
@@ -3287,7 +3287,7 @@ call.i81.noexc:                                   ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i81.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i81.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -3551,7 +3551,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end110.thread, %
   %retval.0.i = phi i32 [ %62, %if.end110.thread ], [ %conv.i, %if.end110 ]
   %next_112218 = getelementptr inbounds nuw i8, ptr %s.0.lcssa, i64 16
   %idxprom114 = sext i32 %retval.0.i to i64
-  %arrayidx115 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_112218, i64 0, i64 %idxprom114
+  %arrayidx115 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_112218, i64 %idxprom114
   %66 = load atomic i64, ptr %arrayidx115 acquire, align 8
   %atomic-temp.i.0.i132 = inttoptr i64 %66 to ptr
   %cmp117 = icmp eq i64 %66, 0
@@ -3636,7 +3636,7 @@ call.i146.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i151:                                    ; preds = %for.body.i151, %.noexc160
   %indvars.iv.i152 = phi i64 [ 0, %.noexc160 ], [ %indvars.iv.next.i154, %for.body.i151 ]
-  %arrayidx.i153 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i150, i64 0, i64 %indvars.iv.i152
+  %arrayidx.i153 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i150, i64 %indvars.iv.i152
   store atomic i64 0, ptr %arrayidx.i153 monotonic, align 8
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i152, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, 8
@@ -3966,7 +3966,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx21 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom20
   %20 = load i8, ptr %arrayidx21, align 1
   %idxprom22 = zext i8 %20 to i64
-  %arrayidx23 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom22
   %21 = load atomic i64, ptr %arrayidx23 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %21 to ptr
   %cmp25 = icmp eq i64 %21, 0
@@ -4079,7 +4079,7 @@ call.i88.noexc:                                   ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i88.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i88.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -4347,7 +4347,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end110.thread, %
   %retval.0.i = phi i32 [ %62, %if.end110.thread ], [ %conv.i, %if.end110 ]
   %next_112218 = getelementptr inbounds nuw i8, ptr %s.0.lcssa, i64 16
   %idxprom114 = sext i32 %retval.0.i to i64
-  %arrayidx115 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_112218, i64 0, i64 %idxprom114
+  %arrayidx115 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_112218, i64 %idxprom114
   %66 = load atomic i64, ptr %arrayidx115 acquire, align 8
   %atomic-temp.i.0.i141 = inttoptr i64 %66 to ptr
   %cmp117 = icmp eq i64 %66, 0
@@ -4432,7 +4432,7 @@ call.i155.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i160:                                    ; preds = %for.body.i160, %.noexc169
   %indvars.iv.i161 = phi i64 [ 0, %.noexc169 ], [ %indvars.iv.next.i163, %for.body.i160 ]
-  %arrayidx.i162 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i159, i64 0, i64 %indvars.iv.i161
+  %arrayidx.i162 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i159, i64 %indvars.iv.i161
   store atomic i64 0, ptr %arrayidx.i162 monotonic, align 8
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i161, 1
   %exitcond.not.i164 = icmp eq i64 %indvars.iv.next.i163, 8
@@ -4760,7 +4760,7 @@ while.body:                                       ; preds = %while.cond
   %arrayidx22 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom21
   %20 = load i8, ptr %arrayidx22, align 1
   %idxprom23 = zext i8 %20 to i64
-  %arrayidx24 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom23
   %21 = load atomic i64, ptr %arrayidx24 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %21 to ptr
   %cmp26 = icmp eq i64 %21, 0
@@ -4874,7 +4874,7 @@ call.i85.noexc:                                   ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i85.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i85.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -5133,7 +5133,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end112.thread, %
   %retval.0.i = phi i32 [ %61, %if.end112.thread ], [ %conv.i, %if.end112 ]
   %next_114212 = getelementptr inbounds nuw i8, ptr %s.0, i64 16
   %idxprom116 = sext i32 %retval.0.i to i64
-  %arrayidx117 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_114212, i64 0, i64 %idxprom116
+  %arrayidx117 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_114212, i64 %idxprom116
   %65 = load atomic i64, ptr %arrayidx117 acquire, align 8
   %atomic-temp.i.0.i136 = inttoptr i64 %65 to ptr
   %cmp119 = icmp eq i64 %65, 0
@@ -5210,7 +5210,7 @@ call.i150.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i155:                                    ; preds = %call.i150.noexc, %for.body.i155
   %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i158, %for.body.i155 ], [ 0, %call.i150.noexc ]
-  %arrayidx.i157 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i156
+  %arrayidx.i157 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i156
   store atomic i64 0, ptr %arrayidx.i157 monotonic, align 8
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, 8
@@ -5513,7 +5513,7 @@ while.body:                                       ; preds = %while.cond
   %arrayidx22 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom21
   %20 = load i8, ptr %arrayidx22, align 1
   %idxprom23 = zext i8 %20 to i64
-  %arrayidx24 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom23
   %21 = load atomic i64, ptr %arrayidx24 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %21 to ptr
   %cmp26 = icmp eq i64 %21, 0
@@ -5627,7 +5627,7 @@ call.i92.noexc:                                   ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i92.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i92.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -5890,7 +5890,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end112.thread, %
   %retval.0.i = phi i32 [ %61, %if.end112.thread ], [ %conv.i, %if.end112 ]
   %next_114212 = getelementptr inbounds nuw i8, ptr %s.0, i64 16
   %idxprom116 = sext i32 %retval.0.i to i64
-  %arrayidx117 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_114212, i64 0, i64 %idxprom116
+  %arrayidx117 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_114212, i64 %idxprom116
   %65 = load atomic i64, ptr %arrayidx117 acquire, align 8
   %atomic-temp.i.0.i145 = inttoptr i64 %65 to ptr
   %cmp119 = icmp eq i64 %65, 0
@@ -5967,7 +5967,7 @@ call.i159.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i164:                                    ; preds = %call.i159.noexc, %for.body.i164
   %indvars.iv.i165 = phi i64 [ %indvars.iv.next.i167, %for.body.i164 ], [ 0, %call.i159.noexc ]
-  %arrayidx.i166 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i165
+  %arrayidx.i166 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i165
   store atomic i64 0, ptr %arrayidx.i166 monotonic, align 8
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i165, 1
   %exitcond.not.i168 = icmp eq i64 %indvars.iv.next.i167, 8
@@ -6312,7 +6312,7 @@ if.end28:                                         ; preds = %_ZN3re24Prog11Prefi
   %arrayidx30 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom29
   %25 = load i8, ptr %arrayidx30, align 1
   %idxprom31 = zext i8 %25 to i64
-  %arrayidx32 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom31
   %26 = load atomic i64, ptr %arrayidx32 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %26 to ptr
   %cmp34 = icmp eq i64 %26, 0
@@ -6425,7 +6425,7 @@ call.i85.noexc:                                   ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i85.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i85.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -6689,7 +6689,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end122.thread, %
   %retval.0.i138 = phi i32 [ %67, %if.end122.thread ], [ %conv.i, %if.end122 ]
   %next_124228 = getelementptr inbounds nuw i8, ptr %s.0.lcssa, i64 16
   %idxprom126 = sext i32 %retval.0.i138 to i64
-  %arrayidx127 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_124228, i64 0, i64 %idxprom126
+  %arrayidx127 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_124228, i64 %idxprom126
   %71 = load atomic i64, ptr %arrayidx127 acquire, align 8
   %atomic-temp.i.0.i140 = inttoptr i64 %71 to ptr
   %cmp129 = icmp eq i64 %71, 0
@@ -6774,7 +6774,7 @@ call.i154.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i159:                                    ; preds = %for.body.i159, %.noexc168
   %indvars.iv.i160 = phi i64 [ 0, %.noexc168 ], [ %indvars.iv.next.i162, %for.body.i159 ]
-  %arrayidx.i161 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i158, i64 0, i64 %indvars.iv.i160
+  %arrayidx.i161 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i158, i64 %indvars.iv.i160
   store atomic i64 0, ptr %arrayidx.i161 monotonic, align 8
   %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i160, 1
   %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, 8
@@ -7144,7 +7144,7 @@ if.end28:                                         ; preds = %_ZN3re24Prog11Prefi
   %arrayidx30 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom29
   %25 = load i8, ptr %arrayidx30, align 1
   %idxprom31 = zext i8 %25 to i64
-  %arrayidx32 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom31
   %26 = load atomic i64, ptr %arrayidx32 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %26 to ptr
   %cmp34 = icmp eq i64 %26, 0
@@ -7257,7 +7257,7 @@ call.i96.noexc:                                   ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i96.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i96.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -7525,7 +7525,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end122.thread, %
   %retval.0.i151 = phi i32 [ %67, %if.end122.thread ], [ %conv.i, %if.end122 ]
   %next_124230 = getelementptr inbounds nuw i8, ptr %s.0.lcssa, i64 16
   %idxprom126 = sext i32 %retval.0.i151 to i64
-  %arrayidx127 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_124230, i64 0, i64 %idxprom126
+  %arrayidx127 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_124230, i64 %idxprom126
   %71 = load atomic i64, ptr %arrayidx127 acquire, align 8
   %atomic-temp.i.0.i153 = inttoptr i64 %71 to ptr
   %cmp129 = icmp eq i64 %71, 0
@@ -7610,7 +7610,7 @@ call.i167.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i172:                                    ; preds = %for.body.i172, %.noexc181
   %indvars.iv.i173 = phi i64 [ 0, %.noexc181 ], [ %indvars.iv.next.i175, %for.body.i172 ]
-  %arrayidx.i174 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i171, i64 0, i64 %indvars.iv.i173
+  %arrayidx.i174 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i171, i64 %indvars.iv.i173
   store atomic i64 0, ptr %arrayidx.i174 monotonic, align 8
   %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i173, 1
   %exitcond.not.i176 = icmp eq i64 %indvars.iv.next.i175, 8
@@ -7978,7 +7978,7 @@ if.end29:                                         ; preds = %_ZN3re24Prog11Prefi
   %arrayidx31 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom30
   %25 = load i8, ptr %arrayidx31, align 1
   %idxprom32 = zext i8 %25 to i64
-  %arrayidx33 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom32
   %26 = load atomic i64, ptr %arrayidx33 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %26 to ptr
   %cmp35 = icmp eq i64 %26, 0
@@ -8092,7 +8092,7 @@ call.i89.noexc:                                   ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i89.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i89.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -8352,7 +8352,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end124.thread, %
   %retval.0.i142 = phi i32 [ %66, %if.end124.thread ], [ %conv.i, %if.end124 ]
   %next_126222 = getelementptr inbounds nuw i8, ptr %s.0, i64 16
   %idxprom128 = sext i32 %retval.0.i142 to i64
-  %arrayidx129 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_126222, i64 0, i64 %idxprom128
+  %arrayidx129 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_126222, i64 %idxprom128
   %70 = load atomic i64, ptr %arrayidx129 acquire, align 8
   %atomic-temp.i.0.i144 = inttoptr i64 %70 to ptr
   %cmp131 = icmp eq i64 %70, 0
@@ -8429,7 +8429,7 @@ call.i158.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i163:                                    ; preds = %call.i158.noexc, %for.body.i163
   %indvars.iv.i164 = phi i64 [ %indvars.iv.next.i166, %for.body.i163 ], [ 0, %call.i158.noexc ]
-  %arrayidx.i165 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i164
+  %arrayidx.i165 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i164
   store atomic i64 0, ptr %arrayidx.i165 monotonic, align 8
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i164, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, 8
@@ -8772,7 +8772,7 @@ if.end29:                                         ; preds = %_ZN3re24Prog11Prefi
   %arrayidx31 = getelementptr inbounds nuw i8, ptr %bytemap_.i, i64 %idxprom30
   %25 = load i8, ptr %arrayidx31, align 1
   %idxprom32 = zext i8 %25 to i64
-  %arrayidx33 = getelementptr inbounds nuw [0 x %"struct.std::atomic.6"], ptr %next_, i64 0, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %next_, i64 %idxprom32
   %26 = load atomic i64, ptr %arrayidx33 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %26 to ptr
   %cmp35 = icmp eq i64 %26, 0
@@ -8886,7 +8886,7 @@ call.i100.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i:                                       ; preds = %call.i100.noexc, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %call.i100.noexc ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -9150,7 +9150,7 @@ _ZN3re23DFA7ByteMapEi.exit:                       ; preds = %if.end124.thread, %
   %retval.0.i155 = phi i32 [ %66, %if.end124.thread ], [ %conv.i, %if.end124 ]
   %next_126224 = getelementptr inbounds nuw i8, ptr %s.0, i64 16
   %idxprom128 = sext i32 %retval.0.i155 to i64
-  %arrayidx129 = getelementptr inbounds [0 x %"struct.std::atomic.6"], ptr %next_126224, i64 0, i64 %idxprom128
+  %arrayidx129 = getelementptr inbounds %"struct.std::atomic.6", ptr %next_126224, i64 %idxprom128
   %70 = load atomic i64, ptr %arrayidx129 acquire, align 8
   %atomic-temp.i.0.i157 = inttoptr i64 %70 to ptr
   %cmp131 = icmp eq i64 %70, 0
@@ -9227,7 +9227,7 @@ call.i171.noexc:                                  ; preds = %_ZN3re23DFA8RWLocke
 
 for.body.i176:                                    ; preds = %call.i171.noexc, %for.body.i176
   %indvars.iv.i177 = phi i64 [ %indvars.iv.next.i179, %for.body.i176 ], [ 0, %call.i171.noexc ]
-  %arrayidx.i178 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_.i, i64 0, i64 %indvars.iv.i177
+  %arrayidx.i178 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_.i, i64 %indvars.iv.i177
   store atomic i64 0, ptr %arrayidx.i178 monotonic, align 8
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i177, 1
   %exitcond.not.i180 = icmp eq i64 %indvars.iv.next.i179, 8
@@ -9415,7 +9415,7 @@ entry:
   %7 = and i8 %6, 1
   %add85 = or disjoint i8 %add4, %7
   %idxprom = zext nneg i8 %add85 to i64
-  %arrayidx = getelementptr inbounds nuw [8 x { i64, i64 }], ptr @_ZZN3re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN3re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 %idxprom
   %.unpack = load i64, ptr %arrayidx, align 16
   %8 = and i64 %.unpack, 1
   %memptr.isvirtual.not = icmp eq i64 %8, 0
@@ -9480,7 +9480,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad75, %lpad.i45, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %21, %lpad.i45 ], [ %1, %lpad ], [ %22, %lpad75 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %22, %lpad.i45 ], [ %1, %lpad ], [ %23, %lpad75 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %if.then
@@ -9563,44 +9563,44 @@ if.end65:                                         ; preds = %if.else52, %if.else
   %11 = load i8, ptr %anchored, align 8
   %12 = and i8 %11, 1
   %13 = zext nneg i8 %12 to i64
-  %spec.select = or disjoint i64 %start14.0, %13
   %start_ = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %arrayidx69 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_, i64 0, i64 %spec.select
+  %14 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_, i64 %start14.0
+  %arrayidx69 = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %14, i64 %13
   %call70 = tail call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params, ptr noundef nonnull %arrayidx69, i32 noundef %flags.0)
   br i1 %call70, label %if.end81, label %if.then71
 
 if.then71:                                        ; preds = %if.end65
   %cache_lock = getelementptr inbounds nuw i8, ptr %params, i64 48
-  %14 = load ptr, ptr %cache_lock, align 8
+  %15 = load ptr, ptr %cache_lock, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
-  %writing_.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load i8, ptr %writing_.i.i, align 8
-  %tobool.i.i = trunc i8 %15 to i1
+  %writing_.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %16 = load i8, ptr %writing_.i.i, align 8
+  %tobool.i.i = trunc i8 %16 to i1
   br i1 %tobool.i.i, label %_ZN3re23DFA8RWLocker14LockForWritingEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then71
-  %16 = load ptr, ptr %14, align 8
-  tail call void @_ZN4absl7debian25Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
-  %17 = load ptr, ptr %14, align 8
-  tail call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %17 = load ptr, ptr %15, align 8
+  tail call void @_ZN4absl7debian25Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %18 = load ptr, ptr %15, align 8
+  tail call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
   store i8 1, ptr %writing_.i.i, align 8
   br label %_ZN3re23DFA8RWLocker14LockForWritingEv.exit.i
 
 _ZN3re23DFA8RWLocker14LockForWritingEv.exit.i:    ; preds = %if.then.i.i, %if.then71
   %call.i = tail call noundef ptr @_ZN3re25hooks25GetDFAStateCacheResetHookEv()
   %state_budget_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %18 = load i64, ptr %state_budget_.i, align 8
-  store i64 %18, ptr %ref.tmp.i, align 8
+  %19 = load i64, ptr %state_budget_.i, align 8
+  store i64 %19, ptr %ref.tmp.i, align 8
   %state_cache_size.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %19 = load i64, ptr %size_.i.i, align 8
-  store i64 %19, ptr %state_cache_size.i, align 8
+  %20 = load i64, ptr %size_.i.i, align 8
+  store i64 %20, ptr %state_cache_size.i, align 8
   call void %call.i(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZN3re23DFA8RWLocker14LockForWritingEv.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN3re23DFA8RWLocker14LockForWritingEv.exit.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::DFA::StartInfo", ptr %start_, i64 %indvars.iv.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -9608,9 +9608,9 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN3re
 
 _ZN3re23DFA10ResetCacheEPNS0_8RWLockerE.exit:     ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %20 = load i64, ptr %state_budget_.i, align 8
+  %21 = load i64, ptr %state_budget_.i, align 8
   %mem_budget_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i64 %20, ptr %mem_budget_.i, align 8
+  store i64 %21, ptr %mem_budget_.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call72 = call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params, ptr noundef nonnull %arrayidx69, i32 noundef %flags.0)
   br i1 %call72, label %if.end81, label %if.then73
@@ -9637,7 +9637,7 @@ invoke.cont6.i50:                                 ; preds = %invoke.cont4.i48
           to label %_ZN10LogMessageC2EPKci.exit52 unwind label %lpad.i45
 
 lpad.i45:                                         ; preds = %invoke.cont6.i50, %invoke.cont4.i48, %invoke.cont2.i46, %if.then73
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i43) #24
   br label %common.resume
@@ -9651,33 +9651,33 @@ invoke.cont78:                                    ; preds = %_ZN10LogMessageC2EP
   br label %return
 
 lpad75:                                           ; preds = %_ZN10LogMessageC2EPKci.exit52
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp74) #24
   br label %common.resume
 
 if.end81:                                         ; preds = %_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE.exit, %if.end65
-  %23 = load atomic i64, ptr %arrayidx69 acquire, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %23 to ptr
+  %24 = load atomic i64, ptr %arrayidx69 acquire, align 8
+  %atomic-temp.i.0.i = inttoptr i64 %24 to ptr
   %start84 = getelementptr inbounds nuw i8, ptr %params, i64 40
   store ptr %atomic-temp.i.0.i, ptr %start84, align 8
-  %24 = load ptr, ptr %this, align 8
-  %prefix_size_.i = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %25 = load i64, ptr %prefix_size_.i, align 8
-  %cmp.i.not = icmp eq i64 %25, 0
+  %25 = load ptr, ptr %this, align 8
+  %prefix_size_.i = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %26 = load i64, ptr %prefix_size_.i, align 8
+  %cmp.i.not = icmp eq i64 %26, 0
   br i1 %cmp.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end81
-  %26 = load i8, ptr %anchored, align 8
-  %tobool87 = trunc i8 %26 to i1
-  %cmp90 = icmp ult i64 %23, 3
+  %27 = load i8, ptr %anchored, align 8
+  %tobool87 = trunc i8 %27 to i1
+  %cmp90 = icmp ult i64 %24, 3
   %or.cond.not = select i1 %tobool87, i1 true, i1 %cmp90
   br i1 %or.cond.not, label %return, label %land.lhs.true91
 
 land.lhs.true91:                                  ; preds = %land.lhs.true
   %flag_ = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 12
-  %27 = load i32, ptr %flag_, align 4
-  %cmp93 = icmp ult i32 %27, 65536
+  %28 = load i32, ptr %flag_, align 4
+  %cmp93 = icmp ult i32 %28, 65536
   br i1 %cmp93, label %if.then94, label %return
 
 if.then94:                                        ; preds = %land.lhs.true91
@@ -9860,7 +9860,7 @@ if.end32:                                         ; preds = %if.end17
   %11 = and i8 %10, 1
   %add85.i = or disjoint i8 %add4.i, %11
   %idxprom.i = zext nneg i8 %add85.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x { i64, i64 }], ptr @_ZZN3re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw { i64, i64 }, ptr @_ZZN3re23DFA14FastSearchLoopEPNS0_12SearchParamsEE8Searches, i64 %idxprom.i
   %.unpack.i = load i64, ptr %arrayidx.i, align 16
   %12 = and i64 %.unpack.i, 1
   %memptr.isvirtual.not.i = icmp eq i64 %12, 0

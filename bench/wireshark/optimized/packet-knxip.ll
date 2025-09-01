@@ -605,17 +605,17 @@ define hidden void @proto_register_knxip() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %0, %10
-  %indvars.iv18 = phi i64 [ 1, %0 ], [ %indvars.iv.next19, %10 ]
-  %11 = tail call ptr @wmem_epan_scope()
-  %12 = trunc nuw nsw i64 %indvars.iv18 to i32
-  %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull @.str.129, i32 noundef %12)
+  %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %10 ]
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  %12 = tail call ptr @wmem_epan_scope()
+  %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %12, ptr noundef nonnull @.str.129, i32 noundef %11)
   %14 = tail call ptr @wmem_epan_scope()
-  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.130, i32 noundef %12)
-  %16 = add nsw i64 %indvars.iv18, -1
-  %17 = getelementptr [10 x ptr], ptr @pref_key_texts, i64 0, i64 %16
+  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.130, i32 noundef %11)
+  %16 = getelementptr ptr, ptr @pref_key_texts, i64 %indvars.iv
+  %17 = getelementptr i8, ptr %16, i64 -8
   tail call void @prefs_register_string_preference(ptr noundef %9, ptr noundef %13, ptr noundef %15, ptr noundef nonnull @.str.131, ptr noundef %17)
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next19, 11
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond.not, label %18, label %10, !llvm.loop !6
 
 18:                                               ; preds = %10
@@ -686,7 +686,7 @@ define hidden void @proto_reg_handoff_knxip() #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %8 = phi i8 [ 0, %.lr.ph.preheader ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %9 = getelementptr [10 x ptr], ptr @pref_key_texts, i64 0, i64 %indvars.iv
+  %9 = getelementptr ptr, ptr @pref_key_texts, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
   br i1 %.not8, label %28, label %11
@@ -694,7 +694,7 @@ define hidden void @proto_reg_handoff_knxip() #0 {
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %8 to i64
   %.idx = shl nuw nsw i64 %12, 4
-  %13 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %12
+  %13 = getelementptr [16 x i8], ptr @knx_decryption_keys, i64 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8
   %14 = call ptr @convert_string_to_hex(ptr noundef nonnull %10, ptr noundef nonnull %1)
@@ -2180,7 +2180,7 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %49
   %51 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_srps, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_srps, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not107.i = icmp eq i32 %switch.load, %15
   br i1 %.not107.i, label %.critedge.i, label %52
@@ -2691,7 +2691,7 @@ dissect_dib_devinfo.exit.i:                       ; preds = %218, %217
 
 252:                                              ; preds = %250
   %253 = zext nneg i8 %231 to i64
-  %254 = getelementptr [8 x i8], ptr %23, i64 0, i64 %253
+  %254 = getelementptr i8, ptr %23, i64 %253
   %255 = load i8, ptr %254, align 1
   %256 = add i8 %255, 1
   store i8 %256, ptr %254, align 1
@@ -4778,7 +4778,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
 
 .lr.ph192:                                        ; preds = %.loopexit, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.loopexit ]
-  %93 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv
+  %93 = getelementptr [16 x i8], ptr @knx_decryption_keys, i64 %indvars.iv
   %94 = tail call fastcc ptr @decrypt_secure_wrapper(ptr noundef %93, ptr noundef %77, i32 noundef %74, i32 noundef %64)
   %.not174 = icmp eq ptr %94, null
   br i1 %.not174, label %89, label %95
@@ -4997,7 +4997,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 
 87:                                               ; preds = %.lr.ph136, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next, %83 ]
-  %88 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv
+  %88 = getelementptr [16 x i8], ptr @knx_decryption_keys, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @knxip_ccm_calc_cbc_mac(ptr noundef nonnull %7, ptr noundef %88, ptr noundef %61, i32 noundef range(i32 0, 256) %58, ptr noundef null, i32 noundef 0, ptr noundef %81, i8 noundef zeroext 14)
   %89 = call ptr @knxip_ccm_encrypt(ptr noundef nonnull %7, ptr noundef %88, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %81, i8 noundef zeroext 14)
@@ -5475,7 +5475,7 @@ define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, 
   %17 = zext i1 %16 to i32
   %18 = add nuw nsw i32 %15, %17
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr [32 x i8], ptr %8, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %8, i64 %19
   store i8 %14, ptr %20, align 1
   %21 = icmp ne i32 %12, 0
   %22 = icmp ne ptr %5, null

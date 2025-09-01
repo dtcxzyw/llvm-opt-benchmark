@@ -397,7 +397,7 @@ Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
   %47 = phi i1 [ true, %Vec_PtrFillExtra.exit ], [ false, %.critedge ]
   %indvars.iv147 = phi i64 [ 0, %Vec_PtrFillExtra.exit ], [ 1, %.critedge ]
   %.091133 = phi i32 [ 0, %Vec_PtrFillExtra.exit ], [ %.192.lcssa, %.critedge ]
-  %48 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 0, i64 %indvars.iv147
+  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv147
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %50 = getelementptr i8, ptr %49, i64 4
   %.val97130 = load i32, ptr %50, align 4, !tbaa !12
@@ -440,7 +440,7 @@ Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
 .preheader127:                                    ; preds = %.preheader128, %.critedge2
   %68 = phi i1 [ true, %.preheader128 ], [ false, %.critedge2 ]
   %indvars.iv153 = phi i64 [ 0, %.preheader128 ], [ 1, %.critedge2 ]
-  %69 = getelementptr inbounds nuw [2 x ptr], ptr %52, i64 0, i64 %indvars.iv153
+  %69 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv153
   %70 = load ptr, ptr %69, align 8, !tbaa !18
   %71 = getelementptr i8, ptr %70, i64 4
   %.val98135 = load i32, ptr %71, align 4, !tbaa !12
@@ -699,7 +699,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .preheader:                                       ; preds = %._crit_edge, %.critedge4
   %218 = phi i1 [ true, %._crit_edge ], [ false, %.critedge4 ]
   %indvars.iv163 = phi i64 [ 0, %._crit_edge ], [ 1, %.critedge4 ]
-  %219 = getelementptr inbounds nuw [2 x ptr], ptr %52, i64 0, i64 %indvars.iv163
+  %219 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv163
   %220 = load ptr, ptr %219, align 8, !tbaa !18
   %221 = getelementptr i8, ptr %220, i64 4
   %.val99142 = load i32, ptr %221, align 4, !tbaa !12
@@ -755,10 +755,10 @@ declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #
 define i32 @Gia_ManRebuildOne(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %4
+  %8 = getelementptr inbounds ptr, ptr %7, i64 %4
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 392
@@ -926,7 +926,7 @@ Vec_IntFillExtra.exit:                            ; preds = %2, %._crit_edge.i
 
 83:                                               ; preds = %.critedge2
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %85 = getelementptr inbounds [2 x i32], ptr %84, i64 0, i64 %4
+  %85 = getelementptr inbounds i32, ptr %84, i64 %4
   %86 = load i32, ptr %85, align 4, !tbaa !47
   %87 = ashr i32 %86, 1
   %88 = getelementptr i8, ptr %10, i64 400
@@ -981,7 +981,7 @@ Vec_IntFillExtra.exit:                            ; preds = %2, %._crit_edge.i
 .critedge4:                                       ; preds = %92, %.preheader, %83
   %.055 = phi i32 [ %91, %83 ], [ -1, %.preheader ], [ %119, %92 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %124 = getelementptr inbounds [2 x i32], ptr %123, i64 0, i64 %4
+  %124 = getelementptr inbounds i32, ptr %123, i64 %4
   %125 = load i32, ptr %124, align 4, !tbaa !47
   %126 = and i32 %125, 1
   %127 = xor i32 %126, %.055
@@ -1002,18 +1002,18 @@ define range(i32 0, 2) i32 @Gia_ManGatherSupp(ptr noundef readonly captures(none
 6:                                                ; preds = %1, %6
   %7 = phi i1 [ true, %1 ], [ false, %6 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %6 ]
-  %8 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %10, align 4, !tbaa !12
-  %11 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4, !tbaa !12
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @Gia_ManIncrementTravId(ptr noundef %14) #17
   %15 = load ptr, ptr %0, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !47
   %18 = ashr i32 %17, 1
   %19 = load ptr, ptr %8, align 8, !tbaa !18
@@ -1232,18 +1232,18 @@ define i32 @Gia_ManSupportAnd(ptr noundef captures(none) initializes((8, 16)) %0
 12:                                               ; preds = %12, %8
   %13 = phi i1 [ true, %8 ], [ false, %12 ]
   %indvars.iv.i = phi i64 [ 0, %8 ], [ 1, %12 ]
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %16, align 4, !tbaa !12
-  %17 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4, !tbaa !12
   %20 = load ptr, ptr %0, align 8, !tbaa !3
   tail call void @Gia_ManIncrementTravId(ptr noundef %20) #17
   %21 = load ptr, ptr %0, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !47
   %24 = ashr i32 %23, 1
   %25 = load ptr, ptr %14, align 8, !tbaa !18
@@ -3326,7 +3326,7 @@ Vec_WrdFillExtra.exit:                            ; preds = %1, %._crit_edge.i
 .preheader:                                       ; preds = %._crit_edge, %.critedge
   %73 = phi i1 [ true, %._crit_edge ], [ false, %.critedge ]
   %indvars.iv86 = phi i64 [ 0, %._crit_edge ], [ 1, %.critedge ]
-  %74 = getelementptr inbounds nuw [2 x ptr], ptr %71, i64 0, i64 %indvars.iv86
+  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv86
   %75 = load ptr, ptr %74, align 8, !tbaa !18
   %76 = getelementptr i8, ptr %75, i64 4
   %.val = load i32, ptr %76, align 4, !tbaa !12
@@ -3551,7 +3551,7 @@ Vec_IntFillExtra.exit:                            ; preds = %1, %._crit_edge.i
 .preheader:                                       ; preds = %.preheader65, %.critedge
   %76 = phi i1 [ true, %.preheader65 ], [ false, %.critedge ]
   %indvars.iv73 = phi i64 [ 0, %.preheader65 ], [ 1, %.critedge ]
-  %77 = getelementptr inbounds nuw [2 x ptr], ptr %73, i64 0, i64 %indvars.iv73
+  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv73
   %78 = load ptr, ptr %77, align 8, !tbaa !18
   %79 = getelementptr i8, ptr %78, i64 4
   %.val5266 = load i32, ptr %79, align 4, !tbaa !12
@@ -3684,18 +3684,18 @@ define range(i32 0, 2) i32 @Gia_Min2ManGatherSupp(ptr noundef captures(none) %0)
 9:                                                ; preds = %1, %9
   %10 = phi i1 [ true, %1 ], [ false, %9 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %9 ]
-  %11 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4, !tbaa !12
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %16, align 4, !tbaa !12
   %17 = load ptr, ptr %0, align 8, !tbaa !71
   tail call void @Gia_ManIncrementTravId(ptr noundef %17) #17
   %18 = load ptr, ptr %0, align 8, !tbaa !71
-  %19 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !47
   %21 = ashr i32 %20, 1
   %22 = load ptr, ptr %11, align 8, !tbaa !18
@@ -3929,18 +3929,18 @@ define i32 @Gia_Man2SupportAnd(ptr noundef captures(none) initializes((8, 16)) %
 22:                                               ; preds = %22, %15
   %23 = phi i1 [ true, %15 ], [ false, %22 ]
   %indvars.iv.i = phi i64 [ 0, %15 ], [ 1, %22 ]
-  %24 = getelementptr inbounds nuw [2 x ptr], ptr %20, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %26, align 4, !tbaa !12
-  %27 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 0, ptr %29, align 4, !tbaa !12
   %30 = load ptr, ptr %0, align 8, !tbaa !71
   tail call void @Gia_ManIncrementTravId(ptr noundef %30) #17
   %31 = load ptr, ptr %0, align 8, !tbaa !71
-  %32 = getelementptr inbounds nuw [2 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4, !tbaa !47
   %34 = ashr i32 %33, 1
   %35 = load ptr, ptr %24, align 8, !tbaa !18

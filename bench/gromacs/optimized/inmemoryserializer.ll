@@ -307,8 +307,8 @@ define void @_ZN3gmx18InMemorySerializer5doIntEPi(ptr noundef nonnull readonly a
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1, !tbaa !21
   %17 = load i8, ptr %15, align 1, !tbaa !21
   store i8 %17, ptr %14, align 1, !tbaa !21
@@ -375,8 +375,8 @@ define void @_ZN3gmx18InMemorySerializer7doInt32EPi(ptr noundef nonnull readonly
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1, !tbaa !21
   %17 = load i8, ptr %15, align 1, !tbaa !21
   store i8 %17, ptr %14, align 1, !tbaa !21
@@ -443,8 +443,8 @@ define void @_ZN3gmx18InMemorySerializer7doInt64EPl(ptr noundef nonnull readonly
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 7, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1, !tbaa !21
   %17 = load i8, ptr %15, align 1, !tbaa !21
   store i8 %17, ptr %14, align 1, !tbaa !21
@@ -511,8 +511,8 @@ define void @_ZN3gmx18InMemorySerializer7doFloatEPf(ptr noundef nonnull readonly
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1, !tbaa !21
   %17 = load i8, ptr %15, align 1, !tbaa !21
   store i8 %17, ptr %14, align 1, !tbaa !21
@@ -579,8 +579,8 @@ define void @_ZN3gmx18InMemorySerializer8doDoubleEPd(ptr noundef nonnull readonl
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 7, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1, !tbaa !21
   %17 = load i8, ptr %15, align 1, !tbaa !21
   store i8 %17, ptr %14, align 1, !tbaa !21
@@ -647,8 +647,8 @@ define void @_ZN3gmx18InMemorySerializer6doRealEPf(ptr noundef nonnull readonly 
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1, !tbaa !21
   %17 = load i8, ptr %15, align 1, !tbaa !21
   store i8 %17, ptr %14, align 1, !tbaa !21
@@ -956,8 +956,8 @@ define void @_ZN3gmx20InMemoryDeserializer5doIntEPi(ptr noundef nonnull readonly
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1, !tbaa !21
   %20 = load i8, ptr %18, align 1, !tbaa !21
   store i8 %20, ptr %17, align 1, !tbaa !21
@@ -1004,8 +1004,8 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt32EPi(ptr noundef nonnull readon
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1, !tbaa !21
   %20 = load i8, ptr %18, align 1, !tbaa !21
   store i8 %20, ptr %17, align 1, !tbaa !21
@@ -1052,8 +1052,8 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt64EPl(ptr noundef nonnull readon
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1, !tbaa !21
   %20 = load i8, ptr %18, align 1, !tbaa !21
   store i8 %20, ptr %17, align 1, !tbaa !21
@@ -1101,8 +1101,8 @@ define void @_ZN3gmx20InMemoryDeserializer7doFloatEPf(ptr noundef nonnull readon
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1, !tbaa !21
   %20 = load i8, ptr %18, align 1, !tbaa !21
   store i8 %20, ptr %17, align 1, !tbaa !21
@@ -1149,8 +1149,8 @@ define void @_ZN3gmx20InMemoryDeserializer8doDoubleEPd(ptr noundef nonnull reado
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1, !tbaa !21
   %20 = load i8, ptr %18, align 1, !tbaa !21
   store i8 %20, ptr %17, align 1, !tbaa !21
@@ -1546,8 +1546,8 @@ define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1
 12:                                               ; preds = %12, %11
   %indvars.iv3.i.i = phi i64 [ 7, %11 ], [ %indvars.iv.next4.i.i, %12 ]
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %12 ]
-  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
-  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv3.i.i
   %15 = load i8, ptr %13, align 1, !tbaa !21
   %16 = load i8, ptr %14, align 1, !tbaa !21
   store i8 %16, ptr %13, align 1, !tbaa !21
@@ -1994,8 +1994,8 @@ define linkonce_odr void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv3.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1, !tbaa !21
   %20 = load i8, ptr %18, align 1, !tbaa !21
   store i8 %20, ptr %17, align 1, !tbaa !21

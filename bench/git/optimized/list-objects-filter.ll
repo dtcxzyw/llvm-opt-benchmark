@@ -46,7 +46,7 @@ define dso_local noundef ptr @list_objects_filter__init(ptr noundef %0, ptr noun
 
 9:                                                ; preds = %8
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw [7 x ptr], ptr @s_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @s_filters, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -324,7 +324,7 @@ define internal void @filter_combine__init(ptr noundef readonly captures(none) %
 
 24:                                               ; preds = %23
   %25 = zext nneg i32 %20 to i64
-  %26 = getelementptr inbounds nuw [7 x ptr], ptr @s_filters, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr @s_filters, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !14
   %28 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #13
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -847,7 +847,7 @@ define internal range(i32 0, 5) i32 @filter_object_type(ptr readnone captures(no
 
 switch.lookup:                                    ; preds = %15
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.filter_object_type, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.filter_object_type, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %22
 

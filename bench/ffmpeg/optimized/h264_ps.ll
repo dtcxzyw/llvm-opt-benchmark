@@ -76,7 +76,7 @@ define void @ff_h264_ps_uninit(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef %4) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -84,7 +84,7 @@ define void @ff_h264_ps_uninit(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv12 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next13, %5 ]
-  %6 = getelementptr inbounds nuw [256 x ptr], ptr %2, i64 0, i64 %indvars.iv12
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv12
   tail call void @av_refstruct_unref(ptr noundef nonnull %6) #11
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond15.not = icmp eq i64 %indvars.iv.next13, 256
@@ -146,7 +146,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 27:                                               ; preds = %24
   %28 = add nuw nsw i64 %25, 1
   store i64 %28, ptr %14, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw [4096 x i8], ptr %20, i64 0, i64 %25
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 %25
   store i8 -128, ptr %29, align 1, !tbaa !27
   br label %30
 
@@ -229,13 +229,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %92 = shl i32 %90, %91
   %93 = lshr i32 %92, 23
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !27
   %97 = zext i8 %96 to i32
   %98 = add i32 %85, %97
   %..i = tail call i32 @llvm.umin.i32(i32 %34, i32 %98)
   store i32 %..i, ptr %31, align 8, !tbaa !28
-  %99 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %94
+  %99 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %94
   %100 = load i8, ptr %99, align 1, !tbaa !27
   %101 = zext i8 %100 to i32
   %102 = icmp ugt i8 %100, 31
@@ -335,13 +335,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %167 = shl i32 %165, %166
   %168 = lshr i32 %167, 23
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !27
   %172 = zext i8 %171 to i32
   %173 = add i32 %158, %172
   %..i224 = tail call i32 @llvm.umin.i32(i32 %159, i32 %173)
   store i32 %..i224, ptr %31, align 8, !tbaa !28
-  %174 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %169
+  %174 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %169
   %175 = load i8, ptr %174, align 1, !tbaa !27
   %176 = zext i8 %175 to i32
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -391,13 +391,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %204 = shl i32 %202, %203
   %205 = lshr i32 %204, 23
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %206
   %208 = load i8, ptr %207, align 1, !tbaa !27
   %209 = zext i8 %208 to i32
   %210 = add i32 %197, %209
   %..i226 = tail call i32 @llvm.umin.i32(i32 %159, i32 %210)
   store i32 %..i226, ptr %31, align 8, !tbaa !28
-  %211 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %206
+  %211 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %206
   %212 = load i8, ptr %211, align 1, !tbaa !27
   %213 = zext i8 %212 to i32
   %214 = add nuw nsw i32 %213, 8
@@ -412,13 +412,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %222 = shl i32 %220, %221
   %223 = lshr i32 %222, 23
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !27
   %227 = zext i8 %226 to i32
   %228 = add i32 %..i226, %227
   %..i227 = tail call i32 @llvm.umin.i32(i32 %159, i32 %228)
   store i32 %..i227, ptr %31, align 8, !tbaa !28
-  %229 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %224
+  %229 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %224
   %230 = load i8, ptr %229, align 1, !tbaa !27
   %231 = zext i8 %230 to i32
   %232 = add nuw nsw i32 %231, 8
@@ -501,13 +501,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %282 = shl i32 %280, %281
   %283 = lshr i32 %282, 23
   %284 = zext nneg i32 %283 to i64
-  %285 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %284
   %286 = load i8, ptr %285, align 1, !tbaa !27
   %287 = zext i8 %286 to i32
   %288 = add i32 %273, %287
   %..i230 = tail call i32 @llvm.umin.i32(i32 %274, i32 %288)
   store i32 %..i230, ptr %31, align 8, !tbaa !28
-  %289 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %284
+  %289 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %284
   %290 = load i8, ptr %289, align 1, !tbaa !27
   %291 = zext i8 %290 to i32
   %292 = icmp ugt i8 %290, 12
@@ -530,13 +530,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %303 = shl i32 %301, %302
   %304 = lshr i32 %303, 23
   %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %305
   %307 = load i8, ptr %306, align 1, !tbaa !27
   %308 = zext i8 %307 to i32
   %309 = add i32 %..i230, %308
   %..i231 = tail call i32 @llvm.umin.i32(i32 %274, i32 %309)
   store i32 %..i231, ptr %31, align 8, !tbaa !28
-  %310 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %305
+  %310 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %305
   %311 = load i8, ptr %310, align 1, !tbaa !27
   %312 = zext i8 %311 to i32
   %313 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -623,7 +623,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 351:                                              ; preds = %.lr.ph, %347
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %347 ]
   %352 = tail call fastcc i32 @get_se_golomb_long(ptr noundef nonnull %0)
-  %353 = getelementptr inbounds nuw [256 x i32], ptr %345, i64 0, i64 %indvars.iv
+  %353 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv
   store i32 %352, ptr %353, align 4, !tbaa !51
   %354 = icmp eq i32 %352, -2147483648
   br i1 %354, label %355, label %347
@@ -914,7 +914,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %528 = getelementptr inbounds nuw i8, ptr %2, i64 2320
   %529 = load i32, ptr %519, align 8, !tbaa !81
   %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds [2 x i32], ptr %528, i64 0, i64 %530
+  %531 = getelementptr inbounds i32, ptr %528, i64 %530
   %.not198 = icmp eq i32 %529, 0
   %532 = select i1 %.not198, ptr @.str.19, ptr @.str.18
   %533 = sub nsw i32 0, %524
@@ -951,13 +951,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 547:                                              ; preds = %543, %546
   %indvars.iv253 = phi i64 [ 0, %543 ], [ %indvars.iv.next254, %546 ]
-  %548 = getelementptr inbounds nuw [16 x [2 x i32]], ptr @level_max_dpb_mbs, i64 0, i64 %indvars.iv253
+  %548 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv253
   %549 = load i32, ptr %548, align 8, !tbaa !51
   %550 = icmp eq i32 %549, %545
   br i1 %550, label %551, label %546
 
 551:                                              ; preds = %547
-  %552 = getelementptr inbounds nuw [16 x [2 x i32]], ptr @level_max_dpb_mbs, i64 0, i64 %indvars.iv253, i64 1
+  %552 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv253, i64 1
   %553 = load i32, ptr %552, align 4, !tbaa !51
   %554 = load i32, ptr %385, align 8, !tbaa !70
   %555 = load i32, ptr %388, align 4, !tbaa !71
@@ -1020,7 +1020,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %590 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %591 = load i32, ptr %590, align 4, !tbaa !38
   %592 = sext i32 %591 to i64
-  %593 = getelementptr inbounds [4 x [5 x i8]], ptr @ff_h264_decode_seq_parameter_set.csp, i64 0, i64 %592
+  %593 = getelementptr inbounds [5 x i8], ptr @ff_h264_decode_seq_parameter_set.csp, i64 %592
   %594 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %595 = load i32, ptr %594, align 8, !tbaa !88
   %.not207 = icmp eq i32 %595, 0
@@ -1052,7 +1052,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 610:                                              ; preds = %608, %561
   %611 = zext nneg i8 %100 to i64
-  %612 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %611
+  %612 = getelementptr inbounds nuw ptr, ptr %2, i64 %611
   %613 = load ptr, ptr %612, align 8, !tbaa !14
   %.not210 = icmp eq ptr %613, null
   br i1 %.not210, label %616, label %614
@@ -1102,13 +1102,13 @@ define internal fastcc range(i32 0, 256) i32 @get_ue_golomb_31(ptr noundef captu
   %13 = shl i32 %11, %12
   %14 = lshr i32 %13, 23
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !27
   %18 = zext i8 %17 to i32
   %19 = add i32 %3, %18
   %. = tail call i32 @llvm.umin.i32(i32 %5, i32 %19)
   store i32 %., ptr %2, align 8, !tbaa !28
-  %20 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %15
+  %20 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %15
   %21 = load i8, ptr %20, align 1, !tbaa !27
   %22 = zext i8 %21 to i32
   ret i32 %22
@@ -1246,7 +1246,7 @@ define internal fastcc i32 @get_se_golomb_long(ptr noundef captures(none) %0) un
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %22
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %23
   %24 = zext nneg i32 %.110.i.i to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !27
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %.1.i.i, %27
@@ -1333,13 +1333,13 @@ define internal fastcc range(i32 -1094995529, 1048575) i32 @get_ue_golomb(ptr no
 15:                                               ; preds = %1
   %16 = lshr i32 %13, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i32
   %21 = add i32 %3, %20
   %. = tail call i32 @llvm.umin.i32(i32 %5, i32 %21)
   store i32 %., ptr %2, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %17
+  %22 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %17
   %23 = load i8, ptr %22, align 1, !tbaa !27
   %24 = zext i8 %23 to i32
   br label %40
@@ -1355,7 +1355,7 @@ define internal fastcc range(i32 -1094995529, 1048575) i32 @get_ue_golomb(ptr no
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %27
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %28
   %29 = zext nneg i32 %.110.i to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !27
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %.1.i, %32
@@ -1652,7 +1652,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_vui_parameters(ptr 
   %177 = shl i32 %175, %176
   %178 = lshr i32 %177, 23
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !27
   %182 = zext i8 %181 to i32
   %183 = add i32 %spec.select.i87, %182
@@ -1667,7 +1667,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_vui_parameters(ptr 
   %190 = shl i32 %188, %189
   %191 = lshr i32 %190, 23
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %192
   %194 = load i8, ptr %193, align 1, !tbaa !27
   %195 = zext i8 %194 to i32
   %196 = add i32 %..i, %195
@@ -1682,7 +1682,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_vui_parameters(ptr 
   %203 = shl i32 %201, %202
   %204 = lshr i32 %203, 23
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %205
   %207 = load i8, ptr %206, align 1, !tbaa !27
   %208 = zext i8 %207 to i32
   %209 = add i32 %..i88, %208
@@ -1697,7 +1697,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_vui_parameters(ptr 
   %216 = shl i32 %214, %215
   %217 = lshr i32 %216, 23
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !27
   %221 = zext i8 %220 to i32
   %222 = add i32 %..i89, %221
@@ -1712,13 +1712,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_vui_parameters(ptr 
   %229 = shl i32 %227, %228
   %230 = lshr i32 %229, 23
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !27
   %234 = zext i8 %233 to i32
   %235 = add i32 %..i90, %234
   %..i91 = tail call i32 @llvm.umin.i32(i32 %139, i32 %235)
   store i32 %..i91, ptr %5, align 8, !tbaa !28
-  %236 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %231
+  %236 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %231
   %237 = load i8, ptr %236, align 1, !tbaa !27
   %238 = zext i8 %237 to i32
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 1212
@@ -1732,13 +1732,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_vui_parameters(ptr 
   %246 = shl i32 %244, %245
   %247 = lshr i32 %246, 23
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !27
   %251 = zext i8 %250 to i32
   %252 = add i32 %..i91, %251
   %..i92 = tail call i32 @llvm.umin.i32(i32 %139, i32 %252)
   store i32 %..i92, ptr %5, align 8, !tbaa !28
-  %253 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %248
+  %253 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %248
   %254 = load i8, ptr %253, align 1, !tbaa !27
   %255 = zext i8 %254 to i32
   %256 = getelementptr inbounds nuw i8, ptr %2, i64 1216
@@ -1788,13 +1788,13 @@ define range(i32 -2147483648, 1) i32 @ff_h264_decode_picture_parameter_set(ptr n
 get_ue_golomb.exit.thread98:                      ; preds = %4
   %19 = lshr i32 %17, 23
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !27
   %23 = zext i8 %22 to i32
   %24 = add i32 %7, %23
   %..i = tail call i32 @llvm.umin.i32(i32 %9, i32 %24)
   store i32 %..i, ptr %6, align 8, !tbaa !28
-  %25 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %20
+  %25 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %20
   %26 = load i8, ptr %25, align 1, !tbaa !27
   %27 = zext i8 %26 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1811,7 +1811,7 @@ get_ue_golomb.exit.thread98:                      ; preds = %4
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %30
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %31
   %32 = zext nneg i32 %.110.i.i to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !27
   %35 = zext i8 %34 to i32
   %36 = add nuw nsw i32 %.1.i.i, %35
@@ -1882,7 +1882,7 @@ get_ue_golomb.exit:                               ; preds = %28
 65:                                               ; preds = %62
   %66 = add nuw nsw i64 %63, 1
   store i64 %66, ptr %54, align 8, !tbaa !101
-  %67 = getelementptr inbounds nuw [4096 x i8], ptr %60, i64 0, i64 %63
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 %63
   store i8 -128, ptr %67, align 1, !tbaa !27
   br label %68
 
@@ -1900,13 +1900,13 @@ get_ue_golomb.exit:                               ; preds = %28
   %78 = shl i32 %76, %77
   %79 = lshr i32 %78, 23
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !27
   %83 = zext i8 %82 to i32
   %84 = add i32 %69, %83
   %..i88 = tail call i32 @llvm.umin.i32(i32 %70, i32 %84)
   store i32 %..i88, ptr %6, align 8, !tbaa !28
-  %85 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %80
+  %85 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %80
   %86 = load i8, ptr %85, align 1, !tbaa !27
   %87 = zext i8 %86 to i32
   %88 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -1916,7 +1916,7 @@ get_ue_golomb.exit:                               ; preds = %28
 
 90:                                               ; preds = %68
   %91 = zext nneg i8 %86 to i64
-  %92 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !14
   %.not77 = icmp eq ptr %93, null
   br i1 %.not77, label %94, label %95
@@ -2244,7 +2244,7 @@ get_ue_golomb.exit:                               ; preds = %28
 307:                                              ; preds = %288, %284
   %308 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %309 = zext nneg i32 %.0.i100 to i64
-  %310 = getelementptr inbounds nuw [256 x ptr], ptr %308, i64 0, i64 %309
+  %310 = getelementptr inbounds nuw ptr, ptr %308, i64 %309
   tail call void @av_refstruct_unref(ptr noundef nonnull %310) #11
   store ptr %46, ptr %310, align 8, !tbaa !100
   br label %312
@@ -2291,13 +2291,13 @@ define internal fastcc i32 @get_se_golomb(ptr noundef captures(none) %0) unnamed
 15:                                               ; preds = %1
   %16 = lshr i32 %13, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i32
   %21 = add i32 %3, %20
   %. = tail call i32 @llvm.umin.i32(i32 %5, i32 %21)
   store i32 %., ptr %2, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw [512 x i8], ptr @ff_se_golomb_vlc_code, i64 0, i64 %17
+  %22 = getelementptr inbounds nuw i8, ptr @ff_se_golomb_vlc_code, i64 %17
   %23 = load i8, ptr %22, align 1, !tbaa !27
   %24 = sext i8 %23 to i32
   br label %50
@@ -2313,7 +2313,7 @@ define internal fastcc i32 @get_se_golomb(ptr noundef captures(none) %0) unnamed
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %27
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %28
   %29 = zext nneg i32 %.110.i to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !27
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %.1.i, %32
@@ -2380,10 +2380,10 @@ define internal fastcc void @build_qp_table(ptr noundef writeonly captures(none)
 
 .lr.ph:                                           ; preds = %4
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds [7 x [88 x i8]], ptr @ff_h264_chroma_qp, i64 0, i64 %9
+  %10 = getelementptr inbounds [88 x i8], ptr @ff_h264_chroma_qp, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 558
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw [2 x [88 x i8]], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %12
   %14 = sext i32 %2 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %15 = add nuw i32 %smax, 1
@@ -2398,9 +2398,9 @@ define internal fastcc void @build_qp_table(ptr noundef writeonly captures(none)
   %..i = tail call i32 @llvm.smin.i32(i32 %19, i32 %7)
   %20 = sext i32 %..i to i64
   %21 = select i1 %18, i64 0, i64 %20
-  %22 = getelementptr inbounds [88 x i8], ptr %10, i64 0, i64 %21
+  %22 = getelementptr inbounds i8, ptr %10, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !27
-  %24 = getelementptr inbounds nuw [88 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   store i8 %23, ptr %24, align 1, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2429,8 +2429,8 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
 
 .split.us.i:                                      ; preds = %.critedge..loopexit_crit_edge.us.i, %.split.us.preheader.i
   %indvars.iv33.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next34.i, %.critedge..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds nuw [6 x [88 x [16 x i32]]], ptr %5, i64 0, i64 %indvars.iv33.i
-  %11 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv33.i
+  %10 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv33.i
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv33.i
   store ptr %10, ptr %11, align 8, !tbaa !119
   %.not10.i = icmp eq i64 %indvars.iv33.i, 0
   br i1 %.not10.i, label %.critedge.preheader.us.i, label %.lr.ph.us.i
@@ -2442,14 +2442,14 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
 
 13:                                               ; preds = %.critedge.preheader.us.i, %.critedge.us.i
   %indvars.iv28.i = phi i64 [ 0, %.critedge.preheader.us.i ], [ %indvars.iv.next29.i, %.critedge.us.i ]
-  %14 = getelementptr inbounds nuw [88 x i8], ptr @ff_h264_quant_div6, i64 0, i64 %indvars.iv28.i
+  %14 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_div6, i64 %indvars.iv28.i
   %15 = load i8, ptr %14, align 1, !tbaa !27
   %16 = zext i8 %15 to i32
   %17 = add nuw nsw i32 %16, 2
-  %18 = getelementptr inbounds nuw [88 x i8], ptr @ff_h264_quant_rem6, i64 0, i64 %indvars.iv28.i
+  %18 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_rem6, i64 %indvars.iv28.i
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [6 x [3 x i8]], ptr @ff_h264_dequant4_coeff_init, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [3 x i8], ptr @ff_h264_dequant4_coeff_init, i64 %20
   %22 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 %indvars.iv28.i
   br label %23
 
@@ -2466,10 +2466,10 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   %27 = and i32 %26, 1
   %28 = add nuw nsw i32 %27, %25
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [3 x i8], ptr %21, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !27
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 0, i64 %indvars.iv24.i
+  %33 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv24.i
   %34 = load i8, ptr %33, align 1, !tbaa !27
   %35 = zext i8 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -2478,7 +2478,7 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   %39 = and i32 %38, 12
   %40 = or disjoint i32 %39, %26
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [16 x i32], ptr %22, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %22, i64 %41
   store i32 %37, ptr %42, align 4, !tbaa !51
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, 16
@@ -2486,13 +2486,13 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
 
 43:                                               ; preds = %.lr.ph.us.i, %12
   %indvars.iv20.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next21.i, %12 ]
-  %44 = getelementptr inbounds nuw [6 x [16 x i8]], ptr %7, i64 0, i64 %indvars.iv20.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv20.i
   %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %44, ptr noundef nonnull dereferenceable(16) %48, i64 16)
   %.not.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not.us.i, label %45, label %12
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw [6 x [88 x [16 x i32]]], ptr %5, i64 0, i64 %indvars.iv20.i
+  %46 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv20.i
   store ptr %46, ptr %11, align 8, !tbaa !119
   br label %.critedge..loopexit_crit_edge.us.i
 
@@ -2502,23 +2502,23 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   br i1 %exitcond36.not.i, label %init_dequant4_coeff_table.exit, label %.split.us.i, !llvm.loop !123
 
 .critedge.preheader.us.i:                         ; preds = %12, %.split.us.i
-  %47 = getelementptr inbounds nuw [6 x [16 x i8]], ptr %7, i64 0, i64 %indvars.iv33.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv33.i
   br label %13
 
 .lr.ph.us.i:                                      ; preds = %.split.us.i
-  %48 = getelementptr inbounds nuw [6 x [16 x i8]], ptr %7, i64 0, i64 %indvars.iv33.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv33.i
   br label %43
 
 .split.i:                                         ; preds = %2, %.critedge.preheader.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %.critedge.preheader.i ], [ 0, %2 ]
-  %49 = getelementptr inbounds nuw [6 x [88 x [16 x i32]]], ptr %5, i64 0, i64 %indvars.iv16.i
-  %50 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv16.i
+  %49 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv16.i
+  %50 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv16.i
   store ptr %49, ptr %50, align 8, !tbaa !119
   %.not9.i = icmp eq i64 %indvars.iv16.i, 0
   br i1 %.not9.i, label %.critedge.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split.i
-  %51 = getelementptr inbounds nuw [6 x [16 x i8]], ptr %7, i64 0, i64 %indvars.iv16.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv16.i
   br label %53
 
 52:                                               ; preds = %53
@@ -2528,13 +2528,13 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
 
 53:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %54 = getelementptr inbounds nuw [6 x [16 x i8]], ptr %7, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %54, ptr noundef nonnull dereferenceable(16) %51, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %55, label %52
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw [6 x [88 x [16 x i32]]], ptr %5, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv.i
   store ptr %56, ptr %50, align 8, !tbaa !119
   br label %.critedge.preheader.i
 
@@ -2567,8 +2567,8 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 .split.us.i41:                                    ; preds = %.critedge..loopexit_crit_edge.us.i59, %.split.us.preheader.i39
   %indvars.iv33.i42 = phi i64 [ 0, %.split.us.preheader.i39 ], [ %indvars.iv.next34.i60, %.critedge..loopexit_crit_edge.us.i59 ]
-  %66 = getelementptr inbounds nuw [6 x [88 x [64 x i32]]], ptr %62, i64 0, i64 %indvars.iv33.i42
-  %67 = getelementptr inbounds nuw [6 x ptr], ptr %57, i64 0, i64 %indvars.iv33.i42
+  %66 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv33.i42
+  %67 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv33.i42
   store ptr %66, ptr %67, align 8, !tbaa !119
   %.not10.i43 = icmp eq i64 %indvars.iv33.i42, 0
   br i1 %.not10.i43, label %.critedge.preheader.us.i50, label %.lr.ph.us.i44
@@ -2580,13 +2580,13 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 69:                                               ; preds = %.critedge.preheader.us.i50, %.critedge.us.i56
   %indvars.iv28.i51 = phi i64 [ 0, %.critedge.preheader.us.i50 ], [ %indvars.iv.next29.i57, %.critedge.us.i56 ]
-  %70 = getelementptr inbounds nuw [88 x i8], ptr @ff_h264_quant_div6, i64 0, i64 %indvars.iv28.i51
+  %70 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_div6, i64 %indvars.iv28.i51
   %71 = load i8, ptr %70, align 1, !tbaa !27
   %72 = zext nneg i8 %71 to i32
-  %73 = getelementptr inbounds nuw [88 x i8], ptr @ff_h264_quant_rem6, i64 0, i64 %indvars.iv28.i51
+  %73 = getelementptr inbounds nuw i8, ptr @ff_h264_quant_rem6, i64 %indvars.iv28.i51
   %74 = load i8, ptr %73, align 1, !tbaa !27
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw [6 x [6 x i8]], ptr @ff_h264_dequant8_coeff_init, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [6 x i8], ptr @ff_h264_dequant8_coeff_init, i64 %75
   %77 = getelementptr inbounds nuw [64 x i32], ptr %66, i64 %indvars.iv28.i51
   br label %78
 
@@ -2601,14 +2601,14 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   %80 = lshr i64 %indvars.iv24.i52, 1
   %81 = and i64 %80, 12
   %82 = and i64 %indvars.iv24.i52, 3
-  %83 = or disjoint i64 %81, %82
-  %84 = getelementptr inbounds nuw [16 x i8], ptr @ff_h264_dequant8_coeff_init_scan, i64 0, i64 %83
+  %83 = getelementptr inbounds nuw i8, ptr @ff_h264_dequant8_coeff_init_scan, i64 %81
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
   %85 = load i8, ptr %84, align 1, !tbaa !27
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [6 x i8], ptr %76, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %76, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !27
   %89 = zext i8 %88 to i32
-  %90 = getelementptr inbounds nuw [64 x i8], ptr %105, i64 0, i64 %indvars.iv24.i52
+  %90 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv24.i52
   %91 = load i8, ptr %90, align 1, !tbaa !27
   %92 = zext i8 %91 to i32
   %93 = mul nuw nsw i32 %92, %89
@@ -2618,7 +2618,7 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   %97 = and i32 %96, 56
   %98 = or disjoint i32 %97, %95
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw [64 x i32], ptr %77, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %77, i64 %99
   store i32 %94, ptr %100, align 4, !tbaa !51
   %indvars.iv.next25.i54 = add nuw nsw i64 %indvars.iv24.i52, 1
   %exitcond27.not.i55 = icmp eq i64 %indvars.iv.next25.i54, 64
@@ -2626,13 +2626,13 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 101:                                              ; preds = %.lr.ph.us.i44, %68
   %indvars.iv20.i45 = phi i64 [ 0, %.lr.ph.us.i44 ], [ %indvars.iv.next21.i48, %68 ]
-  %102 = getelementptr inbounds nuw [6 x [64 x i8]], ptr %63, i64 0, i64 %indvars.iv20.i45
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv20.i45
   %bcmp.us.i46 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %102, ptr noundef nonnull dereferenceable(64) %106, i64 64)
   %.not.us.i47 = icmp eq i32 %bcmp.us.i46, 0
   br i1 %.not.us.i47, label %103, label %68
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw [6 x [88 x [64 x i32]]], ptr %62, i64 0, i64 %indvars.iv20.i45
+  %104 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv20.i45
   store ptr %104, ptr %67, align 8, !tbaa !119
   br label %.critedge..loopexit_crit_edge.us.i59
 
@@ -2642,23 +2642,23 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   br i1 %exitcond36.not.i61, label %init_dequant8_coeff_table.exit, label %.split.us.i41, !llvm.loop !127
 
 .critedge.preheader.us.i50:                       ; preds = %68, %.split.us.i41
-  %105 = getelementptr inbounds nuw [6 x [64 x i8]], ptr %63, i64 0, i64 %indvars.iv33.i42
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv33.i42
   br label %69
 
 .lr.ph.us.i44:                                    ; preds = %.split.us.i41
-  %106 = getelementptr inbounds nuw [6 x [64 x i8]], ptr %63, i64 0, i64 %indvars.iv33.i42
+  %106 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv33.i42
   br label %101
 
 .split.i27:                                       ; preds = %60, %.critedge.preheader.i36
   %indvars.iv16.i28 = phi i64 [ %indvars.iv.next17.i37, %.critedge.preheader.i36 ], [ 0, %60 ]
-  %107 = getelementptr inbounds nuw [6 x [88 x [64 x i32]]], ptr %62, i64 0, i64 %indvars.iv16.i28
-  %108 = getelementptr inbounds nuw [6 x ptr], ptr %57, i64 0, i64 %indvars.iv16.i28
+  %107 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv16.i28
+  %108 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv16.i28
   store ptr %107, ptr %108, align 8, !tbaa !119
   %.not9.i29 = icmp eq i64 %indvars.iv16.i28, 0
   br i1 %.not9.i29, label %.critedge.preheader.i36, label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.split.i27
-  %109 = getelementptr inbounds nuw [6 x [64 x i8]], ptr %63, i64 0, i64 %indvars.iv16.i28
+  %109 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv16.i28
   br label %111
 
 110:                                              ; preds = %111
@@ -2668,13 +2668,13 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 111:                                              ; preds = %110, %.lr.ph.i30
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i34, %110 ]
-  %112 = getelementptr inbounds nuw [6 x [64 x i8]], ptr %63, i64 0, i64 %indvars.iv.i31
+  %112 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv.i31
   %bcmp.i32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %112, ptr noundef nonnull dereferenceable(64) %109, i64 64)
   %.not.i33 = icmp eq i32 %bcmp.i32, 0
   br i1 %.not.i33, label %113, label %110
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw [6 x [88 x [64 x i32]]], ptr %62, i64 0, i64 %indvars.iv.i31
+  %114 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv.i31
   store ptr %114, ptr %108, align 8, !tbaa !119
   br label %.critedge.preheader.i36
 
@@ -2691,13 +2691,13 @@ init_dequant8_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 .preheader63:                                     ; preds = %init_dequant8_coeff_table.exit, %121
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %121 ], [ 0, %init_dequant8_coeff_table.exit ]
-  %117 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv82
+  %117 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv82
   %118 = load ptr, ptr %117, align 8, !tbaa !119
   br label %119
 
 119:                                              ; preds = %.preheader63, %119
   %indvars.iv = phi i64 [ 0, %.preheader63 ], [ %indvars.iv.next, %119 ]
-  %120 = getelementptr inbounds nuw [16 x i32], ptr %118, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv
   store i32 64, ptr %120, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -2715,13 +2715,13 @@ init_dequant8_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 .preheader:                                       ; preds = %122, %128
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %128 ], [ 0, %122 ]
-  %124 = getelementptr inbounds nuw [6 x ptr], ptr %57, i64 0, i64 %indvars.iv90
+  %124 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv90
   %125 = load ptr, ptr %124, align 8, !tbaa !119
   br label %126
 
 126:                                              ; preds = %.preheader, %126
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %126 ]
-  %127 = getelementptr inbounds nuw [64 x i32], ptr %125, i64 0, i64 %indvars.iv86
+  %127 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv86
   store i32 64, ptr %127, align 4, !tbaa !51
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 64
@@ -2795,13 +2795,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_scaling_list(ptr no
 44:                                               ; preds = %32
   %45 = lshr i32 %42, 23
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !27
   %49 = zext i8 %48 to i32
   %50 = add i32 %33, %49
   %..i = tail call i32 @llvm.umin.i32(i32 %34, i32 %50)
   store i32 %..i, ptr %10, align 8, !tbaa !28
-  %51 = getelementptr inbounds nuw [512 x i8], ptr @ff_se_golomb_vlc_code, i64 0, i64 %46
+  %51 = getelementptr inbounds nuw i8, ptr @ff_se_golomb_vlc_code, i64 %46
   %52 = load i8, ptr %51, align 1, !tbaa !27
   %53 = sext i8 %52 to i32
   br label %get_se_golomb.exit
@@ -2817,7 +2817,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_scaling_list(ptr no
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %56
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %57
   %58 = zext nneg i32 %.110.i.i to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !27
   %61 = zext i8 %60 to i32
   %62 = add nuw nsw i32 %.1.i.i, %61
@@ -2904,13 +2904,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hrd_parameters(ptr 
   %15 = shl i32 %13, %14
   %16 = lshr i32 %15, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i32
   %21 = add i32 %5, %20
   %..i = tail call i32 @llvm.umin.i32(i32 %7, i32 %21)
   store i32 %..i, ptr %4, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %17
+  %22 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %17
   %23 = load i8, ptr %22, align 1, !tbaa !27
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, 1
@@ -2977,7 +2977,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hrd_parameters(ptr 
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %66
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %67
   %68 = zext nneg i32 %.110.i.i to i64
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !27
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %.1.i.i, %71
@@ -3035,7 +3035,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hrd_parameters(ptr 
 
 get_ue_golomb_long.exit:                          ; preds = %45, %87, %91
   %.0.i.i = phi i32 [ %88, %87 ], [ %108, %91 ], [ 0, %45 ]
-  %109 = getelementptr inbounds nuw [32 x i32], ptr %43, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
   store i32 %.0.i.i, ptr %109, align 4, !tbaa !51
   %.sroa.46.0.copyload.i.i34 = load i32, ptr %4, align 8, !tbaa !51
   %.sroa.77.0.copyload.i.i36 = load i32, ptr %6, align 8, !tbaa !51
@@ -3068,7 +3068,7 @@ get_ue_golomb_long.exit:                          ; preds = %45, %87, %91
   %.110.i.i41 = select i1 %.not11.i.i40, i32 %spec.select.i.i38, i32 %130
   %.1.i.i42 = select i1 %.not11.i.i40, i32 %spec.select12.i.i39, i32 %131
   %132 = zext nneg i32 %.110.i.i41 to i64
-  %133 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !27
   %135 = zext i8 %134 to i32
   %136 = add nuw nsw i32 %.1.i.i42, %135
@@ -3126,7 +3126,7 @@ get_ue_golomb_long.exit:                          ; preds = %45, %87, %91
 
 get_ue_golomb_long.exit48:                        ; preds = %get_ue_golomb_long.exit, %151, %155
   %.0.i.i46 = phi i32 [ %152, %151 ], [ %172, %155 ], [ 0, %get_ue_golomb_long.exit ]
-  %173 = getelementptr inbounds nuw [32 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   store i32 %.0.i.i46, ptr %173, align 4, !tbaa !51
   %174 = load i32, ptr %4, align 8, !tbaa !28
   %175 = lshr i32 %174, 3

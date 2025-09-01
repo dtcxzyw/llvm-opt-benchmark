@@ -584,8 +584,8 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %6
   %.0.i3 = phi i32 [ %24, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select6.i, %26 ]
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %23, align 8
-  %switch.tableidx6 = add i8 %.0.i, -6
-  %32 = icmp ult i8 %switch.tableidx6, 12
+  %switch.tableidx5 = add i8 %.0.i, -6
+  %32 = icmp ult i8 %switch.tableidx5, 12
   br i1 %32, label %switch.hole_check, label %33
 
 33:                                               ; preds = %switch.hole_check, %._crit_edge.i
@@ -595,14 +595,14 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %6
   unreachable
 
 switch.hole_check:                                ; preds = %._crit_edge.i
-  %switch.maskindex = zext nneg i8 %switch.tableidx6 to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx5 to i16
   %switch.shifted = lshr i16 2803, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup7, label %33
 
 switch.lookup7:                                   ; preds = %switch.hole_check
-  %35 = zext nneg i8 %switch.tableidx6 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %35
+  %35 = zext nneg i8 %switch.tableidx5 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = shl i32 %.0.i3, 14
   %37 = or disjoint i32 %switch.load, %36
@@ -656,7 +656,7 @@ switch.hole_check:                                ; preds = %._crit_edge
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = shl i32 %.0, 14
   %17 = or disjoint i32 %16, %switch.load
@@ -1461,7 +1461,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %31 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = shl i32 %.0.i.i, 14
   %33 = or disjoint i32 %switch.load, %32
@@ -1567,7 +1567,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %33 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = shl i32 %.0.i.i, 14
   %35 = or disjoint i32 %switch.load, %34
@@ -1708,9 +1708,9 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %7
   %30 = lshr i32 %29, 3
   %31 = and i32 %30, 15
   %32 = select i1 %28, i32 0, i32 %31
-  %switch.tableidx21 = add nsw i32 %32, -1
-  %33 = icmp ult i32 %switch.tableidx21, 7
-  br i1 %33, label %switch.lookup20, label %34
+  %switch.tableidx20 = add nsw i32 %32, -1
+  %33 = icmp ult i32 %switch.tableidx20, 7
+  br i1 %33, label %switch.lookup21, label %34
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr @g_assert_poison, align 8
@@ -1718,8 +1718,8 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %7
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 508) #18
   unreachable
 
-switch.lookup20:                                  ; preds = %26
-  %36 = shl nuw nsw i32 %switch.tableidx21, 3
+switch.lookup21:                                  ; preds = %26
+  %36 = shl nuw nsw i32 %switch.tableidx20, 3
   %switch.shiftamt23 = zext nneg i32 %36 to i56
   %switch.downshift24 = lshr i56 4792797207726858, %switch.shiftamt23
   %switch.masked25 = trunc i56 %switch.downshift24 to i8
@@ -1744,7 +1744,7 @@ _ZNK7LIR_Opr4typeEv.exit5.thread:                 ; preds = %_ZNK7LIR_Opr4typeEv
   %47 = tail call noundef zeroext i8 %46(ptr noundef nonnull align 8 dereferenceable(8) %37) #17
   br label %_ZNK7LIR_Opr4typeEv.exit7
 
-48:                                               ; preds = %switch.lookup20
+48:                                               ; preds = %switch.lookup21
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   switch i32 %32, label %default.unreachable [
@@ -1784,8 +1784,8 @@ _ZNK7LIR_Opr4typeEv.exit7:                        ; preds = %.thread, %48, %51, 
   %58 = tail call i64 @_ZN12LIRGenerator14force_to_spillE7LIR_Opr9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %57, i64 %3, i8 noundef zeroext %.0.i6)
   br label %59
 
-59:                                               ; preds = %_ZNK7LIR_Opr4typeEv.exit5.thread, %_ZNK7LIR_Opr4typeEv.exit7, %switch.lookup20
-  %.sroa.0.0 = phi i64 [ %3, %switch.lookup20 ], [ %58, %_ZNK7LIR_Opr4typeEv.exit7 ], [ %3, %_ZNK7LIR_Opr4typeEv.exit5.thread ]
+59:                                               ; preds = %_ZNK7LIR_Opr4typeEv.exit5.thread, %_ZNK7LIR_Opr4typeEv.exit7, %switch.lookup21
+  %.sroa.0.0 = phi i64 [ %3, %switch.lookup21 ], [ %58, %_ZNK7LIR_Opr4typeEv.exit7 ], [ %3, %_ZNK7LIR_Opr4typeEv.exit5.thread ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 144
@@ -1866,8 +1866,8 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %9
   %.0.i9 = phi i32 [ %26, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select6.i, %28 ]
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %25, align 8
-  %switch.tableidx27 = add i8 %.0.i, -6
-  %34 = icmp ult i8 %switch.tableidx27, 12
+  %switch.tableidx26 = add i8 %.0.i, -6
+  %34 = icmp ult i8 %switch.tableidx26, 12
   br i1 %34, label %switch.hole_check, label %35
 
 35:                                               ; preds = %switch.hole_check, %._crit_edge.i
@@ -1877,14 +1877,14 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %9
   unreachable
 
 switch.hole_check:                                ; preds = %._crit_edge.i
-  %switch.maskindex = zext nneg i8 %switch.tableidx27 to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx26 to i16
   %switch.shifted = lshr i16 2803, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup28, label %35
 
 switch.lookup28:                                  ; preds = %switch.hole_check
-  %37 = zext nneg i8 %switch.tableidx27 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %37
+  %37 = zext nneg i8 %switch.tableidx26 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = shl i32 %.0.i9, 14
   %39 = or disjoint i32 %switch.load, %38
@@ -1916,8 +1916,8 @@ switch.lookup28:                                  ; preds = %switch.hole_check
   %.0.i12 = phi i32 [ %44, %42 ], [ %spec.select6.i17, %46 ]
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %43, align 8
-  %switch.tableidx30 = add i8 %2, -6
-  %52 = icmp ult i8 %switch.tableidx30, 12
+  %switch.tableidx29 = add i8 %2, -6
+  %52 = icmp ult i8 %switch.tableidx29, 12
   br i1 %52, label %switch.hole_check31, label %53
 
 53:                                               ; preds = %switch.hole_check31, %._crit_edge.i11
@@ -1927,14 +1927,14 @@ switch.lookup28:                                  ; preds = %switch.hole_check
   unreachable
 
 switch.hole_check31:                              ; preds = %._crit_edge.i11
-  %switch.maskindex33 = zext nneg i8 %switch.tableidx30 to i16
+  %switch.maskindex33 = zext nneg i8 %switch.tableidx29 to i16
   %switch.shifted34 = lshr i16 2803, %switch.maskindex33
   %switch.lobit35 = trunc i16 %switch.shifted34 to i1
   br i1 %switch.lobit35, label %switch.lookup32, label %53
 
 switch.lookup32:                                  ; preds = %switch.hole_check31
-  %55 = zext nneg i8 %switch.tableidx30 to i64
-  %switch.gep36 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %55
+  %55 = zext nneg i8 %switch.tableidx29 to i64
+  %switch.gep36 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %55
   %switch.load37 = load i32, ptr %switch.gep36, align 4
   %56 = shl i32 %.0.i12, 14
   %57 = or disjoint i32 %switch.load37, %56
@@ -5973,7 +5973,7 @@ _ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 24
   %354 = load i8, ptr %353, align 8
   %355 = zext i8 %354 to i64
-  %356 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %355
   %357 = load i32, ptr %356, align 4
   %358 = load i8, ptr @UseCompressedClassPointers, align 1
   %359 = trunc i8 %358 to i1
@@ -6163,7 +6163,7 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %_ZN12LIRGenerator12
 
 switch.lookup:                                    ; preds = %_ZN12LIRGenerator20new_pointer_registerEv.exit
   %48 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = sext i32 %spec.select40 to i64
   %50 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -7033,7 +7033,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %31 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = shl i32 %.0.i.i.i, 14
   %33 = or disjoint i32 %switch.load, %32
@@ -7223,7 +7223,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = shl i32 %.0.i.i, 14
   %20 = or disjoint i32 %switch.load, %19
@@ -7274,7 +7274,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = shl i32 %.0.i.i.i, 14
   %20 = or disjoint i32 %switch.load, %19
@@ -7337,7 +7337,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %22 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   %23 = shl i32 %.0.i.i.i, 14
   %24 = or disjoint i32 %switch.load, %23
@@ -8068,7 +8068,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = shl i32 %.0.i.i.i.i, 14
   %23 = or disjoint i32 %switch.load, %22
@@ -8192,8 +8192,8 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %74
   %.0.i.i.i.i26 = phi i32 [ %86, %81 ], [ %spec.select6.i.i.i.i31, %88 ]
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %85, align 8
-  %switch.tableidx44 = add i8 %84, -6
-  %94 = icmp ult i8 %switch.tableidx44, 12
+  %switch.tableidx43 = add i8 %84, -6
+  %94 = icmp ult i8 %switch.tableidx43, 12
   br i1 %94, label %switch.hole_check45, label %95
 
 95:                                               ; preds = %switch.hole_check45, %._crit_edge.i.i.i.i25
@@ -8203,14 +8203,14 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %74
   unreachable
 
 switch.hole_check45:                              ; preds = %._crit_edge.i.i.i.i25
-  %switch.maskindex47 = zext nneg i8 %switch.tableidx44 to i16
+  %switch.maskindex47 = zext nneg i8 %switch.tableidx43 to i16
   %switch.shifted48 = lshr i16 2803, %switch.maskindex47
   %switch.lobit49 = trunc i16 %switch.shifted48 to i1
   br i1 %switch.lobit49, label %switch.lookup46, label %95
 
 switch.lookup46:                                  ; preds = %switch.hole_check45
-  %97 = zext nneg i8 %switch.tableidx44 to i64
-  %switch.gep50 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %97
+  %97 = zext nneg i8 %switch.tableidx43 to i64
+  %switch.gep50 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %97
   %switch.load51 = load i32, ptr %switch.gep50, align 4
   %98 = shl i32 %.0.i.i.i.i26, 14
   %99 = or disjoint i32 %switch.load51, %98
@@ -8570,7 +8570,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %23 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = shl i32 %.0.i.i, 14
   %25 = or disjoint i32 %switch.load, %24
@@ -8874,7 +8874,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   %62 = shl i32 %.0.i.i.i.i, 14
   %63 = or disjoint i32 %switch.load, %62
@@ -9178,7 +9178,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %81 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %81
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %81
   %switch.load = load i32, ptr %switch.gep, align 4
   %82 = shl i32 %.0.i.i.i.i, 14
   %83 = or disjoint i32 %switch.load, %82
@@ -9627,7 +9627,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   %63 = shl i32 %.0.i.i.i.i, 14
   %64 = or disjoint i32 %switch.load, %63
@@ -9994,7 +9994,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   %62 = shl i32 %.0.i.i.i.i, 14
   %63 = or disjoint i32 %switch.load, %62
@@ -10423,7 +10423,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %51 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = shl i32 %.0.i.i.i.i, 14
   %53 = or disjoint i32 %switch.load, %52
@@ -10723,7 +10723,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = shl i32 %.0.i.i.i.i, 14
   %21 = or disjoint i32 %switch.load, %20
@@ -11792,7 +11792,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = shl i32 %.0.i.i.i.i, 14
   %32 = or disjoint i32 %switch.load, %31
@@ -12359,7 +12359,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %104 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
   %105 = shl i32 %.0.i22, 14
   %106 = or disjoint i32 %switch.load, %105
@@ -14599,7 +14599,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %116 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %116
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %116
   %switch.load = load i32, ptr %switch.gep, align 4
   %117 = shl i32 %.0.i.i.i.i, 14
   %118 = or disjoint i32 %switch.load, %117
@@ -14852,8 +14852,8 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %_ZN11LIR_OprFact9lo
   %.0.i = phi i32 [ %245, %_ZNK7LIR_Opr11is_constantEv.exit.thread ], [ %spec.select6.i, %247 ]
   %252 = add nsw i32 %251, 1
   store i32 %252, ptr %104, align 8
-  %switch.tableidx90 = add i8 %2, -6
-  %253 = icmp ult i8 %switch.tableidx90, 12
+  %switch.tableidx89 = add i8 %2, -6
+  %253 = icmp ult i8 %switch.tableidx89, 12
   br i1 %253, label %switch.hole_check91, label %254
 
 254:                                              ; preds = %switch.hole_check91, %._crit_edge.i
@@ -14863,14 +14863,14 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %_ZN11LIR_OprFact9lo
   unreachable
 
 switch.hole_check91:                              ; preds = %._crit_edge.i
-  %switch.maskindex93 = zext nneg i8 %switch.tableidx90 to i16
+  %switch.maskindex93 = zext nneg i8 %switch.tableidx89 to i16
   %switch.shifted94 = lshr i16 2803, %switch.maskindex93
   %switch.lobit95 = trunc i16 %switch.shifted94 to i1
   br i1 %switch.lobit95, label %switch.lookup92, label %254
 
 switch.lookup92:                                  ; preds = %switch.hole_check91
-  %256 = zext nneg i8 %switch.tableidx90 to i64
-  %switch.gep96 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %256
+  %256 = zext nneg i8 %switch.tableidx89 to i64
+  %switch.gep96 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %256
   %switch.load97 = load i32, ptr %switch.gep96, align 4
   %257 = shl i32 %.0.i, 14
   %258 = or disjoint i32 %switch.load97, %257
@@ -15458,7 +15458,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %48 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = shl i32 %.0.i.i.i.i, 14
   %50 = or disjoint i32 %switch.load, %49
@@ -20699,7 +20699,7 @@ _ZNK7LIR_Opr4typeEv.exit.thread36:                ; preds = %45, %_ZNK7LIR_Opr4t
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = sext i32 %69 to i64
-  %74 = getelementptr inbounds [1 x i64], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds i64, ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = load ptr, ptr %37, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -20733,7 +20733,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZNK7LIR_Opr4typeEv
   %.0.i3540 = phi i8 [ %.0.i35.ph, %94 ], [ 10, %45 ], [ 17, %56 ], [ 15, %55 ], [ 7, %54 ], [ 6, %53 ], [ 11, %52 ], [ %63, %_ZNK7LIR_Opr4typeEv.exit ]
   %.1 = phi i32 [ %95, %94 ], [ %.02842, %45 ], [ %.02842, %56 ], [ %.02842, %55 ], [ %.02842, %54 ], [ %.02842, %53 ], [ %.02842, %52 ], [ %.02842, %_ZNK7LIR_Opr4typeEv.exit ]
   %96 = zext i8 %.0.i3540 to i64
-  %97 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr @type2size, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = add nsw i32 %98, %.044
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -20811,9 +20811,9 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %17
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i8 %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #17
-  %switch.tableidx167 = add i8 %38, -4
-  %39 = icmp ult i8 %switch.tableidx167, 6
-  %switch.shifted = lshr i8 51, %switch.tableidx167
+  %switch.tableidx166 = add i8 %38, -4
+  %39 = icmp ult i8 %switch.tableidx166, 6
+  %switch.shifted = lshr i8 51, %switch.tableidx166
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %39, i1 %switch.lobit, i1 false
   %spec.select = select i1 %or.cond, i8 10, i8 %38
@@ -20846,8 +20846,8 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
   %.0.i48 = phi i32 [ %41, %_ZNK7LIR_Opr4typeEv.exit.thread ], [ %spec.select6.i, %43 ]
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %15, align 8
-  %switch.tableidx170 = add i8 %.044, -6
-  %48 = icmp ult i8 %switch.tableidx170, 12
+  %switch.tableidx169 = add i8 %.044, -6
+  %48 = icmp ult i8 %switch.tableidx169, 12
   br i1 %48, label %switch.hole_check, label %49
 
 49:                                               ; preds = %switch.hole_check, %._crit_edge.i
@@ -20857,14 +20857,14 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
   unreachable
 
 switch.hole_check:                                ; preds = %._crit_edge.i
-  %switch.maskindex = zext nneg i8 %switch.tableidx170 to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx169 to i16
   %switch.shifted172 = lshr i16 2803, %switch.maskindex
   %switch.lobit173 = trunc i16 %switch.shifted172 to i1
   br i1 %switch.lobit173, label %switch.lookup171, label %49
 
 switch.lookup171:                                 ; preds = %switch.hole_check
-  %51 = zext nneg i8 %switch.tableidx170 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %51
+  %51 = zext nneg i8 %switch.tableidx169 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = shl i32 %.0.i48, 14
   %53 = or disjoint i32 %switch.load, %52
@@ -20884,7 +20884,7 @@ switch.lookup171:                                 ; preds = %switch.hole_check
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store i64 %.sroa.015.0.i.i, ptr %65, align 8
   %66 = zext nneg i8 %.044 to i64
-  %67 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr @type2size, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = add nsw i32 %68, %.0139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -21996,7 +21996,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = shl i32 %.0.i.i.i.i, 14
   %23 = or disjoint i32 %switch.load, %22
@@ -22740,7 +22740,7 @@ define hidden void @_ZN12LIRGenerator9do_InvokeEP6Invoke(ptr noundef nonnull ali
   store i8 88, ptr %86, align 1
   %87 = load i32, ptr %47, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %88
+  %89 = getelementptr inbounds ptr, ptr @_ZN9Bytecodes5_nameE, i64 %88
   %90 = load ptr, ptr %89, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 2860, ptr noundef nonnull @.str.8, ptr noundef %90) #18
   unreachable
@@ -22807,7 +22807,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %115 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %115
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %115
   %switch.load = load i32, ptr %switch.gep, align 4
   %116 = shl i32 %.0.i.i.i.i, 14
   %117 = or disjoint i32 %switch.load, %116
@@ -23380,7 +23380,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %51 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = shl i32 %.0.i.i.i.i, 14
   %53 = or disjoint i32 %switch.load, %52
@@ -23687,7 +23687,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %140 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %140
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %140
   %switch.load = load i32, ptr %switch.gep, align 4
   %141 = shl i32 %.0.i.i.i.i, 14
   %142 = or disjoint i32 %switch.load, %141
@@ -23709,7 +23709,7 @@ switch.lookup49:                                  ; preds = %switch.lookup
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %150 = load ptr, ptr %149, align 8
   %151 = zext nneg i32 %145 to i64
-  %switch.gep50 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %151
+  %switch.gep50 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 %151
   %switch.load51 = load i32, ptr %switch.gep50, align 4
   %152 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %153 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
@@ -23727,7 +23727,7 @@ switch.lookup49:                                  ; preds = %switch.lookup
 switch.lookup46:                                  ; preds = %switch.lookup49
   %158 = load ptr, ptr %149, align 8
   %159 = zext nneg i32 %154 to i64
-  %switch.gep47 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %159
+  %switch.gep47 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 %159
   %switch.load48 = load i32, ptr %switch.gep47, align 4
   %160 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %161 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
@@ -23813,7 +23813,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %38 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = shl i32 %.0.i.i.i.i, 14
   %40 = or disjoint i32 %switch.load, %39
@@ -24811,12 +24811,12 @@ _ZN11Compilation17profile_argumentsEv.exit:       ; preds = %2
   %48 = load i64, ptr @TypeProfileWidth, align 8
   %49 = trunc i64 %48 to i32
   %50 = shl i32 %49, 1
-  %51 = or disjoint i32 %50, 1
-  %52 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds [1 x i64], ptr %54, i64 0, i64 %55
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = sext i32 %50 to i64
+  %55 = getelementptr i64, ptr %53, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
   %59 = icmp sgt i32 %58, 1
@@ -24867,7 +24867,7 @@ _ZN8ciMethod4codeEv.exit.i:                       ; preds = %81, %60
 _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv.exit.i, %87
   %89 = phi i32 [ %88, %87 ], [ %86, %_ZN8ciMethod4codeEv.exit.i ]
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %90
+  %91 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %21, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 88
@@ -24885,12 +24885,12 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %102 = load i64, ptr @TypeProfileWidth, align 8
   %103 = trunc i64 %102 to i32
   %104 = shl i32 %103, 1
-  %105 = or disjoint i32 %104, 1
-  %106 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = sext i32 %105 to i64
-  %110 = getelementptr inbounds [1 x i64], ptr %108, i64 0, i64 %109
+  %105 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = sext i32 %104 to i64
+  %109 = getelementptr i64, ptr %107, i64 %108
+  %110 = getelementptr i8, ptr %109, i64 8
   br label %111
 
 111:                                              ; preds = %101, %97
@@ -25019,7 +25019,7 @@ _ZNK11ProfileCall16nb_profiled_argsEv.exit:       ; preds = %159
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = sext i32 %171 to i64
-  %176 = getelementptr inbounds [1 x i64], ptr %174, i64 0, i64 %175
+  %176 = getelementptr inbounds i64, ptr %174, i64 %175
   %177 = load i64, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %179 = load ptr, ptr %178, align 8
@@ -25251,7 +25251,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 
 55:                                               ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
   %56 = sext i32 %53 to i64
-  %57 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %56
+  %57 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %56
   %58 = load i32, ptr %57, align 4
   switch i32 %58, label %59 [
     i32 185, label %68
@@ -25300,7 +25300,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = sext i32 %81 to i64
-  %86 = getelementptr inbounds [1 x i64], ptr %84, i64 0, i64 %85
+  %86 = getelementptr inbounds i64, ptr %84, i64 %85
   %87 = load i64, ptr %86, align 8
   %88 = tail call noundef i32 @_ZN12ciMethodData14offset_of_slotEP11ProfileData8ByteSize(ptr noundef nonnull align 8 dereferenceable(176) %20, ptr noundef nonnull %22, i32 noundef 24) #17
   %89 = shl i32 %.042, 4
@@ -25720,7 +25720,7 @@ define hidden void @_ZN12LIRGenerator20do_ProfileReturnTypeEP17ProfileReturnType
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds [1 x i64], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds i64, ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %35 = load ptr, ptr %34, align 8
@@ -26981,7 +26981,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %184 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %184
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %184
   %switch.load = load i32, ptr %switch.gep, align 4
   %185 = shl i32 %.0.i.i.i.i39, 14
   %186 = or disjoint i32 %switch.load, %185
@@ -27345,7 +27345,7 @@ switch.lookup:                                    ; preds = %188
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %193 = load ptr, ptr %192, align 8
   %194 = zext nneg i32 %110 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %194
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 %194
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %193, i32 noundef %switch.load, i64 %163, i64 %164, ptr noundef null)
   %195 = load ptr, ptr %192, align 8
@@ -27600,7 +27600,7 @@ switch.hole_check:                                ; preds = %._crit_edge.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %23 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = shl i32 %.0.i.i, 14
   %25 = or disjoint i32 %switch.load, %24

@@ -610,7 +610,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %scevgep.i = getelementptr nuw i8, ptr %4, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, i8 0, i64 24, i1 false), !tbaa !9
   %29 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvar.i
-  %30 = getelementptr inbounds nuw [3 x double], ptr %29, i64 0, i64 %indvar.i
+  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvar.i
   store double 1.000000e+00, ptr %30, align 8, !tbaa !9
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 3
@@ -625,7 +625,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 .preheader205.i:                                  ; preds = %.preheader206.i, %.preheader205.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader205.i ], [ 0, %.preheader206.i ]
   %34 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv.i
-  %35 = getelementptr inbounds nuw [3 x double], ptr %34, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i
   %36 = load double, ptr %35, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
   store double %36, ptr %37, align 8, !tbaa !9
@@ -656,7 +656,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 41:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv255.i = phi i64 [ %indvars.iv253.i, %.lr.ph.i ], [ %indvars.iv.next256.i, %41 ]
   %.1166211.i = phi double [ %.0165213.i, %.lr.ph.i ], [ %45, %41 ]
-  %42 = getelementptr inbounds nuw [3 x double], ptr %40, i64 0, i64 %indvars.iv255.i
+  %42 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv255.i
   %43 = load double, ptr %42, align 8, !tbaa !9
   %44 = tail call noundef double @llvm.fabs.f64(double %43)
   %45 = fadd double %.1166211.i, %44
@@ -695,7 +695,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 59:                                               ; preds = %150, %.lr.ph234.i
   %indvars.iv268.i = phi i64 [ %indvars.iv266.i, %.lr.ph234.i ], [ 2, %150 ]
   %.2155233.i = phi i32 [ %.1154237.i, %.lr.ph234.i ], [ %.3156.i, %150 ]
-  %60 = getelementptr inbounds nuw [3 x double], ptr %54, i64 0, i64 %indvars.iv268.i
+  %60 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv268.i
   %61 = load double, ptr %60, align 8, !tbaa !9
   %62 = tail call noundef double @llvm.fabs.f64(double %61)
   %63 = fmul double %62, 1.000000e+02
@@ -780,7 +780,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 
 .lr.ph215.split.i:                                ; preds = %98
   %114 = fneg double %101
-  %115 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv268.i
+  %115 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv268.i
   %116 = load double, ptr %31, align 8, !tbaa !9
   %117 = load double, ptr %115, align 8, !tbaa !9
   %118 = tail call double @llvm.fmuladd.f64(double %116, double %103, double %117)
@@ -832,9 +832,9 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv262.i = phi i64 [ %indvars.iv.next263.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %138 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvars.iv262.i
-  %139 = getelementptr inbounds nuw [3 x double], ptr %138, i64 0, i64 %indvars.iv272.i
+  %139 = getelementptr inbounds nuw double, ptr %138, i64 %indvars.iv272.i
   %140 = load double, ptr %139, align 8, !tbaa !9
-  %141 = getelementptr inbounds nuw [3 x double], ptr %138, i64 0, i64 %indvars.iv268.i
+  %141 = getelementptr inbounds nuw double, ptr %138, i64 %indvars.iv268.i
   %142 = load double, ptr %141, align 8, !tbaa !9
   %143 = tail call double @llvm.fmuladd.f64(double %140, double %103, double %142)
   %144 = tail call double @llvm.fmuladd.f64(double %.pre.i, double %143, double %140)

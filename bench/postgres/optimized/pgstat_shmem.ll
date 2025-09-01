@@ -164,17 +164,17 @@ StatsShmemSize.exit:                              ; preds = %15
   br label %48
 
 41:                                               ; preds = %34
-  %42 = add nsw i64 %indvars.iv, -128
-  %43 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = zext i32 %44 to i64
-  %46 = call ptr @ShmemAlloc(i64 noundef %45) #15
-  %47 = getelementptr inbounds [129 x ptr], ptr %27, i64 0, i64 %42
-  store ptr %46, ptr %47, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = zext i32 %43 to i64
+  %45 = call ptr @ShmemAlloc(i64 noundef %44) #15
+  %46 = getelementptr ptr, ptr %27, i64 %indvars.iv
+  %47 = getelementptr i8, ptr %46, i64 -1024
+  store ptr %45, ptr %47, align 8
   br label %48
 
 48:                                               ; preds = %41, %36
-  %.031 = phi ptr [ %40, %36 ], [ %46, %41 ]
+  %.031 = phi ptr [ %40, %36 ], [ %45, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef %.031) #15

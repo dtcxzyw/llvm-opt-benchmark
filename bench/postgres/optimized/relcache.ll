@@ -433,7 +433,7 @@ GetPgIndexDescriptor.exit86:                      ; preds = %GetPgIndexDescripto
 
 157:                                              ; preds = %263, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %263 ]
-  %158 = getelementptr inbounds nuw [0 x i32], ptr %149, i64 0, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.i
   %159 = load i32, ptr %158, align 4
   %.not.i = icmp eq i32 %159, 0
   br i1 %.not.i, label %160, label %163
@@ -753,28 +753,28 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4,
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  %8 = add nsw i32 %1, -1
-  br i1 %.not.i, label %9, label %47
+  br i1 %.not.i, label %8, label %47
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %10, i64 0, i64 %11
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = zext nneg i32 %1 to i64
+  %11 = getelementptr %struct.CompactAttribute, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -16
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %45
 
-15:                                               ; preds = %9
+15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 %18
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
+  %22 = getelementptr i8, ptr %11, i64 -10
   %23 = load i8, ptr %22, align 2, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %25 = getelementptr i8, ptr %11, i64 -12
   %26 = load i16, ptr %25, align 4
   br i1 %24, label %27, label %43
 
@@ -817,33 +817,34 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4,
   %44 = ptrtoint ptr %21 to i64
   br label %fetch_att.exit
 
-45:                                               ; preds = %9
+45:                                               ; preds = %8
   %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
   br label %fetch_att.exit
 
 47:                                               ; preds = %4
-  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %49 = lshr i32 %8, 3
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = and i32 %8, 7
-  %55 = shl nuw nsw i32 1, %54
-  %56 = and i32 %55, %53
-  %.not.i20 = icmp eq i32 %56, 0
-  br i1 %.not.i20, label %57, label %58
+  %48 = add nsw i32 %1, -1
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %50 = lshr i32 %48, 3
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = and i32 %48, 7
+  %56 = shl nuw nsw i32 1, %55
+  %57 = and i32 %56, %54
+  %.not.i20 = icmp eq i32 %57, 0
+  br i1 %.not.i20, label %58, label %59
 
-57:                                               ; preds = %47
+58:                                               ; preds = %47
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-58:                                               ; preds = %47
-  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
+59:                                               ; preds = %47
+  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %58, %57
-  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
+fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %59, %58
+  %.1 = phi i64 [ 0, %58 ], [ %60, %59 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 
@@ -2217,7 +2218,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   br i1 %.not.i.i94, label %172, label %208
 
 172:                                              ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %161, i64 408
+  %173 = getelementptr i8, ptr %161, i64 408
   %174 = load i32, ptr %173, align 4
   %175 = icmp sgt i32 %174, -1
   br i1 %175, label %176, label %206
@@ -2229,13 +2230,13 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   %180 = getelementptr inbounds nuw i8, ptr %162, i64 %179
   %181 = zext nneg i32 %174 to i64
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 %181
-  %183 = getelementptr inbounds nuw i8, ptr %161, i64 414
+  %183 = getelementptr i8, ptr %161, i64 414
   %184 = load i8, ptr %183, align 2, !range !6, !noundef !7
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %186, label %204
 
 186:                                              ; preds = %176
-  %187 = getelementptr inbounds nuw i8, ptr %161, i64 412
+  %187 = getelementptr i8, ptr %161, i64 412
   %188 = load i16, ptr %187, align 4
   switch i16 %188, label %200 [
     i16 1, label %189
@@ -2492,7 +2493,7 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
   br i1 %.not.i.i88, label %322, label %354
 
 322:                                              ; preds = %318
-  %323 = getelementptr inbounds nuw i8, ptr %319, i64 72
+  %323 = getelementptr i8, ptr %319, i64 72
   %324 = load i32, ptr %323, align 4
   %325 = icmp sgt i32 %324, -1
   br i1 %325, label %326, label %352
@@ -2500,13 +2501,13 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
 326:                                              ; preds = %322
   %327 = zext nneg i32 %324 to i64
   %328 = getelementptr inbounds nuw i8, ptr %308, i64 %327
-  %329 = getelementptr inbounds nuw i8, ptr %319, i64 78
+  %329 = getelementptr i8, ptr %319, i64 78
   %330 = load i8, ptr %329, align 2, !range !6, !noundef !7
   %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %332, label %350
 
 332:                                              ; preds = %326
-  %333 = getelementptr inbounds nuw i8, ptr %319, i64 76
+  %333 = getelementptr i8, ptr %319, i64 76
   %334 = load i16, ptr %333, align 4
   switch i16 %334, label %346 [
     i16 1, label %335
@@ -2731,7 +2732,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %390, %388
   br i1 %.not.i.i84, label %454, label %490
 
 454:                                              ; preds = %436
-  %455 = getelementptr inbounds nuw i8, ptr %451, i64 456
+  %455 = getelementptr i8, ptr %451, i64 456
   %456 = load i32, ptr %455, align 4
   %457 = icmp sgt i32 %456, -1
   br i1 %457, label %458, label %488
@@ -2743,13 +2744,13 @@ AttrDefaultFetch.exit.i:                          ; preds = %390, %388
   %462 = getelementptr inbounds nuw i8, ptr %.val.i83, i64 %461
   %463 = zext nneg i32 %456 to i64
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 %463
-  %465 = getelementptr inbounds nuw i8, ptr %451, i64 462
+  %465 = getelementptr i8, ptr %451, i64 462
   %466 = load i8, ptr %465, align 2, !range !6, !noundef !7
   %467 = trunc nuw i8 %466 to i1
   br i1 %467, label %468, label %486
 
 468:                                              ; preds = %458
-  %469 = getelementptr inbounds nuw i8, ptr %451, i64 460
+  %469 = getelementptr i8, ptr %451, i64 460
   %470 = load i16, ptr %469, align 4
   switch i16 %470, label %482 [
     i16 1, label %471
@@ -3994,7 +3995,7 @@ define dso_local void @AtEOXact_RelationCache(i1 noundef zeroext %0) local_unnam
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %AtEOXact_cleanup.exit17.us
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %AtEOXact_cleanup.exit17.us ], [ 0, %.lr.ph ]
   %5 = load ptr, ptr @RelationIdCache, align 8
-  %6 = getelementptr inbounds nuw [32 x i32], ptr @eoxact_list, i64 0, i64 %indvars.iv28
+  %6 = getelementptr inbounds nuw i32, ptr @eoxact_list, i64 %indvars.iv28
   %7 = tail call ptr @hash_search(ptr noundef %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #13
   %.not.us = icmp eq ptr %7, null
   br i1 %.not.us, label %AtEOXact_cleanup.exit17.us, label %8
@@ -4087,7 +4088,7 @@ AtEOXact_cleanup.exit:                            ; preds = %.lr.ph22, %40, %41,
 .lr.ph.split:                                     ; preds = %.lr.ph, %AtEOXact_cleanup.exit17
   %indvars.iv = phi i64 [ %indvars.iv.next, %AtEOXact_cleanup.exit17 ], [ 0, %.lr.ph ]
   %49 = load ptr, ptr @RelationIdCache, align 8
-  %50 = getelementptr inbounds nuw [32 x i32], ptr @eoxact_list, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr @eoxact_list, i64 %indvars.iv
   %51 = tail call ptr @hash_search(ptr noundef %49, ptr noundef nonnull %50, i32 noundef 0, ptr noundef null) #13
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %AtEOXact_cleanup.exit17, label %52
@@ -4203,7 +4204,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
   %14 = load ptr, ptr @RelationIdCache, align 8
-  %15 = getelementptr inbounds nuw [32 x i32], ptr @eoxact_list, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr @eoxact_list, i64 %indvars.iv
   %16 = tail call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %15, i32 noundef 0, ptr noundef null) #13
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %20, label %17
@@ -4515,19 +4516,19 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %99
-  %switch.tableidx149 = add i8 %10, -109
-  %107 = icmp ult i8 %switch.tableidx149, 6
-  br i1 %107, label %switch.lookup148, label %109
+  %switch.tableidx148 = add i8 %10, -109
+  %107 = icmp ult i8 %switch.tableidx148, 6
+  br i1 %107, label %switch.lookup149, label %109
 
-switch.lookup148:                                 ; preds = %106
-  %108 = shl nuw nsw i8 %switch.tableidx149, 3
+switch.lookup149:                                 ; preds = %106
+  %108 = shl nuw nsw i8 %switch.tableidx148, 3
   %switch.shiftamt151 = zext nneg i8 %108 to i48
   %switch.downshift152 = lshr i48 110425294138980, %switch.shiftamt151
   %switch.masked153 = trunc i48 %switch.downshift152 to i8
   br label %109
 
-109:                                              ; preds = %99, %106, %switch.lookup148
-  %.sink145 = phi i8 [ %switch.masked153, %switch.lookup148 ], [ 110, %106 ], [ 110, %99 ]
+109:                                              ; preds = %99, %106, %switch.lookup149
+  %.sink145 = phi i8 [ %switch.masked153, %switch.lookup149 ], [ 110, %106 ], [ 110, %99 ]
   %110 = load ptr, ptr %75, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 126
   store i8 %.sink145, ptr %111, align 2
@@ -4644,7 +4645,7 @@ switch.lookup148:                                 ; preds = %106
   %160 = add nsw i32 %156, 1
   store i32 %160, ptr @eoxact_list_len, align 4
   %161 = sext i32 %156 to i64
-  %162 = getelementptr inbounds [32 x i32], ptr @eoxact_list, i64 0, i64 %161
+  %162 = getelementptr inbounds i32, ptr @eoxact_list, i64 %161
   store i32 %159, ptr %162, align 4
   br label %164
 
@@ -5180,7 +5181,7 @@ define dso_local void @RelationSetNewRelfilenumber(ptr noundef %0, i8 noundef si
   %123 = add nsw i32 %119, 1
   store i32 %123, ptr @eoxact_list_len, align 4
   %124 = sext i32 %119 to i64
-  %125 = getelementptr inbounds [32 x i32], ptr @eoxact_list, i64 0, i64 %124
+  %125 = getelementptr inbounds i32, ptr @eoxact_list, i64 %124
   store i32 %122, ptr %125, align 4
   br label %RelationAssumeNewRelfilelocator.exit
 
@@ -5255,7 +5256,7 @@ define dso_local void @RelationAssumeNewRelfilelocator(ptr noundef captures(none
   %14 = add nsw i32 %9, 1
   store i32 %14, ptr @eoxact_list_len, align 4
   %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds [32 x i32], ptr @eoxact_list, i64 0, i64 %15
+  %16 = getelementptr inbounds i32, ptr @eoxact_list, i64 %15
   store i32 %13, ptr %16, align 4
   br label %18
 
@@ -7975,7 +7976,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %50, %BuildHardcoded
   br i1 %.not.i.i, label %87, label %123
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %75, i64 328
+  %88 = getelementptr i8, ptr %75, i64 328
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %89, -1
   br i1 %90, label %91, label %121
@@ -7987,13 +7988,13 @@ GetPgIndexDescriptor.exit:                        ; preds = %50, %BuildHardcoded
   %95 = getelementptr inbounds nuw i8, ptr %77, i64 %94
   %96 = zext nneg i32 %89 to i64
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %75, i64 334
+  %98 = getelementptr i8, ptr %75, i64 334
   %99 = load i8, ptr %98, align 2, !range !6, !noundef !7
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %119
 
 101:                                              ; preds = %91
-  %102 = getelementptr inbounds nuw i8, ptr %75, i64 332
+  %102 = getelementptr i8, ptr %75, i64 332
   %103 = load i16, ptr %102, align 4
   switch i16 %103, label %115 [
     i16 1, label %104
@@ -8136,7 +8137,7 @@ GetPgIndexDescriptor.exit122:                     ; preds = %138, %BuildHardcode
   br i1 %.not.i.i127, label %170, label %206
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds nuw i8, ptr %158, i64 344
+  %171 = getelementptr i8, ptr %158, i64 344
   %172 = load i32, ptr %171, align 4
   %173 = icmp sgt i32 %172, -1
   br i1 %173, label %174, label %204
@@ -8148,13 +8149,13 @@ GetPgIndexDescriptor.exit122:                     ; preds = %138, %BuildHardcode
   %178 = getelementptr inbounds nuw i8, ptr %160, i64 %177
   %179 = zext nneg i32 %172 to i64
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 %179
-  %181 = getelementptr inbounds nuw i8, ptr %158, i64 350
+  %181 = getelementptr i8, ptr %158, i64 350
   %182 = load i8, ptr %181, align 2, !range !6, !noundef !7
   %183 = trunc nuw i8 %182 to i1
   br i1 %183, label %184, label %202
 
 184:                                              ; preds = %174
-  %185 = getelementptr inbounds nuw i8, ptr %158, i64 348
+  %185 = getelementptr i8, ptr %158, i64 348
   %186 = load i16, ptr %185, align 4
   switch i16 %186, label %198 [
     i16 1, label %187
@@ -8256,7 +8257,7 @@ heap_getattr.exit124:                             ; preds = %211, %210, %204, %2
   %.1105145 = phi ptr [ %.2106, %269 ], [ %.0104152, %219 ]
   %.1109144 = phi ptr [ %.2110, %269 ], [ %.0108151, %219 ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 48
-  %239 = getelementptr inbounds nuw [0 x i16], ptr %238, i64 0, i64 %indvars.iv
+  %239 = getelementptr inbounds nuw i16, ptr %238, i64 %indvars.iv
   %240 = load i16, ptr %239, align 2
   %.not117 = icmp eq i16 %240, 0
   br i1 %.not117, label %269, label %241
@@ -8519,7 +8520,7 @@ RelationGetReplicaIndex.exit:                     ; preds = %12, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.preheader ]
   %.02535 = phi ptr [ %.1, %44 ], [ null, %.preheader ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %33 = getelementptr inbounds nuw [0 x i16], ptr %32, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i32
   %.not33 = icmp eq i16 %34, 0

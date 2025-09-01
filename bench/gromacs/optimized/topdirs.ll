@@ -156,7 +156,7 @@ $_ZSt19piecewise_construct = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString9Directive(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [42 x ptr], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -229,9 +229,9 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   br label %105
 
 21:                                               ; preds = %2, %2
-  %switch.tableidx36 = add i32 %1, -1
-  %22 = icmp ult i32 %switch.tableidx36, 10
-  %switch.maskindex = trunc i32 %switch.tableidx36 to i16
+  %switch.tableidx35 = add i32 %1, -1
+  %22 = icmp ult i32 %switch.tableidx35, 10
+  %switch.maskindex = trunc i32 %switch.tableidx35 to i16
   %switch.shifted = lshr i16 959, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond49 = select i1 %22, i1 %switch.lobit, i1 false
@@ -281,9 +281,9 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   br label %105
 
 36:                                               ; preds = %2, %2
-  %switch.tableidx39 = add i32 %1, -1
-  %37 = icmp ult i32 %switch.tableidx39, 11
-  %switch.maskindex42 = trunc i32 %switch.tableidx39 to i16
+  %switch.tableidx38 = add i32 %1, -1
+  %37 = icmp ult i32 %switch.tableidx38, 11
+  %switch.maskindex42 = trunc i32 %switch.tableidx38 to i16
   %switch.shifted43 = lshr i16 1951, %switch.maskindex42
   %switch.lobit44 = trunc i16 %switch.shifted43 to i1
   %or.cond50 = select i1 %37, i1 %switch.lobit44, i1 false
@@ -359,9 +359,9 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   br label %105
 
 57:                                               ; preds = %2
-  %switch.tableidx48 = add i32 %1, -1
-  %58 = icmp ult i32 %switch.tableidx48, 4
-  br i1 %58, label %switch.lookup47, label %59
+  %switch.tableidx47 = add i32 %1, -1
+  %58 = icmp ult i32 %switch.tableidx47, 4
+  br i1 %58, label %switch.lookup48, label %59
 
 59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -510,7 +510,7 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(131) @.str.42, i8 noundef zeroext 2)
   %97 = sext i32 %0 to i64
-  %98 = getelementptr inbounds nuw [42 x ptr], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 249, ptr noundef nonnull @.str.54, ptr noundef %99, ptr noundef nonnull @.str.42, i32 noundef 249) #20
           to label %100 unwind label %101
@@ -526,23 +526,23 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   br label %105
 
 switch.lookup37:                                  ; preds = %21
-  %103 = zext nneg i32 %switch.tableidx36 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._Z11ifunc_index9Directivei, i64 0, i64 %103
+  %103 = zext nneg i32 %switch.tableidx35 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z11ifunc_index9Directivei, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup
 
 switch.lookup41:                                  ; preds = %36
-  %104 = zext nneg i32 %switch.tableidx39 to i64
-  %switch.gep45 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._Z11ifunc_index9Directivei.7, i64 0, i64 %104
+  %104 = zext nneg i32 %switch.tableidx38 to i64
+  %switch.gep45 = getelementptr inbounds nuw i32, ptr @switch.table._Z11ifunc_index9Directivei.7, i64 %104
   %switch.load46 = load i32, ptr %switch.gep45, align 4
   br label %switch.lookup
 
-switch.lookup47:                                  ; preds = %57
+switch.lookup48:                                  ; preds = %57
   %switch.offset = add nuw nsw i32 %1, 67
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %15, %switch.lookup47, %switch.lookup41, %switch.lookup37, %29, %83, %77, %70, %63, %51, %45, %43, %2, %27, %95, %94, %93, %92, %91, %90, %89, %84, %78, %76, %71, %69, %64, %52, %42
-  %.032 = phi i32 [ 27, %42 ], [ 67, %52 ], [ 73, %64 ], [ 74, %69 ], [ 63, %71 ], [ 64, %76 ], [ 53, %78 ], [ 51, %84 ], [ 50, %89 ], [ 49, %90 ], [ 58, %91 ], [ 59, %92 ], [ 54, %93 ], [ 56, %94 ], [ 60, %95 ], [ %.mux, %29 ], [ 33, %27 ], [ 36, %2 ], [ %., %43 ], [ 65, %45 ], [ 66, %51 ], [ 72, %63 ], [ 62, %70 ], [ 52, %77 ], [ 48, %83 ], [ %switch.load, %switch.lookup37 ], [ %switch.load46, %switch.lookup41 ], [ %switch.offset, %switch.lookup47 ], [ %switch.tableidx, %15 ]
+switch.lookup:                                    ; preds = %15, %switch.lookup48, %switch.lookup41, %switch.lookup37, %29, %83, %77, %70, %63, %51, %45, %43, %2, %27, %95, %94, %93, %92, %91, %90, %89, %84, %78, %76, %71, %69, %64, %52, %42
+  %.032 = phi i32 [ 27, %42 ], [ 67, %52 ], [ 73, %64 ], [ 74, %69 ], [ 63, %71 ], [ 64, %76 ], [ 53, %78 ], [ 51, %84 ], [ 50, %89 ], [ 49, %90 ], [ 58, %91 ], [ 59, %92 ], [ 54, %93 ], [ 56, %94 ], [ 60, %95 ], [ %.mux, %29 ], [ 33, %27 ], [ 36, %2 ], [ %., %43 ], [ 65, %45 ], [ 66, %51 ], [ 72, %63 ], [ 62, %70 ], [ 52, %77 ], [ 48, %83 ], [ %switch.load, %switch.lookup37 ], [ %switch.load46, %switch.lookup41 ], [ %switch.offset, %switch.lookup48 ], [ %switch.tableidx, %15 ]
   ret i32 %.032
 
 105:                                              ; preds = %101, %87, %81, %74, %67, %61, %55, %49, %40, %34, %25, %19
@@ -1024,7 +1024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br i1 %.sroa.2.0.i41, label %_ZNRSt8optionalI20DeprecatedDirectivesE5valueEv.exit, label %111
 
 _ZNRSt8optionalI20DeprecatedDirectivesE5valueEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
-  %98 = getelementptr inbounds nuw [5 x i32], ptr @_ZZ7str2dirPKcE32s_deprecatedDirectiveToDirective, i64 0, i64 %.sroa.03.0.i
+  %98 = getelementptr inbounds nuw i32, ptr @_ZZ7str2dirPKcE32s_deprecatedDirectiveToDirective, i64 %.sroa.03.0.i
   %99 = load i32, ptr %98, align 4, !tbaa !28
   br label %111
 
@@ -1113,7 +1113,7 @@ define linkonce_odr void @_ZN3gmx26StringToEnumValueConverterI9DirectiveXadL_Z17
   %.sroa.026.042 = phi i32 [ 0, %1 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = zext nneg i32 %.sroa.026.042 to i64
-  %17 = getelementptr inbounds nuw [42 x ptr], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   store ptr %12, ptr %6, align 8, !tbaa !9
   %19 = icmp eq ptr %18, null
@@ -1407,7 +1407,7 @@ define internal fastcc void @_ZN3gmx26StringToEnumValueConverterI20DeprecatedDir
   %.sroa.02.018 = phi i32 [ 0, %0 ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = zext nneg i32 %.sroa.02.018 to i64
-  %11 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZL17enumValueToString20DeprecatedDirectivesE14directiveNames, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZZL17enumValueToString20DeprecatedDirectivesE14directiveNames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   store ptr %6, ptr %5, align 8, !tbaa !9
   %13 = icmp eq ptr %12, null
@@ -2845,7 +2845,7 @@ define noundef range(i32 0, 2) i32 @_Z14DS_Check_OrderP8DirStack9Directive(ptr n
 
 _Z9DS_SearchP8DirStack9Directive.exit.thread:     ; preds = %5, %2
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [42 x ptr], ptr @_ZL9necessary, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZL9necessary, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = load i32, ptr %10, align 4, !tbaa !28
   %12 = icmp eq i32 %11, 41

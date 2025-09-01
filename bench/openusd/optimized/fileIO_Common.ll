@@ -10361,7 +10361,7 @@ define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUti
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility9StringifyENS_12SdfSpecifierE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility9StringifyENS_12SdfSpecifierE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
@@ -11104,7 +11104,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr7
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64

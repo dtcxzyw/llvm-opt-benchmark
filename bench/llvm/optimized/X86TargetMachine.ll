@@ -2475,7 +2475,7 @@ define dso_local void @_ZNK4llvm16X86TargetMachine22getTargetTransformInfoERKNS_
   %14 = shl nuw i64 1, %13
   %15 = lshr i32 %11, 6
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [5 x i64], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %10, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !45
   %19 = or i64 %14, %18
   store i64 %19, ptr %17, align 8, !tbaa !45
@@ -5402,7 +5402,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5Mod
   %10 = load ptr, ptr %3, align 8, !tbaa !408
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = zext i16 %8 to i64
-  %13 = getelementptr inbounds nuw [234 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !709
   %15 = icmp ne ptr %14, null
   br label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE11isTypeLegalEPNS_4TypeE.exit
@@ -5733,7 +5733,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5Mod
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %10 = zext i16 %8 to i64
-  %11 = getelementptr inbounds nuw [234 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !709
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE12haveFastSqrtEPNS_4TypeE.exit, label %_ZNK4llvm3EVTeqES0_.exit.thread.i.i
@@ -5782,7 +5782,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm19TargetTransformInfo5ModelINS_
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %10 = zext i16 %8 to i64
-  %11 = getelementptr inbounds nuw [234 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !709
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE11getFPOpCostEPNS_4TypeE.exit, label %_ZNK4llvm3EVTeqES0_.exit.thread.i.i
@@ -5798,7 +5798,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread.i.i:              ; preds = %_ZNK4llvm18TargetLo
 
 switch.lookup:                                    ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread.i.i
   %17 = zext nneg i8 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm19TargetTransformInfo5ModelINS_10X86TTIImplEE11getFPOpCostEPNS_4TypeE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm19TargetTransformInfo5ModelINS_10X86TTIImplEE11getFPOpCostEPNS_4TypeE, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE11getFPOpCostEPNS_4TypeE.exit
 
@@ -6444,9 +6444,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   %11 = load ptr, ptr %6, align 8, !tbaa !408
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 395330
   %13 = zext i16 %9 to i64
-  %14 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [5 x i16], ptr %12, i64 %13
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw [5 x i16], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !732
   %18 = trunc i16 %17 to i8
   %19 = icmp ult i8 %18, 16
@@ -6475,9 +6475,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   %11 = load ptr, ptr %6, align 8, !tbaa !408
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 395330
   %13 = zext i16 %9 to i64
-  %14 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [5 x i16], ptr %12, i64 %13
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw [5 x i16], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !732
   %18 = and i16 %17, 11
   %spec.select.i.i = icmp eq i16 %18, 0

@@ -606,7 +606,7 @@ for.body.us.i:                                    ; preds = %for.cond.preheader.
 
 land.lhs.true.us.i:                               ; preds = %for.body.us.i
   %idxprom.us.i = zext nneg i8 %43 to i64
-  %arrayidx.us.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygen9CodecUtil11http_tokensE, i64 0, i64 %idxprom.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw i8, ptr @_ZN8proxygen9CodecUtil11http_tokensE, i64 %idxprom.us.i
   %44 = load i8, ptr %arrayidx.us.i, align 1
   %tobool.not.us.i = icmp eq i8 %44, 0
   br i1 %tobool.not.us.i, label %lor.end, label %for.inc.us.i
@@ -624,7 +624,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 land.lhs.true11.i:                                ; preds = %for.body.i
   %idxprom12.i = zext nneg i8 %45 to i64
-  %arrayidx13.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygen9CodecUtil11http_tokensE, i64 0, i64 %idxprom12.i
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr @_ZN8proxygen9CodecUtil11http_tokensE, i64 %idxprom12.i
   %46 = load i8, ptr %arrayidx13.i, align 1
   %cmp16.not.i = icmp eq i8 %46, %45
   br i1 %cmp16.not.i, label %for.inc.i, label %lor.end
@@ -3009,7 +3009,7 @@ entry:
 
 for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i = icmp ugt i64 %2, %conv.i
   br i1 %cmp1.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -3034,7 +3034,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i6:                              ; preds = %if.end.i.i.i.i.i10, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit
   %i.i.06.i.i.i.i7 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit ], [ %inc.i.i.i.i.i11, %if.end.i.i.i.i.i10 ]
-  %arrayidx.i.i.i.i.i8 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i7
+  %arrayidx.i.i.i.i.i8 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i7
   %5 = load i64, ptr %arrayidx.i.i.i.i.i8, align 8
   %cmp1.i.i.i.i.i9 = icmp ugt i64 %5, %conv.i5
   br i1 %cmp1.i.i.i.i.i9, label %if.then.i.i.i.i.i14, label %if.end.i.i.i.i.i10
@@ -3059,7 +3059,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i18:                             ; preds = %if.end.i.i.i.i.i22, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit16
   %i.i.06.i.i.i.i19 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit16 ], [ %inc.i.i.i.i.i23, %if.end.i.i.i.i.i22 ]
-  %arrayidx.i.i.i.i.i20 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i19
+  %arrayidx.i.i.i.i.i20 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i19
   %8 = load i64, ptr %arrayidx.i.i.i.i.i20, align 8
   %cmp1.i.i.i.i.i21 = icmp ugt i64 %8, %conv.i17
   br i1 %cmp1.i.i.i.i.i21, label %if.then.i.i.i.i.i26, label %if.end.i.i.i.i.i22
@@ -3084,7 +3084,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i30:                             ; preds = %if.end.i.i.i.i.i34, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit28
   %i.i.06.i.i.i.i31 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit28 ], [ %inc.i.i.i.i.i35, %if.end.i.i.i.i.i34 ]
-  %arrayidx.i.i.i.i.i32 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i31
+  %arrayidx.i.i.i.i.i32 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i31
   %11 = load i64, ptr %arrayidx.i.i.i.i.i32, align 8
   %cmp1.i.i.i.i.i33 = icmp ugt i64 %11, %conv.i29
   br i1 %cmp1.i.i.i.i.i33, label %if.then.i.i.i.i.i38, label %if.end.i.i.i.i.i34
@@ -3109,7 +3109,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i42:                             ; preds = %if.end.i.i.i.i.i46, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit40
   %i.i.06.i.i.i.i43 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit40 ], [ %inc.i.i.i.i.i47, %if.end.i.i.i.i.i46 ]
-  %arrayidx.i.i.i.i.i44 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i43
+  %arrayidx.i.i.i.i.i44 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i43
   %14 = load i64, ptr %arrayidx.i.i.i.i.i44, align 8
   %cmp1.i.i.i.i.i45 = icmp ugt i64 %14, %conv.i41
   br i1 %cmp1.i.i.i.i.i45, label %if.then.i.i.i.i.i50, label %if.end.i.i.i.i.i46
@@ -3162,7 +3162,7 @@ entry:
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %entry
   %i.i.i.015.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %3, %conv.i
   br i1 %cmp1.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -3185,7 +3185,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i = phi i64 [ 0, %while.body.i.i.i.i.i.i ], [ %conv.i, %while.body.i.preheader.i.i.i.i.i ]
   %pos.i.017.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i, %while.body.i.preheader.i.i.i.i.i ]
   %sub.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i, -2
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %sub.i.i.i.i.i.i
   store i16 %4, ptr %add.ptr.i.i.i.i.i.i, align 1
@@ -3196,7 +3196,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i = phi i64 [ %conv.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
   %5 = load i16, ptr %arrayidx2.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
@@ -3222,7 +3222,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i16:                         ; preds = %if.end.i.i.i.i.i.i.i20, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
   %i.i.i.015.i.i.i.i.i17 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit ], [ %inc.i.i.i.i.i.i.i21, %if.end.i.i.i.i.i.i.i20 ]
-  %arrayidx.i.i.i.i.i.i.i18 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i17
+  %arrayidx.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i17
   %9 = load i64, ptr %arrayidx.i.i.i.i.i.i.i18, align 8
   %cmp1.i.i.i.i.i.i.i19 = icmp ugt i64 %9, %conv.i15
   br i1 %cmp1.i.i.i.i.i.i.i19, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42, label %if.end.i.i.i.i.i.i.i20
@@ -3245,7 +3245,7 @@ while.body.i.i.i.i.i.i25:                         ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i26 = phi i64 [ 0, %while.body.i.i.i.i.i.i25 ], [ %conv.i15, %while.body.i.preheader.i.i.i.i.i23 ]
   %pos.i.017.i.i.i.i.i27 = phi i64 [ %sub.i.i.i.i.i.i28, %while.body.i.i.i.i.i.i25 ], [ %retval.i.i.024.i.i.i.i.i24, %while.body.i.preheader.i.i.i.i.i23 ]
   %sub.i.i.i.i.i.i28 = add i64 %pos.i.017.i.i.i.i.i27, -2
-  %arrayidx.i.i.i.i.i.i29 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i26
+  %arrayidx.i.i.i.i.i.i29 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i26
   %10 = load i16, ptr %arrayidx.i.i.i.i.i.i29, align 2
   %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %buffer.i.i14, i64 %sub.i.i.i.i.i.i28
   store i16 %10, ptr %add.ptr.i.i.i.i.i.i30, align 1
@@ -3256,7 +3256,7 @@ while.end.i.i.i.i.i.i32:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i.i43, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42 ], [ %retval.i.i.024.i.i.i.i.i24, %while.body.i.i.i.i.i.i25 ]
   %pos.i.0.lcssa.i.i.i.i.i34 = phi i64 [ %add.i.i.i.i.i.i.i43, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42 ], [ %sub.i.i.i.i.i.i28, %while.body.i.i.i.i.i.i25 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i35 = phi i64 [ %conv.i15, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42 ], [ 0, %while.body.i.i.i.i.i.i25 ]
-  %arrayidx2.i.i.i.i.i.i36 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i35
+  %arrayidx2.i.i.i.i.i.i36 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i35
   %11 = load i16, ptr %arrayidx2.i.i.i.i.i.i36, align 2
   %cmp3.i.i.i.i.i.i37 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i34, 2
   br i1 %cmp3.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i41, label %if.else.i.i.i.i.i.i38
@@ -3282,7 +3282,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i48:                         ; preds = %if.end.i.i.i.i.i.i.i52, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit45
   %i.i.i.015.i.i.i.i.i49 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit45 ], [ %inc.i.i.i.i.i.i.i53, %if.end.i.i.i.i.i.i.i52 ]
-  %arrayidx.i.i.i.i.i.i.i50 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i49
+  %arrayidx.i.i.i.i.i.i.i50 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i49
   %15 = load i64, ptr %arrayidx.i.i.i.i.i.i.i50, align 8
   %cmp1.i.i.i.i.i.i.i51 = icmp ugt i64 %15, %conv.i47
   br i1 %cmp1.i.i.i.i.i.i.i51, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74, label %if.end.i.i.i.i.i.i.i52
@@ -3305,7 +3305,7 @@ while.body.i.i.i.i.i.i57:                         ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i58 = phi i64 [ 0, %while.body.i.i.i.i.i.i57 ], [ %conv.i47, %while.body.i.preheader.i.i.i.i.i55 ]
   %pos.i.017.i.i.i.i.i59 = phi i64 [ %sub.i.i.i.i.i.i60, %while.body.i.i.i.i.i.i57 ], [ %retval.i.i.024.i.i.i.i.i56, %while.body.i.preheader.i.i.i.i.i55 ]
   %sub.i.i.i.i.i.i60 = add i64 %pos.i.017.i.i.i.i.i59, -2
-  %arrayidx.i.i.i.i.i.i61 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i58
+  %arrayidx.i.i.i.i.i.i61 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i58
   %16 = load i16, ptr %arrayidx.i.i.i.i.i.i61, align 2
   %add.ptr.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %buffer.i.i46, i64 %sub.i.i.i.i.i.i60
   store i16 %16, ptr %add.ptr.i.i.i.i.i.i62, align 1
@@ -3316,7 +3316,7 @@ while.end.i.i.i.i.i.i64:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i65 = phi i64 [ %add.i.i.i.i.i.i.i75, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74 ], [ %retval.i.i.024.i.i.i.i.i56, %while.body.i.i.i.i.i.i57 ]
   %pos.i.0.lcssa.i.i.i.i.i66 = phi i64 [ %add.i.i.i.i.i.i.i75, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74 ], [ %sub.i.i.i.i.i.i60, %while.body.i.i.i.i.i.i57 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i67 = phi i64 [ %conv.i47, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74 ], [ 0, %while.body.i.i.i.i.i.i57 ]
-  %arrayidx2.i.i.i.i.i.i68 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i67
+  %arrayidx2.i.i.i.i.i.i68 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i67
   %17 = load i16, ptr %arrayidx2.i.i.i.i.i.i68, align 2
   %cmp3.i.i.i.i.i.i69 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i66, 2
   br i1 %cmp3.i.i.i.i.i.i69, label %if.then.i.i.i.i.i.i73, label %if.else.i.i.i.i.i.i70
@@ -3342,7 +3342,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i80:                         ; preds = %if.end.i.i.i.i.i.i.i84, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit77
   %i.i.i.015.i.i.i.i.i81 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit77 ], [ %inc.i.i.i.i.i.i.i85, %if.end.i.i.i.i.i.i.i84 ]
-  %arrayidx.i.i.i.i.i.i.i82 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i81
+  %arrayidx.i.i.i.i.i.i.i82 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i81
   %21 = load i64, ptr %arrayidx.i.i.i.i.i.i.i82, align 8
   %cmp1.i.i.i.i.i.i.i83 = icmp ugt i64 %21, %conv.i79
   br i1 %cmp1.i.i.i.i.i.i.i83, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106, label %if.end.i.i.i.i.i.i.i84
@@ -3365,7 +3365,7 @@ while.body.i.i.i.i.i.i89:                         ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i90 = phi i64 [ 0, %while.body.i.i.i.i.i.i89 ], [ %conv.i79, %while.body.i.preheader.i.i.i.i.i87 ]
   %pos.i.017.i.i.i.i.i91 = phi i64 [ %sub.i.i.i.i.i.i92, %while.body.i.i.i.i.i.i89 ], [ %retval.i.i.024.i.i.i.i.i88, %while.body.i.preheader.i.i.i.i.i87 ]
   %sub.i.i.i.i.i.i92 = add i64 %pos.i.017.i.i.i.i.i91, -2
-  %arrayidx.i.i.i.i.i.i93 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i90
+  %arrayidx.i.i.i.i.i.i93 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i90
   %22 = load i16, ptr %arrayidx.i.i.i.i.i.i93, align 2
   %add.ptr.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %buffer.i.i78, i64 %sub.i.i.i.i.i.i92
   store i16 %22, ptr %add.ptr.i.i.i.i.i.i94, align 1
@@ -3376,7 +3376,7 @@ while.end.i.i.i.i.i.i96:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i97 = phi i64 [ %add.i.i.i.i.i.i.i107, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106 ], [ %retval.i.i.024.i.i.i.i.i88, %while.body.i.i.i.i.i.i89 ]
   %pos.i.0.lcssa.i.i.i.i.i98 = phi i64 [ %add.i.i.i.i.i.i.i107, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106 ], [ %sub.i.i.i.i.i.i92, %while.body.i.i.i.i.i.i89 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i99 = phi i64 [ %conv.i79, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106 ], [ 0, %while.body.i.i.i.i.i.i89 ]
-  %arrayidx2.i.i.i.i.i.i100 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i99
+  %arrayidx2.i.i.i.i.i.i100 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i99
   %23 = load i16, ptr %arrayidx2.i.i.i.i.i.i100, align 2
   %cmp3.i.i.i.i.i.i101 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i98, 2
   br i1 %cmp3.i.i.i.i.i.i101, label %if.then.i.i.i.i.i.i105, label %if.else.i.i.i.i.i.i102
@@ -3402,7 +3402,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i112:                        ; preds = %if.end.i.i.i.i.i.i.i116, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit109
   %i.i.i.015.i.i.i.i.i113 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit109 ], [ %inc.i.i.i.i.i.i.i117, %if.end.i.i.i.i.i.i.i116 ]
-  %arrayidx.i.i.i.i.i.i.i114 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i113
+  %arrayidx.i.i.i.i.i.i.i114 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i113
   %27 = load i64, ptr %arrayidx.i.i.i.i.i.i.i114, align 8
   %cmp1.i.i.i.i.i.i.i115 = icmp ugt i64 %27, %conv.i111
   br i1 %cmp1.i.i.i.i.i.i.i115, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138, label %if.end.i.i.i.i.i.i.i116
@@ -3425,7 +3425,7 @@ while.body.i.i.i.i.i.i121:                        ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i122 = phi i64 [ 0, %while.body.i.i.i.i.i.i121 ], [ %conv.i111, %while.body.i.preheader.i.i.i.i.i119 ]
   %pos.i.017.i.i.i.i.i123 = phi i64 [ %sub.i.i.i.i.i.i124, %while.body.i.i.i.i.i.i121 ], [ %retval.i.i.024.i.i.i.i.i120, %while.body.i.preheader.i.i.i.i.i119 ]
   %sub.i.i.i.i.i.i124 = add i64 %pos.i.017.i.i.i.i.i123, -2
-  %arrayidx.i.i.i.i.i.i125 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i122
+  %arrayidx.i.i.i.i.i.i125 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i122
   %28 = load i16, ptr %arrayidx.i.i.i.i.i.i125, align 2
   %add.ptr.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %buffer.i.i110, i64 %sub.i.i.i.i.i.i124
   store i16 %28, ptr %add.ptr.i.i.i.i.i.i126, align 1
@@ -3436,7 +3436,7 @@ while.end.i.i.i.i.i.i128:                         ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i129 = phi i64 [ %add.i.i.i.i.i.i.i139, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138 ], [ %retval.i.i.024.i.i.i.i.i120, %while.body.i.i.i.i.i.i121 ]
   %pos.i.0.lcssa.i.i.i.i.i130 = phi i64 [ %add.i.i.i.i.i.i.i139, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138 ], [ %sub.i.i.i.i.i.i124, %while.body.i.i.i.i.i.i121 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i131 = phi i64 [ %conv.i111, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138 ], [ 0, %while.body.i.i.i.i.i.i121 ]
-  %arrayidx2.i.i.i.i.i.i132 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i131
+  %arrayidx2.i.i.i.i.i.i132 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i131
   %29 = load i16, ptr %arrayidx2.i.i.i.i.i.i132, align 2
   %cmp3.i.i.i.i.i.i133 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i130, 2
   br i1 %cmp3.i.i.i.i.i.i133, label %if.then.i.i.i.i.i.i137, label %if.else.i.i.i.i.i.i134
@@ -3470,7 +3470,7 @@ entry:
 
 for.body.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i = icmp ugt i64 %2, %conv.i
   br i1 %cmp1.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -3495,7 +3495,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i6:                              ; preds = %if.end.i.i.i.i.i10, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit
   %i.i.06.i.i.i.i7 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit ], [ %inc.i.i.i.i.i11, %if.end.i.i.i.i.i10 ]
-  %arrayidx.i.i.i.i.i8 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i7
+  %arrayidx.i.i.i.i.i8 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i7
   %5 = load i64, ptr %arrayidx.i.i.i.i.i8, align 8
   %cmp1.i.i.i.i.i9 = icmp ugt i64 %5, %conv.i5
   br i1 %cmp1.i.i.i.i.i9, label %if.then.i.i.i.i.i14, label %if.end.i.i.i.i.i10
@@ -3520,7 +3520,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i18:                             ; preds = %if.end.i.i.i.i.i22, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit16
   %i.i.06.i.i.i.i19 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit16 ], [ %inc.i.i.i.i.i23, %if.end.i.i.i.i.i22 ]
-  %arrayidx.i.i.i.i.i20 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i19
+  %arrayidx.i.i.i.i.i20 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i19
   %8 = load i64, ptr %arrayidx.i.i.i.i.i20, align 8
   %cmp1.i.i.i.i.i21 = icmp ugt i64 %8, %conv.i17
   br i1 %cmp1.i.i.i.i.i21, label %if.then.i.i.i.i.i26, label %if.end.i.i.i.i.i22
@@ -3545,7 +3545,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i30:                             ; preds = %if.end.i.i.i.i.i34, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit28
   %i.i.06.i.i.i.i31 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit28 ], [ %inc.i.i.i.i.i35, %if.end.i.i.i.i.i34 ]
-  %arrayidx.i.i.i.i.i32 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i31
+  %arrayidx.i.i.i.i.i32 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i31
   %11 = load i64, ptr %arrayidx.i.i.i.i.i32, align 8
   %cmp1.i.i.i.i.i33 = icmp ugt i64 %11, %conv.i29
   br i1 %cmp1.i.i.i.i.i33, label %if.then.i.i.i.i.i38, label %if.end.i.i.i.i.i34
@@ -3570,7 +3570,7 @@ _ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_L
 
 for.body.i.i.i.i.i42:                             ; preds = %if.end.i.i.i.i.i46, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit40
   %i.i.06.i.i.i.i43 = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIbEENSt9enable_ifIXaaaa13is_integral_vIT_EltstS2_Li4Entsr3std7is_sameIS2_cEE5valueEmE4typeES2_.exit40 ], [ %inc.i.i.i.i.i47, %if.end.i.i.i.i.i46 ]
-  %arrayidx.i.i.i.i.i44 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i43
+  %arrayidx.i.i.i.i.i44 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i43
   %14 = load i64, ptr %arrayidx.i.i.i.i.i44, align 8
   %cmp1.i.i.i.i.i45 = icmp ugt i64 %14, %conv.i41
   br i1 %cmp1.i.i.i.i.i45, label %if.then.i.i.i.i.i50, label %if.end.i.i.i.i.i46
@@ -3623,7 +3623,7 @@ entry:
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %entry
   %i.i.i.015.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = icmp ugt i64 %3, %conv.i
   br i1 %cmp1.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -3646,7 +3646,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i = phi i64 [ 0, %while.body.i.i.i.i.i.i ], [ %conv.i, %while.body.i.preheader.i.i.i.i.i ]
   %pos.i.017.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i, %while.body.i.preheader.i.i.i.i.i ]
   %sub.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i, -2
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %sub.i.i.i.i.i.i
   store i16 %4, ptr %add.ptr.i.i.i.i.i.i, align 1
@@ -3657,7 +3657,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i = phi i64 [ %conv.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
   %5 = load i16, ptr %arrayidx2.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
@@ -3683,7 +3683,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i16:                         ; preds = %if.end.i.i.i.i.i.i.i20, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit
   %i.i.i.015.i.i.i.i.i17 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit ], [ %inc.i.i.i.i.i.i.i21, %if.end.i.i.i.i.i.i.i20 ]
-  %arrayidx.i.i.i.i.i.i.i18 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i17
+  %arrayidx.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i17
   %9 = load i64, ptr %arrayidx.i.i.i.i.i.i.i18, align 8
   %cmp1.i.i.i.i.i.i.i19 = icmp ugt i64 %9, %conv.i15
   br i1 %cmp1.i.i.i.i.i.i.i19, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42, label %if.end.i.i.i.i.i.i.i20
@@ -3706,7 +3706,7 @@ while.body.i.i.i.i.i.i25:                         ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i26 = phi i64 [ 0, %while.body.i.i.i.i.i.i25 ], [ %conv.i15, %while.body.i.preheader.i.i.i.i.i23 ]
   %pos.i.017.i.i.i.i.i27 = phi i64 [ %sub.i.i.i.i.i.i28, %while.body.i.i.i.i.i.i25 ], [ %retval.i.i.024.i.i.i.i.i24, %while.body.i.preheader.i.i.i.i.i23 ]
   %sub.i.i.i.i.i.i28 = add i64 %pos.i.017.i.i.i.i.i27, -2
-  %arrayidx.i.i.i.i.i.i29 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i26
+  %arrayidx.i.i.i.i.i.i29 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i26
   %10 = load i16, ptr %arrayidx.i.i.i.i.i.i29, align 2
   %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %buffer.i.i14, i64 %sub.i.i.i.i.i.i28
   store i16 %10, ptr %add.ptr.i.i.i.i.i.i30, align 1
@@ -3717,7 +3717,7 @@ while.end.i.i.i.i.i.i32:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i.i43, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42 ], [ %retval.i.i.024.i.i.i.i.i24, %while.body.i.i.i.i.i.i25 ]
   %pos.i.0.lcssa.i.i.i.i.i34 = phi i64 [ %add.i.i.i.i.i.i.i43, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42 ], [ %sub.i.i.i.i.i.i28, %while.body.i.i.i.i.i.i25 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i35 = phi i64 [ %conv.i15, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i42 ], [ 0, %while.body.i.i.i.i.i.i25 ]
-  %arrayidx2.i.i.i.i.i.i36 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i35
+  %arrayidx2.i.i.i.i.i.i36 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i35
   %11 = load i16, ptr %arrayidx2.i.i.i.i.i.i36, align 2
   %cmp3.i.i.i.i.i.i37 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i34, 2
   br i1 %cmp3.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i41, label %if.else.i.i.i.i.i.i38
@@ -3743,7 +3743,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i48:                         ; preds = %if.end.i.i.i.i.i.i.i52, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit45
   %i.i.i.015.i.i.i.i.i49 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit45 ], [ %inc.i.i.i.i.i.i.i53, %if.end.i.i.i.i.i.i.i52 ]
-  %arrayidx.i.i.i.i.i.i.i50 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i49
+  %arrayidx.i.i.i.i.i.i.i50 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i49
   %15 = load i64, ptr %arrayidx.i.i.i.i.i.i.i50, align 8
   %cmp1.i.i.i.i.i.i.i51 = icmp ugt i64 %15, %conv.i47
   br i1 %cmp1.i.i.i.i.i.i.i51, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74, label %if.end.i.i.i.i.i.i.i52
@@ -3766,7 +3766,7 @@ while.body.i.i.i.i.i.i57:                         ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i58 = phi i64 [ 0, %while.body.i.i.i.i.i.i57 ], [ %conv.i47, %while.body.i.preheader.i.i.i.i.i55 ]
   %pos.i.017.i.i.i.i.i59 = phi i64 [ %sub.i.i.i.i.i.i60, %while.body.i.i.i.i.i.i57 ], [ %retval.i.i.024.i.i.i.i.i56, %while.body.i.preheader.i.i.i.i.i55 ]
   %sub.i.i.i.i.i.i60 = add i64 %pos.i.017.i.i.i.i.i59, -2
-  %arrayidx.i.i.i.i.i.i61 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i58
+  %arrayidx.i.i.i.i.i.i61 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i58
   %16 = load i16, ptr %arrayidx.i.i.i.i.i.i61, align 2
   %add.ptr.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %buffer.i.i46, i64 %sub.i.i.i.i.i.i60
   store i16 %16, ptr %add.ptr.i.i.i.i.i.i62, align 1
@@ -3777,7 +3777,7 @@ while.end.i.i.i.i.i.i64:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i65 = phi i64 [ %add.i.i.i.i.i.i.i75, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74 ], [ %retval.i.i.024.i.i.i.i.i56, %while.body.i.i.i.i.i.i57 ]
   %pos.i.0.lcssa.i.i.i.i.i66 = phi i64 [ %add.i.i.i.i.i.i.i75, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74 ], [ %sub.i.i.i.i.i.i60, %while.body.i.i.i.i.i.i57 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i67 = phi i64 [ %conv.i47, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i74 ], [ 0, %while.body.i.i.i.i.i.i57 ]
-  %arrayidx2.i.i.i.i.i.i68 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i67
+  %arrayidx2.i.i.i.i.i.i68 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i67
   %17 = load i16, ptr %arrayidx2.i.i.i.i.i.i68, align 2
   %cmp3.i.i.i.i.i.i69 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i66, 2
   br i1 %cmp3.i.i.i.i.i.i69, label %if.then.i.i.i.i.i.i73, label %if.else.i.i.i.i.i.i70
@@ -3803,7 +3803,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i80:                         ; preds = %if.end.i.i.i.i.i.i.i84, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit77
   %i.i.i.015.i.i.i.i.i81 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit77 ], [ %inc.i.i.i.i.i.i.i85, %if.end.i.i.i.i.i.i.i84 ]
-  %arrayidx.i.i.i.i.i.i.i82 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i81
+  %arrayidx.i.i.i.i.i.i.i82 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i81
   %21 = load i64, ptr %arrayidx.i.i.i.i.i.i.i82, align 8
   %cmp1.i.i.i.i.i.i.i83 = icmp ugt i64 %21, %conv.i79
   br i1 %cmp1.i.i.i.i.i.i.i83, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106, label %if.end.i.i.i.i.i.i.i84
@@ -3826,7 +3826,7 @@ while.body.i.i.i.i.i.i89:                         ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i90 = phi i64 [ 0, %while.body.i.i.i.i.i.i89 ], [ %conv.i79, %while.body.i.preheader.i.i.i.i.i87 ]
   %pos.i.017.i.i.i.i.i91 = phi i64 [ %sub.i.i.i.i.i.i92, %while.body.i.i.i.i.i.i89 ], [ %retval.i.i.024.i.i.i.i.i88, %while.body.i.preheader.i.i.i.i.i87 ]
   %sub.i.i.i.i.i.i92 = add i64 %pos.i.017.i.i.i.i.i91, -2
-  %arrayidx.i.i.i.i.i.i93 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i90
+  %arrayidx.i.i.i.i.i.i93 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i90
   %22 = load i16, ptr %arrayidx.i.i.i.i.i.i93, align 2
   %add.ptr.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %buffer.i.i78, i64 %sub.i.i.i.i.i.i92
   store i16 %22, ptr %add.ptr.i.i.i.i.i.i94, align 1
@@ -3837,7 +3837,7 @@ while.end.i.i.i.i.i.i96:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i97 = phi i64 [ %add.i.i.i.i.i.i.i107, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106 ], [ %retval.i.i.024.i.i.i.i.i88, %while.body.i.i.i.i.i.i89 ]
   %pos.i.0.lcssa.i.i.i.i.i98 = phi i64 [ %add.i.i.i.i.i.i.i107, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106 ], [ %sub.i.i.i.i.i.i92, %while.body.i.i.i.i.i.i89 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i99 = phi i64 [ %conv.i79, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i106 ], [ 0, %while.body.i.i.i.i.i.i89 ]
-  %arrayidx2.i.i.i.i.i.i100 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i99
+  %arrayidx2.i.i.i.i.i.i100 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i99
   %23 = load i16, ptr %arrayidx2.i.i.i.i.i.i100, align 2
   %cmp3.i.i.i.i.i.i101 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i98, 2
   br i1 %cmp3.i.i.i.i.i.i101, label %if.then.i.i.i.i.i.i105, label %if.else.i.i.i.i.i.i102
@@ -3863,7 +3863,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9en
 
 for.body.i.i.i.i.i.i.i112:                        ; preds = %if.end.i.i.i.i.i.i.i116, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit109
   %i.i.i.015.i.i.i.i.i113 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIXaaaa13is_integral_vIT0_Esr12IsSomeStringIT_EE5valueltstS8_Li4EEvE4typeES8_PS9_.exit109 ], [ %inc.i.i.i.i.i.i.i117, %if.end.i.i.i.i.i.i.i116 ]
-  %arrayidx.i.i.i.i.i.i.i114 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i113
+  %arrayidx.i.i.i.i.i.i.i114 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i113
   %27 = load i64, ptr %arrayidx.i.i.i.i.i.i.i114, align 8
   %cmp1.i.i.i.i.i.i.i115 = icmp ugt i64 %27, %conv.i111
   br i1 %cmp1.i.i.i.i.i.i.i115, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138, label %if.end.i.i.i.i.i.i.i116
@@ -3886,7 +3886,7 @@ while.body.i.i.i.i.i.i121:                        ; preds = %while.body.i.i.i.i.
   %v.addr.i4.018.i.i.i.i.i122 = phi i64 [ 0, %while.body.i.i.i.i.i.i121 ], [ %conv.i111, %while.body.i.preheader.i.i.i.i.i119 ]
   %pos.i.017.i.i.i.i.i123 = phi i64 [ %sub.i.i.i.i.i.i124, %while.body.i.i.i.i.i.i121 ], [ %retval.i.i.024.i.i.i.i.i120, %while.body.i.preheader.i.i.i.i.i119 ]
   %sub.i.i.i.i.i.i124 = add i64 %pos.i.017.i.i.i.i.i123, -2
-  %arrayidx.i.i.i.i.i.i125 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.018.i.i.i.i.i122
+  %arrayidx.i.i.i.i.i.i125 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.018.i.i.i.i.i122
   %28 = load i16, ptr %arrayidx.i.i.i.i.i.i125, align 2
   %add.ptr.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %buffer.i.i110, i64 %sub.i.i.i.i.i.i124
   store i16 %28, ptr %add.ptr.i.i.i.i.i.i126, align 1
@@ -3897,7 +3897,7 @@ while.end.i.i.i.i.i.i128:                         ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i129 = phi i64 [ %add.i.i.i.i.i.i.i139, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138 ], [ %retval.i.i.024.i.i.i.i.i120, %while.body.i.i.i.i.i.i121 ]
   %pos.i.0.lcssa.i.i.i.i.i130 = phi i64 [ %add.i.i.i.i.i.i.i139, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138 ], [ %sub.i.i.i.i.i.i124, %while.body.i.i.i.i.i.i121 ]
   %v.addr.i4.0.lcssa.i.i.i.i.i131 = phi i64 [ %conv.i111, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i138 ], [ 0, %while.body.i.i.i.i.i.i121 ]
-  %arrayidx2.i.i.i.i.i.i132 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i131
+  %arrayidx2.i.i.i.i.i.i132 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i131
   %29 = load i16, ptr %arrayidx2.i.i.i.i.i.i132, align 2
   %cmp3.i.i.i.i.i.i133 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i130, 2
   br i1 %cmp3.i.i.i.i.i.i133, label %if.then.i.i.i.i.i.i137, label %if.else.i.i.i.i.i.i134

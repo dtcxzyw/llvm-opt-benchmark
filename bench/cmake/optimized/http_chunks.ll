@@ -223,7 +223,7 @@ switch.early.test:                                ; preds = %35
   %43 = add nuw nsw i8 %39, 1
   store i8 %43, ptr %29, align 8, !tbaa !4
   %44 = zext nneg i8 %39 to i64
-  %45 = getelementptr inbounds nuw [17 x i8], ptr %32, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 %44
   store i8 %.fr, ptr %45, align 1, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %.0196299, i64 1
   %47 = add i64 %.0199298, -1
@@ -246,7 +246,7 @@ switch.early.test:                                ; preds = %35
 
 55:                                               ; preds = %50
   %56 = zext i8 %51 to i64
-  %57 = getelementptr inbounds nuw [17 x i8], ptr %32, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 %56
   store i8 0, ptr %57, align 1, !tbaa !16
   %58 = tail call i32 @curlx_strtoofft(ptr noundef nonnull %32, ptr noundef null, i32 noundef 16, ptr noundef nonnull %1) #8
   %.not252 = icmp eq i32 %58, 0

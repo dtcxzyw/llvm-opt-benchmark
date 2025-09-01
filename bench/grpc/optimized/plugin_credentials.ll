@@ -2298,7 +2298,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi12EEERS2_RAT__Kc.exit91: ; 
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit93
   %.0170 = phi i64 [ %165, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit93 ], [ 0, %.preheader ]
-  %147 = getelementptr inbounds nuw [4 x %struct.grpc_metadata], ptr %11, i64 0, i64 %.0170
+  %147 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %11, i64 %.0170
   %148 = load ptr, ptr %147, align 16, !tbaa !37
   %149 = icmp ugt ptr %148, inttoptr (i64 1 to ptr)
   br i1 %149, label %150, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit

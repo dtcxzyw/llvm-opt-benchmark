@@ -629,9 +629,9 @@ hpet_init_clockevent.exit:
   store ptr %4, ptr %10, align 8
   %11 = load i32, ptr %3, align 4
   %12 = and i32 %11, 63
-  %13 = add nuw nsw i32 %12, 1
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %14
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 8
   %16 = lshr i32 %11, 6
   %17 = zext nneg i32 %16 to i64
   %18 = sub nsw i64 0, %17
@@ -1889,7 +1889,7 @@ define internal fastcc void @hpet_reserve_platform_timers() unnamed_addr #4 sect
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 264
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr [32 x i32], ptr %9, i64 0, i64 %17
+  %23 = getelementptr i32, ptr %9, i64 %17
   store i32 %22, ptr %23, align 4
   br label %24
 
@@ -1967,7 +1967,7 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 260
   store i32 %0, ptr %24, align 4
   %25 = sext i32 %0 to i64
-  %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %25
+  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpu_hpet_channel to i64)
   %29 = inttoptr i64 %28 to ptr
@@ -1985,9 +1985,9 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
   %37 = load i32, ptr %30, align 8
   %38 = load i32, ptr %24, align 4
   %39 = and i32 %38, 63
-  %40 = add nuw nsw i32 %39, 1
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %41
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 8
   %43 = lshr i32 %38, 6
   %44 = zext nneg i32 %43 to i64
   %45 = sub nsw i64 0, %44
@@ -2007,9 +2007,9 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
   store ptr %32, ptr %53, align 8
   %54 = load i32, ptr %24, align 4
   %55 = and i32 %54, 63
-  %56 = add nuw nsw i32 %55, 1
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %57
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %56
+  %58 = getelementptr i8, ptr %57, i64 8
   %59 = lshr i32 %54, 6
   %60 = zext nneg i32 %59 to i64
   %61 = sub nsw i64 0, %60
@@ -2051,7 +2051,7 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hpet_cpuhp_dead(i32 noundef %0) #8 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_hpet_channel to i64)
   %6 = inttoptr i64 %5 to ptr

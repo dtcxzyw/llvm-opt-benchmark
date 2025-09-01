@@ -372,7 +372,7 @@ _ZN12opencv_caffe12NetParameterC2Ev.exit:         ; preds = %85
   %indvars.iv134 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next135, %.loopexit ]
   %104 = load ptr, ptr %90, align 8, !tbaa !26
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = getelementptr inbounds nuw [268435454 x ptr], ptr %105, i64 0, i64 %indvars.iv134
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv134
   %107 = load ptr, ptr %106, align 8, !tbaa !27
   %108 = load ptr, ptr %7, align 8, !tbaa !12
   %109 = load ptr, ptr %27, align 8, !tbaa !12
@@ -408,7 +408,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %200 ]
   %125 = load ptr, ptr %121, align 8, !tbaa !26
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = getelementptr inbounds nuw [268435454 x ptr], ptr %126, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !27
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load i32, ptr %129, align 8, !tbaa !30

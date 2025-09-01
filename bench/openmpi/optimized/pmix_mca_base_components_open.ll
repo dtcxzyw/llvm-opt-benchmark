@@ -468,7 +468,7 @@ define i32 @pmix_mca_base_framework_components_open(ptr noundef %0, i32 noundef 
 
 12:                                               ; preds = %11
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4, !tbaa !40
   %16 = icmp sgt i32 %15, 9
   br i1 %16, label %17, label %20
@@ -488,7 +488,7 @@ define i32 @pmix_mca_base_framework_components_open(ptr noundef %0, i32 noundef 
 
 .lr.ph.i:                                         ; preds = %20
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %24, i32 2
+  %25 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %24, i32 2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %27
 

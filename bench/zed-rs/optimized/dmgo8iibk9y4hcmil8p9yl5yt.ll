@@ -1192,10 +1192,10 @@ _ZN5audio6assets13SoundRegistry6global17h1894ba1ab8449af2E.exit: ; preds = %12
   store ptr %14, ptr %7, align 8
   %18 = load i8, ptr %0, align 1, !range !292, !alias.scope !293, !noundef !4
   %19 = zext nneg i8 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806", i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = zext nneg i8 %18 to i64
-  %switch.gep33 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806.5", i64 0, i64 %20
+  %switch.gep33 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806.5", i64 %20
   %switch.load34 = load ptr, ptr %switch.gep33, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   invoke void @_ZN5audio6assets13SoundRegistry3get17hbb6b61378f730f06E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %switch.load34, i64 noundef %switch.load)

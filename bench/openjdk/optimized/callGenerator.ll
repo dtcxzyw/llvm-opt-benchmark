@@ -710,7 +710,7 @@ declare noundef ptr @_ZN8GraphKit25set_results_for_java_callEP12CallJavaNodebb(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8GraphKit9push_nodeE9BasicTypeP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @type2size, i64 %4
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %_ZN8GraphKit4pushEP4Node.exit [
     i32 1, label %7
@@ -1837,7 +1837,7 @@ _ZN8GraphKit12set_argumentEjP4Node.exit130:       ; preds = %329, %319, %286, %2
   %335 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %336 = load i8, ptr %335, align 8
   %337 = zext i8 %336 to i64
-  %338 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw i32, ptr @type2size, i64 %337
   %339 = load i32, ptr %338, align 4
   %340 = add nsw i32 %339, %.0108137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2692,7 +2692,7 @@ _ZN7Compile13node_notes_atEi.exit.thread:         ; preds = %219, %.thread.i, %2
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %265 = load i8, ptr %264, align 8
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i32, ptr @type2size, i64 %266
   %268 = load i32, ptr %267, align 4
   %.not125 = icmp eq i32 %268, 0
   br i1 %.not125, label %293, label %269

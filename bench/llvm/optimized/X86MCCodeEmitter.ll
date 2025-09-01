@@ -417,8 +417,8 @@ switch.lookup:                                    ; preds = %.sink.split.i, %99
   %.not223.i = icmp eq i64 %130, 0
   %131 = and i64 %108, 122880
   %132 = add nsw i64 %131, -8192
-  %133 = lshr exact i64 %132, 13
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter14emitPrefixImplERjRKN4llvm6MCInstERKNS2_15MCSubtargetInfoERNS2_15SmallVectorImplIcEE, i64 0, i64 %133
+  %133 = lshr exact i64 %132, 11
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter14emitPrefixImplERjRKN4llvm6MCInstERKNS2_15MCSubtargetInfoERNS2_15SmallVectorImplIcEE, i64 %133
   %switch.load = load i32, ptr %switch.gep, align 4
   %134 = lshr i64 %108, 28
   %135 = trunc i64 %134 to i32
@@ -2353,9 +2353,9 @@ _ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.us.i.i: ; preds =
 switch.lookup111:                                 ; preds = %.lr.ph.split.i.i
   %1428 = getelementptr inbounds nuw i8, ptr %1426, i64 8
   %1429 = load i32, ptr %1428, align 8, !tbaa !48
-  %switch.tableidx110 = add i32 %1429, -1
-  %1430 = icmp ult i32 %switch.tableidx110, 15
-  %switch.maskindex112 = trunc i32 %switch.tableidx110 to i16
+  %switch.tableidx109 = add i32 %1429, -1
+  %1430 = icmp ult i32 %switch.tableidx109, 15
+  %switch.maskindex112 = trunc i32 %switch.tableidx109 to i16
   %switch.shifted113 = lshr i16 16905, %switch.maskindex112
   %switch.lobit114 = trunc i16 %switch.shifted113 to i1
   %or.cond115 = select i1 %1430, i1 %switch.lobit114, i1 false
@@ -3768,8 +3768,8 @@ switch.lookup:                                    ; preds = %100
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %108, align 8, !tbaa !232
   %109 = add nsw i64 %72, -262144
-  %110 = lshr exact i64 %109, 18
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %110
+  %110 = lshr exact i64 %109, 16
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 %110
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr %.sroa.0.0.copyload.i, i32 noundef %switch.load, i32 noundef 139, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
   br label %630
@@ -3784,8 +3784,8 @@ switch.lookup510:                                 ; preds = %_ZN4llvm5X86II14get
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i422 = load ptr, ptr %116, align 8, !tbaa !232
   %117 = add nsw i64 %72, -262144
-  %118 = lshr exact i64 %117, 18
-  %switch.gep511 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %118
+  %118 = lshr exact i64 %117, 16
+  %switch.gep511 = getelementptr inbounds nuw i8, ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 %118
   %switch.load512 = load i32, ptr %switch.gep511, align 4
   %119 = tail call fastcc noundef i32 @_ZL15getImmFixupKindm(i64 noundef %17)
   tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %115, ptr %.sroa.0.0.copyload.i422, i32 noundef %switch.load512, i32 noundef %119, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
@@ -3804,8 +3804,8 @@ switch.lookup513:                                 ; preds = %_ZN4llvm5X86II14get
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i425 = load ptr, ptr %127, align 8, !tbaa !232
   %128 = add nsw i64 %72, -262144
-  %129 = lshr exact i64 %128, 18
-  %switch.gep514 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %129
+  %129 = lshr exact i64 %128, 16
+  %switch.gep514 = getelementptr inbounds nuw i8, ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 %129
   %switch.load515 = load i32, ptr %switch.gep514, align 4
   %130 = tail call fastcc noundef i32 @_ZL15getImmFixupKindm(i64 noundef %17)
   tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %126, ptr %.sroa.0.0.copyload.i425, i32 noundef %switch.load515, i32 noundef %130, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
@@ -3829,8 +3829,8 @@ switch.lookup516:                                 ; preds = %_ZN4llvm5X86II14get
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i429 = load ptr, ptr %141, align 8, !tbaa !232
   %142 = add nsw i64 %72, -262144
-  %143 = lshr exact i64 %142, 18
-  %switch.gep517 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 0, i64 %143
+  %143 = lshr exact i64 %142, 16
+  %switch.gep517 = getelementptr inbounds nuw i8, ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.31, i64 %143
   %switch.load518 = load i32, ptr %switch.gep517, align 4
   %144 = tail call fastcc noundef i32 @_ZL15getImmFixupKindm(i64 noundef %17)
   tail call fastcc void @_ZNK12_GLOBAL__N_116X86MCCodeEmitter13emitImmediateERKN4llvm9MCOperandENS1_5SMLocEjNS1_11MCFixupKindEmRNS1_15SmallVectorImplIcEERNS7_INS1_7MCFixupEEEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %140, ptr %.sroa.0.0.copyload.i429, i32 noundef %switch.load518, i32 noundef %144, i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
@@ -4683,7 +4683,7 @@ _ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE.exit447: ; preds = %_ZN
   %652 = add nsw i64 %72, -262144
   %653 = lshr exact i64 %652, 18
   %switch.i.i = icmp eq i64 %72, 2097152
-  %switch.gep520 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.32, i64 0, i64 %653
+  %switch.gep520 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_116X86MCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.32, i64 %653
   br label %654
 
 654:                                              ; preds = %.lr.ph, %_ZL15getImmFixupKindm.exit
@@ -5739,7 +5739,7 @@ _ZN4llvm5X86II12getSizeOfImmEm.exit:              ; preds = %_ZN12_GLOBAL__N_18e
 
 90:                                               ; preds = %89
   %91 = zext i32 %79 to i64
-  %92 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEbE8R16Table, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr @_ZZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEbE8R16Table, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !36
   %94 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %95 = load i32, ptr %94, align 8, !tbaa !48
@@ -5758,7 +5758,7 @@ _ZN4llvm5X86II12getSizeOfImmEm.exit:              ; preds = %_ZN12_GLOBAL__N_18e
   %102 = load i16, ptr %101, align 2, !tbaa !221
   %103 = and i16 %102, 7
   %104 = zext nneg i16 %103 to i64
-  %105 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEbE8R16Table, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr @_ZZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEbE8R16Table, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !36
   switch i16 %103, label %111 [
     i16 5, label %107
@@ -6077,7 +6077,7 @@ _ZN4llvm5X86II7needSIBENS_10MCRegisterES1_b.exit.thread: ; preds = %173, %167
   tail call fastcc void @_ZN12_GLOBAL__N_18emitByteEhRN4llvm15SmallVectorImplIcEE(i8 noundef zeroext %246, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %247 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %18, i64 %22, i32 1
   %248 = load i64, ptr %247, align 8, !tbaa !48
-  %249 = getelementptr inbounds [9 x i32], ptr @_ZZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEbE7SSTable, i64 0, i64 %248
+  %249 = getelementptr inbounds i32, ptr @_ZZNK12_GLOBAL__N_116X86MCCodeEmitter16emitMemModRMByteERKN4llvm6MCInstEjjmNS_10PrefixKindEmRNS1_15SmallVectorImplIcEERNS6_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoEbE7SSTable, i64 %248
   %250 = load i32, ptr %249, align 4, !tbaa !36
   %251 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %252 = load i32, ptr %251, align 8, !tbaa !48

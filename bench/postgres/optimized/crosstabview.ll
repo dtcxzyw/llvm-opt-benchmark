@@ -1019,7 +1019,7 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   %37 = sub nsw i32 1, %36
   %38 = sdiv i32 %37, 2
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [2 x ptr], ptr %30, i64 0, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %30, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 32
   %.val19.i = load ptr, ptr %42, align 8
@@ -1037,13 +1037,13 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
 49:                                               ; preds = %35
   %.not15.i = icmp ult i32 %36, 3
   %50 = zext i1 %.not15.i to i64
-  %51 = getelementptr inbounds nuw [2 x ptr], ptr %42, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %42, i64 %50
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %40, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %.not.i.i = xor i1 %.not15.i, true
   %54 = zext i1 %.not.i.i to i64
-  %55 = getelementptr inbounds nuw [2 x ptr], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %51, align 8
   %57 = load ptr, ptr %42, align 8
@@ -1059,7 +1059,7 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   store ptr %41, ptr %55, align 8
   %.pre.i = load ptr, ptr %1, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
-  %.phi.trans.insert24.i = getelementptr inbounds [2 x ptr], ptr %.phi.trans.insert.i, i64 0, i64 %39
+  %.phi.trans.insert24.i = getelementptr inbounds ptr, ptr %.phi.trans.insert.i, i64 %39
   %.pre25.i = load ptr, ptr %.phi.trans.insert24.i, align 8
   br label %._crit_edge.i
 
@@ -1067,12 +1067,12 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   %65 = phi ptr [ %.pre25.i, %49 ], [ %41, %35 ]
   %66 = phi ptr [ %.pre.i, %49 ], [ %29, %35 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = getelementptr inbounds [2 x ptr], ptr %67, i64 0, i64 %39
+  %68 = getelementptr inbounds ptr, ptr %67, i64 %39
   store ptr %65, ptr %1, align 8
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %.not.i21.i = icmp ult i32 %36, 3
   %70 = zext i1 %.not.i21.i to i64
-  %71 = getelementptr inbounds nuw [2 x ptr], ptr %69, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %68, align 8
   %73 = load ptr, ptr %67, align 8

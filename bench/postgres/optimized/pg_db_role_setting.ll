@@ -360,7 +360,7 @@ define dso_local void @DropSetting(i32 noundef %0, i32 noundef %1) local_unnamed
 
 8:                                                ; preds = %7
   %9 = zext nneg i32 %.0 to i64
-  %10 = getelementptr inbounds nuw [2 x %struct.ScanKeyData], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %3, i64 %9
   %11 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %10, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %11) #7
   %12 = add nuw nsw i32 %.0, 1

@@ -700,7 +700,7 @@ _ZN11processor_t9slow_pathEv.exit:                ; preds = %.invoke, %233
   %.571180 = phi i64 [ %56, %.preheader ], [ %254, %310 ]
   %246 = lshr i64 %.571180, 1
   %247 = and i64 %246, 1023
-  %248 = getelementptr inbounds nuw [1024 x %struct.icache_entry_t], ptr %80, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw %struct.icache_entry_t, ptr %80, i64 %247
   %249 = load i64, ptr %248, align 8, !tbaa !185
   %250 = icmp eq i64 %249, %.571180
   br i1 %250, label %_ZN5mmu_t13access_icacheEm.exit.preheader, label %251, !prof !147
@@ -1066,14 +1066,14 @@ define linkonce_odr noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr
   %10 = lshr i64 %1, 12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 37008
   %12 = and i64 %10, 255
-  %13 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !160
   %15 = icmp eq i64 %14, %10
   br i1 %15, label %16, label %21, !prof !147
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %18 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %17, i64 0, i64 %12
+  %18 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %17, i64 %12
   %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8, !tbaa !220
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !160
@@ -1107,7 +1107,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %16, %21
   %33 = add i64 %1, 2
   %34 = lshr i64 %33, 12
   %35 = and i64 %34, 255
-  %36 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %11, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !160
   %38 = icmp eq i64 %37, %34
   br i1 %.not38.not, label %85, label %56, !prof !222
@@ -1116,14 +1116,14 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %16, %21
   %39 = add i64 %1, 2
   %40 = lshr i64 %39, 12
   %41 = and i64 %40, 255
-  %42 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %11, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !160
   %44 = icmp eq i64 %43, %40
   br i1 %44, label %45, label %48, !prof !147
 
 45:                                               ; preds = %.thread
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %47 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %46, i64 0, i64 %41
+  %47 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %46, i64 %41
   %.sroa.0.0.copyload.i.i = load ptr, ptr %47, align 8, !tbaa !220
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit
 
@@ -1146,7 +1146,7 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit:    ; preds = %45, %48
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %59 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %58, i64 0, i64 %35
+  %59 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %58, i64 %35
   %.sroa.0.0.copyload.i.i40 = load ptr, ptr %59, align 8, !tbaa !220
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
 
@@ -1164,14 +1164,14 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit41:  ; preds = %57, %60
   %67 = add i64 %1, 4
   %68 = lshr i64 %67, 12
   %69 = and i64 %68, 255
-  %70 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i64, ptr %11, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !160
   %72 = icmp eq i64 %71, %68
   br i1 %72, label %73, label %76, !prof !147
 
 73:                                               ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %75 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %74, i64 0, i64 %69
+  %75 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %74, i64 %69
   %.sroa.0.0.copyload.i.i43 = load ptr, ptr %75, align 8, !tbaa !220
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44
 
@@ -1195,7 +1195,7 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit44:  ; preds = %73, %76
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %88 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %87, i64 0, i64 %35
+  %88 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %87, i64 %35
   %.sroa.0.0.copyload.i.i46 = load ptr, ptr %88, align 8, !tbaa !220
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
 
@@ -1213,14 +1213,14 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit47:  ; preds = %86, %89
   %96 = add i64 %1, 4
   %97 = lshr i64 %96, 12
   %98 = and i64 %97, 255
-  %99 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i64, ptr %11, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !160
   %101 = icmp eq i64 %100, %97
   br i1 %101, label %102, label %105, !prof !147
 
 102:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %104 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %103, i64 0, i64 %98
+  %104 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %103, i64 %98
   %.sroa.0.0.copyload.i.i49 = load ptr, ptr %104, align 8, !tbaa !220
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
 
@@ -1238,14 +1238,14 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit50:  ; preds = %102, %105
   %112 = add i64 %1, 6
   %113 = lshr i64 %112, 12
   %114 = and i64 %113, 255
-  %115 = getelementptr inbounds nuw [256 x i64], ptr %11, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i64, ptr %11, i64 %114
   %116 = load i64, ptr %115, align 8, !tbaa !160
   %117 = icmp eq i64 %116, %113
   br i1 %117, label %118, label %121, !prof !147
 
 118:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %120 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %119, i64 0, i64 %114
+  %120 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %119, i64 %114
   %.sroa.0.0.copyload.i.i52 = load ptr, ptr %120, align 8, !tbaa !220
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53
 
@@ -1276,7 +1276,7 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit53:  ; preds = %118, %121
   %136 = add i64 %131, %1
   %137 = lshr i64 %136, 1
   %138 = and i64 %137, 1023
-  %139 = getelementptr inbounds nuw [1024 x %struct.icache_entry_t], ptr %135, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw %struct.icache_entry_t, ptr %135, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %139, ptr %140, align 8, !tbaa !190
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 16

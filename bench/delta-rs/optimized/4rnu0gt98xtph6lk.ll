@@ -4253,8 +4253,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 "_ZN12object_store4util15coalesce_ranges28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd79b06d3373702d1E.exit.i": ; preds = %33
   %38 = load ptr, ptr %18, align 8, !noalias !879, !nonnull !13, !noundef !13
   %39 = load ptr, ptr %14, align 8, !noalias !879, !nonnull !13, !noundef !13
-  %40 = getelementptr inbounds [0 x { i64, i64 }], ptr %39, i64 0, i64 %30
-  %41 = getelementptr inbounds [0 x { ptr, ptr, i64, { ptr } }], ptr %38, i64 0, i64 %30
+  %40 = getelementptr inbounds { i64, i64 }, ptr %39, i64 %30
+  %41 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %38, i64 %30
   %42 = load i64, ptr %25, align 8, !alias.scope !881, !noalias !882, !noundef !13
   %43 = load i64, ptr %40, align 8, !noalias !882, !noundef !13
   %44 = sub i64 %42, %43

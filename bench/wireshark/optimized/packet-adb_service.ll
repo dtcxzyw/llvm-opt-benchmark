@@ -325,7 +325,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 38:                                               ; preds = %.lr.ph628, %38
   %indvars.iv653 = phi i64 [ 0, %.lr.ph628 ], [ %indvars.iv.next654, %38 ]
-  %39 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %indvars.iv653
+  %39 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %indvars.iv653
   store i32 1, ptr %39, align 16
   %40 = getelementptr i32, ptr %36, i64 %indvars.iv653
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -336,7 +336,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 ._crit_edge629:                                   ; preds = %38, %.preheader
   %42 = zext i32 %32 to i64
-  %43 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %42
+  %43 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %42
   store i32 0, ptr %43, align 16
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr null, ptr %44, align 8
@@ -401,12 +401,12 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 80:                                               ; preds = %77
   store i32 1, ptr %43, align 16
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %82 = add nsw i32 %32, 1
   store ptr %81, ptr %44, align 8
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %83
+  %82 = sext i32 %32 to i64
+  %83 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %82
+  %84 = getelementptr i8, ptr %83, i64 16
   store i32 0, ptr %84, align 16
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %85 = getelementptr i8, ptr %83, i64 24
   store ptr null, ptr %85, align 8
   %86 = call ptr @wmem_file_scope()
   %87 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %86, i64 noundef 12) #7
@@ -596,7 +596,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 197:                                              ; preds = %.lr.ph, %197
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %197 ]
-  %198 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %indvars.iv
+  %198 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %indvars.iv
   store i32 1, ptr %198, align 16
   %199 = getelementptr i32, ptr %195, i64 %indvars.iv
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
@@ -607,7 +607,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 ._crit_edge:                                      ; preds = %197, %.preheader596
   %201 = zext i32 %191 to i64
-  %202 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %201
+  %202 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %201
   store i32 0, ptr %202, align 16
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store ptr null, ptr %203, align 8
@@ -646,12 +646,12 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 222:                                              ; preds = %.thread584
   store i32 1, ptr %202, align 16
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %224 = add nsw i32 %191, 1
   store ptr %223, ptr %203, align 8
-  %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %225
+  %224 = sext i32 %191 to i64
+  %225 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %224
+  %226 = getelementptr i8, ptr %225, i64 16
   store i32 0, ptr %226, align 16
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %227 = getelementptr i8, ptr %225, i64 24
   store ptr null, ptr %227, align 8
   %228 = call ptr @wmem_file_scope()
   %229 = call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %228, i64 noundef 48) #7
@@ -1022,7 +1022,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 460:                                              ; preds = %.lr.ph607, %460
   %indvars.iv643 = phi i64 [ 0, %.lr.ph607 ], [ %indvars.iv.next644, %460 ]
-  %461 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %indvars.iv643
+  %461 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %indvars.iv643
   store i32 1, ptr %461, align 16
   %462 = getelementptr i32, ptr %458, i64 %indvars.iv643
   %463 = getelementptr inbounds nuw i8, ptr %461, i64 8
@@ -1037,7 +1037,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 ._crit_edge608:                                   ; preds = %.preheader592, %._crit_edge608.loopexit
   %.2522.lcssa = phi i64 [ %464, %._crit_edge608.loopexit ], [ 0, %.preheader592 ]
-  %465 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %.2522.lcssa
+  %465 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %.2522.lcssa
   store i32 0, ptr %465, align 16
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
   store ptr null, ptr %466, align 8
@@ -1286,7 +1286,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 588:                                              ; preds = %.lr.ph620, %588
   %indvars.iv648 = phi i64 [ 0, %.lr.ph620 ], [ %indvars.iv.next649, %588 ]
-  %589 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %indvars.iv648
+  %589 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %indvars.iv648
   store i32 1, ptr %589, align 16
   %590 = getelementptr i32, ptr %586, i64 %indvars.iv648
   %591 = getelementptr inbounds nuw i8, ptr %589, i64 8
@@ -1297,13 +1297,13 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 ._crit_edge621:                                   ; preds = %588, %.preheader591
   %592 = zext i32 %583 to i64
-  %593 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %592
+  %593 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %592
   store i32 1, ptr %593, align 16
   %594 = add nsw i32 %583, 1
   %595 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store ptr %554, ptr %595, align 8
   %596 = zext i32 %594 to i64
-  %597 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %596
+  %597 = getelementptr %struct._wmem_tree_key_t, ptr %9, i64 %596
   store i32 0, ptr %597, align 16
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 8
   store ptr null, ptr %598, align 8

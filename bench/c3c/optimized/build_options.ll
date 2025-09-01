@@ -658,7 +658,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
 
 30:                                               ; preds = %.preheader57, %30
   %indvars.iv = phi i64 [ 1, %.preheader57 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [18 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   store i32 1, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
@@ -732,7 +732,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
 
 .preheader56:                                     ; preds = %30, %.preheader56
   %indvars.iv377 = phi i64 [ %indvars.iv.next378, %.preheader56 ], [ 13, %30 ]
-  %91 = getelementptr inbounds nuw [18 x i32], ptr %29, i64 0, i64 %indvars.iv377
+  %91 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv377
   store i32 2, ptr %91, align 4
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond380.not = icmp eq i64 %indvars.iv.next378, 18
@@ -878,7 +878,7 @@ add_linker_arg.exit.i:                            ; preds = %135
   %143 = add nsw i32 %140, 1
   store i32 %143, ptr %48, align 8
   %144 = sext i32 %140 to i64
-  %145 = getelementptr inbounds [1024 x ptr], ptr %49, i64 0, i64 %144
+  %145 = getelementptr inbounds ptr, ptr %49, i64 %144
   store ptr %139, ptr %145, align 8
   br label %parse_option.exit
 
@@ -1166,7 +1166,7 @@ sub_1308.i:                                       ; preds = %100
   %263 = add nsw i32 %262, 1
   store i32 %263, ptr %43, align 8
   %264 = sext i32 %262 to i64
-  %265 = getelementptr inbounds [1024 x ptr], ptr %42, i64 0, i64 %264
+  %265 = getelementptr inbounds ptr, ptr %42, i64 %264
   store ptr %255, ptr %265, align 8
   br label %parse_option.exit
 
@@ -1200,7 +1200,7 @@ sub_1308.i:                                       ; preds = %100
   %281 = add nsw i32 %280, 1
   store i32 %281, ptr %41, align 8
   %282 = sext i32 %280 to i64
-  %283 = getelementptr inbounds [1024 x ptr], ptr %40, i64 0, i64 %282
+  %283 = getelementptr inbounds ptr, ptr %40, i64 %282
   store ptr %274, ptr %283, align 8
   br label %parse_option.exit
 
@@ -1850,7 +1850,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 589:                                              ; preds = %594, %587
   %indvars.iv.i.i = phi i64 [ 1, %587 ], [ %indvars.iv.next.i.i, %594 ]
-  %590 = getelementptr inbounds nuw [25 x ptr], ptr @arch_os_target, i64 0, i64 %indvars.iv.i.i
+  %590 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv.i.i
   %591 = load ptr, ptr %590, align 8
   %592 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %591, ptr noundef nonnull readonly dereferenceable(1) %583) #18
   %593 = icmp eq i32 %592, 0
@@ -1878,7 +1878,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 602:                                              ; preds = %602, %arch_os_target_from_string.exit.thread.i
   %indvars.iv.i = phi i64 [ 1, %arch_os_target_from_string.exit.thread.i ], [ %indvars.iv.next.i, %602 ]
   %603 = load ptr, ptr @stderr, align 8
-  %604 = getelementptr inbounds nuw [25 x ptr], ptr @arch_os_target, i64 0, i64 %indvars.iv.i
+  %604 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv.i
   %605 = load ptr, ptr %604, align 8
   %606 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.229, ptr noundef %605) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2567,7 +2567,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   %990 = add nsw i32 %989, 1
   store i32 %990, ptr %58, align 8
   %991 = sext i32 %989 to i64
-  %992 = getelementptr inbounds [1024 x ptr], ptr %57, i64 0, i64 %991
+  %992 = getelementptr inbounds ptr, ptr %57, i64 %991
   store ptr %963, ptr %992, align 8
   br label %parse_option.exit
 
@@ -2616,7 +2616,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   %1019 = add nsw i32 %1018, 1
   store i32 %1019, ptr %56, align 8
   %1020 = sext i32 %1018 to i64
-  %1021 = getelementptr inbounds [1024 x ptr], ptr %0, i64 0, i64 %1020
+  %1021 = getelementptr inbounds ptr, ptr %0, i64 %1020
   store ptr %1007, ptr %1021, align 8
   br label %parse_option.exit
 
@@ -3586,7 +3586,7 @@ define dso_local range(i32 0, 25) i32 @arch_os_target_from_string(ptr noundef re
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw [25 x ptr], ptr @arch_os_target, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #18
   %6 = icmp eq i32 %5, 0
@@ -3728,7 +3728,7 @@ define internal fastcc void @print_all_targets() unnamed_addr #4 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr @stdout, align 8
-  %5 = getelementptr inbounds nuw [25 x ptr], ptr @arch_os_target, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.229, ptr noundef %6) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -618,7 +618,7 @@ define dso_local ptr @drm_get_color_encoding_name(i32 noundef %0) local_unnamed_
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [3 x ptr], ptr @color_encoding_name, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @color_encoding_name, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -640,7 +640,7 @@ define dso_local ptr @drm_get_color_range_name(i32 noundef %0) local_unnamed_add
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [2 x ptr], ptr @color_range_name, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @color_range_name, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -705,10 +705,10 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
 
 32:                                               ; preds = %.preheader
   %33 = sext i32 %28 to i64
-  %34 = getelementptr [3 x %struct.drm_prop_enum_list], ptr %6, i64 0, i64 %33
+  %34 = getelementptr %struct.drm_prop_enum_list, ptr %6, i64 %33
   %35 = trunc nuw nsw i64 %27 to i32
   store i32 %35, ptr %34, align 16
-  %36 = getelementptr [3 x ptr], ptr @color_encoding_name, i64 0, i64 %27
+  %36 = getelementptr ptr, ptr @color_encoding_name, i64 %27
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %37, ptr %38, align 8
@@ -755,10 +755,10 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
 
 62:                                               ; preds = %55
   %63 = sext i32 %58 to i64
-  %64 = getelementptr [3 x %struct.drm_prop_enum_list], ptr %6, i64 0, i64 %63
+  %64 = getelementptr %struct.drm_prop_enum_list, ptr %6, i64 %63
   %65 = trunc nuw nsw i64 %57 to i32
   store i32 %65, ptr %64, align 16
-  %66 = getelementptr [2 x ptr], ptr @color_range_name, i64 0, i64 %57
+  %66 = getelementptr ptr, ptr @color_range_name, i64 %57
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %67, ptr %68, align 8

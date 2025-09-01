@@ -102,7 +102,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %49 = icmp eq i32 %.0172.i, %43
   %50 = zext i1 %49 to i16
   %spec.select20.i = add i16 %.03.i, %50
-  %51 = getelementptr inbounds nuw [16777216 x i16], ptr %47, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv.i
   store i16 %spec.select20.i, ptr %51, align 2, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = add nsw i32 %.0172.i, 1
@@ -161,9 +161,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 33:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %34 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !24
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !24
   %38 = load i32, ptr %25, align 8, !tbaa !47
   %39 = trunc nuw nsw i64 %indvars.iv to i32
@@ -173,19 +173,19 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not38, label %42, label %58
 
 42:                                               ; preds = %33
-  %43 = getelementptr inbounds nuw [8 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !48
   %45 = load ptr, ptr %4, align 8, !tbaa !30
-  %46 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !48
   %.not39 = icmp eq ptr %44, %47
   br i1 %.not39, label %87, label %48
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %51, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !24
   %54 = load i32, ptr %32, align 4, !tbaa !49
   %55 = add nsw i32 %54, 7
@@ -198,10 +198,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %59 = load ptr, ptr %4, align 8, !tbaa !30
   %60 = load ptr, ptr %7, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %62 = getelementptr inbounds nuw [4 x i32], ptr %61, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !24
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %65 = getelementptr inbounds nuw [4 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !24
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %68 = load i32, ptr %67, align 8, !tbaa !25
@@ -212,22 +212,22 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %63, ptr %26, align 4, !tbaa !50
   store i32 %66, ptr %3, align 8, !tbaa !52
-  %73 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !48
   store ptr %74, ptr %27, align 8, !tbaa !53
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %75, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !24
   store i32 %77, ptr %28, align 8, !tbaa !54
-  %78 = getelementptr inbounds nuw [8 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !48
   store ptr %79, ptr %29, align 8, !tbaa !55
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !24
   store i32 %81, ptr %31, align 4, !tbaa !56
   %82 = getelementptr inbounds nuw i8, ptr %60, i64 33554512
   %83 = zext i1 %72 to i64
-  %84 = getelementptr inbounds nuw [2 x ptr], ptr %82, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !57
   %86 = call i32 %85(ptr noundef %6, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -375,7 +375,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %88 = icmp eq i32 %.0172.i, %82
   %89 = zext i1 %88 to i16
   %spec.select20.i = add i16 %.03.i, %89
-  %90 = getelementptr inbounds nuw [16777216 x i16], ptr %86, i64 0, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv.i
   store i16 %spec.select20.i, ptr %90, align 2, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %91 = add nsw i32 %.0172.i, 1

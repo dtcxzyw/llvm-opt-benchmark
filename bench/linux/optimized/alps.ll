@@ -609,7 +609,7 @@ define internal range(i32 0, 3) i32 @alps_process_byte(ptr noundef %0) #0 align 
 143:                                              ; preds = %139
   %144 = add nuw nsw i64 %137, 4294967295
   %145 = and i64 %144, 4294967295
-  %146 = getelementptr [8 x i8], ptr %124, i64 0, i64 %145
+  %146 = getelementptr i8, ptr %124, i64 %145
   %147 = load i8, ptr %146, align 1
   %148 = icmp sgt i8 %147, -1
   br i1 %148, label %.thread7, label %149
@@ -1071,7 +1071,7 @@ alps_rpt_cmd.exit5:                               ; preds = %58
 
 .preheader:                                       ; preds = %alps_rpt_cmd.exit5, %65
   %68 = phi i64 [ %66, %65 ], [ 0, %alps_rpt_cmd.exit5 ]
-  %69 = getelementptr [22 x %struct.alps_model_info], ptr @alps_model_data, i64 0, i64 %68
+  %69 = getelementptr %struct.alps_model_info, ptr @alps_model_data, i64 %68
   %70 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef dereferenceable(3) %69, i64 3)
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %65
@@ -3892,7 +3892,7 @@ define internal void @alps_process_packet_v4(ptr noundef readonly captures(none)
   tail call void asm sideeffect "319: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 319b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 319) #14, !srcloc !20
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 906, i32 2307, i64 12) #14, !srcloc !21
   tail call void asm sideeffect "320: nop\0A\09.pushsection .discard.instr_end\0A\09.long 320b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 320) #14, !srcloc !22
-  br label %113
+  br label %111
 
 13:                                               ; preds = %.thread, %10
   %14 = phi i32 [ 0, %.thread ], [ %.pre, %10 ]
@@ -3900,127 +3900,125 @@ define internal void @alps_process_packet_v4(ptr noundef readonly captures(none)
   %16 = load i8, ptr %5, align 1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 276
   %18 = sext i32 %15 to i64
-  %19 = getelementptr [6 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr i8, ptr %17, i64 %18
   store i8 %16, ptr %19, align 1
   %20 = getelementptr i8, ptr %0, i64 239
   %21 = load i8, ptr %20, align 1
-  %22 = or disjoint i32 %15, 1
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr [6 x i8], ptr %17, i64 0, i64 %23
-  store i8 %21, ptr %24, align 1
-  %25 = getelementptr i8, ptr %0, i64 236
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %28 = load i8, ptr %27, align 4
-  %29 = shl i8 %26, 2
-  %30 = and i8 %29, 4
-  %31 = and i8 %28, -5
-  %32 = or disjoint i8 %31, %30
-  store i8 %32, ptr %27, align 4
-  %33 = load i8, ptr %25, align 1
-  %34 = shl i8 %33, 2
-  %35 = and i8 %34, 8
-  %36 = and i8 %32, -9
-  %37 = or disjoint i8 %35, %36
-  store i8 %37, ptr %27, align 4
-  %38 = getelementptr i8, ptr %0, i64 233
-  %39 = load i8, ptr %38, align 1
-  %40 = and i8 %39, 127
-  %41 = zext nneg i8 %40 to i16
-  %42 = shl nuw nsw i16 %41, 4
-  %43 = getelementptr i8, ptr %0, i64 235
-  %44 = load i8, ptr %43, align 1
-  %45 = lshr i8 %44, 2
-  %46 = and i8 %45, 12
-  %47 = zext nneg i8 %46 to i16
-  %48 = or disjoint i16 %42, %47
-  %49 = load i8, ptr %3, align 1
-  %50 = lshr i8 %49, 4
-  %51 = and i8 %50, 3
-  %52 = zext nneg i8 %51 to i16
-  %53 = or disjoint i16 %48, %52
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 300
-  store i16 %53, ptr %54, align 4
-  %55 = getelementptr i8, ptr %0, i64 234
-  %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 127
-  %58 = zext nneg i8 %57 to i16
-  %59 = shl nuw nsw i16 %58, 4
-  %60 = load i8, ptr %43, align 1
-  %61 = and i8 %60, 15
-  %62 = zext nneg i8 %61 to i16
-  %63 = or disjoint i16 %59, %62
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 302
-  store i16 %63, ptr %64, align 2
-  %65 = getelementptr i8, ptr %0, i64 237
-  %66 = load i8, ptr %65, align 1
-  %67 = and i8 %66, 127
-  %68 = zext nneg i8 %67 to i32
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  store i32 %68, ptr %69, align 4
-  %70 = load i32, ptr %9, align 4
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %9, align 4
-  %72 = icmp sgt i32 %71, 2
-  br i1 %72, label %73, label %._crit_edge2
+  %22 = getelementptr i8, ptr %19, i64 1
+  store i8 %21, ptr %22, align 1
+  %23 = getelementptr i8, ptr %0, i64 236
+  %24 = load i8, ptr %23, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 320
+  %26 = load i8, ptr %25, align 4
+  %27 = shl i8 %24, 2
+  %28 = and i8 %27, 4
+  %29 = and i8 %26, -5
+  %30 = or disjoint i8 %29, %28
+  store i8 %30, ptr %25, align 4
+  %31 = load i8, ptr %23, align 1
+  %32 = shl i8 %31, 2
+  %33 = and i8 %32, 8
+  %34 = and i8 %30, -9
+  %35 = or disjoint i8 %33, %34
+  store i8 %35, ptr %25, align 4
+  %36 = getelementptr i8, ptr %0, i64 233
+  %37 = load i8, ptr %36, align 1
+  %38 = and i8 %37, 127
+  %39 = zext nneg i8 %38 to i16
+  %40 = shl nuw nsw i16 %39, 4
+  %41 = getelementptr i8, ptr %0, i64 235
+  %42 = load i8, ptr %41, align 1
+  %43 = lshr i8 %42, 2
+  %44 = and i8 %43, 12
+  %45 = zext nneg i8 %44 to i16
+  %46 = or disjoint i16 %40, %45
+  %47 = load i8, ptr %3, align 1
+  %48 = lshr i8 %47, 4
+  %49 = and i8 %48, 3
+  %50 = zext nneg i8 %49 to i16
+  %51 = or disjoint i16 %46, %50
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 300
+  store i16 %51, ptr %52, align 4
+  %53 = getelementptr i8, ptr %0, i64 234
+  %54 = load i8, ptr %53, align 1
+  %55 = and i8 %54, 127
+  %56 = zext nneg i8 %55 to i16
+  %57 = shl nuw nsw i16 %56, 4
+  %58 = load i8, ptr %41, align 1
+  %59 = and i8 %58, 15
+  %60 = zext nneg i8 %59 to i16
+  %61 = or disjoint i16 %57, %60
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 302
+  store i16 %61, ptr %62, align 2
+  %63 = getelementptr i8, ptr %0, i64 237
+  %64 = load i8, ptr %63, align 1
+  %65 = and i8 %64, 127
+  %66 = zext nneg i8 %65 to i32
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  store i32 %66, ptr %67, align 4
+  %68 = load i32, ptr %9, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %9, align 4
+  %70 = icmp sgt i32 %69, 2
+  br i1 %70, label %71, label %._crit_edge2
 
 ._crit_edge2:                                     ; preds = %13
   %.phi.trans.insert3 = getelementptr inbounds nuw i8, ptr %2, i64 292
   %.pre4 = load i32, ptr %.phi.trans.insert3, align 4
-  br label %110
+  br label %108
 
-73:                                               ; preds = %13
+71:                                               ; preds = %13
   store i32 0, ptr %9, align 4
-  %74 = getelementptr i8, ptr %2, i64 278
-  %75 = load i8, ptr %74, align 2
-  %76 = and i8 %75, 31
-  %77 = zext nneg i8 %76 to i32
-  %78 = shl nuw nsw i32 %77, 10
-  %79 = getelementptr i8, ptr %2, i64 279
-  %80 = load i8, ptr %79, align 1
-  %81 = and i8 %80, 96
-  %82 = zext nneg i8 %81 to i32
-  %83 = shl nuw nsw i32 %82, 3
-  %84 = or disjoint i32 %83, %78
-  %85 = load i8, ptr %17, align 4
-  %86 = shl i8 %85, 2
-  %87 = zext i8 %86 to i32
-  %88 = or disjoint i32 %84, %87
-  %89 = getelementptr i8, ptr %2, i64 277
-  %90 = load i8, ptr %89, align 1
-  %91 = lshr i8 %90, 5
-  %92 = and i8 %91, 3
-  %93 = zext nneg i8 %92 to i32
-  %94 = or disjoint i32 %88, %93
-  store i32 %94, ptr %4, align 4
-  %95 = getelementptr i8, ptr %2, i64 281
-  %96 = load i8, ptr %95, align 1
-  %97 = and i8 %96, 1
-  %98 = zext nneg i8 %97 to i32
-  %99 = shl nuw nsw i32 %98, 10
-  %100 = and i8 %80, 31
-  %101 = zext nneg i8 %100 to i32
-  %102 = shl nuw nsw i32 %101, 5
-  %103 = or disjoint i32 %99, %102
-  %104 = and i8 %90, 31
-  %105 = zext nneg i8 %104 to i32
-  %106 = or disjoint i32 %103, %105
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 288
+  %72 = getelementptr i8, ptr %2, i64 278
+  %73 = load i8, ptr %72, align 2
+  %74 = and i8 %73, 31
+  %75 = zext nneg i8 %74 to i32
+  %76 = shl nuw nsw i32 %75, 10
+  %77 = getelementptr i8, ptr %2, i64 279
+  %78 = load i8, ptr %77, align 1
+  %79 = and i8 %78, 96
+  %80 = zext nneg i8 %79 to i32
+  %81 = shl nuw nsw i32 %80, 3
+  %82 = or disjoint i32 %81, %76
+  %83 = load i8, ptr %17, align 4
+  %84 = shl i8 %83, 2
+  %85 = zext i8 %84 to i32
+  %86 = or disjoint i32 %82, %85
+  %87 = getelementptr i8, ptr %2, i64 277
+  %88 = load i8, ptr %87, align 1
+  %89 = lshr i8 %88, 5
+  %90 = and i8 %89, 3
+  %91 = zext nneg i8 %90 to i32
+  %92 = or disjoint i32 %86, %91
+  store i32 %92, ptr %4, align 4
+  %93 = getelementptr i8, ptr %2, i64 281
+  %94 = load i8, ptr %93, align 1
+  %95 = and i8 %94, 1
+  %96 = zext nneg i8 %95 to i32
+  %97 = shl nuw nsw i32 %96, 10
+  %98 = and i8 %78, 31
+  %99 = zext nneg i8 %98 to i32
+  %100 = shl nuw nsw i32 %99, 5
+  %101 = or disjoint i32 %97, %100
+  %102 = and i8 %88, 31
+  %103 = zext nneg i8 %102 to i32
+  %104 = or disjoint i32 %101, %103
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 288
+  store i32 %104, ptr %105, align 4
+  %106 = tail call fastcc i32 @alps_process_bitmap(ptr noundef %2, ptr noundef nonnull %4)
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 292
   store i32 %106, ptr %107, align 4
-  %108 = tail call fastcc i32 @alps_process_bitmap(ptr noundef %2, ptr noundef nonnull %4)
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 292
-  store i32 %108, ptr %109, align 4
-  br label %110
+  br label %108
 
-110:                                              ; preds = %._crit_edge2, %73
-  %111 = phi i32 [ %.pre4, %._crit_edge2 ], [ %108, %73 ]
+108:                                              ; preds = %._crit_edge2, %71
+  %109 = phi i32 [ %.pre4, %._crit_edge2 ], [ %106, %71 ]
   %.val = load ptr, ptr %0, align 8
-  %112 = getelementptr i8, ptr %0, i64 8
-  %.val1 = load ptr, ptr %112, align 8
-  tail call fastcc void @alps_report_semi_mt_data(ptr %.val, ptr %.val1, i32 noundef %111)
-  br label %113
+  %110 = getelementptr i8, ptr %0, i64 8
+  %.val1 = load ptr, ptr %110, align 8
+  tail call fastcc void @alps_report_semi_mt_data(ptr %.val, ptr %.val1, i32 noundef %109)
+  br label %111
 
-113:                                              ; preds = %110, %12
+111:                                              ; preds = %108, %12
   ret void
 }
 
@@ -7128,7 +7126,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
 
 145:                                              ; preds = %145, %143
   %146 = phi i64 [ 0, %143 ], [ %150, %145 ]
-  %147 = getelementptr [4 x %struct.input_mt_pos], ptr %7, i64 0, i64 %146
+  %147 = getelementptr %struct.input_mt_pos, ptr %7, i64 %146
   %148 = load i16, ptr %147, align 4
   %149 = sub i16 %144, %148
   store i16 %149, ptr %147, align 4
@@ -7142,7 +7140,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
 
 154:                                              ; preds = %154, %152
   %155 = phi i64 [ 0, %152 ], [ %159, %154 ]
-  %156 = getelementptr [4 x %struct.input_mt_pos], ptr %7, i64 0, i64 %155, i32 1
+  %156 = getelementptr %struct.input_mt_pos, ptr %7, i64 %155, i32 1
   %157 = load i16, ptr %156, align 2
   %158 = sub i16 %153, %157
   store i16 %158, ptr %156, align 2
@@ -7167,7 +7165,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
   %170 = phi i32 [ 2147483647, %164 ], [ %191, %189 ]
   %171 = load i16, ptr %165, align 4
   %172 = sext i16 %171 to i32
-  %173 = getelementptr [4 x %struct.input_mt_pos], ptr %7, i64 0, i64 %169
+  %173 = getelementptr %struct.input_mt_pos, ptr %7, i64 %169
   %174 = load i16, ptr %173, align 4
   %175 = sext i16 %174 to i32
   %176 = sub nsw i32 %172, %175
@@ -7209,7 +7207,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
   %201 = getelementptr i8, ptr %1, i64 24
   %202 = load i32, ptr %161, align 8
   %203 = sext i32 %202 to i64
-  %204 = getelementptr [4 x %struct.input_mt_pos], ptr %7, i64 0, i64 %203
+  %204 = getelementptr %struct.input_mt_pos, ptr %7, i64 %203
   %205 = load i32, ptr %204, align 4
   store i32 %205, ptr %201, align 4
   br label %206
@@ -7333,9 +7331,9 @@ define internal fastcc void @alps_report_mt_data(ptr %.0.val, ptr %.8.val, i32 n
 
 8:                                                ; preds = %8, %6
   %9 = phi i64 [ 0, %6 ], [ %19, %8 ]
-  %10 = getelementptr [4 x i32], ptr %2, i64 0, i64 %9
+  %10 = getelementptr i32, ptr %2, i64 %9
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr [4 x %struct.input_mt_pos], ptr %3, i64 0, i64 %9
+  %12 = getelementptr %struct.input_mt_pos, ptr %3, i64 %9
   %13 = load i16, ptr %12, align 4
   %14 = sext i16 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 2

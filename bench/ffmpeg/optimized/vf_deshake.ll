@@ -520,12 +520,12 @@ define internal fastcc void @find_motion(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not129170, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader159
-  %23 = getelementptr inbounds nuw [129 x [129 x i32]], ptr %20, i64 0, i64 %indvars.iv228
+  %23 = getelementptr inbounds nuw [129 x i32], ptr %20, i64 %indvars.iv228
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw [129 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   store i32 0, ptr %25, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !36
@@ -889,11 +889,11 @@ find_block_motion.exit:                           ; preds = %.loopexit.i
 170:                                              ; preds = %find_block_motion.exit
   %171 = add nsw i32 %.pre243, %.sroa.0.8
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds [129 x [129 x i32]], ptr %45, i64 0, i64 %172
+  %173 = getelementptr inbounds [129 x i32], ptr %45, i64 %172
   %174 = load i32, ptr %35, align 4, !tbaa !36
   %175 = add nsw i32 %174, %.sroa.12.8
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds [129 x i32], ptr %173, i64 0, i64 %176
+  %177 = getelementptr inbounds i32, ptr %173, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !62
   %179 = add nsw i32 %178, 1
   store i32 %179, ptr %177, align 4, !tbaa !62
@@ -999,7 +999,7 @@ find_block_motion.exit.thread:                    ; preds = %.loopexit.i.find_bl
   %.0127197.i = phi i32 [ 1, %224 ], [ %.1177.i, %.thread.i136 ]
   %231 = add nsw i32 %.0127197.i, -1
   %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds [64 x [2 x ptr]], ptr %8, i64 0, i64 %232
+  %233 = getelementptr inbounds [2 x ptr], ptr %8, i64 %232
   %234 = load ptr, ptr %233, align 16, !tbaa !93
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %236 = load ptr, ptr %235, align 8, !tbaa !93
@@ -1177,7 +1177,7 @@ find_block_motion.exit.thread:                    ; preds = %.loopexit.i.find_bl
   br i1 %291, label %292, label %296
 
 292:                                              ; preds = %287
-  %293 = getelementptr inbounds [64 x [2 x ptr]], ptr %8, i64 0, i64 %indvars.iv.i139
+  %293 = getelementptr inbounds [2 x ptr], ptr %8, i64 %indvars.iv.i139
   store ptr %.0128189.i, ptr %293, align 16, !tbaa !93
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
   store ptr %.0137.lcssa.i, ptr %294, align 8, !tbaa !93
@@ -1186,7 +1186,7 @@ find_block_motion.exit.thread:                    ; preds = %.loopexit.i.find_bl
 
 296:                                              ; preds = %287
   %297 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 8
-  %298 = getelementptr inbounds [64 x [2 x ptr]], ptr %8, i64 0, i64 %indvars.iv.i139
+  %298 = getelementptr inbounds [2 x ptr], ptr %8, i64 %indvars.iv.i139
   store ptr %297, ptr %298, align 16, !tbaa !93
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store ptr %.0132188.i, ptr %299, align 8, !tbaa !93
@@ -1284,7 +1284,7 @@ clean_mean.exit:                                  ; preds = %.lr.ph201.i, %306
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge210
   %indvars.iv237 = phi i64 [ %330, %.preheader.preheader ], [ %indvars.iv.next238, %._crit_edge210 ]
   %.0121212 = phi i32 [ 0, %.preheader.preheader ], [ %.2123, %._crit_edge210 ]
-  %invariant.gep = getelementptr inbounds nuw [129 x i32], ptr %327, i64 0, i64 %indvars.iv237
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %327, i64 %indvars.iv237
   %331 = trunc nuw i64 %indvars.iv237 to i32
   %332 = sub nsw i32 %331, %.lcssa168289
   %333 = sitofp i32 %332 to double
@@ -1293,7 +1293,7 @@ clean_mean.exit:                                  ; preds = %.lr.ph201.i, %306
 334:                                              ; preds = %.preheader, %341
   %indvars.iv234 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next235, %341 ]
   %.1122207 = phi i32 [ %.0121212, %.preheader ], [ %.2123, %341 ]
-  %gep = getelementptr inbounds nuw [129 x [129 x i32]], ptr %invariant.gep, i64 0, i64 %indvars.iv234
+  %gep = getelementptr inbounds nuw [129 x i32], ptr %invariant.gep, i64 %indvars.iv234
   %335 = load i32, ptr %gep, align 4, !tbaa !62
   %336 = icmp sgt i32 %335, %.1122207
   br i1 %336, label %337, label %341
@@ -1432,19 +1432,19 @@ define internal i32 @deshake_transform_c(ptr readnone captures(none) %0, i32 nou
 
 23:                                               ; preds = %23, %11
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !61
-  %26 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !61
-  %28 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !62
-  %30 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !62
-  %32 = getelementptr inbounds nuw [3 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !62
-  %34 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !62
-  %36 = getelementptr inbounds nuw [3 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !102
   %38 = tail call i32 @ff_affine_transform(ptr noundef %25, ptr noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %35, ptr noundef %37, i32 noundef %7, i32 noundef %8) #10
   %39 = icmp slt i32 %38, 0

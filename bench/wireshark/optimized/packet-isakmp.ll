@@ -2952,7 +2952,7 @@ dissect_transform.exit.us.i:                      ; preds = %.lr.ph116.i.us.i, %
 
 switch.lookup:                                    ; preds = %370
   %381 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_payloads, i64 0, i64 %381
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_payloads, i64 %381
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %382
 
@@ -3770,20 +3770,20 @@ dissect_resp_lifetime_ipsec_attribute.exit.i:     ; preds = %679, %660
 
 782:                                              ; preds = %.lr.ph340.i
   %783 = load i32, ptr %24, align 4
-  %switch.tableidx488 = add i32 %783, -1
-  %784 = icmp ult i32 %switch.tableidx488, 5
-  br i1 %784, label %switch.lookup487, label %789
+  %switch.tableidx487 = add i32 %783, -1
+  %784 = icmp ult i32 %switch.tableidx487, 5
+  br i1 %784, label %switch.lookup488, label %789
 
-switch.lookup487:                                 ; preds = %782
-  %785 = zext nneg i32 %switch.tableidx488 to i64
-  %switch.gep489 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_payloads.1, i64 0, i64 %785
+switch.lookup488:                                 ; preds = %782
+  %785 = zext nneg i32 %switch.tableidx487 to i64
+  %switch.gep489 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_payloads.1, i64 %785
   %switch.load490 = load ptr, ptr %switch.gep489, align 8
   %786 = load ptr, ptr %26, align 8
   %787 = load i32, ptr %switch.load490, align 4
   %788 = call ptr @proto_tree_add_item(ptr noundef %786, i32 noundef %787, ptr noundef %0, i32 noundef %776, i32 noundef %777, i32 noundef 0)
   br label %789
 
-789:                                              ; preds = %782, %switch.lookup487
+789:                                              ; preds = %782, %switch.lookup488
   %.pre352.i = add i32 %776, %777
   br label %dissect_rohc_attribute.exit.i
 
@@ -8738,7 +8738,7 @@ ikev1_find_gcry_md_algo.exit.thread.i:            ; preds = %ikev1_find_gcry_cip
 
 switch.lookup:                                    ; preds = %ikev1_find_gcry_cipher_algo.exit.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.prepare_decrypt, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.prepare_decrypt, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %switch.load, ptr %24, align 8

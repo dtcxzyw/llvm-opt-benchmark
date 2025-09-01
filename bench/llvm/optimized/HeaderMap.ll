@@ -890,7 +890,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl14lookupFilenameEN4llvm9
   %.058.i = phi ptr [ %26, %.lr.ph.i ], [ %1, %4 ]
   %17 = load i8, ptr %.058.i, align 1, !tbaa !68
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !93
   %21 = trunc i16 %20 to i8
   %22 = and i8 %21, 32

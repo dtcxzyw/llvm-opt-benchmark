@@ -449,9 +449,9 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   %113 = load i16, ptr %98, align 2
   %114 = lshr i16 %113, 12
   %115 = and i16 %114, 3
-  %116 = or disjoint i16 %115, 32
-  %117 = zext nneg i16 %116 to i64
-  %118 = getelementptr [38 x i64], ptr %112, i64 0, i64 %117
+  %116 = zext nneg i16 %115 to i64
+  %117 = getelementptr i64, ptr %112, i64 %116
+  %118 = getelementptr i8, ptr %117, i64 256
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %118, i64 %110, ptr elementtype(i64) %118) #7, !srcloc !15
   %119 = load ptr, ptr %93, align 8
   %120 = load i32, ptr %103, align 4
@@ -465,9 +465,9 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   %128 = load i16, ptr %98, align 2
   %129 = lshr i16 %128, 12
   %130 = and i16 %129, 3
-  %131 = or disjoint i16 %130, 32
-  %132 = zext nneg i16 %131 to i64
-  %133 = getelementptr [38 x i64], ptr %127, i64 0, i64 %132
+  %131 = zext nneg i16 %130 to i64
+  %132 = getelementptr i64, ptr %127, i64 %131
+  %133 = getelementptr i8, ptr %132, i64 256
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %133, i64 %126, ptr elementtype(i64) %133) #7, !srcloc !16
   %134 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %135 = load i64, ptr %134, align 8
@@ -1273,7 +1273,7 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr noundef readonly captures(no
   %68 = phi i32 [ %249, %.critedge19 ], [ %.ph, %.preheader ]
   %69 = tail call zeroext i1 @raw6_local_deliver(ptr noundef %1, i32 noundef %68) #7
   %70 = sext i32 %68 to i64
-  %71 = getelementptr [256 x ptr], ptr @inet6_protos, i64 0, i64 %70
+  %71 = getelementptr ptr, ptr @inet6_protos, i64 %70
   %72 = load volatile ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %265, label %74
@@ -1449,13 +1449,13 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr noundef readonly captures(no
   %185 = getelementptr inbounds nuw i8, ptr %175, i64 64
   %186 = add i32 %179, -1
   %187 = sext i32 %186 to i64
-  %188 = getelementptr [1 x %struct.xfrm_offload], ptr %185, i64 0, i64 %187
+  %188 = getelementptr %struct.xfrm_offload, ptr %185, i64 %187
   %189 = icmp eq ptr %188, null
   br i1 %189, label %.thread30, label %190
 
 190:                                              ; preds = %184
   %191 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %192 = getelementptr [6 x ptr], ptr %191, i64 0, i64 %187
+  %192 = getelementptr ptr, ptr %191, i64 %187
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 656
   %195 = load i8, ptr %194, align 8
@@ -1630,13 +1630,13 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr noundef readonly captures(no
   %291 = getelementptr inbounds nuw i8, ptr %281, i64 64
   %292 = add i32 %285, -1
   %293 = sext i32 %292 to i64
-  %294 = getelementptr [1 x %struct.xfrm_offload], ptr %291, i64 0, i64 %293
+  %294 = getelementptr %struct.xfrm_offload, ptr %291, i64 %293
   %295 = icmp eq ptr %294, null
   br i1 %295, label %.thread42, label %296
 
 296:                                              ; preds = %290
   %297 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  %298 = getelementptr [6 x ptr], ptr %297, i64 0, i64 %293
+  %298 = getelementptr ptr, ptr %297, i64 %293
   %299 = load ptr, ptr %298, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 656
   %301 = load i8, ptr %300, align 8

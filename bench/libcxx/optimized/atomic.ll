@@ -20,7 +20,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_oneEPVKv(ptr noundef %0) l
   %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
-  %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = atomicrmw add ptr %6, i32 1 release, align 4
   %8 = load atomic i32, ptr %5 seq_cst, align 64
@@ -45,7 +45,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_allEPVKv(ptr noundef %0) l
   %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
-  %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = atomicrmw add ptr %6, i32 1 release, align 4
   %8 = load atomic i32, ptr %5 seq_cst, align 64
@@ -68,7 +68,7 @@ define dso_local noundef i32 @_ZNSt3__123__libcpp_atomic_monitorEPVKv(ptr nounde
   %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
-  %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %4, i32 1
   %6 = load atomic i32, ptr %5 acquire, align 4
   ret i32 %6
 }
@@ -81,7 +81,7 @@ define dso_local void @_ZNSt3__120__libcpp_atomic_waitEPVKvi(ptr noundef %0, i32
   %4 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %3, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = and i64 %4, 255
-  %6 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = atomicrmw volatile add ptr %6, i32 1 seq_cst, align 4
   %9 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %7, i32 noundef 128, i32 noundef %1, ptr noundef nonnull @_ZZNSt3__1L33__libcpp_platform_wait_on_addressEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEiE9__timeout, i32 noundef 0, i32 noundef 0) #7
@@ -97,7 +97,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_oneEPVKNS_17__cxx_atomic_i
   %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
-  %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %4
   %6 = load atomic i32, ptr %5 seq_cst, align 64
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit, label %7
@@ -118,7 +118,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_allEPVKNS_17__cxx_atomic_i
   %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
-  %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %4
   %6 = load atomic i32, ptr %5 seq_cst, align 64
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit, label %7
@@ -145,7 +145,7 @@ define dso_local void @_ZNSt3__120__libcpp_atomic_waitEPVKNS_17__cxx_atomic_impl
   %4 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %3, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = and i64 %4, 255
-  %6 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %5
   %7 = atomicrmw volatile add ptr %6, i32 1 seq_cst, align 4
   %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 128, i32 noundef %1, ptr noundef nonnull @_ZZNSt3__1L33__libcpp_platform_wait_on_addressEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEiE9__timeout, i32 noundef 0, i32 noundef 0) #7
   %9 = atomicrmw volatile sub ptr %6, i32 1 release, align 4

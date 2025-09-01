@@ -1058,7 +1058,7 @@ define hidden noundef nonnull ptr @_ZN9CodeCache23get_code_heap_flag_nameE12Code
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -5304,7 +5304,7 @@ _ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit: ; preds = %47, %63, %65, 
 
 switch.lookup:                                    ; preds = %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
   %91 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.48, ptr noundef nonnull %switch.load) #20
   %92 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #20

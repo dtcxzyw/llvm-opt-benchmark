@@ -853,7 +853,7 @@ _ZNK11gguf_reader4readIcEEbRSt6vectorIT_SaIS2_EEm.exit.preheader: ; preds = %23,
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK11gguf_reader4readIcEEbRSt6vectorIT_SaIS2_EEm.exit ], [ 0, %23 ]
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %52 = load i8, ptr %51, align 1, !tbaa !52
-  %53 = getelementptr inbounds nuw [5 x i8], ptr @.str.16, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !52
   %.not = icmp eq i8 %52, %54
   br i1 %.not, label %_ZNK11gguf_reader4readIcEEbRSt6vectorIT_SaIS2_EEm.exit, label %55
@@ -1718,7 +1718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372: ; preds = %_Z
 
 .lr.ph590:                                        ; preds = %.lr.ph590.preheader, %.thread437
   %indvars.iv667 = phi i64 [ 0, %.lr.ph590.preheader ], [ %indvars.iv.next668, %.thread437 ]
-  %450 = getelementptr inbounds nuw [4 x i64], ptr %331, i64 0, i64 %indvars.iv667
+  %450 = getelementptr inbounds nuw i64, ptr %331, i64 %indvars.iv667
   store i64 1, ptr %450, align 8, !tbaa !53
   %451 = icmp samesign ult i64 %indvars.iv667, %449
   br i1 %451, label %452, label %.thread437
@@ -1839,11 +1839,11 @@ _ZNK11gguf_reader4readER9ggml_type.exit:          ; preds = %_ZNK11gguf_reader4r
 498:                                              ; preds = %496, %498
   %499 = phi i64 [ %497, %496 ], [ %503, %498 ]
   %indvars.iv670 = phi i64 [ 2, %496 ], [ %indvars.iv.next671, %498 ]
-  %500 = add nsw i64 %indvars.iv670, -1
-  %501 = getelementptr inbounds nuw [4 x i64], ptr %331, i64 0, i64 %500
+  %500 = getelementptr i64, ptr %331, i64 %indvars.iv670
+  %501 = getelementptr i8, ptr %500, i64 -8
   %502 = load i64, ptr %501, align 8, !tbaa !53
   %503 = mul i64 %502, %499
-  %504 = getelementptr inbounds nuw [4 x i64], ptr %335, i64 0, i64 %indvars.iv670
+  %504 = getelementptr inbounds nuw i64, ptr %335, i64 %indvars.iv670
   store i64 %503, ptr %504, align 8, !tbaa !53
   %indvars.iv.next671 = add nuw nsw i64 %indvars.iv670, 1
   %exitcond673.not = icmp eq i64 %indvars.iv.next671, 4
@@ -11008,11 +11008,11 @@ gguf_find_tensor.exit:                            ; preds = %gguf_get_tensor_nam
 40:                                               ; preds = %27, %40
   %41 = phi i64 [ %29, %27 ], [ %45, %40 ]
   %indvars.iv = phi i64 [ 2, %27 ], [ %indvars.iv.next, %40 ]
-  %42 = add nsw i64 %indvars.iv, -1
-  %43 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %42
+  %42 = getelementptr i64, ptr %21, i64 %indvars.iv
+  %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load i64, ptr %43, align 8, !tbaa !53
   %45 = mul i64 %44, %41
-  %46 = getelementptr inbounds nuw [4 x i64], ptr %28, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
   store i64 %45, ptr %46, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -12350,7 +12350,7 @@ _ZNK11gguf_writer5writeImEEvRKT_.exit:            ; preds = %_ZNSt6vectorIaSaIaE
 
 74:                                               ; preds = %.lr.ph, %_ZNK11gguf_writer5writeIlEEvRKT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK11gguf_writer5writeIlEEvRKT_.exit ]
-  %75 = getelementptr inbounds nuw [4 x i64], ptr %39, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
   br label %76
 
 76:                                               ; preds = %_ZNSt6vectorIaSaIaEE9push_backERKa.exit.i21, %74

@@ -730,7 +730,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit59:  ; preds = %59
 
 70:                                               ; preds = %.noexc60
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw [10 x i16], ptr @_ZN6icu_77L18kSuperscriptDigitsE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i16, ptr @_ZN6icu_77L18kSuperscriptDigitsE, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 %73, ptr %7, align 2, !tbaa !18

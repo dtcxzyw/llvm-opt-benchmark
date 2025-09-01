@@ -4882,7 +4882,7 @@ define i32 @cli_bcapi_entropy_buffer(ptr noundef readnone captures(none) %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !42
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !57
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4, !tbaa !57
@@ -4893,7 +4893,7 @@ define i32 @cli_bcapi_entropy_buffer(ptr noundef readnone captures(none) %0, ptr
 16:                                               ; preds = %.preheader, %27
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %27 ]
   %.02026 = phi double [ 0.000000e+00, %.preheader ], [ %.121, %27 ]
-  %17 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv29
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv29
   %18 = load i32, ptr %17, align 4, !tbaa !57
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %27, label %19

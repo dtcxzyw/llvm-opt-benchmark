@@ -134,7 +134,7 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %13 = load i8, ptr %12, align 1, !tbaa !10
   %14 = zext nneg i8 %13 to i32
   %15 = zext i8 %13 to i64
-  %16 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   %19 = load i8, ptr %18, align 1, !tbaa !10
@@ -171,7 +171,7 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %31 = load i8, ptr %30, align 1, !tbaa !10
   %32 = zext nneg i8 %31 to i32
   %33 = zext i8 %31 to i64
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %28, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %33
   %37 = load i8, ptr %36, align 1, !tbaa !10

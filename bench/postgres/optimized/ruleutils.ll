@@ -1452,7 +1452,7 @@ define internal fastcc ptr @pg_get_triggerdef_worker(i32 noundef %0, i1 noundef 
 
 55:                                               ; preds = %54, %53
   %56 = load i32, ptr %51, align 4
-  %57 = getelementptr inbounds nuw [0 x i16], ptr %52, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2
   %59 = call ptr @get_attname(i32 noundef %56, i16 noundef signext %58, i1 noundef zeroext false) #11
   %60 = call ptr @quote_identifier(ptr noundef %59)
@@ -2106,7 +2106,7 @@ get_relation_name.exit:                           ; preds = %list_head.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %210 ]
   %.0133193 = phi ptr [ %74, %.lr.ph ], [ %.2, %210 ]
   %.0135191 = phi ptr [ @.str.32, %.lr.ph ], [ @.str.23, %210 ]
-  %127 = getelementptr inbounds nuw [0 x i16], ptr %107, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i16, ptr %107, i64 %indvars.iv
   %128 = load i16, ptr %127, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -2257,9 +2257,9 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
   br i1 %or.cond171, label %177, label %210
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds nuw [0 x i16], ptr %121, i64 0, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv
   %179 = load i16, ptr %178, align 2
-  %180 = getelementptr inbounds nuw [0 x i32], ptr %122, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv
   %181 = load i32, ptr %180, align 4
   %182 = trunc i64 %indvars.iv to i16
   %183 = add nuw nsw i16 %182, 1
@@ -2277,7 +2277,7 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
   br label %188
 
 188:                                              ; preds = %186, %177
-  %189 = getelementptr inbounds nuw [0 x i32], ptr %123, i64 0, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv
   %190 = load i32, ptr %189, align 4
   %191 = load i32, ptr %15, align 4
   %192 = select i1 %.not159, i32 %191, i32 0
@@ -5835,7 +5835,7 @@ quote_qualified_identifier.exit:                  ; preds = %37, %42
 
 88:                                               ; preds = %.lr.ph118, %92
   %indvars.iv128 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next129, %92 ]
-  %89 = getelementptr inbounds nuw [0 x i16], ptr %86, i64 0, i64 %indvars.iv128
+  %89 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv128
   %90 = load i16, ptr %89, align 2
   %.not109 = icmp eq i64 %indvars.iv128, 0
   br i1 %.not109, label %92, label %91
@@ -6444,7 +6444,7 @@ get_relation_name.exit:                           ; preds = %list_head.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
   %.06281 = phi ptr [ %42, %.lr.ph ], [ %.1, %115 ]
   %.06479 = phi ptr [ @.str.32, %.lr.ph ], [ @.str.23, %115 ]
-  %78 = getelementptr inbounds nuw [0 x i16], ptr %62, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i16, ptr %62, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6541,7 +6541,7 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
 103:                                              ; preds = %100, %80
   %104 = phi i32 [ %.pre, %80 ], [ %102, %100 ]
   %.1 = phi ptr [ %.06281, %80 ], [ %..i, %100 ]
-  %105 = getelementptr inbounds nuw [0 x i32], ptr %75, i64 0, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 0
   %or.cond.not = select i1 %2, i1 true, i1 %107
@@ -6558,7 +6558,7 @@ looks_like_function.exit.thread:                  ; preds = %looks_like_function
   br i1 %2, label %115, label %111
 
 111:                                              ; preds = %110
-  %112 = getelementptr inbounds nuw [0 x i32], ptr %76, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = load i32, ptr %8, align 4
   call fastcc void @get_opclass_name(i32 noundef %113, i32 noundef %114, ptr noundef nonnull %7)
@@ -8765,7 +8765,7 @@ define dso_local noundef ptr @quote_identifier(ptr noundef %0) local_unnamed_add
 
 24:                                               ; preds = %21
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %25
   %27 = load i8, ptr %26, align 1
   %.not55 = icmp eq i8 %27, 0
   br i1 %.not55, label %.thread, label %.thread61
@@ -13276,7 +13276,7 @@ get_rule_expr_toplevel.exit:                      ; preds = %413, %.split6.i, %4
 
 switch.lookup:                                    ; preds = %495
   %499 = zext nneg i32 %497 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.get_rule_expr, i64 0, i64 %499
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_rule_expr, i64 %499
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull %switch.load) #11
   %.pr = load i32, ptr %496, align 4
@@ -13671,7 +13671,7 @@ thread-pre-split844:                              ; preds = %558, %596, %604, %6
 
 switch.lookup2046:                                ; preds = %667
   %677 = zext nneg i32 %671 to i64
-  %switch.gep2047 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.get_rule_expr.23, i64 0, i64 %677
+  %switch.gep2047 = getelementptr inbounds nuw ptr, ptr @switch.table.get_rule_expr.23, i64 %677
   %switch.load2048 = load ptr, ptr %switch.gep2047, align 8
   tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull %switch.load2048) #11
   %678 = load i32, ptr %663, align 8
@@ -13910,7 +13910,7 @@ switch.lookup2046:                                ; preds = %667
 
 switch.lookup2049:                                ; preds = %781
   %788 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep2050 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.get_rule_expr.24, i64 0, i64 %788
+  %switch.gep2050 = getelementptr inbounds nuw ptr, ptr @switch.table.get_rule_expr.24, i64 %788
   %switch.load2051 = load ptr, ptr %switch.gep2050, align 8
   %789 = load ptr, ptr %1, align 8
   tail call void @appendStringInfoString(ptr noundef %789, ptr noundef nonnull %switch.load2051) #11
@@ -13954,7 +13954,7 @@ switch.lookup2049:                                ; preds = %781
 
 switch.lookup2052:                                ; preds = %801
   %809 = zext nneg i32 %803 to i64
-  %switch.gep2053 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.get_rule_expr.25, i64 0, i64 %809
+  %switch.gep2053 = getelementptr inbounds nuw ptr, ptr @switch.table.get_rule_expr.25, i64 %809
   %switch.load2054 = load ptr, ptr %switch.gep2053, align 8
   tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull %switch.load2054) #11
   %810 = getelementptr inbounds nuw i8, ptr %.tr1004, i64 16
@@ -17287,7 +17287,7 @@ list_length.exit:                                 ; preds = %get_func_sql_syntax
 286:                                              ; preds = %282, %.lr.ph98
   %.155 = phi ptr [ %285, %282 ], [ %.0548696, %.lr.ph98 ]
   %287 = tail call i32 @exprType(ptr noundef nonnull %247) #11
-  %288 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %288 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %287, ptr %288, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %289 = load i32, ptr %236, align 4
@@ -18860,7 +18860,7 @@ define internal fastcc void @get_json_expr_options(ptr noundef readonly captures
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.get_json_expr_options, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_json_expr_options, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = load ptr, ptr %1, align 8
   tail call void @appendStringInfoString(ptr noundef %12, ptr noundef nonnull %switch.load) #11
@@ -19961,7 +19961,7 @@ list_length.exit:                                 ; preds = %5
 29:                                               ; preds = %25, %.lr.ph100
   %.1 = phi ptr [ %28, %25 ], [ %.0628898, %.lr.ph100 ]
   %30 = tail call i32 @exprType(ptr noundef nonnull %21) #11
-  %31 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %10, align 4
@@ -20789,7 +20789,7 @@ define internal fastcc void @get_json_behavior(ptr noundef readonly captures(non
 11:                                               ; preds = %3
   %12 = zext nneg i32 %5 to i64
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds nuw [9 x ptr], ptr @__const.get_json_behavior.behavior_names, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw ptr, ptr @__const.get_json_behavior.behavior_names, i64 %12
   %15 = load ptr, ptr %14, align 8
   tail call void @appendStringInfoString(ptr noundef %13, ptr noundef %15) #11
   %16 = load i32, ptr %4, align 4
@@ -21567,28 +21567,28 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  %8 = add nsw i32 %1, -1
-  br i1 %.not.i, label %9, label %47
+  br i1 %.not.i, label %8, label %47
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %10, i64 0, i64 %11
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = zext nneg i32 %1 to i64
+  %11 = getelementptr %struct.CompactAttribute, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -16
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %45
 
-15:                                               ; preds = %9
+15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 %18
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
+  %22 = getelementptr i8, ptr %11, i64 -10
   %23 = load i8, ptr %22, align 2, !range !7, !noundef !8
   %24 = trunc nuw i8 %23 to i1
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %25 = getelementptr i8, ptr %11, i64 -12
   %26 = load i16, ptr %25, align 4
   br i1 %24, label %27, label %43
 
@@ -21631,33 +21631,34 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %44 = ptrtoint ptr %21 to i64
   br label %fetch_att.exit
 
-45:                                               ; preds = %9
+45:                                               ; preds = %8
   %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #11
   br label %fetch_att.exit
 
 47:                                               ; preds = %4
-  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %49 = lshr i32 %8, 3
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = and i32 %8, 7
-  %55 = shl nuw nsw i32 1, %54
-  %56 = and i32 %55, %53
-  %.not.i20 = icmp eq i32 %56, 0
-  br i1 %.not.i20, label %57, label %58
+  %48 = add nsw i32 %1, -1
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %50 = lshr i32 %48, 3
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = and i32 %48, 7
+  %56 = shl nuw nsw i32 1, %55
+  %57 = and i32 %56, %54
+  %.not.i20 = icmp eq i32 %57, 0
+  br i1 %.not.i20, label %58, label %59
 
-57:                                               ; preds = %47
+58:                                               ; preds = %47
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-58:                                               ; preds = %47
-  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #11
+59:                                               ; preds = %47
+  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #11
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %58, %57
-  %.1 = phi i64 [ 0, %57 ], [ %59, %58 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
+fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %59, %58
+  %.1 = phi i64 [ 0, %58 ], [ %60, %59 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 
@@ -22073,7 +22074,7 @@ define internal fastcc void @get_with_clause(ptr noundef readonly captures(none)
 
 72:                                               ; preds = %69
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %73
   %75 = load i8, ptr %74, align 1
   %.not55.i = icmp eq i8 %75, 0
   br i1 %.not55.i, label %quote_identifier.exit, label %.thread61.i
@@ -22279,7 +22280,7 @@ quote_identifier.exit:                            ; preds = %69, %72, %85
 
 156:                                              ; preds = %153
   %157 = zext nneg i32 %154 to i64
-  %158 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %157
   %159 = load i8, ptr %158, align 1
   %.not55.i159 = icmp eq i8 %159, 0
   br i1 %.not55.i159, label %quote_identifier.exit160, label %.thread61.i153
@@ -22442,7 +22443,7 @@ quote_identifier.exit160:                         ; preds = %153, %156, %169
 
 226:                                              ; preds = %223
   %227 = zext nneg i32 %224 to i64
-  %228 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %227
   %229 = load i8, ptr %228, align 1
   %.not55.i186 = icmp eq i8 %229, 0
   br i1 %.not55.i186, label %quote_identifier.exit187, label %.thread61.i180
@@ -22722,7 +22723,7 @@ define internal fastcc void @get_setop_query(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %79
   %87 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.get_setop_query, i64 0, i64 %87
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_setop_query, i64 %87
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull %switch.load) #11
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8

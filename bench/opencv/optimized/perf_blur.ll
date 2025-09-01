@@ -46781,7 +46781,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i, %17
 .critedge38.i.i:                                  ; preds = %17, %switch.early.test.i.i, %switch.early.test.i.i, %.preheader.i.i
   %.2.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %.preheader.i.i ], [ %indvars.iv72.i.i, %switch.early.test.i.i ], [ %indvars.iv72.i.i, %switch.early.test.i.i ], [ %indvars.iv.next73.i.i, %17 ]
   %.lcssa53.i.i = phi i64 [ %11, %.preheader.i.i ], [ %indvars.iv72.i.i, %switch.early.test.i.i ], [ %indvars.iv72.i.i, %switch.early.test.i.i ], [ %indvars.iv.next73.i.i, %17 ]
-  %22 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_113BorderType3x37PrintToEPSo.vals, i64 0, i64 %indvars.iv75.i.i
+  %22 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_113BorderType3x37PrintToEPSo.vals, i64 %indvars.iv75.i.i
   %23 = load i32, ptr %22, align 4, !tbaa !84
   %.not35.i.i = icmp eq i32 %.0.val, %23
   br i1 %.not35.i.i, label %24, label %4
@@ -51490,7 +51490,7 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   br i1 %or.cond43.i.i, label %.preheader.i.i, label %.critedge38.i.i, !llvm.loop !1311
 
 .critedge38.i.i:                                  ; preds = %.preheader.i.i
-  %17 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_110BorderType7PrintToEPSo.vals, i64 0, i64 %indvars.iv66.i.i
+  %17 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_110BorderType7PrintToEPSo.vals, i64 %indvars.iv66.i.i
   %18 = load i32, ptr %17, align 4, !tbaa !84
   %.not35.i.i = icmp eq i32 %.0.val, %18
   br i1 %.not35.i.i, label %19, label %4

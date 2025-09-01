@@ -4386,9 +4386,9 @@ _ZN5bytes5bytes5Bytes8truncate17h7c07434072cfe36eE.exit: ; preds = %318, %324, %
   %334 = load i64, ptr %1, align 8, !range !18, !noundef !3
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %336 = load i64, ptr %335, align 8
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN83_$LT$quinn_proto..frame..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc14d4074771047fcE", i64 0, i64 %.sroa.41.sroa.0.0.ph
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$quinn_proto..frame..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc14d4074771047fcE", i64 %.sroa.41.sroa.0.0.ph
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep37 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN83_$LT$quinn_proto..frame..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc14d4074771047fcE.39", i64 0, i64 %.sroa.41.sroa.0.0.ph
+  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$quinn_proto..frame..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc14d4074771047fcE.39", i64 %.sroa.41.sroa.0.0.ph
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   store i64 25, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4730,7 +4730,7 @@ define noundef nonnull align 1 dereferenceable(21) ptr @_ZN11quinn_proto6packet1
 switch.lookup:
   %1 = load i8, ptr %0, align 8, !range !371, !alias.scope !378, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN11quinn_proto6packet15ProtectedHeader7dst_cid17h57adf61aa59aa244E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11quinn_proto6packet15ProtectedHeader7dst_cid17h57adf61aa59aa244E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   ret ptr %3
@@ -5936,7 +5936,7 @@ switch.lookup:
   %3 = zext nneg i8 %2 to i64
   %4 = add nsw i64 %3, -3
   %5 = select i1 %.not, i64 0, i64 %4
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN11quinn_proto6packet6Header7dst_cid17h7c79582fd571d0a2E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN11quinn_proto6packet6Header7dst_cid17h7c79582fd571d0a2E, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %0, ptr noundef nonnull align 1 dereferenceable(21) %6, i64 21, i1 false)
@@ -6037,7 +6037,7 @@ define noundef nonnull align 1 dereferenceable(21) ptr @_ZN11quinn_proto6packet1
 switch.lookup:
   %1 = load i8, ptr %0, align 8, !range !371, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN11quinn_proto6packet15ProtectedHeader7dst_cid17h57adf61aa59aa244E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11quinn_proto6packet15ProtectedHeader7dst_cid17h57adf61aa59aa244E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   ret ptr %3

@@ -52,7 +52,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_FFI_0__Lean_C
 6:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.02138 = phi i64 [ %1, %.lr.ph ], [ %28, %lean_dec.exit ]
   %.02337 = phi ptr [ %3, %.lr.ph ], [ %.225, %lean_dec.exit ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02138
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02138
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -471,7 +471,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_FFI_getInternalCFlags___sp
   %.02146 = phi i64 [ %40, %56 ], [ %2, %4 ]
   %.02345 = phi ptr [ %.0.i.i32, %56 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.02345, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02146
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02146
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -924,7 +924,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_FFI_getInternalLinkerFlags
   %.02146 = phi i64 [ %40, %56 ], [ %2, %4 ]
   %.02345 = phi ptr [ %.0.i.i32, %56 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.02345, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02146
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02146
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1

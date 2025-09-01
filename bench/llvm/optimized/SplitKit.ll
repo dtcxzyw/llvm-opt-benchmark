@@ -5417,7 +5417,7 @@ define linkonce_odr hidden void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15I
 
 30:                                               ; preds = %41, %.lr.ph.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i.i.i ]
-  %31 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %indvars.iv.i, i32 1
+  %31 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %indvars.iv.i, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %31, align 8, !noalias !524
   %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
   %33 = inttoptr i64 %32 to ptr
@@ -5483,7 +5483,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_iter
 56:                                               ; preds = %67, %.lr.ph.i
   %.07.i = phi i32 [ 0, %.lr.ph.i ], [ %68, %67 ]
   %57 = zext i32 %.07.i to i64
-  %58 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %57, i32 1
+  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %57, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %58, align 8
   %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %60 = inttoptr i64 %59 to ptr
@@ -6346,7 +6346,7 @@ _ZNK4llvm9SlotIndex11getPrevSlotEv.exit:          ; preds = %91, %95
 
 116:                                              ; preds = %126, %.lr.ph.i.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph.i.i ]
-  %117 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %100, i64 0, i64 %indvars.iv, i32 1
+  %117 = getelementptr inbounds nuw %"struct.std::pair", ptr %100, i64 %indvars.iv, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i.i30 = load i64, ptr %117, align 8
   %118 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i30, -8
   %119 = inttoptr i64 %118 to ptr
@@ -6422,7 +6422,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_ite
   %148 = getelementptr inbounds i8, ptr %145, i64 -4
   %149 = load i32, ptr %148, align 4, !tbaa !541
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %147, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw %"struct.std::pair", ptr %147, i64 %150
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %151, align 8
   %152 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %153 = inttoptr i64 %152 to ptr
@@ -6439,14 +6439,14 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_ite
   br i1 %.not51, label %163, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
 
 163:                                              ; preds = %143
-  %164 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %147, i64 0, i64 %150, i32 1
+  %164 = getelementptr inbounds nuw %"struct.std::pair", ptr %147, i64 %150, i32 1
   %.0.copyload.i.i.i.i = load i64, ptr %164, align 8
   %.not52 = icmp eq i64 %.0.copyload.i.i.i.i, %59
   br i1 %.not52, label %165, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %147, i64 144
-  %167 = getelementptr inbounds nuw [9 x i32], ptr %166, i64 0, i64 %150
+  %167 = getelementptr inbounds nuw i32, ptr %166, i64 %150
   %168 = load i32, ptr %167, align 4, !tbaa !357
   br i1 %.lcssa54, label %.thread, label %169
 
@@ -6583,7 +6583,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %237 = getelementptr inbounds i8, ptr %234, i64 -4
   %238 = load i32, ptr %237, align 4, !tbaa !541
   %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %236, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw %"struct.std::pair", ptr %236, i64 %239
   %.sroa.02.0.copyload = load i64, ptr %240, align 8, !tbaa !164
   %241 = inttoptr i64 %222 to ptr
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
@@ -6657,7 +6657,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
   %11 = getelementptr inbounds i8, ptr %8, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !541
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %10, i64 0, i64 %13, i32 1
+  %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %13, i32 1
   %.sroa.0.0.copyload.i = load i64, ptr %14, align 8, !tbaa !164
   %15 = and i64 %1, -8
   %16 = inttoptr i64 %15 to ptr
@@ -6680,7 +6680,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %34 = getelementptr inbounds nuw [9 x i32], ptr %33, i64 0, i64 %13
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %13
   %35 = load i32, ptr %34, align 4, !tbaa !357
   %36 = add i32 %12, 1
   %37 = load ptr, ptr %0, align 8, !tbaa !527
@@ -6697,19 +6697,19 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
 
 43:                                               ; preds = %42
   %44 = zext i32 %36 to i64
-  %45 = getelementptr inbounds nuw [9 x i32], ptr %33, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %33, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !357
   %47 = icmp eq i32 %46, %35
   br i1 %47, label %48, label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16canCoalesceRightES1_j.exit.thread
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %10, i64 0, i64 %44
+  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %44
   %.sroa.0.0.copyload.i.i = load i64, ptr %49, align 8, !tbaa !164
   %50 = icmp eq i64 %1, %.sroa.0.0.copyload.i.i
   br i1 %50, label %.thread, label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16canCoalesceRightES1_j.exit.thread
 
 .thread:                                          ; preds = %48
-  %51 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %10, i64 0, i64 %13
+  %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %13
   %.sroa.01.0.copyload30 = load i64, ptr %51, align 8, !tbaa !164
   br label %122
 
@@ -6718,19 +6718,19 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
 
 53:                                               ; preds = %52
   %54 = zext i32 %36 to i64
-  %55 = getelementptr inbounds nuw [9 x i32], ptr %33, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %33, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !357
   %57 = icmp eq i32 %56, %35
   br i1 %57, label %58, label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16canCoalesceRightES1_j.exit.thread
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %10, i64 0, i64 %54
+  %59 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %54
   %.sroa.0.0.copyload.i27.i = load i64, ptr %59, align 8, !tbaa !164
   %60 = icmp eq i64 %1, %.sroa.0.0.copyload.i27.i
   br i1 %60, label %.thread33, label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16canCoalesceRightES1_j.exit.thread
 
 .thread33:                                        ; preds = %58
-  %61 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %10, i64 0, i64 %13
+  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %13
   %.sroa.01.0.copyload36 = load i64, ptr %61, align 8, !tbaa !164
   br label %121
 
@@ -6763,7 +6763,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16c
   %78 = getelementptr inbounds i8, ptr %75, i64 -4
   %79 = load i32, ptr %78, align 4, !tbaa !541
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %77, i64 0, i64 %80, i32 1
+  %81 = getelementptr inbounds nuw %"struct.std::pair", ptr %77, i64 %80, i32 1
   store i64 %1, ptr %81, align 8, !tbaa !164
   %82 = load i32, ptr %5, align 8, !tbaa !26
   %83 = add i32 %82, -1
@@ -6794,7 +6794,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16c
   %99 = load i32, ptr %98, align 4, !tbaa !357
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 96
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %100, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %100, i64 %101
   store i64 %1, ptr %102, align 8, !tbaa !164
   %103 = load ptr, ptr %3, align 8, !tbaa !25
   %104 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %103, i64 %94
@@ -6812,7 +6812,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16c
   %114 = load i32, ptr %113, align 4, !tbaa !357
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 88
   %116 = zext i32 %114 to i64
-  %117 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %115, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %115, i64 %116
   store i64 %1, ptr %117, align 8, !tbaa !164
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16setStopUncheckedES1_.exit
 
@@ -6830,7 +6830,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16c
   %.pre18 = load i32, ptr %.phi.trans.insert17, align 8, !tbaa !396
   %.pre20 = zext i32 %.pre15 to i64
   %119 = icmp eq i32 %.pre18, 0
-  %120 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %.pre13, i64 0, i64 %.pre20
+  %120 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre13, i64 %.pre20
   %.sroa.01.0.copyload = load i64, ptr %120, align 8, !tbaa !164
   br i1 %119, label %122, label %121
 
@@ -6859,18 +6859,18 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16c
   %.015.i.i.i.i.i = phi i32 [ %128, %.lr.ph.i.i.i.i.i ], [ %142, %130 ]
   %.01214.i.i.i.i.i = phi i32 [ %124, %.lr.ph.i.i.i.i.i ], [ %143, %130 ]
   %131 = zext i32 %.015.i.i.i.i.i to i64
-  %132 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %125, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw %"struct.std::pair", ptr %125, i64 %131
   %133 = zext i32 %.01214.i.i.i.i.i to i64
-  %134 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %125, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw %"struct.std::pair", ptr %125, i64 %133
   %135 = load i64, ptr %132, align 8, !tbaa !164
   store i64 %135, ptr %134, align 8, !tbaa !164
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %138 = load i64, ptr %136, align 8, !tbaa !164
   store i64 %138, ptr %137, align 8, !tbaa !164
-  %139 = getelementptr inbounds nuw [9 x i32], ptr %129, i64 0, i64 %131
+  %139 = getelementptr inbounds nuw i32, ptr %129, i64 %131
   %140 = load i32, ptr %139, align 4, !tbaa !357
-  %141 = getelementptr inbounds nuw [9 x i32], ptr %129, i64 0, i64 %133
+  %141 = getelementptr inbounds nuw i32, ptr %129, i64 %133
   store i32 %140, ptr %141, align 4, !tbaa !357
   %142 = add i32 %.015.i.i.i.i.i, 1
   %143 = add i32 %.01214.i.i.i.i.i, 1
@@ -6902,7 +6902,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator5er
   %154 = getelementptr inbounds i8, ptr %151, i64 -4
   %155 = load i32, ptr %154, align 4, !tbaa !541
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %153, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw %"struct.std::pair", ptr %153, i64 %156
   store i64 %.sroa.01.0.copyload31, ptr %157, align 8, !tbaa !164
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator16setStopUncheckedES1_.exit
 
@@ -9311,7 +9311,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_ite
 86:                                               ; preds = %97, %.lr.ph.i.i
   %.07.i.i = phi i32 [ %75, %.lr.ph.i.i ], [ %98, %97 ]
   %87 = zext i32 %.07.i.i to i64
-  %88 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %67, i64 0, i64 %87, i32 1
+  %88 = getelementptr inbounds nuw %"struct.std::pair", ptr %67, i64 %87, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %88, align 8
   %89 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %90 = inttoptr i64 %89 to ptr
@@ -9365,7 +9365,7 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_ite
   %115 = getelementptr inbounds i8, ptr %112, i64 -4
   %116 = load i32, ptr %115, align 4, !tbaa !541
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %114, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw %"struct.std::pair", ptr %114, i64 %117
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %118, align 8
   %119 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %120 = inttoptr i64 %119 to ptr
@@ -9388,9 +9388,9 @@ _ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_ite
 
 135:                                              ; preds = %110
   %136 = getelementptr inbounds nuw i8, ptr %114, i64 144
-  %137 = getelementptr inbounds nuw [9 x i32], ptr %136, i64 0, i64 %117
+  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %117
   %138 = load i32, ptr %137, align 4, !tbaa !357
-  %139 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %114, i64 0, i64 %117, i32 1
+  %139 = getelementptr inbounds nuw %"struct.std::pair", ptr %114, i64 %117, i32 1
   %.0.copyload.i.i.i.i.i.i54 = load i64, ptr %139, align 8
   %140 = and i64 %.0.copyload.i.i.i.i.i.i54, -8
   %141 = inttoptr i64 %140 to ptr
@@ -9606,7 +9606,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjENS_14PointerIntPairIPNS_6VNInfoE
   %271 = icmp ne i32 %.0128, 0
   %272 = and i1 %271, %270
   %273 = zext i1 %272 to i64
-  %274 = getelementptr inbounds nuw [2 x %"class.llvm::LiveIntervalCalc"], ptr %42, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw %"class.llvm::LiveIntervalCalc", ptr %42, i64 %273
   %275 = load ptr, ptr %37, align 8, !tbaa !421
   %276 = and i64 %.sroa.0123.0, -8
   %277 = inttoptr i64 %276 to ptr
@@ -10309,7 +10309,7 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
   %93 = icmp ne i32 %50, 0
   %94 = and i1 %93, %92
   %95 = zext i1 %94 to i64
-  %96 = getelementptr inbounds nuw [2 x %"class.llvm::LiveIntervalCalc"], ptr %16, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"class.llvm::LiveIntervalCalc", ptr %16, i64 %95
   %.sroa.030.0.copyload = load i64, ptr %45, align 8, !tbaa !164
   %97 = and i64 %.sroa.030.0.copyload, -8
   %98 = inttoptr i64 %97 to ptr
@@ -10670,7 +10670,7 @@ _ZN4llvm11SmallVectorINS_9SlotIndexELj4EED2Ev.exit: ; preds = %_ZN4llvm13LiveRan
   %.idx = shl nuw nsw i64 %285, 4
   %286 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  %288 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %37, i64 0, i64 %285
+  %288 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %37, i64 %285
   %289 = select i1 %.not.i.i69, ptr %287, ptr %288
   %.sroa.0.0.copyload.i5.i = load i64, ptr %289, align 8, !tbaa !164
   %290 = and i64 %.sroa.0.0.copyload.i5.i, -8
@@ -10690,7 +10690,7 @@ _ZN4llvm11SmallVectorINS_9SlotIndexELj4EED2Ev.exit: ; preds = %_ZN4llvm13LiveRan
 .preheader16.i:                                   ; preds = %298, %.preheader16.i
   %.0.i.i.i.i = phi i32 [ %309, %.preheader16.i ], [ 0, %298 ]
   %299 = zext i32 %.0.i.i.i.i to i64
-  %300 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %37, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %37, i64 %299
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %300, align 8
   %301 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %302 = inttoptr i64 %301 to ptr
@@ -10705,7 +10705,7 @@ _ZN4llvm11SmallVectorINS_9SlotIndexELj4EED2Ev.exit: ; preds = %_ZN4llvm13LiveRan
   br i1 %.not.i.i.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoIS2_EEE10safeLookupES2_.exit.i.i, label %.preheader16.i, !llvm.loop !646
 
 _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoIS2_EEE10safeLookupES2_.exit.i.i: ; preds = %.preheader16.i
-  %310 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %38, i64 0, i64 %299
+  %310 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %38, i64 %299
   %.sroa.0.020.i.i = load i64, ptr %310, align 8, !tbaa !164
   %.021.i.i = add i32 %283, -1
   %.not22.i.i = icmp eq i32 %.021.i.i, 0
@@ -10720,7 +10720,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoI
 313:                                              ; preds = %313, %._crit_edge.i.i
   %.0.i.i9.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %324, %313 ]
   %314 = zext i32 %.0.i.i9.i.i to i64
-  %315 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %312, i64 0, i64 %314, i32 1
+  %315 = getelementptr inbounds nuw %"struct.std::pair", ptr %312, i64 %314, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i.i10.i.i = load i64, ptr %315, align 8
   %316 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i10.i.i, -8
   %317 = inttoptr i64 %316 to ptr
@@ -10735,7 +10735,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoI
   br i1 %.not.i.i11.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i.i, label %313, !llvm.loop !647
 
 _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i.i: ; preds = %313
-  %325 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %312, i64 0, i64 %314
+  %325 = getelementptr inbounds nuw %"struct.std::pair", ptr %312, i64 %314
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %325, align 16, !tbaa !164
   %326 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %327 = inttoptr i64 %326 to ptr
@@ -10759,7 +10759,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
 338:                                              ; preds = %338, %.lr.ph.i.i
   %.0.i.i13.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %349, %338 ]
   %339 = zext i32 %.0.i.i13.i.i to i64
-  %340 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %337, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %337, i64 %339
   %.0.copyload.i.i.i.i.i.i.i.i.i14.i.i = load i64, ptr %340, align 8
   %341 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i14.i.i, -8
   %342 = inttoptr i64 %341 to ptr
@@ -10774,7 +10774,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
   br i1 %.not.i.i15.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoIS2_EEE10safeLookupES2_.exit.i.i, label %338, !llvm.loop !648
 
 _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoIS2_EEE10safeLookupES2_.exit.i.i: ; preds = %338
-  %350 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %336, i64 0, i64 %339
+  %350 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %336, i64 %339
   %.sroa.0.0.i.i = load i64, ptr %350, align 8, !tbaa !164
   %.0.i.i = add i32 %.024.i.i, -1
   %.not.i8.i = icmp eq i32 %.0.i.i, 0
@@ -10800,7 +10800,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoI
   br i1 %.not.i.i.i72, label %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i, label %.preheader.i, !llvm.loop !647
 
 _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i: ; preds = %.preheader.i
-  %363 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %34, i64 0, i64 %351
+  %363 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %351
   %.sroa.0.0.copyload.i.i9.i = load i64, ptr %363, align 8, !tbaa !164
   %364 = and i64 %.sroa.0.0.copyload.i.i9.i, -8
   %365 = inttoptr i64 %364 to ptr
@@ -10817,7 +10817,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
   %.sink.i = phi ptr [ %312, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i.i ], [ %34, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i ]
   %.lcssa.sink.i = phi i64 [ %314, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i.i ], [ %351, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i ]
   %373 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 144
-  %374 = getelementptr inbounds nuw [9 x i32], ptr %373, i64 0, i64 %.lcssa.sink.i
+  %374 = getelementptr inbounds nuw i32, ptr %373, i64 %.lcssa.sink.i
   %375 = load i32, ptr %374, align 4, !tbaa !357
   br label %_ZNK4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE6lookupES1_j.exit
 
@@ -11194,9 +11194,9 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm11IntervalMapINS_9SlotIndexEjLj
   %.not.i = icmp eq i32 %27, 0
   %28 = add i32 %5, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %29, i32 1
+  %30 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %29, i32 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %32 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %31, i64 0, i64 %29
+  %32 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %31, i64 %29
   %33 = select i1 %.not.i, ptr %30, ptr %32
   %.sroa.0.0.copyload.i5 = load i64, ptr %33, align 8, !tbaa !164
   %34 = and i64 %.sroa.0.0.copyload.i5, -8
@@ -11216,7 +11216,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm11IntervalMapINS_9SlotIndexEjLj
 .preheader16:                                     ; preds = %42, %.preheader16
   %.0.i.i.i = phi i32 [ %53, %.preheader16 ], [ 0, %42 ]
   %43 = zext i32 %.0.i.i.i to i64
-  %44 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %31, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %31, i64 %43
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
   %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
   %46 = inttoptr i64 %45 to ptr
@@ -11232,7 +11232,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm11IntervalMapINS_9SlotIndexEjLj
 
 _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoIS2_EEE10safeLookupES2_.exit.i: ; preds = %.preheader16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %54, i64 0, i64 %43
+  %55 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %54, i64 %43
   %.sroa.0.020.i = load i64, ptr %55, align 8, !tbaa !164
   %.021.i = add i32 %27, -1
   %.not22.i = icmp eq i32 %.021.i, 0
@@ -11247,7 +11247,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoI
 58:                                               ; preds = %58, %._crit_edge.i
   %.0.i.i9.i = phi i32 [ 0, %._crit_edge.i ], [ %69, %58 ]
   %59 = zext i32 %.0.i.i9.i to i64
-  %60 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %57, i64 0, i64 %59, i32 1
+  %60 = getelementptr inbounds nuw %"struct.std::pair", ptr %57, i64 %59, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i.i10.i = load i64, ptr %60, align 8
   %61 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i10.i, -8
   %62 = inttoptr i64 %61 to ptr
@@ -11262,7 +11262,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoI
   br i1 %.not.i.i11.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i, label %58, !llvm.loop !647
 
 _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i: ; preds = %58
-  %70 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %57, i64 0, i64 %59
+  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %57, i64 %59
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %70, align 16, !tbaa !164
   %71 = and i64 %.sroa.0.0.copyload.i.i.i, -8
   %72 = inttoptr i64 %71 to ptr
@@ -11286,7 +11286,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
 83:                                               ; preds = %83, %.lr.ph.i
   %.0.i.i13.i = phi i32 [ 0, %.lr.ph.i ], [ %94, %83 ]
   %84 = zext i32 %.0.i.i13.i to i64
-  %85 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %82, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %82, i64 %84
   %.0.copyload.i.i.i.i.i.i.i.i.i14.i = load i64, ptr %85, align 8
   %86 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i14.i, -8
   %87 = inttoptr i64 %86 to ptr
@@ -11301,7 +11301,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
   br i1 %.not.i.i15.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoIS2_EEE10safeLookupES2_.exit.i, label %83, !llvm.loop !648
 
 _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoIS2_EEE10safeLookupES2_.exit.i: ; preds = %83
-  %95 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %81, i64 0, i64 %84
+  %95 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %81, i64 %84
   %.sroa.0.0.i = load i64, ptr %95, align 8, !tbaa !164
   %.0.i = add i32 %.024.i, -1
   %.not.i8 = icmp eq i32 %.0.i, 0
@@ -11310,7 +11310,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoI
 .preheader:                                       ; preds = %42, %.preheader
   %.0.i.i = phi i32 [ %106, %.preheader ], [ 0, %42 ]
   %96 = zext i32 %.0.i.i to i64
-  %97 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %96, i32 1
+  %97 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %96, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %97, align 8
   %98 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %99 = inttoptr i64 %98 to ptr
@@ -11325,7 +11325,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoI
   br i1 %.not.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i, label %.preheader, !llvm.loop !647
 
 _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i: ; preds = %.preheader
-  %107 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %96
+  %107 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %96
   %.sroa.0.0.copyload.i.i9 = load i64, ptr %107, align 8, !tbaa !164
   %108 = and i64 %.sroa.0.0.copyload.i.i9, -8
   %109 = inttoptr i64 %108 to ptr
@@ -11342,7 +11342,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
   %.sink = phi ptr [ %57, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i ], [ %0, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i ]
   %.lcssa.sink = phi i64 [ %59, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i.i ], [ %96, %_ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_EEE8safeFindEjS2_.exit.i ]
   %117 = getelementptr inbounds nuw i8, ptr %.sink, i64 144
-  %118 = getelementptr inbounds nuw [9 x i32], ptr %117, i64 0, i64 %.lcssa.sink
+  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %.lcssa.sink
   %119 = load i32, ptr %118, align 4, !tbaa !357
   br label %.critedge
 
@@ -11822,7 +11822,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_11SplitEditor15rewriteAssignedEbE8ExtPoint
   %257 = icmp ne i32 %127, 0
   %258 = and i1 %257, %256
   %259 = zext i1 %258 to i64
-  %260 = getelementptr inbounds nuw [2 x %"class.llvm::LiveIntervalCalc"], ptr %32, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw %"class.llvm::LiveIntervalCalc", ptr %32, i64 %259
   call void @_ZN4llvm13LiveRangeCalc6extendERNS_9LiveRangeENS_9SlotIndexEjNS_8ArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(704) %260, ptr noundef nonnull align 8 dereferenceable(104) %.0.i, i64 %.sroa.0153.1, i32 noundef 0, ptr null, i64 0) #20
   br label %_ZNK4llvm9LiveRange6liveAtENS_9SlotIndexE.exit.thread
 
@@ -17166,7 +17166,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %48 = phi i32 [ 0, %.lr.ph ], [ %60, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %.054 = phi i32 [ 0, %.lr.ph ], [ %61, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %49 = zext i32 %.054 to i64
-  %50 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %17, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %17, i64 %49
   %.sroa.019.0.copyload = load i64, ptr %50, align 8, !tbaa !164
   %51 = load i32, ptr %11, align 4, !tbaa !27
   %.not.i.i.not.i = icmp ult i32 %48, %51
@@ -18109,13 +18109,13 @@ define linkonce_odr noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotInde
   %9 = add i32 %7, -1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [9 x i32], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !357
   %14 = icmp eq i32 %13, %5
   br i1 %14, label %15, label %46
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %11, i32 1
+  %16 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %11, i32 1
   %.0.copyload.i.i.i.i.i = load i64, ptr %16, align 8
   %17 = icmp eq i64 %.0.copyload.i.i.i.i.i, %3
   br i1 %17, label %18, label %46
@@ -18127,19 +18127,19 @@ define linkonce_odr noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotInde
 
 19:                                               ; preds = %18
   %20 = zext i32 %7 to i64
-  %21 = getelementptr inbounds nuw [9 x i32], ptr %10, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !357
   %23 = icmp eq i32 %22, %5
   br i1 %23, label %24, label %45
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %20
+  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %20
   %.sroa.0.0.copyload.i46 = load i64, ptr %25, align 8, !tbaa !164
   %26 = icmp eq i64 %4, %.sroa.0.0.copyload.i46
   br i1 %26, label %27, label %45
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %20, i32 1
+  %28 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %20, i32 1
   %29 = load i64, ptr %28, align 8, !tbaa !164
   store i64 %29, ptr %16, align 8, !tbaa !164
   %30 = add i32 %7, 1
@@ -18150,18 +18150,18 @@ define linkonce_odr noundef i32 @_ZN4llvm15IntervalMapImpl8LeafNodeINS_9SlotInde
   %.015.i.i.i.i = phi i32 [ %42, %.lr.ph.i.i.i.i ], [ %30, %27 ]
   %.01214.i.i.i.i = phi i32 [ %43, %.lr.ph.i.i.i.i ], [ %7, %27 ]
   %31 = zext i32 %.015.i.i.i.i to i64
-  %32 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %31
   %33 = zext i32 %.01214.i.i.i.i to i64
-  %34 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %33
   %35 = load i64, ptr %32, align 8, !tbaa !164
   store i64 %35, ptr %34, align 8, !tbaa !164
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %36, align 8, !tbaa !164
   store i64 %38, ptr %37, align 8, !tbaa !164
-  %39 = getelementptr inbounds nuw [9 x i32], ptr %10, i64 0, i64 %31
+  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %31
   %40 = load i32, ptr %39, align 4, !tbaa !357
-  %41 = getelementptr inbounds nuw [9 x i32], ptr %10, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i32, ptr %10, i64 %33
   store i32 %40, ptr %41, align 4, !tbaa !357
   %42 = add i32 %.015.i.i.i.i, 1
   %43 = add i32 %.01214.i.i.i.i, 1
@@ -18186,12 +18186,12 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE5eraseEjj.exi
 
 50:                                               ; preds = %48
   %51 = zext i32 %2 to i64
-  %52 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %51
   store i64 %3, ptr %52, align 8, !tbaa !164
-  %53 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %51, i32 1
+  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %51, i32 1
   store i64 %4, ptr %53, align 8, !tbaa !164
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %55 = getelementptr inbounds nuw [9 x i32], ptr %54, i64 0, i64 %51
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %51
   store i32 %5, ptr %55, align 4, !tbaa !357
   %56 = add i32 %2, 1
   br label %89
@@ -18199,13 +18199,13 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE5eraseEjj.exi
 57:                                               ; preds = %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %59 = zext i32 %7 to i64
-  %60 = getelementptr inbounds nuw [9 x i32], ptr %58, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !357
   %62 = icmp eq i32 %61, %5
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %59
+  %64 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %59
   %.sroa.0.0.copyload.i48 = load i64, ptr %64, align 8, !tbaa !164
   %65 = icmp eq i64 %4, %.sroa.0.0.copyload.i48
   br i1 %65, label %66, label %67
@@ -18229,28 +18229,28 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE5eraseEjj.exi
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %72 = add i32 %7, %indvars.i
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %73
   %75 = trunc nuw i64 %indvars.iv.i to i32
   %76 = add i32 %7, %75
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %77
   %79 = load i64, ptr %74, align 8, !tbaa !164
   store i64 %79, ptr %78, align 8, !tbaa !164
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %82 = load i64, ptr %80, align 8, !tbaa !164
   store i64 %82, ptr %81, align 8, !tbaa !164
-  %83 = getelementptr inbounds nuw [9 x i32], ptr %58, i64 0, i64 %73
+  %83 = getelementptr inbounds nuw i32, ptr %58, i64 %73
   %84 = load i32, ptr %83, align 4, !tbaa !357
-  %85 = getelementptr inbounds nuw [9 x i32], ptr %58, i64 0, i64 %77
+  %85 = getelementptr inbounds nuw i32, ptr %58, i64 %77
   store i32 %84, ptr %85, align 4, !tbaa !357
   %.not.i.i = icmp eq i32 %indvars.i, 0
   br i1 %.not.i.i, label %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE5shiftEjj.exit, label %71, !llvm.loop !728
 
 _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE5shiftEjj.exit: ; preds = %71
-  %86 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %59
+  %86 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %59
   store i64 %3, ptr %86, align 8, !tbaa !164
-  %87 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %59, i32 1
+  %87 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %59, i32 1
   store i64 %4, ptr %87, align 8, !tbaa !164
   store i32 %5, ptr %60, align 4, !tbaa !357
   %88 = add i32 %2, 1
@@ -18336,13 +18336,13 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
   %52 = inttoptr i64 %51 to ptr
   %53 = and i64 %49, 63
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 144
-  %55 = getelementptr inbounds nuw [9 x i32], ptr %54, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %53
   %56 = load i32, ptr %55, align 4, !tbaa !357
   %57 = icmp eq i32 %56, %3
   br i1 %57, label %58, label %96
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %52, i64 0, i64 %53, i32 1
+  %59 = getelementptr inbounds nuw %"struct.std::pair", ptr %52, i64 %53, i32 1
   %.0.copyload.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = icmp eq i64 %.0.copyload.i.i.i.i.i, %1
   br i1 %60, label %61, label %96
@@ -18392,7 +18392,7 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
 
 91:                                               ; preds = %85, %61
-  %92 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %52, i64 0, i64 %53
+  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %52, i64 %53
   %93 = load i64, ptr %92, align 16, !tbaa !164
   tail call void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator9treeEraseEb(ptr noundef nonnull align 8 dereferenceable(88) %0, i1 noundef zeroext false)
   br label %96
@@ -18494,7 +18494,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %126, %132
   %157 = load i32, ptr %156, align 4, !tbaa !357
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 96
   %159 = zext i32 %157 to i64
-  %160 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %158, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %158, i64 %159
   store i64 %2, ptr %160, align 8, !tbaa !164
   %161 = load ptr, ptr %5, align 8, !tbaa !25
   %162 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %161, i64 %152
@@ -18512,7 +18512,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %126, %132
   %172 = load i32, ptr %171, align 4, !tbaa !357
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 88
   %174 = zext i32 %172 to i64
-  %175 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %173, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %173, i64 %174
   store i64 %2, ptr %175, align 8, !tbaa !164
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
 
@@ -18605,17 +18605,17 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph.i ]
   %.015.i = phi i32 [ %53, %42 ], [ %.01727, %.lr.ph.i ]
   %43 = zext i32 %.015.i to i64
-  %44 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %0, i64 0, i64 %43
-  %45 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %38, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %43
+  %45 = getelementptr inbounds nuw %"struct.std::pair", ptr %38, i64 %indvars.iv
   %46 = load i64, ptr %44, align 8, !tbaa !164
   store i64 %46, ptr %45, align 8, !tbaa !164
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load i64, ptr %47, align 8, !tbaa !164
   store i64 %49, ptr %48, align 8, !tbaa !164
-  %50 = getelementptr inbounds nuw [9 x i32], ptr %8, i64 0, i64 %43
+  %50 = getelementptr inbounds nuw i32, ptr %8, i64 %43
   %51 = load i32, ptr %50, align 4, !tbaa !357
-  %52 = getelementptr inbounds nuw [9 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !357
   %53 = add i32 %.015.i, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -18650,19 +18650,19 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE4copyILj9EEEv
 
 65:                                               ; preds = %9, %65
   %indvars.iv33 = phi i64 [ 0, %9 ], [ %indvars.iv.next34, %65 ]
-  %66 = getelementptr inbounds nuw [2 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %3, i64 0, i64 %indvars.iv33
+  %66 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %3, i64 %indvars.iv33
   %.0.copyload.i.i.i.i21 = load i64, ptr %66, align 8
   %67 = and i64 %.0.copyload.i.i.i.i21, -64
   %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %indvars.iv33
+  %69 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv33
   %70 = load i32, ptr %69, align 4, !tbaa !357
   %71 = add i32 %70, -1
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %68, i64 0, i64 %72, i32 1
-  %74 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %12, i64 0, i64 %indvars.iv33
+  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %72, i32 1
+  %74 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %12, i64 %indvars.iv33
   %75 = load i64, ptr %73, align 8, !tbaa !164
   store i64 %75, ptr %74, align 8, !tbaa !164
-  %76 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %11, i64 0, i64 %indvars.iv33
+  %76 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %11, i64 %indvars.iv33
   store i64 %.0.copyload.i.i.i.i21, ptr %76, align 8, !tbaa !164
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %.not20 = icmp eq i64 %indvars.iv.next34, 2
@@ -18699,7 +18699,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
   %14 = load i32, ptr %13, align 4, !tbaa !357
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %15, i64 %16
   store i64 %2, ptr %17, align 8, !tbaa !164
   %18 = load ptr, ptr %5, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %18, i64 %8
@@ -18717,7 +18717,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
   %29 = load i32, ptr %28, align 4, !tbaa !357
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %30, i64 %31
   store i64 %2, ptr %32, align 8, !tbaa !164
   br label %.loopexit
 
@@ -18810,18 +18810,18 @@ _ZNK4llvm15IntervalMapImpl4Path5validEv.exit:     ; preds = %23
   %.015.i.i.i.i = phi i32 [ %44, %.lr.ph.i.i.i.i ], [ %58, %46 ]
   %.01214.i.i.i.i = phi i32 [ %43, %.lr.ph.i.i.i.i ], [ %59, %46 ]
   %47 = zext i32 %.015.i.i.i.i to i64
-  %48 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %11, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %47
   %49 = zext i32 %.01214.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %11, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %49
   %51 = load i64, ptr %48, align 8, !tbaa !164
   store i64 %51, ptr %50, align 8, !tbaa !164
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = load i64, ptr %52, align 8, !tbaa !164
   store i64 %54, ptr %53, align 8, !tbaa !164
-  %55 = getelementptr inbounds nuw [9 x i32], ptr %45, i64 0, i64 %47
+  %55 = getelementptr inbounds nuw i32, ptr %45, i64 %47
   %56 = load i32, ptr %55, align 4, !tbaa !357
-  %57 = getelementptr inbounds nuw [9 x i32], ptr %45, i64 0, i64 %49
+  %57 = getelementptr inbounds nuw i32, ptr %45, i64 %49
   store i32 %56, ptr %57, align 4, !tbaa !357
   %58 = add i32 %.015.i.i.i.i, 1
   %59 = add i32 %.01214.i.i.i.i, 1
@@ -18885,7 +18885,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %_ZN4llvm15IntervalM
   %88 = load i32, ptr %64, align 8, !tbaa !396
   %89 = add i32 %60, -2
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %11, i64 0, i64 %90, i32 1
+  %91 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %90, i32 1
   %.sroa.0.0.copyload = load i64, ptr %91, align 8, !tbaa !164
   %.not.i30 = icmp eq i32 %88, 0
   br i1 %.not.i30, label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit, label %92
@@ -18908,7 +18908,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %_ZN4llvm15IntervalM
   %101 = load i32, ptr %100, align 4, !tbaa !357
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 96
   %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %102, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %102, i64 %103
   store i64 %.sroa.0.0.copyload, ptr %104, align 8, !tbaa !164
   %105 = load ptr, ptr %4, align 8, !tbaa !25
   %106 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %105, i64 %96
@@ -18926,7 +18926,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %_ZN4llvm15IntervalM
   %116 = load i32, ptr %115, align 4, !tbaa !357
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 88
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %117, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %117, i64 %118
   store i64 %.sroa.0.0.copyload, ptr %119, align 8, !tbaa !164
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
 
@@ -19000,13 +19000,13 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %21 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %20, i64 %7, i32 1
   %22 = load i32, ptr %21, align 8, !tbaa !543
   %23 = zext nneg i32 %.068 to i64
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %23
   store i32 %22, ptr %24, align 4, !tbaa !357
   %25 = add i32 %22, %.070
   %26 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %20, i64 %7
   %27 = load ptr, ptr %26, align 8, !tbaa !544
   %28 = add nuw nsw i32 %.068, 1
-  %29 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %23
+  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %23
   store ptr %27, ptr %29, align 8, !tbaa !732
   %30 = tail call i64 @_ZNK4llvm15IntervalMapImpl4Path15getRightSiblingEj(ptr noundef nonnull align 8 dereferenceable(80) %6, i32 noundef %1) #20
   %.not95 = icmp eq i64 %30, 0
@@ -19017,13 +19017,13 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %33 = and i32 %32, 63
   %34 = add nuw nsw i32 %33, 1
   %35 = zext nneg i32 %28 to i64
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %35
   store i32 %34, ptr %36, align 4, !tbaa !357
   %37 = add i32 %34, %25
   %38 = and i64 %30, -64
   %39 = inttoptr i64 %38 to ptr
   %40 = or disjoint i32 %.068, 2
-  %41 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %35
+  %41 = getelementptr inbounds nuw ptr, ptr %4, i64 %35
   store ptr %39, ptr %41, align 8, !tbaa !732
   br label %42
 
@@ -19040,14 +19040,14 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %48 = add nsw i32 %.169, -1
   %49 = select i1 %47, i32 1, i32 %48
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !357
   %53 = zext nneg i32 %.169 to i64
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !357
-  %55 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %50
+  %55 = getelementptr inbounds nuw ptr, ptr %4, i64 %50
   %56 = load ptr, ptr %55, align 8, !tbaa !732
-  %57 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %53
+  %57 = getelementptr inbounds nuw ptr, ptr %4, i64 %53
   store ptr %56, ptr %57, align 8, !tbaa !732
   store i32 0, ptr %51, align 4, !tbaa !357
   %58 = load ptr, ptr %0, align 8, !tbaa !527
@@ -19120,13 +19120,13 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %.072 = phi i32 [ 0, %89 ], [ %148, %149 ]
   %.067 = phi i32 [ %1, %89 ], [ %.1, %149 ]
   %91 = zext i32 %.072 to i64
-  %92 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %4, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !732
-  %94 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %91
+  %94 = getelementptr inbounds nuw i32, ptr %5, i64 %91
   %95 = load i32, ptr %94, align 4, !tbaa !357
   %96 = add i32 %95, -1
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %93, i64 0, i64 %97, i32 1
+  %98 = getelementptr inbounds nuw %"struct.std::pair", ptr %93, i64 %97, i32 1
   %.sroa.02.0.copyload = load i64, ptr %98, align 8, !tbaa !164
   %99 = icmp eq i32 %.072, %.078
   %or.cond = and i1 %.not, %99
@@ -19179,7 +19179,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %129 = load i32, ptr %128, align 4, !tbaa !357
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 96
   %131 = zext i32 %129 to i64
-  %132 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %130, i64 %131
   store i64 %.sroa.02.0.copyload, ptr %132, align 8, !tbaa !164
   %133 = load ptr, ptr %6, align 8, !tbaa !25
   %134 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %133, i64 %124
@@ -19197,7 +19197,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %144 = load i32, ptr %143, align 4, !tbaa !357
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 88
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %145, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %145, i64 %146
   store i64 %.sroa.02.0.copyload, ptr %147, align 8, !tbaa !164
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
 
@@ -19263,13 +19263,13 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
   %.015.i.i.i.i = phi i32 [ %14, %.lr.ph.i.i.i.i ], [ %25, %16 ]
   %.01214.i.i.i.i = phi i32 [ %11, %.lr.ph.i.i.i.i ], [ %26, %16 ]
   %17 = zext i32 %.015.i.i.i.i to i64
-  %18 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %9, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %9, i64 %17
   %19 = zext i32 %.01214.i.i.i.i to i64
-  %20 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %9, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %9, i64 %19
   %21 = load i64, ptr %18, align 8, !tbaa !164
   store i64 %21, ptr %20, align 8, !tbaa !164
-  %22 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %15, i64 0, i64 %17
-  %23 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %15, i64 0, i64 %19
+  %22 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %15, i64 %17
+  %23 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %15, i64 %19
   %24 = load i64, ptr %22, align 8, !tbaa !164
   store i64 %24, ptr %23, align 8, !tbaa !164
   %25 = add i32 %.015.i.i.i.i, 1
@@ -19394,13 +19394,13 @@ _ZN4llvm15IntervalMapImpl4Path7setRootEPvjj.exit9.i: ; preds = %57, %51
   %.015.i.i.i.i41 = phi i32 [ %79, %.lr.ph.i.i.i.i40 ], [ %90, %81 ]
   %.01214.i.i.i.i42 = phi i32 [ %78, %.lr.ph.i.i.i.i40 ], [ %91, %81 ]
   %82 = zext i32 %.015.i.i.i.i41 to i64
-  %83 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %68, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %68, i64 %82
   %84 = zext i32 %.01214.i.i.i.i42 to i64
-  %85 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %68, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %68, i64 %84
   %86 = load i64, ptr %83, align 8, !tbaa !164
   store i64 %86, ptr %85, align 8, !tbaa !164
-  %87 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %80, i64 0, i64 %82
-  %88 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %80, i64 0, i64 %84
+  %87 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %80, i64 %82
+  %88 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %80, i64 %84
   %89 = load i64, ptr %87, align 8, !tbaa !164
   store i64 %89, ptr %88, align 8, !tbaa !164
   %90 = add i32 %.015.i.i.i.i41, 1
@@ -19442,7 +19442,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %_ZN4llvm15IntervalM
 
 112:                                              ; preds = %_ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit
   %113 = getelementptr inbounds nuw i8, ptr %68, i64 96
-  %114 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %113, i64 0, i64 %105
+  %114 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %113, i64 %105
   %.sroa.0.0.copyload = load i64, ptr %114, align 8, !tbaa !164
   br label %115
 
@@ -19460,7 +19460,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %_ZN4llvm15IntervalM
   %122 = load i32, ptr %121, align 4, !tbaa !357
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 96
   %124 = zext i32 %122 to i64
-  %125 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %123, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %123, i64 %124
   store i64 %.sroa.0.0.copyload, ptr %125, align 8, !tbaa !164
   %126 = load ptr, ptr %4, align 8, !tbaa !25
   %127 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %126, i64 %117
@@ -19478,7 +19478,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit:   ; preds = %_ZN4llvm15IntervalM
   %137 = load i32, ptr %136, align 4, !tbaa !357
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 88
   %139 = zext i32 %137 to i64
-  %140 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %138, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %138, i64 %139
   store i64 %.sroa.0.0.copyload, ptr %140, align 8, !tbaa !164
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
 
@@ -19605,19 +19605,19 @@ define linkonce_odr void @_ZN4llvm15IntervalMapImpl18adjustSiblingSizesINS0_8Lea
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %indvars.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %31 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %32 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %19, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %31
   %33 = add i32 %.sroa.speculated25.i, %indvars.i.i.i
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %19, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %34
   %36 = load i64, ptr %32, align 8, !tbaa !164
   store i64 %36, ptr %35, align 8, !tbaa !164
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i64, ptr %37, align 8, !tbaa !164
   store i64 %39, ptr %38, align 8, !tbaa !164
-  %40 = getelementptr inbounds nuw [9 x i32], ptr %28, i64 0, i64 %31
+  %40 = getelementptr inbounds nuw i32, ptr %28, i64 %31
   %41 = load i32, ptr %40, align 4, !tbaa !357
-  %42 = getelementptr inbounds nuw [9 x i32], ptr %28, i64 0, i64 %34
+  %42 = getelementptr inbounds nuw i32, ptr %28, i64 %34
   store i32 %41, ptr %42, align 4, !tbaa !357
   %.not.i.i.i = icmp eq i32 %indvars.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE9moveRightEjjj.exit.i.i, label %30, !llvm.loop !728
@@ -19636,17 +19636,17 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE9moveRightEjj
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %46 ], [ 0, %.lr.ph.i7.i.i ]
   %.015.i.i.i = phi i32 [ %57, %46 ], [ %43, %.lr.ph.i7.i.i ]
   %47 = zext i32 %.015.i.i.i to i64
-  %48 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %21, i64 0, i64 %47
-  %49 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %19, i64 0, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %47
+  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %indvars.iv.i.i
   %50 = load i64, ptr %48, align 8, !tbaa !164
   store i64 %50, ptr %49, align 8, !tbaa !164
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load i64, ptr %51, align 8, !tbaa !164
   store i64 %53, ptr %52, align 8, !tbaa !164
-  %54 = getelementptr inbounds nuw [9 x i32], ptr %44, i64 0, i64 %47
+  %54 = getelementptr inbounds nuw i32, ptr %44, i64 %47
   %55 = load i32, ptr %54, align 4, !tbaa !357
-  %56 = getelementptr inbounds nuw [9 x i32], ptr %45, i64 0, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i.i
   store i32 %55, ptr %56, align 4, !tbaa !357
   %57 = add i32 %.015.i.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -19670,18 +19670,18 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE9moveRightEjj
 64:                                               ; preds = %64, %.lr.ph.i.i15.i
   %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i17.i, %64 ], [ 0, %.lr.ph.i.i15.i ]
   %.01214.i.i.i = phi i32 [ %75, %64 ], [ %23, %.lr.ph.i.i15.i ]
-  %65 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %19, i64 0, i64 %indvars.iv.i16.i
+  %65 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %indvars.iv.i16.i
   %66 = zext i32 %.01214.i.i.i to i64
-  %67 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %21, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %66
   %68 = load i64, ptr %65, align 8, !tbaa !164
   store i64 %68, ptr %67, align 8, !tbaa !164
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load i64, ptr %69, align 8, !tbaa !164
   store i64 %71, ptr %70, align 8, !tbaa !164
-  %72 = getelementptr inbounds nuw [9 x i32], ptr %61, i64 0, i64 %indvars.iv.i16.i
+  %72 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i16.i
   %73 = load i32, ptr %72, align 4, !tbaa !357
-  %74 = getelementptr inbounds nuw [9 x i32], ptr %62, i64 0, i64 %66
+  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %66
   store i32 %73, ptr %74, align 4, !tbaa !357
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %75 = add i32 %.01214.i.i.i, 1
@@ -19700,17 +19700,17 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE4copyILj9EEEv
   %indvars.iv6.i.i = phi i64 [ %indvars.iv.next7.i.i, %77 ], [ 0, %.lr.ph.i.i.i.i.i ]
   %.015.i.i.i.i.i = phi i32 [ %88, %77 ], [ %.sroa.speculated.i, %.lr.ph.i.i.i.i.i ]
   %78 = zext i32 %.015.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %19, i64 0, i64 %78
-  %80 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %19, i64 0, i64 %indvars.iv6.i.i
+  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %78
+  %80 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %indvars.iv6.i.i
   %81 = load i64, ptr %79, align 8, !tbaa !164
   store i64 %81, ptr %80, align 8, !tbaa !164
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = load i64, ptr %82, align 8, !tbaa !164
   store i64 %84, ptr %83, align 8, !tbaa !164
-  %85 = getelementptr inbounds nuw [9 x i32], ptr %76, i64 0, i64 %78
+  %85 = getelementptr inbounds nuw i32, ptr %76, i64 %78
   %86 = load i32, ptr %85, align 4, !tbaa !357
-  %87 = getelementptr inbounds nuw [9 x i32], ptr %76, i64 0, i64 %indvars.iv6.i.i
+  %87 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv6.i.i
   store i32 %86, ptr %87, align 4, !tbaa !357
   %88 = add i32 %.015.i.i.i.i.i, 1
   %indvars.iv.next7.i.i = add nuw nsw i64 %indvars.iv6.i.i, 1
@@ -19788,19 +19788,19 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE17adjustFromL
   %indvars.iv.next.i.i.i100 = add nsw i64 %indvars.iv.i.i.i99, -1
   %indvars.i.i.i101 = trunc i64 %indvars.iv.next.i.i.i100 to i32
   %119 = and i64 %indvars.iv.next.i.i.i100, 4294967295
-  %120 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %108, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %119
   %121 = add i32 %.sroa.speculated25.i96, %indvars.i.i.i101
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %108, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %122
   %124 = load i64, ptr %120, align 8, !tbaa !164
   store i64 %124, ptr %123, align 8, !tbaa !164
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %127 = load i64, ptr %125, align 8, !tbaa !164
   store i64 %127, ptr %126, align 8, !tbaa !164
-  %128 = getelementptr inbounds nuw [9 x i32], ptr %116, i64 0, i64 %119
+  %128 = getelementptr inbounds nuw i32, ptr %116, i64 %119
   %129 = load i32, ptr %128, align 4, !tbaa !357
-  %130 = getelementptr inbounds nuw [9 x i32], ptr %116, i64 0, i64 %122
+  %130 = getelementptr inbounds nuw i32, ptr %116, i64 %122
   store i32 %129, ptr %130, align 4, !tbaa !357
   %.not.i.i.i102 = icmp eq i32 %indvars.i.i.i101, 0
   br i1 %.not.i.i.i102, label %_ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE9moveRightEjjj.exit.i.i103, label %118, !llvm.loop !728
@@ -19819,17 +19819,17 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE9moveRightEjj
   %indvars.iv.i.i106 = phi i64 [ %indvars.iv.next.i.i108, %134 ], [ 0, %.lr.ph.i7.i.i105 ]
   %.015.i.i.i107 = phi i32 [ %145, %134 ], [ %131, %.lr.ph.i7.i.i105 ]
   %135 = zext i32 %.015.i.i.i107 to i64
-  %136 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %111, i64 0, i64 %135
-  %137 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %108, i64 0, i64 %indvars.iv.i.i106
+  %136 = getelementptr inbounds nuw %"struct.std::pair", ptr %111, i64 %135
+  %137 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %indvars.iv.i.i106
   %138 = load i64, ptr %136, align 8, !tbaa !164
   store i64 %138, ptr %137, align 8, !tbaa !164
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %141 = load i64, ptr %139, align 8, !tbaa !164
   store i64 %141, ptr %140, align 8, !tbaa !164
-  %142 = getelementptr inbounds nuw [9 x i32], ptr %132, i64 0, i64 %135
+  %142 = getelementptr inbounds nuw i32, ptr %132, i64 %135
   %143 = load i32, ptr %142, align 4, !tbaa !357
-  %144 = getelementptr inbounds nuw [9 x i32], ptr %133, i64 0, i64 %indvars.iv.i.i106
+  %144 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i.i106
   store i32 %143, ptr %144, align 4, !tbaa !357
   %145 = add i32 %.015.i.i.i107, 1
   %indvars.iv.next.i.i108 = add nuw nsw i64 %indvars.iv.i.i106, 1
@@ -19853,18 +19853,18 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE9moveRightEjj
 152:                                              ; preds = %152, %.lr.ph.i.i15.i81
   %indvars.iv.i16.i82 = phi i64 [ %indvars.iv.next.i17.i84, %152 ], [ 0, %.lr.ph.i.i15.i81 ]
   %.01214.i.i.i83 = phi i32 [ %163, %152 ], [ %104, %.lr.ph.i.i15.i81 ]
-  %153 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %108, i64 0, i64 %indvars.iv.i16.i82
+  %153 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %indvars.iv.i16.i82
   %154 = zext i32 %.01214.i.i.i83 to i64
-  %155 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %111, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw %"struct.std::pair", ptr %111, i64 %154
   %156 = load i64, ptr %153, align 8, !tbaa !164
   store i64 %156, ptr %155, align 8, !tbaa !164
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %159 = load i64, ptr %157, align 8, !tbaa !164
   store i64 %159, ptr %158, align 8, !tbaa !164
-  %160 = getelementptr inbounds nuw [9 x i32], ptr %149, i64 0, i64 %indvars.iv.i16.i82
+  %160 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.i16.i82
   %161 = load i32, ptr %160, align 4, !tbaa !357
-  %162 = getelementptr inbounds nuw [9 x i32], ptr %150, i64 0, i64 %154
+  %162 = getelementptr inbounds nuw i32, ptr %150, i64 %154
   store i32 %161, ptr %162, align 4, !tbaa !357
   %indvars.iv.next.i17.i84 = add nuw nsw i64 %indvars.iv.i16.i82, 1
   %163 = add i32 %.01214.i.i.i83, 1
@@ -19883,17 +19883,17 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EjLj9EE4copyILj9EEEv
   %indvars.iv6.i.i89 = phi i64 [ %indvars.iv.next7.i.i91, %165 ], [ 0, %.lr.ph.i.i.i.i.i88 ]
   %.015.i.i.i.i.i90 = phi i32 [ %176, %165 ], [ %.sroa.speculated.i79, %.lr.ph.i.i.i.i.i88 ]
   %166 = zext i32 %.015.i.i.i.i.i90 to i64
-  %167 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %108, i64 0, i64 %166
-  %168 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %108, i64 0, i64 %indvars.iv6.i.i89
+  %167 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %166
+  %168 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %indvars.iv6.i.i89
   %169 = load i64, ptr %167, align 8, !tbaa !164
   store i64 %169, ptr %168, align 8, !tbaa !164
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %172 = load i64, ptr %170, align 8, !tbaa !164
   store i64 %172, ptr %171, align 8, !tbaa !164
-  %173 = getelementptr inbounds nuw [9 x i32], ptr %164, i64 0, i64 %166
+  %173 = getelementptr inbounds nuw i32, ptr %164, i64 %166
   %174 = load i32, ptr %173, align 4, !tbaa !357
-  %175 = getelementptr inbounds nuw [9 x i32], ptr %164, i64 0, i64 %indvars.iv6.i.i89
+  %175 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv6.i.i89
   store i32 %174, ptr %175, align 4, !tbaa !357
   %176 = add i32 %.015.i.i.i.i.i90, 1
   %indvars.iv.next7.i.i91 = add nuw nsw i64 %indvars.iv6.i.i89, 1
@@ -19958,15 +19958,15 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %indvars.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %21 = add i32 %16, %indvars.i.i
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %13, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %13, i64 %22
   %24 = trunc nuw i64 %indvars.iv.i.i to i32
   %25 = add i32 %16, %24
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %13, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %13, i64 %26
   %28 = load i64, ptr %23, align 8, !tbaa !164
   store i64 %28, ptr %27, align 8, !tbaa !164
-  %29 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %18, i64 0, i64 %22
-  %30 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %18, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %18, i64 %22
+  %30 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %18, i64 %26
   %31 = load i64, ptr %29, align 8, !tbaa !164
   store i64 %31, ptr %30, align 8, !tbaa !164
   %.not.i.i.i = icmp eq i32 %indvars.i.i, 0
@@ -19974,10 +19974,10 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
 
 _ZN4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj11ENS_15IntervalMapInfoIS2_EEE6insertEjjNS0_7NodeRefES2_.exit: ; preds = %20, %12
   %32 = zext i32 %16 to i64
-  %33 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %13, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %13, i64 %32
   store i64 %2, ptr %33, align 8, !tbaa !164
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %35 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %34, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %34, i64 %32
   store i64 %3, ptr %35, align 8, !tbaa !164
   %36 = load i32, ptr %9, align 4, !tbaa !399
   %37 = add i32 %36, 1
@@ -20089,15 +20089,15 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
   %indvars.i.i61 = trunc i64 %indvars.iv.next.i.i60 to i32
   %94 = add i32 %89, %indvars.i.i61
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %87, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %87, i64 %95
   %97 = trunc nuw i64 %indvars.iv.i.i59 to i32
   %98 = add i32 %89, %97
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %87, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %87, i64 %99
   %101 = load i64, ptr %96, align 8, !tbaa !164
   store i64 %101, ptr %100, align 8, !tbaa !164
-  %102 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %91, i64 0, i64 %95
-  %103 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %91, i64 0, i64 %99
+  %102 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %91, i64 %95
+  %103 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %91, i64 %99
   %104 = load i64, ptr %102, align 8, !tbaa !164
   store i64 %104, ptr %103, align 8, !tbaa !164
   %.not.i.i.i62 = icmp eq i32 %indvars.i.i61, 0
@@ -20105,10 +20105,10 @@ _ZN4llvm15IntervalMapImpl4Path17legalizeForInsertEj.exit: ; preds = %_ZNK4llvm15
 
 _ZN4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoIS2_EEE6insertEjjNS0_7NodeRefES2_.exit: ; preds = %93, %83
   %105 = zext i32 %89 to i64
-  %106 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %87, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %87, i64 %105
   store i64 %2, ptr %106, align 8, !tbaa !164
   %107 = getelementptr inbounds nuw i8, ptr %87, i64 96
-  %108 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %107, i64 0, i64 %105
+  %108 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %107, i64 %105
   store i64 %3, ptr %108, align 8, !tbaa !164
   %109 = load ptr, ptr %6, align 8, !tbaa !25
   %110 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %109, i64 %.pre-phi, i32 1
@@ -20156,7 +20156,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit.thread: ; preds = %_ZN4llvm15Inte
   %138 = load i32, ptr %137, align 4, !tbaa !357
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 96
   %140 = zext i32 %138 to i64
-  %141 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %139, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %139, i64 %140
   store i64 %3, ptr %141, align 8, !tbaa !164
   %142 = load ptr, ptr %6, align 8, !tbaa !25
   %143 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %142, i64 %133
@@ -20174,7 +20174,7 @@ _ZN4llvm15IntervalMapImpl4Path7setSizeEjj.exit.thread: ; preds = %_ZN4llvm15Inte
   %153 = load i32, ptr %152, align 4, !tbaa !357
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 88
   %155 = zext i32 %153 to i64
-  %156 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %154, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %154, i64 %155
   store i64 %3, ptr %156, align 8, !tbaa !164
   %.pre71 = load ptr, ptr %6, align 8, !tbaa !25
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
@@ -20277,7 +20277,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %37 = and i64 %36, -64
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  %40 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %39, i64 0, i64 %34
+  %40 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %39, i64 %34
   %41 = load i64, ptr %40, align 8, !tbaa !164
   store i64 %41, ptr %6, align 8, !tbaa !164
   store i64 %36, ptr %5, align 8, !tbaa !164
@@ -20334,12 +20334,12 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
 
 68:                                               ; preds = %68, %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_15IntervalMapImpl10BranchNodeIS1_jLj12ES3_EEEEPT_v.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_15IntervalMapImpl10BranchNodeIS1_jLj12ES3_EEEEPT_v.exit ]
-  %69 = getelementptr inbounds nuw [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %5, i64 0, i64 %indvars.iv
-  %70 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %66, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %5, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %66, i64 %indvars.iv
   %71 = load i64, ptr %69, align 8, !tbaa !164
   store i64 %71, ptr %70, align 8, !tbaa !164
-  %72 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %6, i64 0, i64 %indvars.iv
-  %73 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %67, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %6, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %67, i64 %indvars.iv
   %74 = load i64, ptr %72, align 8, !tbaa !164
   store i64 %74, ptr %73, align 8, !tbaa !164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -20383,13 +20383,13 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %21 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %20, i64 %7, i32 1
   %22 = load i32, ptr %21, align 8, !tbaa !543
   %23 = zext nneg i32 %.068 to i64
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %23
   store i32 %22, ptr %24, align 4, !tbaa !357
   %25 = add i32 %22, %.070
   %26 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %20, i64 %7
   %27 = load ptr, ptr %26, align 8, !tbaa !544
   %28 = add nuw nsw i32 %.068, 1
-  %29 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %23
+  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %23
   store ptr %27, ptr %29, align 8, !tbaa !744
   %30 = tail call i64 @_ZNK4llvm15IntervalMapImpl4Path15getRightSiblingEj(ptr noundef nonnull align 8 dereferenceable(80) %6, i32 noundef %1) #20
   %.not95 = icmp eq i64 %30, 0
@@ -20400,13 +20400,13 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %33 = and i32 %32, 63
   %34 = add nuw nsw i32 %33, 1
   %35 = zext nneg i32 %28 to i64
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %35
   store i32 %34, ptr %36, align 4, !tbaa !357
   %37 = add i32 %34, %25
   %38 = and i64 %30, -64
   %39 = inttoptr i64 %38 to ptr
   %40 = or disjoint i32 %.068, 2
-  %41 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %35
+  %41 = getelementptr inbounds nuw ptr, ptr %4, i64 %35
   store ptr %39, ptr %41, align 8, !tbaa !744
   br label %42
 
@@ -20423,14 +20423,14 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9
   %48 = add nsw i32 %.169, -1
   %49 = select i1 %47, i32 1, i32 %48
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !357
   %53 = zext nneg i32 %.169 to i64
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !357
-  %55 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %50
+  %55 = getelementptr inbounds nuw ptr, ptr %4, i64 %50
   %56 = load ptr, ptr %55, align 8, !tbaa !744
-  %57 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %53
+  %57 = getelementptr inbounds nuw ptr, ptr %4, i64 %53
   store ptr %56, ptr %57, align 8, !tbaa !744
   store i32 0, ptr %51, align 4, !tbaa !357
   %58 = load ptr, ptr %0, align 8, !tbaa !527
@@ -20503,14 +20503,14 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %.072 = phi i32 [ 0, %89 ], [ %149, %150 ]
   %.067 = phi i32 [ %1, %89 ], [ %.1, %150 ]
   %91 = zext i32 %.072 to i64
-  %92 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %4, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !744
-  %94 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %91
+  %94 = getelementptr inbounds nuw i32, ptr %5, i64 %91
   %95 = load i32, ptr %94, align 4, !tbaa !357
   %96 = add i32 %95, -1
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 96
   %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %97, i64 %98
   %.sroa.02.0.copyload = load i64, ptr %99, align 8, !tbaa !164
   %100 = icmp eq i32 %.072, %.078
   %or.cond = and i1 %.not, %100
@@ -20563,7 +20563,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %130 = load i32, ptr %129, align 4, !tbaa !357
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 96
   %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %131, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %131, i64 %132
   store i64 %.sroa.02.0.copyload, ptr %133, align 8, !tbaa !164
   %134 = load ptr, ptr %6, align 8, !tbaa !25
   %135 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %134, i64 %125
@@ -20581,7 +20581,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE7newNodeINS_
   %145 = load i32, ptr %144, align 4, !tbaa !357
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 88
   %147 = zext i32 %145 to i64
-  %148 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %146, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %146, i64 %147
   store i64 %.sroa.02.0.copyload, ptr %148, align 8, !tbaa !164
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE8iterator11setNodeStopEjS1_.exit
 
@@ -20686,14 +20686,14 @@ define linkonce_odr void @_ZN4llvm15IntervalMapImpl18adjustSiblingSizesINS0_10Br
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %indvars.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %31 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %32 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %19, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %19, i64 %31
   %33 = add i32 %.sroa.speculated25.i, %indvars.i.i.i
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %19, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %19, i64 %34
   %36 = load i64, ptr %32, align 8, !tbaa !164
   store i64 %36, ptr %35, align 8, !tbaa !164
-  %37 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %28, i64 0, i64 %31
-  %38 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %28, i64 0, i64 %34
+  %37 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %28, i64 %31
+  %38 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %28, i64 %34
   %39 = load i64, ptr %37, align 8, !tbaa !164
   store i64 %39, ptr %38, align 8, !tbaa !164
   %.not.i.i.i = icmp eq i32 %indvars.i.i.i, 0
@@ -20713,12 +20713,12 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE9moveRightEj
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %43 ], [ 0, %.lr.ph.i7.i.i ]
   %.015.i.i.i = phi i32 [ %51, %43 ], [ %40, %.lr.ph.i7.i.i ]
   %44 = zext i32 %.015.i.i.i to i64
-  %45 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %21, i64 0, i64 %44
-  %46 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %19, i64 0, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %21, i64 %44
+  %46 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %19, i64 %indvars.iv.i.i
   %47 = load i64, ptr %45, align 8, !tbaa !164
   store i64 %47, ptr %46, align 8, !tbaa !164
-  %48 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %41, i64 0, i64 %44
-  %49 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %42, i64 0, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %41, i64 %44
+  %49 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %42, i64 %indvars.iv.i.i
   %50 = load i64, ptr %48, align 8, !tbaa !164
   store i64 %50, ptr %49, align 8, !tbaa !164
   %51 = add i32 %.015.i.i.i, 1
@@ -20743,13 +20743,13 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE9moveRightEj
 58:                                               ; preds = %58, %.lr.ph.i.i15.i
   %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i17.i, %58 ], [ 0, %.lr.ph.i.i15.i ]
   %.01214.i.i.i = phi i32 [ %66, %58 ], [ %23, %.lr.ph.i.i15.i ]
-  %59 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %19, i64 0, i64 %indvars.iv.i16.i
+  %59 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %19, i64 %indvars.iv.i16.i
   %60 = zext i32 %.01214.i.i.i to i64
-  %61 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %21, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %21, i64 %60
   %62 = load i64, ptr %59, align 8, !tbaa !164
   store i64 %62, ptr %61, align 8, !tbaa !164
-  %63 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %55, i64 0, i64 %indvars.iv.i16.i
-  %64 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %56, i64 0, i64 %60
+  %63 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %55, i64 %indvars.iv.i16.i
+  %64 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %56, i64 %60
   %65 = load i64, ptr %63, align 8, !tbaa !164
   store i64 %65, ptr %64, align 8, !tbaa !164
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
@@ -20769,12 +20769,12 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE4copyILj12EE
   %indvars.iv6.i.i = phi i64 [ %indvars.iv.next7.i.i, %68 ], [ 0, %.lr.ph.i.i.i.i.i ]
   %.015.i.i.i.i.i = phi i32 [ %76, %68 ], [ %.sroa.speculated.i, %.lr.ph.i.i.i.i.i ]
   %69 = zext i32 %.015.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %19, i64 0, i64 %69
-  %71 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %19, i64 0, i64 %indvars.iv6.i.i
+  %70 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %19, i64 %69
+  %71 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %19, i64 %indvars.iv6.i.i
   %72 = load i64, ptr %70, align 8, !tbaa !164
   store i64 %72, ptr %71, align 8, !tbaa !164
-  %73 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %67, i64 0, i64 %69
-  %74 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %67, i64 0, i64 %indvars.iv6.i.i
+  %73 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %67, i64 %69
+  %74 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %67, i64 %indvars.iv6.i.i
   %75 = load i64, ptr %73, align 8, !tbaa !164
   store i64 %75, ptr %74, align 8, !tbaa !164
   %76 = add i32 %.015.i.i.i.i.i, 1
@@ -20853,14 +20853,14 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE17adjustFrom
   %indvars.iv.next.i.i.i100 = add nsw i64 %indvars.iv.i.i.i99, -1
   %indvars.i.i.i101 = trunc i64 %indvars.iv.next.i.i.i100 to i32
   %107 = and i64 %indvars.iv.next.i.i.i100, 4294967295
-  %108 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %96, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %96, i64 %107
   %109 = add i32 %.sroa.speculated25.i96, %indvars.i.i.i101
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %96, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %96, i64 %110
   %112 = load i64, ptr %108, align 8, !tbaa !164
   store i64 %112, ptr %111, align 8, !tbaa !164
-  %113 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %104, i64 0, i64 %107
-  %114 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %104, i64 0, i64 %110
+  %113 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %104, i64 %107
+  %114 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %104, i64 %110
   %115 = load i64, ptr %113, align 8, !tbaa !164
   store i64 %115, ptr %114, align 8, !tbaa !164
   %.not.i.i.i102 = icmp eq i32 %indvars.i.i.i101, 0
@@ -20880,12 +20880,12 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE9moveRightEj
   %indvars.iv.i.i106 = phi i64 [ %indvars.iv.next.i.i108, %119 ], [ 0, %.lr.ph.i7.i.i105 ]
   %.015.i.i.i107 = phi i32 [ %127, %119 ], [ %116, %.lr.ph.i7.i.i105 ]
   %120 = zext i32 %.015.i.i.i107 to i64
-  %121 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %99, i64 0, i64 %120
-  %122 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %96, i64 0, i64 %indvars.iv.i.i106
+  %121 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %99, i64 %120
+  %122 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %96, i64 %indvars.iv.i.i106
   %123 = load i64, ptr %121, align 8, !tbaa !164
   store i64 %123, ptr %122, align 8, !tbaa !164
-  %124 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %117, i64 0, i64 %120
-  %125 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %118, i64 0, i64 %indvars.iv.i.i106
+  %124 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %117, i64 %120
+  %125 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %118, i64 %indvars.iv.i.i106
   %126 = load i64, ptr %124, align 8, !tbaa !164
   store i64 %126, ptr %125, align 8, !tbaa !164
   %127 = add i32 %.015.i.i.i107, 1
@@ -20910,13 +20910,13 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE9moveRightEj
 134:                                              ; preds = %134, %.lr.ph.i.i15.i81
   %indvars.iv.i16.i82 = phi i64 [ %indvars.iv.next.i17.i84, %134 ], [ 0, %.lr.ph.i.i15.i81 ]
   %.01214.i.i.i83 = phi i32 [ %142, %134 ], [ %92, %.lr.ph.i.i15.i81 ]
-  %135 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %96, i64 0, i64 %indvars.iv.i16.i82
+  %135 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %96, i64 %indvars.iv.i16.i82
   %136 = zext i32 %.01214.i.i.i83 to i64
-  %137 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %99, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %99, i64 %136
   %138 = load i64, ptr %135, align 8, !tbaa !164
   store i64 %138, ptr %137, align 8, !tbaa !164
-  %139 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %131, i64 0, i64 %indvars.iv.i16.i82
-  %140 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %132, i64 0, i64 %136
+  %139 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %131, i64 %indvars.iv.i16.i82
+  %140 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %132, i64 %136
   %141 = load i64, ptr %139, align 8, !tbaa !164
   store i64 %141, ptr %140, align 8, !tbaa !164
   %indvars.iv.next.i17.i84 = add nuw nsw i64 %indvars.iv.i16.i82, 1
@@ -20936,12 +20936,12 @@ _ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj12EE4copyILj12EE
   %indvars.iv6.i.i89 = phi i64 [ %indvars.iv.next7.i.i91, %144 ], [ 0, %.lr.ph.i.i.i.i.i88 ]
   %.015.i.i.i.i.i90 = phi i32 [ %152, %144 ], [ %.sroa.speculated.i79, %.lr.ph.i.i.i.i.i88 ]
   %145 = zext i32 %.015.i.i.i.i.i90 to i64
-  %146 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %96, i64 0, i64 %145
-  %147 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %96, i64 0, i64 %indvars.iv6.i.i89
+  %146 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %96, i64 %145
+  %147 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %96, i64 %indvars.iv6.i.i89
   %148 = load i64, ptr %146, align 8, !tbaa !164
   store i64 %148, ptr %147, align 8, !tbaa !164
-  %149 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %143, i64 0, i64 %145
-  %150 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %143, i64 0, i64 %indvars.iv6.i.i89
+  %149 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %143, i64 %145
+  %150 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %143, i64 %indvars.iv6.i.i89
   %151 = load i64, ptr %149, align 8, !tbaa !164
   store i64 %151, ptr %150, align 8, !tbaa !164
   %152 = add i32 %.015.i.i.i.i.i90, 1
@@ -20997,7 +20997,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
 15:                                               ; preds = %26, %.lr.ph.i
   %.07.i = phi i32 [ 0, %.lr.ph.i ], [ %27, %26 ]
   %16 = zext i32 %.07.i to i64
-  %17 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %6, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %6, i64 %16
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %17, align 8
   %18 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %19 = inttoptr i64 %18 to ptr
@@ -21128,7 +21128,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
 31:                                               ; preds = %31, %._crit_edge
   %.0.i = phi i32 [ 0, %._crit_edge ], [ %42, %31 ]
   %32 = zext i32 %.0.i to i64
-  %33 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %27, i64 0, i64 %32, i32 1
+  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %27, i64 %32, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %33, align 8
   %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %35 = inttoptr i64 %34 to ptr
@@ -21187,7 +21187,7 @@ _ZN4llvm15IntervalMapImpl4Path4pushENS0_7NodeRefEj.exit: ; preds = %_ZNK4llvm15I
 63:                                               ; preds = %63, %56
   %.0.i10 = phi i32 [ 0, %56 ], [ %74, %63 ]
   %64 = zext i32 %.0.i10 to i64
-  %65 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %60, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %60, i64 %64
   %.0.copyload.i.i.i.i.i.i.i.i11 = load i64, ptr %65, align 8
   %66 = and i64 %.0.copyload.i.i.i.i.i.i.i.i11, -8
   %67 = inttoptr i64 %66 to ptr
@@ -22091,7 +22091,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
   %12 = load i32, ptr %11, align 8, !tbaa !543
   %13 = add i32 %12, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %10, i64 0, i64 %14, i32 1
+  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %14, i32 1
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %15, align 8
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %17 = inttoptr i64 %16 to ptr
@@ -22120,7 +22120,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15Interval
 35:                                               ; preds = %35, %32
   %.0.i = phi i32 [ %34, %32 ], [ %46, %35 ]
   %36 = zext i32 %.0.i to i64
-  %37 = getelementptr inbounds nuw [9 x %"struct.std::pair"], ptr %10, i64 0, i64 %36, i32 1
+  %37 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %36, i32 1
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
   %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %39 = inttoptr i64 %38 to ptr
@@ -22164,7 +22164,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
   %54 = load i32, ptr %53, align 4, !tbaa !357
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %55, i64 %56
   %.0.copyload.i.i.i.i.i.i.i1763 = load i64, ptr %57, align 8
   %58 = and i64 %.0.copyload.i.i.i.i.i.i.i1763, -8
   %59 = inttoptr i64 %58 to ptr
@@ -22185,7 +22185,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
   %70 = load i32, ptr %69, align 4, !tbaa !357
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 96
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %71, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %71, i64 %72
   %.0.copyload.i.i.i.i.i.i.i17 = load i64, ptr %73, align 8
   %74 = and i64 %.0.copyload.i.i.i.i.i.i.i17, -8
   %75 = inttoptr i64 %74 to ptr
@@ -22211,7 +22211,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
 88:                                               ; preds = %88, %.lr.ph._crit_edge
   %.0.i18 = phi i32 [ %86, %.lr.ph._crit_edge ], [ %99, %88 ]
   %89 = zext i32 %.0.i18 to i64
-  %90 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %87, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %87, i64 %89
   %.0.copyload.i.i.i.i.i.i.i.i19 = load i64, ptr %90, align 8
   %91 = and i64 %.0.copyload.i.i.i.i.i.i.i.i19, -8
   %92 = inttoptr i64 %91 to ptr
@@ -22245,7 +22245,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
   %105 = load i32, ptr %104, align 4, !tbaa !357
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 96
   %107 = zext i32 %105 to i64
-  %108 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %106, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %106, i64 %107
   %.0.copyload.i.i.i.i.i.i.i22 = load i64, ptr %108, align 8
   %109 = and i64 %.0.copyload.i.i.i.i.i.i.i22, -8
   %110 = inttoptr i64 %109 to ptr
@@ -22269,7 +22269,7 @@ _ZNK4llvm15IntervalMapImpl8LeafNodeINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS2_E
 123:                                              ; preds = %123, %117
   %.0.i23 = phi i32 [ %121, %117 ], [ %134, %123 ]
   %124 = zext i32 %.0.i23 to i64
-  %125 = getelementptr inbounds nuw [12 x %"class.llvm::SlotIndex"], ptr %122, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %122, i64 %124
   %.0.copyload.i.i.i.i.i.i.i.i24 = load i64, ptr %125, align 8
   %126 = and i64 %.0.copyload.i.i.i.i.i.i.i.i24, -8
   %127 = inttoptr i64 %126 to ptr
@@ -22301,7 +22301,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEjLj12ENS_15IntervalMapInfoI
 .lr.ph.i:                                         ; preds = %135, %152
   %.07.i = phi i32 [ %153, %152 ], [ %136, %135 ]
   %142 = zext i32 %.07.i to i64
-  %143 = getelementptr inbounds nuw [11 x %"class.llvm::SlotIndex"], ptr %141, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw %"class.llvm::SlotIndex", ptr %141, i64 %142
   %.0.copyload.i.i.i.i.i.i.i.i27 = load i64, ptr %143, align 8
   %144 = and i64 %.0.copyload.i.i.i.i.i.i.i.i27, -8
   %145 = inttoptr i64 %144 to ptr

@@ -7006,7 +7006,7 @@ switch.lookup:
   %21 = alloca %"class.llvm::StringRef", align 8
   %22 = alloca %"class.llvm::StringRef", align 8
   %23 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [63 x i32], ptr @switch.table.LLVMDIBuilderCreateCompileUnit, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.LLVMDIBuilderCreateCompileUnit, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = icmp ne i32 %5, 0
   store ptr %6, ptr %19, align 8, !tbaa !353
@@ -8159,7 +8159,7 @@ define dso_local range(i32 0, 36) i32 @LLVMGetMetadataKind(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table.LLVMGetMetadataKind, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.LLVMGetMetadataKind, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 

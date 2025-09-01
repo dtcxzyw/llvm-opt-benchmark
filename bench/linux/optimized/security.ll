@@ -717,7 +717,7 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
 6:                                                ; preds = %3
   %7 = add i32 %4, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr [2 x ptr], ptr @lsm_idlist, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr @lsm_idlist, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %2
   br i1 %11, label %17, label %12
@@ -734,7 +734,7 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
   %14 = add nuw nsw i32 %4, 1
   store i32 %14, ptr @lsm_active_cnt, align 4
   %15 = zext nneg i32 %4 to i64
-  %16 = getelementptr [2 x ptr], ptr @lsm_idlist, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr @lsm_idlist, i64 %15
   store ptr %2, ptr %16, align 8
   br label %17
 

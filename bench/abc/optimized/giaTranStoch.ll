@@ -1002,7 +1002,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph309:                                        ; preds = %.lr.ph309.preheader, %.lr.ph309
   %indvars.iv397 = phi i64 [ 0, %.lr.ph309.preheader ], [ %indvars.iv.next398, %.lr.ph309 ]
-  %185 = getelementptr inbounds nuw [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv397
+  %185 = getelementptr inbounds nuw %struct.Gia_ManTranStochParam, ptr %18, i64 %indvars.iv397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %185, ptr noundef nonnull align 8 dereferenceable(104) %17, i64 104, i1 false), !tbaa.struct !78
   %186 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv397
   %187 = call i32 @pthread_create(ptr noundef nonnull %186, ptr noundef null, ptr noundef nonnull @Gia_ManTranStochWorkerThread, ptr noundef nonnull %185) #14
@@ -1023,7 +1023,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv418 = phi i64 [ %indvars.iv418.be, %.preheader297.us.us.backedge ], [ 0, %.critedge2.preheader.split.us ]
   %.1354.us.us.us = phi i32 [ %.1354.us.us.us.be, %.preheader297.us.us.backedge ], [ 0, %.critedge2.preheader.split.us ]
   %.12352.us.us.us = phi ptr [ %.13.us.us.us, %.preheader297.us.us.backedge ], [ %.5199.lcssa, %.critedge2.preheader.split.us ]
-  %188 = getelementptr inbounds nuw [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv418
+  %188 = getelementptr inbounds nuw %struct.Gia_ManTranStochParam, ptr %18, i64 %indvars.iv418
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 88
   %190 = load i32, ptr %189, align 8, !tbaa !26
   %.not210.us.us.us = icmp eq i32 %190, 0
@@ -1097,7 +1097,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv413 = phi i64 [ %indvars.iv413.be, %.preheader297.us.backedge ], [ 0, %.critedge2.preheader.split.us ]
   %.1354.us361 = phi i32 [ %.1354.us361.be, %.preheader297.us.backedge ], [ 0, %.critedge2.preheader.split.us ]
   %.12352.us363 = phi ptr [ %.13.us373, %.preheader297.us.backedge ], [ %.5199.lcssa, %.critedge2.preheader.split.us ]
-  %221 = getelementptr inbounds nuw [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv413
+  %221 = getelementptr inbounds nuw %struct.Gia_ManTranStochParam, ptr %18, i64 %indvars.iv413
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 88
   %223 = load i32, ptr %222, align 8, !tbaa !26
   %.not210.us364 = icmp eq i32 %223, 0
@@ -1217,7 +1217,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
 
 .preheader298.us.us.us.us:                        ; preds = %276, %.preheader299.us.us
   %indvars.iv405 = phi i64 [ 0, %.preheader299.us.us ], [ %spec.select, %276 ]
-  %277 = getelementptr inbounds nuw [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv405
+  %277 = getelementptr inbounds nuw %struct.Gia_ManTranStochParam, ptr %18, i64 %indvars.iv405
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 88
   %279 = load i32, ptr %278, align 8, !tbaa !26
   %.not215.us.us.us.us.not = icmp eq i32 %279, 0
@@ -1298,7 +1298,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
 
 .preheader298.us.us322:                           ; preds = %314, %.preheader299.us
   %indvars.iv400 = phi i64 [ 0, %.preheader299.us ], [ %spec.select494, %314 ]
-  %315 = getelementptr inbounds nuw [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv400
+  %315 = getelementptr inbounds nuw %struct.Gia_ManTranStochParam, ptr %18, i64 %indvars.iv400
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 88
   %317 = load i32, ptr %316, align 8, !tbaa !26
   %.not215.us.us326.not = icmp eq i32 %317, 0
@@ -1415,7 +1415,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph382:                                        ; preds = %.lr.ph382.preheader, %.lr.ph382
   %indvars.iv423 = phi i64 [ 0, %.lr.ph382.preheader ], [ %indvars.iv.next424, %.lr.ph382 ]
-  %373 = getelementptr inbounds nuw [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv423
+  %373 = getelementptr inbounds nuw %struct.Gia_ManTranStochParam, ptr %18, i64 %indvars.iv423
   store ptr null, ptr %373, align 8, !tbaa !60
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 88
   store i32 1, ptr %374, align 8, !tbaa !26

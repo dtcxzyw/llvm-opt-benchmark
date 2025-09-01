@@ -408,7 +408,7 @@ define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef range(i32 0, 2
 
 switch.lookup:                                    ; preds = %16
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.do_passwd, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.do_passwd, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %19
 
@@ -450,7 +450,7 @@ switch.lookup:                                    ; preds = %16
   %33 = load i8, ptr %32, align 1, !tbaa !14
   %34 = and i8 %33, 63
   %35 = zext nneg i8 %34 to i64
-  %36 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !14
   store i8 %37, ptr %32, align 1, !tbaa !14
   %38 = add nuw nsw i64 %.066123, 1
@@ -862,7 +862,7 @@ switch.lookup:                                    ; preds = %16
   %206 = add nsw i32 %.0331502.i, -1
   %207 = and i32 %.0332501.i, 63
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %208
   %210 = load i8, ptr %209, align 1, !tbaa !14
   %211 = getelementptr inbounds nuw i8, ptr %.2500.i, i64 1
   store i8 %210, ptr %.2500.i, align 1, !tbaa !14
@@ -893,7 +893,7 @@ switch.lookup:                                    ; preds = %16
   %229 = add nsw i32 %.0329505.i, -1
   %230 = and i32 %.0330504.i, 63
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !14
   %234 = getelementptr inbounds nuw i8, ptr %.3503.i, i64 1
   store i8 %233, ptr %.3503.i, align 1, !tbaa !14
@@ -924,7 +924,7 @@ switch.lookup:                                    ; preds = %16
   %252 = add nsw i32 %.0327508.i, -1
   %253 = and i32 %.0328507.i, 63
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %254
   %256 = load i8, ptr %255, align 1, !tbaa !14
   %257 = getelementptr inbounds nuw i8, ptr %.4506.i, i64 1
   store i8 %256, ptr %.4506.i, align 1, !tbaa !14
@@ -955,7 +955,7 @@ switch.lookup:                                    ; preds = %16
   %275 = add nsw i32 %.0325511.i, -1
   %276 = and i32 %.0326510.i, 63
   %277 = zext nneg i32 %276 to i64
-  %278 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %277
   %279 = load i8, ptr %278, align 1, !tbaa !14
   %280 = getelementptr inbounds nuw i8, ptr %.5509.i, i64 1
   store i8 %279, ptr %.5509.i, align 1, !tbaa !14
@@ -986,7 +986,7 @@ switch.lookup:                                    ; preds = %16
   %298 = add nsw i32 %.0323514.i, -1
   %299 = and i32 %.0324513.i, 63
   %300 = zext nneg i32 %299 to i64
-  %301 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %300
   %302 = load i8, ptr %301, align 1, !tbaa !14
   %303 = getelementptr inbounds nuw i8, ptr %.6512.i, i64 1
   store i8 %302, ptr %.6512.i, align 1, !tbaa !14
@@ -1017,7 +1017,7 @@ switch.lookup:                                    ; preds = %16
   %321 = add nsw i32 %.0321517.i, -1
   %322 = and i32 %.0322516.i, 63
   %323 = zext nneg i32 %322 to i64
-  %324 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %323
   %325 = load i8, ptr %324, align 1, !tbaa !14
   %326 = getelementptr inbounds nuw i8, ptr %.7515.i, i64 1
   store i8 %325, ptr %.7515.i, align 1, !tbaa !14
@@ -1048,7 +1048,7 @@ switch.lookup:                                    ; preds = %16
   %344 = add nsw i32 %.0319520.i, -1
   %345 = and i32 %.0320519.i, 63
   %346 = zext nneg i32 %345 to i64
-  %347 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %346
   %348 = load i8, ptr %347, align 1, !tbaa !14
   %349 = getelementptr inbounds nuw i8, ptr %.8518.i, i64 1
   store i8 %348, ptr %.8518.i, align 1, !tbaa !14
@@ -1079,7 +1079,7 @@ switch.lookup:                                    ; preds = %16
   %367 = add nsw i32 %.0317523.i, -1
   %368 = and i32 %.0318522.i, 63
   %369 = zext nneg i32 %368 to i64
-  %370 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %369
   %371 = load i8, ptr %370, align 1, !tbaa !14
   %372 = getelementptr inbounds nuw i8, ptr %.9521.i, i64 1
   store i8 %371, ptr %.9521.i, align 1, !tbaa !14
@@ -1110,7 +1110,7 @@ switch.lookup:                                    ; preds = %16
   %390 = add nsw i32 %.0315526.i, -1
   %391 = and i32 %.0316525.i, 63
   %392 = zext nneg i32 %391 to i64
-  %393 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %392
+  %393 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %392
   %394 = load i8, ptr %393, align 1, !tbaa !14
   %395 = getelementptr inbounds nuw i8, ptr %.10524.i, i64 1
   store i8 %394, ptr %.10524.i, align 1, !tbaa !14
@@ -1141,7 +1141,7 @@ switch.lookup:                                    ; preds = %16
   %413 = add nsw i32 %.0313529.i, -1
   %414 = and i32 %.0314528.i, 63
   %415 = zext nneg i32 %414 to i64
-  %416 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %415
   %417 = load i8, ptr %416, align 1, !tbaa !14
   %418 = getelementptr inbounds nuw i8, ptr %.11527.i, i64 1
   store i8 %417, ptr %.11527.i, align 1, !tbaa !14
@@ -1162,7 +1162,7 @@ switch.lookup:                                    ; preds = %16
   %426 = add nsw i32 %.0311532.i, -1
   %427 = and i32 %.0312531.i, 63
   %428 = zext nneg i32 %427 to i64
-  %429 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %428
+  %429 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %428
   %430 = load i8, ptr %429, align 1, !tbaa !14
   %431 = getelementptr inbounds nuw i8, ptr %.12530.i, i64 1
   store i8 %430, ptr %.12530.i, align 1, !tbaa !14
@@ -1192,7 +1192,7 @@ switch.lookup:                                    ; preds = %16
   %448 = add nsw i32 %.0309436.i, -1
   %449 = and i32 %.0310435.i, 63
   %450 = zext nneg i32 %449 to i64
-  %451 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %450
   %452 = load i8, ptr %451, align 1, !tbaa !14
   %453 = getelementptr inbounds nuw i8, ptr %.14434.i, i64 1
   store i8 %452, ptr %.14434.i, align 1, !tbaa !14
@@ -1223,7 +1223,7 @@ switch.lookup:                                    ; preds = %16
   %471 = add nsw i32 %.0307439.i, -1
   %472 = and i32 %.0308438.i, 63
   %473 = zext nneg i32 %472 to i64
-  %474 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !14
   %476 = getelementptr inbounds nuw i8, ptr %.15437.i, i64 1
   store i8 %475, ptr %.15437.i, align 1, !tbaa !14
@@ -1254,7 +1254,7 @@ switch.lookup:                                    ; preds = %16
   %494 = add nsw i32 %.0305442.i, -1
   %495 = and i32 %.0306441.i, 63
   %496 = zext nneg i32 %495 to i64
-  %497 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %496
   %498 = load i8, ptr %497, align 1, !tbaa !14
   %499 = getelementptr inbounds nuw i8, ptr %.16440.i, i64 1
   store i8 %498, ptr %.16440.i, align 1, !tbaa !14
@@ -1285,7 +1285,7 @@ switch.lookup:                                    ; preds = %16
   %517 = add nsw i32 %.0303445.i, -1
   %518 = and i32 %.0304444.i, 63
   %519 = zext nneg i32 %518 to i64
-  %520 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %519
+  %520 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %519
   %521 = load i8, ptr %520, align 1, !tbaa !14
   %522 = getelementptr inbounds nuw i8, ptr %.17443.i, i64 1
   store i8 %521, ptr %.17443.i, align 1, !tbaa !14
@@ -1316,7 +1316,7 @@ switch.lookup:                                    ; preds = %16
   %540 = add nsw i32 %.0301448.i, -1
   %541 = and i32 %.0302447.i, 63
   %542 = zext nneg i32 %541 to i64
-  %543 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %542
+  %543 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %542
   %544 = load i8, ptr %543, align 1, !tbaa !14
   %545 = getelementptr inbounds nuw i8, ptr %.18446.i, i64 1
   store i8 %544, ptr %.18446.i, align 1, !tbaa !14
@@ -1347,7 +1347,7 @@ switch.lookup:                                    ; preds = %16
   %563 = add nsw i32 %.0299451.i, -1
   %564 = and i32 %.0300450.i, 63
   %565 = zext nneg i32 %564 to i64
-  %566 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %565
+  %566 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %565
   %567 = load i8, ptr %566, align 1, !tbaa !14
   %568 = getelementptr inbounds nuw i8, ptr %.19449.i, i64 1
   store i8 %567, ptr %.19449.i, align 1, !tbaa !14
@@ -1378,7 +1378,7 @@ switch.lookup:                                    ; preds = %16
   %586 = add nsw i32 %.0297454.i, -1
   %587 = and i32 %.0298453.i, 63
   %588 = zext nneg i32 %587 to i64
-  %589 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %588
+  %589 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %588
   %590 = load i8, ptr %589, align 1, !tbaa !14
   %591 = getelementptr inbounds nuw i8, ptr %.20452.i, i64 1
   store i8 %590, ptr %.20452.i, align 1, !tbaa !14
@@ -1409,7 +1409,7 @@ switch.lookup:                                    ; preds = %16
   %609 = add nsw i32 %.0295457.i, -1
   %610 = and i32 %.0296456.i, 63
   %611 = zext nneg i32 %610 to i64
-  %612 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %611
+  %612 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %611
   %613 = load i8, ptr %612, align 1, !tbaa !14
   %614 = getelementptr inbounds nuw i8, ptr %.21455.i, i64 1
   store i8 %613, ptr %.21455.i, align 1, !tbaa !14
@@ -1440,7 +1440,7 @@ switch.lookup:                                    ; preds = %16
   %632 = add nsw i32 %.0293460.i, -1
   %633 = and i32 %.0294459.i, 63
   %634 = zext nneg i32 %633 to i64
-  %635 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %634
+  %635 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %634
   %636 = load i8, ptr %635, align 1, !tbaa !14
   %637 = getelementptr inbounds nuw i8, ptr %.22458.i, i64 1
   store i8 %636, ptr %.22458.i, align 1, !tbaa !14
@@ -1471,7 +1471,7 @@ switch.lookup:                                    ; preds = %16
   %655 = add nsw i32 %.0291463.i, -1
   %656 = and i32 %.0292462.i, 63
   %657 = zext nneg i32 %656 to i64
-  %658 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %657
+  %658 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %657
   %659 = load i8, ptr %658, align 1, !tbaa !14
   %660 = getelementptr inbounds nuw i8, ptr %.23461.i, i64 1
   store i8 %659, ptr %.23461.i, align 1, !tbaa !14
@@ -1502,7 +1502,7 @@ switch.lookup:                                    ; preds = %16
   %678 = add nsw i32 %.0289466.i, -1
   %679 = and i32 %.0290465.i, 63
   %680 = zext nneg i32 %679 to i64
-  %681 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %680
+  %681 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %680
   %682 = load i8, ptr %681, align 1, !tbaa !14
   %683 = getelementptr inbounds nuw i8, ptr %.24464.i, i64 1
   store i8 %682, ptr %.24464.i, align 1, !tbaa !14
@@ -1533,7 +1533,7 @@ switch.lookup:                                    ; preds = %16
   %701 = add nsw i32 %.0287469.i, -1
   %702 = and i32 %.0288468.i, 63
   %703 = zext nneg i32 %702 to i64
-  %704 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %703
+  %704 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %703
   %705 = load i8, ptr %704, align 1, !tbaa !14
   %706 = getelementptr inbounds nuw i8, ptr %.25467.i, i64 1
   store i8 %705, ptr %.25467.i, align 1, !tbaa !14
@@ -1564,7 +1564,7 @@ switch.lookup:                                    ; preds = %16
   %724 = add nsw i32 %.0285472.i, -1
   %725 = and i32 %.0286471.i, 63
   %726 = zext nneg i32 %725 to i64
-  %727 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %726
+  %727 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %726
   %728 = load i8, ptr %727, align 1, !tbaa !14
   %729 = getelementptr inbounds nuw i8, ptr %.26470.i, i64 1
   store i8 %728, ptr %.26470.i, align 1, !tbaa !14
@@ -1595,7 +1595,7 @@ switch.lookup:                                    ; preds = %16
   %747 = add nsw i32 %.0283475.i, -1
   %748 = and i32 %.0284474.i, 63
   %749 = zext nneg i32 %748 to i64
-  %750 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %749
+  %750 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %749
   %751 = load i8, ptr %750, align 1, !tbaa !14
   %752 = getelementptr inbounds nuw i8, ptr %.27473.i, i64 1
   store i8 %751, ptr %.27473.i, align 1, !tbaa !14
@@ -1626,7 +1626,7 @@ switch.lookup:                                    ; preds = %16
   %770 = add nsw i32 %.0281478.i, -1
   %771 = and i32 %.0282477.i, 63
   %772 = zext nneg i32 %771 to i64
-  %773 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %772
+  %773 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %772
   %774 = load i8, ptr %773, align 1, !tbaa !14
   %775 = getelementptr inbounds nuw i8, ptr %.28476.i, i64 1
   store i8 %774, ptr %.28476.i, align 1, !tbaa !14
@@ -1657,7 +1657,7 @@ switch.lookup:                                    ; preds = %16
   %793 = add nsw i32 %.0279481.i, -1
   %794 = and i32 %.0280480.i, 63
   %795 = zext nneg i32 %794 to i64
-  %796 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %795
+  %796 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %795
   %797 = load i8, ptr %796, align 1, !tbaa !14
   %798 = getelementptr inbounds nuw i8, ptr %.29479.i, i64 1
   store i8 %797, ptr %.29479.i, align 1, !tbaa !14
@@ -1688,7 +1688,7 @@ switch.lookup:                                    ; preds = %16
   %816 = add nsw i32 %.0277484.i, -1
   %817 = and i32 %.0278483.i, 63
   %818 = zext nneg i32 %817 to i64
-  %819 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %818
+  %819 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %818
   %820 = load i8, ptr %819, align 1, !tbaa !14
   %821 = getelementptr inbounds nuw i8, ptr %.30482.i, i64 1
   store i8 %820, ptr %.30482.i, align 1, !tbaa !14
@@ -1719,7 +1719,7 @@ switch.lookup:                                    ; preds = %16
   %839 = add nsw i32 %.0275487.i, -1
   %840 = and i32 %.0276486.i, 63
   %841 = zext nneg i32 %840 to i64
-  %842 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %841
+  %842 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %841
   %843 = load i8, ptr %842, align 1, !tbaa !14
   %844 = getelementptr inbounds nuw i8, ptr %.31485.i, i64 1
   store i8 %843, ptr %.31485.i, align 1, !tbaa !14
@@ -1750,7 +1750,7 @@ switch.lookup:                                    ; preds = %16
   %862 = add nsw i32 %.0273490.i, -1
   %863 = and i32 %.0274489.i, 63
   %864 = zext nneg i32 %863 to i64
-  %865 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %864
+  %865 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %864
   %866 = load i8, ptr %865, align 1, !tbaa !14
   %867 = getelementptr inbounds nuw i8, ptr %.32488.i, i64 1
   store i8 %866, ptr %.32488.i, align 1, !tbaa !14
@@ -1781,7 +1781,7 @@ switch.lookup:                                    ; preds = %16
   %885 = add nsw i32 %.0271493.i, -1
   %886 = and i32 %.0272492.i, 63
   %887 = zext nneg i32 %886 to i64
-  %888 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %887
+  %888 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %887
   %889 = load i8, ptr %888, align 1, !tbaa !14
   %890 = getelementptr inbounds nuw i8, ptr %.33491.i, i64 1
   store i8 %889, ptr %.33491.i, align 1, !tbaa !14
@@ -1812,7 +1812,7 @@ switch.lookup:                                    ; preds = %16
   %908 = add nsw i32 %.0269496.i, -1
   %909 = and i32 %.0270495.i, 63
   %910 = zext nneg i32 %909 to i64
-  %911 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %910
+  %911 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %910
   %912 = load i8, ptr %911, align 1, !tbaa !14
   %913 = getelementptr inbounds nuw i8, ptr %.34494.i, i64 1
   store i8 %912, ptr %.34494.i, align 1, !tbaa !14
@@ -1833,7 +1833,7 @@ switch.lookup:                                    ; preds = %16
   %921 = add nsw i32 %.0499.i, -1
   %922 = and i32 %.0268498.i, 63
   %923 = zext nneg i32 %922 to i64
-  %924 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %923
+  %924 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %923
   %925 = load i8, ptr %924, align 1, !tbaa !14
   %926 = getelementptr inbounds nuw i8, ptr %.35497.i, i64 1
   store i8 %925, ptr %.35497.i, align 1, !tbaa !14
@@ -2131,9 +2131,9 @@ define internal fastcc noundef ptr @md5crypt(ptr noundef %0, ptr noundef %1, ptr
   %indvars.iv = phi i64 [ 0, %96 ], [ %indvars.iv.next, %97 ]
   %.096151 = phi i32 [ 0, %96 ], [ %103, %97 ]
   %98 = sext i32 %.096151 to i64
-  %99 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %98
+  %99 = getelementptr inbounds i8, ptr %4, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !14
-  %101 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %100, ptr %101, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = add nsw i32 %.096151, 6
@@ -2157,68 +2157,66 @@ define internal fastcc noundef ptr @md5crypt(ptr noundef %0, ptr noundef %1, ptr
 
 113:                                              ; preds = %104, %113
   %indvars.iv161 = phi i64 [ 0, %104 ], [ %indvars.iv.next162, %113 ]
-  %.0153 = phi ptr [ %112, %104 ], [ %149, %113 ]
-  %114 = add nuw nsw i64 %indvars.iv161, 2
-  %115 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %114
+  %.0153 = phi ptr [ %112, %104 ], [ %147, %113 ]
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv161
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load i8, ptr %115, align 1, !tbaa !14
   %117 = and i8 %116, 63
   %118 = zext nneg i8 %117 to i64
-  %119 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !14
   %121 = getelementptr inbounds nuw i8, ptr %.0153, i64 1
   store i8 %120, ptr %.0153, align 1, !tbaa !14
-  %122 = add nuw nsw i64 %indvars.iv161, 1
-  %123 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !14
-  %125 = shl i8 %124, 2
-  %126 = and i8 %125, 60
-  %127 = lshr i8 %116, 6
-  %128 = or disjoint i8 %126, %127
-  %129 = zext nneg i8 %128 to i64
-  %130 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %129
-  %131 = load i8, ptr %130, align 1, !tbaa !14
-  %132 = getelementptr inbounds nuw i8, ptr %.0153, i64 2
-  store i8 %131, ptr %121, align 1, !tbaa !14
-  %133 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv161
-  %134 = load i8, ptr %133, align 1, !tbaa !14
-  %135 = shl i8 %134, 4
-  %136 = and i8 %135, 48
-  %137 = load i8, ptr %123, align 1, !tbaa !14
-  %138 = lshr i8 %137, 4
-  %139 = or disjoint i8 %136, %138
-  %140 = zext nneg i8 %139 to i64
-  %141 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %140
-  %142 = load i8, ptr %141, align 1, !tbaa !14
-  %143 = getelementptr inbounds nuw i8, ptr %.0153, i64 3
-  store i8 %142, ptr %132, align 1, !tbaa !14
-  %144 = load i8, ptr %133, align 1, !tbaa !14
-  %145 = lshr i8 %144, 2
-  %146 = zext nneg i8 %145 to i64
-  %147 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %146
-  %148 = load i8, ptr %147, align 1, !tbaa !14
-  %149 = getelementptr inbounds nuw i8, ptr %.0153, i64 4
-  store i8 %148, ptr %143, align 1, !tbaa !14
+  %122 = getelementptr inbounds nuw i8, ptr %114, i64 1
+  %123 = load i8, ptr %122, align 1, !tbaa !14
+  %124 = shl i8 %123, 2
+  %125 = and i8 %124, 60
+  %126 = lshr i8 %116, 6
+  %127 = or disjoint i8 %125, %126
+  %128 = zext nneg i8 %127 to i64
+  %129 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !14
+  %131 = getelementptr inbounds nuw i8, ptr %.0153, i64 2
+  store i8 %130, ptr %121, align 1, !tbaa !14
+  %132 = load i8, ptr %114, align 1, !tbaa !14
+  %133 = shl i8 %132, 4
+  %134 = and i8 %133, 48
+  %135 = load i8, ptr %122, align 1, !tbaa !14
+  %136 = lshr i8 %135, 4
+  %137 = or disjoint i8 %134, %136
+  %138 = zext nneg i8 %137 to i64
+  %139 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %138
+  %140 = load i8, ptr %139, align 1, !tbaa !14
+  %141 = getelementptr inbounds nuw i8, ptr %.0153, i64 3
+  store i8 %140, ptr %131, align 1, !tbaa !14
+  %142 = load i8, ptr %114, align 1, !tbaa !14
+  %143 = lshr i8 %142, 2
+  %144 = zext nneg i8 %143 to i64
+  %145 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %144
+  %146 = load i8, ptr %145, align 1, !tbaa !14
+  %147 = getelementptr inbounds nuw i8, ptr %.0153, i64 4
+  store i8 %146, ptr %141, align 1, !tbaa !14
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 3
-  %150 = icmp samesign ult i64 %indvars.iv161, 12
-  br i1 %150, label %113, label %151, !llvm.loop !61
+  %148 = icmp samesign ult i64 %indvars.iv161, 12
+  br i1 %148, label %113, label %149, !llvm.loop !61
 
-151:                                              ; preds = %113
-  %152 = load i8, ptr %110, align 1, !tbaa !14
-  %153 = and i8 %152, 63
-  %154 = zext nneg i8 %153 to i64
-  %155 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %154
-  %156 = load i8, ptr %155, align 1, !tbaa !14
-  %157 = getelementptr inbounds nuw i8, ptr %.0153, i64 5
-  store i8 %156, ptr %149, align 1, !tbaa !14
-  %158 = lshr i8 %152, 6
-  %159 = zext nneg i8 %158 to i64
-  %160 = getelementptr inbounds nuw [64 x i8], ptr @cov_2char, i64 0, i64 %159
-  %161 = load i8, ptr %160, align 1, !tbaa !14
-  %162 = getelementptr inbounds nuw i8, ptr %.0153, i64 6
-  store i8 %161, ptr %157, align 1, !tbaa !14
-  store i8 0, ptr %162, align 1, !tbaa !14
+149:                                              ; preds = %113
+  %150 = load i8, ptr %110, align 1, !tbaa !14
+  %151 = and i8 %150, 63
+  %152 = zext nneg i8 %151 to i64
+  %153 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %152
+  %154 = load i8, ptr %153, align 1, !tbaa !14
+  %155 = getelementptr inbounds nuw i8, ptr %.0153, i64 5
+  store i8 %154, ptr %147, align 1, !tbaa !14
+  %156 = lshr i8 %150, 6
+  %157 = zext nneg i8 %156 to i64
+  %158 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %157
+  %159 = load i8, ptr %158, align 1, !tbaa !14
+  %160 = getelementptr inbounds nuw i8, ptr %.0153, i64 6
+  store i8 %159, ptr %155, align 1, !tbaa !14
+  store i8 0, ptr %160, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %163
+  br label %161
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph147, %94, %90, %88, %84, %77, %.preheader, %._crit_edge148, %._crit_edge, %42, %45, %48, %50, %52, %54, %40, %34, %36, %38, %23, %28, %31, %19, %13
   %.0102 = phi ptr [ null, %13 ], [ null, %19 ], [ null, %23 ], [ %26, %42 ], [ %26, %._crit_edge148 ], [ %26, %._crit_edge ], [ %26, %54 ], [ %26, %52 ], [ %26, %50 ], [ %26, %48 ], [ %26, %45 ], [ %26, %40 ], [ %26, %38 ], [ %26, %36 ], [ %26, %34 ], [ %26, %31 ], [ %26, %28 ], [ %26, %.preheader ], [ %26, %77 ], [ %26, %84 ], [ %26, %88 ], [ %26, %90 ], [ %26, %94 ], [ %26, %.lr.ph147 ], [ %26, %.lr.ph ]
@@ -2226,10 +2224,10 @@ define internal fastcc noundef ptr @md5crypt(ptr noundef %0, ptr noundef %1, ptr
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef 484) #7
   call void @EVP_MD_CTX_free(ptr noundef %.0101) #7
   call void @EVP_MD_CTX_free(ptr noundef %.0102) #7
-  br label %163
+  br label %161
 
-163:                                              ; preds = %.loopexit, %151
-  %.098 = phi ptr [ null, %.loopexit ], [ @md5crypt.out_buf, %151 ]
+161:                                              ; preds = %.loopexit, %149
+  %.098 = phi ptr [ null, %.loopexit ], [ @md5crypt.out_buf, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

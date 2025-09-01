@@ -380,7 +380,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %12, %19
   %44 = zext i8 %43 to i32
   store i32 %44, ptr %37, align 4
   %45 = zext i8 %43 to i64
-  %46 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %45
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %38, align 8
   %48 = icmp ult i32 %47, 239
@@ -393,7 +393,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %41
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %41
   %50 = zext nneg i32 %47 to i64
-  %51 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 15
   %54 = zext nneg i8 %53 to i64

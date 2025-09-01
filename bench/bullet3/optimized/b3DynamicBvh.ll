@@ -1003,8 +1003,8 @@ _Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit.i:          ; preds = %24
 
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %6, i64 0, i64 %indvars.iv
-  %66 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr @_ZZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeiiE4axis, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %class.b3Vector3, ptr @_ZZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeiiE4axis, i64 %indvars.iv
   %67 = load float, ptr %66, align 16, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %69 = load float, ptr %68, align 4, !tbaa !31
@@ -1027,7 +1027,7 @@ _Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit.i:          ; preds = %24
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %92 ], [ 0, %63 ]
   %.058108 = phi i32 [ %.2, %92 ], [ %2, %63 ]
   %.060107 = phi i32 [ %.262, %92 ], [ -1, %63 ]
-  %78 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %6, i64 0, i64 %indvars.iv122
+  %78 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %indvars.iv122
   %79 = load i32, ptr %78, align 8, !tbaa !61
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %92
@@ -1062,7 +1062,7 @@ _Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit.i:          ; preds = %24
 
 95:                                               ; preds = %93
   %96 = zext nneg i32 %.262 to i64
-  %97 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr @_ZZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeiiE4axis, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw %class.b3Vector3, ptr @_ZZL9b3TopDownP12b3DynamicBvhPP10b3DbvtNodeiiE4axis, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %100 = load float, ptr %97, align 16, !tbaa !31
@@ -1286,7 +1286,7 @@ define dso_local void @_ZN12b3DynamicBvh19optimizeIncrementalEi(ptr noundef nonn
   %22 = xor i1 %21, true
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw [2 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %28 = load ptr, ptr %27, align 16, !tbaa !45
@@ -1299,7 +1299,7 @@ define dso_local void @_ZN12b3DynamicBvh19optimizeIncrementalEi(ptr noundef nonn
   %32 = load ptr, ptr %31, align 8, !tbaa !31
   %33 = icmp eq ptr %32, %16
   %34 = zext i1 %33 to i64
-  %35 = getelementptr inbounds nuw [2 x ptr], ptr %30, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %30, i64 %34
   store ptr %.0918, ptr %35, align 8, !tbaa !31
   br label %37
 
@@ -1324,9 +1324,9 @@ define dso_local void @_ZN12b3DynamicBvh19optimizeIncrementalEi(ptr noundef nonn
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr %16, ptr %45, align 16, !tbaa !45
   %46 = zext i1 %21 to i64
-  %47 = getelementptr inbounds nuw [2 x ptr], ptr %39, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr %39, i64 %46
   store ptr %16, ptr %47, align 8, !tbaa !31
-  %48 = getelementptr inbounds nuw [2 x ptr], ptr %39, i64 0, i64 %24
+  %48 = getelementptr inbounds nuw ptr, ptr %39, i64 %24
   store ptr %26, ptr %48, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !58
@@ -1342,7 +1342,7 @@ _ZL6b3SortP10b3DbvtNodeRS0_.exit:                 ; preds = %.lr.ph, %37
   %51 = lshr i32 %50, %.017
   %52 = and i32 %51, 1
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [2 x ptr], ptr %49, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %49, i64 %53
   %55 = add nuw nsw i32 %.017, 1
   %56 = and i32 %55, 31
   %.09 = load ptr, ptr %54, align 8, !tbaa !31
@@ -1526,7 +1526,7 @@ define internal fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(pt
   %72 = fadd float %70, %71
   %73 = fcmp uge float %50, %72
   %74 = zext i1 %73 to i64
-  %75 = getelementptr inbounds nuw [2 x ptr], ptr %27, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %27, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !31
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !31
@@ -1595,7 +1595,7 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit: ; preds
   %109 = load ptr, ptr %108, align 8, !tbaa !31
   %110 = icmp eq ptr %109, %.045
   %111 = zext i1 %110 to i64
-  %112 = getelementptr inbounds nuw [2 x ptr], ptr %106, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw ptr, ptr %106, i64 %111
   store ptr %.0.i.i, ptr %112, align 8, !tbaa !31
   store ptr %.045, ptr %88, align 8, !tbaa !31
   store ptr %.0.i.i, ptr %80, align 16, !tbaa !45
@@ -1725,7 +1725,7 @@ define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNod
   %13 = load ptr, ptr %12, align 16, !tbaa !31
   %14 = icmp ne ptr %13, %1
   %15 = zext i1 %14 to i64
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !31
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %68, label %18
@@ -1736,7 +1736,7 @@ define internal fastcc noundef ptr @_ZL12b3RemoveLeafP12b3DynamicBvhP10b3DbvtNod
   %21 = load ptr, ptr %20, align 8, !tbaa !31
   %22 = icmp eq ptr %21, %8
   %23 = zext i1 %22 to i64
-  %24 = getelementptr inbounds nuw [2 x ptr], ptr %19, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
   store ptr %17, ptr %24, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %10, ptr %25, align 16, !tbaa !45
@@ -2779,7 +2779,7 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i.i: ; pr
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 40
   %58 = and i32 %43, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [2 x ptr], ptr %57, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
   store ptr %.0.i.i35, ptr %60, align 8, !tbaa !31
   br label %68
 

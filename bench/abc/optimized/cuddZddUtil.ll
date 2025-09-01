@@ -148,7 +148,7 @@ tailrecurse.backedge:                             ; preds = %18, %49
 
 switch.lookup:                                    ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.zdd_print_minterm_aux, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.zdd_print_minterm_aux, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %34
 
@@ -331,7 +331,7 @@ tailrecurse.backedge:                             ; preds = %18, %54
 
 switch.lookup:                                    ; preds = %28
   %37 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.zddPrintCoverAux, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.zddPrintCoverAux, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %38
 
@@ -926,7 +926,7 @@ define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none
 
 switch.lookup:                                    ; preds = %.lr.ph
   %24 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table.Cudd_zddCoverPathToString, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.Cudd_zddCoverPathToString, i64 %24
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %25
 

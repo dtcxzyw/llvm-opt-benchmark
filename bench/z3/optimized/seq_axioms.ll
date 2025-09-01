@@ -1468,7 +1468,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %24 = tail call i32 @_ZN3smt10seq_axioms10mk_literalEP4expr(ptr noundef nonnull align 8 dereferenceable(1240) %0, ptr noundef %17)
   %25 = add i32 %.029, 1
   %26 = zext i32 %.029 to i64
-  %27 = getelementptr inbounds nuw [5 x %"class.sat::literal"], ptr %8, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"class.sat::literal", ptr %8, i64 %26
   store i32 %24, ptr %27, align 4, !tbaa !83
   br label %28
 

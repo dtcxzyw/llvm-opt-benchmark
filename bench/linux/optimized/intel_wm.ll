@@ -438,7 +438,7 @@ define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.20
   br i1 %9, label %10, label %35
 
 10:                                               ; preds = %7
-  %11 = getelementptr [32 x i8], ptr %5, i64 0, i64 %1
+  %11 = getelementptr i8, ptr %5, i64 %1
   store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -462,7 +462,7 @@ define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.20
 
 .preheader:                                       ; preds = %24, %.preheader
   %27 = phi i64 [ %31, %.preheader ], [ 0, %24 ]
-  %28 = getelementptr [8 x i16], ptr %4, i64 0, i64 %27
+  %28 = getelementptr i16, ptr %4, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = getelementptr i16, ptr %2, i64 %27
   store i16 %29, ptr %30, align 2

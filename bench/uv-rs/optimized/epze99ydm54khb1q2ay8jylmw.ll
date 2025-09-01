@@ -41452,9 +41452,9 @@ define noundef zeroext i1 @"_ZN93_$LT$uv_resolver..resolver..availability..Unava
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8509)
   %5 = load i64, ptr %4, align 8, !range !8512, !alias.scope !8513, !noalias !8516, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE.205", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE.205", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !8509
   br label %9
@@ -42078,9 +42078,9 @@ default.unreachable1:                             ; preds = %2
 define hidden { ptr, i64 } @_ZN11uv_resolver8resolver12availability18UnavailablePackage7message17h41a5930523a066f3E.llvm.4307772375316082757(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #25 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !8512, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE.205", i64 0, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE.205", i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
@@ -42221,9 +42221,9 @@ default.unreachable43:                            ; preds = %2
 define noundef zeroext i1 @"_ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
 switch.lookup:
   %2 = load i64, ptr %0, align 8, !range !8512, !alias.scope !8714, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE.205", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN94_$LT$uv_resolver..resolver..availability..UnavailablePackage$u20$as$u20$core..fmt..Display$GT$3fmt17h5ed59604ab6d517cE.205", i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %3

@@ -91,7 +91,7 @@ define dso_local nonnull ptr @SlabContextCreate(ptr noundef %0, ptr noundef %1, 
 
 43:                                               ; preds = %37, %43
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %42, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %struct.dlist_head, ptr %42, i64 %indvars.iv
   store ptr %44, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %44, ptr %45, align 8
@@ -170,7 +170,7 @@ define dso_local void @SlabReset(ptr noundef captures(address) %0) local_unnamed
 
 22:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %23 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %8, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.dlist_head, ptr %8, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not34 = icmp eq ptr %25, null
@@ -257,7 +257,7 @@ define dso_local void @SlabDelete(ptr noundef captures(address) %0) local_unname
 
 22:                                               ; preds = %._crit_edge.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %23 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %8, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw %struct.dlist_head, ptr %8, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not34.i = icmp eq ptr %25, null
@@ -319,7 +319,7 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = sext i32 %10 to i64
-  %17 = getelementptr inbounds [3 x %struct.dlist_head], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds %struct.dlist_head, ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 8
   %.val35 = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %.val35, i64 -32
@@ -372,7 +372,7 @@ SlabGetNextFreeChunk.exit:                        ; preds = %22, %25
   %48 = load ptr, ptr %.val35, align 8
   store ptr %48, ptr %45, align 8
   %49 = sext i32 %41 to i64
-  %50 = getelementptr inbounds [3 x %struct.dlist_head], ptr %15, i64 0, i64 %49
+  %50 = getelementptr inbounds %struct.dlist_head, ptr %15, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -397,7 +397,7 @@ dlist_push_head.exit:                             ; preds = %43, %54
 .preheader:                                       ; preds = %dlist_push_head.exit, %64
   %exitcond.i = phi i1 [ true, %64 ], [ false, %dlist_push_head.exit ]
   %indvars.iv.i = phi i64 [ 2, %64 ], [ 1, %dlist_push_head.exit ]
-  %59 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %15, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw %struct.dlist_head, ptr %15, i64 %indvars.iv.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
@@ -550,7 +550,7 @@ SlabGetNextFreeChunk.exit:                        ; preds = %17, %20
   %62 = sub i32 0, %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds [3 x %struct.dlist_head], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds %struct.dlist_head, ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %.037, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load ptr, ptr %67, align 8
@@ -629,7 +629,7 @@ define dso_local void @SlabFree(ptr noundef %0) local_unnamed_addr #0 {
   %25 = load ptr, ptr %20, align 8
   store ptr %25, ptr %22, align 8
   %26 = sext i32 %.neg to i64
-  %27 = getelementptr inbounds [3 x %struct.dlist_head], ptr %19, i64 0, i64 %26
+  %27 = getelementptr inbounds %struct.dlist_head, ptr %19, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
@@ -653,7 +653,7 @@ dlist_push_head.exit:                             ; preds = %18, %31
 .preheader52:                                     ; preds = %dlist_push_head.exit, %40
   %exitcond.i = phi i1 [ true, %40 ], [ false, %dlist_push_head.exit ]
   %indvars.iv.i = phi i64 [ 2, %40 ], [ 1, %dlist_push_head.exit ]
-  %35 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %19, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %struct.dlist_head, ptr %19, i64 %indvars.iv.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
@@ -683,7 +683,7 @@ SlabFindNextBlockListIndex.exit:                  ; preds = %40, %.split.loop.ex
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %49 = sext i32 %.neg to i64
-  %50 = getelementptr inbounds [3 x %struct.dlist_head], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds %struct.dlist_head, ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %53 = load ptr, ptr %52, align 8
@@ -748,7 +748,7 @@ dclist_push_head.exit:                            ; preds = %60, %64
 .preheader:                                       ; preds = %79, %89
   %exitcond.i45 = phi i1 [ true, %89 ], [ false, %79 ]
   %indvars.iv.i46 = phi i64 [ 2, %89 ], [ 1, %79 ]
-  %84 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %48, i64 0, i64 %indvars.iv.i46
+  %84 = getelementptr inbounds nuw %struct.dlist_head, ptr %48, i64 %indvars.iv.i46
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
@@ -870,7 +870,7 @@ define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly captures(a
   %.04167 = phi i64 [ 0, %5 ], [ %.142.lcssa, %._crit_edge ]
   %.04366 = phi i64 [ %12, %5 ], [ %.144.lcssa, %._crit_edge ]
   %.04565 = phi i64 [ 0, %5 ], [ %.146.lcssa, %._crit_edge ]
-  %17 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.dlist_head, ptr %13, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not52 = icmp eq ptr %19, null

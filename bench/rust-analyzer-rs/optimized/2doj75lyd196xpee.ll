@@ -1543,7 +1543,7 @@ define void @_ZN3vfs8file_set13FileSetConfig9partition17h322d84597dca6efaE(ptr n
   %.sroa.6.0 = phi ptr [ %.sroa.6.8.copyload, %.noexc27 ], [ %150, %.noexc26 ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.8.copyload, %.noexc27 ], [ %147, %.noexc26 ]
   %.sink.i = phi i64 [ 1, %.noexc27 ], [ 0, %.noexc26 ]
-  %156 = getelementptr inbounds [0 x { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }], ptr %141, i64 0, i64 %.0.i
+  %156 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr %141, i64 %.0.i
   store i64 %.sink.i, ptr %17, align 8
   store i64 %.sroa.429.0, ptr %.sroa.429.0..sroa_idx, align 8
   store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8

@@ -113,7 +113,7 @@ define hidden void @nghttp2_downcase(ptr noundef captures(none) %0, i64 noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.06
   %4 = load i8, ptr %3, align 1, !tbaa !3
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @DOWNCASE_TBL, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @DOWNCASE_TBL, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !3
   store i8 %7, ptr %3, align 1, !tbaa !3
   %8 = add nuw i64 %.06, 1
@@ -467,7 +467,7 @@ define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly captu
   %.116 = phi ptr [ %14, %13 ], [ %.012, %.lr.ph.preheader ]
   %15 = load i8, ptr %.116, align 1, !tbaa !3
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @VALID_HD_NAME_CHARS, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !8
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %.loopexit, label %13
@@ -492,7 +492,7 @@ define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly capt
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %6 = load i8, ptr %.069, align 1, !tbaa !3
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @VALID_HD_VALUE_CHARS, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !8
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
@@ -532,7 +532,7 @@ define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef reado
   %.069.i = phi ptr [ %11, %10 ], [ %0, %6 ]
   %12 = load i8, ptr %.069.i, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @VALID_HD_VALUE_CHARS, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !8
   %.not7.i = icmp eq i32 %15, 0
   br i1 %.not7.i, label %nghttp2_check_header_value.exit, label %10
@@ -560,7 +560,7 @@ define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly captures(a
   %.0711 = phi ptr [ %6, %5 ], [ %0, %.lr.ph.preheader ]
   %7 = load i8, ptr %.0711, align 1, !tbaa !3
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @VALID_METHOD_CHARS, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %.not9 = icmp eq i8 %10, 0
   br i1 %.not9, label %.loopexit, label %5
@@ -585,7 +585,7 @@ define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly captures(add
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %6 = load i8, ptr %.069, align 1, !tbaa !3
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @VALID_PATH_CHARS, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @VALID_PATH_CHARS, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %.not7 = icmp eq i8 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
@@ -610,7 +610,7 @@ define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly capture
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %6 = load i8, ptr %.069, align 1, !tbaa !3
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @VALID_AUTHORITY_CHARS, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %.not7 = icmp eq i8 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
@@ -642,7 +642,7 @@ define noundef nonnull ptr @nghttp2_http2_strerror(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.nghttp2_http2_strerror, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.nghttp2_http2_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

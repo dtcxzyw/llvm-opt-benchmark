@@ -281,14 +281,14 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_
 70:                                               ; preds = %62
   %71 = and i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %72
   %74 = load i8, ptr %73, align 1, !noalias !38, !noundef !4
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc663520a0e2263f1E.exit.i.i.i.i.i"
 
 75:                                               ; preds = %62
   %76 = and i32 %.sroa.4.0.i.ph.i.i.i.i.i.i, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %77
   %79 = load i8, ptr %78, align 1, !noalias !38, !noundef !4
   %80 = lshr i8 %79, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hc663520a0e2263f1E.exit.i.i.i.i.i"
@@ -620,7 +620,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us: ; preds = %.lr.ph.spli
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us, %27
   %.sroa.01.05.i.us = phi i64 [ %28, %27 ], [ 0, %.preheader.i.us ]
-  %24 = getelementptr inbounds nuw [0 x i8], ptr %19, i64 0, i64 %.sroa.01.05.i.us
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.01.05.i.us
   %25 = load i8, ptr %24, align 1, !alias.scope !67, !noundef !4
   %26 = icmp eq i8 %25, %.pre92
   br i1 %26, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us, label %27
@@ -657,7 +657,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us: ; preds = %.l
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %40
   %.sroa.01.05.i = phi i64 [ %41, %40 ], [ 0, %.preheader.i ]
-  %37 = getelementptr inbounds nuw [0 x i8], ptr %35, i64 0, i64 %.sroa.01.05.i
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %.sroa.01.05.i
   %38 = load i8, ptr %37, align 1, !alias.scope !67, !noundef !4
   %39 = icmp eq i8 %38, %.pre92
   br i1 %39, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21, label %40
@@ -1307,7 +1307,7 @@ default.unreachable:                              ; preds = %.noexc134.i
   %204 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 102)
   %205 = icmp eq <16 x i8> %.val.i.i.i154, splat (i8 104)
   %narrow.i.i.i = select <16 x i1> %204, <16 x i1> %205, <16 x i1> zeroinitializer
-  %206 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %.sroa.023.048.i.i
+  %206 = getelementptr inbounds nuw i16, ptr %14, i64 %.sroa.023.048.i.i
   store <16 x i1> %narrow.i.i.i, ptr %206, align 2, !noalias !179
   %exitcond.not.i.i = icmp eq i64 %200, 4
   br i1 %exitcond.not.i.i, label %.preheader45.i.i, label %199
@@ -1325,7 +1325,7 @@ default.unreachable:                              ; preds = %.noexc134.i
   %.sroa.028.050.i.i = phi i64 [ %212, %216 ], [ 0, %199 ]
   %.sroa.014.249.i.i = phi i8 [ %.sroa.014.3.i.i, %216 ], [ 0, %199 ]
   %212 = add nuw nsw i64 %.sroa.028.050.i.i, 1
-  %213 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %.sroa.028.050.i.i
+  %213 = getelementptr inbounds nuw i16, ptr %14, i64 %.sroa.028.050.i.i
   %214 = load i16, ptr %213, align 2, !noalias !179, !noundef !4
   %215 = icmp eq i16 %214, 0
   br i1 %215, label %216, label %217
@@ -2848,7 +2848,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit.i:   ; preds = %549
   br i1 %628, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h36f237dca2a7eb73E.llvm.8787335230632349188.exit.i.i", label %629
 
 629:                                              ; preds = %627
-  %630 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }], ptr %625, i64 0, i64 %.sroa.0.0.i.i.i.i
+  %630 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }, ptr %625, i64 %.sroa.0.0.i.i.i.i
   %631 = add i64 %.sroa.0.0.i.i.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$git..blame..BlameEntry$GT$17hf9b82a9ebaaab84dE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %630)
           to label %627 unwind label %634, !noalias !547
@@ -2864,7 +2864,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit.i:   ; preds = %549
   br label %632
 
 636:                                              ; preds = %632
-  %637 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }], ptr %625, i64 0, i64 %.sroa.0.1.i.i.i.i
+  %637 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }, ptr %625, i64 %.sroa.0.1.i.i.i.i
   %638 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$git..blame..BlameEntry$GT$17hf9b82a9ebaaab84dE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %637) #19
           to label %632 unwind label %639, !noalias !547
@@ -3535,7 +3535,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit287.i: ; preds = %681
   br i1 %807, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h36f237dca2a7eb73E.llvm.8787335230632349188.exit.i", label %808
 
 808:                                              ; preds = %806
-  %809 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }], ptr %804, i64 0, i64 %.sroa.0.0.i.i.i
+  %809 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }, ptr %804, i64 %.sroa.0.0.i.i.i
   %810 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$git..blame..BlameEntry$GT$17hf9b82a9ebaaab84dE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %809)
           to label %806 unwind label %813, !noalias !796
@@ -3551,7 +3551,7 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit287.i: ; preds = %681
   br label %811
 
 815:                                              ; preds = %811
-  %816 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }], ptr %804, i64 0, i64 %.sroa.0.1.i.i.i
+  %816 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }, ptr %804, i64 %.sroa.0.1.i.i.i
   %817 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$git..blame..BlameEntry$GT$17hf9b82a9ebaaab84dE"(ptr noalias noundef nonnull align 8 dereferenceable(280) %816) #19
           to label %811 unwind label %818, !noalias !796

@@ -3351,7 +3351,7 @@ define noundef i32 @progress_cb(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw [5 x i8], ptr @progress_cb.symbols, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @progress_cb.symbols, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !15
   br label %10
 

@@ -891,7 +891,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
 287:                                              ; preds = %.lr.ph228
   %288 = add nuw nsw i32 %284, %.0114227
   %289 = zext nneg i32 %288 to i64
-  %290 = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw i8, ptr @uv__idna_toascii_label.alphabet, i64 %289
   %291 = load i8, ptr %290, align 1
   %292 = getelementptr inbounds nuw i8, ptr %285, i64 1
   store ptr %292, ptr %2, align 8
@@ -915,7 +915,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
 
 301:                                              ; preds = %._crit_edge229
   %302 = zext nneg i32 %.0115.lcssa to i64
-  %303 = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw i8, ptr @uv__idna_toascii_label.alphabet, i64 %302
   %304 = load i8, ptr %303, align 1
   %305 = getelementptr inbounds nuw i8, ptr %299, i64 1
   store ptr %305, ptr %2, align 8

@@ -842,7 +842,7 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 
 .thread.us:                                       ; preds = %.lr.ph, %.thread.us
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.thread.us ], [ 0, %.lr.ph ]
-  %51 = getelementptr inbounds nuw [0 x %struct.combine_diff_parent], ptr %49, i64 0, i64 %indvars.iv132
+  %51 = getelementptr inbounds nuw %struct.combine_diff_parent, ptr %49, i64 %indvars.iv132
   store i8 %50, ptr %51, align 8, !tbaa !111
   %52 = tail call ptr @null_oid() #11
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -862,7 +862,7 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   %58 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv, i32 2, i32 3
   %59 = load i32, ptr %58, align 4, !tbaa !60
   %.not106 = icmp sgt i32 %59, -1
-  %60 = getelementptr inbounds nuw [0 x %struct.combine_diff_parent], ptr %49, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %struct.combine_diff_parent, ptr %49, i64 %indvars.iv
   br i1 %.not106, label %61, label %.thread
 
 61:                                               ; preds = %.lr.ph.split

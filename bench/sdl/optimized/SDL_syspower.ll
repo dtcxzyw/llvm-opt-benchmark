@@ -549,7 +549,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_proc_apm(ptr noundef wr
   br i1 %15, label %next_string.exit.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   store i8 0, ptr %17, align 1
   br label %18
 
@@ -1310,7 +1310,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_org_freedesktop_upower(
 
 switch.lookup:                                    ; preds = %33
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.SDL_GetPowerInfo_Linux_org_freedesktop_upower, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetPowerInfo_Linux_org_freedesktop_upower, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %39
 

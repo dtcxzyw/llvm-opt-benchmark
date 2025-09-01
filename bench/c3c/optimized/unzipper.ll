@@ -179,7 +179,7 @@ define dso_local ptr @zip_dir_iterator_next(ptr noundef captures(none) %0, ptr n
   br label %82
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [512 x i8], ptr %1, i64 0, i64 %30
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   store i8 0, ptr %37, align 1
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %39 = load i16, ptr %38, align 2

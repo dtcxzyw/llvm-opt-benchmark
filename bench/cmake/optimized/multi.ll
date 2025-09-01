@@ -628,7 +628,7 @@ define internal fastcc void @mstate(ptr noundef %0, i32 noundef range(i32 0, 18)
   br i1 %.not12.not, label %35, label %38
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw [18 x ptr], ptr @mstate.finit, i64 0, i64 %32
+  %36 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %32
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   tail call void %37(ptr noundef nonnull %0) #20
   br label %38
@@ -1182,13 +1182,13 @@ define dso_local range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef %0, ptr nound
 21:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.146 = phi i32 [ %.03750, %.lr.ph ], [ %.2, %51 ]
-  %22 = getelementptr inbounds nuw [5 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !25
   %24 = icmp slt i32 %23, 1024
   br i1 %24, label %25, label %51
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw [5 x i8], ptr %20, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !93
   %28 = and i8 %27, 1
   %.not44 = icmp eq i8 %28, 0
@@ -1200,7 +1200,7 @@ define dso_local range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef %0, ptr nound
   %32 = shl nuw i64 1, %31
   %33 = sdiv i32 %23, 64
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [16 x i64], ptr %1, i64 0, i64 %34
+  %35 = getelementptr inbounds i64, ptr %1, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !108
   %37 = or i64 %36, %32
   store i64 %37, ptr %35, align 8, !tbaa !108
@@ -1219,7 +1219,7 @@ define dso_local range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef %0, ptr nound
   %44 = shl nuw i64 1, %43
   %45 = sdiv i32 %23, 64
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %46
+  %47 = getelementptr inbounds i64, ptr %2, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !108
   %49 = or i64 %48, %44
   store i64 %49, ptr %47, align 8, !tbaa !108
@@ -3027,7 +3027,7 @@ protocol_doing.exit:                              ; preds = %390
   br i1 %.not12.not.i, label %410, label %.thread245.thread
 
 410:                                              ; preds = %406
-  %411 = getelementptr inbounds nuw [18 x ptr], ptr @mstate.finit, i64 0, i64 %407
+  %411 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %407
   %412 = load ptr, ptr %411, align 8, !tbaa !4
   call void %412(ptr noundef nonnull %2) #20
   br label %mstate.exit184thread-pre-split
@@ -3078,7 +3078,7 @@ multi_do_more.exit:                               ; preds = %415
   br i1 %.not12.not.i205, label %432, label %.thread245.thread
 
 432:                                              ; preds = %428
-  %433 = getelementptr inbounds nuw [18 x ptr], ptr @mstate.finit, i64 0, i64 %429
+  %433 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %429
   %434 = load ptr, ptr %433, align 16, !tbaa !4
   call void %434(ptr noundef nonnull %2) #20
   br label %mstate.exit184thread-pre-split
@@ -3835,7 +3835,7 @@ thread-pre-split:                                 ; preds = %Curl_detach_connect
   br i1 %.not12.not.i231, label %763, label %mstate.exit230thread-pre-split
 
 763:                                              ; preds = %759
-  %764 = getelementptr inbounds nuw [18 x ptr], ptr @mstate.finit, i64 0, i64 %760
+  %764 = getelementptr inbounds nuw ptr, ptr @mstate.finit, i64 %760
   %765 = load ptr, ptr %764, align 8, !tbaa !4
   call void %765(ptr noundef nonnull %2) #20
   br label %mstate.exit230thread-pre-split
@@ -4168,9 +4168,9 @@ define dso_local range(i32 0, 12) i32 @Curl_multi_pollset_ev(ptr noundef %0, ptr
 
 27:                                               ; preds = %.lr.ph197, %126
   %indvars.iv211 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next212, %126 ]
-  %28 = getelementptr inbounds nuw [5 x i8], ptr %13, i64 0, i64 %indvars.iv211
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv211
   %29 = load i8, ptr %28, align 1, !tbaa !93
-  %30 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv211
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv211
   %31 = load i32, ptr %30, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %31, ptr %9, align 4, !tbaa !25
@@ -4199,7 +4199,7 @@ sh_getentry.exit:                                 ; preds = %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !25
   %37 = icmp eq i32 %31, %36
   br i1 %37, label %46, label %34
@@ -4248,7 +4248,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
   br label %.thread149
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds nuw [5 x i8], ptr %16, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
   %48 = load i8, ptr %47, align 1, !tbaa !93
   %49 = zext i8 %48 to i32
   %.not124 = icmp eq i8 %48, 0
@@ -4411,7 +4411,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
 
 130:                                              ; preds = %.lr.ph201, %.thread175
   %indvars.iv219 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next220, %.thread175 ]
-  %131 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv219
+  %131 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv219
   %132 = load i32, ptr %131, align 4, !tbaa !25
   %133 = load i32, ptr %11, align 4, !tbaa !140
   %.not205 = icmp eq i32 %133, 0
@@ -4428,7 +4428,7 @@ sh_addentry.exit:                                 ; preds = %sh_getentry.exit.i,
 
 .lr.ph199:                                        ; preds = %.lr.ph199.preheader, %134
   %indvars.iv214 = phi i64 [ 0, %.lr.ph199.preheader ], [ %indvars.iv.next215, %134 ]
-  %135 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv214
+  %135 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv214
   %136 = load i32, ptr %135, align 4, !tbaa !25
   %137 = icmp eq i32 %132, %136
   br i1 %137, label %.thread175, label %134
@@ -4450,7 +4450,7 @@ sh_getentry.exit144:                              ; preds = %.critedge
   br i1 %.not, label %.thread175, label %139
 
 139:                                              ; preds = %sh_getentry.exit144
-  %140 = getelementptr inbounds nuw [5 x i8], ptr %23, i64 0, i64 %indvars.iv219
+  %140 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv219
   %141 = load i8, ptr %140, align 1, !tbaa !93
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 52
   %143 = load i32, ptr %142, align 4, !tbaa !208
@@ -5477,7 +5477,7 @@ define internal fastcc void @expire_ex(ptr noundef %0, ptr noundef nonnull reado
 multi_deltimeout.exit:                            ; preds = %.critedge.i, %8, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3496
   %26 = zext i32 %3 to i64
-  %27 = getelementptr inbounds nuw [15 x %struct.time_node], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %struct.time_node, ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 %.sroa.0.0, ptr %28, align 8
   %.sroa.10.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %27, i64 40

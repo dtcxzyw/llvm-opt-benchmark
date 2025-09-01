@@ -524,7 +524,7 @@ _ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vecto
   %.sroa.8.2.us = phi i32 [ %112, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.us ], [ %127, %118 ]
   %.0.i.us = phi i32 [ 0, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit.i.us ], [ %.0.i.i.us, %118 ]
   %132 = and i64 %indvars.iv, 1
-  %133 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr %1, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !16
   %135 = add nsw i32 %134, %.0.i.us
   store i32 %135, ptr %133, align 4, !tbaa !16

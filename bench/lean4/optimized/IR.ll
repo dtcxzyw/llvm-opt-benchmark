@@ -89,7 +89,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Compiler_IR_0__Lean_IR_co
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -212,7 +212,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Compiler_IR_0__Lean_IR_co
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -335,7 +335,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Compiler_IR_0__Lean_IR_co
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -458,7 +458,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Compiler_IR_0__Lean_IR_co
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -581,7 +581,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Compiler_IR_0__Lean_IR_co
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -704,7 +704,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Compiler_IR_0__Lean_IR_co
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -3833,7 +3833,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_addBoxedVersi
   br label %lean_dec.exit50
 
 lean_dec.exit50:                                  ; preds = %17, %16, %14, %8
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03976
+  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03976
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1

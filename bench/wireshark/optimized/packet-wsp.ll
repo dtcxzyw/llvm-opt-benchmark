@@ -3022,11 +3022,11 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not48 = icmp eq ptr %7, null
-  br i1 %.not48, label %25, label %8
+  br i1 %.not48, label %24, label %8
 
 8:                                                ; preds = %5
   tail call void %7(ptr noundef nonnull %4)
-  br label %25
+  br label %24
 
 9:                                                ; preds = %1
   %10 = tail call ptr @stat_tap_init_table(ptr noundef nonnull @.str.1299, i32 noundef 2, i32 noundef 0, ptr noundef null)
@@ -3041,8 +3041,8 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
 
 14:                                               ; preds = %9, %14
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %14 ]
-  %15 = phi ptr [ @.str.611, %9 ], [ %22, %14 ]
-  %16 = phi ptr [ @wsp_vals_pdu_type, %9 ], [ %20, %14 ]
+  %15 = phi ptr [ @.str.611, %9 ], [ %21, %14 ]
+  %16 = getelementptr %struct._value_string, ptr @wsp_vals_pdu_type, i64 %indvars.iv
   %17 = call noalias ptr @g_strdup(ptr noundef nonnull %15)
   store ptr %17, ptr %12, align 8
   %18 = load i32, ptr %16, align 16
@@ -3050,72 +3050,70 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   call void @stat_tap_init_table_row(ptr noundef %10, i32 noundef %19, i32 noundef 2, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr [50 x %struct._value_string], ptr @wsp_vals_pdu_type, i64 0, i64 %indvars.iv.next
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %20 = getelementptr %struct._value_string, ptr @wsp_vals_pdu_type, i64 %indvars.iv.next, i32 1
+  %21 = load ptr, ptr %20, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 49
-  br i1 %exitcond, label %23, label %14, !llvm.loop !10
+  br i1 %exitcond, label %22, label %14, !llvm.loop !10
 
-23:                                               ; preds = %14
-  %24 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1301)
-  store ptr %24, ptr %12, align 8
+22:                                               ; preds = %14
+  %23 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1301)
+  store ptr %23, ptr %12, align 8
   store i32 0, ptr %13, align 16
   call void @stat_tap_init_table_row(ptr noundef %10, i32 noundef 49, i32 noundef 2, ptr noundef nonnull %2)
   store i1 true, ptr @unknown_pt_idx, align 4
-  br label %25
+  br label %24
 
-25:                                               ; preds = %5, %8, %23
-  %26 = call ptr @stat_tap_find_table(ptr noundef %0, ptr noundef nonnull @.str.1300)
-  %.not49 = icmp eq ptr %26, null
-  br i1 %.not49, label %31, label %27
+24:                                               ; preds = %5, %8, %22
+  %25 = call ptr @stat_tap_find_table(ptr noundef %0, ptr noundef nonnull @.str.1300)
+  %.not49 = icmp eq ptr %25, null
+  br i1 %.not49, label %30, label %26
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %.not51 = icmp eq ptr %29, null
-  br i1 %.not51, label %47, label %30
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %.not51 = icmp eq ptr %28, null
+  br i1 %.not51, label %45, label %29
 
-30:                                               ; preds = %27
-  call void %29(ptr noundef nonnull %26)
-  br label %47
+29:                                               ; preds = %26
+  call void %28(ptr noundef nonnull %25)
+  br label %45
 
-31:                                               ; preds = %25
-  %32 = call ptr @stat_tap_init_table(ptr noundef nonnull @.str.1300, i32 noundef 2, i32 noundef 0, ptr noundef null)
-  call void @stat_tap_add_table(ptr noundef %0, ptr noundef %32)
+30:                                               ; preds = %24
+  %31 = call ptr @stat_tap_init_table(ptr noundef nonnull @.str.1300, i32 noundef 2, i32 noundef 0, ptr noundef null)
+  call void @stat_tap_add_table(ptr noundef %0, ptr noundef %31)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 noundef 0, i64 noundef 48, i1 noundef false) #6
   store i32 3, ptr %3, align 16
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 1, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %36
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 1, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br label %35
 
-36:                                               ; preds = %31, %36
-  %indvars.iv56 = phi i64 [ 0, %31 ], [ %indvars.iv.next57, %36 ]
-  %37 = phi ptr [ @.str.661, %31 ], [ %44, %36 ]
-  %38 = phi ptr [ @wsp_vals_status, %31 ], [ %42, %36 ]
-  %39 = call noalias ptr @g_strdup(ptr noundef nonnull %37)
-  store ptr %39, ptr %34, align 8
-  %40 = load i32, ptr %38, align 16
-  store i32 %40, ptr %35, align 16
-  %41 = trunc nuw nsw i64 %indvars.iv56 to i32
-  call void @stat_tap_init_table_row(ptr noundef %32, i32 noundef %41, i32 noundef 2, ptr noundef nonnull %3)
+35:                                               ; preds = %30, %35
+  %indvars.iv56 = phi i64 [ 0, %30 ], [ %indvars.iv.next57, %35 ]
+  %36 = phi ptr [ @.str.661, %30 ], [ %42, %35 ]
+  %37 = getelementptr %struct._value_string, ptr @wsp_vals_status, i64 %indvars.iv56
+  %38 = call noalias ptr @g_strdup(ptr noundef nonnull %36)
+  store ptr %38, ptr %33, align 8
+  %39 = load i32, ptr %37, align 16
+  store i32 %39, ptr %34, align 16
+  %40 = trunc nuw nsw i64 %indvars.iv56 to i32
+  call void @stat_tap_init_table_row(ptr noundef %31, i32 noundef %40, i32 noundef 2, ptr noundef nonnull %3)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %42 = getelementptr [41 x %struct._value_string], ptr @wsp_vals_status, i64 0, i64 %indvars.iv.next57
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
+  %41 = getelementptr %struct._value_string, ptr @wsp_vals_status, i64 %indvars.iv.next57, i32 1
+  %42 = load ptr, ptr %41, align 8
   %exitcond59 = icmp eq i64 %indvars.iv.next57, 40
-  br i1 %exitcond59, label %45, label %36, !llvm.loop !11
+  br i1 %exitcond59, label %43, label %35, !llvm.loop !11
 
-45:                                               ; preds = %36
-  %46 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1302)
-  store ptr %46, ptr %34, align 8
-  store i32 0, ptr %35, align 16
-  call void @stat_tap_init_table_row(ptr noundef %32, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %3)
+43:                                               ; preds = %35
+  %44 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1302)
+  store ptr %44, ptr %33, align 8
+  store i32 0, ptr %34, align 16
+  call void @stat_tap_init_table_row(ptr noundef %31, i32 noundef 40, i32 noundef 2, ptr noundef nonnull %3)
   store i1 true, ptr @unknown_sc_idx, align 4
-  br label %47
+  br label %45
 
-47:                                               ; preds = %27, %30, %45
+45:                                               ; preds = %26, %29, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -3599,7 +3597,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %20, label %23, label %29
 
 23:                                               ; preds = %19
-  %24 = getelementptr [128 x ptr], ptr @WellKnownHeader, i64 0, i64 %22
+  %24 = getelementptr ptr, ptr @WellKnownHeader, i64 %22
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 %25(ptr noundef %14, ptr noundef %1, i32 noundef %.0129149, ptr noundef %3)
   %.not143 = icmp slt i32 %.0129149, %26
@@ -3610,7 +3608,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.loopexit
 
 29:                                               ; preds = %19
-  %30 = getelementptr [128 x ptr], ptr @WellKnownOpenwaveHeader, i64 0, i64 %22
+  %30 = getelementptr ptr, ptr @WellKnownOpenwaveHeader, i64 %22
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31(ptr noundef %14, ptr noundef %1, i32 noundef %.0129149, ptr noundef %3)
   %.not142 = icmp slt i32 %.0129149, %32
@@ -3958,7 +3956,7 @@ define internal i32 @wkh_accept_encoding(ptr noundef %0, ptr noundef %1, i32 nou
 
 switch.lookup:                                    ; preds = %53
   %55 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.wkh_accept_encoding, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wkh_accept_encoding, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   %56 = load i32, ptr @hf_hdr_accept_encoding, align 4
   %57 = sub i32 %51, %2
@@ -6119,7 +6117,7 @@ define internal i32 @wkh_content_disposition(ptr noundef %0, ptr noundef %1, i32
 
 switch.lookup:                                    ; preds = %38
   %40 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wkh_content_disposition, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wkh_content_disposition, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = load i32, ptr @hf_hdr_content_disposition, align 4
   %42 = sub i32 %36, %2

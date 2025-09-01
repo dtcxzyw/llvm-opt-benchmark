@@ -262,7 +262,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRK
   ret void
 
 55:                                               ; preds = %.lr.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit
-  %.03163 = phi i32 [ 0, %.lr.ph ], [ %157, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit ]
+  %.03163 = phi i32 [ 0, %.lr.ph ], [ %156, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -336,7 +336,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIN
   %67 = load ptr, ptr %15, align 8, !tbaa !20
   call void @free(ptr noundef %67) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %161
+  br label %160
 
 68:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductIS2_NS1_IdLi3ELi3ELi0ELi3ELi3EEELi0EEEKNS_9ReplicateINS1_IdLi1ELi3ELi1ELi1ELi3EEELin1ELi1EEEEEEEvRKNS_9EigenBaseIT_EE.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -349,34 +349,34 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIN
   br label %71
 
 71:                                               ; preds = %71, %68
-  %72 = phi i64 [ %70, %68 ], [ %77, %71 ]
-  %.011.i.i.i = phi i64 [ 1, %68 ], [ %79, %71 ]
-  %73 = lshr i64 %72, 30
-  %74 = xor i64 %73, %72
+  %store_forwarded = phi i64 [ %70, %68 ], [ %77, %71 ]
+  %.011.i.i.i = phi i64 [ 1, %68 ], [ %78, %71 ]
+  %72 = getelementptr i64, ptr %17, i64 %.011.i.i.i
+  %73 = lshr i64 %store_forwarded, 30
+  %74 = xor i64 %73, %store_forwarded
   %75 = mul nuw nsw i64 %74, 1812433253
   %76 = add nuw i64 %75, %.011.i.i.i
   %77 = and i64 %76, 4294967295
-  %78 = getelementptr inbounds nuw [624 x i64], ptr %17, i64 0, i64 %.011.i.i.i
-  store i64 %77, ptr %78, align 8, !tbaa !37, !alias.scope !34
-  %79 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %79, 624
-  br i1 %exitcond.not.i.i.i, label %80, label %71, !llvm.loop !38
+  store i64 %77, ptr %72, align 8, !tbaa !37, !alias.scope !34
+  %78 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %78, 624
+  br i1 %exitcond.not.i.i.i, label %79, label %71, !llvm.loop !38
 
-80:                                               ; preds = %71
+79:                                               ; preds = %71
   store i64 624, ptr %35, align 8, !tbaa !39, !alias.scope !34
   invoke void @_ZN3igl21random_points_on_meshIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi1ELi0ELin1ELi1EEES3_St23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEviRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERNS1_15PlainObjectBaseIT1_EERNSI_IT2_EERNSI_IT3_EEOT4_(i32 noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(5000) %17)
-          to label %81 unwind label %158
+          to label %80 unwind label %157
 
-81:                                               ; preds = %80
+80:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %82 = load ptr, ptr %15, align 8, !tbaa !20
-  call void @free(ptr noundef %82) #17
+  %81 = load ptr, ptr %15, align 8, !tbaa !20
+  call void @free(ptr noundef %81) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %83 = load ptr, ptr %14, align 8, !tbaa !41
-  call void @free(ptr noundef %83) #17
+  %82 = load ptr, ptr %14, align 8, !tbaa !41
+  call void @free(ptr noundef %82) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %84 = load ptr, ptr %13, align 8, !tbaa !43
-  call void @free(ptr noundef %84) #17
+  %83 = load ptr, ptr %13, align 8, !tbaa !43
+  call void @free(ptr noundef %83) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -385,214 +385,214 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIN
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   invoke void @_ZNK3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3EE16squared_distanceINS2_IiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IdLin1ELi1ELi0ELin1ELi1EEENS2_IiLin1ELi1ELi0ELin1ELi1EEES3_EEvRKNS1_10MatrixBaseIS3_EERKNS9_IT_EERKNS9_IT0_EERNS1_15PlainObjectBaseIT1_EERNSL_IT2_EERNSL_IT3_EE(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %85 unwind label %164
+          to label %84 unwind label %163
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %20, align 8, !tbaa !46
-  call void @free(ptr noundef %86) #17
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %20, align 8, !tbaa !46
+  call void @free(ptr noundef %85) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEclINS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal5all_tEEENS6_9enable_ifIXaasr8internal27valid_indexed_view_overloadIT_T0_EE5valuesr8internal6traitsINS3_20ConstIndexedViewTypeIS9_SA_E4typeEEE19ReturnAsIndexedViewESD_E4typeERKS9_RKSA_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::IndexedView") align 8 %22, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3igl12placeholdersL3allE)
-          to label %87 unwind label %167
+          to label %86 unwind label %166
 
-87:                                               ; preds = %85
+86:                                               ; preds = %84
   invoke void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_11IndexedViewIKS2_NS1_IiLin1ELi1ELi0ELin1ELi1EEENS_8internal8AllRangeILin1EEEEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
-          to label %88 unwind label %169
+          to label %87 unwind label %168
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr %36, align 8, !tbaa !43
-  call void @free(ptr noundef %89) #17
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %36, align 8, !tbaa !43
+  call void @free(ptr noundef %88) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke void @_ZN3igl15rigid_alignmentIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_S3_NS2_IdLi3ELi3ELi0ELi3ELi3EEENS2_IdLi1ELi3ELi1ELi1ELi3EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERNS1_15PlainObjectBaseIT2_EERNSJ_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %90 unwind label %173
+          to label %89 unwind label %172
 
-90:                                               ; preds = %88
+89:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %91 = load <2 x double>, ptr %8, align 8, !tbaa !51, !noalias !48
-  %92 = load <2 x double>, ptr %37, align 8, !tbaa !51, !noalias !48
-  %93 = load <2 x double>, ptr %39, align 8, !tbaa !51, !noalias !48
-  %94 = load double, ptr %42, align 8, !tbaa !4, !noalias !48
-  %95 = load double, ptr %28, align 8, !tbaa !4, !noalias !48
-  %96 = load double, ptr %29, align 8, !tbaa !4, !noalias !48
-  br label %97
+  %90 = load <2 x double>, ptr %8, align 8, !tbaa !51, !noalias !48
+  %91 = load <2 x double>, ptr %37, align 8, !tbaa !51, !noalias !48
+  %92 = load <2 x double>, ptr %39, align 8, !tbaa !51, !noalias !48
+  %93 = load double, ptr %42, align 8, !tbaa !4, !noalias !48
+  %94 = load double, ptr %28, align 8, !tbaa !4, !noalias !48
+  %95 = load double, ptr %29, align 8, !tbaa !4, !noalias !48
+  br label %96
 
-97:                                               ; preds = %97, %90
-  %.07.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %90 ], [ %122, %97 ]
+96:                                               ; preds = %96, %89
+  %.07.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %89 ], [ %121, %96 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i, 24
-  %98 = getelementptr i8, ptr %25, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %99 = getelementptr i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %100 = load double, ptr %99, align 8, !tbaa !4, !noalias !48
-  %101 = insertelement <2 x double> poison, double %100, i64 0
-  %102 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> zeroinitializer
-  %103 = fmul <2 x double> %91, %102
-  %104 = getelementptr i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %105 = load double, ptr %104, align 8, !tbaa !4, !noalias !48
-  %106 = insertelement <2 x double> poison, double %105, i64 0
-  %107 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> zeroinitializer
-  %108 = fmul <2 x double> %92, %107
-  %109 = fadd <2 x double> %103, %108
-  %110 = getelementptr i8, ptr %40, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %111 = load double, ptr %110, align 8, !tbaa !4, !noalias !48
-  %112 = insertelement <2 x double> poison, double %111, i64 0
-  %113 = shufflevector <2 x double> %112, <2 x double> poison, <2 x i32> zeroinitializer
-  %114 = fmul <2 x double> %93, %113
-  %115 = fadd <2 x double> %109, %114
-  store <2 x double> %115, ptr %98, align 8, !tbaa !51, !alias.scope !48
-  %116 = getelementptr i8, ptr %41, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %117 = fmul double %94, %100
-  %118 = fmul double %95, %105
-  %119 = fmul double %96, %111
-  %120 = fadd double %118, %119
-  %121 = fadd double %117, %120
-  store double %121, ptr %116, align 8, !tbaa !4, !alias.scope !48
-  %122 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %122, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit, label %97, !llvm.loop !52
+  %97 = getelementptr i8, ptr %25, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %98 = getelementptr i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %99 = load double, ptr %98, align 8, !tbaa !4, !noalias !48
+  %100 = insertelement <2 x double> poison, double %99, i64 0
+  %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> zeroinitializer
+  %102 = fmul <2 x double> %90, %101
+  %103 = getelementptr i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %104 = load double, ptr %103, align 8, !tbaa !4, !noalias !48
+  %105 = insertelement <2 x double> poison, double %104, i64 0
+  %106 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> zeroinitializer
+  %107 = fmul <2 x double> %91, %106
+  %108 = fadd <2 x double> %102, %107
+  %109 = getelementptr i8, ptr %40, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %110 = load double, ptr %109, align 8, !tbaa !4, !noalias !48
+  %111 = insertelement <2 x double> poison, double %110, i64 0
+  %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> zeroinitializer
+  %113 = fmul <2 x double> %92, %112
+  %114 = fadd <2 x double> %108, %113
+  store <2 x double> %114, ptr %97, align 8, !tbaa !51, !alias.scope !48
+  %115 = getelementptr i8, ptr %41, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %116 = fmul double %93, %99
+  %117 = fmul double %94, %104
+  %118 = fmul double %95, %110
+  %119 = fadd double %117, %118
+  %120 = fadd double %116, %119
+  store double %120, ptr %115, align 8, !tbaa !4, !alias.scope !48
+  %121 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %121, 3
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit, label %96, !llvm.loop !52
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit: ; preds = %97
-  %123 = load <2 x double>, ptr %25, align 16, !tbaa !51
-  store <2 x double> %123, ptr %8, align 8, !tbaa !51
-  %124 = load <2 x double>, ptr %41, align 16, !tbaa !51
-  store <2 x double> %124, ptr %42, align 8, !tbaa !51
-  %125 = load <2 x double>, ptr %43, align 16, !tbaa !51
-  store <2 x double> %125, ptr %27, align 8, !tbaa !51
-  %126 = load <2 x double>, ptr %44, align 16, !tbaa !51
-  store <2 x double> %126, ptr %39, align 8, !tbaa !51
-  %127 = load double, ptr %45, align 16, !tbaa !4
-  store double %127, ptr %29, align 8, !tbaa !4
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit: ; preds = %96
+  %122 = load <2 x double>, ptr %25, align 16, !tbaa !51
+  store <2 x double> %122, ptr %8, align 8, !tbaa !51
+  %123 = load <2 x double>, ptr %41, align 16, !tbaa !51
+  store <2 x double> %123, ptr %42, align 8, !tbaa !51
+  %124 = load <2 x double>, ptr %43, align 16, !tbaa !51
+  store <2 x double> %124, ptr %27, align 8, !tbaa !51
+  %125 = load <2 x double>, ptr %44, align 16, !tbaa !51
+  store <2 x double> %125, ptr %39, align 8, !tbaa !51
+  %126 = load double, ptr %45, align 16, !tbaa !4
+  store double %126, ptr %29, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !53
   store ptr %47, ptr %46, align 8, !tbaa !56, !noalias !53
-  %128 = load <2 x double>, ptr %9, align 8, !tbaa !51, !noalias !53
-  %129 = load <2 x double>, ptr %23, align 16, !tbaa !51, !noalias !53
-  %130 = fmul <2 x double> %128, %129
-  %shift = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop = fadd <2 x double> %130, %shift
-  %131 = extractelement <2 x double> %foldExtExtBinop, i64 0
-  %132 = load double, ptr %48, align 8, !tbaa !4, !noalias !53
-  %133 = load double, ptr %40, align 16, !tbaa !4, !noalias !53
-  %134 = fmul double %132, %133
-  %135 = fadd double %131, %134
-  store double %135, ptr %47, align 8, !tbaa !4, !noalias !53
-  %136 = load <2 x double>, ptr %50, align 8, !tbaa !51, !noalias !53
-  %137 = fmul <2 x double> %128, %136
-  %shift69 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop70 = fadd <2 x double> %137, %shift69
-  %138 = extractelement <2 x double> %foldExtExtBinop70, i64 0
-  %139 = load double, ptr %51, align 8, !tbaa !4, !noalias !53
-  %140 = fmul double %132, %139
-  %141 = fadd double %140, %138
-  store double %141, ptr %49, align 8, !tbaa !4, !noalias !53
-  %142 = load <2 x double>, ptr %52, align 16, !tbaa !51, !noalias !53
-  %143 = fmul <2 x double> %128, %142
-  %shift72 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop73 = fadd <2 x double> %143, %shift72
-  %144 = extractelement <2 x double> %foldExtExtBinop73, i64 0
-  %145 = load double, ptr %53, align 16, !tbaa !4, !noalias !53
-  %146 = fmul double %132, %145
-  %147 = fadd double %146, %144
-  %148 = load <2 x double>, ptr %47, align 8, !tbaa !51, !noalias !53
-  %149 = load <2 x double>, ptr %24, align 16, !tbaa !51, !noalias !53
-  %150 = fadd <2 x double> %148, %149
-  %151 = load double, ptr %54, align 16, !tbaa !4, !noalias !53
-  %152 = fadd double %147, %151
+  %127 = load <2 x double>, ptr %9, align 8, !tbaa !51, !noalias !53
+  %128 = load <2 x double>, ptr %23, align 16, !tbaa !51, !noalias !53
+  %129 = fmul <2 x double> %127, %128
+  %shift = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop = fadd <2 x double> %129, %shift
+  %130 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %131 = load double, ptr %48, align 8, !tbaa !4, !noalias !53
+  %132 = load double, ptr %40, align 16, !tbaa !4, !noalias !53
+  %133 = fmul double %131, %132
+  %134 = fadd double %130, %133
+  store double %134, ptr %47, align 8, !tbaa !4, !noalias !53
+  %135 = load <2 x double>, ptr %50, align 8, !tbaa !51, !noalias !53
+  %136 = fmul <2 x double> %127, %135
+  %shift69 = shufflevector <2 x double> %136, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop70 = fadd <2 x double> %136, %shift69
+  %137 = extractelement <2 x double> %foldExtExtBinop70, i64 0
+  %138 = load double, ptr %51, align 8, !tbaa !4, !noalias !53
+  %139 = fmul double %131, %138
+  %140 = fadd double %139, %137
+  store double %140, ptr %49, align 8, !tbaa !4, !noalias !53
+  %141 = load <2 x double>, ptr %52, align 16, !tbaa !51, !noalias !53
+  %142 = fmul <2 x double> %127, %141
+  %shift72 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop73 = fadd <2 x double> %142, %shift72
+  %143 = extractelement <2 x double> %foldExtExtBinop73, i64 0
+  %144 = load double, ptr %53, align 16, !tbaa !4, !noalias !53
+  %145 = fmul double %131, %144
+  %146 = fadd double %145, %143
+  %147 = load <2 x double>, ptr %47, align 8, !tbaa !51, !noalias !53
+  %148 = load <2 x double>, ptr %24, align 16, !tbaa !51, !noalias !53
+  %149 = fadd <2 x double> %147, %148
+  %150 = load double, ptr %54, align 16, !tbaa !4, !noalias !53
+  %151 = fadd double %146, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !53
-  store <2 x double> %150, ptr %9, align 8, !tbaa !51
-  store double %152, ptr %48, align 8, !tbaa !4
+  store <2 x double> %149, ptr %9, align 8, !tbaa !51
+  store double %151, ptr %48, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %153 = load ptr, ptr %21, align 8, !tbaa !20
-  call void @free(ptr noundef %153) #17
+  %152 = load ptr, ptr %21, align 8, !tbaa !20
+  call void @free(ptr noundef %152) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %154 = load ptr, ptr %19, align 8, !tbaa !20
-  call void @free(ptr noundef %154) #17
+  %153 = load ptr, ptr %19, align 8, !tbaa !20
+  call void @free(ptr noundef %153) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %155 = load ptr, ptr %18, align 8, !tbaa !43
-  call void @free(ptr noundef %155) #17
+  %154 = load ptr, ptr %18, align 8, !tbaa !43
+  call void @free(ptr noundef %154) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %156 = load ptr, ptr %12, align 8, !tbaa !20
-  call void @free(ptr noundef %156) #17
+  %155 = load ptr, ptr %12, align 8, !tbaa !20
+  call void @free(ptr noundef %155) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %157 = add nuw nsw i32 %.03163, 1
-  %exitcond.not = icmp eq i32 %157, %7
+  %156 = add nuw nsw i32 %.03163, 1
+  %exitcond.not = icmp eq i32 %156, %7
   br i1 %exitcond.not, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRKd.exit._crit_edge, label %55, !llvm.loop !58
 
-158:                                              ; preds = %80
-  %159 = landingpad { ptr, i32 }
+157:                                              ; preds = %79
+  %158 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %160 = load ptr, ptr %15, align 8, !tbaa !20
-  call void @free(ptr noundef %160) #17
-  br label %161
+  %159 = load ptr, ptr %15, align 8, !tbaa !20
+  call void @free(ptr noundef %159) #17
+  br label %160
 
-161:                                              ; preds = %158, %.body
-  %.pn = phi { ptr, i32 } [ %159, %158 ], [ %lpad.phi, %.body ]
+160:                                              ; preds = %157, %.body
+  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %lpad.phi, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %162 = load ptr, ptr %14, align 8, !tbaa !41
-  call void @free(ptr noundef %162) #17
+  %161 = load ptr, ptr %14, align 8, !tbaa !41
+  call void @free(ptr noundef %161) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %163 = load ptr, ptr %13, align 8, !tbaa !43
-  call void @free(ptr noundef %163) #17
+  %162 = load ptr, ptr %13, align 8, !tbaa !43
+  call void @free(ptr noundef %162) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %180
+  br label %179
 
-164:                                              ; preds = %81
-  %165 = landingpad { ptr, i32 }
+163:                                              ; preds = %80
+  %164 = landingpad { ptr, i32 }
           cleanup
-  %166 = load ptr, ptr %20, align 8, !tbaa !46
-  call void @free(ptr noundef %166) #17
+  %165 = load ptr, ptr %20, align 8, !tbaa !46
+  call void @free(ptr noundef %165) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %177
-
-167:                                              ; preds = %85
-  %168 = landingpad { ptr, i32 }
-          cleanup
-  br label %172
-
-169:                                              ; preds = %87
-  %170 = landingpad { ptr, i32 }
-          cleanup
-  %171 = load ptr, ptr %36, align 8, !tbaa !43
-  call void @free(ptr noundef %171) #17
-  br label %172
-
-172:                                              ; preds = %169, %167
-  %.pn37 = phi { ptr, i32 } [ %170, %169 ], [ %168, %167 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %176
 
-173:                                              ; preds = %88
-  %174 = landingpad { ptr, i32 }
+166:                                              ; preds = %84
+  %167 = landingpad { ptr, i32 }
+          cleanup
+  br label %171
+
+168:                                              ; preds = %86
+  %169 = landingpad { ptr, i32 }
+          cleanup
+  %170 = load ptr, ptr %36, align 8, !tbaa !43
+  call void @free(ptr noundef %170) #17
+  br label %171
+
+171:                                              ; preds = %168, %166
+  %.pn37 = phi { ptr, i32 } [ %169, %168 ], [ %167, %166 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  br label %175
+
+172:                                              ; preds = %87
+  %173 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %175 = load ptr, ptr %21, align 8, !tbaa !20
-  call void @free(ptr noundef %175) #17
+  %174 = load ptr, ptr %21, align 8, !tbaa !20
+  call void @free(ptr noundef %174) #17
+  br label %175
+
+175:                                              ; preds = %172, %171
+  %.pn39.pn.pn = phi { ptr, i32 } [ %173, %172 ], [ %.pn37, %171 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %176
 
-176:                                              ; preds = %173, %172
-  %.pn39.pn.pn = phi { ptr, i32 } [ %174, %173 ], [ %.pn37, %172 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %177
-
-177:                                              ; preds = %176, %164
-  %.pn39.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %176 ], [ %165, %164 ]
-  %178 = load ptr, ptr %19, align 8, !tbaa !20
-  call void @free(ptr noundef %178) #17
+176:                                              ; preds = %175, %163
+  %.pn39.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %175 ], [ %164, %163 ]
+  %177 = load ptr, ptr %19, align 8, !tbaa !20
+  call void @free(ptr noundef %177) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %179 = load ptr, ptr %18, align 8, !tbaa !43
-  call void @free(ptr noundef %179) #17
+  %178 = load ptr, ptr %18, align 8, !tbaa !43
+  call void @free(ptr noundef %178) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %180
+  br label %179
 
-180:                                              ; preds = %177, %161
-  %.pn39.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn, %177 ], [ %.pn, %161 ]
-  %181 = load ptr, ptr %12, align 8, !tbaa !20
-  call void @free(ptr noundef %181) #17
+179:                                              ; preds = %176, %160
+  %.pn39.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn.pn, %176 ], [ %.pn, %160 ]
+  %180 = load ptr, ptr %12, align 8, !tbaa !20
+  call void @free(ptr noundef %180) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn39.pn.pn.pn.pn.pn.pn
 }

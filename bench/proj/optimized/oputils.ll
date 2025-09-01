@@ -4445,7 +4445,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = add i64 %.02673, 1
-  %79 = getelementptr inbounds nuw [7 x ptr], ptr %.0.ptr77, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr %.0.ptr77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !66
   %.not3770 = icmp eq ptr %80, null
   br i1 %.not3770, label %._crit_edge, label %.lr.ph
@@ -4970,7 +4970,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %243 = add i64 %.01971, 1
-  %244 = getelementptr inbounds nuw [7 x ptr], ptr %.0.ptr77, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %.0.ptr77, i64 %243
   %245 = load ptr, ptr %244, align 8, !tbaa !66
   %.not37 = icmp eq ptr %245, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !114

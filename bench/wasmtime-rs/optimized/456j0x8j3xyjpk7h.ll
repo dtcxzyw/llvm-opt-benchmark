@@ -140,7 +140,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %33, i64 0, i64 %29
+  %34 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %33, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = load i64, ptr %34, align 8, !range !3, !noundef !4
   %36 = icmp eq i64 %35, -9223372036854775808
@@ -268,7 +268,7 @@ define void @"_ZN224_$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$u
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !7, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %9, i64 0, i64 %1, i32 1
+  %14 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %9, i64 %1, i32 1
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !align !7, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
@@ -346,7 +346,7 @@ default.unreachable22:                            ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %35 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %33, i64 0, i64 %18, i32 1
+  %35 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %33, i64 %18, i32 1
   store ptr %34, ptr %13, align 8
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb00593a18ac4215eE", ptr %36, align 8
@@ -656,7 +656,7 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { ptr, i64 }, { ptr, i64 } }], ptr %35, i64 0, i64 %20
+  %36 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %35, i64 %20
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16

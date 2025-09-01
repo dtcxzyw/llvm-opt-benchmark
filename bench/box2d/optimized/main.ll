@@ -460,7 +460,7 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
 197:                                              ; preds = %144
   %198 = load i32, ptr @_ZL10s_settings, align 4, !tbaa !56
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %199, i32 2
+  %200 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %199, i32 2
   %201 = load ptr, ptr %200, align 8, !tbaa !68
   %202 = call noundef ptr %201(ptr noundef nonnull align 4 dereferenceable(44) @_ZL10s_settings)
   store ptr %202, ptr @_ZL8s_sample, align 8, !tbaa !66
@@ -475,7 +475,7 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
 207:                                              ; preds = %203
   %208 = load i32, ptr @_ZL10s_settings, align 4, !tbaa !56
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %209
+  %210 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !73
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %213 = load ptr, ptr %212, align 8, !tbaa !74
@@ -556,7 +556,7 @@ _ZL13RestartSamplev.exit.i:                       ; preds = %247, %240
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 43), align 1, !tbaa !77
   %251 = load i32, ptr @_ZL10s_settings, align 4, !tbaa !56
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %252, i32 2
+  %253 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %252, i32 2
   %254 = load ptr, ptr %253, align 8, !tbaa !68
   %255 = call noundef ptr %254(ptr noundef nonnull align 4 dereferenceable(44) @_ZL10s_settings)
   store ptr %255, ptr @_ZL8s_sample, align 8, !tbaa !66
@@ -646,7 +646,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 43), align 1, !tbaa !77
   %300 = load i32, ptr @_ZL10s_settings, align 4, !tbaa !56
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %301, i32 2
+  %302 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %301, i32 2
   %303 = load ptr, ptr %302, align 8, !tbaa !68
   %304 = call noundef ptr %303(ptr noundef nonnull align 4 dereferenceable(44) @_ZL10s_settings)
   store ptr %304, ptr @_ZL8s_sample, align 8, !tbaa !66
@@ -682,7 +682,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
   %.044.i = load ptr, ptr %.044.in.i, align 8, !tbaa !73
   %315 = load i32, ptr @_ZL10s_settings, align 4, !tbaa !56
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %316
+  %317 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %316
   %318 = load ptr, ptr %317, align 8, !tbaa !73
   %319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.044.i, ptr noundef nonnull dereferenceable(1) %318) #25
   %320 = icmp eq i32 %319, 0
@@ -710,7 +710,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
 
 .lr.ph39.i:                                       ; preds = %344, %.lr.ph39.preheader.i
   %indvars.iv48.i = phi i64 [ %328, %.lr.ph39.preheader.i ], [ %indvars.iv.next49.i, %344 ]
-  %329 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %indvars.iv48.i
+  %329 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %indvars.iv48.i
   %330 = load ptr, ptr %329, align 8, !tbaa !73
   %331 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.044.i, ptr noundef nonnull dereferenceable(1) %330) #25
   %332 = icmp eq i32 %331, 0
@@ -752,7 +752,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
 
 .lr.ph.i:                                         ; preds = %352, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %326, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %352 ]
-  %348 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %indvars.iv.i
+  %348 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %indvars.iv.i
   %349 = load ptr, ptr %348, align 8, !tbaa !73
   %350 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.044.i, ptr noundef nonnull dereferenceable(1) %349) #25
   %351 = icmp eq i32 %350, 0
@@ -775,7 +775,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
 
 356:                                              ; preds = %.critedge2.i
   %357 = sext i32 %.2.i to i64
-  %358 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %357
+  %358 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %357
   br label %.lr.ph46.i
 
 ._crit_edge.i:                                    ; preds = %.critedge2.i, %352, %312
@@ -861,7 +861,7 @@ _ZL8UpdateUIv.exit.thread:                        ; preds = %216, %365, %_ZL8Upd
   %395 = phi i32 [ %.pre41, %390 ], [ %387, %386 ]
   store ptr null, ptr @_ZL8s_sample, align 8, !tbaa !66
   %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %396, i32 2
+  %397 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %396, i32 2
   %398 = load ptr, ptr %397, align 8, !tbaa !68
   %399 = call noundef ptr %398(ptr noundef nonnull align 4 dereferenceable(44) @_ZL10s_settings)
   store ptr %399, ptr @_ZL8s_sample, align 8, !tbaa !66
@@ -1087,7 +1087,7 @@ _ZL13RestartSamplev.exit:                         ; preds = %43, %46
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 43), align 1, !tbaa !77
   %50 = load i32, ptr @_ZL10s_settings, align 4, !tbaa !56
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %51, i32 2
+  %52 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %51, i32 2
   %53 = load ptr, ptr %52, align 8, !tbaa !68
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 4 dereferenceable(44) @_ZL10s_settings)
   store ptr %54, ptr @_ZL8s_sample, align 8, !tbaa !66

@@ -1191,7 +1191,7 @@ tiff_data_len.exit.thread.i.i.i:                  ; preds = %435
 switch.lookup:                                    ; preds = %435
   %440 = load i32, ptr %18, align 4
   %441 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.dissect_tiff, i64 0, i64 %441
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_tiff, i64 %441
   %switch.load = load i32, ptr %switch.gep, align 4
   %442 = mul i32 %switch.load, %440
   %443 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_tiff_unknown_tag)
@@ -1376,7 +1376,7 @@ define internal fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef
   %11 = zext i16 %4 to i32
   %12 = tail call ptr @val_to_str_const(i32 noundef %11, ptr noundef nonnull @tiff_type_names, ptr noundef nonnull @.str.237)
   %13 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_tiff_bad_entry, ptr noundef nonnull @.str.236, ptr noundef %12)
-  br label %35
+  br label %36
 
 14:                                               ; preds = %8, %8, %8
   %15 = icmp eq i32 %5, 0
@@ -1384,53 +1384,53 @@ define internal fastcc void @dissect_tiff_array_uint(ptr noundef %0, ptr noundef
 
 16:                                               ; preds = %14
   %17 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_tiff_bad_entry, ptr noundef nonnull @.str.238, i32 noundef 0)
-  br label %35
+  br label %36
 
 switch.lookup:                                    ; preds = %14
-  %switch.tableidx = add nsw i16 %4, -1
-  %18 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_tiff_array_uint, i64 0, i64 %18
+  %18 = sext i16 %4 to i64
+  %19 = getelementptr i32, ptr @switch.table.dissect_tiff_array_uint, i64 %18
+  %switch.gep = getelementptr i8, ptr %19, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
-  %19 = mul i32 %switch.load, %5
+  %20 = mul i32 %switch.load, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %20 = icmp slt i32 %19, 1
-  br i1 %20, label %21, label %23
+  %21 = icmp slt i32 %20, 1
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %switch.lookup
-  %22 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_tiff_bad_entry, ptr noundef nonnull @.str.239)
+22:                                               ; preds = %switch.lookup
+  %23 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_tiff_bad_entry, ptr noundef nonnull @.str.239)
   br label %.loopexit
 
-23:                                               ; preds = %switch.lookup
-  %24 = icmp samesign ult i32 %19, 5
-  br i1 %24, label %25, label %26
+24:                                               ; preds = %switch.lookup
+  %25 = icmp samesign ult i32 %20, 5
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store i32 %3, ptr %9, align 4
   br label %.preheader
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr @hf_tiff_entry_offset, align 4
-  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %6, ptr noundef nonnull %9)
+27:                                               ; preds = %24
+  %28 = load i32, ptr @hf_tiff_entry_offset, align 4
+  %29 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %6, ptr noundef nonnull %9)
   br label %.preheader
 
-.preheader:                                       ; preds = %25, %26
-  br label %29
+.preheader:                                       ; preds = %26, %27
+  br label %30
 
-29:                                               ; preds = %.preheader, %29
-  %.050 = phi i32 [ %34, %29 ], [ 0, %.preheader ]
-  %30 = load i32, ptr %9, align 4
-  %31 = mul i32 %.050, %switch.load
-  %32 = add i32 %30, %31
-  %33 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %32, i32 noundef %switch.load, i32 noundef %6)
-  %34 = add nuw i32 %.050, 1
-  %exitcond.not = icmp eq i32 %34, %5
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !9
+30:                                               ; preds = %.preheader, %30
+  %.050 = phi i32 [ %35, %30 ], [ 0, %.preheader ]
+  %31 = load i32, ptr %9, align 4
+  %32 = mul i32 %.050, %switch.load
+  %33 = add i32 %31, %32
+  %34 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %33, i32 noundef %switch.load, i32 noundef %6)
+  %35 = add nuw i32 %.050, 1
+  %exitcond.not = icmp eq i32 %35, %5
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !9
 
-.loopexit:                                        ; preds = %29, %21
+.loopexit:                                        ; preds = %30, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %.loopexit, %16, %10
+36:                                               ; preds = %.loopexit, %16, %10
   ret void
 }
 

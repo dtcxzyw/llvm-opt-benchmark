@@ -732,7 +732,7 @@ define internal fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputT
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(127) @.str.2, i8 noundef zeroext 2)
   %33 = zext nneg i32 %3 to i64
-  %34 = getelementptr inbounds nuw [16 x ptr], ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !48
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 120, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22, ptr noundef %35, ptr noundef %5, i32 noundef %6) #15
           to label %36 unwind label %37
@@ -1102,7 +1102,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %194 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv262
   %195 = load float, ptr %194, align 4, !tbaa !41
   %196 = fpext float %195 to double
-  %197 = getelementptr inbounds nuw [3 x double], ptr %12, i64 0, i64 %indvars.iv262
+  %197 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv262
   store double %196, ptr %197, align 8, !tbaa !43
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next263, 3
@@ -1114,7 +1114,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
 
 199:                                              ; preds = %.loopexit227, %199
   %indvars.iv265 = phi i64 [ 0, %.loopexit227 ], [ %indvars.iv.next266, %199 ]
-  %200 = getelementptr inbounds nuw [3 x double], ptr %12, i64 0, i64 %indvars.iv265
+  %200 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv265
   %201 = load double, ptr %200, align 8, !tbaa !43
   %202 = fptrunc double %201 to float
   %203 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv265

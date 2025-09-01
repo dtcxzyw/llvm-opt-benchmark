@@ -608,9 +608,9 @@ read_server_first_message.exit.thread:            ; preds = %82, %106, %111, %13
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %251 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %251 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i
   %252 = load i8, ptr %251, align 1
-  %253 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %indvars.iv.i.i
+  %253 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i
   %254 = load i8, ptr %253, align 1
   %255 = xor i8 %254, %252
   %256 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i

@@ -76,13 +76,13 @@ define internal range(i32 0, 2) i32 @test_bio_base64_generated(i32 noundef %0) #
   %.neg = mul nsw i32 %3, -6
   %20 = add nsw i32 %.neg, %0
   %21 = zext nneg i32 %6 to i64
-  %22 = getelementptr inbounds nuw [5 x ptr], ptr @prefixes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @prefixes, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   store ptr %23, ptr %2, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %24, align 8, !tbaa !17
   %25 = sext i32 %20 to i64
-  %26 = getelementptr inbounds [6 x i32], ptr @lengths, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr @lengths, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %27, ptr %28, align 8, !tbaa !19
@@ -105,14 +105,14 @@ define internal range(i32 0, 2) i32 @test_bio_base64_generated(i32 noundef %0) #
 .thread:                                          ; preds = %34
   %36 = add nsw i32 %7, -2
   store i32 %36, ptr %29, align 4, !tbaa !20
-  %37 = getelementptr inbounds nuw [5 x ptr], ptr @suffixes, i64 0, i64 %21
+  %37 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %21
   %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %38, ptr %39, align 8, !tbaa !21
   br label %44
 
 40:                                               ; preds = %34, %32
-  %41 = getelementptr inbounds nuw [5 x ptr], ptr @suffixes, i64 0, i64 %21
+  %41 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %21
   %42 = load ptr, ptr %41, align 8, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %42, ptr %43, align 8, !tbaa !21
@@ -338,7 +338,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   %75 = zext i8 %74 to i64
   %76 = or disjoint i64 %72, %75
   %77 = lshr i64 %68, 2
-  %78 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !4
   %80 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %79, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %81 = icmp eq i32 %80, 0
@@ -349,7 +349,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   %84 = or disjoint i64 %72, %83
   %85 = lshr i64 %84, 12
   %86 = and i64 %85, 63
-  %87 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !4
   %89 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %88, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %90 = icmp eq i32 %89, 0
@@ -358,7 +358,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
 91:                                               ; preds = %82
   %92 = lshr i64 %76, 6
   %93 = and i64 %92, 63
-  %94 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !4
   %96 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %95, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %97 = icmp eq i32 %96, 0
@@ -366,7 +366,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
 
 98:                                               ; preds = %91
   %99 = and i64 %75, 63
-  %100 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !4
   %102 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %101, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %103 = icmp eq i32 %102, 0
@@ -393,7 +393,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   %112 = load i8, ptr %111, align 1, !tbaa !4
   %113 = zext i8 %112 to i64
   %114 = lshr i64 %110, 2
-  %115 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !4
   %117 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %116, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %118 = icmp eq i32 %117, 0
@@ -404,7 +404,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   %121 = or disjoint i64 %120, %113
   %122 = lshr i64 %121, 4
   %123 = and i64 %122, 63
-  %124 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !4
   %126 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %125, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %127 = icmp eq i32 %126, 0
@@ -413,7 +413,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
 128:                                              ; preds = %119
   %129 = shl nuw nsw i64 %113, 2
   %130 = and i64 %129, 60
-  %131 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %130
   %132 = load i8, ptr %131, align 4, !tbaa !4
   %133 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %132, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %134 = icmp eq i32 %133, 0
@@ -428,7 +428,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   %139 = load i8, ptr %.072.lcssa.i.i.i, align 1, !tbaa !4
   %140 = zext i8 %139 to i64
   %141 = lshr i64 %140, 2
-  %142 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !4
   %144 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %143, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %145 = icmp eq i32 %144, 0
@@ -437,7 +437,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
 146:                                              ; preds = %138
   %147 = shl nuw nsw i64 %140, 4
   %148 = and i64 %147, 48
-  %149 = getelementptr inbounds nuw [65 x i8], ptr @encode.b64, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr @encode.b64, i64 %148
   %150 = load i8, ptr %149, align 16, !tbaa !4
   %151 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext %150, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %152 = icmp eq i32 %151, 0

@@ -753,27 +753,27 @@ define noalias noundef nonnull ptr @llama_sampler_init_dist(i32 noundef %0) loca
   br label %7
 
 7:                                                ; preds = %7, %1
-  %8 = phi i64 [ %6, %1 ], [ %13, %7 ]
-  %.011.i.i = phi i64 [ 1, %1 ], [ %15, %7 ]
-  %9 = lshr i64 %8, 30
-  %10 = xor i64 %9, %8
+  %store_forwarded = phi i64 [ %6, %1 ], [ %13, %7 ]
+  %.011.i.i = phi i64 [ 1, %1 ], [ %14, %7 ]
+  %8 = getelementptr i64, ptr %5, i64 %.011.i.i
+  %9 = lshr i64 %store_forwarded, 30
+  %10 = xor i64 %9, %store_forwarded
   %11 = mul nuw nsw i64 %10, 1812433253
   %12 = add nuw i64 %11, %.011.i.i
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw [624 x i64], ptr %5, i64 0, i64 %.011.i.i
-  store i64 %13, ptr %14, align 8, !tbaa !46
-  %15 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %15, 624
-  br i1 %exitcond.not.i.i, label %16, label %7, !llvm.loop !47
+  store i64 %13, ptr %8, align 8, !tbaa !46
+  %14 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %14, 624
+  br i1 %exitcond.not.i.i, label %15, label %7, !llvm.loop !47
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 5000
-  store i64 624, ptr %17, align 8, !tbaa !48
-  %18 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL20llama_sampler_dist_i, ptr %18, align 16, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %3, ptr %19, align 8, !tbaa !9
-  ret ptr %18
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 5000
+  store i64 624, ptr %16, align 8, !tbaa !48
+  %17 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL20llama_sampler_dist_i, ptr %17, align 16, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %3, ptr %18, align 8, !tbaa !9
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1039,27 +1039,27 @@ define noalias noundef nonnull ptr @llama_sampler_init_xtc(float noundef %0, flo
   br label %13
 
 13:                                               ; preds = %13, %4
-  %14 = phi i64 [ %12, %4 ], [ %19, %13 ]
-  %.011.i.i = phi i64 [ 1, %4 ], [ %21, %13 ]
-  %15 = lshr i64 %14, 30
-  %16 = xor i64 %15, %14
+  %store_forwarded = phi i64 [ %12, %4 ], [ %19, %13 ]
+  %.011.i.i = phi i64 [ 1, %4 ], [ %20, %13 ]
+  %14 = getelementptr i64, ptr %11, i64 %.011.i.i
+  %15 = lshr i64 %store_forwarded, 30
+  %16 = xor i64 %15, %store_forwarded
   %17 = mul nuw nsw i64 %16, 1812433253
   %18 = add nuw i64 %17, %.011.i.i
   %19 = and i64 %18, 4294967295
-  %20 = getelementptr inbounds nuw [624 x i64], ptr %11, i64 0, i64 %.011.i.i
-  store i64 %19, ptr %20, align 8, !tbaa !46
-  %21 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %21, 624
-  br i1 %exitcond.not.i.i, label %22, label %13, !llvm.loop !47
+  store i64 %19, ptr %14, align 8, !tbaa !46
+  %20 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %20, 624
+  br i1 %exitcond.not.i.i, label %21, label %13, !llvm.loop !47
 
-22:                                               ; preds = %13
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 5016
-  store i64 624, ptr %23, align 8, !tbaa !48
-  %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL19llama_sampler_xtc_i, ptr %24, align 16, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %6, ptr %25, align 8, !tbaa !9
-  ret ptr %24
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 5016
+  store i64 624, ptr %22, align 8, !tbaa !48
+  %23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL19llama_sampler_xtc_i, ptr %23, align 16, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %6, ptr %24, align 8, !tbaa !9
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1086,27 +1086,27 @@ define noalias noundef nonnull ptr @llama_sampler_init_mirostat(i32 noundef %0, 
   br label %17
 
 17:                                               ; preds = %17, %5
-  %18 = phi i64 [ %16, %5 ], [ %23, %17 ]
-  %.011.i.i = phi i64 [ 1, %5 ], [ %25, %17 ]
-  %19 = lshr i64 %18, 30
-  %20 = xor i64 %19, %18
+  %store_forwarded = phi i64 [ %16, %5 ], [ %23, %17 ]
+  %.011.i.i = phi i64 [ 1, %5 ], [ %24, %17 ]
+  %18 = getelementptr i64, ptr %15, i64 %.011.i.i
+  %19 = lshr i64 %store_forwarded, 30
+  %20 = xor i64 %19, %store_forwarded
   %21 = mul nuw nsw i64 %20, 1812433253
   %22 = add nuw i64 %21, %.011.i.i
   %23 = and i64 %22, 4294967295
-  %24 = getelementptr inbounds nuw [624 x i64], ptr %15, i64 0, i64 %.011.i.i
-  store i64 %23, ptr %24, align 8, !tbaa !46
-  %25 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %25, 624
-  br i1 %exitcond.not.i.i, label %26, label %17, !llvm.loop !47
+  store i64 %23, ptr %18, align 8, !tbaa !46
+  %24 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %24, 624
+  br i1 %exitcond.not.i.i, label %25, label %17, !llvm.loop !47
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 5024
-  store i64 624, ptr %27, align 8, !tbaa !48
-  %28 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL24llama_sampler_mirostat_i, ptr %28, align 16, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %7, ptr %29, align 8, !tbaa !9
-  ret ptr %28
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 5024
+  store i64 624, ptr %26, align 8, !tbaa !48
+  %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL24llama_sampler_mirostat_i, ptr %27, align 16, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %7, ptr %28, align 8, !tbaa !9
+  ret ptr %27
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1129,27 +1129,27 @@ define noalias noundef nonnull ptr @llama_sampler_init_mirostat_v2(i32 noundef %
   br label %13
 
 13:                                               ; preds = %13, %3
-  %14 = phi i64 [ %12, %3 ], [ %19, %13 ]
-  %.011.i.i = phi i64 [ 1, %3 ], [ %21, %13 ]
-  %15 = lshr i64 %14, 30
-  %16 = xor i64 %15, %14
+  %store_forwarded = phi i64 [ %12, %3 ], [ %19, %13 ]
+  %.011.i.i = phi i64 [ 1, %3 ], [ %20, %13 ]
+  %14 = getelementptr i64, ptr %11, i64 %.011.i.i
+  %15 = lshr i64 %store_forwarded, 30
+  %16 = xor i64 %15, %store_forwarded
   %17 = mul nuw nsw i64 %16, 1812433253
   %18 = add nuw i64 %17, %.011.i.i
   %19 = and i64 %18, 4294967295
-  %20 = getelementptr inbounds nuw [624 x i64], ptr %11, i64 0, i64 %.011.i.i
-  store i64 %19, ptr %20, align 8, !tbaa !46
-  %21 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %21, 624
-  br i1 %exitcond.not.i.i, label %22, label %13, !llvm.loop !47
+  store i64 %19, ptr %14, align 8, !tbaa !46
+  %20 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %20, 624
+  br i1 %exitcond.not.i.i, label %21, label %13, !llvm.loop !47
 
-22:                                               ; preds = %13
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 5016
-  store i64 624, ptr %23, align 8, !tbaa !48
-  %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL27llama_sampler_mirostat_v2_i, ptr %24, align 16, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %5, ptr %25, align 8, !tbaa !9
-  ret ptr %24
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 5016
+  store i64 624, ptr %22, align 8, !tbaa !48
+  %23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL27llama_sampler_mirostat_v2_i, ptr %23, align 16, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %5, ptr %24, align 8, !tbaa !9
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4046,22 +4046,22 @@ define internal void @_ZL24llama_sampler_dist_resetP13llama_sampler(ptr noundef 
   br label %9
 
 9:                                                ; preds = %9, %1
-  %10 = phi i64 [ %8, %1 ], [ %15, %9 ]
-  %.011.i = phi i64 [ 1, %1 ], [ %17, %9 ]
-  %11 = lshr i64 %10, 30
-  %12 = xor i64 %11, %10
+  %store_forwarded = phi i64 [ %8, %1 ], [ %15, %9 ]
+  %.011.i = phi i64 [ 1, %1 ], [ %16, %9 ]
+  %10 = getelementptr i64, ptr %7, i64 %.011.i
+  %11 = lshr i64 %store_forwarded, 30
+  %12 = xor i64 %11, %store_forwarded
   %13 = mul nuw nsw i64 %12, 1812433253
   %14 = add nuw i64 %13, %.011.i
   %15 = and i64 %14, 4294967295
-  %16 = getelementptr inbounds nuw [624 x i64], ptr %7, i64 0, i64 %.011.i
-  store i64 %15, ptr %16, align 8, !tbaa !46
-  %17 = add nuw nsw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %17, 624
+  store i64 %15, ptr %10, align 8, !tbaa !46
+  %16 = add nuw nsw i64 %.011.i, 1
+  %exitcond.not.i = icmp eq i64 %16, 624
   br i1 %exitcond.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit, label %9, !llvm.loop !47
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit: ; preds = %9
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 5000
-  store i64 624, ptr %18, align 8, !tbaa !48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 5000
+  store i64 624, ptr %17, align 8, !tbaa !48
   ret void
 }
 
@@ -4081,29 +4081,29 @@ define internal noalias noundef nonnull ptr @_ZL24llama_sampler_dist_clonePK13ll
   br label %10
 
 10:                                               ; preds = %10, %1
-  %11 = phi i64 [ %9, %1 ], [ %16, %10 ]
-  %.011.i.i.i = phi i64 [ 1, %1 ], [ %18, %10 ]
-  %12 = lshr i64 %11, 30
-  %13 = xor i64 %12, %11
+  %store_forwarded = phi i64 [ %9, %1 ], [ %16, %10 ]
+  %.011.i.i.i = phi i64 [ 1, %1 ], [ %17, %10 ]
+  %11 = getelementptr i64, ptr %8, i64 %.011.i.i.i
+  %12 = lshr i64 %store_forwarded, 30
+  %13 = xor i64 %12, %store_forwarded
   %14 = mul nuw nsw i64 %13, 1812433253
   %15 = add nuw i64 %14, %.011.i.i.i
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds nuw [624 x i64], ptr %8, i64 0, i64 %.011.i.i.i
-  store i64 %16, ptr %17, align 8, !tbaa !46
-  %18 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %18, 624
+  store i64 %16, ptr %11, align 8, !tbaa !46
+  %17 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %17, 624
   br i1 %exitcond.not.i.i.i, label %llama_sampler_init_dist.exit, label %10, !llvm.loop !47
 
 llama_sampler_init_dist.exit:                     ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 5000
-  store i64 624, ptr %19, align 8, !tbaa !48
-  %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL20llama_sampler_dist_i, ptr %20, align 16, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %6, ptr %21, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %8, ptr noundef nonnull align 8 dereferenceable(5000) %22, i64 5000, i1 false), !tbaa.struct !211
-  ret ptr %20
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 5000
+  store i64 624, ptr %18, align 8, !tbaa !48
+  %19 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL20llama_sampler_dist_i, ptr %19, align 16, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %6, ptr %20, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %8, ptr noundef nonnull align 8 dereferenceable(5000) %21, i64 5000, i1 false), !tbaa.struct !211
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5320,7 +5320,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %3 = load i64, ptr %2, align 8, !tbaa !48
   %4 = icmp ugt i64 %3, 623
-  br i1 %4, label %5, label %52
+  br i1 %4, label %5, label %50
 
 5:                                                ; preds = %1
   %.pre.i = load i64, ptr %0, align 8, !tbaa !46
@@ -5329,23 +5329,22 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %.021.i
+  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !46
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
-  %15 = add nuw nsw i64 %.021.i, 397
-  %16 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %15
-  %17 = load i64, ptr %16, align 8, !tbaa !46
-  %18 = lshr exact i64 %14, 1
-  %19 = xor i64 %18, %17
-  %20 = and i64 %12, 1
-  %.not20.i = icmp eq i64 %20, 0
-  %21 = select i1 %.not20.i, i64 0, i64 2567483615
-  %22 = xor i64 %19, %21
-  store i64 %22, ptr %8, align 8, !tbaa !46
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 3176
+  %16 = load i64, ptr %15, align 8, !tbaa !46
+  %17 = lshr exact i64 %14, 1
+  %18 = xor i64 %17, %16
+  %19 = and i64 %12, 1
+  %.not20.i = icmp eq i64 %19, 0
+  %20 = select i1 %.not20.i, i64 0, i64 2567483615
+  %21 = xor i64 %18, %20
+  store i64 %21, ptr %8, align 8, !tbaa !46
   %exitcond.not.i = icmp eq i64 %10, 227
   br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !241
 
@@ -5355,64 +5354,63 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
-  %23 = phi i64 [ %28, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
-  %.01822.i = phi i64 [ %26, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %24 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %.01822.i
-  %25 = and i64 %23, -2147483648
-  %26 = add nuw nsw i64 %.01822.i, 1
-  %27 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8, !tbaa !46
-  %29 = and i64 %28, 2147483646
-  %30 = or disjoint i64 %29, %25
-  %31 = add nsw i64 %.01822.i, -227
-  %32 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %31
-  %33 = load i64, ptr %32, align 8, !tbaa !46
-  %34 = lshr exact i64 %30, 1
-  %35 = xor i64 %34, %33
-  %36 = and i64 %28, 1
-  %.not19.i = icmp eq i64 %36, 0
-  %37 = select i1 %.not19.i, i64 0, i64 2567483615
-  %38 = xor i64 %35, %37
-  store i64 %38, ptr %24, align 8, !tbaa !46
-  %exitcond23.not.i = icmp eq i64 %26, 623
+  %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
+  %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
+  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %24 = and i64 %22, -2147483648
+  %25 = add nuw nsw i64 %.01822.i, 1
+  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %27 = load i64, ptr %26, align 8, !tbaa !46
+  %28 = and i64 %27, 2147483646
+  %29 = or disjoint i64 %28, %24
+  %30 = getelementptr i8, ptr %23, i64 -1816
+  %31 = load i64, ptr %30, align 8, !tbaa !46
+  %32 = lshr exact i64 %29, 1
+  %33 = xor i64 %32, %31
+  %34 = and i64 %27, 1
+  %.not19.i = icmp eq i64 %34, 0
+  %35 = select i1 %.not19.i, i64 0, i64 2567483615
+  %36 = xor i64 %33, %35
+  store i64 %36, ptr %23, align 8, !tbaa !46
+  %exitcond23.not.i = icmp eq i64 %25, 623
   br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !242
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit: ; preds = %.preheader.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4984
-  %40 = load i64, ptr %39, align 8, !tbaa !46
-  %41 = and i64 %40, -2147483648
-  %42 = load i64, ptr %0, align 8, !tbaa !46
-  %43 = and i64 %42, 2147483646
-  %44 = or disjoint i64 %43, %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3168
-  %46 = load i64, ptr %45, align 8, !tbaa !46
-  %47 = lshr exact i64 %44, 1
-  %48 = xor i64 %47, %46
-  %49 = and i64 %42, 1
-  %.not.i = icmp eq i64 %49, 0
-  %50 = select i1 %.not.i, i64 0, i64 2567483615
-  %51 = xor i64 %48, %50
-  store i64 %51, ptr %39, align 8, !tbaa !46
-  br label %52
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4984
+  %38 = load i64, ptr %37, align 8, !tbaa !46
+  %39 = and i64 %38, -2147483648
+  %40 = load i64, ptr %0, align 8, !tbaa !46
+  %41 = and i64 %40, 2147483646
+  %42 = or disjoint i64 %41, %39
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 3168
+  %44 = load i64, ptr %43, align 8, !tbaa !46
+  %45 = lshr exact i64 %42, 1
+  %46 = xor i64 %45, %44
+  %47 = and i64 %40, 1
+  %.not.i = icmp eq i64 %47, 0
+  %48 = select i1 %.not.i, i64 0, i64 2567483615
+  %49 = xor i64 %46, %48
+  store i64 %49, ptr %37, align 8, !tbaa !46
+  br label %50
 
-52:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, %1
-  %53 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
-  %54 = add nuw nsw i64 %53, 1
-  store i64 %54, ptr %2, align 8, !tbaa !48
-  %55 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %53
-  %56 = load i64, ptr %55, align 8, !tbaa !46
-  %57 = lshr i64 %56, 11
-  %58 = and i64 %57, 4294967295
-  %59 = xor i64 %58, %56
-  %60 = shl i64 %59, 7
-  %61 = and i64 %60, 2636928640
-  %62 = xor i64 %61, %59
-  %63 = shl i64 %62, 15
-  %64 = and i64 %63, 4022730752
-  %65 = xor i64 %64, %62
-  %66 = lshr i64 %65, 18
-  %67 = xor i64 %66, %65
-  ret i64 %67
+50:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, %1
+  %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
+  %52 = add nuw nsw i64 %51, 1
+  store i64 %52, ptr %2, align 8, !tbaa !48
+  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %54 = load i64, ptr %53, align 8, !tbaa !46
+  %55 = lshr i64 %54, 11
+  %56 = and i64 %55, 4294967295
+  %57 = xor i64 %56, %54
+  %58 = shl i64 %57, 7
+  %59 = and i64 %58, 2636928640
+  %60 = xor i64 %59, %57
+  %61 = shl i64 %60, 15
+  %62 = and i64 %61, 4022730752
+  %63 = xor i64 %62, %60
+  %64 = lshr i64 %63, 18
+  %65 = xor i64 %64, %63
+  ret i64 %65
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -9018,22 +9016,22 @@ define internal void @_ZL23llama_sampler_xtc_resetP13llama_sampler(ptr noundef r
   br label %10
 
 10:                                               ; preds = %10, %1
-  %11 = phi i64 [ %9, %1 ], [ %16, %10 ]
-  %.011.i = phi i64 [ 1, %1 ], [ %18, %10 ]
-  %12 = lshr i64 %11, 30
-  %13 = xor i64 %12, %11
+  %store_forwarded = phi i64 [ %9, %1 ], [ %16, %10 ]
+  %.011.i = phi i64 [ 1, %1 ], [ %17, %10 ]
+  %11 = getelementptr i64, ptr %8, i64 %.011.i
+  %12 = lshr i64 %store_forwarded, 30
+  %13 = xor i64 %12, %store_forwarded
   %14 = mul nuw nsw i64 %13, 1812433253
   %15 = add nuw i64 %14, %.011.i
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds nuw [624 x i64], ptr %8, i64 0, i64 %.011.i
-  store i64 %16, ptr %17, align 8, !tbaa !46
-  %18 = add nuw nsw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %18, 624
+  store i64 %16, ptr %11, align 8, !tbaa !46
+  %17 = add nuw nsw i64 %.011.i, 1
+  %exitcond.not.i = icmp eq i64 %17, 624
   br i1 %exitcond.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit, label %10, !llvm.loop !47
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit: ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 5016
-  store i64 624, ptr %19, align 8, !tbaa !48
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 5016
+  store i64 624, ptr %18, align 8, !tbaa !48
   ret void
 }
 
@@ -9065,29 +9063,29 @@ define internal noalias noundef nonnull ptr @_ZL23llama_sampler_xtc_clonePK13lla
   br label %19
 
 19:                                               ; preds = %19, %1
-  %20 = phi i64 [ %18, %1 ], [ %25, %19 ]
-  %.011.i.i.i = phi i64 [ 1, %1 ], [ %27, %19 ]
-  %21 = lshr i64 %20, 30
-  %22 = xor i64 %21, %20
+  %store_forwarded = phi i64 [ %18, %1 ], [ %25, %19 ]
+  %.011.i.i.i = phi i64 [ 1, %1 ], [ %26, %19 ]
+  %20 = getelementptr i64, ptr %17, i64 %.011.i.i.i
+  %21 = lshr i64 %store_forwarded, 30
+  %22 = xor i64 %21, %store_forwarded
   %23 = mul nuw nsw i64 %22, 1812433253
   %24 = add nuw i64 %23, %.011.i.i.i
   %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw [624 x i64], ptr %17, i64 0, i64 %.011.i.i.i
-  store i64 %25, ptr %26, align 8, !tbaa !46
-  %27 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %27, 624
+  store i64 %25, ptr %20, align 8, !tbaa !46
+  %26 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %26, 624
   br i1 %exitcond.not.i.i.i, label %llama_sampler_init_xtc.exit, label %19, !llvm.loop !47
 
 llama_sampler_init_xtc.exit:                      ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %12, i64 5016
-  store i64 624, ptr %28, align 8, !tbaa !48
-  %29 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL19llama_sampler_xtc_i, ptr %29, align 16, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %12, ptr %30, align 8, !tbaa !9
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %17, ptr noundef nonnull align 8 dereferenceable(5000) %31, i64 5000, i1 false), !tbaa.struct !211
-  ret ptr %29
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 5016
+  store i64 624, ptr %27, align 8, !tbaa !48
+  %28 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL19llama_sampler_xtc_i, ptr %28, align 16, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %12, ptr %29, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %17, ptr noundef nonnull align 8 dereferenceable(5000) %30, i64 5000, i1 false), !tbaa.struct !211
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9228,22 +9226,22 @@ define internal void @_ZL28llama_sampler_mirostat_resetP13llama_sampler(ptr noun
   br label %14
 
 14:                                               ; preds = %14, %1
-  %15 = phi i64 [ %13, %1 ], [ %20, %14 ]
-  %.011.i = phi i64 [ 1, %1 ], [ %22, %14 ]
-  %16 = lshr i64 %15, 30
-  %17 = xor i64 %16, %15
+  %store_forwarded = phi i64 [ %13, %1 ], [ %20, %14 ]
+  %.011.i = phi i64 [ 1, %1 ], [ %21, %14 ]
+  %15 = getelementptr i64, ptr %12, i64 %.011.i
+  %16 = lshr i64 %store_forwarded, 30
+  %17 = xor i64 %16, %store_forwarded
   %18 = mul nuw nsw i64 %17, 1812433253
   %19 = add nuw i64 %18, %.011.i
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %.011.i
-  store i64 %20, ptr %21, align 8, !tbaa !46
-  %22 = add nuw nsw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %22, 624
+  store i64 %20, ptr %15, align 8, !tbaa !46
+  %21 = add nuw nsw i64 %.011.i, 1
+  %exitcond.not.i = icmp eq i64 %21, 624
   br i1 %exitcond.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit, label %14, !llvm.loop !47
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit: ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i64 624, ptr %23, align 8, !tbaa !48
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5024
+  store i64 624, ptr %22, align 8, !tbaa !48
   ret void
 }
 
@@ -9282,35 +9280,35 @@ define internal noalias noundef nonnull ptr @_ZL28llama_sampler_mirostat_clonePK
   br label %24
 
 24:                                               ; preds = %24, %1
-  %25 = phi i64 [ %23, %1 ], [ %30, %24 ]
-  %.011.i.i.i = phi i64 [ 1, %1 ], [ %32, %24 ]
-  %26 = lshr i64 %25, 30
-  %27 = xor i64 %26, %25
+  %store_forwarded = phi i64 [ %23, %1 ], [ %30, %24 ]
+  %.011.i.i.i = phi i64 [ 1, %1 ], [ %31, %24 ]
+  %25 = getelementptr i64, ptr %22, i64 %.011.i.i.i
+  %26 = lshr i64 %store_forwarded, 30
+  %27 = xor i64 %26, %store_forwarded
   %28 = mul nuw nsw i64 %27, 1812433253
   %29 = add nuw i64 %28, %.011.i.i.i
   %30 = and i64 %29, 4294967295
-  %31 = getelementptr inbounds nuw [624 x i64], ptr %22, i64 0, i64 %.011.i.i.i
-  store i64 %30, ptr %31, align 8, !tbaa !46
-  %32 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %32, 624
+  store i64 %30, ptr %25, align 8, !tbaa !46
+  %31 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %31, 624
   br i1 %exitcond.not.i.i.i, label %llama_sampler_init_mirostat.exit, label %24, !llvm.loop !47
 
 llama_sampler_init_mirostat.exit:                 ; preds = %24
-  %33 = getelementptr inbounds nuw i8, ptr %14, i64 5024
-  store i64 624, ptr %33, align 8, !tbaa !48
-  %34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL24llama_sampler_mirostat_i, ptr %34, align 16, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %14, ptr %35, align 8, !tbaa !9
-  %36 = load ptr, ptr %2, align 8, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %38 = load float, ptr %37, align 8, !tbaa !89
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store float %38, ptr %39, align 8, !tbaa !89
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %41, ptr noundef nonnull align 8 dereferenceable(5000) %40, i64 5000, i1 false), !tbaa.struct !211
-  ret ptr %34
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 5024
+  store i64 624, ptr %32, align 8, !tbaa !48
+  %33 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL24llama_sampler_mirostat_i, ptr %33, align 16, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr %14, ptr %34, align 8, !tbaa !9
+  %35 = load ptr, ptr %2, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %37 = load float, ptr %36, align 8, !tbaa !89
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store float %37, ptr %38, align 8, !tbaa !89
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %40, ptr noundef nonnull align 8 dereferenceable(5000) %39, i64 5000, i1 false), !tbaa.struct !211
+  ret ptr %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9527,22 +9525,22 @@ define internal void @_ZL31llama_sampler_mirostat_v2_resetP13llama_sampler(ptr n
   br label %13
 
 13:                                               ; preds = %13, %1
-  %14 = phi i64 [ %12, %1 ], [ %19, %13 ]
-  %.011.i = phi i64 [ 1, %1 ], [ %21, %13 ]
-  %15 = lshr i64 %14, 30
-  %16 = xor i64 %15, %14
+  %store_forwarded = phi i64 [ %12, %1 ], [ %19, %13 ]
+  %.011.i = phi i64 [ 1, %1 ], [ %20, %13 ]
+  %14 = getelementptr i64, ptr %11, i64 %.011.i
+  %15 = lshr i64 %store_forwarded, 30
+  %16 = xor i64 %15, %store_forwarded
   %17 = mul nuw nsw i64 %16, 1812433253
   %18 = add nuw i64 %17, %.011.i
   %19 = and i64 %18, 4294967295
-  %20 = getelementptr inbounds nuw [624 x i64], ptr %11, i64 0, i64 %.011.i
-  store i64 %19, ptr %20, align 8, !tbaa !46
-  %21 = add nuw nsw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %21, 624
+  store i64 %19, ptr %14, align 8, !tbaa !46
+  %20 = add nuw nsw i64 %.011.i, 1
+  %exitcond.not.i = icmp eq i64 %20, 624
   br i1 %exitcond.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit, label %13, !llvm.loop !47
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedEm.exit: ; preds = %13
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5016
-  store i64 624, ptr %22, align 8, !tbaa !48
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 5016
+  store i64 624, ptr %21, align 8, !tbaa !48
   ret void
 }
 
@@ -9573,32 +9571,32 @@ define internal noalias noundef nonnull ptr @_ZL31llama_sampler_mirostat_v2_clon
   br label %18
 
 18:                                               ; preds = %18, %1
-  %19 = phi i64 [ %17, %1 ], [ %24, %18 ]
-  %.011.i.i.i = phi i64 [ 1, %1 ], [ %26, %18 ]
-  %20 = lshr i64 %19, 30
-  %21 = xor i64 %20, %19
+  %store_forwarded = phi i64 [ %17, %1 ], [ %24, %18 ]
+  %.011.i.i.i = phi i64 [ 1, %1 ], [ %25, %18 ]
+  %19 = getelementptr i64, ptr %16, i64 %.011.i.i.i
+  %20 = lshr i64 %store_forwarded, 30
+  %21 = xor i64 %20, %store_forwarded
   %22 = mul nuw nsw i64 %21, 1812433253
   %23 = add nuw i64 %22, %.011.i.i.i
   %24 = and i64 %23, 4294967295
-  %25 = getelementptr inbounds nuw [624 x i64], ptr %16, i64 0, i64 %.011.i.i.i
-  store i64 %24, ptr %25, align 8, !tbaa !46
-  %26 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %26, 624
+  store i64 %24, ptr %19, align 8, !tbaa !46
+  %25 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %25, 624
   br i1 %exitcond.not.i.i.i, label %llama_sampler_init_mirostat_v2.exit, label %18, !llvm.loop !47
 
 llama_sampler_init_mirostat_v2.exit:              ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 5016
-  store i64 624, ptr %27, align 8, !tbaa !48
-  %28 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr @_ZL27llama_sampler_mirostat_v2_i, ptr %28, align 16, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %10, ptr %29, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %31 = load float, ptr %30, align 8, !tbaa !95
-  store float %31, ptr %14, align 8, !tbaa !95
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %16, ptr noundef nonnull align 8 dereferenceable(5000) %32, i64 5000, i1 false), !tbaa.struct !211
-  ret ptr %28
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 5016
+  store i64 624, ptr %26, align 8, !tbaa !48
+  %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store ptr @_ZL27llama_sampler_mirostat_v2_i, ptr %27, align 16, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %10, ptr %28, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %30 = load float, ptr %29, align 8, !tbaa !95
+  store float %30, ptr %14, align 8, !tbaa !95
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %16, ptr noundef nonnull align 8 dereferenceable(5000) %31, i64 5000, i1 false), !tbaa.struct !211
+  ret ptr %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

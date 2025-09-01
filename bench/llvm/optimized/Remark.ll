@@ -599,10 +599,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %46, %48
 
 switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit27
   %53 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   %54 = zext nneg i32 %51 to i64
-  %switch.gep83 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE.1, i64 0, i64 %54
+  %switch.gep83 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE.1, i64 %54
   %switch.load84 = load ptr, ptr %switch.gep83, align 8
   br label %_ZN4llvm7remarks9typeToStrENS0_4TypeE.exit
 

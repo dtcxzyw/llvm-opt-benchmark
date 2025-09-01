@@ -760,7 +760,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 .preheader371:                                    ; preds = %67, %.preheader371
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader371 ], [ 0, %67 ]
   %84 = shl nuw nsw i64 %indvars.iv, 1
-  %85 = getelementptr [16 x i8], ptr %5, i64 0, i64 %84
+  %85 = getelementptr i8, ptr %5, i64 %84
   %86 = sub nuw nsw i64 16, %84
   %87 = trunc i64 %indvars.iv to i32
   %88 = add i32 %87, 4
@@ -785,7 +785,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 .preheader370:                                    ; preds = %96, %.preheader370
   %indvars.iv409 = phi i64 [ %indvars.iv.next410, %.preheader370 ], [ 0, %96 ]
   %97 = shl nuw nsw i64 %indvars.iv409, 1
-  %98 = getelementptr [16 x i8], ptr %5, i64 0, i64 %97
+  %98 = getelementptr i8, ptr %5, i64 %97
   %99 = sub nuw nsw i64 16, %97
   %100 = trunc i64 %indvars.iv409 to i32
   %101 = add i32 %.0333, %100
@@ -1288,7 +1288,7 @@ define internal fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %3
   %11 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table.dissect_ipv6_bvlc, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ipv6_bvlc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext i16 %6 to i32
   %13 = icmp samesign ugt i32 %switch.load, %12

@@ -143,7 +143,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionE
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -174,7 +174,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionESt10uni
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNSt10unique_ptrIN4llvm3pdb13IPDBRawSymbolESt14default_deleteIS2_EEaSEOS5_.exit
 
@@ -209,7 +209,7 @@ define dso_local void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm3pdb9PDBSymbol12createSymbolERKNS0_11IPDBSessionENS0_11PDB_SymTypeE.exit
 

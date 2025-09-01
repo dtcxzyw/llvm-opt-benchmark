@@ -189,7 +189,7 @@ define dso_local ptr @get_encoding_name_for_icu(i32 noundef %0) local_unnamed_ad
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [35 x ptr], ptr @pg_enc2icu_tbl, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @pg_enc2icu_tbl, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -330,7 +330,7 @@ define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) local_unnamed_
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [42 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %3
   %5 = load ptr, ptr %4, align 16
   br label %6
 

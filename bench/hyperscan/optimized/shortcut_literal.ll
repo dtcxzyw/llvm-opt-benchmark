@@ -537,7 +537,7 @@ define linkonce_odr hidden void @_ZN3ue223ConstructLiteralVisitor3preERKNS_19Asc
 
 20:                                               ; preds = %28, %18
   %.0710.i.i = phi i64 [ 0, %18 ], [ %29, %28 ]
-  %21 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0710.i.i
+  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %.0710.i.i
   %22 = load i64, ptr %21, align 8
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %28, label %23
@@ -569,7 +569,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %28, %23
 
 34:                                               ; preds = %42, %32
   %.0710.i.i7 = phi i64 [ 0, %32 ], [ %43, %42 ]
-  %35 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0710.i.i7
+  %35 = getelementptr inbounds nuw i64, ptr %3, i64 %.0710.i.i7
   %36 = load i64, ptr %35, align 8
   %.not.i.i8 = icmp eq i64 %36, 0
   br i1 %.not.i.i8, label %42, label %37

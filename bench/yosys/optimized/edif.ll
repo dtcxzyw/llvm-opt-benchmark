@@ -16846,12 +16846,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2201: ; preds = %_
   %6678 = load i8, ptr %6677, align 2, !tbaa !225, !range !84, !noundef !85
   %6679 = xor i8 %6678, 1
   %6680 = zext nneg i8 %6679 to i64
-  %6681 = getelementptr inbounds nuw [2 x i32], ptr %161, i64 0, i64 %6680
+  %6681 = getelementptr inbounds nuw i32, ptr %161, i64 %6680
   store i32 %6676, ptr %6681, align 4, !tbaa !53
   %6682 = add i32 %6676, -1
   %6683 = add i32 %6682, %6449
   %6684 = zext nneg i8 %6678 to i64
-  %6685 = getelementptr inbounds nuw [2 x i32], ptr %161, i64 0, i64 %6684
+  %6685 = getelementptr inbounds nuw i32, ptr %161, i64 %6684
   store i32 %6683, ptr %6685, align 4, !tbaa !53
   %6686 = load ptr, ptr %1, align 8, !tbaa !193
   call void @llvm.lifetime.start.p0(ptr nonnull %162)
@@ -30277,7 +30277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %_Z
   %.3 = phi i32 [ %.2, %261 ], [ %spec.select64, %266 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %270 = zext nneg i32 %.3 to i64
-  %271 = getelementptr inbounds nuw [17 x i8], ptr @.str.259, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw i8, ptr @.str.259, i64 %270
   %272 = load i8, ptr %271, align 1, !tbaa !15
   store i8 %272, ptr %17, align 1, !tbaa !15
   store i8 0, ptr %211, align 1, !tbaa !15

@@ -671,7 +671,7 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
 281:                                              ; preds = %.lr.ph195.i
   %282 = and i8 %.sroa.17.0.copyload.i, 112
   %283 = zext nneg i8 %282 to i64
-  %284 = getelementptr inbounds nuw [256 x i8], ptr @pg_number_of_ones, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i8, ptr @pg_number_of_ones, i64 %283
   %285 = load i8, ptr %284, align 16
   %286 = icmp eq i8 %285, 1
   br i1 %286, label %287, label %.lr.ph.preheader.i
@@ -702,7 +702,7 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
   %.2107.i = phi i32 [ 1, %289 ], [ 8, %291 ], [ %spec.select.i, %293 ]
   %296 = srem i32 %.sroa.12.0.copyload.i, 256
   %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds [256 x ptr], ptr @buffer_lists, i64 0, i64 %297
+  %298 = getelementptr inbounds ptr, ptr @buffer_lists, i64 %297
   %299 = load ptr, ptr %298, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %.not130.i = icmp eq ptr %299, null
@@ -915,7 +915,7 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %2
 
 383:                                              ; preds = %.critedge.i101, %382
   %indvars.iv31.i = phi i64 [ 0, %382 ], [ %indvars.iv.next32.i, %.critedge.i101 ]
-  %384 = getelementptr inbounds nuw [256 x ptr], ptr @buffer_lists, i64 0, i64 %indvars.iv31.i
+  %384 = getelementptr inbounds nuw ptr, ptr @buffer_lists, i64 %indvars.iv31.i
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 4
   %.not.i99 = icmp eq ptr %385, null

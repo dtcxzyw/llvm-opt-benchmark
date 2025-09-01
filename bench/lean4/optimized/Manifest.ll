@@ -19496,7 +19496,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_Manifest_toJson___spec__2(i64 nound
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -22297,7 +22297,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_Manifest_getPackages___spec__1(i64 
   %.01944 = phi i64 [ %38, %54 ], [ %1, %3 ]
   %.02143 = phi ptr [ %.0.i.i30, %54 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02143, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01944
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01944
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -22450,7 +22450,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_Manifest_getPackages___spec__4(i64 
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -23816,7 +23816,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_Manifest_getPackages___spec__7(i64 
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1

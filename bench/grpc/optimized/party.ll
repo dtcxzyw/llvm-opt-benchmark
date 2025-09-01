@@ -617,7 +617,7 @@ _ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit: ; preds = %_ZN9grpc_core8Act
 22:                                               ; preds = %19, %33
   %.029 = phi i64 [ 0, %19 ], [ %34, %33 ]
   %.128 = phi i64 [ %.012, %19 ], [ %.2, %33 ]
-  %23 = getelementptr inbounds nuw [16 x %"struct.std::atomic.0"], ptr %18, i64 0, i64 %.029
+  %23 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %18, i64 %.029
   %24 = atomicrmw xchg ptr %23, i64 0 acquire, align 8
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %33, label %25
@@ -873,7 +873,7 @@ define void @_ZN9grpc_core5Party18MakeNonOwningWakerEv(ptr dead_on_unwind noalia
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !65
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [16 x %"struct.std::atomic.0"], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %3, i64 %6
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %.0.i.i = inttoptr i64 %8 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
@@ -1345,7 +1345,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit:          ; preds = %.noexc, %_ZTWN9grpc
   %36 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 false)
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = xor i16 %34, %.02869
-  %39 = getelementptr inbounds nuw [16 x %"struct.std::atomic.0"], ptr %25, i64 0, i64 %36
+  %39 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %25, i64 %36
   %40 = load atomic i64, ptr %39 acquire, align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %57, label %44, !prof !24, !llvm.loop !121
@@ -1613,7 +1613,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; pr
   %.lcssa = phi i64 [ %14, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa71, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = getelementptr inbounds nuw [16 x %"struct.std::atomic.0"], ptr %32, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %32, i64 %31
   %34 = ptrtoint ptr %1 to i64
   store atomic i64 %34, ptr %33 release, align 8
   %35 = trunc i64 %.lcssa71 to i16
@@ -1709,7 +1709,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   %.lcssa = phi i64 [ %17, %.lr.ph.i.preheader ], [ %23, %.lr.ph.i ]
   %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa24, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = getelementptr inbounds nuw [16 x %"struct.std::atomic.0"], ptr %35, i64 0, i64 %34
+  %36 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %35, i64 %34
   %37 = ptrtoint ptr %1 to i64
   store atomic i64 %37, ptr %36 release, align 8
   %38 = trunc i64 %.lcssa24 to i16

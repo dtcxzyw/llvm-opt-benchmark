@@ -311,13 +311,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !38
   %.not192 = icmp eq ptr %43, null
   br i1 %.not192, label %.critedge, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !39
   %.not193 = icmp eq i32 %46, 0
   br i1 %.not193, label %.critedge, label %47
@@ -344,14 +344,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %61, label %.lr.ph, label %121
 
 .lr.ph:                                           ; preds = %.preheader
-  %62 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %63 = zext nneg i32 %58 to i64
   %64 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %66 = lshr i32 %58, 1
   %wide.trip.count27.i.i = zext nneg i32 %66 to i64
   %.not.i.i = icmp eq i32 %58, 0
-  %67 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %68 = load i32, ptr %45, align 4, !tbaa !39
   %69 = sext i32 %68 to i64
   %.promoted321 = load i32, ptr %62, align 4, !tbaa !39
@@ -578,19 +578,19 @@ av_ts_make_string.exit:                           ; preds = %127, %128
 
 161:                                              ; preds = %159, %167
   %indvars.iv393 = phi i64 [ 1, %159 ], [ %indvars.iv.next394, %167 ]
-  %162 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv393
+  %162 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv393
   %163 = load ptr, ptr %162, align 8, !tbaa !38
   %.not197 = icmp eq ptr %163, null
   br i1 %.not197, label %.critedge3, label %164
 
 164:                                              ; preds = %161
-  %165 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv393
+  %165 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv393
   %166 = load i32, ptr %165, align 4, !tbaa !39
   %.not198 = icmp eq i32 %166, 0
   br i1 %.not198, label %.critedge3, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv393
+  %168 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv393
   %169 = load i32, ptr %168, align 4, !tbaa !39
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.5, i32 noundef %169) #11
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
@@ -603,13 +603,13 @@ av_ts_make_string.exit:                           ; preds = %127, %128
 
 170:                                              ; preds = %.critedge3, %176
   %indvars.iv397 = phi i64 [ 0, %.critedge3 ], [ %indvars.iv.next398, %176 ]
-  %171 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv397
+  %171 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv397
   %172 = load ptr, ptr %171, align 8, !tbaa !38
   %.not199 = icmp eq ptr %172, null
   br i1 %.not199, label %.critedge5, label %173
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv397
+  %174 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv397
   %175 = load i32, ptr %174, align 4, !tbaa !39
   %.not200 = icmp eq i32 %175, 0
   br i1 %.not200, label %.critedge5, label %176
@@ -617,9 +617,9 @@ av_ts_make_string.exit:                           ; preds = %127, %128
 176:                                              ; preds = %173
   %.not205 = icmp eq i64 %indvars.iv397, 0
   %177 = select i1 %.not205, ptr @.str.9, ptr @.str.8
-  %178 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv397
+  %178 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv397
   %179 = load i64, ptr %178, align 8, !tbaa !51
-  %180 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv397
+  %180 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv397
   %181 = load i32, ptr %180, align 4, !tbaa !39
   %182 = sdiv i32 %181, 2
   %183 = sext i32 %182 to i64
@@ -637,13 +637,13 @@ av_ts_make_string.exit:                           ; preds = %127, %128
 
 187:                                              ; preds = %.critedge5, %193
   %indvars.iv401 = phi i64 [ 0, %.critedge5 ], [ %indvars.iv.next402, %193 ]
-  %188 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv401
+  %188 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv401
   %189 = load ptr, ptr %188, align 8, !tbaa !38
   %.not201 = icmp eq ptr %189, null
   br i1 %.not201, label %.critedge7, label %190
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv401
+  %191 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv401
   %192 = load i32, ptr %191, align 4, !tbaa !39
   %.not202 = icmp eq i32 %192, 0
   br i1 %.not202, label %.critedge7, label %193
@@ -651,14 +651,14 @@ av_ts_make_string.exit:                           ; preds = %127, %128
 193:                                              ; preds = %190
   %.not204 = icmp eq i64 %indvars.iv401, 0
   %194 = select i1 %.not204, ptr @.str.9, ptr @.str.8
-  %195 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %indvars.iv401
+  %195 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv401
   %196 = load i64, ptr %195, align 8, !tbaa !51
   %197 = sitofp i64 %196 to double
-  %198 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv401
+  %198 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv401
   %199 = load i64, ptr %198, align 8, !tbaa !51
   %200 = sitofp i64 %199 to double
   %201 = fmul nsz double %200, %200
-  %202 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv401
+  %202 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv401
   %203 = load i32, ptr %202, align 4, !tbaa !39
   %204 = sitofp i32 %203 to double
   %205 = fdiv nsz double %201, %204
@@ -1041,8 +1041,8 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 390:                                              ; preds = %390, %.lr.ph.i229
   %indvars.iv.i230 = phi i64 [ 0, %.lr.ph.i229 ], [ %indvars.iv.next.i231, %390 ]
-  %391 = getelementptr inbounds nuw [4 x [64 x i8]], ptr %388, i64 0, i64 %indvars.iv.i230
-  %392 = getelementptr inbounds nuw [4 x %struct.AVRational], ptr %389, i64 0, i64 %indvars.iv.i230
+  %391 = getelementptr inbounds nuw [64 x i8], ptr %388, i64 %indvars.iv.i230
+  %392 = getelementptr inbounds nuw %struct.AVRational, ptr %389, i64 %indvars.iv.i230
   %393 = load i32, ptr %392, align 4, !tbaa !116
   %394 = getelementptr inbounds nuw i8, ptr %392, i64 4
   %395 = load i32, ptr %394, align 4, !tbaa !117
@@ -1203,7 +1203,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 484:                                              ; preds = %484, %.lr.ph.i241
   %indvars.iv.i242 = phi i64 [ 1, %.lr.ph.i241 ], [ %indvars.iv.next.i243, %484 ]
-  %485 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %476, i64 0, i64 %indvars.iv.i242
+  %485 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %476, i64 %indvars.iv.i242
   %486 = icmp samesign ugt i64 %indvars.iv.i242, 1
   %487 = select i1 %486, ptr @.str.48, ptr @.str.49
   %488 = trunc nuw nsw i64 %indvars.iv.i242 to i32
@@ -1314,7 +1314,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 .lr.ph179.i:                                      ; preds = %544
   %.not127.i = icmp eq i64 %indvars.iv217.i, 0
   %546 = select i1 %.not127.i, ptr @.str.63, ptr @.str.62
-  %547 = getelementptr inbounds nuw [25 x [25 x %struct.AVRational]], ptr %543, i64 0, i64 %indvars.iv217.i
+  %547 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %543, i64 %indvars.iv217.i
   br label %551
 
 ._crit_edge180.i:                                 ; preds = %551, %544
@@ -1327,7 +1327,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 551:                                              ; preds = %551, %.lr.ph179.i
   %indvars.iv214.i = phi i64 [ 0, %.lr.ph179.i ], [ %indvars.iv.next215.i, %551 ]
-  %552 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %547, i64 0, i64 %indvars.iv214.i
+  %552 = getelementptr inbounds nuw %struct.AVRational, ptr %547, i64 %indvars.iv214.i
   %553 = load i64, ptr %552, align 4
   %.sroa.0.0.extract.trunc.i146.i = trunc i64 %553 to i32
   %.sroa.2.0.extract.shift.i147.i = lshr i64 %553, 32
@@ -1359,7 +1359,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 565:                                              ; preds = %637, %.lr.ph196.i
   %indvars.iv229.i = phi i64 [ 0, %.lr.ph196.i ], [ %indvars.iv.next230.i, %637 ]
-  %566 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %562, i64 0, i64 %indvars.iv229.i
+  %566 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %562, i64 %indvars.iv229.i
   %567 = trunc nuw nsw i64 %indvars.iv229.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.66, i32 noundef %567) #11
   %568 = getelementptr inbounds nuw i8, ptr %566, i64 48
@@ -1389,7 +1389,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
   %indvars.iv220.i = phi i64 [ 0, %565 ], [ %indvars.iv.next221.i, %578 ]
   %.not126.i = icmp eq i64 %indvars.iv220.i, 0
   %579 = select i1 %.not126.i, ptr @.str.63, ptr @.str.62
-  %580 = getelementptr inbounds nuw [3 x %struct.AVRational], ptr %568, i64 0, i64 %indvars.iv220.i
+  %580 = getelementptr inbounds nuw %struct.AVRational, ptr %568, i64 %indvars.iv220.i
   %581 = load i64, ptr %580, align 4
   %.sroa.0.0.extract.trunc.i152.i = trunc i64 %581 to i32
   %.sroa.2.0.extract.shift.i153.i = lshr i64 %581, 32
@@ -1419,7 +1419,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 592:                                              ; preds = %592, %.lr.ph188.i
   %indvars.iv223.i = phi i64 [ 0, %.lr.ph188.i ], [ %indvars.iv.next224.i, %592 ]
-  %593 = getelementptr inbounds nuw [15 x %struct.AVHDRPlusPercentile], ptr %577, i64 0, i64 %indvars.iv223.i
+  %593 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %577, i64 %indvars.iv223.i
   %594 = load i8, ptr %593, align 4, !tbaa !144
   %595 = zext i8 %594 to i32
   %596 = getelementptr inbounds nuw i8, ptr %593, i64 4
@@ -1473,7 +1473,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
   %indvars.iv226.i = phi i64 [ 0, %.lr.ph192.i ], [ %indvars.iv.next227.i, %618 ]
   %.not125.i = icmp eq i64 %indvars.iv226.i, 0
   %619 = select i1 %.not125.i, ptr @.str.63, ptr @.str.62
-  %620 = getelementptr inbounds nuw [15 x %struct.AVRational], ptr %617, i64 0, i64 %indvars.iv226.i
+  %620 = getelementptr inbounds nuw %struct.AVRational, ptr %617, i64 %indvars.iv226.i
   %621 = load i64, ptr %620, align 4
   %.sroa.0.0.extract.trunc.i167.i = trunc i64 %621 to i32
   %.sroa.2.0.extract.shift.i168.i = lshr i64 %621, 32
@@ -1540,7 +1540,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 .lr.ph200.i:                                      ; preds = %646
   %.not122.i = icmp eq i64 %indvars.iv235.i, 0
   %648 = select i1 %.not122.i, ptr @.str.63, ptr @.str.62
-  %649 = getelementptr inbounds nuw [25 x [25 x %struct.AVRational]], ptr %645, i64 0, i64 %indvars.iv235.i
+  %649 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %645, i64 %indvars.iv235.i
   br label %653
 
 ._crit_edge201.i:                                 ; preds = %653, %646
@@ -1553,7 +1553,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 653:                                              ; preds = %653, %.lr.ph200.i
   %indvars.iv232.i = phi i64 [ 0, %.lr.ph200.i ], [ %indvars.iv.next233.i, %653 ]
-  %654 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %649, i64 0, i64 %indvars.iv232.i
+  %654 = getelementptr inbounds nuw %struct.AVRational, ptr %649, i64 %indvars.iv232.i
   %655 = load i64, ptr %654, align 4
   %.sroa.0.0.extract.trunc.i173.i = trunc i64 %655 to i32
   %.sroa.2.0.extract.shift.i174.i = lshr i64 %655, 32
@@ -1602,7 +1602,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 678:                                              ; preds = %678, %.lr.ph.i244
   %indvars.iv.i245 = phi i64 [ 0, %.lr.ph.i244 ], [ %indvars.iv.next.i249, %678 ]
-  %679 = getelementptr inbounds nuw [3 x %struct.AVHDRVividColorTransformParams], ptr %676, i64 0, i64 %indvars.iv.i245
+  %679 = getelementptr inbounds nuw %struct.AVHDRVividColorTransformParams, ptr %676, i64 %indvars.iv.i245
   %680 = load i64, ptr %679, align 4
   %.sroa.0.0.extract.trunc.i.i246 = trunc i64 %680 to i32
   %.sroa.2.0.extract.shift.i.i247 = lshr i64 %680, 32
@@ -1647,7 +1647,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 .lr.ph217.i:                                      ; preds = %.preheader204.i, %.loopexit201.i
   %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %.loopexit201.i ], [ 0, %.preheader204.i ]
-  %703 = getelementptr inbounds nuw [3 x %struct.AVHDRVividColorTransformParams], ptr %676, i64 0, i64 %indvars.iv230.i
+  %703 = getelementptr inbounds nuw %struct.AVHDRVividColorTransformParams, ptr %676, i64 %indvars.iv230.i
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 32
   %705 = load i32, ptr %704, align 4, !tbaa !159
   %706 = trunc nuw nsw i64 %indvars.iv230.i to i32
@@ -1670,7 +1670,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 713:                                              ; preds = %.loopexit.i252, %.lr.ph211.i
   %indvars.iv224.i = phi i64 [ 0, %.lr.ph211.i ], [ %indvars.iv.next225.i, %.loopexit.i252 ]
-  %714 = getelementptr inbounds nuw [2 x %struct.AVHDRVividColorToneMappingParams], ptr %712, i64 0, i64 %indvars.iv224.i
+  %714 = getelementptr inbounds nuw %struct.AVHDRVividColorToneMappingParams, ptr %712, i64 %indvars.iv224.i
   %715 = load i64, ptr %714, align 4
   %.sroa.0.0.extract.trunc.i162.i = trunc i64 %715 to i32
   %.sroa.2.0.extract.shift.i163.i = lshr i64 %715, 32
@@ -1776,7 +1776,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 770:                                              ; preds = %781, %.lr.ph208.i
   %indvars.iv221.i = phi i64 [ 0, %.lr.ph208.i ], [ %indvars.iv.next222.i, %781 ]
-  %771 = getelementptr inbounds nuw [2 x %struct.AVHDRVivid3SplineParams], ptr %769, i64 0, i64 %indvars.iv221.i
+  %771 = getelementptr inbounds nuw %struct.AVHDRVivid3SplineParams, ptr %769, i64 %indvars.iv221.i
   %772 = load i32, ptr %771, align 4, !tbaa !170
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.97, i32 noundef %706, i32 noundef %719, i32 noundef %772) #11
   %773 = load i32, ptr %771, align 4, !tbaa !170
@@ -1875,7 +1875,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 817:                                              ; preds = %817, %.lr.ph213.i
   %indvars.iv227.i = phi i64 [ 0, %.lr.ph213.i ], [ %indvars.iv.next228.i, %817 ]
-  %818 = getelementptr inbounds nuw [8 x %struct.AVRational], ptr %816, i64 0, i64 %indvars.iv227.i
+  %818 = getelementptr inbounds nuw %struct.AVRational, ptr %816, i64 %indvars.iv227.i
   %819 = load i64, ptr %818, align 4
   %.sroa.0.0.extract.trunc.i198.i = trunc i64 %819 to i32
   %.sroa.2.0.extract.shift.i199.i = lshr i64 %819, 32
@@ -1939,14 +1939,14 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 .preheader.i255:                                  ; preds = %857, %846
   %indvars.iv4.i = phi i64 [ 0, %846 ], [ %indvars.iv.next5.i, %857 ]
-  %848 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %847, i64 0, i64 %indvars.iv4.i
+  %848 = getelementptr inbounds nuw [2 x i32], ptr %847, i64 %indvars.iv4.i
   %849 = trunc nuw nsw i64 %indvars.iv4.i to i32
   br label %850
 
 850:                                              ; preds = %856, %.preheader.i255
   %851 = phi i1 [ true, %.preheader.i255 ], [ false, %856 ]
   %indvars.iv.i256 = phi i64 [ 0, %.preheader.i255 ], [ 1, %856 ]
-  %852 = getelementptr inbounds nuw [2 x i32], ptr %848, i64 0, i64 %indvars.iv.i256
+  %852 = getelementptr inbounds nuw i32, ptr %848, i64 %indvars.iv.i256
   %853 = load i32, ptr %852, align 4, !tbaa !39
   %.not27.i = icmp eq i32 %853, 0
   br i1 %.not27.i, label %856, label %854
@@ -2107,7 +2107,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 955:                                              ; preds = %938
   %956 = zext nneg i32 %952 to i64
-  %957 = getelementptr inbounds nuw [3 x ptr], ptr @__const.dump_sei_film_grain_params_metadata.film_grain_type_names, i64 0, i64 %956
+  %957 = getelementptr inbounds nuw ptr, ptr @__const.dump_sei_film_grain_params_metadata.film_grain_type_names, i64 %956
   %958 = load ptr, ptr %957, align 8, !tbaa !38
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.120, ptr noundef %958) #11
   %959 = getelementptr inbounds nuw i8, ptr %.val215, i64 8
@@ -2181,7 +2181,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 996:                                              ; preds = %996, %.lr.ph.i266
   %indvars.iv.i267 = phi i64 [ 0, %.lr.ph.i266 ], [ %indvars.iv.next.i268, %996 ]
-  %997 = getelementptr inbounds nuw [14 x [2 x i8]], ptr %991, i64 0, i64 %indvars.iv.i267
+  %997 = getelementptr inbounds nuw [2 x i8], ptr %991, i64 %indvars.iv.i267
   %998 = load i8, ptr %997, align 2, !tbaa !47
   %999 = zext i8 %998 to i32
   %1000 = getelementptr inbounds nuw i8, ptr %997, i64 1
@@ -2208,13 +2208,13 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
   %indvars.iv45.i = phi i64 [ 0, %._crit_edge.i263 ], [ 1, %._crit_edge5.i ]
   %1012 = trunc nuw nsw i64 %indvars.iv45.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.136, i32 noundef %1012) #11
-  %1013 = getelementptr inbounds nuw [2 x i32], ptr %994, i64 0, i64 %indvars.iv45.i
+  %1013 = getelementptr inbounds nuw i32, ptr %994, i64 %indvars.iv45.i
   %1014 = load i32, ptr %1013, align 4, !tbaa !39
   %1015 = icmp sgt i32 %1014, 0
   br i1 %1015, label %.lr.ph4.i, label %._crit_edge5.i
 
 .lr.ph4.i:                                        ; preds = %1010
-  %1016 = getelementptr inbounds nuw [2 x [10 x [2 x i8]]], ptr %995, i64 0, i64 %indvars.iv45.i
+  %1016 = getelementptr inbounds nuw [10 x [2 x i8]], ptr %995, i64 %indvars.iv45.i
   br label %1017
 
 ._crit_edge5.i:                                   ; preds = %1017, %1010
@@ -2223,7 +2223,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1017:                                             ; preds = %1017, %.lr.ph4.i
   %indvars.iv42.i = phi i64 [ 0, %.lr.ph4.i ], [ %indvars.iv.next43.i, %1017 ]
-  %1018 = getelementptr inbounds nuw [10 x [2 x i8]], ptr %1016, i64 0, i64 %indvars.iv42.i
+  %1018 = getelementptr inbounds nuw [2 x i8], ptr %1016, i64 %indvars.iv42.i
   %1019 = load i8, ptr %1018, align 2, !tbaa !47
   %1020 = zext i8 %1019 to i32
   %1021 = getelementptr inbounds nuw i8, ptr %1018, i64 1
@@ -2252,7 +2252,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1030:                                             ; preds = %1030, %.lr.ph9.i
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next49.i, %1030 ]
-  %1031 = getelementptr inbounds nuw [24 x i8], ptr %1029, i64 0, i64 %indvars.iv48.i
+  %1031 = getelementptr inbounds nuw i8, ptr %1029, i64 %indvars.iv48.i
   %1032 = load i8, ptr %1031, align 1, !tbaa !47
   %1033 = sext i8 %1032 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.141, i32 noundef %1033) #11
@@ -2278,12 +2278,12 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
   %indvars.iv56.i = phi i64 [ 0, %.lr.ph13.us21.preheader.i ], [ 1, %._crit_edge14.us22.i ]
   %1038 = trunc nuw nsw i64 %indvars.iv56.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.142, i32 noundef %1038) #11
-  %1039 = getelementptr inbounds nuw [2 x [25 x i8]], ptr %1036, i64 0, i64 %indvars.iv56.i
+  %1039 = getelementptr inbounds nuw [25 x i8], ptr %1036, i64 %indvars.iv56.i
   br label %1040
 
 1040:                                             ; preds = %1040, %.lr.ph13.us21.i
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph13.us21.i ], [ %indvars.iv.next52.i, %1040 ]
-  %1041 = getelementptr inbounds nuw [25 x i8], ptr %1039, i64 0, i64 %indvars.iv51.i
+  %1041 = getelementptr inbounds nuw i8, ptr %1039, i64 %indvars.iv51.i
   %1042 = load i8, ptr %1041, align 1, !tbaa !47
   %1043 = sext i8 %1042 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.141, i32 noundef %1043) #11
@@ -2358,19 +2358,19 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1077:                                             ; preds = %1089, %1064
   %indvars.iv62.i = phi i64 [ 0, %1064 ], [ %indvars.iv.next63.i, %1089 ]
-  %1078 = getelementptr inbounds nuw [3 x i32], ptr %1071, i64 0, i64 %indvars.iv62.i
+  %1078 = getelementptr inbounds nuw i32, ptr %1071, i64 %indvars.iv62.i
   %1079 = load i32, ptr %1078, align 4, !tbaa !39
   %.not195.i = icmp eq i32 %1079, 0
   br i1 %.not195.i, label %1089, label %1080
 
 1080:                                             ; preds = %1077
-  %1081 = getelementptr inbounds nuw [3 x i8], ptr %1072, i64 0, i64 %indvars.iv62.i
+  %1081 = getelementptr inbounds nuw i8, ptr %1072, i64 %indvars.iv62.i
   %1082 = load i8, ptr %1081, align 1, !tbaa !47
   %1083 = icmp ugt i8 %1082, 6
   br i1 %1083, label %1088, label %1084
 
 1084:                                             ; preds = %1080
-  %1085 = getelementptr inbounds nuw [3 x i16], ptr %1073, i64 0, i64 %indvars.iv62.i
+  %1085 = getelementptr inbounds nuw i16, ptr %1073, i64 %indvars.iv62.i
   %1086 = load i16, ptr %1085, align 2, !tbaa !52
   %1087 = add i16 %1086, -257
   %or.cond.i269 = icmp ult i16 %1087, -256
@@ -2387,18 +2387,18 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1090:                                             ; preds = %.critedge.i, %.critedge.preheader.i
   %indvars.iv72.i = phi i64 [ 0, %.critedge.preheader.i ], [ %indvars.iv.next73.i, %.critedge.i ]
-  %1091 = getelementptr inbounds nuw [3 x i32], ptr %1071, i64 0, i64 %indvars.iv72.i
+  %1091 = getelementptr inbounds nuw i32, ptr %1071, i64 %indvars.iv72.i
   %1092 = load i32, ptr %1091, align 4, !tbaa !39
   %.not196.i = icmp eq i32 %1092, 0
   br i1 %.not196.i, label %.critedge.i, label %1093
 
 1093:                                             ; preds = %1090
-  %1094 = getelementptr inbounds nuw [3 x i16], ptr %1073, i64 0, i64 %indvars.iv72.i
+  %1094 = getelementptr inbounds nuw i16, ptr %1073, i64 %indvars.iv72.i
   %1095 = load i16, ptr %1094, align 2, !tbaa !52
   %1096 = zext i16 %1095 to i32
   %1097 = trunc nuw nsw i64 %indvars.iv72.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.153, i32 noundef %1097, i32 noundef %1096) #11
-  %1098 = getelementptr inbounds nuw [3 x i8], ptr %1072, i64 0, i64 %indvars.iv72.i
+  %1098 = getelementptr inbounds nuw i8, ptr %1072, i64 %indvars.iv72.i
   %1099 = load i8, ptr %1098, align 1, !tbaa !47
   %1100 = zext i8 %1099 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.154, i32 noundef %1097, i32 noundef %1100) #11
@@ -2407,19 +2407,19 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
   br i1 %.not38.i, label %.critedge.i, label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %1093
-  %1102 = getelementptr inbounds nuw [3 x [256 x i8]], ptr %1074, i64 0, i64 %indvars.iv72.i
-  %1103 = getelementptr inbounds nuw [3 x [256 x i8]], ptr %1075, i64 0, i64 %indvars.iv72.i
-  %1104 = getelementptr inbounds nuw [3 x [256 x [6 x i16]]], ptr %1076, i64 0, i64 %indvars.iv72.i
+  %1102 = getelementptr inbounds nuw [256 x i8], ptr %1074, i64 %indvars.iv72.i
+  %1103 = getelementptr inbounds nuw [256 x i8], ptr %1075, i64 %indvars.iv72.i
+  %1104 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %1076, i64 %indvars.iv72.i
   br label %1105
 
 1105:                                             ; preds = %._crit_edge28.i, %.lr.ph31.i
   %indvars.iv69.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next70.i, %._crit_edge28.i ]
-  %1106 = getelementptr inbounds nuw [256 x i8], ptr %1102, i64 0, i64 %indvars.iv69.i
+  %1106 = getelementptr inbounds nuw i8, ptr %1102, i64 %indvars.iv69.i
   %1107 = load i8, ptr %1106, align 1, !tbaa !47
   %1108 = zext i8 %1107 to i32
   %1109 = trunc nuw nsw i64 %indvars.iv69.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.155, i32 noundef %1097, i32 noundef %1109, i32 noundef %1108) #11
-  %1110 = getelementptr inbounds nuw [256 x i8], ptr %1103, i64 0, i64 %indvars.iv69.i
+  %1110 = getelementptr inbounds nuw i8, ptr %1103, i64 %indvars.iv69.i
   %1111 = load i8, ptr %1110, align 1, !tbaa !47
   %1112 = zext i8 %1111 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.156, i32 noundef %1097, i32 noundef %1109, i32 noundef %1112) #11
@@ -2428,7 +2428,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
   br i1 %.not39.i, label %._crit_edge28.i, label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %1105
-  %1114 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %1104, i64 0, i64 %indvars.iv69.i
+  %1114 = getelementptr inbounds nuw [6 x i16], ptr %1104, i64 %indvars.iv69.i
   br label %1118
 
 ._crit_edge28.i:                                  ; preds = %1118, %1105
@@ -2440,7 +2440,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1118:                                             ; preds = %1118, %.lr.ph27.i
   %indvars.iv66.i = phi i64 [ 0, %.lr.ph27.i ], [ %indvars.iv.next67.i, %1118 ]
-  %1119 = getelementptr inbounds nuw [6 x i16], ptr %1114, i64 0, i64 %indvars.iv66.i
+  %1119 = getelementptr inbounds nuw i16, ptr %1114, i64 %indvars.iv66.i
   %1120 = load i16, ptr %1119, align 2, !tbaa !52
   %1121 = sext i16 %1120 to i32
   %1122 = trunc nuw nsw i64 %indvars.iv66.i to i32
@@ -2566,8 +2566,8 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1203:                                             ; preds = %1302, %1126
   %indvars.iv59.i270 = phi i64 [ 0, %1126 ], [ %indvars.iv.next60.i, %1302 ]
-  %1204 = getelementptr inbounds nuw [3 x %struct.AVDOVIReshapingCurve], ptr %1193, i64 0, i64 %indvars.iv59.i270
-  %1205 = getelementptr inbounds nuw [3 x %struct.AVDOVINLQParams], ptr %1194, i64 0, i64 %indvars.iv59.i270
+  %1204 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %1193, i64 %indvars.iv59.i270
+  %1205 = getelementptr inbounds nuw %struct.AVDOVINLQParams, ptr %1194, i64 %indvars.iv59.i270
   %1206 = trunc nuw nsw i64 %indvars.iv59.i270 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.180, i32 noundef %1206) #11
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.181) #11
@@ -2591,7 +2591,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1212:                                             ; preds = %1212, %.lr.ph.i272
   %indvars.iv.i273 = phi i64 [ 0, %.lr.ph.i272 ], [ %indvars.iv.next.i274, %1212 ]
-  %1213 = getelementptr inbounds nuw [9 x i16], ptr %1208, i64 0, i64 %indvars.iv.i273
+  %1213 = getelementptr inbounds nuw i16, ptr %1208, i64 %indvars.iv.i273
   %1214 = load i16, ptr %1213, align 2, !tbaa !52
   %1215 = zext i16 %1214 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.182, i32 noundef %1215) #11
@@ -2613,7 +2613,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1222:                                             ; preds = %1222, %.lr.ph4.i291
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph4.i291 ], [ %indvars.iv.next36.i, %1222 ]
-  %1223 = getelementptr inbounds nuw [8 x i32], ptr %1211, i64 0, i64 %indvars.iv35.i
+  %1223 = getelementptr inbounds nuw i32, ptr %1211, i64 %indvars.iv35.i
   %1224 = load i32, ptr %1223, align 4, !tbaa !39
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.141, i32 noundef %1224) #11
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
@@ -2635,7 +2635,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1232:                                             ; preds = %1232, %.lr.ph8.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph8.i ], [ %indvars.iv.next39.i, %1232 ]
-  %1233 = getelementptr inbounds nuw [8 x i8], ptr %1221, i64 0, i64 %indvars.iv38.i
+  %1233 = getelementptr inbounds nuw i8, ptr %1221, i64 %indvars.iv38.i
   %1234 = load i8, ptr %1233, align 1, !tbaa !47
   %1235 = zext i8 %1234 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.182, i32 noundef %1235) #11
@@ -2658,7 +2658,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1243:                                             ; preds = %1243, %.lr.ph12.i
   %indvars.iv41.i = phi i64 [ 0, %.lr.ph12.i ], [ %indvars.iv.next42.i, %1243 ]
-  %1244 = getelementptr inbounds nuw [8 x [3 x i64]], ptr %1231, i64 0, i64 %indvars.iv41.i
+  %1244 = getelementptr inbounds nuw [3 x i64], ptr %1231, i64 %indvars.iv41.i
   %1245 = load i64, ptr %1244, align 8, !tbaa !51
   %1246 = getelementptr inbounds nuw i8, ptr %1244, i64 8
   %1247 = load i64, ptr %1246, align 8, !tbaa !51
@@ -2684,7 +2684,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1257:                                             ; preds = %1257, %.lr.ph16.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph16.i ], [ %indvars.iv.next45.i, %1257 ]
-  %1258 = getelementptr inbounds nuw [8 x i8], ptr %1242, i64 0, i64 %indvars.iv44.i
+  %1258 = getelementptr inbounds nuw i8, ptr %1242, i64 %indvars.iv44.i
   %1259 = load i8, ptr %1258, align 1, !tbaa !47
   %1260 = zext i8 %1259 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.182, i32 noundef %1260) #11
@@ -2708,7 +2708,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1269:                                             ; preds = %1269, %.lr.ph20.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next48.i, %1269 ]
-  %1270 = getelementptr inbounds nuw [8 x i64], ptr %1256, i64 0, i64 %indvars.iv47.i
+  %1270 = getelementptr inbounds nuw i64, ptr %1256, i64 %indvars.iv47.i
   %1271 = load i64, ptr %1270, align 8, !tbaa !51
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.189, i64 noundef %1271) #11
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
@@ -2732,18 +2732,18 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 1281:                                             ; preds = %._crit_edge24.i, %.lr.ph27.i287
   %indvars.iv56.i288 = phi i64 [ 0, %.lr.ph27.i287 ], [ %indvars.iv.next57.i, %._crit_edge24.i ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.191) #11
-  %1282 = getelementptr inbounds nuw [8 x i8], ptr %1267, i64 0, i64 %indvars.iv56.i288
+  %1282 = getelementptr inbounds nuw i8, ptr %1267, i64 %indvars.iv56.i288
   %1283 = load i8, ptr %1282, align 1, !tbaa !47
   %.not33.i = icmp eq i8 %1283, 0
   br i1 %.not33.i, label %._crit_edge24.i, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %1281
-  %1284 = getelementptr inbounds nuw [8 x [3 x [7 x i64]]], ptr %1268, i64 0, i64 %indvars.iv56.i288
+  %1284 = getelementptr inbounds nuw [3 x [7 x i64]], ptr %1268, i64 %indvars.iv56.i288
   br label %.preheader.i289
 
 .preheader.i289:                                  ; preds = %1290, %.preheader.lr.ph.i
   %indvars.iv53.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next54.i, %1290 ]
-  %1285 = getelementptr inbounds nuw [3 x [7 x i64]], ptr %1284, i64 0, i64 %indvars.iv53.i
+  %1285 = getelementptr inbounds nuw [7 x i64], ptr %1284, i64 %indvars.iv53.i
   br label %1294
 
 ._crit_edge24.i:                                  ; preds = %1290, %1281
@@ -2764,7 +2764,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1294:                                             ; preds = %1294, %.preheader.i289
   %indvars.iv50.i = phi i64 [ 0, %.preheader.i289 ], [ %indvars.iv.next51.i, %1294 ]
-  %1295 = getelementptr inbounds nuw [7 x i64], ptr %1285, i64 0, i64 %indvars.iv50.i
+  %1295 = getelementptr inbounds nuw i64, ptr %1285, i64 %indvars.iv50.i
   %1296 = load i64, ptr %1295, align 8, !tbaa !51
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.189, i64 noundef %1296) #11
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
@@ -2792,7 +2792,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1305:                                             ; preds = %1305, %1195
   %indvars.iv63.i = phi i64 [ 0, %1195 ], [ %indvars.iv.next64.i, %1305 ]
-  %1306 = getelementptr inbounds nuw [9 x %struct.AVRational], ptr %1202, i64 0, i64 %indvars.iv63.i
+  %1306 = getelementptr inbounds nuw %struct.AVRational, ptr %1202, i64 %indvars.iv63.i
   %1307 = load i64, ptr %1306, align 4
   %.sroa.0.0.extract.trunc.i.i278 = trunc i64 %1307 to i32
   %.sroa.2.0.extract.shift.i.i279 = lshr i64 %1307, 32
@@ -2812,7 +2812,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1313:                                             ; preds = %1313, %1303
   %indvars.iv67.i = phi i64 [ 0, %1303 ], [ %indvars.iv.next68.i, %1313 ]
-  %1314 = getelementptr inbounds nuw [3 x %struct.AVRational], ptr %1304, i64 0, i64 %indvars.iv67.i
+  %1314 = getelementptr inbounds nuw %struct.AVRational, ptr %1304, i64 %indvars.iv67.i
   %1315 = load i64, ptr %1314, align 4
   %.sroa.0.0.extract.trunc.i183.i281 = trunc i64 %1315 to i32
   %.sroa.2.0.extract.shift.i184.i282 = lshr i64 %1315, 32
@@ -2827,7 +2827,7 @@ av_get_detection_bbox.exit.i:                     ; preds = %361
 
 1319:                                             ; preds = %1319, %1311
   %indvars.iv71.i = phi i64 [ 0, %1311 ], [ %indvars.iv.next72.i, %1319 ]
-  %1320 = getelementptr inbounds nuw [9 x %struct.AVRational], ptr %1312, i64 0, i64 %indvars.iv71.i
+  %1320 = getelementptr inbounds nuw %struct.AVRational, ptr %1312, i64 %indvars.iv71.i
   %1321 = load i64, ptr %1320, align 4
   %.sroa.0.0.extract.trunc.i186.i284 = trunc i64 %1321 to i32
   %.sroa.2.0.extract.shift.i187.i285 = lshr i64 %1321, 32

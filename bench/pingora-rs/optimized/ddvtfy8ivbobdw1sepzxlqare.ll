@@ -3858,10 +3858,10 @@ define noundef zeroext i1 @"_ZN193_$LT$pingora_cache..eviction..lru.._..$LT$impl
 define { ptr, i64 } @"_ZN13pingora_cache4lock96_$LT$impl$u20$core..convert..From$LT$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h6f6d47ccec247b95E"(i8 noundef range(i8 0, 6) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E.60", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E.60", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -3873,10 +3873,10 @@ define { ptr, i64 } @"_ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..Fro
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !572, !noundef !8
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E.60", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN13pingora_cache4lock100_$LT$impl$u20$core..convert..From$LT$$RF$pingora_cache..lock..LockStatus$GT$$u20$for$u20$$RF$str$GT$4from17h2a8fd9c497b04932E.60", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

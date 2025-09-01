@@ -89,7 +89,7 @@ define hidden void @_ZN17hb_subset_input_tC2Ev(ptr noundef nonnull align 8 captu
 
 .preheader:                                       ; preds = %.preheader.preheader, %19
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ 0, %.preheader.preheader ]
-  %20 = getelementptr inbounds nuw [8 x %"struct.hb::shared_ptr"], ptr %.ptr40, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %"struct.hb::shared_ptr", ptr %.ptr40, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !29
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i8, ptr %22, align 8, !tbaa !32, !range !38, !noundef !39
@@ -176,7 +176,7 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i:       ; preds = %53
   %57 = lshr i32 %.235.us46.us.i.i.i, 6
   %58 = and i32 %57, 7
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [8 x i64], ptr %52, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %52, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !47
   %62 = or i64 %61, %56
   store i64 %62, ptr %60, align 8, !tbaa !47
@@ -252,7 +252,7 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i17:     ; preds = %89
   %93 = lshr i32 %.235.us46.us.i.i.i13, 6
   %94 = and i32 %93, 7
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [8 x i64], ptr %88, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %88, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !47
   %98 = or i64 %97, %92
   store i64 %98, ptr %96, align 8, !tbaa !47
@@ -328,7 +328,7 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i31:     ; preds = %125
   %129 = lshr i32 %.235.us46.us.i.i.i27, 6
   %130 = and i32 %129, 7
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [8 x i64], ptr %124, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr %124, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !47
   %134 = or i64 %133, %128
   store i64 %134, ptr %132, align 8, !tbaa !47
@@ -411,7 +411,7 @@ define dso_local noundef ptr @hb_subset_input_create_or_fail() local_unnamed_add
 
 8:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw [8 x %"struct.hb::shared_ptr"], ptr %6, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %"struct.hb::shared_ptr", ptr %6, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8, !tbaa !32, !range !38, !noundef !39
@@ -1086,7 +1086,7 @@ define dso_local range(i32 0, 2) i32 @hb_subset_axis_range_from_string(ptr nound
   br i1 %or.cond, label %32, label %37
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float 0x7FF8000000000000, ptr %33, align 4, !tbaa !86
   %34 = icmp eq ptr %.03559, null
   br i1 %34, label %.thread50, label %35
@@ -1105,7 +1105,7 @@ define dso_local range(i32 0, 2) i32 @hb_subset_axis_range_from_string(ptr nound
 39:                                               ; preds = %37
   %40 = load double, ptr %9, align 8, !tbaa !89
   %41 = fptrunc double %40 to float
-  %42 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %41, ptr %42, align 4, !tbaa !86
   %43 = icmp eq ptr %.03559, null
   br i1 %43, label %.thread55, label %44
@@ -1243,7 +1243,7 @@ _ZNK12hb_hashmap_tIj6TripleLb0EE10fetch_itemERKjj.exit.i: ; preds = %24, %.lr.ph
   %.sroa.speculated23 = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
   %41 = add nuw i32 %.sroa.speculated23, 1
   %42 = zext nneg i32 %.sroa.speculated23 to i64
-  %43 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %42
   store i8 58, ptr %43, align 1, !tbaa !90
   %44 = zext i32 %41 to i64
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 %44
@@ -1256,7 +1256,7 @@ _ZNK12hb_hashmap_tIj6TripleLb0EE10fetch_itemERKjj.exit.i: ; preds = %24, %.lr.ph
   %51 = add nuw i32 %.sroa.speculated17, %41
   %52 = add i32 %51, 1
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 %53
   store i8 58, ptr %54, align 1, !tbaa !90
   %55 = zext i32 %52 to i64
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 %55
@@ -1532,7 +1532,7 @@ _ZN13hb_bit_page_t3setEjb.exit.i:                 ; preds = %.split.i
   %61 = lshr i32 %.235.i, 6
   %62 = and i32 %61, 7
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [8 x i64], ptr %45, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i64, ptr %45, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !47
   %66 = and i64 %65, %60
   store i64 %66, ptr %64, align 8, !tbaa !47
@@ -2508,7 +2508,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
 
 31:                                               ; preds = %._crit_edge
   %32 = zext nneg i32 %.0.i to i64
-  %33 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.prime_mod, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.prime_mod, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !52
   br label %_ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit
 

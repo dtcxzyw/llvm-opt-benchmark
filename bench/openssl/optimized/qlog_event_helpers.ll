@@ -232,7 +232,7 @@ define void @ossl_qlog_event_connectivity_connection_closed(ptr noundef %0, ptr 
   br i1 %15, label %switch.lookup, label %quic_err_to_qlog.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.ossl_qlog_event_connectivity_connection_closed, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qlog_event_connectivity_connection_closed, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %19
@@ -295,7 +295,7 @@ define void @ossl_qlog_event_recovery_packet_lost(ptr noundef %0, ptr noundef re
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.log_packet, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.log_packet, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %quic_pkt_type_to_qlog.exit
 
@@ -376,7 +376,7 @@ define internal fastcc void @log_packet(ptr noundef %0, ptr noundef %1, i64 noun
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.log_packet, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.log_packet, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %quic_pkt_type_to_qlog.exit
 

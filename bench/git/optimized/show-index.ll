@@ -144,7 +144,7 @@ git_bswap32.exit85.preheader:                     ; preds = %39, %43
 git_bswap32.exit85:                               ; preds = %git_bswap32.exit85.preheader, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %git_bswap32.exit85.preheader ]
   %.064107 = phi i32 [ %50, %47 ], [ 0, %git_bswap32.exit85.preheader ]
-  %48 = getelementptr inbounds nuw [256 x i32], ptr @cmd_show_index.top_index, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr @cmd_show_index.top_index, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !42
   %50 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %49) #11, !srcloc !43
   %51 = icmp ult i32 %50, %.064107
@@ -221,7 +221,7 @@ git_bswap32.exit87:                               ; preds = %57
 
 81:                                               ; preds = %83, %77
   %.0811.i = phi i64 [ 0, %77 ], [ %84, %83 ]
-  %82 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %82 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %80, %82
   br i1 %.not.i, label %.split.loop.exit9.i, label %83
 

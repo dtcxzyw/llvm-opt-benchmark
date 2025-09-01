@@ -11486,7 +11486,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199.
 
 switch.lookup:                                    ; preds = %3084
   %3089 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv, i64 0, i64 %3089
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv, i64 %3089
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal32TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
@@ -15330,18 +15330,18 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199.
   %4627 = load ptr, ptr %.sroa.0537.0571.i676, align 8, !tbaa !140, !noalias !273
   %4628 = getelementptr inbounds nuw i8, ptr %4627, i64 40
   %4629 = load i32, ptr %4628, align 8, !tbaa !82, !noalias !273
-  %switch.tableidx2480 = add i32 %4629, -2
-  %4630 = icmp ult i32 %switch.tableidx2480, 8
-  br i1 %4630, label %switch.lookup2479, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
+  %switch.tableidx2479 = add i32 %4629, -2
+  %4630 = icmp ult i32 %switch.tableidx2479, 8
+  br i1 %4630, label %switch.lookup2480, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-switch.lookup2479:                                ; preds = %4626
-  %4631 = zext nneg i32 %switch.tableidx2480 to i64
-  %switch.gep2481 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.680, i64 0, i64 %4631
+switch.lookup2480:                                ; preds = %4626
+  %4631 = zext nneg i32 %switch.tableidx2479 to i64
+  %switch.gep2481 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.680, i64 %4631
   %switch.load2482 = load ptr, ptr %switch.gep2481, align 8
   br label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %4626, %switch.lookup2479
-  %.0.i.i677 = phi ptr [ %switch.load2482, %switch.lookup2479 ], [ null, %4626 ]
+_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %4626, %switch.lookup2480
+  %.0.i.i677 = phi ptr [ %switch.load2482, %switch.lookup2480 ], [ null, %4626 ]
   %4632 = load ptr, ptr %281, align 8, !tbaa !235, !alias.scope !273
   call void @llvm.lifetime.start.p0(ptr nonnull %117), !noalias !273
   store ptr %4627, ptr %118, align 8, !tbaa !140, !noalias !273
@@ -19180,18 +19180,18 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199.
   %6169 = load ptr, ptr %.sroa.0537.0571.i1099, align 8, !tbaa !140, !noalias !280
   %6170 = getelementptr inbounds nuw i8, ptr %6169, i64 40
   %6171 = load i32, ptr %6170, align 8, !tbaa !82, !noalias !280
-  %switch.tableidx2484 = add i32 %6171, -2
-  %6172 = icmp ult i32 %switch.tableidx2484, 8
-  br i1 %6172, label %switch.lookup2483, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
+  %switch.tableidx2483 = add i32 %6171, -2
+  %6172 = icmp ult i32 %switch.tableidx2483, 8
+  br i1 %6172, label %switch.lookup2484, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-switch.lookup2483:                                ; preds = %6168
-  %6173 = zext nneg i32 %switch.tableidx2484 to i64
-  %switch.gep2485 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.681, i64 0, i64 %6173
+switch.lookup2484:                                ; preds = %6168
+  %6173 = zext nneg i32 %switch.tableidx2483 to i64
+  %switch.gep2485 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.681, i64 %6173
   %switch.load2486 = load ptr, ptr %switch.gep2485, align 8
   br label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %6168, %switch.lookup2483
-  %.0.i.i1100 = phi ptr [ %switch.load2486, %switch.lookup2483 ], [ null, %6168 ]
+_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %6168, %switch.lookup2484
+  %.0.i.i1100 = phi ptr [ %switch.load2486, %switch.lookup2484 ], [ null, %6168 ]
   %6174 = load ptr, ptr %282, align 8, !tbaa !235, !alias.scope !280
   call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !280
   store ptr %6169, ptr %70, align 8, !tbaa !140, !noalias !280
@@ -23030,18 +23030,18 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199.
   %7711 = load ptr, ptr %.sroa.0537.0571.i1522, align 8, !tbaa !140, !noalias !287
   %7712 = getelementptr inbounds nuw i8, ptr %7711, i64 40
   %7713 = load i32, ptr %7712, align 8, !tbaa !82, !noalias !287
-  %switch.tableidx2488 = add i32 %7713, -2
-  %7714 = icmp ult i32 %switch.tableidx2488, 8
-  br i1 %7714, label %switch.lookup2487, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
+  %switch.tableidx2487 = add i32 %7713, -2
+  %7714 = icmp ult i32 %switch.tableidx2487, 8
+  br i1 %7714, label %switch.lookup2488, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-switch.lookup2487:                                ; preds = %7710
-  %7715 = zext nneg i32 %switch.tableidx2488 to i64
-  %switch.gep2489 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.682, i64 0, i64 %7715
+switch.lookup2488:                                ; preds = %7710
+  %7715 = zext nneg i32 %switch.tableidx2487 to i64
+  %switch.gep2489 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.682, i64 %7715
   %switch.load2490 = load ptr, ptr %switch.gep2489, align 8
   br label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %7710, %switch.lookup2487
-  %.0.i.i1523 = phi ptr [ %switch.load2490, %switch.lookup2487 ], [ null, %7710 ]
+_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %7710, %switch.lookup2488
+  %.0.i.i1523 = phi ptr [ %switch.load2490, %switch.lookup2488 ], [ null, %7710 ]
   %7716 = load ptr, ptr %283, align 8, !tbaa !235, !alias.scope !287
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !287
   store ptr %7711, ptr %22, align 8, !tbaa !140, !noalias !287

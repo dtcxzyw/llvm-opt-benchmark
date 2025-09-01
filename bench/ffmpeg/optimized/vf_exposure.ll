@@ -166,18 +166,18 @@ define internal noundef i32 @exposure_slice(ptr noundef readonly captures(none) 
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader.lr.ph.us.us.preheader, %._crit_edge81.split.us.us.us
   %indvars.iv98 = phi i64 [ 0, %.preheader.lr.ph.us.us.preheader ], [ %indvars.iv.next99, %._crit_edge81.split.us.us.us ]
-  %27 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv98
   %28 = load i32, ptr %27, align 4, !tbaa !52
   %29 = sdiv i32 %28, 4
-  %30 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %indvars.iv98
+  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv98
   %31 = load i32, ptr %30, align 4, !tbaa !52
   %32 = sdiv i32 %31, 4
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv98
+  %33 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv98
   %34 = load ptr, ptr %33, align 8, !tbaa !53
   %35 = mul nsw i32 %29, %13
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds float, ptr %34, i64 %36
-  %38 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv98
+  %38 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv98
   %39 = load ptr, ptr %38, align 8, !tbaa !53
   %40 = mul nsw i32 %32, %13
   %41 = sext i32 %40 to i64

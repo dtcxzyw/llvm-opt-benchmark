@@ -932,12 +932,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
 
 267:                                              ; preds = %267, %263
   %indvars.iv.i = phi i64 [ 0, %263 ], [ %indvars.iv.next.i, %267 ]
-  %268 = getelementptr inbounds nuw [3 x float], ptr %208, i64 0, i64 %indvars.iv.i
+  %268 = getelementptr inbounds nuw float, ptr %208, i64 %indvars.iv.i
   %269 = load float, ptr %268, align 4, !tbaa !100, !noalias !131
-  %270 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i
+  %270 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i
   %271 = load float, ptr %270, align 4, !tbaa !100, !noalias !131
   %272 = fsub float %269, %271
-  %273 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i
+  %273 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
   store float %272, ptr %273, align 4, !tbaa !100, !alias.scope !131
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -951,12 +951,12 @@ _ZNK5draco7VectorDIfLi3EEmiERKS1_.exit:           ; preds = %267
 
 274:                                              ; preds = %274, %_ZNK5draco7VectorDIfLi3EEmiERKS1_.exit
   %indvars.iv.i82 = phi i64 [ 0, %_ZNK5draco7VectorDIfLi3EEmiERKS1_.exit ], [ %indvars.iv.next.i83, %274 ]
-  %275 = getelementptr inbounds nuw [3 x float], ptr %209, i64 0, i64 %indvars.iv.i82
+  %275 = getelementptr inbounds nuw float, ptr %209, i64 %indvars.iv.i82
   %276 = load float, ptr %275, align 4, !tbaa !100, !noalias !136
-  %277 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i82
+  %277 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i82
   %278 = load float, ptr %277, align 4, !tbaa !100, !noalias !136
   %279 = fsub float %276, %278
-  %280 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i82
+  %280 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i82
   store float %279, ptr %280, align 4, !tbaa !100, !alias.scope !136
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 3
@@ -989,7 +989,7 @@ _ZNK5draco7VectorDIfLi3EEmiERKS1_.exit:           ; preds = %267
 297:                                              ; preds = %297, %281
   %indvars.iv.i.i.i = phi i64 [ 0, %281 ], [ %indvars.iv.next.i.i.i, %297 ]
   %.078.i.i.i = phi float [ 0.000000e+00, %281 ], [ %300, %297 ]
-  %298 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i.i.i
+  %298 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i.i.i
   %299 = load float, ptr %298, align 4, !tbaa !100
   %300 = call float @llvm.fmuladd.f32(float %299, float %299, float %.078.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1003,7 +1003,7 @@ _ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i:  ; preds = %297
 
 .preheader.i:                                     ; preds = %_ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i, %.preheader.i
   %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i87, %.preheader.i ], [ 0, %_ZNK5draco7VectorDIfLi3EE11SquaredNormEv.exit.i ]
-  %303 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i86
+  %303 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i86
   %304 = load float, ptr %303, align 4, !tbaa !100
   %305 = fdiv float %304, %301
   store float %305, ptr %303, align 4, !tbaa !100
@@ -1059,7 +1059,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit90:      ; preds = %310, %_ZN5draco7Vec
 334:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit90, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit94
   %indvars.iv = phi i64 [ 0, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit90 ], [ %indvars.iv.next, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit94 ]
   %335 = load ptr, ptr %1, align 8, !tbaa !29
-  %336 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.65"], ptr %225, i64 0, i64 %indvars.iv
+  %336 = getelementptr inbounds nuw %"class.draco::IndexType.65", ptr %225, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %336, align 4, !tbaa !79
   %337 = load i8, ptr %226, align 4, !tbaa !102, !range !123, !noundef !124
   %338 = trunc nuw i8 %337 to i1

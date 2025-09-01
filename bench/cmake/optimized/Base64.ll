@@ -11,7 +11,7 @@ define dso_local void @cmsysBase64_Encode3(ptr noundef readonly captures(none) %
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = lshr i8 %3, 2
   %5 = zext nneg i8 %4 to i64
-  %6 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   store i8 %7, ptr %1, align 1, !tbaa !4
   %8 = load i8, ptr %0, align 1, !tbaa !4
@@ -22,8 +22,8 @@ define dso_local void @cmsysBase64_Encode3(ptr noundef readonly captures(none) %
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = lshr i8 %13, 4
   %15 = zext nneg i8 %14 to i64
-  %16 = or disjoint i64 %11, %15
-  %17 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %16
+  %16 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %18, ptr %19, align 1, !tbaa !4
@@ -35,15 +35,15 @@ define dso_local void @cmsysBase64_Encode3(ptr noundef readonly captures(none) %
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = lshr i8 %25, 6
   %27 = zext nneg i8 %26 to i64
-  %28 = or disjoint i64 %23, %27
-  %29 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %28
+  %28 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %23
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %30, ptr %31, align 1, !tbaa !4
   %32 = load i8, ptr %24, align 1, !tbaa !4
   %33 = and i8 %32, 63
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %36, ptr %37, align 1, !tbaa !4
@@ -55,7 +55,7 @@ define dso_local void @cmsysBase64_Encode2(ptr noundef readonly captures(none) %
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = lshr i8 %3, 2
   %5 = zext nneg i8 %4 to i64
-  %6 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   store i8 %7, ptr %1, align 1, !tbaa !4
   %8 = load i8, ptr %0, align 1, !tbaa !4
@@ -66,8 +66,8 @@ define dso_local void @cmsysBase64_Encode2(ptr noundef readonly captures(none) %
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = lshr i8 %13, 4
   %15 = zext nneg i8 %14 to i64
-  %16 = or disjoint i64 %11, %15
-  %17 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %16
+  %16 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %18, ptr %19, align 1, !tbaa !4
@@ -75,7 +75,7 @@ define dso_local void @cmsysBase64_Encode2(ptr noundef readonly captures(none) %
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 2
   %23 = and i64 %22, 60
-  %24 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %23
   %25 = load i8, ptr %24, align 4, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %25, ptr %26, align 1, !tbaa !4
@@ -89,14 +89,14 @@ define dso_local void @cmsysBase64_Encode1(ptr noundef readonly captures(none) %
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = lshr i8 %3, 2
   %5 = zext nneg i8 %4 to i64
-  %6 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   store i8 %7, ptr %1, align 1, !tbaa !4
   %8 = load i8, ptr %0, align 1, !tbaa !4
   %9 = zext i8 %8 to i64
   %10 = shl nuw nsw i64 %9, 4
   %11 = and i64 %10, 48
-  %12 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %11
   %13 = load i8, ptr %12, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %13, ptr %14, align 1, !tbaa !4
@@ -120,7 +120,7 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
   %8 = load i8, ptr %.02729, align 1, !tbaa !4
   %9 = lshr i8 %8, 2
   %10 = zext nneg i8 %9 to i64
-  %11 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !4
   store i8 %12, ptr %.030, align 1, !tbaa !4
   %13 = load i8, ptr %.02729, align 1, !tbaa !4
@@ -131,8 +131,8 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = lshr i8 %18, 4
   %20 = zext nneg i8 %19 to i64
-  %21 = or disjoint i64 %16, %20
-  %22 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %21
+  %21 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   store i8 %23, ptr %24, align 1, !tbaa !4
@@ -144,15 +144,15 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = lshr i8 %30, 6
   %32 = zext nneg i8 %31 to i64
-  %33 = or disjoint i64 %28, %32
-  %34 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %33
+  %33 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   %35 = load i8, ptr %34, align 1, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   store i8 %35, ptr %36, align 1, !tbaa !4
   %37 = load i8, ptr %29, align 1, !tbaa !4
   %38 = and i8 %37, 63
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %.030, i64 3
   store i8 %41, ptr %42, align 1, !tbaa !4
@@ -176,7 +176,7 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
   %49 = load i8, ptr %.027.lcssa, align 1, !tbaa !4
   %50 = lshr i8 %49, 2
   %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !4
   store i8 %53, ptr %.0.lcssa, align 1, !tbaa !4
   %54 = load i8, ptr %.027.lcssa, align 1, !tbaa !4
@@ -187,8 +187,8 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
   %59 = load i8, ptr %58, align 1, !tbaa !4
   %60 = lshr i8 %59, 4
   %61 = zext nneg i8 %60 to i64
-  %62 = or disjoint i64 %57, %61
-  %63 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %62
+  %62 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %57
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %61
   %64 = load i8, ptr %63, align 1, !tbaa !4
   %65 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   store i8 %64, ptr %65, align 1, !tbaa !4
@@ -196,7 +196,7 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
   %67 = zext i8 %66 to i64
   %68 = shl nuw nsw i64 %67, 2
   %69 = and i64 %68, 60
-  %70 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %69
   %71 = load i8, ptr %70, align 4, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   store i8 %71, ptr %72, align 1, !tbaa !4
@@ -209,14 +209,14 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
   %76 = load i8, ptr %.027.lcssa, align 1, !tbaa !4
   %77 = lshr i8 %76, 2
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !4
   store i8 %80, ptr %.0.lcssa, align 1, !tbaa !4
   %81 = load i8, ptr %.027.lcssa, align 1, !tbaa !4
   %82 = zext i8 %81 to i64
   %83 = shl nuw nsw i64 %82, 4
   %84 = and i64 %83, 48
-  %85 = getelementptr inbounds nuw [65 x i8], ptr @kwsysBase64EncodeTable, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @kwsysBase64EncodeTable, i64 %84
   %86 = load i8, ptr %85, align 16, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   store i8 %86, ptr %87, align 1, !tbaa !4
@@ -248,22 +248,22 @@ define dso_local i64 @cmsysBase64_Encode(ptr noundef %0, i64 noundef %1, ptr nou
 define dso_local range(i32 0, 4) i32 @cmsysBase64_Decode3(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !4
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = icmp eq i8 %6, -1
   %23 = icmp eq i8 %11, -1
@@ -320,22 +320,22 @@ define dso_local i64 @cmsysBase64_Decode(ptr noundef readonly captures(address) 
   %.056131 = phi ptr [ %49, %cmsysBase64_Decode3.exit ], [ %2, %.lr.ph.preheader ]
   %6 = load i8, ptr %.052132, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %.052132, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %.052132, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %.052132, i64 3
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp eq i8 %9, -1
   %26 = icmp eq i8 %14, -1
@@ -394,22 +394,22 @@ cmsysBase64_Decode3.exit:                         ; preds = %45
   %.359133 = phi ptr [ %97, %cmsysBase64_Decode3.exit79 ], [ %2, %51 ]
   %55 = load i8, ptr %.254134, align 1, !tbaa !4
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %.254134, i64 1
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4
   %64 = getelementptr inbounds nuw i8, ptr %.254134, i64 2
   %65 = load i8, ptr %64, align 1, !tbaa !4
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %.254134, i64 3
   %70 = load i8, ptr %69, align 1, !tbaa !4
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !4
   %74 = icmp eq i8 %58, -1
   %75 = icmp eq i8 %63, -1
@@ -466,22 +466,22 @@ cmsysBase64_Decode3.exit79:                       ; preds = %94
 102:                                              ; preds = %._crit_edge
   %103 = load i8, ptr %.254.lcssa, align 1, !tbaa !4
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !4
   %107 = getelementptr inbounds nuw i8, ptr %.254.lcssa, i64 1
   %108 = load i8, ptr %107, align 1, !tbaa !4
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !4
   %112 = getelementptr inbounds nuw i8, ptr %.254.lcssa, i64 2
   %113 = load i8, ptr %112, align 1, !tbaa !4
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %.254.lcssa, i64 3
   %118 = load i8, ptr %117, align 1, !tbaa !4
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !4
   %122 = icmp eq i8 %106, -1
   %123 = icmp eq i8 %111, -1
@@ -519,22 +519,22 @@ cmsysBase64_Decode3.exit85:                       ; preds = %126
 140:                                              ; preds = %._crit_edge
   %141 = load i8, ptr %.254.lcssa, align 1, !tbaa !4
   %142 = zext i8 %141 to i64
-  %143 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !4
   %145 = getelementptr inbounds nuw i8, ptr %.254.lcssa, i64 1
   %146 = load i8, ptr %145, align 1, !tbaa !4
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !4
   %150 = getelementptr inbounds nuw i8, ptr %.254.lcssa, i64 2
   %151 = load i8, ptr %150, align 1, !tbaa !4
   %152 = zext i8 %151 to i64
-  %153 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !4
   %155 = getelementptr inbounds nuw i8, ptr %.254.lcssa, i64 3
   %156 = load i8, ptr %155, align 1, !tbaa !4
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr @kwsysBase64DecodeTable, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @kwsysBase64DecodeTable, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !4
   %160 = icmp eq i8 %144, -1
   %161 = icmp eq i8 %149, -1

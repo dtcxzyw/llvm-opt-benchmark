@@ -2724,7 +2724,7 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   %541 = phi ptr [ %.pre294, %._crit_edge279 ], [ %568, %567 ]
   %indvars.iv290 = phi i64 [ 0, %._crit_edge279 ], [ %indvars.iv.next291, %567 ]
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 64
-  %543 = getelementptr inbounds nuw [256 x %struct.AutoVacuumWorkItem], ptr %542, i64 0, i64 %indvars.iv290
+  %543 = getelementptr inbounds nuw %struct.AutoVacuumWorkItem, ptr %542, i64 %indvars.iv290
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 4
   %545 = load i8, ptr %544, align 4, !range !4, !noundef !5
   %546 = trunc nuw i8 %545 to i1
@@ -3000,7 +3000,7 @@ define dso_local noundef zeroext i1 @AutoVacuumRequestWork(i32 noundef %0, i32 n
 
 10:                                               ; preds = %3, %9
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw [256 x %struct.AutoVacuumWorkItem], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.AutoVacuumWorkItem, ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i8, ptr %12, align 4, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1

@@ -82,7 +82,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable10initializeEv() local_unn
 19:                                               ; preds = %19, %18
   %indvars.iv.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i, %19 ]
   %.056.i.i = phi i64 [ 0, %18 ], [ %23, %19 ]
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = add i64 %.056.i.i, %22
@@ -149,7 +149,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable13lookup_or_addERK15NativeCallSta
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
   %.056.i = phi i64 [ 0, %3 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw [4 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %.056.i, %9
@@ -189,7 +189,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
 26:                                               ; preds = %26, %18
   %indvars.iv.i.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i.i, %26 ]
   %.056.i.i.i = phi i64 [ 0, %18 ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = add i64 %.056.i.i.i, %29
@@ -279,7 +279,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
 67:                                               ; preds = %67, %59
   %indvars.iv.i.i.i47 = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i.i49, %67 ]
   %.056.i.i.i48 = phi i64 [ 0, %59 ], [ %71, %67 ]
-  %68 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i.i47
+  %68 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i.i47
   %69 = load ptr, ptr %68, align 8
   %70 = ptrtoint ptr %69 to i64
   %71 = add i64 %.056.i.i.i48, %70
@@ -349,7 +349,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable9new_entryERK15NativeCallStack8ME
 11:                                               ; preds = %11, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %11 ]
   %.056.i.i = phi i64 [ 0, %2 ], [ %15, %11 ]
-  %12 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = add i64 %.056.i.i, %14
@@ -523,7 +523,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %spec.select43 = add nsw i32 %.14245, %15
   %16 = tail call noundef i32 @_ZNK15NativeCallStack6framesEv(ptr noundef nonnull align 8 dereferenceable(32) %.03647) #14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -541,7 +541,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %.142.lcssa = phi i32 [ %.04151, %4 ], [ %spec.select43, %._crit_edge.loopexit ]
   %.037.lcssa = phi i16 [ 0, %4 ], [ %24, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.03554, %4 ], [ %10, %._crit_edge.loopexit ]
-  %25 = getelementptr inbounds nuw [4099 x i16], ptr %3, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
   store i16 %.037.lcssa, ptr %25, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4099
@@ -574,7 +574,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
 
 38:                                               ; preds = %26, %38
   %indvars.iv58 = phi i64 [ 0, %26 ], [ %indvars.iv.next59, %38 ]
-  %39 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv58
+  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv58
   %40 = load i32, ptr %39, align 4
   %41 = trunc nuw nsw i64 %indvars.iv58 to i32
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i32 noundef %41, i32 noundef %40) #14

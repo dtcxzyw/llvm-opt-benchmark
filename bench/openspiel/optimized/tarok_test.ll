@@ -1409,7 +1409,7 @@ define dso_local noundef range(i64 0, 54) i64 @_ZN10open_spiel5tarok20CardLongNa
 
 _ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit: ; preds = %1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10 ]
-  %4 = getelementptr inbounds nuw [54 x %"struct.open_spiel::tarok::Card"], ptr @_ZN10open_spiel5tarokL9card_deckE, i64 0, i64 %indvars.iv, i32 4
+  %4 = getelementptr inbounds nuw %"struct.open_spiel::tarok::Card", ptr @_ZN10open_spiel5tarokL9card_deckE, i64 %indvars.iv, i32 4
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   %7 = icmp eq i64 %5, %6
@@ -26922,7 +26922,7 @@ _ZNSt10unique_ptrIN10open_spiel5tarok10TarokStateESt14default_deleteIS2_EED2Ev.e
   unreachable
 
 108:                                              ; preds = %.lr.ph
-  %109 = getelementptr inbounds nuw [54 x %"struct.open_spiel::tarok::Card"], ptr @_ZN10open_spiel5tarokL9card_deckE, i64 0, i64 %105
+  %109 = getelementptr inbounds nuw %"struct.open_spiel::tarok::Card", ptr @_ZN10open_spiel5tarokL9card_deckE, i64 %105
   %110 = load i32, ptr %109, align 8
   %.not = icmp eq i32 %110, 4
   br i1 %.not, label %111, label %118
@@ -27526,7 +27526,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit55:                  ; preds = %._crit_edge, %160
   unreachable
 
 175:                                              ; preds = %.lr.ph
-  %176 = getelementptr inbounds nuw [54 x %"struct.open_spiel::tarok::Card"], ptr @_ZN10open_spiel5tarokL9card_deckE, i64 0, i64 %172
+  %176 = getelementptr inbounds nuw %"struct.open_spiel::tarok::Card", ptr @_ZN10open_spiel5tarokL9card_deckE, i64 %172
   %177 = load i32, ptr %176, align 8
   %.not39 = icmp eq i32 %177, 4
   br i1 %.not39, label %178, label %185
@@ -27743,7 +27743,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit69:                  ; preds = %._crit_edge130, %24
   unreachable
 
 262:                                              ; preds = %.lr.ph129
-  %263 = getelementptr inbounds nuw [54 x %"struct.open_spiel::tarok::Card"], ptr @_ZN10open_spiel5tarokL9card_deckE, i64 0, i64 %259
+  %263 = getelementptr inbounds nuw %"struct.open_spiel::tarok::Card", ptr @_ZN10open_spiel5tarokL9card_deckE, i64 %259
   %264 = load i32, ptr %263, align 8
   %.not = icmp eq i32 %264, 4
   br i1 %.not, label %272, label %265

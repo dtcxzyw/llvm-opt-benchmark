@@ -6018,7 +6018,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mul11 = fmul double %delta.0113, %conv
   %conv12 = fptoui double %mul9 to i32
   %idxprom.i = zext i32 %conv12 to i64
-  %arrayidx.i = getelementptr inbounds nuw [37 x i8], ptr @__const._ZN6hermes2vmL11toRadixCharEjj.chars, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @__const._ZN6hermes2vmL11toRadixCharEjj.chars, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = load i32, ptr %Capacity2.i.i.i.i.i.i35, align 4
   %cmp.not.i = icmp ult i32 %2, %4
@@ -6088,7 +6088,7 @@ if.end27:                                         ; preds = %if.end27.lr.ph, %if
 if.then38:                                        ; preds = %if.end27
   %arrayidx.i38.le = getelementptr inbounds i8, ptr %add.ptr.i.i37, i64 -1
   %idxprom.i39 = zext i32 %add36 to i64
-  %arrayidx.i40 = getelementptr inbounds nuw [37 x i8], ptr @__const._ZN6hermes2vmL11toRadixCharEjj.chars, i64 0, i64 %idxprom.i39
+  %arrayidx.i40 = getelementptr inbounds nuw i8, ptr @__const._ZN6hermes2vmL11toRadixCharEjj.chars, i64 %idxprom.i39
   %11 = load i8, ptr %arrayidx.i40, align 1
   store i8 %11, ptr %arrayidx.i38.le, align 1
   br label %if.end45thread-pre-split
@@ -6191,7 +6191,7 @@ while.body60:                                     ; preds = %while.cond58thread-
   %call.i63 = call noundef double @fmod(double noundef %24, double noundef %conv50) #17
   %conv63 = fptosi double %call.i63 to i32
   %idxprom.i64 = zext i32 %conv63 to i64
-  %arrayidx.i65 = getelementptr inbounds nuw [37 x i8], ptr @__const._ZN6hermes2vmL11toRadixCharEjj.chars, i64 0, i64 %idxprom.i64
+  %arrayidx.i65 = getelementptr inbounds nuw i8, ptr @__const._ZN6hermes2vmL11toRadixCharEjj.chars, i64 %idxprom.i64
   %25 = load i8, ptr %arrayidx.i65, align 1
   %26 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %27 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4

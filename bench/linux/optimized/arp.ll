@@ -2583,7 +2583,7 @@ define internal noundef i32 @arp_seq_show(ptr noundef %0, ptr noundef %1) #1 ali
 
 7:                                                ; preds = %2
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #14
-  br label %78
+  br label %76
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2616,7 +2616,7 @@ define internal noundef i32 @arp_seq_show(ptr noundef %0, ptr noundef %1) #1 ali
   %28 = select i1 %18, ptr @.str.11, ptr %27
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, i32 noundef %24, i32 noundef 12, ptr noundef nonnull @.str.10, ptr noundef nonnull %28) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %78
+  br label %76
 
 29:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2636,63 +2636,61 @@ define internal noundef i32 @arp_seq_show(ptr noundef %0, ptr noundef %1) #1 ali
   br label %38
 
 38:                                               ; preds = %42, %29
-  %39 = phi i64 [ 0, %29 ], [ %57, %42 ]
-  %40 = phi i64 [ 0, %29 ], [ %59, %42 ]
+  %39 = phi i64 [ 0, %29 ], [ %55, %42 ]
+  %40 = phi i64 [ 0, %29 ], [ %57, %42 ]
   %41 = icmp samesign ult i64 %40, %37
-  br i1 %41, label %42, label %61
+  br i1 %41, label %42, label %59
 
 42:                                               ; preds = %38
-  %43 = getelementptr [32 x i8], ptr %36, i64 0, i64 %40
+  %43 = getelementptr i8, ptr %36, i64 %40
   %44 = load i8, ptr %43, align 1
   %45 = lshr i8 %44, 4
   %46 = zext nneg i8 %45 to i64
-  %47 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %46
+  %47 = getelementptr i8, ptr @hex_asc, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = add nuw nsw i64 %39, 1
-  %50 = getelementptr [30 x i8], ptr %3, i64 0, i64 %39
-  store i8 %48, ptr %50, align 1
-  %51 = and i8 %44, 15
-  %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = add nuw nsw i64 %39, 2
-  %56 = getelementptr [30 x i8], ptr %3, i64 0, i64 %49
-  store i8 %54, ptr %56, align 1
-  %57 = add nuw nsw i64 %39, 3
-  %58 = getelementptr [30 x i8], ptr %3, i64 0, i64 %55
-  store i8 58, ptr %58, align 1
-  %59 = add nuw nsw i64 %40, 1
-  %60 = icmp eq i64 %59, 9
-  br i1 %60, label %.loopexit, label %38, !llvm.loop !27
+  %49 = getelementptr i8, ptr %3, i64 %39
+  store i8 %48, ptr %49, align 1
+  %50 = and i8 %44, 15
+  %51 = zext nneg i8 %50 to i64
+  %52 = getelementptr i8, ptr @hex_asc, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = getelementptr i8, ptr %49, i64 1
+  store i8 %53, ptr %54, align 1
+  %55 = add nuw nsw i64 %39, 3
+  %56 = getelementptr i8, ptr %49, i64 2
+  store i8 58, ptr %56, align 1
+  %57 = add nuw nsw i64 %40, 1
+  %58 = icmp eq i64 %57, 9
+  br i1 %58, label %.loopexit, label %38, !llvm.loop !27
 
-61:                                               ; preds = %38
-  %62 = trunc i64 %39 to i32
-  %63 = tail call i32 @llvm.usub.sat.i32(i32 %62, i32 1)
-  %64 = zext nneg i32 %63 to i64
+59:                                               ; preds = %38
+  %60 = trunc i64 %39 to i32
+  %61 = tail call i32 @llvm.usub.sat.i32(i32 %60, i32 1)
+  %62 = zext nneg i32 %61 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %61
-  %65 = phi i64 [ %64, %61 ], [ 26, %42 ]
-  %66 = zext i16 %33 to i32
-  %67 = getelementptr [30 x i8], ptr %3, i64 0, i64 %65
-  store i8 0, ptr %67, align 1
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %69 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %68) #14
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %71 = load i8, ptr %70, align 4
-  %72 = icmp sgt i8 %71, -1
-  %73 = and i8 %71, 94
-  %74 = icmp eq i8 %73, 0
-  %75 = select i1 %74, i32 0, i32 2
-  %76 = select i1 %72, i32 %75, i32 6
-  %77 = getelementptr inbounds nuw i8, ptr %31, i64 296
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i32 noundef %66, i32 noundef %76, ptr noundef nonnull %3, ptr noundef nonnull %77) #14
+.loopexit:                                        ; preds = %42, %59
+  %63 = phi i64 [ %62, %59 ], [ 26, %42 ]
+  %64 = zext i16 %33 to i32
+  %65 = getelementptr i8, ptr %3, i64 %63
+  store i8 0, ptr %65, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %67 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %66) #14
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %69 = load i8, ptr %68, align 4
+  %70 = icmp sgt i8 %69, -1
+  %71 = and i8 %69, 94
+  %72 = icmp eq i8 %71, 0
+  %73 = select i1 %72, i32 0, i32 2
+  %74 = select i1 %70, i32 %73, i32 6
+  %75 = getelementptr inbounds nuw i8, ptr %31, i64 296
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i32 noundef %64, i32 noundef %74, ptr noundef nonnull %3, ptr noundef nonnull %75) #14
   call void @_raw_read_unlock(ptr noundef nonnull %34) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %78
+  br label %76
 
-78:                                               ; preds = %.loopexit, %23, %7
+76:                                               ; preds = %.loopexit, %23, %7
   ret i32 0
 }
 

@@ -531,9 +531,9 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE4backEv.exit:  ; preds = %_ZNK6vectorISt4pair
 
 76:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw [0 x ptr], ptr %74, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !37
-  %79 = getelementptr inbounds nuw [0 x ptr], ptr %75, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !37
   tail call void @_ZN15smaller_pattern4saveEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %78, ptr noundef %80)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1592,7 +1592,7 @@ define hidden noundef zeroext i1 @_ZN21pattern_inference_cfg7collect14visit_chil
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %17, %_ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit ]
   %.01820 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN21pattern_inference_cfg7collect5visitEP4exprjRb.exit ]
   %17 = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %19, ptr %5, align 8, !tbaa !37
@@ -2129,7 +2129,7 @@ _ZN6vectorIjLb0EjED2Ev.exit144:                   ; preds = %168, %.noexc141
   %indvars.iv = phi i64 [ 0, %182 ], [ %indvars.iv.next, %.loopexit ]
   %.080232 = phi i32 [ 1, %182 ], [ %258, %.loopexit ]
   %.083231 = phi i1 [ false, %182 ], [ %spec.select, %.loopexit ]
-  %190 = getelementptr inbounds nuw [0 x ptr], ptr %186, i64 0, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv
   %191 = load ptr, ptr %190, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %191, ptr %7, align 8, !tbaa !37
@@ -4451,7 +4451,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit45.i:              ; preds = %.critedge.i
   %166 = phi ptr [ %.pre116, %.lr.ph ], [ %310, %_ZN21pattern_inference_cfg19contains_subpattern4saveEP4expr.exit71 ]
   %167 = phi ptr [ %.pre116, %.lr.ph ], [ %311, %_ZN21pattern_inference_cfg19contains_subpattern4saveEP4expr.exit71 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN21pattern_inference_cfg19contains_subpattern4saveEP4expr.exit71 ]
-  %168 = getelementptr inbounds nuw [0 x ptr], ptr %164, i64 0, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv
   %169 = load ptr, ptr %168, align 8, !tbaa !37
   %170 = load i32, ptr %169, align 4, !tbaa !238
   %171 = icmp eq ptr %167, null

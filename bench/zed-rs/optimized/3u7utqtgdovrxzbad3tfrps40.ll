@@ -3811,7 +3811,7 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %74 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 115)
   %75 = icmp eq <16 x i8> %.val.i.i.i, splat (i8 103)
   %narrow.i.i.i = select <16 x i1> %74, <16 x i1> %75, <16 x i1> zeroinitializer
-  %76 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.023.048.i.i
+  %76 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.023.048.i.i
   store <16 x i1> %narrow.i.i.i, ptr %76, align 2, !noalias !697
   %exitcond.not.i.i = icmp eq i64 %70, 4
   br i1 %exitcond.not.i.i, label %.preheader45.i.i, label %69
@@ -3829,7 +3829,7 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %.sroa.028.050.i.i = phi i64 [ %82, %86 ], [ 0, %69 ]
   %.sroa.014.249.i.i = phi i8 [ %.sroa.014.3.i.i, %86 ], [ 0, %69 ]
   %82 = add nuw nsw i64 %.sroa.028.050.i.i, 1
-  %83 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.028.050.i.i
+  %83 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.028.050.i.i
   %84 = load i16, ptr %83, align 2, !noalias !697, !noundef !4
   %85 = icmp eq i16 %84, 0
   br i1 %85, label %86, label %87

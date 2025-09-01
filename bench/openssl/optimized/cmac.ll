@@ -466,7 +466,7 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = add i64 %.075.lcssa, -1
   %74 = mul i64 %73, %38
-  %75 = getelementptr inbounds nuw [2048 x i8], ptr %4, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 %74
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull align 1 %75, i64 %38, i1 false)
   br label %.loopexit
 
@@ -528,9 +528,9 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
 
 21:                                               ; preds = %.lr.ph51, %21
   %indvars.iv54 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next55, %21 ]
-  %22 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %indvars.iv54
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv54
   %23 = load i8, ptr %22, align 1, !tbaa !11
-  %24 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv54
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv54
   %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = xor i8 %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv54
@@ -542,7 +542,7 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
 28:                                               ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = sext i32 %16 to i64
-  %31 = getelementptr inbounds [32 x i8], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
   store i8 -128, ptr %31, align 1, !tbaa !11
   %32 = sub nsw i32 %9, %16
   %33 = icmp sgt i32 %32, 1
@@ -566,9 +566,9 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1, !tbaa !11
-  %44 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !11
   %46 = xor i8 %45, %43
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv

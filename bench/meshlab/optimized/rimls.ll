@@ -2530,16 +2530,16 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE10mlsHessianERKN3
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 2
-  %69 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
-  %70 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %71 = load ptr, ptr %32, align 8
   %72 = load ptr, ptr %31, align 8
   %73 = ptrtoint ptr %71 to i64
   %74 = ptrtoint ptr %72 to i64
   %75 = sub i64 %73, %74
   %76 = ashr exact i64 %75, 2
-  %77 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
-  %78 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   br label %79
 
 79:                                               ; preds = %.preheader.us, %_ZNSt6vectorIfSaIfEE2atEm.exit117.us
@@ -2647,7 +2647,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %138 = fadd float %.sroa.0200.0301.us, %135
   %139 = fadd float %.sroa.4202.0302.us, %136
   %140 = fadd float %.sroa.8204.0303.us, %137
-  %141 = getelementptr inbounds nuw [3 x float], ptr %93, i64 0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv
   %142 = load float, ptr %141, align 4
   %143 = fmul float %142, %107
   %144 = fmul float %142, %110
@@ -2679,7 +2679,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %166 = fsub float %159, %163
   %167 = fsub float %160, %164
   %168 = fsub float %161, %165
-  %169 = getelementptr inbounds nuw [3 x float], ptr %35, i64 0, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   %170 = load float, ptr %169, align 4
   %171 = load float, ptr %16, align 4
   %172 = fmul float %170, %171
@@ -2690,7 +2690,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %177 = fsub float %166, %172
   %178 = fsub float %167, %174
   %179 = fsub float %168, %176
-  %180 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %181 = load float, ptr %180, align 4
   %182 = load float, ptr %35, align 4
   %183 = fmul float %181, %182
@@ -2704,56 +2704,52 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %191 = fmul float %19, %188
   %192 = fmul float %19, %189
   %193 = fmul float %19, %190
-  %194 = getelementptr inbounds nuw [9 x float], ptr %2, i64 0, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %191, ptr %194, align 4
-  %195 = add nuw nsw i64 %indvars.iv, 3
-  %196 = getelementptr inbounds nuw [9 x float], ptr %2, i64 0, i64 %195
-  store float %192, ptr %196, align 4
-  %197 = add nuw nsw i64 %indvars.iv, 6
-  %198 = getelementptr inbounds nuw [9 x float], ptr %2, i64 0, i64 %197
-  store float %193, ptr %198, align 4
+  %195 = getelementptr i8, ptr %194, i64 12
+  store float %192, ptr %195, align 4
+  %196 = getelementptr i8, ptr %194, i64 24
+  store float %193, ptr %196, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond395.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond395.not, label %.split321.us, label %.preheader.us, !llvm.loop !26
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %.preheader ], [ 0, %3 ]
-  %199 = load float, ptr %34, align 8
-  %200 = fmul float %199, 0.000000e+00
-  %201 = fsub float 0.000000e+00, %200
-  %202 = getelementptr inbounds nuw [3 x float], ptr %35, i64 0, i64 %indvars.iv396
-  %203 = load float, ptr %202, align 4
-  %204 = load float, ptr %16, align 4
-  %205 = fmul float %203, %204
-  %206 = load float, ptr %36, align 8
-  %207 = fmul float %203, %206
-  %208 = load float, ptr %37, align 4
-  %209 = fmul float %203, %208
-  %210 = fsub float %201, %205
-  %211 = fsub float %201, %207
-  %212 = fsub float %201, %209
-  %213 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv396
-  %214 = load float, ptr %213, align 4
-  %215 = load float, ptr %35, align 4
-  %216 = fmul float %214, %215
-  %217 = load float, ptr %38, align 8
-  %218 = fmul float %214, %217
-  %219 = load float, ptr %39, align 4
-  %220 = fmul float %214, %219
-  %221 = fsub float %210, %216
-  %222 = fsub float %211, %218
-  %223 = fsub float %212, %220
+  %197 = load float, ptr %34, align 8
+  %198 = fmul float %197, 0.000000e+00
+  %199 = fsub float 0.000000e+00, %198
+  %200 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv396
+  %201 = load float, ptr %200, align 4
+  %202 = load float, ptr %16, align 4
+  %203 = fmul float %201, %202
+  %204 = load float, ptr %36, align 8
+  %205 = fmul float %201, %204
+  %206 = load float, ptr %37, align 4
+  %207 = fmul float %201, %206
+  %208 = fsub float %199, %203
+  %209 = fsub float %199, %205
+  %210 = fsub float %199, %207
+  %211 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv396
+  %212 = load float, ptr %211, align 4
+  %213 = load float, ptr %35, align 4
+  %214 = fmul float %212, %213
+  %215 = load float, ptr %38, align 8
+  %216 = fmul float %212, %215
+  %217 = load float, ptr %39, align 4
+  %218 = fmul float %212, %217
+  %219 = fsub float %208, %214
+  %220 = fsub float %209, %216
+  %221 = fsub float %210, %218
+  %222 = fmul float %19, %219
+  %223 = fmul float %19, %220
   %224 = fmul float %19, %221
-  %225 = fmul float %19, %222
-  %226 = fmul float %19, %223
-  %227 = getelementptr inbounds nuw [9 x float], ptr %2, i64 0, i64 %indvars.iv396
+  %225 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv396
+  store float %222, ptr %225, align 4
+  %226 = getelementptr i8, ptr %225, i64 12
+  store float %223, ptr %226, align 4
+  %227 = getelementptr i8, ptr %225, i64 24
   store float %224, ptr %227, align 4
-  %228 = add nuw nsw i64 %indvars.iv396, 3
-  %229 = getelementptr inbounds nuw [9 x float], ptr %2, i64 0, i64 %228
-  store float %225, ptr %229, align 4
-  %230 = add nuw nsw i64 %indvars.iv396, 6
-  %231 = getelementptr inbounds nuw [9 x float], ptr %2, i64 0, i64 %230
-  store float %226, ptr %231, align 4
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next397, 3
   br i1 %exitcond399.not, label %.split321.us, label %.preheader, !llvm.loop !26

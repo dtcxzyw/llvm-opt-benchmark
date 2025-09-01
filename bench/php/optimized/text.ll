@@ -203,7 +203,7 @@ smart_str_0.exit:                                 ; preds = %.critedge4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !54
-  %42 = getelementptr inbounds nuw [1 x i8], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %41
   store i8 0, ptr %42, align 1, !tbaa !9
   %43 = load ptr, ptr %3, align 8, !tbaa !59
   %.not.i37 = icmp eq ptr %43, null

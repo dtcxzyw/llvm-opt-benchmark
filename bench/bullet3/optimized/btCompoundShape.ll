@@ -1425,10 +1425,10 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 
 40:                                               ; preds = %37, %26
   %.1 = phi i32 [ %.0115, %26 ], [ 1, %37 ]
-  %41 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %.098
+  %41 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.098
   %42 = getelementptr inbounds nuw float, ptr %41, i64 %.1100
   %43 = load float, ptr %42, align 4, !tbaa !22
-  %44 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %.1100
+  %44 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1100
   %45 = getelementptr inbounds nuw float, ptr %44, i64 %.1100
   %46 = load float, ptr %45, align 4, !tbaa !22
   %47 = getelementptr inbounds nuw float, ptr %41, i64 %.098
@@ -1479,7 +1479,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %76 = load float, ptr %45, align 4, !tbaa !22
   %77 = tail call float @llvm.fmuladd.f32(float %.0101, float %43, float %76)
   store float %77, ptr %45, align 4, !tbaa !22
-  %78 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %.1105
+  %78 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1105
   %79 = getelementptr inbounds nuw float, ptr %78, i64 %.098
   %80 = load float, ptr %79, align 4, !tbaa !22
   %81 = getelementptr inbounds nuw float, ptr %78, i64 %.1100
@@ -1499,7 +1499,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 
 90:                                               ; preds = %71, %90
   %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %1, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
   %92 = getelementptr inbounds nuw float, ptr %91, i64 %.098
   %93 = load float, ptr %92, align 4, !tbaa !22
   %94 = getelementptr inbounds nuw float, ptr %91, i64 %.1100
@@ -1847,15 +1847,15 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
 
 84:                                               ; preds = %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i, %78
   %indvars.iv.i.i = phi i64 [ 0, %78 ], [ %indvars.iv.next.i.i, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i ]
-  %85 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %80, i64 0, i64 %indvars.iv.i.i
-  %86 = getelementptr inbounds nuw [3 x %struct.btVector3FloatData], ptr %.044, i64 0, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw %class.btVector3, ptr %80, i64 %indvars.iv.i.i
+  %86 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %.044, i64 %indvars.iv.i.i
   br label %87
 
 87:                                               ; preds = %87, %84
   %indvars.iv.i.i.i = phi i64 [ 0, %84 ], [ %indvars.iv.next.i.i.i, %87 ]
-  %88 = getelementptr inbounds nuw [4 x float], ptr %85, i64 0, i64 %indvars.iv.i.i.i
+  %88 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv.i.i.i
   %89 = load float, ptr %88, align 4, !tbaa !22
-  %90 = getelementptr inbounds nuw [4 x float], ptr %86, i64 0, i64 %indvars.iv.i.i.i
+  %90 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i.i.i
   store float %89, ptr %90, align 4, !tbaa !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -1873,9 +1873,9 @@ _ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i: ; preds = %_ZN
 
 93:                                               ; preds = %93, %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i
   %indvars.iv.i3.i = phi i64 [ 0, %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i ], [ %indvars.iv.next.i4.i, %93 ]
-  %94 = getelementptr inbounds nuw [4 x float], ptr %91, i64 0, i64 %indvars.iv.i3.i
+  %94 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i3.i
   %95 = load float, ptr %94, align 4, !tbaa !22
-  %96 = getelementptr inbounds nuw [4 x float], ptr %92, i64 0, i64 %indvars.iv.i3.i
+  %96 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i3.i
   store float %95, ptr %96, align 4, !tbaa !22
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4

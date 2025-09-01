@@ -104,10 +104,10 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %65 = fcmp oeq double %.fr264, 0.000000e+00
   %66 = sext i32 %20 to i64
   %67 = sext i32 %.3 to i64
-  %68 = getelementptr inbounds [2 x ptr], ptr @dgemmt_.gemv_thread, i64 0, i64 %67
+  %68 = getelementptr inbounds ptr, ptr @dgemmt_.gemv_thread, i64 %67
   %69 = sext i32 %23 to i64
   %70 = sext i32 %62 to i64
-  %71 = getelementptr inbounds [2 x ptr], ptr @__const.dgemmt_.gemv, i64 0, i64 %67
+  %71 = getelementptr inbounds ptr, ptr @__const.dgemmt_.gemv, i64 %67
   br i1 %65, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -147,10 +147,10 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %84 = fcmp oeq double %.fr264, 0.000000e+00
   %85 = sext i32 %20 to i64
   %86 = sext i32 %.3 to i64
-  %87 = getelementptr inbounds [2 x ptr], ptr @dgemmt_.gemv_thread, i64 0, i64 %86
+  %87 = getelementptr inbounds ptr, ptr @dgemmt_.gemv_thread, i64 %86
   %88 = sext i32 %23 to i64
   %89 = sext i32 %62 to i64
-  %90 = getelementptr inbounds [2 x ptr], ptr @__const.dgemmt_.gemv, i64 0, i64 %86
+  %90 = getelementptr inbounds ptr, ptr @__const.dgemmt_.gemv, i64 %86
   br i1 %84, label %.lr.ph262.split.us, label %.lr.ph262.split.preheader
 
 .lr.ph262.split.preheader:                        ; preds = %.lr.ph262

@@ -2365,7 +2365,7 @@ _.exit408:                                        ; preds = %991, %993
   %1008 = load ptr, ptr %1000, align 8, !tbaa !178
   %1009 = getelementptr inbounds nuw i8, ptr %1008, i64 400
   %1010 = load ptr, ptr %1009, align 8, !tbaa !19
-  %1011 = getelementptr inbounds nuw [3 x %struct.anon], ptr @midx_exts, i64 0, i64 %.01629.i
+  %1011 = getelementptr inbounds nuw %struct.anon, ptr @midx_exts, i64 %.01629.i
   %1012 = load ptr, ptr %1011, align 16, !tbaa !179
   call void @get_midx_filename_ext(ptr noundef %1010, ptr noundef nonnull %9, ptr noundef nonnull %1001, ptr noundef %1007, ptr noundef %1012) #19
   %1013 = load ptr, ptr %1000, align 8, !tbaa !178
@@ -2565,7 +2565,7 @@ _.exit417:                                        ; preds = %1044, %1046
 
 .lr.ph.us.i420:                                   ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next28.i, %._crit_edge.us.i ]
-  %1104 = getelementptr inbounds nuw [3 x ptr], ptr @__const.clear_midx_files.exts, i64 0, i64 %indvars.iv27.i
+  %1104 = getelementptr inbounds nuw ptr, ptr @__const.clear_midx_files.exts, i64 %indvars.iv27.i
   %1105 = load ptr, ptr %1104, align 8, !tbaa !57
   call void @clear_incremental_midx_files_ext(ptr noundef %1, ptr noundef %1105, ptr noundef nonnull %986, i32 noundef %1102) #19
   br label %1106
@@ -2586,7 +2586,7 @@ _.exit417:                                        ; preds = %1044, %1046
 
 .split.i:                                         ; preds = %1100, %.split.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.split.i ], [ 0, %1100 ]
-  %1109 = getelementptr inbounds nuw [3 x ptr], ptr @__const.clear_midx_files.exts, i64 0, i64 %indvars.iv31.i
+  %1109 = getelementptr inbounds nuw ptr, ptr @__const.clear_midx_files.exts, i64 %indvars.iv31.i
   %1110 = load ptr, ptr %1109, align 8, !tbaa !57
   call void @clear_incremental_midx_files_ext(ptr noundef %1, ptr noundef %1110, ptr noundef nonnull %986, i32 noundef 0) #19
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1

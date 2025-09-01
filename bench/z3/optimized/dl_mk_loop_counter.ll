@@ -1850,7 +1850,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %359 ]
   %.069326 = phi i32 [ %.069324, %.lr.ph ], [ %.069, %359 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %240 = getelementptr inbounds nuw [0 x ptr], ptr %227, i64 0, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv
   %241 = load ptr, ptr %240, align 8, !tbaa !275
   %242 = ptrtoint ptr %241 to i64
   %243 = and i64 %242, -8
@@ -2198,7 +2198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i218: ; pr
   %377 = phi ptr [ %228, %.lr.ph328 ], [ %497, %496 ]
   %378 = phi ptr [ %229, %.lr.ph328 ], [ %442, %496 ]
   %indvars.iv346 = phi i64 [ %232, %.lr.ph328 ], [ %indvars.iv.next347, %496 ]
-  %379 = getelementptr inbounds nuw [0 x ptr], ptr %231, i64 0, i64 %indvars.iv346
+  %379 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv346
   %380 = load ptr, ptr %379, align 8, !tbaa !275
   %381 = ptrtoint ptr %380 to i64
   %382 = and i64 %381, -8
@@ -2595,10 +2595,10 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit150:       ; preds = %516, %510, %507
 543:                                              ; preds = %537
   %544 = load ptr, ptr %125, align 8, !tbaa !213
   %545 = getelementptr inbounds nuw i8, ptr %509, i64 32
-  %546 = getelementptr inbounds nuw [0 x ptr], ptr %545, i64 0, i64 %523
+  %546 = getelementptr inbounds nuw ptr, ptr %545, i64 %523
   %547 = load ptr, ptr %546, align 8, !tbaa !233
   %548 = getelementptr inbounds nuw i8, ptr %539, i64 32
-  %549 = getelementptr inbounds nuw [0 x ptr], ptr %548, i64 0, i64 %523
+  %549 = getelementptr inbounds nuw ptr, ptr %548, i64 %523
   %550 = load ptr, ptr %549, align 8, !tbaa !233
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %551 = load i8, ptr %133, align 4
@@ -3935,7 +3935,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit: 
   %121 = phi ptr [ %80, %.lr.ph ], [ %183, %242 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %242 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %122 = getelementptr inbounds nuw [0 x ptr], ptr %107, i64 0, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
   %123 = load ptr, ptr %122, align 8, !tbaa !275
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, -8
@@ -4280,7 +4280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i100: ; pr
   %261 = phi ptr [ %109, %.lr.ph144 ], [ %382, %381 ]
   %262 = phi ptr [ %110, %.lr.ph144 ], [ %327, %381 ]
   %indvars.iv151 = phi i64 [ %113, %.lr.ph144 ], [ %indvars.iv.next152, %381 ]
-  %263 = getelementptr inbounds nuw [0 x ptr], ptr %112, i64 0, i64 %indvars.iv151
+  %263 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv151
   %264 = load ptr, ptr %263, align 8, !tbaa !275
   %265 = ptrtoint ptr %264 to i64
   %266 = and i64 %265, -8

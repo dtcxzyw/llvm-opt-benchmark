@@ -328,7 +328,7 @@ Cudd_BddToCubeArray.exit:                         ; preds = %75, %.preheader.i
 
 switch.lookup:                                    ; preds = %.lr.ph
   %86 = zext nneg i32 %83 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.Cudd_bddPrintCover, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Cudd_bddPrintCover, i64 %86
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %87
 
@@ -2747,7 +2747,7 @@ define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr noundef readonly captures(no
   %56 = add nsw i64 %55, %54
   %57 = and i32 %.011.i.i, 63
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr @shuffleTable, i64 %58
   store i64 %56, ptr %59, align 8, !tbaa !79
   %60 = add nuw nsw i32 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %60, 75
@@ -2780,8 +2780,8 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %48
   store i64 %75, ptr @cuddRand2, align 8, !tbaa !79
   %76 = sdiv i64 %63, 33554431
   %sext.i = shl i64 %76, 32
-  %77 = ashr exact i64 %sext.i, 32
-  %78 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %77
+  %77 = ashr exact i64 %sext.i, 29
+  %78 = getelementptr inbounds i8, ptr @shuffleTable, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !79
   %80 = sub nsw i64 %79, %75
   store i64 %69, ptr %78, align 8, !tbaa !79
@@ -2837,7 +2837,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @Cudd_Random() l
   %9 = add nsw i64 %8, %7
   %10 = and i32 %.011.i, 63
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr @shuffleTable, i64 %11
   store i64 %9, ptr %12, align 8, !tbaa !79
   %13 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %13, 75
@@ -2870,8 +2870,8 @@ Cudd_Srandom.exit:                                ; preds = %.preheader, %._crit
   store i64 %28, ptr @cuddRand2, align 8, !tbaa !79
   %29 = sdiv i64 %16, 33554431
   %sext = shl i64 %29, 32
-  %30 = ashr exact i64 %sext, 32
-  %31 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %30
+  %30 = ashr exact i64 %sext, 29
+  %31 = getelementptr inbounds i8, ptr @shuffleTable, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !79
   %33 = sub nsw i64 %32, %28
   store i64 %22, ptr %31, align 8, !tbaa !79
@@ -2980,7 +2980,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr noundef r
   %45 = add nsw i64 %44, %43
   %46 = and i32 %.011.i.i, 63
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr @shuffleTable, i64 %47
   store i64 %45, ptr %48, align 8, !tbaa !79
   %49 = add nuw nsw i32 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %49, 75
@@ -3013,8 +3013,8 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   store i64 %64, ptr @cuddRand2, align 8, !tbaa !79
   %65 = sdiv i64 %52, 33554431
   %sext.i = shl i64 %65, 32
-  %66 = ashr exact i64 %sext.i, 32
-  %67 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %66
+  %66 = ashr exact i64 %sext.i, 29
+  %67 = getelementptr inbounds i8, ptr @shuffleTable, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !79
   %69 = sub nsw i64 %68, %64
   store i64 %58, ptr %67, align 8, !tbaa !79
@@ -3495,7 +3495,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   %121 = add nsw i64 %120, %119
   %122 = and i32 %.011.i.i339.us, 63
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i64, ptr @shuffleTable, i64 %123
   store i64 %121, ptr %124, align 8, !tbaa !79
   %125 = add nuw nsw i32 %.011.i.i339.us, 1
   %exitcond.not.i.i343.us = icmp eq i32 %125, 75
@@ -3528,8 +3528,8 @@ Cudd_Random.exit345.us:                           ; preds = %.preheader350.us, %
   store i64 %140, ptr @cuddRand2, align 8, !tbaa !79
   %141 = sdiv i64 %128, 33554431
   %sext.i337.us = shl i64 %141, 32
-  %142 = ashr exact i64 %sext.i337.us, 32
-  %143 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %142
+  %142 = ashr exact i64 %sext.i337.us, 29
+  %143 = getelementptr inbounds i8, ptr @shuffleTable, i64 %142
   %144 = load i64, ptr %143, align 8, !tbaa !79
   %145 = sub nsw i64 %144, %140
   store i64 %134, ptr %143, align 8, !tbaa !79
@@ -3583,7 +3583,7 @@ Cudd_Random.exit345.us:                           ; preds = %.preheader350.us, %
   %171 = add nsw i64 %170, %169
   %172 = and i32 %.011.i.i, 63
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i64, ptr @shuffleTable, i64 %173
   store i64 %171, ptr %174, align 8, !tbaa !79
   %175 = add nuw nsw i32 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %175, 75
@@ -3616,8 +3616,8 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   store i64 %190, ptr @cuddRand2, align 8, !tbaa !79
   %191 = sdiv i64 %178, 33554431
   %sext.i = shl i64 %191, 32
-  %192 = ashr exact i64 %sext.i, 32
-  %193 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 %192
+  %192 = ashr exact i64 %sext.i, 29
+  %193 = getelementptr inbounds i8, ptr @shuffleTable, i64 %192
   %194 = load i64, ptr %193, align 8, !tbaa !79
   %195 = sub nsw i64 %194, %190
   store i64 %184, ptr %193, align 8, !tbaa !79
@@ -5985,7 +5985,7 @@ define void @Cudd_Srandom(i64 noundef %0) local_unnamed_addr #15 {
   %12 = add nsw i64 %11, %10
   %13 = and i32 %.011, 63
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [64 x i64], ptr @shuffleTable, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @shuffleTable, i64 %14
   store i64 %12, ptr %15, align 8, !tbaa !79
   %16 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %16, 75

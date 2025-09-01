@@ -34,7 +34,7 @@ define { ptr, i64 } @_ZN8pyo3_ffi32_cstr_from_utf8_with_nul_checked17h7d192abfde
 
 11:                                               ; preds = %2
   %12 = add i64 %1, -1
-  %13 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1, !noundef !4
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %.preheader.split, label %6
@@ -55,7 +55,7 @@ define { ptr, i64 } @_ZN8pyo3_ffi32_cstr_from_utf8_with_nul_checked17h7d192abfde
 
 .lr.ph:                                           ; preds = %.preheader.split, %16
   %.sroa.0.08 = phi i64 [ %17, %16 ], [ 0, %.preheader.split ]
-  %20 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %.sroa.0.08
+  %20 = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.08
   %21 = load i8, ptr %20, align 1, !noundef !4
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %16

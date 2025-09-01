@@ -370,7 +370,7 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_output(ptr noundef %0, i3
   %35 = phi i64 [ %.pre.i, %._crit_edge.i ], [ 0, %27 ], [ %spec.store.select.i, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %38 = getelementptr inbounds nuw [336 x i8], ptr %36, i64 0, i64 %35
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %35
   %39 = load i8, ptr %38, align 1, !tbaa !20
   %40 = zext i8 %39 to i64
   %41 = add i64 %35, 1
@@ -450,7 +450,7 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
 29:                                               ; preds = %23
   %30 = trunc i64 %3 to i8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %32 = getelementptr inbounds nuw [336 x i8], ptr %31, i64 0, i64 %25
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %25
   store i8 %30, ptr %32, align 1, !tbaa !20
   %33 = load i64, ptr %24, align 8, !tbaa !21
   %34 = add i64 %33, 1

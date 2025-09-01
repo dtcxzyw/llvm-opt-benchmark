@@ -2822,7 +2822,7 @@ switch.early.test.i.i:                            ; preds = %ctype_raw.exit.i.i
 
 218:                                              ; preds = %.sink.split.i.i, %208, %202
   %.060.i.i = phi i32 [ %204, %208 ], [ %204, %202 ], [ %217, %.sink.split.i.i ]
-  %219 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %219 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
   store i32 %.060.i.i, ptr %219, align 4, !tbaa !27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.059.i.i = getelementptr inbounds nuw i8, ptr %.05984.i.i, i64 4
@@ -2843,7 +2843,7 @@ switch.early.test.i.i:                            ; preds = %ctype_raw.exit.i.i
   %indvars.iv93.i.i = phi i64 [ 1, %.lr.ph88.i.i ], [ %indvars.iv.next94.i.i, %221 ]
   %.16185.i.i = phi i32 [ %.pre97.i.i, %.lr.ph88.i.i ], [ %226, %221 ]
   %222 = trunc i32 %.16185.i.i to i16
-  %223 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv93.i.i
+  %223 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv93.i.i
   %224 = load i32, ptr %223, align 4, !tbaa !27
   %225 = trunc i32 %224 to i16
   store i16 25600, ptr %20, align 4, !tbaa !31
@@ -4034,9 +4034,9 @@ ctype_rawchild.exit:                              ; preds = %97
 .thread:                                          ; preds = %168
   %176 = getelementptr inbounds nuw %struct.CType, ptr %173, i64 %169
   store ptr %176, ptr %4, align 16, !tbaa !97
-  %177 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %175, ptr %177, align 8, !tbaa !97
-  %178 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %170, ptr %178, align 4, !tbaa !27
   br label %.loopexit
 
@@ -5649,7 +5649,7 @@ crec_ct2irt.exit.i:                               ; preds = %122, %114, %107, %1
 crec_ct2irt.exit.thread67.sink.split:             ; preds = %57, %50, %45, %65, %crec_ct2irt.exit
   %.017.i.ph.sink = phi i32 [ %.017.i, %crec_ct2irt.exit ], [ %61, %57 ], [ %54, %50 ], [ 14, %45 ], [ 14, %65 ]
   %147 = zext nneg i32 %.017.i.ph.sink to i64
-  %148 = getelementptr inbounds nuw [0 x i8], ptr @lj_ir_type_size, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr @lj_ir_type_size, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !31
   %150 = zext i8 %149 to i32
   br label %crec_ct2irt.exit.thread67

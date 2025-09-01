@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.PartitionMap = type { i32, ptr, ptr, i8, ptr }
 %struct.PartitionRangeBound = type { i32, ptr, ptr, i8 }
-%struct.NullableDatum = type { i64, i8 }
 
 @.str = private unnamed_addr constant [62 x i8] c"partition \22%s\22 conflicts with existing default partition \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"partbounds.c\00", align 1
@@ -7072,7 +7071,7 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
   unreachable
 
 123:                                              ; preds = %110, %102
-  %124 = getelementptr inbounds nuw [0 x %struct.FmgrInfo], ptr %100, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %100, i64 %indvars.iv
   %125 = load ptr, ptr %101, align 8
   %126 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %125, i64 %indvars.iv
   %127 = load ptr, ptr %0, align 8
@@ -7197,16 +7196,16 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
   %.0125161 = phi i64 [ 0, %.lr.ph163 ], [ %.1126, %216 ]
   %198 = shl i64 %indvars.iv179, 32
   %sext = add i64 %198, 12884901888
-  %199 = ashr exact i64 %sext, 32
-  %200 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %5, i64 0, i64 %199
+  %199 = ashr exact i64 %sext, 28
+  %200 = getelementptr inbounds i8, ptr %5, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = load i8, ptr %201, align 8, !range !6, !noundef !7
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %216, label %204
 
 204:                                              ; preds = %197
-  %205 = getelementptr inbounds nuw [0 x %struct.FmgrInfo], ptr %195, i64 0, i64 %indvars.iv179
-  %206 = getelementptr inbounds nuw [32 x i32], ptr %196, i64 0, i64 %indvars.iv179
+  %205 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %195, i64 %indvars.iv179
+  %206 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv179
   %207 = load i32, ptr %206, align 4
   %208 = load i64, ptr %200, align 8
   %209 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %205, i32 noundef %207, i64 noundef %208, i64 noundef 8816678312871386365) #12

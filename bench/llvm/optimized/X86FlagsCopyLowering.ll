@@ -2303,7 +2303,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i: ; preds = %834
 
 858:                                              ; preds = %854
   %859 = zext i32 %823 to i64
-  %860 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %859
+  %860 = getelementptr inbounds nuw i32, ptr %36, i64 %859
   store i32 %856, ptr %860, align 4, !tbaa !380, !alias.scope !491
   br label %.critedge.i
 
@@ -2525,7 +2525,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %961 = call noundef i32 @_ZN4llvm3X8616getCondFromSETCCERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0445.0634983) #16
   %962 = zext i32 %961 to i64
-  %963 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %962
+  %963 = getelementptr inbounds nuw i32, ptr %36, i64 %962
   %964 = load i32, ptr %963, align 4, !tbaa !380
   %.not.i331 = icmp eq i32 %964, 0
   br i1 %.not.i331, label %965, label %967
@@ -4348,17 +4348,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass9rewrite
 
 switch.lookup:                                    ; preds = %13
   %17 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [31 x i32], ptr @switch.table._ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass9rewriteMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocERS5_RSt5arrayIjLm16EE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass9rewriteMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocERS5_RSt5arrayIjLm16EE, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL21getImplicitCondFromMIj.exit
 
 _ZL21getImplicitCondFromMIj.exit:                 ; preds = %switch.lookup, %13, %6
   %.020 = phi i32 [ %11, %6 ], [ 18, %13 ], [ %switch.load, %switch.lookup ]
   %18 = zext i32 %.020 to i64
-  %19 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %18
   %20 = tail call noundef i32 @_ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE(i32 noundef %.020) #16
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
   %23 = load i32, ptr %19, align 4, !tbaa !380
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %_ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass21getCondOrInverseInRegERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocENS1_3X868CondCodeERSt5arrayIjLm16EE.exit

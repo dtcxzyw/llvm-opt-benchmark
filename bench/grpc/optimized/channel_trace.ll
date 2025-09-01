@@ -376,7 +376,7 @@ define void @_ZNK9grpc_core8channelz12ChannelTrace10TraceEvent16RenderTraceEvent
 
 switch.lookup:                                    ; preds = %35
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK9grpc_core8channelz12ChannelTrace10TraceEvent16RenderTraceEventEv, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core8channelz12ChannelTrace10TraceEvent16RenderTraceEventEv, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void @_ZN9grpc_core12experimental4Json10FromStringEPKc(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::experimental::Json") align 8 %17, ptr noundef nonnull %switch.load)
           to label %42 unwind label %.thread127

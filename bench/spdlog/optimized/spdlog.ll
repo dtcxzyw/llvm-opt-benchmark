@@ -1767,14 +1767,14 @@ $_ZTSFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN6spdlog5level14to_string_viewENS0_10level_enumE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [7 x %"class.fmt::v11::basic_string_view"], ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 0, i64 %2
+  %3 = getelementptr inbounds %"class.fmt::v11::basic_string_view", ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN6spdlog5level14to_short_c_strENS0_10level_enumE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [7 x ptr], ptr @_ZN6spdlog5levelL17short_level_namesE, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @_ZN6spdlog5levelL17short_level_namesE, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -23298,7 +23298,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit: ; pre
 
 35:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit
   %36 = zext nneg i32 %22 to i64
-  %37 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr %10, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !171
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE20on_replacement_fieldEiPKc.exit
@@ -23362,7 +23362,7 @@ _ZN3fmt3v1113parse_contextIcE11next_arg_idEv.exit.i.i31: ; preds = %43
 
 63:                                               ; preds = %55
   %64 = zext nneg i32 %52 to i64
-  %65 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %10, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !171
   %67 = call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %.thread47
@@ -23407,7 +23407,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33: ; p
 
 79:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33
   %80 = zext nneg i32 %.038.i to i64
-  %81 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %10, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !171
   %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE15on_format_specsEiPKcS5_.exit
@@ -24261,7 +24261,7 @@ _ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   %.013.i = phi i64 [ %219, %.lr.ph.i ], [ 0, %_ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_13parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit89 ]
   %216 = getelementptr inbounds nuw i8, ptr %.0156, i64 %.013.i
   %217 = load i8, ptr %216, align 1, !tbaa !17
-  %218 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 0, i64 %.013.i
+  %218 = getelementptr inbounds nuw i8, ptr %25, i64 %.013.i
   store i8 %217, ptr %218, align 1, !tbaa !17
   %219 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %.013.i, %193
@@ -24739,7 +24739,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %28, %32
   %46 = urem i32 %.01819.i.i.i.i.i, 100
   %47 = shl nuw nsw i32 %46, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %48
   %50 = load i16, ptr %49, align 2
   store i16 %50, ptr %45, align 1
   %51 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -24758,7 +24758,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %28, %32
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 %56
   %58 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %59
   %61 = load i16, ptr %60, align 2
   store i16 %61, ptr %57, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -25671,7 +25671,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit174: ; preds = %443, %448
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %457 = load i32, ptr %456, align 8, !tbaa !43
   %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds [7 x %"class.fmt::v11::basic_string_view"], ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 0, i64 %458
+  %459 = getelementptr inbounds %"class.fmt::v11::basic_string_view", ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 %458
   %.sroa.03.0.copyload = load ptr, ptr %459, align 16, !tbaa !4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %459, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !26
@@ -25909,7 +25909,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit229: ; preds = %_ZN6spdlog7detail
   %565 = urem i32 %.01819.i.i.i.i.i256, 100
   %566 = shl nuw nsw i32 %565, 1
   %567 = zext nneg i32 %566 to i64
-  %568 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %567
   %569 = load i16, ptr %568, align 2
   store i16 %569, ptr %564, align 1
   %570 = udiv i32 %.01819.i.i.i.i.i256, 100
@@ -25928,7 +25928,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit229: ; preds = %_ZN6spdlog7detail
   %576 = getelementptr inbounds nuw i8, ptr %5, i64 %575
   %577 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i232, 1
   %578 = zext nneg i32 %577 to i64
-  %579 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %578
+  %579 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %578
   %580 = load i16, ptr %579, align 2
   store i16 %580, ptr %576, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i234
@@ -26667,7 +26667,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit16: ; preds = %_ZN3fmt3v116detail
   %50 = urem i32 %.01819.i.i.i.i, 100
   %51 = shl nuw nsw i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %52
   %54 = load i16, ptr %53, align 2
   store i16 %54, ptr %49, align 1
   %55 = udiv i32 %.01819.i.i.i.i, 100
@@ -26684,7 +26684,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit16: ; preds = %_ZN3fmt3v116detail
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
   %62 = shl nuw nsw i32 %55, 1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %63
   %65 = load i16, ptr %64, align 2
   store i16 %65, ptr %61, align 1
   br label %_ZN3fmt3v1110format_intC2Ej.exit.i
@@ -28027,7 +28027,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details15level_formatterINS0_13sc
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !43
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [7 x %"class.fmt::v11::basic_string_view"], ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 0, i64 %8
+  %9 = getelementptr inbounds %"class.fmt::v11::basic_string_view", ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !56
@@ -28248,7 +28248,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details21short_level_formatterINS
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !43
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [7 x ptr], ptr @_ZN6spdlog5levelL17short_level_namesE, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr @_ZN6spdlog5levelL17short_level_namesE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -28470,10 +28470,10 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11t_formatterINS0_13scoped
   %9 = or i64 %8, 1
   %10 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %9, i1 true)
   %11 = xor i64 %10, 63
-  %12 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !17
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !26
   %17 = icmp ult i64 %8, %16
   %.neg.i.i.i.i = sext i1 %17 to i64
@@ -28495,7 +28495,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11t_formatterINS0_13scoped
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = urem i64 %.01819.i.i.i.i, 100
   %27 = shl nuw nsw i64 %26, 1
-  %28 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %27
   %29 = load i16, ptr %28, align 2
   store i16 %29, ptr %25, align 1
   %30 = udiv i64 %.01819.i.i.i.i, 100
@@ -28513,7 +28513,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11t_formatterINS0_13scoped
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   %37 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %37
   %39 = load i16, ptr %38, align 2
   store i16 %39, ptr %36, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -28970,7 +28970,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11a_formatterINS0_13scoped
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !721
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6spdlog7detailsL4daysE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL4daysE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -29189,7 +29189,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11A_formatterINS0_13scoped
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !721
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6spdlog7detailsL9full_daysE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL9full_daysE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -29408,7 +29408,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11b_formatterINS0_13scoped
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !680
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6spdlog7detailsL6monthsE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL6monthsE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -29627,7 +29627,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11B_formatterINS0_13scoped
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !680
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6spdlog7detailsL11full_monthsE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL11full_monthsE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -29857,7 +29857,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11c_formatterINS0_13scoped
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !721
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6spdlog7detailsL4daysE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL4daysE, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #37
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
@@ -29959,7 +29959,7 @@ _ZN6spdlog7details10fmt_helper18append_string_viewEN3fmt3v1117basic_string_viewI
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %61 = load i32, ptr %60, align 8, !tbaa !680
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6spdlog7detailsL6monthsE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL6monthsE, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !4
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #37
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
@@ -30066,7 +30066,7 @@ _ZN6spdlog7details10fmt_helper18append_string_viewEN3fmt3v1117basic_string_viewI
   %108 = urem i32 %.01819.i.i.i.i.i, 100
   %109 = shl nuw nsw i32 %108, 1
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %110
   %112 = load i16, ptr %111, align 2
   store i16 %112, ptr %107, align 1
   %113 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -30085,7 +30085,7 @@ _ZN6spdlog7details10fmt_helper18append_string_viewEN3fmt3v1117basic_string_viewI
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 %118
   %120 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %121
   %123 = load i16, ptr %122, align 2
   store i16 %123, ptr %119, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -30578,7 +30578,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   %314 = urem i32 %.01819.i.i.i.i.i151, 100
   %315 = shl nuw nsw i32 %314, 1
   %316 = zext nneg i32 %315 to i64
-  %317 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %316
   %318 = load i16, ptr %317, align 2
   store i16 %318, ptr %313, align 1
   %319 = udiv i32 %.01819.i.i.i.i.i151, 100
@@ -30597,7 +30597,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   %325 = getelementptr inbounds nuw i8, ptr %5, i64 %324
   %326 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i127, 1
   %327 = zext nneg i32 %326 to i64
-  %328 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %327
   %329 = load i16, ptr %328, align 2
   store i16 %329, ptr %325, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i129
@@ -31161,7 +31161,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11Y_formatterINS0_13scoped
   %16 = urem i32 %.01819.i.i.i.i.i, 100
   %17 = shl nuw nsw i32 %16, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %18
   %20 = load i16, ptr %19, align 2
   store i16 %20, ptr %15, align 1
   %21 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -31180,7 +31180,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11Y_formatterINS0_13scoped
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 %26
   %28 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %29
   %31 = load i16, ptr %30, align 2
   store i16 %31, ptr %27, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -33728,11 +33728,11 @@ define linkonce_odr dso_local void @_ZN6spdlog7details10fmt_helper8pad_uintImEEv
   %5 = or i64 %0, 1
   %6 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %7 = xor i64 %6, 63
-  %8 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !17
   %10 = zext i8 %9 to i32
   %11 = zext i8 %9 to i64
-  %12 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !26
   %14 = icmp ult i64 %0, %13
   %.neg.i.i.i = sext i1 %14 to i32
@@ -33759,7 +33759,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details10fmt_helper8pad_uintImEEv
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
   %24 = urem i64 %.01819.i.i.i.i, 100
   %25 = shl nuw nsw i64 %24, 1
-  %26 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %23, align 1
   %28 = udiv i64 %.01819.i.i.i.i, 100
@@ -33777,7 +33777,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details10fmt_helper8pad_uintImEEv
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %35 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %35
   %37 = load i16, ptr %36, align 2
   store i16 %37, ptr %34, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -34077,7 +34077,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11E_formatterINS0_13scoped
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
   %15 = urem i64 %.01819.i.i.i.i.i, 100
   %16 = shl nuw nsw i64 %15, 1
-  %17 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %16
   %18 = load i16, ptr %17, align 2
   store i16 %18, ptr %14, align 1
   %19 = udiv i64 %.01819.i.i.i.i.i, 100
@@ -34095,7 +34095,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11E_formatterINS0_13scoped
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = shl nuw nsw i64 %.018.lcssa.i.i.i.i.i, 1
-  %27 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %26
   %28 = load i16, ptr %27, align 2
   store i16 %28, ptr %25, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedImEEPcT_.exit.i.i.i
@@ -36471,7 +36471,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details13pid_formatterINS0_13scop
   %9 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %10 = xor i32 %9, 31
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEjE5table, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEjE5table, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !26
   %14 = zext i32 %7 to i64
   %15 = add i64 %13, %14
@@ -36492,7 +36492,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details13pid_formatterINS0_13scop
   %22 = urem i32 %.01819.i.i.i.i, 100
   %23 = shl nuw nsw i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %24
   %26 = load i16, ptr %25, align 2
   store i16 %26, ptr %21, align 1
   %27 = udiv i32 %.01819.i.i.i.i, 100
@@ -36511,7 +36511,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details13pid_formatterINS0_13scop
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 %32
   %34 = shl nuw nsw i32 %.018.lcssa.i.i.i.i, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %35
   %37 = load i16, ptr %36, align 2
   store i16 %37, ptr %33, align 1
   br label %_ZN3fmt3v1110format_intC2Ej.exit.i
@@ -36928,7 +36928,7 @@ _ZN6spdlog7details13scoped_padderD2Ev.exit:       ; preds = %._crit_edge.i.i.i.i
   %78 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %77, i1 true)
   %79 = xor i32 %78, 31
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEjE5table, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEjE5table, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !26
   %83 = zext nneg i32 %10 to i64
   %84 = add i64 %82, %83
@@ -37055,7 +37055,7 @@ _ZN6spdlog7details10fmt_helper18append_string_viewEN3fmt3v1117basic_string_viewI
   %136 = urem i32 %.01819.i.i.i.i.i, 100
   %137 = shl nuw nsw i32 %136, 1
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %138
   %140 = load i16, ptr %139, align 2
   store i16 %140, ptr %135, align 1
   %141 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -37074,7 +37074,7 @@ _ZN6spdlog7details10fmt_helper18append_string_viewEN3fmt3v1117basic_string_viewI
   %147 = getelementptr inbounds nuw i8, ptr %5, i64 %146
   %148 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %149
   %151 = load i16, ptr %150, align 2
   store i16 %151, ptr %147, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -38218,7 +38218,7 @@ _ZN6spdlog7details13scoped_padderD2Ev.exit:       ; preds = %._crit_edge.i.i.i.i
   %70 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %69, i1 true)
   %71 = xor i32 %70, 31
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEjE5table, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEjE5table, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !26
   %75 = zext nneg i32 %9 to i64
   %76 = add i64 %74, %75
@@ -38242,7 +38242,7 @@ _ZN6spdlog7details13scoped_padderD2Ev.exit:       ; preds = %._crit_edge.i.i.i.i
   %85 = urem i32 %.01819.i.i.i.i.i, 100
   %86 = shl nuw nsw i32 %85, 1
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %87
   %89 = load i16, ptr %88, align 2
   store i16 %89, ptr %84, align 1
   %90 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -38261,7 +38261,7 @@ _ZN6spdlog7details13scoped_padderD2Ev.exit:       ; preds = %._crit_edge.i.i.i.i
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 %95
   %97 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %98
   %100 = load i16, ptr %99, align 2
   store i16 %100, ptr %96, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -38924,10 +38924,10 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %10 = or i64 %.sroa.speculated, 1
   %11 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
-  %13 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !17
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !26
   %18 = icmp ult i64 %.sroa.speculated, %17
   %.neg.i.i.i.i = sext i1 %18 to i64
@@ -38948,7 +38948,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = urem i64 %.01819.i.i.i.i, 100
   %27 = shl nuw nsw i64 %26, 1
-  %28 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %27
   %29 = load i16, ptr %28, align 2
   store i16 %29, ptr %25, align 1
   %30 = udiv i64 %.01819.i.i.i.i, 100
@@ -38966,7 +38966,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   %37 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %37
   %39 = load i16, ptr %38, align 2
   store i16 %39, ptr %36, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -39211,10 +39211,10 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %11 = or i64 %10, 1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
-  %14 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !17
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = icmp ult i64 %10, %18
   %.neg.i.i.i.i = sext i1 %19 to i64
@@ -39235,7 +39235,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %25
   %27 = urem i64 %.01819.i.i.i.i, 100
   %28 = shl nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %28
   %30 = load i16, ptr %29, align 2
   store i16 %30, ptr %26, align 1
   %31 = udiv i64 %.01819.i.i.i.i, 100
@@ -39253,7 +39253,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
   %38 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %39 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %38
   %40 = load i16, ptr %39, align 2
   store i16 %40, ptr %37, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -39498,10 +39498,10 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %11 = or i64 %10, 1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
-  %14 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !17
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = icmp ult i64 %10, %18
   %.neg.i.i.i.i = sext i1 %19 to i64
@@ -39522,7 +39522,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %25
   %27 = urem i64 %.01819.i.i.i.i, 100
   %28 = shl nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %28
   %30 = load i16, ptr %29, align 2
   store i16 %30, ptr %26, align 1
   %31 = udiv i64 %.01819.i.i.i.i, 100
@@ -39540,7 +39540,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
   %38 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %39 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %38
   %40 = load i16, ptr %39, align 2
   store i16 %40, ptr %37, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -39785,10 +39785,10 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %11 = or i64 %10, 1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
-  %14 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE9bsr2log10, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !17
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt3v116detail15do_count_digitsEmE20zero_or_powers_of_10, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = icmp ult i64 %10, %18
   %.neg.i.i.i.i = sext i1 %19 to i64
@@ -39809,7 +39809,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %25
   %27 = urem i64 %.01819.i.i.i.i, 100
   %28 = shl nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %28
   %30 = load i16, ptr %29, align 2
   store i16 %30, ptr %26, align 1
   %31 = udiv i64 %.01819.i.i.i.i, 100
@@ -39827,7 +39827,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
   %38 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %39 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %38
   %40 = load i16, ptr %39, align 2
   store i16 %40, ptr %37, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -40778,7 +40778,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details15level_formatterINS0_18nu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !43
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [7 x %"class.fmt::v11::basic_string_view"], ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 0, i64 %7
+  %8 = getelementptr inbounds %"class.fmt::v11::basic_string_view", ptr @_ZN6spdlog5levelL18level_string_viewsE, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %8, align 16, !tbaa !4
   %.sroa.2.0.copyload = load i64, ptr %9, align 8, !tbaa !26
@@ -40858,7 +40858,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details21short_level_formatterINS
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !43
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [7 x ptr], ptr @_ZN6spdlog5levelL17short_level_namesE, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr @_ZN6spdlog5levelL17short_level_namesE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #37
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
@@ -40949,7 +40949,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11t_formatterINS0_18null_s
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = urem i64 %.01819.i.i.i.i, 100
   %13 = shl nuw nsw i64 %12, 1
-  %14 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %13
   %15 = load i16, ptr %14, align 2
   store i16 %15, ptr %11, align 1
   %16 = udiv i64 %.01819.i.i.i.i, 100
@@ -40967,7 +40967,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11t_formatterINS0_18null_s
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 %21
   %23 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %24 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %23
   %25 = load i16, ptr %24, align 2
   store i16 %25, ptr %22, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -41143,7 +41143,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11a_formatterINS0_18null_s
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !721
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6spdlog7detailsL4daysE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL4daysE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #37
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
@@ -41222,7 +41222,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11A_formatterINS0_18null_s
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !721
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6spdlog7detailsL9full_daysE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL9full_daysE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #37
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
@@ -41301,7 +41301,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11b_formatterINS0_18null_s
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !680
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6spdlog7detailsL6monthsE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL6monthsE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #37
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
@@ -41380,7 +41380,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11B_formatterINS0_18null_s
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !680
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6spdlog7detailsL11full_monthsE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL11full_monthsE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #37
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
@@ -41467,7 +41467,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11c_formatterINS0_18null_s
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !721
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6spdlog7detailsL4daysE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL4daysE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #37
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
@@ -41563,7 +41563,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %58 = load i32, ptr %57, align 8, !tbaa !680
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6spdlog7detailsL6monthsE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr @_ZN6spdlog7detailsL6monthsE, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !4
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #37
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
@@ -41664,7 +41664,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit42: ; preds = %_ZN6spdlog7details
   %104 = urem i32 %.01819.i.i.i.i.i, 100
   %105 = shl nuw nsw i32 %104, 1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %106
   %108 = load i16, ptr %107, align 2
   store i16 %108, ptr %103, align 1
   %109 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -41683,7 +41683,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit42: ; preds = %_ZN6spdlog7details
   %115 = getelementptr inbounds nuw i8, ptr %12, i64 %114
   %116 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %117
   %119 = load i16, ptr %118, align 2
   store i16 %119, ptr %115, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -42125,7 +42125,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit101: ; preds = %_ZN6spdlog7detail
   %306 = urem i32 %.01819.i.i.i.i.i128, 100
   %307 = shl nuw nsw i32 %306, 1
   %308 = zext nneg i32 %307 to i64
-  %309 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %308
   %310 = load i16, ptr %309, align 2
   store i16 %310, ptr %305, align 1
   %311 = udiv i32 %.01819.i.i.i.i.i128, 100
@@ -42144,7 +42144,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit101: ; preds = %_ZN6spdlog7detail
   %317 = getelementptr inbounds nuw i8, ptr %5, i64 %316
   %318 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i104, 1
   %319 = zext nneg i32 %318 to i64
-  %320 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %319
   %321 = load i16, ptr %320, align 2
   store i16 %321, ptr %317, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i106
@@ -42365,7 +42365,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11Y_formatterINS0_18null_s
   %14 = urem i32 %.01819.i.i.i.i.i, 100
   %15 = shl nuw nsw i32 %14, 1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %16
   %18 = load i16, ptr %17, align 2
   store i16 %18, ptr %13, align 1
   %19 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -42384,7 +42384,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11Y_formatterINS0_18null_s
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %27
   %29 = load i16, ptr %28, align 2
   store i16 %29, ptr %25, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -43465,7 +43465,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11E_formatterINS0_18null_s
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   %13 = urem i64 %.01819.i.i.i.i.i, 100
   %14 = shl nuw nsw i64 %13, 1
-  %15 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %14
   %16 = load i16, ptr %15, align 2
   store i16 %16, ptr %12, align 1
   %17 = udiv i64 %.01819.i.i.i.i.i, 100
@@ -43483,7 +43483,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11E_formatterINS0_18null_s
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
   %24 = shl nuw nsw i64 %.018.lcssa.i.i.i.i.i, 1
-  %25 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %24
   %26 = load i16, ptr %25, align 2
   store i16 %26, ptr %23, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedImEEPcT_.exit.i.i.i
@@ -44839,7 +44839,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details13pid_formatterINS0_18null
   %11 = urem i32 %.01819.i.i.i.i, 100
   %12 = shl nuw nsw i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %13
   %15 = load i16, ptr %14, align 2
   store i16 %15, ptr %10, align 1
   %16 = udiv i32 %.01819.i.i.i.i, 100
@@ -44858,7 +44858,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details13pid_formatterINS0_18null
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 %21
   %23 = shl nuw nsw i32 %.018.lcssa.i.i.i.i, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %24
   %26 = load i16, ptr %25, align 2
   store i16 %26, ptr %22, align 1
   br label %_ZN3fmt3v1110format_intC2Ej.exit.i
@@ -45070,7 +45070,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   %57 = urem i32 %.01819.i.i.i.i.i, 100
   %58 = shl nuw nsw i32 %57, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %59
   %61 = load i16, ptr %60, align 2
   store i16 %61, ptr %56, align 1
   %62 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -45089,7 +45089,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 %67
   %69 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %70
   %72 = load i16, ptr %71, align 2
   store i16 %72, ptr %68, align 1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
@@ -45383,7 +45383,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details24source_linenum_formatter
   %14 = urem i32 %.01819.i.i.i.i.i, 100
   %15 = shl nuw nsw i32 %14, 1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %16
   %18 = load i16, ptr %17, align 2
   store i16 %18, ptr %13, align 1
   %19 = udiv i32 %.01819.i.i.i.i.i, 100
@@ -45402,7 +45402,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details24source_linenum_formatter
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = shl nuw nsw i32 %.018.lcssa.i.i.i.i.i, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %27
   %29 = load i16, ptr %28, align 2
   store i16 %29, ptr %25, align 1
   br label %_ZN3fmt3v1110format_intC2Ei.exit.i
@@ -45603,7 +45603,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   %13 = urem i64 %.01819.i.i.i.i, 100
   %14 = shl nuw nsw i64 %13, 1
-  %15 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %14
   %16 = load i16, ptr %15, align 2
   store i16 %16, ptr %12, align 1
   %17 = udiv i64 %.01819.i.i.i.i, 100
@@ -45621,7 +45621,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
   %24 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %25 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %24
   %26 = load i16, ptr %25, align 2
   store i16 %26, ptr %23, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -45738,7 +45738,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   %14 = urem i64 %.01819.i.i.i.i, 100
   %15 = shl nuw nsw i64 %14, 1
-  %16 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %15
   %17 = load i16, ptr %16, align 2
   store i16 %17, ptr %13, align 1
   %18 = udiv i64 %.01819.i.i.i.i, 100
@@ -45756,7 +45756,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %26 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %24, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -45873,7 +45873,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   %14 = urem i64 %.01819.i.i.i.i, 100
   %15 = shl nuw nsw i64 %14, 1
-  %16 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %15
   %17 = load i16, ptr %16, align 2
   store i16 %17, ptr %13, align 1
   %18 = udiv i64 %.01819.i.i.i.i, 100
@@ -45891,7 +45891,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %26 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %24, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
@@ -46013,7 +46013,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   %14 = urem i64 %.01819.i.i.i.i, 100
   %15 = shl nuw nsw i64 %14, 1
-  %16 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %15
   %17 = load i16, ptr %16, align 2
   store i16 %17, ptr %13, align 1
   %18 = udiv i64 %.01819.i.i.i.i, 100
@@ -46031,7 +46031,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = shl nuw nsw i64 %.018.lcssa.i.i.i.i, 1
-  %26 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %24, align 1
   br label %_ZN3fmt3v1110format_intC2Em.exit.i

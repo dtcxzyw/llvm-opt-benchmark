@@ -232,7 +232,7 @@ define dso_local void @PHP_SHA1Update(ptr noundef captures(none) %0, ptr noundef
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = zext nneg i32 %6 to i64
-  %24 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %20, i1 false)
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %0, ptr noundef nonnull %22)
   %25 = add nuw nsw i64 %20, 63
@@ -256,7 +256,7 @@ define dso_local void @PHP_SHA1Update(ptr noundef captures(none) %0, ptr noundef
   %.028 = phi i64 [ %32, %31 ], [ 0, %21 ], [ 0, %.lr.ph ]
   %.1 = phi i64 [ 0, %31 ], [ %20, %21 ], [ %28, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %.028
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.028
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %36 = sub i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %35, i64 %36, i1 false)
@@ -323,7 +323,7 @@ define dso_local void @PHP_SHA1Final(ptr noundef writeonly captures(none) %0, pt
   %43 = zext nneg i32 %41 to i64
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %45 = zext nneg i32 %30 to i64
-  %46 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
   %47 = add nuw nsw i64 %43, 63
@@ -347,7 +347,7 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %42, %53
   %.028.i = phi i64 [ %54, %53 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.028.i
   %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
@@ -368,7 +368,7 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %42, %53
   %68 = sub nuw nsw i32 64, %61
   %69 = zext nneg i32 %68 to i64
   %70 = zext nneg i32 %61 to i64
-  %71 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
   br label %PHP_SHA1Update.exit22
@@ -380,7 +380,7 @@ PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %42, %53
 PHP_SHA1Update.exit22:                            ; preds = %72, %67
   %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
   %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
-  %74 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i18
+  %74 = getelementptr inbounds nuw i8, ptr %55, i64 %.028.i18
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
@@ -572,7 +572,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
   br i1 %.not.i71, label %PHP_SHA1Update.exit, label %65
 
 65:                                               ; preds = %47
-  %66 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %46, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull readonly align 16 dereferenceable(1) %5, i64 %63, i1 false)
   call fastcc void @SHA1Transform(ptr noundef nonnull %7, ptr noundef nonnull %46)
   %67 = add nuw nsw i64 %63, 63
@@ -591,7 +591,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
 PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %47, %65
   %.028.i = phi i64 [ 0, %65 ], [ %64, %47 ], [ 0, %.lr.ph.i ]
   %.1.i = phi i64 [ %63, %65 ], [ 0, %47 ], [ %70, %.lr.ph.i ]
-  %73 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 0, i64 %.028.i
+  %73 = getelementptr inbounds nuw i8, ptr %46, i64 %.028.i
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i
   %75 = sub i64 %48, %.1.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %74, i64 %75, i1 false)

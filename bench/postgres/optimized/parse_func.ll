@@ -210,7 +210,7 @@ define dso_local ptr @ParseFuncOrColumn(ptr noundef %0, ptr noundef %1, ptr noun
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 @exprType(ptr noundef %56) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw [100 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %57, ptr %58, align 4
   %59 = load i32, ptr %50, align 4
   %60 = sext i32 %59 to i64
@@ -283,7 +283,7 @@ list_length.exit:                                 ; preds = %41
 90:                                               ; preds = %86, %73
   %91 = add i32 %.0465584, 1
   %92 = sext i32 %.0465584 to i64
-  %93 = getelementptr inbounds [100 x i32], ptr %10, i64 0, i64 %92
+  %93 = getelementptr inbounds i32, ptr %10, i64 %92
   store i32 %79, ptr %93, align 4
   %94 = add nsw i32 %.sroa.7.0583, 1
   br label %.critedge566
@@ -1071,7 +1071,7 @@ make_fn_arguments.exit:                           ; preds = %465, %.critedge534,
   %480 = load ptr, ptr %479, align 8
   %481 = call i32 @exprType(ptr noundef %480) #8
   %indvars.iv.next645 = add nsw i64 %indvars.iv644, 1
-  %482 = getelementptr inbounds [100 x i32], ptr %10, i64 0, i64 %indvars.iv644
+  %482 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv644
   store i32 %481, ptr %482, align 4
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %483 = load i32, ptr %435, align 4
@@ -1132,9 +1132,9 @@ make_fn_arguments.exit:                           ; preds = %465, %.critedge534,
   br i1 %or.cond43, label %515, label %533
 
 515:                                              ; preds = %511
-  %516 = add nsw i32 %.0465.lcssa685, -1
-  %517 = zext nneg i32 %516 to i64
-  %518 = getelementptr inbounds nuw [100 x i32], ptr %10, i64 0, i64 %517
+  %516 = zext nneg i32 %.0465.lcssa685 to i64
+  %517 = getelementptr i32, ptr %10, i64 %516
+  %518 = getelementptr i8, ptr %517, i64 -4
   %519 = load i32, ptr %518, align 4
   %520 = call i32 @get_base_element_type(i32 noundef %519) #8
   %.not522 = icmp eq i32 %520, 0
@@ -2312,7 +2312,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 21:                                               ; preds = %17, %19
   %.sink = phi i32 [ 705, %19 ], [ %18, %17 ]
   %.1168 = phi i32 [ %20, %19 ], [ %.0167272, %17 ]
-  %22 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %.sink, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2330,7 +2330,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 .lr.ph275:                                        ; preds = %23, %32
   %indvars.iv355 = phi i64 [ %indvars.iv.next356, %32 ], [ 0, %23 ]
   %.0169274 = phi i32 [ %.1170, %32 ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv355
+  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv355
   %26 = load i32, ptr %25, align 4
   %.not239 = icmp eq i32 %26, 705
   br i1 %.not239, label %32, label %27
@@ -2397,10 +2397,10 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
   %indvars.iv360 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next361, %.lr.ph289 ]
-  %42 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv360
+  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv360
   %43 = load i32, ptr %42, align 4
   %44 = tail call signext i8 @TypeCategory(i32 noundef %43) #8
-  %45 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 0, i64 %indvars.iv360
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv360
   store i8 %44, ptr %45, align 1
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
@@ -2418,7 +2418,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 .lr.ph293:                                        ; preds = %46, %60
   %indvars.iv365 = phi i64 [ %indvars.iv.next366, %60 ], [ 0, %46 ]
   %.2171291 = phi i32 [ %.3, %60 ], [ 0, %46 ]
-  %48 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv365
+  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv365
   %49 = load i32, ptr %48, align 4
   %.not238 = icmp eq i32 %49, 705
   br i1 %.not238, label %60, label %50
@@ -2430,7 +2430,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 0, i64 %indvars.iv365
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv365
   %56 = load i8, ptr %55, align 1
   %57 = tail call zeroext i1 @IsPreferredType(i8 noundef signext %56, i32 noundef %52) #8
   br i1 %57, label %58, label %60
@@ -2489,15 +2489,15 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 71:                                               ; preds = %.lr.ph316, %.critedge351
   %indvars.iv370 = phi i64 [ 0, %.lr.ph316 ], [ %indvars.iv.next371, %.critedge351 ]
   %.0164315 = phi i1 [ false, %.lr.ph316 ], [ %.2166.ph, %.critedge351 ]
-  %72 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv370
+  %72 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv370
   %73 = load i32, ptr %72, align 4
   %.not225 = icmp eq i32 %73, 705
   br i1 %.not225, label %74, label %.critedge351
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 0, i64 %indvars.iv370
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv370
   store i8 0, ptr %75, align 1
-  %76 = getelementptr inbounds nuw [100 x i8], ptr %8, i64 0, i64 %indvars.iv370
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv370
   store i8 0, ptr %76, align 1
   br i1 %.not226307, label %.lr.ph311.outer, label %.critedge351
 
@@ -2590,7 +2590,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 
 99:                                               ; preds = %.lr.ph322.us, %120
   %indvars.iv374 = phi i64 [ 0, %.lr.ph322.us ], [ %indvars.iv.next375, %120 ]
-  %100 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv374
+  %100 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv374
   %101 = load i32, ptr %100, align 4
   %.not234.us = icmp eq i32 %101, 705
   br i1 %.not234.us, label %102, label %120
@@ -2600,13 +2600,13 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   %104 = load i32, ptr %103, align 4
   call void @get_type_category_preferred(i32 noundef %104, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %105 = load i8, ptr %6, align 1
-  %106 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 0, i64 %indvars.iv374
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv374
   %107 = load i8, ptr %106, align 1
   %.not235.us = icmp eq i8 %105, %107
   br i1 %.not235.us, label %108, label %114
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds nuw [100 x i8], ptr %8, i64 0, i64 %indvars.iv374
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv374
   %110 = load i8, ptr %109, align 1, !range !4, !noundef !5
   %111 = trunc nuw i8 %110 to i1
   %.not.us = xor i1 %111, true
@@ -2667,7 +2667,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 .lr.ph338:                                        ; preds = %.lr.ph338.preheader, %130
   %indvars.iv379 = phi i64 [ 0, %.lr.ph338.preheader ], [ %indvars.iv.next380, %130 ]
   %.0337 = phi i32 [ 705, %.lr.ph338.preheader ], [ %.2, %130 ]
-  %124 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv379
+  %124 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv379
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, 705
   br i1 %126, label %130, label %127
@@ -2709,7 +2709,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
 
 .lr.ph342:                                        ; preds = %.lr.ph342.preheader, %.lr.ph342
   %indvars.iv384 = phi i64 [ 0, %.lr.ph342.preheader ], [ %indvars.iv.next385, %.lr.ph342 ]
-  %132 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv384
+  %132 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv384
   store i32 %.2, ptr %132, align 4
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %exitcond388.not = icmp eq i64 %indvars.iv.next385, %wide.trip.count387
@@ -3105,7 +3105,7 @@ list_length.exit:                                 ; preds = %3
   %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @LookupTypeNameOid(ptr noundef null, ptr noundef %25, i1 noundef zeroext %2) #8
-  %27 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
   %.not108.not = icmp eq i32 %26, 0
   br i1 %.not108.not, label %.loopexit, label %28

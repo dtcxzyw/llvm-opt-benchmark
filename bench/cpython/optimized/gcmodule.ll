@@ -1411,7 +1411,7 @@ define internal ptr @gc_get_stats(ptr readnone captures(none) %0, ptr readnone c
 
 .preheader.i:                                     ; preds = %2, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %2 ]
-  %12 = getelementptr [3 x %struct.gc_generation_stats], ptr %3, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr %struct.gc_generation_stats, ptr %3, i64 %indvars.iv.i
   %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !41
@@ -1577,7 +1577,7 @@ define internal ptr @gc_get_referents(ptr readnone captures(none) %0, ptr nounde
 
 18:                                               ; preds = %_PyObject_IS_GC.exit.thread.i.i, %.lr.ph.i.i
   %.01328.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %33, %_PyObject_IS_GC.exit.thread.i.i ]
-  %19 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.01328.i.i
+  %19 = getelementptr ptr, ptr %17, i64 %.01328.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !35
   %21 = getelementptr i8, ptr %20, i64 8
   %.val.i.i.i = load ptr, ptr %21, align 8, !tbaa !44

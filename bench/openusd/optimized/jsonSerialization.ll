@@ -9544,7 +9544,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i.i.i.i
 
 switch.lookup:                                    ; preds = %.noexc10.i.i.i.i.i.i.i.i
   %52 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -9621,18 +9621,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i
           to label %.noexc23.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc23.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %switch.tableidx17 = add i8 %80, -1
-  %81 = icmp ult i8 %switch.tableidx17, 7
-  br i1 %81, label %switch.lookup16, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %switch.tableidx16 = add i8 %80, -1
+  %81 = icmp ult i8 %switch.tableidx16, 7
+  br i1 %81, label %switch.lookup17, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-switch.lookup16:                                  ; preds = %.noexc23.i.i.i.i.i.i.i.i
-  %82 = zext nneg i8 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %82
+switch.lookup17:                                  ; preds = %.noexc23.i.i.i.i.i.i.i.i
+  %82 = zext nneg i8 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %82
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc23.i.i.i.i.i.i.i.i, %switch.lookup16
-  %.0.i34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load19, %switch.lookup16 ], [ @.str.44, %.noexc23.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc23.i.i.i.i.i.i.i.i, %switch.lookup17
+  %.0.i34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load19, %switch.lookup17 ], [ @.str.44, %.noexc23.i.i.i.i.i.i.i.i ]
   %83 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc24.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -9711,18 +9711,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i
           to label %.noexc39.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc39.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %switch.tableidx21 = add i8 %111, -1
-  %112 = icmp ult i8 %switch.tableidx21, 7
-  br i1 %112, label %switch.lookup20, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %switch.tableidx20 = add i8 %111, -1
+  %112 = icmp ult i8 %switch.tableidx20, 7
+  br i1 %112, label %switch.lookup21, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-switch.lookup20:                                  ; preds = %.noexc39.i.i.i.i.i.i.i.i
-  %113 = zext nneg i8 %switch.tableidx21 to i64
-  %switch.gep22 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %113
+switch.lookup21:                                  ; preds = %.noexc39.i.i.i.i.i.i.i.i
+  %113 = zext nneg i8 %switch.tableidx20 to i64
+  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %113
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc39.i.i.i.i.i.i.i.i, %switch.lookup20
-  %.0.i38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load23, %switch.lookup20 ], [ @.str.44, %.noexc39.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc39.i.i.i.i.i.i.i.i, %switch.lookup21
+  %.0.i38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load23, %switch.lookup21 ], [ @.str.44, %.noexc39.i.i.i.i.i.i.i.i ]
   %114 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc40.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -9830,18 +9830,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i
           to label %.noexc54.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc54.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %switch.tableidx25 = add i8 %148, -1
-  %149 = icmp ult i8 %switch.tableidx25, 7
-  br i1 %149, label %switch.lookup24, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %switch.tableidx24 = add i8 %148, -1
+  %149 = icmp ult i8 %switch.tableidx24, 7
+  br i1 %149, label %switch.lookup25, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-switch.lookup24:                                  ; preds = %.noexc54.i.i.i.i.i.i.i.i
-  %150 = zext nneg i8 %switch.tableidx25 to i64
-  %switch.gep26 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %150
+switch.lookup25:                                  ; preds = %.noexc54.i.i.i.i.i.i.i.i
+  %150 = zext nneg i8 %switch.tableidx24 to i64
+  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %150
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc54.i.i.i.i.i.i.i.i, %switch.lookup24
-  %.0.i42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load27, %switch.lookup24 ], [ @.str.44, %.noexc54.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc54.i.i.i.i.i.i.i.i, %switch.lookup25
+  %.0.i42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load27, %switch.lookup25 ], [ @.str.44, %.noexc54.i.i.i.i.i.i.i.i ]
   %151 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent17GetStartTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc55.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
@@ -9926,18 +9926,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i
           to label %.noexc71.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc71.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %switch.tableidx29 = add i8 %182, -1
-  %183 = icmp ult i8 %switch.tableidx29, 7
-  br i1 %183, label %switch.lookup28, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %switch.tableidx28 = add i8 %182, -1
+  %183 = icmp ult i8 %switch.tableidx28, 7
+  br i1 %183, label %switch.lookup29, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-switch.lookup28:                                  ; preds = %.noexc71.i.i.i.i.i.i.i.i
-  %184 = zext nneg i8 %switch.tableidx29 to i64
-  %switch.gep30 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 0, i64 %184
+switch.lookup29:                                  ; preds = %.noexc71.i.i.i.i.i.i.i.i
+  %184 = zext nneg i8 %switch.tableidx28 to i64
+  %switch.gep30 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %184
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc71.i.i.i.i.i.i.i.i, %switch.lookup28
-  %.0.i46.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load31, %switch.lookup28 ], [ @.str.44, %.noexc71.i.i.i.i.i.i.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc71.i.i.i.i.i.i.i.i, %switch.lookup29
+  %.0.i46.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %switch.load31, %switch.lookup29 ], [ @.str.44, %.noexc71.i.i.i.i.i.i.i.i ]
   %185 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc72.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 

@@ -612,7 +612,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
 
 Mig_ObjHasFanin.exit:                             ; preds = %.preheader, %37
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %37 ]
-  %35 = getelementptr inbounds nuw [4 x %struct.Mig_Fan_t_], ptr %.043, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.Mig_Fan_t_, ptr %.043, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   switch i32 %36, label %37 [
     i32 -1, label %.critedge2

@@ -1390,7 +1390,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %423 = urem i16 %.lhs.trunc, %422
   %424 = load ptr, ptr %408, align 8
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 32
-  %426 = getelementptr [128 x i16], ptr %425, i64 0, i64 %421
+  %426 = getelementptr i16, ptr %425, i64 %421
   store i16 %423, ptr %426, align 2
   %427 = add nuw nsw i64 %421, 1
   %428 = load i16, ptr %412, align 4
@@ -1541,7 +1541,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
 508:                                              ; preds = %526, %506
   %509 = phi i64 [ 0, %506 ], [ %527, %526 ]
   %510 = load ptr, ptr %171, align 8
-  %511 = getelementptr [8 x i64], ptr @guest_offloads, i64 0, i64 %509
+  %511 = getelementptr i64, ptr @guest_offloads, i64 %509
   %512 = load i64, ptr %511, align 8
   %513 = trunc i64 %512 to i32
   %514 = icmp ult i32 %513, 28
@@ -2587,7 +2587,7 @@ define internal fastcc zeroext i1 @virtnet_send_command(ptr noundef %0, i8 nound
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   call void @sg_init_one(ptr noundef nonnull %7, ptr noundef nonnull %29, i32 noundef 1) #26
   %30 = zext nneg i32 %27 to i64
-  %31 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %30
+  %31 = getelementptr ptr, ptr %5, i64 %30
   store ptr %7, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -3561,7 +3561,7 @@ define internal void @virtnet_set_rx_mode(ptr noundef %0) #2 align 16 {
   %65 = phi i32 [ 0, %61 ], [ %66, %63 ]
   %66 = add i32 %65, 1
   %67 = sext i32 %65 to i64
-  %68 = getelementptr [0 x [6 x i8]], ptr %62, i64 0, i64 %67
+  %68 = getelementptr [6 x i8], ptr %62, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %68, ptr noundef nonnull align 8 dereferenceable(6) %69, i64 6, i1 false)
   %70 = load ptr, ptr %64, align 8
@@ -3606,7 +3606,7 @@ define internal void @virtnet_set_rx_mode(ptr noundef %0) #2 align 16 {
   store i32 %90, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %99 = sext i32 %48 to i64
-  %100 = getelementptr [0 x [6 x i8]], ptr %98, i64 0, i64 %99
+  %100 = getelementptr [6 x i8], ptr %98, i64 %99
   store i32 %51, ptr %100, align 2
   %101 = load ptr, ptr %49, align 8
   %102 = icmp eq ptr %101, %49
@@ -3621,7 +3621,7 @@ define internal void @virtnet_set_rx_mode(ptr noundef %0) #2 align 16 {
   %107 = phi i32 [ 0, %103 ], [ %108, %105 ]
   %108 = add i32 %107, 1
   %109 = sext i32 %107 to i64
-  %110 = getelementptr [0 x [6 x i8]], ptr %104, i64 0, i64 %109
+  %110 = getelementptr [6 x i8], ptr %104, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %110, ptr noundef nonnull align 8 dereferenceable(6) %111, i64 6, i1 false)
   %112 = load ptr, ptr %106, align 8
@@ -3742,7 +3742,7 @@ define internal i32 @virtnet_set_mac_address(ptr noundef %0, ptr noundef %1) #2 
 
 40:                                               ; preds = %40, %37
   %41 = phi i64 [ 0, %37 ], [ %49, %40 ]
-  %42 = getelementptr [0 x i8], ptr %38, i64 0, i64 %41
+  %42 = getelementptr i8, ptr %38, i64 %41
   %43 = load i8, ptr %42, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %43, ptr %3, align 1
@@ -4858,7 +4858,7 @@ define internal i32 @virtnet_xdp_xmit(ptr noundef readonly captures(none) %0, i3
 
 167:                                              ; preds = %175, %164
   %168 = phi i64 [ 0, %164 ], [ %180, %175 ]
-  %169 = getelementptr [17 x %struct.bio_vec], ptr %165, i64 0, i64 %168
+  %169 = getelementptr %struct.bio_vec, ptr %165, i64 %168
   %170 = load ptr, ptr %169, align 8
   %171 = ptrtoint ptr %170 to i64
   %172 = and i64 %171, 3
@@ -4876,7 +4876,7 @@ define internal i32 @virtnet_xdp_xmit(ptr noundef readonly captures(none) %0, i3
   %178 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %179 = load i32, ptr %178, align 8
   %180 = add nuw nsw i64 %168, 1
-  %181 = getelementptr [19 x %struct.scatterlist], ptr %49, i64 0, i64 %180
+  %181 = getelementptr %struct.scatterlist, ptr %49, i64 %180
   %182 = load i64, ptr %181, align 8
   %183 = and i64 %182, 3
   %184 = or disjoint i64 %183, %171
@@ -5323,7 +5323,7 @@ define internal fastcc zeroext i1 @try_fill_recv(ptr noundef readonly captures(n
   %225 = lshr i64 %224, 6
   %.idx = and i64 %225, 288230376151711680
   %226 = add i64 %.idx, %209
-  %227 = getelementptr [19 x %struct.scatterlist], ptr %12, i64 0, i64 %182
+  %227 = getelementptr %struct.scatterlist, ptr %12, i64 %182
   %228 = trunc i64 %218 to i32
   %229 = and i32 %228, 4095
   %230 = load i64, ptr %227, align 8
@@ -7344,7 +7344,7 @@ define internal void @virtnet_get_strings(ptr noundef readonly captures(none) %0
 
 13:                                               ; preds = %13, %.preheader2
   %14 = phi i64 [ 0, %.preheader2 ], [ %16, %13 ]
-  %15 = getelementptr [8 x %struct.virtnet_stat_desc], ptr @virtnet_rq_stats_desc, i64 0, i64 %14
+  %15 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_rq_stats_desc, i64 %14
   call void (ptr, ptr, ...) @ethtool_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.45, i32 noundef %10, ptr noundef %15) #26
   %16 = add nuw nsw i64 %14, 1
   %17 = icmp eq i64 %16, 8
@@ -7363,7 +7363,7 @@ define internal void @virtnet_get_strings(ptr noundef readonly captures(none) %0
 
 24:                                               ; preds = %24, %.preheader
   %25 = phi i64 [ 0, %.preheader ], [ %27, %24 ]
-  %26 = getelementptr [6 x %struct.virtnet_stat_desc], ptr @virtnet_sq_stats_desc, i64 0, i64 %25
+  %26 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_sq_stats_desc, i64 %25
   call void (ptr, ptr, ...) @ethtool_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.46, i32 noundef %23, ptr noundef %26) #26
   %27 = add nuw nsw i64 %25, 1
   %28 = icmp eq i64 %27, 6
@@ -7411,7 +7411,7 @@ define internal void @virtnet_get_ethtool_stats(ptr noundef readonly captures(no
 
 19:                                               ; preds = %19, %14
   %20 = phi i64 [ 0, %14 ], [ %25, %19 ]
-  %21 = getelementptr [8 x %struct.virtnet_stat_desc], ptr @virtnet_rq_stats_desc, i64 0, i64 %20, i32 1
+  %21 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_rq_stats_desc, i64 %20, i32 1
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr i8, ptr %18, i64 %22
   %24 = load volatile i64, ptr %23, align 8
@@ -7439,7 +7439,7 @@ define internal void @virtnet_get_ethtool_stats(ptr noundef readonly captures(no
 
 39:                                               ; preds = %39, %33
   %40 = phi i64 [ 0, %33 ], [ %46, %39 ]
-  %41 = getelementptr [6 x %struct.virtnet_stat_desc], ptr @virtnet_sq_stats_desc, i64 0, i64 %40, i32 1
+  %41 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_sq_stats_desc, i64 %40, i32 1
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr i8, ptr %37, i64 %42
   %44 = load volatile i64, ptr %43, align 8
@@ -7769,7 +7769,7 @@ define internal noundef i32 @virtnet_get_rxfh(ptr noundef readonly captures(none
   %13 = phi i64 [ 0, %10 ], [ %21, %12 ]
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = getelementptr [128 x i16], ptr %15, i64 0, i64 %13
+  %16 = getelementptr i16, ptr %15, i64 %13
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = load ptr, ptr %3, align 8
@@ -7833,7 +7833,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxfh(ptr noundef %0, 
   %22 = trunc i32 %21 to i16
   %23 = load ptr, ptr %16, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = getelementptr [128 x i16], ptr %24, i64 0, i64 %18
+  %25 = getelementptr i16, ptr %24, i64 %18
   store i16 %22, ptr %25, align 2
   %26 = add nuw nsw i64 %18, 1
   %27 = load i16, ptr %12, align 4
@@ -8855,7 +8855,7 @@ define internal i32 @virtnet_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 134:                                              ; preds = %134, %131
   %135 = phi i64 [ 0, %131 ], [ %141, %134 ]
-  %136 = getelementptr [8 x %struct.virtnet_stat_desc], ptr @virtnet_rq_stats_desc, i64 0, i64 %135, i32 1
+  %136 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_rq_stats_desc, i64 %135, i32 1
   %137 = load i64, ptr %136, align 8
   %138 = getelementptr i8, ptr %133, i64 %137
   %139 = getelementptr i8, ptr %4, i64 %137
@@ -9588,7 +9588,7 @@ define internal fastcc void @receive_buf(ptr noundef readonly captures(none) %0,
   %249 = getelementptr inbounds nuw i8, ptr %236, i64 48
   %250 = add nsw i32 %212, -1
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr [17 x %struct.bio_vec], ptr %249, i64 0, i64 %251
+  %252 = getelementptr %struct.bio_vec, ptr %249, i64 %251
   %253 = load ptr, ptr %252, align 8
   %254 = icmp eq ptr %253, %166
   br i1 %254, label %255, label %295
@@ -10754,7 +10754,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   %253 = add i8 %252, 1
   store i8 %253, ptr %169, align 2
   %254 = zext i8 %252 to i64
-  %255 = getelementptr [17 x %struct.bio_vec], ptr %168, i64 0, i64 %254
+  %255 = getelementptr %struct.bio_vec, ptr %168, i64 %254
   %256 = load i32, ptr %10, align 4
   store ptr %223, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 12
@@ -10807,7 +10807,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
 
 288:                                              ; preds = %323, %286
   %289 = phi i64 [ 0, %286 ], [ %324, %323 ]
-  %290 = getelementptr [17 x %struct.bio_vec], ptr %287, i64 0, i64 %289
+  %290 = getelementptr %struct.bio_vec, ptr %287, i64 %289
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load volatile i64, ptr %292, align 8
@@ -10999,7 +10999,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
 
 413:                                              ; preds = %448, %411
   %414 = phi i64 [ 0, %411 ], [ %449, %448 ]
-  %415 = getelementptr [17 x %struct.bio_vec], ptr %412, i64 0, i64 %414
+  %415 = getelementptr %struct.bio_vec, ptr %412, i64 %414
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load volatile i64, ptr %417, align 8

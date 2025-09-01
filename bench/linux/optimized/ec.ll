@@ -228,7 +228,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
 .preheader6:                                      ; preds = %45, %.loopexit
   %61 = phi i1 [ false, %.loopexit ], [ true, %45 ]
   %62 = phi i64 [ 1, %.loopexit ], [ 0, %45 ]
-  %63 = getelementptr [2 x ptr], ptr @bad_points_table, i64 0, i64 %62
+  %63 = getelementptr ptr, ptr @bad_points_table, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @mpi_scanval(ptr noundef %65) #9
@@ -248,7 +248,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   %74 = phi i64 [ %79, %.preheader ], [ 0, %70 ]
   %75 = phi i32 [ %78, %.preheader ], [ 0, %70 ]
   %76 = tail call ptr @mpi_scanval(ptr noundef nonnull %73) #9
-  %77 = getelementptr [11 x ptr], ptr %60, i64 0, i64 %74
+  %77 = getelementptr ptr, ptr %60, i64 %74
   store ptr %76, ptr %77, align 8
   %78 = add i32 %75, 1
   %79 = sext i32 %78 to i64
@@ -264,7 +264,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   %83 = phi i64 [ %87, %.preheader8 ], [ 0, %45 ]
   %84 = load ptr, ptr %49, align 8
   %85 = tail call ptr @mpi_alloc_like(ptr noundef %84) #9
-  %86 = getelementptr [11 x ptr], ptr %60, i64 0, i64 %83
+  %86 = getelementptr ptr, ptr %60, i64 %83
   store ptr %85, ptr %86, align 8
   %87 = add nuw nsw i64 %83, 1
   %88 = icmp eq i64 %87, 11
@@ -340,7 +340,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
 
 133:                                              ; preds = %138, %102
   %134 = phi i64 [ 0, %102 ], [ %143, %138 ]
-  %135 = getelementptr [11 x ptr], ptr %60, i64 0, i64 %134
+  %135 = getelementptr ptr, ptr %60, i64 %134
   %136 = load ptr, ptr %135, align 8
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.critedge, label %138
@@ -357,7 +357,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
 
 145:                                              ; preds = %99
   tail call void @mpi_free(ptr noundef nonnull %97) #9
-  %146 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv
+  %146 = getelementptr %struct.field_table, ptr @field_table, i64 %indvars.iv
   %147 = load ptr, ptr %146, align 16
   br i1 %exitcond, label %.critedge, label %94, !llvm.loop !11
 
@@ -564,7 +564,7 @@ define dso_local void @mpi_ec_deinit(ptr noundef readonly captures(none) %0) #0 
 
 37:                                               ; preds = %37, %31
   %38 = phi i64 [ 0, %31 ], [ %41, %37 ]
-  %39 = getelementptr [11 x ptr], ptr %36, i64 0, i64 %38
+  %39 = getelementptr ptr, ptr %36, i64 %38
   %40 = load ptr, ptr %39, align 8
   tail call void @mpi_free(ptr noundef %40) #9
   %41 = add nuw nsw i64 %38, 1
@@ -3554,9 +3554,9 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   %40 = phi i64 [ 3, %23 ], [ %49, %39 ]
   %41 = phi i64 [ 0, %23 ], [ %46, %39 ]
   %42 = phi i64 [ 0, %23 ], [ %44, %39 ]
-  %43 = getelementptr [4 x i64], ptr %9, i64 0, i64 %40
+  %43 = getelementptr i64, ptr %9, i64 %40
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr [4 x i64], ptr %7, i64 0, i64 %40
+  %45 = getelementptr i64, ptr %7, i64 %40
   %46 = load i64, ptr %45, align 8
   %47 = call i64 @llvm.fshl.i64(i64 %42, i64 %44, i64 32)
   store i64 %47, ptr %43, align 8
@@ -3573,7 +3573,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
 
 54:                                               ; preds = %54, %51
   %55 = phi i64 [ 0, %51 ], [ %59, %54 ]
-  %56 = getelementptr [4 x i64], ptr %8, i64 0, i64 %55
+  %56 = getelementptr i64, ptr %8, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr i64, ptr %29, i64 %55
   store i64 %57, ptr %58, align 8
@@ -3622,7 +3622,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
 85:                                               ; preds = %85, %.loopexit
   %86 = phi i64 [ 3, %.loopexit ], [ %92, %85 ]
   %87 = phi i64 [ 0, %.loopexit ], [ %91, %85 ]
-  %88 = getelementptr [4 x i64], ptr %9, i64 0, i64 %86
+  %88 = getelementptr i64, ptr %9, i64 %86
   %89 = load i64, ptr %88, align 8
   %90 = call i64 @llvm.fshl.i64(i64 %87, i64 %89, i64 32)
   store i64 %90, ptr %88, align 8
@@ -3640,7 +3640,7 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
 
 98:                                               ; preds = %98, %94
   %99 = phi i64 [ 0, %94 ], [ %104, %98 ]
-  %100 = getelementptr [4 x i64], ptr %9, i64 0, i64 %99
+  %100 = getelementptr i64, ptr %9, i64 %99
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr i64, ptr %29, i64 %99
   %103 = getelementptr i8, ptr %102, i64 32

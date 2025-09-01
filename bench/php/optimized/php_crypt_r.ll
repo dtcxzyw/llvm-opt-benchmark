@@ -220,7 +220,7 @@ sub_2:                                            ; preds = %sub_1
   %62 = add nsw i32 %.08.i, -1
   %63 = and i32 %.037.i, 63
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [65 x i8], ptr @itoa64, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @itoa64, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !4
   %67 = getelementptr inbounds nuw i8, ptr %.046.i, i64 1
   store i8 %66, ptr %.046.i, align 1, !tbaa !4
@@ -252,7 +252,7 @@ to64.exit:                                        ; preds = %61
   %85 = add nsw i32 %.08.i64, -1
   %86 = and i32 %.037.i65, 63
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [65 x i8], ptr @itoa64, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @itoa64, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !4
   %90 = getelementptr inbounds nuw i8, ptr %.046.i66, i64 1
   store i8 %89, ptr %.046.i66, align 1, !tbaa !4
@@ -284,7 +284,7 @@ to64.exit67:                                      ; preds = %84
   %108 = add nsw i32 %.08.i68, -1
   %109 = and i32 %.037.i69, 63
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [65 x i8], ptr @itoa64, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr @itoa64, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !4
   %113 = getelementptr inbounds nuw i8, ptr %.046.i70, i64 1
   store i8 %112, ptr %.046.i70, align 1, !tbaa !4
@@ -316,7 +316,7 @@ to64.exit71:                                      ; preds = %107
   %131 = add nsw i32 %.08.i72, -1
   %132 = and i32 %.037.i73, 63
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw [65 x i8], ptr @itoa64, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr @itoa64, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !4
   %136 = getelementptr inbounds nuw i8, ptr %.046.i74, i64 1
   store i8 %135, ptr %.046.i74, align 1, !tbaa !4
@@ -348,7 +348,7 @@ to64.exit75:                                      ; preds = %130
   %154 = add nsw i32 %.08.i76, -1
   %155 = and i32 %.037.i77, 63
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw [65 x i8], ptr @itoa64, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @itoa64, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !4
   %159 = getelementptr inbounds nuw i8, ptr %.046.i78, i64 1
   store i8 %158, ptr %.046.i78, align 1, !tbaa !4
@@ -370,7 +370,7 @@ to64.exit79:                                      ; preds = %153
   %167 = add nsw i32 %.08.i80, -1
   %168 = and i32 %.037.i81, 63
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw [65 x i8], ptr @itoa64, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @itoa64, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !4
   %172 = getelementptr inbounds nuw i8, ptr %.046.i82, i64 1
   store i8 %171, ptr %.046.i82, align 1, !tbaa !4

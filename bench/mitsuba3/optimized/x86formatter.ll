@@ -101,7 +101,7 @@ $_ZN6asmjit9_abi_1_106String9appendIntEljmNS0_17StringFormatFlagsE = comdat any
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef i32 @llvm.umin.i32(i32 %1, i32 132)
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [133 x i16], ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEjE13sFeatureIndex, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEjE13sFeatureIndex, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = zext i16 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEjE14sFeatureString, i64 %7
@@ -201,7 +201,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 
 63:                                               ; preds = %59
   %64 = zext nneg i8 %4 to i64
-  %65 = getelementptr inbounds nuw [32 x %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::TypeEntry"], ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::TypeEntry", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !35
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %73, label %68
@@ -262,7 +262,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   br label %113
 
 103:                                              ; preds = %93
-  %104 = getelementptr inbounds nuw [32 x %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::TypeEntry"], ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i64 %78
+  %104 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::TypeEntry", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 %78
   %105 = load i8, ptr %104, align 1, !tbaa !35
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %111, label %107

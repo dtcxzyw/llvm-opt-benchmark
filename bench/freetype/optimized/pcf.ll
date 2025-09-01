@@ -2697,9 +2697,9 @@ pcf_find_property.exit130.thread.preheader:       ; preds = %1, %._crit_edge.i12
 pcf_find_property.exit130.thread:                 ; preds = %pcf_find_property.exit130.thread.preheader, %82
   %.075143 = phi i64 [ %.176, %82 ], [ 0, %pcf_find_property.exit130.thread.preheader ]
   %.078142 = phi i64 [ %83, %82 ], [ 0, %pcf_find_property.exit130.thread.preheader ]
-  %75 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.078142
+  %75 = getelementptr inbounds nuw i64, ptr %4, i64 %.078142
   store i64 0, ptr %75, align 8, !tbaa !127
-  %76 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %.078142
+  %76 = getelementptr inbounds nuw ptr, ptr %3, i64 %.078142
   %77 = load ptr, ptr %76, align 8, !tbaa !115
   %.not103 = icmp eq ptr %77, null
   br i1 %.not103, label %82, label %78
@@ -2738,9 +2738,9 @@ pcf_find_property.exit130.thread:                 ; preds = %pcf_find_property.e
 .preheader:                                       ; preds = %87, %108
   %.073146 = phi ptr [ %.174, %108 ], [ %88, %87 ]
   %.179145 = phi i64 [ %109, %108 ], [ 0, %87 ]
-  %91 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %.179145
+  %91 = getelementptr inbounds nuw ptr, ptr %3, i64 %.179145
   %92 = load ptr, ptr %91, align 8, !tbaa !115
-  %93 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.179145
+  %93 = getelementptr inbounds nuw i64, ptr %4, i64 %.179145
   %94 = load i64, ptr %93, align 8, !tbaa !127
   %.not101 = icmp eq ptr %92, null
   br i1 %.not101, label %108, label %95

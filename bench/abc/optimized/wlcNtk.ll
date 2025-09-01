@@ -136,7 +136,7 @@ define ptr @Wlc_ObjTypeName(ptr noundef readonly captures(address_is_null) %0) l
 
 6:                                                ; preds = %2
   %7 = zext nneg i16 %4 to i64
-  %8 = getelementptr inbounds nuw [61 x ptr], ptr @Wlc_Names, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @Wlc_Names, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   br label %10
 
@@ -787,7 +787,7 @@ define i32 @Wlc_ObjAlloc(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
 43:                                               ; preds = %42, %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %45 = sext i32 %1 to i64
-  %46 = getelementptr inbounds [60 x i32], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds i32, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !42
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %46, align 4, !tbaa !42
@@ -1000,7 +1000,7 @@ define void @Wlc_ObjUpdateType(ptr noundef captures(none) %0, ptr noundef captur
   %5 = load i16, ptr %1, align 8
   %6 = and i16 %5, 63
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr inbounds nuw [60 x i32], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !42
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 4, !tbaa !42
@@ -1012,7 +1012,7 @@ define void @Wlc_ObjUpdateType(ptr noundef captures(none) %0, ptr noundef captur
   store i16 %15, ptr %1, align 8
   %16 = and i32 %2, 63
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [60 x i32], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !42
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !42
@@ -2371,7 +2371,7 @@ define void @Wlc_NtkCollectStats(ptr noundef readonly captures(none) %0, ptr nou
 14:                                               ; preds = %10
   %15 = and i16 %12, 63
   %16 = zext nneg i16 %15 to i64
-  %17 = getelementptr inbounds nuw [60 x i32], ptr %9, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %9, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !42
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !42
@@ -2844,7 +2844,7 @@ Vec_IntStart.exit:
 17:                                               ; preds = %13
   %18 = and i16 %15, 63
   %19 = zext nneg i16 %18 to i64
-  %20 = getelementptr inbounds nuw [60 x i32], ptr %indvars.iv22.i.sroa.phi, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %indvars.iv22.i.sroa.phi, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !42
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !42
@@ -5212,13 +5212,13 @@ Wlc_ObjFanin1.exit769:                            ; preds = %Wlc_ObjFanin0.exit7
   %1334 = load ptr, ptr %1333, align 8, !tbaa !105
   %1335 = getelementptr inbounds nuw ptr, ptr %.val412, i64 %indvars.iv861
   %1336 = load ptr, ptr %1335, align 8, !tbaa !105
-  %1337 = getelementptr inbounds nuw [60 x i32], ptr %1328, i64 0, i64 %indvars.iv861
+  %1337 = getelementptr inbounds nuw i32, ptr %1328, i64 %indvars.iv861
   %1338 = load i32, ptr %1337, align 4, !tbaa !42
   %1339 = icmp eq i32 %1338, 0
   br i1 %1339, label %1474, label %1340
 
 1340:                                             ; preds = %1332
-  %1341 = getelementptr inbounds nuw [61 x ptr], ptr @Wlc_Names, i64 0, i64 %indvars.iv861
+  %1341 = getelementptr inbounds nuw ptr, ptr @Wlc_Names, i64 %indvars.iv861
   %1342 = load ptr, ptr %1341, align 8, !tbaa !3
   %1343 = trunc nuw nsw i64 %indvars.iv861 to i32
   %1344 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %1343, ptr noundef %1342, i32 noundef %1338)
@@ -5282,10 +5282,10 @@ Wlc_ObjFanin1.exit769:                            ; preds = %Wlc_ObjFanin0.exit7
 Wlc_NtkCountRealPis.exit:                         ; preds = %.lr.ph.i.i772, %.critedge.i771, %1365
   %1367 = phi i32 [ %1366, %1365 ], [ %.0.lcssa.i, %.critedge.i771 ], [ %.0.lcssa.i, %.lr.ph.i.i772 ]
   %1368 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
-  %1369 = getelementptr inbounds nuw [60 x i32], ptr %3, i64 0, i64 %indvars.iv861
+  %1369 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv861
   %1370 = load i32, ptr %1369, align 4, !tbaa !42
   %1371 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1370)
-  %1372 = getelementptr inbounds nuw [60 x i32], ptr %indvars.iv22.i.sroa.gep818, i64 0, i64 %indvars.iv861
+  %1372 = getelementptr inbounds nuw i32, ptr %indvars.iv22.i.sroa.gep818, i64 %indvars.iv861
   %1373 = load i32, ptr %1372, align 4, !tbaa !42
   %1374 = sub i32 %1370, %1367
   %1375 = add i32 %1374, %1373
@@ -5869,7 +5869,7 @@ Wlc_ObjFanin0.exit123:                            ; preds = %Wlc_ObjHasArray.exi
   %.not65 = icmp eq i16 %138, 0
   %139 = select i1 %.not65, ptr @.str.21, ptr @.str.26
   %140 = zext nneg i16 %30 to i64
-  %141 = getelementptr inbounds nuw [61 x ptr], ptr @Wlc_Names, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw ptr, ptr @Wlc_Names, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !3
   %143 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %128, ptr noundef nonnull %139, ptr noundef %142)
   %.val82 = load i32, ptr %91, align 4, !tbaa !49
@@ -6156,7 +6156,7 @@ Wlc_ObjName.exit145:                              ; preds = %284, %288
   %290 = load i16, ptr %1, align 8
   %291 = and i16 %290, 63
   %292 = zext nneg i16 %291 to i64
-  %293 = getelementptr inbounds nuw [61 x ptr], ptr @Wlc_Names, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw ptr, ptr @Wlc_Names, i64 %292
   %294 = load ptr, ptr %293, align 8, !tbaa !3
   %295 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef %.0.i144, ptr noundef %294)
   %.val80 = load i32, ptr %268, align 4, !tbaa !49
@@ -6300,7 +6300,7 @@ define void @Wlc_NtkPrintNodeArray(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define void @Wlc_NtkPrintNodes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [61 x ptr], ptr @Wlc_Names, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @Wlc_Names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %5)
   %7 = getelementptr i8, ptr %0, i64 648
@@ -6472,7 +6472,7 @@ Wlc_NtkCountRealPis.exit:                         ; preds = %24, %.critedge.i
 
 79:                                               ; preds = %76, %101
   %indvars.iv = phi i64 [ 1, %76 ], [ %indvars.iv.next, %101 ]
-  %80 = getelementptr inbounds nuw [60 x i32], ptr %77, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !42
   %.not35 = icmp eq i32 %81, 0
   br i1 %.not35, label %101, label %82
@@ -6483,13 +6483,13 @@ Wlc_NtkCountRealPis.exit:                         ; preds = %24, %.critedge.i
   br i1 %.not36, label %96, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw [60 x i32], ptr %78, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4, !tbaa !42
   %.not37 = icmp eq i32 %86, 0
   br i1 %.not37, label %96, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw [61 x ptr], ptr @Wlc_Names, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw ptr, ptr @Wlc_Names, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !3
   %90 = sitofp i32 %86 to double
   %91 = fmul double %90, 1.000000e+02
@@ -6500,7 +6500,7 @@ Wlc_NtkCountRealPis.exit:                         ; preds = %24, %.critedge.i
   br label %101
 
 96:                                               ; preds = %84, %82
-  %97 = getelementptr inbounds nuw [61 x ptr], ptr @Wlc_Names, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw ptr, ptr @Wlc_Names, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8, !tbaa !3
   %99 = trunc nuw nsw i64 %indvars.iv to i32
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, i32 noundef %99, ptr noundef %98, i32 noundef %81)

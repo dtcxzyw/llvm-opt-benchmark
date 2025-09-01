@@ -302,13 +302,13 @@ parse_hid_vid_pid_from_sysfs.exit.thread70:       ; preds = %77
   br label %120
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %78
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 %78
   store i8 0, ptr %85, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #23
   %spec.store.select.i.i.i = call i64 @llvm.umin.i64(i64 %86, i64 1023)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 16 %5, i64 %spec.store.select.i.i.i, i1 false)
-  %87 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %spec.store.select.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.store.select.i.i.i
   store i8 0, ptr %87, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
@@ -2551,7 +2551,7 @@ StrIsInteger.exit.thread.i:                       ; preds = %.preheader.i.i, %St
   br i1 %cond.i, label %select.unfold._crit_edge.i, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %StrIsInteger.exit.thread.i
-  %112 = getelementptr inbounds nuw [4096 x i8], ptr %2, i64 0, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 %110
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 1 %112, i64 %111, i1 false)
   br label %92
 
@@ -3278,7 +3278,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_uevent_info(ptr noundef readon
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %10, i64 1023)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %0, i64 %spec.store.select, i1 false)
-  %11 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %spec.store.select
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %spec.store.select
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8

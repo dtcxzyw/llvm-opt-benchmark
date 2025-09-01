@@ -215,7 +215,7 @@ xor_newprovctx.exit:                              ; preds = %12
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4, !tbaa !11
   %27 = icmp eq i32 %26, %21
   br i1 %27, label %.loopexit.i, label %24
@@ -224,7 +224,7 @@ xor_newprovctx.exit:                              ; preds = %12
   %28 = add nsw i32 %22, 1
   store i32 %28, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %29 = sext i32 %22 to i64
-  %30 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %29
   store i32 %21, ptr %30, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit
 
@@ -262,7 +262,7 @@ randomize_tls_alg_id.exit:                        ; preds = %.loopexit.i, %xor_n
 
 .lr.ph.i46:                                       ; preds = %40, %.lr.ph.preheader.i44
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.preheader.i44 ], [ %indvars.iv.next.i48, %40 ]
-  %41 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i47
+  %41 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i47
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = icmp eq i32 %42, %37
   br i1 %43, label %.loopexit.i50, label %40
@@ -271,7 +271,7 @@ randomize_tls_alg_id.exit:                        ; preds = %.loopexit.i, %xor_n
   %44 = add nsw i32 %38, 1
   store i32 %44, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %45
+  %46 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %45
   store i32 %37, ptr %46, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit51
 
@@ -309,7 +309,7 @@ randomize_tls_alg_id.exit51:                      ; preds = %.loopexit.i50, %ran
 
 .lr.ph.i57:                                       ; preds = %56, %.lr.ph.preheader.i55
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i59, %56 ]
-  %57 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i58
+  %57 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i58
   %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = icmp eq i32 %58, %53
   br i1 %59, label %.loopexit.i61, label %56
@@ -318,7 +318,7 @@ randomize_tls_alg_id.exit51:                      ; preds = %.loopexit.i50, %ran
   %60 = add nsw i32 %54, 1
   store i32 %60, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %61 = sext i32 %54 to i64
-  %62 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %61
+  %62 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %61
   store i32 %53, ptr %62, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit62
 
@@ -356,7 +356,7 @@ randomize_tls_alg_id.exit62:                      ; preds = %.loopexit.i61, %ran
 
 .lr.ph.i68:                                       ; preds = %72, %.lr.ph.preheader.i66
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %72 ]
-  %73 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i69
+  %73 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i69
   %74 = load i32, ptr %73, align 4, !tbaa !11
   %75 = icmp eq i32 %74, %69
   br i1 %75, label %.loopexit.i72, label %72
@@ -365,7 +365,7 @@ randomize_tls_alg_id.exit62:                      ; preds = %.loopexit.i61, %ran
   %76 = add nsw i32 %70, 1
   store i32 %76, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %77 = sext i32 %70 to i64
-  %78 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %77
+  %78 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %77
   store i32 %69, ptr %78, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit73
 
@@ -486,7 +486,7 @@ define internal void @tls_prov_teardown(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [50 x ptr], ptr @dummy_group_names, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @dummy_group_names, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 3167) #16
   store ptr null, ptr %4, align 8, !tbaa !25
@@ -508,7 +508,7 @@ define internal noundef ptr @tls_prov_query(ptr readnone captures(none) %0, i32 
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.tls_prov_query, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tls_prov_query, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -550,7 +550,7 @@ define internal i32 @tls_prov_get_capabilities(ptr readnone captures(none) %0, p
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(440) %5, ptr noundef nonnull align 16 dereferenceable(440) @xor_group_params, i64 440, i1 false)
-  %21 = getelementptr inbounds nuw [50 x ptr], ptr @dummy_group_names, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr @dummy_group_names, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %30
@@ -748,12 +748,12 @@ define internal ptr @xor_gen(ptr noundef readonly captures(none) %0, ptr readnon
 
 17:                                               ; preds = %.preheader, %17
   %.018 = phi i64 [ 0, %.preheader ], [ %24, %17 ]
-  %18 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.018
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %.018
   %19 = load i8, ptr %18, align 1, !tbaa !39
-  %20 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018
+  %20 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %.018
   %21 = load i8, ptr %20, align 1, !tbaa !39
   %22 = xor i8 %21, %19
-  %23 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.018
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %.018
   store i8 %22, ptr %23, align 1, !tbaa !39
   %24 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %24, 32
@@ -1241,12 +1241,12 @@ define internal ptr @xor_xorhmacsig_gen(ptr noundef readonly captures(none) %0, 
 
 16:                                               ; preds = %16, %.preheader.i
   %.018.i = phi i64 [ 0, %.preheader.i ], [ %23, %16 ]
-  %17 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.018.i
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.018.i
   %18 = load i8, ptr %17, align 1, !tbaa !39
-  %19 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018.i
+  %19 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %.018.i
   %20 = load i8, ptr %19, align 1, !tbaa !39
   %21 = xor i8 %20, %18
-  %22 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.018.i
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 %.018.i
   store i8 %21, ptr %22, align 1, !tbaa !39
   %23 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %23, 32
@@ -1368,7 +1368,7 @@ define internal range(i32 0, 2) i32 @xor_match(ptr noundef %0, ptr noundef %1, i
   %30 = load i8, ptr %29, align 1, !tbaa !39
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.i
   %32 = load i8, ptr %31, align 1, !tbaa !39
-  %33 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %indvars.iv.i
   %34 = load i8, ptr %33, align 1, !tbaa !39
   %35 = xor i8 %34, %32
   %.not.i = icmp eq i8 %30, %35
@@ -1397,7 +1397,7 @@ xor_recreate.exit:                                ; preds = %27, %28
   %43 = load i8, ptr %42, align 1, !tbaa !39
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i44
   %45 = load i8, ptr %44, align 1, !tbaa !39
-  %46 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i44
+  %46 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %indvars.iv.i44
   %47 = load i8, ptr %46, align 1, !tbaa !39
   %48 = xor i8 %47, %45
   %.not.i45 = icmp eq i8 %43, %48
@@ -1445,7 +1445,7 @@ xor_recreate.exit49:                              ; preds = %40, %41
   %66 = load i8, ptr %65, align 1, !tbaa !39
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i50
   %68 = load i8, ptr %67, align 1, !tbaa !39
-  %69 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i50
+  %69 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %indvars.iv.i50
   %70 = load i8, ptr %69, align 1, !tbaa !39
   %71 = xor i8 %70, %68
   %.not.i51 = icmp eq i8 %66, %71
@@ -1474,7 +1474,7 @@ xor_recreate.exit55:                              ; preds = %64, %.preheader
   %79 = load i8, ptr %78, align 1, !tbaa !39
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i56
   %81 = load i8, ptr %80, align 1, !tbaa !39
-  %82 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i56
+  %82 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %indvars.iv.i56
   %83 = load i8, ptr %82, align 1, !tbaa !39
   %84 = xor i8 %83, %81
   %.not.i57 = icmp eq i8 %79, %84
@@ -1519,12 +1519,12 @@ define internal ptr @xor_xorhmacsha2sig_gen(ptr noundef readonly captures(none) 
 
 16:                                               ; preds = %16, %.preheader.i
   %.018.i = phi i64 [ 0, %.preheader.i ], [ %23, %16 ]
-  %17 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.018.i
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.018.i
   %18 = load i8, ptr %17, align 1, !tbaa !39
-  %19 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018.i
+  %19 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %.018.i
   %20 = load i8, ptr %19, align 1, !tbaa !39
   %21 = xor i8 %20, %18
-  %22 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.018.i
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 %.018.i
   store i8 %21, ptr %22, align 1, !tbaa !39
   %23 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %23, 32
@@ -1628,11 +1628,11 @@ define internal range(i32 0, 2) i32 @xor_derive(ptr noundef readonly captures(no
 .preheader:                                       ; preds = %13, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %13 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !54
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !39
   %18 = load ptr, ptr %8, align 8, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !39
   %22 = xor i8 %21, %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
@@ -1747,12 +1747,12 @@ define internal range(i32 0, 2) i32 @xor_encapsulate(ptr noundef readonly captur
 
 34:                                               ; preds = %34, %.preheader.i
   %.018.i = phi i64 [ 0, %.preheader.i ], [ %41, %34 ]
-  %35 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %.018.i
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 %.018.i
   %36 = load i8, ptr %35, align 1, !tbaa !39
-  %37 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018.i
+  %37 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %.018.i
   %38 = load i8, ptr %37, align 1, !tbaa !39
   %39 = xor i8 %38, %36
-  %40 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 0, i64 %.018.i
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %.018.i
   store i8 %39, ptr %40, align 1, !tbaa !39
   %41 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %41, 32
@@ -1791,9 +1791,9 @@ xor_gen.exit:                                     ; preds = %42, %23
 
 .preheader.i49:                                   ; preds = %.preheader.i49, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i49 ], [ 0, %53 ]
-  %56 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i
   %57 = load i8, ptr %56, align 1, !tbaa !39
-  %58 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i
   %59 = load i8, ptr %58, align 1, !tbaa !39
   %60 = xor i8 %59, %57
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
@@ -1889,9 +1889,9 @@ define internal range(i32 0, 2) i32 @xor_decapsulate(ptr noundef readonly captur
 
 .preheader.i:                                     ; preds = %.preheader.i, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %25 ]
-  %27 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i
   %28 = load i8, ptr %27, align 1, !tbaa !39
-  %29 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1, !tbaa !39
   %31 = xor i8 %30, %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
@@ -2053,7 +2053,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_der_does_selec
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2593,7 +2593,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_pem_does_selec
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2887,7 +2887,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_d
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3107,7 +3107,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_d
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3327,7 +3327,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_does
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3616,7 +3616,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_does
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3846,7 +3846,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_does_s
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4031,7 +4031,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_does_s
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4216,7 +4216,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_d
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4436,7 +4436,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_p
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4656,7 +4656,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4867,7 +4867,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5125,7 +5125,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selectio
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5682,7 +5682,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_se
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5834,7 +5834,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_sele
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5887,7 +5887,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_doe
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -6134,12 +6134,12 @@ define internal range(i32 0, 2) i32 @xor_sig_verify(ptr noundef readonly capture
 
 15:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !39
-  %18 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr @private_constant, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !39
   %20 = xor i8 %19, %17
-  %21 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   store i8 %20, ptr %21, align 1, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32

@@ -252,7 +252,7 @@ default.unreachable:                              ; preds = %69, %39
   %112 = zext i8 %111 to i32
   %113 = and i32 %112, 15
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw [16 x i8], ptr @ws_adpcm_4bit, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @ws_adpcm_4bit, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !8
   %117 = sext i8 %116 to i32
   %118 = add nsw i32 %.4128180, %117
@@ -266,7 +266,7 @@ default.unreachable:                              ; preds = %69, %39
   store i8 %.0.i164, ptr %.5179, align 1, !tbaa !8
   %123 = lshr i32 %112, 4
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [16 x i8], ptr @ws_adpcm_4bit, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr @ws_adpcm_4bit, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !8
   %127 = sext i8 %126 to i32
   %128 = add nsw i32 %121, %127

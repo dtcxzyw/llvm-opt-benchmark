@@ -443,7 +443,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %21
 36:                                               ; preds = %42, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %42 ]
   %37 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i
-  %38 = getelementptr inbounds nuw [3 x float], ptr %37, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
   %39 = load float, ptr %38, align 4, !tbaa !25
   %40 = fcmp olt float %3, %39
   br i1 %40, label %42, label %41
@@ -456,11 +456,11 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %21
   %43 = fdiv float %39, %3
   %44 = call noundef i64 @lroundf(float noundef %43) #27, !tbaa !26
   %45 = trunc i64 %44 to i32
-  %46 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %45, ptr %46, align 4, !tbaa !26
   %47 = sitofp i32 %45 to float
   %48 = fdiv float %47, %39
-  %49 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   store float %48, ptr %49, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -547,15 +547,15 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2INS0_12ArrayRefIterIKS2_EEvEET_S9_R
 
 80:                                               ; preds = %93, %66
   %indvars.iv99.i = phi i64 [ 0, %66 ], [ %indvars.iv.next100.i, %93 ]
-  %81 = getelementptr inbounds nuw [3 x float], ptr %.sroa.061.093.i, i64 0, i64 %indvars.iv99.i
+  %81 = getelementptr inbounds nuw float, ptr %.sroa.061.093.i, i64 %indvars.iv99.i
   %82 = load float, ptr %81, align 4, !tbaa !25
-  %83 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv99.i
+  %83 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv99.i
   %84 = load float, ptr %83, align 4, !tbaa !25
   %85 = fmul float %82, %84
   %86 = fptosi float %85 to i32
-  %87 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv99.i
+  %87 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv99.i
   store i32 %86, ptr %87, align 4, !tbaa !26
-  %88 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv99.i
+  %88 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv99.i
   %89 = load i32, ptr %88, align 4, !tbaa !26
   %90 = icmp eq i32 %89, %86
   br i1 %90, label %91, label %93
@@ -1648,7 +1648,7 @@ _ZNK6RmsMax13getResolutionIsEEff.exit58.i:        ; preds = %38, %_ZNK6RmsMax13g
   %.sroa.13.1118.us.i = phi float [ %.sroa.13.2.lcssa.us.i, %._crit_edge.split.us.us.i ], [ %.sroa.13.0140.i, %.preheader.i ]
   %.sroa.8.1117.us.i = phi i32 [ %.sroa.8.2.lcssa.us.i, %._crit_edge.split.us.us.i ], [ %.sroa.8.0139.i, %.preheader.i ]
   %.sroa.070.1116.us.i = phi double [ %.sroa.070.2.lcssa.us.i, %._crit_edge.split.us.us.i ], [ %.sroa.070.0138.i, %.preheader.i ]
-  %59 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %58, i64 0, i64 %indvars.iv162.i
+  %59 = getelementptr inbounds nuw %struct.InteractionList, ptr %58, i64 %indvars.iv162.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !217
   %62 = load ptr, ptr %59, align 8, !tbaa !218
@@ -1667,7 +1667,7 @@ _ZNK6RmsMax13getResolutionIsEEff.exit58.i:        ; preds = %38, %_ZNK6RmsMax13g
   br i1 %exitcond165.not.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !219
 
 .lr.ph110.us.i:                                   ; preds = %.preheader.split.us.i
-  %69 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv162.i, i32 2
+  %69 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv162.i, i32 2
   %70 = load i32, ptr %69, align 16, !tbaa !220
   %invariant.op.us.i = add i32 %70, 1
   br label %71
@@ -1797,7 +1797,7 @@ _ZN6RmsMax3addEfi.exit61.i:                       ; preds = %108, %_ZN6RmsMax3ad
   %.sroa.13.1118.i = phi float [ %.sroa.13.2.lcssa.i, %._crit_edge.split.i ], [ %.sroa.13.0140.i, %.preheader.i ]
   %.sroa.8.1117.i = phi i32 [ %.sroa.8.2.lcssa.i, %._crit_edge.split.i ], [ %.sroa.8.0139.i, %.preheader.i ]
   %.sroa.070.1116.i = phi double [ %.sroa.070.2.lcssa.i, %._crit_edge.split.i ], [ %.sroa.070.0138.i, %.preheader.i ]
-  %128 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %58, i64 0, i64 %indvars.iv158.i
+  %128 = getelementptr inbounds nuw %struct.InteractionList, ptr %58, i64 %indvars.iv158.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !217
   %131 = load ptr, ptr %128, align 8, !tbaa !218
@@ -1810,7 +1810,7 @@ _ZN6RmsMax3addEfi.exit61.i:                       ; preds = %108, %_ZN6RmsMax3ad
   br i1 %137, label %.lr.ph110.i, label %._crit_edge.split.i
 
 .lr.ph110.i:                                      ; preds = %.preheader.split.i
-  %138 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv158.i, i32 2
+  %138 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv158.i, i32 2
   %139 = load i32, ptr %138, align 16, !tbaa !220
   %invariant.op.i = add i32 %139, 1
   br label %thread-pre-split.i
@@ -2087,7 +2087,7 @@ _ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EEC2EmRKS0_RKS1_.exit: ; p
 239:                                              ; preds = %_ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EEC2EmRKS0_RKS1_.exit, %._crit_edge
   %exitcond.not = phi i1 [ false, %_ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EEC2EmRKS0_RKS1_.exit ], [ true, %._crit_edge ]
   %indvars.iv = phi i64 [ 62, %_ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EEC2EmRKS0_RKS1_.exit ], [ 63, %._crit_edge ]
-  %240 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %224, i64 0, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw %struct.InteractionList, ptr %224, i64 %indvars.iv
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8, !tbaa !217
   %243 = load ptr, ptr %240, align 8, !tbaa !218
@@ -2100,7 +2100,7 @@ _ZNSt6vectorI33AtomNonbondedAndKineticPropertiesSaIS0_EEC2EmRKS0_RKS1_.exit: ; p
   br i1 %249, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %239
-  %250 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
+  %250 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 2
   br label %251
 
 ._crit_edge:                                      ; preds = %_ZN33AtomNonbondedAndKineticProperties13addConstraintEff.exit152, %239
@@ -2417,14 +2417,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %426 = phi ptr [ null, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %463, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i ]
   %427 = phi ptr [ null, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %464, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i ]
   %.024.i.i = phi i64 [ 0, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %465, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i ]
-  %428 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i.i, i32 5
+  %428 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i.i, i32 5
   %429 = load i32, ptr %428, align 4, !tbaa !243, !noalias !244
   %430 = and i32 %429, 2
   %.not.i.i = icmp eq i32 %430, 0
   br i1 %.not.i.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i, label %431
 
 431:                                              ; preds = %424
-  %432 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %224, i64 0, i64 %.024.i.i
+  %432 = getelementptr inbounds nuw %struct.InteractionList, ptr %224, i64 %.024.i.i
   %433 = load ptr, ptr %432, align 8, !tbaa !247, !noalias !244
   %434 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %435 = load ptr, ptr %434, align 8, !tbaa !247, !noalias !244
@@ -2587,7 +2587,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.i: ; preds = %655, %.
 
 488:                                              ; preds = %.lr.ph190.i
   %489 = sext i32 %.val104.pre219221.i to i64
-  %490 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %489, i32 2
+  %490 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %489, i32 2
   %491 = load i32, ptr %490, align 16, !tbaa !220
   %492 = sext i32 %491 to i64
   %493 = icmp slt i32 %491, 0
@@ -2941,7 +2941,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit113.i:               ; preds = %._crit_edge187.i, %
 645:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit113.i
   %646 = load ptr, ptr @debug, align 8, !tbaa !125
   %647 = sext i32 %.val104.pre219.i to i64
-  %648 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %647, i32 1
+  %648 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %647, i32 1
   %649 = load ptr, ptr %648, align 8, !tbaa !266
   %650 = sext i32 %487 to i64
   %651 = getelementptr inbounds float, ptr %.sroa.0222.1, i64 %650
@@ -2954,7 +2954,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit113.i:               ; preds = %._crit_edge187.i, %
 655:                                              ; preds = %645, %_ZNSt6vectorIfSaIfEED2Ev.exit113.i
   %.val104.pre219222.i = phi i32 [ %.val104.pre.i, %645 ], [ %.val104.pre219.i, %_ZNSt6vectorIfSaIfEED2Ev.exit113.i ]
   %656 = sext i32 %.val104.pre219222.i to i64
-  %657 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %656, i32 2
+  %657 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %656, i32 2
   %658 = load i32, ptr %657, align 16, !tbaa !220
   %659 = add nsw i32 %658, 1
   %660 = sext i32 %659 to i64
@@ -5700,14 +5700,14 @@ _ZNSt12_Vector_baseI19AtomConstraintPropsSaIS0_EEC2EmRKS1_.exit.thread.i.i.i.i: 
   %334 = phi ptr [ null, %_ZNSt12_Vector_baseI19AtomConstraintPropsSaIS0_EEC2EmRKS1_.exit.thread.i.i.i.i ], [ %371, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i ]
   %335 = phi ptr [ null, %_ZNSt12_Vector_baseI19AtomConstraintPropsSaIS0_EEC2EmRKS1_.exit.thread.i.i.i.i ], [ %372, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i ]
   %.024.i.i.i.i = phi i64 [ 0, %_ZNSt12_Vector_baseI19AtomConstraintPropsSaIS0_EEC2EmRKS1_.exit.thread.i.i.i.i ], [ %373, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i ]
-  %336 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i.i.i.i, i32 5
+  %336 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i.i.i.i, i32 5
   %337 = load i32, ptr %336, align 4, !tbaa !243, !noalias !314
   %338 = and i32 %337, 4
   %.not.i.i.i.i = icmp eq i32 %338, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i, label %339
 
 339:                                              ; preds = %332
-  %340 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %331, i64 0, i64 %.024.i.i.i.i
+  %340 = getelementptr inbounds nuw %struct.InteractionList, ptr %331, i64 %.024.i.i.i.i
   %341 = load ptr, ptr %340, align 8, !tbaa !247, !noalias !314
   %342 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %343 = load ptr, ptr %342, align 8, !tbaa !247, !noalias !314
@@ -5852,7 +5852,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit._crit_edge.i.i.i: ; p
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %391 = sext i32 %380 to i64
-  %392 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %391, i32 2
+  %392 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %391, i32 2
   %393 = load i32, ptr %392, align 16, !tbaa !220, !noalias !311
   %394 = add nsw i32 %393, 1
   %395 = sext i32 %394 to i64

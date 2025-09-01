@@ -651,7 +651,7 @@ define ptr @SRP_check_known_gN_param(ptr noundef %0, ptr noundef %1) local_unnam
 
 .preheader:                                       ; preds = %2, %17
   %.013 = phi i64 [ %18, %17 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw [7 x %struct.SRP_gN_st], ptr @knowngN, i64 0, i64 %.013
+  %5 = getelementptr inbounds nuw %struct.SRP_gN_st, ptr @knowngN, i64 %.013
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = tail call i32 @BN_cmp(ptr noundef %7, ptr noundef %0) #5
@@ -686,21 +686,21 @@ define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %1, %7
-  %.09 = phi i64 [ %8, %7 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [7 x %struct.SRP_gN_st], ptr @knowngN, i64 0, i64 %.09
-  %4 = load ptr, ptr %3, align 8, !tbaa !11
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #6
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.loopexit, label %7
-
-7:                                                ; preds = %.preheader
-  %8 = add nuw nsw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %8, 7
+3:                                                ; preds = %.preheader
+  %4 = add nuw nsw i64 %.08, 1
+  %exitcond.not = icmp eq i64 %4, 7
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %7, %.preheader, %1
-  %.06 = phi ptr [ @knowngN, %1 ], [ null, %7 ], [ %3, %.preheader ]
+.preheader:                                       ; preds = %1, %3
+  %.08 = phi i64 [ %4, %3 ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw %struct.SRP_gN_st, ptr @knowngN, i64 %.08
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #6
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.loopexit, label %3
+
+.loopexit:                                        ; preds = %.preheader, %3, %1
+  %.06 = phi ptr [ @knowngN, %1 ], [ %5, %.preheader ], [ null, %3 ]
   ret ptr %.06
 }
 

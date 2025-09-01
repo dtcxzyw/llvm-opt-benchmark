@@ -1491,7 +1491,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %35 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %18
+  %35 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %18
   %36 = load i32, ptr %35, align 4
   br label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
 
@@ -2423,7 +2423,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i:             ; preds = %_ZNK11hb_vector_tIN
   %49 = lshr i32 %1, 6
   %50 = and i32 %49, 7
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %48, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %48, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, %47
   store i64 %54, ptr %52, align 8
@@ -2450,7 +2450,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i:             ; preds = %_ZNK11hb_vector_tIN
   %65 = lshr i32 %1, 6
   %66 = and i32 %65, 7
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x i64], ptr %64, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %64, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = or i64 %69, %63
   store i64 %70, ptr %68, align 8

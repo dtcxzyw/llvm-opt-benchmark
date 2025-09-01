@@ -168,7 +168,7 @@ define noundef i32 @_Z13gmx_mk_angndxiPPc(i32 noundef %0, ptr noundef %1) local_
   %.0 = phi i32 [ %.1, %44 ], [ 0, %29 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %29 ]
   %.01920.i = phi ptr [ %.1.i, %44 ], [ null, %29 ]
-  %32 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i, i32 5
+  %32 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i, i32 5
   %33 = load i32, ptr %32, align 4, !tbaa !23
   %34 = and i32 %33, 32
   %35 = icmp ne i32 %34, 0
@@ -518,7 +518,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
 
 .noexc55:                                         ; preds = %.split.us.i
   %198 = sext i32 %91 to i64
-  %199 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %198, i32 1
+  %199 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %198, i32 1
   %200 = load ptr, ptr %199, align 8, !tbaa !58
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 160, ptr noundef nonnull @.str.35, ptr noundef %200) #15
           to label %201 unwind label %202
@@ -563,7 +563,7 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
   %214 = getelementptr inbounds nuw i32, ptr %.2.i, i64 %indvars.iv108.i
   %215 = load i32, ptr %214, align 4, !tbaa !4
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds [95 x %struct.t_ilist], ptr %211, i64 0, i64 %216
+  %217 = getelementptr inbounds %struct.t_ilist, ptr %211, i64 %216
   %218 = load i32, ptr %217, align 8, !tbaa !64
   %219 = icmp sgt i32 %218, 0
   br i1 %219, label %.lr.ph87.i, label %._crit_edge88.i
@@ -571,7 +571,7 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
 .lr.ph87.i:                                       ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %221 = load ptr, ptr %220, align 8, !tbaa !66
-  %222 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %216, i32 2
+  %222 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %216, i32 2
   br label %223
 
 223:                                              ; preds = %287, %.lr.ph87.i

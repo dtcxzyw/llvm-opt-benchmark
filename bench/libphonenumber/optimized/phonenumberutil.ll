@@ -6900,7 +6900,7 @@ _ZNKSt16reverse_iteratorIN4i18n12phonenumbers11UnicodeText14const_iteratorEE4bas
 40:                                               ; preds = %.noexc22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds [5 x i8], ptr %7, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %7, i64 %41
   store i8 0, ptr %42, align 1, !tbaa !60
   %43 = load ptr, ptr %31, align 8, !tbaa !19
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 640
@@ -10173,12 +10173,12 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberUtil32ChooseFo
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 200
   %25 = load ptr, ptr %24, align 8, !tbaa !198
   %26 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !83
-  %27 = add nsw i32 %13, -1
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !80
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = zext nneg i32 %27 to i64
-  %32 = getelementptr inbounds nuw [1 x ptr], ptr %30, i64 0, i64 %31
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = zext nneg i32 %13 to i64
+  %31 = getelementptr ptr, ptr %29, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load ptr, ptr %32, align 8, !tbaa !83
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %35 unwind label %45
@@ -14289,7 +14289,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf16RepeatedPtrField
   %11 = add nsw i32 %6, 1
   store i32 %11, ptr %5, align 8, !tbaa !76
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds [1 x ptr], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !83
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE11TypeHandlerEEEPNT_4TypeESC_.exit
 
@@ -14321,7 +14321,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf16RepeatedPtrField
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 8, !tbaa !76
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds [1 x ptr], ptr %28, i64 0, i64 %32
+  %33 = getelementptr inbounds ptr, ptr %28, i64 %32
   store ptr %26, ptr %33, align 8, !tbaa !83
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE11TypeHandlerEEEPNT_4TypeESC_.exit
 
@@ -20274,7 +20274,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112ba
 
 switch.lookup:                                    ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %63 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit
 
@@ -21239,7 +21239,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil19GetSupportedRegionsEPSt3setINSt7__cxx1
   %132 = getelementptr inbounds nuw i8, ptr %12, i64 18
   %133 = icmp ult i32 %1, 11
   %134 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE, i64 0, i64 %134
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE, i64 %134
   br label %137
 
 135:                                              ; preds = %.critedge
@@ -21959,7 +21959,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiN4i1
 
 119:                                              ; preds = %.preheader, %238
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %238 ]
-  %120 = getelementptr inbounds nuw [7 x %"class.i18n::phonenumbers::PhoneNumberDesc"], ptr %8, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumberDesc", ptr %8, i64 %indvars.iv
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i32, ptr %121, align 8, !tbaa !124
   %123 = and i32 %122, 2
@@ -25192,7 +25192,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberUtil21ExtractPossible
 
 42:                                               ; preds = %40
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds [5 x i8], ptr %6, i64 0, i64 %43
+  %44 = getelementptr inbounds i8, ptr %6, i64 %43
   store i8 0, ptr %44, align 1, !tbaa !60
   %45 = load ptr, ptr %33, align 8, !tbaa !19
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 624
@@ -27416,7 +27416,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN4i18n12phonenumbers12_GLO
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4i18n12phonenumbers12_GLOBAL__N_116TestNumberLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit
 

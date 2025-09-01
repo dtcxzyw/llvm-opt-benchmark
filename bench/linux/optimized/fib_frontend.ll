@@ -1014,7 +1014,7 @@ define dso_local noundef zeroext i1 @fib_info_nh_uses_dev(ptr noundef readonly c
 .lr.ph:                                           ; preds = %6, %13
   %15 = phi i32 [ %14, %13 ], [ 0, %6 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [0 x %struct.fib_nh], ptr %8, i64 0, i64 %16
+  %17 = getelementptr %struct.fib_nh, ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %1
   br i1 %19, label %.thread2, label %20
@@ -1057,7 +1057,7 @@ define internal fastcc noundef zeroext i1 @nexthop_uses_dev(ptr noundef nonnull 
 
 19:                                               ; preds = %16, %12
   %20 = phi i64 [ 0, %12 ], [ %17, %16 ]
-  %21 = getelementptr [0 x %struct.nh_grp_entry], ptr %13, i64 0, i64 %20
+  %21 = getelementptr %struct.nh_grp_entry, ptr %13, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load volatile ptr, ptr %23, align 8
@@ -1372,7 +1372,7 @@ define dso_local range(i32 -22, 2) i32 @fib_validate_source(ptr noundef %0, i32 
 .lr.ph:                                           ; preds = %167, %175
   %178 = phi i32 [ %176, %175 ], [ 0, %167 ]
   %179 = sext i32 %178 to i64
-  %180 = getelementptr [0 x %struct.fib_nh], ptr %169, i64 0, i64 %179
+  %180 = getelementptr %struct.fib_nh, ptr %169, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %181, %5
   br i1 %182, label %.thread13, label %183
@@ -2121,7 +2121,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ip_valid_fib_dump_req(ptr nounde
 
 70:                                               ; preds = %87, %67
   %71 = phi i64 [ 0, %67 ], [ %88, %87 ]
-  %72 = getelementptr [31 x ptr], ptr %5, i64 0, i64 %71
+  %72 = getelementptr ptr, ptr %5, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %87, label %75

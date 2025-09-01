@@ -1352,7 +1352,7 @@ define range(i32 0, 2) i32 @opt_long(ptr noundef %0, ptr noundef writeonly captu
 
 21:                                               ; preds = %.preheader, %19
   %.07.i = phi i64 [ %20, %19 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw [3 x %struct.strstr_pair_st], ptr @__const.opt_number_error.b, i64 0, i64 %.07.i
+  %22 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
   %23 = load ptr, ptr %22, align 16, !tbaa !36
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
   %25 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %23, i64 noundef %24) #19
@@ -1456,7 +1456,7 @@ define range(i32 0, 2) i32 @opt_intmax(ptr noundef %0, ptr noundef writeonly cap
 
 21:                                               ; preds = %.preheader, %19
   %.07.i = phi i64 [ %20, %19 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw [3 x %struct.strstr_pair_st], ptr @__const.opt_number_error.b, i64 0, i64 %.07.i
+  %22 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
   %23 = load ptr, ptr %22, align 16, !tbaa !36
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
   %25 = call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %23, i64 noundef %24) #19
@@ -1528,7 +1528,7 @@ define range(i32 0, 2) i32 @opt_uintmax(ptr noundef %0, ptr noundef writeonly ca
 
 18:                                               ; preds = %.preheader, %16
   %.07.i = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw [3 x %struct.strstr_pair_st], ptr @__const.opt_number_error.b, i64 0, i64 %.07.i
+  %19 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
   %20 = load ptr, ptr %19, align 16, !tbaa !36
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
   %22 = call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21) #19
@@ -1600,7 +1600,7 @@ define range(i32 0, 2) i32 @opt_ulong(ptr noundef %0, ptr noundef writeonly capt
 
 18:                                               ; preds = %.preheader, %16
   %.07.i = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw [3 x %struct.strstr_pair_st], ptr @__const.opt_number_error.b, i64 0, i64 %.07.i
+  %19 = getelementptr inbounds nuw %struct.strstr_pair_st, ptr @__const.opt_number_error.b, i64 %.07.i
   %20 = load ptr, ptr %19, align 16, !tbaa !36
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
   %22 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21) #19
@@ -2444,7 +2444,7 @@ define void @opt_help(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %invariant.smin = tail call i32 @llvm.umin.i32(i32 %.021.lcssa5053, i32 29)
   %28 = zext nneg i32 %spec.store.select.i to i64
-  %29 = getelementptr inbounds nuw [81 x i8], ptr %2, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   br label %30
 
 30:                                               ; preds = %.lr.ph40, %opt_print.exit
@@ -2533,7 +2533,7 @@ define void @opt_help(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %.1.i = phi i32 [ 0, %70 ], [ %.0.i, %69 ]
   %73 = sub nsw i32 %spec.store.select.i, %.1.i
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [81 x i8], ptr %2, i64 0, i64 %74
+  %75 = getelementptr inbounds i8, ptr %2, i64 %74
   store i8 0, ptr %75, align 1, !tbaa !3
   %76 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.95, ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i) #20
   br label %opt_print.exit

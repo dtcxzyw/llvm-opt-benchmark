@@ -117,7 +117,7 @@ define hidden range(i32 -1, 2) i32 @ngsniffer_open(ptr noundef captures(none) %0
 
 30:                                               ; preds = %26
   %31 = zext nneg i8 %28 to i64
-  %32 = getelementptr [11 x i32], ptr @ngsniffer_open.sniffer_encap, i64 0, i64 %31
+  %32 = getelementptr i32, ptr @ngsniffer_open.sniffer_encap, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i8 %28, -3
   %35 = icmp ult i8 %34, 4
@@ -247,7 +247,7 @@ define hidden range(i32 -1, 2) i32 @ngsniffer_open(ptr noundef captures(none) %0
   store i32 0, ptr %94, align 8
   %95 = load i8, ptr %40, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr [7 x i32], ptr @Psec, i64 0, i64 %96
+  %97 = getelementptr i32, ptr @Psec, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 %98, ptr %99, align 4
@@ -2722,7 +2722,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   store i8 4, ptr %64, align 2
   %65 = load i32, ptr %16, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr [19 x i32], ptr @wtap_encap, i64 0, i64 %66
+  %67 = getelementptr i32, ptr @wtap_encap, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = trunc i32 %68 to i8
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 9

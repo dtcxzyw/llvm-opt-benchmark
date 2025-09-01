@@ -26779,8 +26779,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr14ARealOrIn
   %spec.select.i.i = add i64 %1, %14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds [0 x ptr], ptr %15, i64 0, i64 %16
+  %16 = ashr exact i64 %sext, 29
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4, !noalias !204
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8, !tbaa !11, !noalias !207
@@ -26862,8 +26862,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr8AInteger8c
   %spec.select.i.i = add i64 %1, %14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds [0 x ptr], ptr %15, i64 0, i64 %16
+  %16 = ashr exact i64 %sext, 29
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4, !noalias !210
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8, !tbaa !11, !noalias !213
@@ -26939,8 +26939,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr5AReal8chec
   %spec.select.i.i = add i64 %1, %14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds [0 x ptr], ptr %15, i64 0, i64 %16
+  %16 = ashr exact i64 %sext, 29
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4, !noalias !216
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8, !tbaa !11, !noalias !219
@@ -27016,8 +27016,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr7ARegExp8ch
   %spec.select.i.i = add i64 %1, %14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds [0 x ptr], ptr %15, i64 0, i64 %16
+  %16 = ashr exact i64 %sext, 29
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4, !noalias !222
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8, !tbaa !11, !noalias !225
@@ -27105,8 +27105,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4expr7AString8ch
   %spec.select.i.i = add i64 %1, %14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds [0 x ptr], ptr %15, i64 0, i64 %16
+  %16 = ashr exact i64 %sext, 29
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4, !noalias !230
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8, !tbaa !11, !noalias !233

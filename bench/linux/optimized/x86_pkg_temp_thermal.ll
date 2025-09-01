@@ -155,7 +155,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = zext i32 %0 to i64
-  %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
+  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_info to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -353,7 +353,7 @@ define internal i32 @pkg_thermal_cpu_online(i32 noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -528,7 +528,7 @@ define internal noundef i32 @pkg_thermal_notify(i64 %0) #2 align 16 {
 
 19:                                               ; preds = %17, %12
   %20 = zext i32 %2 to i64
-  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
+  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, ptrtoint (ptr @cpu_info to i64)
   %24 = inttoptr i64 %23 to ptr
@@ -598,7 +598,7 @@ define internal void @pkg_temp_thermal_threshold_work_fn(ptr readnone captures(n
   %4 = add i32 %3, 1
   store i32 %4, ptr @pkg_work_cnt, align 4
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
+  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpu_info to i64)
   %9 = inttoptr i64 %8 to ptr

@@ -198,8 +198,10 @@ define internal void @_ZN5arrow4util8internalL20InitializeLargeTableEv() #2 {
 .preheader:                                       ; preds = %0, %5
   %indvars.iv14 = phi i64 [ 0, %0 ], [ %indvars.iv.next15, %5 ]
   %1 = mul nuw nsw i64 %indvars.iv14, 12
-  %2 = add nuw nsw i64 %1, 256
-  %3 = shl nuw nsw i64 %indvars.iv14, 8
+  %2 = getelementptr inbounds nuw i8, ptr @_ZN5arrow4util8internal16utf8_small_tableE, i64 %1
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  %.idx = shl nuw nsw i64 %indvars.iv14, 9
+  %invariant.gep = getelementptr inbounds nuw i8, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.idx
   br label %6
 
 4:                                                ; preds = %5
@@ -212,18 +214,16 @@ define internal void @_ZN5arrow4util8internalL20InitializeLargeTableEv() #2 {
 
 6:                                                ; preds = %.preheader, %6
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw [364 x i8], ptr @_ZN5arrow4util8internal16utf8_small_tableE, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN5arrow4util8internal16utf8_small_tableE, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1, !tbaa !9
   %9 = zext i8 %8 to i64
-  %10 = add nuw nsw i64 %2, %9
-  %11 = getelementptr inbounds nuw [364 x i8], ptr @_ZN5arrow4util8internal16utf8_small_tableE, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !9
-  %13 = udiv i8 %12, 12
-  %14 = zext nneg i8 %13 to i16
-  %15 = shl nuw nsw i16 %14, 8
-  %16 = add nuw nsw i64 %indvars.iv, %3
-  %17 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %16
-  store i16 %15, ptr %17, align 2, !tbaa !10
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !9
+  %12 = udiv i8 %11, 12
+  %13 = zext nneg i8 %12 to i16
+  %14 = shl nuw nsw i16 %13, 8
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  store i16 %14, ptr %gep, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %5, label %6, !llvm.loop !12
@@ -262,27 +262,27 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   %15 = lshr i64 %.0.copyload.i, 16
   %16 = lshr i64 %.0.copyload.i, 8
   %17 = and i64 %.0.copyload.i, 255
-  %18 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !10
   %20 = zext i16 %19 to i64
   %21 = and i64 %16, 255
-  %22 = add nuw nsw i64 %21, %20
-  %23 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %22
+  %22 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %20
+  %23 = getelementptr inbounds nuw i16, ptr %22, i64 %21
   %24 = load i16, ptr %23, align 2, !tbaa !10
   %25 = zext i16 %24 to i64
   %26 = and i64 %15, 255
-  %27 = add nuw nsw i64 %26, %25
-  %28 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %27
+  %27 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %25
+  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %26
   %29 = load i16, ptr %28, align 2, !tbaa !10
   %30 = zext i16 %29 to i64
   %31 = and i64 %14, 255
-  %32 = add nuw nsw i64 %31, %30
-  %33 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %32
+  %32 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %30
+  %33 = getelementptr inbounds nuw i16, ptr %32, i64 %31
   %34 = load i16, ptr %33, align 2, !tbaa !10
   %35 = zext i16 %34 to i64
   %36 = and i64 %13, 255
-  %37 = add nuw nsw i64 %36, %35
-  %38 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %37
+  %37 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %35
+  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %36
   %39 = load i16, ptr %38, align 2, !tbaa !10
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %41, label %44
@@ -295,8 +295,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 44:                                               ; preds = %12
   %45 = zext i16 %39 to i64
   %46 = and i64 %6, 255
-  %47 = add nuw nsw i64 %46, %45
-  %48 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %47
+  %47 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %45
+  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %46
   %49 = load i16, ptr %48, align 2, !tbaa !10
   %50 = icmp eq i16 %49, 0
   br i1 %50, label %51, label %54
@@ -309,8 +309,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 54:                                               ; preds = %44
   %55 = zext i16 %49 to i64
   %56 = and i64 %7, 255
-  %57 = add nuw nsw i64 %56, %55
-  %58 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %57
+  %57 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %55
+  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %56
   %59 = load i16, ptr %58, align 2, !tbaa !10
   %60 = icmp eq i16 %59, 0
   br i1 %60, label %61, label %64
@@ -323,8 +323,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 64:                                               ; preds = %54
   %65 = getelementptr inbounds nuw i8, ptr %.079113, i64 8
   %66 = zext i16 %59 to i64
-  %67 = add nuw nsw i64 %8, %66
-  %68 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %67
+  %67 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %66
+  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %8
   %69 = load i16, ptr %68, align 2, !tbaa !10
   %70 = add nsw i64 %.082112, -8
   %.not97 = icmp eq i16 %69, 0
@@ -399,7 +399,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 
 103:                                              ; preds = %99
   %104 = and i64 %102, 255
-  %105 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !10
   %107 = zext i16 %106 to i64
   br label %108
@@ -410,8 +410,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   %110 = getelementptr i8, ptr %109, i64 -6
   %111 = load i8, ptr %110, align 1, !tbaa !9
   %112 = zext i8 %111 to i64
-  %113 = add nuw nsw i64 %.0, %112
-  %114 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %113
+  %113 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.0
+  %114 = getelementptr inbounds nuw i16, ptr %113, i64 %112
   %115 = load i16, ptr %114, align 2, !tbaa !10
   %116 = zext i16 %115 to i64
   br label %117
@@ -422,8 +422,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   %119 = getelementptr i8, ptr %118, i64 -5
   %120 = load i8, ptr %119, align 1, !tbaa !9
   %121 = zext i8 %120 to i64
-  %122 = add nuw nsw i64 %.1, %121
-  %123 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %122
+  %122 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.1
+  %123 = getelementptr inbounds nuw i16, ptr %122, i64 %121
   %124 = load i16, ptr %123, align 2, !tbaa !10
   %125 = zext i16 %124 to i64
   br label %126
@@ -434,8 +434,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   %128 = getelementptr i8, ptr %127, i64 -4
   %129 = load i8, ptr %128, align 1, !tbaa !9
   %130 = zext i8 %129 to i64
-  %131 = add nuw nsw i64 %.2, %130
-  %132 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %131
+  %131 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.2
+  %132 = getelementptr inbounds nuw i16, ptr %131, i64 %130
   %133 = load i16, ptr %132, align 2, !tbaa !10
   %134 = zext i16 %133 to i64
   br label %135
@@ -446,8 +446,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   %137 = getelementptr i8, ptr %136, i64 -3
   %138 = load i8, ptr %137, align 1, !tbaa !9
   %139 = zext i8 %138 to i64
-  %140 = add nuw nsw i64 %.3, %139
-  %141 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %140
+  %140 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.3
+  %141 = getelementptr inbounds nuw i16, ptr %140, i64 %139
   %142 = load i16, ptr %141, align 2, !tbaa !10
   %143 = zext i16 %142 to i64
   br label %144
@@ -455,8 +455,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 144:                                              ; preds = %135, %99
   %.4 = phi i64 [ %143, %135 ], [ 0, %99 ]
   %145 = and i64 %101, 255
-  %146 = add nuw nsw i64 %.4, %145
-  %147 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %146
+  %146 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.4
+  %147 = getelementptr inbounds nuw i16, ptr %146, i64 %145
   %148 = load i16, ptr %147, align 2, !tbaa !10
   %149 = zext i16 %148 to i64
   br label %.thread
@@ -465,8 +465,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   %150 = phi i8 [ %100, %144 ], [ %97, %96 ]
   %.5 = phi i64 [ %149, %144 ], [ 0, %96 ]
   %151 = zext i8 %150 to i64
-  %152 = add nuw nsw i64 %.5, %151
-  %153 = getelementptr inbounds nuw [2304 x i16], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 0, i64 %152
+  %152 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.5
+  %153 = getelementptr inbounds nuw i16, ptr %152, i64 %151
   %154 = load i16, ptr %153, align 2, !tbaa !10
   %155 = icmp eq i16 %154, 0
   br label %.loopexit
@@ -534,7 +534,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %11, %13, %17
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.016
   %20 = load i8, ptr %19, align 1, !tbaa !9
-  %21 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5arrow4utilL4kBOME, i64 0, i64 %.016
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN5arrow4utilL4kBOME, i64 %.016
   %22 = load i8, ptr %21, align 1, !tbaa !9
   %.not = icmp eq i8 %20, %22
   br i1 %.not, label %25, label %23

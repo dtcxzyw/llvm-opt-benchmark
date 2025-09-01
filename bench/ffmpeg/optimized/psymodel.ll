@@ -92,7 +92,7 @@ define i32 @ff_psy_init(ptr noundef initializes((0, 8), (16, 32), (36, 56)) %0, 
   %44 = load ptr, ptr %12, align 8, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %45 = getelementptr inbounds %struct.FFPsyChannel, ptr %44, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw [20 x ptr], ptr %41, i64 0, i64 %indvars.iv61
+  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv61
   store ptr %45, ptr %46, align 8, !tbaa !44
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count

@@ -70297,7 +70297,7 @@ switch.lookup:
 define noundef range(i32 0, 4) i32 @"_ZN14polars_parquet7parquet14parquet_bridge154_$LT$impl$u20$core..convert..From$LT$polars_parquet..parquet..parquet_bridge..PageType$GT$$u20$for$u20$polars_parquet_format..parquet_format..PageType$GT$4from17h26fad6841b7b62c0E"(i8 noundef range(i8 0, 3) %0) unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN14polars_parquet7parquet14parquet_bridge154_$LT$impl$u20$core..convert..From$LT$polars_parquet..parquet..parquet_bridge..PageType$GT$$u20$for$u20$polars_parquet_format..parquet_format..PageType$GT$4from17h26fad6841b7b62c0E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN14polars_parquet7parquet14parquet_bridge154_$LT$impl$u20$core..convert..From$LT$polars_parquet..parquet..parquet_bridge..PageType$GT$$u20$for$u20$polars_parquet_format..parquet_format..PageType$GT$4from17h26fad6841b7b62c0E", i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -70306,7 +70306,7 @@ switch.lookup:
 define noundef range(i32 0, 10) i32 @"_ZN14polars_parquet7parquet14parquet_bridge154_$LT$impl$u20$core..convert..From$LT$polars_parquet..parquet..parquet_bridge..Encoding$GT$$u20$for$u20$polars_parquet_format..parquet_format..Encoding$GT$4from17h2dc80e40f4a872afE"(i8 noundef range(i8 0, 9) %0) unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @"switch.table._ZN14polars_parquet7parquet14parquet_bridge154_$LT$impl$u20$core..convert..From$LT$polars_parquet..parquet..parquet_bridge..Encoding$GT$$u20$for$u20$polars_parquet_format..parquet_format..Encoding$GT$4from17h2dc80e40f4a872afE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN14polars_parquet7parquet14parquet_bridge154_$LT$impl$u20$core..convert..From$LT$polars_parquet..parquet..parquet_bridge..Encoding$GT$$u20$for$u20$polars_parquet_format..parquet_format..Encoding$GT$4from17h2dc80e40f4a872afE", i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -73681,10 +73681,10 @@ define internal noundef zeroext i1 @"_ZN76_$LT$polars_parquet..parquet..error..F
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !5335, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN76_$LT$polars_parquet..parquet..error..Feature$u20$as$u20$core..fmt..Debug$GT$3fmt17h4dd8a93ff34c4eecE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$polars_parquet..parquet..error..Feature$u20$as$u20$core..fmt..Debug$GT$3fmt17h4dd8a93ff34c4eecE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN76_$LT$polars_parquet..parquet..error..Feature$u20$as$u20$core..fmt..Debug$GT$3fmt17h4dd8a93ff34c4eecE.209", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$polars_parquet..parquet..error..Feature$u20$as$u20$core..fmt..Debug$GT$3fmt17h4dd8a93ff34c4eecE.209", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -73765,10 +73765,10 @@ define internal noundef zeroext i1 @"_ZN86_$LT$polars_parquet..parquet..parquet_
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2349, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..Encoding$u20$as$u20$core..fmt..Debug$GT$3fmt17he51cd6357b706baeE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..Encoding$u20$as$u20$core..fmt..Debug$GT$3fmt17he51cd6357b706baeE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..Encoding$u20$as$u20$core..fmt..Debug$GT$3fmt17he51cd6357b706baeE.210", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$polars_parquet..parquet..parquet_bridge..Encoding$u20$as$u20$core..fmt..Debug$GT$3fmt17he51cd6357b706baeE.210", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -702,7 +702,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit.thread522: ; preds = %379, %380
 
 390:                                              ; preds = %341
   %391 = sext i32 %346 to i64
-  %392 = getelementptr inbounds [4 x %struct.btSupportVector], ptr %14, i64 0, i64 %391
+  %392 = getelementptr inbounds %struct.btSupportVector, ptr %14, i64 %391
   %393 = call noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef nonnull %392, ptr noundef nonnull %225, ptr noundef nonnull %220, ptr noundef nonnull %14, ptr noundef null)
   %394 = call noundef float @llvm.fabs.f32(float %393)
   %395 = fcmp olt float %394, 0x3E80000000000000
@@ -2538,7 +2538,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12btDoSimplex3P9btSimple
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [4 x %struct.btSupportVector], ptr %0, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.btSupportVector, ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef nonnull @_ZL15ccd_vec3_origin, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef null)
   %13 = tail call noundef float @llvm.fabs.f32(float %12)

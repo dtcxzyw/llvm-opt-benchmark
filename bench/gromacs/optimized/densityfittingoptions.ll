@@ -3462,7 +3462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %87 = load i32, ptr %86, align 8, !tbaa !137
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL37c_densitySimilarityMeasureMethodNamesE, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL37c_densitySimilarityMeasureMethodNamesE, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !138
   %91 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %91, ptr %20, align 8, !tbaa !17
@@ -3584,7 +3584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %129 = load i32, ptr %128, align 4, !tbaa !139
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL36c_densityFittingAmplitudeMethodNamesE, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL36c_densityFittingAmplitudeMethodNamesE, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !138
   %133 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %133, ptr %22, align 8, !tbaa !17

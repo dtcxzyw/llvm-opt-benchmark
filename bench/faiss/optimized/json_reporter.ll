@@ -5902,7 +5902,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %1020 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %1021 = load i32, ptr %1020, align 8, !tbaa !126
   %1022 = zext nneg i32 %1021 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 0, i64 %1022
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 %1022
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke fastcc void @_ZN9benchmark12_GLOBAL__N_18FormatKVERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull %switch.load)
           to label %1023 unwind label %1041
@@ -6271,7 +6271,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %1159 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %1160 = load i32, ptr %1159, align 8, !tbaa !126
   %1161 = zext nneg i32 %1160 to i64
-  %switch.gep1256 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 0, i64 %1161
+  %switch.gep1256 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 %1161
   %switch.load1257 = load ptr, ptr %switch.gep1256, align 8
   invoke fastcc void @_ZN9benchmark12_GLOBAL__N_18FormatKVERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull %switch.load1257)
           to label %1162 unwind label %1243

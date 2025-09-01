@@ -1507,7 +1507,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils13isBVPredica
   %10 = icmp eq i32 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = zext i1 %10 to i64
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !13, !noalias !61
   %15 = load ptr, ptr %0, align 8, !tbaa !10
   %.not.i = icmp eq ptr %15, %14
@@ -1577,7 +1577,7 @@ define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utilsL12i
   %16 = icmp eq i32 %15, 2
   %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %18 = zext i1 %16 to i64
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !13, !noalias !64
   br label %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
@@ -2232,7 +2232,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils14isBitblastA
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !13, !noalias !101
   %16 = load i64, ptr %15, align 8, !noalias !101
   %17 = lshr i64 %16, 40
@@ -2329,7 +2329,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNK4cvc58internal1
   %64 = icmp eq i32 %63, 2
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
   %66 = zext i1 %64 to i64
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !13, !noalias !104
   store ptr %68, ptr %3, align 8, !tbaa !10, !alias.scope !104
   call void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)

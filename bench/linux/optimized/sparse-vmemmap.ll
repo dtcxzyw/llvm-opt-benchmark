@@ -833,7 +833,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [0 x %struct.range], ptr %13, i64 0, i64 %16
+  %17 = getelementptr %struct.range, ptr %13, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = lshr i64 %18, 12
   %20 = sub i64 %0, %19

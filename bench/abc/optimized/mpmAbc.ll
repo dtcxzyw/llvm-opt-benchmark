@@ -1186,7 +1186,7 @@ define i32 @Mpm_ManNodeIfToGia(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 38:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %39 = getelementptr inbounds nuw [1 x i32], ptr %35, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !30
   %41 = ashr i32 %40, 13
   %42 = sext i32 %41 to i64
@@ -1259,7 +1259,7 @@ define i32 @Mpm_ManNodeIfToGia(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 85:                                               ; preds = %.lr.ph61, %92
   %indvars.iv68 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next69, %92 ]
-  %86 = getelementptr inbounds nuw [1 x i32], ptr %82, i64 0, i64 %indvars.iv68
+  %86 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv68
   %87 = load i32, ptr %86, align 4, !tbaa !30
   %88 = ashr i32 %87, 13
   %89 = sext i32 %88 to i64
@@ -1620,7 +1620,7 @@ Mig_ObjIsTerm.exit:                               ; preds = %80
 
 121:                                              ; preds = %Vec_IntPush.exit
   %122 = load ptr, ptr %0, align 8, !tbaa !76
-  %123 = getelementptr inbounds nuw [1 x i32], ptr %113, i64 0, i64 %indvars.iv.next
+  %123 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.next
   %124 = load i32, ptr %123, align 4, !tbaa !30
   %125 = getelementptr i8, ptr %122, i64 32
   %.val153 = load ptr, ptr %125, align 8, !tbaa !33

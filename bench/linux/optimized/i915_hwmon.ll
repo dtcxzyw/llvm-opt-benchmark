@@ -182,7 +182,7 @@ define dso_local void @i915_hwmon_register(ptr noundef %0) local_unnamed_addr #0
 23:                                               ; preds = %38, %13
   %24 = phi i1 [ true, %13 ], [ false, %38 ]
   %25 = phi i64 [ 0, %13 ], [ 1, %38 ]
-  %26 = getelementptr [2 x ptr], ptr %21, i64 0, i64 %25
+  %26 = getelementptr ptr, ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %38, label %29
@@ -350,13 +350,13 @@ hwm_energy.exit:                                  ; preds = %92, %107
 130:                                              ; preds = %169, %128
   %131 = phi i1 [ true, %128 ], [ false, %169 ]
   %132 = phi i64 [ 0, %128 ], [ 1, %169 ]
-  %133 = getelementptr [2 x ptr], ptr %21, i64 0, i64 %132
+  %133 = getelementptr ptr, ptr %21, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %169, label %136
 
 136:                                              ; preds = %130
-  %137 = getelementptr [2 x %struct.hwm_drvdata], ptr %129, i64 0, i64 %132
+  %137 = getelementptr %struct.hwm_drvdata, ptr %129, i64 %132
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %137, align 8
@@ -420,7 +420,7 @@ hwm_energy.exit5:                                 ; preds = %136, %152
 175:                                              ; preds = %197, %173
   %176 = phi i1 [ true, %173 ], [ false, %197 ]
   %177 = phi i64 [ 0, %173 ], [ 1, %197 ]
-  %178 = getelementptr [2 x ptr], ptr %21, i64 0, i64 %177
+  %178 = getelementptr ptr, ptr %21, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
   br i1 %180, label %197, label %181

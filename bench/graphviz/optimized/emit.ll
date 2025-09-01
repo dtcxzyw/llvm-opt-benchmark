@@ -562,7 +562,7 @@ agxblen.exit.i.i:                                 ; preds = %40, %agxbsizeof.exi
 
 49:                                               ; preds = %48
   %50 = zext i8 %.val.i25.i.i to i64
-  %51 = getelementptr inbounds nuw [31 x i8], ptr %2, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull readonly align 1 %31, i64 %35, i1 false)
   %52 = trunc i64 %35 to i8
   %53 = load i8, ptr %38, align 1, !tbaa !3
@@ -618,7 +618,7 @@ agxbsizeof.exit.i.i31:                            ; preds = %64, %agxblen.exit.i
 
 71:                                               ; preds = %70
   %72 = zext i8 %.val.i15.i.i to i64
-  %73 = getelementptr inbounds nuw [31 x i8], ptr %2, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 %72
   store i8 0, ptr %73, align 1, !tbaa !3
   %74 = load i8, ptr %62, align 1, !tbaa !3
   %75 = add i8 %74, 1
@@ -728,7 +728,7 @@ agxbsizeof.exit.i.i35:                            ; preds = %105, %agxblen.exit.
 
 112:                                              ; preds = %111
   %113 = zext i8 %.val.i15.i.i40 to i64
-  %114 = getelementptr inbounds nuw [31 x i8], ptr %2, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 %113
   store i8 0, ptr %114, align 1, !tbaa !3
   %115 = load i8, ptr %103, align 1, !tbaa !3
   %116 = add i8 %115, 1
@@ -807,9 +807,9 @@ agxbsizeof.exit.i:                                ; preds = %9
   br label %agxblen.exit.i
 
 agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exit.i
-  %.0.i50.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %15, %13 ]
+  %.0.i53.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %15, %13 ]
   %.0.i43.i = phi i64 [ %12, %agxbsizeof.exit.i ], [ %17, %13 ]
-  %18 = sub i64 %.0.i50.i, %.0.i43.i
+  %18 = sub i64 %.0.i53.i, %.0.i43.i
   %19 = icmp ult i64 %18, %10
   br i1 %19, label %20, label %26
 
@@ -828,70 +828,74 @@ agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exi
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br label %agxbnext.exit.i
+  br label %33
 
 26:                                               ; preds = %24, %agxblen.exit.i
   %.val.i.i.i = phi i8 [ %.val.i.i, %agxblen.exit.i ], [ %.val.i.i.pre.i, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  br i1 %.not.i.i.i, label %30, label %27
+  br i1 %.not.i.i.i, label %28, label %agxblen.exit.thread.i.i
 
-27:                                               ; preds = %26
-  %28 = zext i8 %.val.i.i.i to i64
-  %29 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %28
+agxblen.exit.thread.i.i:                          ; preds = %26
+  %27 = zext i8 %.val.i.i.i to i64
   br label %agxbnext.exit.i
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !3
-  %33 = load ptr, ptr %0, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !3
+  %31 = load ptr, ptr %0, align 8, !tbaa !3
   br label %agxbnext.exit.i
 
-agxbnext.exit.i:                                  ; preds = %30, %27, %25
-  %.03655.i = phi i1 [ true, %25 ], [ false, %27 ], [ false, %30 ]
-  %35 = phi ptr [ %4, %25 ], [ %29, %27 ], [ %34, %30 ]
-  %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %10, ptr noundef readonly %1, ptr noundef nonnull %5) #27
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %38, label %52
+agxbnext.exit.i:                                  ; preds = %28, %agxblen.exit.thread.i.i
+  %.0.i6.i.i = phi i64 [ %30, %28 ], [ %27, %agxblen.exit.thread.i.i ]
+  %.pn.i.i = phi ptr [ %31, %28 ], [ %0, %agxblen.exit.thread.i.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 %.0.i6.i.i
+  br label %33
 
-38:                                               ; preds = %agxbnext.exit.i
+33:                                               ; preds = %agxbnext.exit.i, %25
+  %.03658.i = phi i1 [ false, %agxbnext.exit.i ], [ true, %25 ]
+  %34 = phi ptr [ %32, %agxbnext.exit.i ], [ %4, %25 ]
+  %35 = call i32 @vsnprintf(ptr noundef %34, i64 noundef %10, ptr noundef readonly %1, ptr noundef nonnull %5) #27
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %51
+
+37:                                               ; preds = %33
   %.val.i = load i8, ptr %11, align 1, !tbaa !3
   %.not.i = icmp eq i8 %.val.i, -1
-  br i1 %.not.i, label %47, label %39
+  br i1 %.not.i, label %46, label %38
 
-39:                                               ; preds = %38
-  br i1 %.03655.i, label %agxbnext.exit46.i, label %43
+38:                                               ; preds = %37
+  br i1 %.03658.i, label %agxbnext.exit49.i, label %42
 
-agxbnext.exit46.i:                                ; preds = %39
-  %40 = zext i8 %.val.i to i64
-  %41 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %40
-  %42 = zext nneg i32 %36 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull align 16 %4, i64 %42, i1 false)
+agxbnext.exit49.i:                                ; preds = %38
+  %39 = zext i8 %.val.i to i64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
+  %41 = zext nneg i32 %35 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 16 %4, i64 %41, i1 false)
   %.pre.i = load i8, ptr %11, align 1, !tbaa !3
-  br label %43
+  br label %42
 
-43:                                               ; preds = %agxbnext.exit46.i, %39
-  %44 = phi i8 [ %.pre.i, %agxbnext.exit46.i ], [ %.val.i, %39 ]
-  %45 = trunc i32 %36 to i8
-  %46 = add i8 %44, %45
-  store i8 %46, ptr %11, align 1, !tbaa !3
-  br label %52
+42:                                               ; preds = %agxbnext.exit49.i, %38
+  %43 = phi i8 [ %.pre.i, %agxbnext.exit49.i ], [ %.val.i, %38 ]
+  %44 = trunc i32 %35 to i8
+  %45 = add i8 %43, %44
+  store i8 %45, ptr %11, align 1, !tbaa !3
+  br label %51
 
-47:                                               ; preds = %38
-  %48 = zext nneg i32 %36 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !3
-  %51 = add i64 %50, %48
-  store i64 %51, ptr %49, align 8, !tbaa !3
-  br label %52
+46:                                               ; preds = %37
+  %47 = zext nneg i32 %35 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !3
+  %50 = add i64 %49, %47
+  store i64 %50, ptr %48, align 8, !tbaa !3
+  br label %51
 
-52:                                               ; preds = %47, %43, %agxbnext.exit.i
+51:                                               ; preds = %46, %42, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
-vagxbprint.exit:                                  ; preds = %8, %52
+vagxbprint.exit:                                  ; preds = %8, %51
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -2180,7 +2184,7 @@ gv_strdup.exit:                                   ; preds = %gv_alloc.exit
   %216 = getelementptr inbounds nuw i8, ptr %.0113, i64 24
   %217 = load i32, ptr %216, align 8, !tbaa !3
   %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds nuw [3 x i8], ptr @adjust, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr @adjust, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !3
   %221 = getelementptr inbounds nuw i8, ptr %200, i64 64
   store i8 %220, ptr %221, align 8, !tbaa !169
@@ -2990,7 +2994,7 @@ gv_calloc.exit.i114:                              ; preds = %298
   br label %agxbput.exit.thread.i
 
 306:                                              ; preds = %305
-  %307 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %275
+  %307 = getelementptr inbounds nuw i8, ptr %7, i64 %275
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %307, ptr nonnull readonly align 1 %272, i64 %273, i1 false)
   %308 = trunc i64 %273 to i8
   %309 = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !3
@@ -3107,7 +3111,7 @@ gv_calloc.exit.i109:                              ; preds = %338
 
 346:                                              ; preds = %345
   %347 = zext i8 %.val.i238.i to i64
-  %348 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw i8, ptr %7, i64 %347
   store i8 0, ptr %348, align 1, !tbaa !3
   %349 = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !3
   %350 = add i8 %349, 1
@@ -6290,7 +6294,7 @@ agxblen.exit.i.i:                                 ; preds = %edge_in_layer.exit.
 .thread:                                          ; preds = %agxblen.exit.i.i, %88
   %.val.i25.i.i278 = phi i8 [ %.val.i25.pre.i.i, %88 ], [ 0, %agxblen.exit.i.i ]
   %89 = zext i8 %.val.i25.i.i278 to i64
-  %90 = getelementptr inbounds nuw [31 x i8], ptr %15, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %15, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr nonnull readonly align 1 %82, i64 %83, i1 false)
   %91 = trunc i64 %83 to i8
   %92 = load i8, ptr %85, align 1, !tbaa !3
@@ -6347,7 +6351,7 @@ agxblen.exit.i.i42:                               ; preds = %agxbput.exit
 
 118:                                              ; preds = %117
   %119 = zext i8 %.val.i25.i.i45 to i64
-  %120 = getelementptr inbounds nuw [31 x i8], ptr %15, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %15, i64 %119
   store i16 15917, ptr %120, align 1
   %121 = load i8, ptr %108, align 1, !tbaa !3
   %122 = add i8 %121, 2
@@ -6379,7 +6383,7 @@ agxblen.exit.i.i52:                               ; preds = %agxbput.exit
 
 131:                                              ; preds = %130
   %132 = zext i8 %.val.i25.i.i55 to i64
-  %133 = getelementptr inbounds nuw [31 x i8], ptr %15, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr %15, i64 %132
   store i16 11565, ptr %133, align 1
   %134 = load i8, ptr %108, align 1, !tbaa !3
   %135 = add i8 %134, 2
@@ -6435,7 +6439,7 @@ agxblen.exit.i.i62:                               ; preds = %agxbput.exit48
 
 160:                                              ; preds = %159
   %161 = zext i8 %.val.i25.i.i65 to i64
-  %162 = getelementptr inbounds nuw [31 x i8], ptr %15, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %15, i64 %161
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %162, ptr nonnull readonly align 1 %148, i64 %149, i1 false)
   %163 = trunc i64 %149 to i8
   %164 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !3
@@ -6493,7 +6497,7 @@ agxbsizeof.exit.i.i69:                            ; preds = %173, %agxblen.exit.
 
 182:                                              ; preds = %181
   %183 = zext i8 %.val.i15.i.i to i64
-  %184 = getelementptr inbounds nuw [31 x i8], ptr %15, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i8, ptr %15, i64 %183
   store i8 0, ptr %184, align 1, !tbaa !3
   %185 = load i8, ptr %179, align 1, !tbaa !3
   %186 = add i8 %185, 1
@@ -7852,7 +7856,7 @@ gv_alloc.exit.i413.i:                             ; preds = %.lr.ph.i
 
 779:                                              ; preds = %779, %.preheader47.i.i
   %.03648.i.i = phi i64 [ 0, %.preheader47.i.i ], [ %782, %779 ]
-  %780 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %10, i64 0, i64 %.03648.i.i
+  %780 = getelementptr inbounds nuw %struct.pointf_s, ptr %10, i64 %.03648.i.i
   %781 = getelementptr inbounds nuw %struct.pointf_s, ptr %775, i64 %.03648.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %780, ptr noundef nonnull align 8 dereferenceable(16) %781, i64 16, i1 false), !tbaa.struct !126
   %782 = add nuw nsw i64 %.03648.i.i, 1
@@ -8696,7 +8700,7 @@ agxblen.exit.i.i.i:                               ; preds = %1110, %1116, %1118,
 
 1134:                                             ; preds = %1133
   %1135 = zext i8 %.val.i25.i.i.i to i64
-  %1136 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %1135
+  %1136 = getelementptr inbounds nuw i8, ptr %7, i64 %1135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %1136, ptr noundef nonnull readonly align 1 dereferenceable(7) %.str.16.sink.i, i64 7, i1 false)
   %1137 = load i8, ptr %1124, align 1, !tbaa !3
   %1138 = add i8 %1137, 7
@@ -8758,7 +8762,7 @@ agxbsizeof.exit.i.i10.i:                          ; preds = %1148, %agxblen.exit
 
 1153:                                             ; preds = %1152
   %1154 = zext i8 %.val.i15.i.i.i to i64
-  %1155 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %1154
+  %1155 = getelementptr inbounds nuw i8, ptr %7, i64 %1154
   store i8 0, ptr %1155, align 1, !tbaa !3
   %1156 = load i8, ptr %1124, align 1, !tbaa !3
   %1157 = add i8 %1156, 1
@@ -9914,7 +9918,7 @@ agxbsizeof.exit.i:                                ; preds = %18
 
 26:                                               ; preds = %25
   %27 = zext i8 %.val.i15.i to i64
-  %28 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @parse_style.ps_xb, i64 %27
   store i8 0, ptr %28, align 1, !tbaa !3
   %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1, !tbaa !3
   %30 = add i8 %29, 1
@@ -9940,7 +9944,7 @@ agxbputc.exit:                                    ; preds = %26, %31
   %38 = zext i8 %.val.i to i64
   %.0.i30 = select i1 %.not.i29, i64 %37, i64 %38
   %39 = add i64 %.025.ph, 1
-  %40 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %.025.ph
+  %40 = getelementptr inbounds nuw i64, ptr %2, i64 %.025.ph
   store i64 %.0.i30, ptr %40, align 8, !tbaa !125
   br label %41
 
@@ -9973,7 +9977,7 @@ agxblen.exit.i34:                                 ; preds = %41
 
 50:                                               ; preds = %49
   %51 = zext i8 %.val.i25.i to i64
-  %52 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @parse_style.ps_xb, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 1 %.0.i, i64 %10, i1 false)
   %53 = trunc i64 %10 to i8
   %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1, !tbaa !3
@@ -10015,7 +10019,7 @@ agxbput_n.exit:                                   ; preds = %41, %56, %50
 
 67:                                               ; preds = %66
   %68 = zext i8 %.val.i15.i43 to i64
-  %69 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @parse_style.ps_xb, i64 %68
   store i8 0, ptr %69, align 1, !tbaa !3
   %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1, !tbaa !3
   %71 = add i8 %70, 1
@@ -10078,7 +10082,7 @@ agxbsizeof.exit.i.i:                              ; preds = %82, %agxblen.exit.i
 
 87:                                               ; preds = %86
   %88 = zext i8 %.val.i15.i.i to i64
-  %89 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @parse_style.ps_xb, i64 %88
   store i8 0, ptr %89, align 1, !tbaa !3
   %90 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1, !tbaa !3
   %91 = add i8 %90, 1
@@ -10116,16 +10120,16 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %agxbuse.exit
-  %101 = getelementptr inbounds nuw [64 x ptr], ptr @parse_style.parse, i64 0, i64 %.025.ph
+  %101 = getelementptr inbounds nuw ptr, ptr @parse_style.parse, i64 %.025.ph
   store ptr null, ptr %101, align 8, !tbaa !97
   br label %agxbputc.exit45.thread
 
 .lr.ph:                                           ; preds = %agxbuse.exit, %.lr.ph
   %.077 = phi i64 [ %106, %.lr.ph ], [ 0, %agxbuse.exit ]
-  %102 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %.077
+  %102 = getelementptr inbounds nuw i64, ptr %2, i64 %.077
   %103 = load i64, ptr %102, align 8, !tbaa !125
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 %103
-  %105 = getelementptr inbounds nuw [64 x ptr], ptr @parse_style.parse, i64 0, i64 %.077
+  %105 = getelementptr inbounds nuw ptr, ptr @parse_style.parse, i64 %.077
   store ptr %104, ptr %105, align 8, !tbaa !97
   %106 = add nuw i64 %.077, 1
   %exitcond.not = icmp eq i64 %106, %.025.ph
@@ -13371,7 +13375,7 @@ agxbputc.exit.i.thread:                           ; preds = %35
 
 agxbputc.exit.i:                                  ; preds = %35
   %40 = zext i8 %.val.i6.pr.i to i64
-  %41 = getelementptr inbounds nuw [31 x i8], ptr %11, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !3
   %42 = load i8, ptr %27, align 1, !tbaa !3
   %43 = add i8 %42, 1

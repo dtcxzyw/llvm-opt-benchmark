@@ -216,7 +216,7 @@ _get_system_gpu_list_fake.exit.thread:            ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) @__const._add_fake_gpus_from_file.gres_slurmd_conf, i64 88, i1 false)
   %40 = add nuw nsw i32 %.02937.i.i, 1
   %41 = call i64 @strcspn(ptr noundef nonnull %3, ptr noundef nonnull @.str.15) #13
-  %42 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %41
   store i8 0, ptr %42, align 1
   %43 = load i8, ptr %3, align 16
   switch i8 %43, label %44 [

@@ -31,13 +31,14 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr noundef captures(none) %0,
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %1, align 1, !tbaa !4
   %6 = icmp eq i8 %5, 0
+  %.035.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = tail call ptr @php_get_temporary_directory() #15
   %9 = tail call i32 @php_check_open_basedir(ptr noundef %8) #15
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %57
+  br i1 %.not, label %10, label %53
 
 10:                                               ; preds = %7, %3
   %.040 = phi ptr [ %8, %7 ], [ %1, %3 ]
@@ -46,98 +47,95 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr noundef captures(none) %0,
   br i1 %.old4.not, label %.thread50, label %.preheader
 
 .preheader:                                       ; preds = %10, %.preheader
-  %.038 = phi ptr [ %17, %.preheader ], [ %11, %10 ]
-  %.036 = phi ptr [ %16, %.preheader ], [ %.040, %10 ]
+  %.038 = phi ptr [ %15, %.preheader ], [ %11, %10 ]
+  %.036 = phi ptr [ %14, %.preheader ], [ %.040, %10 ]
   %12 = phi i1 [ false, %.preheader ], [ true, %10 ]
   %13 = phi i1 [ true, %.preheader ], [ false, %10 ]
-  %.035 = phi i32 [ 1, %.preheader ], [ 0, %10 ]
-  %14 = zext nneg i32 %.035 to i64
-  %15 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %14
-  store ptr %.036, ptr %15, align 8, !tbaa !7
-  %16 = getelementptr inbounds nuw i8, ptr %.038, i64 1
-  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 59) #16
-  %18 = icmp ne ptr %17, null
-  %or.cond5 = select i1 %12, i1 %18, i1 false
-  br i1 %or.cond5, label %.preheader, label %19
+  %.035.sroa.phi = phi ptr [ %.035.sroa.gep, %.preheader ], [ %4, %10 ]
+  %.035 = phi i64 [ 1, %.preheader ], [ 0, %10 ]
+  store ptr %.036, ptr %.035.sroa.phi, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw i8, ptr %.038, i64 1
+  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 59) #16
+  %16 = icmp ne ptr %15, null
+  %or.cond5 = select i1 %12, i1 %16, i1 false
+  br i1 %or.cond5, label %.preheader, label %17
 
-19:                                               ; preds = %.preheader
-  %20 = add nuw nsw i32 %.035, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %21
-  store ptr %16, ptr %22, align 8, !tbaa !7
-  %23 = tail call ptr @__errno_location() #17
-  store i32 0, ptr %23, align 4, !tbaa !10
-  %24 = load ptr, ptr %4, align 16, !tbaa !7
-  %25 = tail call i64 @strtoll(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #15
-  %26 = load i32, ptr %23, align 4, !tbaa !10
-  %27 = icmp eq i32 %26, 34
-  br i1 %27, label %28, label %29
+17:                                               ; preds = %.preheader
+  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %.035
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %14, ptr %19, align 8, !tbaa !7
+  %20 = tail call ptr @__errno_location() #17
+  store i32 0, ptr %20, align 4, !tbaa !10
+  %21 = load ptr, ptr %4, align 16, !tbaa !7
+  %22 = tail call i64 @strtoll(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #15
+  %23 = load i32, ptr %20, align 4, !tbaa !10
+  %24 = icmp eq i32 %23, 34
+  br i1 %24, label %25, label %26
 
-28:                                               ; preds = %19
+25:                                               ; preds = %17
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.1) #15
-  br label %57
+  br label %53
 
-29:                                               ; preds = %19
-  br i1 %13, label %30, label %.thread50
+26:                                               ; preds = %17
+  br i1 %13, label %27, label %.thread50
 
-30:                                               ; preds = %29
-  store i32 0, ptr %23, align 4, !tbaa !10
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !7
-  %33 = tail call i64 @strtoll(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 8) #15
-  %34 = trunc i64 %33 to i32
-  %35 = load i32, ptr %23, align 4, !tbaa !10
-  %36 = icmp eq i32 %35, 34
-  %37 = icmp ugt i32 %34, 4095
-  %or.cond3 = select i1 %36, i1 true, i1 %37
-  br i1 %or.cond3, label %38, label %.thread50
+27:                                               ; preds = %26
+  store i32 0, ptr %20, align 4, !tbaa !10
+  %28 = load ptr, ptr %.035.sroa.gep, align 8, !tbaa !7
+  %29 = tail call i64 @strtoll(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 8) #15
+  %30 = trunc i64 %29 to i32
+  %31 = load i32, ptr %20, align 4, !tbaa !10
+  %32 = icmp eq i32 %31, 34
+  %33 = icmp ugt i32 %30, 4095
+  %or.cond3 = select i1 %32, i1 true, i1 %33
+  br i1 %or.cond3, label %34, label %.thread50
 
-38:                                               ; preds = %30
+34:                                               ; preds = %27
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.2) #15
-  br label %57
+  br label %53
 
-.thread50:                                        ; preds = %10, %30, %29
-  %.03455 = phi i64 [ %25, %30 ], [ %25, %29 ], [ 0, %10 ]
-  %.1374654 = phi ptr [ %16, %30 ], [ %16, %29 ], [ %.040, %10 ]
-  %.0 = phi i32 [ %34, %30 ], [ 384, %29 ], [ 384, %10 ]
-  %39 = tail call noalias dereferenceable_or_null(40) ptr @_ecalloc(i64 noundef 1, i64 noundef 40) #18
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 36
-  store i32 -1, ptr %40, align 4, !tbaa !12
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i64 %.03455, ptr %41, align 8, !tbaa !16
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 %.0, ptr %42, align 8, !tbaa !17
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1374654) #16
-  %44 = and i64 %43, -8
-  %45 = add i64 %44, 32
-  %46 = tail call noalias ptr @_emalloc(i64 noundef %45) #19
-  store i32 1, ptr %46, align 4, !tbaa !18
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 22, ptr %47, align 4, !tbaa !4
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i64 0, ptr %48, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i64 %43, ptr %49, align 8, !tbaa !22
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 1 %.1374654, i64 %43, i1 false)
-  %51 = getelementptr inbounds nuw [1 x i8], ptr %50, i64 0, i64 %43
-  store i8 0, ptr %51, align 1, !tbaa !4
-  %52 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %46, ptr %52, align 8, !tbaa !23
-  %53 = load ptr, ptr %0, align 8, !tbaa !24
-  %.not43 = icmp eq ptr %53, null
-  br i1 %.not43, label %56, label %54
+.thread50:                                        ; preds = %10, %27, %26
+  %.03455 = phi i64 [ %22, %27 ], [ %22, %26 ], [ 0, %10 ]
+  %.1374654 = phi ptr [ %14, %27 ], [ %14, %26 ], [ %.040, %10 ]
+  %.0 = phi i32 [ %30, %27 ], [ 384, %26 ], [ 384, %10 ]
+  %35 = tail call noalias dereferenceable_or_null(40) ptr @_ecalloc(i64 noundef 1, i64 noundef 40) #18
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  store i32 -1, ptr %36, align 4, !tbaa !12
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i64 %.03455, ptr %37, align 8, !tbaa !16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i32 %.0, ptr %38, align 8, !tbaa !17
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1374654) #16
+  %40 = and i64 %39, -8
+  %41 = add i64 %40, 32
+  %42 = tail call noalias ptr @_emalloc(i64 noundef %41) #19
+  store i32 1, ptr %42, align 4, !tbaa !18
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store i32 22, ptr %43, align 4, !tbaa !4
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i64 0, ptr %44, align 8, !tbaa !20
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store i64 %39, ptr %45, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %.1374654, i64 %39, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %39
+  store i8 0, ptr %47, align 1, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %42, ptr %48, align 8, !tbaa !23
+  %49 = load ptr, ptr %0, align 8, !tbaa !24
+  %.not43 = icmp eq ptr %49, null
+  br i1 %.not43, label %52, label %50
 
-54:                                               ; preds = %.thread50
-  %55 = tail call i32 @ps_close_files(ptr noundef nonnull %0)
-  br label %56
+50:                                               ; preds = %.thread50
+  %51 = tail call i32 @ps_close_files(ptr noundef nonnull %0)
+  br label %52
 
-56:                                               ; preds = %54, %.thread50
-  store ptr %39, ptr %0, align 8, !tbaa !24
-  br label %57
+52:                                               ; preds = %50, %.thread50
+  store ptr %35, ptr %0, align 8, !tbaa !24
+  br label %53
 
-57:                                               ; preds = %7, %56, %38, %28
-  %.039 = phi i32 [ -1, %28 ], [ -1, %38 ], [ 0, %56 ], [ -1, %7 ]
+53:                                               ; preds = %7, %52, %34, %25
+  %.039 = phi i32 [ -1, %25 ], [ -1, %34 ], [ 0, %52 ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.039
 }
@@ -307,7 +305,7 @@ zend_string_release_ex.exit:                      ; preds = %36, %41, %46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load i64, ptr %51, align 8, !tbaa !22
-  %53 = getelementptr inbounds nuw [1 x i8], ptr %50, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
   store i8 0, ptr %53, align 1, !tbaa !4
   br label %54
 
@@ -461,7 +459,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr noundef re
 
 28:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %14, i64 %24, i1 false)
-  %29 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   store i8 47, ptr %29, align 1, !tbaa !4
   %30 = call ptr @readdir(ptr noundef nonnull %15) #15
   %.not2729.i = icmp eq ptr %30, null
@@ -482,17 +480,17 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr noundef re
 36:                                               ; preds = %32
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #16
   %38 = load i64, ptr %23, align 8, !tbaa !22
-  %39 = add i64 %38, %37
-  %40 = add i64 %39, 2
+  %39 = add i64 %37, 2
+  %40 = add i64 %39, %38
   %41 = icmp ult i64 %40, 4096
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %38
+  %43 = getelementptr i8, ptr %5, i64 %38
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull align 1 %34, i64 %37, i1 false)
-  %45 = add nsw i64 %39, 1
-  %46 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %45
+  %45 = getelementptr i8, ptr %43, i64 %37
+  %46 = getelementptr i8, ptr %45, i64 1
   store i8 0, ptr %46, align 1, !tbaa !4
   %47 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #15
   %48 = icmp eq i32 %47, 0

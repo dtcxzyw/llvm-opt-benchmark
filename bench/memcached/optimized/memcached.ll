@@ -816,7 +816,7 @@ define dso_local void @conn_close_idle(ptr noundef %0) local_unnamed_addr #1 {
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !52
   %49 = zext i32 %41 to i64
-  %50 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.15, i32 noundef %48, ptr noundef %51, ptr noundef nonnull @.str.375) #36
   br label %53
@@ -853,10 +853,10 @@ define dso_local void @conn_set_state(ptr noundef captures(none) %0, i32 noundef
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !52
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !55
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !55
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.15, i32 noundef %11, ptr noundef %14, ptr noundef %17) #36
   br label %19
@@ -1138,7 +1138,7 @@ update_event.exit.thread284:                      ; preds = %128, %update_event.
   %145 = load ptr, ptr @stderr, align 8, !tbaa !50
   %146 = load i32, ptr %11, align 8, !tbaa !52
   %147 = zext i32 %140 to i64
-  %148 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !55
   %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.15, i32 noundef %146, ptr noundef %149, ptr noundef nonnull @.str.375) #36
   br label %151
@@ -1161,7 +1161,7 @@ update_event.exit.thread:                         ; preds = %rbuf_release.exit, 
   %157 = load ptr, ptr @stderr, align 8, !tbaa !50
   %158 = load i32, ptr %11, align 8, !tbaa !52
   %159 = zext i32 %152 to i64
-  %160 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !55
   %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.15, i32 noundef %158, ptr noundef %161, ptr noundef nonnull @.str.370) #36
   br label %163
@@ -1217,7 +1217,7 @@ update_event.exit.thread:                         ; preds = %rbuf_release.exit, 
   %190 = load ptr, ptr @stderr, align 8, !tbaa !50
   %191 = load i32, ptr %11, align 8, !tbaa !52
   %192 = zext i32 %185 to i64
-  %193 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !55
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.15, i32 noundef %191, ptr noundef %194, ptr noundef nonnull @.str.375) #36
   br label %196
@@ -1447,7 +1447,7 @@ try_read_network.exit.thread:                     ; preds = %try_read_network.ex
   %311 = load ptr, ptr @stderr, align 8, !tbaa !50
   %312 = load i32, ptr %11, align 8, !tbaa !52
   %313 = zext i32 %306 to i64
-  %314 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %313
   %315 = load ptr, ptr %314, align 8, !tbaa !55
   %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.15, i32 noundef %312, ptr noundef %315, ptr noundef nonnull @.str.369) #36
   br label %317
@@ -1470,7 +1470,7 @@ try_read_network.exit.thread289:                  ; preds = %259, %245, %try_rea
   %323 = load ptr, ptr @stderr, align 8, !tbaa !50
   %324 = load i32, ptr %11, align 8, !tbaa !52
   %325 = zext i32 %318 to i64
-  %326 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %325
   %327 = load ptr, ptr %326, align 8, !tbaa !55
   %328 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.15, i32 noundef %324, ptr noundef %327, ptr noundef nonnull @.str.371) #36
   br label %329
@@ -1493,7 +1493,7 @@ try_read_network.exit.thread292:                  ; preds = %264, %263
   %335 = load ptr, ptr @stderr, align 8, !tbaa !50
   %336 = load i32, ptr %11, align 8, !tbaa !52
   %337 = zext i32 %330 to i64
-  %338 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %337
   %339 = load ptr, ptr %338, align 8, !tbaa !55
   %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %335, ptr noundef nonnull @.str.15, i32 noundef %336, ptr noundef %339, ptr noundef nonnull @.str.375) #36
   br label %341
@@ -1528,7 +1528,7 @@ try_read_network.exit.thread292:                  ; preds = %264, %263
   %354 = load ptr, ptr @stderr, align 8, !tbaa !50
   %355 = load i32, ptr %11, align 8, !tbaa !52
   %356 = zext i32 %348 to i64
-  %357 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !55
   %359 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %354, ptr noundef nonnull @.str.15, i32 noundef %355, ptr noundef %358, ptr noundef nonnull @.str.376) #36
   br label %360
@@ -1550,7 +1550,7 @@ try_read_network.exit.thread292:                  ; preds = %264, %263
   %366 = load ptr, ptr @stderr, align 8, !tbaa !50
   %367 = load i32, ptr %11, align 8, !tbaa !52
   %368 = zext i32 %348 to i64
-  %369 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %368
   %370 = load ptr, ptr %369, align 8, !tbaa !55
   %371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %366, ptr noundef nonnull @.str.15, i32 noundef %367, ptr noundef %370, ptr noundef nonnull @.str.369) #36
   br label %372
@@ -1608,7 +1608,7 @@ try_read_network.exit.thread292:                  ; preds = %264, %263
   %393 = load ptr, ptr @stderr, align 8, !tbaa !50
   %394 = load i32, ptr %11, align 8, !tbaa !52
   %395 = zext i32 %388 to i64
-  %396 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %395
   %397 = load ptr, ptr %396, align 8, !tbaa !55
   %398 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %393, ptr noundef nonnull @.str.15, i32 noundef %394, ptr noundef %397, ptr noundef nonnull @.str.371) #36
   br label %399
@@ -1636,7 +1636,7 @@ try_read_network.exit.thread292:                  ; preds = %264, %263
   %408 = load ptr, ptr @stderr, align 8, !tbaa !50
   %409 = load i32, ptr %11, align 8, !tbaa !52
   %410 = zext i32 %402 to i64
-  %411 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %410
+  %411 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %410
   %412 = load ptr, ptr %411, align 8, !tbaa !55
   %413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.15, i32 noundef %409, ptr noundef %412, ptr noundef nonnull @.str.376) #36
   br label %414
@@ -1658,7 +1658,7 @@ try_read_network.exit.thread292:                  ; preds = %264, %263
   %420 = load ptr, ptr @stderr, align 8, !tbaa !50
   %421 = load i32, ptr %11, align 8, !tbaa !52
   %422 = zext i32 %402 to i64
-  %423 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !55
   %425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %420, ptr noundef nonnull @.str.15, i32 noundef %421, ptr noundef %424, ptr noundef nonnull @.str.369) #36
   br label %426
@@ -1746,7 +1746,7 @@ update_event.exit228.thread297:                   ; preds = %453, %update_event.
   %470 = load ptr, ptr @stderr, align 8, !tbaa !50
   %471 = load i32, ptr %11, align 8, !tbaa !52
   %472 = zext i32 %465 to i64
-  %473 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %472
+  %473 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %472
   %474 = load ptr, ptr %473, align 8, !tbaa !55
   %475 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %470, ptr noundef nonnull @.str.15, i32 noundef %471, ptr noundef %474, ptr noundef nonnull @.str.375) #36
   br label %476
@@ -1800,7 +1800,7 @@ update_event.exit228.thread297:                   ; preds = %453, %update_event.
   %494 = load ptr, ptr @stderr, align 8, !tbaa !50
   %495 = load i32, ptr %11, align 8, !tbaa !52
   %496 = zext i32 %.pre429 to i64
-  %497 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %496
   %498 = load ptr, ptr %497, align 8, !tbaa !55
   %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %494, ptr noundef nonnull @.str.15, i32 noundef %495, ptr noundef %498, ptr noundef nonnull @.str.375) #36
   br label %.thread502
@@ -2072,7 +2072,7 @@ read_into_chunked_item.exit:                      ; preds = %633, %.loopexit.i, 
   %643 = load ptr, ptr @stderr, align 8, !tbaa !50
   %644 = load i32, ptr %11, align 8, !tbaa !52
   %645 = zext i32 %638 to i64
-  %646 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %645
+  %646 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %645
   %647 = load ptr, ptr %646, align 8, !tbaa !55
   %648 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %643, ptr noundef nonnull @.str.15, i32 noundef %644, ptr noundef %647, ptr noundef nonnull @.str.375) #36
   br label %649
@@ -2150,7 +2150,7 @@ out_of_memory.exit:                               ; preds = %672, %673
   %680 = load ptr, ptr @stderr, align 8, !tbaa !50
   %681 = load i32, ptr %11, align 8, !tbaa !52
   %682 = zext i32 %675 to i64
-  %683 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %682
+  %683 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %682
   %684 = load ptr, ptr %683, align 8, !tbaa !55
   %685 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %680, ptr noundef nonnull @.str.15, i32 noundef %681, ptr noundef %684, ptr noundef nonnull @.str.374) #36
   br label %686
@@ -2196,7 +2196,7 @@ conn_set_state.exit245:                           ; preds = %out_of_memory.exit,
   %707 = load ptr, ptr @stderr, align 8, !tbaa !50
   %708 = load i32, ptr %11, align 8, !tbaa !52
   %709 = zext i32 %702 to i64
-  %710 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %709
+  %710 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %709
   %711 = load ptr, ptr %710, align 8, !tbaa !55
   %712 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %707, ptr noundef nonnull @.str.15, i32 noundef %708, ptr noundef %711, ptr noundef nonnull @.str.375) #36
   br label %713
@@ -2291,7 +2291,7 @@ conn_set_state.exit245:                           ; preds = %out_of_memory.exit,
   %762 = load ptr, ptr @stderr, align 8, !tbaa !50
   %763 = load i32, ptr %11, align 8, !tbaa !52
   %764 = zext i32 %757 to i64
-  %765 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %764
+  %765 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %764
   %766 = load ptr, ptr %765, align 8, !tbaa !55
   %767 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %762, ptr noundef nonnull @.str.15, i32 noundef %763, ptr noundef %766, ptr noundef nonnull @.str.375) #36
   br label %768
@@ -2364,7 +2364,7 @@ update_event.exit253.thread306:                   ; preds = %777, %update_event.
   %801 = load ptr, ptr @stderr, align 8, !tbaa !50
   %802 = load i32, ptr %11, align 8, !tbaa !52
   %803 = zext i32 %796 to i64
-  %804 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %803
+  %804 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %803
   %805 = load ptr, ptr %804, align 8, !tbaa !55
   %806 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %801, ptr noundef nonnull @.str.15, i32 noundef %802, ptr noundef %805, ptr noundef nonnull @.str.375) #36
   br label %807
@@ -2388,7 +2388,7 @@ update_event.exit253.thread306:                   ; preds = %777, %update_event.
   %815 = load ptr, ptr @stderr, align 8, !tbaa !50
   %816 = load i32, ptr %11, align 8, !tbaa !52
   %817 = zext nneg i32 %59 to i64
-  %818 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %817
+  %818 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %817
   %819 = load ptr, ptr %818, align 8, !tbaa !55
   %820 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %815, ptr noundef nonnull @.str.15, i32 noundef %816, ptr noundef %819, ptr noundef nonnull @.str.379) #36
   br label %conn_set_state.exit257
@@ -2532,7 +2532,7 @@ update_event.exit.thread25.i:                     ; preds = %update_event.exit.i
   %891 = load ptr, ptr @stderr, align 8, !tbaa !50
   %892 = load i32, ptr %11, align 8, !tbaa !52
   %893 = zext i32 %886 to i64
-  %894 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %893
+  %894 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %893
   %895 = load ptr, ptr %894, align 8, !tbaa !55
   %896 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %891, ptr noundef nonnull @.str.15, i32 noundef %892, ptr noundef %895, ptr noundef nonnull @.str.375) #36
   br label %897
@@ -2564,7 +2564,7 @@ update_event.exit.thread25.i:                     ; preds = %update_event.exit.i
   %908 = load ptr, ptr @stderr, align 8, !tbaa !50
   %909 = load i32, ptr %11, align 8, !tbaa !52
   %910 = zext i32 %903 to i64
-  %911 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %910
+  %911 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %910
   %912 = load ptr, ptr %911, align 8, !tbaa !55
   %913 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %908, ptr noundef nonnull @.str.15, i32 noundef %909, ptr noundef %912, ptr noundef nonnull @.str.375) #36
   br label %914
@@ -2721,7 +2721,7 @@ build_udp_header.exit.i:                          ; preds = %955, %949
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i268 ], [ %indvars.iv.next.i, %989 ]
   %.054.i = phi i32 [ 0, %.lr.ph.preheader.i268 ], [ %990, %989 ]
   %979 = zext nneg i32 %.054.i to i64
-  %980 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %2, i64 0, i64 %indvars.iv.i, i32 1
+  %980 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %indvars.iv.i, i32 1
   %981 = load i64, ptr %980, align 8, !tbaa !124
   %982 = add i64 %981, %979
   %983 = icmp ugt i64 %982, 1399
@@ -2835,7 +2835,7 @@ update_event.exit.thread48.i:                     ; preds = %update_event.exit.i
   %1039 = load ptr, ptr @stderr, align 8, !tbaa !50
   %1040 = load i32, ptr %11, align 8, !tbaa !52
   %1041 = zext i32 %1034 to i64
-  %1042 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %1041
+  %1042 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %1041
   %1043 = load ptr, ptr %1042, align 8, !tbaa !55
   %1044 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1039, ptr noundef nonnull @.str.15, i32 noundef %1040, ptr noundef %1043, ptr noundef nonnull @.str.370) #36
   br label %1045
@@ -2878,7 +2878,7 @@ transmit_udp.exit:                                ; preds = %915, %resp_finish.e
   %1057 = load ptr, ptr @stderr, align 8, !tbaa !50
   %1058 = load i32, ptr %11, align 8, !tbaa !52
   %1059 = zext i32 %1052 to i64
-  %1060 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %1059
+  %1060 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %1059
   %1061 = load ptr, ptr %1060, align 8, !tbaa !55
   %1062 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1057, ptr noundef nonnull @.str.15, i32 noundef %1058, ptr noundef %1061, ptr noundef nonnull @.str.368) #36
   br label %1063
@@ -2932,7 +2932,7 @@ conn_set_state.exit272:                           ; preds = %1051, %1063
   %1086 = load ptr, ptr @stderr, align 8, !tbaa !50
   %1087 = load i32, ptr %11, align 8, !tbaa !52
   %1088 = zext i32 %1081 to i64
-  %1089 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %1088
+  %1089 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %1088
   %1090 = load ptr, ptr %1089, align 8, !tbaa !55
   %1091 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1086, ptr noundef nonnull @.str.15, i32 noundef %1087, ptr noundef %1090, ptr noundef nonnull @.str.375) #36
   br label %1092
@@ -2975,7 +2975,7 @@ conn_set_state.exit272:                           ; preds = %1051, %1063
   %1108 = load ptr, ptr @stderr, align 8, !tbaa !50
   %1109 = load i32, ptr %11, align 8, !tbaa !52
   %1110 = zext i32 %1103 to i64
-  %1111 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %1110
+  %1111 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %1110
   %1112 = load ptr, ptr %1111, align 8, !tbaa !55
   %1113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1108, ptr noundef nonnull @.str.15, i32 noundef %1109, ptr noundef %1112, ptr noundef nonnull @.str.370) #36
   br label %1114
@@ -3007,7 +3007,7 @@ conn_set_state.exit272:                           ; preds = %1051, %1063
   %1124 = load ptr, ptr @stderr, align 8, !tbaa !50
   %1125 = load i32, ptr %11, align 8, !tbaa !52
   %1126 = zext i32 %1119 to i64
-  %1127 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %1126
+  %1127 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %1126
   %1128 = load ptr, ptr %1127, align 8, !tbaa !55
   %1129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1124, ptr noundef nonnull @.str.15, i32 noundef %1125, ptr noundef %1128, ptr noundef nonnull @.str.381) #36
   br label %1130
@@ -3095,7 +3095,7 @@ _conn_event_readd.exit.thread:                    ; preds = %1, %_conn_event_rea
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !52
   %25 = zext i32 %18 to i64
-  %26 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !55
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.15, i32 noundef %24, ptr noundef %27, ptr noundef nonnull @.str.380) #36
   br label %29
@@ -3144,7 +3144,7 @@ _conn_event_readd.exit8:                          ; preds = %31, %44
   %50 = load ptr, ptr @stderr, align 8, !tbaa !50
   %51 = load i32, ptr %35, align 8, !tbaa !52
   %52 = zext i32 %45 to i64
-  %53 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !55
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.15, i32 noundef %51, ptr noundef %54, ptr noundef nonnull @.str.368) #36
   br label %56
@@ -3389,7 +3389,7 @@ define dso_local ptr @conn_new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 switch.lookup:                                    ; preds = %67
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.usage, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.usage, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %prot_text.exit
 
@@ -4036,7 +4036,7 @@ define internal fastcc void @conn_close(ptr noundef %0) unnamed_addr #1 {
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !52
   %53 = zext i32 %45 to i64
-  %54 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !55
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.15, i32 noundef %52, ptr noundef %55, ptr noundef nonnull @.str.370) #36
   br label %57
@@ -4100,7 +4100,7 @@ rbuf_release.exit:                                ; preds = %74, %63, %59, %conn
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !52
   %84 = zext i32 %76 to i64
-  %85 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !55
   %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.15, i32 noundef %83, ptr noundef %86, ptr noundef nonnull @.str.377) #36
   br label %88
@@ -4165,7 +4165,7 @@ define dso_local void @resp_add_iov(ptr noundef captures(none) %0, ptr noundef %
   %5 = load i8, ptr %4, align 4, !tbaa !162
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = zext i8 %5 to i64
-  %8 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %7
   store ptr %1, ptr %8, align 8, !tbaa !122
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4189,7 +4189,7 @@ define dso_local void @resp_add_chunked_iov(ptr noundef captures(none) initializ
   store i32 %2, ptr %7, align 8, !tbaa !164
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = zext i8 %5 to i64
-  %10 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %9
   store ptr %1, ptr %10, align 8, !tbaa !122
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -4412,7 +4412,7 @@ define internal fastcc ptr @resp_allocate(ptr %.400.val) unnamed_addr #1 {
   %.lhs.trunc = trunc nuw nsw i32 %10 to i16
   %11 = urem i16 %.lhs.trunc, 13
   %12 = zext nneg i16 %11 to i64
-  %13 = getelementptr inbounds nuw [0 x %struct._mc_resp], ptr %6, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %struct._mc_resp, ptr %6, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load i8, ptr %14, align 8, !tbaa !156, !range !60, !noundef !61
   %16 = trunc nuw i8 %15 to i1
@@ -4622,7 +4622,7 @@ resp_reset.exit:                                  ; preds = %8, %11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !52
   %37 = zext i32 %29 to i64
-  %38 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !55
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.15, i32 noundef %36, ptr noundef %39, ptr noundef nonnull @.str.368) #36
   br label %41
@@ -4663,7 +4663,7 @@ resp_reset.exit:                                  ; preds = %8, %11
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %62 = zext i8 %52 to i64
-  %63 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.iovec, ptr %61, i64 %62
   store ptr %56, ptr %63, align 8, !tbaa !122
   %64 = sext i32 %59 to i64
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -4687,7 +4687,7 @@ resp_reset.exit:                                  ; preds = %8, %11
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !52
   %77 = zext i32 %69 to i64
-  %78 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !55
   %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.15, i32 noundef %76, ptr noundef %79, ptr noundef nonnull @.str.368) #36
   br label %81
@@ -5445,7 +5445,7 @@ define dso_local void @write_and_free(ptr noundef %0, ptr noundef %1, i32 nounde
   %9 = load i8, ptr %8, align 4, !tbaa !162
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %11 = zext i8 %9 to i64
-  %12 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.iovec, ptr %10, i64 %11
   store ptr %1, ptr %12, align 8, !tbaa !122
   %13 = sext i32 %2 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -5471,7 +5471,7 @@ define dso_local void @write_and_free(ptr noundef %0, ptr noundef %1, i32 nounde
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !52
   %28 = zext i32 %20 to i64
-  %29 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !55
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.15, i32 noundef %27, ptr noundef %30, ptr noundef nonnull @.str.368) #36
   br label %32
@@ -5886,7 +5886,7 @@ define dso_local void @process_stat_settings(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %2
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.usage, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.usage, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %prot_text.exit
 
@@ -6223,7 +6223,7 @@ conn_to_str.exit:                                 ; preds = %45, %49, %54
   %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 128, ptr noundef nonnull @.str.194, i32 noundef %60, ptr noundef nonnull @.str.198) #34
   %76 = load i32, ptr %30, align 8, !tbaa !48
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw ptr, ptr @__const.state_text.statenames, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !55
   %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.29, ptr noundef %79) #34
   %81 = trunc i32 %75 to i16
@@ -7339,7 +7339,7 @@ sub_0.i:                                          ; preds = %2
   br label %184
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %172
+  %179 = getelementptr inbounds nuw i8, ptr %13, i64 %172
   store i8 0, ptr %179, align 1, !tbaa !76
   %180 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.451) #42
   %.not16.i = icmp eq ptr %180, null
@@ -9563,7 +9563,7 @@ verify_default.exit:                              ; preds = %0
 
 switch.lookup:                                    ; preds = %verify_default.exit
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.usage, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.usage, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %prot_text.exit
 
@@ -9798,7 +9798,7 @@ define internal range(i32 -1, 1) i32 @_mc_meta_load_cb(ptr readnone captures(non
 
 20:                                               ; preds = %18, %24
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %24 ]
-  %21 = getelementptr inbounds nuw [17 x ptr], ptr @__const._mc_meta_load_cb.opts, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr @__const._mc_meta_load_cb.opts, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %22) #42
   %.not33 = icmp eq i32 %23, 0
@@ -10921,7 +10921,7 @@ define internal fastcc i32 @_transmit_pre(ptr noundef readonly captures(none) %0
 
 .lr.ph118:                                        ; preds = %21
   %23 = zext i8 %20 to i64
-  %24 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.iovec, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !122
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 41
@@ -11018,7 +11018,7 @@ define internal fastcc i32 @_transmit_pre(ptr noundef readonly captures(none) %0
   br i1 %or.cond8, label %.lr.ph, label %.critedge3
 
 79:                                               ; preds = %48
-  %80 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %22, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw %struct.iovec, ptr %22, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !122
   %82 = sext i32 %.392115 to i64
   %83 = getelementptr inbounds %struct.iovec, ptr %1, i64 %82
@@ -11221,7 +11221,7 @@ define internal fastcc void @_transmit_post(ptr noundef captures(none) %0, i64 n
   %74 = phi i32 [ %40, %.lr.ph ], [ %91, %89 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %.274 = phi i64 [ %.077, %.lr.ph ], [ %92, %89 ]
-  %75 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %44, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw %struct.iovec, ptr %44, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !124
   %.not46 = icmp ult i64 %.274, %77

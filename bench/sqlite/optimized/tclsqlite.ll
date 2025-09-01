@@ -1893,7 +1893,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !12
   %499 = load ptr, ptr %0, align 8, !tbaa !26
-  %500 = getelementptr inbounds nuw [16 x %struct.DbConfigChoices], ptr @DbObjCmd.aDbConfig, i64 0, i64 %indvars.iv1466
+  %500 = getelementptr inbounds nuw %struct.DbConfigChoices, ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1466
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
   %502 = load i32, ptr %501, align 8, !tbaa !69
   %503 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %499, i32 noundef %502, i32 noundef -1, ptr noundef nonnull %15) #14
@@ -1941,7 +1941,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 529:                                              ; preds = %520, %528
   %indvars.iv1462 = phi i64 [ 0, %520 ], [ %indvars.iv.next1463, %528 ]
-  %530 = getelementptr inbounds nuw [16 x %struct.DbConfigChoices], ptr @DbObjCmd.aDbConfig, i64 0, i64 %indvars.iv1462
+  %530 = getelementptr inbounds nuw %struct.DbConfigChoices, ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1462
   %531 = load ptr, ptr %530, align 16, !tbaa !73
   %532 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %531, ptr noundef nonnull dereferenceable(1) %spec.select) #15
   %533 = icmp eq i32 %532, 0
@@ -1975,7 +1975,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 547:                                              ; preds = %._crit_edge1471, %538
   %548 = phi i32 [ %.pre1472, %._crit_edge1471 ], [ -1, %538 ]
   %549 = load ptr, ptr %0, align 8, !tbaa !26
-  %550 = getelementptr inbounds nuw [16 x %struct.DbConfigChoices], ptr @DbObjCmd.aDbConfig, i64 0, i64 %indvars.iv1462, i32 1
+  %550 = getelementptr inbounds nuw %struct.DbConfigChoices, ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1462, i32 1
   %551 = load i32, ptr %550, align 8, !tbaa !69
   %552 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %549, i32 noundef %551, i32 noundef %548, ptr noundef nonnull %17) #14
   %553 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
@@ -4461,7 +4461,7 @@ define internal range(i32 0, 1000) i32 @auth_callback(ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %10
   %12 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [34 x ptr], ptr @switch.table.auth_callback, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.auth_callback, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -7191,8 +7191,8 @@ define internal noundef i32 @DbTransPostCmd(ptr noundef readonly captures(none) 
   %9 = select i1 %8, i64 2, i64 0
   %10 = icmp eq i32 %7, 0
   %11 = zext i1 %10 to i64
-  %12 = or disjoint i64 %9, %11
-  %13 = getelementptr inbounds nuw [4 x ptr], ptr @DbTransPostCmd.azEnd, i64 0, i64 %12
+  %12 = getelementptr inbounds nuw ptr, ptr @DbTransPostCmd.azEnd, i64 %9
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !81
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = load i32, ptr %15, align 8, !tbaa !117
@@ -8132,7 +8132,7 @@ define internal void @DbUpdateHandler(ptr noundef readonly captures(none) %0, i3
   %19 = add nsw i32 %1, -1
   %20 = sdiv i32 %19, 9
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [3 x ptr], ptr @DbUpdateHandler.azStr, i64 0, i64 %21
+  %22 = getelementptr inbounds ptr, ptr @DbUpdateHandler.azStr, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !81
   %24 = tail call ptr %18(ptr noundef %23, i32 noundef -1) #14
   %25 = tail call i32 %16(ptr noundef null, ptr noundef nonnull %11, ptr noundef %24) #14

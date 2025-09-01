@@ -2268,7 +2268,7 @@ invoke.cont51:                                    ; preds = %.noexc54, %call1.i.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %41 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %41 to i64
-  %arrayidx.i51 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i51 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %42 = load i32, ptr %arrayidx.i51, align 4
   %cmp53 = icmp eq i32 %42, 10
   br i1 %cmp53, label %if.then54, label %invoke.cont92

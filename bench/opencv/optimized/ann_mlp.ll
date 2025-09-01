@@ -5902,7 +5902,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml11ANN_MLPImpl12write_paramsERNS_11Fil
 
 switch.lookup:                                    ; preds = %2
   %85 = zext nneg i32 %83 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK2cv2ml11ANN_MLPImpl12write_paramsERNS_11FileStorageE, i64 0, i64 %85
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK2cv2ml11ANN_MLPImpl12write_paramsERNS_11FileStorageE, i64 %85
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 16
@@ -9901,7 +9901,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc270, %._crit_
   %208 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %209 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %210 = and i64 %61, 1
-  %211 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw ptr, ptr %17, i64 %210
   %sext308 = add i64 %sext, 4294967296
   %212 = ashr i64 %sext308, 32
   %213 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10412,7 +10412,7 @@ _ZN2cv3RNG7uniformEii.exit271:                    ; preds = %_ZN2cv3RNG7uniformE
 430:                                              ; preds = %429
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %431 = and i64 %indvars.iv.next390, 1
-  %432 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw ptr, ptr %17, i64 %431
   %433 = load ptr, ptr %432, align 8, !tbaa !211
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %38, i32 noundef 1, i32 noundef %405, i32 noundef 6, ptr noundef %433, i64 noundef 0)
           to label %434 unwind label %453
@@ -13189,7 +13189,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit240:            ; preds = %119, %117, %115, %1
   %144 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %146 = and i64 %55, 1
-  %147 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw ptr, ptr %9, i64 %146
   %sext398 = add i64 %sext, 4294967296
   %148 = ashr i64 %sext398, 32
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -13871,7 +13871,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit246: ; preds = %360
   %430 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %362) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %431 = and i64 %indvars.iv.next642, 1
-  %432 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw ptr, ptr %9, i64 %431
   %433 = load ptr, ptr %432, align 8, !tbaa !211
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %28, i32 noundef %202, i32 noundef %354, i32 noundef 6, ptr noundef %433, i64 noundef 0)
           to label %434 unwind label %447

@@ -1389,7 +1389,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
   %60 = lshr i32 65279, %59
   %61 = and i32 %60, 15
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %64, ptr %6, align 1, !tbaa !12
@@ -1424,7 +1424,7 @@ tailrecurse._crit_edge.i:                         ; preds = %.thread76
   %73 = lshr i32 %.12831404553, %72
   %74 = and i32 %73, 15
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %77, ptr %5, align 1, !tbaa !12
@@ -1484,7 +1484,7 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph.split.us, %t
   %16 = ashr i32 %.tr2024, %15
   %17 = and i32 %16, 15
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %20, ptr %4, align 1, !tbaa !12

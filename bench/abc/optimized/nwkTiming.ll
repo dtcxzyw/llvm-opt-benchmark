@@ -274,7 +274,7 @@ define float @Nwk_NodeComputeArrival(ptr noundef readonly captures(none) %0, i32
   %36 = getelementptr i8, ptr %0, i64 60
   %.val92 = load i32, ptr %36, align 4, !tbaa !29
   %37 = sext i32 %.val92 to i64
-  %38 = getelementptr inbounds [33 x [33 x float]], ptr %35, i64 0, i64 %37
+  %38 = getelementptr inbounds [33 x float], ptr %35, i64 %37
   br i1 %.not75, label %39, label %51
 
 39:                                               ; preds = %32
@@ -423,7 +423,7 @@ define float @Nwk_NodeComputeArrival(ptr noundef readonly captures(none) %0, i32
   br i1 %.not79, label %.critedge.thread, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4, !tbaa !34
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds ptr, ptr %95, i64 %102
@@ -580,7 +580,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %49 = getelementptr i8, ptr %44, i64 60
   %.val98 = load i32, ptr %49, align 4, !tbaa !29
   %50 = sext i32 %.val98 to i64
-  %51 = getelementptr inbounds [33 x [33 x float]], ptr %41, i64 0, i64 %50
+  %51 = getelementptr inbounds [33 x float], ptr %41, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !35
   br label %53
 
@@ -760,7 +760,7 @@ Nwk_ManWhereIsPin.exit:                           ; preds = %123, %76, %._crit_e
 
 127:                                              ; preds = %Nwk_ManWhereIsPin.exit
   %128 = sext i32 %.val97 to i64
-  %129 = getelementptr inbounds [33 x [33 x float]], ptr %66, i64 0, i64 %128
+  %129 = getelementptr inbounds [33 x float], ptr %66, i64 %128
   %130 = getelementptr inbounds float, ptr %129, i64 %.08.i
   %131 = load float, ptr %130, align 4, !tbaa !35
   br label %132
@@ -800,7 +800,7 @@ Nwk_ManWhereIsPin.exit:                           ; preds = %123, %76, %._crit_e
 
 149:                                              ; preds = %144
   %150 = sext i32 %.val to i64
-  %151 = getelementptr inbounds [33 x [33 x float]], ptr %73, i64 0, i64 %150
+  %151 = getelementptr inbounds [33 x float], ptr %73, i64 %150
   %152 = sext i32 %146 to i64
   %153 = getelementptr inbounds float, ptr %151, i64 %152
   %154 = load float, ptr %153, align 4, !tbaa !35
@@ -884,7 +884,7 @@ define float @Nwk_NodePropagateRequired(ptr noundef readonly captures(none) %0, 
   %29 = getelementptr i8, ptr %0, i64 60
   %.val78 = load i32, ptr %29, align 4, !tbaa !29
   %30 = sext i32 %.val78 to i64
-  %31 = getelementptr inbounds [33 x [33 x float]], ptr %28, i64 0, i64 %30
+  %31 = getelementptr inbounds [33 x float], ptr %28, i64 %30
   br i1 %.not, label %32, label %47
 
 32:                                               ; preds = %25
@@ -1049,7 +1049,7 @@ define float @Nwk_NodePropagateRequired(ptr noundef readonly captures(none) %0, 
   %99 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv151
   %100 = load float, ptr %99, align 4, !tbaa !35
   %101 = fsub float %.val84, %100
-  %102 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv151
+  %102 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv151
   %103 = load i32, ptr %102, align 4, !tbaa !34
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds ptr, ptr %93, i64 %104

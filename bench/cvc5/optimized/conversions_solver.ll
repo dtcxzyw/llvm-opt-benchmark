@@ -911,7 +911,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit153: ; preds = %108, %102, %110
   %141 = icmp eq i32 %140, 2
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %143 = zext i1 %141 to i64
-  %144 = getelementptr inbounds nuw [0 x ptr], ptr %142, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw ptr, ptr %142, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !273, !noalias !270
   store ptr %145, ptr %26, align 8, !tbaa !45, !alias.scope !270
   %146 = load i64, ptr %145, align 8, !noalias !270
@@ -1121,7 +1121,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit229: ; preds = %_ZN4cvc58internal
   %232 = icmp eq i32 %231, 2
   %233 = getelementptr inbounds nuw i8, ptr %224, i64 24
   %234 = zext i1 %232 to i64
-  %235 = getelementptr inbounds nuw [0 x ptr], ptr %233, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw ptr, ptr %233, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !273, !noalias !280
   store ptr %236, ptr %33, align 8, !tbaa !45, !alias.scope !280
   %237 = load i64, ptr %236, align 8, !noalias !280

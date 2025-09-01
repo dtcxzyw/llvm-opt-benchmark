@@ -522,7 +522,7 @@ _ZN4core3ops8function6FnOnce9call_once17he3aafa98bcdbebc7E.exit: ; preds = %22, 
 
 .lr.ph.i.i:                                       ; preds = %32, %36
   %.05.i.i = phi i64 [ %37, %36 ], [ 0, %32 ]
-  %33 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.54.sroa.0.0.copyload, i64 0, i64 %.05.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.54.sroa.0.0.copyload, i64 %.05.i.i
   %34 = load i8, ptr %33, align 1, !alias.scope !145, !noalias !133, !noundef !21
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i, label %36
@@ -1063,7 +1063,7 @@ _ZN4core3ops8function6FnOnce9call_once17he3aafa98bcdbebc7E.exit: ; preds = %22, 
 
 .lr.ph.i.i:                                       ; preds = %32, %36
   %.05.i.i = phi i64 [ %37, %36 ], [ 0, %32 ]
-  %33 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.54.sroa.0.0.copyload, i64 0, i64 %.05.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.54.sroa.0.0.copyload, i64 %.05.i.i
   %34 = load i8, ptr %33, align 1, !alias.scope !267, !noalias !255, !noundef !21
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i, label %36

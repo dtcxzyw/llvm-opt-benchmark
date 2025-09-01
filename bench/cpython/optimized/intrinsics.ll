@@ -1553,7 +1553,7 @@ define dso_local ptr @_PyCompile_GetUnaryIntrinsicName(i32 noundef %0) local_unn
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr [12 x %struct.intrinsic_func1_info], ptr @_PyIntrinsics_UnaryFunctions, i64 0, i64 %3, i32 1
+  %4 = getelementptr %struct.intrinsic_func1_info, ptr @_PyIntrinsics_UnaryFunctions, i64 %3, i32 1
   %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = tail call ptr @PyUnicode_FromString(ptr noundef %5) #4
   br label %7
@@ -1572,7 +1572,7 @@ define dso_local ptr @_PyCompile_GetBinaryIntrinsicName(i32 noundef %0) local_un
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr [6 x %struct.intrinsic_func2_info], ptr @_PyIntrinsics_BinaryFunctions, i64 0, i64 %3, i32 1
+  %4 = getelementptr %struct.intrinsic_func2_info, ptr @_PyIntrinsics_BinaryFunctions, i64 %3, i32 1
   %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = tail call ptr @PyUnicode_FromString(ptr noundef %5) #4
   br label %7

@@ -192,7 +192,7 @@ vduse_queue_should_notify.exit:                   ; preds = %26
   %.val19.i = load ptr, ptr %5, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 4
   %35 = sext i32 %.val18.i to i64
-  %36 = getelementptr inbounds [0 x i16], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds i16, ptr %34, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = xor i16 %37, -1
   %39 = add i16 %33, %38
@@ -311,7 +311,7 @@ vduse_queue_empty.exit.thread:                    ; preds = %.critedge, %vduse_q
   %.val.i = load ptr, ptr %5, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %42 = zext nneg i32 %40 to i64
-  %43 = getelementptr inbounds nuw [0 x i16], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
   %.not.i36 = icmp ugt i32 %32, %45
@@ -334,7 +334,7 @@ vduse_queue_get_head.exit:                        ; preds = %36
   %.val35 = load ptr, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.val35, i64 4
   %54 = zext i32 %32 to i64
-  %55 = getelementptr inbounds nuw [0 x %struct.vring_used_elem], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %struct.vring_used_elem, ptr %53, i64 %54
   store i16 %38, ptr %55, align 4
   br label %56
 
@@ -361,7 +361,7 @@ vduse_queue_get_head.exit:                        ; preds = %36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %69 = load ptr, ptr %64, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = getelementptr inbounds nuw [0 x %struct.VduseDescStateSplit], ptr %70, i64 0, i64 %66
+  %71 = getelementptr inbounds nuw %struct.VduseDescStateSplit, ptr %70, i64 %66
   store i8 1, ptr %71, align 8
   br label %72
 
@@ -581,7 +581,7 @@ vduse_queue_read_next_desc.exit:                  ; preds = %81, %.thread69
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %106 ]
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw %struct.iovec, ptr %113, i64 %indvars.iv
-  %115 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %5, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 16 dereferenceable(16) %115, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %98
@@ -594,7 +594,7 @@ vduse_queue_read_next_desc.exit:                  ; preds = %81, %.thread69
   %118 = trunc nuw i64 %indvars.iv86 to i32
   %119 = add i32 %68, %118
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %5, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 16 dereferenceable(16) %121, i64 16, i1 false)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %93
@@ -633,7 +633,7 @@ define dso_local void @vduse_queue_push(ptr noundef captures(none) %0, ptr nound
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw [0 x %struct.vring_used_elem], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %struct.vring_used_elem, ptr %13, i64 %14
   store i64 %.sroa.0.0.insert.insert.i, ptr %15, align 4
   br label %vduse_queue_fill.exit
 
@@ -678,7 +678,7 @@ vduse_queue_flush.exit:                           ; preds = %vduse_queue_fill.ex
   %37 = load ptr, ptr %17, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds [0 x %struct.VduseDescStateSplit], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds %struct.VduseDescStateSplit, ptr %38, i64 %39
   store i8 0, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -876,7 +876,7 @@ vduse_queue_disable.exit.i:                       ; preds = %86, %60
 
 98:                                               ; preds = %112, %94
   %indvars.iv.i.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i.i, %112 ]
-  %99 = getelementptr inbounds nuw [256 x %struct.VduseIovaRegion], ptr %96, i64 0, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw %struct.VduseIovaRegion, ptr %96, i64 %indvars.iv.i.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load i64, ptr %100, align 8
   %.not.i.i = icmp eq i64 %101, 0
@@ -916,7 +916,7 @@ vduse_queue_disable.exit.i:                       ; preds = %86, %60
 
 121:                                              ; preds = %140, %.preheader.i31
   %indvars.iv.i32 = phi i64 [ 0, %.preheader.i31 ], [ %indvars.iv.next.i34, %140 ]
-  %122 = getelementptr inbounds nuw [256 x %struct.VduseIovaRegion], ptr %119, i64 0, i64 %indvars.iv.i32
+  %122 = getelementptr inbounds nuw %struct.VduseIovaRegion, ptr %119, i64 %indvars.iv.i32
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = load i64, ptr %123, align 8
   %.not.i33 = icmp eq i64 %124, 0
@@ -1301,7 +1301,7 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %79 = zext nneg i16 %75 to i64
-  %80 = getelementptr inbounds nuw [0 x %struct.VduseDescStateSplit], ptr %78, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw %struct.VduseDescStateSplit, ptr %78, i64 %79
   store i8 0, ptr %80, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   %81 = load i16, ptr %65, align 4
@@ -1327,7 +1327,7 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
 91:                                               ; preds = %99, %.lr.ph.i
   %92 = phi i16 [ %88, %.lr.ph.i ], [ %100, %99 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %99 ]
-  %93 = getelementptr inbounds nuw [0 x %struct.VduseDescStateSplit], ptr %89, i64 0, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw %struct.VduseDescStateSplit, ptr %89, i64 %indvars.iv.i
   %94 = load i8, ptr %93, align 8
   %95 = icmp eq i8 %94, 1
   br i1 %95, label %96, label %99
@@ -1374,7 +1374,7 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
   %113 = phi ptr [ %134, %133 ], [ %86, %.preheader.i ]
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %133 ], [ 0, %.preheader.i ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %115 = getelementptr inbounds nuw [0 x %struct.VduseDescStateSplit], ptr %114, i64 0, i64 %indvars.iv59.i
+  %115 = getelementptr inbounds nuw %struct.VduseDescStateSplit, ptr %114, i64 %indvars.iv59.i
   %116 = load i8, ptr %115, align 8
   %.not51.i = icmp eq i8 %116, 0
   br i1 %.not51.i, label %133, label %117
@@ -2057,7 +2057,7 @@ define internal fastcc ptr @iova_to_va(ptr noundef captures(none) %0, ptr nounde
 
 6:                                                ; preds = %3, %33
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %33 ]
-  %7 = getelementptr inbounds nuw [256 x %struct.VduseIovaRegion], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.VduseIovaRegion, ptr %5, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %.not38 = icmp eq i64 %9, 0
@@ -2143,7 +2143,7 @@ perm_to_prot.exit:                                ; preds = %34
 
 .preheader.i:                                     ; preds = %perm_to_prot.exit, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %perm_to_prot.exit ]
-  %54 = getelementptr inbounds nuw [256 x %struct.VduseIovaRegion], ptr %5, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw %struct.VduseIovaRegion, ptr %5, i64 %indvars.iv.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i64, ptr %55, align 8
   %.not.i = icmp eq i64 %56, 0

@@ -8796,7 +8796,7 @@ Py_DECREF.exit.thread.i:                          ; preds = %2
 35:                                               ; preds = %25
   %36 = add i64 %32, 4294967295
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr [512 x i8], ptr %4, i64 0, i64 %37
+  %38 = getelementptr i8, ptr %4, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !25
   %40 = icmp eq i8 %39, 10
   br i1 %40, label %41, label %42

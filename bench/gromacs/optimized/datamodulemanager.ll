@@ -578,7 +578,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKN
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [3 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !59, !range !60, !noundef !61
   %8 = trunc nuw i8 %7 to i1
   %9 = trunc nuw nsw i64 %indvars.iv to i32
@@ -946,7 +946,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw [3 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !59, !range !60, !noundef !61
   %.not = icmp eq i8 %14, %4
   br i1 %.not, label %26, label %15
@@ -972,7 +972,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_1
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.lcssa = phi ptr [ %5, %15 ], [ %21, %.lr.ph ]
   %24 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
-  %25 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 0, i64 %12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %12
   store i8 %4, ptr %25, align 1, !tbaa !59
   br label %26
 
@@ -989,7 +989,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager9addModuleEPNS_20AbstractAnalysis
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1, !tbaa !59, !range !60, !noundef !61
   %10 = trunc nuw i8 %9 to i1
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1226,7 +1226,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager11applyModuleEPNS_20AbstractAnaly
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1, !tbaa !59, !range !60, !noundef !61
   %9 = trunc nuw i8 %8 to i1
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1318,7 +1318,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractA
 
 29:                                               ; preds = %29, %.lr.ph18
   %indvars.iv.i = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next.i, %29 ]
-  %30 = getelementptr inbounds nuw [3 x i8], ptr %28, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1, !tbaa !59, !range !60, !noundef !61
   %32 = trunc nuw i8 %31 to i1
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1404,7 +1404,7 @@ define void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20A
 
 28:                                               ; preds = %28, %.lr.ph19
   %indvars.iv.i = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw [3 x i8], ptr %27, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1, !tbaa !59, !range !60, !noundef !61
   %31 = trunc nuw i8 %30 to i1
   %32 = trunc nuw nsw i64 %indvars.iv.i to i32

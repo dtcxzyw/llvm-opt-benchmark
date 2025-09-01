@@ -1201,7 +1201,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %19, i64 0, i64 %10
+  %20 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1748,7 +1748,7 @@ define hidden void @_ZN6syntax7parsing9reparsing19incremental_reparse17h6d84efd8
 
 .lr.ph.i.i.i:                                     ; preds = %141, %145
   %.05.i.i.i = phi i64 [ %146, %145 ], [ 0, %141 ]
-  %142 = getelementptr inbounds nuw [0 x i8], ptr %136, i64 0, i64 %.05.i.i.i
+  %142 = getelementptr inbounds nuw i8, ptr %136, i64 %.05.i.i.i
   %143 = load i8, ptr %142, align 1, !alias.scope !202, !noalias !176, !noundef !4
   %144 = icmp eq i8 %143, 10
   br i1 %144, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread159.i", label %145

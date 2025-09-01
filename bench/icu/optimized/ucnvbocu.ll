@@ -208,7 +208,7 @@ _ZL20decodeBocu1TrailByteii.exit.thread:          ; preds = %.split312.us
 
 _ZL20decodeBocu1TrailByteii.exit:                 ; preds = %.split312.us
   %89 = zext nneg i8 %85 to i64
-  %90 = getelementptr inbounds nuw [33 x i8], ptr @_ZL16bocu1ByteToTrail, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1ByteToTrail, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !24
   %92 = sext i8 %91 to i32
   %93 = shl nuw nsw i64 1, %89
@@ -309,7 +309,7 @@ _ZL19decodeBocu1LeadBytei.exit:                   ; preds = %106, %109, %110, %1
 
 133:                                              ; preds = %126
   %134 = zext nneg i8 %128 to i64
-  %135 = getelementptr inbounds nuw [33 x i8], ptr @_ZL16bocu1ByteToTrail, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1ByteToTrail, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !24
   %137 = sext i8 %136 to i32
   br label %141
@@ -692,7 +692,7 @@ _ZL20decodeBocu1TrailByteii.exit.thread:          ; preds = %.split346.us
 
 _ZL20decodeBocu1TrailByteii.exit:                 ; preds = %.split346.us
   %94 = zext nneg i8 %90 to i64
-  %95 = getelementptr inbounds nuw [33 x i8], ptr @_ZL16bocu1ByteToTrail, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1ByteToTrail, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !24
   %97 = sext i8 %96 to i32
   %98 = shl nuw nsw i64 1, %94
@@ -796,7 +796,7 @@ _ZL19decodeBocu1LeadBytei.exit:                   ; preds = %111, %114, %115, %1
 
 139:                                              ; preds = %132
   %140 = zext nneg i8 %134 to i64
-  %141 = getelementptr inbounds nuw [33 x i8], ptr @_ZL16bocu1ByteToTrail, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1ByteToTrail, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !24
   %143 = sext i8 %142 to i32
   br label %147
@@ -1237,7 +1237,7 @@ select.unfold:                                    ; preds = %115, %110
   %130 = phi ptr [ %122, %.thread ], [ %124, %select.unfold ]
   %.0145203 = phi i32 [ 0, %.thread ], [ %.0145, %select.unfold ]
   %131 = sext i32 %.0145203 to i64
-  %132 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %131
+  %132 = getelementptr inbounds i8, ptr @_ZL16bocu1TrailToByte, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !24
   br label %134
 
@@ -1690,7 +1690,7 @@ select.unfold:                                    ; preds = %120, %115
   %135 = phi ptr [ %127, %.thread ], [ %129, %select.unfold ]
   %.0184271 = phi i32 [ 0, %.thread ], [ %.0184, %select.unfold ]
   %136 = sext i32 %.0184271 to i64
-  %137 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %136
+  %137 = getelementptr inbounds i8, ptr @_ZL16bocu1TrailToByte, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !24
   br label %139
 
@@ -1901,7 +1901,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 12:                                               ; preds = %5
   %13 = sext i16 %7 to i64
-  %14 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr @_ZL16bocu1TrailToByte, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !24
   %16 = sext i8 %15 to i32
   br label %17
@@ -1931,7 +1931,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 32:                                               ; preds = %25
   %33 = zext nneg i32 %27 to i64
-  %34 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !24
   %36 = sext i8 %35 to i32
   br label %37
@@ -1951,7 +1951,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 44:                                               ; preds = %37
   %45 = zext nneg i16 %39 to i64
-  %46 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !24
   %48 = sext i8 %47 to i32
   br label %49
@@ -1979,7 +1979,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 64:                                               ; preds = %57
   %65 = zext nneg i32 %59 to i64
-  %66 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !24
   %68 = sext i8 %67 to i32
   br label %69
@@ -1997,7 +1997,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 76:                                               ; preds = %69
   %77 = zext nneg i32 %71 to i64
-  %78 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !24
   %80 = sext i8 %79 to i32
   br label %81
@@ -2014,7 +2014,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 87:                                               ; preds = %81
   %88 = zext nneg i32 %72 to i64
-  %89 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !24
   %91 = sext i8 %90 to i32
   br label %92
@@ -2053,7 +2053,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 108:                                              ; preds = %100
   %109 = zext nneg i16 %narrow169 to i64
-  %110 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !24
   %112 = sext i8 %111 to i32
   br label %113
@@ -2088,7 +2088,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 128:                                              ; preds = %121
   %129 = zext nneg i32 %.1 to i64
-  %130 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !24
   %132 = sext i8 %131 to i32
   br label %133
@@ -2115,7 +2115,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 141:                                              ; preds = %133
   %142 = zext nneg i16 %narrow165 to i64
-  %143 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !24
   %145 = sext i8 %144 to i32
   br label %146
@@ -2148,7 +2148,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 161:                                              ; preds = %154
   %162 = zext nneg i32 %.3 to i64
-  %163 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %162
   %164 = load i8, ptr %163, align 1, !tbaa !24
   %165 = sext i8 %164 to i32
   br label %166
@@ -2172,7 +2172,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 175:                                              ; preds = %166
   %176 = zext nneg i32 %.4 to i64
-  %177 = getelementptr inbounds nuw [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZL16bocu1TrailToByte, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !24
   %179 = sext i8 %178 to i32
   br label %180
@@ -2188,9 +2188,9 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
   br label %192
 
 186:                                              ; preds = %180
-  %187 = add nsw i32 %.4109, 243
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %188
+  %187 = sext i32 %.4109 to i64
+  %188 = getelementptr i8, ptr @_ZL16bocu1TrailToByte, i64 %187
+  %189 = getelementptr i8, ptr %188, i64 243
   %190 = load i8, ptr %189, align 1, !tbaa !24
   %191 = sext i8 %190 to i32
   br label %192

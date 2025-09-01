@@ -664,7 +664,7 @@ _ZNSt3__16vectorImNS_9allocatorImEEE7reserveEm.exit: ; preds = %.noexc358, %109
   %144 = phi i1 [ true, %141 ], [ false, %143 ]
   %.014.i = phi i64 [ 0, %141 ], [ 1, %143 ]
   %.01113.i = phi i1 [ false, %141 ], [ %spec.select.i, %143 ]
-  %145 = getelementptr inbounds nuw [2 x i8], ptr @.str.4, i64 0, i64 %.014.i
+  %145 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.014.i
   %146 = load i8, ptr %145, align 1
   %147 = icmp eq i8 %142, %146
   %spec.select.i = select i1 %147, i1 true, i1 %.01113.i
@@ -722,7 +722,7 @@ _ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb
 
 162:                                              ; preds = %156, %_ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb0ELm2EEEvPPKcS9_RAT0__S8_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr align 1 %.0310620, i64 %154, i1 false)
-  %163 = getelementptr inbounds nuw [1025 x i8], ptr %13, i64 0, i64 %154
+  %163 = getelementptr inbounds nuw i8, ptr %13, i64 %154
   store i8 0, ptr %163, align 1
   br label %164
 
@@ -734,7 +734,7 @@ _ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb
 166:                                              ; preds = %166, %164
   %.014.i360 = phi i64 [ 0, %164 ], [ %170, %166 ]
   %.01113.i361 = phi i8 [ 0, %164 ], [ %spec.select.i362, %166 ]
-  %167 = getelementptr inbounds nuw [4 x i8], ptr @.str.6, i64 0, i64 %.014.i360
+  %167 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %.014.i360
   %168 = load i8, ptr %167, align 1
   %169 = icmp eq i8 %165, %168
   %spec.select.i362 = select i1 %169, i8 1, i8 %.01113.i361

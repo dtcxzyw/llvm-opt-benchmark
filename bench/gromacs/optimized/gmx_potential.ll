@@ -604,8 +604,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 
 225:                                              ; preds = %223
   %226 = sext i32 %188 to i64
-  %227 = getelementptr inbounds [3 x [3 x float]], ptr %24, i64 0, i64 %226
-  %228 = getelementptr inbounds [3 x float], ptr %227, i64 0, i64 %226
+  %227 = getelementptr inbounds [3 x float], ptr %24, i64 %226
+  %228 = getelementptr inbounds float, ptr %227, i64 %226
   %229 = load float, ptr %228, align 4, !tbaa !44
   %230 = fpext float %229 to double
   %231 = fmul double %230, 1.000000e+01
@@ -683,8 +683,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
   %262 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %263 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %264 = sext i32 %188 to i64
-  %265 = getelementptr inbounds [3 x [3 x float]], ptr %24, i64 0, i64 %264
-  %266 = getelementptr inbounds [3 x float], ptr %265, i64 0, i64 %264
+  %265 = getelementptr inbounds [3 x float], ptr %24, i64 %264
+  %266 = getelementptr inbounds float, ptr %265, i64 %264
   %wide.trip.count107.i = zext nneg i32 %189 to i64
   br label %267
 
@@ -758,9 +758,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 
 289:                                              ; preds = %289, %283
   %indvars.iv.i.i = phi i64 [ 0, %283 ], [ %indvars.iv.next.i.i, %289 ]
-  %290 = getelementptr inbounds nuw [3 x float], ptr %288, i64 0, i64 %indvars.iv.i.i
+  %290 = getelementptr inbounds nuw float, ptr %288, i64 %indvars.iv.i.i
   %291 = load float, ptr %290, align 4, !tbaa !44
-  %292 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.i
+  %292 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.i
   %293 = load float, ptr %292, align 4, !tbaa !44
   %294 = call float @llvm.fmuladd.f32(float %287, float %291, float %293)
   store float %294, ptr %292, align 4, !tbaa !44
@@ -776,7 +776,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 
 297:                                              ; preds = %297, %.preheader.i.i
   %indvars.iv53.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next54.i.i, %297 ]
-  %298 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv53.i.i
+  %298 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv53.i.i
   %299 = load float, ptr %298, align 4, !tbaa !44
   %300 = fdiv float %299, %.034.lcssa.i.i
   store float %300, ptr %298, align 4, !tbaa !44
@@ -940,7 +940,7 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
 .lr.ph21.i:                                       ; preds = %.preheader8.i
   %386 = load ptr, ptr %23, align 8
   %387 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv104.i
-  %invariant.gep.i = getelementptr [3 x float], ptr %386, i64 0, i64 %264
+  %invariant.gep.i = getelementptr float, ptr %386, i64 %264
   %388 = load ptr, ptr %387, align 8, !tbaa !40
   %389 = load ptr, ptr %259, align 8, !tbaa !71
   %390 = getelementptr inbounds nuw ptr, ptr %238, i64 %indvars.iv104.i

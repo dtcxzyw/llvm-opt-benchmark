@@ -116,7 +116,7 @@ define internal range(i32 49, 0) i32 @ir2_decode_frame(ptr noundef %0, ptr nound
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %53 = load i32, ptr %52, align 8, !tbaa !47
   %54 = zext nneg i32 %46 to i64
-  %55 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @ir2_delta_table, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i8], ptr @ir2_delta_table, i64 %54
   br i1 %.not, label %83, label %56
 
 56:                                               ; preds = %45
@@ -134,7 +134,7 @@ define internal range(i32 49, 0) i32 @ir2_decode_frame(ptr noundef %0, ptr nound
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %67 = load i32, ptr %66, align 8, !tbaa !47
   %68 = zext nneg i32 %42 to i64
-  %69 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @ir2_delta_table, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [256 x i8], ptr @ir2_delta_table, i64 %68
   %70 = tail call fastcc i32 @ir2_decode_plane(ptr noundef nonnull %6, i32 noundef %61, i32 noundef %63, ptr noundef %65, i32 noundef %67, ptr noundef nonnull %69)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %ir2_decode_plane_inter.exit.thread, label %72
@@ -277,7 +277,7 @@ ir2_decode_plane_inter.exit:                      ; preds = %ir2_decode_plane_in
   %154 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %155 = load i32, ptr %154, align 8, !tbaa !47
   %156 = zext nneg i32 %42 to i64
-  %157 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @ir2_delta_table, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw [256 x i8], ptr @ir2_delta_table, i64 %156
   %158 = and i32 %149, 4
   %.not.i84 = icmp eq i32 %158, 0
   br i1 %.not.i84, label %.preheader43.i86, label %ir2_decode_plane_inter.exit.thread

@@ -3987,7 +3987,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %167, %15
   %169 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %169, %168
-  %170 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %42, i64 0, i64 %spec.select.i.i77
+  %170 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %42, i64 %spec.select.i.i77
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load atomic i64, ptr %171 monotonic, align 8
   %173 = icmp eq i64 %172, 0
@@ -5604,7 +5604,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %167, %15
   %169 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %169, %168
-  %170 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %42, i64 0, i64 %spec.select.i.i77
+  %170 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %42, i64 %spec.select.i.i77
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load atomic i64, ptr %171 monotonic, align 8
   %173 = icmp eq i64 %172, 0
@@ -6976,7 +6976,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %163, %15
   %165 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %165, %164
-  %166 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %38, i64 0, i64 %spec.select.i.i77
+  %166 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %38, i64 %spec.select.i.i77
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load atomic i64, ptr %167 monotonic, align 8
   %169 = icmp eq i64 %168, 0
@@ -7728,7 +7728,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i76 = icmp samesign uge i32 %163, %15
   %165 = zext i1 %.not.i.i76 to i64
   %spec.select.i.i77 = add nuw nsw i64 %165, %164
-  %166 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %38, i64 0, i64 %spec.select.i.i77
+  %166 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %38, i64 %spec.select.i.i77
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load atomic i64, ptr %167 monotonic, align 8
   %169 = icmp eq i64 %168, 0

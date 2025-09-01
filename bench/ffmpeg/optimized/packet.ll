@@ -687,7 +687,7 @@ define noundef ptr @av_packet_side_data_name(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [38 x ptr], ptr @switch.table.av_packet_side_data_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.av_packet_side_data_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

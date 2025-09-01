@@ -118,7 +118,7 @@ parse_channel_name.exit.i:                        ; preds = %20
   %29 = or i64 %25, %.030.i
   %30 = load i32, ptr %19, align 4, !tbaa !26
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [64 x i32], ptr %18, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %18, i64 %31
   store i32 %22, ptr %32, align 4, !tbaa !27
   %33 = load i32, ptr %19, align 4, !tbaa !26
   %34 = add nsw i32 %33, 1
@@ -441,7 +441,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 272
-  %50 = getelementptr inbounds nuw [64 x %struct.hrir_inputs], ptr %49, i64 0, i64 %indvars.iv146
+  %50 = getelementptr inbounds nuw %struct.hrir_inputs, ptr %49, i64 %indvars.iv146
   store i32 %45, ptr %50, align 8, !tbaa !65
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %52 = load i32, ptr %51, align 8, !tbaa !66
@@ -822,7 +822,7 @@ ff_clz_c.exit287.i:                               ; preds = %109, %ff_clz_c.exit
 
 272:                                              ; preds = %.thread295.i, %.lr.ph333.i
   %indvars.iv362.i = phi i64 [ 0, %.lr.ph333.i ], [ %indvars.iv.next363.i, %.thread295.i ]
-  %273 = getelementptr inbounds nuw [64 x %struct.hrir_inputs], ptr %258, i64 0, i64 %indvars.iv362.i
+  %273 = getelementptr inbounds nuw %struct.hrir_inputs, ptr %258, i64 %indvars.iv362.i
   %274 = load i32, ptr %273, align 8, !tbaa !65
   %275 = load ptr, ptr %12, align 8, !tbaa !47
   %indvars.iv.next363.i = add nuw nsw i64 %indvars.iv362.i, 1
@@ -842,7 +842,7 @@ ff_clz_c.exit287.i:                               ; preds = %109, %ff_clz_c.exit
   br i1 %286, label %287, label %339
 
 287:                                              ; preds = %280
-  %288 = getelementptr inbounds nuw [64 x i32], ptr %261, i64 0, i64 %indvars.iv362.i
+  %288 = getelementptr inbounds nuw i32, ptr %261, i64 %indvars.iv362.i
   %289 = load i32, ptr %288, align 4, !tbaa !27
   %290 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %271, i32 noundef %289) #8
   %291 = icmp sgt i32 %290, -1
@@ -850,7 +850,7 @@ ff_clz_c.exit287.i:                               ; preds = %109, %ff_clz_c.exit
 
 292:                                              ; preds = %287
   %293 = trunc i32 %290 to i8
-  %294 = getelementptr inbounds nuw [64 x i8], ptr %262, i64 0, i64 %indvars.iv362.i
+  %294 = getelementptr inbounds nuw i8, ptr %262, i64 %indvars.iv362.i
   store i8 %293, ptr %294, align 1, !tbaa !44
   %295 = load i32, ptr %106, align 8, !tbaa !34
   %296 = icmp eq i32 %295, 0
@@ -951,7 +951,7 @@ ff_clz_c.exit287.i:                               ; preds = %109, %ff_clz_c.exit
 
 349:                                              ; preds = %.loopexit.i, %.lr.ph323.i
   %indvars.iv347.i = phi i64 [ 0, %.lr.ph323.i ], [ %indvars.iv.next348.i, %.loopexit.i ]
-  %350 = getelementptr inbounds nuw [64 x i32], ptr %261, i64 0, i64 %indvars.iv347.i
+  %350 = getelementptr inbounds nuw i32, ptr %261, i64 %indvars.iv347.i
   %351 = load i32, ptr %350, align 4, !tbaa !27
   %352 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %260, i32 noundef %351) #8
   %353 = icmp slt i32 %352, 0
@@ -959,7 +959,7 @@ ff_clz_c.exit287.i:                               ; preds = %109, %ff_clz_c.exit
 
 354:                                              ; preds = %349
   %355 = trunc i32 %352 to i8
-  %356 = getelementptr inbounds nuw [64 x i8], ptr %262, i64 0, i64 %indvars.iv347.i
+  %356 = getelementptr inbounds nuw i8, ptr %262, i64 %indvars.iv347.i
   store i8 %355, ptr %356, align 1, !tbaa !44
   %357 = shl nuw nsw i64 %indvars.iv347.i, 1
   %358 = load i32, ptr %106, align 8, !tbaa !34
@@ -1458,7 +1458,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   br i1 %73, label %90, label %74
 
 74:                                               ; preds = %.lr.ph115.split.us128
-  %75 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv152
+  %75 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv152
   %76 = load ptr, ptr %75, align 8, !tbaa !77
   %77 = srem i32 %107, %.fr
   %78 = sub nsw i32 %33, %77
@@ -1480,7 +1480,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
 
 90:                                               ; preds = %.lr.ph115.split.us128
   %91 = sext i32 %71 to i64
-  %92 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %91
+  %92 = getelementptr inbounds ptr, ptr %5, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !77
   %94 = getelementptr inbounds float, ptr %93, i64 %112
   %95 = load float, ptr %94, align 4, !tbaa !74
@@ -1501,7 +1501,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %indvars.iv147 = phi i64 [ 0, %.lr.ph112.us ], [ %indvars.iv.next148, %101 ]
   %102 = getelementptr inbounds nuw float, ptr %.0120.us, i64 %indvars.iv147
   %103 = load float, ptr %102, align 4, !tbaa !74
-  %104 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv147
+  %104 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv147
   %105 = load ptr, ptr %104, align 8, !tbaa !77
   %106 = getelementptr inbounds float, ptr %105, i64 %112
   store float %103, ptr %106, align 4, !tbaa !74
@@ -1543,7 +1543,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   br i1 %118, label %127, label %119
 
 119:                                              ; preds = %.lr.ph115.split.us.us
-  %120 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv157
+  %120 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv157
   %121 = load ptr, ptr %120, align 8, !tbaa !77
   %122 = getelementptr inbounds float, ptr %121, i64 %111
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 4 %122, i64 %53, i1 false)
@@ -1555,7 +1555,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
 
 127:                                              ; preds = %.lr.ph115.split.us.us
   %128 = sext i32 %116 to i64
-  %129 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %128
+  %129 = getelementptr inbounds ptr, ptr %5, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !77
   %131 = getelementptr inbounds float, ptr %130, i64 %112
   %132 = load float, ptr %131, align 4, !tbaa !74
@@ -1576,7 +1576,7 @@ define internal noundef i32 @headphone_convolute(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %138 = mul nsw i64 %indvars.iv, %44
   %139 = getelementptr inbounds float, ptr %25, i64 %138
-  %140 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %139, ptr %140, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1613,7 +1613,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %12 = sext i32 %2 to i64
   %13 = getelementptr inbounds i32, ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %15 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %12
+  %15 = getelementptr inbounds ptr, ptr %14, i64 %12
   %16 = load ptr, ptr %15, align 8, !tbaa !79
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !109
@@ -1632,25 +1632,25 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %31 = load i32, ptr %30, align 8, !tbaa !71
   %32 = add i32 %31, -1
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %34 = getelementptr inbounds [2 x ptr], ptr %33, i64 0, i64 %12
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %12
   %35 = load ptr, ptr %34, align 8, !tbaa !79
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %37 = getelementptr inbounds [2 x ptr], ptr %36, i64 0, i64 %12
+  %37 = getelementptr inbounds ptr, ptr %36, i64 %12
   %38 = load ptr, ptr %37, align 8, !tbaa !79
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %40 = getelementptr inbounds [2 x ptr], ptr %39, i64 0, i64 %12
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %12
   %41 = load ptr, ptr %40, align 8, !tbaa !79
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %43 = getelementptr inbounds [2 x ptr], ptr %42, i64 0, i64 %12
+  %43 = getelementptr inbounds ptr, ptr %42, i64 %12
   %44 = load ptr, ptr %43, align 8, !tbaa !75
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %46 = getelementptr inbounds [2 x ptr], ptr %45, i64 0, i64 %12
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %12
   %47 = load ptr, ptr %46, align 8, !tbaa !75
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %49 = getelementptr inbounds [2 x ptr], ptr %48, i64 0, i64 %12
+  %49 = getelementptr inbounds ptr, ptr %48, i64 %12
   %50 = load ptr, ptr %49, align 8, !tbaa !92
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %52 = getelementptr inbounds [2 x ptr], ptr %51, i64 0, i64 %12
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %12
   %53 = load ptr, ptr %52, align 8, !tbaa !92
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %55 = load i32, ptr %54, align 4, !tbaa !73
@@ -1753,7 +1753,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   br i1 %exitcond201.not, label %.loopexit, label %.lr.ph167, !llvm.loop !126
 
 92:                                               ; preds = %80
-  %93 = getelementptr inbounds nuw [64 x i8], ptr %76, i64 0, i64 %indvars.iv202
+  %93 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv202
   %94 = load i8, ptr %93, align 1, !tbaa !44
   %95 = zext i8 %94 to i32
   %96 = mul nsw i32 %55, %95

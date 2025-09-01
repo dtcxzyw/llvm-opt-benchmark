@@ -32220,7 +32220,7 @@ _ZN4llvm11SmallStringILj128EEC2ENS_9StringRefE.exit: ; preds = %_ZN4llvm15SmallV
 
 switch.lookup:                                    ; preds = %_ZN4llvm11SmallStringILj128EEC2ENS_9StringRefE.exit
   %49 = zext nneg i32 %47 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm3vfs24RedirectingFSDirIterImpl13incrementImplEb, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3vfs24RedirectingFSDirIterImpl13incrementImplEb, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %50
 

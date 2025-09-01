@@ -3143,10 +3143,10 @@ define dso_local range(i64 0, 4294967808) i64 @_ZN4llvm11VPIntrinsic29getFunctio
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [87 x i64], ptr @switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [87 x i64], ptr @switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj.4, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj.4, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %5 = or disjoint i64 %switch.load2, %switch.load
   br label %_ZL29getFunctionalIntrinsicIDForVPj.exit
@@ -3232,7 +3232,7 @@ define dso_local noundef range(i32 0, 485) i32 @_ZN4llvm11VPIntrinsic12getForOpc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [46 x i32], ptr @switch.table._ZN4llvm11VPIntrinsic12getForOpcodeEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm11VPIntrinsic12getForOpcodeEj, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

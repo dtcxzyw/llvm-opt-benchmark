@@ -323,7 +323,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.else.i
   %idxprom.i = zext nneg i32 %t to i64
-  %arrayidx.i = getelementptr inbounds nuw [270 x i8], ptr @_ZZN8facebook5velox4type6Parser12yytranslate_EiE15translate_table, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZZN8facebook5velox4type6Parser12yytranslate_EiE15translate_table, i64 %idxprom.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %0 to i32
   br label %_ZN8facebook5velox4type6Parser12yytranslate_Ei.exit
@@ -346,7 +346,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %idxprom = zext nneg i32 %t to i64
-  %arrayidx = getelementptr inbounds nuw [270 x i8], ptr @_ZZN8facebook5velox4type6Parser12yytranslate_EiE15translate_table, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @_ZZN8facebook5velox4type6Parser12yytranslate_EiE15translate_table, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %0 to i32
   br label %return
@@ -426,7 +426,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %idxprom = sext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %conv4 = sext i8 %1 to i32
   br label %return
@@ -458,7 +458,7 @@ entry:
 
 _ZNK8facebook5velox4type6Parser8by_state4kindEv.exit: ; preds = %entry
   %idxprom.i = sext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   switch i8 %2, label %sw.epilog [
     i8 24, label %sw.bb
@@ -1084,7 +1084,7 @@ define noundef signext i8 @_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai(
 entry:
   %sub = add nsw i32 %yysym, -15
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yypgoto_E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser8yypgoto_E, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %0 to i32
   %conv1 = sext i8 %yystate to i32
@@ -1094,17 +1094,17 @@ entry:
 
 land.lhs.true3:                                   ; preds = %entry
   %idxprom4 = zext nneg i32 %add to i64
-  %arrayidx5 = getelementptr inbounds nuw [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 %idxprom4
   %1 = load i8, ptr %arrayidx5, align 1
   %cmp8 = icmp eq i8 %1, %yystate
   br i1 %cmp8, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true3
-  %arrayidx10 = getelementptr inbounds nuw [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yytable_E, i64 0, i64 %idxprom4
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4type6Parser8yytable_E, i64 %idxprom4
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true3, %entry
-  %arrayidx13 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser10yydefgoto_E, i64 0, i64 %idxprom
+  %arrayidx13 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser10yydefgoto_E, i64 %idxprom
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -1283,7 +1283,7 @@ yybackup:                                         ; preds = %yybackup.backedge, 
   %7 = phi i8 [ %5, %yybackup.lr.ph.lr.ph ], [ %.be, %yybackup.backedge ]
   %yyerrstatus_.0688 = phi i32 [ 0, %yybackup.lr.ph.lr.ph ], [ %yyerrstatus_.0688.be, %yybackup.backedge ]
   %idxprom = sext i8 %7 to i64
-  %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom
   %8 = load i8, ptr %arrayidx, align 1
   %conv9 = sext i8 %8 to i32
   %cmp.i = icmp eq i8 %8, -23
@@ -1309,7 +1309,7 @@ if.else.i:                                        ; preds = %invoke.cont16
 
 if.then2.i:                                       ; preds = %if.else.i
   %idxprom.i = zext nneg i32 %call17 to i64
-  %arrayidx.i = getelementptr inbounds nuw [270 x i8], ptr @_ZZN8facebook5velox4type6Parser12yytranslate_EiE15translate_table, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZZN8facebook5velox4type6Parser12yytranslate_EiE15translate_table, i64 %idxprom.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %11 to i32
   br label %_ZN8facebook5velox4type6Parser12yytranslate_Ei.exit
@@ -1361,14 +1361,14 @@ if.end28:                                         ; preds = %if.end23
 
 lor.lhs.false32:                                  ; preds = %if.end28
   %idxprom33 = zext nneg i32 %add to i64
-  %arrayidx34 = getelementptr inbounds nuw [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 %idxprom33
   %20 = load i8, ptr %arrayidx34, align 1
   %conv35 = sext i8 %20 to i32
   %cmp37.not = icmp eq i32 %19, %conv35
   br i1 %cmp37.not, label %if.end39, label %yydefault
 
 if.end39:                                         ; preds = %lor.lhs.false32
-  %arrayidx41 = getelementptr inbounds nuw [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yytable_E, i64 0, i64 %idxprom33
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4type6Parser8yytable_E, i64 %idxprom33
   %21 = load i8, ptr %arrayidx41, align 1
   %cmp43 = icmp slt i8 %21, 1
   br i1 %cmp43, label %if.end47, label %if.end48
@@ -1411,7 +1411,7 @@ yydefault:                                        ; preds = %if.end28, %lor.lhs.
   %add.ptr.i.i56 = getelementptr i8, ptr %28, i64 -64
   %29 = load i8, ptr %add.ptr.i.i56, align 16
   %idxprom58 = sext i8 %29 to i64
-  %arrayidx59 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser9yydefact_E, i64 0, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser9yydefact_E, i64 %idxprom58
   %30 = load i8, ptr %arrayidx59, align 1
   %conv60 = sext i8 %30 to i32
   %cmp61 = icmp eq i8 %30, 0
@@ -1420,7 +1420,7 @@ yydefault:                                        ; preds = %if.end28, %lor.lhs.
 yyreduce:                                         ; preds = %yydefault, %if.end47
   %yyn.0 = phi i32 [ %conv60, %yydefault ], [ %sub, %if.end47 ]
   %idxprom64 = sext i32 %yyn.0 to i64
-  %arrayidx65 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser5yyr2_E, i64 0, i64 %idxprom64
+  %arrayidx65 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser5yyr2_E, i64 %idxprom64
   %31 = load i8, ptr %arrayidx65, align 1
   %conv66 = sext i8 %31 to i32
   invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(64) %yylhs)
@@ -1437,11 +1437,11 @@ invoke.cont67:                                    ; preds = %yyreduce
   %36 = getelementptr i8, ptr %33, i64 %sub.ptr.sub.i.i.i60
   %add.ptr.i.i61 = getelementptr %"struct.facebook::velox::type::Parser::stack_symbol_type", ptr %36, i64 %35
   %37 = load i8, ptr %add.ptr.i.i61, align 16
-  %arrayidx75 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser5yyr1_E, i64 0, i64 %idxprom64
+  %arrayidx75 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser5yyr1_E, i64 %idxprom64
   %38 = load i8, ptr %arrayidx75, align 1
   %conv76 = sext i8 %38 to i64
   %sub.i = add nsw i64 %conv76, -15
-  %arrayidx.i63 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yypgoto_E, i64 0, i64 %sub.i
+  %arrayidx.i63 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser8yypgoto_E, i64 %sub.i
   %39 = load i8, ptr %arrayidx.i63, align 1
   %conv.i64 = sext i8 %39 to i32
   %conv1.i = sext i8 %37 to i32
@@ -1451,17 +1451,17 @@ invoke.cont67:                                    ; preds = %yyreduce
 
 land.lhs.true3.i:                                 ; preds = %invoke.cont67
   %idxprom4.i = zext nneg i32 %add.i to i64
-  %arrayidx5.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 %idxprom4.i
   %40 = load i8, ptr %arrayidx5.i, align 1
   %cmp8.i = icmp eq i8 %40, %37
   br i1 %cmp8.i, label %if.then.i, label %if.else.i65
 
 if.then.i:                                        ; preds = %land.lhs.true3.i
-  %arrayidx10.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yytable_E, i64 0, i64 %idxprom4.i
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4type6Parser8yytable_E, i64 %idxprom4.i
   br label %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit
 
 if.else.i65:                                      ; preds = %land.lhs.true3.i, %invoke.cont67
-  %arrayidx13.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser10yydefgoto_E, i64 0, i64 %sub.i
+  %arrayidx13.i = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser10yydefgoto_E, i64 %sub.i
   br label %_ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit
 
 _ZN8facebook5velox4type6Parser17yy_lr_goto_state_Eai.exit: ; preds = %if.then.i, %if.else.i65
@@ -2852,7 +2852,7 @@ yyerrlab1:                                        ; preds = %for.body.i.i500, %i
   %add.ptr.i.i510910 = getelementptr i8, ptr %300, i64 -64
   %301 = load i8, ptr %add.ptr.i.i510910, align 16
   %idxprom782911 = sext i8 %301 to i64
-  %arrayidx783912 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom782911
+  %arrayidx783912 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom782911
   %302 = load i8, ptr %arrayidx783912, align 1
   %cmp788913 = icmp sgt i8 %302, -2
   %cmp794914 = icmp eq i8 %301, 0
@@ -2878,7 +2878,7 @@ for.body.i.i520.preheader:                        ; preds = %if.end803
   %add.ptr.i.i510 = getelementptr i8, ptr %306, i64 -64
   %307 = load i8, ptr %add.ptr.i.i510, align 16
   %idxprom782 = sext i8 %307 to i64
-  %arrayidx783 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom782
+  %arrayidx783 = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom782
   %308 = load i8, ptr %arrayidx783, align 1
   %cmp788 = icmp sgt i8 %308, -2
   %cmp794 = icmp eq i8 %307, 0
@@ -5057,7 +5057,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN8facebook5velox4type6Parser11symbol_nameB5cxx11ENS2_11symbol_kind16symbol_kind_typeE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %yysymbol) local_unnamed_addr #9 align 2 {
 entry:
   %idxprom = sext i32 %yysymbol to i64
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @_ZN8facebook5velox4type6Parser10yytnamerr_B5cxx11EPKc(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %0)
   ret void
@@ -5087,7 +5087,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %3, i64 -64
   %4 = load i8, ptr %add.ptr.i.i, align 16
   %idxprom = sext i8 %4 to i64
-  %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
   %cmp.i = icmp eq i8 %5, -23
   br i1 %cmp.i, label %if.end34, label %if.then
@@ -5107,18 +5107,18 @@ for.body.lr.ph:                                   ; preds = %if.then
   %6 = sext i32 %cond to i64
   %7 = sext i8 %5 to i64
   %8 = sext i32 %cond9 to i64
+  %invariant.gep42 = getelementptr i8, ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 %7
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.body.us ], [ %6, %for.body.lr.ph ]
   %yycount.126.us = phi i32 [ %spec.select, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %9 = add nsw i64 %indvars.iv31, %7
-  %arrayidx13.us = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %9
-  %10 = load i8, ptr %arrayidx13.us, align 1
-  %11 = sext i8 %10 to i64
-  %cmp15.us = icmp eq i64 %indvars.iv31, %11
-  %12 = icmp ne i64 %indvars.iv31, 1
-  %or.cond.us = and i1 %12, %cmp15.us
+  %gep43 = getelementptr i8, ptr %invariant.gep42, i64 %indvars.iv31
+  %9 = load i8, ptr %gep43, align 1
+  %10 = sext i8 %9 to i64
+  %cmp15.us = icmp eq i64 %indvars.iv31, %10
+  %11 = icmp ne i64 %indvars.iv31, 1
+  %or.cond.us = and i1 %11, %cmp15.us
   %inc.us = zext i1 %or.cond.us to i32
   %spec.select = add nuw nsw i32 %yycount.126.us, %inc.us
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, 1
@@ -5128,14 +5128,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %6, %for.body.lr.ph ]
   %yycount.126 = phi i32 [ %yycount.2, %for.inc ], [ 0, %for.body.lr.ph ]
-  %13 = add nsw i64 %indvars.iv, %7
-  %arrayidx13 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %13
-  %14 = load i8, ptr %arrayidx13, align 1
-  %conv14 = sext i8 %14 to i32
-  %15 = trunc nsw i64 %indvars.iv to i32
-  %cmp15 = icmp eq i32 %15, %conv14
-  %16 = icmp ne i64 %indvars.iv, 1
-  %or.cond = and i1 %16, %cmp15
+  %gep = getelementptr i8, ptr %invariant.gep42, i64 %indvars.iv
+  %12 = load i8, ptr %gep, align 1
+  %conv14 = sext i8 %12 to i32
+  %13 = trunc nsw i64 %indvars.iv to i32
+  %cmp15 = icmp eq i32 %13, %conv14
+  %14 = icmp ne i64 %indvars.iv, 1
+  %or.cond = and i1 %14, %cmp15
   br i1 %or.cond, label %if.then23, label %for.inc
 
 if.then23:                                        ; preds = %for.body
@@ -5205,7 +5204,7 @@ if.end:                                           ; preds = %if.then3, %if.then
   %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 -64
   %6 = load i8, ptr %add.ptr.i.i.i, align 16
   %idxprom.i = sext i8 %6 to i64
-  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp.i.i = icmp eq i8 %7, -23
   br i1 %cmp.i.i, label %if.end34.i, label %if.then.i
@@ -5224,18 +5223,18 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
   %8 = sext i32 %cond.i to i64
   %9 = sext i8 %7 to i64
   %10 = sext i32 %cond9.i to i64
+  %invariant.gep42.i = getelementptr i8, ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 %9
   br i1 %tobool.not, label %for.body.i, label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.body.us.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %for.body.us.i ], [ %8, %for.body.lr.ph.i ]
   %yycount.126.us.i = phi i32 [ %spec.select.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
-  %11 = add nsw i64 %indvars.iv31.i, %9
-  %arrayidx13.us.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %11
-  %12 = load i8, ptr %arrayidx13.us.i, align 1
-  %13 = sext i8 %12 to i64
-  %cmp15.us.i = icmp eq i64 %indvars.iv31.i, %13
-  %14 = icmp ne i64 %indvars.iv31.i, 1
-  %or.cond.us.i = and i1 %14, %cmp15.us.i
+  %gep43.i = getelementptr i8, ptr %invariant.gep42.i, i64 %indvars.iv31.i
+  %11 = load i8, ptr %gep43.i, align 1
+  %12 = sext i8 %11 to i64
+  %cmp15.us.i = icmp eq i64 %indvars.iv31.i, %12
+  %13 = icmp ne i64 %indvars.iv31.i, 1
+  %or.cond.us.i = and i1 %13, %cmp15.us.i
   %inc.us.i = zext i1 %or.cond.us.i to i32
   %spec.select.i = add nuw nsw i32 %yycount.126.us.i, %inc.us.i
   %indvars.iv.next32.i = add nsw i64 %indvars.iv31.i, 1
@@ -5245,14 +5244,13 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %8, %for.body.lr.ph.i ]
   %yycount.126.i = phi i32 [ %yycount.2.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
-  %15 = add nsw i64 %indvars.iv.i, %9
-  %arrayidx13.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %15
-  %16 = load i8, ptr %arrayidx13.i, align 1
-  %conv14.i = sext i8 %16 to i32
-  %17 = trunc nsw i64 %indvars.iv.i to i32
-  %cmp15.i = icmp eq i32 %17, %conv14.i
-  %18 = icmp ne i64 %indvars.iv.i, 1
-  %or.cond.i = and i1 %18, %cmp15.i
+  %gep.i = getelementptr i8, ptr %invariant.gep42.i, i64 %indvars.iv.i
+  %14 = load i8, ptr %gep.i, align 1
+  %conv14.i = sext i8 %14 to i32
+  %15 = trunc nsw i64 %indvars.iv.i to i32
+  %cmp15.i = icmp eq i32 %15, %conv14.i
+  %16 = icmp ne i64 %indvars.iv.i, 1
+  %or.cond.i = and i1 %16, %cmp15.i
   br i1 %or.cond.i, label %if.then23.i, label %for.inc.i
 
 if.then23.i:                                      ; preds = %for.body.i
@@ -5320,7 +5318,7 @@ if.then.i:                                        ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 -64
   %6 = load i8, ptr %add.ptr.i.i.i.i, align 16
   %idxprom.i.i = sext i8 %6 to i64
-  %arrayidx.i.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 %idxprom.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %7, -23
   br i1 %cmp.i.i.i, label %if.then40.i.i, label %if.then.i.i
@@ -5339,19 +5337,19 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
   %8 = sext i32 %cond.i.i to i64
   %9 = sext i8 %7 to i64
   %10 = sext i32 %cond9.i.i to i64
+  %invariant.gep42.i.i = getelementptr i8, ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 %9
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.lr.ph.i.i, %for.inc.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ %8, %for.body.lr.ph.i.i ]
   %yycount.126.i.i = phi i32 [ %yycount.2.i.i, %for.inc.i.i ], [ 0, %for.body.lr.ph.i.i ]
-  %11 = add nsw i64 %indvars.iv.i.i, %9
-  %arrayidx13.i.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %11
-  %12 = load i8, ptr %arrayidx13.i.i, align 1
-  %conv14.i.i = sext i8 %12 to i32
-  %13 = trunc nsw i64 %indvars.iv.i.i to i32
-  %cmp15.i.i = icmp eq i32 %13, %conv14.i.i
-  %14 = icmp ne i64 %indvars.iv.i.i, 1
-  %or.cond.i.i = and i1 %14, %cmp15.i.i
+  %gep.i.i = getelementptr i8, ptr %invariant.gep42.i.i, i64 %indvars.iv.i.i
+  %11 = load i8, ptr %gep.i.i, align 1
+  %conv14.i.i = sext i8 %11 to i32
+  %12 = trunc nsw i64 %indvars.iv.i.i to i32
+  %cmp15.i.i = icmp eq i32 %12, %conv14.i.i
+  %13 = icmp ne i64 %indvars.iv.i.i, 1
+  %or.cond.i.i = and i1 %13, %cmp15.i.i
   br i1 %or.cond.i.i, label %if.then23.i.i, label %for.inc.i.i
 
 if.then23.i.i:                                    ; preds = %for.body.i.i
@@ -5381,14 +5379,14 @@ if.then40.i.i:                                    ; preds = %if.then.i.i, %if.th
 
 _ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit: ; preds = %if.end34.i.i
   %add.i = add nsw i32 %yycount.2.i.i, 1
-  %15 = icmp ult i32 %yycount.2.i.i, 5
-  br i1 %15, label %switch.lookup, label %sw.epilog
+  %14 = icmp ult i32 %yycount.2.i.i, 5
+  br i1 %14, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %_ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit
-  %switch.tableidx = add nsw i32 %yycount.2.i.i, -1
   %switch.offset = add nuw nsw i32 %yycount.2.i.i, 1
-  %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK8facebook5velox4type6Parser15yysyntax_error_B5cxx11ERKNS2_7contextE, i64 0, i64 %16
+  %15 = zext nneg i32 %yycount.2.i.i to i64
+  %16 = getelementptr ptr, ptr @switch.table._ZNK8facebook5velox4type6Parser15yysyntax_error_B5cxx11ERKNS2_7contextE, i64 %15
+  %switch.gep = getelementptr i8, ptr %16, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
 
@@ -5418,10 +5416,10 @@ land.lhs.true:                                    ; preds = %for.cond
 
 if.then:                                          ; preds = %land.lhs.true
   %inc = add nsw i64 %yyi.0, 1
-  %arrayidx13 = getelementptr inbounds [5 x i32], ptr %yyarg, i64 0, i64 %yyi.0
+  %arrayidx13 = getelementptr inbounds i32, ptr %yyarg, i64 %yyi.0
   %19 = load i32, ptr %arrayidx13, align 4
   %idxprom.i = sext i32 %19 to i64
-  %arrayidx.i = getelementptr inbounds [0 x ptr], ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN8facebook5velox4type6Parser8yytname_E, i64 %idxprom.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !14
   invoke void @_ZN8facebook5velox4type6Parser10yytnamerr_B5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %20)
           to label %invoke.cont unwind label %lpad
@@ -5814,7 +5812,7 @@ entry:
 
 _ZNK8facebook5velox4type6Parser8by_state4kindEv.exit: ; preds = %entry
   %idxprom.i = sext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   switch i8 %1, label %sw.epilog21 [
     i8 24, label %sw.bb
@@ -6280,7 +6278,7 @@ entry:
 
 _ZNK8facebook5velox4type6Parser8by_state4kindEv.exit: ; preds = %entry
   %idxprom.i = sext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr @_ZN8facebook5velox4type6Parser7yystos_E, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   switch i8 %2, label %sw.epilog [
     i8 24, label %sw.bb

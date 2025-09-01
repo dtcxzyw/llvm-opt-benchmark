@@ -3527,7 +3527,7 @@ define hidden void @"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_arra
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %1, align 8, !nonnull !4, !align !24, !noundef !4
-  %15 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %14, i64 0, i64 %.0
+  %15 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %14, i64 %.0
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %15, ptr %0, align 8
@@ -3565,7 +3565,7 @@ define hidden noundef ptr @"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.llvm.15192800734258360407.exit": ; preds = %3
   %15 = load ptr, ptr %0, align 8, !noalias !862, !nonnull !4, !align !24, !noundef !4
-  %16 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %15, i64 0, i64 %.0.i
+  %16 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %15, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %4, align 8, !alias.scope !862
@@ -3605,7 +3605,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka.
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17haac9d2bac3d9cd00E.llvm.15192800734258360407.exit": ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %18 = load ptr, ptr %17, align 8, !noalias !871, !nonnull !4, !align !24, !noundef !4
-  %19 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %18, i64 0, i64 %.0.i.i
+  %19 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %18, i64 %.0.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr %19, ptr %4, align 8, !alias.scope !868, !noalias !865
@@ -3689,7 +3689,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka.
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.llvm.15192800734258360407.exit.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h27e2eec83068238eE.exit"
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %34 = load ptr, ptr %33, align 8, !noalias !888, !nonnull !4, !align !24, !noundef !4
-  %35 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %34, i64 0, i64 %.0.i.i
+  %35 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %34, i64 %.0.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr %35, ptr %7, align 8, !alias.scope !885, !noalias !881
@@ -7352,7 +7352,7 @@ define hidden void @_ZN13mini_lsm_mvcc5table5bloom5Bloom6decode17hf9196682881de9
   br label %30
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha5757d81184667fcE.llvm.15192800734258360407.exit11": ; preds = %13
-  %24 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %14
+  %24 = getelementptr inbounds i8, ptr %1, i64 %14
   %25 = load i8, ptr %24, align 1, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7685,7 +7685,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.exit: ; preds = %66, %40
   %90 = trunc i64 %82 to i8
   %91 = and i8 %90, 7
   %92 = shl nuw i8 1, %91
-  %93 = getelementptr inbounds nuw [0 x i8], ptr %77, i64 0, i64 %83
+  %93 = getelementptr inbounds nuw i8, ptr %77, i64 %83
   %94 = load i8, ptr %93, align 1, !noalias !1755, !noundef !4
   %95 = or i8 %94, %92
   store i8 %95, ptr %93, align 1, !noalias !1755
@@ -7747,7 +7747,7 @@ define hidden noundef zeroext i1 @_ZN13mini_lsm_mvcc5table5bloom5Bloom11may_cont
 "_ZN59_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSlice$GT$7get_bit17h99d1d6e3a27369e7E.exit": ; preds = %.lr.ph.split
   %18 = add nuw i8 %.sroa.05.016, 1
   %19 = load ptr, ptr %12, align 8, !noundef !4
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %19, i64 0, i64 %15
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %15
   %21 = load i8, ptr %20, align 1, !noundef !4
   %22 = trunc i32 %13 to i8
   %23 = and i8 %22, 7

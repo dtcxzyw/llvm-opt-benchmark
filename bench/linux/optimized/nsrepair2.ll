@@ -589,7 +589,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr noundef capt
   %42 = phi ptr [ %51, %40 ], [ %39, %37 ]
   %43 = phi ptr [ %52, %40 ], [ %35, %37 ]
   %44 = zext i8 %41 to i64
-  %45 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %44
+  %45 = getelementptr i8, ptr @_ctype, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = and i8 %46, 2
   %48 = icmp eq i8 %47, 0

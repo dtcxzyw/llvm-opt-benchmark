@@ -688,7 +688,7 @@ define dso_local void @sentinelIsRunning() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %4
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
-  %2 = getelementptr inbounds nuw [41 x i8], ptr @sentinel, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw i8, ptr @sentinel, i64 %indvars.iv
   %3 = load i8, ptr %2, align 1, !tbaa !79
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %4, label %sentinelFlushConfig.exit
@@ -1258,7 +1258,7 @@ define dso_local void @sentinelScheduleScriptExecution(ptr noundef %0, ...) loca
 18:                                               ; preds = %15, %10
   %19 = phi ptr [ %13, %10 ], [ %16, %15 ]
   %20 = load ptr, ptr %19, align 8, !tbaa !87
-  %21 = getelementptr inbounds nuw [17 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !87
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %24, label %22
@@ -3689,7 +3689,7 @@ define dso_local void @sentinelPropagateDownAfterPeriod(ptr noundef readonly cap
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   tail call void @dictReleaseIterator(ptr noundef %12) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw [3 x ptr], ptr %2, i64 0, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !177
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge17, label %10, !llvm.loop !179
@@ -3821,7 +3821,7 @@ define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr noundef readon
 
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [9 x ptr], ptr @preMonitorCfgName, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !87
   %5 = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef %0) #34
   %.not = icmp eq i32 %5, 0
@@ -3912,7 +3912,7 @@ define dso_local void @queueSentinelConfig(ptr noundef readonly captures(none) %
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %._crit_edge ]
-  %42 = getelementptr inbounds nuw [9 x ptr], ptr @preMonitorCfgName, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8, !tbaa !87
   %44 = tail call i32 @strcasecmp(ptr noundef %43, ptr noundef readonly %37) #34
   %.not.i = icmp eq i32 %44, 0
@@ -3961,7 +3961,7 @@ define dso_local void @loadSentinelConfigFromQueue() local_unnamed_addr #0 {
 
 13:                                               ; preds = %5, %25
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %25 ]
-  %14 = getelementptr inbounds nuw [3 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !192
   call void @listRewind(ptr noundef %15, ptr noundef nonnull %1) #30
   br label %16
@@ -4137,7 +4137,7 @@ define dso_local noundef ptr @sentinelHandleConfiguration(ptr noundef readonly c
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph16.i
   tail call void @dictReleaseIterator(ptr noundef %57) #30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv.next.i
+  %64 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next.i
   %65 = load ptr, ptr %64, align 8, !tbaa !177
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %sentinelPropagateDownAfterPeriod.exit, label %.lr.ph16.i, !llvm.loop !179
@@ -8074,7 +8074,7 @@ define dso_local noundef nonnull ptr @getLogLevel() local_unnamed_addr #24 {
 
 switch.lookup:                                    ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.sentinelConfigGetCommand, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sentinelConfigGetCommand, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -8815,7 +8815,7 @@ define dso_local void @sentinelConfigGetCommand(ptr noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %76
   %79 = zext nneg i32 %77 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.sentinelConfigGetCommand, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sentinelConfigGetCommand, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %getLogLevel.exit
 
@@ -8849,7 +8849,7 @@ define dso_local noundef nonnull ptr @sentinelFailoverStateStr(i32 noundef %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.addReplySentinelRedisInstance, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.addReplySentinelRedisInstance, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9144,7 +9144,7 @@ sdslen.exit.thread:                               ; preds = %93, %116, %sdslen.e
 
 switch.lookup:                                    ; preds = %126
   %130 = zext nneg i32 %128 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.addReplySentinelRedisInstance, i64 0, i64 %130
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.addReplySentinelRedisInstance, i64 %130
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sentinelFailoverStateStr.exit
 
@@ -11324,7 +11324,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph16.i
   call void @dictReleaseIterator(ptr noundef %55) #30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %62 = getelementptr inbounds nuw [3 x ptr], ptr %2, i64 0, i64 %indvars.iv.next.i
+  %62 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i
   %63 = load ptr, ptr %62, align 8, !tbaa !177
   %.not.i247 = icmp eq ptr %63, null
   br i1 %.not.i247, label %64, label %.lr.ph16.i, !llvm.loop !179
@@ -11790,7 +11790,7 @@ define dso_local void @sentinelInfoCommand(ptr noundef %0) local_unnamed_addr #0
 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [6 x ptr], ptr %2, i64 0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8, !tbaa !87
   %.not54 = icmp eq ptr %19, null
   br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !281

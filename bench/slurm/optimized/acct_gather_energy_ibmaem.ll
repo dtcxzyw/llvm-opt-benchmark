@@ -440,7 +440,7 @@ define internal fastcc i64 @_get_latest_stats(i32 noundef range(i32 0, 2) %0) un
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 2147483647
-  %19 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %18
   store i8 0, ptr %19, align 1
   %20 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #8
   br label %21

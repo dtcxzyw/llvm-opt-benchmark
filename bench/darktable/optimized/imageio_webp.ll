@@ -198,7 +198,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_webp(ptr noundef %0, ptr noundef %1,
   %76 = load i8, ptr %75, align 1, !tbaa !38
   %77 = uitofp i8 %76 to float
   %78 = fmul reassoc nsz arcp contract afn float %77, 0x3F70101020000000
-  %79 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.091
+  %79 = getelementptr inbounds nuw float, ptr %8, i64 %.091
   store float %78, ptr %79, align 4, !tbaa !43
   %80 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %80, 3

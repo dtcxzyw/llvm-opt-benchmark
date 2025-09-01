@@ -1896,7 +1896,7 @@ zend_persist_property_info_calc.exit:             ; preds = %617, %603, %536, %.
   %1146 = load i8, ptr %1145, align 8, !tbaa !50, !range !51, !noundef !52
   %1147 = trunc nuw i8 %1146 to i1
   %1148 = getelementptr inbounds nuw i8, ptr %1144, i64 24
-  %1149 = getelementptr inbounds nuw [1 x ptr], ptr %1148, i64 0, i64 %indvars.iv583
+  %1149 = getelementptr inbounds nuw ptr, ptr %1148, i64 %indvars.iv583
   %1150 = load ptr, ptr %1149, align 8, !tbaa !117
   br i1 %1147, label %1151, label %1161
 
@@ -1932,7 +1932,7 @@ zend_persist_property_info_calc.exit:             ; preds = %617, %603, %536, %.
   %1172 = getelementptr inbounds nuw ptr, ptr %1171, i64 %1051
   %1173 = load ptr, ptr %1172, align 8, !tbaa !111
   %1174 = getelementptr inbounds nuw i8, ptr %1173, i64 24
-  %1175 = getelementptr inbounds nuw [1 x ptr], ptr %1174, i64 0, i64 %indvars.iv583
+  %1175 = getelementptr inbounds nuw ptr, ptr %1174, i64 %indvars.iv583
   %1176 = load ptr, ptr %1175, align 8, !tbaa !117
   %.not481 = icmp eq ptr %1170, %1176
   br i1 %.not481, label %1178, label %1177
@@ -2699,7 +2699,7 @@ zend_hash_persist_calc.exit:                      ; preds = %10
 
 158:                                              ; preds = %.lr.ph, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %198 ]
-  %159 = getelementptr inbounds nuw [1 x %struct.zend_attribute_arg], ptr %157, i64 0, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %157, i64 %indvars.iv
   %160 = load ptr, ptr %159, align 8, !tbaa !125
   %.not81 = icmp eq ptr %160, null
   br i1 %.not81, label %198, label %161
@@ -4313,7 +4313,7 @@ define internal fastcc void @zend_persist_ast_calc(ptr noundef captures(none) %0
 24:                                               ; preds = %.lr.ph, %29
   %25 = phi i32 [ %14, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %26 = getelementptr inbounds nuw [1 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !174
   %.not27 = icmp eq ptr %27, null
   br i1 %.not27, label %29, label %28
@@ -4385,7 +4385,7 @@ zend_ast_is_decl.exit:                            ; preds = %33
 
 62:                                               ; preds = %.lr.ph34, %66
   %indvars.iv39 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next40, %66 ]
-  %63 = getelementptr inbounds nuw [1 x ptr], ptr %61, i64 0, i64 %indvars.iv39
+  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv39
   %64 = load ptr, ptr %63, align 8, !tbaa !174
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %66, label %65

@@ -1274,9 +1274,9 @@ define dso_local noundef nonnull ptr @_ZNK18btGImpactMeshShape9serializeEPvP12bt
 
 17:                                               ; preds = %17, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !23
-  %20 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
   store float %19, ptr %20, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

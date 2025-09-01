@@ -717,7 +717,7 @@ _ZN4llvm14TargetLowering16CallLoweringInfo11setDebugLocERKNS_5SDLocE.exit: ; pre
   store i32 %4, ptr %69, align 8, !tbaa !168
   %112 = getelementptr inbounds nuw i8, ptr %14, i64 407952
   %113 = zext nneg i32 %8 to i64
-  %114 = getelementptr inbounds nuw [717 x i32], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr %112, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !168
   store ptr %102, ptr %70, align 8, !tbaa !295
   store ptr %.sroa.0241.0, ptr %76, align 8, !tbaa !167

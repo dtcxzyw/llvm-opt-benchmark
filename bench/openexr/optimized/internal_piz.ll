@@ -164,7 +164,7 @@ forwardLutFromBitmap.exit:                        ; preds = %63
 
 72:                                               ; preds = %72, %.lr.ph.i172
   %indvars.iv.i173 = phi i64 [ 0, %.lr.ph.i172 ], [ %indvars.iv.next.i174, %72 ]
-  %73 = getelementptr inbounds nuw [8 x i16], ptr %2, i64 0, i64 %indvars.iv.i173
+  %73 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i173
   %74 = load i16, ptr %73, align 2, !tbaa !22, !noalias !32
   %75 = zext i16 %74 to i64
   %76 = getelementptr inbounds nuw i16, ptr %23, i64 %75
@@ -718,7 +718,7 @@ define internal fastcc void @applyLut(ptr noalias noundef readonly captures(none
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !22
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw i16, ptr %0, i64 %13

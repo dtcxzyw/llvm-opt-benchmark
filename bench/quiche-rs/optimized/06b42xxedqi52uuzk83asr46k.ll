@@ -1235,7 +1235,7 @@ define internal fastcc void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem
 define noundef range(i32 0, 4) i32 @_ZN6quiche6crypto5Level10from_epoch17h7fa039ca3e280d6dE(i8 noundef range(i8 0, 3) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN6quiche6crypto5Level10from_epoch17h7fa039ca3e280d6dE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6quiche6crypto5Level10from_epoch17h7fa039ca3e280d6dE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -9863,10 +9863,10 @@ define internal noundef zeroext i1 @"_ZN57_$LT$quiche..packet..Type$u20$as$u20$c
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !185, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E.21", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E.21", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

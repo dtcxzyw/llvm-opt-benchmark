@@ -35,7 +35,7 @@ define hidden i64 @_mi_commit_mask_committed_size(ptr noundef readonly captures(
 6:                                                ; preds = %2, %.loopexit
   %.01118 = phi i64 [ 0, %2 ], [ %13, %.loopexit ]
   %.01217 = phi i64 [ 0, %2 ], [ %.1, %.loopexit ]
-  %7 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %.01118
+  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.01118
   %8 = load i64, ptr %7, align 8, !tbaa !3
   switch i64 %8, label %.lr.ph [
     i64 -1, label %9
@@ -76,7 +76,7 @@ define hidden i64 @_mi_commit_mask_next_run(ptr noundef readonly captures(none) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %.03049 = phi i64 [ 0, %16 ], [ %5, %.lr.ph.preheader ]
   %.03348 = phi i64 [ %17, %16 ], [ %6, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %.03348
+  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.03348
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = lshr i64 %8, %.03049
   %.not = icmp eq i64 %9, 0
@@ -140,7 +140,7 @@ define hidden i64 @_mi_commit_mask_next_run(ptr noundef readonly captures(none) 
 
 31:                                               ; preds = %29
   %32 = add nuw nsw i64 %.134, 1
-  %33 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
   br label %35
 
@@ -357,7 +357,7 @@ define internal fastcc void @mi_segment_free(ptr noundef %0, ptr noundef capture
 
 mi_span_queue_for.exit.i:                         ; preds = %17, %14
   %.0.i.i.i.i = phi i64 [ %15, %14 ], [ %26, %17 ]
-  %27 = getelementptr inbounds nuw [36 x %struct.mi_span_queue_s], ptr %1, i64 0, i64 %.0.i.i.i.i
+  %27 = getelementptr inbounds nuw %struct.mi_span_queue_s, ptr %1, i64 %.0.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.01416, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %29, null
@@ -479,7 +479,7 @@ mi_segments_track_size.exit.i:                    ; preds = %75, %68
 78:                                               ; preds = %.loopexit.i.i, %.split.i
   %.01118.i.i = phi i64 [ 0, %.split.i ], [ %85, %.loopexit.i.i ]
   %.01217.i.i = phi i64 [ 0, %.split.i ], [ %.1.i.i, %.loopexit.i.i ]
-  %79 = getelementptr inbounds nuw [16 x i64], ptr %77, i64 0, i64 %.01118.i.i
+  %79 = getelementptr inbounds nuw i64, ptr %77, i64 %.01118.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !3
   switch i64 %80, label %.lr.ph.i.i [
     i64 -1, label %81
@@ -528,7 +528,7 @@ _mi_commit_mask_committed_size.exit.i:            ; preds = %.loopexit.i.i
 .split23.i:                                       ; preds = %88, %.loopexit.i29.i
   %.01118.i27.i = phi i64 [ %107, %.loopexit.i29.i ], [ 0, %88 ]
   %.01217.i28.i = phi i64 [ %.1.i30.i, %.loopexit.i29.i ], [ 0, %88 ]
-  %101 = getelementptr inbounds nuw [16 x i64], ptr %90, i64 0, i64 %.01118.i27.i
+  %101 = getelementptr inbounds nuw i64, ptr %90, i64 %.01118.i27.i
   %102 = load i64, ptr %101, align 8, !tbaa !3
   switch i64 %102, label %.lr.ph.i32.i [
     i64 -1, label %103
@@ -637,7 +637,7 @@ define internal fastcc void @mi_segment_abandon(ptr noundef %0, ptr noundef capt
 
 mi_span_queue_for.exit.i:                         ; preds = %13, %11
   %.0.i.i.i.i = phi i64 [ %10, %11 ], [ %22, %13 ]
-  %23 = getelementptr inbounds nuw [36 x %struct.mi_span_queue_s], ptr %1, i64 0, i64 %.0.i.i.i.i
+  %23 = getelementptr inbounds nuw %struct.mi_span_queue_s, ptr %1, i64 %.0.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.019, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %25, null
@@ -989,16 +989,14 @@ mi_segments_track_size.exit:                      ; preds = %28, %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %40 = load i64, ptr %39, align 8, !tbaa !37
-  %.idx42 = mul nuw nsw i64 %40, 80
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx42
+  %41 = getelementptr inbounds nuw %struct.mi_page_s, ptr %38, i64 %40
   %42 = load i32, ptr %38, align 8, !tbaa !21
   %43 = zext i32 %42 to i64
-  %44 = icmp ugt i64 %40, %43
+  %44 = icmp samesign ugt i64 %40, %43
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %mi_segments_track_size.exit
-  %.idx = mul nuw nsw i64 %43, 80
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
+  %45 = getelementptr inbounds nuw %struct.mi_page_s, ptr %38, i64 %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %47 = ptrtoint ptr %1 to i64
   br i1 %.not41, label %.lr.ph.split.us, label %.lr.ph.split
@@ -1309,16 +1307,14 @@ mi_abandoned_pop.exit.thread18:                   ; preds = %75
   %92 = getelementptr inbounds nuw i8, ptr %79, i64 368
   %93 = getelementptr inbounds nuw i8, ptr %79, i64 360
   %94 = load i64, ptr %93, align 8, !tbaa !37
-  %.idx29.i = mul nuw nsw i64 %94, 80
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx29.i
+  %95 = getelementptr inbounds nuw %struct.mi_page_s, ptr %92, i64 %94
   %96 = load i32, ptr %92, align 8, !tbaa !21
   %97 = zext i32 %96 to i64
-  %98 = icmp ugt i64 %94, %97
+  %98 = icmp samesign ugt i64 %94, %97
   br i1 %98, label %.lr.ph.i, label %mi_segment_check_free.exit
 
 .lr.ph.i:                                         ; preds = %88
-  %.idx.i = mul nuw nsw i64 %97, 80
-  %99 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i
+  %99 = getelementptr inbounds nuw %struct.mi_page_s, ptr %92, i64 %97
   %100 = getelementptr inbounds nuw i8, ptr %79, i64 296
   br label %101
 
@@ -1422,7 +1418,7 @@ define internal fastcc void @mi_segment_delayed_decommit(ptr noundef %0, i1 noun
 
 10:                                               ; preds = %10, %8
   %.057.i = phi i64 [ 0, %8 ], [ %13, %10 ]
-  %11 = getelementptr inbounds nuw [16 x i64], ptr %9, i64 0, i64 %.057.i
+  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %.057.i
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %.not.i = icmp eq i64 %12, 0
   %13 = add nuw nsw i64 %.057.i, 1
@@ -1459,7 +1455,7 @@ mi_commit_mask_is_empty.exit:                     ; preds = %10
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.preheader.i
   %.03049.i = phi i64 [ 0, %33 ], [ %22, %.lr.ph.preheader.i ]
   %.03348.i = phi i64 [ %34, %33 ], [ %23, %.lr.ph.preheader.i ]
-  %24 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %.03348.i
+  %24 = getelementptr inbounds nuw i64, ptr %4, i64 %.03348.i
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = lshr i64 %25, %.03049.i
   %.not.i15 = icmp eq i64 %26, 0
@@ -1518,7 +1514,7 @@ mi_commit_mask_is_empty.exit:                     ; preds = %10
 
 48:                                               ; preds = %46
   %49 = add nuw nsw i64 %.134.i, 1
-  %50 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr %4, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !3
   br label %52
 
@@ -1907,16 +1903,14 @@ mi_abandoned_pop.exit.thread31.i.i:               ; preds = %97
   %117 = getelementptr inbounds nuw i8, ptr %101, i64 368
   %118 = getelementptr inbounds nuw i8, ptr %101, i64 360
   %119 = load i64, ptr %118, align 8, !tbaa !37
-  %.idx29.i.i.i = mul nuw nsw i64 %119, 80
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx29.i.i.i
+  %120 = getelementptr inbounds nuw %struct.mi_page_s, ptr %117, i64 %119
   %121 = load i32, ptr %117, align 8, !tbaa !21
   %122 = zext i32 %121 to i64
-  %123 = icmp ugt i64 %119, %122
+  %123 = icmp samesign ugt i64 %119, %122
   br i1 %123, label %.lr.ph.i.i.i, label %mi_segment_check_free.exit.thread.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %110
-  %.idx.i.i.i = mul nuw nsw i64 %122, 80
-  %124 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i.i.i
+  %124 = getelementptr inbounds nuw %struct.mi_page_s, ptr %117, i64 %122
   %125 = getelementptr inbounds nuw i8, ptr %101, i64 296
   br label %126
 
@@ -2121,7 +2115,7 @@ define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr no
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 368
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %20 = load i64, ptr %19, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %20
   %22 = icmp ult ptr %17, %21
   br i1 %22, label %23, label %59
 
@@ -2155,7 +2149,7 @@ define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr no
 
 mi_span_queue_for.exit.i:                         ; preds = %33, %31
   %.0.i.i.i.i = phi i64 [ %29, %31 ], [ %42, %33 ]
-  %43 = getelementptr inbounds nuw [36 x %struct.mi_span_queue_s], ptr %1, i64 0, i64 %.0.i.i.i.i
+  %43 = getelementptr inbounds nuw %struct.mi_span_queue_s, ptr %1, i64 %.0.i.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %45, null
@@ -2243,7 +2237,7 @@ mi_segment_span_remove_from_queue.exit:           ; preds = %53, %57
 
 mi_span_queue_for.exit.i37:                       ; preds = %77, %75
   %.0.i.i.i.i38 = phi i64 [ %73, %75 ], [ %86, %77 ]
-  %87 = getelementptr inbounds nuw [36 x %struct.mi_span_queue_s], ptr %1, i64 0, i64 %.0.i.i.i.i38
+  %87 = getelementptr inbounds nuw %struct.mi_span_queue_s, ptr %1, i64 %.0.i.i.i.i38
   %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !39
   %.not.i.i39 = icmp eq ptr %89, null
@@ -2341,184 +2335,183 @@ define internal fastcc void @mi_segment_span_free(ptr noundef %0, i64 noundef %1
 
 mi_span_queue_for.exit:                           ; preds = %16, %18
   %.0.i.i.i = phi i64 [ %2, %16 ], [ %27, %18 ]
-  %28 = getelementptr inbounds nuw [36 x %struct.mi_span_queue_s], ptr %3, i64 0, i64 %.0.i.i.i
+  %28 = getelementptr inbounds nuw %struct.mi_span_queue_s, ptr %3, i64 %.0.i.i.i
   br label %29
 
 29:                                               ; preds = %4, %12, %mi_span_queue_for.exit
   %30 = phi ptr [ %28, %mi_span_queue_for.exit ], [ null, %12 ], [ null, %4 ]
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %32 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %31, i64 0, i64 %1
+  %32 = getelementptr inbounds nuw %struct.mi_page_s, ptr %31, i64 %1
   %33 = trunc i64 %spec.store.select to i32
   store i32 %33, ptr %32, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %34, align 4, !tbaa !90
   %35 = icmp ugt i64 %2, 1
-  br i1 %35, label %36, label %44
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %29
-  %37 = add i64 %1, -1
-  %38 = add i64 %37, %spec.store.select
-  %39 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %31, i64 0, i64 %38
-  store i32 0, ptr %39, align 8, !tbaa !21
-  %40 = mul i32 %33, 80
-  %41 = add i32 %40, -80
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !90
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 28
-  store i32 0, ptr %43, align 4, !tbaa !14
-  br label %44
+  %37 = getelementptr %struct.mi_page_s, ptr %32, i64 %spec.store.select
+  %38 = getelementptr i8, ptr %37, i64 -80
+  store i32 0, ptr %38, align 8, !tbaa !21
+  %39 = mul i32 %33, 80
+  %40 = add i32 %39, -80
+  %41 = getelementptr i8, ptr %37, i64 -76
+  store i32 %40, ptr %41, align 4, !tbaa !90
+  %42 = getelementptr i8, ptr %37, i64 -52
+  store i32 0, ptr %42, align 4, !tbaa !14
+  br label %43
 
-44:                                               ; preds = %36, %29
-  %45 = ptrtoint ptr %32 to i64
-  %46 = and i64 %45, -67108864
-  %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 368
-  %49 = ptrtoint ptr %48 to i64
-  %50 = sub i64 %45, %49
-  %51 = sdiv exact i64 %50, 80
-  %52 = shl i64 %51, 16
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 %52
-  %54 = shl i64 %spec.store.select, 16
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 896
-  %56 = load ptr, ptr %55, align 8, !tbaa !30
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %58 = load i8, ptr %57, align 1, !tbaa !71, !range !35, !noundef !36
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %mi_segment_perhaps_decommit.exit
+43:                                               ; preds = %36, %29
+  %44 = ptrtoint ptr %32 to i64
+  %45 = and i64 %44, -67108864
+  %46 = inttoptr i64 %45 to ptr
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 368
+  %48 = ptrtoint ptr %47 to i64
+  %49 = sub i64 %44, %48
+  %50 = sdiv exact i64 %49, 80
+  %51 = shl i64 %50, 16
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 %51
+  %53 = shl i64 %spec.store.select, 16
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 896
+  %55 = load ptr, ptr %54, align 8, !tbaa !30
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %57 = load i8, ptr %56, align 1, !tbaa !71, !range !35, !noundef !36
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %mi_segment_perhaps_decommit.exit
 
-60:                                               ; preds = %44
-  %61 = tail call i64 @mi_option_get(i32 noundef 15) #8
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %65
+59:                                               ; preds = %43
+  %60 = tail call i64 @mi_option_get(i32 noundef 15) #8
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %62, label %64
 
-63:                                               ; preds = %60
-  %64 = tail call fastcc zeroext i1 @mi_segment_commitx(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef %53, i64 noundef %54, ptr noundef %56)
+62:                                               ; preds = %59
+  %63 = tail call fastcc zeroext i1 @mi_segment_commitx(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef %52, i64 noundef %53, ptr noundef %55)
   br label %mi_segment_perhaps_decommit.exit
 
-65:                                               ; preds = %60
+64:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call fastcc void @mi_segment_commit_mask(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %53, i64 noundef %54, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  br label %66
+  call fastcc void @mi_segment_commit_mask(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %52, i64 noundef %53, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  br label %65
 
-66:                                               ; preds = %66, %65
-  %.057.i.i = phi i64 [ 0, %65 ], [ %69, %66 ]
-  %67 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %.057.i.i
-  %68 = load i64, ptr %67, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %68, 0
-  %69 = add nuw nsw i64 %.057.i.i, 1
-  %exitcond.i.i = icmp ne i64 %69, 16
+65:                                               ; preds = %65, %64
+  %.057.i.i = phi i64 [ 0, %64 ], [ %68, %65 ]
+  %66 = getelementptr inbounds nuw i64, ptr %7, i64 %.057.i.i
+  %67 = load i64, ptr %66, align 8, !tbaa !3
+  %.not.i.i = icmp eq i64 %67, 0
+  %68 = add nuw nsw i64 %.057.i.i, 1
+  %exitcond.i.i = icmp ne i64 %68, 16
   %or.cond.not.i.i = select i1 %.not.i.i, i1 %exitcond.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %66, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !72
+  br i1 %or.cond.not.i.i, label %65, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !72
 
-mi_commit_mask_is_empty.exit.i:                   ; preds = %66
-  %70 = load i64, ptr %6, align 8
-  %71 = icmp eq i64 %70, 0
-  %or.cond.i = select i1 %.not.i.i, i1 true, i1 %71
-  br i1 %or.cond.i, label %105, label %72
+mi_commit_mask_is_empty.exit.i:                   ; preds = %65
+  %69 = load i64, ptr %6, align 8
+  %70 = icmp eq i64 %69, 0
+  %or.cond.i = select i1 %.not.i.i, i1 true, i1 %70
+  br i1 %or.cond.i, label %104, label %71
 
-72:                                               ; preds = %mi_commit_mask_is_empty.exit.i
+71:                                               ; preds = %mi_commit_mask_is_empty.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  br label %74
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  br label %73
 
-74:                                               ; preds = %74, %72
-  %.07.i.i = phi i64 [ 0, %72 ], [ %81, %74 ]
-  %75 = getelementptr inbounds nuw [16 x i64], ptr %73, i64 0, i64 %.07.i.i
-  %76 = load i64, ptr %75, align 8, !tbaa !3
-  %77 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %.07.i.i
-  %78 = load i64, ptr %77, align 8, !tbaa !3
-  %79 = and i64 %78, %76
-  %80 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.07.i.i
-  store i64 %79, ptr %80, align 8, !tbaa !3
-  %81 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %81, 16
-  br i1 %exitcond.not.i.i, label %mi_commit_mask_create_intersect.exit.i, label %74, !llvm.loop !91
+73:                                               ; preds = %73, %71
+  %.07.i.i = phi i64 [ 0, %71 ], [ %80, %73 ]
+  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %.07.i.i
+  %75 = load i64, ptr %74, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw i64, ptr %7, i64 %.07.i.i
+  %77 = load i64, ptr %76, align 8, !tbaa !3
+  %78 = and i64 %77, %75
+  %79 = getelementptr inbounds nuw i64, ptr %8, i64 %.07.i.i
+  store i64 %78, ptr %79, align 8, !tbaa !3
+  %80 = add nuw nsw i64 %.07.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %80, 16
+  br i1 %exitcond.not.i.i, label %mi_commit_mask_create_intersect.exit.i, label %73, !llvm.loop !91
 
-mi_commit_mask_create_intersect.exit.i:           ; preds = %74
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %83
+mi_commit_mask_create_intersect.exit.i:           ; preds = %73
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %82
 
-83:                                               ; preds = %83, %mi_commit_mask_create_intersect.exit.i
-  %.05.i.i = phi i64 [ 0, %mi_commit_mask_create_intersect.exit.i ], [ %89, %83 ]
-  %84 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.05.i.i
-  %85 = load i64, ptr %84, align 8, !tbaa !3
-  %86 = getelementptr inbounds nuw [16 x i64], ptr %82, i64 0, i64 %.05.i.i
-  %87 = load i64, ptr %86, align 8, !tbaa !3
-  %88 = or i64 %87, %85
-  store i64 %88, ptr %86, align 8, !tbaa !3
-  %89 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i19.i = icmp eq i64 %89, 16
-  br i1 %exitcond.not.i19.i, label %mi_commit_mask_set.exit.i, label %83, !llvm.loop !92
+82:                                               ; preds = %82, %mi_commit_mask_create_intersect.exit.i
+  %.05.i.i = phi i64 [ 0, %mi_commit_mask_create_intersect.exit.i ], [ %88, %82 ]
+  %83 = getelementptr inbounds nuw i64, ptr %8, i64 %.05.i.i
+  %84 = load i64, ptr %83, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw i64, ptr %81, i64 %.05.i.i
+  %86 = load i64, ptr %85, align 8, !tbaa !3
+  %87 = or i64 %86, %84
+  store i64 %87, ptr %85, align 8, !tbaa !3
+  %88 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i19.i = icmp eq i64 %88, 16
+  br i1 %exitcond.not.i19.i, label %mi_commit_mask_set.exit.i, label %82, !llvm.loop !92
 
-mi_commit_mask_set.exit.i:                        ; preds = %83
-  %90 = tail call i64 @_mi_clock_now() #8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %92 = load i64, ptr %91, align 8, !tbaa !73
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %97
+mi_commit_mask_set.exit.i:                        ; preds = %82
+  %89 = tail call i64 @_mi_clock_now() #8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %91 = load i64, ptr %90, align 8, !tbaa !73
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %93, label %96
 
-94:                                               ; preds = %mi_commit_mask_set.exit.i
-  %95 = tail call i64 @mi_option_get(i32 noundef 15) #8
-  %96 = add nsw i64 %95, %90
-  br label %104
+93:                                               ; preds = %mi_commit_mask_set.exit.i
+  %94 = tail call i64 @mi_option_get(i32 noundef 15) #8
+  %95 = add nsw i64 %94, %89
+  br label %103
 
-97:                                               ; preds = %mi_commit_mask_set.exit.i
-  %.not.i = icmp sgt i64 %92, %90
-  %98 = tail call i64 @mi_option_get(i32 noundef 24) #8
-  br i1 %.not.i, label %101, label %99
+96:                                               ; preds = %mi_commit_mask_set.exit.i
+  %.not.i = icmp sgt i64 %91, %89
+  %97 = tail call i64 @mi_option_get(i32 noundef 24) #8
+  br i1 %.not.i, label %100, label %98
 
-99:                                               ; preds = %97
-  %100 = add nsw i64 %98, %90
-  br label %104
+98:                                               ; preds = %96
+  %99 = add nsw i64 %97, %89
+  br label %103
 
-101:                                              ; preds = %97
-  %102 = load i64, ptr %91, align 8, !tbaa !73
-  %103 = add nsw i64 %102, %98
-  br label %104
+100:                                              ; preds = %96
+  %101 = load i64, ptr %90, align 8, !tbaa !73
+  %102 = add nsw i64 %101, %97
+  br label %103
 
-104:                                              ; preds = %101, %99, %94
-  %.sink.i = phi i64 [ %100, %99 ], [ %103, %101 ], [ %96, %94 ]
-  store i64 %.sink.i, ptr %91, align 8, !tbaa !73
+103:                                              ; preds = %100, %98, %93
+  %.sink.i = phi i64 [ %99, %98 ], [ %102, %100 ], [ %95, %93 ]
+  store i64 %.sink.i, ptr %90, align 8, !tbaa !73
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %105
+  br label %104
 
-105:                                              ; preds = %104, %mi_commit_mask_is_empty.exit.i
+104:                                              ; preds = %103, %mi_commit_mask_is_empty.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mi_segment_perhaps_decommit.exit
 
-mi_segment_perhaps_decommit.exit:                 ; preds = %44, %63, %105
+mi_segment_perhaps_decommit.exit:                 ; preds = %43, %62, %104
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %mi_span_queue_push.exit, label %106
+  br i1 %.not, label %mi_span_queue_push.exit, label %105
 
-106:                                              ; preds = %mi_segment_perhaps_decommit.exit
-  %107 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store ptr null, ptr %107, align 8, !tbaa !39
-  %108 = load ptr, ptr %30, align 8, !tbaa !41
-  %109 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  store ptr %108, ptr %109, align 8, !tbaa !40
+105:                                              ; preds = %mi_segment_perhaps_decommit.exit
+  %106 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  store ptr null, ptr %106, align 8, !tbaa !39
+  %107 = load ptr, ptr %30, align 8, !tbaa !41
+  %108 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  store ptr %107, ptr %108, align 8, !tbaa !40
   store ptr %32, ptr %30, align 8, !tbaa !41
-  %.not.i25 = icmp eq ptr %108, null
-  br i1 %.not.i25, label %112, label %110
+  %.not.i25 = icmp eq ptr %107, null
+  br i1 %.not.i25, label %111, label %109
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 64
-  store ptr %32, ptr %111, align 8, !tbaa !39
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 64
+  store ptr %32, ptr %110, align 8, !tbaa !39
   br label %mi_span_queue_push.exit
 
-112:                                              ; preds = %106
-  %113 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %32, ptr %113, align 8, !tbaa !43
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %32, ptr %112, align 8, !tbaa !43
   br label %mi_span_queue_push.exit
 
-mi_span_queue_push.exit:                          ; preds = %mi_segment_perhaps_decommit.exit, %112, %110
-  %114 = getelementptr inbounds nuw i8, ptr %32, i64 28
-  store i32 0, ptr %114, align 4, !tbaa !14
+mi_span_queue_push.exit:                          ; preds = %mi_segment_perhaps_decommit.exit, %111, %109
+  %113 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  store i32 0, ptr %113, align 4, !tbaa !14
   ret void
 }
 
@@ -2546,7 +2539,7 @@ define internal fastcc noundef zeroext i1 @mi_segment_commitx(ptr noundef %0, i1
 
 13:                                               ; preds = %13, %5
   %.057.i = phi i64 [ 0, %5 ], [ %16, %13 ]
-  %14 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.057.i
+  %14 = getelementptr inbounds nuw i64, ptr %8, i64 %.057.i
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %.not.i = icmp eq i64 %15, 0
   %16 = add nuw nsw i64 %.057.i, 1
@@ -2566,9 +2559,9 @@ mi_commit_mask_is_empty.exit:                     ; preds = %13
 
 .preheader59:                                     ; preds = %19, %.preheader59
   %.0911.i = phi i64 [ %26, %.preheader59 ], [ 0, %19 ]
-  %21 = getelementptr inbounds nuw [16 x i64], ptr %20, i64 0, i64 %.0911.i
+  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %.0911.i
   %22 = load i64, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.0911.i
+  %23 = getelementptr inbounds nuw i64, ptr %8, i64 %.0911.i
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = and i64 %24, %22
   %.not.i26 = icmp eq i64 %25, %24
@@ -2588,12 +2581,12 @@ mi_commit_mask_all_set.exit:                      ; preds = %.preheader59
 
 28:                                               ; preds = %28, %27
   %.07.i = phi i64 [ 0, %27 ], [ %35, %28 ]
-  %29 = getelementptr inbounds nuw [16 x i64], ptr %20, i64 0, i64 %.07.i
+  %29 = getelementptr inbounds nuw i64, ptr %20, i64 %.07.i
   %30 = load i64, ptr %29, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.07.i
+  %31 = getelementptr inbounds nuw i64, ptr %8, i64 %.07.i
   %32 = load i64, ptr %31, align 8, !tbaa !3
   %33 = and i64 %32, %30
-  %34 = getelementptr inbounds nuw [16 x i64], ptr %10, i64 0, i64 %.07.i
+  %34 = getelementptr inbounds nuw i64, ptr %10, i64 %.07.i
   store i64 %33, ptr %34, align 8, !tbaa !3
   %35 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %35, 16
@@ -2602,7 +2595,7 @@ mi_commit_mask_all_set.exit:                      ; preds = %.preheader59
 mi_commit_mask_create_intersect.exit:             ; preds = %28, %.loopexit.i
   %.01118.i = phi i64 [ %42, %.loopexit.i ], [ 0, %28 ]
   %.01217.i = phi i64 [ %.1.i, %.loopexit.i ], [ 0, %28 ]
-  %36 = getelementptr inbounds nuw [16 x i64], ptr %10, i64 0, i64 %.01118.i
+  %36 = getelementptr inbounds nuw i64, ptr %10, i64 %.01118.i
   %37 = load i64, ptr %36, align 8, !tbaa !3
   switch i64 %37, label %.lr.ph.i [
     i64 -1, label %38
@@ -2637,9 +2630,9 @@ _mi_commit_mask_committed_size.exit:              ; preds = %.loopexit.i
 
 .preheader:                                       ; preds = %_mi_commit_mask_committed_size.exit, %.preheader
   %.05.i = phi i64 [ %51, %.preheader ], [ 0, %_mi_commit_mask_committed_size.exit ]
-  %46 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.05.i
+  %46 = getelementptr inbounds nuw i64, ptr %8, i64 %.05.i
   %47 = load i64, ptr %46, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw [16 x i64], ptr %20, i64 0, i64 %.05.i
+  %48 = getelementptr inbounds nuw i64, ptr %20, i64 %.05.i
   %49 = load i64, ptr %48, align 8, !tbaa !3
   %50 = or i64 %49, %47
   store i64 %50, ptr %48, align 8, !tbaa !3
@@ -2654,9 +2647,9 @@ mi_commit_mask_set.exit:                          ; preds = %.preheader
 
 .critedge23:                                      ; preds = %19, %.critedge23
   %.079.i = phi i64 [ %57, %.critedge23 ], [ 0, %19 ]
-  %52 = getelementptr inbounds nuw [16 x i64], ptr %20, i64 0, i64 %.079.i
+  %52 = getelementptr inbounds nuw i64, ptr %20, i64 %.079.i
   %53 = load i64, ptr %52, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.079.i
+  %54 = getelementptr inbounds nuw i64, ptr %8, i64 %.079.i
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
   %.not.not.i = icmp ne i64 %56, 0
@@ -2674,12 +2667,12 @@ mi_commit_mask_any_set.exit:                      ; preds = %.critedge23
 
 59:                                               ; preds = %59, %58
   %.07.i33 = phi i64 [ 0, %58 ], [ %66, %59 ]
-  %60 = getelementptr inbounds nuw [16 x i64], ptr %20, i64 0, i64 %.07.i33
+  %60 = getelementptr inbounds nuw i64, ptr %20, i64 %.07.i33
   %61 = load i64, ptr %60, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.07.i33
+  %62 = getelementptr inbounds nuw i64, ptr %8, i64 %.07.i33
   %63 = load i64, ptr %62, align 8, !tbaa !3
   %64 = and i64 %63, %61
-  %65 = getelementptr inbounds nuw [16 x i64], ptr %11, i64 0, i64 %.07.i33
+  %65 = getelementptr inbounds nuw i64, ptr %11, i64 %.07.i33
   store i64 %64, ptr %65, align 8, !tbaa !3
   %66 = add nuw nsw i64 %.07.i33, 1
   %exitcond.not.i34 = icmp eq i64 %66, 16
@@ -2688,7 +2681,7 @@ mi_commit_mask_any_set.exit:                      ; preds = %.critedge23
 mi_commit_mask_create_intersect.exit35:           ; preds = %59, %.loopexit.i38
   %.01118.i36 = phi i64 [ %73, %.loopexit.i38 ], [ 0, %59 ]
   %.01217.i37 = phi i64 [ %.1.i39, %.loopexit.i38 ], [ 0, %59 ]
-  %67 = getelementptr inbounds nuw [16 x i64], ptr %11, i64 0, i64 %.01118.i36
+  %67 = getelementptr inbounds nuw i64, ptr %11, i64 %.01118.i36
   %68 = load i64, ptr %67, align 8, !tbaa !3
   switch i64 %68, label %.lr.ph.i41 [
     i64 -1, label %69
@@ -2733,10 +2726,10 @@ _mi_commit_mask_committed_size.exit46:            ; preds = %.loopexit.i38
 
 82:                                               ; preds = %.preheader60, %82
   %.05.i47 = phi i64 [ %89, %82 ], [ 0, %.preheader60 ]
-  %83 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.05.i47
+  %83 = getelementptr inbounds nuw i64, ptr %8, i64 %.05.i47
   %84 = load i64, ptr %83, align 8, !tbaa !3
   %85 = xor i64 %84, -1
-  %86 = getelementptr inbounds nuw [16 x i64], ptr %20, i64 0, i64 %.05.i47
+  %86 = getelementptr inbounds nuw i64, ptr %20, i64 %.05.i47
   %87 = load i64, ptr %86, align 8, !tbaa !3
   %88 = and i64 %87, %85
   store i64 %88, ptr %86, align 8, !tbaa !3
@@ -2757,9 +2750,9 @@ mi_commit_mask_clear.exit:                        ; preds = %82
 
 92:                                               ; preds = %92, %.critedge25
   %.079.i49 = phi i64 [ 0, %.critedge25 ], [ %98, %92 ]
-  %93 = getelementptr inbounds nuw [16 x i64], ptr %91, i64 0, i64 %.079.i49
+  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %.079.i49
   %94 = load i64, ptr %93, align 8, !tbaa !3
-  %95 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.079.i49
+  %95 = getelementptr inbounds nuw i64, ptr %8, i64 %.079.i49
   %96 = load i64, ptr %95, align 8, !tbaa !3
   %97 = and i64 %96, %94
   %.not.not.i50 = icmp ne i64 %97, 0
@@ -2785,10 +2778,10 @@ mi_commit_mask_any_set.exit53:                    ; preds = %92
 
 105:                                              ; preds = %105, %.thread
   %.05.i54 = phi i64 [ 0, %.thread ], [ %112, %105 ]
-  %106 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.05.i54
+  %106 = getelementptr inbounds nuw i64, ptr %8, i64 %.05.i54
   %107 = load i64, ptr %106, align 8, !tbaa !3
   %108 = xor i64 %107, -1
-  %109 = getelementptr inbounds nuw [16 x i64], ptr %104, i64 0, i64 %.05.i54
+  %109 = getelementptr inbounds nuw i64, ptr %104, i64 %.05.i54
   %110 = load i64, ptr %109, align 8, !tbaa !3
   %111 = and i64 %110, %108
   store i64 %111, ptr %109, align 8, !tbaa !3
@@ -2909,7 +2902,7 @@ define internal fastcc void @mi_segment_commit_mask(ptr noundef %0, i1 noundef z
   %52 = xor i64 %notmask.i, -1
   %53 = shl i64 %52, %.02226.i
   %54 = select i1 %51, i64 -1, i64 %53
-  %55 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %.02127.i
+  %55 = getelementptr inbounds nuw i64, ptr %6, i64 %.02127.i
   store i64 %54, ptr %55, align 8, !tbaa !3
   %56 = sub i64 %.028.i, %50
   %57 = add i64 %.02127.i, 1
@@ -2953,7 +2946,7 @@ define internal fastcc ptr @mi_segment_span_allocate(ptr noundef %0, i64 noundef
 
 5:                                                ; preds = %5, %3
   %.057.i.i = phi i64 [ 0, %3 ], [ %8, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %.057.i.i
+  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %.057.i.i
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %7, -1
   %8 = add nuw nsw i64 %.057.i.i, 1
@@ -2963,110 +2956,112 @@ define internal fastcc ptr @mi_segment_span_allocate(ptr noundef %0, i64 noundef
 
 mi_commit_mask_is_full.exit.i:                    ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %10 = getelementptr [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %1
-  %11 = shl i64 %1, 16
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
-  %13 = shl i64 %2, 16
-  br i1 %.not.i.i, label %14, label %mi_segment_ensure_committed.exit
+  %10 = getelementptr %struct.mi_page_s, ptr %9, i64 %1
+  %.idx = mul i64 %1, 80
+  %11 = sdiv exact i64 %.idx, 80
+  %12 = shl i64 %11, 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
+  %14 = shl i64 %2, 16
+  br i1 %.not.i.i, label %15, label %mi_segment_ensure_committed.exit
 
-14:                                               ; preds = %mi_commit_mask_is_full.exit.i
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %16
+15:                                               ; preds = %mi_commit_mask_is_full.exit.i
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %17
 
-16:                                               ; preds = %16, %14
-  %.057.i6.i = phi i64 [ 0, %14 ], [ %19, %16 ]
-  %17 = getelementptr inbounds nuw [16 x i64], ptr %15, i64 0, i64 %.057.i6.i
-  %18 = load i64, ptr %17, align 8, !tbaa !3
-  %.not.i7.i = icmp eq i64 %18, 0
-  %19 = add nuw nsw i64 %.057.i6.i, 1
-  %exitcond.i8.i = icmp ne i64 %19, 16
+17:                                               ; preds = %17, %15
+  %.057.i6.i = phi i64 [ 0, %15 ], [ %20, %17 ]
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %.057.i6.i
+  %19 = load i64, ptr %18, align 8, !tbaa !3
+  %.not.i7.i = icmp eq i64 %19, 0
+  %20 = add nuw nsw i64 %.057.i6.i, 1
+  %exitcond.i8.i = icmp ne i64 %20, 16
   %or.cond.not.i9.i = select i1 %.not.i7.i, i1 %exitcond.i8.i, i1 false
-  br i1 %or.cond.not.i9.i, label %16, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !72
+  br i1 %or.cond.not.i9.i, label %17, label %mi_commit_mask_is_empty.exit.i, !llvm.loop !72
 
-mi_commit_mask_is_empty.exit.i:                   ; preds = %16
+mi_commit_mask_is_empty.exit.i:                   ; preds = %17
   br i1 %.not.i7.i, label %mi_segment_ensure_committed.exit.thread, label %mi_segment_ensure_committed.exit
 
 mi_segment_ensure_committed.exit:                 ; preds = %mi_commit_mask_is_full.exit.i, %mi_commit_mask_is_empty.exit.i
-  %20 = tail call fastcc zeroext i1 @mi_segment_commitx(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %12, i64 noundef %13, ptr noundef %.896.val)
-  br i1 %20, label %mi_segment_ensure_committed.exit.thread, label %55
+  %21 = tail call fastcc zeroext i1 @mi_segment_commitx(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %13, i64 noundef %14, ptr noundef %.896.val)
+  br i1 %21, label %mi_segment_ensure_committed.exit.thread, label %56
 
 mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_empty.exit.i, %mi_segment_ensure_committed.exit
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %21, align 4, !tbaa !90
-  %22 = trunc i64 %2 to i32
-  store i32 %22, ptr %10, align 8, !tbaa !21
-  %23 = tail call i64 @llvm.umin.i64(i64 %13, i64 2147483648)
-  %24 = trunc nuw i64 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  store i32 %24, ptr %25, align 4, !tbaa !14
-  %26 = add i64 %2, -1
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %26, i64 15)
-  %27 = add i64 %spec.store.select, %1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %29 = load i64, ptr %28, align 8, !tbaa !37
-  %.not = icmp ult i64 %27, %29
-  %30 = xor i64 %1, -1
-  %31 = add i64 %29, %30
-  %.047 = select i1 %.not, i64 %spec.store.select, i64 %31
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 0, ptr %22, align 4, !tbaa !90
+  %23 = trunc i64 %2 to i32
+  store i32 %23, ptr %10, align 8, !tbaa !21
+  %24 = tail call i64 @llvm.umin.i64(i64 %14, i64 2147483648)
+  %25 = trunc nuw i64 %24 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  store i32 %25, ptr %26, align 4, !tbaa !14
+  %27 = add i64 %2, -1
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %27, i64 15)
+  %28 = add i64 %spec.store.select, %1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %30 = load i64, ptr %29, align 8, !tbaa !37
+  %.not = icmp ult i64 %28, %30
+  %31 = xor i64 %1, -1
+  %32 = add i64 %30, %31
+  %.047 = select i1 %.not, i64 %spec.store.select, i64 %32
   %.0482 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %.not513 = icmp eq i64 %.047, 0
   br i1 %.not513, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %mi_segment_ensure_committed.exit.thread
-  %32 = add i64 %.047, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %32, i64 2)
+  %33 = add i64 %.047, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %33, i64 2)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %mi_segment_ensure_committed.exit.thread
   %.048.lcssa = phi ptr [ %.0482, %mi_segment_ensure_committed.exit.thread ], [ %.048, %.lr.ph ]
-  %33 = getelementptr %struct.mi_page_s, ptr %10, i64 %2
-  %34 = getelementptr i8, ptr %33, i64 -80
-  %35 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %29
-  %36 = icmp uge ptr %34, %35
-  %.not52 = icmp ult ptr %34, %.048.lcssa
-  %or.cond = select i1 %36, i1 true, i1 %.not52
-  br i1 %or.cond, label %47, label %42
+  %34 = getelementptr %struct.mi_page_s, ptr %10, i64 %2
+  %35 = getelementptr i8, ptr %34, i64 -80
+  %36 = getelementptr inbounds nuw %struct.mi_page_s, ptr %9, i64 %30
+  %37 = icmp uge ptr %35, %36
+  %.not52 = icmp ult ptr %35, %.048.lcssa
+  %or.cond = select i1 %37, i1 true, i1 %.not52
+  br i1 %or.cond, label %48, label %43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0486 = phi ptr [ %.048, %.lr.ph ], [ %.0482, %.lr.ph.preheader ]
-  %.0465 = phi i64 [ %41, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.0465 = phi i64 [ %42, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %.pn4 = phi ptr [ %.0486, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %37 = trunc i64 %.0465 to i32
-  %38 = mul i32 %37, 80
-  %39 = getelementptr inbounds nuw i8, ptr %.pn4, i64 84
-  store i32 %38, ptr %39, align 4, !tbaa !90
+  %38 = trunc i64 %.0465 to i32
+  %39 = mul i32 %38, 80
+  %40 = getelementptr inbounds nuw i8, ptr %.pn4, i64 84
+  store i32 %39, ptr %40, align 4, !tbaa !90
   store i32 0, ptr %.0486, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw i8, ptr %.pn4, i64 108
-  store i32 1, ptr %40, align 4, !tbaa !14
-  %41 = add nuw i64 %.0465, 1
+  %41 = getelementptr inbounds nuw i8, ptr %.pn4, i64 108
+  store i32 1, ptr %41, align 4, !tbaa !14
+  %42 = add nuw i64 %.0465, 1
   %.048 = getelementptr inbounds nuw i8, ptr %.0486, i64 80
-  %exitcond = icmp eq i64 %41, %umax
+  %exitcond = icmp eq i64 %42, %umax
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
-42:                                               ; preds = %._crit_edge
-  %43 = trunc i64 %26 to i32
-  %44 = mul i32 %43, 80
-  %45 = getelementptr i8, ptr %33, i64 -76
-  store i32 %44, ptr %45, align 4, !tbaa !90
-  store i32 0, ptr %34, align 8, !tbaa !21
-  %46 = getelementptr i8, ptr %33, i64 -52
-  store i32 1, ptr %46, align 4, !tbaa !14
-  br label %47
+43:                                               ; preds = %._crit_edge
+  %44 = trunc i64 %27 to i32
+  %45 = mul i32 %44, 80
+  %46 = getelementptr i8, ptr %34, i64 -76
+  store i32 %45, ptr %46, align 4, !tbaa !90
+  store i32 0, ptr %35, align 8, !tbaa !21
+  %47 = getelementptr i8, ptr %34, i64 -52
+  store i32 1, ptr %47, align 4, !tbaa !14
+  br label %48
 
-47:                                               ; preds = %42, %._crit_edge
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, -4
-  %51 = or disjoint i8 %50, 2
-  store i8 %51, ptr %48, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %53 = load i64, ptr %52, align 8, !tbaa !22
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !22
-  br label %55
+48:                                               ; preds = %43, %._crit_edge
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %50 = load i8, ptr %49, align 8
+  %51 = and i8 %50, -4
+  %52 = or disjoint i8 %51, 2
+  store i8 %52, ptr %49, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %54 = load i64, ptr %53, align 8, !tbaa !22
+  %55 = add i64 %54, 1
+  store i64 %55, ptr %53, align 8, !tbaa !22
+  br label %56
 
-55:                                               ; preds = %mi_segment_ensure_committed.exit, %47
-  %.0 = phi ptr [ %10, %47 ], [ null, %mi_segment_ensure_committed.exit ]
+56:                                               ; preds = %mi_segment_ensure_committed.exit, %48
+  %.0 = phi ptr [ %10, %48 ], [ null, %mi_segment_ensure_committed.exit ]
   ret ptr %.0
 }
 
@@ -3193,7 +3188,7 @@ mi_segment_calculate_slices.exit.i:               ; preds = %20, %17
   %notmask.i.i = shl nsw i64 -1, %60
   %62 = xor i64 %notmask.i.i, -1
   %63 = select i1 %61, i64 -1, i64 %62
-  %64 = getelementptr inbounds nuw [16 x i64], ptr %12, i64 0, i64 %.02127.i.i
+  %64 = getelementptr inbounds nuw i64, ptr %12, i64 %.02127.i.i
   store i64 %63, ptr %64, align 8, !tbaa !3
   %65 = sub i64 %.028.i.i, %60
   %66 = add i64 %.02127.i.i, 1
@@ -3205,9 +3200,9 @@ mi_commit_mask_create.exit.i.preheader:           ; preds = %59, %58, %57
 
 mi_commit_mask_create.exit.i:                     ; preds = %mi_commit_mask_create.exit.i.preheader, %mi_commit_mask_create.exit.i
   %.0911.i.i = phi i64 [ %72, %mi_commit_mask_create.exit.i ], [ 0, %mi_commit_mask_create.exit.i.preheader ]
-  %67 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %.0911.i.i
+  %67 = getelementptr inbounds nuw i64, ptr %7, i64 %.0911.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw [16 x i64], ptr %12, i64 0, i64 %.0911.i.i
+  %69 = getelementptr inbounds nuw i64, ptr %12, i64 %.0911.i.i
   %70 = load i64, ptr %69, align 8, !tbaa !3
   %71 = and i64 %70, %68
   %.not.i94.i = icmp eq i64 %71, %70
@@ -3227,9 +3222,9 @@ mi_commit_mask_all_set.exit.i:                    ; preds = %mi_commit_mask_crea
 
 .preheader.i:                                     ; preds = %73, %.preheader.i
   %.05.i.i = phi i64 [ %82, %.preheader.i ], [ 0, %73 ]
-  %77 = getelementptr inbounds nuw [16 x i64], ptr %12, i64 0, i64 %.05.i.i
+  %77 = getelementptr inbounds nuw i64, ptr %12, i64 %.05.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %.05.i.i
+  %79 = getelementptr inbounds nuw i64, ptr %7, i64 %.05.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !3
   %81 = or i64 %80, %78
   store i64 %81, ptr %79, align 8, !tbaa !3
@@ -3250,7 +3245,7 @@ mi_commit_mask_all_set.exit.i:                    ; preds = %mi_commit_mask_crea
 
 88:                                               ; preds = %88, %.critedge92.i
   %.057.i.i = phi i64 [ 0, %.critedge92.i ], [ %91, %88 ]
-  %89 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %.057.i.i
+  %89 = getelementptr inbounds nuw i64, ptr %7, i64 %.057.i.i
   %90 = load i64, ptr %89, align 8, !tbaa !3
   %.not.i95.i = icmp eq i64 %90, -1
   %91 = add nuw nsw i64 %.057.i.i, 1

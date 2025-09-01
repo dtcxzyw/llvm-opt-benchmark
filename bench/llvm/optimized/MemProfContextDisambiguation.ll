@@ -25239,7 +25239,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %48 = phi i32 [ 0, %.lr.ph ], [ %60, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %.054 = phi i32 [ 0, %.lr.ph ], [ %61, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %49 = zext i32 %.054 to i64
-  %50 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %17, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %17, i64 %49
   %.sroa.019.0.copyload = load i64, ptr %50, align 8, !tbaa !38
   %51 = load i32, ptr %11, align 4, !tbaa !27
   %.not.i.i.not.i = icmp ult i32 %48, %51
@@ -95664,10 +95664,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit: ; preds = %17
   %41 = zext i8 %19 to i64
-  %42 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !76
   %44 = zext i8 %21 to i64
-  %45 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %2, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !76
   %47 = icmp ult i32 %43, %46
   br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit.thread24
@@ -95890,10 +95890,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISP_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.i: ; preds = %118
   %140 = zext i8 %119 to i64
-  %141 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr %2, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !76
   %143 = zext i8 %121 to i64
-  %144 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i32, ptr %2, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !76
   %146 = icmp ult i32 %142, %145
   br i1 %146, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISP_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISP_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.thread17.i
@@ -96116,10 +96116,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit: ; preds = %23
   %47 = zext i8 %25 to i64
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !76
   %50 = zext i8 %27 to i64
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %5, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !76
   %53 = icmp ult i32 %49, %52
   br i1 %53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit.thread93
@@ -96231,10 +96231,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESQ_EEbT_RT0_.exit.i: ; preds = %79
   %101 = zext i8 %81 to i64
-  %102 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %5, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !76
   %104 = zext i8 %82 to i64
-  %105 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %5, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !76
   %107 = icmp ult i32 %103, %106
   br i1 %107, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESQ_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESQ_EEbT_RT0_.exit.thread5.i
@@ -96354,10 +96354,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISQ_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.i: ; preds = %133
   %155 = zext i8 %134 to i64
-  %156 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i32, ptr %5, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !76
   %158 = zext i8 %136 to i64
-  %159 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %5, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !76
   %161 = icmp ult i32 %157, %160
   br i1 %161, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISQ_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISQ_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.thread5.i
@@ -96787,10 +96787,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESW_EEbT_T0_.exit.i: ; preds = %57
   %81 = zext i8 %59 to i64
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %9, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !76
   %84 = zext i8 %61 to i64
-  %85 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %9, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !76
   %87 = icmp ult i32 %83, %86
   br i1 %87, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESW_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESW_EEbT_T0_.exit.thread27.i
@@ -97247,10 +97247,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclIPSP_NS_17__normal_iteratorISV_St6vectorISP_SaISP_EEEEEEbT_T0_.exit.i: ; preds = %263
   %287 = zext i8 %265 to i64
-  %288 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i32, ptr %9, i64 %287
   %289 = load i32, ptr %288, align 4, !tbaa !76
   %290 = zext i8 %267 to i64
-  %291 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw i32, ptr %9, i64 %290
   %292 = load i32, ptr %291, align 4, !tbaa !76
   %293 = icmp ult i32 %289, %292
   br i1 %293, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclIPSP_NS_17__normal_iteratorISV_St6vectorISP_SaISP_EEEEEEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclIPSP_NS_17__normal_iteratorISV_St6vectorISP_SaISP_EEEEEEbT_T0_.exit.thread47.i
@@ -97547,10 +97547,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESQ_EEbT_RT0_.exit.i: ; preds = %405
   %427 = zext i8 %407 to i64
-  %428 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw i32, ptr %9, i64 %427
   %429 = load i32, ptr %428, align 4, !tbaa !76
   %430 = zext i8 %408 to i64
-  %431 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %430
+  %431 = getelementptr inbounds nuw i32, ptr %9, i64 %430
   %432 = load i32, ptr %431, align 4, !tbaa !76
   %433 = icmp ult i32 %429, %432
   br i1 %433, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESQ_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEESQ_EEbT_RT0_.exit.thread5.i
@@ -97670,10 +97670,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISQ_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.i: ; preds = %459
   %481 = zext i8 %460 to i64
-  %482 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw i32, ptr %9, i64 %481
   %483 = load i32, ptr %482, align 4, !tbaa !76
   %484 = zext i8 %462 to i64
-  %485 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %484
+  %485 = getelementptr inbounds nuw i32, ptr %9, i64 %484
   %486 = load i32, ptr %485, align 4, !tbaa !76
   %487 = icmp ult i32 %483, %486
   br i1 %487, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISQ_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclISQ_NS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEEEEbRT_T0_.exit.thread5.i
@@ -98413,10 +98413,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit: ; preds = %18
   %42 = zext i8 %20 to i64
-  %43 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !76
   %45 = zext i8 %22 to i64
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !76
   %48 = icmp ult i32 %44, %47
   br i1 %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclINS_17__normal_iteratorIPSP_St6vectorISP_SaISP_EEEES10_EEbT_T0_.exit.thread36
@@ -98791,10 +98791,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclIPSP_SV_EEbT_T0_.exit: ; preds = %19
   %43 = zext i8 %21 to i64
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !76
   %46 = zext i8 %23 to i64
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !76
   %49 = icmp ult i32 %45, %48
   br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclIPSP_SV_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS5_11InstructionEE14identifyClonesEPNS9_11ContextNodeERNS5_8DenseSetIPKSA_NS5_12DenseMapInfoISE_vEEEERKNSC_IjNSF_IjvEEEEEUlRKSt10shared_ptrINS9_11ContextEdgeEESR_E_EclIPSP_SV_EEbT_T0_.exit.thread38
@@ -114395,10 +114395,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit: ; preds = %17
   %41 = zext i8 %19 to i64
-  %42 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !76
   %44 = zext i8 %21 to i64
-  %45 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %2, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !76
   %47 = icmp ult i32 %43, %46
   br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit.thread24
@@ -114621,10 +114621,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISO_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.i: ; preds = %118
   %140 = zext i8 %119 to i64
-  %141 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr %2, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !76
   %143 = zext i8 %121 to i64
-  %144 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i32, ptr %2, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !76
   %146 = icmp ult i32 %142, %145
   br i1 %146, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISO_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISO_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.thread17.i
@@ -114847,10 +114847,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit: ; preds = %23
   %47 = zext i8 %25 to i64
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !76
   %50 = zext i8 %27 to i64
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %5, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !76
   %53 = icmp ult i32 %49, %52
   br i1 %53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit.thread93
@@ -114962,10 +114962,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESP_EEbT_RT0_.exit.i: ; preds = %79
   %101 = zext i8 %81 to i64
-  %102 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %5, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !76
   %104 = zext i8 %82 to i64
-  %105 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %5, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !76
   %107 = icmp ult i32 %103, %106
   br i1 %107, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESP_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESP_EEbT_RT0_.exit.thread5.i
@@ -115085,10 +115085,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISP_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.i: ; preds = %133
   %155 = zext i8 %134 to i64
-  %156 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i32, ptr %5, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !76
   %158 = zext i8 %136 to i64
-  %159 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %5, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !76
   %161 = icmp ult i32 %157, %160
   br i1 %161, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISP_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISP_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.thread5.i
@@ -115518,10 +115518,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESV_EEbT_T0_.exit.i: ; preds = %57
   %81 = zext i8 %59 to i64
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %9, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !76
   %84 = zext i8 %61 to i64
-  %85 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %9, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !76
   %87 = icmp ult i32 %83, %86
   br i1 %87, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESV_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESV_EEbT_T0_.exit.thread27.i
@@ -115978,10 +115978,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclIPSO_NS_17__normal_iteratorISU_St6vectorISO_SaISO_EEEEEEbT_T0_.exit.i: ; preds = %263
   %287 = zext i8 %265 to i64
-  %288 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i32, ptr %9, i64 %287
   %289 = load i32, ptr %288, align 4, !tbaa !76
   %290 = zext i8 %267 to i64
-  %291 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw i32, ptr %9, i64 %290
   %292 = load i32, ptr %291, align 4, !tbaa !76
   %293 = icmp ult i32 %289, %292
   br i1 %293, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclIPSO_NS_17__normal_iteratorISU_St6vectorISO_SaISO_EEEEEEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclIPSO_NS_17__normal_iteratorISU_St6vectorISO_SaISO_EEEEEEbT_T0_.exit.thread47.i
@@ -116278,10 +116278,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESP_EEbT_RT0_.exit.i: ; preds = %405
   %427 = zext i8 %407 to i64
-  %428 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw i32, ptr %9, i64 %427
   %429 = load i32, ptr %428, align 4, !tbaa !76
   %430 = zext i8 %408 to i64
-  %431 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %430
+  %431 = getelementptr inbounds nuw i32, ptr %9, i64 %430
   %432 = load i32, ptr %431, align 4, !tbaa !76
   %433 = icmp ult i32 %429, %432
   br i1 %433, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESP_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESP_EEbT_RT0_.exit.thread5.i
@@ -116401,10 +116401,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISP_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.i: ; preds = %459
   %481 = zext i8 %460 to i64
-  %482 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw i32, ptr %9, i64 %481
   %483 = load i32, ptr %482, align 4, !tbaa !76
   %484 = zext i8 %462 to i64
-  %485 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %484
+  %485 = getelementptr inbounds nuw i32, ptr %9, i64 %484
   %486 = load i32, ptr %485, align 4, !tbaa !76
   %487 = icmp ult i32 %483, %486
   br i1 %487, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISP_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclISP_NS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEEEbRT_T0_.exit.thread5.i
@@ -117144,10 +117144,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit: ; preds = %18
   %42 = zext i8 %20 to i64
-  %43 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !76
   %45 = zext i8 %22 to i64
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !76
   %48 = icmp ult i32 %44, %47
   br i1 %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclINS_17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEESZ_EEbT_T0_.exit.thread36
@@ -117522,10 +117522,10 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclIPSO_SU_EEbT_T0_.exit: ; preds = %19
   %43 = zext i8 %21 to i64
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !76
   %46 = zext i8 %23 to i64
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !76
   %49 = icmp ult i32 %45, %48
   br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclIPSO_SU_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS2_9IndexCallEE14identifyClonesEPNS8_11ContextNodeERNS5_8DenseSetIPKS9_NS5_12DenseMapInfoISD_vEEEERKNSB_IjNSE_IjvEEEEEUlRKSt10shared_ptrINS8_11ContextEdgeEESQ_E_EclIPSO_SU_EEbT_T0_.exit.thread38

@@ -4312,7 +4312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %_ZL11find_energyPKciP11gmx_enxnm_tP10t_enxframe.exit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader ], [ %indvars.iv.next, %_ZL11find_energyPKciP11gmx_enxnm_tP10t_enxframe.exit.us ]
-  %78 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZ13get_enx_stateRKNSt10filesystem7__cxx114pathEfRK16SimulationGroupsP10t_inputrecP7t_stateE9boxvel_nm, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr @_ZZ13get_enx_stateRKNSt10filesystem7__cxx114pathEfRK16SimulationGroupsP10t_inputrecP7t_stateE9boxvel_nm, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !42
   br label %.lr.ph.i.us
 
@@ -4333,14 +4333,14 @@ _ZL11find_energyPKciP11gmx_enxnm_tP10t_enxframe.exit.us: ; preds = %.lr.ph.i.us
   %85 = load ptr, ptr %77, align 8, !tbaa !16
   %86 = getelementptr inbounds nuw %struct.t_energy, ptr %85, i64 %indvars.iv.i.us
   %87 = load float, ptr %86, align 8, !tbaa !120
-  %88 = getelementptr inbounds nuw [6 x i32], ptr @__const._Z13get_enx_stateRKNSt10filesystem7__cxx114pathEfRK16SimulationGroupsP10t_inputrecP7t_state.ind0, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i32, ptr @__const._Z13get_enx_stateRKNSt10filesystem7__cxx114pathEfRK16SimulationGroupsP10t_inputrecP7t_state.ind0, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !57
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [3 x [3 x float]], ptr %73, i64 0, i64 %90
-  %92 = getelementptr inbounds nuw [6 x i32], ptr @__const._Z13get_enx_stateRKNSt10filesystem7__cxx114pathEfRK16SimulationGroupsP10t_inputrecP7t_state.ind1, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds [3 x float], ptr %73, i64 %90
+  %92 = getelementptr inbounds nuw i32, ptr @__const._Z13get_enx_stateRKNSt10filesystem7__cxx114pathEfRK16SimulationGroupsP10t_inputrecP7t_state.ind1, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4, !tbaa !57
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [3 x float], ptr %91, i64 0, i64 %94
+  %95 = getelementptr inbounds float, ptr %91, i64 %94
   store float %87, ptr %95, align 4, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

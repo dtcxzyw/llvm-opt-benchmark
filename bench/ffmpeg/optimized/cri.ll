@@ -411,7 +411,7 @@ bytestream2_get_le32.exit267:                     ; preds = %141, %142
 bytestream2_get_le64.exit:                        ; preds = %152, %153
   %156 = phi ptr [ %29, %152 ], [ %154, %153 ]
   %.0.i271 = phi i64 [ 0, %152 ], [ %155, %153 ]
-  %157 = getelementptr inbounds nuw [4 x i64], ptr %24, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
   store i64 %.0.i271, ptr %157, align 8, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -530,7 +530,7 @@ bytestream2_get_le64.exit:                        ; preds = %152, %153
 
 188:                                              ; preds = %.preheader295, %187
   %indvars.iv346 = phi i64 [ 0, %.preheader295 ], [ %indvars.iv.next347, %187 ]
-  %189 = getelementptr inbounds nuw [4 x i64], ptr %184, i64 0, i64 %indvars.iv346
+  %189 = getelementptr inbounds nuw i64, ptr %184, i64 %indvars.iv346
   %190 = load i64, ptr %189, align 8, !tbaa !51
   %.not229 = icmp ult i64 %190, %186
   br i1 %.not229, label %187, label %.critedge248.thread
@@ -710,7 +710,7 @@ bytestream2_init.exit251:                         ; preds = %226
   %284 = load ptr, ptr %217, align 8, !tbaa !33
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 24
   store ptr %283, ptr %285, align 8, !tbaa !42
-  %286 = getelementptr inbounds nuw [4 x i64], ptr %218, i64 0, i64 %indvars.iv350
+  %286 = getelementptr inbounds nuw i64, ptr %218, i64 %indvars.iv350
   %287 = load i64, ptr %286, align 8, !tbaa !51
   %288 = trunc i64 %287 to i32
   %289 = getelementptr inbounds nuw i8, ptr %284, i64 32

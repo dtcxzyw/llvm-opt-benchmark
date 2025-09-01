@@ -187,7 +187,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc6
   %14 = extractvalue { i1, i8 } %13, 1
   %15 = zext i8 %14 to i64
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw [256 x i32], ptr %16, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   %.not5 = icmp eq i32 %18, %3
@@ -331,7 +331,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
   %13 = extractvalue { i1, i8 } %10, 1
   %14 = zext i8 %13 to i64
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %14
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %19
@@ -352,7 +352,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
 26:                                               ; preds = %23
   %27 = extractvalue { i1, i8 } %24, 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %17, %30
   br i1 %.not, label %23, label %.loopexit
@@ -408,7 +408,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
 23:                                               ; preds = %18
   %24 = extractvalue { i1, i8 } %17, 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %25
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
   %.not5 = icmp eq i32 %27, %4
@@ -470,7 +470,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
   br i1 %17, label %._crit_edge, label %.lr.ph
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %9
+  %19 = getelementptr inbounds i8, ptr %2, i64 %9
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %11, label %23
@@ -485,7 +485,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
   br i1 %25, label %26, label %29, !prof !3
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %24
+  %27 = getelementptr inbounds i8, ptr %2, i64 %24
   store i8 1, ptr %27, align 1
   %28 = tail call align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %1, i32 %7, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.16)
   tail call void @"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$5shake17hf5adeaeec972d5b7E"(ptr align 8 %28, ptr align 8 %1, ptr nonnull align 1 %2, i64 %3)
@@ -507,7 +507,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
   br i1 %31, label %32, label %38, !prof !3
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %30
+  %33 = getelementptr inbounds i8, ptr %2, i64 %30
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %.backedge, label %39
@@ -527,7 +527,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
   br i1 %41, label %42, label %45, !prof !3
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %40
+  %43 = getelementptr inbounds i8, ptr %2, i64 %40
   store i8 1, ptr %43, align 1
   %44 = call align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr align 8 %1, i32 %.sroa.2.0.extract.trunc14, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.19)
   call void @"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$5shake17hf5adeaeec972d5b7E"(ptr align 8 %44, ptr align 8 %1, ptr nonnull align 1 %2, i64 %3)

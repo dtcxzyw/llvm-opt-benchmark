@@ -1300,10 +1300,10 @@ _ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit: ; preds = %80, %82
 
 85:                                               ; preds = %.lr.ph, %85
   %.027 = phi i64 [ 0, %.lr.ph ], [ %90, %85 ]
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %58, i64 0, i64 %.027
+  %86 = getelementptr inbounds nuw ptr, ptr %58, i64 %.027
   %87 = load ptr, ptr %86, align 8, !tbaa !3
   %88 = call noundef ptr @_ZN4lean20sharecommon_quick_fn5visitEP11lean_object(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %87)
-  %89 = getelementptr inbounds nuw [0 x ptr], ptr %59, i64 0, i64 %.027
+  %89 = getelementptr inbounds nuw ptr, ptr %59, i64 %.027
   store ptr %88, ptr %89, align 8, !tbaa !3
   %90 = add nuw i64 %.027, 1
   %exitcond.not = icmp eq i64 %90, %.val.i18
@@ -2740,7 +2740,7 @@ _ZN4lean14sharecommon_fn14clear_childrenEv.exit:  ; preds = %2, %_ZSt8_DestroyIP
 9:                                                ; preds = %.lr.ph, %9
   %.01823 = phi i1 [ false, %.lr.ph ], [ %spec.select, %9 ]
   %.01922 = phi i64 [ 0, %.lr.ph ], [ %13, %9 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.01922
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01922
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = tail call noundef zeroext i1 @_ZN4lean14sharecommon_fn10push_childEP11lean_object(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %11)
   %not. = xor i1 %12, true
@@ -2806,7 +2806,7 @@ _ZN4lean14sharecommon_fn14clear_childrenEv.exit:  ; preds = %2, %_ZSt8_DestroyIP
 
 _ZL8lean_incP11lean_object.exit:                  ; preds = %35, %34, %32, %24
   %36 = phi ptr [ %.pre31, %35 ], [ %27, %34 ], [ %27, %32 ], [ %27, %24 ]
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %.024
+  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %.024
   store ptr %36, ptr %37, align 8, !tbaa !3
   %38 = add nuw i64 %.024, 1
   %exitcond30.not = icmp eq i64 %38, %.val.i

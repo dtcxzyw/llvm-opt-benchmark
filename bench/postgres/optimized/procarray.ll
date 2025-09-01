@@ -244,7 +244,7 @@ define dso_local void @ProcArrayAdd(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, %8
   br i1 %27, label %._crit_edge.loopexit.split.loop.exit, label %28
@@ -263,9 +263,9 @@ define dso_local void @ProcArrayAdd(ptr noundef %0) local_unnamed_addr #0 {
   %30 = sub i32 %16, %.0.lcssa
   %31 = add i32 %.0.lcssa, 1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [0 x i32], ptr %19, i64 0, i64 %32
+  %33 = getelementptr inbounds i32, ptr %19, i64 %32
   %34 = zext nneg i32 %.0.lcssa to i64
-  %35 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %19, i64 %34
   %36 = sext i32 %30 to i64
   %37 = shl nsw i64 %36, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %33, ptr nonnull align 4 %35, i64 %37, i1 false)
@@ -330,7 +330,7 @@ define dso_local void @ProcArrayAdd(ptr noundef %0) local_unnamed_addr #0 {
 
 83:                                               ; preds = %.lr.ph52, %83
   %indvars.iv55 = phi i64 [ %32, %.lr.ph52 ], [ %indvars.iv.next56, %83 ]
-  %84 = getelementptr inbounds [0 x i32], ptr %19, i64 0, i64 %indvars.iv55
+  %84 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv55
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds %struct.PGPROC, ptr %82, i64 %86, i32 8
@@ -442,10 +442,10 @@ MaintainLatestCompletedXid.exit:                  ; preds = %12, %17
   %44 = xor i32 %11, -1
   %45 = add i32 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %47 = getelementptr inbounds [0 x i32], ptr %46, i64 0, i64 %.pre-phi
+  %47 = getelementptr inbounds i32, ptr %46, i64 %.pre-phi
   %48 = add i32 %11, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [0 x i32], ptr %46, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr %46, i64 %49
   %51 = sext i32 %45 to i64
   %52 = shl nsw i64 %51, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %47, ptr nonnull align 4 %50, i64 %52, i1 false)
@@ -471,7 +471,7 @@ MaintainLatestCompletedXid.exit:                  ; preds = %12, %17
   %69 = load i32, ptr %3, align 4
   %70 = add i32 %69, -1
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [0 x i32], ptr %46, i64 0, i64 %71
+  %72 = getelementptr inbounds i32, ptr %46, i64 %71
   store i32 -1, ptr %72, align 4
   %73 = load i32, ptr %3, align 4
   %74 = add i32 %73, -1
@@ -494,7 +494,7 @@ MaintainLatestCompletedXid.exit:                  ; preds = %12, %17
 
 81:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ %.pre-phi, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %82 = getelementptr inbounds [0 x i32], ptr %46, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds %struct.PGPROC, ptr %76, i64 %84, i32 8
@@ -1867,7 +1867,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
   %70 = getelementptr inbounds nuw %struct.XidCacheStatus, ptr %38, i64 %indvars.iv89
   %71 = load i8, ptr %70, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !29
-  %72 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv89
+  %72 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv89
   %73 = load i32, ptr %72, align 4
   %74 = load ptr, ptr @allProcs, align 8
   %75 = sext i32 %73 to i64
@@ -1882,7 +1882,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
 
 79:                                               ; preds = %.critedge
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %80 = getelementptr inbounds nuw [64 x i32], ptr %76, i64 0, i64 %indvars.iv.next
+  %80 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next
   %81 = load volatile i32, ptr %80, align 4
   %.not65 = icmp eq i32 %81, %0
   br i1 %.not65, label %92, label %.critedge, !llvm.loop !30
@@ -2144,7 +2144,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsActive(i32 noundef %0) local
 
 16:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %17 = getelementptr inbounds nuw [0 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %20 = load volatile i32, ptr %19, align 4
@@ -2330,7 +2330,7 @@ define internal fastcc void @ComputeXidHorizons(ptr noundef nonnull captures(non
 
 33:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %34 = getelementptr inbounds nuw [0 x i32], ptr %32, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = load ptr, ptr @allProcs, align 8
   %37 = sext i32 %35 to i64
@@ -3381,7 +3381,7 @@ define dso_local noundef zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %0
   %14 = phi ptr [ %.pre40, %.lr.ph ], [ %48, %46 ]
   %15 = phi ptr [ %.pre38, %.lr.ph ], [ %49, %46 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %16 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %struct.PGPROC, ptr %15, i64 %18
@@ -3579,7 +3579,7 @@ define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_
   br i1 %43, label %44, label %53
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw [0 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %47 = load ptr, ptr @allProcs, align 8
   %48 = sext i32 %46 to i64
@@ -3644,7 +3644,7 @@ define dso_local noundef nonnull ptr @GetRunningTransactionData() local_unnamed_
 77:                                               ; preds = %73
   %78 = zext i8 %76 to i32
   %79 = load ptr, ptr @allProcs, align 8
-  %80 = getelementptr inbounds nuw [0 x i32], ptr %72, i64 0, i64 %indvars.iv91
+  %80 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv91
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !47
@@ -3859,7 +3859,7 @@ define dso_local ptr @GetVirtualXIDsDelayingChkpt(ptr noundef writeonly captures
   %17 = phi i32 [ %12, %.lr.ph ], [ %35, %34 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.019 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
-  %18 = getelementptr inbounds nuw [0 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %struct.PGPROC, ptr %15, i64 %20
@@ -3927,7 +3927,7 @@ define dso_local noundef zeroext i1 @HaveVirtualXIDsDelayingChkpt(ptr noundef re
 
 .lr.ph44.split.us:                                ; preds = %.lr.ph44.split.us.preheader, %.thread.us
   %indvars.iv48 = phi i64 [ 0, %.lr.ph44.split.us.preheader ], [ %indvars.iv.next49, %.thread.us ]
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv48
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv48
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %struct.PGPROC, ptr %11, i64 %15
@@ -4082,7 +4082,7 @@ define dso_local ptr @BackendPidGetProc(i32 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %15
@@ -4127,7 +4127,7 @@ define dso_local ptr @BackendPidGetProcWithLock(i32 noundef %0) local_unnamed_ad
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.PGPROC, ptr %6, i64 %12
@@ -4176,7 +4176,7 @@ define dso_local i32 @BackendXidGetPid(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %19 = getelementptr inbounds nuw [0 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = load ptr, ptr @allProcs, align 8
   %22 = sext i32 %20 to i64
@@ -4223,7 +4223,7 @@ define dso_local zeroext i1 @IsBackendPid(i32 noundef %0) local_unnamed_addr #0 
 
 12:                                               ; preds = %11, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %11 ]
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %15
@@ -4274,7 +4274,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %18 = phi ptr [ %51, %50 ], [ %.pre75, %.lr.ph ]
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %50 ], [ 0, %.lr.ph ]
   %.036.us = phi i32 [ %.1.us, %50 ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv65
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv65
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds %struct.PGPROC, ptr %18, i64 %21
@@ -4347,7 +4347,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %57 = phi ptr [ %91, %89 ], [ %.pre72, %.lr.ph.split.split.us ]
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %89 ], [ 0, %.lr.ph.split.split.us ]
   %.036.us37 = phi i32 [ %.1.us43, %89 ], [ 0, %.lr.ph.split.split.us ]
-  %58 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv62
+  %58 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv62
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds %struct.PGPROC, ptr %.pre75, i64 %60
@@ -4414,7 +4414,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %94 = phi ptr [ %128, %127 ], [ %.pre75, %.lr.ph.split.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ 0, %.lr.ph.split.split ]
   %.036.us46 = phi i32 [ %.1.us52, %127 ], [ 0, %.lr.ph.split.split ]
-  %95 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds %struct.PGPROC, ptr %94, i64 %97
@@ -4477,7 +4477,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %132 = phi ptr [ %168, %167 ], [ %.pre75, %.lr.ph.split.split ]
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %167 ], [ 0, %.lr.ph.split.split ]
   %.036 = phi i32 [ %.1, %167 ], [ 0, %.lr.ph.split.split ]
-  %133 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv59
+  %133 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv59
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds %struct.PGPROC, ptr %132, i64 %135
@@ -4598,7 +4598,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %27 = phi i32 [ %47, %46 ], [ %22, %.lr.ph.split.us ]
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %46 ], [ 0, %.lr.ph.split.us ]
   %.029.us.us = phi i32 [ %.1.us.us, %46 ], [ 0, %.lr.ph.split.us ]
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv48
+  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv48
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds %struct.PGPROC, ptr %25, i64 %30
@@ -4639,7 +4639,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %50 = phi i32 [ %74, %73 ], [ %22, %.lr.ph.split.us ]
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %73 ], [ 0, %.lr.ph.split.us ]
   %.029.us = phi i32 [ %.1.us, %73 ], [ 0, %.lr.ph.split.us ]
-  %51 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv45
+  %51 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv45
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds %struct.PGPROC, ptr %25, i64 %53
@@ -4689,7 +4689,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %77 = phi ptr [ %101, %100 ], [ %25, %.lr.ph.split ]
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %100 ], [ 0, %.lr.ph.split ]
   %.029.us30 = phi i32 [ %.1.us34, %100 ], [ 0, %.lr.ph.split ]
-  %78 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv42
+  %78 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv42
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds %struct.PGPROC, ptr %77, i64 %80
@@ -4740,7 +4740,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %105 = phi ptr [ %133, %132 ], [ %25, %.lr.ph.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %132 ], [ 0, %.lr.ph.split ]
   %.029 = phi i32 [ %.1, %132 ], [ 0, %.lr.ph.split ]
-  %106 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds %struct.PGPROC, ptr %105, i64 %108
@@ -4830,7 +4830,7 @@ define dso_local i32 @CancelVirtualTransaction(i64 %0, i32 noundef %1) local_unn
 
 11:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
-  %12 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds %struct.PGPROC, ptr %10, i64 %14
@@ -4892,7 +4892,7 @@ define dso_local i32 @SignalVirtualTransaction(i64 %0, i32 noundef %1, i1 nounde
 
 13:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %14 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds %struct.PGPROC, ptr %12, i64 %16
@@ -4955,7 +4955,7 @@ define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed
 9:                                                ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.01833 = phi i32 [ 0, %.lr.ph ], [ %.231, %.thread ]
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.PGPROC, ptr %7, i64 %12
@@ -5023,7 +5023,7 @@ define dso_local i32 @CountDBBackends(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.014.us = phi i32 [ %spec.select, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv18
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv18
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %12, i32 7
@@ -5038,7 +5038,7 @@ define dso_local i32 @CountDBBackends(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %.lr.ph ]
   %.014 = phi i32 [ %.1, %29 ], [ 0, %.lr.ph ]
-  %17 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %19
@@ -5089,7 +5089,7 @@ define dso_local i32 @CountDBConnections(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %21
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %21 ], [ 0, %.lr.ph ]
   %.015.us = phi i32 [ %.1.us, %21 ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv19
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv19
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %12
@@ -5114,7 +5114,7 @@ define dso_local i32 @CountDBConnections(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.lr.ph ]
   %.015 = phi i32 [ %.1, %38 ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %24
@@ -5171,7 +5171,7 @@ define dso_local void @CancelDBBackends(i32 noundef %0, i32 noundef %1, i1 nound
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %25
   %13 = phi ptr [ %26, %25 ], [ %.pre26, %.lr.ph ]
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %25 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv21
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv21
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds %struct.PGPROC, ptr %13, i64 %16
@@ -5200,7 +5200,7 @@ define dso_local void @CancelDBBackends(i32 noundef %0, i32 noundef %1, i1 nound
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %30 = phi ptr [ %47, %46 ], [ %.pre26, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
-  %31 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.PGPROC, ptr %30, i64 %33
@@ -5258,7 +5258,7 @@ define dso_local i32 @CountUserBackends(i32 noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.013 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
-  %11 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %struct.PGPROC, ptr %9, i64 %13
@@ -5331,7 +5331,7 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.03043 = phi i32 [ 0, %.lr.ph ], [ %.131, %49 ]
   %.03541 = phi i1 [ false, %.lr.ph ], [ %.136, %49 ]
-  %18 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %struct.PGPROC, ptr %16, i64 %20
@@ -5374,7 +5374,7 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %45 = load i32, ptr %32, align 4
   %46 = add nsw i32 %.03043, 1
   %47 = sext i32 %.03043 to i64
-  %48 = getelementptr inbounds [10 x i32], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds i32, ptr %4, i64 %47
   store i32 %45, ptr %48, align 4
   br label %49
 
@@ -5403,7 +5403,7 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
   %indvars.iv49 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next50, %.lr.ph46 ]
-  %56 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv49
+  %56 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv49
   %57 = load i32, ptr %56, align 4
   %58 = tail call i32 @kill(i32 noundef %57, i32 noundef 15) #15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
@@ -5465,7 +5465,7 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.084 = phi ptr [ null, %.lr.ph ], [ %.1, %30 ]
   %.03883 = phi i32 [ 0, %.lr.ph ], [ %.139, %30 ]
-  %16 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %struct.PGPROC, ptr %15, i64 %18
@@ -5575,7 +5575,7 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
 
 66:                                               ; preds = %65, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
-  %67 = getelementptr inbounds nuw [0 x i32], ptr %64, i64 0, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.i.i
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds %struct.PGPROC, ptr %63, i64 %69
@@ -5669,7 +5669,7 @@ BackendPidGetProc.exit.thread:                    ; preds = %52, %BackendPidGetP
 
 117:                                              ; preds = %116, %.lr.ph.i.i62
   %indvars.iv.i.i64 = phi i64 [ 0, %.lr.ph.i.i62 ], [ %indvars.iv.next.i.i65, %116 ]
-  %118 = getelementptr inbounds nuw [0 x i32], ptr %115, i64 0, i64 %indvars.iv.i.i64
+  %118 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i.i64
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds %struct.PGPROC, ptr %114, i64 %120, i32 7
@@ -5829,15 +5829,15 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
 
 26:                                               ; preds = %25
   %27 = add nsw i64 %indvars.iv, -1
-  %28 = getelementptr inbounds nuw [64 x i32], ptr %23, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %19
   br i1 %30, label %31, label %25, !llvm.loop !70
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw [64 x i32], ptr %23, i64 0, i64 %27
-  %33 = add nsw i64 %24, -1
-  %34 = getelementptr inbounds [64 x i32], ptr %23, i64 0, i64 %33
+  %32 = getelementptr inbounds nuw i32, ptr %23, i64 %27
+  %33 = getelementptr i32, ptr %23, i64 %24
+  %34 = getelementptr i8, ptr %33, i64 -4
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %32, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !71
@@ -5890,15 +5890,15 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
 
 58:                                               ; preds = %57
   %59 = add nsw i64 %indvars.iv39, -1
-  %60 = getelementptr inbounds nuw [64 x i32], ptr %55, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, %0
   br i1 %62, label %63, label %57, !llvm.loop !73
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw [64 x i32], ptr %55, i64 0, i64 %59
-  %65 = add nsw i64 %56, -1
-  %66 = getelementptr inbounds [64 x i32], ptr %55, i64 0, i64 %65
+  %64 = getelementptr inbounds nuw i32, ptr %55, i64 %59
+  %65 = getelementptr i32, ptr %55, i64 %56
+  %66 = getelementptr i8, ptr %65, i64 -4
   %67 = load i32, ptr %66, align 4
   store i32 %67, ptr %64, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !74

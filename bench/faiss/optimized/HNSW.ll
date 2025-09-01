@@ -3755,7 +3755,7 @@ _ZNSt14priority_queueIN5faiss4HNSW14NodeDistCloserESt6vectorIS2_SaIS2_EESt4lessI
 231:                                              ; preds = %224
   store i8 %229, ptr %227, align 1, !tbaa !17
   %232 = sext i32 %.064194 to i64
-  %233 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %232
+  %233 = getelementptr inbounds i32, ptr %19, i64 %232
   store i32 %222, ptr %233, align 4, !tbaa !19
   %234 = add nsw i32 %.064194, 1
   %235 = icmp eq i32 %234, 4
@@ -3793,9 +3793,9 @@ _ZNSt14priority_queueIN5faiss4HNSW14NodeDistCloserESt6vectorIS2_SaIS2_EESt4lessI
 .preheader:                                       ; preds = %.preheader.preheader, %359
   %251 = phi ptr [ %360, %359 ], [ %.pre, %.preheader.preheader ]
   %.056193 = phi i64 [ %361, %359 ], [ 0, %.preheader.preheader ]
-  %252 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %.056193
+  %252 = getelementptr inbounds nuw i32, ptr %19, i64 %.056193
   %253 = load i32, ptr %252, align 4, !tbaa !19
-  %254 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.056193
+  %254 = getelementptr inbounds nuw float, ptr %20, i64 %.056193
   %255 = load float, ptr %254, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -4076,7 +4076,7 @@ _ZNSt14priority_queueIN5faiss4HNSW14NodeDistCloserESt6vectorIS2_SaIS2_EESt4lessI
 
 .lr.ph200:                                        ; preds = %._crit_edge, %478
   %.055198 = phi i64 [ %479, %478 ], [ 0, %._crit_edge ]
-  %366 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %.055198
+  %366 = getelementptr inbounds nuw i32, ptr %19, i64 %.055198
   %367 = load i32, ptr %366, align 4, !tbaa !19
   %368 = sext i32 %367 to i64
   %369 = load ptr, ptr %1, align 8, !tbaa !21
@@ -6070,7 +6070,7 @@ define void @_ZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerE
 42:                                               ; preds = %.lr.ph
   %43 = add i64 %.057, 1
   %44 = sext i32 %.03456 to i64
-  %45 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %44
+  %45 = getelementptr inbounds i32, ptr %7, i64 %44
   store i32 %40, ptr %45, align 4, !tbaa !19
   %46 = add nsw i32 %.03456, 1
   %47 = icmp eq i32 %46, 4
@@ -6096,13 +6096,13 @@ define void @_ZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerE
 60:                                               ; preds = %48, %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit"
   %.03354 = phi i64 [ 0, %48 ], [ %69, %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit" ]
   %61 = phi float [ %.promoted, %48 ], [ %68, %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit" ]
-  %62 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.03354
+  %62 = getelementptr inbounds nuw float, ptr %8, i64 %.03354
   %63 = load float, ptr %62, align 4, !tbaa !127
   %64 = fcmp olt float %63, %61
   br i1 %64, label %65, label %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit"
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.03354
+  %66 = getelementptr inbounds nuw i32, ptr %7, i64 %.03354
   %67 = load i32, ptr %66, align 4, !tbaa !19
   store i32 %67, ptr %4, align 4, !tbaa !19
   store float %63, ptr %5, align 4, !tbaa !127
@@ -6142,7 +6142,7 @@ define void @_ZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerE
 
 .lr.ph63:                                         ; preds = %.thread51, %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit45"
   %.03262 = phi i64 [ %86, %"_ZZN5faiss21greedy_update_nearestERKNS_4HNSWERNS_16DistanceComputerEiRiRfENK3$_0clEif.exit45" ], [ 0, %.thread51 ]
-  %76 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.03262
+  %76 = getelementptr inbounds nuw i32, ptr %7, i64 %.03262
   %77 = load i32, ptr %76, align 4, !tbaa !19
   %78 = sext i32 %77 to i64
   %79 = load ptr, ptr %2, align 8, !tbaa !21
@@ -6551,7 +6551,7 @@ _ZN5faiss4HNSW11MinimaxHeap11count_belowEf.exit:  ; preds = %163, %159
   %203 = icmp ne i8 %201, %202
   store i8 %202, ptr %200, align 1, !tbaa !17
   %204 = sext i32 %.096235 to i64
-  %205 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 %204
+  %205 = getelementptr inbounds i64, ptr %10, i64 %204
   store i64 %198, ptr %205, align 8, !tbaa !28
   %206 = zext i1 %203 to i32
   %207 = add nsw i32 %.096235, %206
@@ -6579,9 +6579,9 @@ _ZN5faiss4HNSW11MinimaxHeap11count_belowEf.exit:  ; preds = %163, %159
   %.090232 = phi i64 [ 0, %209 ], [ %323, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit ]
   %.5185231 = phi i32 [ %.3183234, %209 ], [ %.7, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit ]
   %.4190230 = phi float [ %.2188233, %209 ], [ %.6192, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit ]
-  %220 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %.090232
+  %220 = getelementptr inbounds nuw i64, ptr %10, i64 %.090232
   %221 = load i64, ptr %220, align 8, !tbaa !28
-  %222 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.090232
+  %222 = getelementptr inbounds nuw float, ptr %11, i64 %.090232
   %223 = load float, ptr %222, align 4, !tbaa !127
   br i1 %.not.i127, label %229, label %224
 
@@ -6814,7 +6814,7 @@ _ZN5faiss4HNSW11MinimaxHeap4pushEif.exit:         ; preds = %242, %_ZN5faiss9hea
   %.089246 = phi i64 [ %435, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit160 ], [ 0, %.preheader ]
   %.6245 = phi i32 [ %.8, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit160 ], [ %.4184, %.preheader ]
   %.5191244 = phi float [ %.7193, %_ZN5faiss4HNSW11MinimaxHeap4pushEif.exit160 ], [ %.3189, %.preheader ]
-  %330 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %.089246
+  %330 = getelementptr inbounds nuw i64, ptr %10, i64 %.089246
   %331 = load i64, ptr %330, align 8, !tbaa !28
   %332 = load ptr, ptr %1, align 8, !tbaa !21
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
@@ -7540,7 +7540,7 @@ define void @_ZN5faiss31search_from_candidate_unboundedERKNS_4HNSWERKSt4pairIfiE
   %88 = icmp ne i8 %86, %87
   store i8 %87, ptr %85, align 1, !tbaa !17
   %89 = sext i32 %.057218 to i64
-  %90 = getelementptr inbounds [4 x i64], ptr %13, i64 0, i64 %89
+  %90 = getelementptr inbounds i64, ptr %13, i64 %89
   store i64 %83, ptr %90, align 8, !tbaa !28
   %91 = zext i1 %88 to i32
   %92 = add nsw i32 %.057218, %91
@@ -7576,9 +7576,9 @@ define void @_ZN5faiss31search_from_candidate_unboundedERKNS_4HNSWERKSt4pairIfiE
 .preheader:                                       ; preds = %.preheader.preheader, %248
   %106 = phi ptr [ %249, %248 ], [ %.pre250, %.preheader.preheader ]
   %.051217 = phi i64 [ %250, %248 ], [ 0, %.preheader.preheader ]
-  %107 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %.051217
+  %107 = getelementptr inbounds nuw i64, ptr %13, i64 %.051217
   %108 = load i64, ptr %107, align 8, !tbaa !28
-  %109 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.051217
+  %109 = getelementptr inbounds nuw float, ptr %14, i64 %.051217
   %110 = load float, ptr %109, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -7922,7 +7922,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_E
 
 .lr.ph227:                                        ; preds = %.lr.ph227.preheader, %399
   %.050225 = phi i64 [ %400, %399 ], [ 0, %.lr.ph227.preheader ]
-  %255 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %.050225
+  %255 = getelementptr inbounds nuw i64, ptr %13, i64 %.050225
   %256 = load i64, ptr %255, align 8, !tbaa !28
   %257 = load ptr, ptr %3, align 8, !tbaa !21
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8

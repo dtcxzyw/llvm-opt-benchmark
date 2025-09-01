@@ -3198,7 +3198,7 @@ define dso_local zeroext i1 @do_pset(ptr noundef %0, ptr noundef %1, ptr noundef
 .preheader:                                       ; preds = %.thread259, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.thread259 ]
   %.0186244 = phi i32 [ %.1187, %24 ], [ -1, %.thread259 ]
-  %13 = getelementptr inbounds nuw [8 x %struct.fmt], ptr @do_pset.formats, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.fmt, ptr @do_pset.formats, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16
   %15 = tail call i32 @pg_strncasecmp(ptr noundef %14, ptr noundef %1, i64 noundef %10) #17
   %16 = icmp eq i32 %15, 0
@@ -3211,7 +3211,7 @@ define dso_local zeroext i1 @do_pset(ptr noundef %0, ptr noundef %1, ptr noundef
 
 20:                                               ; preds = %17
   %21 = zext nneg i32 %.0186244 to i64
-  %22 = getelementptr inbounds nuw [8 x %struct.fmt], ptr @do_pset.formats, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.fmt, ptr @do_pset.formats, i64 %21
   %23 = load ptr, ptr %22, align 16
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef %23, ptr noundef %14) #17
   br label %printPsetInfo.exit
@@ -3228,7 +3228,7 @@ define dso_local zeroext i1 @do_pset(ptr noundef %0, ptr noundef %1, ptr noundef
 
 26:                                               ; preds = %.critedge
   %27 = zext nneg i32 %.1187 to i64
-  %28 = getelementptr inbounds nuw [8 x %struct.fmt], ptr @do_pset.formats, i64 0, i64 %27, i32 1
+  %28 = getelementptr inbounds nuw %struct.fmt, ptr @do_pset.formats, i64 %27, i32 1
   %29 = load i32, ptr %28, align 8
   br label %.critedge197
 
@@ -4025,7 +4025,7 @@ sub_0.i:                                          ; preds = %304
 
 switch.lookup:                                    ; preds = %378
   %381 = zext nneg i32 %379 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.exec_command_pset, i64 0, i64 %381
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.exec_command_pset, i64 %381
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_align2string.exit.i
 
@@ -4569,7 +4569,7 @@ define internal fastcc range(i32 1, 3) i32 @exec_command_crosstabview(ptr nounde
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
-  %4 = getelementptr inbounds nuw [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 %indvars.iv
   store ptr %3, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -6903,7 +6903,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_pset(ptr noundef %0, i1
 
 .preheader:                                       ; preds = %5, %pset_value_string.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %pset_value_string.exit ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw [23 x ptr], ptr @exec_command_pset.my_list, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @exec_command_pset.my_list, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.44) #18
   %10 = icmp eq i32 %9, 0
@@ -7080,7 +7080,7 @@ pset_quoted_string.exit69.i:                      ; preds = %59
 
 switch.lookup:                                    ; preds = %88
   %91 = zext nneg i32 %89 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.exec_command_pset, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.exec_command_pset, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_align2string.exit.i
 
@@ -8987,7 +8987,7 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw [100 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %7, ptr %9, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 100
   br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !28
@@ -9024,7 +9024,7 @@ define internal fastcc zeroext i1 @exec_command_dfo(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv24 = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next25, %.lr.ph ]
-  %23 = getelementptr inbounds nuw [100 x ptr], ptr %6, i64 0, i64 %indvars.iv24
+  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv24
   %24 = load ptr, ptr %23, align 8
   call void @free(ptr noundef %24) #17
   %indvars.iv.next25 = add nsw i64 %indvars.iv24, -1

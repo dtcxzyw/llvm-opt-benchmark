@@ -331,9 +331,9 @@ define dso_local i64 @LZ4IO_setBlockSizeID(ptr noundef writeonly captures(none) 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %5, align 4, !tbaa !17
-  %6 = add nsw i32 %1, -4
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [4 x i64], ptr @LZ4IO_setBlockSizeID.blockSizeTable, i64 0, i64 %7
+  %6 = zext nneg i32 %1 to i64
+  %7 = getelementptr i64, ptr @LZ4IO_setBlockSizeID.blockSizeTable, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -32
   %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %10, align 8, !tbaa !18
@@ -5902,7 +5902,7 @@ LZ4IO_skipBlocksData.exit.i:                      ; preds = %238, %237, %230
   %256 = add i64 %.sroa.11.2, 1
   %257 = load i32, ptr %25, align 8, !tbaa !141
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw [3 x ptr], ptr @LZ4IO_frameTypeNames, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !57
   %261 = load i32, ptr %30, align 8, !tbaa !138
   %.not115.i = icmp eq i32 %261, 0
@@ -6100,7 +6100,7 @@ LZ4IO_skipLegacyBlocksData.exit.i:                ; preds = %291, %285
   %358 = add i64 %.sroa.11.2, 1
   %359 = load i32, ptr %25, align 8, !tbaa !141
   %360 = zext i32 %359 to i64
-  %361 = getelementptr inbounds nuw [3 x ptr], ptr @LZ4IO_frameTypeNames, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %360
   %362 = load ptr, ptr %361, align 8, !tbaa !57
   %363 = add i64 %.020.i.i, 4
   %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %357, ptr noundef nonnull @.str.117, i64 noundef %358, ptr noundef %362, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41, i64 noundef %363, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41) #24
@@ -6429,7 +6429,7 @@ LZ4IO_getCompressedFileInfo.exit:                 ; preds = %.lr.ph.i
 
 507:                                              ; preds = %.thread
   %508 = zext i32 %.sroa.2967.3111 to i64
-  %509 = getelementptr inbounds nuw [3 x ptr], ptr @LZ4IO_frameTypeNames, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %508
   %510 = load ptr, ptr %509, align 8, !tbaa !57
   br label %511
 
@@ -6466,7 +6466,7 @@ LZ4IO_getCompressedFileInfo.exit:                 ; preds = %.lr.ph.i
 LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   %.06.lcssa.i = phi x86_fp80 [ %520, %518 ], [ %522, %.lr.ph.i45 ]
   %.0.lcssa.i = phi i64 [ 0, %518 ], [ %523, %.lr.ph.i45 ]
-  %525 = getelementptr inbounds nuw [10 x i8], ptr @__const.LZ4IO_toHuman.units, i64 0, i64 %.0.lcssa.i
+  %525 = getelementptr inbounds nuw i8, ptr @__const.LZ4IO_toHuman.units, i64 %.0.lcssa.i
   %526 = load i8, ptr %525, align 1, !tbaa !69
   %527 = sext i8 %526 to i32
   %528 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.124, x86_fp80 noundef %.06.lcssa.i, i32 noundef %527) #24
@@ -6489,7 +6489,7 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
 .loopexit:                                        ; preds = %.lr.ph.i46, %529
   %.06.lcssa.i49 = phi x86_fp80 [ %530, %529 ], [ %532, %.lr.ph.i46 ]
   %.0.lcssa.i50 = phi i64 [ 0, %529 ], [ %533, %.lr.ph.i46 ]
-  %535 = getelementptr inbounds nuw [10 x i8], ptr @__const.LZ4IO_toHuman.units, i64 0, i64 %.0.lcssa.i50
+  %535 = getelementptr inbounds nuw i8, ptr @__const.LZ4IO_toHuman.units, i64 %.0.lcssa.i50
   %536 = load i8, ptr %535, align 1, !tbaa !69
   %537 = sext i8 %536 to i32
   %538 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.124, x86_fp80 noundef %.06.lcssa.i49, i32 noundef %537) #24

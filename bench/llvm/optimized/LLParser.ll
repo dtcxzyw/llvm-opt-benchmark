@@ -11364,7 +11364,7 @@ _ZL23parseOptionalLinkageAuxN4llvm5lltok4KindERb.exit: ; preds = %6
 
 switch.lookup:                                    ; preds = %6
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table._ZN4llvm8LLParser20parseOptionalLinkageERjRbS1_S1_S2_, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8LLParser20parseOptionalLinkageERjRbS1_S1_S2_, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %1, align 4, !tbaa !281
   %13 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %8) #25
@@ -11396,22 +11396,22 @@ switch.lookup:                                    ; preds = %6
 
 _ZN4llvm8LLParser21parseOptionalDSOLocalERb.exit: ; preds = %16, %17, %19
   %.pr = phi i32 [ %15, %16 ], [ %18, %17 ], [ %20, %19 ]
-  %switch.tableidx17 = add i32 %.pr, -39
-  %21 = icmp ult i32 %switch.tableidx17, 3
-  br i1 %21, label %switch.lookup16, label %22
+  %switch.tableidx16 = add i32 %.pr, -39
+  %21 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %21, label %switch.lookup17, label %22
 
 22:                                               ; preds = %_ZN4llvm8LLParser21parseOptionalDSOLocalERb.exit
   store i32 0, ptr %3, align 4, !tbaa !281
   br label %_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit
 
-switch.lookup16:                                  ; preds = %_ZN4llvm8LLParser21parseOptionalDSOLocalERb.exit
-  store i32 %switch.tableidx17, ptr %3, align 4, !tbaa !281
+switch.lookup17:                                  ; preds = %_ZN4llvm8LLParser21parseOptionalDSOLocalERb.exit
+  store i32 %switch.tableidx16, ptr %3, align 4, !tbaa !281
   %23 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %8) #25
   store i32 %23, ptr %9, align 8, !tbaa !56
   br label %_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit
 
-_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit: ; preds = %22, %switch.lookup16
-  %24 = phi i32 [ %.pr, %22 ], [ %23, %switch.lookup16 ]
+_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit: ; preds = %22, %switch.lookup17
+  %24 = phi i32 [ %.pr, %22 ], [ %23, %switch.lookup17 ]
   switch i32 %24, label %_ZN4llvm8LLParser28parseOptionalDLLStorageClassERj.exit.thread [
     i32 35, label %_ZN4llvm8LLParser28parseOptionalDLLStorageClassERj.exit
     i32 36, label %25
@@ -25234,7 +25234,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser21parseScopeAndOrderingEbR
 
 switch.lookup:                                    ; preds = %8
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %3, align 4, !tbaa !921
   %19 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %9) #25
@@ -25396,7 +25396,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser13parseOrderingERNS_14Atom
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %1, align 4, !tbaa !921
   %14 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %4) #25
@@ -55048,7 +55048,7 @@ _ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionSt
 
 switch.lookup:                                    ; preds = %55
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   %63 = call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %22) #25
   store i32 %63, ptr %23, align 8, !tbaa !56
@@ -55372,7 +55372,7 @@ _ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionSt
 
 switch.lookup:                                    ; preds = %58
   %65 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8LLParser10parseStoreERPNS_11InstructionERNS0_16PerFunctionStateE, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
   %66 = call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %23) #25
   store i32 %66, ptr %24, align 8, !tbaa !56
@@ -57673,7 +57673,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser17parseCmpPredicateERjj(pt
 
 switch.lookup:                                    ; preds = %31
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm8LLParser17parseCmpPredicateERjj, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8LLParser17parseCmpPredicateERjj, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %40
 
@@ -58684,7 +58684,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %36
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZN4llvm5Value13mergeUseListsIZNS_8LLParser16sortUseListOrderEPS0_NS_8ArrayRefIjEENS_5SMLocEE3$_0EEPNS_3UseES9_S9_T_.exit.i"
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next, %"_ZN4llvm5Value13mergeUseListsIZNS_8LLParser16sortUseListOrderEPS0_NS_8ArrayRefIjEENS_5SMLocEE3$_0EEPNS_3UseES9_S9_T_.exit.i" ]
   %.03474.i = phi ptr [ %.03082.i, %.lr.ph.i.preheader ], [ %.0..0..0..0..0..0..0..0..i.i, %"_ZN4llvm5Value13mergeUseListsIZNS_8LLParser16sortUseListOrderEPS0_NS_8ArrayRefIjEENS_5SMLocEE3$_0EEPNS_3UseES9_S9_T_.exit.i" ]
-  %57 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !366
   %.not43.i = icmp eq ptr %58, null
   br i1 %.not43.i, label %._crit_edge.i.loopexit.split.loop.exit, label %59
@@ -58827,7 +58827,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_
   %123 = zext i1 %122 to i32
   %spec.select.i = add i32 %.03281.i, %123
   %124 = zext i32 %.033.lcssa.i to i64
-  %125 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw ptr, ptr %8, i64 %124
   store ptr %.034.lcssa.i, ptr %125, align 8, !tbaa !366
   %126 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %127 = load ptr, ptr %126, align 8, !tbaa !341
@@ -58856,7 +58856,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_
 128:                                              ; preds = %194, %.lr.ph90.i
   %129 = phi ptr [ %.030.lcssa126.i, %.lr.ph90.i ], [ %195, %194 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph90.i ], [ %indvars.iv.next.i, %194 ]
-  %130 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %131 = load ptr, ptr %130, align 8, !tbaa !366
   %.not42.i = icmp eq ptr %131, null
   br i1 %.not42.i, label %194, label %132
@@ -61381,7 +61381,7 @@ _ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit21.thread: ; preds = %90
 
 switch.lookup:                                    ; preds = %93
   %98 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm8LLParser21parseOptionalResByArgERSt3mapISt6vectorImSaImEENS_28WholeProgramDevirtResolution5ByArgESt4lessIS4_ESaISt4pairIKS4_S6_EEE, i64 0, i64 %98
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8LLParser21parseOptionalResByArgERSt3mapISt6vectorImSaImEENS_28WholeProgramDevirtResolution5ByArgESt4lessIS4_ESaISt4pairIKS4_S6_EEE, i64 %98
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %18, align 8, !tbaa !2299
   %99 = call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %21) #25
@@ -63754,7 +63754,7 @@ _ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit13.thread: ; preds = %37
 
 switch.lookup:                                    ; preds = %43
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i16], ptr @switch.table._ZN4llvm8LLParser12parseGVFlagsERNS_18GlobalValueSummary7GVFlagsE, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN4llvm8LLParser12parseGVFlagsERNS_18GlobalValueSummary7GVFlagsE, i64 %46
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZL23parseOptionalLinkageAuxN4llvm5lltok4KindERb.exit
 
@@ -63790,19 +63790,19 @@ _ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit15.thread: ; preds = %51
 57:                                               ; preds = %51
   %58 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %19) #25
   store i32 %58, ptr %21, align 8, !tbaa !56
-  %switch.tableidx86 = add i32 %58, -39
-  %59 = icmp ult i32 %switch.tableidx86, 3
-  br i1 %59, label %switch.lookup85, label %_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit
+  %switch.tableidx85 = add i32 %58, -39
+  %59 = icmp ult i32 %switch.tableidx85, 3
+  br i1 %59, label %switch.lookup86, label %_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit
 
-switch.lookup85:                                  ; preds = %57
-  %switch.idx.cast = trunc nuw i32 %switch.tableidx86 to i16
+switch.lookup86:                                  ; preds = %57
+  %switch.idx.cast = trunc nuw i32 %switch.tableidx85 to i16
   %switch.idx.mult = shl nuw nsw i16 %switch.idx.cast, 4
   %60 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %19) #25
   store i32 %60, ptr %21, align 8, !tbaa !56
   br label %_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit
 
-_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit: ; preds = %57, %switch.lookup85
-  %.055 = phi i16 [ %switch.idx.mult, %switch.lookup85 ], [ 0, %57 ]
+_ZN4llvm8LLParser23parseOptionalVisibilityERj.exit: ; preds = %57, %switch.lookup86
+  %.055 = phi i16 [ %switch.idx.mult, %switch.lookup86 ], [ 0, %57 ]
   %61 = load i16, ptr %1, align 4
   %62 = and i16 %61, -49
   %63 = or disjoint i16 %62, %.055

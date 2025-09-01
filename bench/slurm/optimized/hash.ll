@@ -135,7 +135,7 @@ define dso_local range(i32 -1, 1) i32 @hash_g_init() local_unnamed_addr #0 {
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [5 x i8], ptr @hash_id_to_inx, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @hash_id_to_inx, i64 %51
   store i8 %45, ptr %52, align 1
   %53 = add nsw i32 %44, 1
   store i32 %53, ptr @g_context_num, align 4
@@ -303,7 +303,7 @@ define dso_local i32 @hash_g_compute(ptr noundef %0, i32 noundef %1, ptr noundef
 
 8:                                                ; preds = %5
   %9 = zext nneg i8 %6 to i64
-  %10 = getelementptr inbounds nuw [5 x i8], ptr @hash_id_to_inx, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @hash_id_to_inx, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, -1
   br i1 %12, label %13, label %16

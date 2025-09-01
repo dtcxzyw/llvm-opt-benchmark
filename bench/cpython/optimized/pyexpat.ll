@@ -699,7 +699,7 @@ _Py_XNewRef.exit.i.i:                             ; preds = %91, %88, %82
 110:                                              ; preds = %110, %105
   %.032.i.i = phi i32 [ 0, %105 ], [ %114, %110 ]
   %111 = sext i32 %.032.i.i to i64
-  %112 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %111
+  %112 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %111
   %113 = load ptr, ptr %112, align 16, !tbaa !40
   %.not.i24.i = icmp eq ptr %113, null
   %114 = add i32 %.032.i.i, 1
@@ -751,7 +751,7 @@ Py_DECREF.exit38.i.i:                             ; preds = %125, %122, %120
   store ptr null, ptr %130, align 8, !tbaa !14
   %131 = add i32 %.016.i.i.i, 1
   %132 = sext i32 %131 to i64
-  %133 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %132
+  %133 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %132
   %134 = load ptr, ptr %133, align 16, !tbaa !40
   %.not.i40.i.i = icmp eq ptr %134, null
   br i1 %.not.i40.i.i, label %clear_handlers.exit.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !45
@@ -912,7 +912,7 @@ PyUnicode_READ.exit.thread.us:                    ; preds = %_PyUnicode_DATA.exi
   %26 = getelementptr i8, ptr %.0.i, i64 %indvars.iv45
   %27 = load i8, ptr %26, align 1, !tbaa !13
   %28 = zext i8 %27 to i32
-  %29 = getelementptr [256 x i32], ptr %2, i64 0, i64 %indvars.iv45
+  %29 = getelementptr i32, ptr %2, i64 %indvars.iv45
   store i32 %28, ptr %29, align 4, !tbaa !49
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 256
@@ -925,7 +925,7 @@ PyUnicode_READ.exit.us38:                         ; preds = %_PyUnicode_DATA.exi
   %.not26.us40 = icmp eq i16 %31, -3
   %32 = zext i16 %31 to i32
   %spec.select = select i1 %.not26.us40, i32 -1, i32 %32
-  %33 = getelementptr [256 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %33 = getelementptr i32, ptr %2, i64 %indvars.iv
   store i32 %spec.select, ptr %33, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -937,7 +937,7 @@ PyUnicode_READ.exit:                              ; preds = %_PyUnicode_DATA.exi
   %35 = load i32, ptr %34, align 4, !tbaa !49
   %.not26 = icmp eq i32 %35, 65533
   %spec.select61 = select i1 %.not26, i32 -1, i32 %35
-  %36 = getelementptr [256 x i32], ptr %2, i64 0, i64 %indvars.iv49
+  %36 = getelementptr i32, ptr %2, i64 %indvars.iv49
   store i32 %spec.select61, ptr %36, align 4, !tbaa !49
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 256
@@ -1104,7 +1104,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %52, %49, %47, %.lr.
   tail call void %54(ptr noundef %55, ptr noundef null) #8
   %56 = add i32 %.016.us.i.i, 1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %57
+  %58 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %57
   %59 = load ptr, ptr %58, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %59, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -1166,7 +1166,7 @@ Py_DECREF.exit.us.i.i114:                         ; preds = %81, %78, %76, %.lr.
   tail call void %83(ptr noundef %84, ptr noundef null) #8
   %85 = add i32 %.016.us.i.i111, 1
   %86 = sext i32 %85 to i64
-  %87 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %86
+  %87 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %86
   %88 = load ptr, ptr %87, align 16, !tbaa !40
   %.not.us.i.i115 = icmp eq ptr %88, null
   br i1 %.not.us.i.i115, label %flag_error.exit116, label %.lr.ph.split.us.i.i110, !llvm.loop !45
@@ -1245,7 +1245,7 @@ Py_DECREF.exit.us.i.i124:                         ; preds = %118, %115, %113, %.
   tail call void %120(ptr noundef %121, ptr noundef null) #8
   %122 = add i32 %.016.us.i.i121, 1
   %123 = sext i32 %122 to i64
-  %124 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %123
+  %124 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %123
   %125 = load ptr, ptr %124, align 16, !tbaa !40
   %.not.us.i.i125 = icmp eq ptr %125, null
   br i1 %.not.us.i.i125, label %flag_error.exit126, label %.lr.ph.split.us.i.i120, !llvm.loop !45
@@ -1538,7 +1538,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %33, %30, %28, %.lr.
   tail call void %35(ptr noundef %36, ptr noundef null) #8
   %37 = add i32 %.016.us.i.i, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %38
+  %39 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %38
   %40 = load ptr, ptr %39, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %40, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -1627,7 +1627,7 @@ Py_DECREF.exit.us.i.i28:                          ; preds = %72, %69, %67, %.lr.
   tail call void %74(ptr noundef %75, ptr noundef null) #8
   %76 = add i32 %.016.us.i.i25, 1
   %77 = sext i32 %76 to i64
-  %78 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %77
+  %78 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %77
   %79 = load ptr, ptr %78, align 16, !tbaa !40
   %.not.us.i.i29 = icmp eq ptr %79, null
   br i1 %.not.us.i.i29, label %flag_error.exit30, label %.lr.ph.split.us.i.i24, !llvm.loop !45
@@ -1739,7 +1739,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %34, %31, %29, %.lr.
   tail call void %36(ptr noundef %37, ptr noundef null) #8
   %38 = add i32 %.016.us.i.i, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %39
+  %40 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %39
   %41 = load ptr, ptr %40, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %41, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -1828,7 +1828,7 @@ Py_DECREF.exit.us.i.i29:                          ; preds = %73, %70, %68, %.lr.
   tail call void %75(ptr noundef %76, ptr noundef null) #8
   %77 = add i32 %.016.us.i.i26, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %78
+  %79 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %78
   %80 = load ptr, ptr %79, align 16, !tbaa !40
   %.not.us.i.i30 = icmp eq ptr %80, null
   br i1 %.not.us.i.i30, label %flag_error.exit31, label %.lr.ph.split.us.i.i25, !llvm.loop !45
@@ -2019,7 +2019,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %41, %38, %36, %.lr.
   tail call void %43(ptr noundef %44, ptr noundef null) #8
   %45 = add i32 %.016.us.i.i, 1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %46
+  %47 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %46
   %48 = load ptr, ptr %47, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %48, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -2108,7 +2108,7 @@ Py_DECREF.exit.us.i.i36:                          ; preds = %80, %77, %75, %.lr.
   tail call void %82(ptr noundef %83, ptr noundef null) #8
   %84 = add i32 %.016.us.i.i33, 1
   %85 = sext i32 %84 to i64
-  %86 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %85
+  %86 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %85
   %87 = load ptr, ptr %86, align 16, !tbaa !40
   %.not.us.i.i37 = icmp eq ptr %87, null
   br i1 %.not.us.i.i37, label %flag_error.exit38, label %.lr.ph.split.us.i.i32, !llvm.loop !45
@@ -2223,7 +2223,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %39, %36, %34, %.lr.
   tail call void %41(ptr noundef %42, ptr noundef null) #8
   %43 = add i32 %.016.us.i.i, 1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %44
+  %45 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %44
   %46 = load ptr, ptr %45, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %46, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -2312,7 +2312,7 @@ Py_DECREF.exit.us.i.i34:                          ; preds = %78, %75, %73, %.lr.
   tail call void %80(ptr noundef %81, ptr noundef null) #8
   %82 = add i32 %.016.us.i.i31, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %83
+  %84 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %83
   %85 = load ptr, ptr %84, align 16, !tbaa !40
   %.not.us.i.i35 = icmp eq ptr %85, null
   br i1 %.not.us.i.i35, label %flag_error.exit36, label %.lr.ph.split.us.i.i30, !llvm.loop !45
@@ -2425,7 +2425,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %35, %32, %30, %.lr.
   tail call void %37(ptr noundef %38, ptr noundef null) #8
   %39 = add i32 %.016.us.i.i, 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %40
+  %41 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %40
   %42 = load ptr, ptr %41, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %42, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -2514,7 +2514,7 @@ Py_DECREF.exit.us.i.i30:                          ; preds = %74, %71, %69, %.lr.
   tail call void %76(ptr noundef %77, ptr noundef null) #8
   %78 = add i32 %.016.us.i.i27, 1
   %79 = sext i32 %78 to i64
-  %80 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %79
+  %80 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %79
   %81 = load ptr, ptr %80, align 16, !tbaa !40
   %.not.us.i.i31 = icmp eq ptr %81, null
   br i1 %.not.us.i.i31, label %flag_error.exit32, label %.lr.ph.split.us.i.i26, !llvm.loop !45
@@ -2626,7 +2626,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %33, %30, %28, %.lr.
   tail call void %35(ptr noundef %36, ptr noundef null) #8
   %37 = add i32 %.016.us.i.i, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %38
+  %39 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %38
   %40 = load ptr, ptr %39, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %40, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -2715,7 +2715,7 @@ Py_DECREF.exit.us.i.i28:                          ; preds = %72, %69, %67, %.lr.
   tail call void %74(ptr noundef %75, ptr noundef null) #8
   %76 = add i32 %.016.us.i.i25, 1
   %77 = sext i32 %76 to i64
-  %78 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %77
+  %78 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %77
   %79 = load ptr, ptr %78, align 16, !tbaa !40
   %.not.us.i.i29 = icmp eq ptr %79, null
   br i1 %.not.us.i.i29, label %flag_error.exit30, label %.lr.ph.split.us.i.i24, !llvm.loop !45
@@ -2826,7 +2826,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %32, %29, %27, %.lr.
   tail call void %34(ptr noundef %35, ptr noundef null) #8
   %36 = add i32 %.016.us.i.i, 1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %37
+  %38 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %37
   %39 = load ptr, ptr %38, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %39, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -2915,7 +2915,7 @@ Py_DECREF.exit.us.i.i27:                          ; preds = %71, %68, %66, %.lr.
   tail call void %73(ptr noundef %74, ptr noundef null) #8
   %75 = add i32 %.016.us.i.i24, 1
   %76 = sext i32 %75 to i64
-  %77 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %76
+  %77 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %76
   %78 = load ptr, ptr %77, align 16, !tbaa !40
   %.not.us.i.i28 = icmp eq ptr %78, null
   br i1 %.not.us.i.i28, label %flag_error.exit29, label %.lr.ph.split.us.i.i23, !llvm.loop !45
@@ -3026,7 +3026,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %31, %28, %26, %.lr.
   tail call void %33(ptr noundef %34, ptr noundef null) #8
   %35 = add i32 %.016.us.i.i, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %36
+  %37 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %38, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -3115,7 +3115,7 @@ Py_DECREF.exit.us.i.i26:                          ; preds = %70, %67, %65, %.lr.
   tail call void %72(ptr noundef %73, ptr noundef null) #8
   %74 = add i32 %.016.us.i.i23, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %75
+  %76 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %75
   %77 = load ptr, ptr %76, align 16, !tbaa !40
   %.not.us.i.i27 = icmp eq ptr %77, null
   br i1 %.not.us.i.i27, label %flag_error.exit28, label %.lr.ph.split.us.i.i22, !llvm.loop !45
@@ -3226,7 +3226,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %31, %28, %26, %.lr.
   tail call void %33(ptr noundef %34, ptr noundef null) #8
   %35 = add i32 %.016.us.i.i, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %36
+  %37 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %38, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -3315,7 +3315,7 @@ Py_DECREF.exit.us.i.i26:                          ; preds = %70, %67, %65, %.lr.
   tail call void %72(ptr noundef %73, ptr noundef null) #8
   %74 = add i32 %.016.us.i.i23, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %75
+  %76 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %75
   %77 = load ptr, ptr %76, align 16, !tbaa !40
   %.not.us.i.i27 = icmp eq ptr %77, null
   br i1 %.not.us.i.i27, label %flag_error.exit28, label %.lr.ph.split.us.i.i22, !llvm.loop !45
@@ -3436,7 +3436,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %37, %34, %32, %.lr.
   tail call void %39(ptr noundef %40, ptr noundef null) #8
   %41 = add i32 %.016.us.i.i, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %42
+  %43 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %42
   %44 = load ptr, ptr %43, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %44, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -3525,7 +3525,7 @@ Py_DECREF.exit.us.i.i28:                          ; preds = %76, %73, %71, %.lr.
   tail call void %78(ptr noundef %79, ptr noundef null) #8
   %80 = add i32 %.016.us.i.i25, 1
   %81 = sext i32 %80 to i64
-  %82 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %81
+  %82 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %81
   %83 = load ptr, ptr %82, align 16, !tbaa !40
   %.not.us.i.i29 = icmp eq ptr %83, null
   br i1 %.not.us.i.i29, label %flag_error.exit30, label %.lr.ph.split.us.i.i24, !llvm.loop !45
@@ -3646,7 +3646,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %37, %34, %32, %.lr.
   tail call void %39(ptr noundef %40, ptr noundef null) #8
   %41 = add i32 %.016.us.i.i, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %42
+  %43 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %42
   %44 = load ptr, ptr %43, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %44, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -3735,7 +3735,7 @@ Py_DECREF.exit.us.i.i28:                          ; preds = %76, %73, %71, %.lr.
   tail call void %78(ptr noundef %79, ptr noundef null) #8
   %80 = add i32 %.016.us.i.i25, 1
   %81 = sext i32 %80 to i64
-  %82 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %81
+  %82 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %81
   %83 = load ptr, ptr %82, align 16, !tbaa !40
   %.not.us.i.i29 = icmp eq ptr %83, null
   br i1 %.not.us.i.i29, label %flag_error.exit30, label %.lr.ph.split.us.i.i24, !llvm.loop !45
@@ -3846,7 +3846,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %31, %28, %26, %.lr.
   tail call void %33(ptr noundef %34, ptr noundef null) #8
   %35 = add i32 %.016.us.i.i, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %36
+  %37 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %38, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -3935,7 +3935,7 @@ Py_DECREF.exit.us.i.i34:                          ; preds = %70, %67, %65, %.lr.
   tail call void %72(ptr noundef %73, ptr noundef null) #8
   %74 = add i32 %.016.us.i.i31, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %75
+  %76 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %75
   %77 = load ptr, ptr %76, align 16, !tbaa !40
   %.not.us.i.i35 = icmp eq ptr %77, null
   br i1 %.not.us.i.i35, label %flag_error.exit36, label %.lr.ph.split.us.i.i30, !llvm.loop !45
@@ -4053,7 +4053,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %39, %36, %34, %.lr.
   tail call void %41(ptr noundef %42, ptr noundef null) #8
   %43 = add i32 %.016.us.i.i, 1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %44
+  %45 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %44
   %46 = load ptr, ptr %45, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %46, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -4142,7 +4142,7 @@ Py_DECREF.exit.us.i.i41:                          ; preds = %78, %75, %73, %.lr.
   tail call void %80(ptr noundef %81, ptr noundef null) #8
   %82 = add i32 %.016.us.i.i38, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %83
+  %84 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %83
   %85 = load ptr, ptr %84, align 16, !tbaa !40
   %.not.us.i.i42 = icmp eq ptr %85, null
   br i1 %.not.us.i.i42, label %flag_error.exit43, label %.lr.ph.split.us.i.i37, !llvm.loop !45
@@ -4259,7 +4259,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %38, %35, %33, %.lr.
   tail call void %40(ptr noundef %41, ptr noundef null) #8
   %42 = add i32 %.016.us.i.i, 1
   %43 = sext i32 %42 to i64
-  %44 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %43
+  %44 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %43
   %45 = load ptr, ptr %44, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %45, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -4348,7 +4348,7 @@ Py_DECREF.exit.us.i.i32:                          ; preds = %77, %74, %72, %.lr.
   tail call void %79(ptr noundef %80, ptr noundef null) #8
   %81 = add i32 %.016.us.i.i29, 1
   %82 = sext i32 %81 to i64
-  %83 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %82
+  %83 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %82
   %84 = load ptr, ptr %83, align 16, !tbaa !40
   %.not.us.i.i33 = icmp eq ptr %84, null
   br i1 %.not.us.i.i33, label %flag_error.exit34, label %.lr.ph.split.us.i.i28, !llvm.loop !45
@@ -4459,7 +4459,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %31, %28, %26, %.lr.
   tail call void %33(ptr noundef %34, ptr noundef null) #8
   %35 = add i32 %.016.us.i.i, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %36
+  %37 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %38, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -4548,7 +4548,7 @@ Py_DECREF.exit.us.i.i26:                          ; preds = %70, %67, %65, %.lr.
   tail call void %72(ptr noundef %73, ptr noundef null) #8
   %74 = add i32 %.016.us.i.i23, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %75
+  %76 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %75
   %77 = load ptr, ptr %76, align 16, !tbaa !40
   %.not.us.i.i27 = icmp eq ptr %77, null
   br i1 %.not.us.i.i27, label %flag_error.exit28, label %.lr.ph.split.us.i.i22, !llvm.loop !45
@@ -4674,7 +4674,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %48, %45, %43, %.lr.
   tail call void %50(ptr noundef %51, ptr noundef null) #8
   %52 = add i32 %.016.us.i.i, 1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %53
+  %54 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %53
   %55 = load ptr, ptr %54, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %55, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -4763,7 +4763,7 @@ Py_DECREF.exit.us.i.i39:                          ; preds = %87, %84, %82, %.lr.
   tail call void %89(ptr noundef %90, ptr noundef null) #8
   %91 = add i32 %.016.us.i.i36, 1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %92
+  %93 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %92
   %94 = load ptr, ptr %93, align 16, !tbaa !40
   %.not.us.i.i40 = icmp eq ptr %94, null
   br i1 %.not.us.i.i40, label %flag_error.exit41, label %.lr.ph.split.us.i.i35, !llvm.loop !45
@@ -4874,7 +4874,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %34, %31, %29, %.lr.
   tail call void %36(ptr noundef %37, ptr noundef null) #8
   %38 = add i32 %.016.us.i.i, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %39
+  %40 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %39
   %41 = load ptr, ptr %40, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %41, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -4963,7 +4963,7 @@ Py_DECREF.exit.us.i.i28:                          ; preds = %73, %70, %68, %.lr.
   tail call void %75(ptr noundef %76, ptr noundef null) #8
   %77 = add i32 %.016.us.i.i25, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %78
+  %79 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %78
   %80 = load ptr, ptr %79, align 16, !tbaa !40
   %.not.us.i.i29 = icmp eq ptr %80, null
   br i1 %.not.us.i.i29, label %flag_error.exit30, label %.lr.ph.split.us.i.i24, !llvm.loop !45
@@ -5074,7 +5074,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %34, %31, %29, %.lr.
   tail call void %36(ptr noundef %37, ptr noundef null) #8
   %38 = add i32 %.016.us.i.i, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %39
+  %40 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %39
   %41 = load ptr, ptr %40, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %41, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -5147,7 +5147,7 @@ Py_DECREF.exit.us.i.i42:                          ; preds = %65, %62, %60, %.lr.
   tail call void %67(ptr noundef %68, ptr noundef null) #8
   %69 = add i32 %.016.us.i.i39, 1
   %70 = sext i32 %69 to i64
-  %71 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %70
+  %71 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %70
   %72 = load ptr, ptr %71, align 16, !tbaa !40
   %.not.us.i.i43 = icmp eq ptr %72, null
   br i1 %.not.us.i.i43, label %flag_error.exit44, label %.lr.ph.split.us.i.i38, !llvm.loop !45
@@ -5205,7 +5205,7 @@ Py_DECREF.exit.us.i.i51:                          ; preds = %91, %88, %86, %.lr.
   tail call void %93(ptr noundef %94, ptr noundef null) #8
   %95 = add i32 %.016.us.i.i48, 1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %96
+  %97 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %96
   %98 = load ptr, ptr %97, align 16, !tbaa !40
   %.not.us.i.i52 = icmp eq ptr %98, null
   br i1 %.not.us.i.i52, label %flag_error.exit53, label %.lr.ph.split.us.i.i47, !llvm.loop !45
@@ -5359,7 +5359,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %38, %35, %33, %.lr.
   tail call void %40(ptr noundef %41, ptr noundef null) #8
   %42 = add i32 %.016.us.i.i, 1
   %43 = sext i32 %42 to i64
-  %44 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %43
+  %44 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %43
   %45 = load ptr, ptr %44, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %45, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -5448,7 +5448,7 @@ Py_DECREF.exit.us.i.i32:                          ; preds = %77, %74, %72, %.lr.
   tail call void %79(ptr noundef %80, ptr noundef null) #8
   %81 = add i32 %.016.us.i.i29, 1
   %82 = sext i32 %81 to i64
-  %83 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %82
+  %83 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %82
   %84 = load ptr, ptr %83, align 16, !tbaa !40
   %.not.us.i.i33 = icmp eq ptr %84, null
   br i1 %.not.us.i.i33, label %flag_error.exit34, label %.lr.ph.split.us.i.i28, !llvm.loop !45
@@ -5560,7 +5560,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %34, %31, %29, %.lr.
   tail call void %36(ptr noundef %37, ptr noundef null) #8
   %38 = add i32 %.016.us.i.i, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %39
+  %40 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %39
   %41 = load ptr, ptr %40, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %41, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -5649,7 +5649,7 @@ Py_DECREF.exit.us.i.i28:                          ; preds = %73, %70, %68, %.lr.
   tail call void %75(ptr noundef %76, ptr noundef null) #8
   %77 = add i32 %.016.us.i.i25, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %78
+  %79 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %78
   %80 = load ptr, ptr %79, align 16, !tbaa !40
   %.not.us.i.i29 = icmp eq ptr %80, null
   br i1 %.not.us.i.i29, label %flag_error.exit30, label %.lr.ph.split.us.i.i24, !llvm.loop !45
@@ -5727,7 +5727,7 @@ Py_DECREF.exit.us.i:                              ; preds = %15, %12, %10, %.lr.
   tail call void %17(ptr noundef %18, ptr noundef null) #8
   %19 = add i32 %.016.us.i, 1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %20
+  %21 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %20
   %22 = load ptr, ptr %21, align 16, !tbaa !40
   %.not.us.i = icmp eq ptr %22, null
   br i1 %.not.us.i, label %clear_handlers.exit, label %.lr.ph.split.us.i, !llvm.loop !45
@@ -5916,7 +5916,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %33, %30, %28, %.lr.
   tail call void %35(ptr noundef %36, ptr noundef null) #8
   %37 = add i32 %.016.us.i.i, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %38
+  %39 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %38
   %40 = load ptr, ptr %39, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %40, null
   br i1 %.not.us.i.i, label %flag_error.exit, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -6010,7 +6010,7 @@ Py_DECREF.exit.us.i.i35:                          ; preds = %73, %70, %68, %.lr.
   tail call void %75(ptr noundef %76, ptr noundef null) #8
   %77 = add i32 %.016.us.i.i32, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %78
+  %79 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %78
   %80 = load ptr, ptr %79, align 16, !tbaa !40
   %.not.us.i.i36 = icmp eq ptr %80, null
   br i1 %.not.us.i.i36, label %flag_error.exit37, label %.lr.ph.split.us.i.i31, !llvm.loop !45
@@ -6113,7 +6113,7 @@ define internal fastcc ptr @conv_content_model(ptr noundef readonly captures(non
   br label %Py_XDECREF.exit.thread
 
 20:                                               ; preds = %10
-  %21 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %21 = getelementptr ptr, ptr %9, i64 %indvars.iv
   store ptr %13, ptr %21, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %2, align 8, !tbaa !62
@@ -6164,7 +6164,7 @@ define internal range(i32 -1, 1) i32 @pyexpat_exec(ptr noundef %0) #0 {
 11:                                               ; preds = %Py_DECREF.exit.i
   %12 = add i32 %.01923.i, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %13
+  %14 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %13
   %15 = load ptr, ptr %14, align 16, !tbaa !40
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %init_handler_descrs.exit, label %.lr.ph.i, !llvm.loop !70
@@ -6399,7 +6399,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_errors_module(ptr noundef %0) u
 
 .preheader:                                       ; preds = %7, %55
   %.033 = phi i64 [ %56, %55 ], [ 0, %7 ]
-  %10 = getelementptr [45 x %struct.ErrorInfo], ptr @error_info_of, i64 0, i64 %.033
+  %10 = getelementptr %struct.ErrorInfo, ptr @error_info_of, i64 %.033
   %11 = load ptr, ptr %10, align 16, !tbaa !104
   %12 = icmp eq ptr %11, null
   br i1 %12, label %55, label %13
@@ -6795,7 +6795,7 @@ Py_DECREF.exit.us.i.i:                            ; preds = %15, %12, %10, %.lr.
   tail call void %17(ptr noundef %18, ptr noundef null) #8
   %19 = add i32 %.016.us.i.i, 1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %20
+  %21 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %20
   %22 = load ptr, ptr %21, align 16, !tbaa !40
   %.not.us.i.i = icmp eq ptr %22, null
   br i1 %.not.us.i.i, label %clear_handlers.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !45
@@ -6904,7 +6904,7 @@ define internal i32 @xmlparse_traverse(ptr noundef readonly captures(none) %0, p
 13:                                               ; preds = %6, %11
   %14 = add i32 %.01938, 1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %15
+  %16 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %15
   %17 = load ptr, ptr %16, align 16, !tbaa !40
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !113
@@ -6972,7 +6972,7 @@ Py_DECREF.exit.us.i:                              ; preds = %15, %12, %10, %.lr.
   tail call void %17(ptr noundef %18, ptr noundef null) #8
   %19 = add i32 %.016.us.i, 1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %20
+  %21 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %20
   %22 = load ptr, ptr %21, align 16, !tbaa !40
   %.not.us.i = icmp eq ptr %22, null
   br i1 %.not.us.i, label %clear_handlers.exit, label %.lr.ph.split.us.i, !llvm.loop !45
@@ -7793,7 +7793,7 @@ Py_DECREF.exit62.i:                               ; preds = %104, %101, %99
 107:                                              ; preds = %107, %106
   %.051.i = phi i32 [ 0, %106 ], [ %111, %107 ]
   %108 = sext i32 %.051.i to i64
-  %109 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %108
+  %109 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %108
   %110 = load ptr, ptr %109, align 16, !tbaa !40
   %.not57.i = icmp eq ptr %110, null
   %111 = add i32 %.051.i, 1
@@ -7845,7 +7845,7 @@ Py_DECREF.exit.i:                                 ; preds = %122, %119, %117
   store ptr null, ptr %127, align 8, !tbaa !14
   %128 = add i32 %.016.i.i, 1
   %129 = sext i32 %128 to i64
-  %130 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %129
+  %130 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %129
   %131 = load ptr, ptr %130, align 16, !tbaa !40
   %.not.i67.i = icmp eq ptr %131, null
   br i1 %.not.i67.i, label %.lr.ph.i, label %.lr.ph.split.i.i, !llvm.loop !45
@@ -7889,7 +7889,7 @@ _Py_NewRef.exit.i:                                ; preds = %142, %139
 151:                                              ; preds = %_Py_NewRef.exit.i, %133
   %152 = add i32 %.170.i, 1
   %153 = sext i32 %152 to i64
-  %154 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %153
+  %154 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %153
   %155 = load ptr, ptr %154, align 16, !tbaa !40
   %.not59.i = icmp eq ptr %155, null
   br i1 %.not59.i, label %._crit_edge.i, label %133, !llvm.loop !125
@@ -8696,7 +8696,7 @@ flush_character_buffer.exit.thread:               ; preds = %12, %16, %flush_cha
 Py_INCREF.exit:                                   ; preds = %27, %30
   %sext = shl i64 %5, 26
   %32 = ashr i64 %sext, 32
-  %33 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %32, i32 2
+  %33 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %32, i32 2
   %34 = load ptr, ptr %33, align 16, !tbaa !124
   br label %.thread24
 
@@ -8729,7 +8729,7 @@ Py_INCREF.exit:                                   ; preds = %27, %30
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %.thread24, %40, %42, %45
-  %46 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %37, i32 1
+  %46 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %37, i32 1
   %47 = load ptr, ptr %46, align 8, !tbaa !56
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !39

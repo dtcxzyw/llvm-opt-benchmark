@@ -351,7 +351,7 @@ list_length.exit.thread:                          ; preds = %77, %list_length.ex
 
 125:                                              ; preds = %124, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %124 ]
-  %126 = getelementptr inbounds nuw [0 x i16], ptr %123, i64 0, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv.i
   %127 = load i16, ptr %126, align 2
   %128 = icmp sgt i16 %127, 0
   br i1 %128, label %124, label %.loopexit
@@ -692,7 +692,7 @@ refresh_matview_datafill.exit:                    ; preds = %175, %179
 
 307:                                              ; preds = %306, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %306 ]
-  %308 = getelementptr inbounds nuw [0 x i16], ptr %305, i64 0, i64 %indvars.iv.i.i
+  %308 = getelementptr inbounds nuw i16, ptr %305, i64 %indvars.iv.i.i
   %309 = load i16, ptr %308, align 2
   %310 = icmp sgt i16 %309, 0
   br i1 %310, label %306, label %is_usable_unique_index.exit.thread.i
@@ -722,10 +722,10 @@ is_usable_unique_index.exit.i:                    ; preds = %306
 322:                                              ; preds = %367, %.lr.ph.i
   %indvars.iv.i100 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i103, %367 ]
   %.2117.i = phi i8 [ %.0119.i125, %.lr.ph.i ], [ %.3.i102, %367 ]
-  %323 = getelementptr inbounds nuw [0 x i16], ptr %320, i64 0, i64 %indvars.iv.i100
+  %323 = getelementptr inbounds nuw i16, ptr %320, i64 %indvars.iv.i100
   %324 = load i16, ptr %323, align 2
   %325 = sext i16 %324 to i64
-  %326 = getelementptr inbounds nuw [0 x i32], ptr %321, i64 0, i64 %indvars.iv.i100
+  %326 = getelementptr inbounds nuw i32, ptr %321, i64 %indvars.iv.i100
   %327 = load i32, ptr %326, align 4
   %328 = add nsw i64 %325, -1
   %329 = load i32, ptr %266, align 8

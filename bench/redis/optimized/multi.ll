@@ -594,7 +594,7 @@ isWatchedKeyExpired.exit.thread:                  ; preds = %.backedge.i, %8, %1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4, !tbaa !89
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 96), i64 0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 96), i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   call void @addReply(ptr noundef nonnull %0, ptr noundef %44) #10
   br label %45

@@ -46972,7 +46972,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6casadi8Function12ja
   %12 = call noundef ptr @_ZNK6casadi8FunctionptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 664
   %14 = zext i1 %1 to i64
-  %15 = getelementptr inbounds nuw [2 x %"class.std::vector.41"], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"class.std::vector.41", ptr %13, i64 %14
   ret ptr %15
 
 ._crit_edge:                                      ; preds = %_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit, %.preheader

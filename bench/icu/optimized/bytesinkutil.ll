@@ -738,7 +738,7 @@ define void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5Edit
   %34 = or disjoint i8 %33, -128
   %35 = add nuw nsw i32 %.2, 1
   %36 = zext nneg i32 %.2 to i64
-  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
   store i8 %34, ptr %37, align 1, !tbaa !19
   br label %38
 
@@ -749,7 +749,7 @@ define void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5Edit
   %41 = or disjoint i8 %40, -128
   %42 = add nuw nsw i32 %.1, 1
   %43 = zext nneg i32 %.1 to i64
-  %44 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %43
   store i8 %41, ptr %44, align 1, !tbaa !19
   br label %45
 

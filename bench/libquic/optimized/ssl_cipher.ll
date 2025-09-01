@@ -498,7 +498,7 @@ define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0
 15:                                               ; preds = %23, %13
   %.049.i = phi i64 [ 0, %13 ], [ %.1.i, %23 ]
   %.04348.i = phi i64 [ 0, %13 ], [ %24, %23 ]
-  %16 = getelementptr inbounds nuw [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %.04348.i
+  %16 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @kCiphers, i64 %.04348.i
   %17 = load ptr, ptr %14, align 8, !tbaa !21
   %18 = tail call i32 %17(ptr noundef nonnull %16) #16
   %.not47.i = icmp eq i32 %18, 0
@@ -3366,7 +3366,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 
 .preheader26:                                     ; preds = %63, %rule_equals.exit.thread
   %.0159107 = phi i64 [ %74, %rule_equals.exit.thread ], [ 0, %63 ]
-  %65 = getelementptr inbounds nuw [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %.0159107
+  %65 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @kCiphers, i64 %.0159107
   %66 = load ptr, ptr %65, align 16, !tbaa !47
   %67 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
   %68 = icmp eq i32 %67, 0
@@ -3395,7 +3395,7 @@ rule_equals.exit.thread:                          ; preds = %.preheader26, %rule
 
 .preheader:                                       ; preds = %.loopexit27, %rule_equals.exit223.thread
   %.1160108 = phi i64 [ %96, %rule_equals.exit223.thread ], [ 0, %.loopexit27 ]
-  %76 = getelementptr inbounds nuw [37 x %struct.cipher_alias_st], ptr @kCipherAliases, i64 0, i64 %.1160108
+  %76 = getelementptr inbounds nuw %struct.cipher_alias_st, ptr @kCipherAliases, i64 %.1160108
   %77 = load ptr, ptr %76, align 16, !tbaa !49
   %78 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
   %79 = icmp eq i32 %78, 0
@@ -3987,7 +3987,7 @@ define hidden nonnull ptr @SSL_CIPHER_get_kx_name(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %9
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
@@ -4033,7 +4033,7 @@ define hidden noundef ptr @SSL_CIPHER_get_rfc_name(ptr noundef readonly captures
 
 switch.lookup:                                    ; preds = %9
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SSL_CIPHER_get_kx_name.exit
 
@@ -4212,24 +4212,24 @@ define hidden noundef ptr @SSL_CIPHER_description(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %3
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.SSL_CIPHER_description, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_description, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 
 14:                                               ; preds = %3, %switch.lookup
   %.022 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.17, %3 ]
-  %switch.tableidx33 = add i32 %7, -1
-  %15 = icmp ult i32 %switch.tableidx33, 4
-  br i1 %15, label %switch.lookup32, label %17
+  %switch.tableidx32 = add i32 %7, -1
+  %15 = icmp ult i32 %switch.tableidx32, 4
+  br i1 %15, label %switch.lookup33, label %17
 
-switch.lookup32:                                  ; preds = %14
-  %16 = zext nneg i32 %switch.tableidx33 to i64
-  %switch.gep34 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.SSL_CIPHER_description.3, i64 0, i64 %16
+switch.lookup33:                                  ; preds = %14
+  %16 = zext nneg i32 %switch.tableidx32 to i64
+  %switch.gep34 = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_description.3, i64 %16
   %switch.load35 = load ptr, ptr %switch.gep34, align 8
   br label %17
 
-17:                                               ; preds = %14, %switch.lookup32
-  %.025 = phi ptr [ %switch.load35, %switch.lookup32 ], [ @.str.17, %14 ]
+17:                                               ; preds = %14, %switch.lookup33
+  %.025 = phi ptr [ %switch.load35, %switch.lookup33 ], [ @.str.17, %14 ]
   switch i32 %9, label %26 [
     i32 1, label %27
     i32 2, label %18

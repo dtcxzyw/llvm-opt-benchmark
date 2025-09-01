@@ -758,7 +758,7 @@ define dso_local noundef nonnull ptr @job_share_string(i16 noundef zeroext %0) #
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.job_share_string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.job_share_string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -837,7 +837,7 @@ define dso_local noundef nonnull ptr @job_state_string(i32 noundef %0) #0 {
 switch.lookup:                                    ; preds = %26
   %trunc.mask = and i32 %0, 15
   %28 = zext nneg i32 %trunc.mask to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._job_name_test, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %29
 
@@ -916,7 +916,7 @@ define dso_local noundef nonnull ptr @job_state_string_compact(i32 noundef %0) #
 switch.lookup:                                    ; preds = %26
   %trunc.mask = and i32 %0, 15
   %28 = zext nneg i32 %trunc.mask to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._job_name_test.1, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test.1, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %29
 
@@ -1030,7 +1030,7 @@ define dso_local zeroext i1 @valid_base_state(i32 noundef %0) #2 {
 
 3:                                                ; preds = %3, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [7 x %struct.node_state_flags_t], ptr @node_states, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_states, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %5, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1054,7 +1054,7 @@ define dso_local ptr @node_state_base_string(i32 noundef %0) #2 {
 
 4:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw [7 x %struct.node_state_flags_t], ptr @node_states, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_states, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %6, %2
   br i1 %7, label %8, label %3
@@ -1090,7 +1090,7 @@ define dso_local ptr @node_state_flag_string(i32 noundef %0) #1 {
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %5
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 0, %.preheader.i.preheader ]
-  %6 = getelementptr inbounds nuw [20 x %struct.node_state_flags_t], ptr @node_state_flags, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 16
   %8 = and i32 %7, %4
   %.not17.i = icmp eq i32 %8, 0
@@ -1140,7 +1140,7 @@ define dso_local ptr @node_state_flag_string_single(ptr noundef captures(none) %
 
 .preheader:                                       ; preds = %1, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw [20 x %struct.node_state_flags_t], ptr @node_state_flags, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
   %7 = and i32 %6, %3
   %.not17 = icmp eq i32 %7, 0
@@ -1851,7 +1851,7 @@ define dso_local ptr @node_state_string_complete(i32 noundef %0) #1 {
 
 7:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw [7 x %struct.node_state_flags_t], ptr @node_states, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_states, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 16
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %11, label %6
@@ -1887,7 +1887,7 @@ node_state_flag_string.exit.thread:               ; preds = %node_state_base_str
 
 .preheader.i.i:                                   ; preds = %17, %.preheader.i.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %.preheader.i.preheader.i ]
-  %18 = getelementptr inbounds nuw [20 x %struct.node_state_flags_t], ptr @node_state_flags, i64 0, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv.i.i
   %19 = load i32, ptr %18, align 16
   %20 = and i32 %19, %16
   %.not17.i.i = icmp eq i32 %20, 0
@@ -4623,7 +4623,7 @@ thread-pre-split:                                 ; preds = %46, %59
 
 97:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = getelementptr inbounds nuw [4 x %struct.anon], ptr @step_names, i64 0, i64 %indvars.iv.next
+  %98 = getelementptr inbounds nuw %struct.anon, ptr @step_names, i64 %indvars.iv.next
   %99 = load ptr, ptr %98, align 16
   %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #25
   %101 = tail call i32 @xstrncasecmp(ptr noundef nonnull %99, ptr noundef nonnull %89, i64 noundef %100) #24
@@ -4826,7 +4826,7 @@ define dso_local range(i32 0, 2151) i32 @fmt_job_id_string(ptr noundef readonly 
 
 .preheader:                                       ; preds = %30, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %30 ]
-  %38 = getelementptr inbounds nuw [4 x %struct.anon], ptr @step_names, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.anon, ptr @step_names, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %32
@@ -5463,7 +5463,7 @@ define dso_local ptr @slurm_container_status_to_str(i32 noundef %0) local_unname
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [8 x %struct.anon.0], ptr @slurm_container_status_to_str.status_str, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.anon.0, ptr @slurm_container_status_to_str.status_str, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
@@ -8955,7 +8955,7 @@ define dso_local noundef nonnull ptr @log_num2string(i16 noundef zeroext %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.log_num2string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.log_num2string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9049,7 +9049,7 @@ define dso_local ptr @job_state_string_complete(i32 noundef %0) local_unnamed_ad
 switch.lookup:                                    ; preds = %1
   %trunc.mask = and i32 %0, 15
   %5 = zext nneg i32 %trunc.mask to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._job_name_test, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -9267,7 +9267,7 @@ define internal fastcc zeroext i1 @_job_name_test(i32 noundef range(i32 0, 83886
 switch.lookup:                                    ; preds = %25
   %trunc.i.mask = and i32 %0, 15
   %27 = zext nneg i32 %trunc.i.mask to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._job_name_test, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %job_state_string.exit
 
@@ -9344,7 +9344,7 @@ job_state_string.exit.thread:                     ; preds = %2
 switch.lookup25:                                  ; preds = %50
   %trunc.i18.mask = and i32 %0, 15
   %52 = zext nneg i32 %trunc.i18.mask to i64
-  %switch.gep26 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._job_name_test.1, i64 0, i64 %52
+  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test.1, i64 %52
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   br label %job_state_string_compact.exit
 
@@ -9367,7 +9367,7 @@ define dso_local noundef nonnull ptr @trigger_res_type(i16 noundef zeroext %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.trigger_res_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.trigger_res_type, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9898,7 +9898,7 @@ define dso_local i32 @parse_node_state_flag(ptr noundef %0) local_unnamed_addr #
 
 5:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw [20 x %struct.node_state_flags_t], ptr @node_state_flags, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
@@ -13589,7 +13589,7 @@ define dso_local noundef nonnull ptr @schedule_exit2string(i16 noundef zeroext %
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.schedule_exit2string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.schedule_exit2string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -13605,7 +13605,7 @@ define dso_local noundef nonnull ptr @bf_exit2string(i16 noundef zeroext %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.bf_exit2string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.bf_exit2string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

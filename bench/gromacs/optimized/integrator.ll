@@ -504,15 +504,15 @@ define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEE
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !22
   %24 = fmul float %1, %23
   %25 = load float, ptr %16, align 4, !tbaa !22
-  %26 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !22
   %28 = tail call float @llvm.fmuladd.f32(float %24, float %25, float %27)
   store float %28, ptr %26, align 4, !tbaa !22
-  %29 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !22
   %31 = tail call float @llvm.fmuladd.f32(float %28, float %1, float %30)
   store float %31, ptr %29, align 4, !tbaa !22

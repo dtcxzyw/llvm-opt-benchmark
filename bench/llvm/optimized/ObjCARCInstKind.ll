@@ -470,7 +470,7 @@ define dso_local noundef range(i32 0, 25) i32 @_ZN4llvm7objcarc16GetFunctionClas
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [31 x i32], ptr @switch.table._ZN4llvm7objcarc16GetFunctionClassEPKNS_8FunctionE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm7objcarc16GetFunctionClassEPKNS_8FunctionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 

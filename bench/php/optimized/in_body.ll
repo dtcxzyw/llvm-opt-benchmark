@@ -116,7 +116,7 @@ define hidden i32 @lxb_html_tree_insertion_mode_in_body_text_append(ptr noundef 
   %.01825 = phi ptr [ %15, %14 ], [ %10, %9 ]
   %16 = load i8, ptr %.01825, align 1, !tbaa !31
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @lexbor_tokenizer_chars_map, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !31
   %.not22 = icmp eq i8 %19, 2
   br i1 %.not22, label %14, label %20
@@ -1128,8 +1128,8 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %10
   br i1 %or.cond.i, label %36, label %lxb_html_tag_is_category.exit.backedge
 
 36:                                               ; preds = %lxb_html_tree_node_is.exit.thread
-  %37 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %15
-  %38 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 0, i64 %18
+  %37 = getelementptr inbounds nuw [8 x i32], ptr @lxb_html_tag_res_cats, i64 %15
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %18
   %39 = load i32, ptr %38, align 4, !tbaa !45
   %40 = and i32 %39, 2
   %.not27 = icmp eq i32 %40, 0
@@ -1226,7 +1226,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr
   %.01825.i = phi ptr [ %43, %42 ], [ %39, %38 ]
   %44 = load i8, ptr %.01825.i, align 1, !tbaa !31
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @lexbor_tokenizer_chars_map, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !31
   %.not22.i = icmp eq i8 %47, 2
   br i1 %.not22.i, label %42, label %48
@@ -1604,8 +1604,8 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %.lr.ph.preheader, %
   br i1 %or.cond.i, label %lxb_html_tag_is_category.exit, label %lxb_html_tag_is_category.exit.thread
 
 lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_is.exit.thread
-  %38 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %34
-  %39 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %33
+  %38 = getelementptr inbounds nuw [8 x i32], ptr @lxb_html_tag_res_cats, i64 %34
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %33
   %40 = load i32, ptr %39, align 4, !tbaa !45
   %41 = and i32 %40, 2
   %.not39 = icmp eq i32 %41, 0
@@ -1776,8 +1776,8 @@ lxb_html_tree_node_is.exit40.thread:              ; preds = %.lr.ph, %lxb_html_t
   br i1 %or.cond.i, label %lxb_html_tag_is_category.exit, label %lxb_html_tag_is_category.exit.thread
 
 lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_is.exit40.thread
-  %48 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %13
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %48, i64 0, i64 %.pre
+  %48 = getelementptr inbounds nuw [8 x i32], ptr @lxb_html_tag_res_cats, i64 %13
+  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %.pre
   %50 = load i32, ptr %49, align 4, !tbaa !45
   %51 = and i32 %50, 2
   %.not52 = icmp eq i32 %51, 0

@@ -5173,7 +5173,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %131
   %.0813.i.i = phi i64 [ %132, %131 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.0912.i.i = phi i64 [ %.1.i.i, %131 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %126 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core22XdsRouteConfigResource5Route19NonForwardingActionEJNS2_13UnknownActionENS2_11RouteActionES3_EEmv.__found, i64 0, i64 %.0813.i.i
+  %126 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core22XdsRouteConfigResource5Route19NonForwardingActionEJNS2_13UnknownActionENS2_11RouteActionES3_EEmv.__found, i64 %.0813.i.i
   %127 = load i8, ptr %126, align 1, !tbaa !249, !range !67, !noundef !68
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %131

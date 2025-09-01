@@ -7937,7 +7937,7 @@ define hidden void @_ZN6Assimp11XFileParser32ParseDataObjectMeshTextureCoordsEPN
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 %6, ptr %4, align 8
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [8 x %"class.std::vector.26"], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::vector.26", ptr %10, i64 %11
   %13 = tail call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8024,7 +8024,7 @@ define hidden void @_ZN6Assimp11XFileParser31ParseDataObjectMeshVertexColorsEPNS
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %7, ptr %5, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds nuw [8 x %"class.std::vector.31"], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.std::vector.31", ptr %11, i64 %12
   %14 = tail call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -12423,7 +12423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

@@ -9831,7 +9831,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03277 = phi i64 [ %78, %94 ], [ %1, %3 ]
   %.03576 = phi ptr [ %.0.i.i57, %94 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03576, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03277
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03277
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -20023,7 +20023,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -21314,7 +21314,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -41161,7 +41161,7 @@ define ptr @l_Lean_Lsp_instToJsonSymbolKind(i8 noundef zeroext %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -41204,7 +41204,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 31
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lean_Lsp_instToJsonSymbolKind.exit
 
@@ -55689,7 +55689,7 @@ lean_alloc_ctor.exit185:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit185
   %133 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 0, i64 %133
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %133
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %134
 
@@ -55871,7 +55871,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instToJsonDocumentSymbol_go___s
   %.01845 = phi i64 [ %48, %64 ], [ %1, %3 ]
   %.02044 = phi ptr [ %.0.i.i29, %64 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02044, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01845
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01845
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -56603,7 +56603,7 @@ lean_alloc_ctor.exit184:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit184
   %132 = zext nneg i8 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 0, i64 %132
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %132
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %133
 
@@ -58365,7 +58365,7 @@ define noalias noundef nonnull ptr @l_Array_mapMUnsafe_map___at___private_Lean_D
   %.0198535 = phi i64 [ %.1199, %599 ], [ %1, %3 ]
   %.0210534 = phi ptr [ %.1211, %599 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.0210534, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.0198535
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0198535
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -62311,7 +62311,7 @@ lean_alloc_ctor.exit173:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit173
   %126 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 0, i64 %126
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %127
 
@@ -66831,7 +66831,7 @@ lean_alloc_ctor.exit226:                          ; preds = %lean_alloc_ctor.exi
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit226
   %197 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 0, i64 %197
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonCallHierarchyItem____x40_Lean_Data_Lsp_LanguageFeatures___hyg_6912_, i64 %197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %198
 
@@ -68417,7 +68417,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -69663,7 +69663,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -71397,7 +71397,7 @@ define ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanti
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -71440,7 +71440,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 31
-  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920____boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenType____x40_Lean_Data_Lsp_LanguageFeatures___hyg_7920_.exit
 
@@ -76882,7 +76882,7 @@ define ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanti
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -76925,7 +76925,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 15
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298____boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokenModifier____x40_Lean_Data_Lsp_LanguageFeatures___hyg_9298_.exit
 
@@ -81873,7 +81873,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -83116,7 +83116,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_LanguageFeatures
   %.02044 = phi i64 [ %36, %52 ], [ %1, %3 ]
   %.02243 = phi ptr [ %.0.i.i30, %52 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02243, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02044
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02044
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -93334,7 +93334,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instFromJsonInlayHintLabel___sp
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -94975,7 +94975,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instToJsonInlayHintLabel___spec
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

@@ -1788,7 +1788,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722LocaleDispl
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %25 = zext i32 %1 to i64
-  %26 = getelementptr inbounds nuw [6 x i8], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !52, !range !47, !noundef !48
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %_ZN6icu_775MutexD2Ev.exit
@@ -4968,7 +4968,7 @@ define linkonce_odr void @_ZN6icu_7722LocaleDisplayNamesImpl25CapitalizationCont
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 1200
-  %55 = getelementptr inbounds nuw [6 x i8], ptr %54, i64 0, i64 %.016
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.016
   store i8 1, ptr %55, align 1, !tbaa !52
   store i8 1, ptr %16, align 8, !tbaa !41
   br label %.thread20

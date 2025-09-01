@@ -476,7 +476,7 @@ _ZN5uu_od12parse_inputs24parse_inputs_traditional17hf9a58d7aeb7b7d78E.exit: ; pr
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %141, align 8, !nonnull !4, !noundef !4
-  %144 = getelementptr inbounds [0 x { ptr, i64 }], ptr %143, i64 0, i64 %140
+  %144 = getelementptr inbounds { ptr, i64 }, ptr %143, i64 %140
   %145 = load ptr, ptr %144, align 8, !nonnull !4, !align !11, !noundef !4
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %147 = load i64, ptr %146, align 8, !noundef !4

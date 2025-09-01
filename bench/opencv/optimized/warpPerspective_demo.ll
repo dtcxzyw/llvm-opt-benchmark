@@ -1183,7 +1183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276: ; preds = %_Z
   store i32 50397184, ptr %22, align 8, !tbaa !84
   store ptr %12, ptr %320, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %464 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr @_Z6labelsB5cxx11, i64 0, i64 %.090440
+  %464 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_Z6labelsB5cxx11, i64 %.090440
   %465 = load ptr, ptr %464, align 16, !tbaa !4
   store ptr %322, ptr %23, align 8, !tbaa !44
   %466 = icmp eq ptr %465, null
@@ -1478,7 +1478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %.l
   store i32 50397184, ptr %31, align 8, !tbaa !84
   store ptr %12, ptr %336, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %562 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr @_Z6labelsB5cxx11, i64 0, i64 %indvars.iv
+  %562 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_Z6labelsB5cxx11, i64 %indvars.iv
   %563 = load ptr, ptr %562, align 16, !tbaa !4
   store ptr %338, ptr %32, align 8, !tbaa !44
   %564 = icmp eq ptr %563, null

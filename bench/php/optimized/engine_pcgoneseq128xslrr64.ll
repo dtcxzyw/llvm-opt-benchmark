@@ -332,7 +332,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %13
   %.056125 = phi i32 [ 0, %.thread117 ], [ 29, %zend_parse_arg_str_or_long.exit ]
   %.057124 = phi i32 [ 1, %.thread117 ], [ 9, %zend_parse_arg_str_or_long.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.057124, i32 noundef %.0127, ptr noundef null, i32 noundef %.056125, ptr noundef %.055126) #8
-  br label %62
+  br label %60
 
 .critedge.thread:                                 ; preds = %13, %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -375,7 +375,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %13
 
 32:                                               ; preds = %27, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %62
+  br label %60
 
 .critedge.thread129thread-pre-split:              ; preds = %zend_parse_arg_str_or_long.exit
   %.pr = load ptr, ptr %3, align 8, !tbaa !20
@@ -390,7 +390,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %13
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !17
   %37 = icmp eq i64 %36, 16
-  br i1 %37, label %38, label %56
+  br i1 %37, label %38, label %54
 
 38:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
@@ -422,56 +422,56 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %13
   store i128 %.sroa.0.0.insert.insert.i21.i82, ptr %.sroa.3.0.copyload, align 16, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  br label %62
+  br label %60
 
 44:                                               ; preds = %38, %46
   %45 = phi i1 [ true, %38 ], [ false, %46 ]
   %indvars.iv141.sroa.phi = phi ptr [ %.sroa.0, %38 ], [ %.sroa.4, %46 ]
   %indvars.iv141 = phi i64 [ 0, %38 ], [ 8, %46 ]
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv141
   br label %47
 
 46:                                               ; preds = %47
-  store i64 %55, ptr %indvars.iv141.sroa.phi, align 8, !tbaa !9
+  store i64 %53, ptr %indvars.iv141.sroa.phi, align 8, !tbaa !9
   br i1 %45, label %44, label %40
 
 47:                                               ; preds = %44, %47
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %47 ]
-  %48 = phi i64 [ 0, %44 ], [ %55, %47 ]
-  %49 = add nuw nsw i64 %indvars.iv, %indvars.iv141
-  %50 = getelementptr inbounds nuw [1 x i8], ptr %39, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !11
-  %52 = zext i8 %51 to i64
-  %53 = shl nuw nsw i64 %indvars.iv, 3
-  %54 = shl nuw i64 %52, %53
-  %55 = add i64 %54, %48
+  %48 = phi i64 [ 0, %44 ], [ %53, %47 ]
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
+  %49 = load i8, ptr %gep, align 1, !tbaa !11
+  %50 = zext i8 %49 to i64
+  %51 = shl nuw nsw i64 %indvars.iv, 3
+  %52 = shl nuw i64 %50, %51
+  %53 = add i64 %52, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %46, label %47
 
-56:                                               ; preds = %34
+54:                                               ; preds = %34
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #8
-  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !27
-  %58 = icmp ne ptr %57, null
-  call void @llvm.assume(i1 %58)
-  br label %62
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !27
+  %56 = icmp ne ptr %55, null
+  call void @llvm.assume(i1 %56)
+  br label %60
 
 .critedge.thread129.thread:                       ; preds = %.critedge.thread129, %13
   %.in = phi ptr [ %14, %13 ], [ %4, %.critedge.thread129 ]
-  %59 = load i64, ptr %.in, align 8, !tbaa !11
-  %.sroa.0.0.insert.ext.i13.i85 = zext i64 %59 to i128
-  %60 = mul i128 %.sroa.0.0.insert.ext.i13.i85, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i93 = add i128 %60, -21102577299880832445404573290446240358
-  %61 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i93, 64
-  %.tr.i.i16.i94 = trunc nuw i128 %61 to i64
+  %57 = load i64, ptr %.in, align 8, !tbaa !11
+  %.sroa.0.0.insert.ext.i13.i85 = zext i64 %57 to i128
+  %58 = mul i128 %.sroa.0.0.insert.ext.i13.i85, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i93 = add i128 %58, -21102577299880832445404573290446240358
+  %59 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i93, 64
+  %.tr.i.i16.i94 = trunc nuw i128 %59 to i64
   %.narrow.i.i17.i95 = add i64 %.tr.i.i16.i94, 6364136223846793005
   %.sroa.2.0.insert.ext.i18.i96 = zext i64 %.narrow.i.i17.i95 to i128
   %.sroa.2.0.insert.shift.i19.i97 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i96, 64
   %.sroa.0.0.insert.ext.i20.i98 = and i128 %.sroa.02.0.insert.insert.i21.i15.i93, 18446744073709551615
   %.sroa.0.0.insert.insert.i21.i99 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i97, %.sroa.0.0.insert.ext.i20.i98
   store i128 %.sroa.0.0.insert.insert.i21.i99, ptr %.sroa.3.0.copyload, align 16, !tbaa !4
-  br label %62
+  br label %60
 
-62:                                               ; preds = %32, %20, %.critedge.thread129.thread, %40, %56
+60:                                               ; preds = %32, %20, %.critedge.thread129.thread, %40, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

@@ -85,7 +85,7 @@ define internal range(i32 -12, 1) i32 @read_header(ptr noundef %0) #1 {
 
 switch.edge.i.i:                                  ; preds = %22, %19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %23 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   store i8 %21, ptr %23, align 1, !tbaa !26
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 1024
   br i1 %exitcond.i.i, label %24, label %19, !llvm.loop !27

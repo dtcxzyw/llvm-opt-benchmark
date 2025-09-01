@@ -199,7 +199,7 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exi
   %.01721 = phi i32 [ 0, %.lr.ph ], [ %47, %68 ]
   %33 = load i8, ptr %.023, align 1, !tbaa !16
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [364 x i8], ptr @_ZZN5ZXing10Utf8DecodeEDuRhRDiE9kUtf8Data, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZZN5ZXing10Utf8DecodeEDuRhRDiE9kUtf8Data, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !15
   %.not.i10 = icmp eq i8 %.01622, 0
   br i1 %.not.i10, label %42, label %37
@@ -222,9 +222,9 @@ _ZN5ZXing10Utf8DecodeEDuRhRDi.exit:               ; preds = %37, %42
   %47 = phi i32 [ %41, %37 ], [ %46, %42 ]
   %48 = zext i8 %.01622 to i64
   %49 = zext i8 %36 to i64
-  %50 = or disjoint i64 %48, 256
-  %51 = add nuw nsw i64 %50, %49
-  %52 = getelementptr inbounds nuw [364 x i8], ptr @_ZZN5ZXing10Utf8DecodeEDuRhRDiE9kUtf8Data, i64 0, i64 %51
+  %50 = getelementptr inbounds nuw i8, ptr @_ZZN5ZXing10Utf8DecodeEDuRhRDiE9kUtf8Data, i64 %48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 256
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   %53 = load i8, ptr %52, align 1, !tbaa !15
   %.not9 = icmp eq i8 %53, 0
   br i1 %.not9, label %54, label %68
@@ -589,7 +589,7 @@ _ZNSt9basic_iosIwSt11char_traitsIwEE4fillEw.exit: ; preds = %3, %.noexc32
 28:                                               ; preds = %26
   %29 = select i1 %25, i32 32, i32 %23
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [33 x ptr], ptr @_ZZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIwSt11char_traitsIwEEE15ascii_nongraphs, i64 0, i64 %30
+  %31 = getelementptr inbounds ptr, ptr @_ZZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIwSt11char_traitsIwEEE15ascii_nongraphs, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !52
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %32)
           to label %_ZNSt13basic_ostreamIwSt11char_traitsIwEElsEj.exit.invoke unwind label %36

@@ -79,7 +79,7 @@ define noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..ExpandedName$u20$a
   br i1 %23, label %24, label %27, !prof !13
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1125.llvm.11517934075587973166, i64 0, i64 %22, i32 1
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1125.llvm.11517934075587973166, i64 %22, i32 1
   %26 = load i64, ptr %25, align 8, !noalias !6, !noundef !4
   br label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8a818541783fc6ecE.exit"
 

@@ -236,8 +236,8 @@ _ZN20VirtualMemoryTracker22snapshot_thread_stacksEv.exit: ; preds = %7, %.lr.ph.
 
 12:                                               ; preds = %12, %_ZN20VirtualMemoryTracker22snapshot_thread_stacksEv.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN20VirtualMemoryTracker22snapshot_thread_stacksEv.exit ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %indvars.iv.i
-  %14 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %0, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %class.VirtualMemory, ptr %0, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %13, i64 24, i1 true)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
@@ -431,7 +431,7 @@ _ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh.exit48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = load i8, ptr %51, align 8
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %2
@@ -636,7 +636,7 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.us: ; preds = %19
 26:                                               ; preds = %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.us
   %27 = load i8, ptr %8, align 8
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %28, i32 1
+  %29 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %28, i32 1
   %30 = load i64, ptr %29, align 8
   %31 = sub i64 %30, %16
   store i64 %31, ptr %29, align 8
@@ -670,7 +670,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
 43:                                               ; preds = %.lr.ph.split.us
   %44 = load i8, ptr %8, align 8
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %45, i32 1
+  %46 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %45, i32 1
   %47 = load i64, ptr %46, align 8
   %48 = sub i64 %47, %2
   store i64 %48, ptr %46, align 8
@@ -687,7 +687,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
 53:                                               ; preds = %.lr.ph.split
   %54 = load i8, ptr %8, align 8
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %55, i32 1
+  %56 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %55, i32 1
   %57 = load i64, ptr %56, align 8
   %58 = sub i64 %57, %2
   store i64 %58, ptr %56, align 8
@@ -724,7 +724,7 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit: ; preds = %64
 71:                                               ; preds = %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit
   %72 = load i8, ptr %8, align 8
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %73, i32 1
+  %74 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %73, i32 1
   %75 = load i64, ptr %74, align 8
   %76 = sub i64 %75, %40
   store i64 %76, ptr %74, align 8
@@ -766,7 +766,7 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread: ; preds = %_ZNK19Virt
 89:                                               ; preds = %88
   %90 = load i8, ptr %8, align 8
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %91, i32 1
+  %92 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %91, i32 1
   %93 = load i64, ptr %92, align 8
   %94 = sub i64 %93, %2
   store i64 %94, ptr %92, align 8
@@ -841,7 +841,7 @@ _ZN19VirtualMemoryRegion14exclude_regionEPhm.exit: ; preds = %116, %119
   store i64 %121, ptr %82, align 8
   %122 = load i8, ptr %8, align 8
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %123, i32 1
+  %124 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %123, i32 1
   %125 = load i64, ptr %124, align 8
   %126 = sub i64 %125, %118
   store i64 %126, ptr %124, align 8
@@ -860,7 +860,7 @@ _ZN19VirtualMemoryRegion14exclude_regionEPhm.exit51: ; preds = %127
   store i64 %132, ptr %82, align 8
   %133 = load i8, ptr %8, align 8
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %134, i32 1
+  %135 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %134, i32 1
   %136 = load i64, ptr %135, align 8
   %137 = sub i64 %136, %130
   store i64 %137, ptr %135, align 8
@@ -1081,12 +1081,12 @@ define hidden void @_ZN20ReservedMemoryRegion8set_flagE8MEMFLAGS(ptr noundef non
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = zext i8 %4 to i64
-  %9 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %10, %7
   store i64 %11, ptr %9, align 8
   %12 = zext i8 %1 to i64
-  %13 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %7
   store i64 %15, ptr %13, align 8
@@ -1110,7 +1110,7 @@ define hidden void @_ZN20ReservedMemoryRegion8set_flagE8MEMFLAGS(ptr noundef non
 _ZNK20ReservedMemoryRegion14committed_sizeEv.exit: ; preds = %.lr.ph.i, %5
   %.05.lcssa.i = phi i64 [ 0, %5 ], [ %20, %.lr.ph.i ]
   %22 = zext i8 %16 to i64
-  %23 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %22, i32 1
+  %23 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %22, i32 1
   %24 = load i64, ptr %23, align 8
   %25 = sub i64 %24, %.05.lcssa.i
   store i64 %25, ptr %23, align 8
@@ -1238,7 +1238,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_region
 17:                                               ; preds = %4
   %18 = load i8, ptr %10, align 8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %19, i32 1
+  %20 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %19, i32 1
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %5, align 8
   %23 = ptrtoint ptr %22 to i64
@@ -1252,7 +1252,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_region
 
 27:                                               ; preds = %25
   %28 = zext i8 %3 to i64
-  %29 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %1
   store i64 %31, ptr %29, align 8
@@ -1295,7 +1295,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_region
   %55 = sub i64 %54, %1
   store i64 %55, ptr getelementptr inbounds nuw (i8, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 648), align 8
   %56 = zext i8 %3 to i64
-  %57 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, %1
   store i64 %59, ptr %57, align 8
@@ -1319,7 +1319,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_region
 _ZNK20ReservedMemoryRegion14committed_sizeEv.exit.i: ; preds = %.lr.ph.i.i, %52
   %.05.lcssa.i.i = phi i64 [ 0, %52 ], [ %64, %.lr.ph.i.i ]
   %66 = zext i8 %60 to i64
-  %67 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %66, i32 1
+  %67 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %66, i32 1
   %68 = load i64, ptr %67, align 8
   %69 = sub i64 %68, %.05.lcssa.i.i
   store i64 %69, ptr %67, align 8
@@ -1389,13 +1389,13 @@ _ZNK20ReservedMemoryRegion14committed_sizeEv.exit: ; preds = %.lr.ph.i, %86
   %94 = load i64, ptr %41, align 8
   %95 = load i8, ptr %80, align 8
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = sub i64 %98, %94
   store i64 %99, ptr %97, align 8
   %100 = load i64, ptr %6, align 8
   %101 = zext i8 %3 to i64
-  %102 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %100
   store i64 %104, ptr %102, align 8
@@ -1575,12 +1575,12 @@ define hidden void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFL
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = zext i8 %16 to i64
-  %21 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = sub i64 %22, %19
   store i64 %23, ptr %21, align 8
   %24 = zext i8 %1 to i64
-  %25 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %19
   store i64 %27, ptr %25, align 8
@@ -1604,7 +1604,7 @@ define hidden void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFL
 _ZNK20ReservedMemoryRegion14committed_sizeEv.exit.i: ; preds = %.lr.ph.i.i, %17
   %.05.lcssa.i.i = phi i64 [ 0, %17 ], [ %32, %.lr.ph.i.i ]
   %34 = zext i8 %28 to i64
-  %35 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %34, i32 1
+  %35 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %34, i32 1
   %36 = load i64, ptr %35, align 8
   %37 = sub i64 %36, %.05.lcssa.i.i
   store i64 %37, ptr %35, align 8
@@ -1679,7 +1679,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker20add_committed_regio
 18:                                               ; preds = %16
   %19 = load i8, ptr %9, align 8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %20, i32 1
+  %21 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %20, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %4, align 8
   %24 = ptrtoint ptr %23 to i64
@@ -1697,7 +1697,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker20add_committed_regio
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %31 = load i8, ptr %30, align 8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %32, i32 1
+  %33 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %32, i32 1
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %4, align 8
   %36 = ptrtoint ptr %35 to i64
@@ -1747,7 +1747,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker25remove_uncommitted_
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load i8, ptr %14, align 8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %16, i32 1
+  %17 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %16, i32 1
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %13, ptr noundef %0, i64 noundef %1)
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1844,7 +1844,7 @@ _ZN20ReservedMemoryRegionC2ERKS_.exit:            ; preds = %_ZN20ReservedMemory
 30:                                               ; preds = %_ZN20ReservedMemoryRegionC2ERKS_.exit
   %31 = load i8, ptr %14, align 8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %32, i32 1
+  %33 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %32, i32 1
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %2, align 8
   %36 = ptrtoint ptr %35 to i64
@@ -1860,7 +1860,7 @@ _ZN20ReservedMemoryRegionC2ERKS_.exit:            ; preds = %_ZN20ReservedMemory
   %41 = load i64, ptr %4, align 8
   %42 = load i8, ptr %12, align 8
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = sub i64 %45, %41
   store i64 %46, ptr %44, align 8
@@ -1876,7 +1876,7 @@ _ZN20ReservedMemoryRegionC2ERKS_.exit:            ; preds = %_ZN20ReservedMemory
 53:                                               ; preds = %40
   %54 = load i8, ptr %14, align 8
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %55, i32 1
+  %56 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %55, i32 1
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %2, align 8
   %59 = ptrtoint ptr %58 to i64
@@ -2022,7 +2022,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
 
 67:                                               ; preds = %_ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread, %34
   %68 = zext i8 %36 to i64
-  %69 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %class.VirtualMemory, ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = sub i64 %70, %1
   store i64 %71, ptr %69, align 8
@@ -2176,7 +2176,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker21split_reserved_regi
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %20 = load i8, ptr %19, align 8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %21, i32 1
+  %22 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEP20ReservedMemoryRegion(ptr noundef nonnull %17)
   %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -3117,7 +3117,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17PrintRegionWalker18do_alloca
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i8, ptr %16, align 8
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %18
   %20 = load ptr, ptr %19, align 16
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.23, i64 noundef %13, i64 noundef %14, i64 noundef %15, ptr noundef %20) #14
   %21 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4

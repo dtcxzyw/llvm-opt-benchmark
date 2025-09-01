@@ -153,14 +153,14 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %5 = lshr i64 %indvars.iv.i, 2
   %6 = and i64 %5, 1073741823
-  %7 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %9 = shl i32 %indvars.iv.tr.i, 3
   %10 = and i32 %9, 24
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %12, ptr %13, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -304,7 +304,7 @@ md5_append.exit25.i:                              ; preds = %._crit_edge.i18.thr
   %indvars.iv42.i = phi i64 [ 0, %md5_append.exit25.i ], [ %indvars.iv.next43.i, %77 ]
   %78 = lshr i64 %indvars.iv42.i, 2
   %79 = and i64 %78, 1073741823
-  %80 = getelementptr inbounds nuw [4 x i32], ptr %76, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %76, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %indvars.iv42.tr.i = trunc i64 %indvars.iv42.i to i32
   %82 = shl i32 %indvars.iv42.tr.i, 3
@@ -336,13 +336,13 @@ define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr noundef writeonl
   %6 = load i8, ptr %5, align 1, !tbaa !10
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @cmsysMD5_DigestToHex.hex, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
   store i8 %10, ptr %.089.i, align 1, !tbaa !10
   %12 = and i8 %6, 15
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @cmsysMD5_DigestToHex.hex, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %.089.i, i64 2
   store i8 %15, ptr %11, align 1, !tbaa !10
@@ -366,14 +366,14 @@ define dso_local void @cmsysMD5_DigestToHex(ptr noundef readonly captures(none) 
   %5 = load i8, ptr %4, align 1, !tbaa !10
   %6 = lshr i8 %5, 4
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @cmsysMD5_DigestToHex.hex, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %.089, i64 1
   store i8 %9, ptr %.089, align 1, !tbaa !10
   %11 = load i8, ptr %4, align 1, !tbaa !10
   %12 = and i8 %11, 15
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @cmsysMD5_DigestToHex.hex, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %.089, i64 2
   store i8 %15, ptr %10, align 1, !tbaa !10

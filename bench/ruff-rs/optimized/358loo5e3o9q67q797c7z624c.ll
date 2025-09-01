@@ -19262,9 +19262,9 @@ switch.lookup:                                    ; preds = %327, %334
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %.val = load i64, ptr %58, align 8, !range !367, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN106_$LT$ruff..args..ConfigArgumentParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h7fd10b4651b84a9aE", i64 0, i64 %.val
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN106_$LT$ruff..args..ConfigArgumentParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h7fd10b4651b84a9aE", i64 %.val
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep457 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN106_$LT$ruff..args..ConfigArgumentParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h7fd10b4651b84a9aE.85", i64 0, i64 %.val
+  %switch.gep457 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN106_$LT$ruff..args..ConfigArgumentParser$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref17h7fd10b4651b84a9aE.85", i64 %.val
   %switch.load458 = load ptr, ptr %switch.gep457, align 8
   store ptr %switch.load458, ptr %30, align 8
   %329 = getelementptr inbounds nuw i8, ptr %30, i64 8

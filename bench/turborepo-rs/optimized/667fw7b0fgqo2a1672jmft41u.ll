@@ -744,7 +744,7 @@ _RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4
   %47 = urem i64 %2, %16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %49, i64 0, i64 %47
+  %50 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %49, i64 %47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %51 = cmpxchg ptr %50, i32 0, i32 1 acquire monotonic, align 4, !noalias !126
   %52 = extractvalue { i32, i1 } %51, 1
@@ -1155,7 +1155,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %89, align 8, !noalias !183, !nonnull !5, !noundef !5
-  %103 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %102, i64 0, i64 %88
+  %103 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %102, i64 %88
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %104 = cmpxchg ptr %103, i32 0, i32 1 acquire monotonic, align 4, !noalias !188
   %105 = extractvalue { i32, i1 } %104, 1

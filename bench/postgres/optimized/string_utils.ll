@@ -122,7 +122,7 @@ define dso_local ptr @fmtIdEnc(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 21:                                               ; preds = %._crit_edge
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %22
   %24 = load i8, ptr %23, align 1
   %.not69.not = icmp eq i8 %24, 0
   br i1 %.not69.not, label %.thread78, label %.thread76
@@ -534,7 +534,7 @@ define dso_local void @appendStringLiteralDQ(ptr noundef %0, ptr noundef %1, ptr
   %.019 = phi i32 [ %13, %.lr.ph ], [ 0, %6 ]
   %9 = add nuw nsw i32 %.019, 1
   %10 = zext nneg i32 %.019 to i64
-  %11 = getelementptr inbounds nuw [9 x i8], ptr @appendStringLiteralDQ.suffixes, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @appendStringLiteralDQ.suffixes, i64 %10
   %12 = load i8, ptr %11, align 1
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %4, i8 noundef signext %12) #11
   %13 = and i32 %9, 7
@@ -599,13 +599,13 @@ define dso_local void @appendByteaLiteral(ptr noundef %0, ptr noundef readonly c
   %21 = zext i8 %20 to i32
   %22 = lshr i32 %21, 4
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [17 x i8], ptr @appendByteaLiteral.hextbl, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @appendByteaLiteral.hextbl, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = getelementptr inbounds nuw i8, ptr %.020.pn26, i64 3
   store i8 %25, ptr %.128, align 1
   %27 = and i32 %21, 15
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [17 x i8], ptr @appendByteaLiteral.hextbl, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @appendByteaLiteral.hextbl, i64 %28
   %30 = load i8, ptr %29, align 1
   store i8 %30, ptr %26, align 1
   %.1 = getelementptr inbounds nuw i8, ptr %.128, i64 2

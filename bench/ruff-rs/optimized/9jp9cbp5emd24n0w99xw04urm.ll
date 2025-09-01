@@ -29245,10 +29245,10 @@ switch.lookup:                                    ; preds = %2
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %121 = load i8, ptr %120, align 1, !range !437, !noundef !6
   %122 = zext nneg i8 %121 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN96_$LT$ty_python_semantic..types..display..DisplayRepresentation$u20$as$u20$core..fmt..Display$GT$3fmt17h981f5eb0f3562e5dE", i64 0, i64 %122
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN96_$LT$ty_python_semantic..types..display..DisplayRepresentation$u20$as$u20$core..fmt..Display$GT$3fmt17h981f5eb0f3562e5dE", i64 %122
   %switch.load = load ptr, ptr %switch.gep, align 8
   %123 = zext nneg i8 %121 to i64
-  %switch.gep233 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN96_$LT$ty_python_semantic..types..display..DisplayRepresentation$u20$as$u20$core..fmt..Display$GT$3fmt17h981f5eb0f3562e5dE.482", i64 0, i64 %123
+  %switch.gep233 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN96_$LT$ty_python_semantic..types..display..DisplayRepresentation$u20$as$u20$core..fmt..Display$GT$3fmt17h981f5eb0f3562e5dE.482", i64 %123
   %switch.load234 = load ptr, ptr %switch.gep233, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %switch.load, ptr %30, align 8

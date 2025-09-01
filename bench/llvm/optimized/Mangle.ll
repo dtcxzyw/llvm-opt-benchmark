@@ -377,7 +377,7 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %50, %58
 
 switch.lookup:                                    ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL22getCallingConvManglingRKN5clang10ASTContextEPKNS_9NamedDeclE, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL22getCallingConvManglingRKN5clang10ASTContextEPKNS_9NamedDeclE, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %67
 

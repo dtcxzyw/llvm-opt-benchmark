@@ -550,7 +550,7 @@ default.unreachable72:                            ; preds = %4
 define void @_ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE(ptr writeonly sret({ i64, i64, i64, i64 }) align 8 captures(none) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = load i64, ptr %1, align 16, !range !3, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)

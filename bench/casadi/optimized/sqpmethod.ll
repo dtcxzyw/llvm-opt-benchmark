@@ -62956,7 +62956,7 @@ _ZN6casadi23casadi_cvx_givens_applyIdEEvxPT_S1_S1_x.exit: ; preds = %.lr.ph84.i,
   %146 = add i64 %0, %145
   %147 = mul nsw i64 %146, %0
   %148 = getelementptr inbounds double, ptr %1, i64 %147
-  %149 = getelementptr inbounds nuw [100 x double], ptr %9, i64 0, i64 %.0124160
+  %149 = getelementptr inbounds nuw double, ptr %9, i64 %.0124160
   %150 = load double, ptr %149, align 8, !tbaa !271
   call void @_ZN6casadi27casadi_cvx_house_apply_symmIdEEvxxPT_S2_S2_S1_(i64 noundef %0, i64 noundef %.0124160, ptr noundef nonnull %1, ptr noundef %6, ptr noundef nonnull %148, double noundef %150)
   %151 = getelementptr inbounds nuw double, ptr %1, i64 %.0124160

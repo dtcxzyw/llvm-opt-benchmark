@@ -50465,7 +50465,7 @@ for.body963:                                      ; preds = %for.body963.prehead
   %indvars.iv = phi i64 [ 0, %for.body963.preheader ], [ %indvars.iv.next, %for.inc971 ]
   %696 = trunc i64 %indvars.iv to i8
   %conv967 = or disjoint i8 %696, 48
-  %arrayidx = getelementptr inbounds nuw [10 x %"class.eastl::basic_string.128"], ptr %stringArray944, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %stringArray944, i64 %indvars.iv
   %call.i2832 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 noundef 1, i8 noundef signext %conv967)
           to label %for.inc971 unwind label %lpad968.loopexit.split-lp.loopexit
 
@@ -58032,7 +58032,7 @@ for.body2326:                                     ; preds = %for.body2326.prehea
   %indvars.iv8502 = phi i64 [ 0, %for.body2326.preheader ], [ %indvars.iv.next8503, %for.inc2336 ]
   %1924 = trunc i64 %indvars.iv8502 to i8
   %conv2330 = or disjoint i8 %1924, 48
-  %arrayidx2332 = getelementptr inbounds nuw [10 x %"class.eastl::basic_string.128"], ptr %stringArray2306, i64 0, i64 %indvars.iv8502
+  %arrayidx2332 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %stringArray2306, i64 %indvars.iv8502
   %call.i6879 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx2332, i64 noundef 1, i8 noundef signext %conv2330)
           to label %for.inc2336 unwind label %lpad2333.loopexit.split-lp.loopexit
 

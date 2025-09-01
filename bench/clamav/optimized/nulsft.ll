@@ -255,7 +255,7 @@ nsis_detcomp.exit.i.i:                            ; preds = %82
 
 nsis_detcomp.exit91.i.i:                          ; preds = %105, %101
   %.0.i90.i.i = phi i64 [ 1, %101 ], [ %109, %105 ]
-  %110 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %.0.i90.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i90.i.i
   %111 = load i8, ptr %110, align 1, !tbaa !61
   %112 = add i8 %111, 1
   store i8 %112, ptr %110, align 1, !tbaa !61

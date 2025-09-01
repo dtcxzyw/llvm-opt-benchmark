@@ -213,7 +213,7 @@ _ZNK5draco12ValenceCacheINS_11CornerTableEE27ClearValenceCacheInaccurateEv.exit:
 
 39:                                               ; preds = %.preheader, %39
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.28"], ptr %35, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"class.draco::IndexType.28", ptr %35, i64 %indvars.iv
   %41 = add i64 %36, %indvars.iv
   %42 = and i64 %41, 4294967295
   %43 = getelementptr inbounds nuw %"class.draco::IndexType.28", ptr %34, i64 %42

@@ -273,7 +273,7 @@ default.unreachable48:                            ; preds = %32
   %119 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %120 = load i32, ptr %119, align 8
   %121 = sext i32 %120 to i64
-  %122 = getelementptr [12 x [4 x i8]], ptr @mon_names, i64 0, i64 %121
+  %122 = getelementptr [4 x i8], ptr @mon_names, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %124 = load i32, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
@@ -849,7 +849,7 @@ define noundef nonnull ptr @port_type_to_str(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.port_type_to_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.port_type_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

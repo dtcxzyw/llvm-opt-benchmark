@@ -948,7 +948,7 @@ av_ts_make_string.exit73:                         ; preds = %65, %66
 
 106:                                              ; preds = %106, %91
   %indvars.iv.i = phi i64 [ 0, %91 ], [ %indvars.iv.next.i, %106 ]
-  %107 = getelementptr inbounds nuw [17 x i64], ptr %100, i64 0, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv.i
   store i64 -9223372036854775808, ptr %107, align 8, !tbaa !54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 17
@@ -1325,7 +1325,7 @@ define void @ff_read_frame_flush(ptr noundef %0) local_unnamed_addr #4 {
 
 28:                                               ; preds = %13, %28
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw [17 x i64], ptr %22, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
   store i64 -9223372036854775808, ptr %29, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
@@ -1574,7 +1574,7 @@ define i32 @av_seek_frame(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 no
 
 49:                                               ; preds = %49, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %49 ]
-  %50 = getelementptr inbounds nuw [17 x i64], ptr %43, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv.i.i
   store i64 -9223372036854775808, ptr %50, align 8, !tbaa !54
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
@@ -1686,7 +1686,7 @@ ff_read_frame_flush.exit.i:                       ; preds = %44, %22
 
 111:                                              ; preds = %111, %96
   %indvars.iv.i52.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i53.i, %111 ]
-  %112 = getelementptr inbounds nuw [17 x i64], ptr %105, i64 0, i64 %indvars.iv.i52.i
+  %112 = getelementptr inbounds nuw i64, ptr %105, i64 %indvars.iv.i52.i
   store i64 -9223372036854775808, ptr %112, align 8, !tbaa !54
   %indvars.iv.next.i53.i = add nuw nsw i64 %indvars.iv.i52.i, 1
   %exitcond.not.i54.i = icmp eq i64 %indvars.iv.next.i53.i, 17
@@ -1771,7 +1771,7 @@ ff_read_frame_flush.exit56..critedge_crit_edge.i: ; preds = %ff_read_frame_flush
 
 149:                                              ; preds = %149, %134
   %indvars.iv.i62.i = phi i64 [ 0, %134 ], [ %indvars.iv.next.i63.i, %149 ]
-  %150 = getelementptr inbounds nuw [17 x i64], ptr %143, i64 0, i64 %indvars.iv.i62.i
+  %150 = getelementptr inbounds nuw i64, ptr %143, i64 %indvars.iv.i62.i
   store i64 -9223372036854775808, ptr %150, align 8, !tbaa !54
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
   %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, 17
@@ -1841,7 +1841,7 @@ ff_read_frame_flush.exit66.i:                     ; preds = %144, %122
 
 180:                                              ; preds = %180, %165
   %indvars.iv.i72.i = phi i64 [ 0, %165 ], [ %indvars.iv.next.i73.i, %180 ]
-  %181 = getelementptr inbounds nuw [17 x i64], ptr %174, i64 0, i64 %indvars.iv.i72.i
+  %181 = getelementptr inbounds nuw i64, ptr %174, i64 %indvars.iv.i72.i
   store i64 -9223372036854775808, ptr %181, align 8, !tbaa !54
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i72.i, 1
   %exitcond.not.i74.i = icmp eq i64 %indvars.iv.next.i73.i, 17
@@ -2085,7 +2085,7 @@ avpriv_update_cur_dts.exit.i.i:                   ; preds = %225, %249, %213
 
 308:                                              ; preds = %308, %293
   %indvars.iv.i89.i.i = phi i64 [ 0, %293 ], [ %indvars.iv.next.i90.i.i, %308 ]
-  %309 = getelementptr inbounds nuw [17 x i64], ptr %302, i64 0, i64 %indvars.iv.i89.i.i
+  %309 = getelementptr inbounds nuw i64, ptr %302, i64 %indvars.iv.i89.i.i
   store i64 -9223372036854775808, ptr %309, align 8, !tbaa !54
   %indvars.iv.next.i90.i.i = add nuw nsw i64 %indvars.iv.i89.i.i, 1
   %exitcond.not.i91.i.i = icmp eq i64 %indvars.iv.next.i90.i.i, 17
@@ -2256,7 +2256,7 @@ define i32 @avformat_seek_file(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
 
 50:                                               ; preds = %50, %35
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %50 ]
-  %51 = getelementptr inbounds nuw [17 x i64], ptr %44, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv.i
   store i64 -9223372036854775808, ptr %51, align 8, !tbaa !54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 17
@@ -2396,7 +2396,7 @@ define noundef i32 @avformat_flush(ptr noundef %0) local_unnamed_addr #4 {
 
 28:                                               ; preds = %28, %13
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw [17 x i64], ptr %22, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
   store i64 -9223372036854775808, ptr %29, align 8, !tbaa !54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 17

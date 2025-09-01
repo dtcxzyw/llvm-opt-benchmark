@@ -76,7 +76,7 @@ define dso_local noundef ptr @create_delta_index(ptr noundef %0, i64 noundef %1)
   %35 = or disjoint i32 %31, %34
   %36 = lshr i32 %.0116154, 23
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [256 x i32], ptr @T, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @T, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !9
   %40 = xor i32 %35, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -389,7 +389,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   %54 = or disjoint i32 %52, %53
   %55 = lshr i32 %.0203361, 23
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i32], ptr @T, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr @T, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !9
   %59 = xor i32 %54, %58
   %60 = add nuw nsw i32 %.0199362, 1
@@ -415,7 +415,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   %68 = getelementptr inbounds i8, ptr %.1228395, i64 -16
   %69 = load i8, ptr %68, align 1, !tbaa !6
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i32], ptr @U, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr @U, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !9
   %73 = xor i32 %72, %.1204399
   %74 = shl i32 %73, 8
@@ -424,17 +424,17 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   %77 = or disjoint i32 %74, %76
   %78 = lshr i32 %73, 23
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [256 x i32], ptr @T, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr @T, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !9
   %82 = xor i32 %77, %81
   %83 = load i32, ptr %44, align 8, !tbaa !9
   %84 = and i32 %82, %83
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %45, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %45, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !28
   %88 = add i32 %84, 1
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %45, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %45, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !28
   %92 = icmp ult ptr %87, %91
   br i1 %92, label %.lr.ph380, label %.thread316
@@ -725,7 +725,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   %220 = or disjoint i32 %216, %219
   %221 = lshr i32 %.5208389, 23
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw [256 x i32], ptr @T, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i32, ptr @T, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !9
   %225 = xor i32 %220, %224
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

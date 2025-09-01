@@ -209,7 +209,7 @@ define i64 @ff_me_search_tss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 30:                                               ; preds = %.preheader, %47
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %47 ]
   %.1106 = phi i64 [ %.083, %.preheader ], [ %.2, %47 ]
-  %31 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sqr1, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @sqr1, i64 %indvars.iv
   %32 = load i8, ptr %31, align 2, !tbaa !22
   %33 = sext i8 %32 to i32
   %34 = mul nsw i32 %.082, %33
@@ -304,7 +304,7 @@ define i64 @ff_me_search_tdls(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 30:                                               ; preds = %.preheader, %47
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %47 ]
   %.188110 = phi i64 [ %.087, %.preheader ], [ %.2, %47 ]
-  %31 = getelementptr inbounds nuw [4 x [2 x i8]], ptr @dia1, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @dia1, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !22
   %33 = sext i8 %32 to i32
   %34 = mul nsw i32 %.086, %33
@@ -411,7 +411,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 30:                                               ; preds = %.preheader217, %47
   %indvars.iv = phi i64 [ 0, %.preheader217 ], [ %indvars.iv.next, %47 ]
   %.1169220 = phi i64 [ %.0168, %.preheader217 ], [ %.2170, %47 ]
-  %31 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sqr1, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @sqr1, i64 %indvars.iv
   %32 = load i8, ptr %31, align 2, !tbaa !22
   %33 = sext i8 %32 to i32
   %34 = mul nsw i32 %.0167, %33
@@ -455,7 +455,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 .preheader216:                                    ; preds = %48, %63
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %63 ], [ 0, %48 ]
   %.4222 = phi i64 [ %.5, %63 ], [ %.2170, %48 ]
-  %49 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sqr1, i64 0, i64 %indvars.iv229
+  %49 = getelementptr inbounds nuw [2 x i8], ptr @sqr1, i64 %indvars.iv229
   %50 = load i8, ptr %49, align 2, !tbaa !22
   %51 = sext i8 %50 to i32
   %52 = add nsw i32 %28, %51
@@ -517,7 +517,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 .preheader:                                       ; preds = %74, %93
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %93 ], [ 0, %74 ]
   %.6224 = phi i64 [ %.7, %93 ], [ %.5, %74 ]
-  %79 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sqr1, i64 0, i64 %indvars.iv233
+  %79 = getelementptr inbounds nuw [2 x i8], ptr @sqr1, i64 %indvars.iv233
   %80 = load i8, ptr %79, align 2, !tbaa !22
   %81 = sext i8 %80 to i32
   %82 = add nsw i32 %65, %81
@@ -607,7 +607,7 @@ define i64 @ff_me_search_fss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 28:                                               ; preds = %.preheader, %45
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
   %.185106 = phi i64 [ %.084, %.preheader ], [ %.2, %45 ]
-  %29 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sqr1, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @sqr1, i64 %indvars.iv
   %30 = load i8, ptr %29, align 2, !tbaa !22
   %31 = sext i8 %30 to i32
   %32 = mul nsw i32 %.083, %31
@@ -707,7 +707,7 @@ define i64 @ff_me_search_ds(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 28:                                               ; preds = %.critedge, %43
   %indvars.iv = phi i64 [ 0, %.critedge ], [ %indvars.iv.next, %43 ]
   %.1104138 = phi i64 [ %.0103, %.critedge ], [ %.2, %43 ]
-  %29 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @dia2, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @dia2, i64 %indvars.iv
   %30 = load i8, ptr %29, align 2, !tbaa !22
   %31 = sext i8 %30 to i32
   %32 = add nsw i32 %26, %31
@@ -759,7 +759,7 @@ define i64 @ff_me_search_ds(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
 .preheader:                                       ; preds = %46, %62
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %62 ], [ 0, %46 ]
   %.3140 = phi i64 [ %.4, %62 ], [ %.2, %46 ]
-  %48 = getelementptr inbounds nuw [4 x [2 x i8]], ptr @dia1, i64 0, i64 %indvars.iv144
+  %48 = getelementptr inbounds nuw [2 x i8], ptr @dia1, i64 %indvars.iv144
   %49 = load i8, ptr %48, align 1, !tbaa !22
   %50 = sext i8 %49 to i32
   %51 = add nsw i32 %26, %50
@@ -840,7 +840,7 @@ define i64 @ff_me_search_hexbs(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 28:                                               ; preds = %.critedge, %43
   %indvars.iv = phi i64 [ 0, %.critedge ], [ %indvars.iv.next, %43 ]
   %.1101136 = phi i64 [ %.0100, %.critedge ], [ %.2, %43 ]
-  %29 = getelementptr inbounds nuw [6 x [2 x i8]], ptr @hex2, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @hex2, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !22
   %31 = sext i8 %30 to i32
   %32 = add nsw i32 %26, %31
@@ -892,7 +892,7 @@ define i64 @ff_me_search_hexbs(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 .preheader:                                       ; preds = %46, %62
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %62 ], [ 0, %46 ]
   %.3138 = phi i64 [ %.4, %62 ], [ %.2, %46 ]
-  %48 = getelementptr inbounds nuw [4 x [2 x i8]], ptr @dia1, i64 0, i64 %indvars.iv142
+  %48 = getelementptr inbounds nuw [2 x i8], ptr @dia1, i64 %indvars.iv142
   %49 = load i8, ptr %48, align 1, !tbaa !22
   %50 = sext i8 %49 to i32
   %51 = add nsw i32 %26, %50
@@ -1016,7 +1016,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 52:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %.1172219 = phi i64 [ %.0171, %.lr.ph ], [ %.2173, %69 ]
-  %53 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %22, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i32], ptr %22, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !26
   %55 = add nsw i32 %54, %1
   %.not208 = icmp slt i32 %55, %.
@@ -1066,7 +1066,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 75:                                               ; preds = %.lr.ph223, %92
   %indvars.iv228 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next229, %92 ]
   %.3221 = phi i64 [ %.1172.lcssa, %.lr.ph223 ], [ %.4, %92 ]
-  %76 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %49, i64 0, i64 %indvars.iv228
+  %76 = getelementptr inbounds nuw [2 x i32], ptr %49, i64 %indvars.iv228
   %77 = load i32, ptr %76, align 4, !tbaa !26
   %78 = add nsw i32 %77, %1
   %.not204 = icmp slt i32 %78, %.
@@ -1115,7 +1115,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 98:                                               ; preds = %.critedge, %113
   %indvars.iv231 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next232, %113 ]
   %.6225 = phi i64 [ %.5, %.critedge ], [ %.7, %113 ]
-  %99 = getelementptr inbounds nuw [4 x [2 x i8]], ptr @dia1, i64 0, i64 %indvars.iv231
+  %99 = getelementptr inbounds nuw [2 x i8], ptr @dia1, i64 %indvars.iv231
   %100 = load i8, ptr %99, align 1, !tbaa !22
   %101 = sext i8 %100 to i32
   %102 = add nsw i32 %96, %101
@@ -1240,7 +1240,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 46:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %.1361483 = phi i64 [ %.0360, %.lr.ph ], [ %.2362, %63 ]
-  %47 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %22, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i32], ptr %22, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !26
   %49 = add nsw i32 %48, %1
   %.not452 = icmp slt i32 %49, %.
@@ -1495,7 +1495,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 132:                                              ; preds = %.preheader481, %149
   %indvars.iv523 = phi i64 [ 1, %.preheader481 ], [ %indvars.iv.next524, %149 ]
   %.12507 = phi i64 [ %.11510, %.preheader481 ], [ %.13, %149 ]
-  %133 = getelementptr inbounds nuw [16 x [2 x i8]], ptr @hex4, i64 0, i64 %indvars.iv523
+  %133 = getelementptr inbounds nuw [2 x i8], ptr @hex4, i64 %indvars.iv523
   %134 = load i8, ptr %133, align 2, !tbaa !22
   %135 = sext i8 %134 to i32
   %136 = mul nsw i32 %.1359511, %135
@@ -1549,7 +1549,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 156:                                              ; preds = %.critedge, %171
   %indvars.iv527 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next528, %171 ]
   %.15513 = phi i64 [ %.14, %.critedge ], [ %.16, %171 ]
-  %157 = getelementptr inbounds nuw [6 x [2 x i8]], ptr @hex2, i64 0, i64 %indvars.iv527
+  %157 = getelementptr inbounds nuw [2 x i8], ptr @hex2, i64 %indvars.iv527
   %158 = load i8, ptr %157, align 1, !tbaa !22
   %159 = sext i8 %158 to i32
   %160 = add nsw i32 %154, %159
@@ -1601,7 +1601,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 .preheader:                                       ; preds = %174, %190
   %indvars.iv531 = phi i64 [ %indvars.iv.next532, %190 ], [ 0, %174 ]
   %.17515 = phi i64 [ %.18, %190 ], [ %.16, %174 ]
-  %176 = getelementptr inbounds nuw [4 x [2 x i8]], ptr @dia1, i64 0, i64 %indvars.iv531
+  %176 = getelementptr inbounds nuw [2 x i8], ptr @dia1, i64 %indvars.iv531
   %177 = load i8, ptr %176, align 1, !tbaa !22
   %178 = sext i8 %177 to i32
   %179 = add nsw i32 %154, %178

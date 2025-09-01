@@ -10004,7 +10004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.i: ; preds = %
           to label %228 unwind label %233
 
 228:                                              ; preds = %226
-  %229 = getelementptr inbounds nuw [12 x ptr], ptr %9, i64 0, i64 %.0199.i
+  %229 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0199.i
   %230 = load ptr, ptr %229, align 8, !tbaa !206
   invoke void @gtk_file_chooser_add_filter(ptr noundef %227, ptr noundef %230)
           to label %231 unwind label %233

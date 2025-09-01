@@ -1707,7 +1707,7 @@ _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit:         ; preds = %110
   %146 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %147 = sext i32 %spec.store.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %146, ptr nonnull align 1 %143, i64 %147, i1 false)
-  %148 = getelementptr inbounds [1024 x i8], ptr %146, i64 0, i64 %147
+  %148 = getelementptr inbounds i8, ptr %146, i64 %147
   store i8 0, ptr %148, align 1
   %149 = getelementptr inbounds nuw i8, ptr %45, i64 236
   %150 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %143) #25
@@ -1717,7 +1717,7 @@ _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit:         ; preds = %110
   %152 = getelementptr inbounds nuw i8, ptr %45, i64 240
   %153 = sext i32 %spec.store.select.i121 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %152, ptr nonnull align 1 %143, i64 %153, i1 false)
-  %154 = getelementptr inbounds [1024 x i8], ptr %152, i64 0, i64 %153
+  %154 = getelementptr inbounds i8, ptr %152, i64 %153
   store i8 0, ptr %154, align 1
   %155 = icmp eq ptr %143, %18
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -3214,7 +3214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

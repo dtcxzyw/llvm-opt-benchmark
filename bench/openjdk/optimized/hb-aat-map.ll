@@ -2008,7 +2008,7 @@ _ZNK2OT14UnsizedArrayOfIN3AAT11FeatureNameEE16sanitize_shallowEP21hb_sanitize_co
   br i1 %exitcond, label %_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t.exit, label %49
 
 49:                                               ; preds = %.lr.ph.i
-  %50 = getelementptr inbounds nuw [1 x %"struct.AAT::FeatureName"], ptr %23, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %23, i64 %indvars.iv.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64

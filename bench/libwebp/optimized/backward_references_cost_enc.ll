@@ -134,7 +134,7 @@ VP8LRefsCursorNext.exit.i.i:                      ; preds = %42, %37
 
 61:                                               ; preds = %59
   %62 = zext nneg i32 %54 to i64
-  %63 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !20
   br label %.lr.ph30.preheader.i.i.i
 
@@ -156,7 +156,7 @@ VP8LRefsCursorNext.exit.i.i:                      ; preds = %42, %37
 
 72:                                               ; preds = %.lr.ph30.i.i.i
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !20
   br label %VP8LFastLog2.exit24.i.i.i
 
@@ -207,7 +207,7 @@ ConvertPopulationCountTableToBitEstimates.exit.i.i: ; preds = %VP8LFastLog2.exit
 
 91:                                               ; preds = %89
   %92 = zext nneg i32 %85 to i64
-  %93 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !20
   br label %.lr.ph30.preheader.i30.i.i
 
@@ -229,7 +229,7 @@ ConvertPopulationCountTableToBitEstimates.exit.i.i: ; preds = %VP8LFastLog2.exit
 
 102:                                              ; preds = %.lr.ph30.i31.i.i
   %103 = zext nneg i32 %100 to i64
-  %104 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !20
   br label %VP8LFastLog2.exit24.i33.i.i
 
@@ -280,7 +280,7 @@ ConvertPopulationCountTableToBitEstimates.exit37.i.i: ; preds = %VP8LFastLog2.ex
 
 121:                                              ; preds = %119
   %122 = zext nneg i32 %115 to i64
-  %123 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !20
   br label %.lr.ph30.preheader.i48.i.i
 
@@ -302,7 +302,7 @@ ConvertPopulationCountTableToBitEstimates.exit37.i.i: ; preds = %VP8LFastLog2.ex
 
 132:                                              ; preds = %.lr.ph30.i49.i.i
   %133 = zext nneg i32 %130 to i64
-  %134 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !20
   br label %VP8LFastLog2.exit24.i51.i.i
 
@@ -352,7 +352,7 @@ ConvertPopulationCountTableToBitEstimates.exit55.i.i: ; preds = %VP8LFastLog2.ex
 
 150:                                              ; preds = %148
   %151 = zext nneg i32 %145 to i64
-  %152 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !20
   br label %.lr.ph30.preheader.i66.i.i
 
@@ -374,7 +374,7 @@ ConvertPopulationCountTableToBitEstimates.exit55.i.i: ; preds = %VP8LFastLog2.ex
 
 161:                                              ; preds = %.lr.ph30.i67.i.i
   %162 = zext nneg i32 %159 to i64
-  %163 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !20
   br label %VP8LFastLog2.exit24.i69.i.i
 
@@ -425,7 +425,7 @@ ConvertPopulationCountTableToBitEstimates.exit73.i.i: ; preds = %VP8LFastLog2.ex
 
 180:                                              ; preds = %178
   %181 = zext nneg i32 %174 to i64
-  %182 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !20
   br label %.lr.ph30.preheader.i84.i.i
 
@@ -447,7 +447,7 @@ ConvertPopulationCountTableToBitEstimates.exit73.i.i: ; preds = %VP8LFastLog2.ex
 
 191:                                              ; preds = %.lr.ph30.i85.i.i
   %192 = zext nneg i32 %189 to i64
-  %193 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr @kLog2Table, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !20
   br label %VP8LFastLog2.exit24.i87.i.i
 
@@ -490,7 +490,7 @@ CostModelBuild.exit.i:                            ; preds = %32
 207:                                              ; preds = %207, %.loopexit165.i
   %indvars.iv.i.i112.i = phi i64 [ 0, %.loopexit165.i ], [ %indvars.iv.next.i.i113.i, %207 ]
   %208 = phi ptr [ null, %.loopexit165.i ], [ %209, %207 ]
-  %209 = getelementptr inbounds nuw [10 x %struct.CostInterval], ptr %206, i64 0, i64 %indvars.iv.i.i112.i
+  %209 = getelementptr inbounds nuw %struct.CostInterval, ptr %206, i64 %indvars.iv.i.i112.i
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
   store ptr %208, ptr %210, align 8, !tbaa !34
   %indvars.iv.next.i.i113.i = add nuw nsw i64 %indvars.iv.i.i112.i, 1
@@ -521,7 +521,7 @@ CostManagerInitFreeList.exit.i.i:                 ; preds = %207
   br i1 %218, label %219, label %223
 
 219:                                              ; preds = %217
-  %220 = getelementptr inbounds nuw [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %indvars.iv.i.i
+  %220 = getelementptr inbounds nuw %struct.VP8LPrefixCode, ptr @kPrefixEncodeCode, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i.i.i = load i8, ptr %220, align 2, !tbaa !39
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %220, i64 1
   %.sroa.4.0.copyload.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 1, !tbaa !39
@@ -552,7 +552,7 @@ GetLengthCost.exit.i.i:                           ; preds = %223, %219
   %238 = sext i32 %.0.i.i.i to i64
   %239 = shl nsw i64 %238, 23
   %240 = add nsw i64 %239, %237
-  %241 = getelementptr inbounds nuw [4095 x i64], ptr %216, i64 0, i64 %indvars.iv.i.i
+  %241 = getelementptr inbounds nuw i64, ptr %216, i64 %indvars.iv.i.i
   store i64 %240, ptr %241, align 8, !tbaa !40
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -564,29 +564,26 @@ GetLengthCost.exit.i.i:                           ; preds = %223, %219
   %.not98.i.i = icmp eq i32 %11, 1
   br i1 %.not98.i.i, label %._crit_edge69.i.i, label %.lr.ph68.i.i
 
-.lr.ph68.i.i:                                     ; preds = %._crit_edge.i117.i
-  %.pre.i.i = load i64, ptr %216, align 8, !tbaa !40
-  br label %243
-
-243:                                              ; preds = %250, %.lr.ph68.i.i
-  %244 = phi i64 [ 1, %.lr.ph68.i.i ], [ %251, %250 ]
-  %245 = phi i64 [ %.pre.i.i, %.lr.ph68.i.i ], [ %247, %250 ]
-  %indvars.iv78.i.i = phi i64 [ 1, %.lr.ph68.i.i ], [ %indvars.iv.next79.i.i, %250 ]
-  %246 = getelementptr inbounds nuw [4095 x i64], ptr %216, i64 0, i64 %indvars.iv78.i.i
+.lr.ph68.i.i:                                     ; preds = %._crit_edge.i117.i, %250
+  %243 = phi i64 [ %251, %250 ], [ 1, %._crit_edge.i117.i ]
+  %indvars.iv78.i.i = phi i64 [ %indvars.iv.next79.i.i, %250 ], [ 1, %._crit_edge.i117.i ]
+  %244 = getelementptr inbounds nuw i64, ptr %216, i64 %indvars.iv78.i.i
+  %245 = load i64, ptr %244, align 8, !tbaa !40
+  %246 = getelementptr i8, ptr %244, i64 -8
   %247 = load i64, ptr %246, align 8, !tbaa !40
-  %.not64.i.i = icmp eq i64 %247, %245
+  %.not64.i.i = icmp eq i64 %245, %247
   br i1 %.not64.i.i, label %250, label %248
 
-248:                                              ; preds = %243
-  %249 = add i64 %244, 1
+248:                                              ; preds = %.lr.ph68.i.i
+  %249 = add i64 %243, 1
   store i64 %249, ptr %242, align 8, !tbaa !38
   br label %250
 
-250:                                              ; preds = %248, %243
-  %251 = phi i64 [ %244, %243 ], [ %249, %248 ]
+250:                                              ; preds = %248, %.lr.ph68.i.i
+  %251 = phi i64 [ %243, %.lr.ph68.i.i ], [ %249, %248 ]
   %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
   %exitcond82.not.i.i = icmp eq i64 %indvars.iv.next79.i.i, %wide.trip.count.i.i
-  br i1 %exitcond82.not.i.i, label %._crit_edge69.i.i, label %243, !llvm.loop !42
+  br i1 %exitcond82.not.i.i, label %._crit_edge69.i.i, label %.lr.ph68.i.i, !llvm.loop !42
 
 ._crit_edge69.i.i:                                ; preds = %250, %._crit_edge.i117.i, %._crit_edge.thread.i.i
   %252 = phi i1 [ false, %._crit_edge.i117.i ], [ false, %._crit_edge.thread.i.i ], [ true, %250 ]
@@ -614,7 +611,7 @@ GetLengthCost.exit.i.i:                           ; preds = %223, %219
   %261 = phi i64 [ %260, %.lr.ph73.preheader.i.i ], [ %263, %268 ]
   %indvars.iv83.i.i = phi i64 [ 1, %.lr.ph73.preheader.i.i ], [ %indvars.iv.next84.i.i, %268 ]
   %.05871.i.i = phi ptr [ %254, %.lr.ph73.preheader.i.i ], [ %.1.i.i, %268 ]
-  %262 = getelementptr inbounds nuw [4095 x i64], ptr %259, i64 0, i64 %indvars.iv83.i.i
+  %262 = getelementptr inbounds nuw i64, ptr %259, i64 %indvars.iv83.i.i
   %263 = load i64, ptr %262, align 8, !tbaa !40
   %.not.i.i = icmp eq i64 %263, %261
   br i1 %.not.i.i, label %268, label %264
@@ -697,13 +694,13 @@ CostManagerInit.exit.i:                           ; preds = %._crit_edge74.i.i, 
 .thread2.i.i:                                     ; preds = %.thread1.i.i, %.loopexit164.i
   %291 = lshr i32 %275, 24
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw [256 x i32], ptr %23, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw i32, ptr %23, i64 %292
   %294 = load i32, ptr %293, align 4, !tbaa !20
   %295 = zext i32 %294 to i64
   %296 = lshr i32 %275, 16
   %297 = and i32 %296, 255
   %298 = zext nneg i32 %297 to i64
-  %299 = getelementptr inbounds nuw [256 x i32], ptr %87, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i32, ptr %87, i64 %298
   %300 = load i32, ptr %299, align 4, !tbaa !20
   %301 = zext i32 %300 to i64
   %302 = add nuw nsw i64 %301, %295
@@ -717,7 +714,7 @@ CostManagerInit.exit.i:                           ; preds = %._crit_edge74.i.i, 
   %310 = add nuw nsw i64 %302, %309
   %311 = and i32 %275, 255
   %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds nuw [256 x i32], ptr %117, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i32, ptr %117, i64 %312
   %314 = load i32, ptr %313, align 4, !tbaa !20
   %315 = zext i32 %314 to i64
   %316 = add nuw nsw i64 %310, %315
@@ -797,13 +794,13 @@ AddSingleLiteralWithCostModel.exit.i:             ; preds = %321, %318
 .thread2.i123.i:                                  ; preds = %.thread1.i122.i, %324
   %350 = lshr i32 %334, 24
   %351 = zext nneg i32 %350 to i64
-  %352 = getelementptr inbounds nuw [256 x i32], ptr %23, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw i32, ptr %23, i64 %351
   %353 = load i32, ptr %352, align 4, !tbaa !20
   %354 = zext i32 %353 to i64
   %355 = lshr i32 %334, 16
   %356 = and i32 %355, 255
   %357 = zext nneg i32 %356 to i64
-  %358 = getelementptr inbounds nuw [256 x i32], ptr %87, i64 0, i64 %357
+  %358 = getelementptr inbounds nuw i32, ptr %87, i64 %357
   %359 = load i32, ptr %358, align 4, !tbaa !20
   %360 = zext i32 %359 to i64
   %361 = add nuw nsw i64 %360, %354
@@ -817,7 +814,7 @@ AddSingleLiteralWithCostModel.exit.i:             ; preds = %321, %318
   %369 = add nuw nsw i64 %361, %368
   %370 = and i32 %334, 255
   %371 = zext nneg i32 %370 to i64
-  %372 = getelementptr inbounds nuw [256 x i32], ptr %117, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i32, ptr %117, i64 %371
   %373 = load i32, ptr %372, align 4, !tbaa !20
   %374 = zext i32 %373 to i64
   %375 = add nuw nsw i64 %369, %374
@@ -855,7 +852,7 @@ AddSingleLiteralWithCostModel.exit129.i:          ; preds = %381, %377
 
 388:                                              ; preds = %385
   %389 = sext i32 %386 to i64
-  %390 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %389
+  %390 = getelementptr inbounds %struct.VP8LPrefixCode, ptr @kPrefixEncodeCode, i64 %389
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %390, align 2, !tbaa !39
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %390, i64 1
   %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1, !tbaa !39
@@ -878,7 +875,7 @@ GetDistanceCost.exit.i:                           ; preds = %393, %388
   %.02.i.i = phi i32 [ %391, %388 ], [ %401, %393 ]
   %.0.i130.i = phi i32 [ %392, %388 ], [ %396, %393 ]
   %402 = sext i32 %.02.i.i to i64
-  %403 = getelementptr inbounds [40 x i32], ptr %176, i64 0, i64 %402
+  %403 = getelementptr inbounds i32, ptr %176, i64 %402
   %404 = load i32, ptr %403, align 4, !tbaa !20
   %405 = zext i32 %404 to i64
   %406 = sext i32 %.0.i130.i to i64
@@ -1394,7 +1391,7 @@ define internal fastcc void @PushInterval(ptr noundef nonnull captures(address) 
 16:                                               ; preds = %.lr.ph140, %29
   %indvars.iv = phi i64 [ %14, %.lr.ph140 ], [ %indvars.iv.next, %29 ]
   %17 = sub nsw i64 %indvars.iv, %14
-  %18 = getelementptr inbounds [4095 x i64], ptr %10, i64 0, i64 %17
+  %18 = getelementptr inbounds i64, ptr %10, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !40
   %20 = add nsw i64 %19, %1
   %21 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv
@@ -1632,7 +1629,7 @@ DeleteIntervalList.exit16:                        ; preds = %28, %DeleteInterval
 30:                                               ; preds = %30, %DeleteIntervalList.exit16
   %indvars.iv.i = phi i64 [ 0, %DeleteIntervalList.exit16 ], [ %indvars.iv.next.i, %30 ]
   %31 = phi ptr [ null, %DeleteIntervalList.exit16 ], [ %32, %30 ]
-  %32 = getelementptr inbounds nuw [10 x %struct.CostInterval], ptr %29, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw %struct.CostInterval, ptr %29, i64 %indvars.iv.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %31, ptr %33, align 8, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

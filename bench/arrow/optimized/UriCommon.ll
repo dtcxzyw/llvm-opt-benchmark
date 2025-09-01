@@ -599,7 +599,7 @@ define zeroext range(i8 0, 16) i8 @uriHexdigToIntA(i8 noundef signext %0) local_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i8], ptr @switch.table.uriHexdigToIntW, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.uriHexdigToIntW, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -615,7 +615,7 @@ define signext range(i8 48, 71) i8 @uriHexToLetterA(i32 noundef %0) local_unname
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table.uriHexToLetterA, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.uriHexToLetterA, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %uriHexToLetterExA.exit
 
@@ -1553,7 +1553,7 @@ define zeroext range(i8 0, 16) i8 @uriHexdigToIntW(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i8], ptr @switch.table.uriHexdigToIntW, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.uriHexdigToIntW, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -1569,7 +1569,7 @@ define range(i32 48, 71) i32 @uriHexToLetterW(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.uriHexToLetterW, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uriHexToLetterW, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %uriHexToLetterExW.exit
 

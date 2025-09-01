@@ -369,7 +369,7 @@ _ZL17nosehoover_tcouplRK14gmx_ekindata_tfN3gmx8ArrayRefIdEES4_RK9t_extmass.exit:
 
 99:                                               ; preds = %99, %95
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %99 ], [ 0, %95 ]
-  %100 = getelementptr inbounds nuw [3 x float], ptr %97, i64 0, i64 %indvars.iv22.i
+  %100 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv22.i
   %101 = load float, ptr %100, align 4, !tbaa !114
   %102 = fmul float %96, %101
   store float %102, ptr %100, align 4, !tbaa !114
@@ -394,7 +394,7 @@ _ZL17nosehoover_tcouplRK14gmx_ekindata_tfN3gmx8ArrayRefIdEES4_RK9t_extmass.exit:
 
 110:                                              ; preds = %110, %.lr.ph.split.i
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i48, %110 ]
-  %111 = getelementptr inbounds nuw [3 x float], ptr %108, i64 0, i64 %indvars.iv.i47
+  %111 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv.i47
   %112 = load float, ptr %111, align 4, !tbaa !114
   %113 = fmul float %107, %112
   store float %113, ptr %111, align 4, !tbaa !114
@@ -820,7 +820,7 @@ define void @_Z18rescale_velocitiesPK14gmx_ekindata_tN3gmx8ArrayRefIKtEEiiNS3_IN
 
 20:                                               ; preds = %20, %16
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %20 ], [ 0, %16 ]
-  %21 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv22
+  %21 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv22
   %22 = load float, ptr %21, align 4, !tbaa !114
   %23 = fmul float %17, %22
   store float %23, ptr %21, align 4, !tbaa !114
@@ -848,7 +848,7 @@ define void @_Z18rescale_velocitiesPK14gmx_ekindata_tN3gmx8ArrayRefIKtEEiiNS3_IN
 
 31:                                               ; preds = %.lr.ph.split, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !114
   %34 = fmul float %28, %33
   store float %34, ptr %32, align 4, !tbaa !114
@@ -1036,7 +1036,7 @@ _ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit:       ; preds = %11
 
 .preheader.i:                                     ; preds = %63, %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit
   %indvars.iv21.i = phi i64 [ 0, %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit ], [ %indvars.iv.next22.i, %63 ]
-  %61 = getelementptr inbounds nuw [3 x [3 x float]], ptr %54, i64 0, i64 %indvars.iv21.i
+  %61 = getelementptr inbounds nuw [3 x float], ptr %54, i64 %indvars.iv21.i
   %62 = getelementptr inbounds nuw [3 x float], ptr %17, i64 %indvars.iv21.i
   br label %64
 
@@ -1047,13 +1047,13 @@ _ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit:       ; preds = %11
 
 64:                                               ; preds = %64, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i
   %66 = load float, ptr %65, align 4, !tbaa !114
   %67 = fpext float %66 to double
   %68 = fmul double %67, 0x4043BD3CC9BE45DE
   %69 = fdiv double %68, %60
   %70 = fptrunc double %69 to float
-  %71 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i
   store float %70, ptr %71, align 4, !tbaa !114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1147,16 +1147,16 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   %144 = phi i1 [ true, %140 ], [ false, %143 ]
   %indvars.iv.sroa.phi = phi ptr [ %15, %140 ], [ %indvars.iv.sroa.gep288, %143 ]
   %indvars.iv = phi i64 [ 0, %140 ], [ 1, %143 ]
-  %145 = getelementptr inbounds nuw [3 x [3 x float]], ptr %86, i64 0, i64 %indvars.iv
-  %146 = getelementptr inbounds nuw [3 x float], ptr %145, i64 0, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [3 x float], ptr %86, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv
   %147 = load float, ptr %146, align 4, !tbaa !114
   %148 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv
-  %149 = getelementptr inbounds nuw [3 x float], ptr %148, i64 0, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv
   %150 = load float, ptr %149, align 4, !tbaa !114
   %151 = fdiv float %147, %150
   %152 = fsub float %132, %151
   %153 = fsub float %142, %152
-  %154 = getelementptr inbounds nuw [3 x float], ptr %indvars.iv.sroa.phi, i64 0, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw float, ptr %indvars.iv.sroa.phi, i64 %indvars.iv
   store float %153, ptr %154, align 4, !tbaa !114
   br i1 %144, label %143, label %.loopexit187.loopexit, !llvm.loop !160
 
@@ -1222,8 +1222,8 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   br i1 %.not202, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader186
-  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv209
-  %193 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv209
+  %invariant.gep = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv209
+  %193 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv209
   br label %195
 
 194:                                              ; preds = %._crit_edge
@@ -1241,9 +1241,9 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 
 195:                                              ; preds = %.lr.ph, %195
   %indvars.iv206 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next207, %195 ]
-  %gep = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv206
+  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv206
   %196 = load float, ptr %gep, align 4, !tbaa !114
-  %197 = getelementptr inbounds nuw [3 x float], ptr %193, i64 0, i64 %indvars.iv206
+  %197 = getelementptr inbounds nuw float, ptr %193, i64 %indvars.iv206
   %198 = load float, ptr %197, align 4, !tbaa !114
   %199 = fadd float %196, %198
   store float %199, ptr %197, align 4, !tbaa !114
@@ -1255,8 +1255,8 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 .preheader179:                                    ; preds = %194, %202
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %202 ], [ 0, %194 ]
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %202 ], [ 1, %194 ]
-  %200 = getelementptr inbounds nuw [3 x [3 x float]], ptr %17, i64 0, i64 %indvars.iv252
-  %201 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv252
+  %200 = getelementptr inbounds nuw [3 x float], ptr %17, i64 %indvars.iv252
+  %201 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv252
   br label %203
 
 202:                                              ; preds = %203
@@ -1270,10 +1270,10 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 
 203:                                              ; preds = %.preheader179, %203
   %indvars.iv244 = phi i64 [ 0, %.preheader179 ], [ %indvars.iv.next245, %203 ]
-  %204 = getelementptr inbounds nuw [3 x float], ptr %200, i64 0, i64 %indvars.iv244
+  %204 = getelementptr inbounds nuw float, ptr %200, i64 %indvars.iv244
   %205 = load float, ptr %204, align 4, !tbaa !114
   %206 = fmul float %30, %205
-  %207 = getelementptr inbounds nuw [3 x float], ptr %201, i64 0, i64 %indvars.iv244
+  %207 = getelementptr inbounds nuw float, ptr %201, i64 %indvars.iv244
   %208 = load float, ptr %207, align 4, !tbaa !114
   %209 = fmul float %208, %206
   store float %209, ptr %207, align 4, !tbaa !114
@@ -1301,7 +1301,7 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   %indvars.iv238 = phi i64 [ 0, %210 ], [ %indvars.iv.next239, %226 ]
   %indvars.iv236 = phi i64 [ 1, %210 ], [ %indvars.iv.next237, %226 ]
   %224 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv238
-  %225 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv238
+  %225 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv238
   br label %227
 
 226:                                              ; preds = %227
@@ -1312,10 +1312,10 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 
 227:                                              ; preds = %.preheader181, %227
   %indvars.iv230 = phi i64 [ 0, %.preheader181 ], [ %indvars.iv.next231, %227 ]
-  %228 = getelementptr inbounds nuw [3 x float], ptr %224, i64 0, i64 %indvars.iv230
+  %228 = getelementptr inbounds nuw float, ptr %224, i64 %indvars.iv230
   %229 = load float, ptr %228, align 4, !tbaa !114
   %230 = fmul float %229, %223
-  %231 = getelementptr inbounds nuw [3 x float], ptr %225, i64 0, i64 %indvars.iv230
+  %231 = getelementptr inbounds nuw float, ptr %225, i64 %indvars.iv230
   store float %230, ptr %231, align 4, !tbaa !114
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next231, %indvars.iv236
@@ -1350,14 +1350,14 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 
 244:                                              ; preds = %.preheader185, %244
   %indvars.iv213 = phi i64 [ 0, %.preheader185 ], [ %indvars.iv.next214, %244 ]
-  %245 = getelementptr inbounds nuw [3 x float], ptr %indvars.iv221.sroa.phi, i64 0, i64 %indvars.iv213
+  %245 = getelementptr inbounds nuw float, ptr %indvars.iv221.sroa.phi, i64 %indvars.iv213
   %246 = load float, ptr %245, align 4, !tbaa !114
   %247 = fmul float %30, %246
   %248 = fmul float %239, %247
-  %249 = getelementptr inbounds nuw [3 x float], ptr %241, i64 0, i64 %indvars.iv213
+  %249 = getelementptr inbounds nuw float, ptr %241, i64 %indvars.iv213
   %250 = load float, ptr %249, align 4, !tbaa !114
   %251 = fmul float %250, %248
-  %252 = getelementptr inbounds nuw [3 x float], ptr %indvars.iv221.sroa.phi285, i64 0, i64 %indvars.iv213
+  %252 = getelementptr inbounds nuw float, ptr %indvars.iv221.sroa.phi285, i64 %indvars.iv213
   store float %251, ptr %252, align 4, !tbaa !114
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next214, %indvars.iv219
@@ -1365,10 +1365,10 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 
 253:                                              ; preds = %.preheader183, %253
   %indvars.iv226 = phi i64 [ 0, %.preheader183 ], [ %indvars.iv.next227, %253 ]
-  %254 = getelementptr inbounds nuw [3 x float], ptr %242, i64 0, i64 %indvars.iv226
+  %254 = getelementptr inbounds nuw float, ptr %242, i64 %indvars.iv226
   %255 = load float, ptr %254, align 4, !tbaa !114
   %256 = fmul float %30, %255
-  %257 = getelementptr inbounds nuw [3 x float], ptr %184, i64 0, i64 %indvars.iv226
+  %257 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv226
   %258 = load float, ptr %257, align 4, !tbaa !114
   %259 = fmul float %258, %256
   store float %259, ptr %257, align 4, !tbaa !114
@@ -1401,10 +1401,10 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %274 ], [ 0, %.preheader.preheader ]
   %indvars.iv264 = phi i64 [ %indvars.iv.next265, %274 ], [ 1, %.preheader.preheader ]
   %.0130200 = phi float [ %.2, %274 ], [ 0.000000e+00, %.preheader.preheader ]
-  %267 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv266
+  %267 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv266
   %268 = getelementptr inbounds nuw [3 x float], ptr %8, i64 %indvars.iv266
   %269 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv266
-  %270 = getelementptr inbounds nuw [3 x float], ptr %269, i64 0, i64 %indvars.iv266
+  %270 = getelementptr inbounds nuw float, ptr %269, i64 %indvars.iv266
   br label %275
 
 271:                                              ; preds = %274
@@ -1421,9 +1421,9 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 275:                                              ; preds = %.preheader, %275
   %indvars.iv258 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next259, %275 ]
   %.1198 = phi float [ %.0130200, %.preheader ], [ %.2, %275 ]
-  %276 = getelementptr inbounds nuw [3 x float], ptr %267, i64 0, i64 %indvars.iv258
+  %276 = getelementptr inbounds nuw float, ptr %267, i64 %indvars.iv258
   %277 = load float, ptr %276, align 4, !tbaa !114
-  %278 = getelementptr inbounds nuw [3 x float], ptr %268, i64 0, i64 %indvars.iv258
+  %278 = getelementptr inbounds nuw float, ptr %268, i64 %indvars.iv258
   %279 = load float, ptr %278, align 4, !tbaa !114
   %280 = tail call float @llvm.fmuladd.f32(float %4, float %277, float %279)
   store float %280, ptr %278, align 4, !tbaa !114
@@ -1774,8 +1774,8 @@ _Z11do_per_stepll.exit144:                        ; preds = %94
 .preheader:                                       ; preds = %102, %111
   %indvars.iv159 = phi i64 [ 0, %102 ], [ %indvars.iv.next160, %111 ]
   %indvars.iv157 = phi i64 [ 1, %102 ], [ %indvars.iv.next158, %111 ]
-  %107 = getelementptr inbounds nuw [3 x [3 x float]], ptr %105, i64 0, i64 %indvars.iv159
-  %108 = getelementptr inbounds nuw [3 x [3 x float]], ptr %106, i64 0, i64 %indvars.iv159
+  %107 = getelementptr inbounds nuw [3 x float], ptr %105, i64 %indvars.iv159
+  %108 = getelementptr inbounds nuw [3 x float], ptr %106, i64 %indvars.iv159
   br label %112
 
 109:                                              ; preds = %111
@@ -1791,9 +1791,9 @@ _Z11do_per_stepll.exit144:                        ; preds = %94
 
 112:                                              ; preds = %.preheader, %112
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %112 ]
-  %113 = getelementptr inbounds nuw [3 x float], ptr %107, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv
   %114 = load float, ptr %113, align 4, !tbaa !114
-  %115 = getelementptr inbounds nuw [3 x float], ptr %108, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv
   %116 = load float, ptr %115, align 4, !tbaa !114
   %117 = tail call float @llvm.fmuladd.f32(float %104, float %114, float %116)
   store float %117, ptr %115, align 4, !tbaa !114
@@ -2063,14 +2063,14 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 
 28:                                               ; preds = %28, %.preheader.i.i
   %indvars.iv109.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next110.i.i, %28 ]
-  %29 = getelementptr inbounds nuw [3 x [3 x float]], ptr %25, i64 0, i64 %indvars.iv109.i.i
-  %30 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv109.i.i
+  %29 = getelementptr inbounds nuw [3 x float], ptr %25, i64 %indvars.iv109.i.i
+  %30 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv109.i.i
   %31 = load float, ptr %30, align 4, !tbaa !114
   %32 = fmul float %5, %31
   %33 = load float, ptr %26, align 4, !tbaa !156
   %34 = fdiv float %32, %33
-  %35 = getelementptr inbounds nuw [3 x [3 x float]], ptr %27, i64 0, i64 %indvars.iv109.i.i
-  %36 = getelementptr inbounds nuw [3 x float], ptr %35, i64 0, i64 %indvars.iv109.i.i
+  %35 = getelementptr inbounds nuw [3 x float], ptr %27, i64 %indvars.iv109.i.i
+  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv109.i.i
   %37 = load float, ptr %36, align 4, !tbaa !114
   %38 = fsub float %37, %158
   %39 = fmul float %34, %38
@@ -2105,14 +2105,14 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 59:                                               ; preds = %59, %.preheader86.i.i
   %60 = phi i1 [ true, %.preheader86.i.i ], [ false, %59 ]
   %indvars.iv106.i.i = phi i64 [ 0, %.preheader86.i.i ], [ 1, %59 ]
-  %61 = getelementptr inbounds nuw [3 x [3 x float]], ptr %22, i64 0, i64 %indvars.iv106.i.i
-  %62 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv106.i.i
+  %61 = getelementptr inbounds nuw [3 x float], ptr %22, i64 %indvars.iv106.i.i
+  %62 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv106.i.i
   %63 = load float, ptr %62, align 4, !tbaa !114
   %64 = fmul float %5, %63
   %65 = load float, ptr %23, align 4, !tbaa !156
   %66 = fdiv float %64, %65
-  %67 = getelementptr inbounds nuw [3 x [3 x float]], ptr %24, i64 0, i64 %indvars.iv106.i.i
-  %68 = getelementptr inbounds nuw [3 x float], ptr %67, i64 0, i64 %indvars.iv106.i.i
+  %67 = getelementptr inbounds nuw [3 x float], ptr %24, i64 %indvars.iv106.i.i
+  %68 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv106.i.i
   %69 = load float, ptr %68, align 4, !tbaa !114
   %70 = fsub float %69, %.02126.i
   %71 = fmul float %66, %70
@@ -2126,8 +2126,8 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 
 .preheader87.i.i:                                 ; preds = %80, %.preheader88.i.i
   %indvars.iv102.i.i = phi i64 [ 0, %.preheader88.i.i ], [ %indvars.iv.next103.i.i, %80 ]
-  %76 = getelementptr inbounds nuw [3 x [3 x float]], ptr %19, i64 0, i64 %indvars.iv102.i.i
-  %77 = getelementptr inbounds nuw [3 x [3 x float]], ptr %21, i64 0, i64 %indvars.iv102.i.i
+  %76 = getelementptr inbounds nuw [3 x float], ptr %19, i64 %indvars.iv102.i.i
+  %77 = getelementptr inbounds nuw [3 x float], ptr %21, i64 %indvars.iv102.i.i
   %78 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv102.i.i
   %.idx.i.i84.i.i = mul nuw nsw i64 %indvars.iv102.i.i, 12
   %79 = getelementptr i8, ptr %10, i64 %.idx.i.i84.i.i
@@ -2142,14 +2142,14 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv99.i.i = phi i64 [ 0, %.preheader87.i.i ], [ %indvars.iv.next100.i.i, %81 ]
   %82 = icmp eq i64 %indvars.iv102.i.i, %indvars.iv99.i.i
   %83 = select i1 %82, double 1.000000e+00, double 0.000000e+00
-  %84 = getelementptr inbounds nuw [3 x float], ptr %76, i64 0, i64 %indvars.iv99.i.i
+  %84 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv99.i.i
   %85 = load float, ptr %84, align 4, !tbaa !114
   %86 = fmul float %5, %85
   %87 = load float, ptr %20, align 4, !tbaa !156
   %88 = fdiv float %86, %87
-  %89 = getelementptr inbounds nuw [3 x float], ptr %77, i64 0, i64 %indvars.iv99.i.i
+  %89 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv99.i.i
   %90 = load float, ptr %89, align 4, !tbaa !114
-  %91 = getelementptr inbounds nuw [3 x float], ptr %78, i64 0, i64 %indvars.iv99.i.i
+  %91 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv99.i.i
   %92 = load float, ptr %91, align 4, !tbaa !114
   %93 = fsub float %90, %92
   %94 = fmul float %88, %93
@@ -2197,14 +2197,14 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 123:                                              ; preds = %123, %114
   %124 = phi i1 [ true, %114 ], [ false, %123 ]
   %indvars.iv.i.i = phi i64 [ 0, %114 ], [ 1, %123 ]
-  %125 = getelementptr inbounds nuw [3 x [3 x float]], ptr %118, i64 0, i64 %indvars.iv.i.i
-  %126 = getelementptr inbounds nuw [3 x float], ptr %125, i64 0, i64 %indvars.iv.i.i
+  %125 = getelementptr inbounds nuw [3 x float], ptr %118, i64 %indvars.iv.i.i
+  %126 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv.i.i
   %127 = load float, ptr %126, align 4, !tbaa !114
   %128 = fmul float %5, %127
   %129 = load float, ptr %119, align 4, !tbaa !156
   %130 = fdiv float %128, %129
-  %131 = getelementptr inbounds nuw [3 x [3 x float]], ptr %120, i64 0, i64 %indvars.iv.i.i
-  %132 = getelementptr inbounds nuw [3 x float], ptr %131, i64 0, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw [3 x float], ptr %120, i64 %indvars.iv.i.i
+  %132 = getelementptr inbounds nuw float, ptr %131, i64 %indvars.iv.i.i
   %133 = load float, ptr %132, align 4, !tbaa !114
   %134 = load float, ptr %121, align 4, !tbaa !114
   %135 = fmul float %116, %134
@@ -2248,7 +2248,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %.02126.i = phi float [ 0.000000e+00, %12 ], [ %.1.i, %153 ]
   %.02225.i = phi float [ 0.000000e+00, %12 ], [ %158, %153 ]
   %154 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv.i
-  %155 = getelementptr inbounds nuw [3 x float], ptr %154, i64 0, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw float, ptr %154, i64 %indvars.iv.i
   %156 = load float, ptr %155, align 4, !tbaa !114
   %157 = fdiv float %156, 3.000000e+00
   %158 = fadd float %.02225.i, %157
@@ -2334,9 +2334,9 @@ _ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptio
   %191 = uitofp i1 %190 to float
   %192 = fsub float %189, %191
   %193 = fmul float %192, 2.000000e+00
-  %194 = getelementptr inbounds nuw [3 x float], ptr %178, i64 0, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw float, ptr %178, i64 %indvars.iv
   %195 = load float, ptr %194, align 4, !tbaa !114
-  %196 = getelementptr inbounds nuw [3 x float], ptr %179, i64 0, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw float, ptr %179, i64 %indvars.iv
   %197 = load float, ptr %196, align 4, !tbaa !114
   %198 = fadd float %195, %197
   %199 = fmul float %193, %198
@@ -2603,7 +2603,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %indvars.iv.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i, %112 ]
   %.0102.i.i = phi float [ 1.000000e+00, %18 ], [ %116, %112 ]
   %113 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %indvars.iv.i.i
-  %114 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv.i.i
   %115 = load float, ptr %114, align 4, !tbaa !114
   %116 = fmul float %.0102.i.i, %115
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2624,15 +2624,15 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 
 127:                                              ; preds = %127, %117
   %indvars.iv113.i.i = phi i64 [ 0, %117 ], [ %indvars.iv.next114.i.i, %127 ]
-  %128 = getelementptr inbounds nuw [3 x [3 x float]], ptr %119, i64 0, i64 %indvars.iv113.i.i
-  %129 = getelementptr inbounds nuw [3 x float], ptr %128, i64 0, i64 %indvars.iv113.i.i
+  %128 = getelementptr inbounds nuw [3 x float], ptr %119, i64 %indvars.iv113.i.i
+  %129 = getelementptr inbounds nuw float, ptr %128, i64 %indvars.iv113.i.i
   %130 = load float, ptr %129, align 4, !tbaa !114
   %131 = fmul float %5, %130
   %132 = load float, ptr %120, align 4, !tbaa !156
   %133 = fdiv float %131, %132
   %134 = fneg float %133
-  %135 = getelementptr inbounds nuw [3 x [3 x float]], ptr %121, i64 0, i64 %indvars.iv113.i.i
-  %136 = getelementptr inbounds nuw [3 x float], ptr %135, i64 0, i64 %indvars.iv113.i.i
+  %135 = getelementptr inbounds nuw [3 x float], ptr %121, i64 %indvars.iv113.i.i
+  %136 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv113.i.i
   %137 = load float, ptr %136, align 4, !tbaa !114
   %138 = fsub float %137, %291
   %139 = fmul float %138, %134
@@ -2693,15 +2693,15 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 184:                                              ; preds = %184, %154
   %185 = phi i1 [ true, %154 ], [ false, %184 ]
   %indvars.iv110.i.i = phi i64 [ 0, %154 ], [ 1, %184 ]
-  %186 = getelementptr inbounds nuw [3 x [3 x float]], ptr %157, i64 0, i64 %indvars.iv110.i.i
-  %187 = getelementptr inbounds nuw [3 x float], ptr %186, i64 0, i64 %indvars.iv110.i.i
+  %186 = getelementptr inbounds nuw [3 x float], ptr %157, i64 %indvars.iv110.i.i
+  %187 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv110.i.i
   %188 = load float, ptr %187, align 4, !tbaa !114
   %189 = fmul float %5, %188
   %190 = load float, ptr %158, align 4, !tbaa !156
   %191 = fdiv float %189, %190
   %192 = fneg float %191
-  %193 = getelementptr inbounds nuw [3 x [3 x float]], ptr %159, i64 0, i64 %indvars.iv110.i.i
-  %194 = getelementptr inbounds nuw [3 x float], ptr %193, i64 0, i64 %indvars.iv110.i.i
+  %193 = getelementptr inbounds nuw [3 x float], ptr %159, i64 %indvars.iv110.i.i
+  %194 = getelementptr inbounds nuw float, ptr %193, i64 %indvars.iv110.i.i
   %195 = load float, ptr %194, align 4, !tbaa !114
   %196 = fsub float %195, %.02124.i
   %197 = fmul float %196, %192
@@ -2760,16 +2760,16 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
 242:                                              ; preds = %242, %212
   %243 = phi i1 [ true, %212 ], [ false, %242 ]
   %indvars.iv107.i.i = phi i64 [ 0, %212 ], [ 1, %242 ]
-  %244 = getelementptr inbounds nuw [3 x [3 x float]], ptr %215, i64 0, i64 %indvars.iv107.i.i
-  %245 = getelementptr inbounds nuw [3 x float], ptr %244, i64 0, i64 %indvars.iv107.i.i
+  %244 = getelementptr inbounds nuw [3 x float], ptr %215, i64 %indvars.iv107.i.i
+  %245 = getelementptr inbounds nuw float, ptr %244, i64 %indvars.iv107.i.i
   %246 = load float, ptr %245, align 4, !tbaa !114
   %247 = fmul float %5, %246
   %248 = load float, ptr %216, align 4, !tbaa !156
   %249 = fdiv float %247, %248
   %250 = fneg float %249
   %251 = load float, ptr %218, align 4, !tbaa !114
-  %252 = getelementptr inbounds nuw [3 x [3 x float]], ptr %217, i64 0, i64 %indvars.iv107.i.i
-  %253 = getelementptr inbounds nuw [3 x float], ptr %252, i64 0, i64 %indvars.iv107.i.i
+  %252 = getelementptr inbounds nuw [3 x float], ptr %217, i64 %indvars.iv107.i.i
+  %253 = getelementptr inbounds nuw float, ptr %252, i64 %indvars.iv107.i.i
   %254 = load float, ptr %253, align 4, !tbaa !114
   %255 = load float, ptr %219, align 4, !tbaa !114
   %256 = fdiv float %254, %255
@@ -2837,7 +2837,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %.02124.i = phi float [ 0.000000e+00, %12 ], [ %.1.i, %286 ]
   %.02223.i = phi float [ 0.000000e+00, %12 ], [ %291, %286 ]
   %287 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv.i
-  %288 = getelementptr inbounds nuw [3 x float], ptr %287, i64 0, i64 %indvars.iv.i
+  %288 = getelementptr inbounds nuw float, ptr %287, i64 %indvars.iv.i
   %289 = load float, ptr %288, align 4, !tbaa !114
   %290 = fdiv float %289, 3.000000e+00
   %291 = fadd float %.02223.i, %290
@@ -2911,9 +2911,9 @@ _ZL26calculateScalingMatrixImplIL16PressureCoupling5EEvRK23PressureCouplingOptio
   %325 = uitofp i1 %324 to float
   %326 = fsub float %323, %325
   %327 = fmul float %326, 2.000000e+00
-  %328 = getelementptr inbounds nuw [3 x float], ptr %312, i64 0, i64 %indvars.iv
+  %328 = getelementptr inbounds nuw float, ptr %312, i64 %indvars.iv
   %329 = load float, ptr %328, align 4, !tbaa !114
-  %330 = getelementptr inbounds nuw [3 x float], ptr %313, i64 0, i64 %indvars.iv
+  %330 = getelementptr inbounds nuw float, ptr %313, i64 %indvars.iv
   %331 = load float, ptr %330, align 4, !tbaa !114
   %332 = fadd float %329, %331
   %333 = fmul float %327, %332
@@ -3377,7 +3377,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
 
 ._crit_edge.i.i.i:                                ; preds = %157
   %.phi.trans.insert1.i.i.i = zext nneg i32 %158 to i64
-  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %23, i64 0, i64 %.phi.trans.insert1.i.i.i
+  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw i64, ptr %23, i64 %.phi.trans.insert1.i.i.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i, align 8, !tbaa !144
   %160 = add nuw nsw i32 %158, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
@@ -3485,12 +3485,12 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
   %249 = phi i32 [ %156, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
   %250 = phi i64 [ %.sroa.6.249, %._crit_edge.i.i ], [ %245, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
   %251 = and i64 %250, 16383
-  %252 = getelementptr inbounds nuw [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %251
   %253 = load float, ptr %252, align 4, !tbaa !114
   %254 = lshr i64 %250, 14
   %255 = fadd float %253, 0.000000e+00
   %256 = fmul float %150, %255
-  %257 = getelementptr inbounds nuw [3 x float], ptr %151, i64 0, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw float, ptr %151, i64 %indvars.iv
   store float %256, ptr %257, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3575,13 +3575,13 @@ define noundef float @_Z9calc_pres7PbcTypeiPA3_KfS2_S2_PA3_f(i32 noundef %0, i32
 
 48:                                               ; preds = %.preheader, %48
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv
   %50 = load float, ptr %49, align 4, !tbaa !114
-  %51 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
   %52 = load float, ptr %51, align 4, !tbaa !114
   %53 = fsub float %50, %52
   %54 = fmul float %53, %44
-  %55 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv
   store float %54, ptr %55, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3921,7 +3921,7 @@ define internal fastcc void @_ZL11calculateMuRK23PressureCouplingOptionsPA3_KfPA
   %indvars.iv25 = phi i64 [ 1, %8 ], [ %indvars.iv.next26, %70 ]
   %11 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv27
   %12 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv27
-  %13 = getelementptr inbounds nuw [3 x [3 x float]], ptr %9, i64 0, i64 %indvars.iv27
+  %13 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv27
   br label %71
 
 14:                                               ; preds = %70
@@ -4033,12 +4033,12 @@ _ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArra
 
 71:                                               ; preds = %.preheader, %71
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %71 ]
-  %72 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %73 = load float, ptr %72, align 4, !tbaa !114
-  %74 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %75 = load float, ptr %74, align 4, !tbaa !114
   %76 = tail call float @llvm.fmuladd.f32(float %7, float %75, float %73)
-  %77 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
   store float %76, ptr %77, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv25
@@ -4647,7 +4647,7 @@ define linkonce_odr noundef float @_ZN3gmx18NormalDistributionIfEclINS_12ThreeFr
 
 ._crit_edge.i.i.i.i:                              ; preds = %12
   %.phi.trans.insert1.i.i.i.i = zext nneg i32 %13 to i64
-  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i, i64 %.phi.trans.insert1.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i, align 8, !tbaa !144
   %15 = add nuw nsw i32 %13, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
@@ -5658,7 +5658,7 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit: 
 
 194:                                              ; preds = %194, %191
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %194 ], [ 0, %191 ]
-  %195 = getelementptr inbounds nuw [3 x float], ptr %192, i64 0, i64 %indvars.iv143
+  %195 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv143
   %196 = load float, ptr %195, align 4, !tbaa !114
   %197 = fpext float %196 to double
   %198 = fmul double %190, %197
@@ -5685,7 +5685,7 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit: 
 
 207:                                              ; preds = %207, %.lr.ph109.split.us.split
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %207 ], [ 0, %.lr.ph109.split.us.split ]
-  %208 = getelementptr inbounds nuw [3 x float], ptr %205, i64 0, i64 %indvars.iv134
+  %208 = getelementptr inbounds nuw float, ptr %205, i64 %indvars.iv134
   %209 = load float, ptr %208, align 4, !tbaa !114
   %210 = fpext float %209 to double
   %211 = fmul double %204, %210
@@ -5738,7 +5738,7 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit: 
 
 236:                                              ; preds = %231, %236
   %indvars.iv121 = phi i64 [ 0, %231 ], [ %indvars.iv.next122, %236 ]
-  %237 = getelementptr inbounds nuw [3 x float], ptr %235, i64 0, i64 %indvars.iv121
+  %237 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv121
   %238 = load float, ptr %237, align 4, !tbaa !114
   %239 = fpext float %238 to double
   %240 = fmul double %234, %239
@@ -5755,10 +5755,10 @@ _ZL12boxv_trotterPK10t_inputrecPffPA3_KfPK14gmx_ekindata_tS5_PK9t_extmass.exit: 
 
 244:                                              ; preds = %.preheader, %244
   %indvars.iv125 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next126, %244 ]
-  %245 = getelementptr inbounds nuw [3 x float], ptr %235, i64 0, i64 %indvars.iv125
+  %245 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv125
   %246 = load float, ptr %245, align 4, !tbaa !114
   %247 = fdiv float %246, %243
-  %248 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv125
+  %248 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv125
   %249 = load float, ptr %248, align 4, !tbaa !114
   %250 = fadd float %249, %247
   store float %250, ptr %248, align 4, !tbaa !114
@@ -6545,7 +6545,7 @@ define void @_Z13init_npt_varsPK10t_inputrecRK14gmx_ekindata_tP7t_stateP9t_extma
 
 31:                                               ; preds = %30, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ]
-  %32 = getelementptr inbounds nuw [5 x %"class.std::vector.67"], ptr %0, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %"class.std::vector.67", ptr %0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !134
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -7152,7 +7152,7 @@ define noundef float @_Z10NPT_energyRK23PressureCouplingOptions19TemperatureCoup
 
 .preheader.i:                                     ; preds = %55, %42
   %indvars.iv21.i = phi i64 [ 0, %42 ], [ %indvars.iv.next22.i, %55 ]
-  %53 = getelementptr inbounds nuw [3 x [3 x float]], ptr %46, i64 0, i64 %indvars.iv21.i
+  %53 = getelementptr inbounds nuw [3 x float], ptr %46, i64 %indvars.iv21.i
   %54 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv21.i
   br label %57
 
@@ -7167,13 +7167,13 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preh
 
 57:                                               ; preds = %57, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %57 ]
-  %58 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i
   %59 = load float, ptr %58, align 4, !tbaa !114
   %60 = fpext float %59 to double
   %61 = fmul double %60, 0x4043BD3CC9BE45DE
   %62 = fdiv double %61, %52
   %63 = fptrunc double %62 to float
-  %64 = getelementptr inbounds nuw [3 x float], ptr %54, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv.i
   store float %63, ptr %64, align 4, !tbaa !114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -7183,8 +7183,8 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preh
   %indvars.iv69 = phi i64 [ 0, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader ], [ %indvars.iv.next70, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
   %indvars.iv67 = phi i64 [ 1, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader ], [ %indvars.iv.next68, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
   %.162 = phi float [ 0.000000e+00, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader ], [ %.3, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
-  %65 = getelementptr inbounds nuw [3 x [3 x float]], ptr %9, i64 0, i64 %indvars.iv69
-  %66 = getelementptr inbounds nuw [3 x [3 x float]], ptr %56, i64 0, i64 %indvars.iv69
+  %65 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv69
+  %66 = getelementptr inbounds nuw [3 x float], ptr %56, i64 %indvars.iv69
   br label %82
 
 67:                                               ; preds = %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit
@@ -7214,13 +7214,13 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 82:                                               ; preds = %.preheader, %98
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %98 ]
   %.260 = phi float [ %.162, %.preheader ], [ %.3, %98 ]
-  %83 = getelementptr inbounds nuw [3 x float], ptr %65, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv
   %84 = load float, ptr %83, align 4, !tbaa !114
   %85 = fcmp ogt float %84, 0.000000e+00
   br i1 %85, label %86, label %98
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw [3 x float], ptr %66, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv
   %88 = load float, ptr %87, align 4, !tbaa !114
   %89 = fmul float %88, %88
   %90 = fpext float %89 to double
@@ -7991,7 +7991,7 @@ define linkonce_odr noundef float @_ZN3gmx17GammaDistributionIfEclINS_12ThreeFry
 ._crit_edge.i.i.i.i:                              ; preds = %13
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.phi.trans.insert1.i.i.i.i = zext nneg i32 %15 to i64
-  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i, i64 %.phi.trans.insert1.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i, align 8, !tbaa !144
   %17 = add nuw nsw i32 %15, 1
   br label %_ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
@@ -8077,7 +8077,7 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %58
   %.phi.trans.insert1.i.i.i.i.i = zext nneg i32 %60 to i64
-  %.phi.trans.insert2.i.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i.i, i64 %.phi.trans.insert1.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i.i, align 8, !tbaa !144
   %62 = add nuw nsw i32 %60, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i
@@ -8436,7 +8436,7 @@ _ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_ty
 
 ._crit_edge.i.i.i.i43:                            ; preds = %268
   %.phi.trans.insert1.i.i.i.i45 = zext nneg i32 %271 to i64
-  %.phi.trans.insert2.i.i.i.i46 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i45
+  %.phi.trans.insert2.i.i.i.i46 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i.i, i64 %.phi.trans.insert1.i.i.i.i45
   %.pre.i.i.i.i47 = load i64, ptr %.phi.trans.insert2.i.i.i.i46, align 8, !tbaa !144
   %273 = add nuw nsw i32 %271, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
@@ -8505,7 +8505,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
 ._crit_edge.i.i.i.i49:                            ; preds = %307
   %.phi.trans.insert.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.phi.trans.insert1.i.i.i.i51 = zext nneg i32 %313 to i64
-  %.phi.trans.insert2.i.i.i.i52 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i50, i64 0, i64 %.phi.trans.insert1.i.i.i.i51
+  %.phi.trans.insert2.i.i.i.i52 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i50, i64 %.phi.trans.insert1.i.i.i.i51
   %.pre.i.i.i.i53 = load i64, ptr %.phi.trans.insert2.i.i.i.i52, align 8, !tbaa !144
   %315 = add nuw nsw i32 %313, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit56

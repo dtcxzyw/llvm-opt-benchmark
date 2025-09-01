@@ -82,7 +82,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br i1 %29, label %25, label %.outer, !llvm.loop !34
 
 .outer:                                           ; preds = %27
-  %30 = getelementptr inbounds nuw [16 x %struct.PaDeviceInfo], ptr %7, i64 0, i64 %.1.ph46
+  %30 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %7, i64 %.1.ph46
   store i32 2, ptr %30, align 8, !tbaa !8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %26, ptr %31, align 8, !tbaa !13
@@ -102,7 +102,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   store double 5.000000e-01, ptr %38, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store double 4.800000e+04, ptr %39, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw [16 x ptr], ptr %17, i64 0, i64 %.1.ph46
+  %40 = getelementptr inbounds nuw ptr, ptr %17, i64 %.1.ph46
   store ptr %30, ptr %40, align 8, !tbaa !22
   %41 = add nuw nsw i64 %.1.ph46, 1
   %exitcond.not = icmp eq i64 %41, 16

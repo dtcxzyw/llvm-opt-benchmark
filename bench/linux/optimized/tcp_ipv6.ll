@@ -2302,13 +2302,13 @@ tcp_checksum_complete.exit.thread:                ; preds = %256, %251, %262, %t
   %445 = getelementptr inbounds nuw i8, ptr %435, i64 64
   %446 = add i32 %439, -1
   %447 = sext i32 %446 to i64
-  %448 = getelementptr [1 x %struct.xfrm_offload], ptr %445, i64 0, i64 %447
+  %448 = getelementptr %struct.xfrm_offload, ptr %445, i64 %447
   %449 = icmp eq ptr %448, null
   br i1 %449, label %.thread52, label %450
 
 450:                                              ; preds = %444
   %451 = getelementptr inbounds nuw i8, ptr %435, i64 16
-  %452 = getelementptr [6 x ptr], ptr %451, i64 0, i64 %447
+  %452 = getelementptr ptr, ptr %451, i64 %447
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 656
   %455 = load i8, ptr %454, align 8
@@ -2597,7 +2597,7 @@ define internal fastcc i32 @xfrm6_policy_check(ptr noundef %0, ptr noundef %1) u
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %29 = add i32 %22, -1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr [1 x %struct.xfrm_offload], ptr %28, i64 0, i64 %30
+  %31 = getelementptr %struct.xfrm_offload, ptr %28, i64 %30
   br label %.thread
 
 .thread:                                          ; preds = %2, %27, %24, %20, %11
@@ -2638,7 +2638,7 @@ define internal fastcc i32 @xfrm6_policy_check(ptr noundef %0, ptr noundef %1) u
   %54 = load i32, ptr %52, align 8
   %55 = add i32 %54, -1
   %56 = sext i32 %55 to i64
-  %57 = getelementptr [6 x ptr], ptr %53, i64 0, i64 %56
+  %57 = getelementptr ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 656
   %60 = load i8, ptr %59, align 8

@@ -469,8 +469,8 @@ define dso_local noundef ptr @_ZN4llvm4dxil16ResourceTypeInfo19createElementStru
     i32 6, label %switch.lookup
     i32 7, label %switch.lookup
     i32 9, label %switch.lookup
-    i32 3, label %switch.lookup199
-    i32 8, label %switch.lookup199
+    i32 3, label %switch.lookup200
+    i32 8, label %switch.lookup200
     i32 10, label %_ZL19getResourceKindNameN4llvm4dxil12ResourceKindE.exit60
     i32 11, label %91
     i32 12, label %120
@@ -484,10 +484,10 @@ switch.lookup:                                    ; preds = %1, %1, %1, %1, %1, 
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %switch.tableidx = add nsw i32 %20, -1
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep197 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv.17, i64 0, i64 %23
+  %switch.gep197 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv.17, i64 %23
   %switch.load198 = load ptr, ptr %switch.gep197, align 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !19
@@ -553,14 +553,14 @@ _ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %276
 
-switch.lookup199:                                 ; preds = %1, %1
+switch.lookup200:                                 ; preds = %1, %1
   %50 = load ptr, ptr %0, align 8, !tbaa !3
-  %switch.tableidx200 = add nsw i32 %20, -3
-  %51 = zext nneg i32 %switch.tableidx200 to i64
-  %switch.gep201 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv.18, i64 0, i64 %51
+  %switch.tableidx199 = add nsw i32 %20, -3
+  %51 = zext nneg i32 %switch.tableidx199 to i64
+  %switch.gep201 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv.18, i64 %51
   %switch.load202 = load i64, ptr %switch.gep201, align 8
-  %52 = zext nneg i32 %switch.tableidx200 to i64
-  %switch.gep203 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv.19, i64 0, i64 %52
+  %52 = zext nneg i32 %switch.tableidx199 to i64
+  %switch.gep203 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm4dxil16ResourceTypeInfo19createElementStructEv.19, i64 %52
   %switch.load204 = load ptr, ptr %switch.gep203, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !19
@@ -569,11 +569,11 @@ switch.lookup199:                                 ; preds = %1, %1
   %56 = select i1 %.not160, i64 0, i64 2
   br i1 %.not160, label %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit53, label %57
 
-57:                                               ; preds = %switch.lookup199
+57:                                               ; preds = %switch.lookup200
   store i16 22354, ptr %16, align 8
   br label %_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit53
 
-_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit53: ; preds = %switch.lookup199, %57
+_ZL14formatTypeNameRN4llvm11SmallStringILj64EEENS_9StringRefEbb.exit53: ; preds = %switch.lookup200, %57
   store i64 %56, ptr %17, align 8, !tbaa !35
   %.sroa.gep205 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %.sroa.sel = select i1 %.not160, ptr %16, ptr %.sroa.gep205
@@ -1931,10 +1931,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %18 = load i8, ptr %17, align 2, !tbaa !14
   %19 = zext nneg i8 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = zext nneg i8 %18 to i64
-  %switch.gep162 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.20, i64 0, i64 %20
+  %switch.gep162 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.20, i64 %20
   %switch.load163 = load ptr, ptr %switch.gep162, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !89
@@ -2009,10 +2009,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %51, %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !32
   %59 = zext nneg i32 %58 to i64
-  %switch.gep164 = getelementptr inbounds nuw [20 x i64], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.21, i64 0, i64 %59
+  %switch.gep164 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.21, i64 %59
   %switch.load165 = load i64, ptr %switch.gep164, align 8
   %60 = zext nneg i32 %58 to i64
-  %switch.gep166 = getelementptr inbounds nuw [20 x ptr], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.22, i64 0, i64 %60
+  %switch.gep166 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.22, i64 %60
   %switch.load167 = load ptr, ptr %switch.gep166, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i29, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !89
@@ -2138,10 +2138,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %120, %122
   %127 = load ptr, ptr %126, align 8, !tbaa !19
   %128 = load i32, ptr %127, align 4, !tbaa !28
   %129 = zext nneg i32 %128 to i64
-  %switch.gep168 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.23, i64 0, i64 %129
+  %switch.gep168 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.23, i64 %129
   %switch.load169 = load i64, ptr %switch.gep168, align 8
   %130 = zext nneg i32 %128 to i64
-  %switch.gep170 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.24, i64 0, i64 %130
+  %switch.gep170 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.24, i64 %130
   %switch.load171 = load ptr, ptr %switch.gep170, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i47, i64 24
   %132 = load ptr, ptr %131, align 8, !tbaa !89
@@ -2610,10 +2610,10 @@ _ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit: ; preds = %_ZL17toDXILElementT
 switch.lookup:                                    ; preds = %357, %355
   %.0.i.i100 = phi ptr [ %356, %355 ], [ %1, %357 ]
   %360 = zext nneg i32 %.0.i.i96 to i64
-  %switch.gep172 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.25, i64 0, i64 %360
+  %switch.gep172 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.25, i64 %360
   %switch.load173 = load i64, ptr %switch.gep172, align 8
   %361 = zext nneg i32 %.0.i.i96 to i64
-  %switch.gep174 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.26, i64 0, i64 %361
+  %switch.gep174 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm4dxil16ResourceTypeInfo5printERNS_11raw_ostreamERKNS_10DataLayoutE.26, i64 %361
   %switch.load175 = load ptr, ptr %switch.gep174, align 8
   %362 = getelementptr inbounds nuw i8, ptr %.0.i.i100, i64 24
   %363 = load ptr, ptr %362, align 8, !tbaa !89

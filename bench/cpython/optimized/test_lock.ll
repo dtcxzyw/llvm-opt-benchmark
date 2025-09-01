@@ -218,7 +218,7 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
 
 5:                                                ; preds = %2, %5
   %.078 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %6 = getelementptr [5 x %struct.thread_data_counter], ptr %4, i64 0, i64 %.078
+  %6 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.078
   store ptr %3, ptr %6, align 16, !tbaa !13
   %7 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @counter_thread, ptr noundef nonnull %6) #6
   %8 = add nuw nsw i64 %.078, 1
@@ -233,7 +233,7 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
 
 .preheader:                                       ; preds = %5, %.preheader
   %.09 = phi i64 [ %14, %.preheader ], [ 0, %5 ]
-  %13 = getelementptr [5 x %struct.thread_data_counter], ptr %4, i64 0, i64 %.09, i32 1
+  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09, i32 1
   call void @PyEvent_Wait(ptr noundef %13) #6
   %14 = add nuw nsw i64 %.09, 1
   %exitcond10.not = icmp eq i64 %14, 5
@@ -261,7 +261,7 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
 
 5:                                                ; preds = %2, %5
   %.078 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %6 = getelementptr [5 x %struct.thread_data_counter], ptr %4, i64 0, i64 %.078
+  %6 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.078
   store ptr %3, ptr %6, align 16, !tbaa !13
   %7 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @slow_counter_thread, ptr noundef nonnull %6) #6
   %8 = add nuw nsw i64 %.078, 1
@@ -276,7 +276,7 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
 
 .preheader:                                       ; preds = %5, %.preheader
   %.09 = phi i64 [ %14, %.preheader ], [ 0, %5 ]
-  %13 = getelementptr [5 x %struct.thread_data_counter], ptr %4, i64 0, i64 %.09, i32 1
+  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09, i32 1
   call void @PyEvent_Wait(ptr noundef %13) #6
   %14 = add nuw nsw i64 %.09, 1
   %exitcond10.not = icmp eq i64 %14, 5

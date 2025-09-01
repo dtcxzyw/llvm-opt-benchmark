@@ -1318,7 +1318,7 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %92, align 8, !tbaa !106
   %130 = sext i32 %128 to i64
-  %131 = getelementptr inbounds [4 x i32], ptr %105, i64 0, i64 %130
+  %131 = getelementptr inbounds i32, ptr %105, i64 %130
   store i32 %120, ptr %131, align 4, !tbaa !52
   switch i32 %120, label %default.unreachable [
     i32 0, label %132
@@ -1527,7 +1527,7 @@ default.unreachable:                              ; preds = %126
 265:                                              ; preds = %.lr.ph165, %apply_predictor_transform.exit
   %indvars.iv = phi i64 [ %264, %.lr.ph165 ], [ %indvars.iv.next, %apply_predictor_transform.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %266 = getelementptr inbounds nuw [4 x i32], ptr %254, i64 0, i64 %indvars.iv.next
+  %266 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv.next
   %267 = load i32, ptr %266, align 4, !tbaa !52
   switch i32 %267, label %apply_predictor_transform.exit [
     i32 0, label %268
@@ -1591,7 +1591,7 @@ default.unreachable:                              ; preds = %126
   %303 = getelementptr inbounds i8, ptr %282, i64 %301
   %304 = getelementptr inbounds i8, ptr %282, i64 %298
   %305 = zext i1 %280 to i64
-  %306 = getelementptr inbounds nuw [14 x ptr], ptr @inverse_predict, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw ptr, ptr @inverse_predict, i64 %305
   %307 = load ptr, ptr %306, align 8, !tbaa !114
   call void %307(ptr noundef nonnull %8, ptr noundef %303, ptr noundef %302, ptr noundef %299, ptr noundef %.0.i.i104.us) #11
   %308 = load i8, ptr %8, align 1, !tbaa !59
@@ -1684,7 +1684,7 @@ default.unreachable:                              ; preds = %126
   %373 = getelementptr inbounds i8, ptr %355, i64 %371
   %374 = getelementptr inbounds i8, ptr %355, i64 %368
   %375 = zext nneg i32 %.02732.i to i64
-  %376 = getelementptr inbounds nuw [14 x ptr], ptr @inverse_predict, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw ptr, ptr @inverse_predict, i64 %375
   %377 = load ptr, ptr %376, align 8, !tbaa !114
   call void %377(ptr noundef nonnull %8, ptr noundef %373, ptr noundef %372, ptr noundef %369, ptr noundef %.0.i.i104) #11
   %378 = load i8, ptr %8, align 1, !tbaa !59
@@ -2054,7 +2054,7 @@ default.unreachable:                              ; preds = %126
   %616 = load i8, ptr %615, align 1, !tbaa !59
   %617 = zext i8 %616 to i64
   %618 = shl nuw nsw i64 %617, 2
-  %619 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %618
+  %619 = getelementptr inbounds nuw i8, ptr %7, i64 %618
   %620 = load i32, ptr %619, align 4, !tbaa !59
   store i32 %620, ptr %614, align 4, !tbaa !59
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
@@ -2156,7 +2156,7 @@ apply_predictor_transform.exit:                   ; preds = %._crit_edge100.i, %
 
 674:                                              ; preds = %.thread, %image_ctx_free.exit
   %indvars.iv185 = phi i64 [ 0, %.thread ], [ %indvars.iv.next186, %image_ctx_free.exit ]
-  %675 = getelementptr inbounds nuw [5 x %struct.ImageContext], ptr %673, i64 0, i64 %indvars.iv185
+  %675 = getelementptr inbounds nuw %struct.ImageContext, ptr %673, i64 %indvars.iv185
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 24
   %677 = load ptr, ptr %676, align 8, !tbaa !130
   call void @av_free(ptr noundef %677) #11
@@ -2270,7 +2270,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_entropy_coded_image
   %9 = alloca [16 x i16], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.ImageContext], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.ImageContext, ptr %10, i64 %11
   store i32 %1, ptr %12, align 8, !tbaa !131
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !111
@@ -2525,7 +2525,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_entropy_coded_image
 
 161:                                              ; preds = %158, %517
   %indvars.iv423 = phi i64 [ 0, %158 ], [ %indvars.iv.next424, %517 ]
-  %162 = getelementptr inbounds nuw [5 x i16], ptr @alphabet_sizes, i64 0, i64 %indvars.iv423
+  %162 = getelementptr inbounds nuw i16, ptr @alphabet_sizes, i64 %indvars.iv423
   %163 = load i16, ptr %162, align 2, !tbaa !142
   %164 = zext i16 %163 to i32
   %.not283 = icmp eq i64 %indvars.iv423, 0
@@ -2701,13 +2701,13 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
   %277 = call i32 @llvm.umin.i32(i32 %178, i32 %276)
   store i32 %277, ptr %36, align 8, !tbaa !105
   %278 = trunc nuw nsw i32 %275 to i8
-  %279 = getelementptr inbounds nuw [19 x i8], ptr @code_length_code_order, i64 0, i64 %indvars.iv.i
+  %279 = getelementptr inbounds nuw i8, ptr @code_length_code_order, i64 %indvars.iv.i
   %280 = load i8, ptr %279, align 1, !tbaa !59
   %281 = zext i8 %280 to i64
-  %282 = getelementptr inbounds nuw [19 x i8], ptr %6, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw i8, ptr %6, i64 %281
   store i8 %278, ptr %282, align 1, !tbaa !59
   %283 = zext nneg i32 %275 to i64
-  %284 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i16, ptr %9, i64 %283
   %285 = load i16, ptr %284, align 2, !tbaa !142
   %286 = add i16 %285, 1
   store i16 %286, ptr %284, align 2, !tbaa !142
@@ -2854,7 +2854,7 @@ read_huffman_code_simple.exit:                    ; preds = %225, %231
   %363 = and i32 %362, 1
   store i32 %spec.select.i.i.i, ptr %36, align 8, !tbaa !105
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds nuw [2 x i16], ptr %156, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i16, ptr %156, i64 %364
   %366 = load i16, ptr %365, align 2, !tbaa !142
   %367 = zext i16 %366 to i32
   br label %huff_reader_get_symbol.exit.i
@@ -2924,7 +2924,7 @@ huff_reader_get_symbol.exit.i:                    ; preds = %get_vlc2.exit.i.i, 
   %415 = getelementptr inbounds i8, ptr %338, i64 %414
   store i8 %412, ptr %415, align 1, !tbaa !59
   %416 = zext nneg i32 %.0.i99.i to i64
-  %417 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %416
+  %417 = getelementptr inbounds nuw i16, ptr %9, i64 %416
   %418 = load i16, ptr %417, align 2, !tbaa !142
   %419 = add i16 %418, 1
   store i16 %419, ptr %417, align 2, !tbaa !142
@@ -2955,7 +2955,7 @@ huff_reader_get_symbol.exit.i:                    ; preds = %get_vlc2.exit.i.i, 
   store i32 %433, ptr %36, align 8, !tbaa !105
   %434 = add nuw nsw i32 %431, 3
   %435 = zext nneg i32 %.078136.i to i64
-  %436 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %435
+  %436 = getelementptr inbounds nuw i16, ptr %9, i64 %435
   %437 = load i16, ptr %436, align 2, !tbaa !142
   %438 = trunc nuw nsw i32 %434 to i16
   %439 = add i16 %437, %438
@@ -3235,7 +3235,7 @@ get_huffman_group.exit:                           ; preds = %536, %539
   %585 = and i32 %584, 1
   store i32 %spec.select.i.i303, ptr %36, align 8, !tbaa !105
   %586 = zext nneg i32 %585 to i64
-  %587 = getelementptr inbounds nuw [2 x i16], ptr %569, i64 0, i64 %586
+  %587 = getelementptr inbounds nuw i16, ptr %569, i64 %586
   %588 = load i16, ptr %587, align 2, !tbaa !142
   %589 = zext i16 %588 to i32
   br label %huff_reader_get_symbol.exit
@@ -3345,7 +3345,7 @@ huff_reader_get_symbol.exit:                      ; preds = %570, %573, %get_vlc
   %668 = and i32 %667, 1
   store i32 %spec.select.i.i306, ptr %36, align 8, !tbaa !105
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw [2 x i16], ptr %652, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i16, ptr %652, i64 %669
   %671 = load i16, ptr %670, align 2, !tbaa !142
   br label %huff_reader_get_symbol.exit312
 
@@ -3440,7 +3440,7 @@ huff_reader_get_symbol.exit312:                   ; preds = %653, %655, %get_vlc
   %738 = and i32 %737, 1
   store i32 %spec.select.i.i314, ptr %36, align 8, !tbaa !105
   %739 = zext nneg i32 %738 to i64
-  %740 = getelementptr inbounds nuw [2 x i16], ptr %722, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw i16, ptr %722, i64 %739
   %741 = load i16, ptr %740, align 2, !tbaa !142
   br label %huff_reader_get_symbol.exit320
 
@@ -3535,7 +3535,7 @@ huff_reader_get_symbol.exit320:                   ; preds = %723, %725, %get_vlc
   %808 = and i32 %807, 1
   store i32 %spec.select.i.i322, ptr %36, align 8, !tbaa !105
   %809 = zext nneg i32 %808 to i64
-  %810 = getelementptr inbounds nuw [2 x i16], ptr %792, i64 0, i64 %809
+  %810 = getelementptr inbounds nuw i16, ptr %792, i64 %809
   %811 = load i16, ptr %810, align 2, !tbaa !142
   br label %huff_reader_get_symbol.exit328
 
@@ -3692,7 +3692,7 @@ huff_reader_get_symbol.exit328:                   ; preds = %793, %795, %get_vlc
   %920 = and i32 %919, 1
   store i32 %spec.select.i.i330, ptr %36, align 8, !tbaa !105
   %921 = zext nneg i32 %920 to i64
-  %922 = getelementptr inbounds nuw [2 x i16], ptr %904, i64 0, i64 %921
+  %922 = getelementptr inbounds nuw i16, ptr %904, i64 %921
   %923 = load i16, ptr %922, align 2, !tbaa !142
   %924 = zext i16 %923 to i32
   br label %huff_reader_get_symbol.exit336
@@ -3793,7 +3793,7 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
 .thread:                                          ; preds = %972, %974
   %.0247.in455 = phi i32 [ %993, %974 ], [ %.0.i331, %972 ]
   %995 = zext nneg i32 %.0247.in455 to i64
-  %996 = getelementptr inbounds nuw [120 x [2 x i8]], ptr @lz77_distance_offsets, i64 0, i64 %995
+  %996 = getelementptr inbounds nuw [2 x i8], ptr @lz77_distance_offsets, i64 %995
   %997 = load i8, ptr %996, align 2, !tbaa !59
   %998 = sext i8 %997 to i32
   %999 = getelementptr inbounds nuw i8, ptr %996, i64 1

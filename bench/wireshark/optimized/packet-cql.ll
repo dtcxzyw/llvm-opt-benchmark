@@ -1240,7 +1240,7 @@ proto_item_set_generated.exit.thread:             ; preds = %122, %125, %128, %1
   %378 = trunc nuw nsw i64 %indvars.iv.i to i32
   %379 = sub i32 7, %378
   %380 = call zeroext i8 @tvb_get_uint8(ptr noundef %.4, i32 noundef %379)
-  %381 = getelementptr [8 x i8], ptr %376, i64 0, i64 %indvars.iv.i
+  %381 = getelementptr i8, ptr %376, i64 %indvars.iv.i
   store i8 %380, ptr %381, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -2718,7 +2718,7 @@ switch.lookup:                                    ; preds = %73
   %78 = add nsw i32 %76, -4
   %79 = add i32 %4, 8
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.parse_value.3, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_value.3, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   %81 = load i32, ptr %switch.load, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %81, ptr noundef %2, i32 noundef %79, i32 noundef %78, i32 noundef 0)
@@ -2779,7 +2779,7 @@ add_varint_item.exit:                             ; preds = %73, %switch.lookup
   %115 = trunc nuw nsw i64 %indvars.iv.i to i32
   %116 = sub i32 %reass.sub.i, %115
   %117 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %116)
-  %118 = getelementptr [8 x i8], ptr %113, i64 0, i64 %indvars.iv.i
+  %118 = getelementptr i8, ptr %113, i64 %indvars.iv.i
   store i8 %117, ptr %118, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -2801,21 +2801,21 @@ add_cql_uuid.exit:                                ; preds = %114
 
 127:                                              ; preds = %45
   %128 = load i32, ptr %10, align 4
-  %switch.tableidx334 = add i32 %128, -1
-  %129 = icmp ult i32 %switch.tableidx334, 8
-  br i1 %129, label %switch.lookup333, label %add_varint_item.exit231
+  %switch.tableidx333 = add i32 %128, -1
+  %129 = icmp ult i32 %switch.tableidx333, 8
+  br i1 %129, label %switch.lookup334, label %add_varint_item.exit231
 
-switch.lookup333:                                 ; preds = %127
-  %130 = zext nneg i32 %switch.tableidx334 to i64
-  %switch.gep335 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.parse_value.3, i64 0, i64 %130
+switch.lookup334:                                 ; preds = %127
+  %130 = zext nneg i32 %switch.tableidx333 to i64
+  %switch.gep335 = getelementptr inbounds nuw ptr, ptr @switch.table.parse_value.3, i64 %130
   %switch.load336 = load ptr, ptr %switch.gep335, align 8
   %131 = load i32, ptr %switch.load336, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %131, ptr noundef %2, i32 noundef %20, i32 noundef %128, i32 noundef 0)
   %.pre = load i32, ptr %10, align 4
   br label %add_varint_item.exit231
 
-add_varint_item.exit231:                          ; preds = %127, %switch.lookup333
-  %133 = phi i32 [ %128, %127 ], [ %.pre, %switch.lookup333 ]
+add_varint_item.exit231:                          ; preds = %127, %switch.lookup334
+  %133 = phi i32 [ %128, %127 ], [ %.pre, %switch.lookup334 ]
   %134 = add i32 %133, %20
   br label %.loopexit
 
@@ -2844,7 +2844,7 @@ add_varint_item.exit231:                          ; preds = %127, %switch.lookup
   %149 = trunc nuw nsw i64 %indvars.iv.i233 to i32
   %150 = sub i32 %reass.sub.i232, %149
   %151 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %150)
-  %152 = getelementptr [8 x i8], ptr %147, i64 0, i64 %indvars.iv.i233
+  %152 = getelementptr i8, ptr %147, i64 %indvars.iv.i233
   store i8 %151, ptr %152, align 1
   %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i233, 1
   %exitcond.not.i235 = icmp eq i64 %indvars.iv.next.i234, 8

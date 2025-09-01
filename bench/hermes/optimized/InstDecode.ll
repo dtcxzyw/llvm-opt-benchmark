@@ -59,7 +59,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden noundef zeroext i8 @_ZN6hermes4inst11getInstSizeENS0_6OpCodeE(i8 noundef zeroext %opCode) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i8 %opCode to i64
-  %arrayidx = getelementptr inbounds nuw [192 x %struct.anon], ptr @_ZN6hermes4instL4metaE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN6hermes4instL4metaE, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 8
   ret i8 %0
 }
@@ -68,7 +68,7 @@ entry:
 define hidden noundef zeroext range(i8 1, 9) i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %type) local_unnamed_addr #0 {
 entry:
   %0 = zext nneg i8 %type to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE, i64 %0
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -3606,9 +3606,9 @@ if.then4.i.i:                                     ; preds = %for.body
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %arrayidx = getelementptr inbounds nuw [6 x i8], ptr %operandType, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %operandType, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx, align 1
-  %arrayidx8 = getelementptr inbounds nuw [6 x %"union.hermes::inst::OperandValue"], ptr %operandValue, i64 0, i64 %indvars.iv
+  %arrayidx8 = getelementptr inbounds nuw %"union.hermes::inst::OperandValue", ptr %operandValue, i64 %indvars.iv
   %agg.tmp6.sroa.0.0.copyload = load i64, ptr %arrayidx8, align 8
   call void @_ZN6hermes4inst11dumpOperandERN4llvh11raw_ostreamENS0_11OperandTypeENS0_12OperandValueE(ptr noundef nonnull align 8 dereferenceable(36) %OS, i8 noundef zeroext %7, i64 %agg.tmp6.sroa.0.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

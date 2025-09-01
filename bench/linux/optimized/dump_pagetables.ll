@@ -384,7 +384,7 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = sext i32 %2 to i64
-  %12 = getelementptr [5 x i64], ptr %10, i64 0, i64 %11
+  %12 = getelementptr i64, ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8
   br label %14
 
@@ -867,7 +867,7 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
   %258 = phi i32 [ %123, %130 ], [ %150, %251 ], [ %150, %254 ]
   %259 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.33.sink) #9
   %260 = sext i32 %258 to i64
-  %261 = getelementptr [5 x ptr], ptr @printk_prot.level_name, i64 0, i64 %260
+  %261 = getelementptr ptr, ptr @printk_prot.level_name, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %262) #9
   br label %.thread9
@@ -877,7 +877,7 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
   %265 = phi i32 [ %123, %131 ], [ %150, %252 ], [ %150, %255 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull %.str.34.sink) #8
   %266 = sext i32 %265 to i64
-  %267 = getelementptr [5 x ptr], ptr @printk_prot.level_name, i64 0, i64 %266
+  %267 = getelementptr ptr, ptr @printk_prot.level_name, i64 %266
   %268 = load ptr, ptr %267, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.58, ptr noundef %268) #8
   br label %.thread9
@@ -974,9 +974,9 @@ define internal void @effective_prot(ptr noundef captures(none) %0, i32 noundef 
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = add nsw i32 %1, -1
-  %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr [5 x i64], ptr %6, i64 0, i64 %8
+  %7 = zext nneg i32 %1 to i64
+  %8 = getelementptr i64, ptr %6, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %2, 6
   %12 = and i64 %11, %10
@@ -993,7 +993,7 @@ define internal void @effective_prot(ptr noundef captures(none) %0, i32 noundef 
   %19 = phi i64 [ %15, %5 ], [ %17, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = sext i32 %1 to i64
-  %22 = getelementptr [5 x i64], ptr %20, i64 0, i64 %21
+  %22 = getelementptr i64, ptr %20, i64 %21
   store i64 %19, ptr %22, align 8
   ret void
 }

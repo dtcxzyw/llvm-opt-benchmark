@@ -764,7 +764,7 @@ define internal fastcc noundef zeroext i1 @handle_ts_23_038_char(ptr noundef %0,
 
 GSM_to_UNICHAR.exit:                              ; preds = %6
   %18 = zext nneg i8 %1 to i64
-  %19 = getelementptr [128 x i16], ptr @gsm_default_alphabet, i64 0, i64 %18
+  %19 = getelementptr i16, ptr @gsm_default_alphabet, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   br label %.sink.split
@@ -1193,7 +1193,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   %.03649 = phi ptr [ %1, %.lr.ph ], [ %58, %57 ]
   %10 = load i8, ptr %.03649, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [256 x i16], ptr @t61_tab, i64 0, i64 %11
+  %12 = getelementptr i16, ptr @t61_tab, i64 %11
   %13 = load i16, ptr %12, align 2
   %.not = icmp eq i16 %13, 0
   br i1 %.not, label %14, label %15
@@ -1229,7 +1229,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   br i1 %.not45.not, label %29, label %._crit_edge51
 
 29:                                               ; preds = %25
-  %30 = getelementptr [16 x i16], ptr @accents, i64 0, i64 %26
+  %30 = getelementptr i16, ptr @accents, i64 %26
   %31 = load i16, ptr %30, align 2
   br label %52
 
@@ -1245,7 +1245,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %47
 
 34:                                               ; preds = %32
-  %35 = getelementptr [16 x ptr], ptr @cx_tab, i64 0, i64 %.pre
+  %35 = getelementptr ptr, ptr @cx_tab, i64 %.pre
   %36 = load ptr, ptr %35, align 8
   %37 = zext i8 %24 to i32
   %38 = lshr i32 %37, 5
@@ -1258,7 +1258,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
 42:                                               ; preds = %34
   %43 = and i32 %37, 31
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr [32 x i16], ptr %41, i64 0, i64 %44
+  %45 = getelementptr i16, ptr %41, i64 %44
   %46 = load i16, ptr %45, align 2
   %.not48 = icmp eq i16 %46, 0
   br i1 %.not48, label %47, label %52
@@ -1268,7 +1268,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %.pre-phi58)
   %48 = load i8, ptr %.03649, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr [256 x i16], ptr @t61_tab, i64 0, i64 %49
+  %50 = getelementptr i16, ptr @t61_tab, i64 %49
   %51 = load i16, ptr %50, align 2
   br label %52
 
@@ -1314,7 +1314,7 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef readonly 
 
 9:                                                ; preds = %.lr.ph
   %10 = zext nneg i8 %8 to i64
-  %11 = getelementptr [128 x i16], ptr @dect_standard_8bits_code_table, i64 0, i64 %10
+  %11 = getelementptr i16, ptr @dect_standard_8bits_code_table, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   br label %14

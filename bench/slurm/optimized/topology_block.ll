@@ -392,7 +392,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nounde
   %40 = phi i64 [ %38, %35 ], [ 0, %.lr.ph ]
   %41 = load i16, ptr @bblock_node_cnt, align 2
   %42 = zext i16 %41 to i32
-  %43 = getelementptr inbounds [16 x i32], ptr @block_sizes, i64 0, i64 %40
+  %43 = getelementptr inbounds i32, ptr @block_sizes, i64 %40
   %44 = load i32, ptr %43, align 4
   %45 = mul i32 %44, %42
   %46 = load ptr, ptr %13, align 8
@@ -1047,7 +1047,7 @@ define dso_local i32 @topology_p_get_fragmentation(ptr noundef %0) local_unnamed
 
 21:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %22 = getelementptr inbounds nuw [16 x i32], ptr @block_sizes, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr @block_sizes, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = urem i32 %indvars54, %23
   %.not30 = icmp ne i32 %24, 0
@@ -1056,7 +1056,7 @@ define dso_local i32 @topology_p_get_fragmentation(ptr noundef %0) local_unnamed
   br i1 %or.cond, label %27, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 1, ptr %26, align 1
   br label %27
 
@@ -1068,10 +1068,10 @@ define dso_local i32 @topology_p_get_fragmentation(ptr noundef %0) local_unnamed
 28:                                               ; preds = %.lr.ph37, %35
   %indvars.iv47 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next48, %35 ]
   %.135 = phi i32 [ %.02738, %.lr.ph37 ], [ %.2, %35 ]
-  %29 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv47
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv47
   %30 = load i8, ptr %29, align 1, !range !15, !noundef !16
   %31 = trunc nuw i8 %30 to i1
-  %.phi.trans.insert = getelementptr inbounds nuw [16 x i32], ptr @block_sizes, i64 0, i64 %indvars.iv47
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr @block_sizes, i64 %indvars.iv47
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %31, label %._crit_edge55, label %32
 

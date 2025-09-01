@@ -44,7 +44,7 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
   %.025.i = phi i64 [ 0, %3 ], [ %30, %29 ]
   %17 = getelementptr i8, ptr %2, i64 %.025.i
   %18 = load i8, ptr %17, align 1
-  %invariant.gep.i = getelementptr [32 x i8], ptr @has_small_order.blocklist, i64 0, i64 %.025.i
+  %invariant.gep.i = getelementptr i8, ptr @has_small_order.blocklist, i64 %.025.i
   br label %22
 
 .preheader22.i:                                   ; preds = %29
@@ -55,10 +55,10 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
 
 22:                                               ; preds = %22, %.preheader23.i
   %.02024.i = phi i64 [ 0, %.preheader23.i ], [ %28, %22 ]
-  %gep.i = getelementptr [7 x [32 x i8]], ptr %invariant.gep.i, i64 0, i64 %.02024.i
+  %gep.i = getelementptr [32 x i8], ptr %invariant.gep.i, i64 %.02024.i
   %23 = load i8, ptr %gep.i, align 1
   %24 = xor i8 %23, %18
-  %25 = getelementptr [7 x i8], ptr %4, i64 0, i64 %.02024.i
+  %25 = getelementptr i8, ptr %4, i64 %.02024.i
   %26 = load i8, ptr %25, align 1
   %27 = or i8 %26, %24
   store i8 %27, ptr %25, align 1
@@ -73,10 +73,10 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
 
 31:                                               ; preds = %31, %.preheader22.i
   %.128.i = phi i64 [ 0, %.preheader22.i ], [ %37, %31 ]
-  %gep27.i = getelementptr [7 x [32 x i8]], ptr getelementptr inbounds nuw (i8, ptr @has_small_order.blocklist, i64 31), i64 0, i64 %.128.i
+  %gep27.i = getelementptr [32 x i8], ptr getelementptr inbounds nuw (i8, ptr @has_small_order.blocklist, i64 31), i64 %.128.i
   %32 = load i8, ptr %gep27.i, align 1
   %33 = xor i8 %32, %21
-  %34 = getelementptr [7 x i8], ptr %4, i64 0, i64 %.128.i
+  %34 = getelementptr i8, ptr %4, i64 %.128.i
   %35 = load i8, ptr %34, align 1
   %36 = or i8 %35, %33
   store i8 %36, ptr %34, align 1
@@ -87,7 +87,7 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
 .preheader.i:                                     ; preds = %31, %.preheader.i
   %.230.i = phi i64 [ %43, %.preheader.i ], [ 0, %31 ]
   %.02129.i = phi i32 [ %42, %.preheader.i ], [ 0, %31 ]
-  %38 = getelementptr [7 x i8], ptr %4, i64 0, i64 %.230.i
+  %38 = getelementptr i8, ptr %4, i64 %.230.i
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = add nsw i32 %40, -1
@@ -179,7 +179,7 @@ has_small_order.exit:                             ; preds = %.preheader.i
   %96 = phi i64 [ %.sroa.19.0.copyload, %.preheader.preheader ], [ %438, %91 ]
   %97 = lshr i32 %.02158, 3
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr [32 x i8], ptr %5, i64 0, i64 %98
+  %99 = getelementptr i8, ptr %5, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = and i32 %.02158, 7

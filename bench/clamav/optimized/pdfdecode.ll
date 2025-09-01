@@ -218,7 +218,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %78 = phi i32 [ %59, %.lr.ph.i ], [ %560, %567 ]
   %79 = phi ptr [ %60, %.lr.ph.i ], [ %558, %567 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %567 ]
-  %80 = getelementptr inbounds nuw [64 x i32], ptr %62, i64 0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
   %81 = load i32, ptr %80, align 4, !tbaa !3
   switch i32 %81, label %557 [
     i32 4, label %82

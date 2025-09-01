@@ -63,7 +63,7 @@ $_ZSt9__find_ifISt19_Bit_const_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [6 x ptr], ptr @__const._ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE.t2s, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @__const._ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE.t2s, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !8

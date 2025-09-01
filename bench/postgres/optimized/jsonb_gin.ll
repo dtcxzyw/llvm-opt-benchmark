@@ -880,7 +880,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
 12:                                               ; preds = %.lr.ph43, %17
   %indvars.iv49 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next50, %17 ]
   %.03041 = phi i8 [ 1, %.lr.ph43 ], [ %.131, %17 ]
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv49
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv49
   %14 = load ptr, ptr %13, align 8
   %15 = tail call fastcc signext i8 @execute_jsp_gin_node(ptr noundef %14, ptr noundef %1)
   switch i8 %15, label %17 [
@@ -902,7 +902,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
 21:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.237 = phi i8 [ 0, %.lr.ph ], [ %.3, %26 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = tail call fastcc signext i8 @execute_jsp_gin_node(ptr noundef %23, ptr noundef %1)
   switch i8 %24, label %26 [
@@ -1728,7 +1728,7 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %16, %21
   %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8
   %47 = load i32, ptr %28, align 4
   %48 = sext i32 %47 to i64
@@ -1966,7 +1966,7 @@ add_gin_entry.exit:                               ; preds = %._crit_edge.i, %12,
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @emit_jsp_gin_entries(ptr noundef %32, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

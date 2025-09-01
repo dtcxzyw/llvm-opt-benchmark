@@ -198,7 +198,7 @@ define i32 @Cmd_RunAutoTunerEval(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds nuw [100 x %struct.Cmd_AutoData_t_], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.Cmd_AutoData_t_, ptr %4, i64 %indvars.iv
   store ptr null, ptr %21, align 16, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %1, ptr %22, align 8, !tbaa !27
@@ -255,7 +255,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
   %46 = phi i32 [ %42, %.lr.ph58.us ], [ %64, %63 ]
   %.156.us = phi i32 [ %.03962.us, %.lr.ph58.us ], [ %.2.us, %63 ]
   %.14155.us = phi i32 [ %44, %.lr.ph58.us ], [ %.242.us, %63 ]
-  %47 = getelementptr inbounds nuw [100 x %struct.Cmd_AutoData_t_], ptr %4, i64 0, i64 %indvars.iv69
+  %47 = getelementptr inbounds nuw %struct.Cmd_AutoData_t_, ptr %4, i64 %indvars.iv69
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !29
   %.not48.us = icmp eq i32 %49, 0
@@ -324,7 +324,7 @@ Vec_PtrFree.exit:                                 ; preds = %.split.us, %66
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv74 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next75, %.lr.ph65 ]
-  %67 = getelementptr inbounds nuw [100 x %struct.Cmd_AutoData_t_], ptr %4, i64 0, i64 %indvars.iv74
+  %67 = getelementptr inbounds nuw %struct.Cmd_AutoData_t_, ptr %4, i64 %indvars.iv74
   store ptr null, ptr %67, align 16, !tbaa !23
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store i32 1, ptr %68, align 8, !tbaa !29
@@ -934,7 +934,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse._crit_e
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
   %indvars.iv105 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next106, %.lr.ph92 ]
   %15 = getelementptr inbounds nuw [20 x i8], ptr %2, i64 %indvars.iv105
-  %16 = getelementptr inbounds nuw [100 x ptr], ptr %7, i64 0, i64 %indvars.iv105
+  %16 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv105
   store ptr %15, ptr %16, align 8, !tbaa !37
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
@@ -1233,7 +1233,7 @@ define noundef ptr @Cmf_CreateOptions(ptr noundef %0) local_unnamed_addr #2 {
   %15 = load float, ptr %14, align 4, !tbaa !21
   %16 = add nsw i32 %.02331, 1
   %17 = sext i32 %.02331 to i64
-  %18 = getelementptr inbounds [100 x [20 x i8]], ptr %2, i64 0, i64 %17
+  %18 = getelementptr inbounds [20 x i8], ptr %2, i64 %17
   %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %13) #22
   %20 = fpext float %15 to double
   %21 = fcmp olt float %15, 0.000000e+00
@@ -1244,7 +1244,7 @@ define noundef ptr @Cmf_CreateOptions(ptr noundef %0) local_unnamed_addr #2 {
   %24 = sitofp i32 %23 to float
   %25 = fcmp oeq float %15, %24
   %26 = sext i32 %16 to i64
-  %27 = getelementptr inbounds [100 x [20 x i8]], ptr %2, i64 0, i64 %26
+  %27 = getelementptr inbounds [20 x i8], ptr %2, i64 %26
   br i1 %25, label %28, label %30
 
 28:                                               ; preds = %22
@@ -1322,8 +1322,8 @@ thread-pre-split..loopexit58_crit_edge:           ; preds = %.preheader, %Vec_We
 
 .preheader59:                                     ; preds = %.lr.ph71, %Cmf_IsSpace.exit44.thread
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
-  %16 = add i64 %15, -1
-  %17 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %16
+  %16 = getelementptr i8, ptr %2, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !73
   switch i8 %18, label %19 [
     i8 32, label %Cmf_IsSpace.exit44.thread
@@ -1676,8 +1676,8 @@ define noalias noundef ptr @Cmd_ReadFiles(ptr noundef %0) local_unnamed_addr #2 
 
 .preheader:                                       ; preds = %.lr.ph, %Cmf_IsSpace.exit16.thread
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
-  %17 = add i64 %16, -1
-  %18 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %17
+  %17 = getelementptr i8, ptr %2, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1, !tbaa !73
   switch i8 %19, label %20 [
     i8 32, label %Cmf_IsSpace.exit16.thread

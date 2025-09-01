@@ -238,7 +238,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 
 .preheader:                                       ; preds = %53, %65
   %indvars.iv763 = phi i64 [ %indvars.iv.next764, %65 ], [ 0, %53 ]
-  %54 = getelementptr inbounds nuw [7 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 56), i64 0, i64 %indvars.iv763
+  %54 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 56), i64 %indvars.iv763
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #5
   %57 = tail call i32 @strncasecmp(ptr noundef nonnull %55, ptr noundef %.0375590, i64 noundef %56)
@@ -246,7 +246,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds nuw [7 x ptr], ptr @g_defaulttimelocale, i64 0, i64 %indvars.iv763
+  %60 = getelementptr inbounds nuw ptr, ptr @g_defaulttimelocale, i64 %indvars.iv763
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #5
   %63 = tail call i32 @strncasecmp(ptr noundef nonnull %61, ptr noundef %.0375590, i64 noundef %62)
@@ -270,7 +270,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 
 .preheader426:                                    ; preds = %68, %80
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %68 ]
-  %69 = getelementptr inbounds nuw [12 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 208), i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 208), i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #5
   %72 = tail call i32 @strncasecmp(ptr noundef nonnull %70, ptr noundef %.0375590, i64 noundef %71)
@@ -278,7 +278,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   br i1 %73, label %.thread384, label %74
 
 74:                                               ; preds = %.preheader426
-  %75 = getelementptr inbounds nuw [12 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 112), i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 112), i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #5
   %78 = tail call i32 @strncasecmp(ptr noundef nonnull %76, ptr noundef %.0375590, i64 noundef %77)

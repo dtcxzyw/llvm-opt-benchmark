@@ -890,7 +890,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Tactic_BVDecide_External_Model
   %.039105 = phi i64 [ %.140, %154 ], [ %1, %3 ]
   %.041104 = phi ptr [ %.142, %154 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.041104, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.039105
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.039105
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

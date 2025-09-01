@@ -26,10 +26,10 @@ define i32 @wc_PRF(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.wc_PRF, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_PRF, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep117 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.wc_PRF.1, i64 0, i64 %14
+  %switch.gep117 = getelementptr inbounds nuw i32, ptr @switch.table.wc_PRF.1, i64 %14
   %switch.load118 = load i32, ptr %switch.gep117, align 4
   %15 = udiv i32 %1, %switch.load
   %16 = urem i32 %1, %switch.load
@@ -465,7 +465,7 @@ define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %0, i32 noundef %1, ptr no
 
 31:                                               ; preds = %30
   %32 = zext i32 %.0 to i64
-  %33 = getelementptr inbounds nuw [111 x i8], ptr %14, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
   %34 = zext i32 %7 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %6, i64 %34, i1 false)
   %35 = add i32 %.0, %7
@@ -476,14 +476,14 @@ define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %0, i32 noundef %1, ptr no
   %37 = trunc i32 %9 to i8
   %38 = add i32 %.1, 1
   %39 = zext i32 %.1 to i64
-  %40 = getelementptr inbounds nuw [111 x i8], ptr %14, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 %39
   store i8 %37, ptr %40, align 1, !tbaa !11
   %.not46 = icmp eq i32 %9, 0
   br i1 %.not46, label %.preheader23.i, label %41
 
 41:                                               ; preds = %36
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw [111 x i8], ptr %14, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 %42
   %44 = zext i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %8, i64 %44, i1 false)
   %45 = add i32 %38, %9
@@ -564,7 +564,7 @@ define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %0, i32 noundef %1, ptr nound
 
 29:                                               ; preds = %28
   %30 = zext i32 %.0.i to i64
-  %31 = getelementptr inbounds nuw [111 x i8], ptr %12, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 %30
   %32 = zext i32 %7 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %6, i64 %32, i1 false)
   %33 = add i32 %.0.i, %7
@@ -575,14 +575,14 @@ define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %0, i32 noundef %1, ptr nound
   %35 = trunc i32 %9 to i8
   %36 = add i32 %.1.i, 1
   %37 = zext i32 %.1.i to i64
-  %38 = getelementptr inbounds nuw [111 x i8], ptr %12, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 %37
   store i8 %35, ptr %38, align 1, !tbaa !11
   %.not46.i = icmp eq i32 %9, 0
   br i1 %.not46.i, label %.preheader23.i.i, label %39
 
 39:                                               ; preds = %34
   %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw [111 x i8], ptr %12, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 %40
   %42 = zext i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr readonly align 1 %8, i64 %42, i1 false)
   %43 = add i32 %36, %9

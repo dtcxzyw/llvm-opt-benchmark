@@ -1265,9 +1265,9 @@ default.unreachable1:                             ; preds = %2
 define internal { ptr, i64 } @"_ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !77, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E.21", i64 0, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$ipnetwork..common..IpNetworkError$u20$as$u20$core..error..Error$GT$11description17h6c8756de69215bb3E.21", i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
@@ -1280,7 +1280,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !186
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -1302,7 +1302,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN81_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdcce9ebe37c20057E.llvm.18245684541142357402.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -1564,7 +1564,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %.sroa.4.0.i.i.i = phi i32 [ %.val.i.i.i.i, %58 ], [ undef, %62 ]
   %.sroa.5.0.i.i.i = phi ptr [ %61, %58 ], [ %64, %62 ]
   %storemerge.i.i.i.i = phi i32 [ 0, %58 ], [ 1, %62 ]
-  %65 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %47, i64 0, i64 %.sroa.7.030.i.i
+  %65 = getelementptr inbounds nuw { [2 x i64] }, ptr %47, i64 %.sroa.7.030.i.i
   store i32 %storemerge.i.i.i.i, ptr %65, align 8, !noalias !251
   %.sroa.07.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %.sroa.4.0.i.i.i, ptr %.sroa.07.sroa.4.0..sroa_idx.i.i, align 4, !noalias !251
@@ -3569,7 +3569,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN101_$LT$diesel..mysq
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb306bb2060a08b88E.llvm.18245684541142357402.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !610, !noalias !613, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -3647,10 +3647,10 @@ switch.lookup:
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = zext nneg i8 %2 to i64
-  %switch.gep13 = getelementptr inbounds nuw [20 x i32], ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE.22, i64 0, i64 %5
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE.22, i64 %5
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
   %.sroa.7.0 = select i1 %.not, i64 0, i64 %.sroa.5.0.copyload
@@ -3992,7 +3992,7 @@ define hidden void @_ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_fla
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb98e93f08ac7f736E"(i64 noundef %switch.load, i1 noundef zeroext true), !noalias !636
   %7 = extractvalue { i64, ptr } %6, 0
@@ -4408,36 +4408,44 @@ define hidden void @_ZN6diesel2pg5types6floats16quickcheck_impls42gen_vec_of_app
   store i64 %18, ptr %8, align 8
   call void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17hf07b460dfeb64771E"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.promoted = load i64, ptr %20, align 8
-  %.not12 = icmp eq i64 %.promoted, 0
-  br i1 %.not12, label %.critedge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %"_ZN77_$LT$alloc..vec..Vec$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h17c64f7de232f7cbE.exit"
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4
-  %23 = load i64, ptr %9, align 8
-  br label %24
+  %.promoted = load i64, ptr %20, align 8
+  %.not12 = icmp eq i64 %.promoted, 0
+  %23 = getelementptr i16, ptr %22, i64 %.promoted
+  %24 = getelementptr i8, ptr %23, i64 -2
+  %25 = icmp eq ptr %24, null
+  %26 = select i1 %.not12, i1 true, i1 %25
+  br i1 %26, label %.critedge, label %.lr.ph
 
-24:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit"
-  %25 = phi i64 [ %.promoted, %.lr.ph ], [ %26, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit" ]
-  %26 = add i64 %25, -1
-  %27 = getelementptr inbounds [0 x i16], ptr %22, i64 0, i64 %26
-  %28 = load i16, ptr %27, align 2, !noundef !4
-  %29 = icmp eq i16 %28, 0
-  br i1 %29, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit", label %.critedge
+.lr.ph:                                           ; preds = %"_ZN77_$LT$alloc..vec..Vec$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h17c64f7de232f7cbE.exit"
+  %27 = load i64, ptr %9, align 8
+  br label %28
 
-.critedge:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit", %"_ZN77_$LT$alloc..vec..Vec$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h17c64f7de232f7cbE.exit"
-  %.lcssa = phi i64 [ 0, %"_ZN77_$LT$alloc..vec..Vec$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h17c64f7de232f7cbE.exit" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit" ], [ %25, %24 ]
+28:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit"
+  %29 = phi ptr [ %24, %.lr.ph ], [ %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit" ]
+  %30 = phi i64 [ %.promoted, %.lr.ph ], [ %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit" ]
+  %31 = load i16, ptr %29, align 2, !noundef !4
+  %32 = icmp eq i16 %31, 0
+  br i1 %32, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit", label %.critedge
+
+.critedge:                                        ; preds = %28, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit", %"_ZN77_$LT$alloc..vec..Vec$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h17c64f7de232f7cbE.exit"
+  %.lcssa = phi i64 [ %.promoted, %"_ZN77_$LT$alloc..vec..Vec$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h17c64f7de232f7cbE.exit" ], [ %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit" ], [ %30, %28 ]
   store i64 %.lcssa, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit": ; preds = %24
-  %30 = icmp ult i64 %26, %23
-  call void @llvm.assume(i1 %30)
-  %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.critedge, label %24
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h491cc283d4ae1673E.exit": ; preds = %28
+  %33 = add i64 %30, -1
+  %34 = icmp ult i64 %33, %27
+  call void @llvm.assume(i1 %34)
+  %.not = icmp eq i64 %33, 0
+  %35 = getelementptr i16, ptr %22, i64 %33
+  %36 = getelementptr i8, ptr %35, i64 -2
+  %37 = icmp eq ptr %36, null
+  %38 = select i1 %.not, i1 true, i1 %37
+  br i1 %38, label %.critedge, label %28
 }
 
 ; Function Attrs: nonlazybind uwtable

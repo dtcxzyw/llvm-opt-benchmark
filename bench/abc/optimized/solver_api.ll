@@ -3836,7 +3836,7 @@ clause_fetch.exit:                                ; preds = %69, %72
 
 81:                                               ; preds = %81, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %81 ]
-  %82 = getelementptr inbounds nuw [0 x %union.anon], ptr %80, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw %union.anon, ptr %80, i64 %indvars.iv.i
   %83 = load i32, ptr %82, align 4, !tbaa !107
   %84 = lshr i32 %83, 1
   %85 = and i32 %83, 1
@@ -3916,7 +3916,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
 
 117:                                              ; preds = %117, %.lr.ph.i70
   %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.i70 ], [ %indvars.iv.next.i73, %117 ]
-  %118 = getelementptr inbounds nuw [0 x %union.anon], ptr %116, i64 0, i64 %indvars.iv.i71
+  %118 = getelementptr inbounds nuw %union.anon, ptr %116, i64 %indvars.iv.i71
   %119 = load i32, ptr %118, align 4, !tbaa !107
   %120 = lshr i32 %119, 1
   %121 = and i32 %119, 1

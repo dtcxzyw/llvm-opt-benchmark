@@ -25,7 +25,7 @@ define hidden i32 @_ZN22NativeCallStackStorage3putERK15NativeCallStack(ptr nound
 4:                                                ; preds = %4, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %.056.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = add i64 %.056.i, %7

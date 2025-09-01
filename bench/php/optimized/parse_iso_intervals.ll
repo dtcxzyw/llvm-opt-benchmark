@@ -452,7 +452,7 @@ thread-pre-split:                                 ; preds = %194, %195, %199, %2
   %231 = getelementptr inbounds nuw i8, ptr %.sroa.33.0, i64 1
   %232 = load i8, ptr %231, align 1, !tbaa !9
   %233 = zext i8 %232 to i64
-  %234 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !9
   %.not.i111 = icmp sgt i8 %235, -1
   br i1 %.not.i111, label %.thread.i112, label %.preheader603.i
@@ -513,7 +513,7 @@ thread-pre-split:                                 ; preds = %194, %195, %199, %2
 260:                                              ; preds = %.preheader603.i
   %261 = load i8, ptr %259, align 1, !tbaa !9
   %262 = zext i8 %261 to i64
-  %263 = getelementptr inbounds nuw [256 x i8], ptr @scan.yybm, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i8, ptr @scan.yybm, i64 %262
   %264 = load i8, ptr %263, align 1, !tbaa !9
   %.not552.i = icmp sgt i8 %264, -1
   br i1 %.not552.i, label %265, label %.preheader603.i

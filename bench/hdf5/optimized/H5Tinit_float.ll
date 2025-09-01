@@ -108,8 +108,8 @@ define range(i32 -1, 1) i32 @H5T__init_native_float_types() local_unnamed_addr #
 
 .preheader341:                                    ; preds = %36, %48
   %indvars.iv = phi i64 [ 0, %36 ], [ %indvars.iv.next, %48 ]
-  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
-  %38 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %.pre = load i8, ptr %37, align 1, !tbaa !16
   br label %39
 
@@ -190,7 +190,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_float_types() local_unnamed_addr #
 
 H5T__byte_cmp.exit:                               ; preds = %.preheader.i
   %71 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %72 = getelementptr inbounds nuw [32 x i32], ptr %56, i64 0, i64 %indvars.iv413
+  %72 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv413
   store i32 %71, ptr %72, align 4, !tbaa !10
   %73 = trunc nuw nsw i64 %indvars.iv413 to i32
   br label %H5T__byte_cmp.exit.thread
@@ -648,8 +648,8 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
 
 .preheader337:                                    ; preds = %301, %315
   %indvars.iv417 = phi i64 [ 0, %301 ], [ %indvars.iv.next418, %315 ]
-  %304 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv417
-  %305 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %indvars.iv417
+  %304 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv417
+  %305 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv417
   %.pre440 = load i8, ptr %304, align 1, !tbaa !16
   br label %306
 
@@ -729,7 +729,7 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
 
 H5T__byte_cmp.exit272:                            ; preds = %.preheader.i266
   %337 = trunc nuw nsw i64 %indvars.iv.i267 to i32
-  %338 = getelementptr inbounds nuw [32 x i32], ptr %56, i64 0, i64 %indvars.iv421
+  %338 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv421
   store i32 %337, ptr %338, align 4, !tbaa !10
   %339 = trunc nuw nsw i64 %indvars.iv421 to i32
   br label %H5T__byte_cmp.exit272.thread
@@ -1022,9 +1022,9 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %323
 
 .preheader334:                                    ; preds = %482, %496
   %indvars.iv425 = phi i64 [ 0, %482 ], [ %indvars.iv.next426, %496 ]
-  %485 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %indvars.iv425
+  %485 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv425
   %.promoted370 = load i8, ptr %485, align 1, !tbaa !16
-  %486 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %indvars.iv425
+  %486 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv425
   br label %487
 
 487:                                              ; preds = %.preheader334, %494
@@ -1094,7 +1094,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %323
 
 H5T__byte_cmp.exit294:                            ; preds = %.preheader.i288
   %518 = trunc nuw nsw i64 %indvars.iv.i289 to i32
-  %519 = getelementptr inbounds nuw [32 x i32], ptr %56, i64 0, i64 %indvars.iv429
+  %519 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv429
   store i32 %518, ptr %519, align 4, !tbaa !10
   %520 = trunc nuw nsw i64 %indvars.iv429 to i32
   br label %H5T__byte_cmp.exit294.thread
@@ -1381,7 +1381,7 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %517, %504, %H5T__by
   br i1 %exitcond.not.i305, label %H5T__byte_cmp.exit306.thread, label %.preheader.i300, !llvm.loop !22
 
 H5T__byte_cmp.exit306:                            ; preds = %.preheader.i300
-  %659 = getelementptr inbounds nuw [32 x i32], ptr %56, i64 0, i64 %indvars.iv436
+  %659 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv436
   store i32 %indvars.iv.i301, ptr %659, align 4, !tbaa !10
   %660 = trunc nuw nsw i64 %indvars.iv436 to i32
   br label %H5T__byte_cmp.exit306.thread

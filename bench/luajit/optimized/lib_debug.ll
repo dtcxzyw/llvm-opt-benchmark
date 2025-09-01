@@ -543,14 +543,14 @@ define internal noundef i32 @lj_cf_debug_upvalueid(ptr noundef %0) #0 {
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %16 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %15, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw %struct.GCRef, ptr %15, i64 %13
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = inttoptr i64 %17 to ptr
   br label %22
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %21 = getelementptr inbounds nuw [1 x %union.TValue], ptr %20, i64 0, i64 %13
+  %21 = getelementptr inbounds nuw %union.TValue, ptr %20, i64 %13
   br label %22
 
 22:                                               ; preds = %19, %14
@@ -605,7 +605,7 @@ define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %0) #0 {
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.GCRef, ptr %19, i64 %20
   store ptr %21, ptr %indvars.iv.sroa.phi, align 8, !tbaa !33
   br i1 %3, label %2, label %22, !llvm.loop !35
 
@@ -975,7 +975,7 @@ define internal void @hookf(ptr noundef %0, ptr noundef readonly captures(none) 
 8:                                                ; preds = %2
   %9 = load i32, ptr %1, align 8, !tbaa !39
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [5 x ptr], ptr @hookf.hooknames, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr @hookf.hooknames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   tail call void @lua_pushstring(ptr noundef nonnull %0, ptr noundef %12) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40

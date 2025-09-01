@@ -372,12 +372,12 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
   br label %7
 
 6:                                                ; preds = %_simplex_noise.exit
-  ret double %203
+  ret double %202
 
 7:                                                ; preds = %3, %_simplex_noise.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_simplex_noise.exit ]
-  %.01122 = phi double [ 0.000000e+00, %3 ], [ %203, %_simplex_noise.exit ]
-  %8 = getelementptr inbounds nuw [3 x double], ptr @_simplex_2d_noise.f, i64 0, i64 %indvars.iv
+  %.01122 = phi double [ 0.000000e+00, %3 ], [ %202, %_simplex_noise.exit ]
+  %8 = getelementptr inbounds nuw double, ptr @_simplex_2d_noise.f, i64 %indvars.iv
   %9 = load double, ptr %8, align 8, !tbaa !69
   %10 = fmul reassoc nsz arcp contract afn double %0, %9
   %11 = fmul reassoc nsz arcp contract afn double %10, %4
@@ -481,13 +481,13 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
   %85 = zext nneg i32 %narrow169.i to i64
   %narrow170.i = add nuw nsw i32 %.0150.i, %82
   %86 = zext nneg i32 %narrow170.i to i64
-  %87 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i64, ptr @perm, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !70
-  %89 = add i64 %88, %85
-  %90 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %89
+  %89 = getelementptr i64, ptr @perm, i64 %88
+  %90 = getelementptr i64, ptr %89, i64 %85
   %91 = load i64, ptr %90, align 8, !tbaa !70
-  %92 = add i64 %91, %84
-  %93 = getelementptr inbounds nuw [512 x i64], ptr @perm_mod, i64 0, i64 %92
+  %92 = getelementptr i64, ptr @perm_mod, i64 %91
+  %93 = getelementptr i64, ptr %92, i64 %84
   %94 = load i64, ptr %93, align 8, !tbaa !70
   %narrow171.i = add nuw nsw i32 %.0151.i, %78
   %95 = zext nneg i32 %narrow171.i to i64
@@ -495,24 +495,24 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
   %96 = zext nneg i32 %narrow172.i to i64
   %narrow173.i = add nuw nsw i32 %.0153.i, %82
   %97 = zext nneg i32 %narrow173.i to i64
-  %98 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr @perm, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !70
-  %100 = add i64 %99, %96
-  %101 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %100
+  %100 = getelementptr i64, ptr @perm, i64 %99
+  %101 = getelementptr i64, ptr %100, i64 %96
   %102 = load i64, ptr %101, align 8, !tbaa !70
-  %103 = add i64 %102, %95
-  %104 = getelementptr inbounds nuw [512 x i64], ptr @perm_mod, i64 0, i64 %103
+  %103 = getelementptr i64, ptr @perm_mod, i64 %102
+  %104 = getelementptr i64, ptr %103, i64 %95
   %105 = load i64, ptr %104, align 8, !tbaa !70
-  %106 = add nuw nsw i64 %79, 1
-  %107 = add nuw nsw i64 %81, 1
-  %108 = add nuw nsw i64 %83, 1
-  %109 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %108
-  %110 = load i64, ptr %109, align 8, !tbaa !70
-  %111 = add i64 %107, %110
-  %112 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %111
-  %113 = load i64, ptr %112, align 8, !tbaa !70
-  %114 = add i64 %106, %113
-  %115 = getelementptr inbounds nuw [512 x i64], ptr @perm_mod, i64 0, i64 %114
+  %106 = getelementptr inbounds nuw i64, ptr @perm, i64 %83
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load i64, ptr %107, align 8, !tbaa !70
+  %109 = getelementptr i64, ptr @perm, i64 %81
+  %110 = getelementptr i8, ptr %109, i64 8
+  %111 = getelementptr i64, ptr %110, i64 %108
+  %112 = load i64, ptr %111, align 8, !tbaa !70
+  %113 = getelementptr i64, ptr @perm_mod, i64 %79
+  %114 = getelementptr i8, ptr %113, i64 8
+  %115 = getelementptr i64, ptr %114, i64 %112
   %116 = load i64, ptr %115, align 8, !tbaa !70
   %.neg179.i.neg = fmul reassoc nsz arcp contract afn double %44, %44
   %.neg.i.neg = fmul reassoc nsz arcp contract afn double %46, %46
@@ -521,127 +521,126 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
   %reass.add12 = fadd reassoc nsz arcp contract afn double %reass.add, %.neg178.i.neg
   %117 = fsub reassoc nsz arcp contract afn double 6.000000e-01, %reass.add12
   %118 = fcmp reassoc nsz arcp contract afn olt double %117, 0.000000e+00
-  br i1 %118, label %142, label %119
+  br i1 %118, label %141, label %119
 
 119:                                              ; preds = %56
-  %120 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %83
-  %121 = load i64, ptr %120, align 8, !tbaa !70
-  %122 = add i64 %121, %81
-  %123 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %122
-  %124 = load i64, ptr %123, align 8, !tbaa !70
-  %125 = add i64 %124, %79
-  %126 = getelementptr inbounds nuw [512 x i64], ptr @perm_mod, i64 0, i64 %125
-  %127 = load i64, ptr %126, align 8, !tbaa !70
-  %128 = fmul reassoc nsz arcp contract afn double %117, %117
-  %129 = fmul reassoc nsz arcp contract afn double %128, %128
-  %130 = getelementptr inbounds nuw [12 x [3 x double]], ptr @grad3, i64 0, i64 %127
-  %131 = load double, ptr %130, align 8, !tbaa !69
-  %132 = fmul reassoc nsz arcp contract afn double %131, %42
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %134 = load double, ptr %133, align 8, !tbaa !69
-  %135 = fmul reassoc nsz arcp contract afn double %134, %44
-  %136 = fadd reassoc nsz arcp contract afn double %135, %132
-  %137 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %138 = load double, ptr %137, align 8, !tbaa !69
-  %139 = fmul reassoc nsz arcp contract afn double %138, %46
-  %140 = fadd reassoc nsz arcp contract afn double %136, %139
-  %141 = fmul reassoc nsz arcp contract afn double %129, %140
-  br label %142
+  %120 = load i64, ptr %106, align 8, !tbaa !70
+  %121 = getelementptr i64, ptr @perm, i64 %120
+  %122 = getelementptr i64, ptr %121, i64 %81
+  %123 = load i64, ptr %122, align 8, !tbaa !70
+  %124 = getelementptr i64, ptr @perm_mod, i64 %123
+  %125 = getelementptr i64, ptr %124, i64 %79
+  %126 = load i64, ptr %125, align 8, !tbaa !70
+  %127 = fmul reassoc nsz arcp contract afn double %117, %117
+  %128 = fmul reassoc nsz arcp contract afn double %127, %127
+  %129 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %126
+  %130 = load double, ptr %129, align 8, !tbaa !69
+  %131 = fmul reassoc nsz arcp contract afn double %130, %42
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %133 = load double, ptr %132, align 8, !tbaa !69
+  %134 = fmul reassoc nsz arcp contract afn double %133, %44
+  %135 = fadd reassoc nsz arcp contract afn double %134, %131
+  %136 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %137 = load double, ptr %136, align 8, !tbaa !69
+  %138 = fmul reassoc nsz arcp contract afn double %137, %46
+  %139 = fadd reassoc nsz arcp contract afn double %135, %138
+  %140 = fmul reassoc nsz arcp contract afn double %128, %139
+  br label %141
 
-142:                                              ; preds = %119, %56
-  %.0.i = phi nsz double [ %141, %119 ], [ 0.000000e+00, %56 ]
+141:                                              ; preds = %119, %56
+  %.0.i = phi nsz double [ %140, %119 ], [ 0.000000e+00, %56 ]
   %.neg183.i.neg = fmul reassoc nsz arcp contract afn double %65, %65
   %.neg184.i.neg = fmul reassoc nsz arcp contract afn double %62, %62
   %.neg185.i.neg = fmul reassoc nsz arcp contract afn double %59, %59
   %reass.add13 = fadd reassoc nsz arcp contract afn double %.neg184.i.neg, %.neg183.i.neg
   %reass.add14 = fadd reassoc nsz arcp contract afn double %reass.add13, %.neg185.i.neg
-  %143 = fsub reassoc nsz arcp contract afn double 6.000000e-01, %reass.add14
-  %144 = fcmp reassoc nsz arcp contract afn olt double %143, 0.000000e+00
-  br i1 %144, label %160, label %145
+  %142 = fsub reassoc nsz arcp contract afn double 6.000000e-01, %reass.add14
+  %143 = fcmp reassoc nsz arcp contract afn olt double %142, 0.000000e+00
+  br i1 %143, label %159, label %144
 
-145:                                              ; preds = %142
-  %146 = fmul reassoc nsz arcp contract afn double %143, %143
-  %147 = fmul reassoc nsz arcp contract afn double %146, %146
-  %148 = getelementptr inbounds nuw [12 x [3 x double]], ptr @grad3, i64 0, i64 %94
-  %149 = load double, ptr %148, align 8, !tbaa !69
-  %150 = fmul reassoc nsz arcp contract afn double %149, %59
-  %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %152 = load double, ptr %151, align 8, !tbaa !69
-  %153 = fmul reassoc nsz arcp contract afn double %152, %62
-  %154 = fadd reassoc nsz arcp contract afn double %153, %150
-  %155 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %156 = load double, ptr %155, align 8, !tbaa !69
-  %157 = fmul reassoc nsz arcp contract afn double %156, %65
-  %158 = fadd reassoc nsz arcp contract afn double %154, %157
-  %159 = fmul reassoc nsz arcp contract afn double %147, %158
-  br label %160
+144:                                              ; preds = %141
+  %145 = fmul reassoc nsz arcp contract afn double %142, %142
+  %146 = fmul reassoc nsz arcp contract afn double %145, %145
+  %147 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %94
+  %148 = load double, ptr %147, align 8, !tbaa !69
+  %149 = fmul reassoc nsz arcp contract afn double %148, %59
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %151 = load double, ptr %150, align 8, !tbaa !69
+  %152 = fmul reassoc nsz arcp contract afn double %151, %62
+  %153 = fadd reassoc nsz arcp contract afn double %152, %149
+  %154 = getelementptr inbounds nuw i8, ptr %147, i64 16
+  %155 = load double, ptr %154, align 8, !tbaa !69
+  %156 = fmul reassoc nsz arcp contract afn double %155, %65
+  %157 = fadd reassoc nsz arcp contract afn double %153, %156
+  %158 = fmul reassoc nsz arcp contract afn double %146, %157
+  br label %159
 
-160:                                              ; preds = %145, %142
-  %.0145.i = phi nsz double [ %159, %145 ], [ 0.000000e+00, %142 ]
+159:                                              ; preds = %144, %141
+  %.0145.i = phi nsz double [ %158, %144 ], [ 0.000000e+00, %141 ]
   %.neg191.i.neg = fmul reassoc nsz arcp contract afn double %74, %74
   %.neg192.i.neg = fmul reassoc nsz arcp contract afn double %71, %71
   %.neg193.i.neg = fmul reassoc nsz arcp contract afn double %68, %68
   %reass.add16 = fadd reassoc nsz arcp contract afn double %.neg192.i.neg, %.neg191.i.neg
   %reass.add17 = fadd reassoc nsz arcp contract afn double %reass.add16, %.neg193.i.neg
-  %161 = fsub reassoc nsz arcp contract afn double 6.000000e-01, %reass.add17
-  %162 = fcmp reassoc nsz arcp contract afn olt double %161, 0.000000e+00
-  br i1 %162, label %178, label %163
+  %160 = fsub reassoc nsz arcp contract afn double 6.000000e-01, %reass.add17
+  %161 = fcmp reassoc nsz arcp contract afn olt double %160, 0.000000e+00
+  br i1 %161, label %177, label %162
 
-163:                                              ; preds = %160
-  %164 = fmul reassoc nsz arcp contract afn double %161, %161
-  %165 = fmul reassoc nsz arcp contract afn double %164, %164
-  %166 = getelementptr inbounds nuw [12 x [3 x double]], ptr @grad3, i64 0, i64 %105
-  %167 = load double, ptr %166, align 8, !tbaa !69
-  %168 = fmul reassoc nsz arcp contract afn double %167, %68
-  %169 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %170 = load double, ptr %169, align 8, !tbaa !69
-  %171 = fmul reassoc nsz arcp contract afn double %170, %71
-  %172 = fadd reassoc nsz arcp contract afn double %171, %168
-  %173 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %174 = load double, ptr %173, align 8, !tbaa !69
-  %175 = fmul reassoc nsz arcp contract afn double %174, %74
-  %176 = fadd reassoc nsz arcp contract afn double %172, %175
-  %177 = fmul reassoc nsz arcp contract afn double %165, %176
-  br label %178
+162:                                              ; preds = %159
+  %163 = fmul reassoc nsz arcp contract afn double %160, %160
+  %164 = fmul reassoc nsz arcp contract afn double %163, %163
+  %165 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %105
+  %166 = load double, ptr %165, align 8, !tbaa !69
+  %167 = fmul reassoc nsz arcp contract afn double %166, %68
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %169 = load double, ptr %168, align 8, !tbaa !69
+  %170 = fmul reassoc nsz arcp contract afn double %169, %71
+  %171 = fadd reassoc nsz arcp contract afn double %170, %167
+  %172 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  %173 = load double, ptr %172, align 8, !tbaa !69
+  %174 = fmul reassoc nsz arcp contract afn double %173, %74
+  %175 = fadd reassoc nsz arcp contract afn double %171, %174
+  %176 = fmul reassoc nsz arcp contract afn double %164, %175
+  br label %177
 
-178:                                              ; preds = %163, %160
-  %.0146.i = phi nsz double [ %177, %163 ], [ 0.000000e+00, %160 ]
+177:                                              ; preds = %162, %159
+  %.0146.i = phi nsz double [ %176, %162 ], [ 0.000000e+00, %159 ]
   %.neg201.i.neg = fmul reassoc nsz arcp contract afn double %76, %76
   %.neg199.i.neg = fmul reassoc nsz arcp contract afn double %77, %77
   %.neg200.i.neg = fmul reassoc nsz arcp contract afn double %75, %75
   %reass.add19 = fadd reassoc nsz arcp contract afn double %.neg201.i.neg, %.neg199.i.neg
   %reass.add20 = fadd reassoc nsz arcp contract afn double %reass.add19, %.neg200.i.neg
-  %179 = fsub reassoc nsz arcp contract afn double 6.000000e-01, %reass.add20
-  %180 = fcmp reassoc nsz arcp contract afn olt double %179, 0.000000e+00
-  br i1 %180, label %_simplex_noise.exit, label %181
+  %178 = fsub reassoc nsz arcp contract afn double 6.000000e-01, %reass.add20
+  %179 = fcmp reassoc nsz arcp contract afn olt double %178, 0.000000e+00
+  br i1 %179, label %_simplex_noise.exit, label %180
 
-181:                                              ; preds = %178
-  %182 = fmul reassoc nsz arcp contract afn double %179, %179
-  %183 = fmul reassoc nsz arcp contract afn double %182, %182
-  %184 = getelementptr inbounds nuw [12 x [3 x double]], ptr @grad3, i64 0, i64 %116
-  %185 = load double, ptr %184, align 8, !tbaa !69
-  %186 = fmul reassoc nsz arcp contract afn double %185, %75
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %188 = load double, ptr %187, align 8, !tbaa !69
-  %189 = fmul reassoc nsz arcp contract afn double %188, %76
-  %190 = fadd reassoc nsz arcp contract afn double %189, %186
-  %191 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %192 = load double, ptr %191, align 8, !tbaa !69
-  %193 = fmul reassoc nsz arcp contract afn double %192, %77
-  %194 = fadd reassoc nsz arcp contract afn double %190, %193
-  %195 = fmul reassoc nsz arcp contract afn double %183, %194
+180:                                              ; preds = %177
+  %181 = fmul reassoc nsz arcp contract afn double %178, %178
+  %182 = fmul reassoc nsz arcp contract afn double %181, %181
+  %183 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %116
+  %184 = load double, ptr %183, align 8, !tbaa !69
+  %185 = fmul reassoc nsz arcp contract afn double %184, %75
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %187 = load double, ptr %186, align 8, !tbaa !69
+  %188 = fmul reassoc nsz arcp contract afn double %187, %76
+  %189 = fadd reassoc nsz arcp contract afn double %188, %185
+  %190 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %191 = load double, ptr %190, align 8, !tbaa !69
+  %192 = fmul reassoc nsz arcp contract afn double %191, %77
+  %193 = fadd reassoc nsz arcp contract afn double %189, %192
+  %194 = fmul reassoc nsz arcp contract afn double %182, %193
   br label %_simplex_noise.exit
 
-_simplex_noise.exit:                              ; preds = %178, %181
-  %.0147.i = phi nsz double [ %195, %181 ], [ 0.000000e+00, %178 ]
-  %196 = fadd reassoc nsz arcp contract afn double %.0145.i, %.0.i
-  %197 = fadd reassoc nsz arcp contract afn double %196, %.0146.i
-  %198 = fadd reassoc nsz arcp contract afn double %197, %.0147.i
-  %199 = fmul reassoc nsz arcp contract afn double %198, 3.200000e+01
-  %200 = getelementptr inbounds nuw [3 x double], ptr @_simplex_2d_noise.a, i64 0, i64 %indvars.iv
-  %201 = load double, ptr %200, align 8, !tbaa !69
-  %202 = fmul reassoc nsz arcp contract afn double %199, %201
-  %203 = fadd reassoc nsz arcp contract afn double %202, %.01122
+_simplex_noise.exit:                              ; preds = %177, %180
+  %.0147.i = phi nsz double [ %194, %180 ], [ 0.000000e+00, %177 ]
+  %195 = fadd reassoc nsz arcp contract afn double %.0145.i, %.0.i
+  %196 = fadd reassoc nsz arcp contract afn double %195, %.0146.i
+  %197 = fadd reassoc nsz arcp contract afn double %196, %.0147.i
+  %198 = fmul reassoc nsz arcp contract afn double %197, 3.200000e+01
+  %199 = getelementptr inbounds nuw double, ptr @_simplex_2d_noise.a, i64 %indvars.iv
+  %200 = load double, ptr %199, align 8, !tbaa !69
+  %201 = fmul reassoc nsz arcp contract afn double %198, %200
+  %202 = fadd reassoc nsz arcp contract afn double %201, %.01122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %6, label %7
@@ -748,13 +747,13 @@ define void @init_global(ptr noundef readnone captures(none) %0) local_unnamed_a
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %3 = and i64 %indvars.iv.i, 255
-  %4 = getelementptr inbounds nuw [256 x i32], ptr @permutation, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @permutation, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !21
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i64, ptr @perm, i64 %indvars.iv.i
   store i64 %6, ptr %7, align 8, !tbaa !70
   %8 = urem i64 %6, 12
-  %9 = getelementptr inbounds nuw [512 x i64], ptr @perm_mod, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i64, ptr @perm_mod, i64 %indvars.iv.i
   store i64 %8, ptr %9, align 8, !tbaa !70
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
@@ -839,7 +838,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [6 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

@@ -840,7 +840,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, 
   %23 = zext i8 %0 to i32
   %24 = lshr i32 %23, 4
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !28
   %28 = icmp slt i32 %22, %21
   br i1 %28, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9, label %select.unfold.i.preheader.i4
@@ -886,7 +886,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit13:      ; preds = %select.unfold.i.i6,
   %43 = phi i32 [ %41, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9 ], [ %22, %select.unfold.i.i6 ]
   %44 = and i32 %23, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !28
   %48 = icmp slt i32 %43, %42
   br i1 %48, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19, label %select.unfold.i.preheader.i14

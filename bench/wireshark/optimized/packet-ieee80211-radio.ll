@@ -356,7 +356,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define hidden float @ieee80211_htrate(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr [77 x i16], ptr @ieee80211_ht_Dbps, i64 0, i64 %4
+  %5 = getelementptr i16, ptr @ieee80211_ht_Dbps, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
   %8 = select i1 %1, i32 108, i32 52
@@ -891,7 +891,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %207 = and i8 %206, 1
   %.not956 = icmp eq i8 %207, 0
   %208 = zext nneg i16 %199 to i64
-  %209 = getelementptr [77 x i16], ptr @ieee80211_ht_Dbps, i64 0, i64 %208
+  %209 = getelementptr i16, ptr @ieee80211_ht_Dbps, i64 %208
   %210 = load i16, ptr %209, align 2
   %211 = zext i16 %210 to i32
   %212 = select i1 %204, i32 108, i32 52
@@ -1052,7 +1052,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 304:                                              ; preds = %296
   %305 = zext nneg i8 %302 to i64
-  %306 = getelementptr [26 x i32], ptr @ieee80211_vht_bw2rate_index, i64 0, i64 %305
+  %306 = getelementptr i32, ptr @ieee80211_vht_bw2rate_index, i64 %305
   %307 = load i32, ptr %306, align 4
   %308 = zext i32 %307 to i64
   br label %309
@@ -1134,17 +1134,17 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 353:                                              ; preds = %348, %345
   %354 = getelementptr inbounds nuw i8, ptr %.1718, i64 7
-  %invariant.gep = getelementptr [4 x [8 x i8]], ptr @ieee80211_vhtvalid, i64 0, i64 %.0658
+  %invariant.gep = getelementptr [8 x i8], ptr @ieee80211_vhtvalid, i64 %.0658
   %355 = getelementptr inbounds nuw i8, ptr %.1718, i64 3
   %356 = getelementptr inbounds nuw i8, ptr %.1718, i64 11
-  %357 = getelementptr [4 x i32], ptr @subcarriers, i64 0, i64 %.0658
+  %357 = getelementptr i32, ptr @subcarriers, i64 %.0658
   br label %358
 
 358:                                              ; preds = %353, %439
   %indvars.iv969 = phi i64 [ 0, %353 ], [ %indvars.iv.next970, %439 ]
   %.3966 = phi float [ %.0, %353 ], [ %.5, %439 ]
   %.3650965 = phi i1 [ %.not750, %353 ], [ %.5652, %439 ]
-  %359 = getelementptr [4 x i8], ptr %354, i64 0, i64 %indvars.iv969
+  %359 = getelementptr i8, ptr %354, i64 %indvars.iv969
   %360 = load i8, ptr %359, align 1
   %.not778 = icmp eq i8 %360, 0
   br i1 %.not778, label %439, label %361
@@ -1152,7 +1152,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 361:                                              ; preds = %358
   %362 = load i32, ptr @hf_wlan_radio_11ac_user, align 4
   %363 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %362, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %364 = getelementptr [4 x i8], ptr %355, i64 0, i64 %indvars.iv969
+  %364 = getelementptr i8, ptr %355, i64 %indvars.iv969
   %365 = load i8, ptr %364, align 1
   %366 = zext i8 %365 to i32
   %367 = trunc nuw nsw i64 %indvars.iv969 to i32
@@ -1173,7 +1173,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 377:                                              ; preds = %361
   %378 = zext nneg i8 %374 to i64
-  %379 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %378
+  %379 = getelementptr %struct.mcs_info, ptr @ieee80211_mcsinfo, i64 %378
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %382 = load ptr, ptr %381, align 8
@@ -1233,9 +1233,9 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 415:                                              ; preds = %412
   %416 = zext nneg i8 %413 to i64
   %417 = zext nneg i8 %410 to i64
-  %gep = getelementptr [10 x %struct.mcs_vht_valid], ptr %invariant.gep, i64 0, i64 %417
-  %418 = add nsw i64 %416, -1
-  %419 = getelementptr [8 x i8], ptr %gep, i64 0, i64 %418
+  %gep = getelementptr %struct.mcs_vht_valid, ptr %invariant.gep, i64 %417
+  %418 = getelementptr i8, ptr %gep, i64 %416
+  %419 = getelementptr i8, ptr %418, i64 -1
   %420 = load i8, ptr %419, align 1, !range !6, !noundef !7
   %421 = trunc nuw i8 %420 to i1
   br i1 %421, label %422, label %439
@@ -1244,7 +1244,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %423 = load i16, ptr %.1718, align 4
   %424 = and i16 %423, 4096
   %.not955 = icmp eq i16 %424, 0
-  %425 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %417, i32 2
+  %425 = getelementptr %struct.mcs_info, ptr @ieee80211_mcsinfo, i64 %417, i32 2
   %426 = load float, ptr %425, align 8
   %427 = load i32, ptr %357, align 4
   %428 = uitofp i32 %427 to float
@@ -1327,11 +1327,11 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 476:                                              ; preds = %474
   %477 = zext nneg i32 %471 to i64
-  %478 = getelementptr [8 x [12 x [4 x [3 x float]]]], ptr @he_ofdm_tab, i64 0, i64 %477
+  %478 = getelementptr [12 x [4 x [3 x float]]], ptr @he_ofdm_tab, i64 %477
   %479 = zext nneg i32 %468 to i64
-  %480 = getelementptr [12 x [4 x [3 x float]]], ptr %478, i64 0, i64 %479
+  %480 = getelementptr [4 x [3 x float]], ptr %478, i64 %479
   %481 = zext nneg i32 %463 to i64
-  %482 = getelementptr [4 x [3 x float]], ptr %480, i64 0, i64 %481
+  %482 = getelementptr [3 x float], ptr %480, i64 %481
   br label %ieee80211_he_ofdm_rate.exit
 
 483:                                              ; preds = %461
@@ -1344,19 +1344,19 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br i1 %or.cond3.i, label %487, label %ieee80211_he_ofdm_rate.exit.thread
 
 487:                                              ; preds = %484
-  %488 = add nsw i32 %463, -4
-  %489 = zext nneg i32 %471 to i64
-  %490 = getelementptr [8 x [12 x [6 x [3 x float]]]], ptr @he_mu_ofdma_tab, i64 0, i64 %489
-  %491 = zext nneg i32 %468 to i64
-  %492 = getelementptr [12 x [6 x [3 x float]]], ptr %490, i64 0, i64 %491
-  %493 = zext nneg i32 %488 to i64
-  %494 = getelementptr [6 x [3 x float]], ptr %492, i64 0, i64 %493
+  %488 = zext nneg i32 %471 to i64
+  %489 = getelementptr [12 x [6 x [3 x float]]], ptr @he_mu_ofdma_tab, i64 %488
+  %490 = zext nneg i32 %468 to i64
+  %491 = getelementptr [6 x [3 x float]], ptr %489, i64 %490
+  %492 = zext nneg i32 %463 to i64
+  %493 = getelementptr [3 x float], ptr %491, i64 %492
+  %494 = getelementptr i8, ptr %493, i64 -48
   br label %ieee80211_he_ofdm_rate.exit
 
 ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   %.sink1098 = phi ptr [ %494, %487 ], [ %482, %476 ]
   %495 = zext nneg i32 %470 to i64
-  %496 = getelementptr [3 x float], ptr %.sink1098, i64 0, i64 %495
+  %496 = getelementptr float, ptr %.sink1098, i64 %495
   %.7 = load float, ptr %496, align 4
   %497 = fcmp une float %.7, 0.000000e+00
   br i1 %497, label %.thread899, label %ieee80211_he_ofdm_rate.exit.thread
@@ -1373,7 +1373,7 @@ ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   br i1 %.not750, label %.thread899, label %585
 
 501:                                              ; preds = %498
-  %502 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %126, i64 0, i64 %indvars.iv
+  %502 = getelementptr %struct.ieee_802_11be_user_info, ptr %126, i64 %indvars.iv
   %503 = load i32, ptr %502, align 4
   %504 = lshr i32 %503, 24
   %505 = and i32 %504, 15
@@ -1452,7 +1452,7 @@ ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   %544 = lshr i32 %543, 20
   %545 = and i32 %544, 15
   %546 = zext nneg i32 %545 to i64
-  %547 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %546
+  %547 = getelementptr %struct.mcs_info, ptr @ieee80211_mcsinfo, i64 %546
   %548 = load ptr, ptr %547, align 8
   %549 = getelementptr inbounds nuw i8, ptr %547, i64 8
   %550 = load ptr, ptr %549, align 8
@@ -1479,11 +1479,11 @@ ieee80211_eht_rate.exit:                          ; preds = %554
   %562 = lshr i32 %561, 20
   %563 = and i32 %562, 15
   %564 = zext nneg i32 %563 to i64
-  %565 = getelementptr [16 x [8 x [3 x float]]], ptr @eht_mcs_tab, i64 0, i64 %564
+  %565 = getelementptr [8 x [3 x float]], ptr @eht_mcs_tab, i64 %564
   %566 = zext nneg i32 %.0701 to i64
-  %567 = getelementptr [8 x [3 x float]], ptr %565, i64 0, i64 %566
+  %567 = getelementptr [3 x float], ptr %565, i64 %566
   %568 = zext nneg i8 %557 to i64
-  %569 = getelementptr [3 x float], ptr %567, i64 0, i64 %568
+  %569 = getelementptr float, ptr %567, i64 %568
   %570 = load float, ptr %569, align 4
   %571 = uitofp nneg i32 %505 to float
   %572 = fmul float %570, %571
@@ -1874,7 +1874,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
 793:                                              ; preds = %787, %789
   %.0665 = phi i32 [ %791, %789 ], [ 0, %787 ]
   %794 = zext nneg i16 %768 to i64
-  %795 = getelementptr [77 x i8], ptr @ieee80211_ht_streams, i64 0, i64 %794
+  %795 = getelementptr i8, ptr @ieee80211_ht_streams, i64 %794
   %796 = load i8, ptr %795, align 1
   %797 = zext i8 %796 to i32
   %798 = add nuw nsw i32 %.0666, %797
@@ -1888,10 +1888,10 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
 
 803:                                              ; preds = %800
   %804 = zext nneg i32 %801 to i64
-  %805 = getelementptr [4 x i32], ptr @dissect_wlan_radio_phdr.Nhtdltf, i64 0, i64 %804
+  %805 = getelementptr i32, ptr @dissect_wlan_radio_phdr.Nhtdltf, i64 %804
   %806 = load i32, ptr %805, align 4
   %807 = zext nneg i32 %.0665 to i64
-  %808 = getelementptr [4 x i32], ptr @dissect_wlan_radio_phdr.Nhteltf, i64 0, i64 %807
+  %808 = getelementptr i32, ptr @dissect_wlan_radio_phdr.Nhteltf, i64 %807
   %809 = load i32, ptr %808, align 4
   %810 = add i32 %809, %806
   %811 = shl i32 %810, 2
@@ -2502,13 +2502,13 @@ define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 n
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr [77 x i8], ptr @ieee80211_ht_Nes, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @ieee80211_ht_Nes, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = mul nuw nsw i32 %11, 6
   %13 = add i32 %5, %12
   %.not = icmp ne i32 %2, 0
-  %14 = getelementptr [77 x i16], ptr @ieee80211_ht_Dbps, i64 0, i64 %8
+  %14 = getelementptr i16, ptr @ieee80211_ht_Dbps, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4

@@ -3808,7 +3808,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lake_RegistryPkg_gitSrc_x3f___spec
 
 17:                                               ; preds = %.lr.ph, %lean_inc.exit
   %.02653 = phi i64 [ %5, %.lr.ph ], [ %54, %lean_inc.exit ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.02653
+  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02653
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1
@@ -4402,7 +4402,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_RegistryPkg_fromJson_x3f___spec__1(
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -7922,7 +7922,7 @@ define range(i32 42, 71) i32 @l_Lake_hexEncodeByte(i8 noundef zeroext %0) local_
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.l_Lake_hexEncodeByte, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.l_Lake_hexEncodeByte, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -7969,7 +7969,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %16 = and i64 %3, 15
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table.l_Lake_hexEncodeByte___boxed, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.l_Lake_hexEncodeByte___boxed, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %l_Lake_hexEncodeByte.exit
 
@@ -7985,12 +7985,12 @@ switch.lookup:
   %2 = tail call ptr @lean_string_push(ptr noundef %1, i32 noundef 37) #7
   %3 = lshr i8 %0, 4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.l_Lake_uriEscapeByte.11, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.l_Lake_uriEscapeByte.11, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = tail call ptr @lean_string_push(ptr noundef %2, i32 noundef %switch.load) #7
   %6 = and i8 %0, 15
   %7 = zext nneg i8 %6 to i64
-  %switch.gep31 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.l_Lake_uriEscapeByte.11, i64 0, i64 %7
+  %switch.gep31 = getelementptr inbounds nuw i32, ptr @switch.table.l_Lake_uriEscapeByte.11, i64 %7
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   %8 = tail call ptr @lean_string_push(ptr noundef %5, i32 noundef %switch.load32) #7
   ret ptr %8
@@ -10139,7 +10139,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_getUrl___spec__1(ptr noundef %0,
 9:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.02650 = phi i64 [ %2, %.lr.ph ], [ %57, %lean_dec.exit ]
   %.02849 = phi ptr [ %4, %.lr.ph ], [ %40, %lean_dec.exit ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02650
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02650
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1

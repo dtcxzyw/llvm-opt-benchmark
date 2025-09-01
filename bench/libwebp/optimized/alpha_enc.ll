@@ -181,7 +181,7 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv.i.i.i.i
   %71 = load i8, ptr %70, align 1, !tbaa !51
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 %72
   store i8 1, ptr %73, align 1, !tbaa !51
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %66
@@ -198,7 +198,7 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.preheader, %.preheader.i.i.i.i
   %indvars.iv31.i.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %.preheader.i.i.i.i.preheader ]
   %.01622.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %.preheader.i.i.i.i.preheader ]
-  %74 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %indvars.iv31.i.i.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv31.i.i.i.i
   %75 = load i8, ptr %74, align 1, !tbaa !51
   %.not.i.i.i.i = icmp ne i8 %75, 0
   %76 = zext i1 %.not.i.i.i.i to i32
@@ -550,7 +550,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %15 = sext i32 %14 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds [4 x ptr], ptr @WebPFilters, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr @WebPFilters, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !86
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19

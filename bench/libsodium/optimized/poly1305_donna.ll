@@ -135,8 +135,8 @@ poly1305_blocks.exit:                             ; preds = %37
   %91 = getelementptr i8, ptr %.1.i, i64 %.14654.i
   %92 = load i8, ptr %91, align 1
   %93 = load i64, ptr %23, align 64
-  %94 = add i64 %93, %.14654.i
-  %95 = getelementptr [16 x i8], ptr %89, i64 0, i64 %94
+  %94 = getelementptr i8, ptr %89, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 %.14654.i
   store i8 %92, ptr %95, align 1
   %96 = add nuw nsw i64 %.14654.i, 1
   %exitcond56.not.i = icmp eq i64 %96, %.148.i
@@ -218,8 +218,8 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr nounde
   %10 = getelementptr i8, ptr %1, i64 %.04553.i
   %11 = load i8, ptr %10, align 1
   %12 = load i64, ptr %4, align 8
-  %13 = add i64 %12, %.04553.i
-  %14 = getelementptr [16 x i8], ptr %8, i64 0, i64 %13
+  %13 = getelementptr i8, ptr %8, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 %.04553.i
   store i8 %11, ptr %14, align 1
   %15 = add nuw i64 %.04553.i, 1
   %exitcond.not.i = icmp eq i64 %15, %spec.select.i
@@ -272,8 +272,8 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr nounde
   %32 = getelementptr i8, ptr %.1.i, i64 %.14654.i
   %33 = load i8, ptr %32, align 1
   %34 = load i64, ptr %4, align 8
-  %35 = add i64 %34, %.14654.i
-  %36 = getelementptr [16 x i8], ptr %30, i64 0, i64 %35
+  %35 = getelementptr i8, ptr %30, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 %.14654.i
   store i8 %33, ptr %36, align 1
   %37 = add nuw nsw i64 %.14654.i, 1
   %exitcond56.not.i = icmp eq i64 %37, %.148.i
@@ -304,7 +304,7 @@ define internal fastcc void @poly1305_finish(ptr noundef %0, ptr noundef %1) unn
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = getelementptr [16 x i8], ptr %6, i64 0, i64 %4
+  %7 = getelementptr i8, ptr %6, i64 %4
   store i8 1, ptr %7, align 1
   %.090 = add i64 %4, 1
   %8 = icmp ult i64 %.090, 16

@@ -48,7 +48,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11, i32 2
+  %12 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %11, i32 2
   %13 = load i32, ptr %12, align 4, !tbaa !28
   %14 = icmp sgt i32 %13, 4
   br i1 %14, label %15, label %pmix_obj_run_destructors.exit135
@@ -79,7 +79,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
 
 27:                                               ; preds = %25
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %28, i32 2
+  %29 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %28, i32 2
   %30 = load i32, ptr %29, align 4, !tbaa !28
   %31 = icmp sgt i32 %30, 4
   br i1 %31, label %32, label %pmix_obj_run_destructors.exit135
@@ -104,7 +104,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
 
 42:                                               ; preds = %41
   %43 = zext nneg i32 %40 to i64
-  %44 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %43, i32 2
+  %44 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %43, i32 2
   %45 = load i32, ptr %44, align 4, !tbaa !28
   %46 = icmp sgt i32 %45, 4
   br i1 %46, label %47, label %pmix_obj_run_destructors.exit135
@@ -120,7 +120,7 @@ define internal i32 @prte_rmaps_rr_map(ptr noundef %0, ptr noundef %1) #0 {
 
 51:                                               ; preds = %50
   %52 = zext nneg i32 %40 to i64
-  %53 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %52, i32 2
+  %53 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %52, i32 2
   %54 = load i32, ptr %53, align 4, !tbaa !28
   %55 = icmp sgt i32 %54, 4
   br i1 %55, label %56, label %59

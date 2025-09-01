@@ -10471,11 +10471,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit: ; preds 
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store i8 0, ptr %20, align 1, !tbaa !65
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %77
+  br label %75
 
 21:                                               ; preds = %2
   %.not2 = icmp eq i64 %6, 0
-  br i1 %.not2, label %74, label %22
+  br i1 %.not2, label %72, label %22
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
@@ -10533,61 +10533,59 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %35, %33, %29, %25, 
 
 .lr.ph.i2.i:                                      ; preds = %.lr.ph.i2.i, %.lr.ph.preheader.i.i
   %.020.i.i = phi i64 [ %49, %.lr.ph.i2.i ], [ %6, %.lr.ph.preheader.i.i ]
-  %.01819.i.i = phi i32 [ %60, %.lr.ph.i2.i ], [ %46, %.lr.ph.preheader.i.i ]
+  %.01819.i.i = phi i32 [ %59, %.lr.ph.i2.i ], [ %46, %.lr.ph.preheader.i.i ]
   %47 = urem i64 %.020.i.i, 100
   %48 = shl nuw nsw i64 %47, 1
   %49 = udiv i64 %.020.i.i, 100
-  %50 = or disjoint i64 %48, 1
-  %51 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %50
+  %50 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !65, !noalias !416
   %53 = zext i32 %.01819.i.i to i64
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 %53
   store i8 %52, ptr %54, align 1, !tbaa !65
-  %55 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
-  %56 = load i8, ptr %55, align 2, !tbaa !65, !noalias !416
-  %57 = add i32 %.01819.i.i, -1
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %41, i64 %58
-  store i8 %56, ptr %59, align 1, !tbaa !65
-  %60 = add i32 %.01819.i.i, -2
-  %61 = icmp ugt i64 %.020.i.i, 9999
-  br i1 %61, label %.lr.ph.i2.i, label %._crit_edge.i.i3, !llvm.loop !420
+  %55 = load i8, ptr %50, align 2, !tbaa !65, !noalias !416
+  %56 = add i32 %.01819.i.i, -1
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 %57
+  store i8 %55, ptr %58, align 1, !tbaa !65
+  %59 = add i32 %.01819.i.i, -2
+  %60 = icmp ugt i64 %.020.i.i, 9999
+  br i1 %60, label %.lr.ph.i2.i, label %._crit_edge.i.i3, !llvm.loop !420
 
 ._crit_edge.i.i3:                                 ; preds = %.lr.ph.i2.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %.0.lcssa.i.i = phi i64 [ %6, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %49, %.lr.ph.i2.i ]
-  %62 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
-  br i1 %62, label %63, label %71
+  %61 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
+  br i1 %61, label %62, label %69
 
-63:                                               ; preds = %._crit_edge.i.i3
-  %64 = shl nuw nsw i64 %.0.lcssa.i.i, 1
-  %65 = or disjoint i64 %64, 1
-  %66 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %65
-  %67 = load i8, ptr %66, align 1, !tbaa !65, !noalias !416
-  %68 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store i8 %67, ptr %68, align 1, !tbaa !65
-  %69 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %64
-  %70 = load i8, ptr %69, align 2, !tbaa !65, !noalias !416
+62:                                               ; preds = %._crit_edge.i.i3
+  %63 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  %66 = load i8, ptr %65, align 1, !tbaa !65, !noalias !416
+  %67 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store i8 %66, ptr %67, align 1, !tbaa !65
+  %68 = load i8, ptr %64, align 2, !tbaa !65, !noalias !416
   br label %_ZNSt7__cxx119to_stringEm.exit
 
-71:                                               ; preds = %._crit_edge.i.i3
-  %72 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
-  %73 = or disjoint i8 %72, 48
+69:                                               ; preds = %._crit_edge.i.i3
+  %70 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
+  %71 = or disjoint i8 %70, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
-_ZNSt7__cxx119to_stringEm.exit:                   ; preds = %63, %71
-  %storemerge.i.i = phi i8 [ %73, %71 ], [ %70, %63 ]
+_ZNSt7__cxx119to_stringEm.exit:                   ; preds = %62, %69
+  %storemerge.i.i = phi i8 [ %71, %69 ], [ %68, %62 ]
   store i8 %storemerge.i.i, ptr %41, align 1, !tbaa !65
-  br label %77
+  br label %75
 
-74:                                               ; preds = %21
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %75, ptr %0, align 8, !tbaa !133
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %76, align 8, !tbaa !60
-  store i8 0, ptr %75, align 8, !tbaa !65
-  br label %77
+72:                                               ; preds = %21
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %73, ptr %0, align 8, !tbaa !133
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %74, align 8, !tbaa !60
+  store i8 0, ptr %73, align 8, !tbaa !65
+  br label %75
 
-77:                                               ; preds = %74, %_ZNSt7__cxx119to_stringEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit
+75:                                               ; preds = %72, %_ZNSt7__cxx119to_stringEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit
   ret void
 }
 

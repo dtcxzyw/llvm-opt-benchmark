@@ -1604,14 +1604,14 @@ define hidden noundef zeroext i1 @tls_get_cipher_info(ptr noundef %0, i16 nounde
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr [6 x i32], ptr @tls_get_cipher_info.gcry_modes, i64 0, i64 %23
+  %24 = getelementptr i32, ptr @tls_get_cipher_info.gcry_modes, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 @ssl_get_cipher_algo(ptr noundef nonnull %19)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, -64
   %30 = sext i32 %29 to i64
-  %31 = getelementptr [5 x i32], ptr @tls_get_cipher_info.gcry_mds, i64 0, i64 %30
+  %31 = getelementptr i32, ptr @tls_get_cipher_info.gcry_mds, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %26, 0
   %34 = icmp ne i32 %29, 4
@@ -1841,7 +1841,7 @@ define hidden noundef zeroext i1 @tls13_exporter(ptr noundef %0, i1 noundef zero
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, -64
   %25 = sext i32 %24 to i64
-  %26 = getelementptr [5 x i32], ptr @tls_get_cipher_info.gcry_mds, i64 0, i64 %25
+  %26 = getelementptr i32, ptr @tls_get_cipher_info.gcry_mds, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp ne i32 %21, 0
   %29 = icmp ne i32 %24, 4
@@ -3381,7 +3381,7 @@ addresses_equal.exit:                             ; preds = %59, %51, %copy_addr
 
 .lr.ph:                                           ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %74 = getelementptr [2 x i32], ptr %73, i64 0, i64 %.056
+  %74 = getelementptr i32, ptr %73, i64 %.056
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5169,7 +5169,7 @@ define internal fastcc noundef zeroext i1 @decrypt_tls13_early_data(ptr noundef 
 
 65:                                               ; preds = %59, %tls_save_decrypted_record.exit63
   %indvars.iv = phi i64 [ 0, %59 ], [ %indvars.iv.next, %tls_save_decrypted_record.exit63 ]
-  %66 = getelementptr [6 x i16], ptr @decrypt_tls13_early_data.tls13_ciphers, i64 0, i64 %indvars.iv
+  %66 = getelementptr i16, ptr @decrypt_tls13_early_data.tls13_ciphers, i64 %indvars.iv
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1013, i32 noundef %68)

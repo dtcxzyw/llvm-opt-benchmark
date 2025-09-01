@@ -2259,9 +2259,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
 define void @_ZN9grpc_core8Executor3RunEP12grpc_closureN4absl12lts_202407226StatusENS_12ExecutorTypeENS_15ExecutorJobTypeE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr @_ZN9grpc_core12_GLOBAL__N_121executor_enqueue_fns_E, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_121executor_enqueue_fns_E, i64 %6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !92
   %11 = load i64, ptr %1, align 8, !tbaa !56
   store i64 %11, ptr %5, align 8, !tbaa !56
@@ -2416,7 +2416,7 @@ define noundef zeroext i1 @_ZN9grpc_core8Executor10IsThreadedENS_12ExecutorTypeE
 
 .critedge:                                        ; preds = %1
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load atomic i64, ptr %8 acquire, align 8

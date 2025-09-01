@@ -246,7 +246,7 @@ define internal i32 @dissect_fp_hint(ptr noundef %0, ptr noundef %1, ptr noundef
 switch.lookup:                                    ; preds = %44
   %55 = lshr i8 %51, 6
   %56 = zext nneg i8 %55 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_fp_hint, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_fp_hint, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %assign_fph_pch.exit.i
 
@@ -402,9 +402,9 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   %157 = trunc nuw nsw i32 %155 to i16
   %158 = select i1 %156, i16 0, i16 %157
   %159 = zext nneg i16 %158 to i32
-  %160 = getelementptr [64 x i32], ptr %126, i64 0, i64 %indvars.iv74.i.i
+  %160 = getelementptr i32, ptr %126, i64 %indvars.iv74.i.i
   store i32 %159, ptr %160, align 4
-  %161 = getelementptr [64 x i32], ptr %127, i64 0, i64 %indvars.iv74.i.i
+  %161 = getelementptr i32, ptr %127, i64 %indvars.iv74.i.i
   store i32 %143, ptr %161, align 4
   %.not67.i.i = icmp eq ptr %133, null
   br i1 %.not67.i.i, label %174, label %162
@@ -523,10 +523,10 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   %217 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %214)
   %218 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %216)
   %indvars.iv.next81.i.i = add nuw nsw i32 %indvars.iv80.i.i, 4
-  %219 = getelementptr [16 x i8], ptr %211, i64 0, i64 %indvars.iv78.i.i
+  %219 = getelementptr i8, ptr %211, i64 %indvars.iv78.i.i
   store i8 %215, ptr %219, align 1
   %220 = zext i16 %218 to i32
-  %221 = getelementptr [16 x i32], ptr %212, i64 0, i64 %indvars.iv78.i.i
+  %221 = getelementptr i32, ptr %212, i64 %indvars.iv78.i.i
   store i32 %220, ptr %221, align 4
   %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
   %exitcond85.i.i = icmp eq i64 %indvars.iv.next79.i.i, 16
@@ -545,10 +545,10 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
   %226 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %223)
   %227 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %225)
   %indvars.iv.next75.i55.i = add nuw nsw i32 %indvars.iv74.i53.i, 4
-  %228 = getelementptr [16 x i8], ptr %206, i64 0, i64 %indvars.iv.i54.i
+  %228 = getelementptr i8, ptr %206, i64 %indvars.iv.i54.i
   store i8 %224, ptr %228, align 1
   %229 = zext i16 %227 to i32
-  %230 = getelementptr [16 x i32], ptr %207, i64 0, i64 %indvars.iv.i54.i
+  %230 = getelementptr i32, ptr %207, i64 %indvars.iv.i54.i
   store i32 %229, ptr %230, align 4
   %231 = load i32, ptr @hf_fph_ddi_entry, align 4
   %232 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %231, ptr noundef %0, i32 noundef %indvars.iv74.i53.i, i32 noundef 4, i32 noundef 0)
@@ -795,21 +795,21 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   %51 = lshr i8 %34, 2
   %52 = and i8 %51, 3
   %53 = and i8 %34, 3
-  %54 = getelementptr [64 x i8], ptr %24, i64 0, i64 %indvars.iv
+  %54 = getelementptr i8, ptr %24, i64 %indvars.iv
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr [64 x i8], ptr %25, i64 0, i64 %indvars.iv
+  %55 = getelementptr i8, ptr %25, i64 %indvars.iv
   store i8 %50, ptr %55, align 1
-  %56 = getelementptr [64 x i32], ptr %.0100, i64 0, i64 %indvars.iv
+  %56 = getelementptr i32, ptr %.0100, i64 %indvars.iv
   store i32 %32, ptr %56, align 4
-  %57 = getelementptr [64 x i8], ptr %26, i64 0, i64 %indvars.iv
+  %57 = getelementptr i8, ptr %26, i64 %indvars.iv
   store i8 %40, ptr %57, align 1
-  %58 = getelementptr [64 x i8], ptr %27, i64 0, i64 %indvars.iv
+  %58 = getelementptr i8, ptr %27, i64 %indvars.iv
   store i8 %42, ptr %58, align 1
-  %59 = getelementptr [64 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %59 = getelementptr i32, ptr %28, i64 %indvars.iv
   store i32 0, ptr %59, align 4
-  %60 = getelementptr [64 x i8], ptr %.0101, i64 0, i64 %indvars.iv
+  %60 = getelementptr i8, ptr %.0101, i64 %indvars.iv
   store i8 %38, ptr %60, align 1
-  %61 = getelementptr [64 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %61 = getelementptr i8, ptr %29, i64 %indvars.iv
   store i8 %52, ptr %61, align 1
   br i1 %.not110, label %89, label %62
 

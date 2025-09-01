@@ -5050,10 +5050,10 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiE
 
 switch.lookup:                                    ; preds = %.lr.ph163
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep188 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi.1, i64 0, i64 %36
+  %switch.gep188 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi.1, i64 %36
   %switch.load189 = load ptr, ptr %switch.gep188, align 8
   store i64 %19, ptr %18, align 8
   store i64 0, ptr %.sroa.0.i.i.i15.i.sroa.4.0..sroa_idx, align 8, !tbaa !15

@@ -74,7 +74,7 @@ define void @updateWts(ptr noundef readonly captures(none) %0, ptr noundef reado
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %updateWt.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %updateWt.exit ]
-  %35 = getelementptr inbounds nuw [6 x ptr], ptr %31, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !11
@@ -125,7 +125,7 @@ updateWt.exit:                                    ; preds = %47, %53
 
 .lr.ph42.split.us:                                ; preds = %.lr.ph42, %updateWt.exit34.us
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %updateWt.exit34.us ], [ %58, %.lr.ph42 ]
-  %59 = getelementptr inbounds nuw [6 x ptr], ptr %31, i64 0, i64 %indvars.iv46
+  %59 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv46
   %60 = load ptr, ptr %59, align 8, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !11
@@ -157,7 +157,7 @@ updateWt.exit34.us:                               ; preds = %73, %.lr.ph42.split
 
 .lr.ph42.split:                                   ; preds = %.lr.ph42, %updateWt.exit34
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %updateWt.exit34 ], [ %58, %.lr.ph42 ]
-  %78 = getelementptr inbounds nuw [6 x ptr], ptr %31, i64 0, i64 %indvars.iv49
+  %78 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv49
   %79 = load ptr, ptr %78, align 8, !tbaa !31
   %80 = icmp eq ptr %79, %2
   br i1 %80, label %81, label %updateWt.exit34
@@ -1147,7 +1147,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
   %501 = add nsw i32 %500, 1
   store i32 %501, ptr %499, align 4, !tbaa !30
   %502 = sext i32 %500 to i64
-  %503 = getelementptr inbounds [6 x ptr], ptr %498, i64 0, i64 %502
+  %503 = getelementptr inbounds ptr, ptr %498, i64 %502
   store ptr %497, ptr %503, align 8, !tbaa !31
   %.pre.i.i = load ptr, ptr %489, align 8, !tbaa !79
   br label %504
@@ -1172,7 +1172,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
   %515 = add nsw i32 %514, 1
   store i32 %515, ptr %513, align 4, !tbaa !30
   %516 = sext i32 %514 to i64
-  %517 = getelementptr inbounds [6 x ptr], ptr %512, i64 0, i64 %516
+  %517 = getelementptr inbounds ptr, ptr %512, i64 %516
   store ptr %511, ptr %517, align 8, !tbaa !31
   %.pre84.i.i = load ptr, ptr %489, align 8, !tbaa !79
   br label %518
@@ -1198,7 +1198,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
   %530 = add nsw i32 %529, 1
   store i32 %530, ptr %528, align 4, !tbaa !30
   %531 = sext i32 %529 to i64
-  %532 = getelementptr inbounds [6 x ptr], ptr %527, i64 0, i64 %531
+  %532 = getelementptr inbounds ptr, ptr %527, i64 %531
   store ptr %526, ptr %532, align 8, !tbaa !31
   %.pre85.i.i = load ptr, ptr %489, align 8, !tbaa !79
   br label %533
@@ -1223,7 +1223,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
   %544 = add nsw i32 %543, 1
   store i32 %544, ptr %542, align 4, !tbaa !30
   %545 = sext i32 %543 to i64
-  %546 = getelementptr inbounds [6 x ptr], ptr %541, i64 0, i64 %545
+  %546 = getelementptr inbounds ptr, ptr %541, i64 %545
   store ptr %540, ptr %546, align 8, !tbaa !31
   %.pre86.i.i = load ptr, ptr %489, align 8, !tbaa !79
   br label %547
@@ -1249,7 +1249,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
   %559 = add nsw i32 %558, 1
   store i32 %559, ptr %557, align 4, !tbaa !30
   %560 = sext i32 %558 to i64
-  %561 = getelementptr inbounds [6 x ptr], ptr %556, i64 0, i64 %560
+  %561 = getelementptr inbounds ptr, ptr %556, i64 %560
   store ptr %555, ptr %561, align 8, !tbaa !31
   %.pre87.i.i = load ptr, ptr %489, align 8, !tbaa !79
   br label %562
@@ -1274,7 +1274,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
   %573 = add nsw i32 %572, 1
   store i32 %573, ptr %571, align 4, !tbaa !30
   %574 = sext i32 %572 to i64
-  %575 = getelementptr inbounds [6 x ptr], ptr %570, i64 0, i64 %574
+  %575 = getelementptr inbounds ptr, ptr %570, i64 %574
   store ptr %569, ptr %575, align 8, !tbaa !31
   br label %createSEdges.exit.i
 

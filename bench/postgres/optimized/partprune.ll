@@ -1020,7 +1020,7 @@ partkey_datum_from_expr.exit.i:                   ; preds = %86, %81
   br label %119
 
 119:                                              ; preds = %118, %117, %103
-  %120 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
   store i64 %.0.i, ptr %120, align 8
   %121 = add i32 %.074101.i, 1
   %122 = load ptr, ptr %46, align 8
@@ -1099,7 +1099,7 @@ partkey_datum_from_expr.exit.i:                   ; preds = %86, %81
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %161 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %162 = call zeroext i1 @bms_is_member(i32 noundef %161, ptr noundef %150) #6
-  %163 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i
   %164 = zext i1 %162 to i8
   store i8 %164, ptr %163, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3054,7 +3054,7 @@ match_clause_to_partition_key.exit:               ; preds = %219, %221, %list_le
   br label %.thread343
 
 492:                                              ; preds = %.loopexit
-  %493 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv725
+  %493 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv725
   %494 = load ptr, ptr %493, align 8
   %495 = call ptr @lappend(ptr noundef %494, ptr noundef %.1300) #6
   store ptr %495, ptr %493, align 8
@@ -3070,7 +3070,7 @@ match_clause_to_partition_key.exit:               ; preds = %219, %221, %list_le
   br i1 %499, label %503, label %500
 
 500:                                              ; preds = %.thread311
-  %501 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv725
+  %501 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv725
   %502 = load ptr, ptr %501, align 8
   %.not176 = icmp eq ptr %502, null
   br i1 %.not176, label %504, label %503
@@ -3267,12 +3267,12 @@ match_clause_to_partition_key.exit.thread277:     ; preds = %match_clause_to_par
 582:                                              ; preds = %580, %580
   %583 = load i32, ptr %571, align 4
   %584 = sext i32 %583 to i64
-  %585 = getelementptr inbounds [6 x ptr], ptr %5, i64 0, i64 %584
+  %585 = getelementptr inbounds ptr, ptr %5, i64 %584
   %586 = load ptr, ptr %585, align 8
   %587 = call ptr @lappend(ptr noundef %586, ptr noundef nonnull %570) #6
   %588 = load i32, ptr %571, align 4
   %589 = sext i32 %588 to i64
-  %590 = getelementptr inbounds [6 x ptr], ptr %5, i64 0, i64 %589
+  %590 = getelementptr inbounds ptr, ptr %5, i64 %589
   store ptr %587, ptr %590, align 8
   switch i32 %588, label %605 [
     i32 1, label %.thread349
@@ -3296,7 +3296,7 @@ match_clause_to_partition_key.exit.thread277:     ; preds = %match_clause_to_par
   %597 = call ptr @lappend(ptr noundef %596, ptr noundef nonnull %570) #6
   %598 = load i32, ptr %571, align 4
   %599 = sext i32 %598 to i64
-  %600 = getelementptr inbounds [2 x ptr], ptr %6, i64 0, i64 %599
+  %600 = getelementptr inbounds ptr, ptr %6, i64 %599
   store ptr %597, ptr %600, align 8
   br label %605
 
@@ -3358,7 +3358,7 @@ match_clause_to_partition_key.exit.thread277:     ; preds = %match_clause_to_par
 626:                                              ; preds = %.critedge240.i, %.thread.thread.i
   %indvars.iv522.i = phi i64 [ 1, %.thread.thread.i ], [ %indvars.iv.next523.i, %.critedge240.i ]
   %.0169470.i = phi ptr [ null, %.thread.thread.i ], [ %.1170318.i, %.critedge240.i ]
-  %627 = getelementptr inbounds nuw [6 x ptr], ptr %5, i64 0, i64 %indvars.iv522.i
+  %627 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv522.i
   %628 = load ptr, ptr %627, align 8
   %.not230.i = icmp eq ptr %628, null
   br i1 %.not230.i, label %.critedge240.i, label %.lr.ph464.i

@@ -107,7 +107,7 @@ define void @lv_draw_sw_mask_cleanup() local_unnamed_addr #1 {
 
 1:                                                ; preds = %0, %5
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %5 ]
-  %2 = getelementptr inbounds nuw [4 x %struct.lv_draw_sw_mask_radius_circle_dsc_t], ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 568), i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw %struct.lv_draw_sw_mask_radius_circle_dsc_t, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 568), i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1474,7 +1474,7 @@ define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes(
 
 .preheader72:                                     ; preds = %4, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %4 ]
-  %33 = getelementptr inbounds nuw [4 x %struct.lv_draw_sw_mask_radius_circle_dsc_t], ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 568), i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.lv_draw_sw_mask_radius_circle_dsc_t, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 568), i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8, !tbaa !58
   %36 = icmp eq i32 %35, %spec.store.select
@@ -1500,7 +1500,7 @@ define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes(
 .preheader71:                                     ; preds = %32, %59
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %59 ], [ 0, %32 ]
   %.080 = phi ptr [ %.1, %59 ], [ null, %32 ]
-  %48 = getelementptr inbounds nuw [4 x %struct.lv_draw_sw_mask_radius_circle_dsc_t], ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 568), i64 0, i64 %indvars.iv89
+  %48 = getelementptr inbounds nuw %struct.lv_draw_sw_mask_radius_circle_dsc_t, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 568), i64 %indvars.iv89
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i32, ptr %49, align 4, !tbaa !22
   %51 = icmp eq i32 %50, 0
@@ -1678,10 +1678,10 @@ circ_next.exit.i:                                 ; preds = %124, %120
 130:                                              ; preds = %circ_next.exit.i
   %131 = add nsw i32 %.sroa.10.1232.i, 1
   %132 = ashr i32 %.sroa.0.3.i, 2
-  %133 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   store i32 %132, ptr %133, align 4, !tbaa !63
   %134 = and i32 %.sroa.0.3.i, 3
-  %135 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %134, ptr %135, align 4, !tbaa !63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

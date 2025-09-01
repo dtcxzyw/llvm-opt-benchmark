@@ -599,7 +599,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %104 = lshr i32 %102, 1
   %105 = and i32 %104, 15
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr [16 x i8], ptr @ip_tos2prio, i64 0, i64 %106
+  %107 = getelementptr i8, ptr @ip_tos2prio, i64 %106
   %108 = load i8, ptr %107, align 1
   store i8 %108, ptr %17, align 4
   br label %.thread19
@@ -1259,7 +1259,7 @@ define dso_local void @__ip_sock_set_tos(ptr noundef %0, i32 noundef %1) local_u
   %17 = lshr i8 %16, 1
   %18 = and i8 %17, 15
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr [16 x i8], ptr @ip_tos2prio, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @ip_tos2prio, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -1300,7 +1300,7 @@ define dso_local void @ip_sock_set_tos(ptr noundef %0, i32 noundef %1) #0 align 
   %17 = lshr i8 %16, 1
   %18 = and i8 %17, 15
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr [16 x i8], ptr @ip_tos2prio, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @ip_tos2prio, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -4453,7 +4453,7 @@ define internal fastcc i32 @set_mcast_msfilter(ptr noundef %0, i32 noundef %1, i
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr [0 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %30 = getelementptr i32, ptr %21, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp eq i64 %indvars.iv.next, %22

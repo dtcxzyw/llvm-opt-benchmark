@@ -339,7 +339,7 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr noundef readonly c
 22:                                               ; preds = %19
   %23 = lshr i32 %9, 4
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr i8, ptr %.1, i64 1
   store i8 %26, ptr %.1, align 1
@@ -354,7 +354,7 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr noundef readonly c
 31:                                               ; preds = %28
   %32 = and i32 %9, 15
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %33
+  %34 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr i8, ptr %.2, i64 1
   store i8 %35, ptr %.2, align 1
@@ -448,7 +448,7 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
 24:                                               ; preds = %21
   %25 = lshr i32 %11, 4
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %26
+  %27 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = getelementptr i8, ptr %.1.i, i64 1
   store i8 %28, ptr %.1.i, align 1
@@ -463,7 +463,7 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
 33:                                               ; preds = %30
   %34 = and i32 %11, 15
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %35
+  %36 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = getelementptr i8, ptr %.2.i, i64 1
   store i8 %37, ptr %.2.i, align 1
@@ -571,7 +571,7 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
 25:                                               ; preds = %22
   %26 = lshr i32 %12, 4
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %27
+  %28 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = getelementptr i8, ptr %.1.i.i, i64 1
   store i8 %29, ptr %.1.i.i, align 1
@@ -586,7 +586,7 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
 34:                                               ; preds = %31
   %35 = and i32 %12, 15
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %36
+  %37 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = getelementptr i8, ptr %.2.i.i, i64 1
   store i8 %38, ptr %.2.i.i, align 1
@@ -781,7 +781,7 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
 44:                                               ; preds = %41
   %45 = lshr i32 %31, 4
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %46
+  %47 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = getelementptr i8, ptr %.1.i.i, i64 1
   store i8 %48, ptr %.1.i.i, align 1
@@ -796,7 +796,7 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
 53:                                               ; preds = %50
   %54 = and i32 %31, 15
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %55
+  %56 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = getelementptr i8, ptr %.2.i.i, i64 1
   store i8 %57, ptr %.2.i.i, align 1
@@ -891,7 +891,7 @@ get_netbios_name.exit:                            ; preds = %67, %70
 94:                                               ; preds = %91
   %95 = lshr i32 %81, 4
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %96
+  %97 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = getelementptr i8, ptr %.1.i.i113, i64 1
   store i8 %98, ptr %.1.i.i113, align 1
@@ -906,7 +906,7 @@ get_netbios_name.exit:                            ; preds = %67, %70
 103:                                              ; preds = %100
   %104 = and i32 %81, 15
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %105
+  %106 = getelementptr i8, ptr @process_netbios_name.hex_digits, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = getelementptr i8, ptr %.2.i.i114, i64 1
   store i8 %107, ptr %.2.i.i114, align 1
@@ -988,7 +988,7 @@ get_netbios_name.exit123:                         ; preds = %117, %120
 
 143:                                              ; preds = %141
   %144 = zext nneg i8 %20 to i64
-  %145 = getelementptr [33 x ptr], ptr @dissect_netb, i64 0, i64 %144
+  %145 = getelementptr ptr, ptr @dissect_netb, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 %146(ptr noundef %0, ptr noundef %1, i32 noundef %.0, ptr noundef %.099)
   %148 = zext i16 %17 to i32

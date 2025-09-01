@@ -6922,7 +6922,7 @@ define internal void @dcm_init() #0 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr @dcm_uid_table, align 8
-  %5 = getelementptr [482 x %struct.dcm_uid], ptr @dcm_uid_data, i64 0, i64 %indvars.iv
+  %5 = getelementptr %struct.dcm_uid, ptr @dcm_uid_data, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @wmem_map_insert(ptr noundef %4, ptr noundef %6, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6938,7 +6938,7 @@ define internal void @dcm_init() #0 {
 11:                                               ; preds = %8, %11
   %indvars.iv19 = phi i64 [ 0, %8 ], [ %indvars.iv.next20, %11 ]
   %12 = load ptr, ptr @dcm_tag_table, align 8
-  %13 = getelementptr [5179 x %struct.dcm_tag], ptr @dcm_tag_data, i64 0, i64 %indvars.iv19
+  %13 = getelementptr %struct.dcm_tag, ptr @dcm_tag_data, i64 %indvars.iv19
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = inttoptr i64 %15 to ptr
@@ -6956,7 +6956,7 @@ define internal void @dcm_init() #0 {
 21:                                               ; preds = %18, %21
   %indvars.iv23 = phi i64 [ 0, %18 ], [ %indvars.iv.next24, %21 ]
   %22 = load ptr, ptr @dcm_status_table, align 8
-  %23 = getelementptr [53 x %struct.dcm_status], ptr @dcm_status_data, i64 0, i64 %indvars.iv23
+  %23 = getelementptr %struct.dcm_status, ptr @dcm_status_data, i64 %indvars.iv23
   %24 = load i16, ptr %23, align 16
   %25 = zext i16 %24 to i64
   %26 = inttoptr i64 %25 to ptr
@@ -7857,7 +7857,7 @@ dissect_dcm_pdu_data.exit.i:                      ; preds = %328
 
 switch.lookup:                                    ; preds = %410
   %418 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_dcm_main, i64 0, i64 %418
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dcm_main, i64 %418
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %419
 
@@ -7910,7 +7910,7 @@ switch.lookup:                                    ; preds = %410
 
 switch.lookup231:                                 ; preds = %447
   %449 = zext nneg i8 %444 to i64
-  %switch.gep232 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_dcm_main.6, i64 0, i64 %449
+  %switch.gep232 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dcm_main.6, i64 %449
   %switch.load233 = load ptr, ptr %switch.gep232, align 8
   br label %450
 
@@ -11152,7 +11152,7 @@ dcm_state_pctx_get.exit.thread:                   ; preds = %27, %dcm_state_pctx
 
 switch.lookup:                                    ; preds = %51
   %57 = zext nneg i8 %.fr to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_dcm_pctx, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dcm_pctx, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread26
 

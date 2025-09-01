@@ -380,7 +380,7 @@ _ZN3rsa10algorithms8pkcs1v1521non_zero_random_bytes17h3ca880eeedbcd8e8E.llvm.767
   br i1 %43, label %44, label %.invoke
 
 44:                                               ; preds = %_ZN3rsa10algorithms8pkcs1v1521non_zero_random_bytes17h3ca880eeedbcd8e8E.llvm.7674576391064769846.exit
-  %45 = getelementptr inbounds [0 x i8], ptr %17, i64 0, i64 %23
+  %45 = getelementptr inbounds i8, ptr %17, i64 %23
   store i8 0, ptr %45, align 1
   %46 = icmp ugt i64 %3, %4
   br i1 %46, label %47, label %48

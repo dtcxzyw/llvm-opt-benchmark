@@ -187,7 +187,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   br i1 %72, label %73, label %107
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw [20 x float], ptr %16, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %75 = load float, ptr %74, align 4
   %76 = sext i32 %70 to i64
   %77 = getelementptr inbounds float, ptr %4, i64 %76
@@ -238,7 +238,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   %110 = sext i32 %109 to i64
   %111 = load ptr, ptr %67, align 8
   %112 = getelementptr inbounds double, ptr %111, i64 %110
-  %113 = getelementptr inbounds nuw [20 x float], ptr %16, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %114 = load float, ptr %113, align 4
   %115 = fcmp une float %114, 0.000000e+00
   %116 = icmp sgt i32 %71, 0
@@ -531,7 +531,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   br i1 %72, label %73, label %107
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw [20 x float], ptr %16, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %75 = load float, ptr %74, align 4
   %76 = sext i32 %70 to i64
   %77 = getelementptr inbounds float, ptr %4, i64 %76
@@ -582,7 +582,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   %110 = sext i32 %109 to i64
   %111 = load ptr, ptr %67, align 8
   %112 = getelementptr inbounds float, ptr %111, i64 %110
-  %113 = getelementptr inbounds nuw [20 x float], ptr %16, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %114 = load float, ptr %113, align 4
   %115 = fcmp une float %114, 0.000000e+00
   %116 = icmp sgt i32 %71, 0
@@ -944,7 +944,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   br i1 %72, label %73, label %107
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw [20 x double], ptr %16, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   %75 = load double, ptr %74, align 8
   %76 = sext i32 %70 to i64
   %77 = getelementptr inbounds double, ptr %4, i64 %76
@@ -995,7 +995,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   %110 = sext i32 %109 to i64
   %111 = load ptr, ptr %67, align 8
   %112 = getelementptr inbounds double, ptr %111, i64 %110
-  %113 = getelementptr inbounds nuw [20 x double], ptr %16, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   %114 = load double, ptr %113, align 8
   %115 = fcmp une double %114, 0.000000e+00
   %116 = icmp sgt i32 %71, 0
@@ -1270,7 +1270,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   br i1 %72, label %73, label %107
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw [20 x double], ptr %16, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   %75 = load double, ptr %74, align 8
   %76 = sext i32 %70 to i64
   %77 = getelementptr inbounds double, ptr %4, i64 %76
@@ -1321,7 +1321,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree20evalSubP
   %110 = sext i32 %109 to i64
   %111 = load ptr, ptr %67, align 8
   %112 = getelementptr inbounds float, ptr %111, i64 %110
-  %113 = getelementptr inbounds nuw [20 x double], ptr %16, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   %114 = load double, ptr %113, align 8
   %115 = fcmp une double %114, 0.000000e+00
   %116 = icmp sgt i32 %71, 0
@@ -1911,7 +1911,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
 define linkonce_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Bfr9PatchTree21assignLeafOrChildNodeEPNS2_8TreeNodeEbii(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child"], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child", ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 1
   %.not = icmp eq i32 %10, 0
@@ -2119,7 +2119,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_
 
 100:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_.exit47
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %102 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child"], ptr %101, i64 0, i64 %7
+  %102 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child", ptr %101, i64 %7
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, -1073741824
   %105 = shl i32 %4, 2
@@ -2314,9 +2314,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_
   %35 = fcmp ult double %.04353.us, %.04254.us
   %36 = select i1 %35, i64 0, i64 2
   %37 = zext i1 %34 to i64
-  %38 = or disjoint i64 %36, %37
-  %39 = getelementptr inbounds nuw i8, ptr %.02256.us, i64 4
-  %40 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child"], ptr %39, i64 0, i64 %38
+  %38 = getelementptr inbounds nuw i8, ptr %.02256.us, i64 4
+  %39 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child", ptr %38, i64 %36
+  %40 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child", ptr %39, i64 %37
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 2
   %.not28.us = icmp eq i32 %42, 0
@@ -2400,7 +2400,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
   %.141 = phi i1 [ true, %67 ], [ true, %69 ], [ true, %76 ], [ true, %72 ], [ false, %61 ], [ true, %64 ], [ false, %59 ], [ false, %55 ]
   %77 = phi i64 [ 1, %67 ], [ 2, %69 ], [ 3, %76 ], [ 0, %72 ], [ 0, %61 ], [ 3, %64 ], [ 2, %59 ], [ 1, %55 ]
   %78 = getelementptr inbounds nuw i8, ptr %.02256, i64 4
-  %79 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child"], ptr %78, i64 0, i64 %77
+  %79 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child", ptr %78, i64 %77
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 2
   %.not28 = icmp eq i32 %81, 0

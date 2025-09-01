@@ -155,7 +155,7 @@ define dso_local { i64, ptr } @_ZN11cmQtAutoGen13GeneratorNameENS_4GenTE(i32 nou
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11cmQtAutoGen13GeneratorNameENS_4GenTE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11cmQtAutoGen13GeneratorNameENS_4GenTE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -173,7 +173,7 @@ define dso_local { i64, ptr } @_ZN11cmQtAutoGen18GeneratorNameUpperENS_4GenTE(i3
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11cmQtAutoGen18GeneratorNameUpperENS_4GenTE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11cmQtAutoGen18GeneratorNameUpperENS_4GenTE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -218,7 +218,7 @@ define dso_local void @_ZN11cmQtAutoGen5ToolsB5cxx11Ebbb(ptr dead_on_unwind noal
 
 _ZNSt5arrayISt17basic_string_viewIcSt11char_traitsIcEELm3EE2atEm.exit: ; preds = %13
   %14 = add nuw nsw i64 %.1, 1
-  %15 = getelementptr inbounds nuw [3 x %"class.std::basic_string_view"], ptr %8, i64 0, i64 %.1
+  %15 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %8, i64 %.1
   store i64 7, ptr %15, align 8, !tbaa !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str.7, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !8

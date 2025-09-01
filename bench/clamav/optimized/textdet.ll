@@ -30,7 +30,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.lr.ph.i11, label %3
@@ -51,7 +51,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr noundef readonly captures(none)
 
 15:                                               ; preds = %.lr.ph.i11
   %16 = zext nneg i8 %12 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !3
   %.not45.i = icmp eq i8 %18, 1
   br i1 %.not45.i, label %.loopexit.i, label %td_isutf8.exit.thread
@@ -182,7 +182,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
 
 76:                                               ; preds = %74
   %77 = zext nneg i32 %72 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !3
   %.not39.us.us.i = icmp ne i8 %79, 1
   %80 = zext i1 %.not39.us.us.i to i32
@@ -219,7 +219,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
 
 99:                                               ; preds = %97
   %100 = zext nneg i32 %95 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !3
   %.not39.us49.i = icmp ne i8 %102, 1
   %103 = zext i1 %.not39.us49.i to i32
@@ -255,7 +255,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
 
 122:                                              ; preds = %120
   %123 = zext nneg i32 %118 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !3
   %.not39.i = icmp eq i8 %125, 1
   br i1 %.not39.i, label %126, label %select.unfold

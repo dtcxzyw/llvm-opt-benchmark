@@ -1037,7 +1037,7 @@ switch.lookup:                                    ; preds = %31
   %36 = load i32, ptr %7, align 4
   %37 = and i32 %36, 3
   %38 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_frame, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_frame, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 %switch.load, ptr %39, align 4
@@ -3485,7 +3485,7 @@ define internal noundef zeroext i1 @frame_add_hash(ptr readnone captures(none) %
 
 switch.lookup:                                    ; preds = %7
   %14 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.frame_add_hash, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.frame_add_hash, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_hash_type_string.exit
 
@@ -3542,7 +3542,7 @@ define internal noundef zeroext i1 @frame_add_verdict(ptr readnone captures(none
 switch.lookup:                                    ; preds = %7
   %.mask = and i32 %12, 3
   %15 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.frame_add_verdict, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.frame_add_verdict, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_verdict_type_string.exit
 

@@ -217,7 +217,7 @@ if.then28:                                        ; preds = %land.lhs.true, %lan
   %10 = load i8, ptr %param2.i44, align 1, !tbaa !47
   %11 = and i8 %10, 7
   %12 = zext nneg i8 %11 to i64
-  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @wallmounted_to_facedir, i64 0, i64 %12
+  %arrayidx = getelementptr inbounds nuw i8, ptr @wallmounted_to_facedir, i64 %12
   %13 = load i8, ptr %arrayidx, align 1, !tbaa !58
   br label %cleanup
 
@@ -343,11 +343,11 @@ sw.bb2:                                           ; preds = %if.else.i, %if.else
 
 switch.lookup:                                    ; preds = %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i16], ptr @switch.table._ZNK7MapNode17getWallMountedDirEPK14NodeDefManager, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK7MapNode17getWallMountedDirEPK14NodeDefManager, i64 %9
   %switch.load = load i16, ptr %switch.gep, align 2
-  %switch.gep26 = getelementptr inbounds nuw [7 x i16], ptr @switch.table._ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.11, i64 0, i64 %9
+  %switch.gep26 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.11, i64 %9
   %switch.load27 = load i16, ptr %switch.gep26, align 2
-  %switch.gep28 = getelementptr inbounds nuw [7 x i16], ptr @switch.table._ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.12, i64 0, i64 %9
+  %switch.gep28 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.12, i64 %9
   %switch.load29 = load i16, ptr %switch.gep28, align 2
   br label %return
 
@@ -478,7 +478,7 @@ if.then15:                                        ; preds = %_ZNK14NodeDefManage
   %conv19 = add i8 %8, %9
   %10 = and i8 %.fr, -32
   %idxprom = zext i8 %conv19 to i64
-  %arrayidx = getelementptr inbounds nuw [96 x i8], ptr @_ZZN7MapNode16rotateAlongYAxisEPK14NodeDefManager8RotationE14rotate_facedir, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @_ZZN7MapNode16rotateAlongYAxisEPK14NodeDefManager8RotationE14rotate_facedir, i64 %idxprom
   %11 = load i8, ptr %arrayidx, align 1, !tbaa !58
   %or153 = or i8 %10, %11
   store i8 %or153, ptr %param2, align 1, !tbaa !47
@@ -493,7 +493,7 @@ if.then33:                                        ; preds = %_ZNK14NodeDefManage
   %conv42 = add i8 %13, %14
   %15 = and i8 %12, -4
   %idxprom47 = zext i8 %conv42 to i64
-  %arrayidx48 = getelementptr inbounds nuw [96 x i8], ptr @_ZZN7MapNode16rotateAlongYAxisEPK14NodeDefManager8RotationE14rotate_facedir, i64 0, i64 %idxprom47
+  %arrayidx48 = getelementptr inbounds nuw i8, ptr @_ZZN7MapNode16rotateAlongYAxisEPK14NodeDefManager8RotationE14rotate_facedir, i64 %idxprom47
   %16 = load i8, ptr %arrayidx48, align 1, !tbaa !58
   %or52152 = or i8 %16, %15
   store i8 %or52152, ptr %param234, align 1, !tbaa !47
@@ -510,13 +510,13 @@ if.end73:                                         ; preds = %if.then61
   %19 = zext nneg i8 %18 to i64
   %sub = add nuw nsw i64 %19, 4294967294
   %idxprom75 = and i64 %sub, 4294967295
-  %arrayidx76 = getelementptr inbounds nuw [4 x i32], ptr @_ZL18wallmounted_to_rot, i64 0, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds nuw i32, ptr @_ZL18wallmounted_to_rot, i64 %idxprom75
   %20 = load i32, ptr %arrayidx76, align 4, !tbaa !60
   %21 = and i8 %17, -8
   %sub81 = sub nsw i32 %20, %rot
   %and82 = and i32 %sub81, 3
   %idxprom83 = zext nneg i32 %and82 to i64
-  %arrayidx84 = getelementptr inbounds nuw [4 x i8], ptr @_ZL18rot_to_wallmounted, i64 0, i64 %idxprom83
+  %arrayidx84 = getelementptr inbounds nuw i8, ptr @_ZL18rot_to_wallmounted, i64 %idxprom83
   %22 = load i8, ptr %arrayidx84, align 1, !tbaa !58
   %or88151 = or i8 %22, %21
   store i8 %or88151, ptr %param262, align 1, !tbaa !47
@@ -621,7 +621,7 @@ if.then28.i:                                      ; preds = %_ZNK14NodeDefManage
   %11 = load i8, ptr %param2.i44.i, align 1, !tbaa !47
   %12 = and i8 %11, 7
   %13 = zext nneg i8 %12 to i64
-  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @wallmounted_to_facedir, i64 0, i64 %13
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @wallmounted_to_facedir, i64 %13
   %14 = load i8, ptr %arrayidx.i, align 1, !tbaa !58
   br label %_ZNK7MapNode10getFaceDirEPK14NodeDefManagerb.exit
 

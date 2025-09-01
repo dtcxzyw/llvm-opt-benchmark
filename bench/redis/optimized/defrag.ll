@@ -502,7 +502,7 @@ define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef 
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = getelementptr inbounds nuw [0 x %struct.zskiplistLevel], ptr %10, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %15
@@ -589,7 +589,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   %.04372 = phi ptr [ %7, %.preheader.preheader ], [ %.1.lcssa, %.critedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %12 = getelementptr inbounds nuw i8, ptr %.04372, i64 24
-  %13 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %12, i64 0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds %struct.zskiplistLevel, ptr %12, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8, !tbaa !52
   %.not5359 = icmp eq ptr %14, null
   br i1 %.not5359, label %.critedge, label %.lr.ph.preheader
@@ -630,7 +630,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph87
   %28 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %19, %.lr.ph87 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %29, i64 0, i64 %indvars.iv.next
+  %30 = getelementptr inbounds %struct.zskiplistLevel, ptr %29, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8, !tbaa !52
   %.not53 = icmp eq ptr %31, null
   br i1 %.not53, label %.critedge2..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !61
@@ -640,7 +640,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
 
 .critedge:                                        ; preds = %.lr.ph, %23, %25, %.lr.ph.preheader, %.critedge2..critedge.loopexit_crit_edge, %.preheader
   %.1.lcssa = phi ptr [ %.04372, %.preheader ], [ %28, %.critedge2..critedge.loopexit_crit_edge ], [ %.04372, %.lr.ph.preheader ], [ %.16086, %25 ], [ %.16086, %23 ], [ %28, %.lr.ph ]
-  %32 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %indvars.iv.next
+  %32 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %32, align 8, !tbaa !51
   %33 = icmp sgt i64 %indvars.iv, 1
   br i1 %33, label %.preheader, label %._crit_edge, !llvm.loop !63
@@ -3780,7 +3780,7 @@ defragOtherGlobals.exit:                          ; preds = %87
 
 163:                                              ; preds = %159
   %164 = sext i32 %160 to i64
-  %165 = getelementptr inbounds [4 x %struct.defragStage], ptr %4, i64 0, i64 %164
+  %165 = getelementptr inbounds %struct.defragStage, ptr %4, i64 %164
   %166 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
   %167 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !162
   %168 = call i32 @defragLaterStep(ptr noundef %166, i32 noundef %167, i64 noundef %45)

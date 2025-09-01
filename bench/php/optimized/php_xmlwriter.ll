@@ -3663,7 +3663,7 @@ smart_str_0.exit:                                 ; preds = %40
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !80
-  %44 = getelementptr inbounds nuw [1 x i8], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
   store i8 0, ptr %44, align 1, !tbaa !32
   %45 = load ptr, ptr %28, align 8, !tbaa !97
   %.not.i41 = icmp eq ptr %45, null
@@ -3789,7 +3789,7 @@ zend_string_init.exit:                            ; preds = %95
   store i64 %94, ptr %105, align 8, !tbaa !80
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 1 %99, i64 %94, i1 false)
-  %107 = getelementptr inbounds nuw [1 x i8], ptr %106, i64 0, i64 %94
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %94
   store i8 0, ptr %107, align 1, !tbaa !32
   br label %zend_string_dup.exit
 

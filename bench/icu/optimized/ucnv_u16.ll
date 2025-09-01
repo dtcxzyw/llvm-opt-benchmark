@@ -607,7 +607,7 @@ define internal void @_ZL28_UTF16BEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   %261 = add i8 %250, 1
   store i8 %261, ptr %131, align 8, !tbaa !29
   %262 = sext i8 %250 to i64
-  %263 = getelementptr inbounds [7 x i8], ptr %260, i64 0, i64 %262
+  %263 = getelementptr inbounds i8, ptr %260, i64 %262
   store i8 %259, ptr %263, align 1, !tbaa !28
   br label %264
 
@@ -1908,7 +1908,7 @@ define internal void @_ZL28_UTF16LEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   %252 = add i8 %241, 1
   store i8 %252, ptr %126, align 8, !tbaa !29
   %253 = sext i8 %241 to i64
-  %254 = getelementptr inbounds [7 x i8], ptr %251, i64 0, i64 %253
+  %254 = getelementptr inbounds i8, ptr %251, i64 %253
   store i8 %250, ptr %254, align 1, !tbaa !28
   br label %255
 

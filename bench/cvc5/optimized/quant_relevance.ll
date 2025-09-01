@@ -183,7 +183,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers14QuantRelevance18regis
   %17 = icmp eq i32 %16, 2
   %spec.select.i.i = select i1 %17, i64 2, i64 1
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %spec.select.i.i
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %spec.select.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !24, !noalias !18
   store ptr %20, ptr %8, align 8, !tbaa !21, !alias.scope !18
   %21 = load i64, ptr %20, align 8, !noalias !18
@@ -709,7 +709,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   %spec.select.i.i = add nuw nsw i32 %.030, %124
   %125 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %126 = zext nneg i32 %spec.select.i.i to i64
-  %127 = getelementptr inbounds nuw [0 x ptr], ptr %125, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw ptr, ptr %125, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !24, !noalias !38
   store ptr %128, ptr %5, align 8, !tbaa !21, !alias.scope !38
   %129 = load i64, ptr %128, align 8, !noalias !38

@@ -758,7 +758,7 @@ Vec_IntFree.exit201:                              ; preds = %198, %200
   %219 = phi ptr [ %208, %.lr.ph ], [ %.pre.i205282, %256 ]
   %indvars.iv = phi i64 [ %213, %.lr.ph ], [ %indvars.iv.next, %256 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %220 = getelementptr inbounds nuw [0 x i16], ptr %211, i64 0, i64 %indvars.iv.next
+  %220 = getelementptr inbounds nuw i16, ptr %211, i64 %indvars.iv.next
   %221 = load i16, ptr %220, align 2, !tbaa !33
   %222 = zext i16 %221 to i32
   %223 = lshr i32 %222, 1
@@ -947,7 +947,7 @@ Vec_IntPush.exit216:                              ; preds = %.Vec_IntGrow.exit10
 306:                                              ; preds = %.lr.ph243, %Kit_DsdNtkObj.exit217.thread
   %indvars.iv264 = phi i64 [ %305, %.lr.ph243 ], [ %indvars.iv.next265, %Kit_DsdNtkObj.exit217.thread ]
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, -1
-  %307 = getelementptr inbounds nuw [0 x i16], ptr %217, i64 0, i64 %indvars.iv.next265
+  %307 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv.next265
   %308 = load i16, ptr %307, align 2, !tbaa !33
   %309 = zext i16 %308 to i32
   %310 = lshr i32 %309, 1
@@ -1491,7 +1491,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %5
   br i1 %exitcond73.not.i, label %..loopexit27_crit_edge.us.us.i, label %43, !llvm.loop !57
 
 .preheader.us.us.i:                               ; preds = %.lr.ph33.split.us.split.us.i
-  %45 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 0, i64 %indvars.iv74.i
+  %45 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv74.i
   %46 = load i32, ptr %45, align 4, !tbaa !25
   br label %43
 

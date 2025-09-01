@@ -431,7 +431,7 @@ define internal fastcc range(i32 -12, 1) i32 @config_filter(ptr noundef %0) unna
   %84 = sitofp i32 %83 to float
   %85 = fdiv nsz float %84, %73
   %86 = tail call nsz float @llvm.exp.f32(float %85)
-  %87 = getelementptr inbounds nuw [1048576 x float], ptr %75, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
   store float %86, ptr %87, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1048576

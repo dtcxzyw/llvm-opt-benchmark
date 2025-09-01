@@ -266,7 +266,7 @@ define hidden i32 @hb_tag_from_string(ptr noundef readonly captures(address_is_n
   br i1 %.not23, label %.critedge.split.loop.exit32, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %11, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -354,7 +354,7 @@ define hidden range(i32 0, 8) i32 @hb_direction_from_string(ptr noundef readonly
 
 11:                                               ; preds = %7, %18
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %18 ]
-  %12 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZL17direction_strings, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17direction_strings, i64 %indvars.iv
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %10, %13
   br i1 %14, label %15, label %18
@@ -379,7 +379,7 @@ define hidden nonnull ptr @hb_direction_to_string(i32 noundef %0) local_unnamed_
   %2 = add nsw i32 %0, -4
   %3 = icmp ult i32 %2, 4
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZL17direction_strings, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17direction_strings, i64 %4
   %.0 = select i1 %3, ptr %5, ptr @.str.2
   ret ptr %.0
 }
@@ -405,7 +405,7 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %8
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %1, i32 63)
   %10 = zext nneg i32 %.sroa.speculated to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 1 %0, i64 %10, i1 false), !alias.scope !10
-  %11 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   store i8 0, ptr %11, align 1
   %12 = call fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef %3)
   br label %15
@@ -454,7 +454,7 @@ define internal fastcc noundef ptr @_ZL19lang_find_or_insertPKc(ptr noundef nonn
   %9 = zext i8 %8 to i32
   %10 = load i8, ptr %.013.i.i, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZL9canon_map, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZL9canon_map, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = sext i8 %13 to i32
   %15 = icmp eq i32 %9, %14
@@ -475,7 +475,7 @@ _ZNK18hb_language_item_teqEPKc.exit:              ; preds = %.lr.ph.i.i, %.lr.ph
   %.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ 0, %..critedge.loopexit.i_crit_edge.i ], [ %9, %.lr.ph.i.i ]
   %20 = load i8, ptr %.0.lcssa.i.i, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZL9canon_map, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZL9canon_map, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = sext i8 %23 to i32
   %25 = icmp eq i32 %.lcssa.i.i, %24
@@ -519,7 +519,7 @@ _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %34
   %35 = phi i8 [ %40, %.lr.ph.i ], [ %.ph, %.lr.ph.i.preheader ]
   %.012.i = phi ptr [ %39, %.lr.ph.i ], [ %32, %.lr.ph.i.preheader ]
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZL9canon_map, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZL9canon_map, i64 %36
   %38 = load i8, ptr %37, align 1
   store i8 %38, ptr %.012.i, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
@@ -708,7 +708,7 @@ define hidden range(i32 0, 2139062144) i32 @hb_script_from_string(ptr noundef re
   br i1 %.not23.i, label %.critedge.split.loop.exit32.i, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %11, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1462,7 +1462,7 @@ define hidden void @hb_feature_to_string(ptr noundef readonly captures(none) %0,
 
 23:                                               ; preds = %22
   %24 = add nsw i64 %indvars.iv, -1
-  %25 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 32
   br i1 %27, label %22, label %.critedge.split.loop.exit70, !llvm.loop !23
@@ -1487,14 +1487,14 @@ define hidden void @hb_feature_to_string(ptr noundef readonly captures(none) %0,
 .thread:                                          ; preds = %31
   %34 = add i32 %storemerge.lcssa, 1
   %35 = zext i32 %storemerge.lcssa to i64
-  %36 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 91, ptr %36, align 1
   br label %48
 
 37:                                               ; preds = %.critedge
   %38 = add i32 %storemerge.lcssa, 1
   %39 = zext i32 %storemerge.lcssa to i64
-  %40 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %39
   store i8 91, ptr %40, align 1
   %41 = zext i32 %38 to i64
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 %41
@@ -1519,7 +1519,7 @@ define hidden void @hb_feature_to_string(ptr noundef readonly captures(none) %0,
 51:                                               ; preds = %48
   %52 = add i32 %.2, 1
   %53 = zext i32 %.2 to i64
-  %54 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %53
   store i8 58, ptr %54, align 1
   %.not21 = icmp eq i32 %50, -1
   br i1 %.not21, label %62, label %55
@@ -1538,7 +1538,7 @@ define hidden void @hb_feature_to_string(ptr noundef readonly captures(none) %0,
   %.3 = phi i32 [ %.2, %48 ], [ %52, %51 ], [ %61, %55 ]
   %63 = add i32 %.3, 1
   %64 = zext i32 %.3 to i64
-  %65 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
   store i8 93, ptr %65, align 1
   %.pre64 = load i32, ptr %6, align 4
   br label %66
@@ -1552,7 +1552,7 @@ define hidden void @hb_feature_to_string(ptr noundef readonly captures(none) %0,
 69:                                               ; preds = %66
   %70 = add i32 %.1, 1
   %71 = zext i32 %.1 to i64
-  %72 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %71
   store i8 61, ptr %72, align 1
   %73 = zext i32 %70 to i64
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 %73
@@ -1742,7 +1742,7 @@ define hidden void @hb_variation_to_string(ptr noundef readonly captures(none) %
 18:                                               ; preds = %17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %19 = and i64 %indvars.iv.next, 4294967295
-  %20 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 32
   br i1 %22, label %17, label %.critedge.split.loop.exit24, !llvm.loop !28
@@ -1755,7 +1755,7 @@ define hidden void @hb_variation_to_string(ptr noundef readonly captures(none) %
   %storemerge.lcssa = phi i32 [ %23, %.critedge.split.loop.exit24 ], [ 0, %17 ]
   %24 = add i32 %storemerge.lcssa, 1
   %25 = zext i32 %storemerge.lcssa to i64
-  %26 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %25
   store i8 61, ptr %26, align 1
   %27 = zext i32 %24 to i64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
@@ -2228,7 +2228,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT18glyf_accelerator_t29get_advance
   %33 = add i32 %32, -1
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %2, i32 %33)
   %34 = zext i32 %.sroa.speculated.i to i64
-  %35 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %31, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %31, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 8
@@ -2268,7 +2268,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT18glyf_accelerator_t29get_advance
   %61 = add i32 %60, -1
   %.sroa.speculated.i19 = call i32 @llvm.umin.i32(i32 %2, i32 %61)
   %62 = zext i32 %.sroa.speculated.i19 to i64
-  %63 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %59, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %59, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = shl nuw nsw i32 %65, 8
@@ -2535,7 +2535,7 @@ _ZL11parse_spacePPKcS0_.exit:                     ; preds = %.lr.ph.i, %9, %3
   br i1 %.not23.i, label %.critedge.split.loop.exit32.i, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %41, ptr %43, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3730,7 +3730,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11
   %201 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i175, i64 16
   %202 = load ptr, ptr %201, align 8
   %203 = zext i32 %195 to i64
-  %204 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %202, i64 0, i64 %203, i32 1
+  %204 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %202, i64 %203, i32 1
   br label %218
 
 205:                                              ; preds = %186
@@ -3752,7 +3752,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11
   %211 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i10.i, i64 16
   %212 = load ptr, ptr %211, align 8
   %213 = zext i32 %196 to i64
-  %214 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %212, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %212, i64 %213
   %215 = sub i32 %195, %196
   %216 = zext i32 %215 to i64
   %217 = getelementptr inbounds nuw %"struct.OT::IntType.145", ptr %214, i64 %216
@@ -3808,7 +3808,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11
   %257 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i184, i64 16
   %258 = load ptr, ptr %257, align 8
   %259 = zext i32 %195 to i64
-  %260 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %258, i64 0, i64 %259, i32 1
+  %260 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %258, i64 %259, i32 1
   br label %.sink.split.i180
 
 261:                                              ; preds = %238
@@ -3825,7 +3825,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11
   %267 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i10.i179, i64 16
   %268 = load ptr, ptr %267, align 8
   %269 = zext i32 %252 to i64
-  %270 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %268, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %268, i64 %269
   %271 = sub i32 %195, %252
   %272 = zext i32 %271 to i64
   %273 = getelementptr inbounds nuw %"struct.OT::IntType.145", ptr %270, i64 %272
@@ -3861,7 +3861,7 @@ _ZNK2OT8hmtxvmtxINS_4vmtxENS_4vheaENS_4VVAREE13accelerator_t40get_leading_bearin
   %290 = add i32 %196, -1
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %195, i32 %290)
   %291 = zext i32 %.sroa.speculated.i to i64
-  %292 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %289, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %289, i64 %291
   %293 = load i8, ptr %292, align 1
   %294 = zext i8 %293 to i32
   %295 = shl nuw nsw i32 %294, 8
@@ -3899,7 +3899,7 @@ _ZNK2OT8hmtxvmtxINS_4hmtxENS_4hheaENS_4HVAREE13accelerator_t32get_advance_withou
   %314 = add i32 %252, -1
   %.sroa.speculated.i193 = call i32 @llvm.umin.i32(i32 %195, i32 %314)
   %315 = zext i32 %.sroa.speculated.i193 to i64
-  %316 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %313, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %313, i64 %315
   %317 = load i8, ptr %316, align 1
   %318 = zext i8 %317 to i32
   %319 = shl nuw nsw i32 %318, 8
@@ -8562,7 +8562,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %35 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %18
+  %35 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %18
   %36 = load i32, ptr %35, align 4
   br label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
 
@@ -11113,7 +11113,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %116 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.225"], ptr %4, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %"struct.OT::OffsetTo.225", ptr %4, i64 %indvars.iv
   %117 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count

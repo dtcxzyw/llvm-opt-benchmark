@@ -1548,7 +1548,7 @@ define hidden void @_ZN5bench15parse_byte_size17h204e5e12ea9660d7E(ptr dead_on_u
 define noundef nonnull align 8 dereferenceable(80) ptr @_ZN5bench11CipherSuite9as_rustls17hbe647a22201487e7E(i8 noundef range(i8 0, 3) %0) unnamed_addr #7 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5bench11CipherSuite9as_rustls17hbe647a22201487e7E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5bench11CipherSuite9as_rustls17hbe647a22201487e7E, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0 = load ptr, ptr %switch.load, align 8, !nonnull !8, !align !29, !noundef !8
   ret ptr %.sroa.0.0

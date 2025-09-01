@@ -673,7 +673,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit..thread.thread_crit_edge: ; preds
   %spec.select.i.i = add nsw i32 %165, %175
   %176 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %177 = sext i32 %spec.select.i.i to i64
-  %178 = getelementptr inbounds [0 x ptr], ptr %176, i64 0, i64 %177
+  %178 = getelementptr inbounds ptr, ptr %176, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !24, !noalias !34
   store ptr %179, ptr %13, align 8, !tbaa !18, !alias.scope !34
   %180 = load i64, ptr %179, align 8, !noalias !34
@@ -761,7 +761,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %191, %185, %193
   %spec.select.i.i55 = add nsw i32 %210, %220
   %221 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %222 = sext i32 %spec.select.i.i55 to i64
-  %223 = getelementptr inbounds [0 x ptr], ptr %221, i64 0, i64 %222
+  %223 = getelementptr inbounds ptr, ptr %221, i64 %222
   %224 = load ptr, ptr %223, align 8, !tbaa !24, !noalias !39
   store ptr %224, ptr %16, align 8, !tbaa !18, !alias.scope !39
   %225 = load i64, ptr %224, align 8, !noalias !39
@@ -5896,8 +5896,8 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
   %spec.select.i.i = add nuw i64 %.015, %90
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %92 = ashr exact i64 %sext, 32
-  %93 = getelementptr inbounds [0 x ptr], ptr %91, i64 0, i64 %92
+  %92 = ashr exact i64 %sext, 29
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !24, !noalias !149
   store ptr %94, ptr %10, align 8, !tbaa !80, !alias.scope !149
   %95 = load i64, ptr %94, align 8, !noalias !149

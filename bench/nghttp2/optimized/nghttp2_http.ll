@@ -143,7 +143,7 @@ define hidden range(i32 -531, 1) i32 @nghttp2_http_on_header(ptr noundef readonl
   %.069.i = phi ptr [ %68, %67 ], [ %63, %59 ]
   %69 = load i8, ptr %.069.i, align 1, !tbaa !15
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @VALID_AUTHORITY_CHARS, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !15
   %.not7.i = icmp eq i8 %72, 0
   br i1 %.not7.i, label %check_authority.exit.thread, label %67

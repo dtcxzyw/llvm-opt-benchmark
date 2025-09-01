@@ -64,7 +64,7 @@ define dso_local void @init_tree_desc(ptr noundef captures(none) initializes((0,
 
 9:                                                ; preds = %6
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %10
   br label %16
 
 12:                                               ; preds = %6, %4
@@ -127,7 +127,7 @@ define dso_local range(i32 -1, 1) i32 @init_tree_desc_gently(ptr noundef capture
 
 10:                                               ; preds = %7
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %11
   br label %17
 
 13:                                               ; preds = %7, %5
@@ -212,7 +212,7 @@ init_tree_desc.exit:                              ; preds = %3
 
 19:                                               ; preds = %15
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %20
+  %21 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %20
   br label %26
 
 22:                                               ; preds = %15
@@ -1499,7 +1499,7 @@ define dso_local i32 @get_tree_entry(ptr noundef %0, ptr noundef %1, ptr noundef
 
 24:                                               ; preds = %21
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %25
   br label %init_tree_desc_internal.exit.i
 
 27:                                               ; preds = %21, %20
@@ -1764,7 +1764,7 @@ st_mult.exit:                                     ; preds = %39
 
 60:                                               ; preds = %58
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %61
+  %62 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %61
   br label %init_tree_desc_internal.exit.i
 
 63:                                               ; preds = %58
@@ -1897,7 +1897,7 @@ sub_1:                                            ; preds = %sub_0
 
 110:                                              ; preds = %107
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %111
+  %112 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %111
   br label %117
 
 113:                                              ; preds = %107, %97
@@ -2040,7 +2040,7 @@ init_tree_desc.exit133:                           ; preds = %117, %init_tree_des
 
 176:                                              ; preds = %173
   %177 = sext i32 %175 to i64
-  %178 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %177
+  %178 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %177
   br label %183
 
 179:                                              ; preds = %173, %161
@@ -2939,7 +2939,7 @@ canon_mode.exit:                                  ; preds = %62, %61, %58, %57, 
 
 73:                                               ; preds = %.preheader, %75
   %.0811.i.i = phi i64 [ %76, %75 ], [ 0, %.preheader ]
-  %74 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %74 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %5, %74
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %75
 

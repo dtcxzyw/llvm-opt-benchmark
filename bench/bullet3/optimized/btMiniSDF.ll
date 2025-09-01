@@ -1837,7 +1837,7 @@ define dso_local void @_ZNK9btMiniSDF15shape_function_ERK9btVector3P16btShapeGra
 
 235:                                              ; preds = %235, %163
   %indvars.iv.i = phi i64 [ 0, %163 ], [ %indvars.iv.next.i, %235 ]
-  %236 = getelementptr inbounds nuw [32 x %class.btVector3], ptr %3, i64 0, i64 %indvars.iv.i
+  %236 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %indvars.iv.i
   %237 = load float, ptr %236, align 4, !tbaa !4
   %238 = fmul float %237, 1.562500e-02
   store float %238, ptr %236, align 4, !tbaa !4
@@ -2104,7 +2104,7 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %235
 
 419:                                              ; preds = %419, %_ZN16btShapeGradients13topRowsDivideEid.exit
   %indvars.iv.i484 = phi i64 [ 8, %_ZN16btShapeGradients13topRowsDivideEid.exit ], [ %indvars.iv.next.i485, %419 ]
-  %420 = getelementptr inbounds nuw [32 x %class.btVector3], ptr %3, i64 0, i64 %indvars.iv.i484
+  %420 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %indvars.iv.i484
   %421 = load float, ptr %420, align 4, !tbaa !4
   %422 = fmul float %421, 1.406250e-01
   store float %422, ptr %420, align 4, !tbaa !4
@@ -2290,7 +2290,7 @@ define dso_local noundef zeroext i1 @_ZNK9btMiniSDF11interpolateEjRdRK9btVector3
 135:                                              ; preds = %130, %142
   %indvars.iv204 = phi i64 [ 0, %130 ], [ %indvars.iv.next205, %142 ]
   %.064196 = phi double [ 0.000000e+00, %130 ], [ %145, %142 ]
-  %136 = getelementptr inbounds nuw [32 x i32], ptr %129, i64 0, i64 %indvars.iv204
+  %136 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv204
   %137 = load i32, ptr %136, align 4, !tbaa !8
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds double, ptr %134, i64 %138
@@ -2299,7 +2299,7 @@ define dso_local noundef zeroext i1 @_ZNK9btMiniSDF11interpolateEjRdRK9btVector3
   br i1 %141, label %142, label %.loopexit
 
 142:                                              ; preds = %135
-  %143 = getelementptr inbounds nuw [32 x double], ptr %7, i64 0, i64 %indvars.iv204
+  %143 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv204
   %144 = load double, ptr %143, align 8, !tbaa !45
   %145 = tail call double @llvm.fmuladd.f64(double %140, double %144, double %.064196)
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
@@ -2333,7 +2333,7 @@ define dso_local noundef zeroext i1 @_ZNK9btMiniSDF11interpolateEjRdRK9btVector3
   %157 = phi float [ 0.000000e+00, %147 ], [ %173, %164 ]
   %indvars.iv = phi i64 [ 0, %147 ], [ %indvars.iv.next, %164 ]
   %.060194 = phi double [ 0.000000e+00, %147 ], [ %167, %164 ]
-  %158 = getelementptr inbounds nuw [32 x i32], ptr %129, i64 0, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !8
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds double, ptr %151, i64 %160
@@ -2342,10 +2342,10 @@ define dso_local noundef zeroext i1 @_ZNK9btMiniSDF11interpolateEjRdRK9btVector3
   br i1 %163, label %164, label %186
 
 164:                                              ; preds = %154
-  %165 = getelementptr inbounds nuw [32 x double], ptr %9, i64 0, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %166 = load double, ptr %165, align 8, !tbaa !45
   %167 = call double @llvm.fmuladd.f64(double %162, double %166, double %.060194)
-  %168 = getelementptr inbounds nuw [32 x %class.btVector3], ptr %8, i64 0, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw %class.btVector3, ptr %8, i64 %indvars.iv
   %169 = load float, ptr %168, align 4, !tbaa !4
   %170 = fpext float %169 to double
   %171 = fpext float %157 to double

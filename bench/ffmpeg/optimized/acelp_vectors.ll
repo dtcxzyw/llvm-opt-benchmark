@@ -106,16 +106,16 @@ define void @ff_decode_10_pulses_35bits(ptr noundef readonly captures(none) %0, 
   %35 = and i32 %6, %18
   %.not = icmp eq i32 %35, 0
   %36 = select i1 %.not, float 1.000000e+00, float -1.000000e+00
-  %37 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %15
+  %37 = getelementptr inbounds nuw i32, ptr %11, i64 %15
   store i32 %25, ptr %37, align 4, !tbaa !16
-  %38 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %14
+  %38 = getelementptr inbounds nuw i32, ptr %11, i64 %14
   store i32 %34, ptr %38, align 4, !tbaa !16
-  %39 = getelementptr inbounds nuw [10 x float], ptr %12, i64 0, i64 %15
+  %39 = getelementptr inbounds nuw float, ptr %12, i64 %15
   store float %36, ptr %39, align 4, !tbaa !17
   %40 = icmp ult i8 %32, %22
   %41 = fneg nsz float %36
   %42 = select nsz i1 %40, float %41, float %36
-  %43 = getelementptr inbounds nuw [10 x float], ptr %12, i64 0, i64 %14
+  %43 = getelementptr inbounds nuw float, ptr %12, i64 %14
   store float %42, ptr %43, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -289,10 +289,10 @@ define void @ff_set_fixed_vector(ptr noundef captures(none) %0, ptr noundef read
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit.us
   %indvars.iv30 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next31, %.loopexit.us ]
-  %17 = getelementptr inbounds nuw [10 x float], ptr %10, i64 0, i64 %indvars.iv30
+  %17 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv30
   %18 = load float, ptr %17, align 4, !tbaa !17
   %19 = fmul nsz float %2, %18
-  %20 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %indvars.iv30
+  %20 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv30
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = icmp slt i32 %21, %3
   br i1 %22, label %.preheader.us, label %.split.us
@@ -369,7 +369,7 @@ define void @ff_clear_fixed_vector(ptr noundef writeonly captures(none) %0, ptr 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
   %indvars.iv20 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next21, %.loopexit.us ]
-  %14 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv20
+  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv20
   %15 = load i32, ptr %14, align 4, !tbaa !16
   %16 = trunc nuw nsw i64 %indvars.iv20 to i32
   %17 = shl nuw i32 1, %16

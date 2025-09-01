@@ -822,7 +822,7 @@ define noundef ptr @_ZN8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 ca
 
 .preheader:                                       ; preds = %33, %66
   %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %33 ]
-  %49 = getelementptr inbounds nuw [5 x %"struct.tinyxml2::Entity"], ptr @_ZN8tinyxml2L8entitiesE, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %"struct.tinyxml2::Entity", ptr @_ZN8tinyxml2L8entitiesE, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 16, !tbaa !19
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !21
@@ -1174,7 +1174,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 90:                                               ; preds = %83, %70
   %91 = phi i64 [ %89, %83 ], [ 1, %70 ]
   %.2.i = phi i64 [ %88, %83 ], [ %.358, %70 ]
-  %92 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds i64, ptr %4, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !27
   %94 = or i64 %93, %.2.i
   %95 = trunc i64 %94 to i8
@@ -1313,7 +1313,7 @@ define void @_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi(i64 noundef %0, ptr 
 38:                                               ; preds = %18, %31
   %39 = phi i64 [ %37, %31 ], [ 1, %18 ]
   %.2 = phi i64 [ %36, %31 ], [ %0, %18 ]
-  %40 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %39
+  %40 = getelementptr inbounds i64, ptr %4, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !27
   %42 = or i64 %41, %.2
   %43 = trunc i64 %42 to i8
@@ -1563,7 +1563,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i._crit_edge: ; preds = %_ZN8t
 
 _ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit:            ; preds = %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit.preheader, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit.preheader ]
-  %29 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN8tinyxml27XMLUtil6ToBoolEPKcPbE9TRUE_VALS, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr @_ZZN8tinyxml27XMLUtil6ToBoolEPKcPbE9TRUE_VALS, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !29
   %31 = icmp eq ptr %0, %30
   br i1 %31, label %.loopexit.sink.split, label %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit
@@ -1580,7 +1580,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit:   ; preds = %_ZN8tinyxml27XMLUti
 
 .critedge.preheader:                              ; preds = %28, %.critedge
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.critedge ], [ 0, %28 ]
-  %34 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN8tinyxml27XMLUtil6ToBoolEPKcPbE10FALSE_VALS, i64 0, i64 %indvars.iv35
+  %34 = getelementptr inbounds nuw ptr, ptr @_ZZN8tinyxml27XMLUtil6ToBoolEPKcPbE10FALSE_VALS, i64 %indvars.iv35
   %35 = load ptr, ptr %34, align 8, !tbaa !29
   %36 = icmp eq ptr %0, %35
   br i1 %36, label %.loopexit.sink.split, label %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit23
@@ -4647,7 +4647,7 @@ _ZN8tinyxml27StrPair5ResetEv.exit:                ; preds = %4, %11, %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = tail call noalias noundef nonnull dereferenceable(1000) ptr @_Znam(i64 noundef 1000) #34
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw [19 x ptr], ptr @_ZN8tinyxml211XMLDocument11_errorNamesE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @_ZN8tinyxml211XMLDocument11_errorNamesE, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 1000, ptr noundef nonnull @.str.52, ptr noundef %20, i32 noundef %1, i32 noundef %1, i32 noundef %2) #31
   %.not = icmp eq ptr %3, null
@@ -11878,7 +11878,7 @@ _ZN8tinyxml28MemPoolTILi104EE5ClearEv.exit:       ; preds = %174, %_ZN8tinyxml28
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN8tinyxml211XMLDocument13ErrorIDToNameENS_8XMLErrorE(i32 noundef %0) local_unnamed_addr #22 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @_ZN8tinyxml211XMLDocument11_errorNamesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZN8tinyxml211XMLDocument11_errorNamesE, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   ret ptr %4
 }
@@ -11936,7 +11936,7 @@ define noundef ptr @_ZNK8tinyxml211XMLDocument9ErrorNameEv(ptr noundef nonnull r
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4, !tbaa !88
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [19 x ptr], ptr @_ZN8tinyxml211XMLDocument11_errorNamesE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @_ZN8tinyxml211XMLDocument11_errorNamesE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   ret ptr %6
 }
@@ -12006,10 +12006,10 @@ define void @_ZN8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [5 x %"struct.tinyxml2::Entity"], ptr @_ZN8tinyxml2L8entitiesE, i64 0, i64 %indvars.iv, i32 2
+  %21 = getelementptr inbounds nuw %"struct.tinyxml2::Entity", ptr @_ZN8tinyxml2L8entitiesE, i64 %indvars.iv, i32 2
   %22 = load i8, ptr %21, align 4, !tbaa !22
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %23
   store i8 1, ptr %24, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -12334,7 +12334,7 @@ define void @_ZN8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef nonnull alig
 
 29:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %28 ]
-  %30 = getelementptr inbounds nuw [5 x %"struct.tinyxml2::Entity"], ptr @_ZN8tinyxml2L8entitiesE, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %"struct.tinyxml2::Entity", ptr @_ZN8tinyxml2L8entitiesE, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = load i8, ptr %31, align 4, !tbaa !22
   %33 = icmp eq i8 %32, %18

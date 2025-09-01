@@ -447,7 +447,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.uv_handle_size, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_handle_size, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
@@ -465,7 +465,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.uv_req_size, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_req_size, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
@@ -2123,7 +2123,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub, i64 39)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %address_part, ptr nonnull align 1 %ip, i64 %spec.store.select, i1 false)
-  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %address_part, i64 0, i64 %spec.store.select
+  %arrayidx = getelementptr inbounds nuw i8, ptr %address_part, i64 %spec.store.select
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 1
   %call7 = tail call i32 @if_nametoindex(ptr noundef nonnull %incdec.ptr) #26
@@ -2702,7 +2702,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %sw
 
 switch.lookup:                                    ; preds = %for.body.us
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.uv__print_handles.2, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.2, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog.us
 
@@ -2714,21 +2714,21 @@ sw.epilog.us:                                     ; preds = %for.body.us, %switc
   %and26.lobit.us = and i32 %and26.us, 1
   %lnot.ext.us = xor i32 %and26.lobit.us, 1
   %idxprom.us = zext nneg i32 %lnot.ext.us to i64
-  %arrayidx.us = getelementptr inbounds nuw [3 x i8], ptr @.str.187, i64 0, i64 %idxprom.us
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr @.str.187, i64 %idxprom.us
   %6 = load i8, ptr %arrayidx.us, align 1
   %conv.us = sext i8 %6 to i32
   %and29.us = lshr i32 %5, 2
   %and29.lobit.us = and i32 %and29.us, 1
   %lnot.ext32.us = xor i32 %and29.lobit.us, 1
   %idxprom33.us = zext nneg i32 %lnot.ext32.us to i64
-  %arrayidx34.us = getelementptr inbounds nuw [3 x i8], ptr @.str.188, i64 0, i64 %idxprom33.us
+  %arrayidx34.us = getelementptr inbounds nuw i8, ptr @.str.188, i64 %idxprom33.us
   %7 = load i8, ptr %arrayidx34.us, align 1
   %conv35.us = sext i8 %7 to i32
   %and37.us = lshr i32 %5, 4
   %and37.lobit.us = and i32 %and37.us, 1
   %lnot.ext40.us = xor i32 %and37.lobit.us, 1
   %idxprom41.us = zext nneg i32 %lnot.ext40.us to i64
-  %arrayidx42.us = getelementptr inbounds nuw [3 x i8], ptr @.str.189, i64 0, i64 %idxprom41.us
+  %arrayidx42.us = getelementptr inbounds nuw i8, ptr @.str.189, i64 %idxprom41.us
   %8 = load i8, ptr %arrayidx42.us, align 1
   %conv43.us = sext i8 %8 to i32
   %call44.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.186, i32 noundef %conv.us, i32 noundef %conv35.us, i32 noundef %conv43.us, ptr noundef nonnull %type.0.us, ptr noundef nonnull %add.ptr.us)
@@ -2748,30 +2748,30 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end8:                                          ; preds = %for.body
   %type9 = getelementptr inbounds i8, ptr %q.013, i64 -16
   %10 = load i32, ptr %type9, align 8
-  %switch.tableidx18 = add i32 %10, -1
-  %11 = icmp ult i32 %switch.tableidx18, 16
-  br i1 %11, label %switch.lookup17, label %sw.epilog
+  %switch.tableidx17 = add i32 %10, -1
+  %11 = icmp ult i32 %switch.tableidx17, 16
+  br i1 %11, label %switch.lookup18, label %sw.epilog
 
-switch.lookup17:                                  ; preds = %if.end8
-  %12 = zext nneg i32 %switch.tableidx18 to i64
-  %switch.gep19 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.uv__print_handles.2, i64 0, i64 %12
+switch.lookup18:                                  ; preds = %if.end8
+  %12 = zext nneg i32 %switch.tableidx17 to i64
+  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.2, i64 %12
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end8, %switch.lookup17
-  %type.0 = phi ptr [ %switch.load20, %switch.lookup17 ], [ @.str.185, %if.end8 ]
+sw.epilog:                                        ; preds = %if.end8, %switch.lookup18
+  %type.0 = phi ptr [ %switch.load20, %switch.lookup18 ], [ @.str.185, %if.end8 ]
   %and26 = lshr i32 %9, 3
   %and26.lobit = and i32 %and26, 1
   %lnot.ext = xor i32 %and26.lobit, 1
   %idxprom = zext nneg i32 %lnot.ext to i64
-  %arrayidx = getelementptr inbounds nuw [3 x i8], ptr @.str.187, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @.str.187, i64 %idxprom
   %13 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %13 to i32
   %and37 = lshr i32 %9, 4
   %and37.lobit = and i32 %and37, 1
   %lnot.ext40 = xor i32 %and37.lobit, 1
   %idxprom41 = zext nneg i32 %lnot.ext40 to i64
-  %arrayidx42 = getelementptr inbounds nuw [3 x i8], ptr @.str.189, i64 0, i64 %idxprom41
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr @.str.189, i64 %idxprom41
   %14 = load i8, ptr %arrayidx42, align 1
   %conv43 = sext i8 %14 to i32
   %call44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.186, i32 noundef %conv, i32 noundef 65, i32 noundef %conv43, ptr noundef nonnull %type.0, ptr noundef nonnull %add.ptr)
@@ -3061,7 +3061,7 @@ if.end15:                                         ; preds = %if.end8
 
 switch.lookup:                                    ; preds = %if.end15
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.uv__fs_get_dirent_type, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %uv__fs_get_dirent_type.exit
 
@@ -3087,7 +3087,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.uv__fs_get_dirent_type, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 

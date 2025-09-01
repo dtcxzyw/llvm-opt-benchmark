@@ -163,7 +163,7 @@ define dso_local void @pgstat_restore_stats(i64 noundef %0) local_unnamed_addr #
   br i1 %30, label %pgstat_get_kind_info.exit.thread9.i.i, label %32
 
 pgstat_get_kind_info.exit.thread9.i.i:            ; preds = %29
-  %31 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i.i
   br label %40
 
 32:                                               ; preds = %29
@@ -339,7 +339,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 111:                                              ; preds = %100
   %112 = zext nneg i32 %90 to i64
-  %113 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %112
   %114 = load i8, ptr %113, align 16
   %115 = trunc i8 %114 to i1
   br i1 %115, label %122, label %118
@@ -365,7 +365,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br label %129
 
 .thread106.i:                                     ; preds = %.thread.i
-  %127 = getelementptr inbounds nuw [129 x ptr], ptr %70, i64 0, i64 %105
+  %127 = getelementptr inbounds nuw ptr, ptr %70, i64 %105
   %128 = load ptr, ptr %127, align 8
   br label %129
 
@@ -504,7 +504,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 pgstat_get_kind_info.exit82.thread115.i:          ; preds = %198
   %199 = zext nneg i32 %188 to i64
-  %200 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %199
   br label %211
 
 201:                                              ; preds = %198
@@ -554,7 +554,7 @@ pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_inf
 
 221:                                              ; preds = %220
   %222 = zext nneg i32 %188 to i64
-  %223 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %222
   br label %pgstat_get_entry_len.exit.i
 
 224:                                              ; preds = %220
@@ -619,8 +619,8 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
 
 259:                                              ; preds = %252
   %260 = zext nneg i32 %256 to i64
-  %261 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %260, i32 4
-  %262 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %260, i32 4
+  %262 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %260
   br label %pgstat_get_entry_len.exit88.i
 
 263:                                              ; preds = %252
@@ -745,7 +745,7 @@ pgstat_get_entry_len.exit88.i:                    ; preds = %263, %259
   br i1 %307, label %pgstat_get_kind_info.exit.thread9.i96.i, label %309
 
 pgstat_get_kind_info.exit.thread9.i96.i:          ; preds = %306
-  %308 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv.i89.i
+  %308 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i89.i
   br label %317
 
 309:                                              ; preds = %306
@@ -845,7 +845,7 @@ define dso_local void @pgstat_discard_stats() local_unnamed_addr #0 {
   br i1 %23, label %pgstat_get_kind_info.exit.thread9.i, label %25
 
 pgstat_get_kind_info.exit.thread9.i:              ; preds = %22
-  %24 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
   br label %33
 
 25:                                               ; preds = %22
@@ -990,7 +990,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %39
   br i1 %.not57.i, label %pgstat_get_kind_info.exit.thread.i, label %.thread.i
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
   %46 = load i8, ptr %45, align 16
   %47 = and i8 %46, 5
   %or.cond.not.i = icmp eq i8 %47, 5
@@ -1040,7 +1040,7 @@ pgstat_build_snapshot_fixed.exit.i:               ; preds = %57, %54
 65:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
   %66 = add nuw nsw i64 %indvars.iv.i, 4294967168
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds nuw [129 x ptr], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 0, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %70
 
@@ -1112,7 +1112,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
 
 109:                                              ; preds = %101
   %110 = zext nneg i32 %106 to i64
-  %111 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %110
   br label %pgstat_get_kind_info.exit61.i
 
 112:                                              ; preds = %101
@@ -1158,8 +1158,8 @@ pgstat_get_kind_info.exit61.i:                    ; preds = %112, %109
 
 134:                                              ; preds = %130
   %135 = zext nneg i32 %131 to i64
-  %136 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %135, i32 4
-  %137 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %135, i32 4
+  %137 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %135
   br label %pgstat_get_entry_len.exit.i
 
 138:                                              ; preds = %130
@@ -1271,7 +1271,7 @@ define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext 
   br i1 %7, label %pgstat_get_kind_info.exit.thread52, label %9
 
 pgstat_get_kind_info.exit.thread52:               ; preds = %.preheader
-  %8 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   br label %17
 
 9:                                                ; preds = %.preheader
@@ -1363,7 +1363,7 @@ pgstat_flush_pending_entries.exit.preheader:      ; preds = %82, %38
 
 46:                                               ; preds = %.lr.ph.i
   %47 = zext nneg i32 %.sroa.0.0.copyload.i to i64
-  %48 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %47
   br label %pgstat_get_kind_info.exit.i
 
 49:                                               ; preds = %.lr.ph.i
@@ -1393,7 +1393,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %49, %46
 
 64:                                               ; preds = %59
   %65 = zext nneg i32 %61 to i64
-  %66 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %65
   br label %pgstat_get_kind_info.exit.i.i
 
 67:                                               ; preds = %59
@@ -1445,7 +1445,7 @@ pgstat_flush_pending_entries.exit:                ; preds = %pgstat_flush_pendin
   br i1 %84, label %pgstat_get_kind_info.exit49.thread61, label %86
 
 pgstat_get_kind_info.exit49.thread61:             ; preds = %pgstat_flush_pending_entries.exit
-  %85 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv71
+  %85 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv71
   br label %94
 
 86:                                               ; preds = %pgstat_flush_pending_entries.exit
@@ -1534,8 +1534,8 @@ pgstat_get_kind_info.exit.i:                      ; preds = %.split
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = tail call ptr @MemoryContextAlloc(ptr noundef %12, i64 noundef %15) #17
-  %17 = add nsw i64 %indvars.iv.i, -128
-  %18 = getelementptr inbounds nuw [129 x ptr], ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 0, i64 %17
+  %17 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %indvars.iv.i
+  %18 = getelementptr i8, ptr %17, i64 -1024
   store ptr %16, ptr %18, align 8
   %.pre = load ptr, ptr @pgstat_kind_custom_infos, align 8
   br label %pgstat_get_kind_info.exit.thread.i
@@ -1556,7 +1556,7 @@ pgstat_init_snapshot_fixed.exit.preheader:        ; preds = %pgstat_init_snapsho
   br i1 %21, label %pgstat_get_kind_info.exit.thread8, label %23
 
 pgstat_get_kind_info.exit.thread8:                ; preds = %pgstat_init_snapshot_fixed.exit.preheader
-  %22 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   br label %32
 
 23:                                               ; preds = %pgstat_init_snapshot_fixed.exit.preheader
@@ -1602,7 +1602,7 @@ define dso_local ptr @pgstat_get_kind_info(i32 noundef %0) local_unnamed_addr #5
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %5
   br label %17
 
 7:                                                ; preds = %1
@@ -1698,7 +1698,7 @@ define dso_local void @pgstat_reset(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %7
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %3
@@ -1746,7 +1746,7 @@ define dso_local void @pgstat_reset_of_kind(i32 noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %5
   br label %pgstat_get_kind_info.exit
 
 7:                                                ; preds = %1
@@ -1828,7 +1828,7 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i64 nou
 
 10:                                               ; preds = %3
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %11
   br label %pgstat_get_kind_info.exit
 
 13:                                               ; preds = %3
@@ -2008,7 +2008,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
 
 104:                                              ; preds = %100
   %105 = zext nneg i32 %0 to i64
-  %106 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %105
   br label %pgstat_get_entry_data.exit
 
 107:                                              ; preds = %100
@@ -2145,7 +2145,7 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
 
 13:                                               ; preds = %.lr.ph
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %14
   br label %pgstat_get_kind_info.exit
 
 16:                                               ; preds = %.lr.ph
@@ -2211,7 +2211,7 @@ pgstat_get_kind_info.exit:                        ; preds = %13, %16, %19, %22
 
 55:                                               ; preds = %36
   %56 = zext nneg i32 %10 to i64
-  %57 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %56
   br label %pgstat_get_entry_data.exit
 
 58:                                               ; preds = %36
@@ -2270,7 +2270,7 @@ pgstat_get_kind_info.exit29:                      ; preds = %78
   br i1 %.not24, label %pgstat_build_snapshot_fixed.exit, label %.thread
 
 83:                                               ; preds = %73
-  %84 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   %85 = load i8, ptr %84, align 16
   %86 = trunc i8 %85 to i1
   br i1 %86, label %pgstat_get_kind_info.exit.i, label %pgstat_build_snapshot_fixed.exit
@@ -2617,7 +2617,7 @@ define dso_local zeroext i1 @pgstat_have_entry(i32 noundef %0, i32 noundef %1, i
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %7
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %3
@@ -2684,7 +2684,7 @@ pgstat_clear_snapshot.exit:                       ; preds = %2, %4
 
 12:                                               ; preds = %9
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %13
   br label %pgstat_get_kind_info.exit.i
 
 15:                                               ; preds = %9
@@ -2758,7 +2758,7 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %18
   br label %pgstat_get_kind_info.exit
 
 20:                                               ; preds = %14
@@ -2836,7 +2836,7 @@ define dso_local void @pgstat_delete_pending_entry(ptr noundef %0) local_unnamed
 
 6:                                                ; preds = %1
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %7
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %1
@@ -2882,7 +2882,7 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw [13 x %struct.PgStat_KindInfo], ptr @pgstat_kind_builtin_infos, i64 0, i64 %indvars.iv, i32 18
+  %3 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv, i32 18
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %4) #17
   %6 = icmp eq i32 %5, 0

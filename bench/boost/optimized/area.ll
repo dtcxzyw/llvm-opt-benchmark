@@ -14787,7 +14787,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [501 x i8], ptr %12, i64 0, i64 %13
+  %19 = getelementptr inbounds i8, ptr %12, i64 %13
   store i8 0, ptr %19, align 1, !tbaa !24
   br label %20
 
@@ -14831,7 +14831,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds [501 x i8], ptr %33, i64 0, i64 %34
+  %37 = getelementptr inbounds i8, ptr %33, i64 %34
   store i8 0, ptr %37, align 1, !tbaa !24
   store ptr %33, ptr %6, align 8, !tbaa !12
   store ptr %37, ptr %7, align 8, !tbaa !14
@@ -23531,7 +23531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
 
 .preheader613:                                    ; preds = %408, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit
   %.0130775 = phi i64 [ %427, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit ], [ 0, %408 ]
-  %416 = getelementptr inbounds nuw [4 x %"struct.std::pair.158"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 0, i64 %.0130775
+  %416 = getelementptr inbounds nuw %"struct.std::pair.158", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 %.0130775
   %417 = load ptr, ptr %416, align 16, !tbaa !524
   %.not.i284 = icmp eq ptr %417, null
   br i1 %.not.i284, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit, label %418
@@ -24064,7 +24064,7 @@ _ZN5boost9unit_test15unit_test_log_t13get_formatterENS0_13output_formatE.exit.th
 
 .preheader:                                       ; preds = %587, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339
   %.0127776 = phi i64 [ %601, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339 ], [ 0, %587 ]
-  %588 = getelementptr inbounds nuw [11 x %"struct.std::pair.155"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 0, i64 %.0127776
+  %588 = getelementptr inbounds nuw %"struct.std::pair.155", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 %.0127776
   %589 = load ptr, ptr %588, align 16, !tbaa !548
   %.not.i329 = icmp eq ptr %589, null
   br i1 %.not.i329, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339, label %590
@@ -41700,7 +41700,7 @@ _ZN5boost9unit_test9framework20current_test_case_idEv.exit: ; preds = %_ZN5boost
 
 switch.lookup:                                    ; preds = %_ZN5boost9unit_test9framework20current_test_case_idEv.exit
   %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
   %24 = load i64, ptr %23, align 8, !tbaa !336
@@ -42646,13 +42646,13 @@ _ZN5boost9unit_test9framework16test_in_progressEv.exit: ; preds = %7, %13, %16
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %spec.select to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = zext nneg i32 %spec.select to i64
-  %switch.gep17 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.579, i64 0, i64 %28
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.579, i64 %28
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %29 = zext nneg i32 %spec.select to i64
-  %switch.gep19 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.580, i64 0, i64 %29
+  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.580, i64 %29
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   %30 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -43185,7 +43185,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit204: ; preds = %_ZN5boost9unit
   %236 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %24)
   %237 = add nsw i32 %4, -2
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %238
   %240 = load ptr, ptr %239, align 8, !tbaa !174
   store ptr %240, ptr %25, align 8, !tbaa !12
   %strlen.i.i206 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %240)
@@ -43232,7 +43232,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit221: ; preds = %_ZN5boost9unit
   store ptr getelementptr inbounds nuw (i8, ptr @.str.226, i64 2), ptr %254, align 8, !tbaa !14
   %255 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %28)
   %256 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(9) %224)
-  %257 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %238
+  %257 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %238
   %258 = load ptr, ptr %257, align 8, !tbaa !174
   store ptr %258, ptr %29, align 8, !tbaa !12
   %strlen.i.i219 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %258)
@@ -45374,7 +45374,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit184: ; preds = %208,
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit186: ; preds = %219, %227
   %230 = add nsw i32 %4, -2
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !174
   %234 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #59
   %235 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %233, i64 noundef %234)
@@ -45427,7 +45427,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit194: ; preds = %_ZSt
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = tail call noundef nonnull align 8 dereferenceable(8) ptr %261(ptr noundef nonnull align 8 dereferenceable(9) %205, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %263 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %231
+  %263 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %231
   %264 = load ptr, ptr %263, align 8, !tbaa !174
   %265 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #59
   %266 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull %264, i64 noundef %265)
@@ -53122,7 +53122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.split
-  %106 = getelementptr inbounds nuw [7 x i8], ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 0, i64 %.01030
+  %106 = getelementptr inbounds nuw i8, ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 %.01030
   %107 = load i8, ptr %106, align 1, !tbaa !24
   br label %.lr.ph.i
 
@@ -74609,7 +74609,7 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_sta
 
 18:                                               ; preds = %16, %14, %4
   %19 = zext i32 %3 to i64
-  %20 = getelementptr inbounds nuw [5 x %"class.boost::unit_test::basic_cstring"], ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %20, align 16, !tbaa !12
   store ptr %22, ptr %21, align 8, !tbaa !12
@@ -159639,7 +159639,7 @@ _ZN5boost8geometry5model5pointINS_14multiprecision6numberINS3_8backends13cpp_dec
 .preheader.i.i.i.i.i:                             ; preds = %_ZN5boost8geometry5model5pointINS_14multiprecision6numberINS3_8backends13cpp_dec_floatILj50EivEELNS3_26expression_template_optionE1EEELm2ENS0_2cs9cartesianEEC2Ev.exit.i.i.i, %.preheader.i.i.i.i.i
   %93 = phi i64 [ %108, %.preheader.i.i.i.i.i ], [ 0, %_ZN5boost8geometry5model5pointINS_14multiprecision6numberINS3_8backends13cpp_dec_floatILj50EivEELNS3_26expression_template_optionE1EEELm2ENS0_2cs9cartesianEEC2Ev.exit.i.i.i ]
   %94 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %91, i64 %93
-  %95 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %6, i64 0, i64 %93
+  %95 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %6, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %94, ptr noundef nonnull align 4 dereferenceable(56) %95, i64 40, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 40
@@ -159725,7 +159725,7 @@ _ZN5boost8geometry5model5pointINS_14multiprecision6numberINS3_8backends13cpp_dec
 .preheader.i.i.i.i.i27:                           ; preds = %_ZN5boost8geometry5model5pointINS_14multiprecision6numberINS3_8backends13cpp_dec_floatILj50EivEELNS3_26expression_template_optionE1EEELm2ENS0_2cs9cartesianEEC2Ev.exit.i.i.i25, %.preheader.i.i.i.i.i27
   %130 = phi i64 [ %145, %.preheader.i.i.i.i.i27 ], [ 0, %_ZN5boost8geometry5model5pointINS_14multiprecision6numberINS3_8backends13cpp_dec_floatILj50EivEELNS3_26expression_template_optionE1EEELm2ENS0_2cs9cartesianEEC2Ev.exit.i.i.i25 ]
   %131 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %128, i64 %130
-  %132 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %5, i64 0, i64 %130
+  %132 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %5, i64 %130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %131, ptr noundef nonnull align 4 dereferenceable(56) %132, i64 40, i1 false)
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 40
@@ -162959,7 +162959,7 @@ _ZZN9__gnu_cxx6__stoaIllcJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %700 = trunc i64 %683 to i32
   %701 = add nuw nsw i64 %.0107395, 1
-  %702 = getelementptr inbounds nuw [10 x i32], ptr %0, i64 0, i64 %701
+  %702 = getelementptr inbounds nuw i32, ptr %0, i64 %701
   store i32 %700, ptr %702, align 4, !tbaa !263
   %703 = load ptr, ptr %29, align 8, !tbaa !4
   %704 = icmp eq ptr %703, %658
@@ -163943,7 +163943,7 @@ _ZNSt12_Vector_baseIN5boost8geometry5model5pointINS0_14multiprecision6numberINS4
 24:                                               ; preds = %24, %_ZNSt12_Vector_baseIN5boost8geometry5model5pointINS0_14multiprecision6numberINS4_8backends13cpp_dec_floatILj50EivEELNS4_26expression_template_optionE1EEELm2ENS1_2cs9cartesianEEESaISD_EE11_M_allocateEm.exit
   %25 = phi i64 [ 0, %_ZNSt12_Vector_baseIN5boost8geometry5model5pointINS0_14multiprecision6numberINS4_8backends13cpp_dec_floatILj50EivEELNS4_26expression_template_optionE1EEELm2ENS1_2cs9cartesianEEESaISD_EE11_M_allocateEm.exit ], [ %40, %24 ]
   %26 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %23, i64 %25
-  %27 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %2, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %2, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %26, ptr noundef nonnull align 4 dereferenceable(56) %27, i64 40, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -163979,7 +163979,7 @@ _ZNSt16allocator_traitsISaIN5boost8geometry5model5pointINS0_14multiprecision6num
 42:                                               ; preds = %42, %.lr.ph.i.i.i
   %43 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %58, %42 ]
   %44 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %.012.i.i.i, i64 %43
-  %45 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %.0911.i.i.i, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %.0911.i.i.i, i64 %43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %44, ptr noundef nonnull align 4 dereferenceable(56) %45, i64 40, i1 false), !alias.scope !2758
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -164023,7 +164023,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointINS0_14multiprecision6numberINS4_8backe
 63:                                               ; preds = %63, %.lr.ph.i.i.i17
   %64 = phi i64 [ 0, %.lr.ph.i.i.i17 ], [ %79, %63 ]
   %65 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %.012.i.i.i18, i64 %64
-  %66 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %.0911.i.i.i19, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %.0911.i.i.i19, i64 %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %65, ptr noundef nonnull align 4 dereferenceable(56) %66, i64 40, i1 false), !alias.scope !2765
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -165239,7 +165239,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends13cpp_dec_flo
   %.01417.i = phi i64 [ 0, %11 ], [ %18, %13 ]
   %14 = urem i64 %.018.i, 100000000
   %15 = trunc nuw nsw i64 %14 to i32
-  %16 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %.01417.i
+  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %.01417.i
   store i32 %15, ptr %16, align 4, !tbaa !263
   %17 = udiv i64 %.018.i, 100000000
   %18 = add i64 %.01417.i, 1
@@ -165315,7 +165315,7 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE23from_unsigned_long_l
   %.01417.i4 = phi i64 [ 0, %36 ], [ %42, %37 ]
   %38 = urem i64 %.018.i3, 100000000
   %39 = trunc nuw nsw i64 %38 to i32
-  %40 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %.01417.i4
+  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %.01417.i4
   store i32 %39, ptr %40, align 4, !tbaa !263
   %41 = udiv i64 %.018.i3, 100000000
   %42 = add i64 %.01417.i4, 1
@@ -166231,7 +166231,7 @@ _ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE13extract_partsERdRi.
   %.01624.i = phi double [ 1.000000e+00, %79 ], [ %93, %91 ]
   %92 = phi double [ %80, %79 ], [ %97, %91 ]
   %93 = fdiv double %.01624.i, 1.000000e+08
-  %94 = getelementptr inbounds nuw [10 x i32], ptr %2, i64 0, i64 %.025.i
+  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %.025.i
   %95 = load i32, ptr %94, align 4, !tbaa !263
   %96 = uitofp i32 %95 to double
   %97 = tail call double @llvm.fmuladd.f64(double %96, double %93, double %92)
@@ -166306,7 +166306,7 @@ _ZSt4fillIPjjEvT_S1_RKT0_.exit35.i:               ; preds = %_ZSt4fillIPjjEvT_S1
   %.355.i = phi double [ %.2.lcssa.i, %._crit_edge52.i ], [ %124, %_ZSt4fillIPjjEvT_S1_RKT0_.exit35.i ]
   %119 = fptoui double %.355.i to i64
   %120 = trunc i64 %119 to i32
-  %121 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   store i32 %120, ptr %121, align 4, !tbaa !263
   %122 = uitofp i32 %120 to double
   %123 = fsub double %.355.i, %122
@@ -167695,7 +167695,7 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit23: ; pred
   %.01417.i.i = phi i64 [ 0, %119 ], [ %126, %121 ]
   %122 = urem i64 %.018.i.i, 100000000
   %123 = trunc nuw nsw i64 %122 to i32
-  %124 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %.01417.i.i
+  %124 = getelementptr inbounds nuw i32, ptr %5, i64 %.01417.i.i
   store i32 %123, ptr %124, align 4, !tbaa !263
   %125 = udiv i64 %.018.i.i, 100000000
   %126 = add i64 %.01417.i.i, 1
@@ -167768,7 +167768,7 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE22add_unsigned_long_lo
   %.01417.i.i25 = phi i64 [ 0, %141 ], [ %148, %143 ]
   %144 = urem i64 %.018.i.i24, 100000000
   %145 = trunc nuw nsw i64 %144 to i32
-  %146 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %.01417.i.i25
+  %146 = getelementptr inbounds nuw i32, ptr %3, i64 %.01417.i.i25
   store i32 %145, ptr %146, align 4, !tbaa !263
   %147 = udiv i64 %.018.i.i24, 100000000
   %148 = add i64 %.01417.i.i25, 1
@@ -170002,21 +170002,21 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4halfEv.exit: ; preds 
   br i1 %26, label %27, label %40
 
 27:                                               ; preds = %25
-  %28 = add nsw i64 %1, 128
-  %29 = getelementptr inbounds nuw [256 x %"class.boost::multiprecision::backends::cpp_dec_float"], ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4pow2ExE15local_pow2_data, i64 0, i64 %28
+  %28 = getelementptr %"class.boost::multiprecision::backends::cpp_dec_float", ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4pow2ExE15local_pow2_data, i64 %1
+  %29 = getelementptr i8, ptr %28, i64 7168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %29, i64 40, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %30 = getelementptr i8, ptr %28, i64 7208
   %31 = load i32, ptr %30, align 4, !tbaa !1565
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %31, ptr %32, align 4, !tbaa !1565
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 44
+  %33 = getelementptr i8, ptr %28, i64 7212
   %34 = load i8, ptr %33, align 4, !tbaa !1570, !range !17, !noundef !18
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %34, ptr %35, align 4, !tbaa !1570
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %36 = getelementptr i8, ptr %28, i64 7216
   %37 = load i32, ptr %36, align 4, !tbaa !1571
   store i32 %37, ptr %14, align 4, !tbaa !1571
-  %38 = getelementptr inbounds nuw i8, ptr %29, i64 52
+  %38 = getelementptr i8, ptr %28, i64 7220
   %39 = load i32, ptr %38, align 4, !tbaa !1572
   store i32 %39, ptr %15, align 4, !tbaa !1572
   br label %47
@@ -170616,7 +170616,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc123, 
 129:                                              ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i, %.lr.ph
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 224
   store i8 48, ptr %130, align 8, !tbaa !949
-  %131 = getelementptr inbounds nuw [10 x i32], ptr %1, i64 0, i64 %.078177
+  %131 = getelementptr inbounds nuw i32, ptr %1, i64 %.078177
   %132 = load i32, ptr %131, align 4, !tbaa !263
   %133 = zext i32 %132 to i64
   %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %75, i64 noundef %133)
@@ -170783,7 +170783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit.thread: ; 
 
 .lr.ph181:                                        ; preds = %.preheader171, %.lr.ph181
   %.062179 = phi i64 [ %198, %.lr.ph181 ], [ %.sroa.speculated, %.preheader171 ]
-  %196 = getelementptr inbounds nuw [10 x i32], ptr %1, i64 0, i64 %.062179
+  %196 = getelementptr inbounds nuw i32, ptr %1, i64 %.062179
   %197 = load i32, ptr %196, align 4, !tbaa !263
   %.not89.not = icmp ne i32 %197, 0
   %198 = add nuw nsw i64 %.062179, 1

@@ -1570,7 +1570,7 @@ zend_string_alloc.exit:                           ; preds = %24
   store i64 %26, ptr %32, align 8, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %23, i64 %26, i1 false)
-  %34 = getelementptr inbounds nuw [1 x i8], ptr %33, i64 0, i64 %26
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %26
   store i8 0, ptr %34, align 1, !tbaa !24
   store ptr %29, ptr %2, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1758,7 +1758,7 @@ define dso_local void @php_request_shutdown(ptr noundef readnone captures(none) 
 
 .preheader:                                       ; preds = %47, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %47 ]
-  %51 = getelementptr inbounds nuw [6 x %struct._zval_struct], ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct._zval_struct, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), i64 %indvars.iv
   call void @zval_ptr_dtor(ptr noundef nonnull %51) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -2340,7 +2340,7 @@ zend_hash_str_find_ptr.exit39.thread:             ; preds = %php_disable_classes
 .preheader:                                       ; preds = %124, %._crit_edge
   %128 = phi i1 [ false, %._crit_edge ], [ true, %124 ]
   %indvars.iv = phi i64 [ 1, %._crit_edge ], [ 0, %124 ]
-  %129 = getelementptr inbounds nuw [2 x %struct.anon.10], ptr @__const.php_module_startup.directives, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw %struct.anon.10, ptr @__const.php_module_startup.directives, i64 %indvars.iv
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 16, !tbaa !12
   %.not3651 = icmp eq ptr %131, null
@@ -3395,7 +3395,7 @@ zend_string_alloc.exit:                           ; preds = %33
   store i64 %36, ptr %42, align 8, !tbaa !52
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 16 %6, i64 %36, i1 false)
-  %44 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %36
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %36
   store i8 0, ptr %44, align 1, !tbaa !24
   store ptr %39, ptr %27, align 8, !tbaa !99
   %45 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 360), ptr noundef nonnull %39) #28

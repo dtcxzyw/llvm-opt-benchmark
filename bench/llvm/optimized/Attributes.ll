@@ -13419,7 +13419,7 @@ define dso_local noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6S
 define dso_local noundef nonnull ptr @_ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table._ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

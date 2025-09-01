@@ -2027,7 +2027,7 @@ define noundef nonnull ptr @_ZN3net11CryptoUtils30HandshakeFailureReasonToString
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @switch.table._ZN3net11CryptoUtils30HandshakeFailureReasonToStringENS_22HandshakeFailureReasonE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net11CryptoUtils30HandshakeFailureReasonToStringENS_22HandshakeFailureReasonE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

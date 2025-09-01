@@ -81,7 +81,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_B(ptr noundef %0, i64
 46:                                               ; preds = %42
   %47 = load i8, ptr %.025.i59, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x i8], ptr %32, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = shl i32 %.024.i60, %41
   %52 = zext i8 %50 to i32
@@ -181,7 +181,7 @@ doNormal8.exit66:                                 ; preds = %46, %42
 100:                                              ; preds = %96
   %101 = load i8, ptr %.025.i, align 1
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds nuw [256 x i8], ptr %74, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %74, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = shl i32 %.024.i, %95
   %106 = zext i8 %104 to i32
@@ -242,7 +242,7 @@ doNormal8.exit:                                   ; preds = %100, %96
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %137 = getelementptr inbounds nuw [0 x i32], ptr %136, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv
   %138 = load i32, ptr %137, align 4
   %139 = tail call i32 %4(i64 noundef 0, i64 noundef %131, i32 noundef %138, ptr noundef %5) #15
   %140 = icmp eq i32 %139, 0
@@ -320,7 +320,7 @@ doComplexReport.exit.i:                           ; preds = %233, %142
 171:                                              ; preds = %167
   %172 = load i8, ptr %.025.i75, align 1
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw [256 x i8], ptr %158, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr %158, i64 %173
   %175 = load i8, ptr %174, align 1
   %176 = shl i32 %.024.i76, %166
   %177 = zext i8 %175 to i32
@@ -387,7 +387,7 @@ doNormal8.exit83:                                 ; preds = %171, %167
 
 211:                                              ; preds = %.lr.ph311, %210
   %indvars.iv350 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next351, %210 ]
-  %212 = getelementptr inbounds nuw [0 x i32], ptr %204, i64 0, i64 %indvars.iv350
+  %212 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv350
   %213 = load i32, ptr %212, align 4
   %214 = tail call i32 %4(i64 noundef 0, i64 noundef %188, i32 noundef %213, ptr noundef %5) #15
   %215 = icmp eq i32 %214, 0
@@ -469,7 +469,7 @@ doComplexReport.exit116.i.thread202:              ; preds = %210, %193, %205, %1
 248:                                              ; preds = %244
   %249 = load i8, ptr %.025.i67, align 1
   %250 = zext i8 %249 to i64
-  %251 = getelementptr inbounds nuw [256 x i8], ptr %223, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr %223, i64 %250
   %252 = load i8, ptr %251, align 1
   %253 = shl i32 %.024.i68, %243
   %254 = zext i8 %252 to i32
@@ -536,7 +536,7 @@ doNormal8.exit74:                                 ; preds = %248, %244
 
 288:                                              ; preds = %.lr.ph314, %287
   %indvars.iv355 = phi i64 [ 0, %.lr.ph314 ], [ %indvars.iv.next356, %287 ]
-  %289 = getelementptr inbounds nuw [0 x i32], ptr %281, i64 0, i64 %indvars.iv355
+  %289 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv355
   %290 = load i32, ptr %289, align 4
   %291 = tail call i32 %4(i64 noundef 0, i64 noundef %265, i32 noundef %290, ptr noundef %5) #15
   %292 = icmp eq i32 %291, 0
@@ -576,7 +576,7 @@ doComplexReport.exit.i.thread258:                 ; preds = %162, %224, %.loopex
 
 .lr.ph317:                                        ; preds = %.lr.ph317, %.lr.ph317.preheader
   %indvars.iv360 = phi i64 [ 0, %.lr.ph317.preheader ], [ %indvars.iv.next361, %.lr.ph317 ]
-  %308 = getelementptr inbounds nuw [0 x i32], ptr %307, i64 0, i64 %indvars.iv360
+  %308 = getelementptr inbounds nuw i32, ptr %307, i64 %indvars.iv360
   %309 = load i32, ptr %308, align 4
   %310 = tail call i32 %4(i64 noundef 0, i64 noundef %302, i32 noundef %309, ptr noundef %5) #15
   %311 = icmp eq i32 %310, 0
@@ -683,7 +683,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_Q(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #15
   %.not = icmp eq i32 %61, 0
@@ -727,7 +727,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_Q(ptr noundef %0, ptr
   br label %84
 
 79:                                               ; preds = %64
-  %80 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %67
+  %80 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %67
   store i32 %66, ptr %65, align 8
   store i32 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i18
@@ -776,7 +776,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_Q(ptr noundef %0, ptr
   %108 = add i32 %101, -1
   store i32 %108, ptr %65, align 8
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %109
   store i32 0, ptr %110, align 8
   %.idx109.i = mul nuw nsw i64 %109, 24
   %111 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx109.i
@@ -795,7 +795,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_Q(ptr noundef %0, ptr
   br i1 %.not107.i, label %118, label %.backedge
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %102
+  %119 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %102
   %120 = load i32, ptr %119, align 8
   switch i32 %120, label %142 [
     i32 2, label %121
@@ -957,7 +957,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
 72:                                               ; preds = %68
   %73 = load i8, ptr %.0587, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr %47, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %47, i64 %74
   %76 = load i8, ptr %75, align 1
   %.not.i55 = icmp ult i16 %.sroa.0359.0, %57
   br i1 %.not.i55, label %176, label %77, !prof !5
@@ -1024,7 +1024,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %47, i64 %117
   %119 = load i8, ptr %118, align 1
-  %120 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 0, i64 %.0107.i168809
+  %120 = getelementptr inbounds nuw i8, ptr %16, i64 %.0107.i168809
   store i8 %119, ptr %120, align 1
   %121 = add nuw nsw i64 %.0107.i168809, 1
   %exitcond.not = icmp eq i64 %121, 16
@@ -1081,7 +1081,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %143 = zext i8 %142 to i64
   %144 = getelementptr inbounds nuw i8, ptr %47, i64 %143
   %145 = load i8, ptr %144, align 1
-  %146 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 0, i64 %.097.i157817
+  %146 = getelementptr inbounds nuw i8, ptr %16, i64 %.097.i157817
   store i8 %145, ptr %146, align 1
   %147 = add nuw nsw i64 %.097.i157817, 1
   %exitcond960.not = icmp eq i64 %147, %134
@@ -1247,7 +1247,7 @@ doNormal16.exit94.thread1099:                     ; preds = %219
 233:                                              ; preds = %229
   %234 = load i8, ptr %.036.i81, align 1
   %235 = zext i8 %234 to i64
-  %236 = getelementptr inbounds nuw [256 x i8], ptr %47, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr %47, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = icmp samesign ult i32 %.035.i82, %223
   br i1 %238, label %239, label %245
@@ -1437,7 +1437,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit213
 337:                                              ; preds = %333
   %338 = load i8, ptr %.0583, align 1
   %339 = zext i8 %338 to i64
-  %340 = getelementptr inbounds nuw [256 x i8], ptr %300, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw i8, ptr %300, i64 %339
   %341 = load i8, ptr %340, align 1
   %.not.i53 = icmp ult i16 %.sroa.0.0, %322
   br i1 %.not.i53, label %441, label %342, !prof !5
@@ -1504,7 +1504,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit213
   %382 = zext i8 %381 to i64
   %383 = getelementptr inbounds nuw i8, ptr %300, i64 %382
   %384 = load i8, ptr %383, align 1
-  %385 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %.0107.i192822
+  %385 = getelementptr inbounds nuw i8, ptr %15, i64 %.0107.i192822
   store i8 %384, ptr %385, align 1
   %386 = add nuw nsw i64 %.0107.i192822, 1
   %exitcond961.not = icmp eq i64 %386, 16
@@ -1561,7 +1561,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit213
   %408 = zext i8 %407 to i64
   %409 = getelementptr inbounds nuw i8, ptr %300, i64 %408
   %410 = load i8, ptr %409, align 1
-  %411 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %.097.i181834
+  %411 = getelementptr inbounds nuw i8, ptr %15, i64 %.097.i181834
   store i8 %410, ptr %411, align 1
   %412 = add nuw nsw i64 %.097.i181834, 1
   %exitcond962.not = icmp eq i64 %412, %399
@@ -1727,7 +1727,7 @@ doSherman16.exit238:                              ; preds = %461, %.thread630
 498:                                              ; preds = %494
   %499 = load i8, ptr %.036.i, align 1
   %500 = zext i8 %499 to i64
-  %501 = getelementptr inbounds nuw [256 x i8], ptr %300, i64 0, i64 %500
+  %501 = getelementptr inbounds nuw i8, ptr %300, i64 %500
   %502 = load i8, ptr %501, align 1
   %503 = icmp samesign ult i32 %.035.i, %488
   br i1 %503, label %504, label %510
@@ -1879,7 +1879,7 @@ mcclellanExec16_i.exit48:                         ; preds = %53, %289, %292, %30
 
 .lr.ph842:                                        ; preds = %.lr.ph842, %.lr.ph842.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph842.preheader ], [ %indvars.iv.next, %.lr.ph842 ]
-  %580 = getelementptr inbounds nuw [0 x i32], ptr %579, i64 0, i64 %indvars.iv
+  %580 = getelementptr inbounds nuw i32, ptr %579, i64 %indvars.iv
   %581 = load i32, ptr %580, align 4
   %582 = tail call i32 %4(i64 noundef 0, i64 noundef %574, i32 noundef %581, ptr noundef %5) #15
   %583 = icmp eq i32 %582, 0
@@ -1969,7 +1969,7 @@ mcclellanExec16_i.exit48:                         ; preds = %53, %289, %292, %30
 629:                                              ; preds = %625
   %630 = load i8, ptr %.0595, align 1
   %631 = zext i8 %630 to i64
-  %632 = getelementptr inbounds nuw [256 x i8], ptr %605, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw i8, ptr %605, i64 %631
   %633 = load i8, ptr %632, align 1
   %.not.i68 = icmp ult i16 %.sroa.0483.0, %614
   br i1 %.not.i68, label %733, label %634, !prof !5
@@ -2036,7 +2036,7 @@ mcclellanExec16_i.exit48:                         ; preds = %53, %289, %292, %30
   %674 = zext i8 %673 to i64
   %675 = getelementptr inbounds nuw i8, ptr %605, i64 %674
   %676 = load i8, ptr %675, align 1
-  %677 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.0107.i844
+  %677 = getelementptr inbounds nuw i8, ptr %18, i64 %.0107.i844
   store i8 %676, ptr %677, align 1
   %678 = add nuw nsw i64 %.0107.i844, 1
   %exitcond965.not = icmp eq i64 %678, 16
@@ -2093,7 +2093,7 @@ mcclellanExec16_i.exit48:                         ; preds = %53, %289, %292, %30
   %700 = zext i8 %699 to i64
   %701 = getelementptr inbounds nuw i8, ptr %605, i64 %700
   %702 = load i8, ptr %701, align 1
-  %703 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.097.i856
+  %703 = getelementptr inbounds nuw i8, ptr %18, i64 %.097.i856
   store i8 %702, ptr %703, align 1
   %704 = add nuw nsw i64 %.097.i856, 1
   %exitcond966.not = icmp eq i64 %704, %691
@@ -2259,7 +2259,7 @@ doNormal16.exit122.thread1121:                    ; preds = %776
 790:                                              ; preds = %786
   %791 = load i8, ptr %.036.i109, align 1
   %792 = zext i8 %791 to i64
-  %793 = getelementptr inbounds nuw [256 x i8], ptr %605, i64 0, i64 %792
+  %793 = getelementptr inbounds nuw i8, ptr %605, i64 %792
   %794 = load i8, ptr %793, align 1
   %795 = icmp samesign ult i32 %.035.i110, %780
   br i1 %795, label %796, label %802
@@ -2385,7 +2385,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
 
 865:                                              ; preds = %.lr.ph863, %864
   %indvars.iv967 = phi i64 [ 0, %.lr.ph863 ], [ %indvars.iv.next968, %864 ]
-  %866 = getelementptr inbounds nuw [0 x i32], ptr %858, i64 0, i64 %indvars.iv967
+  %866 = getelementptr inbounds nuw i32, ptr %858, i64 %indvars.iv967
   %867 = load i32, ptr %866, align 4
   %868 = tail call i32 %4(i64 noundef 0, i64 noundef %841, i32 noundef %867, ptr noundef %5) #15
   %869 = icmp eq i32 %868, 0
@@ -2499,7 +2499,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
 918:                                              ; preds = %914
   %919 = load i8, ptr %.0591, align 1
   %920 = zext i8 %919 to i64
-  %921 = getelementptr inbounds nuw [256 x i8], ptr %882, i64 0, i64 %920
+  %921 = getelementptr inbounds nuw i8, ptr %882, i64 %920
   %922 = load i8, ptr %921, align 1
   %.not.i61 = icmp ult i16 %.sroa.0416.0, %903
   br i1 %.not.i61, label %1022, label %923, !prof !5
@@ -2566,7 +2566,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %963 = zext i8 %962 to i64
   %964 = getelementptr inbounds nuw i8, ptr %882, i64 %963
   %965 = load i8, ptr %964, align 1
-  %966 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %.0107.i144864
+  %966 = getelementptr inbounds nuw i8, ptr %17, i64 %.0107.i144864
   store i8 %965, ptr %966, align 1
   %967 = add nuw nsw i64 %.0107.i144864, 1
   %exitcond972.not = icmp eq i64 %967, 16
@@ -2623,7 +2623,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %989 = zext i8 %988 to i64
   %990 = getelementptr inbounds nuw i8, ptr %882, i64 %989
   %991 = load i8, ptr %990, align 1
-  %992 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %.097.i133876
+  %992 = getelementptr inbounds nuw i8, ptr %17, i64 %.097.i133876
   store i8 %991, ptr %992, align 1
   %993 = add nuw nsw i64 %.097.i133876, 1
   %exitcond973.not = icmp eq i64 %993, %980
@@ -2789,7 +2789,7 @@ doSherman16.exit228:                              ; preds = %1042, %.thread687
 1079:                                             ; preds = %1075
   %1080 = load i8, ptr %.036.i95, align 1
   %1081 = zext i8 %1080 to i64
-  %1082 = getelementptr inbounds nuw [256 x i8], ptr %882, i64 0, i64 %1081
+  %1082 = getelementptr inbounds nuw i8, ptr %882, i64 %1081
   %1083 = load i8, ptr %1082, align 1
   %1084 = icmp samesign ult i32 %.035.i96, %1069
   br i1 %1084, label %1085, label %1091
@@ -2922,7 +2922,7 @@ doNormal16.exit108:                               ; preds = %doSherman16.exit208
 
 1156:                                             ; preds = %.lr.ph883, %1155
   %indvars.iv974 = phi i64 [ 0, %.lr.ph883 ], [ %indvars.iv.next975, %1155 ]
-  %1157 = getelementptr inbounds nuw [0 x i32], ptr %1149, i64 0, i64 %indvars.iv974
+  %1157 = getelementptr inbounds nuw i32, ptr %1149, i64 %indvars.iv974
   %1158 = load i32, ptr %1157, align 4
   %1159 = tail call i32 %4(i64 noundef 0, i64 noundef %1132, i32 noundef %1158, ptr noundef %5) #15
   %1160 = icmp eq i32 %1159, 0
@@ -2988,7 +2988,7 @@ mcclellanExec16_i.exit:                           ; preds = %610, %871, %874, %8
 
 .lr.ph887:                                        ; preds = %.lr.ph887, %.lr.ph887.preheader
   %indvars.iv979 = phi i64 [ 0, %.lr.ph887.preheader ], [ %indvars.iv.next980, %.lr.ph887 ]
-  %1186 = getelementptr inbounds nuw [0 x i32], ptr %1185, i64 0, i64 %indvars.iv979
+  %1186 = getelementptr inbounds nuw i32, ptr %1185, i64 %indvars.iv979
   %1187 = load i32, ptr %1186, align 4
   %1188 = tail call i32 %4(i64 noundef 0, i64 noundef %1180, i32 noundef %1187, ptr noundef %5) #15
   %1189 = icmp eq i32 %1188, 0
@@ -3091,7 +3091,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_Q(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #15
   %.not = icmp eq i32 %61, 0
@@ -3135,7 +3135,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_Q(ptr noundef %0, pt
   br label %84
 
 79:                                               ; preds = %64
-  %80 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %67
+  %80 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %67
   store i32 %66, ptr %65, align 8
   store i32 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i18
@@ -3185,7 +3185,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_Q(ptr noundef %0, pt
   %109 = add i32 %102, -1
   store i32 %109, ptr %65, align 8
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %110
   store i32 0, ptr %111, align 8
   %.idx110.i = mul nuw nsw i64 %110, 24
   %112 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx110.i
@@ -3204,7 +3204,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_Q(ptr noundef %0, pt
   br i1 %.not108.i, label %119, label %.backedge
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %103
+  %120 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %103
   %121 = load i32, ptr %120, align 8
   switch i32 %121, label %139 [
     i32 2, label %122
@@ -3328,7 +3328,7 @@ define hidden noundef signext i8 @nfaExecMcClellan8_reportCurrent(ptr noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds nuw [0 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 %5(i64 noundef 0, i64 noundef %19, i32 noundef %48, ptr noundef %7) #15
   %50 = icmp eq i32 %49, 0
@@ -3413,7 +3413,7 @@ define hidden noundef signext i8 @nfaExecMcClellan16_reportCurrent(ptr noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %44 = getelementptr inbounds nuw [0 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 %5(i64 noundef 0, i64 noundef %25, i32 noundef %45, ptr noundef %7) #15
   %47 = icmp eq i32 %46, 0
@@ -3474,7 +3474,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_inAccept(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw [0 x i32], ptr %23, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %1
   br i1 %28, label %mcclellanHasAccept.exit, label %25
@@ -3545,7 +3545,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_inAccept(ptr noundef
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %25, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %1
   br i1 %30, label %mcclellanHasAccept.exit, label %27
@@ -3677,7 +3677,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #15
   %.not = icmp eq i32 %62, 0
@@ -3721,7 +3721,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
   br label %85
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %68
+  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i18
@@ -3756,7 +3756,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
   %100 = add i32 %98, -1
   store i32 %100, ptr %66, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %101
   store i32 0, ptr %102, align 8
   %103 = load ptr, ptr %5, align 8
   %104 = ptrtoint ptr %103 to i64
@@ -3786,7 +3786,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
   %119 = add i32 %98, -1
   store i32 %119, ptr %66, align 8
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %120
   store i32 0, ptr %121, align 8
   %.idx109.i = mul nuw nsw i64 %120, 24
   %122 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx109.i
@@ -3805,7 +3805,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
   br i1 %.not107.i, label %129, label %155
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %113
+  %130 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %113
   %131 = load i32, ptr %130, align 8
   switch i32 %131, label %153 [
     i32 2, label %132
@@ -3959,7 +3959,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #15
   %.not = icmp eq i32 %62, 0
@@ -4003,7 +4003,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
   br label %85
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %68
+  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i18
@@ -4039,7 +4039,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
   %101 = add i32 %99, -1
   store i32 %101, ptr %66, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %102
   store i32 0, ptr %103, align 8
   %104 = load ptr, ptr %5, align 8
   %105 = ptrtoint ptr %104 to i64
@@ -4069,7 +4069,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
   %120 = add i32 %99, -1
   store i32 %120, ptr %66, align 8
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %121
   store i32 0, ptr %122, align 8
   %.idx110.i = mul nuw nsw i64 %121, 24
   %123 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx110.i
@@ -4088,7 +4088,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
   br i1 %.not108.i, label %130, label %152
 
 130:                                              ; preds = %128
-  %131 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %114
+  %131 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %114
   %132 = load i32, ptr %131, align 8
   switch i32 %132, label %150 [
     i32 2, label %133
@@ -4236,7 +4236,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_QR(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #15
   %.not = icmp eq i32 %61, 0
@@ -4304,7 +4304,7 @@ nfaExecMcClellan8_Q2i.exit.thread35:              ; preds = %111, %64
 
 91:                                               ; preds = %.lr.ph60
   %92 = zext i32 %.pre.pre to i64
-  %93 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %74, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %92
   %94 = load i32, ptr %93, align 8
   switch i32 %94, label %109 [
     i32 2, label %95
@@ -4409,7 +4409,7 @@ nfaExecMcClellan8_Q2i.exit:                       ; preds = %91
 
 .lr.ph.i.i:                                       ; preds = %147, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %147 ]
-  %148 = getelementptr inbounds nuw [0 x i32], ptr %145, i64 0, i64 %indvars.iv.i.i
+  %148 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %149, %2
   br i1 %150, label %nfaExecMcClellan8_inAccept.exit, label %147
@@ -4511,7 +4511,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_QR(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #15
   %.not = icmp eq i32 %61, 0
@@ -4583,7 +4583,7 @@ nfaExecMcClellan16_Q2i.exit.thread35:             ; preds = %78
 
 94:                                               ; preds = %92
   %95 = zext i32 %.pre.pre to i64
-  %96 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %74, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %95
   %97 = load i32, ptr %96, align 8
   switch i32 %97, label %108 [
     i32 2, label %98
@@ -4676,7 +4676,7 @@ nfaExecMcClellan16_Q2i.exit:                      ; preds = %94
 
 .lr.ph.i.i:                                       ; preds = %137, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %137 ]
-  %138 = getelementptr inbounds nuw [0 x i32], ptr %135, i64 0, i64 %indvars.iv.i.i
+  %138 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.i.i
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, %2
   br i1 %140, label %nfaExecMcClellan16_inAccept.exit, label %137
@@ -4828,7 +4828,7 @@ define hidden void @nfaExecMcClellan8_SimpStream(ptr noundef %0, ptr noundef cap
 56:                                               ; preds = %52
   %57 = load i8, ptr %.025.i71, align 1
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = shl i32 %.024.i72, %51
   %62 = zext i8 %60 to i32
@@ -4928,7 +4928,7 @@ doNormal8.exit79:                                 ; preds = %56, %52
 110:                                              ; preds = %106
   %111 = load i8, ptr %.025.i63, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr %84, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %84, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = shl i32 %.024.i64, %105
   %116 = zext i8 %114 to i32
@@ -5027,7 +5027,7 @@ doComplexReport.exit.i:                           ; preds = %226, %134
 164:                                              ; preds = %160
   %165 = load i8, ptr %.025.i55, align 1
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds nuw [256 x i8], ptr %151, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr %151, i64 %166
   %168 = load i8, ptr %167, align 1
   %169 = shl i32 %.024.i56, %159
   %170 = zext i8 %168 to i32
@@ -5094,7 +5094,7 @@ doNormal8.exit62:                                 ; preds = %164, %160
 
 204:                                              ; preds = %.lr.ph, %203
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %203 ]
-  %205 = getelementptr inbounds nuw [0 x i32], ptr %197, i64 0, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv
   %206 = load i32, ptr %205, align 4
   %207 = tail call i32 %6(i64 noundef 0, i64 noundef %181, i32 noundef %206, ptr noundef %7) #15
   %208 = icmp eq i32 %207, 0
@@ -5176,7 +5176,7 @@ doComplexReport.exit116.i.thread190:              ; preds = %203, %186, %198, %1
 241:                                              ; preds = %237
   %242 = load i8, ptr %.025.i, align 1
   %243 = zext i8 %242 to i64
-  %244 = getelementptr inbounds nuw [256 x i8], ptr %216, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr %216, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = shl i32 %.024.i, %236
   %247 = zext i8 %245 to i32
@@ -5243,7 +5243,7 @@ doNormal8.exit:                                   ; preds = %241, %237
 
 281:                                              ; preds = %.lr.ph286, %280
   %indvars.iv309 = phi i64 [ 0, %.lr.ph286 ], [ %indvars.iv.next310, %280 ]
-  %282 = getelementptr inbounds nuw [0 x i32], ptr %274, i64 0, i64 %indvars.iv309
+  %282 = getelementptr inbounds nuw i32, ptr %274, i64 %indvars.iv309
   %283 = load i32, ptr %282, align 4
   %284 = tail call i32 %6(i64 noundef 0, i64 noundef %258, i32 noundef %283, ptr noundef %7) #15
   %285 = icmp eq i32 %284, 0
@@ -5389,7 +5389,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
 84:                                               ; preds = %80
   %85 = load i8, ptr %.0595, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %58, i64 %86
   %88 = load i8, ptr %87, align 1
   %.not.i69 = icmp ult i16 %.sroa.0480.0, %69
   br i1 %.not.i69, label %191, label %89, !prof !5
@@ -5464,7 +5464,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %132 = zext i8 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %58, i64 %132
   %134 = load i8, ptr %133, align 1
-  %135 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 0, i64 %.0107.i785
+  %135 = getelementptr inbounds nuw i8, ptr %20, i64 %.0107.i785
   store i8 %134, ptr %135, align 1
   %136 = add nuw nsw i64 %.0107.i785, 1
   %exitcond.not = icmp eq i64 %136, 16
@@ -5521,7 +5521,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %158 = zext i8 %157 to i64
   %159 = getelementptr inbounds nuw i8, ptr %58, i64 %158
   %160 = load i8, ptr %159, align 1
-  %161 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 0, i64 %.097.i793
+  %161 = getelementptr inbounds nuw i8, ptr %20, i64 %.097.i793
   store i8 %160, ptr %161, align 1
   %162 = add nuw nsw i64 %.097.i793, 1
   %exitcond926.not = icmp eq i64 %162, %149
@@ -5699,7 +5699,7 @@ doNormal16.exit122.thread1053:                    ; preds = %234
 248:                                              ; preds = %244
   %249 = load i8, ptr %.036.i109, align 1
   %250 = zext i8 %249 to i64
-  %251 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr %58, i64 %250
   %252 = load i8, ptr %251, align 1
   %253 = icmp samesign ult i32 %.035.i110, %238
   br i1 %253, label %254, label %260
@@ -5891,7 +5891,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
 353:                                              ; preds = %349
   %354 = load i8, ptr %.0591, align 1
   %355 = zext i8 %354 to i64
-  %356 = getelementptr inbounds nuw [256 x i8], ptr %315, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr %315, i64 %355
   %357 = load i8, ptr %356, align 1
   %.not.i62 = icmp ult i16 %.sroa.0413.0, %338
   br i1 %.not.i62, label %460, label %358, !prof !5
@@ -5966,7 +5966,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %401 = zext i8 %400 to i64
   %402 = getelementptr inbounds nuw i8, ptr %315, i64 %401
   %403 = load i8, ptr %402, align 1
-  %404 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 0, i64 %.0107.i146798
+  %404 = getelementptr inbounds nuw i8, ptr %19, i64 %.0107.i146798
   store i8 %403, ptr %404, align 1
   %405 = add nuw nsw i64 %.0107.i146798, 1
   %exitcond927.not = icmp eq i64 %405, 16
@@ -6023,7 +6023,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %427 = zext i8 %426 to i64
   %428 = getelementptr inbounds nuw i8, ptr %315, i64 %427
   %429 = load i8, ptr %428, align 1
-  %430 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 0, i64 %.097.i135810
+  %430 = getelementptr inbounds nuw i8, ptr %19, i64 %.097.i135810
   store i8 %429, ptr %430, align 1
   %431 = add nuw nsw i64 %.097.i135810, 1
   %exitcond928.not = icmp eq i64 %431, %418
@@ -6201,7 +6201,7 @@ doSherman16.exit232:                              ; preds = %480, %.thread621
 517:                                              ; preds = %513
   %518 = load i8, ptr %.036.i95, align 1
   %519 = zext i8 %518 to i64
-  %520 = getelementptr inbounds nuw [256 x i8], ptr %315, i64 0, i64 %519
+  %520 = getelementptr inbounds nuw i8, ptr %315, i64 %519
   %521 = load i8, ptr %520, align 1
   %522 = icmp samesign ult i32 %.035.i96, %507
   br i1 %522, label %523, label %529
@@ -6392,7 +6392,7 @@ doNormal16.exit108:                               ; preds = %doSherman16.exit212
 624:                                              ; preds = %620
   %625 = load i8, ptr %.0587, align 1
   %626 = zext i8 %625 to i64
-  %627 = getelementptr inbounds nuw [256 x i8], ptr %599, i64 0, i64 %626
+  %627 = getelementptr inbounds nuw i8, ptr %599, i64 %626
   %628 = load i8, ptr %627, align 1
   %.not.i56 = icmp ult i16 %.sroa.0356.0, %609
   br i1 %.not.i56, label %731, label %629, !prof !5
@@ -6467,7 +6467,7 @@ doNormal16.exit108:                               ; preds = %doSherman16.exit212
   %672 = zext i8 %671 to i64
   %673 = getelementptr inbounds nuw i8, ptr %599, i64 %672
   %674 = load i8, ptr %673, align 1
-  %675 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.0107.i171815
+  %675 = getelementptr inbounds nuw i8, ptr %18, i64 %.0107.i171815
   store i8 %674, ptr %675, align 1
   %676 = add nuw nsw i64 %.0107.i171815, 1
   %exitcond929.not = icmp eq i64 %676, 16
@@ -6524,7 +6524,7 @@ doNormal16.exit108:                               ; preds = %doSherman16.exit212
   %698 = zext i8 %697 to i64
   %699 = getelementptr inbounds nuw i8, ptr %599, i64 %698
   %700 = load i8, ptr %699, align 1
-  %701 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.097.i160827
+  %701 = getelementptr inbounds nuw i8, ptr %18, i64 %.097.i160827
   store i8 %700, ptr %701, align 1
   %702 = add nuw nsw i64 %.097.i160827, 1
   %exitcond930.not = icmp eq i64 %702, %689
@@ -6702,7 +6702,7 @@ doNormal16.exit94.thread1075:                     ; preds = %774
 788:                                              ; preds = %784
   %789 = load i8, ptr %.036.i81, align 1
   %790 = zext i8 %789 to i64
-  %791 = getelementptr inbounds nuw [256 x i8], ptr %599, i64 0, i64 %790
+  %791 = getelementptr inbounds nuw i8, ptr %599, i64 %790
   %792 = load i8, ptr %791, align 1
   %793 = icmp samesign ult i32 %.035.i82, %778
   br i1 %793, label %794, label %800
@@ -6828,7 +6828,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit217
 
 863:                                              ; preds = %.lr.ph834, %862
   %indvars.iv = phi i64 [ 0, %.lr.ph834 ], [ %indvars.iv.next, %862 ]
-  %864 = getelementptr inbounds nuw [0 x i32], ptr %856, i64 0, i64 %indvars.iv
+  %864 = getelementptr inbounds nuw i32, ptr %856, i64 %indvars.iv
   %865 = load i32, ptr %864, align 4
   %866 = tail call i32 %6(i64 noundef 0, i64 noundef %839, i32 noundef %865, ptr noundef %7) #15
   %867 = icmp eq i32 %866, 0
@@ -6944,7 +6944,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit217
 917:                                              ; preds = %913
   %918 = load i8, ptr %.0583, align 1
   %919 = zext i8 %918 to i64
-  %920 = getelementptr inbounds nuw [256 x i8], ptr %880, i64 0, i64 %919
+  %920 = getelementptr inbounds nuw i8, ptr %880, i64 %919
   %921 = load i8, ptr %920, align 1
   %.not.i54 = icmp ult i16 %.sroa.0.0, %902
   br i1 %.not.i54, label %1024, label %922, !prof !5
@@ -7019,7 +7019,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit217
   %965 = zext i8 %964 to i64
   %966 = getelementptr inbounds nuw i8, ptr %880, i64 %965
   %967 = load i8, ptr %966, align 1
-  %968 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %.0107.i196835
+  %968 = getelementptr inbounds nuw i8, ptr %17, i64 %.0107.i196835
   store i8 %967, ptr %968, align 1
   %969 = add nuw nsw i64 %.0107.i196835, 1
   %exitcond933.not = icmp eq i64 %969, 16
@@ -7076,7 +7076,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit217
   %991 = zext i8 %990 to i64
   %992 = getelementptr inbounds nuw i8, ptr %880, i64 %991
   %993 = load i8, ptr %992, align 1
-  %994 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %.097.i185847
+  %994 = getelementptr inbounds nuw i8, ptr %17, i64 %.097.i185847
   store i8 %993, ptr %994, align 1
   %995 = add nuw nsw i64 %.097.i185847, 1
   %exitcond934.not = icmp eq i64 %995, %982
@@ -7254,7 +7254,7 @@ doSherman16.exit242:                              ; preds = %1044, %.thread664
 1081:                                             ; preds = %1077
   %1082 = load i8, ptr %.036.i, align 1
   %1083 = zext i8 %1082 to i64
-  %1084 = getelementptr inbounds nuw [256 x i8], ptr %880, i64 0, i64 %1083
+  %1084 = getelementptr inbounds nuw i8, ptr %880, i64 %1083
   %1085 = load i8, ptr %1084, align 1
   %1086 = icmp samesign ult i32 %.035.i, %1071
   br i1 %1086, label %1087, label %1093
@@ -7387,7 +7387,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit222
 
 1158:                                             ; preds = %.lr.ph854, %1157
   %indvars.iv935 = phi i64 [ 0, %.lr.ph854 ], [ %indvars.iv.next936, %1157 ]
-  %1159 = getelementptr inbounds nuw [0 x i32], ptr %1151, i64 0, i64 %indvars.iv935
+  %1159 = getelementptr inbounds nuw i32, ptr %1151, i64 %indvars.iv935
   %1160 = load i32, ptr %1159, align 4
   %1161 = tail call i32 %6(i64 noundef 0, i64 noundef %1134, i32 noundef %1160, ptr noundef %7) #15
   %1162 = icmp eq i32 %1161, 0
@@ -7462,7 +7462,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_testEOD(ptr noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [0 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %32, ptr noundef %5) #15
   %34 = icmp eq i32 %33, 0
@@ -7519,7 +7519,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_testEOD(ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw [0 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %31, ptr noundef %5) #15
   %33 = icmp eq i32 %32, 0
@@ -7691,7 +7691,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec8_i_cb(ptr nounde
 39:                                               ; preds = %35
   %40 = load i8, ptr %.025.i10.us, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i8], ptr %27, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = shl i32 %.024.i11.us, %34
   %45 = zext i8 %43 to i32
@@ -7741,7 +7741,7 @@ doNormal8.exit17.us:                              ; preds = %39, %35
 
 70:                                               ; preds = %.lr.ph.us, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %69 ]
-  %71 = getelementptr inbounds nuw [0 x i32], ptr %84, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   %73 = tail call i32 %5(i64 noundef 0, i64 noundef %56, i32 noundef %72, ptr noundef %6) #15
   %74 = icmp eq i32 %73, 0
@@ -7793,7 +7793,7 @@ doNormal8.exit17.us:                              ; preds = %39, %35
 93:                                               ; preds = %89
   %94 = load i8, ptr %.025.i10, align 1
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw [256 x i8], ptr %27, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %27, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = shl i32 %.024.i11, %88
   %99 = zext i8 %97 to i32
@@ -7889,7 +7889,7 @@ doNormal8.exit17:                                 ; preds = %93, %89
 138:                                              ; preds = %134
   %139 = load i8, ptr %.025.i.us, align 1
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw [256 x i8], ptr %120, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr %120, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = shl i32 %.024.i.us, %133
   %144 = zext i8 %142 to i32
@@ -7939,7 +7939,7 @@ doNormal8.exit.us:                                ; preds = %138, %134
 
 169:                                              ; preds = %.lr.ph.us140, %168
   %indvars.iv184 = phi i64 [ 0, %.lr.ph.us140 ], [ %indvars.iv.next185, %168 ]
-  %170 = getelementptr inbounds nuw [0 x i32], ptr %183, i64 0, i64 %indvars.iv184
+  %170 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv184
   %171 = load i32, ptr %170, align 4
   %172 = tail call i32 %5(i64 noundef 0, i64 noundef %155, i32 noundef %171, ptr noundef %6) #15
   %173 = icmp eq i32 %172, 0
@@ -8027,7 +8027,7 @@ doComplexReport.exit.i.us:                        ; preds = %168, %157, %179, %1
 209:                                              ; preds = %205
   %210 = load i8, ptr %.025.i, align 1
   %211 = zext i8 %210 to i64
-  %212 = getelementptr inbounds nuw [256 x i8], ptr %120, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr %120, i64 %211
   %213 = load i8, ptr %212, align 1
   %214 = shl i32 %.024.i, %204
   %215 = zext i8 %213 to i32
@@ -8125,7 +8125,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec8_i_sam(ptr nound
 34:                                               ; preds = %30
   %35 = load i8, ptr %.025.i10, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = shl i32 %.024.i11, %29
   %40 = zext i8 %38 to i32
@@ -8219,7 +8219,7 @@ doNormal8.exit17:                                 ; preds = %34, %30
 83:                                               ; preds = %79
   %84 = load i8, ptr %.025.i, align 1
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %58, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = shl i32 %.024.i, %78
   %89 = zext i8 %87 to i32
@@ -8306,7 +8306,7 @@ doNormal8.exit:                                   ; preds = %57, %5
   %.025.i1033 = phi ptr [ %36, %.lr.ph ], [ %.110, %21 ]
   %25 = load i8, ptr %.025.i1033, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %19, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = shl i32 %.024.i1134, %23
   %30 = zext i8 %28 to i32
@@ -8392,7 +8392,7 @@ doNormal8.exit17:                                 ; preds = %.lr.ph, %21
 72:                                               ; preds = %68
   %73 = load i8, ptr %.025.i, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr %47, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %47, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = shl i32 %.024.i, %67
   %78 = zext i8 %76 to i32
@@ -8516,7 +8516,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
 62:                                               ; preds = %58
   %63 = load i8, ptr %.0166, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %38, i64 %64
   %66 = load i8, ptr %65, align 1
   %.not.i12 = icmp ult i16 %.sroa.088.0, %47
   br i1 %.not.i12, label %169, label %67, !prof !5
@@ -8591,7 +8591,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %110 = zext i8 %109 to i64
   %111 = getelementptr inbounds nuw i8, ptr %38, i64 %110
   %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %.0107.i274
+  %113 = getelementptr inbounds nuw i8, ptr %15, i64 %.0107.i274
   store i8 %112, ptr %113, align 1
   %114 = add nuw nsw i64 %.0107.i274, 1
   %exitcond.not = icmp eq i64 %114, 16
@@ -8648,7 +8648,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %136 = zext i8 %135 to i64
   %137 = getelementptr inbounds nuw i8, ptr %38, i64 %136
   %138 = load i8, ptr %137, align 1
-  %139 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %.097.i282
+  %139 = getelementptr inbounds nuw i8, ptr %15, i64 %.097.i282
   store i8 %138, ptr %139, align 1
   %140 = add nuw nsw i64 %.097.i282, 1
   %exitcond353.not = icmp eq i64 %140, %127
@@ -8826,7 +8826,7 @@ doNormal16.exit37.thread420:                      ; preds = %212
 226:                                              ; preds = %222
   %227 = load i8, ptr %.036.i24, align 1
   %228 = zext i8 %227 to i64
-  %229 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw i8, ptr %38, i64 %228
   %230 = load i8, ptr %229, align 1
   %231 = icmp samesign ult i32 %.035.i25, %216
   br i1 %231, label %232, label %238
@@ -8961,7 +8961,7 @@ doNormal16.exit37:                                ; preds = %doSherman16.exit, %
 
 306:                                              ; preds = %.lr.ph289, %305
   %indvars.iv = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next, %305 ]
-  %307 = getelementptr inbounds nuw [0 x i32], ptr %299, i64 0, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw i32, ptr %299, i64 %indvars.iv
   %308 = load i32, ptr %307, align 4
   %309 = tail call i32 %6(i64 noundef 0, i64 noundef %277, i32 noundef %308, ptr noundef %7) #15
   %310 = icmp eq i32 %309, 0
@@ -9080,7 +9080,7 @@ doNormal16.exit37:                                ; preds = %doSherman16.exit, %
 362:                                              ; preds = %358
   %363 = load i8, ptr %.0162, align 1
   %364 = zext i8 %363 to i64
-  %365 = getelementptr inbounds nuw [256 x i8], ptr %324, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i8, ptr %324, i64 %364
   %366 = load i8, ptr %365, align 1
   %.not.i10 = icmp ult i16 %.sroa.0.0, %347
   br i1 %.not.i10, label %469, label %367, !prof !5
@@ -9155,7 +9155,7 @@ doNormal16.exit37:                                ; preds = %doSherman16.exit, %
   %410 = zext i8 %409 to i64
   %411 = getelementptr inbounds nuw i8, ptr %324, i64 %410
   %412 = load i8, ptr %411, align 1
-  %413 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %.0107.i62290
+  %413 = getelementptr inbounds nuw i8, ptr %14, i64 %.0107.i62290
   store i8 %412, ptr %413, align 1
   %414 = add nuw nsw i64 %.0107.i62290, 1
   %exitcond356.not = icmp eq i64 %414, 16
@@ -9212,7 +9212,7 @@ doNormal16.exit37:                                ; preds = %doSherman16.exit, %
   %436 = zext i8 %435 to i64
   %437 = getelementptr inbounds nuw i8, ptr %324, i64 %436
   %438 = load i8, ptr %437, align 1
-  %439 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %.097.i51302
+  %439 = getelementptr inbounds nuw i8, ptr %14, i64 %.097.i51302
   store i8 %438, ptr %439, align 1
   %440 = add nuw nsw i64 %.097.i51302, 1
   %exitcond357.not = icmp eq i64 %440, %427
@@ -9390,7 +9390,7 @@ doSherman16.exit88:                               ; preds = %489, %.thread197
 526:                                              ; preds = %522
   %527 = load i8, ptr %.036.i, align 1
   %528 = zext i8 %527 to i64
-  %529 = getelementptr inbounds nuw [256 x i8], ptr %324, i64 0, i64 %528
+  %529 = getelementptr inbounds nuw i8, ptr %324, i64 %528
   %530 = load i8, ptr %529, align 1
   %531 = icmp samesign ult i32 %.035.i, %516
   br i1 %531, label %532, label %538
@@ -9532,7 +9532,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit78,
 
 608:                                              ; preds = %.lr.ph309, %607
   %indvars.iv358 = phi i64 [ 0, %.lr.ph309 ], [ %indvars.iv.next359, %607 ]
-  %609 = getelementptr inbounds nuw [0 x i32], ptr %601, i64 0, i64 %indvars.iv358
+  %609 = getelementptr inbounds nuw i32, ptr %601, i64 %indvars.iv358
   %610 = load i32, ptr %609, align 4
   %611 = tail call i32 %6(i64 noundef 0, i64 noundef %579, i32 noundef %610, ptr noundef %7) #15
   %612 = icmp eq i32 %611, 0
@@ -9653,7 +9653,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
 58:                                               ; preds = %54
   %59 = load i8, ptr %.0148, align 1
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 %60
   %62 = load i8, ptr %61, align 1
   %.not.i12 = icmp ult i16 %.sroa.084.0, %43
   br i1 %.not.i12, label %165, label %63, !prof !5
@@ -9728,7 +9728,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %106 = zext i8 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %36, i64 %106
   %108 = load i8, ptr %107, align 1
-  %109 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.0107.i221
+  %109 = getelementptr inbounds nuw i8, ptr %12, i64 %.0107.i221
   store i8 %108, ptr %109, align 1
   %110 = add nuw nsw i64 %.0107.i221, 1
   %exitcond.not = icmp eq i64 %110, 16
@@ -9785,7 +9785,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %132 = zext i8 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %36, i64 %132
   %134 = load i8, ptr %133, align 1
-  %135 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.097.i229
+  %135 = getelementptr inbounds nuw i8, ptr %12, i64 %.097.i229
   store i8 %134, ptr %135, align 1
   %136 = add nuw nsw i64 %.097.i229, 1
   %exitcond277.not = icmp eq i64 %136, %123
@@ -9963,7 +9963,7 @@ doNormal16.exit37.thread330:                      ; preds = %208
 222:                                              ; preds = %218
   %223 = load i8, ptr %.036.i24, align 1
   %224 = zext i8 %223 to i64
-  %225 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr %36, i64 %224
   %226 = load i8, ptr %225, align 1
   %227 = icmp samesign ult i32 %.035.i25, %212
   br i1 %227, label %228, label %234
@@ -10144,7 +10144,7 @@ doSherman16.exit:                                 ; preds = %.thread165, %254, %
 323:                                              ; preds = %319
   %324 = load i8, ptr %.0144, align 1
   %325 = zext i8 %324 to i64
-  %326 = getelementptr inbounds nuw [256 x i8], ptr %286, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw i8, ptr %286, i64 %325
   %327 = load i8, ptr %326, align 1
   %.not.i10 = icmp ult i16 %.sroa.0.0, %308
   br i1 %.not.i10, label %430, label %328, !prof !5
@@ -10219,7 +10219,7 @@ doSherman16.exit:                                 ; preds = %.thread165, %254, %
   %371 = zext i8 %370 to i64
   %372 = getelementptr inbounds nuw i8, ptr %286, i64 %371
   %373 = load i8, ptr %372, align 1
-  %374 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.0107.i61234
+  %374 = getelementptr inbounds nuw i8, ptr %11, i64 %.0107.i61234
   store i8 %373, ptr %374, align 1
   %375 = add nuw nsw i64 %.0107.i61234, 1
   %exitcond278.not = icmp eq i64 %375, 16
@@ -10276,7 +10276,7 @@ doSherman16.exit:                                 ; preds = %.thread165, %254, %
   %397 = zext i8 %396 to i64
   %398 = getelementptr inbounds nuw i8, ptr %286, i64 %397
   %399 = load i8, ptr %398, align 1
-  %400 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.097.i50246
+  %400 = getelementptr inbounds nuw i8, ptr %11, i64 %.097.i50246
   store i8 %399, ptr %400, align 1
   %401 = add nuw nsw i64 %.097.i50246, 1
   %exitcond279.not = icmp eq i64 %401, %388
@@ -10454,7 +10454,7 @@ doSherman16.exit87:                               ; preds = %450, %.thread174
 487:                                              ; preds = %483
   %488 = load i8, ptr %.036.i, align 1
   %489 = zext i8 %488 to i64
-  %490 = getelementptr inbounds nuw [256 x i8], ptr %286, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i8, ptr %286, i64 %489
   %491 = load i8, ptr %490, align 1
   %492 = icmp samesign ult i32 %.035.i, %477
   br i1 %492, label %493, label %499
@@ -10653,7 +10653,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %.0128201 = phi ptr [ %203, %202 ], [ %.1118, %.lr.ph206.preheader ]
   %53 = load i8, ptr %.0128201, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr %34, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %34, i64 %54
   %56 = load i8, ptr %55, align 1
   %.not.i12 = icmp ult i16 %.sroa.073.0203, %41
   br i1 %.not.i12, label %159, label %57, !prof !5
@@ -10728,7 +10728,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %100 = zext i8 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %34, i64 %100
   %102 = load i8, ptr %101, align 1
-  %103 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.0107.i186
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 %.0107.i186
   store i8 %102, ptr %103, align 1
   %104 = add nuw nsw i64 %.0107.i186, 1
   %exitcond.not = icmp eq i64 %104, 16
@@ -10785,7 +10785,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %126 = zext i8 %125 to i64
   %127 = getelementptr inbounds nuw i8, ptr %34, i64 %126
   %128 = load i8, ptr %127, align 1
-  %129 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.097.i194
+  %129 = getelementptr inbounds nuw i8, ptr %11, i64 %.097.i194
   store i8 %128, ptr %129, align 1
   %130 = add nuw nsw i64 %.097.i194, 1
   %exitcond255.not = icmp eq i64 %130, %117
@@ -10957,7 +10957,7 @@ doSherman16.exit77:                               ; preds = %179, %.thread137
   %.036.i22211 = phi ptr [ %263, %doSherman16.exit ], [ %.1118, %207 ]
   %216 = load i8, ptr %.036.i22211, align 1
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw [256 x i8], ptr %34, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr %34, i64 %217
   %219 = load i8, ptr %218, align 1
   %220 = icmp samesign ult i32 %.035.i23212, %209
   br i1 %220, label %221, label %227
@@ -11132,7 +11132,7 @@ doNormalWide16.exit16:                            ; preds = %202, %doSherman16.e
 317:                                              ; preds = %313
   %318 = load i8, ptr %.0124, align 1
   %319 = zext i8 %318 to i64
-  %320 = getelementptr inbounds nuw [256 x i8], ptr %280, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr %280, i64 %319
   %321 = load i8, ptr %320, align 1
   %.not.i10 = icmp ult i16 %.sroa.0.0, %302
   br i1 %.not.i10, label %424, label %322, !prof !5
@@ -11207,7 +11207,7 @@ doNormalWide16.exit16:                            ; preds = %202, %doSherman16.e
   %365 = zext i8 %364 to i64
   %366 = getelementptr inbounds nuw i8, ptr %280, i64 %365
   %367 = load i8, ptr %366, align 1
-  %368 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %.0107.i56217
+  %368 = getelementptr inbounds nuw i8, ptr %10, i64 %.0107.i56217
   store i8 %367, ptr %368, align 1
   %369 = add nuw nsw i64 %.0107.i56217, 1
   %exitcond256.not = icmp eq i64 %369, 16
@@ -11264,7 +11264,7 @@ doNormalWide16.exit16:                            ; preds = %202, %doSherman16.e
   %391 = zext i8 %390 to i64
   %392 = getelementptr inbounds nuw i8, ptr %280, i64 %391
   %393 = load i8, ptr %392, align 1
-  %394 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %.097.i45229
+  %394 = getelementptr inbounds nuw i8, ptr %10, i64 %.097.i45229
   store i8 %393, ptr %394, align 1
   %395 = add nuw nsw i64 %.097.i45229, 1
   %exitcond257.not = icmp eq i64 %395, %382
@@ -11443,7 +11443,7 @@ doSherman16.exit82:                               ; preds = %444, %.thread148
 482:                                              ; preds = %478
   %483 = load i8, ptr %.036.i, align 1
   %484 = zext i8 %483 to i64
-  %485 = getelementptr inbounds nuw [256 x i8], ptr %280, i64 0, i64 %484
+  %485 = getelementptr inbounds nuw i8, ptr %280, i64 %484
   %486 = load i8, ptr %485, align 1
   %487 = icmp samesign ult i32 %.035.i, %472
   br i1 %487, label %488, label %494

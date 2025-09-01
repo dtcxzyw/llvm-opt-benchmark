@@ -1615,8 +1615,8 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
 19:                                               ; preds = %19, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %19 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %20 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.next.i.i
-  %21 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.next.i.i
+  %21 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.i.i
   store ptr %20, ptr %21, align 8, !tbaa !160
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
   br i1 %exitcond.not.i.i, label %.thread.i, label %19, !llvm.loop !161
@@ -2194,8 +2194,8 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
 19:                                               ; preds = %19, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %19 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %20 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.next.i.i
-  %21 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.next.i.i
+  %21 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.i.i
   store ptr %20, ptr %21, align 8, !tbaa !160
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
   br i1 %exitcond.not.i.i, label %.thread.i, label %19, !llvm.loop !161
@@ -2285,8 +2285,8 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
 19:                                               ; preds = %19, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %19 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %20 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.next.i.i
-  %21 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.next.i.i
+  %21 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.i.i
   store ptr %20, ptr %21, align 8, !tbaa !160
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
   br i1 %exitcond.not.i.i, label %.thread.i, label %19, !llvm.loop !161
@@ -2375,8 +2375,8 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
 19:                                               ; preds = %19, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %19 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %20 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.next.i.i
-  %21 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.next.i.i
+  %21 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.i.i
   store ptr %20, ptr %21, align 8, !tbaa !160
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
   br i1 %exitcond.not.i.i, label %.thread.i, label %19, !llvm.loop !161
@@ -2463,8 +2463,8 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
 19:                                               ; preds = %19, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %19 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %20 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.next.i.i
-  %21 = getelementptr inbounds nuw [32 x %"struct.hb_serialize_context_t::object_t"], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.next.i.i
+  %21 = getelementptr inbounds nuw %"struct.hb_serialize_context_t::object_t", ptr %18, i64 %indvars.iv.i.i
   store ptr %20, ptr %21, align 8, !tbaa !160
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
   br i1 %exitcond.not.i.i, label %.thread.i, label %19, !llvm.loop !161
@@ -3811,7 +3811,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
 
 36:                                               ; preds = %_ZL9hb_memsetPvij.exit
   %37 = zext nneg i32 %.0.i to i64
-  %38 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !93
   br label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
 
@@ -4426,7 +4426,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit.i: ; preds = %9
 111:                                              ; preds = %109
   %112 = add i32 %110, -1
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %.sroa.gep36, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %.sroa.gep36, i64 %113
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i.i.i
 
 115:                                              ; preds = %109
@@ -5459,7 +5459,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit.i.thread190: ; 
   %415 = add i32 %413, -1
   store i32 %415, ptr %.sroa.gep156, align 4, !tbaa !332
   %416 = zext i32 %415 to i64
-  %417 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %.sroa.gep180, i64 0, i64 %416
+  %417 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %.sroa.gep180, i64 %416
   br label %_ZN3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE16return_from_subrEv.exit.i
 
 418:                                              ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEE8fetch_opEv.exit.i.thread190
@@ -6553,7 +6553,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK3CFF12CFF2FDSelect6get_fdEj(ptr n
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !408
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.10"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.OT::IntType.10", ptr %7, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !409
   %11 = zext i8 %10 to i32
   br label %76
@@ -6575,64 +6575,64 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   %.sroa.0.0.copyload.i.i = phi i16 [ %.sroa.0.0.copyload.i.pre.i, %15 ], [ 0, %12 ]
   %.0.i.i = phi ptr [ %16, %15 ], [ @_hb_NullPool, %12 ]
   %17 = tail call noundef i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i.i)
-  %18 = zext i16 %17 to i32
-  %19 = add nsw i32 %18, -1
   %.not3.i.i.i = icmp ugt i16 %17, 1
   br i1 %.not3.i.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit.i
-  %20 = add nsw i32 %18, -2
+  %18 = zext i16 %17 to i32
+  %19 = add nsw i32 %18, -2
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %37, %.lr.ph.preheader.i.i.i
-  %.0215.i.i.i = phi i32 [ %.223.i.i.i, %37 ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %.0244.i.i.i = phi i32 [ %.226.i.i.i, %37 ], [ %20, %.lr.ph.preheader.i.i.i ]
-  %21 = add i32 %.0244.i.i.i, %.0215.i.i.i
-  %22 = lshr i32 %21, 1
-  %23 = zext nneg i32 %22 to i64
-  %24 = mul nuw nsw i64 %23, 3
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %24
-  %26 = load i16, ptr %25, align 1, !tbaa !144
-  %27 = tail call noundef i16 @llvm.bswap.i16(i16 %26)
-  %28 = zext i16 %27 to i32
-  %29 = icmp ult i32 %1, %28
-  br i1 %29, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.preheader.i.i.i
+  %.0215.i.i.i = phi i32 [ %.223.i.i.i, %36 ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %.0244.i.i.i = phi i32 [ %.226.i.i.i, %36 ], [ %19, %.lr.ph.preheader.i.i.i ]
+  %20 = add i32 %.0244.i.i.i, %.0215.i.i.i
+  %21 = lshr i32 %20, 1
+  %22 = zext nneg i32 %21 to i64
+  %23 = mul nuw nsw i64 %22, 3
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %23
+  %25 = load i16, ptr %24, align 1, !tbaa !144
+  %26 = tail call noundef i16 @llvm.bswap.i16(i16 %25)
+  %27 = zext i16 %26 to i32
+  %28 = icmp ult i32 %1, %27
+  br i1 %28, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i, label %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  %31 = load i16, ptr %30, align 1, !tbaa !144
-  %32 = tail call noundef i16 @llvm.bswap.i16(i16 %31)
-  %33 = zext i16 %32 to i32
-  %.not2.i.i.i = icmp ult i32 %1, %33
-  br i1 %.not2.i.i.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit, label %35
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 3
+  %30 = load i16, ptr %29, align 1, !tbaa !144
+  %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
+  %32 = zext i16 %31 to i32
+  %.not2.i.i.i = icmp ult i32 %1, %32
+  br i1 %.not2.i.i.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit, label %34
 
 _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i: ; preds = %.lr.ph.i.i.i
-  %34 = add nsw i32 %22, -1
-  br label %37
+  %33 = add nsw i32 %21, -1
+  br label %36
 
-35:                                               ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
-  %36 = add nuw nsw i32 %22, 1
-  br label %37
+34:                                               ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i
+  %35 = add nuw nsw i32 %21, 1
+  br label %36
 
-37:                                               ; preds = %35, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i
-  %.226.i.i.i = phi i32 [ %34, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %.0244.i.i.i, %35 ]
-  %.223.i.i.i = phi i32 [ %.0215.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %36, %35 ]
+36:                                               ; preds = %34, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i
+  %.226.i.i.i = phi i32 [ %33, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %.0244.i.i.i, %34 ]
+  %.223.i.i.i = phi i32 [ %.0215.i.i.i, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.thread.i.i.i ], [ %35, %34 ]
   %.not.not.i.i.i = icmp sgt i32 %.223.i.i.i, %.226.i.i.i
   br i1 %.not.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !412
 
-.loopexit.i:                                      ; preds = %37, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit.i
+.loopexit.i:                                      ; preds = %36, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit.i
   %.not.i4.not.i = icmp eq i16 %.sroa.0.0.copyload.i.i, 0
-  br i1 %.not.i4.not.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit, label %38, !prof !34
+  br i1 %.not.i4.not.i, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit, label %37, !prof !34
 
-38:                                               ; preds = %.loopexit.i
+37:                                               ; preds = %.loopexit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !408
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds nuw [1 x %"struct.CFF::FDSelect3_4_Range"], ptr %39, i64 0, i64 %40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %39 = zext i16 %17 to i64
+  %40 = getelementptr %"struct.CFF::FDSelect3_4_Range", ptr %38, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 -3
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit
 
-_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i, %.loopexit.i, %38
-  %.pn.i = phi ptr [ %41, %38 ], [ @_hb_NullPool, %.loopexit.i ], [ %25, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i ]
+_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i, %.loopexit.i, %37
+  %.pn.i = phi ptr [ %41, %37 ], [ @_hb_NullPool, %.loopexit.i ], [ %24, %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   %43 = load i8, ptr %42, align 1, !tbaa !409
   %44 = zext i8 %43 to i32
@@ -6705,7 +6705,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.t
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !408
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %70 = zext i32 %51 to i64
-  %71 = getelementptr inbounds nuw [1 x %"struct.CFF::FDSelect3_4_Range.16"], ptr %69, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range.16", ptr %69, i64 %70
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE6get_fdEj.exit: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeIjLj4EEENS2_ItLj2EEEE10_cmp_rangeEPKvS7_.exit.i.i.i, %.loopexit.i10, %68
@@ -7105,7 +7105,7 @@ define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_11blend_arg_tE23cff2_
   %49 = add i32 %46, -1
   store i32 %49, ptr %45, align 4, !tbaa !332
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %48, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %48, i64 %50
   br label %_ZN3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE16return_from_subrEv.exit
 
 52:                                               ; preds = %44
@@ -7165,7 +7165,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %67, %65
   %78 = add nuw nsw i32 %74, 1
   store i32 %78, ptr %73, align 4, !tbaa !333
   %79 = zext nneg i32 %74 to i64
-  %80 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %77, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %77, i64 %79
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i.i
 
 81:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit.i
@@ -7220,7 +7220,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE10push_fixedEi.exit.i: ; preds = %.thread
   %101 = add i32 %98, -1
   store i32 %101, ptr %97, align 4, !tbaa !333
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %100, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %100, i64 %102
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i
 
 104:                                              ; preds = %95
@@ -7271,7 +7271,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %126 = add nuw nsw i32 %118, 1
   store i32 %126, ptr %117, align 4, !tbaa !332
   %127 = zext nneg i32 %118 to i64
-  %128 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %125, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %125, i64 %127
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %124, i64 24, i1 false)
   %129 = load ptr, ptr %112, align 8, !tbaa !421
   %.not.i3.i = icmp eq ptr %129, null
@@ -7315,7 +7315,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeIjLj4EEEEEEixEj.exit.i: ; preds =
   %146 = add i32 %143, -1
   store i32 %146, ptr %142, align 4, !tbaa !333
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %145, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %145, i64 %147
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i132
 
 149:                                              ; preds = %140
@@ -7366,7 +7366,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i138: ; preds = 
   %171 = add nuw nsw i32 %163, 1
   store i32 %171, ptr %162, align 4, !tbaa !332
   %172 = zext nneg i32 %163 to i64
-  %173 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %170, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %170, i64 %172
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull align 8 dereferenceable(24) %169, i64 24, i1 false)
   %174 = load ptr, ptr %157, align 8, !tbaa !421
   %.not.i3.i139 = icmp eq ptr %174, null
@@ -7480,7 +7480,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %236, 
   %222 = phi i32 [ %220, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %237, %236 ]
   %.030.i.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %.2.i.i.i.i, %236 ]
   %223 = zext i32 %.030.i.i.i.i to i64
-  %224 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %221, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %221, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 20
   %226 = load i32, ptr %225, align 4, !tbaa !433
   %.not29.i.i.i.i = icmp eq i32 %226, 0
@@ -7568,7 +7568,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i149: ; preds = %27
   %261 = phi i32 [ %259, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i148 ], [ %276, %275 ]
   %.030.i.i.i.i150 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i148 ], [ %.2.i.i.i.i154, %275 ]
   %262 = zext i32 %.030.i.i.i.i150 to i64
-  %263 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %260, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %260, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 20
   %265 = load i32, ptr %264, align 4, !tbaa !433
   %.not29.i.i.i.i151 = icmp eq i32 %265, 0
@@ -7656,7 +7656,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i159: ; preds = %31
   %300 = phi i32 [ %298, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i158 ], [ %315, %314 ]
   %.030.i.i.i.i160 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i158 ], [ %.2.i.i.i.i164, %314 ]
   %301 = zext i32 %.030.i.i.i.i160 to i64
-  %302 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %299, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %299, i64 %301
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 20
   %304 = load i32, ptr %303, align 4, !tbaa !433
   %.not29.i.i.i.i161 = icmp eq i32 %304, 0
@@ -7744,7 +7744,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i169: ; preds = %35
   %339 = phi i32 [ %337, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i168 ], [ %354, %353 ]
   %.030.i.i.i.i170 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i168 ], [ %.2.i.i.i.i174, %353 ]
   %340 = zext i32 %.030.i.i.i.i170 to i64
-  %341 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %338, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %338, i64 %340
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 20
   %343 = load i32, ptr %342, align 4, !tbaa !433
   %.not29.i.i.i.i171 = icmp eq i32 %343, 0
@@ -7832,7 +7832,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i179: ; preds = %39
   %378 = phi i32 [ %376, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i178 ], [ %393, %392 ]
   %.030.i.i.i.i180 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i178 ], [ %.2.i.i.i.i184, %392 ]
   %379 = zext i32 %.030.i.i.i.i180 to i64
-  %380 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %377, i64 0, i64 %379
+  %380 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %377, i64 %379
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 20
   %382 = load i32, ptr %381, align 4, !tbaa !433
   %.not29.i.i.i.i181 = icmp eq i32 %382, 0
@@ -7920,7 +7920,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i189: ; preds = %43
   %417 = phi i32 [ %415, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i188 ], [ %432, %431 ]
   %.030.i.i.i.i190 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i188 ], [ %.2.i.i.i.i194, %431 ]
   %418 = zext i32 %.030.i.i.i.i190 to i64
-  %419 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %416, i64 0, i64 %418
+  %419 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %416, i64 %418
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 20
   %421 = load i32, ptr %420, align 4, !tbaa !433
   %.not29.i.i.i.i191 = icmp eq i32 %421, 0
@@ -8008,7 +8008,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i199: ; preds = %47
   %456 = phi i32 [ %454, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i198 ], [ %471, %470 ]
   %.030.i.i.i.i200 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i198 ], [ %.2.i.i.i.i204, %470 ]
   %457 = zext i32 %.030.i.i.i.i200 to i64
-  %458 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %455, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %455, i64 %457
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 20
   %460 = load i32, ptr %459, align 4, !tbaa !433
   %.not29.i.i.i.i201 = icmp eq i32 %460, 0
@@ -8096,7 +8096,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i209: ; preds = %50
   %495 = phi i32 [ %493, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i208 ], [ %510, %509 ]
   %.030.i.i.i.i210 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i208 ], [ %.2.i.i.i.i214, %509 ]
   %496 = zext i32 %.030.i.i.i.i210 to i64
-  %497 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %494, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %494, i64 %496
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 20
   %499 = load i32, ptr %498, align 4, !tbaa !433
   %.not29.i.i.i.i211 = icmp eq i32 %499, 0
@@ -8184,7 +8184,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i219: ; preds = %54
   %534 = phi i32 [ %532, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i218 ], [ %549, %548 ]
   %.030.i.i.i.i220 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i218 ], [ %.2.i.i.i.i224, %548 ]
   %535 = zext i32 %.030.i.i.i.i220 to i64
-  %536 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %533, i64 0, i64 %535
+  %536 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %533, i64 %535
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 20
   %538 = load i32, ptr %537, align 4, !tbaa !433
   %.not29.i.i.i.i221 = icmp eq i32 %538, 0
@@ -8272,7 +8272,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i229: ; preds = %58
   %573 = phi i32 [ %571, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i228 ], [ %588, %587 ]
   %.030.i.i.i.i230 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i228 ], [ %.2.i.i.i.i234, %587 ]
   %574 = zext i32 %.030.i.i.i.i230 to i64
-  %575 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %572, i64 0, i64 %574
+  %575 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %572, i64 %574
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 20
   %577 = load i32, ptr %576, align 4, !tbaa !433
   %.not29.i.i.i.i231 = icmp eq i32 %577, 0
@@ -8360,7 +8360,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i239: ; preds = %62
   %612 = phi i32 [ %610, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i238 ], [ %627, %626 ]
   %.030.i.i.i.i240 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i238 ], [ %.2.i.i.i.i244, %626 ]
   %613 = zext i32 %.030.i.i.i.i240 to i64
-  %614 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %611, i64 0, i64 %613
+  %614 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %611, i64 %613
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 20
   %616 = load i32, ptr %615, align 4, !tbaa !433
   %.not29.i.i.i.i241 = icmp eq i32 %616, 0
@@ -8471,7 +8471,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i248: ; preds = %67
   %662 = phi i32 [ %660, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i247 ], [ %677, %676 ]
   %.030.i.i.i.i249 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i247 ], [ %.2.i.i.i.i253, %676 ]
   %663 = zext i32 %.030.i.i.i.i249 to i64
-  %664 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %661, i64 0, i64 %663
+  %664 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %661, i64 %663
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 20
   %666 = load i32, ptr %665, align 4, !tbaa !433
   %.not29.i.i.i.i250 = icmp eq i32 %666, 0
@@ -8582,7 +8582,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i258: ; preds = %72
   %712 = phi i32 [ %710, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i257 ], [ %727, %726 ]
   %.030.i.i.i.i259 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i257 ], [ %.2.i.i.i.i263, %726 ]
   %713 = zext i32 %.030.i.i.i.i259 to i64
-  %714 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %711, i64 0, i64 %713
+  %714 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %711, i64 %713
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 20
   %716 = load i32, ptr %715, align 4, !tbaa !433
   %.not29.i.i.i.i260 = icmp eq i32 %716, 0
@@ -8693,7 +8693,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i268: ; preds = %77
   %762 = phi i32 [ %760, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i267 ], [ %777, %776 ]
   %.030.i.i.i.i269 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i267 ], [ %.2.i.i.i.i273, %776 ]
   %763 = zext i32 %.030.i.i.i.i269 to i64
-  %764 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %761, i64 0, i64 %763
+  %764 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %761, i64 %763
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 20
   %766 = load i32, ptr %765, align 4, !tbaa !433
   %.not29.i.i.i.i270 = icmp eq i32 %766, 0
@@ -8814,7 +8814,7 @@ define linkonce_odr dso_local void @_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_fla
   %10 = add i32 %7, -1
   store i32 %10, ptr %6, align 4, !tbaa !333
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %9, i64 %11
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i
 
 13:                                               ; preds = %2
@@ -8906,7 +8906,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
 
 46:                                               ; preds = %37
   %47 = zext i32 %43 to i64
-  %48 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %22, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %22, i64 %47
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit: ; preds = %45, %46
@@ -9035,7 +9035,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_Z
   %18 = phi i32 [ %6, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %33, %32 ]
   %.030.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %32 ]
   %19 = zext i32 %.030.i.i.i to i64
-  %20 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !433
   %.not29.i.i.i = icmp eq i32 %22, 0
@@ -9132,7 +9132,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_Z
   %18 = phi i32 [ %6, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %33, %32 ]
   %.030.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %32 ]
   %19 = zext i32 %.030.i.i.i to i64
-  %20 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !433
   %.not29.i.i.i = icmp eq i32 %22, 0
@@ -9259,7 +9259,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %50, %_Z
   %36 = phi i32 [ %34, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %51, %50 ]
   %.030.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %50 ]
   %37 = zext i32 %.030.i.i.i to i64
-  %38 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %35, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %35, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !433
   %.not29.i.i.i = icmp eq i32 %40, 0
@@ -9383,7 +9383,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit20:               ; preds = %20, %22
   %34 = add nuw nsw i32 %30, 1
   store i32 %34, ptr %29, align 4, !tbaa !333
   %35 = zext nneg i32 %30 to i64
-  %36 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %33, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %33, i64 %35
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i
 
 37:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit20
@@ -9463,7 +9463,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit23:               ; preds = %57, %59
   %73 = add nuw nsw i32 %69, 1
   store i32 %73, ptr %68, align 4, !tbaa !333
   %74 = zext nneg i32 %69 to i64
-  %75 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %72, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %72, i64 %74
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i24
 
 76:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit23
@@ -9544,7 +9544,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit32:               ; preds = %97, %99
   %112 = add nuw nsw i32 %108, 1
   store i32 %112, ptr %107, align 4, !tbaa !333
   %113 = zext nneg i32 %108 to i64
-  %114 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %111, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %111, i64 %113
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i33
 
 115:                                              ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit32
@@ -9603,7 +9603,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8push_intEi.exit38: ; preds = %_ZN3CFF11c
   %138 = add nuw nsw i32 %134, 1
   store i32 %138, ptr %133, align 4, !tbaa !333
   %139 = zext nneg i32 %134 to i64
-  %140 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %137, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %137, i64 %139
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i39
 
 141:                                              ; preds = %131
@@ -9794,7 +9794,7 @@ define linkonce_odr dso_local void @_ZN23cff2_cs_opset_flatten_t14flatten_blends
 
 23:                                               ; preds = %18
   %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %12, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %12, i64 %24
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit: ; preds = %22, %23
@@ -9882,7 +9882,7 @@ _ZN3CFF13str_encoder_t9encode_opEj.exit:          ; preds = %52, %58
 
 65:                                               ; preds = %60
   %66 = zext i32 %62 to i64
-  %67 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %17, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %17, i64 %66
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit36
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit36: ; preds = %64, %65
@@ -10458,7 +10458,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %30, %
   %16 = phi i32 [ %14, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %31, %30 ]
   %.030.i.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %.2.i.i.i.i, %30 ]
   %17 = zext i32 %.030.i.i.i.i to i64
-  %18 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !433
   %.not29.i.i.i.i = icmp eq i32 %20, 0
@@ -10605,7 +10605,7 @@ define linkonce_odr dso_local void @_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !408
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %17 = zext nneg i32 %10 to i64
-  %18 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.35"], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.OT::OffsetTo.35", ptr %16, i64 %17
   br label %_ZNK2OT18ItemVariationStore22get_region_index_countEj.exit
 
 _ZNK2OT18ItemVariationStore22get_region_index_countEj.exit: ; preds = %5, %15
@@ -10741,7 +10741,7 @@ _ZN11hb_vector_tIfLb0EEixEi.exit:                 ; preds = %72, %74
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !408
   %83 = getelementptr inbounds nuw i8, ptr %65, i64 10
   %84 = zext nneg i32 %67 to i64
-  %85 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.35"], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw %"struct.OT::OffsetTo.35", ptr %83, i64 %84
   br label %_ZNK2OT18ItemVariationStore18get_region_scalarsEjPKijPfj.exit
 
 _ZNK2OT18ItemVariationStore18get_region_scalarsEjPKijPfj.exit: ; preds = %_ZN11hb_vector_tIfLb0EEixEi.exit, %82
@@ -10797,7 +10797,7 @@ define linkonce_odr dso_local void @_ZNK2OT7VarData18get_region_scalarsEPKijRKNS
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.12"], ptr %10, i64 0, i64 %indvars.iv23
+  %19 = getelementptr inbounds nuw %"struct.OT::IntType.12", ptr %10, i64 %indvars.iv23
   %20 = load i16, ptr %19, align 1, !tbaa !144
   %21 = tail call noundef i16 @llvm.bswap.i16(i16 %20)
   %.not.i.us = icmp ult i16 %21, %13
@@ -10828,7 +10828,7 @@ define linkonce_odr dso_local void @_ZNK2OT7VarData18get_region_scalarsEPKijRKNS
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit ], [ 0, %.lr.ph ]
-  %32 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.12"], ptr %10, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %"struct.OT::IntType.12", ptr %10, i64 %indvars.iv
   %33 = load i16, ptr %32, align 1, !tbaa !144
   %34 = tail call noundef i16 @llvm.bswap.i16(i16 %33)
   %.not.i = icmp ult i16 %34, %13
@@ -12733,7 +12733,7 @@ define linkonce_odr dso_local void @_ZN3CFF15cff2_cs_opset_tI27cff2_cs_opset_sub
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = add i32 %9, -1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %11, i64 %13
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i.i
 
 15:                                               ; preds = %6
@@ -12801,7 +12801,7 @@ define linkonce_odr dso_local void @_ZN27cff2_cs_opset_subr_subset_t17process_ca
   %12 = add i32 %9, -1
   store i32 %12, ptr %8, align 4, !tbaa !333
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %11, i64 %13
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i
 
 15:                                               ; preds = %6
@@ -12854,7 +12854,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %37 = add nuw nsw i32 %29, 1
   store i32 %37, ptr %28, align 4, !tbaa !332
   %38 = zext nneg i32 %29 to i64
-  %39 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %36, i64 %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   %40 = load ptr, ptr %23, align 8, !tbaa !421
   %.not.i3.i = icmp eq ptr %40, null
@@ -12924,7 +12924,7 @@ _ZN3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE9call
   %72 = lshr i32 %54, 6
   %73 = and i32 %72, 7
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [8 x i64], ptr %71, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i64, ptr %71, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !517
   %77 = or i64 %76, %70
   store i64 %77, ptr %75, align 8, !tbaa !517
@@ -13104,7 +13104,7 @@ define linkonce_odr dso_local void @_ZN3CFF10cs_opset_tINS_11blend_arg_tE27cff2_
   %17 = add i32 %14, -1
   store i32 %17, ptr %13, align 4, !tbaa !332
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %16, i64 %18
   br label %_ZN3CFF15cs_interp_env_tINS_11blend_arg_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE16return_from_subrEv.exit
 
 20:                                               ; preds = %12
@@ -13166,7 +13166,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %36, %34
   %47 = add nuw nsw i32 %43, 1
   store i32 %47, ptr %42, align 4, !tbaa !333
   %48 = zext nneg i32 %43 to i64
-  %49 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %46, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %46, i64 %48
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i.i
 
 50:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit.i
@@ -13221,7 +13221,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE10push_fixedEi.exit.i: ; preds = %.thread
   %70 = add i32 %67, -1
   store i32 %70, ptr %66, align 4, !tbaa !333
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %69, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %69, i64 %71
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i
 
 73:                                               ; preds = %64
@@ -13272,7 +13272,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %95 = add nuw nsw i32 %87, 1
   store i32 %95, ptr %86, align 4, !tbaa !332
   %96 = zext nneg i32 %87 to i64
-  %97 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %94, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %94, i64 %96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
   %98 = load ptr, ptr %81, align 8, !tbaa !421
   %.not.i3.i = icmp eq ptr %98, null
@@ -13316,7 +13316,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeIjLj4EEEEEEixEj.exit.i: ; preds =
   %115 = add i32 %112, -1
   store i32 %115, ptr %111, align 4, !tbaa !333
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %114, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %114, i64 %116
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i.i132
 
 118:                                              ; preds = %109
@@ -13367,7 +13367,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i138: ; preds = 
   %140 = add nuw nsw i32 %132, 1
   store i32 %140, ptr %131, align 4, !tbaa !332
   %141 = zext nneg i32 %132 to i64
-  %142 = getelementptr inbounds nuw [10 x %"struct.CFF::call_context_t"], ptr %139, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %139, i64 %141
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr noundef nonnull align 8 dereferenceable(24) %138, i64 24, i1 false)
   %143 = load ptr, ptr %126, align 8, !tbaa !421
   %.not.i3.i139 = icmp eq ptr %143, null
@@ -13677,7 +13677,7 @@ define linkonce_odr dso_local void @_ZN3CFF15cff2_cs_opset_tI27cff2_cs_opset_sub
   %10 = add i32 %7, -1
   store i32 %10, ptr %6, align 4, !tbaa !333
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %9, i64 %11
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE7pop_intEv.exit.i
 
 13:                                               ; preds = %2
@@ -13769,7 +13769,7 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
 
 46:                                               ; preds = %37
   %47 = zext i32 %43 to i64
-  %48 = getelementptr inbounds nuw [513 x %"struct.CFF::blend_arg_t"], ptr %22, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %22, i64 %47
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit: ; preds = %45, %46
@@ -14069,7 +14069,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %.thread.i, %_ZNK11h
   %43 = lshr i32 %1, 6
   %44 = and i32 %43, 7
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %42, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !517
   %48 = and i64 %47, %41
   store i64 %48, ptr %46, align 8, !tbaa !517
@@ -14641,7 +14641,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i:     ; preds = %_ZNK11hb_vector_tIN
   %66 = lshr i32 %32, 6
   %67 = and i32 %66, 7
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [8 x i64], ptr %65, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i64, ptr %65, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !517
   %71 = and i32 %32, 63
   %72 = zext nneg i32 %71 to i64
@@ -14686,7 +14686,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %61, %._cr
   %93 = lshr i32 %32, 6
   %94 = and i32 %93, 7
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [8 x i64], ptr %92, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %92, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !517
   %98 = or i64 %97, %91
   store i64 %98, ptr %96, align 8, !tbaa !517
@@ -14794,7 +14794,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i38:   ; preds = %_ZNK11hb_vector_tIN
   %144 = lshr i32 %110, 6
   %145 = and i32 %144, 7
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i64, ptr %143, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !517
   %149 = and i32 %110, 63
   %150 = zext nneg i32 %149 to i64
@@ -14839,7 +14839,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit46: ; preds = %139, %.
   %171 = lshr i32 %110, 6
   %172 = and i32 %171, 7
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [8 x i64], ptr %170, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i64, ptr %170, i64 %173
   %175 = load i64, ptr %174, align 8, !tbaa !517
   %176 = or i64 %175, %169
   store i64 %176, ptr %174, align 8, !tbaa !517
@@ -14927,7 +14927,7 @@ define linkonce_odr dso_local void @_ZN3CFF12subr_remap_t6createEPK8hb_set_t(ptr
 25:                                               ; preds = %25, %23
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i.i.i.i, %25 ]
   %.056.i.i.i.i.i = phi i32 [ 0, %23 ], [ %30, %25 ]
-  %26 = getelementptr inbounds nuw [8 x i64], ptr %24, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %26 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i.i.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !517
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
   %29 = trunc nuw nsw i64 %28 to i32
@@ -14987,7 +14987,7 @@ _ZNK12hb_bit_set_t14get_populationEv.exit.i.i:    ; preds = %._crit_edge.i.i.i, 
 45:                                               ; preds = %45, %43
   %indvars.iv.i.i.i16.i.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.i.i18.i.i, %45 ]
   %.056.i.i.i17.i.i = phi i32 [ 0, %43 ], [ %50, %45 ]
-  %46 = getelementptr inbounds nuw [8 x i64], ptr %44, i64 0, i64 %indvars.iv.i.i.i16.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv.i.i.i16.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !517
   %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
   %49 = trunc nuw nsw i64 %48 to i32
@@ -15395,7 +15395,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34, !prof !34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %35 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %19
+  %35 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %19
   %36 = load i32, ptr %35, align 4, !tbaa !93
   br label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
 
@@ -15646,7 +15646,7 @@ define linkonce_odr dso_local void @_ZN23hb_bit_set_invertible_t6iter_tC2ERKS_b(
 26:                                               ; preds = %26, %24
   %indvars.iv.i.i.i.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i.i.i.i, %26 ]
   %.056.i.i.i.i = phi i32 [ 0, %24 ], [ %31, %26 ]
-  %27 = getelementptr inbounds nuw [8 x i64], ptr %25, i64 0, i64 %indvars.iv.i.i.i.i
+  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !517
   %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %28)
   %30 = trunc nuw nsw i64 %29 to i32
@@ -15711,7 +15711,7 @@ _ZNK23hb_bit_set_invertible_t14get_populationEv.exit.thread: ; preds = %34
 47:                                               ; preds = %47, %45
   %indvars.iv.i.i.i16.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.i.i18.i, %47 ]
   %.056.i.i.i17.i = phi i32 [ 0, %45 ], [ %52, %47 ]
-  %48 = getelementptr inbounds nuw [8 x i64], ptr %46, i64 0, i64 %indvars.iv.i.i.i16.i
+  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv.i.i.i16.i
   %49 = load i64, ptr %48, align 8, !tbaa !517
   %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
   %51 = trunc nuw nsw i64 %50 to i32
@@ -15904,7 +15904,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %53 = and i32 %50, 63
   %54 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %42, i64 %49, i32 1
   %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds nuw [8 x i64], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %54, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !517
   %58 = zext nneg i32 %53 to i64
   %notmask.i = shl nsw i64 -1, %58
@@ -15913,7 +15913,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   br i1 %.not20.not.not.i.not57, label %.lr.ph, label %._crit_edge
 
 thread-pre-split.i:                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw [8 x i64], ptr %54, i64 0, i64 %indvars.iv.next.i
+  %60 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.next.i
   %.pr.i = load i64, ptr %60, align 8, !tbaa !517
   %.not20.not.not.i.not = icmp eq i64 %.pr.i, 0
   br i1 %.not20.not.not.i.not, label %.lr.ph, label %._crit_edge.loopexit
@@ -15967,7 +15967,7 @@ thread-pre-split.i:                               ; preds = %.lr.ph
 
 80:                                               ; preds = %83, %.lr.ph62
   %indvars.iv.i32 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next.i34, %83 ]
-  %81 = getelementptr inbounds nuw [8 x i64], ptr %79, i64 0, i64 %indvars.iv.i32
+  %81 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv.i32
   %82 = load i64, ptr %81, align 8, !tbaa !517
   %.not.i33 = icmp eq i64 %82, 0
   br i1 %.not.i33, label %83, label %_ZNK13hb_bit_page_t7get_minEv.exit
@@ -16075,7 +16075,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK12hb_bit_set_t7get_minEv(ptr noun
 
 17:                                               ; preds = %17, %15
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %17 ]
-  %18 = getelementptr inbounds nuw [8 x i64], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !517
   %.not.not.i.i = icmp ne i64 %19, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -16098,7 +16098,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18:     ; preds = %8, %_ZNK16hb_vector
 
 23:                                               ; preds = %32, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
   %indvars.iv.i = phi i64 [ 0, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ], [ %indvars.iv.next.i, %32 ]
-  %24 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !517
   %.not.i15 = icmp eq i64 %25, 0
   br i1 %.not.i15, label %32, label %26
@@ -18285,7 +18285,7 @@ define linkonce_odr dso_local void @_ZN31cff2_private_dict_blend_opset_t10proces
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = add i32 %16, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %20
   %.pre.i.i.i = load double, ptr %21, align 8, !tbaa !335
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i
 
@@ -18518,7 +18518,7 @@ _ZN11hb_vector_tIhLb0EED2Ev.exit:                 ; preds = %_ZN22hb_serialize_c
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %51, i64 0, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %51, i64 %indvars.iv
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit
 
 _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit: ; preds = %123, %124
@@ -18548,7 +18548,7 @@ define linkonce_odr dso_local void @_ZN31cff2_private_dict_blend_opset_t13proces
   %10 = add i32 %7, -1
   store i32 %10, ptr %6, align 4, !tbaa !596
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %9, i64 %11
   %.pre.i.i = load double, ptr %12, align 8, !tbaa !335
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i
 
@@ -18609,7 +18609,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg_sta
 
 33:                                               ; preds = %.lr.ph.split.us
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %23, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %23, i64 %34
   %.pre42 = load double, ptr %35, align 8, !tbaa !335
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us
 
@@ -18669,7 +18669,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us: ; preds = %33, %32
 
 57:                                               ; preds = %.lr.ph.split
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %23, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %23, i64 %58
   %.pre = load double, ptr %59, align 8, !tbaa !335
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit
 
@@ -18805,7 +18805,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit14.i:             ; preds = %38, %36
   %49 = add nuw nsw i32 %45, 1
   store i32 %49, ptr %44, align 4, !tbaa !596
   %50 = zext nneg i32 %45 to i64
-  %51 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %48, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %48, i64 %50
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE24push_longint_from_substrERNS_14byte_str_ref_tE.exit
 
 52:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit14.i
@@ -18844,7 +18844,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE24push_longint_from_substrERNS_14byte_str_ref
   %73 = add nuw nsw i32 %69, 1
   store i32 %73, ptr %68, align 4, !tbaa !596
   %74 = zext nneg i32 %69 to i64
-  %75 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %72, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %72, i64 %74
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE9push_realEd.exit
 
 76:                                               ; preds = %66
@@ -19569,7 +19569,7 @@ define linkonce_odr dso_local void @_ZN34cff2_private_blend_encoder_param_t13pro
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !408
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %17 = zext nneg i32 %10 to i64
-  %18 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.35"], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.OT::OffsetTo.35", ptr %16, i64 %17
   br label %_ZNK2OT18ItemVariationStore22get_region_index_countEj.exit
 
 _ZNK2OT18ItemVariationStore22get_region_index_countEj.exit: ; preds = %5, %15
@@ -19696,7 +19696,7 @@ _ZN11hb_vector_tIfLb0EEixEi.exit:                 ; preds = %64, %66
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !408
   %75 = getelementptr inbounds nuw i8, ptr %55, i64 10
   %76 = zext nneg i32 %57 to i64
-  %77 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.35"], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw %"struct.OT::OffsetTo.35", ptr %75, i64 %76
   br label %_ZNK2OT18ItemVariationStore18get_region_scalarsEjPKijPfj.exit
 
 _ZNK2OT18ItemVariationStore18get_region_scalarsEjPKijPfj.exit: ; preds = %_ZN11hb_vector_tIfLb0EEixEi.exit, %74
@@ -19809,10 +19809,10 @@ _ZN3CFF14byte_str_ref_tixEi.exit:                 ; preds = %19, %20
 
 34:                                               ; preds = %27
   %35 = zext nneg i8 %.0.in to i64
-  %36 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @.str, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !61
   %38 = zext nneg i32 %.02454 to i64
-  %39 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 %38
   store i8 %37, ptr %39, align 1, !tbaa !61
   %40 = icmp eq i8 %.0.in, 12
   br i1 %40, label %41, label %47
@@ -19824,7 +19824,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit:                 ; preds = %19, %20
 
 44:                                               ; preds = %41
   %45 = zext nneg i32 %42 to i64
-  %46 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 %45
   store i8 45, ptr %46, align 1, !tbaa !61
   br label %47
 
@@ -19921,7 +19921,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit20:               ; preds = %20, %22
   %35 = add nuw nsw i32 %31, 1
   store i32 %35, ptr %30, align 4, !tbaa !596
   %36 = zext nneg i32 %31 to i64
-  %37 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %34, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %34, i64 %36
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit
 
 38:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit20
@@ -19977,7 +19977,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit23:               ; preds = %49, %51
   %66 = add nuw nsw i32 %62, 1
   store i32 %66, ptr %61, align 4, !tbaa !596
   %67 = zext nneg i32 %62 to i64
-  %68 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %65, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %65, i64 %67
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit25
 
 69:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit23
@@ -20034,7 +20034,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit28:               ; preds = %81, %83
   %97 = add nuw nsw i32 %93, 1
   store i32 %97, ptr %92, align 4, !tbaa !596
   %98 = zext nneg i32 %93 to i64
-  %99 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %96, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %96, i64 %98
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit30
 
 100:                                              ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit28
@@ -20068,7 +20068,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit30: ; preds = %95, %100
   %114 = add nuw nsw i32 %110, 1
   store i32 %114, ptr %109, align 4, !tbaa !596
   %115 = zext nneg i32 %110 to i64
-  %116 = getelementptr inbounds nuw [513 x %"struct.CFF::number_t"], ptr %113, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %113, i64 %115
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32
 
 117:                                              ; preds = %107

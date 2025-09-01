@@ -1123,7 +1123,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   %37 = fmul double %34, 0x3FF6A09E667F3BCD
   %.v = select i1 %36, double %34, double %37
   %38 = fdiv double %.v, %sqrt.i49
-  %39 = getelementptr inbounds nuw [40 x double], ptr %2, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   store double %38, ptr %39, align 8, !tbaa !63
   %40 = fcmp ogt double %38, %.05.us
   br i1 %40, label %20, label %17
@@ -1137,7 +1137,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   %indvars.iv13 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next14, %50 ]
   %.05 = phi double [ 0.000000e+00, %.preheader.lr.ph.split ], [ %.1, %50 ]
   %.0384 = phi double [ 0.000000e+00, %.preheader.lr.ph.split ], [ %.139, %50 ]
-  %41 = getelementptr inbounds nuw [40 x double], ptr %2, i64 0, i64 %indvars.iv13
+  %41 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv13
   store double %., ptr %41, align 8, !tbaa !63
   %42 = fcmp ogt double %., %.05
   br i1 %42, label %50, label %47
@@ -1175,7 +1175,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
 
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph ], [ 0, %51 ]
-  %54 = getelementptr inbounds nuw [40 x double], ptr %2, i64 0, i64 %indvars.iv17
+  %54 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv17
   %55 = load double, ptr %54, align 8, !tbaa !63
   %56 = fsub double %55, %.038.lcssa
   %57 = fmul double %56, 2.550000e+02

@@ -803,7 +803,7 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators15filter_
 
 16:                                               ; preds = %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators15filter_iteratorIN12_GLOBAL__N_127remove_whitespace_predicateIwEENS4_16istream_iteratorIwEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEdeEv.exit
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw [128 x i8], ptr @_ZZNK5boost7archive9iterators6detail8to_6_bitIjEclEjE12lookup_table, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZZNK5boost7archive9iterators6detail8to_6_bitIjEclEjE12lookup_table, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = icmp eq i8 %19, -1
   br i1 %20, label %.thread.i, label %_ZNK5boost7archive9iterators6detail8to_6_bitIjEclEj.exit
@@ -862,7 +862,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost7archive9iterators18dataflow_e
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK5boost7archive9iterators18dataflow_exception4whatEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5boost7archive9iterators18dataflow_exception4whatEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

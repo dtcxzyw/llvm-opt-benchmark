@@ -257,7 +257,7 @@ smart_str_0.exit:                                 ; preds = %20
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !38
-  %24 = getelementptr inbounds nuw [1 x i8], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !28
   %25 = load ptr, ptr %4, align 8, !tbaa !35
   %.not.i6 = icmp eq ptr %25, null
@@ -405,7 +405,7 @@ define dso_local range(i32 -1, 1) i32 @php_json_decode_ex(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %14
   %17 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zif_json_last_error_msg, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_json_get_error_msg.exit
 
@@ -635,7 +635,7 @@ smart_str_free_ex.exit80:                         ; preds = %57, %zend_string_re
 
 switch.lookup:                                    ; preds = %smart_str_free_ex.exit80
   %73 = zext nneg i32 %69 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zif_json_last_error_msg, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_json_get_error_msg.exit
 
@@ -657,7 +657,7 @@ smart_str_0.exit:                                 ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !38
-  %83 = getelementptr inbounds nuw [1 x i8], ptr %80, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 %82
   store i8 0, ptr %83, align 1, !tbaa !28
   %84 = load ptr, ptr %4, align 8, !tbaa !35
   %.not.i86 = icmp eq ptr %84, null
@@ -1191,7 +1191,7 @@ define hidden void @zif_json_last_error_msg(ptr noundef readonly captures(none) 
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zif_json_last_error_msg, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_json_get_error_msg.exit
 
@@ -1210,7 +1210,7 @@ php_json_get_error_msg.exit:                      ; preds = %6, %switch.lookup
   store i64 %10, ptr %16, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %.0.i, i64 %10, i1 false)
-  %18 = getelementptr inbounds nuw [1 x i8], ptr %17, i64 0, i64 %10
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %10
   store i8 0, ptr %18, align 1, !tbaa !28
   store ptr %13, ptr %1, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8

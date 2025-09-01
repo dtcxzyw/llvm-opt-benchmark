@@ -2846,7 +2846,7 @@ _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optio
   %52 = add i32 %45, -44
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw [31 x i64], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
   store i64 %51, ptr %55, align 8, !tbaa !56
   %56 = icmp ugt i32 %52, 30
   br i1 %56, label %57, label %_ZNSt6bitsetILm31EE3setEmb.exit.i17
@@ -3303,7 +3303,7 @@ _ZNKSt6bitsetILm31EE4testEm.exit.i:               ; preds = %35
 
 44:                                               ; preds = %_ZNKSt6bitsetILm31EE4testEm.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = getelementptr inbounds nuw [31 x i64], ptr %45, i64 0, i64 %37
+  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %37
   %47 = load i64, ptr %46, align 8, !tbaa !56
   br label %48
 

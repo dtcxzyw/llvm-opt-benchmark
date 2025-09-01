@@ -3870,7 +3870,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 
 ._crit_edge14.i.us.us.us77:                       ; preds = %.lr.ph.split.us.us.split.us83, %._crit_edge14.i.us.us.us77
   %indvars.iv.i.us.us.us78 = phi i64 [ %indvars.iv.next.i.us.us.us79, %._crit_edge14.i.us.us.us77 ], [ 0, %.lr.ph.split.us.us.split.us83 ]
-  %65 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us78
+  %65 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us78
   %66 = load ptr, ptr %65, align 8, !tbaa !61
   %67 = getelementptr i8, ptr %66, i64 %indvars.iv104
   %68 = getelementptr i8, ptr %67, i64 %63
@@ -3904,7 +3904,7 @@ _ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_ed
 
 ._crit_edge14.i.us.us.us.us:                      ; preds = %._crit_edge14.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge14.i.us.us.us.us ]
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %79 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us.us
   %80 = load ptr, ptr %79, align 8, !tbaa !61
   %81 = getelementptr i8, ptr %80, i64 %indvars.iv
   %82 = getelementptr i8, ptr %81, i64 %63
@@ -4086,7 +4086,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
 
 ._crit_edge14.i.us.us.us77:                       ; preds = %.lr.ph.split.us.us.split.us83, %._crit_edge14.i.us.us.us77
   %indvars.iv.i.us.us.us78 = phi i64 [ %indvars.iv.next.i.us.us.us79, %._crit_edge14.i.us.us.us77 ], [ 0, %.lr.ph.split.us.us.split.us83 ]
-  %65 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us78
+  %65 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us78
   %66 = load ptr, ptr %65, align 8, !tbaa !61
   %67 = getelementptr i8, ptr %66, i64 %indvars.iv104
   %68 = getelementptr i8, ptr %67, i64 %63
@@ -4120,7 +4120,7 @@ _ZNK2cv6stereo12CensusKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_ed
 
 ._crit_edge14.i.us.us.us.us:                      ; preds = %._crit_edge14.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge14.i.us.us.us.us ]
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %79 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us.us
   %80 = load ptr, ptr %79, align 8, !tbaa !61
   %81 = getelementptr i8, ptr %80, i64 %indvars.iv
   %82 = getelementptr i8, ptr %81, i64 %63
@@ -4290,7 +4290,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 ._crit_edge14.i.us.us.us99:                       ; preds = %.lr.ph.split.us.us.split.us107, %._crit_edge14.i.us.us.us99
   %59 = phi i32 [ %70, %._crit_edge14.i.us.us.us99 ], [ %.lcssa6365.us.us.us97, %.lr.ph.split.us.us.split.us107 ]
   %indvars.iv.i.us.us.us100 = phi i64 [ %indvars.iv.next.i.us.us.us101, %._crit_edge14.i.us.us.us99 ], [ 0, %.lr.ph.split.us.us.split.us107 ]
-  %60 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us100
+  %60 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us100
   %61 = load ptr, ptr %60, align 8, !tbaa !61
   %62 = getelementptr i8, ptr %61, i64 %indvars.iv129
   %63 = getelementptr i8, ptr %62, i64 %57
@@ -4325,7 +4325,7 @@ _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_ed
 ._crit_edge14.i.us.us.us.us:                      ; preds = %._crit_edge14.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %72 = phi i32 [ %.lcssa6365.us.us.us.us, %.lr.ph.i.us.us.us.us ], [ %83, %._crit_edge14.i.us.us.us.us ]
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge14.i.us.us.us.us ]
-  %73 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %73 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us.us
   %74 = load ptr, ptr %73, align 8, !tbaa !61
   %75 = getelementptr i8, ptr %74, i64 %indvars.iv
   %76 = getelementptr i8, ptr %75, i64 %57
@@ -4488,7 +4488,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
 ._crit_edge14.i.us.us.us99:                       ; preds = %.lr.ph.split.us.us.split.us107, %._crit_edge14.i.us.us.us99
   %59 = phi i32 [ %70, %._crit_edge14.i.us.us.us99 ], [ %.lcssa6365.us.us.us97, %.lr.ph.split.us.us.split.us107 ]
   %indvars.iv.i.us.us.us100 = phi i64 [ %indvars.iv.next.i.us.us.us101, %._crit_edge14.i.us.us.us99 ], [ 0, %.lr.ph.split.us.us.split.us107 ]
-  %60 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us100
+  %60 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us100
   %61 = load ptr, ptr %60, align 8, !tbaa !61
   %62 = getelementptr i8, ptr %61, i64 %indvars.iv129
   %63 = getelementptr i8, ptr %62, i64 %57
@@ -4523,7 +4523,7 @@ _ZNK2cv6stereo12CensusKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_ed
 ._crit_edge14.i.us.us.us.us:                      ; preds = %._crit_edge14.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %72 = phi i32 [ %.lcssa6365.us.us.us.us, %.lr.ph.i.us.us.us.us ], [ %83, %._crit_edge14.i.us.us.us.us ]
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge14.i.us.us.us.us ]
-  %73 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %73 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us.us
   %74 = load ptr, ptr %73, align 8, !tbaa !61
   %75 = getelementptr i8, ptr %74, i64 %indvars.iv
   %76 = getelementptr i8, ptr %75, i64 %57
@@ -4677,7 +4677,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
 
 .preheader106:                                    ; preds = %50
   %54 = load i32, ptr %7, align 8
-  %55 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %indvars.iv183
+  %55 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv183
   %56 = sext i32 %54 to i64
   %57 = load ptr, ptr %55, align 8, !tbaa !61
   %58 = getelementptr inbounds i8, ptr %57, i64 %31
@@ -4821,7 +4821,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi2EEclERKNS_5
 
 .split.us:                                        ; preds = %.loopexit.us, %72, %107, %41, %45, %50
   %.us-phi126.sink = phi i32 [ 0, %50 ], [ 0, %45 ], [ 0, %41 ], [ %.6, %107 ], [ %.6.us, %72 ], [ %.us-phi123.us, %.loopexit.us ]
-  %108 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv183
+  %108 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv183
   %109 = load ptr, ptr %108, align 8, !tbaa !39
   %110 = getelementptr inbounds i32, ptr %109, i64 %31
   store i32 %.us-phi126.sink, ptr %110, align 4, !tbaa !9
@@ -4952,7 +4952,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
 
 .preheader106:                                    ; preds = %50
   %54 = load i32, ptr %7, align 8
-  %55 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv183
+  %55 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv183
   %56 = sext i32 %54 to i64
   %57 = load ptr, ptr %55, align 8, !tbaa !61
   %58 = getelementptr inbounds i8, ptr %57, i64 %31
@@ -5096,7 +5096,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16StarKernelCensusILi1EEclERKNS_5
 
 .split.us:                                        ; preds = %.loopexit.us, %72, %107, %41, %45, %50
   %.us-phi126.sink = phi i32 [ 0, %50 ], [ 0, %45 ], [ 0, %41 ], [ %.6, %107 ], [ %.6.us, %72 ], [ %.us-phi123.us, %.loopexit.us ]
-  %108 = getelementptr inbounds nuw [1 x ptr], ptr %13, i64 0, i64 %indvars.iv183
+  %108 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv183
   %109 = load ptr, ptr %108, align 8, !tbaa !39
   %110 = getelementptr inbounds i32, ptr %109, i64 %31
   store i32 %.us-phi126.sink, ptr %110, align 4, !tbaa !9
@@ -5259,7 +5259,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %68 = load i32, ptr %67, align 4, !tbaa !9
   %69 = shl i32 %68, 2
   store i32 %69, ptr %67, align 4, !tbaa !9
-  %70 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us82
+  %70 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us82
   %71 = load ptr, ptr %70, align 8, !tbaa !61
   %72 = getelementptr i8, ptr %71, i64 %indvars.iv113
   %73 = getelementptr i8, ptr %72, i64 %65
@@ -5314,7 +5314,7 @@ _ZNK2cv6stereo9MCTKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %85, %.lr.ph.s
   %90 = load i32, ptr %89, align 4, !tbaa !9
   %91 = shl i32 %90, 2
   store i32 %91, ptr %89, align 4, !tbaa !9
-  %92 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %92 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us.us
   %93 = load ptr, ptr %92, align 8, !tbaa !61
   %94 = getelementptr i8, ptr %93, i64 %indvars.iv109
   %95 = getelementptr i8, ptr %94, i64 %65
@@ -5512,7 +5512,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
 
 ._crit_edge24.i.us.us.us82:                       ; preds = %._crit_edge24.i.us.us.us82, %.lr.ph.i.us.us.us81
   %indvars.iv.i.us.us.us83 = phi i64 [ 0, %.lr.ph.i.us.us.us81 ], [ %indvars.iv.next.i.us.us.us84, %._crit_edge24.i.us.us.us82 ]
-  %67 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us83
+  %67 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us83
   %68 = load ptr, ptr %67, align 8, !tbaa !61
   %69 = getelementptr inbounds i8, ptr %68, i64 %66
   %70 = load i8, ptr %69, align 1, !tbaa !40
@@ -5523,7 +5523,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %75 = load i32, ptr %74, align 4, !tbaa !9
   %76 = zext i1 %73 to i32
   %77 = add nsw i32 %75, %76
-  %78 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %indvars.iv.i.us.us.us83
+  %78 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.us.us.us83
   %79 = load ptr, ptr %78, align 8, !tbaa !39
   %80 = getelementptr inbounds i32, ptr %79, i64 %66
   %81 = load i32, ptr %80, align 4, !tbaa !9
@@ -5554,7 +5554,7 @@ _ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.
 
 ._crit_edge24.i.us.us.us.us:                      ; preds = %._crit_edge24.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge24.i.us.us.us.us ]
-  %89 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %89 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us.us
   %90 = load ptr, ptr %89, align 8, !tbaa !61
   %91 = getelementptr inbounds i8, ptr %90, i64 %88
   %92 = load i8, ptr %91, align 1, !tbaa !40
@@ -5565,7 +5565,7 @@ _ZNK2cv6stereo8MVKernelILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.
   %97 = load i32, ptr %96, align 4, !tbaa !9
   %98 = zext i1 %95 to i32
   %99 = add nsw i32 %97, %98
-  %100 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %100 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.us.us.us.us
   %101 = load ptr, ptr %100, align 8, !tbaa !39
   %102 = getelementptr inbounds i32, ptr %101, i64 %88
   %103 = load i32, ptr %102, align 4, !tbaa !9
@@ -5740,7 +5740,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
   %61 = phi i32 [ %79, %78 ], [ %.lcssa6264.us.us.us102, %.lr.ph.split.us.us.split.us113 ]
   %indvars.iv.i.us.us.us104 = phi i64 [ %indvars.iv.next.i.us.us.us107, %78 ], [ 0, %.lr.ph.split.us.us.split.us113 ]
   %62 = shl i32 %61, 2
-  %63 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us104
+  %63 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us104
   %64 = load ptr, ptr %63, align 8, !tbaa !61
   %65 = getelementptr i8, ptr %64, i64 %indvars.iv138
   %66 = getelementptr i8, ptr %65, i64 %59
@@ -5796,7 +5796,7 @@ _ZNK2cv6stereo9MCTKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %78, %.lr.ph.s
   %83 = phi i32 [ %.lcssa6264.us.us.us.us, %.lr.ph.i.us.us.us.us ], [ %101, %100 ]
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %100 ]
   %84 = shl i32 %83, 2
-  %85 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %85 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us.us
   %86 = load ptr, ptr %85, align 8, !tbaa !61
   %87 = getelementptr i8, ptr %86, i64 %indvars.iv134
   %88 = getelementptr i8, ptr %87, i64 %59
@@ -5978,7 +5978,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
 ._crit_edge24.i.us.us.us104:                      ; preds = %._crit_edge24.i.us.us.us104, %.lr.ph.i.us.us.us103
   %61 = phi i32 [ %.lcssa6264.us.us.us102, %.lr.ph.i.us.us.us103 ], [ %79, %._crit_edge24.i.us.us.us104 ]
   %indvars.iv.i.us.us.us105 = phi i64 [ 0, %.lr.ph.i.us.us.us103 ], [ %indvars.iv.next.i.us.us.us106, %._crit_edge24.i.us.us.us104 ]
-  %62 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us105
+  %62 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us105
   %63 = load ptr, ptr %62, align 8, !tbaa !61
   %64 = getelementptr inbounds i8, ptr %63, i64 %60
   %65 = load i8, ptr %64, align 1, !tbaa !40
@@ -5987,7 +5987,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
   %68 = icmp ugt i8 %65, %67
   %69 = zext i1 %68 to i32
   %70 = add nsw i32 %61, %69
-  %71 = getelementptr inbounds nuw [1 x ptr], ptr %14, i64 0, i64 %indvars.iv.i.us.us.us105
+  %71 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.us.us.us105
   %72 = load ptr, ptr %71, align 8, !tbaa !39
   %73 = getelementptr inbounds i32, ptr %72, i64 %60
   %74 = load i32, ptr %73, align 4, !tbaa !9
@@ -6021,7 +6021,7 @@ _ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.
 ._crit_edge24.i.us.us.us.us:                      ; preds = %._crit_edge24.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %82 = phi i32 [ %.lcssa6264.us.us.us.us, %.lr.ph.i.us.us.us.us ], [ %100, %._crit_edge24.i.us.us.us.us ]
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge24.i.us.us.us.us ]
-  %83 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %83 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us.us
   %84 = load ptr, ptr %83, align 8, !tbaa !61
   %85 = getelementptr inbounds i8, ptr %84, i64 %81
   %86 = load i8, ptr %85, align 1, !tbaa !40
@@ -6030,7 +6030,7 @@ _ZNK2cv6stereo8MVKernelILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %._crit_edge24.
   %89 = icmp ugt i8 %86, %88
   %90 = zext i1 %89 to i32
   %91 = add nsw i32 %82, %90
-  %92 = getelementptr inbounds nuw [1 x ptr], ptr %14, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %92 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.us.us.us.us
   %93 = load ptr, ptr %92, align 8, !tbaa !39
   %94 = getelementptr inbounds i32, ptr %93, i64 %81
   %95 = load i32, ptr %94, align 4, !tbaa !9
@@ -6176,7 +6176,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
   %52 = load i32, ptr %7, align 8, !tbaa !107
   %53 = mul nsw i32 %47, %.05076
   %54 = add i32 %53, %28
-  %55 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %indvars.iv92
+  %55 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv92
   %56 = load ptr, ptr %55, align 8, !tbaa !61
   %57 = sext i32 %51 to i64
   %58 = add nuw i32 %.fr81, 1
@@ -6275,7 +6275,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi2EEclERKNS_5Ra
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %38, %41, %46
   %.052.lcssa.sink = phi i32 [ 0, %46 ], [ 0, %41 ], [ 0, %38 ], [ %.us-phi, %._crit_edge ]
-  %102 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv92
+  %102 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv92
   %103 = load ptr, ptr %102, align 8, !tbaa !39
   %104 = getelementptr i32, ptr %103, i64 %indvars.iv95
   %105 = getelementptr i32, ptr %104, i64 %24
@@ -6440,7 +6440,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 
 ._crit_edge14.i.us.us.us78:                       ; preds = %._crit_edge14.i.us.us.us78, %.lr.ph.i.us.us.us76
   %indvars.iv.i.us.us.us79 = phi i64 [ 0, %.lr.ph.i.us.us.us76 ], [ %indvars.iv.next.i.us.us.us80, %._crit_edge14.i.us.us.us78 ]
-  %70 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us79
+  %70 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us79
   %71 = load ptr, ptr %70, align 8, !tbaa !61
   %72 = getelementptr i8, ptr %71, i64 %indvars.iv105
   %73 = getelementptr i8, ptr %72, i64 %66
@@ -6477,7 +6477,7 @@ _ZNK2cv6stereo16ModifiedCsCensusILi2EEclEiiiiiPi.exit.us.us.us: ; preds = %._cri
 
 ._crit_edge14.i.us.us.us.us:                      ; preds = %._crit_edge14.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge14.i.us.us.us.us ]
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %86 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us.us.us.us
   %87 = load ptr, ptr %86, align 8, !tbaa !61
   %88 = getelementptr i8, ptr %87, i64 %indvars.iv
   %89 = getelementptr i8, ptr %88, i64 %66
@@ -6632,7 +6632,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
   %52 = load i32, ptr %7, align 8, !tbaa !120
   %53 = mul nsw i32 %47, %.05076
   %54 = add i32 %53, %28
-  %55 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv92
+  %55 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv92
   %56 = load ptr, ptr %55, align 8, !tbaa !61
   %57 = sext i32 %51 to i64
   %58 = add nuw i32 %.fr81, 1
@@ -6731,7 +6731,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo14SymetricCensusILi1EEclERKNS_5Ra
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %38, %41, %46
   %.052.lcssa.sink = phi i32 [ 0, %46 ], [ 0, %41 ], [ 0, %38 ], [ %.us-phi, %._crit_edge ]
-  %102 = getelementptr inbounds nuw [1 x ptr], ptr %13, i64 0, i64 %indvars.iv92
+  %102 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv92
   %103 = load ptr, ptr %102, align 8, !tbaa !39
   %104 = getelementptr i32, ptr %103, i64 %indvars.iv95
   %105 = getelementptr i32, ptr %104, i64 %24
@@ -6877,7 +6877,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 ._crit_edge14.i.us.us.us100:                      ; preds = %._crit_edge14.i.us.us.us100, %.lr.ph.i.us.us.us98
   %64 = phi i32 [ %.lcssa6365.us.us.us97, %.lr.ph.i.us.us.us98 ], [ %75, %._crit_edge14.i.us.us.us100 ]
   %indvars.iv.i.us.us.us101 = phi i64 [ 0, %.lr.ph.i.us.us.us98 ], [ %indvars.iv.next.i.us.us.us102, %._crit_edge14.i.us.us.us100 ]
-  %65 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us101
+  %65 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us101
   %66 = load ptr, ptr %65, align 8, !tbaa !61
   %67 = getelementptr i8, ptr %66, i64 %indvars.iv130
   %68 = getelementptr i8, ptr %67, i64 %60
@@ -6915,7 +6915,7 @@ _ZNK2cv6stereo16ModifiedCsCensusILi1EEclEiiiiiPi.exit.us.us.us: ; preds = %._cri
 ._crit_edge14.i.us.us.us.us:                      ; preds = %._crit_edge14.i.us.us.us.us, %.lr.ph.i.us.us.us.us
   %79 = phi i32 [ %.lcssa6365.us.us.us.us, %.lr.ph.i.us.us.us.us ], [ %90, %._crit_edge14.i.us.us.us.us ]
   %indvars.iv.i.us.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us, %._crit_edge14.i.us.us.us.us ]
-  %80 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.us.us.us.us
+  %80 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.us.us.us.us
   %81 = load ptr, ptr %80, align 8, !tbaa !61
   %82 = getelementptr i8, ptr %81, i64 %indvars.iv
   %83 = getelementptr i8, ptr %82, i64 %60

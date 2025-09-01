@@ -1340,7 +1340,7 @@ _ZN17opencv_tensorflow11TensorProto32_internal_mutable_tensor_contentB5cxx11Ev.e
   %164 = add nsw i32 %159, 1
   store i32 %164, ptr %15, align 8, !tbaa !52
   %165 = sext i32 %159 to i64
-  %166 = getelementptr inbounds [268435454 x ptr], ptr %163, i64 0, i64 %165
+  %166 = getelementptr inbounds ptr, ptr %163, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !60
   br label %_ZN17opencv_tensorflow11TensorProto24_internal_add_string_valB5cxx11Ev.exit
 
@@ -2377,7 +2377,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream17WriteVarintPackedINS0_13RepeatedFie
   %.7171 = phi ptr [ %.6, %.lr.ph172 ], [ %.0.i.i116, %_ZN6google8protobuf2io19EpsCopyOutputStream10WriteBytesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %209 = load ptr, ptr %204, align 8, !tbaa !53
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %211 = getelementptr inbounds nuw [268435454 x ptr], ptr %210, i64 0, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv
   %212 = load ptr, ptr %211, align 8, !tbaa !60
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i64, ptr %213, align 8, !tbaa !56
@@ -2930,7 +2930,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow11TensorProto12ByteSizeLongEv(
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %.386 = phi i64 [ %52, %.lr.ph ], [ %75, %61 ]
-  %62 = getelementptr inbounds nuw [268435454 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !60
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !56

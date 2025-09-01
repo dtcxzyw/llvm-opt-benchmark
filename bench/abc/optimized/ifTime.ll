@@ -40,7 +40,7 @@ define void @If_CutSortInputPins(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not60, label %.critedge, label %.lr.ph62
 
 15:                                               ; preds = %.lr.ph62
-  %16 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4, !tbaa !26
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %.val.val, i64 %18
@@ -171,7 +171,7 @@ define float @If_CutDelay(ptr noundef readonly captures(none) %0, ptr noundef re
 16:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.0135 = phi float [ 0xC415AF1D80000000, %.lr.ph ], [ %31, %22 ]
-  %17 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !26
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds ptr, ptr %.val124.val, i64 %19
@@ -203,7 +203,7 @@ define float @If_CutDelay(ptr noundef readonly captures(none) %0, ptr noundef re
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 148
-  %39 = getelementptr inbounds nuw [33 x [33 x float]], ptr %38, i64 0, i64 %8
+  %39 = getelementptr inbounds nuw [33 x float], ptr %38, i64 %8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !42
   %.not118 = icmp eq i32 %41, 0
@@ -245,7 +245,7 @@ define float @If_CutDelay(ptr noundef readonly captures(none) %0, ptr noundef re
   br label %.lr.ph140
 
 56:                                               ; preds = %.lr.ph140
-  %57 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv.next.i
+  %57 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i
   %58 = load i32, ptr %57, align 4, !tbaa !26
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %59
@@ -350,10 +350,10 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %.lr.ph146
   %indvars.iv190 = phi i64 [ 0, %.lr.ph146.preheader ], [ %indvars.iv.next191, %.lr.ph146 ]
   %.2145 = phi float [ 0xC415AF1D80000000, %.lr.ph146.preheader ], [ %115, %.lr.ph146 ]
-  %106 = getelementptr inbounds nuw [32 x i32], ptr @If_CutDelay.pPinPerm, i64 0, i64 %indvars.iv190
+  %106 = getelementptr inbounds nuw i32, ptr @If_CutDelay.pPinPerm, i64 %indvars.iv190
   %107 = load i32, ptr %106, align 4, !tbaa !26
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [32 x float], ptr @If_CutDelay.pPinDelays, i64 0, i64 %108
+  %109 = getelementptr inbounds float, ptr @If_CutDelay.pPinDelays, i64 %108
   %110 = load float, ptr %109, align 4, !tbaa !32
   %111 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv190
   %112 = load float, ptr %111, align 4, !tbaa !32
@@ -367,7 +367,7 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
 116:                                              ; preds = %.lr.ph150, %122
   %indvars.iv196 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next197, %122 ]
   %.3149 = phi float [ 0xC415AF1D80000000, %.lr.ph150 ], [ %128, %122 ]
-  %117 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv196
+  %117 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv196
   %118 = load i32, ptr %117, align 4, !tbaa !26
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds ptr, ptr %.val123.val, i64 %119
@@ -408,7 +408,7 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
 135:                                              ; preds = %.lr.ph156, %141
   %indvars.iv202 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next203, %141 ]
   %.4155 = phi float [ 0xC415AF1D80000000, %.lr.ph156 ], [ %151, %141 ]
-  %136 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv202
+  %136 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv202
   %137 = load i32, ptr %136, align 4, !tbaa !26
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds ptr, ptr %.val122.val, i64 %138
@@ -467,7 +467,7 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
 163:                                              ; preds = %.lr.ph162, %170
   %indvars.iv208 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next209, %170 ]
   %.5161 = phi float [ 0xC415AF1D80000000, %.lr.ph162 ], [ %183, %170 ]
-  %164 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv208
+  %164 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv208
   %165 = load i32, ptr %164, align 4, !tbaa !26
   %166 = ashr i32 %165, 8
   %167 = sext i32 %166 to i64
@@ -497,7 +497,7 @@ If_CutSortInputPins.exit:                         ; preds = %99, %.critedge.i
 184:                                              ; preds = %.lr.ph168, %190
   %indvars.iv214 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next215, %190 ]
   %.6167 = phi float [ 0xC415AF1D80000000, %.lr.ph168 ], [ %195, %190 ]
-  %185 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv214
+  %185 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv214
   %186 = load i32, ptr %185, align 4, !tbaa !26
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds ptr, ptr %.val.val, i64 %187
@@ -545,7 +545,7 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr readnone captures(none)
 
 14:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %15 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !26
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds ptr, ptr %.val161.val, i64 %17
@@ -583,7 +583,7 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr readnone captures(none)
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 148
   %40 = lshr i64 %7, 24
   %41 = and i64 %40, 255
-  %42 = getelementptr inbounds nuw [33 x [33 x float]], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [33 x float], ptr %39, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !42
   %.not150 = icmp eq i32 %44, 0
@@ -624,7 +624,7 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr readnone captures(none)
   br label %.lr.ph172
 
 59:                                               ; preds = %.lr.ph172
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %45, i64 0, i64 %indvars.iv.next.i
+  %60 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.next.i
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %62
@@ -736,10 +736,10 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
   %114 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv201
   %115 = load float, ptr %114, align 4, !tbaa !32
   %116 = fsub float %3, %115
-  %117 = getelementptr inbounds nuw [32 x i32], ptr @If_CutPropagateRequired.pPinPerm, i64 0, i64 %indvars.iv201
+  %117 = getelementptr inbounds nuw i32, ptr @If_CutPropagateRequired.pPinPerm, i64 %indvars.iv201
   %118 = load i32, ptr %117, align 4, !tbaa !26
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds [0 x i32], ptr %45, i64 0, i64 %119
+  %120 = getelementptr inbounds i32, ptr %45, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !26
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds ptr, ptr %.val160.val, i64 %122
@@ -758,7 +758,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
 
 132:                                              ; preds = %.lr.ph178, %138
   %indvars.iv204 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next205, %138 ]
-  %133 = getelementptr inbounds nuw [0 x i32], ptr %45, i64 0, i64 %indvars.iv204
+  %133 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv204
   %134 = load i32, ptr %133, align 4, !tbaa !26
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds ptr, ptr %.val159.val, i64 %135
@@ -805,7 +805,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
 
 158:                                              ; preds = %.lr.ph181, %177
   %indvars.iv207 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next208, %177 ]
-  %159 = getelementptr inbounds nuw [0 x i32], ptr %155, i64 0, i64 %indvars.iv207
+  %159 = getelementptr inbounds nuw i32, ptr %155, i64 %indvars.iv207
   %160 = load i32, ptr %159, align 4, !tbaa !26
   %.val158 = load ptr, ptr %157, align 8, !tbaa !3
   %161 = getelementptr i8, ptr %.val158, i64 8
@@ -918,7 +918,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
 
 216:                                              ; preds = %.lr.ph184, %222
   %indvars.iv210 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next211, %222 ]
-  %217 = getelementptr inbounds nuw [0 x i32], ptr %211, i64 0, i64 %indvars.iv210
+  %217 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv210
   %218 = load i32, ptr %217, align 4, !tbaa !26
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds ptr, ptr %.val157.val, i64 %219
@@ -951,7 +951,7 @@ If_CutSortInputPins.exit:                         ; preds = %102, %.critedge.i
 
 236:                                              ; preds = %.lr.ph187, %242
   %indvars.iv213 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next214, %242 ]
-  %237 = getelementptr inbounds nuw [0 x i32], ptr %185, i64 0, i64 %indvars.iv213
+  %237 = getelementptr inbounds nuw i32, ptr %185, i64 %indvars.iv213
   %238 = load i32, ptr %237, align 4, !tbaa !26
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds ptr, ptr %.val.val, i64 %239

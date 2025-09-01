@@ -70,7 +70,7 @@ define i32 @Abc_TtGetCM1(ptr noundef readonly captures(none) %0, i32 noundef %1)
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %9, %12
   %14 = and i64 %13, 3
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !7
@@ -84,7 +84,7 @@ define i32 @Abc_TtGetCM1(ptr noundef readonly captures(none) %0, i32 noundef %1)
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %.01012 = phi i32 [ %23, %.preheader ], [ 0, %.preheader.preheader ]
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !7
   %21 = icmp sgt i32 %20, 0
   %22 = zext i1 %21 to i32
@@ -126,7 +126,7 @@ define i32 @Abc_TtGetCM2(ptr noundef readonly captures(none) %0, i32 noundef %1)
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %9, %12
   %14 = and i64 %13, 15
-  %15 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !7
@@ -140,7 +140,7 @@ define i32 @Abc_TtGetCM2(ptr noundef readonly captures(none) %0, i32 noundef %1)
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %.01012 = phi i32 [ %23, %.preheader ], [ 0, %.preheader.preheader ]
-  %19 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !7
   %21 = icmp sgt i32 %20, 0
   %22 = zext i1 %21 to i32
@@ -1027,7 +1027,7 @@ define i32 @Abc_TtGetCMCount(ptr noundef readonly captures(none) %0, i32 noundef
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 %16, %19
   %21 = and i64 %20, 3
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %9, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !7
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !7
@@ -1041,7 +1041,7 @@ define i32 @Abc_TtGetCMCount(ptr noundef readonly captures(none) %0, i32 noundef
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %.01012.i = phi i32 [ %30, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %26 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = icmp sgt i32 %27, 0
   %29 = zext i1 %28 to i32
@@ -1077,7 +1077,7 @@ Abc_TtGetCM1.exit:                                ; preds = %.preheader.i
   %40 = zext nneg i32 %39 to i64
   %41 = lshr i64 %37, %40
   %42 = and i64 %41, 15
-  %43 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %8, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !7
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !7
@@ -1091,7 +1091,7 @@ Abc_TtGetCM1.exit:                                ; preds = %.preheader.i
 .preheader.i37:                                   ; preds = %.preheader.i37.preheader, %.preheader.i37
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i40, %.preheader.i37 ], [ 0, %.preheader.i37.preheader ]
   %.01012.i39 = phi i32 [ %51, %.preheader.i37 ], [ 0, %.preheader.i37.preheader ]
-  %47 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %indvars.iv.i38
+  %47 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i38
   %48 = load i32, ptr %47, align 4, !tbaa !7
   %49 = icmp sgt i32 %48, 0
   %50 = zext i1 %49 to i32
@@ -1246,7 +1246,7 @@ define i32 @Abc_TtGetCM1Pat(ptr noundef readonly captures(none) %0, i32 noundef 
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 %12, %15
   %17 = and i64 %16, 3
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !7
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %21, label %23
@@ -1274,7 +1274,7 @@ define i32 @Abc_TtGetCM1Pat(ptr noundef readonly captures(none) %0, i32 noundef 
   %31 = zext nneg i32 %30 to i64
   %32 = lshr i64 %28, %31
   %33 = and i64 %32, 3
-  %34 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !7
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %39
@@ -1338,7 +1338,7 @@ define i32 @Abc_TtGetCM2Pat(ptr noundef readonly captures(none) %0, i32 noundef 
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 %12, %15
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !7
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %21, label %23
@@ -1366,7 +1366,7 @@ define i32 @Abc_TtGetCM2Pat(ptr noundef readonly captures(none) %0, i32 noundef 
   %31 = zext nneg i32 %30 to i64
   %32 = lshr i64 %28, %31
   %33 = and i64 %32, 15
-  %34 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !7
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %39
@@ -1941,7 +1941,7 @@ define i32 @Abc_TtCheck1Shared(ptr noundef readonly captures(none) %0, i32 nound
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   store i32 0, ptr %.sroa.0, align 8
   store i32 0, ptr %.sroa.6, align 4
-  %invariant.gep.us = getelementptr inbounds nuw [6 x i64], ptr @s_Truth26, i64 0, i64 %indvars.iv68
+  %invariant.gep.us = getelementptr inbounds nuw i64, ptr @s_Truth26, i64 %indvars.iv68
   br label %.preheader.us.us
 
 .loopexit40.split.us.us:                          ; preds = %16
@@ -1955,7 +1955,7 @@ define i32 @Abc_TtCheck1Shared(ptr noundef readonly captures(none) %0, i32 nound
   %13 = phi i1 [ false, %..critedge_crit_edge.us.us ], [ true, %.split.us.us ]
   %indvars.iv65.sroa.phi = phi ptr [ %.sroa.6, %..critedge_crit_edge.us.us ], [ %.sroa.0, %.split.us.us ]
   %indvars.iv65 = phi i64 [ 1, %..critedge_crit_edge.us.us ], [ 0, %.split.us.us ]
-  %gep.us.us = getelementptr inbounds nuw [2 x [6 x i64]], ptr %invariant.gep.us, i64 0, i64 %indvars.iv65
+  %gep.us.us = getelementptr inbounds nuw [6 x i64], ptr %invariant.gep.us, i64 %indvars.iv65
   %14 = load i64, ptr %gep.us.us, align 8, !tbaa !3
   %.promoted.us.us = load i32, ptr %indvars.iv65.sroa.phi, align 4, !tbaa !7
   br label %16
@@ -2046,7 +2046,7 @@ define range(i32 1, 32) i32 @Abc_TtGetCMPat(ptr noundef readonly captures(none) 
   %28 = zext nneg i32 %27 to i64
   %29 = lshr i64 %25, %28
   %30 = and i64 %29, 3
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !7
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %34, label %36
@@ -2106,7 +2106,7 @@ Abc_TtGetCM1Pat.exit:                             ; preds = %36, %17
   %61 = zext nneg i32 %60 to i64
   %62 = lshr i64 %58, %61
   %63 = and i64 %62, 15
-  %64 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %8, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !7
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %67, label %69
@@ -2300,7 +2300,7 @@ Abc_TtGetCM5Pat.exit:                             ; preds = %144, %113, %Abc_TtG
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   store i32 0, ptr %.sroa.0, align 4
   store i32 0, ptr %.sroa.6, align 4
-  %invariant.gep.us.i = getelementptr inbounds nuw [6 x i64], ptr @s_Truth26, i64 0, i64 %indvars.iv68.i
+  %invariant.gep.us.i = getelementptr inbounds nuw i64, ptr @s_Truth26, i64 %indvars.iv68.i
   br label %.preheader.us.us.i
 
 .loopexit40.split.us.us.i:                        ; preds = %161
@@ -2314,7 +2314,7 @@ Abc_TtGetCM5Pat.exit:                             ; preds = %144, %113, %Abc_TtG
   %158 = phi i1 [ false, %..critedge_crit_edge.us.us.i ], [ true, %.split.us.us.i ]
   %indvars.iv65.i.sroa.phi = phi ptr [ %.sroa.6, %..critedge_crit_edge.us.us.i ], [ %.sroa.0, %.split.us.us.i ]
   %indvars.iv65.i = phi i64 [ 1, %..critedge_crit_edge.us.us.i ], [ 0, %.split.us.us.i ]
-  %gep.us.us.i = getelementptr inbounds nuw [2 x [6 x i64]], ptr %invariant.gep.us.i, i64 0, i64 %indvars.iv65.i
+  %gep.us.us.i = getelementptr inbounds nuw [6 x i64], ptr %invariant.gep.us.i, i64 %indvars.iv65.i
   %159 = load i64, ptr %gep.us.us.i, align 8, !tbaa !3
   %.promoted.us.us.i = load i32, ptr %indvars.iv65.i.sroa.phi, align 4, !tbaa !7
   br label %161
@@ -2382,7 +2382,7 @@ define void @Abc_TtPermGenTest() local_unnamed_addr #6 {
 
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %5, ptr %4, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2396,7 +2396,7 @@ define void @Abc_TtPermGenTest() local_unnamed_addr #6 {
 
 8:                                                ; preds = %6, %8
   %indvars.iv39 = phi i64 [ 0, %6 ], [ %indvars.iv.next40, %8 ]
-  %9 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %indvars.iv39
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv39
   %10 = load i32, ptr %9, align 4, !tbaa !7
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %10)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -2627,7 +2627,7 @@ define noalias noundef ptr @Abc_GenChasePairs(i32 noundef %0, i32 noundef %1) lo
   %.pre-phi83 = phi i64 [ %.pre82, %..preheader_crit_edge ], [ %wide.trip.count, %15 ]
   %11 = icmp sgt i32 %1, 0
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds i32, ptr %3, i64 %12
   %14 = shl nuw nsw i64 %.pre-phi83, 2
   %wide.trip.count77 = zext nneg i32 %1 to i64
   br label %20
@@ -2636,9 +2636,9 @@ define noalias noundef ptr @Abc_GenChasePairs(i32 noundef %0, i32 noundef %1) lo
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = add i32 %.neg, %16
-  %18 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !7
-  %19 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 1, ptr %19, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2749,9 +2749,9 @@ Abc_GenChaseNext.exit:                            ; preds = %._crit_edge.i, %38,
 
 .lr.ph55:                                         ; preds = %Abc_GenChaseNext.exit, %59
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %59 ], [ 0, %Abc_GenChaseNext.exit ]
-  %60 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv74
+  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv74
   %61 = load i32, ptr %60, align 4, !tbaa !7
-  %62 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv74
+  %62 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv74
   %63 = load i32, ptr %62, align 4, !tbaa !7
   %64 = icmp eq i32 %61, %63
   br i1 %64, label %59, label %65
@@ -2944,10 +2944,10 @@ define void @Abc_GenChaseTest() local_unnamed_addr #2 {
 
 7:                                                ; preds = %0, %7
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [32 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 4, !tbaa !7
-  %10 = getelementptr inbounds nuw [32 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %9, ptr %10, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -2989,22 +2989,22 @@ Abc_GenChasePrint.exit:                           ; preds = %.lr.ph18.i
   %23 = add nuw nsw i32 %.03338, 1
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %12, i32 noundef %14)
   %25 = sext i32 %12 to i64
-  %26 = getelementptr inbounds [32 x i32], ptr %2, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr %2, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = sext i32 %14 to i64
-  %29 = getelementptr inbounds [32 x i32], ptr %2, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr %2, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !7
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds [32 x i32], ptr %1, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %1, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !7
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [32 x i32], ptr %2, i64 0, i64 %34
+  %35 = getelementptr inbounds i32, ptr %2, i64 %34
   store i32 %30, ptr %35, align 4, !tbaa !7
   %36 = sext i32 %30 to i64
-  %37 = getelementptr inbounds [32 x i32], ptr %1, i64 0, i64 %36
+  %37 = getelementptr inbounds i32, ptr %1, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !7
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [32 x i32], ptr %2, i64 0, i64 %39
+  %40 = getelementptr inbounds i32, ptr %2, i64 %39
   store i32 %27, ptr %40, align 4, !tbaa !7
   %41 = xor i32 %38, %33
   store i32 %41, ptr %32, align 4, !tbaa !7
@@ -3265,10 +3265,10 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %15, ptr %14, align 4, !tbaa !7
-  %16 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3408,7 +3408,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
 .lr.ph130:                                        ; preds = %._crit_edge126, %.lr.ph130
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.lr.ph130 ], [ %33, %._crit_edge126 ]
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, -1
-  %69 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %indvars.iv.next151
+  %69 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next151
   %70 = load i32, ptr %69, align 4, !tbaa !7
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %70)
   %.not115.not = icmp sgt i64 %indvars.iv.next151, %37
@@ -3421,7 +3421,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
 .lr.ph134:                                        ; preds = %._crit_edge131, %.lr.ph134
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph134 ], [ %38, %._crit_edge131 ]
   %indvars.iv.next154 = add nsw i64 %indvars.iv153, -1
-  %72 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv.next154
+  %72 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next154
   %73 = load i32, ptr %72, align 4, !tbaa !7
   %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %73)
   %75 = icmp sgt i64 %indvars.iv153, 1
@@ -3434,10 +3434,10 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
 
 77:                                               ; preds = %._crit_edge135, %61
   %78 = sext i32 %44 to i64
-  %79 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %78
+  %79 = getelementptr inbounds i32, ptr %11, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !7
   %81 = sext i32 %46 to i64
-  %82 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %81
+  %82 = getelementptr inbounds i32, ptr %11, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !7
   %84 = icmp eq i32 %80, %83
   br i1 %84, label %101, label %85
@@ -3445,16 +3445,16 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
 85:                                               ; preds = %77
   tail call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %3, i32 noundef %80, i32 noundef %83)
   %86 = sext i32 %80 to i64
-  %87 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %86
+  %87 = getelementptr inbounds i32, ptr %10, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !7
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %89
+  %90 = getelementptr inbounds i32, ptr %11, i64 %89
   store i32 %83, ptr %90, align 4, !tbaa !7
   %91 = sext i32 %83 to i64
-  %92 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %91
+  %92 = getelementptr inbounds i32, ptr %10, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !7
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %94
+  %95 = getelementptr inbounds i32, ptr %11, i64 %94
   store i32 %80, ptr %95, align 4, !tbaa !7
   %96 = xor i32 %93, %88
   store i32 %96, ptr %87, align 4, !tbaa !7
@@ -3478,7 +3478,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.critedge
   %indvars.iv159 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next160, %.critedge ]
-  %107 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv159
+  %107 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv159
   %108 = load i32, ptr %107, align 4, !tbaa !7
   %109 = zext i32 %108 to i64
   %110 = icmp eq i64 %indvars.iv159, %109
@@ -3487,16 +3487,16 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
 111:                                              ; preds = %.lr.ph142
   %112 = trunc nuw nsw i64 %indvars.iv159 to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %3, i32 noundef %112, i32 noundef %108)
-  %113 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv159
+  %113 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv159
   %114 = load i32, ptr %113, align 4, !tbaa !7
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %115
+  %116 = getelementptr inbounds i32, ptr %11, i64 %115
   store i32 %108, ptr %116, align 4, !tbaa !7
   %117 = sext i32 %108 to i64
-  %118 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %117
+  %118 = getelementptr inbounds i32, ptr %10, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !7
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %120
+  %121 = getelementptr inbounds i32, ptr %11, i64 %120
   store i32 %112, ptr %121, align 4, !tbaa !7
   %122 = xor i32 %119, %114
   store i32 %122, ptr %113, align 4, !tbaa !7
@@ -3536,9 +3536,9 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 8:                                                ; preds = %6
   %9 = load i64, ptr %0, align 8, !tbaa !3
   %10 = sext i32 %spec.select117 to i64
-  %11 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %10
+  %11 = getelementptr inbounds [6 x [3 x i64]], ptr @s_PPMasks, i64 %10
   %12 = sext i32 %spec.select to i64
-  %13 = getelementptr inbounds [6 x [3 x i64]], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds [3 x i64], ptr %11, i64 %12
   %14 = shl nuw i32 1, %spec.select
   %.neg.i = shl nsw i32 -1, %spec.select117
   %15 = add i32 %14, %.neg.i
@@ -3573,9 +3573,9 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   %34 = shl nuw nsw i32 1, %spec.select
   %35 = add nsw i32 %.neg, %34
   %36 = sext i32 %spec.select117 to i64
-  %37 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %36
+  %37 = getelementptr inbounds [6 x [3 x i64]], ptr @s_PPMasks, i64 %36
   %38 = sext i32 %spec.select to i64
-  %39 = getelementptr inbounds [6 x [3 x i64]], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds [3 x i64], ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !3
@@ -3627,7 +3627,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %69 = sext i32 %spec.select117 to i64
-  %70 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %69
+  %70 = getelementptr inbounds i64, ptr @s_Truths6, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = xor i64 %71, -1
   %73 = sext i32 %64 to i64
@@ -3803,7 +3803,7 @@ Vec_IntFreeP.exit:                                ; preds = %12, %19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !7
   %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

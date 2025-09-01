@@ -118,7 +118,7 @@ define internal range(i32 -2147483648, 2) i32 @aac_parse_packet(ptr noundef %0, 
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %38 = load i32, ptr %20, align 8, !tbaa !32
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [8192 x i8], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr %37, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !33
   %42 = load i32, ptr %11, align 4, !tbaa !27
   %43 = sext i32 %42 to i64
@@ -570,7 +570,7 @@ rtp_parse_mp4_au.exit:                            ; preds = %95, %84, %74, %68, 
 311:                                              ; preds = %304
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %313 = sext i32 %295 to i64
-  %314 = getelementptr inbounds [8192 x i8], ptr %312, i64 0, i64 %313
+  %314 = getelementptr inbounds i8, ptr %312, i64 %313
   %315 = sext i32 %290 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %314, ptr nonnull align 1 %289, i64 %315, i1 false)
   %316 = load i32, ptr %294, align 8, !tbaa !32
@@ -707,7 +707,7 @@ parse_fmtp_config.exit:                           ; preds = %10
 .preheader:                                       ; preds = %17, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %17 ]
   %21 = phi ptr [ %56, %54 ], [ @.str.6, %17 ]
-  %22 = phi ptr [ %55, %54 ], [ @attr_names, %17 ]
+  %22 = getelementptr inbounds nuw %struct.AttrNameMap, ptr @attr_names, i64 %indvars.iv
   %23 = tail call i32 @av_strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %21) #7
   %.not52 = icmp eq i32 %23, 0
   br i1 %.not52, label %24, label %54
@@ -782,7 +782,7 @@ split:                                            ; preds = %34
 
 54:                                               ; preds = %49, %41, %24, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds nuw [8 x %struct.AttrNameMap], ptr @attr_names, i64 0, i64 %indvars.iv.next
+  %55 = getelementptr inbounds nuw %struct.AttrNameMap, ptr @attr_names, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8, !tbaa !67
   %exitcond = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond, label %57, label %.preheader, !llvm.loop !68

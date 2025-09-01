@@ -1188,7 +1188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334: ; preds = %_Z
   %376 = sitofp i32 %375 to float
   %377 = sitofp i32 %356 to float
   %378 = fdiv float %376, %377
-  %379 = getelementptr inbounds nuw [3 x [20 x [2 x i32]]], ptr @_ZL10POSE_PAIRS, i64 0, i64 %.089
+  %379 = getelementptr inbounds nuw [20 x [2 x i32]], ptr @_ZL10POSE_PAIRS, i64 %.089
   %380 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %381 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %382 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1346,7 +1346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %_Z
 
 434:                                              ; preds = %368, %473
   %indvars.iv454 = phi i64 [ 0, %368 ], [ %indvars.iv.next455, %473 ]
-  %435 = getelementptr inbounds nuw [20 x [2 x i32]], ptr %379, i64 0, i64 %indvars.iv454
+  %435 = getelementptr inbounds nuw [2 x i32], ptr %379, i64 %indvars.iv454
   %436 = load i32, ptr %435, align 8, !tbaa !28
   %437 = sext i32 %436 to i64
   %438 = getelementptr inbounds nuw %"class.cv::Point_", ptr %359, i64 %437

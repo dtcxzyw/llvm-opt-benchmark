@@ -545,7 +545,7 @@ slot_getallattrs.exit:                            ; preds = %36, %52
 
 70:                                               ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %109 ]
-  %71 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %56, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %56, i64 %indvars.iv
   %72 = getelementptr inbounds nuw ptr, ptr %.064, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8
   %.not70 = icmp eq ptr %73, null
@@ -1598,12 +1598,12 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %126, %122, %106, %1
   %424 = getelementptr inbounds nuw i8, ptr %417, i64 4
   %425 = load i32, ptr %424, align 4
   %426 = zext i32 %425 to i64
-  %427 = getelementptr inbounds nuw [3 x ptr], ptr %411, i64 0, i64 %426
+  %427 = getelementptr inbounds nuw ptr, ptr %411, i64 %426
   %428 = load ptr, ptr %427, align 8
   %429 = tail call ptr @lappend(ptr noundef %428, ptr noundef nonnull %418) #9
   %430 = load i32, ptr %424, align 4
   %431 = zext i32 %430 to i64
-  %432 = getelementptr inbounds nuw [3 x ptr], ptr %411, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw ptr, ptr %411, i64 %431
   store ptr %429, ptr %432, align 8
   %433 = getelementptr inbounds nuw i8, ptr %417, i64 8
   %434 = load i32, ptr %433, align 8

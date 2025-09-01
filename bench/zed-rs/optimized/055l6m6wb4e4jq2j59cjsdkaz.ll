@@ -78,7 +78,7 @@ default.unreachable:                              ; preds = %31, %12
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load ptr, ptr %25, align 8, !noalias !13, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds [0 x float], ptr %26, i64 0, i64 %19
+  %27 = getelementptr inbounds float, ptr %26, i64 %19
   %28 = load float, ptr %27, align 4, !noalias !13, !noundef !4
   %29 = add nuw i64 %19, 1
   store i64 %29, ptr %13, align 8, !alias.scope !13
@@ -118,7 +118,7 @@ default.unreachable:                              ; preds = %31, %12
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %46 = load ptr, ptr %45, align 8, !noalias !18, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds [0 x float], ptr %46, i64 0, i64 %39
+  %47 = getelementptr inbounds float, ptr %46, i64 %39
   %48 = load float, ptr %47, align 4, !noalias !18, !noundef !4
   %49 = add nuw i64 %39, 1
   store i64 %49, ptr %33, align 8, !alias.scope !18
@@ -1127,10 +1127,10 @@ define hidden { ptr, i64 } @_ZN5audio5Sound4file17h5f749c4715b3cb88E(ptr noalias
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !219, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E.12, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E.12, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

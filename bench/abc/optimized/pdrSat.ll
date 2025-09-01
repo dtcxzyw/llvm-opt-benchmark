@@ -656,7 +656,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 22:                                               ; preds = %.lr.ph, %85
   %23 = phi i32 [ %18, %.lr.ph ], [ %86, %85 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %24 = getelementptr inbounds nuw [0 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !43
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %85, label %27

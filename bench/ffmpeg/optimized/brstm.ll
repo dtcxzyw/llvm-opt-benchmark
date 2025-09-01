@@ -810,7 +810,7 @@ read32.exit366:                                   ; preds = %338, %340
   %401 = load ptr, ptr %12, align 8, !tbaa !41
   %402 = tail call i64 @avio_skip(ptr noundef %401, i64 noundef 4) #10
   %403 = trunc i64 %indvars.iv to i8
-  %404 = getelementptr inbounds nuw [256 x %struct.BRSTMCoeffOffset], ptr %399, i64 0, i64 %indvars.iv
+  %404 = getelementptr inbounds nuw %struct.BRSTMCoeffOffset, ptr %399, i64 %indvars.iv
   store i8 %403, ptr %404, align 8, !tbaa !58
   %405 = load ptr, ptr %2, align 8, !tbaa !12
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 10280

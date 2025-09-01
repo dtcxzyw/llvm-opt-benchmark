@@ -407,9 +407,9 @@ default.unreachable474:                           ; preds = %155, %67, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %69 = load ptr, ptr %68, align 8, !nonnull !8, !noundef !8
-  %70 = getelementptr inbounds [0 x { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }], ptr %69, i64 0, i64 %66, i32 2
+  %70 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }, ptr %69, i64 %66, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %70, i64 64, i1 false)
-  %71 = getelementptr inbounds [0 x { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }], ptr %69, i64 0, i64 %66
+  %71 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }, ptr %69, i64 %66
   %72 = load i64, ptr %71, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5174)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -516,7 +516,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc50,
 110:                                              ; preds = %65
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %112 = load ptr, ptr %111, align 8, !nonnull !8, !noundef !8
-  %113 = getelementptr inbounds [0 x { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }], ptr %112, i64 0, i64 %66
+  %113 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] }, {} }, ptr %112, i64 %66
   %114 = load i64, ptr %113, align 8, !noundef !8
   %115 = add i64 %114, -1
   store i64 %115, ptr %113, align 8
@@ -1374,9 +1374,9 @@ default.unreachable535:                           ; preds = %157, %69, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %71 = load ptr, ptr %70, align 8, !nonnull !8, !noundef !8
-  %72 = getelementptr inbounds [0 x { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }], ptr %71, i64 0, i64 %68, i32 3
+  %72 = getelementptr inbounds { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }, ptr %71, i64 %68, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %72, i64 64, i1 false)
-  %73 = getelementptr inbounds [0 x { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }], ptr %71, i64 0, i64 %68
+  %73 = getelementptr inbounds { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }, ptr %71, i64 %68
   %74 = load i64, ptr %73, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6186)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1485,7 +1485,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
 112:                                              ; preds = %67
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %114 = load ptr, ptr %113, align 8, !nonnull !8, !noundef !8
-  %115 = getelementptr inbounds [0 x { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }], ptr %114, i64 0, i64 %68
+  %115 = getelementptr inbounds { i64, i64, i64, { { ptr, i64 }, i64, i64, i64, i64, i64, { i8, [1 x i8] }, i8, i8, [4 x i8] } }, ptr %114, i64 %68
   %116 = load i64, ptr %115, align 8, !noundef !8
   %117 = add i64 %116, -1
   store i64 %117, ptr %115, align 8
@@ -2380,7 +2380,7 @@ default.unreachable.i:                            ; preds = %38
 _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %43
   %52 = icmp ne ptr %.sroa.0.sroa.8.0.copyload, null
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload, i64 0, i64 %49
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload, i64 %49
   %54 = load i8, ptr %53, align 1, !noalias !255, !noundef !8
   %55 = and i8 %.sroa.0.sroa.17.0.copyload, 15
   %56 = zext nneg i8 %55 to i64
@@ -2519,9 +2519,9 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit: ; preds = 
   br i1 %.not.i54, label %114, label %110
 
 110:                                              ; preds = %108
-  %111 = add nsw i8 %109, -1
-  %112 = zext nneg i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %112
+  %111 = zext nneg i8 %109 to i64
+  %112 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %111
+  %113 = getelementptr i8, ptr %112, i64 -1
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 114:                                              ; preds = %108
@@ -2532,7 +2532,7 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit: ; preds = 
 117:                                              ; preds = %114
   %118 = icmp ne ptr %.sroa.0.sroa.8.0.copyload, null
   tail call void @llvm.assume(i1 %118)
-  %119 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload, i64 0, i64 %115
+  %119 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload, i64 %115
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 120:                                              ; preds = %114
@@ -2555,9 +2555,9 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %1
   br i1 %.not.i56, label %129, label %125
 
 125:                                              ; preds = %123
-  %126 = add nsw i8 %124, -1
-  %127 = zext nneg i8 %126 to i64
-  %128 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %127
+  %126 = zext nneg i8 %124 to i64
+  %127 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %126
+  %128 = getelementptr i8, ptr %127, i64 -1
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 129:                                              ; preds = %123
@@ -2568,7 +2568,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %1
 132:                                              ; preds = %129
   %133 = icmp ne ptr %.sroa.0.sroa.8.0.copyload, null
   tail call void @llvm.assume(i1 %133)
-  %134 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.8.0.copyload, i64 0, i64 %130
+  %134 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload, i64 %130
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 135:                                              ; preds = %129
@@ -3044,7 +3044,7 @@ default.unreachable.i:                            ; preds = %44
 _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %49
   %58 = icmp ne ptr %.sroa.0.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.9.0.copyload, i64 0, i64 %55
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.sroa.9.0.copyload, i64 %55
   %60 = load i8, ptr %59, align 1, !noalias !341, !noundef !8
   %61 = and i8 %.sroa.0.sroa.18.0.copyload, 15
   %62 = zext nneg i8 %61 to i64
@@ -3183,9 +3183,9 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit: ; preds = 
   br i1 %.not.i55, label %120, label %116
 
 116:                                              ; preds = %114
-  %117 = add nsw i8 %115, -1
-  %118 = zext nneg i8 %117 to i64
-  %119 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %118
+  %117 = zext nneg i8 %115 to i64
+  %118 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %117
+  %119 = getelementptr i8, ptr %118, i64 -1
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 120:                                              ; preds = %114
@@ -3196,7 +3196,7 @@ _ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit: ; preds = 
 123:                                              ; preds = %120
   %124 = icmp ne ptr %.sroa.0.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.9.0.copyload, i64 0, i64 %121
+  %125 = getelementptr inbounds i8, ptr %.sroa.0.sroa.9.0.copyload, i64 %121
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 126:                                              ; preds = %120
@@ -3219,9 +3219,9 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %1
   br i1 %.not.i57, label %135, label %131
 
 131:                                              ; preds = %129
-  %132 = add nsw i8 %130, -1
-  %133 = zext nneg i8 %132 to i64
-  %134 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %133
+  %132 = zext nneg i8 %130 to i64
+  %133 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %132
+  %134 = getelementptr i8, ptr %133, i64 -1
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 135:                                              ; preds = %129
@@ -3232,7 +3232,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %1
 138:                                              ; preds = %135
   %139 = icmp ne ptr %.sroa.0.sroa.9.0.copyload, null
   tail call void @llvm.assume(i1 %139)
-  %140 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.9.0.copyload, i64 0, i64 %136
+  %140 = getelementptr inbounds i8, ptr %.sroa.0.sroa.9.0.copyload, i64 %136
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 141:                                              ; preds = %135
@@ -3957,9 +3957,9 @@ default.unreachable26:                            ; preds = %2
   br i1 %.not.i, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = add nsw i8 %7, -1
-  %10 = zext nneg i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %10
+  %9 = zext nneg i8 %7 to i64
+  %10 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -1
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 12:                                               ; preds = %5
@@ -3973,7 +3973,7 @@ default.unreachable26:                            ; preds = %2
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %0, align 8, !alias.scope !445, !nonnull !8, !align !16, !noundef !8
-  %21 = getelementptr inbounds [0 x i8], ptr %20, i64 0, i64 %15
+  %21 = getelementptr inbounds i8, ptr %20, i64 %15
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 22:                                               ; preds = %12
@@ -3995,9 +3995,9 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %8
   br i1 %.not.i6, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = add nsw i8 %26, -1
-  %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %29
+  %28 = zext nneg i8 %26 to i64
+  %29 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -1
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 31:                                               ; preds = %24
@@ -4011,7 +4011,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %8
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %0, align 8, !alias.scope !448, !nonnull !8, !align !16, !noundef !8
-  %40 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 %34
+  %40 = getelementptr inbounds i8, ptr %39, i64 %34
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 41:                                               ; preds = %31
@@ -4102,7 +4102,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %27, %
 
 84:                                               ; preds = %78
   %85 = load ptr, ptr %0, align 8, !alias.scope !451, !nonnull !8, !align !16, !noundef !8
-  %86 = getelementptr inbounds [0 x i8], ptr %85, i64 0, i64 %82
+  %86 = getelementptr inbounds i8, ptr %85, i64 %82
   %87 = load i8, ptr %86, align 1, !noalias !451, !noundef !8
   %88 = zext i8 %87 to i64
   %.not29.i = icmp ugt i64 %50, %88
@@ -4370,7 +4370,7 @@ default.unreachable:                              ; preds = %8
 
 _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %17
   %36 = load ptr, ptr %10, align 8, !alias.scope !487, !nonnull !8, !align !16, !noundef !8
-  %37 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %31
+  %37 = getelementptr inbounds i8, ptr %36, i64 %31
   %38 = load i8, ptr %37, align 1, !noalias !487, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !490)
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 58
@@ -4454,9 +4454,9 @@ _ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit: ; preds = %.lr.
   br i1 %.not.i10, label %79, label %75
 
 75:                                               ; preds = %71
-  %76 = add nsw i8 %74, -1
-  %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %77
+  %76 = zext nneg i8 %74 to i64
+  %77 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 -1
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 79:                                               ; preds = %71
@@ -4470,7 +4470,7 @@ _ZN3fst3raw4node13StateAnyTrans6output17h851e2347ea8b67f7E.exit: ; preds = %.lr.
 
 86:                                               ; preds = %79
   %87 = load ptr, ptr %10, align 8, !alias.scope !501, !nonnull !8, !align !16, !noundef !8
-  %88 = getelementptr inbounds [0 x i8], ptr %87, i64 0, i64 %82
+  %88 = getelementptr inbounds i8, ptr %87, i64 %82
   br label %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
 
 89:                                               ; preds = %79
@@ -4498,9 +4498,9 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %7
   br i1 %.not.i12, label %102, label %98
 
 98:                                               ; preds = %94
-  %99 = add nsw i8 %97, -1
-  %100 = zext nneg i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 0, i64 %100
+  %99 = zext nneg i8 %97 to i64
+  %100 = getelementptr i8, ptr @anon.ee33ef7e5b2babbfb09eb0d7c843416c.19, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 -1
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 102:                                              ; preds = %94
@@ -4514,7 +4514,7 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %7
 
 109:                                              ; preds = %102
   %110 = load ptr, ptr %10, align 8, !alias.scope !504, !nonnull !8, !align !16, !noundef !8
-  %111 = getelementptr inbounds [0 x i8], ptr %110, i64 0, i64 %105
+  %111 = getelementptr inbounds i8, ptr %110, i64 %105
   br label %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
 
 112:                                              ; preds = %102

@@ -3467,8 +3467,8 @@ _ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18Additional
 53:                                               ; preds = %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %55 = load i16, ptr %54, align 8, !tbaa !262
-  %switch.tableidx71 = add i16 %55, -1
-  %56 = icmp ult i16 %switch.tableidx71, 19
+  %switch.tableidx70 = add i16 %55, -1
+  %56 = icmp ult i16 %switch.tableidx70, 19
   br i1 %56, label %switch.hole_check72, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
 
 _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit: ; preds = %switch.hole_check72, %53
@@ -3577,7 +3577,7 @@ switch.hole_check:                                ; preds = %9
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i
 
 switch.hole_check72:                              ; preds = %53
-  %switch.maskindex74 = zext nneg i16 %switch.tableidx71 to i32
+  %switch.maskindex74 = zext nneg i16 %switch.tableidx70 to i32
   %switch.shifted75 = lshr i32 524225, %switch.maskindex74
   %switch.lobit76 = trunc i32 %switch.shifted75 to i1
   br i1 %switch.lobit76, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
@@ -4327,8 +4327,8 @@ _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62: ; preds = %180, %_Z
   br i1 %.not.i63, label %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit.thread, label %190
 
 190:                                              ; preds = %188
-  %switch.tableidx241 = add i16 %185, -1
-  %191 = icmp ult i16 %switch.tableidx241, 19
+  %switch.tableidx240 = add i16 %185, -1
+  %191 = icmp ult i16 %switch.tableidx240, 19
   br i1 %191, label %switch.hole_check242, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64
 
 _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64: ; preds = %switch.hole_check242, %190
@@ -4674,7 +4674,7 @@ switch.hole_check:                                ; preds = %66
   br i1 %switch.lobit, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32
 
 switch.hole_check242:                             ; preds = %190
-  %switch.maskindex244 = zext nneg i16 %switch.tableidx241 to i32
+  %switch.maskindex244 = zext nneg i16 %switch.tableidx240 to i32
   %switch.shifted245 = lshr i32 524225, %switch.maskindex244
   %switch.lobit246 = trunc i32 %switch.shifted245 to i1
   br i1 %switch.lobit246, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64

@@ -4149,8 +4149,8 @@ define hidden void @proto_register_pfcp() local_unnamed_addr #0 {
 
 15:                                               ; preds = %0, %15
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr [354 x i32], ptr @ett_pfcp_elem, i64 0, i64 %indvars.iv
-  %17 = getelementptr [354 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %16 = getelementptr i32, ptr @ett_pfcp_elem, i64 %indvars.iv
+  %17 = getelementptr ptr, ptr %2, i64 %indvars.iv
   store ptr %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 354
@@ -5332,7 +5332,7 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
   %32 = zext nneg i16 %15 to i32
   %33 = zext nneg i16 %15 to i64
   %34 = icmp samesign ult i16 %15, 354
-  %35 = getelementptr [354 x i32], ptr @ett_pfcp_elem, i64 0, i64 %33
+  %35 = getelementptr i32, ptr @ett_pfcp_elem, i64 %33
   %.0.in = select i1 %34, ptr %35, ptr @ett_pfcp_ie
   %.0 = load i32, ptr %.0.in, align 4
   %36 = zext i16 %17 to i32
@@ -5357,7 +5357,7 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
 
 49:                                               ; preds = %48
   %50 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %36)
-  %51 = getelementptr [355 x %struct._pfcp_ie], ptr @pfcp_ies, i64 0, i64 %33
+  %51 = getelementptr %struct._pfcp_ie, ptr @pfcp_ies, i64 %33
   %52 = load ptr, ptr %51, align 8
   %.not73 = icmp eq ptr %52, null
   br i1 %.not73, label %55, label %53

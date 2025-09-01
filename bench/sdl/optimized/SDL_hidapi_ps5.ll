@@ -108,13 +108,13 @@ define internal zeroext i1 @HIDAPI_DriverPS5_InitDevice(ptr noundef %0) #0 {
 13:                                               ; preds = %.preheader, %13
   %indvars.iv108 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next109, %13 ]
   %indvars.iv = phi i64 [ -1, %.preheader ], [ %indvars.iv.next, %13 ]
-  %14 = add nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds [18 x i8], ptr %3, i64 0, i64 %14
+  %14 = getelementptr i8, ptr %3, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 1
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv108
   %17 = load i16, ptr %16, align 1
   store i16 %17, ptr %15, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 3
-  %18 = getelementptr inbounds [18 x i8], ptr %3, i64 0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
   store i8 45, ptr %18, align 1
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 2
   %19 = icmp samesign ult i64 %indvars.iv108, 10
@@ -289,7 +289,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_InitDevice(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %109
   %111 = zext nneg i8 %89 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.HIDAPI_DriverPS5_InitDevice, i64 0, i64 %111
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.HIDAPI_DriverPS5_InitDevice, i64 %111
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %112
 
@@ -1439,7 +1439,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 124:                                              ; preds = %140, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %140 ]
-  %125 = getelementptr inbounds nuw [6 x %struct.IMUCalibrationData], ptr %84, i64 0, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %84, i64 %indvars.iv.i
   %126 = load i16, ptr %125, align 4
   %127 = sext i16 %126 to i32
   %128 = call i32 @SDL_abs_REAL(i32 noundef %127) #9
@@ -1674,7 +1674,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   %.inv.i = icmp slt i32 %75, 0
   %narrow.i = select i1 %.inv.i, i32 0, i32 %76
   %.0.i = zext nneg i32 %narrow.i to i64
-  %77 = getelementptr inbounds nuw [7 x [3 x i8]], ptr @SetLedsForPlayerIndex.colors, i64 0, i64 %.0.i
+  %77 = getelementptr inbounds nuw [3 x i8], ptr @SetLedsForPlayerIndex.colors, i64 %.0.i
   %78 = load i8, ptr %77, align 1
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i8 %78, ptr %79, align 1
@@ -1719,7 +1719,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
 100:                                              ; preds = %96
   %101 = urem i32 %98, 5
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [5 x i8], ptr @SetLightsForPlayerIndex.lights, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr @SetLightsForPlayerIndex.lights, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = or i8 %104, 32
   br label %.sink.split44
@@ -1927,7 +1927,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   %93 = zext nneg i32 %.029 to i64
   %94 = add nsw i64 %93, -4
   %95 = call i32 @SDL_crc32_REAL(i32 noundef %92, ptr noundef nonnull %6, i64 noundef %94) #9
-  %96 = getelementptr inbounds nuw [78 x i8], ptr %6, i64 0, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 %94
   store i32 %95, ptr %96, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %97
@@ -2999,7 +2999,7 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
 60:                                               ; preds = %56
   %61 = urem i32 %58, 5
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [5 x i8], ptr @SetLightsForPlayerIndex.lights, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @SetLightsForPlayerIndex.lights, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = or i8 %64, 32
   br label %.sink.split44.i

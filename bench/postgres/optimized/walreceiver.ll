@@ -1339,7 +1339,7 @@ XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exi
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.critedge.preheader ]
   %.081195 = phi i64 [ %..081, %.critedge ], [ 9223372036854775807, %.critedge.preheader ]
-  %563 = getelementptr inbounds nuw [4 x i64], ptr @wakeup, i64 0, i64 %indvars.iv
+  %563 = getelementptr inbounds nuw i64, ptr @wakeup, i64 %indvars.iv
   %564 = load i64, ptr %563, align 8
   %..081 = call i64 @llvm.smin.i64(i64 %564, i64 %.081195)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2459,7 +2459,7 @@ define dso_local i64 @pg_stat_get_wal_receiver(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %79
   %81 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_stat_get_wal_receiver, i64 0, i64 %81
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_stat_get_wal_receiver, i64 %81
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %WalRcvGetStateString.exit
 

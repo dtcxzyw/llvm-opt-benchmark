@@ -632,7 +632,7 @@ bytestream2_put_byte.exit1209.i:                  ; preds = %219, %224, %225, %2
 
 254:                                              ; preds = %269, %.preheader1323.i
   %indvars.iv1757.i = phi i64 [ 0, %.preheader1323.i ], [ %indvars.iv.next1758.i, %269 ]
-  %255 = getelementptr inbounds nuw [256 x [2 x i8]], ptr %91, i64 0, i64 %indvars.iv1757.i
+  %255 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv1757.i
   %256 = load i8, ptr %255, align 2, !tbaa !40
   %257 = icmp eq i8 %256, %213
   br i1 %257, label %262, label %258
@@ -705,7 +705,7 @@ bytestream2_put_byte.exit1215.i:                  ; preds = %286, %290
   %.sroa.125.19 = phi i32 [ 0, %290 ], [ 1, %286 ]
   %.sroa.0.24 = phi ptr [ %294, %290 ], [ %.sroa.0.1, %286 ]
   %295 = sext i32 %.09721632.i to i64
-  %296 = getelementptr inbounds [256 x [2 x i8]], ptr %91, i64 0, i64 %295
+  %296 = getelementptr inbounds [2 x i8], ptr %91, i64 %295
   br label %300
 
 297:                                              ; preds = %bytestream2_put_byte.exit1217.i
@@ -721,7 +721,7 @@ bytestream2_put_byte.exit1215.i:                  ; preds = %286, %290
   %indvars.iv1761.i = phi i64 [ 0, %bytestream2_put_byte.exit1215.i ], [ 1, %bytestream2_put_byte.exit1217.i ]
   %302 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv1761.i
   %303 = load i8, ptr %302, align 1, !tbaa !40
-  %304 = getelementptr inbounds nuw [2 x i8], ptr %296, i64 0, i64 %indvars.iv1761.i
+  %304 = getelementptr inbounds nuw i8, ptr %296, i64 %indvars.iv1761.i
   store i8 %303, ptr %304, align 1, !tbaa !40
   %.not.i1216.i = icmp eq i32 %.sroa.125.20, 0
   %305 = ptrtoint ptr %.sroa.0.25 to i64
@@ -862,7 +862,7 @@ bytestream2_put_be16.exit.i:                      ; preds = %._crit_edge1559.i, 
 
 352:                                              ; preds = %413, %350
   %indvars.iv1729.i = phi i64 [ 0, %350 ], [ %indvars.iv.next1730.i, %413 ]
-  %353 = getelementptr inbounds nuw [256 x [4 x i8]], ptr %90, i64 0, i64 %indvars.iv1729.i
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv1729.i
   %354 = load i8, ptr %353, align 4, !tbaa !40
   %355 = icmp eq i8 %354, %351
   br i1 %355, label %368, label %356
@@ -1005,7 +1005,7 @@ bytestream2_put_byte.exit1223.i:                  ; preds = %430, %434
   %.sroa.125.13 = phi i32 [ 0, %434 ], [ 1, %430 ]
   %.sroa.0.17 = phi ptr [ %438, %434 ], [ %.sroa.0.1, %430 ]
   %439 = sext i32 %.09751631.i to i64
-  %440 = getelementptr inbounds [256 x [4 x i8]], ptr %90, i64 0, i64 %439
+  %440 = getelementptr inbounds [4 x i8], ptr %90, i64 %439
   br label %444
 
 441:                                              ; preds = %bytestream2_put_byte.exit1225.i
@@ -1020,7 +1020,7 @@ bytestream2_put_byte.exit1223.i:                  ; preds = %430, %434
   %indvars.iv1733.i = phi i64 [ 0, %bytestream2_put_byte.exit1223.i ], [ %indvars.iv.next1734.i, %bytestream2_put_byte.exit1225.i ]
   %445 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv1733.i
   %446 = load i8, ptr %445, align 1, !tbaa !40
-  %447 = getelementptr inbounds nuw [4 x i8], ptr %440, i64 0, i64 %indvars.iv1733.i
+  %447 = getelementptr inbounds nuw i8, ptr %440, i64 %indvars.iv1733.i
   store i8 %446, ptr %447, align 1, !tbaa !40
   %.not.i1224.i = icmp eq i32 %.sroa.125.14, 0
   %448 = ptrtoint ptr %.sroa.0.18 to i64
@@ -1051,7 +1051,7 @@ bytestream2_put_byte.exit1221.i:                  ; preds = %414, %419, %441, %4
 
 .lr.ph1542.i:                                     ; preds = %bytestream2_put_byte.exit1221.i
   %454 = sext i32 %.1995.i to i64
-  %455 = getelementptr inbounds [256 x [4 x i8]], ptr %90, i64 0, i64 %454
+  %455 = getelementptr inbounds [4 x i8], ptr %90, i64 %454
   br label %.preheader1316.i
 
 .preheader1316.i:                                 ; preds = %.critedge27.i, %.lr.ph1542.i
@@ -1102,7 +1102,7 @@ bytestream2_put_byte.exit1221.i:                  ; preds = %414, %419, %441, %4
 
 471:                                              ; preds = %475, %468
   %indvars.iv1740.i = phi i64 [ %indvars.iv.next1741.i, %475 ], [ 0, %468 ]
-  %472 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv1740.i
+  %472 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv1740.i
   %473 = load i8, ptr %472, align 1, !tbaa !40
   %474 = icmp eq i8 %473, %470
   br i1 %474, label %.split.loop.exit1859.i, label %475
@@ -1187,7 +1187,7 @@ bytestream2_put_be32.exit.i:                      ; preds = %._crit_edge1524.i, 
 
 500:                                              ; preds = %749, %498
   %indvars.iv1701.i = phi i64 [ 0, %498 ], [ %indvars.iv.next1702.i, %749 ]
-  %501 = getelementptr inbounds nuw [256 x [8 x i8]], ptr %82, i64 0, i64 %indvars.iv1701.i
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv1701.i
   %502 = load i8, ptr %501, align 4, !tbaa !40
   %503 = icmp eq i8 %502, %499
   br i1 %503, label %532, label %504
@@ -1614,7 +1614,7 @@ bytestream2_put_byte.exit1231.i:                  ; preds = %766, %770
   %.sroa.125.7 = phi i32 [ 0, %770 ], [ 1, %766 ]
   %.sroa.0.9 = phi ptr [ %774, %770 ], [ %.sroa.0.1, %766 ]
   %775 = sext i32 %.09841630.i to i64
-  %776 = getelementptr inbounds [256 x [8 x i8]], ptr %82, i64 0, i64 %775
+  %776 = getelementptr inbounds [8 x i8], ptr %82, i64 %775
   br label %780
 
 777:                                              ; preds = %bytestream2_put_byte.exit1233.i
@@ -1629,7 +1629,7 @@ bytestream2_put_byte.exit1231.i:                  ; preds = %766, %770
   %indvars.iv1705.i = phi i64 [ 0, %bytestream2_put_byte.exit1231.i ], [ %indvars.iv.next1706.i, %bytestream2_put_byte.exit1233.i ]
   %781 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv1705.i
   %782 = load i8, ptr %781, align 1, !tbaa !40
-  %783 = getelementptr inbounds nuw [8 x i8], ptr %776, i64 0, i64 %indvars.iv1705.i
+  %783 = getelementptr inbounds nuw i8, ptr %776, i64 %indvars.iv1705.i
   store i8 %782, ptr %783, align 1, !tbaa !40
   %.not.i1232.i = icmp eq i32 %.sroa.125.8, 0
   %784 = ptrtoint ptr %.sroa.0.10 to i64
@@ -1660,7 +1660,7 @@ bytestream2_put_byte.exit1229.i:                  ; preds = %750, %755, %777, %7
 
 .lr.ph1505.i:                                     ; preds = %bytestream2_put_byte.exit1229.i
   %790 = sext i32 %.2996.i to i64
-  %791 = getelementptr inbounds [256 x [8 x i8]], ptr %82, i64 0, i64 %790
+  %791 = getelementptr inbounds [8 x i8], ptr %82, i64 %790
   br label %.preheader1317.i
 
 .preheader1317.i:                                 ; preds = %.critedge31.i, %.lr.ph1505.i
@@ -1711,7 +1711,7 @@ bytestream2_put_byte.exit1229.i:                  ; preds = %750, %755, %777, %7
 
 805:                                              ; preds = %804, %801
   %indvars.iv1712.i = phi i64 [ %indvars.iv.next1713.i, %804 ], [ 0, %801 ]
-  %806 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %indvars.iv1712.i
+  %806 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv1712.i
   %807 = load i8, ptr %806, align 1, !tbaa !40
   %808 = icmp eq i8 %807, %803
   br i1 %808, label %809, label %804

@@ -524,7 +524,7 @@ uv__stream_queue_fd.exit.thread.i.i:              ; preds = %if.end25.sink.split
   %inc.i.i.i = add i32 %63, 1
   store i32 %inc.i.i.i, ptr %offset26.i.i.i, align 4
   %idxprom.i.i.i = zext i32 %63 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [1 x i32], ptr %fds.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %fds.i.i.i, i64 %idxprom.i.i.i
   store i32 %fd.0.copyload.i.i, ptr %arrayidx.i.i.i, align 4
   br label %for.inc19.i.i
 
@@ -2096,7 +2096,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %fds, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %fds, i64 %indvars.iv
   %14 = load i32, ptr %arrayidx, align 4
   %call38 = tail call i32 @uv__close(i32 noundef %14) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -1014,7 +1014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %66
   %68 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5boost6locale8impl_icu14converter_implIwE7convertB5cxx11ENS0_14converter_base15conversion_typeEPKwS7_i, i64 0, i64 %68
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5boost6locale8impl_icu14converter_implIwE7convertB5cxx11ENS0_14converter_base15conversion_typeEPKwS7_i, i64 %68
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %69
 
@@ -2751,7 +2751,7 @@ _ZN5boost6locale8impl_icu17icu_std_converterIcLi1EEC2ERKNSt7__cxx1112basic_strin
 
 switch.lookup:                                    ; preds = %30
   %32 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5boost6locale8impl_icu14converter_implIwE7convertB5cxx11ENS0_14converter_base15conversion_typeEPKwS7_i, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5boost6locale8impl_icu14converter_implIwE7convertB5cxx11ENS0_14converter_base15conversion_typeEPKwS7_i, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %33
 
@@ -3063,7 +3063,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIwLi4EE3icuEPKwS5_.exit: ; preds = 
 
 switch.lookup:                                    ; preds = %46
   %48 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5boost6locale8impl_icu14converter_implIwE7convertB5cxx11ENS0_14converter_base15conversion_typeEPKwS7_i, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5boost6locale8impl_icu14converter_implIwE7convertB5cxx11ENS0_14converter_base15conversion_typeEPKwS7_i, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %49
 

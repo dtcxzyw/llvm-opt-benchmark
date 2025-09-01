@@ -431,7 +431,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit:
 169:                                              ; preds = %.preheader209, %169
   %170 = phi i1 [ true, %.preheader209 ], [ false, %169 ]
   %indvars.iv251 = phi i64 [ 0, %.preheader209 ], [ 1, %169 ]
-  %171 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv254.sroa.phi, i64 0, i64 %indvars.iv251
+  %171 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv254.sroa.phi, i64 %indvars.iv251
   %172 = mul nuw nsw i64 %indvars.iv251, 3
   %173 = add nuw nsw i64 %172, %160
   %174 = add nuw nsw i64 %173, 3
@@ -586,7 +586,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit6
 267:                                              ; preds = %.preheader, %267
   %268 = phi i1 [ true, %.preheader ], [ false, %267 ]
   %indvars.iv272 = phi i64 [ 0, %.preheader ], [ 1, %267 ]
-  %269 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv275.sroa.phi, i64 0, i64 %indvars.iv272
+  %269 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv275.sroa.phi, i64 %indvars.iv272
   %270 = mul nuw nsw i64 %indvars.iv272, 3
   %271 = add nuw nsw i64 %270, %211
   %272 = add nuw nsw i64 %271, 3
@@ -915,7 +915,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit:
 169:                                              ; preds = %.preheader207, %169
   %170 = phi i1 [ true, %.preheader207 ], [ false, %169 ]
   %indvars.iv249 = phi i64 [ 0, %.preheader207 ], [ 1, %169 ]
-  %171 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv252.sroa.phi, i64 0, i64 %indvars.iv249
+  %171 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv252.sroa.phi, i64 %indvars.iv249
   %172 = mul nuw nsw i64 %indvars.iv249, 3
   %173 = add nuw nsw i64 %172, %160
   %174 = add nuw nsw i64 %173, 3
@@ -1062,7 +1062,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit6
 261:                                              ; preds = %.preheader, %261
   %262 = phi i1 [ true, %.preheader ], [ false, %261 ]
   %indvars.iv270 = phi i64 [ 0, %.preheader ], [ 1, %261 ]
-  %263 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv273.sroa.phi, i64 0, i64 %indvars.iv270
+  %263 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv273.sroa.phi, i64 %indvars.iv270
   %264 = mul nuw nsw i64 %indvars.iv270, 3
   %265 = add nuw nsw i64 %264, %205
   %266 = add nuw nsw i64 %265, 3
@@ -2339,7 +2339,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUliiE_clEii.e
   store i32 %126, ptr %55, align 4, !tbaa !120, !noalias !186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.096, ptr noundef nonnull align 4 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !186
-  %127 = getelementptr inbounds nuw [2 x %"struct.std::array.50"], ptr %indvars.iv234.sroa.phi, i64 0, i64 %indvars.iv231
+  %127 = getelementptr inbounds nuw %"struct.std::array.50", ptr %indvars.iv234.sroa.phi, i64 %indvars.iv231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %127, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.096, i64 48, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.096)
   br i1 %104, label %103, label %102, !llvm.loop !191
@@ -2417,7 +2417,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUliiE_clEii.e
 173:                                              ; preds = %.preheader207, %173
   %174 = phi i1 [ true, %.preheader207 ], [ false, %173 ]
   %indvars.iv243 = phi i64 [ 0, %.preheader207 ], [ 1, %173 ]
-  %175 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv246.sroa.phi, i64 0, i64 %indvars.iv243
+  %175 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv246.sroa.phi, i64 %indvars.iv243
   %176 = mul nuw nsw i64 %indvars.iv243, 3
   %177 = add nuw nsw i64 %176, %164
   %178 = add nuw nsw i64 %177, 3
@@ -2626,7 +2626,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUliiE_clEii.e
 308:                                              ; preds = %.preheader, %308
   %309 = phi i1 [ true, %.preheader ], [ false, %308 ]
   %indvars.iv267 = phi i64 [ 0, %.preheader ], [ 1, %308 ]
-  %310 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv270.sroa.phi, i64 0, i64 %indvars.iv267
+  %310 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv270.sroa.phi, i64 %indvars.iv267
   %311 = mul nuw nsw i64 %indvars.iv267, 3
   %312 = add nuw nsw i64 %311, %216
   %313 = add nuw nsw i64 %312, 3
@@ -2874,7 +2874,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUliiE_clEii.e
   store i32 %126, ptr %55, align 4, !tbaa !120, !noalias !203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.094, ptr noundef nonnull align 4 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !203
-  %127 = getelementptr inbounds nuw [2 x %"struct.std::array.50"], ptr %indvars.iv232.sroa.phi, i64 0, i64 %indvars.iv229
+  %127 = getelementptr inbounds nuw %"struct.std::array.50", ptr %indvars.iv232.sroa.phi, i64 %indvars.iv229
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %127, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.094, i64 48, i1 false), !tbaa.struct !121
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.094)
   br i1 %104, label %103, label %102, !llvm.loop !208
@@ -2952,7 +2952,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUliiE_clEii.e
 173:                                              ; preds = %.preheader205, %173
   %174 = phi i1 [ true, %.preheader205 ], [ false, %173 ]
   %indvars.iv241 = phi i64 [ 0, %.preheader205 ], [ 1, %173 ]
-  %175 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv244.sroa.phi, i64 0, i64 %indvars.iv241
+  %175 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv244.sroa.phi, i64 %indvars.iv241
   %176 = mul nuw nsw i64 %indvars.iv241, 3
   %177 = add nuw nsw i64 %176, %164
   %178 = add nuw nsw i64 %177, 3
@@ -3153,7 +3153,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUliiE_clEii.e
 302:                                              ; preds = %.preheader, %302
   %303 = phi i1 [ true, %.preheader ], [ false, %302 ]
   %indvars.iv265 = phi i64 [ 0, %.preheader ], [ 1, %302 ]
-  %304 = getelementptr inbounds nuw [2 x %"struct.rawspeed::Cr2sRawInterpolator::YCbCr"], ptr %indvars.iv268.sroa.phi, i64 0, i64 %indvars.iv265
+  %304 = getelementptr inbounds nuw %"struct.rawspeed::Cr2sRawInterpolator::YCbCr", ptr %indvars.iv268.sroa.phi, i64 %indvars.iv265
   %305 = mul nuw nsw i64 %indvars.iv265, 3
   %306 = add nuw nsw i64 %305, %210
   %307 = add nuw nsw i64 %306, 3

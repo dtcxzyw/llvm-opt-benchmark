@@ -769,7 +769,7 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   %.1138 = phi ptr [ %102, %98 ], [ %.0145, %.preheader ]
   %.092137 = phi i64 [ %103, %98 ], [ 0, %.preheader ]
   %.097136 = phi i64 [ %104, %98 ], [ 0, %.preheader ]
-  %93 = getelementptr inbounds nuw [2 x %struct.ossl_qtx_iovec_st], ptr %3, i64 0, i64 %.097136
+  %93 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %3, i64 %.097136
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !21
   %96 = add i64 %95, %.093144

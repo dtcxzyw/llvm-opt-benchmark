@@ -555,7 +555,7 @@ define dso_local void @hugetlb_vmemmap_optimize_folios(ptr noundef readonly capt
 define internal noundef i32 @hugetlb_vmemmap_init() #3 section ".init.text" align 16 {
   %1 = load i32, ptr @hugetlb_max_hstate, align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr [2 x %struct.hstate], ptr @hstates, i64 0, i64 %2
+  %3 = getelementptr %struct.hstate, ptr @hstates, i64 %2
   %4 = icmp ugt ptr %3, @hstates
   br i1 %4, label %.preheader, label %.loopexit
 

@@ -30320,7 +30320,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i179.i: ; preds = %392,
 switch.lookup:                                    ; preds = %481, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hce43997466f1df78E.exit.i.i.i.i.i.i", %474
   %.sroa.0.0.i.i.i.i.i = phi i64 [ 0, %474 ], [ %407, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hce43997466f1df78E.exit.i.i.i.i.i.i" ], [ %.sroa.01.020.i.i.i.i.i.i, %481 ]
   %486 = zext nneg i8 %.us-phi606.i to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4fish8complete9Completer15complete_custom17hd6b12220f2b29b21E, i64 0, i64 %486
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish8complete9Completer15complete_custom17hd6b12220f2b29b21E, i64 %486
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not.i183.i = icmp eq i64 %.sroa.0.0.i.i.i.i.i, %switch.load
   br i1 %.not.i183.i, label %487, label %.split611.us.i
@@ -39341,7 +39341,7 @@ switch.lookup:
   %switch.idx.cast = zext nneg i8 %0 to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 32
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN4fish3env11environment164_$LT$impl$u20$core..convert..From$LT$fish..env..environment..EnvStackSetResult$GT$$u20$for$u20$core..result..Result$LT$fish..builtins..shared..Success$C$i32$GT$$GT$4from17h4c6e2cdd2d4324e7E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4fish3env11environment164_$LT$impl$u20$core..convert..From$LT$fish..env..environment..EnvStackSetResult$GT$$u20$for$u20$core..result..Result$LT$fish..builtins..shared..Success$C$i32$GT$$GT$4from17h4c6e2cdd2d4324e7E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.0.0.insert.insert = or disjoint i64 %switch.load, %switch.idx.mult
   ret i64 %.sroa.0.0.insert.insert
@@ -43557,10 +43557,10 @@ switch.lookup:                                    ; preds = %._crit_edge, %128
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %130 = zext nneg i32 %129 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4fish5event5print17hec327d909247852eE, i64 0, i64 %130
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish5event5print17hec327d909247852eE, i64 %130
   %switch.load = load i64, ptr %switch.gep, align 8
   %131 = zext nneg i32 %129 to i64
-  %switch.gep187 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4fish5event5print17hec327d909247852eE.243, i64 0, i64 %131
+  %switch.gep187 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish5event5print17hec327d909247852eE.243, i64 %131
   %switch.load188 = load ptr, ptr %switch.gep187, align 8
   invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %30, ptr noalias noundef nonnull readonly align 4 %switch.load188, i64 noundef %switch.load)
           to label %137 unwind label %135

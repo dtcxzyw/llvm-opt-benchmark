@@ -706,7 +706,7 @@ mxf_is_partition_pack_key.exit.thread.preheader:  ; preds = %201, %195, %196, %1
 
 mxf_is_partition_pack_key.exit.thread:            ; preds = %mxf_is_partition_pack_key.exit.thread.preheader, %206
   %.079331 = phi i64 [ %207, %206 ], [ 0, %mxf_is_partition_pack_key.exit.thread.preheader ]
-  %208 = getelementptr inbounds nuw [43 x %struct.MXFMetadataReadTableEntry], ptr @mxf_metadata_read_table, i64 0, i64 %.079331
+  %208 = getelementptr inbounds nuw %struct.MXFMetadataReadTableEntry, ptr @mxf_metadata_read_table, i64 %.079331
   %bcmp110 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull dereferenceable(16) %208, i64 16)
   %.not111 = icmp eq i32 %bcmp110, 0
   br i1 %.not111, label %209, label %206
@@ -1951,7 +1951,7 @@ mxf_get_codec_ul.exit57.thread.i.i:               ; preds = %mxf_get_codec_ul.ex
 
 790:                                              ; preds = %mxf_get_codec_ul.exit57.thread.i.i
   %791 = zext i32 %789 to i64
-  %792 = getelementptr inbounds nuw [16 x i8], ptr %755, i64 0, i64 %791
+  %792 = getelementptr inbounds nuw i8, ptr %755, i64 %791
   %793 = load i8, ptr %792, align 1, !tbaa !12
   %794 = zext i8 %793 to i32
   %795 = getelementptr inbounds nuw i8, ptr %.169.i.i, i64 36
@@ -2155,7 +2155,7 @@ mxf_get_codec_ul.exit703.i:                       ; preds = %mxf_match_uid.exit.
 867:                                              ; preds = %877, %863
   %indvars.iv1131.i = phi i64 [ 0, %863 ], [ %indvars.iv.next1132.i, %877 ]
   %868 = load ptr, ptr %37, align 8, !tbaa !39
-  %869 = getelementptr inbounds nuw [16 x i8], ptr %825, i64 0, i64 %indvars.iv1131.i
+  %869 = getelementptr inbounds nuw i8, ptr %825, i64 %indvars.iv1131.i
   %870 = load i8, ptr %869, align 1, !tbaa !12
   %871 = zext i8 %870 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %868, i32 noundef 40, ptr noundef nonnull @.str.95, i32 noundef %871) #15
@@ -6466,7 +6466,7 @@ define internal noundef i32 @mxf_read_close(ptr noundef readonly captures(none) 
 
 24:                                               ; preds = %.preheader39, %._crit_edge
   %indvars.iv51 = phi i64 [ 0, %.preheader39 ], [ %indvars.iv.next52, %._crit_edge ]
-  %25 = getelementptr inbounds nuw [26 x %struct.MXFMetadataSetGroup], ptr %10, i64 0, i64 %indvars.iv51
+  %25 = getelementptr inbounds nuw %struct.MXFMetadataSetGroup, ptr %10, i64 %indvars.iv51
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !62
   %28 = icmp sgt i32 %27, 0
@@ -7308,7 +7308,7 @@ mxf_metadataset_init.exit.i:                      ; preds = %44, %41, %partition
 121:                                              ; preds = %.critedge.i
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %123 = zext i32 %4 to i64
-  %124 = getelementptr inbounds nuw [26 x %struct.MXFMetadataSetGroup], ptr %122, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw %struct.MXFMetadataSetGroup, ptr %122, i64 %123
   %.not.i.i = icmp eq i32 %4, 15
   br i1 %.not.i.i, label %.critedge35.i.i, label %.preheader.i.i
 
@@ -8665,7 +8665,7 @@ mxf_read_utf16be_string.exit:                     ; preds = %20, %17, %10, %8, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @mxf_read_generic_descriptor(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i64 %5) #1 {
   %7 = alloca [16 x i8], align 16
-  switch i32 %2, label %114 [
+  switch i32 %2, label %113 [
     i32 16129, label %8
     i32 12290, label %12
     i32 12292, label %15
@@ -8698,52 +8698,52 @@ define internal i32 @mxf_read_generic_descriptor(ptr noundef %0, ptr noundef %1,
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = tail call fastcc i32 @mxf_read_strong_ref_array(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  br label %207
+  br label %206
 
 12:                                               ; preds = %6
   %13 = tail call i64 @avio_rb64(ptr noundef %1) #15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %13, ptr %14, align 8, !tbaa !133
-  br label %207
+  br label %206
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %16, i32 noundef 16) #15
-  br label %207
+  br label %206
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %19, i32 noundef 16) #15
-  br label %207
+  br label %206
 
 21:                                               ; preds = %6
   %22 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 %22, ptr %23, align 4, !tbaa !131
-  br label %207
+  br label %206
 
 24:                                               ; preds = %6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %25, i32 noundef 16) #15
-  br label %207
+  br label %206
 
 27:                                               ; preds = %6
   %28 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %28, ptr %29, align 8, !tbaa !152
-  br label %207
+  br label %206
 
 30:                                               ; preds = %6
   %31 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %31, ptr %32, align 4, !tbaa !154
-  br label %207
+  br label %206
 
 33:                                               ; preds = %6
   %34 = tail call i32 @avio_r8(ptr noundef %1) #15
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %34, ptr %35, align 8, !tbaa !156
-  br label %207
+  br label %206
 
 36:                                               ; preds = %6
   %37 = tail call i32 @avio_rb32(ptr noundef %1) #15
@@ -8771,16 +8771,16 @@ define internal i32 @mxf_read_generic_descriptor(ptr noundef %0, ptr noundef %1,
   %47 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %47, ptr %48, align 4, !tbaa !142
-  br label %207
+  br label %206
 
 49:                                               ; preds = %.thread, %43
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %50, align 4, !tbaa !142
-  br label %207
+  br label %206
 
 51:                                               ; preds = %36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.59, i32 noundef %38) #15
-  br label %207
+  br label %206
 
 52:                                               ; preds = %6
   %53 = tail call i32 @avio_rb32(ptr noundef %1) #15
@@ -8789,64 +8789,64 @@ define internal i32 @mxf_read_generic_descriptor(ptr noundef %0, ptr noundef %1,
   %55 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %55, ptr %56, align 4, !tbaa !178
-  br label %207
+  br label %206
 
 57:                                               ; preds = %6
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %59 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %58, i32 noundef 16) #15
-  br label %207
+  br label %206
 
 60:                                               ; preds = %6
   %61 = tail call i32 @avio_r8(ptr noundef %1) #15
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %61, ptr %62, align 4, !tbaa !158
-  br label %207
+  br label %206
 
 63:                                               ; preds = %6
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %65 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %64, i32 noundef 16) #15
-  br label %207
+  br label %206
 
 66:                                               ; preds = %6
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %68 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %67, i32 noundef 16) #15
-  br label %207
+  br label %206
 
 69:                                               ; preds = %6
   %70 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %70, ptr %71, align 8, !tbaa !164
-  br label %207
+  br label %206
 
 72:                                               ; preds = %6
   %73 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %73, ptr %74, align 8, !tbaa !162
-  br label %207
+  br label %206
 
 75:                                               ; preds = %6
   %76 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %76, ptr %77, align 4, !tbaa !179
-  br label %207
+  br label %206
 
 78:                                               ; preds = %6
   %79 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %79, ptr %80, align 8, !tbaa !180
-  br label %207
+  br label %206
 
 81:                                               ; preds = %6
   %82 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %82, ptr %83, align 4, !tbaa !181
-  br label %207
+  br label %206
 
 84:                                               ; preds = %6
   %85 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %85, ptr %86, align 4, !tbaa !163
-  br label %207
+  br label %206
 
 87:                                               ; preds = %6
   %88 = tail call i32 @avio_rb32(ptr noundef %1) #15
@@ -8855,24 +8855,24 @@ define internal i32 @mxf_read_generic_descriptor(ptr noundef %0, ptr noundef %1,
   %90 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %90, ptr %91, align 4, !tbaa !192
-  br label %207
+  br label %206
 
 92:                                               ; preds = %6
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %94 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %93, i32 noundef 16) #15
-  br label %207
+  br label %206
 
 95:                                               ; preds = %6
   %96 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %96, ptr %97, align 8, !tbaa !190
-  br label %207
+  br label %206
 
 98:                                               ; preds = %6
   %99 = tail call i32 @avio_rb32(ptr noundef %1) #15
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %99, ptr %100, align 4, !tbaa !195
-  br label %207
+  br label %206
 
 101:                                              ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8889,253 +8889,252 @@ define internal i32 @mxf_read_generic_descriptor(ptr noundef %0, ptr noundef %1,
 
 106:                                              ; preds = %102
   %107 = trunc i32 %103 to i8
-  %108 = or disjoint i64 %indvars.iv.i, 1
-  %109 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv.i
-  store i8 %107, ptr %109, align 2, !tbaa !12
-  %110 = trunc i32 %104 to i8
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
+  store i8 %107, ptr %108, align 2, !tbaa !12
+  %109 = trunc i32 %104 to i8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %111 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %108
-  store i8 %110, ptr %111, align 1, !tbaa !12
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 1
+  store i8 %109, ptr %110, align 1, !tbaa !12
   %.not.i = icmp eq i32 %103, 0
   br i1 %.not.i, label %mxf_read_pixel_layout.exit, label %102, !llvm.loop !337
 
 mxf_read_pixel_layout.exit:                       ; preds = %102, %106
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %113 = call i32 @ff_mxf_decode_pixel_layout(ptr noundef nonnull %7, ptr noundef nonnull %112) #15
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %112 = call i32 @ff_mxf_decode_pixel_layout(ptr noundef nonnull %7, ptr noundef nonnull %111) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %207
+  br label %206
 
-114:                                              ; preds = %6
+113:                                              ; preds = %6
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @mxf_sony_mpeg4_extradata, i64 16)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %115, label %126
+  br i1 %.not, label %114, label %125
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %117 = load ptr, ptr %116, align 8, !tbaa !199
-  %.not142 = icmp eq ptr %117, null
-  br i1 %.not142, label %119, label %118
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %116 = load ptr, ptr %115, align 8, !tbaa !199
+  %.not142 = icmp eq ptr %116, null
+  br i1 %.not142, label %118, label %117
 
-118:                                              ; preds = %115
+117:                                              ; preds = %114
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.60) #15
-  %.pre = load ptr, ptr %116, align 8, !tbaa !199
-  br label %119
+  %.pre = load ptr, ptr %115, align 8, !tbaa !199
+  br label %118
 
-119:                                              ; preds = %118, %115
-  %120 = phi ptr [ %.pre, %118 ], [ null, %115 ]
-  tail call void @av_free(ptr noundef %120) #15
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 0, ptr %121, align 8, !tbaa !200
-  %122 = sext i32 %3 to i64
-  %123 = tail call noalias ptr @av_malloc(i64 noundef %122) #15
-  store ptr %123, ptr %116, align 8, !tbaa !199
-  %.not143 = icmp eq ptr %123, null
-  br i1 %.not143, label %207, label %124
+118:                                              ; preds = %117, %114
+  %119 = phi ptr [ %.pre, %117 ], [ null, %114 ]
+  tail call void @av_free(ptr noundef %119) #15
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i32 0, ptr %120, align 8, !tbaa !200
+  %121 = sext i32 %3 to i64
+  %122 = tail call noalias ptr @av_malloc(i64 noundef %121) #15
+  store ptr %122, ptr %115, align 8, !tbaa !199
+  %.not143 = icmp eq ptr %122, null
+  br i1 %.not143, label %206, label %123
 
-124:                                              ; preds = %119
-  store i32 %3, ptr %121, align 8, !tbaa !200
-  %125 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %123, i32 noundef %3) #15
-  br label %126
+123:                                              ; preds = %118
+  store i32 %3, ptr %120, align 8, !tbaa !200
+  %124 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %122, i32 noundef %3) #15
+  br label %125
 
-126:                                              ; preds = %124, %114
+125:                                              ; preds = %123, %113
   %bcmp144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @mxf_jp2k_rsiz, i64 16)
   %.not145 = icmp eq i32 %bcmp144, 0
-  br i1 %.not145, label %127, label %132
+  br i1 %.not145, label %126, label %131
 
-127:                                              ; preds = %126
-  %128 = tail call i32 @avio_rb16(ptr noundef %1) #15
-  %129 = add i32 %128, -3
-  %or.cond = icmp ult i32 %129, 2
-  br i1 %or.cond, label %130, label %132
+126:                                              ; preds = %125
+  %127 = tail call i32 @avio_rb16(ptr noundef %1) #15
+  %128 = add i32 %127, -3
+  %or.cond = icmp ult i32 %128, 2
+  br i1 %or.cond, label %129, label %131
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i32 99, ptr %131, align 4, !tbaa !160
-  br label %132
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  store i32 99, ptr %130, align 4, !tbaa !160
+  br label %131
 
-132:                                              ; preds = %130, %127, %126
+131:                                              ; preds = %129, %126, %125
   %bcmp146 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %4, ptr noundef nonnull dereferenceable(13) @mxf_mastering_display_prefix, i64 13)
   %.not147 = icmp eq i32 %bcmp146, 0
-  br i1 %.not147, label %133, label %186
+  br i1 %.not147, label %132, label %185
 
-133:                                              ; preds = %132
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %135 = load ptr, ptr %134, align 8, !tbaa !186
-  %.not148 = icmp eq ptr %135, null
-  br i1 %.not148, label %136, label %139
+132:                                              ; preds = %131
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %134 = load ptr, ptr %133, align 8, !tbaa !186
+  %.not148 = icmp eq ptr %134, null
+  br i1 %.not148, label %135, label %138
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %138 = tail call ptr @av_mastering_display_metadata_alloc_size(ptr noundef nonnull %137) #15
-  store ptr %138, ptr %134, align 8, !tbaa !186
-  %.not149 = icmp eq ptr %138, null
-  br i1 %.not149, label %207, label %139
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %137 = tail call ptr @av_mastering_display_metadata_alloc_size(ptr noundef nonnull %136) #15
+  store ptr %137, ptr %133, align 8, !tbaa !186
+  %.not149 = icmp eq ptr %137, null
+  br i1 %.not149, label %206, label %138
 
-139:                                              ; preds = %136, %133
-  %140 = phi ptr [ %138, %136 ], [ %135, %133 ]
+138:                                              ; preds = %135, %132
+  %139 = phi ptr [ %137, %135 ], [ %134, %132 ]
   %bcmp150 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @mxf_mastering_display_uls, i64 16)
   %.not151 = icmp eq i32 %bcmp150, 0
-  br i1 %.not151, label %.preheader, label %153
+  br i1 %.not151, label %.preheader, label %152
 
-141:                                              ; preds = %.preheader
-  %142 = load ptr, ptr %134, align 8, !tbaa !186
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 52
-  %144 = load i32, ptr %143, align 4, !tbaa !338
-  %.not152 = icmp eq i32 %144, 0
-  br i1 %.not152, label %153, label %151
+140:                                              ; preds = %.preheader
+  %141 = load ptr, ptr %133, align 8, !tbaa !186
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 52
+  %143 = load i32, ptr %142, align 4, !tbaa !338
+  %.not152 = icmp eq i32 %143, 0
+  br i1 %.not152, label %152, label %150
 
-.preheader:                                       ; preds = %139, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %139 ]
-  %145 = load ptr, ptr %134, align 8, !tbaa !186
-  %146 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %145, i64 0, i64 %indvars.iv
-  %147 = tail call i32 @avio_rb16(ptr noundef %1) #15
-  %.sroa.0.0.insert.ext.i = zext i32 %147 to i64
+.preheader:                                       ; preds = %138, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %138 ]
+  %144 = load ptr, ptr %133, align 8, !tbaa !186
+  %145 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %144, i64 %indvars.iv
+  %146 = tail call i32 @avio_rb16(ptr noundef %1) #15
+  %.sroa.0.0.insert.ext.i = zext i32 %146 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 214748364800000
-  store i64 %.sroa.0.0.insert.insert.i, ptr %146, align 4
-  %148 = load ptr, ptr %134, align 8, !tbaa !186
-  %149 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %148, i64 0, i64 %indvars.iv, i64 1
-  %150 = tail call i32 @avio_rb16(ptr noundef %1) #15
-  %.sroa.0.0.insert.ext.i172 = zext i32 %150 to i64
+  store i64 %.sroa.0.0.insert.insert.i, ptr %145, align 4
+  %147 = load ptr, ptr %133, align 8, !tbaa !186
+  %148 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %147, i64 %indvars.iv, i64 1
+  %149 = tail call i32 @avio_rb16(ptr noundef %1) #15
+  %.sroa.0.0.insert.ext.i172 = zext i32 %149 to i64
   %.sroa.0.0.insert.insert.i173 = or disjoint i64 %.sroa.0.0.insert.ext.i172, 214748364800000
-  store i64 %.sroa.0.0.insert.insert.i173, ptr %149, align 4
+  store i64 %.sroa.0.0.insert.insert.i173, ptr %148, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %141, label %.preheader, !llvm.loop !339
+  br i1 %exitcond.not, label %140, label %.preheader, !llvm.loop !339
 
-151:                                              ; preds = %141
-  %152 = getelementptr inbounds nuw i8, ptr %142, i64 80
-  store i32 1, ptr %152, align 4, !tbaa !340
-  br label %153
+150:                                              ; preds = %140
+  %151 = getelementptr inbounds nuw i8, ptr %141, i64 80
+  store i32 1, ptr %151, align 4, !tbaa !340
+  br label %152
 
-153:                                              ; preds = %141, %151, %139
-  %154 = phi ptr [ %142, %141 ], [ %142, %151 ], [ %140, %139 ]
+152:                                              ; preds = %140, %150, %138
+  %153 = phi ptr [ %141, %140 ], [ %141, %150 ], [ %139, %138 ]
   %bcmp153 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) getelementptr inbounds nuw (i8, ptr @mxf_mastering_display_uls, i64 16), i64 16)
   %.not154 = icmp eq i32 %bcmp153, 0
-  br i1 %.not154, label %155, label %166
+  br i1 %.not154, label %154, label %165
 
-155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i8, ptr %154, i64 48
-  %157 = tail call i32 @avio_rb16(ptr noundef %1) #15
-  %.sroa.0.0.insert.ext.i174 = zext i32 %157 to i64
+154:                                              ; preds = %152
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 48
+  %156 = tail call i32 @avio_rb16(ptr noundef %1) #15
+  %.sroa.0.0.insert.ext.i174 = zext i32 %156 to i64
   %.sroa.0.0.insert.insert.i175 = or disjoint i64 %.sroa.0.0.insert.ext.i174, 214748364800000
-  store i64 %.sroa.0.0.insert.insert.i175, ptr %156, align 4
-  %158 = load ptr, ptr %134, align 8, !tbaa !186
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 56
-  %160 = tail call i32 @avio_rb16(ptr noundef %1) #15
-  %.sroa.0.0.insert.ext.i176 = zext i32 %160 to i64
+  store i64 %.sroa.0.0.insert.insert.i175, ptr %155, align 4
+  %157 = load ptr, ptr %133, align 8, !tbaa !186
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 56
+  %159 = tail call i32 @avio_rb16(ptr noundef %1) #15
+  %.sroa.0.0.insert.ext.i176 = zext i32 %159 to i64
   %.sroa.0.0.insert.insert.i177 = or disjoint i64 %.sroa.0.0.insert.ext.i176, 214748364800000
-  store i64 %.sroa.0.0.insert.insert.i177, ptr %159, align 4
-  %161 = load ptr, ptr %134, align 8, !tbaa !186
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  %163 = load i32, ptr %162, align 4, !tbaa !338
-  %.not155 = icmp eq i32 %163, 0
-  br i1 %.not155, label %166, label %164
+  store i64 %.sroa.0.0.insert.insert.i177, ptr %158, align 4
+  %160 = load ptr, ptr %133, align 8, !tbaa !186
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %162 = load i32, ptr %161, align 4, !tbaa !338
+  %.not155 = icmp eq i32 %162, 0
+  br i1 %.not155, label %165, label %163
 
-164:                                              ; preds = %155
-  %165 = getelementptr inbounds nuw i8, ptr %161, i64 80
-  store i32 1, ptr %165, align 4, !tbaa !340
-  br label %166
+163:                                              ; preds = %154
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 80
+  store i32 1, ptr %164, align 4, !tbaa !340
+  br label %165
 
-166:                                              ; preds = %155, %164, %153
-  %167 = phi ptr [ %161, %155 ], [ %161, %164 ], [ %154, %153 ]
+165:                                              ; preds = %154, %163, %152
+  %166 = phi ptr [ %160, %154 ], [ %160, %163 ], [ %153, %152 ]
   %bcmp156 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) getelementptr inbounds nuw (i8, ptr @mxf_mastering_display_uls, i64 32), i64 16)
   %.not157 = icmp eq i32 %bcmp156, 0
-  br i1 %.not157, label %168, label %176
+  br i1 %.not157, label %167, label %175
 
-168:                                              ; preds = %166
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 72
-  %170 = tail call i32 @avio_rb32(ptr noundef %1) #15
-  %.sroa.0.0.insert.ext.i178 = zext i32 %170 to i64
+167:                                              ; preds = %165
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 72
+  %169 = tail call i32 @avio_rb32(ptr noundef %1) #15
+  %.sroa.0.0.insert.ext.i178 = zext i32 %169 to i64
   %.sroa.0.0.insert.insert.i179 = or disjoint i64 %.sroa.0.0.insert.ext.i178, 42949672960000
-  store i64 %.sroa.0.0.insert.insert.i179, ptr %169, align 4
-  %171 = load ptr, ptr %134, align 8, !tbaa !186
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 68
-  %173 = load i32, ptr %172, align 4, !tbaa !342
-  %.not158 = icmp eq i32 %173, 0
-  br i1 %.not158, label %176, label %174
+  store i64 %.sroa.0.0.insert.insert.i179, ptr %168, align 4
+  %170 = load ptr, ptr %133, align 8, !tbaa !186
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 68
+  %172 = load i32, ptr %171, align 4, !tbaa !342
+  %.not158 = icmp eq i32 %172, 0
+  br i1 %.not158, label %175, label %173
 
-174:                                              ; preds = %168
-  %175 = getelementptr inbounds nuw i8, ptr %171, i64 84
-  store i32 1, ptr %175, align 4, !tbaa !343
-  br label %176
+173:                                              ; preds = %167
+  %174 = getelementptr inbounds nuw i8, ptr %170, i64 84
+  store i32 1, ptr %174, align 4, !tbaa !343
+  br label %175
 
-176:                                              ; preds = %168, %174, %166
-  %177 = phi ptr [ %171, %168 ], [ %171, %174 ], [ %167, %166 ]
+175:                                              ; preds = %167, %173, %165
+  %176 = phi ptr [ %170, %167 ], [ %170, %173 ], [ %166, %165 ]
   %bcmp159 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) getelementptr inbounds nuw (i8, ptr @mxf_mastering_display_uls, i64 48), i64 16)
   %.not160 = icmp eq i32 %bcmp159, 0
-  br i1 %.not160, label %178, label %186
+  br i1 %.not160, label %177, label %185
 
-178:                                              ; preds = %176
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 64
-  %180 = tail call i32 @avio_rb32(ptr noundef %1) #15
-  %.sroa.0.0.insert.ext.i180 = zext i32 %180 to i64
+177:                                              ; preds = %175
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 64
+  %179 = tail call i32 @avio_rb32(ptr noundef %1) #15
+  %.sroa.0.0.insert.ext.i180 = zext i32 %179 to i64
   %.sroa.0.0.insert.insert.i181 = or disjoint i64 %.sroa.0.0.insert.ext.i180, 42949672960000
-  store i64 %.sroa.0.0.insert.insert.i181, ptr %179, align 4
-  %181 = load ptr, ptr %134, align 8, !tbaa !186
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 76
-  %183 = load i32, ptr %182, align 4, !tbaa !344
-  %.not161 = icmp eq i32 %183, 0
-  br i1 %.not161, label %186, label %184
+  store i64 %.sroa.0.0.insert.insert.i181, ptr %178, align 4
+  %180 = load ptr, ptr %133, align 8, !tbaa !186
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 76
+  %182 = load i32, ptr %181, align 4, !tbaa !344
+  %.not161 = icmp eq i32 %182, 0
+  br i1 %.not161, label %185, label %183
 
-184:                                              ; preds = %178
-  %185 = getelementptr inbounds nuw i8, ptr %181, i64 84
-  store i32 1, ptr %185, align 4, !tbaa !343
-  br label %186
+183:                                              ; preds = %177
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 84
+  store i32 1, ptr %184, align 4, !tbaa !343
+  br label %185
 
-186:                                              ; preds = %176, %184, %178, %132
+185:                                              ; preds = %175, %183, %177, %131
   %bcmp162 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %4, ptr noundef nonnull dereferenceable(15) @mxf_apple_coll_prefix, i64 15)
   %.not163 = icmp eq i32 %bcmp162, 0
-  br i1 %.not163, label %187, label %202
+  br i1 %.not163, label %186, label %201
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %189 = load ptr, ptr %188, align 8, !tbaa !188
-  %.not164 = icmp eq ptr %189, null
-  br i1 %.not164, label %190, label %193
+186:                                              ; preds = %185
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %188 = load ptr, ptr %187, align 8, !tbaa !188
+  %.not164 = icmp eq ptr %188, null
+  br i1 %.not164, label %189, label %192
 
-190:                                              ; preds = %187
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %192 = tail call ptr @av_content_light_metadata_alloc(ptr noundef nonnull %191) #15
-  store ptr %192, ptr %188, align 8, !tbaa !188
-  %.not165 = icmp eq ptr %192, null
-  br i1 %.not165, label %207, label %193
+189:                                              ; preds = %186
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %191 = tail call ptr @av_content_light_metadata_alloc(ptr noundef nonnull %190) #15
+  store ptr %191, ptr %187, align 8, !tbaa !188
+  %.not165 = icmp eq ptr %191, null
+  br i1 %.not165, label %206, label %192
 
-193:                                              ; preds = %190, %187
+192:                                              ; preds = %189, %186
   %bcmp166 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @mxf_apple_coll_max_cll, i64 16)
   %.not167 = icmp eq i32 %bcmp166, 0
-  br i1 %.not167, label %194, label %197
+  br i1 %.not167, label %193, label %196
 
-194:                                              ; preds = %193
-  %195 = tail call i32 @avio_rb16(ptr noundef %1) #15
-  %196 = load ptr, ptr %188, align 8, !tbaa !188
-  store i32 %195, ptr %196, align 4, !tbaa !345
-  br label %197
+193:                                              ; preds = %192
+  %194 = tail call i32 @avio_rb16(ptr noundef %1) #15
+  %195 = load ptr, ptr %187, align 8, !tbaa !188
+  store i32 %194, ptr %195, align 4, !tbaa !345
+  br label %196
 
-197:                                              ; preds = %194, %193
+196:                                              ; preds = %193, %192
   %bcmp168 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @mxf_apple_coll_max_fall, i64 16)
   %.not169 = icmp eq i32 %bcmp168, 0
-  br i1 %.not169, label %198, label %202
+  br i1 %.not169, label %197, label %201
 
-198:                                              ; preds = %197
-  %199 = tail call i32 @avio_rb16(ptr noundef %1) #15
-  %200 = load ptr, ptr %188, align 8, !tbaa !188
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
-  store i32 %199, ptr %201, align 4, !tbaa !347
-  br label %202
+197:                                              ; preds = %196
+  %198 = tail call i32 @avio_rb16(ptr noundef %1) #15
+  %199 = load ptr, ptr %187, align 8, !tbaa !188
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
+  store i32 %198, ptr %200, align 4, !tbaa !347
+  br label %201
 
-202:                                              ; preds = %197, %198, %186
+201:                                              ; preds = %196, %197, %185
   %bcmp170 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @mxf_sub_descriptor, i64 16)
   %.not171 = icmp eq i32 %bcmp170, 0
-  br i1 %.not171, label %203, label %207
+  br i1 %.not171, label %202, label %206
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %206 = tail call fastcc i32 @mxf_read_strong_ref_array(ptr noundef %1, ptr noundef nonnull %204, ptr noundef nonnull %205)
-  br label %207
+202:                                              ; preds = %201
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %205 = tail call fastcc i32 @mxf_read_strong_ref_array(ptr noundef %1, ptr noundef nonnull %203, ptr noundef nonnull %204)
+  br label %206
 
-207:                                              ; preds = %12, %15, %18, %21, %24, %27, %30, %33, %52, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %92, %95, %98, %mxf_read_pixel_layout.exit, %46, %49, %51, %202, %190, %136, %119, %203, %8
-  %.0 = phi i32 [ %206, %203 ], [ %11, %8 ], [ -12, %119 ], [ -12, %136 ], [ -12, %190 ], [ 0, %202 ], [ 0, %51 ], [ 0, %49 ], [ 0, %46 ], [ 0, %mxf_read_pixel_layout.exit ], [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %52 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ]
+206:                                              ; preds = %12, %15, %18, %21, %24, %27, %30, %33, %52, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %92, %95, %98, %mxf_read_pixel_layout.exit, %46, %49, %51, %201, %189, %135, %118, %202, %8
+  %.0 = phi i32 [ %205, %202 ], [ %11, %8 ], [ -12, %118 ], [ -12, %135 ], [ -12, %189 ], [ 0, %201 ], [ 0, %51 ], [ 0, %49 ], [ 0, %46 ], [ 0, %mxf_read_pixel_layout.exit ], [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %52 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ]
   ret i32 %.0
 }
 

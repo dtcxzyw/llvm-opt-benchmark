@@ -1271,7 +1271,7 @@ Py_DECREF.exit.i:                                 ; preds = %74, %71, %Py_DECREF
 
 87:                                               ; preds = %Py_DECREF.exit110.thread175.i, %.lr.ph199.i
   %.070198.i = phi i64 [ 0, %.lr.ph199.i ], [ %166, %Py_DECREF.exit110.thread175.i ]
-  %88 = getelementptr [1 x ptr], ptr %84, i64 0, i64 %.070198.i
+  %88 = getelementptr ptr, ptr %84, i64 %.070198.i
   %89 = load ptr, ptr %88, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %90 = call i32 @PyObject_GetOptionalAttr(ptr noundef %89, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36552), ptr noundef nonnull %3) #4

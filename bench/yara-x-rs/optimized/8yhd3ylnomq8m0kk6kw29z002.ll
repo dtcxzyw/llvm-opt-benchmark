@@ -915,7 +915,7 @@ switch.lookup:                                    ; preds = %22
   %269 = extractvalue { i32, i32 } %268, 0
   %270 = extractvalue { i32, i32 } %268, 1
   %271 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN13yara_x_parser9tokenizer9Tokenizer10next_token17he544f075cb6758cfE, i64 0, i64 %271
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN13yara_x_parser9tokenizer9Tokenizer10next_token17he544f075cb6758cfE, i64 %271
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %0, align 4
   %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4

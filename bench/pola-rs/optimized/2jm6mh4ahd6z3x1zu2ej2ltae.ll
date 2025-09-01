@@ -38781,10 +38781,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !860, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !684, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b3b5bc630d60e5dE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b3b5bc630d60e5dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b3b5bc630d60e5dE.531", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b3b5bc630d60e5dE.531", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -89869,9 +89869,9 @@ define { ptr, i64 } @_ZN13polars_stream5nodes10io_sources6ndjson20line_batch_pro
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !20, !noundef !8
   %2 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN13polars_stream5nodes10io_sources6ndjson20line_batch_processor28LineBatchProcessorOutputPort9port_type17hdd4640862dc5dd10E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13polars_stream5nodes10io_sources6ndjson20line_batch_processor28LineBatchProcessorOutputPort9port_type17hdd4640862dc5dd10E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN13polars_stream5nodes10io_sources6ndjson20line_batch_processor28LineBatchProcessorOutputPort9port_type17hdd4640862dc5dd10E.532, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13polars_stream5nodes10io_sources6ndjson20line_batch_processor28LineBatchProcessorOutputPort9port_type17hdd4640862dc5dd10E.532, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1

@@ -1855,7 +1855,7 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
   br i1 %.not321324, label %report_parse_error.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %28
-  %.val264323392 = phi i64 [ %32, %28 ], [ %.val263, %25 ]
+  %.val264323391 = phi i64 [ %32, %28 ], [ %.val263, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -1876,7 +1876,7 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
   br label %50
 
 50:                                               ; preds = %.lr.ph, %report_parse_error.exit
-  %.val264326 = phi i64 [ %.val264323392, %.lr.ph ], [ %.val264, %report_parse_error.exit ]
+  %.val264326 = phi i64 [ %.val264323391, %.lr.ph ], [ %.val264, %report_parse_error.exit ]
   %.0183325 = phi i32 [ %.val262, %.lr.ph ], [ %.2185, %report_parse_error.exit ]
   %51 = load ptr, ptr %33, align 8
   %52 = add i64 %.val264326, -1
@@ -1906,11 +1906,11 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
   br i1 %.not228, label %73, label %64
 
 64:                                               ; preds = %62
-  %65 = add nsw i32 %55, -32
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [5 x [13 x %struct.td_entry]], ptr @td_parser_table, i64 0, i64 %66
+  %65 = sext i8 %54 to i64
+  %66 = getelementptr [13 x %struct.td_entry], ptr @td_parser_table, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 -6656
   %68 = zext i32 %.0183325 to i64
-  %69 = getelementptr inbounds nuw [13 x %struct.td_entry], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %struct.td_entry, ptr %67, i64 %68
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.not229 = icmp eq ptr %.sroa.5.0.copyload, null
@@ -2262,7 +2262,7 @@ report_parse_error.exit:                          ; preds = %report_parse_error.
   br i1 %.not321, label %report_parse_error.exit.thread, label %50, !llvm.loop !19
 
 switch.lookup:                                    ; preds = %220
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.pg_parse_json_incremental, i64 0, i64 %.0186
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pg_parse_json_incremental, i64 %.0186
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %report_parse_error.exit.thread
 

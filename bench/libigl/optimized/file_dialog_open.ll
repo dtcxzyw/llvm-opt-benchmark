@@ -51,8 +51,8 @@ define dso_local void @_ZN3igl16file_dialog_openB5cxx11Ev(ptr dead_on_unwind noa
   br i1 %.not7, label %21, label %18
 
 18:                                               ; preds = %16
-  %19 = add i64 %17, -1
-  %20 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %19
+  %19 = getelementptr i8, ptr %3, i64 %17
+  %20 = getelementptr i8, ptr %19, i64 -1
   store i8 0, ptr %20, align 1, !tbaa !4
   br label %21
 

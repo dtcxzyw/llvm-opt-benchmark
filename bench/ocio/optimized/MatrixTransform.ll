@@ -1162,7 +1162,7 @@ _ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit: ; preds = %19
   %45 = load i32, ptr %44, align 4, !tbaa !28
   %.not52 = icmp eq i32 %45, 0
   %46 = select i1 %.not52, double 0.000000e+00, double 1.000000e+00
-  %47 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv59
+  %47 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv59
   %48 = load double, ptr %47, align 8, !tbaa !67
   %49 = tail call double @llvm.fmuladd.f64(double %43, double %46, double %48)
   store double %49, ptr %47, align 8, !tbaa !67
@@ -1345,7 +1345,7 @@ _ZNSolsEd.exit.preheader:                         ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 unwind label %.loopexit.split-lp.loopexit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZNSolsEd.exit.preheader
-  %79 = getelementptr inbounds nuw [16 x double], ptr %3, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %80 = load double, ptr %79, align 8, !tbaa !67
   %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %80)
           to label %_ZNSolsEd.exit45 unwind label %.loopexit.split-lp.loopexit
@@ -1370,7 +1370,7 @@ _ZNSolsEd.exit47.preheader:                       ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 unwind label %.loopexit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %_ZNSolsEd.exit47.preheader
-  %87 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv60
+  %87 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv60
   %88 = load double, ptr %87, align 8, !tbaa !67
   %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %88)
           to label %_ZNSolsEd.exit53 unwind label %.loopexit

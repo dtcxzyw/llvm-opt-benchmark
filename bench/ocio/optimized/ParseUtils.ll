@@ -309,7 +309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.preheader: ; 
   %.0132847 = phi i32 [ %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.preheader ]
   %11 = add i32 %.0132847, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [6 x %"struct.OpenColorIO_v2_5dev::Element"], ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::Element", ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !14
   %16 = icmp eq i64 %15, 0
@@ -459,7 +459,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev28ConvertXmlTokenToSpecialCharERKNSt
 15:                                               ; preds = %.lr.ph
   %16 = add i32 %.02475, 1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [6 x %"struct.OpenColorIO_v2_5dev::Element"], ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::Element", ptr @_ZN19OpenColorIO_v2_5devL4eltsE, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = icmp eq i64 %20, 0
@@ -1019,7 +1019,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev20LoggingLevelToStringENS_12
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev20LoggingLevelToStringENS_12LoggingLevelE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev20LoggingLevelToStringENS_12LoggingLevelE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1288,7 +1288,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev16BitDepthToStringENS_8BitDe
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev16BitDepthToStringENS_8BitDepthE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev16BitDepthToStringENS_8BitDepthE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1384,7 +1384,7 @@ define noundef range(i32 0, 33) i32 @_ZN19OpenColorIO_v2_5dev13BitDepthToIntENS_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev13BitDepthToIntENS_8BitDepthE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev13BitDepthToIntENS_8BitDepthE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1557,7 +1557,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev19GpuLanguageToStringENS_11G
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev19GpuLanguageToStringENS_11GpuLanguageE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev19GpuLanguageToStringENS_11GpuLanguageE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2505,7 +2505,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2692,7 +2692,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev29ExposureContrastStyleToStr
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev29ExposureContrastStyleToStringENS_21ExposureContrastStyleE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev29ExposureContrastStyleToStringENS_21ExposureContrastStyleE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2879,7 +2879,7 @@ define noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev21NegativeStyleToStringENS_1
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev21NegativeStyleToStringENS_13NegativeStyleE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev21NegativeStyleToStringENS_13NegativeStyleE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

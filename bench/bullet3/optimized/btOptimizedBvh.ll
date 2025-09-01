@@ -723,7 +723,7 @@ define dso_local void @_ZN14btOptimizedBvh14updateBvhNodesEP23btStridingMeshInte
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %90 = load float, ptr %89, align 4, !tbaa !43
   %91 = fmul float %90, %67
-  %92 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %14, i64 0, i64 %indvars.iv159
+  %92 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %indvars.iv159
   store float %85, ptr %92, align 16
   %.sroa.4115.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %92, i64 4
   store float %88, ptr %.sroa.4115.0..sroa_idx.us, align 4
@@ -878,7 +878,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %175, %80
   %187 = load double, ptr %186, align 8, !tbaa !74
   %188 = fmul double %187, %97
   %189 = fptrunc double %188 to float
-  %190 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %14, i64 0, i64 %indvars.iv156
+  %190 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %indvars.iv156
   store float %181, ptr %190, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 4
   store float %185, ptr %.sroa.4.0..sroa_idx, align 4
@@ -907,19 +907,19 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %175, %80
 
 204:                                              ; preds = %191, %204
   %indvars.iv = phi i64 [ 0, %191 ], [ %indvars.iv.next, %204 ]
-  %205 = getelementptr inbounds nuw [3 x i16], ptr %192, i64 0, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw i16, ptr %192, i64 %indvars.iv
   %206 = load i16, ptr %205, align 2, !tbaa !60
-  %207 = getelementptr inbounds nuw [3 x i16], ptr %37, i64 0, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
   store i16 %206, ptr %207, align 2, !tbaa !60
-  %208 = getelementptr inbounds nuw [3 x i16], ptr %200, i64 0, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw i16, ptr %200, i64 %indvars.iv
   %209 = load i16, ptr %208, align 2, !tbaa !60
   %spec.store.select = call i16 @llvm.umin.i16(i16 %206, i16 %209)
   store i16 %spec.store.select, ptr %207, align 2
-  %210 = getelementptr inbounds nuw [3 x i16], ptr %201, i64 0, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw i16, ptr %201, i64 %indvars.iv
   %211 = load i16, ptr %210, align 2, !tbaa !60
-  %212 = getelementptr inbounds nuw [3 x i16], ptr %202, i64 0, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw i16, ptr %202, i64 %indvars.iv
   store i16 %211, ptr %212, align 2, !tbaa !60
-  %213 = getelementptr inbounds nuw [3 x i16], ptr %203, i64 0, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw i16, ptr %203, i64 %indvars.iv
   %214 = load i16, ptr %213, align 2, !tbaa !60
   %spec.store.select86 = call i16 @llvm.umax.i16(i16 %211, i16 %214)
   store i16 %spec.store.select86, ptr %212, align 2

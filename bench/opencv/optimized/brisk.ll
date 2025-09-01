@@ -592,9 +592,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.0131183 = phi double [ 1.000000e+00, %.preheader179 ], [ %77, %71 ]
   %.0132182 = phi double [ 0.000000e+00, %.preheader179 ], [ %75, %71 ]
   %.0135181 = phi i64 [ 0, %.preheader179 ], [ %78, %71 ]
-  %72 = getelementptr inbounds nuw [1024 x double], ptr %9, i64 0, i64 %.0135181
+  %72 = getelementptr inbounds nuw double, ptr %9, i64 %.0135181
   store double %.0132182, ptr %72, align 8, !tbaa !43
-  %73 = getelementptr inbounds nuw [1024 x double], ptr %10, i64 0, i64 %.0135181
+  %73 = getelementptr inbounds nuw double, ptr %10, i64 %.0135181
   store double %.0131183, ptr %73, align 8, !tbaa !43
   %74 = fmul double %.0131183, 0x3F7921F0FE670071
   %75 = tail call double @llvm.fmuladd.f64(double %.0132182, double 0x3FEFFFD8858E8A92, double %74)
@@ -766,9 +766,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 170:                                              ; preds = %170, %.lr.ph188.us
   %.0141185.us = phi i64 [ 0, %.lr.ph188.us ], [ %186, %170 ]
   %.0145184.us = phi ptr [ %.1140187.us, %.lr.ph188.us ], [ %185, %170 ]
-  %171 = getelementptr inbounds nuw [1024 x double], ptr %10, i64 0, i64 %.0141185.us
+  %171 = getelementptr inbounds nuw double, ptr %10, i64 %.0141185.us
   %172 = load double, ptr %171, align 8, !tbaa !43
-  %173 = getelementptr inbounds nuw [1024 x double], ptr %9, i64 0, i64 %.0141185.us
+  %173 = getelementptr inbounds nuw double, ptr %9, i64 %.0141185.us
   %174 = load double, ptr %173, align 8, !tbaa !43
   %175 = fmul double %174, %162
   %176 = tail call double @llvm.fmuladd.f64(double %172, double %161, double %175)

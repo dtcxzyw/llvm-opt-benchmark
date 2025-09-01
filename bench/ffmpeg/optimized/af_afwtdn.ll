@@ -332,22 +332,22 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.config_output, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.config_output, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = zext nneg i32 %6 to i64
-  %switch.gep164 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.config_output.1, i64 0, i64 %10
+  %switch.gep164 = getelementptr inbounds nuw ptr, ptr @switch.table.config_output.1, i64 %10
   %switch.load165 = load ptr, ptr %switch.gep164, align 8
   %11 = zext nneg i32 %6 to i64
-  %switch.gep166 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.config_output.2, i64 0, i64 %11
+  %switch.gep166 = getelementptr inbounds nuw ptr, ptr @switch.table.config_output.2, i64 %11
   %switch.load167 = load ptr, ptr %switch.gep166, align 8
   %12 = zext nneg i32 %6 to i64
-  %switch.gep168 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.config_output.3, i64 0, i64 %12
+  %switch.gep168 = getelementptr inbounds nuw ptr, ptr @switch.table.config_output.3, i64 %12
   %switch.load169 = load ptr, ptr %switch.gep168, align 8
   %13 = zext nneg i32 %6 to i64
-  %switch.gep170 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.config_output.4, i64 0, i64 %13
+  %switch.gep170 = getelementptr inbounds nuw ptr, ptr @switch.table.config_output.4, i64 %13
   %switch.load171 = load ptr, ptr %switch.gep170, align 8
   %14 = zext nneg i32 %6 to i64
-  %switch.gep172 = getelementptr inbounds nuw [7 x double], ptr @switch.table.config_output.5, i64 0, i64 %14
+  %switch.gep172 = getelementptr inbounds nuw double, ptr @switch.table.config_output.5, i64 %14
   %switch.load173 = load double, ptr %switch.gep172, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 %switch.load, ptr %15, align 4, !tbaa !58
@@ -494,7 +494,7 @@ switch.lookup:                                    ; preds = %1
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %95
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %96
   %97 = zext nneg i32 %.110.i.i to i64
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !78
   %100 = zext i8 %99 to i32
   %101 = add nuw nsw i32 %.1.i.i, %100

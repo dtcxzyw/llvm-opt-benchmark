@@ -323,7 +323,7 @@ define noalias noundef ptr @Abc_CexDeriveFromCombModel(ptr noundef readonly capt
   %25 = shl nuw i32 1, %24
   %26 = lshr i64 %indvars.iv, 5
   %27 = and i64 %26, 134217727
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %18, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %18, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = or i32 %29, %25
   store i32 %30, ptr %28, align 4, !tbaa !12
@@ -1651,7 +1651,7 @@ define i32 @Abc_CexCountOnes(ptr noundef readonly captures(none) %0) local_unnam
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.09 = phi i32 [ 0, %.lr.ph ], [ %15, %11 ]
-  %12 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
   %15 = add nuw nsw i32 %14, %.09

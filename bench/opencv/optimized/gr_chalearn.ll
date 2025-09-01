@@ -436,7 +436,7 @@ _ZNSt12__shared_ptrIN2cv8datasets11GR_chalearnELN9__gnu_cxx12_Lock_policyE2EED2E
 
 179:                                              ; preds = %._crit_edge, %179
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %179 ]
-  %180 = getelementptr inbounds nuw [20 x %"struct.cv::datasets::join"], ptr %140, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw %"struct.cv::datasets::join", ptr %140, i64 %indvars.iv
   %181 = load double, ptr %180, align 8, !tbaa !64
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %183 = load double, ptr %182, align 8, !tbaa !67

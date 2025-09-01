@@ -1504,7 +1504,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader94.i ], [ 0, %76 ]
   %indvars115.i = trunc i64 %indvars.iv.i to i32
   %77 = mul nuw nsw i32 %indvars115.i, 17
-  %78 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %indvars.iv.i
   store i32 255, ptr %78, align 4, !noalias !84
   %.sroa.482.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %77, ptr %.sroa.482.0..sroa_idx.i, align 4, !noalias !84
@@ -1522,7 +1522,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %80 = udiv i16 %.lhs.trunc.i, 6
   %.zext.i = zext nneg i16 %80 to i32
   %81 = sub nuw nsw i32 255, %.zext.i
-  %82 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv116.i
+  %82 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %indvars.iv116.i
   store i32 %81, ptr %82, align 4, !noalias !84
   %.sroa.479.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 255, ptr %.sroa.479.0..sroa_idx.i, align 4, !noalias !84
@@ -1538,7 +1538,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %.062100.i = phi i32 [ %87, %.preheader92.i ], [ 0, %.preheader93.i ]
   %84 = mul nuw nsw i32 %.062100.i, 255
   %85 = lshr i32 %84, 2
-  %86 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv120.i
+  %86 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %indvars.iv120.i
   store i32 0, ptr %86, align 4, !noalias !84
   %.sroa.476.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i32 255, ptr %.sroa.476.0..sroa_idx.i, align 4, !noalias !84
@@ -1557,7 +1557,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %89 = udiv i16 %.lhs.trunc84.i, 11
   %.zext85.i = zext nneg i16 %89 to i32
   %90 = sub nuw nsw i32 255, %.zext85.i
-  %91 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv124.i
+  %91 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %indvars.iv124.i
   store i32 0, ptr %91, align 4, !noalias !84
   %.sroa.473.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 %90, ptr %.sroa.473.0..sroa_idx.i, align 4, !noalias !84
@@ -1575,7 +1575,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %.lhs.trunc86.i = mul nuw nsw i16 %93, 255
   %94 = udiv i16 %.lhs.trunc86.i, 13
   %.zext87.i = zext nneg i16 %94 to i32
-  %95 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv128.i
+  %95 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %indvars.iv128.i
   store i32 %.zext87.i, ptr %95, align 4, !noalias !84
   %.sroa.470.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 0, ptr %.sroa.470.0..sroa_idx.i, align 4, !noalias !84
@@ -1598,7 +1598,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %99 = udiv i16 %.lhs.trunc88.i, 6
   %.zext89.i = zext nneg i16 %99 to i32
   %100 = sub nuw nsw i32 255, %.zext89.i
-  %101 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv132.i
+  %101 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %indvars.iv132.i
   store i32 255, ptr %101, align 4, !noalias !84
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !84
@@ -1627,9 +1627,9 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %117 = fsub float %112, %116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false), !tbaa !14, !alias.scope !84
   %118 = sext i32 %113 to i64
-  %119 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %118
+  %119 = getelementptr inbounds %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %118
   %120 = sext i32 %115 to i64
-  %121 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %120
+  %121 = getelementptr inbounds %"class.cv::Vec.2", ptr @_ZZL12computeColorffE10colorWheel, i64 %120
   %122 = fsub float 1.000000e+00, %117
   %123 = fcmp ugt float %sqrt.i, 1.000000e+00
   %124 = fneg float %sqrt.i
@@ -1637,11 +1637,11 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
 
 125:                                              ; preds = %125, %103
   %indvars.iv136.i = phi i64 [ 0, %103 ], [ %indvars.iv.next137.i, %125 ]
-  %126 = getelementptr inbounds nuw [3 x i32], ptr %119, i64 0, i64 %indvars.iv136.i
+  %126 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv136.i
   %127 = load i32, ptr %126, align 4, !tbaa !57, !noalias !84
   %128 = sitofp i32 %127 to float
   %129 = fdiv float %128, 2.550000e+02
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %121, i64 0, i64 %indvars.iv136.i
+  %130 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv136.i
   %131 = load i32, ptr %130, align 4, !tbaa !57, !noalias !84
   %132 = sitofp i32 %131 to float
   %133 = fdiv float %132, 2.550000e+02
@@ -1654,7 +1654,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %139 = fmul float %.0.i, 2.550000e+02
   %140 = fptoui float %139 to i8
   %141 = sub nuw nsw i64 2, %indvars.iv136.i
-  %142 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 %141
   store i8 %140, ptr %142, align 1, !tbaa !14, !alias.scope !84
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %exitcond139.not.i = icmp eq i64 %indvars.iv.next137.i, 3

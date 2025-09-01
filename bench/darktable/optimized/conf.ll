@@ -1461,7 +1461,7 @@ define ptr @dt_conf_read_values(ptr noundef readonly captures(none) %0, ptr noun
 
 10:                                               ; preds = %.lr.ph
   %11 = call i64 @strcspn(ptr noundef nonnull %3, ptr noundef nonnull @.str.5) #12
-  %12 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
   store i8 0, ptr %12, align 1, !tbaa !54
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13

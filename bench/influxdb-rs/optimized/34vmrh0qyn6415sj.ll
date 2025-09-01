@@ -1057,7 +1057,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d34232052828dE.llvm.5441949568091396765.exit": ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h020cd58a9b9f239dE.llvm.5441949568091396765.exit"
-  %63 = getelementptr inbounds nuw [0 x { { { [27 x i64] } } }], ptr %52, i64 0, i64 %54
+  %63 = getelementptr inbounds nuw { { { [27 x i64] } } }, ptr %52, i64 %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull readonly align 8 dereferenceable(216) %63, i64 216, i1 false)
   %.pre7 = load i32, ptr %0, align 8, !range !133
   %64 = add nsw i32 %.pre7, -3
@@ -1281,7 +1281,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8f8d342320
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw [0 x { { { [27 x i64] } } }], ptr %1, i64 0, i64 %4
+  %15 = getelementptr inbounds nuw { { { [27 x i64] } } }, ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %15, i64 216, i1 false)
   br label %13
 }

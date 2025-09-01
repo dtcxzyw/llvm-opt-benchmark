@@ -330,7 +330,7 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   store ptr %125, ptr %7, align 8, !tbaa !80
   %126 = load i8, ptr %124, align 1, !tbaa !104
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !104
   %130 = and i8 %129, 1
   %.not12.i.i = icmp eq i8 %130, 0
@@ -376,7 +376,7 @@ diff_tree_commit_oid.exit:                        ; preds = %69, %63, %82, %59
   store ptr %146, ptr %7, align 8, !tbaa !80
   %147 = load i8, ptr %145, align 1, !tbaa !104
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !104
   %151 = and i8 %150, 1
   %.not.i.i = icmp eq i8 %151, 0
@@ -396,7 +396,7 @@ stdin_diff_commit.exit.i:                         ; preds = %144, %132, %123
   store ptr %155, ptr %5, align 8, !tbaa !80
   %156 = load i8, ptr %154, align 1, !tbaa !104
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !104
   %160 = and i8 %159, 1
   %.not.i19.i = icmp eq i8 %160, 0

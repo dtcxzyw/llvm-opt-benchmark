@@ -953,7 +953,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull 
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 %55
   %59 = load i8, ptr %58, align 1, !tbaa !13
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 %60
   store i8 %57, ptr %61, align 1, !tbaa !13
   %62 = add i32 %.05586, 1
   %63 = zext i32 %62 to i64
@@ -980,7 +980,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull 
 
 74:                                               ; preds = %64, %68
   %75 = zext i8 %66 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !13
   %78 = zext i8 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %.258, i64 %78
@@ -1215,7 +1215,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr nounde
   %12 = and i64 %11, 63
   %13 = shl nuw i64 1, %12
   %14 = lshr i64 %11, 6
-  %15 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %5, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !30
   %17 = or i64 %13, %16
   store i64 %17, ptr %15, align 8, !tbaa !30
@@ -1229,7 +1229,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr nounde
   %21 = load i8, ptr %20, align 1, !tbaa !13
   %22 = zext i8 %21 to i64
   %23 = lshr i64 %22, 6
-  %24 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %5, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !30
   %26 = and i64 %22, 63
   %27 = shl nuw i64 1, %26
@@ -1299,7 +1299,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr no
   %12 = and i64 %11, 63
   %13 = shl nuw i64 1, %12
   %14 = lshr i64 %11, 6
-  %15 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %5, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !30
   %17 = or i64 %13, %16
   store i64 %17, ptr %15, align 8, !tbaa !30
@@ -1313,7 +1313,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr no
   %21 = load i8, ptr %20, align 1, !tbaa !13
   %22 = zext i8 %21 to i64
   %23 = lshr i64 %22, 6
-  %24 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %5, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !30
   %26 = and i64 %22, 63
   %27 = shl nuw i64 1, %26
@@ -1355,7 +1355,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef12find_last_ofES0_m(ptr noundef
   %12 = and i64 %11, 63
   %13 = shl nuw i64 1, %12
   %14 = lshr i64 %11, 6
-  %15 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %5, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !30
   %17 = or i64 %13, %16
   store i64 %17, ptr %15, align 8, !tbaa !30
@@ -1374,7 +1374,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef12find_last_ofES0_m(ptr noundef
   %22 = load i8, ptr %21, align 1, !tbaa !13
   %23 = zext i8 %22 to i64
   %24 = lshr i64 %23, 6
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %5, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !30
   %27 = and i64 %23, 63
   %28 = shl nuw i64 1, %27
@@ -1436,7 +1436,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr nou
   %12 = and i64 %11, 63
   %13 = shl nuw i64 1, %12
   %14 = lshr i64 %11, 6
-  %15 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %5, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !30
   %17 = or i64 %13, %16
   store i64 %17, ptr %15, align 8, !tbaa !30
@@ -1455,7 +1455,7 @@ define dso_local noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr nou
   %22 = load i8, ptr %21, align 1, !tbaa !13
   %23 = zext i8 %22 to i64
   %24 = lshr i64 %23, 6
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %5, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !30
   %27 = and i64 %23, 63
   %28 = shl nuw i64 1, %27

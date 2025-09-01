@@ -2049,7 +2049,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit32:   ; preds = %64, %58
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 2352
   %74 = load i8, ptr %73, align 8, !tbaa !252, !range !253, !noundef !254
   %75 = zext nneg i8 %74 to i64
-  %76 = getelementptr inbounds nuw [2 x %"class.sat::clause_allocator"], ptr %72, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw %"class.sat::clause_allocator", ptr %72, i64 %75
   %77 = invoke noundef ptr @_ZN3sat16clause_allocator9mk_clauseEjPKNS_7literalEb(ptr noundef nonnull align 8 dereferenceable(568) %76, i32 noundef %71, ptr noundef nonnull %38, i1 noundef zeroext false)
           to label %_ZN3sat6solver12alloc_clauseEjPKNS_7literalEb.exit unwind label %105
 
@@ -3371,7 +3371,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit28:   ; preds = %_ZNK6vectorIN3sat7l
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 2352
   %19 = load i8, ptr %18, align 8, !tbaa !252, !range !253, !noundef !254
   %20 = zext nneg i8 %19 to i64
-  %21 = getelementptr inbounds nuw [2 x %"class.sat::clause_allocator"], ptr %17, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %"class.sat::clause_allocator", ptr %17, i64 %20
   %22 = tail call noundef ptr @_ZN3sat16clause_allocator9mk_clauseEjPKNS_7literalEb(ptr noundef nonnull align 8 dereferenceable(568) %21, i32 noundef %13, ptr noundef nonnull %10, i1 noundef zeroext false)
   %23 = load ptr, ptr %3, align 8, !tbaa !96
   %24 = icmp eq ptr %23, null

@@ -350,9 +350,9 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 .lr.ph821:                                        ; preds = %.preheader, %.lr.ph821
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph821 ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %155 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %indvars.iv.next
+  %155 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.next
   %156 = load i8, ptr %155, align 1, !tbaa !25
-  %157 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   store i8 %156, ptr %157, align 1, !tbaa !25
   %158 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #16
   %159 = add i64 %158, -1
@@ -361,7 +361,7 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 
 ._crit_edge822:                                   ; preds = %.lr.ph821, %.preheader
   %.lcssa = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.lr.ph821 ]
-  %161 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %.lcssa
+  %161 = getelementptr inbounds nuw i8, ptr %19, i64 %.lcssa
   store i8 %152, ptr %161, align 1, !tbaa !25
   br label %162
 

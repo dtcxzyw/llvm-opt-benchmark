@@ -247,7 +247,7 @@ dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
   %26 = phi ptr [ %8, %.lr.ph.preheader ], [ %42, %41 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %27, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
@@ -368,7 +368,7 @@ dsm_control_segment_sane.exit:                    ; preds = %15
 
 26:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %27 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %25, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
@@ -636,7 +636,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %86 = load i32, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %88 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %87, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %87, i64 %indvars.iv
   store i32 %86, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx81
@@ -750,7 +750,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %147 = load i32, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %149 = zext i32 %58 to i64
-  %150 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %148, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %148, i64 %149
   store i32 %147, ptr %150, align 8
   %.idx76 = mul nuw nsw i64 %149, 40
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 20
@@ -892,7 +892,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 38:                                               ; preds = %.lr.ph47, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %65 ]
-  %39 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %37, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %37, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp ult i32 %41, 2
@@ -1069,7 +1069,7 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   %57 = load ptr, ptr @dsm_main_space_begin, align 8
   %58 = load ptr, ptr @dsm_control, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %59, i64 0, i64 %34
+  %60 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %59, i64 %34
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -1291,7 +1291,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %13 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %11, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, 2
@@ -1384,7 +1384,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %59 = load ptr, ptr @dsm_main_space_begin, align 8
   %60 = load ptr, ptr @dsm_control, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = getelementptr inbounds nuw [0 x %struct.dsm_control_item], ptr %61, i64 0, i64 %24
+  %62 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %61, i64 %24
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16

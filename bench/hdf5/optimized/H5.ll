@@ -1642,7 +1642,7 @@ switch.early.test:                                ; preds = %6
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %.04976
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.04976
   store i8 %24, ptr %27, align 1, !tbaa !20
   %.pre = load ptr, ptr %7, align 8, !tbaa !18
   br label %28
@@ -1666,7 +1666,7 @@ switch.early.test:                                ; preds = %6
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
   %.049.lcssa = phi i64 [ 0, %14 ], [ %37, %._crit_edge.loopexit ]
   %.2.lcssa = phi ptr [ %.1, %14 ], [ %31, %._crit_edge.loopexit ]
-  %38 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %.049.lcssa
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 %.049.lcssa
   store i8 0, ptr %38, align 1, !tbaa !20
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.77, i64 6)
   %.not61 = icmp eq i32 %bcmp, 0
@@ -1725,7 +1725,7 @@ switch.early.test:                                ; preds = %6
 
 .preheader73:                                     ; preds = %47, %53
   %.25179 = phi i64 [ %54, %53 ], [ 0, %47 ]
-  %55 = getelementptr inbounds nuw [20 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 0, i64 %.25179
+  %55 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.25179
   %56 = load ptr, ptr %55, align 8, !tbaa !13
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %2) #26
   %.not68 = icmp eq i32 %57, 0

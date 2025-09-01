@@ -137,7 +137,7 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %10
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %1, i64 %22, i1 false)
   %.not.i92 = icmp samesign ult i32 %16, 8
   br i1 %.not.i92, label %.preheader89, label %.lr.ph
@@ -284,7 +284,7 @@ mbedtls_xor_no_simd.exit83:                       ; preds = %.lr.ph101, %..prehe
 83:                                               ; preds = %._crit_edge
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %85 = load i64, ptr %19, align 8, !tbaa !13
-  %86 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %.1.lcssa, i64 %.164.lcssa, i1 false)
   %87 = load i64, ptr %19, align 8, !tbaa !13
   %88 = add i64 %87, %.164.lcssa
@@ -1132,7 +1132,7 @@ define internal fastcc i32 @test_aes128_cmac_prf(i32 noundef %0) unnamed_addr #0
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %19 ], [ 0, %1 ]
   %5 = trunc nuw nsw i64 %indvars.iv33 to i32
   %6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %5)
-  %7 = getelementptr inbounds nuw [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv33
+  %7 = getelementptr inbounds nuw i64, ptr @PRFKlen, i64 %indvars.iv33
   %8 = load i64, ptr %7, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1163,7 +1163,7 @@ mbedtls_aes_cmac_prf_128.exit.us:                 ; preds = %15, %13
   br i1 %.not.us, label %17, label %.loopexit21
 
 17:                                               ; preds = %mbedtls_aes_cmac_prf_128.exit.us
-  %18 = getelementptr inbounds nuw [3 x [16 x i8]], ptr @PRFT, i64 0, i64 %indvars.iv33
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @PRFT, i64 %indvars.iv33
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %18, i64 16)
   %.not14.us = icmp eq i32 %bcmp.us, 0
   br i1 %.not14.us, label %19, label %.loopexit21
@@ -1177,7 +1177,7 @@ mbedtls_aes_cmac_prf_128.exit.us:                 ; preds = %15, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %20)
-  %22 = getelementptr inbounds nuw [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr @PRFKlen, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1215,7 +1215,7 @@ mbedtls_aes_cmac_prf_128.exit:                    ; preds = %28, %29
   br i1 %.not, label %32, label %.loopexit21
 
 32:                                               ; preds = %mbedtls_aes_cmac_prf_128.exit
-  %33 = getelementptr inbounds nuw [3 x [16 x i8]], ptr @PRFT, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @PRFT, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %33, i64 16)
   %.not14 = icmp eq i32 %bcmp, 0
   br i1 %.not14, label %35, label %.loopexit21

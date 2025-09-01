@@ -132,7 +132,7 @@ define i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   %12 = sub nuw nsw i64 8, %1
   %spec.select = select i1 %11, i64 %12, i64 %.0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %14 = getelementptr inbounds nuw [8 x i8], ptr @png_sig_cmp.png_signature, i64 0, i64 %1
+  %14 = getelementptr inbounds nuw i8, ptr @png_sig_cmp.png_signature, i64 %1
   %15 = tail call i32 @memcmp(ptr noundef %13, ptr noundef nonnull %14, i64 noundef %spec.select) #29
   br label %16
 
@@ -243,7 +243,7 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %5 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %6 = load i8, ptr %5, align 1, !tbaa !27
-  %7 = getelementptr inbounds [11 x i8], ptr @.str.2, i64 0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds i8, ptr @.str.2, i64 %indvars.iv.next
   %8 = load i8, ptr %7, align 1, !tbaa !27
   %.not24 = icmp eq i8 %6, %8
   br i1 %.not24, label %12, label %9
@@ -1025,9 +1025,9 @@ define range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0, ptr no
   %.0 = phi i64 [ %35, %34 ], [ %32, %28 ]
   %38 = load i8, ptr %9, align 2, !tbaa !98
   %39 = zext i8 %38 to i64
-  %40 = add nsw i64 %39, -1
-  %41 = getelementptr inbounds [12 x [4 x i8]], ptr @png_convert_to_rfc1123_buffer.short_months, i64 0, i64 %40
-  %42 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.0, ptr noundef nonnull %41) #30
+  %40 = getelementptr [4 x i8], ptr @png_convert_to_rfc1123_buffer.short_months, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 -4
+  %42 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.0, ptr noundef %41) #30
   %43 = icmp ult i64 %42, 28
   br i1 %43, label %44, label %47
 
@@ -1155,7 +1155,7 @@ define void @png_build_grayscale_palette(i32 noundef %0, ptr noundef writeonly c
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table.png_build_grayscale_palette, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.png_build_grayscale_palette, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = shl nuw nsw i32 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i32 %7 to i64
@@ -1319,7 +1319,7 @@ define void @png_zstream_error(ptr noalias noundef captures(none) %0, i32 nounde
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.png_zstream_error, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.png_zstream_error, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -2631,27 +2631,25 @@ is_ICC_signature.exit:                            ; preds = %25
   store i8 %.0.i14.i, ptr %59, align 1, !tbaa !27
   %60 = getelementptr inbounds nuw i8, ptr %40, i64 5
   store i8 39, ptr %60, align 1, !tbaa !27
-  %61 = add i64 %10, 6
-  %62 = add i64 %10, 7
-  %63 = getelementptr inbounds nuw [196 x i8], ptr %5, i64 0, i64 %61
-  store i8 58, ptr %63, align 1, !tbaa !27
-  %64 = add i64 %10, 8
-  %65 = getelementptr inbounds nuw [196 x i8], ptr %5, i64 0, i64 %62
-  store i8 32, ptr %65, align 1, !tbaa !27
-  br label %70
+  %61 = getelementptr i8, ptr %40, i64 6
+  store i8 58, ptr %61, align 1, !tbaa !27
+  %62 = add i64 %10, 8
+  %63 = getelementptr i8, ptr %40, i64 7
+  store i8 32, ptr %63, align 1, !tbaa !27
+  br label %68
 
 is_ICC_signature.exit.thread:                     ; preds = %4, %17, %25, %is_ICC_signature.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %67 = call ptr @png_format_number(ptr noundef nonnull %6, ptr noundef nonnull %66, i32 noundef 3, i64 noundef %2) #30
-  %68 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %10, ptr noundef %67) #30
-  %69 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %68, ptr noundef nonnull @.str.60) #30
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %65 = call ptr @png_format_number(ptr noundef nonnull %6, ptr noundef nonnull %64, i32 noundef 3, i64 noundef %2) #30
+  %66 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %10, ptr noundef %65) #30
+  %67 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %66, ptr noundef nonnull @.str.60) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %70
+  br label %68
 
-70:                                               ; preds = %is_ICC_signature.exit.thread, %39
-  %.0 = phi i64 [ %64, %39 ], [ %69, %is_ICC_signature.exit.thread ]
-  %71 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %.0, ptr noundef %3) #30
+68:                                               ; preds = %is_ICC_signature.exit.thread, %39
+  %.0 = phi i64 [ %62, %39 ], [ %67, %is_ICC_signature.exit.thread ]
+  %69 = call i64 @png_safecat(ptr noundef nonnull %5, i64 noundef 196, i64 noundef %.0, ptr noundef %3) #30
   call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -4072,7 +4070,7 @@ thread-pre-split:                                 ; preds = %._crit_edge223, %71
   %173 = or disjoint i8 %172, 48
   %174 = add i32 %.5105237, 1
   %175 = zext i32 %.5105237 to i64
-  %176 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 %175
   store i8 %173, ptr %176, align 1, !tbaa !27
   %177 = udiv i32 %.1238, 10
   %.not157 = icmp ult i32 %.1238, 10
@@ -4095,7 +4093,7 @@ thread-pre-split:                                 ; preds = %._crit_edge223, %71
   %indvars.iv = phi i64 [ %180, %.lr.ph246 ], [ %178, %.preheader205 ]
   %.15245 = phi ptr [ %183, %.lr.ph246 ], [ %.14, %.preheader205 ]
   %180 = add nsw i64 %indvars.iv, -1
-  %181 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr %7, i64 %180
   %182 = load i8, ptr %181, align 1, !tbaa !27
   %183 = getelementptr inbounds nuw i8, ptr %.15245, i64 1
   store i8 %182, ptr %.15245, align 1, !tbaa !27
@@ -4189,7 +4187,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   %15 = add i8 %14, 48
   %16 = add i32 %.03850, 1
   %17 = zext i32 %.03850 to i64
-  %18 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   store i8 %15, ptr %18, align 1, !tbaa !27
   %19 = icmp eq i32 %.03651, 16
   %20 = icmp ne i32 %13, 0
@@ -4214,7 +4212,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   %indvars.iv = phi i64 [ %22, %.lr.ph55.preheader ], [ %23, %.lr.ph55 ]
   %.154 = phi ptr [ %.03580, %.lr.ph55.preheader ], [ %26, %.lr.ph55 ]
   %23 = add nsw i64 %indvars.iv, -1
-  %24 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %.154, i64 1
   store i8 %25, ptr %.154, align 1, !tbaa !27
@@ -4252,7 +4250,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   %.24066 = phi i32 [ %34, %.lr.ph68 ], [ %.139.lcssa, %.preheader ]
   %34 = add i32 %.24066, -1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %.367, i64 1
   store i8 %37, ptr %.367, align 1, !tbaa !27

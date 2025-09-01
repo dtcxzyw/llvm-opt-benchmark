@@ -172,7 +172,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
 
 60:                                               ; preds = %.loopexit220
   %61 = zext nneg i8 %58 to i64
-  %62 = getelementptr inbounds nuw [12 x ptr], ptr @LockTagTypeNames, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr @LockTagTypeNames, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %67
 
@@ -495,7 +495,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
 252:                                              ; preds = %236, %248
   %253 = phi i32 [ %251, %248 ], [ 2, %236 ]
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw [3 x ptr], ptr @PredicateLockTagTypeNames, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw ptr, ptr @PredicateLockTagTypeNames, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = tail call ptr @cstring_to_text(ptr noundef %256) #4
   %258 = ptrtoint ptr %257 to i64

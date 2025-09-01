@@ -1827,7 +1827,7 @@ define internal noundef i32 @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h370d7fb04f6208e3E.exit": ; preds = %1, %5
   %7 = phi i64 [ %3, %1 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw [0 x i32], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %7
   %9 = load i32, ptr %8, align 4, !alias.scope !142, !noundef !4
   %10 = add nuw nsw i64 %7, 1
   store i64 %10, ptr %2, align 16, !alias.scope !142
@@ -2940,7 +2940,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i: ; preds = %58, %"_ZN84_$
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.i:  ; preds = %0
-  %61 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %39
+  %61 = getelementptr inbounds nuw i32, ptr %37, i64 %39
   %62 = load i32, ptr %61, align 4, !alias.scope !373, !noalias !376, !noundef !4
   %63 = add nuw nsw i64 %39, 1
   store i64 %63, ptr %38, align 16, !alias.scope !373, !noalias !376
@@ -3001,154 +3001,154 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.i:  ; preds = %0
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i: ; preds = %83, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i33.i", %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i
   %.ph.i = phi i8 [ %60, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i ], [ %64, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i33.i" ], [ %64, %83 ]
   %.ph1.i = phi i64 [ 1, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i33.i" ], [ 0, %83 ]
-  %84 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.ph1.i
+  %84 = getelementptr inbounds nuw i32, ptr %37, i64 %.ph1.i
   %85 = load i32, ptr %84, align 4, !alias.scope !392, !noalias !376, !noundef !4
-  %86 = add nuw nsw i64 %.ph1.i, 1
-  %87 = trunc i32 %85 to i8
-  %88 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %86
-  %89 = load i32, ptr %88, align 4, !alias.scope !408, !noalias !376, !noundef !4
-  %90 = or disjoint i64 %.ph1.i, 2
-  %91 = trunc i32 %89 to i8
-  %92 = add nuw nsw i64 %.ph1.i, 3
+  %86 = trunc i32 %85 to i8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %88 = load i32, ptr %87, align 4, !alias.scope !408, !noalias !376, !noundef !4
+  %89 = trunc i32 %88 to i8
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %91 = add nuw nsw i64 %.ph1.i, 3
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.i
-  %93 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %63
-  %94 = load i32, ptr %93, align 4, !alias.scope !392, !noalias !376, !noundef !4
-  %95 = add nuw nsw i64 %39, 2
-  store i64 %95, ptr %38, align 16, !alias.scope !392, !noalias !376
-  %96 = trunc i32 %94 to i8
+  %92 = getelementptr inbounds nuw i32, ptr %37, i64 %63
+  %93 = load i32, ptr %92, align 4, !alias.scope !392, !noalias !376, !noundef !4
+  %94 = add nuw nsw i64 %39, 2
+  store i64 %94, ptr %38, align 16, !alias.scope !392, !noalias !376
+  %95 = trunc i32 %93 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
-  %97 = icmp samesign ugt i64 %39, 61
-  br i1 %97, label %98, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i
+  %96 = icmp samesign ugt i64 %39, 61
+  br i1 %96, label %97, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i
 
-98:                                               ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i
+97:                                               ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
-  %99 = getelementptr inbounds nuw i8, ptr %36, i64 288
+  %98 = getelementptr inbounds nuw i8, ptr %36, i64 288
   tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
-  %100 = invoke noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hf030e29e295b652eE()
+  %99 = invoke noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hf030e29e295b652eE()
           to label %.noexc9 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc9:                                          ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %36, i64 344
-  %102 = load i64, ptr %101, align 8, !alias.scope !417, !noalias !418, !noundef !4
-  %103 = icmp slt i64 %102, 1
-  br i1 %103, label %115, label %104
+.noexc9:                                          ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %36, i64 344
+  %101 = load i64, ptr %100, align 8, !alias.scope !417, !noalias !418, !noundef !4
+  %102 = icmp slt i64 %101, 1
+  br i1 %102, label %114, label %103
 
-104:                                              ; preds = %.noexc9
-  %105 = getelementptr inbounds nuw i8, ptr %36, i64 352
-  %106 = load i64, ptr %105, align 16, !alias.scope !417, !noalias !418, !noundef !4
-  %107 = sub i64 %106, %100
-  %108 = icmp slt i64 %107, 0
-  br i1 %108, label %115, label %109
+103:                                              ; preds = %.noexc9
+  %104 = getelementptr inbounds nuw i8, ptr %36, i64 352
+  %105 = load i64, ptr %104, align 16, !alias.scope !417, !noalias !418, !noundef !4
+  %106 = sub i64 %105, %99
+  %107 = icmp slt i64 %106, 0
+  br i1 %107, label %114, label %108
 
-109:                                              ; preds = %104
-  %110 = add nsw i64 %102, -256
-  store i64 %110, ptr %101, align 8, !alias.scope !417, !noalias !418
-  invoke void @_ZN11rand_chacha4guts11refill_wide17h3a34fb981646b142E(ptr noalias noundef nonnull align 16 dereferenceable(80) %99, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %37)
+108:                                              ; preds = %103
+  %109 = add nsw i64 %101, -256
+  store i64 %109, ptr %100, align 8, !alias.scope !417, !noalias !418
+  invoke void @_ZN11rand_chacha4guts11refill_wide17h3a34fb981646b142E(ptr noalias noundef nonnull align 16 dereferenceable(80) %98, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %37)
           to label %.noexc10 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc10:                                         ; preds = %109
+.noexc10:                                         ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !420
   store ptr %37, ptr %30, align 8, !noalias !420
-  %111 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %38, ptr %111, align 8, !noalias !420
-  br label %112
+  %110 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %38, ptr %110, align 8, !noalias !420
+  br label %111
 
-112:                                              ; preds = %.noexc11, %.noexc10
-  %113 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed429f09bc7bf176E.llvm.5424185675891088685"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
+111:                                              ; preds = %.noexc11, %.noexc10
+  %112 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed429f09bc7bf176E.llvm.5424185675891088685"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc11:                                         ; preds = %112
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i35.i", label %112
+.noexc11:                                         ; preds = %111
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i35.i", label %111
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i35.i": ; preds = %.noexc11
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !420
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i
 
-115:                                              ; preds = %104, %.noexc9
-  invoke void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17hb413909108037d4aE.llvm.5424185675891088685"(ptr noalias noundef nonnull align 16 dereferenceable(80) %99, ptr noalias noundef nonnull align 16 dereferenceable(352) %37, i64 noundef %100)
+114:                                              ; preds = %103, %.noexc9
+  invoke void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17hb413909108037d4aE.llvm.5424185675891088685"(ptr noalias noundef nonnull align 16 dereferenceable(80) %98, ptr noalias noundef nonnull align 16 dereferenceable(352) %37, i64 noundef %99)
           to label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i: ; preds = %115, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i35.i"
-  %116 = load i32, ptr %37, align 4, !alias.scope !408, !noalias !376, !noundef !4
-  %117 = trunc i32 %116 to i8
+_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i: ; preds = %114, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i35.i"
+  %115 = load i32, ptr %37, align 4, !alias.scope !408, !noalias !376, !noundef !4
+  %116 = trunc i32 %115 to i8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i
-  %118 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %95
-  %119 = load i32, ptr %118, align 4, !alias.scope !408, !noalias !376, !noundef !4
-  %120 = add nuw nsw i64 %39, 3
-  store i64 %120, ptr %38, align 16, !alias.scope !408, !noalias !376
-  %121 = trunc i32 %119 to i8
+  %117 = getelementptr inbounds nuw i32, ptr %37, i64 %94
+  %118 = load i32, ptr %117, align 4, !alias.scope !408, !noalias !376, !noundef !4
+  %119 = add nuw nsw i64 %39, 3
+  store i64 %119, ptr %38, align 16, !alias.scope !408, !noalias !376
+  %120 = trunc i32 %118 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
-  %122 = icmp eq i64 %39, 61
-  br i1 %122, label %123, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.i
+  %121 = icmp eq i64 %39, 61
+  br i1 %121, label %122, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.i
 
-123:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i
+122:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
-  %124 = getelementptr inbounds nuw i8, ptr %36, i64 288
+  %123 = getelementptr inbounds nuw i8, ptr %36, i64 288
   tail call void @llvm.experimental.noalias.scope.decl(metadata !430)
-  %125 = invoke noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hf030e29e295b652eE()
+  %124 = invoke noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hf030e29e295b652eE()
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc13:                                         ; preds = %123
-  %126 = getelementptr inbounds nuw i8, ptr %36, i64 344
-  %127 = load i64, ptr %126, align 8, !alias.scope !433, !noalias !434, !noundef !4
-  %128 = icmp slt i64 %127, 1
-  br i1 %128, label %140, label %129
+.noexc13:                                         ; preds = %122
+  %125 = getelementptr inbounds nuw i8, ptr %36, i64 344
+  %126 = load i64, ptr %125, align 8, !alias.scope !433, !noalias !434, !noundef !4
+  %127 = icmp slt i64 %126, 1
+  br i1 %127, label %139, label %128
 
-129:                                              ; preds = %.noexc13
-  %130 = getelementptr inbounds nuw i8, ptr %36, i64 352
-  %131 = load i64, ptr %130, align 16, !alias.scope !433, !noalias !434, !noundef !4
-  %132 = sub i64 %131, %125
-  %133 = icmp slt i64 %132, 0
-  br i1 %133, label %140, label %134
+128:                                              ; preds = %.noexc13
+  %129 = getelementptr inbounds nuw i8, ptr %36, i64 352
+  %130 = load i64, ptr %129, align 16, !alias.scope !433, !noalias !434, !noundef !4
+  %131 = sub i64 %130, %124
+  %132 = icmp slt i64 %131, 0
+  br i1 %132, label %139, label %133
 
-134:                                              ; preds = %129
-  %135 = add nsw i64 %127, -256
-  store i64 %135, ptr %126, align 8, !alias.scope !433, !noalias !434
-  invoke void @_ZN11rand_chacha4guts11refill_wide17h3a34fb981646b142E(ptr noalias noundef nonnull align 16 dereferenceable(80) %124, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %37)
+133:                                              ; preds = %128
+  %134 = add nsw i64 %126, -256
+  store i64 %134, ptr %125, align 8, !alias.scope !433, !noalias !434
+  invoke void @_ZN11rand_chacha4guts11refill_wide17h3a34fb981646b142E(ptr noalias noundef nonnull align 16 dereferenceable(80) %123, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %37)
           to label %.noexc14 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc14:                                         ; preds = %134
+.noexc14:                                         ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !436
   store ptr %37, ptr %29, align 8, !noalias !436
-  %136 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %38, ptr %136, align 8, !noalias !436
-  br label %137
+  %135 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %38, ptr %135, align 8, !noalias !436
+  br label %136
 
-137:                                              ; preds = %.noexc15, %.noexc14
-  %138 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed429f09bc7bf176E.llvm.5424185675891088685"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
+136:                                              ; preds = %.noexc15, %.noexc14
+  %137 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed429f09bc7bf176E.llvm.5424185675891088685"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29)
           to label %.noexc15 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc15:                                         ; preds = %137
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i", label %137
+.noexc15:                                         ; preds = %136
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i", label %136
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i": ; preds = %.noexc15
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !436
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i
 
-140:                                              ; preds = %129, %.noexc13
-  invoke void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17hb413909108037d4aE.llvm.5424185675891088685"(ptr noalias noundef nonnull align 16 dereferenceable(80) %124, ptr noalias noundef nonnull align 16 dereferenceable(352) %37, i64 noundef %125)
+139:                                              ; preds = %128, %.noexc13
+  invoke void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17hb413909108037d4aE.llvm.5424185675891088685"(ptr noalias noundef nonnull align 16 dereferenceable(80) %123, ptr noalias noundef nonnull align 16 dereferenceable(352) %37, i64 noundef %124)
           to label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i: ; preds = %140, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i", %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i
-  %.ph2.i = phi i8 [ %117, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i ], [ %121, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i" ], [ %121, %140 ]
-  %.ph5.i = phi i64 [ 1, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i" ], [ 0, %140 ]
+_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i: ; preds = %139, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i", %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i
+  %.ph2.i = phi i8 [ %116, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i ], [ %120, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i" ], [ %120, %139 ]
+  %.ph5.i = phi i64 [ 1, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i" ], [ 0, %139 ]
+  %140 = getelementptr inbounds nuw i32, ptr %37, i64 %.ph5.i
   %141 = add nuw nsw i64 %.ph5.i, 1
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i
-  %142 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %120
+  %142 = getelementptr inbounds nuw i32, ptr %37, i64 %119
   %143 = load i32, ptr %142, align 4, !alias.scope !424, !noalias !376, !noundef !4
   %144 = add nuw nsw i64 %39, 4
   store i64 %144, ptr %38, align 16, !alias.scope !424, !noalias !376
   %145 = trunc i32 %143 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  %146 = icmp eq i64 %95, 62
+  %146 = icmp eq i64 %94, 62
   br i1 %146, label %147, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.i
 
 147:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.i
@@ -3206,16 +3206,15 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.thread.i: ; preds = %164, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i
-  %storemerge149 = phi i64 [ %141, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %92, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
-  %.pn = phi i64 [ %.ph5.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %90, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
-  %.ph289.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %87, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
+  %storemerge149 = phi i64 [ %141, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %91, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
+  %.ph288.in.i.in = phi ptr [ %140, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %90, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
+  %.ph289.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %86, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
   %.ph290.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %.ph.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
-  %.ph291.i = phi i8 [ %.ph2.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %91, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
-  %.ph288.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn
+  %.ph291.i = phi i8 [ %.ph2.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i ], [ %89, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i ]
   %.ph288.in.i = load i32, ptr %.ph288.in.i.in, align 4, !alias.scope !424, !noalias !376, !noundef !4
   store i64 %storemerge149, ptr %38, align 16, !alias.scope !424, !noalias !376
   %.ph288.i = trunc i32 %.ph288.in.i to i8
-  %167 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge149
+  %167 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge149
   %168 = load i32, ptr %167, align 4, !alias.scope !440, !noalias !376, !noundef !4
   %169 = add nuw nsw i64 %storemerge149, 1
   store i64 %169, ptr %38, align 16, !alias.scope !440, !noalias !376
@@ -3224,7 +3223,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.i
-  %172 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %144
+  %172 = getelementptr inbounds nuw i32, ptr %37, i64 %144
   %173 = load i32, ptr %172, align 4, !alias.scope !440, !noalias !376, !noundef !4
   %174 = add nuw nsw i64 %39, 5
   store i64 %174, ptr %38, align 16, !alias.scope !440, !noalias !376
@@ -3289,7 +3288,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i: ; preds = %194, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.i
-  %196 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %174
+  %196 = getelementptr inbounds nuw i32, ptr %37, i64 %174
   %197 = load i32, ptr %196, align 4, !alias.scope !456, !noalias !376, !noundef !4
   %198 = add nuw nsw i64 %39, 6
   store i64 %198, ptr %38, align 16, !alias.scope !456, !noalias !376
@@ -3354,17 +3353,17 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit44.thread.i: ; preds = %218, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i
   %storemerge148 = phi i64 [ %195, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %171, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
-  %.pn150 = phi i64 [ %.ph11.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %169, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
+  %.pn = phi i64 [ %.ph11.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %169, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
   %.ph296.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph288.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
-  %.ph297.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph289.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
+  %.ph297.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph289.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
   %.ph298.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph290.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
-  %.ph299.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph291.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
+  %.ph299.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph291.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
   %.ph300.i = phi i8 [ %.ph6.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %170, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
-  %.ph295.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn150
+  %.ph295.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn
   %.ph295.in.i = load i32, ptr %.ph295.in.i.in, align 4, !alias.scope !456, !noalias !376, !noundef !4
   store i64 %storemerge148, ptr %38, align 16, !alias.scope !456, !noalias !376
   %.ph295.i = trunc i32 %.ph295.in.i to i8
-  %221 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge148
+  %221 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge148
   %222 = load i32, ptr %221, align 4, !alias.scope !472, !noalias !376, !noundef !4
   %223 = add nuw nsw i64 %storemerge148, 1
   store i64 %223, ptr %38, align 16, !alias.scope !472, !noalias !376
@@ -3373,7 +3372,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit44.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.i
-  %226 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %198
+  %226 = getelementptr inbounds nuw i32, ptr %37, i64 %198
   %227 = load i32, ptr %226, align 4, !alias.scope !472, !noalias !376, !noundef !4
   %228 = add nuw nsw i64 %39, 7
   store i64 %228, ptr %38, align 16, !alias.scope !472, !noalias !376
@@ -3438,7 +3437,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i: ; preds = %248, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit44.i
-  %250 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %228
+  %250 = getelementptr inbounds nuw i32, ptr %37, i64 %228
   %251 = load i32, ptr %250, align 4, !alias.scope !488, !noalias !376, !noundef !4
   %252 = add nuw nsw i64 %39, 8
   store i64 %252, ptr %38, align 16, !alias.scope !488, !noalias !376
@@ -3503,19 +3502,19 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit48.thread.i: ; preds = %272, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i
   %storemerge147 = phi i64 [ %249, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %225, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
-  %.pn151 = phi i64 [ %.ph19.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %223, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
+  %.pn150 = phi i64 [ %.ph19.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %223, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
   %.ph305.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph295.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
   %.ph306.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph296.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
-  %.ph307.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph297.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
+  %.ph307.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph297.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
   %.ph308.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph298.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
-  %.ph309.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph299.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
+  %.ph309.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph299.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
   %.ph310.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph300.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
   %.ph311.i = phi i8 [ %.ph12.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %224, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
-  %.ph304.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn151
+  %.ph304.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn150
   %.ph304.in.i = load i32, ptr %.ph304.in.i.in, align 4, !alias.scope !488, !noalias !376, !noundef !4
   store i64 %storemerge147, ptr %38, align 16, !alias.scope !488, !noalias !376
   %.ph304.i = trunc i32 %.ph304.in.i to i8
-  %275 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge147
+  %275 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge147
   %276 = load i32, ptr %275, align 4, !alias.scope !504, !noalias !376, !noundef !4
   %277 = add nuw nsw i64 %storemerge147, 1
   store i64 %277, ptr %38, align 16, !alias.scope !504, !noalias !376
@@ -3524,7 +3523,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit48.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.i
-  %280 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %252
+  %280 = getelementptr inbounds nuw i32, ptr %37, i64 %252
   %281 = load i32, ptr %280, align 4, !alias.scope !504, !noalias !376, !noundef !4
   %282 = add nuw nsw i64 %39, 9
   store i64 %282, ptr %38, align 16, !alias.scope !504, !noalias !376
@@ -3589,7 +3588,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i: ; preds = %302, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit48.i
-  %304 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %282
+  %304 = getelementptr inbounds nuw i32, ptr %37, i64 %282
   %305 = load i32, ptr %304, align 4, !alias.scope !520, !noalias !376, !noundef !4
   %306 = add nuw nsw i64 %39, 10
   store i64 %306, ptr %38, align 16, !alias.scope !520, !noalias !376
@@ -3654,21 +3653,21 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit52.thread.i: ; preds = %326, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i
   %storemerge146 = phi i64 [ %303, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %279, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
-  %.pn152 = phi i64 [ %.ph29.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %277, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
+  %.pn151 = phi i64 [ %.ph29.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %277, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph316.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph304.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph317.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph305.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph318.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph306.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
-  %.ph319.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph307.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
+  %.ph319.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph307.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph320.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph308.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
-  %.ph321.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph309.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
+  %.ph321.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph309.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph322.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph310.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph323.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph311.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph324.i = phi i8 [ %.ph20.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %278, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
-  %.ph315.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn152
+  %.ph315.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn151
   %.ph315.in.i = load i32, ptr %.ph315.in.i.in, align 4, !alias.scope !520, !noalias !376, !noundef !4
   store i64 %storemerge146, ptr %38, align 16, !alias.scope !520, !noalias !376
   %.ph315.i = trunc i32 %.ph315.in.i to i8
-  %329 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge146
+  %329 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge146
   %330 = load i32, ptr %329, align 4, !alias.scope !536, !noalias !376, !noundef !4
   %331 = add nuw nsw i64 %storemerge146, 1
   store i64 %331, ptr %38, align 16, !alias.scope !536, !noalias !376
@@ -3677,7 +3676,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit52.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.i
-  %334 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %306
+  %334 = getelementptr inbounds nuw i32, ptr %37, i64 %306
   %335 = load i32, ptr %334, align 4, !alias.scope !536, !noalias !376, !noundef !4
   %336 = add nuw nsw i64 %39, 11
   store i64 %336, ptr %38, align 16, !alias.scope !536, !noalias !376
@@ -3742,7 +3741,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i: ; preds = %356, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit52.i
-  %358 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %336
+  %358 = getelementptr inbounds nuw i32, ptr %37, i64 %336
   %359 = load i32, ptr %358, align 4, !alias.scope !552, !noalias !376, !noundef !4
   %360 = add nuw nsw i64 %39, 12
   store i64 %360, ptr %38, align 16, !alias.scope !552, !noalias !376
@@ -3807,23 +3806,23 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit56.thread.i: ; preds = %380, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i
   %storemerge145 = phi i64 [ %357, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %333, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
-  %.pn153 = phi i64 [ %.ph41.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %331, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
+  %.pn152 = phi i64 [ %.ph41.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %331, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph329.i = phi i8 [ %307, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph315.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph330.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph316.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph331.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph317.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph332.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph318.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
-  %.ph333.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph319.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
+  %.ph333.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph319.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph334.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph320.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
-  %.ph335.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph321.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
+  %.ph335.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph321.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph336.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph322.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph337.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph323.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph338.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph324.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph339.i = phi i8 [ %.ph30.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %332, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
-  %.ph328.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn153
+  %.ph328.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn152
   %.ph328.in.i = load i32, ptr %.ph328.in.i.in, align 4, !alias.scope !552, !noalias !376, !noundef !4
   store i64 %storemerge145, ptr %38, align 16, !alias.scope !552, !noalias !376
   %.ph328.i = trunc i32 %.ph328.in.i to i8
-  %383 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge145
+  %383 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge145
   %384 = load i32, ptr %383, align 4, !alias.scope !568, !noalias !376, !noundef !4
   %385 = add nuw nsw i64 %storemerge145, 1
   store i64 %385, ptr %38, align 16, !alias.scope !568, !noalias !376
@@ -3832,7 +3831,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit56.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.i
-  %388 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %360
+  %388 = getelementptr inbounds nuw i32, ptr %37, i64 %360
   %389 = load i32, ptr %388, align 4, !alias.scope !568, !noalias !376, !noundef !4
   %390 = add nuw nsw i64 %39, 13
   store i64 %390, ptr %38, align 16, !alias.scope !568, !noalias !376
@@ -3897,7 +3896,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i: ; preds = %410, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit56.i
-  %412 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %390
+  %412 = getelementptr inbounds nuw i32, ptr %37, i64 %390
   %413 = load i32, ptr %412, align 4, !alias.scope !584, !noalias !376, !noundef !4
   %414 = add nuw nsw i64 %39, 14
   store i64 %414, ptr %38, align 16, !alias.scope !584, !noalias !376
@@ -3962,25 +3961,25 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit60.thread.i: ; preds = %434, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i
   %storemerge144 = phi i64 [ %411, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %387, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
-  %.pn154 = phi i64 [ %.ph55.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %385, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
+  %.pn153 = phi i64 [ %.ph55.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %385, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph344.i = phi i8 [ %361, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph328.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph345.i = phi i8 [ %307, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph329.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph346.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph330.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph347.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph331.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph348.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph332.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
-  %.ph349.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph333.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
+  %.ph349.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph333.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph350.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph334.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
-  %.ph351.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph335.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
+  %.ph351.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph335.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph352.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph336.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph353.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph337.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph354.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph338.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph355.i = phi i8 [ %337, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph339.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph356.i = phi i8 [ %.ph42.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %386, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
-  %.ph343.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn154
+  %.ph343.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn153
   %.ph343.in.i = load i32, ptr %.ph343.in.i.in, align 4, !alias.scope !584, !noalias !376, !noundef !4
   store i64 %storemerge144, ptr %38, align 16, !alias.scope !584, !noalias !376
   %.ph343.i = trunc i32 %.ph343.in.i to i8
-  %437 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge144
+  %437 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge144
   %438 = load i32, ptr %437, align 4, !alias.scope !600, !noalias !376, !noundef !4
   %439 = add nuw nsw i64 %storemerge144, 1
   store i64 %439, ptr %38, align 16, !alias.scope !600, !noalias !376
@@ -3989,7 +3988,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit60.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.i
-  %442 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %414
+  %442 = getelementptr inbounds nuw i32, ptr %37, i64 %414
   %443 = load i32, ptr %442, align 4, !alias.scope !600, !noalias !376, !noundef !4
   %444 = add nuw nsw i64 %39, 15
   store i64 %444, ptr %38, align 16, !alias.scope !600, !noalias !376
@@ -4054,7 +4053,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i: ; preds = %464, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit60.i
-  %466 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %444
+  %466 = getelementptr inbounds nuw i32, ptr %37, i64 %444
   %467 = load i32, ptr %466, align 4, !alias.scope !616, !noalias !376, !noundef !4
   %468 = add nuw nsw i64 %39, 16
   store i64 %468, ptr %38, align 16, !alias.scope !616, !noalias !376
@@ -4119,27 +4118,27 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit64.thread.i: ; preds = %488, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i
   %storemerge143 = phi i64 [ %465, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %441, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
-  %.pn155 = phi i64 [ %.ph71.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %439, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
+  %.pn154 = phi i64 [ %.ph71.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %439, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph361.i = phi i8 [ %415, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph343.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph362.i = phi i8 [ %361, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph344.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph363.i = phi i8 [ %307, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph345.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph364.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph346.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph365.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph347.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph366.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph348.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
-  %.ph367.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph349.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
+  %.ph367.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph349.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph368.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph350.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
-  %.ph369.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph351.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
+  %.ph369.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph351.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph370.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph352.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph371.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph353.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph372.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph354.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph373.i = phi i8 [ %337, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph355.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph374.i = phi i8 [ %391, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph356.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph375.i = phi i8 [ %.ph56.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %440, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
-  %.ph360.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn155
+  %.ph360.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn154
   %.ph360.in.i = load i32, ptr %.ph360.in.i.in, align 4, !alias.scope !616, !noalias !376, !noundef !4
   store i64 %storemerge143, ptr %38, align 16, !alias.scope !616, !noalias !376
   %.ph360.i = trunc i32 %.ph360.in.i to i8
-  %491 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge143
+  %491 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge143
   %492 = load i32, ptr %491, align 4, !alias.scope !632, !noalias !376, !noundef !4
   %493 = add nuw nsw i64 %storemerge143, 1
   store i64 %493, ptr %38, align 16, !alias.scope !632, !noalias !376
@@ -4148,7 +4147,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit64.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.i
-  %496 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %468
+  %496 = getelementptr inbounds nuw i32, ptr %37, i64 %468
   %497 = load i32, ptr %496, align 4, !alias.scope !632, !noalias !376, !noundef !4
   %498 = add nuw nsw i64 %39, 17
   store i64 %498, ptr %38, align 16, !alias.scope !632, !noalias !376
@@ -4213,7 +4212,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i: ; preds = %518, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit64.i
-  %520 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %498
+  %520 = getelementptr inbounds nuw i32, ptr %37, i64 %498
   %521 = load i32, ptr %520, align 4, !alias.scope !648, !noalias !376, !noundef !4
   %522 = add nuw nsw i64 %39, 18
   store i64 %522, ptr %38, align 16, !alias.scope !648, !noalias !376
@@ -4278,7 +4277,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit68.thread.i: ; preds = %542, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i
   %storemerge142 = phi i64 [ %519, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %495, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
-  %.pn156 = phi i64 [ %.ph89.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %493, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
+  %.pn155 = phi i64 [ %.ph89.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %493, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph380.i = phi i8 [ %469, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph360.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph381.i = phi i8 [ %415, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph361.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph382.i = phi i8 [ %361, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph362.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
@@ -4286,9 +4285,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i: ; preds = %_ZN4rand
   %.ph384.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph364.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph385.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph365.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph386.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph366.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
-  %.ph387.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph367.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
+  %.ph387.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph367.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph388.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph368.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
-  %.ph389.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph369.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
+  %.ph389.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph369.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph390.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph370.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph391.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph371.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph392.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph372.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
@@ -4296,11 +4295,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i: ; preds = %_ZN4rand
   %.ph394.i = phi i8 [ %391, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph374.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph395.i = phi i8 [ %445, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph375.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph396.i = phi i8 [ %.ph72.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %494, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
-  %.ph379.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn156
+  %.ph379.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn155
   %.ph379.in.i = load i32, ptr %.ph379.in.i.in, align 4, !alias.scope !648, !noalias !376, !noundef !4
   store i64 %storemerge142, ptr %38, align 16, !alias.scope !648, !noalias !376
   %.ph379.i = trunc i32 %.ph379.in.i to i8
-  %545 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge142
+  %545 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge142
   %546 = load i32, ptr %545, align 4, !alias.scope !664, !noalias !376, !noundef !4
   %547 = add nuw nsw i64 %storemerge142, 1
   store i64 %547, ptr %38, align 16, !alias.scope !664, !noalias !376
@@ -4309,7 +4308,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit68.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.i
-  %550 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %522
+  %550 = getelementptr inbounds nuw i32, ptr %37, i64 %522
   %551 = load i32, ptr %550, align 4, !alias.scope !664, !noalias !376, !noundef !4
   %552 = add nuw nsw i64 %39, 19
   store i64 %552, ptr %38, align 16, !alias.scope !664, !noalias !376
@@ -4374,7 +4373,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i: ; preds = %572, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit68.i
-  %574 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %552
+  %574 = getelementptr inbounds nuw i32, ptr %37, i64 %552
   %575 = load i32, ptr %574, align 4, !alias.scope !680, !noalias !376, !noundef !4
   %576 = add nuw nsw i64 %39, 20
   store i64 %576, ptr %38, align 16, !alias.scope !680, !noalias !376
@@ -4439,7 +4438,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit72.thread.i: ; preds = %596, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i
   %storemerge141 = phi i64 [ %573, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %549, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
-  %.pn157 = phi i64 [ %.ph109.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %547, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
+  %.pn156 = phi i64 [ %.ph109.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %547, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph401.i = phi i8 [ %523, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph379.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph402.i = phi i8 [ %469, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph380.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph403.i = phi i8 [ %415, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph381.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
@@ -4448,9 +4447,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i: ; preds = %_ZN4rand
   %.ph406.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph384.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph407.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph385.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph408.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph386.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
-  %.ph409.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph387.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
+  %.ph409.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph387.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph410.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph388.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
-  %.ph411.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph389.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
+  %.ph411.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph389.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph412.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph390.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph413.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph391.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph414.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph392.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
@@ -4459,11 +4458,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i: ; preds = %_ZN4rand
   %.ph417.i = phi i8 [ %445, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph395.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph418.i = phi i8 [ %499, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph396.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph419.i = phi i8 [ %.ph90.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %548, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
-  %.ph400.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn157
+  %.ph400.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn156
   %.ph400.in.i = load i32, ptr %.ph400.in.i.in, align 4, !alias.scope !680, !noalias !376, !noundef !4
   store i64 %storemerge141, ptr %38, align 16, !alias.scope !680, !noalias !376
   %.ph400.i = trunc i32 %.ph400.in.i to i8
-  %599 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge141
+  %599 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge141
   %600 = load i32, ptr %599, align 4, !alias.scope !696, !noalias !376, !noundef !4
   %601 = add nuw nsw i64 %storemerge141, 1
   store i64 %601, ptr %38, align 16, !alias.scope !696, !noalias !376
@@ -4472,7 +4471,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit72.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.i
-  %604 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %576
+  %604 = getelementptr inbounds nuw i32, ptr %37, i64 %576
   %605 = load i32, ptr %604, align 4, !alias.scope !696, !noalias !376, !noundef !4
   %606 = add nuw nsw i64 %39, 21
   store i64 %606, ptr %38, align 16, !alias.scope !696, !noalias !376
@@ -4537,7 +4536,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i: ; preds = %626, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit72.i
-  %628 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %606
+  %628 = getelementptr inbounds nuw i32, ptr %37, i64 %606
   %629 = load i32, ptr %628, align 4, !alias.scope !712, !noalias !376, !noundef !4
   %630 = add nuw nsw i64 %39, 22
   store i64 %630, ptr %38, align 16, !alias.scope !712, !noalias !376
@@ -4602,7 +4601,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit76.thread.i: ; preds = %650, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i
   %storemerge140 = phi i64 [ %627, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %603, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
-  %.pn158 = phi i64 [ %.ph131.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %601, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
+  %.pn157 = phi i64 [ %.ph131.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %601, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph424.i = phi i8 [ %577, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph400.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph425.i = phi i8 [ %523, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph401.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph426.i = phi i8 [ %469, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph402.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
@@ -4612,9 +4611,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i: ; preds = %_ZN4rand
   %.ph430.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph406.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph431.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph407.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph432.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph408.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
-  %.ph433.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph409.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
+  %.ph433.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph409.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph434.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph410.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
-  %.ph435.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph411.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
+  %.ph435.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph411.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph436.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph412.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph437.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph413.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph438.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph414.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
@@ -4624,11 +4623,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i: ; preds = %_ZN4rand
   %.ph442.i = phi i8 [ %499, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph418.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph443.i = phi i8 [ %553, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph419.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph444.i = phi i8 [ %.ph110.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %602, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
-  %.ph423.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn158
+  %.ph423.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn157
   %.ph423.in.i = load i32, ptr %.ph423.in.i.in, align 4, !alias.scope !712, !noalias !376, !noundef !4
   store i64 %storemerge140, ptr %38, align 16, !alias.scope !712, !noalias !376
   %.ph423.i = trunc i32 %.ph423.in.i to i8
-  %653 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge140
+  %653 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge140
   %654 = load i32, ptr %653, align 4, !alias.scope !728, !noalias !376, !noundef !4
   %655 = add nuw nsw i64 %storemerge140, 1
   store i64 %655, ptr %38, align 16, !alias.scope !728, !noalias !376
@@ -4637,7 +4636,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit76.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.i
-  %658 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %630
+  %658 = getelementptr inbounds nuw i32, ptr %37, i64 %630
   %659 = load i32, ptr %658, align 4, !alias.scope !728, !noalias !376, !noundef !4
   %660 = add nuw nsw i64 %39, 23
   store i64 %660, ptr %38, align 16, !alias.scope !728, !noalias !376
@@ -4702,7 +4701,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i: ; preds = %680, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit76.i
-  %682 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %660
+  %682 = getelementptr inbounds nuw i32, ptr %37, i64 %660
   %683 = load i32, ptr %682, align 4, !alias.scope !744, !noalias !376, !noundef !4
   %684 = add nuw nsw i64 %39, 24
   store i64 %684, ptr %38, align 16, !alias.scope !744, !noalias !376
@@ -4767,7 +4766,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit80.thread.i: ; preds = %704, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i
   %storemerge139 = phi i64 [ %681, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %657, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
-  %.pn159 = phi i64 [ %.ph155.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %655, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
+  %.pn158 = phi i64 [ %.ph155.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %655, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph449.i = phi i8 [ %631, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph423.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph450.i = phi i8 [ %577, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph424.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph451.i = phi i8 [ %523, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph425.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
@@ -4778,9 +4777,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i: ; preds = %_ZN4rand
   %.ph456.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph430.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph457.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph431.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph458.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph432.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
-  %.ph459.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph433.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
+  %.ph459.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph433.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph460.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph434.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
-  %.ph461.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph435.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
+  %.ph461.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph435.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph462.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph436.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph463.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph437.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph464.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph438.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
@@ -4791,11 +4790,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i: ; preds = %_ZN4rand
   %.ph469.i = phi i8 [ %553, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph443.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph470.i = phi i8 [ %607, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph444.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph471.i = phi i8 [ %.ph132.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %656, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
-  %.ph448.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn159
+  %.ph448.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn158
   %.ph448.in.i = load i32, ptr %.ph448.in.i.in, align 4, !alias.scope !744, !noalias !376, !noundef !4
   store i64 %storemerge139, ptr %38, align 16, !alias.scope !744, !noalias !376
   %.ph448.i = trunc i32 %.ph448.in.i to i8
-  %707 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge139
+  %707 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge139
   %708 = load i32, ptr %707, align 4, !alias.scope !760, !noalias !376, !noundef !4
   %709 = add nuw nsw i64 %storemerge139, 1
   store i64 %709, ptr %38, align 16, !alias.scope !760, !noalias !376
@@ -4804,7 +4803,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit80.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.i
-  %712 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %684
+  %712 = getelementptr inbounds nuw i32, ptr %37, i64 %684
   %713 = load i32, ptr %712, align 4, !alias.scope !760, !noalias !376, !noundef !4
   %714 = add nuw nsw i64 %39, 25
   store i64 %714, ptr %38, align 16, !alias.scope !760, !noalias !376
@@ -4869,7 +4868,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i: ; preds = %734, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit80.i
-  %736 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %714
+  %736 = getelementptr inbounds nuw i32, ptr %37, i64 %714
   %737 = load i32, ptr %736, align 4, !alias.scope !776, !noalias !376, !noundef !4
   %738 = add nuw nsw i64 %39, 26
   store i64 %738, ptr %38, align 16, !alias.scope !776, !noalias !376
@@ -4934,7 +4933,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit84.thread.i: ; preds = %758, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i
   %storemerge138 = phi i64 [ %735, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %711, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
-  %.pn160 = phi i64 [ %.ph181.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %709, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
+  %.pn159 = phi i64 [ %.ph181.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %709, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph476.i = phi i8 [ %685, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph448.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph477.i = phi i8 [ %631, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph449.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph478.i = phi i8 [ %577, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph450.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
@@ -4946,9 +4945,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i: ; preds = %_ZN4rand
   %.ph484.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph456.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph485.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph457.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph486.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph458.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
-  %.ph487.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph459.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
+  %.ph487.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph459.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph488.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph460.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
-  %.ph489.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph461.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
+  %.ph489.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph461.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph490.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph462.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph491.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph463.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph492.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph464.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
@@ -4960,11 +4959,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i: ; preds = %_ZN4rand
   %.ph498.i = phi i8 [ %607, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph470.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph499.i = phi i8 [ %661, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph471.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph500.i = phi i8 [ %.ph156.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %710, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
-  %.ph475.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn160
+  %.ph475.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn159
   %.ph475.in.i = load i32, ptr %.ph475.in.i.in, align 4, !alias.scope !776, !noalias !376, !noundef !4
   store i64 %storemerge138, ptr %38, align 16, !alias.scope !776, !noalias !376
   %.ph475.i = trunc i32 %.ph475.in.i to i8
-  %761 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge138
+  %761 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge138
   %762 = load i32, ptr %761, align 4, !alias.scope !792, !noalias !376, !noundef !4
   %763 = add nuw nsw i64 %storemerge138, 1
   store i64 %763, ptr %38, align 16, !alias.scope !792, !noalias !376
@@ -4973,7 +4972,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit84.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.i
-  %766 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %738
+  %766 = getelementptr inbounds nuw i32, ptr %37, i64 %738
   %767 = load i32, ptr %766, align 4, !alias.scope !792, !noalias !376, !noundef !4
   %768 = add nuw nsw i64 %39, 27
   store i64 %768, ptr %38, align 16, !alias.scope !792, !noalias !376
@@ -5038,7 +5037,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i: ; preds = %788, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit84.i
-  %790 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %768
+  %790 = getelementptr inbounds nuw i32, ptr %37, i64 %768
   %791 = load i32, ptr %790, align 4, !alias.scope !808, !noalias !376, !noundef !4
   %792 = add nuw nsw i64 %39, 28
   store i64 %792, ptr %38, align 16, !alias.scope !808, !noalias !376
@@ -5103,7 +5102,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit88.thread.i: ; preds = %812, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i
   %storemerge137 = phi i64 [ %789, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %765, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
-  %.pn161 = phi i64 [ %.ph209.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %763, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
+  %.pn160 = phi i64 [ %.ph209.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %763, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph505.i = phi i8 [ %739, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph475.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph506.i = phi i8 [ %685, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph476.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph507.i = phi i8 [ %631, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph477.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
@@ -5116,9 +5115,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i: ; preds = %_ZN4rand
   %.ph514.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph484.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph515.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph485.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph516.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph486.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
-  %.ph517.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph487.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
+  %.ph517.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph487.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph518.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph488.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
-  %.ph519.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph489.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
+  %.ph519.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph489.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph520.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph490.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph521.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph491.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph522.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph492.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
@@ -5131,11 +5130,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i: ; preds = %_ZN4rand
   %.ph529.i = phi i8 [ %661, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph499.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph530.i = phi i8 [ %715, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph500.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph531.i = phi i8 [ %.ph182.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %764, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
-  %.ph504.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn161
+  %.ph504.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn160
   %.ph504.in.i = load i32, ptr %.ph504.in.i.in, align 4, !alias.scope !808, !noalias !376, !noundef !4
   store i64 %storemerge137, ptr %38, align 16, !alias.scope !808, !noalias !376
   %.ph504.i = trunc i32 %.ph504.in.i to i8
-  %815 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge137
+  %815 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge137
   %816 = load i32, ptr %815, align 4, !alias.scope !824, !noalias !376, !noundef !4
   %817 = add nuw nsw i64 %storemerge137, 1
   store i64 %817, ptr %38, align 16, !alias.scope !824, !noalias !376
@@ -5144,7 +5143,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit88.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.i
-  %820 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %792
+  %820 = getelementptr inbounds nuw i32, ptr %37, i64 %792
   %821 = load i32, ptr %820, align 4, !alias.scope !824, !noalias !376, !noundef !4
   %822 = add nuw nsw i64 %39, 29
   store i64 %822, ptr %38, align 16, !alias.scope !824, !noalias !376
@@ -5209,7 +5208,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i: ; preds = %842, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit88.i
-  %844 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %822
+  %844 = getelementptr inbounds nuw i32, ptr %37, i64 %822
   %845 = load i32, ptr %844, align 4, !alias.scope !840, !noalias !376, !noundef !4
   %846 = add nuw nsw i64 %39, 30
   store i64 %846, ptr %38, align 16, !alias.scope !840, !noalias !376
@@ -5273,7 +5272,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i: ; preds = %865, %"_ZN8
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i
   %storemerge = phi i64 [ %843, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %819, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
-  %.pn162 = phi i64 [ %.ph239.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %817, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
+  %.pn161 = phi i64 [ %.ph239.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %817, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph536.i = phi i8 [ %793, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph504.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph537.i = phi i8 [ %739, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph505.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph538.i = phi i8 [ %685, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph506.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
@@ -5287,9 +5286,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i: ; preds = %_ZN4rand
   %.ph546.i = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph514.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph547.i = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph515.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph548.i = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph516.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
-  %.ph549.i = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph517.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
+  %.ph549.i = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph517.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph550.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph518.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
-  %.ph551.i = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph519.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
+  %.ph551.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph519.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph552.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph520.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph553.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph521.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph554.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph522.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
@@ -5303,17 +5302,17 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i: ; preds = %_ZN4rand
   %.ph562.i = phi i8 [ %715, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph530.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph563.i = phi i8 [ %769, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph531.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph564.i = phi i8 [ %.ph210.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %818, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
-  %.ph535.in.i.in = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %.pn162
+  %.ph535.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn161
   %.ph535.in.i = load i32, ptr %.ph535.in.i.in, align 4, !alias.scope !840, !noalias !376, !noundef !4
   store i64 %storemerge, ptr %38, align 16, !alias.scope !840, !noalias !376
-  %867 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %storemerge
+  %867 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge
   %868 = load i32, ptr %867, align 4, !alias.scope !856, !noalias !376, !noundef !4
   %869 = add nuw nsw i64 %storemerge, 1
   store i64 %869, ptr %38, align 16, !alias.scope !856, !noalias !376
   br label %892
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.i
-  %870 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %846
+  %870 = getelementptr inbounds nuw i32, ptr %37, i64 %846
   %871 = load i32, ptr %870, align 4, !alias.scope !856, !noalias !376, !noundef !4
   %872 = add nuw nsw i64 %39, 31
   store i64 %872, ptr %38, align 16, !alias.scope !856, !noalias !376
@@ -5376,167 +5375,167 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i: ; preds = %_ZN4rand3rng3Rng3g
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %80
-  %lpad.loopexit163 = landingpad { ptr, i32 }
+  %lpad.loopexit162 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %112
-  %lpad.loopexit166 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %111
+  %lpad.loopexit165 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %137
-  %lpad.loopexit168 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %136
+  %lpad.loopexit167 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %161
-  %lpad.loopexit171 = landingpad { ptr, i32 }
+  %lpad.loopexit170 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %191
-  %lpad.loopexit173 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %215
-  %lpad.loopexit176 = landingpad { ptr, i32 }
+  %lpad.loopexit175 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %245
-  %lpad.loopexit178 = landingpad { ptr, i32 }
+  %lpad.loopexit177 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %269
-  %lpad.loopexit181 = landingpad { ptr, i32 }
+  %lpad.loopexit180 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %299
-  %lpad.loopexit183 = landingpad { ptr, i32 }
+  %lpad.loopexit182 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %323
-  %lpad.loopexit186 = landingpad { ptr, i32 }
+  %lpad.loopexit185 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %353
-  %lpad.loopexit188 = landingpad { ptr, i32 }
+  %lpad.loopexit187 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %377
-  %lpad.loopexit191 = landingpad { ptr, i32 }
+  %lpad.loopexit190 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %407
-  %lpad.loopexit193 = landingpad { ptr, i32 }
+  %lpad.loopexit192 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %431
-  %lpad.loopexit196 = landingpad { ptr, i32 }
+  %lpad.loopexit195 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %461
-  %lpad.loopexit198 = landingpad { ptr, i32 }
+  %lpad.loopexit197 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %485
-  %lpad.loopexit201 = landingpad { ptr, i32 }
+  %lpad.loopexit200 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %515
-  %lpad.loopexit203 = landingpad { ptr, i32 }
+  %lpad.loopexit202 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %539
-  %lpad.loopexit206 = landingpad { ptr, i32 }
+  %lpad.loopexit205 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %569
-  %lpad.loopexit208 = landingpad { ptr, i32 }
+  %lpad.loopexit207 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %593
-  %lpad.loopexit211 = landingpad { ptr, i32 }
+  %lpad.loopexit210 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %623
-  %lpad.loopexit213 = landingpad { ptr, i32 }
+  %lpad.loopexit212 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %647
-  %lpad.loopexit216 = landingpad { ptr, i32 }
+  %lpad.loopexit215 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %677
-  %lpad.loopexit218 = landingpad { ptr, i32 }
+  %lpad.loopexit217 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %701
-  %lpad.loopexit221 = landingpad { ptr, i32 }
+  %lpad.loopexit220 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %731
-  %lpad.loopexit223 = landingpad { ptr, i32 }
+  %lpad.loopexit222 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %755
-  %lpad.loopexit226 = landingpad { ptr, i32 }
+  %lpad.loopexit225 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %785
-  %lpad.loopexit228 = landingpad { ptr, i32 }
+  %lpad.loopexit227 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %809
-  %lpad.loopexit231 = landingpad { ptr, i32 }
+  %lpad.loopexit230 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %839
-  %lpad.loopexit233 = landingpad { ptr, i32 }
+  %lpad.loopexit232 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %862
-  %lpad.loopexit236 = landingpad { ptr, i32 }
+  %lpad.loopexit235 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %888
-  %lpad.loopexit238 = landingpad { ptr, i32 }
+  %lpad.loopexit237 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %934, %929, %891, %885, %874, %865, %859, %848, %842, %836, %825, %812, %806, %795, %788, %782, %771, %758, %752, %741, %734, %728, %717, %704, %698, %687, %680, %674, %663, %650, %644, %633, %626, %620, %609, %596, %590, %579, %572, %566, %555, %542, %536, %525, %518, %512, %501, %488, %482, %471, %464, %458, %447, %434, %428, %417, %410, %404, %393, %380, %374, %363, %356, %350, %339, %326, %320, %309, %302, %296, %285, %272, %266, %255, %248, %242, %231, %218, %212, %201, %194, %188, %177, %164, %158, %147, %140, %134, %123, %115, %109, %98, %83, %77, %66, %58, %52, %41, %892
-  %lpad.loopexit.split-lp239 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %934, %929, %891, %885, %874, %865, %859, %848, %842, %836, %825, %812, %806, %795, %788, %782, %771, %758, %752, %741, %734, %728, %717, %704, %698, %687, %680, %674, %663, %650, %644, %633, %626, %620, %609, %596, %590, %579, %572, %566, %555, %542, %536, %525, %518, %512, %501, %488, %482, %471, %464, %458, %447, %434, %428, %417, %410, %404, %393, %380, %374, %363, %356, %350, %339, %326, %320, %309, %302, %296, %285, %272, %266, %255, %248, %242, %231, %218, %212, %201, %194, %188, %177, %164, %158, %147, %139, %133, %122, %114, %108, %97, %83, %77, %66, %58, %52, %41, %892
+  %lpad.loopexit.split-lp238 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit163, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit166, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit168, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit171, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit173, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit176, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit178, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit181, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit183, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit186, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit188, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit191, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit193, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit196, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit198, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit201, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit203, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit206, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit208, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit211, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit213, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit216, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit218, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit221, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit223, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit226, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit228, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit231, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit233, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit236, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit238, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp239, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit162, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit165, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit167, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit170, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit172, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit175, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit177, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit180, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit182, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit185, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit187, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit190, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit195, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit197, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit200, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit202, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit205, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit207, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit210, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit212, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit215, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit217, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit220, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit227, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit230, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit232, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit235, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit237, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp238, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1128c11cd0421959E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35)
           to label %"_ZN4core3ptr43drop_in_place$LT$cap_rand..rngs..CapRng$GT$17h324e037d8b244f8bE.exit" unwind label %938
 
@@ -5555,9 +5554,9 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i: ; preds = %_ZN4rand3rng3Rng3g
   %903 = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %283, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph554.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %283, %891 ]
   %904 = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %229, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph553.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %229, %891 ]
   %905 = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %175, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph552.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %175, %891 ]
-  %906 = phi i8 [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %121, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %121, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph551.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %121, %891 ]
+  %906 = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %120, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph551.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %120, %891 ]
   %907 = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %64, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph550.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %64, %891 ]
-  %908 = phi i8 [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %96, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %96, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph549.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %96, %891 ]
+  %908 = phi i8 [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %95, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %95, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph549.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %95, %891 ]
   %909 = phi i8 [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %145, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %145, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph548.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %145, %891 ]
   %910 = phi i8 [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %199, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %199, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph547.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %199, %891 ]
   %911 = phi i8 [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ %253, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %253, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %.ph546.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ %253, %891 ]
@@ -5575,7 +5574,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i: ; preds = %_ZN4rand3rng3Rng3g
   %922 = phi i64 [ %872, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ 1, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ %869, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ 0, %891 ]
   %923 = trunc i32 %.in567.i to i8
   %924 = trunc i32 %.in.i to i8
-  %925 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %922
+  %925 = getelementptr inbounds nuw i32, ptr %37, i64 %922
   %926 = load i32, ptr %925, align 4, !alias.scope !872, !noalias !376, !noundef !4
   %927 = add nuw nsw i64 %922, 1
   store i64 %927, ptr %38, align 16, !alias.scope !872, !noalias !376

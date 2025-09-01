@@ -76,7 +76,7 @@ define void @_ZN4YAML6StreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(1
 24:                                               ; preds = %21
   %25 = add i32 %.02644, 1
   %26 = sext i32 %.02644 to i64
-  %27 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %26
+  %27 = getelementptr inbounds i32, ptr %3, i64 %26
   store i32 %23, ptr %27, align 4, !tbaa !33
   switch i32 %23, label %33 [
     i32 -1, label %_ZN4YAML15IntroCharTypeOfEi.exit
@@ -114,11 +114,11 @@ define void @_ZN4YAML6StreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(1
 
 _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, %31, %32, %33, %.fold.split.i
   %.0.i = phi i64 [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 4, %31 ], [ 5, %32 ], [ 7, %24 ], [ %..i, %33 ], [ 0, %.fold.split.i ]
-  %35 = getelementptr inbounds nuw [18 x [8 x i32]], ptr @_ZN4YAMLL18s_introTransitionsE, i64 0, i64 %22
-  %36 = getelementptr inbounds nuw [8 x i32], ptr %35, i64 0, i64 %.0.i
+  %35 = getelementptr inbounds nuw [8 x i32], ptr @_ZN4YAMLL18s_introTransitionsE, i64 %22
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %.0.i
   %37 = load i32, ptr %36, align 4, !tbaa !34
-  %38 = getelementptr inbounds nuw [18 x [8 x i8]], ptr @_ZN4YAMLL17s_introUngetCountE, i64 0, i64 %22
-  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 0, i64 %.0.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4YAMLL17s_introUngetCountE, i64 %22
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.0.i
   %40 = load i8, ptr %39, align 1, !tbaa !36
   %41 = icmp sgt i8 %40, 0
   br i1 %41, label %42, label %.loopexit
@@ -140,7 +140,7 @@ _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, 
   %indvars.iv = phi i64 [ %48, %.preheader.preheader ], [ %indvars.iv.next, %56 ]
   %.043 = phi i32 [ %47, %.preheader.preheader ], [ %57, %56 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %49 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %indvars.iv.next
+  %49 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
   %50 = load i32, ptr %49, align 4, !tbaa !33
   %.not = icmp eq i32 %50, -1
   br i1 %.not, label %56, label %51
@@ -177,7 +177,7 @@ _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4YAML15IntroCharTypeOfEi.exit
   %.127 = phi i32 [ %25, %_ZN4YAML15IntroCharTypeOfEi.exit ], [ %59, %.loopexit.loopexit ]
   %60 = zext i32 %37 to i64
-  %61 = getelementptr inbounds nuw [19 x i8], ptr @_ZN4YAMLL17s_introFinalStateE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL17s_introFinalStateE, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !39, !range !41, !noundef !42
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %21, !llvm.loop !43
@@ -189,7 +189,7 @@ _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, 
 
 switch.lookup:                                    ; preds = %64
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4YAML6StreamC2ERSi, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4YAML6StreamC2ERSi, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %67
 
@@ -1232,8 +1232,8 @@ _ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %53, %._crit_edge.i3
 
 77:                                               ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit38
   %.not = icmp eq i32 %3, 2
-  %.sroa.speculated62 = select i1 %.not, i8 %.1.i106, i8 %.1.i36
-  %78 = and i8 %.sroa.speculated62, -4
+  %.sroa.speculated65 = select i1 %.not, i8 %.1.i106, i8 %.1.i36
+  %78 = and i8 %.sroa.speculated65, -4
   %or.cond = icmp eq i8 %78, -36
   br i1 %or.cond, label %79, label %81
 
@@ -1243,10 +1243,10 @@ _ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %53, %._crit_edge.i3
   br label %172
 
 81:                                               ; preds = %77
-  %82 = zext i8 %.sroa.speculated62 to i64
+  %82 = zext i8 %.sroa.speculated65 to i64
   %83 = shl nuw nsw i64 %82, 8
-  %.sroa.speculated = select i1 %.not, i8 %.1.i36, i8 %.1.i106
-  %84 = zext i8 %.sroa.speculated to i64
+  %.sroa.speculated59 = select i1 %.not, i8 %.1.i36, i8 %.1.i106
+  %84 = zext i8 %.sroa.speculated59 to i64
   %85 = or disjoint i64 %83, %84
   %or.cond3 = icmp eq i8 %78, -40
   br i1 %or.cond3, label %.preheader, label %170
@@ -1387,13 +1387,13 @@ _ZNK4YAML6Stream11GetNextByteEv.exit52:           ; preds = %133, %143
   br label %172
 
 158:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit52
-  %.sroa.speculated65 = select i1 %.not, i8 %.1.i43113, i8 %.1.i50
-  %159 = zext i8 %.sroa.speculated65 to i64
+  %.sroa.speculated62 = select i1 %.not, i8 %.1.i43113, i8 %.1.i50
+  %159 = zext i8 %.sroa.speculated62 to i64
   %160 = shl nuw nsw i64 %159, 8
-  %.sroa.speculated59 = select i1 %.not, i8 %.1.i50, i8 %.1.i43113
-  %161 = zext i8 %.sroa.speculated59 to i64
+  %.sroa.speculated = select i1 %.not, i8 %.1.i50, i8 %.1.i43113
+  %161 = zext i8 %.sroa.speculated to i64
   %162 = or disjoint i64 %160, %161
-  %163 = add i8 %.sroa.speculated65, 32
+  %163 = add i8 %.sroa.speculated62, 32
   %or.cond5 = icmp ult i8 %163, -4
   br i1 %or.cond5, label %164, label %.thread74
 
@@ -1669,7 +1669,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit28:           ; preds = %122, %._crit_edge.i
   %150 = getelementptr inbounds nuw i32, ptr %._ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 %indvars.iv
   %151 = load i32, ptr %150, align 4, !tbaa !33
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [4 x i8], ptr %2, i64 0, i64 %152
+  %153 = getelementptr inbounds i8, ptr %2, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !36
   %155 = zext i8 %154 to i64
   %156 = or disjoint i64 %149, %155

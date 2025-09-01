@@ -1729,7 +1729,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %395, %393
 
 switch.lookup:                                    ; preds = %401
   %404 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_119NonNullParamCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE, i64 0, i64 %404
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_119NonNullParamCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE, i64 %404
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i
 

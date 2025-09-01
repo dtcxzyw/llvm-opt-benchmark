@@ -954,7 +954,7 @@ bytestream2_peek_le32.exit.thread:                ; preds = %20, %bytestream2_pe
   store i8 %43, ptr %.161138, align 1, !tbaa !34
   %45 = add nuw nsw i32 %.257139, 1
   %46 = zext i32 %.257139 to i64
-  %47 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %46
   store i8 %43, ptr %47, align 1, !tbaa !34
   %48 = and i32 %45, 4095
   %49 = add nuw nsw i32 %.048140, 1
@@ -994,7 +994,7 @@ bytestream2_peek_le32.exit.thread:                ; preds = %20, %bytestream2_pe
   store i8 %63, ptr %.363132, align 1, !tbaa !34
   %65 = add nuw nsw i32 %.4133, 1
   %66 = zext i32 %.4133 to i64
-  %67 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 %66
   store i8 %63, ptr %67, align 1, !tbaa !34
   %68 = and i32 %65, 4095
   %69 = add i32 %.2134, -1
@@ -1065,13 +1065,13 @@ bytestream2_get_byte.exit71:                      ; preds = %bytestream2_get_byt
   %103 = add nuw nsw i32 %.052129, 1
   %104 = and i32 %.052129, 4095
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !34
   store i8 %107, ptr %.565127, align 1, !tbaa !34
   %108 = getelementptr inbounds nuw i8, ptr %.565127, i64 1
   %109 = add nuw nsw i32 %.6128, 1
   %110 = zext i32 %.6128 to i64
-  %111 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 %110
   store i8 %107, ptr %111, align 1, !tbaa !34
   %112 = and i32 %109, 4095
   %113 = add nuw nsw i32 %.0130, 1

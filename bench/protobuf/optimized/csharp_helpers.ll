@@ -159,7 +159,7 @@ lpad:                                             ; preds = %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN6google8protobuf8compiler6csharp13GetCSharpTypeENS0_8internal19FieldDescriptorLite4TypeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8compiler6csharp13GetCSharpTypeENS0_8internal19FieldDescriptorLite4TypeE, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -193,7 +193,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %input.coerce1, i64 %indvars.iv
   %0 = load i8, ptr %add.ptr.i, align 1
   %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 4
   %cmp.i.not = icmp eq i8 %2, 0
@@ -207,7 +207,7 @@ lpad:                                             ; preds = %if.else24.invoke
 
 if.end:                                           ; preds = %for.body
   %idxprom.i11 = zext i8 %previous.022 to i64
-  %arrayidx.i12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i11
+  %arrayidx.i12 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 %idxprom.i11
   %4 = load i8, ptr %arrayidx.i12, align 1
   %5 = and i8 %4, 4
   %cmp.i13.not = icmp eq i8 %5, 0
@@ -223,7 +223,7 @@ if.else18:                                        ; preds = %if.end
 
 if.else24.invoke.sink.split:                      ; preds = %if.else18, %if.end
   %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink = phi ptr [ @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, %if.end ], [ @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, %if.else18 ]
-  %arrayidx.i15 = getelementptr inbounds nuw [256 x i8], ptr %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink, i64 0, i64 %idxprom.i
+  %arrayidx.i15 = getelementptr inbounds nuw i8, ptr %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink, i64 %idxprom.i
   %10 = load i8, ptr %arrayidx.i15, align 1
   br label %if.else24.invoke
 
@@ -301,7 +301,7 @@ for.body:                                         ; preds = %invoke.cont, %for.i
 
 if.then:                                          ; preds = %for.body
   %idxprom.i = zext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %call8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %prefix_to_match, i8 noundef signext %2)
           to label %for.inc unwind label %lpad4.loopexit.split-lp.loopexit
@@ -346,7 +346,7 @@ for.body14:                                       ; preds = %for.cond9.preheader
 
 if.end19:                                         ; preds = %for.body14
   %idxprom.i24 = zext i8 %4 to i64
-  %arrayidx.i25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 0, i64 %idxprom.i24
+  %arrayidx.i25 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 %idxprom.i24
   %5 = load i8, ptr %arrayidx.i25, align 1
   %call26 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %prefix_to_match, i64 noundef %prefix_index.076)
           to label %invoke.cont25 unwind label %lpad4.loopexit
@@ -547,7 +547,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %2 = load i8, ptr %add.ptr.i.i, align 1, !noalias !9
   %idxprom.i.i = zext i8 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 %idxprom.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1, !noalias !9
   %4 = and i8 %3, 4
   %cmp.i.not.i = icmp eq i8 %4, 0
@@ -560,7 +560,7 @@ lpad.i:                                           ; preds = %if.else24.invoke.i
 
 if.end.i:                                         ; preds = %for.body.i
   %idxprom.i11.i = zext i8 %previous.022.i to i64
-  %arrayidx.i12.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i11.i
+  %arrayidx.i12.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 %idxprom.i11.i
   %6 = load i8, ptr %arrayidx.i12.i, align 1, !noalias !9
   %7 = and i8 %6, 4
   %cmp.i13.not.i = icmp eq i8 %7, 0
@@ -576,7 +576,7 @@ if.else18.i:                                      ; preds = %if.end.i
 
 if.else24.invoke.sink.split.i:                    ; preds = %if.else18.i, %if.end.i
   %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink.i = phi ptr [ @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, %if.end.i ], [ @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, %if.else18.i ]
-  %arrayidx.i15.i = getelementptr inbounds nuw [256 x i8], ptr %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i15.i = getelementptr inbounds nuw i8, ptr %_ZN4absl12lts_2023080214ascii_internal8kToUpperE.sink.i, i64 %idxprom.i.i
   %12 = load i8, ptr %arrayidx.i15.i, align 1, !noalias !9
   br label %if.else24.invoke.i
 
@@ -1436,7 +1436,7 @@ lpad:                                             ; preds = %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN6google8protobuf8compiler6csharp12GetFixedSizeENS0_8internal19FieldDescriptorLite4TypeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8compiler6csharp12GetFixedSizeENS0_8internal19FieldDescriptorLite4TypeE, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1454,7 +1454,7 @@ while.body:                                       ; preds = %entry, %invoke.cont
   %0 = load i8, ptr %src.025, align 1
   %1 = lshr i8 %0, 2
   %idxprom = zext nneg i8 %1 to i64
-  %arrayidx2 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom
   %2 = load i8, ptr %arrayidx2, align 1
   %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %2)
           to label %invoke.cont unwind label %lpad.loopexit
@@ -1468,7 +1468,7 @@ invoke.cont:                                      ; preds = %while.body
   %7 = lshr i8 %6, 4
   %or18 = or disjoint i8 %5, %7
   %idxprom9 = zext nneg i8 %or18 to i64
-  %arrayidx10 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom9
   %8 = load i8, ptr %arrayidx10, align 1
   %call12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %8)
           to label %invoke.cont11 unwind label %lpad.loopexit
@@ -1482,7 +1482,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %13 = lshr i8 %12, 6
   %or2019 = or disjoint i8 %11, %13
   %idxprom21 = zext nneg i8 %or2019 to i64
-  %arrayidx22 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom21
   %14 = load i8, ptr %arrayidx22, align 1
   %call24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %14)
           to label %invoke.cont23 unwind label %lpad.loopexit
@@ -1491,7 +1491,7 @@ invoke.cont23:                                    ; preds = %invoke.cont11
   %15 = load i8, ptr %arrayidx17, align 1
   %16 = and i8 %15, 63
   %idxprom28 = zext nneg i8 %16 to i64
-  %arrayidx29 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom28
   %17 = load i8, ptr %arrayidx29, align 1
   %call31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %17)
           to label %invoke.cont30 unwind label %lpad.loopexit
@@ -1529,7 +1529,7 @@ sw.bb:                                            ; preds = %while.end
   %18 = load i8, ptr %src.0.lcssa, align 1
   %19 = lshr i8 %18, 2
   %idxprom35 = zext nneg i8 %19 to i64
-  %arrayidx36 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom35
   %20 = load i8, ptr %arrayidx36, align 1
   %call38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %20)
           to label %invoke.cont37 unwind label %lpad.loopexit.split-lp
@@ -1543,7 +1543,7 @@ invoke.cont37:                                    ; preds = %sw.bb
   %25 = lshr i8 %24, 4
   %or4617 = or disjoint i8 %23, %25
   %idxprom47 = zext nneg i8 %or4617 to i64
-  %arrayidx48 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom47
+  %arrayidx48 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom47
   %26 = load i8, ptr %arrayidx48, align 1
   %call50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %26)
           to label %invoke.cont49 unwind label %lpad.loopexit.split-lp
@@ -1553,7 +1553,7 @@ invoke.cont49:                                    ; preds = %invoke.cont37
   %28 = shl i8 %27, 2
   %29 = and i8 %28, 60
   %idxprom55 = zext nneg i8 %29 to i64
-  %arrayidx56 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom55
+  %arrayidx56 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom55
   %30 = load i8, ptr %arrayidx56, align 4
   br label %invoke.cont49.invoke
 
@@ -1570,7 +1570,7 @@ sw.bb62:                                          ; preds = %while.end
   %34 = load i8, ptr %src.0.lcssa, align 1
   %35 = lshr i8 %34, 2
   %idxprom66 = zext nneg i8 %35 to i64
-  %arrayidx67 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom66
   %36 = load i8, ptr %arrayidx67, align 1
   %call69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %36)
           to label %invoke.cont68 unwind label %lpad.loopexit.split-lp
@@ -1580,7 +1580,7 @@ invoke.cont68:                                    ; preds = %sw.bb62
   %38 = shl i8 %37, 4
   %39 = and i8 %38, 48
   %idxprom74 = zext nneg i8 %39 to i64
-  %arrayidx75 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 0, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf8compiler6csharpL12base64_charsE, i64 %idxprom74
   %40 = load i8, ptr %arrayidx75, align 16
   %call77 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %40)
           to label %invoke.cont49.invoke unwind label %lpad.loopexit.split-lp

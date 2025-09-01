@@ -1651,7 +1651,7 @@ define dso_local noundef zeroext i1 @verify_socket_core_thread_count(ptr noundef
 .preheader:                                       ; preds = %12, %21
   %indvars.iv60 = phi i64 [ 0, %12 ], [ %indvars.iv.next61, %21 ]
   %.055 = phi ptr [ %0, %12 ], [ %22, %21 ]
-  %13 = getelementptr inbounds nuw [3 x [48 x i8]], ptr %9, i64 0, i64 %indvars.iv60
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %indvars.iv60
   br label %14
 
 14:                                               ; preds = %.preheader, %16
@@ -1665,7 +1665,7 @@ define dso_local noundef zeroext i1 @verify_socket_core_thread_count(ptr noundef
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %.153, i64 1
-  %18 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   store i8 %15, ptr %18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 47
@@ -1706,7 +1706,7 @@ thread-pre-split:                                 ; preds = %16
 
 switch.lookup:                                    ; preds = %24
   %28 = zext nneg i32 %.042.lcssa to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.verify_socket_core_thread_count, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.verify_socket_core_thread_count, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   %29 = or disjoint i32 %25, %switch.load
   store i32 %29, ptr %4, align 4
@@ -2952,37 +2952,36 @@ define dso_local i32 @sig_name2num(ptr noundef %0) local_unnamed_addr #2 {
   %spec.select30 = getelementptr inbounds nuw i8, ptr %storemerge, i64 %spec.select30.idx
   br label %20
 
-20:                                               ; preds = %17, %33
-  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %33 ]
-  %21 = phi ptr [ @.str.143, %17 ], [ %35, %33 ]
-  %22 = phi ptr [ @signals_mapping, %17 ], [ %34, %33 ]
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
-  %sext = shl i64 %23, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = tail call i32 @xstrncasecmp(ptr noundef nonnull %spec.select30, ptr noundef nonnull %21, i64 noundef %24) #21
-  %.not18 = icmp eq i32 %25, 0
-  br i1 %.not18, label %26, label %33
+20:                                               ; preds = %17, %32
+  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %32 ]
+  %21 = phi ptr [ @.str.143, %17 ], [ %34, %32 ]
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
+  %sext = shl i64 %22, 32
+  %23 = ashr exact i64 %sext, 32
+  %24 = tail call i32 @xstrncasecmp(ptr noundef nonnull %spec.select30, ptr noundef nonnull %21, i64 noundef %23) #21
+  %.not18 = icmp eq i32 %24, 0
+  br i1 %.not18, label %25, label %32
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %spec.select30, i64 %24
-  %28 = tail call zeroext i1 @xstring_is_whitespace(ptr noundef nonnull %27) #21
-  br i1 %28, label %29, label %33
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds i8, ptr %spec.select30, i64 %23
+  %27 = tail call zeroext i1 @xstring_is_whitespace(ptr noundef nonnull %26) #21
+  br i1 %27, label %28, label %32
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %31 = load i16, ptr %30, align 8
-  %32 = zext i16 %31 to i32
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv, i32 1
+  %30 = load i16, ptr %29, align 8
+  %31 = zext i16 %30 to i32
   br label %.loopexit
 
-33:                                               ; preds = %26, %20
+32:                                               ; preds = %25, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw [19 x %struct.anon], ptr @signals_mapping, i64 0, i64 %indvars.iv.next
-  %35 = load ptr, ptr %34, align 16
+  %33 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next
+  %34 = load ptr, ptr %33, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 18
   br i1 %exitcond, label %.loopexit, label %20, !llvm.loop !22
 
-.loopexit:                                        ; preds = %33, %29, %7
-  %.0 = phi i32 [ %spec.select, %7 ], [ %32, %29 ], [ 0, %33 ]
+.loopexit:                                        ; preds = %32, %28, %7
+  %.0 = phi i32 [ %spec.select, %7 ], [ %31, %28 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3030,14 +3029,14 @@ define dso_local ptr @signal_opts_to_cmdline(i16 noundef zeroext %0, i16 noundef
   br i1 %exitcond.i, label %21, label %14, !llvm.loop !23
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw [19 x %struct.anon], ptr @signals_mapping, i64 0, i64 %indvars.iv.next.i
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i16, ptr %16, align 8
-  %18 = icmp eq i16 %0, %17
-  br i1 %18, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  %15 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next.i, i32 1
+  %16 = load i16, ptr %15, align 8
+  %17 = icmp eq i16 %0, %16
+  br i1 %17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %14
-  %19 = load ptr, ptr %15, align 16
+  %18 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next.i
+  %19 = load ptr, ptr %18, align 16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
@@ -3083,15 +3082,15 @@ define dso_local ptr @sig_num2name(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %exitcond, label %12, label %3, !llvm.loop !23
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw [19 x %struct.anon], ptr @signals_mapping, i64 0, i64 %indvars.iv.next
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i16, ptr %5, align 8
-  %7 = zext i16 %6 to i32
-  %8 = icmp eq i32 %0, %7
-  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next, i32 1
+  %5 = load i16, ptr %4, align 8
+  %6 = zext i16 %5 to i32
+  %7 = icmp eq i32 %0, %6
+  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %3
-  %9 = load ptr, ptr %4, align 16
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.next
+  %9 = load ptr, ptr %8, align 16
   br label %10
 
 10:                                               ; preds = %._crit_edge, %1

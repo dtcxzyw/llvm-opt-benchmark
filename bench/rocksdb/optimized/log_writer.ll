@@ -355,7 +355,7 @@ define void @_ZN7rocksdb3log6WriterC2EOSt10unique_ptrINS_18WritableFileWriterESt
           to label %_ZN7rocksdb6crc32c5ValueEPKcm.exit unwind label %36
 
 _ZN7rocksdb6crc32c5ValueEPKcm.exit:               ; preds = %32
-  %35 = getelementptr inbounds nuw [132 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !56
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1801,7 +1801,7 @@ define void @_ZN7rocksdb3log6Writer18EmitPhysicalRecordERKNS_12WriteOptionsENS0_
   store i8 %3, ptr %15, align 2, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = zext i8 %3 to i64
-  %18 = getelementptr inbounds nuw [132 x i32], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !56
   switch i8 %3, label %20 [
     i8 -126, label %26

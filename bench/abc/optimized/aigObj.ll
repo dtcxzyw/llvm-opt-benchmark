@@ -603,7 +603,7 @@ Aig_ManFetchMemory.exit:                          ; preds = %.Vec_PtrGrow.exit11
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val = load i64, ptr %42, align 8
   %51 = and i64 %.val, 7
-  %52 = getelementptr inbounds nuw [7 x i32], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !29
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %52, align 4, !tbaa !29
@@ -900,7 +900,7 @@ Vec_PtrRemove.exit:                               ; preds = %27, %24
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 7
-  %38 = getelementptr inbounds nuw [7 x i32], ptr %34, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %34, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !29
   %40 = add nsw i32 %39, -1
   store i32 %40, ptr %38, align 4, !tbaa !29
@@ -1025,7 +1025,7 @@ Vec_PtrRemove.exit.i:                             ; preds = %43, %40
 Aig_ObjDelete.exit:                               ; preds = %22, %Vec_PtrRemove.exit.i
   %49 = phi i64 [ %.pre41, %22 ], [ %.pre, %Vec_PtrRemove.exit.i ]
   %50 = and i64 %49, 7
-  %51 = getelementptr inbounds nuw [7 x i32], ptr %6, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %6, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !29
   %53 = add nsw i32 %52, -1
   store i32 %53, ptr %51, align 4, !tbaa !29
@@ -1102,7 +1102,7 @@ define void @Aig_ObjDeletePo(ptr noundef captures(none) %0, ptr noundef %1) loca
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 7
-  %17 = getelementptr inbounds nuw [7 x i32], ptr %13, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !29
   %19 = add nsw i32 %18, -1
   store i32 %19, ptr %17, align 4, !tbaa !29
@@ -1535,7 +1535,7 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 7
-  %36 = getelementptr inbounds nuw [7 x i32], ptr %32, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !29
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %36, align 4, !tbaa !29
@@ -1643,7 +1643,7 @@ Vec_PtrRemove.exit.i:                             ; preds = %84, %81
 Aig_ObjDelete.exit:                               ; preds = %53, %Vec_PtrRemove.exit.i
   %90 = phi i64 [ %.pre64, %53 ], [ %.pre, %Vec_PtrRemove.exit.i ]
   %91 = and i64 %90, 7
-  %92 = getelementptr inbounds nuw [7 x i32], ptr %32, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %32, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !29
   %94 = add nsw i32 %93, -1
   store i32 %94, ptr %92, align 4, !tbaa !29
@@ -1691,7 +1691,7 @@ Aig_ObjDelete.exit:                               ; preds = %53, %Vec_PtrRemove.
 117:                                              ; preds = %115, %116, %46
   %118 = load i64, ptr %33, align 8
   %119 = and i64 %118, 7
-  %120 = getelementptr inbounds nuw [7 x i32], ptr %32, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr %32, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !29
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 4, !tbaa !29

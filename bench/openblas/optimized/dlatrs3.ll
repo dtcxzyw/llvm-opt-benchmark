@@ -482,8 +482,8 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %206, ptr %19, align 4, !tbaa !3
   %231 = getelementptr inbounds double, ptr %35, i64 %229
   %232 = call double @dlange_(ptr noundef nonnull @.str.11, ptr noundef nonnull %19, ptr noundef nonnull @c__1, ptr noundef %231, ptr noundef nonnull %9, ptr noundef nonnull %27) #5
-  %233 = add nsw i64 %indvars.iv789, -1
-  %234 = getelementptr inbounds [32 x double], ptr %26, i64 0, i64 %233
+  %233 = getelementptr double, ptr %26, i64 %indvars.iv789
+  %234 = getelementptr i8, ptr %233, i64 -8
   store double %232, ptr %234, align 8, !tbaa !7
   %235 = load double, ptr %29, align 8, !tbaa !7
   %236 = fcmp oeq double %235, 0.000000e+00
@@ -673,8 +673,8 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %313, ptr %25, align 8, !tbaa !7
   %314 = load double, ptr %gep859, align 8, !tbaa !7
   %315 = fdiv double %305, %314
-  %316 = add nsw i64 %indvars.iv794, -1
-  %317 = getelementptr inbounds [32 x double], ptr %26, i64 0, i64 %316
+  %316 = getelementptr double, ptr %26, i64 %indvars.iv794
+  %317 = getelementptr i8, ptr %316, i64 -8
   %318 = load double, ptr %317, align 8, !tbaa !7
   %319 = fmul double %318, %315
   store double %319, ptr %317, align 8, !tbaa !7

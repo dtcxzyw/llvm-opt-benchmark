@@ -497,7 +497,7 @@ define noundef nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_CodeAction_initF
   %.044112 = phi i64 [ %1, %.lr.ph ], [ %126, %124 ]
   %.047111 = phi ptr [ %3, %.lr.ph ], [ %125, %124 ]
   %.050110 = phi ptr [ %5, %.lr.ph ], [ %49, %124 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.044112
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.044112
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -855,7 +855,7 @@ define noundef nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_CodeAction_initF
   %.064162 = phi i64 [ %1, %.lr.ph ], [ %.468, %lean_dec.exit91 ]
   %.069161 = phi ptr [ %3, %.lr.ph ], [ %.473, %lean_dec.exit91 ]
   %.074160 = phi ptr [ %5, %.lr.ph ], [ %.478, %lean_dec.exit91 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.064162
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.064162
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -6863,7 +6863,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_CodeAction_CommandCodeActions_in
 9:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.03268 = phi i64 [ %2, %.lr.ph ], [ %20, %lean_dec.exit ]
   %.03467 = phi ptr [ %4, %.lr.ph ], [ %71, %lean_dec.exit ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.03268
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03268
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -7863,7 +7863,7 @@ define noundef nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_CodeAction_initF
   %.052141 = phi i64 [ %1, %.lr.ph ], [ %167, %166 ]
   %.055140 = phi ptr [ %3, %.lr.ph ], [ %92, %166 ]
   %.058139 = phi ptr [ %5, %.lr.ph ], [ %76, %166 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.052141
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.052141
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -8334,7 +8334,7 @@ define noundef nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_CodeAction_initF
   %.064162 = phi i64 [ %1, %.lr.ph ], [ %.468, %lean_dec.exit91 ]
   %.069161 = phi ptr [ %3, %.lr.ph ], [ %.473, %lean_dec.exit91 ]
   %.074160 = phi ptr [ %5, %.lr.ph ], [ %.478, %lean_dec.exit91 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.064162
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.064162
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -10327,7 +10327,7 @@ lean_dec.exit69:                                  ; preds = %26, %25, %23, %lean
   %.056141 = phi ptr [ %2, %.lr.ph ], [ %.0.i.i106, %179 ]
   %.059140 = phi ptr [ %5, %.lr.ph ], [ %91, %179 ]
   %31 = getelementptr inbounds nuw i8, ptr %.056141, i64 24
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %.053142
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.053142
   %33 = load ptr, ptr %32, align 8, !tbaa !4
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1

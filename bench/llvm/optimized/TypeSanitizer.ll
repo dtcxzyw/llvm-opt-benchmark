@@ -4097,7 +4097,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit13.i: ; pr
   store i8 0, ptr %151, align 1, !tbaa !143
   %152 = lshr i32 %113, 4
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [17 x i8], ptr @_ZL3LUT, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZL3LUT, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !143, !noalias !382
   %156 = load i64, ptr %107, align 8, !tbaa !270, !alias.scope !382
   %157 = add i64 %156, 1
@@ -4131,7 +4131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit16.i: ; pr
   store i8 0, ptr %169, align 1, !tbaa !143
   %170 = and i32 %113, 15
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw [17 x i8], ptr @_ZL3LUT, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr @_ZL3LUT, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !143, !noalias !382
   %174 = load i64, ptr %107, align 8, !tbaa !270, !alias.scope !382
   %175 = add i64 %174, 1

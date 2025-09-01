@@ -5156,8 +5156,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %38 = add i64 %13, -1
-  %39 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %38
+  %38 = getelementptr i8, ptr %4, i64 %13
+  %39 = getelementptr i8, ptr %38, i64 -1
   %40 = load i8, ptr %39, align 1, !tbaa !27
   %41 = icmp eq i8 %40, 10
   br i1 %41, label %57, label %10

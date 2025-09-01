@@ -3089,7 +3089,7 @@ define internal noundef i32 @_foreach_test_job_dependency(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %29
   %31 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._foreach_update_job_depenency_list, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_depend_type2str.exit
 
@@ -3460,18 +3460,18 @@ _test_job_dependency_common.exit.thread:          ; preds = %104, %151, %154, %1
 
 196:                                              ; preds = %193
   %.val76 = load i16, ptr %62, align 4
-  %switch.tableidx109 = add i16 %.val76, -1
-  %197 = icmp ult i16 %switch.tableidx109, 8
-  br i1 %197, label %switch.lookup108, label %_depend_type2str.exit81
+  %switch.tableidx108 = add i16 %.val76, -1
+  %197 = icmp ult i16 %switch.tableidx108, 8
+  br i1 %197, label %switch.lookup109, label %_depend_type2str.exit81
 
-switch.lookup108:                                 ; preds = %196
-  %198 = zext nneg i16 %switch.tableidx109 to i64
-  %switch.gep110 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._foreach_update_job_depenency_list, i64 0, i64 %198
+switch.lookup109:                                 ; preds = %196
+  %198 = zext nneg i16 %switch.tableidx108 to i64
+  %switch.gep110 = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %198
   %switch.load111 = load ptr, ptr %switch.gep110, align 8
   br label %_depend_type2str.exit81
 
-_depend_type2str.exit81:                          ; preds = %196, %switch.lookup108
-  %.0.i80 = phi ptr [ %switch.load111, %switch.lookup108 ], [ @.str.99, %196 ]
+_depend_type2str.exit81:                          ; preds = %196, %switch.lookup109
+  %.0.i80 = phi ptr [ %switch.load111, %switch.lookup109 ], [ @.str.99, %196 ]
   %199 = load i32, ptr %57, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.108, ptr noundef nonnull @__func__._foreach_test_job_dependency, ptr noundef %6, ptr noundef nonnull %.0.i80, i32 noundef %199) #16
   br label %213
@@ -3497,18 +3497,18 @@ _depend_type2str.exit81:                          ; preds = %196, %switch.lookup
 
 209:                                              ; preds = %206
   %.val77 = load i16, ptr %62, align 4
-  %switch.tableidx113 = add i16 %.val77, -1
-  %210 = icmp ult i16 %switch.tableidx113, 8
-  br i1 %210, label %switch.lookup112, label %_depend_type2str.exit83
+  %switch.tableidx112 = add i16 %.val77, -1
+  %210 = icmp ult i16 %switch.tableidx112, 8
+  br i1 %210, label %switch.lookup113, label %_depend_type2str.exit83
 
-switch.lookup112:                                 ; preds = %209
-  %211 = zext nneg i16 %switch.tableidx113 to i64
-  %switch.gep114 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._foreach_update_job_depenency_list, i64 0, i64 %211
+switch.lookup113:                                 ; preds = %209
+  %211 = zext nneg i16 %switch.tableidx112 to i64
+  %switch.gep114 = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %211
   %switch.load115 = load ptr, ptr %switch.gep114, align 8
   br label %_depend_type2str.exit83
 
-_depend_type2str.exit83:                          ; preds = %209, %switch.lookup112
-  %.0.i82 = phi ptr [ %switch.load115, %switch.lookup112 ], [ @.str.99, %209 ]
+_depend_type2str.exit83:                          ; preds = %209, %switch.lookup113
+  %.0.i82 = phi ptr [ %switch.load115, %switch.lookup113 ], [ @.str.99, %209 ]
   %212 = load i32, ptr %57, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.109, ptr noundef nonnull @__func__._foreach_test_job_dependency, ptr noundef %6, ptr noundef nonnull %.0.i82, i32 noundef %212) #16
   br label %213
@@ -3677,7 +3677,7 @@ define internal noundef i32 @_foreach_update_job_depenency_list(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %20
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._foreach_update_job_depenency_list, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_depend_type2str.exit
 
@@ -11308,7 +11308,7 @@ _depend_type2str.exit:                            ; preds = %7, %15, %16, %17, %
 
 switch.lookup:                                    ; preds = %41
   %46 = zext nneg i32 %.val36 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._foreach_depend_list2str, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_depend_list2str, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_depend_state2str.exit40
 

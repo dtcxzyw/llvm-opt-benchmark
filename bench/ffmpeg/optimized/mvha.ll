@@ -97,8 +97,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %.not208271, label %.lr.ph273, label %.critedge
 
 .lr.ph273:                                        ; preds = %.preheader
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv293
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %35, i64 0, i64 %indvars.iv293
+  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv293
+  %43 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv293
   %44 = icmp ne i64 %indvars.iv293, 0
   %45 = zext i1 %44 to i32
   br label %46
@@ -312,9 +312,9 @@ bits_read_nz_be.exit232:                          ; preds = %bits_read_bit_be.ex
 149:                                              ; preds = %148
   %.0184 = trunc nuw nsw i64 %.0184.in to i32
   %150 = sext i32 %.0185263 to i64
-  %151 = getelementptr inbounds [256 x i8], ptr %90, i64 0, i64 %150
+  %151 = getelementptr inbounds i8, ptr %90, i64 %150
   store i8 %.0188262, ptr %151, align 1, !tbaa !31
-  %152 = getelementptr inbounds [256 x i32], ptr %91, i64 0, i64 %150
+  %152 = getelementptr inbounds i32, ptr %91, i64 %150
   store i32 %.0184, ptr %152, align 4, !tbaa !38
   %153 = add nsw i32 %.0185263, 1
   %.pre = load i32, ptr %89, align 8, !tbaa !53
@@ -377,7 +377,7 @@ bits_read_nz_be.exit232:                          ; preds = %bits_read_bit_be.ex
   br i1 %185, label %.lr.ph269, label %._crit_edge
 
 .lr.ph269:                                        ; preds = %.preheader258.split
-  %186 = getelementptr inbounds nuw [8 x i32], ptr %176, i64 0, i64 %indvars.iv289
+  %186 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv289
   %187 = load i32, ptr %186, align 4, !tbaa !38
   %188 = sext i32 %187 to i64
   %.not205264 = icmp sgt i32 %.fr, 0
@@ -385,7 +385,7 @@ bits_read_nz_be.exit232:                          ; preds = %bits_read_bit_be.ex
   br i1 %.not205264, label %.lr.ph269.split.us.preheader, label %.lr.ph269.split
 
 .lr.ph269.split.us.preheader:                     ; preds = %.lr.ph269
-  %190 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv289
+  %190 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv289
   %191 = load ptr, ptr %190, align 8, !tbaa !37
   %192 = add nsw i32 %180, -1
   %193 = mul nsw i32 %192, %187
@@ -647,10 +647,10 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   %339 = icmp ne i64 %indvars.iv297, 0
   %340 = zext i1 %339 to i32
   %341 = ashr i32 %338, %340
-  %342 = getelementptr inbounds nuw [8 x i32], ptr %330, i64 0, i64 %indvars.iv297
+  %342 = getelementptr inbounds nuw i32, ptr %330, i64 %indvars.iv297
   %343 = load i32, ptr %342, align 4, !tbaa !38
   %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv297
+  %345 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv297
   %346 = load ptr, ptr %345, align 8, !tbaa !37
   %347 = add nsw i32 %337, -1
   %348 = mul nsw i32 %347, %343
@@ -756,12 +756,12 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !38
-  %18 = getelementptr inbounds nuw [512 x %struct.Node], ptr %3, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.Node, ptr %3, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %17, ptr %19, align 4, !tbaa !69
-  %20 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !31
   %22 = zext i8 %21 to i16
   store i16 %22, ptr %18, align 4, !tbaa !72
@@ -787,7 +787,7 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 28:                                               ; preds = %57, %.preheader
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %57 ], [ %27, %.preheader ]
-  %29 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %indvars.iv97
+  %29 = getelementptr inbounds %struct.Node, ptr %3, i64 %indvars.iv97
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 -1, ptr %30, align 4, !tbaa !69
   %31 = trunc nsw i64 %indvars.iv97 to i32
@@ -798,21 +798,21 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %46 ], [ %indvars.iv92, %28 ]
   %.069 = phi i32 [ %.170, %46 ], [ %31, %28 ]
   %.067 = phi i32 [ %.168, %46 ], [ %31, %28 ]
-  %34 = getelementptr inbounds nuw [512 x %struct.Node], ptr %3, i64 0, i64 %indvars.iv94, i32 4
+  %34 = getelementptr inbounds nuw %struct.Node, ptr %3, i64 %indvars.iv94, i32 4
   %35 = load i32, ptr %34, align 4, !tbaa !69
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %46, label %36
 
 36:                                               ; preds = %33
   %37 = sext i32 %.069 to i64
-  %38 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %37, i32 4
+  %38 = getelementptr inbounds %struct.Node, ptr %3, i64 %37, i32 4
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = icmp ult i32 %35, %39
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %36
   %42 = sext i32 %.067 to i64
-  %43 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %42, i32 4
+  %43 = getelementptr inbounds %struct.Node, ptr %3, i64 %42, i32 4
   %44 = load i32, ptr %43, align 4, !tbaa !69
   %.not78 = icmp ult i32 %35, %44
   %45 = trunc nuw nsw i64 %indvars.iv94 to i32
@@ -833,10 +833,10 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 49:                                               ; preds = %47
   %50 = sext i32 %.168 to i64
-  %51 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %50, i32 4
+  %51 = getelementptr inbounds %struct.Node, ptr %3, i64 %50, i32 4
   %52 = load i32, ptr %51, align 4, !tbaa !69
   %53 = sext i32 %.170 to i64
-  %54 = getelementptr inbounds [512 x %struct.Node], ptr %3, i64 0, i64 %53, i32 4
+  %54 = getelementptr inbounds %struct.Node, ptr %3, i64 %53, i32 4
   %55 = load i32, ptr %54, align 4, !tbaa !69
   store i32 0, ptr %51, align 4, !tbaa !69
   store i32 0, ptr %54, align 4, !tbaa !69

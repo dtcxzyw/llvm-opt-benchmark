@@ -965,7 +965,7 @@ gc_stack_push.exit.i.i:                           ; preds = %210, %206
   %.15.i.i = phi i64 [ 0, %210 ], [ %.2180233.i.i, %206 ]
   %212 = getelementptr inbounds nuw i8, ptr %.15201.i.i, i64 16
   %213 = add i64 %.15.i.i, 1
-  %214 = getelementptr inbounds nuw [510 x ptr], ptr %212, i64 0, i64 %.15.i.i
+  %214 = getelementptr inbounds nuw ptr, ptr %212, i64 %.15.i.i
   store ptr %196, ptr %214, align 8, !tbaa !59
   br label %215
 
@@ -1049,7 +1049,7 @@ gc_stack_push.exit153.i.i:                        ; preds = %249, %245
   %.16.i.i = phi i64 [ 0, %249 ], [ %.4182275.i.i, %245 ]
   %251 = getelementptr inbounds nuw i8, ptr %.16202.i.i, i64 16
   %252 = add i64 %.16.i.i, 1
-  %253 = getelementptr inbounds nuw [510 x ptr], ptr %251, i64 0, i64 %.16.i.i
+  %253 = getelementptr inbounds nuw ptr, ptr %251, i64 %.16.i.i
   store ptr %235, ptr %253, align 8, !tbaa !59
   br label %254
 
@@ -1125,7 +1125,7 @@ gc_stack_push.exit154.i.i:                        ; preds = %286, %282
   %.17.i.i = phi i64 [ 0, %286 ], [ %.7185239.i.i, %282 ]
   %288 = getelementptr inbounds nuw i8, ptr %.17203.i.i, i64 16
   %289 = add i64 %.17.i.i, 1
-  %290 = getelementptr inbounds nuw [510 x ptr], ptr %288, i64 0, i64 %.17.i.i
+  %290 = getelementptr inbounds nuw ptr, ptr %288, i64 %.17.i.i
   store ptr %275, ptr %290, align 8, !tbaa !59
   br label %291
 
@@ -1215,7 +1215,7 @@ gc_stack_push.exit155.i.i:                        ; preds = %327, %323
   %.18.i.i = phi i64 [ 0, %327 ], [ %.11267.i.i, %323 ]
   %329 = getelementptr inbounds nuw i8, ptr %.18204.i.i, i64 16
   %330 = add i64 %.18.i.i, 1
-  %331 = getelementptr inbounds nuw [510 x ptr], ptr %329, i64 0, i64 %.18.i.i
+  %331 = getelementptr inbounds nuw ptr, ptr %329, i64 %.18.i.i
   store ptr %316, ptr %331, align 8, !tbaa !59
   br label %332
 
@@ -1355,7 +1355,7 @@ gc_stack_push.exit156.i.i:                        ; preds = %394, %390
   %.19.i.i = phi i64 [ 0, %394 ], [ %.13253.i.i, %390 ]
   %396 = getelementptr inbounds nuw i8, ptr %.19205.i.i, i64 16
   %397 = add i64 %.19.i.i, 1
-  %398 = getelementptr inbounds nuw [510 x ptr], ptr %396, i64 0, i64 %.19.i.i
+  %398 = getelementptr inbounds nuw ptr, ptr %396, i64 %.19.i.i
   store ptr %383, ptr %398, align 8, !tbaa !59
   br label %399
 
@@ -1416,7 +1416,7 @@ gc_stack_push.exit156.i.i:                        ; preds = %394, %390
 425:                                              ; preds = %.loopexit.i11.i
   %426 = getelementptr inbounds nuw i8, ptr %.6192.i.i, i64 16
   %427 = add i64 %.6184.i.i, -1
-  %428 = getelementptr inbounds nuw [510 x ptr], ptr %426, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw ptr, ptr %426, i64 %427
   br label %gc_stack_pop.exit.i.i
 
 gc_stack_pop.exit.i.i:                            ; preds = %425, %423
@@ -1942,7 +1942,7 @@ gc_stack_push.exit169.i.i:                        ; preds = %658, %655
   %.19.i.i187 = phi i64 [ 0, %658 ], [ %.2192263.i.i, %655 ]
   %660 = getelementptr inbounds nuw i8, ptr %.19217.i.i, i64 16
   %661 = add i64 %.19.i.i187, 1
-  %662 = getelementptr inbounds nuw [510 x ptr], ptr %660, i64 0, i64 %.19.i.i187
+  %662 = getelementptr inbounds nuw ptr, ptr %660, i64 %.19.i.i187
   store ptr %648, ptr %662, align 8, !tbaa !59
   br label %663
 
@@ -2021,7 +2021,7 @@ gc_stack_push.exit168.i.i:                        ; preds = %695, %692
   %.18.i.i186 = phi i64 [ 0, %695 ], [ %.4194305.i.i, %692 ]
   %697 = getelementptr inbounds nuw i8, ptr %.18216.i.i, i64 16
   %698 = add i64 %.18.i.i186, 1
-  %699 = getelementptr inbounds nuw [510 x ptr], ptr %697, i64 0, i64 %.18.i.i186
+  %699 = getelementptr inbounds nuw ptr, ptr %697, i64 %.18.i.i186
   store ptr %685, ptr %699, align 8, !tbaa !59
   br label %700
 
@@ -2093,7 +2093,7 @@ gc_stack_push.exit167.i.i:                        ; preds = %730, %727
   %.17.i.i185 = phi i64 [ 0, %730 ], [ %.7197269.i.i, %727 ]
   %732 = getelementptr inbounds nuw i8, ptr %.17215.i.i, i64 16
   %733 = add i64 %.17.i.i185, 1
-  %734 = getelementptr inbounds nuw [510 x ptr], ptr %732, i64 0, i64 %.17.i.i185
+  %734 = getelementptr inbounds nuw ptr, ptr %732, i64 %.17.i.i185
   store ptr %720, ptr %734, align 8, !tbaa !59
   br label %735
 
@@ -2181,7 +2181,7 @@ gc_stack_push.exit166.i.i:                        ; preds = %769, %766
   %.16.i.i168 = phi i64 [ 0, %769 ], [ %.11297.i.i, %766 ]
   %771 = getelementptr inbounds nuw i8, ptr %.16214.i.i, i64 16
   %772 = add i64 %.16.i.i168, 1
-  %773 = getelementptr inbounds nuw [510 x ptr], ptr %771, i64 0, i64 %.16.i.i168
+  %773 = getelementptr inbounds nuw ptr, ptr %771, i64 %.16.i.i168
   store ptr %759, ptr %773, align 8, !tbaa !59
   br label %774
 
@@ -2419,7 +2419,7 @@ gc_stack_push.exit.i.i174:                        ; preds = %885, %882
   %.15.i.i175 = phi i64 [ 0, %885 ], [ %.13283.i.i, %882 ]
   %887 = getelementptr inbounds nuw i8, ptr %.15213.i.i, i64 16
   %888 = add i64 %.15.i.i175, 1
-  %889 = getelementptr inbounds nuw [510 x ptr], ptr %887, i64 0, i64 %.15.i.i175
+  %889 = getelementptr inbounds nuw ptr, ptr %887, i64 %.15.i.i175
   store ptr %875, ptr %889, align 8, !tbaa !59
   br label %890
 
@@ -2489,7 +2489,7 @@ gc_stack_push.exit.i.i174:                        ; preds = %885, %882
 917:                                              ; preds = %.loopexit.i27.i
   %918 = getelementptr inbounds nuw i8, ptr %.6204.i.i, i64 16
   %919 = add i64 %.6196.i.i, -1
-  %920 = getelementptr inbounds nuw [510 x ptr], ptr %918, i64 0, i64 %919
+  %920 = getelementptr inbounds nuw ptr, ptr %918, i64 %919
   br label %gc_stack_pop.exit.i.i161
 
 gc_stack_pop.exit.i.i161:                         ; preds = %917, %915
@@ -2773,7 +2773,7 @@ gc_stack_push.exit.i:                             ; preds = %1022, %1019
   %.13.i = phi i64 [ 0, %1022 ], [ %.3137184.i, %1019 ]
   %1024 = getelementptr inbounds nuw i8, ptr %.13154.i, i64 16
   %1025 = add i64 %.13.i, 1
-  %1026 = getelementptr inbounds nuw [510 x ptr], ptr %1024, i64 0, i64 %.13.i
+  %1026 = getelementptr inbounds nuw ptr, ptr %1024, i64 %.13.i
   store ptr %1020, ptr %1026, align 8, !tbaa !59
   br label %1027
 
@@ -2827,7 +2827,7 @@ gc_stack_push.exit116.i:                          ; preds = %1043, %1040
   %.14.i = phi i64 [ 0, %1043 ], [ %.5139192.i, %1040 ]
   %1045 = getelementptr inbounds nuw i8, ptr %.14155.i, i64 16
   %1046 = add i64 %.14.i, 1
-  %1047 = getelementptr inbounds nuw [510 x ptr], ptr %1045, i64 0, i64 %.14.i
+  %1047 = getelementptr inbounds nuw ptr, ptr %1045, i64 %.14.i
   store ptr %1041, ptr %1047, align 8, !tbaa !59
   br label %1048
 
@@ -2927,7 +2927,7 @@ gc_stack_push.exit117.i:                          ; preds = %1086, %1083
   %.15.i = phi i64 [ 0, %1086 ], [ %.9221.i, %1083 ]
   %1088 = getelementptr inbounds nuw i8, ptr %.15156.i, i64 16
   %1089 = add i64 %.15.i, 1
-  %1090 = getelementptr inbounds nuw [510 x ptr], ptr %1088, i64 0, i64 %.15.i
+  %1090 = getelementptr inbounds nuw ptr, ptr %1088, i64 %.15.i
   store ptr %1084, ptr %1090, align 8, !tbaa !59
   br label %1091
 
@@ -3031,7 +3031,7 @@ gc_stack_push.exit118.i:                          ; preds = %1131, %1128
   %.16.i = phi i64 [ 0, %1131 ], [ %.11206.i, %1128 ]
   %1133 = getelementptr inbounds nuw i8, ptr %.16157.i, i64 16
   %1134 = add i64 %.16.i, 1
-  %1135 = getelementptr inbounds nuw [510 x ptr], ptr %1133, i64 0, i64 %.16.i
+  %1135 = getelementptr inbounds nuw ptr, ptr %1133, i64 %.16.i
   store ptr %1129, ptr %1135, align 8, !tbaa !59
   br label %1136
 
@@ -3065,7 +3065,7 @@ gc_stack_push.exit118.i:                          ; preds = %1131, %1128
 1145:                                             ; preds = %.loopexit165.i
   %1146 = getelementptr inbounds nuw i8, ptr %.1142.i, i64 16
   %1147 = add i64 %.1.i212, -1
-  %1148 = getelementptr inbounds nuw [510 x ptr], ptr %1146, i64 0, i64 %1147
+  %1148 = getelementptr inbounds nuw ptr, ptr %1146, i64 %1147
   br label %gc_stack_pop.exit.i
 
 gc_stack_pop.exit.i:                              ; preds = %1145, %1143
@@ -4164,7 +4164,7 @@ gc_stack_push.exit160.i:                          ; preds = %100, %97
   %.19.i = phi i64 [ 0, %100 ], [ %.2193246.i, %97 ]
   %102 = getelementptr inbounds nuw i8, ptr %.19218.i, i64 16
   %103 = add i64 %.19.i, 1
-  %104 = getelementptr inbounds nuw [510 x ptr], ptr %102, i64 0, i64 %.19.i
+  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %.19.i
   store ptr %91, ptr %104, align 8, !tbaa !59
   br label %gc_extra_root.exit.i
 
@@ -4327,7 +4327,7 @@ gc_stack_push.exit159.i:                          ; preds = %181, %178
   %.18.i = phi i64 [ 0, %181 ], [ %.4195288.i, %178 ]
   %183 = getelementptr inbounds nuw i8, ptr %.18217.i, i64 16
   %184 = add i64 %.18.i, 1
-  %185 = getelementptr inbounds nuw [510 x ptr], ptr %183, i64 0, i64 %.18.i
+  %185 = getelementptr inbounds nuw ptr, ptr %183, i64 %.18.i
   store ptr %172, ptr %185, align 8, !tbaa !59
   br label %gc_extra_root.exit169.i
 
@@ -4397,7 +4397,7 @@ gc_stack_push.exit158.i:                          ; preds = %213, %210
   %.17.i = phi i64 [ 0, %213 ], [ %.7198252.i, %210 ]
   %215 = getelementptr inbounds nuw i8, ptr %.17216.i, i64 16
   %216 = add i64 %.17.i, 1
-  %217 = getelementptr inbounds nuw [510 x ptr], ptr %215, i64 0, i64 %.17.i
+  %217 = getelementptr inbounds nuw ptr, ptr %215, i64 %.17.i
   store ptr %204, ptr %217, align 8, !tbaa !59
   br label %218
 
@@ -4481,7 +4481,7 @@ gc_stack_push.exit157.i:                          ; preds = %250, %247
   %.16.i = phi i64 [ 0, %250 ], [ %.11280.i, %247 ]
   %252 = getelementptr inbounds nuw i8, ptr %.16215.i, i64 16
   %253 = add i64 %.16.i, 1
-  %254 = getelementptr inbounds nuw [510 x ptr], ptr %252, i64 0, i64 %.16.i
+  %254 = getelementptr inbounds nuw ptr, ptr %252, i64 %.16.i
   store ptr %241, ptr %254, align 8, !tbaa !59
   br label %255
 
@@ -4607,7 +4607,7 @@ gc_stack_push.exit.i:                             ; preds = %309, %306
   %.15.i = phi i64 [ 0, %309 ], [ %.13266.i, %306 ]
   %311 = getelementptr inbounds nuw i8, ptr %.15214.i, i64 16
   %312 = add i64 %.15.i, 1
-  %313 = getelementptr inbounds nuw [510 x ptr], ptr %311, i64 0, i64 %.15.i
+  %313 = getelementptr inbounds nuw ptr, ptr %311, i64 %.15.i
   store ptr %300, ptr %313, align 8, !tbaa !59
   br label %314
 
@@ -4665,7 +4665,7 @@ gc_stack_push.exit.i:                             ; preds = %309, %306
 338:                                              ; preds = %.loopexit.i
   %339 = getelementptr inbounds nuw i8, ptr %.6205.i, i64 16
   %340 = add i64 %.6197.i, -1
-  %341 = getelementptr inbounds nuw [510 x ptr], ptr %339, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw ptr, ptr %339, i64 %340
   br label %gc_stack_pop.exit.i
 
 gc_stack_pop.exit.i:                              ; preds = %338, %336
@@ -4755,7 +4755,7 @@ gc_stack_push.exit127:                            ; preds = %363, %367
   %.17 = phi i64 [ 0, %367 ], [ %.3158236, %363 ]
   %369 = getelementptr inbounds nuw i8, ptr %.17179, i64 16
   %370 = add i64 %.17, 1
-  %371 = getelementptr inbounds nuw [510 x ptr], ptr %369, i64 0, i64 %.17
+  %371 = getelementptr inbounds nuw ptr, ptr %369, i64 %.17
   store ptr %359, ptr %371, align 8, !tbaa !59
   br label %372
 
@@ -4802,7 +4802,7 @@ gc_stack_push.exit126:                            ; preds = %386, %390
   %.16 = phi i64 [ 0, %390 ], [ %.2157, %386 ]
   %392 = getelementptr inbounds nuw i8, ptr %.16178, i64 16
   %393 = add i64 %.16, 1
-  %394 = getelementptr inbounds nuw [510 x ptr], ptr %392, i64 0, i64 %.16
+  %394 = getelementptr inbounds nuw ptr, ptr %392, i64 %.16
   store ptr %379, ptr %394, align 8, !tbaa !59
   %.not110241 = icmp eq i32 %380, 0
   br i1 %.not110241, label %.loopexit192, label %.lr.ph246
@@ -4841,7 +4841,7 @@ gc_stack_push.exit125:                            ; preds = %403, %407
   %.15 = phi i64 [ 0, %407 ], [ %.5160243, %403 ]
   %409 = getelementptr inbounds nuw i8, ptr %.15177, i64 16
   %410 = add i64 %.15, 1
-  %411 = getelementptr inbounds nuw [510 x ptr], ptr %409, i64 0, i64 %.15
+  %411 = getelementptr inbounds nuw ptr, ptr %409, i64 %.15
   store ptr %399, ptr %411, align 8, !tbaa !59
   br label %412
 
@@ -4921,7 +4921,7 @@ gc_stack_push.exit124:                            ; preds = %438, %442
   %.14 = phi i64 [ 0, %442 ], [ %.9271, %438 ]
   %444 = getelementptr inbounds nuw i8, ptr %.14176, i64 16
   %445 = add i64 %.14, 1
-  %446 = getelementptr inbounds nuw [510 x ptr], ptr %444, i64 0, i64 %.14
+  %446 = getelementptr inbounds nuw ptr, ptr %444, i64 %.14
   store ptr %434, ptr %446, align 8, !tbaa !59
   br label %447
 
@@ -5057,7 +5057,7 @@ gc_stack_push.exit:                               ; preds = %499, %503
   %.13 = phi i64 [ 0, %503 ], [ %.11257, %499 ]
   %505 = getelementptr inbounds nuw i8, ptr %.13175, i64 16
   %506 = add i64 %.13, 1
-  %507 = getelementptr inbounds nuw [510 x ptr], ptr %505, i64 0, i64 %.13
+  %507 = getelementptr inbounds nuw ptr, ptr %505, i64 %.13
   store ptr %495, ptr %507, align 8, !tbaa !59
   br label %508
 
@@ -5115,7 +5115,7 @@ gc_stack_push.exit:                               ; preds = %499, %503
 531:                                              ; preds = %.loopexit189
   %532 = getelementptr inbounds nuw i8, ptr %.1163, i64 16
   %533 = add i64 %.1156, -1
-  %534 = getelementptr inbounds nuw [510 x ptr], ptr %532, i64 0, i64 %533
+  %534 = getelementptr inbounds nuw ptr, ptr %532, i64 %533
   br label %gc_stack_pop.exit
 
 gc_stack_pop.exit:                                ; preds = %529, %531

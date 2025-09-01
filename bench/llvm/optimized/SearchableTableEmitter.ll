@@ -12051,7 +12051,7 @@ _ZL8getAsIntPKN4llvm4InitE.exit:                  ; preds = %55
   %.019.i = phi i64 [ %80, %.thread.i ], [ %58, %_ZL8getAsIntPKN4llvm4InitE.exit ]
   %.117.i = phi ptr [ %79, %.thread.i ], [ %59, %_ZL8getAsIntPKN4llvm4InitE.exit ]
   %76 = and i64 %.019.i, 15
-  %77 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !107, !noalias !396
   %79 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %78, ptr %79, align 1, !tbaa !107, !noalias !396

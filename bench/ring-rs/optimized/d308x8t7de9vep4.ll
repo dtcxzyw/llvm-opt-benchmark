@@ -12,6 +12,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.7 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.6, [16 x i8] c" \00\00\00\00\00\00\00s\00\00\00.\00\00\00" }>, align 8
 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.8 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.6, [16 x i8] c" \00\00\00\00\00\00\00\94\00\00\00\0E\00\00\00" }>, align 8
 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.10 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.6, [16 x i8] c" \00\00\00\00\00\00\00\B9\00\00\00\09\00\00\00" }>, align 8
+@anon.bb7da592cc2a4db35d4d49e42ec38fbb.11 = private unnamed_addr constant <{ [43 x i8] }> <{ [43 x i8] c"called `Option::unwrap()` on a `None` value" }>, align 1
+@anon.bb7da592cc2a4db35d4d49e42ec38fbb.12 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.6, [16 x i8] c" \00\00\00\00\00\00\00\CA\00\00\00\1D\00\00\00" }>, align 8
 @_ZN4ring2ec7suite_b3ops4p38410COMMON_OPS17hcc36e371f7f11832E = constant <{ ptr, ptr, ptr, [248 x i8] }> <{ ptr @ring_core_0_17_8__p384_elem_mul_mont, ptr @_ZN4ring2ec7suite_b3ops4p38418p384_elem_sqr_mont17hb21ef755b30f540cE, ptr @ring_core_0_17_8__p384_point_add, [248 x i8] c"\06\00\00\00\00\00\00\00\FF\FF\FF\FF\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FE\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\01\00\00\00\FE\FF\FF\FF\00\00\00\00\02\00\00\00\00\00\00\00\FE\FF\FF\FF\00\00\00\00\02\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00s)\C5\CCj\19\EC\ECz\A7\B0H\B2\0D\1AX\DF-7\F4\81Mc\C7\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FC\FF\FF\FF\03\00\00\00\00\00\00\00\FC\FF\FF\FF\FB\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\CC-A\9Dq\88\11\08\EC2Lz\D8\AD)\F7.\02 \19\9B \F2w\E2\8A\93\94\EEK7\E3\94 \02\1F\F4!+\B6\F9\BFO`K\11\08\CD" }>, align 8
 @_ZN4ring2ec7suite_b3ops4p3849GENERATOR17h0861cb67afb2a076E = internal constant <{ [96 x i8] }> <{ [96 x i8] c"(\B5\C0Ifu\D0=8\CE\D6\A0\E2x\E3 nM\1BT\FC:\9C\87\FF\0E\A3Y\84\86Td+\DENa#\F7/\81\13\15\9E)\C2\AD:M\FE\A4\03K\AD=\04#\AC\A9\B4{\BF\A8\BF\A1P\B0\83.V\E7\AD\8B\D9\FF\F4h\19R\C3\C6@\A8i9&\02\80\DD\E9\C5\15Z\C2\ABx+" }>, align 8
 @_ZN4ring2ec7suite_b3ops4p38410SCALAR_OPS17h5f9125803deed470E = constant <{ ptr, ptr }> <{ ptr @_ZN4ring2ec7suite_b3ops4p38410COMMON_OPS17hcc36e371f7f11832E, ptr @ring_core_0_17_8__p384_scalar_mul_mont }>, align 8
@@ -2081,26 +2083,33 @@ _ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit: ; preds = %12
   %21 = load i64, ptr %20, align 8, !noundef !67
   %22 = sub i64 %17, %21
   %23 = icmp eq i64 %17, %21
-  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+  br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit, %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   ret void
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
-  %24 = and i64 %22, 63
-  %25 = lshr i64 -1, %24
-  %26 = add i64 %2, -1
-  %27 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8, !noundef !67
-  %29 = and i64 %28, %25
-  store i64 %29, ptr %27, align 8
+24:                                               ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
+  %25 = getelementptr i8, ptr %14, i64 -8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+
+27:                                               ; preds = %24
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.11, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.12) #11
+  unreachable
+
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %24
+  %28 = and i64 %22, 63
+  %29 = lshr i64 -1, %28
+  %30 = load i64, ptr %25, align 8, !noundef !67
+  %31 = and i64 %30, %29
+  store i64 %31, ptr %25, align 8
   br label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.02.010 = phi i64 [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
-  %30 = add nuw i64 %.sroa.02.010, 1
+  %.sroa.02.010 = phi i64 [ %32, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+  %32 = add nuw i64 %.sroa.02.010, 1
   tail call void @ring_core_0_17_8__LIMBS_shl_mod(ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %1, ptr noundef nonnull readonly align 8 %13, i64 noundef %2)
-  %exitcond.not = icmp eq i64 %30, %22
+  %exitcond.not = icmp eq i64 %32, %22
   br i1 %exitcond.not, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 }
 
@@ -2152,26 +2161,33 @@ _ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit: ; preds = %12
   %21 = load i64, ptr %20, align 8, !noundef !67
   %22 = sub i64 %17, %21
   %23 = icmp eq i64 %17, %21
-  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+  br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit, %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   ret void
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
-  %24 = and i64 %22, 63
-  %25 = lshr i64 -1, %24
-  %26 = add i64 %2, -1
-  %27 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8, !noundef !67
-  %29 = and i64 %28, %25
-  store i64 %29, ptr %27, align 8
+24:                                               ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
+  %25 = getelementptr i8, ptr %14, i64 -8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+
+27:                                               ; preds = %24
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.11, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.12) #11
+  unreachable
+
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %24
+  %28 = and i64 %22, 63
+  %29 = lshr i64 -1, %28
+  %30 = load i64, ptr %25, align 8, !noundef !67
+  %31 = and i64 %30, %29
+  store i64 %31, ptr %25, align 8
   br label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.02.010 = phi i64 [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
-  %30 = add nuw i64 %.sroa.02.010, 1
+  %.sroa.02.010 = phi i64 [ %32, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+  %32 = add nuw i64 %.sroa.02.010, 1
   tail call void @ring_core_0_17_8__LIMBS_shl_mod(ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %1, ptr noundef nonnull readonly align 8 %13, i64 noundef %2)
-  %exitcond.not = icmp eq i64 %30, %22
+  %exitcond.not = icmp eq i64 %32, %22
   br i1 %exitcond.not, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 }
 
@@ -2223,26 +2239,33 @@ _ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit: ; preds = %12
   %21 = load i64, ptr %20, align 8, !noundef !67
   %22 = sub i64 %17, %21
   %23 = icmp eq i64 %17, %21
-  br i1 %23, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+  br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit, %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
   ret void
 
-_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
-  %24 = and i64 %22, 63
-  %25 = lshr i64 -1, %24
-  %26 = add i64 %2, -1
-  %27 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8, !noundef !67
-  %29 = and i64 %28, %25
-  store i64 %29, ptr %27, align 8
+24:                                               ; preds = %_ZN4ring4limb18limbs_negative_odd17h086a08829922ff79E.exit
+  %25 = getelementptr i8, ptr %14, i64 -8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader
+
+27:                                               ; preds = %24
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.bb7da592cc2a4db35d4d49e42ec38fbb.11, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.12) #11
+  unreachable
+
+_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %24
+  %28 = and i64 %22, 63
+  %29 = lshr i64 -1, %28
+  %30 = load i64, ptr %25, align 8, !noundef !67
+  %31 = and i64 %30, %29
+  store i64 %31, ptr %25, align 8
   br label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.02.010 = phi i64 [ %30, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
-  %30 = add nuw i64 %.sroa.02.010, 1
+  %.sroa.02.010 = phi i64 [ %32, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+  %32 = add nuw i64 %.sroa.02.010, 1
   tail call void @ring_core_0_17_8__LIMBS_shl_mod(ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %1, ptr noundef nonnull readonly align 8 %13, i64 noundef %2)
-  %exitcond.not = icmp eq i64 %30, %22
+  %exitcond.not = icmp eq i64 %32, %22
   br i1 %exitcond.not, label %.thread, label %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
 }
 
@@ -2715,7 +2738,7 @@ define void @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17h36e262e131b
 
 31:                                               ; preds = %2, %31
   %32 = phi i64 [ 0, %2 ], [ %34, %31 ]
-  %33 = getelementptr inbounds nuw [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw { [6 x i64], {}, {} }, ptr %30, i64 %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, i8 0, i64 48, i1 false)
   %34 = add nuw nsw i64 %32, 1
   %exitcond.not = icmp eq i64 %34, 8
@@ -2871,26 +2894,25 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !510
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !504
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !492
-  br label %56
+  br label %55
 
 50:                                               ; preds = %35, %50
-  %.sroa.01.036 = phi i64 [ 1, %35 ], [ %52, %50 ]
+  %.sroa.01.036 = phi i64 [ 1, %35 ], [ %51, %50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.029)
-  %51 = add nsw i64 %.sroa.01.036, -1
-  %52 = add nuw nsw i64 %.sroa.01.036, 1
-  %53 = getelementptr inbounds nuw [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %51
+  %51 = add nuw nsw i64 %.sroa.01.036, 1
+  %52 = getelementptr { [6 x i64], {}, {} }, ptr %30, i64 %.sroa.01.036
+  %53 = getelementptr i8, ptr %52, i64 -48
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !511
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !511
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %53, ptr noundef nonnull readonly align 8 dereferenceable(48) %29), !noalias !516
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.029, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !517
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !511
-  %54 = getelementptr inbounds nuw [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %.sroa.01.036
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.029, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.029, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.029)
-  %exitcond40.not = icmp eq i64 %52, 8
+  %exitcond40.not = icmp eq i64 %51, 8
   br i1 %exitcond40.not, label %36, label %50
 
-55:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
+54:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -2902,37 +2924,37 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret void
 
-56:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit26, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
+55:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit26, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
   %.sroa.030.0.idx37 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit26 ], [ %.sroa.030.0.add, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit ]
   %.sroa.030.0.ptr38 = getelementptr inbounds nuw i8, ptr @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17REMAINING_WINDOWS17h15c939cce11bb523E, i64 %.sroa.030.0.idx37
   %.sroa.030.0.add = add nuw nsw i64 %.sroa.030.0.idx37, 2
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.ptr38, i64 1
-  %58 = load i8, ptr %57, align 1, !noundef !67
-  %59 = zext i8 %58 to i64
-  %60 = icmp ult i8 %58, 8
-  br i1 %60, label %61, label %67, !prof !518
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.ptr38, i64 1
+  %57 = load i8, ptr %56, align 1, !noundef !67
+  %58 = zext i8 %57 to i64
+  %59 = icmp ult i8 %57, 8
+  br i1 %59, label %60, label %66, !prof !518
 
-61:                                               ; preds = %56
-  %62 = load i8, ptr %.sroa.030.0.ptr38, align 1, !noundef !67
-  %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %59
-  %.not.i = icmp eq i8 %62, 0
+60:                                               ; preds = %55
+  %61 = load i8, ptr %.sroa.030.0.ptr38, align 1, !noundef !67
+  %62 = zext i8 %61 to i64
+  %63 = getelementptr inbounds nuw { [6 x i64], {}, {} }, ptr %30, i64 %58
+  %.not.i = icmp eq i8 %61, 0
   br i1 %.not.i, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %61, %.lr.ph.i
-  %.sroa.01.07.i27 = phi i64 [ %65, %.lr.ph.i ], [ 0, %61 ]
-  %65 = add nuw nsw i64 %.sroa.01.07.i27, 1
+.lr.ph.i:                                         ; preds = %60, %.lr.ph.i
+  %.sroa.01.07.i27 = phi i64 [ %64, %.lr.ph.i ], [ 0, %60 ]
+  %64 = add nuw nsw i64 %.sroa.01.07.i27, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %23), !noalias !519
-  %exitcond.not.i28 = icmp eq i64 %65, %63
+  %exitcond.not.i28 = icmp eq i64 %64, %62
   br i1 %exitcond.not.i28, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit, label %.lr.ph.i
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit: ; preds = %.lr.ph.i, %61
-  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull readonly align 8 dereferenceable(48) %64)
-  %66 = icmp eq i64 %.sroa.030.0.add, 78
-  br i1 %66, label %55, label %56
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit: ; preds = %.lr.ph.i, %60
+  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull readonly align 8 dereferenceable(48) %63)
+  %65 = icmp eq i64 %.sroa.030.0.add, 78
+  br i1 %65, label %54, label %55
 
-67:                                               ; preds = %56
-  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %59, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.14) #11
+66:                                               ; preds = %55
+  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %58, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.14) #11
   unreachable
 }
 

@@ -212,7 +212,7 @@ define internal range(i32 -2147483648, 2) i32 @ui_read(ptr noundef %0, ptr nound
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %14 to i64
-  %20 = getelementptr inbounds nuw [1025 x i8], ptr %3, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %19
   store i8 0, ptr %20, align 1, !tbaa !11
   %21 = call i32 @UI_set_result_ex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %14) #5
   %22 = icmp sgt i32 %21, -1

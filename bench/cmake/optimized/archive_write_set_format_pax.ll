@@ -2412,7 +2412,7 @@ define internal fastcc void @add_pax_attr_int(ptr noundef %0, ptr noundef %1, i6
   %.09.i = phi ptr [ %5, %3 ], [ %10, %6 ]
   %.1.i = phi i64 [ %.0.i, %3 ], [ %11, %6 ]
   %7 = urem i64 %.1.i, 10
-  %8 = getelementptr inbounds nuw [11 x i8], ptr @.str.58, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @.str.58, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !29
   %10 = getelementptr inbounds i8, ptr %.09.i, i64 -1
   store i8 %9, ptr %10, align 1, !tbaa !29
@@ -2484,7 +2484,7 @@ define internal fastcc void @add_pax_attr_time(ptr noundef %0, ptr noundef %1, i
   %.11828 = phi i32 [ %21, %.lr.ph ], [ %10, %.preheader ]
   %.12027.in = phi i64 [ %19, %.lr.ph ], [ %8, %.preheader ]
   %.12226 = phi i64 [ %20, %.lr.ph ], [ %9, %.preheader ]
-  %16 = getelementptr inbounds nuw [11 x i8], ptr @.str.58, i64 0, i64 %.12027.in
+  %16 = getelementptr inbounds nuw i8, ptr @.str.58, i64 %.12027.in
   %17 = load i8, ptr %16, align 1, !tbaa !29
   %18 = getelementptr inbounds i8, ptr %.129, i64 -1
   store i8 %17, ptr %18, align 1, !tbaa !29
@@ -2509,7 +2509,7 @@ define internal fastcc void @add_pax_attr_time(ptr noundef %0, ptr noundef %1, i
   %.09.i = phi ptr [ %.0, %24 ], [ %29, %25 ]
   %.1.i = phi i64 [ %.0.i, %24 ], [ %30, %25 ]
   %26 = urem i64 %.1.i, 10
-  %27 = getelementptr inbounds nuw [11 x i8], ptr @.str.58, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @.str.58, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !29
   %29 = getelementptr inbounds i8, ptr %.09.i, i64 -1
   store i8 %28, ptr %29, align 1, !tbaa !29
@@ -2836,14 +2836,14 @@ switch.early.test44.i:                            ; preds = %.lr.ph57.i
   %35 = load i8, ptr %.13454.i, align 1, !tbaa !29
   %36 = lshr i8 %35, 4
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [17 x i8], ptr @.str.70, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @.str.70, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %.03155.i, i64 2
   store i8 %39, ptr %34, align 1, !tbaa !29
   %41 = load i8, ptr %.13454.i, align 1, !tbaa !29
   %42 = and i8 %41, 15
   %43 = zext nneg i8 %42 to i64
-  %44 = getelementptr inbounds nuw [17 x i8], ptr @.str.70, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @.str.70, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !29
   %46 = getelementptr inbounds nuw i8, ptr %.03155.i, i64 3
   store i8 %45, ptr %40, align 1, !tbaa !29
@@ -2924,27 +2924,27 @@ url_encode.exit.thread24:                         ; preds = %49, %._crit_edge.th
   %87 = lshr i32 %74, 18
   %88 = and i32 %87, 63
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %.03339.i.i, i64 1
   store i8 %91, ptr %.03339.i.i, align 1, !tbaa !29
   %93 = lshr exact i32 %84, 12
   %94 = and i32 %93, 63
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !29
   %98 = getelementptr inbounds nuw i8, ptr %.03339.i.i, i64 2
   store i8 %97, ptr %92, align 1, !tbaa !29
   %99 = lshr i32 %83, 6
   %100 = and i32 %99, 63
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !29
   %104 = getelementptr inbounds nuw i8, ptr %.03339.i.i, i64 3
   store i8 %103, ptr %98, align 1, !tbaa !29
   %105 = and i32 %82, 63
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !29
   %109 = getelementptr inbounds nuw i8, ptr %.03339.i.i, i64 4
   store i8 %108, ptr %104, align 1, !tbaa !29
@@ -2967,14 +2967,14 @@ url_encode.exit.thread24:                         ; preds = %49, %._crit_edge.th
   %115 = lshr i32 %114, 18
   %116 = and i32 %115, 63
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !29
   %120 = getelementptr inbounds nuw i8, ptr %.033.lcssa.i.i, i64 1
   store i8 %119, ptr %.033.lcssa.i.i, align 1, !tbaa !29
   %121 = lshr exact i32 %114, 12
   %122 = and i32 %121, 48
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %123
   %125 = load i8, ptr %124, align 16, !tbaa !29
   %126 = getelementptr inbounds nuw i8, ptr %.033.lcssa.i.i, i64 2
   store i8 %125, ptr %120, align 1, !tbaa !29
@@ -2993,21 +2993,21 @@ url_encode.exit.thread24:                         ; preds = %49, %._crit_edge.th
   %137 = lshr i32 %130, 18
   %138 = and i32 %137, 63
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !29
   %142 = getelementptr inbounds nuw i8, ptr %.033.lcssa.i.i, i64 1
   store i8 %141, ptr %.033.lcssa.i.i, align 1, !tbaa !29
   %143 = lshr exact i32 %136, 12
   %144 = and i32 %143, 63
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !29
   %148 = getelementptr inbounds nuw i8, ptr %.033.lcssa.i.i, i64 2
   store i8 %147, ptr %142, align 1, !tbaa !29
   %149 = lshr exact i32 %134, 6
   %150 = and i32 %149, 60
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [64 x i8], ptr @base64_encode.digits, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr @base64_encode.digits, i64 %151
   %153 = load i8, ptr %152, align 4, !tbaa !29
   %154 = getelementptr inbounds nuw i8, ptr %.033.lcssa.i.i, i64 3
   store i8 %153, ptr %148, align 1, !tbaa !29
@@ -3214,7 +3214,7 @@ define internal fastcc void @add_pax_attr_binary(ptr noundef %0, ptr noundef %1,
   %.09.i = phi ptr [ %17, %._crit_edge ], [ %24, %20 ]
   %.1.i = phi i64 [ %.0.i, %._crit_edge ], [ %25, %20 ]
   %21 = urem i64 %.1.i, 10
-  %22 = getelementptr inbounds nuw [11 x i8], ptr @.str.58, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @.str.58, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !29
   %24 = getelementptr inbounds i8, ptr %.09.i, i64 -1
   store i8 %23, ptr %24, align 1, !tbaa !29

@@ -1188,7 +1188,7 @@ wtap_encap_name.exit:                             ; preds = %26, %.thread83, %22
 
 58:                                               ; preds = %57
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr [10 x ptr], ptr @precnames, i64 0, i64 %59
+  %60 = getelementptr ptr, ptr @precnames, i64 %59
   %61 = load ptr, ptr %60, align 8
   br label %wtap_tsprec_string.exit
 
@@ -1381,7 +1381,7 @@ define ptr @wtap_tsprec_string(i32 noundef %0) local_unnamed_addr #7 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [10 x ptr], ptr @precnames, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @precnames, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %10
 
@@ -1835,7 +1835,7 @@ define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #11 {
   br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %7
-  %13 = getelementptr [27 x ptr], ptr @wtap_errlist, i64 0, i64 %9
+  %13 = getelementptr ptr, ptr @wtap_errlist, i64 %9
   %14 = load ptr, ptr %13, align 8
   br label %17
 

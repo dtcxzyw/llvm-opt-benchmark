@@ -150,7 +150,7 @@ define internal noundef i32 @crypto_cmac_digest_init(ptr noundef captures(none) 
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = sext i32 %7 to i64
-  %10 = getelementptr [0 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr i8, ptr %8, i64 %9
   store i32 0, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %9, i1 false)
   ret i32 0

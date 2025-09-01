@@ -446,7 +446,7 @@ common.resume:                                    ; preds = %34, %28, %72
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = urem i64 %2, %16
   %.val = load ptr, ptr %40, align 8, !nonnull !10, !noundef !10
-  %42 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }], ptr %.val, i64 0, i64 %41
+  %42 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }, ptr %.val, i64 %41
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h0d99f6dac0b2c397E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %42)
   %43 = load i64, ptr %7, align 8, !range !60, !noundef !10
   %trunc = trunc nuw i64 %43 to i1

@@ -1380,14 +1380,14 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
 
 223:                                              ; preds = %220, %.loopexit22
   %224 = phi i64 [ 0, %.loopexit22 ], [ %221, %220 ]
-  %225 = getelementptr [3 x i32], ptr %5, i64 0, i64 %224
+  %225 = getelementptr i32, ptr %5, i64 %224
   %226 = load i32, ptr %225, align 4
   %227 = icmp eq i32 %226, %219
   br i1 %227, label %228, label %220
 
 228:                                              ; preds = %223
   %229 = and i64 %181, 4294967295
-  %230 = getelementptr [3 x i32], ptr %5, i64 0, i64 %229
+  %230 = getelementptr i32, ptr %5, i64 %229
   %231 = load i32, ptr %230, align 4
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning_inode(ptr noundef %1, ptr noundef nonnull @__func__.dx_probe, i32 noundef 933, ptr noundef nonnull @.str.18, i32 noundef %231, i32 noundef %219) #13
   br label %254
@@ -1398,7 +1398,7 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %234, label %.loopexit23, label %235
 
 235:                                              ; preds = %232
-  %236 = getelementptr [3 x i32], ptr %5, i64 0, i64 %233
+  %236 = getelementptr i32, ptr %5, i64 %233
   store i32 %219, ptr %236, align 4
   %237 = getelementptr i8, ptr %184, i64 24
   %238 = tail call fastcc ptr @__ext4_read_dirblock(ptr noundef %1, i32 noundef %219, i32 noundef 1, ptr noundef nonnull @__func__.dx_probe, i32 noundef 941)
@@ -1873,7 +1873,7 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly captures(address_
   %61 = load i16, ptr %1, align 8
   %62 = lshr i16 %61, 12
   %63 = zext nneg i16 %62 to i64
-  %64 = getelementptr [16 x i8], ptr @ext4_type_by_mode, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @ext4_type_by_mode, i64 %63
   %65 = load i8, ptr %64, align 1
   store i8 %65, ptr %46, align 1
   br label %66
@@ -7719,7 +7719,7 @@ thread-pre-split:                                 ; preds = %25, %28
   %257 = phi i64 [ 0, %245 ], [ %240, %239 ]
   %258 = phi i64 [ %250, %245 ], [ %241, %239 ]
   %259 = add nuw i64 %257, 1
-  %260 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %257
+  %260 = getelementptr ptr, ptr %6, i64 %257
   %261 = load ptr, ptr %260, align 8
   %262 = icmp eq ptr %261, null
   br i1 %262, label %370, label %263
@@ -7921,7 +7921,7 @@ thread-pre-split:                                 ; preds = %25, %28
 
 .preheader:                                       ; preds = %.loopexit, %389
   %384 = phi i64 [ %390, %389 ], [ %259, %.loopexit ]
-  %385 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %384
+  %385 = getelementptr ptr, ptr %6, i64 %384
   %386 = load ptr, ptr %385, align 8
   %387 = icmp eq ptr %386, null
   br i1 %387, label %389, label %388

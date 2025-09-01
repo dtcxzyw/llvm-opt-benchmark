@@ -392,7 +392,7 @@ zend_verify_enum_properties.exit:                 ; preds = %zend_string_equals.
 
 127:                                              ; preds = %126, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %126 ]
-  %128 = getelementptr inbounds nuw [3 x ptr], ptr @zend_verify_enum_magic_methods.forbidden_methods, i64 0, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw ptr, ptr @zend_verify_enum_magic_methods.forbidden_methods, i64 %indvars.iv.i
   %129 = load ptr, ptr %128, align 8, !tbaa !53
   %130 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #14
   %131 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %121, ptr noundef nonnull %129, i64 noundef %130) #12
@@ -2105,7 +2105,7 @@ zend_string_alloc.exit:
   store i64 %2, ptr %8, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %10 = getelementptr inbounds nuw [1 x i8], ptr %9, i64 0, i64 %2
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %2
   store i8 0, ptr %10, align 1, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !61

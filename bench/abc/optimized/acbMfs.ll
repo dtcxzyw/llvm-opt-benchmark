@@ -2610,7 +2610,7 @@ Vec_IntGrow.exit.i:                               ; preds = %33, %24
 Vec_IntFind.exit.us:                              ; preds = %46, %._crit_edge.loopexit.split.loop.exit12.i.us
   %.07.i.us = phi i64 [ %47, %._crit_edge.loopexit.split.loop.exit12.i.us ], [ -1, %46 ]
   %48 = and i32 %40, 1
-  %49 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %.07.i.us
+  %49 = getelementptr inbounds i64, ptr @s_Truths6, i64 %.07.i.us
   %50 = load i64, ptr %49, align 8, !tbaa !3
   %sext = add nsw i32 %48, -1
   %51 = sext i32 %sext to i64
@@ -7775,12 +7775,12 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
 .preheader125.us:                                 ; preds = %.preheader125.us.preheader, %._crit_edge147.us
   %indvars.iv202 = phi i64 [ 0, %.preheader125.us.preheader ], [ %indvars.iv.next203, %._crit_edge147.us ]
   %.095150.us = phi i32 [ 0, %.preheader125.us.preheader ], [ %.297.us, %._crit_edge147.us ]
-  %22 = getelementptr inbounds nuw [64 x i64], ptr %7, i64 0, i64 %indvars.iv202
+  %22 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv202
   br label %.preheader.us
 
 23:                                               ; preds = %.lr.ph141.us, %27
   %indvars.iv192 = phi i64 [ 0, %.lr.ph141.us ], [ %indvars.iv.next193, %27 ]
-  %24 = getelementptr inbounds nuw [64 x i64], ptr %9, i64 0, i64 %indvars.iv192
+  %24 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv192
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = icmp eq i64 %25, %44
   br i1 %26, label %._crit_edge142.us.loopexit.split.loop.exit, label %27
@@ -7803,12 +7803,12 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
 
 31:                                               ; preds = %._crit_edge142.us
   %32 = load i64, ptr %22, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw [64 x i64], ptr %8, i64 0, i64 %indvars.iv197
+  %33 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv197
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = xor i64 %34, %32
   %36 = add nsw i32 %.196145.us, 1
   %37 = sext i32 %.196145.us to i64
-  %38 = getelementptr inbounds [64 x i64], ptr %9, i64 0, i64 %37
+  %38 = getelementptr inbounds i64, ptr %9, i64 %37
   store i64 %35, ptr %38, align 8, !tbaa !3
   br label %39
 
@@ -7826,7 +7826,7 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
 
 .lr.ph141.us:                                     ; preds = %.preheader.us
   %41 = load i64, ptr %22, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw [64 x i64], ptr %8, i64 0, i64 %indvars.iv197
+  %42 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv197
   %43 = load i64, ptr %42, align 8, !tbaa !3
   %44 = xor i64 %43, %41
   %wide.trip.count195 = zext nneg i32 %.196145.us to i64
@@ -7885,8 +7885,8 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
 
 .lr.ph135:                                        ; preds = %.lr.ph131
   %putchar112228 = tail call i32 @putchar(i32 10)
-  %66 = getelementptr inbounds nuw [64 x i64], ptr %7, i64 0, i64 %indvars.iv187
-  %67 = getelementptr inbounds nuw [64 x i64], ptr %8, i64 0, i64 %indvars.iv187
+  %66 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv187
+  %67 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv187
   br label %68
 
 68:                                               ; preds = %.lr.ph135, %84
@@ -8036,7 +8036,7 @@ Vec_IntFind.exit.thread:                          ; preds = %105, %109, %._crit_
   %indvars.iv216 = phi i64 [ 0, %.lr.ph167.us.preheader ], [ %indvars.iv.next217, %._crit_edge168.us ]
   %116 = trunc nuw nsw i64 %indvars.iv216 to i32
   %117 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %116)
-  %118 = getelementptr inbounds nuw [64 x i64], ptr %9, i64 0, i64 %indvars.iv216
+  %118 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv216
   %119 = load i64, ptr %118, align 8, !tbaa !3
   br label %120
 

@@ -883,7 +883,7 @@ define { i128, i128 } @_ZN5salsa3lru13rng_with_seed17h5db086e9934eeac3E(ptr noal
   %12 = add nuw nsw i64 %.sroa.10.013, 1
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 1
   %14 = load i8, ptr %.sroa.0.014, align 1, !noundef !21
-  %15 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %.sroa.10.013
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.10.013
   store i8 %14, ptr %15, align 1
   %16 = icmp eq i64 %11, 0
   br i1 %16, label %7, label %5
@@ -959,7 +959,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState12active_query17h6
 
 10:                                               ; preds = %5
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.fb7826d4e6db71c0ca753570266be03a.1.llvm.14225396269139012787, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fb7826d4e6db71c0ca753570266be03a.3.llvm.14225396269139012787) #24
-          to label %21 unwind label %22, !noalias !145
+          to label %24 unwind label %25, !noalias !145
 
 11:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
@@ -967,31 +967,34 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState12active_query17h6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8, !alias.scope !151, !noalias !153, !noundef !21
   %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17he1ae772a75cc4b3cE.exit, label %14
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8, !alias.scope !151, !noalias !153, !nonnull !21
+  %16 = getelementptr { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %15, i64 %13
+  %17 = getelementptr i8, ptr %16, i64 -80
+  %18 = icmp eq ptr %17, null
+  %19 = select i1 %.not.i.i, i1 true, i1 %18
+  br i1 %19, label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17he1ae772a75cc4b3cE.exit, label %20
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !alias.scope !151, !noalias !153, !nonnull !21
-  %17 = add i64 %13, -1
-  %18 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }], ptr %16, i64 0, i64 %17, i32 1
-  %19 = load i64, ptr %18, align 8, !noalias !154
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %19, ptr %20, align 4, !alias.scope !153, !noalias !151
+20:                                               ; preds = %11
+  %21 = getelementptr i8, ptr %16, i64 -24
+  %22 = load i64, ptr %21, align 8, !noalias !154
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %22, ptr %23, align 4, !alias.scope !153, !noalias !151
   br label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17he1ae772a75cc4b3cE.exit
 
-21:                                               ; preds = %10
+24:                                               ; preds = %10
   unreachable
 
-22:                                               ; preds = %10
-  %23 = landingpad { ptr, i32 }
+25:                                               ; preds = %10
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %24 = load i64, ptr %1, align 8, !noalias !155, !noundef !21
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %1, align 8, !noalias !155
-  resume { ptr, i32 } %23
+  %27 = load i64, ptr %1, align 8, !noalias !155, !noundef !21
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %1, align 8, !noalias !155
+  resume { ptr, i32 } %26
 
-_ZN5salsa7runtime11local_state10LocalState16with_query_stack17he1ae772a75cc4b3cE.exit: ; preds = %11, %14
-  %storemerge.i.i = phi i32 [ 1, %14 ], [ 0, %11 ]
+_ZN5salsa7runtime11local_state10LocalState16with_query_stack17he1ae772a75cc4b3cE.exit: ; preds = %11, %20
+  %storemerge.i.i = phi i32 [ 1, %20 ], [ 0, %11 ]
   store i32 %storemerge.i.i, ptr %0, align 4, !alias.scope !153, !noalias !151
   store i64 0, ptr %1, align 8, !noalias !162
   ret void
@@ -1187,9 +1190,11 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState21report_untracked
   %.not.i.i = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !196, !noalias !199, !nonnull !21
-  %16 = add i64 %13, -1
-  %17 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }], ptr %15, i64 0, i64 %16
-  br i1 %.not.i.i, label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17h49fc985f44a069c8E.exit, label %18
+  %16 = getelementptr { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %15, i64 %13
+  %17 = getelementptr i8, ptr %16, i64 -80
+  %.not56.i.i = icmp eq ptr %17, null
+  %.not5.i.i = select i1 %.not.i.i, i1 true, i1 %.not56.i.i
+  br i1 %.not5.i.i, label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17h49fc985f44a069c8E.exit, label %18
 
 18:                                               ; preds = %11
   %19 = load i64, ptr %17, align 8, !range !25, !alias.scope !201, !noalias !206, !noundef !21
@@ -1208,9 +1213,9 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState21report_untracked
 
 _ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b14cdad8c40E.exit.i.i: ; preds = %21, %18
   store i64 -9223372036854775808, ptr %17, align 8, !alias.scope !207, !noalias !206
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 76
+  %24 = getelementptr i8, ptr %16, i64 -4
   store i8 0, ptr %24, align 4, !alias.scope !207, !noalias !206
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %25 = getelementptr i8, ptr %16, i64 -8
   store i32 %1, ptr %25, align 8, !alias.scope !207, !noalias !206
   %.pre.i = load i64, ptr %0, align 8, !noalias !208
   %26 = add i64 %.pre.i, 1
@@ -1494,41 +1499,44 @@ define noundef ptr @_ZN5salsa7runtime11local_state16ActiveQueryGuard10take_cycle
 
 10:                                               ; preds = %5
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.fb7826d4e6db71c0ca753570266be03a.1.llvm.14225396269139012787, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fb7826d4e6db71c0ca753570266be03a.3.llvm.14225396269139012787) #24
-          to label %21 unwind label %22
+          to label %24 unwind label %25
 
 11:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i64, ptr %12, align 8, !alias.scope !258, !noundef !21
   %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17hda4ea59708b80963E.exit, label %14
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = load ptr, ptr %14, align 8, !alias.scope !258, !nonnull !21
+  %16 = getelementptr { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %15, i64 %13
+  %17 = getelementptr i8, ptr %16, i64 -80
+  %18 = icmp eq ptr %17, null
+  %19 = select i1 %.not.i.i, i1 true, i1 %18
+  br i1 %19, label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17hda4ea59708b80963E.exit, label %20
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load ptr, ptr %15, align 8, !alias.scope !258, !nonnull !21
-  %17 = add i64 %13, -1
-  %18 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }], ptr %16, i64 0, i64 %17, i32 2
-  %19 = load ptr, ptr %18, align 8, !noalias !258, !noundef !21
-  store ptr null, ptr %18, align 8, !noalias !258
+20:                                               ; preds = %11
+  %21 = getelementptr i8, ptr %16, i64 -16
+  %22 = load ptr, ptr %21, align 8, !noalias !258, !noundef !21
+  store ptr null, ptr %21, align 8, !noalias !258
   %.pre.i = load i64, ptr %2, align 8, !noalias !261
-  %20 = add i64 %.pre.i, 1
+  %23 = add i64 %.pre.i, 1
   br label %_ZN5salsa7runtime11local_state10LocalState16with_query_stack17hda4ea59708b80963E.exit
 
-21:                                               ; preds = %10
+24:                                               ; preds = %10
   unreachable
 
-22:                                               ; preds = %10
-  %23 = landingpad { ptr, i32 }
+25:                                               ; preds = %10
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %24 = load i64, ptr %2, align 8, !noalias !268, !noundef !21
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %2, align 8, !noalias !268
-  resume { ptr, i32 } %23
+  %27 = load i64, ptr %2, align 8, !noalias !268, !noundef !21
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %2, align 8, !noalias !268
+  resume { ptr, i32 } %26
 
-_ZN5salsa7runtime11local_state10LocalState16with_query_stack17hda4ea59708b80963E.exit: ; preds = %11, %14
-  %26 = phi i64 [ %20, %14 ], [ 0, %11 ]
-  %.0.i6.i = phi ptr [ %19, %14 ], [ null, %11 ]
-  store i64 %26, ptr %2, align 8, !noalias !261
+_ZN5salsa7runtime11local_state10LocalState16with_query_stack17hda4ea59708b80963E.exit: ; preds = %11, %20
+  %29 = phi i64 [ %23, %20 ], [ 0, %11 ]
+  %.0.i6.i = phi ptr [ %22, %20 ], [ null, %11 ]
+  store i64 %29, ptr %2, align 8, !noalias !261
   ret ptr %.0.i6.i
 }
 

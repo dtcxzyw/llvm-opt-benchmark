@@ -379,10 +379,10 @@ define void @_ZN3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerE
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i32 %2 to i64
-  %switch.gep12 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 0, i64 %6
+  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 %6
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -477,10 +477,10 @@ define void @_ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySign
 switch.lookup:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %1, i64 -24
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 %7
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16

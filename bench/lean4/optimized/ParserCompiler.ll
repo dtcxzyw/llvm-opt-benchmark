@@ -653,7 +653,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_parserNodeKind_x3
 9:                                                ; preds = %.lr.ph, %lean_dec.exit36
   %.03068 = phi i64 [ %2, %.lr.ph ], [ %65, %lean_dec.exit36 ]
   %.03267 = phi ptr [ %4, %.lr.ph ], [ %.234, %lean_dec.exit36 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.03068
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03068
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -6227,7 +6227,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -7035,7 +7035,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -8111,7 +8111,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -8171,7 +8171,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -54440,7 +54440,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -54500,7 +54500,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -58073,7 +58073,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -58133,7 +58133,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -61500,7 +61500,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -62306,7 +62306,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -63342,7 +63342,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -63402,7 +63402,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -67171,7 +67171,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -67231,7 +67231,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -70804,7 +70804,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -70864,7 +70864,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -74231,7 +74231,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -75037,7 +75037,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -76073,7 +76073,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -76133,7 +76133,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -79902,7 +79902,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -79962,7 +79962,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -83535,7 +83535,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -83595,7 +83595,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -86962,7 +86962,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -87768,7 +87768,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -88804,7 +88804,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -88864,7 +88864,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -92633,7 +92633,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -92693,7 +92693,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -96266,7 +96266,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -96326,7 +96326,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -99693,7 +99693,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -100499,7 +100499,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -101535,7 +101535,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -101595,7 +101595,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -105364,7 +105364,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -105424,7 +105424,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -108997,7 +108997,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -109057,7 +109057,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -112424,7 +112424,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -113230,7 +113230,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -114266,7 +114266,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -114326,7 +114326,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -118095,7 +118095,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -118155,7 +118155,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -121728,7 +121728,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -121788,7 +121788,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -125155,7 +125155,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -125961,7 +125961,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -126997,7 +126997,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -127057,7 +127057,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -130826,7 +130826,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -130886,7 +130886,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -134459,7 +134459,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -134519,7 +134519,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -137886,7 +137886,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -138692,7 +138692,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -139728,7 +139728,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -139788,7 +139788,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -143557,7 +143557,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -143617,7 +143617,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -147190,7 +147190,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -147250,7 +147250,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -150617,7 +150617,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -151423,7 +151423,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -152459,7 +152459,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -152519,7 +152519,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -156288,7 +156288,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -156348,7 +156348,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -159921,7 +159921,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -159981,7 +159981,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -163348,7 +163348,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -164154,7 +164154,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_ParserCompiler_compileParserExpr
   %.067193 = phi ptr [ %4, %.lr.ph ], [ %252, %250 ]
   %.070192 = phi ptr [ %9, %.lr.ph ], [ %80, %250 ]
   %23 = add i64 %.064194, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -165190,7 +165190,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %102
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %118, %117, %115, %109
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw ptr, ptr %20, i64 %107
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 1
@@ -165250,7 +165250,7 @@ lean_array_get.exit:                              ; preds = %127, %lean_dec.exit
   br label %lean_dec.exit.i667
 
 lean_dec.exit.i667:                               ; preds = %140, %139, %137, %131
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %107
+  %141 = getelementptr inbounds nuw ptr, ptr %22, i64 %107
   %142 = load ptr, ptr %141, align 8, !tbaa !4
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 1
@@ -169019,7 +169019,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -169079,7 +169079,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -172652,7 +172652,7 @@ lean_array_uget.exit.i.thread:                    ; preds = %92
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %108, %107, %105, %99
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw ptr, ptr %19, i64 %97
   %110 = load ptr, ptr %109, align 8, !tbaa !4
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -172712,7 +172712,7 @@ lean_array_get.exit:                              ; preds = %117, %lean_dec.exit
   br label %lean_dec.exit.i633
 
 lean_dec.exit.i633:                               ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %97
+  %131 = getelementptr inbounds nuw ptr, ptr %21, i64 %97
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1

@@ -8030,7 +8030,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i
 cond.true.i.i:                                    ; preds = %land.rhs.i.i.i, %land.rhs.i
   %sub.i.i = add nuw nsw i64 %retval.sroa.2.0.insert.ext.i.i, 4294967295
   %idxprom.i.i = and i64 %sub.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw [12 x %"class.date::day"], ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   br label %_ZNK4date14year_month_day2okEv.exit
 

@@ -338,7 +338,7 @@ declare noundef ptr @_ZN2cv3Mat19getDefaultAllocatorEv() local_unnamed_addr #6
 define void @_ZN2cv8UMatData4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 31
-  %4 = getelementptr inbounds nuw [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %"class.std::recursive_mutex", ptr @_ZN2cvL9umatLocksE, i64 %3
   %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZNSt15recursive_mutex4lockEv.exit, label %6
@@ -355,7 +355,7 @@ _ZNSt15recursive_mutex4lockEv.exit:               ; preds = %1
 define void @_ZN2cv8UMatData6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 31
-  %4 = getelementptr inbounds nuw [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %"class.std::recursive_mutex", ptr @_ZN2cvL9umatLocksE, i64 %3
   %5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
   ret void
 }
@@ -481,7 +481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %28 = load ptr, ptr %1, align 8, !tbaa !36
   %29 = ptrtoint ptr %28 to i64
   %30 = urem i64 %29, 31
-  %31 = getelementptr inbounds nuw [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"class.std::recursive_mutex", ptr @_ZN2cvL9umatLocksE, i64 %30
   %32 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %31) #26
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %_ZN2cv8UMatData4lockEv.exit, label %33
@@ -602,7 +602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 36:                                               ; preds = %32
   %37 = ptrtoint ptr %35 to i64
   %38 = urem i64 %37, 31
-  %39 = getelementptr inbounds nuw [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"class.std::recursive_mutex", ptr @_ZN2cvL9umatLocksE, i64 %38
   %40 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %39) #26
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %._ZN2cv8UMatData4lockEv.exit_crit_edge, label %41
@@ -623,7 +623,7 @@ _ZN2cv8UMatData4lockEv.exit:                      ; preds = %._ZN2cv8UMatData4lo
 43:                                               ; preds = %_ZN2cv8UMatData4lockEv.exit
   %44 = ptrtoint ptr %42 to i64
   %45 = urem i64 %44, 31
-  %46 = getelementptr inbounds nuw [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %"class.std::recursive_mutex", ptr @_ZN2cvL9umatLocksE, i64 %45
   %47 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %46) #26
   %.not.i.i26 = icmp eq i32 %47, 0
   br i1 %.not.i.i26, label %_ZN2cv8UMatData4lockEv.exit27, label %48
@@ -714,7 +714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 22:                                               ; preds = %21
   %23 = ptrtoint ptr %1 to i64
   %24 = urem i64 %23, 31
-  %25 = getelementptr inbounds nuw [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"class.std::recursive_mutex", ptr @_ZN2cvL9umatLocksE, i64 %24
   %26 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %25) #26
   br label %27
 
@@ -724,7 +724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 28:                                               ; preds = %27
   %29 = ptrtoint ptr %2 to i64
   %30 = urem i64 %29, 31
-  %31 = getelementptr inbounds nuw [31 x %"class.std::recursive_mutex"], ptr @_ZN2cvL9umatLocksE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"class.std::recursive_mutex", ptr @_ZN2cvL9umatLocksE, i64 %30
   %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %31) #26
   br label %33
 
@@ -2063,13 +2063,13 @@ _ZNK2cv4UMat5emptyEv.exit.thread:                 ; preds = %40, %_ZNK2cv4UMat5e
   br label %78
 
 78:                                               ; preds = %.lr.ph, %78
-  %.02156 = phi i64 [ 0, %.lr.ph ], [ %83, %78 ]
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %.02156
+  %.02157 = phi i64 [ 0, %.lr.ph ], [ %83, %78 ]
+  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %.02157
   %80 = load i32, ptr %79, align 4, !tbaa !28
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %.02156
+  %82 = getelementptr inbounds nuw i64, ptr %6, i64 %.02157
   store i64 %81, ptr %82, align 8, !tbaa !69
-  %83 = add nuw i64 %.02156, 1
+  %83 = add nuw i64 %.02157, 1
   %exitcond.not = icmp eq i64 %83, %75
   br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !71
 
@@ -2079,38 +2079,38 @@ _ZNK2cv4UMat5emptyEv.exit.thread:                 ; preds = %40, %_ZNK2cv4UMat5e
   br label %211
 
 ._crit_edge:                                      ; preds = %78
-  %86 = add nsw i32 %46, -1
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %87
-  %89 = load i64, ptr %88, align 8, !tbaa !69
-  %90 = mul i64 %89, %74
-  store i64 %90, ptr %88, align 8, !tbaa !69
+  %86 = getelementptr i64, ptr %6, i64 %75
+  %87 = getelementptr i8, ptr %86, i64 -8
+  %88 = load i64, ptr %87, align 8, !tbaa !69
+  %89 = mul i64 %88, %74
+  store i64 %89, ptr %87, align 8, !tbaa !69
   br i1 %66, label %.lr.ph.i, label %_ZNK2cv4UMat8ndoffsetEPm.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %92 = load i64, ptr %91, align 8, !tbaa !63
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %94 = load ptr, ptr %93, align 8, !tbaa !67
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %91 = load i64, ptr %90, align 8, !tbaa !63
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %93 = load ptr, ptr %92, align 8, !tbaa !67
   %wide.trip.count.i = zext nneg i32 %46 to i64
-  br label %95
+  br label %94
 
-95:                                               ; preds = %95, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %95 ]
-  %.013.i = phi i64 [ %92, %.lr.ph.i ], [ %.recomposed, %95 ]
-  %96 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv.i
-  %97 = load i64, ptr %96, align 8, !tbaa !69
-  %98 = udiv i64 %.013.i, %97
-  %99 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
-  store i64 %98, ptr %99, align 8, !tbaa !69
-  %100 = mul i64 %98, %97
-  %.recomposed = urem i64 %.013.i, %97
+94:                                               ; preds = %94, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %94 ]
+  %.013.i = phi i64 [ %91, %.lr.ph.i ], [ %.recomposed, %94 ]
+  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv.i
+  %96 = load i64, ptr %95, align 8, !tbaa !69
+  %97 = udiv i64 %.013.i, %96
+  %98 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
+  store i64 %97, ptr %98, align 8, !tbaa !69
+  %99 = mul i64 %97, %96
+  %.recomposed = urem i64 %.013.i, %96
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK2cv4UMat8ndoffsetEPm.exit, label %95, !llvm.loop !72
+  br i1 %exitcond.not.i, label %_ZNK2cv4UMat8ndoffsetEPm.exit, label %94, !llvm.loop !72
 
-_ZNK2cv4UMat8ndoffsetEPm.exit:                    ; preds = %95, %._crit_edge
-  %101 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %87
+_ZNK2cv4UMat8ndoffsetEPm.exit:                    ; preds = %94, %._crit_edge
+  %100 = getelementptr i64, ptr %7, i64 %75
+  %101 = getelementptr i8, ptr %100, i64 -8
   %102 = load i64, ptr %101, align 8, !tbaa !69
   %103 = mul i64 %102, %74
   store i64 %103, ptr %101, align 8, !tbaa !69
@@ -2230,14 +2230,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
 
 154:                                              ; preds = %154, %.lr.ph.i47
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i47 ], [ %indvars.iv.next.i51, %154 ]
-  %.013.i50 = phi i64 [ %151, %.lr.ph.i47 ], [ %.recomposed64, %154 ]
+  %.013.i50 = phi i64 [ %151, %.lr.ph.i47 ], [ %.recomposed65, %154 ]
   %155 = getelementptr inbounds nuw i64, ptr %153, i64 %indvars.iv.i49
   %156 = load i64, ptr %155, align 8, !tbaa !69
   %157 = udiv i64 %.013.i50, %156
   %158 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i49
   store i64 %157, ptr %158, align 8, !tbaa !69
   %159 = mul i64 %157, %156
-  %.recomposed64 = urem i64 %.013.i50, %156
+  %.recomposed65 = urem i64 %.013.i50, %156
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i48
   br i1 %exitcond.not.i52, label %_ZNK2cv4UMat8ndoffsetEPm.exit53, label %154, !llvm.loop !72
@@ -2245,9 +2245,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
 _ZNK2cv4UMat8ndoffsetEPm.exit53:                  ; preds = %154, %._ZNK2cv4UMat8ndoffsetEPm.exit53_crit_edge
   %160 = phi ptr [ %.pre, %._ZNK2cv4UMat8ndoffsetEPm.exit53_crit_edge ], [ %153, %154 ]
   %161 = load i32, ptr %45, align 4, !tbaa !58
-  %162 = add nsw i32 %161, -1
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %163
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr i64, ptr %8, i64 %162
+  %164 = getelementptr i8, ptr %163, i64 -8
   %165 = load i64, ptr %164, align 8, !tbaa !69
   %166 = mul i64 %165, %74
   store i64 %166, ptr %164, align 8, !tbaa !69

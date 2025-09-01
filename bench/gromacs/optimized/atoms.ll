@@ -97,7 +97,7 @@ $_Z7cmpEnumI13PdbRecordTypeEvP8_IO_FILEPKcT_S5_ = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString12ParticleType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -1084,7 +1084,7 @@ define void @_Z8pr_atomsP8_IO_FILEiPKcPK7t_atomsb(ptr noundef %0, i32 noundef %1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %25 = load i32, ptr %24, align 4, !tbaa !101
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = load float, ptr %17, align 4, !tbaa !102
   %30 = fpext float %29 to double
@@ -1407,9 +1407,9 @@ define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr nound
   %132 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.59, i32 noundef %132)
   %133 = load ptr, ptr %6, align 8, !tbaa !41
-  %134 = getelementptr inbounds nuw [6 x i32], ptr %129, i64 0, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv.i
   %135 = load i32, ptr %134, align 4, !tbaa !33
-  %136 = getelementptr inbounds nuw [6 x i32], ptr %130, i64 0, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv.i
   %137 = load i32, ptr %136, align 4, !tbaa !33
   invoke void @_Z7cmp_intP8_IO_FILEPKciii(ptr noundef %0, ptr noundef %133, i32 noundef %79, i32 noundef %135, i32 noundef %137)
           to label %138 unwind label %145
@@ -1640,12 +1640,12 @@ define internal fastcc void @_ZL11compareAtomP8_IO_FILEiPK6t_atomS3_ff(ptr nound
 16:                                               ; preds = %9
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.39) #16
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %fputs.i = tail call i32 @fputs(ptr %20, ptr %0)
   %21 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 3, i64 1, ptr %0)
   %22 = sext i32 %15 to i64
-  %23 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %fputs10.i = tail call i32 @fputs(ptr %24, ptr %0)
   %25 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 2, i64 1, ptr %0)

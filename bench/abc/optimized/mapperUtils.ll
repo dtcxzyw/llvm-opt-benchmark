@@ -481,7 +481,7 @@ Map_MappingFindLatest.exit:                       ; preds = %54, %1
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %.033 = phi i32 [ 0, %.lr.ph ], [ %spec.select31, %61 ]
-  %62 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !39
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %57, i64 %64
@@ -496,7 +496,7 @@ Map_MappingFindLatest.exit:                       ; preds = %54, %1
 69:                                               ; preds = %.lr.ph35, %69
   %indvars.iv38 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next39, %69 ]
   %70 = load ptr, ptr %59, align 8, !tbaa !30
-  %71 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv38
+  %71 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv38
   %72 = load i32, ptr %71, align 4, !tbaa !39
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds ptr, ptr %70, i64 %73
@@ -595,7 +595,7 @@ define void @Map_MappingSetupTruthTablesLarge(ptr noundef captures(none) %0) loc
 
 .preheader33:                                     ; preds = %1, %3
   %indvars.iv41 = phi i64 [ 0, %1 ], [ %indvars.iv.next42, %3 ]
-  %invariant.gep = getelementptr inbounds nuw [32 x i32], ptr %0, i64 0, i64 %indvars.iv41
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv41
   br label %2
 
 2:                                                ; preds = %.preheader33, %2
@@ -631,7 +631,7 @@ define void @Map_MappingSetupTruthTablesLarge(ptr noundef captures(none) %0) loc
   %13 = or i32 %12, %5
   store i32 %13, ptr %11, align 4, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 640
-  %15 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %indvars.iv49
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv49
   store i32 -1, ptr %15, align 4, !tbaa !39
   br label %16
 
@@ -653,7 +653,7 @@ define void @Map_MappingSetupTruthTablesLarge(ptr noundef captures(none) %0) loc
   %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %18 ]
   %19 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv53
   %20 = load i32, ptr %19, align 4, !tbaa !39
-  %21 = getelementptr inbounds nuw [32 x i32], ptr %19, i64 0, i64 %indvars.iv57
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv57
   store i32 %20, ptr %21, align 4, !tbaa !39
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 5
@@ -826,7 +826,7 @@ declare void @Map_NodeVecFree(ptr noundef) local_unnamed_addr #1
 define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !39
   %.idx = mul nsw i64 %5, 40
   %8 = getelementptr i8, ptr %1, i64 96
@@ -873,11 +873,11 @@ define float @Map_MappingGetAreaFlow(ptr noundef readonly captures(none) %0) loc
   %19 = and i64 %18, 1
   %20 = xor i64 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %22 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = icmp eq ptr %23, null
   %spec.select = select i1 %24, i64 %19, i64 %20
-  %25 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %spec.select
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %spec.select
   %26 = load ptr, ptr %25, align 8, !tbaa !66
   %.idx = mul nuw nsw i64 %spec.select, 40
   %27 = getelementptr i8, ptr %26, i64 116
@@ -1038,7 +1038,7 @@ define ptr @Map_CreateTableGate2Super(ptr noundef readonly captures(none) %0) lo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %23 = getelementptr inbounds nuw [6 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !79
   %25 = load i32, ptr %24, align 8, !tbaa !82
   %26 = trunc nuw nsw i64 %indvars.iv to i32

@@ -2555,9 +2555,9 @@ define noundef zeroext i1 @"_ZN75_$LT$rustls..msgs..handshake..SessionId$u20$as$
   %.0715 = phi i8 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.sroa.01.014 = phi i64 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %9 = add nuw nsw i64 %.sroa.01.014, 1
-  %10 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %.sroa.01.014
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.01.014
   %11 = load i8, ptr %10, align 1, !noundef !4
-  %12 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %.sroa.01.014
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.01.014
   %13 = load i8, ptr %12, align 1, !noundef !4
   %14 = xor i8 %13, %11
   %15 = or i8 %14, %.0715
@@ -8070,13 +8070,15 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload2
   %.not = icmp eq i64 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !nonnull !4
-  %6 = add i64 %3, -1
-  %7 = getelementptr inbounds [0 x { i64, [6 x i64] }], ptr %5, i64 0, i64 %6
-  br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit", label %8
+  %6 = getelementptr { i64, [6 x i64] }, ptr %5, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -56
+  %8 = icmp eq ptr %7, null
+  %9 = select i1 %.not, i1 true, i1 %8
+  br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit", label %10
 
-8:                                                ; preds = %1
-  %9 = load i64, ptr %7, align 8, !range !43, !alias.scope !1820, !noundef !4
-  switch i64 %9, label %default.unreachable [
+10:                                               ; preds = %1
+  %11 = load i64, ptr %7, align 8, !range !43, !alias.scope !1820, !noundef !4
+  switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 1, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
@@ -8086,30 +8088,30 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload2
     i64 6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 7, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 8, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
-    i64 9, label %10
+    i64 9, label %12
     i64 10, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 11, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 12, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 13, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 15, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
-    i64 16, label %11
+    i64 16, label %13
   ]
 
-default.unreachable:                              ; preds = %8
+default.unreachable:                              ; preds = %10
   unreachable
 
-10:                                               ; preds = %8
+12:                                               ; preds = %10
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %13 = load i16, ptr %12, align 8, !range !28, !alias.scope !1820, !noundef !4
-  %14 = icmp eq i16 %13, 21
+13:                                               ; preds = %10
+  %14 = getelementptr i8, ptr %6, i64 -24
+  %15 = load i16, ptr %14, align 8, !range !28, !alias.scope !1820, !noundef !4
+  %16 = icmp eq i16 %15, 21
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit": ; preds = %1, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %10, %11
-  %.0.in.i = phi i1 [ false, %1 ], [ true, %10 ], [ %14, %11 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit": ; preds = %1, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %12, %13
+  %.0.in.i = phi i1 [ false, %1 ], [ true, %12 ], [ %16, %13 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -12572,10 +12574,10 @@ _ZN6rustls4msgs12ffdhe_groups10FfdheGroup16from_named_group17h2516f65ccea360d9E.
 
 switch.lookup:                                    ; preds = %3
   %20 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   %21 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep40 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301.11, i64 0, i64 %21
+  %switch.gep40 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301.11, i64 %21
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %switch.load, i1 noundef zeroext false), !noalias !3094
@@ -17769,9 +17771,11 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
   %.not = icmp eq i64 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load ptr, ptr %20, align 8, !nonnull !4
-  %22 = add i64 %19, -1
-  %23 = getelementptr inbounds [0 x { i64, [6 x i64] }], ptr %21, i64 0, i64 %22
-  br i1 %.not, label %.thread, label %24
+  %22 = getelementptr { i64, [6 x i64] }, ptr %21, i64 %19
+  %23 = getelementptr i8, ptr %22, i64 -56
+  %.not811 = icmp eq ptr %23, null
+  %.not8 = select i1 %.not, i1 true, i1 %.not811
+  br i1 %.not8, label %.thread, label %24
 
 24:                                               ; preds = %17
   %25 = load i64, ptr %23, align 8, !range !43, !noundef !4
@@ -17785,7 +17789,7 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
   store ptr inttoptr (i64 1 to ptr), ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %30 = getelementptr i8, ptr %22, i64 -24
   invoke void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h1b053f57fdcbdd3aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %33 unwind label %31
 
@@ -17846,8 +17850,8 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
 52:                                               ; preds = %.thread, %48
   %53 = phi i64 [ %47, %.thread ], [ %50, %48 ]
   %54 = phi ptr [ %46, %.thread ], [ %49, %48 ]
-  %.0613 = phi i64 [ 0, %.thread ], [ %34, %48 ]
-  %55 = sub nuw i64 %53, %.0613
+  %.0615 = phi i64 [ 0, %.thread ], [ %34, %48 ]
+  %55 = sub nuw i64 %53, %.0615
   store i64 %55, ptr %54, align 8, !alias.scope !4348
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5777dfd3e4249c38E.exit"
 
@@ -18080,7 +18084,7 @@ define void @"_ZN96_$LT$rustls..msgs..handshake..HpkeSymmetricCipherSuite$u20$as
 
 switch.lookup112:                                 ; preds = %30
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @"switch.table._ZN96_$LT$rustls..msgs..handshake..HpkeSymmetricCipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h0a921f5e355800a1E", i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN96_$LT$rustls..msgs..handshake..HpkeSymmetricCipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h0a921f5e355800a1E", i64 %35
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %36
 

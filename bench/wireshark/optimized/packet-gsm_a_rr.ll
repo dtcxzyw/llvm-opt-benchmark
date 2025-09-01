@@ -4915,7 +4915,7 @@ define internal noundef zeroext i16 @de_rr_cell_select_indic(ptr noundef %0, ptr
   %93 = call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %91, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef %90)
   %94 = add i32 %.2251, 21
   %95 = zext i8 %89 to i64
-  %96 = getelementptr [32 x i8], ptr @convert_n_to_p, i64 0, i64 %95
+  %96 = getelementptr i8, ptr @convert_n_to_p, i64 %95
   %97 = load i8, ptr %96, align 1
   %.fr303 = freeze i8 %97
   %98 = zext i8 %.fr303 to i32
@@ -4948,7 +4948,7 @@ define internal noundef zeroext i16 @de_rr_cell_select_indic(ptr noundef %0, ptr
   %.4338 = phi i32 [ %115, %117 ], [ %94, %111 ]
   %112 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %.4338, i32 noundef %.0241340, i32 noundef 0)
   %113 = sext i32 %.0343 to i64
-  %114 = getelementptr [64 x i32], ptr %10, i64 0, i64 %113
+  %114 = getelementptr i32, ptr %10, i64 %113
   store i32 %112, ptr %114, align 4
   %115 = add i32 %.0241340, %.4338
   %116 = icmp eq i32 %112, 0
@@ -5150,7 +5150,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %227 = call ptr @proto_tree_add_uint(ptr noundef %176, i32 noundef %225, ptr noundef %0, i32 noundef %226, i32 noundef 1, i32 noundef %224)
   %228 = add i32 %.8, 7
   %229 = zext i8 %223 to i64
-  %230 = getelementptr [32 x i8], ptr @convert_n_to_q, i64 0, i64 %229
+  %230 = getelementptr i8, ptr @convert_n_to_q, i64 %229
   %231 = load i8, ptr %230, align 1
   %.fr297 = freeze i8 %231
   %232 = zext i8 %.fr297 to i32
@@ -5185,7 +5185,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %.10330 = phi i32 [ %251, %253 ], [ %228, %247 ]
   %248 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %.10330, i32 noundef %.2243332, i32 noundef 0)
   %249 = sext i32 %.2335 to i64
-  %250 = getelementptr [64 x i32], ptr %10, i64 0, i64 %249
+  %250 = getelementptr i32, ptr %10, i64 %249
   store i32 %248, ptr %250, align 4
   %251 = add i32 %.2243332, %.10330
   %252 = icmp eq i32 %248, 0
@@ -11045,10 +11045,10 @@ define hidden void @get_rr_msg_params(i8 noundef zeroext %0, ptr noundef capture
 11:                                               ; preds = %5
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [81 x i32], ptr @ett_gsm_dtap_msg_rr, i64 0, i64 %13
+  %14 = getelementptr i32, ptr @ett_gsm_dtap_msg_rr, i64 %13
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr [81 x ptr], ptr @dtap_msg_rr_fcn, i64 0, i64 %13
+  %16 = getelementptr ptr, ptr @dtap_msg_rr_fcn, i64 %13
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
   br label %18
@@ -11081,8 +11081,8 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
 7:                                                ; preds = %0, %7
   %indvars.iv41 = phi i64 [ 6, %0 ], [ %indvars.iv.next42, %7 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr [81 x i32], ptr @ett_gsm_dtap_msg_rr, i64 0, i64 %indvars.iv
-  %9 = getelementptr [248 x ptr], ptr %1, i64 0, i64 %indvars.iv41
+  %8 = getelementptr i32, ptr @ett_gsm_dtap_msg_rr, i64 %indvars.iv
+  %9 = getelementptr ptr, ptr %1, i64 %indvars.iv41
   store ptr %8, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
@@ -11092,8 +11092,8 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
 .preheader30:                                     ; preds = %7, %.preheader30
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader30 ], [ 87, %7 ]
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader30 ], [ 0, %7 ]
-  %10 = getelementptr [90 x i32], ptr @ett_gsm_rr_elem, i64 0, i64 %indvars.iv46
-  %11 = getelementptr [248 x ptr], ptr %1, i64 0, i64 %indvars.iv48
+  %10 = getelementptr i32, ptr @ett_gsm_rr_elem, i64 %indvars.iv46
+  %11 = getelementptr ptr, ptr %1, i64 %indvars.iv48
   store ptr %10, ptr %11, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
@@ -11103,8 +11103,8 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
 .preheader29:                                     ; preds = %.preheader30, %.preheader29
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.preheader29 ], [ 177, %.preheader30 ]
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.preheader29 ], [ 0, %.preheader30 ]
-  %12 = getelementptr [61 x i32], ptr @ett_gsm_rr_rest_octets_elem, i64 0, i64 %indvars.iv54
-  %13 = getelementptr [248 x ptr], ptr %1, i64 0, i64 %indvars.iv56
+  %12 = getelementptr i32, ptr @ett_gsm_rr_rest_octets_elem, i64 %indvars.iv54
+  %13 = getelementptr ptr, ptr %1, i64 %indvars.iv56
   store ptr %12, ptr %13, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -11114,8 +11114,8 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
 .preheader:                                       ; preds = %.preheader29, %.preheader
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader ], [ 238, %.preheader29 ]
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.preheader ], [ 0, %.preheader29 ]
-  %14 = getelementptr [10 x i32], ptr @ett_gsm_sacch_msg_rr, i64 0, i64 %indvars.iv62
-  %15 = getelementptr [248 x ptr], ptr %1, i64 0, i64 %indvars.iv64
+  %14 = getelementptr i32, ptr @ett_gsm_sacch_msg_rr, i64 %indvars.iv62
+  %15 = getelementptr ptr, ptr %1, i64 %indvars.iv64
   store ptr %14, ptr %15, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -11264,7 +11264,7 @@ define internal i32 @dissect_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %spec.store.select = select i1 %34, i32 0, i32 %33
   store i32 %spec.store.select, ptr @dissect_ccch.tap_current, align 4
   %35 = zext i32 %spec.store.select to i64
-  %36 = getelementptr [4 x %struct._gsm_a_tap_rec_t], ptr @dissect_ccch.tap_rec, i64 0, i64 %35
+  %36 = getelementptr %struct._gsm_a_tap_rec_t, ptr @dissect_ccch.tap_rec, i64 %35
   store ptr %36, ptr @dissect_ccch.tap_p, align 8
   %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %38 = and i8 %37, 112
@@ -11302,9 +11302,9 @@ define internal i32 @dissect_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 56:                                               ; preds = %45
   %57 = load i32, ptr %5, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr [81 x i32], ptr @ett_gsm_dtap_msg_rr, i64 0, i64 %58
+  %59 = getelementptr i32, ptr @ett_gsm_dtap_msg_rr, i64 %58
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr [81 x ptr], ptr @dtap_msg_rr_fcn, i64 0, i64 %58
+  %61 = getelementptr ptr, ptr @dtap_msg_rr_fcn, i64 %58
   %62 = load ptr, ptr %61, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = load i32, ptr @proto_a_ccch, align 4
@@ -11397,7 +11397,7 @@ define internal i32 @dissect_sacch(ptr noundef %0, ptr noundef %1, ptr noundef %
   %spec.store.select = select i1 %11, i32 0, i32 %10
   store i32 %spec.store.select, ptr @dissect_sacch.tap_current, align 4
   %12 = zext i32 %spec.store.select to i64
-  %13 = getelementptr [4 x %struct._gsm_a_tap_rec_t], ptr @dissect_sacch.tap_rec, i64 0, i64 %12
+  %13 = getelementptr %struct._gsm_a_tap_rec_t, ptr @dissect_sacch.tap_rec, i64 %12
   store ptr %13, ptr @dissect_sacch.tap_p, align 8
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %15 = lshr i8 %14, 7
@@ -11429,9 +11429,9 @@ define internal i32 @dissect_sacch(ptr noundef %0, ptr noundef %1, ptr noundef %
 .thread75:                                        ; preds = %21
   %25 = load i32, ptr %5, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [10 x i32], ptr @ett_gsm_sacch_msg_rr, i64 0, i64 %26
+  %27 = getelementptr i32, ptr @ett_gsm_sacch_msg_rr, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr [10 x ptr], ptr @sacch_msg_rr_fcn, i64 0, i64 %26
+  %29 = getelementptr ptr, ptr @sacch_msg_rr_fcn, i64 %26
   %30 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = load i32, ptr @proto_a_sacch, align 4
@@ -11537,7 +11537,7 @@ define internal i32 @dissect_ec_ccch(ptr noundef %0, ptr noundef %1, ptr noundef
 20:                                               ; preds = %4
   %21 = load i32, ptr %5, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [5 x ptr], ptr @dtap_msg_rr_ec_ccch_fcn, i64 0, i64 %22
+  %23 = getelementptr ptr, ptr @dtap_msg_rr_ec_ccch_fcn, i64 %22
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = load i32, ptr @proto_a_ec_ccch, align 4
@@ -11753,7 +11753,7 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
   %24 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef 10, i32 noundef 0)
   %25 = add i32 %20, 17
   %26 = sext i32 %22 to i64
-  %27 = getelementptr [1024 x i8], ptr %8, i64 0, i64 %26
+  %27 = getelementptr i8, ptr %8, i64 %26
   store i8 1, ptr %27, align 1
   switch i32 %5, label %30 [
     i32 512, label %31
@@ -11789,7 +11789,7 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
   %.07492 = phi i32 [ 1, %31 ], [ %.175, %53 ]
   %.18090 = phi i32 [ %.079, %31 ], [ %.281, %53 ]
   %35 = tail call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %.16895, i32 noundef %.18090, i32 noundef 0)
-  %36 = getelementptr [64 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %36 = getelementptr i32, ptr %7, i64 %indvars.iv
   store i32 %35, ptr %36, align 4
   %37 = load i32, ptr @hf_gsm_a_rr_w_elements, align 4
   %38 = ashr i32 %.16895, 3
@@ -11923,7 +11923,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %100 = add i32 %99, %.076
   %101 = srem i32 %100, 1024
   %102 = sext i32 %101 to i64
-  %103 = getelementptr [1024 x i8], ptr %8, i64 0, i64 %102
+  %103 = getelementptr i8, ptr %8, i64 %102
   store i8 1, ptr %103, align 1
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107 = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
@@ -12212,7 +12212,7 @@ define internal fastcc noundef zeroext i1 @gsm_rr_csn_HL_flag(ptr noundef %0, pt
   %18 = lshr i32 %12, 2
   %19 = add nuw nsw i32 %18, %12
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [13 x i8], ptr %6, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %6, i64 %20
   %22 = lshr i32 %3, 3
   br i1 %.not33, label %25, label %23
 
@@ -12584,9 +12584,9 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr [61 x i32], ptr @ett_gsm_rr_rest_octets_elem, i64 0, i64 %7
+  %8 = getelementptr i32, ptr @ett_gsm_rr_rest_octets_elem, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr [61 x ptr], ptr @gsm_rr_rest_octets_elem_strings, i64 0, i64 %7
+  %10 = getelementptr ptr, ptr @gsm_rr_rest_octets_elem_strings, i64 %7
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %11)
   %13 = add i32 %2, 1
@@ -12870,9 +12870,9 @@ define internal fastcc noundef i32 @de_rr_bsic_desc(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr [61 x i32], ptr @ett_gsm_rr_rest_octets_elem, i64 0, i64 %7
+  %8 = getelementptr i32, ptr @ett_gsm_rr_rest_octets_elem, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr [61 x ptr], ptr @gsm_rr_rest_octets_elem_strings, i64 0, i64 %7
+  %10 = getelementptr ptr, ptr @gsm_rr_rest_octets_elem_strings, i64 %7
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %11)
   %13 = add i32 %2, 1
@@ -12937,9 +12937,9 @@ define internal fastcc noundef i32 @de_rr_report_priority_desc(ptr noundef %0, p
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr [61 x i32], ptr @ett_gsm_rr_rest_octets_elem, i64 0, i64 %7
+  %8 = getelementptr i32, ptr @ett_gsm_rr_rest_octets_elem, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr [61 x ptr], ptr @gsm_rr_rest_octets_elem_strings, i64 0, i64 %7
+  %10 = getelementptr ptr, ptr @gsm_rr_rest_octets_elem_strings, i64 %7
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %11)
   %13 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %2, i32 noundef 7)
@@ -12978,9 +12978,9 @@ define internal fastcc i32 @de_rr_meas_param_desc(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr [61 x i32], ptr @ett_gsm_rr_rest_octets_elem, i64 0, i64 %7
+  %8 = getelementptr i32, ptr @ett_gsm_rr_rest_octets_elem, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr [61 x ptr], ptr @gsm_rr_rest_octets_elem_strings, i64 0, i64 %7
+  %10 = getelementptr ptr, ptr @gsm_rr_rest_octets_elem_strings, i64 %7
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %11)
   %13 = icmp eq i32 %3, 8
@@ -13237,7 +13237,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   %50 = call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef %47)
   %51 = add i32 %.1, 22
   %52 = zext i8 %46 to i64
-  %53 = getelementptr [32 x i8], ptr @convert_n_to_p, i64 0, i64 %52
+  %53 = getelementptr i8, ptr @convert_n_to_p, i64 %52
   %54 = load i8, ptr %53, align 1
   %.fr103 = freeze i8 %54
   %55 = zext i8 %.fr103 to i32
@@ -13270,7 +13270,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   %.091111 = phi i32 [ %.192, %74 ], [ 10, %68 ]
   %69 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %.3116, i32 noundef %.091111, i32 noundef 0)
   %70 = sext i32 %.085114 to i64
-  %71 = getelementptr [64 x i32], ptr %6, i64 0, i64 %70
+  %71 = getelementptr i32, ptr %6, i64 %70
   store i32 %69, ptr %71, align 4
   %72 = add i32 %.3116, %.091111
   %73 = icmp eq i32 %69, 0
@@ -13478,7 +13478,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   %49 = call ptr @proto_tree_add_uint(ptr noundef %8, i32 noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef %46)
   %50 = add i32 %.1, 22
   %51 = zext i8 %45 to i64
-  %52 = getelementptr [32 x i8], ptr @convert_n_to_q, i64 0, i64 %51
+  %52 = getelementptr i8, ptr @convert_n_to_q, i64 %51
   %53 = load i8, ptr %52, align 1
   %.fr110 = freeze i8 %53
   %54 = zext i8 %.fr110 to i32
@@ -13513,7 +13513,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   %.098118 = phi i32 [ %.199, %75 ], [ 9, %69 ]
   %70 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %.3123, i32 noundef %.098118, i32 noundef 0)
   %71 = sext i32 %.092121 to i64
-  %72 = getelementptr [64 x i32], ptr %5, i64 0, i64 %71
+  %72 = getelementptr i32, ptr %5, i64 %71
   store i32 %70, ptr %72, align 4
   %73 = add i32 %.3123, %.098118
   %74 = icmp eq i32 %70, 0
@@ -20769,7 +20769,7 @@ define internal fastcc noundef i32 @dtap_rr_ec_paging_imsi(ptr noundef %0, ptr n
   %.01819 = phi i8 [ 0, %4 ], [ %20, %14 ]
   %15 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.020, i32 noundef 4)
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [16 x i8], ptr @digits, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @digits, i64 %16
   %18 = load i8, ptr %17, align 1
   call void @wmem_strbuf_append_c(ptr noundef %13, i8 noundef signext %18)
   %19 = add i32 %.020, 4

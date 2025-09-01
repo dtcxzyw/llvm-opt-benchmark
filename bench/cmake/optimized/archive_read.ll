@@ -638,7 +638,7 @@ choose_filters.exit:                              ; preds = %73
 
 choose_format.exit:                               ; preds = %158
   %161 = zext nneg i32 %.1.i73 to i64
-  %162 = getelementptr inbounds nuw [16 x %struct.archive_format_descriptor], ptr %137, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %137, i64 %161
   store ptr %162, ptr %134, align 8, !tbaa !73
   br label %163
 
@@ -1487,7 +1487,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_read_register_format(ptr nound
 
 16:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw [16 x %struct.archive_format_descriptor], ptr %14, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %14, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !74
   %20 = icmp eq ptr %19, %3
@@ -2821,7 +2821,7 @@ define internal i32 @_archive_read_free(ptr noundef %0) #0 {
 
 18:                                               ; preds = %15, %24
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %24 ]
-  %19 = getelementptr inbounds nuw [16 x %struct.archive_format_descriptor], ptr %16, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %16, i64 %indvars.iv
   store ptr %19, ptr %17, align 8, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !102
@@ -2893,7 +2893,7 @@ __archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %25, %clo
 
 45:                                               ; preds = %__archive_read_free_filters.exit, %55
   %indvars.iv71 = phi i64 [ 0, %__archive_read_free_filters.exit ], [ %indvars.iv.next72, %55 ]
-  %46 = getelementptr inbounds nuw [16 x %struct.archive_read_filter_bidder], ptr %44, i64 0, i64 %indvars.iv71
+  %46 = getelementptr inbounds nuw %struct.archive_read_filter_bidder, ptr %44, i64 %indvars.iv71
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !56
   %49 = icmp eq ptr %48, null

@@ -5339,7 +5339,7 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h39632703ebde94c6E.exit.i: ; preds = %3
-  %17 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %5, i64 0, i64 %14
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i64 %14
   call void @_ZN4core3ptr4swap17ha82ad9c80ebfaa5aE.llvm.10525918402515997389(ptr noundef nonnull %12, ptr noundef nonnull %17), !noalias !1024
   br label %.outer.i
 
@@ -8972,7 +8972,7 @@ define hidden void @"_ZN15context_servers6client6Client7request28_$u7b$$u7b$clos
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h39632703ebde94c6E.exit: ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %4, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %13
   call void @_ZN4core3ptr4swap17ha82ad9c80ebfaa5aE.llvm.10525918402515997389(ptr noundef nonnull %11, ptr noundef nonnull %16), !noalias !1813
   br label %.outer
 

@@ -399,7 +399,7 @@ define dso_local i64 @phy_speeds(ptr noundef captures(none) %0, i64 noundef %1, 
 .preheader:                                       ; preds = %3, %26
   %6 = phi i64 [ %28, %26 ], [ 0, %3 ]
   %7 = phi i64 [ %27, %26 ], [ 0, %3 ]
-  %8 = getelementptr [89 x %struct.phy_setting], ptr @settings, i64 0, i64 %6
+  %8 = getelementptr %struct.phy_setting, ptr @settings, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 102
@@ -522,7 +522,7 @@ define dso_local void @phy_resolve_aneg_linkmode(ptr noundef %0) #1 align 16 {
 
 6:                                                ; preds = %22, %1
   %7 = phi i64 [ 0, %1 ], [ %23, %22 ]
-  %8 = getelementptr [89 x %struct.phy_setting], ptr @settings, i64 0, i64 %7
+  %8 = getelementptr %struct.phy_setting, ptr @settings, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
@@ -608,7 +608,7 @@ define dso_local void @phy_check_downshift(ptr noundef %0) #1 align 16 {
 
 16:                                               ; preds = %25, %12
   %17 = phi i64 [ 0, %12 ], [ %26, %25 ]
-  %18 = getelementptr [89 x %struct.phy_setting], ptr @settings, i64 0, i64 %17
+  %18 = getelementptr %struct.phy_setting, ptr @settings, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 5
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
@@ -662,7 +662,7 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_speed_down_core(ptr noundef 
 
 6:                                                ; preds = %19, %1
   %7 = phi i64 [ 88, %1 ], [ %20, %19 ]
-  %8 = getelementptr [89 x %struct.phy_setting], ptr @settings, i64 0, i64 %7
+  %8 = getelementptr %struct.phy_setting, ptr @settings, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64

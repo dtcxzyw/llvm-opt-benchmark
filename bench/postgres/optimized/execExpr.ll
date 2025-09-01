@@ -4069,7 +4069,7 @@ ExprEvalPushStep.exit1150:                        ; preds = %2019, %._crit_edge.
 
 switch.lookup:                                    ; preds = %2039
   %2049 = zext nneg i32 %2043 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.ExecInitExprRec, i64 0, i64 %2049
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ExecInitExprRec, i64 %2049
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %6, align 8
   %2050 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -6865,7 +6865,7 @@ ExprEvalPushStep.exit231:                         ; preds = %145, %._crit_edge.i
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
-  %190 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %172, i64 0, i64 %indvars.iv.next498
+  %190 = getelementptr inbounds nuw %struct.NullableDatum, ptr %172, i64 %indvars.iv.next498
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   call fastcc void @ExecInitExprRec(ptr noundef %189, ptr noundef nonnull %7, ptr noundef nonnull %190, ptr noundef nonnull %191)
   %192 = load i32, ptr %177, align 4
@@ -9675,7 +9675,7 @@ list_length.exit:                                 ; preds = %6, %7
 75:                                               ; preds = %.lr.ph80
   %76 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %47, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i64 %indvars.iv
   store i64 %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %80 = load i8, ptr %79, align 8, !range !4, !noundef !5
@@ -9684,7 +9684,7 @@ list_length.exit:                                 ; preds = %6, %7
   br label %85
 
 82:                                               ; preds = %.lr.ph80
-  %83 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %47, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw %struct.NullableDatum, ptr %47, i64 %indvars.iv
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   tail call fastcc void @ExecInitExprRec(ptr noundef nonnull %64, ptr noundef %5, ptr noundef nonnull %83, ptr noundef nonnull %84)
   br label %85

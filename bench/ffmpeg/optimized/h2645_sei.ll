@@ -600,7 +600,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %386 = lshr i32 %385, 7
   store i32 %spec.select.i79.i, ptr %230, align 8, !tbaa !29
   %387 = and i32 %386, 1
-  %388 = getelementptr inbounds nuw [3 x i32], ptr %368, i64 0, i64 %indvars.iv.i
+  %388 = getelementptr inbounds nuw i32, ptr %368, i64 %indvars.iv.i
   store i32 %387, ptr %388, align 4, !tbaa !64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -608,7 +608,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
 
 389:                                              ; preds = %.loopexit.i, %.preheader86.i
   %indvars.iv103.i = phi i64 [ 0, %.preheader86.i ], [ %indvars.iv.next104.i, %.loopexit.i ]
-  %390 = getelementptr inbounds nuw [3 x i32], ptr %368, i64 0, i64 %indvars.iv103.i
+  %390 = getelementptr inbounds nuw i32, ptr %368, i64 %indvars.iv103.i
   %391 = load i32, ptr %390, align 4, !tbaa !64
   %.not76.i = icmp eq i32 %391, 0
   br i1 %.not76.i, label %.loopexit.i, label %392
@@ -630,7 +630,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %405, ptr %230, align 8, !tbaa !29
   %406 = trunc nuw nsw i32 %403 to i16
   %407 = add nuw nsw i16 %406, 1
-  %408 = getelementptr inbounds nuw [3 x i16], ptr %369, i64 0, i64 %indvars.iv103.i
+  %408 = getelementptr inbounds nuw i16, ptr %369, i64 %indvars.iv103.i
   store i16 %407, ptr %408, align 2, !tbaa !67
   %409 = lshr i32 %405, 3
   %410 = zext nneg i32 %409 to i64
@@ -645,7 +645,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %418, ptr %230, align 8, !tbaa !29
   %419 = trunc nuw nsw i32 %416 to i8
   %420 = add nuw nsw i8 %419, 1
-  %421 = getelementptr inbounds nuw [3 x i8], ptr %370, i64 0, i64 %indvars.iv103.i
+  %421 = getelementptr inbounds nuw i8, ptr %370, i64 %indvars.iv103.i
   store i8 %420, ptr %421, align 1, !tbaa !12
   %422 = icmp ugt i32 %415, -1073741825
   br i1 %422, label %decode_registered_user_data.exit, label %.preheader.i
@@ -656,9 +656,9 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not93.i, label %.loopexit.i, label %.lr.ph91.i
 
 .lr.ph91.i:                                       ; preds = %.preheader.i
-  %424 = getelementptr inbounds nuw [3 x [256 x i8]], ptr %371, i64 0, i64 %indvars.iv103.i
-  %425 = getelementptr inbounds nuw [3 x [256 x i8]], ptr %372, i64 0, i64 %indvars.iv103.i
-  %426 = getelementptr inbounds nuw [3 x [256 x [6 x i16]]], ptr %373, i64 0, i64 %indvars.iv103.i
+  %424 = getelementptr inbounds nuw [256 x i8], ptr %371, i64 %indvars.iv103.i
+  %425 = getelementptr inbounds nuw [256 x i8], ptr %372, i64 %indvars.iv103.i
+  %426 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %373, i64 %indvars.iv103.i
   %427 = zext i16 %423 to i64
   br label %428
 
@@ -679,7 +679,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %441 = tail call i32 @llvm.umin.i32(i32 %430, i32 %440)
   store i32 %441, ptr %230, align 8, !tbaa !29
   %442 = trunc nuw i32 %439 to i8
-  %443 = getelementptr inbounds nuw [256 x i8], ptr %424, i64 0, i64 %indvars.iv100.i
+  %443 = getelementptr inbounds nuw i8, ptr %424, i64 %indvars.iv100.i
   store i8 %442, ptr %443, align 1, !tbaa !12
   %444 = load i32, ptr %230, align 8, !tbaa !29
   %445 = load i32, ptr %237, align 8, !tbaa !32
@@ -696,7 +696,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %456 = tail call i32 @llvm.umin.i32(i32 %445, i32 %455)
   store i32 %456, ptr %230, align 8, !tbaa !29
   %457 = trunc nuw i32 %454 to i8
-  %458 = getelementptr inbounds nuw [256 x i8], ptr %425, i64 0, i64 %indvars.iv100.i
+  %458 = getelementptr inbounds nuw i8, ptr %425, i64 %indvars.iv100.i
   store i8 %457, ptr %458, align 1, !tbaa !12
   %459 = load i8, ptr %421, align 1, !tbaa !12
   %.not94.i = icmp eq i8 %459, 0
@@ -705,7 +705,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.i:                                         ; preds = %428
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !11
   %.sroa.77.0.copyload.i.i.i.i = load i32, ptr %237, align 8, !tbaa !64
-  %460 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %426, i64 0, i64 %indvars.iv100.i
+  %460 = getelementptr inbounds nuw [6 x i16], ptr %426, i64 %indvars.iv100.i
   br label %461
 
 ._crit_edge.i:                                    ; preds = %get_se_golomb_long.exit.i, %428
@@ -745,7 +745,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %.110.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %482
   %.1.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.i.i.i, i32 %483
   %484 = zext nneg i32 %.110.i.i.i.i to i64
-  %485 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %484
+  %485 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %484
   %486 = load i8, ptr %485, align 1, !tbaa !12
   %487 = zext i8 %486 to i32
   %488 = add nuw nsw i32 %.1.i.i.i.i, %487
@@ -810,7 +810,7 @@ get_se_golomb_long.exit.i:                        ; preds = %507, %503, %461
   %529 = xor i32 %527, %528
   %530 = trunc i32 %529 to i16
   %531 = add i16 %530, 1
-  %532 = getelementptr inbounds nuw [6 x i16], ptr %460, i64 0, i64 %indvars.iv97.i
+  %532 = getelementptr inbounds nuw i16, ptr %460, i64 %indvars.iv97.i
   store i16 %531, ptr %532, align 2, !tbaa !67
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %533 = load i8, ptr %421, align 1, !tbaa !12
@@ -879,7 +879,7 @@ get_se_golomb_long.exit.i:                        ; preds = %507, %503, %461
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %574
   %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %575
   %576 = zext nneg i32 %.110.i.i.i to i64
-  %577 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %576
   %578 = load i8, ptr %577, align 1, !tbaa !12
   %579 = zext i8 %578 to i32
   %580 = add nuw nsw i32 %.1.i.i.i, %579
@@ -984,7 +984,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %599, %595, %553
   %.110.i.i.i39 = select i1 %.not11.i.i.i38, i32 %spec.select.i.i.i36, i32 %642
   %.1.i.i.i40 = select i1 %.not11.i.i.i38, i32 %spec.select12.i.i.i37, i32 %643
   %644 = zext nneg i32 %.110.i.i.i39 to i64
-  %645 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %644
+  %645 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %644
   %646 = load i8, ptr %645, align 1, !tbaa !12
   %647 = zext i8 %646 to i32
   %648 = add nuw nsw i32 %.1.i.i.i40, %647
@@ -1169,7 +1169,7 @@ get_ue_golomb_long.exit.i44:                      ; preds = %667, %663, %620
   %.110.i.i38.i = select i1 %.not11.i.i37.i, i32 %spec.select.i.i35.i, i32 %777
   %.1.i.i39.i = select i1 %.not11.i.i37.i, i32 %spec.select12.i.i36.i, i32 %778
   %779 = zext nneg i32 %.110.i.i38.i to i64
-  %780 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %779
+  %780 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %779
   %781 = load i8, ptr %780, align 1, !tbaa !12
   %782 = zext i8 %781 to i32
   %783 = add nuw nsw i32 %.1.i.i39.i, %782
@@ -1334,7 +1334,7 @@ decode_frame_packing_arrangement.exit:            ; preds = %get_ue_golomb_long.
   store ptr %885, ptr %4, align 8, !tbaa !11
   %886 = load i16, ptr %884, align 1, !tbaa !12
   %887 = tail call i16 @llvm.bswap.i16(i16 %886)
-  %888 = getelementptr inbounds nuw [3 x [2 x i16]], ptr %882, i64 0, i64 %indvars.iv.i54
+  %888 = getelementptr inbounds nuw [2 x i16], ptr %882, i64 %indvars.iv.i54
   store i16 %887, ptr %888, align 4, !tbaa !67
   %889 = getelementptr inbounds nuw i8, ptr %884, i64 4
   store ptr %889, ptr %4, align 8, !tbaa !11
@@ -1495,8 +1495,8 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_ctx_replace(ptr noundef %0, p
 
 42:                                               ; preds = %.critedge, %41
   %indvars.iv78 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next79, %41 ]
-  %43 = getelementptr inbounds nuw [8 x ptr], ptr %39, i64 0, i64 %indvars.iv78
-  %44 = getelementptr inbounds nuw [8 x ptr], ptr %40, i64 0, i64 %indvars.iv78
+  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv78
+  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv78
   %45 = load ptr, ptr %44, align 8, !tbaa !27
   %46 = tail call i32 @av_buffer_replace(ptr noundef nonnull %43, ptr noundef %45) #9
   %47 = icmp slt i32 %46, 0
@@ -2051,24 +2051,24 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
 56:                                               ; preds = %52, %56
   %indvars.iv169 = phi i64 [ 0, %52 ], [ %indvars.iv.next170, %56 ]
   %57 = phi i32 [ 1, %52 ], [ %74, %56 ]
-  %58 = getelementptr inbounds nuw [3 x i32], ptr @__const.h2645_sei_to_side_data.mapping, i64 0, i64 %indvars.iv169
+  %58 = getelementptr inbounds nuw i32, ptr @__const.h2645_sei_to_side_data.mapping, i64 %indvars.iv169
   %59 = load i32, ptr %58, align 4, !tbaa !64
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [3 x [2 x i16]], ptr %55, i64 0, i64 %60
+  %61 = getelementptr inbounds [2 x i16], ptr %55, i64 %60
   %62 = load i16, ptr %61, align 4, !tbaa !67
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %51, i64 0, i64 %indvars.iv169
+  %64 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169
   store i32 %63, ptr %64, align 4, !tbaa !165
-  %65 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %51, i64 0, i64 %indvars.iv169, i64 0, i32 1
+  %65 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169, i64 0, i32 1
   store i32 50000, ptr %65, align 4, !tbaa !166
   %66 = add i16 %62, -5
   %narrow163 = icmp ult i16 %66, -28540
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %68 = load i16, ptr %67, align 2, !tbaa !67
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %51, i64 0, i64 %indvars.iv169, i64 1
+  %70 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169, i64 1
   store i32 %69, ptr %70, align 4, !tbaa !165
-  %71 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %51, i64 0, i64 %indvars.iv169, i64 1, i32 1
+  %71 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169, i64 1, i32 1
   store i32 50000, ptr %71, align 4, !tbaa !166
   %72 = add i16 %68, -5
   %narrow164 = icmp ult i16 %72, -23540

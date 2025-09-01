@@ -3621,7 +3621,7 @@ define hidden void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d3
 switch.lookup:                                    ; preds = %15
   %19 = lshr exact i32 %17, 12
   %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE.llvm.15947207822535676624, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE.llvm.15947207822535676624, i64 %20
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN14cap_primitives6rustix2fs13file_type_ext15ImplFileTypeExt8from_std17h186ea5f7624c877aE.exit
 

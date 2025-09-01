@@ -137,7 +137,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   br i1 %62, label %63, label %.split.us.invoke, !prof !10
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds nuw [0 x i8], ptr %51, i64 0, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 %61
   %65 = load i8, ptr %64, align 1, !noundef !7
   %.not.i.us = icmp eq i8 %65, -1
   br i1 %.not.i.us, label %86, label %66
@@ -184,7 +184,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
 
 95:                                               ; preds = %88
   %96 = extractvalue { ptr, i64 } %87, 0
-  %97 = getelementptr inbounds nuw [0 x { [4 x i8] }], ptr %96, i64 0, i64 %93
+  %97 = getelementptr inbounds nuw { [4 x i8] }, ptr %96, i64 %93
   store <4 x i8> %.sroa.0.0.in.i.us, ptr %97, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit133_crit_edge.us, label %57
@@ -385,7 +385,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us.us: ; preds = %.lr.ph166.s
   br i1 %176, label %177, label %.split.us160, !prof !10
 
 177:                                              ; preds = %170
-  %178 = getelementptr inbounds [0 x i8], ptr %160, i64 0, i64 %175
+  %178 = getelementptr inbounds i8, ptr %160, i64 %175
   %179 = load i8, ptr %178, align 1, !noundef !7
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %.backedge.us168.us, label %181
@@ -409,7 +409,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us.us: ; preds = %.lr.ph166.s
   %193 = mul nuw i32 %165, %189
   %194 = and i32 %193, -16711936
   %195 = or disjoint i32 %192, %194
-  %196 = getelementptr inbounds nuw [0 x i32], ptr %38, i64 0, i64 %184
+  %196 = getelementptr inbounds nuw i32, ptr %38, i64 %184
   %197 = load i32, ptr %196, align 4, !noundef !7
   %198 = lshr i32 %193, 24
   %199 = sub nuw nsw i32 256, %198
@@ -430,7 +430,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us.us: ; preds = %.lr.ph166.s
   br i1 %186, label %211, label %.split179.us, !prof !10
 
 211:                                              ; preds = %210
-  %212 = getelementptr inbounds nuw [0 x i32], ptr %38, i64 0, i64 %184
+  %212 = getelementptr inbounds nuw i32, ptr %38, i64 %184
   store i32 %.fr195, ptr %212, align 4
   br label %.backedge.us168.us
 
@@ -461,7 +461,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us: ; preds = %.lr.ph166.spli
   br i1 %222, label %223, label %.split.us160, !prof !10
 
 223:                                              ; preds = %216
-  %224 = getelementptr inbounds [0 x i8], ptr %160, i64 0, i64 %221
+  %224 = getelementptr inbounds i8, ptr %160, i64 %221
   %225 = load i8, ptr %224, align 1, !noundef !7
   %226 = icmp eq i8 %225, 0
   br i1 %226, label %.backedge.us.us, label %227
@@ -481,7 +481,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit108.us: ; preds = %.lr.ph166.spli
   %237 = mul nuw i32 %165, %233
   %238 = and i32 %237, -16711936
   %239 = or disjoint i32 %236, %238
-  %240 = getelementptr inbounds nuw [0 x i32], ptr %38, i64 0, i64 %230
+  %240 = getelementptr inbounds nuw i32, ptr %38, i64 %230
   %241 = load i32, ptr %240, align 4, !noundef !7
   %242 = lshr i32 %237, 24
   %243 = sub nuw nsw i32 256, %242
@@ -639,7 +639,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   br i1 %73, label %74, label %.split.us.invoke, !prof !10
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw [0 x i8], ptr %61, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw i8, ptr %61, i64 %72
   %76 = load i8, ptr %75, align 1, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
@@ -759,7 +759,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
 
 124:                                              ; preds = %117
   %125 = extractvalue { ptr, i64 } %116, 0
-  %126 = getelementptr inbounds nuw [0 x { [4 x i8] }], ptr %125, i64 0, i64 %122
+  %126 = getelementptr inbounds nuw { [4 x i8] }, ptr %125, i64 %122
   store <4 x i8> %.sroa.0.0.in.i.us, ptr %126, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit145_crit_edge.us, label %68
@@ -960,7 +960,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   br i1 %205, label %206, label %.split.us175, !prof !10
 
 206:                                              ; preds = %199
-  %207 = getelementptr inbounds [0 x i8], ptr %189, i64 0, i64 %204
+  %207 = getelementptr inbounds i8, ptr %189, i64 %204
   %208 = load i8, ptr %207, align 1, !noundef !7
   %209 = icmp eq i8 %208, 0
   br i1 %209, label %.backedge.us, label %210
@@ -1031,7 +1031,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   %239 = mul nuw i32 %238, %233
   %240 = and i32 %239, -16711936
   %241 = or disjoint i32 %236, %240
-  %242 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %225
+  %242 = getelementptr inbounds nuw i32, ptr %48, i64 %225
   %243 = load i32, ptr %242, align 4, !noundef !7
   %244 = lshr i32 %239, 24
   %245 = sub nuw nsw i32 256, %244
@@ -1052,7 +1052,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   br i1 %229, label %257, label %.split181.us, !prof !10
 
 257:                                              ; preds = %256
-  %258 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %225
+  %258 = getelementptr inbounds nuw i32, ptr %48, i64 %225
   store i32 %222, ptr %258, align 4
   br label %.backedge.us
 
@@ -1190,7 +1190,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
   br i1 %68, label %69, label %.split.us.invoke, !prof !10
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds nuw [0 x i8], ptr %55, i64 0, i64 %67
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 %67
   %71 = load i8, ptr %70, align 1, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
@@ -1304,7 +1304,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
 
 134:                                              ; preds = %127
   %135 = extractvalue { ptr, i64 } %126, 0
-  %136 = getelementptr inbounds nuw [0 x { [4 x i8] }], ptr %135, i64 0, i64 %132
+  %136 = getelementptr inbounds nuw { [4 x i8] }, ptr %135, i64 %132
   store <4 x i8> %.sroa.0.0.in.i.us, ptr %136, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit138_crit_edge.us, label %63
@@ -1513,7 +1513,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
   br i1 %216, label %217, label %.split.us174, !prof !10
 
 217:                                              ; preds = %210
-  %218 = getelementptr inbounds [0 x i8], ptr %199, i64 0, i64 %215
+  %218 = getelementptr inbounds i8, ptr %199, i64 %215
   %219 = load i8, ptr %218, align 1, !noundef !7
   %220 = icmp eq i8 %219, 0
   br i1 %220, label %.backedge.us, label %221
@@ -1587,7 +1587,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
   %265 = mul nuw i32 %264, %259
   %266 = and i32 %265, -16711936
   %267 = or disjoint i32 %262, %266
-  %268 = getelementptr inbounds nuw [0 x i32], ptr %42, i64 0, i64 %251
+  %268 = getelementptr inbounds nuw i32, ptr %42, i64 %251
   %269 = load i32, ptr %268, align 4, !noundef !7
   %270 = lshr i32 %265, 24
   %271 = sub nuw nsw i32 256, %270
@@ -1608,7 +1608,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
   br i1 %255, label %283, label %.split182.us, !prof !10
 
 283:                                              ; preds = %282
-  %284 = getelementptr inbounds nuw [0 x i32], ptr %42, i64 0, i64 %251
+  %284 = getelementptr inbounds nuw i32, ptr %42, i64 %251
   store i32 %.1.extract.trunc.i112.us, ptr %284, align 4
   br label %.backedge.us
 

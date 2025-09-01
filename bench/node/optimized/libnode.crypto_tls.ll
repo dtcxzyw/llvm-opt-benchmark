@@ -875,7 +875,7 @@ _ZN4node14StreamResource18PushStreamListenerEPNS_14StreamListenerE.exit: ; preds
   %17 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %17, i64 2240
   %idxprom.i = zext i32 %15 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %18 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %18 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -1453,7 +1453,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJRiRPKcEEEvPNS_9AsyncWrapES3_DpOT_.exit
@@ -1550,7 +1550,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -1680,7 +1680,7 @@ if.then15:                                        ; preds = %_ZNK4node10BaseObje
   %14 = load ptr, ptr %env_.i.i25, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %14, i64 2240
   %idxprom.i = zext i32 %12 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %15 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %if.end.i141, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit142
@@ -1731,7 +1731,7 @@ if.then70:                                        ; preds = %land.lhs.true
   %22 = load ptr, ptr %env_.i.i32, align 8
   %enabled_debug_list_.i33 = getelementptr inbounds nuw i8, ptr %22, i64 2240
   %idxprom.i267 = zext i32 %20 to i64
-  %arrayidx.i268 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i33, i64 0, i64 %idxprom.i267
+  %arrayidx.i268 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i33, i64 %idxprom.i267
   %23 = load i8, ptr %arrayidx.i268, align 1
   %tobool.i269 = trunc i8 %23 to i1
   br i1 %tobool.i269, label %if.end.i, label %do.body
@@ -2677,7 +2677,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %21 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %21, i64 2240
   %idxprom.i = zext i32 %19 to i64
-  %arrayidx.i80 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i80 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %22 = load i8, ptr %arrayidx.i80, align 1
   %tobool.i = trunc i8 %22 to i1
   br i1 %tobool.i, label %if.end.i43, label %_ZN4node5DebugIJRmEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -2826,7 +2826,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i326 = zext i32 %0 to i64
-  %arrayidx.i327 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i326
+  %arrayidx.i327 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i326
   %3 = load i8, ptr %arrayidx.i327, align 1
   %tobool.i328 = trunc i8 %3 to i1
   br i1 %tobool.i328, label %if.end.i259, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit260
@@ -2848,7 +2848,7 @@ if.then:                                          ; preds = %_ZN4node5DebugIJEEE
   %7 = load ptr, ptr %env_.i.i30, align 8
   %enabled_debug_list_.i31 = getelementptr inbounds nuw i8, ptr %7, i64 2240
   %idxprom.i332 = zext i32 %5 to i64
-  %arrayidx.i333 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i31, i64 0, i64 %idxprom.i332
+  %arrayidx.i333 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i31, i64 %idxprom.i332
   %8 = load i8, ptr %arrayidx.i333, align 1
   %tobool.i334 = trunc i8 %8 to i1
   br i1 %tobool.i334, label %if.end.i248, label %cleanup.cont216
@@ -2870,7 +2870,7 @@ if.then2:                                         ; preds = %if.end
   %12 = load ptr, ptr %env_.i.i34, align 8
   %enabled_debug_list_.i35 = getelementptr inbounds nuw i8, ptr %12, i64 2240
   %idxprom.i338 = zext i32 %10 to i64
-  %arrayidx.i339 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i35, i64 0, i64 %idxprom.i338
+  %arrayidx.i339 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i35, i64 %idxprom.i338
   %13 = load i8, ptr %arrayidx.i339, align 1
   %tobool.i340 = trunc i8 %13 to i1
   br i1 %tobool.i340, label %if.end.i237, label %cleanup.cont216
@@ -2892,7 +2892,7 @@ if.then5:                                         ; preds = %if.end3
   %17 = load ptr, ptr %env_.i.i38, align 8
   %enabled_debug_list_.i39 = getelementptr inbounds nuw i8, ptr %17, i64 2240
   %idxprom.i344 = zext i32 %15 to i64
-  %arrayidx.i345 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i39, i64 0, i64 %idxprom.i344
+  %arrayidx.i345 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i39, i64 %idxprom.i344
   %18 = load i8, ptr %arrayidx.i345, align 1
   %tobool.i346 = trunc i8 %18 to i1
   br i1 %tobool.i346, label %if.end.i226, label %cleanup.cont216
@@ -2922,7 +2922,7 @@ for.cond:                                         ; preds = %for.cond.loopexit, 
   %23 = load ptr, ptr %env_.i.i43, align 8
   %enabled_debug_list_.i44 = getelementptr inbounds nuw i8, ptr %23, i64 2240
   %idxprom.i = zext i32 %21 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i44, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i44, i64 %idxprom.i
   %24 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %24 to i1
   br i1 %tobool.i, label %if.end.i298, label %_ZN4node5DebugIJRiEEEvPNS_9AsyncWrapEPKcDpOT_.exit299
@@ -2980,7 +2980,7 @@ if.then26:                                        ; preds = %_ZN4node14StreamRes
   %37 = load ptr, ptr %env_.i.i54, align 8
   %enabled_debug_list_.i55 = getelementptr inbounds nuw i8, ptr %37, i64 2240
   %idxprom.i350 = zext i32 %35 to i64
-  %arrayidx.i351 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i55, i64 0, i64 %idxprom.i350
+  %arrayidx.i351 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i55, i64 %idxprom.i350
   %38 = load i8, ptr %arrayidx.i351, align 1
   %tobool.i352 = trunc i8 %38 to i1
   br i1 %tobool.i352, label %if.end.i, label %cleanup214
@@ -3138,7 +3138,7 @@ sw.epilog:                                        ; preds = %if.end152
   %75 = load ptr, ptr %env_.i.i89, align 8
   %enabled_debug_list_.i90 = getelementptr inbounds nuw i8, ptr %75, i64 2240
   %idxprom.i320 = zext i32 %73 to i64
-  %arrayidx.i321 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i90, i64 0, i64 %idxprom.i320
+  %arrayidx.i321 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i90, i64 %idxprom.i320
   %76 = load i8, ptr %arrayidx.i321, align 1
   %tobool.i322 = trunc i8 %76 to i1
   br i1 %tobool.i322, label %if.end.i287, label %_ZN4node5DebugIJRiEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -3208,7 +3208,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i198 = zext i32 %0 to i64
-  %arrayidx.i199 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i198
+  %arrayidx.i199 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i198
   %3 = load i8, ptr %arrayidx.i199, align 1
   %tobool.i200 = trunc i8 %3 to i1
   br i1 %tobool.i200, label %if.end.i179, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit180
@@ -3230,7 +3230,7 @@ if.then:                                          ; preds = %_ZN4node5DebugIJEEE
   %7 = load ptr, ptr %env_.i.i31, align 8
   %enabled_debug_list_.i32 = getelementptr inbounds nuw i8, ptr %7, i64 2240
   %idxprom.i204 = zext i32 %5 to i64
-  %arrayidx.i205 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i32, i64 0, i64 %idxprom.i204
+  %arrayidx.i205 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i32, i64 %idxprom.i204
   %8 = load i8, ptr %arrayidx.i205, align 1
   %tobool.i206 = trunc i8 %8 to i1
   br i1 %tobool.i206, label %if.end.i168, label %cleanup.cont
@@ -3252,7 +3252,7 @@ if.then2:                                         ; preds = %if.end
   %12 = load ptr, ptr %env_.i.i35, align 8
   %enabled_debug_list_.i36 = getelementptr inbounds nuw i8, ptr %12, i64 2240
   %idxprom.i210 = zext i32 %10 to i64
-  %arrayidx.i211 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i36, i64 0, i64 %idxprom.i210
+  %arrayidx.i211 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i36, i64 %idxprom.i210
   %13 = load i8, ptr %arrayidx.i211, align 1
   %tobool.i212 = trunc i8 %13 to i1
   br i1 %tobool.i212, label %if.end.i157, label %cleanup.cont
@@ -3274,7 +3274,7 @@ if.then5:                                         ; preds = %if.end3
   %17 = load ptr, ptr %env_.i.i40, align 8
   %enabled_debug_list_.i41 = getelementptr inbounds nuw i8, ptr %17, i64 2240
   %idxprom.i216 = zext i32 %15 to i64
-  %arrayidx.i217 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i41, i64 0, i64 %idxprom.i216
+  %arrayidx.i217 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i41, i64 %idxprom.i216
   %18 = load i8, ptr %arrayidx.i217, align 1
   %tobool.i218 = trunc i8 %18 to i1
   br i1 %tobool.i218, label %if.end.i146, label %cleanup.cont
@@ -3296,7 +3296,7 @@ if.then8:                                         ; preds = %if.end6
   %22 = load ptr, ptr %env_.i.i44, align 8
   %enabled_debug_list_.i45 = getelementptr inbounds nuw i8, ptr %22, i64 2240
   %idxprom.i222 = zext i32 %20 to i64
-  %arrayidx.i223 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i45, i64 0, i64 %idxprom.i222
+  %arrayidx.i223 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i45, i64 %idxprom.i222
   %23 = load i8, ptr %arrayidx.i223, align 1
   %tobool.i224 = trunc i8 %23 to i1
   br i1 %tobool.i224, label %if.end.i135, label %cleanup.cont
@@ -3322,7 +3322,7 @@ if.then12:                                        ; preds = %if.end9
   %28 = load ptr, ptr %env_.i.i49, align 8
   %enabled_debug_list_.i50 = getelementptr inbounds nuw i8, ptr %28, i64 2240
   %idxprom.i228 = zext i32 %26 to i64
-  %arrayidx.i229 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i50, i64 0, i64 %idxprom.i228
+  %arrayidx.i229 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i50, i64 %idxprom.i228
   %29 = load i8, ptr %arrayidx.i229, align 1
   %tobool.i230 = trunc i8 %29 to i1
   br i1 %tobool.i230, label %if.end.i124, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit125
@@ -3349,7 +3349,7 @@ if.then15:                                        ; preds = %if.end13
   %33 = load ptr, ptr %env_.i.i53, align 8
   %enabled_debug_list_.i54 = getelementptr inbounds nuw i8, ptr %33, i64 2240
   %idxprom.i234 = zext i32 %31 to i64
-  %arrayidx.i235 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i54, i64 0, i64 %idxprom.i234
+  %arrayidx.i235 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i54, i64 %idxprom.i234
   %34 = load i8, ptr %arrayidx.i235, align 1
   %tobool.i236 = trunc i8 %34 to i1
   br i1 %tobool.i236, label %if.end.i113, label %cleanup.cont
@@ -3373,7 +3373,7 @@ if.then19:                                        ; preds = %if.end16
   %39 = load ptr, ptr %env_.i.i57, align 8
   %enabled_debug_list_.i58 = getelementptr inbounds nuw i8, ptr %39, i64 2240
   %idxprom.i240 = zext i32 %37 to i64
-  %arrayidx.i241 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i58, i64 0, i64 %idxprom.i240
+  %arrayidx.i241 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i58, i64 %idxprom.i240
   %40 = load i8, ptr %arrayidx.i241, align 1
   %tobool.i242 = trunc i8 %40 to i1
   br i1 %tobool.i242, label %if.end.i102, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit103
@@ -3403,7 +3403,7 @@ if.then25:                                        ; preds = %lor.lhs.false, %_ZN
   %45 = load ptr, ptr %env_.i.i66, align 8
   %enabled_debug_list_.i67 = getelementptr inbounds nuw i8, ptr %45, i64 2240
   %idxprom.i252 = zext i32 %43 to i64
-  %arrayidx.i253 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i67, i64 0, i64 %idxprom.i252
+  %arrayidx.i253 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i67, i64 %idxprom.i252
   %46 = load i8, ptr %arrayidx.i253, align 1
   %tobool.i254 = trunc i8 %46 to i1
   br i1 %tobool26, label %if.else, label %if.then27
@@ -3471,15 +3471,15 @@ do.body46:                                        ; preds = %if.end31
 
 for.body:                                         ; preds = %if.end31, %for.body
   %i.092 = phi i64 [ %inc, %for.body ], [ 0, %if.end31 ]
-  %arrayidx = getelementptr inbounds [10 x ptr], ptr %data, i64 0, i64 %i.092
+  %arrayidx = getelementptr inbounds ptr, ptr %data, i64 %i.092
   %53 = load ptr, ptr %arrayidx, align 8
-  %arrayidx52 = getelementptr inbounds [10 x i64], ptr %size, i64 0, i64 %i.092
+  %arrayidx52 = getelementptr inbounds i64, ptr %size, i64 %i.092
   %54 = load i64, ptr %arrayidx52, align 8
   %conv53 = trunc i64 %54 to i32
   %call54 = call { ptr, i64 } @uv_buf_init(ptr noundef %53, i32 noundef %conv53) #24
   %55 = extractvalue { ptr, i64 } %call54, 0
   %56 = extractvalue { ptr, i64 } %call54, 1
-  %arrayidx55 = getelementptr inbounds [10 x %struct.uv_buf_t], ptr %buf, i64 0, i64 %i.092
+  %arrayidx55 = getelementptr inbounds %struct.uv_buf_t, ptr %buf, i64 %i.092
   store ptr %55, ptr %arrayidx55, align 16
   %ref.tmp51.sroa.2.0.arrayidx55.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 8
   store i64 %56, ptr %ref.tmp51.sroa.2.0.arrayidx55.sroa_idx, align 8
@@ -3495,7 +3495,7 @@ for.end:                                          ; preds = %for.body
   %60 = load ptr, ptr %env_.i.i73, align 8
   %enabled_debug_list_.i74 = getelementptr inbounds nuw i8, ptr %60, i64 2240
   %idxprom.i = zext i32 %58 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i74, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i74, i64 %idxprom.i
   %61 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %61 to i1
   br i1 %tobool.i, label %if.end.i190, label %_ZN4node5DebugIJRmEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -3531,7 +3531,7 @@ if.then64:                                        ; preds = %if.end62
   %68 = load ptr, ptr %env_.i.i77, align 8
   %enabled_debug_list_.i78 = getelementptr inbounds nuw i8, ptr %68, i64 2240
   %idxprom.i258 = zext i32 %66 to i64
-  %arrayidx.i259 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i78, i64 0, i64 %idxprom.i258
+  %arrayidx.i259 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i78, i64 %idxprom.i258
   %69 = load i8, ptr %arrayidx.i259, align 1
   %tobool.i260 = trunc i8 %69 to i1
   br i1 %tobool.i260, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -3831,7 +3831,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i70, label %_ZN4node5DebugIJRiEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -3853,7 +3853,7 @@ if.then:                                          ; preds = %_ZN4node5DebugIJRiE
   %7 = load ptr, ptr %env_.i.i13, align 8
   %enabled_debug_list_.i14 = getelementptr inbounds nuw i8, ptr %7, i64 2240
   %idxprom.i74 = zext i32 %5 to i64
-  %arrayidx.i75 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i14, i64 0, i64 %idxprom.i74
+  %arrayidx.i75 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i14, i64 %idxprom.i74
   %8 = load i8, ptr %arrayidx.i75, align 1
   %tobool.i76 = trunc i8 %8 to i1
   br i1 %tobool.i76, label %if.end.i59, label %do.body
@@ -3897,7 +3897,7 @@ if.then10:                                        ; preds = %if.end9
   %17 = load ptr, ptr %env_.i.i17, align 8
   %enabled_debug_list_.i18 = getelementptr inbounds nuw i8, ptr %17, i64 2240
   %idxprom.i80 = zext i32 %15 to i64
-  %arrayidx.i81 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i18, i64 0, i64 %idxprom.i80
+  %arrayidx.i81 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i18, i64 %idxprom.i80
   %18 = load i8, ptr %arrayidx.i81, align 1
   %tobool.i82 = trunc i8 %18 to i1
   br i1 %tobool.i82, label %if.end.i48, label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE5resetEPS1_.exit
@@ -3989,7 +3989,7 @@ if.then16:                                        ; preds = %if.end14
   %43 = load ptr, ptr %env_.i.i24, align 8
   %enabled_debug_list_.i25 = getelementptr inbounds nuw i8, ptr %43, i64 2240
   %idxprom.i86 = zext i32 %41 to i64
-  %arrayidx.i87 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i25, i64 0, i64 %idxprom.i86
+  %arrayidx.i87 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i25, i64 %idxprom.i86
   %44 = load i8, ptr %arrayidx.i87, align 1
   %tobool.i88 = trunc i8 %44 to i1
   br i1 %tobool.i88, label %if.end.i37, label %if.end17.thread
@@ -4021,7 +4021,7 @@ if.then21:                                        ; preds = %if.then19
   %49 = load ptr, ptr %env_.i.i28, align 8
   %enabled_debug_list_.i29 = getelementptr inbounds nuw i8, ptr %49, i64 2240
   %idxprom.i92 = zext i32 %47 to i64
-  %arrayidx.i93 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i29, i64 0, i64 %idxprom.i92
+  %arrayidx.i93 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i29, i64 %idxprom.i92
   %50 = load i8, ptr %arrayidx.i93, align 1
   %tobool.i94 = trunc i8 %50 to i1
   br i1 %tobool.i94, label %if.end.i, label %return
@@ -4068,7 +4068,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i136 = zext i32 %0 to i64
-  %arrayidx.i137 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i136
+  %arrayidx.i137 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i136
   %3 = load i8, ptr %arrayidx.i137, align 1
   %tobool.i138 = trunc i8 %3 to i1
   br i1 %tobool.i138, label %if.end.i106, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit107
@@ -4090,7 +4090,7 @@ if.then:                                          ; preds = %_ZN4node5DebugIJEEE
   %7 = load ptr, ptr %env_.i.i19, align 8
   %enabled_debug_list_.i20 = getelementptr inbounds nuw i8, ptr %7, i64 2240
   %idxprom.i142 = zext i32 %5 to i64
-  %arrayidx.i143 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i20, i64 0, i64 %idxprom.i142
+  %arrayidx.i143 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i20, i64 %idxprom.i142
   %8 = load i8, ptr %arrayidx.i143, align 1
   %tobool.i144 = trunc i8 %8 to i1
   br i1 %tobool.i144, label %if.end.i95, label %cleanup.cont
@@ -4112,7 +4112,7 @@ if.then3:                                         ; preds = %if.end
   %12 = load ptr, ptr %env_.i.i23, align 8
   %enabled_debug_list_.i24 = getelementptr inbounds nuw i8, ptr %12, i64 2240
   %idxprom.i148 = zext i32 %10 to i64
-  %arrayidx.i149 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i24, i64 0, i64 %idxprom.i148
+  %arrayidx.i149 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i24, i64 %idxprom.i148
   %13 = load i8, ptr %arrayidx.i149, align 1
   %tobool.i150 = trunc i8 %13 to i1
   br i1 %tobool.i150, label %if.end.i84, label %cleanup.cont
@@ -4139,7 +4139,7 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   %17 = load ptr, ptr %env_.i.i28, align 8
   %enabled_debug_list_.i29 = getelementptr inbounds nuw i8, ptr %17, i64 2240
   %idxprom.i154 = zext i32 %15 to i64
-  %arrayidx.i155 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i29, i64 0, i64 %idxprom.i154
+  %arrayidx.i155 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i29, i64 %idxprom.i154
   %18 = load i8, ptr %arrayidx.i155, align 1
   %tobool.i156 = trunc i8 %18 to i1
   br i1 %tobool.i156, label %if.end.i73, label %cleanup.cont
@@ -4184,7 +4184,7 @@ _ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit: ; preds = %if.end10, %if.
   %25 = load ptr, ptr %env_.i.i35, align 8
   %enabled_debug_list_.i36 = getelementptr inbounds nuw i8, ptr %25, i64 2240
   %idxprom.i = zext i32 %23 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i36, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i36, i64 %idxprom.i
   %26 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %26 to i1
   br i1 %tobool.i, label %if.end.i126, label %do.body
@@ -4222,7 +4222,7 @@ if.then38:                                        ; preds = %do.end36
   %30 = load ptr, ptr %env_.i.i39, align 8
   %enabled_debug_list_.i40 = getelementptr inbounds nuw i8, ptr %30, i64 2240
   %idxprom.i160 = zext i32 %28 to i64
-  %arrayidx.i161 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i40, i64 0, i64 %idxprom.i160
+  %arrayidx.i161 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i40, i64 %idxprom.i160
   %31 = load i8, ptr %arrayidx.i161, align 1
   %tobool.i162 = trunc i8 %31 to i1
   br i1 %tobool.i162, label %if.end.i62, label %cleanup
@@ -4243,7 +4243,7 @@ if.end39:                                         ; preds = %do.body, %do.end36
   %36 = load ptr, ptr %env_.i.i43, align 8
   %enabled_debug_list_.i44 = getelementptr inbounds nuw i8, ptr %36, i64 2240
   %idxprom.i130 = zext i32 %34 to i64
-  %arrayidx.i131 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i44, i64 0, i64 %idxprom.i130
+  %arrayidx.i131 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i44, i64 %idxprom.i130
   %37 = load i8, ptr %arrayidx.i131, align 1
   %tobool.i132 = trunc i8 %37 to i1
   br i1 %or.cond, label %if.then46, label %if.end49
@@ -4639,21 +4639,20 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i64 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i64 %rem.i, 1
   %div.i9 = udiv i64 %__val.addr.016.i, 100
-  %add.i10 = or disjoint i64 %mul.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i10
-  %0 = load i8, ptr %arrayidx.i, align 1
+  %0 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %1 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i32 %__pos.015.i to i64
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %call6, i64 %idxprom.i
-  store i8 %0, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
-  %1 = load i8, ptr %arrayidx2.i, align 2
+  store i8 %1, ptr %arrayidx1.i, align 1
+  %2 = load i8, ptr %0, align 2
   %sub3.i = add i32 %__pos.015.i, -1
   %idxprom4.i = zext i32 %sub3.i to i64
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call6, i64 %idxprom4.i
-  store i8 %1, ptr %arrayidx5.i, align 1
+  store i8 %2, ptr %arrayidx5.i, align 1
   %sub6.i = add i32 %__pos.015.i, -2
-  %cmp.i11 = icmp ugt i64 %__val.addr.016.i, 9999
-  br i1 %cmp.i11, label %while.body.i, label %while.end.i, !llvm.loop !25
+  %cmp.i10 = icmp ugt i64 %__val.addr.016.i, 9999
+  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !25
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %cond, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i9, %while.body.i ]
@@ -4662,22 +4661,21 @@ while.end.i:                                      ; preds = %while.body.i, %_ZNS
 
 if.then.i:                                        ; preds = %while.end.i
   %mul9.i = shl nuw nsw i64 %__val.addr.0.lcssa.i, 1
-  %add10.i = or disjoint i64 %mul9.i, 1
-  %arrayidx11.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
-  %2 = load i8, ptr %arrayidx11.i, align 1
+  %3 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul9.i
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %4 = load i8, ptr %arrayidx11.i, align 1
   %arrayidx12.i = getelementptr inbounds nuw i8, ptr %call6, i64 1
-  store i8 %2, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
-  %3 = load i8, ptr %arrayidx13.i, align 2
+  store i8 %4, ptr %arrayidx12.i, align 1
+  %5 = load i8, ptr %3, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %4, 48
+  %6 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %3, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %5, %if.then.i ]
   store i8 %storemerge.i, ptr %call6, align 1
   ret void
 }
@@ -4832,7 +4830,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -4874,7 +4872,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i.i, align 8
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i.i = zext i32 %0 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i
@@ -4917,7 +4915,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -4955,7 +4953,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i.i, align 8
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i.i = zext i32 %0 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i
@@ -5063,7 +5061,7 @@ do.end5:                                          ; preds = %entry
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i232 = zext i32 %0 to i64
-  %arrayidx.i233 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i232
+  %arrayidx.i233 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i232
   %3 = load i8, ptr %arrayidx.i233, align 1
   %tobool.i234 = trunc i8 %3 to i1
   br i1 %tobool.i234, label %if.end.i198, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit199
@@ -5126,7 +5124,7 @@ if.then17:                                        ; preds = %for.end.thread, %fo
   %10 = load ptr, ptr %env_.i.i41, align 8
   %enabled_debug_list_.i42 = getelementptr inbounds nuw i8, ptr %10, i64 2240
   %idxprom.i238 = zext i32 %8 to i64
-  %arrayidx.i239 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i42, i64 0, i64 %idxprom.i238
+  %arrayidx.i239 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i42, i64 %idxprom.i238
   %11 = load i8, ptr %arrayidx.i239, align 1
   %tobool.i240 = trunc i8 %11 to i1
   br i1 %tobool.i240, label %if.end.i187, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit188
@@ -5151,7 +5149,7 @@ if.then20:                                        ; preds = %_ZN4node5DebugIJEEE
   %16 = load ptr, ptr %env_.i.i45, align 8
   %enabled_debug_list_.i46 = getelementptr inbounds nuw i8, ptr %16, i64 2240
   %idxprom.i244 = zext i32 %14 to i64
-  %arrayidx.i245 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i46, i64 0, i64 %idxprom.i244
+  %arrayidx.i245 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i46, i64 %idxprom.i244
   %17 = load i8, ptr %arrayidx.i245, align 1
   %tobool.i246 = trunc i8 %17 to i1
   br i1 %tobool.i246, label %if.end.i176, label %do.body21
@@ -5538,7 +5536,7 @@ do.end132:                                        ; preds = %if.then.i117, %_ZNS
   %75 = load ptr, ptr %env_.i.i123, align 8
   %enabled_debug_list_.i124 = getelementptr inbounds nuw i8, ptr %75, i64 2240
   %idxprom.i = zext i32 %73 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i124, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i124, i64 %idxprom.i
   %76 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %76 to i1
   br i1 %tobool.i, label %if.end.i218, label %_ZN4node5DebugIJRmRiEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -5565,7 +5563,7 @@ if.then134:                                       ; preds = %_ZN4node5DebugIJRmR
   %82 = load ptr, ptr %env_.i.i127, align 8
   %enabled_debug_list_.i128 = getelementptr inbounds nuw i8, ptr %82, i64 2240
   %idxprom.i226 = zext i32 %80 to i64
-  %arrayidx.i227 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i128, i64 0, i64 %idxprom.i226
+  %arrayidx.i227 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i128, i64 %idxprom.i226
   %83 = load i8, ptr %arrayidx.i227, align 1
   %tobool.i228 = trunc i8 %83 to i1
   br i1 %or.cond, label %if.then140, label %if.end142
@@ -5736,7 +5734,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i42, label %_ZN4node5DebugIJRlEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -5835,7 +5833,7 @@ do.end29:                                         ; preds = %if.then17
   %20 = load ptr, ptr %env_.i.i12, align 8
   %enabled_debug_list_.i13 = getelementptr inbounds nuw i8, ptr %20, i64 2240
   %idxprom.i46 = zext i32 %18 to i64
-  %arrayidx.i47 = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i13, i64 0, i64 %idxprom.i46
+  %arrayidx.i47 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i13, i64 %idxprom.i46
   %21 = load i8, ptr %arrayidx.i47, align 1
   %tobool.i48 = trunc i8 %21 to i1
   br i1 %tobool.i48, label %if.end.i, label %_ZN4node5DebugIJRmEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -5921,7 +5919,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -6390,7 +6388,7 @@ entry:
   %2 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
   %idxprom.i = zext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -6673,7 +6671,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %13 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %13, i64 2240
   %idxprom.i = zext i32 %11 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %14 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %14 to i1
   br i1 %tobool.i, label %if.end.i, label %return
@@ -11480,7 +11478,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %13 = load ptr, ptr %env_.i.i.i, align 8
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %13, i64 2240
   %idxprom.i.i = zext i32 %11 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i
   %14 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i, label %if.end.i.i3, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i
@@ -12073,7 +12071,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %13 = load ptr, ptr %env_.i.i, align 8
   %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %13, i64 2240
   %idxprom.i = zext i32 %11 to i64
-  %arrayidx.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
   %14 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %14 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
@@ -16671,7 +16669,7 @@ entry:
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   store ptr %call1.i, ptr %message.addr.i.i, align 8
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJEEEvPNS_11EnvironmentENS_13DebugCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit
@@ -16956,7 +16954,7 @@ entry:
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJRiRPKcEEEvPNS_11EnvironmentENS_13DebugCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit
@@ -17303,23 +17301,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i32 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i32 %rem.i, 1
   %div.i = udiv i32 %__val.addr.016.i, 100
-  %add.i9 = or disjoint i32 %mul.i, 1
-  %idxprom.i = zext nneg i32 %add.i9 to i64
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
-  %1 = load i8, ptr %arrayidx.i, align 1
+  %1 = zext nneg i32 %mul.i to i64
+  %2 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %3 = load i8, ptr %arrayidx.i, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %call6, i64 %idxprom1.i
-  store i8 %1, ptr %arrayidx2.i, align 1
-  %idxprom3.i = zext nneg i32 %mul.i to i64
-  %arrayidx4.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
-  %2 = load i8, ptr %arrayidx4.i, align 2
+  store i8 %3, ptr %arrayidx2.i, align 1
+  %4 = load i8, ptr %2, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call6, i64 %idxprom6.i
-  store i8 %2, ptr %arrayidx7.i, align 1
+  store i8 %4, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
-  %cmp.i10 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !167
+  %cmp.i9 = icmp ugt i32 %__val.addr.016.i, 9999
+  br i1 %cmp.i9, label %while.body.i, label %while.end.i, !llvm.loop !167
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
@@ -17328,24 +17324,22 @@ while.end.i:                                      ; preds = %while.body.i, %_ZNS
 
 if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
-  %add12.i = or disjoint i32 %mul11.i, 1
-  %idxprom13.i = zext nneg i32 %add12.i to i64
-  %arrayidx14.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
-  %3 = load i8, ptr %arrayidx14.i, align 1
+  %5 = zext nneg i32 %mul11.i to i64
+  %6 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %5
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %7 = load i8, ptr %arrayidx14.i, align 1
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %call6, i64 1
-  store i8 %3, ptr %arrayidx15.i, align 1
-  %idxprom16.i = zext nneg i32 %mul11.i to i64
-  %arrayidx17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
-  %4 = load i8, ptr %arrayidx17.i, align 2
+  store i8 %7, ptr %arrayidx15.i, align 1
+  %8 = load i8, ptr %6, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %5, 48
+  %9 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %9, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %4, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %8, %if.then.i ]
   store i8 %storemerge.i, ptr %call6, align 1
   ret void
 }
@@ -17467,7 +17461,7 @@ entry:
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJRmEEEvPNS_11EnvironmentENS_13DebugCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit
@@ -17765,21 +17759,20 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i64 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i64 %rem.i, 1
   %div.i3 = udiv i64 %__val.addr.016.i, 100
-  %add.i4 = or disjoint i64 %mul.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i4
-  %0 = load i8, ptr %arrayidx.i, align 1
+  %0 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %1 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i32 %__pos.015.i to i64
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom.i
-  store i8 %0, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
-  %1 = load i8, ptr %arrayidx2.i, align 2
+  store i8 %1, ptr %arrayidx1.i, align 1
+  %2 = load i8, ptr %0, align 2
   %sub3.i = add i32 %__pos.015.i, -1
   %idxprom4.i = zext i32 %sub3.i to i64
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom4.i
-  store i8 %1, ptr %arrayidx5.i, align 1
+  store i8 %2, ptr %arrayidx5.i, align 1
   %sub6.i = add i32 %__pos.015.i, -2
-  %cmp.i5 = icmp ugt i64 %__val.addr.016.i, 9999
-  br i1 %cmp.i5, label %while.body.i, label %while.end.i, !llvm.loop !25
+  %cmp.i4 = icmp ugt i64 %__val.addr.016.i, 9999
+  br i1 %cmp.i4, label %while.body.i, label %while.end.i, !llvm.loop !25
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i3, %while.body.i ]
@@ -17788,22 +17781,21 @@ while.end.i:                                      ; preds = %while.body.i, %_ZNS
 
 if.then.i:                                        ; preds = %while.end.i
   %mul9.i = shl nuw nsw i64 %__val.addr.0.lcssa.i, 1
-  %add10.i = or disjoint i64 %mul9.i, 1
-  %arrayidx11.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
-  %2 = load i8, ptr %arrayidx11.i, align 1
+  %3 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul9.i
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %4 = load i8, ptr %arrayidx11.i, align 1
   %arrayidx12.i = getelementptr inbounds nuw i8, ptr %call1, i64 1
-  store i8 %2, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
-  %3 = load i8, ptr %arrayidx13.i, align 2
+  store i8 %4, ptr %arrayidx12.i, align 1
+  %5 = load i8, ptr %3, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %4, 48
+  %6 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %3, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %5, %if.then.i ]
   store i8 %storemerge.i, ptr %call1, align 1
   ret void
 }
@@ -18009,7 +18001,7 @@ entry:
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJRiEEEvPNS_11EnvironmentENS_13DebugCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit
@@ -18286,7 +18278,7 @@ entry:
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJmRiEEEvPNS_11EnvironmentENS_13DebugCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit
@@ -18724,7 +18716,7 @@ entry:
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJRmRiEEEvPNS_11EnvironmentENS_13DebugCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit
@@ -19029,7 +19021,7 @@ entry:
   %enabled_debug_list_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [75 x i8], ptr %enabled_debug_list_.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %_ZN4node5DebugIJRlEEEvPNS_11EnvironmentENS_13DebugCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit

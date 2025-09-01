@@ -2121,7 +2121,7 @@ define dso_local void @chv_phy_powergate_lanes(ptr noundef %0, i1 noundef zeroex
   tail call fastcc void @assert_chv_phy_status(ptr noundef %4)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 3276
   %53 = zext i32 %13 to i64
-  %54 = getelementptr [2 x i8], ptr %52, i64 0, i64 %53
+  %54 = getelementptr i8, ptr %52, i64 %53
   %55 = load i8, ptr %54, align 1, !range !19, !noundef !20
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %95, label %57
@@ -2524,7 +2524,7 @@ define internal void @chv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nounde
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %47, i32 noundef 2, ptr noundef nonnull @.str.49, i32 noundef %32, i32 noundef %48) #9
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 3276
   %50 = zext nneg i32 %32 to i64
-  %51 = getelementptr [2 x i8], ptr %49, i64 0, i64 %50
+  %51 = getelementptr i8, ptr %49, i64 %50
   store i8 1, ptr %51, align 1
   tail call fastcc void @assert_chv_phy_status(ptr noundef %0)
   ret void
@@ -3691,7 +3691,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
 
 246:                                              ; preds = %231
   %247 = sext i32 %216 to i64
-  %248 = getelementptr [5 x i32], ptr @constinit.62, i64 0, i64 %247
+  %248 = getelementptr i32, ptr @constinit.62, i64 %247
   %249 = load i32, ptr %248, align 4
   %250 = add i32 %249, 48
   %251 = load ptr, ptr %237, align 8
@@ -3734,7 +3734,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef read
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 443288, ptr %269, align 4
   %270 = zext nneg i8 %189 to i64
-  %271 = getelementptr [2 x i32], ptr %3, i64 0, i64 %270
+  %271 = getelementptr i32, ptr %3, i64 %270
   %272 = load i32, ptr %271, align 4
   %273 = load ptr, ptr %237, align 8
   %274 = tail call i32 %273(ptr noundef nonnull %236, i32 %272, i1 noundef zeroext true) #9
@@ -3950,7 +3950,7 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef rea
 
 128:                                              ; preds = %126, %.loopexit
   %129 = sext i32 %113 to i64
-  %130 = getelementptr [5 x i32], ptr @constinit.62, i64 0, i64 %129
+  %130 = getelementptr i32, ptr @constinit.62, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %131, 48
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 7368

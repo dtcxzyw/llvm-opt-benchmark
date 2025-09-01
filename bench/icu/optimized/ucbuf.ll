@@ -360,7 +360,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   call void @ucnv_getInvalidChars_77(ptr noundef %80, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %81 = load i8, ptr %11, align 1, !tbaa !28
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds [21 x i8], ptr %8, i64 0, i64 %82
+  %83 = getelementptr inbounds i8, ptr %8, i64 %82
   store i8 0, ptr %83, align 1, !tbaa !28
   %84 = load ptr, ptr %4, align 8, !tbaa !3
   %85 = ptrtoint ptr %84 to i64
@@ -378,7 +378,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   %97 = sub i32 %89, %96
   %98 = sext i32 %97 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %95, i64 %98, i1 false)
-  %99 = getelementptr inbounds [21 x i8], ptr %9, i64 0, i64 %98
+  %99 = getelementptr inbounds i8, ptr %9, i64 %98
   store i8 0, ptr %99, align 1, !tbaa !28
   %100 = shl i64 %88, 32
   %sext107 = add i64 %100, 85899345920
@@ -390,7 +390,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   %105 = sub i32 %103, %104
   %106 = sext i32 %105 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %84, i64 %106, i1 false)
-  %107 = getelementptr inbounds [21 x i8], ptr %10, i64 0, i64 %106
+  %107 = getelementptr inbounds i8, ptr %10, i64 %106
   store i8 0, ptr %107, align 1, !tbaa !28
   %108 = load i8, ptr %72, align 8, !tbaa !29
   %109 = icmp eq i8 %108, 1
@@ -620,7 +620,7 @@ define i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %spec.select = call i32 @llvm.smin.i32(i32 %.045, i32 20)
   %50 = sext i32 %spec.select to i64
-  %51 = getelementptr inbounds [21 x i8], ptr %4, i64 0, i64 %50
+  %51 = getelementptr inbounds i8, ptr %4, i64 %50
   store i8 0, ptr %51, align 1, !tbaa !28
   %52 = load ptr, ptr %10, align 8, !tbaa !16
   call void @u_UCharsToChars_77(ptr noundef %52, ptr noundef nonnull %4, i32 noundef %spec.select)

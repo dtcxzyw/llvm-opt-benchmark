@@ -1231,7 +1231,7 @@ define internal fastcc zeroext i1 @protocol_is_alljoyn_message(ptr noundef %0, i
 
 .preheader:                                       ; preds = %8, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %8 ]
-  %12 = getelementptr [7 x %struct._sasl_cmd], ptr @sasl_commands, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr %struct._sasl_cmd, ptr @sasl_commands, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
@@ -1324,7 +1324,7 @@ handle_message_connect.exit:                      ; preds = %24, %27
 
 .preheader:                                       ; preds = %handle_message_connect.exit, %32
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %handle_message_connect.exit ]
-  %33 = getelementptr [7 x %struct._sasl_cmd], ptr @sasl_commands, i64 0, i64 %indvars.iv.i.i
+  %33 = getelementptr %struct._sasl_cmd, ptr @sasl_commands, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 16
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8

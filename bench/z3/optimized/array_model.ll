@@ -1171,11 +1171,11 @@ _ZNK17array_recognizers8is_storeEP4expr.exit.i:   ; preds = %178
 
 207:                                              ; preds = %206, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %206 ]
-  %208 = getelementptr inbounds nuw [0 x ptr], ptr %205, i64 0, i64 %indvars.iv.i
+  %208 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv.i
   %209 = load ptr, ptr %208, align 8, !tbaa !21
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 64
   %211 = load ptr, ptr %210, align 8, !tbaa !80
-  %212 = getelementptr inbounds nuw [0 x ptr], ptr %190, i64 0, i64 %indvars.iv.i
+  %212 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv.i
   %213 = load ptr, ptr %212, align 8, !tbaa !21
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 64
   %215 = load ptr, ptr %214, align 8, !tbaa !80
@@ -1692,7 +1692,7 @@ _ZN14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6s
 
 128:                                              ; preds = %.lr.ph154, %_ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE6insertEOPS2_.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph154 ], [ %indvars.iv.next, %_ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE6insertEOPS2_.exit ]
-  %129 = getelementptr inbounds nuw [0 x ptr], ptr %122, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv
   %130 = load ptr, ptr %129, align 8, !tbaa !21
   %131 = load ptr, ptr %59, align 8, !tbaa !138
   %132 = icmp eq ptr %131, null
@@ -3974,7 +3974,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %491, %493
 500:                                              ; preds = %.lr.ph277, %564
   %501 = phi ptr [ %492, %.lr.ph277 ], [ %565, %564 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph277 ], [ %indvars.iv.next, %564 ]
-  %502 = getelementptr inbounds nuw [0 x ptr], ptr %498, i64 0, i64 %indvars.iv
+  %502 = getelementptr inbounds nuw ptr, ptr %498, i64 %indvars.iv
   %503 = load ptr, ptr %502, align 8, !tbaa !21
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 64
   %505 = load ptr, ptr %504, align 8, !tbaa !80
@@ -4761,14 +4761,14 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN3euf5enodeEN5ar
   %.0380492 = phi i32 [ 11, %.lr.ph ], [ %247, %189 ]
   %.0381491 = phi i32 [ -1640531527, %.lr.ph ], [ %243, %189 ]
   %.0383490 = phi i32 [ -1640531527, %.lr.ph ], [ %239, %189 ]
-  %190 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %191 = load ptr, ptr %190, align 8, !tbaa !21
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
   %193 = load ptr, ptr %192, align 8, !tbaa !80
   %194 = load ptr, ptr %193, align 8, !tbaa !26
   %195 = load i32, ptr %194, align 4, !tbaa !141
-  %196 = add nsw i64 %indvars.iv, -1
-  %197 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %196
+  %196 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %197 = getelementptr i8, ptr %196, i64 -8
   %198 = load ptr, ptr %197, align 8, !tbaa !21
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 64
   %200 = load ptr, ptr %199, align 8, !tbaa !80
@@ -4777,8 +4777,8 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN3euf5enodeEN5ar
   %203 = add i32 %202, %.0381491
   %indvars.iv.next = add nsw i64 %indvars.iv, -3
   %indvars = trunc i64 %indvars.iv.next to i32
-  %204 = add nsw i64 %indvars.iv, -2
-  %205 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %204
+  %204 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %205 = getelementptr i8, ptr %204, i64 -16
   %206 = load ptr, ptr %205, align 8, !tbaa !21
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 64
   %208 = load ptr, ptr %207, align 8, !tbaa !80
@@ -4913,11 +4913,11 @@ define hidden noundef zeroext i1 @_ZNK5array6solver6sel_eqclEPN3euf5enodeES4_(pt
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !80
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !80
@@ -5045,11 +5045,11 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %39
 
 68:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %66, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !21
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %72 = load ptr, ptr %71, align 8, !tbaa !80
-  %73 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !21
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
   %76 = load ptr, ptr %75, align 8, !tbaa !80
@@ -6474,11 +6474,11 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN3euf5enod
 
 45:                                               ; preds = %44, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %44 ]
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i.i
   %47 = load ptr, ptr %46, align 8, !tbaa !21
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !80
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !21
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !80
@@ -6550,11 +6550,11 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6
 
 75:                                               ; preds = %74, %.lr.ph.i.i53
   %indvars.iv.i.i55 = phi i64 [ 1, %.lr.ph.i.i53 ], [ %indvars.iv.next.i.i58, %74 ]
-  %76 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv.i.i55
+  %76 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i.i55
   %77 = load ptr, ptr %76, align 8, !tbaa !21
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
   %79 = load ptr, ptr %78, align 8, !tbaa !80
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv.i.i55
+  %80 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i.i55
   %81 = load ptr, ptr %80, align 8, !tbaa !21
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %83 = load ptr, ptr %82, align 8, !tbaa !80
@@ -6789,11 +6789,11 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIN3
 
 34:                                               ; preds = %33, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %32, i64 0, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i.i
   %36 = load ptr, ptr %35, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !80
-  %39 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8, !tbaa !80
@@ -6838,11 +6838,11 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3euf5enodeEEN5array6solver8sel_hashENS5_6
 
 55:                                               ; preds = %54, %.lr.ph.i.i31
   %indvars.iv.i.i33 = phi i64 [ 1, %.lr.ph.i.i31 ], [ %indvars.iv.next.i.i36, %54 ]
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %indvars.iv.i.i33
+  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i.i33
   %57 = load ptr, ptr %56, align 8, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !80
-  %60 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %indvars.iv.i.i33
+  %60 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i.i33
   %61 = load ptr, ptr %60, align 8, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %63 = load ptr, ptr %62, align 8, !tbaa !80

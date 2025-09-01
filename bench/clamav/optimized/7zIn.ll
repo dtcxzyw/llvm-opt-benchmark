@@ -550,7 +550,7 @@ define i32 @SzArEx_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %.06.i.i = phi i64 [ %22, %21 ], [ 0, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %.06.i.i
   %24 = load i8, ptr %23, align 1, !tbaa !51
-  %25 = getelementptr inbounds nuw [6 x i8], ptr @k7zSignature, i64 0, i64 %.06.i.i
+  %25 = getelementptr inbounds nuw i8, ptr @k7zSignature, i64 %.06.i.i
   %26 = load i8, ptr %25, align 1, !tbaa !51
   %.not.i.i = icmp eq i8 %24, %26
   br i1 %.not.i.i, label %21, label %.sink.split
@@ -593,7 +593,7 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %55
   %56 = icmp ne i32 %47, 0
   %or.cond15.i = select i1 %or.cond13.i, i1 true, i1 %56
-  br i1 %or.cond15.i, label %103, label %57
+  br i1 %or.cond15.i, label %101, label %57
 
 57:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -644,254 +644,252 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %76, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.thread.i ]
-  %77 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %78 = load i8, ptr %77, align 1, !tbaa !51
   switch i8 %78, label %.thread.i [
     i8 23, label %79
-    i8 1, label %84
+    i8 1, label %83
   ]
 
 79:                                               ; preds = %.lr.ph.i
-  %80 = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !51
-  %83 = icmp eq i8 %82, 6
-  br i1 %83, label %90, label %.thread.i
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %81 = load i8, ptr %80, align 1, !tbaa !51
+  %82 = icmp eq i8 %81, 6
+  br i1 %82, label %88, label %.thread.i
 
-84:                                               ; preds = %.lr.ph.i
-  %85 = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %85
-  %87 = load i8, ptr %86, align 1, !tbaa !51
-  %88 = icmp eq i8 %87, 4
-  br i1 %88, label %90, label %.thread.i
+83:                                               ; preds = %.lr.ph.i
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %85 = load i8, ptr %84, align 1, !tbaa !51
+  %86 = icmp eq i8 %85, 4
+  br i1 %86, label %88, label %.thread.i
 
-.thread.i:                                        ; preds = %84, %79, %.lr.ph.i
+.thread.i:                                        ; preds = %83, %79, %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %89 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %89, label %.lr.ph.i, label %.thread180.i
+  %87 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %87, label %.lr.ph.i, label %.thread180.i
 
-90:                                               ; preds = %84, %79
-  %91 = load i64, ptr %11, align 8, !tbaa !27
-  %92 = and i64 %indvars.iv.i, 4294967295
-  %93 = add nsw i64 %91, %92
-  %94 = icmp ult i64 %93, 32
-  br i1 %94, label %.thread180.i, label %95
+88:                                               ; preds = %83, %79
+  %89 = load i64, ptr %11, align 8, !tbaa !27
+  %90 = and i64 %indvars.iv.i, 4294967295
+  %91 = add nsw i64 %89, %90
+  %92 = icmp ult i64 %91, 32
+  br i1 %92, label %.thread180.i, label %93
 
-.thread180.i:                                     ; preds = %.thread.i, %90, %73, %71, %63, %60, %57
-  %.5.ph.i = phi i32 [ 6, %90 ], [ %59, %57 ], [ %62, %60 ], [ %70, %63 ], [ %72, %71 ], [ 16, %73 ], [ 16, %.thread.i ]
+.thread180.i:                                     ; preds = %.thread.i, %88, %73, %71, %63, %60, %57
+  %.5.ph.i = phi i32 [ 6, %88 ], [ %59, %57 ], [ %62, %60 ], [ %70, %63 ], [ %72, %71 ], [ 16, %73 ], [ 16, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.sink.split
 
-95:                                               ; preds = %90
-  %96 = sub i64 %spec.select190.i, %indvars.iv.i
-  %sext211.i = shl i64 %96, 32
-  %97 = ashr exact i64 %sext211.i, 32
-  %98 = add i64 %93, -32
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 %92
-  %100 = call i32 @CrcCalc(ptr noundef nonnull %99, i64 noundef %97) #11
-  %101 = load ptr, ptr %16, align 8, !tbaa !54
-  %102 = call i32 %101(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 0) #11
-  %.not165.i = icmp eq i32 %102, 0
+93:                                               ; preds = %88
+  %94 = sub i64 %spec.select190.i, %indvars.iv.i
+  %sext211.i = shl i64 %94, 32
+  %95 = ashr exact i64 %sext211.i, 32
+  %96 = add i64 %91, -32
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 %90
+  %98 = call i32 @CrcCalc(ptr noundef nonnull %97, i64 noundef %95) #11
+  %99 = load ptr, ptr %16, align 8, !tbaa !54
+  %100 = call i32 %99(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 0) #11
+  %.not165.i = icmp eq i32 %100, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not165.i, label %103, label %.sink.split
+  br i1 %.not165.i, label %101, label %.sink.split
 
-103:                                              ; preds = %95, %29
-  %.0121.i = phi i32 [ %47, %29 ], [ %100, %95 ]
-  %.0119.i = phi i64 [ %45, %29 ], [ %97, %95 ]
-  %.0117.i = phi i64 [ %37, %29 ], [ %98, %95 ]
-  %104 = icmp eq i64 %.0119.i, 0
-  br i1 %104, label %SzArEx_Open2.exit.thread11, label %105
+101:                                              ; preds = %93, %29
+  %.0121.i = phi i32 [ %47, %29 ], [ %98, %93 ]
+  %.0119.i = phi i64 [ %45, %29 ], [ %95, %93 ]
+  %.0117.i = phi i64 [ %37, %29 ], [ %96, %93 ]
+  %102 = icmp eq i64 %.0119.i, 0
+  br i1 %102, label %SzArEx_Open2.exit.thread11, label %103
 
-SzArEx_Open2.exit.thread11:                       ; preds = %103
+SzArEx_Open2.exit.thread11:                       ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %179
+  br label %177
 
-105:                                              ; preds = %103
-  %106 = xor i64 %.0117.i, -1
-  %107 = icmp ugt i64 %.0119.i, %106
-  %108 = sub i64 -33, %.0119.i
-  %109 = icmp ugt i64 %.0117.i, %108
-  %or.cond171.i = or i1 %107, %109
-  br i1 %or.cond171.i, label %.sink.split, label %110
+103:                                              ; preds = %101
+  %104 = xor i64 %.0117.i, -1
+  %105 = icmp ugt i64 %.0119.i, %104
+  %106 = sub i64 -33, %.0119.i
+  %107 = icmp ugt i64 %.0117.i, %106
+  %or.cond171.i = or i1 %105, %107
+  br i1 %or.cond171.i, label %.sink.split, label %108
 
-110:                                              ; preds = %105
+108:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !27
-  %111 = load ptr, ptr %16, align 8, !tbaa !54
-  %112 = call i32 %111(ptr noundef nonnull %1, ptr noundef nonnull %12, i32 noundef 2) #11
-  %.not166.i = icmp eq i32 %112, 0
-  br i1 %.not166.i, label %113, label %.thread187.i
+  %109 = load ptr, ptr %16, align 8, !tbaa !54
+  %110 = call i32 %109(ptr noundef nonnull %1, ptr noundef nonnull %12, i32 noundef 2) #11
+  %.not166.i = icmp eq i32 %110, 0
+  br i1 %.not166.i, label %111, label %.thread187.i
 
-113:                                              ; preds = %110
-  %114 = load i64, ptr %12, align 8, !tbaa !27
-  %115 = load i64, ptr %6, align 8, !tbaa !27
-  %116 = add i64 %115, %.0117.i
-  %117 = icmp ult i64 %114, %116
-  br i1 %117, label %.thread187.i, label %118
+111:                                              ; preds = %108
+  %112 = load i64, ptr %12, align 8, !tbaa !27
+  %113 = load i64, ptr %6, align 8, !tbaa !27
+  %114 = add i64 %113, %.0117.i
+  %115 = icmp ult i64 %112, %114
+  br i1 %115, label %.thread187.i, label %116
 
-.thread187.i:                                     ; preds = %113, %110
-  %.11.ph.i = phi i32 [ 6, %113 ], [ %112, %110 ]
+.thread187.i:                                     ; preds = %111, %108
+  %.11.ph.i = phi i32 [ 6, %111 ], [ %110, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.sink.split
 
-118:                                              ; preds = %113
-  %119 = add i64 %.0117.i, 32
-  %120 = add i64 %119, %115
-  %121 = icmp uge i64 %114, %120
-  %122 = add i64 %120, %.0119.i
-  %123 = icmp uge i64 %114, %122
-  %or.cond173.not.i = and i1 %121, %123
+116:                                              ; preds = %111
+  %117 = add i64 %.0117.i, 32
+  %118 = add i64 %117, %113
+  %119 = icmp uge i64 %112, %118
+  %120 = add i64 %118, %.0119.i
+  %121 = icmp uge i64 %112, %120
+  %or.cond173.not.i = and i1 %119, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %or.cond173.not.i, label %124, label %.sink.split
+  br i1 %or.cond173.not.i, label %122, label %.sink.split
 
-124:                                              ; preds = %118
-  %125 = call i32 @LookInStream_SeekTo(ptr noundef nonnull %1, i64 noundef %120) #11
-  %.not167.i = icmp eq i32 %125, 0
-  br i1 %.not167.i, label %126, label %.sink.split
+122:                                              ; preds = %116
+  %123 = call i32 @LookInStream_SeekTo(ptr noundef nonnull %1, i64 noundef %118) #11
+  %.not167.i = icmp eq i32 %123, 0
+  br i1 %.not167.i, label %124, label %.sink.split
+
+124:                                              ; preds = %122
+  %125 = call i32 @Buf_Create(ptr noundef nonnull %7, i64 noundef %.0119.i, ptr noundef %3) #11
+  %.not168.i = icmp eq i32 %125, 0
+  br i1 %.not168.i, label %.sink.split, label %126
 
 126:                                              ; preds = %124
-  %127 = call i32 @Buf_Create(ptr noundef nonnull %7, i64 noundef %.0119.i, ptr noundef %3) #11
-  %.not168.i = icmp eq i32 %127, 0
-  br i1 %.not168.i, label %.sink.split, label %128
+  %127 = load ptr, ptr %7, align 8, !tbaa !57
+  %128 = call i32 @LookInStream_Read(ptr noundef nonnull %1, ptr noundef %127, i64 noundef %.0119.i) #11
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %SzArEx_Open2.exit.thread15
 
-128:                                              ; preds = %126
-  %129 = load ptr, ptr %7, align 8, !tbaa !57
-  %130 = call i32 @LookInStream_Read(ptr noundef nonnull %1, ptr noundef %129, i64 noundef %.0119.i) #11
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %SzArEx_Open2.exit.thread15
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %7, align 8, !tbaa !57
+  %132 = call i32 @CrcCalc(ptr noundef %131, i64 noundef %.0119.i) #11
+  %133 = icmp eq i32 %132, %.0121.i
+  br i1 %133, label %134, label %SzArEx_Open2.exit.thread15
 
-132:                                              ; preds = %128
-  %133 = load ptr, ptr %7, align 8, !tbaa !57
-  %134 = call i32 @CrcCalc(ptr noundef %133, i64 noundef %.0119.i) #11
-  %135 = icmp eq i32 %134, %.0121.i
-  br i1 %135, label %136, label %SzArEx_Open2.exit.thread15
-
-136:                                              ; preds = %132
+134:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %137 = load ptr, ptr %7, align 8, !tbaa !57
-  store ptr %137, ptr %13, align 8, !tbaa !58
-  %138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %139 = load i64, ptr %138, align 8, !tbaa !60
-  %140 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %139, ptr %140, align 8, !tbaa !61
-  %141 = call fastcc i32 @SzReadID(ptr noundef %13, ptr noundef %14)
-  %142 = icmp eq i32 %141, 0
-  %143 = load i64, ptr %14, align 8
-  %144 = icmp eq i64 %143, 23
-  %or.cond17.i = select i1 %142, i1 %144, i1 false
-  br i1 %or.cond17.i, label %145, label %155
+  %135 = load ptr, ptr %7, align 8, !tbaa !57
+  store ptr %135, ptr %13, align 8, !tbaa !58
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %137 = load i64, ptr %136, align 8, !tbaa !60
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %137, ptr %138, align 8, !tbaa !61
+  %139 = call fastcc i32 @SzReadID(ptr noundef %13, ptr noundef %14)
+  %140 = icmp eq i32 %139, 0
+  %141 = load i64, ptr %14, align 8
+  %142 = icmp eq i64 %141, 23
+  %or.cond17.i = select i1 %140, i1 %142, i1 false
+  br i1 %or.cond17.i, label %143, label %153
 
-145:                                              ; preds = %136
+143:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @Buf_Init(ptr noundef nonnull %15) #11
-  %146 = load i64, ptr %50, align 8, !tbaa !56
-  %147 = call fastcc i32 @SzReadAndDecodePackedStreams(ptr noundef nonnull %1, ptr noundef %13, ptr noundef %15, i64 noundef %146, ptr noundef %3)
-  %.not169.i = icmp eq i32 %147, 0
-  br i1 %.not169.i, label %149, label %148
+  %144 = load i64, ptr %50, align 8, !tbaa !56
+  %145 = call fastcc i32 @SzReadAndDecodePackedStreams(ptr noundef nonnull %1, ptr noundef %13, ptr noundef %15, i64 noundef %144, ptr noundef %3)
+  %.not169.i = icmp eq i32 %145, 0
+  br i1 %.not169.i, label %147, label %146
 
-148:                                              ; preds = %145
+146:                                              ; preds = %143
   call void @Buf_Free(ptr noundef nonnull %15, ptr noundef %3) #11
-  br label %154
+  br label %152
 
-149:                                              ; preds = %145
+147:                                              ; preds = %143
   call void @Buf_Free(ptr noundef nonnull %7, ptr noundef %3) #11
-  %150 = load ptr, ptr %15, align 8, !tbaa !57
-  store ptr %150, ptr %7, align 8, !tbaa !57
-  %151 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %152 = load i64, ptr %151, align 8, !tbaa !60
-  store i64 %152, ptr %138, align 8, !tbaa !60
-  store ptr %150, ptr %13, align 8, !tbaa !58
-  store i64 %152, ptr %140, align 8, !tbaa !61
-  %153 = call fastcc i32 @SzReadID(ptr noundef %13, ptr noundef %14)
-  br label %154
+  %148 = load ptr, ptr %15, align 8, !tbaa !57
+  store ptr %148, ptr %7, align 8, !tbaa !57
+  %149 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %150 = load i64, ptr %149, align 8, !tbaa !60
+  store i64 %150, ptr %136, align 8, !tbaa !60
+  store ptr %148, ptr %13, align 8, !tbaa !58
+  store i64 %150, ptr %138, align 8, !tbaa !61
+  %151 = call fastcc i32 @SzReadID(ptr noundef %13, ptr noundef %14)
+  br label %152
 
-154:                                              ; preds = %149, %148
-  %.2125.i = phi i32 [ %147, %148 ], [ %153, %149 ]
+152:                                              ; preds = %147, %146
+  %.2125.i = phi i32 [ %145, %146 ], [ %151, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %155
+  br label %153
 
-155:                                              ; preds = %154, %136
-  %.1124.i = phi i32 [ %.2125.i, %154 ], [ %141, %136 ]
-  %156 = icmp eq i32 %.1124.i, 0
-  br i1 %156, label %157, label %SzArEx_Open2.exit.thread19
+153:                                              ; preds = %152, %134
+  %.1124.i = phi i32 [ %.2125.i, %152 ], [ %139, %134 ]
+  %154 = icmp eq i32 %.1124.i, 0
+  br i1 %154, label %155, label %SzArEx_Open2.exit.thread19
 
-157:                                              ; preds = %155
-  %158 = load i64, ptr %14, align 8, !tbaa !27
-  %159 = icmp eq i64 %158, 1
-  br i1 %159, label %SzArEx_Open2.exit, label %SzArEx_Open2.exit.thread19
+155:                                              ; preds = %153
+  %156 = load i64, ptr %14, align 8, !tbaa !27
+  %157 = icmp eq i64 %156, 1
+  br i1 %157, label %SzArEx_Open2.exit, label %SzArEx_Open2.exit.thread19
 
-SzArEx_Open2.exit.thread15:                       ; preds = %132, %128
-  %.0123.i.ph = phi i32 [ %130, %128 ], [ 16, %132 ]
+SzArEx_Open2.exit.thread15:                       ; preds = %130, %126
+  %.0123.i.ph = phi i32 [ %128, %126 ], [ 16, %130 ]
   call void @Buf_Free(ptr noundef nonnull %7, ptr noundef %3) #11
   br label %.sink.split
 
-SzArEx_Open2.exit.thread19:                       ; preds = %155, %157
-  %.3126.i.ph = phi i32 [ 4, %157 ], [ %.1124.i, %155 ]
+SzArEx_Open2.exit.thread19:                       ; preds = %153, %155
+  %.3126.i.ph = phi i32 [ 4, %155 ], [ %.1124.i, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @Buf_Free(ptr noundef nonnull %7, ptr noundef %3) #11
   br label %.sink.split
 
-SzArEx_Open2.exit:                                ; preds = %157
-  %160 = call fastcc i32 @SzReadHeader(ptr noundef %0, ptr noundef %13, ptr noundef %2, ptr noundef %3)
+SzArEx_Open2.exit:                                ; preds = %155
+  %158 = call fastcc i32 @SzReadHeader(ptr noundef %0, ptr noundef %13, ptr noundef %2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @Buf_Free(ptr noundef nonnull %7, ptr noundef %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not = icmp eq i32 %160, 0
-  br i1 %.not, label %179, label %161
+  %.not = icmp eq i32 %158, 0
+  br i1 %.not, label %177, label %159
 
-.sink.split:                                      ; preds = %.preheader.i, %.thread187.i, %.thread180.i, %126, %105, %TestSignatureCandidate.exit.i, %4, %19, %95, %118, %124, %SzArEx_Open2.exit.thread15, %SzArEx_Open2.exit.thread19
-  %.1.i9.ph = phi i32 [ %.3126.i.ph, %SzArEx_Open2.exit.thread19 ], [ %.0123.i.ph, %SzArEx_Open2.exit.thread15 ], [ %.11.ph.i, %.thread187.i ], [ %.5.ph.i, %.thread180.i ], [ 2, %126 ], [ 17, %105 ], [ 4, %TestSignatureCandidate.exit.i ], [ %18, %4 ], [ %20, %19 ], [ %102, %95 ], [ 6, %118 ], [ %125, %124 ], [ 17, %.preheader.i ]
+.sink.split:                                      ; preds = %.preheader.i, %.thread187.i, %.thread180.i, %124, %103, %TestSignatureCandidate.exit.i, %4, %19, %93, %116, %122, %SzArEx_Open2.exit.thread15, %SzArEx_Open2.exit.thread19
+  %.1.i9.ph = phi i32 [ %.3126.i.ph, %SzArEx_Open2.exit.thread19 ], [ %.0123.i.ph, %SzArEx_Open2.exit.thread15 ], [ %.11.ph.i, %.thread187.i ], [ %.5.ph.i, %.thread180.i ], [ 2, %124 ], [ 17, %103 ], [ 4, %TestSignatureCandidate.exit.i ], [ %18, %4 ], [ %20, %19 ], [ %100, %93 ], [ 6, %116 ], [ %123, %122 ], [ 17, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %161
+  br label %159
 
-161:                                              ; preds = %.sink.split, %SzArEx_Open2.exit
-  %.1.i9 = phi i32 [ %160, %SzArEx_Open2.exit ], [ %.1.i9.ph, %.sink.split ]
-  %162 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !12
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %165 = load ptr, ptr %164, align 8, !tbaa !37
-  call void %163(ptr noundef %2, ptr noundef %165) #11
-  %166 = load ptr, ptr %162, align 8, !tbaa !12
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %168 = load ptr, ptr %167, align 8, !tbaa !40
-  call void %166(ptr noundef %2, ptr noundef %168) #11
-  %169 = load ptr, ptr %162, align 8, !tbaa !12
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %171 = load ptr, ptr %170, align 8, !tbaa !41
-  call void %169(ptr noundef %2, ptr noundef %171) #11
-  %172 = load ptr, ptr %162, align 8, !tbaa !12
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %174 = load ptr, ptr %173, align 8, !tbaa !42
-  call void %172(ptr noundef %2, ptr noundef %174) #11
-  %175 = load ptr, ptr %162, align 8, !tbaa !12
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %177 = load ptr, ptr %176, align 8, !tbaa !43
-  call void %175(ptr noundef %2, ptr noundef %177) #11
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @Buf_Free(ptr noundef nonnull %178, ptr noundef %2) #11
+159:                                              ; preds = %.sink.split, %SzArEx_Open2.exit
+  %.1.i9 = phi i32 [ %158, %SzArEx_Open2.exit ], [ %.1.i9.ph, %.sink.split ]
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %161 = load ptr, ptr %160, align 8, !tbaa !12
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %163 = load ptr, ptr %162, align 8, !tbaa !37
+  call void %161(ptr noundef %2, ptr noundef %163) #11
+  %164 = load ptr, ptr %160, align 8, !tbaa !12
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %166 = load ptr, ptr %165, align 8, !tbaa !40
+  call void %164(ptr noundef %2, ptr noundef %166) #11
+  %167 = load ptr, ptr %160, align 8, !tbaa !12
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %169 = load ptr, ptr %168, align 8, !tbaa !41
+  call void %167(ptr noundef %2, ptr noundef %169) #11
+  %170 = load ptr, ptr %160, align 8, !tbaa !12
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %172 = load ptr, ptr %171, align 8, !tbaa !42
+  call void %170(ptr noundef %2, ptr noundef %172) #11
+  %173 = load ptr, ptr %160, align 8, !tbaa !12
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %175 = load ptr, ptr %174, align 8, !tbaa !43
+  call void %173(ptr noundef %2, ptr noundef %175) #11
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  call void @Buf_Free(ptr noundef nonnull %176, ptr noundef %2) #11
   call void @SzAr_Free(ptr noundef %0, ptr noundef %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %164, i8 0, i64 40, i1 false)
-  call void @Buf_Init(ptr noundef nonnull %178) #11
-  br label %179
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %162, i8 0, i64 40, i1 false)
+  call void @Buf_Init(ptr noundef nonnull %176) #11
+  br label %177
 
-179:                                              ; preds = %SzArEx_Open2.exit.thread11, %161, %SzArEx_Open2.exit
-  %.1.i10 = phi i32 [ %.1.i9, %161 ], [ 0, %SzArEx_Open2.exit ], [ 0, %SzArEx_Open2.exit.thread11 ]
+177:                                              ; preds = %SzArEx_Open2.exit.thread11, %159, %SzArEx_Open2.exit
+  %.1.i10 = phi i32 [ %.1.i9, %159 ], [ 0, %SzArEx_Open2.exit ], [ 0, %SzArEx_Open2.exit.thread11 ]
   ret i32 %.1.i10
 }
 
@@ -3228,7 +3226,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %347
   %421 = xor i64 %indvars.iv755.i.i, -1
   %422 = add nsw i64 %421, %409
   %423 = and i64 %422, 4294967295
-  %424 = getelementptr inbounds nuw [15 x i8], ptr %13, i64 0, i64 %423
+  %424 = getelementptr inbounds nuw i8, ptr %13, i64 %423
   %425 = load i8, ptr %424, align 1, !tbaa !51
   %426 = zext i8 %425 to i64
   %427 = shl nuw nsw i64 %indvars.iv755.i.i, 3

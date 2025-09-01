@@ -1045,8 +1045,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..c
 
 8:                                                ; preds = %5
   %9 = add i64 %.sroa.01.0, 1
-  %10 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %.sroa.01.0
-  %11 = getelementptr inbounds [0 x i64], ptr %2, i64 0, i64 %.sroa.01.0
+  %10 = getelementptr inbounds i64, ptr %0, i64 %.sroa.01.0
+  %11 = getelementptr inbounds i64, ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %12 = load i64, ptr %10, align 8, !alias.scope !120, !noalias !123, !noundef !4
@@ -1801,7 +1801,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4fda92a760849fb0E.llvm.17454970623020605724.exit.i.i": ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !534, !noalias !537, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %15, i64 0, i64 %6
+  %16 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %15, i64 %6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i64, ptr %17, align 8, !noalias !543, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 104
@@ -1837,7 +1837,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4fda92a760849fb0E.llvm.17454970623020605724.exit.i3.i": ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !552, !noalias !555, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %34, i64 0, i64 %25
+  %35 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %34, i64 %25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load i64, ptr %36, align 8, !noalias !560, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 104
@@ -2188,7 +2188,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.llvm.17454970623020605724.exit.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !791, !noalias !794, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %13, i64 0, i64 %7, i32 5
+  %14 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %13, i64 %7, i32 5
   %15 = load i64, ptr %14, align 8, !noalias !799, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !800)
   %16 = load i64, ptr %2, align 8, !alias.scope !803, !noalias !804, !noundef !4
@@ -2200,7 +2200,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h799ce3ca2ed26816E.llvm.17454970623020605724.exit": ; preds = %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.llvm.17454970623020605724.exit.i"
-  %19 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %13, i64 0, i64 %16, i32 5
+  %19 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %13, i64 %16, i32 5
   %20 = load i64, ptr %19, align 8, !noalias !811, !noundef !4
   %21 = icmp eq i64 %15, %20
   %22 = icmp ult i64 %7, %16
@@ -3999,7 +3999,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4fda92a760849fb0E.llvm.17454970623020605724.exit.i": ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !1523, !noalias !1526, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %14, i64 0, i64 %5
+  %15 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %14, i64 %5
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i64, ptr %16, align 8, !noalias !1531, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 104
@@ -4035,7 +4035,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4fda92a760849fb0E.llvm.17454970623020605724.exit.i3": ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1537, !noalias !1540, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %33, i64 0, i64 %24
+  %34 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %33, i64 %24
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i64, ptr %35, align 8, !noalias !1545, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 104
@@ -4151,7 +4151,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 "_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.llvm.17454970623020605724.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !1581, !noalias !1584, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %12, i64 0, i64 %6, i32 5
+  %13 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %12, i64 %6, i32 5
   %14 = load i64, ptr %13, align 8, !noalias !1589, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1590)
   %15 = load i64, ptr %2, align 8, !alias.scope !1590, !noalias !1593, !noundef !4
@@ -4163,7 +4163,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   unreachable
 
 "_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.llvm.17454970623020605724.exit7": ; preds = %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.llvm.17454970623020605724.exit"
-  %18 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %12, i64 0, i64 %15, i32 5
+  %18 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %12, i64 %15, i32 5
   %19 = load i64, ptr %18, align 8, !noalias !1600, !noundef !4
   %20 = icmp eq i64 %14, %19
   %21 = icmp ult i64 %6, %15
@@ -4936,8 +4936,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..c
 
 7:                                                ; preds = %5
   %8 = add i64 %.sroa.01.0.i, 1
-  %9 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %.sroa.01.0.i
-  %10 = getelementptr inbounds [0 x i64], ptr %2, i64 0, i64 %.sroa.01.0.i
+  %9 = getelementptr inbounds i64, ptr %0, i64 %.sroa.01.0.i
+  %10 = getelementptr inbounds i64, ptr %2, i64 %.sroa.01.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1928)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1931)
   %11 = load i64, ptr %9, align 8, !alias.scope !1933, !noalias !1934, !noundef !4
@@ -15553,7 +15553,7 @@ define hidden void @"_ZN61_$LT$smallbitvec..SmallBitVec$u20$as$u20$core..hash..H
 50:                                               ; preds = %48
   %notmask = shl nsw i64 -1, %26
   %51 = xor i64 %notmask, -1
-  %52 = getelementptr inbounds nuw [0 x i64], ptr %29, i64 0, i64 %25
+  %52 = getelementptr inbounds nuw i64, ptr %29, i64 %25
   %53 = load i64, ptr %52, align 8, !noundef !4
   %54 = and i64 %53, %51
   %55 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 5)
@@ -16629,7 +16629,7 @@ define hidden noundef nonnull align 8 dereferenceable(144) ptr @"_ZN81_$LT$alloc
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h252d4c609dd6ae29E.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -16647,7 +16647,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN81_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h645b5ed778adc93eE.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { i64, i8 }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { i64, i8 }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -18071,7 +18071,7 @@ define hidden void @"_ZN93_$LT$tree_sitter_cli..generate..build_tables..item..Pa
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i.i": ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !4172, !noalias !4182, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %39, i64 0, i64 %35
+  %40 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %39, i64 %35
   br label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit
 
 _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit: ; preds = %2, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i.i"
@@ -18200,7 +18200,7 @@ _ZN4core4hash6Hasher9write_str17h10d2a89aa8069ae6E.exit.i: ; preds = %84, %83
 _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit: ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %98 = load ptr, ptr %97, align 8, !alias.scope !4216, !noalias !4226, !nonnull !4, !noundef !4
-  %99 = getelementptr inbounds nuw [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %98, i64 0, i64 %94, i32 4
+  %99 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %98, i64 %94, i32 4
   %100 = load i8, ptr %99, align 8, !range !4228, !noalias !4229, !noundef !4
   %101 = icmp ne i8 %100, 2
   %102 = zext i1 %101 to i64
@@ -18875,7 +18875,7 @@ define hidden void @"_ZN93_$LT$tree_sitter_cli..generate..build_tables..item..Pa
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i.i": ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %50 = load ptr, ptr %49, align 8, !alias.scope !4397, !noalias !4407, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds nuw [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %50, i64 0, i64 %46
+  %51 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %50, i64 %46
   br label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit
 
 _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037d075df5baE.exit: ; preds = %2, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h263132208e5dc2feE.llvm.18097807149992804452.exit.i.i"
@@ -18934,7 +18934,7 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem10precedence17h815d037
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !4429, !noalias !4439, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds nuw [0 x { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }], ptr %72, i64 0, i64 %67, i32 4
+  %73 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %72, i64 %67, i32 4
   %74 = load i8, ptr %73, align 8, !range !4228, !noalias !4441, !noundef !4
   br label %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
 
@@ -19442,7 +19442,7 @@ define hidden noundef i64 @"_ZN15tree_sitter_cli8generate12build_tables20minimiz
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4fda92a760849fb0E.llvm.17454970623020605724.exit": ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !4614, !noalias !4617, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %12, i64 0, i64 %3
+  %13 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %12, i64 %3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -19486,7 +19486,7 @@ define hidden { i64, i64 } @"_ZN15tree_sitter_cli8generate12build_tables17report
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4fda92a760849fb0E.llvm.17454970623020605724.exit": ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !4622, !noalias !4625, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %10, i64 0, i64 %4, i32 5
+  %11 = getelementptr inbounds { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }, ptr %10, i64 %4, i32 5
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = insertvalue { i64, i64 } poison, i64 %12, 0
   %14 = insertvalue { i64, i64 } %13, i64 %4, 1

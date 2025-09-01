@@ -15590,7 +15590,7 @@ _ZNK8datatype4util14is_constructorEPK3app.exit34: ; preds = %81
 101:                                              ; preds = %.lr.ph, %.backedge
   %indvars.iv = phi i64 [ %100, %.lr.ph ], [ %102, %.backedge ]
   %102 = add nsw i64 %indvars.iv, -1
-  %103 = getelementptr inbounds nuw [0 x ptr], ptr %97, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %97, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !395
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4
@@ -15603,7 +15603,7 @@ _ZNK8datatype4util14is_constructorEPK3app.exit34: ; preds = %81
   br i1 %.not28.wide, label %_ZNK8datatype4util14is_constructorEPK3app.exit.thread, label %101, !llvm.loop !475
 
 109:                                              ; preds = %101
-  %110 = getelementptr inbounds nuw [0 x ptr], ptr %98, i64 0, i64 %102
+  %110 = getelementptr inbounds nuw ptr, ptr %98, i64 %102
   %111 = load ptr, ptr %110, align 8, !tbaa !395
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4
@@ -15687,7 +15687,7 @@ _ZNK8datatype4decl6plugin1uEv.exit:               ; preds = %2, %7, %_Z7deallocI
 31:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %32 = load ptr, ptr %24, align 8, !tbaa !253
-  %33 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = invoke noundef ptr @_ZN11ast_manager14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %34)
           to label %36 unwind label %60
@@ -23565,7 +23565,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit81:      ; preds = %_ZNK6vectorIP9func_
   %247 = add i32 %.051178, %244
   %248 = urem i32 %247, %240
   %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds nuw [0 x ptr], ptr %245, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw ptr, ptr %245, i64 %249
   %251 = load ptr, ptr %250, align 8, !tbaa !20
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %253 = load ptr, ptr %252, align 8, !tbaa !65

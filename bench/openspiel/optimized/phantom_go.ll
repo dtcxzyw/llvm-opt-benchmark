@@ -3402,9 +3402,9 @@ define noundef zeroext i1 @_ZN10open_spiel10phantom_go14PhantomGoState17equalMet
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw [361 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds nuw [361 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %.not21 = icmp eq i8 %19, %21
   br i1 %.not21, label %17, label %.loopexit
@@ -10387,7 +10387,7 @@ _ZN4absl7debian213InlinedVectorIiLm4ESaIiEED2Ev.exit104: ; preds = %95, %98
 
 111:                                              ; preds = %.lr.ph, %_ZNK10open_spiel10SpanTensor2atEi.exit124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK10open_spiel10SpanTensor2atEi.exit124 ]
-  %112 = getelementptr inbounds nuw [361 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %201 [
     i8 0, label %159

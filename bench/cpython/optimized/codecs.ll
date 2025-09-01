@@ -2380,7 +2380,7 @@ define hidden i32 @_PyCodec_UnregisterError(ptr noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1, %2
   %.0913 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr [8 x ptr], ptr @codecs_builtin_error_handlers, i64 0, i64 %.0913
+  %5 = getelementptr ptr, ptr @codecs_builtin_error_handlers, i64 %.0913
   %6 = load ptr, ptr %5, align 8, !tbaa !112
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #11
   %8 = icmp eq i32 %7, 0
@@ -4164,7 +4164,7 @@ define hidden void @_PyCodec_InitRegistry(ptr dead_on_unwind noalias writable sr
 
 .preheader:                                       ; preds = %12, %17
   %.030 = phi i64 [ %18, %17 ], [ 0, %12 ]
-  %19 = getelementptr [8 x %struct.anon.806], ptr @_PyCodec_InitRegistry.methods, i64 0, i64 %.030
+  %19 = getelementptr %struct.anon.806, ptr @_PyCodec_InitRegistry.methods, i64 %.030
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = tail call ptr @PyCMethod_New(ptr noundef nonnull %20, ptr noundef null, ptr noundef null, ptr noundef null) #10
   %22 = icmp eq ptr %21, null
@@ -5214,7 +5214,7 @@ PyObject_TypeCheck.exit89.thread.i:               ; preds = %PyObject_TypeCheck.
 105:                                              ; preds = %101
   %106 = zext i8 %103 to i16
   %107 = or disjoint i16 %106, -9216
-  %108 = getelementptr [4 x i16], ptr %5, i64 0, i64 %indvars.iv.i
+  %108 = getelementptr i16, ptr %5, i64 %indvars.iv.i
   store i16 %107, ptr %108, align 2, !tbaa !114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -5406,7 +5406,7 @@ declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1, !tbaa !99
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !99
   %7 = icmp eq i8 %6, 117
   br i1 %7, label %8, label %84
@@ -5415,7 +5415,7 @@ define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef n
   %9 = getelementptr i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !99
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %11
+  %12 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !99
   %14 = icmp eq i8 %13, 116
   br i1 %14, label %15, label %84
@@ -5424,7 +5424,7 @@ define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef n
   %16 = getelementptr i8, ptr %0, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !99
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !99
   %21 = icmp eq i8 %20, 102
   br i1 %21, label %22, label %84
@@ -5486,7 +5486,7 @@ define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef n
   %44 = getelementptr i8, ptr %.1, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !99
   %46 = zext i8 %45 to i64
-  %47 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %46
+  %47 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !99
   %49 = icmp eq i8 %48, 101
   br i1 %49, label %50, label %.thread48
@@ -5500,7 +5500,7 @@ define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef n
 54:                                               ; preds = %50
   %55 = load i8, ptr %.1, align 1, !tbaa !99
   %56 = zext i8 %55 to i64
-  %57 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !99
   %switch.selectcmp = icmp eq i8 %58, 108
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 -1
@@ -5533,7 +5533,7 @@ define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef n
   %69 = getelementptr i8, ptr %.2, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !99
   %71 = zext i8 %70 to i64
-  %72 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %71
+  %72 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !99
   %74 = icmp eq i8 %73, 101
   br i1 %74, label %75, label %.thread48
@@ -5547,7 +5547,7 @@ define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef n
 79:                                               ; preds = %75
   %80 = load i8, ptr %.2, align 1, !tbaa !99
   %81 = zext i8 %80 to i64
-  %82 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %81
+  %82 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !99
   %switch.selectcmp44 = icmp eq i8 %83, 108
   %switch.select45 = select i1 %switch.selectcmp44, i32 4, i32 -1

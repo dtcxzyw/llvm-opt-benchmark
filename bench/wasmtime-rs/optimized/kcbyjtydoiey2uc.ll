@@ -311,7 +311,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN16cranelift_e
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E.exit"
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %19, i64 0, i64 %1
+  %20 = getelementptr inbounds { i8, [39 x i8] }, ptr %19, i64 %1
   ret ptr %20
 
 21:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha8b63f23e43f6130E.exit"

@@ -965,7 +965,7 @@ xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.
 
 298:                                              ; preds = %298, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %298 ]
-  %299 = getelementptr inbounds nuw [0 x i32], ptr %297, i64 0, i64 %indvars.iv.i
+  %299 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv.i
   %300 = load i32, ptr %299, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %300) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -997,7 +997,7 @@ switch.lookup:
   %1 = lshr i8 %0, 4
   %2 = and i8 %1, 7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.xact_identify, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xact_identify, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

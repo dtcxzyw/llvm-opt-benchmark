@@ -1451,7 +1451,7 @@ define dso_local void @_ZN4llvm21SanitizerCoveragePass3runERNS_6ModuleERNS_15Ana
 
 switch.lookup:                                    ; preds = %4
   %84 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm21SanitizerCoveragePass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE, i64 0, i64 %84
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm21SanitizerCoveragePass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.shiftamt = shl nuw nsw i32 %switch.tableidx, 3
   %switch.downshift = lshr exact i32 16777216, %switch.shiftamt
@@ -6784,14 +6784,14 @@ switch.lookup:                                    ; preds = %51
   br i1 %or.cond, label %109, label %65
 
 65:                                               ; preds = %switch.lookup
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   %or.cond4 = or i1 %62, %64
   %.075 = select i1 %64, ptr %42, ptr %44
   %.074 = select i1 %64, ptr %44, ptr %42
   %66 = select i1 %or.cond4, i64 152, i64 88
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
-  %.sroa.019.0.in = getelementptr inbounds nuw [4 x %"class.llvm::FunctionCallee"], ptr %67, i64 0, i64 %switch.load
+  %.sroa.019.0.in = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %67, i64 %switch.load
   %.sroa.6.0.in = getelementptr inbounds nuw i8, ptr %.sroa.019.0.in, i64 8
   %.sroa.6.0 = load ptr, ptr %.sroa.6.0.in, align 8, !tbaa !245
   %.sroa.019.0 = load ptr, ptr %.sroa.019.0.in, align 8, !tbaa !244
@@ -7564,7 +7564,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123ModuleSanitizerCoverage17InjectT
   %46 = trunc i64 %38 to i32
   %47 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %45, i32 noundef %46) #21
   %48 = zext nneg i32 %42 to i64
-  %49 = getelementptr inbounds nuw [2 x %"class.llvm::FunctionCallee"], ptr %12, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %12, i64 %48
   %.sroa.01.0.copyload = load ptr, ptr %49, align 8, !tbaa !244
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !245
@@ -7858,13 +7858,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectT
   br i1 %.not11, label %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit.thread", label %46
 
 switch.lookup:                                    ; preds = %28
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 %41
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit.thread"
 
 "_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit.thread": ; preds = %switch.lookup, %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit"
   %43 = phi i64 [ 4, %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit" ], [ %switch.load, %switch.lookup ]
-  %44 = getelementptr inbounds nuw [5 x %"class.llvm::FunctionCallee"], ptr %16, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %16, i64 %43
   %.sroa.012.0.copyload = load ptr, ptr %44, align 8, !tbaa !244
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.213.0.copyload = load ptr, ptr %.sroa.213.0..sroa_idx, align 8, !tbaa !245
@@ -7936,13 +7936,13 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
   br i1 %.not12, label %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit39.thread", label %71
 
 switch.lookup25:                                  ; preds = %51
-  %switch.gep29 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 0, i64 %66
+  %switch.gep29 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEE.39, i64 %66
   %switch.load30 = load i64, ptr %switch.gep29, align 8
   br label %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit39.thread"
 
 "_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit39.thread": ; preds = %switch.lookup25, %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit39"
   %68 = phi i64 [ 4, %"_ZZN12_GLOBAL__N_123ModuleSanitizerCoverage28InjectTraceForLoadsAndStoresERN4llvm8FunctionENS1_8ArrayRefIPNS1_8LoadInstEEENS4_IPNS1_9StoreInstEEEENK3$_0clEPNS1_4TypeE.exit39" ], [ %switch.load30, %switch.lookup25 ]
-  %69 = getelementptr inbounds nuw [5 x %"class.llvm::FunctionCallee"], ptr %23, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %23, i64 %68
   %.sroa.0.0.copyload = load ptr, ptr %69, align 8, !tbaa !244
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !245

@@ -598,7 +598,7 @@ define dso_local void @i915_vm_free_pt_stash(ptr readnone captures(none) %0, ptr
 3:                                                ; preds = %.loopexit, %2
   %4 = phi i1 [ true, %2 ], [ false, %.loopexit ]
   %5 = phi i64 [ 0, %2 ], [ 1, %.loopexit ]
-  %6 = getelementptr [2 x ptr], ptr %1, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -689,7 +689,7 @@ define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr noundef readonly 
 3:                                                ; preds = %.loopexit3, %2
   %4 = phi i1 [ true, %2 ], [ false, %.loopexit3 ]
   %5 = phi i64 [ 0, %2 ], [ 1, %.loopexit3 ]
-  %6 = getelementptr [2 x ptr], ptr %1, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit3, label %.preheader

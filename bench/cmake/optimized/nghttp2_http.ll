@@ -1276,7 +1276,7 @@ define internal fastcc i64 @sf_parse_item(ptr noundef writeonly captures(address
   %.016.i.i = phi ptr [ %24, %23 ], [ %.1.i, %.lr.ph.preheader.i.i ]
   %19 = load i8, ptr %.016.i.i, align 1, !tbaa !16
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i32], ptr @SF_KEY_CHARS, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr @SF_KEY_CHARS, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !66
   %.not13.i.i = icmp eq i32 %22, 0
   br i1 %.not13.i.i, label %sf_parse_key.exit.i, label %23
@@ -1414,7 +1414,7 @@ define internal fastcc noundef i64 @sf_parse_inner_list(ptr noundef writeonly ca
   %.016.i.i = phi ptr [ %29, %28 ], [ %.1.i, %.lr.ph.preheader.i.i ]
   %24 = load i8, ptr %.016.i.i, align 1, !tbaa !16
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i32], ptr @SF_KEY_CHARS, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @SF_KEY_CHARS, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !66
   %.not13.i.i = icmp eq i32 %27, 0
   br i1 %.not13.i.i, label %sf_parse_key.exit.i, label %28
@@ -1561,7 +1561,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef
   %.016.i = phi ptr [ %22, %21 ], [ %.1120, %.lr.ph.preheader.i ]
   %17 = load i8, ptr %.016.i, align 1, !tbaa !16
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i32], ptr @SF_KEY_CHARS, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @SF_KEY_CHARS, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !66
   %.not13.i = icmp eq i32 %20, 0
   br i1 %.not13.i, label %sf_parse_key.exit, label %21
@@ -1632,7 +1632,7 @@ sf_parse_key.exit:                                ; preds = %21, %.lr.ph.i
   %.016.i.i = phi ptr [ %45, %44 ], [ %.1.i, %.lr.ph.preheader.i.i ]
   %40 = load i8, ptr %.016.i.i, align 1, !tbaa !16
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i32], ptr @SF_KEY_CHARS, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr @SF_KEY_CHARS, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !66
   %.not13.i.i = icmp eq i32 %43, 0
   br i1 %.not13.i.i, label %sf_parse_key.exit.i, label %44
@@ -2058,7 +2058,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
 
 75:                                               ; preds = %.lr.ph.i28
   %76 = zext i8 %57 to i64
-  %77 = getelementptr inbounds nuw [256 x i32], ptr @SF_DQUOTE_CHARS, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr @SF_DQUOTE_CHARS, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !66
   %.not26.i = icmp eq i32 %78, 0
   br i1 %.not26.i, label %sf_parse_integer_or_decimal.exit, label %79
@@ -2084,7 +2084,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
   %.029.i35 = phi ptr [ %90, %89 ], [ %1, %.lr.ph.preheader.i32 ]
   %85 = load i8, ptr %.029.i35, align 1, !tbaa !16
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [256 x i32], ptr @SF_TOKEN_CHARS, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr @SF_TOKEN_CHARS, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !66
   %.not24.i36 = icmp eq i32 %88, 0
   br i1 %.not24.i36, label %.critedge.i, label %89
@@ -2149,7 +2149,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
 
 111:                                              ; preds = %.lr.ph.i42
   %112 = zext i8 %98 to i64
-  %113 = getelementptr inbounds nuw [256 x i32], ptr @SF_BYTESEQ_CHARS, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr @SF_BYTESEQ_CHARS, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !66
   %.not20.i = icmp eq i32 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
@@ -2204,7 +2204,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
   %.029.i52 = phi ptr [ %137, %136 ], [ %1, %.lr.ph.preheader.i49 ]
   %132 = load i8, ptr %.029.i52, align 1, !tbaa !16
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw [256 x i32], ptr @SF_TOKEN_CHARS, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i32, ptr @SF_TOKEN_CHARS, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !66
   %.not24.i53 = icmp eq i32 %135, 0
   br i1 %.not24.i53, label %.critedge.i55, label %136

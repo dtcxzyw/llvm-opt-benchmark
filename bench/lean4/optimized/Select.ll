@@ -1188,7 +1188,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit194
   br label %lean_dec.exit193
 
 lean_dec.exit193:                                 ; preds = %34, %33, %31, %25
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.0156398
+  %35 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0156398
   %36 = load ptr, ptr %35, align 8, !tbaa !9
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 1
@@ -2888,7 +2888,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Std_Internal_IO_Async_Selectable_o
   br label %lean_dec.exit57
 
 lean_dec.exit57:                                  ; preds = %21, %20, %18, %12
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.042110
+  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %.042110
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -6488,7 +6488,7 @@ lean_dec.exit211:                                 ; preds = %54, %53, %51, %lean
   br label %lean_dec.exit210
 
 lean_dec.exit210:                                 ; preds = %67, %66, %64, %58
-  %68 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %.0169507
+  %68 = getelementptr inbounds nuw ptr, ptr %12, i64 %.0169507
   %69 = load ptr, ptr %68, align 8, !tbaa !9
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, 1

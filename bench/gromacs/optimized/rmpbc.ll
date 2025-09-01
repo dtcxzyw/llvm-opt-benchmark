@@ -620,15 +620,15 @@ define void @_Z9rm_gropbcPK7t_atomsPA3_fPA3_Kf(ptr noundef readonly captures(non
 8:                                                ; preds = %.preheader38, %.loopexit
   %indvars.iv58 = phi i64 [ 2, %.preheader38 ], [ %indvars.iv.next59, %.loopexit ]
   %indvars.iv56 = phi i64 [ 3, %.preheader38 ], [ %indvars.iv.next57, %.loopexit ]
-  %9 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv58
+  %9 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv58
   %10 = load float, ptr %9, align 4, !tbaa !54
-  %11 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv58
+  %11 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv58
   %12 = load float, ptr %11, align 4, !tbaa !54
   %13 = fsub float %10, %12
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %15 = fpext float %14 to double
   %16 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv58
-  %17 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv58
+  %17 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv58
   %18 = load float, ptr %17, align 4, !tbaa !54
   %19 = fpext float %18 to double
   %20 = fmul double %19, 9.000000e-01
@@ -641,9 +641,9 @@ define void @_Z9rm_gropbcPK7t_atomsPA3_fPA3_Kf(ptr noundef readonly captures(non
 
 .lr.ph43:                                         ; preds = %22, %.lr.ph43
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph43 ], [ 0, %22 ]
-  %24 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv51
+  %24 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv51
   %25 = load float, ptr %24, align 4, !tbaa !54
-  %26 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv51
+  %26 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv51
   %27 = load float, ptr %26, align 4, !tbaa !54
   %28 = fsub float %27, %25
   store float %28, ptr %26, align 4, !tbaa !54
@@ -653,9 +653,9 @@ define void @_Z9rm_gropbcPK7t_atomsPA3_fPA3_Kf(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %22 ]
-  %29 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !54
-  %31 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !54
   %33 = fadd float %30, %32
   store float %33, ptr %31, align 4, !tbaa !54

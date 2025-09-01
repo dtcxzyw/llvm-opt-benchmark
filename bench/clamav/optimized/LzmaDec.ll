@@ -205,7 +205,7 @@ LzmaDec_WriteRem.exit:                            ; preds = %6, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv305, 1
   %78 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %78, ptr %50, align 4, !tbaa !14
-  %79 = getelementptr inbounds nuw [20 x i8], ptr %51, i64 0, i64 %indvars.iv305
+  %79 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv305
   store i8 %77, ptr %79, align 1, !tbaa !24
   %80 = load i64, ptr %3, align 8, !tbaa !19
   %81 = add i64 %80, 1
@@ -390,7 +390,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %122
   %155 = getelementptr inbounds nuw i8, ptr %.1125, i64 %indvars.iv256
   %156 = load i8, ptr %155, align 1, !tbaa !24
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
-  %157 = getelementptr inbounds nuw [20 x i8], ptr %51, i64 0, i64 %indvars.iv258
+  %157 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv258
   store i8 %156, ptr %157, align 1, !tbaa !24
   %158 = icmp samesign ult i64 %indvars.iv258, 19
   %159 = icmp ugt i64 %.1138, %indvars.iv.next257

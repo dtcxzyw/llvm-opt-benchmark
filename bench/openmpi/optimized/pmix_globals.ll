@@ -4331,7 +4331,7 @@ define void @pmix_execute_epilog(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %18, i32 2
+  %19 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %18, i32 2
   %20 = load i32, ptr %19, align 4, !tbaa !239
   %21 = icmp sgt i32 %20, 9
   br i1 %21, label %22, label %27

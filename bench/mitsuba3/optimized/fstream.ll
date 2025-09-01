@@ -292,7 +292,7 @@ _ZNSt3__113basic_fstreamIcNS_11char_traitsIcEEEC1Ev.exit: ; preds = %31
 
 switch.lookup:                                    ; preds = %38
   %45 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7mitsuba10FileStreamC2ERKNS_10filesystem4pathENS0_5EModeE, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7mitsuba10FileStreamC2ERKNS_10filesystem4pathENS0_5EModeE, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = load i8, ptr %5, align 8

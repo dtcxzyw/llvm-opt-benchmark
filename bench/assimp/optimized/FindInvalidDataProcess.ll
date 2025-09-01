@@ -955,7 +955,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i:  ; preds = %_ZNK10aiVector3tIfE
 151:                                              ; preds = %.preheader312, %.loopexit308
   %indvars.iv346 = phi i64 [ 0, %.preheader312 ], [ %indvars.iv.next347, %.loopexit308 ]
   %.1325 = phi i8 [ 0, %.preheader312 ], [ %.2, %.loopexit308 ]
-  %152 = getelementptr inbounds nuw [8 x ptr], ptr %149, i64 0, i64 %indvars.iv346
+  %152 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv346
   %153 = load ptr, ptr %152, align 8
   %.not81 = icmp eq ptr %153, null
   br i1 %.not81, label %.critedge, label %154
@@ -1143,7 +1143,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164: ; preds = %_ZNK10aiVector3tI
   store ptr null, ptr %152, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %233 = getelementptr inbounds nuw [8 x i32], ptr %150, i64 0, i64 %indvars.iv346
+  %233 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv346
   store i32 0, ptr %233, align 4
   %.not332 = icmp eq i64 %indvars.iv346, 7
   br i1 %.not332, label %.critedge, label %.lr.ph324
@@ -1156,7 +1156,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164: ; preds = %_ZNK10aiVector3tI
 .lr.ph324:                                        ; preds = %232, %240
   %indvars.iv348 = phi i64 [ %indvars.iv.next349, %240 ], [ %indvars.iv346, %232 ]
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
-  %236 = getelementptr inbounds nuw [8 x ptr], ptr %149, i64 0, i64 %indvars.iv.next349
+  %236 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv.next349
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null
   br i1 %238, label %240, label %239
@@ -1167,7 +1167,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164: ; preds = %_ZNK10aiVector3tI
 
 240:                                              ; preds = %239, %.lr.ph324
   store ptr null, ptr %236, align 8
-  %241 = getelementptr inbounds nuw [8 x i32], ptr %150, i64 0, i64 %indvars.iv.next349
+  %241 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv.next349
   store i32 0, ptr %241, align 4
   %242 = icmp samesign ult i64 %indvars.iv348, 6
   br i1 %242, label %.lr.ph324, label %.loopexit308, !llvm.loop !14
@@ -1813,7 +1813,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -1865,7 +1865,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -2902,7 +2902,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -2921,7 +2921,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

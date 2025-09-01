@@ -81,7 +81,7 @@ define noundef ptr @mktemp(ptr noundef captures(address, ret: address, provenanc
 20:                                               ; preds = %27, %18
   %.06.i.i = phi i32 [ 5, %18 ], [ %28, %27 ]
   %21 = zext nneg i32 %.06.i.i to i64
-  %22 = getelementptr inbounds nuw [6 x i8], ptr @g_base62, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @g_base62, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = icmp ult i8 %23, 61
   br i1 %24, label %25, label %27

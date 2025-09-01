@@ -6390,7 +6390,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %72, %66, %_ZN4cvc
   %83 = icmp eq i32 %82, 2
   %spec.select.i.i75 = select i1 %83, i64 2, i64 1
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %85 = getelementptr inbounds nuw [0 x ptr], ptr %84, i64 0, i64 %spec.select.i.i75
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %spec.select.i.i75
   %86 = load ptr, ptr %85, align 8, !tbaa !19, !noalias !415
   store ptr %86, ptr %8, align 8, !tbaa !21, !alias.scope !415
   %87 = load i64, ptr %86, align 8, !noalias !415

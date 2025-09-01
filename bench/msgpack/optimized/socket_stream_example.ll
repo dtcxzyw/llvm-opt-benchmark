@@ -1522,7 +1522,7 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535
 72:                                               ; preds = %70
   %73 = add nuw nsw i64 %33, 4294967100
   %74 = and i64 %73, 4294967295
-  %75 = getelementptr inbounds nuw [28 x i32], ptr @__const._ZN7msgpack2v26detail7contextI17json_like_printerE7executeEPKcmRm.trail, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @__const._ZN7msgpack2v26detail7contextI17json_like_printerE7executeEPKcmRm.trail, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !96
   %77 = zext i32 %76 to i64
   store i64 %77, ptr %24, align 8, !tbaa !72

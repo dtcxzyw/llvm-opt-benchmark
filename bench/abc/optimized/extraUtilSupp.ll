@@ -821,7 +821,7 @@ Abc_SuppGenProfile.exit:                          ; preds = %._crit_edge.us.i, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = sitofp i32 %23 to double
   %25 = fmul double %24, 1.000000e+02
@@ -901,9 +901,9 @@ Abc_SuppGenProfile.exit:                          ; preds = %._crit_edge.us.i, %
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.012 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %23 = zext nneg i32 %.012 to i64
-  %24 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !21
-  %26 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %28 = icmp slt i32 %25, %27
   %29 = trunc nuw nsw i64 %indvars.iv to i32
@@ -915,7 +915,7 @@ Abc_SuppGenProfile.exit:                          ; preds = %._crit_edge.us.i, %
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph20.i, %Abc_SuppGenProfile.exit
   %.0.lcssa = phi i32 [ 0, %Abc_SuppGenProfile.exit ], [ 0, %.lr.ph20.i ], [ %spec.select, %.lr.ph ]
   %30 = zext nneg i32 %.0.lcssa to i64
-  %31 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !21
   store i32 %32, ptr %2, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1067,9 +1067,9 @@ define i64 @Abc_SuppFindOne(ptr noundef readonly captures(none) %0, i32 noundef 
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %.lr.ph.i.us.us ], [ 1, %Abc_SuppGenProfile.exit.i.loopexit.us.us ]
   %.012.i.us.us = phi i32 [ %spec.select.i.us.us, %.lr.ph.i.us.us ], [ 0, %Abc_SuppGenProfile.exit.i.loopexit.us.us ]
   %25 = zext nneg i32 %.012.i.us.us to i64
-  %26 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !21
-  %28 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv.i.us.us
+  %28 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.us.us
   %29 = load i32, ptr %28, align 4, !tbaa !21
   %30 = icmp slt i32 %27, %29
   %31 = trunc nuw nsw i64 %indvars.iv.i.us.us to i32
@@ -1084,7 +1084,7 @@ Abc_SuppGenFindBest.exit.us.us.loopexit:          ; preds = %.lr.ph.i.us.us
 
 Abc_SuppGenFindBest.exit.us.us:                   ; preds = %Abc_SuppGenFindBest.exit.us.us.loopexit, %Abc_SuppGenProfile.exit.i.loopexit.us.us
   %.0.lcssa.i.us.us = phi i64 [ 0, %Abc_SuppGenProfile.exit.i.loopexit.us.us ], [ %32, %Abc_SuppGenFindBest.exit.us.us.loopexit ]
-  %33 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %.0.lcssa.i.us.us
+  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %.0.lcssa.i.us.us
   %34 = load i32, ptr %33, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.us.us = icmp slt i32 %.08.us.us, %34
@@ -1153,9 +1153,9 @@ Abc_SuppGenProfile.exit.i.us18:                   ; preds = %.split, %Abc_SuppGe
   %indvars.iv.i.us23 = phi i64 [ 1, %Abc_SuppGenProfile.exit.i.us18 ], [ %indvars.iv.next.i.us26, %.lr.ph.i.us22 ]
   %.012.i.us24 = phi i32 [ 0, %Abc_SuppGenProfile.exit.i.us18 ], [ %spec.select.i.us25, %.lr.ph.i.us22 ]
   %54 = zext nneg i32 %.012.i.us24 to i64
-  %55 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !21
-  %57 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv.i.us23
+  %57 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.us23
   %58 = load i32, ptr %57, align 4, !tbaa !21
   %59 = icmp slt i32 %56, %58
   %60 = trunc nuw nsw i64 %indvars.iv.i.us23 to i32
@@ -1171,7 +1171,7 @@ Abc_SuppGenSelectVar.exit.us31:                   ; preds = %Abc_SuppGenFindBest
 
 Abc_SuppGenFindBest.exit.loopexit.us32:           ; preds = %.lr.ph.i.us22
   %63 = zext nneg i32 %spec.select.i.us25 to i64
-  %64 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.us30 = icmp slt i32 %.08.us19, %65

@@ -28487,7 +28487,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %_ZN7testing7Message
 
 switch.lookup:                                    ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit
   %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i
 
@@ -33679,20 +33679,20 @@ define internal void @_ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110G
 23:                                               ; preds = %18
   %24 = load ptr, ptr @stdout, align 8, !tbaa !34, !noalias !679
   %25 = call i32 @vfprintf(ptr noundef %24, ptr noundef %1, ptr noundef nonnull %3) #60
-  br label %31
+  br label %32
 
 switch.lookup:                                    ; preds = %18
-  %switch.tableidx = add nsw i32 %0, -1
-  %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110GTestColorEPKcz, i64 0, i64 %26
+  %26 = zext nneg i32 %0 to i64
+  %27 = getelementptr ptr, ptr @switch.table._ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110GTestColorEPKcz, i64 %26
+  %switch.gep = getelementptr i8, ptr %27, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.484, ptr noundef nonnull %switch.load)
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !34, !noalias !682
-  %29 = call i32 @vfprintf(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %3) #60
-  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.485)
-  br label %31
+  %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.484, ptr noundef nonnull %switch.load)
+  %29 = load ptr, ptr @stdout, align 8, !tbaa !34, !noalias !682
+  %30 = call i32 @vfprintf(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %3) #60
+  %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.485)
+  br label %32
 
-31:                                               ; preds = %switch.lookup, %23
+32:                                               ; preds = %switch.lookup, %23
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -73329,7 +73329,7 @@ _ZN7testing7MessagelsIA256_cEERS0_RKT_.exit.i:    ; preds = %_ZN7testing7Message
 
 54:                                               ; preds = %51
   %55 = and i64 %50, 2147483647
-  %56 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %55
   store i8 0, ptr %56, align 1, !tbaa !13
   %57 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(256) %3) #60
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 1 dereferenceable(256) %3, i64 noundef %57)

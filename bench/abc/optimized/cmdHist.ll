@@ -43,7 +43,7 @@ define void @Cmd_HistoryAddCommand(ptr noundef readonly captures(none) %0, ptr n
 11:                                               ; preds = %6
   %12 = add i64 %7, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw [32768 x i8], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !23
   %16 = icmp eq i8 %15, 10
   br i1 %16, label %17, label %18
@@ -106,8 +106,8 @@ switch.early.test:                                ; preds = %22
   br i1 %.not45, label %53, label %29
 
 29:                                               ; preds = %28
-  %30 = add i64 %19, -1
-  %31 = getelementptr inbounds nuw [32768 x i8], ptr %3, i64 0, i64 %30
+  %30 = getelementptr i8, ptr %3, i64 %19
+  %31 = getelementptr i8, ptr %30, i64 -1
   %32 = load i8, ptr %31, align 1, !tbaa !23
   %.not46 = icmp eq i8 %32, 63
   br i1 %.not46, label %53, label %33
@@ -372,7 +372,7 @@ define void @Cmd_HistoryRead(ptr noundef readonly captures(none) %0) local_unnam
   %9 = shl i64 %8, 32
   %sext = add i64 %9, -4294967296
   %10 = ashr exact i64 %sext, 32
-  %11 = getelementptr inbounds [32768 x i8], ptr %2, i64 0, i64 %10
+  %11 = getelementptr inbounds i8, ptr %2, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !23
   %13 = icmp eq i8 %12, 10
   br i1 %13, label %14, label %15

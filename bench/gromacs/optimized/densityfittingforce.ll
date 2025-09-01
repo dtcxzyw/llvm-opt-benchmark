@@ -261,11 +261,11 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %103 = load float, ptr %24, align 8
   %104 = fpext float %103 to double
   %105 = select i1 %.not, double %104, double 1.000000e+00
-  %106 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %25, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %25, i64 %indvars.iv
   %107 = load ptr, ptr %1, align 8, !tbaa !19
-  %108 = getelementptr inbounds nuw [3 x float], ptr %107, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !23
-  %110 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4, !tbaa !8
   %112 = sitofp i32 %111 to float
   %113 = fsub float %109, %112
@@ -514,7 +514,7 @@ define void @_ZN3gmx19DensityFittingForceC2ERKS0_(ptr noundef nonnull writeonly 
   %.idx.i.i = shl nuw nsw i64 %7, 3
   %.add6.i = add nuw nsw i64 %.idx.i.i, 40
   %.ptr9.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add6.i
-  %8 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %5, i64 %7
   invoke void @_ZN3gmx19GaussianOn1DLatticeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.ptr9.i, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %9 unwind label %12
 
@@ -629,8 +629,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19DensityFittingFo
 
 7:                                                ; preds = %7, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %5, i64 0, i64 %.05.i.i
-  %9 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %6, i64 0, i64 %.05.i.i
+  %8 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %5, i64 %.05.i.i
+  %9 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %6, i64 %.05.i.i
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19GaussianOn1DLatticeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %11 = add nuw nsw i64 %.05.i.i, 1
   %.not.i.i = icmp eq i64 %11, 3

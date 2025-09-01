@@ -2889,7 +2889,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIPNSt7__cxx114l
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %60 = phi i1 [ false, %.lr.ph96 ], [ true, %.preheader ]
   %.01495 = phi i64 [ 2, %.lr.ph96 ], [ 1, %.preheader ]
-  %61 = getelementptr inbounds nuw [3 x %"struct.std::atomic.41"], ptr %46, i64 0, i64 %.01495
+  %61 = getelementptr inbounds nuw %"struct.std::atomic.41", ptr %46, i64 %.01495
   store atomic i64 %41, ptr %61 release, align 8
   %62 = add nuw nsw i64 %.01495, 1
   %63 = icmp ult i64 %62, %58
@@ -3789,7 +3789,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal
 .lr.ph88.i:                                       ; preds = %.preheader.i, %.lr.ph88.i
   %73 = phi i1 [ false, %.lr.ph88.i ], [ true, %.preheader.i ]
   %.01487.i = phi i64 [ 2, %.lr.ph88.i ], [ 1, %.preheader.i ]
-  %74 = getelementptr inbounds nuw [3 x %"struct.std::atomic.50"], ptr %45, i64 0, i64 %.01487.i
+  %74 = getelementptr inbounds nuw %"struct.std::atomic.50", ptr %45, i64 %.01487.i
   store atomic i64 %40, ptr %74 release, align 8
   %75 = add nuw nsw i64 %.01487.i, 1
   %76 = icmp ult i64 %75, %71

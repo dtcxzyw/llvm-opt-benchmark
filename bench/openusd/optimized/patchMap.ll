@@ -170,7 +170,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE6resizeEm
 
 switch.lookup:                                    ; preds = %.lr.ph39
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far8PatchMap17initializeHandlesERKNS1_10PatchTableE, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far8PatchMap17initializeHandlesERKNS1_10PatchTableE, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -376,7 +376,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 
 84:                                               ; preds = %84, %80
   %indvars.iv.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i, %84 ]
-  %85 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %78, i64 0, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %78, i64 %indvars.iv.i.i
   store i32 %83, ptr %85, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -415,7 +415,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
   %104 = or disjoint i32 %103, %100
   %105 = icmp eq i32 %.040107, %67
   %106 = zext nneg i32 %104 to i64
-  %107 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %.039108, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %.039108, i64 %106
   br i1 %105, label %108, label %109
 
 108:                                              ; preds = %97
@@ -631,7 +631,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.
   %.195 = phi i1 [ true, %196 ], [ true, %198 ], [ false, %205 ], [ true, %201 ], [ false, %190 ], [ true, %193 ], [ false, %188 ], [ false, %184 ]
   %.0.i47 = phi i64 [ 1, %196 ], [ 2, %198 ], [ 3, %205 ], [ 0, %201 ], [ 0, %190 ], [ 3, %193 ], [ 2, %188 ], [ 1, %184 ]
   %206 = icmp eq i32 %.038115, %67
-  %207 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %.1114, i64 0, i64 %.0.i47
+  %207 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %.1114, i64 %.0.i47
   br i1 %206, label %208, label %209
 
 208:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit

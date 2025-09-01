@@ -109,9 +109,9 @@ _ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ;
 define dso_local noundef zeroext i1 @_ZN4absl21StrContainsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEEc(i64 %0, ptr %1, i8 noundef signext %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x i8], align 1
   %5 = zext i8 %2 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal8kToUpperE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal8kToUpperE, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !6
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal8kToLowerE, i64 0, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal8kToLowerE, i64 %5
   %9 = load i8, ptr %8, align 1, !tbaa !6
   %10 = icmp eq i8 %7, %9
   br i1 %10, label %11, label %19

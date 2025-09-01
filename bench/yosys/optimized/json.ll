@@ -12384,7 +12384,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit:             ; preds = %118
 
 switch.lookup:                                    ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit
   %125 = zext nneg i8 %121 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_110JsonWriter8get_bitsB5cxx11EN5Yosys5RTLIL7SigSpecE, i64 0, i64 %125
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_110JsonWriter8get_bitsB5cxx11EN5Yosys5RTLIL7SigSpecE, i64 %125
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke148
 

@@ -534,7 +534,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %46 = getelementptr inbounds nuw i64, ptr %9, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %.12641.us.i, i64 %47
-  %49 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %45
+  %49 = getelementptr inbounds nuw i64, ptr %7, i64 %45
   %50 = load i64, ptr %49, align 8, !tbaa !3
   %51 = add i64 %50, -1
   store i64 %51, ptr %49, align 8, !tbaa !3
@@ -632,7 +632,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i, %.split28
   %20 = getelementptr inbounds nuw i64, ptr %3, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %.12641.us, i64 %21
-  %23 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %19
+  %23 = getelementptr inbounds nuw i64, ptr %7, i64 %19
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = add i64 %24, -1
   store i64 %25, ptr %23, align 8, !tbaa !3
@@ -687,9 +687,9 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
 17:                                               ; preds = %16, %15
   %18 = add i32 %0, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [33 x i64], ptr %12, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %12, i64 %19
   store i64 1, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw [33 x i64], ptr %11, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw i64, ptr %11, i64 %19
   store i64 1, ptr %21, align 8, !tbaa !3
   %.not140 = icmp eq ptr %3, null
   br i1 %.not140, label %25, label %22
@@ -944,17 +944,17 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %168 = add nuw nsw i64 %indvars.iv, 1
   %169 = getelementptr inbounds nuw i64, ptr %2, i64 %168
   %170 = load i64, ptr %169, align 8, !tbaa !3
-  %171 = getelementptr inbounds nuw [33 x i64], ptr %10, i64 0, i64 %168
+  %171 = getelementptr inbounds nuw i64, ptr %10, i64 %168
   %172 = load i64, ptr %171, align 8, !tbaa !3
   %173 = sub i64 %170, %172
   %174 = mul i64 %173, %.0125206
-  %175 = getelementptr inbounds nuw [33 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   store i64 %174, ptr %175, align 8, !tbaa !3
   %176 = getelementptr inbounds nuw i64, ptr %5, i64 %168
   %177 = load i64, ptr %176, align 8, !tbaa !3
   %178 = sub i64 %177, %172
   %179 = mul i64 %178, %.0124207
-  %180 = getelementptr inbounds nuw [33 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   store i64 %179, ptr %180, align 8, !tbaa !3
   %181 = mul i64 %170, %.0125206
   %182 = mul i64 %177, %.0124207
@@ -1234,7 +1234,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %331 = getelementptr inbounds nuw i64, ptr %12, i64 %327
   %332 = load i64, ptr %331, align 8, !tbaa !3
   %333 = getelementptr inbounds nuw i8, ptr %.13454.us.i, i64 %332
-  %334 = getelementptr inbounds nuw [33 x i64], ptr %9, i64 0, i64 %327
+  %334 = getelementptr inbounds nuw i64, ptr %9, i64 %327
   %335 = load i64, ptr %334, align 8, !tbaa !3
   %336 = add i64 %335, -1
   store i64 %336, ptr %334, align 8, !tbaa !3
@@ -1334,7 +1334,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i64, ptr %3, i64 %18
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %.13454.us, i64 %23
-  %25 = getelementptr inbounds nuw [33 x i64], ptr %8, i64 0, i64 %18
+  %25 = getelementptr inbounds nuw i64, ptr %8, i64 %18
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8, !tbaa !3
@@ -1425,7 +1425,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i64, ptr %3, i64 %18
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds i8, ptr %.13454.us, i64 %23
-  %25 = getelementptr inbounds nuw [33 x i64], ptr %8, i64 0, i64 %18
+  %25 = getelementptr inbounds nuw i64, ptr %8, i64 %18
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8, !tbaa !3

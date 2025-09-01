@@ -8616,7 +8616,7 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator17DiagnosticHandlerERKNS_14Diag
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm16LTOCodeGenerator17DiagnosticHandlerERKNS_14DiagnosticInfoE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm16LTOCodeGenerator17DiagnosticHandlerERKNS_14DiagnosticInfoE, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 

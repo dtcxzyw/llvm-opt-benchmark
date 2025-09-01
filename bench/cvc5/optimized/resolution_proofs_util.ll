@@ -1742,7 +1742,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_5proof15CrowdingLitInfoESt4les
   %652 = icmp eq i32 %651, 2
   %653 = getelementptr inbounds nuw i8, ptr %645, i64 24
   %654 = zext i1 %652 to i64
-  %655 = getelementptr inbounds nuw [0 x ptr], ptr %653, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw ptr, ptr %653, i64 %654
   %656 = load ptr, ptr %655, align 8, !tbaa !100, !noalias !97
   store ptr %656, ptr %62, align 8, !tbaa !40, !alias.scope !97
   %657 = load i64, ptr %656, align 8, !noalias !97
@@ -2030,8 +2030,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_5proof15CrowdingLitInfoESt4les
   %spec.select.i.i1068 = add nuw i64 %.04103855, %780
   %781 = getelementptr inbounds nuw i8, ptr %771, i64 24
   %sext = shl i64 %spec.select.i.i1068, 32
-  %782 = ashr exact i64 %sext, 32
-  %783 = getelementptr inbounds [0 x ptr], ptr %781, i64 0, i64 %782
+  %782 = ashr exact i64 %sext, 29
+  %783 = getelementptr inbounds i8, ptr %781, i64 %782
   %784 = load ptr, ptr %783, align 8, !tbaa !100, !noalias !101
   store ptr %784, ptr %64, align 8, !tbaa !40, !alias.scope !101
   %785 = load i64, ptr %784, align 8, !noalias !101
@@ -2179,8 +2179,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1088: ; preds = %.loopexit3360, %8
   %spec.select.i.i1089 = add nuw i64 %.04103855, %857
   %858 = getelementptr inbounds nuw i8, ptr %848, i64 24
   %sext3346 = shl i64 %spec.select.i.i1089, 32
-  %859 = ashr exact i64 %sext3346, 32
-  %860 = getelementptr inbounds [0 x ptr], ptr %858, i64 0, i64 %859
+  %859 = ashr exact i64 %sext3346, 29
+  %860 = getelementptr inbounds i8, ptr %858, i64 %859
   %861 = load ptr, ptr %860, align 8, !tbaa !100, !noalias !104
   %862 = load i64, ptr %861, align 8, !noalias !104
   %863 = lshr i64 %862, 40
@@ -2382,8 +2382,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1116: ; preds = %.loopexit3358, %9
   %spec.select.i.i1117 = add nuw i64 %.04103855, %949
   %950 = getelementptr inbounds nuw i8, ptr %940, i64 24
   %sext3347 = shl i64 %spec.select.i.i1117, 32
-  %951 = ashr exact i64 %sext3347, 32
-  %952 = getelementptr inbounds [0 x ptr], ptr %950, i64 0, i64 %951
+  %951 = ashr exact i64 %sext3347, 29
+  %952 = getelementptr inbounds i8, ptr %950, i64 %951
   %953 = load ptr, ptr %952, align 8, !tbaa !100, !noalias !107
   store ptr %953, ptr %65, align 8, !tbaa !40, !alias.scope !107
   %954 = load i64, ptr %953, align 8, !noalias !107
@@ -2557,8 +2557,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1136: ; preds = %986, %992, %998
   %spec.select.i.i1137 = add nuw i64 %.04103855, %1028
   %1029 = getelementptr inbounds nuw i8, ptr %1019, i64 24
   %sext3348 = shl i64 %spec.select.i.i1137, 32
-  %1030 = ashr exact i64 %sext3348, 32
-  %1031 = getelementptr inbounds [0 x ptr], ptr %1029, i64 0, i64 %1030
+  %1030 = ashr exact i64 %sext3348, 29
+  %1031 = getelementptr inbounds i8, ptr %1029, i64 %1030
   %1032 = load ptr, ptr %1031, align 8, !tbaa !100, !noalias !114
   store ptr %1032, ptr %66, align 8, !tbaa !40, !alias.scope !114
   %1033 = load i64, ptr %1032, align 8, !noalias !114
@@ -2614,8 +2614,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit1140: ; preds = %1044, %1038, %10
   %spec.select.i.i1141 = add nuw i64 %.04103855, %1062
   %1063 = getelementptr inbounds nuw i8, ptr %1053, i64 24
   %sext3349 = shl i64 %spec.select.i.i1141, 32
-  %1064 = ashr exact i64 %sext3349, 32
-  %1065 = getelementptr inbounds [0 x ptr], ptr %1063, i64 0, i64 %1064
+  %1064 = ashr exact i64 %sext3349, 29
+  %1065 = getelementptr inbounds i8, ptr %1063, i64 %1064
   %1066 = load ptr, ptr %1065, align 8, !tbaa !100, !noalias !117
   store ptr %1066, ptr %67, align 8, !tbaa !40, !alias.scope !117
   %1067 = load i64, ptr %1066, align 8, !noalias !117

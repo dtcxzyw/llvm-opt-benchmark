@@ -1534,7 +1534,7 @@ _ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit56.us.i.i.i: ; preds = %718, %.c
   %.04420.i.i.i = phi ptr [ %775, %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit56.i.i.i ], [ %684, %.lr.ph.i.i.i34 ]
   %732 = add i32 %.04221.i.i.i, 1
   %733 = zext i32 %.04221.i.i.i to i64
-  %734 = getelementptr inbounds nuw [3 x i16], ptr @_ZZL14RetCC_X86_32_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEE8RegList3, i64 0, i64 %733
+  %734 = getelementptr inbounds nuw i16, ptr @_ZZL14RetCC_X86_32_CjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEE8RegList3, i64 %733
   %735 = load i16, ptr %734, align 2, !tbaa !284
   %736 = zext i16 %735 to i32
   %737 = lshr i32 %736, 5
@@ -1691,10 +1691,10 @@ _ZNK4llvm3MVT15isFloatingPointEv.exit.i.i.i:      ; preds = %790
 
 796:                                              ; preds = %794
   %797 = zext nneg i16 %1 to i64
-  %798 = add nsw i64 %797, -1
-  %799 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %798
+  %798 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %797
+  %799 = getelementptr i8, ptr %798, i64 -16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %799, align 16
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %799, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %798, i64 -8
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %13, align 8
   %.sroa.25.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1724,8 +1724,8 @@ _ZNK4llvm3MVT15isFloatingPointEv.exit.i.i.i:      ; preds = %790
 
 _ZNK4llvm3MVT14is512BitVectorEv.exit.i.i.i.i:     ; preds = %803
   %805 = zext nneg i16 %1 to i64
-  %806 = add nsw i64 %805, -1
-  %807 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %806
+  %806 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %805
+  %807 = getelementptr i8, ptr %806, i64 -16
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %807, align 16
   %switch.selectcmp.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 256
   %switch.select.i.i.i.i = select i1 %switch.selectcmp.i.i.i.i, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListYMM, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListXMM
@@ -3395,10 +3395,10 @@ _ZNK4llvm3MVT15isFloatingPointEv.exit.i.i:        ; preds = %449
 
 455:                                              ; preds = %453
   %456 = zext nneg i16 %1 to i64
-  %457 = add nsw i64 %456, -1
-  %458 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %457
+  %457 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %456
+  %458 = getelementptr i8, ptr %457, i64 -16
   %.sroa.0.0.copyload.i.i.i94 = load i64, ptr %458, align 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %458, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %457, i64 -8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   store i64 %.sroa.0.0.copyload.i.i.i94, ptr %71, align 8
   %.sroa.215.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -3427,8 +3427,8 @@ _ZNK4llvm3MVT15isFloatingPointEv.exit.i.i:        ; preds = %449
 
 _ZNK4llvm3MVT14is512BitVectorEv.exit.i.i.i:       ; preds = %467
   %468 = zext nneg i16 %1 to i64
-  %469 = add nsw i64 %468, -1
-  %470 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %469
+  %469 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %468
+  %470 = getelementptr i8, ptr %469, i64 -16
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %470, align 16
   %switch.selectcmp.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 256
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListYMM, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListXMM
@@ -3525,8 +3525,8 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit63.i.i: ; preds = %504, %506,
 
 _ZNK4llvm3MVT14is512BitVectorEv.exit.i68.i.i:     ; preds = %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit63.i.i
   %511 = zext nneg i16 %1 to i64
-  %512 = add nsw i64 %511, -1
-  %513 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %512
+  %512 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %511
+  %513 = getelementptr i8, ptr %512, i64 -16
   %.sroa.0.0.copyload.i.i.i.i69.i.i = load i64, ptr %513, align 16
   %switch.selectcmp.i70.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i69.i.i, 256
   %switch.select.i71.i.i = select i1 %switch.selectcmp.i70.i.i, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListYMM, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListXMM
@@ -23406,8 +23406,8 @@ define internal fastcc void @_ZL31CC_X86_VectorCallAssignRegisterRjRN4llvm3MVTES
 
 _ZNK4llvm3MVT14is512BitVectorEv.exit.i:           ; preds = %5
   %9 = zext nneg i16 %.val to i64
-  %10 = add nsw i64 %9, -1
-  %11 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %10
+  %10 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %11, align 16
   %switch.selectcmp.i = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 256
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListYMM, ptr @_ZZL24CC_X86_VectorCallGetSSEsRKN4llvm3MVTEE10RegListXMM

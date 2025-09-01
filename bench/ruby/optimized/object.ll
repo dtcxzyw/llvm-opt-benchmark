@@ -1399,7 +1399,7 @@ rb_type.exit:                                     ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_type.exit16
 
 switch.lookup:                                    ; preds = %29
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit16
 
@@ -2675,7 +2675,7 @@ define dso_local i64 @rb_convert_type(i64 noundef %0, i32 noundef %1, ptr nounde
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2718,7 +2718,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
 
 40:                                               ; preds = %47, %37
   %indvars.iv.i.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i.i, %47 ]
-  %41 = getelementptr [12 x %struct.conv_method_tbl], ptr @conv_method_names, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i
   %42 = load i8, ptr %41, align 8, !tbaa !28
   %43 = icmp eq i8 %42, %39
   br i1 %43, label %44, label %47
@@ -2739,7 +2739,7 @@ conv_method_index.exit.i:                         ; preds = %44
   br i1 %49, label %50, label %conv_method_index.exit.thread.i
 
 50:                                               ; preds = %conv_method_index.exit.i
-  %51 = getelementptr [12 x %struct.conv_method_tbl], ptr @conv_method_names, i64 0, i64 %indvars.iv.i.i, i32 1
+  %51 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i, i32 1
   %52 = load i16, ptr %51, align 2, !tbaa !55
   %53 = zext i16 %52 to i64
   br label %convert_type.exit
@@ -2787,7 +2787,7 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   br label %rb_type.exit17
 
 switch.lookup26:                                  ; preds = %66
-  %switch.gep30 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %67
+  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %67
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %rb_type.exit17
 
@@ -2850,7 +2850,7 @@ define hidden i64 @rb_convert_type_with_id(i64 noundef %0, i32 noundef %1, ptr n
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2895,7 +2895,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   br label %rb_type.exit17
 
 switch.lookup22:                                  ; preds = %34
-  %switch.gep26 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %35
+  %switch.gep26 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %35
   %switch.load27 = load i32, ptr %switch.gep26, align 4
   br label %rb_type.exit17
 
@@ -3012,7 +3012,7 @@ define dso_local noundef i64 @rb_check_convert_type(i64 noundef %0, i32 noundef 
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -3057,7 +3057,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
 
 41:                                               ; preds = %48, %38
   %indvars.iv.i.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i, %48 ]
-  %42 = getelementptr [12 x %struct.conv_method_tbl], ptr @conv_method_names, i64 0, i64 %indvars.iv.i.i
+  %42 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i
   %43 = load i8, ptr %42, align 8, !tbaa !28
   %44 = icmp eq i8 %43, %40
   br i1 %44, label %45, label %48
@@ -3077,7 +3077,7 @@ conv_method_index.exit.i:                         ; preds = %45
   br i1 %49, label %50, label %conv_method_index.exit.thread.i
 
 50:                                               ; preds = %conv_method_index.exit.i
-  %51 = getelementptr [12 x %struct.conv_method_tbl], ptr @conv_method_names, i64 0, i64 %indvars.iv.i.i, i32 1
+  %51 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i, i32 1
   %52 = load i16, ptr %51, align 2, !tbaa !55
   %53 = zext i16 %52 to i64
   br label %convert_type.exit
@@ -3129,7 +3129,7 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   br label %rb_type.exit19
 
 switch.lookup30:                                  ; preds = %67
-  %switch.gep34 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %68
+  %switch.gep34 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %68
   %switch.load35 = load i32, ptr %switch.gep34, align 4
   br label %rb_type.exit19
 
@@ -3183,7 +3183,7 @@ define hidden noundef i64 @rb_check_convert_type_with_id(i64 noundef %0, i32 nou
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -3236,7 +3236,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   br label %rb_type.exit20
 
 switch.lookup26:                                  ; preds = %36
-  %switch.gep30 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %37
+  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %37
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %rb_type.exit20
 
@@ -3322,7 +3322,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
 
 29:                                               ; preds = %36, %26
   %indvars.iv.i.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i.i, %36 ]
-  %30 = getelementptr [12 x %struct.conv_method_tbl], ptr @conv_method_names, i64 0, i64 %indvars.iv.i.i
+  %30 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i
   %31 = load i8, ptr %30, align 8, !tbaa !28
   %32 = icmp eq i8 %31, %28
   br i1 %32, label %33, label %36
@@ -3342,7 +3342,7 @@ conv_method_index.exit.i:                         ; preds = %33
   br i1 %37, label %38, label %conv_method_index.exit.thread.i
 
 38:                                               ; preds = %conv_method_index.exit.i
-  %39 = getelementptr [12 x %struct.conv_method_tbl], ptr @conv_method_names, i64 0, i64 %indvars.iv.i.i, i32 1
+  %39 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i, i32 1
   %40 = load i16, ptr %39, align 2, !tbaa !55
   %41 = zext i16 %40 to i64
   br label %convert_type.exit
@@ -8431,7 +8431,7 @@ sub_2:                                            ; preds = %sub_1
 
 17:                                               ; preds = %14, %24
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %24 ]
-  %18 = getelementptr [12 x %struct.conv_method_tbl], ptr @conv_method_names, i64 0, i64 %indvars.iv
+  %18 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv
   %19 = load i8, ptr %18, align 8, !tbaa !28
   %20 = icmp eq i8 %19, %16
   br i1 %20, label %21, label %24

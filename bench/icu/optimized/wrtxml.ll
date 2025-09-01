@@ -142,7 +142,7 @@ define dso_local i32 @computeCRC(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %11, label %6, label %12, !llvm.loop !4
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %.1, ptr %13, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -158,7 +158,7 @@ define dso_local i32 @computeCRC(ptr noundef readonly captures(none) %0, i32 nou
   %.022.tr = trunc i32 %.02229 to i8
   %.narrow = xor i8 %16, %.022.tr
   %17 = zext i8 %.narrow to i64
-  %18 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !6
   %20 = xor i32 %19, %15
   %21 = getelementptr inbounds nuw i8, ptr %.02031, i64 1
@@ -1542,7 +1542,7 @@ _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_
   br i1 %518, label %513, label %519, !llvm.loop !4
 
 519:                                              ; preds = %513
-  %520 = getelementptr inbounds nuw [256 x i32], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %520 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
   store i32 %.1.i.i, ptr %520, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
@@ -1558,7 +1558,7 @@ _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_
   %.022.tr.i.i = trunc i32 %.02229.i.i to i8
   %.narrow.i.i = xor i8 %523, %.022.tr.i.i
   %524 = zext i8 %.narrow.i.i to i64
-  %525 = getelementptr inbounds nuw [256 x i32], ptr %18, i64 0, i64 %524
+  %525 = getelementptr inbounds nuw i32, ptr %18, i64 %524
   %526 = load i32, ptr %525, align 4, !tbaa !6
   %527 = xor i32 %526, %522
   %528 = getelementptr inbounds nuw i8, ptr %.02031.i.i, i64 1

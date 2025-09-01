@@ -191,7 +191,7 @@ define dso_local void @_ZNK4llvm18LLVMRemarkStreamer8toRemarkERKNS_30DiagnosticI
 
 switch.lookup:                                    ; preds = %3
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK4llvm18LLVMRemarkStreamer8toRemarkERKNS_30DiagnosticInfoOptimizationBaseE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm18LLVMRemarkStreamer8toRemarkERKNS_30DiagnosticInfoOptimizationBaseE, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL12toRemarkTypeN4llvm14DiagnosticKindE.exit
 

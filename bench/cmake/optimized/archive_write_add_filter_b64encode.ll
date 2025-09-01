@@ -234,7 +234,7 @@ define internal i32 @archive_filter_b64encode_write(ptr noundef readonly capture
   %15 = load i8, ptr %.151, align 1, !tbaa !31
   %16 = add nuw nsw i64 %13, 1
   store i64 %16, ptr %8, align 8, !tbaa !35
-  %17 = getelementptr inbounds nuw [57 x i8], ptr %11, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   store i8 %15, ptr %17, align 1, !tbaa !31
   %18 = add i64 %.14350, -1
   %19 = icmp samesign ult i64 %13, 56
@@ -386,7 +386,7 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
   %5 = load i8, ptr %.03536, align 1, !tbaa !31
   %6 = lshr i8 %5, 2
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @base64, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !31
   %10 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %9) #6
   %11 = load i8, ptr %.03536, align 1, !tbaa !31
@@ -397,7 +397,7 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
   %16 = lshr i8 %15, 4
   %17 = or disjoint i8 %13, %16
   %18 = zext nneg i8 %17 to i64
-  %19 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @base64, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !31
   %21 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %20) #6
   %22 = load i8, ptr %14, align 1, !tbaa !31
@@ -408,13 +408,13 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
   %27 = lshr i8 %26, 6
   %28 = or disjoint i8 %24, %27
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @base64, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !31
   %32 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %31) #6
   %33 = load i8, ptr %25, align 1, !tbaa !31
   %34 = and i8 %33, 63
   %35 = zext nneg i8 %34 to i64
-  %36 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @base64, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !31
   %38 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %37) #6
   %39 = getelementptr inbounds nuw i8, ptr %.03536, i64 3
@@ -432,7 +432,7 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
   %42 = load i8, ptr %.035.lcssa44, align 1, !tbaa !31
   %43 = lshr i8 %42, 2
   %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @base64, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !31
   %47 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %46) #6
   %48 = load i8, ptr %.035.lcssa44, align 1, !tbaa !31
@@ -443,7 +443,7 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
 
 52:                                               ; preds = %._crit_edge.thread
   %53 = zext nneg i8 %50 to i64
-  %54 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @base64, i64 %53
   %55 = load i8, ptr %54, align 16, !tbaa !31
   %56 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %55) #6
   br label %.sink.split
@@ -454,14 +454,14 @@ define internal fastcc void @la_b64_encode(ptr noundef %0, ptr noundef readonly 
   %60 = lshr i8 %59, 4
   %61 = or disjoint i8 %60, %50
   %62 = zext nneg i8 %61 to i64
-  %63 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @base64, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !31
   %65 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %64) #6
   %66 = load i8, ptr %58, align 1, !tbaa !31
   %67 = shl i8 %66, 2
   %68 = and i8 %67, 60
   %69 = zext nneg i8 %68 to i64
-  %70 = getelementptr inbounds nuw [64 x i8], ptr @base64, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @base64, i64 %69
   %71 = load i8, ptr %70, align 4, !tbaa !31
   br label %.sink.split
 

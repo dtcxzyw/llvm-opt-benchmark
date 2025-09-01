@@ -332,9 +332,9 @@ _ZNK3app13get_family_idEv.exit.thread:            ; preds = %159
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %206 ]
   %.073206 = phi i8 [ 0, %.lr.ph ], [ %.275, %206 ]
   %.077205 = phi i32 [ -1, %.lr.ph ], [ %.279, %206 ]
-  %178 = getelementptr inbounds nuw [0 x ptr], ptr %175, i64 0, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv
   %179 = load ptr, ptr %178, align 8, !tbaa !30
-  %180 = getelementptr inbounds nuw [0 x ptr], ptr %176, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv
   %181 = load ptr, ptr %180, align 8, !tbaa !30
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %183 = load i32, ptr %182, align 4
@@ -448,7 +448,7 @@ _Z17is_uninterp_constPK4expr.exit.thread182:      ; preds = %177, %188, %_Z17is_
   %.0101209 = phi ptr [ null, %.lr.ph212 ], [ %.2103, %262 ]
   %.0104208 = phi i32 [ 0, %.lr.ph212 ], [ %.1105, %262 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %228 = getelementptr inbounds nuw [0 x ptr], ptr %224, i64 0, i64 %indvars.iv221
+  %228 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv221
   %229 = load ptr, ptr %228, align 8, !tbaa !30
   store ptr %229, ptr %9, align 8, !tbaa !30
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 4
@@ -469,7 +469,7 @@ _Z17is_uninterp_constPK4expr.exit.thread182:      ; preds = %177, %188, %_Z17is_
 238:                                              ; preds = %234
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %239 = getelementptr inbounds nuw [0 x ptr], ptr %225, i64 0, i64 %indvars.iv221
+  %239 = getelementptr inbounds nuw ptr, ptr %225, i64 %indvars.iv221
   %240 = load ptr, ptr %239, align 8, !tbaa !50
   store ptr %240, ptr %11, align 8, !tbaa !50
   invoke void @_ZN6bufferIP4sortLb0ELj16EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -565,14 +565,14 @@ _Z17is_uninterp_constPK4expr.exit.thread182:      ; preds = %177, %188, %_Z17is_
 
 ._crit_edge218.thread:                            ; preds = %265
   %267 = getelementptr inbounds nuw i8, ptr %211, i64 48
-  %268 = getelementptr inbounds nuw [0 x ptr], ptr %267, i64 0, i64 %208
+  %268 = getelementptr inbounds nuw ptr, ptr %267, i64 %208
   %269 = load ptr, ptr %268, align 8, !tbaa !50
   br label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
 
 ._crit_edge218:                                   ; preds = %290
   %.pre230 = load ptr, ptr %13, align 8, !tbaa !52
   %270 = getelementptr inbounds nuw i8, ptr %211, i64 48
-  %271 = getelementptr inbounds nuw [0 x ptr], ptr %270, i64 0, i64 %208
+  %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %208
   %272 = load ptr, ptr %271, align 8, !tbaa !50
   %273 = icmp eq ptr %.pre230, null
   br i1 %273, label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit, label %274

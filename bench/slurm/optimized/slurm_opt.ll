@@ -686,7 +686,7 @@ define dso_local ptr @slurm_option_table_create(ptr noundef readonly captures(no
 
 52:                                               ; preds = %.critedge, %51, %48, %34, %36, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.next
+  %53 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.next
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq i64 %indvars.iv.next, 163
   br i1 %.not, label %9, label %13, !llvm.loop !8
@@ -742,7 +742,7 @@ define dso_local void @slurm_free_options_members(ptr noundef %0) local_unnamed_
 
 11:                                               ; preds = %9, %7, %.split.us.i
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %12 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.next20.i
+  %12 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.next20.i
   %13 = load ptr, ptr %12, align 8
   %.not.us.i = icmp eq i64 %indvars.iv.next20.i, 163
   br i1 %.not.us.i, label %slurm_reset_all_options.exit, label %.split.us.i, !llvm.loop !11
@@ -785,7 +785,7 @@ define dso_local void @slurm_reset_all_options(ptr noundef %0, i1 noundef zeroex
 
 11:                                               ; preds = %9, %7, %.split.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %12 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.next20
+  %12 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.next20
   %13 = load ptr, ptr %12, align 8
   %.not.us = icmp eq i64 %indvars.iv.next20, 163
   br i1 %.not.us, label %.split16.us, label %.split.us, !llvm.loop !11
@@ -820,7 +820,7 @@ define dso_local void @slurm_reset_all_options(ptr noundef %0, i1 noundef zeroex
 
 25:                                               ; preds = %18, %23, %21, %.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.next
+  %26 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.next
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq i64 %indvars.iv.next, 163
   br i1 %.not, label %.split16.us, label %.split, !llvm.loop !11
@@ -905,7 +905,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
 
 39:                                               ; preds = %34, %36, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8
   %.not112 = icmp eq i64 %indvars.iv.next, 163
   br i1 %.not112, label %42, label %12, !llvm.loop !14
@@ -1218,78 +1218,77 @@ define dso_local void @slurm_print_set_options(ptr noundef %0) local_unnamed_add
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.split17.us, label %.split
 
-.split17.us:                                      ; preds = %38, %12
+.split17.us:                                      ; preds = %37, %12
   %16 = call i32 @get_log_level() #22
   %17 = icmp sgt i32 %16, 2
-  br i1 %17, label %39, label %40
+  br i1 %17, label %38, label %39
 
-.splitthread-pre-split:                           ; preds = %38
-  %18 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.next
+.splitthread-pre-split:                           ; preds = %37
   %.pr = load ptr, ptr %13, align 8
   br label %.split
 
 .split:                                           ; preds = %12, %.splitthread-pre-split
-  %19 = phi ptr [ %.pr, %.splitthread-pre-split ], [ %14, %12 ]
+  %18 = phi ptr [ %.pr, %.splitthread-pre-split ], [ %14, %12 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.splitthread-pre-split ], [ 0, %12 ]
-  %20 = phi ptr [ %18, %.splitthread-pre-split ], [ @common_options, %12 ]
+  %19 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %38, label %21
+  %.not13 = icmp eq ptr %18, null
+  br i1 %.not13, label %37, label %20
 
-21:                                               ; preds = %.split
-  %22 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %19, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1, !range !12, !noundef !13
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %38
+20:                                               ; preds = %.split
+  %21 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %18, i64 %indvars.iv
+  %22 = load i8, ptr %21, align 1, !range !12, !noundef !13
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %37
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %31, label %29
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %19, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %27 = load ptr, ptr %26, align 8
+  %.not14 = icmp eq ptr %27, null
+  br i1 %.not14, label %30, label %28
 
-29:                                               ; preds = %25
-  %30 = call ptr %28(ptr noundef nonnull %0) #22
-  store ptr %30, ptr %2, align 8
-  br label %31
+28:                                               ; preds = %24
+  %29 = call ptr %27(ptr noundef nonnull %0) #22
+  store ptr %29, ptr %2, align 8
+  br label %30
 
-31:                                               ; preds = %29, %25
-  %32 = call i32 @get_log_level() #22
-  %33 = icmp sgt i32 %32, 2
-  br i1 %33, label %34, label %37
+30:                                               ; preds = %28, %24
+  %31 = call i32 @get_log_level() #22
+  %32 = icmp sgt i32 %31, 2
+  br i1 %32, label %33, label %36
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %26, align 8
-  %36 = load ptr, ptr %2, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef %35, ptr noundef %36) #22
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %25, align 8
+  %35 = load ptr, ptr %2, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef %34, ptr noundef %35) #22
+  br label %36
+
+36:                                               ; preds = %33, %30
+  call void @slurm_xfree(ptr noundef nonnull %2) #22
   br label %37
 
-37:                                               ; preds = %34, %31
-  call void @slurm_xfree(ptr noundef nonnull %2) #22
-  br label %38
-
-38:                                               ; preds = %.split, %21, %37
+37:                                               ; preds = %.split, %20, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not12 = icmp eq i64 %indvars.iv.next, 163
   br i1 %.not12, label %.split17.us, label %.splitthread-pre-split, !llvm.loop !15
 
-39:                                               ; preds = %.split17.us
+38:                                               ; preds = %.split17.us
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7) #22
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %.split17.us
-  %41 = call i32 @get_log_level() #22
-  %42 = icmp sgt i32 %41, 2
-  br i1 %42, label %43, label %44
+39:                                               ; preds = %38, %.split17.us
+  %40 = call i32 @get_log_level() #22
+  %41 = icmp sgt i32 %40, 2
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.9) #22
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %40
+43:                                               ; preds = %42, %39
   ret void
 }
 
@@ -1303,7 +1302,7 @@ define dso_local zeroext i1 @slurm_option_set_by_cli(ptr noundef readonly captur
 
 3:                                                ; preds = %9, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %9 ]
-  %4 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
@@ -1364,7 +1363,7 @@ define dso_local zeroext i1 @slurm_option_set_by_env(ptr noundef readonly captur
 
 3:                                                ; preds = %9, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %9 ]
-  %4 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
@@ -1418,7 +1417,7 @@ define dso_local ptr @slurm_option_get(ptr noundef %0, ptr noundef %1) local_unn
 
 3:                                                ; preds = %8, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
-  %4 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #22
@@ -1432,7 +1431,7 @@ define dso_local ptr @slurm_option_get(ptr noundef %0, ptr noundef %1) local_unn
 
 _find_option_idx.exit:                            ; preds = %3
   %9 = and i64 %indvars.iv.i, 4294967295
-  %10 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -1450,7 +1449,7 @@ define dso_local zeroext i1 @slurm_option_isset(ptr noundef readonly captures(no
 
 3:                                                ; preds = %8, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
-  %4 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #22
@@ -1486,7 +1485,7 @@ define dso_local i32 @slurm_option_set(ptr noundef %0, ptr noundef %1, ptr nound
 
 5:                                                ; preds = %10, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %10 ]
-  %6 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %8) #22
@@ -1506,7 +1505,7 @@ _find_option_idx.exit:                            ; preds = %5
 
 13:                                               ; preds = %_find_option_idx.exit
   %14 = and i64 %indvars.iv.i, 4294967295
-  %15 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 29
   %18 = load i8, ptr %17, align 1, !range !12, !noundef !13
@@ -1523,7 +1522,7 @@ _find_option_idx.exit:                            ; preds = %5
   br i1 %.not50, label %._crit_edge, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %.pre
+  %24 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %.pre
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 30
   %27 = load i8, ptr %26, align 2, !range !12, !noundef !13
@@ -1533,7 +1532,7 @@ _find_option_idx.exit:                            ; preds = %5
   br i1 %or.cond4, label %._crit_edge, label %_find_option_idx.exit.thread
 
 ._crit_edge:                                      ; preds = %20, %23
-  %29 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %.pre
+  %29 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %.pre
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
@@ -1611,7 +1610,7 @@ define dso_local noundef zeroext i1 @slurm_option_reset(ptr noundef %0, ptr noun
 
 3:                                                ; preds = %8, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
-  %4 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %6) #22
@@ -1625,7 +1624,7 @@ define dso_local noundef zeroext i1 @slurm_option_reset(ptr noundef %0, ptr noun
 
 _find_option_idx.exit:                            ; preds = %3
   %9 = and i64 %indvars.iv.i, 4294967295
-  %10 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
@@ -1656,7 +1655,7 @@ define dso_local noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, p
 
 7:                                                ; preds = %.lr.ph, %.critedge2
   %8 = phi i64 [ %5, %.lr.ph ], [ %17, %.critedge2 ]
-  %.in = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %8
+  %.in = getelementptr inbounds nuw ptr, ptr @common_options, i64 %8
   %9 = load ptr, ptr %.in, align 8
   %10 = load ptr, ptr %6, align 8
   %.not26 = icmp eq ptr %10, null
@@ -1688,7 +1687,7 @@ define dso_local noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, p
   %21 = tail call ptr @xstrdup(ptr noundef %20) #22
   store ptr %21, ptr %1, align 8
   %22 = load i64, ptr %3, align 8
-  %23 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8
@@ -1722,7 +1721,7 @@ define dso_local range(i32 -1, 1) i32 @validate_hint_option(ptr noundef %0) loca
 
 8:                                                ; preds = %14, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %14 ]
-  %9 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
@@ -1776,7 +1775,7 @@ slurm_option_set_by_cli.exit.thread.preheader:    ; preds = %_find_option_index_
 
 .preheader206:                                    ; preds = %slurm_option_set_by_cli.exit, %35
   %indvars.iv.i.i51 = phi i64 [ %indvars.iv.next.i.i52, %35 ], [ 0, %slurm_option_set_by_cli.exit ]
-  %30 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i51
+  %30 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i51
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8
@@ -1811,7 +1810,7 @@ slurm_option_set_by_cli.exit61.thread.preheader:  ; preds = %_find_option_index_
 
 slurm_option_set_by_cli.exit61.thread:            ; preds = %slurm_option_set_by_cli.exit61.thread.preheader, %48
   %indvars.iv.i.i62 = phi i64 [ %indvars.iv.next.i.i63, %48 ], [ 0, %slurm_option_set_by_cli.exit61.thread.preheader ]
-  %43 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i62
+  %43 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i62
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i32, ptr %45, align 8
@@ -1846,7 +1845,7 @@ slurm_option_set_by_cli.exit72.thread.preheader:  ; preds = %_find_option_index_
 
 slurm_option_set_by_cli.exit72.thread:            ; preds = %slurm_option_set_by_cli.exit72.thread.preheader, %61
   %indvars.iv.i.i73 = phi i64 [ %indvars.iv.next.i.i74, %61 ], [ 0, %slurm_option_set_by_cli.exit72.thread.preheader ]
-  %56 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i73
+  %56 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i73
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8
@@ -1881,7 +1880,7 @@ slurm_option_set_by_cli.exit83.thread.preheader:  ; preds = %_find_option_index_
 
 slurm_option_set_by_cli.exit83.thread:            ; preds = %slurm_option_set_by_cli.exit83.thread.preheader, %74
   %indvars.iv.i.i84 = phi i64 [ %indvars.iv.next.i.i85, %74 ], [ 0, %slurm_option_set_by_cli.exit83.thread.preheader ]
-  %69 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i84
+  %69 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i84
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load i32, ptr %71, align 8
@@ -1933,7 +1932,7 @@ slurm_option_set_by_cli.exit94:                   ; preds = %_find_option_index_
 
 89:                                               ; preds = %.preheader300, %94
   %indvars.iv.i.i95 = phi i64 [ %indvars.iv.next.i.i96, %94 ], [ 0, %.preheader300 ]
-  %90 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i95
+  %90 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i95
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.11, ptr noundef %92) #22
@@ -1947,7 +1946,7 @@ slurm_option_set_by_cli.exit94:                   ; preds = %_find_option_index_
 
 _find_option_idx.exit.i:                          ; preds = %89
   %95 = and i64 %indvars.iv.i.i95, 4294967295
-  %96 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %99 = load ptr, ptr %98, align 8
@@ -1963,7 +1962,7 @@ _find_option_idx.exit.i:                          ; preds = %89
 
 slurm_option_set_by_cli.exit.thread:              ; preds = %slurm_option_set_by_cli.exit.thread.preheader, %108
   %indvars.iv.i.i98 = phi i64 [ %indvars.iv.next.i.i99, %108 ], [ 0, %slurm_option_set_by_cli.exit.thread.preheader ]
-  %103 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i98
+  %103 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i98
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load i32, ptr %105, align 8
@@ -2016,7 +2015,7 @@ slurm_option_set_by_cli.exit108.thread.preheader: ; preds = %117, %114, %110, %1
 
 .preheader:                                       ; preds = %slurm_option_set_by_cli.exit108, %128
   %indvars.iv.i.i109 = phi i64 [ %indvars.iv.next.i.i111, %128 ], [ 0, %slurm_option_set_by_cli.exit108 ]
-  %124 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i109
+  %124 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i109
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %125, align 8
   %127 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.12, ptr noundef %126) #22
@@ -2030,7 +2029,7 @@ slurm_option_set_by_cli.exit108.thread.preheader: ; preds = %117, %114, %110, %1
 
 _find_option_idx.exit.i113:                       ; preds = %.preheader
   %129 = and i64 %indvars.iv.i.i109, 4294967295
-  %130 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 80
   %133 = load ptr, ptr %132, align 8
@@ -2049,7 +2048,7 @@ slurm_option_reset.exit115.preheader:             ; preds = %128, %_find_option_
 
 slurm_option_reset.exit115:                       ; preds = %slurm_option_reset.exit115.preheader, %141
   %indvars.iv.i.i116 = phi i64 [ %indvars.iv.next.i.i118, %141 ], [ 0, %slurm_option_reset.exit115.preheader ]
-  %137 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i116
+  %137 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i116
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.13, ptr noundef %139) #22
@@ -2063,7 +2062,7 @@ slurm_option_reset.exit115:                       ; preds = %slurm_option_reset.
 
 _find_option_idx.exit.i120:                       ; preds = %slurm_option_reset.exit115
   %142 = and i64 %indvars.iv.i.i116, 4294967295
-  %143 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 80
   %146 = load ptr, ptr %145, align 8
@@ -2082,7 +2081,7 @@ slurm_option_reset.exit122.preheader:             ; preds = %141, %_find_option_
 
 slurm_option_reset.exit122:                       ; preds = %slurm_option_reset.exit122.preheader, %154
   %indvars.iv.i.i123 = phi i64 [ %indvars.iv.next.i.i125, %154 ], [ 0, %slurm_option_reset.exit122.preheader ]
-  %150 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i123
+  %150 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i123
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr %151, align 8
   %153 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.14, ptr noundef %152) #22
@@ -2096,7 +2095,7 @@ slurm_option_reset.exit122:                       ; preds = %slurm_option_reset.
 
 _find_option_idx.exit.i127:                       ; preds = %slurm_option_reset.exit122
   %155 = and i64 %indvars.iv.i.i123, 4294967295
-  %156 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 80
   %159 = load ptr, ptr %158, align 8
@@ -2121,7 +2120,7 @@ slurm_option_reset.exit129:                       ; preds = %154, %_find_option_
 
 165:                                              ; preds = %170, %163
   %indvars.iv.i.i130 = phi i64 [ 0, %163 ], [ %indvars.iv.next.i.i132, %170 ]
-  %166 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i130
+  %166 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i130
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr %167, align 8
   %169 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.15, ptr noundef %168) #22
@@ -2135,7 +2134,7 @@ slurm_option_reset.exit129:                       ; preds = %154, %_find_option_
 
 _find_option_idx.exit.i134:                       ; preds = %165
   %171 = and i64 %indvars.iv.i.i130, 4294967295
-  %172 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 80
   %175 = load ptr, ptr %174, align 8
@@ -2168,7 +2167,7 @@ slurm_option_reset.exit136:                       ; preds = %170, %_find_option_
 
 slurm_option_set_by_cli.exit108.thread:           ; preds = %slurm_option_set_by_cli.exit108.thread.preheader, %191
   %indvars.iv.i.i137 = phi i64 [ %indvars.iv.next.i.i138, %191 ], [ 0, %slurm_option_set_by_cli.exit108.thread.preheader ]
-  %186 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i137
+  %186 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i137
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load i32, ptr %188, align 8
@@ -2221,7 +2220,7 @@ slurm_option_set_by_cli.exit147.thread.preheader: ; preds = %200, %197, %193, %1
 
 slurm_option_set_by_cli.exit147.thread:           ; preds = %slurm_option_set_by_cli.exit147.thread.preheader, %212
   %indvars.iv.i.i148 = phi i64 [ %indvars.iv.next.i.i149, %212 ], [ 0, %slurm_option_set_by_cli.exit147.thread.preheader ]
-  %207 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i148
+  %207 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i148
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %210 = load i32, ptr %209, align 8
@@ -2274,7 +2273,7 @@ slurm_option_set_by_cli.exit158.thread.preheader: ; preds = %221, %218, %214, %2
 
 slurm_option_set_by_cli.exit158.thread:           ; preds = %slurm_option_set_by_cli.exit158.thread.preheader, %233
   %indvars.iv.i.i159 = phi i64 [ %indvars.iv.next.i.i160, %233 ], [ 0, %slurm_option_set_by_cli.exit158.thread.preheader ]
-  %228 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i159
+  %228 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i159
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load i32, ptr %230, align 8
@@ -2327,7 +2326,7 @@ slurm_option_set_by_cli.exit169.thread.preheader: ; preds = %242, %239, %235, %2
 
 slurm_option_set_by_cli.exit169.thread:           ; preds = %slurm_option_set_by_cli.exit169.thread.preheader, %254
   %indvars.iv.i.i170 = phi i64 [ %indvars.iv.next.i.i171, %254 ], [ 0, %slurm_option_set_by_cli.exit169.thread.preheader ]
-  %249 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i170
+  %249 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i170
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %252 = load i32, ptr %251, align 8
@@ -2386,7 +2385,7 @@ slurm_option_set_by_cli.exit180:                  ; preds = %263
 
 270:                                              ; preds = %.preheader289, %275
   %indvars.iv.i.i181 = phi i64 [ %indvars.iv.next.i.i183, %275 ], [ 0, %.preheader289 ]
-  %271 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i181
+  %271 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i181
   %272 = load ptr, ptr %271, align 8
   %273 = load ptr, ptr %272, align 8
   %274 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.11, ptr noundef %273) #22
@@ -2400,7 +2399,7 @@ slurm_option_set_by_cli.exit180:                  ; preds = %263
 
 _find_option_idx.exit.i185:                       ; preds = %270
   %276 = and i64 %indvars.iv.i.i181, 4294967295
-  %277 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %276
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 80
   %280 = load ptr, ptr %279, align 8
@@ -2726,7 +2725,7 @@ define dso_local void @validate_options_salloc_sbatch_srun(ptr noundef %0) local
 
 13:                                               ; preds = %19, %1
   %indvars.iv.i.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i.i, %19 ]
-  %14 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i
+  %14 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8
@@ -2782,7 +2781,7 @@ slurm_option_set_by_cli.exit.i:                   ; preds = %32, %28, %25, %24, 
 
 37:                                               ; preds = %43, %slurm_option_set_by_cli.exit.i
   %indvars.iv.i.i53.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i ], [ %indvars.iv.next.i.i54.i, %43 ]
-  %38 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i53.i
+  %38 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i53.i
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8
@@ -2837,7 +2836,7 @@ slurm_option_set_by_cli.exit63.i:                 ; preds = %56, %52, %49, %48, 
 
 61:                                               ; preds = %67, %slurm_option_set_by_cli.exit63.i
   %indvars.iv.i.i64.i = phi i64 [ 0, %slurm_option_set_by_cli.exit63.i ], [ %indvars.iv.next.i.i65.i, %67 ]
-  %62 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i64.i
+  %62 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i64.i
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8
@@ -2885,7 +2884,7 @@ slurm_option_set_by_env.exit.i:                   ; preds = %76, %73, %72, %69
 
 80:                                               ; preds = %86, %slurm_option_set_by_env.exit.i
   %indvars.iv.i.i73.i = phi i64 [ 0, %slurm_option_set_by_env.exit.i ], [ %indvars.iv.next.i.i74.i, %86 ]
-  %81 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i73.i
+  %81 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i73.i
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i32, ptr %83, align 8
@@ -2977,7 +2976,7 @@ slurm_option_reset.exit.i.preheader:              ; preds = %142, %119, %153, %1
 
 114:                                              ; preds = %.preheader529, %119
   %indvars.iv.i.i84.i = phi i64 [ %indvars.iv.next.i.i85.i, %119 ], [ 0, %.preheader529 ]
-  %115 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i84.i
+  %115 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i84.i
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.328, ptr noundef %117) #22
@@ -2991,7 +2990,7 @@ slurm_option_reset.exit.i.preheader:              ; preds = %142, %119, %153, %1
 
 _find_option_idx.exit.i.i:                        ; preds = %114
   %120 = and i64 %indvars.iv.i.i84.i, 4294967295
-  %121 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %124 = load ptr, ptr %123, align 8
@@ -3030,7 +3029,7 @@ _find_option_idx.exit.i.i:                        ; preds = %114
 
 137:                                              ; preds = %.preheader531, %142
   %indvars.iv.i.i87.i = phi i64 [ %indvars.iv.next.i.i89.i, %142 ], [ 0, %.preheader531 ]
-  %138 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i87.i
+  %138 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i87.i
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %139, align 8
   %141 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.319, ptr noundef %140) #22
@@ -3044,7 +3043,7 @@ _find_option_idx.exit.i.i:                        ; preds = %114
 
 _find_option_idx.exit.i91.i:                      ; preds = %137
   %143 = and i64 %indvars.iv.i.i87.i, 4294967295
-  %144 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 80
   %147 = load ptr, ptr %146, align 8
@@ -3077,7 +3076,7 @@ _find_option_idx.exit.i91.i:                      ; preds = %137
 
 slurm_option_reset.exit.i:                        ; preds = %slurm_option_reset.exit.i.preheader, %164
   %indvars.iv.i.i94.i = phi i64 [ %indvars.iv.next.i.i95.i, %164 ], [ 0, %slurm_option_reset.exit.i.preheader ]
-  %159 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i94.i
+  %159 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i94.i
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %162 = load i32, ptr %161, align 8
@@ -3134,7 +3133,7 @@ slurm_option_set_by_cli.exit104.i:                ; preds = %173
 
 slurm_option_set_by_cli.exit104.thread.i:         ; preds = %slurm_option_set_by_cli.exit104.thread.i.preheader, %186
   %indvars.iv.i.i105.i = phi i64 [ %indvars.iv.next.i.i106.i, %186 ], [ 0, %slurm_option_set_by_cli.exit104.thread.i.preheader ]
-  %181 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i105.i
+  %181 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i105.i
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %184 = load i32, ptr %183, align 8
@@ -3185,7 +3184,7 @@ slurm_option_set_by_env.exit115.i:                ; preds = %192
 
 slurm_option_set_by_env.exit115.thread.i:         ; preds = %slurm_option_set_by_env.exit115.thread.i.preheader, %204
   %indvars.iv.i.i116.i = phi i64 [ %indvars.iv.next.i.i117.i, %204 ], [ 0, %slurm_option_set_by_env.exit115.thread.i.preheader ]
-  %199 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i116.i
+  %199 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i116.i
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %202 = load i32, ptr %201, align 8
@@ -3242,7 +3241,7 @@ slurm_option_set_by_cli.exit126.i:                ; preds = %213
 
 slurm_option_set_by_cli.exit126.thread.i:         ; preds = %slurm_option_set_by_cli.exit126.thread.i.preheader, %226
   %indvars.iv.i.i127.i = phi i64 [ %indvars.iv.next.i.i128.i, %226 ], [ 0, %slurm_option_set_by_cli.exit126.thread.i.preheader ]
-  %221 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i127.i
+  %221 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i127.i
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %224 = load i32, ptr %223, align 8
@@ -3293,7 +3292,7 @@ slurm_option_set_by_env.exit137.i:                ; preds = %232
 
 slurm_option_set_by_env.exit137.thread.i:         ; preds = %slurm_option_set_by_env.exit137.thread.i.preheader, %244
   %indvars.iv.i.i138.i = phi i64 [ %indvars.iv.next.i.i139.i, %244 ], [ 0, %slurm_option_set_by_env.exit137.thread.i.preheader ]
-  %239 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i138.i
+  %239 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i138.i
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %242 = load i32, ptr %241, align 8
@@ -3350,7 +3349,7 @@ slurm_option_set_by_cli.exit148.i:                ; preds = %253
 
 slurm_option_set_by_cli.exit148.thread.i:         ; preds = %slurm_option_set_by_cli.exit148.thread.i.preheader, %266
   %indvars.iv.i.i149.i = phi i64 [ %indvars.iv.next.i.i150.i, %266 ], [ 0, %slurm_option_set_by_cli.exit148.thread.i.preheader ]
-  %261 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i149.i
+  %261 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i149.i
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
   %264 = load i32, ptr %263, align 8
@@ -3401,7 +3400,7 @@ slurm_option_set_by_env.exit159.i:                ; preds = %272
 
 slurm_option_set_by_env.exit159.thread.i:         ; preds = %slurm_option_set_by_env.exit159.thread.i.preheader, %284
   %indvars.iv.i.i160.i = phi i64 [ %indvars.iv.next.i.i161.i, %284 ], [ 0, %slurm_option_set_by_env.exit159.thread.i.preheader ]
-  %279 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i160.i
+  %279 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i160.i
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %282 = load i32, ptr %281, align 8
@@ -3458,7 +3457,7 @@ slurm_option_set_by_cli.exit170.i:                ; preds = %293
 
 slurm_option_set_by_cli.exit170.thread.i:         ; preds = %slurm_option_set_by_cli.exit170.thread.i.preheader, %306
   %indvars.iv.i.i171.i = phi i64 [ %indvars.iv.next.i.i172.i, %306 ], [ 0, %slurm_option_set_by_cli.exit170.thread.i.preheader ]
-  %301 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i171.i
+  %301 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i171.i
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %304 = load i32, ptr %303, align 8
@@ -3509,7 +3508,7 @@ _validate_ntasks_per_gpu.exit.preheader:          ; preds = %slurm_option_set_by
 
 _validate_ntasks_per_gpu.exit:                    ; preds = %_validate_ntasks_per_gpu.exit.preheader, %323
   %indvars.iv.i.i.i10 = phi i64 [ %indvars.iv.next.i.i.i12, %323 ], [ 0, %_validate_ntasks_per_gpu.exit.preheader ]
-  %319 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i10
+  %319 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i10
   %320 = load ptr, ptr %319, align 8
   %321 = load ptr, ptr %320, align 8
   %322 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.424, ptr noundef %321) #22
@@ -3539,7 +3538,7 @@ slurm_option_isset.exit.thread.i.preheader:       ; preds = %323, %slurm_option_
 
 slurm_option_isset.exit.thread.i:                 ; preds = %slurm_option_isset.exit.thread.i.preheader, %334
   %indvars.iv.i.i10.i = phi i64 [ %indvars.iv.next.i.i12.i, %334 ], [ 0, %slurm_option_isset.exit.thread.i.preheader ]
-  %330 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i10.i
+  %330 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i10.i
   %331 = load ptr, ptr %330, align 8
   %332 = load ptr, ptr %331, align 8
   %333 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.113, ptr noundef %332) #22
@@ -3570,7 +3569,7 @@ slurm_option_isset.exit17.i:                      ; preds = %_find_option_idx.ex
 
 343:                                              ; preds = %349, %341
   %indvars.iv.i.i18.i = phi i64 [ 0, %341 ], [ %indvars.iv.next.i.i19.i, %349 ]
-  %344 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i18.i
+  %344 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i18.i
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %347 = load i32, ptr %346, align 8
@@ -3618,7 +3617,7 @@ slurm_option_set_by_cli.exit.i17:                 ; preds = %359, %355, %354, %3
 
 363:                                              ; preds = %369, %slurm_option_set_by_cli.exit.i17
   %indvars.iv.i.i21.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i17 ], [ %indvars.iv.next.i.i22.i, %369 ]
-  %364 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i21.i
+  %364 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i21.i
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load i32, ptr %366, align 8
@@ -3676,7 +3675,7 @@ slurm_option_set_by_cli.exit31.i:                 ; preds = %378
 
 slurm_option_set_by_cli.exit31.thread.i:          ; preds = %slurm_option_set_by_cli.exit31.thread.i.preheader, %391
   %indvars.iv.i.i32.i = phi i64 [ %indvars.iv.next.i.i33.i, %391 ], [ 0, %slurm_option_set_by_cli.exit31.thread.i.preheader ]
-  %386 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i32.i
+  %386 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i32.i
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 24
   %389 = load i32, ptr %388, align 8
@@ -3724,7 +3723,7 @@ slurm_option_set_by_env.exit.i19:                 ; preds = %400, %397, %396, %3
 
 404:                                              ; preds = %410, %slurm_option_set_by_env.exit.i19
   %indvars.iv.i.i41.i = phi i64 [ 0, %slurm_option_set_by_env.exit.i19 ], [ %indvars.iv.next.i.i42.i, %410 ]
-  %405 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i41.i
+  %405 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i41.i
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 24
   %408 = load i32, ptr %407, align 8
@@ -3769,7 +3768,7 @@ slurm_option_set_by_env.exit51.i:                 ; preds = %416
 
 .preheader.i:                                     ; preds = %slurm_option_set_by_env.exit51.i, %428
   %indvars.iv.i.i52.i = phi i64 [ %indvars.iv.next.i.i53.i, %428 ], [ 0, %slurm_option_set_by_env.exit51.i ]
-  %423 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i52.i
+  %423 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i52.i
   %424 = load ptr, ptr %423, align 8
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 24
   %426 = load i32, ptr %425, align 8
@@ -3806,7 +3805,7 @@ slurm_option_set_by_cli.exit62.i:                 ; preds = %433, %_find_option_
 
 438:                                              ; preds = %444, %slurm_option_set_by_cli.exit62.i
   %indvars.iv.i.i63.i = phi i64 [ 0, %slurm_option_set_by_cli.exit62.i ], [ %indvars.iv.next.i.i64.i, %444 ]
-  %439 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i63.i
+  %439 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i63.i
   %440 = load ptr, ptr %439, align 8
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %442 = load i32, ptr %441, align 8
@@ -3866,7 +3865,7 @@ _validate_spec_cores_options.exit.preheader:      ; preds = %334, %_find_option_
 
 _validate_spec_cores_options.exit:                ; preds = %_validate_spec_cores_options.exit.preheader, %468
   %indvars.iv.i.i.i28 = phi i64 [ %indvars.iv.next.i.i.i30, %468 ], [ 0, %_validate_spec_cores_options.exit.preheader ]
-  %464 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i28
+  %464 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i28
   %465 = load ptr, ptr %464, align 8
   %466 = load ptr, ptr %465, align 8
   %467 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.13, ptr noundef %466) #22
@@ -3893,7 +3892,7 @@ slurm_option_isset.exit.i35:                      ; preds = %_find_option_idx.ex
 
 .preheader.i36:                                   ; preds = %slurm_option_isset.exit.i35, %479
   %indvars.iv.i.i22.i = phi i64 [ %indvars.iv.next.i.i24.i, %479 ], [ 0, %slurm_option_isset.exit.i35 ]
-  %475 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i22.i
+  %475 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i22.i
   %476 = load ptr, ptr %475, align 8
   %477 = load ptr, ptr %476, align 8
   %478 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.15, ptr noundef %477) #22
@@ -4011,7 +4010,7 @@ _validate_threads_per_core_option.exit.preheader: ; preds = %468, %_find_option_
 
 _validate_threads_per_core_option.exit:           ; preds = %_validate_threads_per_core_option.exit.preheader, %536
   %indvars.iv.i.i.i38 = phi i64 [ %indvars.iv.next.i.i.i39, %536 ], [ 0, %_validate_threads_per_core_option.exit.preheader ]
-  %531 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i38
+  %531 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i38
   %532 = load ptr, ptr %531, align 8
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 24
   %534 = load i32, ptr %533, align 8
@@ -4066,7 +4065,7 @@ slurm_option_set_by_cli.exit.i45:                 ; preds = %549, %545, %542, %5
 
 554:                                              ; preds = %560, %slurm_option_set_by_cli.exit.i45
   %indvars.iv.i.i19.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i45 ], [ %indvars.iv.next.i.i20.i, %560 ]
-  %555 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i19.i
+  %555 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i19.i
   %556 = load ptr, ptr %555, align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 24
   %558 = load i32, ptr %557, align 8
@@ -4122,7 +4121,7 @@ slurm_option_set_by_cli.exit29.i:                 ; preds = %573, %569, %566, %5
 
 579:                                              ; preds = %585, %slurm_option_set_by_cli.exit29.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %slurm_option_set_by_cli.exit29.i ], [ %indvars.iv.next.i.i31.i, %585 ]
-  %580 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i30.i
+  %580 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i30.i
   %581 = load ptr, ptr %580, align 8
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 24
   %583 = load i32, ptr %582, align 8
@@ -4183,7 +4182,7 @@ slurm_option_set_by_cli.exit40.i:                 ; preds = %598, %594, %591, %5
 
 .preheader167.i:                                  ; preds = %slurm_option_set_by_cli.exit40.i, %611
   %indvars.iv.i.i41.i47 = phi i64 [ %indvars.iv.next.i.i42.i48, %611 ], [ 0, %slurm_option_set_by_cli.exit40.i ]
-  %606 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i41.i47
+  %606 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i41.i47
   %607 = load ptr, ptr %606, align 8
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 24
   %609 = load i32, ptr %608, align 8
@@ -4236,7 +4235,7 @@ slurm_option_set_by_cli.exit51.i:                 ; preds = %620
 
 .preheader166.i:                                  ; preds = %slurm_option_set_by_cli.exit51.i, %631
   %indvars.iv.i.i52.i63 = phi i64 [ %indvars.iv.next.i.i53.i65, %631 ], [ 0, %slurm_option_set_by_cli.exit51.i ]
-  %627 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i52.i63
+  %627 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i52.i63
   %628 = load ptr, ptr %627, align 8
   %629 = load ptr, ptr %628, align 8
   %630 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %629) #22
@@ -4250,7 +4249,7 @@ slurm_option_set_by_cli.exit51.i:                 ; preds = %620
 
 _find_option_idx.exit.i.i68:                      ; preds = %.preheader166.i
   %632 = and i64 %indvars.iv.i.i52.i63, 4294967295
-  %633 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %632
+  %633 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %632
   %634 = load ptr, ptr %633, align 8
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 80
   %636 = load ptr, ptr %635, align 8
@@ -4269,7 +4268,7 @@ slurm_option_reset.exit.i67.preheader:            ; preds = %631, %638, %_find_o
 
 slurm_option_reset.exit.i67:                      ; preds = %slurm_option_reset.exit.i67.preheader, %644
   %indvars.iv.i.i55.i = phi i64 [ %indvars.iv.next.i.i57.i, %644 ], [ 0, %slurm_option_reset.exit.i67.preheader ]
-  %640 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i55.i
+  %640 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i55.i
   %641 = load ptr, ptr %640, align 8
   %642 = load ptr, ptr %641, align 8
   %643 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %642) #22
@@ -4283,7 +4282,7 @@ slurm_option_reset.exit.i67:                      ; preds = %slurm_option_reset.
 
 _find_option_idx.exit.i59.i:                      ; preds = %slurm_option_reset.exit.i67
   %645 = and i64 %indvars.iv.i.i55.i, 4294967295
-  %646 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %645
+  %646 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %645
   %647 = load ptr, ptr %646, align 8
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 80
   %649 = load ptr, ptr %648, align 8
@@ -4299,7 +4298,7 @@ _find_option_idx.exit.i59.i:                      ; preds = %slurm_option_reset.
 
 slurm_option_set_by_cli.exit51.thread.i:          ; preds = %slurm_option_set_by_cli.exit51.thread.i.preheader, %658
   %indvars.iv.i.i62.i = phi i64 [ %indvars.iv.next.i.i63.i, %658 ], [ 0, %slurm_option_set_by_cli.exit51.thread.i.preheader ]
-  %653 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i62.i
+  %653 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i62.i
   %654 = load ptr, ptr %653, align 8
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 24
   %656 = load i32, ptr %655, align 8
@@ -4352,7 +4351,7 @@ slurm_option_set_by_cli.exit72.i:                 ; preds = %667
 
 .preheader164.i:                                  ; preds = %slurm_option_set_by_cli.exit72.i, %678
   %indvars.iv.i.i73.i62 = phi i64 [ %indvars.iv.next.i.i75.i, %678 ], [ 0, %slurm_option_set_by_cli.exit72.i ]
-  %674 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i73.i62
+  %674 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i73.i62
   %675 = load ptr, ptr %674, align 8
   %676 = load ptr, ptr %675, align 8
   %677 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.266, ptr noundef %676) #22
@@ -4366,7 +4365,7 @@ slurm_option_set_by_cli.exit72.i:                 ; preds = %667
 
 _find_option_idx.exit.i77.i:                      ; preds = %.preheader164.i
   %679 = and i64 %indvars.iv.i.i73.i62, 4294967295
-  %680 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %679
+  %680 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %679
   %681 = load ptr, ptr %680, align 8
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 80
   %683 = load ptr, ptr %682, align 8
@@ -4385,7 +4384,7 @@ slurm_option_reset.exit79.i.preheader:            ; preds = %678, %685, %_find_o
 
 slurm_option_reset.exit79.i:                      ; preds = %slurm_option_reset.exit79.i.preheader, %691
   %indvars.iv.i.i80.i = phi i64 [ %indvars.iv.next.i.i82.i, %691 ], [ 0, %slurm_option_reset.exit79.i.preheader ]
-  %687 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i80.i
+  %687 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i80.i
   %688 = load ptr, ptr %687, align 8
   %689 = load ptr, ptr %688, align 8
   %690 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %689) #22
@@ -4399,7 +4398,7 @@ slurm_option_reset.exit79.i:                      ; preds = %slurm_option_reset.
 
 _find_option_idx.exit.i84.i:                      ; preds = %slurm_option_reset.exit79.i
   %692 = and i64 %indvars.iv.i.i80.i, 4294967295
-  %693 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %692
+  %693 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %692
   %694 = load ptr, ptr %693, align 8
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 80
   %696 = load ptr, ptr %695, align 8
@@ -4415,7 +4414,7 @@ _find_option_idx.exit.i84.i:                      ; preds = %slurm_option_reset.
 
 slurm_option_set_by_cli.exit72.thread.i:          ; preds = %slurm_option_set_by_cli.exit72.thread.i.preheader, %705
   %indvars.iv.i.i87.i52 = phi i64 [ %indvars.iv.next.i.i88.i, %705 ], [ 0, %slurm_option_set_by_cli.exit72.thread.i.preheader ]
-  %700 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i87.i52
+  %700 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i87.i52
   %701 = load ptr, ptr %700, align 8
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 24
   %703 = load i32, ptr %702, align 8
@@ -4468,7 +4467,7 @@ slurm_option_set_by_cli.exit97.i:                 ; preds = %714
 
 .preheader162.i:                                  ; preds = %slurm_option_set_by_cli.exit97.i, %725
   %indvars.iv.i.i98.i = phi i64 [ %indvars.iv.next.i.i100.i, %725 ], [ 0, %slurm_option_set_by_cli.exit97.i ]
-  %721 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i98.i
+  %721 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i98.i
   %722 = load ptr, ptr %721, align 8
   %723 = load ptr, ptr %722, align 8
   %724 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.266, ptr noundef %723) #22
@@ -4482,7 +4481,7 @@ slurm_option_set_by_cli.exit97.i:                 ; preds = %714
 
 _find_option_idx.exit.i102.i:                     ; preds = %.preheader162.i
   %726 = and i64 %indvars.iv.i.i98.i, 4294967295
-  %727 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %726
+  %727 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %726
   %728 = load ptr, ptr %727, align 8
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 80
   %730 = load ptr, ptr %729, align 8
@@ -4501,7 +4500,7 @@ slurm_option_reset.exit104.i.preheader:           ; preds = %725, %732, %_find_o
 
 slurm_option_reset.exit104.i:                     ; preds = %slurm_option_reset.exit104.i.preheader, %738
   %indvars.iv.i.i105.i61 = phi i64 [ %indvars.iv.next.i.i107.i, %738 ], [ 0, %slurm_option_reset.exit104.i.preheader ]
-  %734 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i105.i61
+  %734 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i105.i61
   %735 = load ptr, ptr %734, align 8
   %736 = load ptr, ptr %735, align 8
   %737 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %736) #22
@@ -4515,7 +4514,7 @@ slurm_option_reset.exit104.i:                     ; preds = %slurm_option_reset.
 
 _find_option_idx.exit.i109.i:                     ; preds = %slurm_option_reset.exit104.i
   %739 = and i64 %indvars.iv.i.i105.i61, 4294967295
-  %740 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %739
   %741 = load ptr, ptr %740, align 8
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 80
   %743 = load ptr, ptr %742, align 8
@@ -4531,7 +4530,7 @@ _find_option_idx.exit.i109.i:                     ; preds = %slurm_option_reset.
 
 slurm_option_set_by_cli.exit97.thread.i:          ; preds = %slurm_option_set_by_cli.exit97.thread.i.preheader, %752
   %indvars.iv.i.i112.i = phi i64 [ %indvars.iv.next.i.i113.i, %752 ], [ 0, %slurm_option_set_by_cli.exit97.thread.i.preheader ]
-  %747 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i112.i
+  %747 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i112.i
   %748 = load ptr, ptr %747, align 8
   %749 = getelementptr inbounds nuw i8, ptr %748, i64 24
   %750 = load i32, ptr %749, align 8
@@ -4579,7 +4578,7 @@ slurm_option_set_by_env.exit.i54:                 ; preds = %761, %758, %757, %7
 
 765:                                              ; preds = %771, %slurm_option_set_by_env.exit.i54
   %indvars.iv.i.i121.i = phi i64 [ 0, %slurm_option_set_by_env.exit.i54 ], [ %indvars.iv.next.i.i122.i, %771 ]
-  %766 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i121.i
+  %766 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i121.i
   %767 = load ptr, ptr %766, align 8
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 24
   %769 = load i32, ptr %768, align 8
@@ -4628,7 +4627,7 @@ slurm_option_set_by_env.exit131.i:                ; preds = %780, %777, %776, %7
 
 785:                                              ; preds = %791, %slurm_option_set_by_env.exit131.i
   %indvars.iv.i.i132.i = phi i64 [ 0, %slurm_option_set_by_env.exit131.i ], [ %indvars.iv.next.i.i133.i, %791 ]
-  %786 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i132.i
+  %786 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i132.i
   %787 = load ptr, ptr %786, align 8
   %788 = getelementptr inbounds nuw i8, ptr %787, i64 24
   %789 = load i32, ptr %788, align 8
@@ -4694,7 +4693,7 @@ slurm_option_reset.exit61.i:                      ; preds = %644, %691, %738, %s
 
 .preheader.i57:                                   ; preds = %809, %816
   %indvars.iv.i.i143.i = phi i64 [ %indvars.iv.next.i.i145.i, %816 ], [ 0, %809 ]
-  %812 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i143.i
+  %812 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i143.i
   %813 = load ptr, ptr %812, align 8
   %814 = load ptr, ptr %813, align 8
   %815 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %814) #22
@@ -4729,7 +4728,7 @@ slurm_option_isset.exit.i60:                      ; preds = %_find_option_idx.ex
 
 slurm_option_isset.exit.thread.i58:               ; preds = %slurm_option_isset.exit.thread.i58.preheader, %830
   %indvars.iv.i.i149.i59 = phi i64 [ %indvars.iv.next.i.i151.i, %830 ], [ 0, %slurm_option_isset.exit.thread.i58.preheader ]
-  %826 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i149.i59
+  %826 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i149.i59
   %827 = load ptr, ptr %826, align 8
   %828 = load ptr, ptr %827, align 8
   %829 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %828) #22
@@ -4769,7 +4768,7 @@ _validate_memory_options.exit.preheader:          ; preds = %830, %slurm_option_
 
 _validate_memory_options.exit:                    ; preds = %_validate_memory_options.exit.preheader, %845
   %indvars.iv.i.i.i74 = phi i64 [ %indvars.iv.next.i.i.i75, %845 ], [ 0, %_validate_memory_options.exit.preheader ]
-  %840 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i74
+  %840 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i74
   %841 = load ptr, ptr %840, align 8
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 24
   %843 = load i32, ptr %842, align 8
@@ -4823,7 +4822,7 @@ slurm_option_set_by_cli.exit.i81:                 ; preds = %858, %854, %851, %8
 
 862:                                              ; preds = %868, %slurm_option_set_by_cli.exit.i81
   %indvars.iv.i.i4.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i81 ], [ %indvars.iv.next.i.i5.i, %868 ]
-  %863 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i4.i
+  %863 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i4.i
   %864 = load ptr, ptr %863, align 8
   %865 = getelementptr inbounds nuw i8, ptr %864, i64 24
   %866 = load i32, ptr %865, align 8
@@ -5109,7 +5108,7 @@ _validate_tres_per_task.exit:                     ; preds = %941, %.outer._crit_
 
 .preheader159.i:                                  ; preds = %_validate_tres_per_task.exit, %988
   %indvars.iv.i.i.i89 = phi i64 [ %indvars.iv.next.i.i.i90, %988 ], [ 0, %_validate_tres_per_task.exit ]
-  %983 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i89
+  %983 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i89
   %984 = load ptr, ptr %983, align 8
   %985 = getelementptr inbounds nuw i8, ptr %984, i64 24
   %986 = load i32, ptr %985, align 8
@@ -5162,7 +5161,7 @@ slurm_option_set_by_cli.exit.thread.i.preheader:  ; preds = %slurm_option_set_by
 
 slurm_option_set_by_cli.exit.thread.i:            ; preds = %slurm_option_set_by_cli.exit.thread.i.preheader, %1009
   %indvars.iv.i.i30.i96 = phi i64 [ %indvars.iv.next.i.i31.i97, %1009 ], [ 0, %slurm_option_set_by_cli.exit.thread.i.preheader ]
-  %1004 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i30.i96
+  %1004 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i30.i96
   %1005 = load ptr, ptr %1004, align 8
   %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 24
   %1007 = load i32, ptr %1006, align 8
@@ -5217,7 +5216,7 @@ slurm_option_set_by_cli.exit40.i102:              ; preds = %1022, %1018, %1015,
 
 1028:                                             ; preds = %1034, %slurm_option_set_by_cli.exit40.i102
   %indvars.iv.i.i41.i103 = phi i64 [ 0, %slurm_option_set_by_cli.exit40.i102 ], [ %indvars.iv.next.i.i42.i104, %1034 ]
-  %1029 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i41.i103
+  %1029 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i41.i103
   %1030 = load ptr, ptr %1029, align 8
   %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 24
   %1032 = load i32, ptr %1031, align 8
@@ -5264,7 +5263,7 @@ slurm_option_set_by_env.exit.thread.i.preheader:  ; preds = %slurm_option_set_by
 
 slurm_option_set_by_env.exit.thread.i:            ; preds = %slurm_option_set_by_env.exit.thread.i.preheader, %1051
   %indvars.iv.i.i50.i = phi i64 [ %indvars.iv.next.i.i51.i, %1051 ], [ 0, %slurm_option_set_by_env.exit.thread.i.preheader ]
-  %1046 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i50.i
+  %1046 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i50.i
   %1047 = load ptr, ptr %1046, align 8
   %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 24
   %1049 = load i32, ptr %1048, align 8
@@ -5308,7 +5307,7 @@ _find_option_index_from_optval.exit.i53.i:        ; preds = %1051, %.split.loop.
 
 .preheader.i143:                                  ; preds = %_validate_tres_per_task.exit, %1069
   %indvars.iv.i.i61.i = phi i64 [ %indvars.iv.next.i.i62.i, %1069 ], [ 0, %_validate_tres_per_task.exit ]
-  %1064 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i61.i
+  %1064 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i61.i
   %1065 = load ptr, ptr %1064, align 8
   %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 24
   %1067 = load i32, ptr %1066, align 8
@@ -5363,7 +5362,7 @@ slurm_option_set_by_cli.exit71.i:                 ; preds = %1082, %1078, %1075,
 
 1087:                                             ; preds = %1093, %slurm_option_set_by_cli.exit71.i
   %indvars.iv.i.i72.i = phi i64 [ 0, %slurm_option_set_by_cli.exit71.i ], [ %indvars.iv.next.i.i73.i, %1093 ]
-  %1088 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i72.i
+  %1088 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i72.i
   %1089 = load ptr, ptr %1088, align 8
   %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 24
   %1091 = load i32, ptr %1090, align 8
@@ -5416,7 +5415,7 @@ slurm_option_set_by_env.exit60.i:                 ; preds = %1099, %1095, %1057,
 
 1107:                                             ; preds = %1113, %1106
   %indvars.iv.i.i83.i = phi i64 [ 0, %1106 ], [ %indvars.iv.next.i.i84.i, %1113 ]
-  %1108 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i83.i
+  %1108 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i83.i
   %1109 = load ptr, ptr %1108, align 8
   %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 24
   %1111 = load i32, ptr %1110, align 8
@@ -5478,7 +5477,7 @@ slurm_option_set_by_cli.exit93.i:                 ; preds = %1122
 
 1131:                                             ; preds = %1137, %1130
   %indvars.iv.i.i94.i131 = phi i64 [ 0, %1130 ], [ %indvars.iv.next.i.i95.i132, %1137 ]
-  %1132 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i94.i131
+  %1132 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i94.i131
   %1133 = load ptr, ptr %1132, align 8
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 24
   %1135 = load i32, ptr %1134, align 8
@@ -5538,7 +5537,7 @@ slurm_option_set_by_env.exit104.i:                ; preds = %1143
 
 1151:                                             ; preds = %1157, %.thread.i
   %indvars.iv.i.i105.i113 = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i.i106.i114, %1157 ]
-  %1152 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i105.i113
+  %1152 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i105.i113
   %1153 = load ptr, ptr %1152, align 8
   %1154 = getelementptr inbounds nuw i8, ptr %1153, i64 24
   %1155 = load i32, ptr %1154, align 8
@@ -5613,7 +5612,7 @@ slurm_option_set_by_env.exit115.i119:             ; preds = %1163
 
 1181:                                             ; preds = %.preheader477, %1186
   %indvars.iv.i.i116.i122 = phi i64 [ %indvars.iv.next.i.i117.i124, %1186 ], [ 0, %.preheader477 ]
-  %1182 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i116.i122
+  %1182 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i116.i122
   %1183 = load ptr, ptr %1182, align 8
   %1184 = load ptr, ptr %1183, align 8
   %1185 = call i32 @xstrcmp(ptr noundef nonnull @.str.126, ptr noundef %1184) #22
@@ -5627,7 +5626,7 @@ slurm_option_set_by_env.exit115.i119:             ; preds = %1163
 
 _find_option_idx.exit.i.i126:                     ; preds = %1181
   %1187 = and i64 %indvars.iv.i.i116.i122, 4294967295
-  %1188 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %1187
+  %1188 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %1187
   %1189 = load ptr, ptr %1188, align 8
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 80
   %1191 = load ptr, ptr %1190, align 8
@@ -5647,7 +5646,7 @@ _find_option_idx.exit.i.i126:                     ; preds = %1181
 
 1195:                                             ; preds = %1201, %.thread151.i
   %indvars.iv.i.i119.i = phi i64 [ 0, %.thread151.i ], [ %indvars.iv.next.i.i120.i, %1201 ]
-  %1196 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i119.i
+  %1196 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i119.i
   %1197 = load ptr, ptr %1196, align 8
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 24
   %1199 = load i32, ptr %1198, align 8
@@ -5717,7 +5716,7 @@ slurm_option_set_by_cli.exit129.i:                ; preds = %1210
 
 1225:                                             ; preds = %.preheader, %1230
   %indvars.iv.i.i130.i = phi i64 [ %indvars.iv.next.i.i132.i, %1230 ], [ 0, %.preheader ]
-  %1226 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i130.i
+  %1226 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i130.i
   %1227 = load ptr, ptr %1226, align 8
   %1228 = load ptr, ptr %1227, align 8
   %1229 = call i32 @xstrcmp(ptr noundef nonnull @.str.129, ptr noundef %1228) #22
@@ -5731,7 +5730,7 @@ slurm_option_set_by_cli.exit129.i:                ; preds = %1210
 
 _find_option_idx.exit.i134.i:                     ; preds = %1225
   %1231 = and i64 %indvars.iv.i.i130.i, 4294967295
-  %1232 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %1231
+  %1232 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %1231
   %1233 = load ptr, ptr %1232, align 8
   %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 80
   %1235 = load ptr, ptr %1234, align 8
@@ -5917,7 +5916,7 @@ _validate_nodelist.exit:                          ; preds = %1254, %1287, %1290,
 
 .preheader.i151:                                  ; preds = %1316, %1325
   %indvars.iv.i.i.i152 = phi i64 [ %indvars.iv.next.i.i.i153, %1325 ], [ 0, %1316 ]
-  %1320 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i152
+  %1320 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i.i152
   %1321 = load ptr, ptr %1320, align 8
   %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 24
   %1323 = load i32, ptr %1322, align 8
@@ -6143,7 +6142,7 @@ define dso_local noundef ptr @slurm_opt_create_job_desc(ptr noundef %0, i1 nound
 
 .preheader440:                                    ; preds = %2, %45
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %45 ], [ 0, %2 ]
-  %41 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.30, ptr noundef %43) #22
@@ -6298,7 +6297,7 @@ slurm_option_isset.exit.thread:                   ; preds = %45, %slurm_option_i
 
 .preheader439:                                    ; preds = %127, %136
   %indvars.iv.i.i396 = phi i64 [ %indvars.iv.next.i.i398, %136 ], [ 0, %127 ]
-  %132 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i396
+  %132 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i396
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.32, ptr noundef %134) #22
@@ -6366,7 +6365,7 @@ slurm_option_isset.exit403.thread:                ; preds = %136, %_find_option_
 
 .preheader438:                                    ; preds = %167, %172
   %indvars.iv.i.i404 = phi i64 [ %indvars.iv.next.i.i406, %172 ], [ 0, %167 ]
-  %168 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i404
+  %168 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i404
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %169, align 8
   %171 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.34, ptr noundef %170) #22
@@ -6556,7 +6555,7 @@ slurm_option_isset.exit411.thread:                ; preds = %172, %_find_option_
 
 267:                                              ; preds = %.preheader521, %272
   %indvars.iv.i.i412 = phi i64 [ %indvars.iv.next.i.i414, %272 ], [ 0, %.preheader521 ]
-  %268 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i412
+  %268 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i412
   %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr %269, align 8
   %271 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.35, ptr noundef %270) #22
@@ -6859,7 +6858,7 @@ slurm_option_isset.exit419.thread:                ; preds = %272, %_find_option_
 
 .preheader:                                       ; preds = %410, %434
   %indvars.iv.i.i420 = phi i64 [ %indvars.iv.next.i.i422, %434 ], [ 0, %410 ]
-  %430 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i420
+  %430 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i.i420
   %431 = load ptr, ptr %430, align 8
   %432 = load ptr, ptr %431, align 8
   %433 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.41, ptr noundef %432) #22
@@ -8180,7 +8179,7 @@ define internal ptr @arg_get_bell(ptr noundef readonly captures(none) %0) #0 {
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.arg_get_bell, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.arg_get_bell, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -9395,7 +9394,7 @@ define internal ptr @arg_get_exclusive(ptr noundef readonly captures(none) %0) #
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.arg_get_exclusive, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.arg_get_exclusive, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call ptr @xstrdup(ptr noundef nonnull %switch.load) #22
   br label %7
@@ -14974,7 +14973,7 @@ define internal fastcc void @_set_tres_per_task_from_sibling_opt_internal(ptr no
 
 .preheader:                                       ; preds = %6, %17
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %17 ], [ 0, %6 ]
-  %12 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
@@ -14997,7 +14996,7 @@ _find_option_index_from_optval.exit:              ; preds = %17, %.split.loop.ex
 
 19:                                               ; preds = %25, %_find_option_index_from_optval.exit
   %indvars.iv.i50 = phi i64 [ 0, %_find_option_index_from_optval.exit ], [ %indvars.iv.next.i51, %25 ]
-  %20 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i50
+  %20 = getelementptr inbounds nuw ptr, ptr @common_options, i64 %indvars.iv.i50
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8
@@ -15059,7 +15058,7 @@ _option_index_set_by_cli.exit60:                  ; preds = %41
   br i1 %47, label %56, label %48
 
 48:                                               ; preds = %_option_index_set_by_cli.exit60
-  %49 = getelementptr inbounds [164 x ptr], ptr @common_options, i64 0, i64 %.06.i
+  %49 = getelementptr inbounds ptr, ptr @common_options, i64 %.06.i
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.533, ptr noundef %5, ptr noundef %51) #23
@@ -15106,7 +15105,7 @@ _option_index_set_by_env.exit:                    ; preds = %_option_index_set_b
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds [164 x ptr], ptr @common_options, i64 0, i64 %.06.i
+  %74 = getelementptr inbounds ptr, ptr @common_options, i64 %.06.i
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %75, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.534, ptr noundef %73, ptr noundef %76) #22
@@ -15164,7 +15163,7 @@ _option_index_set_by_env.exit74:                  ; preds = %_option_index_set_b
   br i1 %or.cond, label %103, label %_option_index_set_by_env.exit70.thread
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds [164 x ptr], ptr @common_options, i64 0, i64 %.06.i
+  %104 = getelementptr inbounds ptr, ptr @common_options, i64 %.06.i
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %105, align 8
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.536, ptr noundef %106, ptr noundef %3, i32 noundef %2, i32 noundef %81) #23

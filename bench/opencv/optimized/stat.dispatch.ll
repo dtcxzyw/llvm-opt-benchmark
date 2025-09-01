@@ -32,7 +32,7 @@ define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhi(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN2cv3hal13popCountTableE, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = zext i8 %8 to i32
   %10 = add nuw nsw i32 %.08, %9
@@ -63,7 +63,7 @@ define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i(ptr nou
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = xor i8 %8, %6
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN2cv3hal13popCountTableE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %.010, %13
@@ -94,7 +94,7 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhi(ptr noundef readonly captures(n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN2cv3hal13popCountTableE, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %.08.i, %10
@@ -148,7 +148,7 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef readonly capture
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = xor i8 %9, %7
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN2cv3hal13popCountTableE, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %.010.i, %14

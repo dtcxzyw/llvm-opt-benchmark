@@ -709,11 +709,11 @@ define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %24 ]
   %25 = getelementptr inbounds nuw %class.CodeSection, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw [3 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   store ptr %29, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1514,7 +1514,7 @@ _ZN13RelocIterator18section_word_relocEv.exit:    ; preds = %379, %387, %389
   %394 = and i32 %392, 3
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %396 = zext nneg i32 %394 to i64
-  %397 = getelementptr inbounds nuw [3 x ptr], ptr %395, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw ptr, ptr %395, i64 %396
   %398 = load ptr, ptr %397, align 8
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %394, ptr %399, align 8
@@ -3322,7 +3322,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
   %24 = and i32 %22, 3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [3 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %24, ptr %29, align 8

@@ -202,7 +202,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 8, !tbaa !149
   %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds [8 x ptr], ptr %89, i64 0, i64 %93
+  %94 = getelementptr inbounds ptr, ptr %89, i64 %93
   %95 = tail call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef nonnull %48, i32 noundef 96, ptr noundef %84, i32 noundef %86, i32 noundef 9, ptr noundef %88, ptr noundef nonnull %94)
   br label %111
 
@@ -223,7 +223,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %105, align 8, !tbaa !149
   %108 = sext i32 %106 to i64
-  %109 = getelementptr inbounds [8 x ptr], ptr %104, i64 0, i64 %108
+  %109 = getelementptr inbounds ptr, ptr %104, i64 %108
   %110 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef nonnull %17, i32 noundef 4, ptr noundef %99, i32 noundef %101, i32 noundef 9, ptr noundef %103, ptr noundef nonnull %109)
   %.pre = load i32, ptr %17, align 4, !tbaa !34
   br label %111
@@ -251,7 +251,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 8, !tbaa !149
   %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds [8 x ptr], ptr %123, i64 0, i64 %127
+  %128 = getelementptr inbounds ptr, ptr %123, i64 %127
   %129 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %3, i32 noundef %117, ptr noundef %118, i32 noundef %120, i32 noundef 0, ptr noundef %122, ptr noundef nonnull %128)
   br label %130
 
@@ -274,7 +274,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %143 = add nsw i32 %142, 1
   store i32 %143, ptr %141, align 8, !tbaa !149
   %144 = sext i32 %142 to i64
-  %145 = getelementptr inbounds [8 x ptr], ptr %140, i64 0, i64 %144
+  %145 = getelementptr inbounds ptr, ptr %140, i64 %144
   %146 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %.0.val, i32 noundef %134, ptr noundef %135, i32 noundef %137, i32 noundef 1, ptr noundef %139, ptr noundef nonnull %145)
   br label %147
 
@@ -297,7 +297,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %160 = add nsw i32 %159, 1
   store i32 %160, ptr %158, align 8, !tbaa !149
   %161 = sext i32 %159 to i64
-  %162 = getelementptr inbounds [8 x ptr], ptr %157, i64 0, i64 %161
+  %162 = getelementptr inbounds ptr, ptr %157, i64 %161
   %163 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %.0.val1, i32 noundef %151, ptr noundef %152, i32 noundef %154, i32 noundef 2, ptr noundef %156, ptr noundef nonnull %162)
   br label %164
 
@@ -320,7 +320,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %177 = add nsw i32 %176, 1
   store i32 %177, ptr %175, align 8, !tbaa !149
   %178 = sext i32 %176 to i64
-  %179 = getelementptr inbounds [8 x ptr], ptr %174, i64 0, i64 %178
+  %179 = getelementptr inbounds ptr, ptr %174, i64 %178
   %180 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %.0.val3, i32 noundef %168, ptr noundef %169, i32 noundef %171, i32 noundef 3, ptr noundef %173, ptr noundef nonnull %179)
   br label %181
 
@@ -343,7 +343,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %194 = add nsw i32 %193, 1
   store i32 %194, ptr %192, align 8, !tbaa !149
   %195 = sext i32 %193 to i64
-  %196 = getelementptr inbounds [8 x ptr], ptr %191, i64 0, i64 %195
+  %196 = getelementptr inbounds ptr, ptr %191, i64 %195
   %197 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %.0.val5, i32 noundef %185, ptr noundef %186, i32 noundef %188, i32 noundef 4, ptr noundef %190, ptr noundef nonnull %196)
   br label %198
 
@@ -366,7 +366,7 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
   %211 = add nsw i32 %210, 1
   store i32 %211, ptr %209, align 8, !tbaa !149
   %212 = sext i32 %210 to i64
-  %213 = getelementptr inbounds [8 x ptr], ptr %208, i64 0, i64 %212
+  %213 = getelementptr inbounds ptr, ptr %208, i64 %212
   %214 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %.0.val7, i32 noundef %202, ptr noundef %203, i32 noundef %205, i32 noundef 5, ptr noundef %207, ptr noundef nonnull %213)
   br label %215
 
@@ -460,7 +460,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   %267 = add nsw i32 %266, 1
   store i32 %267, ptr %265, align 8, !tbaa !149
   %268 = sext i32 %266 to i64
-  %269 = getelementptr inbounds [8 x ptr], ptr %264, i64 0, i64 %268
+  %269 = getelementptr inbounds ptr, ptr %264, i64 %268
   %270 = call noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %.0.val9, i32 noundef %258, ptr noundef %259, i32 noundef %261, i32 noundef 7, ptr noundef %263, ptr noundef nonnull %269)
   br label %271
 
@@ -1140,7 +1140,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread: ; pr
 .preheader.i.i:                                   ; preds = %98, %.preheader10.i.i
   %indvars.iv14.i.i = phi i64 [ 0, %.preheader10.i.i ], [ %indvars.iv.next15.i.i, %98 ]
   %96 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv14.i.i
-  %97 = getelementptr inbounds nuw [3 x [3 x float]], ptr %95, i64 0, i64 %indvars.iv14.i.i
+  %97 = getelementptr inbounds nuw [3 x float], ptr %95, i64 %indvars.iv14.i.i
   br label %99
 
 98:                                               ; preds = %99
@@ -1150,9 +1150,9 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread: ; pr
 
 99:                                               ; preds = %99, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %99 ]
-  %100 = getelementptr inbounds nuw [3 x float], ptr %96, i64 0, i64 %indvars.iv.i.i
+  %100 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv.i.i
   %101 = load float, ptr %100, align 4, !tbaa !145
-  %102 = getelementptr inbounds nuw [3 x float], ptr %97, i64 0, i64 %indvars.iv.i.i
+  %102 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv.i.i
   %103 = load float, ptr %102, align 4, !tbaa !145
   %104 = fadd float %101, %103
   store float %104, ptr %102, align 4, !tbaa !145
@@ -1167,7 +1167,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i: ; preds = %98
 .preheader.i18.i:                                 ; preds = %108, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i
   %indvars.iv14.i19.i = phi i64 [ 0, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i ], [ %indvars.iv.next15.i23.i, %108 ]
   %106 = getelementptr inbounds nuw [3 x float], ptr %105, i64 %indvars.iv14.i19.i
-  %107 = getelementptr inbounds nuw [3 x [3 x float]], ptr %95, i64 0, i64 %indvars.iv14.i19.i
+  %107 = getelementptr inbounds nuw [3 x float], ptr %95, i64 %indvars.iv14.i19.i
   br label %109
 
 108:                                              ; preds = %109
@@ -1177,9 +1177,9 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i: ; preds = %98
 
 109:                                              ; preds = %109, %.preheader.i18.i
   %indvars.iv.i20.i = phi i64 [ 0, %.preheader.i18.i ], [ %indvars.iv.next.i21.i, %109 ]
-  %110 = getelementptr inbounds nuw [3 x float], ptr %106, i64 0, i64 %indvars.iv.i20.i
+  %110 = getelementptr inbounds nuw float, ptr %106, i64 %indvars.iv.i20.i
   %111 = load float, ptr %110, align 4, !tbaa !145
-  %112 = getelementptr inbounds nuw [3 x float], ptr %107, i64 0, i64 %indvars.iv.i20.i
+  %112 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv.i20.i
   %113 = load float, ptr %112, align 4, !tbaa !145
   %114 = fadd float %111, %113
   store float %114, ptr %112, align 4, !tbaa !145

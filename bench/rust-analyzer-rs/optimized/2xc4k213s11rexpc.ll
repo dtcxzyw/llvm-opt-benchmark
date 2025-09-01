@@ -674,7 +674,7 @@ _ZN4core3ptr19swap_nonoverlapping17hac5944f220a127f1E.exit: ; preds = %68
 
 85:                                               ; preds = %._crit_edge100
   %86 = load ptr, ptr %44, align 8, !alias.scope !67, !noalias !70, !nonnull !7, !noundef !7
-  %87 = getelementptr inbounds nuw [0 x { { i32, i32 }, i16, [1 x i16] }], ptr %86, i64 0, i64 %63
+  %87 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %86, i64 %63
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i16, ptr %88, align 2, !range !87, !alias.scope !88, !noalias !97, !noundef !7
   %90 = zext nneg i16 %89 to i64
@@ -873,7 +873,7 @@ _ZN4core3ptr19swap_nonoverlapping17heabb200ad77939d0E.exit.loopexit: ; preds = %
   %183 = phi i64 [ %180, %_ZN4core3ptr19swap_nonoverlapping17heabb200ad77939d0E.exit.loopexit ], [ %175, %168 ]
   %.val.i1591 = phi ptr [ %.val.i15, %_ZN4core3ptr19swap_nonoverlapping17heabb200ad77939d0E.exit.loopexit ], [ %165, %168 ]
   %184 = load ptr, ptr %160, align 8, !alias.scope !126, !noalias !138, !nonnull !7, !noundef !7
-  %185 = getelementptr inbounds nuw [0 x { { i32, i32 }, i16, [1 x i16] }], ptr %184, i64 0, i64 %183
+  %185 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %184, i64 %183
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load i16, ptr %186, align 2, !range !87, !alias.scope !140, !noalias !149, !noundef !7
   %188 = zext nneg i16 %187 to i64

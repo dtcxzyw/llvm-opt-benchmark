@@ -1098,7 +1098,7 @@ define hidden noundef zeroext i1 @_ZN18hb_ot_shape_plan_t5init0EP9hb_face_tPK19h
 
 .noexc24:                                         ; preds = %.noexc23, %.noexc25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc25 ], [ 0, %.noexc23 ]
-  %23 = getelementptr inbounds nuw [7 x %struct.hb_ot_map_feature_t], ptr @_ZL15common_features, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL15common_features, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4
@@ -1118,7 +1118,7 @@ define hidden noundef zeroext i1 @_ZN18hb_ot_shape_plan_t5init0EP9hb_face_tPK19h
 
 .preheader.i:                                     ; preds = %27, %.noexc26
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.noexc26 ], [ 0, %27 ]
-  %31 = getelementptr inbounds nuw [7 x %struct.hb_ot_map_feature_t], ptr @_ZL19horizontal_features, i64 0, i64 %indvars.iv56.i
+  %31 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL19horizontal_features, i64 %indvars.iv56.i
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %34 = load i32, ptr %33, align 4
@@ -1228,7 +1228,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i: ; preds = %6
 73:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i, %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i
   %74 = phi i1 [ true, %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i ], [ false, %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i ]
   %indvars.iv.i30 = phi i64 [ 0, %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i ], [ 1, %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i ]
-  %75 = getelementptr inbounds nuw [2 x %struct.hb_vector_t.2], ptr %71, i64 0, i64 %indvars.iv.i30
+  %75 = getelementptr inbounds nuw %struct.hb_vector_t.2, ptr %71, i64 %indvars.iv.i30
   %76 = load i32, ptr %75, align 8
   %.not.i4.i = icmp eq i32 %76, 0
   br i1 %.not.i4.i, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4finiEv.exit.i, label %77
@@ -1243,7 +1243,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i: ; preds = %6
 
 _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4finiEv.exit.i: ; preds = %77, %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
-  %81 = getelementptr inbounds nuw [2 x %struct.hb_vector_t.3], ptr %72, i64 0, i64 %indvars.iv.i30
+  %81 = getelementptr inbounds nuw %struct.hb_vector_t.3, ptr %72, i64 %indvars.iv.i30
   %82 = load i32, ptr %81, align 8
   %.not.i5.i = icmp eq i32 %82, 0
   br i1 %.not.i5.i, label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i, label %83
@@ -1329,7 +1329,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i: ; preds = %1
 18:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i, %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i
   %19 = phi i1 [ true, %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i ], [ false, %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i ], [ 1, %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i ]
-  %20 = getelementptr inbounds nuw [2 x %struct.hb_vector_t.2], ptr %16, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %struct.hb_vector_t.2, ptr %16, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 8
   %.not.i4.i = icmp eq i32 %21, 0
   br i1 %.not.i4.i, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4finiEv.exit.i, label %22
@@ -1344,7 +1344,7 @@ _ZN11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE4finiEv.exit.i: ; preds = %1
 
 _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EE4finiEv.exit.i: ; preds = %22, %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %26 = getelementptr inbounds nuw [2 x %struct.hb_vector_t.3], ptr %17, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw %struct.hb_vector_t.3, ptr %17, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 8
   %.not.i5.i = icmp eq i32 %27, 0
   br i1 %.not.i5.i, label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EE4finiEv.exit.i, label %28
@@ -2155,7 +2155,7 @@ _ZN9hb_font_t9has_glyphEj.exit.i.i.i.i:           ; preds = %278, %271
 
 switch.lookup:                                    ; preds = %306
   %321 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [23 x i32], ptr @switch.table._hb_ot_shape, i64 0, i64 %321
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._hb_ot_shape, i64 %321
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16hb_vert_char_forj.exit.i.i.i.i
 
@@ -3804,7 +3804,7 @@ define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_in
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(216) %4, i32 noundef %5, ptr noundef %47)
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @_hb_modified_combining_class, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_hb_modified_combining_class, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 8
@@ -5152,7 +5152,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i:             ; preds = %_ZNK11hb_vector_tIN
   %49 = lshr i32 %1, 6
   %50 = and i32 %49, 7
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %48, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %48, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, %47
   store i64 %54, ptr %52, align 8
@@ -5179,7 +5179,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i:             ; preds = %_ZNK11hb_vector_tIN
   %65 = lshr i32 %1, 6
   %66 = and i32 %65, 7
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x i64], ptr %64, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %64, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = or i64 %69, %63
   store i64 %70, ptr %68, align 8

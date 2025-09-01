@@ -507,8 +507,8 @@ current_clocktime_ts.exit:                        ; preds = %allocate_connection
   %116 = phi i32 [ %107, %.lr.ph ], [ %189, %186 ]
   %117 = load ptr, ptr %84, align 8, !tbaa !58
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
-  %119 = getelementptr inbounds nuw [0 x %struct.fast_fallback_getaddrinfo_entry], ptr %118, i64 0, i64 %indvars.iv
-  %120 = getelementptr inbounds nuw [2 x ptr], ptr %109, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw %struct.fast_fallback_getaddrinfo_entry, ptr %118, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
   store ptr %119, ptr %120, align 8, !tbaa !62
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 72
   store ptr %117, ptr %121, align 8, !tbaa !64
@@ -1870,7 +1870,7 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit951.
   br i1 %595, label %596, label %620
 
 596:                                              ; preds = %.thread841
-  %597 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 0, i64 %594
+  %597 = getelementptr inbounds nuw i8, ptr %5, i64 %594
   store i8 0, ptr %597, align 1, !tbaa !96
   %598 = load i8, ptr %5, align 1, !tbaa !96
   switch i8 %598, label %.loopexit2077 [
@@ -2368,7 +2368,7 @@ define internal noundef i64 @fast_fallback_inetsock_cleanup(i64 noundef %0) #0 {
 
 39:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %40 = getelementptr inbounds nuw [2 x ptr], ptr %31, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !62
   %.not63 = icmp eq ptr %41, null
   br i1 %.not63, label %49, label %42
@@ -2382,7 +2382,7 @@ define internal noundef i64 @fast_fallback_inetsock_cleanup(i64 noundef %0) #0 {
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 1, ptr %48, align 4, !tbaa !6
   br label %49
 
@@ -2397,13 +2397,13 @@ define internal noundef i64 @fast_fallback_inetsock_cleanup(i64 noundef %0) #0 {
 50:                                               ; preds = %.lr.ph67, %58
   %51 = phi i32 [ %36, %.lr.ph67 ], [ %59, %58 ]
   %indvars.iv74 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next75, %58 ]
-  %52 = getelementptr inbounds nuw [2 x ptr], ptr %38, i64 0, i64 %indvars.iv74
+  %52 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv74
   %53 = load ptr, ptr %52, align 8, !tbaa !62
   %.not61 = icmp eq ptr %53, null
   br i1 %.not61, label %58, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %indvars.iv74
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv74
   %56 = load i32, ptr %55, align 4, !tbaa !6
   %.not62 = icmp eq i32 %56, 0
   br i1 %.not62, label %58, label %57

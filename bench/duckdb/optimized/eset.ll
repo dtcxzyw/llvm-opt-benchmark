@@ -28,9 +28,9 @@ define void @duckdb_je_eset_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 8:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %3, i64 %indvars.iv
   tail call void @duckdb_je_edata_heap_new(ptr noundef nonnull %9) #7
-  %10 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %4, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %4, i64 %indvars.iv
   store atomic i64 0, ptr %10 monotonic, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store atomic i64 0, ptr %11 monotonic, align 8
@@ -50,7 +50,7 @@ define i64 @duckdb_je_eset_npages_get(ptr noundef readonly captures(none) %0) lo
 define i64 @duckdb_je_eset_nextents_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6432
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %3, i64 %4
   %6 = load atomic i64, ptr %5 monotonic, align 8
   ret i64 %6
 }
@@ -101,7 +101,7 @@ sz_psz2ind.exit:                                  ; preds = %2, %7
   %.val30 = load i64, ptr %24, align 8, !tbaa !20
   %25 = ptrtoint ptr %.val29 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %26, i64 0, i64 %.0.i
+  %27 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %26, i64 %.0.i
   %28 = tail call zeroext i1 @duckdb_je_edata_heap_empty(ptr noundef nonnull %27) #7
   br i1 %28, label %29, label %37
 
@@ -139,7 +139,7 @@ sz_psz2ind.exit:                                  ; preds = %2, %7
 48:                                               ; preds = %37, %47, %29
   tail call void @duckdb_je_edata_heap_insert(ptr noundef nonnull %27, ptr noundef nonnull %1) #7
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 6432
-  %50 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %49, i64 0, i64 %.0.i
+  %50 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %49, i64 %.0.i
   %51 = load atomic i64, ptr %50 monotonic, align 8
   %52 = add i64 %51, 1
   store atomic i64 %52, ptr %50 monotonic, align 8
@@ -226,7 +226,7 @@ define void @duckdb_je_eset_remove(ptr noundef %0, ptr noundef %1) local_unnamed
 sz_psz2ind.exit:                                  ; preds = %2, %7
   %.0.i = phi i64 [ %22, %7 ], [ 199, %2 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 6432
-  %24 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %23, i64 0, i64 %.0.i
+  %24 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %23, i64 %.0.i
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %26 = add i64 %25, -1
   store atomic i64 %26, ptr %24 monotonic, align 8
@@ -239,7 +239,7 @@ sz_psz2ind.exit:                                  ; preds = %2, %7
   %31 = getelementptr i8, ptr %1, i64 32
   %.val31 = load i64, ptr %31, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %32, i64 0, i64 %.0.i
+  %33 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %32, i64 %.0.i
   tail call void @duckdb_je_edata_heap_remove(ptr noundef nonnull %33, ptr noundef nonnull %1) #7
   %34 = tail call zeroext i1 @duckdb_je_edata_heap_empty(ptr noundef nonnull %33) #7
   br i1 %34, label %35, label %43
@@ -373,7 +373,7 @@ sz_psz2ind.exit.i:                                ; preds = %14, %11
 
 30:                                               ; preds = %sz_psz2ind.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %31, i64 0, i64 %.0.i.i
+  %32 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %31, i64 %.0.i.i
   %33 = tail call zeroext i1 @duckdb_je_edata_heap_empty(ptr noundef nonnull %32) #7
   br i1 %33, label %eset_first_fit.exit, label %34
 
@@ -425,7 +425,7 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   %.02741.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %fb_ffs.exit36.i ]
   %56 = icmp eq i32 %.02644.i, 64
   %spec.store.select.i = select i1 %56, i32 63, i32 %.02644.i
-  %57 = getelementptr inbounds nuw [200 x i64], ptr @duckdb_je_sz_pind2sz_tab, i64 0, i64 %.025.in45.i
+  %57 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %.025.in45.i
   %58 = load i64, ptr %57, align 8, !tbaa !21
   %59 = zext nneg i32 %spec.store.select.i to i64
   %60 = lshr i64 %58, %59
@@ -450,7 +450,7 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %64, %62
-  %75 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %54, i64 0, i64 %.025.in45.i
+  %75 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %54, i64 %.025.in45.i
   %76 = tail call ptr @duckdb_je_edata_heap_first(ptr noundef nonnull %75) #7
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %77, align 8, !tbaa !21
@@ -598,7 +598,7 @@ fb_ffs.exit.i25:                                  ; preds = %.lr.ph.i.i27, %._cr
 154:                                              ; preds = %fb_ffs.exit46.i, %.lr.ph.i26
   %.028.in57.i = phi i64 [ %.0.i.i.i, %.lr.ph.i26 ], [ %.0.i.i43.i, %fb_ffs.exit46.i ]
   %155 = and i64 %.028.in57.i, 4294967295
-  %156 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %152, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %152, i64 %155
   %157 = tail call ptr @duckdb_je_edata_heap_first(ptr noundef nonnull %156) #7
   %158 = getelementptr i8, ptr %157, i64 8
   %.val38.i = load ptr, ptr %158, align 8, !tbaa !17

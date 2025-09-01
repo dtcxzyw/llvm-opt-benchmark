@@ -1032,7 +1032,7 @@ agxbsizeof.exit.i:                                ; preds = %16, %agxblen.exit.i
 
 23:                                               ; preds = %22
   %24 = zext i8 %.val.i15.i to i64
-  %25 = getelementptr inbounds nuw [31 x i8], ptr %13, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 %24
   store i8 %9, ptr %25, align 1, !tbaa !70
   %26 = load i8, ptr %14, align 1, !tbaa !70
   %27 = add i8 %26, 1
@@ -1303,7 +1303,7 @@ agxbsizeof.exit.i.i:                              ; preds = %56, %agxblen.exit.i
 
 61:                                               ; preds = %60
   %62 = zext i8 %.val.i15.i.i to i64
-  %63 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 %62
   store i8 %48, ptr %63, align 1, !tbaa !70
   %64 = load i8, ptr %8, align 1, !tbaa !70
   %65 = add i8 %64, 1
@@ -1390,7 +1390,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %85, %agxblen.exit.i
 
 90:                                               ; preds = %89
   %91 = zext i8 %.val.i15.i.i.i to i64
-  %92 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 %91
   store i8 0, ptr %92, align 1, !tbaa !70
   %93 = load i8, ptr %8, align 1, !tbaa !70
   %94 = add i8 %93, 1
@@ -1470,7 +1470,7 @@ agxblen.exit.i.i13.i:                             ; preds = %111, %agxbsizeof.ex
 
 118:                                              ; preds = %117
   %119 = zext i8 %.val.i25.i.i.i to i64
-  %120 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 %119
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %120, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.104, i64 5, i1 false)
   %121 = load i8, ptr %8, align 1, !tbaa !70
   %122 = add i8 %121, 5
@@ -1546,7 +1546,7 @@ agxbsizeof.exit.i.i58:                            ; preds = %136, %agxblen.exit.
 
 141:                                              ; preds = %140
   %142 = zext i8 %.val.i15.i.i62 to i64
-  %143 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 %142
   store i8 0, ptr %143, align 1, !tbaa !70
   %144 = load i8, ptr %8, align 1, !tbaa !70
   %145 = add i8 %144, 1
@@ -2981,7 +2981,7 @@ agxblen.exit.i.i:                                 ; preds = %15, %agxbsizeof.exi
 
 24:                                               ; preds = %23
   %25 = zext i8 %.val.i25.i.i to i64
-  %26 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull readonly align 1 %3, i64 %10, i1 false)
   %27 = trunc i64 %10 to i8
   %28 = load i8, ptr %13, align 1, !tbaa !70

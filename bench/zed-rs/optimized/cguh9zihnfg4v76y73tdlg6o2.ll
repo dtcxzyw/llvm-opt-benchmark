@@ -940,7 +940,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 97:                                               ; preds = %88
   %98 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %98, i64 0, i64 %89, i32 2
+  %99 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %98, i64 %89, i32 2
   %100 = load i32, ptr %99, align 4, !noundef !5
   %101 = icmp ne i32 %100, 0
   %102 = load ptr, ptr %16, align 8, !nonnull !5, !align !99, !noundef !5
@@ -973,7 +973,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 116:                                              ; preds = %112
   %117 = load ptr, ptr %19, align 8, !alias.scope !129, !nonnull !5, !noundef !5
-  %118 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %117, i64 0, i64 %113, i32 1
+  %118 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %117, i64 %113, i32 1
   %119 = load i32, ptr %118, align 4, !noalias !129, !noundef !5
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %143
@@ -1004,7 +1004,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr %129, align 8, !nonnull !5, !noundef !5
-  %135 = getelementptr inbounds nuw [0 x <{ i8, i32, i32 }>], ptr %134, i64 0, i64 %131
+  %135 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %134, i64 %131
   %.sroa.04.0.copyload.i = load i8, ptr %135, align 1
   %.not.i = icmp ugt i8 %80, %.sroa.04.0.copyload.i
   br i1 %.not.i, label %139, label %141
@@ -1032,7 +1032,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 143:                                              ; preds = %116
   %144 = zext i8 %80 to i64
-  %145 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr %21, i64 %144
   %146 = load i8, ptr %145, align 1, !alias.scope !129, !noundef !5
   %147 = zext i8 %146 to i64
   %148 = zext i32 %119 to i64
@@ -1043,7 +1043,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 152:                                              ; preds = %143
   %153 = load ptr, ptr %23, align 8, !alias.scope !129, !nonnull !5, !noundef !5
-  %154 = getelementptr inbounds nuw [0 x i32], ptr %153, i64 0, i64 %149
+  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %149
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd25854e654170580E.exit
 
 155:                                              ; preds = %107

@@ -37,12 +37,12 @@ define dso_local noundef ptr @onigenc_euc_jp_lookup_property_name(ptr noundef re
   %.val18 = load i8, ptr %5, align 1, !tbaa !4
   %6 = trunc nuw nsw i64 %1 to i32
   %7 = zext i8 %.val18 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @hash.asso_values, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @hash.asso_values, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, %6
   %12 = zext i8 %.val to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @hash.asso_values, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @hash.asso_values, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %11, %15
@@ -51,7 +51,7 @@ define dso_local noundef ptr @onigenc_euc_jp_lookup_property_name(ptr noundef re
 
 18:                                               ; preds = %4
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr inbounds nuw [56 x %struct.PropertyNameCtype], ptr @onigenc_euc_jp_lookup_property_name.wordlist, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.PropertyNameCtype, ptr @onigenc_euc_jp_lookup_property_name.wordlist, i64 %19
   %21 = load ptr, ptr %20, align 16, !tbaa !7
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = icmp eq i8 %.val, %22

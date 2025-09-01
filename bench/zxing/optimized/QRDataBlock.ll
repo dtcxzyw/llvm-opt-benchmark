@@ -49,7 +49,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = sext i32 %3 to i64
-  %18 = getelementptr inbounds nuw [4 x %"struct.ZXing::QRCode::ECBlocks"], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %16, i64 %17
   %.ptr87 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %19 = load i32, ptr %.ptr87, align 4, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12

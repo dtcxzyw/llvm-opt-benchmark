@@ -1072,9 +1072,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit274:       ; preds = %_ZNKSt7__cxx1112bas
 
 372:                                              ; preds = %365, %372
   %indvars.iv439 = phi i64 [ 0, %365 ], [ %indvars.iv.next440, %372 ]
-  %373 = getelementptr inbounds nuw [3 x float], ptr %371, i64 0, i64 %indvars.iv439
+  %373 = getelementptr inbounds nuw float, ptr %371, i64 %indvars.iv439
   %374 = load float, ptr %373, align 4, !tbaa !67
-  %375 = getelementptr inbounds nuw [3 x float], ptr %360, i64 0, i64 %indvars.iv439
+  %375 = getelementptr inbounds nuw float, ptr %360, i64 %indvars.iv439
   %376 = load float, ptr %375, align 4, !tbaa !67
   %377 = call float @llvm.fmuladd.f32(float %370, float %374, float %376)
   store float %377, ptr %375, align 4, !tbaa !67
@@ -1207,9 +1207,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit274:       ; preds = %_ZNKSt7__cxx1112bas
 
 431:                                              ; preds = %424, %431
   %indvars.iv468 = phi i64 [ 0, %424 ], [ %indvars.iv.next469, %431 ]
-  %432 = getelementptr inbounds nuw [3 x float], ptr %430, i64 0, i64 %indvars.iv468
+  %432 = getelementptr inbounds nuw float, ptr %430, i64 %indvars.iv468
   %433 = load float, ptr %432, align 4, !tbaa !67
-  %434 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv468
+  %434 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv468
   %435 = load float, ptr %434, align 4, !tbaa !67
   %436 = call float @llvm.fmuladd.f32(float %429, float %433, float %435)
   store float %436, ptr %434, align 4, !tbaa !67

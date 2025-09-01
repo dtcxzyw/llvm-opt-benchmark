@@ -195,11 +195,11 @@ define internal void @vp6_parse_vector_adjustment(ptr noundef captures(none) %0,
   %.promoted8085104 = phi i32 [ %.promoted84, %15 ], [ %.promoted8086, %220 ]
   %.promoted8189103 = phi i32 [ %.promoted, %15 ], [ %.promoted8190, %220 ]
   %.promoted8394102 = phi i32 [ %.promoted93, %15 ], [ %.promoted8395, %220 ]
-  %29 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 0, i64 %indvars.iv113
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv113
   %30 = load i8, ptr %29, align 1, !tbaa !61
   %31 = zext i8 %30 to i32
   %32 = sext i32 %.promoted8085104 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %32
+  %33 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !61
   %35 = zext i8 %34 to i32
   %36 = shl i32 %.promoted8085104, %35
@@ -243,7 +243,7 @@ vpx_rac_get_prob_branchy.exit:                    ; preds = %vpx_rac_renorm.exit
   store i32 %57, ptr %3, align 8, !tbaa !58
   %narrow.i = sub nuw i32 %.0.i62, %56
   store i32 %narrow.i, ptr %20, align 8, !tbaa !60
-  %58 = getelementptr inbounds nuw [2 x [8 x i8]], ptr %23, i64 0, i64 %indvars.iv113
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv113
   br label %59
 
 59:                                               ; preds = %vpx_rac_get_prob_branchy.exit, %vpx_rac_renorm.exit57
@@ -252,14 +252,14 @@ vpx_rac_get_prob_branchy.exit:                    ; preds = %vpx_rac_renorm.exit
   %60 = phi i32 [ %57, %vpx_rac_get_prob_branchy.exit ], [ %97, %vpx_rac_renorm.exit57 ]
   %.018.i557476 = phi i32 [ %.018.i61, %vpx_rac_get_prob_branchy.exit ], [ %.018.i55, %vpx_rac_renorm.exit57 ]
   %61 = phi i32 [ %narrow.i, %vpx_rac_get_prob_branchy.exit ], [ %99, %vpx_rac_renorm.exit57 ]
-  %62 = getelementptr inbounds nuw [7 x i8], ptr @vp6_parse_vector_adjustment.prob_order, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i8, ptr @vp6_parse_vector_adjustment.prob_order, i64 %indvars.iv
   %63 = load i8, ptr %62, align 1, !tbaa !61
   %64 = zext nneg i8 %63 to i32
   %65 = zext i8 %63 to i64
-  %66 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !61
   %68 = sext i32 %60 to i64
-  %69 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %68
+  %69 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !61
   %71 = zext i8 %70 to i32
   %72 = shl i32 %60, %71
@@ -320,7 +320,7 @@ vpx_rac_renorm.exit57:                            ; preds = %59, %76, %80
   %105 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %106 = load i8, ptr %105, align 1, !tbaa !61
   %107 = sext i32 %97 to i64
-  %108 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %107
+  %108 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !61
   %110 = zext i8 %109 to i32
   %111 = shl i32 %97, %110
@@ -375,7 +375,7 @@ vpx_rac_renorm.exit54:                            ; preds = %104, %115, %119
 141:                                              ; preds = %vpx_rac_renorm.exit63
   store i32 %55, ptr %3, align 8, !tbaa !58
   store i32 %.0.i62, ptr %20, align 8, !tbaa !60
-  %142 = getelementptr inbounds nuw [2 x [7 x i8]], ptr %25, i64 0, i64 %indvars.iv113
+  %142 = getelementptr inbounds nuw [7 x i8], ptr %25, i64 %indvars.iv113
   %143 = load i8, ptr @ff_vp56_pva_tree, align 1, !tbaa !67
   %144 = icmp sgt i8 %143, 0
   br i1 %144, label %.lr.ph, label %._crit_edge
@@ -393,7 +393,7 @@ vpx_rac_renorm.exit54:                            ; preds = %104, %115, %119
   %152 = load i8, ptr %151, align 1, !tbaa !61
   %153 = zext i8 %152 to i32
   %154 = sext i32 %146 to i64
-  %155 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %154
+  %155 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !61
   %157 = zext i8 %156 to i32
   %158 = shl i32 %146, %157
@@ -459,11 +459,11 @@ vpx_rac_renorm.exit:                              ; preds = %.lr.ph, %162, %166
   %.promoted8192 = phi i32 [ %.promoted8191, %._crit_edge ], [ %.018.i55, %139 ], [ %.018.i52, %vpx_rac_renorm.exit54 ]
   %.promoted8088 = phi i32 [ %.promoted8087, %._crit_edge ], [ %97, %139 ], [ %135, %vpx_rac_renorm.exit54 ]
   %.170 = phi i32 [ %186, %._crit_edge ], [ %140, %139 ], [ %138, %vpx_rac_renorm.exit54 ]
-  %187 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 0, i64 %indvars.iv113
+  %187 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv113
   %188 = load i8, ptr %187, align 1, !tbaa !61
   %189 = zext i8 %188 to i32
   %190 = sext i32 %.promoted8088 to i64
-  %191 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %190
+  %191 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %190
   %192 = load i8, ptr %191, align 1, !tbaa !61
   %193 = zext i8 %192 to i32
   %194 = shl i32 %.promoted8088, %193
@@ -641,9 +641,9 @@ vp6_block_variance.exit:                          ; preds = %44
   %60 = sext i32 %.148 to i64
   %61 = getelementptr inbounds i8, ptr %2, i64 %60
   %62 = sext i32 %8 to i64
-  %63 = getelementptr inbounds [17 x [8 x [4 x i16]]], ptr @vp6_block_copy_filter, i64 0, i64 %62
+  %63 = getelementptr inbounds [8 x [4 x i16]], ptr @vp6_block_copy_filter, i64 %62
   %64 = sext i32 %.074 to i64
-  %65 = getelementptr inbounds [8 x [4 x i16]], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds [4 x i16], ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 6
@@ -714,9 +714,9 @@ vp6_block_variance.exit:                          ; preds = %44
   %106 = getelementptr inbounds i8, ptr %2, i64 %105
   %107 = trunc i64 %5 to i32
   %108 = sext i32 %8 to i64
-  %109 = getelementptr inbounds [17 x [8 x [4 x i16]]], ptr @vp6_block_copy_filter, i64 0, i64 %108
+  %109 = getelementptr inbounds [8 x [4 x i16]], ptr @vp6_block_copy_filter, i64 %108
   %110 = sext i32 %.0 to i64
-  %111 = getelementptr inbounds [8 x [4 x i16]], ptr %109, i64 0, i64 %110
+  %111 = getelementptr inbounds [4 x i16], ptr %109, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %114 = shl nsw i32 %107, 1
@@ -794,11 +794,11 @@ vp6_block_variance.exit:                          ; preds = %44
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds i8, ptr %158, i64 %161
   %163 = sext i32 %8 to i64
-  %164 = getelementptr inbounds [17 x [8 x [4 x i16]]], ptr @vp6_block_copy_filter, i64 0, i64 %163
+  %164 = getelementptr inbounds [8 x [4 x i16]], ptr @vp6_block_copy_filter, i64 %163
   %165 = sext i32 %.074 to i64
-  %166 = getelementptr inbounds [8 x [4 x i16]], ptr %164, i64 0, i64 %165
+  %166 = getelementptr inbounds [4 x i16], ptr %164, i64 %165
   %167 = sext i32 %.0 to i64
-  %168 = getelementptr inbounds [8 x [4 x i16]], ptr %164, i64 0, i64 %167
+  %168 = getelementptr inbounds [4 x i16], ptr %164, i64 %167
   tail call void %156(ptr noundef %1, ptr noundef %162, i64 noundef %5, ptr noundef nonnull %166, ptr noundef nonnull %168) #11
   br label %vp6_filter_hv4.exit
 
@@ -876,7 +876,7 @@ define internal void @vp6_default_models_init(ptr noundef readonly captures(none
   %indvars.iv.i = phi i64 [ 1, %.preheader34.i ], [ %indvars.iv.next.i, %29 ]
   %.12836.i = phi i32 [ %.02737.i, %.preheader34.i ], [ %.229.i, %29 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !55
-  %19 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i
   %20 = load i8, ptr %19, align 1, !tbaa !61
   %21 = zext i8 %20 to i32
   %22 = icmp eq i32 %.038.i, %21
@@ -887,7 +887,7 @@ define internal void @vp6_default_models_init(ptr noundef readonly captures(none
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %26 = add nsw i32 %.12836.i, 1
   %27 = sext i32 %.12836.i to i64
-  %28 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds i8, ptr %25, i64 %27
   store i8 %24, ptr %28, align 1, !tbaa !61
   br label %29
 
@@ -912,7 +912,7 @@ define internal void @vp6_default_models_init(ptr noundef readonly captures(none
 34:                                               ; preds = %34, %.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next45.i, %34 ]
   %.02539.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %34 ]
-  %35 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %indvars.iv44.i
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv44.i
   %36 = load i8, ptr %35, align 1, !tbaa !61
   %37 = zext i8 %36 to i32
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.02539.i, i32 %37)
@@ -927,7 +927,7 @@ define internal void @vp6_default_models_init(ptr noundef readonly captures(none
   %spec.select32.i = add nuw nsw i32 %spec.select.i, %41
   %42 = trunc i32 %spec.select32.i to i8
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 128
-  %44 = getelementptr inbounds nuw [64 x i8], ptr %43, i64 0, i64 %indvars.iv52.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv52.i
   store i8 %42, ptr %44, align 1, !tbaa !61
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
@@ -958,12 +958,12 @@ define internal void @vp6_parse_vector_models(ptr noundef captures(none) %0) #4 
 12:                                               ; preds = %1, %155
   %13 = phi i1 [ true, %1 ], [ false, %155 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %155 ]
-  %14 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @vp6_sig_dct_pct, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @vp6_sig_dct_pct, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !61
   %16 = zext i8 %15 to i32
   %17 = load i32, ptr %2, align 8, !tbaa !58
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !61
   %21 = zext i8 %20 to i32
   %22 = load i32, ptr %5, align 4, !tbaa !59
@@ -1023,7 +1023,7 @@ vpx_rac_get_prob_branchy.exit.thread:             ; preds = %vpx_rac_renorm.exit
   %49 = add nsw i32 %.0310.i.i, -1
   %50 = shl i32 %.011.i.i, 1
   %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %51
+  %52 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !61
   %54 = zext i8 %53 to i32
   %55 = shl i32 %48, %54
@@ -1075,7 +1075,7 @@ vp56_rac_gets_nn.exit:                            ; preds = %vpx_rac_renorm.exit
   %80 = zext i1 %.not.i62 to i32
   %81 = or disjoint i32 %79, %80
   %82 = trunc i32 %81 to i8
-  %83 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   store i8 %82, ptr %83, align 1, !tbaa !61
   %.pre = load i32, ptr %2, align 8, !tbaa !58
   %.pre144 = load i32, ptr %5, align 4, !tbaa !59
@@ -1090,7 +1090,7 @@ vp56_rac_gets_nn.exit:                            ; preds = %vpx_rac_renorm.exit
   %89 = load i8, ptr %88, align 1, !tbaa !61
   %90 = zext i8 %89 to i32
   %91 = sext i32 %87 to i64
-  %92 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %91
+  %92 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !61
   %94 = zext i8 %93 to i32
   %95 = shl i32 %87, %94
@@ -1149,7 +1149,7 @@ vpx_rac_get_prob_branchy.exit43.thread:           ; preds = %vpx_rac_renorm.exit
   %120 = add nsw i32 %.0310.i.i67, -1
   %121 = shl i32 %.011.i.i66, 1
   %122 = sext i32 %119 to i64
-  %123 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %122
+  %123 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !61
   %125 = zext i8 %124 to i32
   %126 = shl i32 %119, %125
@@ -1201,7 +1201,7 @@ vp56_rac_gets_nn.exit77:                          ; preds = %vpx_rac_renorm.exit
   %151 = zext i1 %.not.i76 to i32
   %152 = or disjoint i32 %150, %151
   %153 = trunc i32 %152 to i8
-  %154 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %153, ptr %154, align 1, !tbaa !61
   br label %155
 
@@ -1211,8 +1211,8 @@ vp56_rac_gets_nn.exit77:                          ; preds = %vpx_rac_renorm.exit
 .preheader117:                                    ; preds = %.preheader118, %232
   %156 = phi i1 [ true, %.preheader118 ], [ false, %232 ]
   %indvars.iv134 = phi i64 [ 0, %.preheader118 ], [ 1, %232 ]
-  %157 = getelementptr inbounds nuw [2 x [7 x i8]], ptr @vp6_pdv_pct, i64 0, i64 %indvars.iv134
-  %158 = getelementptr inbounds nuw [2 x [7 x i8]], ptr %11, i64 0, i64 %indvars.iv134
+  %157 = getelementptr inbounds nuw [7 x i8], ptr @vp6_pdv_pct, i64 %indvars.iv134
+  %158 = getelementptr inbounds nuw [7 x i8], ptr %11, i64 %indvars.iv134
   br label %160
 
 .preheader116:                                    ; preds = %232
@@ -1221,12 +1221,12 @@ vp56_rac_gets_nn.exit77:                          ; preds = %vpx_rac_renorm.exit
 
 160:                                              ; preds = %.preheader117, %231
   %indvars.iv131 = phi i64 [ 0, %.preheader117 ], [ %indvars.iv.next132, %231 ]
-  %161 = getelementptr inbounds nuw [7 x i8], ptr %157, i64 0, i64 %indvars.iv131
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv131
   %162 = load i8, ptr %161, align 1, !tbaa !61
   %163 = zext i8 %162 to i32
   %164 = load i32, ptr %2, align 8, !tbaa !58
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %165
+  %166 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !61
   %168 = zext i8 %167 to i32
   %169 = load i32, ptr %5, align 4, !tbaa !59
@@ -1287,7 +1287,7 @@ vpx_rac_get_prob_branchy.exit47.thread:           ; preds = %vpx_rac_renorm.exit
   %196 = add nsw i32 %.0310.i.i82, -1
   %197 = shl i32 %.011.i.i81, 1
   %198 = sext i32 %195 to i64
-  %199 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %198
+  %199 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %198
   %200 = load i8, ptr %199, align 1, !tbaa !61
   %201 = zext i8 %200 to i32
   %202 = shl i32 %195, %201
@@ -1339,7 +1339,7 @@ vp56_rac_gets_nn.exit92:                          ; preds = %vpx_rac_renorm.exit
   %227 = zext i1 %.not.i91 to i32
   %228 = or disjoint i32 %226, %227
   %229 = trunc i32 %228 to i8
-  %230 = getelementptr inbounds nuw [7 x i8], ptr %158, i64 0, i64 %indvars.iv131
+  %230 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv131
   store i8 %229, ptr %230, align 1, !tbaa !61
   br label %231
 
@@ -1354,18 +1354,18 @@ vp56_rac_gets_nn.exit92:                          ; preds = %vpx_rac_renorm.exit
 .preheader:                                       ; preds = %.preheader116, %308
   %233 = phi i1 [ true, %.preheader116 ], [ false, %308 ]
   %indvars.iv141 = phi i64 [ 0, %.preheader116 ], [ 1, %308 ]
-  %234 = getelementptr inbounds nuw [2 x [8 x i8]], ptr @vp6_fdv_pct, i64 0, i64 %indvars.iv141
-  %235 = getelementptr inbounds nuw [2 x [8 x i8]], ptr %159, i64 0, i64 %indvars.iv141
+  %234 = getelementptr inbounds nuw [8 x i8], ptr @vp6_fdv_pct, i64 %indvars.iv141
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv141
   br label %236
 
 236:                                              ; preds = %.preheader, %307
   %indvars.iv137 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next138, %307 ]
-  %237 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 0, i64 %indvars.iv137
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 %indvars.iv137
   %238 = load i8, ptr %237, align 1, !tbaa !61
   %239 = zext i8 %238 to i32
   %240 = load i32, ptr %2, align 8, !tbaa !58
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %241
+  %242 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !61
   %244 = zext i8 %243 to i32
   %245 = load i32, ptr %5, align 4, !tbaa !59
@@ -1426,7 +1426,7 @@ vpx_rac_get_prob_branchy.exit51.thread:           ; preds = %vpx_rac_renorm.exit
   %272 = add nsw i32 %.0310.i.i97, -1
   %273 = shl i32 %.011.i.i96, 1
   %274 = sext i32 %271 to i64
-  %275 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %274
+  %275 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %274
   %276 = load i8, ptr %275, align 1, !tbaa !61
   %277 = zext i8 %276 to i32
   %278 = shl i32 %271, %277
@@ -1478,7 +1478,7 @@ vp56_rac_gets_nn.exit107:                         ; preds = %vpx_rac_renorm.exit
   %303 = zext i1 %.not.i106 to i32
   %304 = or disjoint i32 %302, %303
   %305 = trunc i32 %304 to i8
-  %306 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 0, i64 %indvars.iv137
+  %306 = getelementptr inbounds nuw i8, ptr %235, i64 %indvars.iv137
   store i8 %305, ptr %306, align 1, !tbaa !61
   br label %307
 
@@ -1516,18 +1516,18 @@ define internal range(i32 -2147483648, 1) i32 @vp6_parse_coeff_models(ptr nounde
 .preheader247:                                    ; preds = %1, %99
   %15 = phi i1 [ true, %1 ], [ false, %99 ]
   %indvars.iv277 = phi i64 [ 0, %1 ], [ 1, %99 ]
-  %16 = getelementptr inbounds nuw [2 x [11 x i8]], ptr @vp6_dccv_pct, i64 0, i64 %indvars.iv277
-  %17 = getelementptr inbounds nuw [2 x [11 x i8]], ptr %13, i64 0, i64 %indvars.iv277
+  %16 = getelementptr inbounds nuw [11 x i8], ptr @vp6_dccv_pct, i64 %indvars.iv277
+  %17 = getelementptr inbounds nuw [11 x i8], ptr %13, i64 %indvars.iv277
   br label %18
 
 18:                                               ; preds = %.preheader247, %98
   %indvars.iv = phi i64 [ 0, %.preheader247 ], [ %indvars.iv.next, %98 ]
-  %19 = getelementptr inbounds nuw [11 x i8], ptr %16, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !61
   %21 = zext i8 %20 to i32
   %22 = load i32, ptr %6, align 8, !tbaa !58
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !61
   %26 = zext i8 %25 to i32
   %27 = load i32, ptr %9, align 4, !tbaa !59
@@ -1583,7 +1583,7 @@ vpx_rac_renorm.exit166:                           ; preds = %18, %33, %37
   %54 = add nsw i32 %.0310.i.i, -1
   %55 = shl i32 %.011.i.i, 1
   %56 = sext i32 %53 to i64
-  %57 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %56
+  %57 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !61
   %59 = zext i8 %58 to i32
   %60 = shl i32 %53, %59
@@ -1634,7 +1634,7 @@ vp56_rac_gets_nn.exit:                            ; preds = %vpx_rac_renorm.exit
   %.not.i169 = icmp eq i32 %84, 0
   %85 = zext i1 %.not.i169 to i32
   %86 = or disjoint i32 %84, %85
-  %87 = getelementptr inbounds nuw [11 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %86, ptr %87, align 4, !tbaa !97
   br label %.sink.split
 
@@ -1649,14 +1649,14 @@ vp56_rac_gets_nn.exit:                            ; preds = %vpx_rac_renorm.exit
   br i1 %.not144, label %98, label %93
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds nuw [11 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4, !tbaa !97
   br label %.sink.split
 
 .sink.split:                                      ; preds = %93, %vp56_rac_gets_nn.exit
   %.sink374 = phi i32 [ %86, %vp56_rac_gets_nn.exit ], [ %95, %93 ]
   %96 = trunc i32 %.sink374 to i8
-  %97 = getelementptr inbounds nuw [11 x i8], ptr %17, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
   store i8 %96, ptr %97, align 1, !tbaa !61
   br label %98
 
@@ -1671,7 +1671,7 @@ vp56_rac_gets_nn.exit:                            ; preds = %vpx_rac_renorm.exit
 100:                                              ; preds = %99
   %101 = load i32, ptr %6, align 8, !tbaa !58
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %102
+  %103 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !61
   %105 = zext i8 %104 to i32
   %106 = load i32, ptr %9, align 4, !tbaa !59
@@ -1724,12 +1724,12 @@ vpx_rac_get.exit:                                 ; preds = %vpx_rac_renorm.exit
 
 129:                                              ; preds = %vpx_rac_get.exit, %196
   %indvars.iv280 = phi i64 [ 1, %vpx_rac_get.exit ], [ %indvars.iv.next281, %196 ]
-  %130 = getelementptr inbounds nuw [64 x i8], ptr @vp6_coeff_reorder_pct, i64 0, i64 %indvars.iv280
+  %130 = getelementptr inbounds nuw i8, ptr @vp6_coeff_reorder_pct, i64 %indvars.iv280
   %131 = load i8, ptr %130, align 1, !tbaa !61
   %132 = zext i8 %131 to i32
   %133 = load i32, ptr %6, align 8, !tbaa !58
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %134
+  %135 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !61
   %137 = zext i8 %136 to i32
   %138 = load i32, ptr %9, align 4, !tbaa !59
@@ -1790,7 +1790,7 @@ vpx_rac_get_prob_branchy.exit148.thread:          ; preds = %vpx_rac_renorm.exit
   %165 = add nsw i32 %.0310.i, -1
   %166 = shl i8 %.011.i, 1
   %167 = sext i32 %164 to i64
-  %168 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %167
+  %168 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !61
   %170 = zext i8 %169 to i32
   %171 = shl i32 %164, %170
@@ -1837,7 +1837,7 @@ vpx_rac_renorm.exit.i.i:                          ; preds = %179, %175, %163
   br i1 %.not.i172, label %vp56_rac_gets.exit, label %163, !llvm.loop !91
 
 vp56_rac_gets.exit:                               ; preds = %vpx_rac_renorm.exit.i.i
-  %195 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 0, i64 %indvars.iv280
+  %195 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv280
   store i8 %194, ptr %195, align 1, !tbaa !61
   br label %196
 
@@ -1865,7 +1865,7 @@ vp56_rac_gets.exit:                               ; preds = %vpx_rac_renorm.exit
   %indvars.iv.i = phi i64 [ 1, %.preheader34.i ], [ %indvars.iv.next.i, %213 ]
   %.12836.i = phi i32 [ %.02737.i, %.preheader34.i ], [ %.229.i, %213 ]
   %202 = load ptr, ptr %7, align 8, !tbaa !55
-  %203 = getelementptr inbounds nuw [64 x i8], ptr %202, i64 0, i64 %indvars.iv.i
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 %indvars.iv.i
   %204 = load i8, ptr %203, align 1, !tbaa !61
   %205 = zext i8 %204 to i32
   %206 = icmp eq i32 %.038.i, %205
@@ -1876,7 +1876,7 @@ vp56_rac_gets.exit:                               ; preds = %vpx_rac_renorm.exit
   %209 = getelementptr inbounds nuw i8, ptr %202, i64 64
   %210 = add nsw i32 %.12836.i, 1
   %211 = sext i32 %.12836.i to i64
-  %212 = getelementptr inbounds [64 x i8], ptr %209, i64 0, i64 %211
+  %212 = getelementptr inbounds i8, ptr %209, i64 %211
   store i8 %208, ptr %212, align 1, !tbaa !61
   br label %213
 
@@ -1901,7 +1901,7 @@ vp56_rac_gets.exit:                               ; preds = %vpx_rac_renorm.exit
 218:                                              ; preds = %218, %.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next45.i, %218 ]
   %.02539.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %218 ]
-  %219 = getelementptr inbounds nuw [64 x i8], ptr %217, i64 0, i64 %indvars.iv44.i
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 %indvars.iv44.i
   %220 = load i8, ptr %219, align 1, !tbaa !61
   %221 = zext i8 %220 to i32
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.02539.i, i32 %221)
@@ -1916,7 +1916,7 @@ vp56_rac_gets.exit:                               ; preds = %vpx_rac_renorm.exit
   %spec.select32.i = add nuw nsw i32 %spec.select.i, %225
   %226 = trunc i32 %spec.select32.i to i8
   %227 = getelementptr inbounds nuw i8, ptr %216, i64 128
-  %228 = getelementptr inbounds nuw [64 x i8], ptr %227, i64 0, i64 %indvars.iv52.i
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 %indvars.iv52.i
   store i8 %226, ptr %228, align 1, !tbaa !61
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
@@ -1930,8 +1930,8 @@ vp6_coeff_order_table_init.exit:                  ; preds = %222, %vpx_rac_get.e
 .preheader246:                                    ; preds = %vp6_coeff_order_table_init.exit, %306
   %230 = phi i1 [ true, %vp6_coeff_order_table_init.exit ], [ false, %306 ]
   %indvars.iv288 = phi i64 [ 0, %vp6_coeff_order_table_init.exit ], [ 1, %306 ]
-  %231 = getelementptr inbounds nuw [2 x [14 x i8]], ptr @vp6_runv_pct, i64 0, i64 %indvars.iv288
-  %232 = getelementptr inbounds nuw [2 x [14 x i8]], ptr %229, i64 0, i64 %indvars.iv288
+  %231 = getelementptr inbounds nuw [14 x i8], ptr @vp6_runv_pct, i64 %indvars.iv288
+  %232 = getelementptr inbounds nuw [14 x i8], ptr %229, i64 %indvars.iv288
   br label %234
 
 .preheader245:                                    ; preds = %306
@@ -1940,12 +1940,12 @@ vp6_coeff_order_table_init.exit:                  ; preds = %222, %vpx_rac_get.e
 
 234:                                              ; preds = %.preheader246, %305
   %indvars.iv284 = phi i64 [ 0, %.preheader246 ], [ %indvars.iv.next285, %305 ]
-  %235 = getelementptr inbounds nuw [14 x i8], ptr %231, i64 0, i64 %indvars.iv284
+  %235 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv284
   %236 = load i8, ptr %235, align 1, !tbaa !61
   %237 = zext i8 %236 to i32
   %238 = load i32, ptr %6, align 8, !tbaa !58
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %239
+  %240 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !61
   %242 = zext i8 %241 to i32
   %243 = load i32, ptr %9, align 4, !tbaa !59
@@ -2006,7 +2006,7 @@ vpx_rac_get_prob_branchy.exit152.thread:          ; preds = %vpx_rac_renorm.exit
   %270 = add nsw i32 %.0310.i.i177, -1
   %271 = shl i32 %.011.i.i176, 1
   %272 = sext i32 %269 to i64
-  %273 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %272
+  %273 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %272
   %274 = load i8, ptr %273, align 1, !tbaa !61
   %275 = zext i8 %274 to i32
   %276 = shl i32 %269, %275
@@ -2058,7 +2058,7 @@ vp56_rac_gets_nn.exit187:                         ; preds = %vpx_rac_renorm.exit
   %301 = zext i1 %.not.i186 to i32
   %302 = or disjoint i32 %300, %301
   %303 = trunc i32 %302 to i8
-  %304 = getelementptr inbounds nuw [14 x i8], ptr %232, i64 0, i64 %indvars.iv284
+  %304 = getelementptr inbounds nuw i8, ptr %232, i64 %indvars.iv284
   store i8 %303, ptr %304, align 1, !tbaa !61
   br label %305
 
@@ -2072,31 +2072,31 @@ vp56_rac_gets_nn.exit187:                         ; preds = %vpx_rac_renorm.exit
 
 .preheader244:                                    ; preds = %.preheader245, %395
   %indvars.iv302 = phi i64 [ 0, %.preheader245 ], [ %indvars.iv.next303, %395 ]
-  %307 = getelementptr inbounds nuw [3 x [2 x [6 x [11 x i8]]]], ptr @vp6_ract_pct, i64 0, i64 %indvars.iv302
-  %invariant.gep = getelementptr inbounds nuw [3 x [6 x [11 x i8]]], ptr %233, i64 0, i64 %indvars.iv302
+  %307 = getelementptr inbounds nuw [2 x [6 x [11 x i8]]], ptr @vp6_ract_pct, i64 %indvars.iv302
+  %invariant.gep = getelementptr inbounds nuw [6 x [11 x i8]], ptr %233, i64 %indvars.iv302
   br label %.preheader243
 
 .preheader243:                                    ; preds = %.preheader244, %394
   %308 = phi i1 [ true, %.preheader244 ], [ false, %394 ]
   %indvars.iv299 = phi i64 [ 0, %.preheader244 ], [ 1, %394 ]
-  %309 = getelementptr inbounds nuw [2 x [6 x [11 x i8]]], ptr %307, i64 0, i64 %indvars.iv299
-  %gep = getelementptr inbounds nuw [2 x [3 x [6 x [11 x i8]]]], ptr %invariant.gep, i64 0, i64 %indvars.iv299
+  %309 = getelementptr inbounds nuw [6 x [11 x i8]], ptr %307, i64 %indvars.iv299
+  %gep = getelementptr inbounds nuw [3 x [6 x [11 x i8]]], ptr %invariant.gep, i64 %indvars.iv299
   br label %.preheader242
 
 .preheader242:                                    ; preds = %.preheader243, %393
   %indvars.iv295 = phi i64 [ 0, %.preheader243 ], [ %indvars.iv.next296, %393 ]
-  %310 = getelementptr inbounds nuw [6 x [11 x i8]], ptr %309, i64 0, i64 %indvars.iv295
-  %311 = getelementptr inbounds nuw [6 x [11 x i8]], ptr %gep, i64 0, i64 %indvars.iv295
+  %310 = getelementptr inbounds nuw [11 x i8], ptr %309, i64 %indvars.iv295
+  %311 = getelementptr inbounds nuw [11 x i8], ptr %gep, i64 %indvars.iv295
   br label %312
 
 312:                                              ; preds = %.preheader242, %392
   %indvars.iv291 = phi i64 [ 0, %.preheader242 ], [ %indvars.iv.next292, %392 ]
-  %313 = getelementptr inbounds nuw [11 x i8], ptr %310, i64 0, i64 %indvars.iv291
+  %313 = getelementptr inbounds nuw i8, ptr %310, i64 %indvars.iv291
   %314 = load i8, ptr %313, align 1, !tbaa !61
   %315 = zext i8 %314 to i32
   %316 = load i32, ptr %6, align 8, !tbaa !58
   %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %317
+  %318 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %317
   %319 = load i8, ptr %318, align 1, !tbaa !61
   %320 = zext i8 %319 to i32
   %321 = load i32, ptr %9, align 4, !tbaa !59
@@ -2152,7 +2152,7 @@ vpx_rac_renorm.exit:                              ; preds = %312, %327, %331
   %348 = add nsw i32 %.0310.i.i192, -1
   %349 = shl i32 %.011.i.i191, 1
   %350 = sext i32 %347 to i64
-  %351 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %350
+  %351 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %350
   %352 = load i8, ptr %351, align 1, !tbaa !61
   %353 = zext i8 %352 to i32
   %354 = shl i32 %347, %353
@@ -2203,7 +2203,7 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
   %.not.i201 = icmp eq i32 %378, 0
   %379 = zext i1 %.not.i201 to i32
   %380 = or disjoint i32 %378, %379
-  %381 = getelementptr inbounds nuw [11 x i32], ptr %5, i64 0, i64 %indvars.iv291
+  %381 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv291
   store i32 %380, ptr %381, align 4, !tbaa !97
   br label %.sink.split375
 
@@ -2218,14 +2218,14 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
   br i1 %.not140, label %392, label %387
 
 387:                                              ; preds = %382
-  %388 = getelementptr inbounds nuw [11 x i32], ptr %5, i64 0, i64 %indvars.iv291
+  %388 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv291
   %389 = load i32, ptr %388, align 4, !tbaa !97
   br label %.sink.split375
 
 .sink.split375:                                   ; preds = %387, %vp56_rac_gets_nn.exit202
   %.sink377 = phi i32 [ %380, %vp56_rac_gets_nn.exit202 ], [ %389, %387 ]
   %390 = trunc i32 %.sink377 to i8
-  %391 = getelementptr inbounds nuw [11 x i8], ptr %311, i64 0, i64 %indvars.iv291
+  %391 = getelementptr inbounds nuw i8, ptr %311, i64 %indvars.iv291
   store i8 %390, ptr %391, align 1, !tbaa !61
   br label %392
 
@@ -2269,7 +2269,7 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
 406:                                              ; preds = %.preheader240, %500
   %407 = phi i1 [ true, %.preheader240 ], [ false, %500 ]
   %indvars.iv314 = phi i64 [ 0, %.preheader240 ], [ 1, %500 ]
-  %408 = getelementptr inbounds nuw [2 x [11 x i8]], ptr %13, i64 0, i64 %indvars.iv314
+  %408 = getelementptr inbounds nuw [11 x i8], ptr %13, i64 %indvars.iv314
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 256, ptr %400, align 4, !tbaa !115
   br label %.lr.ph.i
@@ -2294,7 +2294,7 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
   %422 = getelementptr inbounds nuw i8, ptr @vp6_huff_coeff_map, i64 %421
   %423 = load i8, ptr %422, align 2, !tbaa !61
   %424 = zext i8 %423 to i64
-  %425 = getelementptr inbounds nuw [24 x %struct.Node], ptr %4, i64 0, i64 %424, i32 2
+  %425 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %424, i32 2
   store i32 %420, ptr %425, align 4, !tbaa !115
   %.not25.i = icmp ult i32 %417, 256
   %426 = zext i1 %.not25.i to i32
@@ -2302,14 +2302,14 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
   %428 = getelementptr inbounds nuw i8, ptr %422, i64 1
   %429 = load i8, ptr %428, align 1, !tbaa !61
   %430 = zext i8 %429 to i64
-  %431 = getelementptr inbounds nuw [24 x %struct.Node], ptr %4, i64 0, i64 %430, i32 2
+  %431 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %430, i32 2
   store i32 %427, ptr %431, align 4, !tbaa !115
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i203, 1
   %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, 11
   br i1 %exitcond.not.i206, label %vp6_build_huff_tree.exit, label %.lr.ph.i, !llvm.loop !117
 
 vp6_build_huff_tree.exit:                         ; preds = %.lr.ph.i
-  %432 = getelementptr inbounds nuw [2 x %struct.VLC], ptr %399, i64 0, i64 %indvars.iv314
+  %432 = getelementptr inbounds nuw %struct.VLC, ptr %399, i64 %indvars.iv314
   call void @ff_vlc_free(ptr noundef nonnull %432) #11
   %433 = load ptr, ptr %0, align 16, !tbaa !118
   %434 = call i32 @ff_huff_build_tree(ptr noundef %433, ptr noundef nonnull %432, i32 noundef 12, i32 noundef 10, ptr noundef nonnull %4, ptr noundef nonnull @vp6_huff_cmp, i32 noundef 1) #11
@@ -2318,7 +2318,7 @@ vp6_build_huff_tree.exit:                         ; preds = %.lr.ph.i
   br i1 %435, label %.loopexit, label %436
 
 436:                                              ; preds = %vp6_build_huff_tree.exit
-  %437 = getelementptr inbounds nuw [2 x [14 x i8]], ptr %229, i64 0, i64 %indvars.iv314
+  %437 = getelementptr inbounds nuw [14 x i8], ptr %229, i64 %indvars.iv314
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 256, ptr %402, align 4, !tbaa !115
   br label %.lr.ph.i207
@@ -2343,7 +2343,7 @@ vp6_build_huff_tree.exit:                         ; preds = %.lr.ph.i
   %451 = getelementptr inbounds nuw i8, ptr @vp6_huff_run_map, i64 %450
   %452 = load i8, ptr %451, align 2, !tbaa !61
   %453 = zext i8 %452 to i64
-  %454 = getelementptr inbounds nuw [24 x %struct.Node], ptr %3, i64 0, i64 %453, i32 2
+  %454 = getelementptr inbounds nuw %struct.Node, ptr %3, i64 %453, i32 2
   store i32 %449, ptr %454, align 4, !tbaa !115
   %.not25.i210 = icmp ult i32 %446, 256
   %455 = zext i1 %.not25.i210 to i32
@@ -2351,14 +2351,14 @@ vp6_build_huff_tree.exit:                         ; preds = %.lr.ph.i
   %457 = getelementptr inbounds nuw i8, ptr %451, i64 1
   %458 = load i8, ptr %457, align 1, !tbaa !61
   %459 = zext i8 %458 to i64
-  %460 = getelementptr inbounds nuw [24 x %struct.Node], ptr %3, i64 0, i64 %459, i32 2
+  %460 = getelementptr inbounds nuw %struct.Node, ptr %3, i64 %459, i32 2
   store i32 %456, ptr %460, align 4, !tbaa !115
   %indvars.iv.next.i211 = add nuw nsw i64 %indvars.iv.i208, 1
   %exitcond.not.i212 = icmp eq i64 %indvars.iv.next.i211, 8
   br i1 %exitcond.not.i212, label %vp6_build_huff_tree.exit213, label %.lr.ph.i207, !llvm.loop !117
 
 vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
-  %461 = getelementptr inbounds nuw [2 x %struct.VLC], ptr %401, i64 0, i64 %indvars.iv314
+  %461 = getelementptr inbounds nuw %struct.VLC, ptr %401, i64 %indvars.iv314
   call void @ff_vlc_free(ptr noundef nonnull %461) #11
   %462 = load ptr, ptr %0, align 16, !tbaa !118
   %463 = call i32 @ff_huff_build_tree(ptr noundef %462, ptr noundef nonnull %461, i32 noundef 9, i32 noundef 8, ptr noundef nonnull %3, ptr noundef nonnull @vp6_huff_cmp, i32 noundef 1) #11
@@ -2367,14 +2367,14 @@ vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
   br i1 %464, label %.loopexit, label %.preheader239
 
 .preheader239:                                    ; preds = %vp6_build_huff_tree.exit213
-  %465 = getelementptr inbounds nuw [2 x [3 x [6 x [11 x i8]]]], ptr %233, i64 0, i64 %indvars.iv314
-  %466 = getelementptr inbounds nuw [2 x [3 x [4 x %struct.VLC]]], ptr %403, i64 0, i64 %indvars.iv314
+  %465 = getelementptr inbounds nuw [3 x [6 x [11 x i8]]], ptr %233, i64 %indvars.iv314
+  %466 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %403, i64 %indvars.iv314
   br label %.preheader237
 
 .preheader237:                                    ; preds = %.preheader239, %499
   %indvars.iv310 = phi i64 [ 0, %.preheader239 ], [ %indvars.iv.next311, %499 ]
-  %467 = getelementptr inbounds nuw [3 x [6 x [11 x i8]]], ptr %465, i64 0, i64 %indvars.iv310
-  %468 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %466, i64 0, i64 %indvars.iv310
+  %467 = getelementptr inbounds nuw [6 x [11 x i8]], ptr %465, i64 %indvars.iv310
+  %468 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %466, i64 %indvars.iv310
   br label %470
 
 469:                                              ; preds = %vp6_build_huff_tree.exit220
@@ -2384,7 +2384,7 @@ vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
 
 470:                                              ; preds = %.preheader237, %469
   %indvars.iv306 = phi i64 [ 0, %.preheader237 ], [ %indvars.iv.next307, %469 ]
-  %471 = getelementptr inbounds nuw [6 x [11 x i8]], ptr %467, i64 0, i64 %indvars.iv306
+  %471 = getelementptr inbounds nuw [11 x i8], ptr %467, i64 %indvars.iv306
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 256, ptr %404, align 4, !tbaa !115
   br label %.lr.ph.i214
@@ -2409,7 +2409,7 @@ vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
   %485 = getelementptr inbounds nuw i8, ptr @vp6_huff_coeff_map, i64 %484
   %486 = load i8, ptr %485, align 2, !tbaa !61
   %487 = zext i8 %486 to i64
-  %488 = getelementptr inbounds nuw [24 x %struct.Node], ptr %2, i64 0, i64 %487, i32 2
+  %488 = getelementptr inbounds nuw %struct.Node, ptr %2, i64 %487, i32 2
   store i32 %483, ptr %488, align 4, !tbaa !115
   %.not25.i217 = icmp ult i32 %480, 256
   %489 = zext i1 %.not25.i217 to i32
@@ -2417,14 +2417,14 @@ vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
   %491 = getelementptr inbounds nuw i8, ptr %485, i64 1
   %492 = load i8, ptr %491, align 1, !tbaa !61
   %493 = zext i8 %492 to i64
-  %494 = getelementptr inbounds nuw [24 x %struct.Node], ptr %2, i64 0, i64 %493, i32 2
+  %494 = getelementptr inbounds nuw %struct.Node, ptr %2, i64 %493, i32 2
   store i32 %490, ptr %494, align 4, !tbaa !115
   %indvars.iv.next.i218 = add nuw nsw i64 %indvars.iv.i215, 1
   %exitcond.not.i219 = icmp eq i64 %indvars.iv.next.i218, 11
   br i1 %exitcond.not.i219, label %vp6_build_huff_tree.exit220, label %.lr.ph.i214, !llvm.loop !117
 
 vp6_build_huff_tree.exit220:                      ; preds = %.lr.ph.i214
-  %495 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %468, i64 0, i64 %indvars.iv306
+  %495 = getelementptr inbounds nuw %struct.VLC, ptr %468, i64 %indvars.iv306
   call void @ff_vlc_free(ptr noundef nonnull %495) #11
   %496 = load ptr, ptr %0, align 16, !tbaa !118
   %497 = call i32 @ff_huff_build_tree(ptr noundef %496, ptr noundef nonnull %495, i32 noundef 12, i32 noundef 10, ptr noundef nonnull %2, ptr noundef nonnull @vp6_huff_cmp, i32 noundef 1) #11
@@ -2448,22 +2448,22 @@ vp6_build_huff_tree.exit220:                      ; preds = %.lr.ph.i214
 .preheader235:                                    ; preds = %.preheader236, %525
   %503 = phi i1 [ true, %.preheader236 ], [ false, %525 ]
   %indvars.iv325 = phi i64 [ 0, %.preheader236 ], [ 1, %525 ]
-  %504 = getelementptr inbounds nuw [2 x [11 x i8]], ptr %13, i64 0, i64 %indvars.iv325
-  %505 = getelementptr inbounds nuw [2 x [36 x [5 x i8]]], ptr %405, i64 0, i64 %indvars.iv325
+  %504 = getelementptr inbounds nuw [11 x i8], ptr %13, i64 %indvars.iv325
+  %505 = getelementptr inbounds nuw [36 x [5 x i8]], ptr %405, i64 %indvars.iv325
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader235, %524
   %indvars.iv321 = phi i64 [ 0, %.preheader235 ], [ %indvars.iv.next322, %524 ]
-  %506 = getelementptr inbounds nuw [3 x [5 x [2 x i32]]], ptr @vp6_dccv_lc, i64 0, i64 %indvars.iv321
-  %507 = getelementptr inbounds nuw [36 x [5 x i8]], ptr %505, i64 0, i64 %indvars.iv321
+  %506 = getelementptr inbounds nuw [5 x [2 x i32]], ptr @vp6_dccv_lc, i64 %indvars.iv321
+  %507 = getelementptr inbounds nuw [5 x i8], ptr %505, i64 %indvars.iv321
   br label %508
 
 508:                                              ; preds = %.preheader, %508
   %indvars.iv317 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next318, %508 ]
-  %509 = getelementptr inbounds nuw [11 x i8], ptr %504, i64 0, i64 %indvars.iv317
+  %509 = getelementptr inbounds nuw i8, ptr %504, i64 %indvars.iv317
   %510 = load i8, ptr %509, align 1, !tbaa !61
   %511 = zext i8 %510 to i32
-  %512 = getelementptr inbounds nuw [5 x [2 x i32]], ptr %506, i64 0, i64 %indvars.iv317
+  %512 = getelementptr inbounds nuw [2 x i32], ptr %506, i64 %indvars.iv317
   %513 = load i32, ptr %512, align 8, !tbaa !97
   %514 = mul nsw i32 %513, %511
   %515 = add nsw i32 %514, 128
@@ -2474,7 +2474,7 @@ vp6_build_huff_tree.exit220:                      ; preds = %.lr.ph.i214
   %520 = tail call i32 @llvm.smax.i32(i32 %519, i32 1)
   %521 = tail call i32 @llvm.umin.i32(i32 %520, i32 255)
   %522 = trunc nuw i32 %521 to i8
-  %523 = getelementptr inbounds nuw [5 x i8], ptr %507, i64 0, i64 %indvars.iv317
+  %523 = getelementptr inbounds nuw i8, ptr %507, i64 %indvars.iv317
   store i8 %522, ptr %523, align 1, !tbaa !61
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %exitcond320.not = icmp eq i64 %indvars.iv.next318, 5
@@ -2691,7 +2691,7 @@ define internal range(i32 -2147483648, 2) i32 @vp6_parse_header(ptr noundef %0, 
   %.018.i.i59.i = phi i32 [ %.promoted4.i, %116 ], [ %.018.i.i.i, %vpx_rac_renorm.exit.i.i ]
   %.0.i78.i = phi i32 [ %.promoted6.i, %116 ], [ %.0.i.i203, %vpx_rac_renorm.exit.i.i ]
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %123
+  %124 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !61
   %126 = zext i8 %125 to i32
   %127 = shl i32 %122, %126
@@ -2797,7 +2797,7 @@ vp56_rac_gets.exit:                               ; preds = %vpx_rac_renorm.exit
 180:                                              ; preds = %175
   %181 = load i32, ptr %4, align 8, !tbaa !58
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %182
+  %183 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !61
   %185 = zext i8 %184 to i32
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 708
@@ -2853,7 +2853,7 @@ vpx_rac_renorm.exit.i:                            ; preds = %200, %194, %180
 
 219:                                              ; preds = %vpx_rac_renorm.exit.i
   %220 = sext i32 %213 to i64
-  %221 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %220
+  %221 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %220
   %222 = load i8, ptr %221, align 1, !tbaa !61
   %223 = zext i8 %222 to i32
   %224 = shl i32 %213, %223
@@ -2905,7 +2905,7 @@ vpx_rac_get.exit177.thread:                       ; preds = %vpx_rac_renorm.exit
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   store i32 1, ptr %249, align 8, !tbaa !47
   %250 = sext i32 %247 to i64
-  %251 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %250
+  %251 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %250
   %252 = load i8, ptr %251, align 1, !tbaa !61
   %253 = zext i8 %252 to i32
   %254 = shl i32 %247, %253
@@ -2959,7 +2959,7 @@ vpx_rac_renorm.exit.i178:                         ; preds = %264, %258, %246
 
 283:                                              ; preds = %277
   %284 = sext i32 %280 to i64
-  %285 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %284
+  %285 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %284
   %286 = load i8, ptr %285, align 1, !tbaa !61
   %287 = zext i8 %286 to i32
   %288 = shl i32 %280, %287
@@ -3019,7 +3019,7 @@ vpx_rac_renorm.exit.i183:                         ; preds = %298, %292, %283
   %315 = phi i32 [ %.0.i.i203, %vp56_rac_gets.exit ], [ %311, %309 ]
   %316 = phi i32 [ %25, %vp56_rac_gets.exit ], [ %281, %309 ]
   %317 = sext i32 %313 to i64
-  %318 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %317
+  %318 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %317
   %319 = load i8, ptr %318, align 1, !tbaa !61
   %320 = zext i8 %319 to i32
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 708
@@ -3079,7 +3079,7 @@ vpx_rac_renorm.exit.i188:                         ; preds = %333, %327, %312
   %352 = add nsw i32 %.0310.i208, -1
   %353 = shl i32 %.011.i207, 1
   %354 = sext i32 %351 to i64
-  %355 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %354
+  %355 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %354
   %356 = load i8, ptr %355, align 1, !tbaa !61
   %357 = zext i8 %356 to i32
   %358 = shl i32 %351, %357
@@ -3140,7 +3140,7 @@ vp56_rac_gets.exit217:                            ; preds = %vpx_rac_renorm.exit
   %386 = add nsw i32 %.0310.i222, -1
   %387 = shl i32 %.011.i221, 1
   %388 = sext i32 %385 to i64
-  %389 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %388
+  %389 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %388
   %390 = load i8, ptr %389, align 1, !tbaa !61
   %391 = zext i8 %390 to i32
   %392 = shl i32 %385, %391
@@ -3195,7 +3195,7 @@ vp56_rac_gets.exit231:                            ; preds = %vpx_rac_renorm.exit
 418:                                              ; preds = %vpx_rac_renorm.exit.i188
   store i32 %.0.i.i190, ptr %322, align 8, !tbaa !60
   %419 = sext i32 %342 to i64
-  %420 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %419
+  %420 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %419
   %421 = load i8, ptr %420, align 1, !tbaa !61
   %422 = zext i8 %421 to i32
   %423 = shl i32 %342, %422
@@ -3269,7 +3269,7 @@ vpx_rac_renorm.exit.i193:                         ; preds = %433, %427, %418
   %457 = add nsw i32 %.0310.i236, -1
   %458 = shl i32 %.011.i235, 1
   %459 = sext i32 %456 to i64
-  %460 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %459
+  %460 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %459
   %461 = load i8, ptr %460, align 1, !tbaa !61
   %462 = zext i8 %461 to i32
   %463 = shl i32 %456, %462
@@ -3334,7 +3334,7 @@ vp56_rac_gets.exit245:                            ; preds = %vpx_rac_renorm.exit
   %.1135258 = phi i32 [ %.1135340, %vp56_rac_gets.exit245 ], [ %.1135340, %488 ], [ %.2136, %277 ], [ %.2136, %vpx_rac_renorm.exit.i ], [ %.0134, %vp56_rac_gets.exit ], [ %.2136, %.thread343 ]
   %.1141257 = phi i32 [ %.1141338, %vp56_rac_gets.exit245 ], [ %.1141338, %488 ], [ %.2142, %277 ], [ %.2142, %vpx_rac_renorm.exit.i ], [ %.0140, %vp56_rac_gets.exit ], [ %.2142, %.thread343 ]
   %493 = sext i32 %492 to i64
-  %494 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %493
+  %494 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %493
   %495 = load i8, ptr %494, align 1, !tbaa !61
   %496 = zext i8 %495 to i32
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 708
@@ -3544,65 +3544,65 @@ vpx_rac_is_end.exit:                              ; preds = %1, %11, %15
   br label %.loopexit191
 
 38:                                               ; preds = %.preheader190, %.loopexit189
-  %39 = phi ptr [ %10, %.preheader190 ], [ %702, %.loopexit189 ]
-  %40 = phi ptr [ %10, %.preheader190 ], [ %703, %.loopexit189 ]
-  %41 = phi ptr [ %10, %.preheader190 ], [ %704, %.loopexit189 ]
-  %42 = phi ptr [ %10, %.preheader190 ], [ %705, %.loopexit189 ]
-  %43 = phi ptr [ %10, %.preheader190 ], [ %706, %.loopexit189 ]
-  %44 = phi ptr [ %10, %.preheader190 ], [ %707, %.loopexit189 ]
-  %45 = phi ptr [ %10, %.preheader190 ], [ %708, %.loopexit189 ]
-  %46 = phi ptr [ %10, %.preheader190 ], [ %709, %.loopexit189 ]
-  %47 = phi ptr [ %10, %.preheader190 ], [ %710, %.loopexit189 ]
-  %48 = phi ptr [ %10, %.preheader190 ], [ %711, %.loopexit189 ]
-  %49 = phi ptr [ %10, %.preheader190 ], [ %712, %.loopexit189 ]
+  %39 = phi ptr [ %10, %.preheader190 ], [ %700, %.loopexit189 ]
+  %40 = phi ptr [ %10, %.preheader190 ], [ %701, %.loopexit189 ]
+  %41 = phi ptr [ %10, %.preheader190 ], [ %702, %.loopexit189 ]
+  %42 = phi ptr [ %10, %.preheader190 ], [ %703, %.loopexit189 ]
+  %43 = phi ptr [ %10, %.preheader190 ], [ %704, %.loopexit189 ]
+  %44 = phi ptr [ %10, %.preheader190 ], [ %705, %.loopexit189 ]
+  %45 = phi ptr [ %10, %.preheader190 ], [ %706, %.loopexit189 ]
+  %46 = phi ptr [ %10, %.preheader190 ], [ %707, %.loopexit189 ]
+  %47 = phi ptr [ %10, %.preheader190 ], [ %708, %.loopexit189 ]
+  %48 = phi ptr [ %10, %.preheader190 ], [ %709, %.loopexit189 ]
+  %49 = phi ptr [ %10, %.preheader190 ], [ %710, %.loopexit189 ]
   %indvars.iv230 = phi i64 [ 0, %.preheader190 ], [ %indvars.iv.next231, %.loopexit189 ]
   %.094219 = phi i32 [ 0, %.preheader190 ], [ %spec.select, %.loopexit189 ]
   %50 = icmp samesign ugt i64 %indvars.iv230, 3
   %spec.select = select i1 %50, i32 1, i32 %.094219
-  %51 = getelementptr inbounds nuw [0 x i8], ptr @ff_vp56_b6to4, i64 0, i64 %indvars.iv230
+  %51 = getelementptr inbounds nuw i8, ptr @ff_vp56_b6to4, i64 %indvars.iv230
   %52 = load i8, ptr %51, align 1, !tbaa !61
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [4 x %struct.VP56RefDc], ptr %22, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %struct.VP56RefDc, ptr %22, i64 %53
   %55 = load i8, ptr %54, align 4, !tbaa !146
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [6 x i32], ptr %24, i64 0, i64 %indvars.iv230
+  %57 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv230
   %58 = load i32, ptr %57, align 4, !tbaa !97
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds %struct.VP56RefDc, ptr %.pre, i64 %59
   %61 = load i8, ptr %60, align 4, !tbaa !146
   %62 = zext i8 %61 to i64
-  %63 = add nuw nsw i64 %62, %56
-  %64 = zext nneg i32 %spec.select to i64
-  %65 = getelementptr inbounds nuw [2 x [11 x i8]], ptr %25, i64 0, i64 %64
-  %66 = getelementptr inbounds nuw [2 x [36 x [5 x i8]]], ptr %26, i64 0, i64 %64
-  %67 = getelementptr inbounds nuw [36 x [5 x i8]], ptr %66, i64 0, i64 %63
-  %68 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %32, i64 0, i64 %indvars.iv230
-  %69 = getelementptr inbounds nuw [2 x [3 x [6 x [11 x i8]]]], ptr %33, i64 0, i64 %64
+  %63 = zext nneg i32 %spec.select to i64
+  %64 = getelementptr inbounds nuw [11 x i8], ptr %25, i64 %63
+  %65 = getelementptr inbounds nuw [36 x [5 x i8]], ptr %26, i64 %63
+  %66 = getelementptr inbounds nuw [5 x i8], ptr %65, i64 %56
+  %67 = getelementptr inbounds nuw [5 x i8], ptr %66, i64 %62
+  %68 = getelementptr inbounds nuw [64 x i16], ptr %32, i64 %indvars.iv230
+  %69 = getelementptr inbounds nuw [3 x [6 x [11 x i8]]], ptr %33, i64 %63
   %.pre236.pre = load i32, ptr %3, align 8, !tbaa !58
   %.pre237.pre = load i32, ptr %27, align 4, !tbaa !59
   %.pre238.pre = load i32, ptr %28, align 8, !tbaa !60
   br label %70
 
-70:                                               ; preds = %694, %38
-  %.pre238 = phi i32 [ %.pre238.pre, %38 ], [ %.pre238247, %694 ]
-  %.pre237 = phi i32 [ %.pre237.pre, %38 ], [ %.pre237245, %694 ]
-  %.pre236 = phi i32 [ %.pre236.pre, %38 ], [ %.pre236243, %694 ]
-  %71 = phi ptr [ %39, %38 ], [ %681, %694 ]
-  %72 = phi ptr [ %40, %38 ], [ %682, %694 ]
-  %73 = phi ptr [ %41, %38 ], [ %683, %694 ]
-  %74 = phi ptr [ %42, %38 ], [ %684, %694 ]
-  %75 = phi ptr [ %43, %38 ], [ %685, %694 ]
-  %76 = phi ptr [ %44, %38 ], [ %686, %694 ]
-  %77 = phi ptr [ %45, %38 ], [ %687, %694 ]
-  %78 = phi ptr [ %46, %38 ], [ %688, %694 ]
-  %79 = phi ptr [ %47, %38 ], [ %689, %694 ]
-  %80 = phi ptr [ %48, %38 ], [ %690, %694 ]
-  %81 = phi ptr [ %49, %38 ], [ %691, %694 ]
-  %.0103 = phi ptr [ %67, %38 ], [ %701, %694 ]
-  %.0101 = phi i32 [ 0, %38 ], [ %692, %694 ]
-  %.097 = phi ptr [ %65, %38 ], [ %701, %694 ]
-  %.091 = phi i32 [ 1, %38 ], [ %.293, %694 ]
-  %.0 = phi i32 [ 1, %38 ], [ %.1, %694 ]
+70:                                               ; preds = %692, %38
+  %.pre238 = phi i32 [ %.pre238.pre, %38 ], [ %.pre238247, %692 ]
+  %.pre237 = phi i32 [ %.pre237.pre, %38 ], [ %.pre237245, %692 ]
+  %.pre236 = phi i32 [ %.pre236.pre, %38 ], [ %.pre236243, %692 ]
+  %71 = phi ptr [ %39, %38 ], [ %679, %692 ]
+  %72 = phi ptr [ %40, %38 ], [ %680, %692 ]
+  %73 = phi ptr [ %41, %38 ], [ %681, %692 ]
+  %74 = phi ptr [ %42, %38 ], [ %682, %692 ]
+  %75 = phi ptr [ %43, %38 ], [ %683, %692 ]
+  %76 = phi ptr [ %44, %38 ], [ %684, %692 ]
+  %77 = phi ptr [ %45, %38 ], [ %685, %692 ]
+  %78 = phi ptr [ %46, %38 ], [ %686, %692 ]
+  %79 = phi ptr [ %47, %38 ], [ %687, %692 ]
+  %80 = phi ptr [ %48, %38 ], [ %688, %692 ]
+  %81 = phi ptr [ %49, %38 ], [ %689, %692 ]
+  %.0103 = phi ptr [ %67, %38 ], [ %699, %692 ]
+  %.0101 = phi i32 [ 0, %38 ], [ %690, %692 ]
+  %.097 = phi ptr [ %64, %38 ], [ %699, %692 ]
+  %.091 = phi i32 [ 1, %38 ], [ %.293, %692 ]
+  %.0 = phi i32 [ 1, %38 ], [ %.1, %692 ]
   %82 = icmp sgt i32 %.0101, 1
   %83 = icmp eq i32 %.091, 0
   %or.cond = and i1 %82, %83
@@ -3612,7 +3612,7 @@ vpx_rac_is_end.exit:                              ; preds = %1, %11, %15
   %85 = load i8, ptr %.0103, align 1, !tbaa !61
   %86 = zext i8 %85 to i32
   %87 = sext i32 %.pre236 to i64
-  %88 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %87
+  %88 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !61
   %90 = zext i8 %89 to i32
   %91 = shl i32 %.pre236, %90
@@ -3656,7 +3656,7 @@ vpx_rac_renorm.exit158:                           ; preds = %84, %96
   %119 = add nsw i32 %118, 1
   %120 = shl i32 %119, 16
   %.not.i129 = icmp ult i32 %115, %120
-  br i1 %.not.i129, label %510, label %vpx_rac_get_prob_branchy.exit132
+  br i1 %.not.i129, label %508, label %vpx_rac_get_prob_branchy.exit132
 
 vpx_rac_get_prob_branchy.exit132:                 ; preds = %vpx_rac_renorm.exit158
   %121 = sub i32 %91, %119
@@ -3684,7 +3684,7 @@ vpx_rac_get_prob_branchy.exit132:                 ; preds = %vpx_rac_renorm.exit
   %138 = load i8, ptr %137, align 1, !tbaa !61
   %139 = zext i8 %138 to i32
   %140 = sext i32 %132 to i64
-  %141 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %140
+  %141 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !61
   %143 = zext i8 %142 to i32
   %144 = shl i32 %132, %143
@@ -3745,7 +3745,7 @@ vpx_rac_get_prob_branchy.exit128.thread:          ; preds = %vpx_rac_renorm.exit
   %177 = load i8, ptr %176, align 1, !tbaa !61
   %178 = zext i8 %177 to i32
   %179 = sext i32 %175 to i64
-  %180 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %179
+  %180 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !61
   %182 = zext i8 %181 to i32
   %183 = shl i32 %175, %182
@@ -3791,7 +3791,7 @@ vpx_rac_renorm.exit164:                           ; preds = %174, %187, %189
   %211 = add nsw i32 %210, 1
   %212 = shl i32 %211, 16
   %.not.i121 = icmp ult i32 %.0.i163, %212
-  br i1 %.not.i121, label %362, label %213
+  br i1 %.not.i121, label %360, label %213
 
 213:                                              ; preds = %vpx_rac_renorm.exit164
   %214 = sub i32 %183, %211
@@ -3826,7 +3826,7 @@ vpx_rac_renorm.exit164:                           ; preds = %174, %187, %189
   %235 = load i8, ptr %234, align 1, !tbaa !61
   %236 = zext i8 %235 to i32
   %237 = sext i32 %229 to i64
-  %238 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %237
+  %238 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %237
   %239 = load i8, ptr %238, align 1, !tbaa !61
   %240 = zext i8 %239 to i32
   %241 = shl i32 %229, %240
@@ -3902,485 +3902,485 @@ vp56_rac_get_tree.exit142:                        ; preds = %vpx_rac_renorm.exit
   %286 = phi ptr [ %206, %213 ], [ %264, %vpx_rac_renorm.exit ]
   %287 = phi ptr [ %207, %213 ], [ %265, %vpx_rac_renorm.exit ]
   %.lcssa192 = phi i8 [ %215, %213 ], [ %275, %vpx_rac_renorm.exit ]
-  %288 = sext i8 %.lcssa192 to i32
-  %289 = sub nsw i32 0, %288
-  %290 = sub nsw i32 5, %288
-  %291 = zext nneg i32 %290 to i64
-  %292 = getelementptr inbounds nuw [0 x i8], ptr @ff_vp56_coeff_bias, i64 0, i64 %291
-  %293 = load i8, ptr %292, align 1, !tbaa !61
-  %294 = zext i8 %293 to i32
-  %295 = zext nneg i32 %289 to i64
-  %296 = getelementptr inbounds nuw [0 x i8], ptr @ff_vp56_coeff_bit_length, i64 0, i64 %295
-  %297 = load i8, ptr %296, align 1, !tbaa !61
-  %298 = getelementptr inbounds nuw [6 x [11 x i8]], ptr @ff_vp56_coeff_parse_table, i64 0, i64 %295
-  %299 = zext i8 %297 to i64
-  br label %300
+  %288 = sext i8 %.lcssa192 to i64
+  %289 = sub nsw i64 0, %288
+  %290 = getelementptr inbounds nuw i8, ptr @ff_vp56_coeff_bias, i64 %289
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 5
+  %292 = load i8, ptr %291, align 1, !tbaa !61
+  %293 = zext i8 %292 to i32
+  %294 = getelementptr inbounds nuw i8, ptr @ff_vp56_coeff_bit_length, i64 %289
+  %295 = load i8, ptr %294, align 1, !tbaa !61
+  %296 = getelementptr inbounds nuw [11 x i8], ptr @ff_vp56_coeff_parse_table, i64 %289
+  %297 = zext i8 %295 to i64
+  br label %298
 
-300:                                              ; preds = %vp56_rac_get_tree.exit142, %vpx_rac_renorm.exit149
-  %301 = phi ptr [ %277, %vp56_rac_get_tree.exit142 ], [ %335, %vpx_rac_renorm.exit149 ]
-  %302 = phi ptr [ %278, %vp56_rac_get_tree.exit142 ], [ %336, %vpx_rac_renorm.exit149 ]
-  %303 = phi ptr [ %279, %vp56_rac_get_tree.exit142 ], [ %337, %vpx_rac_renorm.exit149 ]
-  %304 = phi ptr [ %280, %vp56_rac_get_tree.exit142 ], [ %338, %vpx_rac_renorm.exit149 ]
-  %305 = phi ptr [ %281, %vp56_rac_get_tree.exit142 ], [ %339, %vpx_rac_renorm.exit149 ]
-  %306 = phi ptr [ %282, %vp56_rac_get_tree.exit142 ], [ %340, %vpx_rac_renorm.exit149 ]
-  %307 = phi ptr [ %283, %vp56_rac_get_tree.exit142 ], [ %341, %vpx_rac_renorm.exit149 ]
-  %308 = phi ptr [ %284, %vp56_rac_get_tree.exit142 ], [ %342, %vpx_rac_renorm.exit149 ]
-  %309 = phi ptr [ %285, %vp56_rac_get_tree.exit142 ], [ %343, %vpx_rac_renorm.exit149 ]
-  %310 = phi ptr [ %286, %vp56_rac_get_tree.exit142 ], [ %344, %vpx_rac_renorm.exit149 ]
-  %311 = phi ptr [ %287, %vp56_rac_get_tree.exit142 ], [ %345, %vpx_rac_renorm.exit149 ]
-  %indvars.iv227 = phi i64 [ %299, %vp56_rac_get_tree.exit142 ], [ %indvars.iv.next228, %vpx_rac_renorm.exit149 ]
-  %.0104216 = phi i32 [ %294, %vp56_rac_get_tree.exit142 ], [ %360, %vpx_rac_renorm.exit149 ]
-  %312 = phi i32 [ %.promoted213, %vp56_rac_get_tree.exit142 ], [ %355, %vpx_rac_renorm.exit149 ]
-  %313 = phi i32 [ %.promoted214, %vp56_rac_get_tree.exit142 ], [ %.018.i147, %vpx_rac_renorm.exit149 ]
-  %314 = phi i32 [ %.promoted215, %vp56_rac_get_tree.exit142 ], [ %357, %vpx_rac_renorm.exit149 ]
-  %315 = getelementptr inbounds nuw [11 x i8], ptr %298, i64 0, i64 %indvars.iv227
-  %316 = load i8, ptr %315, align 1, !tbaa !61
-  %317 = sext i32 %312 to i64
-  %318 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %317
-  %319 = load i8, ptr %318, align 1, !tbaa !61
-  %320 = zext i8 %319 to i32
-  %321 = shl i32 %312, %320
-  store i32 %321, ptr %3, align 8, !tbaa !58
-  %322 = shl i32 %314, %320
-  %323 = add nsw i32 %313, %320
-  %324 = icmp sgt i32 %323, -1
+298:                                              ; preds = %vp56_rac_get_tree.exit142, %vpx_rac_renorm.exit149
+  %299 = phi ptr [ %277, %vp56_rac_get_tree.exit142 ], [ %333, %vpx_rac_renorm.exit149 ]
+  %300 = phi ptr [ %278, %vp56_rac_get_tree.exit142 ], [ %334, %vpx_rac_renorm.exit149 ]
+  %301 = phi ptr [ %279, %vp56_rac_get_tree.exit142 ], [ %335, %vpx_rac_renorm.exit149 ]
+  %302 = phi ptr [ %280, %vp56_rac_get_tree.exit142 ], [ %336, %vpx_rac_renorm.exit149 ]
+  %303 = phi ptr [ %281, %vp56_rac_get_tree.exit142 ], [ %337, %vpx_rac_renorm.exit149 ]
+  %304 = phi ptr [ %282, %vp56_rac_get_tree.exit142 ], [ %338, %vpx_rac_renorm.exit149 ]
+  %305 = phi ptr [ %283, %vp56_rac_get_tree.exit142 ], [ %339, %vpx_rac_renorm.exit149 ]
+  %306 = phi ptr [ %284, %vp56_rac_get_tree.exit142 ], [ %340, %vpx_rac_renorm.exit149 ]
+  %307 = phi ptr [ %285, %vp56_rac_get_tree.exit142 ], [ %341, %vpx_rac_renorm.exit149 ]
+  %308 = phi ptr [ %286, %vp56_rac_get_tree.exit142 ], [ %342, %vpx_rac_renorm.exit149 ]
+  %309 = phi ptr [ %287, %vp56_rac_get_tree.exit142 ], [ %343, %vpx_rac_renorm.exit149 ]
+  %indvars.iv227 = phi i64 [ %297, %vp56_rac_get_tree.exit142 ], [ %indvars.iv.next228, %vpx_rac_renorm.exit149 ]
+  %.0104216 = phi i32 [ %293, %vp56_rac_get_tree.exit142 ], [ %358, %vpx_rac_renorm.exit149 ]
+  %310 = phi i32 [ %.promoted213, %vp56_rac_get_tree.exit142 ], [ %353, %vpx_rac_renorm.exit149 ]
+  %311 = phi i32 [ %.promoted214, %vp56_rac_get_tree.exit142 ], [ %.018.i147, %vpx_rac_renorm.exit149 ]
+  %312 = phi i32 [ %.promoted215, %vp56_rac_get_tree.exit142 ], [ %355, %vpx_rac_renorm.exit149 ]
+  %313 = getelementptr inbounds nuw i8, ptr %296, i64 %indvars.iv227
+  %314 = load i8, ptr %313, align 1, !tbaa !61
+  %315 = sext i32 %310 to i64
+  %316 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %315
+  %317 = load i8, ptr %316, align 1, !tbaa !61
+  %318 = zext i8 %317 to i32
+  %319 = shl i32 %310, %318
+  store i32 %319, ptr %3, align 8, !tbaa !58
+  %320 = shl i32 %312, %318
+  %321 = add nsw i32 %311, %318
+  %322 = icmp sgt i32 %321, -1
+  br i1 %322, label %323, label %vpx_rac_renorm.exit149
+
+323:                                              ; preds = %298
+  %324 = icmp ult ptr %302, %8
   br i1 %324, label %325, label %vpx_rac_renorm.exit149
 
-325:                                              ; preds = %300
-  %326 = icmp ult ptr %304, %8
-  br i1 %326, label %327, label %vpx_rac_renorm.exit149
-
-327:                                              ; preds = %325
-  %328 = getelementptr inbounds nuw i8, ptr %304, i64 2
-  store ptr %328, ptr %9, align 8, !tbaa !64
-  %329 = load i16, ptr %304, align 1, !tbaa !61
-  %330 = tail call i16 @llvm.bswap.i16(i16 %329)
-  %331 = zext i16 %330 to i32
-  %332 = shl i32 %331, %323
-  %333 = or i32 %332, %322
-  %334 = add nsw i32 %323, -16
+325:                                              ; preds = %323
+  %326 = getelementptr inbounds nuw i8, ptr %302, i64 2
+  store ptr %326, ptr %9, align 8, !tbaa !64
+  %327 = load i16, ptr %302, align 1, !tbaa !61
+  %328 = tail call i16 @llvm.bswap.i16(i16 %327)
+  %329 = zext i16 %328 to i32
+  %330 = shl i32 %329, %321
+  %331 = or i32 %330, %320
+  %332 = add nsw i32 %321, -16
   br label %vpx_rac_renorm.exit149
 
-vpx_rac_renorm.exit149:                           ; preds = %300, %325, %327
-  %335 = phi ptr [ %328, %327 ], [ %301, %325 ], [ %301, %300 ]
-  %336 = phi ptr [ %328, %327 ], [ %302, %325 ], [ %302, %300 ]
-  %337 = phi ptr [ %328, %327 ], [ %303, %325 ], [ %303, %300 ]
-  %338 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %304, %300 ]
-  %339 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %305, %300 ]
-  %340 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %306, %300 ]
-  %341 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %307, %300 ]
-  %342 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %308, %300 ]
-  %343 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %309, %300 ]
-  %344 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %310, %300 ]
-  %345 = phi ptr [ %328, %327 ], [ %304, %325 ], [ %311, %300 ]
-  %.018.i147 = phi i32 [ %334, %327 ], [ %323, %325 ], [ %323, %300 ]
-  %.0.i148 = phi i32 [ %333, %327 ], [ %322, %325 ], [ %322, %300 ]
+vpx_rac_renorm.exit149:                           ; preds = %298, %323, %325
+  %333 = phi ptr [ %326, %325 ], [ %299, %323 ], [ %299, %298 ]
+  %334 = phi ptr [ %326, %325 ], [ %300, %323 ], [ %300, %298 ]
+  %335 = phi ptr [ %326, %325 ], [ %301, %323 ], [ %301, %298 ]
+  %336 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %302, %298 ]
+  %337 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %303, %298 ]
+  %338 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %304, %298 ]
+  %339 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %305, %298 ]
+  %340 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %306, %298 ]
+  %341 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %307, %298 ]
+  %342 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %308, %298 ]
+  %343 = phi ptr [ %326, %325 ], [ %302, %323 ], [ %309, %298 ]
+  %.018.i147 = phi i32 [ %332, %325 ], [ %321, %323 ], [ %321, %298 ]
+  %.0.i148 = phi i32 [ %331, %325 ], [ %320, %323 ], [ %320, %298 ]
   store i32 %.018.i147, ptr %27, align 4, !tbaa !59
-  %346 = add nsw i32 %321, -1
-  %347 = zext i8 %316 to i32
-  %348 = mul nsw i32 %346, %347
-  %349 = ashr i32 %348, 8
-  %350 = add nsw i32 %349, 1
-  %351 = shl i32 %350, 16
-  %352 = icmp uge i32 %.0.i148, %351
-  %353 = sub i32 %321, %350
-  %354 = select i1 %352, i32 %351, i32 0
-  %355 = select i1 %352, i32 %353, i32 %350
-  %356 = zext i1 %352 to i32
-  store i32 %355, ptr %3, align 8, !tbaa !58
-  %357 = sub i32 %.0.i148, %354
-  store i32 %357, ptr %28, align 8, !tbaa !60
-  %358 = trunc nuw nsw i64 %indvars.iv227 to i32
-  %359 = shl nuw i32 %356, %358
-  %360 = add nsw i32 %359, %.0104216
+  %344 = add nsw i32 %319, -1
+  %345 = zext i8 %314 to i32
+  %346 = mul nsw i32 %344, %345
+  %347 = ashr i32 %346, 8
+  %348 = add nsw i32 %347, 1
+  %349 = shl i32 %348, 16
+  %350 = icmp uge i32 %.0.i148, %349
+  %351 = sub i32 %319, %348
+  %352 = select i1 %350, i32 %349, i32 0
+  %353 = select i1 %350, i32 %351, i32 %348
+  %354 = zext i1 %350 to i32
+  store i32 %353, ptr %3, align 8, !tbaa !58
+  %355 = sub i32 %.0.i148, %352
+  store i32 %355, ptr %28, align 8, !tbaa !60
+  %356 = trunc nuw nsw i64 %indvars.iv227 to i32
+  %357 = shl nuw i32 %354, %356
+  %358 = add nsw i32 %357, %.0104216
   %indvars.iv.next228 = add nsw i64 %indvars.iv227, -1
-  %361 = icmp sgt i64 %indvars.iv227, 0
-  br i1 %361, label %300, label %.loopexit, !llvm.loop !148
+  %359 = icmp sgt i64 %indvars.iv227, 0
+  br i1 %359, label %298, label %.loopexit, !llvm.loop !148
 
-362:                                              ; preds = %vpx_rac_renorm.exit164
+360:                                              ; preds = %vpx_rac_renorm.exit164
   store i32 %211, ptr %3, align 8, !tbaa !58
   store i32 %.0.i163, ptr %28, align 8, !tbaa !60
-  %363 = getelementptr inbounds nuw i8, ptr %.0103, i64 4
-  %364 = load i8, ptr %363, align 1, !tbaa !61
-  %365 = zext i8 %364 to i32
-  %366 = sext i32 %211 to i64
-  %367 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %366
-  %368 = load i8, ptr %367, align 1, !tbaa !61
-  %369 = zext i8 %368 to i32
-  %370 = shl i32 %211, %369
-  store i32 %370, ptr %3, align 8, !tbaa !58
-  %371 = shl i32 %.0.i163, %369
-  %372 = add nsw i32 %.promoted209, %369
-  %373 = icmp sgt i32 %372, -1
+  %361 = getelementptr inbounds nuw i8, ptr %.0103, i64 4
+  %362 = load i8, ptr %361, align 1, !tbaa !61
+  %363 = zext i8 %362 to i32
+  %364 = sext i32 %211 to i64
+  %365 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %364
+  %366 = load i8, ptr %365, align 1, !tbaa !61
+  %367 = zext i8 %366 to i32
+  %368 = shl i32 %211, %367
+  store i32 %368, ptr %3, align 8, !tbaa !58
+  %369 = shl i32 %.0.i163, %367
+  %370 = add nsw i32 %.promoted209, %367
+  %371 = icmp sgt i32 %370, -1
+  br i1 %371, label %372, label %vpx_rac_renorm.exit167
+
+372:                                              ; preds = %360
+  %373 = icmp ult ptr %199, %8
   br i1 %373, label %374, label %vpx_rac_renorm.exit167
 
-374:                                              ; preds = %362
-  %375 = icmp ult ptr %199, %8
-  br i1 %375, label %376, label %vpx_rac_renorm.exit167
-
-376:                                              ; preds = %374
-  %377 = getelementptr inbounds nuw i8, ptr %199, i64 2
-  store ptr %377, ptr %9, align 8, !tbaa !64
-  %378 = load i16, ptr %199, align 1, !tbaa !61
-  %379 = tail call i16 @llvm.bswap.i16(i16 %378)
-  %380 = zext i16 %379 to i32
-  %381 = shl i32 %380, %372
-  %382 = or i32 %381, %371
-  %383 = add nsw i32 %372, -16
+374:                                              ; preds = %372
+  %375 = getelementptr inbounds nuw i8, ptr %199, i64 2
+  store ptr %375, ptr %9, align 8, !tbaa !64
+  %376 = load i16, ptr %199, align 1, !tbaa !61
+  %377 = tail call i16 @llvm.bswap.i16(i16 %376)
+  %378 = zext i16 %377 to i32
+  %379 = shl i32 %378, %370
+  %380 = or i32 %379, %369
+  %381 = add nsw i32 %370, -16
   br label %vpx_rac_renorm.exit167
 
-vpx_rac_renorm.exit167:                           ; preds = %362, %374, %376
-  %384 = phi ptr [ %377, %376 ], [ %197, %374 ], [ %197, %362 ]
-  %385 = phi ptr [ %377, %376 ], [ %198, %374 ], [ %198, %362 ]
-  %386 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %199, %362 ]
-  %387 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %200, %362 ]
-  %388 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %201, %362 ]
-  %389 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %202, %362 ]
-  %390 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %203, %362 ]
-  %391 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %204, %362 ]
-  %392 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %205, %362 ]
-  %393 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %206, %362 ]
-  %394 = phi ptr [ %377, %376 ], [ %199, %374 ], [ %207, %362 ]
-  %.018.i165 = phi i32 [ %383, %376 ], [ %372, %374 ], [ %372, %362 ]
-  %.0.i166 = phi i32 [ %382, %376 ], [ %371, %374 ], [ %371, %362 ]
+vpx_rac_renorm.exit167:                           ; preds = %360, %372, %374
+  %382 = phi ptr [ %375, %374 ], [ %197, %372 ], [ %197, %360 ]
+  %383 = phi ptr [ %375, %374 ], [ %198, %372 ], [ %198, %360 ]
+  %384 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %199, %360 ]
+  %385 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %200, %360 ]
+  %386 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %201, %360 ]
+  %387 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %202, %360 ]
+  %388 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %203, %360 ]
+  %389 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %204, %360 ]
+  %390 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %205, %360 ]
+  %391 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %206, %360 ]
+  %392 = phi ptr [ %375, %374 ], [ %199, %372 ], [ %207, %360 ]
+  %.018.i165 = phi i32 [ %381, %374 ], [ %370, %372 ], [ %370, %360 ]
+  %.0.i166 = phi i32 [ %380, %374 ], [ %369, %372 ], [ %369, %360 ]
   store i32 %.018.i165, ptr %27, align 4, !tbaa !59
-  %395 = add nsw i32 %370, -1
-  %396 = mul nsw i32 %395, %365
-  %397 = ashr i32 %396, 8
-  %398 = add nsw i32 %397, 1
-  %399 = shl i32 %398, 16
-  %.not.i117 = icmp ult i32 %.0.i166, %399
-  br i1 %.not.i117, label %vpx_rac_get_prob_branchy.exit120.thread, label %400
+  %393 = add nsw i32 %368, -1
+  %394 = mul nsw i32 %393, %363
+  %395 = ashr i32 %394, 8
+  %396 = add nsw i32 %395, 1
+  %397 = shl i32 %396, 16
+  %.not.i117 = icmp ult i32 %.0.i166, %397
+  br i1 %.not.i117, label %vpx_rac_get_prob_branchy.exit120.thread, label %398
 
 vpx_rac_get_prob_branchy.exit120.thread:          ; preds = %vpx_rac_renorm.exit167
   store i32 %.0.i166, ptr %28, align 8, !tbaa !60
   br label %.loopexit
 
-400:                                              ; preds = %vpx_rac_renorm.exit167
-  %401 = sub i32 %370, %398
-  store i32 %401, ptr %3, align 8, !tbaa !58
-  %narrow.i118 = sub nuw i32 %.0.i166, %399
+398:                                              ; preds = %vpx_rac_renorm.exit167
+  %399 = sub i32 %368, %396
+  store i32 %399, ptr %3, align 8, !tbaa !58
+  %narrow.i118 = sub nuw i32 %.0.i166, %397
   store i32 %narrow.i118, ptr %28, align 8, !tbaa !60
-  %402 = getelementptr inbounds nuw i8, ptr %.097, i64 5
-  %403 = load i8, ptr %402, align 1, !tbaa !61
-  %404 = sext i32 %401 to i64
-  %405 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %404
-  %406 = load i8, ptr %405, align 1, !tbaa !61
-  %407 = zext i8 %406 to i32
-  %408 = shl i32 %401, %407
-  store i32 %408, ptr %3, align 8, !tbaa !58
-  %409 = shl i32 %narrow.i118, %407
-  %410 = add nsw i32 %.018.i165, %407
-  %411 = icmp sgt i32 %410, -1
+  %400 = getelementptr inbounds nuw i8, ptr %.097, i64 5
+  %401 = load i8, ptr %400, align 1, !tbaa !61
+  %402 = sext i32 %399 to i64
+  %403 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %402
+  %404 = load i8, ptr %403, align 1, !tbaa !61
+  %405 = zext i8 %404 to i32
+  %406 = shl i32 %399, %405
+  store i32 %406, ptr %3, align 8, !tbaa !58
+  %407 = shl i32 %narrow.i118, %405
+  %408 = add nsw i32 %.018.i165, %405
+  %409 = icmp sgt i32 %408, -1
+  br i1 %409, label %410, label %vpx_rac_renorm.exit152
+
+410:                                              ; preds = %398
+  %411 = icmp ult ptr %383, %8
   br i1 %411, label %412, label %vpx_rac_renorm.exit152
 
-412:                                              ; preds = %400
-  %413 = icmp ult ptr %385, %8
-  br i1 %413, label %414, label %vpx_rac_renorm.exit152
-
-414:                                              ; preds = %412
-  %415 = getelementptr inbounds nuw i8, ptr %385, i64 2
-  store ptr %415, ptr %9, align 8, !tbaa !64
-  %416 = load i16, ptr %385, align 1, !tbaa !61
-  %417 = tail call i16 @llvm.bswap.i16(i16 %416)
-  %418 = zext i16 %417 to i32
-  %419 = shl i32 %418, %410
-  %420 = or i32 %419, %409
-  %421 = add nsw i32 %410, -16
+412:                                              ; preds = %410
+  %413 = getelementptr inbounds nuw i8, ptr %383, i64 2
+  store ptr %413, ptr %9, align 8, !tbaa !64
+  %414 = load i16, ptr %383, align 1, !tbaa !61
+  %415 = tail call i16 @llvm.bswap.i16(i16 %414)
+  %416 = zext i16 %415 to i32
+  %417 = shl i32 %416, %408
+  %418 = or i32 %417, %407
+  %419 = add nsw i32 %408, -16
   br label %vpx_rac_renorm.exit152
 
-vpx_rac_renorm.exit152:                           ; preds = %400, %412, %414
-  %422 = phi ptr [ %415, %414 ], [ %384, %412 ], [ %384, %400 ]
-  %423 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %385, %400 ]
-  %424 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %386, %400 ]
-  %425 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %387, %400 ]
-  %426 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %388, %400 ]
-  %427 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %389, %400 ]
-  %428 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %390, %400 ]
-  %429 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %391, %400 ]
-  %430 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %392, %400 ]
-  %431 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %393, %400 ]
-  %432 = phi ptr [ %415, %414 ], [ %385, %412 ], [ %394, %400 ]
-  %.018.i150 = phi i32 [ %421, %414 ], [ %410, %412 ], [ %410, %400 ]
-  %.0.i151 = phi i32 [ %420, %414 ], [ %409, %412 ], [ %409, %400 ]
+vpx_rac_renorm.exit152:                           ; preds = %398, %410, %412
+  %420 = phi ptr [ %413, %412 ], [ %382, %410 ], [ %382, %398 ]
+  %421 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %383, %398 ]
+  %422 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %384, %398 ]
+  %423 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %385, %398 ]
+  %424 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %386, %398 ]
+  %425 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %387, %398 ]
+  %426 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %388, %398 ]
+  %427 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %389, %398 ]
+  %428 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %390, %398 ]
+  %429 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %391, %398 ]
+  %430 = phi ptr [ %413, %412 ], [ %383, %410 ], [ %392, %398 ]
+  %.018.i150 = phi i32 [ %419, %412 ], [ %408, %410 ], [ %408, %398 ]
+  %.0.i151 = phi i32 [ %418, %412 ], [ %407, %410 ], [ %407, %398 ]
   store i32 %.018.i150, ptr %27, align 4, !tbaa !59
-  %433 = add nsw i32 %408, -1
-  %434 = zext i8 %403 to i32
-  %435 = mul nsw i32 %433, %434
-  %436 = ashr i32 %435, 8
-  %437 = add nsw i32 %436, 1
-  %438 = shl i32 %437, 16
-  %.not = icmp ult i32 %.0.i151, %438
-  %439 = sub i32 %408, %437
-  %440 = select i1 %.not, i32 0, i32 %438
-  %441 = select i1 %.not, i32 %437, i32 %439
-  %442 = sub i32 %.0.i151, %440
-  store i32 %442, ptr %28, align 8, !tbaa !60
-  %443 = select i1 %.not, i32 3, i32 4
+  %431 = add nsw i32 %406, -1
+  %432 = zext i8 %401 to i32
+  %433 = mul nsw i32 %431, %432
+  %434 = ashr i32 %433, 8
+  %435 = add nsw i32 %434, 1
+  %436 = shl i32 %435, 16
+  %.not = icmp ult i32 %.0.i151, %436
+  %437 = sub i32 %406, %435
+  %438 = select i1 %.not, i32 0, i32 %436
+  %439 = select i1 %.not, i32 %435, i32 %437
+  %440 = sub i32 %.0.i151, %438
+  store i32 %440, ptr %28, align 8, !tbaa !60
+  %441 = select i1 %.not, i32 3, i32 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %vpx_rac_renorm.exit149, %vpx_rac_get_prob_branchy.exit120.thread, %vpx_rac_get_prob_branchy.exit128.thread, %vpx_rac_renorm.exit152
-  %444 = phi ptr [ %422, %vpx_rac_renorm.exit152 ], [ %158, %vpx_rac_get_prob_branchy.exit128.thread ], [ %384, %vpx_rac_get_prob_branchy.exit120.thread ], [ %335, %vpx_rac_renorm.exit149 ]
-  %445 = phi i32 [ %442, %vpx_rac_renorm.exit152 ], [ %.0.i160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %.0.i166, %vpx_rac_get_prob_branchy.exit120.thread ], [ %357, %vpx_rac_renorm.exit149 ]
-  %446 = phi i32 [ %.018.i150, %vpx_rac_renorm.exit152 ], [ %.018.i159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %.018.i165, %vpx_rac_get_prob_branchy.exit120.thread ], [ %.018.i147, %vpx_rac_renorm.exit149 ]
-  %447 = phi i32 [ %441, %vpx_rac_renorm.exit152 ], [ %172, %vpx_rac_get_prob_branchy.exit128.thread ], [ %398, %vpx_rac_get_prob_branchy.exit120.thread ], [ %355, %vpx_rac_renorm.exit149 ]
-  %448 = phi ptr [ %423, %vpx_rac_renorm.exit152 ], [ %159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %385, %vpx_rac_get_prob_branchy.exit120.thread ], [ %336, %vpx_rac_renorm.exit149 ]
-  %449 = phi ptr [ %424, %vpx_rac_renorm.exit152 ], [ %160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %386, %vpx_rac_get_prob_branchy.exit120.thread ], [ %337, %vpx_rac_renorm.exit149 ]
-  %450 = phi ptr [ %425, %vpx_rac_renorm.exit152 ], [ %161, %vpx_rac_get_prob_branchy.exit128.thread ], [ %387, %vpx_rac_get_prob_branchy.exit120.thread ], [ %338, %vpx_rac_renorm.exit149 ]
-  %451 = phi ptr [ %426, %vpx_rac_renorm.exit152 ], [ %162, %vpx_rac_get_prob_branchy.exit128.thread ], [ %388, %vpx_rac_get_prob_branchy.exit120.thread ], [ %339, %vpx_rac_renorm.exit149 ]
-  %452 = phi ptr [ %427, %vpx_rac_renorm.exit152 ], [ %163, %vpx_rac_get_prob_branchy.exit128.thread ], [ %389, %vpx_rac_get_prob_branchy.exit120.thread ], [ %340, %vpx_rac_renorm.exit149 ]
-  %453 = phi ptr [ %428, %vpx_rac_renorm.exit152 ], [ %164, %vpx_rac_get_prob_branchy.exit128.thread ], [ %390, %vpx_rac_get_prob_branchy.exit120.thread ], [ %341, %vpx_rac_renorm.exit149 ]
-  %454 = phi ptr [ %429, %vpx_rac_renorm.exit152 ], [ %165, %vpx_rac_get_prob_branchy.exit128.thread ], [ %391, %vpx_rac_get_prob_branchy.exit120.thread ], [ %342, %vpx_rac_renorm.exit149 ]
-  %455 = phi ptr [ %430, %vpx_rac_renorm.exit152 ], [ %166, %vpx_rac_get_prob_branchy.exit128.thread ], [ %392, %vpx_rac_get_prob_branchy.exit120.thread ], [ %343, %vpx_rac_renorm.exit149 ]
-  %456 = phi ptr [ %431, %vpx_rac_renorm.exit152 ], [ %167, %vpx_rac_get_prob_branchy.exit128.thread ], [ %393, %vpx_rac_get_prob_branchy.exit120.thread ], [ %344, %vpx_rac_renorm.exit149 ]
-  %457 = phi ptr [ %432, %vpx_rac_renorm.exit152 ], [ %168, %vpx_rac_get_prob_branchy.exit128.thread ], [ %394, %vpx_rac_get_prob_branchy.exit120.thread ], [ %345, %vpx_rac_renorm.exit149 ]
-  %.2106 = phi i32 [ %443, %vpx_rac_renorm.exit152 ], [ 1, %vpx_rac_get_prob_branchy.exit128.thread ], [ 2, %vpx_rac_get_prob_branchy.exit120.thread ], [ %360, %vpx_rac_renorm.exit149 ]
+  %442 = phi ptr [ %420, %vpx_rac_renorm.exit152 ], [ %158, %vpx_rac_get_prob_branchy.exit128.thread ], [ %382, %vpx_rac_get_prob_branchy.exit120.thread ], [ %333, %vpx_rac_renorm.exit149 ]
+  %443 = phi i32 [ %440, %vpx_rac_renorm.exit152 ], [ %.0.i160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %.0.i166, %vpx_rac_get_prob_branchy.exit120.thread ], [ %355, %vpx_rac_renorm.exit149 ]
+  %444 = phi i32 [ %.018.i150, %vpx_rac_renorm.exit152 ], [ %.018.i159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %.018.i165, %vpx_rac_get_prob_branchy.exit120.thread ], [ %.018.i147, %vpx_rac_renorm.exit149 ]
+  %445 = phi i32 [ %439, %vpx_rac_renorm.exit152 ], [ %172, %vpx_rac_get_prob_branchy.exit128.thread ], [ %396, %vpx_rac_get_prob_branchy.exit120.thread ], [ %353, %vpx_rac_renorm.exit149 ]
+  %446 = phi ptr [ %421, %vpx_rac_renorm.exit152 ], [ %159, %vpx_rac_get_prob_branchy.exit128.thread ], [ %383, %vpx_rac_get_prob_branchy.exit120.thread ], [ %334, %vpx_rac_renorm.exit149 ]
+  %447 = phi ptr [ %422, %vpx_rac_renorm.exit152 ], [ %160, %vpx_rac_get_prob_branchy.exit128.thread ], [ %384, %vpx_rac_get_prob_branchy.exit120.thread ], [ %335, %vpx_rac_renorm.exit149 ]
+  %448 = phi ptr [ %423, %vpx_rac_renorm.exit152 ], [ %161, %vpx_rac_get_prob_branchy.exit128.thread ], [ %385, %vpx_rac_get_prob_branchy.exit120.thread ], [ %336, %vpx_rac_renorm.exit149 ]
+  %449 = phi ptr [ %424, %vpx_rac_renorm.exit152 ], [ %162, %vpx_rac_get_prob_branchy.exit128.thread ], [ %386, %vpx_rac_get_prob_branchy.exit120.thread ], [ %337, %vpx_rac_renorm.exit149 ]
+  %450 = phi ptr [ %425, %vpx_rac_renorm.exit152 ], [ %163, %vpx_rac_get_prob_branchy.exit128.thread ], [ %387, %vpx_rac_get_prob_branchy.exit120.thread ], [ %338, %vpx_rac_renorm.exit149 ]
+  %451 = phi ptr [ %426, %vpx_rac_renorm.exit152 ], [ %164, %vpx_rac_get_prob_branchy.exit128.thread ], [ %388, %vpx_rac_get_prob_branchy.exit120.thread ], [ %339, %vpx_rac_renorm.exit149 ]
+  %452 = phi ptr [ %427, %vpx_rac_renorm.exit152 ], [ %165, %vpx_rac_get_prob_branchy.exit128.thread ], [ %389, %vpx_rac_get_prob_branchy.exit120.thread ], [ %340, %vpx_rac_renorm.exit149 ]
+  %453 = phi ptr [ %428, %vpx_rac_renorm.exit152 ], [ %166, %vpx_rac_get_prob_branchy.exit128.thread ], [ %390, %vpx_rac_get_prob_branchy.exit120.thread ], [ %341, %vpx_rac_renorm.exit149 ]
+  %454 = phi ptr [ %429, %vpx_rac_renorm.exit152 ], [ %167, %vpx_rac_get_prob_branchy.exit128.thread ], [ %391, %vpx_rac_get_prob_branchy.exit120.thread ], [ %342, %vpx_rac_renorm.exit149 ]
+  %455 = phi ptr [ %430, %vpx_rac_renorm.exit152 ], [ %168, %vpx_rac_get_prob_branchy.exit128.thread ], [ %392, %vpx_rac_get_prob_branchy.exit120.thread ], [ %343, %vpx_rac_renorm.exit149 ]
+  %.2106 = phi i32 [ %441, %vpx_rac_renorm.exit152 ], [ 1, %vpx_rac_get_prob_branchy.exit128.thread ], [ 2, %vpx_rac_get_prob_branchy.exit120.thread ], [ %358, %vpx_rac_renorm.exit149 ]
   %.192 = phi i32 [ 2, %vpx_rac_renorm.exit152 ], [ 1, %vpx_rac_get_prob_branchy.exit128.thread ], [ 2, %vpx_rac_get_prob_branchy.exit120.thread ], [ 2, %vpx_rac_renorm.exit149 ]
-  %458 = sext i32 %447 to i64
-  %459 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %458
-  %460 = load i8, ptr %459, align 1, !tbaa !61
-  %461 = zext i8 %460 to i32
-  %462 = shl i32 %447, %461
-  store i32 %462, ptr %3, align 8, !tbaa !58
-  %463 = shl i32 %445, %461
-  %464 = add nsw i32 %446, %461
-  %465 = icmp sgt i32 %464, -1
+  %456 = sext i32 %445 to i64
+  %457 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %456
+  %458 = load i8, ptr %457, align 1, !tbaa !61
+  %459 = zext i8 %458 to i32
+  %460 = shl i32 %445, %459
+  store i32 %460, ptr %3, align 8, !tbaa !58
+  %461 = shl i32 %443, %459
+  %462 = add nsw i32 %444, %459
+  %463 = icmp sgt i32 %462, -1
+  br i1 %463, label %464, label %vpx_rac_renorm.exit.i
+
+464:                                              ; preds = %.loopexit
+  %465 = icmp ult ptr %442, %8
   br i1 %465, label %466, label %vpx_rac_renorm.exit.i
 
-466:                                              ; preds = %.loopexit
-  %467 = icmp ult ptr %444, %8
-  br i1 %467, label %468, label %vpx_rac_renorm.exit.i
-
-468:                                              ; preds = %466
-  %469 = getelementptr inbounds nuw i8, ptr %444, i64 2
-  store ptr %469, ptr %9, align 8, !tbaa !64
-  %470 = load i16, ptr %444, align 1, !tbaa !61
-  %471 = tail call i16 @llvm.bswap.i16(i16 %470)
-  %472 = zext i16 %471 to i32
-  %473 = shl i32 %472, %464
-  %474 = or i32 %473, %463
-  %475 = add nsw i32 %464, -16
+466:                                              ; preds = %464
+  %467 = getelementptr inbounds nuw i8, ptr %442, i64 2
+  store ptr %467, ptr %9, align 8, !tbaa !64
+  %468 = load i16, ptr %442, align 1, !tbaa !61
+  %469 = tail call i16 @llvm.bswap.i16(i16 %468)
+  %470 = zext i16 %469 to i32
+  %471 = shl i32 %470, %462
+  %472 = or i32 %471, %461
+  %473 = add nsw i32 %462, -16
   br label %vpx_rac_renorm.exit.i
 
-vpx_rac_renorm.exit.i:                            ; preds = %468, %466, %.loopexit
-  %476 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %444, %.loopexit ]
-  %477 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %448, %.loopexit ]
-  %478 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %449, %.loopexit ]
-  %479 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %450, %.loopexit ]
-  %480 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %451, %.loopexit ]
-  %481 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %452, %.loopexit ]
-  %482 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %453, %.loopexit ]
-  %483 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %454, %.loopexit ]
-  %484 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %455, %.loopexit ]
-  %485 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %456, %.loopexit ]
-  %486 = phi ptr [ %469, %468 ], [ %444, %466 ], [ %457, %.loopexit ]
-  %.018.i.i = phi i32 [ %475, %468 ], [ %464, %466 ], [ %464, %.loopexit ]
-  %.0.i.i171 = phi i32 [ %474, %468 ], [ %463, %466 ], [ %463, %.loopexit ]
+vpx_rac_renorm.exit.i:                            ; preds = %466, %464, %.loopexit
+  %474 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %442, %.loopexit ]
+  %475 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %446, %.loopexit ]
+  %476 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %447, %.loopexit ]
+  %477 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %448, %.loopexit ]
+  %478 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %449, %.loopexit ]
+  %479 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %450, %.loopexit ]
+  %480 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %451, %.loopexit ]
+  %481 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %452, %.loopexit ]
+  %482 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %453, %.loopexit ]
+  %483 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %454, %.loopexit ]
+  %484 = phi ptr [ %467, %466 ], [ %442, %464 ], [ %455, %.loopexit ]
+  %.018.i.i = phi i32 [ %473, %466 ], [ %462, %464 ], [ %462, %.loopexit ]
+  %.0.i.i171 = phi i32 [ %472, %466 ], [ %461, %464 ], [ %461, %.loopexit ]
   store i32 %.018.i.i, ptr %27, align 4, !tbaa !59
-  %487 = add nsw i32 %462, 1
-  %488 = ashr i32 %487, 1
-  %489 = shl i32 %488, 16
-  %490 = icmp uge i32 %.0.i.i171, %489
-  %491 = sub nsw i32 %462, %488
-  %.sink234 = select i1 %490, i32 %491, i32 %488
-  %492 = select i1 %490, i32 %489, i32 0
-  %.0.i172 = sub nuw i32 %.0.i.i171, %492
+  %485 = add nsw i32 %460, 1
+  %486 = ashr i32 %485, 1
+  %487 = shl i32 %486, 16
+  %488 = icmp uge i32 %.0.i.i171, %487
+  %489 = sub nsw i32 %460, %486
+  %.sink234 = select i1 %488, i32 %489, i32 %486
+  %490 = select i1 %488, i32 %487, i32 0
+  %.0.i172 = sub nuw i32 %.0.i.i171, %490
   store i32 %.sink234, ptr %3, align 8, !tbaa !58
-  %.neg = sext i1 %490 to i32
-  %493 = zext i1 %490 to i32
+  %.neg = sext i1 %488 to i32
+  %491 = zext i1 %488 to i32
   store i32 %.0.i172, ptr %28, align 8, !tbaa !60
-  %494 = xor i32 %.2106, %.neg
-  %495 = add nsw i32 %494, %493
+  %492 = xor i32 %.2106, %.neg
+  %493 = add nsw i32 %492, %491
   %.not116 = icmp eq i32 %.0101, 0
-  br i1 %.not116, label %500, label %496
+  br i1 %.not116, label %498, label %494
 
-496:                                              ; preds = %vpx_rac_renorm.exit.i
-  %497 = load i16, ptr %30, align 2, !tbaa !149
-  %498 = zext i16 %497 to i32
-  %499 = mul nsw i32 %495, %498
-  br label %500
+494:                                              ; preds = %vpx_rac_renorm.exit.i
+  %495 = load i16, ptr %30, align 2, !tbaa !149
+  %496 = zext i16 %495 to i32
+  %497 = mul nsw i32 %493, %496
+  br label %498
 
-500:                                              ; preds = %496, %vpx_rac_renorm.exit.i
-  %.3 = phi i32 [ %499, %496 ], [ %495, %vpx_rac_renorm.exit.i ]
-  %501 = sext i32 %.0101 to i64
-  %502 = getelementptr inbounds [64 x i8], ptr %31, i64 0, i64 %501
-  %503 = load i8, ptr %502, align 1, !tbaa !61
-  %504 = trunc i32 %.3 to i16
-  %505 = zext i8 %503 to i64
-  %506 = getelementptr inbounds nuw i8, ptr %6, i64 %505
-  %507 = load i8, ptr %506, align 1, !tbaa !61
-  %508 = zext i8 %507 to i64
-  %509 = getelementptr inbounds nuw [64 x i16], ptr %68, i64 0, i64 %508
-  store i16 %504, ptr %509, align 2, !tbaa !56
+498:                                              ; preds = %494, %vpx_rac_renorm.exit.i
+  %.3 = phi i32 [ %497, %494 ], [ %493, %vpx_rac_renorm.exit.i ]
+  %499 = sext i32 %.0101 to i64
+  %500 = getelementptr inbounds i8, ptr %31, i64 %499
+  %501 = load i8, ptr %500, align 1, !tbaa !61
+  %502 = trunc i32 %.3 to i16
+  %503 = zext i8 %501 to i64
+  %504 = getelementptr inbounds nuw i8, ptr %6, i64 %503
+  %505 = load i8, ptr %504, align 1, !tbaa !61
+  %506 = zext i8 %505 to i64
+  %507 = getelementptr inbounds nuw i16, ptr %68, i64 %506
+  store i16 %502, ptr %507, align 2, !tbaa !56
   br label %.loopexit188
 
-510:                                              ; preds = %vpx_rac_renorm.exit158
+508:                                              ; preds = %vpx_rac_renorm.exit158
   store i32 %119, ptr %3, align 8, !tbaa !58
   store i32 %115, ptr %28, align 8, !tbaa !60
-  %511 = icmp sgt i32 %.0101, 0
-  br i1 %511, label %512, label %.loopexit188
+  %509 = icmp sgt i32 %.0101, 0
+  br i1 %509, label %510, label %.loopexit188
 
-512:                                              ; preds = %510
-  %513 = getelementptr inbounds nuw i8, ptr %.0103, i64 1
-  %514 = load i8, ptr %513, align 1, !tbaa !61
-  %515 = zext i8 %514 to i32
-  %516 = sext i32 %119 to i64
-  %517 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %516
-  %518 = load i8, ptr %517, align 1, !tbaa !61
-  %519 = zext i8 %518 to i32
-  %520 = shl i32 %119, %519
-  store i32 %520, ptr %3, align 8, !tbaa !58
-  %521 = shl i32 %115, %519
-  %522 = add nsw i32 %.018.i156, %519
-  %523 = icmp sgt i32 %522, -1
+510:                                              ; preds = %508
+  %511 = getelementptr inbounds nuw i8, ptr %.0103, i64 1
+  %512 = load i8, ptr %511, align 1, !tbaa !61
+  %513 = zext i8 %512 to i32
+  %514 = sext i32 %119 to i64
+  %515 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %514
+  %516 = load i8, ptr %515, align 1, !tbaa !61
+  %517 = zext i8 %516 to i32
+  %518 = shl i32 %119, %517
+  store i32 %518, ptr %3, align 8, !tbaa !58
+  %519 = shl i32 %115, %517
+  %520 = add nsw i32 %.018.i156, %517
+  %521 = icmp sgt i32 %520, -1
+  br i1 %521, label %522, label %vpx_rac_renorm.exit170
+
+522:                                              ; preds = %510
+  %523 = icmp ult ptr %113, %8
   br i1 %523, label %524, label %vpx_rac_renorm.exit170
 
-524:                                              ; preds = %512
-  %525 = icmp ult ptr %113, %8
-  br i1 %525, label %526, label %vpx_rac_renorm.exit170
-
-526:                                              ; preds = %524
-  %527 = getelementptr inbounds nuw i8, ptr %113, i64 2
-  store ptr %527, ptr %9, align 8, !tbaa !64
-  %528 = load i16, ptr %113, align 1, !tbaa !61
-  %529 = tail call i16 @llvm.bswap.i16(i16 %528)
-  %530 = zext i16 %529 to i32
-  %531 = shl i32 %530, %522
-  %532 = or i32 %531, %521
-  %533 = add nsw i32 %522, -16
+524:                                              ; preds = %522
+  %525 = getelementptr inbounds nuw i8, ptr %113, i64 2
+  store ptr %525, ptr %9, align 8, !tbaa !64
+  %526 = load i16, ptr %113, align 1, !tbaa !61
+  %527 = tail call i16 @llvm.bswap.i16(i16 %526)
+  %528 = zext i16 %527 to i32
+  %529 = shl i32 %528, %520
+  %530 = or i32 %529, %519
+  %531 = add nsw i32 %520, -16
   br label %vpx_rac_renorm.exit170
 
-vpx_rac_renorm.exit170:                           ; preds = %512, %524, %526
-  %534 = phi ptr [ %527, %526 ], [ %104, %524 ], [ %104, %512 ]
-  %535 = phi ptr [ %527, %526 ], [ %105, %524 ], [ %105, %512 ]
-  %536 = phi ptr [ %527, %526 ], [ %106, %524 ], [ %106, %512 ]
-  %537 = phi ptr [ %527, %526 ], [ %107, %524 ], [ %107, %512 ]
-  %538 = phi ptr [ %527, %526 ], [ %108, %524 ], [ %108, %512 ]
-  %539 = phi ptr [ %527, %526 ], [ %109, %524 ], [ %109, %512 ]
-  %540 = phi ptr [ %527, %526 ], [ %110, %524 ], [ %110, %512 ]
-  %541 = phi ptr [ %527, %526 ], [ %111, %524 ], [ %111, %512 ]
-  %542 = phi ptr [ %527, %526 ], [ %112, %524 ], [ %112, %512 ]
-  %543 = phi ptr [ %527, %526 ], [ %113, %524 ], [ %113, %512 ]
-  %544 = phi ptr [ %527, %526 ], [ %113, %524 ], [ %114, %512 ]
-  %.promoted198 = phi i32 [ %533, %526 ], [ %522, %524 ], [ %522, %512 ]
-  %.0.i169 = phi i32 [ %532, %526 ], [ %521, %524 ], [ %521, %512 ]
+vpx_rac_renorm.exit170:                           ; preds = %510, %522, %524
+  %532 = phi ptr [ %525, %524 ], [ %104, %522 ], [ %104, %510 ]
+  %533 = phi ptr [ %525, %524 ], [ %105, %522 ], [ %105, %510 ]
+  %534 = phi ptr [ %525, %524 ], [ %106, %522 ], [ %106, %510 ]
+  %535 = phi ptr [ %525, %524 ], [ %107, %522 ], [ %107, %510 ]
+  %536 = phi ptr [ %525, %524 ], [ %108, %522 ], [ %108, %510 ]
+  %537 = phi ptr [ %525, %524 ], [ %109, %522 ], [ %109, %510 ]
+  %538 = phi ptr [ %525, %524 ], [ %110, %522 ], [ %110, %510 ]
+  %539 = phi ptr [ %525, %524 ], [ %111, %522 ], [ %111, %510 ]
+  %540 = phi ptr [ %525, %524 ], [ %112, %522 ], [ %112, %510 ]
+  %541 = phi ptr [ %525, %524 ], [ %113, %522 ], [ %113, %510 ]
+  %542 = phi ptr [ %525, %524 ], [ %113, %522 ], [ %114, %510 ]
+  %.promoted198 = phi i32 [ %531, %524 ], [ %520, %522 ], [ %520, %510 ]
+  %.0.i169 = phi i32 [ %530, %524 ], [ %519, %522 ], [ %519, %510 ]
   store i32 %.promoted198, ptr %27, align 4, !tbaa !59
-  %545 = add nsw i32 %520, -1
-  %546 = mul nsw i32 %545, %515
-  %547 = ashr i32 %546, 8
-  %548 = add nsw i32 %547, 1
-  %549 = shl i32 %548, 16
-  %.not.i = icmp ult i32 %.0.i169, %549
-  br i1 %.not.i, label %vpx_rac_get_prob_branchy.exit.thread, label %552
+  %543 = add nsw i32 %518, -1
+  %544 = mul nsw i32 %543, %513
+  %545 = ashr i32 %544, 8
+  %546 = add nsw i32 %545, 1
+  %547 = shl i32 %546, 16
+  %.not.i = icmp ult i32 %.0.i169, %547
+  br i1 %.not.i, label %vpx_rac_get_prob_branchy.exit.thread, label %550
 
 vpx_rac_get_prob_branchy.exit.thread:             ; preds = %vpx_rac_renorm.exit170
-  store i32 %548, ptr %3, align 8, !tbaa !58
+  store i32 %546, ptr %3, align 8, !tbaa !58
   store i32 %.0.i169, ptr %28, align 8, !tbaa !60
-  %550 = tail call i32 @llvm.umin.i32(i32 %.0101, i32 63)
-  %551 = zext nneg i32 %550 to i64
+  %548 = tail call i32 @llvm.umin.i32(i32 %.0101, i32 63)
+  %549 = zext nneg i32 %548 to i64
   br label %.loopexit189
 
-552:                                              ; preds = %vpx_rac_renorm.exit170
-  %553 = sub i32 %520, %548
-  store i32 %553, ptr %3, align 8, !tbaa !58
-  %narrow.i = sub nuw i32 %.0.i169, %549
+550:                                              ; preds = %vpx_rac_renorm.exit170
+  %551 = sub i32 %518, %546
+  store i32 %551, ptr %3, align 8, !tbaa !58
+  %narrow.i = sub nuw i32 %.0.i169, %547
   store i32 %narrow.i, ptr %28, align 8, !tbaa !60
-  %554 = icmp samesign ugt i32 %.0101, 5
-  %555 = zext i1 %554 to i64
-  %556 = getelementptr inbounds nuw [2 x [14 x i8]], ptr %29, i64 0, i64 %555
-  br label %557
+  %552 = icmp samesign ugt i32 %.0101, 5
+  %553 = zext i1 %552 to i64
+  %554 = getelementptr inbounds nuw [14 x i8], ptr %29, i64 %553
+  br label %555
 
-557:                                              ; preds = %552, %vpx_rac_renorm.exit146
-  %558 = phi ptr [ %534, %552 ], [ %596, %vpx_rac_renorm.exit146 ]
-  %559 = phi ptr [ %535, %552 ], [ %597, %vpx_rac_renorm.exit146 ]
-  %560 = phi ptr [ %536, %552 ], [ %598, %vpx_rac_renorm.exit146 ]
-  %561 = phi ptr [ %537, %552 ], [ %599, %vpx_rac_renorm.exit146 ]
-  %562 = phi ptr [ %538, %552 ], [ %600, %vpx_rac_renorm.exit146 ]
-  %563 = phi ptr [ %539, %552 ], [ %601, %vpx_rac_renorm.exit146 ]
-  %564 = phi ptr [ %540, %552 ], [ %602, %vpx_rac_renorm.exit146 ]
-  %565 = phi ptr [ %541, %552 ], [ %603, %vpx_rac_renorm.exit146 ]
-  %566 = phi ptr [ %542, %552 ], [ %604, %vpx_rac_renorm.exit146 ]
-  %567 = phi ptr [ %543, %552 ], [ %605, %vpx_rac_renorm.exit146 ]
-  %568 = phi ptr [ %544, %552 ], [ %606, %vpx_rac_renorm.exit146 ]
-  %narrow.i.i200 = phi i32 [ %narrow.i, %552 ], [ %.promoted204, %vpx_rac_renorm.exit146 ]
-  %569 = phi i32 [ %.promoted198, %552 ], [ %.promoted203, %vpx_rac_renorm.exit146 ]
-  %570 = phi i32 [ %553, %552 ], [ %.promoted202, %vpx_rac_renorm.exit146 ]
-  %571 = phi i8 [ 8, %552 ], [ %616, %vpx_rac_renorm.exit146 ]
-  %.0.i133197 = phi ptr [ @vp6_pcr_tree, %552 ], [ %.1.i, %vpx_rac_renorm.exit146 ]
-  %572 = getelementptr inbounds nuw i8, ptr %.0.i133197, i64 1
-  %573 = load i8, ptr %572, align 1, !tbaa !69
-  %574 = sext i8 %573 to i64
-  %575 = getelementptr inbounds i8, ptr %556, i64 %574
-  %576 = load i8, ptr %575, align 1, !tbaa !61
-  %577 = zext i8 %576 to i32
-  %578 = sext i32 %570 to i64
-  %579 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %578
-  %580 = load i8, ptr %579, align 1, !tbaa !61
-  %581 = zext i8 %580 to i32
-  %582 = shl i32 %570, %581
-  store i32 %582, ptr %3, align 8, !tbaa !58
-  %583 = shl i32 %narrow.i.i200, %581
-  %584 = add nsw i32 %569, %581
-  %585 = icmp sgt i32 %584, -1
+555:                                              ; preds = %550, %vpx_rac_renorm.exit146
+  %556 = phi ptr [ %532, %550 ], [ %594, %vpx_rac_renorm.exit146 ]
+  %557 = phi ptr [ %533, %550 ], [ %595, %vpx_rac_renorm.exit146 ]
+  %558 = phi ptr [ %534, %550 ], [ %596, %vpx_rac_renorm.exit146 ]
+  %559 = phi ptr [ %535, %550 ], [ %597, %vpx_rac_renorm.exit146 ]
+  %560 = phi ptr [ %536, %550 ], [ %598, %vpx_rac_renorm.exit146 ]
+  %561 = phi ptr [ %537, %550 ], [ %599, %vpx_rac_renorm.exit146 ]
+  %562 = phi ptr [ %538, %550 ], [ %600, %vpx_rac_renorm.exit146 ]
+  %563 = phi ptr [ %539, %550 ], [ %601, %vpx_rac_renorm.exit146 ]
+  %564 = phi ptr [ %540, %550 ], [ %602, %vpx_rac_renorm.exit146 ]
+  %565 = phi ptr [ %541, %550 ], [ %603, %vpx_rac_renorm.exit146 ]
+  %566 = phi ptr [ %542, %550 ], [ %604, %vpx_rac_renorm.exit146 ]
+  %narrow.i.i200 = phi i32 [ %narrow.i, %550 ], [ %.promoted204, %vpx_rac_renorm.exit146 ]
+  %567 = phi i32 [ %.promoted198, %550 ], [ %.promoted203, %vpx_rac_renorm.exit146 ]
+  %568 = phi i32 [ %551, %550 ], [ %.promoted202, %vpx_rac_renorm.exit146 ]
+  %569 = phi i8 [ 8, %550 ], [ %614, %vpx_rac_renorm.exit146 ]
+  %.0.i133197 = phi ptr [ @vp6_pcr_tree, %550 ], [ %.1.i, %vpx_rac_renorm.exit146 ]
+  %570 = getelementptr inbounds nuw i8, ptr %.0.i133197, i64 1
+  %571 = load i8, ptr %570, align 1, !tbaa !69
+  %572 = sext i8 %571 to i64
+  %573 = getelementptr inbounds i8, ptr %554, i64 %572
+  %574 = load i8, ptr %573, align 1, !tbaa !61
+  %575 = zext i8 %574 to i32
+  %576 = sext i32 %568 to i64
+  %577 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %576
+  %578 = load i8, ptr %577, align 1, !tbaa !61
+  %579 = zext i8 %578 to i32
+  %580 = shl i32 %568, %579
+  store i32 %580, ptr %3, align 8, !tbaa !58
+  %581 = shl i32 %narrow.i.i200, %579
+  %582 = add nsw i32 %567, %579
+  %583 = icmp sgt i32 %582, -1
+  br i1 %583, label %584, label %vpx_rac_renorm.exit146
+
+584:                                              ; preds = %555
+  %585 = icmp ult ptr %564, %8
   br i1 %585, label %586, label %vpx_rac_renorm.exit146
 
-586:                                              ; preds = %557
-  %587 = icmp ult ptr %566, %8
-  br i1 %587, label %588, label %vpx_rac_renorm.exit146
-
-588:                                              ; preds = %586
-  %589 = getelementptr inbounds nuw i8, ptr %566, i64 2
-  store ptr %589, ptr %9, align 8, !tbaa !64
-  %590 = load i16, ptr %566, align 1, !tbaa !61
-  %591 = tail call i16 @llvm.bswap.i16(i16 %590)
-  %592 = zext i16 %591 to i32
-  %593 = shl i32 %592, %584
-  %594 = or i32 %593, %583
-  %595 = add nsw i32 %584, -16
+586:                                              ; preds = %584
+  %587 = getelementptr inbounds nuw i8, ptr %564, i64 2
+  store ptr %587, ptr %9, align 8, !tbaa !64
+  %588 = load i16, ptr %564, align 1, !tbaa !61
+  %589 = tail call i16 @llvm.bswap.i16(i16 %588)
+  %590 = zext i16 %589 to i32
+  %591 = shl i32 %590, %582
+  %592 = or i32 %591, %581
+  %593 = add nsw i32 %582, -16
   br label %vpx_rac_renorm.exit146
 
-vpx_rac_renorm.exit146:                           ; preds = %557, %586, %588
-  %596 = phi ptr [ %589, %588 ], [ %558, %586 ], [ %558, %557 ]
-  %597 = phi ptr [ %589, %588 ], [ %559, %586 ], [ %559, %557 ]
-  %598 = phi ptr [ %589, %588 ], [ %560, %586 ], [ %560, %557 ]
-  %599 = phi ptr [ %589, %588 ], [ %561, %586 ], [ %561, %557 ]
-  %600 = phi ptr [ %589, %588 ], [ %562, %586 ], [ %562, %557 ]
-  %601 = phi ptr [ %589, %588 ], [ %563, %586 ], [ %563, %557 ]
-  %602 = phi ptr [ %589, %588 ], [ %564, %586 ], [ %564, %557 ]
-  %603 = phi ptr [ %589, %588 ], [ %565, %586 ], [ %565, %557 ]
-  %604 = phi ptr [ %589, %588 ], [ %566, %586 ], [ %566, %557 ]
-  %605 = phi ptr [ %589, %588 ], [ %566, %586 ], [ %567, %557 ]
-  %606 = phi ptr [ %589, %588 ], [ %566, %586 ], [ %568, %557 ]
-  %.promoted203 = phi i32 [ %595, %588 ], [ %584, %586 ], [ %584, %557 ]
-  %.0.i145 = phi i32 [ %594, %588 ], [ %583, %586 ], [ %583, %557 ]
+vpx_rac_renorm.exit146:                           ; preds = %555, %584, %586
+  %594 = phi ptr [ %587, %586 ], [ %556, %584 ], [ %556, %555 ]
+  %595 = phi ptr [ %587, %586 ], [ %557, %584 ], [ %557, %555 ]
+  %596 = phi ptr [ %587, %586 ], [ %558, %584 ], [ %558, %555 ]
+  %597 = phi ptr [ %587, %586 ], [ %559, %584 ], [ %559, %555 ]
+  %598 = phi ptr [ %587, %586 ], [ %560, %584 ], [ %560, %555 ]
+  %599 = phi ptr [ %587, %586 ], [ %561, %584 ], [ %561, %555 ]
+  %600 = phi ptr [ %587, %586 ], [ %562, %584 ], [ %562, %555 ]
+  %601 = phi ptr [ %587, %586 ], [ %563, %584 ], [ %563, %555 ]
+  %602 = phi ptr [ %587, %586 ], [ %564, %584 ], [ %564, %555 ]
+  %603 = phi ptr [ %587, %586 ], [ %564, %584 ], [ %565, %555 ]
+  %604 = phi ptr [ %587, %586 ], [ %564, %584 ], [ %566, %555 ]
+  %.promoted203 = phi i32 [ %593, %586 ], [ %582, %584 ], [ %582, %555 ]
+  %.0.i145 = phi i32 [ %592, %586 ], [ %581, %584 ], [ %581, %555 ]
   store i32 %.promoted203, ptr %27, align 4, !tbaa !59
-  %607 = add nsw i32 %582, -1
-  %608 = mul nsw i32 %607, %577
-  %609 = ashr i32 %608, 8
-  %610 = add nsw i32 %609, 1
-  %611 = shl i32 %610, 16
-  %.not.i.i = icmp ult i32 %.0.i145, %611
-  %612 = getelementptr inbounds nuw i8, ptr %.0.i133197, i64 2
-  %613 = sub i32 %582, %610
-  %614 = zext nneg i8 %571 to i64
-  %615 = getelementptr inbounds nuw %struct.VP56Tree, ptr %.0.i133197, i64 %614
-  %.promoted202 = select i1 %.not.i.i, i32 %610, i32 %613
-  %narrow.i.i = select i1 %.not.i.i, i32 0, i32 %611
+  %605 = add nsw i32 %580, -1
+  %606 = mul nsw i32 %605, %575
+  %607 = ashr i32 %606, 8
+  %608 = add nsw i32 %607, 1
+  %609 = shl i32 %608, 16
+  %.not.i.i = icmp ult i32 %.0.i145, %609
+  %610 = getelementptr inbounds nuw i8, ptr %.0.i133197, i64 2
+  %611 = sub i32 %580, %608
+  %612 = zext nneg i8 %569 to i64
+  %613 = getelementptr inbounds nuw %struct.VP56Tree, ptr %.0.i133197, i64 %612
+  %.promoted202 = select i1 %.not.i.i, i32 %608, i32 %611
+  %narrow.i.i = select i1 %.not.i.i, i32 0, i32 %609
   %.promoted204 = sub nuw i32 %.0.i145, %narrow.i.i
-  %.1.i = select i1 %.not.i.i, ptr %612, ptr %615
+  %.1.i = select i1 %.not.i.i, ptr %610, ptr %613
   store i32 %.promoted202, ptr %3, align 8, !tbaa !58
   store i32 %.promoted204, ptr %28, align 8, !tbaa !60
-  %616 = load i8, ptr %.1.i, align 1, !tbaa !67
-  %617 = icmp sgt i8 %616, 0
-  br i1 %617, label %557, label %vp56_rac_get_tree.exit, !llvm.loop !70
+  %614 = load i8, ptr %.1.i, align 1, !tbaa !67
+  %615 = icmp sgt i8 %614, 0
+  br i1 %615, label %555, label %vp56_rac_get_tree.exit, !llvm.loop !70
 
 vp56_rac_get_tree.exit:                           ; preds = %vpx_rac_renorm.exit146
-  %618 = sext i8 %616 to i32
-  %619 = sub nsw i32 0, %618
-  %.not112 = icmp eq i8 %616, 0
+  %616 = sext i8 %614 to i32
+  %617 = sub nsw i32 0, %616
+  %.not112 = icmp eq i8 %614, 0
   br i1 %.not112, label %.preheader, label %.loopexit188
 
 .preheader:                                       ; preds = %vp56_rac_get_tree.exit, %vpx_rac_renorm.exit155
+  %618 = phi ptr [ %653, %vpx_rac_renorm.exit155 ], [ %594, %vp56_rac_get_tree.exit ]
+  %619 = phi ptr [ %654, %vpx_rac_renorm.exit155 ], [ %595, %vp56_rac_get_tree.exit ]
   %620 = phi ptr [ %655, %vpx_rac_renorm.exit155 ], [ %596, %vp56_rac_get_tree.exit ]
   %621 = phi ptr [ %656, %vpx_rac_renorm.exit155 ], [ %597, %vp56_rac_get_tree.exit ]
   %622 = phi ptr [ %657, %vpx_rac_renorm.exit155 ], [ %598, %vp56_rac_get_tree.exit ]
@@ -4390,110 +4390,110 @@ vp56_rac_get_tree.exit:                           ; preds = %vpx_rac_renorm.exit
   %626 = phi ptr [ %661, %vpx_rac_renorm.exit155 ], [ %602, %vp56_rac_get_tree.exit ]
   %627 = phi ptr [ %662, %vpx_rac_renorm.exit155 ], [ %603, %vp56_rac_get_tree.exit ]
   %628 = phi ptr [ %663, %vpx_rac_renorm.exit155 ], [ %604, %vp56_rac_get_tree.exit ]
-  %629 = phi ptr [ %664, %vpx_rac_renorm.exit155 ], [ %605, %vp56_rac_get_tree.exit ]
-  %630 = phi ptr [ %665, %vpx_rac_renorm.exit155 ], [ %606, %vp56_rac_get_tree.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %vpx_rac_renorm.exit155 ], [ 0, %vp56_rac_get_tree.exit ]
-  %.2206 = phi i32 [ %680, %vpx_rac_renorm.exit155 ], [ 9, %vp56_rac_get_tree.exit ]
-  %631 = phi i32 [ %675, %vpx_rac_renorm.exit155 ], [ %.promoted202, %vp56_rac_get_tree.exit ]
-  %632 = phi i32 [ %.018.i153, %vpx_rac_renorm.exit155 ], [ %.promoted203, %vp56_rac_get_tree.exit ]
-  %633 = phi i32 [ %677, %vpx_rac_renorm.exit155 ], [ %.promoted204, %vp56_rac_get_tree.exit ]
-  %634 = getelementptr inbounds nuw i8, ptr %556, i64 %indvars.iv
-  %635 = getelementptr inbounds nuw i8, ptr %634, i64 8
-  %636 = load i8, ptr %635, align 1, !tbaa !61
-  %637 = sext i32 %631 to i64
-  %638 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %637
-  %639 = load i8, ptr %638, align 1, !tbaa !61
-  %640 = zext i8 %639 to i32
-  %641 = shl i32 %631, %640
-  store i32 %641, ptr %3, align 8, !tbaa !58
-  %642 = shl i32 %633, %640
-  %643 = add nsw i32 %632, %640
-  %644 = icmp sgt i32 %643, -1
+  %.2206 = phi i32 [ %678, %vpx_rac_renorm.exit155 ], [ 9, %vp56_rac_get_tree.exit ]
+  %629 = phi i32 [ %673, %vpx_rac_renorm.exit155 ], [ %.promoted202, %vp56_rac_get_tree.exit ]
+  %630 = phi i32 [ %.018.i153, %vpx_rac_renorm.exit155 ], [ %.promoted203, %vp56_rac_get_tree.exit ]
+  %631 = phi i32 [ %675, %vpx_rac_renorm.exit155 ], [ %.promoted204, %vp56_rac_get_tree.exit ]
+  %632 = getelementptr inbounds nuw i8, ptr %554, i64 %indvars.iv
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 8
+  %634 = load i8, ptr %633, align 1, !tbaa !61
+  %635 = sext i32 %629 to i64
+  %636 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %635
+  %637 = load i8, ptr %636, align 1, !tbaa !61
+  %638 = zext i8 %637 to i32
+  %639 = shl i32 %629, %638
+  store i32 %639, ptr %3, align 8, !tbaa !58
+  %640 = shl i32 %631, %638
+  %641 = add nsw i32 %630, %638
+  %642 = icmp sgt i32 %641, -1
+  br i1 %642, label %643, label %vpx_rac_renorm.exit155
+
+643:                                              ; preds = %.preheader
+  %644 = icmp ult ptr %625, %8
   br i1 %644, label %645, label %vpx_rac_renorm.exit155
 
-645:                                              ; preds = %.preheader
-  %646 = icmp ult ptr %627, %8
-  br i1 %646, label %647, label %vpx_rac_renorm.exit155
-
-647:                                              ; preds = %645
-  %648 = getelementptr inbounds nuw i8, ptr %627, i64 2
-  store ptr %648, ptr %9, align 8, !tbaa !64
-  %649 = load i16, ptr %627, align 1, !tbaa !61
-  %650 = tail call i16 @llvm.bswap.i16(i16 %649)
-  %651 = zext i16 %650 to i32
-  %652 = shl i32 %651, %643
-  %653 = or i32 %652, %642
-  %654 = add nsw i32 %643, -16
+645:                                              ; preds = %643
+  %646 = getelementptr inbounds nuw i8, ptr %625, i64 2
+  store ptr %646, ptr %9, align 8, !tbaa !64
+  %647 = load i16, ptr %625, align 1, !tbaa !61
+  %648 = tail call i16 @llvm.bswap.i16(i16 %647)
+  %649 = zext i16 %648 to i32
+  %650 = shl i32 %649, %641
+  %651 = or i32 %650, %640
+  %652 = add nsw i32 %641, -16
   br label %vpx_rac_renorm.exit155
 
-vpx_rac_renorm.exit155:                           ; preds = %.preheader, %645, %647
-  %655 = phi ptr [ %648, %647 ], [ %620, %645 ], [ %620, %.preheader ]
-  %656 = phi ptr [ %648, %647 ], [ %621, %645 ], [ %621, %.preheader ]
-  %657 = phi ptr [ %648, %647 ], [ %622, %645 ], [ %622, %.preheader ]
-  %658 = phi ptr [ %648, %647 ], [ %623, %645 ], [ %623, %.preheader ]
-  %659 = phi ptr [ %648, %647 ], [ %624, %645 ], [ %624, %.preheader ]
-  %660 = phi ptr [ %648, %647 ], [ %625, %645 ], [ %625, %.preheader ]
-  %661 = phi ptr [ %648, %647 ], [ %626, %645 ], [ %626, %.preheader ]
-  %662 = phi ptr [ %648, %647 ], [ %627, %645 ], [ %627, %.preheader ]
-  %663 = phi ptr [ %648, %647 ], [ %627, %645 ], [ %628, %.preheader ]
-  %664 = phi ptr [ %648, %647 ], [ %627, %645 ], [ %629, %.preheader ]
-  %665 = phi ptr [ %648, %647 ], [ %627, %645 ], [ %630, %.preheader ]
-  %.018.i153 = phi i32 [ %654, %647 ], [ %643, %645 ], [ %643, %.preheader ]
-  %.0.i154 = phi i32 [ %653, %647 ], [ %642, %645 ], [ %642, %.preheader ]
+vpx_rac_renorm.exit155:                           ; preds = %.preheader, %643, %645
+  %653 = phi ptr [ %646, %645 ], [ %618, %643 ], [ %618, %.preheader ]
+  %654 = phi ptr [ %646, %645 ], [ %619, %643 ], [ %619, %.preheader ]
+  %655 = phi ptr [ %646, %645 ], [ %620, %643 ], [ %620, %.preheader ]
+  %656 = phi ptr [ %646, %645 ], [ %621, %643 ], [ %621, %.preheader ]
+  %657 = phi ptr [ %646, %645 ], [ %622, %643 ], [ %622, %.preheader ]
+  %658 = phi ptr [ %646, %645 ], [ %623, %643 ], [ %623, %.preheader ]
+  %659 = phi ptr [ %646, %645 ], [ %624, %643 ], [ %624, %.preheader ]
+  %660 = phi ptr [ %646, %645 ], [ %625, %643 ], [ %625, %.preheader ]
+  %661 = phi ptr [ %646, %645 ], [ %625, %643 ], [ %626, %.preheader ]
+  %662 = phi ptr [ %646, %645 ], [ %625, %643 ], [ %627, %.preheader ]
+  %663 = phi ptr [ %646, %645 ], [ %625, %643 ], [ %628, %.preheader ]
+  %.018.i153 = phi i32 [ %652, %645 ], [ %641, %643 ], [ %641, %.preheader ]
+  %.0.i154 = phi i32 [ %651, %645 ], [ %640, %643 ], [ %640, %.preheader ]
   store i32 %.018.i153, ptr %27, align 4, !tbaa !59
-  %666 = add nsw i32 %641, -1
-  %667 = zext i8 %636 to i32
-  %668 = mul nsw i32 %666, %667
-  %669 = ashr i32 %668, 8
-  %670 = add nsw i32 %669, 1
-  %671 = shl i32 %670, 16
-  %672 = icmp uge i32 %.0.i154, %671
-  %673 = sub i32 %641, %670
-  %674 = select i1 %672, i32 %671, i32 0
-  %675 = select i1 %672, i32 %673, i32 %670
-  %676 = zext i1 %672 to i32
-  store i32 %675, ptr %3, align 8, !tbaa !58
-  %677 = sub i32 %.0.i154, %674
-  store i32 %677, ptr %28, align 8, !tbaa !60
-  %678 = trunc nuw nsw i64 %indvars.iv to i32
-  %679 = shl nuw nsw i32 %676, %678
-  %680 = add nuw nsw i32 %679, %.2206
+  %664 = add nsw i32 %639, -1
+  %665 = zext i8 %634 to i32
+  %666 = mul nsw i32 %664, %665
+  %667 = ashr i32 %666, 8
+  %668 = add nsw i32 %667, 1
+  %669 = shl i32 %668, 16
+  %670 = icmp uge i32 %.0.i154, %669
+  %671 = sub i32 %639, %668
+  %672 = select i1 %670, i32 %669, i32 0
+  %673 = select i1 %670, i32 %671, i32 %668
+  %674 = zext i1 %670 to i32
+  store i32 %673, ptr %3, align 8, !tbaa !58
+  %675 = sub i32 %.0.i154, %672
+  store i32 %675, ptr %28, align 8, !tbaa !60
+  %676 = trunc nuw nsw i64 %indvars.iv to i32
+  %677 = shl nuw nsw i32 %674, %676
+  %678 = add nuw nsw i32 %677, %.2206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.loopexit188, label %.preheader, !llvm.loop !150
 
-.loopexit188:                                     ; preds = %vpx_rac_renorm.exit155, %510, %vp56_rac_get_tree.exit, %500
-  %.pre238247 = phi i32 [ %.0.i172, %500 ], [ %.promoted204, %vp56_rac_get_tree.exit ], [ %115, %510 ], [ %677, %vpx_rac_renorm.exit155 ]
-  %.pre237245 = phi i32 [ %.018.i.i, %500 ], [ %.promoted203, %vp56_rac_get_tree.exit ], [ %.018.i156, %510 ], [ %.018.i153, %vpx_rac_renorm.exit155 ]
-  %.pre236243 = phi i32 [ %.sink234, %500 ], [ %.promoted202, %vp56_rac_get_tree.exit ], [ %119, %510 ], [ %675, %vpx_rac_renorm.exit155 ]
-  %681 = phi ptr [ %476, %500 ], [ %596, %vp56_rac_get_tree.exit ], [ %104, %510 ], [ %655, %vpx_rac_renorm.exit155 ]
-  %682 = phi ptr [ %477, %500 ], [ %597, %vp56_rac_get_tree.exit ], [ %105, %510 ], [ %656, %vpx_rac_renorm.exit155 ]
-  %683 = phi ptr [ %478, %500 ], [ %598, %vp56_rac_get_tree.exit ], [ %106, %510 ], [ %657, %vpx_rac_renorm.exit155 ]
-  %684 = phi ptr [ %479, %500 ], [ %599, %vp56_rac_get_tree.exit ], [ %107, %510 ], [ %658, %vpx_rac_renorm.exit155 ]
-  %685 = phi ptr [ %480, %500 ], [ %600, %vp56_rac_get_tree.exit ], [ %108, %510 ], [ %659, %vpx_rac_renorm.exit155 ]
-  %686 = phi ptr [ %481, %500 ], [ %601, %vp56_rac_get_tree.exit ], [ %109, %510 ], [ %660, %vpx_rac_renorm.exit155 ]
-  %687 = phi ptr [ %482, %500 ], [ %602, %vp56_rac_get_tree.exit ], [ %110, %510 ], [ %661, %vpx_rac_renorm.exit155 ]
-  %688 = phi ptr [ %483, %500 ], [ %603, %vp56_rac_get_tree.exit ], [ %111, %510 ], [ %662, %vpx_rac_renorm.exit155 ]
-  %689 = phi ptr [ %484, %500 ], [ %604, %vp56_rac_get_tree.exit ], [ %112, %510 ], [ %663, %vpx_rac_renorm.exit155 ]
-  %690 = phi ptr [ %485, %500 ], [ %605, %vp56_rac_get_tree.exit ], [ %113, %510 ], [ %664, %vpx_rac_renorm.exit155 ]
-  %691 = phi ptr [ %486, %500 ], [ %606, %vp56_rac_get_tree.exit ], [ %114, %510 ], [ %665, %vpx_rac_renorm.exit155 ]
-  %.293 = phi i32 [ %.192, %500 ], [ 0, %vp56_rac_get_tree.exit ], [ 0, %510 ], [ 0, %vpx_rac_renorm.exit155 ]
-  %.1 = phi i32 [ 1, %500 ], [ %619, %vp56_rac_get_tree.exit ], [ %.0, %510 ], [ %680, %vpx_rac_renorm.exit155 ]
-  %692 = add nsw i32 %.1, %.0101
-  %693 = icmp sgt i32 %692, 63
-  br i1 %693, label %.loopexit189, label %694
+.loopexit188:                                     ; preds = %vpx_rac_renorm.exit155, %508, %vp56_rac_get_tree.exit, %498
+  %.pre238247 = phi i32 [ %.0.i172, %498 ], [ %.promoted204, %vp56_rac_get_tree.exit ], [ %115, %508 ], [ %675, %vpx_rac_renorm.exit155 ]
+  %.pre237245 = phi i32 [ %.018.i.i, %498 ], [ %.promoted203, %vp56_rac_get_tree.exit ], [ %.018.i156, %508 ], [ %.018.i153, %vpx_rac_renorm.exit155 ]
+  %.pre236243 = phi i32 [ %.sink234, %498 ], [ %.promoted202, %vp56_rac_get_tree.exit ], [ %119, %508 ], [ %673, %vpx_rac_renorm.exit155 ]
+  %679 = phi ptr [ %474, %498 ], [ %594, %vp56_rac_get_tree.exit ], [ %104, %508 ], [ %653, %vpx_rac_renorm.exit155 ]
+  %680 = phi ptr [ %475, %498 ], [ %595, %vp56_rac_get_tree.exit ], [ %105, %508 ], [ %654, %vpx_rac_renorm.exit155 ]
+  %681 = phi ptr [ %476, %498 ], [ %596, %vp56_rac_get_tree.exit ], [ %106, %508 ], [ %655, %vpx_rac_renorm.exit155 ]
+  %682 = phi ptr [ %477, %498 ], [ %597, %vp56_rac_get_tree.exit ], [ %107, %508 ], [ %656, %vpx_rac_renorm.exit155 ]
+  %683 = phi ptr [ %478, %498 ], [ %598, %vp56_rac_get_tree.exit ], [ %108, %508 ], [ %657, %vpx_rac_renorm.exit155 ]
+  %684 = phi ptr [ %479, %498 ], [ %599, %vp56_rac_get_tree.exit ], [ %109, %508 ], [ %658, %vpx_rac_renorm.exit155 ]
+  %685 = phi ptr [ %480, %498 ], [ %600, %vp56_rac_get_tree.exit ], [ %110, %508 ], [ %659, %vpx_rac_renorm.exit155 ]
+  %686 = phi ptr [ %481, %498 ], [ %601, %vp56_rac_get_tree.exit ], [ %111, %508 ], [ %660, %vpx_rac_renorm.exit155 ]
+  %687 = phi ptr [ %482, %498 ], [ %602, %vp56_rac_get_tree.exit ], [ %112, %508 ], [ %661, %vpx_rac_renorm.exit155 ]
+  %688 = phi ptr [ %483, %498 ], [ %603, %vp56_rac_get_tree.exit ], [ %113, %508 ], [ %662, %vpx_rac_renorm.exit155 ]
+  %689 = phi ptr [ %484, %498 ], [ %604, %vp56_rac_get_tree.exit ], [ %114, %508 ], [ %663, %vpx_rac_renorm.exit155 ]
+  %.293 = phi i32 [ %.192, %498 ], [ 0, %vp56_rac_get_tree.exit ], [ 0, %508 ], [ 0, %vpx_rac_renorm.exit155 ]
+  %.1 = phi i32 [ 1, %498 ], [ %617, %vp56_rac_get_tree.exit ], [ %.0, %508 ], [ %678, %vpx_rac_renorm.exit155 ]
+  %690 = add nsw i32 %.1, %.0101
+  %691 = icmp sgt i32 %690, 63
+  br i1 %691, label %.loopexit189, label %692
 
-694:                                              ; preds = %.loopexit188
-  %695 = sext i32 %692 to i64
-  %696 = getelementptr inbounds [64 x i8], ptr @vp6_coeff_groups, i64 0, i64 %695
-  %697 = load i8, ptr %696, align 1, !tbaa !61
-  %698 = zext nneg i32 %.293 to i64
-  %699 = getelementptr inbounds nuw [3 x [6 x [11 x i8]]], ptr %69, i64 0, i64 %698
-  %700 = zext i8 %697 to i64
-  %701 = getelementptr inbounds nuw [6 x [11 x i8]], ptr %699, i64 0, i64 %700
+692:                                              ; preds = %.loopexit188
+  %693 = sext i32 %690 to i64
+  %694 = getelementptr inbounds i8, ptr @vp6_coeff_groups, i64 %693
+  %695 = load i8, ptr %694, align 1, !tbaa !61
+  %696 = zext nneg i32 %.293 to i64
+  %697 = getelementptr inbounds nuw [6 x [11 x i8]], ptr %69, i64 %696
+  %698 = zext i8 %695 to i64
+  %699 = getelementptr inbounds nuw [11 x i8], ptr %697, i64 %698
   br label %70
 
 .loopexit189:                                     ; preds = %.loopexit188, %vpx_rac_get_prob_branchy.exit.thread
+  %700 = phi ptr [ %532, %vpx_rac_get_prob_branchy.exit.thread ], [ %679, %.loopexit188 ]
+  %701 = phi ptr [ %533, %vpx_rac_get_prob_branchy.exit.thread ], [ %680, %.loopexit188 ]
   %702 = phi ptr [ %534, %vpx_rac_get_prob_branchy.exit.thread ], [ %681, %.loopexit188 ]
   %703 = phi ptr [ %535, %vpx_rac_get_prob_branchy.exit.thread ], [ %682, %.loopexit188 ]
   %704 = phi ptr [ %536, %vpx_rac_get_prob_branchy.exit.thread ], [ %683, %.loopexit188 ]
@@ -4503,22 +4503,20 @@ vpx_rac_renorm.exit155:                           ; preds = %.preheader, %645, %
   %708 = phi ptr [ %540, %vpx_rac_get_prob_branchy.exit.thread ], [ %687, %.loopexit188 ]
   %709 = phi ptr [ %541, %vpx_rac_get_prob_branchy.exit.thread ], [ %688, %.loopexit188 ]
   %710 = phi ptr [ %542, %vpx_rac_get_prob_branchy.exit.thread ], [ %689, %.loopexit188 ]
-  %711 = phi ptr [ %543, %vpx_rac_get_prob_branchy.exit.thread ], [ %690, %.loopexit188 ]
-  %712 = phi ptr [ %544, %vpx_rac_get_prob_branchy.exit.thread ], [ %691, %.loopexit188 ]
-  %.1102 = phi i64 [ %551, %vpx_rac_get_prob_branchy.exit.thread ], [ 63, %.loopexit188 ]
-  %713 = load i16, ptr %68, align 16, !tbaa !56
-  %714 = icmp ne i16 %713, 0
-  %715 = zext i1 %714 to i8
-  %716 = load i32, ptr %57, align 4, !tbaa !97
-  %717 = sext i32 %716 to i64
-  %718 = getelementptr inbounds %struct.VP56RefDc, ptr %.pre, i64 %717
-  store i8 %715, ptr %718, align 4, !tbaa !146
-  store i8 %715, ptr %54, align 4, !tbaa !146
-  %719 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 0, i64 %.1102
-  %720 = load i8, ptr %719, align 1, !tbaa !61
-  %721 = zext i8 %720 to i32
-  %722 = getelementptr inbounds nuw [6 x i32], ptr %35, i64 0, i64 %indvars.iv230
-  store i32 %721, ptr %722, align 4, !tbaa !97
+  %.1102 = phi i64 [ %549, %vpx_rac_get_prob_branchy.exit.thread ], [ 63, %.loopexit188 ]
+  %711 = load i16, ptr %68, align 16, !tbaa !56
+  %712 = icmp ne i16 %711, 0
+  %713 = zext i1 %712 to i8
+  %714 = load i32, ptr %57, align 4, !tbaa !97
+  %715 = sext i32 %714 to i64
+  %716 = getelementptr inbounds %struct.VP56RefDc, ptr %.pre, i64 %715
+  store i8 %713, ptr %716, align 4, !tbaa !146
+  store i8 %713, ptr %54, align 4, !tbaa !146
+  %717 = getelementptr inbounds nuw i8, ptr %34, i64 %.1102
+  %718 = load i8, ptr %717, align 1, !tbaa !61
+  %719 = zext i8 %718 to i32
+  %720 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv230
+  store i32 %719, ptr %720, align 4, !tbaa !97
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next231, 6
   br i1 %exitcond233.not, label %.loopexit191, label %38, !llvm.loop !151
@@ -4555,10 +4553,10 @@ define internal range(i32 -1094995529, 1) i32 @vp6_parse_coeff_huffman(ptr nound
   %20 = icmp samesign ugt i64 %indvars.iv, 3
   %spec.select = select i1 %20, i32 1, i32 %.091139
   %21 = zext nneg i32 %spec.select to i64
-  %22 = getelementptr inbounds nuw [2 x %struct.VLC], ptr %5, i64 0, i64 %21
-  %invariant.gep = getelementptr [2 x i32], ptr %6, i64 0, i64 %21
-  %23 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %14, i64 0, i64 %indvars.iv
-  %24 = getelementptr inbounds nuw [2 x [3 x [4 x %struct.VLC]]], ptr %15, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.VLC, ptr %5, i64 %21
+  %invariant.gep = getelementptr i32, ptr %6, i64 %21
+  %23 = getelementptr inbounds nuw [64 x i16], ptr %14, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %15, i64 %21
   br label %25
 
 25:                                               ; preds = %277, %19
@@ -4570,7 +4568,7 @@ define internal range(i32 -1094995529, 1) i32 @vp6_parse_coeff_huffman(ptr nound
 
 27:                                               ; preds = %25
   %28 = sext i32 %.093 to i64
-  %gep = getelementptr [2 x [2 x i32]], ptr %invariant.gep, i64 0, i64 %28
+  %gep = getelementptr [2 x i32], ptr %invariant.gep, i64 %28
   %29 = load i32, ptr %gep, align 4, !tbaa !97
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %32, label %30
@@ -4827,13 +4825,13 @@ vp6_get_nb_null.exit:                             ; preds = %112, %123, %135
 
 vp6_get_nb_null.exit113:                          ; preds = %163, %174, %186
   %.0.i112 = phi i32 [ %185, %174 ], [ %211, %186 ], [ %171, %163 ]
-  %212 = getelementptr inbounds nuw [2 x i32], ptr %16, i64 0, i64 %21
+  %212 = getelementptr inbounds nuw i32, ptr %16, i64 %21
   store i32 %.0.i112, ptr %212, align 4, !tbaa !97
   br label %.loopexit
 
 213:                                              ; preds = %get_vlc2.exit
   %214 = sext i32 %.062.i to i64
-  %215 = getelementptr inbounds [0 x i8], ptr @ff_vp56_coeff_bias, i64 0, i64 %214
+  %215 = getelementptr inbounds i8, ptr @ff_vp56_coeff_bias, i64 %214
   %216 = load i8, ptr %215, align 1, !tbaa !61
   %217 = zext i8 %216 to i32
   %218 = icmp sgt i32 %.062.i, 4
@@ -4891,14 +4889,14 @@ vp6_get_nb_null.exit113:                          ; preds = %163, %174, %186
 257:                                              ; preds = %253, %235
   %.1 = phi i32 [ %256, %253 ], [ %252, %235 ]
   %258 = sext i32 %.093 to i64
-  %259 = getelementptr inbounds [64 x i8], ptr %13, i64 0, i64 %258
+  %259 = getelementptr inbounds i8, ptr %13, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !61
   %261 = trunc i32 %.1 to i16
   %262 = zext i8 %260 to i64
   %263 = getelementptr inbounds nuw i8, ptr %4, i64 %262
   %264 = load i8, ptr %263, align 1, !tbaa !61
   %265 = zext i8 %264 to i64
-  %266 = getelementptr inbounds nuw [64 x i16], ptr %23, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i16, ptr %23, i64 %265
   store i16 %261, ptr %266, align 2, !tbaa !56
   br label %.thread
 
@@ -4916,7 +4914,7 @@ vp6_get_nb_null.exit113:                          ; preds = %163, %174, %186
   br i1 %272, label %277, label %273
 
 273:                                              ; preds = %269
-  %274 = getelementptr inbounds [64 x i8], ptr @vp6_coeff_groups, i64 0, i64 %270
+  %274 = getelementptr inbounds i8, ptr @vp6_coeff_groups, i64 %270
   %275 = load i8, ptr %274, align 1, !tbaa !61
   %276 = zext i8 %275 to i64
   br label %277
@@ -4924,18 +4922,18 @@ vp6_get_nb_null.exit113:                          ; preds = %163, %174, %186
 277:                                              ; preds = %273, %269
   %278 = phi i64 [ %276, %273 ], [ 3, %269 ]
   %279 = zext nneg i32 %.288 to i64
-  %280 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %24, i64 0, i64 %279
-  %281 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %280, i64 0, i64 %278
+  %280 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %24, i64 %279
+  %281 = getelementptr inbounds nuw %struct.VLC, ptr %280, i64 %278
   br label %25
 
 .loopexit:                                        ; preds = %.thread, %30, %161, %vp6_get_nb_null.exit113
   %.194.ph = phi i32 [ 1, %vp6_get_nb_null.exit113 ], [ %.093, %161 ], [ %.093, %30 ], [ %267, %.thread ]
   %282 = tail call i32 @llvm.smin.i32(i32 %.194.ph, i32 63)
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds [64 x i8], ptr %17, i64 0, i64 %283
+  %284 = getelementptr inbounds i8, ptr %17, i64 %283
   %285 = load i8, ptr %284, align 1, !tbaa !61
   %286 = zext i8 %285 to i32
-  %287 = getelementptr inbounds nuw [6 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %287 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %286, ptr %287, align 4, !tbaa !97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -4960,16 +4958,16 @@ define internal fastcc void @vp6_decode_free_context(ptr noundef %0) unnamed_add
 7:                                                ; preds = %1, %13
   %8 = phi i1 [ true, %1 ], [ false, %13 ]
   %indvars.iv24 = phi i64 [ 0, %1 ], [ 1, %13 ]
-  %9 = getelementptr inbounds nuw [2 x %struct.VLC], ptr %3, i64 0, i64 %indvars.iv24
+  %9 = getelementptr inbounds nuw %struct.VLC, ptr %3, i64 %indvars.iv24
   tail call void @ff_vlc_free(ptr noundef nonnull %9) #11
-  %10 = getelementptr inbounds nuw [2 x %struct.VLC], ptr %4, i64 0, i64 %indvars.iv24
+  %10 = getelementptr inbounds nuw %struct.VLC, ptr %4, i64 %indvars.iv24
   tail call void @ff_vlc_free(ptr noundef nonnull %10) #11
-  %11 = getelementptr inbounds nuw [2 x [3 x [4 x %struct.VLC]]], ptr %5, i64 0, i64 %indvars.iv24
+  %11 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %5, i64 %indvars.iv24
   br label %.preheader
 
 .preheader:                                       ; preds = %7, %14
   %indvars.iv20 = phi i64 [ 0, %7 ], [ %indvars.iv.next21, %14 ]
-  %12 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %11, i64 0, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %11, i64 %indvars.iv20
   br label %15
 
 13:                                               ; preds = %14
@@ -4982,7 +4980,7 @@ define internal fastcc void @vp6_decode_free_context(ptr noundef %0) unnamed_add
 
 15:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %12, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.VLC, ptr %12, i64 %indvars.iv
   tail call void @ff_vlc_free(ptr noundef nonnull %16) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

@@ -618,55 +618,55 @@ switch.lookup:
   %3 = alloca %"class.llvm::format_object.4", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !16
-  %switch.tableidx = add nsw i8 %5, -2
-  %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE, i64 0, i64 %6
+  %6 = sext i8 %5 to i64
+  %7 = getelementptr ptr, ptr @switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE, i64 %6
+  %switch.gep = getelementptr i8, ptr %7, i64 -16
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !97
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !97
-  %.not11 = icmp eq ptr %8, %10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !97
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8, !tbaa !97
+  %.not11 = icmp eq ptr %9, %11
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %switch.lookup
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %19
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  br label %20
 
-._crit_edge:                                      ; preds = %19, %switch.lookup
+._crit_edge:                                      ; preds = %20, %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.6, ptr %15, align 8, !tbaa !49, !alias.scope !98
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.6, ptr %16, align 8, !tbaa !49, !alias.scope !98
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %3, align 8, !tbaa !45, !alias.scope !98
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load i64, ptr %0, align 8, !tbaa !19, !noalias !98
-  store i64 %17, ptr %16, align 8, !tbaa !54, !alias.scope !98
-  %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %18 = load i64, ptr %0, align 8, !tbaa !19, !noalias !98
+  store i64 %18, ptr %17, align 8, !tbaa !54, !alias.scope !98
+  %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-19:                                               ; preds = %.lr.ph, %19
-  %.sroa.08.012 = phi ptr [ %8, %.lr.ph ], [ %25, %19 ]
+20:                                               ; preds = %.lr.ph, %20
+  %.sroa.08.012 = phi ptr [ %9, %.lr.ph ], [ %26, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  store ptr %switch.load, ptr %11, align 8, !tbaa !49, !alias.scope !101
+  store ptr %switch.load, ptr %12, align 8, !tbaa !49, !alias.scope !101
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmmEEE, i64 16), ptr %2, align 8, !tbaa !45, !alias.scope !101
-  %21 = load i64, ptr %20, align 8, !tbaa !19, !noalias !101
-  store i64 %21, ptr %12, align 8, !tbaa !104, !alias.scope !101
-  %22 = load i64, ptr %.sroa.08.012, align 8, !tbaa !19, !noalias !101
-  store i64 %22, ptr %13, align 8, !tbaa !106, !alias.scope !101
-  %23 = load i64, ptr %0, align 8, !tbaa !19, !noalias !101
-  store i64 %23, ptr %14, align 8, !tbaa !54, !alias.scope !101
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  %22 = load i64, ptr %21, align 8, !tbaa !19, !noalias !101
+  store i64 %22, ptr %13, align 8, !tbaa !104, !alias.scope !101
+  %23 = load i64, ptr %.sroa.08.012, align 8, !tbaa !19, !noalias !101
+  store i64 %23, ptr %14, align 8, !tbaa !106, !alias.scope !101
+  %24 = load i64, ptr %0, align 8, !tbaa !19, !noalias !101
+  store i64 %24, ptr %15, align 8, !tbaa !54, !alias.scope !101
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
-  %.not = icmp eq ptr %25, %10
-  br i1 %.not, label %._crit_edge, label %19
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 24
+  %.not = icmp eq ptr %26, %11
+  br i1 %.not, label %._crit_edge, label %20
 }
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4

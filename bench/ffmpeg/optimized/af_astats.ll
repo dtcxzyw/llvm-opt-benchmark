@@ -244,7 +244,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 56:                                               ; preds = %65, %33
   %indvars.iv.i.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i, %65 ]
   %.02.i.i = phi double [ 0.000000e+00, %33 ], [ %.1.i.i, %65 ]
-  %57 = getelementptr inbounds nuw [8192 x i64], ptr %55, i64 0, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv.i.i
   %58 = load i64, ptr %57, align 8, !tbaa !42
   %59 = uitofp i64 %58 to double
   %60 = fdiv nsz double %59, %.pre-phi.i
@@ -1771,7 +1771,7 @@ reset_stats.exit:                                 ; preds = %._crit_edge.i, %120
 231:                                              ; preds = %240, %206
   %indvars.iv.i.i = phi i64 [ 0, %206 ], [ %indvars.iv.next.i.i, %240 ]
   %.02.i.i = phi double [ 0.000000e+00, %206 ], [ %.1.i.i, %240 ]
-  %232 = getelementptr inbounds nuw [8192 x i64], ptr %230, i64 0, i64 %indvars.iv.i.i
+  %232 = getelementptr inbounds nuw i64, ptr %230, i64 %indvars.iv.i.i
   %233 = load i64, ptr %232, align 8, !tbaa !42
   %234 = uitofp i64 %233 to double
   %235 = fdiv nsz double %234, %.pre-phi.i
@@ -5346,7 +5346,7 @@ define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0,
   store i32 %.190, ptr %175, align 4, !tbaa !157
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %178 = zext nneg i32 %174 to i64
-  %179 = getelementptr inbounds nuw [8192 x i64], ptr %177, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i64, ptr %177, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !42
   %181 = add i64 %180, 1
   store i64 %181, ptr %179, align 8, !tbaa !42

@@ -100,8 +100,8 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   br i1 %.not61.i, label %.preheader, label %.split.i
 
 .preheader:                                       ; preds = %.loopexit
-  %.not48 = icmp ugt ptr %.134, %.131
-  br i1 %.not48, label %php_pcre2_substring_nametable_scan.exit.thread, label %.lr.ph
+  %.not47 = icmp ugt ptr %.134, %.131
+  br i1 %.not47, label %php_pcre2_substring_nametable_scan.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 98
@@ -112,12 +112,12 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   br label %54
 
 54:                                               ; preds = %.lr.ph, %php_pcre2_substring_copy_bynumber.exit
-  %.02150 = phi ptr [ %.134, %.lr.ph ], [ %103, %php_pcre2_substring_copy_bynumber.exit ]
-  %.02249 = phi i32 [ -54, %.lr.ph ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ]
-  %55 = load i8, ptr %.02150, align 1, !tbaa !21
+  %.02149 = phi ptr [ %.134, %.lr.ph ], [ %102, %php_pcre2_substring_copy_bynumber.exit ]
+  %.02248 = phi i32 [ -54, %.lr.ph ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ]
+  %55 = load i8, ptr %.02149, align 1, !tbaa !21
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 8
-  %58 = getelementptr inbounds nuw i8, ptr %.02150, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.02149, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !21
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
@@ -127,81 +127,80 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
 63:                                               ; preds = %54
   %64 = shl nuw nsw i32 %61, 1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %52, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !22
   %.not28 = icmp eq i64 %67, -1
   br i1 %.not28, label %php_pcre2_substring_copy_bynumber.exit, label %68
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %70 = load i32, ptr %69, align 4, !tbaa !23
-  %71 = icmp eq i32 %70, -2
-  br i1 %71, label %72, label %73
-
-72:                                               ; preds = %68
-  %.not.i.i = icmp eq i32 %61, 0
-  br i1 %.not.i.i, label %75, label %php_pcre2_substring_nametable_scan.exit.thread
+  %69 = getelementptr inbounds nuw i64, ptr %52, i64 %65
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %71 = load i32, ptr %70, align 4, !tbaa !23
+  %72 = icmp eq i32 %71, -2
+  br i1 %72, label %73, label %74
 
 73:                                               ; preds = %68
-  %74 = icmp slt i32 %70, 0
-  br i1 %74, label %php_pcre2_substring_nametable_scan.exit.thread, label %75
+  %.not.i.i = icmp eq i32 %61, 0
+  br i1 %.not.i.i, label %76, label %php_pcre2_substring_nametable_scan.exit.thread
 
-75:                                               ; preds = %73, %72
-  %.0.i.i = phi i32 [ %70, %73 ], [ 0, %72 ]
-  %76 = load i8, ptr %5, align 8, !tbaa !4
-  %.not38.i.i = icmp eq i8 %76, 1
-  br i1 %.not38.i.i, label %83, label %77
+74:                                               ; preds = %68
+  %75 = icmp slt i32 %71, 0
+  br i1 %75, label %php_pcre2_substring_nametable_scan.exit.thread, label %76
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr %9, align 8, !tbaa !16
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 136
-  %80 = load i16, ptr %79, align 8, !tbaa !24
-  %81 = zext i16 %80 to i32
-  %82 = icmp samesign ugt i32 %61, %81
-  br i1 %82, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i.i
+76:                                               ; preds = %74, %73
+  %.0.i.i = phi i32 [ %71, %74 ], [ 0, %73 ]
+  %77 = load i8, ptr %5, align 8, !tbaa !4
+  %.not38.i.i = icmp eq i8 %77, 1
+  br i1 %.not38.i.i, label %84, label %78
 
-83:                                               ; preds = %75
-  %84 = add nsw i32 %.0.i.i, -1
-  %or.cond.not.i.i = icmp ult i32 %84, %61
+78:                                               ; preds = %76
+  %79 = load ptr, ptr %9, align 8, !tbaa !16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
+  %81 = load i16, ptr %80, align 8, !tbaa !24
+  %82 = zext i16 %81 to i32
+  %83 = icmp samesign ugt i32 %61, %82
+  br i1 %83, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i.i
+
+84:                                               ; preds = %76
+  %85 = add nsw i32 %.0.i.i, -1
+  %or.cond.not.i.i = icmp ult i32 %85, %61
   br i1 %or.cond.not.i.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %83, %77
-  %85 = or disjoint i32 %64, 1
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %86
-  %88 = load i64, ptr %87, align 8, !tbaa !22
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %90 = load i64, ptr %89, align 8, !tbaa !25
-  %91 = icmp ugt i64 %67, %90
-  %92 = icmp ugt i64 %88, %90
-  %or.cond44.i.i = select i1 %91, i1 true, i1 %92
-  br i1 %or.cond44.i.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %93
+._crit_edge.i.i:                                  ; preds = %84, %78
+  %86 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %87 = load i64, ptr %86, align 8, !tbaa !22
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %89 = load i64, ptr %88, align 8, !tbaa !25
+  %90 = icmp ugt i64 %67, %89
+  %91 = icmp ugt i64 %87, %89
+  %or.cond44.i.i = select i1 %90, i1 true, i1 %91
+  br i1 %or.cond44.i.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %92
 
-93:                                               ; preds = %._crit_edge.i.i
-  %94 = tail call i64 @llvm.usub.sat.i64(i64 %88, i64 %67)
-  %95 = add i64 %94, 1
-  %96 = load i64, ptr %3, align 8, !tbaa !22
-  %97 = icmp ugt i64 %95, %96
-  br i1 %97, label %php_pcre2_substring_nametable_scan.exit.thread, label %98
+92:                                               ; preds = %._crit_edge.i.i
+  %93 = tail call i64 @llvm.usub.sat.i64(i64 %87, i64 %67)
+  %94 = add i64 %93, 1
+  %95 = load i64, ptr %3, align 8, !tbaa !22
+  %96 = icmp ugt i64 %94, %95
+  br i1 %96, label %php_pcre2_substring_nametable_scan.exit.thread, label %97
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %100 = load ptr, ptr %99, align 8, !tbaa !26
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %101, i64 %94, i1 false)
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 %94
-  store i8 0, ptr %102, align 1, !tbaa !21
-  store i64 %94, ptr %3, align 8, !tbaa !22
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %99 = load ptr, ptr %98, align 8, !tbaa !26
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %100, i64 %93, i1 false)
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 %93
+  store i8 0, ptr %101, align 1, !tbaa !21
+  store i64 %93, ptr %3, align 8, !tbaa !22
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_copy_bynumber.exit:           ; preds = %63, %54
-  %.224 = phi i32 [ %.02249, %54 ], [ -55, %63 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.02150, i64 %53
-  %.not = icmp ugt ptr %103, %.131
+  %.224 = phi i32 [ %.02248, %54 ], [ -55, %63 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.02149, i64 %53
+  %.not = icmp ugt ptr %102, %.131
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %54
 
-php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_copy_bynumber.exit, %.preheader, %98, %93, %._crit_edge.i.i, %83, %77, %73, %72, %4
-  %.0 = phi i32 [ -41, %4 ], [ -2, %72 ], [ %70, %73 ], [ -49, %77 ], [ -55, %83 ], [ -67, %._crit_edge.i.i ], [ -48, %93 ], [ 0, %98 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ], [ -49, %.split.i ]
+php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_copy_bynumber.exit, %.preheader, %97, %92, %._crit_edge.i.i, %84, %78, %74, %73, %4
+  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ %71, %74 ], [ -49, %78 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ -48, %92 ], [ 0, %97 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ], [ -49, %.split.i ]
   ret i32 %.0
 }
 
@@ -429,7 +428,7 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumbe
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = shl nuw nsw i32 %1, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [131072 x i64], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %php_pcre2_substring_length_bynumber.exit.thread, label %38
@@ -453,44 +452,41 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumbe
 
 38:                                               ; preds = %._crit_edge.i, %25
   %.pre-phi46.i = phi i64 [ %.pre45.i, %._crit_edge.i ], [ %28, %25 ]
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %27, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %40 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.pre-phi46.i
   %41 = load i64, ptr %40, align 8, !tbaa !22
-  %42 = or disjoint i32 %.pre-phi.i, 1
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !22
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load i64, ptr %46, align 8, !tbaa !25
-  %48 = icmp ugt i64 %41, %47
-  %49 = icmp ugt i64 %45, %47
-  %or.cond44.i = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond44.i, label %php_pcre2_substring_length_bynumber.exit.thread, label %50
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !22
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %45 = load i64, ptr %44, align 8, !tbaa !25
+  %46 = icmp ugt i64 %41, %45
+  %47 = icmp ugt i64 %43, %45
+  %or.cond44.i = select i1 %46, i1 true, i1 %47
+  br i1 %or.cond44.i, label %php_pcre2_substring_length_bynumber.exit.thread, label %48
 
-50:                                               ; preds = %38
-  %51 = tail call i64 @llvm.usub.sat.i64(i64 %45, i64 %41)
-  %52 = add i64 %51, 1
-  %53 = load i64, ptr %3, align 8, !tbaa !22
-  %54 = icmp ugt i64 %52, %53
-  br i1 %54, label %php_pcre2_substring_length_bynumber.exit.thread, label %55
+48:                                               ; preds = %38
+  %49 = tail call i64 @llvm.usub.sat.i64(i64 %43, i64 %41)
+  %50 = add i64 %49, 1
+  %51 = load i64, ptr %3, align 8, !tbaa !22
+  %52 = icmp ugt i64 %50, %51
+  br i1 %52, label %php_pcre2_substring_length_bynumber.exit.thread, label %53
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !26
-  %58 = shl nuw nsw i32 %1, 1
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !22
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %62, i64 %51, i1 false)
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 %51
-  store i8 0, ptr %63, align 1, !tbaa !21
-  store i64 %51, ptr %3, align 8, !tbaa !22
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %55 = load ptr, ptr %54, align 8, !tbaa !26
+  %56 = shl nuw nsw i32 %1, 1
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i64, ptr %39, i64 %57
+  %59 = load i64, ptr %58, align 8, !tbaa !22
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %60, i64 %49, i1 false)
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 %49
+  store i8 0, ptr %61, align 1, !tbaa !21
+  store i64 %49, ptr %3, align 8, !tbaa !22
   br label %php_pcre2_substring_length_bynumber.exit.thread
 
-php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %50, %55
-  %.0 = phi i32 [ 0, %55 ], [ -48, %50 ], [ -67, %38 ], [ -55, %36 ], [ -54, %32 ], [ -55, %25 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
+php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %48, %53
+  %.0 = phi i32 [ 0, %53 ], [ -48, %48 ], [ -67, %38 ], [ -55, %36 ], [ -54, %32 ], [ -55, %25 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
   ret i32 %.0
 }
 
@@ -503,11 +499,11 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
 
 7:                                                ; preds = %3
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %10, label %52
+  br i1 %.not, label %10, label %50
 
 8:                                                ; preds = %3
   %9 = icmp slt i32 %5, 0
-  br i1 %9, label %52, label %10
+  br i1 %9, label %50, label %10
 
 10:                                               ; preds = %7, %8
   %.0 = phi i32 [ %5, %8 ], [ 0, %7 ]
@@ -523,35 +519,35 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
   %17 = load i16, ptr %16, align 8, !tbaa !24
   %18 = zext i16 %17 to i32
   %19 = icmp ugt i32 %1, %18
-  br i1 %19, label %52, label %20
+  br i1 %19, label %50, label %20
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %22 = load i16, ptr %21, align 2, !tbaa !20
   %23 = zext i16 %22 to i32
   %.not42 = icmp samesign ult i32 %1, %23
-  br i1 %.not42, label %24, label %52
+  br i1 %.not42, label %24, label %50
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = shl nuw nsw i32 %1, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [131072 x i64], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %25, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !22
   %30 = icmp eq i64 %29, -1
-  br i1 %30, label %52, label %37
+  br i1 %30, label %50, label %37
 
 31:                                               ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %33 = load i16, ptr %32, align 2, !tbaa !20
   %34 = zext i16 %33 to i32
   %.not39 = icmp ult i32 %1, %34
-  br i1 %.not39, label %35, label %52
+  br i1 %.not39, label %35, label %50
 
 35:                                               ; preds = %31
   %36 = add nsw i32 %.0, -1
   %or.cond.not = icmp ult i32 %36, %1
-  br i1 %or.cond.not, label %52, label %._crit_edge
+  br i1 %or.cond.not, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35
   %.pre = shl nuw nsw i32 %1, 1
@@ -560,32 +556,29 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
 
 37:                                               ; preds = %._crit_edge, %24
   %.pre-phi46 = phi i64 [ %.pre45, %._crit_edge ], [ %27, %24 ]
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %26, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %39 = getelementptr inbounds nuw [131072 x i64], ptr %38, i64 0, i64 %.pre-phi46
+  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.pre-phi46
   %40 = load i64, ptr %39, align 8, !tbaa !22
-  %41 = or disjoint i32 %.pre-phi, 1
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [131072 x i64], ptr %38, i64 0, i64 %42
-  %44 = load i64, ptr %43, align 8, !tbaa !22
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %46 = load i64, ptr %45, align 8, !tbaa !25
-  %47 = icmp ugt i64 %40, %46
-  %48 = icmp ugt i64 %44, %46
-  %or.cond44 = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond44, label %52, label %49
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !22
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %44 = load i64, ptr %43, align 8, !tbaa !25
+  %45 = icmp ugt i64 %40, %44
+  %46 = icmp ugt i64 %42, %44
+  %or.cond44 = select i1 %45, i1 true, i1 %46
+  br i1 %or.cond44, label %50, label %47
 
-49:                                               ; preds = %37
+47:                                               ; preds = %37
   %.not43 = icmp eq ptr %2, null
-  br i1 %.not43, label %52, label %50
+  br i1 %.not43, label %50, label %48
 
-50:                                               ; preds = %49
-  %51 = tail call i64 @llvm.usub.sat.i64(i64 %44, i64 %40)
-  store i64 %51, ptr %2, align 8, !tbaa !22
-  br label %52
+48:                                               ; preds = %47
+  %49 = tail call i64 @llvm.usub.sat.i64(i64 %42, i64 %40)
+  store i64 %49, ptr %2, align 8, !tbaa !22
+  br label %50
 
-52:                                               ; preds = %49, %50, %37, %35, %31, %24, %20, %13, %8, %7
-  %.031 = phi i32 [ -2, %7 ], [ %5, %8 ], [ -49, %13 ], [ -54, %20 ], [ -55, %24 ], [ -54, %31 ], [ -55, %35 ], [ -67, %37 ], [ 0, %50 ], [ 0, %49 ]
+50:                                               ; preds = %47, %48, %37, %35, %31, %24, %20, %13, %8, %7
+  %.031 = phi i32 [ -2, %7 ], [ %5, %8 ], [ -49, %13 ], [ -54, %20 ], [ -55, %24 ], [ -54, %31 ], [ -55, %35 ], [ -67, %37 ], [ 0, %48 ], [ 0, %47 ]
   ret i32 %.031
 }
 
@@ -689,8 +682,8 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   br i1 %.not61.i, label %.preheader, label %.split.i
 
 .preheader:                                       ; preds = %.loopexit
-  %.not50 = icmp ugt ptr %.134, %.131
-  br i1 %.not50, label %php_pcre2_substring_nametable_scan.exit.thread, label %.lr.ph
+  %.not49 = icmp ugt ptr %.134, %.131
+  br i1 %.not49, label %php_pcre2_substring_nametable_scan.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 98
@@ -701,12 +694,12 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %.lr.ph, %php_pcre2_substring_get_bynumber.exit
-  %.02152 = phi ptr [ %.134, %.lr.ph ], [ %107, %php_pcre2_substring_get_bynumber.exit ]
-  %.02251 = phi i32 [ -54, %.lr.ph ], [ %.224, %php_pcre2_substring_get_bynumber.exit ]
-  %55 = load i8, ptr %.02152, align 1, !tbaa !21
+  %.02151 = phi ptr [ %.134, %.lr.ph ], [ %105, %php_pcre2_substring_get_bynumber.exit ]
+  %.02250 = phi i32 [ -54, %.lr.ph ], [ %.224, %php_pcre2_substring_get_bynumber.exit ]
+  %55 = load i8, ptr %.02151, align 1, !tbaa !21
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 8
-  %58 = getelementptr inbounds nuw i8, ptr %.02152, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.02151, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !21
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
@@ -716,13 +709,13 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
 63:                                               ; preds = %54
   %64 = shl nuw nsw i32 %61, 1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %52, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !22
   %.not28 = icmp eq i64 %67, -1
   br i1 %.not28, label %php_pcre2_substring_get_bynumber.exit, label %68
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %65
+  %69 = getelementptr inbounds nuw i64, ptr %52, i64 %65
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %71 = load i32, ptr %70, align 4, !tbaa !23
   %72 = icmp eq i32 %71, -2
@@ -756,46 +749,44 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   br i1 %or.cond.not.i.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %84, %78
-  %86 = or disjoint i32 %64, 1
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %87
-  %89 = load i64, ptr %88, align 8, !tbaa !22
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %91 = load i64, ptr %90, align 8, !tbaa !25
-  %92 = icmp ugt i64 %67, %91
-  %93 = icmp ugt i64 %89, %91
-  %or.cond44.i.i = select i1 %92, i1 true, i1 %93
-  br i1 %or.cond44.i.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %94
+  %86 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %87 = load i64, ptr %86, align 8, !tbaa !22
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %89 = load i64, ptr %88, align 8, !tbaa !25
+  %90 = icmp ugt i64 %67, %89
+  %91 = icmp ugt i64 %87, %89
+  %or.cond44.i.i = select i1 %90, i1 true, i1 %91
+  br i1 %or.cond44.i.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %92
 
-94:                                               ; preds = %._crit_edge.i.i
-  %95 = tail call i64 @llvm.usub.sat.i64(i64 %89, i64 %67)
-  %96 = shl i64 %95, 3
-  %97 = add i64 %96, 32
-  %98 = tail call ptr @_pcre2_memctl_malloc_8(i64 noundef %97, ptr noundef nonnull %0) #6
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %php_pcre2_substring_nametable_scan.exit.thread, label %100
+92:                                               ; preds = %._crit_edge.i.i
+  %93 = tail call i64 @llvm.usub.sat.i64(i64 %87, i64 %67)
+  %94 = shl i64 %93, 3
+  %95 = add i64 %94, 32
+  %96 = tail call ptr @_pcre2_memctl_malloc_8(i64 noundef %95, ptr noundef nonnull %0) #6
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %php_pcre2_substring_nametable_scan.exit.thread, label %98
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !26
-  %104 = load i64, ptr %69, align 8, !tbaa !22
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %105, i64 %95, i1 false)
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 %95
-  store i8 0, ptr %106, align 1, !tbaa !21
-  store ptr %101, ptr %2, align 8, !tbaa !27
-  store i64 %95, ptr %3, align 8, !tbaa !22
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %101 = load ptr, ptr %100, align 8, !tbaa !26
+  %102 = load i64, ptr %69, align 8, !tbaa !22
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 %102
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr align 1 %103, i64 %93, i1 false)
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 %93
+  store i8 0, ptr %104, align 1, !tbaa !21
+  store ptr %99, ptr %2, align 8, !tbaa !27
+  store i64 %93, ptr %3, align 8, !tbaa !22
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_get_bynumber.exit:            ; preds = %63, %54
-  %.224 = phi i32 [ %.02251, %54 ], [ -55, %63 ]
-  %107 = getelementptr inbounds nuw i8, ptr %.02152, i64 %53
-  %.not = icmp ugt ptr %107, %.131
+  %.224 = phi i32 [ %.02250, %54 ], [ -55, %63 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.02151, i64 %53
+  %.not = icmp ugt ptr %105, %.131
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %54
 
-php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_get_bynumber.exit, %.preheader, %100, %94, %._crit_edge.i.i, %84, %78, %74, %73, %4
-  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ %71, %74 ], [ -49, %78 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ -48, %94 ], [ 0, %100 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_get_bynumber.exit ], [ -49, %.split.i ]
+php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_get_bynumber.exit, %.preheader, %98, %92, %._crit_edge.i.i, %84, %78, %74, %73, %4
+  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ %71, %74 ], [ -49, %78 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ -48, %92 ], [ 0, %98 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_get_bynumber.exit ], [ -49, %.split.i ]
   ret i32 %.0
 }
 
@@ -841,7 +832,7 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = shl nuw nsw i32 %1, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [131072 x i64], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %php_pcre2_substring_length_bynumber.exit.thread, label %38
@@ -865,47 +856,44 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber
 
 38:                                               ; preds = %._crit_edge.i, %25
   %.pre-phi46.i = phi i64 [ %.pre45.i, %._crit_edge.i ], [ %28, %25 ]
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %27, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %40 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.pre-phi46.i
   %41 = load i64, ptr %40, align 8, !tbaa !22
-  %42 = or disjoint i32 %.pre-phi.i, 1
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !22
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load i64, ptr %46, align 8, !tbaa !25
-  %48 = icmp ugt i64 %41, %47
-  %49 = icmp ugt i64 %45, %47
-  %or.cond44.i = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond44.i, label %php_pcre2_substring_length_bynumber.exit.thread, label %50
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !22
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %45 = load i64, ptr %44, align 8, !tbaa !25
+  %46 = icmp ugt i64 %41, %45
+  %47 = icmp ugt i64 %43, %45
+  %or.cond44.i = select i1 %46, i1 true, i1 %47
+  br i1 %or.cond44.i, label %php_pcre2_substring_length_bynumber.exit.thread, label %48
 
-50:                                               ; preds = %38
-  %51 = tail call i64 @llvm.usub.sat.i64(i64 %45, i64 %41)
-  %52 = shl i64 %51, 3
-  %53 = add i64 %52, 32
-  %54 = tail call ptr @_pcre2_memctl_malloc_8(i64 noundef %53, ptr noundef nonnull %0) #6
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %php_pcre2_substring_length_bynumber.exit.thread, label %56
+48:                                               ; preds = %38
+  %49 = tail call i64 @llvm.usub.sat.i64(i64 %43, i64 %41)
+  %50 = shl i64 %49, 3
+  %51 = add i64 %50, 32
+  %52 = tail call ptr @_pcre2_memctl_malloc_8(i64 noundef %51, ptr noundef nonnull %0) #6
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %php_pcre2_substring_length_bynumber.exit.thread, label %54
 
-56:                                               ; preds = %50
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !26
-  %60 = shl nuw nsw i32 %1, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %61
-  %63 = load i64, ptr %62, align 8, !tbaa !22
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 %63
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %64, i64 %51, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 %51
-  store i8 0, ptr %65, align 1, !tbaa !21
-  store ptr %57, ptr %2, align 8, !tbaa !27
-  store i64 %51, ptr %3, align 8, !tbaa !22
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8, !tbaa !26
+  %58 = shl nuw nsw i32 %1, 1
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw i64, ptr %39, i64 %59
+  %61 = load i64, ptr %60, align 8, !tbaa !22
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %61
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %62, i64 %49, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 %49
+  store i8 0, ptr %63, align 1, !tbaa !21
+  store ptr %55, ptr %2, align 8, !tbaa !27
+  store i64 %49, ptr %3, align 8, !tbaa !22
   br label %php_pcre2_substring_length_bynumber.exit.thread
 
-php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %50, %56
-  %.0 = phi i32 [ 0, %56 ], [ -48, %50 ], [ -67, %38 ], [ -55, %36 ], [ -54, %32 ], [ -55, %25 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
+php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %48, %54
+  %.0 = phi i32 [ 0, %54 ], [ -48, %48 ], [ -67, %38 ], [ -55, %36 ], [ -54, %32 ], [ -55, %25 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
   ret i32 %.0
 }
 
@@ -1026,8 +1014,8 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   br i1 %.not61.i, label %.preheader, label %.split.i
 
 .preheader:                                       ; preds = %.loopexit
-  %.not47 = icmp ugt ptr %.134, %.131
-  br i1 %.not47, label %php_pcre2_substring_nametable_scan.exit.thread, label %.lr.ph
+  %.not46 = icmp ugt ptr %.134, %.131
+  br i1 %.not46, label %php_pcre2_substring_nametable_scan.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 98
@@ -1038,12 +1026,12 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   br label %53
 
 53:                                               ; preds = %.lr.ph, %php_pcre2_substring_length_bynumber.exit
-  %.02049 = phi ptr [ %.134, %.lr.ph ], [ %95, %php_pcre2_substring_length_bynumber.exit ]
-  %.02148 = phi i32 [ -54, %.lr.ph ], [ %.223, %php_pcre2_substring_length_bynumber.exit ]
-  %54 = load i8, ptr %.02049, align 1, !tbaa !21
+  %.02048 = phi ptr [ %.134, %.lr.ph ], [ %94, %php_pcre2_substring_length_bynumber.exit ]
+  %.02147 = phi i32 [ -54, %.lr.ph ], [ %.223, %php_pcre2_substring_length_bynumber.exit ]
+  %54 = load i8, ptr %.02048, align 1, !tbaa !21
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds nuw i8, ptr %.02049, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.02048, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !21
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
@@ -1053,73 +1041,72 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
 62:                                               ; preds = %53
   %63 = shl nuw nsw i32 %60, 1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i64, ptr %51, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !22
   %.not27 = icmp eq i64 %66, -1
   br i1 %.not27, label %php_pcre2_substring_length_bynumber.exit, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %69 = load i32, ptr %68, align 4, !tbaa !23
-  %70 = icmp eq i32 %69, -2
-  br i1 %70, label %71, label %72
-
-71:                                               ; preds = %67
-  %.not.i28 = icmp eq i32 %60, 0
-  br i1 %.not.i28, label %74, label %php_pcre2_substring_nametable_scan.exit.thread
+  %68 = getelementptr inbounds nuw i64, ptr %51, i64 %64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %70 = load i32, ptr %69, align 4, !tbaa !23
+  %71 = icmp eq i32 %70, -2
+  br i1 %71, label %72, label %73
 
 72:                                               ; preds = %67
-  %73 = icmp slt i32 %69, 0
-  br i1 %73, label %php_pcre2_substring_nametable_scan.exit.thread, label %74
+  %.not.i28 = icmp eq i32 %60, 0
+  br i1 %.not.i28, label %75, label %php_pcre2_substring_nametable_scan.exit.thread
 
-74:                                               ; preds = %72, %71
-  %.0.i = phi i32 [ %69, %72 ], [ 0, %71 ]
-  %75 = load i8, ptr %4, align 8, !tbaa !4
-  %.not38.i = icmp eq i8 %75, 1
-  br i1 %.not38.i, label %82, label %76
+73:                                               ; preds = %67
+  %74 = icmp slt i32 %70, 0
+  br i1 %74, label %php_pcre2_substring_nametable_scan.exit.thread, label %75
 
-76:                                               ; preds = %74
-  %77 = load ptr, ptr %8, align 8, !tbaa !16
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
-  %79 = load i16, ptr %78, align 8, !tbaa !24
-  %80 = zext i16 %79 to i32
-  %81 = icmp samesign ugt i32 %60, %80
-  br i1 %81, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i
+75:                                               ; preds = %73, %72
+  %.0.i = phi i32 [ %70, %73 ], [ 0, %72 ]
+  %76 = load i8, ptr %4, align 8, !tbaa !4
+  %.not38.i = icmp eq i8 %76, 1
+  br i1 %.not38.i, label %83, label %77
 
-82:                                               ; preds = %74
-  %83 = add nsw i32 %.0.i, -1
-  %or.cond.not.i = icmp ult i32 %83, %60
+77:                                               ; preds = %75
+  %78 = load ptr, ptr %8, align 8, !tbaa !16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 136
+  %80 = load i16, ptr %79, align 8, !tbaa !24
+  %81 = zext i16 %80 to i32
+  %82 = icmp samesign ugt i32 %60, %81
+  br i1 %82, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i
+
+83:                                               ; preds = %75
+  %84 = add nsw i32 %.0.i, -1
+  %or.cond.not.i = icmp ult i32 %84, %60
   br i1 %or.cond.not.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %82, %76
-  %84 = or disjoint i32 %63, 1
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %85
-  %87 = load i64, ptr %86, align 8, !tbaa !22
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %89 = load i64, ptr %88, align 8, !tbaa !25
-  %90 = icmp ugt i64 %66, %89
-  %91 = icmp ugt i64 %87, %89
-  %or.cond44.i = select i1 %90, i1 true, i1 %91
-  br i1 %or.cond44.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %92
+._crit_edge.i:                                    ; preds = %83, %77
+  %85 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %86 = load i64, ptr %85, align 8, !tbaa !22
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %88 = load i64, ptr %87, align 8, !tbaa !25
+  %89 = icmp ugt i64 %66, %88
+  %90 = icmp ugt i64 %86, %88
+  %or.cond44.i = select i1 %89, i1 true, i1 %90
+  br i1 %or.cond44.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %91
 
-92:                                               ; preds = %._crit_edge.i
+91:                                               ; preds = %._crit_edge.i
   %.not43.i = icmp eq ptr %2, null
-  br i1 %.not43.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %93
+  br i1 %.not43.i, label %php_pcre2_substring_nametable_scan.exit.thread, label %92
 
-93:                                               ; preds = %92
-  %94 = tail call i64 @llvm.usub.sat.i64(i64 %87, i64 %66)
-  store i64 %94, ptr %2, align 8, !tbaa !22
+92:                                               ; preds = %91
+  %93 = tail call i64 @llvm.usub.sat.i64(i64 %86, i64 %66)
+  store i64 %93, ptr %2, align 8, !tbaa !22
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_length_bynumber.exit:         ; preds = %62, %53
-  %.223 = phi i32 [ %.02148, %53 ], [ -55, %62 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.02049, i64 %52
-  %.not = icmp ugt ptr %95, %.131
+  %.223 = phi i32 [ %.02147, %53 ], [ -55, %62 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.02048, i64 %52
+  %.not = icmp ugt ptr %94, %.131
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %53
 
-php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_length_bynumber.exit, %.preheader, %93, %92, %._crit_edge.i, %82, %76, %72, %71, %3
-  %.0 = phi i32 [ -41, %3 ], [ 0, %92 ], [ 0, %93 ], [ -67, %._crit_edge.i ], [ -55, %82 ], [ -49, %76 ], [ %69, %72 ], [ -2, %71 ], [ -54, %.preheader ], [ %.223, %php_pcre2_substring_length_bynumber.exit ], [ -49, %.split.i ]
+php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_length_bynumber.exit, %.preheader, %92, %91, %._crit_edge.i, %83, %77, %73, %72, %3
+  %.0 = phi i32 [ -41, %3 ], [ 0, %91 ], [ 0, %92 ], [ -67, %._crit_edge.i ], [ -55, %83 ], [ -49, %77 ], [ %70, %73 ], [ -2, %72 ], [ -54, %.preheader ], [ %.223, %php_pcre2_substring_length_bynumber.exit ], [ -49, %.split.i ]
   ret i32 %.0
 }
 

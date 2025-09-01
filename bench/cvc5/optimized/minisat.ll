@@ -878,7 +878,7 @@ define hidden void @_ZN4cvc58internal4prop16MinisatSatSolver11toSatClauseERKNS0_
 
 8:                                                ; preds = %.lr.ph, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit ]
-  %9 = getelementptr inbounds nuw [0 x %union.anon.314], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %union.anon.314, ptr %5, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 4, !tbaa !58
   %10 = icmp eq i32 %.sroa.0.0.copyload.i, -2
   br i1 %10, label %11, label %13

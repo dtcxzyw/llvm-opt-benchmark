@@ -1595,7 +1595,7 @@ sub_1308:                                         ; preds = %sub_0307
 
 switch.lookup:                                    ; preds = %391
   %397 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.main, i64 0, i64 %397
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %397
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %393, %switch.lookup

@@ -1052,7 +1052,7 @@ zend_string_free.exit87:                          ; preds = %58, %63, %64
   %.sroa.07.1111 = phi i64 [ %.sroa.07.0, %.lr.ph114 ], [ %73, %72 ]
   %69 = trunc i64 %.sroa.07.1111 to i8
   %70 = add i64 %.3113, 1
-  %71 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %.3113
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.3113
   store i8 %69, ptr %71, align 1, !tbaa !4
   %.not81 = icmp ult i64 %70, %17
   br i1 %.not81, label %72, label %.loopexit.loopexit
@@ -1065,7 +1065,7 @@ zend_string_free.exit87:                          ; preds = %58, %63, %64
 
 75:                                               ; preds = %.loopexit
   %76 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %77 = getelementptr inbounds nuw [1 x i8], ptr %76, i64 0, i64 %17
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %17
   store i8 0, ptr %77, align 1, !tbaa !4
   store ptr %24, ptr %1, align 8, !tbaa !4
   %78 = load i32, ptr %25, align 4, !tbaa !4
@@ -1223,7 +1223,7 @@ zend_string_init.exit:                            ; preds = %.critedge
   store i64 %19, ptr %37, align 8, !tbaa !69
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %31, i64 range(i64 2, 0) %19, i1 false)
-  %39 = getelementptr inbounds nuw [1 x i8], ptr %38, i64 0, i64 %19
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %19
   store i8 0, ptr %39, align 1, !tbaa !4
   store ptr %34, ptr %1, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1488,10 +1488,10 @@ zend_string_alloc.exit:                           ; preds = %33
 61:                                               ; preds = %48
   %62 = load ptr, ptr %4, align 8, !tbaa !89
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = getelementptr inbounds nuw [1 x i8], ptr %63, i64 0, i64 %50
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %50
   %65 = load i8, ptr %64, align 1, !tbaa !4
   %66 = add nuw i64 %.0188, 1
-  %67 = getelementptr inbounds nuw [1 x i8], ptr %47, i64 0, i64 %.0188
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 %.0188
   store i8 %65, ptr %67, align 1, !tbaa !4
   %exitcond191.not = icmp eq i64 %66, %34
   br i1 %exitcond191.not, label %.critedge139, label %48
@@ -1598,10 +1598,10 @@ zend_string_free.exit142:                         ; preds = %.critedge137, %87, 
   br label %125
 
 113:                                              ; preds = %96
-  %114 = getelementptr inbounds nuw [1 x i8], ptr %95, i64 0, i64 %97
+  %114 = getelementptr inbounds nuw i8, ptr %95, i64 %97
   %115 = load i8, ptr %114, align 1, !tbaa !4
   %116 = add i64 %.4181, 1
-  %117 = getelementptr inbounds nuw [1 x i8], ptr %77, i64 0, i64 %.4181
+  %117 = getelementptr inbounds nuw i8, ptr %77, i64 %.4181
   store i8 %115, ptr %117, align 1, !tbaa !4
   %.not130 = icmp ult i64 %116, %34
   br i1 %.not130, label %select.unfold, label %.thread170
@@ -1621,7 +1621,7 @@ select.unfold:                                    ; preds = %113, %100
 
 .critedge139:                                     ; preds = %.thread170, %61
   %119 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %120 = getelementptr inbounds nuw [1 x i8], ptr %119, i64 0, i64 %34
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %34
   store i8 0, ptr %120, align 1, !tbaa !4
   store ptr %41, ptr %1, align 8, !tbaa !4
   %121 = load i32, ptr %42, align 4, !tbaa !4

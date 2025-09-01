@@ -244,7 +244,7 @@ addchar.exit341:                                  ; preds = %addchar.exit341.bac
   store i8 %82, ptr %81, align 1
   %83 = load i32, ptr %73, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [11 x ptr], ptr @yy_start_state_list, i64 0, i64 %84
+  %85 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %84
   %86 = load ptr, ptr %85, align 8
   br label %.loopexit
 
@@ -1987,7 +1987,7 @@ addchar.exit398:                                  ; preds = %944, %._crit_edge.i
   store ptr %1102, ptr %71, align 8
   %1103 = load i32, ptr %73, align 4
   %1104 = sext i32 %1103 to i64
-  %1105 = getelementptr inbounds [11 x ptr], ptr @yy_start_state_list, i64 0, i64 %1104
+  %1105 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1104
   %1106 = load ptr, ptr %1105, align 8
   %1107 = icmp sgt i32 %1099, 0
   br i1 %1107, label %.lr.ph.i, label %yy_get_previous_state.exit
@@ -2462,7 +2462,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread433_crit_edge: ; preds = %
   store ptr %1343, ptr %71, align 8
   %1344 = load i32, ptr %73, align 4
   %1345 = sext i32 %1344 to i64
-  %1346 = getelementptr inbounds [11 x ptr], ptr @yy_start_state_list, i64 0, i64 %1345
+  %1346 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1345
   %1347 = load ptr, ptr %1346, align 8
   %1348 = icmp sgt i32 %1341, 0
   br i1 %1348, label %.lr.ph.i415, label %.loopexit.loopexit
@@ -2490,7 +2490,7 @@ yy_get_next_buffer.exit.thread433:                ; preds = %1136, %yy_get_next_
   store ptr %1358, ptr %71, align 8
   %1359 = load i32, ptr %73, align 4
   %1360 = sext i32 %1359 to i64
-  %1361 = getelementptr inbounds [11 x ptr], ptr @yy_start_state_list, i64 0, i64 %1360
+  %1361 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1360
   %1362 = load ptr, ptr %1361, align 8
   %1363 = icmp ult ptr %1356, %1358
   br i1 %1363, label %.lr.ph.i424, label %.loopexit440.backedge

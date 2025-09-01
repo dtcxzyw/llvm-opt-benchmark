@@ -844,7 +844,7 @@ namelist_add.exit139:                             ; preds = %namelist_add.exit, 
 
 67:                                               ; preds = %.preheader161, %75
   %indvars.iv = phi i64 [ 0, %.preheader161 ], [ %indvars.iv.next, %75 ]
-  %68 = getelementptr inbounds nuw [11 x %struct.FeatureEntry], ptr @feature_list, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.FeatureEntry, ptr @feature_list, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 16, !tbaa !34
   %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %69) #18
   %.not124 = icmp eq i32 %70, 0
@@ -1199,7 +1199,7 @@ compile_file.exit:                                ; preds = %187, %190, %195
   br i1 %or.cond, label %215, label %211
 
 211:                                              ; preds = %207
-  %212 = getelementptr inbounds nuw [11 x %struct.FeatureEntry], ptr @feature_list, i64 0, i64 %indvars.iv239, i32 1
+  %212 = getelementptr inbounds nuw %struct.FeatureEntry, ptr @feature_list, i64 %indvars.iv239, i32 1
   %213 = load ptr, ptr %212, align 8, !tbaa !39
   %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %145, ptr noundef nonnull @.str.21, ptr noundef %213) #17
   %.pre254 = load i64, ptr @feature_bitmap, align 8, !tbaa !25

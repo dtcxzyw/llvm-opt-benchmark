@@ -4687,7 +4687,7 @@ define internal range(i32 0, 2) i32 @x9_62_tests(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !12
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %13
+  %14 = getelementptr inbounds %struct.ecdsa_cavs_kat_t, ptr @ecdsa_cavs_kats, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !20
@@ -5476,7 +5476,7 @@ define internal range(i32 0, 2) i32 @fbytes(ptr noundef %0, i64 noundef %1, ptr 
 11:                                               ; preds = %8
   %12 = load i32, ptr @fbytes.fbytes_counter, align 4, !tbaa !14
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @numbers, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @numbers, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef %15) #5
   %17 = icmp ne i32 %16, 0

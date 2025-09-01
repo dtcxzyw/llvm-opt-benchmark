@@ -603,10 +603,10 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit184.i: ; preds = 
   %113 = and i64 %.0.i.i.i186.i, 255
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %114 = zext nneg i16 %.sroa.01.0.i.i to i64
-  %115 = add nsw i64 %114, -1
-  %116 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %115
+  %115 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %114
+  %116 = getelementptr i8, ptr %115, i64 -16
   %.sroa.0.0.copyload.i187.i = load i64, ptr %116, align 16
-  %.sroa.2.0..sroa_idx.i188.i = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %.sroa.2.0..sroa_idx.i188.i = getelementptr i8, ptr %115, i64 -8
   %.sroa.2.0.copyload.i189.i = load i8, ptr %.sroa.2.0..sroa_idx.i188.i, align 8
   store i64 %.sroa.0.0.copyload.i187.i, ptr %16, align 8
   %.sroa.266.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1048,10 +1048,10 @@ _ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i: ; preds = %106, 
   %.sroa.01.0.i.i = phi i16 [ %109, %106 ], [ 6, %104 ], [ 7, %105 ], [ 5, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %110 = zext nneg i16 %.sroa.01.0.i.i to i64
-  %111 = add nsw i64 %110, -1
-  %112 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %111
+  %111 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %110
+  %112 = getelementptr i8, ptr %111, i64 -16
   %.sroa.0.0.copyload.i.i32 = load i64, ptr %112, align 16
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %111, i64 -8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i64 %.sroa.0.0.copyload.i.i32, ptr %16, align 8
   %.sroa.281.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1626,10 +1626,10 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit: ; preds = %9, %22, %22, %25
   %29 = phi i1 [ false, %9 ], [ false, %22 ], [ %28, %25 ], [ false, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %30 = zext i16 %8 to i64
-  %31 = add nsw i64 %30, -1
-  %32 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %31
+  %31 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %31, i64 -8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %16, align 8
   %.sroa.263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8

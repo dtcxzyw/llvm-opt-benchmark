@@ -521,7 +521,7 @@ define dso_local void @_ZN20btBatchedConstraints5setupEP20btAlignedObjectArrayI1
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %44
   %indvars.iv.i.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.056.i.i = phi i64 [ 0, %44 ], [ %72, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds nuw [10 x %"struct.PreallocatedMemoryHelper<10>::Chunk"], ptr %35, i64 0, i64 %indvars.iv.i.i, i32 1
+  %70 = getelementptr inbounds nuw %"struct.PreallocatedMemoryHelper<10>::Chunk", ptr %35, i64 %indvars.iv.i.i, i32 1
   %71 = load i64, ptr %70, align 8, !tbaa !59
   %72 = add i64 %71, %.056.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -681,7 +681,7 @@ _ZN20btAlignedObjectArrayIcE10deallocateEv.exit.i.i.i: ; preds = %127, %_ZNK20bt
 .lr.ph.i156.i:                                    ; preds = %.lr.ph.i156.i, %.lr.ph.preheader.i154.i
   %indvars.iv.i157.i = phi i64 [ 0, %.lr.ph.preheader.i154.i ], [ %indvars.iv.next.i158.i, %.lr.ph.i156.i ]
   %.011.i.i = phi i64 [ 0, %.lr.ph.preheader.i154.i ], [ %134, %.lr.ph.i156.i ]
-  %129 = getelementptr inbounds nuw [10 x %"struct.PreallocatedMemoryHelper<10>::Chunk"], ptr %35, i64 0, i64 %indvars.iv.i157.i
+  %129 = getelementptr inbounds nuw %"struct.PreallocatedMemoryHelper<10>::Chunk", ptr %35, i64 %indvars.iv.i157.i
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 %.011.i.i
   %131 = load ptr, ptr %129, align 8, !tbaa !56
   store ptr %130, ptr %131, align 8, !tbaa !72
@@ -1081,7 +1081,7 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
   %indvars.iv388.i = phi i64 [ %indvars.iv.next389.i, %.preheader319.i ], [ 0, %_ZN9btVector36setMaxERKS_.exit181.i ]
   %.0124349.i = phi i32 [ %spec.select143.i, %.preheader319.i ], [ 0, %_ZN9btVector36setMaxERKS_.exit181.i ]
   %.0126348.i = phi i32 [ %spec.select.i, %.preheader319.i ], [ %260, %_ZN9btVector36setMaxERKS_.exit181.i ]
-  %285 = getelementptr inbounds nuw [3 x i32], ptr %38, i64 0, i64 %indvars.iv388.i
+  %285 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv388.i
   %286 = load i32, ptr %285, align 4, !tbaa !24
   %287 = icmp slt i32 %286, %.0126348.i
   %spec.select.i = call i32 @llvm.smin.i32(i32 %286, i32 %.0126348.i)
@@ -3311,8 +3311,8 @@ define linkonce_odr dso_local void @_ZNK34AssignConstraintsToGridBatchesLoop7for
 45:                                               ; preds = %62, %42
   %indvars.iv.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i, %62 ]
   %.06777.i = phi i32 [ %32, %42 ], [ %.1.i, %62 ]
-  %46 = getelementptr inbounds nuw [3 x i32], ptr %43, i64 0, i64 %indvars.iv.i
-  %47 = getelementptr inbounds nuw [3 x i32], ptr %44, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i
   %48 = load i32, ptr %46, align 4, !tbaa !24
   %49 = load i32, ptr %47, align 4, !tbaa !24
   %50 = call i32 @llvm.smin.i32(i32 %48, i32 %49)
@@ -3338,7 +3338,7 @@ define linkonce_odr dso_local void @_ZNK34AssignConstraintsToGridBatchesLoop7for
 
 62:                                               ; preds = %59, %56, %45
   %.1.i = phi i32 [ %58, %56 ], [ %61, %59 ], [ %.06777.i, %45 ]
-  %63 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   store i32 %50, ptr %63, align 4, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -3384,17 +3384,17 @@ define linkonce_odr dso_local void @_ZNK34AssignConstraintsToGridBatchesLoop7for
   %78 = trunc nuw nsw i64 %indvars.iv83.i to i32
   %79 = lshr i32 %.2.i, %78
   %80 = and i32 %79, 1
-  %81 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv83.i
+  %81 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv83.i
   %82 = load i32, ptr %81, align 4, !tbaa !24
   %83 = sub nsw i32 %82, %80
   %84 = sdiv i32 %83, 2
-  %85 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv83.i
+  %85 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv83.i
   store i32 %84, ptr %85, align 4, !tbaa !24
   %86 = icmp slt i32 %83, -1
   br i1 %86, label %.sink.split.i.i, label %87
 
 87:                                               ; preds = %77
-  %88 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv83.i
+  %88 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv83.i
   %89 = load i32, ptr %88, align 4, !tbaa !24
   %90 = add nsw i32 %89, -1
   %.not71.i = icmp sgt i32 %89, %84

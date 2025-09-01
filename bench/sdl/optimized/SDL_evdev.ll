@@ -885,7 +885,7 @@ define hidden void @SDL_EVDEV_Poll() local_unnamed_addr #0 {
 
 .lr.ph276:                                        ; preds = %.lr.ph276.preheader, %566
   %indvars.iv286 = phi i64 [ 0, %.lr.ph276.preheader ], [ %indvars.iv.next287, %566 ]
-  %34 = getelementptr inbounds nuw [32 x %struct.input_event], ptr %1, i64 0, i64 %indvars.iv286
+  %34 = getelementptr inbounds nuw %struct.input_event, ptr %1, i64 %indvars.iv286
   %35 = load i8, ptr %16, align 8, !range !8, !noundef !9
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %47
@@ -949,15 +949,15 @@ define hidden void @SDL_EVDEV_Poll() local_unnamed_addr #0 {
 SDL_EVDEV_GetEventTimestamp.exit:                 ; preds = %54, %68
   %.0.i = tail call i64 @llvm.umin.i64(i64 %65, i64 %55)
   %69 = zext nneg i16 %52 to i64
-  %70 = add nsw i64 %69, -272
-  %71 = load ptr, ptr %10, align 8
-  %72 = load i32, ptr %11, align 8
-  %73 = getelementptr inbounds nuw [8 x i8], ptr @EVDEV_MouseButtons, i64 0, i64 %70
+  %70 = load ptr, ptr %10, align 8
+  %71 = load i32, ptr %11, align 8
+  %72 = getelementptr i8, ptr @EVDEV_MouseButtons, i64 %69
+  %73 = getelementptr i8, ptr %72, i64 -272
   %74 = load i8, ptr %73, align 1
   %75 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %76 = load i32, ptr %75, align 4
   %77 = icmp ne i32 %76, 0
-  tail call void @SDL_SendMouseButton(i64 noundef %.0.i, ptr noundef %71, i32 noundef %72, i8 noundef zeroext %74, i1 noundef zeroext %77) #10
+  tail call void @SDL_SendMouseButton(i64 noundef %.0.i, ptr noundef %70, i32 noundef %71, i8 noundef zeroext %74, i1 noundef zeroext %77) #10
   br label %566
 
 78:                                               ; preds = %50

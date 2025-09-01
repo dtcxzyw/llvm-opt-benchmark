@@ -319,7 +319,7 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
   %33 = phi i32 [ 0, %1 ], [ %366, %365 ]
   %34 = phi i64 [ 0, %1 ], [ %368, %365 ]
   %35 = phi i32 [ 0, %1 ], [ %367, %365 ]
-  %36 = getelementptr [27 x ptr], ptr %15, i64 0, i64 %34
+  %36 = getelementptr ptr, ptr %15, i64 %34
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %365, label %39
@@ -910,7 +910,7 @@ guc_mmio_reg_add.exit24:                          ; preds = %.preheader.i22, %32
 .thread:                                          ; preds = %359
   %361 = load i32, ptr %16, align 8
   %362 = sub i32 %361, %33
-  %363 = getelementptr [27 x i32], ptr %18, i64 0, i64 %34
+  %363 = getelementptr i32, ptr %18, i64 %34
   store i32 %362, ptr %363, align 4
   %364 = add i32 %362, %35
   br label %365
@@ -1060,7 +1060,7 @@ define internal fastcc i32 @guc_prep_golden_context(ptr noundef %0) unnamed_addr
   %32 = phi i64 [ %82, %79 ], [ 0, %.split.us.preheader ]
   %33 = phi i32 [ %81, %79 ], [ %31, %.split.us.preheader ]
   %34 = phi i32 [ %80, %79 ], [ 0, %.split.us.preheader ]
-  %35 = getelementptr [6 x i8], ptr @engine_class_guc_class_map, i64 0, i64 %32
+  %35 = getelementptr i8, ptr @engine_class_guc_class_map, i64 %32
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 2
@@ -1137,7 +1137,7 @@ define internal fastcc i32 @guc_prep_golden_context(ptr noundef %0) unnamed_addr
   %84 = phi i64 [ %134, %131 ], [ 0, %9 ]
   %85 = phi i32 [ %133, %131 ], [ %22, %9 ]
   %86 = phi i32 [ %132, %131 ], [ 0, %9 ]
-  %87 = getelementptr [6 x i8], ptr @engine_class_guc_class_map, i64 0, i64 %84
+  %87 = getelementptr i8, ptr @engine_class_guc_class_map, i64 %84
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i64
   %90 = shl nuw nsw i64 %89, 2
@@ -1967,7 +1967,7 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
 
 .split15.us:                                      ; preds = %.split14.us, %122
   %102 = phi i64 [ %123, %122 ], [ 0, %.split14.us ]
-  %103 = getelementptr [27 x ptr], ptr %101, i64 0, i64 %102
+  %103 = getelementptr ptr, ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %122, label %106
@@ -1976,7 +1976,7 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 56
   %108 = load i8, ptr %107, align 8
   %109 = zext i8 %108 to i64
-  %110 = getelementptr [6 x i8], ptr @engine_class_guc_class_map, i64 0, i64 %109
+  %110 = getelementptr i8, ptr @engine_class_guc_class_map, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 57
   %113 = load i8, ptr %112, align 1
@@ -2011,7 +2011,7 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
 
 .split15:                                         ; preds = %.split14.us, %152
   %132 = phi i64 [ %153, %152 ], [ 0, %.split14.us ]
-  %133 = getelementptr [27 x ptr], ptr %101, i64 0, i64 %132
+  %133 = getelementptr ptr, ptr %101, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %152, label %136
@@ -2020,7 +2020,7 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 56
   %138 = load i8, ptr %137, align 8
   %139 = zext i8 %138 to i64
-  %140 = getelementptr [6 x i8], ptr @engine_class_guc_class_map, i64 0, i64 %139
+  %140 = getelementptr i8, ptr @engine_class_guc_class_map, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr inbounds nuw i8, ptr %134, i64 57
   %143 = load i8, ptr %142, align 1
@@ -2116,18 +2116,18 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
 201:                                              ; preds = %261, %199
   %202 = phi i64 [ 0, %199 ], [ %263, %261 ]
   %203 = phi i32 [ %187, %199 ], [ %262, %261 ]
-  %204 = getelementptr [27 x ptr], ptr %101, i64 0, i64 %202
+  %204 = getelementptr ptr, ptr %101, i64 %202
   %205 = load ptr, ptr %204, align 8
   %206 = icmp eq ptr %205, null
   br i1 %206, label %261, label %207
 
 207:                                              ; preds = %201
-  %208 = getelementptr [27 x i32], ptr %200, i64 0, i64 %202
+  %208 = getelementptr i32, ptr %200, i64 %202
   %209 = load i32, ptr %208, align 4
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 56
   %211 = load i8, ptr %210, align 8
   %212 = zext i8 %211 to i64
-  %213 = getelementptr [6 x i8], ptr @engine_class_guc_class_map, i64 0, i64 %212
+  %213 = getelementptr i8, ptr @engine_class_guc_class_map, i64 %212
   %214 = load i8, ptr %213, align 1
   %215 = icmp eq i32 %209, 0
   %216 = load i8, ptr %6, align 8, !range !6, !noundef !7
@@ -2286,7 +2286,7 @@ define dso_local void @intel_guc_ads_init_late(ptr noundef %0) local_unnamed_add
   %21 = phi i64 [ 0, %10 ], [ %93, %91 ]
   %22 = phi i64 [ %15, %10 ], [ %92, %91 ]
   %23 = trunc i64 %21 to i32
-  %24 = getelementptr [6 x i8], ptr @engine_class_guc_class_map, i64 0, i64 %21
+  %24 = getelementptr i8, ptr @engine_class_guc_class_map, i64 %21
   %25 = load i8, ptr %24, align 1
   %26 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %27 = icmp eq i8 %26, 0
@@ -2319,7 +2319,7 @@ define dso_local void @intel_guc_ads_init_late(ptr noundef %0) local_unnamed_add
 
 45:                                               ; preds = %59, %40
   %46 = phi i64 [ 0, %40 ], [ %60, %59 ]
-  %47 = getelementptr [27 x ptr], ptr %18, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr %18, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %59, label %50
@@ -2506,7 +2506,7 @@ define dso_local { ptr, i8 } @intel_guc_engine_usage_record_map(ptr noundef read
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [6 x i8], ptr @engine_class_guc_class_map, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @engine_class_guc_class_map, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load i32, ptr %9, align 4

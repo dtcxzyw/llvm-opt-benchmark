@@ -613,7 +613,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i, %
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, %25
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %25 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader ]
-  %22 = getelementptr inbounds nuw [9 x ptr], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %25, label %24
@@ -663,7 +663,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i195.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i195:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i195.preheader, %43
   %indvars.iv.i.i196 = phi i64 [ %indvars.iv.next.i.i198, %43 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i195.preheader ]
-  %40 = getelementptr inbounds nuw [9 x ptr], ptr %32, i64 0, i64 %indvars.iv.i.i196
+  %40 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i.i196
   %41 = load ptr, ptr %40, align 8
   %.not.i.i197 = icmp eq ptr %41, null
   br i1 %.not.i.i197, label %43, label %42
@@ -713,7 +713,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i205.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i205:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i205.preheader, %61
   %indvars.iv.i.i206 = phi i64 [ %indvars.iv.next.i.i208, %61 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i205.preheader ]
-  %58 = getelementptr inbounds nuw [9 x ptr], ptr %50, i64 0, i64 %indvars.iv.i.i206
+  %58 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i.i206
   %59 = load ptr, ptr %58, align 8
   %.not.i.i207 = icmp eq ptr %59, null
   br i1 %.not.i.i207, label %61, label %60
@@ -763,7 +763,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i215.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i215:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i215.preheader, %79
   %indvars.iv.i.i216 = phi i64 [ %indvars.iv.next.i.i218, %79 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i215.preheader ]
-  %76 = getelementptr inbounds nuw [9 x ptr], ptr %68, i64 0, i64 %indvars.iv.i.i216
+  %76 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i.i216
   %77 = load ptr, ptr %76, align 8
   %.not.i.i217 = icmp eq ptr %77, null
   br i1 %.not.i.i217, label %79, label %78
@@ -813,7 +813,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i225.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i225:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i225.preheader, %97
   %indvars.iv.i.i226 = phi i64 [ %indvars.iv.next.i.i228, %97 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i225.preheader ]
-  %94 = getelementptr inbounds nuw [9 x ptr], ptr %86, i64 0, i64 %indvars.iv.i.i226
+  %94 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i.i226
   %95 = load ptr, ptr %94, align 8
   %.not.i.i227 = icmp eq ptr %95, null
   br i1 %.not.i.i227, label %97, label %96
@@ -863,7 +863,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i235.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i235:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i235.preheader, %115
   %indvars.iv.i.i236 = phi i64 [ %indvars.iv.next.i.i238, %115 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i235.preheader ]
-  %112 = getelementptr inbounds nuw [9 x ptr], ptr %104, i64 0, i64 %indvars.iv.i.i236
+  %112 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv.i.i236
   %113 = load ptr, ptr %112, align 8
   %.not.i.i237 = icmp eq ptr %113, null
   br i1 %.not.i.i237, label %115, label %114
@@ -913,7 +913,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i245.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i245:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i245.preheader, %133
   %indvars.iv.i.i246 = phi i64 [ %indvars.iv.next.i.i248, %133 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i245.preheader ]
-  %130 = getelementptr inbounds nuw [9 x ptr], ptr %122, i64 0, i64 %indvars.iv.i.i246
+  %130 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv.i.i246
   %131 = load ptr, ptr %130, align 8
   %.not.i.i247 = icmp eq ptr %131, null
   br i1 %.not.i.i247, label %133, label %132
@@ -934,67 +934,67 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit250:        ; preds = %133
 
 135:                                              ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit250, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit260
   %indvars.iv = phi i64 [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit250 ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit260 ]
-  %136 = add nuw nsw i64 %indvars.iv, 7
-  %137 = trunc nuw nsw i64 %indvars.iv to i32
-  %138 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %137) #18
-  %139 = tail call noundef ptr @_ZNK10OopStorage4nameEv(ptr noundef nonnull align 8 dereferenceable(126) %138) #18
-  %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %139) #19
-  %141 = add i64 %140, 13
-  %142 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %141, i8 noundef zeroext 5, i32 noundef 0) #18
-  %143 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(1) %139) #18
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %142)
-  %endptr = getelementptr inbounds i8, ptr %142, i64 %strlen
+  %136 = trunc nuw nsw i64 %indvars.iv to i32
+  %137 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %136) #18
+  %138 = tail call noundef ptr @_ZNK10OopStorage4nameEv(ptr noundef nonnull align 8 dereferenceable(126) %137) #18
+  %139 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #19
+  %140 = add i64 %139, 13
+  %141 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %140, i8 noundef zeroext 5, i32 noundef 0) #18
+  %142 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %138) #18
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %141)
+  %endptr = getelementptr inbounds i8, ptr %141, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %endptr, ptr noundef nonnull align 1 dereferenceable(13) @.str.26, i64 13, i1 false)
-  %144 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #18
-  store ptr null, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  store i32 %2, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  store ptr %139, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  store ptr %142, ptr %147, align 8
-  %148 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %12, i8 noundef zeroext 5, i32 noundef 0) #18
-  store ptr %148, ptr %144, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %149, i8 0, i64 72, i1 false)
-  %150 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #18
-  %151 = load i32, ptr %145, align 8
-  %.not.i.i.i251 = icmp eq i32 %151, 0
+  %143 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #18
+  store ptr null, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  store i32 %2, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  store ptr %138, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  store ptr %141, ptr %146, align 8
+  %147 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %12, i8 noundef zeroext 5, i32 noundef 0) #18
+  store ptr %147, ptr %143, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %148, i8 0, i64 72, i1 false)
+  %149 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #18
+  %150 = load i32, ptr %144, align 8
+  %.not.i.i.i251 = icmp eq i32 %150, 0
   br i1 %.not.i.i.i251, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader, label %.lr.ph.i.i.i252
 
 .lr.ph.i.i.i252:                                  ; preds = %135, %.lr.ph.i.i.i252
   %indvars.iv.i.i.i253 = phi i64 [ %indvars.iv.next.i.i.i254, %.lr.ph.i.i.i252 ], [ 0, %135 ]
-  %152 = load ptr, ptr %144, align 8
-  %153 = getelementptr inbounds nuw double, ptr %152, i64 %indvars.iv.i.i.i253
-  store double %150, ptr %153, align 8
+  %151 = load ptr, ptr %143, align 8
+  %152 = getelementptr inbounds nuw double, ptr %151, i64 %indvars.iv.i.i.i253
+  store double %149, ptr %152, align 8
   %indvars.iv.next.i.i.i254 = add nuw nsw i64 %indvars.iv.i.i.i253, 1
-  %154 = load i32, ptr %145, align 8
-  %155 = zext i32 %154 to i64
-  %156 = icmp samesign ult i64 %indvars.iv.next.i.i.i254, %155
-  br i1 %156, label %.lr.ph.i.i.i252, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader, !llvm.loop !6
+  %153 = load i32, ptr %144, align 8
+  %154 = zext i32 %153 to i64
+  %155 = icmp samesign ult i64 %indvars.iv.next.i.i.i254, %154
+  br i1 %155, label %.lr.ph.i.i.i252, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader, !llvm.loop !6
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader: ; preds = %.lr.ph.i.i.i252, %135
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader, %160
-  %indvars.iv.i.i256 = phi i64 [ %indvars.iv.next.i.i258, %160 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader ]
-  %157 = getelementptr inbounds nuw [9 x ptr], ptr %149, i64 0, i64 %indvars.iv.i.i256
-  %158 = load ptr, ptr %157, align 8
-  %.not.i.i257 = icmp eq ptr %158, null
-  br i1 %.not.i.i257, label %160, label %159
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader, %159
+  %indvars.iv.i.i256 = phi i64 [ %indvars.iv.next.i.i258, %159 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255.preheader ]
+  %156 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.i.i256
+  %157 = load ptr, ptr %156, align 8
+  %.not.i.i257 = icmp eq ptr %157, null
+  br i1 %.not.i.i257, label %159, label %158
 
-159:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %158)
-  br label %160
+158:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %157)
+  br label %159
 
-160:                                              ; preds = %159, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255
+159:                                              ; preds = %158, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255
   %indvars.iv.next.i.i258 = add nuw nsw i64 %indvars.iv.i.i256, 1
   %exitcond.not.i.i259 = icmp eq i64 %indvars.iv.next.i.i258, 9
   br i1 %exitcond.not.i.i259, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit260, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i255, !llvm.loop !8
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit260:        ; preds = %160
-  %161 = getelementptr inbounds nuw [45 x ptr], ptr %26, i64 0, i64 %136
-  store ptr %144, ptr %161, align 8
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit260:        ; preds = %159
+  %160 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 56
+  store ptr %143, ptr %161, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %.not, label %162, label %135
@@ -1033,7 +1033,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i265.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i265:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i265.preheader, %179
   %indvars.iv.i.i266 = phi i64 [ %indvars.iv.next.i.i268, %179 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i265.preheader ]
-  %176 = getelementptr inbounds nuw [9 x ptr], ptr %168, i64 0, i64 %indvars.iv.i.i266
+  %176 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv.i.i266
   %177 = load ptr, ptr %176, align 8
   %.not.i.i267 = icmp eq ptr %177, null
   br i1 %.not.i.i267, label %179, label %178
@@ -1083,7 +1083,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i275.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i275:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i275.preheader, %197
   %indvars.iv.i.i276 = phi i64 [ %indvars.iv.next.i.i278, %197 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i275.preheader ]
-  %194 = getelementptr inbounds nuw [9 x ptr], ptr %186, i64 0, i64 %indvars.iv.i.i276
+  %194 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv.i.i276
   %195 = load ptr, ptr %194, align 8
   %.not.i.i277 = icmp eq ptr %195, null
   br i1 %.not.i.i277, label %197, label %196
@@ -1105,7 +1105,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit280:        ; preds = %197
 199:                                              ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit280, %199
   %indvars.iv607 = phi i64 [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit280 ], [ %indvars.iv.next608, %199 ]
   %200 = load ptr, ptr %198, align 8
-  %201 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN14G1GCPhaseTimes25GCMergeRSWorkItemsStringsE, i64 0, i64 %indvars.iv607
+  %201 = getelementptr inbounds nuw ptr, ptr @_ZN14G1GCPhaseTimes25GCMergeRSWorkItemsStringsE, i64 %indvars.iv607
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %204 = load i32, ptr %203, align 8
@@ -1125,7 +1125,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit280:        ; preds = %197
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %212, i8 0, i64 72, i1 false)
   tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %205)
   %213 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %214 = getelementptr inbounds nuw [9 x ptr], ptr %213, i64 0, i64 %indvars.iv607
+  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %indvars.iv607
   store ptr %205, ptr %214, align 8
   %indvars.iv.next608 = add nuw nsw i64 %indvars.iv607, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next608, 9
@@ -1165,7 +1165,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i285.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i285:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i285.preheader, %232
   %indvars.iv.i.i286 = phi i64 [ %indvars.iv.next.i.i288, %232 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i285.preheader ]
-  %229 = getelementptr inbounds nuw [9 x ptr], ptr %221, i64 0, i64 %indvars.iv.i.i286
+  %229 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv.i.i286
   %230 = load ptr, ptr %229, align 8
   %.not.i.i287 = icmp eq ptr %230, null
   br i1 %.not.i.i287, label %232, label %231
@@ -1187,7 +1187,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit290:        ; preds = %232
 234:                                              ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit290, %234
   %indvars.iv610 = phi i64 [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit290 ], [ %indvars.iv.next611, %234 ]
   %235 = load ptr, ptr %233, align 8
-  %236 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN14G1GCPhaseTimes25GCMergeRSWorkItemsStringsE, i64 0, i64 %indvars.iv610
+  %236 = getelementptr inbounds nuw ptr, ptr @_ZN14G1GCPhaseTimes25GCMergeRSWorkItemsStringsE, i64 %indvars.iv610
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %239 = load i32, ptr %238, align 8
@@ -1207,7 +1207,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit290:        ; preds = %232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %247, i8 0, i64 72, i1 false)
   tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %240)
   %248 = getelementptr inbounds nuw i8, ptr %235, i64 40
-  %249 = getelementptr inbounds nuw [9 x ptr], ptr %248, i64 0, i64 %indvars.iv610
+  %249 = getelementptr inbounds nuw ptr, ptr %248, i64 %indvars.iv610
   store ptr %240, ptr %249, align 8
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
   %exitcond613.not = icmp eq i64 %indvars.iv.next611, 9
@@ -1247,7 +1247,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i295.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i295:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i295.preheader, %267
   %indvars.iv.i.i296 = phi i64 [ %indvars.iv.next.i.i298, %267 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i295.preheader ]
-  %264 = getelementptr inbounds nuw [9 x ptr], ptr %256, i64 0, i64 %indvars.iv.i.i296
+  %264 = getelementptr inbounds nuw ptr, ptr %256, i64 %indvars.iv.i.i296
   %265 = load ptr, ptr %264, align 8
   %.not.i.i297 = icmp eq ptr %265, null
   br i1 %.not.i.i297, label %267, label %266
@@ -1297,7 +1297,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i305.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i305:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i305.preheader, %285
   %indvars.iv.i.i306 = phi i64 [ %indvars.iv.next.i.i308, %285 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i305.preheader ]
-  %282 = getelementptr inbounds nuw [9 x ptr], ptr %274, i64 0, i64 %indvars.iv.i.i306
+  %282 = getelementptr inbounds nuw ptr, ptr %274, i64 %indvars.iv.i.i306
   %283 = load ptr, ptr %282, align 8
   %.not.i.i307 = icmp eq ptr %283, null
   br i1 %.not.i.i307, label %285, label %284
@@ -1347,7 +1347,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i315.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i315:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i315.preheader, %303
   %indvars.iv.i.i316 = phi i64 [ %indvars.iv.next.i.i318, %303 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i315.preheader ]
-  %300 = getelementptr inbounds nuw [9 x ptr], ptr %292, i64 0, i64 %indvars.iv.i.i316
+  %300 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv.i.i316
   %301 = load ptr, ptr %300, align 8
   %.not.i.i317 = icmp eq ptr %301, null
   br i1 %.not.i.i317, label %303, label %302
@@ -1397,7 +1397,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i325.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i325:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i325.preheader, %321
   %indvars.iv.i.i326 = phi i64 [ %indvars.iv.next.i.i328, %321 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i325.preheader ]
-  %318 = getelementptr inbounds nuw [9 x ptr], ptr %310, i64 0, i64 %indvars.iv.i.i326
+  %318 = getelementptr inbounds nuw ptr, ptr %310, i64 %indvars.iv.i.i326
   %319 = load ptr, ptr %318, align 8
   %.not.i.i327 = icmp eq ptr %319, null
   br i1 %.not.i.i327, label %321, label %320
@@ -1447,7 +1447,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i335.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i335:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i335.preheader, %339
   %indvars.iv.i.i336 = phi i64 [ %indvars.iv.next.i.i338, %339 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i335.preheader ]
-  %336 = getelementptr inbounds nuw [9 x ptr], ptr %328, i64 0, i64 %indvars.iv.i.i336
+  %336 = getelementptr inbounds nuw ptr, ptr %328, i64 %indvars.iv.i.i336
   %337 = load ptr, ptr %336, align 8
   %.not.i.i337 = icmp eq ptr %337, null
   br i1 %.not.i.i337, label %339, label %338
@@ -1497,7 +1497,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i345.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i345:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i345.preheader, %357
   %indvars.iv.i.i346 = phi i64 [ %indvars.iv.next.i.i348, %357 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i345.preheader ]
-  %354 = getelementptr inbounds nuw [9 x ptr], ptr %346, i64 0, i64 %indvars.iv.i.i346
+  %354 = getelementptr inbounds nuw ptr, ptr %346, i64 %indvars.iv.i.i346
   %355 = load ptr, ptr %354, align 8
   %.not.i.i347 = icmp eq ptr %355, null
   br i1 %.not.i.i347, label %357, label %356
@@ -1547,7 +1547,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i355.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i355:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i355.preheader, %375
   %indvars.iv.i.i356 = phi i64 [ %indvars.iv.next.i.i358, %375 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i355.preheader ]
-  %372 = getelementptr inbounds nuw [9 x ptr], ptr %364, i64 0, i64 %indvars.iv.i.i356
+  %372 = getelementptr inbounds nuw ptr, ptr %364, i64 %indvars.iv.i.i356
   %373 = load ptr, ptr %372, align 8
   %.not.i.i357 = icmp eq ptr %373, null
   br i1 %.not.i.i357, label %375, label %374
@@ -1597,7 +1597,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i365.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i365:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i365.preheader, %393
   %indvars.iv.i.i366 = phi i64 [ %indvars.iv.next.i.i368, %393 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i365.preheader ]
-  %390 = getelementptr inbounds nuw [9 x ptr], ptr %382, i64 0, i64 %indvars.iv.i.i366
+  %390 = getelementptr inbounds nuw ptr, ptr %382, i64 %indvars.iv.i.i366
   %391 = load ptr, ptr %390, align 8
   %.not.i.i367 = icmp eq ptr %391, null
   br i1 %.not.i.i367, label %393, label %392
@@ -1647,7 +1647,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i375.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i375:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i375.preheader, %411
   %indvars.iv.i.i376 = phi i64 [ %indvars.iv.next.i.i378, %411 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i375.preheader ]
-  %408 = getelementptr inbounds nuw [9 x ptr], ptr %400, i64 0, i64 %indvars.iv.i.i376
+  %408 = getelementptr inbounds nuw ptr, ptr %400, i64 %indvars.iv.i.i376
   %409 = load ptr, ptr %408, align 8
   %.not.i.i377 = icmp eq ptr %409, null
   br i1 %.not.i.i377, label %411, label %410
@@ -1697,7 +1697,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i385.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i385:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i385.preheader, %429
   %indvars.iv.i.i386 = phi i64 [ %indvars.iv.next.i.i388, %429 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i385.preheader ]
-  %426 = getelementptr inbounds nuw [9 x ptr], ptr %418, i64 0, i64 %indvars.iv.i.i386
+  %426 = getelementptr inbounds nuw ptr, ptr %418, i64 %indvars.iv.i.i386
   %427 = load ptr, ptr %426, align 8
   %.not.i.i387 = icmp eq ptr %427, null
   br i1 %.not.i.i387, label %429, label %428
@@ -1747,7 +1747,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i395.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i395:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i395.preheader, %447
   %indvars.iv.i.i396 = phi i64 [ %indvars.iv.next.i.i398, %447 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i395.preheader ]
-  %444 = getelementptr inbounds nuw [9 x ptr], ptr %436, i64 0, i64 %indvars.iv.i.i396
+  %444 = getelementptr inbounds nuw ptr, ptr %436, i64 %indvars.iv.i.i396
   %445 = load ptr, ptr %444, align 8
   %.not.i.i397 = icmp eq ptr %445, null
   br i1 %.not.i.i397, label %447, label %446
@@ -1797,7 +1797,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i405.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i405:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i405.preheader, %465
   %indvars.iv.i.i406 = phi i64 [ %indvars.iv.next.i.i408, %465 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i405.preheader ]
-  %462 = getelementptr inbounds nuw [9 x ptr], ptr %454, i64 0, i64 %indvars.iv.i.i406
+  %462 = getelementptr inbounds nuw ptr, ptr %454, i64 %indvars.iv.i.i406
   %463 = load ptr, ptr %462, align 8
   %.not.i.i407 = icmp eq ptr %463, null
   br i1 %.not.i.i407, label %465, label %464
@@ -1847,7 +1847,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i415.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i415:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i415.preheader, %483
   %indvars.iv.i.i416 = phi i64 [ %indvars.iv.next.i.i418, %483 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i415.preheader ]
-  %480 = getelementptr inbounds nuw [9 x ptr], ptr %472, i64 0, i64 %indvars.iv.i.i416
+  %480 = getelementptr inbounds nuw ptr, ptr %472, i64 %indvars.iv.i.i416
   %481 = load ptr, ptr %480, align 8
   %.not.i.i417 = icmp eq ptr %481, null
   br i1 %.not.i.i417, label %483, label %482
@@ -1897,7 +1897,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i425.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i425:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i425.preheader, %501
   %indvars.iv.i.i426 = phi i64 [ %indvars.iv.next.i.i428, %501 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i425.preheader ]
-  %498 = getelementptr inbounds nuw [9 x ptr], ptr %490, i64 0, i64 %indvars.iv.i.i426
+  %498 = getelementptr inbounds nuw ptr, ptr %490, i64 %indvars.iv.i.i426
   %499 = load ptr, ptr %498, align 8
   %.not.i.i427 = icmp eq ptr %499, null
   br i1 %.not.i.i427, label %501, label %500
@@ -1947,7 +1947,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i435.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i435:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i435.preheader, %519
   %indvars.iv.i.i436 = phi i64 [ %indvars.iv.next.i.i438, %519 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i435.preheader ]
-  %516 = getelementptr inbounds nuw [9 x ptr], ptr %508, i64 0, i64 %indvars.iv.i.i436
+  %516 = getelementptr inbounds nuw ptr, ptr %508, i64 %indvars.iv.i.i436
   %517 = load ptr, ptr %516, align 8
   %.not.i.i437 = icmp eq ptr %517, null
   br i1 %.not.i.i437, label %519, label %518
@@ -1997,7 +1997,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i445.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i445:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i445.preheader, %537
   %indvars.iv.i.i446 = phi i64 [ %indvars.iv.next.i.i448, %537 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i445.preheader ]
-  %534 = getelementptr inbounds nuw [9 x ptr], ptr %526, i64 0, i64 %indvars.iv.i.i446
+  %534 = getelementptr inbounds nuw ptr, ptr %526, i64 %indvars.iv.i.i446
   %535 = load ptr, ptr %534, align 8
   %.not.i.i447 = icmp eq ptr %535, null
   br i1 %.not.i.i447, label %537, label %536
@@ -2047,7 +2047,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i455.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i455:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i455.preheader, %555
   %indvars.iv.i.i456 = phi i64 [ %indvars.iv.next.i.i458, %555 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i455.preheader ]
-  %552 = getelementptr inbounds nuw [9 x ptr], ptr %544, i64 0, i64 %indvars.iv.i.i456
+  %552 = getelementptr inbounds nuw ptr, ptr %544, i64 %indvars.iv.i.i456
   %553 = load ptr, ptr %552, align 8
   %.not.i.i457 = icmp eq ptr %553, null
   br i1 %.not.i.i457, label %555, label %554
@@ -2097,7 +2097,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i465.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i465:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i465.preheader, %573
   %indvars.iv.i.i466 = phi i64 [ %indvars.iv.next.i.i468, %573 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i465.preheader ]
-  %570 = getelementptr inbounds nuw [9 x ptr], ptr %562, i64 0, i64 %indvars.iv.i.i466
+  %570 = getelementptr inbounds nuw ptr, ptr %562, i64 %indvars.iv.i.i466
   %571 = load ptr, ptr %570, align 8
   %.not.i.i467 = icmp eq ptr %571, null
   br i1 %.not.i.i467, label %573, label %572
@@ -2147,7 +2147,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i475.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i475:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i475.preheader, %591
   %indvars.iv.i.i476 = phi i64 [ %indvars.iv.next.i.i478, %591 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i475.preheader ]
-  %588 = getelementptr inbounds nuw [9 x ptr], ptr %580, i64 0, i64 %indvars.iv.i.i476
+  %588 = getelementptr inbounds nuw ptr, ptr %580, i64 %indvars.iv.i.i476
   %589 = load ptr, ptr %588, align 8
   %.not.i.i477 = icmp eq ptr %589, null
   br i1 %.not.i.i477, label %591, label %590
@@ -2197,7 +2197,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i485.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i485:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i485.preheader, %609
   %indvars.iv.i.i486 = phi i64 [ %indvars.iv.next.i.i488, %609 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i485.preheader ]
-  %606 = getelementptr inbounds nuw [9 x ptr], ptr %598, i64 0, i64 %indvars.iv.i.i486
+  %606 = getelementptr inbounds nuw ptr, ptr %598, i64 %indvars.iv.i.i486
   %607 = load ptr, ptr %606, align 8
   %.not.i.i487 = icmp eq ptr %607, null
   br i1 %.not.i.i487, label %609, label %608
@@ -2247,7 +2247,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i495.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i495:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i495.preheader, %627
   %indvars.iv.i.i496 = phi i64 [ %indvars.iv.next.i.i498, %627 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i495.preheader ]
-  %624 = getelementptr inbounds nuw [9 x ptr], ptr %616, i64 0, i64 %indvars.iv.i.i496
+  %624 = getelementptr inbounds nuw ptr, ptr %616, i64 %indvars.iv.i.i496
   %625 = load ptr, ptr %624, align 8
   %.not.i.i497 = icmp eq ptr %625, null
   br i1 %.not.i.i497, label %627, label %626
@@ -2857,7 +2857,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i505.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i505:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i505.preheader, %981
   %indvars.iv.i.i506 = phi i64 [ %indvars.iv.next.i.i508, %981 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i505.preheader ]
-  %978 = getelementptr inbounds nuw [9 x ptr], ptr %970, i64 0, i64 %indvars.iv.i.i506
+  %978 = getelementptr inbounds nuw ptr, ptr %970, i64 %indvars.iv.i.i506
   %979 = load ptr, ptr %978, align 8
   %.not.i.i507 = icmp eq ptr %979, null
   br i1 %.not.i.i507, label %981, label %980
@@ -2947,7 +2947,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i515.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i515:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i515.preheader, %1023
   %indvars.iv.i.i516 = phi i64 [ %indvars.iv.next.i.i518, %1023 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i515.preheader ]
-  %1020 = getelementptr inbounds nuw [9 x ptr], ptr %1012, i64 0, i64 %indvars.iv.i.i516
+  %1020 = getelementptr inbounds nuw ptr, ptr %1012, i64 %indvars.iv.i.i516
   %1021 = load ptr, ptr %1020, align 8
   %.not.i.i517 = icmp eq ptr %1021, null
   br i1 %.not.i.i517, label %1023, label %1022
@@ -3014,7 +3014,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i525.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i525:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i525.preheader, %1050
   %indvars.iv.i.i526 = phi i64 [ %indvars.iv.next.i.i528, %1050 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i525.preheader ]
-  %1047 = getelementptr inbounds nuw [9 x ptr], ptr %1039, i64 0, i64 %indvars.iv.i.i526
+  %1047 = getelementptr inbounds nuw ptr, ptr %1039, i64 %indvars.iv.i.i526
   %1048 = load ptr, ptr %1047, align 8
   %.not.i.i527 = icmp eq ptr %1048, null
   br i1 %.not.i.i527, label %1050, label %1049
@@ -3064,7 +3064,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i535.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i535:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i535.preheader, %1068
   %indvars.iv.i.i536 = phi i64 [ %indvars.iv.next.i.i538, %1068 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i535.preheader ]
-  %1065 = getelementptr inbounds nuw [9 x ptr], ptr %1057, i64 0, i64 %indvars.iv.i.i536
+  %1065 = getelementptr inbounds nuw ptr, ptr %1057, i64 %indvars.iv.i.i536
   %1066 = load ptr, ptr %1065, align 8
   %.not.i.i537 = icmp eq ptr %1066, null
   br i1 %.not.i.i537, label %1068, label %1067
@@ -3114,7 +3114,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i545.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i545:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i545.preheader, %1086
   %indvars.iv.i.i546 = phi i64 [ %indvars.iv.next.i.i548, %1086 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i545.preheader ]
-  %1083 = getelementptr inbounds nuw [9 x ptr], ptr %1075, i64 0, i64 %indvars.iv.i.i546
+  %1083 = getelementptr inbounds nuw ptr, ptr %1075, i64 %indvars.iv.i.i546
   %1084 = load ptr, ptr %1083, align 8
   %.not.i.i547 = icmp eq ptr %1084, null
   br i1 %.not.i.i547, label %1086, label %1085
@@ -3164,7 +3164,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i555.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i555:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i555.preheader, %1104
   %indvars.iv.i.i556 = phi i64 [ %indvars.iv.next.i.i558, %1104 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i555.preheader ]
-  %1101 = getelementptr inbounds nuw [9 x ptr], ptr %1093, i64 0, i64 %indvars.iv.i.i556
+  %1101 = getelementptr inbounds nuw ptr, ptr %1093, i64 %indvars.iv.i.i556
   %1102 = load ptr, ptr %1101, align 8
   %.not.i.i557 = icmp eq ptr %1102, null
   br i1 %.not.i.i557, label %1104, label %1103
@@ -3214,7 +3214,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i565.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i565:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i565.preheader, %1122
   %indvars.iv.i.i566 = phi i64 [ %indvars.iv.next.i.i568, %1122 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i565.preheader ]
-  %1119 = getelementptr inbounds nuw [9 x ptr], ptr %1111, i64 0, i64 %indvars.iv.i.i566
+  %1119 = getelementptr inbounds nuw ptr, ptr %1111, i64 %indvars.iv.i.i566
   %1120 = load ptr, ptr %1119, align 8
   %.not.i.i567 = icmp eq ptr %1120, null
   br i1 %.not.i.i567, label %1122, label %1121
@@ -3264,7 +3264,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i575.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i575:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i575.preheader, %1140
   %indvars.iv.i.i576 = phi i64 [ %indvars.iv.next.i.i578, %1140 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i575.preheader ]
-  %1137 = getelementptr inbounds nuw [9 x ptr], ptr %1129, i64 0, i64 %indvars.iv.i.i576
+  %1137 = getelementptr inbounds nuw ptr, ptr %1129, i64 %indvars.iv.i.i576
   %1138 = load ptr, ptr %1137, align 8
   %.not.i.i577 = icmp eq ptr %1138, null
   br i1 %.not.i.i577, label %1140, label %1139
@@ -3314,7 +3314,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i585.preheader: ; preds = %.lr.ph.i.i.i
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i585:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i585.preheader, %1158
   %indvars.iv.i.i586 = phi i64 [ %indvars.iv.next.i.i588, %1158 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i585.preheader ]
-  %1155 = getelementptr inbounds nuw [9 x ptr], ptr %1147, i64 0, i64 %indvars.iv.i.i586
+  %1155 = getelementptr inbounds nuw ptr, ptr %1147, i64 %indvars.iv.i.i586
   %1156 = load ptr, ptr %1155, align 8
   %.not.i.i587 = icmp eq ptr %1156, null
   br i1 %.not.i.i587, label %1158, label %1157
@@ -3337,7 +3337,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit590:        ; preds = %1158
 
 1161:                                             ; preds = %_ZN15WorkerDataArrayIdE5resetEv.exit.i, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit590
   %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit590 ], [ %indvars.iv.next.i, %_ZN15WorkerDataArrayIdE5resetEv.exit.i ]
-  %1162 = getelementptr inbounds nuw [45 x ptr], ptr %26, i64 0, i64 %indvars.iv.i
+  %1162 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
   %1163 = load ptr, ptr %1162, align 8
   %.not.i = icmp eq ptr %1163, null
   br i1 %.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit.i, label %1164
@@ -3366,7 +3366,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i595:    ; preds = %.lr.ph.i.i.i592, %1
 
 1174:                                             ; preds = %1178, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i595
   %indvars.iv.i.i596 = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i595 ], [ %indvars.iv.next.i.i598, %1178 ]
-  %1175 = getelementptr inbounds nuw [9 x ptr], ptr %1173, i64 0, i64 %indvars.iv.i.i596
+  %1175 = getelementptr inbounds nuw ptr, ptr %1173, i64 %indvars.iv.i.i596
   %1176 = load ptr, ptr %1175, align 8
   %.not.i.i597 = icmp eq ptr %1176, null
   br i1 %.not.i.i597, label %1178, label %1177
@@ -3417,7 +3417,7 @@ define hidden void @_ZN14G1GCPhaseTimes5resetEv(ptr noundef nonnull align 8 dere
 
 4:                                                ; preds = %1, %_ZN15WorkerDataArrayIdE5resetEv.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ]
-  %5 = getelementptr inbounds nuw [45 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %7
@@ -3446,7 +3446,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %7
 
 17:                                               ; preds = %21, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %21 ]
-  %18 = getelementptr inbounds nuw [9 x ptr], ptr %16, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %21, label %20
@@ -3489,7 +3489,7 @@ define hidden void @_ZN14G1GCPhaseTimes21record_gc_pause_startEv(ptr noundef non
 
 6:                                                ; preds = %_ZN15WorkerDataArrayIdE5resetEv.exit.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %_ZN15WorkerDataArrayIdE5resetEv.exit.i ]
-  %7 = getelementptr inbounds nuw [45 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit.i, label %9
@@ -3518,7 +3518,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %.lr.ph.i.i.i, %9
 
 19:                                               ; preds = %23, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %20 = getelementptr inbounds nuw [9 x ptr], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %23, label %22
@@ -3551,7 +3551,7 @@ declare noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #1
 define hidden noundef double @_ZN14G1GCPhaseTimes11worker_timeENS_11GCParPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [45 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -3723,7 +3723,7 @@ declare noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef) local_
 define hidden void @_ZN14G1GCPhaseTimes16record_time_secsENS_11GCParPhasesEjd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [45 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %2 to i64
@@ -3736,7 +3736,7 @@ define hidden void @_ZN14G1GCPhaseTimes16record_time_secsENS_11GCParPhasesEjd(pt
 define hidden void @_ZN14G1GCPhaseTimes13add_time_secsENS_11GCParPhasesEjd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [45 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %2 to i64
@@ -3751,7 +3751,7 @@ define hidden void @_ZN14G1GCPhaseTimes13add_time_secsENS_11GCParPhasesEjd(ptr n
 define hidden void @_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [45 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %2 to i64
@@ -3778,7 +3778,7 @@ _ZN15WorkerDataArrayIdE10set_or_addEjd.exit:      ; preds = %4, %17
 define hidden noundef double @_ZN14G1GCPhaseTimes13get_time_secsENS_11GCParPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [45 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %2 to i64
@@ -3791,11 +3791,11 @@ define hidden noundef double @_ZN14G1GCPhaseTimes13get_time_secsENS_11GCParPhase
 define hidden void @_ZN14G1GCPhaseTimes23record_thread_work_itemENS_11GCParPhasesEjmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [45 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds nuw [9 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %2 to i64
@@ -3808,11 +3808,11 @@ define hidden void @_ZN14G1GCPhaseTimes23record_thread_work_itemENS_11GCParPhase
 define hidden void @_ZN14G1GCPhaseTimes30record_or_add_thread_work_itemENS_11GCParPhasesEjmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [45 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds nuw [9 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %2 to i64
@@ -3840,11 +3840,11 @@ _ZN15WorkerDataArrayIdE27set_or_add_thread_work_itemEjmj.exit: ; preds = %5, %23
 define hidden noundef i64 @_ZN14G1GCPhaseTimes20get_thread_work_itemENS_11GCParPhasesEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [45 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = zext i32 %3 to i64
-  %11 = getelementptr inbounds nuw [9 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %2 to i64
@@ -3857,7 +3857,7 @@ define hidden noundef i64 @_ZN14G1GCPhaseTimes20get_thread_work_itemENS_11GCParP
 define hidden noundef double @_ZNK14G1GCPhaseTimes15average_time_msENS_11GCParPhasesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [45 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZNK15WorkerDataArrayIdE7averageEv.exit, label %8
@@ -3933,7 +3933,7 @@ _ZNK15WorkerDataArrayIdE7averageEv.exit:          ; preds = %_ZNK15WorkerDataArr
 define hidden noundef i64 @_ZN14G1GCPhaseTimes21sum_thread_work_itemsENS_11GCParPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [45 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZNK15WorkerDataArrayImE3sumEv.exit, label %9
@@ -3941,7 +3941,7 @@ define hidden noundef i64 @_ZN14G1GCPhaseTimes21sum_thread_work_itemsENS_11GCPar
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = zext i32 %2 to i64
-  %12 = getelementptr inbounds nuw [9 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
@@ -3991,7 +3991,7 @@ define hidden void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataA
 
 11:                                               ; preds = %4, %17
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %17 ]
-  %12 = getelementptr inbounds nuw [9 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
@@ -5116,7 +5116,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13: ; preds = %_ZNK
 
 50:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13, %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16
   %indvars.iv = phi i64 [ 4, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13 ], [ %indvars.iv.next, %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16 ]
-  %51 = getelementptr inbounds nuw [45 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -6028,7 +6028,7 @@ define hidden noundef ptr @_ZN14G1GCPhaseTimes10phase_nameENS_11GCParPhasesE(i32
   %5 = tail call noundef ptr @_ZNK8G1Policy11phase_timesEv(ptr noundef nonnull align 8 dereferenceable(552) %4) #18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = zext i32 %0 to i64
-  %8 = getelementptr inbounds nuw [45 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -6232,7 +6232,7 @@ define hidden void @_ZN24G1GCParPhaseTimesTrackerD2Ev(ptr noundef nonnull align 
   %21 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %17, i64 %20) #18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = zext i32 %9 to i64
-  %24 = getelementptr inbounds nuw [45 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %11 to i64
@@ -6274,7 +6274,7 @@ _ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit: ; preds =
   %49 = tail call noundef ptr @_ZNK8G1Policy11phase_timesEv(ptr noundef nonnull align 8 dereferenceable(552) %48) #18
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = zext i32 %45 to i64
-  %52 = getelementptr inbounds nuw [45 x ptr], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
@@ -10233,7 +10233,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #18
@@ -10979,7 +10979,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -10996,7 +10996,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -11074,7 +11074,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -11118,7 +11118,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -11132,7 +11132,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -11198,7 +11198,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -11267,7 +11267,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #18
@@ -11533,7 +11533,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -11550,7 +11550,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -11628,7 +11628,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -19259,7 +19259,7 @@ _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
 
 11:                                               ; preds = %_ZN15WorkerDataArrayImE7set_allEm.exit, %15
   %indvars.iv = phi i64 [ 0, %_ZN15WorkerDataArrayImE7set_allEm.exit ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw [9 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14

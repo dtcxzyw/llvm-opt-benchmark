@@ -565,7 +565,7 @@ define internal void @prte_iof_base_sink_destruct(ptr noundef %0) #0 {
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !49
   %10 = icmp sgt i32 %9, 19
   br i1 %10, label %11, label %18
@@ -687,7 +687,7 @@ define internal void @prte_iof_base_read_event_destruct(ptr noundef captures(non
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12, i32 2
   %14 = load i32, ptr %13, align 4, !tbaa !49
   %15 = icmp sgt i32 %14, 19
   br i1 %15, label %16, label %25
@@ -923,7 +923,7 @@ define internal void @prte_iof_base_write_event_destruct(ptr noundef %0) #0 {
 
 14:                                               ; preds = %12
   %15 = zext nneg i32 %13 to i64
-  %16 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %15, i32 2
+  %16 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %15, i32 2
   %17 = load i32, ptr %16, align 4, !tbaa !49
   %18 = icmp sgt i32 %17, 19
   br i1 %18, label %19, label %22

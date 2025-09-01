@@ -818,7 +818,7 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_776number4impl11CompactData13g
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %9 = sext i32 %spec.select to i64
-  %10 = getelementptr inbounds [21 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !30
   %12 = sext i8 %11 to i32
   br label %13
@@ -856,12 +856,12 @@ define noundef ptr @_ZNK6icu_776number4impl11CompactData10getPatternEiPKNS_11Plu
   br label %18
 
 18:                                               ; preds = %15, %17
-  %.sink36 = phi i32 [ 7, %17 ], [ 6, %15 ]
+  %.sink33 = phi i64 [ 56, %17 ], [ 48, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = shl nsw i32 %spec.select, 3
-  %21 = or disjoint i32 %20, %.sink36
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [168 x ptr], ptr %19, i64 0, i64 %22
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr ptr, ptr %19, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 %.sink33
   %.024 = load ptr, ptr %23, align 8, !tbaa !32
   %.not = icmp eq ptr %.024, null
   br i1 %.not, label %.thread, label %47
@@ -896,7 +896,7 @@ _ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixed
   %33 = shl nsw i32 %spec.select, 3
   %34 = add nsw i32 %.0.i, %33
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [168 x ptr], ptr %32, i64 0, i64 %35
+  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !32
   %38 = icmp eq ptr %37, null
   %39 = icmp ne i32 %.0.i, 5
@@ -904,9 +904,9 @@ _ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixed
   br i1 %or.cond, label %40, label %45
 
 40:                                               ; preds = %_ZN6icu_776number4impl5utils17getStandardPluralEPKNS_11PluralRulesERKNS_13IFixedDecimalE.exit
-  %41 = or disjoint i32 %33, 5
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [168 x ptr], ptr %32, i64 0, i64 %42
+  %41 = sext i32 %33 to i64
+  %42 = getelementptr ptr, ptr %32, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !32
   br label %45
 
@@ -1009,7 +1009,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   %25 = load ptr, ptr %16, align 8, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1352
   %27 = sext i8 %21 to i64
-  %28 = getelementptr inbounds [21 x i8], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = load ptr, ptr %2, align 8, !tbaa !15
@@ -1044,7 +1044,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = add nsw i32 %40, %36
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [168 x ptr], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !32
   %.not55 = icmp eq ptr %49, null
   br i1 %.not55, label %50, label %.thread64
@@ -1072,7 +1072,7 @@ define void @_ZN6icu_776number4impl11CompactData15CompactDataSink3putEPKcRNS_13R
   %.040 = phi ptr [ @.str.7, %60 ], [ %54, %57 ]
   %62 = load ptr, ptr %16, align 8, !tbaa !40
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = getelementptr inbounds [168 x ptr], ptr %63, i64 0, i64 %47
+  %64 = getelementptr inbounds ptr, ptr %63, i64 %47
   store ptr %.040, ptr %64, align 8, !tbaa !32
   %65 = icmp eq i8 %.04387, 0
   br i1 %65, label %66, label %.thread68
@@ -1140,7 +1140,7 @@ _ZN12_GLOBAL__N_110countZerosEPKDsi.exit:         ; preds = %78
   %.043.lcssa = phi i8 [ %29, %.preheader ], [ %.24567, %.thread64 ]
   %85 = load ptr, ptr %16, align 8, !tbaa !40
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1352
-  %87 = getelementptr inbounds [21 x i8], ptr %86, i64 0, i64 %27
+  %87 = getelementptr inbounds i8, ptr %86, i64 %27
   %88 = load i8, ptr %87, align 1, !tbaa !30
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %90, label %98

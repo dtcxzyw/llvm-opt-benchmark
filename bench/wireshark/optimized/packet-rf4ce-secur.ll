@@ -64,14 +64,14 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
 16:                                               ; preds = %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) @keypair_context, ptr noundef align 1 dereferenceable(80) %0, i64 noundef 80, i1 noundef false) #17
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
-  br label %93
+  br label %89
 
 17:                                               ; preds = %14
   br i1 %8, label %18, label %19
 
 18:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) @keypair_context, ptr noundef align 1 dereferenceable(80) %0, i64 noundef 80, i1 noundef false) #17
-  br i1 %12, label %19, label %93
+  br i1 %12, label %19, label %89
 
 19:                                               ; preds = %18, %17
   %20 = icmp eq i8 %1, %5
@@ -86,9 +86,9 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %19 ]
-  %24 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %indvars.iv
+  %24 = getelementptr i8, ptr @keypair_context, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %indvars.iv
+  %26 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 %indvars.iv
   %27 = load i8, ptr %26, align 1
   %28 = xor i8 %27, %25
   store i8 %28, ptr %26, align 1
@@ -97,7 +97,7 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !6
 
 29:                                               ; preds = %21, %19
-  br i1 %12, label %30, label %93
+  br i1 %12, label %30, label %89
 
 30:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -105,7 +105,7 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
 
 .lr.ph.split.i:                                   ; preds = %37, %30
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %37 ], [ 0, %30 ]
-  %31 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 10
   %33 = load i8, ptr %32, align 2, !range !8, !noundef !9
   %34 = trunc nuw i8 %33 to i1
@@ -122,12 +122,12 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
   br i1 %exitcond.not.i, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %35, %37
-  %.07.i = phi ptr [ null, %37 ], [ %31, %35 ]
+  %.07.i = phi ptr [ %31, %35 ], [ null, %37 ]
   br label %.lr.ph.split.i24
 
 .lr.ph.split.i24:                                 ; preds = %44, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %44 ], [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit ]
-  %38 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i25
+  %38 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv.i25
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 10
   %40 = load i8, ptr %39, align 2, !range !8, !noundef !9
   %41 = trunc nuw i8 %40 to i1
@@ -144,123 +144,121 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %35, %37
   br i1 %exitcond.not.i27, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit30, label %.lr.ph.split.i24, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit30:   ; preds = %42, %44
-  %.07.i28 = phi ptr [ null, %44 ], [ %38, %42 ]
+  %.07.i28 = phi ptr [ %38, %42 ], [ null, %44 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 80), ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 noundef 80, i1 noundef false) #17
-  br label %87
+  br label %83
 
-45:                                               ; preds = %87
+45:                                               ; preds = %83
   %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   %.not.i = icmp eq i8 %46, 0
   br i1 %.not.i, label %keypair_context_calc_key.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %45, %49
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %49 ], [ 0, %45 ]
+.preheader.i:                                     ; preds = %45, %48
+  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %48 ], [ 0, %45 ]
   %47 = shl nuw nsw i64 %indvars.iv12.i, 4
-  %48 = add nuw nsw i64 %47, 16
-  br label %53
+  %invariant.gep.i = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 %47
+  br label %52
 
-49:                                               ; preds = %53
+48:                                               ; preds = %52
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
-  %51 = zext i8 %50 to i64
-  %52 = icmp samesign ult i64 %indvars.iv.next13.i, %51
-  br i1 %52, label %.preheader.i, label %keypair_context_calc_key.exit, !llvm.loop !11
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
+  %50 = zext i8 %49 to i64
+  %51 = icmp samesign ult i64 %indvars.iv.next13.i, %50
+  br i1 %51, label %.preheader.i, label %keypair_context_calc_key.exit, !llvm.loop !11
 
-53:                                               ; preds = %53, %.preheader.i
-  %indvars.iv.i31 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i32, %53 ]
-  %54 = or disjoint i64 %indvars.iv.i31, %47
-  %55 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1
-  %57 = add nuw nsw i64 %48, %indvars.iv.i31
-  %58 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1
-  %60 = xor i8 %59, %56
-  store i8 %60, ptr %58, align 1
+52:                                               ; preds = %52, %.preheader.i
+  %indvars.iv.i31 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i32, %52 ]
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i31
+  %53 = load i8, ptr %gep.i, align 1
+  %54 = getelementptr i8, ptr %gep.i, i64 16
+  %55 = load i8, ptr %54, align 1
+  %56 = xor i8 %55, %53
+  store i8 %56, ptr %54, align 1
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 16
-  br i1 %exitcond.not.i33, label %49, label %53, !llvm.loop !12
+  br i1 %exitcond.not.i33, label %48, label %52, !llvm.loop !12
 
-keypair_context_calc_key.exit:                    ; preds = %49, %45
+keypair_context_calc_key.exit:                    ; preds = %48, %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 224), i64 noundef 16, i1 noundef false) #17
-  br label %61
+  br label %57
 
-61:                                               ; preds = %72, %keypair_context_calc_key.exit
-  %indvars.iv.i.i = phi i64 [ 0, %keypair_context_calc_key.exit ], [ %indvars.iv.next.i.i, %72 ]
-  %62 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 33
-  %64 = load i8, ptr %63, align 1, !range !8, !noundef !9
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %66, label %72
+57:                                               ; preds = %68, %keypair_context_calc_key.exit
+  %indvars.iv.i.i = phi i64 [ 0, %keypair_context_calc_key.exit ], [ %indvars.iv.next.i.i, %68 ]
+  %58 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 33
+  %60 = load i8, ptr %59, align 1, !range !8, !noundef !9
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %62, label %68
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %68 = load i8, ptr %67, align 8, !range !8, !noundef !9
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %70, label %72
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %64 = load i8, ptr %63, align 8, !range !8, !noundef !9
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %66, label %68
 
-70:                                               ; preds = %66
-  %bcmp.i.i = call i32 @bcmp(ptr noundef dereferenceable(16) %62, ptr noundef nonnull readonly dereferenceable(16) %3, i64 16)
-  %71 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %71, label %nwk_key_storage_get_entry_by_key.exit.i, label %72
+66:                                               ; preds = %62
+  %bcmp.i.i = call i32 @bcmp(ptr noundef dereferenceable(16) %58, ptr noundef nonnull readonly dereferenceable(16) %3, i64 16)
+  %67 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %67, label %nwk_key_storage_get_entry_by_key.exit.i, label %68
 
-72:                                               ; preds = %70, %66, %61
+68:                                               ; preds = %66, %62, %57
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %.preheader.i34.preheader, label %61, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.preheader.i34.preheader, label %57, !llvm.loop !13
 
-nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %70
-  %73 = icmp eq ptr %62, null
-  br i1 %73, label %.preheader.i34.preheader, label %nwk_key_storage_add_entry.exit
+nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %66
+  %69 = icmp eq ptr %58, null
+  br i1 %69, label %.preheader.i34.preheader, label %nwk_key_storage_add_entry.exit
 
-.preheader.i34.preheader:                         ; preds = %72, %nwk_key_storage_get_entry_by_key.exit.i
+.preheader.i34.preheader:                         ; preds = %68, %nwk_key_storage_get_entry_by_key.exit.i
   br label %.preheader.i34
 
-74:                                               ; preds = %.preheader.i34
+70:                                               ; preds = %.preheader.i34
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 64
   br i1 %exitcond.not.i37, label %nwk_key_storage_add_entry.exit, label %.preheader.i34, !llvm.loop !14
 
-.preheader.i34:                                   ; preds = %.preheader.i34.preheader, %74
-  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %74 ], [ 0, %.preheader.i34.preheader ]
-  %75 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i35
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 33
-  %77 = load i8, ptr %76, align 1, !range !8, !noundef !9
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %74, label %79
+.preheader.i34:                                   ; preds = %.preheader.i34.preheader, %70
+  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %70 ], [ 0, %.preheader.i34.preheader ]
+  %71 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv.i35
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 33
+  %73 = load i8, ptr %72, align 1, !range !8, !noundef !9
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %70, label %75
 
-79:                                               ; preds = %.preheader.i34
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 33
+75:                                               ; preds = %.preheader.i34
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 33
   %.idx.neg.i = mul nsw i64 %indvars.iv.i35, -40
-  %81 = add nsw i64 %.idx.neg.i, 2560
-  %82 = call ptr @__memcpy_chk(ptr noundef %75, ptr noundef nonnull readonly %3, i64 noundef 16, i64 noundef %81) #17, !alias.scope !15
-  %83 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store ptr %.07.i, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr %.07.i28, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store i8 0, ptr %85, align 8
-  store i8 1, ptr %80, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %75, i64 34
-  store i8 1, ptr %86, align 2
+  %77 = add nsw i64 %.idx.neg.i, 2560
+  %78 = call ptr @__memcpy_chk(ptr noundef %71, ptr noundef nonnull readonly %3, i64 noundef 16, i64 noundef %77) #17, !alias.scope !15
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store ptr %.07.i, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store ptr %.07.i28, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  store i8 0, ptr %81, align 8
+  store i8 1, ptr %76, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %71, i64 34
+  store i8 1, ptr %82, align 2
   br label %nwk_key_storage_add_entry.exit
 
-nwk_key_storage_add_entry.exit:                   ; preds = %74, %nwk_key_storage_get_entry_by_key.exit.i, %79
+nwk_key_storage_add_entry.exit:                   ; preds = %70, %nwk_key_storage_get_entry_by_key.exit.i, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %93
+  br label %89
 
-87:                                               ; preds = %rf4ce_addr_table_get_addr_entry_by_ieee.exit30, %87
-  %indvars.iv52 = phi i64 [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit30 ], [ %indvars.iv.next53, %87 ]
-  %88 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %indvars.iv52
-  %89 = load i8, ptr %88, align 1
-  %90 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %indvars.iv52
-  %91 = load i8, ptr %90, align 1
-  %92 = xor i8 %91, %89
-  store i8 %92, ptr %90, align 1
+83:                                               ; preds = %rf4ce_addr_table_get_addr_entry_by_ieee.exit30, %83
+  %indvars.iv52 = phi i64 [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit30 ], [ %indvars.iv.next53, %83 ]
+  %84 = getelementptr i8, ptr @keypair_context, i64 %indvars.iv52
+  %85 = load i8, ptr %84, align 1
+  %86 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 %indvars.iv52
+  %87 = load i8, ptr %86, align 1
+  %88 = xor i8 %87, %85
+  store i8 %88, ptr %86, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 80
-  br i1 %exitcond55.not, label %45, label %87, !llvm.loop !19
+  br i1 %exitcond55.not, label %45, label %83, !llvm.loop !19
 
-93:                                               ; preds = %29, %nwk_key_storage_add_entry.exit, %18, %16
+89:                                               ; preds = %29, %nwk_key_storage_add_entry.exit, %18, %16
   ret void
 }
 
@@ -270,11 +268,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %1, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %1 ]
-  %2 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv
+  %2 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %4 = load i8, ptr %3, align 2, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
@@ -283,15 +281,15 @@ define hidden ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef readonly 
 6:                                                ; preds = %.lr.ph.split
   %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(8) %2, ptr noundef nonnull dereferenceable(8) %0, i64 8)
   %7 = icmp eq i32 %bcmp, 0
-  br i1 %7, label %.loopexit, label %8
+  br i1 %7, label %._crit_edge, label %8
 
 8:                                                ; preds = %6, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
-.loopexit:                                        ; preds = %8, %6, %1
-  %.07 = phi ptr [ null, %1 ], [ null, %8 ], [ %2, %6 ]
+._crit_edge:                                      ; preds = %8, %6, %1
+  %.07 = phi ptr [ null, %1 ], [ %2, %6 ], [ null, %8 ]
   ret ptr %.07
 }
 
@@ -303,7 +301,7 @@ define hidden void @nwk_key_storage_add_entry(ptr noundef readonly captures(none
 
 8:                                                ; preds = %19, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %19 ]
-  %9 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 33
   %11 = load i8, ptr %10, align 1, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
@@ -339,7 +337,7 @@ nwk_key_storage_get_entry_by_key.exit:            ; preds = %17
 
 .preheader:                                       ; preds = %.preheader.preheader, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader.preheader ]
-  %22 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
+  %22 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 33
   %24 = load i8, ptr %23, align 1, !range !8, !noundef !9
   %25 = trunc nuw i8 %24 to i1
@@ -372,7 +370,7 @@ define hidden void @nwk_key_storage_release_entry(ptr noundef readonly captures(
 
 4:                                                ; preds = %15, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %15 ]
-  %5 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 33
   %7 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %8 = trunc nuw i8 %7 to i1
@@ -414,7 +412,7 @@ define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly captures(add
 
 .preheader17:                                     ; preds = %2, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %2 ]
-  %4 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv
+  %4 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %6 = load i8, ptr %5, align 2, !range !8, !noundef !9
   %7 = trunc nuw i8 %6 to i1
@@ -443,14 +441,14 @@ define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly captures(add
 
 .preheader:                                       ; preds = %14, %15
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %15 ], [ 0, %14 ]
-  %16 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv24, i32 2
+  %16 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv24, i32 2
   %17 = load i8, ptr %16, align 2, !range !8, !noundef !9
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %15, label %.critedge
 
 .critedge:                                        ; preds = %.preheader
   %.idx.neg = mul nsw i64 %indvars.iv24, -12
-  %19 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv24
+  %19 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv24
   %20 = add nsw i64 %.idx.neg, 1536
   %21 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef nonnull %0, i64 noundef 8, i64 noundef %20) #17, !alias.scope !26
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -499,7 +497,7 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
 
 .split.us:                                        ; preds = %8, %21
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %21 ], [ 0, %8 ]
-  %15 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv49
+  %15 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv49
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 10
   %17 = load i8, ptr %16, align 2, !range !8, !noundef !9
   %18 = trunc nuw i8 %17 to i1
@@ -517,7 +515,7 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
 
 .split:                                           ; preds = %.split.preheader, %31
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %31 ]
-  %22 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv
+  %22 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 10
   %24 = load i8, ptr %23, align 2, !range !8, !noundef !9
   %25 = trunc nuw i8 %24 to i1
@@ -658,7 +656,7 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #5 
 
 .lr.ph.split.i:                                   ; preds = %9, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %9 ], [ 0, %1 ]
-  %3 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv.i
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %5 = load i8, ptr %4, align 2, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
@@ -675,12 +673,12 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #5 
   br i1 %exitcond.not.i, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %7, %9
-  %.07.i = phi ptr [ null, %9 ], [ %3, %7 ]
+  %.07.i = phi ptr [ %3, %7 ], [ null, %9 ]
   br label %.lr.ph.split.i14
 
 .lr.ph.split.i14:                                 ; preds = %16, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
   %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i16, %16 ], [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit ]
-  %10 = getelementptr [128 x %struct.addr_entry_s], ptr @addr_table, i64 0, i64 %indvars.iv.i15
+  %10 = getelementptr %struct.addr_entry_s, ptr @addr_table, i64 %indvars.iv.i15
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %12 = load i8, ptr %11, align 2, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
@@ -697,13 +695,13 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %7, %9
   br i1 %exitcond.not.i17, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit20, label %.lr.ph.split.i14, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit20:   ; preds = %14, %16
-  %.07.i18 = phi ptr [ null, %16 ], [ %10, %14 ]
+  %.07.i18 = phi ptr [ %10, %14 ], [ null, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %rf4ce_addr_table_get_addr_entry_by_ieee.exit20, %51
   %indvars.iv = phi i64 [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit20 ], [ %indvars.iv.next, %51 ]
-  %18 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv
+  %18 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
   %21 = trunc nuw i8 %20 to i1
@@ -722,7 +720,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit20:   ; preds = %14, %16
 
 .thread:                                          ; preds = %.thread.preheader, %36
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %36 ], [ 0, %.thread.preheader ]
-  %26 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i.i
+  %26 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 33
   %28 = load i8, ptr %27, align 1, !range !8, !noundef !9
   %29 = trunc nuw i8 %28 to i1
@@ -758,7 +756,7 @@ nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %34
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %38
   %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i22, %38 ], [ 0, %.preheader.i.preheader ]
-  %39 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i21
+  %39 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv.i21
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 33
   %41 = load i8, ptr %40, align 1, !range !8, !noundef !9
   %42 = trunc nuw i8 %41 to i1
@@ -815,7 +813,7 @@ define internal fastcc noundef zeroext i1 @key_exchange_calc_key_cont(ptr nounde
 
 24:                                               ; preds = %4, %86
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %86 ]
-  %25 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
+  %25 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 33
   %27 = load i8, ptr %26, align 1, !range !8, !noundef !9
   %28 = trunc nuw i8 %27 to i1
@@ -1024,7 +1022,7 @@ define hidden void @vendor_secret_storage_add_entry(ptr noundef readonly capture
 
 2:                                                ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
-  %3 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv.i
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 1, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
@@ -1054,14 +1052,14 @@ vendor_secret_storage_get_entry.exit:             ; preds = %7
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.preheader.preheader ]
-  %11 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv, i32 1
+  %11 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv, i32 1
   %12 = load i8, ptr %11, align 1, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %10, label %.critedge
 
 .critedge:                                        ; preds = %.preheader
   %.idx.neg = mul nsw i64 %indvars.iv, -17
-  %14 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv
+  %14 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv
   %15 = add nsw i64 %.idx.neg, 1088
   %16 = icmp ne i64 %15, -1
   tail call void @llvm.assume(i1 %16)
@@ -1080,7 +1078,7 @@ define hidden void @vendor_secret_storage_release_entry(ptr noundef readonly cap
 
 2:                                                ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
-  %3 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr %struct.vendor_secret_entry_s, ptr @vendor_secret_storage, i64 %indvars.iv.i
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 1, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
@@ -1117,7 +1115,7 @@ define hidden void @rf4ce_secur_cleanup() local_unnamed_addr #11 {
 
 1:                                                ; preds = %0, %11
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %11 ]
-  %2 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
+  %2 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %4 = load i8, ptr %3, align 1, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
@@ -1165,7 +1163,7 @@ define hidden noundef zeroext i1 @decrypt_data(ptr noundef %0, ptr noundef %1, i
 
 20:                                               ; preds = %.preheader, %44
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
-  %21 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv
+  %21 = getelementptr %struct.nwk_key_entry_s, ptr @nwk_key_storage, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 33
   %23 = load i8, ptr %22, align 1, !range !8, !noundef !9
   %24 = trunc nuw i8 %23 to i1

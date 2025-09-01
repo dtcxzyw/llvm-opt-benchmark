@@ -747,7 +747,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %89 = load i8, ptr %88, align 8, !tbaa !62
   %90 = zext nneg i32 %82 to i64
-  %91 = getelementptr inbounds nuw [9 x i8], ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !72
   %93 = zext nneg i32 %81 to i64
   %94 = lshr i64 %33, %93
@@ -893,7 +893,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 4, !tbaa !57
   %78 = load i8, ptr %29, align 8, !tbaa !62
-  %79 = getelementptr inbounds nuw [9 x i8], ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 0, i64 %34
+  %79 = getelementptr inbounds nuw i8, ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 %34
   %80 = load i8, ptr %79, align 1, !tbaa !72
   %81 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %77, i8 noundef zeroext %78, i8 noundef zeroext %80) #12
   %82 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 32) #12
@@ -1177,7 +1177,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 4, !tbaa !57
   %91 = load i8, ptr %42, align 8, !tbaa !62
-  %92 = getelementptr inbounds nuw [9 x i8], ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 0, i64 %47
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 %47
   %93 = load i8, ptr %92, align 1, !tbaa !72
   %94 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %90, i8 noundef zeroext %91, i8 noundef zeroext %93) #12
   %95 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef -1) #12

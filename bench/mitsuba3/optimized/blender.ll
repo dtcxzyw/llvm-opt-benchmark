@@ -1700,7 +1700,7 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit832:        ; preds = %520, %495
   br label %590
 
 _ZNK7mitsuba4util7VersiongeERKS1_.exit834:        ; preds = %574, %571
-  %584 = getelementptr inbounds nuw [3 x i32], ptr %569, i64 0, i64 %indvars.iv
+  %584 = getelementptr inbounds nuw i32, ptr %569, i64 %indvars.iv
   %585 = load i32, ptr %584, align 4
   %586 = zext i32 %585 to i64
   %587 = getelementptr inbounds nuw %"struct.blender::MLoop", ptr %126, i64 %586
@@ -2051,7 +2051,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit848.thread1339: ; preds = %704, %701, %698
 756:                                              ; preds = %.critedge1803
   %757 = getelementptr inbounds nuw i8, ptr %.0679, i64 48
   %758 = load i32, ptr %757, align 16
-  %759 = getelementptr inbounds nuw [3 x i32], ptr %46, i64 0, i64 %indvars.iv
+  %759 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   store i32 %758, ptr %759, align 4
   %760 = load i64, ptr %45, align 8
   %761 = add i64 %760, 1
@@ -2083,7 +2083,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit848.thread1339: ; preds = %704, %701, %698
   store i32 %.27021520, ptr %766, align 16
   %767 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   store i8 1, ptr %767, align 16
-  %768 = getelementptr inbounds nuw [3 x %"struct.mitsuba::Point"], ptr %47, i64 0, i64 %indvars.iv
+  %768 = getelementptr inbounds nuw %"struct.mitsuba::Point", ptr %47, i64 %indvars.iv
   %.sroa.01107.0.copyload = load <4 x float>, ptr %402, align 16
   %769 = load float, ptr %768, align 16
   %770 = insertelement <4 x float> poison, float %769, i64 0
@@ -2633,7 +2633,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   br i1 %1034, label %.lr.ph1518, label %.loopexit1398, !llvm.loop !23
 
 .loopexit1398:                                    ; preds = %1026, %.preheader1397, %873
-  %1035 = getelementptr inbounds nuw [3 x i32], ptr %46, i64 0, i64 %indvars.iv
+  %1035 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   store i32 %.27021520, ptr %1035, align 4
   br label %1036
 

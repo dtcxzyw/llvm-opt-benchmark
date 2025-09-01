@@ -51,7 +51,7 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %.narrow = add i8 %19, %.0.in57
   %20 = zext i8 %.narrow to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @key_table, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv72
   store i8 %22, ptr %23, align 1, !tbaa !3
@@ -73,7 +73,7 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %33 = zext i8 %32 to i32
   %34 = and i32 %29, %33
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @key_table, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !3
   store i8 %37, ptr %31, align 1, !tbaa !3
   %.not61 = icmp eq i32 %25, 128
@@ -94,7 +94,7 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %40 = load i8, ptr %gep, align 1, !tbaa !3
   %41 = xor i8 %40, %.1.in63
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @key_table, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !3
   %45 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next77
   store i8 %44, ptr %45, align 1, !tbaa !3

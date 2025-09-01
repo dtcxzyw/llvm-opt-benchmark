@@ -43,7 +43,7 @@ define dso_local void @jvp_dtoa_context_free(ptr noundef captures(none) %0) loca
 
 10:                                               ; preds = %.lr.ph
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   store ptr %13, ptr %4, align 8, !tbaa !10
   store ptr %4, ptr %12, align 8, !tbaa !14
@@ -59,7 +59,7 @@ Bfree.exit:                                       ; preds = %9, %10
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %15 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %.not1720 = icmp eq ptr %16, null
   br i1 %.not1720, label %._crit_edge, label %.lr.ph21
@@ -600,9 +600,9 @@ match.exit600:                                    ; preds = %162, %.preheader
   br i1 %189, label %194, label %.thread
 
 194:                                              ; preds = %185
-  %195 = add nsw i32 %187, -9
-  %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %196
+  %195 = zext nneg i32 %187 to i64
+  %196 = getelementptr double, ptr @tens, i64 %195
+  %197 = getelementptr i8, ptr %196, i64 -72
   %198 = load double, ptr %197, align 8, !tbaa !28
   %199 = uitofp i32 %.3413 to double
   %200 = tail call double @llvm.fmuladd.f64(double %198, double %188, double %199)
@@ -636,7 +636,7 @@ match.exit600:                                    ; preds = %162, %.preheader
 
 216:                                              ; preds = %214
   %217 = zext nneg i32 %186 to i64
-  %218 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw double, ptr @tens, i64 %217
   %219 = load double, ptr %218, align 8, !tbaa !28
   %220 = fmul double %219, %208
   store double %220, ptr %10, align 8, !tbaa !19
@@ -651,11 +651,11 @@ match.exit600:                                    ; preds = %162, %.preheader
   %224 = sub nsw i32 15, %.2462
   %225 = sub nsw i32 %186, %224
   %226 = zext nneg i32 %224 to i64
-  %227 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw double, ptr @tens, i64 %226
   %228 = load double, ptr %227, align 8, !tbaa !28
   %229 = fmul double %228, %208
   %230 = sext i32 %225 to i64
-  %231 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %230
+  %231 = getelementptr inbounds double, ptr @tens, i64 %230
   %232 = load double, ptr %231, align 8, !tbaa !28
   %233 = fmul double %229, %232
   store double %233, ptr %10, align 8, !tbaa !19
@@ -668,7 +668,7 @@ match.exit600:                                    ; preds = %162, %.preheader
 236:                                              ; preds = %234
   %237 = sub nsw i32 0, %186
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw double, ptr @tens, i64 %238
   %240 = load double, ptr %239, align 8, !tbaa !28
   %241 = fdiv double %208, %240
   store double %241, ptr %10, align 8, !tbaa !19
@@ -690,7 +690,7 @@ match.exit600:                                    ; preds = %162, %.preheader
 
 251:                                              ; preds = %249
   %252 = zext nneg i32 %250 to i64
-  %253 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw double, ptr @tens, i64 %252
   %254 = load double, ptr %253, align 8, !tbaa !28
   %255 = fmul double %254, %245
   store double %255, ptr %10, align 8, !tbaa !19
@@ -746,7 +746,7 @@ match.exit600:                                    ; preds = %162, %.preheader
 
 272:                                              ; preds = %267
   %273 = sext i32 %269 to i64
-  %274 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %273
+  %274 = getelementptr inbounds ptr, ptr %0, i64 %273
   %275 = load ptr, ptr %274, align 8, !tbaa !14
   store ptr %275, ptr %.1406, align 8, !tbaa !10
   store ptr %.1406, ptr %274, align 8, !tbaa !14
@@ -768,7 +768,7 @@ Bfree.exit:                                       ; preds = %266, %271, %272
 
 281:                                              ; preds = %276
   %282 = sext i32 %278 to i64
-  %283 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %282
+  %283 = getelementptr inbounds ptr, ptr %0, i64 %282
   %284 = load ptr, ptr %283, align 8, !tbaa !14
   store ptr %284, ptr %.1399, align 8, !tbaa !10
   store ptr %.1399, ptr %283, align 8, !tbaa !14
@@ -790,7 +790,7 @@ Bfree.exit611:                                    ; preds = %Bfree.exit, %280, %
 
 290:                                              ; preds = %285
   %291 = sext i32 %287 to i64
-  %292 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %291
+  %292 = getelementptr inbounds ptr, ptr %0, i64 %291
   %293 = load ptr, ptr %292, align 8, !tbaa !14
   store ptr %293, ptr %.1391, align 8, !tbaa !10
   store ptr %.1391, ptr %292, align 8, !tbaa !14
@@ -808,7 +808,7 @@ Bfree.exit613:                                    ; preds = %290, %289, %Bfree.e
 
 298:                                              ; preds = %Bfree.exit613
   %299 = sext i32 %295 to i64
-  %300 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %299
+  %300 = getelementptr inbounds ptr, ptr %0, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !14
   store ptr %301, ptr %.1396, align 8, !tbaa !10
   store ptr %.1396, ptr %300, align 8, !tbaa !14
@@ -830,7 +830,7 @@ Bfree.exit615:                                    ; preds = %297, %298
 
 307:                                              ; preds = %302
   %308 = sext i32 %304 to i64
-  %309 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %308
+  %309 = getelementptr inbounds ptr, ptr %0, i64 %308
   %310 = load ptr, ptr %309, align 8, !tbaa !14
   store ptr %310, ptr %.1, align 8, !tbaa !10
   store ptr %.1, ptr %309, align 8, !tbaa !14
@@ -856,7 +856,7 @@ Bfree.exit615:                                    ; preds = %297, %298
   br i1 %.not571, label %325, label %318
 
 318:                                              ; preds = %.lr.ph989
-  %319 = getelementptr inbounds nuw [5 x double], ptr @bigtens, i64 0, i64 %indvars.iv1134
+  %319 = getelementptr inbounds nuw double, ptr @bigtens, i64 %indvars.iv1134
   %320 = load double, ptr %319, align 8, !tbaa !28
   %321 = fmul double %320, %316
   %322 = bitcast double %321 to i64
@@ -884,7 +884,7 @@ Bfree.exit615:                                    ; preds = %297, %298
   %333 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %334 = add i32 %332, -55574528
   store i32 %334, ptr %333, align 4, !tbaa !19
-  %335 = getelementptr inbounds nuw [5 x double], ptr @bigtens, i64 0, i64 %.0468.lcssa
+  %335 = getelementptr inbounds nuw double, ptr @bigtens, i64 %.0468.lcssa
   %336 = load double, ptr %335, align 8, !tbaa !28
   %337 = load double, ptr %10, align 8, !tbaa !19
   %338 = fmul double %336, %337
@@ -922,7 +922,7 @@ Bfree.exit615:                                    ; preds = %297, %298
 
 354:                                              ; preds = %351
   %355 = zext nneg i32 %353 to i64
-  %356 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw double, ptr @tens, i64 %355
   %357 = load double, ptr %356, align 8, !tbaa !28
   %358 = fdiv double %245, %357
   store double %358, ptr %10, align 8, !tbaa !19
@@ -962,7 +962,7 @@ Bfree.exit615:                                    ; preds = %297, %298
   br i1 %.not546, label %382, label %374
 
 374:                                              ; preds = %.lr.ph983
-  %375 = getelementptr inbounds nuw [5 x double], ptr @tinytens, i64 0, i64 %indvars.iv
+  %375 = getelementptr inbounds nuw double, ptr @tinytens, i64 %indvars.iv
   %376 = load double, ptr %375, align 8, !tbaa !28
   %377 = fmul double %376, %372
   %378 = bitcast double %377 to i64
@@ -1144,7 +1144,7 @@ Bfree.exit615:                                    ; preds = %297, %298
   %.24871277 = phi i32 [ %.2487, %._crit_edge.i ], [ %.2487, %.loopexit788 ], [ %425, %.preheader787 ], [ %425, %.lr.ph1000 ]
   %.028.lcssa57.i = phi i32 [ %447, %._crit_edge.i ], [ 0, %.loopexit788 ], [ 0, %.preheader787 ], [ 0, %.lr.ph1000 ]
   %450 = zext nneg i32 %.028.lcssa57.i to i64
-  %451 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw ptr, ptr %0, i64 %450
   %452 = load ptr, ptr %451, align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %452, null
   br i1 %.not.i.i, label %455, label %453
@@ -1263,7 +1263,7 @@ Bfree.exit662:                                    ; preds = %Bfree.exit662.backe
 
 506:                                              ; preds = %Bfree.exit662
   %507 = sext i32 %504 to i64
-  %508 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %507
+  %508 = getelementptr inbounds ptr, ptr %0, i64 %507
   %509 = load ptr, ptr %508, align 8, !tbaa !14
   %.not.i619 = icmp eq ptr %509, null
   br i1 %.not.i619, label %512, label %510
@@ -1387,7 +1387,7 @@ i2b.exit:                                         ; preds = %529, %531
 
 572:                                              ; preds = %567
   %573 = sext i32 %569 to i64
-  %574 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %573
+  %574 = getelementptr inbounds ptr, ptr %0, i64 %573
   %575 = load ptr, ptr %574, align 8, !tbaa !14
   store ptr %575, ptr %527, align 8, !tbaa !10
   store ptr %527, ptr %574, align 8, !tbaa !14
@@ -1942,7 +1942,7 @@ ratio.exit:                                       ; preds = %723, %728
 
 831:                                              ; preds = %826
   %832 = sext i32 %828 to i64
-  %833 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %832
+  %833 = getelementptr inbounds ptr, ptr %0, i64 %832
   %834 = load ptr, ptr %833, align 8, !tbaa !14
   store ptr %834, ptr %.4409, align 8, !tbaa !10
   store ptr %.4409, ptr %833, align 8, !tbaa !14
@@ -1964,7 +1964,7 @@ Bfree.exit656:                                    ; preds = %825, %830, %831
 
 840:                                              ; preds = %835
   %841 = sext i32 %837 to i64
-  %842 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %841
+  %842 = getelementptr inbounds ptr, ptr %0, i64 %841
   %843 = load ptr, ptr %842, align 8, !tbaa !14
   store ptr %843, ptr %.4402, align 8, !tbaa !10
   store ptr %.4402, ptr %842, align 8, !tbaa !14
@@ -1986,7 +1986,7 @@ Bfree.exit658:                                    ; preds = %Bfree.exit656, %839
 
 849:                                              ; preds = %844
   %850 = sext i32 %846 to i64
-  %851 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %850
+  %851 = getelementptr inbounds ptr, ptr %0, i64 %850
   %852 = load ptr, ptr %851, align 8, !tbaa !14
   store ptr %852, ptr %.4394, align 8, !tbaa !10
   store ptr %.4394, ptr %851, align 8, !tbaa !14
@@ -2007,7 +2007,7 @@ Bfree.exit662.backedge:                           ; preds = %856, %857
 
 857:                                              ; preds = %Bfree.exit660
   %858 = sext i32 %854 to i64
-  %859 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %858
+  %859 = getelementptr inbounds ptr, ptr %0, i64 %858
   %860 = load ptr, ptr %859, align 8, !tbaa !14
   store ptr %860, ptr %.5, align 8, !tbaa !10
   store ptr %.5, ptr %859, align 8, !tbaa !14
@@ -2032,7 +2032,7 @@ cmp.exit637.thread:                               ; preds = %623, %640, %612, %8
 
 866:                                              ; preds = %861
   %867 = sext i32 %863 to i64
-  %868 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %867
+  %868 = getelementptr inbounds ptr, ptr %0, i64 %867
   %869 = load ptr, ptr %868, align 8, !tbaa !14
   store ptr %869, ptr %.4409, align 8, !tbaa !10
   store ptr %.4409, ptr %868, align 8, !tbaa !14
@@ -2054,7 +2054,7 @@ Bfree.exit664:                                    ; preds = %cmp.exit637.thread,
 
 875:                                              ; preds = %870
   %876 = sext i32 %872 to i64
-  %877 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %876
+  %877 = getelementptr inbounds ptr, ptr %0, i64 %876
   %878 = load ptr, ptr %877, align 8, !tbaa !14
   store ptr %878, ptr %.4402, align 8, !tbaa !10
   store ptr %.4402, ptr %877, align 8, !tbaa !14
@@ -2076,7 +2076,7 @@ Bfree.exit666:                                    ; preds = %Bfree.exit664, %874
 
 884:                                              ; preds = %879
   %885 = sext i32 %881 to i64
-  %886 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %885
+  %886 = getelementptr inbounds ptr, ptr %0, i64 %885
   %887 = load ptr, ptr %886, align 8, !tbaa !14
   store ptr %887, ptr %.4394, align 8, !tbaa !10
   store ptr %.4394, ptr %886, align 8, !tbaa !14
@@ -2097,7 +2097,7 @@ Bfree.exit668:                                    ; preds = %Bfree.exit666, %883
 
 892:                                              ; preds = %888
   %893 = sext i32 %889 to i64
-  %894 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %893
+  %894 = getelementptr inbounds ptr, ptr %0, i64 %893
   %895 = load ptr, ptr %894, align 8, !tbaa !14
   store ptr %895, ptr %.234.lcssa.i, align 8, !tbaa !10
   store ptr %.234.lcssa.i, ptr %894, align 8, !tbaa !14
@@ -2119,7 +2119,7 @@ Bfree.exit670:                                    ; preds = %Bfree.exit668, %891
 
 901:                                              ; preds = %896
   %902 = sext i32 %898 to i64
-  %903 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %902
+  %903 = getelementptr inbounds ptr, ptr %0, i64 %902
   %904 = load ptr, ptr %903, align 8, !tbaa !14
   store ptr %904, ptr %.3, align 8, !tbaa !10
   store ptr %.3, ptr %903, align 8, !tbaa !14
@@ -2245,9 +2245,9 @@ i2b.exit165.i:                                    ; preds = %940, %938
   %957 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 24
   %958 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 20
   %959 = load i32, ptr %958, align 4, !tbaa !38
-  %960 = add nsw i32 %959, -1
-  %961 = sext i32 %960 to i64
-  %962 = getelementptr inbounds [1 x i32], ptr %957, i64 0, i64 %961
+  %960 = sext i32 %959 to i64
+  %961 = getelementptr i32, ptr %957, i64 %960
+  %962 = getelementptr i8, ptr %961, i64 -4
   %963 = load i32, ptr %962, align 4, !tbaa !37
   %.not.i.i166.i = icmp ult i32 %963, 65536
   %964 = shl nuw i32 %963, 16
@@ -2443,7 +2443,7 @@ i2b.exit165.i:                                    ; preds = %940, %938
 
 1036:                                             ; preds = %.thread.i
   %1037 = sext i32 %1033 to i64
-  %1038 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %1037
+  %1038 = getelementptr inbounds ptr, ptr %0, i64 %1037
   %1039 = load ptr, ptr %1038, align 8, !tbaa !14
   store ptr %1039, ptr %.5182.i, align 8, !tbaa !10
   store ptr %.5182.i, ptr %1038, align 8, !tbaa !14
@@ -2466,7 +2466,7 @@ Bfree.exit.i:                                     ; preds = %1036, %1035, %.loop
 
 1045:                                             ; preds = %1040
   %1046 = sext i32 %1042 to i64
-  %1047 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %1046
+  %1047 = getelementptr inbounds ptr, ptr %0, i64 %1046
   %1048 = load ptr, ptr %1047, align 8, !tbaa !14
   store ptr %1048, ptr %.1111.i, align 8, !tbaa !10
   store ptr %.1111.i, ptr %1047, align 8, !tbaa !14
@@ -2910,9 +2910,9 @@ define internal fastcc ptr @pow5mult(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = add nsw i32 %4, -1
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [3 x i32], ptr @pow5mult.p05, i64 0, i64 %7
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr i32, ptr @pow5mult.p05, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !37
   %10 = tail call fastcc ptr @multadd(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0)
   br label %11
@@ -2997,7 +2997,7 @@ i2b.exit:                                         ; preds = %19, %21
 
 37:                                               ; preds = %32
   %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   store ptr %40, ptr %.129, align 8, !tbaa !10
   store ptr %.129, ptr %39, align 8, !tbaa !14
@@ -3050,7 +3050,7 @@ define internal fastcc ptr @mult(ptr noundef captures(none) %0, ptr noundef read
 
 21:                                               ; preds = %3
   %22 = sext i32 %.059 to i64
-  %23 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %27, label %25
@@ -3201,7 +3201,7 @@ define internal fastcc ptr @lshift(ptr noundef captures(none) %0, ptr noundef %1
 
 15:                                               ; preds = %._crit_edge
   %16 = sext i32 %.046.lcssa to i64
-  %17 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %21, label %19
@@ -3304,7 +3304,7 @@ Balloc.exit:                                      ; preds = %19, %21
 
 65:                                               ; preds = %.loopexit
   %66 = sext i32 %62 to i64
-  %67 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %0, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !14
   store ptr %68, ptr %1, align 8, !tbaa !10
   store ptr %1, ptr %67, align 8, !tbaa !14
@@ -3393,7 +3393,7 @@ Balloc.exit:                                      ; preds = %22, %24
 
 36:                                               ; preds = %31
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %37
+  %38 = getelementptr inbounds ptr, ptr %0, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   %.not.i62 = icmp eq ptr %39, null
   br i1 %.not.i62, label %42, label %40
@@ -3516,7 +3516,7 @@ define dso_local void @jvp_freedtoa(ptr noundef captures(none) %0, ptr noundef i
 
 10:                                               ; preds = %2
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   store ptr %13, ptr %3, align 8, !tbaa !10
   store ptr %3, ptr %12, align 8, !tbaa !14
@@ -3762,7 +3762,7 @@ rv_alloc.exit.i608:                               ; preds = %57, %55
 112:                                              ; preds = %100
   %113 = load double, ptr %10, align 8
   %114 = zext nneg i32 %.0484 to i64
-  %115 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw double, ptr @tens, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !28
   %117 = fcmp olt double %113, %116
   %118 = bitcast double %113 to i64
@@ -3870,7 +3870,7 @@ default.unreachable:                              ; preds = %137
   %.0511703 = phi i32 [ %.0511, %._crit_edge.i619 ], [ %.0511, %146 ], [ -1, %137 ], [ -1, %137 ]
   %.08.lcssa15.i = phi i32 [ %147, %._crit_edge.i619 ], [ 0, %146 ], [ 0, %137 ], [ 0, %137 ]
   %150 = zext nneg i32 %.08.lcssa15.i to i64
-  %151 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr %0, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i, label %155, label %153
@@ -3923,7 +3923,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
 169:                                              ; preds = %166
   %170 = and i32 %.1485, 15
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw double, ptr @tens, i64 %171
   %173 = load double, ptr %172, align 8, !tbaa !28
   %174 = lshr i32 %.1485, 4
   %175 = and i32 %.1485, 256
@@ -3947,7 +3947,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
 
 180:                                              ; preds = %.lr.ph862
   %181 = add nsw i32 %.1518858, 1
-  %182 = getelementptr inbounds nuw [5 x double], ptr @bigtens, i64 0, i64 %indvars.iv1014
+  %182 = getelementptr inbounds nuw double, ptr @bigtens, i64 %indvars.iv1014
   %183 = load double, ptr %182, align 8, !tbaa !28
   %184 = fmul double %.0417861, %183
   br label %185
@@ -3974,7 +3974,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
 190:                                              ; preds = %188
   %191 = and i32 %189, 15
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw double, ptr @tens, i64 %192
   %194 = load double, ptr %193, align 8, !tbaa !28
   %195 = fmul double %167, %194
   %.not556852 = icmp samesign ult i32 %189, 16
@@ -3995,7 +3995,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
 
 199:                                              ; preds = %.lr.ph
   %200 = add nsw i32 %.4521853, 1
-  %201 = getelementptr inbounds nuw [5 x double], ptr @bigtens, i64 0, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw double, ptr @bigtens, i64 %indvars.iv
   %202 = load double, ptr %201, align 8, !tbaa !28
   %203 = fmul double %202, %197
   br label %204
@@ -4056,9 +4056,9 @@ rv_alloc.exit:                                    ; preds = %153, %155
 
 229:                                              ; preds = %216
   %.not560 = icmp eq i32 %.0477709, 0
-  %230 = add nsw i32 %.2513, -1
-  %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %231
+  %230 = zext nneg i32 %.2513 to i64
+  %231 = getelementptr double, ptr @tens, i64 %230
+  %232 = getelementptr i8, ptr %231, i64 -8
   %233 = load double, ptr %232, align 8, !tbaa !28
   br i1 %.not560, label %277, label %234
 
@@ -4075,7 +4075,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
   %240 = lshr i32 %239, 4
   %241 = and i32 %.0495, 15
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds nuw [23 x double], ptr @tens, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw double, ptr @tens, i64 %242
   %244 = load double, ptr %243, align 8, !tbaa !28
   %245 = fmul double %244, 0x31E5866C8349626D
   br label %.lr.ph870
@@ -4089,7 +4089,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
   br i1 %.not563, label %251, label %247
 
 247:                                              ; preds = %.lr.ph870
-  %248 = getelementptr inbounds nuw [5 x double], ptr @bigtens, i64 0, i64 %indvars.iv1017
+  %248 = getelementptr inbounds nuw double, ptr @bigtens, i64 %indvars.iv1017
   %249 = load double, ptr %248, align 8, !tbaa !28
   %250 = fmul double %.sroa.0.0868, %249
   br label %251
@@ -4228,7 +4228,7 @@ rv_alloc.exit:                                    ; preds = %153, %155
 
 315:                                              ; preds = %309
   %316 = sext i32 %.1485 to i64
-  %317 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %316
+  %317 = getelementptr inbounds double, ptr @tens, i64 %316
   %318 = load double, ptr %317, align 8, !tbaa !28
   %319 = icmp slt i32 %.0446712, 0
   %320 = icmp slt i32 %.0511701, 1
@@ -4418,7 +4418,7 @@ i2b.exit:                                         ; preds = %373, %375
 
 400:                                              ; preds = %395
   %401 = sext i32 %397 to i64
-  %402 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %401
+  %402 = getelementptr inbounds ptr, ptr %0, i64 %401
   %403 = load ptr, ptr %402, align 8, !tbaa !14
   store ptr %403, ptr %66, align 8, !tbaa !10
   store ptr %66, ptr %402, align 8, !tbaa !14
@@ -4492,9 +4492,9 @@ i2b.exit625:                                      ; preds = %408, %410
   %430 = getelementptr inbounds nuw i8, ptr %.2421, i64 24
   %431 = getelementptr inbounds nuw i8, ptr %.2421, i64 20
   %432 = load i32, ptr %431, align 4, !tbaa !38
-  %433 = add nsw i32 %432, -1
-  %434 = sext i32 %433 to i64
-  %435 = getelementptr inbounds [1 x i32], ptr %430, i64 0, i64 %434
+  %433 = sext i32 %432 to i64
+  %434 = getelementptr i32, ptr %430, i64 %433
+  %435 = getelementptr i8, ptr %434, i64 -4
   %436 = load i32, ptr %435, align 4, !tbaa !37
   %.not.i.i626 = icmp ult i32 %436, 65536
   %437 = shl nuw i32 %436, 16
@@ -4699,7 +4699,7 @@ cmp.exit638.thread721:                            ; preds = %497, %cmp.exit638, 
 
 514:                                              ; preds = %510
   %515 = sext i32 %512 to i64
-  %516 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %515
+  %516 = getelementptr inbounds ptr, ptr %0, i64 %515
   %517 = load ptr, ptr %516, align 8, !tbaa !14
   %.not.i640 = icmp eq ptr %517, null
   br i1 %.not.i640, label %520, label %518
@@ -4852,7 +4852,7 @@ cmp.exit662.thread:                               ; preds = %cmp.exit651, %564, 
 
 587:                                              ; preds = %cmp.exit662.thread
   %588 = sext i32 %584 to i64
-  %589 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %588
+  %589 = getelementptr inbounds ptr, ptr %0, i64 %588
   %590 = load ptr, ptr %589, align 8, !tbaa !14
   store ptr %590, ptr %561, align 8, !tbaa !10
   store ptr %561, ptr %589, align 8, !tbaa !14
@@ -5158,7 +5158,7 @@ cmp.exit686.thread740:                            ; preds = %683, %cmp.exit686.t
 
 705:                                              ; preds = %700
   %706 = sext i32 %702 to i64
-  %707 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %706
+  %707 = getelementptr inbounds ptr, ptr %0, i64 %706
   %708 = load ptr, ptr %707, align 8, !tbaa !14
   store ptr %708, ptr %.4423, align 8, !tbaa !10
   store ptr %.4423, ptr %707, align 8, !tbaa !14
@@ -5186,7 +5186,7 @@ Bfree.exit688:                                    ; preds = %.loopexit754, %704,
 
 715:                                              ; preds = %710
   %716 = sext i32 %712 to i64
-  %717 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %716
+  %717 = getelementptr inbounds ptr, ptr %0, i64 %716
   %718 = load ptr, ptr %717, align 8, !tbaa !14
   store ptr %718, ptr %.2440, align 8, !tbaa !10
   store ptr %.2440, ptr %717, align 8, !tbaa !14
@@ -5204,7 +5204,7 @@ Bfree.exit690:                                    ; preds = %709, %714, %715
 
 723:                                              ; preds = %Bfree.exit690
   %724 = sext i32 %720 to i64
-  %725 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %724
+  %725 = getelementptr inbounds ptr, ptr %0, i64 %724
   %726 = load ptr, ptr %725, align 8, !tbaa !14
   store ptr %726, ptr %.7431, align 8, !tbaa !10
   store ptr %.7431, ptr %725, align 8, !tbaa !14
@@ -5238,7 +5238,7 @@ Bfree.exit692:                                    ; preds = %.preheader759, %Bfr
 
 732:                                              ; preds = %727
   %733 = sext i32 %729 to i64
-  %734 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %733
+  %734 = getelementptr inbounds ptr, ptr %0, i64 %733
   %735 = load ptr, ptr %734, align 8, !tbaa !14
   store ptr %735, ptr %.2449, align 8, !tbaa !10
   store ptr %.2449, ptr %734, align 8, !tbaa !14
@@ -5310,7 +5310,7 @@ define internal fastcc ptr @multadd(ptr noundef captures(none) %0, ptr noundef %
 
 28:                                               ; preds = %23
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %29
+  %30 = getelementptr inbounds ptr, ptr %0, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !14
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %34, label %32
@@ -5355,7 +5355,7 @@ define internal fastcc ptr @multadd(ptr noundef captures(none) %0, ptr noundef %
 
 54:                                               ; preds = %43
   %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds ptr, ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !14
   store ptr %57, ptr %1, align 8, !tbaa !10
   store ptr %1, ptr %56, align 8, !tbaa !14
@@ -5367,7 +5367,7 @@ Bfree.exit:                                       ; preds = %54, %53, %20
   %59 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %60 = add nsw i32 %6, 1
   %61 = sext i32 %6 to i64
-  %62 = getelementptr inbounds [1 x i32], ptr %59, i64 0, i64 %61
+  %62 = getelementptr inbounds i32, ptr %59, i64 %61
   store i32 %58, ptr %62, align 4, !tbaa !37
   %63 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   store i32 %60, ptr %63, align 4, !tbaa !38
@@ -5822,7 +5822,7 @@ thread-pre-split:                                 ; preds = %89, %.thread
 
 103:                                              ; preds = %.loopexit
   %104 = sext i32 %97 to i64
-  %105 = getelementptr inbounds [8 x ptr], ptr %0, i64 0, i64 %104
+  %105 = getelementptr inbounds ptr, ptr %0, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !14
   store ptr %106, ptr %96, align 8, !tbaa !10
   store ptr %96, ptr %105, align 8, !tbaa !14

@@ -28,7 +28,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   %11 = trunc nuw nsw i32 %9 to i8
   store i8 %11, ptr %0, align 8, !tbaa !17
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %12
+  %13 = getelementptr %struct.st_features, ptr @features, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -46,7 +46,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   br label %31
 
 23:                                               ; preds = %5
-  %24 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %12, i32 3
+  %24 = getelementptr %struct.st_features, ptr @features, i64 %12, i32 3
   %25 = load i64, ptr %24, align 8, !tbaa !24
   %26 = shl i64 %25, 3
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #24
@@ -82,7 +82,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   br i1 %.not.i, label %make_tab_empty.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %12, i32 3
+  %42 = getelementptr %struct.st_features, ptr @features, i64 %12, i32 3
   %43 = load i64, ptr %42, align 8, !tbaa !24
   %44 = shl i64 %43, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %32, i8 noundef 0, i64 noundef %44, i1 noundef false) #25
@@ -381,7 +381,7 @@ define dso_local void @rb_parser_st_clear(ptr noundef captures(none) initializes
 6:                                                ; preds = %1
   %.val.i = load i8, ptr %0, align 8, !tbaa !17
   %7 = zext i8 %.val.i to i64
-  %8 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %7, i32 3
+  %8 = getelementptr %struct.st_features, ptr @features, i64 %7, i32 3
   %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %5, i8 noundef 0, i64 noundef %10, i1 noundef false) #25
@@ -405,7 +405,7 @@ define dso_local i64 @rb_parser_st_memsize(ptr noundef readonly captures(none) %
   br i1 %4, label %._crit_edge, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %.pre, i32 3
+  %6 = getelementptr %struct.st_features, ptr @features, i64 %.pre, i32 3
   %7 = load i64, ptr %6, align 8, !tbaa !24
   %8 = shl i64 %7, 3
   %9 = add i64 %8, 56
@@ -1004,7 +1004,7 @@ define internal fastcc void @rebuild_table_if_necessary(ptr noundef captures(non
   br i1 %.not17.i, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %4, i32 3
+  %18 = getelementptr %struct.st_features, ptr @features, i64 %4, i32 3
   %19 = load i64, ptr %18, align 8, !tbaa !24
   %20 = shl i64 %19, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %16, i8 noundef 0, i64 noundef %20, i1 noundef false) #25
@@ -1573,7 +1573,7 @@ define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly capture
 8:                                                ; preds = %2
   %.val21 = load i8, ptr %1, align 8, !tbaa !17
   %9 = zext i8 %.val21 to i64
-  %10 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %9, i32 3
+  %10 = getelementptr %struct.st_features, ptr @features, i64 %9, i32 3
   %11 = load i64, ptr %10, align 8, !tbaa !24
   %12 = shl i64 %11, 3
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #24
@@ -1609,7 +1609,7 @@ nonempty_memcpy.exit:                             ; preds = %22, %23
   br i1 %.not, label %nonempty_memcpy.exit26, label %27
 
 27:                                               ; preds = %nonempty_memcpy.exit
-  %28 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %.pre-phi, i32 3
+  %28 = getelementptr %struct.st_features, ptr @features, i64 %.pre-phi, i32 3
   %29 = load i64, ptr %28, align 8, !tbaa !24
   %30 = shl i64 %29, 3
   %.not.i24 = icmp eq i64 %30, 0

@@ -55,7 +55,7 @@ define internal i64 @fun_so_from_utf8_mac(ptr noundef captures(none) %0, ptr nou
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %8, align 4, !tbaa !11
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !12
   %16 = srem i32 %12, 16
   store i32 %16, ptr %8, align 4, !tbaa !11
@@ -80,7 +80,7 @@ define internal i64 @fun_so_from_utf8_mac(ptr noundef captures(none) %0, ptr nou
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %22, align 4, !tbaa !11
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %27
+  %28 = getelementptr inbounds i8, ptr %0, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = srem i32 %26, 16
   store i32 %30, ptr %22, align 4, !tbaa !11
@@ -132,7 +132,7 @@ from_utf8_mac_finish.exit:                        ; preds = %5
   %54 = add nsw i32 %51, 1
   store i32 %54, ptr %49, align 4, !tbaa !6
   %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds i8, ptr %0, i64 %55
   store i8 %53, ptr %56, align 1, !tbaa !12
   %57 = load i32, ptr %49, align 4, !tbaa !6
   %58 = srem i32 %57, 16
@@ -162,7 +162,7 @@ buf_push.exit:                                    ; preds = %50, %from_utf8_mac_
 70:                                               ; preds = %68
   %71 = srem i32 %63, 16
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %72
+  %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !12
   %75 = icmp ugt i8 %74, -33
   br i1 %75, label %buf_apply.exit, label %.preheader
@@ -181,7 +181,7 @@ buf_push.exit:                                    ; preds = %50, %from_utf8_mac_
   %79 = add nsw i32 %.016.i.i, %63
   %80 = srem i32 %79, 16
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %81
+  %82 = getelementptr inbounds i8, ptr %0, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !12
   %84 = zext i8 %83 to i64
   %85 = lshr i64 %.015.i.i, 2
@@ -255,7 +255,7 @@ get_info.exit.thread.i.preheader:                 ; preds = %93, %77, %get_info.
   %126 = add nsw i32 %123, 1
   store i32 %126, ptr %61, align 4, !tbaa !6
   %127 = sext i32 %123 to i64
-  %128 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %127
+  %128 = getelementptr inbounds i8, ptr %0, i64 %127
   store i8 %125, ptr %128, align 1, !tbaa !12
   %129 = load i32, ptr %61, align 4, !tbaa !6
   %130 = srem i32 %129, 16
@@ -274,7 +274,7 @@ get_info.exit.thread.i:                           ; preds = %get_info.exit.threa
   %135 = add nsw i32 %132, 1
   store i32 %135, ptr %62, align 4, !tbaa !11
   %136 = sext i32 %132 to i64
-  %137 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %136
+  %137 = getelementptr inbounds i8, ptr %0, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !12
   %139 = srem i32 %135, 16
   store i32 %139, ptr %62, align 4, !tbaa !11
@@ -283,7 +283,7 @@ get_info.exit.thread.i:                           ; preds = %get_info.exit.threa
   store i8 %138, ptr %141, align 1, !tbaa !12
   %142 = load i32, ptr %62, align 4, !tbaa !11
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %143
+  %144 = getelementptr inbounds i8, ptr %0, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !12
   %146 = icmp slt i8 %145, -64
   br i1 %146, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !17
@@ -314,7 +314,7 @@ define internal i64 @from_utf8_mac_finish(ptr noundef captures(none) %0, ptr nou
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %4, align 4, !tbaa !11
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = srem i32 %9, 16
   store i32 %13, ptr %4, align 4, !tbaa !11

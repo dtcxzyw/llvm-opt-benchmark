@@ -113,9 +113,9 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
 
 .lr.ph.i2:                                        ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.lr.ph.preheader.i ]
-  %15 = getelementptr [16 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr i8, ptr %6, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %.not31.i = icmp eq i8 %16, %18
   br i1 %.not31.i, label %19, label %compare_ipv6_block.exit
@@ -136,13 +136,13 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
   br i1 %.not.i1, label %bsearch.exit, label %21
 
 21:                                               ; preds = %._crit_edge.i
-  %22 = getelementptr [16 x i8], ptr %0, i64 0, i64 %.0.lcssa.i
+  %22 = getelementptr i8, ptr %0, i64 %.0.lcssa.i
   %23 = load i8, ptr %22, align 1
   %24 = zext nneg i32 %.024.lcssa.i to i64
-  %25 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @bitmasks, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, %23
-  %28 = getelementptr [16 x i8], ptr %6, i64 0, i64 %.0.lcssa.i
+  %28 = getelementptr i8, ptr %6, i64 %.0.lcssa.i
   %29 = load i8, ptr %28, align 1
   %.not30.i = icmp eq i8 %27, %29
   br i1 %.not30.i, label %bsearch.exit, label %compare_ipv6_block.exit

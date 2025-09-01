@@ -507,7 +507,7 @@ define dso_local void @psmouse_set_resolution(ptr noundef %0, i32 noundef %1) #1
   %6 = udiv i8 %.lhs.trunc, 50
   %.zext = zext nneg i8 %6 to i64
   %7 = select i1 %5, i64 4, i64 %.zext
-  %8 = getelementptr [5 x i8], ptr @psmouse_set_resolution.params, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @psmouse_set_resolution.params, i64 %7
   %9 = load i8, ptr %8, align 1
   store i8 %9, ptr %3, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -967,7 +967,7 @@ define internal noundef range(i32 -22, 1) i32 @psmouse_set_maxproto(ptr noundef 
 
 6:                                                ; preds = %24, %4
   %7 = phi i64 [ 0, %4 ], [ %25, %24 ]
-  %8 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %7
+  %8 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef %10) #14
@@ -1032,7 +1032,7 @@ define internal noundef i32 @psmouse_get_maxproto(ptr noundef writeonly captures
 
 9:                                                ; preds = %6, %2
   %10 = phi i64 [ 0, %2 ], [ %7, %6 ]
-  %11 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %10
+  %11 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %10
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %5
   br i1 %13, label %14, label %6
@@ -1108,7 +1108,7 @@ define internal range(i32 -19, 1) i32 @thinking_detect(ptr noundef %0, i1 nounde
 
 7:                                                ; preds = %7, %2
   %8 = phi i64 [ 0, %2 ], [ %12, %7 ]
-  %9 = getelementptr [9 x i8], ptr @thinking_detect.seq, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @thinking_detect.seq, i64 %8
   %10 = load i8, ptr %9, align 1
   store i8 %10, ptr %3, align 2
   %11 = call i32 @ps2_command(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 4339) #14
@@ -1443,7 +1443,7 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
 
 8:                                                ; preds = %26, %4
   %9 = phi i64 [ 0, %4 ], [ %27, %26 ]
-  %10 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %9
+  %10 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @strlen(ptr noundef %12) #14
@@ -1807,7 +1807,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
 
 49:                                               ; preds = %46, %43
   %50 = phi i64 [ 0, %43 ], [ %47, %46 ]
-  %51 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %50
+  %51 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %50
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, %45
   br i1 %53, label %54, label %46
@@ -2065,7 +2065,7 @@ thread-pre-split:                                 ; preds = %3, %26
 
 72:                                               ; preds = %69, %.thread15
   %73 = phi i64 [ 0, %.thread15 ], [ %70, %69 ]
-  %74 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %73
+  %74 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %73
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 19
   br i1 %76, label %77, label %69
@@ -2347,7 +2347,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
 
 .preheader62:                                     ; preds = %.preheader62.preheader, %208
   %211 = phi i64 [ %209, %208 ], [ 0, %.preheader62.preheader ]
-  %212 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %211
+  %212 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %211
   %213 = load i32, ptr %212, align 8
   %214 = icmp eq i32 %213, 13
   br i1 %214, label %215, label %208
@@ -2390,7 +2390,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
 
 .preheader61:                                     ; preds = %.preheader61.preheader, %233
   %236 = phi i64 [ %234, %233 ], [ 0, %.preheader61.preheader ]
-  %237 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %236
+  %237 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %236
   %238 = load i32, ptr %237, align 8
   %239 = icmp eq i32 %238, 14
   br i1 %239, label %240, label %233
@@ -2480,7 +2480,7 @@ psmouse_do_detect.exit12.thread:                  ; preds = %.thread44, %psmouse
 
 .preheader:                                       ; preds = %.thread43, %277
   %280 = phi i64 [ %278, %277 ], [ 0, %.thread43 ]
-  %281 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %280
+  %281 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %280
   %282 = load i32, ptr %281, align 8
   %283 = icmp eq i32 %282, 15
   br i1 %283, label %284, label %277
@@ -2620,7 +2620,7 @@ define internal void @psmouse_set_rate(ptr noundef %0, i32 noundef %1) #1 align 
 4:                                                ; preds = %4, %2
   %5 = phi i32 [ 0, %2 ], [ %11, %4 ]
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [8 x i8], ptr @psmouse_set_rate.rates, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @psmouse_set_rate.rates, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp ult i32 %1, %9
@@ -2726,7 +2726,7 @@ define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noun
 
 8:                                                ; preds = %5, %4
   %9 = phi i64 [ 0, %4 ], [ %6, %5 ]
-  %10 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %9
+  %10 = getelementptr %struct.psmouse_protocol, ptr @psmouse_protocols, i64 %9
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %5
@@ -3599,7 +3599,7 @@ define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1
   %41 = add i8 %38, 1
   store i8 %41, ptr %40, align 1
   %42 = zext i8 %38 to i64
-  %43 = getelementptr [8 x i8], ptr %39, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %39, i64 %42
   store i8 %1, ptr %43, align 1
   %44 = load i8, ptr %39, align 8
   %45 = icmp eq i8 %44, -86
@@ -3660,7 +3660,7 @@ define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1
   %76 = add i8 %75, 1
   store i8 %76, ptr %40, align 1
   %77 = zext i8 %75 to i64
-  %78 = getelementptr [8 x i8], ptr %39, i64 0, i64 %77
+  %78 = getelementptr i8, ptr %39, i64 %77
   store i8 %1, ptr %78, align 1
   br label %79
 

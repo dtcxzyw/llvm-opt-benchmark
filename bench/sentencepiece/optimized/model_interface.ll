@@ -865,7 +865,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit218:          ; preds = %_ZNSt13unordered_ma
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %.082260 = phi i32 [ 0, %.lr.ph ], [ %.183, %72 ]
   %.084259 = phi i32 [ 0, %.lr.ph ], [ %.185, %72 ]
-  %65 = getelementptr inbounds nuw [268435454 x ptr], ptr %53, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !85
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 60
   %68 = load i32, ptr %67, align 4, !tbaa !86
@@ -924,7 +924,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8e
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !84
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = getelementptr inbounds nuw [268435454 x ptr], ptr %90, i64 0, i64 %indvars.iv274
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv274
   %92 = load ptr, ptr %91, align 8, !tbaa !85
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = load ptr, ptr %93, align 8, !tbaa !64
@@ -2117,7 +2117,7 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   %24 = load i8, ptr %.0148178, align 1, !tbaa !101
   %25 = lshr i8 %24, 4
   %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr inbounds nuw [17 x i8], ptr @.str.17, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !101
   %29 = sext i8 %28 to i32
   %30 = ptrtoint ptr %.0148178 to i64
@@ -2338,7 +2338,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJR
   %103 = load i8, ptr %.1149170, align 1, !tbaa !101
   %104 = lshr i8 %103, 4
   %105 = zext nneg i8 %104 to i64
-  %106 = getelementptr inbounds nuw [17 x i8], ptr @.str.17, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !101
   %108 = sext i8 %107 to i32
   %109 = ptrtoint ptr %.1149170 to i64
@@ -3007,7 +3007,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sente
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !64
@@ -3042,7 +3042,7 @@ define linkonce_odr noundef float @_ZNK13sentencepiece14ModelInterface8GetScoreE
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load float, ptr %11, align 8, !tbaa !182
@@ -3057,7 +3057,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface9IsUn
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !86
@@ -3073,7 +3073,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface9IsCo
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !86
@@ -3089,7 +3089,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface8IsUn
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !86
@@ -3105,7 +3105,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface13IsU
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !86
@@ -3121,7 +3121,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK13sentencepiece14ModelInterface6IsBy
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !86

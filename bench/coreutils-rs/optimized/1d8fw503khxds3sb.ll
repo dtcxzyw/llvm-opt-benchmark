@@ -301,9 +301,9 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hdb7
   br i1 %38, label %39, label %.split185.us.invoke, !prof !62
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %34
+  %40 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %34
   %41 = load i8, ptr %40, align 1, !alias.scope !57, !noalias !63, !noundef !4
-  %42 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %37
+  %42 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %37
   %43 = load i8, ptr %42, align 1, !alias.scope !54, !noalias !59, !noundef !4
   %.not28.i38.us = icmp eq i8 %41, %43
   br i1 %.not28.i38.us, label %.preheader103.us, label %44
@@ -319,9 +319,9 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hdb7
 
 49:                                               ; preds = %46
   %50 = add nuw i64 %.sroa.04.0.i36.us, 1
-  %51 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i36.us
+  %51 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %.sroa.04.0.i36.us
   %52 = load i8, ptr %51, align 1, !alias.scope !57, !noalias !63, !noundef !4
-  %53 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %47
+  %53 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %47
   %54 = load i8, ptr %53, align 1, !alias.scope !54, !noalias !59, !noundef !4
   %.not.i42.us = icmp eq i8 %52, %54
   br i1 %.not.i42.us, label %30, label %55
@@ -380,9 +380,9 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hdb7
   br i1 %76, label %77, label %.split185.us.invoke, !prof !62
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %73
+  %78 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %73
   %79 = load i8, ptr %78, align 1, !alias.scope !67, !noalias !72, !noundef !4
-  %80 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %75
+  %80 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %75
   %81 = load i8, ptr %80, align 1, !alias.scope !64, !noalias !69, !noundef !4
   %.not28.i.us = icmp eq i8 %79, %81
   br i1 %.not28.i.us, label %.preheader.us, label %82
@@ -461,9 +461,9 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hdb7
 
 116:                                              ; preds = %113
   %117 = add nuw i64 %.sroa.04.0.i.us, 1
-  %118 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i.us
+  %118 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %.sroa.04.0.i.us
   %119 = load i8, ptr %118, align 1, !alias.scope !67, !noalias !72, !noundef !4
-  %120 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %114
+  %120 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %114
   %121 = load i8, ptr %120, align 1, !alias.scope !64, !noalias !69, !noundef !4
   %.not.i.us = icmp eq i8 %119, %121
   br i1 %.not.i.us, label %.preheader102.us, label %122
@@ -2479,7 +2479,7 @@ select.unfold:                                    ; preds = %219
 
 266:                                              ; preds = %.lr.ph
   %267 = load ptr, ptr %178, align 8, !nonnull !4, !noundef !4
-  %268 = getelementptr inbounds nuw [0 x i8], ptr %267, i64 0, i64 %.1131440
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 %.1131440
   %269 = load i8, ptr %268, align 1, !range !575, !noundef !4
   %270 = trunc nuw i8 %269 to i1
   br i1 %270, label %278, label %274
@@ -2568,7 +2568,7 @@ select.unfold:                                    ; preds = %219
 
 301:                                              ; preds = %296
   %302 = load ptr, ptr %178, align 8, !nonnull !4, !noundef !4
-  %303 = getelementptr inbounds nuw [0 x i8], ptr %302, i64 0, i64 %.1131440
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 %.1131440
   store i8 1, ptr %303, align 1
   %304 = add i64 %.0127441, 1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h22d05ef3f99236f1E.exit206.thread"
@@ -2645,7 +2645,7 @@ select.unfold:                                    ; preds = %219
 328:                                              ; preds = %313
   %329 = load ptr, ptr %182, align 8, !nonnull !4, !noundef !4
   %330 = urem i64 %.1131440, %314
-  %331 = getelementptr inbounds nuw [0 x i32], ptr %329, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw i32, ptr %329, i64 %330
   %332 = load i32, ptr %331, align 4, !range !589, !noundef !4
   %333 = icmp samesign ult i32 %332, 128
   br i1 %333, label %338, label %334
@@ -3141,7 +3141,7 @@ select.unfold341:                                 ; preds = %485
 521:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h22d05ef3f99236f1E.exit236.thread"
   %522 = load ptr, ptr %394, align 8, !nonnull !4, !noundef !4
   %523 = urem i64 %.3, %518
-  %524 = getelementptr inbounds [0 x i32], ptr %522, i64 0, i64 %523
+  %524 = getelementptr inbounds i32, ptr %522, i64 %523
   %525 = load i32, ptr %524, align 4, !range !589, !noundef !4
   %526 = icmp samesign ult i32 %525, 128
   br i1 %526, label %531, label %527

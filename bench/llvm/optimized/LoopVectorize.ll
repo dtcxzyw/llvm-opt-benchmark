@@ -74790,7 +74790,7 @@ _ZNK4llvm18LoopVectorizeHints8getForceEv.exit:    ; preds = %22, %18
 
 switch.lookup:                                    ; preds = %28
   %39 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL25getScalarEpilogueLoweringPN4llvm8FunctionEPNS_4LoopERNS_18LoopVectorizeHintsEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoEPNS_19TargetTransformInfoEPNS_17TargetLibraryInfoERNS_25LoopVectorizationLegalityEPNS_21InterleavedAccessInfoE, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm8Function10hasOptSizeEv.exit.thread
 

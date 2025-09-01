@@ -373,7 +373,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6herme
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -382,7 +382,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6herm
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -626,13 +626,7 @@ entry:
   %0 = load i32, ptr %index_, align 8
   %cmp = icmp ult i32 %0, 4096
   %1 = load ptr, ptr %this, align 8
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idxprom
-  br label %return
+  br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %sub.i = add i32 %0, -4096
@@ -644,14 +638,15 @@ if.else:                                          ; preds = %entry
   %and.i.i.i.i.i = and i64 %2, 281474976710655
   %3 = inttoptr i64 %and.i.i.i.i.i to ptr
   %rem.i = and i32 %0, 1023
-  %data_.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i, i64 0, i64 %idxprom.i
   br label %return
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi ptr [ %arrayidx, %if.then ], [ %arrayidx.i, %if.else ]
-  ret ptr %retval.0
+return:                                           ; preds = %entry, %if.else
+  %.sink = phi ptr [ %3, %if.else ], [ %1, %entry ]
+  %rem.i.sink = phi i32 [ %rem.i, %if.else ], [ %0, %entry ]
+  %data_.i = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  %idxprom.i = zext nneg i32 %rem.i.sink to i64
+  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i, i64 %idxprom.i
+  ret ptr %arrayidx.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -695,13 +690,7 @@ entry:
   %0 = load i32, ptr %index_.i, align 8
   %cmp.i = icmp ult i32 %0, 4096
   %1 = load ptr, ptr %this, align 8
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %idxprom.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit
+  br i1 %cmp.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %sub.i.i = add i32 %0, -4096
@@ -713,14 +702,15 @@ if.else.i:                                        ; preds = %entry
   %and.i.i.i.i.i.i = and i64 %2, 281474976710655
   %3 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %rem.i.i = and i32 %0, 1023
-  %data_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i, i64 0, i64 %idxprom.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit: ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi ptr [ %arrayidx.i, %if.then.i ], [ %arrayidx.i.i, %if.else.i ]
-  ret ptr %retval.0.i
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit: ; preds = %entry, %if.else.i
+  %.sink.i = phi ptr [ %3, %if.else.i ], [ %1, %entry ]
+  %rem.i.sink.i = phi i32 [ %rem.i.i, %if.else.i ], [ %0, %entry ]
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
+  %idxprom.i.i = zext nneg i32 %rem.i.sink.i to i64
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i, i64 %idxprom.i.i
+  ret ptr %arrayidx.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1536,13 +1526,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm18Seg
   %11 = load i32, ptr %index_.i1.i, align 8
   %cmp.i.i = icmp ult i32 %11, 4096
   %12 = load ptr, ptr %ref.tmp.i, align 8
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
-
-if.then.i.i:                                      ; preds = %if.end
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %idxprom.i.i = zext nneg i32 %11 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
+  br i1 %cmp.i.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
   %sub.i.i.i = add i32 %11, -4096
@@ -1554,31 +1538,32 @@ if.else.i.i:                                      ; preds = %if.end
   %and.i.i.i.i.i.i.i = and i64 %13, 281474976710655
   %14 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %rem.i.i.i = and i32 %11, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i.i, %if.else.i.i ]
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit: ; preds = %if.end, %if.else.i.i
+  %.sink.i.i = phi ptr [ %14, %if.else.i.i ], [ %12, %if.end ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i ], [ %11, %if.end ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
-  store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %retval.0.i.i, align 8
+  store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %arrayidx.i.i.i, align 8
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %15 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %16 = ptrtoint ptr %retval.0.i.i to i64
+  %16 = ptrtoint ptr %arrayidx.i.i.i to i64
   %and.i.i.i.i = and i64 %16, -4194304
   %17 = inttoptr i64 %and.i.i.i.i to ptr
   %cmp.i.i.i = icmp eq ptr %15, %17
-  br i1 %cmp.i.i.i, label %return, label %if.then.i.i10
+  br i1 %cmp.i.i.i, label %return, label %if.then.i.i
 
-if.then.i.i10:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
+if.then.i.i:                                      ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i, i64 %retval.sroa.0.0.copyload.i.i.i) #8
+  call void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i.i, i64 %retval.sroa.0.0.copyload.i.i.i) #8
   br label %return
 
-return:                                           ; preds = %if.then.i.i10, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit
-  %retval.0 = phi i32 [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit ], [ 1, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit ], [ 1, %if.then.i.i10 ]
+return:                                           ; preds = %if.then.i.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit
+  %retval.0 = phi i32 [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE4sizeERNS0_11PointerBaseE.exit ], [ 1, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit ], [ 1, %if.then.i.i ]
   ret i32 %retval.0
 }
 
@@ -1951,7 +1936,7 @@ return:                                           ; preds = %_ZNK6hermes2vm18Seg
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef i32 @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8growLeftERNS0_13MutableHandleIS3_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %amount) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp.i.i7.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
+  %ref.tmp.i.i3.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %ref.tmp.i.i.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %agg.tmp20 = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %agg.tmp22 = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
@@ -2097,41 +2082,34 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.ex
   %26 = load ptr, ptr %base_.i, align 8, !noalias !71
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24, ptr noundef %24, i32 noundef %add.i67, ptr noundef nonnull align 1 dereferenceable(1) %26) #8
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %agg.tmp2470.sroa.0.0.copyload80 = load ptr, ptr %agg.tmp24, align 8
-  %agg.tmp2470.sroa.783.0.agg.tmp24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 16
-  %agg.tmp2470.sroa.783.0.copyload84 = load ptr, ptr %agg.tmp2470.sroa.783.0.agg.tmp24.sroa_idx, align 8
+  %agg.tmp2470.sroa.0.0.copyload79 = load ptr, ptr %agg.tmp24, align 8
+  %agg.tmp2470.sroa.882.0.agg.tmp24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 16
+  %agg.tmp2470.sroa.882.0.copyload83 = load ptr, ptr %agg.tmp2470.sroa.882.0.agg.tmp24.sroa_idx, align 8
   %agg.tmp2269.sroa.3.0.agg.tmp22.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 8
   %agg.tmp2269.sroa.3.0.copyload = load i32, ptr %agg.tmp2269.sroa.3.0.agg.tmp22.sroa_idx, align 8
   %agg.tmp2068.sroa.0.0.copyload = load ptr, ptr %agg.tmp20, align 8
-  %agg.tmp2068.sroa.4.0.agg.tmp20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 8
-  %agg.tmp2068.sroa.4.0.copyload = load i32, ptr %agg.tmp2068.sroa.4.0.agg.tmp20.sroa_idx, align 8
-  %agg.tmp2068.sroa.579.0.agg.tmp20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 16
-  %agg.tmp2068.sroa.579.0.copyload = load ptr, ptr %agg.tmp2068.sroa.579.0.agg.tmp20.sroa_idx, align 8
-  %cmp.i.i.not12.i = icmp eq i32 %agg.tmp2068.sroa.4.0.copyload, %agg.tmp2269.sroa.3.0.copyload
-  br i1 %cmp.i.i.not12.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
+  %agg.tmp2068.sroa.5.0.agg.tmp20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 8
+  %agg.tmp2068.sroa.5.0.copyload = load i32, ptr %agg.tmp2068.sroa.5.0.agg.tmp20.sroa_idx, align 8
+  %agg.tmp2068.sroa.678.0.agg.tmp20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 16
+  %agg.tmp2068.sroa.678.0.copyload = load ptr, ptr %agg.tmp2068.sroa.678.0.agg.tmp20.sroa_idx, align 8
+  %cmp.i.i.not8.i = icmp eq i32 %agg.tmp2068.sroa.5.0.copyload, %agg.tmp2269.sroa.3.0.copyload
+  br i1 %cmp.i.i.not8.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.exit
-  %agg.tmp2470.sroa.5.0.agg.tmp24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 8
-  %agg.tmp2470.sroa.5.0.copyload81 = load i32, ptr %agg.tmp2470.sroa.5.0.agg.tmp24.sroa_idx, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2470.sroa.0.0.copyload80, i64 32776
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2470.sroa.0.0.copyload80, i64 8
-  %add.ptr.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.tmp2068.sroa.0.0.copyload, i64 32776
-  %add.ptr.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %agg.tmp2068.sroa.0.0.copyload, i64 8
+  %agg.tmp2470.sroa.6.0.agg.tmp24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 8
+  %agg.tmp2470.sroa.6.0.copyload80 = load i32, ptr %agg.tmp2470.sroa.6.0.agg.tmp24.sroa_idx, align 8
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %index_.i1.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
-  %index_.i1.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i7.i, i64 8
+  %index_.i1.i.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i3.i, i64 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2470.sroa.0.0.copyload79, i64 32776
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2068.sroa.0.0.copyload, i64 32776
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %for.body.lr.ph.i
-  %27 = phi i32 [ %agg.tmp2470.sroa.5.0.copyload81, %for.body.lr.ph.i ], [ %37, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
-  %28 = phi i32 [ %agg.tmp2068.sroa.4.0.copyload, %for.body.lr.ph.i ], [ %36, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %27 = phi i32 [ %agg.tmp2470.sroa.6.0.copyload80, %for.body.lr.ph.i ], [ %37, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %28 = phi i32 [ %agg.tmp2068.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %36, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %cmp.i.i2.i = icmp ult i32 %27, 4096
-  br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %for.body.i
-  %idxprom.i.i.i = zext nneg i32 %27 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+  br i1 %cmp.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
   %sub.i.i.i.i = add i32 %27, -4096
@@ -2142,63 +2120,60 @@ if.else.i.i.i:                                    ; preds = %for.body.i
   %and.i.i.i.i.i.i.i.i = and i64 %29, 281474976710655
   %30 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
   %rem.i.i.i.i = and i32 %27, 1023
-  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
-  %cmp.i.i72 = icmp ult i32 %28, 4096
-  br i1 %cmp.i.i72, label %if.then.i.i, label %if.else.i.i73
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %for.body.i
+  %.sink.i.i.i = phi ptr [ %30, %if.else.i.i.i ], [ %agg.tmp2470.sroa.0.0.copyload79, %for.body.i ]
+  %rem.i.sink.i.i.i = phi i32 [ %rem.i.i.i.i, %if.else.i.i.i ], [ %27, %for.body.i ]
+  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
+  %idxprom.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i.i, i64 %idxprom.i.i.i.i
+  %cmp.i.i71 = icmp ult i32 %28, 4096
+  br i1 %cmp.i.i71, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i, label %if.else.i.i72
 
-if.then.i.i:                                      ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
-  %idxprom.i.i = zext nneg i32 %28 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i71, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-
-if.else.i.i73:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
-  %sub.i.i.i74 = add i32 %28, -4096
-  %div1.i.i.i = lshr i32 %sub.i.i.i74, 10
+if.else.i.i72:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+  %sub.i.i.i73 = add i32 %28, -4096
+  %div1.i.i.i = lshr i32 %sub.i.i.i73, 10
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i3.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %31 = load i64, ptr %add.ptr.i.i.i1.i.i, align 8, !noalias !74
   %and.i.i.i.i.i.i.i = and i64 %31, 281474976710655
   %32 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %rem.i.i.i = and i32 %28, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %idxprom.i.i4.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i5.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i4.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i: ; preds = %if.else.i.i73, %if.then.i.i
-  %retval.0.i.i75 = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i5.i, %if.else.i.i73 ]
-  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i75, align 8, !noalias !74
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i: ; preds = %if.else.i.i72, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+  %.sink.i.i = phi ptr [ %32, %if.else.i.i72 ], [ %agg.tmp2068.sroa.0.0.copyload, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i72 ], [ %28, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i.i.i, align 8, !noalias !74
   %33 = load ptr, ptr %youngGen_.i.i.i.i, align 8, !noalias !74
-  %34 = ptrtoint ptr %retval.0.i.i.i to i64
-  %and.i.i.i.i.i76 = and i64 %34, -4194304
-  %35 = inttoptr i64 %and.i.i.i.i.i76 to ptr
+  %34 = ptrtoint ptr %arrayidx.i.i.i.i to i64
+  %and.i.i.i.i.i74 = and i64 %34, -4194304
+  %35 = inttoptr i64 %and.i.i.i.i.i74 to ptr
   %cmp.i.i.i.i = icmp eq ptr %33, %35
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i6.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i.i
 
-if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !74
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !74
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-  store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 8, !noalias !74
+_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
+  store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i.i.i.i, align 8, !noalias !74
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !74
   %add.i.i.i.i = add i32 %28, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp2068.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2068.sroa.579.0.copyload) #8, !noalias !74
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp2068.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2068.sroa.678.0.copyload) #8, !noalias !74
   %36 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !74
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !74
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !74
-  %add.i.i.i9.i = add i32 %27, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp2470.sroa.0.0.copyload80, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2470.sroa.783.0.copyload84) #8, !noalias !74
-  %37 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !74
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !74
-  %cmp.i.i.not.i77 = icmp eq i32 %36, %agg.tmp2269.sroa.3.0.copyload
-  br i1 %cmp.i.i.not.i77, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !77
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !74
+  %add.i.i.i5.i = add i32 %27, 1
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i3.i, ptr noundef %agg.tmp2470.sroa.0.0.copyload79, i32 noundef %add.i.i.i5.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2470.sroa.882.0.copyload83) #8, !noalias !74
+  %37 = load i32, ptr %index_.i1.i.i7.i, align 8, !noalias !74
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !74
+  %cmp.i.i.not.i75 = icmp eq i32 %36, %agg.tmp2269.sroa.3.0.copyload
+  br i1 %cmp.i.i.not.i75, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !77
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.exit
   %or.i.i.i.i.i = or i64 %15, -281474976710656
@@ -2214,7 +2189,7 @@ return:                                           ; preds = %_ZNK6hermes2vm18Seg
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE10shrinkLeftERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %amount) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp.i.i7.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
+  %ref.tmp.i.i3.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %ref.tmp.i.i.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %agg.tmp = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %ref.tmp = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
@@ -2253,41 +2228,34 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.ex
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %agg.tmp38.sroa.0.0.copyload14 = load ptr, ptr %agg.tmp3, align 8
-  %agg.tmp38.sroa.717.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
-  %agg.tmp38.sroa.717.0.copyload18 = load ptr, ptr %agg.tmp38.sroa.717.0.agg.tmp3.sroa_idx, align 8
+  %agg.tmp38.sroa.0.0.copyload13 = load ptr, ptr %agg.tmp3, align 8
+  %agg.tmp38.sroa.816.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
+  %agg.tmp38.sroa.816.0.copyload17 = load ptr, ptr %agg.tmp38.sroa.816.0.agg.tmp3.sroa_idx, align 8
   %agg.tmp27.sroa.3.0.agg.tmp2.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 8
   %agg.tmp27.sroa.3.0.copyload = load i32, ptr %agg.tmp27.sroa.3.0.agg.tmp2.sroa_idx, align 8
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %agg.tmp, align 8
-  %agg.tmp6.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %agg.tmp6.sroa.4.0.copyload = load i32, ptr %agg.tmp6.sroa.4.0.agg.tmp.sroa_idx, align 8
-  %agg.tmp6.sroa.513.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  %agg.tmp6.sroa.513.0.copyload = load ptr, ptr %agg.tmp6.sroa.513.0.agg.tmp.sroa_idx, align 8
-  %cmp.i.i.not12.i = icmp eq i32 %agg.tmp6.sroa.4.0.copyload, %agg.tmp27.sroa.3.0.copyload
-  br i1 %cmp.i.i.not12.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
+  %agg.tmp6.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %agg.tmp6.sroa.5.0.copyload = load i32, ptr %agg.tmp6.sroa.5.0.agg.tmp.sroa_idx, align 8
+  %agg.tmp6.sroa.612.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %agg.tmp6.sroa.612.0.copyload = load ptr, ptr %agg.tmp6.sroa.612.0.agg.tmp.sroa_idx, align 8
+  %cmp.i.i.not8.i = icmp eq i32 %agg.tmp6.sroa.5.0.copyload, %agg.tmp27.sroa.3.0.copyload
+  br i1 %cmp.i.i.not8.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.exit
-  %agg.tmp38.sroa.5.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
-  %agg.tmp38.sroa.5.0.copyload15 = load i32, ptr %agg.tmp38.sroa.5.0.agg.tmp3.sroa_idx, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp38.sroa.0.0.copyload14, i64 32776
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp38.sroa.0.0.copyload14, i64 8
-  %add.ptr.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.sroa.0.0.copyload, i64 32776
-  %add.ptr.i.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %agg.tmp6.sroa.0.0.copyload, i64 8
+  %agg.tmp38.sroa.6.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
+  %agg.tmp38.sroa.6.0.copyload14 = load i32, ptr %agg.tmp38.sroa.6.0.agg.tmp3.sroa_idx, align 8
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %index_.i1.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
-  %index_.i1.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i7.i, i64 8
+  %index_.i1.i.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i3.i, i64 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp38.sroa.0.0.copyload13, i64 32776
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.sroa.0.0.copyload, i64 32776
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %for.body.lr.ph.i
-  %7 = phi i32 [ %agg.tmp38.sroa.5.0.copyload15, %for.body.lr.ph.i ], [ %17, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
-  %8 = phi i32 [ %agg.tmp6.sroa.4.0.copyload, %for.body.lr.ph.i ], [ %16, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %7 = phi i32 [ %agg.tmp38.sroa.6.0.copyload14, %for.body.lr.ph.i ], [ %17, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %8 = phi i32 [ %agg.tmp6.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %16, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %cmp.i.i2.i = icmp ult i32 %7, 4096
-  br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %for.body.i
-  %idxprom.i.i.i = zext nneg i32 %7 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+  br i1 %cmp.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
   %sub.i.i.i.i = add i32 %7, -4096
@@ -2298,61 +2266,58 @@ if.else.i.i.i:                                    ; preds = %for.body.i
   %and.i.i.i.i.i.i.i.i = and i64 %9, 281474976710655
   %10 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
   %rem.i.i.i.i = and i32 %7, 1023
-  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
-  %cmp.i.i10 = icmp ult i32 %8, 4096
-  br i1 %cmp.i.i10, label %if.then.i.i, label %if.else.i.i11
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %for.body.i
+  %.sink.i.i.i = phi ptr [ %10, %if.else.i.i.i ], [ %agg.tmp38.sroa.0.0.copyload13, %for.body.i ]
+  %rem.i.sink.i.i.i = phi i32 [ %rem.i.i.i.i, %if.else.i.i.i ], [ %7, %for.body.i ]
+  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
+  %idxprom.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i.i, i64 %idxprom.i.i.i.i
+  %cmp.i.i9 = icmp ult i32 %8, 4096
+  br i1 %cmp.i.i9, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i, label %if.else.i.i10
 
-if.then.i.i:                                      ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
-  %idxprom.i.i = zext nneg i32 %8 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i9, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-
-if.else.i.i11:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+if.else.i.i10:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
   %sub.i.i.i = add i32 %8, -4096
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i3.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %11 = load i64, ptr %add.ptr.i.i.i1.i.i, align 8, !noalias !84
   %and.i.i.i.i.i.i.i = and i64 %11, 281474976710655
   %12 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %rem.i.i.i = and i32 %8, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %idxprom.i.i4.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i5.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i4.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i: ; preds = %if.else.i.i11, %if.then.i.i
-  %retval.0.i.i12 = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i5.i, %if.else.i.i11 ]
-  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i12, align 8, !noalias !84
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i: ; preds = %if.else.i.i10, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+  %.sink.i.i = phi ptr [ %12, %if.else.i.i10 ], [ %agg.tmp6.sroa.0.0.copyload, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i10 ], [ %8, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i.i.i, align 8, !noalias !84
   %13 = load ptr, ptr %youngGen_.i.i.i.i, align 8, !noalias !84
-  %14 = ptrtoint ptr %retval.0.i.i.i to i64
+  %14 = ptrtoint ptr %arrayidx.i.i.i.i to i64
   %and.i.i.i.i.i = and i64 %14, -4194304
   %15 = inttoptr i64 %and.i.i.i.i.i to ptr
   %cmp.i.i.i.i = icmp eq ptr %13, %15
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i6.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i.i
 
-if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !84
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !84
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-  store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 8, !noalias !84
+_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
+  store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i.i.i.i, align 8, !noalias !84
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !84
   %add.i.i.i.i = add i32 %8, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp6.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp6.sroa.513.0.copyload) #8, !noalias !84
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp6.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp6.sroa.612.0.copyload) #8, !noalias !84
   %16 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !84
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !84
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !84
-  %add.i.i.i9.i = add i32 %7, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp38.sroa.0.0.copyload14, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp38.sroa.717.0.copyload18) #8, !noalias !84
-  %17 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !84
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !84
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !84
+  %add.i.i.i5.i = add i32 %7, 1
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i3.i, ptr noundef %agg.tmp38.sroa.0.0.copyload13, i32 noundef %add.i.i.i5.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp38.sroa.816.0.copyload17) #8, !noalias !84
+  %17 = load i32, ptr %index_.i1.i.i7.i, align 8, !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !84
   %cmp.i.i.not.i = icmp eq i32 %16, %agg.tmp27.sroa.3.0.copyload
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !77
 
@@ -2797,7 +2762,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE22growLeftWithinCapacityERNS0_7RuntimeENS0_12PseudoHandleIS3_EEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce, i32 noundef %amount) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp.i.i31.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
+  %ref.tmp.i.i27.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %ref.tmp.i.i4.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %ref.tmp.i.i.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
   %agg.tmp3 = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
@@ -2862,46 +2827,39 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.ex
   %retval.0.i.i22 = phi i32 [ %add6.i.i21, %if.else.i.i12 ], [ %7, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.exit ]
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %retval.0.i.i22, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %agg.tmp826.sroa.0.0.copyload43 = load ptr, ptr %agg.tmp8, align 8
-  %agg.tmp826.sroa.746.0.agg.tmp8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 16
-  %agg.tmp826.sroa.746.0.copyload47 = load ptr, ptr %agg.tmp826.sroa.746.0.agg.tmp8.sroa_idx, align 8
+  %agg.tmp826.sroa.0.0.copyload41 = load ptr, ptr %agg.tmp8, align 8
+  %agg.tmp826.sroa.844.0.agg.tmp8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 16
+  %agg.tmp826.sroa.844.0.copyload45 = load ptr, ptr %agg.tmp826.sroa.844.0.agg.tmp8.sroa_idx, align 8
   %agg.tmp525.sroa.0.0.copyload = load ptr, ptr %agg.tmp5, align 8
   %agg.tmp525.sroa.4.0.agg.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 8
   %agg.tmp525.sroa.4.0.copyload = load i32, ptr %agg.tmp525.sroa.4.0.agg.tmp5.sroa_idx, align 8
-  %agg.tmp525.sroa.542.0.agg.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 16
-  %agg.tmp525.sroa.542.0.copyload = load ptr, ptr %agg.tmp525.sroa.542.0.agg.tmp5.sroa_idx, align 8
+  %agg.tmp525.sroa.540.0.agg.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 16
+  %agg.tmp525.sroa.540.0.copyload = load ptr, ptr %agg.tmp525.sroa.540.0.agg.tmp5.sroa_idx, align 8
   %agg.tmp324.sroa.3.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
   %agg.tmp324.sroa.3.0.copyload = load i32, ptr %agg.tmp324.sroa.3.0.agg.tmp3.sroa_idx, align 8
-  %cmp.i.i.not13.i = icmp eq i32 %agg.tmp324.sroa.3.0.copyload, %agg.tmp525.sroa.4.0.copyload
-  br i1 %cmp.i.i.not13.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %while.body.lr.ph.i
+  %cmp.i.i.not9.i = icmp eq i32 %agg.tmp324.sroa.3.0.copyload, %agg.tmp525.sroa.4.0.copyload
+  br i1 %cmp.i.i.not9.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3endERNS0_11PointerBaseE.exit23
-  %agg.tmp826.sroa.5.0.agg.tmp8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 8
-  %agg.tmp826.sroa.5.0.copyload44 = load i32, ptr %agg.tmp826.sroa.5.0.agg.tmp8.sroa_idx, align 8
+  %agg.tmp826.sroa.6.0.agg.tmp8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 8
+  %agg.tmp826.sroa.6.0.copyload42 = load i32, ptr %agg.tmp826.sroa.6.0.agg.tmp8.sroa_idx, align 8
   %index_.i1.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp826.sroa.0.0.copyload43, i64 32776
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp826.sroa.0.0.copyload43, i64 8
   %index_.i1.i.i8.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i4.i, i64 8
-  %add.ptr.i.i.i.i.i9.i = getelementptr inbounds nuw i8, ptr %agg.tmp525.sroa.0.0.copyload, i64 32776
-  %add.ptr.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %agg.tmp525.sroa.0.0.copyload, i64 8
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp826.sroa.0.0.copyload41, i64 32776
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp525.sroa.0.0.copyload, i64 32776
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %while.body.lr.ph.i
-  %11 = phi i32 [ %agg.tmp826.sroa.5.0.copyload44, %while.body.lr.ph.i ], [ %13, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %11 = phi i32 [ %agg.tmp826.sroa.6.0.copyload42, %while.body.lr.ph.i ], [ %13, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %12 = phi i32 [ %agg.tmp525.sroa.4.0.copyload, %while.body.lr.ph.i ], [ %16, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !96
   %sub.i.i.i.i = add i32 %11, -1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp826.sroa.0.0.copyload43, i32 noundef %sub.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp826.sroa.746.0.copyload47) #8, !noalias !96
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp826.sroa.0.0.copyload41, i32 noundef %sub.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp826.sroa.844.0.copyload45) #8, !noalias !96
   %13 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !96
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !96
   %cmp.i.i2.i = icmp ult i32 %13, 4096
-  br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %while.body.i
-  %idxprom.i.i.i = zext nneg i32 %13 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+  br i1 %cmp.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i
   %sub.i.i.i3.i = add i32 %13, -4096
@@ -2912,56 +2870,53 @@ if.else.i.i.i:                                    ; preds = %while.body.i
   %and.i.i.i.i.i.i.i.i = and i64 %14, 281474976710655
   %15 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
   %rem.i.i.i.i = and i32 %13, 1023
-  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %while.body.i
+  %.sink.i.i.i = phi ptr [ %15, %if.else.i.i.i ], [ %agg.tmp826.sroa.0.0.copyload41, %while.body.i ]
+  %rem.i.sink.i.i.i = phi i32 [ %rem.i.i.i.i, %if.else.i.i.i ], [ %13, %while.body.i ]
+  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
+  %idxprom.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i.i, i64 %idxprom.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !96
   %sub.i.i.i6.i = add i32 %12, -1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i4.i, ptr noundef %agg.tmp525.sroa.0.0.copyload, i32 noundef %sub.i.i.i6.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp525.sroa.542.0.copyload) #8, !noalias !96
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i4.i, ptr noundef %agg.tmp525.sroa.0.0.copyload, i32 noundef %sub.i.i.i6.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp525.sroa.540.0.copyload) #8, !noalias !96
   %16 = load i32, ptr %index_.i1.i.i8.i, align 8, !noalias !96
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !96
-  %cmp.i.i28 = icmp ult i32 %16, 4096
-  br i1 %cmp.i.i28, label %if.then.i.i, label %if.else.i.i29
+  %cmp.i.i27 = icmp ult i32 %16, 4096
+  br i1 %cmp.i.i27, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i, label %if.else.i.i28
 
-if.then.i.i:                                      ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
-  %idxprom.i.i = zext nneg i32 %16 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i27, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-
-if.else.i.i29:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+if.else.i.i28:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
   %sub.i.i.i = add i32 %16, -4096
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i9.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %17 = load i64, ptr %add.ptr.i.i.i1.i.i, align 8, !noalias !96
   %and.i.i.i.i.i.i.i = and i64 %17, 281474976710655
   %18 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %rem.i.i.i = and i32 %16, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %idxprom.i.i10.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i11.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i10.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i: ; preds = %if.else.i.i29, %if.then.i.i
-  %retval.0.i.i30 = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i11.i, %if.else.i.i29 ]
-  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i30, align 8, !noalias !96
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i: ; preds = %if.else.i.i28, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i
+  %.sink.i.i = phi ptr [ %18, %if.else.i.i28 ], [ %agg.tmp525.sroa.0.0.copyload, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i28 ], [ %16, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i.i.i, align 8, !noalias !96
   %19 = load ptr, ptr %youngGen_.i.i.i.i, align 8, !noalias !96
-  %20 = ptrtoint ptr %retval.0.i.i.i to i64
+  %20 = ptrtoint ptr %arrayidx.i.i.i.i to i64
   %and.i.i.i.i.i = and i64 %20, -4194304
   %21 = inttoptr i64 %and.i.i.i.i.i to ptr
   %cmp.i.i.i.i = icmp eq ptr %19, %21
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i12.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i.i
 
-if.then.i.i12.i:                                  ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !96
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.i.i.i, i64 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !96
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i12.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
-  store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 8, !noalias !96
+_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
+  store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i.i.i.i, align 8, !noalias !96
   %cmp.i.i.not.i = icmp eq i32 %agg.tmp324.sroa.3.0.copyload, %16
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %while.body.i, !llvm.loop !99
 
@@ -2969,80 +2924,75 @@ _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE13copy_backwardINS0_18Segmen
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %22 = load ptr, ptr %ref.tmp14, align 8, !noalias !100
-  %index_.i31 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 8
-  %23 = load i32, ptr %index_.i31, align 8, !noalias !100
+  %index_.i29 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 8
+  %23 = load i32, ptr %index_.i29, align 8, !noalias !100
   %add.i = add i32 %23, %amount
-  %base_.i32 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 16
-  %24 = load ptr, ptr %base_.i32, align 8, !noalias !100
+  %base_.i30 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 16
+  %24 = load ptr, ptr %base_.i30, align 8, !noalias !100
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13, ptr noundef %22, i32 noundef %add.i, ptr noundef nonnull align 1 dereferenceable(1) %24) #8
-  %agg.tmp1335.sroa.3.0.agg.tmp13.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
-  %agg.tmp1335.sroa.3.0.copyload = load i32, ptr %agg.tmp1335.sroa.3.0.agg.tmp13.sroa_idx, align 8
-  %agg.tmp1134.sroa.0.0.copyload = load ptr, ptr %agg.tmp11, align 8
-  %agg.tmp1134.sroa.4.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 8
-  %agg.tmp1134.sroa.4.0.copyload = load i32, ptr %agg.tmp1134.sroa.4.0.agg.tmp11.sroa_idx, align 8
-  %agg.tmp1134.sroa.548.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 16
-  %agg.tmp1134.sroa.548.0.copyload = load ptr, ptr %agg.tmp1134.sroa.548.0.agg.tmp11.sroa_idx, align 8
-  %cmp.i.i.not49.i = icmp eq i32 %agg.tmp1134.sroa.4.0.copyload, %agg.tmp1335.sroa.3.0.copyload
-  br i1 %cmp.i.i.not49.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.lr.ph.i
+  %agg.tmp1333.sroa.3.0.agg.tmp13.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
+  %agg.tmp1333.sroa.3.0.copyload = load i32, ptr %agg.tmp1333.sroa.3.0.agg.tmp13.sroa_idx, align 8
+  %agg.tmp1132.sroa.0.0.copyload = load ptr, ptr %agg.tmp11, align 8
+  %agg.tmp1132.sroa.4.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 8
+  %agg.tmp1132.sroa.4.0.copyload = load i32, ptr %agg.tmp1132.sroa.4.0.agg.tmp11.sroa_idx, align 8
+  %agg.tmp1132.sroa.546.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 16
+  %agg.tmp1132.sroa.546.0.copyload = load ptr, ptr %agg.tmp1132.sroa.546.0.agg.tmp11.sroa_idx, align 8
+  %cmp.i.i.not45.i = icmp eq i32 %agg.tmp1132.sroa.4.0.copyload, %agg.tmp1333.sroa.3.0.copyload
+  br i1 %cmp.i.i.not45.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit
-  %add.ptr.i.i.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %agg.tmp1134.sroa.0.0.copyload, i64 32776
-  %add.ptr.i.i.i.i.i23.i = getelementptr inbounds nuw i8, ptr %agg.tmp1134.sroa.0.0.copyload, i64 8
-  %youngGen_.i.i.i27.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
+  %add.ptr.i.i.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %agg.tmp1132.sroa.0.0.copyload, i64 32776
+  %youngGen_.i.i.i23.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
-  %index_.i1.i.i35.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i31.i, i64 8
+  %index_.i1.i.i31.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i27.i, i64 8
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i, %for.body8.lr.ph.i
-  %cur5.sroa.3.048.i = phi i32 [ %agg.tmp1134.sroa.4.0.copyload, %for.body8.lr.ph.i ], [ %31, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i ]
-  %cmp.i.i9.i = icmp ult i32 %cur5.sroa.3.048.i, 4096
-  br i1 %cmp.i.i9.i, label %if.then.i.i22.i, label %if.else.i.i10.i
+  %cur5.sroa.3.044.i = phi i32 [ %agg.tmp1132.sroa.4.0.copyload, %for.body8.lr.ph.i ], [ %31, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i ]
+  %cmp.i.i8.i = icmp ult i32 %cur5.sroa.3.044.i, 4096
+  br i1 %cmp.i.i8.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit22.i, label %if.else.i.i9.i
 
-if.then.i.i22.i:                                  ; preds = %for.body8.i
-  %idxprom.i.i24.i = zext nneg i32 %cur5.sroa.3.048.i to i64
-  %arrayidx.i.i25.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i23.i, i64 %idxprom.i.i24.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i
+if.else.i.i9.i:                                   ; preds = %for.body8.i
+  %sub.i.i.i10.i = add i32 %cur5.sroa.3.044.i, -4096
+  %div1.i.i.i11.i = lshr i32 %sub.i.i.i10.i, 10
+  %idx.ext.i.i.i.i.i13.i = zext nneg i32 %div1.i.i.i11.i to i64
+  %add.ptr.i.i.i1.i.i14.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i12.i, i64 %idx.ext.i.i.i.i.i13.i
+  %25 = load i64, ptr %add.ptr.i.i.i1.i.i14.i, align 8
+  %and.i.i.i.i.i.i.i15.i = and i64 %25, 281474976710655
+  %26 = inttoptr i64 %and.i.i.i.i.i.i.i15.i to ptr
+  %rem.i.i.i16.i = and i32 %cur5.sroa.3.044.i, 1023
+  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit22.i
 
-if.else.i.i10.i:                                  ; preds = %for.body8.i
-  %sub.i.i.i11.i = add i32 %cur5.sroa.3.048.i, -4096
-  %div1.i.i.i12.i = lshr i32 %sub.i.i.i11.i, 10
-  %idx.ext.i.i.i.i.i14.i = zext nneg i32 %div1.i.i.i12.i to i64
-  %add.ptr.i.i.i1.i.i15.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i13.i, i64 %idx.ext.i.i.i.i.i14.i
-  %25 = load i64, ptr %add.ptr.i.i.i1.i.i15.i, align 8
-  %and.i.i.i.i.i.i.i16.i = and i64 %25, 281474976710655
-  %26 = inttoptr i64 %and.i.i.i.i.i.i.i16.i to ptr
-  %rem.i.i.i17.i = and i32 %cur5.sroa.3.048.i, 1023
-  %data_.i.i.i18.i = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %idxprom.i.i.i19.i = zext nneg i32 %rem.i.i.i17.i to i64
-  %arrayidx.i.i.i20.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i18.i, i64 0, i64 %idxprom.i.i.i19.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i
-
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i: ; preds = %if.else.i.i10.i, %if.then.i.i22.i
-  %retval.0.i.i21.i = phi ptr [ %arrayidx.i.i25.i, %if.then.i.i22.i ], [ %arrayidx.i.i.i20.i, %if.else.i.i10.i ]
-  %27 = load ptr, ptr %youngGen_.i.i.i27.i, align 8
-  %28 = ptrtoint ptr %retval.0.i.i21.i to i64
-  %and.i.i.i.i28.i = and i64 %28, -4194304
-  %29 = inttoptr i64 %and.i.i.i.i28.i to ptr
-  %cmp.i.i.i29.i = icmp ne ptr %27, %29
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit22.i: ; preds = %if.else.i.i9.i, %for.body8.i
+  %.sink.i.i17.i = phi ptr [ %26, %if.else.i.i9.i ], [ %agg.tmp1132.sroa.0.0.copyload, %for.body8.i ]
+  %rem.i.sink.i.i18.i = phi i32 [ %rem.i.i.i16.i, %if.else.i.i9.i ], [ %cur5.sroa.3.044.i, %for.body8.i ]
+  %data_.i.i.i19.i = getelementptr inbounds nuw i8, ptr %.sink.i.i17.i, i64 8
+  %idxprom.i.i.i20.i = zext nneg i32 %rem.i.sink.i.i18.i to i64
+  %arrayidx.i.i.i21.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i19.i, i64 %idxprom.i.i.i20.i
+  %27 = load ptr, ptr %youngGen_.i.i.i23.i, align 8
+  %28 = ptrtoint ptr %arrayidx.i.i.i21.i to i64
+  %and.i.i.i.i24.i = and i64 %28, -4194304
+  %29 = inttoptr i64 %and.i.i.i.i24.i to ptr
+  %cmp.i.i.i25.i = icmp ne ptr %27, %29
   %30 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %30 to i1
-  %or.cond.i.i.i = select i1 %cmp.i.i.i29.i, i1 %tobool.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %if.then.i.i30.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i
+  %or.cond.i.i.i = select i1 %cmp.i.i.i25.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %if.then.i.i26.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i
 
-if.then.i.i30.i:                                  ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i21.i, align 8
+if.then.i.i26.i:                                  ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit22.i
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %arrayidx.i.i.i21.i, align 8
   call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i64 %agg.tmp.sroa.0.0.copyload.i.i.i) #8
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i30.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i
-  store i64 -1970324836974592, ptr %retval.0.i.i21.i, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i31.i)
-  %add.i.i.i33.i = add i32 %cur5.sroa.3.048.i, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i31.i, ptr noundef %agg.tmp1134.sroa.0.0.copyload, i32 noundef %add.i.i.i33.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp1134.sroa.548.0.copyload) #8
-  %31 = load i32, ptr %index_.i1.i.i35.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i31.i)
-  %cmp.i.i7.not.i = icmp eq i32 %31, %agg.tmp1335.sroa.3.0.copyload
-  br i1 %cmp.i.i7.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.i, !llvm.loop !103
+_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i26.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit22.i
+  store i64 -1970324836974592, ptr %arrayidx.i.i.i21.i, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i27.i)
+  %add.i.i.i29.i = add i32 %cur5.sroa.3.044.i, 1
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i27.i, ptr noundef %agg.tmp1132.sroa.0.0.copyload, i32 noundef %add.i.i.i29.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp1132.sroa.546.0.copyload) #8
+  %31 = load i32, ptr %index_.i1.i.i31.i, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i27.i)
+  %cmp.i.i6.not.i = icmp eq i32 %31, %agg.tmp1333.sroa.3.0.copyload
+  br i1 %cmp.i.i6.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.i, !llvm.loop !103
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit
   ret void
@@ -3242,7 +3192,7 @@ define weak_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN6herme
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -3251,7 +3201,7 @@ define weak_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6herm
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -3495,13 +3445,7 @@ entry:
   %0 = load i32, ptr %index_, align 8
   %cmp = icmp ult i32 %0, 4096
   %1 = load ptr, ptr %this, align 8
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i, i64 %idxprom
-  br label %return
+  br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %base_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3512,21 +3456,20 @@ if.else:                                          ; preds = %entry
   %idx.ext.i.i.i = zext nneg i32 %div1.i to i64
   %add.ptr.i.i.i1 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i.i.i
   %3 = load i32, ptr %add.ptr.i.i.i1, align 4
-  %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %3, 0
   %4 = ptrtoint ptr %2 to i64
   %conv.i.i.i.i.i.i.i = zext i32 %3 to i64
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %4
   %5 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %5
   %rem.i = and i32 %0, 1023
-  %data_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 8
-  %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i, i64 0, i64 %idxprom.i
   br label %return
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi ptr [ %arrayidx, %if.then ], [ %arrayidx.i, %if.else ]
-  ret ptr %retval.0
+return:                                           ; preds = %entry, %if.else
+  %cond.i.i.i.i.i.i.sink = phi ptr [ %5, %if.else ], [ %1, %entry ]
+  %rem.i.sink = phi i32 [ %rem.i, %if.else ], [ %0, %entry ]
+  %data_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink, i64 8
+  %idxprom.i = zext nneg i32 %rem.i.sink to i64
+  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i, i64 %idxprom.i
+  ret ptr %arrayidx.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3574,13 +3517,7 @@ entry:
   %0 = load i32, ptr %index_.i, align 8
   %cmp.i = icmp ult i32 %0, 4096
   %1 = load ptr, ptr %this, align 8
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %idxprom.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit
+  br i1 %cmp.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %base_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3591,21 +3528,20 @@ if.else.i:                                        ; preds = %entry
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i to i64
   %add.ptr.i.i.i1.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i, i64 %idx.ext.i.i.i.i
   %3 = load i32, ptr %add.ptr.i.i.i1.i, align 4
-  %cmp.i.not.i.i.i.i.i.i.i = icmp eq i32 %3, 0
   %4 = ptrtoint ptr %2 to i64
   %conv.i.i.i.i.i.i.i.i = zext i32 %3 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %4
   %5 = inttoptr i64 %add.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i, ptr null, ptr %5
   %rem.i.i = and i32 %0, 1023
-  %data_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i, i64 0, i64 %idxprom.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit: ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi ptr [ %arrayidx.i, %if.then.i ], [ %arrayidx.i.i, %if.else.i ]
-  ret ptr %retval.0.i
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit: ; preds = %entry, %if.else.i
+  %cond.i.i.i.i.i.i.sink.i = phi ptr [ %5, %if.else.i ], [ %1, %entry ]
+  %rem.i.sink.i = phi i32 [ %rem.i.i, %if.else.i ], [ %0, %entry ]
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i, i64 8
+  %idxprom.i.i = zext nneg i32 %rem.i.sink.i to i64
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i, i64 %idxprom.i.i
+  ret ptr %arrayidx.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4542,13 +4478,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %21 = load i32, ptr %index_.i1.i, align 8
   %cmp.i.i9 = icmp ult i32 %21, 4096
   %22 = load ptr, ptr %ref.tmp.i, align 8
-  br i1 %cmp.i.i9, label %if.then.i.i11, label %if.else.i.i
-
-if.then.i.i11:                                    ; preds = %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %idxprom.i.i = zext nneg i32 %21 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
+  br i1 %cmp.i.i9, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
   %base_.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
@@ -4559,38 +4489,37 @@ if.else.i.i:                                      ; preds = %_ZN6hermes2vm13Herm
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
   %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %24 = load i32, ptr %add.ptr.i.i.i1.i.i, align 4
-  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %24, 0
   %25 = ptrtoint ptr %23 to i64
   %conv.i.i.i.i.i.i.i.i.i = zext i32 %24 to i64
   %add.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, %25
   %26 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i10 = select i1 %cmp.i.not.i.i.i.i.i.i.i.i, ptr null, ptr %26
   %rem.i.i.i = and i32 %21, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i10, i64 8
-  %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit: ; preds = %if.then.i.i11, %if.else.i.i
-  %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i11 ], [ %arrayidx.i.i.i, %if.else.i.i ]
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit: ; preds = %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit, %if.else.i.i
+  %cond.i.i.i.i.i.i.sink.i.i = phi ptr [ %26, %if.else.i.i ], [ %22, %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i ], [ %21, %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i, i64 %idxprom.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
-  store i32 %retval.sroa.0.0.i, ptr %retval.0.i.i, align 4
+  store i32 %retval.sroa.0.0.i, ptr %arrayidx.i.i.i, align 4
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %27 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %28 = ptrtoint ptr %retval.0.i.i to i64
+  %28 = ptrtoint ptr %arrayidx.i.i.i to i64
   %and.i.i.i.i = and i64 %28, -4194304
   %29 = inttoptr i64 %and.i.i.i.i to ptr
   %cmp.i.i.i = icmp eq ptr %27, %29
-  br i1 %cmp.i.i.i, label %return, label %if.then.i.i12
+  br i1 %cmp.i.i.i, label %return, label %if.then.i.i10
 
-if.then.i.i12:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
+if.then.i.i10:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i, i32 %retval.sroa.0.0.i) #8
+  call void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i, i32 %retval.sroa.0.0.i) #8
   br label %return
 
-return:                                           ; preds = %if.then.i.i12, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit
-  %retval.0 = phi i32 [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit ], [ 1, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit ], [ 1, %if.then.i.i12 ]
+return:                                           ; preds = %if.then.i.i10, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit
+  %retval.0 = phi i32 [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit ], [ 1, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit ], [ 1, %if.then.i.i10 ]
   ret i32 %retval.0
 }
 
@@ -5007,7 +4936,7 @@ return:                                           ; preds = %_ZNK6hermes2vm18Seg
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef i32 @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8growLeftERNS0_13MutableHandleIS3_EERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(8) %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %amount) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp.i.i7.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
+  %ref.tmp.i.i3.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %ref.tmp.i.i.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %agg.tmp20 = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %agg.tmp22 = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
@@ -5169,43 +5098,36 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.
   %30 = load ptr, ptr %base_.i, align 8, !noalias !170
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24, ptr noundef %28, i32 noundef %add.i71, ptr noundef nonnull align 1 dereferenceable(1) %30) #8
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %agg.tmp2474.sroa.0.0.copyload84 = load ptr, ptr %agg.tmp24, align 8
-  %agg.tmp2474.sroa.887.0.agg.tmp24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 16
-  %agg.tmp2474.sroa.887.0.copyload88 = load ptr, ptr %agg.tmp2474.sroa.887.0.agg.tmp24.sroa_idx, align 8
+  %agg.tmp2474.sroa.0.0.copyload83 = load ptr, ptr %agg.tmp24, align 8
+  %agg.tmp2474.sroa.886.0.agg.tmp24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 16
+  %agg.tmp2474.sroa.886.0.copyload87 = load ptr, ptr %agg.tmp2474.sroa.886.0.agg.tmp24.sroa_idx, align 8
   %agg.tmp2273.sroa.3.0.agg.tmp22.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 8
   %agg.tmp2273.sroa.3.0.copyload = load i32, ptr %agg.tmp2273.sroa.3.0.agg.tmp22.sroa_idx, align 8
   %agg.tmp2072.sroa.0.0.copyload = load ptr, ptr %agg.tmp20, align 8
   %agg.tmp2072.sroa.5.0.agg.tmp20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 8
   %agg.tmp2072.sroa.5.0.copyload = load i32, ptr %agg.tmp2072.sroa.5.0.agg.tmp20.sroa_idx, align 8
-  %agg.tmp2072.sroa.683.0.agg.tmp20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 16
-  %agg.tmp2072.sroa.683.0.copyload = load ptr, ptr %agg.tmp2072.sroa.683.0.agg.tmp20.sroa_idx, align 8
-  %cmp.i.i.not12.i = icmp eq i32 %agg.tmp2072.sroa.5.0.copyload, %agg.tmp2273.sroa.3.0.copyload
-  br i1 %cmp.i.i.not12.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
+  %agg.tmp2072.sroa.682.0.agg.tmp20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp20, i64 16
+  %agg.tmp2072.sroa.682.0.copyload = load ptr, ptr %agg.tmp2072.sroa.682.0.agg.tmp20.sroa_idx, align 8
+  %cmp.i.i.not8.i = icmp eq i32 %agg.tmp2072.sroa.5.0.copyload, %agg.tmp2273.sroa.3.0.copyload
+  br i1 %cmp.i.i.not8.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.exit
   %agg.tmp2474.sroa.6.0.agg.tmp24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 8
-  %agg.tmp2474.sroa.6.0.copyload85 = load i32, ptr %agg.tmp2474.sroa.6.0.agg.tmp24.sroa_idx, align 8
-  %31 = ptrtoint ptr %agg.tmp2474.sroa.887.0.copyload88 to i64
-  %32 = ptrtoint ptr %agg.tmp2072.sroa.683.0.copyload to i64
+  %agg.tmp2474.sroa.6.0.copyload84 = load i32, ptr %agg.tmp2474.sroa.6.0.agg.tmp24.sroa_idx, align 8
+  %31 = ptrtoint ptr %agg.tmp2474.sroa.886.0.copyload87 to i64
+  %32 = ptrtoint ptr %agg.tmp2072.sroa.682.0.copyload to i64
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %index_.i1.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
-  %index_.i1.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i7.i, i64 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2474.sroa.0.0.copyload84, i64 16392
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2474.sroa.0.0.copyload84, i64 8
-  %add.ptr.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.tmp2072.sroa.0.0.copyload, i64 16392
-  %add.ptr.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %agg.tmp2072.sroa.0.0.copyload, i64 8
+  %index_.i1.i.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i3.i, i64 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2474.sroa.0.0.copyload83, i64 16392
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2072.sroa.0.0.copyload, i64 16392
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %for.body.lr.ph.i
-  %33 = phi i32 [ %agg.tmp2474.sroa.6.0.copyload85, %for.body.lr.ph.i ], [ %43, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %33 = phi i32 [ %agg.tmp2474.sroa.6.0.copyload84, %for.body.lr.ph.i ], [ %43, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %34 = phi i32 [ %agg.tmp2072.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %42, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %cmp.i.i2.i = icmp ult i32 %33, 4096
-  br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %for.body.i
-  %idxprom.i.i.i = zext nneg i32 %33 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
+  br i1 %cmp.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
   %sub.i.i.i.i = add i32 %33, -4096
@@ -5213,72 +5135,65 @@ if.else.i.i.i:                                    ; preds = %for.body.i
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
   %add.ptr.i.i.i1.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
   %35 = load i32, ptr %add.ptr.i.i.i1.i.i.i, align 4, !noalias !173
-  %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %35, 0
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %35 to i64
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i, %31
   %36 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, ptr null, ptr %36
   %rem.i.i.i.i = and i32 %33, 1023
-  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %for.body.i
+  %cond.i.i.i.i.i.i.sink.i.i.i = phi ptr [ %36, %if.else.i.i.i ], [ %agg.tmp2474.sroa.0.0.copyload83, %for.body.i ]
+  %rem.i.sink.i.i.i = phi i32 [ %rem.i.i.i.i, %if.else.i.i.i ], [ %33, %for.body.i ]
+  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i.i, i64 8
+  %idxprom.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i.i, i64 %idxprom.i.i.i.i
   %cmp.i.i75 = icmp ult i32 %34, 4096
-  br i1 %cmp.i.i75, label %if.then.i.i, label %if.else.i.i76
-
-if.then.i.i:                                      ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
-  %idxprom.i.i = zext nneg i32 %34 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i81, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  br i1 %cmp.i.i75, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i, label %if.else.i.i76
 
 if.else.i.i76:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
   %sub.i.i.i77 = add i32 %34, -4096
   %div1.i.i.i = lshr i32 %sub.i.i.i77, 10
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i3.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %37 = load i32, ptr %add.ptr.i.i.i1.i.i, align 4, !noalias !173
-  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %37, 0
   %conv.i.i.i.i.i.i.i.i.i = zext i32 %37 to i64
   %add.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, %32
   %38 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i, ptr null, ptr %38
   %rem.i.i.i = and i32 %34, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i4.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i5.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i4.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i: ; preds = %if.else.i.i76, %if.then.i.i
-  %retval.0.i.i78 = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i5.i, %if.else.i.i76 ]
-  %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %retval.0.i.i78, align 4, !noalias !173
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i: ; preds = %if.else.i.i76, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
+  %cond.i.i.i.i.i.i.sink.i.i = phi ptr [ %38, %if.else.i.i76 ], [ %agg.tmp2072.sroa.0.0.copyload, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i76 ], [ %34, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !173
   %39 = load ptr, ptr %youngGen_.i.i.i.i, align 8, !noalias !173
-  %40 = ptrtoint ptr %retval.0.i.i.i to i64
-  %and.i.i.i.i.i79 = and i64 %40, -4194304
-  %41 = inttoptr i64 %and.i.i.i.i.i79 to ptr
+  %40 = ptrtoint ptr %arrayidx.i.i.i.i to i64
+  %and.i.i.i.i.i78 = and i64 %40, -4194304
+  %41 = inttoptr i64 %and.i.i.i.i.i78 to ptr
   %cmp.i.i.i.i = icmp eq ptr %39, %41
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i6.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i.i
 
-if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i, i32 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !173
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i.i, i32 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !173
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
-  store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 4, !noalias !173
+_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i.i.i.i, align 4, !noalias !173
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !173
   %add.i.i.i.i = add i32 %34, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp2072.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2072.sroa.683.0.copyload) #8, !noalias !173
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp2072.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2072.sroa.682.0.copyload) #8, !noalias !173
   %42 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !173
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !173
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !173
-  %add.i.i.i9.i = add i32 %33, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp2474.sroa.0.0.copyload84, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2474.sroa.887.0.copyload88) #8, !noalias !173
-  %43 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !173
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !173
-  %cmp.i.i.not.i80 = icmp eq i32 %42, %agg.tmp2273.sroa.3.0.copyload
-  br i1 %cmp.i.i.not.i80, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !176
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !173
+  %add.i.i.i5.i = add i32 %33, 1
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i3.i, ptr noundef %agg.tmp2474.sroa.0.0.copyload83, i32 noundef %add.i.i.i5.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2474.sroa.886.0.copyload87) #8, !noalias !173
+  %43 = load i32, ptr %index_.i1.i.i7.i, align 8, !noalias !173
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !173
+  %cmp.i.i.not.i79 = icmp eq i32 %42, %agg.tmp2273.sroa.3.0.copyload
+  br i1 %cmp.i.i.not.i79, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !176
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.exit
   %or.i.i.i.i.i = or i64 %18, -281474976710656
@@ -5294,7 +5209,7 @@ return:                                           ; preds = %_ZNK6hermes2vm18Seg
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE10shrinkLeftERNS0_7RuntimeEj(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %amount) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp.i.i7.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
+  %ref.tmp.i.i3.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %ref.tmp.i.i.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %agg.tmp = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %ref.tmp = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
@@ -5337,43 +5252,36 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2, ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %retval.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp3, ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %agg.tmp38.sroa.0.0.copyload14 = load ptr, ptr %agg.tmp3, align 8
-  %agg.tmp38.sroa.817.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
-  %agg.tmp38.sroa.817.0.copyload18 = load ptr, ptr %agg.tmp38.sroa.817.0.agg.tmp3.sroa_idx, align 8
+  %agg.tmp38.sroa.0.0.copyload13 = load ptr, ptr %agg.tmp3, align 8
+  %agg.tmp38.sroa.816.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
+  %agg.tmp38.sroa.816.0.copyload17 = load ptr, ptr %agg.tmp38.sroa.816.0.agg.tmp3.sroa_idx, align 8
   %agg.tmp27.sroa.3.0.agg.tmp2.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 8
   %agg.tmp27.sroa.3.0.copyload = load i32, ptr %agg.tmp27.sroa.3.0.agg.tmp2.sroa_idx, align 8
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %agg.tmp, align 8
   %agg.tmp6.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %agg.tmp6.sroa.5.0.copyload = load i32, ptr %agg.tmp6.sroa.5.0.agg.tmp.sroa_idx, align 8
-  %agg.tmp6.sroa.613.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  %agg.tmp6.sroa.613.0.copyload = load ptr, ptr %agg.tmp6.sroa.613.0.agg.tmp.sroa_idx, align 8
-  %cmp.i.i.not12.i = icmp eq i32 %agg.tmp6.sroa.5.0.copyload, %agg.tmp27.sroa.3.0.copyload
-  br i1 %cmp.i.i.not12.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
+  %agg.tmp6.sroa.612.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %agg.tmp6.sroa.612.0.copyload = load ptr, ptr %agg.tmp6.sroa.612.0.agg.tmp.sroa_idx, align 8
+  %cmp.i.i.not8.i = icmp eq i32 %agg.tmp6.sroa.5.0.copyload, %agg.tmp27.sroa.3.0.copyload
+  br i1 %cmp.i.i.not8.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.exit
   %agg.tmp38.sroa.6.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
-  %agg.tmp38.sroa.6.0.copyload15 = load i32, ptr %agg.tmp38.sroa.6.0.agg.tmp3.sroa_idx, align 8
-  %8 = ptrtoint ptr %agg.tmp38.sroa.817.0.copyload18 to i64
-  %9 = ptrtoint ptr %agg.tmp6.sroa.613.0.copyload to i64
+  %agg.tmp38.sroa.6.0.copyload14 = load i32, ptr %agg.tmp38.sroa.6.0.agg.tmp3.sroa_idx, align 8
+  %8 = ptrtoint ptr %agg.tmp38.sroa.816.0.copyload17 to i64
+  %9 = ptrtoint ptr %agg.tmp6.sroa.612.0.copyload to i64
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %index_.i1.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
-  %index_.i1.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i7.i, i64 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp38.sroa.0.0.copyload14, i64 16392
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp38.sroa.0.0.copyload14, i64 8
-  %add.ptr.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.sroa.0.0.copyload, i64 16392
-  %add.ptr.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %agg.tmp6.sroa.0.0.copyload, i64 8
+  %index_.i1.i.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i3.i, i64 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp38.sroa.0.0.copyload13, i64 16392
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.sroa.0.0.copyload, i64 16392
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %for.body.lr.ph.i
-  %10 = phi i32 [ %agg.tmp38.sroa.6.0.copyload15, %for.body.lr.ph.i ], [ %20, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %10 = phi i32 [ %agg.tmp38.sroa.6.0.copyload14, %for.body.lr.ph.i ], [ %20, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %11 = phi i32 [ %agg.tmp6.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %19, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %cmp.i.i2.i = icmp ult i32 %10, 4096
-  br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %for.body.i
-  %idxprom.i.i.i = zext nneg i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
+  br i1 %cmp.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
   %sub.i.i.i.i = add i32 %10, -4096
@@ -5381,70 +5289,63 @@ if.else.i.i.i:                                    ; preds = %for.body.i
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
   %add.ptr.i.i.i1.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
   %12 = load i32, ptr %add.ptr.i.i.i1.i.i.i, align 4, !noalias !183
-  %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %12, 0
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %12 to i64
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i, %8
   %13 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, ptr null, ptr %13
   %rem.i.i.i.i = and i32 %10, 1023
-  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %for.body.i
+  %cond.i.i.i.i.i.i.sink.i.i.i = phi ptr [ %13, %if.else.i.i.i ], [ %agg.tmp38.sroa.0.0.copyload13, %for.body.i ]
+  %rem.i.sink.i.i.i = phi i32 [ %rem.i.i.i.i, %if.else.i.i.i ], [ %10, %for.body.i ]
+  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i.i, i64 8
+  %idxprom.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i.i, i64 %idxprom.i.i.i.i
   %cmp.i.i9 = icmp ult i32 %11, 4096
-  br i1 %cmp.i.i9, label %if.then.i.i, label %if.else.i.i10
-
-if.then.i.i:                                      ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
-  %idxprom.i.i = zext nneg i32 %11 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i12, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  br i1 %cmp.i.i9, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i, label %if.else.i.i10
 
 if.else.i.i10:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
   %sub.i.i.i = add i32 %11, -4096
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i3.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %14 = load i32, ptr %add.ptr.i.i.i1.i.i, align 4, !noalias !183
-  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
   %conv.i.i.i.i.i.i.i.i.i = zext i32 %14 to i64
   %add.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, %9
   %15 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i, ptr null, ptr %15
   %rem.i.i.i = and i32 %11, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i4.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i5.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i4.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i: ; preds = %if.else.i.i10, %if.then.i.i
-  %retval.0.i.i11 = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i5.i, %if.else.i.i10 ]
-  %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %retval.0.i.i11, align 4, !noalias !183
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i: ; preds = %if.else.i.i10, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
+  %cond.i.i.i.i.i.i.sink.i.i = phi ptr [ %15, %if.else.i.i10 ], [ %agg.tmp6.sroa.0.0.copyload, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i10 ], [ %11, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !183
   %16 = load ptr, ptr %youngGen_.i.i.i.i, align 8, !noalias !183
-  %17 = ptrtoint ptr %retval.0.i.i.i to i64
+  %17 = ptrtoint ptr %arrayidx.i.i.i.i to i64
   %and.i.i.i.i.i = and i64 %17, -4194304
   %18 = inttoptr i64 %and.i.i.i.i.i to ptr
   %cmp.i.i.i.i = icmp eq ptr %16, %18
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i6.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i.i
 
-if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i, i32 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !183
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i.i, i32 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !183
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
-  store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 4, !noalias !183
+_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i.i.i.i, align 4, !noalias !183
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !183
   %add.i.i.i.i = add i32 %11, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp6.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp6.sroa.613.0.copyload) #8, !noalias !183
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp6.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp6.sroa.612.0.copyload) #8, !noalias !183
   %19 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !183
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !183
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !183
-  %add.i.i.i9.i = add i32 %10, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp38.sroa.0.0.copyload14, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp38.sroa.817.0.copyload18) #8, !noalias !183
-  %20 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !183
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !183
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !183
+  %add.i.i.i5.i = add i32 %10, 1
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i3.i, ptr noundef %agg.tmp38.sroa.0.0.copyload13, i32 noundef %add.i.i.i5.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp38.sroa.816.0.copyload17) #8, !noalias !183
+  %20 = load i32, ptr %index_.i1.i.i7.i, align 8, !noalias !183
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i3.i), !noalias !183
   %cmp.i.i.not.i = icmp eq i32 %19, %agg.tmp27.sroa.3.0.copyload
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !176
 
@@ -5914,7 +5815,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE22growLeftWithinCapacityERNS0_7RuntimeENS0_12PseudoHandleIS3_EEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %self.coerce, i32 noundef %amount) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp.i.i35.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
+  %ref.tmp.i.i29.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %ref.tmp.i.i4.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %ref.tmp.i.i.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
   %agg.tmp3 = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
@@ -5987,48 +5888,41 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.
   %retval.0.i.i25 = phi i32 [ %add6.i.i24, %if.else.i.i12 ], [ %8, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.exit ]
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp8, ptr noundef nonnull align 4 dereferenceable(8) %call, i32 noundef %retval.0.i.i25, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %agg.tmp829.sroa.0.0.copyload46 = load ptr, ptr %agg.tmp8, align 8
-  %agg.tmp829.sroa.849.0.agg.tmp8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 16
-  %agg.tmp829.sroa.849.0.copyload50 = load ptr, ptr %agg.tmp829.sroa.849.0.agg.tmp8.sroa_idx, align 8
+  %agg.tmp829.sroa.0.0.copyload44 = load ptr, ptr %agg.tmp8, align 8
+  %agg.tmp829.sroa.847.0.agg.tmp8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 16
+  %agg.tmp829.sroa.847.0.copyload48 = load ptr, ptr %agg.tmp829.sroa.847.0.agg.tmp8.sroa_idx, align 8
   %agg.tmp528.sroa.0.0.copyload = load ptr, ptr %agg.tmp5, align 8
   %agg.tmp528.sroa.4.0.agg.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 8
   %agg.tmp528.sroa.4.0.copyload = load i32, ptr %agg.tmp528.sroa.4.0.agg.tmp5.sroa_idx, align 8
-  %agg.tmp528.sroa.545.0.agg.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 16
-  %agg.tmp528.sroa.545.0.copyload = load ptr, ptr %agg.tmp528.sroa.545.0.agg.tmp5.sroa_idx, align 8
+  %agg.tmp528.sroa.543.0.agg.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 16
+  %agg.tmp528.sroa.543.0.copyload = load ptr, ptr %agg.tmp528.sroa.543.0.agg.tmp5.sroa_idx, align 8
   %agg.tmp327.sroa.3.0.agg.tmp3.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
   %agg.tmp327.sroa.3.0.copyload = load i32, ptr %agg.tmp327.sroa.3.0.agg.tmp3.sroa_idx, align 8
-  %cmp.i.i.not13.i = icmp eq i32 %agg.tmp327.sroa.3.0.copyload, %agg.tmp528.sroa.4.0.copyload
-  br i1 %cmp.i.i.not13.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %while.body.lr.ph.i
+  %cmp.i.i.not9.i = icmp eq i32 %agg.tmp327.sroa.3.0.copyload, %agg.tmp528.sroa.4.0.copyload
+  br i1 %cmp.i.i.not9.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3endERNS0_11PointerBaseE.exit26
   %agg.tmp829.sroa.6.0.agg.tmp8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 8
-  %agg.tmp829.sroa.6.0.copyload47 = load i32, ptr %agg.tmp829.sroa.6.0.agg.tmp8.sroa_idx, align 8
+  %agg.tmp829.sroa.6.0.copyload45 = load i32, ptr %agg.tmp829.sroa.6.0.agg.tmp8.sroa_idx, align 8
   %index_.i1.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
-  %13 = ptrtoint ptr %agg.tmp829.sroa.849.0.copyload50 to i64
+  %13 = ptrtoint ptr %agg.tmp829.sroa.847.0.copyload48 to i64
   %index_.i1.i.i8.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i4.i, i64 8
-  %14 = ptrtoint ptr %agg.tmp528.sroa.545.0.copyload to i64
+  %14 = ptrtoint ptr %agg.tmp528.sroa.543.0.copyload to i64
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp829.sroa.0.0.copyload46, i64 16392
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp829.sroa.0.0.copyload46, i64 8
-  %add.ptr.i.i.i.i.i9.i = getelementptr inbounds nuw i8, ptr %agg.tmp528.sroa.0.0.copyload, i64 16392
-  %add.ptr.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %agg.tmp528.sroa.0.0.copyload, i64 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp829.sroa.0.0.copyload44, i64 16392
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp528.sroa.0.0.copyload, i64 16392
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %while.body.lr.ph.i
-  %15 = phi i32 [ %agg.tmp829.sroa.6.0.copyload47, %while.body.lr.ph.i ], [ %17, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %15 = phi i32 [ %agg.tmp829.sroa.6.0.copyload45, %while.body.lr.ph.i ], [ %17, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %16 = phi i32 [ %agg.tmp528.sroa.4.0.copyload, %while.body.lr.ph.i ], [ %20, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !195
   %sub.i.i.i.i = add i32 %15, -1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp829.sroa.0.0.copyload46, i32 noundef %sub.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp829.sroa.849.0.copyload50) #8, !noalias !195
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp829.sroa.0.0.copyload44, i32 noundef %sub.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp829.sroa.847.0.copyload48) #8, !noalias !195
   %17 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !195
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !195
   %cmp.i.i2.i = icmp ult i32 %17, 4096
-  br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %while.body.i
-  %idxprom.i.i.i = zext nneg i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
+  br i1 %cmp.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i
   %sub.i.i.i3.i = add i32 %17, -4096
@@ -6036,65 +5930,58 @@ if.else.i.i.i:                                    ; preds = %while.body.i
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
   %add.ptr.i.i.i1.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
   %18 = load i32, ptr %add.ptr.i.i.i1.i.i.i, align 4, !noalias !195
-  %cmp.i.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %18, 0
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %18 to i64
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i, %13
   %19 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, ptr null, ptr %19
   %rem.i.i.i.i = and i32 %17, 1023
-  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %while.body.i
+  %cond.i.i.i.i.i.i.sink.i.i.i = phi ptr [ %19, %if.else.i.i.i ], [ %agg.tmp829.sroa.0.0.copyload44, %while.body.i ]
+  %rem.i.sink.i.i.i = phi i32 [ %rem.i.i.i.i, %if.else.i.i.i ], [ %17, %while.body.i ]
+  %data_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i.i, i64 8
+  %idxprom.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i.i, i64 %idxprom.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !195
   %sub.i.i.i6.i = add i32 %16, -1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i4.i, ptr noundef %agg.tmp528.sroa.0.0.copyload, i32 noundef %sub.i.i.i6.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp528.sroa.545.0.copyload) #8, !noalias !195
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i4.i, ptr noundef %agg.tmp528.sroa.0.0.copyload, i32 noundef %sub.i.i.i6.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp528.sroa.543.0.copyload) #8, !noalias !195
   %20 = load i32, ptr %index_.i1.i.i8.i, align 8, !noalias !195
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !195
   %cmp.i.i30 = icmp ult i32 %20, 4096
-  br i1 %cmp.i.i30, label %if.then.i.i, label %if.else.i.i31
-
-if.then.i.i:                                      ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
-  %idxprom.i.i = zext nneg i32 %20 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i33, i64 %idxprom.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  br i1 %cmp.i.i30, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i, label %if.else.i.i31
 
 if.else.i.i31:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
   %sub.i.i.i = add i32 %20, -4096
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i9.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %21 = load i32, ptr %add.ptr.i.i.i1.i.i, align 4, !noalias !195
-  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %21, 0
   %conv.i.i.i.i.i.i.i.i.i = zext i32 %21 to i64
   %add.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, %14
   %22 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i, ptr null, ptr %22
   %rem.i.i.i = and i32 %20, 1023
-  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i10.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i11.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i, i64 0, i64 %idxprom.i.i10.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i: ; preds = %if.else.i.i31, %if.then.i.i
-  %retval.0.i.i32 = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i11.i, %if.else.i.i31 ]
-  %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %retval.0.i.i32, align 4, !noalias !195
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i: ; preds = %if.else.i.i31, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i
+  %cond.i.i.i.i.i.i.sink.i.i = phi ptr [ %22, %if.else.i.i31 ], [ %agg.tmp528.sroa.0.0.copyload, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i ]
+  %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i31 ], [ %20, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i ]
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i, i64 8
+  %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !195
   %23 = load ptr, ptr %youngGen_.i.i.i.i, align 8, !noalias !195
-  %24 = ptrtoint ptr %retval.0.i.i.i to i64
+  %24 = ptrtoint ptr %arrayidx.i.i.i.i to i64
   %and.i.i.i.i.i = and i64 %24, -4194304
   %25 = inttoptr i64 %and.i.i.i.i.i to ptr
   %cmp.i.i.i.i = icmp eq ptr %23, %25
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i12.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, label %if.then.i.i.i
 
-if.then.i.i12.i:                                  ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i, i32 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !195
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i.i, i32 %agg.tmp.sroa.0.0.copyload.i) #8, !noalias !195
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i12.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
-  store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 4, !noalias !195
+_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
+  store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i.i.i.i, align 4, !noalias !195
   %cmp.i.i.not.i = icmp eq i32 %agg.tmp327.sroa.3.0.copyload, %20
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %while.body.i, !llvm.loop !198
 
@@ -6102,84 +5989,77 @@ _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE13copy_backwardINS0_18Segm
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp11, ptr noundef nonnull align 4 dereferenceable(8) %call, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp14, ptr noundef nonnull align 4 dereferenceable(8) %call, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %26 = load ptr, ptr %ref.tmp14, align 8, !noalias !199
-  %index_.i34 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 8
-  %27 = load i32, ptr %index_.i34, align 8, !noalias !199
+  %index_.i32 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 8
+  %27 = load i32, ptr %index_.i32, align 8, !noalias !199
   %add.i = add i32 %27, %amount
-  %base_.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 16
-  %28 = load ptr, ptr %base_.i35, align 8, !noalias !199
+  %base_.i33 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 16
+  %28 = load ptr, ptr %base_.i33, align 8, !noalias !199
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp13, ptr noundef %26, i32 noundef %add.i, ptr noundef nonnull align 1 dereferenceable(1) %28) #8
-  %agg.tmp1338.sroa.3.0.agg.tmp13.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
-  %agg.tmp1338.sroa.3.0.copyload = load i32, ptr %agg.tmp1338.sroa.3.0.agg.tmp13.sroa_idx, align 8
-  %agg.tmp1137.sroa.0.0.copyload = load ptr, ptr %agg.tmp11, align 8
-  %agg.tmp1137.sroa.4.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 8
-  %agg.tmp1137.sroa.4.0.copyload = load i32, ptr %agg.tmp1137.sroa.4.0.agg.tmp11.sroa_idx, align 8
-  %agg.tmp1137.sroa.551.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 16
-  %agg.tmp1137.sroa.551.0.copyload = load ptr, ptr %agg.tmp1137.sroa.551.0.agg.tmp11.sroa_idx, align 8
-  %cmp.i.i.not55.i = icmp eq i32 %agg.tmp1137.sroa.4.0.copyload, %agg.tmp1338.sroa.3.0.copyload
-  br i1 %cmp.i.i.not55.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.lr.ph.i
+  %agg.tmp1336.sroa.3.0.agg.tmp13.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
+  %agg.tmp1336.sroa.3.0.copyload = load i32, ptr %agg.tmp1336.sroa.3.0.agg.tmp13.sroa_idx, align 8
+  %agg.tmp1135.sroa.0.0.copyload = load ptr, ptr %agg.tmp11, align 8
+  %agg.tmp1135.sroa.4.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 8
+  %agg.tmp1135.sroa.4.0.copyload = load i32, ptr %agg.tmp1135.sroa.4.0.agg.tmp11.sroa_idx, align 8
+  %agg.tmp1135.sroa.549.0.agg.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 16
+  %agg.tmp1135.sroa.549.0.copyload = load ptr, ptr %agg.tmp1135.sroa.549.0.agg.tmp11.sroa_idx, align 8
+  %cmp.i.i.not49.i = icmp eq i32 %agg.tmp1135.sroa.4.0.copyload, %agg.tmp1336.sroa.3.0.copyload
+  br i1 %cmp.i.i.not49.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit
-  %add.ptr.i.i.i.i.i.i14.i = getelementptr inbounds nuw i8, ptr %agg.tmp1137.sroa.0.0.copyload, i64 16392
-  %29 = ptrtoint ptr %agg.tmp1137.sroa.551.0.copyload to i64
-  %add.ptr.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %agg.tmp1137.sroa.0.0.copyload, i64 8
-  %youngGen_.i.i.i31.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
+  %add.ptr.i.i.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %agg.tmp1135.sroa.0.0.copyload, i64 16392
+  %29 = ptrtoint ptr %agg.tmp1135.sroa.549.0.copyload to i64
+  %youngGen_.i.i.i25.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
-  %index_.i1.i.i39.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i35.i, i64 8
+  %index_.i1.i.i33.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i29.i, i64 8
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i, %for.body8.lr.ph.i
-  %cur5.sroa.3.054.i = phi i32 [ %agg.tmp1137.sroa.4.0.copyload, %for.body8.lr.ph.i ], [ %36, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i ]
-  %cmp.i.i9.i = icmp ult i32 %cur5.sroa.3.054.i, 4096
-  br i1 %cmp.i.i9.i, label %if.then.i.i26.i, label %if.else.i.i10.i
+  %cur5.sroa.3.048.i = phi i32 [ %agg.tmp1135.sroa.4.0.copyload, %for.body8.lr.ph.i ], [ %36, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i ]
+  %cmp.i.i8.i = icmp ult i32 %cur5.sroa.3.048.i, 4096
+  br i1 %cmp.i.i8.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit24.i, label %if.else.i.i9.i
 
-if.then.i.i26.i:                                  ; preds = %for.body8.i
-  %idxprom.i.i28.i = zext nneg i32 %cur5.sroa.3.054.i to i64
-  %arrayidx.i.i29.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i27.i, i64 %idxprom.i.i28.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i
+if.else.i.i9.i:                                   ; preds = %for.body8.i
+  %sub.i.i.i11.i = add i32 %cur5.sroa.3.048.i, -4096
+  %div1.i.i.i12.i = lshr i32 %sub.i.i.i11.i, 10
+  %idx.ext.i.i.i.i.i14.i = zext nneg i32 %div1.i.i.i12.i to i64
+  %add.ptr.i.i.i1.i.i15.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i13.i, i64 %idx.ext.i.i.i.i.i14.i
+  %30 = load i32, ptr %add.ptr.i.i.i1.i.i15.i, align 4
+  %conv.i.i.i.i.i.i.i.i.i16.i = zext i32 %30 to i64
+  %add.i.i.i.i.i.i.i.i.i17.i = add i64 %conv.i.i.i.i.i.i.i.i.i16.i, %29
+  %31 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i17.i to ptr
+  %rem.i.i.i18.i = and i32 %cur5.sroa.3.048.i, 1023
+  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit24.i
 
-if.else.i.i10.i:                                  ; preds = %for.body8.i
-  %sub.i.i.i12.i = add i32 %cur5.sroa.3.054.i, -4096
-  %div1.i.i.i13.i = lshr i32 %sub.i.i.i12.i, 10
-  %idx.ext.i.i.i.i.i15.i = zext nneg i32 %div1.i.i.i13.i to i64
-  %add.ptr.i.i.i1.i.i16.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %add.ptr.i.i.i.i.i.i14.i, i64 %idx.ext.i.i.i.i.i15.i
-  %30 = load i32, ptr %add.ptr.i.i.i1.i.i16.i, align 4
-  %cmp.i.not.i.i.i.i.i.i.i.i17.i = icmp eq i32 %30, 0
-  %conv.i.i.i.i.i.i.i.i.i18.i = zext i32 %30 to i64
-  %add.i.i.i.i.i.i.i.i.i19.i = add i64 %conv.i.i.i.i.i.i.i.i.i18.i, %29
-  %31 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i19.i to ptr
-  %cond.i.i.i.i.i.i.i.i20.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i17.i, ptr null, ptr %31
-  %rem.i.i.i21.i = and i32 %cur5.sroa.3.054.i, 1023
-  %data_.i.i.i22.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i20.i, i64 8
-  %idxprom.i.i.i23.i = zext nneg i32 %rem.i.i.i21.i to i64
-  %arrayidx.i.i.i24.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase.160"], ptr %data_.i.i.i22.i, i64 0, i64 %idxprom.i.i.i23.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i
-
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i: ; preds = %if.else.i.i10.i, %if.then.i.i26.i
-  %retval.0.i.i25.i = phi ptr [ %arrayidx.i.i29.i, %if.then.i.i26.i ], [ %arrayidx.i.i.i24.i, %if.else.i.i10.i ]
-  %32 = load ptr, ptr %youngGen_.i.i.i31.i, align 8
-  %33 = ptrtoint ptr %retval.0.i.i25.i to i64
-  %and.i.i.i.i32.i = and i64 %33, -4194304
-  %34 = inttoptr i64 %and.i.i.i.i32.i to ptr
-  %cmp.i.i.i33.i = icmp ne ptr %32, %34
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit24.i: ; preds = %if.else.i.i9.i, %for.body8.i
+  %cond.i.i.i.i.i.i.sink.i.i19.i = phi ptr [ %31, %if.else.i.i9.i ], [ %agg.tmp1135.sroa.0.0.copyload, %for.body8.i ]
+  %rem.i.sink.i.i20.i = phi i32 [ %rem.i.i.i18.i, %if.else.i.i9.i ], [ %cur5.sroa.3.048.i, %for.body8.i ]
+  %data_.i.i.i21.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i19.i, i64 8
+  %idxprom.i.i.i22.i = zext nneg i32 %rem.i.sink.i.i20.i to i64
+  %arrayidx.i.i.i23.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i.i.i21.i, i64 %idxprom.i.i.i22.i
+  %32 = load ptr, ptr %youngGen_.i.i.i25.i, align 8
+  %33 = ptrtoint ptr %arrayidx.i.i.i23.i to i64
+  %and.i.i.i.i26.i = and i64 %33, -4194304
+  %34 = inttoptr i64 %and.i.i.i.i26.i to ptr
+  %cmp.i.i.i27.i = icmp ne ptr %32, %34
   %35 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %35 to i1
-  %or.cond.i.i.i = select i1 %cmp.i.i.i33.i, i1 %tobool.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %if.then.i.i34.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i
+  %or.cond.i.i.i = select i1 %cmp.i.i.i27.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %if.then.i.i28.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i
 
-if.then.i.i34.i:                                  ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %retval.0.i.i25.i, align 4
+if.then.i.i28.i:                                  ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit24.i
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %arrayidx.i.i.i23.i, align 4
   call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_13HermesValue32E(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %agg.tmp.sroa.0.0.copyload.i.i.i) #8
   br label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i
 
-_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i34.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i
-  store i32 7, ptr %retval.0.i.i25.i, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i35.i)
-  %add.i.i.i37.i = add i32 %cur5.sroa.3.054.i, 1
-  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i35.i, ptr noundef %agg.tmp1137.sroa.0.0.copyload, i32 noundef %add.i.i.i37.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp1137.sroa.551.0.copyload) #8
-  %36 = load i32, ptr %index_.i1.i.i39.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i35.i)
-  %cmp.i.i7.not.i = icmp eq i32 %36, %agg.tmp1338.sroa.3.0.copyload
-  br i1 %cmp.i.i7.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.i, !llvm.loop !202
+_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i28.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit24.i
+  store i32 7, ptr %arrayidx.i.i.i23.i, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i29.i)
+  %add.i.i.i31.i = add i32 %cur5.sroa.3.048.i, 1
+  call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i29.i, ptr noundef %agg.tmp1135.sroa.0.0.copyload, i32 noundef %add.i.i.i31.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp1135.sroa.549.0.copyload) #8
+  %36 = load i32, ptr %index_.i1.i.i33.i, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i29.i)
+  %cmp.i.i6.not.i = icmp eq i32 %36, %agg.tmp1336.sroa.3.0.copyload
+  br i1 %cmp.i.i6.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.i, !llvm.loop !202
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE13copy_backwardINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit
   ret void

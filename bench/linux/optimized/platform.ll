@@ -630,7 +630,7 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
 
 .thread:                                          ; preds = %35, %40
   %43 = phi i32 [ %41, %40 ], [ %38, %35 ]
-  %44 = getelementptr [0 x i32], ptr %33, i64 0, i64 %36
+  %44 = getelementptr i32, ptr %33, i64 %36
   store i32 %43, ptr %44, align 4
   %45 = add nuw nsw i64 %36, 1
   %46 = icmp eq i64 %45, %34
@@ -653,7 +653,7 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
 
 .preheader57:                                     ; preds = %47, %52
   %55 = phi i64 [ %53, %52 ], [ 0, %47 ]
-  %56 = getelementptr [0 x i32], ptr %33, i64 0, i64 %55
+  %56 = getelementptr i32, ptr %33, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr %struct.irq_affinity_desc, ptr %48, i64 %55
   %59 = tail call i32 @irq_update_affinity_desc(i32 noundef %57, ptr noundef %58) #15
@@ -661,7 +661,7 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
   br i1 %60, label %52, label %61
 
 61:                                               ; preds = %.preheader57
-  %62 = getelementptr [0 x i32], ptr %33, i64 0, i64 %55
+  %62 = getelementptr i32, ptr %33, i64 %55
   %63 = load i32, ptr %62, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %32, ptr noundef nonnull @.str.5, i32 noundef %63, i32 noundef %59) #16
   tail call void @kfree(ptr noundef nonnull %48) #15
@@ -707,7 +707,7 @@ define internal void @devm_platform_get_irqs_affinity_release(ptr noundef %0, pt
 9:                                                ; preds = %.thread, %5
   %10 = phi i32 [ 0, %5 ], [ %42, %.thread ]
   %11 = sext i32 %10 to i64
-  %12 = getelementptr [0 x i32], ptr %6, i64 0, i64 %11
+  %12 = getelementptr i32, ptr %6, i64 %11
   %13 = load i32, ptr %12, align 4
   tail call void @irq_dispose_mapping(i32 noundef %13) #15
   %14 = tail call ptr @__dev_fwnode(ptr noundef %0) #15

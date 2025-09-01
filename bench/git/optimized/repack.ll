@@ -2377,10 +2377,10 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph352, %.lr.ph8
   %indvars.iv426 = phi i64 [ 0, %.lr.ph642 ], [ %indvars.iv.next427, %1051 ]
   %1016 = load ptr, ptr @packdir, align 8, !tbaa !8
   %1017 = load ptr, ptr %.1355641, align 8, !tbaa !46
-  %1018 = getelementptr inbounds nuw [6 x %struct.anon], ptr @exts, i64 0, i64 %indvars.iv426
+  %1018 = getelementptr inbounds nuw %struct.anon, ptr @exts, i64 %indvars.iv426
   %1019 = load ptr, ptr %1018, align 16, !tbaa !110
   %1020 = call ptr (ptr, ...) @mkpathdup(ptr noundef nonnull @.str.94, ptr noundef %1016, ptr noundef %1017, ptr noundef %1019) #16
-  %1021 = getelementptr inbounds nuw [6 x ptr], ptr %1014, i64 0, i64 %indvars.iv426
+  %1021 = getelementptr inbounds nuw ptr, ptr %1014, i64 %indvars.iv426
   %1022 = load ptr, ptr %1021, align 8, !tbaa !33
   %.not165 = icmp eq ptr %1022, null
   br i1 %.not165, label %1035, label %1023
@@ -2974,7 +2974,7 @@ get_preferred_pack.exit.i:                        ; preds = %1264, %.preheader.i
 
 1292:                                             ; preds = %1291, %.lr.ph368
   %indvars.iv.i46.i = phi i64 [ 0, %.lr.ph368 ], [ %indvars.iv.next.i.i, %1291 ]
-  %1293 = getelementptr inbounds nuw [6 x %struct.anon], ptr @exts, i64 0, i64 %indvars.iv.i46.i
+  %1293 = getelementptr inbounds nuw %struct.anon, ptr @exts, i64 %indvars.iv.i46.i
   %1294 = load ptr, ptr %1293, align 16, !tbaa !110
   %1295 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1294, ptr noundef nonnull dereferenceable(8) @.str.156) #19
   %.not.i47.i = icmp eq i32 %1295, 0
@@ -2985,7 +2985,7 @@ get_preferred_pack.exit.i:                        ; preds = %1264, %.preheader.i
   unreachable
 
 has_pack_ext.exit.i:                              ; preds = %1292
-  %1297 = getelementptr inbounds nuw [6 x ptr], ptr %1290, i64 0, i64 %indvars.iv.i46.i
+  %1297 = getelementptr inbounds nuw ptr, ptr %1290, i64 %indvars.iv.i46.i
   %1298 = load ptr, ptr %1297, align 8, !tbaa !33
   %.not51.i255 = icmp eq ptr %1298, null
   br i1 %.not51.i255, label %1299, label %1302
@@ -4542,7 +4542,7 @@ define internal fastcc ptr @populate_pack_exts(ptr noundef %0) unnamed_addr #0 {
 
 strbuf_setlen.exit:                               ; preds = %7, %9
   %10 = load ptr, ptr @packtmp, align 8, !tbaa !8
-  %11 = getelementptr inbounds nuw [6 x %struct.anon], ptr @exts, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.anon, ptr @exts, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 16, !tbaa !110
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.141, ptr noundef %10, ptr noundef %0, ptr noundef %12) #16
   %13 = load ptr, ptr %6, align 8, !tbaa !32
@@ -4553,7 +4553,7 @@ strbuf_setlen.exit:                               ; preds = %7, %9
 15:                                               ; preds = %strbuf_setlen.exit
   %16 = load ptr, ptr %6, align 8, !tbaa !32
   %17 = call ptr @register_tempfile(ptr noundef %16) #16
-  %18 = getelementptr inbounds nuw [6 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %17, ptr %18, align 8, !tbaa !33
   br label %19
 

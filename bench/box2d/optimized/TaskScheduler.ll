@@ -222,7 +222,7 @@ define dso_local void @_ZN4enki13TaskScheduler16AddPinnedTaskIntEPNS_11IPinnedTa
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !43
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !46
@@ -638,7 +638,7 @@ define dso_local void @_ZN4enki13TaskScheduler15WaitForNewTasksEj(ptr noundef no
   br i1 %.not18.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %16 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv23.i
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv23.i
   %17 = load ptr, ptr %16, align 8, !tbaa !73
   %wide.trip.count.i = zext i32 %15 to i64
   br label %19
@@ -659,7 +659,7 @@ define dso_local void @_ZN4enki13TaskScheduler15WaitForNewTasksEj(ptr noundef no
   br i1 %25, label %18, label %.loopexit
 
 ._crit_edge.i:                                    ; preds = %18, %.preheader.i
-  %26 = getelementptr inbounds nuw [3 x ptr], ptr %13, i64 0, i64 %indvars.iv23.i
+  %26 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv23.i
   %27 = load ptr, ptr %26, align 8, !tbaa !44
   %28 = getelementptr inbounds nuw %"class.enki::PinnedTaskList", ptr %27, i64 %9
   %29 = load atomic i64, ptr %28 seq_cst, align 8
@@ -833,7 +833,7 @@ thread-pre-split:                                 ; preds = %_ZN4enki13TaskSched
   br i1 %exitcond.not.i32, label %_ZN4enki13TaskScheduler8NewArrayINS_8TaskPipeEEEPT_mPKci.exit, label %.lr.ph.i29, !llvm.loop !90
 
 _ZN4enki13TaskScheduler8NewArrayINS_8TaskPipeEEEPT_mPKci.exit: ; preds = %.lr.ph.i29, %54
-  %64 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %60, ptr %64, align 8, !tbaa !73
   %65 = load i32, ptr %14, align 8, !tbaa !72
   %66 = zext i32 %65 to i64
@@ -865,7 +865,7 @@ _ZN4enki13TaskScheduler8NewArrayINS_8TaskPipeEEEPT_mPKci.exit: ; preds = %.lr.ph
   br i1 %exitcond.not.i37, label %_ZN4enki13TaskScheduler8NewArrayINS_14PinnedTaskListEEEPT_mPKci.exit, label %.lr.ph.i34, !llvm.loop !92
 
 _ZN4enki13TaskScheduler8NewArrayINS_14PinnedTaskListEEEPT_mPKci.exit: ; preds = %.lr.ph.i34, %_ZN4enki13TaskScheduler8NewArrayINS_8TaskPipeEEEPT_mPKci.exit
-  %78 = getelementptr inbounds nuw [3 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   store ptr %70, ptr %78, align 8, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1275,7 +1275,7 @@ _ZN4enki13TaskScheduler11DeleteArrayISt6threadEEvPT_mPKci.exit: ; preds = %_ZNSt
 
 105:                                              ; preds = %_ZN4enki13TaskScheduler11DeleteArrayISt6threadEEvPT_mPKci.exit, %_ZN4enki13TaskScheduler11DeleteArrayINS_14PinnedTaskListEEEvPT_mPKci.exit
   %indvars.iv53 = phi i64 [ 0, %_ZN4enki13TaskScheduler11DeleteArrayISt6threadEEvPT_mPKci.exit ], [ %indvars.iv.next54, %_ZN4enki13TaskScheduler11DeleteArrayINS_14PinnedTaskListEEEvPT_mPKci.exit ]
-  %106 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv53
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv53
   %107 = load ptr, ptr %106, align 8, !tbaa !73
   %108 = load i32, ptr %46, align 8, !tbaa !72
   %109 = zext i32 %108 to i64
@@ -1284,7 +1284,7 @@ _ZN4enki13TaskScheduler11DeleteArrayISt6threadEEvPT_mPKci.exit: ; preds = %_ZNSt
   %112 = load ptr, ptr %67, align 8, !tbaa !84
   tail call void %110(ptr noundef %107, i64 noundef %111, ptr noundef %112, ptr noundef nonnull @.str, i32 noundef 0)
   store ptr null, ptr %106, align 8, !tbaa !73
-  %113 = getelementptr inbounds nuw [3 x ptr], ptr %93, i64 0, i64 %indvars.iv53
+  %113 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv53
   %114 = load ptr, ptr %113, align 8, !tbaa !44
   %115 = load i32, ptr %46, align 8, !tbaa !72
   %116 = zext i32 %115 to i64
@@ -1409,7 +1409,7 @@ define dso_local void @_ZN4enki13TaskScheduler15SemaphoreDeleteEPNS_13semaphorei
 define dso_local noundef zeroext i1 @_ZN4enki13TaskScheduler10TryRunTaskEjjRj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4enki13TaskScheduler14RunPinnedTasksEjj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2)
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !73
   %8 = zext i32 %1 to i64
   %9 = getelementptr inbounds nuw %"class.enki::TaskPipe", ptr %7, i64 %8
@@ -1434,7 +1434,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: 
   %19 = add i32 %.018.i, -1
   %20 = and i32 %19, 255
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x %"struct.std::atomic.3"], ptr %13, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.std::atomic.3", ptr %13, i64 %21
   %23 = cmpxchg ptr %22, i32 286331153, i32 -1 acq_rel monotonic, align 4
   %24 = extractvalue { i32, i1 } %23, 1
   br i1 %24, label %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit, label %25
@@ -1445,7 +1445,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i: 
   br i1 %.not.i, label %15, label %.loopexit124
 
 _ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE18WriterTryReadFrontEPS1_.exit: ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i
-  %27 = getelementptr inbounds nuw [256 x %"struct.enki::SubTaskSet"], ptr %9, i64 0, i64 %21
+  %27 = getelementptr inbounds nuw %"struct.enki::SubTaskSet", ptr %9, i64 %21
   %.sroa.0.0.copyload85 = load ptr, ptr %27, align 8, !tbaa !112
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8
@@ -1492,7 +1492,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i53
   %.224.i = phi i32 [ %49, %48 ], [ %.02237.i, %46 ]
   %50 = and i32 %.224.i, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x %"struct.std::atomic.3"], ptr %45, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %"struct.std::atomic.3", ptr %45, i64 %51
   %53 = cmpxchg ptr %52, i32 286331153, i32 -1 acq_rel monotonic, align 4
   %54 = extractvalue { i32, i1 } %53, 1
   br i1 %54, label %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit, label %55
@@ -1506,7 +1506,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i53
 
 _ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.exit: ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i53
   %59 = atomicrmw add ptr %40, i32 1 monotonic, align 4
-  %60 = getelementptr inbounds nuw [256 x %"struct.enki::SubTaskSet"], ptr %39, i64 0, i64 %51
+  %60 = getelementptr inbounds nuw %"struct.enki::SubTaskSet", ptr %39, i64 %51
   %.sroa.0.0.copyload86 = load ptr, ptr %60, align 8, !tbaa !112
   %.sroa.11.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.11.0.copyload89 = load i64, ptr %.sroa.11.0..sroa_idx88, align 8
@@ -1574,7 +1574,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i58
   %.224.i59 = phi i32 [ %93, %92 ], [ %.02237.i56, %90 ]
   %94 = and i32 %.224.i59, 255
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [256 x %"struct.std::atomic.3"], ptr %89, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"struct.std::atomic.3", ptr %89, i64 %95
   %97 = cmpxchg ptr %96, i32 286331153, i32 -1 acq_rel monotonic, align 4
   %98 = extractvalue { i32, i1 } %97, 1
   br i1 %98, label %.loopexit.loopexit, label %99
@@ -1594,7 +1594,7 @@ _ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE17ReaderTryReadBackEPS1_.ex
 
 .loopexit.loopexit:                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i58
   %106 = atomicrmw add ptr %84, i32 1 monotonic, align 4
-  %107 = getelementptr inbounds nuw [256 x %"struct.enki::SubTaskSet"], ptr %83, i64 0, i64 %95
+  %107 = getelementptr inbounds nuw %"struct.enki::SubTaskSet", ptr %83, i64 %95
   %.sroa.0.0.copyload87 = load ptr, ptr %107, align 8, !tbaa !112
   %.sroa.11.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.sroa.11.0.copyload91 = load i64, ptr %.sroa.11.0..sroa_idx90, align 8
@@ -1803,7 +1803,7 @@ _ZN4enki13TaskScheduler28WakeThreadsForTaskCompletionEv.exit.i66: ; preds = %_ZN
 define dso_local void @_ZN4enki13TaskScheduler14RunPinnedTasksEjj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = zext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw %"class.enki::PinnedTaskList", ptr %8, i64 %7
@@ -1972,7 +1972,7 @@ define dso_local void @_ZN4enki13TaskScheduler15SplitAndAddTaskEjNS_10SubTaskSet
   %.sroa.2.12.insert.insert.i = or disjoint i64 %.sroa.2.12.insert.shift.i, %.sroa.642.8.insert.ext
   %21 = load i32, ptr %11, align 8, !tbaa !43
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw %"class.enki::TaskPipe", ptr %24, i64 %12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4096
@@ -1980,7 +1980,7 @@ define dso_local void @_ZN4enki13TaskScheduler15SplitAndAddTaskEjNS_10SubTaskSet
   %28 = and i32 %27, 255
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 4104
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr inbounds nuw [256 x %"struct.std::atomic.3"], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.std::atomic.3", ptr %29, i64 %30
   %32 = load atomic i32, ptr %31 acquire, align 4
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE19WriterTryWriteFrontERKS1_.exit.thread, label %_ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE19WriterTryWriteFrontERKS1_.exit
@@ -1988,7 +1988,7 @@ define dso_local void @_ZN4enki13TaskScheduler15SplitAndAddTaskEjNS_10SubTaskSet
 _ZN4enki21LockLessMultiReadPipeILh8ENS_10SubTaskSetEE19WriterTryWriteFrontERKS1_.exit.thread: ; preds = %18
   %33 = add nsw i32 %.01555, 1
   %34 = add nsw i32 %.056, 1
-  %35 = getelementptr inbounds nuw [256 x %"struct.enki::SubTaskSet"], ptr %25, i64 0, i64 %30
+  %35 = getelementptr inbounds nuw %"struct.enki::SubTaskSet", ptr %25, i64 %30
   store ptr %2, ptr %35, align 8, !tbaa !112
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %.sroa.2.12.insert.insert.i, ptr %.sroa.6.0..sroa_idx, align 8
@@ -2319,7 +2319,7 @@ define dso_local noundef zeroext i1 @_ZN4enki13TaskScheduler9HaveTasksEj(ptr nou
   br i1 %.not18.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv23
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv23
   %8 = load ptr, ptr %7, align 8, !tbaa !73
   %wide.trip.count = zext i32 %6 to i64
   br label %10
@@ -2340,7 +2340,7 @@ define dso_local noundef zeroext i1 @_ZN4enki13TaskScheduler9HaveTasksEj(ptr nou
   br i1 %16, label %9, label %.thread
 
 ._crit_edge:                                      ; preds = %9, %.preheader
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv23
+  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv23
   %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw %"class.enki::PinnedTaskList", ptr %18, i64 %5
   %20 = load atomic i64, ptr %19 seq_cst, align 8
@@ -2389,7 +2389,7 @@ define dso_local noundef zeroext i1 @_ZN4enki13TaskScheduler35WakeSuspendedThrea
 
 .preheader:                                       ; preds = %7, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %7 ]
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw %"class.enki::PinnedTaskList", ptr %18, i64 %12
   %20 = load atomic i64, ptr %19 seq_cst, align 8
@@ -2505,7 +2505,7 @@ define dso_local void @_ZN4enki13TaskScheduler21WaitForTaskCompletionEPKNS_12ICo
   br i1 %.not18.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %23 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv23.i
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv23.i
   %24 = load ptr, ptr %23, align 8, !tbaa !73
   %wide.trip.count.i = zext i32 %22 to i64
   br label %26
@@ -2526,7 +2526,7 @@ define dso_local void @_ZN4enki13TaskScheduler21WaitForTaskCompletionEPKNS_12ICo
   br i1 %32, label %25, label %_ZN4enki13TaskScheduler9HaveTasksEj.exit.thread
 
 ._crit_edge.i:                                    ; preds = %25, %.preheader.i
-  %33 = getelementptr inbounds nuw [3 x ptr], ptr %20, i64 0, i64 %indvars.iv23.i
+  %33 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv23.i
   %34 = load ptr, ptr %33, align 8, !tbaa !44
   %35 = getelementptr inbounds nuw %"class.enki::PinnedTaskList", ptr %34, i64 %12
   %36 = load atomic i64, ptr %35 seq_cst, align 8
@@ -3039,7 +3039,7 @@ _ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit: ; preds = %.lr.ph, %61
   br i1 %.not18.not.i, label %._crit_edge.i, label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %.preheader.i
-  %73 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv23.i
+  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv23.i
   %74 = load ptr, ptr %73, align 8, !tbaa !73
   %wide.trip.count.i = zext i32 %72 to i64
   br label %76
@@ -3060,7 +3060,7 @@ _ZN4enki15SemaphoreSignalERNS_13semaphoreid_tEi.exit: ; preds = %.lr.ph, %61
   br i1 %82, label %75, label %.loopexit
 
 ._crit_edge.i:                                    ; preds = %75, %.preheader.i
-  %83 = getelementptr inbounds nuw [3 x ptr], ptr %19, i64 0, i64 %indvars.iv23.i
+  %83 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv23.i
   %84 = load ptr, ptr %83, align 8, !tbaa !44
   %85 = getelementptr inbounds nuw %"class.enki::PinnedTaskList", ptr %84, i64 %indvars.iv86
   %86 = load atomic i64, ptr %85 seq_cst, align 8
@@ -3195,7 +3195,7 @@ define dso_local void @_ZN4enki13TaskScheduler21WaitForNewPinnedTasksEv(ptr noun
 
 11:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw %"class.enki::PinnedTaskList", ptr %13, i64 %6
   %15 = load atomic i64, ptr %14 seq_cst, align 8

@@ -308,7 +308,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16PhaseMacroExpand21array_element_addressEP4NodeS1_9BasicType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = zext i8 %3 to i64
-  %6 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7, i1 true)
   %9 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -1755,7 +1755,7 @@ define hidden void @_ZN16PhaseMacroExpand31generate_partial_inlining_blockEPP4No
   %or.cond.i = icmp ult i32 %24, 9
   %25 = select i1 %or.cond.i, ptr %21, ptr null
   %26 = zext i8 %9 to i64
-  %27 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %28, i1 true)
   %30 = load ptr, ptr %6, align 8
@@ -2108,7 +2108,7 @@ _ZN4NodenwEm.exit92:                              ; preds = %222, %224
   br label %246
 
 246:                                              ; preds = %245, %230
-  %247 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %26
+  %247 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %26
   %248 = load ptr, ptr %247, align 8
   %249 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %248, i32 noundef %71, i1 noundef zeroext false) #6
   %250 = load ptr, ptr %2, align 8
@@ -2828,7 +2828,7 @@ define hidden noundef ptr @_ZN16PhaseMacroExpand19basictype2arraycopyE9BasicType
 
 26:                                               ; preds = %20
   %27 = zext i8 %1 to i64
-  %28 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = load i8, ptr @UseCompressedClassPointers, align 1
   %31 = trunc i8 %30 to i1
@@ -6233,7 +6233,7 @@ define hidden void @_ZN16PhaseMacroExpand20generate_clear_arrayEP4NodeP12MergeMe
   %25 = load i32, ptr %24, align 8
   %26 = tail call noundef ptr @_ZNK12MergeMemNode9memory_atEj(ptr noundef nonnull align 8 dereferenceable(52) %2, i32 noundef %25) #6
   %27 = zext i8 %5 to i64
-  %28 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %29, i1 true)
   %31 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -6824,7 +6824,7 @@ declare void @_ZN14InitializeNode12set_completeEP8PhaseGVN(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand24generate_block_arraycopyEPP4NodePP12MergeMemNodeS1_PK7TypePtr9BasicTypeP12AllocateNodeS1_S1_S1_S1_S1_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr readnone captures(none) %3, ptr noundef %4, i8 noundef zeroext %5, ptr readnone captures(none) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #0 align 2 {
   %14 = zext i8 %5 to i64
-  %15 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %16, i1 true)
   %18 = icmp samesign ugt i32 %17, 2
@@ -8508,7 +8508,7 @@ _ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit140: ; preds = %84, %8
 
 205:                                              ; preds = %196
   %206 = zext i8 %128 to i64
-  %207 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw ptr, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 %206
   %208 = load ptr, ptr %207, align 8
   br label %209
 

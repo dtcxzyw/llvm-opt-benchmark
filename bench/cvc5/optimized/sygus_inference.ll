@@ -2005,7 +2005,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit385.thread: ; preds = %505
   %524 = icmp eq i32 %523, 2
   %525 = getelementptr inbounds nuw i8, ptr %516, i64 24
   %526 = zext i1 %524 to i64
-  %527 = getelementptr inbounds nuw [0 x ptr], ptr %525, i64 0, i64 %526
+  %527 = getelementptr inbounds nuw ptr, ptr %525, i64 %526
   %528 = load ptr, ptr %527, align 8, !tbaa !294, !noalias !297
   store ptr %528, ptr %48, align 8, !tbaa !29, !alias.scope !297
   %529 = load i64, ptr %528, align 8, !noalias !297
@@ -2108,7 +2108,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit395: ; preds = %._crit_edge1978, %
   %578 = icmp eq i32 %577, 2
   %spec.select.i.i396 = select i1 %578, i64 2, i64 1
   %579 = getelementptr inbounds nuw i8, ptr %570, i64 24
-  %580 = getelementptr inbounds nuw [0 x ptr], ptr %579, i64 0, i64 %spec.select.i.i396
+  %580 = getelementptr inbounds nuw ptr, ptr %579, i64 %spec.select.i.i396
   %581 = load ptr, ptr %580, align 8, !tbaa !294, !noalias !300
   store ptr %581, ptr %52, align 8, !tbaa !29, !alias.scope !300
   %582 = load i64, ptr %581, align 8, !noalias !300
@@ -7483,7 +7483,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !294
   store ptr %15, ptr %0, align 8, !tbaa !29
   %16 = load i64, ptr %15, align 8

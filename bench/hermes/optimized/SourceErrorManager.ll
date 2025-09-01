@@ -1688,7 +1688,7 @@ entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %messageCount_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom = zext i32 %dk to i64
-  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr %messageCount_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %messageCount_, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %arrayidx, align 4
@@ -2062,7 +2062,7 @@ if.end34:                                         ; preds = %if.end28
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %messageCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom.i = zext i32 %dk.addr.0 to i64
-  %arrayidx.i = getelementptr inbounds nuw [4 x i32], ptr %messageCount_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %messageCount_.i, i64 %idxprom.i
   %21 = load i32, ptr %arrayidx.i, align 4
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %arrayidx.i, align 4

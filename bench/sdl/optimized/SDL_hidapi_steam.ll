@@ -1287,7 +1287,7 @@ ReadResponse.exit.i:                              ; preds = %GetFeatureReport.ex
 91:                                               ; preds = %97, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %97 ]
   %.058119.i = phi i32 [ 9000, %.lr.ph.i ], [ %.1.i, %97 ]
-  %92 = getelementptr inbounds nuw [12 x %struct.ControllerAttribute], ptr %90, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw %struct.ControllerAttribute, ptr %90, i64 %indvars.iv.i
   %93 = load i8, ptr %92, align 1
   %cond.i = icmp eq i8 %93, 11
   br i1 %cond.i, label %94, label %97

@@ -2478,7 +2478,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
 
 122:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %175
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %indvars.iv.next, %175 ]
-  %123 = getelementptr inbounds nuw [65536 x [2 x i32]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [2 x i32], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 %indvars.iv
   %124 = load i32, ptr %123, align 8, !tbaa !28
   %125 = uitofp i32 %124 to double
   %126 = fmul double %125, 0x3DF0000000000000

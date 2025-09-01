@@ -112,7 +112,7 @@ define dso_local void @Curl_freeset(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  %6 = getelementptr inbounds nuw [63 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   tail call void %5(ptr noundef %7) #12
   store ptr null, ptr %6, align 8, !tbaa !8
@@ -123,7 +123,7 @@ define dso_local void @Curl_freeset(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.preheader, %8
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %8 ]
   %9 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  %10 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv29
+  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv29
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   tail call void %9(ptr noundef %11) #12
   store ptr null, ptr %10, align 8, !tbaa !12
@@ -549,7 +549,7 @@ data_priority_cleanup.exit:                       ; preds = %._crit_edge.i, %pri
 186:                                              ; preds = %186, %139
   %indvars.iv.i = phi i64 [ 0, %139 ], [ %indvars.iv.next.i, %186 ]
   %187 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  %188 = getelementptr inbounds nuw [63 x ptr], ptr %184, i64 0, i64 %indvars.iv.i
+  %188 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv.i
   %189 = load ptr, ptr %188, align 8, !tbaa !8
   tail call void %187(ptr noundef %189) #12
   store ptr null, ptr %188, align 8, !tbaa !8
@@ -560,7 +560,7 @@ data_priority_cleanup.exit:                       ; preds = %._crit_edge.i, %pri
 190:                                              ; preds = %190, %.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next30.i, %190 ]
   %191 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  %192 = getelementptr inbounds nuw [8 x ptr], ptr %185, i64 0, i64 %indvars.iv29.i
+  %192 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv29.i
   %193 = load ptr, ptr %192, align 8, !tbaa !12
   tail call void %191(ptr noundef %193) #12
   store ptr null, ptr %192, align 8, !tbaa !12
@@ -1344,7 +1344,7 @@ define dso_local ptr @Curl_get_scheme_handler(ptr noundef %0) local_unnamed_addr
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %11 = urem i32 %8, 67
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [67 x ptr], ptr @Curl_getn_scheme_handler.protocols, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr @Curl_getn_scheme_handler.protocols, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !221
   %.not26.i = icmp eq ptr %14, null
   br i1 %.not26.i, label %.thread.i, label %15
@@ -1393,7 +1393,7 @@ define dso_local ptr @Curl_getn_scheme_handler(ptr noundef %0, i64 noundef %1) l
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = urem i32 %8, 67
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [67 x ptr], ptr @Curl_getn_scheme_handler.protocols, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr @Curl_getn_scheme_handler.protocols, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !221
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %.thread, label %15
@@ -1434,7 +1434,7 @@ define dso_local range(i32 1, 68) i32 @Curl_uc_to_curlcode(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Curl_connect.5, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Curl_connect.5, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1987,7 +1987,7 @@ define dso_local i32 @Curl_connect(ptr noundef %0, ptr noundef captures(none) in
 
 switch.lookup:                                    ; preds = %198
   %213 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Curl_connect.5, i64 0, i64 %213
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Curl_connect.5, i64 %213
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Curl_uc_to_curlcode.exit.thread.i.i
 
@@ -2168,9 +2168,9 @@ Curl_uc_to_curlcode.exit.i.i:                     ; preds = %210, %206
   %283 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %284 = load ptr, ptr %7, align 8, !tbaa !8
   call void %283(ptr noundef %284) #12
-  %switch.tableidx96 = add i32 %281, -5
-  %285 = icmp ult i32 %switch.tableidx96, 4
-  br i1 %285, label %switch.lookup95, label %Curl_uc_to_curlcode.exit257.thread.i.i
+  %switch.tableidx95 = add i32 %281, -5
+  %285 = icmp ult i32 %switch.tableidx95, 4
+  br i1 %285, label %switch.lookup96, label %Curl_uc_to_curlcode.exit257.thread.i.i
 
 286:                                              ; preds = %280
   %287 = load ptr, ptr %7, align 8, !tbaa !8
@@ -2199,14 +2199,14 @@ Curl_uc_to_curlcode.exit.i.i:                     ; preds = %210, %206
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef %287) #12
   br label %Curl_uc_to_curlcode.exit257.i.i
 
-switch.lookup95:                                  ; preds = %282
-  %300 = zext nneg i32 %switch.tableidx96 to i64
-  %switch.gep97 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Curl_connect.5, i64 0, i64 %300
+switch.lookup96:                                  ; preds = %282
+  %300 = zext nneg i32 %switch.tableidx95 to i64
+  %switch.gep97 = getelementptr inbounds nuw i32, ptr @switch.table.Curl_connect.5, i64 %300
   %switch.load98 = load i32, ptr %switch.gep97, align 4
   br label %Curl_uc_to_curlcode.exit257.thread.i.i
 
-Curl_uc_to_curlcode.exit257.thread.i.i:           ; preds = %switch.lookup95, %282, %279, %278, %277, %275, %267, %266, %265, %261
-  %.6.ph.i.i = phi i32 [ 3, %282 ], [ 67, %279 ], [ 27, %278 ], [ 1, %277 ], [ 67, %267 ], [ 27, %266 ], [ 1, %265 ], [ 3, %261 ], [ 3, %275 ], [ %switch.load98, %switch.lookup95 ]
+Curl_uc_to_curlcode.exit257.thread.i.i:           ; preds = %switch.lookup96, %282, %279, %278, %277, %275, %267, %266, %265, %261
+  %.6.ph.i.i = phi i32 [ 3, %282 ], [ 67, %279 ], [ 27, %278 ], [ 1, %277 ], [ 67, %267 ], [ 27, %266 ], [ 1, %265 ], [ 3, %261 ], [ 3, %275 ], [ %switch.load98, %switch.lookup96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %create_conn.exit.thread
 
@@ -5182,7 +5182,7 @@ define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %0, ptr nou
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %13 = urem i32 %10, 67
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [67 x ptr], ptr @Curl_getn_scheme_handler.protocols, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr @Curl_getn_scheme_handler.protocols, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !221
   %.not26.i.i = icmp eq ptr %16, null
   br i1 %.not26.i.i, label %Curl_get_scheme_handler.exit.thread, label %17

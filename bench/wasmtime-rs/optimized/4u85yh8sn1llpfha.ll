@@ -7296,7 +7296,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 6:                                                ; preds = %2
   %7 = and i8 %.sroa.01.0.vec.extract, 15
   %8 = zext nneg i8 %7 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %10 = load i8, ptr %9, align 1, !noundef !4
   br label %11
 
@@ -7309,7 +7309,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 13:                                               ; preds = %11
   %14 = and i8 %.sroa.01.1.vec.extract, 15
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %15
   %17 = load i8, ptr %16, align 1, !noundef !4
   br label %18
 
@@ -7322,7 +7322,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 20:                                               ; preds = %18
   %21 = and i8 %.sroa.01.2.vec.extract, 15
   %22 = zext nneg i8 %21 to i64
-  %23 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %22
   %24 = load i8, ptr %23, align 1, !noundef !4
   br label %25
 
@@ -7335,7 +7335,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 27:                                               ; preds = %25
   %28 = and i8 %.sroa.01.3.vec.extract, 15
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   %31 = load i8, ptr %30, align 1, !noundef !4
   br label %32
 
@@ -7348,7 +7348,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 34:                                               ; preds = %32
   %35 = and i8 %.sroa.01.4.vec.extract, 15
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %38 = load i8, ptr %37, align 1, !noundef !4
   br label %39
 
@@ -7361,7 +7361,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 41:                                               ; preds = %39
   %42 = and i8 %.sroa.01.5.vec.extract, 15
   %43 = zext nneg i8 %42 to i64
-  %44 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   %45 = load i8, ptr %44, align 1, !noundef !4
   br label %46
 
@@ -7374,7 +7374,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 48:                                               ; preds = %46
   %49 = and i8 %.sroa.01.6.vec.extract, 15
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 %50
   %52 = load i8, ptr %51, align 1, !noundef !4
   br label %53
 
@@ -7387,7 +7387,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 55:                                               ; preds = %53
   %56 = and i8 %.sroa.01.7.vec.extract, 15
   %57 = zext nneg i8 %56 to i64
-  %58 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 %57
   %59 = load i8, ptr %58, align 1, !noundef !4
   br label %60
 
@@ -7400,7 +7400,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 62:                                               ; preds = %60
   %63 = and i8 %.sroa.01.8.vec.extract, 15
   %64 = zext nneg i8 %63 to i64
-  %65 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %64
   %66 = load i8, ptr %65, align 1, !noundef !4
   br label %67
 
@@ -7413,7 +7413,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 69:                                               ; preds = %67
   %70 = and i8 %.sroa.01.9.vec.extract, 15
   %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 %71
   %73 = load i8, ptr %72, align 1, !noundef !4
   br label %74
 
@@ -7426,7 +7426,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 76:                                               ; preds = %74
   %77 = and i8 %.sroa.01.10.vec.extract, 15
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 %78
   %80 = load i8, ptr %79, align 1, !noundef !4
   br label %81
 
@@ -7439,7 +7439,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 83:                                               ; preds = %81
   %84 = and i8 %.sroa.01.11.vec.extract, 15
   %85 = zext nneg i8 %84 to i64
-  %86 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 %85
   %87 = load i8, ptr %86, align 1, !noundef !4
   br label %88
 
@@ -7452,7 +7452,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 90:                                               ; preds = %88
   %91 = and i8 %.sroa.01.12.vec.extract, 15
   %92 = zext nneg i8 %91 to i64
-  %93 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 %92
   %94 = load i8, ptr %93, align 1, !noundef !4
   br label %95
 
@@ -7465,7 +7465,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 97:                                               ; preds = %95
   %98 = and i8 %.sroa.01.13.vec.extract, 15
   %99 = zext nneg i8 %98 to i64
-  %100 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 %99
   %101 = load i8, ptr %100, align 1, !noundef !4
   br label %102
 
@@ -7478,7 +7478,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 104:                                              ; preds = %102
   %105 = and i8 %.sroa.01.14.vec.extract, 15
   %106 = zext nneg i8 %105 to i64
-  %107 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 %106
   %108 = load i8, ptr %107, align 1, !noundef !4
   br label %109
 
@@ -7491,7 +7491,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 111:                                              ; preds = %109
   %112 = and i8 %.sroa.01.15.vec.extract, 15
   %113 = zext nneg i8 %112 to i64
-  %114 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 %113
   %115 = load i8, ptr %114, align 1, !noundef !4
   br label %116
 

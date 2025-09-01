@@ -248,9 +248,9 @@ CalculateControllerType.exit22.i:                 ; preds = %66, %62, %.thread.i
 73:                                               ; preds = %73, %CalculateControllerType.exit22.i
   %.023.i = phi i64 [ 0, %CalculateControllerType.exit22.i ], [ %78, %73 ]
   %74 = sub nuw nsw i64 5, %.023.i
-  %75 = getelementptr inbounds nuw [6 x i8], ptr %71, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 %74
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 0, i64 %.023.i
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 %.023.i
   store i8 %76, ptr %77, align 1
   %78 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %78, 6
@@ -970,10 +970,10 @@ thread-pre-split:                                 ; preds = %186, %190
 
 switch.lookup226:                                 ; preds = %306
   %308 = zext nneg i8 %304 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice, i64 0, i64 %308
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice, i64 %308
   %switch.load = load i16, ptr %switch.gep, align 2
   %309 = zext nneg i8 %304 to i64
-  %switch.gep227 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %309
+  %switch.gep227 = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 %309
   %switch.load228 = load i16, ptr %switch.gep227, align 2
   br label %.sink.split.i.i
 
@@ -1055,10 +1055,10 @@ RemapButton.exit.i.i:                             ; preds = %310
 
 switch.lookup229:                                 ; preds = %343
   %345 = zext nneg i8 %341 to i64
-  %switch.gep230 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %345
+  %switch.gep230 = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 %345
   %switch.load231 = load i16, ptr %switch.gep230, align 2
   %346 = zext nneg i8 %341 to i64
-  %switch.gep232 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %346
+  %switch.gep232 = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 %346
   %switch.load233 = load i16, ptr %switch.gep232, align 2
   br label %.sink.split.i119.i
 
@@ -1155,10 +1155,10 @@ RemapButton.exit.i122.i:                          ; preds = %354
 
 switch.lookup234:                                 ; preds = %388
   %390 = zext nneg i8 %386 to i64
-  %switch.gep235 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %390
+  %switch.gep235 = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 %390
   %switch.load236 = load i16, ptr %switch.gep235, align 2
   %391 = zext nneg i8 %386 to i64
-  %switch.gep237 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.9, i64 0, i64 %391
+  %switch.gep237 = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.9, i64 %391
   %switch.load238 = load i16, ptr %switch.gep237, align 2
   br label %.sink.split.i131.i
 
@@ -1243,10 +1243,10 @@ RemapButton.exit.i134.i:                          ; preds = %392
 
 switch.lookup239:                                 ; preds = %427
   %429 = zext nneg i8 %425 to i64
-  %switch.gep240 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %429
+  %switch.gep240 = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 %429
   %switch.load241 = load i16, ptr %switch.gep240, align 2
   %430 = zext nneg i8 %425 to i64
-  %switch.gep242 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %430
+  %switch.gep242 = getelementptr inbounds nuw i16, ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 %430
   %switch.load243 = load i16, ptr %switch.gep242, align 2
   br label %.sink.split.i140.i
 
@@ -4215,7 +4215,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
 .preheader119.i:                                  ; preds = %270, %130
   %243 = phi i1 [ true, %130 ], [ false, %270 ]
   %.099124.i = phi i64 [ 0, %130 ], [ 1, %270 ]
-  %244 = getelementptr inbounds nuw [2 x %struct.StickCalibrationData], ptr %139, i64 0, i64 %.099124.i
+  %244 = getelementptr inbounds nuw %struct.StickCalibrationData, ptr %139, i64 %.099124.i
   br label %246
 
 .preheader118.i:                                  ; preds = %270
@@ -4225,7 +4225,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
 246:                                              ; preds = %269, %.preheader119.i
   %247 = phi i1 [ true, %.preheader119.i ], [ false, %269 ]
   %.097123.i = phi i64 [ 0, %.preheader119.i ], [ 1, %269 ]
-  %248 = getelementptr inbounds nuw [2 x %struct.anon.0], ptr %244, i64 0, i64 %.097123.i
+  %248 = getelementptr inbounds nuw %struct.anon.0, ptr %244, i64 %.097123.i
   %249 = load i16, ptr %248, align 2
   %250 = icmp eq i16 %249, 4095
   br i1 %250, label %251, label %252
@@ -4270,8 +4270,8 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
 .preheader117.i:                                  ; preds = %300, %.preheader118.i
   %271 = phi i1 [ true, %.preheader118.i ], [ false, %300 ]
   %.1100126.i = phi i64 [ 0, %.preheader118.i ], [ 1, %300 ]
-  %272 = getelementptr inbounds nuw [2 x %struct.StickCalibrationData], ptr %139, i64 0, i64 %.1100126.i
-  %273 = getelementptr inbounds nuw [2 x %struct.StickExtents], ptr %245, i64 0, i64 %.1100126.i
+  %272 = getelementptr inbounds nuw %struct.StickCalibrationData, ptr %139, i64 %.1100126.i
+  %273 = getelementptr inbounds nuw %struct.StickExtents, ptr %245, i64 %.1100126.i
   br label %284
 
 .preheader116.i:                                  ; preds = %300
@@ -4304,14 +4304,14 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
 284:                                              ; preds = %284, %.preheader117.i
   %285 = phi i1 [ true, %.preheader117.i ], [ false, %284 ]
   %.198125.i = phi i64 [ 0, %.preheader117.i ], [ 1, %284 ]
-  %286 = getelementptr inbounds nuw [2 x %struct.anon.0], ptr %272, i64 0, i64 %.198125.i
+  %286 = getelementptr inbounds nuw %struct.anon.0, ptr %272, i64 %.198125.i
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 2
   %288 = load i16, ptr %287, align 2
   %289 = sitofp i16 %288 to float
   %290 = fmul float %289, 0x3FE6666660000000
   %291 = fptosi float %290 to i16
   %292 = sub i16 0, %291
-  %293 = getelementptr inbounds nuw [2 x %struct.anon.1], ptr %273, i64 0, i64 %.198125.i
+  %293 = getelementptr inbounds nuw %struct.anon.1, ptr %273, i64 %.198125.i
   store i16 %292, ptr %293, align 4
   %294 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %295 = load i16, ptr %294, align 2
@@ -6162,13 +6162,13 @@ define internal fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(pt
 
 6:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %7 = getelementptr inbounds nuw [101 x [2 x i16]], ptr @__const.EncodeRumbleHighAmplitude.hfa, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleHighAmplitude.hfa, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 4
   %.not.i = icmp ugt i16 %2, %8
   br i1 %.not.i, label %5, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw [101 x [2 x i16]], ptr @__const.EncodeRumbleHighAmplitude.hfa, i64 0, i64 %indvars.iv.i, i64 1
+  %10 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleHighAmplitude.hfa, i64 %indvars.iv.i, i64 1
   %11 = load i16, ptr %10, align 2
   %12 = trunc i16 %11 to i8
   br label %EncodeRumbleHighAmplitude.exit
@@ -6184,13 +6184,13 @@ EncodeRumbleHighAmplitude.exit:                   ; preds = %5, %9
 
 14:                                               ; preds = %13, %EncodeRumbleHighAmplitude.exit
   %indvars.iv.i18 = phi i64 [ 0, %EncodeRumbleHighAmplitude.exit ], [ %indvars.iv.next.i21, %13 ]
-  %15 = getelementptr inbounds nuw [101 x [2 x i16]], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 0, i64 %indvars.iv.i18
+  %15 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 %indvars.iv.i18
   %16 = load i16, ptr %15, align 4
   %.not.i19 = icmp ugt i16 %1, %16
   br i1 %.not.i19, label %13, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw [101 x [2 x i16]], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 0, i64 %indvars.iv.i18, i64 1
+  %18 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 %indvars.iv.i18, i64 1
   %19 = load i16, ptr %18, align 2
   br label %EncodeRumbleLowAmplitude.exit
 

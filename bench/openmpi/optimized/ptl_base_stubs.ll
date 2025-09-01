@@ -152,7 +152,7 @@ define range(i32 -32, 1) i32 @pmix_ptl_base_set_notification_cbfunc(ptr noundef 
 
 22:                                               ; preds = %.loopexit
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %23, i32 2
+  %24 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %23, i32 2
   %25 = load i32, ptr %24, align 4, !tbaa !47
   %26 = icmp sgt i32 %25, 4
   br i1 %26, label %27, label %28
@@ -192,7 +192,7 @@ define void @pmix_ptl_base_post_recv(i32 noundef %0, i16 noundef signext %1, ptr
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !47
   %10 = icmp sgt i32 %9, 4
   br i1 %10, label %11, label %14

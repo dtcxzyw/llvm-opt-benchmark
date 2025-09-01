@@ -2145,8 +2145,7 @@ for.body.preheader:                               ; preds = %if.then.i, %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %cmp = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
   %i.019.sroa.phi = phi ptr [ %i.019.sroa.gep, %for.inc ], [ %vars, %for.body.preheader ]
-  %i.019 = phi i64 [ 3, %for.inc ], [ 1, %for.body.preheader ]
-  %arrayidx12 = getelementptr inbounds nuw [5 x %"class.std::basic_string_view"], ptr %vars, i64 0, i64 %i.019
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %i.019.sroa.phi, i64 16
   %call.i.i.i.i.i.i10 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE22find_or_prepare_insertIS7_EESB_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %map, ptr noundef nonnull align 8 dereferenceable(16) %i.019.sroa.phi)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
@@ -2514,8 +2513,7 @@ for.body.preheader:                               ; preds = %if.then.i, %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %cmp = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
   %i.021.sroa.phi = phi ptr [ %i.021.sroa.gep, %for.inc ], [ %vars, %for.body.preheader ]
-  %i.021 = phi i64 [ 3, %for.inc ], [ 1, %for.body.preheader ]
-  %arrayidx14 = getelementptr inbounds nuw [5 x %"class.std::basic_string_view"], ptr %vars, i64 0, i64 %i.021
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %i.021.sroa.phi, i64 16
   %call.i.i.i.i.i.i12 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE22find_or_prepare_insertIS7_EESB_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %map, ptr noundef nonnull align 8 dereferenceable(16) %i.021.sroa.phi)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
@@ -2729,8 +2727,7 @@ for.body.preheader:                               ; preds = %if.then.i, %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %cmp = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
   %i.017.sroa.phi = phi ptr [ %i.017.sroa.gep, %for.inc ], [ %vars, %for.body.preheader ]
-  %i.017 = phi i64 [ 3, %for.inc ], [ 1, %for.body.preheader ]
-  %arrayidx13 = getelementptr inbounds nuw [5 x %"class.std::basic_string_view"], ptr %vars, i64 0, i64 %i.017
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %i.017.sroa.phi, i64 16
   %call.i.i.i.i.i.i8 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE22find_or_prepare_insertIS7_EESB_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %map, ptr noundef nonnull align 8 dereferenceable(16) %i.017.sroa.phi)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
@@ -3710,7 +3707,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %cmp.i.i.i = phi i1 [ true, %if.end ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %if.end ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJSt17basic_string_viewIcSt11char_traitsIcEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJSt17basic_string_viewIcSt11char_traitsIcEES2_EEmv.__found, i64 %__i.06.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -4629,7 +4626,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %cmp.i.i.i = phi i1 [ true, %if.end ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %if.end ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJSt17basic_string_viewIcSt11char_traitsIcEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJSt17basic_string_viewIcSt11char_traitsIcEES2_EEmv.__found, i64 %__i.06.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i

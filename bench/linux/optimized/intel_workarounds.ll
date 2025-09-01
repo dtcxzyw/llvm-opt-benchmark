@@ -1289,7 +1289,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 128:                                              ; preds = %141, %122
   %129 = phi i64 [ 0, %122 ], [ %142, %141 ]
-  %130 = getelementptr [27 x ptr], ptr %123, i64 0, i64 %129
+  %130 = getelementptr ptr, ptr %123, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %141, label %133
@@ -1751,7 +1751,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 353:                                              ; preds = %371, %347
   %354 = phi i64 [ 0, %347 ], [ %372, %371 ]
-  %355 = getelementptr [27 x ptr], ptr %348, i64 0, i64 %354
+  %355 = getelementptr ptr, ptr %348, i64 %354
   %356 = load ptr, ptr %355, align 8
   %357 = icmp eq ptr %356, null
   br i1 %357, label %371, label %358
@@ -2229,7 +2229,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 572:                                              ; preds = %590, %566
   %573 = phi i64 [ 0, %566 ], [ %591, %590 ]
-  %574 = getelementptr [27 x ptr], ptr %567, i64 0, i64 %573
+  %574 = getelementptr ptr, ptr %567, i64 %573
   %575 = load ptr, ptr %574, align 8
   %576 = icmp eq ptr %575, null
   br i1 %576, label %590, label %577
@@ -7348,7 +7348,7 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr noundef readonly captu
 
 8:                                                ; preds = %20, %2
   %9 = phi i64 [ 0, %2 ], [ %21, %20 ]
-  %10 = getelementptr [3 x i8], ptr %7, i64 0, i64 %9
+  %10 = getelementptr i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %11), !range !207
   %13 = icmp eq i8 %12, 1
@@ -7359,7 +7359,7 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr noundef readonly captu
   %16 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %15, i32 -1) #12, !srcloc !208
   %17 = trunc i32 %16 to i8
   %18 = sub i8 3, %17
-  %19 = getelementptr [3 x i8], ptr %4, i64 0, i64 %9
+  %19 = getelementptr i8, ptr %4, i64 %9
   store i8 %18, ptr %19, align 1
   br label %20
 
@@ -8204,7 +8204,7 @@ icl_wa_init_mcr.exit:                             ; preds = %21, %37
 
 43:                                               ; preds = %61, %icl_wa_init_mcr.exit
   %44 = phi i64 [ 0, %icl_wa_init_mcr.exit ], [ %62, %61 ]
-  %45 = getelementptr [27 x ptr], ptr %38, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %38, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %61, label %48

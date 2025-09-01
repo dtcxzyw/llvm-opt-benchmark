@@ -5085,7 +5085,7 @@ switch.lookup:                                    ; preds = %_ZNK5clang4Type13is
   %77 = call i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 28)
   %78 = load ptr, ptr %75, align 8, !tbaa !26
   %79 = zext nneg i32 %77 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvm9SMTSolver12getFloatSortEj, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm9SMTSolver12getFloatSortEj, i64 %79
   %switch.load = load i64, ptr %switch.gep, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 %switch.load
   %81 = load ptr, ptr %80, align 8
@@ -6092,7 +6092,7 @@ switch.lookup:
   %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 28)
   %4 = load ptr, ptr %0, align 8, !tbaa !26
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvm9SMTSolver12getFloatSortEj, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm9SMTSolver12getFloatSortEj, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
   %7 = load ptr, ptr %6, align 8
@@ -8680,7 +8680,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv10getSymExprERSt10
 
 21:                                               ; preds = %15, %16
   %22 = tail call noundef ptr @_ZN5clang4ento7SMTConv8fromDataERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_10SymbolDataE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2)
-  br label %127
+  br label %128
 
 23:                                               ; preds = %5
   %24 = icmp ne i32 %12, 4
@@ -8733,12 +8733,12 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv10getSymExprERSt10
   %51 = call noundef ptr @_ZN5clang4ento7SMTConv8fromCastERSt10shared_ptrIN4llvm9SMTSolverEERKPKNS3_7SMTExprENS_8QualTypeEmSC_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %40, i64 noundef %45, i64 %.sroa.013.0.copyload, i64 noundef %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %127
+  br label %128
 
 52:                                               ; preds = %23
   %53 = icmp ne i32 %12, 0
   %.not83.not = or i1 %.not.not107, %53
-  br i1 %.not83.not, label %117, label %54
+  br i1 %.not83.not, label %118, label %54
 
 54:                                               ; preds = %52
   %.not84 = icmp eq ptr %3, null
@@ -8778,94 +8778,94 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv10getSymExprERSt10
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %..i
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef ptr %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %9) #21
-  br label %82
+  br label %83
 
 switch.lookup:                                    ; preds = %60
   %76 = load ptr, ptr %0, align 8, !tbaa !28
   %77 = load ptr, ptr %76, align 8, !tbaa !26
-  %switch.tableidx = add nsw i32 %69, -7
-  %78 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang4ento7SMTConv10getSymExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_7SymExprEPNS_8QualTypeEPb, i64 0, i64 %78
+  %78 = sext i32 %69 to i64
+  %79 = getelementptr i64, ptr @switch.table._ZN5clang4ento7SMTConv10getSymExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_7SymExprEPNS_8QualTypeEPb, i64 %78
+  %switch.gep = getelementptr i8, ptr %79, i64 -56
   %switch.load = load i64, ptr %switch.gep, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %switch.load
-  %80 = load ptr, ptr %79, align 8
-  %81 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %9) #21
-  br label %82
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %switch.load
+  %81 = load ptr, ptr %80, align 8
+  %82 = call noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %9) #21
+  br label %83
 
-82:                                               ; preds = %switch.lookup, %70
-  %83 = phi ptr [ %75, %70 ], [ %81, %switch.lookup ]
-  store ptr %83, ptr %10, align 8, !tbaa !106
+83:                                               ; preds = %switch.lookup, %70
+  %84 = phi ptr [ %75, %70 ], [ %82, %switch.lookup ]
+  store ptr %84, ptr %10, align 8, !tbaa !106
   %.sroa.06.0.copyload = load i64, ptr %8, align 8, !tbaa !44
-  %84 = and i64 %.sroa.06.0.copyload, -16
-  %85 = inttoptr i64 %84 to ptr
-  %86 = load ptr, ptr %85, align 16, !tbaa !96
-  %87 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %86) #21
-  %88 = extractvalue { i64, i64 } %87, 0
-  %89 = load ptr, ptr %2, align 8, !tbaa !26
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  %91 = load ptr, ptr %90, align 8
-  %92 = call i64 %91(ptr noundef nonnull align 8 dereferenceable(28) %2) #21
-  %93 = and i64 %92, -16
-  %94 = inttoptr i64 %93 to ptr
-  %95 = load ptr, ptr %94, align 16, !tbaa !96
-  %96 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %95) #21
-  %97 = extractvalue { i64, i64 } %96, 0
-  %.not85 = icmp eq i64 %88, %97
-  br i1 %.not85, label %116, label %98
+  %85 = and i64 %.sroa.06.0.copyload, -16
+  %86 = inttoptr i64 %85 to ptr
+  %87 = load ptr, ptr %86, align 16, !tbaa !96
+  %88 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %87) #21
+  %89 = extractvalue { i64, i64 } %88, 0
+  %90 = load ptr, ptr %2, align 8, !tbaa !26
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %92 = load ptr, ptr %91, align 8
+  %93 = call i64 %92(ptr noundef nonnull align 8 dereferenceable(28) %2) #21
+  %94 = and i64 %93, -16
+  %95 = inttoptr i64 %94 to ptr
+  %96 = load ptr, ptr %95, align 16, !tbaa !96
+  %97 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %96) #21
+  %98 = extractvalue { i64, i64 } %97, 0
+  %.not85 = icmp eq i64 %89, %98
+  br i1 %.not85, label %117, label %99
 
-98:                                               ; preds = %82
+99:                                               ; preds = %83
   %.not86 = icmp eq ptr %4, null
-  br i1 %.not86, label %100, label %99
+  br i1 %.not86, label %101, label %100
 
-99:                                               ; preds = %98
+100:                                              ; preds = %99
   store i8 0, ptr %4, align 1, !tbaa !542
-  br label %100
+  br label %101
 
-100:                                              ; preds = %99, %98
+101:                                              ; preds = %100, %99
   %.sroa.04.0.copyload = load i64, ptr %8, align 8, !tbaa !44
-  %101 = load ptr, ptr %2, align 8, !tbaa !26
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %103 = load ptr, ptr %102, align 8
-  %104 = call i64 %103(ptr noundef nonnull align 8 dereferenceable(28) %2) #21
-  %105 = and i64 %104, -16
-  %106 = inttoptr i64 %105 to ptr
-  %107 = load ptr, ptr %106, align 16, !tbaa !96
-  %108 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %107) #21
-  %109 = extractvalue { i64, i64 } %108, 0
-  %110 = and i64 %.sroa.04.0.copyload, -16
-  %111 = inttoptr i64 %110 to ptr
-  %112 = load ptr, ptr %111, align 16, !tbaa !96
-  %113 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %112) #21
-  %114 = extractvalue { i64, i64 } %113, 0
-  %115 = call noundef ptr @_ZN5clang4ento7SMTConv8fromCastERSt10shared_ptrIN4llvm9SMTSolverEERKPKNS3_7SMTExprENS_8QualTypeEmSC_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 %104, i64 noundef %109, i64 %.sroa.04.0.copyload, i64 noundef %114)
-  br label %116
+  %102 = load ptr, ptr %2, align 8, !tbaa !26
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %104 = load ptr, ptr %103, align 8
+  %105 = call i64 %104(ptr noundef nonnull align 8 dereferenceable(28) %2) #21
+  %106 = and i64 %105, -16
+  %107 = inttoptr i64 %106 to ptr
+  %108 = load ptr, ptr %107, align 16, !tbaa !96
+  %109 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %108) #21
+  %110 = extractvalue { i64, i64 } %109, 0
+  %111 = and i64 %.sroa.04.0.copyload, -16
+  %112 = inttoptr i64 %111 to ptr
+  %113 = load ptr, ptr %112, align 16, !tbaa !96
+  %114 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %113) #21
+  %115 = extractvalue { i64, i64 } %114, 0
+  %116 = call noundef ptr @_ZN5clang4ento7SMTConv8fromCastERSt10shared_ptrIN4llvm9SMTSolverEERKPKNS3_7SMTExprENS_8QualTypeEmSC_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 %105, i64 noundef %110, i64 %.sroa.04.0.copyload, i64 noundef %115)
+  br label %117
 
-116:                                              ; preds = %82, %100
-  %.3 = phi ptr [ %115, %100 ], [ %83, %82 ]
+117:                                              ; preds = %83, %101
+  %.3 = phi ptr [ %116, %101 ], [ %84, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %127
+  br label %128
 
-117:                                              ; preds = %52
-  %118 = add i32 %12, -1
-  %119 = icmp ult i32 %118, 3
-  tail call void @llvm.assume(i1 %119)
-  %120 = tail call noundef ptr @_ZN5clang4ento7SMTConv13getSymBinExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_13BinarySymExprEPbPNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3)
+118:                                              ; preds = %52
+  %119 = add i32 %12, -1
+  %120 = icmp ult i32 %119, 3
+  tail call void @llvm.assume(i1 %120)
+  %121 = tail call noundef ptr @_ZN5clang4ento7SMTConv13getSymBinExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_13BinarySymExprEPbPNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3)
   %.not88 = icmp eq ptr %4, null
-  br i1 %.not88, label %127, label %121
+  br i1 %.not88, label %128, label %122
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %123 = load i32, ptr %122, align 4, !tbaa !123
-  %124 = add i32 %123, -9
-  %125 = icmp ult i32 %124, 7
-  %126 = zext i1 %125 to i8
-  store i8 %126, ptr %4, align 1, !tbaa !542
-  br label %127
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %124 = load i32, ptr %123, align 4, !tbaa !123
+  %125 = add i32 %124, -9
+  %126 = icmp ult i32 %125, 7
+  %127 = zext i1 %126 to i8
+  store i8 %127, ptr %4, align 1, !tbaa !542
+  br label %128
 
-127:                                              ; preds = %116, %36, %21, %121, %117
-  %.1 = phi ptr [ %.3, %116 ], [ %51, %36 ], [ %22, %21 ], [ %120, %121 ], [ %120, %117 ]
+128:                                              ; preds = %117, %36, %21, %122, %118
+  %.1 = phi ptr [ %.3, %117 ], [ %51, %36 ], [ %22, %21 ], [ %121, %122 ], [ %121, %118 ]
   ret ptr %.1
 }
 

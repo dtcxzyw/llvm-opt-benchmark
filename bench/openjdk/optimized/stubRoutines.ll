@@ -1460,7 +1460,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 _ZN14AccessInternal15BarrierResolverILm2383942EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2, %17 ]
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2.sink, i64 0, i64 %20
+  %switch.gep10 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.2.sink, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13
@@ -2466,7 +2466,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   %10 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %11 = lshr i64 %10, 12
   %12 = and i64 %11, 15
-  %13 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = zext nneg i32 %14 to i64
   %16 = shl i64 %9, %15
@@ -2499,7 +2499,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   %28 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %29 = lshr i64 %28, 12
   %30 = and i64 %29, 15
-  %31 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = zext nneg i32 %32 to i64
   %34 = shl i64 %27, %33
@@ -2538,7 +2538,7 @@ define linkonce_odr hidden void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEP
   %.not.i.i.i = icmp eq i64 %14, 0
   %15 = lshr i64 %3, 12
   %16 = and i64 %15, 15
-  %17 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 %3, %19
@@ -2599,7 +2599,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %50 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %49, %55
@@ -2637,7 +2637,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i.i13 = icmp eq i64 %73, 0
   %74 = lshr i64 %3, 12
   %75 = and i64 %74, 15
-  %76 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = zext nneg i32 %77 to i64
   %79 = lshr i64 %3, %78
@@ -2715,7 +2715,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -2729,7 +2729,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -2795,7 +2795,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -2860,7 +2860,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 _ZN14AccessInternal15BarrierResolverILm6578246EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3, %17 ]
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3.sink, i64 0, i64 %20
+  %switch.gep10 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.3.sink, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm6578246EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13
@@ -3147,7 +3147,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %16 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %17 = lshr i64 %16, 12
   %18 = and i64 %17, 15
-  %19 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = zext nneg i32 %20 to i64
   %22 = shl i64 %15, %21
@@ -3179,7 +3179,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %34 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %35 = lshr i64 %34, 12
   %36 = and i64 %35, 15
-  %37 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %33, %39
@@ -3228,7 +3228,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 _ZN14AccessInternal15BarrierResolverILm69492806EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4, %17 ]
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4.sink, i64 0, i64 %20
+  %switch.gep10 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.4.sink, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm69492806EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13
@@ -3522,7 +3522,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   %10 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %11 = lshr i64 %10, 12
   %12 = and i64 %11, 15
-  %13 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = zext nneg i32 %14 to i64
   %16 = shl i64 %9, %15
@@ -3555,7 +3555,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   %28 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %29 = lshr i64 %28, 12
   %30 = and i64 %29, 15
-  %31 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = zext nneg i32 %32 to i64
   %34 = shl i64 %27, %33
@@ -3602,7 +3602,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal15RuntimeDispa
 _ZN14AccessInternal15BarrierResolverILm73687110EPFbP12arrayOopDescmPP12HeapWordImplS2_mS5_mELNS_11BarrierTypeE8EE15resolve_barrierEv.exit: ; preds = %17, %14
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m, %14 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5, %17 ]
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5.sink, i64 0, i64 %20
+  %switch.gep10 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE14arraycopy_initEP12arrayOopDescmPS2_S6_mS7_m.5.sink, i64 %20
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   store ptr %switch.load11, ptr @_ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTypeE8EE15_arraycopy_funcE, align 8
   %21 = tail call noundef zeroext i1 %switch.load11(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #13
@@ -3889,7 +3889,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %16 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %17 = lshr i64 %16, 12
   %18 = and i64 %17, 15
-  %19 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = zext nneg i32 %20 to i64
   %22 = shl i64 %15, %21
@@ -3921,7 +3921,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %34 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %35 = lshr i64 %34, 12
   %36 = and i64 %35, 15
-  %37 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %33, %39

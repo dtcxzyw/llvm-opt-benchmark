@@ -178,7 +178,7 @@ define hidden void @png_read_sig(ptr noalias noundef %0, ptr noalias noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   store i32 17, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %7
   tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef %8) #12
   store i8 8, ptr %3, align 4
   %12 = tail call i32 @png_sig_cmp(ptr noundef nonnull %10, i64 noundef %7, i64 noundef %8) #12
@@ -1189,7 +1189,7 @@ png_crc_read.exit:                                ; preds = %32
 
 .lr.ph:                                           ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader ]
-  %43 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %44 = load i8, ptr %43, align 1
   %45 = add i8 %44, -1
   %or.cond52.not = icmp ult i8 %45, %.0
@@ -2389,7 +2389,7 @@ png_crc_read.exit:                                ; preds = %png_crc_read.exit.p
   %37 = load i8, ptr %31, align 1
   %38 = zext i8 %37 to i16
   %39 = or disjoint i16 %36, %38
-  %40 = getelementptr inbounds nuw [256 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %39, ptr %40, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3772,32 +3772,32 @@ define hidden void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 
   br i1 %.not296, label %96, label %91
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @png_combine_row.display_mask, i64 0, i64 %89
+  %92 = getelementptr inbounds nuw [3 x i32], ptr @png_combine_row.display_mask, i64 %89
   %93 = lshr i32 %15, 1
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [3 x i32], ptr %92, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %92, i64 %94
   br label %110
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw [3 x [6 x i32]], ptr @png_combine_row.row_mask, i64 0, i64 %89
+  %97 = getelementptr inbounds nuw [6 x i32], ptr @png_combine_row.row_mask, i64 %89
   %98 = zext nneg i8 %14 to i64
-  %99 = getelementptr inbounds nuw [6 x i32], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %97, i64 %98
   br label %110
 
 100:                                              ; preds = %83
   br i1 %.not296, label %106, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw [3 x [3 x i32]], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.display_mask, i64 36), i64 0, i64 %89
+  %102 = getelementptr inbounds nuw [3 x i32], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.display_mask, i64 36), i64 %89
   %103 = lshr i32 %15, 1
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw [3 x i32], ptr %102, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %102, i64 %104
   br label %110
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds nuw [3 x [6 x i32]], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.row_mask, i64 72), i64 0, i64 %89
+  %107 = getelementptr inbounds nuw [6 x i32], ptr getelementptr inbounds nuw (i8, ptr @png_combine_row.row_mask, i64 72), i64 %89
   %108 = zext nneg i8 %14 to i64
-  %109 = getelementptr inbounds nuw [6 x i32], ptr %107, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
   br label %110
 
 110:                                              ; preds = %101, %106, %91, %96
@@ -4175,7 +4175,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
 7:                                                ; preds = %4
   %8 = load i32, ptr %0, align 8
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [7 x i32], ptr @png_do_read_interlace.png_pass_inc, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr @png_do_read_interlace.png_pass_inc, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = mul i32 %11, %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 19
@@ -4524,7 +4524,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
 define hidden void @png_read_filter_row(ptr noalias noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add i32 %4, -1
   %or.cond = icmp ult i32 %6, 4
-  br i1 %or.cond, label %7, label %24
+  br i1 %or.cond, label %7, label %25
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
@@ -4550,13 +4550,14 @@ define hidden void @png_read_filter_row(ptr noalias noundef captures(none) %0, p
   br label %20
 
 20:                                               ; preds = %11, %7
-  %21 = zext nneg i32 %6 to i64
-  %22 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef %1, ptr noundef %2, ptr noundef %3) #12
-  br label %24
+  %21 = zext nneg i32 %4 to i64
+  %22 = getelementptr ptr, ptr %8, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 -8
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef %1, ptr noundef %2, ptr noundef %3) #12
+  br label %25
 
-24:                                               ; preds = %20, %5
+25:                                               ; preds = %20, %5
   ret void
 }
 
@@ -4931,11 +4932,11 @@ define hidden void @png_read_finish_row(ptr noalias noundef %0) local_unnamed_ad
 25:                                               ; preds = %.critedge
   %26 = load i32, ptr %18, align 8
   %27 = zext nneg i8 %23 to i64
-  %28 = getelementptr inbounds nuw [7 x i8], ptr @png_read_start_row.png_pass_inc, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @png_read_start_row.png_pass_inc, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = add i32 %26, %30
-  %32 = getelementptr inbounds nuw [7 x i8], ptr @png_read_start_row.png_pass_start, i64 0, i64 %27
+  %32 = getelementptr inbounds nuw i8, ptr @png_read_start_row.png_pass_start, i64 %27
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = xor i32 %34, -1
@@ -4949,11 +4950,11 @@ define hidden void @png_read_finish_row(ptr noalias noundef %0) local_unnamed_ad
 
 41:                                               ; preds = %25
   %42 = load i32, ptr %21, align 4
-  %43 = getelementptr inbounds nuw [7 x i8], ptr @png_read_finish_row.png_pass_yinc, i64 0, i64 %27
+  %43 = getelementptr inbounds nuw i8, ptr @png_read_finish_row.png_pass_yinc, i64 %27
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = add i32 %42, %45
-  %47 = getelementptr inbounds nuw [7 x i8], ptr @png_read_finish_row.png_pass_ystart, i64 0, i64 %27
+  %47 = getelementptr inbounds nuw i8, ptr @png_read_finish_row.png_pass_ystart, i64 %27
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = xor i32 %49, -1
@@ -5048,11 +5049,11 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 517
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [7 x i8], ptr @png_read_start_row.png_pass_inc, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @png_read_start_row.png_pass_inc, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add i32 %16, %22
-  %24 = getelementptr inbounds nuw [7 x i8], ptr @png_read_start_row.png_pass_start, i64 0, i64 %19
+  %24 = getelementptr inbounds nuw i8, ptr @png_read_start_row.png_pass_start, i64 %19
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = xor i32 %26, -1

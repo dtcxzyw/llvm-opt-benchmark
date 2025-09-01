@@ -1029,7 +1029,7 @@ _ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit..._crit_edge_crit_ed
   %indvars.iv.i.i.i.us = phi i64 [ 0, %.lr.ph.i.i.i.us ], [ %indvars.iv.next.i.i.i.us, %333 ]
   %335 = fpext float %334 to double
   %indvars.iv.next.i.i.i.us = add nuw nsw i64 %indvars.iv.i.i.i.us, 1
-  %336 = getelementptr inbounds nuw [64 x float], ptr %23, i64 0, i64 %indvars.iv.next.i.i.i.us
+  %336 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.next.i.i.i.us
   %337 = load float, ptr %336, align 4, !tbaa !55
   %338 = fpext float %337 to double
   %339 = fmul double %160, %338
@@ -1044,7 +1044,7 @@ _ZN2cv11xfeatures2dL16ti_get_histogramEPfdddPKNS_3MatE.exit.i.i.us: ; preds = %3
   %343 = phi i32 [ %301, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit.thread.i.us ], [ %331, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit..._crit_edge_crit_edge.i.i_crit_edge.i.us ], [ %331, %333 ]
   %344 = phi float [ undef, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit.thread.i.us ], [ %.pre24.i.i.pre.i.us, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit..._crit_edge_crit_edge.i.i_crit_edge.i.us ], [ %.pre.i.i.i.us, %333 ]
   %345 = sext i32 %343 to i64
-  %346 = getelementptr inbounds [64 x float], ptr %23, i64 0, i64 %345
+  %346 = getelementptr inbounds float, ptr %23, i64 %345
   %347 = load float, ptr %346, align 4, !tbaa !55
   %348 = fpext float %347 to double
   %349 = fpext float %344 to double
@@ -1794,7 +1794,7 @@ _ZN2cv11xfeatures2dL16ni_get_histogramEPfiiiPKNS_3MatE.exit.i: ; preds = %.lr.ph
   %714 = mul nuw nsw i64 %indvars.iv168.i.us, %705
   %.reass.i27.us = add nuw i64 %invariant.op.i25, %714
   %715 = sext i32 %indvars.iv.i26.us to i64
-  %716 = getelementptr inbounds nuw [64 x i32], ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 0, i64 %indvars.iv168.i.us
+  %716 = getelementptr inbounds nuw i32, ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 %indvars.iv168.i.us
   br label %717
 
 717:                                              ; preds = %_ZN2cv11xfeatures2dL16ni_get_histogramEPfiiiPKNS_3MatE.exit146.i.us, %.lr.ph.i31.us
@@ -2384,8 +2384,8 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE2atEm.exit95.i:    ; preds = %.noexc
   %indvars.iv240.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next241.i, %._crit_edge.us.i ]
   %210 = mul nuw nsw i64 %indvars.iv240.i, %209
   %211 = add nuw nsw i64 %210, 1
-  %212 = getelementptr inbounds nuw [64 x i32], ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 0, i64 %indvars.iv240.i
-  %213 = getelementptr inbounds nuw [64 x i32], ptr %26, i64 0, i64 %indvars.iv240.i
+  %212 = getelementptr inbounds nuw i32, ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 %indvars.iv240.i
+  %213 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv240.i
   br label %214
 
 214:                                              ; preds = %_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3MatE.exit.us.i, %.lr.ph.us.i
@@ -2705,7 +2705,7 @@ _ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit.us..._crit_edge_crit
   %indvars.iv.i.i.us.i = phi i64 [ 0, %.lr.ph.i.i.us.i ], [ %indvars.iv.next.i.i.us.i, %417 ]
   %419 = fpext float %418 to double
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
-  %420 = getelementptr inbounds nuw [64 x float], ptr %19, i64 0, i64 %indvars.iv.next.i.i.us.i
+  %420 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.next.i.i.us.i
   %421 = load float, ptr %420, align 4, !tbaa !55
   %422 = fpext float %421 to double
   %423 = fmul double %202, %422
@@ -2720,7 +2720,7 @@ _ZN2cv11xfeatures2dL16ti_get_histogramEPfdddPKNS_3MatE.exit.i.us.i: ; preds = %4
   %427 = phi i32 [ %385, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit.thread.us.i ], [ %415, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit.us..._crit_edge_crit_edge.i.i.us_crit_edge.i ], [ %415, %417 ]
   %428 = phi float [ undef, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit.thread.us.i ], [ %.pre24.i.i.us.pre.i, %_ZN2cv11xfeatures2dL16bi_get_histogramEPfddiPKNS_3MatE.exit.us..._crit_edge_crit_edge.i.i.us_crit_edge.i ], [ %.pre.i.i.us.i, %417 ]
   %429 = sext i32 %427 to i64
-  %430 = getelementptr inbounds [64 x float], ptr %19, i64 0, i64 %429
+  %430 = getelementptr inbounds float, ptr %19, i64 %429
   %431 = load float, ptr %430, align 4, !tbaa !55
   %432 = fpext float %431 to double
   %433 = fpext float %428 to double
@@ -3428,8 +3428,8 @@ _ZN2cv11xfeatures2dL16ni_get_histogramEPfiiiPKNS_3MatE.exit.i: ; preds = %.lr.ph
   %indvars.iv201.i = phi i64 [ 0, %.lr.ph.us.preheader.i37 ], [ %indvars.iv.next202.i, %._crit_edge.us.i43 ]
   %837 = mul nuw nsw i64 %indvars.iv201.i, %836
   %838 = add nuw nsw i64 %837, 1
-  %839 = getelementptr inbounds nuw [64 x i32], ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 0, i64 %indvars.iv201.i
-  %840 = getelementptr inbounds nuw [64 x i32], ptr %18, i64 0, i64 %indvars.iv201.i
+  %839 = getelementptr inbounds nuw i32, ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 %indvars.iv201.i
+  %840 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv201.i
   br label %841
 
 841:                                              ; preds = %_ZN2cv11xfeatures2dL16ni_get_histogramEPfiiiPKNS_3MatE.exit143.us.i, %.lr.ph.us.i39
@@ -3782,7 +3782,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %13, %16
   %55 = uitofp nneg i32 %54 to double
   %56 = fdiv double %55, 3.600000e+02
   %57 = fmul double %56, %50
-  %58 = getelementptr inbounds nuw [360 x double], ptr %51, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i
   store double %57, ptr %58, align 8, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 360
@@ -4489,7 +4489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   %72 = uitofp nneg i32 %71 to double
   %73 = fdiv double %72, 3.600000e+02
   %74 = fmul double %73, %68
-  %75 = getelementptr inbounds nuw [360 x double], ptr %69, i64 0, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv.i
   store double %74, ptr %75, align 8, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 360
@@ -4933,7 +4933,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   %74 = uitofp nneg i32 %73 to double
   %75 = fdiv double %74, 3.600000e+02
   %76 = fmul double %75, %70
-  %77 = getelementptr inbounds nuw [360 x double], ptr %71, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv.i
   store double %76, ptr %77, align 8, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 360
@@ -7128,7 +7128,7 @@ define internal fastcc void @_ZN2cv11xfeatures2dL15i_get_histogramEPfdddPKNS_3Ma
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %26 = fpext float %25 to double
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %27 = getelementptr inbounds nuw [64 x float], ptr %6, i64 0, i64 %indvars.iv.next.i
+  %27 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.next.i
   %28 = load float, ptr %27, align 4, !tbaa !55
   %29 = fpext float %28 to double
   %30 = fmul double %9, %29
@@ -7143,7 +7143,7 @@ _ZN2cv11xfeatures2dL16ti_get_histogramEPfdddPKNS_3MatE.exit: ; preds = %24, %.._
   %.pre-phi.i = phi double [ %.pre25.i, %.._crit_edge_crit_edge.i ], [ %23, %24 ]
   %34 = phi float [ %.pre24.i, %.._crit_edge_crit_edge.i ], [ %.pre.i, %24 ]
   %35 = sext i32 %21 to i64
-  %36 = getelementptr inbounds [64 x float], ptr %6, i64 0, i64 %35
+  %36 = getelementptr inbounds float, ptr %6, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !55
   %38 = fpext float %37 to double
   %39 = fpext float %34 to double
@@ -7673,7 +7673,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %_ZN2cv3Mat2atIdEERT
   %70 = fmul double %66, %69
   %71 = fptrunc double %70 to float
   %72 = call fastcc noundef i32 @_ZN2cv11xfeatures2dL15quantize_radiusEfiRKNS_3MatE(float noundef %71, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(96) %3)
-  %73 = getelementptr inbounds nuw [64 x i32], ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw i32, ptr @_ZN2cv11xfeatures2d16g_selected_cubesE, i64 %indvars.iv.i
   store i32 %72, ptr %73, align 4, !tbaa !38
   %74 = load i32, ptr %65, align 4, !tbaa !87
   %75 = sext i32 %74 to i64

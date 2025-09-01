@@ -779,12 +779,12 @@ verify_final_nonce.exit.thread:                   ; preds = %253, %read_client_f
 
 306:                                              ; preds = %306, %.lr.ph.i47
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i47 ], [ %indvars.iv.next.i, %306 ]
-  %307 = getelementptr inbounds nuw [32 x i8], ptr %223, i64 0, i64 %indvars.iv.i
+  %307 = getelementptr inbounds nuw i8, ptr %223, i64 %indvars.iv.i
   %308 = load i8, ptr %307, align 1
-  %309 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %indvars.iv.i
+  %309 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %310 = load i8, ptr %309, align 1
   %311 = xor i8 %310, %308
-  %312 = getelementptr inbounds nuw [32 x i8], ptr %305, i64 0, i64 %indvars.iv.i
+  %312 = getelementptr inbounds nuw i8, ptr %305, i64 %indvars.iv.i
   store i8 %311, ptr %312, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1399,7 +1399,7 @@ define internal fastcc void @sanitize_str(ptr noundef readonly captures(none) %0
   %7 = add i8 %4, -33
   %or.cond = icmp ult i8 %7, 94
   %spec.select = select i1 %or.cond, i8 %4, i8 63
-  %8 = getelementptr inbounds nuw [31 x i8], ptr @sanitize_str.buf, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr @sanitize_str.buf, i64 %indvars.iv
   store i8 %spec.select, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
@@ -1407,7 +1407,7 @@ define internal fastcc void @sanitize_str(ptr noundef readonly captures(none) %0
 
 9:                                                ; preds = %2, %6
   %.lcssa = phi i64 [ %indvars.iv, %2 ], [ 30, %6 ]
-  %10 = getelementptr inbounds nuw [31 x i8], ptr @sanitize_str.buf, i64 0, i64 %.lcssa
+  %10 = getelementptr inbounds nuw i8, ptr @sanitize_str.buf, i64 %.lcssa
   store i8 0, ptr %10, align 1
   ret void
 }

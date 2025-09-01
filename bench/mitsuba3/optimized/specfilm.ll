@@ -10031,7 +10031,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %84
   %.014 = phi i64 [ %63, %84 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %28 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %.014
+  %28 = getelementptr inbounds i32, ptr %1, i64 %.014
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %30
@@ -10044,14 +10044,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %33 = getelementptr inbounds nuw i8, ptr @.str.44, i64 %32
   %34 = load i8, ptr %33, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %35 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   store i8 %34, ptr %35, align 1
   %36 = udiv i32 %.012.i.i, 10
   %.not.i.i = icmp ult i32 %.012.i.i, 10
   br i1 %.not.i.i, label %37, label %30, !llvm.loop !86
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %38 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   %39 = shl i64 %indvars.iv.i.i, 32
   %sext.i.i = sub i64 47244640256, %39
   %40 = ashr exact i64 %sext.i.i, 32
@@ -10221,7 +10221,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %84
   %.014 = phi i64 [ %63, %84 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %28 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %.014
+  %28 = getelementptr inbounds i32, ptr %1, i64 %.014
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %30
@@ -10234,14 +10234,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %33 = getelementptr inbounds nuw i8, ptr @.str.44, i64 %32
   %34 = load i8, ptr %33, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %35 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   store i8 %34, ptr %35, align 1
   %36 = udiv i32 %.012.i.i, 10
   %.not.i.i = icmp ult i32 %.012.i.i, 10
   br i1 %.not.i.i, label %37, label %30, !llvm.loop !86
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %38 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   %39 = shl i64 %indvars.iv.i.i, 32
   %sext.i.i = sub i64 47244640256, %39
   %40 = ashr exact i64 %sext.i.i, 32

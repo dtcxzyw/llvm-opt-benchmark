@@ -260,7 +260,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %43 = add i32 %35, %40
   %44 = lshr i32 %43, %39
   %45 = mul nsw i32 %42, %44
-  %46 = getelementptr inbounds [10 x i32], ptr %18, i64 0, i64 %indvars.iv142
+  %46 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv142
   store i32 %45, ptr %46, align 4, !tbaa !3
   %47 = add i32 %45, %.080105
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
@@ -280,7 +280,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 51:                                               ; preds = %._crit_edge109
   %52 = sext i32 %2 to i64
-  %53 = getelementptr inbounds [10 x ptr], ptr %17, i64 0, i64 %52
+  %53 = getelementptr inbounds ptr, ptr %17, i64 %52
   store ptr %49, ptr %53, align 8, !tbaa !16
   %.not85.not110 = icmp slt i32 %2, %3
   br i1 %.not85.not110, label %.lr.ph113.preheader, label %._crit_edge114
@@ -293,11 +293,11 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %54 = phi ptr [ %49, %.lr.ph113.preheader ], [ %58, %.lr.ph113 ]
   %indvars.iv146 = phi i64 [ %52, %.lr.ph113.preheader ], [ %indvars.iv.next147, %.lr.ph113 ]
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, 1
-  %55 = getelementptr inbounds [10 x i32], ptr %18, i64 0, i64 %indvars.iv146
+  %55 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv146
   %56 = load i32, ptr %55, align 4, !tbaa !3
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr %54, i64 %57
-  %59 = getelementptr inbounds [10 x ptr], ptr %17, i64 0, i64 %indvars.iv.next147
+  %59 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.next147
   store ptr %58, ptr %59, align 8, !tbaa !16
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
   br i1 %exitcond150.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !19
@@ -496,7 +496,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .lr.ph.us.i.us.us.i:                              ; preds = %.lr.ph.us.i.us.us.i, %.lr.ph.us.i.preheader.us.us.i
   %indvars.iv.i.us.us.i = phi i64 [ %indvars.iv.next.i.us.us.i, %.lr.ph.us.i.us.us.i ], [ 0, %.lr.ph.us.i.preheader.us.us.i ]
-  %156 = getelementptr inbounds nuw [512 x i32], ptr %16, i64 0, i64 %indvars.iv.i.us.us.i
+  %156 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.us.us.i
   %157 = load i32, ptr %156, align 4, !tbaa !3
   %158 = lshr i32 %157, 24
   %159 = zext nneg i32 %158 to i64
@@ -545,7 +545,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 188:                                              ; preds = %188, %.lr.ph119.us.us.i.us.us.i
   %indvars.iv144.i.us.us.i = phi i64 [ %indvars.iv.next145.i.us.us.i, %188 ], [ 0, %.lr.ph119.us.us.i.us.us.i ]
-  %189 = getelementptr inbounds nuw [512 x i32], ptr %16, i64 0, i64 %indvars.iv144.i.us.us.i
+  %189 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv144.i.us.us.i
   %190 = load i32, ptr %189, align 4, !tbaa !3
   %191 = lshr i32 %190, 24
   %192 = zext nneg i32 %191 to i64
@@ -1468,13 +1468,13 @@ CopyTileWithColorTransform.exit.us:               ; preds = %68, %56
   %110 = lshr i32 %81, 16
   %111 = and i32 %110, 255
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr %12, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4, !tbaa !3
   %116 = and i32 %81, 255
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i32, ptr %13, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !3
   %120 = add i32 %119, 1
   store i32 %120, ptr %118, align 4, !tbaa !3
@@ -1894,7 +1894,7 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
   %.05879.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %.4.i, %195 ]
   %.06078.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit ], [ %.464.i, %195 ]
   %.06676.i = phi i64 [ %194, %GetPredictionCostCrossColorBlue.exit ], [ %.369.i, %195 ]
-  %199 = getelementptr inbounds nuw [7 x i8], ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 0, i64 %indvars.iv84.i
+  %199 = getelementptr inbounds nuw i8, ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 %indvars.iv84.i
   %200 = load i8, ptr %199, align 1, !tbaa !42
   %201 = sext i8 %200 to i32
   %202 = icmp ne i64 %indvars.iv84.i, 4
@@ -1906,7 +1906,7 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
   %.275.i = phi i32 [ %.4.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.05879.i, %198 ]
   %.26274.i = phi i32 [ %.464.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.06078.i, %198 ]
   %.16773.i = phi i64 [ %.369.i, %GetPredictionCostCrossColorBlue.exit.i ], [ %.06676.i, %198 ]
-  %204 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @__const.GetBestGreenRedToBlue.offset, i64 0, i64 %indvars.iv.i
+  %204 = getelementptr inbounds nuw [2 x i8], ptr @__const.GetBestGreenRedToBlue.offset, i64 %indvars.iv.i
   %205 = load i8, ptr %204, align 2, !tbaa !42
   %206 = sext i8 %205 to i32
   %207 = mul nsw i32 %206, %201
@@ -2272,7 +2272,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 32:                                               ; preds = %26
   %33 = sext i32 %5 to i64
-  %34 = getelementptr inbounds [16 x ptr], ptr @VP8LPredictorsSub, i64 0, i64 %33
+  %34 = getelementptr inbounds ptr, ptr @VP8LPredictorsSub, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !26
   %36 = sext i32 %.021.i to i64
   %37 = getelementptr inbounds i32, ptr %3, i64 %36
@@ -2282,7 +2282,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 39:                                               ; preds = %13
   %40 = sext i32 %5 to i64
-  %41 = getelementptr inbounds [16 x ptr], ptr @VP8LPredictors, i64 0, i64 %40
+  %41 = getelementptr inbounds ptr, ptr @VP8LPredictors, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %43 = icmp slt i32 %6, %7
   br i1 %43, label %.lr.ph, label %PredictBatch.exit

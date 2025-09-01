@@ -14117,7 +14117,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_caseValues_loop___spec__1(p
   %.067203 = phi i64 [ %2, %.lr.ph ], [ %224, %lean_dec.exit107 ]
   %.070202 = phi ptr [ %4, %.lr.ph ], [ %.379, %lean_dec.exit107 ]
   %.073201 = phi ptr [ %9, %.lr.ph ], [ %.384, %lean_dec.exit107 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.067203
+  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %.067203
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1

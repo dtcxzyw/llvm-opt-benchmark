@@ -1254,7 +1254,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Server_FileWorker_runLakeSetupFile_
   %.02350 = phi i64 [ %49, %65 ], [ %1, %3 ]
   %.02549 = phi ptr [ %.0.i.i35, %65 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02549, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02350
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02350
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -3378,7 +3378,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Server_FileWorker_setupFile___spec_
   %.047108 = phi ptr [ %.0.i.i77, %130 ], [ %2, %4 ]
   %.050107 = phi ptr [ %56, %130 ], [ %3, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.047108, i64 24
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.044109
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.044109
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -3750,7 +3750,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_FileWorker_setupFile___sp
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %16, %15, %13, %7
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.03894
+  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03894
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1

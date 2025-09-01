@@ -1083,7 +1083,7 @@ _.exit:                                           ; preds = %36, %38
 
 46:                                               ; preds = %40, %68
   %.06288 = phi i64 [ %45, %40 ], [ %69, %68 ]
-  %47 = getelementptr inbounds nuw [16 x %struct.regmatch_t], ptr %8, i64 0, i64 %.06288
+  %47 = getelementptr inbounds nuw %struct.regmatch_t, ptr %8, i64 %.06288
   %48 = load i32, ptr %47, align 8, !tbaa !90
   %49 = icmp eq i32 %48, -1
   br i1 %49, label %68, label %50

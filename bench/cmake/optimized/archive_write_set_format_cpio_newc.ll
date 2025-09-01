@@ -617,7 +617,7 @@ common.ret9:                                      ; preds = %3, %5
   %7 = add nsw i32 %2, -1
   %8 = tail call fastcc i64 @format_hex_recursive(i64 noundef %0, ptr noundef %6, i32 noundef %7)
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [17 x i8], ptr @.str.16, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !26
   store i8 %11, ptr %1, align 1, !tbaa !26
   %12 = lshr i64 %8, 4

@@ -2006,7 +2006,7 @@ hllTau.exit.preheader:                            ; preds = %hllSparseRegHisto.e
 hllTau.exit:                                      ; preds = %hllTau.exit.preheader, %hllTau.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %hllTau.exit ], [ 50, %hllTau.exit.preheader ]
   %.034 = phi double [ %144, %hllTau.exit ], [ %.034.ph, %hllTau.exit.preheader ]
-  %140 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %141 = load i32, ptr %140, align 4, !tbaa !12
   %142 = sitofp i32 %141 to double
   %143 = fadd double %.034, %142
@@ -3199,7 +3199,7 @@ define dso_local void @pfmergeCommand(ptr noundef %0) local_unnamed_addr #4 {
 
 101:                                              ; preds = %.critedge.preheader, %hllDenseSet.exit
   %indvars.iv64 = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next65, %hllDenseSet.exit ]
-  %102 = getelementptr inbounds nuw [16384 x i8], ptr %2, i64 0, i64 %indvars.iv64
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv64
   %103 = load i8, ptr %102, align 1, !tbaa !11
   %104 = icmp eq i8 %103, 0
   br i1 %104, label %hllDenseSet.exit, label %105
@@ -3312,7 +3312,7 @@ define dso_local void @pfselftestCommand(ptr noundef %0) local_unnamed_addr #4 {
   %7 = tail call i32 @rand() #20
   %8 = and i32 %7, 63
   %9 = trunc nuw nsw i32 %8 to i8
-  %10 = getelementptr inbounds nuw [16384 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %9, ptr %10, align 1, !tbaa !11
   %11 = trunc i64 %indvars.iv to i32
   %12 = mul i32 %11, 6
@@ -3364,7 +3364,7 @@ define dso_local void @pfselftestCommand(ptr noundef %0) local_unnamed_addr #4 {
   %50 = shl nuw nsw i32 %48, %42
   %51 = or i32 %50, %49
   %52 = and i32 %51, 63
-  %53 = getelementptr inbounds nuw [16384 x i8], ptr %2, i64 0, i64 %indvars.iv138
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv138
   %54 = load i8, ptr %53, align 1, !tbaa !11
   %55 = zext i8 %54 to i32
   %.not98 = icmp eq i32 %52, %55
@@ -3794,7 +3794,7 @@ define dso_local void @pfdebugCommand(ptr noundef %0) local_unnamed_addr #4 {
   %125 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %126 = load i8, ptr %125, align 1, !tbaa !11
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw [2 x ptr], ptr @__const.pfdebugCommand.encodingstr, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw ptr, ptr @__const.pfdebugCommand.encodingstr, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !96
   tail call void @addReplyStatus(ptr noundef nonnull %0, ptr noundef %129) #20
   br label %.thread117

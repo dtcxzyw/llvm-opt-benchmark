@@ -804,7 +804,7 @@ i2r_OSSL_DAY_TIME_BAND.exit.i.i:                  ; preds = %118, %116
   br i1 %168, label %switch.lookup, label %i2r_OSSL_PERIOD.exit.thread.i
 
 switch.lookup:                                    ; preds = %167
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.print_int_named_day, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.print_int_named_day, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %169 = call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull %switch.load) #4
   %.not158.i.i = icmp eq i32 %169, 0
@@ -848,7 +848,7 @@ switch.lookup:                                    ; preds = %167
 
 190:                                              ; preds = %188, %186
   %191 = add nsw i32 %.014.i.i.i, 1
-  %192 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.print_int_named_day, i64 0, i64 %indvars.iv.i.i.i
+  %192 = getelementptr inbounds nuw ptr, ptr @switch.table.print_int_named_day, i64 %indvars.iv.i.i.i
   %193 = load ptr, ptr %192, align 8, !tbaa !45
   %194 = call i32 @BIO_puts(ptr noundef %2, ptr noundef %193) #4
   %.not12.i.i.i = icmp eq i32 %194, 0
@@ -1051,7 +1051,7 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 286:                                              ; preds = %284, %282
   %287 = add nsw i32 %.014.i.i, 1
-  %288 = getelementptr inbounds nuw [5 x ptr], ptr @WEEK_NAMES, i64 0, i64 %indvars.iv.i.i
+  %288 = getelementptr inbounds nuw ptr, ptr @WEEK_NAMES, i64 %indvars.iv.i.i
   %289 = load ptr, ptr %288, align 8, !tbaa !45
   %290 = call i32 @BIO_puts(ptr noundef %2, ptr noundef %289) #4
   %.not12.i.i = icmp eq i32 %290, 0
@@ -1100,7 +1100,7 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
   %.not148.i.i = icmp eq i32 %307, 0
   br i1 %.not148.i.i, label %i2r_OSSL_PERIOD.exit.thread.i, label %.loopexit.i.i
 
-308:                                              ; preds = %switch.lookup62
+308:                                              ; preds = %switch.lookup63
   %309 = add nuw nsw i32 %.326.i.i, 1
   %310 = load ptr, ptr %294, align 8, !tbaa !42
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -1130,12 +1130,12 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 323:                                              ; preds = %321, %320
   %324 = load i64, ptr %5, align 8, !tbaa !11
-  %switch.tableidx63 = add i64 %324, -1
-  %325 = icmp ult i64 %switch.tableidx63, 12
-  br i1 %325, label %switch.lookup62, label %i2r_OSSL_PERIOD.exit.thread.i
+  %switch.tableidx62 = add i64 %324, -1
+  %325 = icmp ult i64 %switch.tableidx62, 12
+  br i1 %325, label %switch.lookup63, label %i2r_OSSL_PERIOD.exit.thread.i
 
-switch.lookup62:                                  ; preds = %323
-  %switch.gep64 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.i2r_OSSL_TIME_SPEC.6, i64 0, i64 %switch.tableidx63
+switch.lookup63:                                  ; preds = %323
+  %switch.gep64 = getelementptr inbounds nuw ptr, ptr @switch.table.i2r_OSSL_TIME_SPEC.6, i64 %switch.tableidx62
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   %326 = call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull %switch.load65) #4
   %.not147.i.i = icmp eq i32 %326, 0
@@ -1200,7 +1200,7 @@ switch.lookup62:                                  ; preds = %323
   %355 = icmp slt i32 %354, 1
   br i1 %355, label %i2r_OSSL_PERIOD.exit.thread.i, label %341
 
-i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i, %327, %306, %299, %296, %.loopexit12.i.i, %256, %249, %246, %243, %237, %print_day_of_week.exit.i.i, %223, %220, %216, %210, %208, %206, %204, %202, %200, %196, %147, %144, %141, %135, %129, %90, %83, %i2r_OSSL_DAY_TIME_BAND.exit.i.i, %118, %116, %111, %109, %107, %.lr.ph.i.i, %190, %188, %170, %switch.lookup, %162, %155, %167, %286, %284, %273, %271, %.lr.ph25.i.i, %switch.lookup62, %321, %.lr.ph27.i.i, %323, %352, %350, %.lr.ph29.i.i
+i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i, %327, %306, %299, %296, %.loopexit12.i.i, %256, %249, %246, %243, %237, %print_day_of_week.exit.i.i, %223, %220, %216, %210, %208, %206, %204, %202, %200, %196, %147, %144, %141, %135, %129, %90, %83, %i2r_OSSL_DAY_TIME_BAND.exit.i.i, %118, %116, %111, %109, %107, %.lr.ph.i.i, %190, %188, %170, %switch.lookup, %162, %155, %167, %286, %284, %273, %271, %.lr.ph25.i.i, %switch.lookup63, %321, %.lr.ph27.i.i, %323, %352, %350, %.lr.ph29.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %i2r_OSSL_TIME_SPEC_TIME.exit
 
@@ -1253,7 +1253,7 @@ define internal fastcc i32 @print_int_named_day(ptr noundef %0, i64 noundef %1) 
   br i1 %3, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.print_int_named_day, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.print_int_named_day, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %switch.load) #4
   br label %5
@@ -1286,7 +1286,7 @@ define internal fastcc range(i32 0, 2) i32 @print_bit_named_day(ptr noundef %0, 
 
 10:                                               ; preds = %8, %6
   %11 = add nsw i32 %.014.i, 1
-  %12 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.print_int_named_day, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw ptr, ptr @switch.table.print_int_named_day, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   %14 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef %13) #4
   %.not12.i = icmp eq i32 %14, 0
@@ -1326,7 +1326,7 @@ define internal fastcc range(i32 0, 2) i32 @print_bit_month(ptr noundef %0, ptr 
 
 10:                                               ; preds = %8, %6
   %11 = add nsw i32 %.014, 1
-  %12 = getelementptr inbounds nuw [12 x ptr], ptr @MONTH_NAMES, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr @MONTH_NAMES, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !45
   %14 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef %13) #4
   %.not12 = icmp eq i32 %14, 0

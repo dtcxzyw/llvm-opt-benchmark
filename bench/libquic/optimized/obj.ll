@@ -1458,7 +1458,7 @@ define hidden i32 @OBJ_obj2nid(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr @kNIDsInOIDOrder, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = icmp slt i32 %14, %25
@@ -1491,7 +1491,7 @@ obj_cmp.exit.thread:                              ; preds = %.lr.ph.i, %.thread2
   br i1 %36, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
 
 bsearch.exit:                                     ; preds = %34
-  %37 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %22, i32 2
+  %37 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %22, i32 2
   %38 = load i32, ptr %37, align 8, !tbaa !15
   br label %bsearch.exit.thread
 
@@ -1569,7 +1569,7 @@ define hidden i32 @OBJ_sn2nid(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr @kNIDsInShortNameOrder, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !20
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %17) #12
   %19 = icmp slt i32 %18, 0
@@ -1590,7 +1590,7 @@ define hidden i32 @OBJ_sn2nid(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %24, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
 
 bsearch.exit:                                     ; preds = %20
-  %25 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %15, i32 2
+  %25 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %15, i32 2
   %26 = load i32, ptr %25, align 8, !tbaa !15
   br label %bsearch.exit.thread
 
@@ -1639,7 +1639,7 @@ define hidden i32 @OBJ_ln2nid(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr @kNIDsInLongNameOrder, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %16, i32 1
+  %17 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %16, i32 1
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %18) #12
   %20 = icmp slt i32 %19, 0
@@ -1660,7 +1660,7 @@ define hidden i32 @OBJ_ln2nid(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %25, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
 
 bsearch.exit:                                     ; preds = %21
-  %26 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %16, i32 2
+  %26 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %16, i32 2
   %27 = load i32, ptr %26, align 8, !tbaa !15
   br label %bsearch.exit.thread
 
@@ -1704,13 +1704,13 @@ define hidden ptr @OBJ_txt2obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 11:                                               ; preds = %.thread
   %12 = zext nneg i32 %.01926 to i64
-  %13 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %12, i32 2
   %14 = load i32, ptr %13, align 8, !tbaa !15
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %24, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %11
-  %16 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %12
   br label %OBJ_nid2obj.exit
 
 17:                                               ; preds = %.thread
@@ -1792,14 +1792,14 @@ define hidden range(i32 0, 2) i32 @OBJ_nid2cbb(ptr noundef %0, i32 noundef %1) l
 
 6:                                                ; preds = %5
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %7, i32 2
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %OBJ_nid2obj.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %6, %5
   %.pre-phi.i = phi i64 [ %7, %6 ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %.pre-phi.i
+  %11 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
   br label %19
 
 12:                                               ; preds = %2
@@ -1875,14 +1875,14 @@ define hidden ptr @OBJ_nid2obj(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5, i32 2
   %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %4
   %.pre-phi = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %.pre-phi
+  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi
   br label %18
 
 10:                                               ; preds = %1
@@ -1939,14 +1939,14 @@ define hidden ptr @OBJ_nid2sn(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5, i32 2
   %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %OBJ_nid2obj.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %4, %3
   %.pre-phi.i = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %.pre-phi.i
+  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
   br label %17
 
 10:                                               ; preds = %1
@@ -2002,14 +2002,14 @@ define hidden ptr @OBJ_nid2ln(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5, i32 2
   %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %OBJ_nid2obj.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %4, %3
   %.pre-phi.i = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw [949 x %struct.asn1_object_st], ptr @kObjects, i64 0, i64 %.pre-phi.i
+  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
   br label %17
 
 10:                                               ; preds = %1

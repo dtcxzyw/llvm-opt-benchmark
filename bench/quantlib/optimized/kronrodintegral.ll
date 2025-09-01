@@ -316,7 +316,7 @@ for.body:                                         ; preds = %_ZNKSt8functionIFdd
   %res10.0279 = phi double [ 0.000000e+00, %_ZNKSt8functionIFddEEclEd.exit ], [ %30, %_ZNKSt8functionIFddEEclEd.exit161 ]
   %res21.0278 = phi double [ %mul27, %_ZNKSt8functionIFddEEclEd.exit ], [ %32, %_ZNKSt8functionIFddEEclEd.exit161 ]
   %resAbs.0277 = phi double [ %mul28, %_ZNKSt8functionIFddEEclEd.exit ], [ %35, %_ZNKSt8functionIFddEEclEd.exit161 ]
-  %arrayidx = getelementptr inbounds nuw [5 x double], ptr @_ZN8QuantLibL2x1E, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL2x1E, i64 %indvars.iv
   %24 = load double, ptr %arrayidx, align 8, !tbaa !18
   %mul30 = fmul double %mul, %24
   %add31 = fadd double %mul25, %mul30
@@ -350,21 +350,21 @@ _ZNKSt8functionIFddEEclEd.exit161:                ; preds = %_ZNKSt8functionIFdd
   %call2.i159 = call noundef double %28(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i155)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i155)
   %add35 = fadd double %call2.i152, %call2.i159
-  %arrayidx37 = getelementptr inbounds nuw [5 x double], ptr @_ZN8QuantLibL3w10E, i64 0, i64 %indvars.iv
+  %arrayidx37 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL3w10E, i64 %indvars.iv
   %29 = load double, ptr %arrayidx37, align 8, !tbaa !18
   %30 = call double @llvm.fmuladd.f64(double %29, double %add35, double %res10.0279)
-  %arrayidx40 = getelementptr inbounds nuw [5 x double], ptr @_ZN8QuantLibL4w21aE, i64 0, i64 %indvars.iv
+  %arrayidx40 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w21aE, i64 %indvars.iv
   %31 = load double, ptr %arrayidx40, align 8, !tbaa !18
   %32 = call double @llvm.fmuladd.f64(double %31, double %add35, double %res21.0278)
   %33 = call double @llvm.fabs.f64(double %call2.i152)
   %34 = call double @llvm.fabs.f64(double %call2.i159)
   %add44 = fadd double %33, %34
   %35 = call double @llvm.fmuladd.f64(double %31, double %add44, double %resAbs.0277)
-  %arrayidx47 = getelementptr inbounds nuw [21 x double], ptr %savfun, i64 0, i64 %indvars.iv
+  %arrayidx47 = getelementptr inbounds nuw double, ptr %savfun, i64 %indvars.iv
   store double %add35, ptr %arrayidx47, align 8, !tbaa !18
-  %arrayidx49 = getelementptr inbounds nuw [5 x double], ptr %fv1, i64 0, i64 %indvars.iv
+  %arrayidx49 = getelementptr inbounds nuw double, ptr %fv1, i64 %indvars.iv
   store double %call2.i152, ptr %arrayidx49, align 8, !tbaa !18
-  %arrayidx51 = getelementptr inbounds nuw [5 x double], ptr %fv2, i64 0, i64 %indvars.iv
+  %arrayidx51 = getelementptr inbounds nuw double, ptr %fv2, i64 %indvars.iv
   store double %call2.i159, ptr %arrayidx51, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -374,7 +374,7 @@ for.body54:                                       ; preds = %_ZNKSt8functionIFdd
   %indvars.iv302 = phi i64 [ %indvars.iv.next303, %_ZNKSt8functionIFddEEclEd.exit175 ], [ 0, %_ZNKSt8functionIFddEEclEd.exit161 ]
   %res21.1282 = phi double [ %42, %_ZNKSt8functionIFddEEclEd.exit175 ], [ %32, %_ZNKSt8functionIFddEEclEd.exit161 ]
   %resAbs.1281 = phi double [ %45, %_ZNKSt8functionIFddEEclEd.exit175 ], [ %35, %_ZNKSt8functionIFddEEclEd.exit161 ]
-  %arrayidx57 = getelementptr inbounds nuw [5 x double], ptr @_ZN8QuantLibL2x2E, i64 0, i64 %indvars.iv302
+  %arrayidx57 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL2x2E, i64 %indvars.iv302
   %36 = load double, ptr %arrayidx57, align 8, !tbaa !18
   %mul58 = fmul double %mul, %36
   %add60 = fadd double %mul25, %mul58
@@ -408,23 +408,23 @@ _ZNKSt8functionIFddEEclEd.exit175:                ; preds = %_ZNKSt8functionIFdd
   %call2.i173 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i169)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i169)
   %add66 = fadd double %call2.i166, %call2.i173
-  %arrayidx68 = getelementptr inbounds nuw [6 x double], ptr @_ZN8QuantLibL4w21bE, i64 0, i64 %indvars.iv302
+  %arrayidx68 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w21bE, i64 %indvars.iv302
   %41 = load double, ptr %arrayidx68, align 8, !tbaa !18
   %42 = call double @llvm.fmuladd.f64(double %41, double %add66, double %res21.1282)
   %43 = call double @llvm.fabs.f64(double %call2.i166)
   %44 = call double @llvm.fabs.f64(double %call2.i173)
   %add72 = fadd double %43, %44
   %45 = call double @llvm.fmuladd.f64(double %41, double %add72, double %resAbs.1281)
-  %46 = add nuw nsw i64 %indvars.iv302, 5
-  %arrayidx76 = getelementptr inbounds nuw [21 x double], ptr %savfun, i64 0, i64 %46
+  %46 = getelementptr inbounds nuw double, ptr %savfun, i64 %indvars.iv302
+  %arrayidx76 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store double %add66, ptr %arrayidx76, align 8, !tbaa !18
-  %arrayidx78 = getelementptr inbounds nuw [5 x double], ptr %fv3, i64 0, i64 %indvars.iv302
+  %arrayidx78 = getelementptr inbounds nuw double, ptr %fv3, i64 %indvars.iv302
   store double %call2.i166, ptr %arrayidx78, align 8, !tbaa !18
-  %arrayidx80 = getelementptr inbounds nuw [5 x double], ptr %fv4, i64 0, i64 %indvars.iv302
+  %arrayidx80 = getelementptr inbounds nuw double, ptr %fv4, i64 %indvars.iv302
   store double %call2.i173, ptr %arrayidx80, align 8, !tbaa !18
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %exitcond306.not = icmp eq i64 %indvars.iv.next303, 5
-  br i1 %exitcond306.not, label %for.end83, label %for.body54, !llvm.loop !25
+  %exitcond305.not = icmp eq i64 %indvars.iv.next303, 5
+  br i1 %exitcond305.not, label %for.end83, label %for.body54, !llvm.loop !25
 
 for.end83:                                        ; preds = %_ZNKSt8functionIFddEEclEd.exit175
   %mul86 = fmul double %42, 5.000000e-01
@@ -434,26 +434,26 @@ for.end83:                                        ; preds = %_ZNKSt8functionIFdd
   br label %for.body91
 
 for.body91:                                       ; preds = %for.end83, %for.body91
-  %indvars.iv307 = phi i64 [ 0, %for.end83 ], [ %indvars.iv.next308, %for.body91 ]
+  %indvars.iv306 = phi i64 [ 0, %for.end83 ], [ %indvars.iv.next307, %for.body91 ]
   %resasc.0284 = phi double [ %mul88, %for.end83 ], [ %add112, %for.body91 ]
-  %arrayidx93 = getelementptr inbounds nuw [5 x double], ptr @_ZN8QuantLibL4w21aE, i64 0, i64 %indvars.iv307
+  %arrayidx93 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w21aE, i64 %indvars.iv306
   %48 = load double, ptr %arrayidx93, align 8, !tbaa !18
-  %arrayidx95 = getelementptr inbounds nuw [5 x double], ptr %fv1, i64 0, i64 %indvars.iv307
+  %arrayidx95 = getelementptr inbounds nuw double, ptr %fv1, i64 %indvars.iv306
   %49 = load double, ptr %arrayidx95, align 8, !tbaa !18
   %sub96 = fsub double %49, %mul86
   %50 = call double @llvm.fabs.f64(double %sub96)
-  %arrayidx98 = getelementptr inbounds nuw [5 x double], ptr %fv2, i64 0, i64 %indvars.iv307
+  %arrayidx98 = getelementptr inbounds nuw double, ptr %fv2, i64 %indvars.iv306
   %51 = load double, ptr %arrayidx98, align 8, !tbaa !18
   %sub99 = fsub double %51, %mul86
   %52 = call double @llvm.fabs.f64(double %sub99)
   %add100 = fadd double %50, %52
-  %arrayidx103 = getelementptr inbounds nuw [6 x double], ptr @_ZN8QuantLibL4w21bE, i64 0, i64 %indvars.iv307
+  %arrayidx103 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w21bE, i64 %indvars.iv306
   %53 = load double, ptr %arrayidx103, align 8, !tbaa !18
-  %arrayidx105 = getelementptr inbounds nuw [5 x double], ptr %fv3, i64 0, i64 %indvars.iv307
+  %arrayidx105 = getelementptr inbounds nuw double, ptr %fv3, i64 %indvars.iv306
   %54 = load double, ptr %arrayidx105, align 8, !tbaa !18
   %sub106 = fsub double %54, %mul86
   %55 = call double @llvm.fabs.f64(double %sub106)
-  %arrayidx108 = getelementptr inbounds nuw [5 x double], ptr %fv4, i64 0, i64 %indvars.iv307
+  %arrayidx108 = getelementptr inbounds nuw double, ptr %fv4, i64 %indvars.iv306
   %56 = load double, ptr %arrayidx108, align 8, !tbaa !18
   %sub109 = fsub double %56, %mul86
   %57 = call double @llvm.fabs.f64(double %sub109)
@@ -461,9 +461,9 @@ for.body91:                                       ; preds = %for.end83, %for.bod
   %mul111 = fmul double %53, %add110
   %58 = call double @llvm.fmuladd.f64(double %48, double %add100, double %mul111)
   %add112 = fadd double %resasc.0284, %58
-  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
-  %exitcond310.not = icmp eq i64 %indvars.iv.next308, 5
-  br i1 %exitcond310.not, label %for.end115, label %for.body91, !llvm.loop !26
+  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
+  %exitcond309.not = icmp eq i64 %indvars.iv.next307, 5
+  br i1 %exitcond309.not, label %for.end115, label %for.body91, !llvm.loop !26
 
 for.end115:                                       ; preds = %for.body91
   %mul84 = fmul double %mul, %42
@@ -516,21 +516,21 @@ if.end126:                                        ; preds = %lor.lhs.false
   br label %for.body130
 
 for.body130:                                      ; preds = %if.end126, %for.body130
-  %indvars.iv311 = phi i64 [ 0, %if.end126 ], [ %indvars.iv.next312, %for.body130 ]
+  %indvars.iv310 = phi i64 [ 0, %if.end126 ], [ %indvars.iv.next311, %for.body130 ]
   %res43.0286 = phi double [ %mul127, %if.end126 ], [ %64, %for.body130 ]
-  %arrayidx132 = getelementptr inbounds nuw [21 x double], ptr %savfun, i64 0, i64 %indvars.iv311
+  %arrayidx132 = getelementptr inbounds nuw double, ptr %savfun, i64 %indvars.iv310
   %62 = load double, ptr %arrayidx132, align 8, !tbaa !18
-  %arrayidx134 = getelementptr inbounds nuw [10 x double], ptr @_ZN8QuantLibL4w43aE, i64 0, i64 %indvars.iv311
+  %arrayidx134 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w43aE, i64 %indvars.iv310
   %63 = load double, ptr %arrayidx134, align 8, !tbaa !18
   %64 = call double @llvm.fmuladd.f64(double %62, double %63, double %res43.0286)
-  %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
-  %exitcond314.not = icmp eq i64 %indvars.iv.next312, 10
-  br i1 %exitcond314.not, label %for.body141, label %for.body130, !llvm.loop !29
+  %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
+  %exitcond313.not = icmp eq i64 %indvars.iv.next311, 10
+  br i1 %exitcond313.not, label %for.body141, label %for.body130, !llvm.loop !29
 
 for.body141:                                      ; preds = %for.body130, %_ZNKSt8functionIFddEEclEd.exit190
-  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %_ZNKSt8functionIFddEEclEd.exit190 ], [ 0, %for.body130 ]
+  %indvars.iv314 = phi i64 [ %indvars.iv.next315, %_ZNKSt8functionIFddEEclEd.exit190 ], [ 0, %for.body130 ]
   %res43.1288 = phi double [ %71, %_ZNKSt8functionIFddEEclEd.exit190 ], [ %64, %for.body130 ]
-  %arrayidx144 = getelementptr inbounds nuw [11 x double], ptr @_ZN8QuantLibL2x3E, i64 0, i64 %indvars.iv315
+  %arrayidx144 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL2x3E, i64 %indvars.iv314
   %65 = load double, ptr %arrayidx144, align 8, !tbaa !18
   %mul145 = fmul double %mul, %65
   %add147 = fadd double %mul25, %mul145
@@ -564,15 +564,15 @@ _ZNKSt8functionIFddEEclEd.exit190:                ; preds = %_ZNKSt8functionIFdd
   %call2.i188 = call noundef double %69(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i184)
   %add151 = fadd double %call2.i181, %call2.i188
-  %arrayidx153 = getelementptr inbounds nuw [12 x double], ptr @_ZN8QuantLibL4w43bE, i64 0, i64 %indvars.iv315
+  %arrayidx153 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w43bE, i64 %indvars.iv314
   %70 = load double, ptr %arrayidx153, align 8, !tbaa !18
   %71 = call double @llvm.fmuladd.f64(double %add151, double %70, double %res43.1288)
-  %72 = add nuw nsw i64 %indvars.iv315, 10
-  %arrayidx157 = getelementptr inbounds nuw [21 x double], ptr %savfun, i64 0, i64 %72
+  %72 = getelementptr inbounds nuw double, ptr %savfun, i64 %indvars.iv314
+  %arrayidx157 = getelementptr inbounds nuw i8, ptr %72, i64 80
   store double %add151, ptr %arrayidx157, align 8, !tbaa !18
-  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %exitcond319.not = icmp eq i64 %indvars.iv.next316, 11
-  br i1 %exitcond319.not, label %for.end160, label %for.body141, !llvm.loop !30
+  %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
+  %exitcond317.not = icmp eq i64 %indvars.iv.next315, 11
+  br i1 %exitcond317.not, label %for.end160, label %for.body141, !llvm.loop !30
 
 for.end160:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit190
   %mul161 = fmul double %mul, %71
@@ -621,24 +621,24 @@ if.end172:                                        ; preds = %lor.lhs.false167
   br label %for.body176
 
 for.body176:                                      ; preds = %if.end172, %for.body176
-  %indvars.iv320 = phi i64 [ 0, %if.end172 ], [ %indvars.iv.next321, %for.body176 ]
+  %indvars.iv318 = phi i64 [ 0, %if.end172 ], [ %indvars.iv.next319, %for.body176 ]
   %res87.0290 = phi double [ %mul173, %if.end172 ], [ %78, %for.body176 ]
-  %arrayidx178 = getelementptr inbounds nuw [21 x double], ptr %savfun, i64 0, i64 %indvars.iv320
+  %arrayidx178 = getelementptr inbounds nuw double, ptr %savfun, i64 %indvars.iv318
   %76 = load double, ptr %arrayidx178, align 8, !tbaa !18
-  %arrayidx180 = getelementptr inbounds nuw [21 x double], ptr @_ZN8QuantLibL4w87aE, i64 0, i64 %indvars.iv320
+  %arrayidx180 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w87aE, i64 %indvars.iv318
   %77 = load double, ptr %arrayidx180, align 8, !tbaa !18
   %78 = call double @llvm.fmuladd.f64(double %76, double %77, double %res87.0290)
-  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %exitcond323.not = icmp eq i64 %indvars.iv.next321, 21
-  br i1 %exitcond323.not, label %for.body187, label %for.body176, !llvm.loop !31
+  %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
+  %exitcond321.not = icmp eq i64 %indvars.iv.next319, 21
+  br i1 %exitcond321.not, label %for.body187, label %for.body176, !llvm.loop !31
 
 for.body187:                                      ; preds = %for.body176, %_ZNKSt8functionIFddEEclEd.exit224
-  %indvars.iv324 = phi i64 [ %indvars.iv.next325, %_ZNKSt8functionIFddEEclEd.exit224 ], [ 0, %for.body176 ]
+  %indvars.iv322 = phi i64 [ %indvars.iv.next323, %_ZNKSt8functionIFddEEclEd.exit224 ], [ 0, %for.body176 ]
   %res87.1292 = phi double [ %85, %_ZNKSt8functionIFddEEclEd.exit224 ], [ %78, %for.body176 ]
-  %arrayidx190 = getelementptr inbounds nuw [22 x double], ptr @_ZN8QuantLibL2x4E, i64 0, i64 %indvars.iv324
+  %arrayidx190 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL2x4E, i64 %indvars.iv322
   %79 = load double, ptr %arrayidx190, align 8, !tbaa !18
   %mul191 = fmul double %mul, %79
-  %arrayidx193 = getelementptr inbounds nuw [23 x double], ptr @_ZN8QuantLibL4w87bE, i64 0, i64 %indvars.iv324
+  %arrayidx193 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4w87bE, i64 %indvars.iv322
   %80 = load double, ptr %arrayidx193, align 8, !tbaa !18
   %add194 = fadd double %mul25, %mul191
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i211)
@@ -672,9 +672,9 @@ _ZNKSt8functionIFddEEclEd.exit224:                ; preds = %_ZNKSt8functionIFdd
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i218)
   %add198 = fadd double %call2.i215, %call2.i222
   %85 = call double @llvm.fmuladd.f64(double %80, double %add198, double %res87.1292)
-  %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
-  %exitcond327.not = icmp eq i64 %indvars.iv.next325, 22
-  br i1 %exitcond327.not, label %for.end202, label %for.body187, !llvm.loop !32
+  %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
+  %exitcond325.not = icmp eq i64 %indvars.iv.next323, 22
+  br i1 %exitcond325.not, label %for.end202, label %for.body187, !llvm.loop !32
 
 for.end202:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit224
   %mul203 = fmul double %mul, %85
@@ -905,7 +905,7 @@ for.body:                                         ; preds = %_ZNKSt8functionIFdd
   %indvars.iv = phi i64 [ 2, %_ZNKSt8functionIFddEEclEd.exit ], [ %indvars.iv.next, %_ZNKSt8functionIFddEEclEd.exit59 ]
   %k15.0114 = phi double [ %mul3, %_ZNKSt8functionIFddEEclEd.exit ], [ %10, %_ZNKSt8functionIFddEEclEd.exit59 ]
   %g7.0113 = phi double [ %mul, %_ZNKSt8functionIFddEEclEd.exit ], [ %8, %_ZNKSt8functionIFddEEclEd.exit59 ]
-  %arrayidx = getelementptr inbounds nuw [8 x double], ptr @_ZN8QuantLibL4k15tE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4k15tE, i64 %indvars.iv
   %2 = load double, ptr %arrayidx, align 16, !tbaa !18
   %mul4 = fmul double %div, %2
   %sub5 = fsub double %div2, %mul4
@@ -939,10 +939,10 @@ _ZNKSt8functionIFddEEclEd.exit59:                 ; preds = %_ZNKSt8functionIFdd
   %call2.i57 = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i53)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i53)
   %add9 = fadd double %call2.i50, %call2.i57
-  %arrayidx11 = getelementptr inbounds nuw [4 x double], ptr @_ZN8QuantLibL3g7wE, i64 0, i64 %indvars.iv121
+  %arrayidx11 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL3g7wE, i64 %indvars.iv121
   %7 = load double, ptr %arrayidx11, align 8, !tbaa !18
   %8 = call double @llvm.fmuladd.f64(double %add9, double %7, double %g7.0113)
-  %arrayidx14 = getelementptr inbounds nuw [8 x double], ptr @_ZN8QuantLibL4k15wE, i64 0, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4k15wE, i64 %indvars.iv
   %9 = load double, ptr %arrayidx14, align 16, !tbaa !18
   %10 = call double @llvm.fmuladd.f64(double %add9, double %9, double %k15.0114)
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -953,7 +953,7 @@ _ZNKSt8functionIFddEEclEd.exit59:                 ; preds = %_ZNKSt8functionIFdd
 for.body19:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit59, %_ZNKSt8functionIFddEEclEd.exit73
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %_ZNKSt8functionIFddEEclEd.exit73 ], [ 1, %_ZNKSt8functionIFddEEclEd.exit59 ]
   %k15.1117 = phi double [ %17, %_ZNKSt8functionIFddEEclEd.exit73 ], [ %10, %_ZNKSt8functionIFddEEclEd.exit59 ]
-  %arrayidx21 = getelementptr inbounds nuw [8 x double], ptr @_ZN8QuantLibL4k15tE, i64 0, i64 %indvars.iv126
+  %arrayidx21 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4k15tE, i64 %indvars.iv126
   %11 = load double, ptr %arrayidx21, align 8, !tbaa !18
   %mul22 = fmul double %div, %11
   %sub23 = fsub double %div2, %mul22
@@ -987,7 +987,7 @@ _ZNKSt8functionIFddEEclEd.exit73:                 ; preds = %_ZNKSt8functionIFdd
   %call2.i71 = call noundef double %15(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i67)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i67)
   %add27 = fadd double %call2.i64, %call2.i71
-  %arrayidx29 = getelementptr inbounds nuw [8 x double], ptr @_ZN8QuantLibL4k15wE, i64 0, i64 %indvars.iv126
+  %arrayidx29 = getelementptr inbounds nuw double, ptr @_ZN8QuantLibL4k15wE, i64 %indvars.iv126
   %16 = load double, ptr %arrayidx29, align 8, !tbaa !18
   %17 = call double @llvm.fmuladd.f64(double %add27, double %16, double %k15.1117)
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 2

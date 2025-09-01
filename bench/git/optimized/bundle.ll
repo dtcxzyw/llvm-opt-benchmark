@@ -144,7 +144,7 @@ define dso_local noundef i32 @read_bundle_header_fd(i32 noundef %0, ptr noundef 
 12:                                               ; preds = %11, %8
   %13 = phi i1 [ true, %8 ], [ false, %11 ]
   %indvars.iv.i = phi i64 [ 0, %8 ], [ 1, %11 ]
-  %14 = getelementptr inbounds nuw [2 x %struct.anon.0], ptr @bundle_sigs, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %struct.anon.0, ptr @bundle_sigs, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !13
   %17 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %16) #16
@@ -249,7 +249,7 @@ _.exit.i:                                         ; preds = %54, %52
 
 57:                                               ; preds = %49
   %58 = sext i32 %50 to i64
-  %59 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %58
+  %59 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %58
   store ptr %59, ptr %25, align 8, !tbaa !25
   br label %.backedge
 
@@ -315,7 +315,7 @@ _.exit14.i:                                       ; preds = %67, %skip_prefix.ex
 
 79:                                               ; preds = %76
   %80 = zext i8 %78 to i64
-  %81 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !26
   %83 = and i8 %82, 1
   %.not30 = icmp eq i8 %83, 0

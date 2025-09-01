@@ -3527,7 +3527,7 @@ define void @_ZN12FilterDialog26on_buttonBox_helpRequestedEv(ptr noundef readonl
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12FilterDialog26on_buttonBox_helpRequestedEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12FilterDialog26on_buttonBox_helpRequestedEv, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef align 8 dereferenceable_or_null(216) %7, i32 noundef %switch.load)

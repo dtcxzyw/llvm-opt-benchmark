@@ -52,7 +52,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i: ; preds = %.l
   %11 = fdiv float %10, 1.700000e+01
   %12 = fadd float %7, %11
   %13 = sext i32 %.026.i to i64
-  %14 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !6, !noalias !3
   %16 = add nsw i32 %15, %.01924.i
   %17 = sitofp i32 %16 to float
@@ -72,7 +72,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
   %.pre-phi.i = phi i64 [ %.pre.i, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %13, %8 ]
   %.120.i = phi i32 [ %16, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.01924.i, %8 ]
   %.1.i = phi i32 [ %20, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.026.i, %8 ]
-  %22 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %.pre-phi.i
+  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi.i
   %23 = load i32, ptr %22, align 4, !tbaa !6, !alias.scope !3
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !6, !alias.scope !3
@@ -86,7 +86,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %._crit_edge.i.i
   %.0713.i.i = phi i64 [ %31, %._crit_edge.i.i ], [ 0, %.preheader.i.i.preheader ]
   %.0912.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader.i.i.preheader ]
-  %26 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %.0713.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %.0713.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -115,7 +115,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
 _ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i: ; preds = %._crit_edge.i.i
   %37 = and i32 %.1.lcssa.i.i, -65536
   %.not.i.i = icmp eq i32 %37, 65536
-  br i1 %.not.i.i, label %38, label %62
+  br i1 %.not.i.i, label %38, label %61
 
 38:                                               ; preds = %_ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i
   %39 = and i32 %.1.lcssa.i.i, 65535
@@ -139,60 +139,59 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKtlEv
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i:    ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i
   %.not4.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
-  br i1 %.not4.i.i, label %62, label %49
+  br i1 %.not4.i.i, label %61, label %49
 
 49:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i
   %50 = load i16, ptr %.1.i.i.i.i, align 2, !tbaa !15
   %51 = trunc i32 %.1.lcssa.i.i to i16
   %52 = icmp eq i16 %50, %51
-  br i1 %52, label %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i, label %62
+  br i1 %52, label %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i, label %61
 
 _ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i: ; preds = %49
   %53 = ptrtoint ptr %.1.i.i.i.i to i64
   %54 = sub i64 %53, ptrtoint (ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE to i64)
-  %55 = ashr exact i64 %54, 1
-  %56 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 2, !tbaa !15
-  %.fr.i = freeze i16 %57
-  %58 = zext i16 %.fr.i to i32
-  %59 = add nsw i32 %58, -1
-  %60 = srem i32 %59, 929
-  %61 = icmp eq i32 %60, -1
-  br i1 %61, label %62, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 %54
+  %56 = load i16, ptr %55, align 2, !tbaa !15
+  %.fr.i = freeze i16 %56
+  %57 = zext i16 %.fr.i to i32
+  %58 = add nsw i32 %57, -1
+  %59 = srem i32 %58, 929
+  %60 = icmp eq i32 %59, -1
+  br i1 %60, label %61, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit
 
 _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit: ; preds = %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %108
+  br label %107
 
-62:                                               ; preds = %_ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, %49, %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i
+61:                                               ; preds = %_ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, %49, %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %63 = load atomic i8, ptr @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable acquire, align 8
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %65, label %.lr.ph.i.i.i.i5.preheader, !prof !18
+  %62 = load atomic i8, ptr @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable acquire, align 8
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %64, label %.lr.ph.i.i.i.i5.preheader, !prof !18
 
-65:                                               ; preds = %62
-  %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
-  %.not.i = icmp eq i32 %66, 0
-  br i1 %.not.i, label %.lr.ph.i.i.i.i5.preheader, label %67
+64:                                               ; preds = %61
+  %65 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
+  %.not.i = icmp eq i32 %65, 0
+  br i1 %.not.i, label %.lr.ph.i.i.i.i5.preheader, label %66
 
-67:                                               ; preds = %65
+66:                                               ; preds = %64
   invoke fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEENK3$_0clEv"()
-          to label %68 unwind label %74
+          to label %67 unwind label %73
 
-68:                                               ; preds = %67
-  %69 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt5arrayIfLm8EESaIS1_EED2Ev, ptr nonnull @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, ptr nonnull @__dso_handle) #12
+67:                                               ; preds = %66
+  %68 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt5arrayIfLm8EESaIS1_EED2Ev, ptr nonnull @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
   br label %.lr.ph.i.i.i.i5.preheader
 
-.lr.ph.i.i.i.i5.preheader:                        ; preds = %68, %65, %62
+.lr.ph.i.i.i.i5.preheader:                        ; preds = %67, %64, %61
   br label %.lr.ph.i.i.i.i5
 
 .lr.ph.i.i.i.i5:                                  ; preds = %.lr.ph.i.i.i.i5.preheader, %.lr.ph.i.i.i.i5
   %.08.i.i.idx.i.i6 = phi i64 [ %.08.i.i.add.i.i9, %.lr.ph.i.i.i.i5 ], [ 0, %.lr.ph.i.i.i.i5.preheader ]
-  %.057.i.i.i.i7 = phi i32 [ %71, %.lr.ph.i.i.i.i5 ], [ 0, %.lr.ph.i.i.i.i5.preheader ]
+  %.057.i.i.i.i7 = phi i32 [ %70, %.lr.ph.i.i.i.i5 ], [ 0, %.lr.ph.i.i.i.i5.preheader ]
   %.08.i.i.ptr.i.i8 = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i.i.idx.i.i6
-  %70 = load i32, ptr %.08.i.i.ptr.i.i8, align 4, !tbaa !6
-  %71 = add nsw i32 %70, %.057.i.i.i.i7
+  %69 = load i32, ptr %.08.i.i.ptr.i.i8, align 4, !tbaa !6
+  %70 = add nsw i32 %69, %.057.i.i.i.i7
   %.08.i.i.add.i.i9 = add nuw nsw i64 %.08.i.i.idx.i.i6, 4
   %.not.i.i.i.i10 = icmp eq i64 %.08.i.i.add.i.i9, 32
   br i1 %.not.i.i.i.i10, label %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11, label %.lr.ph.i.i.i.i5, !llvm.loop !10
@@ -200,92 +199,92 @@ _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit: ; preds = %_Z
 _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %.lr.ph.i.i.i.i5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  %72 = icmp sgt i32 %71, 1
-  br i1 %72, label %.preheader.i, label %.loopexit.i
+  %71 = icmp sgt i32 %70, 1
+  br i1 %71, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11
-  %73 = uitofp nneg i32 %71 to float
-  br label %76
+  %72 = uitofp nneg i32 %70 to float
+  br label %75
 
-74:                                               ; preds = %67
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %66
+  %74 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
-  resume { ptr, i32 } %75
+  resume { ptr, i32 } %74
 
-76:                                               ; preds = %76, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv.i
-  %78 = load i32, ptr %77, align 4, !tbaa !6
-  %79 = sitofp i32 %78 to float
-  %80 = fdiv float %79, %73
-  %81 = getelementptr inbounds nuw [8 x float], ptr %2, i64 0, i64 %indvars.iv.i
-  store float %80, ptr %81, align 4, !tbaa !19
+75:                                               ; preds = %75, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %75 ]
+  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %77 = load i32, ptr %76, align 4, !tbaa !6
+  %78 = sitofp i32 %77 to float
+  %79 = fdiv float %78, %72
+  %80 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
+  store float %79, ptr %80, align 4, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i13, label %.loopexit.i, label %76, !llvm.loop !21
+  br i1 %exitcond.not.i13, label %.loopexit.i, label %75, !llvm.loop !21
 
-.loopexit.i:                                      ; preds = %76, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8, !tbaa !22
-  %83 = load ptr, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8, !tbaa !26
-  %.not43.i = icmp eq ptr %82, %83
+.loopexit.i:                                      ; preds = %75, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 8), align 8, !tbaa !22
+  %82 = load ptr, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8, !tbaa !26
+  %.not43.i = icmp eq ptr %81, %82
   br i1 %.not43.i, label %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit.i
+  %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = ashr exact i64 %86, 5
+  %85 = sub i64 %83, %84
+  %86 = ashr exact i64 %85, 5
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %106, %.lr.ph.preheader.i
-  %.02942.i = phi float [ %.1.i12, %106 ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ]
-  %.03341.i = phi i64 [ %107, %106 ], [ 0, %.lr.ph.preheader.i ]
-  %.03440.i = phi i32 [ %.135.i, %106 ], [ -1, %.lr.ph.preheader.i ]
-  %88 = getelementptr inbounds nuw %"struct.std::array.1", ptr %83, i64 %.03341.i
-  br label %89
+.lr.ph.i:                                         ; preds = %105, %.lr.ph.preheader.i
+  %.02942.i = phi float [ %.1.i12, %105 ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ]
+  %.03341.i = phi i64 [ %106, %105 ], [ 0, %.lr.ph.preheader.i ]
+  %.03440.i = phi i32 [ %.135.i, %105 ], [ -1, %.lr.ph.preheader.i ]
+  %87 = getelementptr inbounds nuw %"struct.std::array.1", ptr %82, i64 %.03341.i
+  br label %88
 
-89:                                               ; preds = %89, %.lr.ph.i
-  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %89 ], [ 0, %.lr.ph.i ]
-  %.03038.i = phi float [ %95, %89 ], [ 0.000000e+00, %.lr.ph.i ]
-  %90 = getelementptr inbounds nuw [8 x float], ptr %88, i64 0, i64 %indvars.iv46.i
-  %91 = load float, ptr %90, align 4, !tbaa !19
-  %92 = getelementptr inbounds nuw [8 x float], ptr %2, i64 0, i64 %indvars.iv46.i
-  %93 = load float, ptr %92, align 4, !tbaa !19
-  %94 = fsub float %91, %93
-  %95 = tail call float @llvm.fmuladd.f32(float %94, float %94, float %.03038.i)
-  %96 = fcmp ult float %95, %.02942.i
+88:                                               ; preds = %88, %.lr.ph.i
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %88 ], [ 0, %.lr.ph.i ]
+  %.03038.i = phi float [ %94, %88 ], [ 0.000000e+00, %.lr.ph.i ]
+  %89 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv46.i
+  %90 = load float, ptr %89, align 4, !tbaa !19
+  %91 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv46.i
+  %92 = load float, ptr %91, align 4, !tbaa !19
+  %93 = fsub float %90, %92
+  %94 = tail call float @llvm.fmuladd.f32(float %93, float %93, float %.03038.i)
+  %95 = fcmp ult float %94, %.02942.i
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %97 = icmp samesign ult i64 %indvars.iv46.i, 7
-  %or.cond.i = select i1 %96, i1 %97, i1 false
-  br i1 %or.cond.i, label %89, label %98, !llvm.loop !27
+  %96 = icmp samesign ult i64 %indvars.iv46.i, 7
+  %or.cond.i = select i1 %95, i1 %96, i1 false
+  br i1 %or.cond.i, label %88, label %97, !llvm.loop !27
 
-98:                                               ; preds = %89
-  %99 = fcmp olt float %95, %.02942.i
-  br i1 %99, label %100, label %106
+97:                                               ; preds = %88
+  %98 = fcmp olt float %94, %.02942.i
+  br i1 %98, label %99, label %105
 
-100:                                              ; preds = %98
+99:                                               ; preds = %97
   %sext.i = shl i64 %.03341.i, 32
-  %101 = ashr exact i64 %sext.i, 32
-  %102 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 0, i64 %101
-  %103 = load i16, ptr %102, align 2, !tbaa !15
-  %104 = zext i16 %103 to i32
-  %105 = or disjoint i32 %104, 65536
-  br label %106
+  %100 = ashr exact i64 %sext.i, 31
+  %101 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 %100
+  %102 = load i16, ptr %101, align 2, !tbaa !15
+  %103 = zext i16 %102 to i32
+  %104 = or disjoint i32 %103, 65536
+  br label %105
 
-106:                                              ; preds = %100, %98
-  %.135.i = phi i32 [ %105, %100 ], [ %.03440.i, %98 ]
-  %.1.i12 = phi float [ %95, %100 ], [ %.02942.i, %98 ]
-  %107 = add nuw i64 %.03341.i, 1
-  %exitcond49.not.i = icmp eq i64 %107, %87
+105:                                              ; preds = %99, %97
+  %.135.i = phi i32 [ %104, %99 ], [ %.03440.i, %97 ]
+  %.1.i12 = phi float [ %94, %99 ], [ %.02942.i, %97 ]
+  %106 = add nuw i64 %.03341.i, 1
+  %exitcond49.not.i = icmp eq i64 %106, %86
   br i1 %exitcond49.not.i, label %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit, label %.lr.ph.i, !llvm.loop !28
 
-_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit: ; preds = %106, %.loopexit.i
-  %.034.lcssa.i = phi i32 [ -1, %.loopexit.i ], [ %.135.i, %106 ]
+_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit: ; preds = %105, %.loopexit.i
+  %.034.lcssa.i = phi i32 [ -1, %.loopexit.i ], [ %.135.i, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %108
+  br label %107
 
-108:                                              ; preds = %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit, %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit
+107:                                              ; preds = %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit, %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit
   %.0 = phi i32 [ %.034.lcssa.i, %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit ], [ %.1.lcssa.i.i, %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit ]
   ret i32 %.0
 }
@@ -294,7 +293,7 @@ _ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit: ; preds = %106
 define noundef range(i32 -1, 929) i32 @_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = and i32 %0, -65536
   %.not = icmp eq i32 %2, 65536
-  br i1 %.not, label %3, label %27
+  br i1 %.not, label %3, label %26
 
 3:                                                ; preds = %1
   %4 = and i32 %0, 65535
@@ -318,27 +317,26 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i:               ; preds = %_ZSt7advanceIPKtlEv
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i
   %.not4 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
-  br i1 %.not4, label %27, label %14
+  br i1 %.not4, label %26, label %14
 
 14:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit
   %15 = load i16, ptr %.1.i.i, align 2, !tbaa !15
   %16 = trunc i32 %0 to i16
   %17 = icmp eq i16 %15, %16
-  br i1 %17, label %18, label %27
+  br i1 %17, label %18, label %26
 
 18:                                               ; preds = %14
   %19 = ptrtoint ptr %.1.i.i to i64
   %20 = sub i64 %19, ptrtoint (ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE to i64)
-  %21 = ashr exact i64 %20, 1
-  %22 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 0, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !15
-  %24 = zext i16 %23 to i32
-  %25 = add nsw i32 %24, -1
-  %26 = srem i32 %25, 929
-  br label %27
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 %20
+  %22 = load i16, ptr %21, align 2, !tbaa !15
+  %23 = zext i16 %22 to i32
+  %24 = add nsw i32 %23, -1
+  %25 = srem i32 %24, 929
+  br label %26
 
-27:                                               ; preds = %18, %14, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit, %1
-  %.0 = phi i32 [ -1, %1 ], [ %26, %18 ], [ -1, %14 ], [ -1, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit ]
+26:                                               ; preds = %18, %14, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit, %1
+  %.0 = phi i32 [ -1, %1 ], [ %25, %18 ], [ -1, %14 ], [ -1, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit ]
   ret i32 %.0
 }
 
@@ -370,7 +368,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
 
 3:                                                ; preds = %2, %12
   %indvars.iv14 = phi i64 [ 0, %2 ], [ %indvars.iv.next15, %12 ]
-  %4 = getelementptr inbounds nuw [2787 x i16], ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 0, i64 %indvars.iv14
+  %4 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 %indvars.iv14
   %5 = load i16, ptr %4, align 2, !tbaa !15
   %6 = zext i16 %5 to i32
   %7 = or disjoint i32 %6, 65536
@@ -410,7 +408,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   %.lcssa = phi i32 [ %10, %.preheader ], [ %15, %._crit_edge.loopexit ]
   %18 = fdiv float %.0.lcssa, 1.700000e+01
   %19 = sub nuw nsw i64 7, %indvars.iv
-  %20 = getelementptr inbounds nuw [8 x float], ptr %9, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw float, ptr %9, i64 %19
   store float %18, ptr %20, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

@@ -100,7 +100,7 @@ define dso_local i32 @parse_command(ptr noundef %0, ptr noundef writeonly captur
 
 6:                                                ; preds = %3, %4
   %.02433 = phi i64 [ 0, %3 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw [17 x %struct.anon], ptr @commands, i64 0, i64 %.02433
+  %7 = getelementptr inbounds nuw %struct.anon, ptr @commands, i64 %.02433
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !9
   %10 = load ptr, ptr %7, align 16, !tbaa !13
@@ -1028,7 +1028,7 @@ conn_reply_error.exit:                            ; preds = %17, %19
 
 67:                                               ; preds = %67, %65
   %indvars.iv.i = phi i64 [ 0, %65 ], [ %indvars.iv.next.i, %67 ]
-  %68 = getelementptr inbounds nuw [17 x %struct.anon], ptr @commands, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw %struct.anon, ptr @commands, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 16, !tbaa !13
   %70 = tail call i32 (i32, ptr, ...) @mdprintf(i32 noundef %5, ptr noundef nonnull @.str.62, ptr noundef %69) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1228,8 +1228,8 @@ define internal fastcc void @print_ver(i32 noundef %0, i8 noundef signext %1, pt
   store i64 %9, ptr %5, align 8, !tbaa !74
   %10 = call ptr @cli_ctime(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 32) #14
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
-  %12 = add i64 %11, -1
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %12
+  %12 = getelementptr i8, ptr %4, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -1
   store i8 0, ptr %13, align 1, !tbaa !15
   %14 = call ptr @get_version() #14
   %15 = sext i8 %1 to i32

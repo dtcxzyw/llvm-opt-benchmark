@@ -2567,7 +2567,7 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
 
 .thread242.split.us.split.us:                     ; preds = %.thread242.split.us, %165
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %165 ], [ 0, %.thread242.split.us ]
-  %153 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv271
+  %153 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv271
   %154 = load ptr, ptr %153, align 8, !tbaa !175
   %.not196.us.us = icmp eq ptr %154, null
   br i1 %.not196.us.us, label %.critedge, label %155
@@ -2604,7 +2604,7 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
 
 .thread242.split.us.split:                        ; preds = %.thread242.split.us, %181
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %181 ], [ 0, %.thread242.split.us ]
-  %169 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv267
+  %169 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv267
   %170 = load ptr, ptr %169, align 8, !tbaa !175
   %.not196.us = icmp eq ptr %170, null
   br i1 %.not196.us, label %.critedge, label %171
@@ -2643,7 +2643,7 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
 
 .thread242.split:                                 ; preds = %.thread242, %213
   %indvars.iv = phi i64 [ %indvars.iv.next, %213 ], [ 0, %.thread242 ]
-  %185 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %186 = load ptr, ptr %185, align 8, !tbaa !175
   %.not196 = icmp eq ptr %186, null
   br i1 %.not196, label %.critedge, label %187
@@ -3167,14 +3167,14 @@ define range(i32 0, 3) i32 @tls_construct_new_session_ticket(ptr noundef %0, ptr
   %25 = load i32, ptr %24, align 8, !tbaa !72
   %26 = and i32 %25, 8
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %27, label %102
+  br i1 %.not, label %27, label %103
 
 27:                                               ; preds = %2
   %28 = load i32, ptr %21, align 8, !tbaa !74
   %29 = icmp slt i32 %28, 772
   %.not90 = icmp eq i32 %28, 65536
   %or.cond = or i1 %29, %.not90
-  br i1 %or.cond, label %102, label %30
+  br i1 %or.cond, label %103, label %30
 
 30:                                               ; preds = %27
   %31 = tail call ptr @ssl_handshake_md(ptr noundef nonnull %0) #12
@@ -3250,157 +3250,158 @@ define range(i32 0, 3) i32 @tls_construct_new_session_ticket(ptr noundef %0, ptr
   br label %65
 
 65:                                               ; preds = %59, %65
-  %.081138 = phi i64 [ 8, %59 ], [ %67, %65 ]
+  %.081138 = phi i64 [ 8, %59 ], [ %70, %65 ]
   %.082137 = phi i64 [ %64, %59 ], [ %69, %65 ]
   %66 = trunc i64 %.082137 to i8
-  %67 = add nsw i64 %.081138, -1
-  %68 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 0, i64 %67
+  %67 = getelementptr i8, ptr %16, i64 %.081138
+  %68 = getelementptr i8, ptr %67, i64 -1
   store i8 %66, ptr %68, align 1, !tbaa !193
   %69 = lshr i64 %.082137, 8
-  %.not95 = icmp eq i64 %67, 0
-  br i1 %.not95, label %70, label %65, !llvm.loop !197
+  %70 = add nsw i64 %.081138, -1
+  %.not95 = icmp eq i64 %70, 0
+  br i1 %.not95, label %71, label %65, !llvm.loop !197
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1596
-  %72 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  %73 = call i32 @tls13_hkdf_expand(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %71, ptr noundef nonnull @tls_construct_new_session_ticket.nonce_label, i64 noundef 10, ptr noundef nonnull %16, i64 noundef 8, ptr noundef nonnull %72, i64 noundef %36, i32 noundef 1) #12
-  %.not96 = icmp eq i32 %73, 0
-  br i1 %.not96, label %.thread116, label %74
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1596
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 80
+  %74 = call i32 @tls13_hkdf_expand(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %72, ptr noundef nonnull @tls_construct_new_session_ticket.nonce_label, i64 noundef 10, ptr noundef nonnull %16, i64 noundef 8, ptr noundef nonnull %73, i64 noundef %36, i32 noundef 1) #12
+  %.not96 = icmp eq i32 %74, 0
+  br i1 %.not96, label %.thread116, label %75
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %50, align 8, !tbaa !79
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i64 %36, ptr %76, align 8, !tbaa !198
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 736
-  %78 = call i64 @ossl_time_now() #12
-  store i64 %78, ptr %77, align 8, !tbaa !101
-  %79 = load ptr, ptr %50, align 8, !tbaa !79
-  call void @ssl_session_calculate_timeout(ptr noundef %79) #12
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %81 = load ptr, ptr %80, align 8, !tbaa !199
-  %.not97 = icmp eq ptr %81, null
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %50, align 8, !tbaa !79
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store i64 %36, ptr %77, align 8, !tbaa !198
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 736
+  %79 = call i64 @ossl_time_now() #12
+  store i64 %79, ptr %78, align 8, !tbaa !101
+  %80 = load ptr, ptr %50, align 8, !tbaa !79
+  call void @ssl_session_calculate_timeout(ptr noundef %80) #12
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %82 = load ptr, ptr %81, align 8, !tbaa !199
+  %.not97 = icmp eq ptr %82, null
   %.pre139 = load ptr, ptr %50, align 8, !tbaa !79
-  br i1 %.not97, label %97, label %82
+  br i1 %.not97, label %98, label %83
 
-82:                                               ; preds = %74
-  %83 = getelementptr inbounds nuw i8, ptr %.pre139, i64 840
-  %84 = load ptr, ptr %83, align 8, !tbaa !200
-  call void @CRYPTO_free(ptr noundef %84, ptr noundef nonnull @.str.1, i32 noundef 4240) #12
-  %85 = load ptr, ptr %80, align 8, !tbaa !199
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %87 = load i64, ptr %86, align 8, !tbaa !201
-  %88 = call noalias ptr @CRYPTO_memdup(ptr noundef %85, i64 noundef %87, ptr noundef nonnull @.str.1, i32 noundef 4242) #12
-  %89 = load ptr, ptr %50, align 8, !tbaa !79
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 840
-  store ptr %88, ptr %90, align 8, !tbaa !200
-  %91 = icmp eq ptr %88, null
-  br i1 %91, label %92, label %94
+83:                                               ; preds = %75
+  %84 = getelementptr inbounds nuw i8, ptr %.pre139, i64 840
+  %85 = load ptr, ptr %84, align 8, !tbaa !200
+  call void @CRYPTO_free(ptr noundef %85, ptr noundef nonnull @.str.1, i32 noundef 4240) #12
+  %86 = load ptr, ptr %81, align 8, !tbaa !199
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %88 = load i64, ptr %87, align 8, !tbaa !201
+  %89 = call noalias ptr @CRYPTO_memdup(ptr noundef %86, i64 noundef %88, ptr noundef nonnull @.str.1, i32 noundef 4242) #12
+  %90 = load ptr, ptr %50, align 8, !tbaa !79
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 840
+  store ptr %89, ptr %91, align 8, !tbaa !200
+  %92 = icmp eq ptr %89, null
+  br i1 %92, label %93, label %95
 
-92:                                               ; preds = %82
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 848
-  store i64 0, ptr %93, align 8, !tbaa !202
+93:                                               ; preds = %83
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 848
+  store i64 0, ptr %94, align 8, !tbaa !202
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4245, ptr noundef nonnull @__func__.tls_construct_new_session_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524303, ptr noundef null) #12
   br label %.thread116
 
-94:                                               ; preds = %82
-  %95 = load i64, ptr %86, align 8, !tbaa !201
-  %96 = getelementptr inbounds nuw i8, ptr %89, i64 848
-  store i64 %95, ptr %96, align 8, !tbaa !202
-  br label %97
+95:                                               ; preds = %83
+  %96 = load i64, ptr %87, align 8, !tbaa !201
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 848
+  store i64 %96, ptr %97, align 8, !tbaa !202
+  br label %98
 
-97:                                               ; preds = %74, %94
-  %98 = phi ptr [ %.pre139, %74 ], [ %89, %94 ]
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 5440
-  %100 = load i32, ptr %99, align 8, !tbaa !203
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 836
-  store i32 %100, ptr %101, align 4, !tbaa !204
-  br label %102
+98:                                               ; preds = %75, %95
+  %99 = phi ptr [ %.pre139, %75 ], [ %90, %95 ]
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 5440
+  %101 = load i32, ptr %100, align 8, !tbaa !203
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 836
+  store i32 %101, ptr %102, align 4, !tbaa !204
+  br label %103
 
-102:                                              ; preds = %97, %27, %2
-  %103 = getelementptr inbounds nuw i8, ptr %19, i64 1080
-  %104 = load ptr, ptr %103, align 8, !tbaa !205
-  %.not98 = icmp eq ptr %104, null
-  br i1 %.not98, label %113, label %105
+103:                                              ; preds = %98, %27, %2
+  %104 = getelementptr inbounds nuw i8, ptr %19, i64 1080
+  %105 = load ptr, ptr %104, align 8, !tbaa !205
+  %.not98 = icmp eq ptr %105, null
+  br i1 %.not98, label %114, label %106
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %107 = load ptr, ptr %106, align 8, !tbaa !151
-  %108 = getelementptr inbounds nuw i8, ptr %19, i64 1096
-  %109 = load ptr, ptr %108, align 8, !tbaa !206
-  %110 = call i32 %104(ptr noundef %107, ptr noundef %109) #12
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %113
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %108 = load ptr, ptr %107, align 8, !tbaa !151
+  %109 = getelementptr inbounds nuw i8, ptr %19, i64 1096
+  %110 = load ptr, ptr %109, align 8, !tbaa !206
+  %111 = call i32 %105(ptr noundef %108, ptr noundef %110) #12
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %114
 
-112:                                              ; preds = %105
+113:                                              ; preds = %106
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4256, ptr noundef nonnull @__func__.tls_construct_new_session_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %.thread116
 
-113:                                              ; preds = %105, %102
-  %114 = load ptr, ptr %20, align 8, !tbaa !3
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 216
-  %116 = load ptr, ptr %115, align 8, !tbaa !69
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 80
-  %118 = load i32, ptr %117, align 8, !tbaa !72
-  %119 = and i32 %118, 8
-  %.not99 = icmp eq i32 %119, 0
-  br i1 %.not99, label %120, label %145
+114:                                              ; preds = %106, %103
+  %115 = load ptr, ptr %20, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 216
+  %117 = load ptr, ptr %116, align 8, !tbaa !69
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 80
+  %119 = load i32, ptr %118, align 8, !tbaa !72
+  %120 = and i32 %119, 8
+  %.not99 = icmp eq i32 %120, 0
+  br i1 %.not99, label %121, label %146
 
-120:                                              ; preds = %113
-  %121 = load i32, ptr %114, align 8, !tbaa !74
-  %122 = icmp slt i32 %121, 772
-  %.not100 = icmp eq i32 %121, 65536
-  %or.cond108 = or i1 %122, %.not100
-  br i1 %or.cond108, label %145, label %123
+121:                                              ; preds = %114
+  %122 = load i32, ptr %115, align 8, !tbaa !74
+  %123 = icmp slt i32 %122, 772
+  %.not100 = icmp eq i32 %122, 65536
+  %or.cond108 = or i1 %123, %.not100
+  br i1 %or.cond108, label %146, label %124
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %125 = load i64, ptr %124, align 8, !tbaa !99
-  %126 = and i64 %125, 16384
-  %.not101 = icmp eq i64 %126, 0
-  br i1 %.not101, label %127, label %132
+124:                                              ; preds = %121
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %126 = load i64, ptr %125, align 8, !tbaa !99
+  %127 = and i64 %126, 16384
+  %.not101 = icmp eq i64 %127, 0
+  br i1 %.not101, label %128, label %133
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 5440
-  %129 = load i32, ptr %128, align 8, !tbaa !203
-  %.not102 = icmp ne i32 %129, 0
-  %130 = and i64 %125, 16777216
-  %131 = icmp eq i64 %130, 0
-  %or.cond110 = and i1 %131, %.not102
-  br i1 %or.cond110, label %132, label %145
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 5440
+  %130 = load i32, ptr %129, align 8, !tbaa !203
+  %.not102 = icmp ne i32 %130, 0
+  %131 = and i64 %126, 16777216
+  %132 = icmp eq i64 %131, 0
+  %or.cond110 = and i1 %132, %.not102
+  br i1 %or.cond110, label %133, label %146
 
-132:                                              ; preds = %127, %123
-  %133 = load i32, ptr %17, align 4, !tbaa !193
-  %134 = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %133, ptr noundef nonnull %16)
-  %.not.i = icmp eq i32 %134, 0
-  br i1 %.not.i, label %.thread116, label %135
+133:                                              ; preds = %128, %124
+  %134 = load i32, ptr %17, align 4, !tbaa !193
+  %135 = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %134, ptr noundef nonnull %16)
+  %.not.i = icmp eq i32 %135, 0
+  br i1 %.not.i, label %.thread116, label %136
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %137 = load ptr, ptr %136, align 8, !tbaa !79
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 600
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 592
-  %140 = load i64, ptr %139, align 8, !tbaa !154
-  %141 = call i32 @WPACKET_memcpy(ptr noundef %1, ptr noundef nonnull %138, i64 noundef %140) #12
-  %.not9.i = icmp eq i32 %141, 0
-  br i1 %.not9.i, label %144, label %142
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  %138 = load ptr, ptr %137, align 8, !tbaa !79
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 600
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 592
+  %141 = load i64, ptr %140, align 8, !tbaa !154
+  %142 = call i32 @WPACKET_memcpy(ptr noundef %1, ptr noundef nonnull %139, i64 noundef %141) #12
+  %.not9.i = icmp eq i32 %142, 0
+  br i1 %.not9.i, label %145, label %143
 
-142:                                              ; preds = %135
-  %143 = call i32 @WPACKET_close(ptr noundef %1) #12
-  %.not10.i = icmp eq i32 %143, 0
-  br i1 %.not10.i, label %144, label %construct_stateful_ticket.exit
+143:                                              ; preds = %136
+  %144 = call i32 @WPACKET_close(ptr noundef %1) #12
+  %.not10.i = icmp eq i32 %144, 0
+  br i1 %.not10.i, label %145, label %construct_stateful_ticket.exit
 
-144:                                              ; preds = %142, %135
+145:                                              ; preds = %143, %136
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4144, ptr noundef nonnull @__func__.construct_stateful_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %.thread116
 
-145:                                              ; preds = %127, %120, %113
-  %146 = load i32, ptr %17, align 4, !tbaa !193
+146:                                              ; preds = %128, %121, %114
+  %147 = load i32, ptr %17, align 4, !tbaa !193
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3410,392 +3411,392 @@ define range(i32 0, 3) i32 @tls_construct_new_session_ticket(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %147 = load ptr, ptr %18, align 8, !tbaa !192
+  %148 = load ptr, ptr %18, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %149 = load ptr, ptr %148, align 8, !tbaa !151
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !136
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %153 = load ptr, ptr %152, align 8, !tbaa !79
-  %154 = call i32 @i2d_SSL_SESSION(ptr noundef %153, ptr noundef null) #12
-  %155 = icmp eq i32 %154, 0
-  %156 = icmp sgt i32 %154, 65280
-  %or.cond.i = or i1 %155, %156
-  br i1 %or.cond.i, label %157, label %158
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %150 = load ptr, ptr %149, align 8, !tbaa !151
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !136
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  %154 = load ptr, ptr %153, align 8, !tbaa !79
+  %155 = call i32 @i2d_SSL_SESSION(ptr noundef %154, ptr noundef null) #12
+  %156 = icmp eq i32 %155, 0
+  %157 = icmp sgt i32 %155, 65280
+  %or.cond.i = or i1 %156, %157
+  br i1 %or.cond.i, label %158, label %159
 
-157:                                              ; preds = %145
+158:                                              ; preds = %146
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3953, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-158:                                              ; preds = %145
-  %159 = sext i32 %154 to i64
-  %160 = call noalias ptr @CRYPTO_malloc(i64 noundef %159, ptr noundef nonnull @.str.1, i32 noundef 3956) #12
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %162, label %163
+159:                                              ; preds = %146
+  %160 = sext i32 %155 to i64
+  %161 = call noalias ptr @CRYPTO_malloc(i64 noundef %160, ptr noundef nonnull @.str.1, i32 noundef 3956) #12
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %163, label %164
 
-162:                                              ; preds = %158
+163:                                              ; preds = %159
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3958, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524303, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-163:                                              ; preds = %158
-  %164 = call ptr @EVP_CIPHER_CTX_new() #12
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %166, label %167
+164:                                              ; preds = %159
+  %165 = call ptr @EVP_CIPHER_CTX_new() #12
+  %166 = icmp eq ptr %165, null
+  br i1 %166, label %167, label %168
 
-166:                                              ; preds = %163
+167:                                              ; preds = %164
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3964, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524294, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-167:                                              ; preds = %163
-  %168 = call ptr @ssl_hmac_new(ptr noundef %147) #12
-  %169 = icmp eq ptr %168, null
-  br i1 %169, label %170, label %171
+168:                                              ; preds = %164
+  %169 = call ptr @ssl_hmac_new(ptr noundef %148) #12
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %171, label %172
 
-170:                                              ; preds = %167
+171:                                              ; preds = %168
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3969, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524308, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-171:                                              ; preds = %167
-  store ptr %160, ptr %3, align 8, !tbaa !162
-  %172 = load ptr, ptr %152, align 8, !tbaa !79
-  %173 = call i32 @i2d_SSL_SESSION(ptr noundef %172, ptr noundef nonnull %3) #12
-  %.not.i113 = icmp eq i32 %173, 0
-  br i1 %.not.i113, label %174, label %175
+172:                                              ; preds = %168
+  store ptr %161, ptr %3, align 8, !tbaa !162
+  %173 = load ptr, ptr %153, align 8, !tbaa !79
+  %174 = call i32 @i2d_SSL_SESSION(ptr noundef %173, ptr noundef nonnull %3) #12
+  %.not.i113 = icmp eq i32 %174, 0
+  br i1 %.not.i113, label %175, label %176
 
-174:                                              ; preds = %171
+175:                                              ; preds = %172
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3975, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-175:                                              ; preds = %171
-  store ptr %160, ptr %8, align 8, !tbaa !162
-  %176 = load ptr, ptr %151, align 8, !tbaa !183
-  %177 = getelementptr inbounds nuw i8, ptr %151, i64 1152
-  %178 = load ptr, ptr %177, align 8, !tbaa !184
-  %179 = call ptr @d2i_SSL_SESSION_ex(ptr noundef null, ptr noundef nonnull %8, i64 noundef %159, ptr noundef %176, ptr noundef %178) #12
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %181, label %182
+176:                                              ; preds = %172
+  store ptr %161, ptr %8, align 8, !tbaa !162
+  %177 = load ptr, ptr %152, align 8, !tbaa !183
+  %178 = getelementptr inbounds nuw i8, ptr %152, i64 1152
+  %179 = load ptr, ptr %178, align 8, !tbaa !184
+  %180 = call ptr @d2i_SSL_SESSION_ex(ptr noundef null, ptr noundef nonnull %8, i64 noundef %160, ptr noundef %177, ptr noundef %179) #12
+  %181 = icmp eq ptr %180, null
+  br i1 %181, label %182, label %183
 
-181:                                              ; preds = %175
+182:                                              ; preds = %176
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3986, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-182:                                              ; preds = %175
-  %183 = call i32 @i2d_SSL_SESSION(ptr noundef nonnull %179, ptr noundef null) #12
-  %184 = icmp eq i32 %183, 0
-  %185 = icmp sgt i32 %183, %154
-  %or.cond170.i = or i1 %184, %185
-  br i1 %or.cond170.i, label %186, label %187
+183:                                              ; preds = %176
+  %184 = call i32 @i2d_SSL_SESSION(ptr noundef nonnull %180, ptr noundef null) #12
+  %185 = icmp eq i32 %184, 0
+  %186 = icmp sgt i32 %184, %155
+  %or.cond170.i = or i1 %185, %186
+  br i1 %or.cond170.i, label %187, label %188
 
-186:                                              ; preds = %182
+187:                                              ; preds = %183
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3993, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  call void @SSL_SESSION_free(ptr noundef nonnull %179) #12
+  call void @SSL_SESSION_free(ptr noundef nonnull %180) #12
   br label %construct_stateless_ticket.exit.thread124
 
-187:                                              ; preds = %182
-  store ptr %160, ptr %3, align 8, !tbaa !162
-  %188 = call i32 @i2d_SSL_SESSION(ptr noundef nonnull %179, ptr noundef nonnull %3) #12
-  %.not142.i = icmp eq i32 %188, 0
-  br i1 %.not142.i, label %189, label %190
+188:                                              ; preds = %183
+  store ptr %161, ptr %3, align 8, !tbaa !162
+  %189 = call i32 @i2d_SSL_SESSION(ptr noundef nonnull %180, ptr noundef nonnull %3) #12
+  %.not142.i = icmp eq i32 %189, 0
+  br i1 %.not142.i, label %190, label %191
 
-189:                                              ; preds = %187
+190:                                              ; preds = %188
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3999, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  call void @SSL_SESSION_free(ptr noundef nonnull %179) #12
+  call void @SSL_SESSION_free(ptr noundef nonnull %180) #12
   br label %construct_stateless_ticket.exit.thread124
 
-190:                                              ; preds = %187
-  call void @SSL_SESSION_free(ptr noundef nonnull %179) #12
-  %191 = getelementptr inbounds nuw i8, ptr %147, i64 608
-  %192 = load ptr, ptr %191, align 8, !tbaa !207
-  %.not143.i = icmp eq ptr %192, null
-  br i1 %.not143.i, label %193, label %196
+191:                                              ; preds = %188
+  call void @SSL_SESSION_free(ptr noundef nonnull %180) #12
+  %192 = getelementptr inbounds nuw i8, ptr %148, i64 608
+  %193 = load ptr, ptr %192, align 8, !tbaa !207
+  %.not143.i = icmp eq ptr %193, null
+  br i1 %.not143.i, label %194, label %197
 
-193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %147, i64 600
-  %195 = load ptr, ptr %194, align 8, !tbaa !208
-  %.not144.i = icmp eq ptr %195, null
-  br i1 %.not144.i, label %225, label %199
+194:                                              ; preds = %191
+  %195 = getelementptr inbounds nuw i8, ptr %148, i64 600
+  %196 = load ptr, ptr %195, align 8, !tbaa !208
+  %.not144.i = icmp eq ptr %196, null
+  br i1 %.not144.i, label %226, label %200
 
-196:                                              ; preds = %190
-  %197 = call ptr @ssl_hmac_get0_EVP_MAC_CTX(ptr noundef nonnull %168) #12
-  %198 = call i32 %192(ptr noundef %149, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %164, ptr noundef %197, i32 noundef 1) #12
-  br label %202
+197:                                              ; preds = %191
+  %198 = call ptr @ssl_hmac_get0_EVP_MAC_CTX(ptr noundef nonnull %169) #12
+  %199 = call i32 %193(ptr noundef %150, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %165, ptr noundef %198, i32 noundef 1) #12
+  br label %203
 
-199:                                              ; preds = %193
-  %200 = call ptr @ssl_hmac_get0_HMAC_CTX(ptr noundef nonnull %168) #12
-  %201 = call i32 %195(ptr noundef %149, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %164, ptr noundef %200, i32 noundef 1) #12
-  br label %202
+200:                                              ; preds = %194
+  %201 = call ptr @ssl_hmac_get0_HMAC_CTX(ptr noundef nonnull %169) #12
+  %202 = call i32 %196(ptr noundef %150, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %165, ptr noundef %201, i32 noundef 1) #12
+  br label %203
 
-202:                                              ; preds = %199, %196
-  %.0116.i = phi i32 [ %198, %196 ], [ %201, %199 ]
-  %203 = icmp eq i32 %.0116.i, 0
-  br i1 %203, label %.thread173.i, label %218
+203:                                              ; preds = %200, %197
+  %.0116.i = phi i32 [ %199, %197 ], [ %202, %200 ]
+  %204 = icmp eq i32 %.0116.i, 0
+  br i1 %204, label %.thread173.i, label %219
 
-.thread173.i:                                     ; preds = %202
-  %204 = load ptr, ptr %20, align 8, !tbaa !3
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 216
-  %206 = load ptr, ptr %205, align 8, !tbaa !69
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 80
-  %208 = load i32, ptr %207, align 8, !tbaa !72
-  %209 = and i32 %208, 8
-  %.not149.i = icmp eq i32 %209, 0
-  br i1 %.not149.i, label %210, label %213
+.thread173.i:                                     ; preds = %203
+  %205 = load ptr, ptr %20, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 216
+  %207 = load ptr, ptr %206, align 8, !tbaa !69
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 80
+  %209 = load i32, ptr %208, align 8, !tbaa !72
+  %210 = and i32 %209, 8
+  %.not149.i = icmp eq i32 %210, 0
+  br i1 %.not149.i, label %211, label %214
 
-210:                                              ; preds = %.thread173.i
-  %211 = load i32, ptr %204, align 8, !tbaa !74
-  %212 = icmp slt i32 %211, 772
-  %.not150.i = icmp eq i32 %211, 65536
-  %or.cond171.i = or i1 %212, %.not150.i
-  br i1 %or.cond171.i, label %213, label %321
+211:                                              ; preds = %.thread173.i
+  %212 = load i32, ptr %205, align 8, !tbaa !74
+  %213 = icmp slt i32 %212, 772
+  %.not150.i = icmp eq i32 %212, 65536
+  %or.cond171.i = or i1 %213, %.not150.i
+  br i1 %or.cond171.i, label %214, label %322
 
-213:                                              ; preds = %210, %.thread173.i
-  %214 = call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef 0, i64 noundef 4) #12
-  %.not151.i = icmp eq i32 %214, 0
-  br i1 %.not151.i, label %217, label %215
+214:                                              ; preds = %211, %.thread173.i
+  %215 = call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef 0, i64 noundef 4) #12
+  %.not151.i = icmp eq i32 %215, 0
+  br i1 %.not151.i, label %218, label %216
 
-215:                                              ; preds = %213
-  %216 = call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef 0, i64 noundef 2) #12
-  %.not152.i = icmp eq i32 %216, 0
-  br i1 %.not152.i, label %217, label %construct_stateful_ticket.exit.sink.split
+216:                                              ; preds = %214
+  %217 = call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef 0, i64 noundef 2) #12
+  %.not152.i = icmp eq i32 %217, 0
+  br i1 %.not152.i, label %218, label %construct_stateful_ticket.exit.sink.split
 
-217:                                              ; preds = %215, %213
+218:                                              ; preds = %216, %214
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4041, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-218:                                              ; preds = %202
-  %219 = icmp slt i32 %.0116.i, 0
-  br i1 %219, label %220, label %221
+219:                                              ; preds = %203
+  %220 = icmp slt i32 %.0116.i, 0
+  br i1 %220, label %221, label %222
 
-220:                                              ; preds = %218
+221:                                              ; preds = %219
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4050, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 234, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-221:                                              ; preds = %218
-  %222 = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef nonnull %164) #12
-  %223 = icmp slt i32 %222, 0
-  br i1 %223, label %224, label %250
+222:                                              ; preds = %219
+  %223 = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef nonnull %165) #12
+  %224 = icmp slt i32 %223, 0
+  br i1 %224, label %225, label %251
 
-224:                                              ; preds = %221
+225:                                              ; preds = %222
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4055, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-225:                                              ; preds = %193
-  %226 = load ptr, ptr %151, align 8, !tbaa !183
-  %227 = load ptr, ptr %177, align 8, !tbaa !184
-  %228 = call ptr @EVP_CIPHER_fetch(ptr noundef %226, ptr noundef nonnull @.str.11, ptr noundef %227) #12
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %230, label %231
+226:                                              ; preds = %194
+  %227 = load ptr, ptr %152, align 8, !tbaa !183
+  %228 = load ptr, ptr %178, align 8, !tbaa !184
+  %229 = call ptr @EVP_CIPHER_fetch(ptr noundef %227, ptr noundef nonnull @.str.11, ptr noundef %228) #12
+  %230 = icmp eq ptr %229, null
+  br i1 %230, label %231, label %232
 
-230:                                              ; preds = %225
+231:                                              ; preds = %226
   call void @ossl_statem_send_fatal(ptr noundef nonnull %0, i32 noundef 80) #12
   br label %construct_stateless_ticket.exit.thread124
 
-231:                                              ; preds = %225
-  %232 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %228) #12
-  %233 = icmp slt i32 %232, 0
-  br i1 %233, label %247, label %234
+232:                                              ; preds = %226
+  %233 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %229) #12
+  %234 = icmp slt i32 %233, 0
+  br i1 %234, label %248, label %235
 
-234:                                              ; preds = %231
-  %235 = load ptr, ptr %151, align 8, !tbaa !183
-  %236 = zext nneg i32 %232 to i64
-  %237 = call i32 @RAND_bytes_ex(ptr noundef %235, ptr noundef nonnull %12, i64 noundef %236, i32 noundef 0) #12
-  %238 = icmp slt i32 %237, 1
-  br i1 %238, label %247, label %239
+235:                                              ; preds = %232
+  %236 = load ptr, ptr %152, align 8, !tbaa !183
+  %237 = zext nneg i32 %233 to i64
+  %238 = call i32 @RAND_bytes_ex(ptr noundef %236, ptr noundef nonnull %12, i64 noundef %237, i32 noundef 0) #12
+  %239 = icmp slt i32 %238, 1
+  br i1 %239, label %248, label %240
 
-239:                                              ; preds = %234
-  %240 = getelementptr inbounds nuw i8, ptr %147, i64 592
-  %241 = load ptr, ptr %240, align 8, !tbaa !209
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 32
-  %243 = call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %164, ptr noundef nonnull %228, ptr noundef null, ptr noundef nonnull %242, ptr noundef nonnull %12) #12
-  %.not145.i = icmp eq i32 %243, 0
-  br i1 %.not145.i, label %247, label %244
+240:                                              ; preds = %235
+  %241 = getelementptr inbounds nuw i8, ptr %148, i64 592
+  %242 = load ptr, ptr %241, align 8, !tbaa !209
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 32
+  %244 = call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %165, ptr noundef nonnull %229, ptr noundef null, ptr noundef nonnull %243, ptr noundef nonnull %12) #12
+  %.not145.i = icmp eq i32 %244, 0
+  br i1 %.not145.i, label %248, label %245
 
-244:                                              ; preds = %239
-  %245 = load ptr, ptr %240, align 8, !tbaa !209
-  %246 = call i32 @ssl_hmac_init(ptr noundef nonnull %168, ptr noundef %245, i64 noundef 32, ptr noundef nonnull @.str.12) #12
-  %.not146.i = icmp eq i32 %246, 0
-  br i1 %.not146.i, label %247, label %248
+245:                                              ; preds = %240
+  %246 = load ptr, ptr %241, align 8, !tbaa !209
+  %247 = call i32 @ssl_hmac_init(ptr noundef nonnull %169, ptr noundef %246, i64 noundef 32, ptr noundef nonnull @.str.12) #12
+  %.not146.i = icmp eq i32 %247, 0
+  br i1 %.not146.i, label %248, label %249
 
-247:                                              ; preds = %244, %239, %234, %231
-  call void @EVP_CIPHER_free(ptr noundef nonnull %228) #12
+248:                                              ; preds = %245, %240, %235, %232
+  call void @EVP_CIPHER_free(ptr noundef nonnull %229) #12
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4077, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-248:                                              ; preds = %244
-  call void @EVP_CIPHER_free(ptr noundef nonnull %228) #12
-  %249 = getelementptr inbounds nuw i8, ptr %147, i64 576
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %249, i64 16, i1 false)
-  br label %250
+249:                                              ; preds = %245
+  call void @EVP_CIPHER_free(ptr noundef nonnull %229) #12
+  %250 = getelementptr inbounds nuw i8, ptr %148, i64 576
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %250, i64 16, i1 false)
+  br label %251
 
-250:                                              ; preds = %248, %221
-  %.1122.i = phi i32 [ %232, %248 ], [ %222, %221 ]
-  %251 = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %146, ptr noundef nonnull %16)
-  %.not153.i = icmp eq i32 %251, 0
-  br i1 %.not153.i, label %construct_stateless_ticket.exit.thread124, label %252
+251:                                              ; preds = %249, %222
+  %.1122.i = phi i32 [ %233, %249 ], [ %223, %222 ]
+  %252 = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %147, ptr noundef nonnull %16)
+  %.not153.i = icmp eq i32 %252, 0
+  br i1 %.not153.i, label %construct_stateless_ticket.exit.thread124, label %253
 
-252:                                              ; preds = %250
-  %253 = call i32 @WPACKET_get_total_written(ptr noundef %1, ptr noundef nonnull %14) #12
-  %.not154.i = icmp eq i32 %253, 0
-  br i1 %.not154.i, label %317, label %254
+253:                                              ; preds = %251
+  %254 = call i32 @WPACKET_get_total_written(ptr noundef %1, ptr noundef nonnull %14) #12
+  %.not154.i = icmp eq i32 %254, 0
+  br i1 %.not154.i, label %318, label %255
 
-254:                                              ; preds = %252
-  %255 = call i32 @WPACKET_memcpy(ptr noundef %1, ptr noundef nonnull %13, i64 noundef 16) #12
-  %.not155.i = icmp eq i32 %255, 0
-  br i1 %.not155.i, label %317, label %256
+255:                                              ; preds = %253
+  %256 = call i32 @WPACKET_memcpy(ptr noundef %1, ptr noundef nonnull %13, i64 noundef 16) #12
+  %.not155.i = icmp eq i32 %256, 0
+  br i1 %.not155.i, label %318, label %257
 
-256:                                              ; preds = %254
-  %257 = zext nneg i32 %.1122.i to i64
-  %258 = call i32 @WPACKET_memcpy(ptr noundef %1, ptr noundef nonnull %12, i64 noundef %257) #12
-  %.not156.i = icmp eq i32 %258, 0
-  br i1 %.not156.i, label %317, label %259
+257:                                              ; preds = %255
+  %258 = zext nneg i32 %.1122.i to i64
+  %259 = call i32 @WPACKET_memcpy(ptr noundef %1, ptr noundef nonnull %12, i64 noundef %258) #12
+  %.not156.i = icmp eq i32 %259, 0
+  br i1 %.not156.i, label %318, label %260
 
-259:                                              ; preds = %256
-  %260 = add nsw i32 %183, 32
-  %261 = sext i32 %260 to i64
-  %262 = call i32 @WPACKET_reserve_bytes(ptr noundef %1, i64 noundef %261, ptr noundef nonnull %4) #12
-  %.not157.i = icmp eq i32 %262, 0
-  br i1 %.not157.i, label %317, label %263
+260:                                              ; preds = %257
+  %261 = add nsw i32 %184, 32
+  %262 = sext i32 %261 to i64
+  %263 = call i32 @WPACKET_reserve_bytes(ptr noundef %1, i64 noundef %262, ptr noundef nonnull %4) #12
+  %.not157.i = icmp eq i32 %263, 0
+  br i1 %.not157.i, label %318, label %264
 
-263:                                              ; preds = %259
-  %264 = load ptr, ptr %4, align 8, !tbaa !162
-  %265 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %164, ptr noundef %264, ptr noundef nonnull %9, ptr noundef nonnull %160, i32 noundef %183) #12
-  %.not158.i = icmp eq i32 %265, 0
-  br i1 %.not158.i, label %317, label %266
+264:                                              ; preds = %260
+  %265 = load ptr, ptr %4, align 8, !tbaa !162
+  %266 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %165, ptr noundef %265, ptr noundef nonnull %9, ptr noundef nonnull %161, i32 noundef %184) #12
+  %.not158.i = icmp eq i32 %266, 0
+  br i1 %.not158.i, label %318, label %267
 
-266:                                              ; preds = %263
-  %267 = load i32, ptr %9, align 4, !tbaa !134
-  %268 = sext i32 %267 to i64
-  %269 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef %268, ptr noundef nonnull %5) #12
-  %.not159.i = icmp eq i32 %269, 0
-  br i1 %.not159.i, label %317, label %270
+267:                                              ; preds = %264
+  %268 = load i32, ptr %9, align 4, !tbaa !134
+  %269 = sext i32 %268 to i64
+  %270 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef %269, ptr noundef nonnull %5) #12
+  %.not159.i = icmp eq i32 %270, 0
+  br i1 %.not159.i, label %318, label %271
 
-270:                                              ; preds = %266
-  %271 = load ptr, ptr %4, align 8, !tbaa !162
-  %272 = load ptr, ptr %5, align 8, !tbaa !162
-  %.not160.i = icmp eq ptr %271, %272
-  br i1 %.not160.i, label %273, label %317
+271:                                              ; preds = %267
+  %272 = load ptr, ptr %4, align 8, !tbaa !162
+  %273 = load ptr, ptr %5, align 8, !tbaa !162
+  %.not160.i = icmp eq ptr %272, %273
+  br i1 %.not160.i, label %274, label %318
 
-273:                                              ; preds = %270
-  %274 = load i32, ptr %9, align 4, !tbaa !134
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds i8, ptr %271, i64 %275
-  %277 = call i32 @EVP_EncryptFinal(ptr noundef nonnull %164, ptr noundef %276, ptr noundef nonnull %10) #12
-  %.not161.i = icmp eq i32 %277, 0
-  br i1 %.not161.i, label %317, label %278
+274:                                              ; preds = %271
+  %275 = load i32, ptr %9, align 4, !tbaa !134
+  %276 = sext i32 %275 to i64
+  %277 = getelementptr inbounds i8, ptr %272, i64 %276
+  %278 = call i32 @EVP_EncryptFinal(ptr noundef nonnull %165, ptr noundef %277, ptr noundef nonnull %10) #12
+  %.not161.i = icmp eq i32 %278, 0
+  br i1 %.not161.i, label %318, label %279
 
-278:                                              ; preds = %273
-  %279 = load i32, ptr %10, align 4, !tbaa !134
-  %280 = sext i32 %279 to i64
-  %281 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef %280, ptr noundef nonnull %5) #12
-  %.not162.i = icmp eq i32 %281, 0
-  br i1 %.not162.i, label %317, label %282
+279:                                              ; preds = %274
+  %280 = load i32, ptr %10, align 4, !tbaa !134
+  %281 = sext i32 %280 to i64
+  %282 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef %281, ptr noundef nonnull %5) #12
+  %.not162.i = icmp eq i32 %282, 0
+  br i1 %.not162.i, label %318, label %283
 
-282:                                              ; preds = %278
-  %283 = load ptr, ptr %4, align 8, !tbaa !162
-  %284 = load i32, ptr %9, align 4, !tbaa !134
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds i8, ptr %283, i64 %285
-  %287 = load ptr, ptr %5, align 8, !tbaa !162
-  %.not163.i = icmp eq ptr %286, %287
-  br i1 %.not163.i, label %288, label %317
+283:                                              ; preds = %279
+  %284 = load ptr, ptr %4, align 8, !tbaa !162
+  %285 = load i32, ptr %9, align 4, !tbaa !134
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds i8, ptr %284, i64 %286
+  %288 = load ptr, ptr %5, align 8, !tbaa !162
+  %.not163.i = icmp eq ptr %287, %288
+  br i1 %.not163.i, label %289, label %318
 
-288:                                              ; preds = %282
-  %289 = load i32, ptr %10, align 4, !tbaa !134
-  %290 = add nsw i32 %289, %284
-  %291 = icmp sgt i32 %290, %260
-  br i1 %291, label %317, label %292
+289:                                              ; preds = %283
+  %290 = load i32, ptr %10, align 4, !tbaa !134
+  %291 = add nsw i32 %290, %285
+  %292 = icmp sgt i32 %291, %261
+  br i1 %292, label %318, label %293
 
-292:                                              ; preds = %288
-  %293 = call i32 @WPACKET_get_total_written(ptr noundef %1, ptr noundef nonnull %15) #12
-  %.not164.i = icmp eq i32 %293, 0
-  br i1 %.not164.i, label %317, label %294
+293:                                              ; preds = %289
+  %294 = call i32 @WPACKET_get_total_written(ptr noundef %1, ptr noundef nonnull %15) #12
+  %.not164.i = icmp eq i32 %294, 0
+  br i1 %.not164.i, label %318, label %295
 
-294:                                              ; preds = %292
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %296 = load ptr, ptr %295, align 8, !tbaa !186
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  %298 = load ptr, ptr %297, align 8, !tbaa !187
-  %299 = load i64, ptr %14, align 8, !tbaa !101
-  %300 = getelementptr inbounds nuw i8, ptr %298, i64 %299
-  %301 = load i64, ptr %15, align 8, !tbaa !101
-  %302 = sub i64 %301, %299
-  %303 = call i32 @ssl_hmac_update(ptr noundef nonnull %168, ptr noundef %300, i64 noundef %302) #12
-  %.not165.i = icmp eq i32 %303, 0
-  br i1 %.not165.i, label %317, label %304
+295:                                              ; preds = %293
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %297 = load ptr, ptr %296, align 8, !tbaa !186
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  %299 = load ptr, ptr %298, align 8, !tbaa !187
+  %300 = load i64, ptr %14, align 8, !tbaa !101
+  %301 = getelementptr inbounds nuw i8, ptr %299, i64 %300
+  %302 = load i64, ptr %15, align 8, !tbaa !101
+  %303 = sub i64 %302, %300
+  %304 = call i32 @ssl_hmac_update(ptr noundef nonnull %169, ptr noundef %301, i64 noundef %303) #12
+  %.not165.i = icmp eq i32 %304, 0
+  br i1 %.not165.i, label %318, label %305
 
-304:                                              ; preds = %294
-  %305 = call i32 @WPACKET_reserve_bytes(ptr noundef %1, i64 noundef 64, ptr noundef nonnull %6) #12
-  %.not166.i = icmp eq i32 %305, 0
-  br i1 %.not166.i, label %317, label %306
+305:                                              ; preds = %295
+  %306 = call i32 @WPACKET_reserve_bytes(ptr noundef %1, i64 noundef 64, ptr noundef nonnull %6) #12
+  %.not166.i = icmp eq i32 %306, 0
+  br i1 %.not166.i, label %318, label %307
 
-306:                                              ; preds = %304
-  %307 = load ptr, ptr %6, align 8, !tbaa !162
-  %308 = call i32 @ssl_hmac_final(ptr noundef nonnull %168, ptr noundef %307, ptr noundef nonnull %11, i64 noundef 64) #12
-  %309 = icmp eq i32 %308, 0
-  %310 = load i64, ptr %11, align 8
-  %311 = icmp ugt i64 %310, 64
-  %or.cond3.i = select i1 %309, i1 true, i1 %311
-  br i1 %or.cond3.i, label %317, label %312
+307:                                              ; preds = %305
+  %308 = load ptr, ptr %6, align 8, !tbaa !162
+  %309 = call i32 @ssl_hmac_final(ptr noundef nonnull %169, ptr noundef %308, ptr noundef nonnull %11, i64 noundef 64) #12
+  %310 = icmp eq i32 %309, 0
+  %311 = load i64, ptr %11, align 8
+  %312 = icmp ugt i64 %311, 64
+  %or.cond3.i = select i1 %310, i1 true, i1 %312
+  br i1 %or.cond3.i, label %318, label %313
 
-312:                                              ; preds = %306
-  %313 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef %310, ptr noundef nonnull %7) #12
-  %.not167.i = icmp eq i32 %313, 0
-  br i1 %.not167.i, label %317, label %314
+313:                                              ; preds = %307
+  %314 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef %311, ptr noundef nonnull %7) #12
+  %.not167.i = icmp eq i32 %314, 0
+  br i1 %.not167.i, label %318, label %315
 
-314:                                              ; preds = %312
-  %315 = load ptr, ptr %6, align 8, !tbaa !162
-  %316 = load ptr, ptr %7, align 8, !tbaa !162
-  %.not168.i = icmp eq ptr %315, %316
-  br i1 %.not168.i, label %318, label %317
+315:                                              ; preds = %313
+  %316 = load ptr, ptr %6, align 8, !tbaa !162
+  %317 = load ptr, ptr %7, align 8, !tbaa !162
+  %.not168.i = icmp eq ptr %316, %317
+  br i1 %.not168.i, label %319, label %318
 
-317:                                              ; preds = %314, %312, %306, %304, %294, %292, %288, %282, %278, %273, %270, %266, %263, %259, %256, %254, %252
+318:                                              ; preds = %315, %313, %307, %305, %295, %293, %289, %283, %279, %274, %271, %267, %264, %260, %257, %255, %253
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4114, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-318:                                              ; preds = %314
-  %319 = call i32 @WPACKET_close(ptr noundef %1) #12
-  %.not169.i = icmp eq i32 %319, 0
-  br i1 %.not169.i, label %320, label %construct_stateful_ticket.exit.sink.split
+319:                                              ; preds = %315
+  %320 = call i32 @WPACKET_close(ptr noundef %1) #12
+  %.not169.i = icmp eq i32 %320, 0
+  br i1 %.not169.i, label %321, label %construct_stateful_ticket.exit.sink.split
 
-320:                                              ; preds = %318
+321:                                              ; preds = %319
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4120, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread124
 
-construct_stateless_ticket.exit.thread124:        ; preds = %157, %162, %166, %170, %181, %186, %317, %320, %250, %189, %174, %217, %220, %224, %230, %247
-  %.0124.i.ph = phi ptr [ %168, %247 ], [ %168, %230 ], [ %168, %224 ], [ %168, %220 ], [ %168, %217 ], [ %168, %174 ], [ %168, %189 ], [ %168, %250 ], [ %168, %320 ], [ %168, %317 ], [ %168, %186 ], [ %168, %181 ], [ null, %170 ], [ null, %166 ], [ null, %162 ], [ null, %157 ]
-  %.0118.i.ph = phi ptr [ %164, %247 ], [ %164, %230 ], [ %164, %224 ], [ %164, %220 ], [ %164, %217 ], [ %164, %174 ], [ %164, %189 ], [ %164, %250 ], [ %164, %320 ], [ %164, %317 ], [ %164, %186 ], [ %164, %181 ], [ %164, %170 ], [ null, %166 ], [ null, %162 ], [ null, %157 ]
-  %.0117.i.ph = phi ptr [ %160, %247 ], [ %160, %230 ], [ %160, %224 ], [ %160, %220 ], [ %160, %217 ], [ %160, %174 ], [ %160, %189 ], [ %160, %250 ], [ %160, %320 ], [ %160, %317 ], [ %160, %186 ], [ %160, %181 ], [ %160, %170 ], [ %160, %166 ], [ null, %162 ], [ null, %157 ]
+construct_stateless_ticket.exit.thread124:        ; preds = %158, %163, %167, %171, %182, %187, %318, %321, %251, %190, %175, %218, %221, %225, %231, %248
+  %.0124.i.ph = phi ptr [ %169, %248 ], [ %169, %231 ], [ %169, %225 ], [ %169, %221 ], [ %169, %218 ], [ %169, %175 ], [ %169, %190 ], [ %169, %251 ], [ %169, %321 ], [ %169, %318 ], [ %169, %187 ], [ %169, %182 ], [ null, %171 ], [ null, %167 ], [ null, %163 ], [ null, %158 ]
+  %.0118.i.ph = phi ptr [ %165, %248 ], [ %165, %231 ], [ %165, %225 ], [ %165, %221 ], [ %165, %218 ], [ %165, %175 ], [ %165, %190 ], [ %165, %251 ], [ %165, %321 ], [ %165, %318 ], [ %165, %187 ], [ %165, %182 ], [ %165, %171 ], [ null, %167 ], [ null, %163 ], [ null, %158 ]
+  %.0117.i.ph = phi ptr [ %161, %248 ], [ %161, %231 ], [ %161, %225 ], [ %161, %221 ], [ %161, %218 ], [ %161, %175 ], [ %161, %190 ], [ %161, %251 ], [ %161, %321 ], [ %161, %318 ], [ %161, %187 ], [ %161, %182 ], [ %161, %171 ], [ %161, %167 ], [ null, %163 ], [ null, %158 ]
   call void @CRYPTO_free(ptr noundef %.0117.i.ph, ptr noundef nonnull @.str.1, i32 noundef 4126) #12
   call void @EVP_CIPHER_CTX_free(ptr noundef %.0118.i.ph) #12
   call void @ssl_hmac_free(ptr noundef %.0124.i.ph) #12
@@ -3814,10 +3815,10 @@ construct_stateless_ticket.exit.thread124:        ; preds = %157, %162, %166, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread116
 
-321:                                              ; preds = %210
-  call void @CRYPTO_free(ptr noundef nonnull %160, ptr noundef nonnull @.str.1, i32 noundef 4126) #12
-  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %164) #12
-  call void @ssl_hmac_free(ptr noundef nonnull %168) #12
+322:                                              ; preds = %211
+  call void @CRYPTO_free(ptr noundef nonnull %161, ptr noundef nonnull @.str.1, i32 noundef 4126) #12
+  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %165) #12
+  call void @ssl_hmac_free(ptr noundef nonnull %169) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3831,29 +3832,29 @@ construct_stateless_ticket.exit.thread124:        ; preds = %157, %162, %166, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 5464
-  %323 = load i64, ptr %322, align 8, !tbaa !104
-  %324 = add i64 %323, 1
-  store i64 %324, ptr %322, align 8, !tbaa !104
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 5472
-  %326 = load i64, ptr %325, align 8, !tbaa !196
-  %327 = add i64 %326, 1
-  store i64 %327, ptr %325, align 8, !tbaa !196
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 2660
-  %329 = load i32, ptr %328, align 4, !tbaa !98
-  %330 = icmp sgt i32 %329, 0
-  br i1 %330, label %331, label %.thread116
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 5464
+  %324 = load i64, ptr %323, align 8, !tbaa !104
+  %325 = add i64 %324, 1
+  store i64 %325, ptr %323, align 8, !tbaa !104
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 5472
+  %327 = load i64, ptr %326, align 8, !tbaa !196
+  %328 = add i64 %327, 1
+  store i64 %328, ptr %326, align 8, !tbaa !196
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 2660
+  %330 = load i32, ptr %329, align 4, !tbaa !98
+  %331 = icmp sgt i32 %330, 0
+  br i1 %331, label %332, label %.thread116
 
-331:                                              ; preds = %321
-  %332 = add nsw i32 %329, -1
-  store i32 %332, ptr %328, align 4, !tbaa !98
+332:                                              ; preds = %322
+  %333 = add nsw i32 %330, -1
+  store i32 %333, ptr %329, align 4, !tbaa !98
   br label %.thread116
 
-construct_stateful_ticket.exit.sink.split:        ; preds = %318, %215
-  %.sink = phi i32 [ 4044, %215 ], [ 4126, %318 ]
-  call void @CRYPTO_free(ptr noundef nonnull %160, ptr noundef nonnull @.str.1, i32 noundef %.sink) #12
-  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %164) #12
-  call void @ssl_hmac_free(ptr noundef nonnull %168) #12
+construct_stateful_ticket.exit.sink.split:        ; preds = %319, %216
+  %.sink = phi i32 [ 4044, %216 ], [ 4126, %319 ]
+  call void @CRYPTO_free(ptr noundef nonnull %161, ptr noundef nonnull @.str.1, i32 noundef %.sink) #12
+  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %165) #12
+  call void @ssl_hmac_free(ptr noundef nonnull %169) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3869,53 +3870,53 @@ construct_stateful_ticket.exit.sink.split:        ; preds = %318, %215
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %construct_stateful_ticket.exit
 
-construct_stateful_ticket.exit:                   ; preds = %construct_stateful_ticket.exit.sink.split, %142
-  %333 = load ptr, ptr %20, align 8, !tbaa !3
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 216
-  %335 = load ptr, ptr %334, align 8, !tbaa !69
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 80
-  %337 = load i32, ptr %336, align 8, !tbaa !72
-  %338 = and i32 %337, 8
-  %.not105 = icmp eq i32 %338, 0
-  br i1 %.not105, label %339, label %.thread116
+construct_stateful_ticket.exit:                   ; preds = %construct_stateful_ticket.exit.sink.split, %143
+  %334 = load ptr, ptr %20, align 8, !tbaa !3
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 216
+  %336 = load ptr, ptr %335, align 8, !tbaa !69
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 80
+  %338 = load i32, ptr %337, align 8, !tbaa !72
+  %339 = and i32 %338, 8
+  %.not105 = icmp eq i32 %339, 0
+  br i1 %.not105, label %340, label %.thread116
 
-339:                                              ; preds = %construct_stateful_ticket.exit
-  %340 = load i32, ptr %333, align 8, !tbaa !74
-  %341 = icmp slt i32 %340, 772
-  %.not106 = icmp eq i32 %340, 65536
-  %or.cond112 = or i1 %341, %.not106
-  br i1 %or.cond112, label %.thread116, label %342
+340:                                              ; preds = %construct_stateful_ticket.exit
+  %341 = load i32, ptr %334, align 8, !tbaa !74
+  %342 = icmp slt i32 %341, 772
+  %.not106 = icmp eq i32 %341, 65536
+  %or.cond112 = or i1 %342, %.not106
+  br i1 %or.cond112, label %.thread116, label %343
 
-342:                                              ; preds = %339
-  %343 = call i32 @tls_construct_extensions(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 8192, ptr noundef null, i64 noundef 0) #12
-  %.not107 = icmp eq i32 %343, 0
-  br i1 %.not107, label %.thread116, label %344
+343:                                              ; preds = %340
+  %344 = call i32 @tls_construct_extensions(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 8192, ptr noundef null, i64 noundef 0) #12
+  %.not107 = icmp eq i32 %344, 0
+  br i1 %.not107, label %.thread116, label %345
 
-344:                                              ; preds = %342
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 5464
-  %346 = load i64, ptr %345, align 8, !tbaa !104
-  %347 = add i64 %346, 1
-  store i64 %347, ptr %345, align 8, !tbaa !104
-  %348 = getelementptr inbounds nuw i8, ptr %0, i64 5472
-  %349 = load i64, ptr %348, align 8, !tbaa !196
-  %350 = add i64 %349, 1
-  store i64 %350, ptr %348, align 8, !tbaa !196
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 2660
-  %352 = load i32, ptr %351, align 4, !tbaa !98
-  %353 = icmp sgt i32 %352, 0
-  br i1 %353, label %354, label %tls_update_ticket_counts.exit114
+345:                                              ; preds = %343
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 5464
+  %347 = load i64, ptr %346, align 8, !tbaa !104
+  %348 = add i64 %347, 1
+  store i64 %348, ptr %346, align 8, !tbaa !104
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 5472
+  %350 = load i64, ptr %349, align 8, !tbaa !196
+  %351 = add i64 %350, 1
+  store i64 %351, ptr %349, align 8, !tbaa !196
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 2660
+  %353 = load i32, ptr %352, align 4, !tbaa !98
+  %354 = icmp sgt i32 %353, 0
+  br i1 %354, label %355, label %tls_update_ticket_counts.exit114
 
-354:                                              ; preds = %344
-  %355 = add nsw i32 %352, -1
-  store i32 %355, ptr %351, align 4, !tbaa !98
+355:                                              ; preds = %345
+  %356 = add nsw i32 %353, -1
+  store i32 %356, ptr %352, align 4, !tbaa !98
   br label %tls_update_ticket_counts.exit114
 
-tls_update_ticket_counts.exit114:                 ; preds = %344, %354
+tls_update_ticket_counts.exit114:                 ; preds = %345, %355
   call void @ssl_update_cache(ptr noundef nonnull %0, i32 noundef 2) #12
   br label %.thread116
 
-.thread116:                                       ; preds = %331, %321, %construct_stateless_ticket.exit.thread124, %132, %144, %42, %70, %48, %34, %92, %58, %112, %342, %tls_update_ticket_counts.exit114, %339, %construct_stateful_ticket.exit
-  %.0 = phi i32 [ 0, %112 ], [ 0, %342 ], [ 1, %tls_update_ticket_counts.exit114 ], [ 1, %339 ], [ 1, %construct_stateful_ticket.exit ], [ 0, %58 ], [ 0, %92 ], [ 0, %34 ], [ 0, %48 ], [ 0, %70 ], [ 0, %42 ], [ 0, %144 ], [ 0, %132 ], [ 2, %331 ], [ 2, %321 ], [ 0, %construct_stateless_ticket.exit.thread124 ]
+.thread116:                                       ; preds = %332, %322, %construct_stateless_ticket.exit.thread124, %133, %145, %42, %71, %48, %34, %93, %58, %113, %343, %tls_update_ticket_counts.exit114, %340, %construct_stateful_ticket.exit
+  %.0 = phi i32 [ 0, %113 ], [ 0, %343 ], [ 1, %tls_update_ticket_counts.exit114 ], [ 1, %340 ], [ 1, %construct_stateful_ticket.exit ], [ 0, %58 ], [ 0, %93 ], [ 0, %34 ], [ 0, %48 ], [ 0, %71 ], [ 0, %42 ], [ 0, %145 ], [ 0, %133 ], [ 2, %332 ], [ 2, %322 ], [ 0, %construct_stateless_ticket.exit.thread124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0
@@ -6642,7 +6643,7 @@ define range(i32 0, 6) i32 @tls_post_process_client_hello(ptr noundef %0, i32 no
 .lr.ph377.i:                                      ; preds = %.preheader.i, %343
   %347 = phi i64 [ %345, %343 ], [ 0, %.preheader.i ]
   %.0235376.i = phi i32 [ %344, %343 ], [ 0, %.preheader.i ]
-  %348 = getelementptr inbounds nuw [255 x i8], ptr %230, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw i8, ptr %230, i64 %347
   %349 = load i8, ptr %348, align 1, !tbaa !193
   %350 = zext i8 %349 to i32
   %351 = icmp eq i32 %323, %350
@@ -6693,7 +6694,7 @@ define range(i32 0, 6) i32 @tls_post_process_client_hello(ptr noundef %0, i32 no
 .lr.ph382.i:                                      ; preds = %.lr.ph386.i, %365
   %368 = phi i64 [ %367, %365 ], [ 0, %.lr.ph386.i ]
   %.0380.i = phi i32 [ %366, %365 ], [ 0, %.lr.ph386.i ]
-  %369 = getelementptr inbounds nuw [255 x i8], ptr %230, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw i8, ptr %230, i64 %368
   %370 = load i8, ptr %369, align 1, !tbaa !193
   %371 = zext i8 %370 to i32
   %372 = icmp eq i32 %363, %371

@@ -254,7 +254,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 62:                                               ; preds = %.lr.ph, %_ZN17expr_counter_procclEP3app.exit
   %63 = phi i32 [ %59, %.lr.ph ], [ %155, %_ZN17expr_counter_procclEP3app.exit ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !35
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !34
@@ -3415,7 +3415,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 52:                                               ; preds = %.lr.ph, %_ZN17expr_counter_procclEP3app.exit
   %53 = phi i32 [ %49, %.lr.ph ], [ %133, %_ZN17expr_counter_procclEP3app.exit ]
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !35
   %57 = add nuw i32 %53, 1
   store i32 %57, ptr %48, align 8, !tbaa !34
@@ -4420,7 +4420,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 53:                                               ; preds = %.lr.ph, %.backedge
   %54 = phi i32 [ %50, %.lr.ph ], [ %123, %.backedge ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !35
   %58 = add nuw i32 %54, 1
   store i32 %58, ptr %49, align 8, !tbaa !34

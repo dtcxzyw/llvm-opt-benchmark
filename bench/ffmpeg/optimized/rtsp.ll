@@ -1439,8 +1439,8 @@ finalize_rtp_handler_init.exit106:                ; preds = %352, %338, %335, %i
 
 453:                                              ; preds = %442
   %454 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %452) #14
-  %455 = add i64 %454, -1
-  %456 = getelementptr inbounds nuw [4096 x i8], ptr %452, i64 0, i64 %455
+  %455 = getelementptr i8, ptr %452, i64 %454
+  %456 = getelementptr i8, ptr %455, i64 -1
   %457 = load i8, ptr %456, align 1, !tbaa !9
   %.not247.i = icmp eq i8 %457, 47
   br i1 %.not247.i, label %460, label %458
@@ -3130,7 +3130,7 @@ get_word_sep.exit:                                ; preds = %40, %40, %27, %27
 
 75:                                               ; preds = %69
   %76 = sext i32 %70 to i64
-  %77 = getelementptr inbounds [8 x %struct.RTSPTransportField], ptr %63, i64 0, i64 %76
+  %77 = getelementptr inbounds %struct.RTSPTransportField, ptr %63, i64 %76
   %78 = icmp eq i8 %73, 47
   %spec.select.idx.i = zext i1 %78 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %72, i64 %spec.select.idx.i
@@ -6698,7 +6698,7 @@ init_satip_stream.exit:                           ; preds = %238, %240
   %242 = sub i32 0, %.1129
   %243 = and i32 %.1129, %242
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds [256 x i8], ptr @ff_log2_tab, i64 0, i64 %244
+  %245 = getelementptr inbounds i8, ptr @ff_log2_tab, i64 %244
   %246 = load i8, ptr %245, align 1, !tbaa !9
   %247 = and i32 %.1129, 2
   %.not171 = icmp eq i32 %247, 0
@@ -8270,7 +8270,7 @@ map_to_opts.exit:                                 ; preds = %17, %28, %30
 .preheader64:                                     ; preds = %70, %87
   %77 = phi i1 [ false, %87 ], [ true, %70 ]
   %indvars.iv = phi i64 [ 1, %87 ], [ 0, %70 ]
-  %78 = getelementptr inbounds nuw [2 x [2 x [8 x i8]]], ptr @rtp_read_header.filters, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x [8 x i8]], ptr @rtp_read_header.filters, i64 %indvars.iv
   %79 = call i32 @av_find_info_tag(ptr noundef nonnull %5, i32 noundef 1000, ptr noundef nonnull %78, ptr noundef nonnull %76) #15
   %.not59 = icmp eq i32 %79, 0
   br i1 %.not59, label %87, label %.preheader

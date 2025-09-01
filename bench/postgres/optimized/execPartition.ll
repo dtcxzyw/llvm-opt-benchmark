@@ -205,7 +205,7 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef ca
   store ptr %93, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %98 = zext nneg i32 %4 to i64
-  %99 = getelementptr inbounds nuw [0 x i32], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %97, i64 %98
   store i32 %59, ptr %99, align 4
   br label %100
 
@@ -864,7 +864,7 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   %347 = load i8, ptr %346, align 1, !range !4, !noundef !5
   %348 = trunc nuw i8 %347 to i1
   %349 = getelementptr inbounds nuw i8, ptr %.0100162, i64 48
-  %350 = getelementptr inbounds nuw [0 x i32], ptr %349, i64 0, i64 %345
+  %350 = getelementptr inbounds nuw i32, ptr %349, i64 %345
   %351 = load i32, ptr %350, align 4
   %352 = icmp sgt i32 %351, -1
   br i1 %348, label %353, label %368
@@ -1142,7 +1142,7 @@ define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1,
   store i8 %60, ptr %67, align 1
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %69 = zext nneg i32 %5 to i64
-  %70 = getelementptr inbounds nuw [0 x i32], ptr %68, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %68, i64 %69
   store i32 %35, ptr %70, align 4
   store ptr %10, ptr @CurrentMemoryContext, align 8
   ret void
@@ -1671,12 +1671,12 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 4
   %316 = load i32, ptr %315, align 4
   %317 = zext i32 %316 to i64
-  %318 = getelementptr inbounds nuw [3 x ptr], ptr %302, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw ptr, ptr %302, i64 %317
   %319 = load ptr, ptr %318, align 8
   %320 = call ptr @lappend(ptr noundef %319, ptr noundef nonnull %313) #9
   %321 = load i32, ptr %315, align 4
   %322 = zext i32 %321 to i64
-  %323 = getelementptr inbounds nuw [3 x ptr], ptr %302, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw ptr, ptr %302, i64 %322
   store ptr %320, ptr %323, align 8
   %324 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %325 = load i32, ptr %324, align 8
@@ -2023,7 +2023,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   %61 = mul nsw i64 %60, 224
   %62 = or disjoint i64 %61, 8
   %63 = call ptr @palloc(i64 noundef %62) #9
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %indvars.iv214.i29
+  %64 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv214.i29
   store ptr %63, ptr %64, align 8
   store i32 %59, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 4
@@ -2042,7 +2042,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   %70 = load ptr, ptr %66, align 8
   %71 = getelementptr inbounds nuw %union.ListCell, ptr %70, i64 %indvars.iv209.i27
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw [0 x %struct.PartitionedRelPruningData], ptr %67, i64 0, i64 %indvars.iv209.i27
+  %73 = getelementptr inbounds nuw %struct.PartitionedRelPruningData, ptr %67, i64 %indvars.iv209.i27
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = call ptr @ExecGetRangeTableRelation(ptr noundef nonnull %0, i32 noundef %75) #9
@@ -2544,7 +2544,7 @@ define dso_local ptr @ExecFindMatchingSubPlans(ptr noundef readonly captures(non
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv24
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call fastcc void @find_matching_subplans_recurse(ptr noundef %13, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef %4, ptr noundef %2)
@@ -2556,7 +2556,7 @@ define dso_local ptr @ExecFindMatchingSubPlans(ptr noundef readonly captures(non
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call fastcc void @find_matching_subplans_recurse(ptr noundef %19, ptr noundef nonnull %20, i1 noundef zeroext false, ptr noundef %4, ptr noundef %2)
@@ -2705,7 +2705,7 @@ define dso_local ptr @ExecInitPartitionExecPruning(ptr noundef %0, i32 noundef %
 66:                                               ; preds = %._crit_edge.i, %.lr.ph90.i
   %67 = phi i32 [ %62, %.lr.ph90.i ], [ %207, %._crit_edge.i ]
   %indvars.iv100.i = phi i64 [ 0, %.lr.ph90.i ], [ %indvars.iv.next101.i, %._crit_edge.i ]
-  %68 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %indvars.iv100.i
+  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv100.i
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %69, align 8
   %.07085.i = add i32 %70, -1
@@ -2719,7 +2719,7 @@ define dso_local ptr @ExecInitPartitionExecPruning(ptr noundef %0, i32 noundef %
 
 74:                                               ; preds = %.loopexit.i, %.lr.ph87.i
   %indvars.iv97.i = phi i64 [ %73, %.lr.ph87.i ], [ %indvars.iv.next98.i, %.loopexit.i ]
-  %75 = getelementptr inbounds nuw [0 x %struct.PartitionedRelPruningData], ptr %72, i64 0, i64 %indvars.iv97.i
+  %75 = getelementptr inbounds nuw %struct.PartitionedRelPruningData, ptr %72, i64 %indvars.iv97.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 56
@@ -3072,7 +3072,7 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
 
 38:                                               ; preds = %33
   %39 = zext nneg i32 %36 to i64
-  %40 = getelementptr inbounds nuw [0 x %struct.PartitionedRelPruningData], ptr %25, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.PartitionedRelPruningData, ptr %25, i64 %39
   tail call fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr noundef nonnull %40, i1 noundef zeroext %2, ptr noundef %3, ptr noundef null)
   br label %44
 
@@ -3117,7 +3117,7 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
 
 66:                                               ; preds = %61
   %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr inbounds nuw [0 x %struct.PartitionedRelPruningData], ptr %25, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %struct.PartitionedRelPruningData, ptr %25, i64 %67
   tail call fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr noundef nonnull %68, i1 noundef zeroext %2, ptr noundef %3, ptr noundef nonnull %4)
   br label %69
 

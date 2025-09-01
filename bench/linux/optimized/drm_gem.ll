@@ -999,7 +999,7 @@ define dso_local ptr @drm_gem_get_pages(ptr noundef readonly captures(none) %0) 
   %108 = add i8 %107, 1
   store i8 %108, ptr %2, align 8
   %109 = zext i8 %107 to i64
-  %110 = getelementptr [15 x ptr], ptr %76, i64 0, i64 %109
+  %110 = getelementptr ptr, ptr %76, i64 %109
   store ptr %106, ptr %110, align 8
   %111 = icmp eq i8 %108, 15
   br i1 %111, label %112, label %114
@@ -1166,7 +1166,7 @@ define dso_local void @drm_gem_put_pages(ptr noundef readonly captures(none) %0,
   %65 = add i8 %64, 1
   store i8 %65, ptr %5, align 8
   %66 = zext i8 %64 to i64
-  %67 = getelementptr [15 x ptr], ptr %25, i64 0, i64 %66
+  %67 = getelementptr ptr, ptr %25, i64 %66
   store ptr %58, ptr %67, align 8
   %68 = icmp eq i8 %65, 15
   br i1 %68, label %69, label %71

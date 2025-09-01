@@ -1526,7 +1526,7 @@ define void @_ZN4util21merge_json_value_into17h0854c00d82c48688E(ptr noalias nou
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %43, align 8, !alias.scope !266, !noalias !269, !nonnull !8, !noundef !8
-  %68 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %67, i64 0, i64 %56, i32 1
+  %68 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %67, i64 %56, i32 1
   invoke void @_ZN4util21merge_json_value_into17h0854c00d82c48688E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %9, ptr noalias noundef nonnull align 8 dereferenceable(72) %68)
           to label %70 unwind label %65
 
@@ -1865,7 +1865,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha8c09a0b1796ad62E.exit.i: ; preds = %23
 
 75:                                               ; preds = %70
   %76 = load ptr, ptr %56, align 8, !alias.scope !318, !noalias !321, !nonnull !8, !noundef !8
-  %77 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %76, i64 0, i64 %69, i32 1
+  %77 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %76, i64 %69, i32 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false)
   invoke void @_ZN4util30merge_non_null_json_value_into17h84a2b3ba9d656d87E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %11, ptr noalias noundef nonnull align 8 dereferenceable(72) %77)

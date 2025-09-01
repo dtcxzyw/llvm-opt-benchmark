@@ -445,7 +445,7 @@ define noundef i32 @_Z12gmx_make_ediiPPc(i32 noundef %0, ptr noundef %1) local_u
 
 .preheader125:                                    ; preds = %78, %216
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %216 ], [ 0, %78 ]
-  %80 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %indvars.iv199
+  %80 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 %indvars.iv199
   %81 = load ptr, ptr %80, align 8, !tbaa !36
   %82 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef %81, i32 noundef 24, ptr noundef nonnull %15)
           to label %83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -458,7 +458,7 @@ define noundef i32 @_Z12gmx_make_ediiPPc(i32 noundef %0, ptr noundef %1) local_u
           to label %86 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %indvars.iv199
+  %87 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 %indvars.iv199
   %88 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #17
   %89 = shl i64 %88, 32
   %sext.i = add i64 %89, 17179869184
@@ -736,7 +736,7 @@ _ZL10sscan_listPPiPKcS2_.exit:                    ; preds = %.noexc76
   br i1 %176, label %177, label %194
 
 177:                                              ; preds = %_ZL10sscan_listPPiPKcS2_.exit
-  %178 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 0, i64 %indvars.iv199
+  %178 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE13evStepOptions, i64 %indvars.iv199
   %179 = load ptr, ptr %178, align 8, !tbaa !36
   %180 = invoke noundef zeroext i1 @_Z13opt2parg_bSetPKciPK7t_pargs(ptr noundef %179, i32 noundef 24, ptr noundef nonnull %15)
           to label %181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -753,7 +753,7 @@ _ZL10sscan_listPPiPKcS2_.exit:                    ; preds = %.noexc76
           to label %186 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 186:                                              ; preds = %184
-  %187 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %indvars.iv199
+  %187 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 %indvars.iv199
   store ptr %185, ptr %187, align 8, !tbaa !14
   br label %216
 
@@ -762,7 +762,7 @@ _ZL10sscan_listPPiPKcS2_.exit:                    ; preds = %.noexc76
           to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %188
-  %190 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %indvars.iv199
+  %190 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 %indvars.iv199
   store ptr %189, ptr %190, align 8, !tbaa !14
   %191 = icmp sgt i32 %.059.lcssa.i, 0
   br i1 %191, label %.lr.ph155.preheader, label %.loopexit120
@@ -785,7 +785,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %188
           to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit80:        ; preds = %196
-  %198 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %indvars.iv199
+  %198 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 %indvars.iv199
   store ptr %197, ptr %198, align 8, !tbaa !14
   %199 = icmp sgt i32 %.059.lcssa.i, 0
   br i1 %199, label %.lr.ph.preheader, label %.loopexit121
@@ -804,7 +804,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit80:        ; preds = %196
   br i1 %exitcond.not, label %.loopexit121, label %.lr.ph, !llvm.loop !42
 
 201:                                              ; preds = %194
-  %202 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 0, i64 %indvars.iv199
+  %202 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE10evStepList, i64 %indvars.iv199
   %203 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.156, i32 noundef 988, i64 noundef range(i64 -2147483648, 2147483648) %174, i64 noundef 4)
           to label %204 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -829,7 +829,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit80:        ; preds = %196
   br label %216
 
 212:                                              ; preds = %83
-  %213 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %indvars.iv199
+  %213 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 %indvars.iv199
   store ptr null, ptr %213, align 8, !tbaa !8
   %214 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.156, i32 noundef 1003, i64 noundef 1, i64 noundef 4)
           to label %215 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -856,11 +856,11 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit80:        ; preds = %196
 
 .preheader:                                       ; preds = %216, %._crit_edge
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %._crit_edge ], [ 0, %216 ]
-  %217 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 0, i64 %indvars.iv203
+  %217 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE9evOptions, i64 %indvars.iv203
   %218 = load ptr, ptr %217, align 8, !tbaa !36
   %219 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.158, ptr noundef %218)
   store i32 0, ptr %23, align 4, !tbaa !4
-  %220 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 0, i64 %indvars.iv203
+  %220 = getelementptr inbounds nuw ptr, ptr @_ZZ12gmx_make_ediiPPcE6listen, i64 %indvars.iv203
   %221 = load ptr, ptr %220, align 8, !tbaa !8
   %222 = load i32, ptr %221, align 4, !tbaa !4
   %.not65158 = icmp eq i32 %222, 0

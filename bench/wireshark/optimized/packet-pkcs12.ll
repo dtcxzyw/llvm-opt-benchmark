@@ -647,9 +647,9 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   %.lhs.trunc = trunc i64 %indvars.iv to i8
   %72 = urem i8 %.lhs.trunc, 20
   %73 = zext nneg i8 %72 to i64
-  %74 = getelementptr [20 x i8], ptr %10, i64 0, i64 %73
+  %74 = getelementptr i8, ptr %10, i64 %73
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr [64 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %76 = getelementptr i8, ptr %11, i64 %indvars.iv
   store i8 %75, ptr %76, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, 64

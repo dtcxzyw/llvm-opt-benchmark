@@ -527,7 +527,7 @@ RB_SYMBOL_P.exit.thread15.i:                      ; preds = %RB_SYMBOL_P.exit.i,
   %.014.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ %0, %59 ]
   %.01113.i.i = phi ptr [ %64, %.lr.ph.i.i ], [ %60, %59 ]
   %61 = and i64 %.014.i.i, 15
-  %62 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !34
   %64 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %63, ptr %64, align 1, !tbaa !34
@@ -556,7 +556,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i
 
 switch.lookup:                                    ; preds = %dump_append_ref.exit
   %75 = and i64 %73, 31
-  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table.dump_object, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dump_object, i64 %75
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %obj_type.exit232
 
@@ -590,7 +590,7 @@ obj_type.exit232:                                 ; preds = %dump_append_ref.exi
   %.014.i.i235 = phi i64 [ %89, %.lr.ph.i.i234 ], [ %83, %82 ]
   %.01113.i.i236 = phi ptr [ %88, %.lr.ph.i.i234 ], [ %84, %82 ]
   %85 = and i64 %.014.i.i235, 15
-  %86 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !34
   %88 = getelementptr inbounds i8, ptr %.01113.i.i236, i64 -1
   store i8 %87, ptr %88, align 1, !tbaa !34
@@ -1215,7 +1215,7 @@ rb_num2ulong_inline.exit:                         ; preds = %325, %327
 333:                                              ; preds = %331, %341
   %.0377 = phi i64 [ 0, %331 ], [ %342, %341 ]
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
-  %334 = getelementptr inbounds nuw [6 x i64], ptr %5, i64 0, i64 %.0377
+  %334 = getelementptr inbounds nuw i64, ptr %5, i64 %.0377
   %335 = load i64, ptr %334, align 8, !tbaa !82
   %336 = call ptr @rb_id2name(i64 noundef %335) #12
   %337 = load i64, ptr %334, align 8, !tbaa !82
@@ -1423,7 +1423,7 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   %.014.i = phi i64 [ %9, %.lr.ph.i ], [ %1, %2 ]
   %.01113.i = phi ptr [ %8, %.lr.ph.i ], [ %4, %2 ]
   %5 = and i64 %.014.i, 15
-  %6 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !34
   %8 = getelementptr inbounds i8, ptr %.01113.i, i64 -1
   store i8 %7, ptr %8, align 1, !tbaa !34
@@ -1976,7 +1976,7 @@ dump_flush.exit.i15.i:                            ; preds = %64
 
 buffer_ensure_capa.exit17.i:                      ; preds = %dump_flush.exit.i15.i, %70, %68, %64, %58
   %80 = phi i64 [ %59, %58 ], [ %75, %dump_flush.exit.i15.i ], [ 0, %64 ], [ 0, %68 ], [ 0, %70 ]
-  %81 = getelementptr inbounds nuw [4096 x i8], ptr %13, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 %80
   store i8 %17, ptr %81, align 1, !tbaa !34
   %82 = add nsw i64 %80, 1
   store i64 %82, ptr %11, align 8, !tbaa !16
@@ -2203,7 +2203,7 @@ define internal void @reachable_object_i(i64 noundef %0, ptr noundef %1) #0 {
   %.014.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ %0, %12 ]
   %.01113.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %13, %12 ]
   %14 = and i64 %.014.i.i, 15
-  %15 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !34
   %17 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %16, ptr %17, align 1, !tbaa !34
@@ -2238,7 +2238,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %12
   %.014.i.i12 = phi i64 [ %32, %.lr.ph.i.i11 ], [ %0, %26 ]
   %.01113.i.i13 = phi ptr [ %31, %.lr.ph.i.i11 ], [ %27, %26 ]
   %28 = and i64 %.014.i.i12, 15
-  %29 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !34
   %31 = getelementptr inbounds i8, ptr %.01113.i.i13, i64 -1
   store i8 %30, ptr %31, align 1, !tbaa !34
@@ -2350,7 +2350,7 @@ define internal void @root_obj_i(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %.014.i.i = phi i64 [ %19, %.lr.ph.i.i ], [ %1, %12 ]
   %.01113.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %14, %12 ]
   %15 = and i64 %.014.i.i, 15
-  %16 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !34
   %18 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %17, ptr %18, align 1, !tbaa !34
@@ -2386,7 +2386,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %12
   %.014.i.i26 = phi i64 [ %33, %.lr.ph.i.i25 ], [ %1, %27 ]
   %.01113.i.i27 = phi ptr [ %32, %.lr.ph.i.i25 ], [ %28, %27 ]
   %29 = and i64 %.014.i.i26, 15
-  %30 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !34
   %32 = getelementptr inbounds i8, ptr %.01113.i.i27, i64 -1
   store i8 %31, ptr %32, align 1, !tbaa !34
@@ -2447,7 +2447,7 @@ define internal void @shape_i(ptr noundef %0, ptr noundef %1) #0 {
   %.014.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ %11, %.lr.ph.i.i.preheader ]
   %.01113.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %10, %.lr.ph.i.i.preheader ]
   %12 = and i64 %.014.i.i, 15
-  %13 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @ruby_hexdigits, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !34
   %15 = getelementptr inbounds i8, ptr %.01113.i.i, i64 -1
   store i8 %14, ptr %15, align 1, !tbaa !34

@@ -17581,7 +17581,7 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
 
 401:                                              ; preds = %_ZNK14PhaseIdealLoop8get_loopEP4Node.exit
   %402 = zext i32 %spec.select to i64
-  %403 = getelementptr inbounds nuw [10 x i8], ptr @.str.36, i64 0, i64 %402
+  %403 = getelementptr inbounds nuw i8, ptr @.str.36, i64 %402
   %404 = load i8, ptr %403, align 1
   %405 = sext i8 %404 to i32
   %406 = add nsw i32 %405, -48
@@ -19473,7 +19473,7 @@ _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i: ; preds = %26
 
 197:                                              ; preds = %194
   %198 = zext i32 %196 to i64
-  %199 = getelementptr inbounds nuw [10 x i8], ptr @.str.36, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr @.str.36, i64 %198
   %200 = load i8, ptr %199, align 1
   %201 = xor i8 %200, 4
   %202 = sext i8 %201 to i32
@@ -22055,7 +22055,7 @@ _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %127
 
 234:                                              ; preds = %229
   %235 = zext i8 %228 to i64
-  %236 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %235
   %237 = load i32, ptr %236, align 4
   %238 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %190) #11
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
@@ -22128,7 +22128,7 @@ _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %127
   call void @llvm.assume(i1 %275)
   %276 = load ptr, ptr %7, align 8
   %277 = zext i8 %228 to i64
-  %278 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw ptr, ptr @_ZN10TypeAryPtr16_array_body_typeE, i64 %277
   %279 = load ptr, ptr %278, align 8
   call void @_ZN16CallLeafNoFPNodeC2EPK8TypeFuncPhPKcPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(128) %274, ptr noundef %273, ptr noundef %249, ptr noundef %276, ptr noundef %279)
   call void @_ZN4Node8init_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %274, i32 noundef 5, ptr noundef %.085)
@@ -22584,7 +22584,7 @@ _ZNK15CountedLoopNode16loopexit_or_nullEv.exit:   ; preds = %124
   %.0169258 = phi ptr [ null, %.lr.ph ], [ %.3172, %_ZNK19BaseCountedLoopNode3phiEv.exit231.thread ]
   %.0173257 = phi i1 [ false, %.lr.ph ], [ %.1174, %_ZNK19BaseCountedLoopNode3phiEv.exit231.thread ]
   %.0175256 = phi ptr [ null, %.lr.ph ], [ %.2177, %_ZNK19BaseCountedLoopNode3phiEv.exit231.thread ]
-  %180 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv291
+  %180 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv291
   %181 = load ptr, ptr %180, align 8
   %.fr358 = freeze ptr %181
   %182 = getelementptr inbounds nuw i8, ptr %.fr358, i64 48
@@ -22743,7 +22743,7 @@ _ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %224, %229, %237, %_
   %283 = load ptr, ptr %282, align 8
   %284 = call noundef zeroext i8 %283(ptr noundef nonnull align 8 dereferenceable(56) %280) #11
   %285 = zext i8 %284 to i64
-  %286 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %285
   %287 = load i32, ptr %286, align 4
   %288 = load ptr, ptr %197, align 8
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16

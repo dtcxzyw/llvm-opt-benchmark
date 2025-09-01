@@ -7265,13 +7265,13 @@ define internal fastcc range(i32 0, 16777728) i32 @_ZL11getUsedNZCVN4llvm9AArch6
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZL11getUsedNZCVN4llvm9AArch64CC8CondCodeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL11getUsedNZCVN4llvm9AArch64CC8CondCodeE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZL11getUsedNZCVN4llvm9AArch64CC8CondCodeE.104, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw i32, ptr @switch.table._ZL11getUsedNZCVN4llvm9AArch64CC8CondCodeE.104, i64 %4
   %switch.load2 = load i32, ptr %switch.gep1, align 4
   %5 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZL11getUsedNZCVN4llvm9AArch64CC8CondCodeE.105, i64 0, i64 %5
+  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table._ZL11getUsedNZCVN4llvm9AArch64CC8CondCodeE.105, i64 %5
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   %6 = or disjoint i32 %switch.load2, %switch.load
   %7 = or disjoint i32 %6, %switch.load4
@@ -41109,7 +41109,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6415getSMEPseud
   %4 = lshr i32 %3, 1
   %5 = add i32 %4, %.01522
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [432 x [2 x i16]], ptr @_ZZN4llvm7AArch6415getSMEPseudoMapEtE20getSMEPseudoMapTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6415getSMEPseudoMapEtE20getSMEPseudoMapTable, i64 %6
   %8 = load i16, ptr %7, align 4, !tbaa !947
   %9 = icmp eq i16 %0, %8
   br i1 %9, label %14, label %10
@@ -41129,7 +41129,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6415getSMEPseud
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [432 x [2 x i16]], ptr @_ZZN4llvm7AArch6415getSMEPseudoMapEtE20getSMEPseudoMapTable, i64 0, i64 %6, i64 1
+  %17 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6415getSMEPseudoMapEtE20getSMEPseudoMapTable, i64 %6, i64 1
   %18 = load i16, ptr %17, align 2, !tbaa !947
   %19 = zext i16 %18 to i32
   br label %20
@@ -41150,7 +41150,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6417getSVENonRe
   %4 = lshr i32 %3, 1
   %5 = add i32 %4, %.01522
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [70 x [2 x i16]], ptr @_ZZN4llvm7AArch6417getSVENonRevInstrEtE22getSVENonRevInstrTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6417getSVENonRevInstrEtE22getSVENonRevInstrTable, i64 %6
   %8 = load i16, ptr %7, align 4, !tbaa !947
   %9 = icmp eq i16 %0, %8
   br i1 %9, label %14, label %10
@@ -41170,7 +41170,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6417getSVENonRe
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [70 x [2 x i16]], ptr @_ZZN4llvm7AArch6417getSVENonRevInstrEtE22getSVENonRevInstrTable, i64 0, i64 %6, i64 1
+  %17 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6417getSVENonRevInstrEtE22getSVENonRevInstrTable, i64 %6, i64 1
   %18 = load i16, ptr %17, align 2, !tbaa !947
   %19 = zext i16 %18 to i32
   br label %20
@@ -41191,7 +41191,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6415getSVEPseud
   %4 = lshr i32 %3, 1
   %5 = add i32 %4, %.01522
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [440 x [2 x i16]], ptr @_ZZN4llvm7AArch6415getSVEPseudoMapEtE20getSVEPseudoMapTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6415getSVEPseudoMapEtE20getSVEPseudoMapTable, i64 %6
   %8 = load i16, ptr %7, align 4, !tbaa !947
   %9 = icmp eq i16 %0, %8
   br i1 %9, label %14, label %10
@@ -41211,7 +41211,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6415getSVEPseud
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [440 x [2 x i16]], ptr @_ZZN4llvm7AArch6415getSVEPseudoMapEtE20getSVEPseudoMapTable, i64 0, i64 %6, i64 1
+  %17 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6415getSVEPseudoMapEtE20getSVEPseudoMapTable, i64 %6, i64 1
   %18 = load i16, ptr %17, align 2, !tbaa !947
   %19 = zext i16 %18 to i32
   br label %20
@@ -41232,7 +41232,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6414getSVERevIn
   %4 = lshr i32 %3, 1
   %5 = add i32 %4, %.01522
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [70 x [2 x i16]], ptr @_ZZN4llvm7AArch6414getSVERevInstrEtE19getSVERevInstrTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6414getSVERevInstrEtE19getSVERevInstrTable, i64 %6
   %8 = load i16, ptr %7, align 4, !tbaa !947
   %9 = icmp eq i16 %0, %8
   br i1 %9, label %14, label %10
@@ -41252,7 +41252,7 @@ define dso_local noundef range(i32 -1, 65536) i32 @_ZN4llvm7AArch6414getSVERevIn
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [70 x [2 x i16]], ptr @_ZZN4llvm7AArch6414getSVERevInstrEtE19getSVERevInstrTable, i64 0, i64 %6, i64 1
+  %17 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN4llvm7AArch6414getSVERevInstrEtE19getSVERevInstrTable, i64 %6, i64 1
   %18 = load i16, ptr %17, align 2, !tbaa !947
   %19 = zext i16 %18 to i32
   br label %20

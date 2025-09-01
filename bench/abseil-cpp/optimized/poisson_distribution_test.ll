@@ -1968,49 +1968,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %18, %16, %12, %8, %
 
 .lr.ph.i4.i.i:                                    ; preds = %.lr.ph.i4.i.i, %.lr.ph.preheader.i.i.i
   %.020.i.i.i = phi i64 [ %32, %.lr.ph.i4.i.i ], [ %5, %.lr.ph.preheader.i.i.i ]
-  %.01819.i.i.i = phi i32 [ %43, %.lr.ph.i4.i.i ], [ %29, %.lr.ph.preheader.i.i.i ]
+  %.01819.i.i.i = phi i32 [ %42, %.lr.ph.i4.i.i ], [ %29, %.lr.ph.preheader.i.i.i ]
   %30 = urem i64 %.020.i.i.i, 100
   %31 = shl nuw nsw i64 %30, 1
   %32 = udiv i64 %.020.i.i.i, 100
-  %33 = or disjoint i64 %31, 1
-  %34 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %33
+  %33 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !17, !noalias !69
   %36 = zext i32 %.01819.i.i.i to i64
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 %36
   store i8 %35, ptr %37, align 1, !tbaa !17
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
-  %39 = load i8, ptr %38, align 2, !tbaa !17, !noalias !69
-  %40 = add i32 %.01819.i.i.i, -1
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %24, i64 %41
-  store i8 %39, ptr %42, align 1, !tbaa !17
-  %43 = add i32 %.01819.i.i.i, -2
-  %44 = icmp ugt i64 %.020.i.i.i, 9999
-  br i1 %44, label %.lr.ph.i4.i.i, label %._crit_edge.i.i.i, !llvm.loop !70
+  %38 = load i8, ptr %33, align 2, !tbaa !17, !noalias !69
+  %39 = add i32 %.01819.i.i.i, -1
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 %40
+  store i8 %38, ptr %41, align 1, !tbaa !17
+  %42 = add i32 %.01819.i.i.i, -2
+  %43 = icmp ugt i64 %.020.i.i.i, 9999
+  br i1 %43, label %.lr.ph.i4.i.i, label %._crit_edge.i.i.i, !llvm.loop !70
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i4.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
   %.0.lcssa.i.i.i = phi i64 [ %5, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ], [ %32, %.lr.ph.i4.i.i ]
-  %45 = icmp samesign ugt i64 %.0.lcssa.i.i.i, 9
-  br i1 %45, label %46, label %54
+  %44 = icmp samesign ugt i64 %.0.lcssa.i.i.i, 9
+  br i1 %44, label %45, label %52
 
-46:                                               ; preds = %._crit_edge.i.i.i
-  %47 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !17, !noalias !69
-  %51 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  store i8 %50, ptr %51, align 1, !tbaa !17
-  %52 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %47
-  %53 = load i8, ptr %52, align 2, !tbaa !17, !noalias !69
+45:                                               ; preds = %._crit_edge.i.i.i
+  %46 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !17, !noalias !69
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  store i8 %49, ptr %50, align 1, !tbaa !17
+  %51 = load i8, ptr %47, align 2, !tbaa !17, !noalias !69
   br label %_ZN7testing8internal16DefaultParamNameIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
-54:                                               ; preds = %._crit_edge.i.i.i
-  %55 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
-  %56 = or disjoint i8 %55, 48
+52:                                               ; preds = %._crit_edge.i.i.i
+  %53 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
+  %54 = or disjoint i8 %53, 48
   br label %_ZN7testing8internal16DefaultParamNameIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
-_ZN7testing8internal16DefaultParamNameIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit: ; preds = %46, %54
-  %storemerge.i.i.i = phi i8 [ %56, %54 ], [ %53, %46 ]
+_ZN7testing8internal16DefaultParamNameIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit: ; preds = %45, %52
+  %storemerge.i.i.i = phi i8 [ %54, %52 ], [ %51, %45 ]
   store i8 %storemerge.i.i.i, ptr %24, align 1, !tbaa !17
   ret void
 }
@@ -16372,7 +16370,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %82 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %83, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %84 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %84 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %85 = load i32, ptr %84, align 4, !tbaa !49
   %86 = zext i32 %85 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %86
@@ -20694,7 +20692,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %82 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %83, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %84 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %84 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %85 = load i32, ptr %84, align 4, !tbaa !49
   %86 = zext i32 %85 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %86
@@ -25555,7 +25553,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %82 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %83, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %84 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %84 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %85 = load i32, ptr %84, align 4, !tbaa !49
   %86 = zext i32 %85 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %86
@@ -34993,7 +34991,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %82 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %83, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %84 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %84 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %85 = load i32, ptr %84, align 4, !tbaa !49
   %86 = zext i32 %85 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %86
@@ -39852,7 +39850,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %80 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %81, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %83 = load i32, ptr %82, align 4, !tbaa !49
   %84 = zext i32 %83 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %84
@@ -43870,7 +43868,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %80 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %81, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %83 = load i32, ptr %82, align 4, !tbaa !49
   %84 = zext i32 %83 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %84
@@ -47888,7 +47886,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %80 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %81, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %83 = load i32, ptr %82, align 4, !tbaa !49
   %84 = zext i32 %83 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %84
@@ -51914,7 +51912,7 @@ define internal void @_ZN12_GLOBAL__N_151PoissonDistributionInterfaceTest_Serial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %80 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %81, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.016.i.i.i.i.i
+  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %.016.i.i.i.i.i
   %83 = load i32, ptr %82, align 4, !tbaa !49
   %84 = zext i32 %83 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %84

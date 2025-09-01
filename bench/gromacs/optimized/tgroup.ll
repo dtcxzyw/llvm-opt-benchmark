@@ -97,23 +97,23 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
 
 .preheader:                                       ; preds = %.preheader65, %78
   %indvars.iv74 = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next75, %78 ]
-  %64 = getelementptr inbounds nuw [3 x [3 x float]], ptr %27, i64 0, i64 %indvars.iv74
-  %65 = getelementptr inbounds nuw [3 x [3 x float]], ptr %30, i64 0, i64 %indvars.iv74
-  %66 = getelementptr inbounds nuw [3 x [3 x float]], ptr %31, i64 0, i64 %indvars.iv74
+  %64 = getelementptr inbounds nuw [3 x float], ptr %27, i64 %indvars.iv74
+  %65 = getelementptr inbounds nuw [3 x float], ptr %30, i64 %indvars.iv74
+  %66 = getelementptr inbounds nuw [3 x float], ptr %31, i64 %indvars.iv74
   br label %67
 
 67:                                               ; preds = %.preheader, %67
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !15
   %70 = fpext float %69 to double
-  %71 = getelementptr inbounds nuw [3 x float], ptr %65, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv
   %72 = load float, ptr %71, align 4, !tbaa !15
   %73 = fpext float %72 to double
   %74 = tail call double @llvm.fmuladd.f64(double %70, double %29, double %73)
   %75 = fmul double %74, 5.000000e-01
   %76 = fptrunc double %75 to float
-  %77 = getelementptr inbounds nuw [3 x float], ptr %66, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv
   store float %76, ptr %77, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

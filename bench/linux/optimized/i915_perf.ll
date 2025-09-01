@@ -360,7 +360,7 @@ define dso_local void @i915_oa_init_reg_state(ptr noundef readonly captures(none
 38:                                               ; preds = %.loopexit, %17
   %39 = phi i64 [ 0, %17 ], [ %69, %.loopexit ]
   %40 = load ptr, ptr %36, align 8
-  %41 = getelementptr [7 x %struct.i915_reg_t], ptr @gen8_is_valid_flex_addr.flex_eu_regs, i64 0, i64 %39
+  %41 = getelementptr %struct.i915_reg_t, ptr @gen8_is_valid_flex_addr.flex_eu_regs, i64 %39
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq ptr %40, null
   br i1 %43, label %.loopexit, label %44
@@ -3705,7 +3705,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
 78:                                               ; preds = %86, %76
   %79 = phi i1 [ true, %76 ], [ false, %86 ]
   %80 = phi i64 [ 0, %76 ], [ 1, %86 ]
-  %81 = getelementptr [2 x ptr], ptr %77, i64 0, i64 %80
+  %81 = getelementptr ptr, ptr %77, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %86, label %84
@@ -3765,7 +3765,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
 .backedge:                                        ; preds = %.backedge.outer, %214
   %107 = phi i1 [ false, %214 ], [ %.ph, %.backedge.outer ]
   %108 = phi i64 [ 1, %214 ], [ %.ph38, %.backedge.outer ]
-  %109 = getelementptr [2 x ptr], ptr %106, i64 0, i64 %108
+  %109 = getelementptr ptr, ptr %106, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %214, label %112
@@ -3793,7 +3793,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initi
   %127 = xor i32 %126, -1
   %128 = and i32 %122, %127
   %129 = sext i32 %123 to i64
-  %130 = getelementptr [27 x ptr], ptr %119, i64 0, i64 %129
+  %130 = getelementptr ptr, ptr %119, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 56
   %133 = load i8, ptr %132, align 8
@@ -5180,7 +5180,7 @@ define internal zeroext i1 @gen8_is_valid_flex_addr(ptr readnone captures(none) 
   br i1 %6, label %11, label %7, !llvm.loop !130
 
 7:                                                ; preds = %.preheader
-  %8 = getelementptr [7 x %struct.i915_reg_t], ptr @gen8_is_valid_flex_addr.flex_eu_regs, i64 0, i64 %5
+  %8 = getelementptr %struct.i915_reg_t, ptr @gen8_is_valid_flex_addr.flex_eu_regs, i64 %5
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %11, label %.preheader, !llvm.loop !130
@@ -6135,7 +6135,7 @@ define dso_local void @i915_perf_fini(ptr noundef %0) local_unnamed_addr #0 alig
   %6 = phi i64 [ 1, %15 ], [ 0, %1 ]
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 9304
-  %9 = getelementptr [2 x ptr], ptr %8, i64 0, i64 %6
+  %9 = getelementptr ptr, ptr %8, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %12
@@ -8995,7 +8995,7 @@ define internal fastcc i32 @lrc_configure_all_contexts(ptr noundef readonly capt
 
 .split.us:                                        ; preds = %3, %.split.us
   %55 = phi i64 [ %57, %.split.us ], [ 2, %3 ]
-  %56 = getelementptr [9 x %struct.flex], ptr %4, i64 0, i64 %55, i32 2
+  %56 = getelementptr %struct.flex, ptr %4, i64 %55, i32 2
   store i32 0, ptr %56, align 4
   %57 = add nuw nsw i64 %55, 1
   %58 = icmp eq i64 %57, 9
@@ -9009,7 +9009,7 @@ define internal fastcc i32 @lrc_configure_all_contexts(ptr noundef readonly capt
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
   %62 = phi i64 [ %64, %.split.split.us ], [ 2, %.split ]
-  %63 = getelementptr [9 x %struct.flex], ptr %4, i64 0, i64 %62, i32 2
+  %63 = getelementptr %struct.flex, ptr %4, i64 %62, i32 2
   store i32 0, ptr %63, align 4
   %64 = add nuw nsw i64 %62, 1
   %65 = icmp eq i64 %64, 9
@@ -9021,7 +9021,7 @@ define internal fastcc i32 @lrc_configure_all_contexts(ptr noundef readonly capt
 
 67:                                               ; preds = %.loopexit, %.split.split
   %68 = phi i64 [ 2, %.split.split ], [ %85, %.loopexit ]
-  %69 = getelementptr [9 x %struct.flex], ptr %4, i64 0, i64 %68
+  %69 = getelementptr %struct.flex, ptr %4, i64 %68
   %70 = load i32, ptr %69, align 4
   br label %74
 

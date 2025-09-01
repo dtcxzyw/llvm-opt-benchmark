@@ -389,7 +389,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit6:              ; preds = %_ZNSt6vectorIiSaIiE
   %.not.i.i.i.i.i = phi i1 [ true, %27 ], [ false, %39 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %27 ], [ 1, %39 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %27 ], [ %.1.i.i.i.i.i, %39 ]
-  %34 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i
   %35 = load i8, ptr %34, align 1, !tbaa !22, !range !24, !noundef !25
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %39

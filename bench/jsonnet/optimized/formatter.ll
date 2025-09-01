@@ -28731,7 +28731,7 @@ _ZN7jsonnet8internal14FixIndentation9newIndentERKSt6vectorINS0_13FodderElementES
 
 switch.lookup:                                    ; preds = %.lr.ph1144
   %1369 = zext nneg i32 %1367 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb, i64 0, i64 %1369
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7jsonnet8internal14FixIndentation4exprEPNS0_3ASTERKNS1_6IndentEb, i64 %1369
   %switch.load = load i32, ptr %switch.gep, align 4
   %1370 = add i32 %1365, %switch.load
   store i32 %1370, ptr %1345, align 4, !tbaa !93
@@ -31228,7 +31228,7 @@ _ZN7jsonnet8internal14FixIndentation4fillERSt6vectorINS0_13FodderElementESaIS3_E
 
 switch.lookup:                                    ; preds = %304
   %308 = zext nneg i32 %306 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7jsonnet8internal14FixIndentation6fieldsERSt6vectorINS0_11ObjectFieldESaIS3_EERKNS1_6IndentEb, i64 0, i64 %308
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7jsonnet8internal14FixIndentation6fieldsERSt6vectorINS0_11ObjectFieldESaIS3_EERKNS1_6IndentEb, i64 %308
   %switch.load = load i32, ptr %switch.gep, align 4
   %309 = load i32, ptr %13, align 4, !tbaa !93
   %310 = add i32 %309, %switch.load

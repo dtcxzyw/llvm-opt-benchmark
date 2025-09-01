@@ -2957,8 +2957,8 @@ _ZN4rand3rng3Rng9gen_range17h802626c5ec6b2768E.exit.i: ; preds = %.lr.ph.i
   br i1 %231, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf9c63e51bb5e0eeeE.llvm.15424224493582452841.exit.i", label %.invoke, !prof !805
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf9c63e51bb5e0eeeE.llvm.15424224493582452841.exit.i": ; preds = %230
-  %232 = getelementptr inbounds [0 x { i8, [3 x i8] }], ptr %219, i64 0, i64 %222
-  %233 = getelementptr inbounds [0 x { i8, [3 x i8] }], ptr %219, i64 0, i64 %.0.i
+  %232 = getelementptr inbounds { i8, [3 x i8] }, ptr %219, i64 %222
+  %233 = getelementptr inbounds { i8, [3 x i8] }, ptr %219, i64 %.0.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %232, align 1, !alias.scope !806, !noalias !811
   %234 = load i32, ptr %233, align 1, !alias.scope !806, !noalias !811
   store i32 %234, ptr %232, align 1, !alias.scope !806, !noalias !811
@@ -3012,7 +3012,7 @@ _ZN4rand3rng3Rng9gen_range17h802626c5ec6b2768E.exit.i: ; preds = %.lr.ph.i
 247:                                              ; preds = %242
   %248 = add nuw nsw i64 %.sroa.079.0506, 1
   %249 = load ptr, ptr %166, align 8, !nonnull !5, !noundef !5
-  %250 = getelementptr inbounds nuw [0 x { i8, [3 x i8] }], ptr %249, i64 0, i64 %244
+  %250 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %249, i64 %244
   store i8 2, ptr %250, align 1
   %exitcond545.not = icmp eq i64 %.sroa.079.0506, %240
   br i1 %exitcond545.not, label %241, label %242

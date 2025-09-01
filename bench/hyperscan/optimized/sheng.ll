@@ -177,7 +177,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 117:                                              ; preds = %.lr.ph, %116
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %116 ]
-  %118 = getelementptr inbounds nuw [0 x i32], ptr %110, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv
   %119 = load i32, ptr %118, align 4
   %120 = tail call i32 %4(i64 noundef 0, i64 noundef %87, i32 noundef %119, ptr noundef %5) #11
   %121 = icmp eq i32 %120, 0
@@ -262,7 +262,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 161:                                              ; preds = %.lr.ph700, %160
   %indvars.iv892 = phi i64 [ 0, %.lr.ph700 ], [ %indvars.iv.next893, %160 ]
-  %162 = getelementptr inbounds nuw [0 x i32], ptr %154, i64 0, i64 %indvars.iv892
+  %162 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv892
   %163 = load i32, ptr %162, align 4
   %164 = tail call i32 %4(i64 noundef 0, i64 noundef %130, i32 noundef %163, ptr noundef %5) #11
   %165 = icmp eq i32 %164, 0
@@ -333,7 +333,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 200:                                              ; preds = %.lr.ph703, %199
   %indvars.iv897 = phi i64 [ 0, %.lr.ph703 ], [ %indvars.iv.next898, %199 ]
-  %201 = getelementptr inbounds nuw [0 x i32], ptr %193, i64 0, i64 %indvars.iv897
+  %201 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv897
   %202 = load i32, ptr %201, align 4
   %203 = tail call i32 %4(i64 noundef 0, i64 noundef %170, i32 noundef %202, ptr noundef %5) #11
   %204 = icmp eq i32 %203, 0
@@ -418,7 +418,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 244:                                              ; preds = %.lr.ph706, %243
   %indvars.iv902 = phi i64 [ 0, %.lr.ph706 ], [ %indvars.iv.next903, %243 ]
-  %245 = getelementptr inbounds nuw [0 x i32], ptr %237, i64 0, i64 %indvars.iv902
+  %245 = getelementptr inbounds nuw i32, ptr %237, i64 %indvars.iv902
   %246 = load i32, ptr %245, align 4
   %247 = tail call i32 %4(i64 noundef 0, i64 noundef %213, i32 noundef %246, ptr noundef %5) #11
   %248 = icmp eq i32 %247, 0
@@ -596,7 +596,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 354:                                              ; preds = %.lr.ph717, %353
   %indvars.iv907 = phi i64 [ 0, %.lr.ph717 ], [ %indvars.iv.next908, %353 ]
-  %355 = getelementptr inbounds nuw [0 x i32], ptr %347, i64 0, i64 %indvars.iv907
+  %355 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv907
   %356 = load i32, ptr %355, align 4
   %357 = tail call i32 %4(i64 noundef 0, i64 noundef %324, i32 noundef %356, ptr noundef %5) #11
   %358 = icmp eq i32 %357, 0
@@ -681,7 +681,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 398:                                              ; preds = %.lr.ph720, %397
   %indvars.iv912 = phi i64 [ 0, %.lr.ph720 ], [ %indvars.iv.next913, %397 ]
-  %399 = getelementptr inbounds nuw [0 x i32], ptr %391, i64 0, i64 %indvars.iv912
+  %399 = getelementptr inbounds nuw i32, ptr %391, i64 %indvars.iv912
   %400 = load i32, ptr %399, align 4
   %401 = tail call i32 %4(i64 noundef 0, i64 noundef %367, i32 noundef %400, ptr noundef %5) #11
   %402 = icmp eq i32 %401, 0
@@ -752,7 +752,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 437:                                              ; preds = %.lr.ph723, %436
   %indvars.iv917 = phi i64 [ 0, %.lr.ph723 ], [ %indvars.iv.next918, %436 ]
-  %438 = getelementptr inbounds nuw [0 x i32], ptr %430, i64 0, i64 %indvars.iv917
+  %438 = getelementptr inbounds nuw i32, ptr %430, i64 %indvars.iv917
   %439 = load i32, ptr %438, align 4
   %440 = tail call i32 %4(i64 noundef 0, i64 noundef %407, i32 noundef %439, ptr noundef %5) #11
   %441 = icmp eq i32 %440, 0
@@ -837,7 +837,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 481:                                              ; preds = %.lr.ph726, %480
   %indvars.iv922 = phi i64 [ 0, %.lr.ph726 ], [ %indvars.iv.next923, %480 ]
-  %482 = getelementptr inbounds nuw [0 x i32], ptr %474, i64 0, i64 %indvars.iv922
+  %482 = getelementptr inbounds nuw i32, ptr %474, i64 %indvars.iv922
   %483 = load i32, ptr %482, align 4
   %484 = tail call i32 %4(i64 noundef 0, i64 noundef %450, i32 noundef %483, ptr noundef %5) #11
   %485 = icmp eq i32 %484, 0
@@ -927,7 +927,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 525:                                              ; preds = %.lr.ph739.us, %524
   %indvars.iv927 = phi i64 [ 0, %.lr.ph739.us ], [ %indvars.iv.next928, %524 ]
-  %526 = getelementptr inbounds nuw [0 x i32], ptr %539, i64 0, i64 %indvars.iv927
+  %526 = getelementptr inbounds nuw i32, ptr %539, i64 %indvars.iv927
   %527 = load i32, ptr %526, align 4
   %528 = tail call i32 %4(i64 noundef 0, i64 noundef %509, i32 noundef %527, ptr noundef %5) #11
   %529 = icmp eq i32 %528, 0
@@ -1133,7 +1133,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 652:                                              ; preds = %.lr.ph751, %651
   %indvars.iv932 = phi i64 [ 0, %.lr.ph751 ], [ %indvars.iv.next933, %651 ]
-  %653 = getelementptr inbounds nuw [0 x i32], ptr %645, i64 0, i64 %indvars.iv932
+  %653 = getelementptr inbounds nuw i32, ptr %645, i64 %indvars.iv932
   %654 = load i32, ptr %653, align 4
   %655 = tail call i32 %4(i64 noundef 0, i64 noundef %622, i32 noundef %654, ptr noundef %5) #11
   %656 = icmp eq i32 %655, 0
@@ -1218,7 +1218,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 696:                                              ; preds = %.lr.ph754, %695
   %indvars.iv937 = phi i64 [ 0, %.lr.ph754 ], [ %indvars.iv.next938, %695 ]
-  %697 = getelementptr inbounds nuw [0 x i32], ptr %689, i64 0, i64 %indvars.iv937
+  %697 = getelementptr inbounds nuw i32, ptr %689, i64 %indvars.iv937
   %698 = load i32, ptr %697, align 4
   %699 = tail call i32 %4(i64 noundef 0, i64 noundef %665, i32 noundef %698, ptr noundef %5) #11
   %700 = icmp eq i32 %699, 0
@@ -1289,7 +1289,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 735:                                              ; preds = %.lr.ph757, %734
   %indvars.iv942 = phi i64 [ 0, %.lr.ph757 ], [ %indvars.iv.next943, %734 ]
-  %736 = getelementptr inbounds nuw [0 x i32], ptr %728, i64 0, i64 %indvars.iv942
+  %736 = getelementptr inbounds nuw i32, ptr %728, i64 %indvars.iv942
   %737 = load i32, ptr %736, align 4
   %738 = tail call i32 %4(i64 noundef 0, i64 noundef %705, i32 noundef %737, ptr noundef %5) #11
   %739 = icmp eq i32 %738, 0
@@ -1374,7 +1374,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 779:                                              ; preds = %.lr.ph760, %778
   %indvars.iv947 = phi i64 [ 0, %.lr.ph760 ], [ %indvars.iv.next948, %778 ]
-  %780 = getelementptr inbounds nuw [0 x i32], ptr %772, i64 0, i64 %indvars.iv947
+  %780 = getelementptr inbounds nuw i32, ptr %772, i64 %indvars.iv947
   %781 = load i32, ptr %780, align 4
   %782 = tail call i32 %4(i64 noundef 0, i64 noundef %748, i32 noundef %781, ptr noundef %5) #11
   %783 = icmp eq i32 %782, 0
@@ -1542,7 +1542,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 885:                                              ; preds = %.lr.ph774, %884
   %indvars.iv952 = phi i64 [ 0, %.lr.ph774 ], [ %indvars.iv.next953, %884 ]
-  %886 = getelementptr inbounds nuw [0 x i32], ptr %878, i64 0, i64 %indvars.iv952
+  %886 = getelementptr inbounds nuw i32, ptr %878, i64 %indvars.iv952
   %887 = load i32, ptr %886, align 4
   %888 = tail call i32 %4(i64 noundef 0, i64 noundef %855, i32 noundef %887, ptr noundef %5) #11
   %889 = icmp eq i32 %888, 0
@@ -1627,7 +1627,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 929:                                              ; preds = %.lr.ph777, %928
   %indvars.iv957 = phi i64 [ 0, %.lr.ph777 ], [ %indvars.iv.next958, %928 ]
-  %930 = getelementptr inbounds nuw [0 x i32], ptr %922, i64 0, i64 %indvars.iv957
+  %930 = getelementptr inbounds nuw i32, ptr %922, i64 %indvars.iv957
   %931 = load i32, ptr %930, align 4
   %932 = tail call i32 %4(i64 noundef 0, i64 noundef %898, i32 noundef %931, ptr noundef %5) #11
   %933 = icmp eq i32 %932, 0
@@ -1698,7 +1698,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 968:                                              ; preds = %.lr.ph780, %967
   %indvars.iv962 = phi i64 [ 0, %.lr.ph780 ], [ %indvars.iv.next963, %967 ]
-  %969 = getelementptr inbounds nuw [0 x i32], ptr %961, i64 0, i64 %indvars.iv962
+  %969 = getelementptr inbounds nuw i32, ptr %961, i64 %indvars.iv962
   %970 = load i32, ptr %969, align 4
   %971 = tail call i32 %4(i64 noundef 0, i64 noundef %938, i32 noundef %970, ptr noundef %5) #11
   %972 = icmp eq i32 %971, 0
@@ -1783,7 +1783,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 1012:                                             ; preds = %.lr.ph783, %1011
   %indvars.iv967 = phi i64 [ 0, %.lr.ph783 ], [ %indvars.iv.next968, %1011 ]
-  %1013 = getelementptr inbounds nuw [0 x i32], ptr %1005, i64 0, i64 %indvars.iv967
+  %1013 = getelementptr inbounds nuw i32, ptr %1005, i64 %indvars.iv967
   %1014 = load i32, ptr %1013, align 4
   %1015 = tail call i32 %4(i64 noundef 0, i64 noundef %981, i32 noundef %1014, ptr noundef %5) #11
   %1016 = icmp eq i32 %1015, 0
@@ -1863,7 +1863,7 @@ sheng4_coa.exit:                                  ; preds = %805, %.critedge202.
 
 1053:                                             ; preds = %.lr.ph796.us, %1052
   %indvars.iv972 = phi i64 [ 0, %.lr.ph796.us ], [ %indvars.iv.next973, %1052 ]
-  %1054 = getelementptr inbounds nuw [0 x i32], ptr %1067, i64 0, i64 %indvars.iv972
+  %1054 = getelementptr inbounds nuw i32, ptr %1067, i64 %indvars.iv972
   %1055 = load i32, ptr %1054, align 4
   %1056 = tail call i32 %4(i64 noundef 0, i64 noundef %1037, i32 noundef %1055, ptr noundef %5) #11
   %1057 = icmp eq i32 %1056, 0
@@ -1950,7 +1950,7 @@ runShengCb.exit:                                  ; preds = %.critedge.i, %.crit
 
 .lr.ph809:                                        ; preds = %.lr.ph809, %.lr.ph809.preheader
   %indvars.iv977 = phi i64 [ 0, %.lr.ph809.preheader ], [ %indvars.iv.next978, %.lr.ph809 ]
-  %1099 = getelementptr inbounds nuw [0 x i32], ptr %1098, i64 0, i64 %indvars.iv977
+  %1099 = getelementptr inbounds nuw i32, ptr %1098, i64 %indvars.iv977
   %1100 = load i32, ptr %1099, align 4
   %1101 = tail call i32 %4(i64 noundef 0, i64 noundef %1093, i32 noundef %1100, ptr noundef %5) #11
   %1102 = icmp eq i32 %1101, 0
@@ -2075,7 +2075,7 @@ define internal fastcc signext range(i8 0, 3) i8 @runSheng(ptr noundef %0, ptr n
 
 69:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %70 = getelementptr inbounds nuw [0 x i32], ptr %62, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 %17(i64 noundef 0, i64 noundef %43, i32 noundef %71, ptr noundef %19) #11
   %73 = icmp eq i32 %72, 0
@@ -2594,7 +2594,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 387:                                              ; preds = %.lr.ph1270, %386
   %indvars.iv1800 = phi i64 [ 0, %.lr.ph1270 ], [ %indvars.iv.next1801, %386 ]
-  %388 = getelementptr inbounds nuw [0 x i32], ptr %380, i64 0, i64 %indvars.iv1800
+  %388 = getelementptr inbounds nuw i32, ptr %380, i64 %indvars.iv1800
   %389 = load i32, ptr %388, align 4
   %390 = tail call i32 %284(i64 noundef 0, i64 noundef %357, i32 noundef %389, ptr noundef %285) #11
   %391 = icmp eq i32 %390, 0
@@ -2679,7 +2679,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 431:                                              ; preds = %.lr.ph1273, %430
   %indvars.iv1805 = phi i64 [ 0, %.lr.ph1273 ], [ %indvars.iv.next1806, %430 ]
-  %432 = getelementptr inbounds nuw [0 x i32], ptr %424, i64 0, i64 %indvars.iv1805
+  %432 = getelementptr inbounds nuw i32, ptr %424, i64 %indvars.iv1805
   %433 = load i32, ptr %432, align 4
   %434 = tail call i32 %284(i64 noundef 0, i64 noundef %400, i32 noundef %433, ptr noundef %285) #11
   %435 = icmp eq i32 %434, 0
@@ -2750,7 +2750,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 470:                                              ; preds = %.lr.ph1276, %469
   %indvars.iv1810 = phi i64 [ 0, %.lr.ph1276 ], [ %indvars.iv.next1811, %469 ]
-  %471 = getelementptr inbounds nuw [0 x i32], ptr %463, i64 0, i64 %indvars.iv1810
+  %471 = getelementptr inbounds nuw i32, ptr %463, i64 %indvars.iv1810
   %472 = load i32, ptr %471, align 4
   %473 = tail call i32 %284(i64 noundef 0, i64 noundef %440, i32 noundef %472, ptr noundef %285) #11
   %474 = icmp eq i32 %473, 0
@@ -2835,7 +2835,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 514:                                              ; preds = %.lr.ph1279, %513
   %indvars.iv1815 = phi i64 [ 0, %.lr.ph1279 ], [ %indvars.iv.next1816, %513 ]
-  %515 = getelementptr inbounds nuw [0 x i32], ptr %507, i64 0, i64 %indvars.iv1815
+  %515 = getelementptr inbounds nuw i32, ptr %507, i64 %indvars.iv1815
   %516 = load i32, ptr %515, align 4
   %517 = tail call i32 %284(i64 noundef 0, i64 noundef %483, i32 noundef %516, ptr noundef %285) #11
   %518 = icmp eq i32 %517, 0
@@ -3011,7 +3011,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 622:                                              ; preds = %.lr.ph1290, %621
   %indvars.iv1820 = phi i64 [ 0, %.lr.ph1290 ], [ %indvars.iv.next1821, %621 ]
-  %623 = getelementptr inbounds nuw [0 x i32], ptr %615, i64 0, i64 %indvars.iv1820
+  %623 = getelementptr inbounds nuw i32, ptr %615, i64 %indvars.iv1820
   %624 = load i32, ptr %623, align 4
   %625 = tail call i32 %284(i64 noundef 0, i64 noundef %592, i32 noundef %624, ptr noundef %285) #11
   %626 = icmp eq i32 %625, 0
@@ -3096,7 +3096,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 666:                                              ; preds = %.lr.ph1293, %665
   %indvars.iv1825 = phi i64 [ 0, %.lr.ph1293 ], [ %indvars.iv.next1826, %665 ]
-  %667 = getelementptr inbounds nuw [0 x i32], ptr %659, i64 0, i64 %indvars.iv1825
+  %667 = getelementptr inbounds nuw i32, ptr %659, i64 %indvars.iv1825
   %668 = load i32, ptr %667, align 4
   %669 = tail call i32 %284(i64 noundef 0, i64 noundef %635, i32 noundef %668, ptr noundef %285) #11
   %670 = icmp eq i32 %669, 0
@@ -3167,7 +3167,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 705:                                              ; preds = %.lr.ph1296, %704
   %indvars.iv1830 = phi i64 [ 0, %.lr.ph1296 ], [ %indvars.iv.next1831, %704 ]
-  %706 = getelementptr inbounds nuw [0 x i32], ptr %698, i64 0, i64 %indvars.iv1830
+  %706 = getelementptr inbounds nuw i32, ptr %698, i64 %indvars.iv1830
   %707 = load i32, ptr %706, align 4
   %708 = tail call i32 %284(i64 noundef 0, i64 noundef %675, i32 noundef %707, ptr noundef %285) #11
   %709 = icmp eq i32 %708, 0
@@ -3252,7 +3252,7 @@ runShengSam.exit.thread971.thread:                ; preds = %.lr.ph1413, %sheng4
 
 749:                                              ; preds = %.lr.ph1299, %748
   %indvars.iv1835 = phi i64 [ 0, %.lr.ph1299 ], [ %indvars.iv.next1836, %748 ]
-  %750 = getelementptr inbounds nuw [0 x i32], ptr %742, i64 0, i64 %indvars.iv1835
+  %750 = getelementptr inbounds nuw i32, ptr %742, i64 %indvars.iv1835
   %751 = load i32, ptr %750, align 4
   %752 = tail call i32 %284(i64 noundef 0, i64 noundef %718, i32 noundef %751, ptr noundef %285) #11
   %753 = icmp eq i32 %752, 0
@@ -3365,7 +3365,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 804:                                              ; preds = %.lr.ph1312, %803
   %indvars.iv1840 = phi i64 [ 0, %.lr.ph1312 ], [ %indvars.iv.next1841, %803 ]
-  %805 = getelementptr inbounds nuw [0 x i32], ptr %797, i64 0, i64 %indvars.iv1840
+  %805 = getelementptr inbounds nuw i32, ptr %797, i64 %indvars.iv1840
   %806 = load i32, ptr %805, align 4
   %807 = tail call i32 %284(i64 noundef 0, i64 noundef %774, i32 noundef %806, ptr noundef %285) #11
   %808 = icmp eq i32 %807, 0
@@ -3524,7 +3524,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 905:                                              ; preds = %.lr.ph1326, %904
   %indvars.iv1845 = phi i64 [ 0, %.lr.ph1326 ], [ %indvars.iv.next1846, %904 ]
-  %906 = getelementptr inbounds nuw [0 x i32], ptr %898, i64 0, i64 %indvars.iv1845
+  %906 = getelementptr inbounds nuw i32, ptr %898, i64 %indvars.iv1845
   %907 = load i32, ptr %906, align 4
   %908 = tail call i32 %284(i64 noundef 0, i64 noundef %875, i32 noundef %907, ptr noundef %285) #11
   %909 = icmp eq i32 %908, 0
@@ -3609,7 +3609,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 949:                                              ; preds = %.lr.ph1329, %948
   %indvars.iv1850 = phi i64 [ 0, %.lr.ph1329 ], [ %indvars.iv.next1851, %948 ]
-  %950 = getelementptr inbounds nuw [0 x i32], ptr %942, i64 0, i64 %indvars.iv1850
+  %950 = getelementptr inbounds nuw i32, ptr %942, i64 %indvars.iv1850
   %951 = load i32, ptr %950, align 4
   %952 = tail call i32 %284(i64 noundef 0, i64 noundef %918, i32 noundef %951, ptr noundef %285) #11
   %953 = icmp eq i32 %952, 0
@@ -3680,7 +3680,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 988:                                              ; preds = %.lr.ph1332, %987
   %indvars.iv1855 = phi i64 [ 0, %.lr.ph1332 ], [ %indvars.iv.next1856, %987 ]
-  %989 = getelementptr inbounds nuw [0 x i32], ptr %981, i64 0, i64 %indvars.iv1855
+  %989 = getelementptr inbounds nuw i32, ptr %981, i64 %indvars.iv1855
   %990 = load i32, ptr %989, align 4
   %991 = tail call i32 %284(i64 noundef 0, i64 noundef %958, i32 noundef %990, ptr noundef %285) #11
   %992 = icmp eq i32 %991, 0
@@ -3765,7 +3765,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 1032:                                             ; preds = %.lr.ph1335, %1031
   %indvars.iv1860 = phi i64 [ 0, %.lr.ph1335 ], [ %indvars.iv.next1861, %1031 ]
-  %1033 = getelementptr inbounds nuw [0 x i32], ptr %1025, i64 0, i64 %indvars.iv1860
+  %1033 = getelementptr inbounds nuw i32, ptr %1025, i64 %indvars.iv1860
   %1034 = load i32, ptr %1033, align 4
   %1035 = tail call i32 %284(i64 noundef 0, i64 noundef %1001, i32 noundef %1034, ptr noundef %285) #11
   %1036 = icmp eq i32 %1035, 0
@@ -3931,7 +3931,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 1136:                                             ; preds = %.lr.ph1349, %1135
   %indvars.iv1865 = phi i64 [ 0, %.lr.ph1349 ], [ %indvars.iv.next1866, %1135 ]
-  %1137 = getelementptr inbounds nuw [0 x i32], ptr %1129, i64 0, i64 %indvars.iv1865
+  %1137 = getelementptr inbounds nuw i32, ptr %1129, i64 %indvars.iv1865
   %1138 = load i32, ptr %1137, align 4
   %1139 = tail call i32 %284(i64 noundef 0, i64 noundef %1106, i32 noundef %1138, ptr noundef %285) #11
   %1140 = icmp eq i32 %1139, 0
@@ -4016,7 +4016,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 1180:                                             ; preds = %.lr.ph1352, %1179
   %indvars.iv1870 = phi i64 [ 0, %.lr.ph1352 ], [ %indvars.iv.next1871, %1179 ]
-  %1181 = getelementptr inbounds nuw [0 x i32], ptr %1173, i64 0, i64 %indvars.iv1870
+  %1181 = getelementptr inbounds nuw i32, ptr %1173, i64 %indvars.iv1870
   %1182 = load i32, ptr %1181, align 4
   %1183 = tail call i32 %284(i64 noundef 0, i64 noundef %1149, i32 noundef %1182, ptr noundef %285) #11
   %1184 = icmp eq i32 %1183, 0
@@ -4087,7 +4087,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 1219:                                             ; preds = %.lr.ph1355, %1218
   %indvars.iv1875 = phi i64 [ 0, %.lr.ph1355 ], [ %indvars.iv.next1876, %1218 ]
-  %1220 = getelementptr inbounds nuw [0 x i32], ptr %1212, i64 0, i64 %indvars.iv1875
+  %1220 = getelementptr inbounds nuw i32, ptr %1212, i64 %indvars.iv1875
   %1221 = load i32, ptr %1220, align 4
   %1222 = tail call i32 %284(i64 noundef 0, i64 noundef %1189, i32 noundef %1221, ptr noundef %285) #11
   %1223 = icmp eq i32 %1222, 0
@@ -4172,7 +4172,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread731, %542, %
 
 1263:                                             ; preds = %.lr.ph1358, %1262
   %indvars.iv1880 = phi i64 [ 0, %.lr.ph1358 ], [ %indvars.iv.next1881, %1262 ]
-  %1264 = getelementptr inbounds nuw [0 x i32], ptr %1256, i64 0, i64 %indvars.iv1880
+  %1264 = getelementptr inbounds nuw i32, ptr %1256, i64 %indvars.iv1880
   %1265 = load i32, ptr %1264, align 4
   %1266 = tail call i32 %284(i64 noundef 0, i64 noundef %1232, i32 noundef %1265, ptr noundef %285) #11
   %1267 = icmp eq i32 %1266, 0
@@ -4275,7 +4275,7 @@ sheng4_coa.exit:                                  ; preds = %1058, %.critedge202
 
 1315:                                             ; preds = %.lr.ph1371, %1314
   %indvars.iv1885 = phi i64 [ 0, %.lr.ph1371 ], [ %indvars.iv.next1886, %1314 ]
-  %1316 = getelementptr inbounds nuw [0 x i32], ptr %1308, i64 0, i64 %indvars.iv1885
+  %1316 = getelementptr inbounds nuw i32, ptr %1308, i64 %indvars.iv1885
   %1317 = load i32, ptr %1316, align 4
   %1318 = tail call i32 %284(i64 noundef 0, i64 noundef %1285, i32 noundef %1317, ptr noundef %285) #11
   %1319 = icmp eq i32 %1318, 0
@@ -4859,7 +4859,7 @@ sheng4_samda.exit.thread:                         ; preds = %1392, %1416, %1467,
   %1652 = add i32 %1651, -1
   store i32 %1652, ptr %74, align 8
   %1653 = zext i32 %1652 to i64
-  %1654 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %101, i64 0, i64 %1653
+  %1654 = getelementptr inbounds nuw %struct.mq_item, ptr %101, i64 %1653
   store i32 0, ptr %1654, align 8
   %1655 = ptrtoint ptr %.14.ph to i64
   %1656 = ptrtoint ptr %.1129 to i64
@@ -4893,7 +4893,7 @@ runShengSam.exit.thread971:                       ; preds = %.critedge.i, %.crit
   %1668 = add i32 %1662, -1
   store i32 %1668, ptr %74, align 8
   %1669 = zext i32 %1668 to i64
-  %1670 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %101, i64 0, i64 %1669
+  %1670 = getelementptr inbounds nuw %struct.mq_item, ptr %101, i64 %1669
   store i32 0, ptr %1670, align 8
   %.idx145 = mul nuw nsw i64 %1669, 24
   %1671 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx145
@@ -4928,7 +4928,7 @@ runShengSam.exit.backedge:                        ; preds = %1678, %1707
 
 1679:                                             ; preds = %1678
   %1680 = zext i32 %.pre.pre to i64
-  %1681 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %101, i64 0, i64 %1680
+  %1681 = getelementptr inbounds nuw %struct.mq_item, ptr %101, i64 %1680
   %1682 = load i32, ptr %1681, align 8
   switch i32 %1682, label %1707 [
     i32 1, label %1683
@@ -5033,7 +5033,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecSheng_QR(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw [0 x i32], ptr %23, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %2
   br i1 %28, label %nfaExecSheng_inAccept.exit, label %25
@@ -5081,7 +5081,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_inAccept(ptr noundef reado
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %1
   br i1 %26, label %shengHasAccept.exit, label %23
@@ -5148,7 +5148,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_testEOD(ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %27, ptr noundef %5) #11
   %29 = icmp eq i32 %28, 0
@@ -5228,7 +5228,7 @@ define hidden noundef signext i8 @nfaExecSheng_reportCurrent(ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %46 = getelementptr inbounds nuw [0 x i32], ptr %43, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = tail call i32 %5(i64 noundef 0, i64 noundef %27, i32 noundef %47, ptr noundef %7) #11
   %49 = icmp eq i32 %48, 0

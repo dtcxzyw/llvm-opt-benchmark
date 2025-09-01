@@ -1623,10 +1623,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !96, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !115, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b28ded3664b0892E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b28ded3664b0892E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b28ded3664b0892E.528", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b28ded3664b0892E.528", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1652,10 +1652,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !96, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !116, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd23afa4de5d9b6f7E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd23afa4de5d9b6f7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd23afa4de5d9b6f7E.529", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd23afa4de5d9b6f7E.529", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1689,7 +1689,7 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %3 = load i8, ptr %2, align 1, !range !120, !alias.scope !117, !noalias !121, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN97_$LT$ruff_python_parser..semantic_errors..InvalidExpressionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hff8bcec1c7b8d260E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN97_$LT$ruff_python_parser..semantic_errors..InvalidExpressionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hff8bcec1c7b8d260E", i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 16), !noalias !117
   ret i1 %5
@@ -1702,10 +1702,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %3 = load i8, ptr %2, align 1, !range !120, !alias.scope !123, !noalias !126, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.540", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.540", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !123
   ret i1 %6
@@ -1729,10 +1729,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %3 = load i8, ptr %2, align 1, !range !131, !alias.scope !128, !noalias !132, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.539", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.539", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !128
   ret i1 %6
@@ -1752,10 +1752,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %3 = load i8, ptr %2, align 1, !range !137, !alias.scope !134, !noalias !138, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.541", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.541", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !134
   ret i1 %6
@@ -18201,10 +18201,10 @@ switch.lookup:                                    ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1, !range !120, !noundef !3
   %20 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE", i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE", i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i8 %19 to i64
-  %switch.gep115 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.533", i64 0, i64 %21
+  %switch.gep115 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.533", i64 %21
   %switch.load116 = load i64, ptr %switch.gep115, align 8
   br label %42
 
@@ -18234,10 +18234,10 @@ switch.lookup117:                                 ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %34 = load i8, ptr %33, align 1, !range !120, !noundef !3
   %35 = zext nneg i8 %34 to i64
-  %switch.gep118 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.534", i64 0, i64 %35
+  %switch.gep118 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.534", i64 %35
   %switch.load119 = load ptr, ptr %switch.gep118, align 8
   %36 = zext nneg i8 %34 to i64
-  %switch.gep120 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.535", i64 0, i64 %36
+  %switch.gep120 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.535", i64 %36
   %switch.load121 = load i64, ptr %switch.gep120, align 8
   br label %46
 
@@ -28928,7 +28928,7 @@ switch.lookup:                                    ; preds = %79, %"_ZN4core3str6
   %.pn8.i = phi ptr [ %110, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.i" ], [ %84, %79 ]
   %.pn6.i = phi i64 [ %109, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.i" ], [ %85, %79 ]
   %116 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN18ruff_python_parser5lexer5Lexer16lex_number_radix17h6e081371e214b2dfE, i64 0, i64 %116
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN18ruff_python_parser5lexer5Lexer16lex_number_radix17h6e081371e214b2dfE, i64 %116
   %switch.load = load i32, ptr %switch.gep, align 4
   invoke void @_ZN15ruff_python_ast3int3Int14from_str_radix17h672a1329d4cb2d72E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %.pn8.i, i64 noundef %.pn6.i, i32 noundef %switch.load, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %80)
           to label %117 unwind label %38
@@ -35411,7 +35411,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i104: ; preds =
 
 switch.lookup:                                    ; preds = %126
   %384 = zext nneg i8 %.sroa.5.0.i.ph214 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$43parse_binary_expression_or_higher_recursive17h70d2e8fe02e6995aE", i64 0, i64 %384
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$43parse_binary_expression_or_higher_recursive17h70d2e8fe02e6995aE", i64 %384
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5691)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -59611,9 +59611,9 @@ tailrecurse.i81.unreachabledefault:               ; preds = %tailrecurse.i81
 switch.lookup:                                    ; preds = %tailrecurse.i81
   %253 = getelementptr inbounds nuw i8, ptr %.tr8.i82, i64 8
   %254 = load i64, ptr %253, align 8, !range !331, !noalias !9060, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537", i64 0, i64 %254
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537", i64 %254
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep2014 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538", i64 0, i64 %254
+  %switch.gep2014 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538", i64 %254
   %switch.load2015 = load i64, ptr %switch.gep2014, align 8
   br label %267
 
@@ -59758,9 +59758,9 @@ tailrecurse.unreachabledefault.i:                 ; preds = %tailrecurse.i
 switch.lookup2016:                                ; preds = %tailrecurse.i
   %279 = getelementptr inbounds nuw i8, ptr %.tr8.i, i64 8
   %280 = load i64, ptr %279, align 8, !range !331, !noalias !9063, !noundef !3
-  %switch.gep2017 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537", i64 0, i64 %280
+  %switch.gep2017 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537", i64 %280
   %switch.load2018 = load ptr, ptr %switch.gep2017, align 8
-  %switch.gep2019 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538", i64 0, i64 %280
+  %switch.gep2019 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538", i64 %280
   %switch.load2020 = load i64, ptr %switch.gep2019, align 8
   br label %293
 
@@ -81894,10 +81894,10 @@ define noundef zeroext i1 @"_ZN105_$LT$ruff_python_parser..semantic_errors..Awai
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !131, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.539", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.539", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -81915,10 +81915,10 @@ define noundef zeroext i1 @"_ZN100_$LT$ruff_python_parser..semantic_errors..Yiel
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !120, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.540", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.540", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -81929,10 +81929,10 @@ define noundef zeroext i1 @"_ZN101_$LT$ruff_python_parser..semantic_errors..Inva
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !137, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.541", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.541", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -81943,7 +81943,7 @@ define noundef zeroext i1 @"_ZN97_$LT$ruff_python_parser..semantic_errors..Inval
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !120, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN97_$LT$ruff_python_parser..semantic_errors..InvalidExpressionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hff8bcec1c7b8d260E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN97_$LT$ruff_python_parser..semantic_errors..InvalidExpressionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hff8bcec1c7b8d260E", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 16)
   ret i1 %4
@@ -84546,10 +84546,10 @@ define noundef zeroext i1 @"_ZN75_$LT$ruff_python_parser..token..TokenKind$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2568, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [103 x i64], ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [103 x ptr], ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.542", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.542", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -88892,10 +88892,10 @@ define internal noundef zeroext i1 @"_ZN73_$LT$ruff_python_parser..token..TokenK
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2568, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [103 x i64], ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [103 x ptr], ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.543", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.543", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

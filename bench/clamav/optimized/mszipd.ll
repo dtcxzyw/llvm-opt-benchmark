@@ -594,7 +594,7 @@ define internal fastcc range(i32 -14, 4) i32 @inflate(ptr noundef %0) unnamed_ad
 
 109:                                              ; preds = %.lr.ph750
   %110 = trunc i32 %.3366746 to i8
-  %111 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %110, ptr %111, align 1, !tbaa !32
   %112 = lshr i32 %.3366746, 8
   %113 = add nsw i32 %.3353747, -8
@@ -653,7 +653,7 @@ define internal fastcc range(i32 -14, 4) i32 @inflate(ptr noundef %0) unnamed_ad
   %136 = getelementptr inbounds nuw i8, ptr %.7320, i64 1
   %137 = load i8, ptr %.7320, align 1, !tbaa !32
   %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 1
-  %138 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv890
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv890
   store i8 %137, ptr %138, align 1, !tbaa !32
   %exitcond893.not = icmp eq i64 %indvars.iv.next891, 4
   br i1 %exitcond893.not, label %._crit_edge758, label %.lr.ph757
@@ -738,7 +738,7 @@ define internal fastcc range(i32 -14, 4) i32 @inflate(ptr noundef %0) unnamed_ad
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 72
   %178 = load ptr, ptr %177, align 8, !tbaa !35
   %179 = zext i32 %174 to i64
-  %180 = getelementptr inbounds nuw [32768 x i8], ptr %23, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr %23, i64 %179
   %181 = zext i32 %.1299 to i64
   call void %178(ptr noundef %.9, ptr noundef nonnull %180, i64 noundef %181) #6
   %182 = load i32, ptr %22, align 8, !tbaa !33
@@ -1084,10 +1084,10 @@ default.unreachable:                              ; preds = %._crit_edge673
   %.4181.lcssa.i = phi i32 [ %.3180454.i, %.preheader301.i ], [ %322, %316 ]
   %324 = trunc i32 %.4188.lcssa.i to i8
   %325 = and i8 %324, 7
-  %326 = getelementptr inbounds nuw [19 x i8], ptr @bitlen_order, i64 0, i64 %indvars.iv.i
+  %326 = getelementptr inbounds nuw i8, ptr @bitlen_order, i64 %indvars.iv.i
   %327 = load i8, ptr %326, align 1, !tbaa !32
   %328 = zext i8 %327 to i64
-  %329 = getelementptr inbounds nuw [19 x i8], ptr %3, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr %3, i64 %328
   store i8 %325, ptr %329, align 1, !tbaa !32
   %330 = lshr i32 %.4188.lcssa.i, 3
   %331 = add nsw i32 %.4181.lcssa.i, -3
@@ -1098,10 +1098,10 @@ default.unreachable:                              ; preds = %._crit_edge673
 .lr.ph457.i:                                      ; preds = %.preheader300.i, %.lr.ph457.i
   %indvars.iv549.i = phi i64 [ %indvars.iv.next550.i, %.lr.ph457.i ], [ %wide.trip.count.i, %.preheader300.i ]
   %indvars.iv.next550.i = add nuw nsw i64 %indvars.iv549.i, 1
-  %332 = getelementptr inbounds nuw [19 x i8], ptr @bitlen_order, i64 0, i64 %indvars.iv549.i
+  %332 = getelementptr inbounds nuw i8, ptr @bitlen_order, i64 %indvars.iv549.i
   %333 = load i8, ptr %332, align 1, !tbaa !32
   %334 = zext i8 %333 to i64
-  %335 = getelementptr inbounds nuw [19 x i8], ptr %3, i64 0, i64 %334
+  %335 = getelementptr inbounds nuw i8, ptr %3, i64 %334
   store i8 0, ptr %335, align 1, !tbaa !32
   %exitcond552.not.i = icmp eq i64 %indvars.iv.next550.i, 19
   br i1 %exitcond552.not.i, label %._crit_edge458.i, label %.lr.ph457.i
@@ -1190,10 +1190,10 @@ default.unreachable:                              ; preds = %._crit_edge673
   %.6183.lcssa.i = phi i32 [ %.5182504.i, %.preheader297.i ], [ %366, %360 ]
   %368 = and i32 %.6190.lcssa.i, 127
   %369 = zext nneg i32 %368 to i64
-  %370 = getelementptr inbounds nuw [128 x i16], ptr %2, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw i16, ptr %2, i64 %369
   %371 = load i16, ptr %370, align 2, !tbaa !36
   %372 = zext i16 %371 to i64
-  %373 = getelementptr inbounds nuw [19 x i8], ptr %3, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr %3, i64 %372
   %374 = load i8, ptr %373, align 1, !tbaa !32
   %375 = zext i8 %374 to i32
   %376 = lshr i32 %.6190.lcssa.i, %375
@@ -1204,7 +1204,7 @@ default.unreachable:                              ; preds = %._crit_edge673
 379:                                              ; preds = %._crit_edge464.i
   %380 = trunc nuw nsw i16 %371 to i8
   %381 = zext i32 %.2506.i to i64
-  %382 = getelementptr inbounds nuw [320 x i8], ptr %4, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i8, ptr %4, i64 %381
   store i8 %380, ptr %382, align 1, !tbaa !32
   %383 = add i32 %.2506.i, 1
   br label %.loopexit.i
@@ -1452,7 +1452,7 @@ default.unreachable:                              ; preds = %._crit_edge673
   %490 = add nsw i32 %.1500.i, -1
   %491 = add i32 %.3499.i, 1
   %492 = zext i32 %.3499.i to i64
-  %493 = getelementptr inbounds nuw [320 x i8], ptr %4, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw i8, ptr %4, i64 %492
   store i8 %.0176.i, ptr %493, align 1, !tbaa !32
   %.not237.i = icmp eq i32 %490, 0
   br i1 %.not237.i, label %.loopexit.i, label %.preheader.i
@@ -1489,7 +1489,7 @@ default.unreachable:                              ; preds = %._crit_edge673
   %503 = load ptr, ptr %0, align 8, !tbaa !15
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 72
   %505 = load ptr, ptr %504, align 8, !tbaa !35
-  %506 = getelementptr inbounds nuw [320 x i8], ptr %4, i64 0, i64 %499
+  %506 = getelementptr inbounds nuw i8, ptr %4, i64 %499
   %507 = zext nneg i32 %259 to i64
   call void %505(ptr noundef nonnull %506, ptr noundef nonnull %19, i64 noundef %507) #6
   %.not516.i = icmp eq i32 %256, 31
@@ -1623,7 +1623,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.13.lcssa = phi ptr [ %.12, %.preheader497 ], [ %543, %542 ]
   %550 = and i32 %.7370.lcssa, 511
   %551 = zext nneg i32 %550 to i64
-  %552 = getelementptr inbounds nuw [1152 x i16], ptr %20, i64 0, i64 %551
+  %552 = getelementptr inbounds nuw i16, ptr %20, i64 %551
   %553 = load i16, ptr %552, align 2, !tbaa !36
   %554 = icmp ugt i16 %553, 287
   br i1 %554, label %.preheader491, label %.loopexit493
@@ -1642,7 +1642,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %560 = and i32 %559, 1
   %561 = or disjoint i32 %558, %560
   %562 = zext nneg i32 %561 to i64
-  %563 = getelementptr inbounds nuw [1152 x i16], ptr %20, i64 0, i64 %562
+  %563 = getelementptr inbounds nuw i16, ptr %20, i64 %562
   %564 = load i16, ptr %563, align 2, !tbaa !36
   %565 = icmp ugt i16 %564, 287
   br i1 %565, label %.preheader491, label %.loopexit493
@@ -1651,7 +1651,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.0344 = phi i16 [ %553, %._crit_edge694 ], [ %564, %555 ]
   %566 = zext nneg i16 %.0344 to i32
   %567 = zext nneg i16 %.0344 to i64
-  %568 = getelementptr inbounds nuw [288 x i8], ptr %18, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw i8, ptr %18, i64 %567
   %569 = load i8, ptr %568, align 1, !tbaa !32
   %570 = zext i8 %569 to i32
   %571 = lshr i32 %.7370.lcssa, %570
@@ -1665,7 +1665,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %577 = add i32 %576, 1
   store i32 %577, ptr %22, align 8, !tbaa !33
   %578 = zext i32 %576 to i64
-  %579 = getelementptr inbounds nuw [32768 x i8], ptr %23, i64 0, i64 %578
+  %579 = getelementptr inbounds nuw i8, ptr %23, i64 %578
   store i8 %575, ptr %579, align 1, !tbaa !32
   %580 = icmp eq i32 %577, 32768
   br i1 %580, label %581, label %.preheader497.backedge
@@ -1691,7 +1691,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
 
 .preheader490:                                    ; preds = %587
   %590 = zext nneg i32 %588 to i64
-  %591 = getelementptr inbounds nuw [29 x i8], ptr @lit_extrabits, i64 0, i64 %590
+  %591 = getelementptr inbounds nuw i8, ptr @lit_extrabits, i64 %590
   %592 = load i8, ptr %591, align 1, !tbaa !32
   %593 = zext i8 %592 to i32
   %594 = icmp slt i32 %572, %593
@@ -1771,13 +1771,13 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.16337.lcssa = phi ptr [ %.13334.lcssa, %.preheader490 ], [ %.17338, %620 ]
   %.16.lcssa = phi ptr [ %.13.lcssa, %.preheader490 ], [ %621, %620 ]
   %628 = zext i8 %592 to i64
-  %629 = getelementptr inbounds nuw [17 x i16], ptr @lsb_bit_mask, i64 0, i64 %628
+  %629 = getelementptr inbounds nuw i16, ptr @lsb_bit_mask, i64 %628
   %630 = load i16, ptr %629, align 2, !tbaa !36
   %631 = zext i16 %630 to i32
   %632 = and i32 %.9372.lcssa, %631
   %633 = lshr i32 %.9372.lcssa, %593
   %634 = sub nsw i32 %.9359.lcssa, %593
-  %635 = getelementptr inbounds nuw [29 x i16], ptr @lit_lengths, i64 0, i64 %590
+  %635 = getelementptr inbounds nuw i16, ptr @lit_lengths, i64 %590
   %636 = load i16, ptr %635, align 2, !tbaa !36
   %637 = zext i16 %636 to i32
   %638 = add nuw nsw i32 %632, %637
@@ -1859,7 +1859,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.18.lcssa = phi ptr [ %.16.lcssa, %._crit_edge704 ], [ %666, %665 ]
   %673 = and i32 %.10373.lcssa, 63
   %674 = zext nneg i32 %673 to i64
-  %675 = getelementptr inbounds nuw [128 x i16], ptr %21, i64 0, i64 %674
+  %675 = getelementptr inbounds nuw i16, ptr %21, i64 %674
   %676 = load i16, ptr %675, align 2, !tbaa !36
   %677 = icmp ugt i16 %676, 31
   br i1 %677, label %.preheader488, label %.loopexit
@@ -1878,7 +1878,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %683 = and i32 %682, 1
   %684 = or disjoint i32 %681, %683
   %685 = zext nneg i32 %684 to i64
-  %686 = getelementptr inbounds nuw [128 x i16], ptr %21, i64 0, i64 %685
+  %686 = getelementptr inbounds nuw i16, ptr %21, i64 %685
   %687 = load i16, ptr %686, align 2, !tbaa !36
   %688 = icmp ugt i16 %687, 31
   br i1 %688, label %.preheader488, label %.loopexit
@@ -1890,12 +1890,12 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   br i1 %690, label %.thread477, label %.preheader487
 
 .preheader487:                                    ; preds = %.loopexit
-  %691 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %689
+  %691 = getelementptr inbounds nuw i8, ptr %19, i64 %689
   %692 = load i8, ptr %691, align 1, !tbaa !32
   %693 = zext i8 %692 to i32
   %694 = sub nsw i32 %.10360.lcssa, %693
   %695 = lshr i32 %.10373.lcssa, %693
-  %696 = getelementptr inbounds nuw [30 x i8], ptr @dist_extrabits, i64 0, i64 %689
+  %696 = getelementptr inbounds nuw i8, ptr @dist_extrabits, i64 %689
   %697 = load i8, ptr %696, align 1, !tbaa !32
   %698 = zext i8 %697 to i32
   %699 = icmp slt i32 %694, %698
@@ -1975,13 +1975,13 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.20341.lcssa = phi ptr [ %.18339.lcssa, %.preheader487 ], [ %.21342, %725 ]
   %.20.lcssa = phi ptr [ %.18.lcssa, %.preheader487 ], [ %726, %725 ]
   %733 = zext i8 %697 to i64
-  %734 = getelementptr inbounds nuw [17 x i16], ptr @lsb_bit_mask, i64 0, i64 %733
+  %734 = getelementptr inbounds nuw i16, ptr @lsb_bit_mask, i64 %733
   %735 = load i16, ptr %734, align 2, !tbaa !36
   %736 = zext i16 %735 to i32
   %737 = and i32 %.11374.lcssa, %736
   %738 = lshr i32 %.11374.lcssa, %698
   %739 = sub nsw i32 %.11361.lcssa, %698
-  %740 = getelementptr inbounds nuw [30 x i16], ptr @dist_offsets, i64 0, i64 %689
+  %740 = getelementptr inbounds nuw i16, ptr @dist_offsets, i64 %689
   %741 = load i16, ptr %740, align 2, !tbaa !36
   %742 = zext i16 %741 to i32
   %743 = add nuw nsw i32 %737, %742
@@ -2011,12 +2011,12 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %751 = add nsw i32 %.in, -1
   %752 = add i32 %.0292743, 1
   %753 = zext i32 %.0292743 to i64
-  %754 = getelementptr inbounds nuw [32768 x i8], ptr %23, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw i8, ptr %23, i64 %753
   %755 = load i8, ptr %754, align 1, !tbaa !32
   %756 = add i32 %750, 1
   store i32 %756, ptr %22, align 8, !tbaa !33
   %757 = zext i32 %750 to i64
-  %758 = getelementptr inbounds nuw [32768 x i8], ptr %23, i64 0, i64 %757
+  %758 = getelementptr inbounds nuw i8, ptr %23, i64 %757
   store i8 %755, ptr %758, align 1, !tbaa !32
   %759 = and i32 %752, 32767
   %760 = icmp eq i32 %756, 32768
@@ -2058,9 +2058,9 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
 
 .lr.ph740.preheader:                              ; preds = %.preheader484
   %777 = zext i32 %.1 to i64
-  %778 = getelementptr inbounds nuw [32768 x i8], ptr %23, i64 0, i64 %777
+  %778 = getelementptr inbounds nuw i8, ptr %23, i64 %777
   %779 = zext i32 %767 to i64
-  %780 = getelementptr inbounds nuw [32768 x i8], ptr %23, i64 0, i64 %779
+  %780 = getelementptr inbounds nuw i8, ptr %23, i64 %779
   br label %.lr.ph740
 
 .lr.ph740:                                        ; preds = %.lr.ph740.preheader, %.lr.ph740

@@ -544,7 +544,7 @@ define dso_local noundef nonnull ptr @ParseExprKindName(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [45 x ptr], ptr @switch.table.ParseExprKindName, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ParseExprKindName, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2259,7 +2259,7 @@ define internal fastcc ptr @transformBoolExpr(ptr noundef %0, ptr noundef nonnul
 
 switch.lookup:                                    ; preds = %2
   %10 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.transformBoolExpr, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.transformBoolExpr, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -2645,7 +2645,7 @@ define internal fastcc noundef nonnull ptr @transformSubLink(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.transformSubLink, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.transformSubLink, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %7)
@@ -3792,7 +3792,7 @@ define internal fastcc noundef nonnull ptr @transformBooleanTest(ptr noundef %0,
 
 switch.lookup:                                    ; preds = %2
   %10 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.transformBooleanTest, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.transformBooleanTest, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -6168,7 +6168,7 @@ define internal fastcc ptr @getJsonEncodingConst(ptr noundef readonly captures(a
 
 switch.lookup:                                    ; preds = %7
   %14 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.getJsonEncodingConst, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.getJsonEncodingConst, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 

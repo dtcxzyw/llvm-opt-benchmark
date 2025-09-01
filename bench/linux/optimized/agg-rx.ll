@@ -46,7 +46,7 @@ define dso_local void @__ieee80211_stop_rx_ba_session(ptr noundef %0, i16 nounde
   store i16 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %15 = zext i16 %1 to i64
-  %16 = getelementptr [16 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %19 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %18, i64 %15) #10, !srcloc !6
@@ -328,7 +328,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 
 70:                                               ; preds = %59
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %72 = getelementptr [16 x i8], ptr %71, i64 0, i64 %66
+  %72 = getelementptr i8, ptr %71, i64 %66
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, %1
   br i1 %74, label %75, label %84
@@ -336,7 +336,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 696
   tail call void @__rcu_read_lock() #10
-  %77 = getelementptr [16 x ptr], ptr %76, i64 0, i64 %66
+  %77 = getelementptr ptr, ptr %76, i64 %66
   %78 = load volatile ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %156, label %80
@@ -459,7 +459,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   store ptr %0, ptr %143, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %145 = getelementptr [16 x ptr], ptr %144, i64 0, i64 %66
+  %145 = getelementptr ptr, ptr %144, i64 %66
   store volatile ptr %96, ptr %145, align 8
   %146 = icmp eq i16 %2, 0
   br i1 %146, label %.thread9, label %147
@@ -485,7 +485,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 872
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %157, i64 %66) #10, !srcloc !7
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %159 = getelementptr [16 x i8], ptr %158, i64 0, i64 %66
+  %159 = getelementptr i8, ptr %158, i64 %66
   store i8 %1, ptr %159, align 1
   br label %.thread
 

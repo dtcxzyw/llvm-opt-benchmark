@@ -654,12 +654,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit: ; preds = %100, %114, 
   %170 = load i8, ptr %155, align 1, !tbaa !33
   %171 = icmp eq i8 %170, 5
   %172 = zext nneg i8 %.035 to i64
-  %173 = getelementptr inbounds nuw [2 x [14 x i16]], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw [14 x i16], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 %172
   %174 = load i8, ptr %70, align 8, !tbaa !33
   %175 = sext i8 %174 to i64
   %176 = zext i1 %171 to i64
-  %177 = add nsw i64 %175, %176
-  %178 = getelementptr inbounds [14 x i16], ptr %173, i64 0, i64 %177
+  %177 = getelementptr i16, ptr %173, i64 %175
+  %178 = getelementptr i16, ptr %177, i64 %176
   %179 = load i16, ptr %178, align 2, !tbaa !69
   %180 = sext i16 %179 to i64
   %181 = sext i16 %179 to i32
@@ -722,12 +722,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_111TransOffsetEbiRKNS1_15PosixTransitio
   %211 = load i8, ptr %157, align 1, !tbaa !33
   %212 = icmp eq i8 %211, 5
   %213 = zext nneg i8 %.035 to i64
-  %214 = getelementptr inbounds nuw [2 x [14 x i16]], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw [14 x i16], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113kMonthOffsetsE, i64 %213
   %215 = load i8, ptr %76, align 8, !tbaa !33
   %216 = sext i8 %215 to i64
   %217 = zext i1 %212 to i64
-  %218 = add nsw i64 %216, %217
-  %219 = getelementptr inbounds [14 x i16], ptr %214, i64 0, i64 %218
+  %218 = getelementptr i16, ptr %214, i64 %216
+  %219 = getelementptr i16, ptr %218, i64 %217
   %220 = load i16, ptr %219, align 2, !tbaa !69
   %221 = sext i16 %220 to i64
   %222 = sext i16 %220 to i32
@@ -952,11 +952,11 @@ _ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE9push_backERKS3_.exi
 
 309:                                              ; preds = %_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EE9push_backERKS3_.exit81
   %310 = zext nneg i8 %.035 to i64
-  %311 = getelementptr inbounds nuw [2 x i32], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kSecsPerYearE, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw i32, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kSecsPerYearE, i64 %310
   %312 = load i32, ptr %311, align 4, !tbaa !84
   %313 = sext i32 %312 to i64
   %314 = add nsw i64 %.039, %313
-  %315 = getelementptr inbounds nuw [2 x i32], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kDaysPerYearE, i64 0, i64 %310
+  %315 = getelementptr inbounds nuw i32, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kDaysPerYearE, i64 %310
   %316 = load i32, ptr %315, align 4, !tbaa !84
   %317 = add nsw i32 %316, %.037
   %318 = srem i32 %317, 7
@@ -1226,7 +1226,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail11
   %11 = udiv i16 %.lhs.trunc, 400
   %.zext10 = zext nneg i16 %11 to i64
   %12 = sext i8 %6 to i64
-  %13 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %12
+  %13 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !84
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %16 = load i8, ptr %15, align 1, !tbaa !95
@@ -1238,8 +1238,8 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl13time_internal4cctz6detail11
   %22 = sub nsw i64 %21, %.zext
   %23 = add nsw i64 %22, %.zext10
   %24 = srem i64 %23, 7
-  %25 = add nsw i64 %24, 6
-  %26 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %25
+  %25 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 4, !tbaa !96
   ret i32 %27
 }
@@ -6057,7 +6057,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124: ; preds = %.
   %.9 = phi i64 [ %109, %108 ], [ %.173, %.loopexit ]
   %.1 = phi i8 [ %spec.select117, %108 ], [ %1, %.loopexit ]
   %93 = sext i8 %.1 to i64
-  %94 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %93
+  %94 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !84
   %96 = icmp eq i8 %.1, 2
   %97 = and i64 %.1091, 3

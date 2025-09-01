@@ -7517,15 +7517,15 @@ _ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit: ; preds = %3, %24
   %75 = extractvalue { i8, i64 } %72, 1
   %.sroa.465.8.extract.trunc = trunc i64 %75 to i32
   %76 = call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %.sroa.465.8.extract.trunc, i32 noundef 64, i1 noundef zeroext false) #21
-  %77 = getelementptr inbounds nuw [2 x %"class.llvm::Register"], ptr %11, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw %"class.llvm::Register", ptr %11, i64 %indvars.iv
   store i32 %76, ptr %77, align 4, !tbaa !66
-  %78 = getelementptr inbounds nuw [2 x %"class.llvm::Register"], ptr %9, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %"class.llvm::Register", ptr %9, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !876
   %.not73 = icmp eq i32 %76, %79
   br i1 %.not73, label %84, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit
 
 _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit: ; preds = %74
-  %80 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 1, ptr %80, align 1, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 16, i1 false)
@@ -7594,8 +7594,8 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
 101:                                              ; preds = %.lr.ph76, %110
   %102 = phi i24 [ %89, %.lr.ph76 ], [ %111, %110 ]
   %indvars.iv80 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next81, %110 ]
-  %103 = getelementptr inbounds nuw [2 x %"class.llvm::Register"], ptr %11, i64 0, i64 %indvars.iv80
-  %104 = getelementptr inbounds nuw [2 x %"class.llvm::Register"], ptr %9, i64 0, i64 %indvars.iv80
+  %103 = getelementptr inbounds nuw %"class.llvm::Register", ptr %11, i64 %indvars.iv80
+  %104 = getelementptr inbounds nuw %"class.llvm::Register", ptr %9, i64 %indvars.iv80
   %105 = load i32, ptr %103, align 4, !tbaa !876
   %106 = load i32, ptr %104, align 4, !tbaa !876
   %.not71 = icmp eq i32 %105, %106
@@ -7754,7 +7754,7 @@ _ZN18NoAutoPaddingScopeD2Ev.exit:                 ; preds = %142, %151, %157
 
 163:                                              ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit49, %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit60
   %indvars.iv83 = phi i64 [ 1, %_ZN4llvm13MCInstBuilderD2Ev.exit49 ], [ %indvars.iv.next84, %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit60 ]
-  %164 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 0, i64 %indvars.iv83
+  %164 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv83
   %165 = load i8, ptr %164, align 1, !tbaa !49, !range !50, !noundef !51
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit55, label %172
@@ -7765,7 +7765,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit55: ; preds = %163
   store ptr %139, ptr %138, align 8, !tbaa !25
   store i32 6, ptr %141, align 4, !tbaa !27
   store i32 3294, ptr %17, align 8, !tbaa !219
-  %167 = getelementptr inbounds nuw [2 x %"class.llvm::Register"], ptr %9, i64 0, i64 %indvars.iv83
+  %167 = getelementptr inbounds nuw %"class.llvm::Register", ptr %9, i64 %indvars.iv83
   %168 = load i32, ptr %167, align 4, !tbaa !876
   %.sroa.3.8.insert.ext.i.i53 = zext i32 %168 to i64
   store i8 1, ptr %139, align 8
@@ -7936,15 +7936,15 @@ _ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit: ; preds = %3, %24
   %77 = extractvalue { i8, i64 } %74, 1
   %.sroa.464.8.extract.trunc = trunc i64 %77 to i32
   %78 = call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %.sroa.464.8.extract.trunc, i32 noundef 64, i1 noundef zeroext false) #21
-  %79 = getelementptr inbounds nuw [3 x %"class.llvm::Register"], ptr %11, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw %"class.llvm::Register", ptr %11, i64 %indvars.iv
   store i32 %78, ptr %79, align 4, !tbaa !66
-  %80 = getelementptr inbounds nuw [3 x %"class.llvm::Register"], ptr %9, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw %"class.llvm::Register", ptr %9, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !876
   %.not71 = icmp eq i32 %78, %81
   br i1 %.not71, label %86, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit
 
 _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit: ; preds = %76
-  %82 = getelementptr inbounds nuw [3 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 1, ptr %82, align 1, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 16, i1 false)
@@ -8013,7 +8013,7 @@ _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.p
 103:                                              ; preds = %.lr.ph74, %115
   %104 = phi i24 [ %91, %.lr.ph74 ], [ %116, %115 ]
   %indvars.iv78 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next79, %115 ]
-  %105 = getelementptr inbounds nuw [3 x i8], ptr %10, i64 0, i64 %indvars.iv78
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv78
   %106 = load i8, ptr %105, align 1, !tbaa !49, !range !50, !noundef !51
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit43, label %115
@@ -8024,12 +8024,12 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit43: ; preds = %103
   store ptr %67, ptr %66, align 8, !tbaa !25
   store i32 6, ptr %69, align 4, !tbaa !27
   store i32 2569, ptr %13, align 8, !tbaa !219
-  %108 = getelementptr inbounds nuw [3 x %"class.llvm::Register"], ptr %9, i64 0, i64 %indvars.iv78
+  %108 = getelementptr inbounds nuw %"class.llvm::Register", ptr %9, i64 %indvars.iv78
   %109 = load i32, ptr %108, align 4, !tbaa !876
   %.sroa.3.8.insert.ext.i.i36 = zext i32 %109 to i64
   store i8 1, ptr %67, align 8
   store i64 %.sroa.3.8.insert.ext.i.i36, ptr %.sroa.22.0..sroa_idx.i.i.i37, align 8
-  %110 = getelementptr inbounds nuw [3 x %"class.llvm::Register"], ptr %11, i64 0, i64 %indvars.iv78
+  %110 = getelementptr inbounds nuw %"class.llvm::Register", ptr %11, i64 %indvars.iv78
   %111 = load i32, ptr %110, align 4, !tbaa !876
   %.sroa.3.8.insert.ext.i.i41 = zext i32 %111 to i64
   store i8 1, ptr %70, align 8
@@ -8175,7 +8175,7 @@ _ZN18NoAutoPaddingScopeD2Ev.exit:                 ; preds = %147, %156, %162
 
 168:                                              ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit48, %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit59
   %indvars.iv81 = phi i64 [ 2, %_ZN4llvm13MCInstBuilderD2Ev.exit48 ], [ %indvars.iv.next82, %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit59 ]
-  %169 = getelementptr inbounds nuw [3 x i8], ptr %10, i64 0, i64 %indvars.iv81
+  %169 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv81
   %170 = load i8, ptr %169, align 1, !tbaa !49, !range !50, !noundef !51
   %171 = trunc nuw i8 %170 to i1
   br i1 %171, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit54, label %177
@@ -8186,7 +8186,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit54: ; preds = %168
   store ptr %144, ptr %143, align 8, !tbaa !25
   store i32 6, ptr %146, align 4, !tbaa !27
   store i32 3294, ptr %17, align 8, !tbaa !219
-  %172 = getelementptr inbounds nuw [3 x %"class.llvm::Register"], ptr %9, i64 0, i64 %indvars.iv81
+  %172 = getelementptr inbounds nuw %"class.llvm::Register", ptr %9, i64 %indvars.iv81
   %173 = load i32, ptr %172, align 4, !tbaa !876
   %.sroa.3.8.insert.ext.i.i52 = zext i32 %173 to i64
   store i8 1, ptr %144, align 8

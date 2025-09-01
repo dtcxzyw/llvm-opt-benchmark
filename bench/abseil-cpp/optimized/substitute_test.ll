@@ -2319,7 +2319,7 @@ _ZN4absl10SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS_19sub
   %657 = sub nuw nsw i64 56, %656
   %658 = lshr i64 149130, %657
   %659 = and i64 %658, 206
-  %660 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl16numbers_internal9kHexTableE, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw i8, ptr @_ZN4absl16numbers_internal9kHexTableE, i64 %659
   %661 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %662 = getelementptr inbounds nuw i8, ptr %654, i64 %661
   %663 = load i16, ptr %660, align 2

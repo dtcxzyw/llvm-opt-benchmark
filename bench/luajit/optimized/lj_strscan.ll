@@ -1364,7 +1364,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %155 = add i32 %.0195373, 511
   %.0188362 = and i32 %155, 511
   %156 = zext nneg i32 %.0188362 to i64
-  %157 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr %8, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !4
   %159 = zext i8 %158 to i32
   %160 = shl nuw nsw i32 %159, 6
@@ -1391,7 +1391,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %173 = add nuw nsw i32 %.0188365, 511
   %.0188 = and i32 %173, 511
   %174 = zext nneg i32 %.0188 to i64
-  %175 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr %8, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !4
   %177 = zext i8 %176 to i32
   %178 = shl nuw nsw i32 %177, 6
@@ -1419,7 +1419,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %189 = add i32 %.1196.lcssa, 511
   %190 = and i32 %189, 511
   %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i8, ptr %8, i64 %191
   %193 = load i8, ptr %192, align 1, !tbaa !4
   %194 = icmp eq i8 %193, 0
   br i1 %194, label %204, label %195
@@ -1432,7 +1432,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %198 = add nuw nsw i32 %.1196.lcssa, 510
   %199 = and i32 %198, 511
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr %8, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !4
   %203 = or i8 %202, %193
   store i8 %203, ptr %201, align 1, !tbaa !4
@@ -1442,7 +1442,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %.5200 = phi i32 [ %190, %197 ], [ %.1196.lcssa, %195 ], [ %190, %186 ]
   %205 = trunc nuw i32 %.lcssa341 to i8
   %206 = zext nneg i32 %188 to i64
-  %207 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr %8, i64 %206
   store i8 %205, ptr %207, align 1, !tbaa !4
   %208 = add nsw i32 %.0189375, 1
   br label %209
@@ -1471,7 +1471,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %.0186 = phi i32 [ %.2204391, %.lr.ph395 ], [ %228, %211 ]
   %.0184 = phi i32 [ 0, %.lr.ph395 ], [ %220, %211 ]
   %212 = zext i32 %.0186 to i64
-  %213 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw i8, ptr %8, i64 %212
   %214 = load i8, ptr %213, align 1, !tbaa !4
   %215 = zext i8 %214 to i32
   %216 = add nuw nsw i32 %.0184, %215
@@ -1509,7 +1509,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %232 = add nuw nsw i32 %.4206, 511
   %233 = and i32 %232, 511
   %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr %8, i64 %234
   %236 = load i8, ptr %235, align 1, !tbaa !4
   %237 = or i8 %236, 1
   store i8 %237, ptr %235, align 1, !tbaa !4
@@ -1519,7 +1519,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %239 = lshr i32 %.1185388, 6
   %240 = trunc nuw nsw i32 %239 to i8
   %241 = zext i32 %.7387 to i64
-  %242 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i8, ptr %8, i64 %241
   store i8 %240, ptr %242, align 1, !tbaa !4
   %243 = add i32 %.7387, 1
   %244 = and i32 %243, 511
@@ -1539,7 +1539,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %.1193.lcssa = phi i32 [ 0, %.critedge ], [ %.0192374, %.lr.ph376 ], [ %154, %209 ], [ %229, %.loopexit333 ]
   %.2191.lcssa = phi i32 [ 9, %.critedge ], [ %.0189375, %.lr.ph376 ], [ 9, %209 ], [ %.4, %.loopexit333 ]
   %248 = zext i32 %.2204.lcssa to i64
-  %249 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw i8, ptr %8, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !4
   %251 = zext i8 %250 to i64
   %.0.in401 = add i32 %.2204.lcssa, 1
@@ -1556,7 +1556,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
   %.0182403 = phi i64 [ %262, %.lr.ph406 ], [ %251, %._crit_edge396 ]
   %257 = mul i64 %.0182403, 100
   %258 = zext nneg i32 %.0404 to i64
-  %259 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw i8, ptr %8, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !4
   %261 = zext i8 %260 to i64
   %262 = add i64 %257, %261
@@ -1595,7 +1595,7 @@ define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly cap
 275:                                              ; preds = %281, %272
   %.1 = phi i32 [ %.0.lcssa, %272 ], [ %283, %281 ]
   %276 = zext nneg i32 %.1 to i64
-  %277 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw i8, ptr %8, i64 %276
   %278 = load i8, ptr %277, align 1, !tbaa !4
   %.not281 = icmp eq i8 %278, 0
   br i1 %.not281, label %281, label %279

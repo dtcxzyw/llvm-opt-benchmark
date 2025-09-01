@@ -497,8 +497,8 @@ define internal range(i32 0, 2) i32 @test_dyn_frame_types(i32 noundef %0) #1 {
   %2 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [40 x %struct.forbidden_frame_type], ptr @forbidden_frame_types, i64 0, i64 %3, i32 2
-  %5 = getelementptr inbounds [40 x %struct.forbidden_frame_type], ptr @forbidden_frame_types, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.forbidden_frame_type, ptr @forbidden_frame_types, i64 %3, i32 2
+  %5 = getelementptr inbounds %struct.forbidden_frame_type, ptr @forbidden_frame_types, i64 %3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %7
 
@@ -554,7 +554,7 @@ define internal range(i32 0, 2) i32 @test_script(i32 noundef %0) #1 {
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.161, i32 noundef %10) #15
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 5912, ptr noundef nonnull @.str.162, i32 noundef %10, i32 noundef %3, i32 noundef %5) #15
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds [87 x ptr], ptr @scripts, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr @scripts, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = call fastcc i32 @run_script(ptr noundef %14, ptr noundef %2, i32 noundef %3, i32 noundef %5)
   br label %16
@@ -1560,12 +1560,12 @@ s_lock.exit:                                      ; preds = %s_checked_out_p.exi
 
 192:                                              ; preds = %188
   %193 = add i64 %.2547, 1
-  %194 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.1570
+  %194 = getelementptr inbounds nuw i64, ptr %12, i64 %.1570
   store i64 %193, ptr %194, align 8, !tbaa !16
-  %195 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.1570
+  %195 = getelementptr inbounds nuw i64, ptr %13, i64 %.1570
   store i64 0, ptr %195, align 8, !tbaa !16
   %196 = load i64, ptr %189, align 8, !tbaa !15
-  %197 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.1570
+  %197 = getelementptr inbounds nuw i64, ptr %14, i64 %.1570
   store i64 %196, ptr %197, align 8, !tbaa !16
   %198 = add i64 %.1570, 1
   br label %.backedge.backedge
@@ -1607,17 +1607,17 @@ s_lock.exit:                                      ; preds = %s_checked_out_p.exi
 
 212:                                              ; preds = %210
   %213 = add i64 %.1570, -1
-  %214 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i64, ptr %13, i64 %213
   %215 = load i64, ptr %214, align 8, !tbaa !16
   %216 = add i64 %215, 1
   store i64 %216, ptr %214, align 8, !tbaa !16
-  %217 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %213
+  %217 = getelementptr inbounds nuw i64, ptr %14, i64 %213
   %218 = load i64, ptr %217, align 8, !tbaa !16
   %219 = icmp eq i64 %216, %218
   br i1 %219, label %.backedge.backedge, label %220
 
 220:                                              ; preds = %212
-  %221 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %213
+  %221 = getelementptr inbounds nuw i64, ptr %12, i64 %213
   %222 = load i64, ptr %221, align 8, !tbaa !16
   br label %.backedge.backedge
 
@@ -3920,11 +3920,11 @@ s_unlock.exit955:                                 ; preds = %s_checked_out_p.exi
 
 .lr.ph1212:                                       ; preds = %1256, %.lr.ph1212
   %.05301211 = phi i64 [ %1264, %.lr.ph1212 ], [ 0, %1256 ]
-  %1258 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.05301211
+  %1258 = getelementptr inbounds nuw i64, ptr %13, i64 %.05301211
   %1259 = load i64, ptr %1258, align 8, !tbaa !16
-  %1260 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.05301211
+  %1260 = getelementptr inbounds nuw i64, ptr %14, i64 %.05301211
   %1261 = load i64, ptr %1260, align 8, !tbaa !16
-  %1262 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.05301211
+  %1262 = getelementptr inbounds nuw i64, ptr %12, i64 %.05301211
   %1263 = load i64, ptr %1262, align 8, !tbaa !16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 2029, ptr noundef nonnull @.str.146, i64 noundef %1259, i64 noundef %1261, i64 noundef %1263) #15
   %1264 = add nuw i64 %.05301211, 1
@@ -5821,7 +5821,7 @@ define internal range(i32 0, 2) i32 @script_39_inject_plain(ptr noundef readonly
 
 55:                                               ; preds = %.lr.ph, %63
   %.01941 = phi i64 [ 0, %.lr.ph ], [ %64, %63 ]
-  %56 = getelementptr inbounds nuw [20 x i8], ptr %52, i64 0, i64 %.01941
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.01941
   %57 = load i8, ptr %56, align 1, !tbaa !48
   %58 = zext i8 %57 to i64
   %59 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %5, i64 noundef %58, i64 noundef 1) #15
@@ -8280,9 +8280,9 @@ define internal range(i32 0, 2) i32 @script_85_poll(ptr noundef readonly capture
 47:                                               ; preds = %45, %54
   %.168 = phi i32 [ %.054, %45 ], [ %.2, %54 ]
   %.05667 = phi i64 [ 0, %45 ], [ %55, %54 ]
-  %48 = getelementptr inbounds nuw [5 x %struct.ssl_poll_item_st], ptr %4, i64 0, i64 %.05667, i32 2
+  %48 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %.05667, i32 2
   %49 = load i64, ptr %48, align 8, !tbaa !165
-  %50 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %.05667
+  %50 = getelementptr inbounds nuw i64, ptr %5, i64 %.05667
   %51 = load i64, ptr %50, align 8, !tbaa !16
   %52 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 5626, ptr noundef nonnull @.str.390, ptr noundef nonnull @.str.391, i64 noundef %49, i64 noundef %51) #15
   %.not62 = icmp eq i32 %52, 0

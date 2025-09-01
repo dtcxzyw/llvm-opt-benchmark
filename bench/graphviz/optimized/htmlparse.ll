@@ -135,7 +135,7 @@ define range(i32 0, 3) i32 @htmlparse(ptr noundef %0) local_unnamed_addr #0 {
 
 43:                                               ; preds = %.thread350
   %44 = sext i32 %.0245 to i64
-  %45 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %44
+  %45 = getelementptr inbounds i16, ptr @yypact, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !6
   %47 = sext i16 %46 to i32
   %48 = icmp eq i16 %46, -82
@@ -164,7 +164,7 @@ define range(i32 0, 3) i32 @htmlparse(ptr noundef %0) local_unnamed_addr #0 {
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %.4 to i64
-  %61 = getelementptr inbounds nuw [296 x i8], ptr @yytranslate, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !3
   %63 = sext i8 %62 to i32
   br label %64
@@ -178,14 +178,14 @@ define range(i32 0, 3) i32 @htmlparse(ptr noundef %0) local_unnamed_addr #0 {
 
 66:                                               ; preds = %64
   %67 = zext nneg i32 %65 to i64
-  %68 = getelementptr inbounds nuw [272 x i8], ptr @yycheck, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !3
   %70 = sext i8 %69 to i32
   %.not302 = icmp eq i32 %.0258, %70
   br i1 %.not302, label %71, label %81
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw [272 x i8], ptr @yytable, i64 0, i64 %67
+  %72 = getelementptr inbounds nuw i8, ptr @yytable, i64 %67
   %73 = load i8, ptr %72, align 1, !tbaa !3
   %74 = sext i8 %73 to i32
   %75 = icmp slt i8 %73, 1
@@ -204,7 +204,7 @@ define range(i32 0, 3) i32 @htmlparse(ptr noundef %0) local_unnamed_addr #0 {
 
 81:                                               ; preds = %64, %66, %43
   %.3 = phi i32 [ %.0238, %43 ], [ %.5, %64 ], [ %.5, %66 ]
-  %82 = getelementptr inbounds [116 x i8], ptr @yydefact, i64 0, i64 %44
+  %82 = getelementptr inbounds i8, ptr @yydefact, i64 %44
   %83 = load i8, ptr %82, align 1, !tbaa !3
   %84 = sext i8 %83 to i32
   %85 = icmp eq i8 %83, 0
@@ -214,7 +214,7 @@ define range(i32 0, 3) i32 @htmlparse(ptr noundef %0) local_unnamed_addr #0 {
   %.0260 = phi i32 [ %84, %81 ], [ %77, %76 ]
   %.7 = phi i32 [ %.3, %81 ], [ %.5, %76 ]
   %87 = sext i32 %.0260 to i64
-  %88 = getelementptr inbounds [70 x i8], ptr @yyr2, i64 0, i64 %87
+  %88 = getelementptr inbounds i8, ptr @yyr2, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !3
   %90 = sext i8 %89 to i64
   %91 = sub nsw i64 1, %90
@@ -911,11 +911,11 @@ addRow.exit:                                      ; preds = %._crit_edge.i.i.i32
   %409 = getelementptr inbounds i8, ptr %.2275, i64 %407
   %410 = getelementptr inbounds nuw i8, ptr %408, i64 8
   store ptr %.sroa.0.0, ptr %410, align 8, !tbaa !3
-  %411 = getelementptr inbounds [70 x i8], ptr @yyr1, i64 0, i64 %87
+  %411 = getelementptr inbounds i8, ptr @yyr1, i64 %87
   %412 = load i8, ptr %411, align 1, !tbaa !3
   %413 = sext i8 %412 to i64
   %414 = add nsw i64 %413, -41
-  %415 = getelementptr inbounds [39 x i16], ptr @yypgoto, i64 0, i64 %414
+  %415 = getelementptr inbounds i16, ptr @yypgoto, i64 %414
   %416 = load i16, ptr %415, align 2, !tbaa !6
   %417 = sext i16 %416 to i32
   %418 = load i8, ptr %409, align 1, !tbaa !3
@@ -926,17 +926,17 @@ addRow.exit:                                      ; preds = %._crit_edge.i.i.i32
 
 421:                                              ; preds = %405
   %422 = zext nneg i32 %420 to i64
-  %423 = getelementptr inbounds nuw [272 x i8], ptr @yycheck, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %422
   %424 = load i8, ptr %423, align 1, !tbaa !3
   %425 = icmp eq i8 %424, %418
   br i1 %425, label %426, label %428
 
 426:                                              ; preds = %421
-  %427 = getelementptr inbounds nuw [272 x i8], ptr @yytable, i64 0, i64 %422
+  %427 = getelementptr inbounds nuw i8, ptr @yytable, i64 %422
   br label %430
 
 428:                                              ; preds = %421, %405
-  %429 = getelementptr inbounds [39 x i8], ptr @yydefgoto, i64 0, i64 %414
+  %429 = getelementptr inbounds i8, ptr @yydefgoto, i64 %414
   br label %430
 
 430:                                              ; preds = %428, %426
@@ -979,8 +979,8 @@ addRow.exit:                                      ; preds = %._crit_edge.i.i.i32
 
 442:                                              ; preds = %438
   %443 = sext i16 %439 to i64
-  %444 = add nsw i64 %443, 1
-  %445 = getelementptr inbounds nuw [272 x i8], ptr @yytable, i64 0, i64 %444
+  %444 = getelementptr i8, ptr @yytable, i64 %443
+  %445 = getelementptr i8, ptr %444, i64 1
   %446 = load i8, ptr %445, align 1, !tbaa !3
   %447 = icmp sgt i8 %446, 0
   br i1 %447, label %455, label %448
@@ -995,7 +995,7 @@ addRow.exit:                                      ; preds = %._crit_edge.i.i.i32
   %453 = load i8, ptr %452, align 1, !tbaa !3
   %454 = sext i8 %453 to i32
   %.phi.trans.insert = sext i8 %453 to i64
-  %.phi.trans.insert477 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert477 = getelementptr inbounds i16, ptr @yypact, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert477, align 2, !tbaa !6
   br label %438
 
@@ -2023,7 +2023,7 @@ gv_calloc.exit.i:                                 ; preds = %.thread
 
 .thread35:                                        ; preds = %agxbsizeof.exit.thread
   %32 = zext nneg i8 %.val.i to i64
-  %33 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
   store i8 0, ptr %33, align 1, !tbaa !3
   %34 = load i8, ptr %2, align 1, !tbaa !3
   %35 = add i8 %34, 1

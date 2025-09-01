@@ -159,91 +159,87 @@ define hidden void @X11_SetNetWMState(ptr noundef readonly captures(none) %0, i6
   %.0 = phi i32 [ 1, %27 ], [ 0, %3 ]
   %29 = and i64 %2, 131072
   %.not40 = icmp eq i64 %29, 0
-  br i1 %.not40, label %37, label %30
+  br i1 %.not40, label %35, label %30
 
 30:                                               ; preds = %28
-  %31 = add nuw nsw i32 %.0, 1
-  %32 = zext nneg i32 %.0 to i64
-  %33 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %32
-  store i64 %21, ptr %33, align 8
-  %34 = or disjoint i32 %.0, 2
-  %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %35
-  store i64 %23, ptr %36, align 8
-  br label %37
+  %31 = zext nneg i32 %.0 to i64
+  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %31
+  store i64 %21, ptr %32, align 8
+  %33 = or disjoint i32 %.0, 2
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i64 %23, ptr %34, align 8
+  br label %35
 
-37:                                               ; preds = %30, %28
-  %.1 = phi i32 [ %34, %30 ], [ %.0, %28 ]
-  %38 = and i64 %2, 512
-  %.not41 = icmp eq i64 %38, 0
-  br i1 %.not41, label %43, label %39
+35:                                               ; preds = %30, %28
+  %.1 = phi i32 [ %33, %30 ], [ %.0, %28 ]
+  %36 = and i64 %2, 512
+  %.not41 = icmp eq i64 %36, 0
+  br i1 %.not41, label %41, label %37
 
-39:                                               ; preds = %37
-  %40 = add nuw nsw i32 %.1, 1
-  %41 = zext nneg i32 %.1 to i64
-  %42 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %41
-  store i64 %11, ptr %42, align 8
-  br label %43
+37:                                               ; preds = %35
+  %38 = add nuw nsw i32 %.1, 1
+  %39 = zext nneg i32 %.1 to i64
+  %40 = getelementptr inbounds nuw i64, ptr %4, i64 %39
+  store i64 %11, ptr %40, align 8
+  br label %41
 
-43:                                               ; preds = %39, %37
-  %.2 = phi i32 [ %40, %39 ], [ %.1, %37 ]
-  %44 = and i64 %2, 128
-  %.not42 = icmp eq i64 %44, 0
-  br i1 %.not42, label %52, label %45
+41:                                               ; preds = %37, %35
+  %.2 = phi i32 [ %38, %37 ], [ %.1, %35 ]
+  %42 = and i64 %2, 128
+  %.not42 = icmp eq i64 %42, 0
+  br i1 %.not42, label %48, label %43
 
-45:                                               ; preds = %43
-  %46 = add nuw nsw i32 %.2, 1
-  %47 = zext nneg i32 %.2 to i64
-  %48 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %47
-  store i64 %13, ptr %48, align 8
-  %49 = add nuw nsw i32 %.2, 2
-  %50 = zext nneg i32 %46 to i64
-  %51 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %50
-  store i64 %15, ptr %51, align 8
-  br label %52
+43:                                               ; preds = %41
+  %44 = zext nneg i32 %.2 to i64
+  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %44
+  store i64 %13, ptr %45, align 8
+  %46 = add nuw nsw i32 %.2, 2
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 %15, ptr %47, align 8
+  br label %48
 
-52:                                               ; preds = %45, %43
-  %.3 = phi i32 [ %49, %45 ], [ %.2, %43 ]
-  %53 = and i64 %2, 1
-  %.not43 = icmp eq i64 %53, 0
-  br i1 %.not43, label %58, label %54
+48:                                               ; preds = %43, %41
+  %.3 = phi i32 [ %46, %43 ], [ %.2, %41 ]
+  %49 = and i64 %2, 1
+  %.not43 = icmp eq i64 %49, 0
+  br i1 %.not43, label %54, label %50
 
-54:                                               ; preds = %52
-  %55 = add nuw nsw i32 %.3, 1
-  %56 = zext nneg i32 %.3 to i64
-  %57 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %56
-  store i64 %17, ptr %57, align 8
-  br label %58
+50:                                               ; preds = %48
+  %51 = add nuw nsw i32 %.3, 1
+  %52 = zext nneg i32 %.3 to i64
+  %53 = getelementptr inbounds nuw i64, ptr %4, i64 %52
+  store i64 %17, ptr %53, align 8
+  br label %54
 
-58:                                               ; preds = %54, %52
-  %.4 = phi i32 [ %55, %54 ], [ %.3, %52 ]
-  %59 = and i64 %2, 4096
-  %.not44 = icmp eq i64 %59, 0
-  br i1 %.not44, label %63, label %.thread
+54:                                               ; preds = %50, %48
+  %.4 = phi i32 [ %51, %50 ], [ %.3, %48 ]
+  %55 = and i64 %2, 4096
+  %.not44 = icmp eq i64 %55, 0
+  br i1 %.not44, label %59, label %.thread
 
-.thread:                                          ; preds = %58
-  %60 = add nuw nsw i32 %.4, 1
-  %61 = zext nneg i32 %.4 to i64
-  %62 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %61
-  store i64 %25, ptr %62, align 8
-  br label %64
+.thread:                                          ; preds = %54
+  %56 = add nuw nsw i32 %.4, 1
+  %57 = zext nneg i32 %.4 to i64
+  %58 = getelementptr inbounds nuw i64, ptr %4, i64 %57
+  store i64 %25, ptr %58, align 8
+  br label %60
 
-63:                                               ; preds = %58
+59:                                               ; preds = %54
   %.not47 = icmp eq i32 %.4, 0
-  br i1 %.not47, label %67, label %64
+  br i1 %.not47, label %63, label %60
 
-64:                                               ; preds = %.thread, %63
-  %.546 = phi i32 [ %60, %.thread ], [ %.4, %63 ]
-  %65 = load ptr, ptr @X11_XChangeProperty, align 8
-  %66 = call i32 %65(ptr noundef %7, i64 noundef %1, i64 noundef %9, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %4, i32 noundef %.546) #12
-  br label %70
+60:                                               ; preds = %.thread, %59
+  %.546 = phi i32 [ %56, %.thread ], [ %.4, %59 ]
+  %61 = load ptr, ptr @X11_XChangeProperty, align 8
+  %62 = call i32 %61(ptr noundef %7, i64 noundef %1, i64 noundef %9, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %4, i32 noundef %.546) #12
+  br label %66
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr @X11_XDeleteProperty, align 8
-  %69 = tail call i32 %68(ptr noundef %7, i64 noundef %1, i64 noundef %9) #12
-  br label %70
+63:                                               ; preds = %59
+  %64 = load ptr, ptr @X11_XDeleteProperty, align 8
+  %65 = tail call i32 %64(ptr noundef %7, i64 noundef %1, i64 noundef %9) #12
+  br label %66
 
-70:                                               ; preds = %67, %64
+66:                                               ; preds = %63, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1008,7 +1004,7 @@ SetWindowBordered.exit:                           ; preds = %258, %250, %242
   %353 = load i64, ptr %352, align 8
   %354 = add nuw nsw i32 %.0244, 1
   %355 = zext nneg i32 %.0244 to i64
-  %356 = getelementptr inbounds nuw [4 x i64], ptr %15, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw i64, ptr %15, i64 %355
   store i64 %353, ptr %356, align 8
   br label %357
 

@@ -393,7 +393,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %7, %13, %15, %16
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %42, %41, %39, %33
   %43 = phi ptr [ %34, %33 ], [ %34, %39 ], [ %34, %41 ], [ %.pre.i8, %42 ]
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %32, i64 0, i64 %.017.i
+  %44 = getelementptr inbounds nuw ptr, ptr %32, i64 %.017.i
   store ptr %43, ptr %44, align 8, !tbaa !12
   %45 = add nuw nsw i64 %.017.i, 1
   %46 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -633,7 +633,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %3, %9, %11, %12
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %38, %37, %35, %29
   %39 = phi ptr [ %30, %29 ], [ %30, %35 ], [ %30, %37 ], [ %.pre.i5, %38 ]
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %.017.i
+  %40 = getelementptr inbounds nuw ptr, ptr %28, i64 %.017.i
   store ptr %39, ptr %40, align 8, !tbaa !12
   %41 = add nuw nsw i64 %.017.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -733,7 +733,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %3, %9, %11, %12
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %38, %37, %35, %29
   %39 = phi ptr [ %30, %29 ], [ %30, %35 ], [ %30, %37 ], [ %.pre.i5, %38 ]
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %.017.i
+  %40 = getelementptr inbounds nuw ptr, ptr %28, i64 %.017.i
   store ptr %39, ptr %40, align 8, !tbaa !12
   %41 = add nuw nsw i64 %.017.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -833,7 +833,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %3, %9, %11, %12
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %38, %37, %35, %29
   %39 = phi ptr [ %30, %29 ], [ %30, %35 ], [ %30, %37 ], [ %.pre.i5, %38 ]
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %.017.i
+  %40 = getelementptr inbounds nuw ptr, ptr %28, i64 %.017.i
   store ptr %39, ptr %40, align 8, !tbaa !12
   %41 = add nuw nsw i64 %.017.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -1099,7 +1099,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %5, %11, %13, %14
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %40, %39, %37, %31
   %41 = phi ptr [ %32, %31 ], [ %32, %37 ], [ %32, %39 ], [ %.pre.i7, %40 ]
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %.017.i
+  %42 = getelementptr inbounds nuw ptr, ptr %30, i64 %.017.i
   store ptr %41, ptr %42, align 8, !tbaa !12
   %43 = add nuw nsw i64 %.017.i, 1
   %44 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -1600,7 +1600,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit7:        ; preds = %_ZNK4lean10object_r
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %49, %48, %46, %40
   %50 = phi ptr [ %41, %40 ], [ %41, %46 ], [ %41, %48 ], [ %.pre.i11, %49 ]
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %.017.i
+  %51 = getelementptr inbounds nuw ptr, ptr %39, i64 %.017.i
   store ptr %50, ptr %51, align 8, !tbaa !12
   %52 = add nuw nsw i64 %.017.i, 1
   %53 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -1700,7 +1700,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %3, %9, %11, %12
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %38, %37, %35, %29
   %39 = phi ptr [ %30, %29 ], [ %30, %35 ], [ %30, %37 ], [ %.pre.i5, %38 ]
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %.017.i
+  %40 = getelementptr inbounds nuw ptr, ptr %28, i64 %.017.i
   store ptr %39, ptr %40, align 8, !tbaa !12
   %41 = add nuw nsw i64 %.017.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -1800,7 +1800,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %5, %11, %13, %14
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %40, %39, %37, %31
   %41 = phi ptr [ %32, %31 ], [ %32, %37 ], [ %32, %39 ], [ %.pre.i6, %40 ]
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %.017.i
+  %42 = getelementptr inbounds nuw ptr, ptr %30, i64 %.017.i
   store ptr %41, ptr %42, align 8, !tbaa !12
   %43 = add nuw nsw i64 %.017.i, 1
   %44 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -1931,7 +1931,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %5, %11, %13, %14
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %40, %39, %37, %31
   %41 = phi ptr [ %32, %31 ], [ %32, %37 ], [ %32, %39 ], [ %.pre.i6, %40 ]
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %.017.i
+  %42 = getelementptr inbounds nuw ptr, ptr %30, i64 %.017.i
   store ptr %41, ptr %42, align 8, !tbaa !12
   %43 = add nuw nsw i64 %.017.i, 1
   %44 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -2062,7 +2062,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %4, %10, %12, %13
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %39, %38, %36, %30
   %40 = phi ptr [ %31, %30 ], [ %31, %36 ], [ %31, %38 ], [ %.pre.i5, %39 ]
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %.017.i
+  %41 = getelementptr inbounds nuw ptr, ptr %29, i64 %.017.i
   store ptr %40, ptr %41, align 8, !tbaa !12
   %42 = add nuw nsw i64 %.017.i, 1
   %43 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -3224,7 +3224,7 @@ _ZNK4lean7options10to_obj_argEv.exit:             ; preds = %.noexc106, %201, %1
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %.noexc113, %226, %224, %218
   %228 = phi ptr [ %219, %218 ], [ %219, %224 ], [ %219, %226 ], [ %.pre.i111, %.noexc113 ]
-  %229 = getelementptr inbounds nuw [0 x ptr], ptr %217, i64 0, i64 %.017.i
+  %229 = getelementptr inbounds nuw ptr, ptr %217, i64 %.017.i
   store ptr %228, ptr %229, align 8, !tbaa !12
   %230 = add nuw nsw i64 %.017.i, 1
   %231 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
@@ -14575,7 +14575,7 @@ _ZN4lean8optionalINS_4exprEED2Ev.exit:            ; preds = %_ZNK4lean10local_de
 
 switch.lookup:                                    ; preds = %99
   %107 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4lean8to_ir_fn10visit_ssetERKNS_10local_declERKNS_10object_refE, i64 0, i64 %107
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4lean8to_ir_fn10visit_ssetERKNS_10local_declERKNS_10object_refE, i64 %107
   %switch.load = load i32, ptr %switch.gep, align 4
   invoke void @_ZN4lean2ir7mk_ssetERKNS_3natEjjS3_NS0_4typeERKNS_10object_refE(ptr dead_on_unwind writable sret(%"class.lean::object_ref") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %77, i32 noundef %78, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %108 unwind label %179

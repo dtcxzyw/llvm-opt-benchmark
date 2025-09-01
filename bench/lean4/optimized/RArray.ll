@@ -389,7 +389,7 @@ define ptr @l_Lean_RArray_ofArray___rarg___lambda__1(ptr noundef readonly captur
   %3 = ptrtoint ptr %1 to i64
   %4 = lshr i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -455,7 +455,7 @@ define ptr @l_Lean_RArray_ofArray___rarg___lambda__1___boxed(ptr noundef %0, ptr
   %3 = ptrtoint ptr %1 to i64
   %4 = lshr i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1

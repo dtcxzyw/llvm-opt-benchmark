@@ -208,10 +208,10 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h218a9c1fdc
 
 22:                                               ; preds = %.lr.ph, %30
   %23 = phi i64 [ %.promoted62, %.lr.ph ], [ %31, %30 ]
-  %24 = getelementptr inbounds [0 x i8], ptr %20, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %20, i64 %23
   %25 = load i8, ptr %24, align 1, !noundef !7
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 %26
   %28 = load i8, ptr %27, align 1, !range !31, !noundef !7
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %34, label %30
@@ -495,10 +495,10 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h588b36e201
 
 16:                                               ; preds = %.lr.ph, %24
   %17 = phi i64 [ %.promoted61, %.lr.ph ], [ %25, %24 ]
-  %18 = getelementptr inbounds [0 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr %14, i64 %17
   %19 = load i8, ptr %18, align 1, !noundef !7
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 %20
   %22 = load i8, ptr %21, align 1, !range !31, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %28, label %24
@@ -692,10 +692,10 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hbce210c632
 
 16:                                               ; preds = %.lr.ph, %24
   %17 = phi i64 [ %.promoted61, %.lr.ph ], [ %25, %24 ]
-  %18 = getelementptr inbounds [0 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr %14, i64 %17
   %19 = load i8, ptr %18, align 1, !noundef !7
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 %20
   %22 = load i8, ptr %21, align 1, !range !31, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %28, label %24
@@ -879,7 +879,7 @@ define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %1, align 8, !nonnull !7, !align !30, !noundef !7
-  %14 = getelementptr inbounds [0 x i8], ptr %13, i64 0, i64 %4
+  %14 = getelementptr inbounds i8, ptr %13, i64 %4
   %15 = load i8, ptr %14, align 1, !noundef !7
   %16 = add nuw i64 %4, 1
   store i64 %16, ptr %3, align 8
@@ -906,7 +906,7 @@ define hidden void @_ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8, !alias.scope !171, !noalias !174, !nonnull !7, !align !30, !noundef !7
-  %12 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds i8, ptr %11, i64 %5
   %13 = load i8, ptr %12, align 1, !noalias !176, !noundef !7
   %14 = add nuw i64 %5, 1
   store i64 %14, ptr %4, align 8, !alias.scope !171, !noalias !174
@@ -939,7 +939,7 @@ define internal fastcc void @_ZN10serde_json4read11peek_or_eof17hed51dcd1e513dc6
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8, !alias.scope !177, !noalias !180, !nonnull !7, !align !30, !noundef !7
-  %12 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds i8, ptr %11, i64 %5
   %13 = load i8, ptr %12, align 1, !noalias !182, !noundef !7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %13, ptr %14, align 1
@@ -1191,7 +1191,7 @@ define internal fastcc noundef align 8 ptr @_ZN10serde_json4read12parse_escape17
 
 _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.exit.thread: ; preds = %3
   %22 = load ptr, ptr %0, align 8, !alias.scope !209, !noalias !210, !nonnull !7, !align !30, !noundef !7
-  %23 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %18
+  %23 = getelementptr inbounds i8, ptr %22, i64 %18
   %24 = load i8, ptr %23, align 1, !noalias !212, !noundef !7
   %25 = add nuw i64 %18, 1
   store i64 %25, ptr %17, align 8, !alias.scope !209, !noalias !210
@@ -1636,7 +1636,7 @@ define hidden noundef align 8 ptr @_ZN10serde_json4read13ignore_escape17h8c19b01
 
 _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.exit.thread: ; preds = %1
   %11 = load ptr, ptr %0, align 8, !alias.scope !259, !noalias !260, !nonnull !7, !align !30, !noundef !7
-  %12 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %7
+  %12 = getelementptr inbounds i8, ptr %11, i64 %7
   %13 = load i8, ptr %12, align 1, !noalias !262, !noundef !7
   %14 = add nuw i64 %7, 1
   store i64 %14, ptr %6, align 8, !alias.scope !259, !noalias !260

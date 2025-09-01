@@ -1641,7 +1641,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
 43:                                               ; preds = %.preheader126, %52
   %.092150 = phi i64 [ 0, %.preheader126 ], [ %53, %52 ]
   %.199149 = phi ptr [ null, %.preheader126 ], [ %.2, %52 ]
-  %44 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.092150
+  %44 = getelementptr inbounds nuw %struct.codepage_entry, ptr @codepage_entries, i64 %.092150
   %45 = load i16, ptr %44, align 16, !tbaa !46
   %46 = icmp eq i16 %42, %45
   br i1 %46, label %47, label %50

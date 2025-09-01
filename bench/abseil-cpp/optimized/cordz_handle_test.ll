@@ -11075,18 +11075,18 @@ _ZNK7testing8internal11MatcherBaseIRKSt6vectorIPKN4absl13cord_internal11CordzHan
 
 326:                                              ; preds = %324
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4absl13cord_internal13CordzSnapshotE, i64 16), ptr %325, align 8, !tbaa !4
-  %327 = getelementptr inbounds nuw [3 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %327 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   store ptr %325, ptr %327, align 8, !tbaa !182
   %328 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   invoke void @_ZN4absl13cord_internal11CordzHandleC2Eb(ptr noundef nonnull align 8 dereferenceable(40) %328, i1 noundef zeroext false)
           to label %329 unwind label %335
 
 329:                                              ; preds = %326
-  %330 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 0, i64 %indvars.iv
+  %330 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerE, i64 16), ptr %328, align 8, !tbaa !4
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 32
   store ptr %330, ptr %331, align 8, !tbaa !152
-  %332 = getelementptr inbounds nuw [3 x ptr], ptr %26, i64 0, i64 %indvars.iv
+  %332 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   store ptr %328, ptr %332, align 8, !tbaa !274
   call void @_ZN4absl13cord_internal11CordzHandle6DeleteEPS1_(ptr noundef nonnull %328)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

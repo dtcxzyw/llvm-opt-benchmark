@@ -439,7 +439,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %196 = lshr i64 %1, 15
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %198 = and i64 %196, 31
-  %199 = getelementptr inbounds nuw [32 x i64], ptr %197, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %204
 
 ._crit_edge:                                      ; preds = %292, %179
@@ -1101,7 +1101,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %196 = lshr i64 %1, 15
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %198 = and i64 %196, 31
-  %199 = getelementptr inbounds nuw [32 x i64], ptr %197, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %202
 
 ._crit_edge:                                      ; preds = %290, %179
@@ -1639,7 +1639,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %196 = lshr i64 %1, 15
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %198 = and i64 %196, 31
-  %199 = getelementptr inbounds nuw [32 x i64], ptr %197, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %204
 
 ._crit_edge:                                      ; preds = %292, %179
@@ -2179,7 +2179,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %196 = lshr i64 %1, 15
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %198 = and i64 %196, 31
-  %199 = getelementptr inbounds nuw [32 x i64], ptr %197, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %197, i64 %198
   br label %202
 
 ._crit_edge:                                      ; preds = %290, %179
@@ -2718,7 +2718,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %197 = and i64 %196, 31
   %198 = icmp samesign ugt i64 %197, 15
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %200 = getelementptr inbounds nuw [32 x i64], ptr %199, i64 0, i64 %197
+  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %205
 
 ._crit_edge:                                      ; preds = %311, %179
@@ -3304,7 +3304,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %197 = and i64 %196, 31
   %198 = icmp samesign ugt i64 %197, 15
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %200 = getelementptr inbounds nuw [32 x i64], ptr %199, i64 0, i64 %197
+  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %203
 
 ._crit_edge:                                      ; preds = %309, %179
@@ -3888,7 +3888,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %197 = and i64 %196, 31
   %198 = icmp samesign ugt i64 %197, 15
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %200 = getelementptr inbounds nuw [32 x i64], ptr %199, i64 0, i64 %197
+  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %205
 
 ._crit_edge:                                      ; preds = %311, %179
@@ -4474,7 +4474,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %128, %_ZL19is_overl
   %197 = and i64 %196, 31
   %198 = icmp samesign ugt i64 %197, 15
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %200 = getelementptr inbounds nuw [32 x i64], ptr %199, i64 0, i64 %197
+  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %197
   br label %203
 
 ._crit_edge:                                      ; preds = %309, %179

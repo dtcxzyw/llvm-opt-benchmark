@@ -103,7 +103,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %39, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4842
-  %42 = getelementptr [300 x %struct._bw_history_item], ptr %40, i64 0, i64 %36
+  %42 = getelementptr %struct._bw_history_item, ptr %40, i64 %36
   store double %5, ptr %42, align 8
   %43 = load i16, ptr %41, align 2
   %44 = add i16 %43, 1
@@ -291,13 +291,13 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .preheader:                                       ; preds = %133, %143
   %.07.i = phi i64 [ %144, %143 ], [ 0, %133 ]
-  %138 = getelementptr [28 x %struct._key_value], ptr @clock_map, i64 0, i64 %.07.i
+  %138 = getelementptr %struct._key_value, ptr @clock_map, i64 %.07.i
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, %136
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %.preheader
-  %142 = getelementptr [28 x %struct._key_value], ptr @clock_map, i64 0, i64 %.07.i, i32 1
+  %142 = getelementptr %struct._key_value, ptr @clock_map, i64 %.07.i, i32 1
   br label %get_clock_rate.exit
 
 143:                                              ; preds = %.preheader
@@ -339,7 +339,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
 
 160:                                              ; preds = %159, %157
   %indvars.iv.i = phi i64 [ 37, %157 ], [ %indvars.iv.next.i, %159 ]
-  %161 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %indvars.iv.i
+  %161 = getelementptr %struct._mimetype_and_clock, ptr @mimetype_and_clock_map, i64 %indvars.iv.i
   %162 = load ptr, ptr %161, align 16
   %163 = tail call i64 @strlen(ptr noundef %162) #6
   %164 = tail call i32 @g_ascii_strncasecmp(ptr noundef %162, ptr noundef %158, i64 noundef %163)
@@ -470,12 +470,12 @@ get_clock_rate.exit.thread:                       ; preds = %159, %143, %145, %1
   store i32 %238, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 4842
-  %241 = getelementptr [300 x %struct._bw_history_item], ptr %239, i64 0, i64 %235
+  %241 = getelementptr %struct._bw_history_item, ptr %239, i64 %235
   store double %5, ptr %241, align 8
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 4840
   %.promoted = load i16, ptr %242, align 8
   %243 = zext i16 %.promoted to i64
-  %244 = getelementptr [300 x %struct._bw_history_item], ptr %239, i64 0, i64 %243
+  %244 = getelementptr %struct._bw_history_item, ptr %239, i64 %243
   %245 = load double, ptr %244, align 8
   %246 = fadd double %245, 1.000000e+03
   %247 = fcmp olt double %246, %5
@@ -501,7 +501,7 @@ get_clock_rate.exit.thread:                       ; preds = %159, %143, %145, %1
   %spec.select = select i1 %257, i16 0, i16 %256
   store i16 %spec.select, ptr %242, align 8
   %258 = zext i16 %spec.select to i64
-  %259 = getelementptr [300 x %struct._bw_history_item], ptr %239, i64 0, i64 %258
+  %259 = getelementptr %struct._bw_history_item, ptr %239, i64 %258
   %260 = load double, ptr %259, align 8
   %261 = fadd double %260, 1.000000e+03
   %262 = fcmp olt double %261, %5

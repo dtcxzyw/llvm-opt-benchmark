@@ -1311,7 +1311,7 @@ define internal noundef i32 @trav_print_visit_obj(ptr noundef %0, ptr noundef re
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.trav_print_visit_obj, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.trav_print_visit_obj, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 

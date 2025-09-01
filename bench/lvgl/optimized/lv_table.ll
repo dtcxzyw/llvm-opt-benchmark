@@ -1081,7 +1081,7 @@ define void @lv_table_set_cell_value_fmt(ptr noundef %0, i32 noundef %1, i32 nou
 
 40:                                               ; preds = %.thread
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %42 = getelementptr inbounds nuw [1 x i8], ptr %41, i64 0, i64 %35
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %35
   store i8 0, ptr %42, align 1, !tbaa !46
   %43 = load ptr, ptr %22, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %24

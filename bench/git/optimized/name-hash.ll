@@ -727,14 +727,14 @@ define dso_local ptr @index_file_exists(ptr noundef %0, ptr noundef %1, i32 noun
   %34 = zext i8 %31 to i32
   %35 = zext i8 %29 to i32
   %36 = zext i8 %29 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !68
   %39 = and i8 %38, 4
   %.not.i.i.i = icmp eq i8 %39, 0
   %40 = and i32 %35, 223
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %35, i32 %40
   %41 = zext i8 %31 to i64
-  %42 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !68
   %44 = and i8 %43, 4
   %.not.i23.i.i = icmp eq i8 %44, 0
@@ -1345,35 +1345,38 @@ declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @hash_dir_entry(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.dir_entry, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %6 = zext i32 %2 to i64
+  %5 = icmp sgt i32 %2, 0
+  br i1 %5, label %.lr.ph, label %.critedge.thread
+
+.lr.ph:                                           ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 108
   br label %7
 
-7:                                                ; preds = %10, %3
-  %indvars.iv = phi i64 [ %11, %10 ], [ %6, %3 ]
-  %8 = trunc nuw i64 %indvars.iv to i32
-  %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %.critedge.thread
+7:                                                ; preds = %.lr.ph, %13
+  %.02832 = phi i32 [ %2, %.lr.ph ], [ %12, %13 ]
+  %8 = zext nneg i32 %.02832 to i64
+  %9 = getelementptr i8, ptr %6, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -1
+  %11 = load i8, ptr %10, align 1, !tbaa !68
+  %.not = icmp eq i8 %11, 47
+  %12 = add nsw i32 %.02832, -1
+  br i1 %.not, label %.critedge, label %13
 
-10:                                               ; preds = %7
-  %11 = add nsw i64 %indvars.iv, -1
-  %12 = getelementptr inbounds nuw [0 x i8], ptr %5, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1, !tbaa !68
-  %.not = icmp eq i8 %13, 47
-  br i1 %.not, label %.critedge, label %7, !llvm.loop !78
+13:                                               ; preds = %7
+  %14 = icmp sgt i32 %.02832, 1
+  br i1 %14, label %7, label %.critedge.thread, !llvm.loop !78
 
-.critedge:                                        ; preds = %10
-  %14 = add nsw i32 %8, -1
-  %15 = zext nneg i32 %14 to i64
-  %16 = tail call i32 @memihash(ptr noundef nonnull %5, i64 noundef %15) #14
+.critedge:                                        ; preds = %7
+  %15 = zext nneg i32 %12 to i64
+  %16 = tail call i32 @memihash(ptr noundef nonnull %6, i64 noundef %15) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %16, ptr %17, align 8, !tbaa !55
   store ptr null, ptr %4, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %14, ptr %18, align 4, !tbaa !4
+  store i32 %12, ptr %18, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %20 = call ptr @hashmap_get(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  %20 = call ptr @hashmap_get(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not30 = icmp eq ptr %20, null
   br i1 %.not30, label %st_add.exit, label %.critedge.thread
@@ -1382,21 +1385,21 @@ st_add.exit:                                      ; preds = %.critedge
   %21 = add nuw nsw i64 %15, 33
   %22 = call ptr @xcalloc(i64 noundef 1, i64 noundef %21) #14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 4 %5, i64 %15, i1 false)
-  %24 = call i32 @memihash(ptr noundef nonnull %5, i64 noundef %15) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 4 %6, i64 %15, i1 false)
+  %24 = call i32 @memihash(ptr noundef nonnull %6, i64 noundef %15) #14
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %24, ptr %25, align 8, !tbaa !55
   store ptr null, ptr %22, align 8, !tbaa !58
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  store i32 %14, ptr %26, align 4, !tbaa !4
+  store i32 %12, ptr %26, align 4, !tbaa !4
   call void @hashmap_add(ptr noundef nonnull %19, ptr noundef nonnull %22) #14
-  %27 = call fastcc ptr @hash_dir_entry(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %14)
+  %27 = call fastcc ptr @hash_dir_entry(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %12)
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !59
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %7, %.critedge, %st_add.exit
-  %.0 = phi ptr [ %20, %.critedge ], [ %22, %st_add.exit ], [ null, %7 ]
+.critedge.thread:                                 ; preds = %13, %3, %.critedge, %st_add.exit
+  %.0 = phi ptr [ %20, %.critedge ], [ %22, %st_add.exit ], [ null, %3 ], [ null, %13 ]
   ret ptr %.0
 }
 

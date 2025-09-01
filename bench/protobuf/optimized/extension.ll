@@ -599,7 +599,7 @@ invoke.cont11:                                    ; preds = %.noexc, %call1.i.i.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2
   %10 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %10 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %11 = load i32, ptr %arrayidx.i, align 4
   switch i32 %11, label %sw.default [
     i32 8, label %sw.bb
@@ -723,7 +723,7 @@ invoke.cont66:                                    ; preds = %.noexc24, %call1.i.
   %type_.i.i16 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %24 = load i8, ptr %type_.i.i16, align 2
   %idxprom.i17 = zext i8 %24 to i64
-  %arrayidx.i18 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i17
+  %arrayidx.i18 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i17
   %25 = load i32, ptr %arrayidx.i18, align 4
   invoke void @_ZN6google8protobuf8compiler3cpp17PrimitiveTypeNameB5cxx11ERKNS2_7OptionsENS0_8internal19FieldDescriptorLite7CppTypeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(206) %options_, i32 noundef %25)
           to label %invoke.cont68 unwind label %lpad5
@@ -2787,7 +2787,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %if.then5.i.i
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i8, ptr %type_.i.i.i, align 2, !noalias !81
   %idxprom.i.i = zext i8 %7 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
   %8 = load i32, ptr %arrayidx.i.i, align 4, !noalias !81
   %cmp.i = icmp eq i32 %8, 9
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -3107,7 +3107,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %c
   %cmp.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i ], [ false, %for.inc.i.i.i.i ]
   %__i.06.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i ], [ 1, %for.inc.i.i.i.i ]
   %__n.05.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i ], [ %__n.1.i.i.i.i, %for.inc.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i
   %37 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %tobool.i.i.i.i83 = trunc i8 %37 to i1
   br i1 %tobool.i.i.i.i83, label %if.then.i.i.i.i86, label %for.inc.i.i.i.i
@@ -3202,7 +3202,7 @@ for.body.i.i.i.i109:                              ; preds = %for.inc.i.i.i.i115,
   %cmp.i.i.i.i110 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i101 ], [ false, %for.inc.i.i.i.i115 ]
   %__i.06.i.i.i.i111 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i101 ], [ 1, %for.inc.i.i.i.i115 ]
   %__n.05.i.i.i.i112 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i101 ], [ %__n.1.i.i.i.i116, %for.inc.i.i.i.i115 ]
-  %arrayidx.i.i.i.i113 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i111
+  %arrayidx.i.i.i.i113 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i111
   %42 = load i8, ptr %arrayidx.i.i.i.i113, align 1
   %tobool.i.i.i.i114 = trunc i8 %42 to i1
   br i1 %tobool.i.i.i.i114, label %if.then.i.i.i.i126, label %for.inc.i.i.i.i115
@@ -3288,7 +3288,7 @@ for.body.i.i.i.i144:                              ; preds = %for.inc.i.i.i.i150,
   %cmp.i.i.i.i145 = phi i1 [ true, %invoke.cont90 ], [ false, %for.inc.i.i.i.i150 ]
   %__i.06.i.i.i.i146 = phi i64 [ 0, %invoke.cont90 ], [ 1, %for.inc.i.i.i.i150 ]
   %__n.05.i.i.i.i147 = phi i64 [ 2, %invoke.cont90 ], [ %__n.1.i.i.i.i151, %for.inc.i.i.i.i150 ]
-  %arrayidx.i.i.i.i148 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i146
+  %arrayidx.i.i.i.i148 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i146
   %48 = load i8, ptr %arrayidx.i.i.i.i148, align 1
   %tobool.i.i.i.i149 = trunc i8 %48 to i1
   br i1 %tobool.i.i.i.i149, label %if.then.i.i.i.i161, label %for.inc.i.i.i.i150
@@ -3928,7 +3928,7 @@ invoke.cont:                                      ; preds = %.noexc, %call1.i.i.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   switch i32 %7, label %sw.default [
     i32 8, label %sw.bb
@@ -4066,7 +4066,7 @@ invoke.cont37:                                    ; preds = %.noexc57, %call1.i.
   %type_.i.i49 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %21 = load i8, ptr %type_.i.i49, align 2
   %idxprom.i50 = zext i8 %21 to i64
-  %arrayidx.i51 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i50
+  %arrayidx.i51 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i50
   %22 = load i32, ptr %arrayidx.i51, align 4
   %cmp = icmp eq i32 %22, 10
   %.pre205 = load ptr, ptr %this, align 8
@@ -5818,7 +5818,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %cmp.i.i.i = phi i1 [ true, %if.end ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %if.end ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8304,7 +8304,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %cmp.i.i.i = phi i1 [ true, %if.end ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %if.end ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12184,7 +12184,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -12265,7 +12265,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i.i.i.i: ; preds = %if.the
   %type_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   %9 = load i8, ptr %type_.i.i.i.i.i.i, align 2
   %idxprom.i.i.i.i.i = zext i8 %9 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i.i.i.i
   %10 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %10, 9
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp18ExtensionGenerator18GenerateDefinitionEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i"
@@ -12479,7 +12479,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -12567,7 +12567,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %invok
   %cmp.i.i = phi i1 [ true, %invoke.cont ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %invoke.cont ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %invoke.cont ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -12641,7 +12641,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i

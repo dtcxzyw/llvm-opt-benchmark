@@ -747,7 +747,7 @@ arith_get_prob.exit:                              ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1028
   %sext = shl i64 %indvars.iv.i, 32
   %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr inbounds [257 x i8], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !49
   tail call void @ff_mss12_model_update(ptr noundef nonnull %1, i32 noundef %22) #7
   %.promoted.i = load i32, ptr %3, align 4, !tbaa !48

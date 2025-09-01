@@ -2974,7 +2974,7 @@ cpuid_or_from_dump.exit31.i:                      ; preds = %566, %.critedge.i.i
   %592 = lshr i32 %.1.i, 12
   %593 = and i32 %592, 15
   %594 = zext nneg i32 %593 to i64
-  %595 = getelementptr inbounds nuw [16 x i32], ptr @setup__amd_cache_legacy.ways_tab, i64 0, i64 %594
+  %595 = getelementptr inbounds nuw i32, ptr @setup__amd_cache_legacy.ways_tab, i64 %594
   %596 = load i32, ptr %595, align 4, !tbaa !67
   %597 = getelementptr inbounds nuw i8, ptr %585, i64 28
   store i32 %596, ptr %597, align 4
@@ -3028,7 +3028,7 @@ setup__amd_cache_legacy.exit35.i:                 ; preds = %581, %574, %571, %c
   %622 = lshr i32 %storemerge.i23.i, 12
   %623 = and i32 %622, 15
   %624 = zext nneg i32 %623 to i64
-  %625 = getelementptr inbounds nuw [16 x i32], ptr @setup__amd_cache_legacy.ways_tab, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw i32, ptr @setup__amd_cache_legacy.ways_tab, i64 %624
   %626 = load i32, ptr %625, align 4, !tbaa !67
   %627 = getelementptr inbounds nuw i8, ptr %615, i64 28
   store i32 %626, ptr %627, align 4
@@ -5099,7 +5099,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr noundef no
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %12, i32 2
   %14 = load i32, ptr %13, align 8, !tbaa !67
-  %15 = getelementptr inbounds nuw [8 x i32], ptr %13, i64 0, i64 %9
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %9
   %16 = load i32, ptr %15, align 4, !tbaa !67
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %20
@@ -5116,7 +5116,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr noundef no
 .lr.ph:                                           ; preds = %20, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ %12, %20 ]
   %23 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv, i32 2
-  %24 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %9
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %9
   %25 = load i32, ptr %24, align 4, !tbaa !67
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %29

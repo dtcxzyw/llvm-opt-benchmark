@@ -642,7 +642,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %46
 
 54:                                               ; preds = %_ZNK3smt5enode12get_num_argsEv.exit
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 112
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %30
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %30
   %57 = load ptr, ptr %56, align 8, !tbaa !551
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !568
@@ -685,7 +685,7 @@ define hidden void @_ZN3smt13quick_checker9collector12collect_coreEP3appP9func_d
 
 18:                                               ; preds = %.lr.ph131, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next, %.thread ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !570
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
@@ -959,7 +959,7 @@ _ZNK3smt5enode12get_num_argsEv.exit.i:            ; preds = %153
 
 161:                                              ; preds = %_ZNK3smt5enode12get_num_argsEv.exit.i
   %162 = getelementptr inbounds nuw i8, ptr %140, i64 112
-  %163 = getelementptr inbounds nuw [0 x ptr], ptr %162, i64 0, i64 %16
+  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %16
   %164 = load ptr, ptr %163, align 8, !tbaa !551
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !568
@@ -989,7 +989,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %_ZN3smt13quick_chec
 
 178:                                              ; preds = %_ZNK3smt5enode12get_num_argsEv.exit
   %179 = getelementptr inbounds nuw i8, ptr %100, i64 112
-  %180 = getelementptr inbounds nuw [0 x ptr], ptr %179, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv
   %181 = load ptr, ptr %180, align 8, !tbaa !551
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !568
@@ -1247,7 +1247,7 @@ _ZNK3smt5enode12get_num_argsEv.exit.i103:         ; preds = %302
 
 310:                                              ; preds = %_ZNK3smt5enode12get_num_argsEv.exit.i103
   %311 = getelementptr inbounds nuw i8, ptr %289, i64 112
-  %312 = getelementptr inbounds nuw [0 x ptr], ptr %311, i64 0, i64 %16
+  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %16
   %313 = load ptr, ptr %312, align 8, !tbaa !551
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8, !tbaa !568
@@ -1277,7 +1277,7 @@ _ZNK3smt5enode12get_num_argsEv.exit106:           ; preds = %_ZN3smt13quick_chec
 
 327:                                              ; preds = %_ZNK3smt5enode12get_num_argsEv.exit106
   %328 = getelementptr inbounds nuw i8, ptr %249, i64 112
-  %329 = getelementptr inbounds nuw [0 x ptr], ptr %328, i64 0, i64 %indvars.iv
+  %329 = getelementptr inbounds nuw ptr, ptr %328, i64 %indvars.iv
   %330 = load ptr, ptr %329, align 8, !tbaa !551
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   %332 = load ptr, ptr %331, align 8, !tbaa !568
@@ -3475,7 +3475,7 @@ define hidden noundef zeroext i1 @_ZN3smt13quick_checker8all_argsEP3appb(ptr nou
 
 7:                                                ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !570
   %10 = tail call noundef zeroext i1 @_ZN3smt13quick_checker5checkEP4exprb(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %9, i1 noundef zeroext %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3502,7 +3502,7 @@ define hidden noundef zeroext i1 @_ZN3smt13quick_checker7any_argEP3appb(ptr noun
 
 7:                                                ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !570
   %10 = tail call noundef zeroext i1 @_ZN3smt13quick_checker5checkEP4exprb(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %9, i1 noundef zeroext %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4123,7 +4123,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit.thread: ; preds = %_ZNK6vectorIPN3
 89:                                               ; preds = %.loopexit, %_ZNK3smt7context14e_internalizedEPK4expr.exit74.thread
   %indvars.iv = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next, %_ZNK3smt7context14e_internalizedEPK4expr.exit74.thread ]
   %.051144 = phi i1 [ true, %.loopexit ], [ %.152, %_ZNK3smt7context14e_internalizedEPK4expr.exit74.thread ]
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %87, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !570
   %92 = invoke noundef ptr @_ZN3smt13quick_checker8canonizeEP4expr(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %91)
           to label %93 unwind label %145

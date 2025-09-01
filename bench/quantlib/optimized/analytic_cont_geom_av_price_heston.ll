@@ -2106,8 +2106,8 @@ _ZNSt3mapIiSt7complexIdESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; preds = 
 
 if.then40:                                        ; preds = %_ZNSt3mapIiSt7complexIdESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit
   %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 40
-  %19 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [4 x %"class.std::complex"], ptr %fMinusN, i64 0, i64 %19
+  %19 = getelementptr %"class.std::complex", ptr %fMinusN, i64 %indvars.iv
+  %arrayidx = getelementptr i8, ptr %19, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   br label %if.end50
 
@@ -2116,10 +2116,10 @@ if.else43:                                        ; preds = %for.body, %_ZNSt8_R
   %call45 = tail call { double, double } @_ZNK8QuantLib56AnalyticContinuousGeometricAveragePriceAsianHestonEngine1fERKSt7complexIdES4_S4_S4_id(ptr noundef nonnull align 8 dereferenceable(584) %this, ptr noundef nonnull align 8 dereferenceable(16) %z1, ptr noundef nonnull align 8 dereferenceable(16) %z2, ptr noundef nonnull align 8 dereferenceable(16) %z3, ptr noundef nonnull align 8 dereferenceable(16) %z4, i32 noundef %20, double noundef %tau)
   %21 = extractvalue { double, double } %call45, 0
   %22 = extractvalue { double, double } %call45, 1
-  %23 = add nsw i64 %indvars.iv, -1
-  %arrayidx49 = getelementptr inbounds [4 x %"class.std::complex"], ptr %fMinusN, i64 0, i64 %23
+  %23 = getelementptr %"class.std::complex", ptr %fMinusN, i64 %indvars.iv
+  %arrayidx49 = getelementptr i8, ptr %23, i64 -16
   store double %21, ptr %arrayidx49, align 16
-  %ref.tmp44.sroa.4.0.arrayidx49.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 8
+  %ref.tmp44.sroa.4.0.arrayidx49.sroa_idx = getelementptr i8, ptr %23, i64 -8
   store double %22, ptr %ref.tmp44.sroa.4.0.arrayidx49.sroa_idx, align 8, !tbaa !33
   br label %if.end50
 

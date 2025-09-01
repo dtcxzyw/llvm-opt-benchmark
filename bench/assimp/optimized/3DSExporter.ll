@@ -2958,7 +2958,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i222: ; preds = %.noexc226, %488
 
 switch.lookup:                                    ; preds = %512
   %525 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN6Assimp19Discreet3DSExporter14WriteMaterialsEv, i64 0, i64 %525
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN6Assimp19Discreet3DSExporter14WriteMaterialsEv, i64 %525
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %526
 
@@ -6032,7 +6032,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i71: ; preds = %.noexc, %_ZN6Ass
 70:                                               ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8.i, %.lr.ph.i
   %71 = phi i64 [ %59, %.lr.ph.i ], [ %85, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8.i ]
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %86, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8.i ]
-  %72 = getelementptr inbounds nuw [1024 x i8], ptr %61, i64 0, i64 %.09.i
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 %.09.i
   %73 = load i8, ptr %72, align 1
   %74 = add i64 %71, 1
   %75 = load ptr, ptr %11, align 8
@@ -6955,7 +6955,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit:  ; preds = %._crit_edge, %18
 24:                                               ; preds = %.lr.ph, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8
   %25 = phi i64 [ %.pre, %.lr.ph ], [ %39, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8 ]
   %.09 = phi i64 [ 0, %.lr.ph ], [ %40, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8 ]
-  %26 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %.09
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.09
   %27 = load i8, ptr %26, align 1
   %28 = add i64 %25, 1
   %29 = load ptr, ptr %7, align 8
@@ -8218,7 +8218,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i35: ; preds = %.noexc, %_ZN6Ass
 .lr.ph.i:                                         ; preds = %68, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8.i
   %83 = phi i64 [ %97, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8.i ], [ %73, %68 ]
   %.09.i = phi i64 [ %98, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI1Ea.exit8.i ], [ 0, %68 ]
-  %84 = getelementptr inbounds nuw [1024 x i8], ptr %14, i64 0, i64 %.09.i
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 %.09.i
   %85 = load i8, ptr %84, align 1
   %86 = add i64 %83, 1
   %87 = load ptr, ptr %25, align 8

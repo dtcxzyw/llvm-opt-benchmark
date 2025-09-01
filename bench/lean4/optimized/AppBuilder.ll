@@ -57208,7 +57208,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_AppBuilder_0__Lea
   br label %lean_dec.exit153
 
 lean_dec.exit153:                                 ; preds = %28, %27, %25, %19
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0102308
+  %29 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0102308
   %30 = load ptr, ptr %29, align 8, !tbaa !10
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, 1
@@ -61334,7 +61334,7 @@ lean_dec.exit748:                                 ; preds = %103, %102, %100, %l
 
 lean_dec.exit747:                                 ; preds = %111, %110, %108, %104
   %112 = lshr i64 %34, 1
-  %113 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr %22, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !10
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, 1
@@ -70330,7 +70330,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_AppBuilder_0__Lea
 6:                                                ; preds = %.lr.ph, %44
   %.01840 = phi i64 [ %1, %.lr.ph ], [ %23, %44 ]
   %.02239 = phi ptr [ %3, %.lr.ph ], [ %.224, %44 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01840
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01840
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -70802,7 +70802,7 @@ lean_dec.exit547:                                 ; preds = %142, %141, %139, %l
 
 152:                                              ; preds = %89, %lean_dec.exit553
   %153 = lshr i64 %87, 1
-  %154 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw ptr, ptr %22, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !10
   %156 = ptrtoint ptr %155 to i64
   %157 = and i64 %156, 1
@@ -87235,7 +87235,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit631
   br label %lean_dec.exit630
 
 lean_dec.exit630:                                 ; preds = %130, %129, %127, %121
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.04041382
+  %131 = getelementptr inbounds nuw ptr, ptr %17, i64 %.04041382
   %132 = load ptr, ptr %131, align 8, !tbaa !10
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1

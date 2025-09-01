@@ -596,7 +596,7 @@ define dso_local void @list_config_color_diff_slots(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %.preheader, %11
   %.012 = phi i64 [ 0, %.preheader ], [ %12, %11 ]
-  %6 = getelementptr inbounds nuw [23 x ptr], ptr @color_diff_slots, i64 0, i64 %.012
+  %6 = getelementptr inbounds nuw ptr, ptr @color_diff_slots, i64 %.012
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
@@ -1398,7 +1398,7 @@ parse_diff_color_slot.exit.thread:                ; preds = %skip_prefix.exit.th
 
 28:                                               ; preds = %parse_diff_color_slot.exit.thread
   %29 = zext nneg i32 %.0.i62 to i64
-  %30 = getelementptr inbounds nuw [23 x [75 x i8]], ptr @diff_colors, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [75 x i8], ptr @diff_colors, i64 %29
   %31 = tail call i32 @color_parse(ptr noundef nonnull %1, ptr noundef nonnull %30) #33
   br label %71
 
@@ -1798,7 +1798,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
 34:                                               ; preds = %31
   %35 = load i8, ptr %19, align 1, !tbaa !38
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !38
   %39 = and i8 %38, 2
   %.not39 = icmp eq i8 %39, 0
@@ -1818,7 +1818,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !38
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !38
   %53 = and i8 %52, 2
   %.not40 = icmp eq i8 %53, 0
@@ -1829,7 +1829,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !38
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !38
   %60 = and i8 %59, 2
   %.not41 = icmp eq i8 %60, 0
@@ -2058,7 +2058,7 @@ define dso_local nonnull ptr @diff_get_color(i32 noundef %0, i32 noundef %1) loc
   %3 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %0) #33
   %.not = icmp eq i32 %3, 0
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [23 x [75 x i8]], ptr @diff_colors, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [75 x i8], ptr @diff_colors, i64 %4
   %.0 = select i1 %.not, ptr @.str.41, ptr %5
   ret ptr %.0
 }
@@ -3939,12 +3939,12 @@ define dso_local i32 @diff_filter_bit(i8 noundef signext %0) local_unnamed_addr 
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [11 x i8], ptr @diff_status_letters, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw i8, ptr @diff_status_letters, i64 %indvars.iv.i
   %4 = load i8, ptr %3, align 1, !tbaa !38
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %6 = shl nuw i32 1, %5
   %7 = sext i8 %4 to i64
-  %8 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr @filter_bit, i64 %7
   store i32 %6, ptr %8, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not5.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -3952,7 +3952,7 @@ define dso_local i32 @diff_filter_bit(i8 noundef signext %0) local_unnamed_addr 
 
 prepare_filter_bits.exit:                         ; preds = %.preheader.i, %1
   %9 = sext i8 %0 to i64
-  %10 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr @filter_bit, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !11
   ret i32 %11
 }
@@ -8109,12 +8109,12 @@ define internal range(i32 -1, 1) i32 @diff_opt_diff_filter(ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %7 ]
-  %9 = getelementptr inbounds nuw [11 x i8], ptr @diff_status_letters, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr @diff_status_letters, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1, !tbaa !38
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %12 = shl nuw i32 1, %11
   %13 = sext i8 %10 to i64
-  %14 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr @filter_bit, i64 %13
   store i32 %12, ptr %14, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not5.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -8140,7 +8140,7 @@ prepare_filter_bits.exit:                         ; preds = %.preheader.i, %7
 
 22:                                               ; preds = %18
   %23 = zext nneg i8 %19 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !38
   %26 = and i8 %25, 4
   %.not.i33 = icmp eq i8 %26, 0
@@ -8155,7 +8155,7 @@ prepare_filter_bits.exit:                         ; preds = %.preheader.i, %7
 
 30:                                               ; preds = %29
   %31 = zext nneg i32 %.026 to i64
-  %32 = getelementptr inbounds nuw [91 x i32], ptr @filter_bit, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr @filter_bit, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !11
   %.not31.not = icmp eq i32 %33, 0
   br i1 %.not31.not, label %.thread36, label %38
@@ -8898,10 +8898,10 @@ define dso_local void @flush_one_hunk(ptr noundef captures(none) %0, ptr noundef
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %.01113 = phi i16 [ %28, %.lr.ph ], [ 0, %2 ]
-  %19 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !38
   %21 = zext i8 %20 to i16
-  %22 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !38
   %24 = zext i8 %23 to i16
   %25 = add nuw nsw i16 %.01113, %21
@@ -8955,7 +8955,7 @@ define dso_local range(i32 -1, 1) i32 @diff_flush_patch_id(ptr noundef readonly 
 
 24:                                               ; preds = %26, %3
   %.0811.i.i.i = phi i64 [ 0, %3 ], [ %27, %26 ]
-  %25 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %25 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %23, %25
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %26
 
@@ -9110,7 +9110,7 @@ diff_get_patch_id.exit.thread:                    ; preds = %oidclr.exit.i
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv.i.i
   %98 = load i8, ptr %97, align 1, !tbaa !38
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !38
   %102 = and i8 %101, 1
   %.not.i77.i = icmp eq i8 %102, 0
@@ -9150,7 +9150,7 @@ remove_space.exit.i:                              ; preds = %105, %83
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv.i82.i
   %116 = load i8, ptr %115, align 1, !tbaa !38
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !38
   %120 = and i8 %119, 1
   %.not.i84.i = icmp eq i8 %120, 0
@@ -9537,10 +9537,10 @@ fill_mmfile.exit.thread.i:                        ; preds = %346, %333
 .lr.ph.i98.i:                                     ; preds = %362, %.lr.ph.i98.i
   %indvars.iv.i99.i = phi i64 [ %indvars.iv.next.i100.i, %.lr.ph.i98.i ], [ 0, %362 ]
   %.01113.i.i = phi i16 [ %387, %.lr.ph.i98.i ], [ 0, %362 ]
-  %378 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %indvars.iv.i99.i
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i99.i
   %379 = load i8, ptr %378, align 1, !tbaa !38
   %380 = zext i8 %379 to i16
-  %381 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %indvars.iv.i99.i
+  %381 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i99.i
   %382 = load i8, ptr %381, align 1, !tbaa !38
   %383 = zext i8 %382 to i16
   %384 = add nuw nsw i16 %.01113.i.i, %380
@@ -12530,7 +12530,7 @@ check_pair_status.exit.thread.i:                  ; preds = %check_pair_status.e
   %1290 = getelementptr inbounds nuw i8, ptr %.pre.i.i183, i64 %indvars.iv.i.i.i
   %1291 = load i8, ptr %1290, align 1, !tbaa !38
   %1292 = zext i8 %1291 to i64
-  %1293 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %1292
+  %1293 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %1292
   %1294 = load i8, ptr %1293, align 1, !tbaa !38
   %1295 = and i8 %1294, 1
   %.not.i.i.i185 = icmp eq i8 %1295, 0
@@ -12786,7 +12786,7 @@ add_lines_to_move_detection.exit.i:               ; preds = %1359, %1241
   %.041.i.i40.i = phi ptr [ %1407, %1406 ], [ %1396, %1393 ]
   %.140.i.i.i = phi i32 [ %.2.i.i41.i, %1406 ], [ %.02144.i.i.i, %1393 ]
   %1399 = zext i8 %1398 to i64
-  %1400 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %1399
+  %1400 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %1399
   %1401 = load i8, ptr %1400, align 1, !tbaa !38
   %1402 = and i8 %1401, 6
   %.not33.i.i.i = icmp eq i8 %1402, 0
@@ -12979,7 +12979,7 @@ pmb_advance_or_null.exit.i.i:                     ; preds = %.thread46.i.i.i
   %.041.i90.i.i = phi ptr [ %1477, %1476 ], [ %1466, %1463 ]
   %.140.i91.i.i = phi i32 [ %.2.i93.i.i, %1476 ], [ %.02144.i87.i.i, %1463 ]
   %1469 = zext i8 %1468 to i64
-  %1470 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %1469
+  %1470 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %1469
   %1471 = load i8, ptr %1470, align 1, !tbaa !38
   %1472 = and i8 %1471, 6
   %.not33.i92.i.i = icmp eq i8 %1472, 0
@@ -13182,7 +13182,7 @@ st_mult.exit.i.i.i:                               ; preds = %1489
   %.041.i120.i.i = phi ptr [ %1552, %1551 ], [ %1541, %1538 ]
   %.140.i121.i.i = phi i32 [ %.2.i123.i.i, %1551 ], [ %.02144.i117.i.i, %1538 ]
   %1544 = zext i8 %1543 to i64
-  %1545 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %1544
+  %1545 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %1544
   %1546 = load i8, ptr %1545, align 1, !tbaa !38
   %1547 = and i8 %1546, 6
   %.not33.i122.i.i = icmp eq i8 %1547, 0
@@ -14685,7 +14685,7 @@ diff_resolve_rename_copy.exit:                    ; preds = %137, %80
 
 match_filter.exit.us.us.i:                        ; preds = %.lr.ph.split.us.split.us.i
   %159 = sext i8 %157 to i64
-  %160 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %159
+  %160 = getelementptr inbounds i32, ptr @filter_bit, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !11
   %.fr.us.us.i = freeze i32 %161
   %162 = and i32 %.fr.us.us.i, %.fr56.i
@@ -14708,7 +14708,7 @@ match_filter.exit.thread.us.us.i:                 ; preds = %match_filter.exit.u
 
 match_filter.exit.us.i:                           ; preds = %.lr.ph.split.us.split.i
   %168 = sext i8 %166 to i64
-  %169 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %168
+  %169 = getelementptr inbounds i32, ptr @filter_bit, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !11
   %.fr.us.i = freeze i32 %170
   %171 = and i32 %.fr.us.i, %.fr56.i
@@ -14740,7 +14740,7 @@ match_filter.exit.thread.us.i:                    ; preds = %172, %match_filter.
 
 match_filter.exit.us66.i:                         ; preds = %.lr.ph.split.split.us.i
   %180 = sext i8 %178 to i64
-  %181 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %180
+  %181 = getelementptr inbounds i32, ptr @filter_bit, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !11
   %.fr.us67.i = freeze i32 %182
   %183 = and i32 %.fr.us67.i, %.fr56.i
@@ -14772,7 +14772,7 @@ match_filter.exit.thread.us71.i:                  ; preds = %184, %match_filter.
 
 match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.i
   %192 = sext i8 %190 to i64
-  %193 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %192
+  %193 = getelementptr inbounds i32, ptr @filter_bit, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !11
   %.fr.i = freeze i32 %194
   %195 = and i32 %.fr.i, %.fr56.i
@@ -14835,7 +14835,7 @@ match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.
 match_filter.exit43.i:                            ; preds = %.lr.ph84.i
   %.val.i37.i = load i32, ptr %142, align 4, !tbaa !209
   %218 = sext i8 %207 to i64
-  %219 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %218
+  %219 = getelementptr inbounds i32, ptr @filter_bit, i64 %218
   %220 = load i32, ptr %219, align 4, !tbaa !11
   %221 = and i32 %220, %.val.i37.i
   %.not57.i = icmp eq i32 %221, 0
@@ -15386,7 +15386,7 @@ define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly capture
 .preheader15.i:                                   ; preds = %35, %52
   %46 = phi i1 [ false, %52 ], [ true, %35 ]
   %indvars.iv.i.i = phi i64 [ 1, %52 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw [2 x %struct.diff_tempfile], ptr @diff_temp, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = load ptr, ptr %48, align 8, !tbaa !416
   %.not6.i.i = icmp eq ptr %49, null
@@ -15425,7 +15425,7 @@ define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly capture
 65:                                               ; preds = %72, %64
   %66 = phi i1 [ true, %64 ], [ false, %72 ]
   %indvars.iv.i9.i = phi i64 [ 0, %64 ], [ 1, %72 ]
-  %67 = getelementptr inbounds nuw [2 x %struct.diff_tempfile], ptr @diff_temp, i64 0, i64 %indvars.iv.i9.i
+  %67 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i9.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 88
   %69 = load ptr, ptr %68, align 8, !tbaa !416
   %.not6.i10.i = icmp eq ptr %69, null
@@ -15442,7 +15442,7 @@ define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly capture
 .preheader.i:                                     ; preds = %59, %79
   %73 = phi i1 [ false, %79 ], [ true, %59 ]
   %indvars.iv.i12.i = phi i64 [ 1, %79 ], [ 0, %59 ]
-  %74 = getelementptr inbounds nuw [2 x %struct.diff_tempfile], ptr @diff_temp, i64 0, i64 %indvars.iv.i12.i
+  %74 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i12.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
   %76 = load ptr, ptr %75, align 8, !tbaa !416
   %.not6.i13.i = icmp eq ptr %76, null
@@ -15932,7 +15932,7 @@ diff_line_prefix.exit:                            ; preds = %26, %31
 
 switch.lookup:                                    ; preds = %54
   %62 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.emit_diff_symbol_from_struct, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.emit_diff_symbol_from_struct, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %63
 
@@ -16001,7 +16001,7 @@ switch.lookup:                                    ; preds = %54
 
 switch.lookup312:                                 ; preds = %81
   %89 = zext nneg i32 %84 to i64
-  %switch.gep313 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.emit_diff_symbol_from_struct.19, i64 0, i64 %89
+  %switch.gep313 = getelementptr inbounds nuw ptr, ptr @switch.table.emit_diff_symbol_from_struct.19, i64 %89
   %switch.load314 = load ptr, ptr %switch.gep313, align 8
   br label %90
 
@@ -16498,7 +16498,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define internal fastcc void @emit_line_ws_markup(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 32768) %7, i32 noundef range(i32 0, 65537) %8) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %11 = zext nneg i32 %4 to i64
-  %12 = getelementptr inbounds nuw [3 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !38
   %14 = sext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -16636,7 +16636,7 @@ define internal fastcc void @diff_fill_oid_info(ptr noundef %0, ptr noundef %1) 
 
 16:                                               ; preds = %18, %12
   %.0811.i.i = phi i64 [ 0, %12 ], [ %19, %18 ]
-  %17 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %17 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %15, %17
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %18
 
@@ -16690,7 +16690,7 @@ oidclr.exit:                                      ; preds = %18, %.split.loop.ex
 
 38:                                               ; preds = %40, %34
   %.0811.i.i14 = phi i64 [ 0, %34 ], [ %41, %40 ]
-  %39 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i14
+  %39 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i14
   %.not.i.i15 = icmp eq ptr %37, %39
   br i1 %.not.i.i15, label %.split.loop.exit9.i.i18, label %40
 
@@ -16740,7 +16740,7 @@ define internal noundef i32 @patch_id_consume(ptr noundef captures(none) %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1, !tbaa !38
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !38
   %15 = and i8 %14, 1
   %.not.i = icmp eq i8 %15, 0
@@ -16898,7 +16898,7 @@ is_conflict_marker.exit:                          ; preds = %41, %39
   %45 = getelementptr inbounds i8, ptr %32, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !38
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !38
   %50 = and i8 %49, 1
   %.not = icmp eq i8 %50, 0
@@ -18310,7 +18310,7 @@ diff_free_filespec_data.exit48.i:                 ; preds = %diff_free_filespec_
 312:                                              ; preds = %.preheader, %319
   %313 = phi i1 [ false, %319 ], [ true, %.preheader ]
   %indvars.iv.i.i75 = phi i64 [ 1, %319 ], [ 0, %.preheader ]
-  %314 = getelementptr inbounds nuw [2 x %struct.diff_tempfile], ptr @diff_temp, i64 0, i64 %indvars.iv.i.i75
+  %314 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i.i75
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 88
   %316 = load ptr, ptr %315, align 8, !tbaa !416
   %.not6.i.i = icmp eq ptr %316, null
@@ -19830,7 +19830,7 @@ thread-pre-split.thread.i.i45.i.i:                ; preds = %thread-pre-split.i.
 
 994:                                              ; preds = %993, %991
   %indvars.iv.i.i94 = phi i64 [ 0, %991 ], [ %indvars.iv.next.i.i95, %993 ]
-  %995 = getelementptr inbounds nuw [3 x %struct.diff_words_style], ptr @diff_words_styles, i64 0, i64 %indvars.iv.i.i94
+  %995 = getelementptr inbounds nuw %struct.diff_words_style, ptr @diff_words_styles, i64 %indvars.iv.i.i94
   %996 = load i32, ptr %995, align 8, !tbaa !460
   %997 = icmp eq i32 %992, %996
   br i1 %997, label %998, label %993
@@ -20118,7 +20118,7 @@ define internal fastcc noundef nonnull ptr @prepare_temp_file(ptr noundef %0, pt
 6:                                                ; preds = %5, %2
   %7 = phi i1 [ true, %2 ], [ false, %5 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ 1, %5 ]
-  %8 = getelementptr inbounds nuw [2 x %struct.diff_tempfile], ptr @diff_temp, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 16, !tbaa !411
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %claim_diff_tempfile.exit, label %5
@@ -21196,10 +21196,10 @@ diff_delta.exit:                                  ; preds = %28
   %73 = add nsw i32 %72, 1
   %sext = shl i64 %71, 32
   %74 = ashr exact i64 %sext, 32
-  %75 = getelementptr inbounds [71 x i8], ptr %7, i64 0, i64 %74
+  %75 = getelementptr inbounds i8, ptr %7, i64 %74
   store i8 10, ptr %75, align 1, !tbaa !38
   %76 = sext i32 %73 to i64
-  %77 = getelementptr inbounds [71 x i8], ptr %7, i64 0, i64 %76
+  %77 = getelementptr inbounds i8, ptr %7, i64 %76
   store i8 0, ptr %77, align 1, !tbaa !38
   call fastcc void @emit_diff_symbol(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %73, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -21748,7 +21748,7 @@ find_word_boundaries.exit.thread102:              ; preds = %.lr.ph65.i
   %64 = getelementptr inbounds i8, ptr %63, i64 %.pre-phi.i
   %65 = load i8, ptr %64, align 1, !tbaa !38
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !38
   %69 = and i8 %68, 1
   %.not50.i120 = icmp eq i8 %69, 0
@@ -21763,7 +21763,7 @@ find_word_boundaries.exit.thread102:              ; preds = %.lr.ph65.i
   %72 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.next.i
   %73 = load i8, ptr %72, align 1, !tbaa !38
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !38
   %77 = and i8 %76, 1
   %.not50.i = icmp eq i8 %77, 0
@@ -21795,7 +21795,7 @@ find_word_boundaries.exit.thread102:              ; preds = %.lr.ph65.i
   %82 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.next76.i
   %83 = load i8, ptr %82, align 1, !tbaa !38
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !38
   %87 = and i8 %86, 1
   %.not52.i = icmp eq i8 %87, 0

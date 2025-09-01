@@ -14365,7 +14365,7 @@ thread-pre-split.i.i:                             ; preds = %.thread272.i.i, %15
   %172 = phi i32 [ %147, %.lr.ph.i.i ], [ %332, %_ZNK3mbp12_GLOBAL__N_117mark_all_sub_exprclEP3app.exit.i.i ]
   %173 = phi i32 [ %163, %.lr.ph.i.i ], [ %333, %_ZNK3mbp12_GLOBAL__N_117mark_all_sub_exprclEP3app.exit.i.i ]
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw [0 x ptr], ptr %165, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw ptr, ptr %165, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !173
   %177 = add nuw i32 %173, 1
   store i32 %177, ptr %162, align 8, !tbaa !358
@@ -19722,9 +19722,9 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit223: 
   %indvars.iv = phi i64 [ 0, %.lr.ph544 ], [ %indvars.iv.next, %.loopexit ]
   %.sroa.0357.0542 = phi ptr [ %spec.select460, %.lr.ph544 ], [ %.sroa.0357.2.ph, %.loopexit ]
   %.sroa.9.0541 = phi ptr [ %spec.select, %.lr.ph544 ], [ %.sroa.9.2.ph, %.loopexit ]
-  %447 = getelementptr inbounds nuw [0 x ptr], ptr %386, i64 0, i64 %indvars.iv
+  %447 = getelementptr inbounds nuw ptr, ptr %386, i64 %indvars.iv
   %448 = load ptr, ptr %447, align 8, !tbaa !173
-  %449 = getelementptr inbounds nuw [0 x ptr], ptr %440, i64 0, i64 %indvars.iv
+  %449 = getelementptr inbounds nuw ptr, ptr %440, i64 %indvars.iv
   %450 = load ptr, ptr %449, align 8, !tbaa !173
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN5modelclEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %23, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef %448)
@@ -24179,7 +24179,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.
   %52 = load ptr, ptr %.044553, align 8, !tbaa !46
   %53 = load ptr, ptr %52, align 8, !tbaa !79
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !173
   %57 = load ptr, ptr %0, align 8, !tbaa !420
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -30236,7 +30236,7 @@ _ZNK3mbp10is_pure_ns4procclEP3var.exit:           ; preds = %.noexc62
 69:                                               ; preds = %.lr.ph, %_ZNK3mbp10is_pure_ns4procclEP3var.exit87
   %70 = phi i32 [ %66, %.lr.ph ], [ %157, %_ZNK3mbp10is_pure_ns4procclEP3var.exit87 ]
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %68, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !173
   %74 = add nuw i32 %70, 1
   store i32 %74, ptr %65, align 8, !tbaa !358
@@ -30983,7 +30983,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 62:                                               ; preds = %.lr.ph, %_ZNK3mbp12is_ground_ns4procclEPK3app.exit
   %63 = phi i32 [ %59, %.lr.ph ], [ %174, %_ZNK3mbp12is_ground_ns4procclEPK3app.exit ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !173
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !358

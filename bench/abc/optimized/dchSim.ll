@@ -79,7 +79,7 @@ define i32 @Dch_NodeHash(ptr noundef readonly captures(none) %0, ptr noundef rea
   %21 = load i32, ptr %20, align 4, !tbaa !13
   %22 = xor i32 %21, -1
   %23 = and i64 %indvars.iv, 127
-  %24 = getelementptr inbounds nuw [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @Dch_NodeHash.s_FPrimes, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = mul i32 %25, %22
   %27 = xor i32 %26, %.028
@@ -93,7 +93,7 @@ define i32 @Dch_NodeHash(ptr noundef readonly captures(none) %0, ptr noundef rea
   %28 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv36
   %29 = load i32, ptr %28, align 4, !tbaa !13
   %30 = and i64 %indvars.iv36, 127
-  %31 = getelementptr inbounds nuw [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @Dch_NodeHash.s_FPrimes, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !13
   %33 = mul i32 %32, %29
   %34 = xor i32 %33, %.230

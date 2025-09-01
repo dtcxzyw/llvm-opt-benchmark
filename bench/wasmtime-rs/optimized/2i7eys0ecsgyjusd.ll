@@ -100,7 +100,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN104_$LT$cranel
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %4
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %4
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -123,7 +123,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN104_$LT$crane
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %11, i64 0, i64 %4
+  %12 = getelementptr inbounds nuw { { i32, [1 x i32] }, i32, i32 }, ptr %11, i64 %4
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -146,7 +146,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN104_$LT$crane
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %11, i64 0, i64 %4
+  %12 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %11, i64 %4
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -167,7 +167,7 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$$u5b$cranelift_entity..map.
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ptr196drop_in_place$LT$cranelift_entity..map..SecondaryMap$LT$cranelift_codegen..ir..entities..Block$C$cranelift_entity..packed_option..PackedOption$LT$cranelift_codegen..ir..entities..Value$GT$$GT$$GT$17h1596fb0b14e23df4E.exit"
   %.08 = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr196drop_in_place$LT$cranelift_entity..map..SecondaryMap$LT$cranelift_codegen..ir..entities..Block$C$cranelift_entity..packed_option..PackedOption$LT$cranelift_codegen..ir..entities..Value$GT$$GT$$GT$17h1596fb0b14e23df4E.exit" ]
-  %8 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %0, i64 0, i64 %.08
+  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %0, i64 %.08
   %9 = add nuw i64 %.08, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1c08a2a8e9e65147E.llvm.13942660722550990700"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
@@ -204,7 +204,7 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$$u5b$cranelift_entity..map.
   br label %16
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %0, i64 0, i64 %.1
+  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %0, i64 %.1
   %22 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr196drop_in_place$LT$cranelift_entity..map..SecondaryMap$LT$cranelift_codegen..ir..entities..Block$C$cranelift_entity..packed_option..PackedOption$LT$cranelift_codegen..ir..entities..Value$GT$$GT$$GT$17h1596fb0b14e23df4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #19
           to label %16 unwind label %24
@@ -374,7 +374,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder5clear17h1f75ca6809ee
 
 10:                                               ; preds = %"_ZN4core3ptr196drop_in_place$LT$cranelift_entity..map..SecondaryMap$LT$cranelift_codegen..ir..entities..Block$C$cranelift_entity..packed_option..PackedOption$LT$cranelift_codegen..ir..entities..Value$GT$$GT$$GT$17h1596fb0b14e23df4E.exit.i", %.lr.ph.i
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %"_ZN4core3ptr196drop_in_place$LT$cranelift_entity..map..SecondaryMap$LT$cranelift_codegen..ir..entities..Block$C$cranelift_entity..packed_option..PackedOption$LT$cranelift_codegen..ir..entities..Value$GT$$GT$$GT$17h1596fb0b14e23df4E.exit.i" ]
-  %11 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %4, i64 0, i64 %.08.i
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %4, i64 %.08.i
   %12 = add nuw i64 %.08.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !18
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1c08a2a8e9e65147E.llvm.13942660722550990700"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
@@ -408,7 +408,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder5clear17h1f75ca6809ee
   br label %19
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %4, i64 0, i64 %.1.i
+  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %4, i64 %.1.i
   %25 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr196drop_in_place$LT$cranelift_entity..map..SecondaryMap$LT$cranelift_codegen..ir..entities..Block$C$cranelift_entity..packed_option..PackedOption$LT$cranelift_codegen..ir..entities..Value$GT$$GT$$GT$17h1596fb0b14e23df4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24) #19
           to label %19 unwind label %27
@@ -451,7 +451,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder7def_var17h3141845fa7
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !35, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %12, i64 0, i64 %5
+  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %12, i64 %5
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit": ; preds = %8, %10
@@ -469,7 +469,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder7def_var17h3141845fa7
 19:                                               ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit"
   %20 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !38, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %14
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %14
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h3415d9cfe90bc8eeE.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h3415d9cfe90bc8eeE.llvm.1812094323767051342.exit": ; preds = %17, %19
@@ -558,7 +558,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder16use_var_nonlocal17h
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %6, align 8, !alias.scope !50, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %42, i64 0, i64 %10
+  %43 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %42, i64 %10
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit": ; preds = %39, %41
@@ -590,7 +590,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder16use_var_nonlocal17h
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %45, align 8, !alias.scope !53, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %50
+  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %50
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h3415d9cfe90bc8eeE.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h3415d9cfe90bc8eeE.llvm.1812094323767051342.exit": ; preds = %52, %54
@@ -629,7 +629,7 @@ define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h3
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !62, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %15, i64 0, i64 %8
+  %16 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %15, i64 %8
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hcf79ad7b6daa5508E.llvm.1812094323767051342.exit": ; preds = %11, %13
@@ -698,7 +698,7 @@ define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h3
 
 "_ZN16cranelift_entity3set18EntitySet$LT$K$GT$6insert17h7cd0574d6fce5137E.exit": ; preds = %41
   %46 = load ptr, ptr %21, align 8, !alias.scope !71, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds nuw [0 x i64], ptr %46, i64 0, i64 %43
+  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %43
   %48 = load i64, ptr %47, align 8, !noalias !79, !noundef !4
   %49 = and i64 %28, 63
   %50 = lshr i64 %48, %49
@@ -722,7 +722,7 @@ define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h3
 
 61:                                               ; preds = %54
   %62 = load ptr, ptr %22, align 8, !alias.scope !81, !nonnull !4, !noundef !4
-  %63 = getelementptr inbounds nuw [0 x i32], ptr %62, i64 0, i64 %28
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %28
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h3415d9cfe90bc8eeE.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h3415d9cfe90bc8eeE.llvm.1812094323767051342.exit": ; preds = %59, %61
@@ -738,7 +738,7 @@ define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h3
 
 67:                                               ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h3415d9cfe90bc8eeE.llvm.1812094323767051342.exit"
   %68 = load ptr, ptr %17, align 8, !alias.scope !84, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %68, i64 0, i64 %28
+  %69 = getelementptr inbounds nuw { { i32, [1 x i32] }, i32, i32 }, ptr %68, i64 %28
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit": ; preds = %65, %67
@@ -854,7 +854,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder25declare_block_prede
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8, !alias.scope !100, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %12, i64 0, i64 %4
+  %13 = getelementptr inbounds nuw { { i32, [1 x i32] }, i32, i32 }, ptr %12, i64 %4
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit": ; preds = %7, %10
@@ -881,7 +881,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder24remove_block_predec
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8, !alias.scope !103, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %12, i64 0, i64 %4
+  %13 = getelementptr inbounds nuw { { i32, [1 x i32] }, i32, i32 }, ptr %12, i64 %4
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit": ; preds = %7, %10
@@ -1007,7 +1007,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder14seal_one_block17he6
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8, !alias.scope !118, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %13, i64 0, i64 %6
+  %14 = getelementptr inbounds nuw { { i32, [1 x i32] }, i32, i32 }, ptr %13, i64 %6
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit19"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit19": ; preds = %9, %11
@@ -1106,7 +1106,7 @@ _ZN18cranelift_frontend3ssa10SSABuilder12predecessors17h2b13db62e7443210E.llvm.1
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %23, align 8, !alias.scope !135, !nonnull !4, !noundef !4
-  %64 = getelementptr inbounds nuw [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %63, i64 0, i64 %6
+  %64 = getelementptr inbounds nuw { { i32, [1 x i32] }, i32, i32 }, ptr %63, i64 %6
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit": ; preds = %60, %62
@@ -1194,7 +1194,7 @@ _ZN18cranelift_frontend3ssa10SSABuilder12predecessors17h2b13db62e7443210E.llvm.1
 
 104:                                              ; preds = %95
   %105 = extractvalue { ptr, i64 } %100, 0
-  %106 = getelementptr inbounds [0 x i32], ptr %105, i64 0, i64 %102
+  %106 = getelementptr inbounds i32, ptr %105, i64 %102
   %107 = load i32, ptr %106, align 4, !noundef !4
   call fastcc void @_ZN18cranelift_frontend3ssa10SSABuilder25begin_predecessors_lookup17hbdb21570cb788264E(ptr noalias noundef align 8 dereferenceable(296) %0, i32 noundef %107, i32 noundef %1)
   %108 = call noundef align 8 dereferenceable(776) ptr @"_ZN85_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5b2c5c33452cbb1eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %2)

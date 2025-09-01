@@ -14648,7 +14648,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorR
   %indvars.iv.i.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i.i.i, %9 ]
   %10 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i.i.i
   %11 = load double, ptr %10, align 8, !tbaa !44
-  %12 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %12 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i.i.i
   store double %11, ptr %12, align 8, !tbaa !44
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -18575,7 +18575,7 @@ _ZNK7testing8internal13ParamIteratorISt6vectorIN2cv11GCompileArgESaIS4_EEEdeEv.e
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %68 ]
   %69 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %70 = load double, ptr %69, align 8, !tbaa !44
-  %71 = getelementptr inbounds nuw [4 x double], ptr %67, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %71 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   store double %70, ptr %71, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, 4
@@ -24807,7 +24807,7 @@ _ZNK7testing8internal13ParamIteratorISt6vectorIN2cv11GCompileArgESaIS4_EEEdeEv.e
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %55 ]
   %56 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %57 = load double, ptr %56, align 8, !tbaa !44
-  %58 = getelementptr inbounds nuw [4 x double], ptr %54, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %58 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store double %57, ptr %58, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -30306,7 +30306,7 @@ _ZNK7testing8internal13ParamIteratorISt6vectorIN2cv11GCompileArgESaIS4_EEEdeEv.e
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %61 ]
   %62 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %63 = load double, ptr %62, align 8, !tbaa !44
-  %64 = getelementptr inbounds nuw [4 x double], ptr %60, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %64 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %63, ptr %64, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -35985,7 +35985,7 @@ _ZNK7testing8internal13ParamIteratorISt6vectorIN2cv11GCompileArgESaIS4_EEEdeEv.e
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %61 ]
   %62 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %63 = load double, ptr %62, align 8, !tbaa !44
-  %64 = getelementptr inbounds nuw [4 x double], ptr %60, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %64 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %63, ptr %64, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -44929,7 +44929,7 @@ _ZNK7testing8internal13ParamIteratorISt6vectorIN2cv11GCompileArgESaIS4_EEEdeEv.e
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %82 ]
   %83 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %84 = load double, ptr %83, align 8, !tbaa !44
-  %85 = getelementptr inbounds nuw [4 x double], ptr %81, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %85 = getelementptr inbounds nuw double, ptr %81, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store double %84, ptr %85, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -50464,7 +50464,7 @@ _ZNK7testing8internal13ParamIteratorISt6vectorIN2cv11GCompileArgESaIS4_EEEdeEv.e
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %55 ]
   %56 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %57 = load double, ptr %56, align 8, !tbaa !44
-  %58 = getelementptr inbounds nuw [4 x double], ptr %54, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %58 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store double %57, ptr %58, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -57936,7 +57936,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit:    ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc188 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %380 ]
   %381 = getelementptr inbounds nuw double, ptr %379, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %382 = load double, ptr %381, align 8, !tbaa !44
-  %383 = getelementptr inbounds nuw [4 x double], ptr %46, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %383 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %382, ptr %383, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -59035,7 +59035,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit292: ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i223 = phi i64 [ 0, %.noexc230 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i224, %769 ]
   %770 = getelementptr inbounds nuw double, ptr %768, i64 %indvars.iv.i.i.i.i.i.i.i.i.i223
   %771 = load double, ptr %770, align 8, !tbaa !44
-  %772 = getelementptr inbounds nuw [4 x double], ptr %66, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i223
+  %772 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv.i.i.i.i.i.i.i.i.i223
   store double %771, ptr %772, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i224 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i223, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i225 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i224, 4
@@ -61950,7 +61950,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit:    ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc62 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %370 ]
   %371 = getelementptr inbounds nuw double, ptr %369, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %372 = load double, ptr %371, align 8, !tbaa !44
-  %373 = getelementptr inbounds nuw [4 x double], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %373 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %372, ptr %373, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -62981,7 +62981,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit276: ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc109 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %736 ]
   %737 = getelementptr inbounds nuw double, ptr %735, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %738 = load double, ptr %737, align 8, !tbaa !44
-  %739 = getelementptr inbounds nuw [4 x double], ptr %60, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %739 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store double %738, ptr %739, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -65469,7 +65469,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit:    ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc62 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %403 ]
   %404 = getelementptr inbounds nuw double, ptr %402, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %405 = load double, ptr %404, align 8, !tbaa !44
-  %406 = getelementptr inbounds nuw [4 x double], ptr %45, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %406 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   store double %405, ptr %406, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, 4
@@ -66708,7 +66708,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit289: ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc113 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %839 ]
   %840 = getelementptr inbounds nuw double, ptr %838, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %841 = load double, ptr %840, align 8, !tbaa !44
-  %842 = getelementptr inbounds nuw [4 x double], ptr %94, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %842 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %841, ptr %842, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -69041,7 +69041,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit:    ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc62 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %372 ]
   %373 = getelementptr inbounds nuw double, ptr %371, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %374 = load double, ptr %373, align 8, !tbaa !44
-  %375 = getelementptr inbounds nuw [4 x double], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %375 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   store double %374, ptr %375, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, 4
@@ -70076,7 +70076,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit276: ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc109 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %741 ]
   %742 = getelementptr inbounds nuw double, ptr %740, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %743 = load double, ptr %742, align 8, !tbaa !44
-  %744 = getelementptr inbounds nuw [4 x double], ptr %61, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %744 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %743, ptr %744, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -75980,7 +75980,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit:    ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc62 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %362 ]
   %363 = getelementptr inbounds nuw double, ptr %361, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %364 = load double, ptr %363, align 8, !tbaa !44
-  %365 = getelementptr inbounds nuw [4 x double], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %365 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %364, ptr %365, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -77005,7 +77005,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit276: ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc109 ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %724 ]
   %725 = getelementptr inbounds nuw double, ptr %723, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %726 = load double, ptr %725, align 8, !tbaa !44
-  %727 = getelementptr inbounds nuw [4 x double], ptr %56, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %727 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store double %726, ptr %727, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -79470,7 +79470,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit:    ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.noexc190 ], [ %indvars.iv.next.i.i.i.i.i.i, %374 ]
   %375 = getelementptr inbounds nuw double, ptr %373, i64 %indvars.iv.i.i.i.i.i.i
   %376 = load double, ptr %375, align 8, !tbaa !44
-  %377 = getelementptr inbounds nuw [4 x double], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %377 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv.i.i.i.i.i.i
   store double %376, ptr %377, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -80644,7 +80644,7 @@ _ZSt8_DestroyIPN2cv11GCompileArgEEvT_S3_.exit323: ; preds = %_ZSt8_DestroyIN2cv1
   %indvars.iv.i.i.i.i.i.i225 = phi i64 [ 0, %.noexc240 ], [ %indvars.iv.next.i.i.i.i.i.i226, %782 ]
   %783 = getelementptr inbounds nuw double, ptr %781, i64 %indvars.iv.i.i.i.i.i.i225
   %784 = load double, ptr %783, align 8, !tbaa !44
-  %785 = getelementptr inbounds nuw [4 x double], ptr %62, i64 0, i64 %indvars.iv.i.i.i.i.i.i225
+  %785 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv.i.i.i.i.i.i225
   store double %784, ptr %785, align 8, !tbaa !44
   %indvars.iv.next.i.i.i.i.i.i226 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i225, 1
   %exitcond.not.i.i.i.i.i.i227 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i226, 4

@@ -23743,10 +23743,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !3037, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !4694, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E.80", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E.80", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -37867,7 +37867,7 @@ default.unreachable:                              ; preds = %.noexc
   br i1 %86, label %"_ZN4core3ptr94drop_in_place$LT$smallvec..SmallVec$LT$$u5b$hir_ty..builder..ParamKind$u3b$$u20$2$u5d$$GT$$GT$17hc04dfb1a3a62f0b9E.exit", label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %83, i64 0, i64 %.0.i.i.i
+  %88 = getelementptr inbounds { i64, [1 x i64] }, ptr %83, i64 %.0.i.i.i
   %89 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h45d10171947d8966E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(16) %88)
           to label %85 unwind label %92
@@ -37883,7 +37883,7 @@ default.unreachable:                              ; preds = %.noexc
   br label %90
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %83, i64 0, i64 %.1.i.i.i
+  %95 = getelementptr inbounds { i64, [1 x i64] }, ptr %83, i64 %.1.i.i.i
   %96 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h45d10171947d8966E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(16) %95) #27
           to label %90 unwind label %97

@@ -236,7 +236,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 42:                                               ; preds = %57, %.preheader.i
   %.028.i = phi i64 [ 0, %.preheader.i ], [ %59, %57 ]
   %.01527.i = phi i32 [ %.01429.i, %.preheader.i ], [ %58, %57 ]
-  %43 = getelementptr inbounds nuw [5 x ptr], ptr @_ZL6pp_pat, i64 0, i64 %.028.i
+  %43 = getelementptr inbounds nuw ptr, ptr @_ZL6pp_pat, i64 %.028.i
   %44 = load ptr, ptr %43, align 8, !tbaa !28
   %45 = icmp slt i32 %.01527.i, %40
   br i1 %45, label %.lr.ph.preheader.i.i, label %_ZL9find_atomPKcPPPcii.exit.thread.i
@@ -261,13 +261,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   br i1 %exitcond.not.i.i, label %_ZL9find_atomPKcPPPcii.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !50
 
 _ZL9find_atomPKcPPPcii.exit.thread.i:             ; preds = %42, %52
-  %53 = getelementptr inbounds nuw [5 x i32], ptr %10, i64 0, i64 %.028.i
+  %53 = getelementptr inbounds nuw i32, ptr %10, i64 %.028.i
   store i32 -1, ptr %53, align 4, !tbaa !23
   br label %.loopexit.i
 
 _ZL9find_atomPKcPPPcii.exit.i:                    ; preds = %.lr.ph.i.i
   %54 = trunc nsw i64 %indvars.iv.i.i to i32
-  %55 = getelementptr inbounds nuw [5 x i32], ptr %10, i64 0, i64 %.028.i
+  %55 = getelementptr inbounds nuw i32, ptr %10, i64 %.028.i
   store i32 %54, ptr %55, align 4, !tbaa !23
   %56 = icmp eq i64 %indvars.iv.i.i, -1
   br i1 %56, label %.loopexit.i, label %57
@@ -299,7 +299,7 @@ _ZL9find_atomPKcPPPcii.exit.i:                    ; preds = %.lr.ph.i.i
   %68 = load i32, ptr %3, align 8, !tbaa !21
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds %struct.t_dih, ptr %64, i64 %69
-  %71 = getelementptr inbounds nuw [4 x i32], ptr %70, i64 0, i64 %indvars.iv.i17.i
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.i17.i
   store i32 %67, ptr %71, align 4, !tbaa !23
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i19.i = icmp eq i64 %indvars.iv.next.i18.i, 4
@@ -314,7 +314,7 @@ _ZL9find_atomPKcPPPcii.exit.i:                    ; preds = %.lr.ph.i.i
   %75 = sext i32 %74 to i64
   %76 = getelementptr %struct.t_dih, ptr %64, i64 %75
   %77 = getelementptr i8, ptr %76, i64 28
-  %78 = getelementptr inbounds nuw [4 x i32], ptr %77, i64 0, i64 %indvars.iv38.i.i
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv38.i.i
   store i32 %73, ptr %78, align 4, !tbaa !23
   %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next39.i.i, 4
   br i1 %exitcond41.not.i.i, label %_ZL6add_xrP7t_xramaPKiPK7t_atoms.exit.i, label %.preheader.i.i, !llvm.loop !54
@@ -411,7 +411,7 @@ _ZL7get_dihP7t_xramaPK7t_atoms.exit:              ; preds = %.loopexit.i, %_ZL6a
   %137 = getelementptr inbounds i32, ptr %128, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !23
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %139, i32 2
+  %140 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %139, i32 2
   %141 = load i32, ptr %140, align 16, !tbaa !81
   %.not.i22 = icmp eq i32 %138, 19
   br i1 %.not.i22, label %158, label %142
@@ -672,7 +672,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit30:        ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv.i33 = phi i64 [ 0, %.preheader.i32 ], [ %indvars.iv.next.i34, %270 ]
   %.promoted24.i = phi i32 [ %.promoted25.i, %.preheader.i32 ], [ %.promoted23.i, %270 ]
   %262 = phi i32 [ %.promoted25.i, %.preheader.i32 ], [ %272, %270 ]
-  %263 = getelementptr inbounds nuw [4 x i32], ptr %259, i64 0, i64 %indvars.iv.i33
+  %263 = getelementptr inbounds nuw i32, ptr %259, i64 %indvars.iv.i33
   %264 = load i32, ptr %263, align 4, !tbaa !23
   %265 = icmp slt i32 %264, %262
   br i1 %265, label %266, label %267

@@ -538,7 +538,7 @@ for.cond24.preheader:                             ; preds = %_ZN2EA4StdC9Stopwat
 
 for.cond27.preheader:                             ; preds = %for.cond24.preheader, %for.inc176
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc176 ], [ 0, %for.cond24.preheader ]
-  %invariant.gep2195 = getelementptr inbounds nuw [4 x [4 x [15 x %struct.BenchmarkResult]]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 0, i64 %indvars.iv
+  %invariant.gep2195 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 %indvars.iv
   %14 = load ptr, ptr %allSortFunctions, align 8
   %15 = load ptr, ptr %mpEnd.i, align 8
   %16 = icmp eq ptr %14, %15
@@ -550,7 +550,7 @@ for.body29.preheader:                             ; preds = %for.cond27.preheade
 
 for.body29:                                       ; preds = %for.body29.preheader, %for.inc173
   %sizeType.02194 = phi i64 [ %inc174, %for.inc173 ], [ 0, %for.body29.preheader ]
-  %arrayidx = getelementptr inbounds nuw [4 x i64], ptr @__const._Z22CompareSortPerformancev.kSizes, i64 0, i64 %sizeType.02194
+  %arrayidx = getelementptr inbounds nuw i64, ptr @__const._Z22CompareSortPerformancev.kSizes, i64 %sizeType.02194
   %18 = load i64, ptr %arrayidx, align 8
   %allSortFunctions.val = load ptr, ptr %allSortFunctions, align 8
   %allSortFunctions.val124 = load ptr, ptr %mpEnd.i, align 8
@@ -559,7 +559,7 @@ for.body29:                                       ; preds = %for.body29.preheade
 
 for.body34.lr.ph:                                 ; preds = %for.body29
   %mul.i.i.i184 = shl i64 %18, 2
-  %gep2196 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr %invariant.gep2195, i64 0, i64 %sizeType.02194
+  %gep2196 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %invariant.gep2195, i64 %sizeType.02194
   %add.ptr.i.i185.idx2404 = shl nsw i64 %18, 2
   %19 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
   %sub.i.i1869 = shl nuw nsw i64 %19, 1
@@ -1622,7 +1622,7 @@ for.body3.i.i484:                                 ; preds = %if.then.i.i483, %fo
   %shr.i.i485 = lshr i32 %temp.0.val.i.i, %j.061.i.i
   %and.i.i = and i32 %shr.i.i485, 255
   %idxprom.i.i = zext nneg i32 %and.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %bucketSize.i.i, i64 %idxprom.i.i
   %118 = load i32, ptr %arrayidx.i.i, align 4
   %inc.i.i486 = add i32 %118, 1
   store i32 %inc.i.i486, ptr %arrayidx.i.i, align 4
@@ -1635,7 +1635,7 @@ if.end.i.i:                                       ; preds = %for.body3.i.i484, %
   %shr5.i.i = lshr i32 %srcFirst.0.val.i.i, %j.061.i.i
   %and6.i.i = and i32 %shr5.i.i, 255
   %idxprom7.i.i = zext nneg i32 %and6.i.i to i64
-  %arrayidx8.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i, i64 0, i64 %idxprom7.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw i32, ptr %bucketSize.i.i, i64 %idxprom7.i.i
   %119 = load i32, ptr %arrayidx8.i.i, align 4
   %sub.ptr.lhs.cast.i.i474 = ptrtoint ptr %last.addr.065.i.i to i64
   %sub.ptr.rhs.cast.i.i475 = ptrtoint ptr %srcFirst.062.i.i to i64
@@ -1658,11 +1658,11 @@ for.cond29.preheader.i.i:                         ; preds = %for.body17.i.i
 for.body17.i.i:                                   ; preds = %if.else.i.i479, %for.body17.i.i
   %120 = phi i32 [ %add22.i.i, %for.body17.i.i ], [ 0, %if.else.i.i479 ]
   %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %for.body17.i.i ], [ 0, %if.else.i.i479 ]
-  %arrayidx21.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i, i64 0, i64 %indvars.iv71.i.i
+  %arrayidx21.i.i = getelementptr inbounds nuw i32, ptr %bucketSize.i.i, i64 %indvars.iv71.i.i
   %121 = load i32, ptr %arrayidx21.i.i, align 4
   %add22.i.i = add i32 %121, %120
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
-  %arrayidx25.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i, i64 0, i64 %indvars.iv.next72.i.i
+  %arrayidx25.i.i = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i, i64 %indvars.iv.next72.i.i
   store i32 %add22.i.i, ptr %arrayidx25.i.i, align 4
   %exitcond74.not.i.i = icmp eq i64 %indvars.iv.next72.i.i, 255
   br i1 %exitcond74.not.i.i, label %for.cond29.preheader.i.i, label %for.body17.i.i, !llvm.loop !33
@@ -1672,7 +1672,7 @@ for.body31.i.i:                                   ; preds = %for.cond29.preheade
   %temp.1.val.i.i = load i32, ptr %temp.159.i.i, align 4
   %shr33.i.i = lshr i32 %temp.1.val.i.i, %j.061.i.i
   %conv35.i.i = zext nneg i32 %shr33.i.i to i64
-  %arrayidx36.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i, i64 0, i64 %conv35.i.i
+  %arrayidx36.i.i = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i, i64 %conv35.i.i
   %122 = load i32, ptr %arrayidx36.i.i, align 4
   %inc37.i.i = add i32 %122, 1
   store i32 %inc37.i.i, ptr %arrayidx36.i.i, align 4
@@ -1686,11 +1686,11 @@ for.body31.i.i:                                   ; preds = %for.cond29.preheade
 for.body48.i.i:                                   ; preds = %if.else.i.i479, %for.body48.i.i
   %123 = phi i32 [ %add53.i.i, %for.body48.i.i ], [ 0, %if.else.i.i479 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body48.i.i ], [ 0, %if.else.i.i479 ]
-  %arrayidx52.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx52.i.i = getelementptr inbounds nuw i32, ptr %bucketSize.i.i, i64 %indvars.iv.i.i
   %124 = load i32, ptr %arrayidx52.i.i, align 4
   %add53.i.i = add i32 %124, %123
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx56.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i, i64 0, i64 %indvars.iv.next.i.i
+  %arrayidx56.i.i = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i, i64 %indvars.iv.next.i.i
   store i32 %add53.i.i, ptr %arrayidx56.i.i, align 4
   store i32 0, ptr %arrayidx52.i.i, align 4
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 255
@@ -1707,7 +1707,7 @@ for.body65.i.i:                                   ; preds = %for.end61.i.i, %for
   %shr69.i.i = lshr i32 %temp.2.val.i.i, %j.061.i.i
   %and70.i.i = and i32 %shr69.i.i, 255
   %conv71.i.i = zext nneg i32 %and70.i.i to i64
-  %arrayidx72.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i, i64 0, i64 %conv71.i.i
+  %arrayidx72.i.i = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i, i64 %conv71.i.i
   %125 = load i32, ptr %arrayidx72.i.i, align 4
   %inc73.i.i = add i32 %125, 1
   store i32 %inc73.i.i, ptr %arrayidx72.i.i, align 4
@@ -1717,7 +1717,7 @@ for.body65.i.i:                                   ; preds = %for.end61.i.i, %for
   %shr76.i.i = lshr i32 %temp.2.val.i.i, %.pre.i.i478
   %and77.i.i = and i32 %shr76.i.i, 255
   %idxprom78.i.i = zext nneg i32 %and77.i.i to i64
-  %arrayidx79.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i, i64 0, i64 %idxprom78.i.i
+  %arrayidx79.i.i = getelementptr inbounds nuw i32, ptr %bucketSize.i.i, i64 %idxprom78.i.i
   %126 = load i32, ptr %arrayidx79.i.i, align 4
   %inc80.i.i = add i32 %126, 1
   store i32 %inc80.i.i, ptr %arrayidx79.i.i, align 4
@@ -2017,13 +2017,13 @@ invoke.cont151:                                   ; preds = %sw.epilog
   br i1 %cmp153, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont151
-  %arrayidx157 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2196, i64 0, i64 %.pre2351
+  %arrayidx157 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2196, i64 %.pre2351
   %155 = load i64, ptr %arrayidx157, align 8
   %cmp158 = icmp ult i64 %call152, %155
   br i1 %cmp158, label %if.then, label %for.cond.i.i.preheader
 
 if.then:                                          ; preds = %invoke.cont151, %lor.lhs.false
-  %arrayidx163 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2196, i64 0, i64 %.pre2351
+  %arrayidx163 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2196, i64 %.pre2351
   store i64 %call152, ptr %arrayidx163, align 8
   br label %for.cond.i.i.preheader
 
@@ -2094,9 +2094,9 @@ delete.notnull:                                   ; preds = %invoke.cont182
 
 for.cond190.preheader:                            ; preds = %delete.notnull, %for.inc231
   %indvars.iv2308 = phi i64 [ 0, %delete.notnull ], [ %indvars.iv.next2309, %for.inc231 ]
-  %invariant.gep2204 = getelementptr inbounds nuw [4 x [4 x [15 x %struct.BenchmarkResult]]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 0, i64 %indvars.iv2308
+  %invariant.gep2204 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 %indvars.iv2308
   %158 = icmp samesign ult i64 %indvars.iv2308, 4
-  %switch.gep2566 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %indvars.iv2308
+  %switch.gep2566 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 %indvars.iv2308
   br label %for.body192
 
 for.body192:                                      ; preds = %for.cond190.preheader, %for.inc228
@@ -2104,10 +2104,10 @@ for.body192:                                      ; preds = %for.cond190.prehead
   br i1 %cmp198.not2201, label %if.then.i1881, label %for.body199.lr.ph
 
 for.body199.lr.ph:                                ; preds = %for.body192
-  %arrayidx194 = getelementptr inbounds nuw [4 x i64], ptr @__const._Z22CompareSortPerformancev.kSizes, i64 0, i64 %sizeType189.02203
+  %arrayidx194 = getelementptr inbounds nuw i64, ptr @__const._Z22CompareSortPerformancev.kSizes, i64 %sizeType189.02203
   %159 = load i64, ptr %arrayidx194, align 8
   %conv205 = trunc i64 %159 to i32
-  %gep2205 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr %invariant.gep2204, i64 0, i64 %sizeType189.02203
+  %gep2205 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %invariant.gep2204, i64 %sizeType189.02203
   %conv219 = uitofp i64 %159 to float
   br label %for.body199
 
@@ -2119,7 +2119,7 @@ for.body199:                                      ; preds = %for.body199.lr.ph, 
 
 switch.lookup:                                    ; preds = %for.body199
   %162 = zext nneg i32 %160 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %162
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 %162
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit
 
@@ -2134,7 +2134,7 @@ switch.lookup2565:                                ; preds = %_ZN12_GLOBAL__N_119
 _ZN12_GLOBAL__N_124GetRandomizationTypeNameEi.exit: ; preds = %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit, %switch.lookup2565
   %retval.0.i571 = phi ptr [ %switch.load2567, %switch.lookup2565 ], [ @.str.41, %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit ]
   %idxprom209 = zext i32 %160 to i64
-  %arrayidx210 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2205, i64 0, i64 %idxprom209
+  %arrayidx210 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2205, i64 %idxprom209
   %163 = load i64, ptr %arrayidx210, align 8
   %conv218 = uitofp i64 %163 to float
   %div = fdiv float %conv218, %conv219
@@ -2403,16 +2403,16 @@ for.cond261.preheader:                            ; preds = %_ZN2EA4StdC9Stopwat
 
 for.cond265.preheader:                            ; preds = %for.cond261.preheader, %for.inc431.split
   %indvars.iv2314 = phi i64 [ 0, %for.cond261.preheader ], [ %indvars.iv.next2315, %for.inc431.split ]
-  %invariant.gep2214 = getelementptr inbounds nuw [4 x [4 x [15 x %struct.BenchmarkResult]]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 0, i64 %indvars.iv2314
+  %invariant.gep2214 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 %indvars.iv2314
   %185 = trunc nuw nsw i64 %indvars.iv2314 to i32
   br label %for.body267
 
 for.body267:                                      ; preds = %for.cond265.preheader, %for.cond275.for.inc428_crit_edge
   %sizeType264.02213 = phi i64 [ 0, %for.cond265.preheader ], [ %inc429, %for.cond275.for.inc428_crit_edge ]
-  %arrayidx269 = getelementptr inbounds nuw [4 x i64], ptr @__const._Z22CompareSortPerformancev.kSizes, i64 0, i64 %sizeType264.02213
+  %arrayidx269 = getelementptr inbounds nuw i64, ptr @__const._Z22CompareSortPerformancev.kSizes, i64 %sizeType264.02213
   %186 = load i64, ptr %arrayidx269, align 8
   %mul.i.i.i634 = shl i64 %186, 2
-  %gep2215 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr %invariant.gep2214, i64 0, i64 %sizeType264.02213
+  %gep2215 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %invariant.gep2214, i64 %sizeType264.02213
   %add.ptr.i.i635.idx = shl nsw i64 %186, 2
   %187 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %186, i1 true)
   %sub.i.i.i1051 = shl nuw nsw i64 %187, 1
@@ -4559,13 +4559,13 @@ invoke.cont393:                                   ; preds = %sw.epilog391
   br i1 %cmp395, label %if.then404, label %lor.lhs.false396
 
 lor.lhs.false396:                                 ; preds = %invoke.cont393
-  %arrayidx401 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2215, i64 0, i64 %.pre2350
+  %arrayidx401 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2215, i64 %.pre2350
   %524 = load i64, ptr %arrayidx401, align 8
   %cmp403 = icmp ult i64 %call394, %524
   br i1 %cmp403, label %if.then404, label %for.cond.i.i1097.preheader
 
 if.then404:                                       ; preds = %invoke.cont393, %lor.lhs.false396
-  %arrayidx409 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2215, i64 0, i64 %.pre2350
+  %arrayidx409 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2215, i64 %.pre2350
   store i64 %call394, ptr %arrayidx409, align 8
   %525 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %conv411 = sext i32 %525 to i64
@@ -4659,17 +4659,17 @@ lpad250.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body451.us.
 
 for.cond449.preheader:                            ; preds = %delete.notnull442, %for.inc490.split
   %indvars.iv2320 = phi i64 [ %indvars.iv.next2321, %for.inc490.split ], [ 0, %delete.notnull442 ]
-  %invariant.gep2225 = getelementptr inbounds nuw [4 x [4 x [15 x %struct.BenchmarkResult]]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 0, i64 %indvars.iv2320
+  %invariant.gep2225 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 %indvars.iv2320
   %528 = icmp samesign ult i64 %indvars.iv2320, 4
-  %switch.gep2572 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %indvars.iv2320
+  %switch.gep2572 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 %indvars.iv2320
   br label %for.body451
 
 for.body451:                                      ; preds = %for.cond449.preheader, %for.inc487
   %sizeType448.02224 = phi i64 [ 0, %for.cond449.preheader ], [ %inc488, %for.inc487 ]
-  %arrayidx453 = getelementptr inbounds nuw [4 x i64], ptr @__const._Z22CompareSortPerformancev.kSizes, i64 0, i64 %sizeType448.02224
+  %arrayidx453 = getelementptr inbounds nuw i64, ptr @__const._Z22CompareSortPerformancev.kSizes, i64 %sizeType448.02224
   %529 = load i64, ptr %arrayidx453, align 8
   %conv467 = trunc i64 %529 to i32
-  %gep2226 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr %invariant.gep2225, i64 0, i64 %sizeType448.02224
+  %gep2226 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %invariant.gep2225, i64 %sizeType448.02224
   br label %for.body461
 
 for.body461:                                      ; preds = %for.body451, %for.inc482
@@ -4680,7 +4680,7 @@ for.body461:                                      ; preds = %for.body451, %for.i
 
 switch.lookup2568:                                ; preds = %for.body461
   %532 = zext nneg i32 %530 to i64
-  %switch.gep2569 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %532
+  %switch.gep2569 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 %532
   %switch.load2570 = load ptr, ptr %switch.gep2569, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1123
 
@@ -4695,7 +4695,7 @@ switch.lookup2571:                                ; preds = %_ZN12_GLOBAL__N_119
 _ZN12_GLOBAL__N_124GetRandomizationTypeNameEi.exit1129: ; preds = %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1123, %switch.lookup2571
   %retval.0.i1125 = phi ptr [ %switch.load2573, %switch.lookup2571 ], [ @.str.41, %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1123 ]
   %idxprom471 = zext i32 %530 to i64
-  %arrayidx472 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2226, i64 0, i64 %idxprom471
+  %arrayidx472 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2226, i64 %idxprom471
   %533 = load i64, ptr %arrayidx472, align 8
   %mCompareCount479 = getelementptr inbounds nuw i8, ptr %arrayidx472, i64 8
   %534 = load i64, ptr %mCompareCount479, align 8
@@ -4871,7 +4871,7 @@ for.cond530.preheader:                            ; preds = %for.cond526.prehead
 
 for.cond534.preheader:                            ; preds = %for.cond530.preheader, %for.inc696
   %indvars.iv2333 = phi i64 [ %indvars.iv.next2334, %for.inc696 ], [ 0, %for.cond530.preheader ]
-  %invariant.gep2247 = getelementptr inbounds nuw [4 x [4 x [15 x %struct.BenchmarkResult]]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 0, i64 %indvars.iv2333
+  %invariant.gep2247 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 %indvars.iv2333
   %545 = load ptr, ptr %sortFunctions497, align 8
   %546 = load ptr, ptr %539, align 8
   %547 = icmp eq ptr %545, %546
@@ -4883,7 +4883,7 @@ for.body536.preheader:                            ; preds = %for.cond534.prehead
 
 for.body536:                                      ; preds = %for.body536.preheader, %for.inc693
   %sizeType533.02246 = phi i64 [ %inc694, %for.inc693 ], [ 0, %for.body536.preheader ]
-  %arrayidx538 = getelementptr inbounds nuw [4 x i64], ptr @__const._Z22CompareSortPerformancev.kSizes, i64 0, i64 %sizeType533.02246
+  %arrayidx538 = getelementptr inbounds nuw i64, ptr @__const._Z22CompareSortPerformancev.kSizes, i64 %sizeType533.02246
   %549 = load i64, ptr %arrayidx538, align 8
   %sortFunctions497.val122 = load ptr, ptr %sortFunctions497, align 8
   %sortFunctions497.val132 = load ptr, ptr %539, align 8
@@ -4892,7 +4892,7 @@ for.body536:                                      ; preds = %for.body536.prehead
 
 for.body546.lr.ph:                                ; preds = %for.body536
   %mul.i.i.i1189 = shl i64 %549, 2
-  %gep2248 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr %invariant.gep2247, i64 0, i64 %sizeType533.02246
+  %gep2248 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %invariant.gep2247, i64 %sizeType533.02246
   %add.ptr.i.i1190.idx = shl nsw i64 %549, 2
   %550 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %549, i1 true)
   %sub.i.i.i1743 = shl nuw nsw i64 %550, 1
@@ -6152,7 +6152,7 @@ for.body3.i.i1712:                                ; preds = %if.then.i.i1711, %f
   %shr.i.i1714 = lshr i32 %temp.0.val.i.i1713, %j.077.i.i
   %and.i.i1715 = and i32 %shr.i.i1714, 255
   %idxprom.i.i1716 = zext nneg i32 %and.i.i1715 to i64
-  %arrayidx.i.i1717 = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i1667, i64 0, i64 %idxprom.i.i1716
+  %arrayidx.i.i1717 = getelementptr inbounds nuw i32, ptr %bucketSize.i.i1667, i64 %idxprom.i.i1716
   %635 = load i32, ptr %arrayidx.i.i1717, align 4
   %inc.i.i1718 = add i32 %635, 1
   store i32 %inc.i.i1718, ptr %arrayidx.i.i1717, align 4
@@ -6165,7 +6165,7 @@ if.end.i.i1670:                                   ; preds = %for.body3.i.i1712, 
   %shr5.i.i1672 = lshr i32 %srcFirst.0.val.i.i1671, %j.077.i.i
   %and6.i.i1673 = and i32 %shr5.i.i1672, 255
   %idxprom7.i.i1674 = zext nneg i32 %and6.i.i1673 to i64
-  %arrayidx8.i.i1675 = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i1667, i64 0, i64 %idxprom7.i.i1674
+  %arrayidx8.i.i1675 = getelementptr inbounds nuw i32, ptr %bucketSize.i.i1667, i64 %idxprom7.i.i1674
   %636 = load i32, ptr %arrayidx8.i.i1675, align 4
   %sub.ptr.lhs.cast.i.i1676 = ptrtoint ptr %last.addr.081.i.i to i64
   %sub.ptr.rhs.cast.i.i1677 = ptrtoint ptr %srcFirst.078.i.i to i64
@@ -6188,11 +6188,11 @@ for.cond29.preheader.i.i1700:                     ; preds = %for.body17.i.i1696
 for.body17.i.i1696:                               ; preds = %if.else.i.i1683, %for.body17.i.i1696
   %637 = phi i32 [ %add22.i.i1698, %for.body17.i.i1696 ], [ 0, %if.else.i.i1683 ]
   %indvars.iv86.i.i = phi i64 [ %indvars.iv.next87.i.i, %for.body17.i.i1696 ], [ 0, %if.else.i.i1683 ]
-  %arrayidx21.i.i1697 = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i1667, i64 0, i64 %indvars.iv86.i.i
+  %arrayidx21.i.i1697 = getelementptr inbounds nuw i32, ptr %bucketSize.i.i1667, i64 %indvars.iv86.i.i
   %638 = load i32, ptr %arrayidx21.i.i1697, align 4
   %add22.i.i1698 = add i32 %638, %637
   %indvars.iv.next87.i.i = add nuw nsw i64 %indvars.iv86.i.i, 1
-  %arrayidx25.i.i1699 = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i1668, i64 0, i64 %indvars.iv.next87.i.i
+  %arrayidx25.i.i1699 = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i1668, i64 %indvars.iv.next87.i.i
   store i32 %add22.i.i1698, ptr %arrayidx25.i.i1699, align 4
   %exitcond89.not.i.i = icmp eq i64 %indvars.iv.next87.i.i, 255
   br i1 %exitcond89.not.i.i, label %for.cond29.preheader.i.i1700, label %for.body17.i.i1696, !llvm.loop !109
@@ -6203,7 +6203,7 @@ for.body31.i.i1701:                               ; preds = %for.cond29.preheade
   %temp.1.val51.i.i = load i32, ptr %temp.168.i.i, align 4
   %shr33.i.i1702 = lshr i32 %temp.1.val51.i.i, %j.077.i.i
   %conv35.i.i1703 = zext nneg i32 %shr33.i.i1702 to i64
-  %arrayidx36.i.i1704 = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i1668, i64 0, i64 %conv35.i.i1703
+  %arrayidx36.i.i1704 = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i1668, i64 %conv35.i.i1703
   %639 = load i32, ptr %arrayidx36.i.i1704, align 4
   %inc37.i.i1705 = add i32 %639, 1
   store i32 %inc37.i.i1705, ptr %arrayidx36.i.i1704, align 4
@@ -6220,11 +6220,11 @@ for.body31.i.i1701:                               ; preds = %for.cond29.preheade
 for.body49.i.i:                                   ; preds = %if.else.i.i1683, %for.body49.i.i
   %640 = phi i32 [ %add54.i.i, %for.body49.i.i ], [ 0, %if.else.i.i1683 ]
   %indvars.iv.i.i1685 = phi i64 [ %indvars.iv.next.i.i1686, %for.body49.i.i ], [ 0, %if.else.i.i1683 ]
-  %arrayidx53.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i1667, i64 0, i64 %indvars.iv.i.i1685
+  %arrayidx53.i.i = getelementptr inbounds nuw i32, ptr %bucketSize.i.i1667, i64 %indvars.iv.i.i1685
   %641 = load i32, ptr %arrayidx53.i.i, align 4
   %add54.i.i = add i32 %641, %640
   %indvars.iv.next.i.i1686 = add nuw nsw i64 %indvars.iv.i.i1685, 1
-  %arrayidx57.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i1668, i64 0, i64 %indvars.iv.next.i.i1686
+  %arrayidx57.i.i = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i1668, i64 %indvars.iv.next.i.i1686
   store i32 %add54.i.i, ptr %arrayidx57.i.i, align 4
   store i32 0, ptr %arrayidx53.i.i, align 4
   %exitcond.not.i.i1687 = icmp eq i64 %indvars.iv.next.i.i1686, 255
@@ -6242,7 +6242,7 @@ for.body66.i.i:                                   ; preds = %for.end62.i.i, %for
   %shr70.i.i = lshr i32 %temp.2.val52.i.i, %j.077.i.i
   %and71.i.i = and i32 %shr70.i.i, 255
   %conv72.i.i = zext nneg i32 %and71.i.i to i64
-  %arrayidx73.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketPosition.i.i1668, i64 0, i64 %conv72.i.i
+  %arrayidx73.i.i = getelementptr inbounds nuw i32, ptr %bucketPosition.i.i1668, i64 %conv72.i.i
   %642 = load i32, ptr %arrayidx73.i.i, align 4
   %inc74.i.i = add i32 %642, 1
   store i32 %inc74.i.i, ptr %arrayidx73.i.i, align 4
@@ -6255,7 +6255,7 @@ for.body66.i.i:                                   ; preds = %for.end62.i.i, %for
   %shr78.i.i = lshr i32 %temp.2.val52.i.i, %.pre.i.i1682
   %and79.i.i = and i32 %shr78.i.i, 255
   %idxprom80.i.i = zext nneg i32 %and79.i.i to i64
-  %arrayidx81.i.i = getelementptr inbounds nuw [256 x i32], ptr %bucketSize.i.i1667, i64 0, i64 %idxprom80.i.i
+  %arrayidx81.i.i = getelementptr inbounds nuw i32, ptr %bucketSize.i.i1667, i64 %idxprom80.i.i
   %643 = load i32, ptr %arrayidx81.i.i, align 4
   %inc82.i.i = add i32 %643, 1
   store i32 %inc82.i.i, ptr %arrayidx81.i.i, align 4
@@ -6611,13 +6611,13 @@ invoke.cont658:                                   ; preds = %sw.epilog656
   br i1 %cmp660, label %if.then669, label %lor.lhs.false661
 
 lor.lhs.false661:                                 ; preds = %invoke.cont658
-  %arrayidx666 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2248, i64 0, i64 %.pre
+  %arrayidx666 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2248, i64 %.pre
   %661 = load i64, ptr %arrayidx666, align 8
   %cmp668 = icmp ult i64 %call659, %661
   br i1 %cmp668, label %if.then669, label %for.cond.i.i1799.preheader
 
 if.then669:                                       ; preds = %invoke.cont658, %lor.lhs.false661
-  %arrayidx674 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2248, i64 0, i64 %.pre
+  %arrayidx674 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2248, i64 %.pre
   store i64 %call659, ptr %arrayidx674, align 8
   %662 = load i32, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   %conv676 = sext i32 %662 to i64
@@ -6714,17 +6714,17 @@ lpad511.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %for.body716.us.
 
 for.cond714.preheader:                            ; preds = %delete.notnull707, %for.inc755.split
   %indvars.iv2339 = phi i64 [ %indvars.iv.next2340, %for.inc755.split ], [ 0, %delete.notnull707 ]
-  %invariant.gep2258 = getelementptr inbounds nuw [4 x [4 x [15 x %struct.BenchmarkResult]]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 0, i64 %indvars.iv2339
+  %invariant.gep2258 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr @_ZZ22CompareSortPerformancevE8sResults, i64 %indvars.iv2339
   %663 = icmp samesign ult i64 %indvars.iv2339, 4
-  %switch.gep2578 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %indvars.iv2339
+  %switch.gep2578 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 %indvars.iv2339
   br label %for.body716
 
 for.body716:                                      ; preds = %for.cond714.preheader, %for.inc752
   %sizeType713.02257 = phi i64 [ 0, %for.cond714.preheader ], [ %inc753, %for.inc752 ]
-  %arrayidx718 = getelementptr inbounds nuw [4 x i64], ptr @__const._Z22CompareSortPerformancev.kSizes, i64 0, i64 %sizeType713.02257
+  %arrayidx718 = getelementptr inbounds nuw i64, ptr @__const._Z22CompareSortPerformancev.kSizes, i64 %sizeType713.02257
   %664 = load i64, ptr %arrayidx718, align 8
   %conv732 = trunc i64 %664 to i32
-  %gep2259 = getelementptr inbounds nuw [4 x [15 x %struct.BenchmarkResult]], ptr %invariant.gep2258, i64 0, i64 %sizeType713.02257
+  %gep2259 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %invariant.gep2258, i64 %sizeType713.02257
   br label %for.body726
 
 for.body726:                                      ; preds = %for.body716, %for.inc747
@@ -6735,7 +6735,7 @@ for.body726:                                      ; preds = %for.body716, %for.i
 
 switch.lookup2574:                                ; preds = %for.body726
   %667 = zext nneg i32 %665 to i64
-  %switch.gep2575 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %667
+  %switch.gep2575 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 %667
   %switch.load2576 = load ptr, ptr %switch.gep2575, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1825
 
@@ -6750,7 +6750,7 @@ switch.lookup2577:                                ; preds = %_ZN12_GLOBAL__N_119
 _ZN12_GLOBAL__N_124GetRandomizationTypeNameEi.exit1831: ; preds = %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1825, %switch.lookup2577
   %retval.0.i1827 = phi ptr [ %switch.load2579, %switch.lookup2577 ], [ @.str.41, %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit1825 ]
   %idxprom736 = zext i32 %665 to i64
-  %arrayidx737 = getelementptr inbounds nuw [15 x %struct.BenchmarkResult], ptr %gep2259, i64 0, i64 %idxprom736
+  %arrayidx737 = getelementptr inbounds nuw %struct.BenchmarkResult, ptr %gep2259, i64 %idxprom736
   %668 = load i64, ptr %arrayidx737, align 8
   %mAssignCount744 = getelementptr inbounds nuw i8, ptr %arrayidx737, i64 16
   %669 = load i64, ptr %mAssignCount744, align 8
@@ -9765,7 +9765,7 @@ for.body.i:                                       ; preds = %_ZN2EA4StdC9Stopwat
   %i.0514.i = phi i32 [ %inc266.i, %for.inc265.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i ]
   %12 = icmp samesign ult i32 %i.0514.i, 4
   %13 = zext nneg i32 %i.0514.i to i64
-  %switch.gep69 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %13
+  %switch.gep69 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 %13
   br label %for.body23.lr.ph.i
 
 for.body23.lr.ph.i:                               ; preds = %for.inc262.i, %for.body.i
@@ -11293,7 +11293,7 @@ for.end254.i:                                     ; preds = %_ZN5eastl6vectorIjN
 
 switch.lookup:                                    ; preds = %for.end254.i
   %151 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %151
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 %151
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit425.i
 
@@ -11558,7 +11558,7 @@ for.body.i97:                                     ; preds = %_ZN2EA4StdC9Stopwat
   %i.0709.i = phi i32 [ %inc263.i, %for.inc262.i133 ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i91 ]
   %179 = icmp samesign ult i32 %i.0709.i, 4
   %180 = zext nneg i32 %i.0709.i to i64
-  %switch.gep75 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %180
+  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 %180
   br label %for.body20.lr.ph.i
 
 for.body20.lr.ph.i:                               ; preds = %for.inc259.i, %for.body.i97
@@ -13878,7 +13878,7 @@ for.end251.i:                                     ; preds = %_ZN5eastl6vectorIiN
 
 switch.lookup71:                                  ; preds = %for.end251.i
   %473 = zext nneg i32 %198 to i64
-  %switch.gep72 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %473
+  %switch.gep72 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 %473
   %switch.load73 = load ptr, ptr %switch.gep72, align 8
   br label %_ZN12_GLOBAL__N_119GetSortFunctionNameEi.exit429.i
 
@@ -14151,7 +14151,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i320:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body17.lr.ph.i:                               ; preds = %for.inc264.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i320
   %i.066.i = phi i32 [ %inc265.i, %for.inc264.i ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i320 ]
   %501 = zext nneg i32 %i.066.i to i64
-  %switch.gep81 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 0, i64 %501
+  %switch.gep81 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.283, i64 %501
   br label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.body17.lr.ph.i, %for.inc261.i
@@ -15917,7 +15917,7 @@ for.end253.i:                                     ; preds = %_ZN5eastl6vectorIN1
 
 switch.lookup77:                                  ; preds = %for.end253.i
   %595 = zext nneg i32 %509 to i64
-  %switch.gep78 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 0, i64 %595
+  %switch.gep78 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL32CompareSmallInputSortPerformancev.282, i64 %595
   %switch.load79 = load ptr, ptr %switch.gep78, align 8
   br label %switch.lookup80
 

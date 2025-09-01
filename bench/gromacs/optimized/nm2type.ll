@@ -986,7 +986,7 @@ define noundef i32 @_Z7nm2typeiP9t_nm2typeP7t_atomsP22PreprocessingAtomTypesPiP1
 .preheader287:                                    ; preds = %._crit_edge349, %77
   %92 = sub nuw nsw i32 1, %.0162380
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %9, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 %93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %94, i8 0, i64 16, i1 false), !tbaa !4
   br i1 %33, label %.lr.ph373, label %._crit_edge374.thread
 
@@ -1034,7 +1034,7 @@ define noundef i32 @_Z7nm2typeiP9t_nm2typeP7t_atomsP22PreprocessingAtomTypesPiP1
 
 _ZL9match_strPKcS0_.exit:                         ; preds = %111, %114
   %118 = zext nneg i32 %.1372 to i64
-  %119 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %9, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 %118
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %119, i8 0, i64 16, i1 false), !tbaa !4
   br i1 %95, label %.lr.ph357, label %.split.us
 
@@ -1107,7 +1107,7 @@ _ZL9match_strPKcS0_.exit215.us359:                ; preds = %sub_1.i214.us, %sub
 
 .preheader283.us:                                 ; preds = %.lr.ph363, %._crit_edge368.split.us.us
   %indvars.iv454 = phi i64 [ %indvars.iv.next455, %._crit_edge368.split.us.us ], [ 3, %.lr.ph363 ]
-  %146 = getelementptr inbounds nuw [4 x i32], ptr %119, i64 0, i64 %indvars.iv454
+  %146 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv454
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge366.us.us, %.preheader283.us
@@ -1184,7 +1184,7 @@ _ZL9match_strPKcS0_.exit215.us359:                ; preds = %sub_1.i214.us, %sub
 178:                                              ; preds = %.split.us
   %179 = sub nuw nsw i32 1, %.1372
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %9, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 12
   %183 = load i32, ptr %182, align 4, !tbaa !4
   %184 = icmp sgt i32 %170, %183

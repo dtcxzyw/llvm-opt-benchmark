@@ -1420,9 +1420,9 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm15RIS
   br label %14
 
 10:                                               ; preds = %6
-  %11 = add nsw i32 %1, -128
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [26 x %"struct.llvm::MCFixupKindInfo"], ptr @_ZZNK4llvm15RISCVAsmBackend16getFixupKindInfoENS_11MCFixupKindEE5Infos, i64 0, i64 %12
+  %11 = zext nneg i32 %1 to i64
+  %12 = getelementptr %"struct.llvm::MCFixupKindInfo", ptr @_ZZNK4llvm15RISCVAsmBackend16getFixupKindInfoENS_11MCFixupKindEE5Infos, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -3072
   br label %14
 
 14:                                               ; preds = %10, %8, %4
@@ -2825,10 +2825,10 @@ switch.lookup:
   %13 = load i32, ptr %12, align 4, !tbaa !72
   %switch.tableidx = add nsw i32 %13, -1
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep23 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm.3, i64 0, i64 %15
+  %switch.gep23 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm.3, i64 %15
   %switch.load24 = load i32, ptr %switch.gep23, align 4
   %16 = load ptr, ptr %4, align 8, !tbaa !77
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16

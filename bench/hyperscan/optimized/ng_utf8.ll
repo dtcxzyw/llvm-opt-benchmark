@@ -120,7 +120,7 @@ define hidden void @_ZN3ue218relaxForbiddenUtf8ERNS_8NGHolderERKNS_14ExpressionI
 
 24:                                               ; preds = %.preheader, %32
   %.0710.i.i = phi i64 [ %33, %32 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.0710.i.i
+  %25 = getelementptr inbounds nuw i64, ptr %21, i64 %.0710.i.i
   %26 = load i64, ptr %25, align 8
   %.not.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i, label %32, label %27

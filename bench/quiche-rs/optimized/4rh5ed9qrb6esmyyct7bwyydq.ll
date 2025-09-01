@@ -814,7 +814,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 switch.lookup:                                    ; preds = %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit22.i"
   %84 = zext nneg i8 %81 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hd35333da812371a4E", i64 0, i64 %84
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hd35333da812371a4E", i64 %84
   %switch.load = load i64, ptr %switch.gep, align 8
   %85 = invoke noundef zeroext i1 @_ZN11slog_stdlog15init_with_level17hb940b4ec61a31457E(i64 noundef %switch.load)
           to label %86 unwind label %82

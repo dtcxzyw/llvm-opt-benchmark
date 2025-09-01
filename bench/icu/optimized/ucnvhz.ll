@@ -559,7 +559,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   %61 = add i8 %60, 1
   store i8 %61, ptr %59, align 1, !tbaa !54
   %62 = sext i8 %60 to i64
-  %63 = getelementptr inbounds [32 x i8], ptr %58, i64 0, i64 %62
+  %63 = getelementptr inbounds i8, ptr %58, i64 %62
   store i8 %46, ptr %63, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %64
@@ -662,7 +662,7 @@ select.unfold:                                    ; preds = %85, %67
   %115 = add i8 %114, 1
   store i8 %115, ptr %113, align 1, !tbaa !54
   %116 = sext i8 %114 to i64
-  %117 = getelementptr inbounds [32 x i8], ptr %112, i64 0, i64 %116
+  %117 = getelementptr inbounds i8, ptr %112, i64 %116
   store i8 %100, ptr %117, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %118
@@ -711,7 +711,7 @@ select.unfold:                                    ; preds = %85, %67
   %138 = add i8 %137, 1
   store i8 %138, ptr %136, align 1, !tbaa !54
   %139 = sext i8 %137 to i64
-  %140 = getelementptr inbounds [32 x i8], ptr %135, i64 0, i64 %139
+  %140 = getelementptr inbounds i8, ptr %135, i64 %139
   store i8 %123, ptr %140, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %141
@@ -790,7 +790,7 @@ select.unfold:                                    ; preds = %85, %67
   %175 = add i8 %174, 1
   store i8 %175, ptr %173, align 1, !tbaa !54
   %176 = sext i8 %174 to i64
-  %177 = getelementptr inbounds [32 x i8], ptr %172, i64 0, i64 %176
+  %177 = getelementptr inbounds i8, ptr %172, i64 %176
   store i8 %170, ptr %177, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %.outer
@@ -803,7 +803,7 @@ select.unfold:                                    ; preds = %85, %67
   %183 = add i8 %182, 1
   store i8 %183, ptr %181, align 1, !tbaa !54
   %184 = sext i8 %182 to i64
-  %185 = getelementptr inbounds [32 x i8], ptr %180, i64 0, i64 %184
+  %185 = getelementptr inbounds i8, ptr %180, i64 %184
   store i8 %149, ptr %185, align 1, !tbaa !35
   %186 = load i32, ptr %3, align 4, !tbaa !40
   %187 = trunc i32 %186 to i8
@@ -814,7 +814,7 @@ select.unfold:                                    ; preds = %85, %67
   %192 = add i8 %191, 1
   store i8 %192, ptr %190, align 1, !tbaa !54
   %193 = sext i8 %191 to i64
-  %194 = getelementptr inbounds [32 x i8], ptr %189, i64 0, i64 %193
+  %194 = getelementptr inbounds i8, ptr %189, i64 %193
   store i8 %187, ptr %194, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %.outer
@@ -844,7 +844,7 @@ select.unfold:                                    ; preds = %85, %67
   %208 = add i8 %207, 1
   store i8 %208, ptr %206, align 1, !tbaa !54
   %209 = sext i8 %207 to i64
-  %210 = getelementptr inbounds [32 x i8], ptr %205, i64 0, i64 %209
+  %210 = getelementptr inbounds i8, ptr %205, i64 %209
   store i8 %196, ptr %210, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %.outer

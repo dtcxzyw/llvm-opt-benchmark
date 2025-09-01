@@ -713,7 +713,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN7mitsuba6Struct6appen
 
 switch.lookup:                                    ; preds = %31
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN7mitsuba6Struct6appendERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS0_4TypeEjd, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7mitsuba6Struct6appendERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS0_4TypeEjd, i64 %41
   %switch.load = load i64, ptr %switch.gep, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %switch.load, ptr %42, align 8
@@ -1993,10 +1993,10 @@ define { double, double } @_ZN7mitsuba6Struct5rangeENS0_4TypeE(i32 noundef %0) l
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x double], ptr @switch.table._ZN7mitsuba6detail14StructCompiler9linearizeERKNSt3__14pairINS1_3KeyENS1_5ValueEEE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN7mitsuba6detail14StructCompiler9linearizeERKNSt3__14pairINS1_3KeyENS1_5ValueEEE, i64 %9
   %switch.load = load double, ptr %switch.gep, align 8
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep155 = getelementptr inbounds nuw [11 x double], ptr @switch.table._ZN7mitsuba6Struct5rangeENS0_4TypeE.5, i64 0, i64 %10
+  %switch.gep155 = getelementptr inbounds nuw double, ptr @switch.table._ZN7mitsuba6Struct5rangeENS0_4TypeE.5, i64 %10
   %switch.load156 = load double, ptr %switch.gep155, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %switch.load156, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %switch.load, 1
@@ -5221,7 +5221,7 @@ _ZNSt3__14pairIN7mitsuba6detail14StructCompiler3KeyENS3_5ValueEEC2B8ne190000IKS4
 
 switch.lookup:                                    ; preds = %67
   %75 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x double], ptr @switch.table._ZN7mitsuba6detail14StructCompiler9linearizeERKNSt3__14pairINS1_3KeyENS1_5ValueEEE, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN7mitsuba6detail14StructCompiler9linearizeERKNSt3__14pairINS1_3KeyENS1_5ValueEEE, i64 %75
   %switch.load = load double, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %76 = load ptr, ptr %1, align 8
@@ -5760,10 +5760,10 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail14StructCompiler4saveEPKNS_6S
 
 switch.lookup:                                    ; preds = %99
   %106 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x double], ptr @switch.table._ZN7mitsuba6detail14StructCompiler4saveEPKNS_6StructERKN6asmjit9_abi_1_103x862GpENS2_5FieldERKNSt3__14pairINS1_3KeyENS1_5ValueEEE, i64 0, i64 %106
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN7mitsuba6detail14StructCompiler4saveEPKNS_6StructERKN6asmjit9_abi_1_103x862GpENS2_5FieldERKNSt3__14pairINS1_3KeyENS1_5ValueEEE, i64 %106
   %switch.load = load double, ptr %switch.gep, align 8
   %107 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep258 = getelementptr inbounds nuw [8 x double], ptr @switch.table._ZN7mitsuba6detail14StructCompiler4saveEPKNS_6StructERKN6asmjit9_abi_1_103x862GpENS2_5FieldERKNSt3__14pairINS1_3KeyENS1_5ValueEEE.6, i64 0, i64 %107
+  %switch.gep258 = getelementptr inbounds nuw double, ptr @switch.table._ZN7mitsuba6detail14StructCompiler4saveEPKNS_6StructERKN6asmjit9_abi_1_103x862GpENS2_5FieldERKNSt3__14pairINS1_3KeyENS1_5ValueEEE.6, i64 %107
   %switch.load259 = load double, ptr %switch.gep258, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %108 = fptrunc double %switch.load259 to float
@@ -8131,22 +8131,25 @@ _ZN7mitsuba6detail14StructCompiler6const_IdEEN6asmjit9_abi_1_103x863MemET_.exit1
   %47 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %46, i32 noundef 1607, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2)
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %.split24.us.us
-  %.031.us = phi i64 [ %49, %.split24.us.us ], [ 0, %.preheader.us.preheader ]
-  %invariant.gep.us = getelementptr inbounds nuw [6 x float], ptr @__const._ZN7mitsuba6detail14StructCompiler5gammaEN6asmjit9_abi_1_103x863XmmEb.to_srgb_coeffs, i64 0, i64 %.031.us
-  %48 = icmp eq i64 %.031.us, 0
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %.split22.us.us
+  %.030.us = phi i64 [ %49, %.split22.us.us ], [ 0, %.preheader.us.preheader ]
+  %48 = icmp eq i64 %.030.us, 0
   br i1 %48, label %.preheader.split.us.us, label %.preheader.split.us33
 
-.split24.us.us:                                   ; preds = %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us29.us, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us.us
-  %49 = add nuw nsw i64 %.031.us, 1
-  %exitcond52.not = icmp eq i64 %49, 6
-  br i1 %exitcond52.not, label %.split36.us, label %.preheader.us, !llvm.loop !372
+.preheader.split.us33:                            ; preds = %.preheader.us
+  %invariant.gep28.us = getelementptr inbounds nuw float, ptr @__const._ZN7mitsuba6detail14StructCompiler5gammaEN6asmjit9_abi_1_103x863XmmEb.to_srgb_coeffs, i64 %.030.us
+  br label %56
+
+.split22.us.us:                                   ; preds = %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us25.us, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us.us
+  %49 = add nuw nsw i64 %.030.us, 1
+  %exitcond54.not = icmp eq i64 %49, 6
+  br i1 %exitcond54.not, label %.split36.us, label %.preheader.us, !llvm.loop !372
 
 .preheader.split.us.us:                           ; preds = %.preheader.us, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us.us
   %50 = phi i1 [ false, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us.us ], [ true, %.preheader.us ]
-  %indvars.iv49 = phi i64 [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us.us ], [ 0, %.preheader.us ]
-  %gep.us.us = getelementptr inbounds nuw [2 x [6 x float]], ptr %invariant.gep.us, i64 0, i64 %indvars.iv49
-  %51 = load float, ptr %gep.us.us, align 4
+  %indvars.iv51 = phi i64 [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us.us ], [ 0, %.preheader.us ]
+  %gep40 = getelementptr [6 x float], ptr @__const._ZN7mitsuba6detail14StructCompiler5gammaEN6asmjit9_abi_1_103x863XmmEb.to_srgb_coeffs, i64 %indvars.iv51
+  %51 = load float, ptr %gep40, align 8
   %52 = load ptr, ptr %1, align 8, !noalias !373
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !373
   store float %51, ptr %5, align 4, !noalias !376
@@ -8158,109 +8161,112 @@ _ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !373
   %54 = load ptr, ptr %1, align 8
   %55 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %54, i32 noundef 1182, ptr noundef nonnull align 4 dereferenceable(16) %..us.us, ptr noundef nonnull align 4 dereferenceable(16) %14)
-  br i1 %50, label %.preheader.split.us.us, label %.split24.us.us, !llvm.loop !379
+  br i1 %50, label %.preheader.split.us.us, label %.split22.us.us, !llvm.loop !379
 
-.preheader.split.us33:                            ; preds = %.preheader.us, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us29.us
-  %56 = phi i1 [ false, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us29.us ], [ true, %.preheader.us ]
-  %indvars.iv46 = phi i64 [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us29.us ], [ 0, %.preheader.us ]
-  %gep.us27.us = getelementptr inbounds nuw [2 x [6 x float]], ptr %invariant.gep.us, i64 0, i64 %indvars.iv46
-  %57 = load float, ptr %gep.us27.us, align 4
-  %58 = load ptr, ptr %1, align 8, !noalias !373
+56:                                               ; preds = %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us25.us, %.preheader.split.us33
+  %57 = phi i1 [ false, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us25.us ], [ true, %.preheader.split.us33 ]
+  %indvars.iv48 = phi i64 [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us25.us ], [ 0, %.preheader.split.us33 ]
+  %gep29.us = getelementptr inbounds nuw [6 x float], ptr %invariant.gep28.us, i64 %indvars.iv48
+  %58 = load float, ptr %gep29.us, align 4
+  %59 = load ptr, ptr %1, align 8, !noalias !373
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !373
-  store float %57, ptr %5, align 4, !noalias !376
-  %59 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_7BaseMemENS0_14ConstPoolScopeEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %58, ptr noundef nonnull align 4 %14, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 4)
-          to label %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us29.us unwind label %.split.split.us.split.us
+  store float %58, ptr %5, align 4, !noalias !376
+  %60 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_7BaseMemENS0_14ConstPoolScopeEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %59, ptr noundef nonnull align 4 %14, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 4)
+          to label %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us25.us unwind label %.split.split.us.split.us
 
-_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us29.us: ; preds = %.preheader.split.us33
-  %..us26.us = select i1 %56, ptr %0, ptr %8
+_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us25.us: ; preds = %56
+  %..us24.us = select i1 %57, ptr %0, ptr %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !373
-  %60 = load ptr, ptr %1, align 8
-  %61 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %60, i32 noundef 975, ptr noundef nonnull align 4 dereferenceable(16) %..us26.us, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %14)
-  br i1 %56, label %.preheader.split.us33, label %.split24.us.us, !llvm.loop !379
+  %61 = load ptr, ptr %1, align 8
+  %62 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %61, i32 noundef 975, ptr noundef nonnull align 4 dereferenceable(16) %..us24.us, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %14)
+  br i1 %57, label %56, label %.split22.us.us, !llvm.loop !379
 
 .split.us.split.us:                               ; preds = %.preheader.split.us.us
-  %62 = landingpad { ptr, i32 }
-          catch ptr null
-  br label %.split.us
-
-.split.split.us.split.us:                         ; preds = %.preheader.split.us33
   %63 = landingpad { ptr, i32 }
           catch ptr null
   br label %.split.us
 
-.preheader:                                       ; preds = %.preheader.preheader, %.split24.us
-  %.031 = phi i64 [ %80, %.split24.us ], [ 0, %.preheader.preheader ]
-  %invariant.gep20 = getelementptr inbounds nuw [5 x float], ptr @__const._ZN7mitsuba6detail14StructCompiler5gammaEN6asmjit9_abi_1_103x863XmmEb.from_srgb_coeffs, i64 0, i64 %.031
-  %64 = icmp eq i64 %.031, 0
-  br i1 %64, label %.preheader.split.us, label %.preheader.split
-
-.preheader.split.us:                              ; preds = %.preheader, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us
-  %65 = phi i1 [ false, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us ], [ true, %.preheader ]
-  %indvars.iv43 = phi i64 [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us ], [ 0, %.preheader ]
-  %gep21.us = getelementptr inbounds nuw [2 x [5 x float]], ptr %invariant.gep20, i64 0, i64 %indvars.iv43
-  %66 = load float, ptr %gep21.us, align 4
-  %67 = load ptr, ptr %1, align 8, !noalias !373
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !373
-  store float %66, ptr %5, align 4, !noalias !376
-  %68 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_7BaseMemENS0_14ConstPoolScopeEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %67, ptr noundef nonnull align 4 %14, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 4)
-          to label %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us unwind label %.split.us.split
-
-_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us: ; preds = %.preheader.split.us
-  %..us = select i1 %65, ptr %0, ptr %8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !373
-  %69 = load ptr, ptr %1, align 8
-  %70 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %69, i32 noundef 1182, ptr noundef nonnull align 4 dereferenceable(16) %..us, ptr noundef nonnull align 4 dereferenceable(16) %14)
-  br i1 %65, label %.preheader.split.us, label %.split24.us, !llvm.loop !379
-
-.split.us.split:                                  ; preds = %.preheader.split.us
-  %71 = landingpad { ptr, i32 }
+.split.split.us.split.us:                         ; preds = %56
+  %64 = landingpad { ptr, i32 }
           catch ptr null
   br label %.split.us
 
-.preheader.split:                                 ; preds = %.preheader, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit
-  %72 = phi i1 [ false, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit ], [ true, %.preheader ]
-  %indvars.iv = phi i64 [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit ], [ 0, %.preheader ]
-  %gep21 = getelementptr inbounds nuw [2 x [5 x float]], ptr %invariant.gep20, i64 0, i64 %indvars.iv
-  %73 = load float, ptr %gep21, align 4
-  %74 = load ptr, ptr %1, align 8, !noalias !373
+.preheader:                                       ; preds = %.preheader.preheader, %.split22.us
+  %.030 = phi i64 [ %83, %.split22.us ], [ 0, %.preheader.preheader ]
+  %65 = icmp eq i64 %.030, 0
+  br i1 %65, label %.preheader.split.us, label %.preheader.split
+
+.preheader.split.us:                              ; preds = %.preheader, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us
+  %66 = phi i1 [ false, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us ], [ true, %.preheader ]
+  %indvars.iv45 = phi i64 [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us ], [ 0, %.preheader ]
+  %67 = getelementptr inbounds nuw [5 x float], ptr @__const._ZN7mitsuba6detail14StructCompiler5gammaEN6asmjit9_abi_1_103x863XmmEb.from_srgb_coeffs, i64 %indvars.iv45
+  %68 = load float, ptr %67, align 4
+  %69 = load ptr, ptr %1, align 8, !noalias !373
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !373
-  store float %73, ptr %5, align 4, !noalias !376
-  %75 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_7BaseMemENS0_14ConstPoolScopeEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %74, ptr noundef nonnull align 4 %14, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 4)
+  store float %68, ptr %5, align 4, !noalias !376
+  %70 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_7BaseMemENS0_14ConstPoolScopeEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %69, ptr noundef nonnull align 4 %14, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 4)
+          to label %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us unwind label %.split.us.split
+
+_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us: ; preds = %.preheader.split.us
+  %..us = select i1 %66, ptr %0, ptr %8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !373
+  %71 = load ptr, ptr %1, align 8
+  %72 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %71, i32 noundef 1182, ptr noundef nonnull align 4 dereferenceable(16) %..us, ptr noundef nonnull align 4 dereferenceable(16) %14)
+  br i1 %66, label %.preheader.split.us, label %.split22.us, !llvm.loop !379
+
+.split.us.split:                                  ; preds = %.preheader.split.us
+  %73 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %.split.us
+
+.preheader.split:                                 ; preds = %.preheader
+  %invariant.gep = getelementptr inbounds nuw float, ptr @__const._ZN7mitsuba6detail14StructCompiler5gammaEN6asmjit9_abi_1_103x863XmmEb.from_srgb_coeffs, i64 %.030
+  br label %74
+
+74:                                               ; preds = %.preheader.split, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit
+  %75 = phi i1 [ true, %.preheader.split ], [ false, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit ]
+  %indvars.iv = phi i64 [ 0, %.preheader.split ], [ 1, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit ]
+  %gep = getelementptr inbounds nuw [5 x float], ptr %invariant.gep, i64 %indvars.iv
+  %76 = load float, ptr %gep, align 4
+  %77 = load ptr, ptr %1, align 8, !noalias !373
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !373
+  store float %76, ptr %5, align 4, !noalias !376
+  %78 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_7BaseMemENS0_14ConstPoolScopeEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %77, ptr noundef nonnull align 4 %14, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 4)
           to label %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit unwind label %.split.split
 
-.split.split:                                     ; preds = %.preheader.split
-  %76 = landingpad { ptr, i32 }
+.split.split:                                     ; preds = %74
+  %79 = landingpad { ptr, i32 }
           catch ptr null
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.split, %.split.split.us.split.us, %.split.us.split, %.split.us.split.us
-  %.us-phi = phi { ptr, i32 } [ %71, %.split.us.split ], [ %62, %.split.us.split.us ], [ %76, %.split.split ], [ %63, %.split.split.us.split.us ]
-  %77 = extractvalue { ptr, i32 } %.us-phi, 0
-  call void @__clang_call_terminate(ptr %77) #31
+  %.us-phi = phi { ptr, i32 } [ %73, %.split.us.split ], [ %63, %.split.us.split.us ], [ %79, %.split.split ], [ %64, %.split.split.us.split.us ]
+  %80 = extractvalue { ptr, i32 } %.us-phi, 0
+  call void @__clang_call_terminate(ptr %80) #31
   unreachable
 
-_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit: ; preds = %.preheader.split
-  %. = select i1 %72, ptr %0, ptr %8
+_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit: ; preds = %74
+  %. = select i1 %75, ptr %0, ptr %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !373
-  %78 = load ptr, ptr %1, align 8
-  %79 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %78, i32 noundef 975, ptr noundef nonnull align 4 dereferenceable(16) %., ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %14)
-  br i1 %72, label %.preheader.split, label %.split24.us, !llvm.loop !379
+  %81 = load ptr, ptr %1, align 8
+  %82 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %81, i32 noundef 975, ptr noundef nonnull align 4 dereferenceable(16) %., ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %14)
+  br i1 %75, label %74, label %.split22.us, !llvm.loop !379
 
-.split24.us:                                      ; preds = %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us
-  %80 = add nuw nsw i64 %.031, 1
-  %exitcond.not = icmp eq i64 %80, 5
+.split22.us:                                      ; preds = %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit, %_ZN7mitsuba6detail14StructCompiler6const_IfEEN6asmjit9_abi_1_103x863MemET_.exit.us
+  %83 = add nuw nsw i64 %.030, 1
+  %exitcond.not = icmp eq i64 %83, 5
   br i1 %exitcond.not, label %.split36.us, label %.preheader, !llvm.loop !372
 
-.split36.us:                                      ; preds = %.split24.us, %.split24.us.us
-  %81 = load ptr, ptr %1, align 8
-  %82 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %81, i32 noundef 935, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %8)
-  %83 = load ptr, ptr %1, align 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %86 = load ptr, ptr %85, align 8
-  %87 = call noundef i32 %86(ptr noundef nonnull align 8 dereferenceable(410) %83, ptr noundef nonnull align 4 dereferenceable(16) %11)
-  %88 = load ptr, ptr %1, align 8
-  %89 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %88, i32 noundef 1198, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %2)
+.split36.us:                                      ; preds = %.split22.us, %.split22.us.us
+  %84 = load ptr, ptr %1, align 8
+  %85 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %84, i32 noundef 935, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %8)
+  %86 = load ptr, ptr %1, align 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  %89 = load ptr, ptr %88, align 8
+  %90 = call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(410) %86, ptr noundef nonnull align 4 dereferenceable(16) %11)
+  %91 = load ptr, ptr %1, align 8
+  %92 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %91, i32 noundef 1198, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %2)
   ret void
 }
 

@@ -143,7 +143,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   %24 = load ptr, ptr %.0.i, align 8, !tbaa !12
   %25 = load i8, ptr %24, align 1, !tbaa !13
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %29 = and i8 %28, 4
   %.not.i14.i = icmp eq i8 %29, 0
@@ -451,7 +451,7 @@ define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr noundef writeonly ca
   %.1110 = phi ptr [ %28, %27 ], [ %21, %19 ]
   %22 = load i8, ptr %.1110, align 1, !tbaa !13
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !13
   %26 = and i8 %25, 1
   %.not86 = icmp eq i8 %26, 0
@@ -505,7 +505,7 @@ define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr noundef writeonly ca
 40:                                               ; preds = %.preheader
   %41 = load i8, ptr %.4, align 1, !tbaa !13
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !13
   %45 = and i8 %44, 1
   %.not90 = icmp eq i8 %45, 0
@@ -529,7 +529,7 @@ define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr noundef writeonly ca
   %.5114 = phi ptr [ %59, %58 ], [ %50, %49 ]
   %53 = load i8, ptr %.5114, align 1, !tbaa !13
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !13
   %57 = and i8 %56, 1
   %.not93 = icmp eq i8 %57, 0
@@ -741,7 +741,7 @@ define dso_local ptr @fmt_ident(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %.not71 = icmp eq i32 %8, 0
   %9 = load i32, ptr @fmt_ident.index, align 4, !tbaa !4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [2 x %struct.strbuf], ptr @fmt_ident.ident_pool, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.strbuf, ptr @fmt_ident.ident_pool, i64 %10
   %12 = and i32 %9, 1
   %13 = xor i32 %12, 1
   store i32 %13, ptr @fmt_ident.index, align 4, !tbaa !4

@@ -517,7 +517,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new
 
 18:                                               ; preds = %18, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !38, !range !39, !noundef !40
   %21 = trunc nuw i8 %20 to i1
   %22 = icmp samesign ult i64 %indvars.iv, 10
@@ -536,7 +536,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new
   br label %71
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i8 1, ptr %31, align 1, !tbaa !38
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 525112
@@ -546,7 +546,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new
   store i32 %36, ptr %33, align 8, !tbaa !81
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 525064
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds [11 x i32], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds i32, ptr %37, i64 %38
   store i32 %32, ptr %39, align 4, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 525116
   %41 = load i32, ptr %40, align 4, !tbaa !82
@@ -566,7 +566,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new
   %50 = load ptr, ptr %49, align 8, !tbaa !83
   %51 = icmp eq ptr %50, null
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 525120
-  %53 = getelementptr inbounds nuw [10 x %struct.H5C_cache_entry_t], ptr %52, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %struct.H5C_cache_entry_t, ptr %52, i64 %indvars.iv
   br i1 %51, label %54, label %56
 
 54:                                               ; preds = %47
@@ -990,7 +990,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__cycle_epoc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 525108
   %19 = load i32, ptr %18, align 4, !tbaa !113
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [11 x i32], ptr %17, i64 0, i64 %20
+  %21 = getelementptr inbounds i32, ptr %17, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !37
   %23 = add nsw i32 %19, 1
   %24 = srem i32 %23, 11
@@ -1011,7 +1011,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__cycle_epoc
   store i32 %33, ptr %25, align 4, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 525052
   %35 = sext i32 %22 to i64
-  %36 = getelementptr inbounds [10 x i8], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !38, !range !39, !noundef !40
   %.not.not = icmp eq i8 %37, 0
   br i1 %.not.not, label %38, label %42
@@ -1026,7 +1026,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__cycle_epoc
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 524824
   %44 = load ptr, ptr %43, align 8, !tbaa !83
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 525120
-  %46 = getelementptr inbounds [10 x %struct.H5C_cache_entry_t], ptr %45, i64 0, i64 %35
+  %46 = getelementptr inbounds %struct.H5C_cache_entry_t, ptr %45, i64 %35
   %47 = icmp eq ptr %44, %46
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 136
   %49 = load ptr, ptr %48, align 8, !tbaa !90
@@ -1093,7 +1093,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__cycle_epoc
   %83 = srem i32 %82, 11
   store i32 %83, ptr %80, align 8, !tbaa !81
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [11 x i32], ptr %17, i64 0, i64 %84
+  %85 = getelementptr inbounds i32, ptr %17, i64 %84
   store i32 %22, ptr %85, align 4, !tbaa !37
   %86 = icmp samesign ugt i32 %33, 9
   br i1 %86, label %87, label %91
@@ -1167,7 +1167,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr nou
   %21 = phi i32 [ %.promoted52, %.lr.ph ], [ %27, %66 ]
   %22 = phi i32 [ %.promoted, %.lr.ph ], [ %74, %66 ]
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds [11 x i32], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %11, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !37
   %26 = add nsw i32 %21, 1
   %27 = srem i32 %26, 11
@@ -1185,7 +1185,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr nou
   %34 = add nsw i32 %20, -1
   store i32 %34, ptr %12, align 4, !tbaa !82
   %35 = sext i32 %25 to i64
-  %36 = getelementptr inbounds [10 x i8], ptr %13, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %13, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !38, !range !39, !noundef !40
   %.not.not = icmp eq i8 %37, 0
   br i1 %.not.not, label %38, label %42
@@ -1198,7 +1198,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr nou
 
 42:                                               ; preds = %33
   %43 = load ptr, ptr %14, align 8, !tbaa !83
-  %44 = getelementptr inbounds [10 x %struct.H5C_cache_entry_t], ptr %15, i64 0, i64 %35
+  %44 = getelementptr inbounds %struct.H5C_cache_entry_t, ptr %15, i64 %35
   %45 = icmp eq ptr %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 136
   %47 = load ptr, ptr %46, align 8, !tbaa !90
@@ -1309,7 +1309,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr 
   %28 = phi i32 [ %.promoted58, %.lr.ph ], [ %34, %73 ]
   %29 = phi i32 [ %10, %.lr.ph ], [ %81, %73 ]
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds [11 x i32], ptr %14, i64 0, i64 %30
+  %31 = getelementptr inbounds i32, ptr %14, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !37
   %33 = add nsw i32 %28, 1
   %34 = srem i32 %33, 11
@@ -1327,7 +1327,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr 
   %41 = add nsw i32 %27, -1
   store i32 %41, ptr %15, align 4, !tbaa !82
   %42 = sext i32 %32 to i64
-  %43 = getelementptr inbounds [10 x i8], ptr %16, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %16, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !38, !range !39, !noundef !40
   %.not55.not = icmp eq i8 %44, 0
   br i1 %.not55.not, label %45, label %49
@@ -1340,7 +1340,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr 
 
 49:                                               ; preds = %40
   %50 = load ptr, ptr %17, align 8, !tbaa !83
-  %51 = getelementptr inbounds [10 x %struct.H5C_cache_entry_t], ptr %18, i64 0, i64 %42
+  %51 = getelementptr inbounds %struct.H5C_cache_entry_t, ptr %18, i64 %42
   %52 = icmp eq ptr %50, %51
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 136
   %54 = load ptr, ptr %53, align 8, !tbaa !90
@@ -1590,7 +1590,7 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
 .preheader151.i:                                  ; preds = %.lr.ph.i, %35
   %.0124.lcssa.i = phi i32 [ 0, %35 ], [ %spec.select.i, %.lr.ph.i ]
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  %41 = getelementptr inbounds nuw [6 x i32], ptr %40, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !37
   %.not135192.i = icmp eq i32 %42, 0
   br i1 %.not135192.i, label %.preheader.thread218.i, label %.lr.ph195.i
@@ -1981,7 +1981,7 @@ define range(i32 -1, 1) i32 @H5C__flush_ring(ptr noundef %0, i32 noundef %1, i32
   store i8 0, ptr %17, align 1, !tbaa !120
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 524640
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds [6 x i32], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds i32, ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !37
   %.not102 = icmp eq i32 %21, 0
   br i1 %.not102, label %.critedge, label %.preheader.lr.ph

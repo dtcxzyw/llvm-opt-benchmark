@@ -4203,7 +4203,7 @@ define internal fastcc void @putSeg(ptr noundef captures(none) %0, ptr noundef r
 
 switch.lookup:                                    ; preds = %10
   %15 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.putSeg.11, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.putSeg.11, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %bendToStr.exit
 
@@ -4216,7 +4216,7 @@ bendToStr.exit:                                   ; preds = %10, %switch.lookup
 
 switch.lookup21:                                  ; preds = %bendToStr.exit
   %19 = zext nneg i32 %17 to i64
-  %switch.gep22 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.putSeg.11, i64 0, i64 %19
+  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @switch.table.putSeg.11, i64 %19
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   br label %bendToStr.exit16
 
@@ -4234,7 +4234,7 @@ bendToStr.exit16:                                 ; preds = %bendToStr.exit, %sw
 
 switch.lookup24:                                  ; preds = %21
   %26 = zext nneg i32 %8 to i64
-  %switch.gep25 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.putSeg.11, i64 0, i64 %26
+  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table.putSeg.11, i64 %26
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   br label %bendToStr.exit18
 
@@ -4247,7 +4247,7 @@ bendToStr.exit18:                                 ; preds = %21, %switch.lookup2
 
 switch.lookup27:                                  ; preds = %bendToStr.exit18
   %30 = zext nneg i32 %28 to i64
-  %switch.gep28 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.putSeg.11, i64 0, i64 %30
+  %switch.gep28 = getelementptr inbounds nuw ptr, ptr @switch.table.putSeg.11, i64 %30
   %switch.load29 = load ptr, ptr %switch.gep28, align 8
   br label %bendToStr.exit20
 

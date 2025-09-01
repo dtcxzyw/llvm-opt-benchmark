@@ -2354,8 +2354,8 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 
 742:                                              ; preds = %742, %739
   %.05.i.i = phi i64 [ 0, %739 ], [ %746, %742 ]
-  %743 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.70"], ptr %741, i64 0, i64 %.05.i.i
-  %744 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.70"], ptr %38, i64 0, i64 %.05.i.i
+  %743 = getelementptr inbounds nuw %"class.draco::IndexType.70", ptr %741, i64 %.05.i.i
+  %744 = getelementptr inbounds nuw %"class.draco::IndexType.70", ptr %38, i64 %.05.i.i
   %745 = load i32, ptr %744, align 4, !tbaa !137
   store i32 %745, ptr %743, align 4, !tbaa !137
   %746 = add nuw nsw i64 %.05.i.i, 1
@@ -2366,7 +2366,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   %indvars.iv313 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next314, %747 ]
   %748 = trunc nuw nsw i64 %indvars.iv313 to i32
   %749 = add i32 %716, %748
-  %750 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.70"], ptr %38, i64 0, i64 %indvars.iv313
+  %750 = getelementptr inbounds nuw %"class.draco::IndexType.70", ptr %38, i64 %indvars.iv313
   store i32 %749, ptr %750, align 4, !tbaa !137
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next314, 3
@@ -3563,7 +3563,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %2
 
 26:                                               ; preds = %25, %85
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %85 ]
-  %27 = getelementptr inbounds nuw [8 x %"struct.std::array.73"], ptr %7, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"struct.std::array.73", ptr %7, i64 %indvars.iv
   %28 = call noundef zeroext i1 @_ZN5draco10ObjDecoder18ParseVertexIndicesEPSt5arrayIiLm3EE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %27)
   br i1 %28, label %85, label %29
 
@@ -3810,7 +3810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %133 = add nuw nsw i64 %indvars.iv125, %indvars.iv131
   %134 = and i64 %133, 4294967295
   %135 = select i1 %132, i64 0, i64 %134
-  %136 = getelementptr inbounds nuw [8 x %"struct.std::array.73"], ptr %7, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw %"struct.std::array.73", ptr %7, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !90
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %139, label %141
@@ -5435,8 +5435,8 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 31:                                               ; preds = %31, %.lr.ph.i.i.i.i.i68
   %.05.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i68 ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.70"], ptr %30, i64 0, i64 %.05.i.i.i.i.i.i
-  %33 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.70"], ptr %29, i64 0, i64 %.05.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw %"class.draco::IndexType.70", ptr %30, i64 %.05.i.i.i.i.i.i
+  %33 = getelementptr inbounds nuw %"class.draco::IndexType.70", ptr %29, i64 %.05.i.i.i.i.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !137
   store i32 %34, ptr %32, align 4, !tbaa !137
   %35 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1

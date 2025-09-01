@@ -523,15 +523,15 @@ define dso_local void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed
   %.02838 = phi double [ 0.000000e+00, %1 ], [ %52, %38 ]
   %39 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %40 = load double, ptr %39, align 8, !tbaa !4
-  %41 = getelementptr inbounds nuw [3 x double], ptr @rgb_to_xyz, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw double, ptr @rgb_to_xyz, i64 %indvars.iv
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = fmul double %40, %42
   %44 = fadd double %.02640, %43
-  %45 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 %indvars.iv
   %46 = load double, ptr %45, align 8, !tbaa !4
   %47 = fmul double %40, %46
   %48 = fadd double %.02739, %47
-  %49 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 %indvars.iv
   %50 = load double, ptr %49, align 8, !tbaa !4
   %51 = fmul double %40, %50
   %52 = fadd double %.02838, %51
@@ -676,15 +676,15 @@ define dso_local void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr 
 
 63:                                               ; preds = %59, %19, %19
   %.039 = phi double [ 6.250000e-01, %19 ], [ 6.250000e-01, %19 ], [ %., %59 ]
-  %64 = getelementptr inbounds nuw [283 x double], ptr @lambda_tbl, i64 0, i64 %indvars.iv62
+  %64 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv62
   store double %23, ptr %64, align 8, !tbaa !4
-  %invariant.gep = getelementptr inbounds nuw [283 x double], ptr @rgb_tbl, i64 0, i64 %indvars.iv62
+  %invariant.gep = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv62
   br label %.preheader
 
 .preheader:                                       ; preds = %63, %66
   %indvars.iv54 = phi i64 [ 0, %63 ], [ %indvars.iv.next55, %66 ]
-  %65 = getelementptr inbounds nuw [3 x [3 x double]], ptr @xyz_to_rgb, i64 0, i64 %indvars.iv54
-  %gep = getelementptr inbounds nuw [3 x [283 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv54
+  %65 = getelementptr inbounds nuw [3 x double], ptr @xyz_to_rgb, i64 %indvars.iv54
+  %gep = getelementptr inbounds nuw [283 x double], ptr %invariant.gep, i64 %indvars.iv54
   %.promoted = load double, ptr %gep, align 8, !tbaa !4
   br label %67
 
@@ -697,9 +697,9 @@ define dso_local void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr 
 67:                                               ; preds = %.preheader, %67
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %67 ]
   %68 = phi double [ %.promoted, %.preheader ], [ %76, %67 ]
-  %69 = getelementptr inbounds nuw [3 x double], ptr %65, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv
   %70 = load double, ptr %69, align 8, !tbaa !4
-  %71 = getelementptr inbounds nuw [3 x double], ptr %2, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %72 = load double, ptr %71, align 8, !tbaa !4
   %73 = fmul double %70, %72
   %74 = fmul double %58, %73
@@ -717,11 +717,11 @@ define dso_local void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr 
 
 .preheader48:                                     ; preds = %66, %.preheader48
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader48 ], [ 0, %66 ]
-  %78 = getelementptr inbounds nuw [3 x double], ptr %2, i64 0, i64 %indvars.iv58
+  %78 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv58
   %79 = load double, ptr %78, align 8, !tbaa !4
   %80 = fmul double %58, %79
   %81 = fmul double %.039, %80
-  %82 = getelementptr inbounds nuw [3 x double], ptr @xyz_whitepoint, i64 0, i64 %indvars.iv58
+  %82 = getelementptr inbounds nuw double, ptr @xyz_whitepoint, i64 %indvars.iv58
   %83 = load double, ptr %82, align 8, !tbaa !4
   %84 = fadd double %83, %81
   store double %84, ptr %82, align 8, !tbaa !4
@@ -765,7 +765,7 @@ define dso_local void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(n
 
 6:                                                ; preds = %3, %22
   %indvars.iv37 = phi i64 [ 0, %3 ], [ %indvars.iv.next38, %22 ]
-  %7 = getelementptr inbounds nuw [283 x double], ptr @lambda_tbl, i64 0, i64 %indvars.iv37
+  %7 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37
   %8 = load double, ptr %7, align 8, !tbaa !4
   %9 = fadd double %8, -3.600000e+02
   %10 = fdiv double %9, 4.700000e+02
@@ -778,7 +778,7 @@ define dso_local void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(n
   %sqrt.i = tail call double @llvm.sqrt.f64(double %14)
   %15 = fdiv double %12, %sqrt.i
   %16 = fadd double %15, 5.000000e-01
-  %invariant.gep = getelementptr inbounds nuw [283 x double], ptr @rgb_tbl, i64 0, i64 %indvars.iv37
+  %invariant.gep = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37
   br label %23
 
 17:                                               ; preds = %6, %17
@@ -799,10 +799,10 @@ define dso_local void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(n
 
 23:                                               ; preds = %11, %23
   %indvars.iv33 = phi i64 [ 0, %11 ], [ %indvars.iv.next34, %23 ]
-  %gep = getelementptr inbounds nuw [3 x [283 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv33
+  %gep = getelementptr inbounds nuw [283 x double], ptr %invariant.gep, i64 %indvars.iv33
   %24 = load double, ptr %gep, align 8, !tbaa !4
   %25 = fmul double %16, %24
-  %26 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv33
+  %26 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv33
   %27 = load double, ptr %26, align 8, !tbaa !4
   %28 = fadd double %27, %25
   store double %28, ptr %26, align 8, !tbaa !4
@@ -816,7 +816,7 @@ define dso_local void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(n
 
 30:                                               ; preds = %5, %30
   %indvars.iv41 = phi i64 [ 0, %5 ], [ %indvars.iv.next42, %30 ]
-  %31 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv41
+  %31 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv41
   %32 = load double, ptr %31, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv41
   %34 = load double, ptr %33, align 8, !tbaa !4
@@ -848,7 +848,7 @@ define dso_local void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(
 10:                                               ; preds = %3, %76
   %indvars.iv37 = phi i64 [ 0, %3 ], [ %indvars.iv.next38, %76 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %11 = getelementptr inbounds nuw [3 x double], ptr %8, i64 0, i64 %indvars.iv37
+  %11 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv37
   %12 = load double, ptr %11, align 8, !tbaa !4
   %13 = fadd double %12, -1.000000e-04
   store double %13, ptr %11, align 8, !tbaa !4
@@ -864,7 +864,7 @@ define dso_local void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(
 
 15:                                               ; preds = %31, %10
   %indvars.iv37.i = phi i64 [ 0, %10 ], [ %indvars.iv.next38.i, %31 ]
-  %16 = getelementptr inbounds nuw [283 x double], ptr @lambda_tbl, i64 0, i64 %indvars.iv37.i
+  %16 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37.i
   %17 = load double, ptr %16, align 8, !tbaa !4
   %18 = fadd double %17, -3.600000e+02
   %19 = fdiv double %18, 4.700000e+02
@@ -877,7 +877,7 @@ define dso_local void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(
   %sqrt.i.i = tail call double @llvm.sqrt.f64(double %23)
   %24 = fdiv double %21, %sqrt.i.i
   %25 = fadd double %24, 5.000000e-01
-  %invariant.gep.i = getelementptr inbounds nuw [283 x double], ptr @rgb_tbl, i64 0, i64 %indvars.iv37.i
+  %invariant.gep.i = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37.i
   br label %32
 
 26:                                               ; preds = %26, %15
@@ -898,10 +898,10 @@ define dso_local void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(
 
 32:                                               ; preds = %32, %20
   %indvars.iv33.i = phi i64 [ 0, %20 ], [ %indvars.iv.next34.i, %32 ]
-  %gep.i = getelementptr inbounds nuw [3 x [283 x double]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv33.i
+  %gep.i = getelementptr inbounds nuw [283 x double], ptr %invariant.gep.i, i64 %indvars.iv33.i
   %33 = load double, ptr %gep.i, align 8, !tbaa !4
   %34 = fmul double %25, %33
-  %35 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv33.i
+  %35 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv33.i
   %36 = load double, ptr %35, align 8, !tbaa !4
   %37 = fadd double %36, %34
   store double %37, ptr %35, align 8, !tbaa !4
@@ -911,7 +911,7 @@ define dso_local void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(
 
 38:                                               ; preds = %38, %14
   %indvars.iv41.i = phi i64 [ 0, %14 ], [ %indvars.iv.next42.i, %38 ]
-  %39 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv41.i
+  %39 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv41.i
   %40 = load double, ptr %39, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv41.i
   %42 = load double, ptr %41, align 8, !tbaa !4
@@ -939,7 +939,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
 
 47:                                               ; preds = %63, %_Z13eval_residualPKdS0_Pd.exit
   %indvars.iv37.i15 = phi i64 [ 0, %_Z13eval_residualPKdS0_Pd.exit ], [ %indvars.iv.next38.i26, %63 ]
-  %48 = getelementptr inbounds nuw [283 x double], ptr @lambda_tbl, i64 0, i64 %indvars.iv37.i15
+  %48 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37.i15
   %49 = load double, ptr %48, align 8, !tbaa !4
   %50 = fadd double %49, -3.600000e+02
   %51 = fdiv double %50, 4.700000e+02
@@ -952,7 +952,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
   %sqrt.i.i20 = tail call double @llvm.sqrt.f64(double %55)
   %56 = fdiv double %53, %sqrt.i.i20
   %57 = fadd double %56, 5.000000e-01
-  %invariant.gep.i21 = getelementptr inbounds nuw [283 x double], ptr @rgb_tbl, i64 0, i64 %indvars.iv37.i15
+  %invariant.gep.i21 = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37.i15
   br label %64
 
 58:                                               ; preds = %58, %47
@@ -973,10 +973,10 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
 
 64:                                               ; preds = %64, %52
   %indvars.iv33.i22 = phi i64 [ 0, %52 ], [ %indvars.iv.next34.i24, %64 ]
-  %gep.i23 = getelementptr inbounds nuw [3 x [283 x double]], ptr %invariant.gep.i21, i64 0, i64 %indvars.iv33.i22
+  %gep.i23 = getelementptr inbounds nuw [283 x double], ptr %invariant.gep.i21, i64 %indvars.iv33.i22
   %65 = load double, ptr %gep.i23, align 8, !tbaa !4
   %66 = fmul double %57, %65
-  %67 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv33.i22
+  %67 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv33.i22
   %68 = load double, ptr %67, align 8, !tbaa !4
   %69 = fadd double %68, %66
   store double %69, ptr %67, align 8, !tbaa !4
@@ -986,7 +986,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
 
 70:                                               ; preds = %70, %46
   %indvars.iv41.i28 = phi i64 [ 0, %46 ], [ %indvars.iv.next42.i29, %70 ]
-  %71 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv41.i28
+  %71 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv41.i28
   %72 = load double, ptr %71, align 8, !tbaa !4
   %73 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv41.i28
   %74 = load double, ptr %73, align 8, !tbaa !4
@@ -1007,9 +1007,9 @@ _Z13eval_residualPKdS0_Pd.exit31:                 ; preds = %70
 
 77:                                               ; preds = %_Z13eval_residualPKdS0_Pd.exit31, %77
   %indvars.iv = phi i64 [ 0, %_Z13eval_residualPKdS0_Pd.exit31 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw [3 x double], ptr %7, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %79 = load double, ptr %78, align 8, !tbaa !4
-  %80 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %81 = load double, ptr %80, align 8, !tbaa !4
   %82 = fsub double %79, %81
   %83 = fdiv double %82, 2.000000e-04
@@ -1065,7 +1065,7 @@ define dso_local void @_Z12gauss_newtonPKdPdi(ptr noundef readonly captures(none
 
 20:                                               ; preds = %36, %18
   %indvars.iv37.i = phi i64 [ 0, %18 ], [ %indvars.iv.next38.i, %36 ]
-  %21 = getelementptr inbounds nuw [283 x double], ptr @lambda_tbl, i64 0, i64 %indvars.iv37.i
+  %21 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37.i
   %22 = load double, ptr %21, align 8, !tbaa !4
   %23 = fadd double %22, -3.600000e+02
   %24 = fdiv double %23, 4.700000e+02
@@ -1078,7 +1078,7 @@ define dso_local void @_Z12gauss_newtonPKdPdi(ptr noundef readonly captures(none
   %sqrt.i.i = call double @llvm.sqrt.f64(double %28)
   %29 = fdiv double %26, %sqrt.i.i
   %30 = fadd double %29, 5.000000e-01
-  %invariant.gep.i = getelementptr inbounds nuw [283 x double], ptr @rgb_tbl, i64 0, i64 %indvars.iv37.i
+  %invariant.gep.i = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37.i
   br label %37
 
 31:                                               ; preds = %31, %20
@@ -1099,10 +1099,10 @@ define dso_local void @_Z12gauss_newtonPKdPdi(ptr noundef readonly captures(none
 
 37:                                               ; preds = %37, %25
   %indvars.iv33.i = phi i64 [ 0, %25 ], [ %indvars.iv.next34.i, %37 ]
-  %gep.i = getelementptr inbounds nuw [3 x [283 x double]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv33.i
+  %gep.i = getelementptr inbounds nuw [283 x double], ptr %invariant.gep.i, i64 %indvars.iv33.i
   %38 = load double, ptr %gep.i, align 8, !tbaa !4
   %39 = fmul double %30, %38
-  %40 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv33.i
+  %40 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv33.i
   %41 = load double, ptr %40, align 8, !tbaa !4
   %42 = fadd double %41, %39
   store double %42, ptr %40, align 8, !tbaa !4
@@ -1112,7 +1112,7 @@ define dso_local void @_Z12gauss_newtonPKdPdi(ptr noundef readonly captures(none
 
 43:                                               ; preds = %43, %19
   %indvars.iv41.i = phi i64 [ 0, %19 ], [ %indvars.iv.next42.i, %43 ]
-  %44 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv41.i
+  %44 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv41.i
   %45 = load double, ptr %44, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv41.i
   %47 = load double, ptr %46, align 8, !tbaa !4
@@ -1380,13 +1380,13 @@ _Z12LUPDecomposePPdidPi.exit:                     ; preds = %.loopexit.i
 _Z8LUPSolvePPdPKiPKdiS_.exit:                     ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPKiPKdiS_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z8LUPSolvePPdPKiPKdiS_.exit ], [ 0, %._crit_edge49.i ]
   %.03453 = phi double [ %175, %_Z8LUPSolvePPdPKiPKdiS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
-  %167 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %168 = load double, ptr %167, align 8, !tbaa !4
   %169 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %170 = load double, ptr %169, align 8, !tbaa !4
   %171 = fsub double %170, %168
   store double %171, ptr %169, align 8, !tbaa !4
-  %172 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %173 = load double, ptr %172, align 8, !tbaa !4
   %174 = fmul double %173, %173
   %175 = fadd double %.03453, %174
@@ -3074,19 +3074,19 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
   %37 = load float, ptr %36, align 4, !tbaa !116
   %38 = fpext float %37 to double
   %39 = sext i32 %33 to i64
-  %40 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %39
+  %40 = getelementptr inbounds double, ptr %4, i64 %39
   store double %38, ptr %40, align 8, !tbaa !4
   %41 = fmul double %28, %38
   %42 = add nsw i32 %33, 1
   %43 = srem i32 %42, 3
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds double, ptr %4, i64 %44
   store double %41, ptr %45, align 8, !tbaa !4
   %46 = fmul double %10, %38
   %47 = add nsw i32 %33, 2
   %48 = srem i32 %47, 3
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %49
+  %50 = getelementptr inbounds double, ptr %4, i64 %49
   store double %46, ptr %50, align 8, !tbaa !4
   call void @_Z12gauss_newtonPKdPdi(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 15)
   %51 = load double, ptr %3, align 16, !tbaa !4
@@ -3154,19 +3154,19 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
   %96 = load float, ptr %95, align 4, !tbaa !116
   %97 = fpext float %96 to double
   %98 = sext i32 %92 to i64
-  %99 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %98
+  %99 = getelementptr inbounds double, ptr %4, i64 %98
   store double %97, ptr %99, align 8, !tbaa !4
   %100 = fmul double %28, %97
   %101 = add nsw i32 %92, 1
   %102 = srem i32 %101, 3
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %103
+  %104 = getelementptr inbounds double, ptr %4, i64 %103
   store double %100, ptr %104, align 8, !tbaa !4
   %105 = fmul double %10, %97
   %106 = add nsw i32 %92, 2
   %107 = srem i32 %106, 3
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %108
+  %109 = getelementptr inbounds double, ptr %4, i64 %108
   store double %105, ptr %109, align 8, !tbaa !4
   call void @_Z12gauss_newtonPKdPdi(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 15)
   %110 = load double, ptr %3, align 16, !tbaa !4

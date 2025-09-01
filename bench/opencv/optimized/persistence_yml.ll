@@ -3379,7 +3379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %_Z
 _Z10cv_isalnumc.exit458.thread:                   ; preds = %292, %287, %280
   %.sink = phi i8 [ %282, %280 ], [ %282, %287 ], [ 39, %292 ]
   %.10 = phi ptr [ %281, %280 ], [ %281, %287 ], [ %293, %292 ]
-  %313 = getelementptr inbounds nuw [5120 x i8], ptr %279, i64 0, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw i8, ptr %279, i64 %indvars.iv
   store i8 %.sink, ptr %313, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4096
@@ -3411,7 +3411,7 @@ switch.early.test440:                             ; preds = %321
 _Z10cv_isalnumc.exit465.thread:                   ; preds = %314, %switch.early.test440
   %323 = add nsw i32 %.3358589, 1
   %324 = sext i32 %.3358589 to i64
-  %325 = getelementptr inbounds [5120 x i8], ptr %199, i64 0, i64 %324
+  %325 = getelementptr inbounds i8, ptr %199, i64 %324
   store i8 %316, ptr %325, align 1, !tbaa !41
   br label %385
 
@@ -3434,35 +3434,35 @@ _Z10cv_isalnumc.exit465.thread:                   ; preds = %314, %switch.early.
 331:                                              ; preds = %328
   %332 = add nsw i32 %.3358589, 1
   %333 = sext i32 %.3358589 to i64
-  %334 = getelementptr inbounds [5120 x i8], ptr %199, i64 0, i64 %333
+  %334 = getelementptr inbounds i8, ptr %199, i64 %333
   store i8 39, ptr %334, align 1, !tbaa !41
   br label %385
 
 335:                                              ; preds = %328, %328
   %336 = add nsw i32 %.3358589, 1
   %337 = sext i32 %.3358589 to i64
-  %338 = getelementptr inbounds [5120 x i8], ptr %199, i64 0, i64 %337
+  %338 = getelementptr inbounds i8, ptr %199, i64 %337
   store i8 %330, ptr %338, align 1, !tbaa !41
   br label %385
 
 339:                                              ; preds = %328
   %340 = add nsw i32 %.3358589, 1
   %341 = sext i32 %.3358589 to i64
-  %342 = getelementptr inbounds [5120 x i8], ptr %199, i64 0, i64 %341
+  %342 = getelementptr inbounds i8, ptr %199, i64 %341
   store i8 10, ptr %342, align 1, !tbaa !41
   br label %385
 
 343:                                              ; preds = %328
   %344 = add nsw i32 %.3358589, 1
   %345 = sext i32 %.3358589 to i64
-  %346 = getelementptr inbounds [5120 x i8], ptr %199, i64 0, i64 %345
+  %346 = getelementptr inbounds i8, ptr %199, i64 %345
   store i8 13, ptr %346, align 1, !tbaa !41
   br label %385
 
 347:                                              ; preds = %328
   %348 = add nsw i32 %.3358589, 1
   %349 = sext i32 %.3358589 to i64
-  %350 = getelementptr inbounds [5120 x i8], ptr %199, i64 0, i64 %349
+  %350 = getelementptr inbounds i8, ptr %199, i64 %349
   store i8 9, ptr %350, align 1, !tbaa !41
   br label %385
 
@@ -3490,7 +3490,7 @@ _Z10cv_isalnumc.exit465.thread:                   ; preds = %314, %switch.early.
   %.sink762 = select i1 %363, i8 120, i8 %364
   %.14 = select i1 %363, ptr %329, ptr %362
   %365 = sext i32 %.3358589 to i64
-  %366 = getelementptr inbounds [5120 x i8], ptr %199, i64 0, i64 %365
+  %366 = getelementptr inbounds i8, ptr %199, i64 %365
   store i8 %.sink762, ptr %366, align 1, !tbaa !41
   %.5360 = add nsw i32 %.3358589, 1
   br label %385

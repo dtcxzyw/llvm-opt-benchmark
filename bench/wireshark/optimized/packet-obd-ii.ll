@@ -1088,7 +1088,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef %
   %91 = zext i8 %90 to i32
   %92 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef 2, i32 noundef %91, i32 noundef %83)
   %93 = sub nuw nsw i64 31, %indvars.iv.i
-  %94 = getelementptr [33 x i8], ptr %4, i64 0, i64 %93
+  %94 = getelementptr i8, ptr %4, i64 %93
   store i8 %.sink.i, ptr %94, align 1
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %92, ptr noundef nonnull @.str.316, ptr noundef nonnull %4)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1704,7 +1704,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %540
   %542 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_obdii_response, i64 0, i64 %542
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_obdii_response, i64 %542
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %543
 

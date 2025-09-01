@@ -11067,10 +11067,10 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h7bd6a72fa2e6f15bE.exit: ; preds = %3
 45:                                               ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf246b0443c40cd04E.exit"
   %46 = load ptr, ptr %.sroa.0.0.copyload, align 8, !alias.scope !2450, !noalias !2453, !nonnull !4
   %.sink12.i.i = select i1 %42, ptr %46, ptr %.sroa.0.0.copyload
-  %47 = add i64 %.sink11.i.i, -1
-  %48 = getelementptr inbounds [0 x { { i32, i32 } }], ptr %.sink12.i.i, i64 0, i64 %47
+  %47 = getelementptr { { i32, i32 } }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 4, !range !15, !noalias !2456, !noundef !4
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %50 = getelementptr i8, ptr %47, i64 -4
   %51 = load i32, ptr %50, align 4, !noalias !2456, !noundef !4
   %52 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %52)
@@ -14442,7 +14442,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
 
 139:                                              ; preds = %135
   %140 = load ptr, ptr %87, align 8, !nonnull !4, !noundef !4
-  %141 = getelementptr inbounds [0 x { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }], ptr %140, i64 0, i64 %136
+  %141 = getelementptr inbounds { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }, ptr %140, i64 %136
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 72
   %143 = invoke noundef i8 @_ZN12multi_buffer6anchor6Anchor3cmp17h2eea6d1a396ea083E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %142, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7)
           to label %144 unwind label %.loopexit.split-lp.loopexit.split-lp, !range !3142
@@ -14544,7 +14544,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
 
 181:                                              ; preds = %.lr.ph
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 24
-  %183 = getelementptr inbounds [0 x { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }], ptr %178, i64 0, i64 %.sroa.08.0.ph, i32 2, i32 1
+  %183 = getelementptr inbounds { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }, ptr %178, i64 %.sroa.08.0.ph, i32 2, i32 1
   %184 = invoke noundef i8 @_ZN12multi_buffer6anchor6Anchor3cmp17h2eea6d1a396ea083E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %182, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7)
           to label %185 unwind label %.loopexit, !range !3142
 
@@ -14568,7 +14568,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
 
 194:                                              ; preds = %191
   %195 = load ptr, ptr %87, align 8, !nonnull !4, !noundef !4
-  %196 = getelementptr inbounds [0 x { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }], ptr %195, i64 0, i64 %.sroa.08.0.ph, i32 2, i32 1
+  %196 = getelementptr inbounds { { float, float, float, float }, i64, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i8, [7 x i8] }, ptr %195, i64 %.sroa.08.0.ph, i32 2, i32 1
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %196, ptr noundef nonnull align 8 dereferenceable(48) %187, i64 48, i1 false)
   br label %200
 

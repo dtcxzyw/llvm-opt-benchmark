@@ -252,7 +252,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit230:       ; preds = %.outer.i225.split, 
   %indvars.iv = phi i64 [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit230 ], [ %indvars.iv.next, %71 ]
   %.0177505 = phi i1 [ false, %_ZL17get_espresso_wordP8_IO_FILEPc.exit230 ], [ %.1178, %71 ]
   %.1194503 = phi i32 [ %.0193, %_ZL17get_espresso_wordP8_IO_FILEPc.exit230 ], [ %.2195, %71 ]
-  %56 = getelementptr inbounds nuw [7 x ptr], ptr @_ZL8esp_prop, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr @_ZL8esp_prop, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %57) #17
   %59 = icmp eq i32 %58, 0
@@ -261,7 +261,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit230:       ; preds = %.outer.i225.split, 
 60:                                               ; preds = %55
   %61 = add nsw i32 %.1194503, 1
   %62 = sext i32 %.1194503 to i64
-  %63 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %62
+  %63 = getelementptr inbounds i32, ptr %13, i64 %62
   %64 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %64, ptr %63, align 4, !tbaa !12
   %65 = icmp eq i64 %indvars.iv, 3
@@ -428,7 +428,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit236:       ; preds = %.outer.i231.split, 
 103:                                              ; preds = %.lr.ph, %.loopexit319
   %indvars.iv1031 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next1032, %.loopexit319 ]
   %.0196678 = phi i32 [ %.131.i233300, %.lr.ph ], [ %.4200, %.loopexit319 ]
-  %104 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv1031
+  %104 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv1031
   %105 = load i32, ptr %104, align 4, !tbaa !12
   switch i32 %105, label %.loopexit319 [
     i32 0, label %.outer.i237
@@ -573,7 +573,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit248:       ; preds = %.outer.i243.split.u
   %124 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #18
   %125 = load double, ptr %14, align 8, !tbaa !26
   %126 = fptrunc double %125 to float
-  %127 = getelementptr inbounds nuw [3 x float], ptr %102, i64 0, i64 %indvars.iv1027
+  %127 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv1027
   store float %126, ptr %127, align 4, !tbaa !28
   %indvars.iv.next1028 = add nuw nsw i64 %indvars.iv1027, 1
   %exitcond1030.not = icmp eq i64 %indvars.iv.next1028, 3
@@ -787,7 +787,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit266:       ; preds = %.outer.i261.split.u
   %164 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #18
   %165 = load double, ptr %14, align 8, !tbaa !26
   %166 = fptrunc double %165 to float
-  %167 = getelementptr inbounds nuw [3 x float], ptr %101, i64 0, i64 %indvars.iv1023
+  %167 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv1023
   store float %166, ptr %167, align 4, !tbaa !28
   %indvars.iv.next1024 = add nuw nsw i64 %indvars.iv1023, 1
   %exitcond1026.not = icmp eq i64 %indvars.iv.next1024, 3
@@ -1192,7 +1192,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit290:       ; preds = %.outer.i285.split.u
   %265 = load double, ptr %14, align 8, !tbaa !26
   %266 = fptrunc double %265 to float
   %267 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv1035
-  %268 = getelementptr inbounds nuw [3 x float], ptr %267, i64 0, i64 %indvars.iv1035
+  %268 = getelementptr inbounds nuw float, ptr %267, i64 %indvars.iv1035
   store float %266, ptr %268, align 4, !tbaa !28
   %indvars.iv.next1036 = add nuw nsw i64 %indvars.iv1035, 1
   %exitcond1038.not = icmp eq i64 %indvars.iv.next1036, 3

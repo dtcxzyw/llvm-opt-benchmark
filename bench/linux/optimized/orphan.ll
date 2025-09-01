@@ -799,7 +799,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr noundef captures(
   %79 = phi i32 [ %93, %92 ], [ %.ph, %.thread.preheader ]
   %80 = load ptr, ptr %7, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 656
-  %82 = getelementptr [3 x ptr], ptr %81, i64 0, i64 %78
+  %82 = getelementptr ptr, ptr %81, i64 %78
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %92, label %85
@@ -946,7 +946,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr noundef captures(
 
 166:                                              ; preds = %174, %164
   %167 = phi i64 [ 0, %164 ], [ %175, %174 ]
-  %168 = getelementptr [3 x ptr], ptr %165, i64 0, i64 %167
+  %168 = getelementptr ptr, ptr %165, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
   br i1 %170, label %174, label %171

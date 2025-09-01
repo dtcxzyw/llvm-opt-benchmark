@@ -728,7 +728,7 @@ write_table_entries_time.exit:                    ; preds = %136, %130
   br i1 %.not.i53, label %165, label %.critedge.i54
 
 165:                                              ; preds = %155
-  %166 = getelementptr inbounds nuw [8 x %struct.WtvFile], ptr %154, i64 0, i64 %indvars.iv.i52
+  %166 = getelementptr inbounds nuw %struct.WtvFile, ptr %154, i64 %indvars.iv.i52
   %167 = load i64, ptr %166, align 8, !tbaa !83
   tail call void @avio_wl64(ptr noundef %.val40, i64 noundef %167) #7
   %168 = ashr exact i32 %159, 1
@@ -1325,7 +1325,7 @@ define internal fastcc range(i32 -1, 1) i32 @finish_file(ptr noundef %0, i32 nou
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [8 x %struct.WtvFile], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.WtvFile, ptr %8, i64 %9
   %11 = tail call i64 @avio_seek(ptr noundef %7, i64 noundef 0, i32 noundef 1) #7
   %12 = sub nsw i64 %11, %2
   store i64 %12, ptr %10, align 8, !tbaa !83

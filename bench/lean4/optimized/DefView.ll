@@ -1966,7 +1966,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_instToSnapshotTreeDefsParsedSn
   %.02966 = phi i64 [ %69, %85 ], [ %1, %3 ]
   %.03165 = phi ptr [ %.0.i.i49, %85 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.03165, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02966
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02966
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -2371,7 +2371,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_DefView_
 
 7:                                                ; preds = %.lr.ph, %5
   %.01837 = phi i64 [ %1, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01837
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01837
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1

@@ -79,7 +79,7 @@ define void @ff_aptx_generate_dither(ptr noundef captures(none) %0) local_unname
   %29 = mul i32 %28, -5
   %30 = add i32 %29, 23
   %31 = shl i32 %25, %30
-  %32 = getelementptr inbounds nuw [4 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 %31, ptr %32, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -100,18 +100,18 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [2 x [4 x %struct.anon]], ptr @ff_aptx_quant_tables, i64 0, i64 %7
+  %8 = getelementptr inbounds [4 x %struct.anon], ptr @ff_aptx_quant_tables, i64 %7
   br label %9
 
 9:                                                ; preds = %2, %aptx_process_subband.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %aptx_process_subband.exit ]
-  %10 = getelementptr inbounds nuw [4 x %struct.InvertQuantize], ptr %3, i64 0, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw [4 x %struct.Prediction], ptr %4, i64 0, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw [4 x %struct.Quantize], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.InvertQuantize, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.Prediction, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.Quantize, ptr %5, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !4
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !12
-  %16 = getelementptr inbounds nuw [4 x %struct.anon], ptr %8, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.anon, ptr %8, i64 %indvars.iv
   %17 = icmp slt i32 %13, 0
   %.lobit.neg.i.i = ashr i32 %13, 31
   %18 = xor i32 %.lobit.neg.i.i, %13
@@ -177,7 +177,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %70 = sub nsw i32 %66, %.0.i.i.i
   %71 = ashr i32 %70, 8
   %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr inbounds nuw [32 x i16], ptr @quantization_factors, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i16, ptr @quantization_factors, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !25
   %75 = sext i16 %74 to i32
   %76 = shl nsw i32 %75, 11
@@ -287,7 +287,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %151 = load i32, ptr %150, align 4, !tbaa !12
   %152 = ashr i32 %151, 31
   %153 = or i32 %152, 1
-  %154 = getelementptr inbounds nuw [24 x i32], ptr %145, i64 0, i64 %indvars.iv.i.i
+  %154 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i
   %155 = load i32, ptr %154, align 4, !tbaa !12
   %.neg.i43.i = mul nsw i32 %146, %153
   %156 = add i32 %155, 128
@@ -374,7 +374,7 @@ define range(i32 -1094995529, 1) i32 @ff_aptx_init(ptr noundef readonly captures
 
 20:                                               ; preds = %16, %20
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [4 x %struct.Prediction], ptr %19, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.Prediction, ptr %19, i64 %indvars.iv
   store i32 1, ptr %21, align 4, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 1, ptr %22, align 4, !tbaa !12

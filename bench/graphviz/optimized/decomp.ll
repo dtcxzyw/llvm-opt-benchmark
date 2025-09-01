@@ -200,7 +200,7 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %.sroa.20.2 = phi i64 [ %70, %83 ], [ %.sroa.20.5, %.loopexit.i ]
   %.sroa.29.3 = phi i64 [ %.sroa.29.2, %83 ], [ %.sroa.29.6, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 3, %83 ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %95 = getelementptr inbounds nuw [4 x %struct.elist], ptr %3, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw %struct.elist, ptr %3, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 16, !tbaa !53
   %.not39.i = icmp eq ptr %96, null
   br i1 %.not39.i, label %.loopexit.i, label %97

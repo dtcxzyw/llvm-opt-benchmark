@@ -21370,7 +21370,7 @@ call8.i.noexc.i:                                  ; preds = %while.cond.i.backed
   %sub.i.i = add nsw i32 %hits.i.sroa.0.0417.i, -1
   %and.i51.i = and i32 %sub.i.i, %hits.i.sroa.0.0417.i
   %conv9.i.i = zext nneg i32 %21 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i, i64 %conv9.i.i
   %22 = load ptr, ptr %shadowedNames, align 8, !noalias !203
   %23 = load i32, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !203
   %idxprom.i.i = zext i32 %23 to i64
@@ -31901,21 +31901,20 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i64 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i64 %rem.i, 1
   %div.i11 = udiv i64 %__val.addr.016.i, 100
-  %add.i12 = or disjoint i64 %mul.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i12
-  %1 = load i8, ptr %arrayidx.i, align 1
+  %1 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %2 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i32 %__pos.015.i to i64
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %call8, i64 %idxprom.i
-  store i8 %1, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
-  %2 = load i8, ptr %arrayidx2.i, align 2
+  store i8 %2, ptr %arrayidx1.i, align 1
+  %3 = load i8, ptr %1, align 2
   %sub3.i = add i32 %__pos.015.i, -1
   %idxprom4.i = zext i32 %sub3.i to i64
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call8, i64 %idxprom4.i
-  store i8 %2, ptr %arrayidx5.i, align 1
+  store i8 %3, ptr %arrayidx5.i, align 1
   %sub6.i = add i32 %__pos.015.i, -2
-  %cmp.i13 = icmp ugt i64 %__val.addr.016.i, 9999
-  br i1 %cmp.i13, label %while.body.i, label %while.end.i, !llvm.loop !408
+  %cmp.i12 = icmp ugt i64 %__val.addr.016.i, 9999
+  br i1 %cmp.i12, label %while.body.i, label %while.end.i, !llvm.loop !408
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont7
   %__val.addr.0.lcssa.i = phi i64 [ %cond, %invoke.cont7 ], [ %div.i11, %while.body.i ]
@@ -31924,43 +31923,42 @@ while.end.i:                                      ; preds = %while.body.i, %invo
 
 if.then.i:                                        ; preds = %while.end.i
   %mul9.i = shl nuw nsw i64 %__val.addr.0.lcssa.i, 1
-  %add10.i = or disjoint i64 %mul9.i, 1
-  %arrayidx11.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
-  %3 = load i8, ptr %arrayidx11.i, align 1
+  %4 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul9.i
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %5 = load i8, ptr %arrayidx11.i, align 1
   %arrayidx12.i = getelementptr inbounds nuw i8, ptr %call8, i64 1
-  store i8 %3, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
-  %4 = load i8, ptr %arrayidx13.i, align 2
+  store i8 %5, ptr %arrayidx12.i, align 1
+  %6 = load i8, ptr %4, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %5, 48
+  %7 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %7, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %4, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %6, %if.then.i ]
   store i8 %storemerge.i, ptr %call8, align 1
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %0, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #33
   br label %eh.resume
 
 lpad6:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #33
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad6, %lpad.body
-  %.pn = phi { ptr, i32 } [ %7, %lpad6 ], [ %eh.lpad-body, %lpad.body ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %eh.lpad-body, %lpad.body ]
   resume { ptr, i32 } %.pn
 }
 

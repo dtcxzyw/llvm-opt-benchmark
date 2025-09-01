@@ -349,7 +349,7 @@ nexttoken.exit.thread263:                         ; preds = %.preheader89.i
   %.sink.i = phi i8 [ %109, %104 ], [ %92, %102 ]
   %110 = add nuw nsw i32 %.055108.i, 1
   %111 = zext nneg i32 %.055108.i to i64
-  %112 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 %111
   store i8 %.sink.i, ptr %112, align 1, !tbaa !22
   br label %.thread.i
 
@@ -369,7 +369,7 @@ nexttoken.exit.thread263:                         ; preds = %.preheader89.i
 .critedge.i:                                      ; preds = %._crit_edge.i, %.critedge.loopexit.i
   %.058.lcssa.i = phi ptr [ %.058.lcssa.ph.i, %.critedge.loopexit.i ], [ %.promoted.i, %._crit_edge.i ]
   %.055.lcssa.i = phi i64 [ %115, %.critedge.loopexit.i ], [ 0, %._crit_edge.i ]
-  %116 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %.055.lcssa.i
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %.055.lcssa.i
   store i8 0, ptr %116, align 1, !tbaa !22
   %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
   br label %118
@@ -1292,7 +1292,7 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 31:                                               ; preds = %24
   %32 = add nsw i64 %0, -1
-  %33 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !22
   %35 = sext i8 %34 to i64
   %36 = icmp sgt i64 %1, %35
@@ -1317,7 +1317,7 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %40 ]
   %43 = phi i64 [ %47, %.lr.ph ], [ %41, %40 ]
-  %44 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !22
   %46 = sext i8 %45 to i64
   %47 = add nsw i64 %43, %46

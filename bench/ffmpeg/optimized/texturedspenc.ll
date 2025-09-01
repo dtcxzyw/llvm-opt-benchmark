@@ -238,20 +238,20 @@ define internal fastcc void @compress_color(ptr noundef writeonly captures(none)
 constant_color.exit:                              ; preds = %17
   %18 = and i32 %9, 255
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x [2 x i8]], ptr @match5, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr @match5, i64 %19
   %21 = load i8, ptr %20, align 2, !tbaa !11
   %22 = zext i8 %21 to i16
   %23 = shl i16 %22, 11
   %24 = and i32 %10, 255
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x [2 x i8]], ptr @match6, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @match6, i64 %25
   %27 = load i8, ptr %26, align 2, !tbaa !11
   %28 = zext i8 %27 to i16
   %29 = shl nuw nsw i16 %28, 5
   %30 = or i16 %29, %23
   %31 = and i32 %11, 255
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x [2 x i8]], ptr @match5, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @match5, i64 %32
   %34 = load i8, ptr %33, align 2, !tbaa !11
   %35 = zext i8 %34 to i16
   %36 = or i16 %30, %35
@@ -328,11 +328,11 @@ constant_color.exit:                              ; preds = %17
 70:                                               ; preds = %69
   %71 = add nsw i32 %67, 8
   %72 = ashr i32 %71, 4
-  %73 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv267.i
+  %73 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv267.i
   store i32 %72, ptr %73, align 4, !tbaa !47
-  %74 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv267.i
+  %74 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv267.i
   store i32 %.2166.i, ptr %74, align 4, !tbaa !47
-  %75 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv267.i
+  %75 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv267.i
   store i32 %.2163.i, ptr %75, align 4, !tbaa !47
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next268.i, 3
@@ -408,11 +408,11 @@ constant_color.exit:                              ; preds = %17
 
 116:                                              ; preds = %116, %.preheader192.i
   %indvars.iv279.i = phi i64 [ 0, %.preheader192.i ], [ %indvars.iv.next280.i, %116 ]
-  %117 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv279.i
+  %117 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv279.i
   %118 = load i32, ptr %117, align 4, !tbaa !47
   %119 = sitofp i32 %118 to float
   %120 = fdiv nsz float %119, 2.550000e+02
-  %121 = getelementptr inbounds nuw [6 x float], ptr %4, i64 0, i64 %indvars.iv279.i
+  %121 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv279.i
   store float %120, ptr %121, align 4, !tbaa !53
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
   %exitcond282.not.i = icmp eq i64 %indvars.iv.next280.i, 6
@@ -673,18 +673,18 @@ optimize_colors.exit:                             ; preds = %210
   %290 = ashr i32 %282, 4
   %291 = ashr i32 %286, 4
   %292 = sext i32 %289 to i64
-  %293 = getelementptr inbounds [256 x [2 x i8]], ptr @match5, i64 0, i64 %292
+  %293 = getelementptr inbounds [2 x i8], ptr @match5, i64 %292
   %294 = load i8, ptr %293, align 2, !tbaa !11
   %295 = zext i8 %294 to i16
   %296 = shl i16 %295, 11
   %297 = sext i32 %290 to i64
-  %298 = getelementptr inbounds [256 x [2 x i8]], ptr @match6, i64 0, i64 %297
+  %298 = getelementptr inbounds [2 x i8], ptr @match6, i64 %297
   %299 = load i8, ptr %298, align 2, !tbaa !11
   %300 = zext i8 %299 to i16
   %301 = shl nuw nsw i16 %300, 5
   %302 = or i16 %301, %296
   %303 = sext i32 %291 to i64
-  %304 = getelementptr inbounds [256 x [2 x i8]], ptr @match5, i64 0, i64 %303
+  %304 = getelementptr inbounds [2 x i8], ptr @match5, i64 %303
   %305 = load i8, ptr %304, align 2, !tbaa !11
   %306 = zext i8 %305 to i16
   %307 = or i16 %302, %306
@@ -729,7 +729,7 @@ optimize_colors.exit:                             ; preds = %210
   %.1150169.i = phi i32 [ %.0149178.i, %.preheader167.i ], [ %342, %323 ]
   %324 = and i32 %.1177.i, 3
   %325 = zext nneg i32 %324 to i64
-  %326 = getelementptr inbounds nuw [4 x i32], ptr @refine_colors.w1tab, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw i32, ptr @refine_colors.w1tab, i64 %325
   %327 = load i32, ptr %326, align 4, !tbaa !47
   %328 = shl nuw nsw i64 %indvars.iv.i34, 2
   %329 = getelementptr i8, ptr %322, i64 %328
@@ -741,7 +741,7 @@ optimize_colors.exit:                             ; preds = %210
   %335 = getelementptr i8, ptr %329, i64 2
   %336 = load i8, ptr %335, align 1, !tbaa !11
   %337 = zext i8 %336 to i32
-  %338 = getelementptr inbounds nuw [4 x i32], ptr @refine_colors.prods, i64 0, i64 %325
+  %338 = getelementptr inbounds nuw i32, ptr @refine_colors.prods, i64 %325
   %339 = load i32, ptr %338, align 4, !tbaa !47
   %340 = add nsw i32 %339, %.1138175.i
   %341 = mul nsw i32 %327, %331
@@ -888,16 +888,16 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
   %11 = and i32 %10, 63
   %12 = and i32 %8, 31
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds nuw [32 x i8], ptr @expand5, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @expand5, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !11
   store i8 %15, ptr %7, align 16, !tbaa !11
   %16 = zext nneg i32 %11 to i64
-  %17 = getelementptr inbounds nuw [64 x i8], ptr @expand6, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @expand6, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %18, ptr %19, align 1, !tbaa !11
   %20 = zext nneg i32 %12 to i64
-  %21 = getelementptr inbounds nuw [32 x i8], ptr @expand5, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @expand5, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %22, ptr %23, align 2, !tbaa !11
@@ -908,16 +908,16 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
   %28 = and i32 %27, 63
   %29 = and i32 %25, 31
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr inbounds nuw [32 x i8], ptr @expand5, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @expand5, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !11
   store i8 %32, ptr %24, align 4, !tbaa !11
   %33 = zext nneg i32 %28 to i64
-  %34 = getelementptr inbounds nuw [64 x i8], ptr @expand6, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @expand6, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store i8 %35, ptr %36, align 1, !tbaa !11
   %37 = zext nneg i32 %29 to i64
-  %38 = getelementptr inbounds nuw [32 x i8], ptr @expand5, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @expand5, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 %39, ptr %40, align 2, !tbaa !11
@@ -1002,7 +1002,7 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
   %103 = mul nsw i32 %85, %102
   %104 = add nsw i32 %99, %103
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
-  %105 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv52
+  %105 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv52
   store i32 %104, ptr %105, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1010,70 +1010,68 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
 
 106:                                              ; preds = %89
   %107 = shl nuw nsw i64 %indvars.iv57, 2
-  %108 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 %107
   %109 = load i8, ptr %108, align 4, !tbaa !11
   %110 = zext i8 %109 to i32
   %111 = mul nsw i32 %79, %110
-  %112 = or disjoint i64 %107, 1
-  %113 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !11
-  %115 = zext i8 %114 to i32
-  %116 = mul nsw i32 %82, %115
-  %117 = add nsw i32 %116, %111
-  %118 = or disjoint i64 %107, 2
-  %119 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %118
-  %120 = load i8, ptr %119, align 2, !tbaa !11
-  %121 = zext i8 %120 to i32
-  %122 = mul nsw i32 %85, %121
-  %123 = add nsw i32 %117, %122
-  %124 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv57
-  store i32 %123, ptr %124, align 4, !tbaa !47
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 1
+  %113 = load i8, ptr %112, align 1, !tbaa !11
+  %114 = zext i8 %113 to i32
+  %115 = mul nsw i32 %82, %114
+  %116 = add nsw i32 %115, %111
+  %117 = getelementptr inbounds nuw i8, ptr %108, i64 2
+  %118 = load i8, ptr %117, align 2, !tbaa !11
+  %119 = zext i8 %118 to i32
+  %120 = mul nsw i32 %85, %119
+  %121 = add nsw i32 %116, %120
+  %122 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv57
+  store i32 %121, ptr %122, align 4, !tbaa !47
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %125, label %.preheader, !llvm.loop !63
+  br i1 %exitcond60.not, label %123, label %.preheader, !llvm.loop !63
 
-125:                                              ; preds = %106
-  %126 = getelementptr inbounds nuw i8, ptr %6, i64 4
+123:                                              ; preds = %106
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %125 = load i32, ptr %124, align 4, !tbaa !47
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %127 = load i32, ptr %126, align 4, !tbaa !47
-  %128 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %129 = load i32, ptr %128, align 4, !tbaa !47
-  %130 = add nsw i32 %129, %127
-  %131 = ashr i32 %130, 1
-  %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %133 = load i32, ptr %132, align 8, !tbaa !47
-  %134 = add nsw i32 %133, %129
-  %135 = ashr i32 %134, 1
-  %136 = load i32, ptr %6, align 16, !tbaa !47
-  %137 = add nsw i32 %136, %133
-  %138 = ashr i32 %137, 1
-  br label %139
+  %128 = add nsw i32 %127, %125
+  %129 = ashr i32 %128, 1
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %131 = load i32, ptr %130, align 8, !tbaa !47
+  %132 = add nsw i32 %131, %127
+  %133 = ashr i32 %132, 1
+  %134 = load i32, ptr %6, align 16, !tbaa !47
+  %135 = add nsw i32 %134, %131
+  %136 = ashr i32 %135, 1
+  br label %137
 
-139:                                              ; preds = %125, %139
-  %indvars.iv61 = phi i64 [ 0, %125 ], [ %indvars.iv.next62, %139 ]
-  %.050 = phi i32 [ 0, %125 ], [ %153, %139 ]
-  %140 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv61
-  %141 = load i32, ptr %140, align 4, !tbaa !47
-  %142 = icmp slt i32 %141, %135
-  %143 = select i1 %142, i64 4, i64 0
-  %144 = icmp slt i32 %141, %131
-  %145 = select i1 %144, i64 2, i64 0
-  %146 = or disjoint i64 %143, %145
-  %147 = icmp slt i32 %141, %138
-  %148 = zext i1 %147 to i64
-  %149 = or disjoint i64 %146, %148
-  %150 = lshr i32 %.050, 2
-  %151 = getelementptr inbounds nuw [8 x i32], ptr @match_colors.indexMap, i64 0, i64 %149
-  %152 = load i32, ptr %151, align 4, !tbaa !47
-  %153 = or i32 %152, %150
+137:                                              ; preds = %123, %137
+  %indvars.iv61 = phi i64 [ 0, %123 ], [ %indvars.iv.next62, %137 ]
+  %.050 = phi i32 [ 0, %123 ], [ %151, %137 ]
+  %138 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv61
+  %139 = load i32, ptr %138, align 4, !tbaa !47
+  %140 = icmp slt i32 %139, %133
+  %141 = select i1 %140, i64 4, i64 0
+  %142 = icmp slt i32 %139, %129
+  %143 = select i1 %142, i64 2, i64 0
+  %144 = icmp slt i32 %139, %136
+  %145 = zext i1 %144 to i64
+  %146 = lshr i32 %.050, 2
+  %147 = getelementptr inbounds nuw i32, ptr @match_colors.indexMap, i64 %141
+  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %143
+  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %145
+  %150 = load i32, ptr %149, align 4, !tbaa !47
+  %151 = or i32 %150, %146
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 16
-  br i1 %exitcond64.not, label %154, label %139, !llvm.loop !64
+  br i1 %exitcond64.not, label %152, label %137, !llvm.loop !64
 
-154:                                              ; preds = %139
+152:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %153
+  ret i32 %151
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

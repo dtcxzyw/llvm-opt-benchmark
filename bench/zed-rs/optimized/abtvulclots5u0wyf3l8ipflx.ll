@@ -2119,7 +2119,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h0356e2a3ef
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17h7b5b6564ec0acac6E.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %45, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17h7b5b6564ec0acac6E.exit.i" ]
-  %44 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %40, i64 0, i64 %.sroa.0.09.i.i.i.i
+  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %40, i64 %.sroa.0.09.i.i.i.i
   %45 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !593)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !596)
@@ -6671,7 +6671,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd7e2d79bac
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17habff43085d604188E.exit.i", %"_ZN4core3ptr40drop_in_place$LT$lsp_types..TextEdit$GT$17h9af9dfe5b65694c6E.llvm.6844594870300039520.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %42, %"_ZN4core3ptr40drop_in_place$LT$lsp_types..TextEdit$GT$17h9af9dfe5b65694c6E.llvm.6844594870300039520.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17habff43085d604188E.exit.i" ]
-  %41 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { i32, i32 }, { i32, i32 } } }], ptr %37, i64 0, i64 %.sroa.0.09.i.i.i.i
+  %41 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, i32 }, { i32, i32 } } }, ptr %37, i64 %.sroa.0.09.i.i.i.i
   %42 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2145)

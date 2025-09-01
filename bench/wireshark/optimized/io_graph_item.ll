@@ -131,7 +131,7 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly captur
 29:                                               ; preds = %28
   %30 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
   %31 = zext i32 %2 to i64
-  %32 = getelementptr [12 x ptr], ptr @__const.check_field_unit.item_unit_names, i64 0, i64 %31
+  %32 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %31
   %33 = load ptr, ptr %32, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %30, ptr noundef nonnull @.str.16, ptr noundef nonnull %0, ptr noundef %33)
   br label %.sink.split
@@ -144,7 +144,7 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly captur
 36:                                               ; preds = %34
   %37 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
   %38 = zext i32 %2 to i64
-  %39 = getelementptr [12 x ptr], ptr @__const.check_field_unit.item_unit_names, i64 0, i64 %38
+  %39 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %38
   %40 = load ptr, ptr %39, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %37, ptr noundef nonnull @.str.17, ptr noundef nonnull %0, ptr noundef %40)
   br label %.sink.split

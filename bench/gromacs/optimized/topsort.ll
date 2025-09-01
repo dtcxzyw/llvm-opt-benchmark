@@ -80,7 +80,7 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !16
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %24, i32 5
+  %25 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %24, i32 5
   %26 = load i32, ptr %25, align 4, !tbaa !18
   %27 = and i32 %26, 1
   %.not = icmp eq i32 %27, 0
@@ -184,7 +184,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %5, i32 4
+  %6 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %5, i32 4
   %7 = load i32, ptr %6, align 8, !tbaa !56
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread100, label %9
@@ -373,9 +373,9 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 118:                                              ; preds = %116, %118
   %indvars.iv117 = phi i64 [ 0, %116 ], [ %indvars.iv.next118, %118 ]
   %.1110 = phi i8 [ 0, %116 ], [ %.2, %118 ]
-  %119 = getelementptr inbounds nuw [6 x float], ptr %1, i64 0, i64 %indvars.iv117
+  %119 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv117
   %120 = load float, ptr %119, align 4, !tbaa !57
-  %121 = getelementptr inbounds nuw [6 x float], ptr %117, i64 0, i64 %indvars.iv117
+  %121 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv117
   %122 = load float, ptr %121, align 4, !tbaa !57
   %123 = fcmp une float %120, %122
   %.2 = select i1 %123, i8 1, i8 %.1110
@@ -395,17 +395,17 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 131:                                              ; preds = %.preheader, %144
   %indvars.iv115 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next116, %144 ]
   %.3108 = phi i8 [ 0, %.preheader ], [ %.4, %144 ]
-  %132 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv115
+  %132 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv115
   %133 = load float, ptr %132, align 4, !tbaa !57
-  %134 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv115
+  %134 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv115
   %135 = load float, ptr %134, align 4, !tbaa !57
   %136 = fcmp une float %133, %135
   br i1 %136, label %143, label %137
 
 137:                                              ; preds = %131
-  %138 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv115
+  %138 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv115
   %139 = load float, ptr %138, align 4, !tbaa !57
-  %140 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv115
+  %140 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv115
   %141 = load float, ptr %140, align 4, !tbaa !57
   %142 = fcmp une float %139, %141
   br i1 %142, label %143, label %144
@@ -493,9 +493,9 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 
 199:                                              ; preds = %.preheader105, %199
   %indvars.iv = phi i64 [ 0, %.preheader105 ], [ %indvars.iv.next, %199 ]
-  %200 = getelementptr inbounds nuw [6 x float], ptr %1, i64 0, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %201 = load float, ptr %200, align 4, !tbaa !57
-  %202 = getelementptr inbounds nuw [6 x float], ptr %10, i64 0, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %203 = load float, ptr %202, align 4, !tbaa !57
   %204 = fcmp une float %201, %203
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -506,7 +506,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 206:                                              ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt10filesystem7__cxx114pathC2IA126_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 1 dereferenceable(126) @.str, i8 noundef zeroext 2)
-  %207 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %5, i32 1
+  %207 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %5, i32 1
   %208 = load ptr, ptr %207, align 8, !tbaa !61
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 145, ptr noundef nonnull @.str.1, ptr noundef %208) #12
           to label %209 unwind label %210
@@ -541,7 +541,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt10filesystem7__cxx114pathC2IA126_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(126) @.str, i8 noundef zeroext 2)
   %214 = zext nneg i32 %0 to i64
-  %215 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %214, i32 1
+  %215 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %214, i32 1
   %216 = load ptr, ptr %215, align 8, !tbaa !61
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 152, ptr noundef nonnull @.str.2, ptr noundef %216) #12
           to label %217 unwind label %218
@@ -736,7 +736,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %.0126 = phi i1 [ false, %3 ], [ %.3, %102 ]
   %.067125 = phi i32 [ 0, %3 ], [ %.4, %102 ]
   %.084122 = phi ptr [ null, %3 ], [ %.488, %102 ]
-  %10 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv156
+  %10 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv156
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = and i32 %12, 1
@@ -744,7 +744,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   br i1 %.not, label %102, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %4, i64 0, i64 %indvars.iv156
+  %15 = getelementptr inbounds nuw %struct.InteractionList, ptr %4, i64 %indvars.iv156
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !4
@@ -757,12 +757,12 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   br i1 %24, label %.lr.ph110, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %14
-  %25 = getelementptr inbounds nuw [95 x i32], ptr %5, i64 0, i64 %indvars.iv156
+  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv156
   store i32 0, ptr %25, align 4, !tbaa !16
   br label %._crit_edge121
 
 .lr.ph110:                                        ; preds = %14
-  %26 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv156, i32 2
+  %26 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv156, i32 2
   %27 = load i32, ptr %26, align 16, !tbaa !85
   %28 = icmp eq i64 %indvars.iv156, 33
   %.not7492 = icmp slt i32 %27, 0
@@ -895,7 +895,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   br i1 %87, label %31, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %88 = getelementptr inbounds nuw [95 x i32], ptr %5, i64 0, i64 %indvars.iv156
+  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv156
   store i32 %.164, ptr %88, align 4, !tbaa !16
   %89 = icmp sgt i32 %.262, 0
   br i1 %89, label %.lr.ph120.preheader, label %._crit_edge121

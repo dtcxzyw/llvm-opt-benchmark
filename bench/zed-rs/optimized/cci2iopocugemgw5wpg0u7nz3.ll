@@ -4198,7 +4198,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 113:                                              ; preds = %._crit_edge
-  %114 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %.val.i, i64 0, i64 %.val3.i, i32 2
+  %114 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val.i, i64 %.val3.i, i32 2
   %115 = load i64, ptr %114, align 8, !noalias !519, !noundef !4
   %.sroa.0.011.i = and i64 %66, %115
   %116 = getelementptr inbounds nuw i8, ptr %69, i64 %.sroa.0.011.i
@@ -4518,7 +4518,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 113:                                              ; preds = %._crit_edge
-  %114 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %.val.i, i64 0, i64 %.val3.i, i32 2
+  %114 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val.i, i64 %.val3.i, i32 2
   %115 = load i64, ptr %114, align 8, !noalias !567, !noundef !4
   %.sroa.0.011.i = and i64 %66, %115
   %116 = getelementptr inbounds nuw i8, ptr %69, i64 %.sroa.0.011.i
@@ -4617,7 +4617,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14re
 
 "_ZN8indexmap3map4core8get_hash28_$u7b$$u7b$closure$u7d$$u7d$17h37c0569aff64e9e3E.exit": ; preds = %3
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %.val, i64 0, i64 %.val3, i32 2
+  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val, i64 %.val3, i32 2
   %13 = load i64, ptr %12, align 8, !noundef !4
   ret i64 %13
 }
@@ -4641,7 +4641,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14re
 
 "_ZN8indexmap3map4core8get_hash28_$u7b$$u7b$closure$u7d$$u7d$17h7780d4a030c71171E.exit": ; preds = %3
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %.val, i64 0, i64 %.val3, i32 2
+  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val, i64 %.val3, i32 2
   %13 = load i64, ptr %12, align 8, !noundef !4
   ret i64 %13
 }

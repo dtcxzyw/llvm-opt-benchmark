@@ -1951,8 +1951,8 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 
 217:                                              ; preds = %217, %213
   %.05.i.i = phi i64 [ 0, %213 ], [ %221, %217 ]
-  %218 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %216, i64 0, i64 %.05.i.i
-  %219 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %15, i64 0, i64 %.05.i.i
+  %218 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %216, i64 %.05.i.i
+  %219 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %15, i64 %.05.i.i
   %220 = load i32, ptr %219, align 4, !tbaa !99
   store i32 %220, ptr %218, align 4, !tbaa !99
   %221 = add nuw nsw i64 %.05.i.i, 1
@@ -4437,7 +4437,7 @@ _ZNKSt8functionIFhiEEclEi.exit.i:                 ; preds = %813
 
 824:                                              ; preds = %_ZNKSt8functionIFhiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %825 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 0, i64 %indvars.iv769
+  %825 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv769
   store i8 %823, ptr %825, align 1, !tbaa !22
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %exitcond773.not = icmp eq i64 %indvars.iv.next770, %802
@@ -6142,8 +6142,8 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 31:                                               ; preds = %31, %.lr.ph.i.i.i.i.i68
   %.05.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i68 ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %30, i64 0, i64 %.05.i.i.i.i.i.i
-  %33 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %29, i64 0, i64 %.05.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %30, i64 %.05.i.i.i.i.i.i
+  %33 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %29, i64 %.05.i.i.i.i.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !99
   store i32 %34, ptr %32, align 4, !tbaa !99
   %35 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1

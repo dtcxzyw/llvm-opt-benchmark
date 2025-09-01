@@ -132,7 +132,7 @@ define hidden void @_ZN7datalog9mk_unfold11expand_tailERNS_4ruleEjRKNS_8rule_set
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !260
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -8

@@ -6111,7 +6111,7 @@ define void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr readnone ali
   %18 = lshr i64 %15, 7
   %19 = getelementptr %"struct.QHashPrivate::Span", ptr %8, i64 %18
   %20 = and i64 %15, 127
-  %21 = getelementptr [128 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %19, i64 %20
   %22 = load i8, ptr %21, align 1, !noalias !52
   %.not.i.i.i.i.i.i = icmp eq i8 %22, -1
   br i1 %.not.i.i.i.i.i.i, label %13, label %_ZN5QListIiED2Ev.exit, !llvm.loop !55
@@ -6605,7 +6605,7 @@ define void @_ZN15MainApplication23addDynamicMenuGroupItemEiP7QAction(ptr readno
   %29 = lshr i64 %26, 7
   %30 = and i64 %26, 127
   %31 = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %29
-  %32 = getelementptr [128 x i8], ptr %31, i64 0, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 %30
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, -1
   br i1 %34, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i
@@ -6629,7 +6629,7 @@ define void @_ZN15MainApplication23addDynamicMenuGroupItemEiP7QAction(ptr readno
   %46 = lshr i64 %spec.store.select.i.i.i.i, 7
   %47 = and i64 %spec.store.select.i.i.i.i, 127
   %48 = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %46
-  %49 = getelementptr [128 x i8], ptr %48, i64 0, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 %47
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, -1
   br i1 %51, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !61
@@ -6638,7 +6638,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.i.i: ; pred
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
   %.pre.i.i = lshr i64 %.01827.i.i.i, 7
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %.pre.i.i
-  %.phi.trans.insert8.i = getelementptr [128 x i8], ptr %.phi.trans.insert.i, i64 0, i64 %.pre7.i.i
+  %.phi.trans.insert8.i = getelementptr i8, ptr %.phi.trans.insert.i, i64 %.pre7.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert8.i, align 1
   %.not.i.i.i = icmp eq i8 %.pre.i, -1
   br i1 %.not.i.i.i, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit
@@ -6747,7 +6747,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN5QHashIi5QListIP
   %28 = and i64 %25, 127
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr [128 x i8], ptr %27, i64 0, i64 %28
+  %31 = getelementptr i8, ptr %27, i64 %28
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
   %34 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<QAction *>>>::Entry", ptr %30, i64 %33
@@ -6775,7 +6775,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN5QHashIi5QListIP
   %47 = and i64 %44, 127
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr [128 x i8], ptr %46, i64 0, i64 %47
+  %50 = getelementptr i8, ptr %46, i64 %47
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<QAction *>>>::Entry", ptr %49, i64 %52, i32 0, i32 0, i64 8
@@ -6842,7 +6842,7 @@ define void @_ZN15MainApplication26appendDynamicMenuGroupItemEiP7QAction(ptr nou
   %29 = lshr i64 %26, 7
   %30 = and i64 %26, 127
   %31 = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %29
-  %32 = getelementptr [128 x i8], ptr %31, i64 0, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 %30
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, -1
   br i1 %34, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i
@@ -6866,7 +6866,7 @@ define void @_ZN15MainApplication26appendDynamicMenuGroupItemEiP7QAction(ptr nou
   %46 = lshr i64 %spec.store.select.i.i.i.i, 7
   %47 = and i64 %spec.store.select.i.i.i.i, 127
   %48 = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %46
-  %49 = getelementptr [128 x i8], ptr %48, i64 0, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 %47
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, -1
   br i1 %51, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !61
@@ -6875,7 +6875,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.i.i: ; pred
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
   %.pre.i.i = lshr i64 %.01827.i.i.i, 7
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %.pre.i.i
-  %.phi.trans.insert8.i = getelementptr [128 x i8], ptr %.phi.trans.insert.i, i64 0, i64 %.pre7.i.i
+  %.phi.trans.insert8.i = getelementptr i8, ptr %.phi.trans.insert.i, i64 %.pre7.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert8.i, align 1
   %.not.i.i.i = icmp eq i8 %.pre.i, -1
   br i1 %.not.i.i.i, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit
@@ -6956,7 +6956,7 @@ define void @_ZN15MainApplication26removeDynamicMenuGroupItemEiP7QAction(ptr nou
   %31 = lshr i64 %28, 7
   %32 = and i64 %28, 127
   %33 = getelementptr %"struct.QHashPrivate::Span", ptr %30, i64 %31
-  %34 = getelementptr [128 x i8], ptr %33, i64 0, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 %32
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, -1
   br i1 %36, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i
@@ -6980,7 +6980,7 @@ define void @_ZN15MainApplication26removeDynamicMenuGroupItemEiP7QAction(ptr nou
   %48 = lshr i64 %spec.store.select.i.i.i.i, 7
   %49 = and i64 %spec.store.select.i.i.i.i, 127
   %50 = getelementptr %"struct.QHashPrivate::Span", ptr %30, i64 %48
-  %51 = getelementptr [128 x i8], ptr %50, i64 0, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 %49
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, -1
   br i1 %53, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !61
@@ -6989,7 +6989,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.i.i: ; pred
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
   %.pre.i.i = lshr i64 %.01827.i.i.i, 7
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span", ptr %30, i64 %.pre.i.i
-  %.phi.trans.insert8.i = getelementptr [128 x i8], ptr %.phi.trans.insert.i, i64 0, i64 %.pre7.i.i
+  %.phi.trans.insert8.i = getelementptr i8, ptr %.phi.trans.insert.i, i64 %.pre7.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert8.i, align 1
   %.not.i.i.i = icmp eq i8 %.pre.i, -1
   br i1 %.not.i.i.i, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit
@@ -7073,7 +7073,7 @@ define void @_ZN15MainApplication21dynamicMenuGroupItemsEi(ptr dead_on_unwind no
   %28 = lshr i64 %25, 7
   %29 = and i64 %25, 127
   %30 = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %28
-  %31 = getelementptr [128 x i8], ptr %30, i64 0, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 %29
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, -1
   br i1 %33, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i
@@ -7097,7 +7097,7 @@ define void @_ZN15MainApplication21dynamicMenuGroupItemsEi(ptr dead_on_unwind no
   %45 = lshr i64 %spec.store.select.i.i.i.i, 7
   %46 = and i64 %spec.store.select.i.i.i.i, 127
   %47 = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %45
-  %48 = getelementptr [128 x i8], ptr %47, i64 0, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 %46
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, -1
   br i1 %50, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !61
@@ -7106,7 +7106,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.i.i: ; pred
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
   %.pre.i.i = lshr i64 %.01827.i.i.i, 7
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %.pre.i.i
-  %.phi.trans.insert8.i = getelementptr [128 x i8], ptr %.phi.trans.insert.i, i64 0, i64 %.pre7.i.i
+  %.phi.trans.insert8.i = getelementptr i8, ptr %.phi.trans.insert.i, i64 %.pre7.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert8.i, align 1
   %.not.i.i.i = icmp eq i8 %.pre.i, -1
   br i1 %.not.i.i.i, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit
@@ -7455,7 +7455,7 @@ define void @_ZN15MainApplication19addedMenuGroupItemsEi(ptr dead_on_unwind noal
   %28 = lshr i64 %25, 7
   %29 = and i64 %25, 127
   %30 = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %28
-  %31 = getelementptr [128 x i8], ptr %30, i64 0, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 %29
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, -1
   br i1 %33, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i
@@ -7479,7 +7479,7 @@ define void @_ZN15MainApplication19addedMenuGroupItemsEi(ptr dead_on_unwind noal
   %45 = lshr i64 %spec.store.select.i.i.i.i, 7
   %46 = and i64 %spec.store.select.i.i.i.i, 127
   %47 = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %45
-  %48 = getelementptr [128 x i8], ptr %47, i64 0, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 %46
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, -1
   br i1 %50, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !61
@@ -7488,7 +7488,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.i.i: ; pred
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
   %.pre.i.i = lshr i64 %.01827.i.i.i, 7
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %.pre.i.i
-  %.phi.trans.insert8.i = getelementptr [128 x i8], ptr %.phi.trans.insert.i, i64 0, i64 %.pre7.i.i
+  %.phi.trans.insert8.i = getelementptr i8, ptr %.phi.trans.insert.i, i64 %.pre7.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert8.i, align 1
   %.not.i.i.i = icmp eq i8 %.pre.i, -1
   br i1 %.not.i.i.i, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit
@@ -7834,7 +7834,7 @@ define void @_ZN15MainApplication21removedMenuGroupItemsEi(ptr dead_on_unwind no
   %28 = lshr i64 %25, 7
   %29 = and i64 %25, 127
   %30 = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %28
-  %31 = getelementptr [128 x i8], ptr %30, i64 0, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 %29
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, -1
   br i1 %33, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i
@@ -7858,7 +7858,7 @@ define void @_ZN15MainApplication21removedMenuGroupItemsEi(ptr dead_on_unwind no
   %45 = lshr i64 %spec.store.select.i.i.i.i, 7
   %46 = and i64 %spec.store.select.i.i.i.i, 127
   %47 = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %45
-  %48 = getelementptr [128 x i8], ptr %47, i64 0, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 %46
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, -1
   br i1 %50, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !61
@@ -7867,7 +7867,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.i.i: ; pred
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
   %.pre.i.i = lshr i64 %.01827.i.i.i, 7
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span", ptr %27, i64 %.pre.i.i
-  %.phi.trans.insert8.i = getelementptr [128 x i8], ptr %.phi.trans.insert.i, i64 0, i64 %.pre7.i.i
+  %.phi.trans.insert8.i = getelementptr i8, ptr %.phi.trans.insert.i, i64 %.pre7.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert8.i, align 1
   %.not.i.i.i = icmp eq i8 %.pre.i, -1
   br i1 %.not.i.i.i, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit.thread, label %_ZNK5QHashIi5QListIP7QActionEE8containsERKi.exit
@@ -8209,7 +8209,7 @@ define void @_ZN15MainApplication24clearAddedMenuGroupItemsEv(ptr noundef readno
   %18 = lshr i64 %15, 7
   %19 = getelementptr %"struct.QHashPrivate::Span", ptr %8, i64 %18
   %20 = and i64 %15, 127
-  %21 = getelementptr [128 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %19, i64 %20
   %22 = load i8, ptr %21, align 1, !noalias !66
   %.not.i.i.i.i.i.i = icmp eq i8 %22, -1
   br i1 %.not.i.i.i.i.i.i, label %13, label %_ZN5QListIiED2Ev.exit, !llvm.loop !55
@@ -8360,7 +8360,7 @@ define void @_ZN15MainApplication26clearRemovedMenuGroupItemsEv(ptr noundef read
   %18 = lshr i64 %15, 7
   %19 = getelementptr %"struct.QHashPrivate::Span", ptr %8, i64 %18
   %20 = and i64 %15, 127
-  %21 = getelementptr [128 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %19, i64 %20
   %22 = load i8, ptr %21, align 1, !noalias !73
   %.not.i.i.i.i.i.i = icmp eq i8 %22, -1
   br i1 %.not.i.i.i.i.i.i, label %13, label %_ZN5QListIiED2Ev.exit, !llvm.loop !55
@@ -11803,7 +11803,7 @@ define void @_ZN15MainApplication9popStatusENS_10StatusInfoE(ptr noundef readnon
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN15MainApplication9popStatusENS_10StatusInfoE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15MainApplication9popStatusENS_10StatusInfoE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN13MainStatusBar16popGenericStatusENS_13StatusContextE(ptr noundef nonnull align 8 dereferenceable_or_null(520) %5, i32 noundef %switch.load)
   br label %8
@@ -14011,7 +14011,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE1
   %24 = lshr i64 %21, 7
   %25 = and i64 %21, 127
   %26 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %24
-  %27 = getelementptr [128 x i8], ptr %26, i64 0, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 %25
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit, label %.lr.ph.i
@@ -14040,7 +14040,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE1
   %41 = lshr i64 %spec.store.select.i.i, 7
   %42 = and i64 %spec.store.select.i.i, 127
   %43 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %41
-  %44 = getelementptr [128 x i8], ptr %43, i64 0, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 %42
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, -1
   br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !61
@@ -14050,7 +14050,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit: ; preds = 
   %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.loopexit_crit_edge ], [ %42, %38 ]
   %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %38 ]
   %47 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %.pre-phi20
-  %48 = getelementptr [128 x i8], ptr %47, i64 0, i64 %.pre-phi
+  %48 = getelementptr i8, ptr %47, i64 %.pre-phi
   %49 = load i8, ptr %48, align 1
   %.not.i = icmp eq i8 %49, -1
   br i1 %.not.i, label %50, label %136
@@ -14096,7 +14096,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit: ; preds = 
   %75 = lshr i64 %72, 7
   %76 = and i64 %72, 127
   %77 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %75
-  %78 = getelementptr [128 x i8], ptr %77, i64 0, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 %76
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, -1
   br i1 %80, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit11, label %.lr.ph.i5
@@ -14120,7 +14120,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit: ; preds = 
   %92 = lshr i64 %spec.store.select.i.i7, 7
   %93 = and i64 %spec.store.select.i.i7, 127
   %94 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %92
-  %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
   br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit11, label %.lr.ph.i5, !llvm.loop !61
@@ -14199,7 +14199,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi5QListIP7QActionEEEE10addStorageEv.exit.i: ; pr
   %131 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<QAction *>>>::Entry", ptr %128, i64 %130
   %132 = load i8, ptr %131, align 1
   store i8 %132, ptr %102, align 1
-  %133 = getelementptr [128 x i8], ptr %100, i64 0, i64 %101
+  %133 = getelementptr i8, ptr %100, i64 %101
   store i8 %129, ptr %133, align 1
   %134 = load i64, ptr %51, align 8
   %135 = add i64 %134, 1
@@ -14524,7 +14524,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
 
 61:                                               ; preds = %54, %_ZN12QHashPrivate4NodeIi5QListIP7QActionEEC2ERKS5_.exit
   %.02331 = phi i64 [ 0, %54 ], [ %157, %_ZN12QHashPrivate4NodeIi5QListIP7QActionEEC2ERKS5_.exit ]
-  %62 = getelementptr [128 x i8], ptr %56, i64 0, i64 %.02331
+  %62 = getelementptr i8, ptr %56, i64 %.02331
   %63 = load i8, ptr %62, align 1
   %.not30 = icmp eq i8 %63, -1
   br i1 %.not30, label %_ZN12QHashPrivate4NodeIi5QListIP7QActionEEC2ERKS5_.exit, label %64
@@ -14555,7 +14555,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %85 = lshr i64 %83, 7
   %86 = and i64 %83, 127
   %87 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %85
-  %88 = getelementptr [128 x i8], ptr %87, i64 0, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 %86
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit, label %.lr.ph.i
@@ -14579,7 +14579,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %102 = lshr i64 %spec.store.select.i.i, 7
   %103 = and i64 %spec.store.select.i.i, 127
   %104 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %102
-  %105 = getelementptr [128 x i8], ptr %104, i64 0, i64 %103
+  %105 = getelementptr i8, ptr %104, i64 %103
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, -1
   br i1 %107, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !61
@@ -14659,7 +14659,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi5QListIP7QActionEEEE6insertEm.exit: ; preds = %
   %142 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<QAction *>>>::Entry", ptr %139, i64 %141
   %143 = load i8, ptr %142, align 1
   store i8 %143, ptr %114, align 1
-  %144 = getelementptr [128 x i8], ptr %112, i64 0, i64 %113
+  %144 = getelementptr i8, ptr %112, i64 %113
   store i8 %140, ptr %144, align 1
   %145 = load i32, ptr %67, align 8
   store i32 %145, ptr %142, align 8
@@ -14847,7 +14847,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi5QListIP7QActionEEEE8freeDataEv.exit: ; preds =
 
 69:                                               ; preds = %48, %157
   %.02333 = phi i64 [ 0, %48 ], [ %158, %157 ]
-  %70 = getelementptr [128 x i8], ptr %49, i64 0, i64 %.02333
+  %70 = getelementptr i8, ptr %49, i64 %.02333
   %71 = load i8, ptr %70, align 1
   %.not = icmp eq i8 %71, -1
   br i1 %.not, label %157, label %72
@@ -14875,7 +14875,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi5QListIP7QActionEEEE8freeDataEv.exit: ; preds =
   %92 = lshr i64 %90, 7
   %93 = and i64 %90, 127
   %94 = getelementptr %"struct.QHashPrivate::Span", ptr %91, i64 %92
-  %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
   br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit, label %.lr.ph.i
@@ -14904,7 +14904,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi5QListIP7QActionEEEE8freeDataEv.exit: ; preds =
   %109 = lshr i64 %spec.store.select.i.i, 7
   %110 = and i64 %spec.store.select.i.i, 127
   %111 = getelementptr %"struct.QHashPrivate::Span", ptr %91, i64 %109
-  %112 = getelementptr [128 x i8], ptr %111, i64 0, i64 %110
+  %112 = getelementptr i8, ptr %111, i64 %110
   %113 = load i8, ptr %112, align 1
   %114 = icmp eq i8 %113, -1
   br i1 %114, label %_ZNK12QHashPrivate4DataINS_4NodeIi5QListIP7QActionEEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !61
@@ -14977,7 +14977,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi5QListIP7QActionEEEE6insertEm.exit: ; preds = %
   %144 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<QAction *>>>::Entry", ptr %141, i64 %143
   %145 = load i8, ptr %144, align 1
   store i8 %145, ptr %116, align 1
-  %146 = getelementptr [128 x i8], ptr %115, i64 0, i64 %.pre-phi38
+  %146 = getelementptr i8, ptr %115, i64 %.pre-phi38
   store i8 %142, ptr %146, align 1
   %147 = load i32, ptr %75, align 8
   store i32 %147, ptr %144, align 8
@@ -15998,7 +15998,7 @@ _ZNK5QHashIi5QListIP7QActionEE12key_iteratorneES5_.exit.thread.i.i: ; preds = %5
   %18 = lshr i64 %14, 7
   %19 = getelementptr %"struct.QHashPrivate::Span", ptr %17, i64 %18
   %20 = and i64 %14, 127
-  %21 = getelementptr [128 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %19, i64 %20
   %22 = load i8, ptr %21, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %22, -1
   br i1 %.not.i.i.i.i.i.i, label %12, label %_ZN5QHashIi5QListIP7QActionEE12key_iteratorppEv.exit.i.i, !llvm.loop !55
@@ -16057,7 +16057,7 @@ _ZNK5QHashIi5QListIP7QActionEE12key_iteratorneES5_.exit.thread.i: ; preds = %_ZN
   %41 = and i64 %.sroa.5.015.i, 127
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 128
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr [128 x i8], ptr %40, i64 0, i64 %41
+  %44 = getelementptr i8, ptr %40, i64 %41
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
   %47 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QList<QAction *>>>::Entry", ptr %43, i64 %46
@@ -16082,7 +16082,7 @@ _ZNK5QHashIi5QListIP7QActionEE12key_iteratorneES5_.exit.thread.i: ; preds = %_ZN
   %60 = lshr i64 %56, 7
   %61 = getelementptr %"struct.QHashPrivate::Span", ptr %59, i64 %60
   %62 = and i64 %56, 127
-  %63 = getelementptr [128 x i8], ptr %61, i64 0, i64 %62
+  %63 = getelementptr i8, ptr %61, i64 %62
   %64 = load i8, ptr %63, align 1
   %.not.i.i.i.i.i = icmp eq i8 %64, -1
   br i1 %.not.i.i.i.i.i, label %54, label %_ZN5QHashIi5QListIP7QActionEE12key_iteratorppEv.exit.i, !llvm.loop !55

@@ -77,9 +77,9 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %7 ]
   %.0102143 = phi i64 [ 0, %3 ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %4, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %6, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %12 = add i64 %9, %.0102143
   %13 = sub i64 %12, %11
@@ -116,9 +116,9 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw %struct.window_data, ptr %22, i64 %29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
-  %31 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %4, i64 0, i64 %indvars.iv160
+  %31 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %4, i64 %indvars.iv160
   %32 = load i64, ptr %31, align 8, !tbaa !22
-  %33 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %6, i64 0, i64 %indvars.iv160
+  %33 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %6, i64 %indvars.iv160
   %34 = load i64, ptr %33, align 8, !tbaa !22
   %.not = icmp ne i64 %32, %34
   br i1 %.not, label %35, label %42
@@ -149,7 +149,7 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   br label %50
 
 50:                                               ; preds = %48, %42
-  %51 = getelementptr inbounds nuw [64 x %struct.slab_stats_automove], ptr %5, i64 0, i64 %indvars.iv160
+  %51 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %5, i64 %indvars.iv160
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8, !tbaa !33
   %.idx = mul nuw nsw i64 %indvars.iv160, 24

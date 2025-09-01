@@ -174,7 +174,7 @@ ossl_param_is_empty.exit:                         ; preds = %4
 
 17:                                               ; preds = %15, %12
   %.06.i = phi i64 [ 0, %12 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [3 x %struct.dh_name2id_st], ptr @dsatype2id, i64 0, i64 %.06.i
+  %18 = getelementptr inbounds nuw %struct.dh_name2id_st, ptr @dsatype2id, i64 %.06.i
   %19 = load ptr, ptr %18, align 16, !tbaa !31
   %20 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %19, ptr noundef %14) #7
   %21 = icmp eq i32 %20, 0
@@ -979,7 +979,7 @@ define internal ptr @dsa_import_types(i32 noundef %0) #1 {
   %4 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
-  %6 = getelementptr inbounds nuw [4 x ptr], ptr @dsa_types, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @dsa_types, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !47
   ret ptr %7
 }
@@ -1094,7 +1094,7 @@ define internal ptr @dsa_export_types(i32 noundef %0) #1 {
   %4 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
-  %6 = getelementptr inbounds nuw [4 x ptr], ptr @dsa_types, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @dsa_types, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !47
   ret ptr %7
 }

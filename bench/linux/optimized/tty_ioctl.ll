@@ -529,13 +529,13 @@ define dso_local noundef i32 @tty_set_termios(ptr noundef %0, ptr noundef readon
 
 65:                                               ; preds = %65, %14
   %66 = phi i64 [ 0, %14 ], [ %74, %65 ]
-  %67 = getelementptr [19 x i8], ptr %62, i64 0, i64 %66
+  %67 = getelementptr i8, ptr %62, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 0
   %70 = select i1 %69, ptr %64, ptr %63
-  %71 = getelementptr [19 x i8], ptr %70, i64 0, i64 %66
+  %71 = getelementptr i8, ptr %70, i64 %66
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr [19 x i8], ptr %64, i64 0, i64 %66
+  %73 = getelementptr i8, ptr %64, i64 %66
   store i8 %72, ptr %73, align 1
   %74 = add nuw nsw i64 %66, 1
   %75 = icmp eq i64 %74, 19

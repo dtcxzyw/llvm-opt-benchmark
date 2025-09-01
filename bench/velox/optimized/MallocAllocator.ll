@@ -175,7 +175,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNS
   %indvars.iv.i.i = phi i64 [ 0, %_ZNSt5arrayIN8facebook5velox6memory14SizeClassStatsELm20EEC2Ev.exit.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shl.i.i = shl nuw i32 1, %1
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_.i, i64 %indvars.iv.i.i
   store i32 %shl.i.i, ptr %arrayidx.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
@@ -492,10 +492,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %pages.sroa.0.1179 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.0.4, %for.inc ]
   %pages.sroa.10.0178 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.10.2, %for.inc ]
   %pages.sroa.19.0177 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %pages.sroa.19.2, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds nuw [12 x i32], ptr %sizeCounts, i64 0, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %sizeCounts, i64 %indvars.iv
   %25 = load i32, ptr %arrayidx.i.i, align 4
   %conv63 = sext i32 %25 to i64
-  %arrayidx.i.i75 = getelementptr inbounds nuw [12 x i32], ptr %mix, i64 0, i64 %indvars.iv
+  %arrayidx.i.i75 = getelementptr inbounds nuw i32, ptr %mix, i64 %indvars.iv
   %26 = load i32, ptr %arrayidx.i.i75, align 4
   %conv66 = sext i32 %26 to i64
   %27 = load ptr, ptr %sizeClassSizes_, align 8
@@ -543,7 +543,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i82
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %if.end.i.i.i, %if.then.i82
   %retval.0.i.i = phi i64 [ 0, %if.then.i82 ], [ %37, %if.end.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_, i64 %retval.0.i.i
   %allocateClocks.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %38 = call noundef i64 @llvm.x86.rdtsc()
   %mul.i.i8.i = shl i64 %mul, 12
@@ -1076,7 +1076,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if.then.i
   %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ %6, %if.end.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_, i64 %retval.0.i.i
   %allocateClocks.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %7 = call noundef i64 @llvm.x86.rdtsc()
   invoke fastcc void @"_ZZN8facebook5velox6memory15MallocAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmENK3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp1)
@@ -2818,7 +2818,7 @@ entry:
 arrayinit.body.i.i:                               ; preds = %arrayinit.body.i.i, %entry
   %arrayinit.index.i.i = phi i64 [ 0, %entry ], [ %arrayinit.next.i.i, %arrayinit.body.i.i ]
   %0 = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %agg.result, i64 %arrayinit.index.i.i
-  %arrayidx.i.i = getelementptr inbounds nuw [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %arrayinit.index.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_, i64 %arrayinit.index.i.i
   %allocateClocks.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %freeClocks.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %numAllocations.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24

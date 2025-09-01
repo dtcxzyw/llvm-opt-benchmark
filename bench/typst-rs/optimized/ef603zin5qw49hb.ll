@@ -2462,8 +2462,8 @@ _ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit: ; preds =
   br i1 %exitcond.not.i.i.i.i, label %_ZN12typst_syntax4node8LeafNode11spanless_eq17h15b7cc4255f985e2E.exit, label %130
 
 130:                                              ; preds = %.preheader.split.i.i.i.i
-  %131 = getelementptr inbounds [0 x { { { [2 x i64] } } }], ptr %.val.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
-  %132 = getelementptr inbounds [0 x { { { [2 x i64] } } }], ptr %.val2.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i
+  %131 = getelementptr inbounds { { { [2 x i64] } } }, ptr %.val.i.i, i64 %.sroa.01.0.i.i.i.i
+  %132 = getelementptr inbounds { { { [2 x i64] } } }, ptr %.val2.i.i, i64 %.sroa.01.0.i.i.i.i
   %133 = tail call { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8de35eE.llvm.10859166595437567863(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %131), !noalias !371
   %134 = extractvalue { ptr, i64 } %133, 0
   %135 = extractvalue { ptr, i64 } %133, 1
@@ -3682,8 +3682,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node9InnerNode16replace_chil
 35:                                               ; preds = %29
   %36 = load ptr, ptr %21, align 8, !nonnull !7, !noundef !7
   %37 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds [0 x { { [24 x i8], i8, [7 x i8] } }], ptr %37, i64 0, i64 %.sroa.0.0291
-  %39 = getelementptr inbounds [0 x { { [24 x i8], i8, [7 x i8] } }], ptr %36, i64 0, i64 %.sroa.0202.0290
+  %38 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %37, i64 %.sroa.0.0291
+  %39 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %36, i64 %.sroa.0202.0290
   %40 = invoke noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode11spanless_eq17hf00c5186e89f3bbaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %39)
           to label %41 unwind label %.loopexit.split-lp249.loopexit
 
@@ -3721,8 +3721,8 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node9InnerNode16replace_chil
 58:                                               ; preds = %54
   %59 = load ptr, ptr %24, align 8, !nonnull !7, !noundef !7
   %60 = load ptr, ptr %25, align 8, !nonnull !7, !noundef !7
-  %61 = getelementptr inbounds [0 x { { [24 x i8], i8, [7 x i8] } }], ptr %60, i64 0, i64 %51
-  %62 = getelementptr inbounds [0 x { { [24 x i8], i8, [7 x i8] } }], ptr %59, i64 0, i64 %55
+  %61 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %60, i64 %51
+  %62 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %59, i64 %55
   %63 = invoke noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode11spanless_eq17hf00c5186e89f3bbaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %62)
           to label %64 unwind label %.loopexit248
 
@@ -7427,10 +7427,10 @@ switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !73, !noundef !7
   %switch.tableidx = xor i8 %2, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN67_$LT$typst_syntax..kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ea3415daf1a479dE.llvm.5914695560033043764", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN67_$LT$typst_syntax..kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ea3415daf1a479dE.llvm.5914695560033043764", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN67_$LT$typst_syntax..kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ea3415daf1a479dE.llvm.5914695560033043764.38", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN67_$LT$typst_syntax..kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ea3415daf1a479dE.llvm.5914695560033043764.38", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

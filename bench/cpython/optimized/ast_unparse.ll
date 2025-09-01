@@ -1094,7 +1094,7 @@ define internal fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef 
   br i1 %29, label %common.ret248, label %30
 
 30:                                               ; preds = %27, %26
-  %31 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.021.i157
+  %31 = getelementptr ptr, ptr %22, i64 %.021.i157
   %32 = load ptr, ptr %31, align 8, !tbaa !16
   %33 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %32, i32 noundef %23)
   %34 = icmp eq i32 %33, -1
@@ -1232,10 +1232,10 @@ define internal fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %84
   %90 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.append_ast_expr, i64 0, i64 %90
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.append_ast_expr, i64 %90
   %switch.load = load ptr, ptr %switch.gep, align 8
   %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep235 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.append_ast_expr.6, i64 0, i64 %91
+  %switch.gep235 = getelementptr inbounds nuw i32, ptr @switch.table.append_ast_expr.6, i64 %91
   %switch.load236 = load i32, ptr %switch.gep235, align 4
   %92 = icmp samesign ugt i32 %2, %switch.load236
   br i1 %92, label %93, label %96
@@ -1418,7 +1418,7 @@ switch.lookup:                                    ; preds = %84
 196:                                              ; preds = %193, %.lr.ph155
   %197 = load ptr, ptr %186, align 8, !tbaa !9
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
-  %199 = getelementptr [1 x ptr], ptr %198, i64 0, i64 %.022.i153
+  %199 = getelementptr ptr, ptr %198, i64 %.022.i153
   %200 = load ptr, ptr %199, align 8, !tbaa !16
   %.not.i75 = icmp eq ptr %200, null
   br i1 %.not.i75, label %214, label %201
@@ -1436,7 +1436,7 @@ switch.lookup:                                    ; preds = %84
 207:                                              ; preds = %204
   %208 = load ptr, ptr %187, align 8, !tbaa !9
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %210 = getelementptr [1 x ptr], ptr %209, i64 0, i64 %.022.i153
+  %210 = getelementptr ptr, ptr %209, i64 %.022.i153
   %211 = load ptr, ptr %210, align 8, !tbaa !16
   %212 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %211, i32 noundef 1)
   %213 = icmp eq i32 %212, -1
@@ -1450,7 +1450,7 @@ switch.lookup:                                    ; preds = %84
 217:                                              ; preds = %214
   %218 = load ptr, ptr %187, align 8, !tbaa !9
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
-  %220 = getelementptr [1 x ptr], ptr %219, i64 0, i64 %.022.i153
+  %220 = getelementptr ptr, ptr %219, i64 %.022.i153
   %221 = load ptr, ptr %220, align 8, !tbaa !16
   %222 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %221, i32 noundef 6)
   %223 = icmp eq i32 %222, -1
@@ -1499,7 +1499,7 @@ switch.lookup:                                    ; preds = %84
 242:                                              ; preds = %239, %.lr.ph151
   %243 = load ptr, ptr %231, align 8, !tbaa !9
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
-  %245 = getelementptr [1 x ptr], ptr %244, i64 0, i64 %.012.i76149
+  %245 = getelementptr ptr, ptr %244, i64 %.012.i76149
   %246 = load ptr, ptr %245, align 8, !tbaa !16
   %247 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %246, i32 noundef 1)
   %248 = icmp eq i32 %247, -1
@@ -1731,27 +1731,27 @@ switch.lookup:                                    ; preds = %84
 
 384:                                              ; preds = %.lr.ph147, %382
   %.021.i86146 = phi i64 [ 0, %.lr.ph147 ], [ %383, %382 ]
-  %385 = getelementptr [1 x i32], ptr %380, i64 0, i64 %.021.i86146
+  %385 = getelementptr i32, ptr %380, i64 %.021.i86146
   %386 = load i32, ptr %385, align 4, !tbaa !27
-  %switch.tableidx238 = add i32 %386, -1
-  %387 = icmp ult i32 %switch.tableidx238, 10
-  br i1 %387, label %switch.lookup237, label %388
+  %switch.tableidx237 = add i32 %386, -1
+  %387 = icmp ult i32 %switch.tableidx237, 10
+  br i1 %387, label %switch.lookup238, label %388
 
 388:                                              ; preds = %384
   %389 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !18
   tail call void @PyErr_SetString(ptr noundef %389, ptr noundef nonnull @.str.50) #3
   br label %common.ret248
 
-switch.lookup237:                                 ; preds = %384
-  %390 = zext nneg i32 %switch.tableidx238 to i64
-  %switch.gep239 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.append_ast_expr.7, i64 0, i64 %390
+switch.lookup238:                                 ; preds = %384
+  %390 = zext nneg i32 %switch.tableidx237 to i64
+  %switch.gep239 = getelementptr inbounds nuw ptr, ptr @switch.table.append_ast_expr.7, i64 %390
   %switch.load240 = load ptr, ptr %switch.gep239, align 8
   %391 = tail call i32 @PyUnicodeWriter_WriteUTF8(ptr noundef nonnull %0, ptr noundef nonnull %switch.load240, i64 noundef -1) #3
   %392 = icmp eq i32 %391, -1
   br i1 %392, label %common.ret248, label %393
 
-393:                                              ; preds = %switch.lookup237
-  %394 = getelementptr [1 x ptr], ptr %381, i64 0, i64 %.021.i86146
+393:                                              ; preds = %switch.lookup238
+  %394 = getelementptr ptr, ptr %381, i64 %.021.i86146
   %395 = load ptr, ptr %394, align 8, !tbaa !16
   %396 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %395, i32 noundef 6)
   %397 = icmp eq i32 %396, -1
@@ -1854,7 +1854,7 @@ switch.lookup237:                                 ; preds = %384
 444:                                              ; preds = %441, %.lr.ph141
   %445 = load ptr, ptr %408, align 8, !tbaa !9
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 16
-  %447 = getelementptr [1 x ptr], ptr %446, i64 0, i64 %.032.i139
+  %447 = getelementptr ptr, ptr %446, i64 %.032.i139
   %448 = load ptr, ptr %447, align 8, !tbaa !16
   %449 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %448, i32 noundef 1)
   %450 = icmp eq i32 %449, -1
@@ -1878,7 +1878,7 @@ switch.lookup237:                                 ; preds = %384
 456:                                              ; preds = %453, %.lr.ph144
   %457 = load ptr, ptr %415, align 8, !tbaa !9
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
-  %459 = getelementptr [1 x ptr], ptr %458, i64 0, i64 %.133.i142
+  %459 = getelementptr ptr, ptr %458, i64 %.133.i142
   %460 = load ptr, ptr %459, align 8, !tbaa !30
   %461 = load ptr, ptr %460, align 8, !tbaa !32
   %462 = icmp eq ptr %461, null
@@ -1967,7 +1967,7 @@ append_ast_keyword.exit:                          ; preds = %469, %463
 
 504:                                              ; preds = %.lr.ph138, %502
   %.0.i108136 = phi i64 [ 0, %.lr.ph138 ], [ %503, %502 ]
-  %505 = getelementptr [1 x ptr], ptr %501, i64 0, i64 %.0.i108136
+  %505 = getelementptr ptr, ptr %501, i64 %.0.i108136
   %506 = load ptr, ptr %505, align 8, !tbaa !16
   %507 = load i32, ptr %506, align 8, !tbaa !4
   switch i32 %507, label %append_fstring_element.exit.i.thread [
@@ -2103,8 +2103,8 @@ build_fstring_body.exit:                          ; preds = %502, %497, %499
   %566 = icmp eq i32 %565, -1
   br i1 %566, label %common.ret248, label %567
 
-common.ret248:                                    ; preds = %.loopexit, %492, %680, %677, %671, %668, %663, %660, %658, %655, %652, %634, %.thread, %._crit_edge134, %602, %597, %593, %590, %584, %578, %575, %564, %562, %557, %554, %549, %545, %.split.i, %531, %build_fstring_body.exit, %528, %525, %523, %._crit_edge145, %431, %429, %402, %401, %398, %388, %374, %362, %359, %356, %350, %347, %344, %340, %335, %332, %330, %326, %323, %321, %316, %311, %306, %303, %298, %295, %293, %288, %283, %280, %278, %273, %268, %265, %263, %258, %253, %250, %._crit_edge152, %227, %._crit_edge156, %182, %181, %178, %172, %169, %165, %162, %156, %153, %150, %147, %141, %138, %134, %128, %111, %108, %105, %99, %96, %93, %88, %83, %80, %71, %68, %62, %59, %55, %38, %35, %12, %486, %681, %598, %529, %489, %481, %.thread217, %30, %27, %217, %214, %207, %204, %201, %193, %242, %239, %393, %switch.lookup237, %append_ast_keyword.exit, %469, %466, %463, %453, %444, %441, %617, %614, %644, %641, %567
-  %common.ret248.op = phi i32 [ %..i, %567 ], [ -1, %681 ], [ %482, %481 ], [ %491, %489 ], [ %530, %529 ], [ %601, %598 ], [ -1, %486 ], [ 0, %38 ], [ -1, %12 ], [ -1, %35 ], [ -1, %55 ], [ 0, %83 ], [ -1, %59 ], [ -1, %62 ], [ -1, %68 ], [ -1, %71 ], [ -1, %80 ], [ -1, %88 ], [ 0, %108 ], [ -1, %93 ], [ -1, %96 ], [ -1, %99 ], [ -1, %105 ], [ -1, %111 ], [ 0, %150 ], [ -1, %128 ], [ -1, %134 ], [ -1, %138 ], [ -1, %141 ], [ -1, %147 ], [ 0, %181 ], [ -1, %153 ], [ -1, %156 ], [ -1, %162 ], [ -1, %165 ], [ -1, %169 ], [ -1, %172 ], [ -1, %178 ], [ %226, %._crit_edge156 ], [ -1, %182 ], [ %249, %._crit_edge152 ], [ -1, %227 ], [ %264, %263 ], [ -1, %250 ], [ -1, %253 ], [ -1, %258 ], [ %279, %278 ], [ -1, %265 ], [ -1, %268 ], [ -1, %273 ], [ %294, %293 ], [ -1, %280 ], [ -1, %283 ], [ -1, %288 ], [ %317, %316 ], [ -1, %295 ], [ -1, %298 ], [ -1, %303 ], [ -1, %306 ], [ -1, %311 ], [ %331, %330 ], [ %322, %321 ], [ -1, %323 ], [ -1, %326 ], [ %341, %340 ], [ -1, %332 ], [ -1, %335 ], [ 0, %359 ], [ -1, %344 ], [ -1, %347 ], [ -1, %350 ], [ -1, %356 ], [ -1, %388 ], [ 0, %401 ], [ -1, %362 ], [ -1, %374 ], [ -1, %398 ], [ %430, %429 ], [ %476, %._crit_edge145 ], [ -1, %402 ], [ -1, %431 ], [ -1, %build_fstring_body.exit ], [ %.011.i, %528 ], [ %.011.i, %525 ], [ %.011.i, %523 ], [ %548, %545 ], [ -1, %531 ], [ -1, %.split.i ], [ %563, %562 ], [ -1, %549 ], [ -1, %554 ], [ -1, %557 ], [ -1, %564 ], [ 0, %597 ], [ -1, %575 ], [ -1, %578 ], [ -1, %584 ], [ -1, %590 ], [ -1, %593 ], [ %624, %._crit_edge134 ], [ -1, %602 ], [ %632, %.thread ], [ 0, %658 ], [ -1, %634 ], [ -1, %652 ], [ -1, %655 ], [ 0, %680 ], [ -1, %660 ], [ -1, %663 ], [ -1, %668 ], [ -1, %671 ], [ -1, %677 ], [ -1, %492 ], [ -1, %.loopexit ], [ -1, %.thread217 ], [ -1, %30 ], [ -1, %27 ], [ -1, %217 ], [ -1, %214 ], [ -1, %207 ], [ -1, %204 ], [ -1, %201 ], [ -1, %193 ], [ -1, %242 ], [ -1, %239 ], [ -1, %393 ], [ -1, %switch.lookup237 ], [ -1, %append_ast_keyword.exit ], [ -1, %469 ], [ -1, %466 ], [ -1, %463 ], [ -1, %453 ], [ -1, %444 ], [ -1, %441 ], [ -1, %617 ], [ -1, %614 ], [ -1, %644 ], [ -1, %641 ]
+common.ret248:                                    ; preds = %.loopexit, %492, %680, %677, %671, %668, %663, %660, %658, %655, %652, %634, %.thread, %._crit_edge134, %602, %597, %593, %590, %584, %578, %575, %564, %562, %557, %554, %549, %545, %.split.i, %531, %build_fstring_body.exit, %528, %525, %523, %._crit_edge145, %431, %429, %402, %401, %398, %388, %374, %362, %359, %356, %350, %347, %344, %340, %335, %332, %330, %326, %323, %321, %316, %311, %306, %303, %298, %295, %293, %288, %283, %280, %278, %273, %268, %265, %263, %258, %253, %250, %._crit_edge152, %227, %._crit_edge156, %182, %181, %178, %172, %169, %165, %162, %156, %153, %150, %147, %141, %138, %134, %128, %111, %108, %105, %99, %96, %93, %88, %83, %80, %71, %68, %62, %59, %55, %38, %35, %12, %486, %681, %598, %529, %489, %481, %.thread217, %30, %27, %217, %214, %207, %204, %201, %193, %242, %239, %393, %switch.lookup238, %append_ast_keyword.exit, %469, %466, %463, %453, %444, %441, %617, %614, %644, %641, %567
+  %common.ret248.op = phi i32 [ %..i, %567 ], [ -1, %681 ], [ %482, %481 ], [ %491, %489 ], [ %530, %529 ], [ %601, %598 ], [ -1, %486 ], [ 0, %38 ], [ -1, %12 ], [ -1, %35 ], [ -1, %55 ], [ 0, %83 ], [ -1, %59 ], [ -1, %62 ], [ -1, %68 ], [ -1, %71 ], [ -1, %80 ], [ -1, %88 ], [ 0, %108 ], [ -1, %93 ], [ -1, %96 ], [ -1, %99 ], [ -1, %105 ], [ -1, %111 ], [ 0, %150 ], [ -1, %128 ], [ -1, %134 ], [ -1, %138 ], [ -1, %141 ], [ -1, %147 ], [ 0, %181 ], [ -1, %153 ], [ -1, %156 ], [ -1, %162 ], [ -1, %165 ], [ -1, %169 ], [ -1, %172 ], [ -1, %178 ], [ %226, %._crit_edge156 ], [ -1, %182 ], [ %249, %._crit_edge152 ], [ -1, %227 ], [ %264, %263 ], [ -1, %250 ], [ -1, %253 ], [ -1, %258 ], [ %279, %278 ], [ -1, %265 ], [ -1, %268 ], [ -1, %273 ], [ %294, %293 ], [ -1, %280 ], [ -1, %283 ], [ -1, %288 ], [ %317, %316 ], [ -1, %295 ], [ -1, %298 ], [ -1, %303 ], [ -1, %306 ], [ -1, %311 ], [ %331, %330 ], [ %322, %321 ], [ -1, %323 ], [ -1, %326 ], [ %341, %340 ], [ -1, %332 ], [ -1, %335 ], [ 0, %359 ], [ -1, %344 ], [ -1, %347 ], [ -1, %350 ], [ -1, %356 ], [ -1, %388 ], [ 0, %401 ], [ -1, %362 ], [ -1, %374 ], [ -1, %398 ], [ %430, %429 ], [ %476, %._crit_edge145 ], [ -1, %402 ], [ -1, %431 ], [ -1, %build_fstring_body.exit ], [ %.011.i, %528 ], [ %.011.i, %525 ], [ %.011.i, %523 ], [ %548, %545 ], [ -1, %531 ], [ -1, %.split.i ], [ %563, %562 ], [ -1, %549 ], [ -1, %554 ], [ -1, %557 ], [ -1, %564 ], [ 0, %597 ], [ -1, %575 ], [ -1, %578 ], [ -1, %584 ], [ -1, %590 ], [ -1, %593 ], [ %624, %._crit_edge134 ], [ -1, %602 ], [ %632, %.thread ], [ 0, %658 ], [ -1, %634 ], [ -1, %652 ], [ -1, %655 ], [ 0, %680 ], [ -1, %660 ], [ -1, %663 ], [ -1, %668 ], [ -1, %671 ], [ -1, %677 ], [ -1, %492 ], [ -1, %.loopexit ], [ -1, %.thread217 ], [ -1, %30 ], [ -1, %27 ], [ -1, %217 ], [ -1, %214 ], [ -1, %207 ], [ -1, %204 ], [ -1, %201 ], [ -1, %193 ], [ -1, %242 ], [ -1, %239 ], [ -1, %393 ], [ -1, %switch.lookup238 ], [ -1, %append_ast_keyword.exit ], [ -1, %469 ], [ -1, %466 ], [ -1, %463 ], [ -1, %453 ], [ -1, %444 ], [ -1, %441 ], [ -1, %617 ], [ -1, %614 ], [ -1, %644 ], [ -1, %641 ]
   ret i32 %common.ret248.op
 
 567:                                              ; preds = %564
@@ -2202,7 +2202,7 @@ common.ret248:                                    ; preds = %.loopexit, %492, %6
 617:                                              ; preds = %614, %.lr.ph133
   %618 = load ptr, ptr %606, align 8, !tbaa !9
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 16
-  %620 = getelementptr [1 x ptr], ptr %619, i64 0, i64 %.012.i99131
+  %620 = getelementptr ptr, ptr %619, i64 %.012.i99131
   %621 = load ptr, ptr %620, align 8, !tbaa !16
   %622 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %621, i32 noundef 1)
   %623 = icmp eq i32 %622, -1
@@ -2258,7 +2258,7 @@ common.ret248:                                    ; preds = %.loopexit, %492, %6
 644:                                              ; preds = %641, %.lr.ph
   %645 = load ptr, ptr %626, align 8, !tbaa !9
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 16
-  %647 = getelementptr [1 x ptr], ptr %646, i64 0, i64 %.018.i102130
+  %647 = getelementptr ptr, ptr %646, i64 %.018.i102130
   %648 = load ptr, ptr %647, align 8, !tbaa !16
   %649 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %0, ptr noundef %648, i32 noundef 1)
   %650 = icmp eq i32 %649, -1
@@ -2368,7 +2368,7 @@ define internal fastcc i32 @append_ast_genexp(ptr noundef nonnull %0, ptr nounde
 
 20:                                               ; preds = %.lr.ph, %18
   %.08.i7 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
-  %21 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.08.i7
+  %21 = getelementptr ptr, ptr %17, i64 %.08.i7
   %22 = load ptr, ptr %21, align 8, !tbaa !42
   %23 = tail call fastcc i32 @append_ast_comprehension(ptr noundef nonnull %0, ptr noundef %22)
   %24 = icmp eq i32 %23, -1
@@ -2423,7 +2423,7 @@ define internal fastcc i32 @append_ast_constant(ptr noundef nonnull %0, ptr noun
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %13, %12
-  %17 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %.01821
+  %17 = getelementptr ptr, ptr %9, i64 %.01821
   %18 = load ptr, ptr %17, align 8, !tbaa !18
   %19 = tail call fastcc i32 @append_ast_constant(ptr noundef %0, ptr noundef %18)
   %20 = icmp slt i32 %19, 0
@@ -2479,7 +2479,7 @@ define internal fastcc i32 @append_joinedstr(ptr noundef nonnull %0, ptr noundef
 
 15:                                               ; preds = %.lr.ph, %13
   %.0.i21 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
-  %16 = getelementptr [1 x ptr], ptr %12, i64 0, i64 %.0.i21
+  %16 = getelementptr ptr, ptr %12, i64 %.0.i21
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = load i32, ptr %17, align 8, !tbaa !4
   switch i32 %18, label %append_fstring_element.exit.thread [
@@ -2778,7 +2778,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef
 30:                                               ; preds = %28
   %31 = load ptr, ptr %1, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = getelementptr [1 x ptr], ptr %32, i64 0, i64 %.076115
+  %33 = getelementptr ptr, ptr %32, i64 %.076115
   %34 = load ptr, ptr %33, align 8, !tbaa !48
   %35 = load ptr, ptr %34, align 8, !tbaa !49
   %36 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %35) #3
@@ -2806,7 +2806,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @append_ast_args(ptr noundef
   %49 = load ptr, ptr %9, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = sub i64 %.076115, %8
-  %52 = getelementptr [1 x ptr], ptr %50, i64 0, i64 %51
+  %52 = getelementptr ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !48
   %54 = load ptr, ptr %53, align 8, !tbaa !49
   %55 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %54) #3
@@ -2844,7 +2844,7 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
 73:                                               ; preds = %70
   %74 = load ptr, ptr %16, align 8, !tbaa !47
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = getelementptr [1 x ptr], ptr %75, i64 0, i64 %68
+  %76 = getelementptr ptr, ptr %75, i64 %68
   %77 = load ptr, ptr %76, align 8, !tbaa !16
   %78 = tail call fastcc i32 @append_ast_expr(ptr noundef %0, ptr noundef %77, i32 noundef 1)
   %79 = icmp eq i32 %78, -1
@@ -2965,7 +2965,7 @@ append_ast_arg.exit:                              ; preds = %63, %57, %44, %38
 139:                                              ; preds = %136, %.lr.ph120
   %140 = load ptr, ptr %120, align 8, !tbaa !54
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %142 = getelementptr [1 x ptr], ptr %141, i64 0, i64 %.177117
+  %142 = getelementptr ptr, ptr %141, i64 %.177117
   %143 = load ptr, ptr %142, align 8, !tbaa !48
   %144 = load ptr, ptr %143, align 8, !tbaa !49
   %145 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %0, ptr noundef %144) #3
@@ -2998,7 +2998,7 @@ append_ast_arg.exit107:                           ; preds = %153, %147
 160:                                              ; preds = %append_ast_arg.exit107
   %161 = load ptr, ptr %127, align 8, !tbaa !55
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %163 = getelementptr [1 x ptr], ptr %162, i64 0, i64 %158
+  %163 = getelementptr ptr, ptr %162, i64 %158
   %164 = load ptr, ptr %163, align 8, !tbaa !16
   %.not94 = icmp eq ptr %164, null
   br i1 %.not94, label %.critedge98, label %165
@@ -3097,7 +3097,7 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehensions(ptr nound
 
 .lr.ph:                                           ; preds = %4, %8
   %.0810 = phi i64 [ %9, %8 ], [ 0, %4 ]
-  %10 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %.0810
+  %10 = getelementptr ptr, ptr %6, i64 %.0810
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = tail call fastcc i32 @append_ast_comprehension(ptr noundef %0, ptr noundef %11)
   %13 = icmp eq i32 %12, -1
@@ -3161,7 +3161,7 @@ define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehension(ptr nounde
 31:                                               ; preds = %.lr.ph
   %32 = load ptr, ptr %21, align 8, !tbaa !62
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = getelementptr [1 x ptr], ptr %33, i64 0, i64 %.01618
+  %34 = getelementptr ptr, ptr %33, i64 %.01618
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   %36 = tail call fastcc i32 @append_ast_expr(ptr noundef %0, ptr noundef %35, i32 noundef 2)
   %37 = icmp eq i32 %36, -1

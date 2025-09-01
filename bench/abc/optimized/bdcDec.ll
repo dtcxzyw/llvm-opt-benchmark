@@ -592,7 +592,7 @@ define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr noundef readonly 
   %22 = trunc i32 %.03239 to i8
   %23 = add nsw i32 %.03140, 1
   %24 = sext i32 %.03140 to i64
-  %25 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %24
+  %25 = getelementptr inbounds i8, ptr %5, i64 %24
   store i8 %22, ptr %25, align 1, !tbaa !43
   br label %26
 
@@ -607,7 +607,7 @@ define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr noundef readonly 
   %29 = load ptr, ptr %11, align 8, !tbaa !27
   %30 = load ptr, ptr %12, align 8, !tbaa !25
   %31 = load i32, ptr %6, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv50
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv50
   %33 = load i8, ptr %32, align 1, !tbaa !43
   %34 = sext i8 %33 to i32
   tail call void @Kit_TruthExistNew(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %34) #7
@@ -624,7 +624,7 @@ define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr noundef readonly 
   %37 = phi ptr [ %.pre, %.lr.ph43.preheader ], [ %44, %Kit_TruthIsDisjoint3.exit ]
   %indvars.iv = phi i64 [ %16, %.lr.ph43.preheader ], [ %indvars.iv.next, %Kit_TruthIsDisjoint3.exit ]
   %38 = load ptr, ptr %12, align 8, !tbaa !25
-  %39 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1, !tbaa !43
   %41 = sext i8 %40 to i32
   tail call void @Kit_TruthExistNew(ptr noundef %37, ptr noundef %38, i32 noundef %36, i32 noundef %41) #7

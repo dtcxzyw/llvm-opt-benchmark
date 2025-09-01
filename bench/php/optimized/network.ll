@@ -328,7 +328,7 @@ php_socket_error_str.exit:                        ; preds = %22
   store i64 %24, ptr %30, align 8, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %23, i64 %24, i1 false)
-  %32 = getelementptr inbounds nuw [1 x i8], ptr %31, i64 0, i64 %24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %24
   store i8 0, ptr %32, align 1, !tbaa !18
   br label %.sink.split
 
@@ -524,7 +524,7 @@ php_socket_error_str.exit51:                      ; preds = %97
   store i64 %99, ptr %105, align 8, !tbaa !30
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 1 %98, i64 %99, i1 false)
-  %107 = getelementptr inbounds nuw [1 x i8], ptr %106, i64 0, i64 %99
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %99
   store i8 0, ptr %107, align 1, !tbaa !18
   br label %.sink.split
 
@@ -562,7 +562,7 @@ zend_string_alloc.exit:
   store i64 %3, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 1 %2, i64 %3, i1 false)
-  %11 = getelementptr inbounds nuw [1 x i8], ptr %10, i64 0, i64 %3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %3
   store i8 0, ptr %11, align 1, !tbaa !18
   ret ptr %6
 }
@@ -707,7 +707,7 @@ php_socket_error_str.exit:                        ; preds = %55
   store i64 %57, ptr %63, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 1 %56, i64 %57, i1 false)
-  %65 = getelementptr inbounds nuw [1 x i8], ptr %64, i64 0, i64 %57
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %57
   store i8 0, ptr %65, align 1, !tbaa !18
   store ptr %60, ptr %4, align 8, !tbaa !16
   br label %.preheader.i
@@ -1004,7 +1004,7 @@ zend_string_alloc.exit73:                         ; preds = %37, %34
   store i64 %.sink95, ptr %45, align 8, !tbaa !30
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %31, i64 %.sink95, i1 false)
-  %47 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %.sink95
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.sink95
   store i8 0, ptr %47, align 1, !tbaa !18
   br label %.sink.split
 
@@ -1182,7 +1182,7 @@ php_socket_error_str.exit:                        ; preds = %43
   store i64 %45, ptr %51, align 8, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 1 %44, i64 %45, i1 false)
-  %53 = getelementptr inbounds nuw [1 x i8], ptr %52, i64 0, i64 %45
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %45
   store i8 0, ptr %53, align 1, !tbaa !18
   store ptr %48, ptr %5, align 8, !tbaa !16
   br label %54

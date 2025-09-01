@@ -34,7 +34,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core18HandshakerRegistry7Builder25RegisterHandshakerFactoryENS_14HandshakerTypeESt10unique_ptrINS_17HandshakerFactoryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
@@ -162,8 +162,8 @@ define void @_ZN9grpc_core18HandshakerRegistry7Builder5BuildEv(ptr dead_on_unwin
 3:                                                ; preds = %2, %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit
   %4 = phi i1 [ true, %2 ], [ false, %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit ]
   %.05 = phi i64 [ 0, %2 ], [ 1, %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit ]
-  %5 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %1, i64 0, i64 %.05
-  %6 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %0, i64 0, i64 %.05
+  %5 = getelementptr inbounds nuw %"class.std::vector", ptr %1, i64 %.05
+  %6 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %.05
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
@@ -221,7 +221,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK9grpc_core18HandshakerRegistry14AddHandshakersENS_14HandshakerTypeERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 {
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !3

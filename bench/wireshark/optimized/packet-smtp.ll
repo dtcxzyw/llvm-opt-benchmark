@@ -529,7 +529,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 164:                                              ; preds = %173, %162
   %.017.i.us = phi i64 [ 0, %162 ], [ %174, %173 ]
-  %165 = getelementptr [4 x %struct.anon.0], ptr @commands, i64 0, i64 %.017.i.us
+  %165 = getelementptr %struct.anon.0, ptr @commands, i64 %.017.i.us
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i32, ptr %166, align 8
   %168 = icmp eq i32 %167, %133

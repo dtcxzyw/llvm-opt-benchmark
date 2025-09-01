@@ -236,7 +236,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   %90 = phi ptr [ %87, %85 ], [ %99, %98 ]
   %.01271 = phi i8 [ %88, %85 ], [ %100, %98 ]
   %91 = zext i8 %.01271 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @php_json_scan.yybm, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !15
   %94 = and i8 %93, 64
   %.not1449 = icmp eq i8 %94, 0
@@ -377,7 +377,7 @@ zend_string_alloc.exit:                           ; preds = %152
   store i64 %140, ptr %161, align 8, !tbaa !28
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr nonnull align 1 %134, i64 %140, i1 false)
-  %163 = getelementptr inbounds nuw [1 x i8], ptr %162, i64 0, i64 %140
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 %140
   store i8 0, ptr %163, align 1, !tbaa !15
   store ptr %158, ptr %2, align 8, !tbaa !15
   store i32 262, ptr %3, align 8, !tbaa !15
@@ -396,7 +396,7 @@ zend_string_alloc.exit:                           ; preds = %152
   store ptr %168, ptr %122, align 8, !tbaa !22
   %169 = load i8, ptr %168, align 1, !tbaa !15
   %170 = zext i8 %169 to i64
-  %171 = getelementptr inbounds nuw [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr @php_json_scan.yybm, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !15
   %.not1419 = icmp sgt i8 %172, -1
   br i1 %.not1419, label %173, label %166
@@ -837,7 +837,7 @@ zend_string_alloc.exit1506:                       ; preds = %355
   %377 = getelementptr inbounds nuw i8, ptr %374, i64 16
   store i64 %368, ptr %377, align 8, !tbaa !28
   %378 = getelementptr inbounds nuw i8, ptr %374, i64 24
-  %379 = getelementptr inbounds nuw [1 x i8], ptr %378, i64 0, i64 %368
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 %368
   store i8 0, ptr %379, align 1, !tbaa !15
   store ptr %374, ptr %2, align 8, !tbaa !15
   store i32 262, ptr %3, align 8, !tbaa !15

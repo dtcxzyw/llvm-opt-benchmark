@@ -847,7 +847,7 @@ if.then11:                                        ; preds = %entry
   %sub = sub nuw nsw i64 64, %conv10
   %cmp12 = icmp ult i64 %Data.coerce1, %sub
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %conv10
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %conv10
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.then11
@@ -914,7 +914,7 @@ if.then11.i:                                      ; preds = %entry
   %sub.i = sub nuw nsw i64 64, %conv10.i
   %cmp12.i = icmp ult i64 %Str.coerce1, %sub.i
   %buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %buffer.i, i64 0, i64 %conv10.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %conv10.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end14.i
 
 if.then13.i:                                      ; preds = %if.then11.i
@@ -960,14 +960,14 @@ entry:
   %conv = zext nneg i32 %and to i64
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 24
   %inc = add nuw nsw i64 %conv, 1
-  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
   %sub = xor i64 %conv, 63
   %cmp = icmp samesign ult i64 %sub, 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx3 = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %inc
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %buffer, i64 %inc
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3, i8 0, i64 %sub, i1 false)
   %call5 = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer, i64 64)
   %.pre = load i32, ptr %lo, align 4
@@ -977,7 +977,7 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
   %free.0 = phi i64 [ 64, %if.then ], [ %sub, %entry ]
   %used.0 = phi i64 [ 0, %if.then ], [ %inc, %entry ]
-  %arrayidx7 = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %used.0
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %buffer, i64 %used.0
   %sub8 = add nsw i64 %free.0, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx7, i8 0, i64 %sub8, i1 false)
   %shl = shl i32 %1, 3
@@ -1040,7 +1040,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   store ptr @.str, ptr %Fmt.i.i.i, align 8, !alias.scope !6
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !6
@@ -1087,7 +1087,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %Result, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %Result, i64 %indvars.iv.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   store ptr @.str, ptr %Fmt.i.i.i.i, align 8, !alias.scope !13, !noalias !10
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !13, !noalias !10
@@ -1252,14 +1252,14 @@ _ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %if.end21.i, %if.the
   %and.i = and i32 %2, 63
   %conv.i = zext nneg i32 %and.i to i64
   %inc.i5 = add nuw nsw i64 %conv.i, 1
-  %arrayidx.i6 = getelementptr inbounds nuw [64 x i8], ptr %buffer30.i, i64 0, i64 %conv.i
+  %arrayidx.i6 = getelementptr inbounds nuw i8, ptr %buffer30.i, i64 %conv.i
   store i8 -128, ptr %arrayidx.i6, align 1
   %sub.i7 = xor i64 %conv.i, 63
   %cmp.i8 = icmp samesign ult i64 %sub.i7, 8
   br i1 %cmp.i8, label %if.then.i, label %_ZN4llvh3MD55finalERNS0_9MD5ResultE.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit
-  %arrayidx3.i = getelementptr inbounds nuw [64 x i8], ptr %buffer30.i, i64 0, i64 %inc.i5
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %buffer30.i, i64 %inc.i5
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3.i, i8 0, i64 %sub.i7, i1 false)
   %call5.i = call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %Hash, ptr nonnull %buffer30.i, i64 64)
   %.pre.i = load i32, ptr %lo.i, align 4
@@ -1269,7 +1269,7 @@ _ZN4llvh3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvh3MD56update
   %3 = phi i32 [ %.pre.i, %if.then.i ], [ %2, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
   %free.0.i = phi i64 [ 64, %if.then.i ], [ %sub.i7, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
   %used.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i5, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
-  %arrayidx7.i = getelementptr inbounds nuw [64 x i8], ptr %buffer30.i, i64 0, i64 %used.0.i
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %buffer30.i, i64 %used.0.i
   %sub8.i = add nsw i64 %free.0.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx7.i, i8 0, i64 %sub8.i, i1 false)
   %shl.i = shl i32 %3, 3

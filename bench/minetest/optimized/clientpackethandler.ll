@@ -799,7 +799,7 @@ if.then.i:                                        ; preds = %_ZN9LogStreamlsIRA2
   %m_command.i = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %5 = load i16, ptr %m_command.i, align 8, !tbaa !29
   %idxprom = zext i16 %5 to i64
-  %arrayidx = getelementptr inbounds nuw [100 x %struct.ToClientCommandHandler], ptr @toClientCommandTable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.ToClientCommandHandler, ptr @toClientCommandTable, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 16, !tbaa !36
   %tobool.not.i.i10 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i10, label %if.then.i.i11, label %if.else.i.i
@@ -2428,7 +2428,7 @@ if.then23:                                        ; preds = %if.end17
 if.then28:                                        ; preds = %if.then23
   %36 = load i8, ptr %denyCode, align 1, !tbaa !13
   %idxprom = zext i8 %36 to i64
-  %arrayidx = getelementptr inbounds nuw [13 x %"class.std::__cxx11::basic_string"], ptr @_ZL19accessDeniedStringsB5cxx11, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZL19accessDeniedStringsB5cxx11, i64 %idxprom
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_access_denied_reason, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
   br label %if.end31
 
@@ -2464,7 +2464,7 @@ if.else48:                                        ; preds = %if.else
 
 if.then51:                                        ; preds = %if.else48
   %idxprom52 = zext nneg i8 %33 to i64
-  %arrayidx53 = getelementptr inbounds nuw [13 x %"class.std::__cxx11::basic_string"], ptr @_ZL19accessDeniedStringsB5cxx11, i64 0, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZL19accessDeniedStringsB5cxx11, i64 %idxprom52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_access_denied_reason, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx53)
   br label %if.end68
 

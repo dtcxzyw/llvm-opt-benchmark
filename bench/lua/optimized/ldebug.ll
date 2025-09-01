@@ -1277,7 +1277,7 @@ define internal fastcc ptr @varinfo(ptr noundef %0, ptr noundef readnone capture
 
 13:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
-  %14 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !24
@@ -1510,7 +1510,7 @@ define internal fastcc ptr @funcnamefromcall(ptr noundef readonly captures(none)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !86
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 280
-  %51 = getelementptr inbounds nuw [25 x ptr], ptr %50, i64 0, i64 %.012.i
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.012.i
   %52 = load ptr, ptr %51, align 8, !tbaa !87
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 26
   store ptr %53, ptr %2, align 8, !tbaa !85
@@ -2564,7 +2564,7 @@ tailrecurse:                                      ; preds = %53, %4
   %12 = load i32, ptr %11, align 4, !tbaa !23
   %13 = and i32 %12, 127
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [83 x i8], ptr @luaP_opmodes, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !24
   %.lobit.i = ashr i8 %16, 7
   %17 = sext i8 %.lobit.i to i32
@@ -2622,7 +2622,7 @@ findsetreg.exit.thread:                           ; preds = %9
 
 35:                                               ; preds = %.lr.ph.i
   %36 = zext nneg i32 %21 to i64
-  %37 = getelementptr inbounds nuw [83 x i8], ptr @luaP_opmodes, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !24
   %39 = and i8 %38, 8
   %40 = icmp eq i8 %39, 0

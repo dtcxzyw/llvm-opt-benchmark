@@ -91,14 +91,14 @@ declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 define i32 @hm_addhash_bin(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.cli_htu32_element, align 8
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @hashlen, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %36, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %11, i64 0, i64 %7
+  %12 = getelementptr inbounds nuw %struct.cli_htu32, ptr %11, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !7
   %.not64 = icmp eq i64 %14, 0
@@ -159,7 +159,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr noundef readonly captures(none) %
 
 36:                                               ; preds = %5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %38 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %37, i64 0, i64 %7
+  %38 = getelementptr inbounds nuw %struct.cli_sz_hash, ptr %37, i64 %7
   br label %39
 
 39:                                               ; preds = %32, %33, %36
@@ -263,7 +263,7 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %.preheader32, %.loopexit31
   %indvars.iv = phi i64 [ 0, %.preheader32 ], [ %indvars.iv.next, %.loopexit31 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %2, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.cli_htu32, ptr %2, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !7
   %.not28 = icmp eq i64 %7, 0
@@ -275,7 +275,7 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2933, label %.loopexit31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader30
-  %9 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr @hashlen, i64 %indvars.iv
   br label %10
 
 10:                                               ; preds = %.lr.ph, %20
@@ -305,14 +305,14 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %.preheader, %31
   %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %31 ]
-  %23 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %3, i64 0, i64 %indvars.iv37
+  %23 = getelementptr inbounds nuw %struct.cli_sz_hash, ptr %3, i64 %indvars.iv37
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !33
   %26 = icmp ugt i32 %25, 1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %indvars.iv37
+  %28 = getelementptr inbounds nuw i32, ptr @hashlen, i64 %indvars.iv37
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = zext i32 %25 to i64
   tail call fastcc void @hm_sort(ptr noundef nonnull %23, i64 noundef 0, i64 noundef %30, i32 noundef %29)
@@ -460,7 +460,7 @@ define range(i32 0, 2) i32 @cli_hm_have_size(ptr noundef %0, i32 noundef %1, i32
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.cli_htu32, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %.not = icmp eq i64 %11, 0
@@ -538,7 +538,7 @@ define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly captures(address_is
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %struct.cli_htu32, ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !7
   %.not = icmp eq i64 %15, 0
@@ -562,7 +562,7 @@ define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly captures(address_is
   br i1 %.not.i, label %hm_scan.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %12
+  %25 = getelementptr inbounds nuw i32, ptr @hashlen, i64 %12
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = add i32 %23, -1
   %28 = zext i32 %27 to i64
@@ -641,14 +641,14 @@ define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly captures(addre
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %9 = zext i32 %3 to i64
-  %10 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.cli_sz_hash, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !33
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %hm_scan.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %9
+  %14 = getelementptr inbounds nuw i32, ptr @hashlen, i64 %9
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = add i32 %12, -1
   %17 = zext i32 %16 to i64
@@ -733,7 +733,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %.preheader45, %33
   %indvars.iv = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next, %33 ]
-  %6 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.cli_htu32, ptr %2, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %.not41 = icmp eq i64 %8, 0
@@ -797,7 +797,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %.preheader, %55
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %55 ]
-  %35 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %4, i64 0, i64 %indvars.iv57
+  %35 = getelementptr inbounds nuw %struct.cli_sz_hash, ptr %4, i64 %indvars.iv57
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !33
   %.not39 = icmp eq i32 %37, 0

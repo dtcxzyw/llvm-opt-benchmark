@@ -4368,13 +4368,13 @@ Abc_Clock.exit:                                   ; preds = %1, %7
 
 17:                                               ; preds = %15, %24
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %24 ]
-  %18 = getelementptr inbounds nuw [11 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !25
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw [11 x ptr], ptr @s_Strs, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr @s_Strs, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %22, i32 noundef %19)
   br label %24

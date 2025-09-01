@@ -1049,7 +1049,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   %.03347 = phi i64 [ %.2, %14 ], [ 0, %.split ]
   %.sroa.09.046 = phi i64 [ %10, %14 ], [ 0, %.split ]
   %10 = add nuw i64 %.sroa.09.046, 1
-  %11 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %.sroa.09.046
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.046
   %12 = load i8, ptr %11, align 1, !noundef !9
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %15, label %14

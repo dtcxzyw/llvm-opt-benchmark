@@ -938,7 +938,7 @@ define internal fastcc void @set_cpu_itimer(ptr noundef %0, i32 noundef range(i3
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr [2 x %struct.cpu_itimer], ptr %9, i64 0, i64 %10
+  %11 = getelementptr %struct.cpu_itimer, ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp sgt i64 %13, 9223372035

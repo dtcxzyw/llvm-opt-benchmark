@@ -820,7 +820,7 @@ define internal fastcc void @cconv_err_conv(ptr noundef readonly captures(none) 
   %19 = icmp eq i32 %.mask, 805306368
   %20 = select i1 %19, i64 5, i64 1
   %21 = select i1 %18, i64 4, i64 %20
-  %22 = getelementptr inbounds nuw [12 x ptr], ptr @lj_obj_typename, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @lj_obj_typename, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !36
   br label %34
 
@@ -1486,7 +1486,7 @@ define internal fastcc void @cconv_err_convtv(ptr noundef readonly captures(none
   %16 = ashr i64 %15, 47
   %17 = tail call i64 @llvm.umax.i64(i64 %16, i64 -14)
   %spec.select = xor i64 %17, -1
-  %18 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select
+  %18 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
   %19 = load ptr, ptr %18, align 8, !tbaa !36
   %.not = icmp ult i32 %3, 256
   br i1 %.not, label %23, label %20

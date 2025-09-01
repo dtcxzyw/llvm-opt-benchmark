@@ -6726,7 +6726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %77 = getelementptr inbounds nuw i8, ptr %27, i64 %75
   %78 = load i8, ptr %77, align 1, !tbaa !8
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !555
   %.not158 = icmp eq i16 %81, -1
   br i1 %.not158, label %112, label %.lr.ph.preheader
@@ -6735,7 +6735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %82 = getelementptr inbounds nuw i8, ptr %27, i64 %75
   %83 = load i8, ptr %82, align 1, !tbaa !8
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !555
   %.not159180 = icmp eq i16 %86, -1
   br i1 %.not159180, label %.critedge, label %.lr.ph182
@@ -6744,7 +6744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %87 = getelementptr inbounds nuw i8, ptr %27, i64 %98
   %88 = load i8, ptr %87, align 1, !tbaa !8
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !555
   %.not159 = icmp eq i16 %91, -1
   br i1 %.not159, label %.critedge, label %.lr.ph182, !llvm.loop !556
@@ -18139,12 +18139,12 @@ _ZNSt8optionalIN4llvm3MD59MD5ResultEEaSIRS2_EENSt9enable_ifIX7__and_vISt6__not_I
   %213 = sub nuw nsw i64 56, %212
   %214 = lshr i64 %209, %213
   %215 = trunc i64 %214 to i8
-  %216 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 0, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   store i8 %215, ptr %216, align 1, !tbaa !8
   %217 = lshr i64 %210, %213
   %218 = trunc i64 %217 to i8
-  %219 = add nuw nsw i64 %indvars.iv, 8
-  %220 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 0, i64 %219
+  %219 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i8 %218, ptr %220, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 8
@@ -18929,7 +18929,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser20parseDir
 71:                                               ; preds = %66
   %72 = load i8, ptr %61, align 1, !tbaa !8, !noalias !888
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !555, !noalias !888
   %.not42.i.i = icmp eq i16 %75, -1
   br i1 %.not42.i.i, label %_ZN4llvm7fromHexB5cxx11ENS_9StringRefE.exit, label %76
@@ -18958,10 +18958,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser20parseDir
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %87 = load i8, ptr %86, align 1, !tbaa !8, !noalias !888
   %88 = zext i8 %85 to i64
-  %89 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !555, !noalias !888
   %91 = zext i8 %87 to i64
-  %92 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !555, !noalias !888
   %94 = icmp ne i16 %90, -1
   %95 = icmp ne i16 %93, -1
@@ -36465,11 +36465,11 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12rewritesSortPKN4llvm10AsmRewr
 10:                                               ; preds = %8
   %11 = load i32, ptr %0, align 8, !tbaa !481
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4llvmL20AsmRewritePrecedenceE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL20AsmRewritePrecedenceE, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = load i32, ptr %1, align 8, !tbaa !481
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4llvmL20AsmRewritePrecedenceE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL20AsmRewritePrecedenceE, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = icmp sgt i8 %14, %18
   %spec.select = select i1 %19, i32 -1, i32 1

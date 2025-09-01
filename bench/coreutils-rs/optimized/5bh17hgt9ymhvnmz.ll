@@ -323,7 +323,7 @@ define hidden { i64, i64 } @_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b
 
 .lr.ph:                                           ; preds = %3, %9
   %.05 = phi i64 [ %10, %9 ], [ 0, %3 ]
-  %6 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.05
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.05
   %7 = load i8, ptr %6, align 1, !noundef !5
   %8 = icmp eq i8 %7, %0
   br i1 %8, label %._crit_edge, label %9
@@ -768,7 +768,7 @@ define noundef range(i8 0, 3) i8 @_ZN6uu_env14native_int_str9NativeStr8contains1
 
 .lr.ph.i:                                         ; preds = %13, %17
   %.05.i = phi i64 [ %18, %17 ], [ 0, %13 ]
-  %14 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i, i64 0, i64 %.05.i
+  %14 = getelementptr inbounds nuw i8, ptr %.pn3.i, i64 %.05.i
   %15 = load i8, ptr %14, align 1, !alias.scope !94, !noundef !5
   %16 = icmp eq i8 %15, %5
   br i1 %16, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %17

@@ -13872,8 +13872,8 @@ for.body64:                                       ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %if.end72, label %for.body64, !llvm.loop !316
 
 if.end72:                                         ; preds = %for.body64, %for.end.i.i.i251
-  %arrayidx135 = getelementptr inbounds nuw [2 x ptr], ptr @__const._Z19BenchmarkAlgorithm8R14EASTLTest_RandRN2EA4StdC9StopwatchES4_.patternDescriptions, i64 0, i64 %indvars.iv766
-  %arrayidx223 = getelementptr inbounds nuw [2 x ptr], ptr getelementptr inbounds nuw (i8, ptr @__const._Z19BenchmarkAlgorithm8R14EASTLTest_RandRN2EA4StdC9StopwatchES4_.patternDescriptions, i64 16), i64 0, i64 %indvars.iv766
+  %arrayidx135 = getelementptr inbounds nuw ptr, ptr @__const._Z19BenchmarkAlgorithm8R14EASTLTest_RandRN2EA4StdC9StopwatchES4_.patternDescriptions, i64 %indvars.iv766
+  %arrayidx223 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @__const._Z19BenchmarkAlgorithm8R14EASTLTest_RandRN2EA4StdC9StopwatchES4_.patternDescriptions, i64 16), i64 %indvars.iv766
   br label %for.body.i.i.i.i268.preheader
 
 for.body.i.i.i.i268.preheader:                    ; preds = %if.end72, %for.inc232

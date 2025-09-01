@@ -7834,7 +7834,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %53 = add nsw i32 %48, 1
   store i32 %53, ptr %9, align 8, !tbaa !485
   %54 = sext i32 %48 to i64
-  %55 = getelementptr inbounds [1 x ptr], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !483
   br label %_ZN5caffe15BlobProtoVector19_internal_add_blobsEv.exit
 
@@ -7864,7 +7864,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %9, align 8, !tbaa !485
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds [1 x ptr], ptr %69, i64 0, i64 %72
+  %73 = getelementptr inbounds ptr, ptr %69, i64 %72
   store ptr %67, ptr %73, align 8, !tbaa !483
   br label %_ZN5caffe15BlobProtoVector19_internal_add_blobsEv.exit
 
@@ -8019,7 +8019,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11,
   %15 = load ptr, ptr %6, align 8, !tbaa !480
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = sext i32 %.01114 to i64
-  %18 = getelementptr inbounds [1 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !483
   store i8 10, ptr %.0.i12, align 1, !tbaa !94
   %20 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 1
@@ -13230,7 +13230,7 @@ _ZN5caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %_ZNK6g
   %94 = add nsw i32 %89, 1
   store i32 %94, ptr %30, align 8, !tbaa !485
   %95 = sext i32 %89 to i64
-  %96 = getelementptr inbounds [1 x ptr], ptr %93, i64 0, i64 %95
+  %96 = getelementptr inbounds ptr, ptr %93, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter20_internal_add_layersEv.exit
 
@@ -13260,7 +13260,7 @@ _ZN5caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %_ZNK6g
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %30, align 8, !tbaa !485
   %113 = sext i32 %111 to i64
-  %114 = getelementptr inbounds [1 x ptr], ptr %110, i64 0, i64 %113
+  %114 = getelementptr inbounds ptr, ptr %110, i64 %113
   store ptr %108, ptr %114, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter20_internal_add_layersEv.exit
 
@@ -13365,7 +13365,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN5caffe12NetPara
   %166 = add nsw i32 %161, 1
   store i32 %166, ptr %26, align 8, !tbaa !485
   %167 = sext i32 %161 to i64
-  %168 = getelementptr inbounds [1 x ptr], ptr %165, i64 0, i64 %167
+  %168 = getelementptr inbounds ptr, ptr %165, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter19_internal_add_inputB5cxx11Ev.exit
 
@@ -13422,7 +13422,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %193 = add nsw i32 %192, 1
   store i32 %193, ptr %26, align 8, !tbaa !485
   %194 = sext i32 %192 to i64
-  %195 = getelementptr inbounds [1 x ptr], ptr %191, i64 0, i64 %194
+  %195 = getelementptr inbounds ptr, ptr %191, i64 %194
   store ptr %.sink5.i.i.i.i.i, ptr %195, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter19_internal_add_inputB5cxx11Ev.exit
 
@@ -13754,7 +13754,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit81: ; preds = %328
   %359 = add nsw i32 %354, 1
   store i32 %359, ptr %15, align 8, !tbaa !485
   %360 = sext i32 %354 to i64
-  %361 = getelementptr inbounds [1 x ptr], ptr %358, i64 0, i64 %360
+  %361 = getelementptr inbounds ptr, ptr %358, i64 %360
   %362 = load ptr, ptr %361, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter25_internal_add_input_shapeEv.exit
 
@@ -13784,7 +13784,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit81: ; preds = %328
   %377 = add nsw i32 %376, 1
   store i32 %377, ptr %15, align 8, !tbaa !485
   %378 = sext i32 %376 to i64
-  %379 = getelementptr inbounds [1 x ptr], ptr %375, i64 0, i64 %378
+  %379 = getelementptr inbounds ptr, ptr %375, i64 %378
   store ptr %373, ptr %379, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter25_internal_add_input_shapeEv.exit
 
@@ -13889,7 +13889,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i90: ; preds = %_ZN5caffe12NetPa
   %431 = add nsw i32 %426, 1
   store i32 %431, ptr %9, align 8, !tbaa !485
   %432 = sext i32 %426 to i64
-  %433 = getelementptr inbounds [1 x ptr], ptr %430, i64 0, i64 %432
+  %433 = getelementptr inbounds ptr, ptr %430, i64 %432
   %434 = load ptr, ptr %433, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter19_internal_add_layerEv.exit
 
@@ -13919,7 +13919,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i90: ; preds = %_ZN5caffe12NetPa
   %449 = add nsw i32 %448, 1
   store i32 %449, ptr %9, align 8, !tbaa !485
   %450 = sext i32 %448 to i64
-  %451 = getelementptr inbounds [1 x ptr], ptr %447, i64 0, i64 %450
+  %451 = getelementptr inbounds ptr, ptr %447, i64 %450
   store ptr %445, ptr %451, align 8, !tbaa !483
   br label %_ZN5caffe12NetParameter19_internal_add_layerEv.exit
 
@@ -14119,7 +14119,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %32,
   %36 = load ptr, ptr %27, align 8, !tbaa !480
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = sext i32 %.061124 to i64
-  %39 = getelementptr inbounds [1 x ptr], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !483
   store i8 18, ptr %.0.i70, align 1, !tbaa !94
   %41 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 1
@@ -14193,7 +14193,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %.2127 = phi ptr [ %.1.lcssa, %.lr.ph129 ], [ %.0.i67, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %74 = load ptr, ptr %31, align 8, !tbaa !480
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = getelementptr inbounds nuw [1 x ptr], ptr %75, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !483
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i64, ptr %78, align 8, !tbaa !91
@@ -14459,7 +14459,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99: ; preds = %1
   %191 = load ptr, ptr %183, align 8, !tbaa !480
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = sext i32 %.060138 to i64
-  %194 = getelementptr inbounds [1 x ptr], ptr %192, i64 0, i64 %193
+  %194 = getelementptr inbounds ptr, ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !483
   store i8 66, ptr %.0.i98, align 1, !tbaa !94
   %196 = getelementptr inbounds nuw i8, ptr %.0.i98, i64 1
@@ -14541,7 +14541,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit107: ; preds = %
   %232 = load ptr, ptr %186, align 8, !tbaa !480
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = sext i32 %.059144 to i64
-  %235 = getelementptr inbounds [1 x ptr], ptr %233, i64 0, i64 %234
+  %235 = getelementptr inbounds ptr, ptr %233, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !483
   store i8 -94, ptr %.0.i106, align 1, !tbaa !94
   %237 = getelementptr inbounds nuw i8, ptr %.0.i106, i64 1
@@ -14686,7 +14686,7 @@ define dso_local noundef i64 @_ZNK5caffe12NetParameter12ByteSizeLongEv(ptr nound
 44:                                               ; preds = %.lr.ph77, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next, %44 ]
   %.175 = phi i64 [ %12, %.lr.ph77 ], [ %58, %44 ]
-  %45 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !483
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !91
@@ -15504,39 +15504,38 @@ define dso_local noundef zeroext i1 @_ZNK5caffe12NetParameter13IsInitializedEv(p
 .lr.ph.i:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8, !tbaa !480
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = zext nneg i32 %3 to i64
-  br label %9
+  %7 = zext nneg i32 %3 to i64
+  br label %8
 
-9:                                                ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %8, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i ]
+8:                                                ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %10 = getelementptr inbounds nuw [1 x ptr], ptr %7, i64 0, i64 %indvars.iv.next.i
-  %11 = load ptr, ptr %10, align 8, !tbaa !483
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !468
-  %14 = and i32 %13, 1048576
-  %.not.i.i = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 624
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  %18 = select i1 %.not.i.i, i1 true, i1 %17
-  tail call void @llvm.assume(i1 %18)
-  br i1 %.not.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, label %19
+  %9 = getelementptr ptr, ptr %6, i64 %indvars.iv.i
+  %10 = load ptr, ptr %9, align 8, !tbaa !483
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !468
+  %13 = and i32 %12, 1048576
+  %.not.i.i = icmp eq i32 %13, 0
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 624
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = select i1 %.not.i.i, i1 true, i1 %16
+  tail call void @llvm.assume(i1 %17)
+  br i1 %.not.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, label %18
 
-19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load i32, ptr %20, align 4, !tbaa !468
-  %22 = and i32 %21, 7
-  %.not.i.i.i = icmp eq i32 %22, 7
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %20 = load i32, ptr %19, align 4, !tbaa !468
+  %21 = and i32 %20, 7
+  %.not.i.i.i = icmp eq i32 %21, 7
   br i1 %.not.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i: ; preds = %19, %9
-  %23 = icmp samesign ult i64 %indvars.iv.i, 2
-  br i1 %23, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %9, !llvm.loop !552
+_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i: ; preds = %18, %8
+  %22 = icmp samesign ult i64 %indvars.iv.i, 2
+  br i1 %22, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %8, !llvm.loop !552
 
-_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %19, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, %1
-  %.lcssa.i = phi i1 [ true, %1 ], [ true, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i ], [ false, %19 ]
+_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %18, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, %1
+  %.lcssa.i = phi i1 [ true, %1 ], [ true, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i ], [ false, %18 ]
   ret i1 %.lcssa.i
 }
 
@@ -17619,7 +17618,7 @@ _ZN5caffe15SolverParameter27_internal_mutable_train_netB5cxx11Ev.exit: ; preds =
   %125 = add nsw i32 %120, 1
   store i32 %125, ptr %61, align 8, !tbaa !485
   %126 = sext i32 %120 to i64
-  %127 = getelementptr inbounds [1 x ptr], ptr %124, i64 0, i64 %126
+  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !483
   br label %_ZN5caffe15SolverParameter22_internal_add_test_netB5cxx11Ev.exit
 
@@ -17676,7 +17675,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %152 = add nsw i32 %151, 1
   store i32 %152, ptr %61, align 8, !tbaa !485
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds [1 x ptr], ptr %150, i64 0, i64 %153
+  %154 = getelementptr inbounds ptr, ptr %150, i64 %153
   store ptr %.sink5.i.i.i.i.i, ptr %154, align 8, !tbaa !483
   br label %_ZN5caffe15SolverParameter22_internal_add_test_netB5cxx11Ev.exit
 
@@ -18531,7 +18530,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe12NetParameterEE
   %575 = add nsw i32 %570, 1
   store i32 %575, ptr %36, align 8, !tbaa !485
   %576 = sext i32 %570 to i64
-  %577 = getelementptr inbounds [1 x ptr], ptr %574, i64 0, i64 %576
+  %577 = getelementptr inbounds ptr, ptr %574, i64 %576
   %578 = load ptr, ptr %577, align 8, !tbaa !483
   br label %_ZN5caffe15SolverParameter28_internal_add_test_net_paramEv.exit
 
@@ -18561,7 +18560,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe12NetParameterEE
   %593 = add nsw i32 %592, 1
   store i32 %593, ptr %36, align 8, !tbaa !485
   %594 = sext i32 %592 to i64
-  %595 = getelementptr inbounds [1 x ptr], ptr %591, i64 0, i64 %594
+  %595 = getelementptr inbounds ptr, ptr %591, i64 %594
   store ptr %589, ptr %595, align 8, !tbaa !483
   br label %_ZN5caffe15SolverParameter28_internal_add_test_net_paramEv.exit
 
@@ -18947,7 +18946,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe8NetStateEEEPKcP
   %791 = add nsw i32 %786, 1
   store i32 %791, ptr %26, align 8, !tbaa !485
   %792 = sext i32 %786 to i64
-  %793 = getelementptr inbounds [1 x ptr], ptr %790, i64 0, i64 %792
+  %793 = getelementptr inbounds ptr, ptr %790, i64 %792
   %794 = load ptr, ptr %793, align 8, !tbaa !483
   br label %_ZN5caffe15SolverParameter24_internal_add_test_stateEv.exit
 
@@ -18977,7 +18976,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe8NetStateEEEPKcP
   %809 = add nsw i32 %808, 1
   store i32 %809, ptr %26, align 8, !tbaa !485
   %810 = sext i32 %808 to i64
-  %811 = getelementptr inbounds [1 x ptr], ptr %807, i64 0, i64 %810
+  %811 = getelementptr inbounds ptr, ptr %807, i64 %810
   store ptr %805, ptr %811, align 8, !tbaa !483
   br label %_ZN5caffe15SolverParameter24_internal_add_test_stateEv.exit
 
@@ -19713,7 +19712,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %.1476 = phi ptr [ %.0, %.lr.ph ], [ %.0.i218, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %34 = load ptr, ptr %28, align 8, !tbaa !480
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = getelementptr inbounds nuw [1 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !483
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !91
@@ -20714,7 +20713,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit312: ; preds = %
   %498 = load ptr, ptr %492, align 8, !tbaa !480
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 8
   %500 = sext i32 %.0182483 to i64
-  %501 = getelementptr inbounds [1 x ptr], ptr %499, i64 0, i64 %500
+  %501 = getelementptr inbounds ptr, ptr %499, i64 %500
   %502 = load ptr, ptr %501, align 8, !tbaa !483
   store i8 -78, ptr %.0.i311, align 1, !tbaa !94
   %503 = getelementptr inbounds nuw i8, ptr %.0.i311, i64 1
@@ -21015,7 +21014,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit347: ; preds = %
   %643 = load ptr, ptr %637, align 8, !tbaa !480
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 8
   %645 = sext i32 %.0180489 to i64
-  %646 = getelementptr inbounds [1 x ptr], ptr %644, i64 0, i64 %645
+  %646 = getelementptr inbounds ptr, ptr %644, i64 %645
   %647 = load ptr, ptr %646, align 8, !tbaa !483
   store i8 -38, ptr %.0.i346, align 1, !tbaa !94
   %648 = getelementptr inbounds nuw i8, ptr %.0.i346, i64 1
@@ -21730,7 +21729,7 @@ define dso_local noundef i64 @_ZNK5caffe15SolverParameter12ByteSizeLongEv(ptr no
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %.0102198 = phi i64 [ %4, %.lr.ph ], [ %38, %24 ]
-  %25 = getelementptr inbounds nuw [1 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !483
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !91
@@ -23533,162 +23532,158 @@ define dso_local noundef zeroext i1 @_ZNK5caffe15SolverParameter13IsInitializedE
 .lr.ph.i:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !480
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = zext nneg i32 %3 to i64
-  br label %9
+  %7 = zext nneg i32 %3 to i64
+  br label %8
 
-9:                                                ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %8, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i ]
+8:                                                ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %10 = getelementptr inbounds nuw [1 x ptr], ptr %7, i64 0, i64 %indvars.iv.next.i
-  %11 = load ptr, ptr %10, align 8, !tbaa !483
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  %13 = load i32, ptr %12, align 8, !tbaa !485
-  %14 = icmp slt i32 %13, 1
-  br i1 %14, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, label %.lr.ph.i.i.i
+  %9 = getelementptr ptr, ptr %6, i64 %indvars.iv.i
+  %10 = load ptr, ptr %9, align 8, !tbaa !483
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %12 = load i32, ptr %11, align 8, !tbaa !485
+  %13 = icmp slt i32 %12, 1
+  br i1 %13, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %16 = load ptr, ptr %15, align 8, !tbaa !480
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = zext nneg i32 %13 to i64
-  br label %19
+.lr.ph.i.i.i:                                     ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %15 = load ptr, ptr %14, align 8, !tbaa !480
+  %16 = zext nneg i32 %12 to i64
+  br label %17
 
-19:                                               ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i ]
+17:                                               ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %20 = getelementptr inbounds nuw [1 x ptr], ptr %17, i64 0, i64 %indvars.iv.next.i.i.i
-  %21 = load ptr, ptr %20, align 8, !tbaa !483
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !468
-  %24 = and i32 %23, 1048576
-  %.not.i.i.i.i = icmp eq i32 %24, 0
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 624
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  %28 = select i1 %.not.i.i.i.i, i1 true, i1 %27
-  tail call void @llvm.assume(i1 %28)
-  br i1 %.not.i.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, label %29
+  %18 = getelementptr ptr, ptr %15, i64 %indvars.iv.i.i.i
+  %19 = load ptr, ptr %18, align 8, !tbaa !483
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %21 = load i32, ptr %20, align 4, !tbaa !468
+  %22 = and i32 %21, 1048576
+  %.not.i.i.i.i = icmp eq i32 %22, 0
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 624
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  %26 = select i1 %.not.i.i.i.i, i1 true, i1 %25
+  tail call void @llvm.assume(i1 %26)
+  br i1 %.not.i.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, label %27
 
-29:                                               ; preds = %19
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %31 = load i32, ptr %30, align 4, !tbaa !468
-  %32 = and i32 %31, 7
-  %.not.i.i.i.i.i = icmp eq i32 %32, 7
+27:                                               ; preds = %17
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %29 = load i32, ptr %28, align 4, !tbaa !468
+  %30 = and i32 %29, 7
+  %.not.i.i.i.i.i = icmp eq i32 %30, 7
   br i1 %.not.i.i.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i: ; preds = %29, %19
-  %33 = icmp samesign ult i64 %indvars.iv.i.i.i, 2
-  br i1 %33, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, label %19, !llvm.loop !552
+_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i: ; preds = %27, %17
+  %31 = icmp samesign ult i64 %indvars.iv.i.i.i, 2
+  br i1 %31, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, label %17, !llvm.loop !552
 
-_ZNK5caffe12NetParameter13IsInitializedEv.exit.i: ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, %9
-  %34 = icmp slt i64 %indvars.iv.i, 2
-  br i1 %34, label %.loopexit, label %9, !llvm.loop !598
+_ZNK5caffe12NetParameter13IsInitializedEv.exit.i: ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, %8
+  %32 = icmp slt i64 %indvars.iv.i, 2
+  br i1 %32, label %.loopexit, label %8, !llvm.loop !598
 
 .loopexit:                                        ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, %1
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !468
-  %37 = and i32 %36, 64
-  %.not = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp ne ptr %39, null
-  %41 = select i1 %.not, i1 true, i1 %40
-  tail call void @llvm.assume(i1 %41)
-  br i1 %.not, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %42
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load i32, ptr %33, align 8, !tbaa !468
+  %35 = and i32 %34, 64
+  %.not = icmp eq i32 %35, 0
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp ne ptr %37, null
+  %39 = select i1 %.not, i1 true, i1 %38
+  tail call void @llvm.assume(i1 %39)
+  br i1 %.not, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %40
 
-42:                                               ; preds = %.loopexit
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 120
-  %44 = load i32, ptr %43, align 8, !tbaa !485
-  %45 = icmp slt i32 %44, 1
-  br i1 %45, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %.lr.ph.i.i
+40:                                               ; preds = %.loopexit
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 120
+  %42 = load i32, ptr %41, align 8, !tbaa !485
+  %43 = icmp slt i32 %42, 1
+  br i1 %43, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %47 = load ptr, ptr %46, align 8, !tbaa !480
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = zext nneg i32 %44 to i64
-  br label %50
+.lr.ph.i.i:                                       ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 128
+  %45 = load ptr, ptr %44, align 8, !tbaa !480
+  %46 = zext nneg i32 %42 to i64
+  br label %47
 
-50:                                               ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %49, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i ]
+47:                                               ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %51 = getelementptr inbounds nuw [1 x ptr], ptr %48, i64 0, i64 %indvars.iv.next.i.i
-  %52 = load ptr, ptr %51, align 8, !tbaa !483
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 20
-  %54 = load i32, ptr %53, align 4, !tbaa !468
-  %55 = and i32 %54, 1048576
-  %.not.i.i.i = icmp eq i32 %55, 0
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 624
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp ne ptr %57, null
-  %59 = select i1 %.not.i.i.i, i1 true, i1 %58
-  tail call void @llvm.assume(i1 %59)
-  br i1 %.not.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, label %60
+  %48 = getelementptr ptr, ptr %45, i64 %indvars.iv.i.i
+  %49 = load ptr, ptr %48, align 8, !tbaa !483
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
+  %51 = load i32, ptr %50, align 4, !tbaa !468
+  %52 = and i32 %51, 1048576
+  %.not.i.i.i = icmp eq i32 %52, 0
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 624
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  %56 = select i1 %.not.i.i.i, i1 true, i1 %55
+  tail call void @llvm.assume(i1 %56)
+  br i1 %.not.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, label %57
 
-60:                                               ; preds = %50
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %62 = load i32, ptr %61, align 4, !tbaa !468
-  %63 = and i32 %62, 7
-  %.not.i.i.i.i2 = icmp eq i32 %63, 7
+57:                                               ; preds = %47
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %59 = load i32, ptr %58, align 4, !tbaa !468
+  %60 = and i32 %59, 7
+  %.not.i.i.i.i2 = icmp eq i32 %60, 7
   br i1 %.not.i.i.i.i2, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i: ; preds = %60, %50
-  %64 = icmp samesign ult i64 %indvars.iv.i.i, 2
-  br i1 %64, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %50, !llvm.loop !552
+_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i: ; preds = %57, %47
+  %61 = icmp samesign ult i64 %indvars.iv.i.i, 2
+  br i1 %61, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %47, !llvm.loop !552
 
-_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread: ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, %42, %.loopexit
-  %65 = and i32 %36, 128
-  %.not14 = icmp eq i32 %65, 0
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp ne ptr %67, null
-  %69 = select i1 %.not14, i1 true, i1 %68
-  tail call void @llvm.assume(i1 %69)
-  br i1 %.not14, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %70
+_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread: ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, %40, %.loopexit
+  %62 = and i32 %34, 128
+  %.not14 = icmp eq i32 %62, 0
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp ne ptr %64, null
+  %66 = select i1 %.not14, i1 true, i1 %65
+  tail call void @llvm.assume(i1 %66)
+  br i1 %.not14, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %67
 
-70:                                               ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 120
-  %72 = load i32, ptr %71, align 8, !tbaa !485
-  %73 = icmp slt i32 %72, 1
-  br i1 %73, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %.lr.ph.i.i4
+67:                                               ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 120
+  %69 = load i32, ptr %68, align 8, !tbaa !485
+  %70 = icmp slt i32 %69, 1
+  br i1 %70, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %.lr.ph.i.i4
 
-.lr.ph.i.i4:                                      ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 128
-  %75 = load ptr, ptr %74, align 8, !tbaa !480
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = zext nneg i32 %72 to i64
-  br label %78
+.lr.ph.i.i4:                                      ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 128
+  %72 = load ptr, ptr %71, align 8, !tbaa !480
+  %73 = zext nneg i32 %69 to i64
+  br label %74
 
-78:                                               ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, %.lr.ph.i.i4
-  %indvars.iv.i.i5 = phi i64 [ %77, %.lr.ph.i.i4 ], [ %indvars.iv.next.i.i6, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10 ]
+74:                                               ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, %.lr.ph.i.i4
+  %indvars.iv.i.i5 = phi i64 [ %73, %.lr.ph.i.i4 ], [ %indvars.iv.next.i.i6, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10 ]
   %indvars.iv.next.i.i6 = add nsw i64 %indvars.iv.i.i5, -1
-  %79 = getelementptr inbounds nuw [1 x ptr], ptr %76, i64 0, i64 %indvars.iv.next.i.i6
-  %80 = load ptr, ptr %79, align 8, !tbaa !483
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 20
-  %82 = load i32, ptr %81, align 4, !tbaa !468
-  %83 = and i32 %82, 1048576
-  %.not.i.i.i7 = icmp eq i32 %83, 0
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 624
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp ne ptr %85, null
-  %87 = select i1 %.not.i.i.i7, i1 true, i1 %86
-  tail call void @llvm.assume(i1 %87)
-  br i1 %.not.i.i.i7, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, label %88
+  %75 = getelementptr ptr, ptr %72, i64 %indvars.iv.i.i5
+  %76 = load ptr, ptr %75, align 8, !tbaa !483
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
+  %78 = load i32, ptr %77, align 4, !tbaa !468
+  %79 = and i32 %78, 1048576
+  %.not.i.i.i7 = icmp eq i32 %79, 0
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 624
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp ne ptr %81, null
+  %83 = select i1 %.not.i.i.i7, i1 true, i1 %82
+  tail call void @llvm.assume(i1 %83)
+  br i1 %.not.i.i.i7, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, label %84
 
-88:                                               ; preds = %78
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %90 = load i32, ptr %89, align 4, !tbaa !468
-  %91 = and i32 %90, 7
-  %.not.i.i.i.i8 = icmp eq i32 %91, 7
+84:                                               ; preds = %74
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %86 = load i32, ptr %85, align 4, !tbaa !468
+  %87 = and i32 %86, 7
+  %.not.i.i.i.i8 = icmp eq i32 %87, 7
   br i1 %.not.i.i.i.i8, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10: ; preds = %88, %78
-  %92 = icmp samesign ult i64 %indvars.iv.i.i5, 2
-  br i1 %92, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %78, !llvm.loop !552
+_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10: ; preds = %84, %74
+  %88 = icmp samesign ult i64 %indvars.iv.i.i5, 2
+  br i1 %88, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %74, !llvm.loop !552
 
-_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %29, %60, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, %88, %70, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread ], [ true, %70 ], [ true, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10 ], [ false, %88 ], [ false, %60 ], [ false, %29 ]
+_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %27, %57, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, %84, %67, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread
+  %.0 = phi i1 [ true, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread ], [ true, %67 ], [ true, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10 ], [ false, %84 ], [ false, %57 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -24655,7 +24650,7 @@ _ZN5caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit: ; preds = %
   %98 = add nsw i32 %93, 1
   store i32 %98, ptr %10, align 8, !tbaa !485
   %99 = sext i32 %93 to i64
-  %100 = getelementptr inbounds [1 x ptr], ptr %97, i64 0, i64 %99
+  %100 = getelementptr inbounds ptr, ptr %97, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !483
   br label %_ZN5caffe11SolverState21_internal_add_historyEv.exit
 
@@ -24685,7 +24680,7 @@ _ZN5caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit: ; preds = %
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %10, align 8, !tbaa !485
   %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds [1 x ptr], ptr %114, i64 0, i64 %117
+  %118 = getelementptr inbounds ptr, ptr %114, i64 %117
   store ptr %112, ptr %118, align 8, !tbaa !483
   br label %_ZN5caffe11SolverState21_internal_add_historyEv.exit
 
@@ -24988,7 +24983,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit29: ; preds = %6
   %65 = load ptr, ptr %59, align 8, !tbaa !480
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = sext i32 %.02244 to i64
-  %68 = getelementptr inbounds [1 x ptr], ptr %66, i64 0, i64 %67
+  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !483
   store i8 26, ptr %.0.i28, align 1, !tbaa !94
   %70 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 1
@@ -26135,7 +26130,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32: ; preds = %85
   %111 = add nsw i32 %106, 1
   store i32 %111, ptr %9, align 8, !tbaa !485
   %112 = sext i32 %106 to i64
-  %113 = getelementptr inbounds [1 x ptr], ptr %110, i64 0, i64 %112
+  %113 = getelementptr inbounds ptr, ptr %110, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !483
   br label %_ZN5caffe8NetState19_internal_add_stageB5cxx11Ev.exit
 
@@ -26192,7 +26187,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %9, align 8, !tbaa !485
   %139 = sext i32 %137 to i64
-  %140 = getelementptr inbounds [1 x ptr], ptr %136, i64 0, i64 %139
+  %140 = getelementptr inbounds ptr, ptr %136, i64 %139
   store ptr %.sink5.i.i.i.i.i, ptr %140, align 8, !tbaa !483
   br label %_ZN5caffe8NetState19_internal_add_stageB5cxx11Ev.exit
 
@@ -26422,7 +26417,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
   %.236 = phi ptr [ %.1, %.lr.ph ], [ %.0.i22, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %79 = load ptr, ptr %73, align 8, !tbaa !480
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = getelementptr inbounds nuw [1 x ptr], ptr %80, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !483
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !91
@@ -26496,7 +26491,7 @@ define dso_local noundef i64 @_ZNK5caffe8NetState12ByteSizeLongEv(ptr noundef no
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.01624 = phi i64 [ %4, %.lr.ph ], [ %26, %12 ]
-  %13 = getelementptr inbounds nuw [1 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !483
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !91
@@ -27541,7 +27536,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit45: ; preds = %111
   %137 = add nsw i32 %132, 1
   store i32 %137, ptr %13, align 8, !tbaa !485
   %138 = sext i32 %132 to i64
-  %139 = getelementptr inbounds [1 x ptr], ptr %136, i64 0, i64 %138
+  %139 = getelementptr inbounds ptr, ptr %136, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !483
   br label %_ZN5caffe12NetStateRule19_internal_add_stageB5cxx11Ev.exit
 
@@ -27598,7 +27593,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %164 = add nsw i32 %163, 1
   store i32 %164, ptr %13, align 8, !tbaa !485
   %165 = sext i32 %163 to i64
-  %166 = getelementptr inbounds [1 x ptr], ptr %162, i64 0, i64 %165
+  %166 = getelementptr inbounds ptr, ptr %162, i64 %165
   store ptr %.sink5.i.i.i.i.i, ptr %166, align 8, !tbaa !483
   br label %_ZN5caffe12NetStateRule19_internal_add_stageB5cxx11Ev.exit
 
@@ -27649,7 +27644,7 @@ _ZN5caffe12NetStateRule19_internal_add_stageB5cxx11Ev.exit: ; preds = %135, %_ZN
   %188 = add nsw i32 %183, 1
   store i32 %188, ptr %9, align 8, !tbaa !485
   %189 = sext i32 %183 to i64
-  %190 = getelementptr inbounds [1 x ptr], ptr %187, i64 0, i64 %189
+  %190 = getelementptr inbounds ptr, ptr %187, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !483
   br label %_ZN5caffe12NetStateRule23_internal_add_not_stageB5cxx11Ev.exit
 
@@ -27706,7 +27701,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %215 = add nsw i32 %214, 1
   store i32 %215, ptr %9, align 8, !tbaa !485
   %216 = sext i32 %214 to i64
-  %217 = getelementptr inbounds [1 x ptr], ptr %213, i64 0, i64 %216
+  %217 = getelementptr inbounds ptr, ptr %213, i64 %216
   store ptr %.sink5.i.i.i.i.i50, ptr %217, align 8, !tbaa !483
   br label %_ZN5caffe12NetStateRule23_internal_add_not_stageB5cxx11Ev.exit
 
@@ -28001,7 +27996,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
   %.364 = phi ptr [ %.2, %.lr.ph ], [ %.0.i38, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit40 ]
   %111 = load ptr, ptr %105, align 8, !tbaa !480
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = getelementptr inbounds nuw [1 x ptr], ptr %112, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !483
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i64, ptr %115, align 8, !tbaa !91
@@ -28052,7 +28047,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %.466 = phi ptr [ %.3.lcssa, %.lr.ph68 ], [ %.0.i37, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %136 = load ptr, ptr %109, align 8, !tbaa !480
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %138 = getelementptr inbounds nuw [1 x ptr], ptr %137, i64 0, i64 %indvars.iv78
+  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv78
   %139 = load ptr, ptr %138, align 8, !tbaa !483
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !91
@@ -28133,7 +28128,7 @@ define dso_local noundef i64 @_ZNK5caffe12NetStateRule12ByteSizeLongEv(ptr nound
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.02437 = phi i64 [ %4, %.lr.ph ], [ %31, %17 ]
-  %18 = getelementptr inbounds nuw [1 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !483
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !91
@@ -28162,7 +28157,7 @@ define dso_local noundef i64 @_ZNK5caffe12NetStateRule12ByteSizeLongEv(ptr nound
 35:                                               ; preds = %.lr.ph41, %35
   %indvars.iv46 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next47, %35 ]
   %.139 = phi i64 [ %12, %.lr.ph41 ], [ %49, %35 ]
-  %36 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv46
+  %36 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv46
   %37 = load ptr, ptr %36, align 8, !tbaa !483
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !91
@@ -44910,7 +44905,7 @@ select.unfold1251.backedge:                       ; preds = %653, %647, %650, %5
   %182 = add nsw i32 %177, 1
   store i32 %182, ptr %100, align 8, !tbaa !485
   %183 = sext i32 %177 to i64
-  %184 = getelementptr inbounds [1 x ptr], ptr %181, i64 0, i64 %183
+  %184 = getelementptr inbounds ptr, ptr %181, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter20_internal_add_bottomB5cxx11Ev.exit
 
@@ -44967,7 +44962,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %209 = add nsw i32 %208, 1
   store i32 %209, ptr %100, align 8, !tbaa !485
   %210 = sext i32 %208 to i64
-  %211 = getelementptr inbounds [1 x ptr], ptr %207, i64 0, i64 %210
+  %211 = getelementptr inbounds ptr, ptr %207, i64 %210
   store ptr %.sink5.i.i.i.i.i, ptr %211, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter20_internal_add_bottomB5cxx11Ev.exit
 
@@ -45018,7 +45013,7 @@ _ZN5caffe14LayerParameter20_internal_add_bottomB5cxx11Ev.exit: ; preds = %180, %
   %233 = add nsw i32 %228, 1
   store i32 %233, ptr %96, align 8, !tbaa !485
   %234 = sext i32 %228 to i64
-  %235 = getelementptr inbounds [1 x ptr], ptr %232, i64 0, i64 %234
+  %235 = getelementptr inbounds ptr, ptr %232, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter17_internal_add_topB5cxx11Ev.exit
 
@@ -45075,7 +45070,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %260 = add nsw i32 %259, 1
   store i32 %260, ptr %96, align 8, !tbaa !485
   %261 = sext i32 %259 to i64
-  %262 = getelementptr inbounds [1 x ptr], ptr %258, i64 0, i64 %261
+  %262 = getelementptr inbounds ptr, ptr %258, i64 %261
   store ptr %.sink5.i.i.i.i.i252, ptr %262, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter17_internal_add_topB5cxx11Ev.exit
 
@@ -45173,7 +45168,7 @@ _ZN5caffe14LayerParameter25_internal_add_loss_weightEf.exit: ; preds = %273, %27
   %305 = add nsw i32 %300, 1
   store i32 %305, ptr %89, align 8, !tbaa !485
   %306 = sext i32 %300 to i64
-  %307 = getelementptr inbounds [1 x ptr], ptr %304, i64 0, i64 %306
+  %307 = getelementptr inbounds ptr, ptr %304, i64 %306
   %308 = load ptr, ptr %307, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter19_internal_add_paramEv.exit
 
@@ -45203,7 +45198,7 @@ _ZN5caffe14LayerParameter25_internal_add_loss_weightEf.exit: ; preds = %273, %27
   %323 = add nsw i32 %322, 1
   store i32 %323, ptr %89, align 8, !tbaa !485
   %324 = sext i32 %322 to i64
-  %325 = getelementptr inbounds [1 x ptr], ptr %321, i64 0, i64 %324
+  %325 = getelementptr inbounds ptr, ptr %321, i64 %324
   store ptr %319, ptr %325, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter19_internal_add_paramEv.exit
 
@@ -45308,7 +45303,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN5caffe14LayerPa
   %377 = add nsw i32 %372, 1
   store i32 %377, ptr %85, align 8, !tbaa !485
   %378 = sext i32 %372 to i64
-  %379 = getelementptr inbounds [1 x ptr], ptr %376, i64 0, i64 %378
+  %379 = getelementptr inbounds ptr, ptr %376, i64 %378
   %380 = load ptr, ptr %379, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter19_internal_add_blobsEv.exit
 
@@ -45338,7 +45333,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN5caffe14LayerPa
   %395 = add nsw i32 %394, 1
   store i32 %395, ptr %85, align 8, !tbaa !485
   %396 = sext i32 %394 to i64
-  %397 = getelementptr inbounds [1 x ptr], ptr %393, i64 0, i64 %396
+  %397 = getelementptr inbounds ptr, ptr %393, i64 %396
   store ptr %391, ptr %397, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter19_internal_add_blobsEv.exit
 
@@ -45443,7 +45438,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i280: ; preds = %_ZN5caffe14Laye
   %449 = add nsw i32 %444, 1
   store i32 %449, ptr %81, align 8, !tbaa !485
   %450 = sext i32 %444 to i64
-  %451 = getelementptr inbounds [1 x ptr], ptr %448, i64 0, i64 %450
+  %451 = getelementptr inbounds ptr, ptr %448, i64 %450
   %452 = load ptr, ptr %451, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter21_internal_add_includeEv.exit
 
@@ -45473,7 +45468,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i280: ; preds = %_ZN5caffe14Laye
   %467 = add nsw i32 %466, 1
   store i32 %467, ptr %81, align 8, !tbaa !485
   %468 = sext i32 %466 to i64
-  %469 = getelementptr inbounds [1 x ptr], ptr %465, i64 0, i64 %468
+  %469 = getelementptr inbounds ptr, ptr %465, i64 %468
   store ptr %463, ptr %469, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter21_internal_add_includeEv.exit
 
@@ -45578,7 +45573,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i298: ; preds = %_ZN5caffe14Laye
   %521 = add nsw i32 %516, 1
   store i32 %521, ptr %77, align 8, !tbaa !485
   %522 = sext i32 %516 to i64
-  %523 = getelementptr inbounds [1 x ptr], ptr %520, i64 0, i64 %522
+  %523 = getelementptr inbounds ptr, ptr %520, i64 %522
   %524 = load ptr, ptr %523, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter21_internal_add_excludeEv.exit
 
@@ -45608,7 +45603,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i298: ; preds = %_ZN5caffe14Laye
   %539 = add nsw i32 %538, 1
   store i32 %539, ptr %77, align 8, !tbaa !485
   %540 = sext i32 %538 to i64
-  %541 = getelementptr inbounds [1 x ptr], ptr %537, i64 0, i64 %540
+  %541 = getelementptr inbounds ptr, ptr %537, i64 %540
   store ptr %535, ptr %541, align 8, !tbaa !483
   br label %_ZN5caffe14LayerParameter21_internal_add_excludeEv.exit
 
@@ -51748,7 +51743,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %.21231 = phi ptr [ %.1, %.lr.ph ], [ %.0.i448, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit450 ]
   %53 = load ptr, ptr %47, align 8, !tbaa !480
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = getelementptr inbounds nuw [1 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !483
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !91
@@ -51802,7 +51797,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %.31233 = phi ptr [ %.2.lcssa, %.lr.ph1235 ], [ %.0.i447, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %78 = load ptr, ptr %51, align 8, !tbaa !480
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = getelementptr inbounds nuw [1 x ptr], ptr %79, i64 0, i64 %indvars.iv1432
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv1432
   %81 = load ptr, ptr %80, align 8, !tbaa !483
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !91
@@ -51901,7 +51896,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit460: ; preds = %
   %117 = load ptr, ptr %100, align 8, !tbaa !480
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = sext i32 %.03841244 to i64
-  %120 = getelementptr inbounds [1 x ptr], ptr %118, i64 0, i64 %119
+  %120 = getelementptr inbounds ptr, ptr %118, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !483
   store i8 50, ptr %.0.i459, align 1, !tbaa !94
   %122 = getelementptr inbounds nuw i8, ptr %.0.i459, i64 1
@@ -51985,7 +51980,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit463: ; preds = %
   %157 = load ptr, ptr %112, align 8, !tbaa !480
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = sext i32 %.03821250 to i64
-  %160 = getelementptr inbounds [1 x ptr], ptr %158, i64 0, i64 %159
+  %160 = getelementptr inbounds ptr, ptr %158, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !483
   store i8 58, ptr %.0.i462, align 1, !tbaa !94
   %162 = getelementptr inbounds nuw i8, ptr %.0.i462, i64 1
@@ -52069,7 +52064,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit471: ; preds = %
   %197 = load ptr, ptr %152, align 8, !tbaa !480
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = sext i32 %.03801256 to i64
-  %200 = getelementptr inbounds [1 x ptr], ptr %198, i64 0, i64 %199
+  %200 = getelementptr inbounds ptr, ptr %198, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !483
   store i8 66, ptr %.0.i470, align 1, !tbaa !94
   %202 = getelementptr inbounds nuw i8, ptr %.0.i470, i64 1
@@ -52150,7 +52145,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit479: ; preds = %
   %237 = load ptr, ptr %192, align 8, !tbaa !480
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = sext i32 %.03781262 to i64
-  %240 = getelementptr inbounds [1 x ptr], ptr %238, i64 0, i64 %239
+  %240 = getelementptr inbounds ptr, ptr %238, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !483
   store i8 74, ptr %.0.i478, align 1, !tbaa !94
   %242 = getelementptr inbounds nuw i8, ptr %.0.i478, i64 1
@@ -57573,7 +57568,7 @@ define dso_local noundef i64 @_ZNK5caffe14LayerParameter12ByteSizeLongEv(ptr nou
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.0179628 = phi i64 [ %4, %.lr.ph ], [ %31, %17 ]
-  %18 = getelementptr inbounds nuw [1 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !483
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !91
@@ -57616,7 +57611,7 @@ define dso_local noundef i64 @_ZNK5caffe14LayerParameter12ByteSizeLongEv(ptr nou
 46:                                               ; preds = %.lr.ph632, %46
   %indvars.iv672 = phi i64 [ 0, %.lr.ph632 ], [ %indvars.iv.next673, %46 ]
   %.1630 = phi i64 [ %12, %.lr.ph632 ], [ %60, %46 ]
-  %47 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv672
+  %47 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv672
   %48 = load ptr, ptr %47, align 8, !tbaa !483
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !91
@@ -103835,7 +103830,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %72 = add nsw i32 %67, 1
   store i32 %72, ptr %27, align 8, !tbaa !485
   %73 = sext i32 %67 to i64
-  %74 = getelementptr inbounds [1 x ptr], ptr %71, i64 0, i64 %73
+  %74 = getelementptr inbounds ptr, ptr %71, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !483
   br label %_ZN5caffe18DummyDataParameter25_internal_add_data_fillerEv.exit
 
@@ -103865,7 +103860,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr %27, align 8, !tbaa !485
   %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds [1 x ptr], ptr %88, i64 0, i64 %91
+  %92 = getelementptr inbounds ptr, ptr %88, i64 %91
   store ptr %86, ptr %92, align 8, !tbaa !483
   br label %_ZN5caffe18DummyDataParameter25_internal_add_data_fillerEv.exit
 
@@ -104274,7 +104269,7 @@ _ZN5caffe18DummyDataParameter19_internal_add_widthEj.exit: ; preds = %_ZN6google
   %280 = add nsw i32 %275, 1
   store i32 %280, ptr %9, align 8, !tbaa !485
   %281 = sext i32 %275 to i64
-  %282 = getelementptr inbounds [1 x ptr], ptr %279, i64 0, i64 %281
+  %282 = getelementptr inbounds ptr, ptr %279, i64 %281
   %283 = load ptr, ptr %282, align 8, !tbaa !483
   br label %_ZN5caffe18DummyDataParameter19_internal_add_shapeEv.exit
 
@@ -104304,7 +104299,7 @@ _ZN5caffe18DummyDataParameter19_internal_add_widthEj.exit: ; preds = %_ZN6google
   %298 = add nsw i32 %297, 1
   store i32 %298, ptr %9, align 8, !tbaa !485
   %299 = sext i32 %297 to i64
-  %300 = getelementptr inbounds [1 x ptr], ptr %296, i64 0, i64 %299
+  %300 = getelementptr inbounds ptr, ptr %296, i64 %299
   store ptr %294, ptr %300, align 8, !tbaa !483
   br label %_ZN5caffe18DummyDataParameter19_internal_add_shapeEv.exit
 
@@ -104462,7 +104457,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11,
   %15 = load ptr, ptr %6, align 8, !tbaa !480
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = sext i32 %.048105 to i64
-  %18 = getelementptr inbounds [1 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !483
   store i8 10, ptr %.0.i53, align 1, !tbaa !94
   %20 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 1
@@ -104863,7 +104858,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88: ; preds = %1
   %195 = load ptr, ptr %155, align 8, !tbaa !480
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = sext i32 %.047131 to i64
-  %198 = getelementptr inbounds [1 x ptr], ptr %196, i64 0, i64 %197
+  %198 = getelementptr inbounds ptr, ptr %196, i64 %197
   %199 = load ptr, ptr %198, align 8, !tbaa !483
   store i8 50, ptr %.0.i87, align 1, !tbaa !94
   %200 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 1
@@ -117770,7 +117765,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %53 = add nsw i32 %48, 1
   store i32 %53, ptr %9, align 8, !tbaa !485
   %54 = sext i32 %48 to i64
-  %55 = getelementptr inbounds [1 x ptr], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !483
   br label %_ZN5caffe14InputParameter19_internal_add_shapeEv.exit
 
@@ -117800,7 +117795,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %9, align 8, !tbaa !485
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds [1 x ptr], ptr %69, i64 0, i64 %72
+  %73 = getelementptr inbounds ptr, ptr %69, i64 %72
   store ptr %67, ptr %73, align 8, !tbaa !483
   br label %_ZN5caffe14InputParameter19_internal_add_shapeEv.exit
 
@@ -117955,7 +117950,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11,
   %15 = load ptr, ptr %6, align 8, !tbaa !480
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = sext i32 %.01114 to i64
-  %18 = getelementptr inbounds [1 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !483
   store i8 10, ptr %.0.i12, align 1, !tbaa !94
   %20 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 1
@@ -160458,7 +160453,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe16V0LayerParamet
   %176 = add nsw i32 %171, 1
   store i32 %176, ptr %81, align 8, !tbaa !485
   %177 = sext i32 %171 to i64
-  %178 = getelementptr inbounds [1 x ptr], ptr %175, i64 0, i64 %177
+  %178 = getelementptr inbounds ptr, ptr %175, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter20_internal_add_bottomB5cxx11Ev.exit
 
@@ -160515,7 +160510,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %203 = add nsw i32 %202, 1
   store i32 %203, ptr %81, align 8, !tbaa !485
   %204 = sext i32 %202 to i64
-  %205 = getelementptr inbounds [1 x ptr], ptr %201, i64 0, i64 %204
+  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
   store ptr %.sink5.i.i.i.i.i, ptr %205, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter20_internal_add_bottomB5cxx11Ev.exit
 
@@ -160566,7 +160561,7 @@ _ZN5caffe16V1LayerParameter20_internal_add_bottomB5cxx11Ev.exit: ; preds = %174,
   %227 = add nsw i32 %222, 1
   store i32 %227, ptr %77, align 8, !tbaa !485
   %228 = sext i32 %222 to i64
-  %229 = getelementptr inbounds [1 x ptr], ptr %226, i64 0, i64 %228
+  %229 = getelementptr inbounds ptr, ptr %226, i64 %228
   %230 = load ptr, ptr %229, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter17_internal_add_topB5cxx11Ev.exit
 
@@ -160623,7 +160618,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %254 = add nsw i32 %253, 1
   store i32 %254, ptr %77, align 8, !tbaa !485
   %255 = sext i32 %253 to i64
-  %256 = getelementptr inbounds [1 x ptr], ptr %252, i64 0, i64 %255
+  %256 = getelementptr inbounds ptr, ptr %252, i64 %255
   store ptr %.sink5.i.i.i.i.i174, ptr %256, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter17_internal_add_topB5cxx11Ev.exit
 
@@ -160785,7 +160780,7 @@ _ZN5caffe16V1LayerParameter22mutable_unknown_fieldsEv.exit: ; preds = %311, %315
   %331 = add nsw i32 %326, 1
   store i32 %331, ptr %70, align 8, !tbaa !485
   %332 = sext i32 %326 to i64
-  %333 = getelementptr inbounds [1 x ptr], ptr %330, i64 0, i64 %332
+  %333 = getelementptr inbounds ptr, ptr %330, i64 %332
   %334 = load ptr, ptr %333, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter19_internal_add_blobsEv.exit
 
@@ -160815,7 +160810,7 @@ _ZN5caffe16V1LayerParameter22mutable_unknown_fieldsEv.exit: ; preds = %311, %315
   %349 = add nsw i32 %348, 1
   store i32 %349, ptr %70, align 8, !tbaa !485
   %350 = sext i32 %348 to i64
-  %351 = getelementptr inbounds [1 x ptr], ptr %347, i64 0, i64 %350
+  %351 = getelementptr inbounds ptr, ptr %347, i64 %350
   store ptr %345, ptr %351, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter19_internal_add_blobsEv.exit
 
@@ -163126,7 +163121,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe14SliceParameter
   %1545 = add nsw i32 %1540, 1
   store i32 %1545, ptr %38, align 8, !tbaa !485
   %1546 = sext i32 %1540 to i64
-  %1547 = getelementptr inbounds [1 x ptr], ptr %1544, i64 0, i64 %1546
+  %1547 = getelementptr inbounds ptr, ptr %1544, i64 %1546
   %1548 = load ptr, ptr %1547, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter21_internal_add_includeEv.exit
 
@@ -163156,7 +163151,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe14SliceParameter
   %1563 = add nsw i32 %1562, 1
   store i32 %1563, ptr %38, align 8, !tbaa !485
   %1564 = sext i32 %1562 to i64
-  %1565 = getelementptr inbounds [1 x ptr], ptr %1561, i64 0, i64 %1564
+  %1565 = getelementptr inbounds ptr, ptr %1561, i64 %1564
   store ptr %1559, ptr %1565, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter21_internal_add_includeEv.exit
 
@@ -163261,7 +163256,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i503: ; preds = %_ZN5caffe16V1La
   %1616 = add nsw i32 %1611, 1
   store i32 %1616, ptr %34, align 8, !tbaa !485
   %1617 = sext i32 %1611 to i64
-  %1618 = getelementptr inbounds [1 x ptr], ptr %1615, i64 0, i64 %1617
+  %1618 = getelementptr inbounds ptr, ptr %1615, i64 %1617
   %1619 = load ptr, ptr %1618, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter21_internal_add_excludeEv.exit
 
@@ -163291,7 +163286,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i503: ; preds = %_ZN5caffe16V1La
   %1634 = add nsw i32 %1633, 1
   store i32 %1634, ptr %34, align 8, !tbaa !485
   %1635 = sext i32 %1633 to i64
-  %1636 = getelementptr inbounds [1 x ptr], ptr %1632, i64 0, i64 %1635
+  %1636 = getelementptr inbounds ptr, ptr %1632, i64 %1635
   store ptr %1630, ptr %1636, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter21_internal_add_excludeEv.exit
 
@@ -164211,7 +164206,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN5caffe13LossParameterE
   %2107 = add nsw i32 %2102, 1
   store i32 %2107, ptr %16, align 8, !tbaa !485
   %2108 = sext i32 %2102 to i64
-  %2109 = getelementptr inbounds [1 x ptr], ptr %2106, i64 0, i64 %2108
+  %2109 = getelementptr inbounds ptr, ptr %2106, i64 %2108
   %2110 = load ptr, ptr %2109, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter19_internal_add_paramB5cxx11Ev.exit
 
@@ -164268,7 +164263,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %2134 = add nsw i32 %2133, 1
   store i32 %2134, ptr %16, align 8, !tbaa !485
   %2135 = sext i32 %2133 to i64
-  %2136 = getelementptr inbounds [1 x ptr], ptr %2132, i64 0, i64 %2135
+  %2136 = getelementptr inbounds ptr, ptr %2132, i64 %2135
   store ptr %.sink5.i.i.i.i.i643, ptr %2136, align 8, !tbaa !483
   br label %_ZN5caffe16V1LayerParameter19_internal_add_paramB5cxx11Ev.exit
 
@@ -164550,7 +164545,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %.1733 = phi ptr [ %.0, %.lr.ph ], [ %.0.i290, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit292 ]
   %50 = load ptr, ptr %44, align 8, !tbaa !480
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = getelementptr inbounds nuw [1 x ptr], ptr %51, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !483
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !91
@@ -164598,7 +164593,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %.2735 = phi ptr [ %.1.lcssa, %.lr.ph737 ], [ %.0.i287, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit289 ]
   %72 = load ptr, ptr %48, align 8, !tbaa !480
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = getelementptr inbounds nuw [1 x ptr], ptr %73, i64 0, i64 %indvars.iv879
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv879
   %75 = load ptr, ptr %74, align 8, !tbaa !483
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !91
@@ -164774,7 +164769,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit303: ; preds = %
   %155 = load ptr, ptr %146, align 8, !tbaa !480
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = sext i32 %.0249740 to i64
-  %158 = getelementptr inbounds [1 x ptr], ptr %156, i64 0, i64 %157
+  %158 = getelementptr inbounds ptr, ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !483
   store i8 50, ptr %.0.i302, align 1, !tbaa !94
   %160 = getelementptr inbounds nuw i8, ptr %.0.i302, i64 1
@@ -166826,7 +166821,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit524: ; preds = %
   %1146 = load ptr, ptr %1138, align 8, !tbaa !480
   %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 8
   %1148 = sext i32 %.0252757 to i64
-  %1149 = getelementptr inbounds [1 x ptr], ptr %1147, i64 0, i64 %1148
+  %1149 = getelementptr inbounds ptr, ptr %1147, i64 %1148
   %1150 = load ptr, ptr %1149, align 8, !tbaa !483
   store i8 -126, ptr %.0.i523, align 1, !tbaa !94
   %1151 = getelementptr inbounds nuw i8, ptr %.0.i523, i64 1
@@ -166907,7 +166902,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit532: ; preds = %
   %1185 = load ptr, ptr %1141, align 8, !tbaa !480
   %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 8
   %1187 = sext i32 %.0250763 to i64
-  %1188 = getelementptr inbounds [1 x ptr], ptr %1186, i64 0, i64 %1187
+  %1188 = getelementptr inbounds ptr, ptr %1186, i64 %1187
   %1189 = load ptr, ptr %1188, align 8, !tbaa !483
   store i8 -118, ptr %.0.i531, align 1, !tbaa !94
   %1190 = getelementptr inbounds nuw i8, ptr %.0.i531, i64 1
@@ -167839,7 +167834,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit640: ; p
   %.41776 = phi ptr [ %.40, %.lr.ph778 ], [ %.0.i286, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %1636 = load ptr, ptr %1630, align 8, !tbaa !480
   %1637 = getelementptr inbounds nuw i8, ptr %1636, i64 8
-  %1638 = getelementptr inbounds nuw [1 x ptr], ptr %1637, i64 0, i64 %indvars.iv902
+  %1638 = getelementptr inbounds nuw ptr, ptr %1637, i64 %indvars.iv902
   %1639 = load ptr, ptr %1638, align 8, !tbaa !483
   %1640 = getelementptr inbounds nuw i8, ptr %1639, i64 8
   %1641 = load i64, ptr %1640, align 8, !tbaa !91
@@ -168002,7 +167997,7 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.0129370 = phi i64 [ %4, %.lr.ph ], [ %31, %17 ]
-  %18 = getelementptr inbounds nuw [1 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !483
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !91
@@ -168039,7 +168034,7 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
 40:                                               ; preds = %.lr.ph374, %40
   %indvars.iv420 = phi i64 [ 0, %.lr.ph374 ], [ %indvars.iv.next421, %40 ]
   %.1372 = phi i64 [ %12, %.lr.ph374 ], [ %54, %40 ]
-  %41 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv420
+  %41 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv420
   %42 = load ptr, ptr %41, align 8, !tbaa !483
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !91
@@ -168196,7 +168191,7 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
 138:                                              ; preds = %.lr.ph401, %138
   %indvars.iv425 = phi i64 [ 0, %.lr.ph401 ], [ %indvars.iv.next426, %138 ]
   %.5399 = phi i64 [ %116, %.lr.ph401 ], [ %152, %138 ]
-  %139 = getelementptr inbounds nuw [1 x ptr], ptr %120, i64 0, i64 %indvars.iv425
+  %139 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv425
   %140 = load ptr, ptr %139, align 8, !tbaa !483
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load i64, ptr %141, align 8, !tbaa !91
@@ -176434,7 +176429,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit210: ; preds = %501
   %539 = add nsw i32 %534, 1
   store i32 %539, ptr %32, align 8, !tbaa !485
   %540 = sext i32 %534 to i64
-  %541 = getelementptr inbounds [1 x ptr], ptr %538, i64 0, i64 %540
+  %541 = getelementptr inbounds ptr, ptr %538, i64 %540
   %542 = load ptr, ptr %541, align 8, !tbaa !483
   br label %_ZN5caffe16V0LayerParameter19_internal_add_blobsEv.exit
 
@@ -176464,7 +176459,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit210: ; preds = %501
   %557 = add nsw i32 %556, 1
   store i32 %557, ptr %32, align 8, !tbaa !485
   %558 = sext i32 %556 to i64
-  %559 = getelementptr inbounds [1 x ptr], ptr %555, i64 0, i64 %558
+  %559 = getelementptr inbounds ptr, ptr %555, i64 %558
   store ptr %553, ptr %559, align 8, !tbaa !483
   br label %_ZN5caffe16V0LayerParameter19_internal_add_blobsEv.exit
 
@@ -178313,7 +178308,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit326: ; preds = %
   %521 = load ptr, ptr %512, align 8, !tbaa !480
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 8
   %523 = sext i32 %.0165474 to i64
-  %524 = getelementptr inbounds [1 x ptr], ptr %522, i64 0, i64 %523
+  %524 = getelementptr inbounds ptr, ptr %522, i64 %523
   %525 = load ptr, ptr %524, align 8, !tbaa !483
   store i8 -110, ptr %.0.i325, align 1, !tbaa !94
   %526 = getelementptr inbounds nuw i8, ptr %.0.i325, i64 1

@@ -18315,7 +18315,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.
   %.1.us.i = phi i1 [ true, %244 ], [ true, %236 ], [ false, %243 ], [ true, %239 ], [ false, %230 ], [ true, %233 ], [ false, %228 ], [ false, %224 ]
   %246 = phi i64 [ 1, %244 ], [ 2, %236 ], [ 3, %243 ], [ 0, %239 ], [ 0, %230 ], [ 3, %233 ], [ 2, %228 ], [ 1, %224 ]
   %247 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %221
-  %248 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %247, i64 0, i64 %246
+  %248 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %247, i64 %246
   %249 = load i32, ptr %248, align 4
   %250 = and i32 %249, 2
   %.not18.us.i = icmp eq i32 %250, 0
@@ -18339,9 +18339,9 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap25transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.e
   %258 = fcmp ult double %.03443.i, %.03344.i
   %259 = select i1 %258, i64 0, i64 2
   %260 = zext i1 %257 to i64
-  %261 = or disjoint i64 %259, %260
-  %262 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %256
-  %263 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %262, i64 0, i64 %261
+  %261 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %256
+  %262 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %261, i64 %259
+  %263 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %262, i64 %260
   %264 = load i32, ptr %263, align 4
   %265 = and i32 %264, 2
   %.not18.i = icmp eq i32 %265, 0
@@ -18481,17 +18481,17 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit: ; preds = %_ZN10OpenSub
   store ptr %300, ptr %17, align 8, !alias.scope !194
   store ptr %303, ptr %181, align 8, !alias.scope !194
   store ptr %305, ptr %182, align 8, !alias.scope !194
-  %306 = getelementptr inbounds nuw [20 x float], ptr %11, i64 0, i64 %indvars.iv347
+  %306 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv347
   %307 = load float, ptr %306, align 4
-  %308 = getelementptr inbounds nuw [20 x float], ptr %12, i64 0, i64 %indvars.iv347
+  %308 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv347
   %309 = load float, ptr %308, align 4
-  %310 = getelementptr inbounds nuw [20 x float], ptr %13, i64 0, i64 %indvars.iv347
+  %310 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv347
   %311 = load float, ptr %310, align 4
-  %312 = getelementptr inbounds nuw [20 x float], ptr %14, i64 0, i64 %indvars.iv347
+  %312 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv347
   %313 = load float, ptr %312, align 4
-  %314 = getelementptr inbounds nuw [20 x float], ptr %15, i64 0, i64 %indvars.iv347
+  %314 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv347
   %315 = load float, ptr %314, align 4
-  %316 = getelementptr inbounds nuw [20 x float], ptr %16, i64 0, i64 %indvars.iv347
+  %316 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv347
   %317 = load float, ptr %316, align 4
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Index13AddWithWeightERKNS1_11StencilRealIfEEffffff(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %307, float noundef %309, float noundef %311, float noundef %313, float noundef %315, float noundef %317)
           to label %318 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -18552,11 +18552,11 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit: ; preds = %_ZN10OpenSub
   store ptr %330, ptr %18, align 8, !alias.scope !202
   store ptr %333, ptr %183, align 8, !alias.scope !202
   store ptr %335, ptr %184, align 8, !alias.scope !202
-  %336 = getelementptr inbounds nuw [20 x float], ptr %11, i64 0, i64 %indvars.iv352
+  %336 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv352
   %337 = load float, ptr %336, align 4
-  %338 = getelementptr inbounds nuw [20 x float], ptr %12, i64 0, i64 %indvars.iv352
+  %338 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv352
   %339 = load float, ptr %338, align 4
-  %340 = getelementptr inbounds nuw [20 x float], ptr %13, i64 0, i64 %indvars.iv352
+  %340 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv352
   %341 = load float, ptr %340, align 4
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Index13AddWithWeightERKNS1_11StencilRealIfEEfff(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(24) %18, float noundef %337, float noundef %339, float noundef %341)
           to label %342 unwind label %.loopexit.split-lp.loopexit
@@ -18608,7 +18608,7 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit: ; preds = %_ZN10OpenSub
   store ptr %353, ptr %19, align 8, !alias.scope !210
   store ptr %356, ptr %185, align 8, !alias.scope !210
   store ptr %358, ptr %186, align 8, !alias.scope !210
-  %359 = getelementptr inbounds nuw [20 x float], ptr %11, i64 0, i64 %indvars.iv357
+  %359 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv357
   %360 = load float, ptr %359, align 4
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIfE5Index13AddWithWeightERKNS1_11StencilRealIfEEf(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(24) %19, float noundef %360)
           to label %361 unwind label %.loopexit290
@@ -19286,7 +19286,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.
   %.1.us.i = phi i1 [ true, %242 ], [ true, %234 ], [ false, %241 ], [ true, %237 ], [ false, %228 ], [ true, %231 ], [ false, %226 ], [ false, %222 ]
   %244 = phi i64 [ 1, %242 ], [ 2, %234 ], [ 3, %241 ], [ 0, %237 ], [ 0, %228 ], [ 3, %231 ], [ 2, %226 ], [ 1, %222 ]
   %245 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %219
-  %246 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %245, i64 0, i64 %244
+  %246 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %245, i64 %244
   %247 = load i32, ptr %246, align 4
   %248 = and i32 %247, 2
   %.not18.us.i = icmp eq i32 %248, 0
@@ -19310,9 +19310,9 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap25transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.e
   %256 = fcmp ult double %.03443.i, %.03344.i
   %257 = select i1 %256, i64 0, i64 2
   %258 = zext i1 %255 to i64
-  %259 = or disjoint i64 %257, %258
-  %260 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %254
-  %261 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %260, i64 0, i64 %259
+  %259 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %254
+  %260 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %259, i64 %257
+  %261 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %260, i64 %258
   %262 = load i32, ptr %261, align 4
   %263 = and i32 %262, 2
   %.not18.i = icmp eq i32 %263, 0
@@ -19452,17 +19452,17 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit: ; preds = %_ZN10OpenSub
   store ptr %298, ptr %17, align 8, !alias.scope !221
   store ptr %301, ptr %181, align 8, !alias.scope !221
   store ptr %303, ptr %182, align 8, !alias.scope !221
-  %304 = getelementptr inbounds nuw [20 x double], ptr %11, i64 0, i64 %indvars.iv347
+  %304 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv347
   %305 = load double, ptr %304, align 8
-  %306 = getelementptr inbounds nuw [20 x double], ptr %12, i64 0, i64 %indvars.iv347
+  %306 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv347
   %307 = load double, ptr %306, align 8
-  %308 = getelementptr inbounds nuw [20 x double], ptr %13, i64 0, i64 %indvars.iv347
+  %308 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv347
   %309 = load double, ptr %308, align 8
-  %310 = getelementptr inbounds nuw [20 x double], ptr %14, i64 0, i64 %indvars.iv347
+  %310 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv347
   %311 = load double, ptr %310, align 8
-  %312 = getelementptr inbounds nuw [20 x double], ptr %15, i64 0, i64 %indvars.iv347
+  %312 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv347
   %313 = load double, ptr %312, align 8
-  %314 = getelementptr inbounds nuw [20 x double], ptr %16, i64 0, i64 %indvars.iv347
+  %314 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv347
   %315 = load double, ptr %314, align 8
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Index13AddWithWeightERKNS1_11StencilRealIdEEdddddd(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(24) %17, double noundef %305, double noundef %307, double noundef %309, double noundef %311, double noundef %313, double noundef %315)
           to label %316 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -19523,11 +19523,11 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit: ; preds = %_ZN10OpenSub
   store ptr %328, ptr %18, align 8, !alias.scope !229
   store ptr %331, ptr %183, align 8, !alias.scope !229
   store ptr %333, ptr %184, align 8, !alias.scope !229
-  %334 = getelementptr inbounds nuw [20 x double], ptr %11, i64 0, i64 %indvars.iv352
+  %334 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv352
   %335 = load double, ptr %334, align 8
-  %336 = getelementptr inbounds nuw [20 x double], ptr %12, i64 0, i64 %indvars.iv352
+  %336 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv352
   %337 = load double, ptr %336, align 8
-  %338 = getelementptr inbounds nuw [20 x double], ptr %13, i64 0, i64 %indvars.iv352
+  %338 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv352
   %339 = load double, ptr %338, align 8
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Index13AddWithWeightERKNS1_11StencilRealIdEEddd(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(24) %18, double noundef %335, double noundef %337, double noundef %339)
           to label %340 unwind label %.loopexit.split-lp.loopexit
@@ -19579,7 +19579,7 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit: ; preds = %_ZN10OpenSub
   store ptr %351, ptr %19, align 8, !alias.scope !237
   store ptr %354, ptr %185, align 8, !alias.scope !237
   store ptr %356, ptr %186, align 8, !alias.scope !237
-  %357 = getelementptr inbounds nuw [20 x double], ptr %11, i64 0, i64 %indvars.iv357
+  %357 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv357
   %358 = load double, ptr %357, align 8
   invoke void @_ZN10OpenSubdiv6v3_6_03Far8internal14StencilBuilderIdE5Index13AddWithWeightERKNS1_11StencilRealIdEEd(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(24) %19, double noundef %358)
           to label %359 unwind label %.loopexit290

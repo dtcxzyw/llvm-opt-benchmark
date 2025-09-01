@@ -971,7 +971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242: ; preds = %_Z
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %317 ]
   %330 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !tbaa !14
-  %332 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.9.5332, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %332 = getelementptr inbounds nuw i8, ptr %.sroa.9.5332, i64 %indvars.iv.i.i.i.i.i.i
   store i8 %331, ptr %332, align 1, !tbaa !14
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 3
@@ -1019,7 +1019,7 @@ _ZNKSt6vectorIN2cv3VecIhLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %333
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %347 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %348 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %349 = load i8, ptr %348, align 1, !tbaa !14
-  %350 = getelementptr inbounds nuw [3 x i8], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %350 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store i8 %349, ptr %350, align 1, !tbaa !14
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 3

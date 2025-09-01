@@ -3660,7 +3660,7 @@ define internal fastcc void @e1000_configure(ptr noundef %0) unnamed_addr #1 ali
 507:                                              ; preds = %.loopexit78, %506
   %508 = phi i64 [ 0, %506 ], [ %535, %.loopexit78 ]
   %509 = shl nuw nsw i64 %508, 2
-  %510 = getelementptr [10 x i32], ptr %2, i64 0, i64 %508
+  %510 = getelementptr i32, ptr %2, i64 %508
   %511 = load i32, ptr %510, align 4
   %512 = load ptr, ptr %79, align 8
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 11920
@@ -7869,7 +7869,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %143 = zext i8 %139 to i64
-  %144 = getelementptr [17 x %struct.bio_vec], ptr %142, i64 0, i64 %143
+  %144 = getelementptr %struct.bio_vec, ptr %142, i64 %143
   store ptr %141, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 12
   store i32 0, ptr %145, align 4
@@ -7977,7 +7977,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %209, i64 48
   %215 = zext i8 %211 to i64
-  %216 = getelementptr [17 x %struct.bio_vec], ptr %214, i64 0, i64 %215
+  %216 = getelementptr %struct.bio_vec, ptr %214, i64 %215
   store ptr %213, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 12
   store i32 0, ptr %217, align 4
@@ -8561,7 +8561,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
 
 144:                                              ; preds = %198, %136
   %145 = phi i64 [ 0, %136 ], [ %212, %198 ]
-  %146 = getelementptr [3 x i16], ptr %91, i64 0, i64 %145
+  %146 = getelementptr i16, ptr %91, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = icmp eq i16 %147, 0
   br i1 %148, label %214, label %149
@@ -8580,7 +8580,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   %158 = zext i32 %157 to i64
   %159 = getelementptr i8, ptr %156, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  %161 = getelementptr [17 x %struct.bio_vec], ptr %160, i64 0, i64 %145
+  %161 = getelementptr %struct.bio_vec, ptr %160, i64 %145
   store ptr %155, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i32 0, ptr %162, align 4
@@ -10479,7 +10479,7 @@ define internal void @e1000_alloc_rx_buffers_ps(ptr noundef captures(none) %0, i
 62:                                               ; preds = %52, %._crit_edge, %35
   %63 = phi i64 [ -1, %35 ], [ %.pre, %._crit_edge ], [ %53, %52 ]
   %64 = add nuw nsw i64 %36, 1
-  %65 = getelementptr [4 x i64], ptr %33, i64 0, i64 %64
+  %65 = getelementptr i64, ptr %33, i64 %64
   store i64 %63, ptr %65, align 8
   %66 = icmp eq i64 %64, 3
   br i1 %66, label %67, label %35, !llvm.loop !60
@@ -11978,7 +11978,7 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr noundef readonly captures(n
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr [17 x ptr], ptr @e1000_info_tbl, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @e1000_info_tbl, i64 %5
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2
@@ -15640,7 +15640,7 @@ e1000_tx_csum.exit:                               ; preds = %406, %439
   %584 = zext i32 %583 to i64
   %585 = getelementptr i8, ptr %582, i64 %584
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 48
-  %587 = getelementptr [17 x %struct.bio_vec], ptr %586, i64 0, i64 %579
+  %587 = getelementptr %struct.bio_vec, ptr %586, i64 %579
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 8
   %589 = load i32, ptr %588, align 8
   %590 = icmp eq i32 %589, 0

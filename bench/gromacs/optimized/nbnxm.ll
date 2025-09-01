@@ -210,10 +210,9 @@ define void @_ZN3gmx26nbnxn_put_on_grid_nonlocalEPNS_18nonbonded_verlet_tERKNS_1
 
 25:                                               ; preds = %.lr.ph, %_ZNK3gmx11DomdecZones9atomRangeEi.exit17
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZNK3gmx11DomdecZones9atomRangeEi.exit17 ]
-  %26 = getelementptr inbounds nuw [9 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %26 = getelementptr i32, ptr %11, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !63
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw [9 x i32], ptr %11, i64 0, i64 %indvars.iv.next
+  %28 = getelementptr i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !63
   %.not.i.i = icmp sgt i32 %27, %29
   br i1 %.not.i.i, label %30, label %_ZNK3gmx11DomdecZones9atomRangeEi.exit17
@@ -223,55 +222,53 @@ define void @_ZN3gmx26nbnxn_put_on_grid_nonlocalEPNS_18nonbonded_verlet_tERKNS_1
   unreachable
 
 _ZNK3gmx11DomdecZones9atomRangeEi.exit17:         ; preds = %25
-  %31 = getelementptr inbounds nuw [8 x %"struct.gmx::gmx_domdec_zone_size_t"], ptr %12, i64 0, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %.sroa.2.0.insert.ext.i = zext i32 %29 to i64
-  %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %27 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %34 = load ptr, ptr %21, align 8, !tbaa !4
-  %35 = load ptr, ptr %22, align 8, !tbaa !48
+  %31 = load i64, ptr %26, align 4
+  %32 = getelementptr inbounds nuw %"struct.gmx::gmx_domdec_zone_size_t", ptr %12, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %35 = load ptr, ptr %21, align 8, !tbaa !4
+  %36 = load ptr, ptr %22, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %36 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
-  %37 = extractvalue { i32, i32 } %36, 0
-  %38 = extractvalue { i32, i32 } %36, 1
-  %39 = zext i32 %37 to i64
+  %37 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
+  %38 = extractvalue { i32, i32 } %37, 0
+  %39 = extractvalue { i32, i32 } %37, 1
   %40 = zext i32 %38 to i64
-  %41 = shl nuw i64 %40, 32
-  %42 = or disjoint i64 %41, %39
-  %43 = getelementptr inbounds nuw i8, ptr %34, i64 280
-  store i64 %42, ptr %43, align 8, !tbaa !51
+  %41 = zext i32 %39 to i64
+  %42 = shl nuw i64 %41, 32
+  %43 = or disjoint i64 %42, %40
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 280
+  store i64 %43, ptr %44, align 8, !tbaa !51
   store ptr %2, ptr %7, align 8, !tbaa !43
   store ptr %16, ptr %23, align 8, !tbaa !43
   store ptr %4, ptr %8, align 8, !tbaa !45
   store ptr %20, ptr %24, align 8, !tbaa !45
-  %44 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSA_IKNS_11BasicVectorIfEEEEPSB_PNS_16nbnxn_atomdata_tE(ptr noundef nonnull align 8 dereferenceable(336) %34, ptr noundef null, i32 noundef %44, ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef null, i64 %.sroa.0.0.insert.insert.i, i32 noundef %29, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.51") align 8 %8, ptr noundef null, ptr noundef %35)
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 264
-  %46 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
-  %47 = extractvalue { i32, i32 } %46, 0
-  %48 = extractvalue { i32, i32 } %46, 1
-  %49 = zext i32 %47 to i64
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSA_IKNS_11BasicVectorIfEEEEPSB_PNS_16nbnxn_atomdata_tE(ptr noundef nonnull align 8 dereferenceable(336) %35, ptr noundef null, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef null, i64 %31, i32 noundef %29, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.51") align 8 %8, ptr noundef null, ptr noundef %36)
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 264
+  %47 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
+  %48 = extractvalue { i32, i32 } %47, 0
+  %49 = extractvalue { i32, i32 } %47, 1
   %50 = zext i32 %48 to i64
-  %51 = shl nuw i64 %50, 32
-  %52 = load i64, ptr %43, align 8, !tbaa !51
-  %53 = getelementptr inbounds nuw i8, ptr %34, i64 272
-  %54 = load i64, ptr %53, align 8, !tbaa !54
-  %55 = sub i64 %49, %52
-  %56 = add i64 %55, %54
-  %57 = add i64 %56, %51
-  store i64 %57, ptr %53, align 8, !tbaa !54
-  %58 = load i32, ptr %45, align 8, !tbaa !55
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %45, align 8, !tbaa !55
+  %51 = zext i32 %49 to i64
+  %52 = shl nuw i64 %51, 32
+  %53 = load i64, ptr %44, align 8, !tbaa !51
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 272
+  %55 = load i64, ptr %54, align 8, !tbaa !54
+  %56 = sub i64 %50, %53
+  %57 = add i64 %56, %55
+  %58 = add i64 %57, %52
+  store i64 %58, ptr %54, align 8, !tbaa !54
+  %59 = load i32, ptr %46, align 8, !tbaa !55
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %46, align 8, !tbaa !55
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %60 = load i32, ptr %1, align 4, !tbaa !56
-  %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %25, label %._crit_edge, !llvm.loop !64
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %61 = load i32, ptr %1, align 4, !tbaa !56
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next, %62
+  br i1 %63, label %25, label %._crit_edge, !llvm.loop !64
 }
 
 ; Function Attrs: noreturn

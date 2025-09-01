@@ -389,7 +389,7 @@ define dso_local void @load_builtin_commands(ptr noundef %0, ptr noundef %1) loc
 
 skip_prefix.exit.preheader:                       ; preds = %3, %skip_prefix.exit6
   %.018 = phi i64 [ %23, %skip_prefix.exit6 ], [ 0, %3 ]
-  %11 = getelementptr inbounds nuw [142 x %struct.cmd_struct], ptr @commands, i64 0, i64 %.018
+  %11 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.018
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   br label %13
 
@@ -2618,26 +2618,26 @@ define internal fastcc void @list_builtins(ptr noundef nonnull %0, i32 noundef r
 
 .split.us:                                        ; preds = %2, %.split.us
   %.08.us = phi i64 [ %6, %.split.us ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw [142 x %struct.cmd_struct], ptr @commands, i64 0, i64 %.08.us
+  %3 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08.us
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = tail call ptr @string_list_append(ptr noundef nonnull %0, ptr noundef %4) #16
   %6 = add nuw nsw i64 %.08.us, 1
-  %exitcond13.not = icmp eq i64 %6, 142
-  br i1 %exitcond13.not, label %.split11.us, label %.split.us, !llvm.loop !72
+  %exitcond12.not = icmp eq i64 %6, 142
+  br i1 %exitcond12.not, label %.split10.us, label %.split.us, !llvm.loop !72
 
-.split11.us:                                      ; preds = %14, %.split.us
+.split10.us:                                      ; preds = %14, %.split.us
   ret void
 
 .split:                                           ; preds = %2, %14
   %.08 = phi i64 [ %15, %14 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [142 x %struct.cmd_struct], ptr @commands, i64 0, i64 %.08, i32 2
+  %7 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08, i32 2
   %8 = load i32, ptr %7, align 8, !tbaa !45
   %9 = and i32 %8, %1
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %10, label %14
 
 10:                                               ; preds = %.split
-  %11 = getelementptr inbounds nuw [142 x %struct.cmd_struct], ptr @commands, i64 0, i64 %.08
+  %11 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = tail call ptr @string_list_append(ptr noundef nonnull %0, ptr noundef %12) #16
   br label %14
@@ -2645,7 +2645,7 @@ define internal fastcc void @list_builtins(ptr noundef nonnull %0, i32 noundef r
 14:                                               ; preds = %.split, %10
   %15 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %15, 142
-  br i1 %exitcond.not, label %.split11.us, label %.split, !llvm.loop !72
+  br i1 %exitcond.not, label %.split10.us, label %.split, !llvm.loop !72
 }
 
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2698,12 +2698,12 @@ match_token.exit:                                 ; preds = %12
 
 .split.us.i:                                      ; preds = %match_token.exit, %.split.us.i
   %.08.us.i = phi i64 [ %22, %.split.us.i ], [ 0, %match_token.exit ]
-  %19 = getelementptr inbounds nuw [142 x %struct.cmd_struct], ptr @commands, i64 0, i64 %.08.us.i
+  %19 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08.us.i
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = call ptr @string_list_append(ptr noundef nonnull %2, ptr noundef %20) #16
   %22 = add nuw nsw i64 %.08.us.i, 1
-  %exitcond13.not.i = icmp eq i64 %22, 142
-  br i1 %exitcond13.not.i, label %list_builtins.exit, label %.split.us.i, !llvm.loop !72
+  %exitcond12.not.i = icmp eq i64 %22, 142
+  br i1 %exitcond12.not.i, label %list_builtins.exit, label %.split.us.i, !llvm.loop !72
 
 match_token.exit38:                               ; preds = %12
   %23 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.02761, ptr noundef nonnull dereferenceable(5) @.str.226, i64 noundef 4) #17

@@ -4043,7 +4043,7 @@ _ZN4llvm5APIntD2Ev.exit1072:                      ; preds = %.critedge906, %1740
 
 1779:                                             ; preds = %1771, %1766
   %.sink.i1077 = phi i32 [ %1778, %1771 ], [ -1, %1766 ]
-  %1780 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %indvars.iv.i
+  %1780 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   store i32 %.sink.i1077, ptr %1780, align 4, !tbaa !62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i1078 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4146,7 +4146,7 @@ _ZL17simplifyX86vpermvRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderEN
 
 1827:                                             ; preds = %1819, %1814
   %.sink.i1089 = phi i32 [ %1826, %1819 ], [ -1, %1814 ]
-  %1828 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %indvars.iv.i1082
+  %1828 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i1082
   store i32 %.sink.i1089, ptr %1828, align 4, !tbaa !62
   %indvars.iv.next.i1090 = add nuw nsw i64 %indvars.iv.i1082, 1
   %exitcond.not.i1091 = icmp eq i64 %indvars.iv.next.i1090, %wide.trip.count.i1081
@@ -7638,7 +7638,7 @@ define internal fastcc noundef ptr @_ZL19simplifyX86insertpsRKN4llvm13IntrinsicI
 45:                                               ; preds = %41, %38
   %46 = zext nneg i8 %26 to i32
   %47 = zext nneg i8 %25 to i64
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
   store i32 %46, ptr %48, align 4, !tbaa !62
   br label %49
 
@@ -7651,7 +7651,7 @@ define internal fastcc noundef ptr @_ZL19simplifyX86insertpsRKN4llvm13IntrinsicI
   br i1 %.not36, label %57, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %55 = trunc i64 %indvars.iv to i32
   %56 = or i32 %55, 4
   store i32 %56, ptr %54, align 4, !tbaa !62
@@ -7666,7 +7666,7 @@ define internal fastcc noundef ptr @_ZL19simplifyX86insertpsRKN4llvm13IntrinsicI
   %59 = or disjoint i8 %26, 4
   %60 = zext nneg i8 %59 to i32
   %61 = zext nneg i8 %25 to i64
-  %62 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %3, i64 %61
   store i32 %60, ptr %62, align 4, !tbaa !62
   %.pre = load ptr, ptr %35, align 8, !tbaa !3
   br label %.loopexit
@@ -9295,7 +9295,7 @@ define internal fastcc noundef ptr @_ZL17simplifyX86pshufbRKN4llvm13IntrinsicIns
 
 39:                                               ; preds = %22, %27
   %.sink = phi i32 [ %38, %27 ], [ -1, %22 ]
-  %40 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %.sink, ptr %40, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9441,7 +9441,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %19, %28
   br i1 %46, label %49, label %.loopexit
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 -1, ptr %48, align 4, !tbaa !62
   br label %99
 
@@ -9558,7 +9558,7 @@ _ZN4llvm5APIntD2Ev.exit32:                        ; preds = %_ZN4llvm5APInt11lsh
   %.0.in.i = select i1 %93, ptr %4, ptr %94
   %.0.i33 = load i64, ptr %.0.in.i, align 8, !tbaa !25
   %95 = trunc i64 %.0.i33 to i32
-  %96 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %95, ptr %96, align 4, !tbaa !62
   %97 = icmp eq ptr %94, null
   %or.cond = select i1 %93, i1 true, i1 %97

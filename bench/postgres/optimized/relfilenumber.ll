@@ -46,7 +46,7 @@ define dso_local void @transfer_all_new_tablespaces(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.transfer_all_new_tablespaces, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.transfer_all_new_tablespaces, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @prep_status_progress(ptr noundef nonnull %switch.load) #7
   br label %8

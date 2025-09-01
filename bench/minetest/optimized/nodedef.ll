@@ -15118,7 +15118,7 @@ for.body501:                                      ; preds = %for.body501.prehead
 
 invoke.cont505:                                   ; preds = %for.body501
   %indvars62 = trunc i64 %indvars.iv to i32
-  %arrayidx509 = getelementptr inbounds nuw [24 x ptr], ptr %mesh_ptr484, i64 0, i64 %indvars.iv
+  %arrayidx509 = getelementptr inbounds nuw ptr, ptr %mesh_ptr484, i64 %indvars.iv
   store ptr %call506, ptr %arrayidx509, align 8, !tbaa !31
   invoke void @_Z21rotateMeshBy6dFacedirPN3irr5scene5IMeshEi(ptr noundef %call506, i32 noundef %indvars62)
           to label %invoke.cont514 unwind label %lpad504
@@ -22120,7 +22120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %bf.value.i = and i8 %35, 15
   %bf.set13.i = or disjoint i8 %bf.set10.i, %bf.value.i
   %m_content_lighting_flag_cache = getelementptr inbounds nuw i8, ptr %this, i64 312
-  %arrayidx = getelementptr inbounds nuw [65536 x %struct.ContentLightingFlags], ptr %m_content_lighting_flag_cache, i64 0, i64 %conv7.pre-phi
+  %arrayidx = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache, i64 %conv7.pre-phi
   store i8 %bf.set13.i, ptr %arrayidx, align 1, !tbaa !13
   %.not = icmp eq ptr @_ZTH13verbosestream, null
   br i1 %.not, label %_ZTW13verbosestream.exit, label %36
@@ -24240,7 +24240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241: ; preds = %if
   %70 = load i8, ptr %light_source.i, align 1, !tbaa !285
   %bf.value.i = and i8 %70, 15
   %bf.set13.i = or disjoint i8 %bf.set10.i, %bf.value.i
-  %arrayidx = getelementptr inbounds nuw [65536 x %struct.ContentLightingFlags], ptr %m_content_lighting_flag_cache, i64 0, i64 %conv66
+  %arrayidx = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache, i64 %conv66
   store i8 %bf.set13.i, ptr %arrayidx, align 1, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %i.addr.i)
   store i16 %rev.i.i.i171, ptr %i.addr.i, align 2, !tbaa !302
@@ -25500,22 +25500,22 @@ if.then77:                                        ; preds = %if.then69, %if.then
   %mul = shl nuw nsw i64 %conv80, 2
   %30 = and i8 %to.sroa.6222.0.extract.trunc, 3
   %and = zext nneg i8 %30 to i64
-  %add = or disjoint i64 %mul, %and
-  %arrayidx = getelementptr inbounds nuw [132 x i8], ptr @_ZZNK14NodeDefManager15nodeboxConnectsE7MapNodeS0_hE3rot, i64 0, i64 %add
-  %31 = load i8, ptr %arrayidx, align 1, !tbaa !13
-  %and83141 = and i8 %31, %28
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZNK14NodeDefManager15nodeboxConnectsE7MapNodeS0_hE3rot, i64 %mul
+  %arrayidx = getelementptr inbounds nuw i8, ptr %31, i64 %and
+  %32 = load i8, ptr %arrayidx, align 1, !tbaa !13
+  %and83141 = and i8 %32, %28
   %tobool = icmp ne i8 %and83141, 0
   br label %cleanup114
 
 if.then91:                                        ; preds = %if.then69, %lor.lhs.false62
   %conv94 = zext i8 %connect_face to i64
   %mul95 = shl nuw nsw i64 %conv94, 2
-  %32 = and i8 %to.sroa.6222.0.extract.trunc, 3
-  %and98 = zext nneg i8 %32 to i64
-  %add99 = or disjoint i64 %mul95, %and98
-  %arrayidx101 = getelementptr inbounds nuw [132 x i8], ptr @_ZZNK14NodeDefManager15nodeboxConnectsE7MapNodeS0_hE3rot, i64 0, i64 %add99
-  %33 = load i8, ptr %arrayidx101, align 1, !tbaa !13
-  %and103140 = and i8 %33, %28
+  %33 = and i8 %to.sroa.6222.0.extract.trunc, 3
+  %and98 = zext nneg i8 %33 to i64
+  %34 = getelementptr inbounds nuw i8, ptr @_ZZNK14NodeDefManager15nodeboxConnectsE7MapNodeS0_hE3rot, i64 %mul95
+  %arrayidx101 = getelementptr inbounds nuw i8, ptr %34, i64 %and98
+  %35 = load i8, ptr %arrayidx101, align 1, !tbaa !13
+  %and103140 = and i8 %35, %28
   %tobool104 = icmp ne i8 %and103140, 0
   br label %cleanup114
 

@@ -1110,7 +1110,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_rps_map(ptr noundef
 12:                                               ; preds = %12, %10
   %13 = phi i32 [ 0, %10 ], [ %18, %12 ]
   %14 = sext i32 %13 to i64
-  %15 = getelementptr [0 x i16], ptr %11, i64 0, i64 %14
+  %15 = getelementptr i16, ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %17) #10, !srcloc !25
@@ -1235,7 +1235,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @netdev_rx_queue_set_rps_ma
   %26 = trunc i64 %22 to i16
   %27 = add i32 %18, 1
   %28 = sext i32 %18 to i64
-  %29 = getelementptr [0 x i16], ptr %14, i64 0, i64 %28
+  %29 = getelementptr i16, ptr %14, i64 %28
   store i16 %26, ptr %29, align 2
   %30 = add nuw nsw i64 %22, 1
   %31 = and i64 %30, 127
@@ -1381,7 +1381,7 @@ define internal i64 @store_rps_dev_flow_table_cnt(ptr noundef %0, ptr noundef %1
 
 31:                                               ; preds = %31, %29
   %32 = phi i64 [ 0, %29 ], [ %34, %31 ]
-  %33 = getelementptr [0 x %struct.rps_dev_flow], ptr %30, i64 0, i64 %32
+  %33 = getelementptr %struct.rps_dev_flow, ptr %30, i64 %32
   store i16 -1, ptr %33, align 8
   %34 = add nuw nsw i64 %32, 1
   %35 = icmp eq i64 %32, %17
@@ -1768,7 +1768,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
   tail call void @__rcu_read_lock() #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr [2 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1808,7 +1808,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
   %34 = mul i32 %31, %33
   %35 = add i32 %34, %2
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [0 x ptr], ptr %29, i64 0, i64 %36
+  %37 = getelementptr ptr, ptr %29, i64 %36
   %38 = load volatile ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.loopexit, label %40
@@ -1826,7 +1826,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
 46:                                               ; preds = %43
   %47 = add i32 %44, -1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr [0 x i16], ptr %42, i64 0, i64 %48
+  %49 = getelementptr i16, ptr %42, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = icmp eq i32 %1, %51
@@ -2894,7 +2894,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @operstate_show(ptr nound
 
 12:                                               ; preds = %3
   %13 = zext nneg i8 %10 to i64
-  %14 = getelementptr [7 x ptr], ptr @operstates, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr @operstates, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef %15) #10
   %17 = sext i32 %16 to i64

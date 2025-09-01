@@ -56,7 +56,7 @@ define i64 @Gia_ResubToTruth6_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 common.ret:                                       ; preds = %3
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %5
+  %6 = getelementptr inbounds i64, ptr @s_Truths6, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !12
   br label %common.ret32
 
@@ -318,7 +318,7 @@ Vec_WrdStart.exit97:                              ; preds = %Abc_TtCopy.exit.loo
   br label %96
 
 96:                                               ; preds = %95, %94
-  %97 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %92
+  %97 = getelementptr inbounds nuw ptr, ptr %7, i64 %92
   %98 = load ptr, ptr %97, align 8, !tbaa !22
   %99 = and i64 %79, 63
   %100 = shl nuw i64 1, %99
@@ -583,7 +583,7 @@ Vec_WrdStart.exit.i:                              ; preds = %12, %3
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %33, !llvm.loop !29
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %35 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %35 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %36 = load i32, ptr %35, align 4, !tbaa !11
   br label %33
 
@@ -843,7 +843,7 @@ Vec_WrdStart.exit.i:                              ; preds = %11, %2
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %32, !llvm.loop !29
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %34 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %34 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %35 = load i32, ptr %34, align 4, !tbaa !11
   br label %32
 

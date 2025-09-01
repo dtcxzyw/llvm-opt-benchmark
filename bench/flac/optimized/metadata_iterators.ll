@@ -415,7 +415,7 @@ FLAC__metadata_simple_iterator_delete.exit:       ; preds = %38, %41
   %97 = call i64 @ftello64(ptr noundef %.pre83.pre84)
   %98 = load i32, ptr %22, align 8, !tbaa !31
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [5 x i64], ptr %13, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i64, ptr %13, i64 %99
   store i64 %97, ptr %100, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %101 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef 4, ptr noundef %.pre83.pre84) #33
@@ -2064,7 +2064,7 @@ read_metadata_block_data_.exit:                   ; preds = %read_metadata_block
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %608 = load i32, ptr %607, align 8, !tbaa !31
   %609 = zext i32 %608 to i64
-  %610 = getelementptr inbounds nuw [5 x i64], ptr %606, i64 0, i64 %609
+  %610 = getelementptr inbounds nuw i64, ptr %606, i64 %609
   %611 = load i64, ptr %610, align 8, !tbaa !15
   %612 = add nsw i64 %611, 4
   %613 = call i32 @fseeko64(ptr noundef %605, i64 noundef %612, i32 noundef 0)
@@ -2118,7 +2118,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_simple_iterator_next(ptr noundef capt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %18 = load i32, ptr %17, align 8, !tbaa !31
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [5 x i64], ptr %16, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %19
   store i64 %15, ptr %20, align 8, !tbaa !15
   %21 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2299,7 +2299,7 @@ define internal fastcc range(i32 0, 2) i32 @simple_iterator_prime_input_(ptr nou
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %57 = load i32, ptr %53, align 8, !tbaa !31
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [5 x i64], ptr %56, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %56, i64 %58
   store i64 %55, ptr %59, align 8, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %55, ptr %60, align 8, !tbaa !17
@@ -2444,7 +2444,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_simple_iterator_prev(ptr noundef capt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load i64, ptr %10, align 8, !tbaa !17
@@ -2513,7 +2513,7 @@ read_metadata_block_header_.exit:                 ; preds = %.lr.ph.i.i.i
   %42 = add nsw i64 %39, %41
   %43 = load i32, ptr %5, align 8, !tbaa !31
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !15
   %47 = icmp slt i64 %42, %46
   br i1 %47, label %.lr.ph, label %._crit_edge
@@ -2582,7 +2582,7 @@ read_metadata_block_header_.exit34:               ; preds = %.lr.ph.i.i.i28
   %76 = add nsw i64 %73, %75
   %77 = load i32, ptr %5, align 8, !tbaa !31
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i64, ptr %4, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !15
   %81 = icmp slt i64 %76, %80
   br i1 %81, label %49, label %._crit_edge, !llvm.loop !94
@@ -2590,7 +2590,7 @@ read_metadata_block_header_.exit34:               ; preds = %.lr.ph.i.i.i28
 ._crit_edge:                                      ; preds = %read_metadata_block_header_.exit34, %read_metadata_block_header_.exit
   %.lcssa45 = phi i64 [ %44, %read_metadata_block_header_.exit ], [ %78, %read_metadata_block_header_.exit34 ]
   %.0.lcssa = phi i64 [ %19, %read_metadata_block_header_.exit ], [ %57, %read_metadata_block_header_.exit34 ]
-  %82 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %.lcssa45
+  %82 = getelementptr inbounds nuw i64, ptr %4, i64 %.lcssa45
   store i64 %.0.lcssa, ptr %82, align 8, !tbaa !15
   br label %83
 
@@ -2612,7 +2612,7 @@ define i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !31
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !15
   ret i64 %7
 }
@@ -2742,11 +2742,11 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %42 = load i32, ptr %41, align 8, !tbaa !31
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw [5 x i64], ptr %40, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !15
   %46 = add i32 %42, 1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw [5 x i64], ptr %40, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %47
   store i64 %45, ptr %48, align 8, !tbaa !15
   store i32 %46, ptr %41, align 8, !tbaa !31
   %49 = load ptr, ptr %0, align 8, !tbaa !24
@@ -2760,7 +2760,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %54 = tail call i64 @ftello64(ptr noundef %53)
   %55 = load i32, ptr %41, align 8, !tbaa !31
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [5 x i64], ptr %40, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i64, ptr %40, i64 %56
   store i64 %54, ptr %57, align 8, !tbaa !15
   %58 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2871,7 +2871,7 @@ define internal fastcc range(i32 0, 2) i32 @write_metadata_block_stationary_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load i32, ptr %7, align 8, !tbaa !31
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i64, ptr %6, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = tail call i32 @fseeko64(ptr noundef %5, i64 noundef %11, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
@@ -2941,7 +2941,7 @@ write_metadata_block_header_.exit:                ; preds = %write_metadata_bloc
   %37 = load ptr, ptr %0, align 8, !tbaa !24
   %38 = load i32, ptr %7, align 8, !tbaa !31
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %6, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !15
   %42 = tail call i32 @fseeko64(ptr noundef %37, i64 noundef %41, i32 noundef 0)
   %.not17 = icmp eq i32 %42, 0
@@ -3009,7 +3009,7 @@ define internal fastcc range(i32 0, 12) i32 @write_metadata_block_stationary_wit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr %8, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !15
   %14 = tail call i32 @fseeko64(ptr noundef %7, i64 noundef %13, i32 noundef 0)
   %.not = icmp eq i32 %14, 0
@@ -3136,7 +3136,7 @@ write_metadata_block_header_.exit47:              ; preds = %write_metadata_bloc
   %57 = load ptr, ptr %0, align 8, !tbaa !24
   %58 = load i32, ptr %9, align 8, !tbaa !31
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %8, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !15
   %62 = tail call i32 @fseeko64(ptr noundef %57, i64 noundef %61, i32 noundef 0)
   %.not34 = icmp eq i32 %62, 0
@@ -3184,7 +3184,7 @@ define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %19 = load i32, ptr %18, align 8, !tbaa !31
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [5 x i64], ptr %17, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !15
   br label %109
 
@@ -3197,11 +3197,11 @@ define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %28 = load i32, ptr %27, align 8, !tbaa !31
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [5 x i64], ptr %26, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %26, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !15
   %32 = add i32 %28, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw [5 x i64], ptr %26, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %26, i64 %33
   store i64 %31, ptr %34, align 8, !tbaa !15
   store i32 %32, ptr %27, align 8, !tbaa !31
   %35 = tail call i32 @FLAC__metadata_simple_iterator_prev(ptr noundef nonnull %0)
@@ -3214,7 +3214,7 @@ define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, 
   store i32 %38, ptr %27, align 8, !tbaa !31
   %39 = load ptr, ptr %0, align 8, !tbaa !24
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw [5 x i64], ptr %26, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %26, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !15
   %43 = tail call i32 @fseeko64(ptr noundef %39, i64 noundef %42, i32 noundef 0)
   %.not.i = icmp eq i32 %43, 0
@@ -3271,13 +3271,13 @@ read_metadata_block_header_cb_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i
 
 65:                                               ; preds = %25
   %66 = zext i32 %36 to i64
-  %67 = getelementptr inbounds nuw [5 x i64], ptr %26, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %26, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !15
   %69 = add i32 %36, -1
   store i32 %69, ptr %27, align 8, !tbaa !31
   %70 = load ptr, ptr %0, align 8, !tbaa !24
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw [5 x i64], ptr %26, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %26, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !15
   %74 = tail call i32 @fseeko64(ptr noundef %70, i64 noundef %73, i32 noundef 0)
   %.not.i36 = icmp eq i32 %74, 0
@@ -3339,7 +3339,7 @@ simple_iterator_pop_.exit46:                      ; preds = %.lr.ph.i.i.i.i40
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %98 = load i32, ptr %97, align 8, !tbaa !31
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [5 x i64], ptr %96, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i64, ptr %96, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !15
   br label %118
 
@@ -3348,7 +3348,7 @@ simple_iterator_pop_.exit46:                      ; preds = %.lr.ph.i.i.i.i40
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %105 = load i32, ptr %104, align 8, !tbaa !31
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw [5 x i64], ptr %103, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i64, ptr %103, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !15
   br i1 %.not.i47, label %118, label %109
 
@@ -3549,7 +3549,7 @@ write_metadata_block_header_.exit:                ; preds = %write_metadata_bloc
 192:                                              ; preds = %write_metadata_block_header_.exit, %.loopexit
   %193 = load i32, ptr %119, align 8, !tbaa !31
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw [5 x i64], ptr %120, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i64, ptr %120, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !15
   %197 = load ptr, ptr %0, align 8, !tbaa !24
   %198 = add nsw i64 %196, 4
@@ -3746,7 +3746,7 @@ fread.inline.exit.i:                              ; preds = %228
 .preheader.i:                                     ; preds = %272
   %273 = load i32, ptr %119, align 8, !tbaa !31
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw [5 x i64], ptr %120, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw i64, ptr %120, i64 %274
   %276 = load i64, ptr %275, align 8, !tbaa !15
   %277 = add nsw i64 %276, 4
   %278 = load i32, ptr %199, align 4, !tbaa !29
@@ -3782,7 +3782,7 @@ fread.inline.exit.i:                              ; preds = %228
   %293 = call i64 @ftello64(ptr noundef %292)
   %294 = load i32, ptr %119, align 8, !tbaa !31
   %295 = zext i32 %294 to i64
-  %296 = getelementptr inbounds nuw [5 x i64], ptr %120, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw i64, ptr %120, i64 %295
   store i64 %293, ptr %296, align 8, !tbaa !15
   %297 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3823,7 +3823,7 @@ FLAC__metadata_simple_iterator_next.exit.i:       ; preds = %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %311 = load i32, ptr %119, align 8, !tbaa !31
   %312 = zext i32 %311 to i64
-  %313 = getelementptr inbounds nuw [5 x i64], ptr %120, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i64, ptr %120, i64 %312
   %314 = load i64, ptr %313, align 8, !tbaa !15
   %315 = zext i32 %308 to i64
   %316 = add nuw nsw i64 %315, 4
@@ -3874,7 +3874,7 @@ simple_iterator_copy_file_postfix_.exit.thread92: ; preds = %FLAC__metadata_simp
   %332 = call i64 @ftello64(ptr noundef %331)
   %333 = load i32, ptr %119, align 8, !tbaa !31
   %334 = zext i32 %333 to i64
-  %335 = getelementptr inbounds nuw [5 x i64], ptr %120, i64 0, i64 %334
+  %335 = getelementptr inbounds nuw i64, ptr %120, i64 %334
   store i64 %332, ptr %335, align 8, !tbaa !15
   %336 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3934,7 +3934,7 @@ define internal fastcc range(i32 0, 2) i32 @simple_iterator_pop_(ptr noundef cap
   %6 = load ptr, ptr %0, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @fseeko64(ptr noundef %6, i64 noundef %10, i32 noundef 0)
   %.not = icmp eq i32 %11, 0
@@ -4036,11 +4036,11 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(p
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load i32, ptr %23, align 8, !tbaa !31
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !15
   %28 = add i32 %24, 1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %22, i64 %29
   store i64 %27, ptr %30, align 8, !tbaa !15
   store i32 %28, ptr %23, align 8, !tbaa !31
   %31 = load ptr, ptr %0, align 8, !tbaa !24
@@ -4056,7 +4056,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(p
   %38 = tail call i64 @ftello64(ptr noundef %37)
   %39 = load i32, ptr %23, align 8, !tbaa !31
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %22, i64 %40
   store i64 %38, ptr %41, align 8, !tbaa !15
   %42 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4102,7 +4102,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(p
   store i32 %61, ptr %23, align 8, !tbaa !31
   %62 = load ptr, ptr %0, align 8, !tbaa !24
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i64, ptr %22, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !15
   %66 = call i32 @fseeko64(ptr noundef %62, i64 noundef %65, i32 noundef 0)
   %.not.i53 = icmp eq i32 %66, 0
@@ -4193,7 +4193,7 @@ read_metadata_block_header_cb_.exit.i.i62:        ; preds = %.lr.ph.i.i.i.i57
   store i32 %99, ptr %23, align 8, !tbaa !31
   %100 = load ptr, ptr %0, align 8, !tbaa !24
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i64, ptr %22, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !15
   %104 = call i32 @fseeko64(ptr noundef %100, i64 noundef %103, i32 noundef 0)
   %.not.i63 = icmp eq i32 %104, 0
@@ -4267,7 +4267,7 @@ read_metadata_block_header_cb_.exit.i.i62:        ; preds = %.lr.ph.i.i.i.i57
   %134 = call i64 @ftello64(ptr noundef %133)
   %135 = load i32, ptr %23, align 8, !tbaa !31
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i64, ptr %22, i64 %136
   store i64 %134, ptr %137, align 8, !tbaa !15
   %138 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -11036,7 +11036,7 @@ cleanup_tempfile_.exit:                           ; preds = %14, %16
   br i1 %.not8.i30, label %.sink.split, label %.sink.split.sink.split
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %25
+  %34 = getelementptr inbounds i8, ptr %6, i64 %25
   store i8 0, ptr %34, align 1, !tbaa !8
   %35 = load ptr, ptr %2, align 8, !tbaa !85
   %36 = call i32 @rename(ptr noundef %35, ptr noundef nonnull %6) #33

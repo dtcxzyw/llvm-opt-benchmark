@@ -32,7 +32,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
 
 14:                                               ; preds = %14, %._crit_edge.us
   %indvars.iv.i.us = phi i64 [ 0, %._crit_edge.us ], [ %indvars.iv.next.i.us, %14 ]
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i.us
+  %15 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.us
   %16 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   store i32 %16, ptr %15, align 4, !tbaa !3
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -42,7 +42,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
 .preheader.i.us:                                  ; preds = %14, %.preheader.i.us
   %indvars.iv50.i.us = phi i64 [ %indvars.iv.next51.i.us, %.preheader.i.us ], [ 0, %14 ]
   %indvars.iv.next51.i.us = add nuw nsw i64 %indvars.iv50.i.us, 1
-  %17 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv50.i.us
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv50.i.us
   %18 = trunc nuw nsw i64 %indvars.iv.next51.i.us to i32
   store i32 %18, ptr %17, align 4, !tbaa !3
   %exitcond53.not.i.us = icmp eq i64 %indvars.iv.next51.i.us, 255
@@ -59,7 +59,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   %20 = load i8, ptr %19, align 1, !tbaa !10
   %21 = zext i8 %20 to i32
   %22 = sext i32 %.03041.i.us to i64
-  %23 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %5, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %.not35.i.us = icmp eq i32 %24, %21
   br i1 %.not35.i.us, label %._crit_edge.thread.i.us, label %.lr.ph.i.us
@@ -68,11 +68,11 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   %25 = phi i64 [ %29, %.lr.ph.i.us ], [ %22, %.lr.ph44.i.us ]
   %.037.i.us = phi i8 [ %28, %.lr.ph.i.us ], [ 0, %.lr.ph44.i.us ]
   %.02836.i.us = phi i32 [ %27, %.lr.ph.i.us ], [ %.03041.i.us, %.lr.ph44.i.us ]
-  %26 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = add i8 %.037.i.us, 1
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr %5, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %.not.i.us = icmp eq i32 %31, %21
   br i1 %.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !11
@@ -84,10 +84,10 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
   br i1 %.not32.i.us, label %39, label %33
 
 33:                                               ; preds = %._crit_edge.i.us
-  %34 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %29
+  %34 = getelementptr inbounds i32, ptr %4, i64 %29
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = sext i32 %.02836.i.us to i64
-  %37 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds i32, ptr %4, i64 %36
   store i32 %35, ptr %37, align 4, !tbaa !3
   store i32 %.03041.i.us, ptr %34, align 4, !tbaa !3
   br label %39
@@ -153,7 +153,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
 
 56:                                               ; preds = %56, %.preheader
   %indvars.iv.i = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i, %56 ]
-  %57 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %58 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %58, ptr %57, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -163,7 +163,7 @@ define void @Ptngc_comp_conv_to_mtf_partial(ptr noundef readonly captures(none) 
 .preheader.i:                                     ; preds = %56, %.preheader.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %.preheader.i ], [ 0, %56 ]
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %59 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv50.i
+  %59 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv50.i
   %60 = trunc nuw nsw i64 %indvars.iv.next51.i to i32
   store i32 %60, ptr %59, align 4, !tbaa !3
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 255
@@ -208,7 +208,7 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
 
 11:                                               ; preds = %11, %._crit_edge.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %._crit_edge.us.us ], [ %indvars.iv.next.i.us.us, %11 ]
-  %12 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i.us.us
+  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.us.us
   %13 = trunc nuw nsw i64 %indvars.iv.i.us.us to i32
   store i32 %13, ptr %12, align 4, !tbaa !3
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
@@ -218,7 +218,7 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
 .preheader.i.us.us:                               ; preds = %11, %.preheader.i.us.us
   %indvars.iv50.i.us.us = phi i64 [ %indvars.iv.next51.i.us.us, %.preheader.i.us.us ], [ 0, %11 ]
   %indvars.iv.next51.i.us.us = add nuw nsw i64 %indvars.iv50.i.us.us, 1
-  %14 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv50.i.us.us
+  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv50.i.us.us
   %15 = trunc nuw nsw i64 %indvars.iv.next51.i.us.us to i32
   store i32 %15, ptr %14, align 4, !tbaa !3
   %exitcond53.not.i.us.us = icmp eq i64 %indvars.iv.next51.i.us.us, 255
@@ -237,7 +237,7 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   %19 = load i8, ptr %18, align 1, !tbaa !10
   %20 = zext i8 %19 to i32
   %21 = sext i32 %.03041.i.us.us to i64
-  %22 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %.not35.i.us.us = icmp eq i32 %23, %20
   br i1 %.not35.i.us.us, label %._crit_edge.thread.i.us.us, label %.lr.ph.i.us.us
@@ -246,11 +246,11 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   %24 = phi i64 [ %28, %.lr.ph.i.us.us ], [ %21, %.lr.ph44.i.us.us ]
   %.037.i.us.us = phi i8 [ %27, %.lr.ph.i.us.us ], [ 0, %.lr.ph44.i.us.us ]
   %.02836.i.us.us = phi i32 [ %26, %.lr.ph.i.us.us ], [ %.03041.i.us.us, %.lr.ph44.i.us.us ]
-  %25 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds i32, ptr %4, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = add i8 %.037.i.us.us, 1
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr %5, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %.not.i.us.us = icmp eq i32 %30, %20
   br i1 %.not.i.us.us, label %._crit_edge.i.us.us, label %.lr.ph.i.us.us, !llvm.loop !11
@@ -262,10 +262,10 @@ define void @Ptngc_comp_conv_to_mtf_partial3(ptr noundef readonly captures(none)
   br i1 %.not32.i.us.us, label %38, label %32
 
 32:                                               ; preds = %._crit_edge.i.us.us
-  %33 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %28
+  %33 = getelementptr inbounds i32, ptr %4, i64 %28
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = sext i32 %.02836.i.us.us to i64
-  %36 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds i32, ptr %4, i64 %35
   store i32 %34, ptr %36, align 4, !tbaa !3
   store i32 %.03041.i.us.us, ptr %33, align 4, !tbaa !3
   br label %38
@@ -313,7 +313,7 @@ comp_conv_to_mtf_byte.exit.loopexit.us.us:        ; preds = %38
 
 45:                                               ; preds = %45, %.preheader
   %indvars.iv.i = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i, %45 ]
-  %46 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %47, ptr %46, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -323,7 +323,7 @@ comp_conv_to_mtf_byte.exit.loopexit.us.us:        ; preds = %38
 .preheader.i:                                     ; preds = %45, %.preheader.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %.preheader.i ], [ 0, %45 ]
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %48 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv50.i
+  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv50.i
   %49 = trunc nuw nsw i64 %indvars.iv.next51.i to i32
   store i32 %49, ptr %48, align 4, !tbaa !3
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, 255
@@ -368,7 +368,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
 
 14:                                               ; preds = %14, %._crit_edge.us
   %indvars.iv.i.us = phi i64 [ 0, %._crit_edge.us ], [ %indvars.iv.next.i.us, %14 ]
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i.us
+  %15 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.us
   %16 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   store i32 %16, ptr %15, align 4, !tbaa !3
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -378,7 +378,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
 .preheader.i.us:                                  ; preds = %14, %.preheader.i.us
   %indvars.iv44.i.us = phi i64 [ %indvars.iv.next45.i.us, %.preheader.i.us ], [ 0, %14 ]
   %indvars.iv.next45.i.us = add nuw nsw i64 %indvars.iv44.i.us, 1
-  %17 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv44.i.us
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv44.i.us
   %18 = trunc nuw nsw i64 %indvars.iv.next45.i.us to i32
   store i32 %18, ptr %17, align 4, !tbaa !3
   %exitcond47.not.i.us = icmp eq i64 %indvars.iv.next45.i.us, 255
@@ -401,7 +401,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   %.035.i.us = phi i32 [ %25, %.lr.ph.i.us ], [ 0, %.lr.ph40.i.us ]
   %.02834.i.us = phi i32 [ %24, %.lr.ph.i.us ], [ %.03037.i.us, %.lr.ph40.i.us ]
   %22 = sext i32 %.02834.i.us to i64
-  %23 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %4, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = add nuw nsw i32 %.035.i.us, 1
   %exitcond48.not.i.us = icmp eq i32 %25, %21
@@ -409,7 +409,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %26
+  %27 = getelementptr inbounds i32, ptr %5, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = trunc i32 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv49.i.us
@@ -418,8 +418,8 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
   br i1 %.not.i.us, label %40, label %31
 
 31:                                               ; preds = %._crit_edge.i.us
-  %32 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %22
-  %33 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %26
+  %32 = getelementptr inbounds i32, ptr %4, i64 %22
+  %33 = getelementptr inbounds i32, ptr %4, i64 %26
   %34 = load i32, ptr %33, align 4, !tbaa !3
   store i32 %34, ptr %32, align 4, !tbaa !3
   store i32 %.03037.i.us, ptr %33, align 4, !tbaa !3
@@ -427,7 +427,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
 
 ._crit_edge.thread.i.us:                          ; preds = %.lr.ph40.i.us
   %35 = sext i32 %.03037.i.us to i64
-  %36 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds i32, ptr %5, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = trunc i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv49.i.us
@@ -490,7 +490,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
 
 57:                                               ; preds = %57, %.preheader
   %indvars.iv.i = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i, %57 ]
-  %58 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %59, ptr %58, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -500,7 +500,7 @@ define void @Ptngc_comp_conv_from_mtf_partial(ptr noundef readonly captures(none
 .preheader.i:                                     ; preds = %57, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %57 ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %60 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv44.i
+  %60 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv44.i
   %61 = trunc nuw nsw i64 %indvars.iv.next45.i to i32
   store i32 %61, ptr %60, align 4, !tbaa !3
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 255
@@ -539,7 +539,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
 
 11:                                               ; preds = %11, %.split.us.split.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.split.us.split.us ], [ %indvars.iv.next.i.us.us, %11 ]
-  %12 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i.us.us
+  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.us.us
   %13 = trunc nuw nsw i64 %indvars.iv.i.us.us to i32
   store i32 %13, ptr %12, align 4, !tbaa !3
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
@@ -549,7 +549,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
 .preheader.i.us.us:                               ; preds = %11, %.preheader.i.us.us
   %indvars.iv44.i.us.us = phi i64 [ %indvars.iv.next45.i.us.us, %.preheader.i.us.us ], [ 0, %11 ]
   %indvars.iv.next45.i.us.us = add nuw nsw i64 %indvars.iv44.i.us.us, 1
-  %14 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv44.i.us.us
+  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv44.i.us.us
   %15 = trunc nuw nsw i64 %indvars.iv.next45.i.us.us to i32
   store i32 %15, ptr %14, align 4, !tbaa !3
   %exitcond47.not.i.us.us = icmp eq i64 %indvars.iv.next45.i.us.us, 255
@@ -574,7 +574,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   %.035.i.us.us = phi i32 [ %24, %.lr.ph.i.us.us ], [ 0, %.lr.ph40.i.us.us ]
   %.02834.i.us.us = phi i32 [ %23, %.lr.ph.i.us.us ], [ %.03037.i.us.us, %.lr.ph40.i.us.us ]
   %21 = sext i32 %.02834.i.us.us to i64
-  %22 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr %4, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = add nuw nsw i32 %.035.i.us.us, 1
   %exitcond48.not.i.us.us = icmp eq i32 %24, %20
@@ -582,7 +582,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
 
 ._crit_edge.i.us.us:                              ; preds = %.lr.ph.i.us.us
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr %5, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = trunc i32 %27 to i8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv49.i.us.us
@@ -591,8 +591,8 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
   br i1 %.not.i.us.us, label %39, label %30
 
 30:                                               ; preds = %._crit_edge.i.us.us
-  %31 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %21
-  %32 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %25
+  %31 = getelementptr inbounds i32, ptr %4, i64 %21
+  %32 = getelementptr inbounds i32, ptr %4, i64 %25
   %33 = load i32, ptr %32, align 4, !tbaa !3
   store i32 %33, ptr %31, align 4, !tbaa !3
   store i32 %.03037.i.us.us, ptr %32, align 4, !tbaa !3
@@ -600,7 +600,7 @@ define void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef readonly captures(non
 
 ._crit_edge.thread.i.us.us:                       ; preds = %.lr.ph40.i.us.us
   %34 = sext i32 %.03037.i.us.us to i64
-  %35 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = trunc i32 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv49.i.us.us
@@ -647,7 +647,7 @@ comp_conv_from_mtf_byte.exit.loopexit.us.us:      ; preds = %39
 
 49:                                               ; preds = %49, %.split.split
   %indvars.iv.i = phi i64 [ 0, %.split.split ], [ %indvars.iv.next.i, %49 ]
-  %50 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %51 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %51, ptr %50, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -657,7 +657,7 @@ comp_conv_from_mtf_byte.exit.loopexit.us.us:      ; preds = %39
 .preheader.i:                                     ; preds = %49, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %49 ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %52 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv44.i
+  %52 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv44.i
   %53 = trunc nuw nsw i64 %indvars.iv.next45.i to i32
   store i32 %53, ptr %52, align 4, !tbaa !3
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 255

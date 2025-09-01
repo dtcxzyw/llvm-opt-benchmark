@@ -386,7 +386,7 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @ALSAVersionString) #10
   %9 = trunc i64 %8 to i32
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph.preheader, label %.thread._crit_edge
+  br i1 %10, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %7
   %wide.trip.count = and i64 %8, 2147483647
@@ -397,7 +397,7 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
   %.037 = phi i32 [ 0, %.lr.ph.preheader ], [ %.134, %22 ]
   %.02235 = phi i32 [ 0, %.lr.ph.preheader ], [ %.123, %22 ]
   %.not27 = icmp eq i32 %.037, 0
-  %11 = getelementptr inbounds nuw [200 x i8], ptr @ALSAVersionString, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr @ALSAVersionString, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   br i1 %.not27, label %13, label %.thread
 
@@ -417,7 +417,7 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
 
 17:                                               ; preds = %.thread.thread
   %18 = sext i32 %.02235 to i64
-  %19 = getelementptr inbounds [200 x i8], ptr @ALSAVersionString, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr @ALSAVersionString, i64 %18
   store i8 %12, ptr %19, align 1
   br label %20
 
@@ -432,29 +432,29 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.thread._crit_edge:                               ; preds = %22, %.thread, %7
-  %.022.lcssa = phi i32 [ 0, %7 ], [ %.02235, %.thread ], [ %.123, %22 ]
-  %23 = zext i32 %.022.lcssa to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %.022.lcssa, i32 0)
-  br label %24
+.thread._crit_edge:                               ; preds = %22, %.thread
+  %.022.lcssa = phi i32 [ %.123, %22 ], [ %.02235, %.thread ]
+  %23 = icmp sgt i32 %.022.lcssa, 0
+  br i1 %23, label %.lr.ph41, label %.critedge
 
-24:                                               ; preds = %27, %.thread._crit_edge
-  %indvars.iv40 = phi i64 [ %28, %27 ], [ %23, %.thread._crit_edge ]
-  %25 = trunc nuw i64 %indvars.iv40 to i32
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %27, label %.critedge
+.lr.ph41:                                         ; preds = %.thread._crit_edge, %29
+  %.239 = phi i32 [ %30, %29 ], [ %.022.lcssa, %.thread._crit_edge ]
+  %24 = zext nneg i32 %.239 to i64
+  %25 = getelementptr i8, ptr @ALSAVersionString, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -1
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 46
+  br i1 %28, label %29, label %.critedge
 
-27:                                               ; preds = %24
-  %28 = add nsw i64 %indvars.iv40, -1
-  %29 = getelementptr inbounds nuw [200 x i8], ptr @ALSAVersionString, i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, 46
-  br i1 %31, label %24, label %.critedge, !llvm.loop !8
+29:                                               ; preds = %.lr.ph41
+  %30 = add nsw i32 %.239, -1
+  %31 = icmp sgt i32 %.239, 1
+  br i1 %31, label %.lr.ph41, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %24, %27
-  %.2.lcssa = phi i32 [ %smin, %24 ], [ %25, %27 ]
+.critedge:                                        ; preds = %.lr.ph41, %29, %7, %.thread._crit_edge
+  %.2.lcssa = phi i32 [ %.022.lcssa, %.thread._crit_edge ], [ 0, %7 ], [ 0, %29 ], [ %.239, %.lr.ph41 ]
   %32 = sext i32 %.2.lcssa to i64
-  %33 = getelementptr inbounds [200 x i8], ptr @ALSAVersionString, i64 0, i64 %32
+  %33 = getelementptr inbounds i8, ptr @ALSAVersionString, i64 %32
   store i8 0, ptr %33, align 1
   br label %34
 
@@ -483,9 +483,6 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

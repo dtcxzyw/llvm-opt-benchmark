@@ -910,7 +910,7 @@ define noundef range(i16 0, 273) i16 @_ZN6parser9lexed_str8LexedStr4kind17h4b0f0
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds [0 x i16], ptr %12, i64 0, i64 %1
+  %13 = getelementptr inbounds i16, ptr %12, i64 %1
   %14 = load i16, ptr %13, align 2, !range !131, !noundef !5
   ret i16 %14
 
@@ -951,7 +951,7 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr10range_text17h658e8b3e85b21e8
   br i1 %15, label %16, label %21, !prof !144
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %1
+  %17 = getelementptr inbounds i32, ptr %12, i64 %1
   %18 = load i32, ptr %17, align 4, !noundef !5
   %19 = zext i32 %18 to i64
   %20 = icmp ult i64 %2, %14
@@ -962,7 +962,7 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr10range_text17h658e8b3e85b21e8
   unreachable
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %2
+  %23 = getelementptr inbounds i32, ptr %12, i64 %2
   %24 = load i32, ptr %23, align 4, !noundef !5
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1054,10 +1054,10 @@ define { i64, i64 } @_ZN6parser9lexed_str8LexedStr10text_range17h938f0e6243c46f5
   unreachable
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %1
+  %19 = getelementptr inbounds i32, ptr %10, i64 %1
   %20 = load i32, ptr %19, align 4, !noundef !5
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %15
+  %22 = getelementptr inbounds i32, ptr %10, i64 %15
   %23 = load i32, ptr %22, align 4, !noundef !5
   %24 = zext i32 %23 to i64
   %25 = insertvalue { i64, i64 } poison, i64 %21, 0
@@ -1090,7 +1090,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6parser9lexed_str8LexedStr10text
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %14 = getelementptr inbounds [0 x i32], ptr %13, i64 0, i64 %1
+  %14 = getelementptr inbounds i32, ptr %13, i64 %1
   %15 = load i32, ptr %14, align 4, !noundef !5
   %16 = zext i32 %15 to i64
   ret i64 %16
@@ -1135,10 +1135,10 @@ define noundef range(i64 -4294967295, 4294967296) i64 @_ZN6parser9lexed_str8Lexe
   unreachable
 
 _ZN6parser9lexed_str8LexedStr10text_range17h938f0e6243c46f5cE.exit: ; preds = %14
-  %19 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %1
+  %19 = getelementptr inbounds i32, ptr %10, i64 %1
   %20 = load i32, ptr %19, align 4, !noalias !165, !noundef !5
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %15
+  %22 = getelementptr inbounds i32, ptr %10, i64 %15
   %23 = load i32, ptr %22, align 4, !noalias !165, !noundef !5
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 %24, %21
@@ -1199,7 +1199,7 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   br label %32
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }], ptr %10, i64 0, i64 %15
+  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %10, i64 %15
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -2639,7 +2639,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %18, %.thread,
   unreachable
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds [0 x i16], ptr %35, i64 0, i64 %.sroa.05.081
+  %43 = getelementptr inbounds i16, ptr %35, i64 %.sroa.05.081
   %44 = load i16, ptr %43, align 2, !range !131, !noalias !341, !noundef !5
   %45 = add nsw i16 %44, -125
   %switch.and = and i16 %45, -3
@@ -2820,7 +2820,7 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit: ; preds = %116
   %121 = and i64 %117, 63
   %122 = load ptr, ptr %.sroa.429.0..sroa_idx, align 8, !alias.scope !372, !nonnull !5, !noundef !5
   %123 = shl nuw i64 1, %121
-  %124 = getelementptr inbounds nuw [0 x i64], ptr %122, i64 0, i64 %118
+  %124 = getelementptr inbounds nuw i64, ptr %122, i64 %118
   %125 = load i64, ptr %124, align 8, !noalias !372, !noundef !5
   %126 = or i64 %125, %123
   store i64 %126, ptr %124, align 8, !noalias !372
@@ -2868,7 +2868,7 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit62: ; preds = %"_ZN4cor
   %147 = and i64 %143, 63
   %148 = load ptr, ptr %.sroa.429.0..sroa_idx, align 8, !alias.scope !375, !nonnull !5, !noundef !5
   %149 = shl nuw i64 1, %147
-  %150 = getelementptr inbounds nuw [0 x i64], ptr %148, i64 0, i64 %144
+  %150 = getelementptr inbounds nuw i64, ptr %148, i64 %144
   %151 = load i64, ptr %150, align 8, !noalias !375, !noundef !5
   %152 = or i64 %151, %149
   store i64 %152, ptr %150, align 8, !noalias !375
@@ -3007,7 +3007,7 @@ default.unreachable:                              ; preds = %"_ZN102_$LT$core..i
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i: ; preds = %34
   %39 = load ptr, ptr %32, align 8, !alias.scope !401, !noalias !395, !nonnull !5, !noundef !5
-  %40 = getelementptr inbounds [0 x i16], ptr %39, i64 0, i64 %36
+  %40 = getelementptr inbounds i16, ptr %39, i64 %36
   %41 = load i16, ptr %40, align 2, !range !131, !noalias !404, !noundef !5
   %42 = add nsw i16 %41, -125
   %switch.and.i = and i16 %42, -3
@@ -3129,7 +3129,7 @@ default.unreachable42:                            ; preds = %67
 _ZN6parser9lexed_str8LexedStr10text_start17h2633626a67cee820E.exit: ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %89 = load ptr, ptr %88, align 8, !alias.scope !415, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds [0 x i32], ptr %89, i64 0, i64 %78
+  %90 = getelementptr inbounds i32, ptr %89, i64 %78
   %91 = load i32, ptr %90, align 4, !noalias !415, !noundef !5
   %92 = zext i32 %91 to i64
   %93 = load ptr, ptr %14, align 8, !nonnull !5, !align !137, !noundef !5

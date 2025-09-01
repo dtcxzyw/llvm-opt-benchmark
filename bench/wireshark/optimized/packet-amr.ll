@@ -260,7 +260,7 @@ define range(i32 -1, 16) i32 @amr_nb_bytes_to_ft(i8 noundef zeroext %0) local_un
 
 3:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %4 = getelementptr [16 x i8], ptr @Framebits_NB, i64 0, i64 %indvars.iv
+  %4 = getelementptr i8, ptr @Framebits_NB, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = add nuw nsw i32 %6, 7
@@ -891,7 +891,7 @@ proto_item_set_generated.exit47:                  ; preds = %36, %40, %43
   %65 = load i32, ptr @hf_amr_nb_toc_ft, align 4
   %66 = tail call ptr @proto_tree_add_bits_item(ptr noundef %59, i32 noundef %65, ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef 0)
   %67 = zext i8 %64 to i64
-  %68 = getelementptr [16 x i8], ptr @Framebits_NB, i64 0, i64 %67
+  %68 = getelementptr i8, ptr @Framebits_NB, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = add i32 %.098.us.i, %70
@@ -928,7 +928,7 @@ proto_item_set_generated.exit47:                  ; preds = %36, %40, %43
   %89 = load i32, ptr @hf_amr_wb_toc_ft, align 4
   %90 = tail call ptr @proto_tree_add_bits_item(ptr noundef %59, i32 noundef %89, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0)
   %91 = zext i8 %88 to i64
-  %92 = getelementptr [16 x i32], ptr @Framebits_WB, i64 0, i64 %91
+  %92 = getelementptr i32, ptr @Framebits_WB, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, %.098.i
   %95 = add i32 %94, 7
@@ -1045,7 +1045,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   %15 = load i32, ptr @hf_amr_nb_toc_ft, align 4
   %16 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0)
   %17 = zext i8 %14 to i64
-  %18 = getelementptr [16 x i8], ptr @Framebits_NB, i64 0, i64 %17
+  %18 = getelementptr i8, ptr @Framebits_NB, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %.1.us = add i32 %.081.us, %20
@@ -1075,7 +1075,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   %36 = load i32, ptr @hf_amr_wb_toc_ft, align 4
   %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0)
   %38 = zext i8 %35 to i64
-  %39 = getelementptr [16 x i32], ptr @Framebits_WB, i64 0, i64 %38
+  %39 = getelementptr i32, ptr @Framebits_WB, i64 %38
   %40 = load i32, ptr %39, align 4
   %.1 = add i32 %40, %.081
   %41 = add i32 %.0, 5

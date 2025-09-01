@@ -375,7 +375,7 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   %64 = xor i64 %26, -1
   %65 = lshr i64 %64, 9
   %66 = and i64 %65, 1125899906842623
-  %67 = getelementptr [0 x ptr], ptr @swapper_spaces, i64 0, i64 %63
+  %67 = getelementptr ptr, ptr @swapper_spaces, i64 %63
   %68 = load ptr, ptr %67, align 8
   %69 = lshr i64 %66, 14
   %70 = getelementptr %struct.address_space, ptr %68, i64 %69

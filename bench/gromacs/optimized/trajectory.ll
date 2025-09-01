@@ -688,13 +688,13 @@ _ZSt5countIPbbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit: ; pre
 
 14:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
-  %15 = getelementptr inbounds nuw [4 x i8], ptr %.ptr9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %.ptr9, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !16, !range !61, !noundef !62
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   store i8 0, ptr %19, align 1, !tbaa !16
   br label %20
 

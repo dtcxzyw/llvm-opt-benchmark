@@ -1517,7 +1517,7 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %154, %_ZNK6Handlecl
 174:                                              ; preds = %192, %.lr.ph25.i
   %175 = phi i32 [ %170, %.lr.ph25.i ], [ %193, %192 ]
   %indvars.iv28.i = phi i64 [ 0, %.lr.ph25.i ], [ %indvars.iv.next29.i, %192 ]
-  %176 = getelementptr inbounds nuw [1 x %class.vframeArrayElement], ptr %173, i64 0, i64 %indvars.iv28.i
+  %176 = getelementptr inbounds nuw %class.vframeArrayElement, ptr %173, i64 %indvars.iv28.i
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 72
   %178 = load ptr, ptr %177, align 8
   %.not.i150 = icmp eq ptr %178, null
@@ -1765,7 +1765,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit:  ; preds = %_ZN12methodHandleC2
 
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %_Z21Bytecode_invoke_checkRK12methodHandlei.exit
   %304 = sext i32 %302 to i64
-  %305 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %304
+  %305 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %304
   %306 = load i32, ptr %305, align 4
   %switch.selectcmp.case1 = icmp eq i32 %306, 186
   %switch.selectcmp.case2 = icmp eq i32 %306, 233
@@ -1792,7 +1792,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZNK5frame6senderEP
   %.0131203 = phi i32 [ 0, %.lr.ph205 ], [ %332, %310 ]
   %.0132202 = phi i32 [ 0, %.lr.ph205 ], [ %329, %310 ]
   %.1136201 = phi i32 [ %.0135, %.lr.ph205 ], [ 0, %310 ]
-  %311 = getelementptr inbounds nuw [1 x %class.vframeArrayElement], ptr %309, i64 0, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw %class.vframeArrayElement, ptr %309, i64 %indvars.iv
   %312 = icmp eq i64 %indvars.iv, 0
   %313 = call noundef i32 @_ZNK18vframeArrayElement13on_stack_sizeEiibi(ptr noundef nonnull align 8 dereferenceable(96) %311, i32 noundef %.0132202, i32 noundef %.0131203, i1 noundef zeroext %312, i32 noundef %.1136201) #22
   %314 = shl nsw i32 %313, 3
@@ -1893,7 +1893,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit171: ; preds = %_ZN12methodHandle
 
 _ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i: ; preds = %_Z21Bytecode_invoke_checkRK12methodHandlei.exit171
   %371 = sext i32 %367 to i64
-  %372 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %371
+  %372 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %371
   %373 = load i32, ptr %372, align 4
   switch i32 %373, label %_ZNK15Bytecode_invoke8is_validEv.exit [
     i32 185, label %374
@@ -2749,7 +2749,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %5, %_ZNK11RegisterM
 _ZNK6Method7code_atEi.exit:                       ; preds = %57, %65
   %67 = phi i32 [ %66, %65 ], [ %64, %57 ]
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %68
+  %69 = getelementptr inbounds ptr, ptr @_ZN9Bytecodes5_nameE, i64 %68
   %70 = load ptr, ptr %69, align 8
   br label %71
 
@@ -2823,7 +2823,7 @@ define hidden void @_ZN14Deoptimization26pop_frames_failed_reallocsEP10JavaThrea
 8:                                                ; preds = %.lr.ph25, %26
   %9 = phi i32 [ %4, %.lr.ph25 ], [ %27, %26 ]
   %indvars.iv28 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next29, %26 ]
-  %10 = getelementptr inbounds nuw [1 x %class.vframeArrayElement], ptr %7, i64 0, i64 %indvars.iv28
+  %10 = getelementptr inbounds nuw %class.vframeArrayElement, ptr %7, i64 %indvars.iv28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
@@ -3773,7 +3773,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exi
   %83 = lshr i32 %82, 8
   %84 = and i32 %83, 255
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr @type2size, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = sdiv i32 %80, %87
   %89 = load i8, ptr %31, align 4
@@ -4382,7 +4382,7 @@ _ZNK6HandleclEv.exit30:                           ; preds = %.critedge
   %94 = load ptr, ptr %15, align 8
   %95 = load i16, ptr %16, align 2
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 72
   %99 = getelementptr inbounds nuw i64, ptr %98, i64 %96
   %spec.select.i = select i1 %.not86.i, ptr %99, ptr %97
@@ -5064,11 +5064,11 @@ define hidden void @_ZN14Deoptimization23deoptimize_single_frameEP10JavaThread5f
   %5 = add i32 %4, 1
   store i32 %5, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6
+  %7 = getelementptr inbounds [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %10 = getelementptr i8, ptr %7, i64 4
   %.pre.i = load i32, ptr %10, align 4
   %.fr44.i = freeze i32 %.pre.i
   %11 = and i32 %.fr44.i, -256
@@ -5100,7 +5100,7 @@ define hidden void @_ZN14Deoptimization23deoptimize_single_frameEP10JavaThread5f
 
 30:                                               ; preds = %28
   %31 = zext nneg i32 %2 to i64
-  %32 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %31
   %33 = load ptr, ptr %32, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit
 
@@ -5165,13 +5165,13 @@ define hidden void @_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_1
   %5 = add i32 %4, 1
   store i32 %5, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6
+  %7 = getelementptr inbounds [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = add nsw i32 %1, 1
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [6 x [1 x i32]], ptr %7, i64 0, i64 %11
+  %10 = sext i32 %1 to i64
+  %11 = getelementptr [1 x i32], ptr %7, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 4
   %.not = icmp eq i32 %2, -1
   %.pre = load i32, ptr %12, align 4
   %.fr44 = freeze i32 %.pre
@@ -5181,17 +5181,17 @@ define hidden void @_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_1
   %13 = and i32 %.fr44, 255
   %14 = icmp eq i32 %13, %2
   %15 = or i32 %.fr44, %2
-  br i1 %14, label %.split.us.thread, label %.preheader.split
+  br i1 %14, label %.split.us, label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader
   %16 = icmp eq i32 %.fr44, 0
-  br i1 %16, label %.split.us.thread, label %.thread
+  br i1 %16, label %.split.us, label %.thread
 
 .thread:                                          ; preds = %.preheader.split, %3
   %17 = and i32 %.fr44, -256
-  br label %.split.us.thread
+  br label %.split.us
 
-.split.us.thread:                                 ; preds = %.preheader.split, %.preheader, %.thread
+.split.us:                                        ; preds = %.preheader, %.preheader.split, %.thread
   %.324 = phi i32 [ %17, %.thread ], [ %15, %.preheader ], [ %2, %.preheader.split ]
   %18 = add i32 %.324, 256
   store i32 %18, ptr %12, align 4
@@ -5211,7 +5211,7 @@ define hidden noundef ptr @_ZN14Deoptimization16trap_reason_nameEi(i32 noundef %
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %11
 
@@ -6172,19 +6172,19 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %87, %_ZN26GrowableA
 _ZNK6Method12java_code_atEi.exit:                 ; preds = %127, %132
   %134 = phi i32 [ %133, %132 ], [ %131, %127 ]
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %135
+  %136 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = load i32, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %139 = add i32 %138, 1
   store i32 %139, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %140 = zext nneg i32 %.0.i to i64
-  %141 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %140
   %142 = load i32, ptr %141, align 8
   %143 = add i32 %142, 1
   store i32 %143, ptr %141, align 8
-  %144 = add nsw i32 %.0.i248, 1
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [6 x [1 x i32]], ptr %141, i64 0, i64 %145
+  %144 = sext i32 %.0.i248 to i64
+  %145 = getelementptr [1 x i32], ptr %141, i64 %144
+  %146 = getelementptr i8, ptr %145, i64 4
   %.not.i251 = icmp eq i32 %137, -1
   %.pre.i = load i32, ptr %146, align 4
   %.fr44.i = freeze i32 %.pre.i
@@ -6301,7 +6301,7 @@ _ZN14Deoptimization15get_method_dataEP10JavaThreadRK12methodHandleb.exit: ; pred
   br i1 %.not328, label %202, label %199
 
 199:                                              ; preds = %_ZN14Deoptimization15get_method_dataEP10JavaThreadRK12methodHandleb.exit
-  %200 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %140
+  %200 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %140
   %201 = load ptr, ptr %200, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit
 
@@ -6316,7 +6316,7 @@ _ZN14Deoptimization16trap_reason_nameEi.exit:     ; preds = %199, %202
 
 205:                                              ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit
   %206 = zext nneg i32 %.0.i248 to i64
-  %207 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %206
   %208 = load ptr, ptr %207, align 8
   br label %_ZN14Deoptimization16trap_action_nameEi.exit
 
@@ -6618,7 +6618,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 361:                                              ; preds = %357
   %362 = getelementptr inbounds nuw i8, ptr %.0.i258, i64 144
-  %363 = getelementptr inbounds nuw [60 x i8], ptr %362, i64 0, i64 %140
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 %140
   %364 = load i8, ptr %363, align 1
   %365 = add i8 %364, 1
   %366 = zext i8 %365 to i32
@@ -6670,7 +6670,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 389:                                              ; preds = %387
   %390 = zext nneg i32 %379 to i64
-  %391 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %390
   %392 = load ptr, ptr %391, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit.i
 
@@ -6758,7 +6758,7 @@ thread-pre-split319:                              ; preds = %369, %_ZN14Deoptimi
   br i1 %.not328, label %436, label %433
 
 433:                                              ; preds = %429
-  %434 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %140
+  %434 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %140
   %435 = load ptr, ptr %434, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit274
 
@@ -6772,7 +6772,7 @@ _ZN14Deoptimization16trap_reason_nameEi.exit274:  ; preds = %433, %436
 
 438:                                              ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit274
   %439 = zext nneg i32 %.0.i248 to i64
-  %440 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %439
+  %440 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %439
   %441 = load ptr, ptr %440, align 8
   br label %_ZN14Deoptimization16trap_action_nameEi.exit276
 
@@ -7312,7 +7312,7 @@ define hidden noundef ptr @_ZN14Deoptimization16trap_action_nameEi(i32 noundef %
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %9
 
@@ -7342,7 +7342,7 @@ define hidden noundef ptr @_ZN14Deoptimization19format_trap_requestEPcmi(ptr nou
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %.0.i to i64
-  %10 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit
 
@@ -7361,7 +7361,7 @@ _ZN14Deoptimization16trap_reason_nameEi.exit:     ; preds = %8, %12
 
 18:                                               ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit
   %19 = zext nneg i32 %.0.i17 to i64
-  %20 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %_ZN14Deoptimization16trap_action_nameEi.exit
 
@@ -7423,7 +7423,7 @@ _ZN14Deoptimization21trap_state_add_reasonEii.exit:
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit
 
@@ -7465,7 +7465,7 @@ define hidden noundef ptr @_ZN14Deoptimization24query_update_method_dataEP10Meth
   %spec.select = select i1 %4, i32 %11, i32 %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = sext i32 %spec.select to i64
-  %14 = getelementptr inbounds [60 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nuw nsw i32 %16, 1
@@ -7515,7 +7515,7 @@ _ZN10MethodData14inc_trap_countEi.exit:           ; preds = %19, %21
 
 switch.lookup:                                    ; preds = %35
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN14Deoptimization24query_update_method_dataEP10MethodDataiNS_11DeoptReasonEbbP6MethodRjRbS6_, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14Deoptimization24query_update_method_dataEP10MethodDataiNS_11DeoptReasonEbbP6MethodRjRbS6_, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %38
 
@@ -7761,7 +7761,7 @@ define hidden noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr 
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %27, label %.preheader
+  br i1 %or.cond, label %30, label %.preheader
 
 .preheader:                                       ; preds = %2
   br i1 %4, label %.preheader.split.us, label %.preheader.split
@@ -7771,18 +7771,19 @@ define hidden noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr 
 
 .split.us.us.us:                                  ; preds = %.preheader.split.us, %.loopexit29.split.us.us.us
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.loopexit29.split.us.us.us ], [ 0, %.preheader.split.us ]
-  %.02434.us.us = phi i32 [ %9, %.loopexit29.split.us.us.us ], [ 0, %.preheader.split.us ]
-  %5 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv71
+  %.02434.us.us = phi i32 [ %10, %.loopexit29.split.us.us.us ], [ 0, %.preheader.split.us ]
+  %5 = getelementptr inbounds nuw [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %indvars.iv71
   br label %.loopexit.us.us.us
 
 .loopexit.us.us.us:                               ; preds = %.loopexit.us.us.us, %.split.us.us.us
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.loopexit.us.us.us ], [ 0, %.split.us.us.us ]
-  %.132.us.us.us = phi i32 [ %9, %.loopexit.us.us.us ], [ %.02434.us.us, %.split.us.us.us ]
+  %.132.us.us.us = phi i32 [ %10, %.loopexit.us.us.us ], [ %.02434.us.us, %.split.us.us.us ]
+  %6 = getelementptr inbounds nuw [1 x i32], ptr %5, i64 %indvars.iv67
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = lshr i32 %8, 8
+  %10 = add i32 %9, %.132.us.us.us
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %6 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %5, i64 0, i64 %indvars.iv.next68
-  %7 = load i32, ptr %6, align 4
-  %8 = lshr i32 %7, 8
-  %9 = add i32 %8, %.132.us.us.us
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 5
   br i1 %exitcond70.not, label %.loopexit29.split.us.us.us, label %.loopexit.us.us.us, !llvm.loop !81
 
@@ -7794,30 +7795,31 @@ define hidden noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr 
 _ZN14Deoptimization16trap_reason_nameEi.exit.us:  ; preds = %.preheader.split.us, %.loopexit29.split.us.us
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.loopexit29.split.us.us ], [ 0, %.preheader.split.us ]
   %.02434.us = phi i32 [ %.4.us, %.loopexit29.split.us.us ], [ 0, %.preheader.split.us ]
-  %10 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv63
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %11) #23
-  %.not.us = icmp eq i32 %12, 0
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %indvars.iv63
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #23
+  %.not.us = icmp eq i32 %13, 0
   br i1 %.not.us, label %.split.us.us, label %.loopexit29.split.us.us
 
 .split.us.us:                                     ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit.us
-  %13 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv63
+  %14 = getelementptr inbounds nuw [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %indvars.iv63
   br label %.loopexit.us.us
 
 .loopexit29.split.us.us:                          ; preds = %.loopexit.us.us, %_ZN14Deoptimization16trap_reason_nameEi.exit.us
-  %.4.us = phi i32 [ %.02434.us, %_ZN14Deoptimization16trap_reason_nameEi.exit.us ], [ %17, %.loopexit.us.us ]
+  %.4.us = phi i32 [ %.02434.us, %_ZN14Deoptimization16trap_reason_nameEi.exit.us ], [ %19, %.loopexit.us.us ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 31
   br i1 %exitcond66.not, label %.loopexit30, label %_ZN14Deoptimization16trap_reason_nameEi.exit.us, !llvm.loop !82
 
 .loopexit.us.us:                                  ; preds = %.loopexit.us.us, %.split.us.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.loopexit.us.us ], [ 0, %.split.us.us ]
-  %.132.us.us = phi i32 [ %17, %.loopexit.us.us ], [ %.02434.us, %.split.us.us ]
+  %.132.us.us = phi i32 [ %19, %.loopexit.us.us ], [ %.02434.us, %.split.us.us ]
+  %15 = getelementptr inbounds nuw [1 x i32], ptr %14, i64 %indvars.iv59
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = lshr i32 %17, 8
+  %19 = add i32 %18, %.132.us.us
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %14 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %13, i64 0, i64 %indvars.iv.next60
-  %15 = load i32, ptr %14, align 4
-  %16 = lshr i32 %15, 8
-  %17 = add i32 %16, %.132.us.us
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 5
   br i1 %exitcond62.not, label %.loopexit29.split.us.us, label %.loopexit.us.us, !llvm.loop !81
 
@@ -7827,83 +7829,85 @@ _ZN14Deoptimization16trap_reason_nameEi.exit.us:  ; preds = %.preheader.split.us
 .split.us:                                        ; preds = %.preheader.split, %.loopexit29.split.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.loopexit29.split.us ], [ 0, %.preheader.split ]
   %.02434.us38 = phi i32 [ %.3.us, %.loopexit29.split.us ], [ 0, %.preheader.split ]
-  %18 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv55
+  %20 = getelementptr inbounds nuw [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %indvars.iv55
   br label %_ZN14Deoptimization16trap_action_nameEi.exit.us
 
-_ZN14Deoptimization16trap_action_nameEi.exit.us:  ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge, %.split.us
-  %indvars.iv51 = phi i64 [ %22, %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge ], [ 0, %.split.us ]
-  %.132.us = phi i32 [ %.3.us, %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge ], [ %.02434.us38, %.split.us ]
-  %19 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv51
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %20) #23
-  %.not27.us = icmp eq i32 %21, 0
-  %22 = add nuw nsw i64 %indvars.iv51, 1
-  br i1 %.not27.us, label %.loopexit.us, label %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge
+_ZN14Deoptimization16trap_action_nameEi.exit.us:  ; preds = %29, %.split.us
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %29 ], [ 0, %.split.us ]
+  %.132.us = phi i32 [ %.3.us, %29 ], [ %.02434.us38, %.split.us ]
+  %21 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %indvars.iv51
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %22) #23
+  %.not27.us = icmp eq i32 %23, 0
+  br i1 %.not27.us, label %.loopexit.us, label %29
 
 .loopexit.us:                                     ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us
-  %23 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %18, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = lshr i32 %24, 8
-  %26 = add i32 %25, %.132.us
-  br label %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge
+  %24 = getelementptr inbounds nuw [1 x i32], ptr %20, i64 %indvars.iv51
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = lshr i32 %26, 8
+  %28 = add i32 %27, %.132.us
+  br label %29
 
-_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge: ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us, %.loopexit.us
-  %.3.us = phi i32 [ %26, %.loopexit.us ], [ %.132.us, %_ZN14Deoptimization16trap_action_nameEi.exit.us ]
-  %exitcond54.not = icmp eq i64 %22, 5
+29:                                               ; preds = %.loopexit.us, %_ZN14Deoptimization16trap_action_nameEi.exit.us
+  %.3.us = phi i32 [ %.132.us, %_ZN14Deoptimization16trap_action_nameEi.exit.us ], [ %28, %.loopexit.us ]
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next52, 5
   br i1 %exitcond54.not, label %.loopexit29.split.us, label %_ZN14Deoptimization16trap_action_nameEi.exit.us, !llvm.loop !81
 
-.loopexit29.split.us:                             ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit.us._crit_edge
+.loopexit29.split.us:                             ; preds = %29
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 31
   br i1 %exitcond58.not, label %.loopexit30, label %.split.us, !llvm.loop !82
 
-27:                                               ; preds = %2
-  %28 = load i32, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
+30:                                               ; preds = %2
+  %31 = load i32, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   br label %.loopexit30
 
 _ZN14Deoptimization16trap_reason_nameEi.exit:     ; preds = %.preheader.split, %.loopexit29.split
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.loopexit29.split ], [ 0, %.preheader.split ]
   %.02434 = phi i32 [ %.4, %.loopexit29.split ], [ 0, %.preheader.split ]
-  %29 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv47
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %30) #23
-  %.not = icmp eq i32 %31, 0
+  %32 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %indvars.iv47
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %33) #23
+  %.not = icmp eq i32 %34, 0
   br i1 %.not, label %.split, label %.loopexit29.split
 
 .split:                                           ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit
-  %32 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv47
+  %35 = getelementptr inbounds nuw [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %indvars.iv47
   br label %_ZN14Deoptimization16trap_action_nameEi.exit
 
-_ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %.split, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge
-  %indvars.iv = phi i64 [ 0, %.split ], [ %36, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge ]
-  %.132 = phi i32 [ %.02434, %.split ], [ %.3, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge ]
-  %33 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %34) #23
-  %.not27 = icmp eq i32 %35, 0
-  %36 = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not27, label %.loopexit, label %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge
+_ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %.split, %44
+  %indvars.iv = phi i64 [ 0, %.split ], [ %indvars.iv.next, %44 ]
+  %.132 = phi i32 [ %.02434, %.split ], [ %.3, %44 ]
+  %36 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %37) #23
+  %.not27 = icmp eq i32 %38, 0
+  br i1 %.not27, label %.loopexit, label %44
 
 .loopexit:                                        ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit
-  %37 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %32, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = lshr i32 %38, 8
-  %40 = add i32 %39, %.132
-  br label %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge
+  %39 = getelementptr inbounds nuw [1 x i32], ptr %35, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = lshr i32 %41, 8
+  %43 = add i32 %42, %.132
+  br label %44
 
-_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge: ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit, %.loopexit
-  %.3 = phi i32 [ %40, %.loopexit ], [ %.132, %_ZN14Deoptimization16trap_action_nameEi.exit ]
-  %exitcond.not = icmp eq i64 %36, 5
+44:                                               ; preds = %.loopexit, %_ZN14Deoptimization16trap_action_nameEi.exit
+  %.3 = phi i32 [ %.132, %_ZN14Deoptimization16trap_action_nameEi.exit ], [ %43, %.loopexit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %.loopexit29.split, label %_ZN14Deoptimization16trap_action_nameEi.exit, !llvm.loop !81
 
-.loopexit29.split:                                ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge, %_ZN14Deoptimization16trap_reason_nameEi.exit
-  %.4 = phi i32 [ %.02434, %_ZN14Deoptimization16trap_reason_nameEi.exit ], [ %.3, %_ZN14Deoptimization16trap_action_nameEi.exit._crit_edge ]
+.loopexit29.split:                                ; preds = %44, %_ZN14Deoptimization16trap_reason_nameEi.exit
+  %.4 = phi i32 [ %.02434, %_ZN14Deoptimization16trap_reason_nameEi.exit ], [ %.3, %44 ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 31
   br i1 %exitcond50.not, label %.loopexit30, label %_ZN14Deoptimization16trap_reason_nameEi.exit, !llvm.loop !82
 
-.loopexit30:                                      ; preds = %.loopexit29.split, %.loopexit29.split.us, %.loopexit29.split.us.us, %.loopexit29.split.us.us.us, %27
-  %.021 = phi i32 [ %28, %27 ], [ %9, %.loopexit29.split.us.us.us ], [ %.4.us, %.loopexit29.split.us.us ], [ %.3.us, %.loopexit29.split.us ], [ %.4, %.loopexit29.split ]
+.loopexit30:                                      ; preds = %.loopexit29.split, %.loopexit29.split.us, %.loopexit29.split.us.us, %.loopexit29.split.us.us.us, %30
+  %.021 = phi i32 [ %31, %30 ], [ %10, %.loopexit29.split.us.us.us ], [ %.4.us, %.loopexit29.split.us.us ], [ %.3.us, %.loopexit29.split.us ], [ %.4, %.loopexit29.split ]
   ret i32 %.021
 }
 
@@ -7940,8 +7944,8 @@ define hidden void @_ZN14Deoptimization16print_statisticsEv() local_unnamed_addr
 .preheader:                                       ; preds = %7, %38
   %indvars.iv52 = phi i64 [ 0, %7 ], [ %indvars.iv.next53, %38 ]
   %.050 = phi i32 [ %2, %7 ], [ %.us-phi, %38 ]
-  %13 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %indvars.iv52
-  %14 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv52
+  %13 = getelementptr inbounds nuw [6 x [1 x i32]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 %indvars.iv52
+  %14 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %indvars.iv52
   br label %15
 
 .loopexit:                                        ; preds = %_ZN9Bytecodes10is_definedEi.exit.thread, %15
@@ -7953,13 +7957,13 @@ define hidden void @_ZN14Deoptimization16print_statisticsEv() local_unnamed_addr
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.loopexit ]
   %.148 = phi i32 [ %.050, %.preheader ], [ %.us-phi, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw [6 x [1 x i32]], ptr %13, i64 0, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [1 x i32], ptr %13, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %_ZN14Deoptimization16trap_action_nameEi.exit
 
 _ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %15
-  %19 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %indvars.iv
   %20 = and i32 %17, 255
   %21 = load ptr, ptr %14, align 8
   %22 = load ptr, ptr %19, align 8
@@ -7968,13 +7972,13 @@ _ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %15
 
 _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %_ZN14Deoptimization16trap_action_nameEi.exit
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %24
   %26 = load i16, ptr %25, align 2
   %.not45 = icmp eq i16 %26, 0
   br i1 %.not45, label %_ZN9Bytecodes10is_definedEi.exit.thread, label %27
 
 27:                                               ; preds = %_ZN9Bytecodes10is_definedEi.exit
-  %28 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %24
+  %28 = getelementptr inbounds nuw ptr, ptr @_ZN9Bytecodes5_nameE, i64 %24
   %29 = load ptr, ptr %28, align 8
   br label %_ZN9Bytecodes10is_definedEi.exit.thread
 
@@ -8991,7 +8995,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm598084EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #22
@@ -9398,7 +9402,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -9415,7 +9419,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -9493,7 +9497,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -9539,7 +9543,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -9556,7 +9560,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -9634,7 +9638,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -9969,7 +9973,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #22
@@ -10073,7 +10077,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -10087,7 +10091,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -10153,7 +10157,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -10309,7 +10313,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal15RuntimeDispatchILm2383942E
 _ZN14AccessInternal15BarrierResolverILm2383942EPFvP7oopDesclS2_ELNS_11BarrierTypeE1EE15resolve_barrierEv.exit: ; preds = %13, %10
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.3.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_, %10 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.3, %13 ]
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.3.sink, i64 0, i64 %16
+  %switch.gep6 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.3.sink, i64 %16
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   store ptr %switch.load7, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   tail call void %switch.load7(ptr noundef %0, i64 noundef %1, ptr noundef %2) #22
@@ -10466,7 +10470,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %9 = lshr i64 %8, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
@@ -10648,7 +10652,7 @@ define linkonce_odr hidden void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEP
   %.not.i.i.i = icmp eq i64 %14, 0
   %15 = lshr i64 %3, 12
   %16 = and i64 %15, 15
-  %17 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 %3, %19
@@ -10709,7 +10713,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %50 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %49, %55
@@ -10747,7 +10751,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i.i13 = icmp eq i64 %73, 0
   %74 = lshr i64 %3, 12
   %75 = and i64 %74, 15
-  %76 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = zext nneg i32 %77 to i64
   %79 = lshr i64 %3, %78
@@ -10915,7 +10919,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %9 = lshr i64 %8, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
@@ -11794,7 +11798,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal15RuntimeDispatchILm286790EP
 _ZN14AccessInternal15BarrierResolverILm286790EPFvP7oopDesclS2_ELNS_11BarrierTypeE1EE15resolve_barrierEv.exit: ; preds = %13, %10
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_, %10 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4, %13 ]
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4.sink, i64 0, i64 %16
+  %switch.gep6 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4.sink, i64 %16
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   store ptr %switch.load7, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   tail call void %switch.load7(ptr noundef %0, i64 noundef %1, ptr noundef %2) #22
@@ -11951,7 +11955,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %9 = lshr i64 %8, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
@@ -12209,7 +12213,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %9 = lshr i64 %8, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
@@ -12410,7 +12414,7 @@ define linkonce_odr hidden void @_ZN21DeoptReasonSerializer9serializeER19JfrChec
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit
 
@@ -12817,7 +12821,7 @@ define linkonce_odr hidden void @_ZN21DeoptActionSerializer9serializeER19JfrChec
 _ZN14Deoptimization16trap_action_nameEi.exit:     ; preds = %2, %_ZN14Deoptimization16trap_action_nameEi.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN14Deoptimization16trap_action_nameEi.exit ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #22
-  %3 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN14Deoptimization17_trap_action_nameE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZN14Deoptimization17_trap_action_nameE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14615,7 +14619,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm2383942EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #22

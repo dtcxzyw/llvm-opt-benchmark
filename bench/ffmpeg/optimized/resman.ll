@@ -102,7 +102,7 @@ get_resman_context.exit:                          ; preds = %1, %9
 12:                                               ; preds = %get_resman_context.exit, %11
   %13 = phi i1 [ true, %get_resman_context.exit ], [ false, %11 ]
   %indvars.iv = phi i64 [ 0, %get_resman_context.exit ], [ 1, %11 ]
-  %14 = getelementptr inbounds nuw [2 x %struct.FFResourceDefinition], ptr @resource_definitions, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.FFResourceDefinition, ptr @resource_definitions, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %14, align 16, !tbaa !16
   %.not40 = icmp eq i32 %.sroa.0.0.copyload, %0
   br i1 %.not40, label %.loopexit, label %11

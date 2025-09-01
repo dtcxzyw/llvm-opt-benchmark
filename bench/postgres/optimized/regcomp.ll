@@ -1591,7 +1591,7 @@ define internal fastcc void @lexstart(ptr noundef nonnull %0) unnamed_addr #0 {
 
 78:                                               ; preds = %76
   %79 = zext nneg i32 %74 to i64
-  %80 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = lshr i8 %81, 1
   %.lobit9.i.i = and i8 %82, 1
@@ -1673,7 +1673,7 @@ pg_wc_isalpha.exit.i:                             ; preds = %105, %94, %87, %84,
 
 120:                                              ; preds = %118
   %121 = zext nneg i32 %116 to i64
-  %122 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = lshr i8 %123, 1
   %.lobit9.i88.i = and i8 %124, 1
@@ -2322,7 +2322,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %169 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %170 = add nuw i64 %164, 1
   store i64 %170, ptr %12, align 8
-  %171 = getelementptr inbounds nuw [0 x %struct.arc], ptr %169, i64 0, i64 %164
+  %171 = getelementptr inbounds nuw %struct.arc, ptr %169, i64 %164
   br label %allocarc.exit.i
 
 172:                                              ; preds = %161
@@ -4645,7 +4645,7 @@ freearc.exit.i.i:                                 ; preds = %538, %537
   %564 = getelementptr inbounds nuw i8, ptr %557, i64 16
   %565 = add nuw i64 %559, 1
   store i64 %565, ptr %452, align 8
-  %566 = getelementptr inbounds nuw [0 x %struct.state], ptr %564, i64 0, i64 %559
+  %566 = getelementptr inbounds nuw %struct.state, ptr %564, i64 %559
   br label %603
 
 567:                                              ; preds = %556
@@ -4806,7 +4806,7 @@ newstate.exit166.i:                               ; preds = %615, %591, %576
   %645 = getelementptr inbounds nuw i8, ptr %638, i64 16
   %646 = add nuw i64 %640, 1
   store i64 %646, ptr %457, align 8
-  %647 = getelementptr inbounds nuw [0 x %struct.arc], ptr %645, i64 0, i64 %640
+  %647 = getelementptr inbounds nuw %struct.arc, ptr %645, i64 %640
   br label %allocarc.exit.i135.i
 
 648:                                              ; preds = %637
@@ -5085,7 +5085,7 @@ copyins.exit.i.i:                                 ; preds = %createarc.exit151.i
   %777 = getelementptr inbounds nuw i8, ptr %770, i64 16
   %778 = add nuw i64 %772, 1
   store i64 %778, ptr %457, align 8
-  %779 = getelementptr inbounds nuw [0 x %struct.arc], ptr %777, i64 0, i64 %772
+  %779 = getelementptr inbounds nuw %struct.arc, ptr %777, i64 %772
   br label %allocarc.exit.i117.i
 
 780:                                              ; preds = %769
@@ -5711,7 +5711,7 @@ freearc.exit90.i.i:                               ; preds = %1060, %1059
   %1095 = getelementptr inbounds nuw i8, ptr %1088, i64 16
   %1096 = add nuw i64 %1090, 1
   store i64 %1096, ptr %452, align 8
-  %1097 = getelementptr inbounds nuw [0 x %struct.state], ptr %1095, i64 0, i64 %1090
+  %1097 = getelementptr inbounds nuw %struct.state, ptr %1095, i64 %1090
   br label %1134
 
 1098:                                             ; preds = %1087
@@ -5941,7 +5941,7 @@ newstate.exit.i:                                  ; preds = %1146, %1122, %1107
   %1202 = getelementptr inbounds nuw i8, ptr %1195, i64 16
   %1203 = add nuw i64 %1197, 1
   store i64 %1203, ptr %457, align 8
-  %1204 = getelementptr inbounds nuw [0 x %struct.arc], ptr %1202, i64 0, i64 %1197
+  %1204 = getelementptr inbounds nuw %struct.arc, ptr %1202, i64 %1197
   br label %allocarc.exit.i89.i
 
 1205:                                             ; preds = %1194
@@ -6212,7 +6212,7 @@ cparc.exit109.i.i:                                ; preds = %1172, %1185, %color
   %1331 = getelementptr inbounds nuw i8, ptr %1324, i64 16
   %1332 = add nuw i64 %1326, 1
   store i64 %1332, ptr %457, align 8
-  %1333 = getelementptr inbounds nuw [0 x %struct.arc], ptr %1331, i64 0, i64 %1326
+  %1333 = getelementptr inbounds nuw %struct.arc, ptr %1331, i64 %1326
   br label %allocarc.exit.i71.i
 
 1334:                                             ; preds = %1323
@@ -6600,7 +6600,7 @@ select.unfold.i:                                  ; preds = %989, %959
   %1518 = getelementptr inbounds nuw i8, ptr %1511, i64 16
   %1519 = add nuw i64 %1513, 1
   store i64 %1519, ptr %457, align 8
-  %1520 = getelementptr inbounds nuw [0 x %struct.arc], ptr %1518, i64 0, i64 %1513
+  %1520 = getelementptr inbounds nuw %struct.arc, ptr %1518, i64 %1513
   br label %allocarc.exit.i.i
 
 1521:                                             ; preds = %1510
@@ -7127,7 +7127,7 @@ pull.exit.i:                                      ; preds = %newstate.exit.i, %p
   %1766 = getelementptr inbounds nuw i8, ptr %.14551.i, i64 4
   %1767 = load i16, ptr %1766, align 4
   %1768 = sext i16 %1767 to i64
-  %1769 = getelementptr inbounds [2 x i16], ptr %1759, i64 0, i64 %1768
+  %1769 = getelementptr inbounds i16, ptr %1759, i64 %1768
   %1770 = load i16, ptr %1769, align 2
   %1771 = getelementptr inbounds nuw i8, ptr %.14551.i, i64 8
   %1772 = load ptr, ptr %1771, align 8
@@ -7549,7 +7549,7 @@ freearc.exit.i.i204:                              ; preds = %1944, %1943
   %1970 = getelementptr inbounds nuw i8, ptr %1963, i64 16
   %1971 = add nuw i64 %1965, 1
   store i64 %1971, ptr %1749, align 8
-  %1972 = getelementptr inbounds nuw [0 x %struct.state], ptr %1970, i64 0, i64 %1965
+  %1972 = getelementptr inbounds nuw %struct.state, ptr %1970, i64 %1965
   br label %2009
 
 1973:                                             ; preds = %1962
@@ -7710,7 +7710,7 @@ newstate.exit142.i:                               ; preds = %2021, %1997, %1982
   %2049 = getelementptr inbounds nuw i8, ptr %2042, i64 16
   %2050 = add nuw i64 %2044, 1
   store i64 %2050, ptr %1744, align 8
-  %2051 = getelementptr inbounds nuw [0 x %struct.arc], ptr %2049, i64 0, i64 %2044
+  %2051 = getelementptr inbounds nuw %struct.arc, ptr %2049, i64 %2044
   br label %allocarc.exit.i111.i
 
 2052:                                             ; preds = %2041
@@ -7989,7 +7989,7 @@ copyouts.exit.i.i:                                ; preds = %createarc.exit127.i
   %2180 = getelementptr inbounds nuw i8, ptr %2173, i64 16
   %2181 = add nuw i64 %2175, 1
   store i64 %2181, ptr %1744, align 8
-  %2182 = getelementptr inbounds nuw [0 x %struct.arc], ptr %2180, i64 0, i64 %2175
+  %2182 = getelementptr inbounds nuw %struct.arc, ptr %2180, i64 %2175
   br label %allocarc.exit.i93.i
 
 2183:                                             ; preds = %2172
@@ -8600,7 +8600,7 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2433, %2431
   %2491 = getelementptr inbounds nuw i8, ptr %2484, i64 16
   %2492 = add nuw i64 %2486, 1
   store i64 %2492, ptr %1749, align 8
-  %2493 = getelementptr inbounds nuw [0 x %struct.state], ptr %2491, i64 0, i64 %2486
+  %2493 = getelementptr inbounds nuw %struct.state, ptr %2491, i64 %2486
   br label %2530
 
 2494:                                             ; preds = %2483
@@ -8830,7 +8830,7 @@ newstate.exit.i119:                               ; preds = %2542, %2518, %2503
   %2598 = getelementptr inbounds nuw i8, ptr %2591, i64 16
   %2599 = add nuw i64 %2593, 1
   store i64 %2599, ptr %1744, align 8
-  %2600 = getelementptr inbounds nuw [0 x %struct.arc], ptr %2598, i64 0, i64 %2593
+  %2600 = getelementptr inbounds nuw %struct.arc, ptr %2598, i64 %2593
   br label %allocarc.exit.i70.i
 
 2601:                                             ; preds = %2590
@@ -9101,7 +9101,7 @@ cparc.exit112.i.i:                                ; preds = %2568, %2581, %color
   %2728 = getelementptr inbounds nuw i8, ptr %2721, i64 16
   %2729 = add nuw i64 %2723, 1
   store i64 %2729, ptr %1744, align 8
-  %2730 = getelementptr inbounds nuw [0 x %struct.arc], ptr %2728, i64 0, i64 %2723
+  %2730 = getelementptr inbounds nuw %struct.arc, ptr %2728, i64 %2723
   br label %allocarc.exit.i.i127
 
 2731:                                             ; preds = %2720
@@ -9807,7 +9807,7 @@ push.exit.i:                                      ; preds = %newstate.exit.i119,
   %3053 = getelementptr inbounds nuw i8, ptr %.14542.i, i64 4
   %3054 = load i16, ptr %3053, align 4
   %3055 = sext i16 %3054 to i64
-  %3056 = getelementptr inbounds [2 x i16], ptr %3046, i64 0, i64 %3055
+  %3056 = getelementptr inbounds i16, ptr %3046, i64 %3055
   %3057 = load i16, ptr %3056, align 2
   %3058 = getelementptr inbounds nuw i8, ptr %.14542.i, i64 8
   %3059 = load ptr, ptr %3058, align 8
@@ -11120,7 +11120,7 @@ select.unfold.preheader:                          ; preds = %.critedge85
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %162 = add nuw i64 %156, 1
   store i64 %162, ptr %118, align 8
-  %163 = getelementptr inbounds nuw [0 x %struct.arc], ptr %161, i64 0, i64 %156
+  %163 = getelementptr inbounds nuw %struct.arc, ptr %161, i64 %156
   br label %allocarc.exit.i
 
 164:                                              ; preds = %153
@@ -11422,7 +11422,7 @@ copyouts.exit.thread:                             ; preds = %.preheader.i106, %1
   %301 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %302 = add nuw i64 %296, 1
   store i64 %302, ptr %118, align 8
-  %303 = getelementptr inbounds nuw [0 x %struct.arc], ptr %301, i64 0, i64 %296
+  %303 = getelementptr inbounds nuw %struct.arc, ptr %301, i64 %296
   br label %allocarc.exit.i135
 
 304:                                              ; preds = %293
@@ -12305,7 +12305,7 @@ pg_wc_isprint.exit.thread.i:                      ; preds = %62, %pg_wc_isprint.
 
 69:                                               ; preds = %67
   %70 = zext nneg i32 %1 to i64
-  %71 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 3
   %74 = icmp ne i8 %73, 0
@@ -12388,7 +12388,7 @@ pg_wc_isalnum.exit.thread.i:                      ; preds = %105, %pg_wc_isalnum
 
 114:                                              ; preds = %112
   %115 = zext nneg i32 %1 to i64
-  %116 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = lshr i8 %117, 1
   %.lobit9.i.i = and i8 %118, 1
@@ -12470,7 +12470,7 @@ pg_wc_isalpha.exit.thread.i:                      ; preds = %144, %pg_wc_isalpha
 
 155:                                              ; preds = %153
   %156 = zext nneg i32 %1 to i64
-  %157 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %156
   %158 = load i8, ptr %157, align 1
   %159 = and i8 %158, 3
   %160 = icmp ne i8 %159, 0
@@ -12633,7 +12633,7 @@ pg_wc_isdigit.exit.thread.i:                      ; preds = %229, %pg_wc_isdigit
 
 238:                                              ; preds = %236
   %239 = zext nneg i32 %1 to i64
-  %240 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = lshr i8 %241, 6
   %.lobit9.i72.i = and i8 %242, 1
@@ -12716,7 +12716,7 @@ pg_wc_ispunct.exit.thread.i:                      ; preds = %273, %pg_wc_ispunct
 
 282:                                              ; preds = %280
   %283 = zext nneg i32 %1 to i64
-  %284 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %283
   %285 = load i8, ptr %284, align 1
   %.lobit9.i76.i = lshr i8 %285, 7
   %286 = zext nneg i8 %.lobit9.i76.i to i32
@@ -13631,7 +13631,7 @@ define internal fastcc noundef ptr @newstate(ptr noundef captures(none) %0) unna
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = add nuw i64 %15, 1
   store i64 %21, ptr %14, align 8
-  %22 = getelementptr inbounds nuw [0 x %struct.state], ptr %20, i64 0, i64 %15
+  %22 = getelementptr inbounds nuw %struct.state, ptr %20, i64 %15
   br label %64
 
 23:                                               ; preds = %10
@@ -13781,7 +13781,7 @@ define internal fastcc void @createarc(ptr noundef captures(none) %0, i32 nounde
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %22 = add nuw i64 %16, 1
   store i64 %22, ptr %15, align 8
-  %23 = getelementptr inbounds nuw [0 x %struct.arc], ptr %21, i64 0, i64 %16
+  %23 = getelementptr inbounds nuw %struct.arc, ptr %21, i64 %16
   br label %allocarc.exit
 
 24:                                               ; preds = %11
@@ -20993,7 +20993,7 @@ element.exit:                                     ; preds = %299
 
 .preheader:                                       ; preds = %.preheader.outer, %334
   %indvars.iv = phi i64 [ %indvars.iv.next, %334 ], [ %indvars.iv.ph, %.preheader.outer ]
-  %328 = getelementptr inbounds nuw [14 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %328 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %329 = load i8, ptr %328, align 1, !range !7, !noundef !8
   %330 = trunc nuw i8 %329 to i1
   br i1 %330, label %331, label %334
@@ -24006,7 +24006,7 @@ subcoloronerange.exit:                            ; preds = %247, %138, %248, %2
 259:                                              ; preds = %._crit_edge215
   %260 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %261 = zext nneg i32 %257 to i64
-  %262 = getelementptr inbounds nuw [14 x i32], ptr %260, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw i32, ptr %260, i64 %261
   %263 = load i32, ptr %262, align 4
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %265, label %329
@@ -24132,7 +24132,7 @@ newhicolorcols.exit._crit_edge:                   ; preds = %newhicolorcols.exit
 329:                                              ; preds = %newhicolorcols.exit._crit_edge, %259
   %330 = phi i32 [ %.pre, %newhicolorcols.exit._crit_edge ], [ %257, %259 ]
   %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds [14 x i32], ptr %260, i64 0, i64 %331
+  %332 = getelementptr inbounds i32, ptr %260, i64 %331
   %333 = load i32, ptr %332, align 4
   %334 = getelementptr inbounds nuw i8, ptr %7, i64 140
   %335 = load i32, ptr %334, align 4
@@ -24645,7 +24645,7 @@ define internal i32 @pg_wc_isalnum(i32 noundef %0) #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 3
   %10 = icmp ne i8 %9, 0
@@ -24717,7 +24717,7 @@ define internal i32 @pg_wc_isalpha(i32 noundef %0) #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = lshr i8 %8, 1
   %.lobit9 = and i8 %9, 1
@@ -24788,7 +24788,7 @@ define internal i32 @pg_wc_isword(i32 noundef %0) #0 {
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 3
   %12 = icmp ne i8 %11, 0
@@ -24925,7 +24925,7 @@ define internal i32 @pg_wc_ispunct(i32 noundef %0) #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = lshr i8 %8, 6
   %.lobit9 = and i8 %9, 1
@@ -24997,7 +24997,7 @@ define internal i32 @pg_wc_isspace(i32 noundef %0) #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %6
   %8 = load i8, ptr %7, align 1
   %.lobit9 = lshr i8 %8, 7
   %9 = zext nneg i8 %.lobit9 to i32
@@ -28445,7 +28445,7 @@ define internal fastcc void @skip(ptr noundef nonnull captures(none) %0) unnamed
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw [128 x i8], ptr @pg_char_properties, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @pg_char_properties, i64 %11
   %13 = load i8, ptr %12, align 1
   %.lobit9.i = lshr i8 %13, 7
   %14 = zext nneg i8 %.lobit9.i to i32
@@ -29106,7 +29106,7 @@ define internal fastcc i32 @lexdigits(ptr noundef nonnull captures(none) %0, i32
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i32], ptr @switch.table.lexdigits, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lexdigits, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not26 = icmp samesign ult i32 %switch.load, %1
   br i1 %.not26, label %15, label %.critedge.sink.split

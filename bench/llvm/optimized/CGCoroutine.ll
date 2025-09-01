@@ -524,7 +524,7 @@ define internal fastcc void @_ZL21emitSuspendExpressionRN5clang7CodeGen15CodeGen
 47:                                               ; preds = %43, %39, %8
   %.0.i = phi i32 [ 0, %8 ], [ %46, %43 ], [ %42, %39 ]
   %48 = zext i32 %4 to i64
-  %49 = getelementptr inbounds nuw [4 x %"class.llvm::StringLiteral"], ptr @_ZN12_GLOBAL__N_112AwaitKindStrE, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN12_GLOBAL__N_112AwaitKindStrE, i64 %48
   %.sroa.0.0.copyload.i = load ptr, ptr %49, align 16, !tbaa !47, !noalias !42
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !49, !noalias !42

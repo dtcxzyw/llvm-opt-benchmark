@@ -847,7 +847,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h0d586156008a
 
 20:                                               ; preds = %14, %20
   %21 = phi i64 [ 0, %14 ], [ %24, %20 ]
-  %22 = getelementptr inbounds nuw [64 x { { { ptr, i64 }, {} } }], ptr %6, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %6, i64 %21
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %23, align 8
@@ -1028,7 +1028,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
 
 49:                                               ; preds = %23, %49
   %50 = phi i64 [ 0, %23 ], [ %53, %49 ]
-  %51 = getelementptr inbounds nuw [64 x { { { ptr, i64 }, {} } }], ptr %10, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %10, i64 %50
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 0, ptr %52, align 8
@@ -1309,7 +1309,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
 
 80:                                               ; preds = %48, %80
   %81 = phi i64 [ 0, %48 ], [ %84, %80 ]
-  %82 = getelementptr inbounds nuw [64 x { { { ptr, i64 }, {} } }], ptr %11, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %11, i64 %81
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 0, ptr %83, align 8
@@ -1496,7 +1496,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17hf6f0f0972e79
 
 41:                                               ; preds = %29, %41
   %42 = phi i64 [ 0, %29 ], [ %45, %41 ]
-  %43 = getelementptr inbounds nuw [64 x { { { ptr, i64 }, {} } }], ptr %7, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %7, i64 %42
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %44, align 8

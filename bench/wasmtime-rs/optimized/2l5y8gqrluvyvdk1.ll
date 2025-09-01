@@ -193,7 +193,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %76, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %96 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %95, i64 0, i64 %90
+  %96 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %95, i64 %90
   %97 = load i64, ptr %96, align 16, !range !12, !noalias !7, !noundef !3
   %.not.i = icmp eq i64 %97, 3
   br i1 %.not.i, label %.critedge.i, label %100

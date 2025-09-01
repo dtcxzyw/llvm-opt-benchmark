@@ -8162,7 +8162,7 @@ define noundef i64 @_ZNK7rocksdb14StatisticsImpl14getTickerCountEj(ptr noundef n
   %.067.i = phi i64 [ 0, %2 ], [ %12, %7 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !156
   %9 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %8, i64 %.08.i
-  %10 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %9, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %9, i64 %6
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = add i64 %11, %.067.i
   %13 = add nuw i64 %.08.i, 1
@@ -8202,7 +8202,7 @@ define noundef i64 @_ZNK7rocksdb14StatisticsImpl20getTickerCountLockedEj(ptr nou
   %.067 = phi i64 [ 0, %2 ], [ %12, %7 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !156
   %9 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %8, i64 %.08
-  %10 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %9, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %9, i64 %5
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = add i64 %11, %.067
   %13 = add nuw i64 %.08, 1
@@ -8260,7 +8260,7 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i: 
   %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %25, %24 ]
   %21 = load ptr, ptr %12, align 8, !tbaa !156, !noalias !164
   %22 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %21, i64 %.011.i, i32 1
-  %23 = getelementptr inbounds nuw [63 x %"class.rocksdb::HistogramImpl"], ptr %22, i64 0, i64 %13
+  %23 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %22, i64 %13
   invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef nonnull align 8 dereferenceable(968) %23)
           to label %24 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !164
 
@@ -8371,7 +8371,7 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit: ; 
   %.011 = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit ], [ %24, %23 ]
   %20 = load ptr, ptr %11, align 8, !tbaa !156
   %21 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %20, i64 %.011, i32 1
-  %22 = getelementptr inbounds nuw [63 x %"class.rocksdb::HistogramImpl"], ptr %21, i64 0, i64 %12
+  %22 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %21, i64 %12
   invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %4, ptr noundef nonnull align 8 dereferenceable(968) %22)
           to label %23 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
 
@@ -8440,7 +8440,7 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i: 
   %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %25, %24 ]
   %21 = load ptr, ptr %12, align 8, !tbaa !156, !noalias !170
   %22 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %21, i64 %.011.i, i32 1
-  %23 = getelementptr inbounds nuw [63 x %"class.rocksdb::HistogramImpl"], ptr %22, i64 0, i64 %13
+  %23 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %22, i64 %13
   invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef nonnull align 8 dereferenceable(968) %23)
           to label %24 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !170
 
@@ -8522,7 +8522,7 @@ define void @_ZN7rocksdb14StatisticsImpl14setTickerCountEjm(ptr noundef nonnull 
   %10 = load ptr, ptr %5, align 8, !tbaa !156
   %11 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %10, i64 %.08.i
   %.sink.i = select i1 %9, i64 %2, i64 0
-  %12 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %11, i64 0, i64 %7
+  %12 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %11, i64 %7
   store atomic i64 %.sink.i, ptr %12 seq_cst, align 8
   %13 = add nuw i64 %.08.i, 1
   %14 = load i32, ptr %6, align 8, !tbaa !149
@@ -8577,7 +8577,7 @@ define void @_ZN7rocksdb14StatisticsImpl20setTickerCountLockedEjm(ptr noundef no
   %10 = load ptr, ptr %4, align 8, !tbaa !156
   %11 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %10, i64 %.08
   %.sink = select i1 %9, i64 %2, i64 0
-  %12 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %11, i64 0, i64 %6
+  %12 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %11, i64 %6
   store atomic i64 %.sink, ptr %12 seq_cst, align 8
   %13 = add nuw i64 %.08, 1
   %14 = load i32, ptr %5, align 8, !tbaa !149
@@ -8620,7 +8620,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %7
   %.01115 = phi i64 [ 0, %2 ], [ %21, %15 ]
   %16 = load ptr, ptr %5, align 8, !tbaa !156
   %17 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %16, i64 %.01115
-  %18 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %17, i64 0, i64 %6
+  %18 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %17, i64 %6
   %19 = atomicrmw xchg ptr %18, i64 0 monotonic, align 8
   %20 = add i64 %19, %.016
   %21 = add nuw i64 %.01115, 1
@@ -8689,7 +8689,7 @@ _ZNK7rocksdb14CoreLocalArrayINS_14StatisticsImpl14StatisticsDataEE6AccessEv.exit
   %33 = load ptr, ptr %9, align 8, !tbaa !156
   %34 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %33, i64 %storemerge.i.i
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %34, i64 %35
   %37 = atomicrmw add ptr %36, i64 %2 monotonic, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !42
@@ -8753,7 +8753,7 @@ _ZNK7rocksdb14CoreLocalArrayINS_14StatisticsImpl14StatisticsDataEE6AccessEv.exit
   %32 = load ptr, ptr %8, align 8, !tbaa !156
   %33 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %32, i64 %storemerge.i.i, i32 1
   %34 = zext i32 %1 to i64
-  %35 = getelementptr inbounds nuw [63 x %"class.rocksdb::HistogramImpl"], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !53
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
@@ -8792,7 +8792,7 @@ define void @_ZN7rocksdb14StatisticsImpl5ResetEv(ptr dead_on_unwind noalias writ
   %.08.i = phi i64 [ 0, %6 ], [ %11, %7 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !156
   %9 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %8, i64 %.08.i
-  %10 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %9, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %9, i64 %indvars.iv
   store atomic i64 0, ptr %10 seq_cst, align 8
   %11 = add nuw i64 %.08.i, 1
   %12 = load i32, ptr %5, align 8, !tbaa !149
@@ -8825,7 +8825,7 @@ _ZN7rocksdb14StatisticsImpl20setTickerCountLockedEjm.exit: ; preds = %7
   %.020 = phi i64 [ 0, %.preheader ], [ %26, %25 ]
   %19 = load ptr, ptr %4, align 8, !tbaa !156
   %20 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %19, i64 %.020, i32 1
-  %21 = getelementptr inbounds nuw [63 x %"class.rocksdb::HistogramImpl"], ptr %20, i64 0, i64 %indvars.iv23
+  %21 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %20, i64 %indvars.iv23
   %22 = load ptr, ptr %21, align 8, !tbaa !53
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -8929,7 +8929,7 @@ define void @_ZNK7rocksdb14StatisticsImpl8ToStringB5cxx11Ev(ptr dead_on_unwind n
   %.067.i = phi i64 [ 0, %25 ], [ %35, %30 ]
   %31 = load ptr, ptr %13, align 8, !tbaa !156
   %32 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %31, i64 %.08.i
-  %33 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %32, i64 0, i64 %29
+  %33 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %32, i64 %29
   %34 = load atomic i64, ptr %33 seq_cst, align 8
   %35 = add i64 %34, %.067.i
   %36 = add nuw i64 %.08.i, 1
@@ -9051,7 +9051,7 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i: 
   %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %75, %74 ]
   %71 = load ptr, ptr %18, align 8, !tbaa !156, !noalias !188
   %72 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %71, i64 %.011.i, i32 1
-  %73 = getelementptr inbounds nuw [63 x %"class.rocksdb::HistogramImpl"], ptr %72, i64 0, i64 %63
+  %73 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %72, i64 %63
   invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %57, ptr noundef nonnull align 8 dereferenceable(968) %73)
           to label %74 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !188
 
@@ -9245,7 +9245,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
   %.067.i = phi i64 [ 0, %25 ], [ %33, %28 ]
   %29 = load ptr, ptr %19, align 8, !tbaa !156
   %30 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %29, i64 %.08.i
-  %31 = getelementptr inbounds nuw [215 x %"struct.std::atomic.51"], ptr %30, i64 0, i64 %27
+  %31 = getelementptr inbounds nuw %"struct.std::atomic.51", ptr %30, i64 %27
   %32 = load atomic i64, ptr %31 seq_cst, align 8
   %33 = add i64 %32, %.067.i
   %34 = add nuw i64 %.08.i, 1

@@ -2952,7 +2952,7 @@ get_current_tstate.exit.i:                        ; preds = %11
 
 .critedge.i:                                      ; preds = %19, %.critedge.lr.ph.i
   %.057125.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %20, %19 ]
-  %21 = getelementptr [1 x ptr], ptr %18, i64 0, i64 %.057125.i
+  %21 = getelementptr ptr, ptr %18, i64 %.057125.i
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 8
   %.val94.i = load ptr, ptr %23, align 8, !tbaa !38
@@ -3218,7 +3218,7 @@ get_frame_filename.exit.i105.i:                   ; preds = %109, %106, %101
 
 .lr.ph.i.i.i:                                     ; preds = %121, %126
   %.01631.i.i.i = phi i64 [ %128, %126 ], [ 0, %121 ]
-  %122 = getelementptr [1 x ptr], ptr %54, i64 0, i64 %.01631.i.i.i
+  %122 = getelementptr ptr, ptr %54, i64 %.01631.i.i.i
   %123 = load ptr, ptr %122, align 8, !tbaa !14
   %124 = tail call i64 @PyUnicode_Tailmatch(ptr noundef nonnull %104, ptr noundef %123, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef -1) #7
   %125 = icmp eq i64 %124, 1

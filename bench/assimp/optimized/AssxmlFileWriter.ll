@@ -710,7 +710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %.lr.ph639.i
   %240 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6Assimp17DumpSceneToAssxmlEPKcS1_PNS_8IOSystemEPK7aiSceneb, i64 0, i64 %240
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp17DumpSceneToAssxmlEPKcS1_PNS_8IOSystemEPK7aiSceneb, i64 %240
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.fold.split.i
 
@@ -1225,7 +1225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   %436 = phi i32 [ 0, %.lr.ph.i538.i ], [ %477, %_ZN8aiString6AppendEPKc.exit.i.i ]
   %437 = phi i32 [ 0, %.lr.ph.i538.i ], [ %478, %_ZN8aiString6AppendEPKc.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i538.i ], [ %indvars.iv.next.i.i, %_ZN8aiString6AppendEPKc.exit.i.i ]
-  %438 = getelementptr inbounds nuw [1024 x i8], ptr %430, i64 0, i64 %indvars.iv.i.i
+  %438 = getelementptr inbounds nuw i8, ptr %430, i64 %indvars.iv.i.i
   %439 = load i8, ptr %438, align 1
   switch i8 %439, label %470 [
     i8 60, label %440
@@ -1242,7 +1242,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
 
 443:                                              ; preds = %440
   %444 = zext i32 %433 to i64
-  %445 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %444
+  %445 = getelementptr inbounds nuw i8, ptr %408, i64 %444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %445, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
   store i32 %441, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i.i
@@ -1254,7 +1254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
 
 449:                                              ; preds = %446
   %450 = zext i32 %434 to i64
-  %451 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr %408, i64 %450
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %451, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
   store i32 %447, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i.i
@@ -1266,7 +1266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
 
 455:                                              ; preds = %452
   %456 = zext i32 %435 to i64
-  %457 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw i8, ptr %408, i64 %456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %457, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
   store i32 %453, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i.i
@@ -1278,7 +1278,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
 
 461:                                              ; preds = %458
   %462 = zext i32 %436 to i64
-  %463 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %462
+  %463 = getelementptr inbounds nuw i8, ptr %408, i64 %462
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %463, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
   store i32 %459, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i.i
@@ -1290,7 +1290,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
 
 467:                                              ; preds = %464
   %468 = zext i32 %437 to i64
-  %469 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %468
+  %469 = getelementptr inbounds nuw i8, ptr %408, i64 %468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %469, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
   store i32 %465, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i.i
@@ -1299,7 +1299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   %471 = add i32 %433, 1
   store i32 %471, ptr %13, align 4
   %472 = zext i32 %433 to i64
-  %473 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %472
+  %473 = getelementptr inbounds nuw i8, ptr %408, i64 %472
   store i8 %439, ptr %473, align 1
   br label %_ZN8aiString6AppendEPKc.exit.i.i
 
@@ -1317,7 +1317,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
 
 482:                                              ; preds = %._crit_edge.loopexit.i.i, %425
   %483 = phi i64 [ %431, %._crit_edge.loopexit.i.i ], [ 0, %425 ]
-  %484 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i8, ptr %408, i64 %483
   store i8 0, ptr %484, align 1
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.36, ptr noundef nonnull %408)
           to label %485 unwind label %492
@@ -1611,7 +1611,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %617 = phi i32 [ 0, %.lr.ph.i540.i ], [ %658, %_ZN8aiString6AppendEPKc.exit.i542.i ]
   %618 = phi i32 [ 0, %.lr.ph.i540.i ], [ %659, %_ZN8aiString6AppendEPKc.exit.i542.i ]
   %indvars.iv.i541.i = phi i64 [ 0, %.lr.ph.i540.i ], [ %indvars.iv.next.i543.i, %_ZN8aiString6AppendEPKc.exit.i542.i ]
-  %619 = getelementptr inbounds nuw [1024 x i8], ptr %611, i64 0, i64 %indvars.iv.i541.i
+  %619 = getelementptr inbounds nuw i8, ptr %611, i64 %indvars.iv.i541.i
   %620 = load i8, ptr %619, align 1
   switch i8 %620, label %651 [
     i8 60, label %621
@@ -1628,7 +1628,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
 
 624:                                              ; preds = %621
   %625 = zext i32 %614 to i64
-  %626 = getelementptr inbounds nuw [1024 x i8], ptr %582, i64 0, i64 %625
+  %626 = getelementptr inbounds nuw i8, ptr %582, i64 %625
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %626, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
   store i32 %622, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i542.i
@@ -1640,7 +1640,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
 
 630:                                              ; preds = %627
   %631 = zext i32 %615 to i64
-  %632 = getelementptr inbounds nuw [1024 x i8], ptr %582, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw i8, ptr %582, i64 %631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %632, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
   store i32 %628, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i542.i
@@ -1652,7 +1652,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
 
 636:                                              ; preds = %633
   %637 = zext i32 %616 to i64
-  %638 = getelementptr inbounds nuw [1024 x i8], ptr %582, i64 0, i64 %637
+  %638 = getelementptr inbounds nuw i8, ptr %582, i64 %637
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %638, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
   store i32 %634, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i542.i
@@ -1664,7 +1664,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
 
 642:                                              ; preds = %639
   %643 = zext i32 %617 to i64
-  %644 = getelementptr inbounds nuw [1024 x i8], ptr %582, i64 0, i64 %643
+  %644 = getelementptr inbounds nuw i8, ptr %582, i64 %643
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %644, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
   store i32 %640, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i542.i
@@ -1676,7 +1676,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
 
 648:                                              ; preds = %645
   %649 = zext i32 %618 to i64
-  %650 = getelementptr inbounds nuw [1024 x i8], ptr %582, i64 0, i64 %649
+  %650 = getelementptr inbounds nuw i8, ptr %582, i64 %649
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %650, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
   store i32 %646, ptr %13, align 4
   br label %_ZN8aiString6AppendEPKc.exit.i542.i
@@ -1685,7 +1685,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %652 = add i32 %614, 1
   store i32 %652, ptr %13, align 4
   %653 = zext i32 %614 to i64
-  %654 = getelementptr inbounds nuw [1024 x i8], ptr %582, i64 0, i64 %653
+  %654 = getelementptr inbounds nuw i8, ptr %582, i64 %653
   store i8 %620, ptr %654, align 1
   br label %_ZN8aiString6AppendEPKc.exit.i542.i
 
@@ -1703,7 +1703,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
 
 663:                                              ; preds = %._crit_edge.loopexit.i544.i, %606
   %664 = phi i64 [ %612, %._crit_edge.loopexit.i544.i ], [ 0, %606 ]
-  %665 = getelementptr inbounds nuw [1024 x i8], ptr %582, i64 0, i64 %664
+  %665 = getelementptr inbounds nuw i8, ptr %582, i64 %664
   store i8 0, ptr %665, align 1
   %666 = getelementptr inbounds nuw i8, ptr %609, i64 1056
   %667 = load float, ptr %666, align 8
@@ -2119,7 +2119,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i: ; preds = %.loopexit576.i
 
 869:                                              ; preds = %919, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i
   %indvars.iv790.i = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i ], [ %indvars.iv.next791.i, %919 ]
-  %870 = getelementptr inbounds nuw [8 x ptr], ptr %866, i64 0, i64 %indvars.iv790.i
+  %870 = getelementptr inbounds nuw ptr, ptr %866, i64 %indvars.iv790.i
   %871 = load ptr, ptr %870, align 8
   %.not480.i = icmp eq ptr %871, null
   br i1 %.not480.i, label %920, label %872
@@ -2140,7 +2140,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.i:       ; preds = %872
 
 _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTextureCoordsNameEj.exit.i, %872
   %879 = phi ptr [ @.str.17, %872 ], [ %spec.select.i, %_ZNK6aiMesh20HasTextureCoordsNameEj.exit.i ]
-  %880 = getelementptr inbounds nuw [8 x i32], ptr %868, i64 0, i64 %indvars.iv790.i
+  %880 = getelementptr inbounds nuw i32, ptr %868, i64 %indvars.iv790.i
   %881 = load i32, ptr %880, align 4
   %882 = trunc nuw nsw i64 %indvars.iv790.i to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.77, i32 noundef %873, i32 noundef %882, ptr noundef nonnull %879, i32 noundef %881)
@@ -2233,7 +2233,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
 
 922:                                              ; preds = %951, %920
   %indvars.iv796.i = phi i64 [ 0, %920 ], [ %indvars.iv.next797.i, %951 ]
-  %923 = getelementptr inbounds nuw [8 x ptr], ptr %921, i64 0, i64 %indvars.iv796.i
+  %923 = getelementptr inbounds nuw ptr, ptr %921, i64 %indvars.iv796.i
   %924 = load ptr, ptr %923, align 8
   %.not481.i = icmp eq ptr %924, null
   br i1 %.not481.i, label %952, label %925
@@ -2629,7 +2629,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL9WriteNodeEPK6aiNodePN
 
 ._crit_edge:                                      ; preds = %3, %.lr.ph.preheader
   %.pre-phi = phi i64 [ %6, %.lr.ph.preheader ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %.pre-phi
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.pre-phi
   store i8 0, ptr %7, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2777,7 +2777,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %7 = phi i64 [ %6, %._crit_edge.loopexit ], [ 0, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   store i8 0, ptr %9, align 1
   ret void
 
@@ -2788,7 +2788,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
   %14 = phi i32 [ 0, %.lr.ph ], [ %55, %_ZN8aiString6AppendEPKc.exit ]
   %15 = phi i32 [ 0, %.lr.ph ], [ %56, %_ZN8aiString6AppendEPKc.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8aiString6AppendEPKc.exit ]
-  %16 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %48 [
     i8 60, label %18
@@ -2805,7 +2805,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
 
 21:                                               ; preds = %18
   %22 = zext i32 %11 to i64
-  %23 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %23, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
   store i32 %19, ptr %0, align 4
   br label %_ZN8aiString6AppendEPKc.exit
@@ -2817,7 +2817,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
 
 27:                                               ; preds = %24
   %28 = zext i32 %12 to i64
-  %29 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %29, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
   store i32 %25, ptr %0, align 4
   br label %_ZN8aiString6AppendEPKc.exit
@@ -2829,7 +2829,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
 
 33:                                               ; preds = %30
   %34 = zext i32 %13 to i64
-  %35 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %35, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
   store i32 %31, ptr %0, align 4
   br label %_ZN8aiString6AppendEPKc.exit
@@ -2841,7 +2841,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
 
 39:                                               ; preds = %36
   %40 = zext i32 %14 to i64
-  %41 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %41, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
   store i32 %37, ptr %0, align 4
   br label %_ZN8aiString6AppendEPKc.exit
@@ -2853,7 +2853,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
 
 45:                                               ; preds = %42
   %46 = zext i32 %15 to i64
-  %47 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %47, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
   store i32 %43, ptr %0, align 4
   br label %_ZN8aiString6AppendEPKc.exit
@@ -2862,7 +2862,7 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
   %49 = add i32 %11, 1
   store i32 %49, ptr %0, align 4
   %50 = zext i32 %11 to i64
-  %51 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %50
   store i8 %17, ptr %51, align 1
   br label %_ZN8aiString6AppendEPKc.exit
 

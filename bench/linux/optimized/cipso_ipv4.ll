@@ -550,7 +550,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cipso_v4_doi_add(ptr noundef %0,
 
 .split.us.split:                                  ; preds = %7, %14
   %9 = phi i64 [ %15, %14 ], [ 0, %7 ]
-  %10 = getelementptr [5 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %.loopexit4 [
     i8 1, label %14
@@ -569,7 +569,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cipso_v4_doi_add(ptr noundef %0,
 
 .split.split.us:                                  ; preds = %7, %22
   %17 = phi i64 [ %23, %22 ], [ 0, %7 ]
-  %18 = getelementptr [5 x i8], ptr %8, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %8, i64 %17
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %.loopexit4 [
     i8 1, label %22
@@ -589,7 +589,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cipso_v4_doi_add(ptr noundef %0,
 
 .split.split:                                     ; preds = %7, %30
   %25 = phi i64 [ %31, %30 ], [ 0, %7 ]
-  %26 = getelementptr [5 x i8], ptr %8, i64 0, i64 %25
+  %26 = getelementptr i8, ptr %8, i64 %25
   %27 = load i8, ptr %26, align 1
   switch i8 %27, label %.loopexit4 [
     i8 1, label %30
@@ -1122,7 +1122,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly c
 
 40:                                               ; preds = %44, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %35 ]
-  %41 = getelementptr [5 x i8], ptr %30, i64 0, i64 %indvars.iv
+  %41 = getelementptr i8, ptr %30, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, %39
   br i1 %43, label %48, label %44
@@ -1644,7 +1644,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
 16:                                               ; preds = %229, %3
   %17 = phi i64 [ %230, %229 ], [ 0, %3 ]
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  %18 = getelementptr [5 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %5, i64 %17
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %.loopexit [
     i8 1, label %20
@@ -1913,7 +1913,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %175 = trunc i32 %167 to i16
   %176 = or disjoint i32 %169, 1
   %177 = zext i32 %169 to i64
-  %178 = getelementptr [16 x i16], ptr %4, i64 0, i64 %177
+  %178 = getelementptr i16, ptr %4, i64 %177
   store i16 %175, ptr %178, align 4
   %179 = load ptr, ptr %14, align 8
   %180 = tail call i32 @netlbl_catmap_walkrng(ptr noundef %179, i32 noundef %167) #15
@@ -1929,7 +1929,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %186 = trunc i32 %180 to i16
   %187 = add i32 %169, 2
   %188 = zext i32 %176 to i64
-  %189 = getelementptr [16 x i16], ptr %4, i64 0, i64 %188
+  %189 = getelementptr i16, ptr %4, i64 %188
   store i16 %186, ptr %189, align 2
   %190 = load ptr, ptr %14, align 8
   %191 = add nuw i32 %180, 1
@@ -1942,7 +1942,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %195 = phi i32 [ %215, %214 ], [ 0, %165 ]
   %196 = add i32 %194, -1
   %197 = zext i32 %196 to i64
-  %198 = getelementptr [16 x i16], ptr %4, i64 0, i64 %197
+  %198 = getelementptr i16, ptr %4, i64 %197
   %199 = load i16, ptr %198, align 2
   %200 = tail call i16 @llvm.bswap.i16(i16 %199)
   %201 = sext i32 %195 to i64
@@ -1951,7 +1951,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %203 = add i32 %195, 2
   %204 = add i32 %194, -2
   %205 = zext i32 %204 to i64
-  %206 = getelementptr [16 x i16], ptr %4, i64 0, i64 %205
+  %206 = getelementptr i16, ptr %4, i64 %205
   %207 = load i16, ptr %206, align 2
   %208 = icmp eq i16 %207, 0
   br i1 %208, label %214, label %209
@@ -2009,7 +2009,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
 
 229:                                              ; preds = %.thread
   %230 = add nuw nsw i64 %17, 1
-  %231 = getelementptr [5 x i8], ptr %5, i64 0, i64 %230
+  %231 = getelementptr i8, ptr %5, i64 %230
   %232 = load i8, ptr %231, align 1
   %233 = icmp eq i8 %232, 0
   br i1 %233, label %.loopexit, label %16, !llvm.loop !34
@@ -2159,7 +2159,7 @@ define internal fastcc range(i32 -252, 256) i32 @cipso_v4_delopt(ptr noundef cap
   %25 = add i8 %6, -20
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %27 = zext i8 %25 to i64
-  %28 = getelementptr [0 x i8], ptr %26, i64 0, i64 %27
+  %28 = getelementptr i8, ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = icmp ugt i8 %10, %6
@@ -2222,7 +2222,7 @@ define internal fastcc range(i32 -252, 256) i32 @cipso_v4_delopt(ptr noundef cap
   %63 = phi i32 [ %78, %76 ], [ 0, %52 ]
   %64 = phi i32 [ %77, %76 ], [ 0, %52 ]
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr [0 x i8], ptr %26, i64 0, i64 %65
+  %66 = getelementptr i8, ptr %26, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 1
   %69 = add nuw nsw i32 %64, 1
@@ -2230,7 +2230,7 @@ define internal fastcc range(i32 -252, 256) i32 @cipso_v4_delopt(ptr noundef cap
 
 70:                                               ; preds = %.preheader
   %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr [0 x i8], ptr %26, i64 0, i64 %71
+  %72 = getelementptr i8, ptr %26, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = add nuw nsw i32 %64, %74

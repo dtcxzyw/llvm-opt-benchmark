@@ -32,11 +32,11 @@ define internal range(i32 0, 2) i32 @test_rc2(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [4 x [16 x i8]], ptr @RC2key, i64 0, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr @RC2key, i64 %5
   call void @RC2_set_key(ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull %6, i32 noundef 0) #3
-  %7 = getelementptr inbounds [4 x [8 x i8]], ptr @RC2plain, i64 0, i64 %5
+  %7 = getelementptr inbounds [8 x i8], ptr @RC2plain, i64 %5
   call void @RC2_ecb_encrypt(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 1) #3
-  %8 = getelementptr inbounds [4 x [8 x i8]], ptr @RC2cipher, i64 0, i64 %5
+  %8 = getelementptr inbounds [8 x i8], ptr @RC2cipher, i64 %5
   %9 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 56, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull %3, i64 noundef 8) #3
   %.not = icmp ne i32 %9, 0
   call void @RC2_ecb_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0) #3

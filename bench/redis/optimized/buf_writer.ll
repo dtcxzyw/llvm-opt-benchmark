@@ -52,7 +52,7 @@ define hidden zeroext i1 @je_buf_writer_init(ptr noundef %0, ptr noundef writeon
 14:                                               ; preds = %12
   %15 = add nuw nsw i64 %5, 7
   %16 = lshr i64 %15, 3
-  %17 = getelementptr inbounds nuw [0 x i8], ptr @je_sz_size2index_tab, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = zext i8 %18 to i32
   br label %sz_size2index.exit.i
@@ -89,12 +89,12 @@ sz_size2index.exit.i:                             ; preds = %22, %20, %14
 tsdn_witness_tsdp_get.exit.i:                     ; preds = %sz_size2index.exit.i
   %40 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %0, ptr noundef %.0.i.i7.i, i64 noundef %5, i32 noundef range(i32 0, 256) %.0.i.i, i1 noundef zeroext false) #8
   %.not.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i, label %.thread45, label %42, !prof !15
+  br i1 %.not.i.i, label %.thread41, label %42, !prof !15
 
 tsdn_witness_tsdp_get.exit.thread.i:              ; preds = %sz_size2index.exit.i
   %41 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i.i7.i, i64 noundef %5, i32 noundef range(i32 0, 256) %.0.i.i, i1 noundef zeroext false) #8
   %.not.i17.i = icmp eq ptr %41, null
-  br i1 %.not.i17.i, label %.thread45, label %.thread.i, !prof !15
+  br i1 %.not.i17.i, label %.thread41, label %.thread.i, !prof !15
 
 .thread.i:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -113,7 +113,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %42, %.thread.i
   %46 = lshr i64 %45, 30
   %47 = and i64 %46, 15
   %48 = and i64 %45, -1073741824
-  %49 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i5.i, i64 0, i64 %47
+  %49 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i5.i, i64 %47
   %50 = load i64, ptr %49, align 8, !tbaa !16, !noalias !19
   %51 = icmp eq i64 %50, %48
   br i1 %51, label %52, label %58, !prof !13
@@ -146,177 +146,173 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %42, %.thread.i
   %69 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %64, i64 %68
   br label %rtree_read.exit.i
 
-.preheader.i.i:                                   ; preds = %58, %73
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %73 ], [ 1, %58 ]
-  %70 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %59, i64 0, i64 %indvars.iv.i.i
-  %71 = load i64, ptr %70, align 8, !tbaa !16, !noalias !19
-  %72 = icmp eq i64 %71, %48
-  br i1 %72, label %74, label %73, !prof !13
-
-73:                                               ; preds = %.preheader.i.i
+70:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.i.i, label %88, label %.preheader.i.i, !llvm.loop !23
+  br i1 %exitcond.i.i, label %86, label %.preheader.i.i, !llvm.loop !23
+
+.preheader.i.i:                                   ; preds = %58, %70
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %70 ], [ 1, %58 ]
+  %71 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %59, i64 %indvars.iv.i.i
+  %72 = load i64, ptr %71, align 8, !tbaa !16, !noalias !19
+  %73 = icmp eq i64 %72, %48
+  br i1 %73, label %74, label %70, !prof !13
 
 74:                                               ; preds = %.preheader.i.i
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !22, !noalias !19
-  %77 = add nuw i64 %indvars.iv.i.i, 4294967295
-  %78 = and i64 %77, 4294967295
-  %79 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %59, i64 0, i64 %78
-  %80 = load i64, ptr %79, align 8, !tbaa !16, !noalias !19
-  store i64 %80, ptr %70, align 8, !tbaa !16, !noalias !19
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %77 = getelementptr i8, ptr %71, i64 -16
+  %78 = load i64, ptr %77, align 8, !tbaa !16, !noalias !19
+  store i64 %78, ptr %71, align 8, !tbaa !16, !noalias !19
+  %79 = getelementptr i8, ptr %71, i64 -8
+  %80 = load ptr, ptr %79, align 8, !tbaa !22, !noalias !19
+  store ptr %80, ptr %75, align 8, !tbaa !22, !noalias !19
+  store i64 %50, ptr %77, align 8, !tbaa !16, !noalias !19
+  %81 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !22, !noalias !19
-  store ptr %82, ptr %75, align 8, !tbaa !22, !noalias !19
-  store i64 %50, ptr %79, align 8, !tbaa !16, !noalias !19
-  %83 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !22, !noalias !19
-  store ptr %84, ptr %81, align 8, !tbaa !22, !noalias !19
+  store ptr %82, ptr %79, align 8, !tbaa !22, !noalias !19
   store i64 %48, ptr %49, align 8, !tbaa !16, !noalias !19
-  store ptr %76, ptr %83, align 8, !tbaa !22, !noalias !19
-  %85 = lshr i64 %45, 12
-  %86 = and i64 %85, 262143
-  %87 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %76, i64 %86
+  store ptr %76, ptr %81, align 8, !tbaa !22, !noalias !19
+  %83 = lshr i64 %45, 12
+  %84 = and i64 %83, 262143
+  %85 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %76, i64 %84
   br label %rtree_read.exit.i
 
-88:                                               ; preds = %73
-  %89 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i5.i, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #8, !noalias !19
+86:                                               ; preds = %70
+  %87 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i5.i, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #8, !noalias !19
   br label %rtree_read.exit.i
 
-rtree_read.exit.i:                                ; preds = %88, %74, %62, %52
-  %.0.i.i8.i = phi ptr [ %57, %52 ], [ %69, %62 ], [ %89, %88 ], [ %87, %74 ]
-  %90 = load atomic i64, ptr %.0.i.i8.i monotonic, align 8, !noalias !25
-  %91 = shl i64 %90, 16
-  %92 = ashr exact i64 %91, 16
-  %93 = and i64 %92, -128
-  %94 = inttoptr i64 %93 to ptr
+rtree_read.exit.i:                                ; preds = %86, %74, %62, %52
+  %.0.i.i8.i = phi ptr [ %57, %52 ], [ %69, %62 ], [ %87, %86 ], [ %85, %74 ]
+  %88 = load atomic i64, ptr %.0.i.i8.i monotonic, align 8, !noalias !25
+  %89 = shl i64 %88, 16
+  %90 = ashr exact i64 %89, 16
+  %91 = and i64 %90, -128
+  %92 = inttoptr i64 %91 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.val.i = load i64, ptr %94, align 128, !tbaa !28
-  %95 = and i64 %.val.i, 4095
-  %96 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %95
-  %97 = load atomic i64, ptr %96 monotonic, align 8
-  %.0.i4.i = inttoptr i64 %97 to ptr
+  %.val.i = load i64, ptr %92, align 128, !tbaa !28
+  %93 = and i64 %.val.i, 4095
+  %94 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %93
+  %95 = load atomic i64, ptr %94 monotonic, align 8
+  %.0.i4.i = inttoptr i64 %95 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %39, label %98, label %99, !prof !15
+  br i1 %39, label %96, label %97, !prof !15
 
-98:                                               ; preds = %rtree_read.exit.i
+96:                                               ; preds = %rtree_read.exit.i
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %7) #8
   br label %emap_alloc_ctx_lookup.exit.i
 
-99:                                               ; preds = %rtree_read.exit.i
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 448
+97:                                               ; preds = %rtree_read.exit.i
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %emap_alloc_ctx_lookup.exit.i
 
-emap_alloc_ctx_lookup.exit.i:                     ; preds = %99, %98
-  %.0.i.i.i = phi ptr [ %7, %98 ], [ %100, %99 ]
-  %101 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i.i.i, i64 0, i64 %47
-  %102 = load i64, ptr %101, align 8, !tbaa !16
-  %103 = icmp eq i64 %102, %48
-  br i1 %103, label %104, label %110, !prof !13
+emap_alloc_ctx_lookup.exit.i:                     ; preds = %97, %96
+  %.0.i.i.i = phi ptr [ %7, %96 ], [ %98, %97 ]
+  %99 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i.i.i, i64 %47
+  %100 = load i64, ptr %99, align 8, !tbaa !16
+  %101 = icmp eq i64 %100, %48
+  br i1 %101, label %102, label %108, !prof !13
 
-104:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %106 = load ptr, ptr %105, align 8, !tbaa !22
-  %107 = lshr i64 %45, 12
-  %108 = and i64 %107, 262143
-  %109 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %106, i64 %108
-  br label %144
+102:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !22
+  %105 = lshr i64 %45, 12
+  %106 = and i64 %105, 262143
+  %107 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %104, i64 %106
+  br label %140
 
-110:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 256
-  %112 = load i64, ptr %111, align 8, !tbaa !16
-  %113 = icmp eq i64 %112, %48
-  br i1 %113, label %114, label %.preheader.i9.i, !prof !13
+108:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
+  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 256
+  %110 = load i64, ptr %109, align 8, !tbaa !16
+  %111 = icmp eq i64 %110, %48
+  br i1 %111, label %112, label %.preheader.i9.i, !prof !13
 
-114:                                              ; preds = %110
-  %115 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 264
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 264
+  %114 = load ptr, ptr %113, align 8, !tbaa !22
+  store i64 %100, ptr %109, align 8, !tbaa !16
+  %115 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !22
-  store i64 %102, ptr %111, align 8, !tbaa !16
-  %117 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !22
-  store ptr %118, ptr %115, align 8, !tbaa !22
-  store i64 %48, ptr %101, align 8, !tbaa !16
-  store ptr %116, ptr %117, align 8, !tbaa !22
-  %119 = lshr i64 %45, 12
-  %120 = and i64 %119, 262143
-  %121 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %116, i64 %120
-  br label %144
+  store ptr %116, ptr %113, align 8, !tbaa !22
+  store i64 %48, ptr %99, align 8, !tbaa !16
+  store ptr %114, ptr %115, align 8, !tbaa !22
+  %117 = lshr i64 %45, 12
+  %118 = and i64 %117, 262143
+  %119 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %114, i64 %118
+  br label %140
 
-.preheader.i9.i:                                  ; preds = %110, %125
-  %indvars.iv.i10.i = phi i64 [ %indvars.iv.next.i11.i, %125 ], [ 1, %110 ]
-  %122 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %111, i64 0, i64 %indvars.iv.i10.i
-  %123 = load i64, ptr %122, align 8, !tbaa !16
-  %124 = icmp eq i64 %123, %48
-  br i1 %124, label %126, label %125, !prof !13
-
-125:                                              ; preds = %.preheader.i9.i
+120:                                              ; preds = %.preheader.i9.i
   %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i10.i, 1
   %exitcond.i12.i = icmp eq i64 %indvars.iv.next.i11.i, 8
-  br i1 %exitcond.i12.i, label %140, label %.preheader.i9.i, !llvm.loop !23
+  br i1 %exitcond.i12.i, label %136, label %.preheader.i9.i, !llvm.loop !23
 
-126:                                              ; preds = %.preheader.i9.i
-  %127 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !22
-  %129 = add nuw i64 %indvars.iv.i10.i, 4294967295
-  %130 = and i64 %129, 4294967295
-  %131 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %111, i64 0, i64 %130
-  %132 = load i64, ptr %131, align 8, !tbaa !16
-  store i64 %132, ptr %122, align 8, !tbaa !16
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !22
-  store ptr %134, ptr %127, align 8, !tbaa !22
-  store i64 %102, ptr %131, align 8, !tbaa !16
-  %135 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %136 = load ptr, ptr %135, align 8, !tbaa !22
-  store ptr %136, ptr %133, align 8, !tbaa !22
-  store i64 %48, ptr %101, align 8, !tbaa !16
-  store ptr %128, ptr %135, align 8, !tbaa !22
-  %137 = lshr i64 %45, 12
-  %138 = and i64 %137, 262143
-  %139 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %128, i64 %138
-  br label %144
+.preheader.i9.i:                                  ; preds = %108, %120
+  %indvars.iv.i10.i = phi i64 [ %indvars.iv.next.i11.i, %120 ], [ 1, %108 ]
+  %121 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %109, i64 %indvars.iv.i10.i
+  %122 = load i64, ptr %121, align 8, !tbaa !16
+  %123 = icmp eq i64 %122, %48
+  br i1 %123, label %124, label %120, !prof !13
 
-140:                                              ; preds = %125
-  %141 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #8
-  br label %144
+124:                                              ; preds = %.preheader.i9.i
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %126 = load ptr, ptr %125, align 8, !tbaa !22
+  %127 = getelementptr i8, ptr %121, i64 -16
+  %128 = load i64, ptr %127, align 8, !tbaa !16
+  store i64 %128, ptr %121, align 8, !tbaa !16
+  %129 = getelementptr i8, ptr %121, i64 -8
+  %130 = load ptr, ptr %129, align 8, !tbaa !22
+  store ptr %130, ptr %125, align 8, !tbaa !22
+  store i64 %100, ptr %127, align 8, !tbaa !16
+  %131 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %132 = load ptr, ptr %131, align 8, !tbaa !22
+  store ptr %132, ptr %129, align 8, !tbaa !22
+  store i64 %48, ptr %99, align 8, !tbaa !16
+  store ptr %126, ptr %131, align 8, !tbaa !22
+  %133 = lshr i64 %45, 12
+  %134 = and i64 %133, 262143
+  %135 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %126, i64 %134
+  br label %140
 
-.thread45:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i, %tsdn_witness_tsdp_get.exit.i
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %142, align 8, !tbaa !31
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 1, ptr %143, align 8, !tbaa !32
-  br label %154
+136:                                              ; preds = %120
+  %137 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #8
+  br label %140
 
-144:                                              ; preds = %104, %114, %126, %140
-  %.0.i.i13.i = phi ptr [ %109, %104 ], [ %121, %114 ], [ %141, %140 ], [ %139, %126 ]
-  %145 = load atomic i64, ptr %.0.i.i13.i monotonic, align 8, !noalias !33
-  %146 = lshr i64 %145, 48
+.thread41:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i, %tsdn_witness_tsdp_get.exit.i
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr null, ptr %138, align 8, !tbaa !31
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i8 1, ptr %139, align 8, !tbaa !32
+  br label %150
+
+140:                                              ; preds = %102, %112, %124, %136
+  %.0.i.i13.i = phi ptr [ %107, %102 ], [ %119, %112 ], [ %137, %136 ], [ %135, %124 ]
+  %141 = load atomic i64, ptr %.0.i.i13.i monotonic, align 8, !noalias !33
+  %142 = lshr i64 %141, 48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %147 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %146
-  %148 = load i64, ptr %147, align 8, !tbaa !36
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 56
-  %150 = atomicrmw add ptr %149, i64 %148 monotonic, align 8
+  %143 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %142
+  %144 = load i64, ptr %143, align 8, !tbaa !36
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 56
+  %146 = atomicrmw add ptr %145, i64 %144 monotonic, align 8
   br label %.thread
 
-.thread:                                          ; preds = %6, %144
-  %.sink58 = phi ptr [ %44, %144 ], [ %4, %6 ]
-  %.sink56 = phi i8 [ 1, %144 ], [ 0, %6 ]
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.sink58, ptr %151, align 8, !tbaa !31
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 %.sink56, ptr %152, align 8, !tbaa !32
-  %153 = add i64 %5, -1
-  br label %154
+.thread:                                          ; preds = %6, %140
+  %.sink50 = phi ptr [ %44, %140 ], [ %4, %6 ]
+  %.sink48 = phi i8 [ 1, %140 ], [ 0, %6 ]
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.sink50, ptr %147, align 8, !tbaa !31
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i8 %.sink48, ptr %148, align 8, !tbaa !32
+  %149 = add i64 %5, -1
+  br label %150
 
-154:                                              ; preds = %.thread45, %.thread
-  %.not2343 = phi i1 [ false, %.thread ], [ true, %.thread45 ]
-  %.sink = phi i64 [ %153, %.thread ], [ 0, %.thread45 ]
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.sink, ptr %155, align 8, !tbaa !37
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 0, ptr %156, align 8, !tbaa !38
-  ret i1 %.not2343
+150:                                              ; preds = %.thread41, %.thread
+  %.not2339 = phi i1 [ false, %.thread ], [ true, %.thread41 ]
+  %.sink = phi i64 [ %149, %.thread ], [ 0, %.thread41 ]
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.sink, ptr %151, align 8, !tbaa !37
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 0, ptr %152, align 8, !tbaa !38
+  ret i1 %.not2339
 }
 
 declare void @je_wrtmessage(ptr noundef, ptr noundef) #1
@@ -475,7 +471,7 @@ tsdn_rtree_ctx.exit.i.i:                          ; preds = %25, %24
   %28 = lshr i64 %27, 30
   %29 = and i64 %28, 15
   %30 = and i64 %27, -1073741824
-  %31 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i14.i.i, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i14.i.i, i64 %29
   %32 = load i64, ptr %31, align 8, !tbaa !16, !noalias !42
   %33 = icmp eq i64 %32, %30
   br i1 %33, label %34, label %40, !prof !13
@@ -508,250 +504,244 @@ tsdn_rtree_ctx.exit.i.i:                          ; preds = %25, %24
   %51 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %46, i64 %50
   br label %rtree_read.exit.i
 
-.preheader.i.i:                                   ; preds = %40, %55
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %55 ], [ 1, %40 ]
-  %52 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %41, i64 0, i64 %indvars.iv.i.i
-  %53 = load i64, ptr %52, align 8, !tbaa !16, !noalias !42
-  %54 = icmp eq i64 %53, %30
-  br i1 %54, label %56, label %55, !prof !13
-
-55:                                               ; preds = %.preheader.i.i
+52:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.i.i, label %70, label %.preheader.i.i, !llvm.loop !23
+  br i1 %exitcond.i.i, label %68, label %.preheader.i.i, !llvm.loop !23
+
+.preheader.i.i:                                   ; preds = %40, %52
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %52 ], [ 1, %40 ]
+  %53 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %41, i64 %indvars.iv.i.i
+  %54 = load i64, ptr %53, align 8, !tbaa !16, !noalias !42
+  %55 = icmp eq i64 %54, %30
+  br i1 %55, label %56, label %52, !prof !13
 
 56:                                               ; preds = %.preheader.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !22, !noalias !42
-  %59 = add nuw i64 %indvars.iv.i.i, 4294967295
-  %60 = and i64 %59, 4294967295
-  %61 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %41, i64 0, i64 %60
-  %62 = load i64, ptr %61, align 8, !tbaa !16, !noalias !42
-  store i64 %62, ptr %52, align 8, !tbaa !16, !noalias !42
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %59 = getelementptr i8, ptr %53, i64 -16
+  %60 = load i64, ptr %59, align 8, !tbaa !16, !noalias !42
+  store i64 %60, ptr %53, align 8, !tbaa !16, !noalias !42
+  %61 = getelementptr i8, ptr %53, i64 -8
+  %62 = load ptr, ptr %61, align 8, !tbaa !22, !noalias !42
+  store ptr %62, ptr %57, align 8, !tbaa !22, !noalias !42
+  store i64 %32, ptr %59, align 8, !tbaa !16, !noalias !42
+  %63 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !22, !noalias !42
-  store ptr %64, ptr %57, align 8, !tbaa !22, !noalias !42
-  store i64 %32, ptr %61, align 8, !tbaa !16, !noalias !42
-  %65 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !22, !noalias !42
-  store ptr %66, ptr %63, align 8, !tbaa !22, !noalias !42
+  store ptr %64, ptr %61, align 8, !tbaa !22, !noalias !42
   store i64 %30, ptr %31, align 8, !tbaa !16, !noalias !42
-  store ptr %58, ptr %65, align 8, !tbaa !22, !noalias !42
-  %67 = lshr i64 %27, 12
-  %68 = and i64 %67, 262143
-  %69 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %58, i64 %68
+  store ptr %58, ptr %63, align 8, !tbaa !22, !noalias !42
+  %65 = lshr i64 %27, 12
+  %66 = and i64 %65, 262143
+  %67 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %58, i64 %66
   br label %rtree_read.exit.i
 
-70:                                               ; preds = %55
-  %71 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i14.i.i, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false) #8, !noalias !42
+68:                                               ; preds = %52
+  %69 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i14.i.i, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false) #8, !noalias !42
   br label %rtree_read.exit.i
 
-rtree_read.exit.i:                                ; preds = %70, %56, %44, %34
-  %.0.i.i.i = phi ptr [ %39, %34 ], [ %51, %44 ], [ %71, %70 ], [ %69, %56 ]
-  %72 = load atomic i64, ptr %.0.i.i.i monotonic, align 8, !noalias !45
-  %73 = shl i64 %72, 16
-  %74 = ashr exact i64 %73, 16
-  %75 = and i64 %74, -128
-  %76 = inttoptr i64 %75 to ptr
+rtree_read.exit.i:                                ; preds = %68, %56, %44, %34
+  %.0.i.i.i = phi ptr [ %39, %34 ], [ %51, %44 ], [ %69, %68 ], [ %67, %56 ]
+  %70 = load atomic i64, ptr %.0.i.i.i monotonic, align 8, !noalias !45
+  %71 = shl i64 %70, 16
+  %72 = ashr exact i64 %71, 16
+  %73 = and i64 %72, -128
+  %74 = inttoptr i64 %73 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.val.i = load i64, ptr %76, align 128, !tbaa !28
-  %77 = and i64 %.val.i, 4095
-  %78 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %77
-  %79 = load atomic i64, ptr %78 monotonic, align 8
-  %.0.i13.i.i = inttoptr i64 %79 to ptr
+  %.val.i = load i64, ptr %74, align 128, !tbaa !28
+  %75 = and i64 %.val.i, 4095
+  %76 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %75
+  %77 = load atomic i64, ptr %76 monotonic, align 8
+  %.0.i13.i.i = inttoptr i64 %77 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %23, label %80, label %81, !prof !15
+  br i1 %23, label %78, label %79, !prof !15
 
-80:                                               ; preds = %rtree_read.exit.i
+78:                                               ; preds = %rtree_read.exit.i
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #8
   br label %idalloctm.exit.i
 
-81:                                               ; preds = %rtree_read.exit.i
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 448
+79:                                               ; preds = %rtree_read.exit.i
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %idalloctm.exit.i
 
-idalloctm.exit.i:                                 ; preds = %81, %80
-  %.0.i.i.i.i = phi ptr [ %4, %80 ], [ %82, %81 ]
-  %83 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i.i.i.i, i64 0, i64 %29
-  %84 = load i64, ptr %83, align 8, !tbaa !16
-  %85 = icmp eq i64 %84, %30
-  br i1 %85, label %86, label %92, !prof !13
+idalloctm.exit.i:                                 ; preds = %79, %78
+  %.0.i.i.i.i = phi ptr [ %4, %78 ], [ %80, %79 ]
+  %81 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i.i.i.i, i64 %29
+  %82 = load i64, ptr %81, align 8, !tbaa !16
+  %83 = icmp eq i64 %82, %30
+  br i1 %83, label %84, label %90, !prof !13
 
-86:                                               ; preds = %idalloctm.exit.i
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !22
-  %89 = lshr i64 %27, 12
-  %90 = and i64 %89, 262143
-  %91 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %88, i64 %90
+84:                                               ; preds = %idalloctm.exit.i
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !22
+  %87 = lshr i64 %27, 12
+  %88 = and i64 %87, 262143
+  %89 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %86, i64 %88
   br label %rtree_metadata_read.exit.i
 
-92:                                               ; preds = %idalloctm.exit.i
-  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 256
-  %94 = load i64, ptr %93, align 8, !tbaa !16
-  %95 = icmp eq i64 %94, %30
-  br i1 %95, label %96, label %.preheader.i3.i, !prof !13
+90:                                               ; preds = %idalloctm.exit.i
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 256
+  %92 = load i64, ptr %91, align 8, !tbaa !16
+  %93 = icmp eq i64 %92, %30
+  br i1 %93, label %94, label %.preheader.i3.i, !prof !13
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 264
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 264
+  %96 = load ptr, ptr %95, align 8, !tbaa !22
+  store i64 %82, ptr %91, align 8, !tbaa !16
+  %97 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !22
-  store i64 %84, ptr %93, align 8, !tbaa !16
-  %99 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !22
-  store ptr %100, ptr %97, align 8, !tbaa !22
-  store i64 %30, ptr %83, align 8, !tbaa !16
-  store ptr %98, ptr %99, align 8, !tbaa !22
-  %101 = lshr i64 %27, 12
-  %102 = and i64 %101, 262143
-  %103 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %98, i64 %102
+  store ptr %98, ptr %95, align 8, !tbaa !22
+  store i64 %30, ptr %81, align 8, !tbaa !16
+  store ptr %96, ptr %97, align 8, !tbaa !22
+  %99 = lshr i64 %27, 12
+  %100 = and i64 %99, 262143
+  %101 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %96, i64 %100
   br label %rtree_metadata_read.exit.i
 
-.preheader.i3.i:                                  ; preds = %92, %107
-  %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i5.i, %107 ], [ 1, %92 ]
-  %104 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %93, i64 0, i64 %indvars.iv.i4.i
-  %105 = load i64, ptr %104, align 8, !tbaa !16
-  %106 = icmp eq i64 %105, %30
-  br i1 %106, label %108, label %107, !prof !13
-
-107:                                              ; preds = %.preheader.i3.i
+102:                                              ; preds = %.preheader.i3.i
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %exitcond.i6.i = icmp eq i64 %indvars.iv.next.i5.i, 8
-  br i1 %exitcond.i6.i, label %122, label %.preheader.i3.i, !llvm.loop !23
+  br i1 %exitcond.i6.i, label %118, label %.preheader.i3.i, !llvm.loop !23
 
-108:                                              ; preds = %.preheader.i3.i
-  %109 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %110 = load ptr, ptr %109, align 8, !tbaa !22
-  %111 = add nuw i64 %indvars.iv.i4.i, 4294967295
-  %112 = and i64 %111, 4294967295
-  %113 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %93, i64 0, i64 %112
-  %114 = load i64, ptr %113, align 8, !tbaa !16
-  store i64 %114, ptr %104, align 8, !tbaa !16
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !22
-  store ptr %116, ptr %109, align 8, !tbaa !22
-  store i64 %84, ptr %113, align 8, !tbaa !16
-  %117 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !22
-  store ptr %118, ptr %115, align 8, !tbaa !22
-  store i64 %30, ptr %83, align 8, !tbaa !16
-  store ptr %110, ptr %117, align 8, !tbaa !22
-  %119 = lshr i64 %27, 12
-  %120 = and i64 %119, 262143
-  %121 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %110, i64 %120
+.preheader.i3.i:                                  ; preds = %90, %102
+  %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i5.i, %102 ], [ 1, %90 ]
+  %103 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %91, i64 %indvars.iv.i4.i
+  %104 = load i64, ptr %103, align 8, !tbaa !16
+  %105 = icmp eq i64 %104, %30
+  br i1 %105, label %106, label %102, !prof !13
+
+106:                                              ; preds = %.preheader.i3.i
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !22
+  %109 = getelementptr i8, ptr %103, i64 -16
+  %110 = load i64, ptr %109, align 8, !tbaa !16
+  store i64 %110, ptr %103, align 8, !tbaa !16
+  %111 = getelementptr i8, ptr %103, i64 -8
+  %112 = load ptr, ptr %111, align 8, !tbaa !22
+  store ptr %112, ptr %107, align 8, !tbaa !22
+  store i64 %82, ptr %109, align 8, !tbaa !16
+  %113 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %114 = load ptr, ptr %113, align 8, !tbaa !22
+  store ptr %114, ptr %111, align 8, !tbaa !22
+  store i64 %30, ptr %81, align 8, !tbaa !16
+  store ptr %108, ptr %113, align 8, !tbaa !22
+  %115 = lshr i64 %27, 12
+  %116 = and i64 %115, 262143
+  %117 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %108, i64 %116
   br label %rtree_metadata_read.exit.i
 
-122:                                              ; preds = %107
-  %123 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i.i, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false) #8
+118:                                              ; preds = %102
+  %119 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i.i, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false) #8
   br label %rtree_metadata_read.exit.i
 
-rtree_metadata_read.exit.i:                       ; preds = %122, %108, %96, %86
-  %.0.i.i7.i = phi ptr [ %91, %86 ], [ %103, %96 ], [ %123, %122 ], [ %121, %108 ]
-  %124 = load atomic i64, ptr %.0.i.i7.i monotonic, align 8, !noalias !48
-  %125 = lshr i64 %124, 48
+rtree_metadata_read.exit.i:                       ; preds = %118, %106, %94, %84
+  %.0.i.i7.i = phi ptr [ %89, %84 ], [ %101, %94 ], [ %119, %118 ], [ %117, %106 ]
+  %120 = load atomic i64, ptr %.0.i.i7.i monotonic, align 8, !noalias !48
+  %121 = lshr i64 %120, 48
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %126 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %125
-  %127 = load i64, ptr %126, align 8, !tbaa !36
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i13.i.i, i64 56
-  %129 = atomicrmw sub ptr %128, i64 %127 monotonic, align 8
+  %122 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %121
+  %123 = load i64, ptr %122, align 8, !tbaa !36
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i13.i.i, i64 56
+  %125 = atomicrmw sub ptr %124, i64 %123 monotonic, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %23, label %130, label %131, !prof !15
+  br i1 %23, label %126, label %127, !prof !15
 
-130:                                              ; preds = %rtree_metadata_read.exit.i
+126:                                              ; preds = %rtree_metadata_read.exit.i
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #8
   br label %emap_alloc_ctx_lookup.exit.i.i
 
-131:                                              ; preds = %rtree_metadata_read.exit.i
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 448
+127:                                              ; preds = %rtree_metadata_read.exit.i
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %emap_alloc_ctx_lookup.exit.i.i
 
-emap_alloc_ctx_lookup.exit.i.i:                   ; preds = %131, %130
-  %.0.i.i.i8.i = phi ptr [ %3, %130 ], [ %132, %131 ]
-  %133 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i.i.i8.i, i64 0, i64 %29
-  %134 = load i64, ptr %133, align 8, !tbaa !16
-  %135 = icmp eq i64 %134, %30
-  br i1 %135, label %136, label %142, !prof !13
+emap_alloc_ctx_lookup.exit.i.i:                   ; preds = %127, %126
+  %.0.i.i.i8.i = phi ptr [ %3, %126 ], [ %128, %127 ]
+  %129 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i.i.i8.i, i64 %29
+  %130 = load i64, ptr %129, align 8, !tbaa !16
+  %131 = icmp eq i64 %130, %30
+  br i1 %131, label %132, label %138, !prof !13
 
-136:                                              ; preds = %emap_alloc_ctx_lookup.exit.i.i
-  %137 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !22
-  %139 = lshr i64 %27, 12
-  %140 = and i64 %139, 262143
-  %141 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %138, i64 %140
+132:                                              ; preds = %emap_alloc_ctx_lookup.exit.i.i
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !22
+  %135 = lshr i64 %27, 12
+  %136 = and i64 %135, 262143
+  %137 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %134, i64 %136
   br label %rtree_metadata_read.exit.i.i
 
-142:                                              ; preds = %emap_alloc_ctx_lookup.exit.i.i
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i8.i, i64 256
-  %144 = load i64, ptr %143, align 8, !tbaa !16
-  %145 = icmp eq i64 %144, %30
-  br i1 %145, label %146, label %.preheader.i.i.i, !prof !13
+138:                                              ; preds = %emap_alloc_ctx_lookup.exit.i.i
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i8.i, i64 256
+  %140 = load i64, ptr %139, align 8, !tbaa !16
+  %141 = icmp eq i64 %140, %30
+  br i1 %141, label %142, label %.preheader.i.i.i, !prof !13
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i8.i, i64 264
-  %148 = load ptr, ptr %147, align 8, !tbaa !22
-  store i64 %134, ptr %143, align 8, !tbaa !16
-  %149 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %150 = load ptr, ptr %149, align 8, !tbaa !22
-  store ptr %150, ptr %147, align 8, !tbaa !22
-  store i64 %30, ptr %133, align 8, !tbaa !16
-  store ptr %148, ptr %149, align 8, !tbaa !22
-  %151 = lshr i64 %27, 12
-  %152 = and i64 %151, 262143
-  %153 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %148, i64 %152
+142:                                              ; preds = %138
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i8.i, i64 264
+  %144 = load ptr, ptr %143, align 8, !tbaa !22
+  store i64 %130, ptr %139, align 8, !tbaa !16
+  %145 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !22
+  store ptr %146, ptr %143, align 8, !tbaa !22
+  store i64 %30, ptr %129, align 8, !tbaa !16
+  store ptr %144, ptr %145, align 8, !tbaa !22
+  %147 = lshr i64 %27, 12
+  %148 = and i64 %147, 262143
+  %149 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %144, i64 %148
   br label %rtree_metadata_read.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %142, %157
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %157 ], [ 1, %142 ]
-  %154 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %143, i64 0, i64 %indvars.iv.i.i.i
-  %155 = load i64, ptr %154, align 8, !tbaa !16
-  %156 = icmp eq i64 %155, %30
-  br i1 %156, label %158, label %157, !prof !13
-
-157:                                              ; preds = %.preheader.i.i.i
+150:                                              ; preds = %.preheader.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.i.i.i, label %172, label %.preheader.i.i.i, !llvm.loop !23
+  br i1 %exitcond.i.i.i, label %166, label %.preheader.i.i.i, !llvm.loop !23
 
-158:                                              ; preds = %.preheader.i.i.i
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 8
+.preheader.i.i.i:                                 ; preds = %138, %150
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %150 ], [ 1, %138 ]
+  %151 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %139, i64 %indvars.iv.i.i.i
+  %152 = load i64, ptr %151, align 8, !tbaa !16
+  %153 = icmp eq i64 %152, %30
+  br i1 %153, label %154, label %150, !prof !13
+
+154:                                              ; preds = %.preheader.i.i.i
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !22
+  %157 = getelementptr i8, ptr %151, i64 -16
+  %158 = load i64, ptr %157, align 8, !tbaa !16
+  store i64 %158, ptr %151, align 8, !tbaa !16
+  %159 = getelementptr i8, ptr %151, i64 -8
   %160 = load ptr, ptr %159, align 8, !tbaa !22
-  %161 = add nuw i64 %indvars.iv.i.i.i, 4294967295
-  %162 = and i64 %161, 4294967295
-  %163 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %143, i64 0, i64 %162
-  %164 = load i64, ptr %163, align 8, !tbaa !16
-  store i64 %164, ptr %154, align 8, !tbaa !16
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %166 = load ptr, ptr %165, align 8, !tbaa !22
-  store ptr %166, ptr %159, align 8, !tbaa !22
-  store i64 %134, ptr %163, align 8, !tbaa !16
-  %167 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %168 = load ptr, ptr %167, align 8, !tbaa !22
-  store ptr %168, ptr %165, align 8, !tbaa !22
-  store i64 %30, ptr %133, align 8, !tbaa !16
-  store ptr %160, ptr %167, align 8, !tbaa !22
-  %169 = lshr i64 %27, 12
-  %170 = and i64 %169, 262143
-  %171 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %160, i64 %170
+  store ptr %160, ptr %155, align 8, !tbaa !22
+  store i64 %130, ptr %157, align 8, !tbaa !16
+  %161 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %162 = load ptr, ptr %161, align 8, !tbaa !22
+  store ptr %162, ptr %159, align 8, !tbaa !22
+  store i64 %30, ptr %129, align 8, !tbaa !16
+  store ptr %156, ptr %161, align 8, !tbaa !22
+  %163 = lshr i64 %27, 12
+  %164 = and i64 %163, 262143
+  %165 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %156, i64 %164
   br label %rtree_metadata_read.exit.i.i
 
-172:                                              ; preds = %157
-  %173 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i8.i, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false) #8
+166:                                              ; preds = %150
+  %167 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i8.i, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false) #8
   br label %rtree_metadata_read.exit.i.i
 
-rtree_metadata_read.exit.i.i:                     ; preds = %172, %158, %146, %136
-  %.0.i.i6.i.i = phi ptr [ %141, %136 ], [ %153, %146 ], [ %173, %172 ], [ %171, %158 ]
-  %174 = load atomic i64, ptr %.0.i.i6.i.i monotonic, align 8, !noalias !51
-  %175 = trunc i64 %174 to i1
+rtree_metadata_read.exit.i.i:                     ; preds = %166, %154, %142, %132
+  %.0.i.i6.i.i = phi ptr [ %137, %132 ], [ %149, %142 ], [ %167, %166 ], [ %165, %154 ]
+  %168 = load atomic i64, ptr %.0.i.i6.i.i monotonic, align 8, !noalias !51
+  %169 = trunc i64 %168 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %175, label %176, label %177, !prof !13
+  br i1 %169, label %170, label %171, !prof !13
 
-176:                                              ; preds = %rtree_metadata_read.exit.i.i
+170:                                              ; preds = %rtree_metadata_read.exit.i.i
   call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef nonnull %21) #8
   br label %buf_writer_free_internal_buf.exit
 
-177:                                              ; preds = %rtree_metadata_read.exit.i.i
+171:                                              ; preds = %rtree_metadata_read.exit.i.i
   call fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef nonnull %21)
   br label %buf_writer_free_internal_buf.exit
 
-buf_writer_free_internal_buf.exit:                ; preds = %177, %176, %20, %je_buf_writer_flush.exit
+buf_writer_free_internal_buf.exit:                ; preds = %171, %170, %20, %je_buf_writer_flush.exit
   ret void
 }
 
@@ -875,7 +865,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   %9 = lshr i64 %8, 30
   %10 = and i64 %9, 15
   %11 = and i64 %8, -1073741824
-  %12 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %.0.i, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i, i64 %10
   %13 = load i64, ptr %12, align 8, !tbaa !16, !noalias !55
   %14 = icmp eq i64 %13, %11
   br i1 %14, label %15, label %21, !prof !13
@@ -908,53 +898,51 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   %32 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %27, i64 %31
   br label %rtree_read.exit
 
-.preheader.i:                                     ; preds = %21, %36
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %36 ], [ 1, %21 ]
-  %33 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %22, i64 0, i64 %indvars.iv.i
-  %34 = load i64, ptr %33, align 8, !tbaa !16, !noalias !55
-  %35 = icmp eq i64 %34, %11
-  br i1 %35, label %37, label %36, !prof !13
-
-36:                                               ; preds = %.preheader.i
+33:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %51, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond.i, label %49, label %.preheader.i, !llvm.loop !23
+
+.preheader.i:                                     ; preds = %21, %33
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 1, %21 ]
+  %34 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %22, i64 %indvars.iv.i
+  %35 = load i64, ptr %34, align 8, !tbaa !16, !noalias !55
+  %36 = icmp eq i64 %35, %11
+  br i1 %36, label %37, label %33, !prof !13
 
 37:                                               ; preds = %.preheader.i
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !22, !noalias !55
-  %40 = add nuw i64 %indvars.iv.i, 4294967295
-  %41 = and i64 %40, 4294967295
-  %42 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %22, i64 0, i64 %41
-  %43 = load i64, ptr %42, align 8, !tbaa !16, !noalias !55
-  store i64 %43, ptr %33, align 8, !tbaa !16, !noalias !55
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %40 = getelementptr i8, ptr %34, i64 -16
+  %41 = load i64, ptr %40, align 8, !tbaa !16, !noalias !55
+  store i64 %41, ptr %34, align 8, !tbaa !16, !noalias !55
+  %42 = getelementptr i8, ptr %34, i64 -8
+  %43 = load ptr, ptr %42, align 8, !tbaa !22, !noalias !55
+  store ptr %43, ptr %38, align 8, !tbaa !22, !noalias !55
+  store i64 %13, ptr %40, align 8, !tbaa !16, !noalias !55
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !22, !noalias !55
-  store ptr %45, ptr %38, align 8, !tbaa !22, !noalias !55
-  store i64 %13, ptr %42, align 8, !tbaa !16, !noalias !55
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !22, !noalias !55
-  store ptr %47, ptr %44, align 8, !tbaa !22, !noalias !55
+  store ptr %45, ptr %42, align 8, !tbaa !22, !noalias !55
   store i64 %11, ptr %12, align 8, !tbaa !16, !noalias !55
-  store ptr %39, ptr %46, align 8, !tbaa !22, !noalias !55
-  %48 = lshr i64 %8, 12
-  %49 = and i64 %48, 262143
-  %50 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %39, i64 %49
+  store ptr %39, ptr %44, align 8, !tbaa !22, !noalias !55
+  %46 = lshr i64 %8, 12
+  %47 = and i64 %46, 262143
+  %48 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %39, i64 %47
   br label %rtree_read.exit
 
-51:                                               ; preds = %36
-  %52 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #8, !noalias !55
+49:                                               ; preds = %33
+  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #8, !noalias !55
   br label %rtree_read.exit
 
-rtree_read.exit:                                  ; preds = %15, %25, %37, %51
-  %.0.i.i = phi ptr [ %20, %15 ], [ %32, %25 ], [ %52, %51 ], [ %50, %37 ]
-  %53 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !58
-  %54 = shl i64 %53, 16
-  %55 = ashr exact i64 %54, 16
-  %56 = and i64 %55, -128
-  %57 = inttoptr i64 %56 to ptr
+rtree_read.exit:                                  ; preds = %15, %25, %37, %49
+  %.0.i.i = phi ptr [ %20, %15 ], [ %32, %25 ], [ %50, %49 ], [ %48, %37 ]
+  %51 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !58
+  %52 = shl i64 %51, 16
+  %53 = ashr exact i64 %52, 16
+  %54 = and i64 %53, -128
+  %55 = inttoptr i64 %54 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @je_large_dalloc(ptr noundef %0, ptr noundef %57) #8
+  call void @je_large_dalloc(ptr noundef %0, ptr noundef %55) #8
   ret void
 }
 

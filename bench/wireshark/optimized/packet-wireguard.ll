@@ -2359,7 +2359,7 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
 
 45:                                               ; preds = %.critedge2
   %46 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %.066.lcssa, i64 noundef range(i64 1, 46) %.06394, i64 noundef 28) #18, !alias.scope !17
-  %47 = getelementptr [28 x i8], ptr %6, i64 0, i64 %.06394
+  %47 = getelementptr i8, ptr %6, i64 %.06394
   store i8 0, ptr %47, align 1
   br label %48
 

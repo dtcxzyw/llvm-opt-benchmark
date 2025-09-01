@@ -241,7 +241,7 @@ find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmar
   %.02551.i = phi i32 [ %.126.i, %176 ], [ 0, %96 ]
   %98 = load i32, ptr %11, align 4, !tbaa !29
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [2 x ptr], ptr @ccitt_vlc, i64 0, i64 %99
+  %100 = getelementptr inbounds ptr, ptr @ccitt_vlc, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !4
   %102 = load i32, ptr %31, align 8, !tbaa !33
   %103 = load ptr, ptr %12, align 8, !tbaa !30
@@ -560,7 +560,7 @@ define internal fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef no
   %.val155 = load i32, ptr %13, align 4, !tbaa !32
   %.promoted = load i32, ptr %12, align 8, !tbaa !35
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [2 x ptr], ptr @ccitt_vlc, i64 0, i64 %59
+  %60 = getelementptr inbounds ptr, ptr @ccitt_vlc, i64 %59
   br label %61
 
 61:                                               ; preds = %.preheader, %106
@@ -1032,7 +1032,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   %.110.i = lshr i32 %18, %.110.i.v
   %.1.i = select i1 %.not.i, i32 0, i32 8
   %20 = zext nneg i32 %.110.i to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !36
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %.1.i, %23

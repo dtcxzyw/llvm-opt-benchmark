@@ -1079,7 +1079,7 @@ _ZL14print_resatomsP8_IO_FILERK22PreprocessingAtomTypesRK17PreprocessResidue.exi
 
 .lr.ph.i18:                                       ; preds = %.preheader.i, %.lr.ph.i18
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i18 ], [ 0, %.preheader.i ]
-  %110 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.017.022.i, i64 0, i64 %indvars.iv.i19
+  %110 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.017.022.i, i64 %indvars.iv.i19
   %111 = load ptr, ptr %110, align 8, !tbaa !17
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %111) #23
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
@@ -2802,7 +2802,7 @@ _ZNSt6vectorI17BondedInteractionSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i: ; p
   br i1 %650, label %651, label %.loopexit396
 
 651:                                              ; preds = %.lr.ph.i
-  %652 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %644, i64 0, i64 %indvars.iv.i
+  %652 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %644, i64 %indvars.iv.i
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 8
   %654 = load i64, ptr %653, align 8, !tbaa !22
   %655 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #23
@@ -4731,7 +4731,7 @@ _ZNSt16allocator_traitsISaIPPcEE8allocateERS2_m.exit.i.i.i.i: ; preds = %70
   %.idx.i = shl nsw i64 %89, 5
   %.add28 = add nuw nsw i64 %.idx.i, 128
   %.ptr31 = getelementptr inbounds nuw i8, ptr %0, i64 %.add28
-  %90 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %87, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %87, i64 %89
   %91 = load i32, ptr %90, align 8, !tbaa !42
   store i32 %91, ptr %.ptr31, align 8, !tbaa !42
   %92 = getelementptr inbounds nuw i8, ptr %.ptr31, i64 8
@@ -5111,7 +5111,7 @@ define linkonce_odr void @_ZN17BondedInteractionC2ERKS_(ptr noundef nonnull alig
   %6 = phi i64 [ 0, %2 ], [ %25, %20 ]
   %.idx.i = shl nsw i64 %6, 5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
-  %8 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %1, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !36
   %10 = load ptr, ptr %8, align 8, !tbaa !17
@@ -5382,7 +5382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i: ; preds = 
 54:                                               ; preds = %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i
   %55 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i ], [ %68, %54 ]
   %56 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %52, i64 %55
-  %57 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %53, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %53, i64 %55
   %58 = load i32, ptr %57, align 8, !tbaa !42
   store i32 %58, ptr %56, align 8, !tbaa !42
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -6315,7 +6315,7 @@ _ZNSt16allocator_traitsISaI17BondedInteractionEE9constructIS0_JEEEvRS1_PT_DpOT0_
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
   %30 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i ]
   %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.012.i.i.i, i64 %30
-  %32 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.0911.i.i.i, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0911.i.i.i, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %33, ptr %31, align 8, !tbaa !36, !alias.scope !177, !noalias !180
   %34 = load ptr, ptr %32, align 8, !tbaa !17, !alias.scope !180, !noalias !177
@@ -6440,7 +6440,7 @@ _ZNSt6vectorI17BondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; pre
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i22, %.lr.ph.i.i.i16
   %82 = phi i64 [ 0, %.lr.ph.i.i.i16 ], [ %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i22 ]
   %83 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.012.i.i.i17, i64 %82
-  %84 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.0911.i.i.i18, i64 0, i64 %82
+  %84 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0911.i.i.i18, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %85, ptr %83, align 8, !tbaa !36, !alias.scope !184, !noalias !187
   %86 = load ptr, ptr %84, align 8, !tbaa !17, !alias.scope !187, !noalias !184
@@ -6825,8 +6825,8 @@ _ZNSt6vectorIPPcSaIS1_EEaSEOS3_.exit:             ; preds = %_ZNSt6vectorI6t_ato
 
 115:                                              ; preds = %_ZN21BondedInteractionListaSEOS_.exit.i, %_ZNSt6vectorIPPcSaIS1_EEaSEOS3_.exit
   %.05.i = phi i64 [ 0, %_ZNSt6vectorIPPcSaIS1_EEaSEOS3_.exit ], [ %156, %_ZN21BondedInteractionListaSEOS_.exit.i ]
-  %116 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %113, i64 0, i64 %.05.i
-  %117 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %114, i64 0, i64 %.05.i
+  %116 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %113, i64 %.05.i
+  %117 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %114, i64 %.05.i
   %118 = load i32, ptr %117, align 8, !tbaa !42
   store i32 %118, ptr %116, align 8, !tbaa !42
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -7088,7 +7088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i.i.i: ; pr
 103:                                              ; preds = %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i.i.i
   %104 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i.i.i ], [ %117, %103 ]
   %105 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %48, i64 %104
-  %106 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %102, i64 0, i64 %104
+  %106 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %102, i64 %104
   %107 = load i32, ptr %106, align 8, !tbaa !42
   store i32 %107, ptr %105, align 8, !tbaa !42
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -7167,7 +7167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i14.i.i.i: ; 
 129:                                              ; preds = %129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i14.i.i.i
   %130 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i14.i.i.i ], [ %143, %129 ]
   %131 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %61, i64 %130
-  %132 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %48, i64 0, i64 %130
+  %132 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %48, i64 %130
   %133 = load i32, ptr %132, align 8, !tbaa !42
   store i32 %133, ptr %131, align 8, !tbaa !42
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
@@ -7320,7 +7320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i: ; preds 
 210:                                              ; preds = %210, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i
   %211 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i ], [ %224, %210 ]
   %212 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %158, i64 %211
-  %213 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %209, i64 0, i64 %211
+  %213 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %209, i64 %211
   %214 = load i32, ptr %213, align 8, !tbaa !42
   store i32 %214, ptr %212, align 8, !tbaa !42
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 8
@@ -7414,7 +7414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i6.i: ; preds
 249:                                              ; preds = %249, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i6.i
   %250 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i6.i ], [ %263, %249 ]
   %251 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %171, i64 %250
-  %252 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %158, i64 0, i64 %250
+  %252 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %158, i64 %250
   %253 = load i32, ptr %252, align 8, !tbaa !42
   store i32 %253, ptr %251, align 8, !tbaa !42
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 8
@@ -7854,7 +7854,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i21: ; pred
 394:                                              ; preds = %394, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i21
   %395 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i.i21 ], [ %408, %394 ]
   %396 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %28, i64 %395
-  %397 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %393, i64 0, i64 %395
+  %397 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %393, i64 %395
   %398 = load i32, ptr %397, align 8, !tbaa !42
   store i32 %398, ptr %396, align 8, !tbaa !42
   %399 = getelementptr inbounds nuw i8, ptr %396, i64 8
@@ -8238,7 +8238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i: ; preds = 
 95:                                               ; preds = %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i
   %96 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i ], [ %109, %95 ]
   %97 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %93, i64 %96
-  %98 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %94, i64 0, i64 %96
+  %98 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %94, i64 %96
   %99 = load i32, ptr %98, align 8, !tbaa !42
   store i32 %99, ptr %97, align 8, !tbaa !42
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -8432,7 +8432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i: ; preds = 
 54:                                               ; preds = %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i
   %55 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i ], [ %68, %54 ]
   %56 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %52, i64 %55
-  %57 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %53, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %53, i64 %55
   %58 = load i32, ptr %57, align 8, !tbaa !42
   store i32 %58, ptr %56, align 8, !tbaa !42
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -8620,7 +8620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i: ; preds = 
 66:                                               ; preds = %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i
   %67 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i ], [ %80, %66 ]
   %68 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %18, i64 %67
-  %69 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %65, i64 0, i64 %67
+  %69 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %65, i64 %67
   %70 = load i32, ptr %69, align 8, !tbaa !42
   store i32 %70, ptr %68, align 8, !tbaa !42
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -8788,7 +8788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i: ; preds = 
 53:                                               ; preds = %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i
   %54 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i ], [ %67, %53 ]
   %55 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %51, i64 %54
-  %56 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %52, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %52, i64 %54
   %57 = load i32, ptr %56, align 8, !tbaa !42
   store i32 %57, ptr %55, align 8, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8

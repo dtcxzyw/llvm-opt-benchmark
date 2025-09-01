@@ -872,7 +872,7 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
   %.01331 = phi i64 [ 0, %.preheader ], [ %30, %24 ]
   %25 = getelementptr inbounds nuw i8, ptr %.132, i64 4
   %26 = load i32, ptr %.132, align 4, !tbaa !27
-  %27 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %.01331
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.01331
   %28 = load i32, ptr %27, align 4, !tbaa !27
   %29 = xor i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !27
@@ -1040,7 +1040,7 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
 
 147:                                              ; preds = %147, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %147 ]
-  %148 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   %149 = load i32, ptr %148, align 4, !tbaa !27
   %150 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %151 = load i32, ptr %150, align 4, !tbaa !27

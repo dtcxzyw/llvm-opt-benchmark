@@ -554,48 +554,47 @@ define internal fastcc range(i32 -22, 1) i32 @rtsp_send_reply(ptr noundef %0, i3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %8 = icmp eq i32 %1, 200
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  br label %11
 
-.lr.ph:                                           ; preds = %4, %9
-  %indvars.iv26 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %4 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv26, 1
+8:                                                ; preds = %11
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %9 = getelementptr inbounds nuw %struct.RTSPStatusMessage, ptr @status_messages, i64 %indvars.iv.next
+  %10 = load i32, ptr %9, align 16, !tbaa !42
   %exitcond = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond, label %.thread, label %9, !llvm.loop !42
+  br i1 %exitcond, label %.thread, label %11, !llvm.loop !44
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw [12 x %struct.RTSPStatusMessage], ptr @status_messages, i64 0, i64 %indvars.iv.next
-  %11 = load i32, ptr %10, align 16, !tbaa !43
-  %12 = icmp eq i32 %11, %1
-  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+11:                                               ; preds = %4, %8
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %8 ]
+  %12 = phi i32 [ 200, %4 ], [ %10, %8 ]
+  %13 = icmp eq i32 %12, %1
+  br i1 %13, label %14, label %8
 
-._crit_edge:                                      ; preds = %9, %4
-  %.lcssa = phi ptr [ @status_messages, %4 ], [ %10, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.34, i32 noundef %1, ptr noundef %14) #11
-  %16 = zext i16 %3 to i32
-  %17 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.35, i32 noundef %16) #11
-  %18 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #11
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw %struct.RTSPStatusMessage, ptr @status_messages, i64 %indvars.iv, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !45
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.34, i32 noundef %1, ptr noundef %16) #11
+  %18 = zext i16 %3 to i32
+  %19 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.35, i32 noundef %18) #11
+  %20 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #11
   %.not18 = icmp eq ptr %2, null
-  br i1 %.not18, label %21, label %19
+  br i1 %.not18, label %23, label %21
 
-19:                                               ; preds = %._crit_edge
-  %20 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef 4096) #11
-  br label %21
+21:                                               ; preds = %14
+  %22 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef 4096) #11
+  br label %23
 
-21:                                               ; preds = %19, %._crit_edge
-  %22 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.38, i64 noundef 4096) #11
+23:                                               ; preds = %21, %14
+  %24 = call i64 @av_strlcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.38, i64 noundef 4096) #11
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.39, ptr noundef nonnull %5) #11
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8880
-  %24 = load ptr, ptr %23, align 8, !tbaa !46
-  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
-  %26 = trunc i64 %25 to i32
-  %27 = call i32 @ffurl_write2(ptr noundef %24, ptr noundef nonnull %5, i32 noundef %26) #11
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8880
+  %26 = load ptr, ptr %25, align 8, !tbaa !46
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
+  %28 = trunc i64 %27 to i32
+  %29 = call i32 @ffurl_write2(ptr noundef %26, ptr noundef nonnull %5, i32 noundef %28) #11
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %21
-  %.013 = phi i32 [ 0, %21 ], [ -22, %.lr.ph ]
+.thread:                                          ; preds = %8, %23
+  %.013 = phi i32 [ 0, %23 ], [ -22, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.013
 }
@@ -1170,7 +1169,7 @@ check_sessionid.exit.i.i:                         ; preds = %149
 
 167:                                              ; preds = %166, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %166 ]
-  %168 = getelementptr inbounds nuw [8 x %struct.RTSPTransportField], ptr %60, i64 0, i64 %indvars.iv.i.i
+  %168 = getelementptr inbounds nuw %struct.RTSPTransportField, ptr %60, i64 %indvars.iv.i.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 36
   %170 = load i32, ptr %169, align 4, !tbaa !74
   %.not90.i.i = icmp eq i32 %170, 0
@@ -2409,10 +2408,10 @@ attributes #13 = { nounwind willreturn memory(none) }
 !39 = !{!40, !13, i64 1824}
 !40 = !{!"RTSPMessageHeader", !13, i64 0, !13, i64 4, !13, i64 8, !19, i64 16, !19, i64 24, !8, i64 32, !13, i64 1824, !8, i64 1828, !8, i64 2340, !8, i64 6436, !8, i64 6500, !13, i64 6564, !13, i64 6568, !8, i64 6572, !8, i64 6828, !8, i64 6892}
 !41 = distinct !{!41, !35}
-!42 = distinct !{!42, !35}
-!43 = !{!44, !13, i64 0}
-!44 = !{!"RTSPStatusMessage", !13, i64 0, !18, i64 8}
-!45 = !{!44, !18, i64 8}
+!42 = !{!43, !13, i64 0}
+!43 = !{!"RTSPStatusMessage", !13, i64 0, !18, i64 8}
+!44 = distinct !{!44, !35}
+!45 = !{!43, !18, i64 8}
 !46 = !{!25, !26, i64 8880}
 !47 = !{!18, !18, i64 0}
 !48 = !{!25, !13, i64 584}

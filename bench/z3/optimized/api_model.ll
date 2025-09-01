@@ -4541,7 +4541,7 @@ define ptr @Z3_func_entry_get_arg(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %20 = load ptr, ptr %19, align 8, !tbaa !282
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !227
   br label %_ZN10z3_log_ctxD2Ev.exit
 
@@ -4567,7 +4567,7 @@ define ptr @Z3_func_entry_get_arg(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %32 = load ptr, ptr %31, align 8, !tbaa !282
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = zext i32 %2 to i64
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !227
   invoke void @_Z4SetRPKv(ptr noundef %36)
           to label %39 unwind label %37

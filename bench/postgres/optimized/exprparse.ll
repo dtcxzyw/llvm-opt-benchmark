@@ -148,7 +148,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
 
 34:                                               ; preds = %.thread360
   %35 = sext i32 %.0262 to i64
-  %36 = getelementptr inbounds [88 x i16], ptr @yypact, i64 0, i64 %35
+  %36 = getelementptr inbounds i16, ptr @yypact, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i32
   %39 = icmp eq i16 %37, -33
@@ -177,7 +177,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
 
 50:                                               ; preds = %48
   %51 = zext nneg i32 %.4 to i64
-  %52 = getelementptr inbounds nuw [282 x i8], ptr @yytranslate, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
   br label %55
@@ -191,14 +191,14 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
 
 57:                                               ; preds = %55
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds nuw [321 x i8], ptr @yycheck, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i32
   %.not317 = icmp eq i32 %.0273, %61
   br i1 %.not317, label %62, label %74
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw [321 x i8], ptr @yytable, i64 0, i64 %58
+  %63 = getelementptr inbounds nuw i8, ptr @yytable, i64 %58
   %64 = load i8, ptr %63, align 1
   %65 = sext i8 %64 to i32
   %66 = icmp slt i8 %64, 1
@@ -220,7 +220,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
 
 74:                                               ; preds = %55, %57, %34
   %.3 = phi i32 [ %.0259, %34 ], [ %.5, %55 ], [ %.5, %57 ]
-  %75 = getelementptr inbounds [88 x i8], ptr @yydefact, i64 0, i64 %35
+  %75 = getelementptr inbounds i8, ptr @yydefact, i64 %35
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = icmp eq i8 %76, 0
@@ -230,7 +230,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   %.0275 = phi i32 [ %77, %74 ], [ %70, %69 ]
   %.8 = phi i32 [ %.3, %74 ], [ %.5, %69 ]
   %80 = sext i32 %.0275 to i64
-  %81 = getelementptr inbounds [48 x i8], ptr @yyr2, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr @yyr2, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
@@ -419,7 +419,7 @@ make_elist.exit323:                               ; preds = %115, %116
 
 154:                                              ; preds = %150
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %155 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i
+  %155 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.next.i.i
   %156 = load ptr, ptr %155, align 16
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 39
   br i1 %exitcond.i.i, label %157, label %150, !llvm.loop !4
@@ -636,7 +636,7 @@ make_uop.exit:                                    ; preds = %163, %164
 
 299:                                              ; preds = %295
   %indvars.iv.next.i.i325 = add nuw nsw i64 %indvars.iv.i.i324, 1
-  %300 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i325
+  %300 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.next.i.i325
   %301 = load ptr, ptr %300, align 16
   %exitcond.i.i326 = icmp eq i64 %indvars.iv.next.i.i325, 39
   br i1 %exitcond.i.i326, label %302, label %295, !llvm.loop !4
@@ -709,7 +709,7 @@ make_uop.exit328:                                 ; preds = %308, %309
 
 336:                                              ; preds = %332
   %indvars.iv.next.i.i330 = add nuw nsw i64 %indvars.iv.i.i329, 1
-  %337 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i330
+  %337 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.next.i.i330
   %338 = load ptr, ptr %337, align 16
   %exitcond.i.i331 = icmp eq i64 %indvars.iv.next.i.i330, 39
   br i1 %exitcond.i.i331, label %339, label %332, !llvm.loop !4
@@ -784,7 +784,7 @@ make_uop.exit333:                                 ; preds = %345, %346
 
 375:                                              ; preds = %371
   %indvars.iv.next.i.i335 = add nuw nsw i64 %indvars.iv.i.i334, 1
-  %376 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i.i335
+  %376 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.next.i.i335
   %377 = load ptr, ptr %376, align 16
   %exitcond.i.i336 = icmp eq i64 %indvars.iv.next.i.i335, 39
   br i1 %exitcond.i.i336, label %378, label %371, !llvm.loop !4
@@ -1037,7 +1037,7 @@ make_elist.exit346:                               ; preds = %482, %483
 
 508:                                              ; preds = %504
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %509 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i
+  %509 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.next.i
   %510 = load ptr, ptr %509, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 39
   br i1 %exitcond.i, label %511, label %504, !llvm.loop !4
@@ -1060,11 +1060,11 @@ find_func.exit:                                   ; preds = %504
   %517 = getelementptr inbounds i8, ptr %.2290, i64 %515
   %518 = getelementptr inbounds nuw i8, ptr %516, i64 8
   store i64 %.sroa.0.0, ptr %518, align 8
-  %519 = getelementptr inbounds [48 x i8], ptr @yyr1, i64 0, i64 %80
+  %519 = getelementptr inbounds i8, ptr @yyr1, i64 %80
   %520 = load i8, ptr %519, align 1
   %521 = sext i8 %520 to i64
   %522 = add nsw i64 %521, -42
-  %523 = getelementptr inbounds [7 x i8], ptr @yypgoto, i64 0, i64 %522
+  %523 = getelementptr inbounds i8, ptr @yypgoto, i64 %522
   %524 = load i8, ptr %523, align 1
   %525 = sext i8 %524 to i32
   %526 = load i8, ptr %517, align 1
@@ -1075,17 +1075,17 @@ find_func.exit:                                   ; preds = %504
 
 530:                                              ; preds = %514
   %531 = zext nneg i32 %528 to i64
-  %532 = getelementptr inbounds nuw [321 x i8], ptr @yycheck, i64 0, i64 %531
+  %532 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %531
   %533 = load i8, ptr %532, align 1
   %534 = icmp eq i8 %533, %526
   br i1 %534, label %535, label %537
 
 535:                                              ; preds = %530
-  %536 = getelementptr inbounds nuw [321 x i8], ptr @yytable, i64 0, i64 %531
+  %536 = getelementptr inbounds nuw i8, ptr @yytable, i64 %531
   br label %539
 
 537:                                              ; preds = %530, %514
-  %538 = getelementptr inbounds [7 x i8], ptr @yydefgoto, i64 0, i64 %522
+  %538 = getelementptr inbounds i8, ptr @yydefgoto, i64 %522
   br label %539
 
 539:                                              ; preds = %537, %535
@@ -1145,7 +1145,7 @@ define internal fastcc ptr @make_op(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.next.i
   %11 = load ptr, ptr %10, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 39
   br i1 %exitcond.i, label %12, label %5, !llvm.loop !4
@@ -1227,7 +1227,7 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %3 ], [ %6, %.lr.ph.i ]
   %9 = tail call ptr @pg_malloc(i64 noundef 24) #10
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %64 [
@@ -1410,7 +1410,7 @@ define internal fastcc ptr @make_case(ptr noundef %0, ptr noundef %1, ptr nounde
 
 8:                                                ; preds = %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %indvars.iv.next.i
+  %9 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.next.i
   %10 = load ptr, ptr %9, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 39
   br i1 %exitcond.i, label %11, label %4, !llvm.loop !4

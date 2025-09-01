@@ -5777,22 +5777,22 @@ rtps_psk_generate_session_key.exit.i.i:           ; preds = %rtps_psk_generate_m
 1892:                                             ; preds = %1889
   %1893 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %1890, i32 noundef %1777, i64 noundef range(i64 -2147483648, 2147483648) %1855)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %switch.tableidx294 = add i32 %1859, -1
-  %1894 = icmp ult i32 %switch.tableidx294, 4
-  br i1 %1894, label %switch.lookup293, label %rtps_encryption_algorithm_to_gcry_enum.exit.i.i.i
+  %switch.tableidx293 = add i32 %1859, -1
+  %1894 = icmp ult i32 %switch.tableidx293, 4
+  br i1 %1894, label %switch.lookup294, label %rtps_encryption_algorithm_to_gcry_enum.exit.i.i.i
 
-switch.lookup293:                                 ; preds = %1892
-  %1895 = zext nneg i32 %switch.tableidx294 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_rtps_submessages, i64 0, i64 %1895
+switch.lookup294:                                 ; preds = %1892
+  %1895 = zext nneg i32 %switch.tableidx293 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_rtps_submessages, i64 %1895
   %switch.load = load i32, ptr %switch.gep, align 4
-  %1896 = zext nneg i32 %switch.tableidx294 to i64
-  %switch.gep295 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_rtps_submessages.15, i64 0, i64 %1896
+  %1896 = zext nneg i32 %switch.tableidx293 to i64
+  %switch.gep295 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_rtps_submessages.15, i64 %1896
   %switch.load296 = load i32, ptr %switch.gep295, align 4
   br label %rtps_encryption_algorithm_to_gcry_enum.exit.i.i.i
 
-rtps_encryption_algorithm_to_gcry_enum.exit.i.i.i: ; preds = %1892, %switch.lookup293
-  %.sink.i.i.i.i = phi i32 [ %switch.load, %switch.lookup293 ], [ 0, %1892 ]
-  %.0.ph.i.i.i.i = phi i32 [ %switch.load296, %switch.lookup293 ], [ 0, %1892 ]
+rtps_encryption_algorithm_to_gcry_enum.exit.i.i.i: ; preds = %1892, %switch.lookup294
+  %.sink.i.i.i.i = phi i32 [ %switch.load, %switch.lookup294 ], [ 0, %1892 ]
+  %.0.ph.i.i.i.i = phi i32 [ %switch.load296, %switch.lookup294 ], [ 0, %1892 ]
   %1897 = call i32 @gcry_cipher_open(ptr noundef nonnull %46, i32 noundef %.0.ph.i.i.i.i, i32 noundef %.sink.i.i.i.i, i32 noundef 0)
   %.not.i.i.i106 = icmp eq i32 %1897, 0
   br i1 %.not.i.i.i106, label %1901, label %1898
@@ -6407,9 +6407,9 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %switch.shiftamt = shl nuw nsw i64 %indvars.iv.i, 4
   %switch.downshift = lshr i64 131074, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i16
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.proto_register_rtps, i64 0, i64 %indvars.iv.i
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.proto_register_rtps, i64 %indvars.iv.i
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep15 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.proto_register_rtps.16, i64 0, i64 %indvars.iv.i
+  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.proto_register_rtps.16, i64 %indvars.iv.i
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
   %117 = getelementptr %struct._dissection_element, ptr %116, i64 %indvars.iv.i, i32 1
@@ -6471,11 +6471,11 @@ switch.lookup:                                    ; preds = %.lr.ph.i
 
 switch.lookup17:                                  ; preds = %.lr.ph4.i
   %142 = trunc nuw i64 %indvars.iv8.i to i32
-  %switch.gep18 = getelementptr inbounds nuw [7 x i16], ptr @switch.table.proto_register_rtps.17, i64 0, i64 %indvars.iv8.i
+  %switch.gep18 = getelementptr inbounds nuw i16, ptr @switch.table.proto_register_rtps.17, i64 %indvars.iv8.i
   %switch.load19 = load i16, ptr %switch.gep18, align 2
-  %switch.gep20 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.proto_register_rtps.18, i64 0, i64 %indvars.iv8.i
+  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table.proto_register_rtps.18, i64 %indvars.iv8.i
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
-  %switch.gep22 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.proto_register_rtps.19, i64 0, i64 %indvars.iv8.i
+  %switch.gep22 = getelementptr inbounds nuw i64, ptr @switch.table.proto_register_rtps.19, i64 %indvars.iv8.i
   %switch.load23 = load i64, ptr %switch.gep22, align 8
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
   %144 = getelementptr %struct._dissection_element, ptr %143, i64 %indvars.iv8.i, i32 1
@@ -11209,7 +11209,7 @@ check_offset_addition.exit439:                    ; preds = %rtps_util_typecode_
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.8475 = phi i32 [ %.8473, %.lr.ph.preheader ], [ %.8, %.lr.ph ]
   %232 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %.8475, i32 noundef %4)
-  %233 = getelementptr [10 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %233 = getelementptr i32, ptr %16, i64 %indvars.iv
   store i32 %232, ptr %233, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.8 = add i32 %.8475, 4
@@ -13361,10 +13361,10 @@ define internal fastcc void @generate_status_info(ptr noundef %0, i32 noundef %1
 
 switch.lookup:                                    ; preds = %31
   %33 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.generate_status_info, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.generate_status_info, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   %34 = zext nneg i32 %2 to i64
-  %switch.gep57 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.generate_status_info.20, i64 0, i64 %34
+  %switch.gep57 = getelementptr inbounds nuw ptr, ptr @switch.table.generate_status_info.20, i64 %34
   %switch.load58 = load ptr, ptr %switch.gep57, align 8
   %.not54 = icmp eq ptr %.0, null
   tail call void @wmem_strbuf_append(ptr noundef %6, ptr noundef nonnull @.str.1322)
@@ -14881,7 +14881,7 @@ define internal fastcc range(i32 1, 17) i32 @get_native_type_cdr_length(i64 noun
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.get_native_type_cdr_length, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_native_type_cdr_length, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %3
 

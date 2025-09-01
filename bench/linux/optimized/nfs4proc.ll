@@ -2049,7 +2049,7 @@ define dso_local i32 @nfs4_do_close(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 39:                                               ; preds = %35, %3
   %40 = phi i64 [ 0, %3 ], [ %38, %35 ]
-  %41 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %40, i64 10
+  %41 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %40, i64 10
   %42 = load ptr, ptr %41, align 16
   %43 = call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %42, i32 noundef %32, i64 noundef 608) #25
   %44 = icmp eq ptr %43, null
@@ -2479,9 +2479,9 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
 
 170:                                              ; preds = %170, %163
   %171 = phi i64 [ 0, %163 ], [ %177, %170 ]
-  %172 = getelementptr [3 x i32], ptr %31, i64 0, i64 %171
+  %172 = getelementptr i32, ptr %31, i64 %171
   %173 = load i32, ptr %172, align 4
-  %174 = getelementptr [3 x i32], ptr %43, i64 0, i64 %171
+  %174 = getelementptr i32, ptr %43, i64 %171
   %175 = load i32, ptr %174, align 4
   %176 = and i32 %175, %173
   store i32 %176, ptr %174, align 4
@@ -3627,7 +3627,7 @@ define dso_local void @nfs4_bitmask_set(ptr noundef captures(none) initializes((
 
 74:                                               ; preds = %74, %72
   %75 = phi i64 [ 0, %72 ], [ %81, %74 ]
-  %76 = getelementptr [3 x i32], ptr %73, i64 0, i64 %75
+  %76 = getelementptr i32, ptr %73, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr i32, ptr %0, i64 %75
   %79 = load i32, ptr %78, align 4
@@ -3874,7 +3874,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 2536
   %36 = load volatile ptr, ptr %35, align 8
   %37 = zext i32 %34 to i64
-  %38 = getelementptr [0 x ptr], ptr %36, i64 0, i64 %37
+  %38 = getelementptr ptr, ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   call void @__rcu_read_unlock() #22
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 168
@@ -8950,7 +8950,7 @@ define internal fastcc noundef ptr @nfs4_opendata_alloc(ptr noundef %0, ptr noun
 
 22:                                               ; preds = %18, %7
   %23 = phi i64 [ 0, %7 ], [ %21, %18 ]
-  %24 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %23, i64 10
+  %24 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %23, i64 10
   %25 = load ptr, ptr %24, align 16
   %26 = tail call noalias align 8 dereferenceable_or_null(1000) ptr @kmalloc_trace(ptr noundef %25, i32 noundef %15, i64 noundef 1000) #25
   %27 = icmp eq ptr %26, null
@@ -11557,7 +11557,7 @@ define internal fastcc i64 @nfs4_get_uniquifier(ptr %.792.val, ptr noundef initi
   %3 = getelementptr inbounds nuw i8, ptr %.792.val, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #22
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
@@ -12930,7 +12930,7 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
 
 16:                                               ; preds = %25, %9
   %17 = phi i64 [ 0, %9 ], [ %27, %25 ]
-  %18 = getelementptr [12 x i32], ptr %10, i64 0, i64 %17
+  %18 = getelementptr i32, ptr %10, i64 %17
   %19 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !60
@@ -12963,7 +12963,7 @@ define internal noundef range(i32 -12, -13) i32 @nfs4_find_root_sec(ptr noundef 
 
 31:                                               ; preds = %40, %13
   %32 = phi i64 [ 0, %13 ], [ %42, %40 ]
-  %33 = getelementptr [5 x i32], ptr @nfs4_find_root_sec.flav_array, i64 0, i64 %32
+  %33 = getelementptr i32, ptr @nfs4_find_root_sec.flav_array, i64 %32
   %34 = load i32, ptr %33, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !60
@@ -15462,9 +15462,9 @@ select.unfold:                                    ; preds = %283, %259
 
 .thread24.us:                                     ; preds = %332, %.thread24.us
   %339 = phi i64 [ %347, %.thread24.us ], [ 0, %332 ]
-  %340 = getelementptr [3 x i32], ptr %336, i64 0, i64 %339
+  %340 = getelementptr i32, ptr %336, i64 %339
   %341 = load i32, ptr %340, align 4
-  %342 = getelementptr [3 x i32], ptr %6, i64 0, i64 %339
+  %342 = getelementptr i32, ptr %6, i64 %339
   %343 = getelementptr i32, ptr %335, i64 %339
   %344 = load i32, ptr %343, align 4
   %345 = xor i32 %344, -1
@@ -17170,7 +17170,7 @@ define internal i32 @nfs4_xattr_set_nfs4_acl(ptr readnone captures(none) %0, ptr
 115:                                              ; preds = %151, %113
   %116 = phi i64 [ %114, %113 ], [ %117, %151 ]
   %117 = add nsw i64 %116, -1
-  %118 = getelementptr [16 x ptr], ptr %11, i64 0, i64 %117
+  %118 = getelementptr ptr, ptr %11, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load volatile i64, ptr %120, align 8

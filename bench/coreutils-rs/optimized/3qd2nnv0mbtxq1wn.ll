@@ -344,7 +344,7 @@ _ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit: ; preds = %_ZN5u
 
 79:                                               ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit
   %80 = add nuw nsw i64 %.0, 1
-  %81 = getelementptr inbounds nuw [10 x i128], ptr %18, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i128, ptr %18, i64 %80
   %82 = load i128, ptr %81, align 16, !noundef !5
   %83 = sub i128 %82, %77
   %84 = icmp ult i128 %83, %1
@@ -365,7 +365,7 @@ _ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit: ; preds = %_ZN5u
   %90 = mul i128 %89, %77
   %.decomposed = sub i128 %1, %90
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %91 = getelementptr inbounds nuw [9 x { ptr, i64 }], ptr %17, i64 0, i64 %.0
+  %91 = getelementptr inbounds nuw { ptr, i64 }, ptr %17, i64 %.0
   %92 = load ptr, ptr %91, align 8, !nonnull !5, !align !45, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load i64, ptr %93, align 8, !noundef !5

@@ -8005,7 +8005,7 @@ define noundef ptr @Abc_NtkTrim(ptr noundef %0) local_unnamed_addr #0 {
   %43 = load i32, ptr %13, align 4
   %44 = and i32 %43, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [11 x i32], ptr %6, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !57
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %46, align 4, !tbaa !57
@@ -8067,7 +8067,7 @@ define noundef ptr @Abc_NtkTrim(ptr noundef %0) local_unnamed_addr #0 {
   %77 = load i32, ptr %13, align 4
   %78 = and i32 %77, 15
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [11 x i32], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !57
   %82 = add nsw i32 %81, -1
   store i32 %82, ptr %80, align 4, !tbaa !57
@@ -8168,7 +8168,7 @@ define noundef ptr @Abc_NtkTrim(ptr noundef %0) local_unnamed_addr #0 {
   %127 = load i32, ptr %114, align 4
   %128 = and i32 %127, 15
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw [11 x i32], ptr %108, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i32, ptr %108, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !57
   %132 = add nsw i32 %131, -1
   store i32 %132, ptr %130, align 4, !tbaa !57

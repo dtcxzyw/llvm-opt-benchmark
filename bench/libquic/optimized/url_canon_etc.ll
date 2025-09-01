@@ -218,7 +218,7 @@ define noundef signext i8 @_ZN3url19CanonicalSchemeCharEt(i16 noundef zeroext %0
 
 3:                                                ; preds = %1
   %4 = zext nneg i16 %0 to i64
-  %5 = getelementptr inbounds nuw [128 x i8], ptr @_ZN3url12_GLOBAL__N_116kSchemeCanonicalE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN3url12_GLOBAL__N_116kSchemeCanonicalE, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !3
   br label %7
 
@@ -341,7 +341,7 @@ select.unfold.i.i34.i:                            ; preds = %select.unfold.i.pre
 
 58:                                               ; preds = %54, %51
   %.pn.i = zext nneg i8 %49 to i64
-  %.0.in.i = getelementptr inbounds nuw [128 x i8], ptr @_ZN3url12_GLOBAL__N_116kSchemeCanonicalE, i64 0, i64 %.pn.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr @_ZN3url12_GLOBAL__N_116kSchemeCanonicalE, i64 %.pn.i
   %.0.i = load i8, ptr %.0.in.i, align 1, !tbaa !3
   %.not.i = icmp eq i8 %.0.i, 0
   br i1 %.not.i, label %.thread.i, label %59
@@ -579,7 +579,7 @@ select.unfold.i.i34.i:                            ; preds = %select.unfold.i.pre
 
 59:                                               ; preds = %54, %51
   %.pn.i = zext nneg i16 %49 to i64
-  %.0.in.i = getelementptr inbounds nuw [128 x i8], ptr @_ZN3url12_GLOBAL__N_116kSchemeCanonicalE, i64 0, i64 %.pn.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr @_ZN3url12_GLOBAL__N_116kSchemeCanonicalE, i64 %.pn.i
   %.0.i = load i8, ptr %.0.in.i, align 1, !tbaa !3
   %.not.i = icmp eq i8 %.0.i, 0
   br i1 %.not.i, label %.thread.i, label %60
@@ -1131,7 +1131,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit41.i:    ; preds = %select.unfold.i.i34
 62:                                               ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit41.i
   %63 = phi i32 [ %61, %_ZN3url12CanonOutputTIcE9push_backEc.exit41.i ], [ %86, %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZN3url12CanonOutputTIcE9push_backEc.exit41.i ], [ %indvars.iv.next.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i ]
-  %64 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %.not.i = icmp eq i8 %65, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -1324,7 +1324,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit41.i:    ; preds = %select.unfold.i.i34
 62:                                               ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit41.i
   %63 = phi i32 [ %61, %_ZN3url12CanonOutputTIcE9push_backEc.exit41.i ], [ %86, %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZN3url12CanonOutputTIcE9push_backEc.exit41.i ], [ %indvars.iv.next.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i ]
-  %64 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %.not.i = icmp eq i8 %65, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -1848,7 +1848,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, 
   %23 = zext i8 %0 to i32
   %24 = lshr i32 %23, 4
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %28 = icmp slt i32 %22, %21
   br i1 %28, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9, label %select.unfold.i.preheader.i4
@@ -1894,7 +1894,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit13:      ; preds = %select.unfold.i.i6,
   %43 = phi i32 [ %41, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9 ], [ %22, %select.unfold.i.i6 ]
   %44 = and i32 %23, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !3
   %48 = icmp slt i32 %43, %42
   br i1 %48, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19, label %select.unfold.i.preheader.i14

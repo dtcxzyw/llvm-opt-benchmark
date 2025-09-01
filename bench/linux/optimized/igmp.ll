@@ -919,7 +919,7 @@ define internal fastcc void @____ip_mc_inc_group(ptr noundef %0, i32 noundef %1,
 
 35:                                               ; preds = %31, %.loopexit8
   %36 = phi i64 [ 0, %.loopexit8 ], [ %34, %31 ]
-  %37 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %36, i64 2
+  %37 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36, i64 2
   %38 = load ptr, ptr %37, align 16
   %39 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %38, i32 noundef %28, i64 noundef 144) #17
   %40 = icmp eq ptr %39, null
@@ -952,7 +952,7 @@ define internal fastcc void @____ip_mc_inc_group(ptr noundef %0, i32 noundef %1,
   store i32 %2, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %56 = zext i32 %2 to i64
-  %57 = getelementptr [2 x i64], ptr %55, i64 0, i64 %56
+  %57 = getelementptr i64, ptr %55, i64 %56
   store i64 1, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %39, i64 108
   store volatile i32 1, ptr %58, align 4
@@ -3530,7 +3530,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
 91:                                               ; preds = %97, %88
   %92 = phi i32 [ 0, %88 ], [ %98, %97 ]
   %93 = sext i32 %92 to i64
-  %94 = getelementptr [0 x i32], ptr %89, i64 0, i64 %93
+  %94 = getelementptr i32, ptr %89, i64 %93
   %95 = call i32 @bcmp(ptr noundef dereferenceable(4) %94, ptr noundef nonnull dereferenceable(4) %90, i64 4)
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %100, label %97
@@ -3557,10 +3557,10 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
   %108 = phi i32 [ %115, %.preheader ], [ %105, %104 ]
   %109 = phi i32 [ %108, %.preheader ], [ %92, %104 ]
   %110 = sext i32 %108 to i64
-  %111 = getelementptr [0 x i32], ptr %89, i64 0, i64 %110
+  %111 = getelementptr i32, ptr %89, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %109 to i64
-  %114 = getelementptr [0 x i32], ptr %89, i64 0, i64 %113
+  %114 = getelementptr i32, ptr %89, i64 %113
   store i32 %112, ptr %114, align 4
   %115 = add nuw i32 %108, 1
   %116 = load i32, ptr %85, align 4
@@ -3628,9 +3628,9 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
 151:                                              ; preds = %151, %148
   %152 = phi i32 [ 0, %148 ], [ %157, %151 ]
   %153 = sext i32 %152 to i64
-  %154 = getelementptr [0 x i32], ptr %149, i64 0, i64 %153
+  %154 = getelementptr i32, ptr %149, i64 %153
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr [0 x i32], ptr %150, i64 0, i64 %153
+  %156 = getelementptr i32, ptr %150, i64 %153
   store i32 %155, ptr %156, align 4
   %157 = add nuw i32 %152, 1
   %158 = load i32, ptr %145, align 4
@@ -3673,7 +3673,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
 173:                                              ; preds = %179, %169
   %174 = phi i32 [ 0, %169 ], [ %180, %179 ]
   %175 = sext i32 %174 to i64
-  %176 = getelementptr [0 x i32], ptr %170, i64 0, i64 %175
+  %176 = getelementptr i32, ptr %170, i64 %175
   %177 = call i32 @bcmp(ptr noundef dereferenceable(4) %176, ptr noundef nonnull dereferenceable(4) %171, i64 4)
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %.thread31, label %179
@@ -3687,10 +3687,10 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
   %182 = phi i32 [ %189, %.preheader71 ], [ 2147483647, %172 ]
   %183 = phi i32 [ %182, %.preheader71 ], [ -2147483648, %172 ]
   %184 = sext i32 %182 to i64
-  %185 = getelementptr [0 x i32], ptr %170, i64 0, i64 %184
+  %185 = getelementptr i32, ptr %170, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = sext i32 %183 to i64
-  %188 = getelementptr [0 x i32], ptr %170, i64 0, i64 %187
+  %188 = getelementptr i32, ptr %170, i64 %187
   store i32 %186, ptr %188, align 4
   %189 = add i32 %182, -1
   br label %.preheader71
@@ -3700,7 +3700,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
   %191 = load i32, ptr %190, align 4
   %192 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %193 = sext i32 %168 to i64
-  %194 = getelementptr [0 x i32], ptr %192, i64 0, i64 %193
+  %194 = getelementptr i32, ptr %192, i64 %193
   store i32 %191, ptr %194, align 4
   %195 = load i32, ptr %167, align 4
   %196 = add i32 %195, 1
@@ -3816,7 +3816,7 @@ thread-pre-split:                                 ; preds = %49
 
 59:                                               ; preds = %.loopexit19
   %60 = sext i32 %2 to i64
-  %61 = getelementptr [2 x i64], ptr %25, i64 0, i64 %60
+  %61 = getelementptr i64, ptr %25, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, 1
   store i64 %63, ptr %61, align 8
@@ -3873,7 +3873,7 @@ thread-pre-split:                                 ; preds = %49
 .loopexit16:                                      ; preds = %79, %88
   %93 = phi ptr [ %86, %88 ], [ %80, %79 ]
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = getelementptr [2 x i64], ptr %94, i64 0, i64 %67
+  %95 = getelementptr i64, ptr %94, i64 %67
   %96 = load i64, ptr %95, align 8
   %97 = add i64 %96, 1
   store i64 %97, ptr %95, align 8
@@ -3895,7 +3895,7 @@ thread-pre-split:                                 ; preds = %49
   br i1 %58, label %106, label %110
 
 106:                                              ; preds = %104
-  %107 = getelementptr [2 x i64], ptr %25, i64 0, i64 %67
+  %107 = getelementptr i64, ptr %25, i64 %67
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, -1
   store i64 %109, ptr %107, align 8
@@ -4084,7 +4084,7 @@ thread-pre-split:                                 ; preds = %49
 
 56:                                               ; preds = %.loopexit9
   %57 = sext i32 %2 to i64
-  %58 = getelementptr [2 x i64], ptr %25, i64 0, i64 %57
+  %58 = getelementptr i64, ptr %25, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %118, label %61
@@ -4716,7 +4716,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_gsfget(ptr noundef readonl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i16 2, ptr %6, align 8
-  %61 = getelementptr [0 x i32], ptr %54, i64 0, i64 %59
+  %61 = getelementptr i32, ptr %54, i64 %59
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %55, align 4
   %63 = getelementptr i8, ptr %2, i64 %60
@@ -4738,7 +4738,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_gsfget(ptr noundef readonl
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i16 2, ptr %6, align 8
-  %73 = getelementptr [0 x i32], ptr %54, i64 0, i64 %71
+  %73 = getelementptr i32, ptr %54, i64 %71
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %55, align 4
   %75 = getelementptr i8, ptr %2, i64 %72
@@ -4830,7 +4830,7 @@ define dso_local range(i32 0, 2) i32 @ip_mc_sf_allow(ptr noundef %0, i32 noundef
 
 52:                                               ; preds = %.preheader
   %53 = sext i32 %50 to i64
-  %54 = getelementptr [0 x i32], ptr %43, i64 0, i64 %53
+  %54 = getelementptr i32, ptr %43, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %2
   br i1 %56, label %57, label %.preheader, !llvm.loop !146
@@ -6748,7 +6748,7 @@ define internal fastcc void @igmpv3_add_delrec(ptr noundef %0, ptr noundef %1, i
 
 14:                                               ; preds = %10, %3
   %15 = phi i64 [ 0, %3 ], [ %13, %10 ]
-  %16 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %15, i64 2
+  %16 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15, i64 2
   %17 = load ptr, ptr %16, align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %7, i64 noundef 144) #17
   %19 = icmp eq ptr %18, null
@@ -6977,7 +6977,7 @@ define internal fastcc noundef range(i32 -3, 2) i32 @ip_mc_del1_src(ptr noundef 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr [2 x i64], ptr %16, i64 0, i64 %17
+  %18 = getelementptr i64, ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.loopexit, label %21

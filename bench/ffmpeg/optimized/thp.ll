@@ -113,7 +113,7 @@ define internal range(i32 -1094995529, 1) i32 @thp_read_header(ptr noundef %0) #
 
 55:                                               ; preds = %.lr.ph, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %56 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
   %57 = load i8, ptr %56, align 1, !tbaa !11
   switch i8 %57, label %114 [
     i8 0, label %58

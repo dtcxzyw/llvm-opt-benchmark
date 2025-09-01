@@ -36,61 +36,60 @@ define dso_local noundef i32 @crypto_hash_sha256_update(ptr noundef nonnull capt
   %13 = sub nuw nsw i64 64, %10
   %14 = icmp ult i64 %2, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr i8, ptr %15, i64 %10
   br i1 %14, label %.preheader, label %.preheader46
 
 .preheader:                                       ; preds = %6, %.preheader
   %.04153 = phi i64 [ %20, %.preheader ], [ 0, %6 ]
-  %16 = getelementptr i8, ptr %1, i64 %.04153
-  %17 = load i8, ptr %16, align 1
-  %18 = add nuw nsw i64 %.04153, %10
-  %19 = getelementptr [64 x i8], ptr %15, i64 0, i64 %18
-  store i8 %17, ptr %19, align 1
+  %17 = getelementptr i8, ptr %1, i64 %.04153
+  %18 = load i8, ptr %17, align 1
+  %19 = getelementptr i8, ptr %16, i64 %.04153
+  store i8 %18, ptr %19, align 1
   %20 = add nuw nsw i64 %.04153, 1
   %exitcond56.not = icmp eq i64 %20, %2
   br i1 %exitcond56.not, label %.loopexit, label %.preheader, !llvm.loop !4
 
 .preheader46:                                     ; preds = %6, %.preheader46
-  %.147 = phi i64 [ %25, %.preheader46 ], [ 0, %6 ]
+  %.147 = phi i64 [ %24, %.preheader46 ], [ 0, %6 ]
   %21 = getelementptr i8, ptr %1, i64 %.147
   %22 = load i8, ptr %21, align 1
-  %23 = add nuw nsw i64 %.147, %10
-  %24 = getelementptr [64 x i8], ptr %15, i64 0, i64 %23
-  store i8 %22, ptr %24, align 1
-  %25 = add nuw nsw i64 %.147, 1
-  %exitcond.not = icmp eq i64 %25, %13
-  br i1 %exitcond.not, label %26, label %.preheader46, !llvm.loop !6
+  %23 = getelementptr i8, ptr %16, i64 %.147
+  store i8 %22, ptr %23, align 1
+  %24 = add nuw nsw i64 %.147, 1
+  %exitcond.not = icmp eq i64 %24, %13
+  br i1 %exitcond.not, label %25, label %.preheader46, !llvm.loop !6
 
-26:                                               ; preds = %.preheader46
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  call fastcc void @SHA256_Transform(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %4, ptr noundef nonnull %27)
-  %28 = getelementptr i8, ptr %1, i64 %13
-  %29 = sub i64 %2, %13
-  %30 = icmp ugt i64 %29, 63
-  br i1 %30, label %.lr.ph, label %.preheader45
+25:                                               ; preds = %.preheader46
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 256
+  call fastcc void @SHA256_Transform(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %4, ptr noundef nonnull %26)
+  %27 = getelementptr i8, ptr %1, i64 %13
+  %28 = sub i64 %2, %13
+  %29 = icmp ugt i64 %28, 63
+  br i1 %29, label %.lr.ph, label %.preheader45
 
-.preheader45:                                     ; preds = %.lr.ph, %26
-  %.043.lcssa = phi ptr [ %28, %26 ], [ %31, %.lr.ph ]
-  %.042.lcssa = phi i64 [ %29, %26 ], [ %32, %.lr.ph ]
+.preheader45:                                     ; preds = %.lr.ph, %25
+  %.043.lcssa = phi ptr [ %27, %25 ], [ %30, %.lr.ph ]
+  %.042.lcssa = phi i64 [ %28, %25 ], [ %31, %.lr.ph ]
   %.not = icmp eq i64 %.042.lcssa, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph52
 
-.lr.ph:                                           ; preds = %26, %.lr.ph
-  %.04249 = phi i64 [ %32, %.lr.ph ], [ %29, %26 ]
-  %.04348 = phi ptr [ %31, %.lr.ph ], [ %28, %26 ]
-  call fastcc void @SHA256_Transform(ptr noundef %0, ptr noundef %.04348, ptr noundef %4, ptr noundef nonnull %27)
-  %31 = getelementptr i8, ptr %.04348, i64 64
-  %32 = add i64 %.04249, -64
-  %33 = icmp ugt i64 %32, 63
-  br i1 %33, label %.lr.ph, label %.preheader45, !llvm.loop !7
+.lr.ph:                                           ; preds = %25, %.lr.ph
+  %.04249 = phi i64 [ %31, %.lr.ph ], [ %28, %25 ]
+  %.04348 = phi ptr [ %30, %.lr.ph ], [ %27, %25 ]
+  call fastcc void @SHA256_Transform(ptr noundef %0, ptr noundef %.04348, ptr noundef %4, ptr noundef nonnull %26)
+  %30 = getelementptr i8, ptr %.04348, i64 64
+  %31 = add i64 %.04249, -64
+  %32 = icmp ugt i64 %31, 63
+  br i1 %32, label %.lr.ph, label %.preheader45, !llvm.loop !7
 
 .lr.ph52:                                         ; preds = %.preheader45, %.lr.ph52
-  %.251 = phi i64 [ %37, %.lr.ph52 ], [ 0, %.preheader45 ]
-  %34 = getelementptr i8, ptr %.043.lcssa, i64 %.251
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr [64 x i8], ptr %15, i64 0, i64 %.251
-  store i8 %35, ptr %36, align 1
-  %37 = add nuw nsw i64 %.251, 1
-  %exitcond55.not = icmp eq i64 %37, %.042.lcssa
+  %.251 = phi i64 [ %36, %.lr.ph52 ], [ 0, %.preheader45 ]
+  %33 = getelementptr i8, ptr %.043.lcssa, i64 %.251
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr i8, ptr %15, i64 %.251
+  store i8 %34, ptr %35, align 1
+  %36 = add nuw nsw i64 %.251, 1
+  %exitcond55.not = icmp eq i64 %36, %.042.lcssa
   br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %.preheader45
@@ -159,7 +158,7 @@ be32dec_vect.exit:                                ; preds = %5
   %45 = xor i32 %44, %42
   %46 = getelementptr i32, ptr %2, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %indvars.iv
+  %48 = getelementptr i32, ptr @Krnd, i64 %indvars.iv
   %49 = load i32, ptr %48, align 16
   %50 = load i32, ptr %30, align 4
   %51 = add i32 %47, %40
@@ -195,7 +194,7 @@ be32dec_vect.exit:                                ; preds = %5
   %79 = or disjoint i64 %indvars.iv, 1
   %80 = getelementptr i32, ptr %2, i64 %79
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %79
+  %82 = getelementptr i32, ptr @Krnd, i64 %79
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %78, %42
   %85 = add i32 %84, %75
@@ -226,7 +225,7 @@ be32dec_vect.exit:                                ; preds = %5
   %108 = or disjoint i64 %indvars.iv, 2
   %109 = getelementptr i32, ptr %2, i64 %108
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %108
+  %111 = getelementptr i32, ptr @Krnd, i64 %108
   %112 = load i32, ptr %111, align 8
   %113 = add i32 %110, %41
   %114 = add i32 %113, %112
@@ -257,7 +256,7 @@ be32dec_vect.exit:                                ; preds = %5
   %137 = or disjoint i64 %indvars.iv, 3
   %138 = getelementptr i32, ptr %2, i64 %137
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %137
+  %140 = getelementptr i32, ptr @Krnd, i64 %137
   %141 = load i32, ptr %140, align 4
   %142 = add i32 %139, %35
   %143 = add i32 %142, %141
@@ -288,7 +287,7 @@ be32dec_vect.exit:                                ; preds = %5
   %166 = or disjoint i64 %indvars.iv, 4
   %167 = getelementptr i32, ptr %2, i64 %166
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %166
+  %169 = getelementptr i32, ptr @Krnd, i64 %166
   %170 = load i32, ptr %169, align 16
   %171 = add i32 %168, %56
   %172 = add i32 %171, %170
@@ -319,7 +318,7 @@ be32dec_vect.exit:                                ; preds = %5
   %195 = or disjoint i64 %indvars.iv, 5
   %196 = getelementptr i32, ptr %2, i64 %195
   %197 = load i32, ptr %196, align 4
-  %198 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %195
+  %198 = getelementptr i32, ptr @Krnd, i64 %195
   %199 = load i32, ptr %198, align 4
   %200 = add i32 %197, %88
   %201 = add i32 %200, %199
@@ -350,7 +349,7 @@ be32dec_vect.exit:                                ; preds = %5
   %224 = or disjoint i64 %indvars.iv, 6
   %225 = getelementptr i32, ptr %2, i64 %224
   %226 = load i32, ptr %225, align 4
-  %227 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %224
+  %227 = getelementptr i32, ptr @Krnd, i64 %224
   %228 = load i32, ptr %227, align 8
   %229 = add i32 %226, %117
   %230 = add i32 %229, %228
@@ -381,7 +380,7 @@ be32dec_vect.exit:                                ; preds = %5
   %253 = or disjoint i64 %indvars.iv, 7
   %254 = getelementptr i32, ptr %2, i64 %253
   %255 = load i32, ptr %254, align 4
-  %256 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %253
+  %256 = getelementptr i32, ptr @Krnd, i64 %253
   %257 = load i32, ptr %256, align 4
   %258 = add i32 %255, %146
   %259 = add i32 %258, %257
@@ -412,7 +411,7 @@ be32dec_vect.exit:                                ; preds = %5
   %282 = or disjoint i64 %indvars.iv, 8
   %283 = getelementptr i32, ptr %2, i64 %282
   %284 = load i32, ptr %283, align 4
-  %285 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %282
+  %285 = getelementptr i32, ptr @Krnd, i64 %282
   %286 = load i32, ptr %285, align 16
   %287 = add i32 %284, %175
   %288 = add i32 %287, %286
@@ -443,7 +442,7 @@ be32dec_vect.exit:                                ; preds = %5
   %311 = or disjoint i64 %indvars.iv, 9
   %312 = getelementptr i32, ptr %2, i64 %311
   %313 = load i32, ptr %312, align 4
-  %314 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %311
+  %314 = getelementptr i32, ptr @Krnd, i64 %311
   %315 = load i32, ptr %314, align 4
   %316 = add i32 %313, %204
   %317 = add i32 %316, %315
@@ -474,7 +473,7 @@ be32dec_vect.exit:                                ; preds = %5
   %340 = or disjoint i64 %indvars.iv, 10
   %341 = getelementptr i32, ptr %2, i64 %340
   %342 = load i32, ptr %341, align 4
-  %343 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %340
+  %343 = getelementptr i32, ptr @Krnd, i64 %340
   %344 = load i32, ptr %343, align 8
   %345 = add i32 %233, %342
   %346 = add i32 %345, %344
@@ -505,7 +504,7 @@ be32dec_vect.exit:                                ; preds = %5
   %369 = or disjoint i64 %indvars.iv, 11
   %370 = getelementptr i32, ptr %2, i64 %369
   %371 = load i32, ptr %370, align 4
-  %372 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %369
+  %372 = getelementptr i32, ptr @Krnd, i64 %369
   %373 = load i32, ptr %372, align 4
   %374 = add i32 %373, %371
   %375 = add i32 %374, %262
@@ -536,7 +535,7 @@ be32dec_vect.exit:                                ; preds = %5
   %398 = or disjoint i64 %indvars.iv, 12
   %399 = getelementptr i32, ptr %2, i64 %398
   %400 = load i32, ptr %399, align 4
-  %401 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %398
+  %401 = getelementptr i32, ptr @Krnd, i64 %398
   %402 = load i32, ptr %401, align 16
   %403 = add i32 %402, %400
   %404 = add i32 %403, %291
@@ -567,7 +566,7 @@ be32dec_vect.exit:                                ; preds = %5
   %427 = or disjoint i64 %indvars.iv, 13
   %428 = getelementptr i32, ptr %2, i64 %427
   %429 = load i32, ptr %428, align 4
-  %430 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %427
+  %430 = getelementptr i32, ptr @Krnd, i64 %427
   %431 = load i32, ptr %430, align 4
   %432 = add i32 %431, %429
   %433 = add i32 %432, %320
@@ -598,7 +597,7 @@ be32dec_vect.exit:                                ; preds = %5
   %456 = or disjoint i64 %indvars.iv, 14
   %457 = getelementptr i32, ptr %2, i64 %456
   %458 = load i32, ptr %457, align 4
-  %459 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %456
+  %459 = getelementptr i32, ptr @Krnd, i64 %456
   %460 = load i32, ptr %459, align 8
   %461 = add i32 %460, %458
   %462 = add i32 %461, %349
@@ -629,7 +628,7 @@ be32dec_vect.exit:                                ; preds = %5
   %485 = or disjoint i64 %indvars.iv, 15
   %486 = getelementptr i32, ptr %2, i64 %485
   %487 = load i32, ptr %486, align 4
-  %488 = getelementptr [64 x i32], ptr @Krnd, i64 0, i64 %485
+  %488 = getelementptr i32, ptr @Krnd, i64 %485
   %489 = load i32, ptr %488, align 4
   %490 = add i32 %489, %487
   %491 = add i32 %490, %378

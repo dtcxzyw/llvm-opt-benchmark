@@ -71,7 +71,7 @@ define dso_local void @SDLTest_Md5Update(ptr noundef captures(address_is_null) %
   %27 = load i8, ptr %.03342, align 1
   %28 = add nuw nsw i32 %.03143, 1
   %29 = zext nneg i32 %.03143 to i64
-  %30 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %29
   store i8 %27, ptr %30, align 1
   %31 = icmp eq i32 %28, 64
   br i1 %31, label %.preheader, label %55
@@ -79,28 +79,28 @@ define dso_local void @SDLTest_Md5Update(ptr noundef captures(address_is_null) %
 .preheader:                                       ; preds = %24, %.preheader
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader ], [ 0, %24 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %24 ]
-  %32 = or disjoint i64 %indvars.iv, 3
-  %33 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %32
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 3
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i32 %35, 24
-  %37 = or disjoint i64 %indvars.iv, 2
-  %38 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %37
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 16
   %42 = or disjoint i32 %41, %36
-  %43 = or disjoint i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %43
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 8
   %48 = or disjoint i32 %42, %47
-  %49 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %53 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv44
+  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv44
   store i32 %52, ptr %53, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -737,134 +737,104 @@ define dso_local void @SDLTest_Md5Final(ptr noundef captures(address_is_null) %0
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-25:                                               ; preds = %56, %.lr.ph.i
-  %.in.i = phi i32 [ %13, %.lr.ph.i ], [ %26, %56 ]
-  %.03143.i = phi i32 [ %11, %.lr.ph.i ], [ %.1.i, %56 ]
-  %.03342.i = phi ptr [ @MD5PADDING, %.lr.ph.i ], [ %27, %56 ]
+25:                                               ; preds = %33, %.lr.ph.i
+  %.in.i = phi i32 [ %13, %.lr.ph.i ], [ %26, %33 ]
+  %.03143.i = phi i32 [ %11, %.lr.ph.i ], [ %.1.i, %33 ]
+  %.03342.i = phi ptr [ @MD5PADDING, %.lr.ph.i ], [ %27, %33 ]
   %26 = add i32 %.in.i, -1
   %27 = getelementptr inbounds nuw i8, ptr %.03342.i, i64 1
   %28 = load i8, ptr %.03342.i, align 1
   %29 = add nuw nsw i32 %.03143.i, 1
   %30 = zext nneg i32 %.03143.i to i64
-  %31 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 %30
   store i8 %28, ptr %31, align 1
   %32 = icmp eq i32 %29, 64
-  br i1 %32, label %.preheader.i, label %56
+  br i1 %32, label %.preheader.i.preheader, label %33
 
-.preheader.i:                                     ; preds = %25, %.preheader.i
-  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %25 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %25 ]
-  %33 = or disjoint i64 %indvars.iv.i, 3
-  %34 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = shl nuw i32 %36, 24
-  %38 = or disjoint i64 %indvars.iv.i, 2
-  %39 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = shl nuw nsw i32 %41, 16
-  %43 = or disjoint i32 %42, %37
-  %44 = or disjoint i64 %indvars.iv.i, 1
-  %45 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 8
-  %49 = or disjoint i32 %43, %48
-  %50 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %indvars.iv.i
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = or disjoint i32 %49, %52
-  %54 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %indvars.iv44.i
-  store i32 %53, ptr %54, align 4
-  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next45.i, 16
-  br i1 %exitcond.not.i, label %55, label %.preheader.i, !llvm.loop !4
-
-55:                                               ; preds = %.preheader.i
+.preheader.i.preheader:                           ; preds = %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %23, i64 64, i1 false)
   call fastcc void @SDLTest_Md5Transform(ptr noundef %24, ptr noundef %2)
-  br label %56
+  br label %33
 
-56:                                               ; preds = %55, %25
-  %.1.i = phi i32 [ 0, %55 ], [ %29, %25 ]
+33:                                               ; preds = %.preheader.i.preheader, %25
+  %.1.i = phi i32 [ 0, %.preheader.i.preheader ], [ %29, %25 ]
   %.not38.i = icmp eq i32 %26, 0
   br i1 %.not38.i, label %SDLTest_Md5Update.exit, label %25, !llvm.loop !6
 
-SDLTest_Md5Update.exit:                           ; preds = %56, %4
+SDLTest_Md5Update.exit:                           ; preds = %33, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %58
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %35
 
-58:                                               ; preds = %SDLTest_Md5Update.exit, %58
-  %indvars.iv47 = phi i64 [ 0, %SDLTest_Md5Update.exit ], [ %indvars.iv.next48, %58 ]
-  %indvars.iv = phi i64 [ 0, %SDLTest_Md5Update.exit ], [ %indvars.iv.next, %58 ]
-  %59 = or disjoint i64 %indvars.iv47, 3
-  %60 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 0, i64 %59
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = shl nuw i32 %62, 24
-  %64 = or disjoint i64 %indvars.iv47, 2
-  %65 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = shl nuw nsw i32 %67, 16
-  %69 = or disjoint i32 %68, %63
-  %70 = or disjoint i64 %indvars.iv47, 1
-  %71 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = or disjoint i32 %69, %74
-  %76 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 0, i64 %indvars.iv47
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = or disjoint i32 %75, %78
-  %80 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
-  store i32 %79, ptr %80, align 4
+35:                                               ; preds = %SDLTest_Md5Update.exit, %35
+  %indvars.iv47 = phi i64 [ 0, %SDLTest_Md5Update.exit ], [ %indvars.iv.next48, %35 ]
+  %indvars.iv = phi i64 [ 0, %SDLTest_Md5Update.exit ], [ %indvars.iv.next, %35 ]
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv47
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw i32 %39, 24
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv47
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw nsw i32 %44, 16
+  %46 = or disjoint i32 %45, %40
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv47
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 8
+  %52 = or disjoint i32 %46, %51
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv47
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %56 = or disjoint i32 %52, %55
+  %57 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  store i32 %56, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %81, label %58, !llvm.loop !7
+  br i1 %exitcond.not, label %58, label %35, !llvm.loop !7
 
-81:                                               ; preds = %58
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @SDLTest_Md5Transform(ptr noundef %82, ptr noundef %3)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %84
+58:                                               ; preds = %35
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call fastcc void @SDLTest_Md5Transform(ptr noundef %59, ptr noundef %3)
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br label %61
 
-84:                                               ; preds = %81, %84
-  %indvars.iv54 = phi i64 [ 0, %81 ], [ %indvars.iv.next55, %84 ]
-  %indvars.iv52 = phi i64 [ 0, %81 ], [ %indvars.iv.next53, %84 ]
-  %85 = getelementptr inbounds nuw [4 x i32], ptr %82, i64 0, i64 %indvars.iv52
-  %86 = load i32, ptr %85, align 4
-  %87 = trunc i32 %86 to i8
-  %88 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 0, i64 %indvars.iv54
-  store i8 %87, ptr %88, align 1
-  %89 = load i32, ptr %85, align 4
-  %90 = lshr i32 %89, 8
-  %91 = trunc i32 %90 to i8
-  %92 = or disjoint i64 %indvars.iv54, 1
-  %93 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 0, i64 %92
-  store i8 %91, ptr %93, align 1
-  %94 = load i32, ptr %85, align 4
-  %95 = lshr i32 %94, 16
-  %96 = trunc i32 %95 to i8
-  %97 = or disjoint i64 %indvars.iv54, 2
-  %98 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 0, i64 %97
-  store i8 %96, ptr %98, align 1
-  %99 = load i32, ptr %85, align 4
-  %100 = lshr i32 %99, 24
-  %101 = trunc nuw i32 %100 to i8
-  %102 = or disjoint i64 %indvars.iv54, 3
-  %103 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 0, i64 %102
-  store i8 %101, ptr %103, align 1
+61:                                               ; preds = %58, %61
+  %indvars.iv54 = phi i64 [ 0, %58 ], [ %indvars.iv.next55, %61 ]
+  %indvars.iv52 = phi i64 [ 0, %58 ], [ %indvars.iv.next53, %61 ]
+  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv52
+  %63 = load i32, ptr %62, align 4
+  %64 = trunc i32 %63 to i8
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv54
+  store i8 %64, ptr %65, align 1
+  %66 = load i32, ptr %62, align 4
+  %67 = lshr i32 %66, 8
+  %68 = trunc i32 %67 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv54
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  store i8 %68, ptr %70, align 1
+  %71 = load i32, ptr %62, align 4
+  %72 = lshr i32 %71, 16
+  %73 = trunc i32 %72 to i8
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv54
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
+  store i8 %73, ptr %75, align 1
+  %76 = load i32, ptr %62, align 4
+  %77 = lshr i32 %76, 24
+  %78 = trunc nuw i32 %77 to i8
+  %79 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv54
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 3
+  store i8 %78, ptr %80, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 4
   %exitcond59.not = icmp eq i64 %indvars.iv.next53, 4
-  br i1 %exitcond59.not, label %.loopexit, label %84, !llvm.loop !8
+  br i1 %exitcond59.not, label %.loopexit, label %61, !llvm.loop !8
 
-.loopexit:                                        ; preds = %84, %1
+.loopexit:                                        ; preds = %61, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -878,12 +848,16 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

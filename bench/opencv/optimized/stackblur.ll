@@ -532,10 +532,10 @@ _ZNK2cv11_InputArray6getMatEi.exit96:             ; preds = %101, %104
 
 173:                                              ; preds = %149
   %174 = zext nneg i32 %68 to i64
-  %175 = getelementptr inbounds nuw [255 x i8], ptr @_ZL12stackblurShr, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @_ZL12stackblurShr, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !56
   %177 = zext i8 %176 to i32
-  %178 = getelementptr inbounds nuw [255 x i16], ptr @_ZL12stackblurMul, i64 0, i64 %174
+  %178 = getelementptr inbounds nuw i16, ptr @_ZL12stackblurMul, i64 %174
   %179 = load i16, ptr %178, align 2, !tbaa !57
   %180 = zext i16 %179 to i32
   br label %_ZN2cv23ParallelStackBlurColumnIhiEC2ERKNS_3MatERS2_i.exit
@@ -661,10 +661,10 @@ _ZN2cv23ParallelStackBlurColumnIhiEC2ERKNS_3MatERS2_i.exit: ; preds = %149, %173
 
 235:                                              ; preds = %211
   %236 = zext nneg i32 %68 to i64
-  %237 = getelementptr inbounds nuw [255 x i8], ptr @_ZL12stackblurShr, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr @_ZL12stackblurShr, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !56
   %239 = zext i8 %238 to i32
-  %240 = getelementptr inbounds nuw [255 x i16], ptr @_ZL12stackblurMul, i64 0, i64 %236
+  %240 = getelementptr inbounds nuw i16, ptr @_ZL12stackblurMul, i64 %236
   %241 = load i16, ptr %240, align 2, !tbaa !57
   %242 = zext i16 %241 to i32
   br label %_ZN2cv23ParallelStackBlurColumnIsiEC2ERKNS_3MatERS2_i.exit
@@ -790,10 +790,10 @@ _ZN2cv23ParallelStackBlurColumnIsiEC2ERKNS_3MatERS2_i.exit: ; preds = %211, %235
 
 297:                                              ; preds = %273
   %298 = zext nneg i32 %68 to i64
-  %299 = getelementptr inbounds nuw [255 x i8], ptr @_ZL12stackblurShr, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr @_ZL12stackblurShr, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !56
   %301 = zext i8 %300 to i32
-  %302 = getelementptr inbounds nuw [255 x i16], ptr @_ZL12stackblurMul, i64 0, i64 %298
+  %302 = getelementptr inbounds nuw i16, ptr @_ZL12stackblurMul, i64 %298
   %303 = load i16, ptr %302, align 2, !tbaa !57
   %304 = zext i16 %303 to i32
   br label %_ZN2cv23ParallelStackBlurColumnItiEC2ERKNS_3MatERS2_i.exit
@@ -919,10 +919,10 @@ _ZN2cv23ParallelStackBlurColumnItiEC2ERKNS_3MatERS2_i.exit: ; preds = %273, %297
 
 359:                                              ; preds = %335
   %360 = zext nneg i32 %68 to i64
-  %361 = getelementptr inbounds nuw [255 x i8], ptr @_ZL12stackblurShr, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr @_ZL12stackblurShr, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !56
   %363 = zext i8 %362 to i32
-  %364 = getelementptr inbounds nuw [255 x i16], ptr @_ZL12stackblurMul, i64 0, i64 %360
+  %364 = getelementptr inbounds nuw i16, ptr @_ZL12stackblurMul, i64 %360
   %365 = load i16, ptr %364, align 2, !tbaa !57
   %366 = zext i16 %365 to i32
   br label %_ZN2cv23ParallelStackBlurColumnIffEC2ERKNS_3MatERS2_i.exit

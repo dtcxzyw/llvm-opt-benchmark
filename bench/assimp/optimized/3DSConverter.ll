@@ -989,7 +989,7 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter12CheckIndicesERNS_4D3DS4Mesh
 
 13:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
-  %14 = getelementptr inbounds nuw [3 x i32], ptr %.sroa.013.022, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %.sroa.013.022, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = load ptr, ptr %7, align 8
@@ -1185,7 +1185,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %25, %_ZNSt12_Vect
 63:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %.144 = phi i32 [ %.02747, %.lr.ph ], [ %79, %78 ]
-  %64 = getelementptr inbounds nuw [3 x i32], ptr %52, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
   %67 = load ptr, ptr %1, align 8
@@ -1395,7 +1395,7 @@ define hidden void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiT
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load ptr, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 1 %13, i64 %7, i1 false)
-  %14 = getelementptr inbounds nuw [1024 x i8], ptr %12, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %7
   store i8 0, ptr %14, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -1480,7 +1480,7 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter15ConvertMaterialERNS_4D3DS8M
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %22 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 1 %22, i64 %13, i1 false)
-  %23 = getelementptr inbounds nuw [1024 x i8], ptr %21, i64 0, i64 %13
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %13
   store i8 0, ptr %23, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -1570,7 +1570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %62 = load ptr, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %61, ptr align 1 %62, i64 %57, i1 false)
-  %63 = getelementptr inbounds nuw [1024 x i8], ptr %61, i64 0, i64 %57
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %57
   store i8 0, ptr %63, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68
 
@@ -1755,7 +1755,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68: 
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %147 = load ptr, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %146, ptr align 1 %147, i64 %141, i1 false)
-  %148 = getelementptr inbounds nuw [1024 x i8], ptr %146, i64 0, i64 %141
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 %141
   store i8 0, ptr %148, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69
 
@@ -2151,7 +2151,7 @@ _ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit: ; preds 
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 240
   %169 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %168, ptr nonnull align 4 %22, i64 %169, i1 false)
-  %170 = getelementptr inbounds nuw [1024 x i8], ptr %168, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 %169
   store i8 0, ptr %170, align 1
   store i32 4, ptr %158, align 8
   %171 = getelementptr inbounds nuw i8, ptr %158, i64 232
@@ -2392,7 +2392,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   %.153192 = phi i32 [ %.052195, %262 ], [ %302, %299 ]
   %279 = load ptr, ptr %88, align 8
   %280 = getelementptr inbounds nuw %"struct.Assimp::D3DS::Face", ptr %279, i64 %265
-  %281 = getelementptr inbounds nuw [3 x i32], ptr %280, i64 0, i64 %indvars.iv
+  %281 = getelementptr inbounds nuw i32, ptr %280, i64 %indvars.iv
   %282 = load i32, ptr %281, align 4
   %283 = zext i32 %282 to i64
   %284 = load ptr, ptr %.sroa.0108.0207, align 8
@@ -3299,7 +3299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   store i32 %335, ptr %2, align 4
   %336 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %336, ptr align 1 %.pre, i64 %332, i1 false)
-  %337 = getelementptr inbounds nuw [1024 x i8], ptr %336, i64 0, i64 %332
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 %332
   store i8 0, ptr %337, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -3366,7 +3366,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   %359 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %360 = load ptr, ptr %357, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %359, ptr align 1 %360, i64 %354, i1 false)
-  %361 = getelementptr inbounds nuw [1024 x i8], ptr %359, i64 0, i64 %354
+  %361 = getelementptr inbounds nuw i8, ptr %359, i64 %354
   store i8 0, ptr %361, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit268
 
@@ -3869,7 +3869,7 @@ _ZNK8aiStringeqERKS_.exit273.thread:              ; preds = %616, %_ZNK8aiString
   %649 = getelementptr inbounds nuw i8, ptr %615, i64 4
   %650 = load ptr, ptr %647, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %649, ptr align 1 %650, i64 %644, i1 false)
-  %651 = getelementptr inbounds nuw [1024 x i8], ptr %649, i64 0, i64 %644
+  %651 = getelementptr inbounds nuw i8, ptr %649, i64 %644
   store i8 0, ptr %651, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit274
 
@@ -4747,7 +4747,7 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter17GenerateNodeGraphEP7aiScene
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %108 = zext nneg i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %106, ptr nonnull align 4 %107, i64 %108, i1 false)
-  %109 = getelementptr inbounds nuw [1024 x i8], ptr %106, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 %108
   store i8 0, ptr %109, align 1
   %.pre = load ptr, ptr %99, align 8
   br label %_ZN8aiStringaSERKS_.exit
@@ -4804,7 +4804,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %90, %104
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %141 = zext nneg i32 %spec.select.i72 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %139, ptr nonnull align 4 %140, i64 %141, i1 false)
-  %142 = getelementptr inbounds nuw [1024 x i8], ptr %139, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 %141
   store i8 0, ptr %142, align 1
   %.pre121 = load ptr, ptr %132, align 8
   br label %_ZN8aiStringaSERKS_.exit73

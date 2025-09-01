@@ -4224,7 +4224,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 do.end:                                           ; preds = %if.else194
   %idxprom = and i64 %add218, 2097151
-  %arrayidx = getelementptr inbounds nuw [1209600 x i64], ptr @sabrabsprob, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i64, ptr @sabrabsprob, i64 %idxprom
   %117 = load i64, ptr %arrayidx, align 8, !tbaa !43
   %conv254 = uitofp i64 %117 to double
   %div255 = fdiv double %conv254, 2.500000e+06
@@ -7892,7 +7892,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %14 = add nsw i32 %conv.i, -1
   %15 = zext i32 %14 to i64
   %conv.i24 = select i1 %or.cond.not.i, i64 %15, i64 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw [171 x x86_fp80], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 0, i64 %conv.i24
+  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
   %16 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !135
   %mul43 = fmul x86_fp80 %result.0, %16
   br label %cleanup110
@@ -13125,7 +13125,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %conv.i = fptosi x86_fp80 %retval.0.i.i.i to i32
   %4 = zext i32 %conv.i to i64
   %conv.i15 = select i1 %or.cond.not.i, i64 %4, i64 0
-  %arrayidx.i.i.i = getelementptr inbounds nuw [171 x x86_fp80], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 0, i64 %conv.i15
+  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i15
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !135
   %div8 = fdiv x86_fp80 %mul5, %5
   store x86_fp80 %div8, ptr %pderivative, align 16, !tbaa !135

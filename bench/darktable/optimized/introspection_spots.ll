@@ -140,7 +140,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef %0, ptr noundef readonly c
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 164
   store i32 1, ptr %19, align 4, !tbaa !31
   %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %21 = getelementptr inbounds nuw [32 x %struct.dt_iop_spots_v1_t], ptr %11, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.dt_iop_spots_v1_t, ptr %11, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !34
   store float %22, ptr %20, align 4, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -172,9 +172,9 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef %0, ptr noundef readonly c
   tail call void @dt_masks_gui_form_save_creation(ptr noundef %42, ptr noundef %0, ptr noundef nonnull %18, ptr noundef null) #19
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %44 = load i32, ptr %43, align 8, !tbaa !46
-  %45 = getelementptr inbounds nuw [64 x i32], ptr %calloc, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !47
-  %46 = getelementptr inbounds nuw [64 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 2, ptr %46, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %1, align 4, !tbaa !6
@@ -691,7 +691,7 @@ masks_form_is_in_roi.exit:                        ; preds = %91
   br i1 %.not18.i.not, label %96, label %458
 
 96:                                               ; preds = %masks_form_is_in_roi.exit
-  %97 = getelementptr inbounds nuw [64 x i32], ptr %41, i64 0, i64 %indvars.iv368
+  %97 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv368
   %98 = load i32, ptr %97, align 4, !tbaa !47
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %249
@@ -1591,7 +1591,7 @@ define void @gui_update(ptr noundef readonly captures(address) %0) local_unnamed
   %.0315.i = phi ptr [ %.0313.i, %.lr.ph.i ], [ %.031.i, %.loopexit.i ]
   %15 = load ptr, ptr %.0315.i, align 8, !tbaa !49
   %16 = load i32, ptr %15, align 4, !tbaa !105
-  %17 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %indvars.iv10.i
+  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv10.i
   store i32 %16, ptr %17, align 4, !tbaa !47
   br label %19
 
@@ -1602,15 +1602,15 @@ define void @gui_update(ptr noundef readonly captures(address) %0) local_unnamed
 
 19:                                               ; preds = %18, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %18 ]
-  %20 = getelementptr inbounds nuw [64 x i32], ptr %.val, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !47
   %22 = icmp eq i32 %21, %16
   br i1 %22, label %23, label %18
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw [64 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !47
-  %26 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv10.i
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv10.i
   store i32 %25, ptr %26, align 4, !tbaa !47
   br label %.loopexit.i
 
@@ -2637,7 +2637,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [6 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !200
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

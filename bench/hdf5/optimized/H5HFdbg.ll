@@ -538,14 +538,14 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   %95 = mul i32 %94, 125613361
   %96 = lshr i32 %95, 27
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !94
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %101 = load i64, ptr %100, align 8, !tbaa !95
   %102 = mul i64 %101, 125613361
   %103 = lshr i64 %102, 27
   %104 = and i64 %103, 31
-  %105 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !94
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 344
   %108 = add i32 %106, %99
@@ -578,14 +578,14 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
 
 124:                                              ; preds = %123
   %125 = lshr i64 %119, 56
-  %126 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !10
   %128 = zext i8 %127 to i32
   %129 = add nuw nsw i32 %128, 56
   br label %H5VM_log2_gen.exit
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %122
+  %131 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %122
   %132 = load i8, ptr %131, align 1, !tbaa !10
   %133 = zext i8 %132 to i32
   %134 = add nuw nsw i32 %133, 48
@@ -597,14 +597,14 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
 
 136:                                              ; preds = %135
   %137 = lshr i64 %119, 40
-  %138 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !10
   %140 = zext i8 %139 to i32
   %141 = add nuw nsw i32 %140, 40
   br label %H5VM_log2_gen.exit
 
 142:                                              ; preds = %135
-  %143 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %120
+  %143 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %120
   %144 = load i8, ptr %143, align 1, !tbaa !10
   %145 = zext i8 %144 to i32
   %146 = add nuw nsw i32 %145, 32
@@ -621,14 +621,14 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
 
 150:                                              ; preds = %149
   %151 = lshr i64 %119, 24
-  %152 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !10
   %154 = zext i8 %153 to i32
   %155 = add nuw nsw i32 %154, 24
   br label %H5VM_log2_gen.exit
 
 156:                                              ; preds = %149
-  %157 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %148
+  %157 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %148
   %158 = load i8, ptr %157, align 1, !tbaa !10
   %159 = zext i8 %158 to i32
   %160 = add nuw nsw i32 %159, 16
@@ -640,14 +640,14 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
 
 162:                                              ; preds = %161
   %163 = lshr i64 %119, 8
-  %164 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %163
   %165 = load i8, ptr %164, align 1, !tbaa !10
   %166 = zext i8 %165 to i32
   %167 = add nuw nsw i32 %166, 8
   br label %H5VM_log2_gen.exit
 
 168:                                              ; preds = %161
-  %169 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %119
+  %169 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %119
   %170 = load i8, ptr %169, align 1, !tbaa !10
   %171 = zext i8 %170 to i32
   br label %H5VM_log2_gen.exit

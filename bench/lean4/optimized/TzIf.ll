@@ -16036,7 +16036,7 @@ lean_dec.exit107:                                 ; preds = %lean_nat_lt.exit, %
   br i1 %45, label %46, label %lean_array_uget.exit.i
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %44
+  %47 = getelementptr inbounds nuw ptr, ptr %11, i64 %44
   %48 = load ptr, ptr %47, align 8, !tbaa !10
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, 1
@@ -16274,7 +16274,7 @@ lean_dec.exit103:                                 ; preds = %135, %134, %132, %l
   br i1 %143, label %144, label %lean_array_uget.exit.i135
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %142
+  %145 = getelementptr inbounds nuw ptr, ptr %11, i64 %142
   %146 = load ptr, ptr %145, align 8, !tbaa !10
   %147 = ptrtoint ptr %146 to i64
   %148 = and i64 %147, 1
@@ -16531,7 +16531,7 @@ lean_dec.exit132:                                 ; preds = %19, %18, %16, %._cr
   %.0110260 = phi i64 [ %6, %.lr.ph ], [ %.1111, %294 ]
   %.0114259 = phi ptr [ %7, %.lr.ph ], [ %.1115, %294 ]
   %.0118258 = phi ptr [ %8, %.lr.ph ], [ %.1119, %294 ]
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0110260
+  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0110260
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -21447,7 +21447,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time
 12:                                               ; preds = %.lr.ph, %.thread26
   %.02038 = phi i64 [ %4, %.lr.ph ], [ %34, %.thread26 ]
   %.02237 = phi ptr [ %5, %.lr.ph ], [ %33, %.thread26 ]
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.02038
+  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02038
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1

@@ -2114,7 +2114,7 @@ define ptr @l_Lake_BuildType_leancArgs(i8 noundef zeroext %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lake_BuildType_leancArgs___boxed, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_BuildType_leancArgs___boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2157,7 +2157,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lake_BuildType_leancArgs___boxed, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_BuildType_leancArgs___boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lake_BuildType_leancArgs.exit
 
@@ -2291,7 +2291,7 @@ define ptr @l_Lake_BuildType_toString(i8 noundef zeroext %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lake_BuildType_toString___boxed, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_BuildType_toString___boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2334,7 +2334,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l_Lake_BuildType_toString___boxed, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_BuildType_toString___boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lake_BuildType_toString.exit
 
@@ -4889,7 +4889,7 @@ define noalias nonnull ptr @l___private_Lake_Config_LeanConfig_0__Lake_reprLeanC
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.l___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281_, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281_, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19_.exit
 
@@ -21982,7 +21982,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec
 6:                                                ; preds = %.lr.ph, %27
   %.01732 = phi i64 [ %1, %.lr.ph ], [ %29, %27 ]
   %.01931 = phi ptr [ %3, %.lr.ph ], [ %28, %27 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01732
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01732
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -22110,7 +22110,7 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
 26:                                               ; preds = %47, %.lr.ph.i
   %.01732.i = phi i64 [ %.val, %.lr.ph.i ], [ %49, %47 ]
   %.01931.i = phi ptr [ %3, %.lr.ph.i ], [ %48, %47 ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.01732.i
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01732.i
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -22249,7 +22249,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_BuildType_leanArgs___spec__1(i64 no
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -27001,7 +27001,7 @@ _init_l_Lake_LeanConfig_instConfigMeta___closed__8.exit: ; preds = %1617, %1619
 1634:                                             ; preds = %1655, %.lr.ph.i.i
   %.01732.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %1657, %1655 ]
   %.01931.i.i = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i.i ], [ %1656, %1655 ]
-  %1635 = getelementptr inbounds nuw [0 x ptr], ptr %1633, i64 0, i64 %.01732.i.i
+  %1635 = getelementptr inbounds nuw ptr, ptr %1633, i64 %.01732.i.i
   %1636 = load ptr, ptr %1635, align 8, !tbaa !10
   %1637 = ptrtoint ptr %1636 to i64
   %1638 = and i64 %1637, 1

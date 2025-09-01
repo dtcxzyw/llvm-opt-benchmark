@@ -298,7 +298,7 @@ define internal i32 @dissect_nvme_mi(ptr noundef %0, ptr noundef %1, ptr noundef
   %.076 = phi ptr [ %56, %47 ], [ %59, %57 ]
   %62 = load i32, ptr %8, align 4
   %63 = zext i32 %62 to i64
-  %64 = getelementptr [2 x %struct.nvme_mi_command], ptr %.076, i64 0, i64 %63
+  %64 = getelementptr %struct.nvme_mi_command, ptr %.076, i64 %63
   %65 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %98

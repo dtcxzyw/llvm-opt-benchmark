@@ -103,7 +103,7 @@ define void @av_display_matrix_flip(ptr noundef captures(none) %0, i32 noundef %
   %.lhs.trunc = trunc i64 %indvars.iv to i8
   %10 = urem i8 %.lhs.trunc, 3
   %11 = zext nneg i8 %10 to i64
-  %12 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !4

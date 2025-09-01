@@ -46,7 +46,7 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %.lr.ph._crit_edge
   %18 = zext i8 %6 to i64
-  %19 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !6
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %._crit_edge
@@ -65,7 +65,7 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr noundef readonly captures(none) %
 
 26:                                               ; preds = %25
   %27 = zext i8 %15 to i64
-  %28 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !6
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %31, label %._crit_edge
@@ -77,14 +77,14 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr noundef readonly captures(none) %
 
 34:                                               ; preds = %25
   %35 = zext i8 %6 to i64
-  %36 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !6
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %39, label %._crit_edge
 
 39:                                               ; preds = %34
   %40 = zext i8 %15 to i64
-  %41 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !6
   %43 = icmp sgt i32 %42, -1
   br i1 %43, label %44, label %._crit_edge
@@ -154,7 +154,7 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
 
 22:                                               ; preds = %.lr.ph._crit_edge.i
   %23 = zext i8 %14 to i64
-  %24 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !6
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %56
@@ -171,7 +171,7 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
 
 .thread:                                          ; preds = %21
   %31 = zext i8 %19 to i64
-  %32 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !6
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %35, label %56
@@ -183,14 +183,14 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
 
 38:                                               ; preds = %30
   %39 = zext i8 %14 to i64
-  %40 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !6
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %38
   %44 = zext i8 %19 to i64
-  %45 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !6
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %48, label %56
@@ -257,7 +257,7 @@ define ptr @cli_hex2str(ptr noundef %0) local_unnamed_addr #1 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.017.i
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !6
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %31
@@ -266,7 +266,7 @@ define ptr @cli_hex2str(ptr noundef %0) local_unnamed_addr #1 {
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !6
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %24, label %31
@@ -301,7 +301,7 @@ define range(i32 -1, 1) i32 @cli_hex2str_to(ptr noundef readonly captures(none) 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.017
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %._crit_edge
@@ -310,7 +310,7 @@ define range(i32 -1, 1) i32 @cli_hex2str_to(ptr noundef readonly captures(none) 
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !6
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %._crit_edge
@@ -356,7 +356,7 @@ define i32 @cli_hex2num(ptr noundef %0) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !6
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.loopexit, label %13
@@ -395,7 +395,7 @@ define i32 @cli_xtoi(ptr noundef readonly captures(none) %0) local_unnamed_addr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !6
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %cli_hex2num.exit, label %13
@@ -462,7 +462,7 @@ define i32 @cli_xtoi(ptr noundef readonly captures(none) %0) local_unnamed_addr 
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i23
   %32 = load i8, ptr %31, align 1, !tbaa !3
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !6
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %cli_hex2num.exit27, label %37
@@ -506,7 +506,7 @@ define ptr @cli_str2hex(ptr noundef readonly captures(none) %0, i32 noundef %1) 
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = lshr i8 %10, 4
   %12 = zext nneg i8 %11 to i64
-  %13 = getelementptr inbounds nuw [16 x i8], ptr @__const.cli_str2hex.HEX, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @__const.cli_str2hex.HEX, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = zext i32 %.018 to i64
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
@@ -514,7 +514,7 @@ define ptr @cli_str2hex(ptr noundef readonly captures(none) %0, i32 noundef %1) 
   %17 = load i8, ptr %9, align 1, !tbaa !3
   %18 = and i8 %17, 15
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds nuw [16 x i8], ptr @__const.cli_str2hex.HEX, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @__const.cli_str2hex.HEX, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = or disjoint i32 %.018, 1
   %23 = zext i32 %22 to i64
@@ -1841,12 +1841,12 @@ define ptr @cli_unescape(ptr noundef readonly captures(none) %0) local_unnamed_a
 
 63:                                               ; preds = %56
   %64 = zext i8 %51 to i64
-  %65 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !6
   %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 0)
   %spec.select = shl i32 %67, 4
   %68 = zext i8 %58 to i64
-  %69 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !6
   %71 = or i32 %spec.select, %70
   %72 = trunc i32 %71 to i8
@@ -1854,23 +1854,23 @@ define ptr @cli_unescape(ptr noundef readonly captures(none) %0) local_unnamed_a
 
 73:                                               ; preds = %37
   %74 = zext i8 %18 to i64
-  %75 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !6
   %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
   %spec.select80 = shl i32 %77, 12
   %78 = zext i8 %25 to i64
-  %79 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !6
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %82 = shl i32 %81, 8
   %83 = or i32 %82, %spec.select80
   %84 = zext i8 %32 to i64
-  %85 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !6
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
   %88 = shl i32 %87, 4
   %89 = zext i8 %39 to i64
-  %90 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !6
   %92 = or i32 %83, %91
   %93 = or i32 %92, %88
@@ -2025,14 +2025,14 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr noundef capture
   %26 = getelementptr i8, ptr %7, i64 2
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %spec.select = shl i32 %31, 4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %23
   %33 = load i8, ptr %32, align 1, !tbaa !3
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !6
   %37 = or i32 %spec.select, %36
   %38 = trunc i32 %37 to i8
@@ -2047,14 +2047,14 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr noundef capture
   %43 = getelementptr i8, ptr %7, i64 2
   %44 = load i8, ptr %43, align 1, !tbaa !3
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !6
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
   %spec.select68 = shl i32 %48, 12
   %49 = getelementptr i8, ptr %7, i64 3
   %50 = load i8, ptr %49, align 1, !tbaa !3
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !6
   %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
   %55 = shl i32 %54, 8
@@ -2062,14 +2062,14 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr noundef capture
   %57 = getelementptr i8, ptr %7, i64 4
   %58 = load i8, ptr %57, align 1, !tbaa !3
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !6
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = shl i32 %62, 4
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 %40
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !6
   %69 = load i64, ptr %4, align 8, !tbaa !19
   %70 = add i64 %69, 4
@@ -2218,7 +2218,7 @@ define range(i32 0, 2) i32 @cli_hexnibbles(ptr noundef captures(none) %0, i32 no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @hex_chars, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %.critedge

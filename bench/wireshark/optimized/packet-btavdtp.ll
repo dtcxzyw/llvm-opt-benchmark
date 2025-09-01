@@ -2711,9 +2711,9 @@ define internal i32 @dissect_aptx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %30
   %37 = and i8 %32, 15
-  %switch.tableidx118 = add nsw i8 %37, -1
-  %38 = icmp ult i8 %switch.tableidx118, 8
-  %switch.shifted120 = lshr i8 -117, %switch.tableidx118
+  %switch.tableidx117 = add nsw i8 %37, -1
+  %38 = icmp ult i8 %switch.tableidx117, 8
+  %switch.shifted120 = lshr i8 -117, %switch.tableidx117
   %switch.lobit121 = trunc i8 %switch.shifted120 to i1
   %or.cond124 = select i1 %38, i1 %switch.lobit121, i1 false
   br i1 %or.cond124, label %switch.lookup119, label %39
@@ -2724,10 +2724,10 @@ switch.lookup:                                    ; preds = %30
 
 switch.lookup119:                                 ; preds = %switch.lookup
   %41 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x double], ptr @switch.table.dissect_aptx, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.dissect_aptx, i64 %41
   %switch.load = load double, ptr %switch.gep, align 8
-  %42 = zext nneg i8 %switch.tableidx118 to i64
-  %switch.gep122 = getelementptr inbounds nuw [8 x double], ptr @switch.table.dissect_aptx.1, i64 0, i64 %42
+  %42 = zext nneg i8 %switch.tableidx117 to i64
+  %switch.gep122 = getelementptr inbounds nuw double, ptr @switch.table.dissect_aptx.1, i64 %42
   %switch.load123 = load double, ptr %switch.gep122, align 8
   %43 = fmul double %switch.load, %switch.load123
   %44 = fdiv double 1.600000e+01, %43
@@ -3024,10 +3024,10 @@ define internal noundef i32 @dissect_ldac(ptr noundef %0, ptr noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %60
   %65 = zext nneg i32 %.0113122 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_ldac, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ldac, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
   %66 = zext nneg i32 %.0113122 to i64
-  %switch.gep137 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_ldac.2, i64 0, i64 %66
+  %switch.gep137 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ldac.2, i64 %66
   %switch.load138 = load i32, ptr %switch.gep137, align 4
   br label %67
 

@@ -1529,7 +1529,7 @@ _ZN6Assimp11MDLImporter9SizeCheckEPKv.exit165:    ; preds = %103
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv
   store i32 %.1140172, ptr %223, align 4
-  %224 = getelementptr inbounds nuw [3 x i32], ptr %200, i64 0, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv
   %225 = load i32, ptr %224, align 1
   %226 = load i32, ptr %35, align 1
   %.not = icmp ult i32 %225, %226
@@ -1979,7 +1979,7 @@ _ZN6Assimp11MDLImporter9SizeCheckEPKv.exit197:    ; preds = %258
 182:                                              ; preds = %158, %258
   %indvars.iv237 = phi i64 [ 0, %158 ], [ %indvars.iv.next238, %258 ]
   %.1175221 = phi i32 [ %.0174224, %158 ], [ %259, %258 ]
-  %183 = getelementptr inbounds nuw [3 x i16], ptr %.0170225, i64 0, i64 %indvars.iv237
+  %183 = getelementptr inbounds nuw i16, ptr %.0170225, i64 %indvars.iv237
   %184 = load i16, ptr %183, align 1
   %185 = zext i16 %184 to i32
   %186 = load i32, ptr %136, align 1
@@ -2039,7 +2039,7 @@ _ZN6Assimp11MDLImporter9SizeCheckEPKv.exit197:    ; preds = %258
 223:                                              ; preds = %190
   %224 = load ptr, ptr %153, align 8
   %225 = getelementptr inbounds nuw %class.aiVector3t, ptr %224, i64 %192
-  %226 = getelementptr inbounds nuw [3 x i16], ptr %164, i64 0, i64 %indvars.iv237
+  %226 = getelementptr inbounds nuw i16, ptr %164, i64 %indvars.iv237
   %227 = load i16, ptr %226, align 1
   %228 = zext i16 %227 to i32
   %229 = load ptr, ptr %3, align 8
@@ -2174,7 +2174,7 @@ _ZN6Assimp11MDLImporter9SizeCheckEPKv.exit201:    ; preds = %375
 299:                                              ; preds = %275, %375
   %indvars.iv = phi i64 [ 0, %275 ], [ %indvars.iv.next, %375 ]
   %.1215 = phi i32 [ %.0167218, %275 ], [ %376, %375 ]
-  %300 = getelementptr inbounds nuw [3 x i16], ptr %.1171217, i64 0, i64 %indvars.iv
+  %300 = getelementptr inbounds nuw i16, ptr %.1171217, i64 %indvars.iv
   %301 = load i16, ptr %300, align 1
   %302 = zext i16 %301 to i32
   %303 = load i32, ptr %136, align 1
@@ -2234,7 +2234,7 @@ _ZN6Assimp11MDLImporter9SizeCheckEPKv.exit201:    ; preds = %375
 340:                                              ; preds = %307
   %341 = load ptr, ptr %270, align 8
   %342 = getelementptr inbounds nuw %class.aiVector3t, ptr %341, i64 %309
-  %343 = getelementptr inbounds nuw [3 x i16], ptr %281, i64 0, i64 %indvars.iv
+  %343 = getelementptr inbounds nuw i16, ptr %281, i64 %indvars.iv
   %344 = load i16, ptr %343, align 1
   %345 = zext i16 %344 to i32
   %346 = load ptr, ptr %3, align 8
@@ -5098,7 +5098,7 @@ define hidden void @_ZN6Assimp11MDLImporter29CalcAbsBoneMatrices_3DGS_MDL7EPPNS_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %75 ]
-  %73 = getelementptr inbounds nuw [1 x i8], ptr %72, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv
   %74 = load i8, ptr %73, align 1
   %.not62 = icmp eq i8 %74, 0
   br i1 %.not62, label %._crit_edge.loopexit.split.loop.exit, label %75
@@ -5118,7 +5118,7 @@ define hidden void @_ZN6Assimp11MDLImporter29CalcAbsBoneMatrices_3DGS_MDL7EPPNS_
   %77 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %78 = zext i32 %.055 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %77, ptr nonnull align 1 %72, i64 %78, i1 false)
-  %79 = getelementptr inbounds nuw [1024 x i8], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
   store i8 0, ptr %79, align 1
   br label %80
 
@@ -5299,7 +5299,7 @@ define hidden void @_ZN6Assimp11MDLImporter19ReadFaces_3DGS_MDL7ERKNS_3MDL17IntG
 36:                                               ; preds = %.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread ]
   %.1130 = phi i32 [ %.0114132, %.preheader ], [ %215, %.thread ]
-  %37 = getelementptr inbounds nuw [3 x i16], ptr %.0133, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i16, ptr %.0133, i64 %indvars.iv
   %38 = load i16, ptr %37, align 1
   %39 = zext i16 %38 to i32
   %40 = load ptr, ptr %4, align 8
@@ -5321,7 +5321,7 @@ define hidden void @_ZN6Assimp11MDLImporter19ReadFaces_3DGS_MDL7ERKNS_3MDL17IntG
   %49 = load ptr, ptr %2, align 8
   %50 = getelementptr inbounds nuw %"struct.Assimp::MDL::IntFace_MDL7", ptr %49, i64 %indvars.iv136
   %51 = sub nuw nsw i64 2, %indvars.iv
-  %52 = getelementptr inbounds nuw [3 x i32], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
   store i32 %.1130, ptr %52, align 4
   %53 = zext i32 %.1130 to i64
   %54 = load ptr, ptr %12, align 8
@@ -5441,7 +5441,7 @@ define hidden void @_ZN6Assimp11MDLImporter19ReadFaces_3DGS_MDL7ERKNS_3MDL17IntG
   br i1 %.not, label %165, label %145
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds nuw [3 x i16], ptr %23, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
   %147 = load i16, ptr %146, align 1
   %148 = zext i16 %147 to i32
   %149 = icmp ult i32 %144, %148
@@ -5493,7 +5493,7 @@ define hidden void @_ZN6Assimp11MDLImporter19ReadFaces_3DGS_MDL7ERKNS_3MDL17IntG
   br i1 %.not126, label %211, label %177
 
 177:                                              ; preds = %173
-  %178 = getelementptr inbounds nuw [3 x i16], ptr %25, i64 0, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv
   %179 = load i16, ptr %178, align 1
   %180 = zext i16 %179 to i32
   %181 = icmp ult i32 %176, %180
@@ -5728,7 +5728,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp11MDLImporter23ProcessFrames_3DGS_MD
 103:                                              ; preds = %.preheader, %113
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %113 ]
   %.178107 = phi i32 [ %.077110, %.preheader ], [ %114, %113 ]
-  %104 = getelementptr inbounds nuw [3 x i16], ptr %.079109, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv
   %105 = load i16, ptr %104, align 1
   %106 = icmp eq i16 %105, %62
   br i1 %106, label %107, label %113
@@ -7083,7 +7083,7 @@ define hidden void @_ZN6Assimp11MDLImporter30GenerateOutputMeshes_3DGS_MDL7ERNS_
 135:                                              ; preds = %116, %162
   %indvars.iv = phi i64 [ 0, %116 ], [ %indvars.iv.next, %162 ]
   %.1171 = phi i32 [ %.088173, %116 ], [ %163, %162 ]
-  %136 = getelementptr inbounds nuw [3 x i32], ptr %130, i64 0, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv
   %137 = load i32, ptr %136, align 4
   %138 = zext i32 %137 to i64
   %139 = load ptr, ptr %20, align 8
@@ -7189,7 +7189,7 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit:    ; preds = %168, %.noexc122
 188:                                              ; preds = %.lr.ph178, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %indvars.iv210 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next211, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
   %.191174 = phi i32 [ %.090176, %.lr.ph178 ], [ %231, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %189 = getelementptr inbounds nuw [3 x i32], ptr %183, i64 0, i64 %indvars.iv210
+  %189 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv210
   %190 = load i32, ptr %189, align 4
   %191 = zext i32 %190 to i64
   %192 = load ptr, ptr %22, align 8
@@ -7418,12 +7418,12 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 4
   %284 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr nonnull align 4 %283, i64 %284, i1 false)
-  %285 = getelementptr inbounds nuw [1024 x i8], ptr %30, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr %30, i64 %284
   store i8 0, ptr %285, align 1
   store i32 %spec.select.i, ptr %267, align 4
   %286 = getelementptr inbounds nuw i8, ptr %267, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %286, ptr nonnull align 4 %30, i64 %284, i1 false)
-  %287 = getelementptr inbounds nuw [1024 x i8], ptr %286, i64 0, i64 %284
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 %284
   store i8 0, ptr %287, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %288 = load ptr, ptr %280, align 8
@@ -8046,12 +8046,12 @@ define hidden void @_ZN6Assimp11MDLImporter29AddBonesToNodeGraph_3DGS_MDL7EPPKNS
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %50 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull align 4 %49, i64 %50, i1 false)
-  %51 = getelementptr inbounds nuw [1024 x i8], ptr %20, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 %50
   store i8 0, ptr %51, align 1
   store i32 %spec.select.i, ptr %42, align 4
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %52, ptr nonnull align 4 %20, i64 %50, i1 false)
-  %53 = getelementptr inbounds nuw [1024 x i8], ptr %52, i64 0, i64 %50
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %50
   store i8 0, ptr %53, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = trunc i32 %.02833 to i16
@@ -8214,12 +8214,12 @@ define hidden void @_ZN6Assimp11MDLImporter26BuildOutputAnims_3DGS_MDL7EPPKNS_3M
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %76 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %47, ptr nonnull align 4 %75, i64 %76, i1 false)
-  %77 = getelementptr inbounds nuw [1024 x i8], ptr %47, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %47, i64 %76
   store i8 0, ptr %77, align 1
   store i32 %spec.select.i, ptr %66, align 8
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %78, ptr nonnull align 4 %47, i64 %76, i1 false)
-  %79 = getelementptr inbounds nuw [1024 x i8], ptr %78, i64 0, i64 %76
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %76
   store i8 0, ptr %79, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %80 = load ptr, ptr %62, align 8

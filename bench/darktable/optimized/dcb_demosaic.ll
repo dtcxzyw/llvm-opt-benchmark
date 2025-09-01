@@ -206,7 +206,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %35 = load i16, ptr %3, align 2, !tbaa !6
   %36 = zext i16 %35 to i32
   %37 = sext i32 %34 to i64
-  %invariant.gep = getelementptr [4 x i16], ptr %12, i64 0, i64 %37
+  %invariant.gep = getelementptr i16, ptr %12, i64 %37
   %38 = mul i32 %.0184216, %36
   %39 = add i32 %38, 1
   %40 = add i32 %39, %26
@@ -239,16 +239,16 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %62 = getelementptr i8, ptr %56, i64 -6
   %63 = load i16, ptr %62, align 2, !tbaa !73
   %64 = zext i16 %63 to i32
-  %65 = getelementptr inbounds [4 x i16], ptr %47, i64 0, i64 %37
+  %65 = getelementptr inbounds i16, ptr %47, i64 %37
   %66 = load i16, ptr %65, align 2, !tbaa !73
   %67 = zext i16 %66 to i32
-  %68 = getelementptr inbounds [4 x i16], ptr %51, i64 0, i64 %37
+  %68 = getelementptr inbounds i16, ptr %51, i64 %37
   %69 = load i16, ptr %68, align 2, !tbaa !73
   %70 = zext i16 %69 to i32
-  %71 = getelementptr inbounds [4 x i16], ptr %57, i64 0, i64 %37
+  %71 = getelementptr inbounds i16, ptr %57, i64 %37
   %72 = load i16, ptr %71, align 2, !tbaa !73
   %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds [4 x i16], ptr %61, i64 0, i64 %37
+  %74 = getelementptr inbounds i16, ptr %61, i64 %37
   %75 = load i16, ptr %74, align 2, !tbaa !73
   %76 = zext i16 %75 to i32
   %77 = add nuw nsw i32 %50, %54
@@ -329,10 +329,10 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %132 = getelementptr i8, ptr %126, i64 -6
   %133 = load i16, ptr %132, align 2, !tbaa !73
   %134 = zext i16 %133 to i32
-  %135 = getelementptr inbounds nuw [4 x i16], ptr %127, i64 0, i64 %115
+  %135 = getelementptr inbounds nuw i16, ptr %127, i64 %115
   %136 = load i16, ptr %135, align 2, !tbaa !73
   %137 = zext i16 %136 to i32
-  %138 = getelementptr inbounds nuw [4 x i16], ptr %131, i64 0, i64 %115
+  %138 = getelementptr inbounds nuw i16, ptr %131, i64 %115
   %139 = load i16, ptr %138, align 2, !tbaa !73
   %140 = zext i16 %139 to i32
   %141 = add nuw nsw i32 %130, %134
@@ -345,7 +345,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 0)
   %149 = tail call i32 @llvm.umin.i32(i32 %148, i32 65535)
   %150 = trunc nuw i32 %149 to i16
-  %151 = getelementptr inbounds nuw [4 x i16], ptr %126, i64 0, i64 %115
+  %151 = getelementptr inbounds nuw i16, ptr %126, i64 %115
   store i16 %150, ptr %151, align 2, !tbaa !73
   %152 = load i16, ptr %122, align 2, !tbaa !73
   %153 = zext i16 %152 to i32
@@ -359,10 +359,10 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 2
   %161 = load i16, ptr %160, align 2, !tbaa !73
   %162 = zext i16 %161 to i32
-  %163 = getelementptr inbounds [4 x i16], ptr %gep243, i64 0, i64 %116
+  %163 = getelementptr inbounds i16, ptr %gep243, i64 %116
   %164 = load i16, ptr %163, align 2, !tbaa !73
   %165 = zext i16 %164 to i32
-  %166 = getelementptr inbounds [4 x i16], ptr %159, i64 0, i64 %116
+  %166 = getelementptr inbounds i16, ptr %159, i64 %116
   %167 = load i16, ptr %166, align 2, !tbaa !73
   %168 = zext i16 %167 to i32
   %169 = add nuw nsw i32 %157, %162
@@ -375,7 +375,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %176 = tail call i32 @llvm.smax.i32(i32 %175, i32 0)
   %177 = tail call i32 @llvm.umin.i32(i32 %176, i32 65535)
   %178 = trunc nuw i32 %177 to i16
-  %179 = getelementptr inbounds [4 x i16], ptr %126, i64 0, i64 %116
+  %179 = getelementptr inbounds i16, ptr %126, i64 %116
   store i16 %178, ptr %179, align 2, !tbaa !73
   %180 = add nuw nsw i32 %.1187219, 2
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 2
@@ -454,7 +454,7 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %37 = and i32 %36, 3
   %38 = sub nsw i32 2, %37
   %39 = sext i32 %38 to i64
-  %invariant.gep = getelementptr [4 x i16], ptr %15, i64 0, i64 %39
+  %invariant.gep = getelementptr i16, ptr %15, i64 %39
   %40 = add i32 %indvars.iv, %30
   %41 = sext i32 %40 to i64
   br label %42
@@ -506,7 +506,7 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 65535)
   %82 = uitofp nneg i32 %81 to float
-  %83 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %39
+  %83 = getelementptr inbounds float, ptr %43, i64 %39
   store float %82, ptr %83, align 4, !tbaa !74
   %84 = add nuw nsw i32 %.0209234, 2
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 2
@@ -539,7 +539,7 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %99 = sub nsw i32 2, %98
   %100 = zext nneg i32 %98 to i64
   %101 = sext i32 %99 to i64
-  %invariant.gep250 = getelementptr [4 x i16], ptr %21, i64 0, i64 %101
+  %invariant.gep250 = getelementptr i16, ptr %21, i64 %101
   %102 = add i32 %indvars.iv260, %92
   %103 = sext i32 %102 to i64
   br label %104
@@ -549,11 +549,11 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %.1210245 = phi i32 [ %93, %.lr.ph248 ], [ %147, %104 ]
   %105 = getelementptr [4 x i16], ptr %21, i64 %indvars.iv262
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = getelementptr inbounds nuw [4 x i16], ptr %106, i64 0, i64 %100
+  %107 = getelementptr inbounds nuw i16, ptr %106, i64 %100
   %108 = load i16, ptr %107, align 2, !tbaa !73
   %109 = zext i16 %108 to i32
   %110 = getelementptr i8, ptr %105, i64 -8
-  %111 = getelementptr inbounds nuw [4 x i16], ptr %110, i64 0, i64 %100
+  %111 = getelementptr inbounds nuw i16, ptr %110, i64 %100
   %112 = load i16, ptr %111, align 2, !tbaa !73
   %113 = zext i16 %112 to i32
   %114 = add nuw nsw i32 %113, %109
@@ -564,7 +564,7 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %119 = tail call i32 @llvm.umin.i32(i32 %118, i32 65535)
   %120 = uitofp nneg i32 %119 to float
   %121 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv262
-  %122 = getelementptr inbounds nuw [3 x float], ptr %121, i64 0, i64 %100
+  %122 = getelementptr inbounds nuw float, ptr %121, i64 %100
   store float %120, ptr %122, align 4, !tbaa !74
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %124 = load float, ptr %123, align 4, !tbaa !74
@@ -591,7 +591,7 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %143 = tail call i32 @llvm.smax.i32(i32 %142, i32 0)
   %144 = tail call i32 @llvm.umin.i32(i32 %143, i32 65535)
   %145 = uitofp nneg i32 %144 to float
-  %146 = getelementptr inbounds [3 x float], ptr %121, i64 0, i64 %101
+  %146 = getelementptr inbounds float, ptr %121, i64 %101
   store float %145, ptr %146, align 4, !tbaa !74
   %147 = add nuw nsw i32 %.1210245, 2
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 2
@@ -660,7 +660,7 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %37 = and i32 %36, 3
   %38 = sub nsw i32 2, %37
   %39 = sext i32 %38 to i64
-  %invariant.gep = getelementptr [4 x i16], ptr %15, i64 0, i64 %39
+  %invariant.gep = getelementptr i16, ptr %15, i64 %39
   %40 = add i32 %indvars.iv, %30
   %41 = sext i32 %40 to i64
   br label %42
@@ -712,7 +712,7 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 65535)
   %82 = uitofp nneg i32 %81 to float
-  %83 = getelementptr inbounds [3 x float], ptr %43, i64 0, i64 %39
+  %83 = getelementptr inbounds float, ptr %43, i64 %39
   store float %82, ptr %83, align 4, !tbaa !74
   %84 = add nuw nsw i32 %.0201226, 2
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 2
@@ -744,9 +744,9 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %98 = and i32 %97, 3
   %99 = sub nsw i32 2, %98
   %100 = zext nneg i32 %98 to i64
-  %invariant.gep242 = getelementptr [4 x i16], ptr %21, i64 0, i64 %100
+  %invariant.gep242 = getelementptr i16, ptr %21, i64 %100
   %101 = sext i32 %99 to i64
-  %invariant.gep246 = getelementptr [4 x i16], ptr %21, i64 0, i64 %101
+  %invariant.gep246 = getelementptr i16, ptr %21, i64 %101
   %102 = add i32 %indvars.iv256, %92
   %103 = sext i32 %102 to i64
   %invariant.gep267 = getelementptr [4 x i16], ptr %invariant.gep246, i64 %23
@@ -781,7 +781,7 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %126 = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 65535)
   %128 = uitofp nneg i32 %127 to float
-  %129 = getelementptr inbounds nuw [3 x float], ptr %105, i64 0, i64 %100
+  %129 = getelementptr inbounds nuw float, ptr %105, i64 %100
   store float %128, ptr %129, align 4, !tbaa !74
   %gep268 = getelementptr [4 x i16], ptr %invariant.gep267, i64 %indvars.iv258
   %130 = load i16, ptr %gep268, align 2, !tbaa !73
@@ -797,7 +797,7 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %139 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
   %140 = tail call i32 @llvm.umin.i32(i32 %139, i32 65535)
   %141 = uitofp nneg i32 %140 to float
-  %142 = getelementptr inbounds [3 x float], ptr %105, i64 0, i64 %101
+  %142 = getelementptr inbounds float, ptr %105, i64 %101
   store float %141, ptr %142, align 4, !tbaa !74
   %143 = add nuw nsw i32 %.1202237, 2
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 2
@@ -859,13 +859,13 @@ define void @_ZN6LibRaw10dcb_decideEPA3_fS1_(ptr noundef nonnull readonly align 
   %35 = sub nsw i32 2, %30
   %36 = select i1 %34, i32 %35, i32 %33
   %37 = zext nneg i32 %30 to i64
-  %invariant.gep = getelementptr [4 x i16], ptr %15, i64 0, i64 %37
+  %invariant.gep = getelementptr i16, ptr %15, i64 %37
   %38 = sext i32 %36 to i64
-  %invariant.gep1067 = getelementptr [4 x i16], ptr %15, i64 0, i64 %38
-  %invariant.gep1075 = getelementptr [3 x float], ptr %1, i64 0, i64 %38
-  %invariant.gep1083 = getelementptr [3 x float], ptr %1, i64 0, i64 %37
-  %invariant.gep1091 = getelementptr [3 x float], ptr %2, i64 0, i64 %38
-  %invariant.gep1099 = getelementptr [3 x float], ptr %2, i64 0, i64 %37
+  %invariant.gep1067 = getelementptr i16, ptr %15, i64 %38
+  %invariant.gep1075 = getelementptr float, ptr %1, i64 %38
+  %invariant.gep1083 = getelementptr float, ptr %1, i64 %37
+  %invariant.gep1091 = getelementptr float, ptr %2, i64 %38
+  %invariant.gep1099 = getelementptr float, ptr %2, i64 %37
   %39 = mul i32 %.01107, %32
   %40 = add i32 %39, 2
   %41 = add i32 %40, %24
@@ -1460,7 +1460,7 @@ define void @_ZN6LibRaw11dcb_nyquistEv(ptr noundef nonnull readonly align 8 capt
   %28 = load i16, ptr %2, align 2, !tbaa !6
   %29 = zext i16 %28 to i32
   %30 = zext nneg i32 %27 to i64
-  %invariant.gep = getelementptr inbounds nuw [4 x i16], ptr %13, i64 0, i64 %30
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %13, i64 %30
   %31 = mul i32 %.08593, %29
   %32 = add i32 %31, 2
   %33 = add i32 %32, %21
@@ -1495,18 +1495,18 @@ define void @_ZN6LibRaw11dcb_nyquistEv(ptr noundef nonnull readonly align 8 capt
   %gep = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep, i64 %indvars.iv
   %56 = load i16, ptr %gep, align 2, !tbaa !73
   %57 = uitofp i16 %56 to double
-  %58 = getelementptr inbounds nuw [4 x i16], ptr %gep102, i64 0, i64 %30
+  %58 = getelementptr inbounds nuw i16, ptr %gep102, i64 %30
   %59 = load i16, ptr %58, align 2, !tbaa !73
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw [4 x i16], ptr %40, i64 0, i64 %30
+  %61 = getelementptr inbounds nuw i16, ptr %40, i64 %30
   %62 = load i16, ptr %61, align 2, !tbaa !73
   %63 = zext i16 %62 to i32
   %64 = add nuw nsw i32 %63, %60
-  %65 = getelementptr inbounds nuw [4 x i16], ptr %46, i64 0, i64 %30
+  %65 = getelementptr inbounds nuw i16, ptr %46, i64 %30
   %66 = load i16, ptr %65, align 2, !tbaa !73
   %67 = zext i16 %66 to i32
   %68 = add nuw nsw i32 %64, %67
-  %69 = getelementptr inbounds nuw [4 x i16], ptr %51, i64 0, i64 %30
+  %69 = getelementptr inbounds nuw i16, ptr %51, i64 %30
   %70 = load i16, ptr %69, align 2, !tbaa !73
   %71 = zext i16 %70 to i32
   %72 = add nuw nsw i32 %68, %71
@@ -1610,7 +1610,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %.cmp = icmp samesign ugt i32 %48, 1
   %49 = zext nneg i32 %48 to i64
   %50 = zext i1 %.cmp to i64
-  %invariant.gep = getelementptr inbounds nuw [2 x float], ptr %12, i64 0, i64 %50
+  %invariant.gep = getelementptr inbounds nuw float, ptr %12, i64 %50
   %51 = add i32 %indvars.iv, %41
   %52 = zext i32 %51 to i64
   br label %53
@@ -1619,7 +1619,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv3714 = phi i64 [ %52, %.lr.ph ], [ %indvars.iv.next3715, %53 ]
   %.030973683 = phi i32 [ %42, %.lr.ph ], [ %63, %53 ]
   %54 = getelementptr inbounds nuw [4 x i16], ptr %21, i64 %indvars.iv3714
-  %55 = getelementptr inbounds nuw [4 x i16], ptr %54, i64 0, i64 %49
+  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %49
   %56 = load i16, ptr %55, align 2, !tbaa !73
   %57 = zext i16 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 2
@@ -1675,7 +1675,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %88 = and i32 %87, %27
   %.neg3499.cmp.not = icmp eq i32 %88, 0
   %89 = zext i1 %.neg3499.cmp.not to i64
-  %invariant.gep3693 = getelementptr inbounds nuw [2 x float], ptr %12, i64 0, i64 %89
+  %invariant.gep3693 = getelementptr inbounds nuw float, ptr %12, i64 %89
   %90 = add i32 %indvars.iv3717, %81
   %91 = sext i32 %90 to i64
   br label %92
@@ -1686,11 +1686,11 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %93 = sub nsw i64 %indvars.iv3719, %34
   %94 = getelementptr [2 x float], ptr %12, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -8
-  %96 = getelementptr inbounds nuw [2 x float], ptr %95, i64 0, i64 %89
+  %96 = getelementptr inbounds nuw float, ptr %95, i64 %89
   %97 = load float, ptr %96, align 4, !tbaa !74
   %gep3872 = getelementptr [2 x float], ptr %invariant.gep3871, i64 %indvars.iv3719
   %98 = getelementptr inbounds nuw i8, ptr %gep3872, i64 8
-  %99 = getelementptr inbounds nuw [2 x float], ptr %98, i64 0, i64 %89
+  %99 = getelementptr inbounds nuw float, ptr %98, i64 %89
   %100 = load float, ptr %99, align 4, !tbaa !74
   %101 = fsub reassoc nsz arcp contract afn float %97, %100
   %102 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %101)
@@ -1699,7 +1699,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %105 = sub nsw i64 %indvars.iv3719, %33
   %106 = getelementptr [2 x float], ptr %12, i64 %105
   %107 = getelementptr i8, ptr %106, i64 -24
-  %108 = getelementptr inbounds nuw [2 x float], ptr %107, i64 0, i64 %89
+  %108 = getelementptr inbounds nuw float, ptr %107, i64 %89
   %109 = load float, ptr %108, align 4, !tbaa !74
   %110 = fsub reassoc nsz arcp contract afn float %97, %109
   %111 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %110)
@@ -1712,17 +1712,17 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %118 = fptrunc reassoc nsz arcp contract afn double %117 to float
   %119 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %118
   %120 = getelementptr i8, ptr %94, i64 8
-  %121 = getelementptr inbounds nuw [2 x float], ptr %120, i64 0, i64 %89
+  %121 = getelementptr inbounds nuw float, ptr %120, i64 %89
   %122 = load float, ptr %121, align 4, !tbaa !74
   %123 = getelementptr i8, ptr %gep3872, i64 -8
-  %124 = getelementptr inbounds nuw [2 x float], ptr %123, i64 0, i64 %89
+  %124 = getelementptr inbounds nuw float, ptr %123, i64 %89
   %125 = load float, ptr %124, align 4, !tbaa !74
   %126 = fsub reassoc nsz arcp contract afn float %122, %125
   %127 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %126)
   %128 = fpext reassoc nsz arcp contract afn float %127 to double
   %129 = fadd reassoc nsz arcp contract afn double %128, 1.000000e+00
   %130 = getelementptr i8, ptr %106, i64 24
-  %131 = getelementptr inbounds nuw [2 x float], ptr %130, i64 0, i64 %89
+  %131 = getelementptr inbounds nuw float, ptr %130, i64 %89
   %132 = load float, ptr %131, align 4, !tbaa !74
   %133 = fsub reassoc nsz arcp contract afn float %122, %132
   %134 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %133)
@@ -1740,14 +1740,14 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %146 = fadd reassoc nsz arcp contract afn double %145, 1.000000e+00
   %gep3874 = getelementptr [2 x float], ptr %invariant.gep3873, i64 %indvars.iv3719
   %147 = getelementptr inbounds nuw i8, ptr %gep3874, i64 24
-  %148 = getelementptr inbounds nuw [2 x float], ptr %147, i64 0, i64 %89
+  %148 = getelementptr inbounds nuw float, ptr %147, i64 %89
   %149 = load float, ptr %148, align 4, !tbaa !74
   %150 = fsub reassoc nsz arcp contract afn float %125, %149
   %151 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %150)
   %152 = fpext reassoc nsz arcp contract afn float %151 to double
   %153 = fadd reassoc nsz arcp contract afn double %146, %152
   %154 = getelementptr i8, ptr %gep3874, i64 -24
-  %155 = getelementptr inbounds nuw [2 x float], ptr %154, i64 0, i64 %89
+  %155 = getelementptr inbounds nuw float, ptr %154, i64 %89
   %156 = load float, ptr %155, align 4, !tbaa !74
   %157 = fsub reassoc nsz arcp contract afn float %122, %156
   %158 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %157)
@@ -1773,11 +1773,11 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %178 = fmul reassoc nsz arcp contract afn double %177, 1.325000e+00
   %179 = fpext reassoc nsz arcp contract afn float %109 to double
   %180 = getelementptr i8, ptr %106, i64 -8
-  %181 = getelementptr inbounds nuw [2 x float], ptr %180, i64 0, i64 %89
+  %181 = getelementptr inbounds nuw float, ptr %180, i64 %89
   %182 = load float, ptr %181, align 4, !tbaa !74
   %183 = fpext reassoc nsz arcp contract afn float %182 to double
   %184 = getelementptr i8, ptr %94, i64 -24
-  %185 = getelementptr inbounds nuw [2 x float], ptr %184, i64 0, i64 %89
+  %185 = getelementptr inbounds nuw float, ptr %184, i64 %89
   %186 = load float, ptr %185, align 4, !tbaa !74
   %187 = fpext reassoc nsz arcp contract afn float %186 to double
   %.neg = fmul reassoc nsz arcp contract afn double %179, -1.750000e-01
@@ -1790,11 +1790,11 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %191 = fmul reassoc nsz arcp contract afn double %190, 1.325000e+00
   %192 = fpext reassoc nsz arcp contract afn float %132 to double
   %193 = getelementptr i8, ptr %106, i64 8
-  %194 = getelementptr inbounds nuw [2 x float], ptr %193, i64 0, i64 %89
+  %194 = getelementptr inbounds nuw float, ptr %193, i64 %89
   %195 = load float, ptr %194, align 4, !tbaa !74
   %196 = fpext reassoc nsz arcp contract afn float %195 to double
   %197 = getelementptr i8, ptr %94, i64 24
-  %198 = getelementptr inbounds nuw [2 x float], ptr %197, i64 0, i64 %89
+  %198 = getelementptr inbounds nuw float, ptr %197, i64 %89
   %199 = load float, ptr %198, align 4, !tbaa !74
   %200 = fpext reassoc nsz arcp contract afn float %199 to double
   %.neg3658 = fmul reassoc nsz arcp contract afn double %192, -1.750000e-01
@@ -1807,11 +1807,11 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %204 = fmul reassoc nsz arcp contract afn double %203, 1.325000e+00
   %205 = fpext reassoc nsz arcp contract afn float %156 to double
   %206 = getelementptr i8, ptr %gep3874, i64 -8
-  %207 = getelementptr inbounds nuw [2 x float], ptr %206, i64 0, i64 %89
+  %207 = getelementptr inbounds nuw float, ptr %206, i64 %89
   %208 = load float, ptr %207, align 4, !tbaa !74
   %209 = fpext reassoc nsz arcp contract afn float %208 to double
   %210 = getelementptr i8, ptr %gep3872, i64 -24
-  %211 = getelementptr inbounds nuw [2 x float], ptr %210, i64 0, i64 %89
+  %211 = getelementptr inbounds nuw float, ptr %210, i64 %89
   %212 = load float, ptr %211, align 4, !tbaa !74
   %213 = fpext reassoc nsz arcp contract afn float %212 to double
   %.neg3663 = fmul reassoc nsz arcp contract afn double %205, -1.750000e-01
@@ -1824,11 +1824,11 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %217 = fmul reassoc nsz arcp contract afn double %216, 1.325000e+00
   %218 = fpext reassoc nsz arcp contract afn float %149 to double
   %219 = getelementptr inbounds nuw i8, ptr %gep3874, i64 8
-  %220 = getelementptr inbounds nuw [2 x float], ptr %219, i64 0, i64 %89
+  %220 = getelementptr inbounds nuw float, ptr %219, i64 %89
   %221 = load float, ptr %220, align 4, !tbaa !74
   %222 = fpext reassoc nsz arcp contract afn float %221 to double
   %223 = getelementptr inbounds nuw i8, ptr %gep3872, i64 24
-  %224 = getelementptr inbounds nuw [2 x float], ptr %223, i64 0, i64 %89
+  %224 = getelementptr inbounds nuw float, ptr %223, i64 %89
   %225 = load float, ptr %224, align 4, !tbaa !74
   %226 = fpext reassoc nsz arcp contract afn float %225 to double
   %.neg3668 = fmul reassoc nsz arcp contract afn double %218, -1.750000e-01
@@ -1916,15 +1916,15 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %.131023699 = phi i32 [ %.031013700, %.preheader3679 ], [ %381, %270 ]
   %271 = phi i1 [ true, %.preheader3679 ], [ false, %270 ]
   %272 = zext nneg i32 %.131023699 to i64
-  %273 = getelementptr inbounds nuw [2 x float], ptr %262, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw float, ptr %262, i64 %272
   %274 = load float, ptr %273, align 4, !tbaa !74
-  %275 = getelementptr inbounds nuw [2 x float], ptr %gep3876, i64 0, i64 %272
+  %275 = getelementptr inbounds nuw float, ptr %gep3876, i64 %272
   %276 = load float, ptr %275, align 4, !tbaa !74
   %277 = fsub reassoc nsz arcp contract afn float %274, %276
   %278 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %277)
   %279 = fpext reassoc nsz arcp contract afn float %278 to double
   %280 = fadd reassoc nsz arcp contract afn double %279, 1.000000e+00
-  %281 = getelementptr inbounds nuw [2 x float], ptr %264, i64 0, i64 %272
+  %281 = getelementptr inbounds nuw float, ptr %264, i64 %272
   %282 = load float, ptr %281, align 4, !tbaa !74
   %283 = fsub reassoc nsz arcp contract afn float %274, %282
   %284 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %283)
@@ -1936,15 +1936,15 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %290 = fadd reassoc nsz arcp contract afn double %286, %289
   %291 = fptrunc reassoc nsz arcp contract afn double %290 to float
   %292 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %291
-  %293 = getelementptr inbounds nuw [2 x float], ptr %266, i64 0, i64 %272
+  %293 = getelementptr inbounds nuw float, ptr %266, i64 %272
   %294 = load float, ptr %293, align 4, !tbaa !74
-  %295 = getelementptr inbounds nuw [2 x float], ptr %267, i64 0, i64 %272
+  %295 = getelementptr inbounds nuw float, ptr %267, i64 %272
   %296 = load float, ptr %295, align 4, !tbaa !74
   %297 = fsub reassoc nsz arcp contract afn float %294, %296
   %298 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %297)
   %299 = fpext reassoc nsz arcp contract afn float %298 to double
   %300 = fadd reassoc nsz arcp contract afn double %299, 1.000000e+00
-  %301 = getelementptr inbounds nuw [2 x float], ptr %268, i64 0, i64 %272
+  %301 = getelementptr inbounds nuw float, ptr %268, i64 %272
   %302 = load float, ptr %301, align 4, !tbaa !74
   %303 = fsub reassoc nsz arcp contract afn float %294, %302
   %304 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %303)
@@ -1960,7 +1960,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %314 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %313)
   %315 = fpext reassoc nsz arcp contract afn float %314 to double
   %316 = fadd reassoc nsz arcp contract afn double %315, 1.000000e+00
-  %317 = getelementptr inbounds nuw [2 x float], ptr %269, i64 0, i64 %272
+  %317 = getelementptr inbounds nuw float, ptr %269, i64 %272
   %318 = load float, ptr %317, align 4, !tbaa !74
   %319 = fsub reassoc nsz arcp contract afn float %296, %318
   %320 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %319)
@@ -1976,7 +1976,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %330 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %329)
   %331 = fpext reassoc nsz arcp contract afn float %330 to double
   %332 = fadd reassoc nsz arcp contract afn double %331, 1.000000e+00
-  %333 = getelementptr inbounds nuw [2 x float], ptr %gep3878, i64 0, i64 %272
+  %333 = getelementptr inbounds nuw float, ptr %gep3878, i64 %272
   %334 = load float, ptr %333, align 4, !tbaa !74
   %335 = fsub reassoc nsz arcp contract afn float %276, %334
   %336 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %335)
@@ -2023,7 +2023,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %377 = fadd reassoc nsz arcp contract afn float %376, %328
   %378 = fadd reassoc nsz arcp contract afn float %377, %344
   %379 = fdiv reassoc nsz arcp contract afn float %375, %378
-  %380 = getelementptr inbounds nuw [2 x float], ptr %265, i64 0, i64 %272
+  %380 = getelementptr inbounds nuw float, ptr %265, i64 %272
   store float %379, ptr %380, align 4, !tbaa !74
   %381 = sub nuw nsw i32 1, %.131023699
   br i1 %271, label %270, label %382, !llvm.loop !105
@@ -3397,7 +3397,7 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %.phi.trans.insert = getelementptr inbounds nuw [4 x i16], ptr %13, i64 %35
   %.phi.trans.insert128 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 6
   %.pre = load i16, ptr %.phi.trans.insert128, align 2, !tbaa !73
-  %.phi.trans.insert129 = getelementptr inbounds nuw [4 x i16], ptr %.phi.trans.insert, i64 0, i64 %31
+  %.phi.trans.insert129 = getelementptr inbounds nuw i16, ptr %.phi.trans.insert, i64 %31
   %.pre130 = load i16, ptr %.phi.trans.insert129, align 2, !tbaa !73
   br label %36
 
@@ -3466,10 +3466,10 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %93 = fmul reassoc nsz arcp contract afn double %92, 5.000000e-01
   %94 = uitofp i16 %37 to double
   %95 = fadd reassoc nsz arcp contract afn double %93, %94
-  %96 = getelementptr inbounds nuw [4 x i16], ptr %70, i64 0, i64 %31
+  %96 = getelementptr inbounds nuw i16, ptr %70, i64 %31
   %97 = load i16, ptr %96, align 2, !tbaa !73
   %98 = zext i16 %97 to i32
-  %99 = getelementptr inbounds nuw [4 x i16], ptr %74, i64 0, i64 %31
+  %99 = getelementptr inbounds nuw i16, ptr %74, i64 %31
   %100 = load i16, ptr %99, align 2, !tbaa !73
   %101 = zext i16 %100 to i32
   %102 = add nuw nsw i32 %101, %98
@@ -3488,10 +3488,10 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %114 = uitofp nneg i32 %113 to double
   %115 = fmul reassoc nsz arcp contract afn double %114, 5.000000e-01
   %116 = fadd reassoc nsz arcp contract afn double %115, %94
-  %117 = getelementptr inbounds nuw [4 x i16], ptr %gep137, i64 0, i64 %31
+  %117 = getelementptr inbounds nuw i16, ptr %gep137, i64 %31
   %118 = load i16, ptr %117, align 2, !tbaa !73
   %119 = zext i16 %118 to i32
-  %120 = getelementptr inbounds nuw [4 x i16], ptr %66, i64 0, i64 %31
+  %120 = getelementptr inbounds nuw i16, ptr %66, i64 %31
   %121 = load i16, ptr %120, align 2, !tbaa !73
   %122 = zext i16 %121 to i32
   %123 = add nuw nsw i32 %122, %119
@@ -3586,7 +3586,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   %31 = load i16, ptr %3, align 2, !tbaa !6
   %32 = zext i16 %31 to i32
   %33 = zext nneg i32 %30 to i64
-  %invariant.gep = getelementptr [4 x i16], ptr %14, i64 0, i64 %33
+  %invariant.gep = getelementptr i16, ptr %14, i64 %33
   %34 = load ptr, ptr %2, align 8
   %35 = mul i32 %.01810, %32
   %36 = add i32 %35, 4
@@ -3646,7 +3646,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   %85 = add nuw nsw i32 %84, %75
   %86 = add nuw nsw i32 %85, %79
   %87 = add nuw nsw i32 %86, %82
-  %88 = getelementptr inbounds nuw [4 x i16], ptr %40, i64 0, i64 %33
+  %88 = getelementptr inbounds nuw i16, ptr %40, i64 %33
   %89 = load i16, ptr %88, align 2, !tbaa !73
   %90 = zext i16 %89 to i32
   %91 = icmp ugt i16 %89, 1
@@ -3664,7 +3664,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
   %101 = shl nuw nsw i32 %90, 1
   %102 = uitofp nneg i32 %101 to float
   %103 = fdiv reassoc nsz arcp contract afn float %100, %102
-  %104 = getelementptr inbounds nuw [4 x i16], ptr %72, i64 0, i64 %33
+  %104 = getelementptr inbounds nuw i16, ptr %72, i64 %33
   %105 = load i16, ptr %104, align 2, !tbaa !73
   %.not = icmp eq i16 %105, 0
   br i1 %.not, label %.thread, label %106
@@ -4490,24 +4490,24 @@ define void @_ZN6LibRaw15fbdd_correctionEv(ptr noundef nonnull align 8 dereferen
   %18 = getelementptr [4 x i16], ptr %17, i64 %indvars.iv
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds [4 x i16], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds i16, ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw [4 x i16], ptr %17, i64 %indvars.iv.next
-  %24 = getelementptr inbounds [4 x i16], ptr %23, i64 0, i64 %20
+  %24 = getelementptr inbounds i16, ptr %23, i64 %20
   %25 = load i16, ptr %24, align 2, !tbaa !73
   %26 = sub nsw i64 %indvars.iv, %8
   %27 = getelementptr inbounds [4 x i16], ptr %17, i64 %26
-  %28 = getelementptr inbounds [4 x i16], ptr %27, i64 0, i64 %20
+  %28 = getelementptr inbounds i16, ptr %27, i64 %20
   %29 = load i16, ptr %28, align 2, !tbaa !73
   %30 = getelementptr inbounds nuw [4 x i16], ptr %17, i64 %indvars.iv
   %31 = getelementptr inbounds nuw [4 x i16], ptr %30, i64 %8
-  %32 = getelementptr inbounds [4 x i16], ptr %31, i64 0, i64 %20
+  %32 = getelementptr inbounds i16, ptr %31, i64 %20
   %33 = load i16, ptr %32, align 2, !tbaa !73
   %. = tail call i16 @llvm.umax.i16(i16 %29, i16 %33)
   %.872 = tail call i16 @llvm.umin.i16(i16 %29, i16 %33)
   %34 = icmp ult i16 %25, %.872
-  %35 = getelementptr inbounds [4 x i16], ptr %18, i64 0, i64 %20
+  %35 = getelementptr inbounds i16, ptr %18, i64 %20
   %36 = load i16, ptr %35, align 2, !tbaa !73
   %minmaxop979 = tail call i16 @llvm.umax.i16(i16 %25, i16 %.)
   %37 = tail call i16 @llvm.umax.i16(i16 %minmaxop979, i16 %22)
@@ -4817,7 +4817,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %37 = load i16, ptr %3, align 2, !tbaa !6
   %38 = zext i16 %37 to i32
   %39 = zext nneg i32 %36 to i64
-  %invariant.gep = getelementptr [4 x i16], ptr %16, i64 0, i64 %39
+  %invariant.gep = getelementptr i16, ptr %16, i64 %39
   %40 = load ptr, ptr %2, align 8
   %41 = mul i32 %.01968, %38
   %42 = add i32 %41, 5
@@ -4951,7 +4951,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %159 = zext i16 %158 to i32
   %160 = getelementptr [4 x i16], ptr %16, i64 %indvars.iv
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
-  %162 = getelementptr inbounds nuw [4 x i16], ptr %161, i64 0, i64 %39
+  %162 = getelementptr inbounds nuw i16, ptr %161, i64 %39
   %163 = load i16, ptr %162, align 2, !tbaa !73
   %164 = zext i16 %163 to i32
   %165 = sub nsw i32 %159, %164
@@ -4971,11 +4971,11 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %179 = shl nuw nsw i32 %81, 1
   %180 = add nuw nsw i32 %178, %179
   %181 = getelementptr i8, ptr %160, i64 -16
-  %182 = getelementptr inbounds nuw [4 x i16], ptr %181, i64 0, i64 %39
+  %182 = getelementptr inbounds nuw i16, ptr %181, i64 %39
   %183 = load i16, ptr %182, align 2, !tbaa !73
   %184 = zext i16 %183 to i32
   %185 = getelementptr i8, ptr %160, i64 -32
-  %186 = getelementptr inbounds nuw [4 x i16], ptr %185, i64 0, i64 %39
+  %186 = getelementptr inbounds nuw i16, ptr %185, i64 %39
   %187 = load i16, ptr %186, align 2, !tbaa !73
   %188 = zext i16 %187 to i32
   %189 = sub nsw i32 %184, %188

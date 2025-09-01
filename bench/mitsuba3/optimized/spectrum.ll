@@ -2489,146 +2489,146 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIfEENS1_5ColorIT_Lm3E
   store float 0x3FF0EABF00000000, ptr %89, align 16
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %98, %80
-  %.037.i = phi i64 [ 0, %80 ], [ %99, %98 ]
-  %90 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %6, i64 0, i64 %.037.i
+.preheader.i:                                     ; preds = %95, %80
+  %.037.i = phi i64 [ 0, %80 ], [ %96, %95 ]
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %5, i64 %.037.i
+  %90 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %6, i64 %.037.i
   br label %91
 
 91:                                               ; preds = %91, %.preheader.i
-  %.02636.i = phi i64 [ 0, %.preheader.i ], [ %97, %91 ]
-  %92 = mul nuw nsw i64 %.02636.i, 3
-  %93 = add nuw nsw i64 %92, %.037.i
-  %94 = getelementptr inbounds nuw [9 x float], ptr %5, i64 0, i64 %93
-  %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds nuw float, ptr %90, i64 %.02636.i
-  store float %95, ptr %96, align 4
-  %97 = add nuw nsw i64 %.02636.i, 1
-  %exitcond.not.i193 = icmp eq i64 %97, 3
-  br i1 %exitcond.not.i193, label %98, label %91, !llvm.loop !12
+  %.02636.i = phi i64 [ 0, %.preheader.i ], [ %94, %91 ]
+  %.idx.i = mul nuw nsw i64 %.02636.i, 12
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
+  %92 = load float, ptr %gep.i, align 4
+  %93 = getelementptr inbounds nuw float, ptr %90, i64 %.02636.i
+  store float %92, ptr %93, align 4
+  %94 = add nuw nsw i64 %.02636.i, 1
+  %exitcond.not.i193 = icmp eq i64 %94, 3
+  br i1 %exitcond.not.i193, label %95, label %91, !llvm.loop !12
 
-98:                                               ; preds = %91
-  %99 = add nuw nsw i64 %.037.i, 1
-  %exitcond38.not.i = icmp eq i64 %99, 3
-  br i1 %exitcond38.not.i, label %100, label %.preheader.i, !llvm.loop !13
+95:                                               ; preds = %91
+  %96 = add nuw nsw i64 %.037.i, 1
+  %exitcond38.not.i = icmp eq i64 %96, 3
+  br i1 %exitcond38.not.i, label %97, label %.preheader.i, !llvm.loop !13
 
-100:                                              ; preds = %98
-  %101 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> zeroinitializer
-  %102 = load <4 x float>, ptr %6, align 16
-  %103 = fmul contract <4 x float> %101, %102
-  br label %104
+97:                                               ; preds = %95
+  %98 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> zeroinitializer
+  %99 = load <4 x float>, ptr %6, align 16
+  %100 = fmul contract <4 x float> %98, %99
+  br label %101
 
-104:                                              ; preds = %104, %100
-  %.050.i.i = phi i64 [ 1, %100 ], [ %112, %104 ]
-  %.sroa.044.0.in.sroa.speculated49.i.i = phi <4 x float> [ %103, %100 ], [ %111, %104 ]
-  %105 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %6, i64 0, i64 %.050.i.i
-  %106 = getelementptr inbounds nuw float, ptr %10, i64 %.050.i.i
-  %107 = load float, ptr %106, align 4
-  %108 = insertelement <4 x float> poison, float %107, i64 0
-  %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> zeroinitializer
-  %110 = load <4 x float>, ptr %105, align 16
-  %111 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %110, <4 x float> %109, <4 x float> %.sroa.044.0.in.sroa.speculated49.i.i)
-  %112 = add nuw nsw i64 %.050.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %112, 3
-  br i1 %exitcond.not.i.i, label %_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit, label %104, !llvm.loop !14
+101:                                              ; preds = %101, %97
+  %.050.i.i = phi i64 [ 1, %97 ], [ %109, %101 ]
+  %.sroa.044.0.in.sroa.speculated49.i.i = phi <4 x float> [ %100, %97 ], [ %108, %101 ]
+  %102 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %6, i64 %.050.i.i
+  %103 = getelementptr inbounds nuw float, ptr %10, i64 %.050.i.i
+  %104 = load float, ptr %103, align 4
+  %105 = insertelement <4 x float> poison, float %104, i64 0
+  %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> zeroinitializer
+  %107 = load <4 x float>, ptr %102, align 16
+  %108 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %107, <4 x float> %106, <4 x float> %.sroa.044.0.in.sroa.speculated49.i.i)
+  %109 = add nuw nsw i64 %.050.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %109, 3
+  br i1 %exitcond.not.i.i, label %_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit, label %101, !llvm.loop !14
 
-_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit: ; preds = %104
+_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit: ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store <4 x float> %111, ptr %9, align 16
-  %113 = fcmp contract olt <4 x float> %111, zeroinitializer
-  br i1 %2, label %114, label %.critedge192
+  store <4 x float> %108, ptr %9, align 16
+  %110 = fcmp contract olt <4 x float> %108, zeroinitializer
+  br i1 %2, label %111, label %.critedge192
 
-114:                                              ; preds = %_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
-  %115 = fcmp contract ogt <4 x float> %111, splat (float 1.000000e+00)
-  %116 = or <4 x i1> %113, %115
-  %117 = shufflevector <4 x i1> %116, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %118 = bitcast <8 x i1> %117 to i8
-  %119 = and i8 %118, 7
-  %.not = icmp eq i8 %119, 0
-  br i1 %.not, label %.critedge2, label %120
+111:                                              ; preds = %_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
+  %112 = fcmp contract ogt <4 x float> %108, splat (float 1.000000e+00)
+  %113 = or <4 x i1> %110, %112
+  %114 = shufflevector <4 x i1> %113, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %115 = bitcast <8 x i1> %114 to i8
+  %116 = and i8 %115, 7
+  %.not = icmp eq i8 %116, 0
+  br i1 %.not, label %.critedge2, label %117
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
-  %122 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
-  %123 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %122)
-  %.not191 = icmp eq ptr %123, null
-  br i1 %.not191, label %132, label %124
+117:                                              ; preds = %111
+  %118 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
+  %119 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
+  %120 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %119)
+  %.not191 = icmp eq ptr %120, null
+  br i1 %.not191, label %129, label %121
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 12
-  %126 = load i32, ptr %125, align 4
-  %127 = icmp slt i32 %126, 301
-  br i1 %127, label %128, label %132
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 12
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp slt i32 %123, 301
+  br i1 %124, label %125, label %129
 
-128:                                              ; preds = %124
+125:                                              ; preds = %121
   call void @_ZN10tinyformat6formatIJN7mitsuba5ColorIfLm3EEEEEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %7, ptr noundef nonnull @.str.10, ptr noundef nonnull align 16 dereferenceable(16) %9)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %123, i32 noundef 300, ptr noundef %121, ptr noundef nonnull @.str, i32 noundef 121, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %129 unwind label %130
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %120, i32 noundef 300, ptr noundef %118, ptr noundef nonnull @.str, i32 noundef 121, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %126 unwind label %127
 
-129:                                              ; preds = %128
+126:                                              ; preds = %125
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
   %.pre214 = load <4 x float>, ptr %9, align 16
-  br label %132
+  br label %129
 
-common.resume:                                    ; preds = %148, %130
-  %.sink = phi ptr [ %8, %148 ], [ %7, %130 ]
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %131, %130 ]
+common.resume:                                    ; preds = %145, %127
+  %.sink = phi ptr [ %8, %145 ], [ %7, %127 ]
+  %common.resume.op = phi { ptr, i32 } [ %146, %145 ], [ %128, %127 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #28
   resume { ptr, i32 } %common.resume.op
 
-130:                                              ; preds = %128
-  %131 = landingpad { ptr, i32 }
+127:                                              ; preds = %125
+  %128 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-132:                                              ; preds = %120, %124, %129
-  %133 = phi <4 x float> [ %111, %120 ], [ %111, %124 ], [ %.pre214, %129 ]
-  %134 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 1.000000e+00), <4 x float> %133)
+129:                                              ; preds = %117, %121, %126
+  %130 = phi <4 x float> [ %108, %117 ], [ %108, %121 ], [ %.pre214, %126 ]
+  %131 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 1.000000e+00), <4 x float> %130)
   br label %.critedge2.sink.split
 
 .critedge192:                                     ; preds = %_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
-  %135 = shufflevector <4 x i1> %113, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %136 = bitcast <8 x i1> %135 to i8
-  %137 = and i8 %136, 7
-  %.not189 = icmp eq i8 %137, 0
-  br i1 %.not189, label %.critedge2, label %138
+  %132 = shufflevector <4 x i1> %110, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %133 = bitcast <8 x i1> %132 to i8
+  %134 = and i8 %133, 7
+  %.not189 = icmp eq i8 %134, 0
+  br i1 %.not189, label %.critedge2, label %135
 
-138:                                              ; preds = %.critedge192
-  %139 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
-  %140 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
-  %141 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %140)
-  %.not190 = icmp eq ptr %141, null
-  br i1 %.not190, label %.critedge2.sink.split, label %142
+135:                                              ; preds = %.critedge192
+  %136 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
+  %137 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
+  %138 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %137)
+  %.not190 = icmp eq ptr %138, null
+  br i1 %.not190, label %.critedge2.sink.split, label %139
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 12
-  %144 = load i32, ptr %143, align 4
-  %145 = icmp slt i32 %144, 301
-  br i1 %145, label %146, label %.critedge2.sink.split
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 12
+  %141 = load i32, ptr %140, align 4
+  %142 = icmp slt i32 %141, 301
+  br i1 %142, label %143, label %.critedge2.sink.split
 
-146:                                              ; preds = %142
+143:                                              ; preds = %139
   call void @_ZN10tinyformat6formatIJN7mitsuba5ColorIfLm3EEEEEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %8, ptr noundef nonnull @.str.10, ptr noundef nonnull align 16 dereferenceable(16) %9)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %141, i32 noundef 300, ptr noundef %139, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %147 unwind label %148
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %138, i32 noundef 300, ptr noundef %136, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %144 unwind label %145
 
-147:                                              ; preds = %146
+144:                                              ; preds = %143
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
   %.pre = load <4 x float>, ptr %9, align 16
   br label %.critedge2.sink.split
 
-148:                                              ; preds = %146
-  %149 = landingpad { ptr, i32 }
+145:                                              ; preds = %143
+  %146 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-.critedge2.sink.split:                            ; preds = %147, %142, %138, %132
-  %.sink221 = phi <4 x float> [ %134, %132 ], [ %111, %138 ], [ %111, %142 ], [ %.pre, %147 ]
-  %150 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %.sink221)
+.critedge2.sink.split:                            ; preds = %144, %139, %135, %129
+  %.sink221 = phi <4 x float> [ %131, %129 ], [ %108, %135 ], [ %108, %139 ], [ %.pre, %144 ]
+  %147 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %.sink221)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.sink.split, %114, %.critedge192
-  %151 = phi <4 x float> [ %111, %114 ], [ %111, %.critedge192 ], [ %150, %.critedge2.sink.split ]
-  ret <4 x float> %151
+.critedge2:                                       ; preds = %.critedge2.sink.split, %111, %.critedge192
+  %148 = phi <4 x float> [ %108, %111 ], [ %108, %.critedge192 ], [ %147, %.critedge2.sink.split ]
+  ret <4 x float> %148
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3030,146 +3030,146 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIdEENS1_5ColorIT_Lm3E
   store double 0x3FF0EABF00000000, ptr %89, align 16
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %98, %80
-  %.037.i = phi i64 [ 0, %80 ], [ %99, %98 ]
-  %90 = getelementptr inbounds nuw [3 x %"struct.drjit::Array.93"], ptr %6, i64 0, i64 %.037.i
+.preheader.i:                                     ; preds = %95, %80
+  %.037.i = phi i64 [ 0, %80 ], [ %96, %95 ]
+  %invariant.gep.i = getelementptr inbounds nuw double, ptr %5, i64 %.037.i
+  %90 = getelementptr inbounds nuw %"struct.drjit::Array.93", ptr %6, i64 %.037.i
   br label %91
 
 91:                                               ; preds = %91, %.preheader.i
-  %.02636.i = phi i64 [ 0, %.preheader.i ], [ %97, %91 ]
-  %92 = mul nuw nsw i64 %.02636.i, 3
-  %93 = add nuw nsw i64 %92, %.037.i
-  %94 = getelementptr inbounds nuw [9 x double], ptr %5, i64 0, i64 %93
-  %95 = load double, ptr %94, align 8
-  %96 = getelementptr inbounds nuw double, ptr %90, i64 %.02636.i
-  store double %95, ptr %96, align 8
-  %97 = add nuw nsw i64 %.02636.i, 1
-  %exitcond.not.i193 = icmp eq i64 %97, 3
-  br i1 %exitcond.not.i193, label %98, label %91, !llvm.loop !17
+  %.02636.i = phi i64 [ 0, %.preheader.i ], [ %94, %91 ]
+  %.idx.i = mul nuw nsw i64 %.02636.i, 24
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
+  %92 = load double, ptr %gep.i, align 8
+  %93 = getelementptr inbounds nuw double, ptr %90, i64 %.02636.i
+  store double %92, ptr %93, align 8
+  %94 = add nuw nsw i64 %.02636.i, 1
+  %exitcond.not.i193 = icmp eq i64 %94, 3
+  br i1 %exitcond.not.i193, label %95, label %91, !llvm.loop !17
 
-98:                                               ; preds = %91
-  %99 = add nuw nsw i64 %.037.i, 1
-  %exitcond38.not.i = icmp eq i64 %99, 3
-  br i1 %exitcond38.not.i, label %100, label %.preheader.i, !llvm.loop !18
+95:                                               ; preds = %91
+  %96 = add nuw nsw i64 %.037.i, 1
+  %exitcond38.not.i = icmp eq i64 %96, 3
+  br i1 %exitcond38.not.i, label %97, label %.preheader.i, !llvm.loop !18
 
-100:                                              ; preds = %98
-  %101 = shufflevector <4 x double> %81, <4 x double> poison, <4 x i32> zeroinitializer
-  %102 = load <4 x double>, ptr %6, align 32
-  %103 = fmul contract <4 x double> %101, %102
-  br label %104
+97:                                               ; preds = %95
+  %98 = shufflevector <4 x double> %81, <4 x double> poison, <4 x i32> zeroinitializer
+  %99 = load <4 x double>, ptr %6, align 32
+  %100 = fmul contract <4 x double> %98, %99
+  br label %101
 
-104:                                              ; preds = %104, %100
-  %.050.i.i = phi i64 [ 1, %100 ], [ %112, %104 ]
-  %.sroa.044.0.in.sroa.speculated49.i.i = phi <4 x double> [ %103, %100 ], [ %111, %104 ]
-  %105 = getelementptr inbounds nuw [3 x %"struct.drjit::Array.93"], ptr %6, i64 0, i64 %.050.i.i
-  %106 = getelementptr inbounds nuw double, ptr %10, i64 %.050.i.i
-  %107 = load double, ptr %106, align 8
-  %108 = insertelement <4 x double> poison, double %107, i64 0
-  %109 = shufflevector <4 x double> %108, <4 x double> poison, <4 x i32> zeroinitializer
-  %110 = load <4 x double>, ptr %105, align 32
-  %111 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %110, <4 x double> %109, <4 x double> %.sroa.044.0.in.sroa.speculated49.i.i)
-  %112 = add nuw nsw i64 %.050.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %112, 3
-  br i1 %exitcond.not.i.i, label %_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit, label %104, !llvm.loop !19
+101:                                              ; preds = %101, %97
+  %.050.i.i = phi i64 [ 1, %97 ], [ %109, %101 ]
+  %.sroa.044.0.in.sroa.speculated49.i.i = phi <4 x double> [ %100, %97 ], [ %108, %101 ]
+  %102 = getelementptr inbounds nuw %"struct.drjit::Array.93", ptr %6, i64 %.050.i.i
+  %103 = getelementptr inbounds nuw double, ptr %10, i64 %.050.i.i
+  %104 = load double, ptr %103, align 8
+  %105 = insertelement <4 x double> poison, double %104, i64 0
+  %106 = shufflevector <4 x double> %105, <4 x double> poison, <4 x i32> zeroinitializer
+  %107 = load <4 x double>, ptr %102, align 32
+  %108 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %107, <4 x double> %106, <4 x double> %.sroa.044.0.in.sroa.speculated49.i.i)
+  %109 = add nuw nsw i64 %.050.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %109, 3
+  br i1 %exitcond.not.i.i, label %_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit, label %101, !llvm.loop !19
 
-_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit: ; preds = %104
+_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit: ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store <4 x double> %111, ptr %9, align 32
-  %113 = fcmp contract olt <4 x double> %111, zeroinitializer
-  br i1 %2, label %114, label %.critedge192
+  store <4 x double> %108, ptr %9, align 32
+  %110 = fcmp contract olt <4 x double> %108, zeroinitializer
+  br i1 %2, label %111, label %.critedge192
 
-114:                                              ; preds = %_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
-  %115 = fcmp contract ogt <4 x double> %111, splat (double 1.000000e+00)
-  %116 = or <4 x i1> %113, %115
-  %117 = shufflevector <4 x i1> %116, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %118 = bitcast <8 x i1> %117 to i8
-  %119 = and i8 %118, 7
-  %.not = icmp eq i8 %119, 0
-  br i1 %.not, label %.critedge2, label %120
+111:                                              ; preds = %_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
+  %112 = fcmp contract ogt <4 x double> %108, splat (double 1.000000e+00)
+  %113 = or <4 x i1> %110, %112
+  %114 = shufflevector <4 x i1> %113, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %115 = bitcast <8 x i1> %114 to i8
+  %116 = and i8 %115, 7
+  %.not = icmp eq i8 %116, 0
+  br i1 %.not, label %.critedge2, label %117
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
-  %122 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
-  %123 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %122)
-  %.not191 = icmp eq ptr %123, null
-  br i1 %.not191, label %132, label %124
+117:                                              ; preds = %111
+  %118 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
+  %119 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
+  %120 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %119)
+  %.not191 = icmp eq ptr %120, null
+  br i1 %.not191, label %129, label %121
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 12
-  %126 = load i32, ptr %125, align 4
-  %127 = icmp slt i32 %126, 301
-  br i1 %127, label %128, label %132
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 12
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp slt i32 %123, 301
+  br i1 %124, label %125, label %129
 
-128:                                              ; preds = %124
+125:                                              ; preds = %121
   call void @_ZN10tinyformat6formatIJN7mitsuba5ColorIdLm3EEEEEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %7, ptr noundef nonnull @.str.10, ptr noundef nonnull align 32 dereferenceable(32) %9)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %123, i32 noundef 300, ptr noundef %121, ptr noundef nonnull @.str, i32 noundef 121, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %129 unwind label %130
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %120, i32 noundef 300, ptr noundef %118, ptr noundef nonnull @.str, i32 noundef 121, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %126 unwind label %127
 
-129:                                              ; preds = %128
+126:                                              ; preds = %125
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
   %.pre214 = load <4 x double>, ptr %9, align 32
-  br label %132
+  br label %129
 
-common.resume:                                    ; preds = %148, %130
-  %.sink = phi ptr [ %8, %148 ], [ %7, %130 ]
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %131, %130 ]
+common.resume:                                    ; preds = %145, %127
+  %.sink = phi ptr [ %8, %145 ], [ %7, %127 ]
+  %common.resume.op = phi { ptr, i32 } [ %146, %145 ], [ %128, %127 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #28
   resume { ptr, i32 } %common.resume.op
 
-130:                                              ; preds = %128
-  %131 = landingpad { ptr, i32 }
+127:                                              ; preds = %125
+  %128 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-132:                                              ; preds = %120, %124, %129
-  %133 = phi <4 x double> [ %111, %120 ], [ %111, %124 ], [ %.pre214, %129 ]
-  %134 = call contract noundef <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> splat (double 1.000000e+00), <4 x double> %133)
+129:                                              ; preds = %117, %121, %126
+  %130 = phi <4 x double> [ %108, %117 ], [ %108, %121 ], [ %.pre214, %126 ]
+  %131 = call contract noundef <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> splat (double 1.000000e+00), <4 x double> %130)
   br label %.critedge2.sink.split
 
 .critedge192:                                     ; preds = %_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
-  %135 = shufflevector <4 x i1> %113, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %136 = bitcast <8 x i1> %135 to i8
-  %137 = and i8 %136, 7
-  %.not189 = icmp eq i8 %137, 0
-  br i1 %.not189, label %.critedge2, label %138
+  %132 = shufflevector <4 x i1> %110, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %133 = bitcast <8 x i1> %132 to i8
+  %134 = and i8 %133, 7
+  %.not189 = icmp eq i8 %134, 0
+  br i1 %.not189, label %.critedge2, label %135
 
-138:                                              ; preds = %.critedge192
-  %139 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
-  %140 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
-  %141 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %140)
-  %.not190 = icmp eq ptr %141, null
-  br i1 %.not190, label %.critedge2.sink.split, label %142
+135:                                              ; preds = %.critedge192
+  %136 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
+  %137 = tail call noundef ptr @_ZN7mitsuba6Thread6threadEv()
+  %138 = tail call noundef ptr @_ZN7mitsuba6Thread6loggerEv(ptr noundef nonnull align 8 dereferenceable(24) %137)
+  %.not190 = icmp eq ptr %138, null
+  br i1 %.not190, label %.critedge2.sink.split, label %139
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 12
-  %144 = load i32, ptr %143, align 4
-  %145 = icmp slt i32 %144, 301
-  br i1 %145, label %146, label %.critedge2.sink.split
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 12
+  %141 = load i32, ptr %140, align 4
+  %142 = icmp slt i32 %141, 301
+  br i1 %142, label %143, label %.critedge2.sink.split
 
-146:                                              ; preds = %142
+143:                                              ; preds = %139
   call void @_ZN10tinyformat6formatIJN7mitsuba5ColorIdLm3EEEEEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %8, ptr noundef nonnull @.str.10, ptr noundef nonnull align 32 dereferenceable(32) %9)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %141, i32 noundef 300, ptr noundef %139, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %147 unwind label %148
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %138, i32 noundef 300, ptr noundef %136, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %144 unwind label %145
 
-147:                                              ; preds = %146
+144:                                              ; preds = %143
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
   %.pre = load <4 x double>, ptr %9, align 32
   br label %.critedge2.sink.split
 
-148:                                              ; preds = %146
-  %149 = landingpad { ptr, i32 }
+145:                                              ; preds = %143
+  %146 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-.critedge2.sink.split:                            ; preds = %147, %142, %138, %132
-  %.sink221 = phi <4 x double> [ %134, %132 ], [ %111, %138 ], [ %111, %142 ], [ %.pre, %147 ]
-  %150 = call contract noundef <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> zeroinitializer, <4 x double> %.sink221)
+.critedge2.sink.split:                            ; preds = %144, %139, %135, %129
+  %.sink221 = phi <4 x double> [ %131, %129 ], [ %108, %135 ], [ %108, %139 ], [ %.pre, %144 ]
+  %147 = call contract noundef <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> zeroinitializer, <4 x double> %.sink221)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.sink.split, %114, %.critedge192
-  %151 = phi <4 x double> [ %111, %114 ], [ %111, %.critedge192 ], [ %150, %.critedge2.sink.split ]
-  ret <4 x double> %151
+.critedge2:                                       ; preds = %.critedge2.sink.split, %111, %.critedge192
+  %148 = phi <4 x double> [ %108, %111 ], [ %108, %.critedge192 ], [ %147, %.critedge2.sink.split ]
+  ret <4 x double> %148
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3570,8 +3570,8 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail13CIE1932TablesIfE10initializ
 
 25:                                               ; preds = %25, %15
   %.05.i.i = phi i64 [ 0, %15 ], [ %40, %25 ]
-  %26 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %.05.i.i
-  %27 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %3, i64 0, i64 %.05.i.i
+  %26 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %0, i64 %.05.i.i
+  %27 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %3, i64 %.05.i.i
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
   store ptr %29, ptr %27, align 8
@@ -3636,8 +3636,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit26:            ; preds = %_ZN5drjit12DynamicA
 
 58:                                               ; preds = %58, %56
   %.05.i.i27 = phi i64 [ 0, %56 ], [ %73, %58 ]
-  %59 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %57, i64 0, i64 %.05.i.i27
-  %60 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %4, i64 0, i64 %.05.i.i27
+  %59 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %57, i64 %.05.i.i27
+  %60 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %4, i64 %.05.i.i27
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %59, align 8
   store ptr %62, ptr %60, align 8
@@ -3794,8 +3794,8 @@ _ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2Ev.exit: ; preds = %7
 
 11:                                               ; preds = %11, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2Ev.exit
   %.05.i.i = phi i64 [ 0, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2Ev.exit ], [ %26, %11 ]
-  %12 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %10, i64 0, i64 %.05.i.i
-  %13 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.05.i.i
+  %12 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %10, i64 %.05.i.i
+  %13 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %2, i64 %.05.i.i
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   store ptr %15, ptr %13, align 8
@@ -3820,8 +3820,8 @@ _ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2Ev.exit: ; preds = %7
 
 _ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEaSEOS4_.exit: ; preds = %11, %_ZN5drjit12DynamicArrayIfEaSERKS1_.exit.i.i
   %.05.i.i2 = phi i64 [ %50, %_ZN5drjit12DynamicArrayIfEaSERKS1_.exit.i.i ], [ 0, %11 ]
-  %27 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %.05.i.i2
-  %28 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %10, i64 0, i64 %.05.i.i2
+  %27 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %0, i64 %.05.i.i2
+  %28 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %10, i64 %.05.i.i2
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp ugt i64 %30, 4611686018427387903
@@ -6266,7 +6266,7 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail13CIE1932TablesIfEC2ERKS2_(pt
   %4 = phi i64 [ 0, %2 ], [ %24, %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i.i ]
   %.idx.i.i = mul nuw nsw i64 %4, 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i
-  %6 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %1, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %1, i64 %4
   store ptr null, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6347,7 +6347,7 @@ _ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2ERKS4_.exit: ; preds = %_ZN5dr
   %.idx.i.i8 = mul nuw nsw i64 %41, 24
   %.add21 = add nuw nsw i64 %.idx.i.i8, 72
   %.ptr24 = getelementptr inbounds nuw i8, ptr %0, i64 %.add21
-  %42 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %39, i64 %41
   store ptr null, ptr %.ptr24, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.ptr24, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -7458,90 +7458,90 @@ define linkonce_odr hidden void @_ZN7mitsuba11xyz_to_srgbIN5drjit12DynamicArrayI
   store float 0x3FF0EABF00000000, ptr %14, align 16
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %23
-  %.040 = phi i64 [ 0, %3 ], [ %24, %23 ]
-  %15 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %5, i64 0, i64 %.040
+.preheader:                                       ; preds = %3, %20
+  %.040 = phi i64 [ 0, %3 ], [ %21, %20 ]
+  %invariant.gep = getelementptr inbounds nuw float, ptr %4, i64 %.040
+  %15 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %5, i64 %.040
   br label %16
 
 16:                                               ; preds = %.preheader, %16
-  %.02839 = phi i64 [ 0, %.preheader ], [ %22, %16 ]
-  %17 = mul nuw nsw i64 %.02839, 3
-  %18 = add nuw nsw i64 %17, %.040
-  %19 = getelementptr inbounds nuw [9 x float], ptr %4, i64 0, i64 %18
-  %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds nuw float, ptr %15, i64 %.02839
-  store float %20, ptr %21, align 4
-  %22 = add nuw nsw i64 %.02839, 1
-  %exitcond.not = icmp eq i64 %22, 3
-  br i1 %exitcond.not, label %23, label %16, !llvm.loop !12
+  %.02839 = phi i64 [ 0, %.preheader ], [ %19, %16 ]
+  %.idx = mul nuw nsw i64 %.02839, 12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
+  %17 = load float, ptr %gep, align 4
+  %18 = getelementptr inbounds nuw float, ptr %15, i64 %.02839
+  store float %17, ptr %18, align 4
+  %19 = add nuw nsw i64 %.02839, 1
+  %exitcond.not = icmp eq i64 %19, 3
+  br i1 %exitcond.not, label %20, label %16, !llvm.loop !12
 
-23:                                               ; preds = %16
-  %24 = add nuw nsw i64 %.040, 1
-  %exitcond41.not = icmp eq i64 %24, 3
-  br i1 %exitcond41.not, label %25, label %.preheader, !llvm.loop !13
+20:                                               ; preds = %16
+  %21 = add nuw nsw i64 %.040, 1
+  %exitcond41.not = icmp eq i64 %21, 3
+  br i1 %exitcond41.not, label %22, label %.preheader, !llvm.loop !13
 
-25:                                               ; preds = %23
+22:                                               ; preds = %20
   call void @_ZN5drjitmlIfN7mitsuba5ColorINS_12DynamicArrayIfEELm3EEELm3ETnNSt3__19enable_ifIXnt11is_matrix_vIT0_EEiE4typeELi0EEEDaRKNS_6MatrixIT_XT1_EEERKS8_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Array.101") align 8 %6, ptr noundef nonnull align 16 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(72) %1)
   invoke void @_ZN5drjit15StaticArrayImplINS_12DynamicArrayIfEELm3ELb0EN7mitsuba5ColorIS2_Lm3EEEiEC2IS2_NS_5ArrayIS2_Lm3EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit unwind label %38
+          to label %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit unwind label %35
 
-_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit: ; preds = %25
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  br label %27
+_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit: ; preds = %22
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  br label %24
 
-27:                                               ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit
-  %28 = phi ptr [ %26, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit ], [ %29, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 -24
-  %30 = getelementptr inbounds i8, ptr %28, i64 -8
-  %31 = load i8, ptr %30, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i
+24:                                               ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit
+  %25 = phi ptr [ %23, %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EECI2NS1_15StaticArrayImplIS3_Lm3ELb0ES4_iEEIS3_NS1_5ArrayIS3_Lm3EEES4_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSA_5DepthsrSB_5DepthEiE4typeELi0EEERKNS1_9ArrayBaseIT_Lb0ESB_EE.exit ], [ %26, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 -24
+  %27 = getelementptr inbounds i8, ptr %25, i64 -8
+  %28 = load i8, ptr %27, align 8
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %29, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i, label %36
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %26, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i, label %33
 
-36:                                               ; preds = %33
-  call void @_ZdaPv(ptr noundef nonnull %34) #29
+33:                                               ; preds = %30
+  call void @_ZdaPv(ptr noundef nonnull %31) #29
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i:          ; preds = %36, %33, %27
-  %37 = icmp eq ptr %29, %6
-  br i1 %37, label %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit, label %27
+_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i:          ; preds = %33, %30, %24
+  %34 = icmp eq ptr %26, %6
+  br i1 %34, label %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit, label %24
 
 _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit: ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i
   ret void
 
-38:                                               ; preds = %25
-  %39 = landingpad { ptr, i32 }
+35:                                               ; preds = %22
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  br label %41
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  br label %38
 
-41:                                               ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37, %38
-  %42 = phi ptr [ %40, %38 ], [ %43, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37 ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 -24
-  %44 = getelementptr inbounds i8, ptr %42, i64 -8
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37
+38:                                               ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37, %35
+  %39 = phi ptr [ %37, %35 ], [ %40, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37 ]
+  %40 = getelementptr inbounds i8, ptr %39, i64 -24
+  %41 = getelementptr inbounds i8, ptr %39, i64 -8
+  %42 = load i8, ptr %41, align 8
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %43, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37, label %50
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %40, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37, label %47
 
-50:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef nonnull %48) #29
+47:                                               ; preds = %44
+  call void @_ZdaPv(ptr noundef nonnull %45) #29
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37:        ; preds = %50, %47, %41
-  %51 = icmp eq ptr %43, %6
-  br i1 %51, label %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit38, label %41
+_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37:        ; preds = %47, %44, %38
+  %48 = icmp eq ptr %40, %6
+  br i1 %48, label %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit38, label %38
 
 _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit38: ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i37
-  resume { ptr, i32 } %39
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7578,7 +7578,7 @@ define linkonce_odr hidden void @_ZN5drjitmlIfN7mitsuba5ColorINS_12DynamicArrayI
 
 17:                                               ; preds = %.preheader.i.i
   store float %15, ptr %16, align 4
-  %18 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %5, i64 0, i64 %.020.i.i
+  %18 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %5, i64 %.020.i.i
   %19 = load ptr, ptr %18, align 8
   store ptr %16, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -7711,7 +7711,7 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit51.preheader: ; preds = %_ZN5
 78:                                               ; preds = %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit51.preheader, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit72
   %exitcond.not = phi i1 [ false, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit51.preheader ], [ true, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit72 ]
   %.089 = phi i64 [ 1, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit51.preheader ], [ 2, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit72 ]
-  %79 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.089
+  %79 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %2, i64 %.089
   invoke void @_ZN5drjit15StaticArrayImplINS_12DynamicArrayIfEELm3ELb0ENS_5ArrayIS2_Lm3EEEiEC2IS2_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(17) %79)
           to label %_ZN5drjit15StaticArrayBaseINS_12DynamicArrayIfEELm3ELb0ENS_5ArrayIS2_Lm3EEEE5full_IS2_EES4_RKT_m.exit unwind label %180
 
@@ -7726,7 +7726,7 @@ _ZN5drjit15StaticArrayBaseINS_12DynamicArrayIfEELm3ELb0ENS_5ArrayIS2_Lm3EEEE5ful
   br i1 %81, label %.preheader.i.i56.preheader, label %_ZN5drjit15StaticArrayBaseINS_12DynamicArrayIfEELm3ELb0ENS_5ArrayIS2_Lm3EEEE5full_IS2_EES4_RKT_m.exit
 
 .preheader.i.i56.preheader:                       ; preds = %_ZN5drjit15StaticArrayBaseINS_12DynamicArrayIfEELm3ELb0ENS_5ArrayIS2_Lm3EEEE5full_IS2_EES4_RKT_m.exit
-  %82 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %1, i64 0, i64 %.089
+  %82 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %1, i64 %.089
   br label %.preheader.i.i56
 
 .preheader.i.i56:                                 ; preds = %.preheader.i.i56.preheader, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i60
@@ -7738,7 +7738,7 @@ _ZN5drjit15StaticArrayBaseINS_12DynamicArrayIfEELm3ELb0ENS_5ArrayIS2_Lm3EEEE5ful
 
 86:                                               ; preds = %.preheader.i.i56
   store float %84, ptr %85, align 4
-  %87 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %4, i64 0, i64 %.020.i.i57
+  %87 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %4, i64 %.020.i.i57
   %88 = load ptr, ptr %87, align 8
   store ptr %85, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -7839,8 +7839,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i67:        ; preds = %130, %127, %.prehea
 
 _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit68: ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i67, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit68
   %.05.i.i = phi i64 [ %146, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit68 ], [ 0, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i67 ]
-  %132 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %6, i64 0, i64 %.05.i.i
-  %133 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %8, i64 0, i64 %.05.i.i
+  %132 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %6, i64 %.05.i.i
+  %133 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %8, i64 %.05.i.i
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %132, align 8
   store ptr %135, ptr %133, align 8
@@ -7967,7 +7967,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i77:        ; preds = %191, %188, %182
 .preheader:                                       ; preds = %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit72, %.preheader
   %193 = phi i64 [ %204, %.preheader ], [ 0, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit72 ]
   %194 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %0, i64 %193
-  %195 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %6, i64 0, i64 %193
+  %195 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %6, i64 %193
   %196 = load ptr, ptr %195, align 8
   store ptr %196, ptr %194, align 8
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
@@ -8066,13 +8066,13 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader: ; preds = %5
 
 10:                                               ; preds = %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader, %_ZN5drjit12DynamicArrayIfED2Ev.exit
   %.034 = phi i64 [ 0, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader ], [ %28, %_ZN5drjit12DynamicArrayIfED2Ev.exit ]
-  %11 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %1, i64 0, i64 %.034
-  %12 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.034
+  %11 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %1, i64 %.034
+  %12 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %2, i64 %.034
   invoke void @_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4mul_ERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::DynamicArray") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(17) %12)
           to label %13 unwind label %29
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %.034
+  %14 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %0, i64 %.034
   %15 = load ptr, ptr %4, align 8
   %16 = load ptr, ptr %14, align 8
   store ptr %16, ptr %4, align 8
@@ -8351,7 +8351,7 @@ define linkonce_odr hidden void @_ZN5drjit15StaticArrayImplINS_12DynamicArrayIfE
 
 8:                                                ; preds = %.preheader, %28
   %.08 = phi i64 [ 0, %.preheader ], [ %31, %28 ]
-  %9 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %.08
+  %9 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %0, i64 %.08
   %10 = load i64, ptr %7, align 8
   %11 = icmp ugt i64 %10, 4611686018427387903
   %12 = shl i64 %10, 2
@@ -8460,14 +8460,14 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader: ; preds = %7
 
 13:                                               ; preds = %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader, %_ZN5drjit12DynamicArrayIfED2Ev.exit
   %.046 = phi i64 [ 0, %_ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader ], [ %47, %_ZN5drjit12DynamicArrayIfED2Ev.exit ]
-  %14 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %1, i64 0, i64 %.046
-  %15 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.046
+  %14 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %1, i64 %.046
+  %15 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %2, i64 %.046
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4mul_ERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::DynamicArray") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(17) %15)
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %13
-  %16 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %3, i64 0, i64 %.046
+  %16 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %3, i64 %.046
   invoke void @_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4add_ERKS2_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::DynamicArray") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(17) %16)
           to label %17 unwind label %24
 
@@ -8503,7 +8503,7 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader: ; preds = %7
 
 32:                                               ; preds = %23, %20, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %.046
+  %33 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %0, i64 %.046
   %34 = load ptr, ptr %6, align 8
   %35 = load ptr, ptr %33, align 8
   store ptr %35, ptr %6, align 8
@@ -8729,7 +8729,7 @@ define linkonce_odr hidden void @_ZN5drjit15StaticArrayImplINS_12DynamicArrayIfE
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN5drjit12DynamicArrayIfED2Ev.exit
   %.022 = phi i64 [ %28, %_ZN5drjit12DynamicArrayIfED2Ev.exit ], [ 0, %.preheader.preheader ]
-  %7 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %1, i64 0, i64 %.022
+  %7 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %1, i64 %.022
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
@@ -8758,7 +8758,7 @@ define linkonce_odr hidden void @_ZN5drjit15StaticArrayImplINS_12DynamicArrayIfE
 
 _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit:          ; preds = %.lr.ph.i, %.preheader
   %.sroa.0.0 = phi ptr [ null, %.preheader ], [ %14, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %.022
+  %20 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %0, i64 %.022
   %21 = load ptr, ptr %20, align 8
   store ptr %.sroa.0.0, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16

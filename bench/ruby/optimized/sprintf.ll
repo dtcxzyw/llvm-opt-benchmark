@@ -2180,7 +2180,7 @@ RSTRING_PTR.exit1350:                             ; preds = %.lr.ph3155, %899
   %.pn1673.in.in = getelementptr i8, ptr %.sroa.2.0.i1349, i64 %.010113154
   %.pn1673.in = load i8, ptr %.pn1673.in.in, align 1, !tbaa !21
   %.pn1673 = zext i8 %.pn1673.in to i64
-  %.in = getelementptr [0 x i8], ptr @ruby_digitmap, i64 0, i64 %.pn1673
+  %.in = getelementptr i8, ptr @ruby_digitmap, i64 %.pn1673
   %900 = load i8, ptr %.in, align 1, !tbaa !21
   store i8 %900, ptr %.pn1673.in.in, align 1, !tbaa !21
   %901 = add nuw nsw i64 %.010113154, 1
@@ -2314,7 +2314,7 @@ RSTRING_PTR.exit1367:                             ; preds = %.lr.ph3157, %960
   %.pn1675.in.in = getelementptr i8, ptr %.sroa.2.0.i1366, i64 %.110123156
   %.pn1675.in = load i8, ptr %.pn1675.in.in, align 1, !tbaa !21
   %.pn1675 = zext i8 %.pn1675.in to i64
-  %.in1674 = getelementptr [0 x i8], ptr @ruby_digitmap, i64 0, i64 %.pn1675
+  %.in1674 = getelementptr i8, ptr @ruby_digitmap, i64 %.pn1675
   %961 = load i8, ptr %.in1674, align 1, !tbaa !21
   store i8 %961, ptr %.pn1675.in.in, align 1, !tbaa !21
   %962 = add nuw nsw i64 %.110123156, 1

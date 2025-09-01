@@ -4045,7 +4045,7 @@ _ZNK5arrow5Table5fieldEi.exit.i:                  ; preds = %220, %217, %.noexc9
 _ZN5arrow3ipc7feather12_GLOBAL__N_117GetPrimitiveArrayERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS2_13ArrayMetadataE.exit.i: ; preds = %227
   %235 = load i32, ptr %59, align 8, !tbaa !272, !noalias !199
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds nuw [5 x i8], ptr @_ZN5arrow3ipc7feather12_GLOBAL__N_124COLUMN_TYPE_ENUM_MAPPINGE, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr @_ZN5arrow3ipc7feather12_GLOBAL__N_124COLUMN_TYPE_ENUM_MAPPINGE, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !309, !noalias !199
   switch i32 %235, label %_ZN5arrow3ipc7feather12_GLOBAL__N_114ColumnMetadata13WriteMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEE.exit.i [
     i32 4, label %261

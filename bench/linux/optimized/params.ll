@@ -1512,7 +1512,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nounde
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load i32, ptr %47, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr [0 x %struct.param_attribute], ptr %48, i64 0, i64 %50
+  %51 = getelementptr %struct.param_attribute, ptr %48, i64 %50
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %52 = load ptr, ptr %9, align 8
   %53 = load i32, ptr %52, align 8
@@ -1543,7 +1543,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nounde
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load i32, ptr %71, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr [0 x %struct.param_attribute], ptr %72, i64 0, i64 %74
+  %75 = getelementptr %struct.param_attribute, ptr %72, i64 %74
   store ptr %2, ptr %75, align 8
   %76 = load i16, ptr %4, align 8
   %77 = load ptr, ptr %9, align 8
@@ -1566,7 +1566,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @add_sysfs_param(ptr nounde
   %88 = phi i64 [ %95, %.preheader ], [ 0, %44 ]
   %89 = phi ptr [ %96, %.preheader ], [ %85, %44 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  %91 = getelementptr [0 x %struct.param_attribute], ptr %90, i64 0, i64 %88
+  %91 = getelementptr %struct.param_attribute, ptr %90, i64 %88
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr ptr, ptr %93, i64 %88

@@ -3737,7 +3737,7 @@ lpad:                                             ; preds = %switch.lookup, %sw.
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %file_type to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6google8protobuf8compiler3cpp12IncludeGuardB5cxx11EPKNS0_14FileDescriptorENS2_17GeneratedFileTypeERKNS2_7OptionsE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google8protobuf8compiler3cpp12IncludeGuardB5cxx11EPKNS0_14FileDescriptorENS2_17GeneratedFileTypeERKNS2_7OptionsE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %extension, ptr noundef nonnull %switch.load)
           to label %sw.epilog unwind label %lpad
@@ -4014,7 +4014,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %.no
   %cmp.i.i.i = phi i1 [ true, %.noexc ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %.noexc ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %.noexc ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -4562,7 +4562,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %c
   %cmp.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i ], [ false, %for.inc.i.i.i.i ]
   %__i.06.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i ], [ 1, %for.inc.i.i.i.i ]
   %__n.05.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i ], [ %__n.1.i.i.i.i, %for.inc.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
@@ -4657,7 +4657,7 @@ for.body.i.i.i.i44:                               ; preds = %for.inc.i.i.i.i50, 
   %cmp.i.i.i.i45 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i36 ], [ false, %for.inc.i.i.i.i50 ]
   %__i.06.i.i.i.i46 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i36 ], [ 1, %for.inc.i.i.i.i50 ]
   %__n.05.i.i.i.i47 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i36 ], [ %__n.1.i.i.i.i51, %for.inc.i.i.i.i50 ]
-  %arrayidx.i.i.i.i48 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i46
+  %arrayidx.i.i.i.i48 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i46
   %7 = load i8, ptr %arrayidx.i.i.i.i48, align 1
   %tobool.i.i.i.i49 = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i49, label %if.then.i.i.i.i60, label %for.inc.i.i.i.i50
@@ -4793,7 +4793,7 @@ for.body.i.i.i.i96:                               ; preds = %for.inc.i.i.i.i102,
   %cmp.i.i.i.i97 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i88 ], [ false, %for.inc.i.i.i.i102 ]
   %__i.06.i.i.i.i98 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i88 ], [ 1, %for.inc.i.i.i.i102 ]
   %__n.05.i.i.i.i99 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i88 ], [ %__n.1.i.i.i.i103, %for.inc.i.i.i.i102 ]
-  %arrayidx.i.i.i.i100 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i98
+  %arrayidx.i.i.i.i100 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i98
   %15 = load i8, ptr %arrayidx.i.i.i.i100, align 1
   %tobool.i.i.i.i101 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i.i101, label %if.then.i.i.i.i112, label %for.inc.i.i.i.i102
@@ -4888,7 +4888,7 @@ for.body.i.i.i.i136:                              ; preds = %for.inc.i.i.i.i142,
   %cmp.i.i.i.i137 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i128 ], [ false, %for.inc.i.i.i.i142 ]
   %__i.06.i.i.i.i138 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i128 ], [ 1, %for.inc.i.i.i.i142 ]
   %__n.05.i.i.i.i139 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i128 ], [ %__n.1.i.i.i.i143, %for.inc.i.i.i.i142 ]
-  %arrayidx.i.i.i.i140 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i138
+  %arrayidx.i.i.i.i140 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i138
   %20 = load i8, ptr %arrayidx.i.i.i.i140, align 1
   %tobool.i.i.i.i141 = trunc i8 %20 to i1
   br i1 %tobool.i.i.i.i141, label %if.then.i.i.i.i152, label %for.inc.i.i.i.i142
@@ -4983,7 +4983,7 @@ for.body.i.i.i.i176:                              ; preds = %for.inc.i.i.i.i182,
   %cmp.i.i.i.i177 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i168 ], [ false, %for.inc.i.i.i.i182 ]
   %__i.06.i.i.i.i178 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i168 ], [ 1, %for.inc.i.i.i.i182 ]
   %__n.05.i.i.i.i179 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i168 ], [ %__n.1.i.i.i.i183, %for.inc.i.i.i.i182 ]
-  %arrayidx.i.i.i.i180 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i178
+  %arrayidx.i.i.i.i180 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i178
   %25 = load i8, ptr %arrayidx.i.i.i.i180, align 1
   %tobool.i.i.i.i181 = trunc i8 %25 to i1
   br i1 %tobool.i.i.i.i181, label %if.then.i.i.i.i192, label %for.inc.i.i.i.i182
@@ -5078,7 +5078,7 @@ for.body.i.i.i.i216:                              ; preds = %for.inc.i.i.i.i222,
   %cmp.i.i.i.i217 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i208 ], [ false, %for.inc.i.i.i.i222 ]
   %__i.06.i.i.i.i218 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i208 ], [ 1, %for.inc.i.i.i.i222 ]
   %__n.05.i.i.i.i219 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i208 ], [ %__n.1.i.i.i.i223, %for.inc.i.i.i.i222 ]
-  %arrayidx.i.i.i.i220 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i218
+  %arrayidx.i.i.i.i220 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i218
   %30 = load i8, ptr %arrayidx.i.i.i.i220, align 1
   %tobool.i.i.i.i221 = trunc i8 %30 to i1
   br i1 %tobool.i.i.i.i221, label %if.then.i.i.i.i232, label %for.inc.i.i.i.i222
@@ -5173,7 +5173,7 @@ for.body.i.i.i.i256:                              ; preds = %for.inc.i.i.i.i262,
   %cmp.i.i.i.i257 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i248 ], [ false, %for.inc.i.i.i.i262 ]
   %__i.06.i.i.i.i258 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i248 ], [ 1, %for.inc.i.i.i.i262 ]
   %__n.05.i.i.i.i259 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i248 ], [ %__n.1.i.i.i.i263, %for.inc.i.i.i.i262 ]
-  %arrayidx.i.i.i.i260 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i258
+  %arrayidx.i.i.i.i260 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i258
   %35 = load i8, ptr %arrayidx.i.i.i.i260, align 1
   %tobool.i.i.i.i261 = trunc i8 %35 to i1
   br i1 %tobool.i.i.i.i261, label %if.then.i.i.i.i272, label %for.inc.i.i.i.i262
@@ -5268,7 +5268,7 @@ for.body.i.i.i.i296:                              ; preds = %for.inc.i.i.i.i302,
   %cmp.i.i.i.i297 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i288 ], [ false, %for.inc.i.i.i.i302 ]
   %__i.06.i.i.i.i298 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i288 ], [ 1, %for.inc.i.i.i.i302 ]
   %__n.05.i.i.i.i299 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i288 ], [ %__n.1.i.i.i.i303, %for.inc.i.i.i.i302 ]
-  %arrayidx.i.i.i.i300 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i298
+  %arrayidx.i.i.i.i300 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i298
   %40 = load i8, ptr %arrayidx.i.i.i.i300, align 1
   %tobool.i.i.i.i301 = trunc i8 %40 to i1
   br i1 %tobool.i.i.i.i301, label %if.then.i.i.i.i312, label %for.inc.i.i.i.i302
@@ -7266,7 +7266,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %c
   %cmp.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i ], [ false, %for.inc.i.i.i.i ]
   %__i.06.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i ], [ 1, %for.inc.i.i.i.i ]
   %__n.05.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i ], [ %__n.1.i.i.i.i, %for.inc.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i
   %14 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
@@ -9902,7 +9902,7 @@ for.body.i.i.i.i18:                               ; preds = %for.inc.i.i.i.i20, 
   %cmp.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i ], [ false, %for.inc.i.i.i.i20 ]
   %__i.06.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i ], [ 1, %for.inc.i.i.i.i20 ]
   %__n.05.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i ], [ %__n.1.i.i.i.i, %for.inc.i.i.i.i20 ]
-  %arrayidx.i.i.i.i19 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i
+  %arrayidx.i.i.i.i19 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i
   %27 = load i8, ptr %arrayidx.i.i.i.i19, align 1
   %tobool.i.i.i.i = trunc i8 %27 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i21, label %for.inc.i.i.i.i20
@@ -9999,7 +9999,7 @@ for.body.i.i.i.i44:                               ; preds = %for.inc.i.i.i.i50, 
   %cmp.i.i.i.i45 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i36 ], [ false, %for.inc.i.i.i.i50 ]
   %__i.06.i.i.i.i46 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i36 ], [ 1, %for.inc.i.i.i.i50 ]
   %__n.05.i.i.i.i47 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i36 ], [ %__n.1.i.i.i.i51, %for.inc.i.i.i.i50 ]
-  %arrayidx.i.i.i.i48 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i46
+  %arrayidx.i.i.i.i48 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i46
   %32 = load i8, ptr %arrayidx.i.i.i.i48, align 1
   %tobool.i.i.i.i49 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i.i49, label %if.then.i.i.i.i60, label %for.inc.i.i.i.i50
@@ -10612,7 +10612,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %c
   %cmp.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i ], [ false, %for.inc.i.i.i.i ]
   %__i.06.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i ], [ 1, %for.inc.i.i.i.i ]
   %__n.05.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i ], [ %__n.1.i.i.i.i, %for.inc.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
@@ -11745,7 +11745,7 @@ for.body.i.i.i.i143:                              ; preds = %for.inc.i.i.i.i, %c
   %cmp.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i ], [ false, %for.inc.i.i.i.i ]
   %__i.06.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i ], [ 1, %for.inc.i.i.i.i ]
   %__n.05.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i ], [ %__n.1.i.i.i.i, %for.inc.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i
   %45 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %45 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
@@ -11863,7 +11863,7 @@ for.body.i.i.i.i169:                              ; preds = %for.inc.i.i.i.i175,
   %cmp.i.i.i.i170 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i161 ], [ false, %for.inc.i.i.i.i175 ]
   %__i.06.i.i.i.i171 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i161 ], [ 1, %for.inc.i.i.i.i175 ]
   %__n.05.i.i.i.i172 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i161 ], [ %__n.1.i.i.i.i176, %for.inc.i.i.i.i175 ]
-  %arrayidx.i.i.i.i173 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i171
+  %arrayidx.i.i.i.i173 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i171
   %52 = load i8, ptr %arrayidx.i.i.i.i173, align 1
   %tobool.i.i.i.i174 = trunc i8 %52 to i1
   br i1 %tobool.i.i.i.i174, label %if.then.i.i.i.i185, label %for.inc.i.i.i.i175
@@ -11981,7 +11981,7 @@ for.body.i.i.i.i210:                              ; preds = %for.inc.i.i.i.i216,
   %cmp.i.i.i.i211 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i202 ], [ false, %for.inc.i.i.i.i216 ]
   %__i.06.i.i.i.i212 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i202 ], [ 1, %for.inc.i.i.i.i216 ]
   %__n.05.i.i.i.i213 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i202 ], [ %__n.1.i.i.i.i217, %for.inc.i.i.i.i216 ]
-  %arrayidx.i.i.i.i214 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i212
+  %arrayidx.i.i.i.i214 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i212
   %59 = load i8, ptr %arrayidx.i.i.i.i214, align 1
   %tobool.i.i.i.i215 = trunc i8 %59 to i1
   br i1 %tobool.i.i.i.i215, label %if.then.i.i.i.i226, label %for.inc.i.i.i.i216
@@ -12099,7 +12099,7 @@ for.body.i.i.i.i251:                              ; preds = %for.inc.i.i.i.i257,
   %cmp.i.i.i.i252 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i243 ], [ false, %for.inc.i.i.i.i257 ]
   %__i.06.i.i.i.i253 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i243 ], [ 1, %for.inc.i.i.i.i257 ]
   %__n.05.i.i.i.i254 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i243 ], [ %__n.1.i.i.i.i258, %for.inc.i.i.i.i257 ]
-  %arrayidx.i.i.i.i255 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i253
+  %arrayidx.i.i.i.i255 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i253
   %66 = load i8, ptr %arrayidx.i.i.i.i255, align 1
   %tobool.i.i.i.i256 = trunc i8 %66 to i1
   br i1 %tobool.i.i.i.i256, label %if.then.i.i.i.i267, label %for.inc.i.i.i.i257
@@ -12495,7 +12495,7 @@ for.body.i.i.i.i329:                              ; preds = %for.inc.i.i.i.i335,
   %cmp.i.i.i.i330 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i321 ], [ false, %for.inc.i.i.i.i335 ]
   %__i.06.i.i.i.i331 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i321 ], [ 1, %for.inc.i.i.i.i335 ]
   %__n.05.i.i.i.i332 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i321 ], [ %__n.1.i.i.i.i336, %for.inc.i.i.i.i335 ]
-  %arrayidx.i.i.i.i333 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i331
+  %arrayidx.i.i.i.i333 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i331
   %99 = load i8, ptr %arrayidx.i.i.i.i333, align 1
   %tobool.i.i.i.i334 = trunc i8 %99 to i1
   br i1 %tobool.i.i.i.i334, label %if.then.i.i.i.i345, label %for.inc.i.i.i.i335
@@ -12717,7 +12717,7 @@ for.body.i.i.i.i387:                              ; preds = %for.inc.i.i.i.i393,
   %cmp.i.i.i.i388 = phi i1 [ true, %call.i.i2.i.i.i.noexc.i379 ], [ false, %for.inc.i.i.i.i393 ]
   %__i.06.i.i.i.i389 = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i379 ], [ 1, %for.inc.i.i.i.i393 ]
   %__n.05.i.i.i.i390 = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i379 ], [ %__n.1.i.i.i.i394, %for.inc.i.i.i.i393 ]
-  %arrayidx.i.i.i.i391 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i389
+  %arrayidx.i.i.i.i391 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i389
   %115 = load i8, ptr %arrayidx.i.i.i.i391, align 1
   %tobool.i.i.i.i392 = trunc i8 %115 to i1
   br i1 %tobool.i.i.i.i392, label %if.then.i.i.i.i403, label %for.inc.i.i.i.i393
@@ -20440,7 +20440,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %cmp.i.i.i = phi i1 [ true, %if.end ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %if.end ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -27886,7 +27886,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -31164,7 +31164,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   %cmp.i.i.i = phi i1 [ true, %if.end ], [ false, %for.inc.i.i.i ]
   %__i.06.i.i.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 2, %if.end ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -31674,7 +31674,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -32171,7 +32171,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -32874,7 +32874,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.inc.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i.i.i.i.i ], [ false, %for.inc.i.i.i.i.i.i.i.i ]
   %__i.06.i.i.i.i.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i.i.i.i.i ], [ 1, %for.inc.i.i.i.i.i.i.i.i ]
   %__n.05.i.i.i.i.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i.i.i.i.i ], [ %__n.1.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i.i.i.i.i
   %17 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i
@@ -32991,7 +32991,7 @@ for.body.i.i.i.i38.i.i.i.i:                       ; preds = %for.inc.i.i.i.i44.i
   %cmp.i.i.i.i39.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i30.i.i.i.i ], [ false, %for.inc.i.i.i.i44.i.i.i.i ]
   %__i.06.i.i.i.i40.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i30.i.i.i.i ], [ 1, %for.inc.i.i.i.i44.i.i.i.i ]
   %__n.05.i.i.i.i41.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i30.i.i.i.i ], [ %__n.1.i.i.i.i45.i.i.i.i, %for.inc.i.i.i.i44.i.i.i.i ]
-  %arrayidx.i.i.i.i42.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i40.i.i.i.i
+  %arrayidx.i.i.i.i42.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i40.i.i.i.i
   %25 = load i8, ptr %arrayidx.i.i.i.i42.i.i.i.i, align 1
   %tobool.i.i.i.i43.i.i.i.i = trunc i8 %25 to i1
   br i1 %tobool.i.i.i.i43.i.i.i.i, label %if.then.i.i.i.i54.i.i.i.i, label %for.inc.i.i.i.i44.i.i.i.i
@@ -33108,7 +33108,7 @@ for.body.i.i.i.i78.i.i.i.i:                       ; preds = %for.inc.i.i.i.i84.i
   %cmp.i.i.i.i79.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i70.i.i.i.i ], [ false, %for.inc.i.i.i.i84.i.i.i.i ]
   %__i.06.i.i.i.i80.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i70.i.i.i.i ], [ 1, %for.inc.i.i.i.i84.i.i.i.i ]
   %__n.05.i.i.i.i81.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i70.i.i.i.i ], [ %__n.1.i.i.i.i85.i.i.i.i, %for.inc.i.i.i.i84.i.i.i.i ]
-  %arrayidx.i.i.i.i82.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i80.i.i.i.i
+  %arrayidx.i.i.i.i82.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i80.i.i.i.i
   %33 = load i8, ptr %arrayidx.i.i.i.i82.i.i.i.i, align 1
   %tobool.i.i.i.i83.i.i.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i.i.i83.i.i.i.i, label %if.then.i.i.i.i94.i.i.i.i, label %for.inc.i.i.i.i84.i.i.i.i
@@ -33225,7 +33225,7 @@ for.body.i.i.i.i118.i.i.i.i:                      ; preds = %for.inc.i.i.i.i124.
   %cmp.i.i.i.i119.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i110.i.i.i.i ], [ false, %for.inc.i.i.i.i124.i.i.i.i ]
   %__i.06.i.i.i.i120.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i110.i.i.i.i ], [ 1, %for.inc.i.i.i.i124.i.i.i.i ]
   %__n.05.i.i.i.i121.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i110.i.i.i.i ], [ %__n.1.i.i.i.i125.i.i.i.i, %for.inc.i.i.i.i124.i.i.i.i ]
-  %arrayidx.i.i.i.i122.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i120.i.i.i.i
+  %arrayidx.i.i.i.i122.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i120.i.i.i.i
   %41 = load i8, ptr %arrayidx.i.i.i.i122.i.i.i.i, align 1
   %tobool.i.i.i.i123.i.i.i.i = trunc i8 %41 to i1
   br i1 %tobool.i.i.i.i123.i.i.i.i, label %if.then.i.i.i.i134.i.i.i.i, label %for.inc.i.i.i.i124.i.i.i.i
@@ -33342,7 +33342,7 @@ for.body.i.i.i.i158.i.i.i.i:                      ; preds = %for.inc.i.i.i.i164.
   %cmp.i.i.i.i159.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i150.i.i.i.i ], [ false, %for.inc.i.i.i.i164.i.i.i.i ]
   %__i.06.i.i.i.i160.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i150.i.i.i.i ], [ 1, %for.inc.i.i.i.i164.i.i.i.i ]
   %__n.05.i.i.i.i161.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i150.i.i.i.i ], [ %__n.1.i.i.i.i165.i.i.i.i, %for.inc.i.i.i.i164.i.i.i.i ]
-  %arrayidx.i.i.i.i162.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i160.i.i.i.i
+  %arrayidx.i.i.i.i162.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i160.i.i.i.i
   %49 = load i8, ptr %arrayidx.i.i.i.i162.i.i.i.i, align 1
   %tobool.i.i.i.i163.i.i.i.i = trunc i8 %49 to i1
   br i1 %tobool.i.i.i.i163.i.i.i.i, label %if.then.i.i.i.i174.i.i.i.i, label %for.inc.i.i.i.i164.i.i.i.i
@@ -34264,7 +34264,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i.i.i.i ], [ false, %for.inc.i.i.i.i.i.i.i ]
   %__i.06.i.i.i.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i.i.i.i ], [ 1, %for.inc.i.i.i.i.i.i.i ]
   %__n.05.i.i.i.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i.i.i.i ], [ %__n.1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i.i.i.i
   %26 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i.i = trunc i8 %26 to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i
@@ -34381,7 +34381,7 @@ for.body.i.i.i.i54.i.i.i:                         ; preds = %for.inc.i.i.i.i60.i
   %cmp.i.i.i.i55.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i46.i.i.i ], [ false, %for.inc.i.i.i.i60.i.i.i ]
   %__i.06.i.i.i.i56.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i46.i.i.i ], [ 1, %for.inc.i.i.i.i60.i.i.i ]
   %__n.05.i.i.i.i57.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i46.i.i.i ], [ %__n.1.i.i.i.i61.i.i.i, %for.inc.i.i.i.i60.i.i.i ]
-  %arrayidx.i.i.i.i58.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i56.i.i.i
+  %arrayidx.i.i.i.i58.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i56.i.i.i
   %34 = load i8, ptr %arrayidx.i.i.i.i58.i.i.i, align 1
   %tobool.i.i.i.i59.i.i.i = trunc i8 %34 to i1
   br i1 %tobool.i.i.i.i59.i.i.i, label %if.then.i.i.i.i70.i.i.i, label %for.inc.i.i.i.i60.i.i.i
@@ -34502,7 +34502,7 @@ for.body.i.i.i.i94.i.i.i:                         ; preds = %for.inc.i.i.i.i100.
   %cmp.i.i.i.i95.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i86.i.i.i ], [ false, %for.inc.i.i.i.i100.i.i.i ]
   %__i.06.i.i.i.i96.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i86.i.i.i ], [ 1, %for.inc.i.i.i.i100.i.i.i ]
   %__n.05.i.i.i.i97.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i86.i.i.i ], [ %__n.1.i.i.i.i101.i.i.i, %for.inc.i.i.i.i100.i.i.i ]
-  %arrayidx.i.i.i.i98.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i96.i.i.i
+  %arrayidx.i.i.i.i98.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i96.i.i.i
   %44 = load i8, ptr %arrayidx.i.i.i.i98.i.i.i, align 1
   %tobool.i.i.i.i99.i.i.i = trunc i8 %44 to i1
   br i1 %tobool.i.i.i.i99.i.i.i, label %if.then.i.i.i.i110.i.i.i, label %for.inc.i.i.i.i100.i.i.i
@@ -34619,7 +34619,7 @@ for.body.i.i.i.i134.i.i.i:                        ; preds = %for.inc.i.i.i.i140.
   %cmp.i.i.i.i135.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i126.i.i.i ], [ false, %for.inc.i.i.i.i140.i.i.i ]
   %__i.06.i.i.i.i136.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i126.i.i.i ], [ 1, %for.inc.i.i.i.i140.i.i.i ]
   %__n.05.i.i.i.i137.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i126.i.i.i ], [ %__n.1.i.i.i.i141.i.i.i, %for.inc.i.i.i.i140.i.i.i ]
-  %arrayidx.i.i.i.i138.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i136.i.i.i
+  %arrayidx.i.i.i.i138.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i136.i.i.i
   %52 = load i8, ptr %arrayidx.i.i.i.i138.i.i.i, align 1
   %tobool.i.i.i.i139.i.i.i = trunc i8 %52 to i1
   br i1 %tobool.i.i.i.i139.i.i.i, label %if.then.i.i.i.i150.i.i.i, label %for.inc.i.i.i.i140.i.i.i
@@ -35369,7 +35369,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i.i.i.i ], [ false, %for.inc.i.i.i.i.i.i.i ]
   %__i.06.i.i.i.i.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i.i.i.i ], [ 1, %for.inc.i.i.i.i.i.i.i ]
   %__n.05.i.i.i.i.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i.i.i.i ], [ %__n.1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i
@@ -35486,7 +35486,7 @@ for.body.i.i.i.i33.i.i.i:                         ; preds = %for.inc.i.i.i.i39.i
   %cmp.i.i.i.i34.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i25.i.i.i ], [ false, %for.inc.i.i.i.i39.i.i.i ]
   %__i.06.i.i.i.i35.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i25.i.i.i ], [ 1, %for.inc.i.i.i.i39.i.i.i ]
   %__n.05.i.i.i.i36.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i25.i.i.i ], [ %__n.1.i.i.i.i40.i.i.i, %for.inc.i.i.i.i39.i.i.i ]
-  %arrayidx.i.i.i.i37.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i35.i.i.i
+  %arrayidx.i.i.i.i37.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i35.i.i.i
   %15 = load i8, ptr %arrayidx.i.i.i.i37.i.i.i, align 1
   %tobool.i.i.i.i38.i.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i.i.i38.i.i.i, label %if.then.i.i.i.i49.i.i.i, label %for.inc.i.i.i.i39.i.i.i
@@ -35607,7 +35607,7 @@ for.body.i.i.i.i73.i.i.i:                         ; preds = %for.inc.i.i.i.i79.i
   %cmp.i.i.i.i74.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i65.i.i.i ], [ false, %for.inc.i.i.i.i79.i.i.i ]
   %__i.06.i.i.i.i75.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i65.i.i.i ], [ 1, %for.inc.i.i.i.i79.i.i.i ]
   %__n.05.i.i.i.i76.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i65.i.i.i ], [ %__n.1.i.i.i.i80.i.i.i, %for.inc.i.i.i.i79.i.i.i ]
-  %arrayidx.i.i.i.i77.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i75.i.i.i
+  %arrayidx.i.i.i.i77.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i75.i.i.i
   %25 = load i8, ptr %arrayidx.i.i.i.i77.i.i.i, align 1
   %tobool.i.i.i.i78.i.i.i = trunc i8 %25 to i1
   br i1 %tobool.i.i.i.i78.i.i.i, label %if.then.i.i.i.i89.i.i.i, label %for.inc.i.i.i.i79.i.i.i
@@ -35724,7 +35724,7 @@ for.body.i.i.i.i113.i.i.i:                        ; preds = %for.inc.i.i.i.i119.
   %cmp.i.i.i.i114.i.i.i = phi i1 [ true, %call.i.i2.i.i.i.noexc.i105.i.i.i ], [ false, %for.inc.i.i.i.i119.i.i.i ]
   %__i.06.i.i.i.i115.i.i.i = phi i64 [ 0, %call.i.i2.i.i.i.noexc.i105.i.i.i ], [ 1, %for.inc.i.i.i.i119.i.i.i ]
   %__n.05.i.i.i.i116.i.i.i = phi i64 [ 2, %call.i.i2.i.i.i.noexc.i105.i.i.i ], [ %__n.1.i.i.i.i120.i.i.i, %for.inc.i.i.i.i119.i.i.i ]
-  %arrayidx.i.i.i.i117.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i.i.i115.i.i.i
+  %arrayidx.i.i.i.i117.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i.i.i115.i.i.i
   %33 = load i8, ptr %arrayidx.i.i.i.i117.i.i.i, align 1
   %tobool.i.i.i.i118.i.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i.i.i118.i.i.i, label %if.then.i.i.i.i129.i.i.i, label %for.inc.i.i.i.i119.i.i.i
@@ -36503,7 +36503,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %invok
   %cmp.i.i = phi i1 [ true, %invoke.cont ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %invoke.cont ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %invoke.cont ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -39277,7 +39277,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -39376,7 +39376,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -41190,7 +41190,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %entry
   %cmp.i.i = phi i1 [ true, %entry ], [ false, %for.inc.i.i ]
   %__i.06.i.i = phi i64 [ 0, %entry ], [ 1, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 2, %entry ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt8functionIFbvEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_EEmv.__found, i64 %__i.06.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i

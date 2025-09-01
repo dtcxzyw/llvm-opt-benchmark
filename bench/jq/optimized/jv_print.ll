@@ -68,7 +68,7 @@ define dso_local range(i32 0, 2) i32 @jq_set_colors(ptr noundef %0) local_unname
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw [8 x [16 x i8]], ptr @color_bufs, i64 0, i64 %.138
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @color_bufs, i64 %.138
   store i8 27, ptr %16, align 16, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 91, ptr %17, align 1, !tbaa !11
@@ -80,10 +80,10 @@ define dso_local range(i32 0, 2) i32 @jq_set_colors(ptr noundef %0) local_unname
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %15
-  %24 = add nuw nsw i64 %13, 2
-  %25 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 0, i64 %24
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 %13
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   store i8 109, ptr %25, align 1, !tbaa !11
-  %26 = getelementptr inbounds nuw [8 x ptr], ptr @color_bufps, i64 0, i64 %.138
+  %26 = getelementptr inbounds nuw ptr, ptr @color_bufps, i64 %.138
   store ptr %16, ptr %26, align 8, !tbaa !9
   %27 = load i8, ptr %.029, align 1, !tbaa !11
   %28 = icmp eq i8 %27, 58

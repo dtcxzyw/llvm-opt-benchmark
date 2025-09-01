@@ -6005,7 +6005,7 @@ _ZN7QStringD2Ev.exit525:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %396 unwind label %559
 
 396:                                              ; preds = %394
-  %397 = getelementptr inbounds nuw [9 x ptr], ptr %392, i64 0, i64 %indvars.iv
+  %397 = getelementptr inbounds nuw ptr, ptr %392, i64 %indvars.iv
   store ptr %395, ptr %397, align 8
   call void @_ZN7QAction10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %395, i1 noundef zeroext true)
   %398 = load ptr, ptr %397, align 8
@@ -6024,7 +6024,7 @@ _ZN7QStringD2Ev.exit525:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %404 unwind label %563
 
 404:                                              ; preds = %402
-  %405 = getelementptr inbounds nuw [9 x ptr], ptr %393, i64 0, i64 %indvars.iv
+  %405 = getelementptr inbounds nuw ptr, ptr %393, i64 %indvars.iv
   store ptr %403, ptr %405, align 8
   call void @_ZN7QAction10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %403, i1 noundef zeroext true)
   %406 = load ptr, ptr %405, align 8
@@ -11235,11 +11235,11 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %78, %_ZN9QtPrivate8
 86:                                               ; preds = %_ZN7QStringD2Ev.exit21, %86
   %indvars.iv = phi i64 [ 0, %_ZN7QStringD2Ev.exit21 ], [ %indvars.iv.next, %86 ]
   %87 = load ptr, ptr %71, align 8
-  %88 = getelementptr inbounds nuw [9 x ptr], ptr %84, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
   call void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef %89)
   %90 = load ptr, ptr %79, align 8
-  %91 = getelementptr inbounds nuw [9 x ptr], ptr %85, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   call void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef %92)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

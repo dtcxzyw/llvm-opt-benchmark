@@ -50,7 +50,7 @@ define ptr @ff_urlcontext_child_class_iterate(ptr noundef captures(none) %0) loc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %.016 = phi i64 [ %8, %9 ], [ %3, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %.016
+  %4 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %.016
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8, !tbaa !10
@@ -81,7 +81,7 @@ define ptr @avio_enum_protocols(ptr noundef captures(none) %0, i32 noundef %1) l
 
 .lr.ph:                                           ; preds = %2
   %4 = ptrtoint ptr %3 to i64
-  %5 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %.not16 = icmp eq i32 %1, 0
   br i1 %.not16, label %.critedge.us, label %.lr.ph.split
@@ -96,7 +96,7 @@ define ptr @avio_enum_protocols(ptr noundef captures(none) %0, i32 noundef %1) l
 
 10:                                               ; preds = %.critedge.us
   %11 = add i64 %.01425.us, 1
-  %12 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %.not.us = icmp eq i64 %11, 31
   br i1 %.not.us, label %._crit_edge, label %.critedge.us, !llvm.loop !18
@@ -120,7 +120,7 @@ define ptr @avio_enum_protocols(ptr noundef captures(none) %0, i32 noundef %1) l
 
 20:                                               ; preds = %.lr.ph.split
   %21 = add i64 %.01425, 1
-  %22 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %.not = icmp eq i64 %21, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
@@ -140,7 +140,7 @@ define ptr @avio_protocol_get_class(ptr noundef readonly captures(none) %0) loca
 
 2:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next
+  %3 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %.not = icmp eq i64 %indvars.iv.next, 31
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !21
@@ -186,7 +186,7 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv61
   store ptr %4, ptr %5, align 8, !tbaa !8
-  %6 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next62
+  %6 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next62
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %.not22.us.us = icmp eq i64 %indvars.iv.next62, 31
   br i1 %.not22.us.us, label %.loopexit, label %.preheader.split.us.split.us, !llvm.loop !22
@@ -202,13 +202,13 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv56
   store ptr %10, ptr %11, align 8, !tbaa !8
-  %12 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next57
+  %12 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next57
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %.not22.us.us38 = icmp eq i64 %indvars.iv.next57, 31
   br i1 %.not22.us.us38, label %.loopexit, label %.preheader.split.us.split.split.us, !llvm.loop !22
 
 .preheader.split.us.split.splitthread-pre-split:  ; preds = %25
-  %14 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next54
+  %14 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next54
   %15 = load ptr, ptr %14, align 8, !tbaa !8
   %.pr = load i8, ptr %1, align 1, !tbaa !23
   br label %.preheader.split.us.split.split
@@ -254,13 +254,13 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %29 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv48
   store ptr %28, ptr %29, align 8, !tbaa !8
-  %30 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next49
+  %30 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next49
   %31 = load ptr, ptr %30, align 8, !tbaa !8
   %.not22.us34.us = icmp eq i64 %indvars.iv.next49, 31
   br i1 %.not22.us34.us, label %.loopexit, label %.preheader.split.split.us.split.us, !llvm.loop !22
 
 .preheader.split.split.us.splitthread-pre-split:  ; preds = %43
-  %32 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next46
+  %32 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next46
   %33 = load ptr, ptr %32, align 8, !tbaa !8
   %.pr69 = load i8, ptr %0, align 1, !tbaa !23
   br label %.preheader.split.split.us.split
@@ -327,7 +327,7 @@ define noalias ptr @ffurl_get_protocols(ptr noundef %0, ptr noundef %1) local_un
 58:                                               ; preds = %51, %46, %54
   %.1 = phi i32 [ %55, %54 ], [ %.01630, %46 ], [ %.01630, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = getelementptr inbounds nuw [32 x ptr], ptr @url_protocols, i64 0, i64 %indvars.iv.next
+  %59 = getelementptr inbounds nuw ptr, ptr @url_protocols, i64 %indvars.iv.next
   %60 = load ptr, ptr %59, align 8, !tbaa !8
   %.not22 = icmp eq i64 %indvars.iv.next, 31
   br i1 %.not22, label %.loopexit, label %.preheader.split.split, !llvm.loop !22

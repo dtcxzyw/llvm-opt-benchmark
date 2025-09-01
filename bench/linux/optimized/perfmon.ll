@@ -1006,7 +1006,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_pmu_add(ptr noundef %0, i32
 40:                                               ; preds = %37
   %41 = getelementptr i8, ptr %4, i64 312
   %42 = and i64 %16, 2147483647
-  %43 = getelementptr [64 x ptr], ptr %41, i64 0, i64 %42
+  %43 = getelementptr ptr, ptr %41, i64 %42
   store ptr %0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 %38, ptr %44, align 4
@@ -1326,7 +1326,7 @@ define internal void @iommu_pmu_del(ptr noundef %0, i32 %1) #0 align 16 {
 98:                                               ; preds = %91, %87
   %99 = getelementptr i8, ptr %4, i64 312
   %100 = sext i32 %6 to i64
-  %101 = getelementptr [64 x ptr], ptr %99, i64 0, i64 %100
+  %101 = getelementptr ptr, ptr %99, i64 %100
   store ptr null, ptr %101, align 8
   store i32 -1, ptr %5, align 4
   %102 = getelementptr i8, ptr %4, i64 304
@@ -2664,8 +2664,8 @@ define internal noundef range(i32 0, 2) i32 @iommu_pmu_irq_handler(i32 %0, ptr n
 
 28:                                               ; preds = %18
   %29 = shl i64 %24, 32
-  %30 = ashr exact i64 %29, 32
-  %31 = getelementptr [64 x ptr], ptr %17, i64 0, i64 %30
+  %30 = ashr exact i64 %29, 29
+  %31 = getelementptr i8, ptr %17, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %38

@@ -167,7 +167,7 @@ define dso_local noundef nonnull ptr @php_image_type_to_mime_type(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.php_getimagesize_from_any, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_getimagesize_from_any, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -225,7 +225,7 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
 
 switch.lookup:                                    ; preds = %.critedge
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.php_getimagesize_from_any, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_getimagesize_from_any, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_image_type_to_mime_type.exit
 
@@ -244,7 +244,7 @@ php_image_type_to_mime_type.exit:                 ; preds = %.critedge, %switch.
   store i64 %18, ptr %24, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %.0.i44, i64 %18, i1 false)
-  %26 = getelementptr inbounds nuw [1 x i8], ptr %25, i64 0, i64 %18
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
   store i8 0, ptr %26, align 1, !tbaa !10
   store ptr %21, ptr %1, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -340,7 +340,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %18
   br i1 %24, label %switch.lookup, label %.critedge64
 
 switch.lookup:                                    ; preds = %.critedge
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.zif_image_type_to_extension, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zif_image_type_to_extension, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %25 = load i8, ptr %4, align 1, !tbaa !22, !range !28, !noundef !29
   %26 = xor i8 %25, 1
@@ -359,7 +359,7 @@ switch.lookup:                                    ; preds = %.critedge
   store i64 %29, ptr %35, align 8, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 1 %28, i64 %29, i1 false)
-  %37 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %29
   store i8 0, ptr %37, align 1, !tbaa !10
   store ptr %32, ptr %1, align 8, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1863,7 +1863,7 @@ php_handle_avif.exit.i:                           ; preds = %585, %582
 
 switch.lookup:                                    ; preds = %619
   %621 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.php_getimagesize_from_any, i64 0, i64 %621
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_getimagesize_from_any, i64 %621
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_image_type_to_mime_type.exit.i
 

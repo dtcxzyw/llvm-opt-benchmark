@@ -775,7 +775,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h77bdfb15a6a958cdE.exit: ; pred
   br i1 %37, label %"_ZN4core3ptr119drop_in_place$LT$core..array..iter..IntoIter$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$C$1_usize$GT$$GT$17h6ae024fa9560e95cE.exit", label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }], ptr %34, i64 0, i64 %.0.i.i.i
+  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %34, i64 %.0.i.i.i
   %40 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hfa3010c4e0a6b527E.llvm.10876350097188915343"(ptr noalias noundef nonnull align 8 dereferenceable(48) %39)
           to label %36 unwind label %43
@@ -791,7 +791,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h77bdfb15a6a958cdE.exit: ; pred
   br label %41
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }], ptr %34, i64 0, i64 %.1.i.i.i
+  %46 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %34, i64 %.1.i.i.i
   %47 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hfa3010c4e0a6b527E.llvm.10876350097188915343"(ptr noalias noundef nonnull align 8 dereferenceable(48) %46) #16
           to label %41 unwind label %48

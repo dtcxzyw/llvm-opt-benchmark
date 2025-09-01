@@ -518,9 +518,9 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
 .preheader:                                       ; preds = %295, %.preheader
   %298 = phi i1 [ false, %.preheader ], [ true, %295 ]
   %indvars.iv169.sroa.phi = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.0260, %295 ]
-  %indvars.iv169.sroa.phi262 = phi ptr [ %.sroa.5265, %.preheader ], [ %.sroa.0264, %295 ]
+  %indvars.iv169.sroa.phi261 = phi ptr [ %.sroa.5265, %.preheader ], [ %.sroa.0264, %295 ]
   %.0135 = phi double [ %301, %.preheader ], [ 0.000000e+00, %295 ]
-  %299 = load double, ptr %indvars.iv169.sroa.phi262, align 8, !tbaa !3
+  %299 = load double, ptr %indvars.iv169.sroa.phi261, align 8, !tbaa !3
   %300 = load double, ptr %indvars.iv169.sroa.phi, align 8, !tbaa !3
   %301 = tail call double @llvm.fmuladd.f64(double %299, double %300, double %.0135)
   br i1 %298, label %.preheader, label %302, !llvm.loop !15

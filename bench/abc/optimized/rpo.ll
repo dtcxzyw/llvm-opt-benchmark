@@ -819,7 +819,7 @@ select.unfold.i:                                  ; preds = %54, %Lit_TruthPosit
 
 .lr.ph23.i:                                       ; preds = %.preheader.i
   %64 = zext nneg i32 %2 to i64
-  %65 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr @__const.Kit_TruthIthVar.Masks, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !10
   br label %67
 

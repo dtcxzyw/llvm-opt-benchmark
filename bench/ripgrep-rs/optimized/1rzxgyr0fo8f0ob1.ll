@@ -490,7 +490,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   br i1 %18, label %19, label %28, !prof !64
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   store i8 %3, ptr %20, align 1
   %21 = add nuw i64 %16, 1
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
@@ -523,7 +523,7 @@ define { i64, i64 } @_ZN13grep_searcher11line_buffer13replace_bytes17h216e63b278
   br i1 %35, label %36, label %41, !prof !64
 
 36:                                               ; preds = %.lr.ph88
-  %37 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.087, i64 0, i64 %33
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.087, i64 %33
   store i8 %3, ptr %37, align 1
   %38 = add nuw i64 %33, 1
   %39 = sub nuw i64 %.sroa.13.086, %38

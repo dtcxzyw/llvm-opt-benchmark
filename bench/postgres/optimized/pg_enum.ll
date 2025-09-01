@@ -424,7 +424,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 45:                                               ; preds = %.lr.ph.us, %45
   %indvars.iv210 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next211, %45 ]
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %indvars.iv210
+  %46 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv210
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv210
@@ -449,7 +449,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
@@ -896,7 +896,7 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.02934 = phi i1 [ false, %.lr.ph ], [ %.1, %19 ]
   %.03033 = phi ptr [ null, %.lr.ph ], [ %spec.select, %19 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = getelementptr i8, ptr %21, i64 80

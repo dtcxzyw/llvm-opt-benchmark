@@ -78,7 +78,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   store i8 0, ptr %11, align 2
   %35 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #15
   %36 = trunc i64 %35 to i8
-  %37 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %36, ptr %37, align 1
   %38 = getelementptr inbounds nuw i8, ptr %.135.i, i64 2
   %39 = load i8, ptr %38, align 1
@@ -165,18 +165,18 @@ define dso_local i64 @uuid_out(ptr noundef readonly captures(none) %0) local_unn
 
 11:                                               ; preds = %6, %9
   %.1 = phi ptr [ %10, %9 ], [ %.025, %6 ]
-  %12 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = lshr i32 %14, 4
   %16 = and i32 %14, 15
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw [17 x i8], ptr @uuid_out.hex_chars, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @uuid_out.hex_chars, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %19, ptr %.1, align 1
   %21 = zext nneg i32 %16 to i64
-  %22 = getelementptr inbounds nuw [17 x i8], ptr @uuid_out.hex_chars, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @uuid_out.hex_chars, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %23, ptr %20, align 1

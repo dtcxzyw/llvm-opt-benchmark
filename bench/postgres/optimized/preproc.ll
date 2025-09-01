@@ -362,7 +362,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 60:                                               ; preds = %.thread1641
   %61 = sext i32 %.01339 to i64
-  %62 = getelementptr inbounds [7139 x i32], ptr @yypact, i64 0, i64 %61
+  %62 = getelementptr inbounds i32, ptr @yypact, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, -6412
   br i1 %64, label %105, label %65
@@ -402,7 +402,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 80:                                               ; preds = %78
   %81 = zext nneg i32 %71 to i64
-  %82 = getelementptr inbounds nuw [849 x i16], ptr @yytranslate, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i16, ptr @yytranslate, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i32
   br label %85
@@ -415,14 +415,14 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 87:                                               ; preds = %85
   %88 = zext nneg i32 %86 to i64
-  %89 = getelementptr inbounds nuw [162372 x i16], ptr @yycheck, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i32
   %.not1478 = icmp eq i32 %.01395, %91
   br i1 %.not1478, label %92, label %105
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw [162372 x i16], ptr @yytable, i64 0, i64 %88
+  %93 = getelementptr inbounds nuw i16, ptr @yytable, i64 %88
   %94 = load i16, ptr %93, align 2
   %95 = sext i16 %94 to i32
   %96 = icmp slt i16 %94, 1
@@ -447,7 +447,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br label %21
 
 105:                                              ; preds = %85, %87, %60
-  %106 = getelementptr inbounds [7139 x i16], ptr @yydefact, i64 0, i64 %61
+  %106 = getelementptr inbounds i16, ptr @yydefact, i64 %61
   %107 = load i16, ptr %106, align 2
   %108 = sext i16 %107 to i32
   %109 = icmp eq i16 %107, 0
@@ -456,7 +456,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 110:                                              ; preds = %105, %99
   %.01385 = phi i32 [ %108, %105 ], [ %100, %99 ]
   %111 = sext i32 %.01385 to i64
-  %112 = getelementptr inbounds [3901 x i8], ptr @yyr2, i64 0, i64 %111
+  %112 = getelementptr inbounds i8, ptr @yyr2, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = sext i8 %113 to i32
   %115 = sub nsw i32 1, %114
@@ -3766,39 +3766,39 @@ sub_01740:                                        ; preds = %1399, %1395
   %1601 = call ptr @loc_strdup(ptr noundef %1600) #16
   %1602 = load i32, ptr @struct_level, align 4
   %1603 = sext i32 %1602 to i64
-  %1604 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1603
+  %1604 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1603
   store ptr %1601, ptr %1604, align 16
   %1605 = getelementptr inbounds nuw i8, ptr %.21367, i64 8
   %1606 = load i32, ptr %1605, align 8
-  %1607 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1603, i32 1
+  %1607 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1603, i32 1
   store i32 %1606, ptr %1607, align 8
   %1608 = getelementptr inbounds nuw i8, ptr %.21367, i64 16
   %1609 = load ptr, ptr %1608, align 8
-  %1610 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1603, i32 2
+  %1610 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1603, i32 2
   store ptr %1609, ptr %1610, align 16
   %1611 = getelementptr inbounds nuw i8, ptr %.21367, i64 24
   %1612 = load ptr, ptr %1611, align 8
-  %1613 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1603, i32 3
+  %1613 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1603, i32 3
   store ptr %1612, ptr %1613, align 8
   %1614 = getelementptr inbounds nuw i8, ptr %.21367, i64 32
   %1615 = load ptr, ptr %1614, align 8
-  %1616 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1603, i32 4
+  %1616 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1603, i32 4
   store ptr %1615, ptr %1616, align 16
   %1617 = getelementptr inbounds nuw i8, ptr %.21367, i64 40
   %1618 = load ptr, ptr %1617, align 8
-  %1619 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1603, i32 5
+  %1619 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1603, i32 5
   store ptr %1618, ptr %1619, align 8
   %1620 = call ptr @hashline_number() #16
   %1621 = load i32, ptr @struct_level, align 4
   %1622 = sext i32 %1621 to i64
-  %1623 = getelementptr inbounds [128 x ptr], ptr @actual_startline, i64 0, i64 %1622
+  %1623 = getelementptr inbounds ptr, ptr @actual_startline, i64 %1622
   store ptr %1620, ptr %1623, align 8
   br label %.thread1651
 
 1624:                                             ; preds = %yylloc_default.exit
   %1625 = load i32, ptr @struct_level, align 4
   %1626 = sext i32 %1625 to i64
-  %1627 = getelementptr inbounds [128 x ptr], ptr @actual_startline, i64 0, i64 %1626
+  %1627 = getelementptr inbounds ptr, ptr @actual_startline, i64 %1626
   %1628 = load ptr, ptr %1627, align 8
   %1629 = getelementptr inbounds i8, ptr %.21379, i64 -32
   %1630 = load ptr, ptr %1629, align 8
@@ -3813,39 +3813,39 @@ sub_01740:                                        ; preds = %1399, %1395
   %1637 = call ptr @loc_strdup(ptr noundef nonnull @.str.59) #16
   %1638 = load i32, ptr @struct_level, align 4
   %1639 = sext i32 %1638 to i64
-  %1640 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1639
+  %1640 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1639
   store ptr %1637, ptr %1640, align 16
   %1641 = getelementptr inbounds nuw i8, ptr %.21367, i64 8
   %1642 = load i32, ptr %1641, align 8
-  %1643 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1639, i32 1
+  %1643 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1639, i32 1
   store i32 %1642, ptr %1643, align 8
   %1644 = getelementptr inbounds nuw i8, ptr %.21367, i64 16
   %1645 = load ptr, ptr %1644, align 8
-  %1646 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1639, i32 2
+  %1646 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1639, i32 2
   store ptr %1645, ptr %1646, align 16
   %1647 = getelementptr inbounds nuw i8, ptr %.21367, i64 24
   %1648 = load ptr, ptr %1647, align 8
-  %1649 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1639, i32 3
+  %1649 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1639, i32 3
   store ptr %1648, ptr %1649, align 8
   %1650 = getelementptr inbounds nuw i8, ptr %.21367, i64 32
   %1651 = load ptr, ptr %1650, align 8
-  %1652 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1639, i32 4
+  %1652 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1639, i32 4
   store ptr %1651, ptr %1652, align 16
   %1653 = getelementptr inbounds nuw i8, ptr %.21367, i64 40
   %1654 = load ptr, ptr %1653, align 8
-  %1655 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %1639, i32 5
+  %1655 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %1639, i32 5
   store ptr %1654, ptr %1655, align 8
   %1656 = call ptr @hashline_number() #16
   %1657 = load i32, ptr @struct_level, align 4
   %1658 = sext i32 %1657 to i64
-  %1659 = getelementptr inbounds [128 x ptr], ptr @actual_startline, i64 0, i64 %1658
+  %1659 = getelementptr inbounds ptr, ptr @actual_startline, i64 %1658
   store ptr %1656, ptr %1659, align 8
   br label %.thread1651
 
 1660:                                             ; preds = %yylloc_default.exit
   %1661 = load i32, ptr @struct_level, align 4
   %1662 = sext i32 %1661 to i64
-  %1663 = getelementptr inbounds [128 x ptr], ptr @actual_startline, i64 0, i64 %1662
+  %1663 = getelementptr inbounds ptr, ptr @actual_startline, i64 %1662
   %1664 = load ptr, ptr %1663, align 8
   %1665 = getelementptr inbounds i8, ptr %.21367, i64 -128
   %1666 = load ptr, ptr %1665, align 8
@@ -4031,7 +4031,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %.sroa.234.1 = phi ptr [ %1755, %1753 ], [ %1751, %1752 ]
   %1757 = load i32, ptr @struct_level, align 4
   %1758 = sext i32 %1757 to i64
-  %1759 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1758
+  %1759 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1758
   %1760 = load ptr, ptr %1759, align 8
   call void @ECPGfree_struct_member(ptr noundef %1760) #16
   %1761 = getelementptr inbounds nuw i8, ptr %1732, i64 16
@@ -4039,7 +4039,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %1763 = call ptr @ECPGstruct_member_dup(ptr noundef %1762) #16
   %1764 = load i32, ptr @struct_level, align 4
   %1765 = sext i32 %1764 to i64
-  %1766 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1765
+  %1766 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1765
   store ptr %1763, ptr %1766, align 8
   br label %.thread1651
 
@@ -4257,7 +4257,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %.sroa.234.2 = phi ptr [ %1871, %1869 ], [ %1867, %1868 ]
   %1873 = load i32, ptr @struct_level, align 4
   %1874 = sext i32 %1873 to i64
-  %1875 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1874
+  %1875 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1874
   %1876 = load ptr, ptr %1875, align 8
   call void @ECPGfree_struct_member(ptr noundef %1876) #16
   %1877 = getelementptr inbounds nuw i8, ptr %1851, i64 16
@@ -4265,7 +4265,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %1879 = call ptr @ECPGstruct_member_dup(ptr noundef %1878) #16
   %1880 = load i32, ptr @struct_level, align 4
   %1881 = sext i32 %1880 to i64
-  %1882 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1881
+  %1882 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1881
   store ptr %1879, ptr %1882, align 8
   br label %.thread1651
 
@@ -4313,7 +4313,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %1909 = load ptr, ptr %1908, align 8
   %1910 = load i32, ptr @struct_level, align 4
   %1911 = sext i32 %1910 to i64
-  %1912 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1911
+  %1912 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1911
   %1913 = load ptr, ptr %1912, align 8
   call void @ECPGfree_struct_member(ptr noundef %1913) #16
   %1914 = getelementptr inbounds nuw i8, ptr %1897, i64 16
@@ -4327,7 +4327,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %.sroa.71.0.insert.insert417 = or disjoint i64 %.sroa.71.0.insert.mask416, 7
   %1919 = load i32, ptr @struct_level, align 4
   %1920 = sext i32 %1919 to i64
-  %1921 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1920
+  %1921 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1920
   %1922 = load ptr, ptr %1921, align 8
   call void @ECPGfree_struct_member(ptr noundef %1922) #16
   br label %1923
@@ -4341,7 +4341,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %.sroa.71.4.in = phi i64 [ %.sroa.71.0.insert.insert417, %1917 ], [ %.sroa.71.0.insert.insert414, %1895 ]
   %1924 = load i32, ptr @struct_level, align 4
   %1925 = sext i32 %1924 to i64
-  %1926 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1925
+  %1926 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1925
   store ptr %.sink1945, ptr %1926, align 8
   %.sroa.71.4 = inttoptr i64 %.sroa.71.4.in to ptr
   br label %.thread1651
@@ -4349,14 +4349,14 @@ sub_01740:                                        ; preds = %1399, %1395
 1927:                                             ; preds = %yylloc_default.exit
   %1928 = load i32, ptr @struct_level, align 4
   %1929 = sext i32 %1928 to i64
-  %1930 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1929
+  %1930 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1929
   %1931 = load ptr, ptr %1930, align 8
   call void @ECPGfree_struct_member(ptr noundef %1931) #16
   %1932 = load i32, ptr @struct_level, align 4
   %1933 = add i32 %1932, 1
   store i32 %1933, ptr @struct_level, align 4
   %1934 = sext i32 %1932 to i64
-  %1935 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1934
+  %1935 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1934
   store ptr null, ptr %1935, align 8
   %1936 = icmp sgt i32 %1933, 127
   br i1 %1936, label %1937, label %1938
@@ -4375,12 +4375,12 @@ sub_01740:                                        ; preds = %1399, %1395
 1942:                                             ; preds = %yylloc_default.exit
   %1943 = load i32, ptr @struct_level, align 4
   %1944 = sext i32 %1943 to i64
-  %1945 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1944
+  %1945 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1944
   %1946 = load ptr, ptr %1945, align 8
   call void @ECPGfree_struct_member(ptr noundef %1946) #16
   %1947 = load i32, ptr @struct_level, align 4
   %1948 = sext i32 %1947 to i64
-  %1949 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1948
+  %1949 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1948
   store ptr null, ptr %1949, align 8
   %1950 = add i32 %1947, -1
   store i32 %1950, ptr @struct_level, align 4
@@ -4460,7 +4460,7 @@ sub_01740:                                        ; preds = %1399, %1395
   store ptr %1988, ptr %1990, align 8
   %1991 = load i32, ptr @struct_level, align 4
   %1992 = sext i32 %1991 to i64
-  %1993 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %1992
+  %1993 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %1992
   %1994 = load ptr, ptr %1993, align 8
   %1995 = call ptr @ECPGstruct_member_dup(ptr noundef %1994) #16
   %1996 = getelementptr inbounds nuw i8, ptr %1965, i64 16
@@ -4474,14 +4474,14 @@ sub_01740:                                        ; preds = %1399, %1395
 2000:                                             ; preds = %yylloc_default.exit
   %2001 = load i32, ptr @struct_level, align 4
   %2002 = sext i32 %2001 to i64
-  %2003 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %2002
+  %2003 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %2002
   %2004 = load ptr, ptr %2003, align 8
   call void @ECPGfree_struct_member(ptr noundef %2004) #16
   %2005 = load i32, ptr @struct_level, align 4
   %2006 = add i32 %2005, 1
   store i32 %2006, ptr @struct_level, align 4
   %2007 = sext i32 %2005 to i64
-  %2008 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %2007
+  %2008 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %2007
   store ptr null, ptr %2008, align 8
   %2009 = icmp sgt i32 %2006, 127
   br i1 %2009, label %2010, label %.thread1651
@@ -4493,12 +4493,12 @@ sub_01740:                                        ; preds = %1399, %1395
 2011:                                             ; preds = %yylloc_default.exit
   %2012 = load i32, ptr @struct_level, align 4
   %2013 = sext i32 %2012 to i64
-  %2014 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %2013
+  %2014 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %2013
   %2015 = load ptr, ptr %2014, align 8
   call void @ECPGfree_struct_member(ptr noundef %2015) #16
   %2016 = load i32, ptr @struct_level, align 4
   %2017 = sext i32 %2016 to i64
-  %2018 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %2017
+  %2018 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %2017
   store ptr null, ptr %2018, align 8
   %2019 = add i32 %2016, -1
   store i32 %2019, ptr @struct_level, align 4
@@ -4678,7 +4678,7 @@ sub_01740:                                        ; preds = %1399, %1395
 2098:                                             ; preds = %yylloc_default.exit
   %2099 = load i32, ptr @struct_level, align 4
   %2100 = sext i32 %2099 to i64
-  %2101 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2100, i32 1
+  %2101 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2100, i32 1
   %2102 = load i32, ptr %2101, align 8
   switch i32 %2102, label %2110 [
     i32 14, label %2103
@@ -4688,7 +4688,7 @@ sub_01740:                                        ; preds = %1399, %1395
 2103:                                             ; preds = %2098, %2098
   %2104 = getelementptr inbounds i8, ptr %.21379, i64 -16
   %2105 = load ptr, ptr %2104, align 8
-  %2106 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2100
+  %2106 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2100
   %2107 = load ptr, ptr %2106, align 16
   %2108 = load ptr, ptr %.21379, align 8
   %2109 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %2105, ptr noundef nonnull @.str.133, ptr noundef %2107, ptr noundef %2108) #16
@@ -4713,7 +4713,7 @@ sub_01740:                                        ; preds = %1399, %1395
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %2120 = load i32, ptr @struct_level, align 4
   %2121 = sext i32 %2120 to i64
-  %2122 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2121
+  %2122 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2121
   %2123 = getelementptr inbounds nuw i8, ptr %2122, i64 8
   %2124 = load i32, ptr %2123, align 8
   %2125 = getelementptr inbounds nuw i8, ptr %2122, i64 24
@@ -4727,7 +4727,7 @@ sub_01740:                                        ; preds = %1399, %1395
   call void @adjust_array(i32 noundef %2124, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2126, ptr noundef %2128, i32 noundef %2132, i1 noundef zeroext false) #16
   %2133 = load i32, ptr @struct_level, align 4
   %2134 = sext i32 %2133 to i64
-  %2135 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2134, i32 1
+  %2135 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2134, i32 1
   %2136 = load i32, ptr %2135, align 8
   switch i32 %2136, label %2273 [
     i32 22, label %2137
@@ -4746,9 +4746,9 @@ sub_01740:                                        ; preds = %1399, %1395
   %.not1705 = icmp eq i64 %2140, 0
   %2141 = load i32, ptr @struct_level, align 4
   %2142 = sext i32 %2141 to i64
-  %2143 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %2142
+  %2143 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %2142
   %2144 = load ptr, ptr %2143, align 8
-  %2145 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2142
+  %2145 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2142
   %2146 = getelementptr inbounds nuw i8, ptr %2145, i64 8
   %2147 = load i32, ptr %2146, align 8
   %2148 = getelementptr inbounds nuw i8, ptr %2145, i64 16
@@ -4786,7 +4786,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %.not1703 = icmp eq i64 %2170, 0
   %2171 = load i32, ptr @struct_level, align 4
   %2172 = sext i32 %2171 to i64
-  %2173 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2172, i32 1
+  %2173 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2172, i32 1
   %2174 = load i32, ptr %2173, align 8
   %2175 = load ptr, ptr %8, align 8
   %2176 = load i32, ptr %varchar_counter.bytea_counter, align 4
@@ -4923,7 +4923,7 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
   %2248 = phi ptr [ %.pre1852, %._crit_edge1851 ], [ %2243, %2242 ]
   %2249 = load i32, ptr @struct_level, align 4
   %2250 = sext i32 %2249 to i64
-  %2251 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2250, i32 1
+  %2251 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2250, i32 1
   %2252 = load i32, ptr %2251, align 8
   %2253 = call ptr @ECPGmake_simple_type(i32 noundef %2252, ptr noundef %2248, i32 noundef 0) #16
   br label %2263
@@ -4931,7 +4931,7 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
 2254:                                             ; preds = %2228
   %2255 = load i32, ptr @struct_level, align 4
   %2256 = sext i32 %2255 to i64
-  %2257 = getelementptr inbounds [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %2256, i32 1
+  %2257 = getelementptr inbounds %struct.this_type, ptr @actual_type, i64 %2256, i32 1
   %2258 = load i32, ptr %2257, align 8
   %2259 = load ptr, ptr %8, align 8
   %2260 = call ptr @ECPGmake_simple_type(i32 noundef %2258, ptr noundef %2259, i32 noundef 0) #16
@@ -4995,7 +4995,7 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
 2299:                                             ; preds = %2291
   %2300 = add i32 %2292, -1
   %2301 = sext i32 %2300 to i64
-  %2302 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %2301
+  %2302 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %2301
   call void @ECPGmake_struct_member(ptr noundef %2295, ptr noundef %.11390, ptr noundef nonnull %2302) #16
   br label %2303
 
@@ -5521,7 +5521,7 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
   %.not1701 = icmp eq i64 %2583, 0
   %2584 = load i32, ptr @struct_level, align 4
   %2585 = sext i32 %2584 to i64
-  %2586 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %2585
+  %2586 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %2585
   %2587 = load ptr, ptr %2586, align 8
   %2588 = load i32, ptr %2564, align 8
   %2589 = getelementptr inbounds i8, ptr %.21367, i64 -80
@@ -5975,11 +5975,11 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
   store ptr %.sroa.234.0, ptr %.sroa.234.0..sroa_idx323, align 8
   %2826 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %.01618, ptr %2826, align 8
-  %2827 = getelementptr inbounds [3901 x i16], ptr @yyr1, i64 0, i64 %111
+  %2827 = getelementptr inbounds i16, ptr @yyr1, i64 %111
   %2828 = load i16, ptr %2827, align 2
   %2829 = sext i16 %2828 to i64
   %2830 = add nsw i64 %2829, -613
-  %2831 = getelementptr inbounds [874 x i32], ptr @yypgoto, i64 0, i64 %2830
+  %2831 = getelementptr inbounds i32, ptr @yypgoto, i64 %2830
   %2832 = load i32, ptr %2831, align 4
   %2833 = load i16, ptr %2824, align 2
   %2834 = sext i16 %2833 to i32
@@ -5989,17 +5989,17 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
 
 2836:                                             ; preds = %.thread1651
   %2837 = zext nneg i32 %2835 to i64
-  %2838 = getelementptr inbounds nuw [162372 x i16], ptr @yycheck, i64 0, i64 %2837
+  %2838 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2837
   %2839 = load i16, ptr %2838, align 2
   %2840 = icmp eq i16 %2839, %2833
   br i1 %2840, label %2841, label %2843
 
 2841:                                             ; preds = %2836
-  %2842 = getelementptr inbounds nuw [162372 x i16], ptr @yytable, i64 0, i64 %2837
+  %2842 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2837
   br label %2845
 
 2843:                                             ; preds = %2836, %.thread1651
-  %2844 = getelementptr inbounds [874 x i16], ptr @yydefgoto, i64 0, i64 %2830
+  %2844 = getelementptr inbounds i16, ptr @yydefgoto, i64 %2830
   br label %2845
 
 2845:                                             ; preds = %2843, %2841
@@ -6063,13 +6063,13 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
 
 2870:                                             ; preds = %2868
   %2871 = zext nneg i32 %2869 to i64
-  %2872 = getelementptr inbounds nuw [162372 x i16], ptr @yycheck, i64 0, i64 %2871
+  %2872 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2871
   %2873 = load i16, ptr %2872, align 2
   %2874 = icmp eq i16 %2873, 1
   br i1 %2874, label %2875, label %2879
 
 2875:                                             ; preds = %2870
-  %2876 = getelementptr inbounds nuw [162372 x i16], ptr @yytable, i64 0, i64 %2871
+  %2876 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2871
   %2877 = load i16, ptr %2876, align 2
   %2878 = icmp sgt i16 %2877, 0
   br i1 %2878, label %2887, label %2879
@@ -6086,7 +6086,7 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
   %2885 = getelementptr inbounds i8, ptr %.51382, i64 -8
   %2886 = load i16, ptr %2884, align 2
   %.phi.trans.insert1868 = sext i16 %2886 to i64
-  %.phi.trans.insert1869 = getelementptr inbounds [7139 x i32], ptr @yypact, i64 0, i64 %.phi.trans.insert1868
+  %.phi.trans.insert1869 = getelementptr inbounds i32, ptr @yypact, i64 %.phi.trans.insert1868
   %.pre1870 = load i32, ptr %.phi.trans.insert1869, align 4
   br label %2865
 
@@ -6987,7 +6987,7 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
 56:                                               ; preds = %52
   %57 = load i32, ptr @struct_level, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [128 x ptr], ptr @struct_member_list, i64 0, i64 %58
+  %59 = getelementptr inbounds ptr, ptr @struct_member_list, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @ECPGstruct_member_dup(ptr noundef %60) #16
   br label %62

@@ -7248,7 +7248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZN
 42:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %43 = getelementptr inbounds nuw [19 x ptr], ptr @_ZN2mu10ParserBase13c_DefaultOprtE, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr @_ZN2mu10ParserBase13c_DefaultOprtE, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !17
   store ptr %17, ptr %9, align 8, !tbaa !25
   %45 = icmp eq ptr %44, null
@@ -22009,7 +22009,7 @@ _ZNSt5stackIN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetCodeEv.exit33: ; preds = %122, %120
   %.0.i31 = phi i32 [ %124, %122 ], [ %121, %120 ]
   %125 = zext i32 %.0.i31 to i64
-  %126 = getelementptr inbounds nuw [19 x ptr], ptr @_ZN2mu10ParserBase13c_DefaultOprtE, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw ptr, ptr @_ZN2mu10ParserBase13c_DefaultOprtE, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !17
   %.not.i34 = icmp eq ptr %127, null
   br i1 %.not.i34, label %128, label %136

@@ -1520,100 +1520,100 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
   br label %8
 
 8:                                                ; preds = %8, %6
-  %9 = phi i64 [ %7, %6 ], [ %13, %8 ]
-  %.011.i.i.i = phi i64 [ 1, %6 ], [ %15, %8 ]
-  %10 = lshr i64 %9, 62
-  %11 = xor i64 %10, %9
+  %store_forwarded = phi i64 [ %7, %6 ], [ %13, %8 ]
+  %.011.i.i.i = phi i64 [ 1, %6 ], [ %14, %8 ]
+  %9 = getelementptr i64, ptr %3, i64 %.011.i.i.i
+  %10 = lshr i64 %store_forwarded, 62
+  %11 = xor i64 %10, %store_forwarded
   %12 = mul i64 %11, 6364136223846793005
   %13 = add i64 %12, %.011.i.i.i
-  %14 = getelementptr inbounds nuw [312 x i64], ptr %3, i64 0, i64 %.011.i.i.i
-  store i64 %13, ptr %14, align 8, !tbaa !4
-  %15 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %15, 312
-  br i1 %exitcond.not.i.i.i, label %16, label %8, !llvm.loop !8
+  store i64 %13, ptr %9, align 8, !tbaa !4
+  %14 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %14, 312
+  br i1 %exitcond.not.i.i.i, label %15, label %8, !llvm.loop !8
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2496
-  store i64 312, ptr %17, align 8, !tbaa !10
-  %18 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
-  %19 = zext i64 %18 to i128
-  %20 = mul nuw nsw i128 %19, 26
-  %extract15.i.i.i.i = lshr i128 %20, 64
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 2496
+  store i64 312, ptr %16, align 8, !tbaa !10
+  %17 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
+  %18 = zext i64 %17 to i128
+  %19 = mul nuw nsw i128 %18, 26
+  %extract15.i.i.i.i = lshr i128 %19, 64
   %extract.t16.i.i.i.i = trunc nuw nsw i128 %extract15.i.i.i.i to i64
-  %21 = and i128 %20, 18446744073709551600
-  %or.cond = icmp eq i128 %21, 0
+  %20 = and i128 %19, 18446744073709551600
+  %or.cond = icmp eq i128 %20, 0
   br i1 %or.cond, label %.lr.ph.i.i.i.i, label %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
 
-.lr.ph.i.i.i.i:                                   ; preds = %16, %.lr.ph.i.i.i.i
-  %22 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
-  %23 = zext i64 %22 to i128
-  %24 = mul nuw nsw i128 %23, 26
-  %25 = and i128 %24, 18446744073709551600
-  %26 = icmp eq i128 %25, 0
-  br i1 %26, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !12
+.lr.ph.i.i.i.i:                                   ; preds = %15, %.lr.ph.i.i.i.i
+  %21 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
+  %22 = zext i64 %21 to i128
+  %23 = mul nuw nsw i128 %22, 26
+  %24 = and i128 %23, 18446744073709551600
+  %25 = icmp eq i128 %24, 0
+  br i1 %25, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !12
 
 ..loopexit_crit_edge.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
-  %extract19.le.i.i.i.i = lshr i128 %24, 64
+  %extract19.le.i.i.i.i = lshr i128 %23, 64
   %extract.t20.le.i.i.i.i = trunc nuw nsw i128 %extract19.le.i.i.i.i to i64
   br label %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
 
-_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
-  %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
-  %27 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 %.0.i.i.i
+_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: ; preds = %15, %..loopexit_crit_edge.i.i.i.i
+  %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %15 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
+  %26 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 %.0.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %28 = load ptr, ptr %27, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %29, ptr %0, align 8, !tbaa !16
-  %30 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #7
+  %27 = load ptr, ptr %26, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %28, ptr %0, align 8, !tbaa !16
+  %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 %30, ptr %2, align 8, !tbaa !4
-  %31 = icmp ugt i64 %30, 15
-  br i1 %31, label %.noexc.i, label %._crit_edge.i.i
+  store i64 %29, ptr %2, align 8, !tbaa !4
+  %30 = icmp ugt i64 %29, 15
+  br i1 %30, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
-  %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %32, ptr %0, align 8, !tbaa !18
-  %33 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %33, ptr %29, align 8, !tbaa !20
+  %31 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
+  store ptr %31, ptr %0, align 8, !tbaa !18
+  %32 = load i64, ptr %2, align 8, !tbaa !4
+  store i64 %32, ptr %28, align 8, !tbaa !20
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
-  %34 = phi ptr [ %32, %.noexc.i ], [ %29, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit ]
-  switch i64 %30, label %37 [
-    i64 1, label %35
-    i64 0, label %38
+  %33 = phi ptr [ %31, %.noexc.i ], [ %28, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit ]
+  switch i64 %29, label %36 [
+    i64 1, label %34
+    i64 0, label %37
   ]
 
-35:                                               ; preds = %._crit_edge.i.i
-  %36 = load i8, ptr %28, align 1, !tbaa !20
-  store i8 %36, ptr %34, align 1, !tbaa !20
-  br label %38
+34:                                               ; preds = %._crit_edge.i.i
+  %35 = load i8, ptr %27, align 1, !tbaa !20
+  store i8 %35, ptr %33, align 1, !tbaa !20
+  br label %37
 
-37:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %28, i64 %30, i1 false)
-  br label %38
+36:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %27, i64 %29, i1 false)
+  br label %37
 
-38:                                               ; preds = %37, %35, %._crit_edge.i.i
-  %39 = load i64, ptr %2, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %39, ptr %40, align 8, !tbaa !21
-  %41 = load ptr, ptr %0, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
-  store i8 0, ptr %42, align 1, !tbaa !20
+37:                                               ; preds = %36, %34, %._crit_edge.i.i
+  %38 = load i64, ptr %2, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %38, ptr %39, align 8, !tbaa !21
+  %40 = load ptr, ptr %0, align 8, !tbaa !18
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
+  store i8 0, ptr %41, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %46
+  br label %45
 
 ._crit_edge.i.i4:                                 ; preds = %1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %0, align 8, !tbaa !16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %43, ptr noundef nonnull align 1 dereferenceable(7) @.str.26, i64 7, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 7, ptr %44, align 8, !tbaa !21
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 0, ptr %45, align 1, !tbaa !20
-  br label %46
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %42, ptr %0, align 8, !tbaa !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %42, ptr noundef nonnull align 1 dereferenceable(7) @.str.26, i64 7, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 7, ptr %43, align 8, !tbaa !21
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  store i8 0, ptr %44, align 1, !tbaa !20
+  br label %45
 
-46:                                               ; preds = %._crit_edge.i.i4, %38
+45:                                               ; preds = %._crit_edge.i.i4, %37
   ret void
 }
 
@@ -1633,7 +1633,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %3 = load i64, ptr %2, align 8, !tbaa !10
   %4 = icmp ugt i64 %3, 311
-  br i1 %4, label %5, label %52
+  br i1 %4, label %5, label %50
 
 5:                                                ; preds = %1
   %.pre.i = load i64, ptr %0, align 8, !tbaa !4
@@ -1642,23 +1642,22 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %.021.i
+  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !4
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
-  %15 = add nuw nsw i64 %.021.i, 156
-  %16 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %15
-  %17 = load i64, ptr %16, align 8, !tbaa !4
-  %18 = lshr exact i64 %14, 1
-  %19 = xor i64 %18, %17
-  %20 = and i64 %12, 1
-  %.not20.i = icmp eq i64 %20, 0
-  %21 = select i1 %.not20.i, i64 0, i64 -5403634167711393303
-  %22 = xor i64 %19, %21
-  store i64 %22, ptr %8, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 1248
+  %16 = load i64, ptr %15, align 8, !tbaa !4
+  %17 = lshr exact i64 %14, 1
+  %18 = xor i64 %17, %16
+  %19 = and i64 %12, 1
+  %.not20.i = icmp eq i64 %19, 0
+  %20 = select i1 %.not20.i, i64 0, i64 -5403634167711393303
+  %21 = xor i64 %18, %20
+  store i64 %21, ptr %8, align 8, !tbaa !4
   %exitcond.not.i = icmp eq i64 %10, 156
   br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !22
 
@@ -1668,64 +1667,63 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
-  %23 = phi i64 [ %28, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
-  %.01822.i = phi i64 [ %26, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %24 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %.01822.i
-  %25 = and i64 %23, -2147483648
-  %26 = add nuw nsw i64 %.01822.i, 1
-  %27 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8, !tbaa !4
-  %29 = and i64 %28, 2147483646
-  %30 = or disjoint i64 %29, %25
-  %31 = add nsw i64 %.01822.i, -156
-  %32 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %31
-  %33 = load i64, ptr %32, align 8, !tbaa !4
-  %34 = lshr exact i64 %30, 1
-  %35 = xor i64 %34, %33
-  %36 = and i64 %28, 1
-  %.not19.i = icmp eq i64 %36, 0
-  %37 = select i1 %.not19.i, i64 0, i64 -5403634167711393303
-  %38 = xor i64 %35, %37
-  store i64 %38, ptr %24, align 8, !tbaa !4
-  %exitcond23.not.i = icmp eq i64 %26, 311
+  %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
+  %.01822.i = phi i64 [ %25, %.preheader.i ], [ 156, %.preheader.preheader.i ]
+  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %24 = and i64 %22, -2147483648
+  %25 = add nuw nsw i64 %.01822.i, 1
+  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %27 = load i64, ptr %26, align 8, !tbaa !4
+  %28 = and i64 %27, 2147483646
+  %29 = or disjoint i64 %28, %24
+  %30 = getelementptr i8, ptr %23, i64 -1248
+  %31 = load i64, ptr %30, align 8, !tbaa !4
+  %32 = lshr exact i64 %29, 1
+  %33 = xor i64 %32, %31
+  %34 = and i64 %27, 1
+  %.not19.i = icmp eq i64 %34, 0
+  %35 = select i1 %.not19.i, i64 0, i64 -5403634167711393303
+  %36 = xor i64 %33, %35
+  store i64 %36, ptr %23, align 8, !tbaa !4
+  %exitcond23.not.i = icmp eq i64 %25, 311
   br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !23
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit: ; preds = %.preheader.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2488
-  %40 = load i64, ptr %39, align 8, !tbaa !4
-  %41 = and i64 %40, -2147483648
-  %42 = load i64, ptr %0, align 8, !tbaa !4
-  %43 = and i64 %42, 2147483646
-  %44 = or disjoint i64 %43, %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %46 = load i64, ptr %45, align 8, !tbaa !4
-  %47 = lshr exact i64 %44, 1
-  %48 = xor i64 %47, %46
-  %49 = and i64 %42, 1
-  %.not.i = icmp eq i64 %49, 0
-  %50 = select i1 %.not.i, i64 0, i64 -5403634167711393303
-  %51 = xor i64 %48, %50
-  store i64 %51, ptr %39, align 8, !tbaa !4
-  br label %52
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2488
+  %38 = load i64, ptr %37, align 8, !tbaa !4
+  %39 = and i64 %38, -2147483648
+  %40 = load i64, ptr %0, align 8, !tbaa !4
+  %41 = and i64 %40, 2147483646
+  %42 = or disjoint i64 %41, %39
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %44 = load i64, ptr %43, align 8, !tbaa !4
+  %45 = lshr exact i64 %42, 1
+  %46 = xor i64 %45, %44
+  %47 = and i64 %40, 1
+  %.not.i = icmp eq i64 %47, 0
+  %48 = select i1 %.not.i, i64 0, i64 -5403634167711393303
+  %49 = xor i64 %46, %48
+  store i64 %49, ptr %37, align 8, !tbaa !4
+  br label %50
 
-52:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, %1
-  %53 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
-  %54 = add nuw nsw i64 %53, 1
-  store i64 %54, ptr %2, align 8, !tbaa !10
-  %55 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %53
-  %56 = load i64, ptr %55, align 8, !tbaa !4
-  %57 = lshr i64 %56, 29
-  %58 = and i64 %57, 22906492245
-  %59 = xor i64 %58, %56
-  %60 = shl i64 %59, 17
-  %61 = and i64 %60, 8202884508482404352
-  %62 = xor i64 %61, %59
-  %63 = shl i64 %62, 37
-  %64 = and i64 %63, -2270628950310912
-  %65 = xor i64 %64, %62
-  %66 = lshr i64 %65, 43
-  %67 = xor i64 %66, %65
-  ret i64 %67
+50:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, %1
+  %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
+  %52 = add nuw nsw i64 %51, 1
+  store i64 %52, ptr %2, align 8, !tbaa !10
+  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %54 = load i64, ptr %53, align 8, !tbaa !4
+  %55 = lshr i64 %54, 29
+  %56 = and i64 %55, 22906492245
+  %57 = xor i64 %56, %54
+  %58 = shl i64 %57, 17
+  %59 = and i64 %58, 8202884508482404352
+  %60 = xor i64 %59, %57
+  %61 = shl i64 %60, 37
+  %62 = and i64 %61, -2270628950310912
+  %63 = xor i64 %62, %60
+  %64 = lshr i64 %63, 43
+  %65 = xor i64 %64, %63
+  ret i64 %65
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -1748,71 +1746,71 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
   br label %8
 
 8:                                                ; preds = %8, %6
-  %9 = phi i64 [ %7, %6 ], [ %13, %8 ]
-  %.011.i.i.i = phi i64 [ 1, %6 ], [ %15, %8 ]
-  %10 = lshr i64 %9, 62
-  %11 = xor i64 %10, %9
+  %store_forwarded = phi i64 [ %7, %6 ], [ %13, %8 ]
+  %.011.i.i.i = phi i64 [ 1, %6 ], [ %14, %8 ]
+  %9 = getelementptr i64, ptr %3, i64 %.011.i.i.i
+  %10 = lshr i64 %store_forwarded, 62
+  %11 = xor i64 %10, %store_forwarded
   %12 = mul i64 %11, 6364136223846793005
   %13 = add i64 %12, %.011.i.i.i
-  %14 = getelementptr inbounds nuw [312 x i64], ptr %3, i64 0, i64 %.011.i.i.i
-  store i64 %13, ptr %14, align 8, !tbaa !4
-  %15 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %15, 312
-  br i1 %exitcond.not.i.i.i, label %16, label %8, !llvm.loop !8
+  store i64 %13, ptr %9, align 8, !tbaa !4
+  %14 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %14, 312
+  br i1 %exitcond.not.i.i.i, label %15, label %8, !llvm.loop !8
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2496
-  store i64 312, ptr %17, align 8, !tbaa !10
-  %18 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
-  %19 = zext i64 %18 to i128
-  %20 = mul nuw nsw i128 %19, 907
-  %21 = trunc i128 %20 to i64
-  %extract15.i.i.i.i = lshr i128 %20, 64
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 2496
+  store i64 312, ptr %16, align 8, !tbaa !10
+  %17 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
+  %18 = zext i64 %17 to i128
+  %19 = mul nuw nsw i128 %18, 907
+  %20 = trunc i128 %19 to i64
+  %extract15.i.i.i.i = lshr i128 %19, 64
   %extract.t16.i.i.i.i = trunc nuw nsw i128 %extract15.i.i.i.i to i64
-  %or.cond = icmp ult i64 %21, 579
+  %or.cond = icmp ult i64 %20, 579
   br i1 %or.cond, label %.lr.ph.i.i.i.i, label %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
 
-.lr.ph.i.i.i.i:                                   ; preds = %16, %.lr.ph.i.i.i.i
-  %22 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
-  %23 = zext i64 %22 to i128
-  %24 = mul nuw nsw i128 %23, 907
-  %25 = trunc i128 %24 to i64
-  %26 = icmp ult i64 %25, 579
-  br i1 %26, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !12
+.lr.ph.i.i.i.i:                                   ; preds = %15, %.lr.ph.i.i.i.i
+  %21 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
+  %22 = zext i64 %21 to i128
+  %23 = mul nuw nsw i128 %22, 907
+  %24 = trunc i128 %23 to i64
+  %25 = icmp ult i64 %24, 579
+  br i1 %25, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !12
 
 ..loopexit_crit_edge.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
-  %extract19.le.i.i.i.i = lshr i128 %24, 64
+  %extract19.le.i.i.i.i = lshr i128 %23, 64
   %extract.t20.le.i.i.i.i = trunc nuw nsw i128 %extract19.le.i.i.i.i to i64
   br label %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
 
-_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
-  %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
-  %27 = getelementptr inbounds nuw %struct.Quote, ptr @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 %.0.i.i.i
+_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit: ; preds = %15, %..loopexit_crit_edge.i.i.i.i
+  %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %15 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
+  %26 = getelementptr inbounds nuw %struct.Quote, ptr @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 %.0.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.sroa.0.0.copyload = load ptr, ptr %27, align 16, !tbaa !13
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %26, align 16, !tbaa !13
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.1490, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload)
-  br label %33
+  br label %32
 
 .noexc.i:                                         ; preds = %1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %28, ptr %0, align 8, !tbaa !16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %27, ptr %0, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 41, ptr %2, align 8, !tbaa !4
-  %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %29, ptr %0, align 8, !tbaa !18
-  %30 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %30, ptr %28, align 8, !tbaa !20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %29, ptr noundef nonnull align 1 dereferenceable(41) @.str.1491, i64 41, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %31, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %30
-  store i8 0, ptr %32, align 1, !tbaa !20
+  %28 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
+  store ptr %28, ptr %0, align 8, !tbaa !18
+  %29 = load i64, ptr %2, align 8, !tbaa !4
+  store i64 %29, ptr %27, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %28, ptr noundef nonnull align 1 dereferenceable(41) @.str.1491, i64 41, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %29, ptr %30, align 8, !tbaa !21
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %29
+  store i8 0, ptr %31, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %33
+  br label %32
 
-33:                                               ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
+32:                                               ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
   ret void
 }
 

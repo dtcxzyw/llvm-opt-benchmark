@@ -17,7 +17,7 @@ define void @ff_h263dsp_init(ptr noundef writeonly captures(none) initializes((0
 define internal void @h263_h_loop_filter_c(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #1 {
 .lver.check:
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [32 x i8], ptr @ff_h263_loop_filter_strength, i64 0, i64 %3
+  %4 = getelementptr inbounds i8, ptr @ff_h263_loop_filter_strength, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !10
   %6 = zext i8 %5 to i32
   %7 = mul nsw i32 %6, -2
@@ -196,7 +196,7 @@ define internal void @h263_h_loop_filter_c(ptr noundef captures(none) %0, i32 no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @h263_v_loop_filter_c(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds [32 x i8], ptr @ff_h263_loop_filter_strength, i64 0, i64 %4
+  %5 = getelementptr inbounds i8, ptr @ff_h263_loop_filter_strength, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !10
   %7 = zext i8 %6 to i32
   %8 = shl nsw i32 %1, 1

@@ -445,10 +445,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !14, !align !48, !noundef !14
   %.val = load i8, ptr %2, align 1, !range !49, !noundef !14
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hde4b5a385c792c31E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hde4b5a385c792c31E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [26 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hde4b5a385c792c31E.36", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hde4b5a385c792c31E.36", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -20336,13 +20336,13 @@ define void @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_lea
 
 7:                                                ; preds = %6
   %8 = add i64 %.sroa.02.0.i, 1
-  %9 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.sroa.02.0.i
+  %9 = getelementptr inbounds i8, ptr %1, i64 %.sroa.02.0.i
   %10 = load i8, ptr %9, align 1, !alias.scope !435, !noundef !14
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %6, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.sroa.02.0.i
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.sroa.02.0.i
   %14 = sub nuw i64 %2, %.sroa.02.0.i
   br label %_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_leading_zeros18trim_leading_zeros17hf503911144e2938fE.llvm.8163760720121022826.exit
 
@@ -20358,13 +20358,13 @@ _ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_leading_zeros18t
 
 16:                                               ; preds = %15
   %17 = add i64 %.sroa.02.0.i1, 1
-  %18 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.sroa.02.0.i1
+  %18 = getelementptr inbounds i8, ptr %3, i64 %.sroa.02.0.i1
   %19 = load i8, ptr %18, align 1, !alias.scope !438, !noundef !14
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %15, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.sroa.02.0.i1
+  %22 = getelementptr inbounds i8, ptr %3, i64 %.sroa.02.0.i1
   %23 = sub nuw i64 %4, %.sroa.02.0.i1
   br label %_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_params_trimming_leading_zeros18trim_leading_zeros17hf503911144e2938fE.llvm.8163760720121022826.exit5
 
@@ -20399,13 +20399,13 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs12ffdhe_groups10FfdheGroup34from_para
 
 6:                                                ; preds = %3
   %7 = add i64 %.sroa.02.0, 1
-  %8 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %.sroa.02.0
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.0
   %9 = load i8, ptr %8, align 1, !noundef !14
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %3, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %.sroa.02.0
+  %12 = getelementptr inbounds i8, ptr %0, i64 %.sroa.02.0
   %13 = sub nuw i64 %1, %.sroa.02.0
   br label %.thread
 }

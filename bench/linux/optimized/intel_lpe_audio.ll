@@ -375,7 +375,7 @@ define dso_local void @intel_lpe_audio_notify(ptr noundef %0, i32 noundef %1, i3
   %13 = load ptr, ptr %12, align 8
   %14 = add i32 %2, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [3 x %struct.intel_hdmi_lpe_audio_port_pdata], ptr %13, i64 0, i64 %15
+  %16 = getelementptr %struct.intel_hdmi_lpe_audio_port_pdata, ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 448
   %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %17) #8
   %19 = icmp slt i32 %14, 1

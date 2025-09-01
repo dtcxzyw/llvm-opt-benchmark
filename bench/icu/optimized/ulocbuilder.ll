@@ -566,7 +566,7 @@ define void @ulocbld_setLocale_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
 26:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %1, i64 %12, i1 false)
-  %27 = getelementptr inbounds nuw [157 x i8], ptr %6, i64 0, i64 %12
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 %12
   store i8 0, ptr %27, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %7, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null)

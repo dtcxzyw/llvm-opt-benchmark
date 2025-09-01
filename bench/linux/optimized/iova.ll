@@ -174,7 +174,7 @@ define internal noundef i32 @iova_cpuhp_dead(i32 noundef %0, ptr noundef %1) #1 
   %5 = select i1 %3, ptr null, ptr %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = zext i32 %0 to i64
-  %8 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %7
+  %8 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
   br label %9
 
 9:                                                ; preds = %9, %2
@@ -843,7 +843,7 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   %61 = phi i32 [ %58, %55 ], [ %62, %67 ]
   %62 = add i32 %61, -1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr [127 x i64], ptr %59, i64 0, i64 %63
+  %64 = getelementptr i64, ptr %59, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = icmp ugt i64 %65, %28
   br i1 %66, label %67, label %70
@@ -861,10 +861,10 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   br label %.thread12
 
 70:                                               ; preds = %60
-  %71 = getelementptr [127 x i64], ptr %59, i64 0, i64 %63
+  %71 = getelementptr i64, ptr %59, i64 %63
   %72 = add i64 %57, -1
   store i64 %72, ptr %56, align 8
-  %73 = getelementptr [127 x i64], ptr %59, i64 0, i64 %72
+  %73 = getelementptr i64, ptr %56, i64 %57
   %74 = load i64, ptr %73, align 8
   store i64 %74, ptr %71, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %32, i64 noundef %33) #9
@@ -902,7 +902,7 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
 
 91:                                               ; preds = %87
   %92 = and i64 %88, 63
-  %93 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %92
+  %93 = getelementptr i64, ptr @__per_cpu_offset, i64 %92
   br label %94
 
 94:                                               ; preds = %94, %91
@@ -1056,7 +1056,7 @@ define dso_local void @free_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = add i64 %47, 1
   store i64 %50, ptr %48, align 8
-  %51 = getelementptr [127 x i64], ptr %49, i64 0, i64 %47
+  %51 = getelementptr i64, ptr %49, i64 %47
   store i64 %1, ptr %51, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %19) #9
   br label %54
@@ -1313,7 +1313,7 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   %33 = load ptr, ptr %18, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %29, 63
-  %36 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %35
+  %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %34
   %39 = inttoptr i64 %38 to ptr
@@ -1455,7 +1455,7 @@ define internal fastcc void @free_iova_rcaches(ptr noundef captures(none) %0) un
 21:                                               ; preds = %16
   %22 = ptrtoint ptr %20 to i64
   %23 = and i64 %17, 63
-  %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
+  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
   %27 = inttoptr i64 %26 to ptr
@@ -1559,7 +1559,7 @@ define internal fastcc void @iova_magazine_free_pfns(ptr noundef captures(none) 
 13:                                               ; preds = %70, %6
   %14 = phi i64 [ 0, %6 ], [ %72, %70 ]
   %15 = phi i32 [ 0, %6 ], [ %71, %70 ]
-  %16 = getelementptr [127 x i64], ptr %7, i64 0, i64 %14
+  %16 = getelementptr i64, ptr %7, i64 %14
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = load volatile i32, ptr %1, align 8

@@ -142,7 +142,7 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_addP21grpc_chttp2_tr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
   %16 = load ptr, ptr %15, align 8, !tbaa !138
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %18 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_link], ptr %17, i64 0, i64 %13
+  %18 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %17, i64 %13
   store ptr null, ptr %18, align 8, !tbaa !140
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %16, ptr %19, align 8, !tbaa !142
@@ -151,13 +151,13 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_addP21grpc_chttp2_tr
 
 20:                                               ; preds = %.critedge.i
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %22 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_link], ptr %21, i64 0, i64 %13
+  %22 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %21, i64 %13
   store ptr %1, ptr %22, align 8, !tbaa !140
   br label %26
 
 23:                                               ; preds = %.critedge.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %25 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_list], ptr %24, i64 0, i64 %13
+  %25 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %24, i64 %13
   store ptr %1, ptr %25, align 8, !tbaa !143
   br label %26
 
@@ -209,7 +209,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i: ; p
 
 switch.lookup:                                    ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i
   %42 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %7, align 8, !tbaa !344
   %43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -266,7 +266,7 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_popP21grpc_chttp2_tr
   store ptr %0, ptr %5, align 8, !tbaa !137
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_list], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !143
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %.critedge32
@@ -288,7 +288,7 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_popP21grpc_chttp2_tr
 
 .critedge:                                        ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %22 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_link], ptr %21, i64 0, i64 %10
+  %22 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %21, i64 %10
   %23 = load ptr, ptr %22, align 8, !tbaa !140
   %.not = icmp eq ptr %23, null
   %.idx = shl nuw nsw i64 %10, 4
@@ -346,7 +346,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit: ; pre
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %43 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %8, align 8, !tbaa !344
   %44 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -412,7 +412,7 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
   store i8 %16, ptr %9, align 1, !tbaa !136
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = zext nneg i32 %2 to i64
-  %19 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_link], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !142
   %.not.i = icmp eq ptr %21, null
@@ -421,13 +421,13 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
 22:                                               ; preds = %.critedge.i
   %23 = load ptr, ptr %19, align 8, !tbaa !140
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %25 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_link], ptr %24, i64 0, i64 %18
+  %25 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %24, i64 %18
   store ptr %23, ptr %25, align 8, !tbaa !140
   br label %32
 
 26:                                               ; preds = %.critedge.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %28 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_list], ptr %27, i64 0, i64 %18
+  %28 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %27, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !143
   %.not46.not.i = icmp eq ptr %29, %1
   br i1 %.not46.not.i, label %.critedge51.i, label %30, !prof !346
@@ -495,7 +495,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i: ; p
 
 switch.lookup:                                    ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i
   %50 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %50
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %8, align 8, !tbaa !344
   %51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(8) %8)

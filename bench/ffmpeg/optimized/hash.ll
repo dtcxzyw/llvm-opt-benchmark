@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @av_hash_names(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 14
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw [15 x %struct.anon], ptr @hashdesc, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %2
   %.0 = select i1 %or.cond, ptr null, ptr %3
   ret ptr %.0
 }
@@ -22,7 +22,7 @@ define nonnull ptr @av_hash_get_name(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [15 x %struct.anon], ptr @hashdesc, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %4
   ret ptr %5
 }
 
@@ -31,7 +31,7 @@ define i32 @av_hash_get_size(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [15 x %struct.anon], ptr @hashdesc, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %4, i32 1
   %6 = load i32, ptr %5, align 4, !tbaa !11
   ret i32 %6
 }
@@ -43,7 +43,7 @@ define range(i32 -22, 1) i32 @av_hash_alloc(ptr noundef writeonly captures(none)
 
 3:                                                ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw [15 x %struct.anon], ptr @hashdesc, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %indvars.iv
   %5 = tail call i32 @av_strcasecmp(ptr noundef %1, ptr noundef nonnull %4) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %8, label %7
@@ -419,7 +419,7 @@ define void @av_hash_final_bin(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [15 x %struct.anon], ptr @hashdesc, i64 0, i64 %7, i32 1
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7, i32 1
   %9 = load i32, ptr %8, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
   %10 = icmp ugt i32 %2, %9
@@ -454,7 +454,7 @@ define void @av_hash_final_hex(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [15 x %struct.anon], ptr @hashdesc, i64 0, i64 %7, i32 1
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7, i32 1
   %9 = load i32, ptr %8, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
   %10 = sdiv i32 %2, 2
@@ -474,7 +474,7 @@ define void @av_hash_final_hex(ptr noundef readonly captures(none) %0, ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
   %15 = sub i32 %2, %12
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !20
   %19 = zext i8 %18 to i32
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef %16, ptr noundef nonnull @.str, i32 noundef %19) #10
@@ -499,7 +499,7 @@ define void @av_hash_final_b64(ptr noundef readonly captures(none) %0, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [15 x %struct.anon], ptr @hashdesc, i64 0, i64 %8, i32 1
+  %9 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %8, i32 1
   %10 = load i32, ptr %9, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
   %11 = call ptr @av_base64_encode(ptr noundef nonnull %5, i32 noundef 89, ptr noundef nonnull %4, i32 noundef %10) #10

@@ -866,7 +866,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %30
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %30 ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv32
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv32
   %28 = load i32, ptr %27, align 4
   %.not27.us = icmp eq i64 %indvars.iv32, 0
   br i1 %.not27.us, label %30, label %29
@@ -884,7 +884,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
-  %32 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %.not27 = icmp eq i64 %indvars.iv, 0
   br i1 %.not27, label %35, label %34
@@ -987,7 +987,7 @@ define dso_local void @format_procedure_parts(i32 noundef %0, ptr noundef writeo
 27:                                               ; preds = %.lr.ph, %27
   %28 = phi ptr [ null, %.lr.ph ], [ %32, %27 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %29 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = tail call ptr @format_type_be_qualified(i32 noundef %30) #9
   %32 = tail call ptr @lappend(ptr noundef %28, ptr noundef %31) #9

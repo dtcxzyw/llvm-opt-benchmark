@@ -744,7 +744,7 @@ _dark_channel.exit.i:                             ; preds = %.lr.ph.i.i, %77
   %.0108150.i = phi i64 [ %175, %.preheader138.i ], [ 0, %159 ]
   %170 = getelementptr inbounds nuw float, ptr %155, i64 %.0108150.i
   %171 = load float, ptr %170, align 4, !tbaa !49
-  %172 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.0108150.i
+  %172 = getelementptr inbounds nuw float, ptr %7, i64 %.0108150.i
   %173 = load float, ptr %172, align 4, !tbaa !49
   %174 = fadd reassoc nsz arcp contract afn float %173, %171
   store float %174, ptr %172, align 4, !tbaa !49
@@ -760,7 +760,7 @@ _dark_channel.exit.i:                             ; preds = %.lr.ph.i.i, %77
 
 178:                                              ; preds = %178, %.preheader.i
   %.0157.i = phi i64 [ 0, %.preheader.i ], [ %182, %178 ]
-  %179 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.0157.i
+  %179 = getelementptr inbounds nuw float, ptr %7, i64 %.0157.i
   %180 = load float, ptr %179, align 4, !tbaa !49
   %181 = fmul reassoc nsz arcp contract afn float %180, %154
   store float %181, ptr %179, align 4, !tbaa !49
@@ -918,12 +918,12 @@ _transition_map.exit:                             ; preds = %.lr.ph.i102, %215
   %.0143 = phi i64 [ 0, %.lr.ph ], [ %264, %255 ]
   %256 = getelementptr inbounds nuw float, ptr %250, i64 %.0143
   %257 = load float, ptr %256, align 4, !tbaa !49
-  %258 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.0143
+  %258 = getelementptr inbounds nuw float, ptr %8, i64 %.0143
   %259 = load float, ptr %258, align 4, !tbaa !49
   %260 = fsub reassoc nsz arcp contract afn float %257, %259
   %261 = fmul reassoc nsz arcp contract afn float %260, %251
   %262 = fadd reassoc nsz arcp contract afn float %261, %259
-  %263 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0143
+  %263 = getelementptr inbounds nuw float, ptr %9, i64 %.0143
   store float %262, ptr %263, align 4, !tbaa !49
   %264 = add nuw nsw i64 %.0143, 1
   %exitcond.not = icmp eq i64 %264, 4
@@ -981,7 +981,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [5 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

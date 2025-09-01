@@ -625,7 +625,7 @@ _ZNK3irr4core8vector3dIsEeqERKS2_.exit:           ; preds = %land.rhs.i, %land.l
   %8 = load ptr, ptr %f.i, align 8, !tbaa !62
   %special_tiles.i = getelementptr inbounds nuw i8, ptr %8, i64 720
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds [6 x %struct.TileSpec], ptr %special_tiles.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.TileSpec, ptr %special_tiles.i, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i, i64 120, i1 false), !tbaa.struct !63
   %__begin1.0.ptr26.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %n.i = getelementptr inbounds nuw i8, ptr %this, i64 60
@@ -727,7 +727,7 @@ entry:
   %0 = load ptr, ptr %f, align 8, !tbaa !62
   %special_tiles = getelementptr inbounds nuw i8, ptr %0, i64 720
   %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr inbounds [6 x %struct.TileSpec], ptr %special_tiles, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds %struct.TileSpec, ptr %special_tiles, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx, i64 120, i1 false), !tbaa.struct !63
   %__begin1.0.ptr26 = getelementptr inbounds nuw i8, ptr %tile, i64 8
   %n = getelementptr inbounds nuw i8, ptr %this, i64 60
@@ -1872,7 +1872,7 @@ for.body6:                                        ; preds = %if.end, %entry
   %retval.sroa.0.0.insert.ext.i = zext i16 %add.i to i48
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i, %retval.sroa.0.0.insert.ext.i
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %ref.tmp, align 8
-  %arrayidx9 = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %indvars.iv
+  %arrayidx9 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %indvars.iv
   %6 = load ptr, ptr %this, align 8, !tbaa !12
   %call10 = call noundef zeroext i16 @_Z25getSmoothLightTransparentRKN3irr4core8vector3dIsEES4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx9, ptr noundef %6)
   %conv2.i = trunc i16 %call10 to i8
@@ -1880,19 +1880,19 @@ for.body6:                                        ; preds = %if.end, %entry
   %conv4.i = trunc nuw i16 %7 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %conv = uitofp i8 %conv2.i to float
-  %arrayidx14 = getelementptr inbounds nuw [8 x float], ptr %frame12, i64 0, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds nuw float, ptr %frame12, i64 %indvars.iv
   store float %conv, ptr %arrayidx14, align 4, !tbaa !49
   %conv15 = uitofp i8 %conv4.i to float
-  %arrayidx19 = getelementptr inbounds nuw [8 x float], ptr %lightsNight, i64 0, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds nuw float, ptr %lightsNight, i64 %indvars.iv
   store float %conv15, ptr %arrayidx19, align 4, !tbaa !49
   %cmp22 = icmp eq i8 %conv2.i, -1
   br i1 %cmp22, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body6
-  %arrayidx27 = getelementptr inbounds nuw [8 x i8], ptr %sunlight, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %sunlight, i64 %indvars.iv
   store i8 1, ptr %arrayidx27, align 1, !tbaa !64
   %idxprom31 = xor i64 %indvars.iv, 2
-  %arrayidx32 = getelementptr inbounds nuw [8 x i8], ptr %sunlight, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %sunlight, i64 %idxprom31
   store i8 1, ptr %arrayidx32, align 1, !tbaa !64
   br label %if.end
 
@@ -3113,48 +3113,48 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   br i1 %tobool.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %478 = shl nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x %"struct.irr::video::S3DVertex"], ptr %vertices.i, i64 0, i64 %478
-  %arrayidx5.i.i = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv.i
-  %479 = load i8, ptr %arrayidx5.i.i, align 4, !tbaa !44
-  %idxprom6.i.i = zext i8 %479 to i64
-  %arrayidx7.i.i = getelementptr inbounds nuw [8 x %struct.LightInfo], ptr %lights, i64 0, i64 %idxprom6.i.i
+  %arrayidx.i.i.i.idx = mul nuw nsw i64 %indvars.iv.i, 144
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %vertices.i, i64 %arrayidx.i.i.i.idx
+  %arrayidx5.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv.i
+  %478 = load i8, ptr %arrayidx5.i.i, align 4, !tbaa !44
+  %idxprom6.i.i = zext i8 %478 to i64
+  %arrayidx7.i.i = getelementptr inbounds nuw %struct.LightInfo, ptr %lights, i64 %idxprom6.i.i
   %Y.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
-  %480 = load float, ptr %Y.i.i, align 4, !tbaa !108
-  %cmp8.i.i = fcmp nsz olt float %480, 0.000000e+00
-  %cond.i.i = select nsz i1 %cmp8.i.i, float 0.000000e+00, float %480
+  %479 = load float, ptr %Y.i.i, align 4, !tbaa !108
+  %cmp8.i.i = fcmp nsz olt float %479, 0.000000e+00
+  %cond.i.i = select nsz i1 %cmp8.i.i, float 0.000000e+00, float %479
   %sub.i53.i.i = fsub nsz float 1.000000e+00, %cond.i.i
-  %481 = load float, ptr %arrayidx7.i.i, align 4, !tbaa !111
+  %480 = load float, ptr %arrayidx7.i.i, align 4, !tbaa !111
   %light_boosted.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i.i, i64 8
-  %482 = load float, ptr %light_boosted.i.i.i, align 4, !tbaa !113
-  %mul2.i.i.i = fmul nsz float %482, %cond.i.i
-  %483 = call nsz float @llvm.fmuladd.f32(float %sub.i53.i.i, float %481, float %mul2.i.i.i)
+  %481 = load float, ptr %light_boosted.i.i.i, align 4, !tbaa !113
+  %mul2.i.i.i = fmul nsz float %481, %cond.i.i
+  %482 = call nsz float @llvm.fmuladd.f32(float %sub.i53.i.i, float %480, float %mul2.i.i.i)
   %light_night.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i.i, i64 4
-  %484 = load float, ptr %light_night.i.i.i, align 4, !tbaa !114
-  %add.i.i.i.i.i.i = fadd nsz float %483, 5.000000e-01
-  %485 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.i.i)
-  %conv.i.i.i.i.i = fptosi float %485 to i32
-  %486 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.i.i, i32 0)
-  %487 = call i32 @llvm.umin.i32(i32 %486, i32 255)
-  %conv.i.i.i.i = trunc nuw nsw i32 %487 to i16
-  %add.i.i11.i.i.i.i = fadd nsz float %484, 5.000000e-01
-  %488 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.i.i)
-  %conv.i12.i.i.i.i = fptosi float %488 to i32
-  %489 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.i.i, i32 0)
-  %490 = call i32 @llvm.umin.i32(i32 %489, i32 255)
-  %conv10.i.i.i.i = trunc nuw nsw i32 %490 to i16
+  %483 = load float, ptr %light_night.i.i.i, align 4, !tbaa !114
+  %add.i.i.i.i.i.i = fadd nsz float %482, 5.000000e-01
+  %484 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.i.i)
+  %conv.i.i.i.i.i = fptosi float %484 to i32
+  %485 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.i.i, i32 0)
+  %486 = call i32 @llvm.umin.i32(i32 %485, i32 255)
+  %conv.i.i.i.i = trunc nuw nsw i32 %486 to i16
+  %add.i.i11.i.i.i.i = fadd nsz float %483, 5.000000e-01
+  %487 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.i.i)
+  %conv.i12.i.i.i.i = fptosi float %487 to i32
+  %488 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.i.i, i32 0)
+  %489 = call i32 @llvm.umin.i32(i32 %488, i32 255)
+  %conv10.i.i.i.i = trunc nuw nsw i32 %489 to i16
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i16 %conv10.i.i.i.i, 8
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.i.i, %conv.i.i.i.i
-  %491 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.i = getelementptr inbounds nuw i8, ptr %491, i64 3041
-  %492 = load i8, ptr %light_source.i.i, align 1, !tbaa !69
-  %call17.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.i.i, i8 noundef zeroext %492)
+  %490 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.i = getelementptr inbounds nuw i8, ptr %490, i64 3041
+  %491 = load i8, ptr %light_source.i.i, align 1, !tbaa !69
+  %call17.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.i.i, i8 noundef zeroext %491)
   %Color.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 24
   store i32 %call17.i.i, ptr %Color.i.i, align 4, !tbaa !100
-  %493 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source20.i.i = getelementptr inbounds nuw i8, ptr %493, i64 3041
-  %494 = load i8, ptr %light_source20.i.i, align 1, !tbaa !69
-  %tobool.not.i.i = icmp eq i8 %494, 0
+  %492 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source20.i.i = getelementptr inbounds nuw i8, ptr %492, i64 3041
+  %493 = load i8, ptr %light_source20.i.i, align 1, !tbaa !69
+  %tobool.not.i.i = icmp eq i8 %493, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -3166,44 +3166,44 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %495 = phi i8 [ %.pre56.i.i, %if.then.i.i ], [ %494, %if.end.i ]
-  %arrayidx5.1.i.i = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv.i, i64 1
-  %496 = load i8, ptr %arrayidx5.1.i.i, align 1, !tbaa !44
-  %idxprom6.1.i.i = zext i8 %496 to i64
-  %arrayidx7.1.i.i = getelementptr inbounds nuw [8 x %struct.LightInfo], ptr %lights, i64 0, i64 %idxprom6.1.i.i
+  %494 = phi i8 [ %.pre56.i.i, %if.then.i.i ], [ %493, %if.end.i ]
+  %arrayidx5.1.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv.i, i64 1
+  %495 = load i8, ptr %arrayidx5.1.i.i, align 1, !tbaa !44
+  %idxprom6.1.i.i = zext i8 %495 to i64
+  %arrayidx7.1.i.i = getelementptr inbounds nuw %struct.LightInfo, ptr %lights, i64 %idxprom6.1.i.i
   %Y.1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 52
-  %497 = load float, ptr %Y.1.i.i, align 4, !tbaa !108
-  %cmp8.1.i.i = fcmp nsz olt float %497, 0.000000e+00
-  %cond.1.i.i = select nsz i1 %cmp8.1.i.i, float 0.000000e+00, float %497
+  %496 = load float, ptr %Y.1.i.i, align 4, !tbaa !108
+  %cmp8.1.i.i = fcmp nsz olt float %496, 0.000000e+00
+  %cond.1.i.i = select nsz i1 %cmp8.1.i.i, float 0.000000e+00, float %496
   %sub.i53.1.i.i = fsub nsz float 1.000000e+00, %cond.1.i.i
-  %498 = load float, ptr %arrayidx7.1.i.i, align 4, !tbaa !111
+  %497 = load float, ptr %arrayidx7.1.i.i, align 4, !tbaa !111
   %light_boosted.i.1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.1.i.i, i64 8
-  %499 = load float, ptr %light_boosted.i.1.i.i, align 4, !tbaa !113
-  %mul2.i.1.i.i = fmul nsz float %499, %cond.1.i.i
-  %500 = call nsz float @llvm.fmuladd.f32(float %sub.i53.1.i.i, float %498, float %mul2.i.1.i.i)
+  %498 = load float, ptr %light_boosted.i.1.i.i, align 4, !tbaa !113
+  %mul2.i.1.i.i = fmul nsz float %498, %cond.1.i.i
+  %499 = call nsz float @llvm.fmuladd.f32(float %sub.i53.1.i.i, float %497, float %mul2.i.1.i.i)
   %light_night.i.1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.1.i.i, i64 4
-  %501 = load float, ptr %light_night.i.1.i.i, align 4, !tbaa !114
-  %add.i.i.i.i.1.i.i = fadd nsz float %500, 5.000000e-01
-  %502 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.1.i.i)
-  %conv.i.i.i.1.i.i = fptosi float %502 to i32
-  %503 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.1.i.i, i32 0)
-  %504 = call i32 @llvm.umin.i32(i32 %503, i32 255)
-  %conv.i.i.1.i.i = trunc nuw nsw i32 %504 to i16
-  %add.i.i11.i.i.1.i.i = fadd nsz float %501, 5.000000e-01
-  %505 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.1.i.i)
-  %conv.i12.i.i.1.i.i = fptosi float %505 to i32
-  %506 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.1.i.i, i32 0)
-  %507 = call i32 @llvm.umin.i32(i32 %506, i32 255)
-  %conv10.i.i.1.i.i = trunc nuw nsw i32 %507 to i16
+  %500 = load float, ptr %light_night.i.1.i.i, align 4, !tbaa !114
+  %add.i.i.i.i.1.i.i = fadd nsz float %499, 5.000000e-01
+  %501 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.1.i.i)
+  %conv.i.i.i.1.i.i = fptosi float %501 to i32
+  %502 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.1.i.i, i32 0)
+  %503 = call i32 @llvm.umin.i32(i32 %502, i32 255)
+  %conv.i.i.1.i.i = trunc nuw nsw i32 %503 to i16
+  %add.i.i11.i.i.1.i.i = fadd nsz float %500, 5.000000e-01
+  %504 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.1.i.i)
+  %conv.i12.i.i.1.i.i = fptosi float %504 to i32
+  %505 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.1.i.i, i32 0)
+  %506 = call i32 @llvm.umin.i32(i32 %505, i32 255)
+  %conv10.i.i.1.i.i = trunc nuw nsw i32 %506 to i16
   %retval.sroa.2.0.insert.shift.i.1.i.i = shl nuw i16 %conv10.i.i.1.i.i, 8
   %retval.sroa.0.0.insert.insert.i.1.i.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.1.i.i, %conv.i.i.1.i.i
-  %call17.1.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.1.i.i, i8 noundef zeroext %495)
+  %call17.1.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.1.i.i, i8 noundef zeroext %494)
   %Color.1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 60
   store i32 %call17.1.i.i, ptr %Color.1.i.i, align 4, !tbaa !100
-  %508 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source20.1.i.i = getelementptr inbounds nuw i8, ptr %508, i64 3041
-  %509 = load i8, ptr %light_source20.1.i.i, align 1, !tbaa !69
-  %tobool.not.1.i.i = icmp eq i8 %509, 0
+  %507 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source20.1.i.i = getelementptr inbounds nuw i8, ptr %507, i64 3041
+  %508 = load i8, ptr %light_source20.1.i.i, align 1, !tbaa !69
+  %tobool.not.1.i.i = icmp eq i8 %508, 0
   br i1 %tobool.not.1.i.i, label %if.then.1.i.i, label %if.end.1.i.i
 
 if.then.1.i.i:                                    ; preds = %if.end.i.i
@@ -3215,44 +3215,44 @@ if.then.1.i.i:                                    ; preds = %if.end.i.i
   br label %if.end.1.i.i
 
 if.end.1.i.i:                                     ; preds = %if.then.1.i.i, %if.end.i.i
-  %510 = phi i8 [ %.pre58.i.i, %if.then.1.i.i ], [ %509, %if.end.i.i ]
-  %arrayidx5.2.i.i = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv.i, i64 2
-  %511 = load i8, ptr %arrayidx5.2.i.i, align 2, !tbaa !44
-  %idxprom6.2.i.i = zext i8 %511 to i64
-  %arrayidx7.2.i.i = getelementptr inbounds nuw [8 x %struct.LightInfo], ptr %lights, i64 0, i64 %idxprom6.2.i.i
+  %509 = phi i8 [ %.pre58.i.i, %if.then.1.i.i ], [ %508, %if.end.i.i ]
+  %arrayidx5.2.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv.i, i64 2
+  %510 = load i8, ptr %arrayidx5.2.i.i, align 2, !tbaa !44
+  %idxprom6.2.i.i = zext i8 %510 to i64
+  %arrayidx7.2.i.i = getelementptr inbounds nuw %struct.LightInfo, ptr %lights, i64 %idxprom6.2.i.i
   %Y.2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 88
-  %512 = load float, ptr %Y.2.i.i, align 4, !tbaa !108
-  %cmp8.2.i.i = fcmp nsz olt float %512, 0.000000e+00
-  %cond.2.i.i = select nsz i1 %cmp8.2.i.i, float 0.000000e+00, float %512
+  %511 = load float, ptr %Y.2.i.i, align 4, !tbaa !108
+  %cmp8.2.i.i = fcmp nsz olt float %511, 0.000000e+00
+  %cond.2.i.i = select nsz i1 %cmp8.2.i.i, float 0.000000e+00, float %511
   %sub.i53.2.i.i = fsub nsz float 1.000000e+00, %cond.2.i.i
-  %513 = load float, ptr %arrayidx7.2.i.i, align 4, !tbaa !111
+  %512 = load float, ptr %arrayidx7.2.i.i, align 4, !tbaa !111
   %light_boosted.i.2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.2.i.i, i64 8
-  %514 = load float, ptr %light_boosted.i.2.i.i, align 4, !tbaa !113
-  %mul2.i.2.i.i = fmul nsz float %514, %cond.2.i.i
-  %515 = call nsz float @llvm.fmuladd.f32(float %sub.i53.2.i.i, float %513, float %mul2.i.2.i.i)
+  %513 = load float, ptr %light_boosted.i.2.i.i, align 4, !tbaa !113
+  %mul2.i.2.i.i = fmul nsz float %513, %cond.2.i.i
+  %514 = call nsz float @llvm.fmuladd.f32(float %sub.i53.2.i.i, float %512, float %mul2.i.2.i.i)
   %light_night.i.2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.2.i.i, i64 4
-  %516 = load float, ptr %light_night.i.2.i.i, align 4, !tbaa !114
-  %add.i.i.i.i.2.i.i = fadd nsz float %515, 5.000000e-01
-  %517 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.2.i.i)
-  %conv.i.i.i.2.i.i = fptosi float %517 to i32
-  %518 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.2.i.i, i32 0)
-  %519 = call i32 @llvm.umin.i32(i32 %518, i32 255)
-  %conv.i.i.2.i.i = trunc nuw nsw i32 %519 to i16
-  %add.i.i11.i.i.2.i.i = fadd nsz float %516, 5.000000e-01
-  %520 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.2.i.i)
-  %conv.i12.i.i.2.i.i = fptosi float %520 to i32
-  %521 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.2.i.i, i32 0)
-  %522 = call i32 @llvm.umin.i32(i32 %521, i32 255)
-  %conv10.i.i.2.i.i = trunc nuw nsw i32 %522 to i16
+  %515 = load float, ptr %light_night.i.2.i.i, align 4, !tbaa !114
+  %add.i.i.i.i.2.i.i = fadd nsz float %514, 5.000000e-01
+  %516 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.2.i.i)
+  %conv.i.i.i.2.i.i = fptosi float %516 to i32
+  %517 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.2.i.i, i32 0)
+  %518 = call i32 @llvm.umin.i32(i32 %517, i32 255)
+  %conv.i.i.2.i.i = trunc nuw nsw i32 %518 to i16
+  %add.i.i11.i.i.2.i.i = fadd nsz float %515, 5.000000e-01
+  %519 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.2.i.i)
+  %conv.i12.i.i.2.i.i = fptosi float %519 to i32
+  %520 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.2.i.i, i32 0)
+  %521 = call i32 @llvm.umin.i32(i32 %520, i32 255)
+  %conv10.i.i.2.i.i = trunc nuw nsw i32 %521 to i16
   %retval.sroa.2.0.insert.shift.i.2.i.i = shl nuw i16 %conv10.i.i.2.i.i, 8
   %retval.sroa.0.0.insert.insert.i.2.i.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.2.i.i, %conv.i.i.2.i.i
-  %call17.2.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.2.i.i, i8 noundef zeroext %510)
+  %call17.2.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.2.i.i, i8 noundef zeroext %509)
   %Color.2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i32 %call17.2.i.i, ptr %Color.2.i.i, align 4, !tbaa !100
-  %523 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source20.2.i.i = getelementptr inbounds nuw i8, ptr %523, i64 3041
-  %524 = load i8, ptr %light_source20.2.i.i, align 1, !tbaa !69
-  %tobool.not.2.i.i = icmp eq i8 %524, 0
+  %522 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source20.2.i.i = getelementptr inbounds nuw i8, ptr %522, i64 3041
+  %523 = load i8, ptr %light_source20.2.i.i, align 1, !tbaa !69
+  %tobool.not.2.i.i = icmp eq i8 %523, 0
   br i1 %tobool.not.2.i.i, label %if.then.2.i.i, label %if.end.2.i.i
 
 if.then.2.i.i:                                    ; preds = %if.end.1.i.i
@@ -3264,44 +3264,44 @@ if.then.2.i.i:                                    ; preds = %if.end.1.i.i
   br label %if.end.2.i.i
 
 if.end.2.i.i:                                     ; preds = %if.then.2.i.i, %if.end.1.i.i
-  %525 = phi i8 [ %.pre60.i.i, %if.then.2.i.i ], [ %524, %if.end.1.i.i ]
-  %arrayidx5.3.i.i = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv.i, i64 3
-  %526 = load i8, ptr %arrayidx5.3.i.i, align 1, !tbaa !44
-  %idxprom6.3.i.i = zext i8 %526 to i64
-  %arrayidx7.3.i.i = getelementptr inbounds nuw [8 x %struct.LightInfo], ptr %lights, i64 0, i64 %idxprom6.3.i.i
+  %524 = phi i8 [ %.pre60.i.i, %if.then.2.i.i ], [ %523, %if.end.1.i.i ]
+  %arrayidx5.3.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv.i, i64 3
+  %525 = load i8, ptr %arrayidx5.3.i.i, align 1, !tbaa !44
+  %idxprom6.3.i.i = zext i8 %525 to i64
+  %arrayidx7.3.i.i = getelementptr inbounds nuw %struct.LightInfo, ptr %lights, i64 %idxprom6.3.i.i
   %Y.3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 124
-  %527 = load float, ptr %Y.3.i.i, align 4, !tbaa !108
-  %cmp8.3.i.i = fcmp nsz olt float %527, 0.000000e+00
-  %cond.3.i.i = select nsz i1 %cmp8.3.i.i, float 0.000000e+00, float %527
+  %526 = load float, ptr %Y.3.i.i, align 4, !tbaa !108
+  %cmp8.3.i.i = fcmp nsz olt float %526, 0.000000e+00
+  %cond.3.i.i = select nsz i1 %cmp8.3.i.i, float 0.000000e+00, float %526
   %sub.i53.3.i.i = fsub nsz float 1.000000e+00, %cond.3.i.i
-  %528 = load float, ptr %arrayidx7.3.i.i, align 4, !tbaa !111
+  %527 = load float, ptr %arrayidx7.3.i.i, align 4, !tbaa !111
   %light_boosted.i.3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.3.i.i, i64 8
-  %529 = load float, ptr %light_boosted.i.3.i.i, align 4, !tbaa !113
-  %mul2.i.3.i.i = fmul nsz float %529, %cond.3.i.i
-  %530 = call nsz float @llvm.fmuladd.f32(float %sub.i53.3.i.i, float %528, float %mul2.i.3.i.i)
+  %528 = load float, ptr %light_boosted.i.3.i.i, align 4, !tbaa !113
+  %mul2.i.3.i.i = fmul nsz float %528, %cond.3.i.i
+  %529 = call nsz float @llvm.fmuladd.f32(float %sub.i53.3.i.i, float %527, float %mul2.i.3.i.i)
   %light_night.i.3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx7.3.i.i, i64 4
-  %531 = load float, ptr %light_night.i.3.i.i, align 4, !tbaa !114
-  %add.i.i.i.i.3.i.i = fadd nsz float %530, 5.000000e-01
-  %532 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.3.i.i)
-  %conv.i.i.i.3.i.i = fptosi float %532 to i32
-  %533 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.3.i.i, i32 0)
-  %534 = call i32 @llvm.umin.i32(i32 %533, i32 255)
-  %conv.i.i.3.i.i = trunc nuw nsw i32 %534 to i16
-  %add.i.i11.i.i.3.i.i = fadd nsz float %531, 5.000000e-01
-  %535 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.3.i.i)
-  %conv.i12.i.i.3.i.i = fptosi float %535 to i32
-  %536 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.3.i.i, i32 0)
-  %537 = call i32 @llvm.umin.i32(i32 %536, i32 255)
-  %conv10.i.i.3.i.i = trunc nuw nsw i32 %537 to i16
+  %530 = load float, ptr %light_night.i.3.i.i, align 4, !tbaa !114
+  %add.i.i.i.i.3.i.i = fadd nsz float %529, 5.000000e-01
+  %531 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.3.i.i)
+  %conv.i.i.i.3.i.i = fptosi float %531 to i32
+  %532 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.3.i.i, i32 0)
+  %533 = call i32 @llvm.umin.i32(i32 %532, i32 255)
+  %conv.i.i.3.i.i = trunc nuw nsw i32 %533 to i16
+  %add.i.i11.i.i.3.i.i = fadd nsz float %530, 5.000000e-01
+  %534 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.3.i.i)
+  %conv.i12.i.i.3.i.i = fptosi float %534 to i32
+  %535 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.3.i.i, i32 0)
+  %536 = call i32 @llvm.umin.i32(i32 %535, i32 255)
+  %conv10.i.i.3.i.i = trunc nuw nsw i32 %536 to i16
   %retval.sroa.2.0.insert.shift.i.3.i.i = shl nuw i16 %conv10.i.i.3.i.i, 8
   %retval.sroa.0.0.insert.insert.i.3.i.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.3.i.i, %conv.i.i.3.i.i
-  %call17.3.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.3.i.i, i8 noundef zeroext %525)
+  %call17.3.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.3.i.i, i8 noundef zeroext %524)
   %Color.3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 132
   store i32 %call17.3.i.i, ptr %Color.3.i.i, align 4, !tbaa !100
-  %538 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source20.3.i.i = getelementptr inbounds nuw i8, ptr %538, i64 3041
-  %539 = load i8, ptr %light_source20.3.i.i, align 1, !tbaa !69
-  %tobool.not.3.i.i = icmp eq i8 %539, 0
+  %537 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source20.3.i.i = getelementptr inbounds nuw i8, ptr %537, i64 3041
+  %538 = load i8, ptr %light_source20.3.i.i, align 1, !tbaa !69
+  %tobool.not.3.i.i = icmp eq i8 %538, 0
   br i1 %tobool.not.3.i.i, label %if.then.3.i.i, label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_0clEiPNS0_5video9S3DVertexE.exit.i"
 
 if.then.3.i.i:                                    ; preds = %if.end.2.i.i
@@ -3310,23 +3310,23 @@ if.then.3.i.i:                                    ; preds = %if.end.2.i.i
   br label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_0clEiPNS0_5video9S3DVertexE.exit.i"
 
 "_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_0clEiPNS0_5video9S3DVertexE.exit.i": ; preds = %if.then.3.i.i, %if.end.2.i.i
-  %sub.i.i.i = sub nsw i32 %504, %534
-  %540 = call i32 @llvm.abs.i32(i32 %sub.i.i.i, i1 true)
-  %sub6.i.i.i = sub nsw i32 %507, %537
-  %541 = call i32 @llvm.abs.i32(i32 %sub6.i.i.i, i1 true)
-  %add.i.i.i = add nuw nsw i32 %540, %541
-  %sub.i50.i.i = sub nsw i32 %487, %519
-  %542 = call i32 @llvm.abs.i32(i32 %sub.i50.i.i, i1 true)
-  %sub6.i51.i.i = sub nsw i32 %490, %522
-  %543 = call i32 @llvm.abs.i32(i32 %sub6.i51.i.i, i1 true)
-  %add.i52.i.i = add nuw nsw i32 %542, %543
+  %sub.i.i.i = sub nsw i32 %503, %533
+  %539 = call i32 @llvm.abs.i32(i32 %sub.i.i.i, i1 true)
+  %sub6.i.i.i = sub nsw i32 %506, %536
+  %540 = call i32 @llvm.abs.i32(i32 %sub6.i.i.i, i1 true)
+  %add.i.i.i = add nuw nsw i32 %539, %540
+  %sub.i50.i.i = sub nsw i32 %486, %518
+  %541 = call i32 @llvm.abs.i32(i32 %sub.i50.i.i, i1 true)
+  %sub6.i51.i.i = sub nsw i32 %489, %521
+  %542 = call i32 @llvm.abs.i32(i32 %sub6.i51.i.i, i1 true)
+  %add.i52.i.i = add nuw nsw i32 %541, %542
   %cmp32.i.not.i = icmp samesign ult i32 %add.i.i.i, %add.i52.i.i
   %_ZL15quad_indices_13._ZL15quad_indices_02.i = select i1 %cmp32.i.not.i, ptr @_ZL15quad_indices_13, ptr @_ZL15quad_indices_02
   %cond.i = call i32 @llvm.smin.i32(i32 %477, i32 %sub.i137)
-  %544 = load ptr, ptr %collector.i, align 8, !tbaa !31
+  %543 = load ptr, ptr %collector.i, align 8, !tbaa !31
   %idxprom.i = sext i32 %cond.i to i64
   %arrayidx.i = getelementptr inbounds %struct.TileSpec, ptr %spec.select74, i64 %idxprom.i
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %544, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 4, ptr noundef nonnull %_ZL15quad_indices_13._ZL15quad_indices_02.i, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %543, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 4, ptr noundef nonnull %_ZL15quad_indices_13._ZL15quad_indices_02.i, i32 noundef 6)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_0clEiPNS0_5video9S3DVertexE.exit.i", %for.body.i
@@ -3352,15 +3352,15 @@ if.else:                                          ; preds = %if.end34
 if.end.i147:                                      ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i)
   %light.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %545 = load i16, ptr %light.i.i, align 8
+  %544 = load i16, ptr %light.i.i, align 8
   %light_source.i.i149 = getelementptr inbounds nuw i8, ptr %0, i64 3041
-  %546 = load i8, ptr %light_source.i.i149, align 1, !tbaa !69
-  %call3.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %545, i8 noundef zeroext %546)
+  %545 = load i8, ptr %light_source.i.i149, align 1, !tbaa !69
+  %call3.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %544, i8 noundef zeroext %545)
   store i32 %call3.i.i, ptr %color.i.i, align 4
-  %547 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source6.i.i = getelementptr inbounds nuw i8, ptr %547, i64 3041
-  %548 = load i8, ptr %light_source6.i.i, align 1, !tbaa !69
-  %tobool.not.i.i150 = icmp eq i8 %548, 0
+  %546 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source6.i.i = getelementptr inbounds nuw i8, ptr %546, i64 3041
+  %547 = load i8, ptr %light_source6.i.i, align 1, !tbaa !69
+  %tobool.not.i.i150 = icmp eq i8 %547, 0
   br i1 %tobool.not.i.i150, label %if.then.i.i158, label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.i"
 
 if.then.i.i158:                                   ; preds = %if.end.i147
@@ -3370,21 +3370,21 @@ if.then.i.i158:                                   ; preds = %if.end.i147
   br label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.i"
 
 "_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.i": ; preds = %if.then.i.i158, %if.end.i147
-  %549 = phi i32 [ %.pre.i.i160, %if.then.i.i158 ], [ %call3.i.i, %if.end.i147 ]
+  %548 = phi i32 [ %.pre.i.i160, %if.then.i.i158 ], [ %call3.i.i, %if.end.i147 ]
   %Color.i.i151 = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 24
-  store i32 %549, ptr %Color.i.i151, align 4, !tbaa !100
+  store i32 %548, ptr %Color.i.i151, align 4, !tbaa !100
   %Color.1.i.i152 = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 60
-  store i32 %549, ptr %Color.1.i.i152, align 4, !tbaa !100
+  store i32 %548, ptr %Color.1.i.i152, align 4, !tbaa !100
   %Color.2.i.i153 = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 96
-  store i32 %549, ptr %Color.2.i.i153, align 4, !tbaa !100
+  store i32 %548, ptr %Color.2.i.i153, align 4, !tbaa !100
   %Color.3.i.i154 = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 132
-  store i32 %549, ptr %Color.3.i.i154, align 4, !tbaa !100
+  store i32 %548, ptr %Color.3.i.i154, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i)
   %cond.i155 = call i32 @llvm.smin.i32(i32 %sub.i142, i32 0)
-  %550 = load ptr, ptr %collector.i143, align 8, !tbaa !31
+  %549 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.i156 = sext i32 %cond.i155 to i64
   %arrayidx.i157 = getelementptr inbounds %struct.TileSpec, ptr %spec.select74, i64 %idxprom.i156
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %550, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i157, ptr noundef nonnull %vertices.i140, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %549, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i157, ptr noundef nonnull %vertices.i140, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.i146
 
 for.inc.i146:                                     ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.i", %if.else
@@ -3396,16 +3396,16 @@ if.end.1.i:                                       ; preds = %for.inc.i146
   %arrayidx.i.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 144
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i)
   %light.i.1.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %551 = load i16, ptr %light.i.1.i, align 8
-  %552 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.1.i = getelementptr inbounds nuw i8, ptr %552, i64 3041
-  %553 = load i8, ptr %light_source.i.1.i, align 1, !tbaa !69
-  %call3.i.1.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %551, i8 noundef zeroext %553)
+  %550 = load i16, ptr %light.i.1.i, align 8
+  %551 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.1.i = getelementptr inbounds nuw i8, ptr %551, i64 3041
+  %552 = load i8, ptr %light_source.i.1.i, align 1, !tbaa !69
+  %call3.i.1.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %550, i8 noundef zeroext %552)
   store i32 %call3.i.1.i, ptr %color.i.i, align 4
-  %554 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source6.i.1.i = getelementptr inbounds nuw i8, ptr %554, i64 3041
-  %555 = load i8, ptr %light_source6.i.1.i, align 1, !tbaa !69
-  %tobool.not.i.1.i = icmp eq i8 %555, 0
+  %553 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source6.i.1.i = getelementptr inbounds nuw i8, ptr %553, i64 3041
+  %554 = load i8, ptr %light_source6.i.1.i, align 1, !tbaa !69
+  %tobool.not.i.1.i = icmp eq i8 %554, 0
   br i1 %tobool.not.i.1.i, label %if.then.i.1.i, label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.1.i"
 
 if.then.i.1.i:                                    ; preds = %if.end.1.i
@@ -3415,21 +3415,21 @@ if.then.i.1.i:                                    ; preds = %if.end.1.i
   br label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.1.i"
 
 "_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.1.i": ; preds = %if.then.i.1.i, %if.end.1.i
-  %556 = phi i32 [ %.pre.i.1.i, %if.then.i.1.i ], [ %call3.i.1.i, %if.end.1.i ]
+  %555 = phi i32 [ %.pre.i.1.i, %if.then.i.1.i ], [ %call3.i.1.i, %if.end.1.i ]
   %Color.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 168
-  store i32 %556, ptr %Color.i.1.i, align 4, !tbaa !100
+  store i32 %555, ptr %Color.i.1.i, align 4, !tbaa !100
   %Color.1.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 204
-  store i32 %556, ptr %Color.1.i.1.i, align 4, !tbaa !100
+  store i32 %555, ptr %Color.1.i.1.i, align 4, !tbaa !100
   %Color.2.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 240
-  store i32 %556, ptr %Color.2.i.1.i, align 4, !tbaa !100
+  store i32 %555, ptr %Color.2.i.1.i, align 4, !tbaa !100
   %Color.3.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 276
-  store i32 %556, ptr %Color.3.i.1.i, align 4, !tbaa !100
+  store i32 %555, ptr %Color.3.i.1.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i)
   %cond.1.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 1)
-  %557 = load ptr, ptr %collector.i143, align 8, !tbaa !31
+  %556 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.1.i = sext i32 %cond.1.i to i64
   %arrayidx.1.i = getelementptr inbounds %struct.TileSpec, ptr %spec.select74, i64 %idxprom.1.i
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %557, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.1.i, ptr noundef nonnull %arrayidx.i.i.1.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %556, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.1.i, ptr noundef nonnull %arrayidx.i.i.1.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.1.i
 
 for.inc.1.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.1.i", %for.inc.i146
@@ -3441,16 +3441,16 @@ if.end.2.i:                                       ; preds = %for.inc.1.i
   %arrayidx.i.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 288
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i)
   %light.i.2.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %558 = load i16, ptr %light.i.2.i, align 8
-  %559 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.2.i = getelementptr inbounds nuw i8, ptr %559, i64 3041
-  %560 = load i8, ptr %light_source.i.2.i, align 1, !tbaa !69
-  %call3.i.2.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %558, i8 noundef zeroext %560)
+  %557 = load i16, ptr %light.i.2.i, align 8
+  %558 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.2.i = getelementptr inbounds nuw i8, ptr %558, i64 3041
+  %559 = load i8, ptr %light_source.i.2.i, align 1, !tbaa !69
+  %call3.i.2.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %557, i8 noundef zeroext %559)
   store i32 %call3.i.2.i, ptr %color.i.i, align 4
-  %561 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source6.i.2.i = getelementptr inbounds nuw i8, ptr %561, i64 3041
-  %562 = load i8, ptr %light_source6.i.2.i, align 1, !tbaa !69
-  %tobool.not.i.2.i = icmp eq i8 %562, 0
+  %560 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source6.i.2.i = getelementptr inbounds nuw i8, ptr %560, i64 3041
+  %561 = load i8, ptr %light_source6.i.2.i, align 1, !tbaa !69
+  %tobool.not.i.2.i = icmp eq i8 %561, 0
   br i1 %tobool.not.i.2.i, label %if.then.i.2.i, label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.2.i"
 
 if.then.i.2.i:                                    ; preds = %if.end.2.i
@@ -3460,21 +3460,21 @@ if.then.i.2.i:                                    ; preds = %if.end.2.i
   br label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.2.i"
 
 "_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.2.i": ; preds = %if.then.i.2.i, %if.end.2.i
-  %563 = phi i32 [ %.pre.i.2.i, %if.then.i.2.i ], [ %call3.i.2.i, %if.end.2.i ]
+  %562 = phi i32 [ %.pre.i.2.i, %if.then.i.2.i ], [ %call3.i.2.i, %if.end.2.i ]
   %Color.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 312
-  store i32 %563, ptr %Color.i.2.i, align 4, !tbaa !100
+  store i32 %562, ptr %Color.i.2.i, align 4, !tbaa !100
   %Color.1.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 348
-  store i32 %563, ptr %Color.1.i.2.i, align 4, !tbaa !100
+  store i32 %562, ptr %Color.1.i.2.i, align 4, !tbaa !100
   %Color.2.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 384
-  store i32 %563, ptr %Color.2.i.2.i, align 4, !tbaa !100
+  store i32 %562, ptr %Color.2.i.2.i, align 4, !tbaa !100
   %Color.3.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 420
-  store i32 %563, ptr %Color.3.i.2.i, align 4, !tbaa !100
+  store i32 %562, ptr %Color.3.i.2.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i)
   %cond.2.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 2)
-  %564 = load ptr, ptr %collector.i143, align 8, !tbaa !31
+  %563 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.2.i = sext i32 %cond.2.i to i64
   %arrayidx.2.i = getelementptr inbounds %struct.TileSpec, ptr %spec.select74, i64 %idxprom.2.i
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %564, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.2.i, ptr noundef nonnull %arrayidx.i.i.2.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %563, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.2.i, ptr noundef nonnull %arrayidx.i.i.2.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.2.i
 
 for.inc.2.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.2.i", %for.inc.1.i
@@ -3486,16 +3486,16 @@ if.end.3.i:                                       ; preds = %for.inc.2.i
   %arrayidx.i.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 432
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i)
   %light.i.3.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %565 = load i16, ptr %light.i.3.i, align 8
-  %566 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.3.i = getelementptr inbounds nuw i8, ptr %566, i64 3041
-  %567 = load i8, ptr %light_source.i.3.i, align 1, !tbaa !69
-  %call3.i.3.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %565, i8 noundef zeroext %567)
+  %564 = load i16, ptr %light.i.3.i, align 8
+  %565 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.3.i = getelementptr inbounds nuw i8, ptr %565, i64 3041
+  %566 = load i8, ptr %light_source.i.3.i, align 1, !tbaa !69
+  %call3.i.3.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %564, i8 noundef zeroext %566)
   store i32 %call3.i.3.i, ptr %color.i.i, align 4
-  %568 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source6.i.3.i = getelementptr inbounds nuw i8, ptr %568, i64 3041
-  %569 = load i8, ptr %light_source6.i.3.i, align 1, !tbaa !69
-  %tobool.not.i.3.i = icmp eq i8 %569, 0
+  %567 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source6.i.3.i = getelementptr inbounds nuw i8, ptr %567, i64 3041
+  %568 = load i8, ptr %light_source6.i.3.i, align 1, !tbaa !69
+  %tobool.not.i.3.i = icmp eq i8 %568, 0
   br i1 %tobool.not.i.3.i, label %if.then.i.3.i, label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.3.i"
 
 if.then.i.3.i:                                    ; preds = %if.end.3.i
@@ -3505,21 +3505,21 @@ if.then.i.3.i:                                    ; preds = %if.end.3.i
   br label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.3.i"
 
 "_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.3.i": ; preds = %if.then.i.3.i, %if.end.3.i
-  %570 = phi i32 [ %.pre.i.3.i, %if.then.i.3.i ], [ %call3.i.3.i, %if.end.3.i ]
+  %569 = phi i32 [ %.pre.i.3.i, %if.then.i.3.i ], [ %call3.i.3.i, %if.end.3.i ]
   %Color.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 456
-  store i32 %570, ptr %Color.i.3.i, align 4, !tbaa !100
+  store i32 %569, ptr %Color.i.3.i, align 4, !tbaa !100
   %Color.1.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 492
-  store i32 %570, ptr %Color.1.i.3.i, align 4, !tbaa !100
+  store i32 %569, ptr %Color.1.i.3.i, align 4, !tbaa !100
   %Color.2.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 528
-  store i32 %570, ptr %Color.2.i.3.i, align 4, !tbaa !100
+  store i32 %569, ptr %Color.2.i.3.i, align 4, !tbaa !100
   %Color.3.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 564
-  store i32 %570, ptr %Color.3.i.3.i, align 4, !tbaa !100
+  store i32 %569, ptr %Color.3.i.3.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i)
   %cond.3.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 3)
-  %571 = load ptr, ptr %collector.i143, align 8, !tbaa !31
+  %570 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.3.i = sext i32 %cond.3.i to i64
   %arrayidx.3.i = getelementptr inbounds %struct.TileSpec, ptr %spec.select74, i64 %idxprom.3.i
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %571, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.3.i, ptr noundef nonnull %arrayidx.i.i.3.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %570, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.3.i, ptr noundef nonnull %arrayidx.i.i.3.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.3.i
 
 for.inc.3.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.3.i", %for.inc.2.i
@@ -3531,16 +3531,16 @@ if.end.4.i:                                       ; preds = %for.inc.3.i
   %arrayidx.i.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 576
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i)
   %light.i.4.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %572 = load i16, ptr %light.i.4.i, align 8
-  %573 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.4.i = getelementptr inbounds nuw i8, ptr %573, i64 3041
-  %574 = load i8, ptr %light_source.i.4.i, align 1, !tbaa !69
-  %call3.i.4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %572, i8 noundef zeroext %574)
+  %571 = load i16, ptr %light.i.4.i, align 8
+  %572 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.4.i = getelementptr inbounds nuw i8, ptr %572, i64 3041
+  %573 = load i8, ptr %light_source.i.4.i, align 1, !tbaa !69
+  %call3.i.4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %571, i8 noundef zeroext %573)
   store i32 %call3.i.4.i, ptr %color.i.i, align 4
-  %575 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source6.i.4.i = getelementptr inbounds nuw i8, ptr %575, i64 3041
-  %576 = load i8, ptr %light_source6.i.4.i, align 1, !tbaa !69
-  %tobool.not.i.4.i = icmp eq i8 %576, 0
+  %574 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source6.i.4.i = getelementptr inbounds nuw i8, ptr %574, i64 3041
+  %575 = load i8, ptr %light_source6.i.4.i, align 1, !tbaa !69
+  %tobool.not.i.4.i = icmp eq i8 %575, 0
   br i1 %tobool.not.i.4.i, label %if.then.i.4.i, label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.4.i"
 
 if.then.i.4.i:                                    ; preds = %if.end.4.i
@@ -3550,21 +3550,21 @@ if.then.i.4.i:                                    ; preds = %if.end.4.i
   br label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.4.i"
 
 "_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.4.i": ; preds = %if.then.i.4.i, %if.end.4.i
-  %577 = phi i32 [ %.pre.i.4.i, %if.then.i.4.i ], [ %call3.i.4.i, %if.end.4.i ]
+  %576 = phi i32 [ %.pre.i.4.i, %if.then.i.4.i ], [ %call3.i.4.i, %if.end.4.i ]
   %Color.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 600
-  store i32 %577, ptr %Color.i.4.i, align 4, !tbaa !100
+  store i32 %576, ptr %Color.i.4.i, align 4, !tbaa !100
   %Color.1.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 636
-  store i32 %577, ptr %Color.1.i.4.i, align 4, !tbaa !100
+  store i32 %576, ptr %Color.1.i.4.i, align 4, !tbaa !100
   %Color.2.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 672
-  store i32 %577, ptr %Color.2.i.4.i, align 4, !tbaa !100
+  store i32 %576, ptr %Color.2.i.4.i, align 4, !tbaa !100
   %Color.3.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 708
-  store i32 %577, ptr %Color.3.i.4.i, align 4, !tbaa !100
+  store i32 %576, ptr %Color.3.i.4.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i)
   %cond.4.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 4)
-  %578 = load ptr, ptr %collector.i143, align 8, !tbaa !31
+  %577 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.4.i = sext i32 %cond.4.i to i64
   %arrayidx.4.i = getelementptr inbounds %struct.TileSpec, ptr %spec.select74, i64 %idxprom.4.i
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %578, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.4.i, ptr noundef nonnull %arrayidx.i.i.4.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %577, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.4.i, ptr noundef nonnull %arrayidx.i.i.4.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.4.i
 
 for.inc.4.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.4.i", %for.inc.3.i
@@ -3576,16 +3576,16 @@ if.end.5.i:                                       ; preds = %for.inc.4.i
   %arrayidx.i.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 720
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i)
   %light.i.5.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %579 = load i16, ptr %light.i.5.i, align 8
-  %580 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.5.i = getelementptr inbounds nuw i8, ptr %580, i64 3041
-  %581 = load i8, ptr %light_source.i.5.i, align 1, !tbaa !69
-  %call3.i.5.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %579, i8 noundef zeroext %581)
+  %578 = load i16, ptr %light.i.5.i, align 8
+  %579 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.5.i = getelementptr inbounds nuw i8, ptr %579, i64 3041
+  %580 = load i8, ptr %light_source.i.5.i, align 1, !tbaa !69
+  %call3.i.5.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %578, i8 noundef zeroext %580)
   store i32 %call3.i.5.i, ptr %color.i.i, align 4
-  %582 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source6.i.5.i = getelementptr inbounds nuw i8, ptr %582, i64 3041
-  %583 = load i8, ptr %light_source6.i.5.i, align 1, !tbaa !69
-  %tobool.not.i.5.i = icmp eq i8 %583, 0
+  %581 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source6.i.5.i = getelementptr inbounds nuw i8, ptr %581, i64 3041
+  %582 = load i8, ptr %light_source6.i.5.i, align 1, !tbaa !69
+  %tobool.not.i.5.i = icmp eq i8 %582, 0
   br i1 %tobool.not.i.5.i, label %if.then.i.5.i, label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.5.i"
 
 if.then.i.5.i:                                    ; preds = %if.end.5.i
@@ -3595,21 +3595,21 @@ if.then.i.5.i:                                    ; preds = %if.end.5.i
   br label %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.5.i"
 
 "_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.5.i": ; preds = %if.then.i.5.i, %if.end.5.i
-  %584 = phi i32 [ %.pre.i.5.i, %if.then.i.5.i ], [ %call3.i.5.i, %if.end.5.i ]
+  %583 = phi i32 [ %.pre.i.5.i, %if.then.i.5.i ], [ %call3.i.5.i, %if.end.5.i ]
   %Color.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 744
-  store i32 %584, ptr %Color.i.5.i, align 4, !tbaa !100
+  store i32 %583, ptr %Color.i.5.i, align 4, !tbaa !100
   %Color.1.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 780
-  store i32 %584, ptr %Color.1.i.5.i, align 4, !tbaa !100
+  store i32 %583, ptr %Color.1.i.5.i, align 4, !tbaa !100
   %Color.2.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 816
-  store i32 %584, ptr %Color.2.i.5.i, align 4, !tbaa !100
+  store i32 %583, ptr %Color.2.i.5.i, align 4, !tbaa !100
   %Color.3.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i140, i64 852
-  store i32 %584, ptr %Color.3.i.5.i, align 4, !tbaa !100
+  store i32 %583, ptr %Color.3.i.5.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i)
   %cond.5.i = call i32 @llvm.smin.i32(i32 %sub.i142, i32 5)
-  %585 = load ptr, ptr %collector.i143, align 8, !tbaa !31
+  %584 = load ptr, ptr %collector.i143, align 8, !tbaa !31
   %idxprom.5.i = sext i32 %cond.5.i to i64
   %arrayidx.5.i = getelementptr inbounds %struct.TileSpec, ptr %spec.select74, i64 %idxprom.5.i
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %585, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.5.i, ptr noundef nonnull %arrayidx.i.i.5.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %584, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.5.i, ptr noundef nonnull %arrayidx.i.i.5.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_1EEvRKS4_S8_iS6_hOT_.exit"
 
 "_ZN21MapblockMeshGenerator10drawCuboidIZNS_21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihE3$_1EEvRKS4_S8_iS6_hOT_.exit": ; preds = %"_ZZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecihENK3$_1clEiPNS0_5video9S3DVertexE.exit.5.i", %for.inc.4.i
@@ -3895,7 +3895,7 @@ for.body:                                         ; preds = %cleanup83, %entry
   %5 = load i16, ptr %Z.i, align 4, !tbaa !40
   %6 = load i16, ptr %Z11.i, align 4, !tbaa !40
   %add13.i = add i16 %6, %5
-  %arrayidx = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 %indvars.iv
   %7 = load i16, ptr %arrayidx, align 2, !tbaa !38
   %add.i197 = add i16 %add.i, %7
   %Y6.i199 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
@@ -4049,7 +4049,7 @@ if.end40:                                         ; preds = %if.end35, %if.end24
   %39 = trunc i32 %shl to i8
   %conv42 = or i8 %faces.0286, %39
   %agg.tmp.sroa.0.0.copyload = load i48, ptr %arrayidx, align 2, !tbaa.struct !117
-  %arrayidx46 = getelementptr inbounds nuw [6 x %struct.TileSpec], ptr %tiles, i64 0, i64 %indvars.iv
+  %arrayidx46 = getelementptr inbounds nuw %struct.TileSpec, ptr %tiles, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %direction.i)
   store i48 %agg.tmp.sroa.0.0.copyload, ptr %direction.i, align 8
   %agg.tmp.sroa.0.0.copyload.i214 = load i32, ptr %n, align 4, !tbaa.struct !67
@@ -4075,7 +4075,7 @@ if.then73:                                        ; preds = %if.end40
   %agg.tmp74.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !67
   %47 = load ptr, ptr %nodedef, align 8, !tbaa !36
   %call79 = call noundef zeroext i16 @_Z12getFaceLight7MapNodeS_PK14NodeDefManager(i32 %agg.tmp74.sroa.0.0.copyload, i32 %retval.sroa.0.0.insert.insert.i211, ptr noundef %47)
-  %arrayidx81 = getelementptr inbounds nuw [6 x i16], ptr %lights, i64 0, i64 %indvars.iv
+  %arrayidx81 = getelementptr inbounds nuw i16, ptr %lights, i64 %indvars.iv
   store i16 %call79, ptr %arrayidx81, align 2, !tbaa !68
   br label %cleanup83
 
@@ -4176,12 +4176,12 @@ if.then116:                                       ; preds = %if.end94
 
 for.cond123.preheader:                            ; preds = %for.cond123.preheader, %if.then116
   %indvars.iv295 = phi i64 [ 0, %if.then116 ], [ %indvars.iv.next296, %for.cond123.preheader ]
-  %arrayidx141 = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 0, i64 %indvars.iv295
+  %arrayidx141 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 %indvars.iv295
   call void @llvm.lifetime.start.p0(ptr nonnull %corner)
-  %arrayidx130 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295
+  %arrayidx130 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv295
   %91 = load i8, ptr %arrayidx130, align 4, !tbaa !44
   %idxprom131 = zext i8 %91 to i64
-  %arrayidx132 = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131
+  %arrayidx132 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %idxprom131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132, i64 6, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp134)
   %92 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
@@ -4203,15 +4203,15 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254, ptr %ref.tmp134, align 8
   %98 = load ptr, ptr %this, align 8, !tbaa !12
   %call143 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %98)
-  %arrayidx147 = getelementptr inbounds nuw [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295
+  %arrayidx147 = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv295
   store i16 %call143, ptr %arrayidx147, align 8, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
   call void @llvm.lifetime.start.p0(ptr nonnull %corner)
-  %arrayidx130.1 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 1
+  %arrayidx130.1 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv295, i64 1
   %99 = load i8, ptr %arrayidx130.1, align 1, !tbaa !44
   %idxprom131.1 = zext i8 %99 to i64
-  %arrayidx132.1 = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131.1
+  %arrayidx132.1 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %idxprom131.1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132.1, i64 6, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp134)
   %100 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
@@ -4233,15 +4233,15 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254.1, ptr %ref.tmp134, align 8
   %106 = load ptr, ptr %this, align 8, !tbaa !12
   %call143.1 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %106)
-  %arrayidx147.1 = getelementptr inbounds nuw [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 1
+  %arrayidx147.1 = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv295, i64 1
   store i16 %call143.1, ptr %arrayidx147.1, align 2, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
   call void @llvm.lifetime.start.p0(ptr nonnull %corner)
-  %arrayidx130.2 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 2
+  %arrayidx130.2 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv295, i64 2
   %107 = load i8, ptr %arrayidx130.2, align 2, !tbaa !44
   %idxprom131.2 = zext i8 %107 to i64
-  %arrayidx132.2 = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131.2
+  %arrayidx132.2 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %idxprom131.2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132.2, i64 6, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp134)
   %108 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
@@ -4263,15 +4263,15 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254.2, ptr %ref.tmp134, align 8
   %114 = load ptr, ptr %this, align 8, !tbaa !12
   %call143.2 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %114)
-  %arrayidx147.2 = getelementptr inbounds nuw [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 2
+  %arrayidx147.2 = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv295, i64 2
   store i16 %call143.2, ptr %arrayidx147.2, align 4, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
   call void @llvm.lifetime.start.p0(ptr nonnull %corner)
-  %arrayidx130.3 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @_ZL13light_indices, i64 0, i64 %indvars.iv295, i64 3
+  %arrayidx130.3 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv295, i64 3
   %115 = load i8, ptr %arrayidx130.3, align 1, !tbaa !44
   %idxprom131.3 = zext i8 %115 to i64
-  %arrayidx132.3 = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %idxprom131.3
+  %arrayidx132.3 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %idxprom131.3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx132.3, i64 6, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp134)
   %116 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
@@ -4293,7 +4293,7 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254.3, ptr %ref.tmp134, align 8
   %122 = load ptr, ptr %this, align 8, !tbaa !12
   %call143.3 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %122)
-  %arrayidx147.3 = getelementptr inbounds nuw [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv295, i64 3
+  %arrayidx147.3 = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv295, i64 3
   store i16 %call143.3, ptr %arrayidx147.3, align 2, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
@@ -4317,20 +4317,20 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   br i1 %tobool.not.i234, label %if.end.i235, label %for.inc.i
 
 if.end.i235:                                      ; preds = %for.body.i
-  %124 = shl nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x %"struct.irr::video::S3DVertex"], ptr %vertices.i, i64 0, i64 %124
-  %arrayidx.i.i = getelementptr inbounds nuw [6 x [4 x %struct.LightPair]], ptr %lights117, i64 0, i64 %indvars.iv.i
-  %125 = load i16, ptr %arrayidx.i.i, align 8
-  %126 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.i = getelementptr inbounds nuw i8, ptr %126, i64 3041
-  %127 = load i8, ptr %light_source.i.i, align 1, !tbaa !69
-  %call6.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %125, i8 noundef zeroext %127)
+  %arrayidx.i.i.i.idx = mul nuw nsw i64 %indvars.iv.i, 144
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %vertices.i, i64 %arrayidx.i.i.i.idx
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv.i
+  %124 = load i16, ptr %arrayidx.i.i, align 8
+  %125 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.i = getelementptr inbounds nuw i8, ptr %125, i64 3041
+  %126 = load i8, ptr %light_source.i.i, align 1, !tbaa !69
+  %call6.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %124, i8 noundef zeroext %126)
   %Color.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 24
   store i32 %call6.i.i, ptr %Color.i.i, align 4, !tbaa !100
-  %128 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source9.i.i = getelementptr inbounds nuw i8, ptr %128, i64 3041
-  %129 = load i8, ptr %light_source9.i.i, align 1, !tbaa !69
-  %tobool.not.i.i = icmp eq i8 %129, 0
+  %127 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source9.i.i = getelementptr inbounds nuw i8, ptr %127, i64 3041
+  %128 = load i8, ptr %light_source9.i.i, align 1, !tbaa !69
+  %tobool.not.i.i = icmp eq i8 %128, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i235
@@ -4342,16 +4342,16 @@ if.then.i.i:                                      ; preds = %if.end.i235
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i235
-  %130 = phi i8 [ %.pre3.i.i, %if.then.i.i ], [ %129, %if.end.i235 ]
+  %129 = phi i8 [ %.pre3.i.i, %if.then.i.i ], [ %128, %if.end.i235 ]
   %arrayidx5.1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 2
-  %131 = load i16, ptr %arrayidx5.1.i.i, align 2
-  %call6.1.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %131, i8 noundef zeroext %130)
+  %130 = load i16, ptr %arrayidx5.1.i.i, align 2
+  %call6.1.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %130, i8 noundef zeroext %129)
   %Color.1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 60
   store i32 %call6.1.i.i, ptr %Color.1.i.i, align 4, !tbaa !100
-  %132 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source9.1.i.i = getelementptr inbounds nuw i8, ptr %132, i64 3041
-  %133 = load i8, ptr %light_source9.1.i.i, align 1, !tbaa !69
-  %tobool.not.1.i.i = icmp eq i8 %133, 0
+  %131 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source9.1.i.i = getelementptr inbounds nuw i8, ptr %131, i64 3041
+  %132 = load i8, ptr %light_source9.1.i.i, align 1, !tbaa !69
+  %tobool.not.1.i.i = icmp eq i8 %132, 0
   br i1 %tobool.not.1.i.i, label %if.then.1.i.i, label %if.end.1.i.i
 
 if.then.1.i.i:                                    ; preds = %if.end.i.i
@@ -4363,16 +4363,16 @@ if.then.1.i.i:                                    ; preds = %if.end.i.i
   br label %if.end.1.i.i
 
 if.end.1.i.i:                                     ; preds = %if.then.1.i.i, %if.end.i.i
-  %134 = phi i8 [ %.pre5.i.i, %if.then.1.i.i ], [ %133, %if.end.i.i ]
+  %133 = phi i8 [ %.pre5.i.i, %if.then.1.i.i ], [ %132, %if.end.i.i ]
   %arrayidx5.2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
-  %135 = load i16, ptr %arrayidx5.2.i.i, align 4
-  %call6.2.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %135, i8 noundef zeroext %134)
+  %134 = load i16, ptr %arrayidx5.2.i.i, align 4
+  %call6.2.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %134, i8 noundef zeroext %133)
   %Color.2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i32 %call6.2.i.i, ptr %Color.2.i.i, align 4, !tbaa !100
-  %136 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source9.2.i.i = getelementptr inbounds nuw i8, ptr %136, i64 3041
-  %137 = load i8, ptr %light_source9.2.i.i, align 1, !tbaa !69
-  %tobool.not.2.i.i = icmp eq i8 %137, 0
+  %135 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source9.2.i.i = getelementptr inbounds nuw i8, ptr %135, i64 3041
+  %136 = load i8, ptr %light_source9.2.i.i, align 1, !tbaa !69
+  %tobool.not.2.i.i = icmp eq i8 %136, 0
   br i1 %tobool.not.2.i.i, label %if.then.2.i.i, label %if.end.2.i.i
 
 if.then.2.i.i:                                    ; preds = %if.end.1.i.i
@@ -4384,16 +4384,16 @@ if.then.2.i.i:                                    ; preds = %if.end.1.i.i
   br label %if.end.2.i.i
 
 if.end.2.i.i:                                     ; preds = %if.then.2.i.i, %if.end.1.i.i
-  %138 = phi i8 [ %.pre7.i.i, %if.then.2.i.i ], [ %137, %if.end.1.i.i ]
+  %137 = phi i8 [ %.pre7.i.i, %if.then.2.i.i ], [ %136, %if.end.1.i.i ]
   %arrayidx5.3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 6
-  %139 = load i16, ptr %arrayidx5.3.i.i, align 2
-  %call6.3.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %139, i8 noundef zeroext %138)
+  %138 = load i16, ptr %arrayidx5.3.i.i, align 2
+  %call6.3.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %138, i8 noundef zeroext %137)
   %Color.3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 132
   store i32 %call6.3.i.i, ptr %Color.3.i.i, align 4, !tbaa !100
-  %140 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source9.3.i.i = getelementptr inbounds nuw i8, ptr %140, i64 3041
-  %141 = load i8, ptr %light_source9.3.i.i, align 1, !tbaa !69
-  %tobool.not.3.i.i = icmp eq i8 %141, 0
+  %139 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source9.3.i.i = getelementptr inbounds nuw i8, ptr %139, i64 3041
+  %140 = load i8, ptr %light_source9.3.i.i, align 1, !tbaa !69
+  %tobool.not.3.i.i = icmp eq i8 %140, 0
   br i1 %tobool.not.3.i.i, label %if.then.3.i.i, label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_0clEiPN3irr5video9S3DVertexE.exit.i"
 
 if.then.3.i.i:                                    ; preds = %if.end.2.i.i
@@ -4402,30 +4402,30 @@ if.then.3.i.i:                                    ; preds = %if.end.2.i.i
   br label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_0clEiPN3irr5video9S3DVertexE.exit.i"
 
 "_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_0clEiPN3irr5video9S3DVertexE.exit.i": ; preds = %if.then.3.i.i, %if.end.2.i.i
-  %142 = insertelement <2 x i16> poison, i16 %131, i64 0
-  %143 = insertelement <2 x i16> %142, i16 %125, i64 1
-  %144 = lshr <2 x i16> %143, splat (i16 8)
-  %145 = insertelement <2 x i16> poison, i16 %139, i64 0
-  %146 = insertelement <2 x i16> %145, i16 %135, i64 1
-  %147 = lshr <2 x i16> %146, splat (i16 8)
-  %148 = and <2 x i16> %143, splat (i16 255)
-  %149 = and <2 x i16> %146, splat (i16 255)
-  %150 = zext nneg <2 x i16> %144 to <2 x i32>
+  %141 = insertelement <2 x i16> poison, i16 %130, i64 0
+  %142 = insertelement <2 x i16> %141, i16 %124, i64 1
+  %143 = lshr <2 x i16> %142, splat (i16 8)
+  %144 = insertelement <2 x i16> poison, i16 %138, i64 0
+  %145 = insertelement <2 x i16> %144, i16 %134, i64 1
+  %146 = lshr <2 x i16> %145, splat (i16 8)
+  %147 = and <2 x i16> %142, splat (i16 255)
+  %148 = and <2 x i16> %145, splat (i16 255)
+  %149 = zext nneg <2 x i16> %143 to <2 x i32>
+  %150 = zext nneg <2 x i16> %146 to <2 x i32>
   %151 = zext nneg <2 x i16> %147 to <2 x i32>
   %152 = zext nneg <2 x i16> %148 to <2 x i32>
-  %153 = zext nneg <2 x i16> %149 to <2 x i32>
-  %154 = sub nsw <2 x i32> %152, %153
-  %155 = call <2 x i32> @llvm.abs.v2i32(<2 x i32> %154, i1 true)
-  %156 = sub nsw <2 x i32> %150, %151
-  %157 = call <2 x i32> @llvm.abs.v2i32(<2 x i32> %156, i1 true)
-  %158 = add nuw nsw <2 x i32> %155, %157
-  %159 = extractelement <2 x i32> %158, i64 0
-  %160 = extractelement <2 x i32> %158, i64 1
-  %cmp20.i.not.i = icmp samesign ult i32 %159, %160
+  %153 = sub nsw <2 x i32> %151, %152
+  %154 = call <2 x i32> @llvm.abs.v2i32(<2 x i32> %153, i1 true)
+  %155 = sub nsw <2 x i32> %149, %150
+  %156 = call <2 x i32> @llvm.abs.v2i32(<2 x i32> %155, i1 true)
+  %157 = add nuw nsw <2 x i32> %154, %156
+  %158 = extractelement <2 x i32> %157, i64 0
+  %159 = extractelement <2 x i32> %157, i64 1
+  %cmp20.i.not.i = icmp samesign ult i32 %158, %159
   %_ZL15quad_indices_13._ZL15quad_indices_02.i = select i1 %cmp20.i.not.i, ptr @_ZL15quad_indices_13, ptr @_ZL15quad_indices_02
-  %161 = load ptr, ptr %collector.i, align 8, !tbaa !31
+  %160 = load ptr, ptr %collector.i, align 8, !tbaa !31
   %arrayidx.i240 = getelementptr inbounds nuw %struct.TileSpec, ptr %tiles, i64 %indvars.iv.i
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %161, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i240, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 4, ptr noundef nonnull %_ZL15quad_indices_13._ZL15quad_indices_02.i, i32 noundef 6)
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %160, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx.i240, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 4, ptr noundef nonnull %_ZL15quad_indices_13._ZL15quad_indices_02.i, i32 noundef 6)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_0clEiPN3irr5video9S3DVertexE.exit.i", %for.body.i
@@ -4449,16 +4449,16 @@ if.else:                                          ; preds = %if.end94
 
 if.end.i263:                                      ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i256)
-  %162 = load i16, ptr %lights, align 2, !tbaa !68
-  %163 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.i267 = getelementptr inbounds nuw i8, ptr %163, i64 3041
-  %164 = load i8, ptr %light_source.i.i267, align 1, !tbaa !69
-  %call.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %162, i8 noundef zeroext %164)
+  %161 = load i16, ptr %lights, align 2, !tbaa !68
+  %162 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.i267 = getelementptr inbounds nuw i8, ptr %162, i64 3041
+  %163 = load i8, ptr %light_source.i.i267, align 1, !tbaa !69
+  %call.i.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %161, i8 noundef zeroext %163)
   store i32 %call.i.i, ptr %color.i.i256, align 4
-  %165 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source4.i.i = getelementptr inbounds nuw i8, ptr %165, i64 3041
-  %166 = load i8, ptr %light_source4.i.i, align 1, !tbaa !69
-  %tobool.not.i.i268 = icmp eq i8 %166, 0
+  %164 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source4.i.i = getelementptr inbounds nuw i8, ptr %164, i64 3041
+  %165 = load i8, ptr %light_source4.i.i, align 1, !tbaa !69
+  %tobool.not.i.i268 = icmp eq i8 %165, 0
   br i1 %tobool.not.i.i268, label %if.then.i.i273, label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.i"
 
 if.then.i.i273:                                   ; preds = %if.end.i263
@@ -4468,18 +4468,18 @@ if.then.i.i273:                                   ; preds = %if.end.i263
   br label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.i"
 
 "_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.i": ; preds = %if.then.i.i273, %if.end.i263
-  %167 = phi i32 [ %.pre.i.i275, %if.then.i.i273 ], [ %call.i.i, %if.end.i263 ]
+  %166 = phi i32 [ %.pre.i.i275, %if.then.i.i273 ], [ %call.i.i, %if.end.i263 ]
   %Color.i.i269 = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 24
-  store i32 %167, ptr %Color.i.i269, align 4, !tbaa !100
+  store i32 %166, ptr %Color.i.i269, align 4, !tbaa !100
   %Color.1.i.i270 = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 60
-  store i32 %167, ptr %Color.1.i.i270, align 4, !tbaa !100
+  store i32 %166, ptr %Color.1.i.i270, align 4, !tbaa !100
   %Color.2.i.i271 = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 96
-  store i32 %167, ptr %Color.2.i.i271, align 4, !tbaa !100
+  store i32 %166, ptr %Color.2.i.i271, align 4, !tbaa !100
   %Color.3.i.i272 = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 132
-  store i32 %167, ptr %Color.3.i.i272, align 4, !tbaa !100
+  store i32 %166, ptr %Color.3.i.i272, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i256)
-  %168 = load ptr, ptr %collector.i259, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %168, ptr noundef nonnull align 8 dereferenceable(120) %tiles, ptr noundef nonnull %vertices.i257, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %167 = load ptr, ptr %collector.i259, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %167, ptr noundef nonnull align 8 dereferenceable(120) %tiles, ptr noundef nonnull %vertices.i257, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.i262
 
 for.inc.i262:                                     ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.i", %if.else
@@ -4491,16 +4491,16 @@ if.end.1.i:                                       ; preds = %for.inc.i262
   %arrayidx.i.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 144
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i256)
   %arrayidx.i.1.i = getelementptr inbounds nuw i8, ptr %lights, i64 2
-  %169 = load i16, ptr %arrayidx.i.1.i, align 2, !tbaa !68
-  %170 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.1.i = getelementptr inbounds nuw i8, ptr %170, i64 3041
-  %171 = load i8, ptr %light_source.i.1.i, align 1, !tbaa !69
-  %call.i.1.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %169, i8 noundef zeroext %171)
+  %168 = load i16, ptr %arrayidx.i.1.i, align 2, !tbaa !68
+  %169 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.1.i = getelementptr inbounds nuw i8, ptr %169, i64 3041
+  %170 = load i8, ptr %light_source.i.1.i, align 1, !tbaa !69
+  %call.i.1.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %168, i8 noundef zeroext %170)
   store i32 %call.i.1.i, ptr %color.i.i256, align 4
-  %172 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source4.i.1.i = getelementptr inbounds nuw i8, ptr %172, i64 3041
-  %173 = load i8, ptr %light_source4.i.1.i, align 1, !tbaa !69
-  %tobool.not.i.1.i = icmp eq i8 %173, 0
+  %171 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source4.i.1.i = getelementptr inbounds nuw i8, ptr %171, i64 3041
+  %172 = load i8, ptr %light_source4.i.1.i, align 1, !tbaa !69
+  %tobool.not.i.1.i = icmp eq i8 %172, 0
   br i1 %tobool.not.i.1.i, label %if.then.i.1.i, label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.1.i"
 
 if.then.i.1.i:                                    ; preds = %if.end.1.i
@@ -4510,18 +4510,18 @@ if.then.i.1.i:                                    ; preds = %if.end.1.i
   br label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.1.i"
 
 "_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.1.i": ; preds = %if.then.i.1.i, %if.end.1.i
-  %174 = phi i32 [ %.pre.i.1.i, %if.then.i.1.i ], [ %call.i.1.i, %if.end.1.i ]
+  %173 = phi i32 [ %.pre.i.1.i, %if.then.i.1.i ], [ %call.i.1.i, %if.end.1.i ]
   %Color.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 168
-  store i32 %174, ptr %Color.i.1.i, align 4, !tbaa !100
+  store i32 %173, ptr %Color.i.1.i, align 4, !tbaa !100
   %Color.1.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 204
-  store i32 %174, ptr %Color.1.i.1.i, align 4, !tbaa !100
+  store i32 %173, ptr %Color.1.i.1.i, align 4, !tbaa !100
   %Color.2.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 240
-  store i32 %174, ptr %Color.2.i.1.i, align 4, !tbaa !100
+  store i32 %173, ptr %Color.2.i.1.i, align 4, !tbaa !100
   %Color.3.i.1.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 276
-  store i32 %174, ptr %Color.3.i.1.i, align 4, !tbaa !100
+  store i32 %173, ptr %Color.3.i.1.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i256)
-  %175 = load ptr, ptr %collector.i259, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %175, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.1, ptr noundef nonnull %arrayidx.i.i.1.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %174 = load ptr, ptr %collector.i259, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %174, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.1, ptr noundef nonnull %arrayidx.i.i.1.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.1.i
 
 for.inc.1.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.1.i", %for.inc.i262
@@ -4533,16 +4533,16 @@ if.end.2.i:                                       ; preds = %for.inc.1.i
   %arrayidx.i.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 288
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i256)
   %arrayidx.i.2.i = getelementptr inbounds nuw i8, ptr %lights, i64 4
-  %176 = load i16, ptr %arrayidx.i.2.i, align 2, !tbaa !68
-  %177 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.2.i = getelementptr inbounds nuw i8, ptr %177, i64 3041
-  %178 = load i8, ptr %light_source.i.2.i, align 1, !tbaa !69
-  %call.i.2.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %176, i8 noundef zeroext %178)
+  %175 = load i16, ptr %arrayidx.i.2.i, align 2, !tbaa !68
+  %176 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.2.i = getelementptr inbounds nuw i8, ptr %176, i64 3041
+  %177 = load i8, ptr %light_source.i.2.i, align 1, !tbaa !69
+  %call.i.2.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %175, i8 noundef zeroext %177)
   store i32 %call.i.2.i, ptr %color.i.i256, align 4
-  %179 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source4.i.2.i = getelementptr inbounds nuw i8, ptr %179, i64 3041
-  %180 = load i8, ptr %light_source4.i.2.i, align 1, !tbaa !69
-  %tobool.not.i.2.i = icmp eq i8 %180, 0
+  %178 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source4.i.2.i = getelementptr inbounds nuw i8, ptr %178, i64 3041
+  %179 = load i8, ptr %light_source4.i.2.i, align 1, !tbaa !69
+  %tobool.not.i.2.i = icmp eq i8 %179, 0
   br i1 %tobool.not.i.2.i, label %if.then.i.2.i, label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.2.i"
 
 if.then.i.2.i:                                    ; preds = %if.end.2.i
@@ -4552,18 +4552,18 @@ if.then.i.2.i:                                    ; preds = %if.end.2.i
   br label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.2.i"
 
 "_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.2.i": ; preds = %if.then.i.2.i, %if.end.2.i
-  %181 = phi i32 [ %.pre.i.2.i, %if.then.i.2.i ], [ %call.i.2.i, %if.end.2.i ]
+  %180 = phi i32 [ %.pre.i.2.i, %if.then.i.2.i ], [ %call.i.2.i, %if.end.2.i ]
   %Color.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 312
-  store i32 %181, ptr %Color.i.2.i, align 4, !tbaa !100
+  store i32 %180, ptr %Color.i.2.i, align 4, !tbaa !100
   %Color.1.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 348
-  store i32 %181, ptr %Color.1.i.2.i, align 4, !tbaa !100
+  store i32 %180, ptr %Color.1.i.2.i, align 4, !tbaa !100
   %Color.2.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 384
-  store i32 %181, ptr %Color.2.i.2.i, align 4, !tbaa !100
+  store i32 %180, ptr %Color.2.i.2.i, align 4, !tbaa !100
   %Color.3.i.2.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 420
-  store i32 %181, ptr %Color.3.i.2.i, align 4, !tbaa !100
+  store i32 %180, ptr %Color.3.i.2.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i256)
-  %182 = load ptr, ptr %collector.i259, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %182, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.2, ptr noundef nonnull %arrayidx.i.i.2.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %181 = load ptr, ptr %collector.i259, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %181, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.2, ptr noundef nonnull %arrayidx.i.i.2.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.2.i
 
 for.inc.2.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.2.i", %for.inc.1.i
@@ -4575,16 +4575,16 @@ if.end.3.i:                                       ; preds = %for.inc.2.i
   %arrayidx.i.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 432
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i256)
   %arrayidx.i.3.i = getelementptr inbounds nuw i8, ptr %lights, i64 6
-  %183 = load i16, ptr %arrayidx.i.3.i, align 2, !tbaa !68
-  %184 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.3.i = getelementptr inbounds nuw i8, ptr %184, i64 3041
-  %185 = load i8, ptr %light_source.i.3.i, align 1, !tbaa !69
-  %call.i.3.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %183, i8 noundef zeroext %185)
+  %182 = load i16, ptr %arrayidx.i.3.i, align 2, !tbaa !68
+  %183 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.3.i = getelementptr inbounds nuw i8, ptr %183, i64 3041
+  %184 = load i8, ptr %light_source.i.3.i, align 1, !tbaa !69
+  %call.i.3.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %182, i8 noundef zeroext %184)
   store i32 %call.i.3.i, ptr %color.i.i256, align 4
-  %186 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source4.i.3.i = getelementptr inbounds nuw i8, ptr %186, i64 3041
-  %187 = load i8, ptr %light_source4.i.3.i, align 1, !tbaa !69
-  %tobool.not.i.3.i = icmp eq i8 %187, 0
+  %185 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source4.i.3.i = getelementptr inbounds nuw i8, ptr %185, i64 3041
+  %186 = load i8, ptr %light_source4.i.3.i, align 1, !tbaa !69
+  %tobool.not.i.3.i = icmp eq i8 %186, 0
   br i1 %tobool.not.i.3.i, label %if.then.i.3.i, label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.3.i"
 
 if.then.i.3.i:                                    ; preds = %if.end.3.i
@@ -4594,18 +4594,18 @@ if.then.i.3.i:                                    ; preds = %if.end.3.i
   br label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.3.i"
 
 "_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.3.i": ; preds = %if.then.i.3.i, %if.end.3.i
-  %188 = phi i32 [ %.pre.i.3.i, %if.then.i.3.i ], [ %call.i.3.i, %if.end.3.i ]
+  %187 = phi i32 [ %.pre.i.3.i, %if.then.i.3.i ], [ %call.i.3.i, %if.end.3.i ]
   %Color.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 456
-  store i32 %188, ptr %Color.i.3.i, align 4, !tbaa !100
+  store i32 %187, ptr %Color.i.3.i, align 4, !tbaa !100
   %Color.1.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 492
-  store i32 %188, ptr %Color.1.i.3.i, align 4, !tbaa !100
+  store i32 %187, ptr %Color.1.i.3.i, align 4, !tbaa !100
   %Color.2.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 528
-  store i32 %188, ptr %Color.2.i.3.i, align 4, !tbaa !100
+  store i32 %187, ptr %Color.2.i.3.i, align 4, !tbaa !100
   %Color.3.i.3.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 564
-  store i32 %188, ptr %Color.3.i.3.i, align 4, !tbaa !100
+  store i32 %187, ptr %Color.3.i.3.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i256)
-  %189 = load ptr, ptr %collector.i259, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %189, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.3, ptr noundef nonnull %arrayidx.i.i.3.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %188 = load ptr, ptr %collector.i259, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %188, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.3, ptr noundef nonnull %arrayidx.i.i.3.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.3.i
 
 for.inc.3.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.3.i", %for.inc.2.i
@@ -4617,16 +4617,16 @@ if.end.4.i:                                       ; preds = %for.inc.3.i
   %arrayidx.i.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 576
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i256)
   %arrayidx.i.4.i = getelementptr inbounds nuw i8, ptr %lights, i64 8
-  %190 = load i16, ptr %arrayidx.i.4.i, align 2, !tbaa !68
-  %191 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.4.i = getelementptr inbounds nuw i8, ptr %191, i64 3041
-  %192 = load i8, ptr %light_source.i.4.i, align 1, !tbaa !69
-  %call.i.4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %190, i8 noundef zeroext %192)
+  %189 = load i16, ptr %arrayidx.i.4.i, align 2, !tbaa !68
+  %190 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.4.i = getelementptr inbounds nuw i8, ptr %190, i64 3041
+  %191 = load i8, ptr %light_source.i.4.i, align 1, !tbaa !69
+  %call.i.4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %189, i8 noundef zeroext %191)
   store i32 %call.i.4.i, ptr %color.i.i256, align 4
-  %193 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source4.i.4.i = getelementptr inbounds nuw i8, ptr %193, i64 3041
-  %194 = load i8, ptr %light_source4.i.4.i, align 1, !tbaa !69
-  %tobool.not.i.4.i = icmp eq i8 %194, 0
+  %192 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source4.i.4.i = getelementptr inbounds nuw i8, ptr %192, i64 3041
+  %193 = load i8, ptr %light_source4.i.4.i, align 1, !tbaa !69
+  %tobool.not.i.4.i = icmp eq i8 %193, 0
   br i1 %tobool.not.i.4.i, label %if.then.i.4.i, label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.4.i"
 
 if.then.i.4.i:                                    ; preds = %if.end.4.i
@@ -4636,18 +4636,18 @@ if.then.i.4.i:                                    ; preds = %if.end.4.i
   br label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.4.i"
 
 "_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.4.i": ; preds = %if.then.i.4.i, %if.end.4.i
-  %195 = phi i32 [ %.pre.i.4.i, %if.then.i.4.i ], [ %call.i.4.i, %if.end.4.i ]
+  %194 = phi i32 [ %.pre.i.4.i, %if.then.i.4.i ], [ %call.i.4.i, %if.end.4.i ]
   %Color.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 600
-  store i32 %195, ptr %Color.i.4.i, align 4, !tbaa !100
+  store i32 %194, ptr %Color.i.4.i, align 4, !tbaa !100
   %Color.1.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 636
-  store i32 %195, ptr %Color.1.i.4.i, align 4, !tbaa !100
+  store i32 %194, ptr %Color.1.i.4.i, align 4, !tbaa !100
   %Color.2.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 672
-  store i32 %195, ptr %Color.2.i.4.i, align 4, !tbaa !100
+  store i32 %194, ptr %Color.2.i.4.i, align 4, !tbaa !100
   %Color.3.i.4.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 708
-  store i32 %195, ptr %Color.3.i.4.i, align 4, !tbaa !100
+  store i32 %194, ptr %Color.3.i.4.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i256)
-  %196 = load ptr, ptr %collector.i259, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %196, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.4, ptr noundef nonnull %arrayidx.i.i.4.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %195 = load ptr, ptr %collector.i259, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %195, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.4, ptr noundef nonnull %arrayidx.i.i.4.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %for.inc.4.i
 
 for.inc.4.i:                                      ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.4.i", %for.inc.3.i
@@ -4659,16 +4659,16 @@ if.end.5.i:                                       ; preds = %for.inc.4.i
   %arrayidx.i.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 720
   call void @llvm.lifetime.start.p0(ptr nonnull %color.i.i256)
   %arrayidx.i.5.i = getelementptr inbounds nuw i8, ptr %lights, i64 10
-  %197 = load i16, ptr %arrayidx.i.5.i, align 2, !tbaa !68
-  %198 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source.i.5.i = getelementptr inbounds nuw i8, ptr %198, i64 3041
-  %199 = load i8, ptr %light_source.i.5.i, align 1, !tbaa !69
-  %call.i.5.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %197, i8 noundef zeroext %199)
+  %196 = load i16, ptr %arrayidx.i.5.i, align 2, !tbaa !68
+  %197 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source.i.5.i = getelementptr inbounds nuw i8, ptr %197, i64 3041
+  %198 = load i8, ptr %light_source.i.5.i, align 1, !tbaa !69
+  %call.i.5.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %196, i8 noundef zeroext %198)
   store i32 %call.i.5.i, ptr %color.i.i256, align 4
-  %200 = load ptr, ptr %f, align 8, !tbaa !62
-  %light_source4.i.5.i = getelementptr inbounds nuw i8, ptr %200, i64 3041
-  %201 = load i8, ptr %light_source4.i.5.i, align 1, !tbaa !69
-  %tobool.not.i.5.i = icmp eq i8 %201, 0
+  %199 = load ptr, ptr %f, align 8, !tbaa !62
+  %light_source4.i.5.i = getelementptr inbounds nuw i8, ptr %199, i64 3041
+  %200 = load i8, ptr %light_source4.i.5.i, align 1, !tbaa !69
+  %tobool.not.i.5.i = icmp eq i8 %200, 0
   br i1 %tobool.not.i.5.i, label %if.then.i.5.i, label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.5.i"
 
 if.then.i.5.i:                                    ; preds = %if.end.5.i
@@ -4678,18 +4678,18 @@ if.then.i.5.i:                                    ; preds = %if.end.5.i
   br label %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.5.i"
 
 "_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.5.i": ; preds = %if.then.i.5.i, %if.end.5.i
-  %202 = phi i32 [ %.pre.i.5.i, %if.then.i.5.i ], [ %call.i.5.i, %if.end.5.i ]
+  %201 = phi i32 [ %.pre.i.5.i, %if.then.i.5.i ], [ %call.i.5.i, %if.end.5.i ]
   %Color.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 744
-  store i32 %202, ptr %Color.i.5.i, align 4, !tbaa !100
+  store i32 %201, ptr %Color.i.5.i, align 4, !tbaa !100
   %Color.1.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 780
-  store i32 %202, ptr %Color.1.i.5.i, align 4, !tbaa !100
+  store i32 %201, ptr %Color.1.i.5.i, align 4, !tbaa !100
   %Color.2.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 816
-  store i32 %202, ptr %Color.2.i.5.i, align 4, !tbaa !100
+  store i32 %201, ptr %Color.2.i.5.i, align 4, !tbaa !100
   %Color.3.i.5.i = getelementptr inbounds nuw i8, ptr %vertices.i257, i64 852
-  store i32 %202, ptr %Color.3.i.5.i, align 4, !tbaa !100
+  store i32 %201, ptr %Color.3.i.5.i, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %color.i.i256)
-  %203 = load ptr, ptr %collector.i259, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %203, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.5, ptr noundef nonnull %arrayidx.i.i.5.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %202 = load ptr, ptr %collector.i259, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %202, ptr noundef nonnull align 8 dereferenceable(120) %arrayctor.cur.ptr.5, ptr noundef nonnull %arrayidx.i.i.5.i, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   br label %"_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_1EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit"
 
 "_ZN21MapblockMeshGenerator10drawCuboidIZNS_13drawSolidNodeEvE3$_1EEvRKN3irr4core8aabbox3dIfEEP8TileSpeciPKfhOT_.exit": ; preds = %"_ZZN21MapblockMeshGenerator13drawSolidNodeEvENK3$_1clEiPN3irr5video9S3DVertexE.exit.5.i", %for.inc.4.i
@@ -5123,7 +5123,7 @@ if.else:                                          ; preds = %if.end64
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %63, i64 312
   %ntop.sroa.0.0.extract.trunc.mask = and i32 %retval.sroa.0.0.insert.insert.i156, 65535
   %idxprom.i.i = zext nneg i32 %ntop.sroa.0.0.extract.trunc.mask to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [65536 x %struct.ContentLightingFlags], ptr %m_content_lighting_flag_cache.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !44
   %64 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not = icmp eq i8 %64, 0
@@ -5250,7 +5250,7 @@ for.cond21.preheader:                             ; preds = %for.cond.cleanup23,
   %indvars.iv283 = phi i64 [ -1, %cond.end17 ], [ %indvars.iv.next284, %for.cond.cleanup23 ]
   %indvars.iv.next284 = add nsw i64 %indvars.iv283, 1
   %conv30 = trunc nsw i64 %indvars.iv283 to i16
-  %arrayidx28.split = getelementptr inbounds nuw [3 x [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"]], ptr %neighbors, i64 0, i64 %indvars.iv.next284
+  %arrayidx28.split = getelementptr inbounds nuw [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %neighbors, i64 %indvars.iv.next284
   br label %for.body24
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup23
@@ -5263,7 +5263,7 @@ for.cond.cleanup23:                               ; preds = %cleanup
 for.body24:                                       ; preds = %cleanup, %for.cond21.preheader
   %indvars.iv = phi i64 [ -1, %for.cond21.preheader ], [ %indvars.iv.next, %cleanup ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %arrayidx28 = getelementptr inbounds nuw [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %arrayidx28.split, i64 0, i64 %indvars.iv.next
+  %arrayidx28 = getelementptr inbounds nuw %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx28.split, i64 %indvars.iv.next
   %conv29 = trunc nsw i64 %indvars.iv to i16
   %11 = load i16, ptr %cur_node, align 8, !tbaa !38
   %add.i = add i16 %11, %conv29
@@ -6023,8 +6023,8 @@ entry:
   %1 = load i16, ptr %c_flowing, align 8
   %2 = sext i32 %i to i64
   %3 = sext i32 %k to i64
-  %arrayidx8.split = getelementptr inbounds [3 x [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"]], ptr %neighbors, i64 0, i64 %3
-  %arrayidx8 = getelementptr inbounds [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %arrayidx8.split, i64 0, i64 %2
+  %arrayidx8.split = getelementptr [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %neighbors, i64 %3
+  %arrayidx8 = getelementptr inbounds %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx8.split, i64 %2
   %top_is_same_liquid = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 7
   %4 = load i8, ptr %top_is_same_liquid, align 1, !tbaa !148, !range !46, !noundef !47
   %tobool.not = icmp eq i8 %4, 0
@@ -6054,7 +6054,7 @@ for.inc:                                          ; preds = %if.else, %if.then19
   %air_count.3.ph = phi i32 [ %inc24, %if.else ], [ 0, %if.then19 ]
   %sum.3.ph = phi float [ 0.000000e+00, %if.else ], [ %6, %if.then19 ]
   %7 = add nsw i64 %2, 1
-  %arrayidx8.1 = getelementptr inbounds [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %arrayidx8.split, i64 0, i64 %7
+  %arrayidx8.1 = getelementptr inbounds %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx8.split, i64 %7
   %top_is_same_liquid.1 = getelementptr inbounds nuw i8, ptr %arrayidx8.1, i64 7
   %8 = load i8, ptr %top_is_same_liquid.1, align 1, !tbaa !148, !range !46, !noundef !47
   %tobool.not.1 = icmp eq i8 %8, 0
@@ -6086,33 +6086,32 @@ for.inc.1:                                        ; preds = %if.then19.1, %if.el
   %count.3.ph.1 = phi i32 [ %count.3.ph, %if.else.1 ], [ %inc.1, %if.then19.1 ]
   %air_count.3.ph.1 = phi i32 [ %spec.select.1, %if.else.1 ], [ %air_count.3.ph, %if.then19.1 ]
   %sum.3.ph.1 = phi float [ %sum.3.ph, %if.else.1 ], [ %add20.1, %if.then19.1 ]
-  %11 = add nsw i64 %3, 1
-  %arrayidx8.196.split = getelementptr inbounds [3 x [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"]], ptr %neighbors, i64 0, i64 %11
-  %arrayidx8.196 = getelementptr inbounds [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %arrayidx8.196.split, i64 0, i64 %2
+  %arrayidx8.196.split = getelementptr i8, ptr %arrayidx8.split, i64 24
+  %arrayidx8.196 = getelementptr inbounds %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx8.196.split, i64 %2
   %top_is_same_liquid.197 = getelementptr inbounds nuw i8, ptr %arrayidx8.196, i64 7
-  %12 = load i8, ptr %top_is_same_liquid.197, align 1, !tbaa !148, !range !46, !noundef !47
-  %tobool.not.198 = icmp eq i8 %12, 0
+  %11 = load i8, ptr %top_is_same_liquid.197, align 1, !tbaa !148, !range !46, !noundef !47
+  %tobool.not.198 = icmp eq i8 %11, 0
   br i1 %tobool.not.198, label %if.end.1101, label %cleanup43
 
 if.end.1101:                                      ; preds = %for.inc.1
   %content9.199 = getelementptr inbounds nuw i8, ptr %arrayidx8.196, i64 4
-  %13 = load i16, ptr %content9.199, align 4, !tbaa !144
-  %cmp12.1100 = icmp eq i16 %13, %0
+  %12 = load i16, ptr %content9.199, align 4, !tbaa !144
+  %cmp12.1100 = icmp eq i16 %12, %0
   br i1 %cmp12.1100, label %cleanup43, label %if.end14.1103
 
 if.end14.1103:                                    ; preds = %if.end.1101
-  %cmp18.1102 = icmp eq i16 %13, %1
+  %cmp18.1102 = icmp eq i16 %12, %1
   br i1 %cmp18.1102, label %if.then19.1110, label %if.else.1107
 
 if.else.1107:                                     ; preds = %if.end14.1103
-  %cmp22.1104 = icmp eq i16 %13, 126
+  %cmp22.1104 = icmp eq i16 %12, 126
   %inc24.1105 = zext i1 %cmp22.1104 to i32
   %spec.select.1106 = add nuw nsw i32 %air_count.3.ph.1, %inc24.1105
   br label %for.inc.1114
 
 if.then19.1110:                                   ; preds = %if.end14.1103
-  %14 = load float, ptr %arrayidx8.196, align 8, !tbaa !146
-  %add20.1108 = fadd nsz float %sum.3.ph.1, %14
+  %13 = load float, ptr %arrayidx8.196, align 8, !tbaa !146
+  %add20.1108 = fadd nsz float %sum.3.ph.1, %13
   %inc.1109 = add nuw nsw i32 %count.3.ph.1, 1
   br label %for.inc.1114
 
@@ -6120,31 +6119,31 @@ for.inc.1114:                                     ; preds = %if.then19.1110, %if
   %count.3.ph.1111 = phi i32 [ %count.3.ph.1, %if.else.1107 ], [ %inc.1109, %if.then19.1110 ]
   %air_count.3.ph.1112 = phi i32 [ %spec.select.1106, %if.else.1107 ], [ %air_count.3.ph.1, %if.then19.1110 ]
   %sum.3.ph.1113 = phi float [ %sum.3.ph.1, %if.else.1107 ], [ %add20.1108, %if.then19.1110 ]
-  %arrayidx8.1.1 = getelementptr inbounds [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %arrayidx8.196.split, i64 0, i64 %7
+  %arrayidx8.1.1 = getelementptr inbounds %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx8.196.split, i64 %7
   %top_is_same_liquid.1.1 = getelementptr inbounds nuw i8, ptr %arrayidx8.1.1, i64 7
-  %15 = load i8, ptr %top_is_same_liquid.1.1, align 1, !tbaa !148, !range !46, !noundef !47
-  %tobool.not.1.1 = icmp eq i8 %15, 0
+  %14 = load i8, ptr %top_is_same_liquid.1.1, align 1, !tbaa !148, !range !46, !noundef !47
+  %tobool.not.1.1 = icmp eq i8 %14, 0
   br i1 %tobool.not.1.1, label %if.end.1.1, label %cleanup43
 
 if.end.1.1:                                       ; preds = %for.inc.1114
   %content9.1.1 = getelementptr inbounds nuw i8, ptr %arrayidx8.1.1, i64 4
-  %16 = load i16, ptr %content9.1.1, align 4, !tbaa !144
-  %cmp12.1.1 = icmp eq i16 %16, %0
+  %15 = load i16, ptr %content9.1.1, align 4, !tbaa !144
+  %cmp12.1.1 = icmp eq i16 %15, %0
   br i1 %cmp12.1.1, label %cleanup43, label %if.end14.1.1
 
 if.end14.1.1:                                     ; preds = %if.end.1.1
-  %cmp18.1.1 = icmp eq i16 %16, %1
+  %cmp18.1.1 = icmp eq i16 %15, %1
   br i1 %cmp18.1.1, label %if.then19.1.1, label %if.else.1.1
 
 if.else.1.1:                                      ; preds = %if.end14.1.1
-  %cmp22.1.1 = icmp eq i16 %16, 126
+  %cmp22.1.1 = icmp eq i16 %15, 126
   %inc24.1.1 = zext i1 %cmp22.1.1 to i32
   %spec.select.1.1 = add nuw nsw i32 %air_count.3.ph.1112, %inc24.1.1
   br label %for.inc.1.1
 
 if.then19.1.1:                                    ; preds = %if.end14.1.1
-  %17 = load float, ptr %arrayidx8.1.1, align 8, !tbaa !146
-  %add20.1.1 = fadd nsz float %sum.3.ph.1113, %17
+  %16 = load float, ptr %arrayidx8.1.1, align 8, !tbaa !146
+  %add20.1.1 = fadd nsz float %sum.3.ph.1113, %16
   %inc.1.1 = add nuw nsw i32 %count.3.ph.1111, 1
   br label %for.inc.1.1
 
@@ -6174,7 +6173,6 @@ define dso_local void @_ZN21MapblockMeshGenerator15drawLiquidSidesEv(ptr noundef
 entry:
   %vertices = alloca [4 x %"struct.irr::video::S3DVertex"], align 16
   %cur_liquid = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %neighbors = getelementptr inbounds nuw i8, ptr %this, i64 536
   %nodedef = getelementptr inbounds nuw i8, ptr %this, i64 16
   %corner_levels = getelementptr inbounds nuw i8, ptr %this, i64 608
   %frame.i = getelementptr inbounds nuw i8, ptr %this, i64 76
@@ -6208,6 +6206,7 @@ entry:
   %TCoords.i.2 = getelementptr inbounds nuw i8, ptr %vertices, i64 100
   %Color.i.3 = getelementptr inbounds nuw i8, ptr %vertices, i64 132
   %TCoords.i.3 = getelementptr inbounds nuw i8, ptr %vertices, i64 136
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 560
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %cleanup98
@@ -6217,61 +6216,59 @@ for.body:                                         ; preds = %cleanup98, %entry
   %__begin1.0.idx145 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %cleanup98 ]
   %__begin1.0.ptr146 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_117liquid_base_facesE, i64 %__begin1.0.idx145
   %Z = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr146, i64 4
-  %0 = load i16, ptr %Z, align 2, !tbaa !150
-  %conv = sext i16 %0 to i64
-  %add = add nsw i64 %conv, 1
-  %1 = load i16, ptr %__begin1.0.ptr146, align 2, !tbaa !152
-  %conv3 = sext i16 %1 to i64
-  %add4 = add nsw i64 %conv3, 1
-  %arrayidx6.split = getelementptr inbounds [3 x [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"]], ptr %neighbors, i64 0, i64 %add
-  %arrayidx6 = getelementptr inbounds [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %arrayidx6.split, i64 0, i64 %add4
-  %is_same_liquid = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 6
-  %2 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
-  %tobool.not = icmp eq i8 %2, 0
+  %1 = load i16, ptr %Z, align 2, !tbaa !150
+  %conv = sext i16 %1 to i64
+  %2 = load i16, ptr %__begin1.0.ptr146, align 2, !tbaa !152
+  %conv3 = sext i16 %2 to i64
+  %arrayidx6.split = getelementptr [3 x %"struct.MapblockMeshGenerator::LiquidData::NeighborData"], ptr %0, i64 %conv
+  %3 = getelementptr %"struct.MapblockMeshGenerator::LiquidData::NeighborData", ptr %arrayidx6.split, i64 %conv3
+  %is_same_liquid = getelementptr i8, ptr %3, i64 14
+  %4 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
+  %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %3 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
-  %tobool8.not = icmp eq i8 %3, 0
+  %5 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
+  %tobool8.not = icmp eq i8 %5, 0
   br i1 %tobool8.not, label %cleanup98, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %top_is_same_liquid10 = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 7
-  %4 = load i8, ptr %top_is_same_liquid10, align 1, !tbaa !148, !range !46, !noundef !47
-  %tobool11.not = icmp eq i8 %4, 0
+  %top_is_same_liquid10 = getelementptr i8, ptr %3, i64 15
+  %6 = load i8, ptr %top_is_same_liquid10, align 1, !tbaa !148, !range !46, !noundef !47
+  %tobool11.not = icmp eq i8 %6, 0
   br i1 %tobool11.not, label %if.end14, label %cleanup98
 
 if.end14:                                         ; preds = %if.end, %for.body
-  %5 = load ptr, ptr %nodedef, align 8, !tbaa !36
-  %content = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 4
-  %6 = load i16, ptr %content, align 4, !tbaa !144
-  %conv.i = zext i16 %6 to i64
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !126
-  %8 = load ptr, ptr %5, align 8, !tbaa !128
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
+  %7 = load ptr, ptr %nodedef, align 8, !tbaa !36
+  %content = getelementptr i8, ptr %3, i64 12
+  %8 = load i16, ptr %content, align 4, !tbaa !144
+  %conv.i = zext i16 %8 to i64
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !126
+  %10 = load ptr, ptr %7, align 8, !tbaa !128
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 3712
   %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %if.end14
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %8, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %10, i64 %conv.i
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
-  %9 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !11
-  %cmp.i.i = icmp eq i64 %9, 0
+  %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !11
+  %cmp.i.i = icmp eq i64 %11, 0
   br i1 %cmp.i.i, label %cond.false.i, label %_ZNK14NodeDefManager3getEt.exit
 
 cond.false.i:                                     ; preds = %land.lhs.true.i, %if.end14
-  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %8, i64 464000
+  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %10, i64 464000
   br label %_ZNK14NodeDefManager3getEt.exit
 
 _ZNK14NodeDefManager3getEt.exit:                  ; preds = %cond.false.i, %land.lhs.true.i
   %cond-lvalue.i = phi ptr [ %add.ptr.i14.i, %cond.false.i ], [ %add.ptr.i.i, %land.lhs.true.i ]
   %solidness = getelementptr inbounds nuw i8, ptr %cond-lvalue.i, i64 1440
-  %10 = load i8, ptr %solidness, align 8, !tbaa !129
-  %cmp16 = icmp eq i8 %10, 2
+  %12 = load i8, ptr %solidness, align 8, !tbaa !129
+  %cmp16 = icmp eq i8 %12, 2
   br i1 %cmp16, label %cleanup98, label %if.end18
 
 if.end18:                                         ; preds = %_ZNK14NodeDefManager3getEt.exit
@@ -6289,69 +6286,69 @@ if.end18:                                         ; preds = %_ZNK14NodeDefManage
   br label %for.body22
 
 for.cond.cleanup21:                               ; preds = %if.end83
-  %11 = load ptr, ptr %collector, align 8, !tbaa !31
-  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %11, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
+  %13 = load ptr, ptr %collector, align 8, !tbaa !31
+  call void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %13, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZL15quad_indices_02, i32 noundef 6)
   call void @llvm.lifetime.end.p0(ptr nonnull %vertices)
   br label %cleanup98
 
 for.body22:                                       ; preds = %if.end83, %if.end18
   %indvars.iv = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next, %if.end83 ]
-  %arrayidx24 = getelementptr inbounds nuw [4 x %"struct.(anonymous namespace)::UV"], ptr @_ZN12_GLOBAL__N_120liquid_base_verticesE, i64 0, i64 %indvars.iv
-  %12 = load i32, ptr %arrayidx24, align 8, !tbaa !153
-  %idxprom25 = sext i32 %12 to i64
-  %arrayidx26 = getelementptr inbounds [2 x %"class.irr::core::vector3d"], ptr %p, i64 0, i64 %idxprom25
+  %arrayidx24 = getelementptr inbounds nuw %"struct.(anonymous namespace)::UV", ptr @_ZN12_GLOBAL__N_120liquid_base_verticesE, i64 %indvars.iv
+  %14 = load i32, ptr %arrayidx24, align 8, !tbaa !153
+  %idxprom25 = sext i32 %14 to i64
+  %arrayidx26 = getelementptr inbounds %"class.irr::core::vector3d", ptr %p, i64 %idxprom25
   %v27 = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 4
-  %13 = load i32, ptr %v27, align 4, !tbaa !155
-  %conv28 = sitofp i32 %13 to float
-  %14 = load i16, ptr %arrayidx26, align 2, !tbaa !38
-  %conv31 = sitofp i16 %14 to float
+  %15 = load i32, ptr %v27, align 4, !tbaa !155
+  %conv28 = sitofp i32 %15 to float
+  %16 = load i16, ptr %arrayidx26, align 2, !tbaa !38
+  %conv31 = sitofp i16 %16 to float
   %sub = fadd nsz float %conv31, -5.000000e-01
   %mul = fmul nsz float %sub, 1.000000e+01
   %Z33 = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 4
-  %15 = load i16, ptr %Z33, align 2, !tbaa !40
-  %conv35 = sitofp i16 %15 to float
+  %17 = load i16, ptr %Z33, align 2, !tbaa !40
+  %conv35 = sitofp i16 %17 to float
   %sub36 = fadd nsz float %conv35, -5.000000e-01
   %mul37 = fmul nsz float %sub36, 1.000000e+01
-  %tobool40.not = icmp eq i32 %13, 0
+  %tobool40.not = icmp eq i32 %15, 0
   br i1 %tobool40.not, label %if.else, label %if.then41
 
 if.then41:                                        ; preds = %for.body22
-  %16 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
-  %tobool43.not = icmp eq i8 %16, 0
+  %18 = load i8, ptr %is_same_liquid, align 2, !tbaa !147, !range !46, !noundef !47
+  %tobool43.not = icmp eq i8 %18, 0
   br i1 %tobool43.not, label %if.end79, label %cond.true
 
 cond.true:                                        ; preds = %if.then41
-  %idxprom46 = sext i16 %15 to i64
-  %idxprom49 = sext i16 %14 to i64
-  %arrayidx50.split = getelementptr inbounds [2 x [2 x float]], ptr %corner_levels, i64 0, i64 %idxprom46
-  %arrayidx50 = getelementptr inbounds [2 x float], ptr %arrayidx50.split, i64 0, i64 %idxprom49
-  %17 = load float, ptr %arrayidx50, align 4, !tbaa !49
-  %18 = fmul nsz float %17, 1.000000e+01
+  %idxprom46 = sext i16 %17 to i64
+  %idxprom49 = sext i16 %16 to i64
+  %arrayidx50.split = getelementptr inbounds [2 x float], ptr %corner_levels, i64 %idxprom46
+  %arrayidx50 = getelementptr inbounds float, ptr %arrayidx50.split, i64 %idxprom49
+  %19 = load float, ptr %arrayidx50, align 4, !tbaa !49
+  %20 = fmul nsz float %19, 1.000000e+01
   br label %if.end79
 
 if.else:                                          ; preds = %for.body22
-  %19 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
-  %tobool54.not = icmp eq i8 %19, 0
+  %21 = load i8, ptr %cur_liquid, align 8, !tbaa !140, !range !46, !noundef !47
+  %tobool54.not = icmp eq i8 %21, 0
   br i1 %tobool54.not, label %if.else57, label %if.end79
 
 if.else57:                                        ; preds = %if.else
-  %idxprom61 = sext i16 %15 to i64
-  %idxprom64 = sext i16 %14 to i64
-  %arrayidx65.split = getelementptr inbounds [2 x [2 x float]], ptr %corner_levels, i64 0, i64 %idxprom61
-  %arrayidx65 = getelementptr inbounds [2 x float], ptr %arrayidx65.split, i64 0, i64 %idxprom64
-  %20 = load float, ptr %arrayidx65, align 4, !tbaa !49
-  %mul66 = fmul nsz float %20, 1.000000e+01
-  %sub76 = fsub nsz float 5.000000e-01, %20
+  %idxprom61 = sext i16 %17 to i64
+  %idxprom64 = sext i16 %16 to i64
+  %arrayidx65.split = getelementptr inbounds [2 x float], ptr %corner_levels, i64 %idxprom61
+  %arrayidx65 = getelementptr inbounds float, ptr %arrayidx65.split, i64 %idxprom64
+  %22 = load float, ptr %arrayidx65, align 4, !tbaa !49
+  %mul66 = fmul nsz float %22, 1.000000e+01
+  %sub76 = fsub nsz float 5.000000e-01, %22
   %add77 = fadd nsz float %sub76, %conv28
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then41, %cond.true, %if.else57, %if.else
-  %pos.sroa.8.0 = phi float [ %mul66, %if.else57 ], [ 5.000000e+00, %if.else ], [ %18, %cond.true ], [ -5.000000e+00, %if.then41 ]
+  %pos.sroa.8.0 = phi float [ %mul66, %if.else57 ], [ 5.000000e+00, %if.else ], [ %20, %cond.true ], [ -5.000000e+00, %if.then41 ]
   %v.0 = phi float [ %add77, %if.else57 ], [ %conv28, %if.else ], [ %conv28, %cond.true ], [ %conv28, %if.then41 ]
-  %21 = load ptr, ptr %this, align 8, !tbaa !12
-  %m_smooth_lighting = getelementptr inbounds nuw i8, ptr %21, i64 60
-  %22 = load i8, ptr %m_smooth_lighting, align 4, !tbaa !45, !range !46, !noundef !47
-  %tobool80.not = icmp eq i8 %22, 0
+  %23 = load ptr, ptr %this, align 8, !tbaa !12
+  %m_smooth_lighting = getelementptr inbounds nuw i8, ptr %23, i64 60
+  %24 = load i8, ptr %m_smooth_lighting, align 4, !tbaa !45, !range !46, !noundef !47
+  %tobool80.not = icmp eq i8 %24, 0
   br i1 %tobool80.not, label %if.end79.if.end83_crit_edge, label %if.then81
 
 if.end79.if.end83_crit_edge:                      ; preds = %if.end79
@@ -6362,131 +6359,131 @@ if.end79.if.end83_crit_edge:                      ; preds = %if.end79
 
 if.then81:                                        ; preds = %if.end79
   %.pre.i = load float, ptr %frame.i, align 4, !tbaa !49
-  %23 = load float, ptr %lightsNight.i, align 4, !tbaa !49
-  %24 = load float, ptr %arrayidx41.1.i, align 8
-  %25 = load float, ptr %arrayidx56.1.i, align 8, !tbaa !49
-  %26 = load float, ptr %arrayidx41.2.i, align 4
-  %27 = load float, ptr %arrayidx56.2.i, align 4, !tbaa !49
-  %28 = load float, ptr %arrayidx41.3.i, align 8
-  %29 = load float, ptr %arrayidx56.3.i, align 8, !tbaa !49
-  %30 = load float, ptr %arrayidx41.4.i, align 4
-  %31 = load float, ptr %arrayidx56.4.i, align 4, !tbaa !49
-  %32 = load float, ptr %arrayidx41.5.i, align 8
-  %33 = load float, ptr %arrayidx56.5.i, align 8, !tbaa !49
-  %34 = load float, ptr %arrayidx41.6.i, align 4
-  %35 = load float, ptr %arrayidx56.6.i, align 4, !tbaa !49
-  %36 = load <8 x i8>, ptr %sunlight.i, align 4, !tbaa !64
-  %37 = icmp eq <8 x i8> %36, zeroinitializer
-  %38 = extractelement <8 x i1> %37, i64 0
-  %cond43.i = select nsz i1 %38, float %.pre.i, float 2.550000e+02
-  %39 = extractelement <8 x i1> %37, i64 1
-  %cond43.1.i = select nsz i1 %39, float %24, float 2.550000e+02
-  %40 = extractelement <8 x i1> %37, i64 2
-  %cond43.2.i = select nsz i1 %40, float %26, float 2.550000e+02
-  %41 = extractelement <8 x i1> %37, i64 3
-  %cond43.3.i = select nsz i1 %41, float %28, float 2.550000e+02
-  %42 = extractelement <8 x i1> %37, i64 4
-  %cond43.4.i = select nsz i1 %42, float %30, float 2.550000e+02
-  %43 = extractelement <8 x i1> %37, i64 5
-  %cond43.5.i = select nsz i1 %43, float %32, float 2.550000e+02
-  %44 = extractelement <8 x i1> %37, i64 6
-  %cond43.6.i = select nsz i1 %44, float %34, float 2.550000e+02
-  %45 = load float, ptr %arrayidx41.7.i, align 8
-  %46 = extractelement <8 x i1> %37, i64 7
-  %cond43.7.i = select nsz i1 %46, float %45, float 2.550000e+02
+  %25 = load float, ptr %lightsNight.i, align 4, !tbaa !49
+  %26 = load float, ptr %arrayidx41.1.i, align 8
+  %27 = load float, ptr %arrayidx56.1.i, align 8, !tbaa !49
+  %28 = load float, ptr %arrayidx41.2.i, align 4
+  %29 = load float, ptr %arrayidx56.2.i, align 4, !tbaa !49
+  %30 = load float, ptr %arrayidx41.3.i, align 8
+  %31 = load float, ptr %arrayidx56.3.i, align 8, !tbaa !49
+  %32 = load float, ptr %arrayidx41.4.i, align 4
+  %33 = load float, ptr %arrayidx56.4.i, align 4, !tbaa !49
+  %34 = load float, ptr %arrayidx41.5.i, align 8
+  %35 = load float, ptr %arrayidx56.5.i, align 8, !tbaa !49
+  %36 = load float, ptr %arrayidx41.6.i, align 4
+  %37 = load float, ptr %arrayidx56.6.i, align 4, !tbaa !49
+  %38 = load <8 x i8>, ptr %sunlight.i, align 4, !tbaa !64
+  %39 = icmp eq <8 x i8> %38, zeroinitializer
+  %40 = extractelement <8 x i1> %39, i64 0
+  %cond43.i = select nsz i1 %40, float %.pre.i, float 2.550000e+02
+  %41 = extractelement <8 x i1> %39, i64 1
+  %cond43.1.i = select nsz i1 %41, float %26, float 2.550000e+02
+  %42 = extractelement <8 x i1> %39, i64 2
+  %cond43.2.i = select nsz i1 %42, float %28, float 2.550000e+02
+  %43 = extractelement <8 x i1> %39, i64 3
+  %cond43.3.i = select nsz i1 %43, float %30, float 2.550000e+02
+  %44 = extractelement <8 x i1> %39, i64 4
+  %cond43.4.i = select nsz i1 %44, float %32, float 2.550000e+02
+  %45 = extractelement <8 x i1> %39, i64 5
+  %cond43.5.i = select nsz i1 %45, float %34, float 2.550000e+02
+  %46 = extractelement <8 x i1> %39, i64 6
+  %cond43.6.i = select nsz i1 %46, float %36, float 2.550000e+02
+  %47 = load float, ptr %arrayidx41.7.i, align 8
+  %48 = extractelement <8 x i1> %39, i64 7
+  %cond43.7.i = select nsz i1 %48, float %47, float 2.550000e+02
   %div14.i = fdiv nsz float %mul37, 1.000000e+01
   %conv15.i = fpext float %div14.i to double
   %add16.i = fadd nsz double %conv15.i, 5.000000e-01
   %cmp.i.i87.i = fcmp nsz olt double %add16.i, -1.000000e+00
-  %47 = select i1 %cmp.i.i87.i, double -1.000000e+00, double %add16.i
-  %cmp.i2.i88.i = fcmp nsz olt double %47, 2.000000e+00
-  %48 = select i1 %cmp.i2.i88.i, double %47, double 2.000000e+00
-  %conv20.i = fptrunc double %48 to float
+  %49 = select i1 %cmp.i.i87.i, double -1.000000e+00, double %add16.i
+  %cmp.i2.i88.i = fcmp nsz olt double %49, 2.000000e+00
+  %50 = select i1 %cmp.i2.i88.i, double %49, double 2.000000e+00
+  %conv20.i = fptrunc double %50 to float
   %sub32.i = fsub nsz float 1.000000e+00, %conv20.i
-  %49 = insertelement <2 x float> poison, float %mul, i64 0
-  %50 = insertelement <2 x float> %49, float %pos.sroa.8.0, i64 1
-  %51 = fdiv nsz <2 x float> %50, splat (float 1.000000e+01)
-  %52 = fpext <2 x float> %51 to <2 x double>
-  %53 = fadd nsz <2 x double> %52, splat (double 5.000000e-01)
-  %54 = fcmp nsz olt <2 x double> %53, splat (double -1.000000e+00)
-  %55 = select <2 x i1> %54, <2 x double> splat (double -1.000000e+00), <2 x double> %53
-  %56 = fcmp nsz olt <2 x double> %55, splat (double 2.000000e+00)
-  %57 = select <2 x i1> %56, <2 x double> %55, <2 x double> splat (double 2.000000e+00)
-  %58 = fptrunc <2 x double> %57 to <2 x float>
-  %59 = extractelement <2 x float> %58, i64 0
-  %60 = extractelement <2 x float> %58, i64 1
-  %mul.6.i = fmul nsz float %59, %60
+  %51 = insertelement <2 x float> poison, float %mul, i64 0
+  %52 = insertelement <2 x float> %51, float %pos.sroa.8.0, i64 1
+  %53 = fdiv nsz <2 x float> %52, splat (float 1.000000e+01)
+  %54 = fpext <2 x float> %53 to <2 x double>
+  %55 = fadd nsz <2 x double> %54, splat (double 5.000000e-01)
+  %56 = fcmp nsz olt <2 x double> %55, splat (double -1.000000e+00)
+  %57 = select <2 x i1> %56, <2 x double> splat (double -1.000000e+00), <2 x double> %55
+  %58 = fcmp nsz olt <2 x double> %57, splat (double 2.000000e+00)
+  %59 = select <2 x i1> %58, <2 x double> %57, <2 x double> splat (double 2.000000e+00)
+  %60 = fptrunc <2 x double> %59 to <2 x float>
+  %61 = extractelement <2 x float> %60, i64 0
+  %62 = extractelement <2 x float> %60, i64 1
+  %mul.6.i = fmul nsz float %61, %62
   %mul44.6.i = fmul nsz float %sub32.i, %mul.6.i
-  %sub25.i = fsub nsz float 1.000000e+00, %60
-  %mul.4.i = fmul nsz float %59, %sub25.i
+  %sub25.i = fsub nsz float 1.000000e+00, %62
+  %mul.4.i = fmul nsz float %61, %sub25.i
   %mul44.5.i = fmul nsz float %mul.4.i, %conv20.i
   %mul44.4.i = fmul nsz float %sub32.i, %mul.4.i
-  %sub.i = fsub nsz float 1.000000e+00, %59
-  %mul.2.i = fmul nsz float %60, %sub.i
+  %sub.i = fsub nsz float 1.000000e+00, %61
+  %mul.2.i = fmul nsz float %62, %sub.i
   %mul44.3.i = fmul nsz float %mul.2.i, %conv20.i
   %mul44.2.i = fmul nsz float %sub32.i, %mul.2.i
   %mul.i = fmul nsz float %sub.i, %sub25.i
   %mul44.1.i = fmul nsz float %mul.i, %conv20.i
   %mul44.i = fmul nsz float %sub32.i, %mul.i
-  %61 = fmul nsz float %mul44.i, %cond43.i
-  %62 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %cond43.1.i, float %61)
-  %63 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %cond43.2.i, float %62)
-  %64 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %cond43.3.i, float %63)
-  %65 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %cond43.4.i, float %64)
-  %66 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %cond43.5.i, float %65)
-  %67 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %cond43.6.i, float %66)
-  %68 = fmul nsz float %mul44.i, %23
-  %69 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %25, float %68)
-  %70 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %27, float %69)
-  %71 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %29, float %70)
-  %72 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %31, float %71)
-  %73 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %33, float %72)
-  %74 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %35, float %73)
-  %75 = fmul nsz float %mul44.i, %.pre.i
-  %76 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %24, float %75)
-  %77 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %26, float %76)
-  %78 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %28, float %77)
-  %79 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %30, float %78)
-  %80 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %32, float %79)
-  %81 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %34, float %80)
+  %63 = fmul nsz float %mul44.i, %cond43.i
+  %64 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %cond43.1.i, float %63)
+  %65 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %cond43.2.i, float %64)
+  %66 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %cond43.3.i, float %65)
+  %67 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %cond43.4.i, float %66)
+  %68 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %cond43.5.i, float %67)
+  %69 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %cond43.6.i, float %68)
+  %70 = fmul nsz float %mul44.i, %25
+  %71 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %27, float %70)
+  %72 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %29, float %71)
+  %73 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %31, float %72)
+  %74 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %33, float %73)
+  %75 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %35, float %74)
+  %76 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %37, float %75)
+  %77 = fmul nsz float %mul44.i, %.pre.i
+  %78 = call nsz float @llvm.fmuladd.f32(float %mul44.1.i, float %26, float %77)
+  %79 = call nsz float @llvm.fmuladd.f32(float %mul44.2.i, float %28, float %78)
+  %80 = call nsz float @llvm.fmuladd.f32(float %mul44.3.i, float %30, float %79)
+  %81 = call nsz float @llvm.fmuladd.f32(float %mul44.4.i, float %32, float %80)
+  %82 = call nsz float @llvm.fmuladd.f32(float %mul44.5.i, float %34, float %81)
+  %83 = call nsz float @llvm.fmuladd.f32(float %mul44.6.i, float %36, float %82)
   %mul44.7.i = fmul nsz float %mul.6.i, %conv20.i
-  %82 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %45, float %81)
-  %83 = load float, ptr %arrayidx56.7.i, align 8, !tbaa !49
-  %84 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %83, float %74)
-  %85 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %cond43.7.i, float %67)
-  %mul2.i.i = fmul nsz float %85, 0.000000e+00
-  %86 = fadd nsz float %82, %mul2.i.i
-  %add.i.i.i.i.i = fadd nsz float %86, 5.000000e-01
-  %87 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.i)
-  %conv.i.i.i.i = fptosi float %87 to i32
-  %88 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.i, i32 0)
-  %89 = call i32 @llvm.umin.i32(i32 %88, i32 255)
-  %conv.i.i.i = trunc nuw nsw i32 %89 to i16
-  %add.i.i11.i.i.i = fadd nsz float %84, 5.000000e-01
-  %90 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.i)
-  %conv.i12.i.i.i = fptosi float %90 to i32
-  %91 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.i, i32 0)
-  %92 = call i32 @llvm.umin.i32(i32 %91, i32 255)
-  %conv10.i.i.i = trunc nuw nsw i32 %92 to i16
+  %84 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %47, float %83)
+  %85 = load float, ptr %arrayidx56.7.i, align 8, !tbaa !49
+  %86 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %85, float %76)
+  %87 = call nsz float @llvm.fmuladd.f32(float %mul44.7.i, float %cond43.7.i, float %69)
+  %mul2.i.i = fmul nsz float %87, 0.000000e+00
+  %88 = fadd nsz float %84, %mul2.i.i
+  %add.i.i.i.i.i = fadd nsz float %88, 5.000000e-01
+  %89 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i.i.i)
+  %conv.i.i.i.i = fptosi float %89 to i32
+  %90 = call i32 @llvm.smax.i32(i32 %conv.i.i.i.i, i32 0)
+  %91 = call i32 @llvm.umin.i32(i32 %90, i32 255)
+  %conv.i.i.i = trunc nuw nsw i32 %91 to i16
+  %add.i.i11.i.i.i = fadd nsz float %86, 5.000000e-01
+  %92 = call nsz noundef float @llvm.floor.f32(float %add.i.i11.i.i.i)
+  %conv.i12.i.i.i = fptosi float %92 to i32
+  %93 = call i32 @llvm.smax.i32(i32 %conv.i12.i.i.i, i32 0)
+  %94 = call i32 @llvm.umin.i32(i32 %93, i32 255)
+  %conv10.i.i.i = trunc nuw nsw i32 %94 to i16
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i16 %conv10.i.i.i, 8
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i16 %retval.sroa.2.0.insert.shift.i.i, %conv.i.i.i
-  %93 = load ptr, ptr %f.i, align 8, !tbaa !62
-  %light_source.i = getelementptr inbounds nuw i8, ptr %93, i64 3041
-  %94 = load i8, ptr %light_source.i, align 1, !tbaa !69
-  %call4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.i, i8 noundef zeroext %94)
+  %95 = load ptr, ptr %f.i, align 8, !tbaa !62
+  %light_source.i = getelementptr inbounds nuw i8, ptr %95, i64 3041
+  %96 = load i8, ptr %light_source.i, align 1, !tbaa !69
+  %call4.i = call i32 @_Z12encode_lightth(i16 noundef zeroext %retval.sroa.0.0.insert.insert.i.i, i8 noundef zeroext %96)
   store i32 %call4.i, ptr %color, align 4, !tbaa !100
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then81, %if.end79.if.end83_crit_edge
-  %.pre-phi2 = phi <2 x float> [ %50, %if.then81 ], [ %.pre1, %if.end79.if.end83_crit_edge ]
+  %.pre-phi2 = phi <2 x float> [ %52, %if.then81 ], [ %.pre1, %if.end79.if.end83_crit_edge ]
   %agg.tmp.sroa.0.0.copyload = phi i32 [ %call4.i, %if.then81 ], [ %agg.tmp.sroa.0.0.copyload.pre, %if.end79.if.end83_crit_edge ]
-  %95 = load float, ptr %Z.i130, align 8, !tbaa !50
-  %add6.i = fadd nsz float %mul37, %95
-  %conv93 = sitofp i32 %12 to float
-  %arrayidx96 = getelementptr inbounds nuw [4 x %"struct.irr::video::S3DVertex"], ptr %vertices, i64 0, i64 %indvars.iv
-  %96 = load <2 x float>, ptr %origin, align 8, !tbaa !49
-  %97 = fadd nsz <2 x float> %.pre-phi2, %96
-  store <2 x float> %97, ptr %arrayidx96, align 4, !tbaa !49
+  %97 = load float, ptr %Z.i130, align 8, !tbaa !50
+  %add6.i = fadd nsz float %mul37, %97
+  %conv93 = sitofp i32 %14 to float
+  %arrayidx96 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %vertices, i64 %indvars.iv
+  %98 = load <2 x float>, ptr %origin, align 8, !tbaa !49
+  %99 = fadd nsz <2 x float> %.pre-phi2, %98
+  store <2 x float> %99, ptr %arrayidx96, align 4, !tbaa !49
   %ref.tmp86.sroa.5.0.arrayidx96.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx96, i64 8
   store float %add6.i, ptr %ref.tmp86.sroa.5.0.arrayidx96.sroa_idx, align 4, !tbaa !49
   %ref.tmp86.sroa.6.0.arrayidx96.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx96, i64 12
@@ -8130,7 +8127,7 @@ for.cond.cleanup:                                 ; preds = %cleanup
 for.body:                                         ; preds = %cleanup, %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %indvars.iv = phi i64 [ 0, %_ZN21MapblockMeshGenerator7useTileEihhb.exit ], [ %indvars.iv.next, %cleanup ]
   call void @llvm.lifetime.start.p0(ptr nonnull %dir)
-  %arrayidx = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @g_6dirs, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @g_6dirs, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dir, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx, i64 6, i1 false), !tbaa.struct !117
   %6 = load i16, ptr %blockpos_nodes, align 8, !tbaa !38
   %7 = load i16, ptr %cur_node.i.i, align 8, !tbaa !38
@@ -8760,7 +8757,7 @@ if.end59:                                         ; preds = %for.body54
   %21 = load i16, ptr %Z.i, align 4, !tbaa !40
   %22 = load i16, ptr %Z11.i, align 4, !tbaa !40
   %add13.i = add i16 %22, %21
-  %arrayidx64 = getelementptr inbounds nuw [26 x %"class.irr::core::vector3d"], ptr @g_26dirs, i64 0, i64 %indvars.iv
+  %arrayidx64 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @g_26dirs, i64 %indvars.iv
   %23 = load i16, ptr %arrayidx64, align 2, !tbaa !38
   %add.i279 = add i16 %add.i, %23
   %Y6.i281 = getelementptr inbounds nuw i8, ptr %arrayidx64, i64 2
@@ -8833,7 +8830,7 @@ _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %if
   br i1 %cmp72, label %if.then73, label %for.inc77
 
 if.then73:                                        ; preds = %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
-  %arrayidx75 = getelementptr inbounds nuw [18 x i8], ptr %nb, i64 0, i64 %indvars.iv
+  %arrayidx75 = getelementptr inbounds nuw i8, ptr %nb, i64 %indvars.iv
   store i8 1, ptr %arrayidx75, align 1, !tbaa !64
   br label %for.inc77
 
@@ -9059,13 +9056,13 @@ for.cond.cleanup141:                              ; preds = %for.inc179
 
 for.body142:                                      ; preds = %for.inc179, %cleanup.11
   %indvars.iv446 = phi i64 [ 0, %cleanup.11 ], [ %indvars.iv.next447, %for.inc179 ]
-  %arrayidx144 = getelementptr inbounds nuw [18 x i8], ptr %nb, i64 0, i64 %indvars.iv446
+  %arrayidx144 = getelementptr inbounds nuw i8, ptr %nb, i64 %indvars.iv446
   %59 = load i8, ptr %arrayidx144, align 1, !tbaa !64, !range !46, !noundef !47
   %tobool145.not = icmp eq i8 %59, 0
   br i1 %tobool145.not, label %if.end147, label %for.inc179
 
 if.end147:                                        ; preds = %for.body142
-  %arrayidx149 = getelementptr inbounds nuw [6 x %struct.TileSpec], ptr %glass_tiles, i64 0, i64 %indvars.iv446
+  %arrayidx149 = getelementptr inbounds nuw %struct.TileSpec, ptr %glass_tiles, i64 %indvars.iv446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile914, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx149, i64 120, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.start.p0(ptr nonnull %vertices)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %vertices, ptr noundef nonnull align 4 dereferenceable(48) @constinit.17, i64 48, i1 false), !tbaa.struct !163
@@ -9127,7 +9124,7 @@ for.body158.us.preheader:                         ; preds = %if.end147
 
 for.cond.cleanup157:                              ; preds = %for.body158.us.preheader, %for.body158.us394.preheader, %for.body158.us402.preheader, %for.body158.us410.preheader, %for.body158.us418.preheader, %for.body158.us426.preheader, %if.end147
   call void @llvm.lifetime.start.p0(ptr nonnull %dir)
-  %arrayidx177 = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @g_6dirs, i64 0, i64 %indvars.iv446
+  %arrayidx177 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @g_6dirs, i64 %indvars.iv446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %dir, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx177, i64 6, i1 false), !tbaa.struct !117
   call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %dir, float noundef 1.000000e+00)
   call void @llvm.lifetime.end.p0(ptr nonnull %dir)
@@ -9937,7 +9934,7 @@ for.cond40.preheader.unr-lcssa:                   ; preds = %if.end
 for.body.epil:                                    ; preds = %if.end, %for.body.epil
   %indvars.iv.epil = phi i64 [ %indvars.iv.next.epil, %for.body.epil ], [ 0, %if.end ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %if.end ]
-  %Z37.epil = getelementptr inbounds nuw [4 x %"class.irr::core::vector3d.0"], ptr %vertices, i64 0, i64 %indvars.iv.epil, i32 2
+  %Z37.epil = getelementptr inbounds nuw %"class.irr::core::vector3d.0", ptr %vertices, i64 %indvars.iv.epil, i32 2
   %10 = load float, ptr %Z37.epil, align 4, !tbaa !50
   %add.epil = fadd nsz float %quad_offset, %10
   store float %add.epil, ptr %Z37.epil, align 4, !tbaa !50
@@ -10671,7 +10668,7 @@ for.body6.i:                                      ; preds = %if.end.i, %if.then
   %retval.sroa.0.0.insert.ext.i.i = zext i16 %add.i.i to i48
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %ref.tmp.i, align 8
-  %arrayidx9.i = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %indvars.iv.i
+  %arrayidx9.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %indvars.iv.i
   %10 = load ptr, ptr %this, align 8, !tbaa !12
   %call10.i = call noundef zeroext i16 @_Z25getSmoothLightTransparentRKN3irr4core8vector3dIsEES4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp.i, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx9.i, ptr noundef %10)
   %conv2.i.i = trunc i16 %call10.i to i8
@@ -10679,19 +10676,19 @@ for.body6.i:                                      ; preds = %if.end.i, %if.then
   %conv4.i.i = trunc nuw i16 %11 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %conv.i = uitofp i8 %conv2.i.i to float
-  %arrayidx14.i = getelementptr inbounds nuw [8 x float], ptr %frame12.i, i64 0, i64 %indvars.iv.i
+  %arrayidx14.i = getelementptr inbounds nuw float, ptr %frame12.i, i64 %indvars.iv.i
   store float %conv.i, ptr %arrayidx14.i, align 4, !tbaa !49
   %conv15.i = uitofp i8 %conv4.i.i to float
-  %arrayidx19.i = getelementptr inbounds nuw [8 x float], ptr %lightsNight.i, i64 0, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw float, ptr %lightsNight.i, i64 %indvars.iv.i
   store float %conv15.i, ptr %arrayidx19.i, align 4, !tbaa !49
   %cmp22.i = icmp eq i8 %conv2.i.i, -1
   br i1 %cmp22.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body6.i
-  %arrayidx27.i = getelementptr inbounds nuw [8 x i8], ptr %sunlight.i, i64 0, i64 %indvars.iv.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %sunlight.i, i64 %indvars.iv.i
   store i8 1, ptr %arrayidx27.i, align 1, !tbaa !64
   %idxprom31.i = xor i64 %indvars.iv.i, 2
-  %arrayidx32.i = getelementptr inbounds nuw [8 x i8], ptr %sunlight.i, i64 0, i64 %idxprom31.i
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %sunlight.i, i64 %idxprom31.i
   store i8 1, ptr %arrayidx32.i, align 1, !tbaa !64
   br label %if.end.i
 
@@ -10986,7 +10983,7 @@ for.body:                                         ; preds = %if.end, %_ZN21Mapbl
   %18 = load i16, ptr %Z.i, align 4, !tbaa !40
   %19 = load i16, ptr %Z11.i, align 4, !tbaa !40
   %add13.i = add i16 %19, %18
-  %arrayidx = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @g_6dirs, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @g_6dirs, i64 %indvars.iv
   %20 = load i16, ptr %arrayidx, align 2, !tbaa !38
   %add.i85 = add i16 %add.i, %20
   %Y6.i87 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
@@ -11062,7 +11059,7 @@ _ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit: ; preds = %fo
   br i1 %or.cond77, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
-  %arrayidx18 = getelementptr inbounds nuw [6 x i8], ptr %neighbor, i64 0, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %neighbor, i64 %indvars.iv
   store i8 1, ptr %arrayidx18, align 1, !tbaa !64
   br label %if.end
 
@@ -12261,7 +12258,7 @@ if.end19.3:                                       ; preds = %if.then18.3, %lor.r
 
 if.else:                                          ; preds = %if.end19.3
   %idxprom22 = zext nneg i32 %code.1.3 to i64
-  %arrayidx23 = getelementptr inbounds nuw [16 x %"struct.(anonymous namespace)::RailDesc"], ptr @_ZN12_GLOBAL__N_110rail_kindsE, i64 0, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw %"struct.(anonymous namespace)::RailDesc", ptr @_ZN12_GLOBAL__N_110rail_kindsE, i64 %idxprom22
   %2 = load i32, ptr %arrayidx23, align 8, !tbaa !190
   %angle27 = getelementptr inbounds nuw i8, ptr %arrayidx23, i64 4
   %3 = load i32, ptr %angle27, align 4, !tbaa !192
@@ -12701,7 +12698,7 @@ for.body30:                                       ; preds = %if.end104, %entry
   %18 = load i16, ptr %Z.i, align 4, !tbaa !40
   %19 = load i16, ptr %Z11.i, align 4, !tbaa !40
   %add13.i = add i16 %19, %18
-  %arrayidx34 = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 0, i64 %indvars.iv
+  %arrayidx34 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZN12_GLOBAL__N_117nodebox_tile_dirsE, i64 %indvars.iv
   %20 = load i16, ptr %arrayidx34, align 2, !tbaa !38
   %add.i328 = add i16 %add.i, %20
   %Y6.i330 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 2
@@ -12838,7 +12835,7 @@ if.then76:                                        ; preds = %_ZNK14NodeDefManage
   %48 = load i16, ptr %Z.i, align 4, !tbaa !40
   %49 = load i16, ptr %Z11.i, align 4, !tbaa !40
   %add13.i350 = add i16 %49, %48
-  %arrayidx85 = getelementptr inbounds nuw [6 x %"class.irr::core::vector3d"], ptr @_ZN12_GLOBAL__N_123nodebox_connection_dirsE, i64 0, i64 %indvars.iv
+  %arrayidx85 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZN12_GLOBAL__N_123nodebox_connection_dirsE, i64 %indvars.iv
   %50 = load i16, ptr %arrayidx85, align 2, !tbaa !38
   %add.i358 = add i16 %add.i344, %50
   %Y6.i360 = getelementptr inbounds nuw i8, ptr %arrayidx85, i64 2
@@ -14101,7 +14098,7 @@ if.then31:                                        ; preds = %entry, %entry
 
 if.then36:                                        ; preds = %if.then31
   %idxprom = zext i8 %call35 to i64
-  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @wallmounted_to_facedir, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @wallmounted_to_facedir, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1, !tbaa !44
   br label %if.end57
 
@@ -14126,7 +14123,7 @@ if.end57:                                         ; preds = %if.then49, %if.then
 land.lhs.true:                                    ; preds = %if.end57
   %mesh_ptr = getelementptr inbounds nuw i8, ptr %.pre, i64 1576
   %idxprom61 = zext i8 %facedir.0 to i64
-  %arrayidx62 = getelementptr inbounds nuw [24 x ptr], ptr %mesh_ptr, i64 0, i64 %idxprom61
+  %arrayidx62 = getelementptr inbounds nuw ptr, ptr %mesh_ptr, i64 %idxprom61
   %9 = load ptr, ptr %arrayidx62, align 8, !tbaa !41
   %tobool63 = icmp eq ptr %9, null
   %tobool65 = icmp ne i32 %degrotate.0, 0
@@ -14669,7 +14666,7 @@ for.body6.i:                                      ; preds = %if.end.i, %if.then
   %retval.sroa.0.0.insert.ext.i.i = zext i16 %add.i.i to i48
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %ref.tmp.i, align 8
-  %arrayidx9.i = getelementptr inbounds nuw [8 x %"class.irr::core::vector3d"], ptr @_ZL10light_dirs, i64 0, i64 %indvars.iv.i
+  %arrayidx9.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %indvars.iv.i
   %15 = load ptr, ptr %this, align 8, !tbaa !12
   %call10.i = call noundef zeroext i16 @_Z25getSmoothLightTransparentRKN3irr4core8vector3dIsEES4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp.i, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx9.i, ptr noundef %15)
   %conv2.i.i = trunc i16 %call10.i to i8
@@ -14677,19 +14674,19 @@ for.body6.i:                                      ; preds = %if.end.i, %if.then
   %conv4.i.i = trunc nuw i16 %16 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %conv.i29 = uitofp i8 %conv2.i.i to float
-  %arrayidx14.i = getelementptr inbounds nuw [8 x float], ptr %frame12.i, i64 0, i64 %indvars.iv.i
+  %arrayidx14.i = getelementptr inbounds nuw float, ptr %frame12.i, i64 %indvars.iv.i
   store float %conv.i29, ptr %arrayidx14.i, align 4, !tbaa !49
   %conv15.i = uitofp i8 %conv4.i.i to float
-  %arrayidx19.i = getelementptr inbounds nuw [8 x float], ptr %lightsNight.i, i64 0, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw float, ptr %lightsNight.i, i64 %indvars.iv.i
   store float %conv15.i, ptr %arrayidx19.i, align 4, !tbaa !49
   %cmp22.i = icmp eq i8 %conv2.i.i, -1
   br i1 %cmp22.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body6.i
-  %arrayidx27.i = getelementptr inbounds nuw [8 x i8], ptr %sunlight.i, i64 0, i64 %indvars.iv.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %sunlight.i, i64 %indvars.iv.i
   store i8 1, ptr %arrayidx27.i, align 1, !tbaa !64
   %idxprom31.i = xor i64 %indvars.iv.i, 2
-  %arrayidx32.i = getelementptr inbounds nuw [8 x i8], ptr %sunlight.i, i64 0, i64 %idxprom31.i
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %sunlight.i, i64 %idxprom31.i
   store i8 1, ptr %arrayidx32.i, align 1, !tbaa !64
   br label %if.end.i
 

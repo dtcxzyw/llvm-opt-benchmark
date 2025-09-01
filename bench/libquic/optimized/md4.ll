@@ -56,7 +56,7 @@ MD4_Update.exit:                                  ; preds = %3, %17, %.thread
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %28 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   store i8 -128, ptr %28, align 1, !tbaa !14
   %29 = add nuw nsw i64 %26, 1
   %30 = icmp ugt i32 %25, 55
@@ -201,7 +201,7 @@ define hidden noundef i32 @MD4_Final(ptr noundef writeonly captures(none) initia
   %4 = load i32, ptr %3, align 4, !tbaa !13
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %5
   store i8 -128, ptr %7, align 1, !tbaa !14
   %8 = add nuw nsw i64 %5, 1
   %9 = icmp ugt i32 %4, 55

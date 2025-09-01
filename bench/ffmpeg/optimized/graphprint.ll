@@ -988,7 +988,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_graphprint(ptr nounde
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw [28 x %struct.AVTextFormatSection], ptr @sections, i64 0, i64 %indvars.iv.i, i32 8
+  %8 = getelementptr inbounds nuw %struct.AVTextFormatSection, ptr @sections, i64 %indvars.iv.i, i32 8
   store i32 1, ptr %8, align 8, !tbaa !130
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28

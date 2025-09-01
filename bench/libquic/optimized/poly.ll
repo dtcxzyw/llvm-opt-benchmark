@@ -26,59 +26,56 @@ define hidden void @newhope_poly_frombytes(ptr noundef writeonly captures(none) 
   %11 = zext nneg i8 %10 to i16
   %12 = shl nuw nsw i16 %11, 8
   %13 = or disjoint i16 %12, %7
-  %14 = shl nuw nsw i64 %indvars.iv, 2
-  %15 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %14
-  store i16 %13, ptr %15, align 2, !tbaa !9
-  %16 = load i8, ptr %8, align 1, !tbaa !6
-  %17 = lshr i8 %16, 6
-  %18 = zext nneg i8 %17 to i16
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %20 = load i8, ptr %19, align 1, !tbaa !6
-  %21 = zext i8 %20 to i16
-  %22 = shl nuw nsw i16 %21, 2
-  %23 = or disjoint i16 %22, %18
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %25 = load i8, ptr %24, align 1, !tbaa !6
-  %26 = and i8 %25, 15
-  %27 = zext nneg i8 %26 to i16
-  %28 = shl nuw nsw i16 %27, 10
-  %29 = or disjoint i16 %28, %23
-  %30 = or disjoint i64 %14, 1
-  %31 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %30
-  store i16 %29, ptr %31, align 2, !tbaa !9
-  %32 = load i8, ptr %24, align 1, !tbaa !6
-  %33 = lshr i8 %32, 4
-  %34 = zext nneg i8 %33 to i16
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %36 = load i8, ptr %35, align 1, !tbaa !6
-  %37 = zext i8 %36 to i16
-  %38 = shl nuw nsw i16 %37, 4
-  %39 = or disjoint i16 %38, %34
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %41 = load i8, ptr %40, align 1, !tbaa !6
-  %42 = and i8 %41, 3
-  %43 = zext nneg i8 %42 to i16
-  %44 = shl nuw nsw i16 %43, 12
-  %45 = or disjoint i16 %44, %39
-  %46 = or disjoint i64 %14, 2
-  %47 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %46
-  store i16 %45, ptr %47, align 2, !tbaa !9
-  %48 = load i8, ptr %40, align 1, !tbaa !6
-  %49 = lshr i8 %48, 2
-  %50 = zext nneg i8 %49 to i16
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %52 = load i8, ptr %51, align 1, !tbaa !6
-  %53 = zext i8 %52 to i16
-  %54 = shl nuw nsw i16 %53, 6
-  %55 = or disjoint i16 %54, %50
-  %56 = or disjoint i64 %14, 3
-  %57 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %56
-  store i16 %55, ptr %57, align 2, !tbaa !9
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  store i16 %13, ptr %14, align 2, !tbaa !9
+  %15 = load i8, ptr %8, align 1, !tbaa !6
+  %16 = lshr i8 %15, 6
+  %17 = zext nneg i8 %16 to i16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %19 = load i8, ptr %18, align 1, !tbaa !6
+  %20 = zext i8 %19 to i16
+  %21 = shl nuw nsw i16 %20, 2
+  %22 = or disjoint i16 %21, %17
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %24 = load i8, ptr %23, align 1, !tbaa !6
+  %25 = and i8 %24, 15
+  %26 = zext nneg i8 %25 to i16
+  %27 = shl nuw nsw i16 %26, 10
+  %28 = or disjoint i16 %27, %22
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  store i16 %28, ptr %29, align 2, !tbaa !9
+  %30 = load i8, ptr %23, align 1, !tbaa !6
+  %31 = lshr i8 %30, 4
+  %32 = zext nneg i8 %31 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %34 = load i8, ptr %33, align 1, !tbaa !6
+  %35 = zext i8 %34 to i16
+  %36 = shl nuw nsw i16 %35, 4
+  %37 = or disjoint i16 %36, %32
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %39 = load i8, ptr %38, align 1, !tbaa !6
+  %40 = and i8 %39, 3
+  %41 = zext nneg i8 %40 to i16
+  %42 = shl nuw nsw i16 %41, 12
+  %43 = or disjoint i16 %42, %37
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i16 %43, ptr %44, align 2, !tbaa !9
+  %45 = load i8, ptr %38, align 1, !tbaa !6
+  %46 = lshr i8 %45, 2
+  %47 = zext nneg i8 %46 to i16
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %49 = load i8, ptr %48, align 1, !tbaa !6
+  %50 = zext i8 %49 to i16
+  %51 = shl nuw nsw i16 %50, 6
+  %52 = or disjoint i16 %51, %47
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 6
+  store i16 %52, ptr %53, align 2, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %58, label %3, !llvm.loop !11
+  br i1 %exitcond.not, label %54, label %3, !llvm.loop !11
 
-58:                                               ; preds = %3
+54:                                               ; preds = %3
   ret void
 }
 
@@ -88,73 +85,70 @@ define hidden void @newhope_poly_tobytes(ptr noundef writeonly captures(none) %0
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = shl nuw nsw i64 %indvars.iv, 2
-  %5 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %4
-  %6 = load i16, ptr %5, align 2, !tbaa !9
-  %7 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %6) #6
-  %8 = or disjoint i64 %4, 1
-  %9 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %8
-  %10 = load i16, ptr %9, align 2, !tbaa !9
-  %11 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %10) #6
-  %12 = or disjoint i64 %4, 2
-  %13 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %12
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %5 = load i16, ptr %4, align 2, !tbaa !9
+  %6 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %5) #6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %8 = load i16, ptr %7, align 2, !tbaa !9
+  %9 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %8) #6
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %11 = load i16, ptr %10, align 2, !tbaa !9
+  %12 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %11) #6
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %14 = load i16, ptr %13, align 2, !tbaa !9
   %15 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %14) #6
-  %16 = or disjoint i64 %4, 3
-  %17 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %16
-  %18 = load i16, ptr %17, align 2, !tbaa !9
-  %19 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %18) #6
-  %20 = add i16 %7, -12289
-  %isneg = icmp slt i16 %20, 0
-  %21 = select i1 %isneg, i16 %7, i16 %20
-  %22 = add i16 %11, -12289
-  %isneg61 = icmp slt i16 %22, 0
-  %23 = select i1 %isneg61, i16 %11, i16 %22
-  %24 = add i16 %15, -12289
-  %isneg62 = icmp slt i16 %24, 0
-  %25 = select i1 %isneg62, i16 %15, i16 %24
-  %26 = add i16 %19, -12289
-  %isneg63 = icmp slt i16 %26, 0
-  %27 = select i1 %isneg63, i16 %19, i16 %26
-  %28 = trunc i16 %21 to i8
-  %29 = mul nuw nsw i64 %indvars.iv, 7
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  store i8 %28, ptr %30, align 1, !tbaa !6
-  %31 = lshr i16 %21, 8
-  %32 = shl i16 %23, 6
-  %33 = or i16 %32, %31
-  %34 = trunc i16 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store i8 %34, ptr %35, align 1, !tbaa !6
-  %36 = lshr i16 %23, 2
-  %37 = trunc i16 %36 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  store i8 %37, ptr %38, align 1, !tbaa !6
-  %39 = lshr i16 %23, 10
-  %40 = shl i16 %25, 4
-  %41 = or i16 %40, %39
-  %42 = trunc i16 %41 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %30, i64 3
-  store i8 %42, ptr %43, align 1, !tbaa !6
-  %44 = lshr i16 %25, 4
-  %45 = trunc i16 %44 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i8 %45, ptr %46, align 1, !tbaa !6
-  %47 = lshr i16 %25, 12
-  %48 = shl i16 %27, 2
-  %49 = or i16 %48, %47
-  %50 = trunc i16 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %30, i64 5
-  store i8 %50, ptr %51, align 1, !tbaa !6
-  %52 = lshr i16 %27, 6
-  %53 = trunc i16 %52 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %30, i64 6
-  store i8 %53, ptr %54, align 1, !tbaa !6
+  %16 = add i16 %6, -12289
+  %isneg = icmp slt i16 %16, 0
+  %17 = select i1 %isneg, i16 %6, i16 %16
+  %18 = add i16 %9, -12289
+  %isneg61 = icmp slt i16 %18, 0
+  %19 = select i1 %isneg61, i16 %9, i16 %18
+  %20 = add i16 %12, -12289
+  %isneg62 = icmp slt i16 %20, 0
+  %21 = select i1 %isneg62, i16 %12, i16 %20
+  %22 = add i16 %15, -12289
+  %isneg63 = icmp slt i16 %22, 0
+  %23 = select i1 %isneg63, i16 %15, i16 %22
+  %24 = trunc i16 %17 to i8
+  %25 = mul nuw nsw i64 %indvars.iv, 7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
+  store i8 %24, ptr %26, align 1, !tbaa !6
+  %27 = lshr i16 %17, 8
+  %28 = shl i16 %19, 6
+  %29 = or i16 %28, %27
+  %30 = trunc i16 %29 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store i8 %30, ptr %31, align 1, !tbaa !6
+  %32 = lshr i16 %19, 2
+  %33 = trunc i16 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 2
+  store i8 %33, ptr %34, align 1, !tbaa !6
+  %35 = lshr i16 %19, 10
+  %36 = shl i16 %21, 4
+  %37 = or i16 %36, %35
+  %38 = trunc i16 %37 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 3
+  store i8 %38, ptr %39, align 1, !tbaa !6
+  %40 = lshr i16 %21, 4
+  %41 = trunc i16 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i8 %41, ptr %42, align 1, !tbaa !6
+  %43 = lshr i16 %21, 12
+  %44 = shl i16 %23, 2
+  %45 = or i16 %44, %43
+  %46 = trunc i16 %45 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 5
+  store i8 %46, ptr %47, align 1, !tbaa !6
+  %48 = lshr i16 %23, 6
+  %49 = trunc i16 %48 to i8
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 6
+  store i8 %49, ptr %50, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %55, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %51, label %3, !llvm.loop !13
 
-55:                                               ; preds = %3
+51:                                               ; preds = %3
   ret void
 }
 
@@ -181,45 +175,44 @@ define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %0
   call void @AES_ctr128_encrypt(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef 2688, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #6
   br label %10
 
-10:                                               ; preds = %2, %28
-  %.014 = phi i64 [ 0, %2 ], [ %.1, %28 ]
-  %.01013 = phi i64 [ 0, %2 ], [ %.111, %28 ]
-  %11 = getelementptr inbounds nuw [2688 x i8], ptr %6, i64 0, i64 %.014
+10:                                               ; preds = %2, %27
+  %.014 = phi i64 [ 0, %2 ], [ %.1, %27 ]
+  %.01013 = phi i64 [ 0, %2 ], [ %.111, %27 ]
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %.014
   %12 = load i8, ptr %11, align 1, !tbaa !6
   %13 = zext i8 %12 to i16
-  %14 = add nuw nsw i64 %.014, 1
-  %15 = getelementptr inbounds nuw [2688 x i8], ptr %6, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !6
-  %17 = zext i8 %16 to i16
-  %18 = shl nuw i16 %17, 8
-  %.masked = and i16 %18, 16128
-  %19 = or disjoint i16 %.masked, %13
-  %20 = icmp samesign ult i16 %19, 12289
-  br i1 %20, label %21, label %24
+  %14 = getelementptr i8, ptr %11, i64 1
+  %15 = load i8, ptr %14, align 1, !tbaa !6
+  %16 = zext i8 %15 to i16
+  %17 = shl nuw i16 %16, 8
+  %.masked = and i16 %17, 16128
+  %18 = or disjoint i16 %.masked, %13
+  %19 = icmp samesign ult i16 %18, 12289
+  br i1 %19, label %20, label %23
 
-21:                                               ; preds = %10
-  %22 = add nuw nsw i64 %.01013, 1
-  %23 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %.01013
-  store i16 %19, ptr %23, align 2, !tbaa !9
-  br label %24
+20:                                               ; preds = %10
+  %21 = add nuw nsw i64 %.01013, 1
+  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %.01013
+  store i16 %18, ptr %22, align 2, !tbaa !9
+  br label %23
 
-24:                                               ; preds = %21, %10
-  %.111 = phi i64 [ %22, %21 ], [ %.01013, %10 ]
-  %25 = add nsw i64 %.014, 2
-  %26 = icmp ugt i64 %25, 2686
-  br i1 %26, label %27, label %28
+23:                                               ; preds = %20, %10
+  %.111 = phi i64 [ %21, %20 ], [ %.01013, %10 ]
+  %24 = add nsw i64 %.014, 2
+  %25 = icmp ugt i64 %24, 2686
+  br i1 %25, label %26, label %27
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2688) %6, i8 0, i64 2688, i1 false)
   call void @AES_ctr128_encrypt(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef 2688, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #6
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %24
-  %.1 = phi i64 [ 0, %27 ], [ %25, %24 ]
-  %29 = icmp ult i64 %.111, 1024
-  br i1 %29, label %10, label %30, !llvm.loop !16
+27:                                               ; preds = %26, %23
+  %.1 = phi i64 [ 0, %26 ], [ %24, %23 ]
+  %28 = icmp ult i64 %.111, 1024
+  br i1 %28, label %10, label %29, !llvm.loop !16
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -247,7 +240,7 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
 
 4:                                                ; preds = %1, %13
   %.021 = phi i64 [ 0, %1 ], [ %25, %13 ]
-  %5 = getelementptr inbounds nuw [1024 x i32], ptr %2, i64 0, i64 %.021
+  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %.021
   %6 = load i32, ptr %5, align 4, !tbaa !14
   br label %7
 
@@ -274,7 +267,7 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
   %21 = add nuw nsw i32 %17, %19
   %22 = sub nuw nsw i32 %20, %21
   %23 = trunc nuw nsw i32 %22 to i16
-  %24 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %.021
+  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %.021
   store i16 %23, ptr %24, align 2, !tbaa !9
   %25 = add nuw nsw i64 %.021, 1
   %exitcond22.not = icmp eq i64 %25, 1024
@@ -293,18 +286,18 @@ define hidden void @newhope_poly_pointwise(ptr noundef writeonly captures(none) 
 
 4:                                                ; preds = %3, %4
   %.08 = phi i64 [ 0, %3 ], [ %17, %4 ]
-  %5 = getelementptr inbounds nuw [1024 x i16], ptr %2, i64 0, i64 %.08
+  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %.08
   %6 = load i16, ptr %5, align 2, !tbaa !9
   %7 = zext i16 %6 to i32
   %8 = mul nuw nsw i32 %7, 3186
   %9 = tail call zeroext i16 @newhope_montgomery_reduce(i32 noundef %8) #6
-  %10 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %.08
+  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %.08
   %11 = load i16, ptr %10, align 2, !tbaa !9
   %12 = zext i16 %11 to i32
   %13 = zext i16 %9 to i32
   %14 = mul nuw nsw i32 %12, %13
   %15 = tail call zeroext i16 @newhope_montgomery_reduce(i32 noundef %14) #6
-  %16 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %.08
+  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %.08
   store i16 %15, ptr %16, align 2, !tbaa !9
   %17 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %17, 1024
@@ -322,13 +315,13 @@ define hidden void @newhope_poly_add(ptr noundef writeonly captures(none) %0, pt
 
 4:                                                ; preds = %3, %4
   %.07 = phi i64 [ 0, %3 ], [ %12, %4 ]
-  %5 = getelementptr inbounds nuw [1024 x i16], ptr %1, i64 0, i64 %.07
+  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.07
   %6 = load i16, ptr %5, align 2, !tbaa !9
-  %7 = getelementptr inbounds nuw [1024 x i16], ptr %2, i64 0, i64 %.07
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %.07
   %8 = load i16, ptr %7, align 2, !tbaa !9
   %9 = add i16 %8, %6
   %10 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %9) #6
-  %11 = getelementptr inbounds nuw [1024 x i16], ptr %0, i64 0, i64 %.07
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %.07
   store i16 %10, ptr %11, align 2, !tbaa !9
   %12 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %12, 1024

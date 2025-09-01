@@ -125,7 +125,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
 
 49:                                               ; preds = %generator_next.exit
   %50 = sext i32 %.151 to i64
-  %51 = getelementptr inbounds [0 x %struct.MVNDistinctItem], ptr %13, i64 0, i64 %50
+  %51 = getelementptr inbounds %struct.MVNDistinctItem, ptr %13, i64 %50
   %52 = tail call ptr @palloc(i64 noundef %39) #10
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %52, ptr %53, align 8
@@ -629,7 +629,7 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   %.06994 = phi ptr [ %58, %.lr.ph ], [ %143, %125 ]
   %.07093 = phi i32 [ 0, %.lr.ph ], [ %144, %125 ]
   %126 = sext i32 %.07093 to i64
-  %127 = getelementptr inbounds [0 x %struct.MVNDistinctItem], ptr %124, i64 0, i64 %126
+  %127 = getelementptr inbounds %struct.MVNDistinctItem, ptr %124, i64 %126
   %128 = load i64, ptr %.06994, align 1
   store i64 %128, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %.06994, i64 8
@@ -719,7 +719,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %.140 = phi i32 [ 0, %.lr.ph42 ], [ %35, %27 ]
   %.03539 = phi ptr [ %25, %.lr.ph42 ], [ %34, %27 ]
   %28 = sext i32 %.140 to i64
-  %29 = getelementptr inbounds [0 x %struct.MVNDistinctItem], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds %struct.MVNDistinctItem, ptr %26, i64 %28
   %.sroa.0.0.copyload = load double, ptr %29, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
@@ -784,7 +784,7 @@ define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) l
 11:                                               ; preds = %.lr.ph17, %._crit_edge
   %.015 = phi i32 [ 0, %.lr.ph17 ], [ %24, %._crit_edge ]
   %12 = sext i32 %.015 to i64
-  %13 = getelementptr inbounds [0 x %struct.MVNDistinctItem], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds %struct.MVNDistinctItem, ptr %10, i64 %12
   %.sroa.0.0.copyload = load double, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8

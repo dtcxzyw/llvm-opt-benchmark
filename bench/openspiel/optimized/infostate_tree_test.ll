@@ -2953,7 +2953,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %891, %887
           to label %902 unwind label %.loopexit.i
 
 902:                                              ; preds = %898
-  %903 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %80, i64 0, i64 %indvars.iv.i
+  %903 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %indvars.iv.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %903)
           to label %904 unwind label %960
 
@@ -3162,7 +3162,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %975 = sub i64 %973, %974
   %976 = ashr exact i64 %975, 3
   store i64 %976, ptr %95, align 8
-  %977 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN10open_spiel10algorithms12_GLOBAL__N_124TestDepthLimitedSubgamesEv.expected_leaf_counts, i64 0, i64 %indvars.iv.i
+  %977 = getelementptr inbounds nuw i32, ptr @__const._ZN10open_spiel10algorithms12_GLOBAL__N_124TestDepthLimitedSubgamesEv.expected_leaf_counts, i64 %indvars.iv.i
   %978 = load i32, ptr %977, align 4
   store i32 %978, ptr %96, align 4
   %979 = sext i32 %978 to i64

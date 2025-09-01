@@ -3182,7 +3182,7 @@ _ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit290: ; preds = %
 
 for.cond69.preheader:                             ; preds = %for.inc83, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit290
   %indvars.iv = phi i64 [ 0, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit290 ], [ %indvars.iv.next, %for.inc83 ]
-  %arrayidx = getelementptr inbounds nuw [6 x %"class.irr::core::plane3d"], ptr %arrayctor.cur.ptr.i, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.irr::core::plane3d", ptr %arrayctor.cur.ptr.i, i64 %indvars.iv
   %461 = load float, ptr %arrayidx, align 4, !tbaa !116
   %Y.i.i150 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %462 = load float, ptr %Y.i.i150, align 8, !tbaa !117

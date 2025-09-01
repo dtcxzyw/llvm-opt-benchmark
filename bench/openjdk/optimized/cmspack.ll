@@ -561,7 +561,7 @@ define internal ptr @UnrollDoubleTo16(ptr noundef readonly captures(none) %0, pt
 
 switch.lookup:                                    ; preds = %4
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x double], ptr @switch.table.PackFloatFrom16, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %17
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -712,7 +712,7 @@ define internal ptr @UnrollFloatTo16(ptr noundef readonly captures(none) %0, ptr
 
 switch.lookup:                                    ; preds = %4
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x double], ptr @switch.table.PackFloatFrom16, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %17
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -2823,7 +2823,7 @@ define internal ptr @UnrollFloatsToFloat(ptr noundef readonly captures(none) %0,
 
 switch.lookup:                                    ; preds = %4
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x float], ptr @switch.table.UnrollFloatsToFloat, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.UnrollFloatsToFloat, i64 %19
   %switch.load = load float, ptr %switch.gep, align 4
   br label %IsInkSpace.exit
 
@@ -3083,7 +3083,7 @@ define internal ptr @UnrollDoublesToFloat(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %4
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x double], ptr @switch.table.PackDoublesFromFloat, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackDoublesFromFloat, i64 %19
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -3955,7 +3955,7 @@ define internal ptr @PackDoubleFrom16(ptr noundef readonly captures(none) %0, pt
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x double], ptr @switch.table.PackFloatFrom16, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -4181,7 +4181,7 @@ define internal ptr @PackFloatFrom16(ptr noundef readonly captures(none) %0, ptr
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x double], ptr @switch.table.PackFloatFrom16, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -6762,7 +6762,7 @@ define internal ptr @PackFloatsFromFloat(ptr noundef readonly captures(none) %0,
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x double], ptr @switch.table.PackDoublesFromFloat, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackDoublesFromFloat, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -6997,7 +6997,7 @@ define internal ptr @PackDoublesFromFloat(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x double], ptr @switch.table.PackDoublesFromFloat, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackDoublesFromFloat, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 

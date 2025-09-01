@@ -6998,7 +6998,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75
   %76 = zext nneg i32 %52 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_, i64 %76
   %switch.load = load ptr, ptr %switch.gep, align 8
   %77 = call noundef nonnull align 8 dereferenceable(3289) ptr @_ZN6casadi13CodeGeneratorlsIPKcEERS0_T_(ptr noundef nonnull align 8 dereferenceable(3289) %1, ptr noundef nonnull %switch.load)
   br label %78
@@ -7011,7 +7011,7 @@ switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basi
 
 switch.lookup254:                                 ; preds = %78
   %82 = zext nneg i32 %80 to i64
-  %switch.gep255 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_.1, i64 0, i64 %82
+  %switch.gep255 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_.1, i64 %82
   %switch.load256 = load ptr, ptr %switch.gep255, align 8
   %83 = call noundef nonnull align 8 dereferenceable(3289) ptr @_ZN6casadi13CodeGeneratorlsIPKcEERS0_T_(ptr noundef nonnull align 8 dereferenceable(3289) %1, ptr noundef nonnull %switch.load256)
   br label %84
@@ -16880,7 +16880,7 @@ _ZN6casadi23casadi_cvx_givens_applyIdEEvxPT_S1_S1_x.exit: ; preds = %.lr.ph84.i,
   %146 = add i64 %0, %145
   %147 = mul nsw i64 %146, %0
   %148 = getelementptr inbounds double, ptr %1, i64 %147
-  %149 = getelementptr inbounds nuw [100 x double], ptr %9, i64 0, i64 %.0124160
+  %149 = getelementptr inbounds nuw double, ptr %9, i64 %.0124160
   %150 = load double, ptr %149, align 8, !tbaa !141
   call void @_ZN6casadi27casadi_cvx_house_apply_symmIdEEvxxPT_S2_S2_S1_(i64 noundef %0, i64 noundef %.0124160, ptr noundef nonnull %1, ptr noundef %6, ptr noundef nonnull %148, double noundef %150)
   %151 = getelementptr inbounds nuw double, ptr %1, i64 %.0124160

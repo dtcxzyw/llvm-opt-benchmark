@@ -306,7 +306,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br i1 %50, label %"_ZN4core3ptr46drop_in_place$LT$$u5b$mbe..parser..Op$u5d$$GT$17hb06694ff4517b764E.llvm.3275366238967248396.exit.i.i", label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %46, i64 0, i64 %.0.i.i.i
+  %52 = getelementptr inbounds { i64, [15 x i64] }, ptr %46, i64 %.0.i.i.i
   %53 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %52)
           to label %49 unwind label %56, !noalias !133
@@ -322,7 +322,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br label %54
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %46, i64 0, i64 %.1.i.i.i
+  %59 = getelementptr inbounds { i64, [15 x i64] }, ptr %46, i64 %.1.i.i.i
   %60 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %59) #33
           to label %54 unwind label %61, !noalias !133
@@ -364,7 +364,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br i1 %74, label %"_ZN4core3ptr46drop_in_place$LT$$u5b$mbe..parser..Op$u5d$$GT$17hb06694ff4517b764E.llvm.3275366238967248396.exit.i.i8", label %75
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %70, i64 0, i64 %.0.i.i.i5
+  %76 = getelementptr inbounds { i64, [15 x i64] }, ptr %70, i64 %.0.i.i.i5
   %77 = add i64 %.0.i.i.i5, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %76)
           to label %73 unwind label %80, !noalias !150
@@ -380,7 +380,7 @@ define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$
   br label %78
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds [0 x { i64, [15 x i64] }], ptr %70, i64 0, i64 %.1.i.i.i6
+  %83 = getelementptr inbounds { i64, [15 x i64] }, ptr %70, i64 %.1.i.i.i6
   %84 = add i64 %.1.i.i.i6, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$mbe..parser..Op$GT$17h674b4b3c555d40a6E.llvm.3275366238967248396"(ptr noalias noundef nonnull align 8 dereferenceable(128) %83) #33
           to label %78 unwind label %85, !noalias !150

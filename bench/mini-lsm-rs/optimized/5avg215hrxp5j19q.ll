@@ -783,7 +783,7 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hdc6f2615a88dbda
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i.i.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h27e2eec83068238eE.exit.i.i"
   %316 = load ptr, ptr %139, align 8, !noalias !103, !nonnull !7, !align !35, !noundef !7
-  %317 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %316, i64 0, i64 %.0.i.i.i.i
+  %317 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %316, i64 %.0.i.i.i.i
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr %317, ptr %75, align 8, !alias.scope !100, !noalias !96
   store ptr %145, ptr %186, align 8, !alias.scope !100, !noalias !96
@@ -876,7 +876,7 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hdc6f2615a88dbda
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i76.i.i": ; preds = %330
   %339 = load ptr, ptr %139, align 8, !noalias !116, !nonnull !7, !align !35, !noundef !7
-  %340 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %339, i64 0, i64 %.0.i.i75.i.i
+  %340 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %339, i64 %.0.i.i75.i.i
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
   store ptr %340, ptr %73, align 8, !alias.scope !113, !noalias !110
   store ptr %145, ptr %188, align 8, !alias.scope !113, !noalias !110
@@ -2252,7 +2252,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h27e2eec83068238eE.exit.i"
   %815 = load ptr, ptr %139, align 8, !noalias !421, !nonnull !7, !align !35, !noundef !7
-  %816 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %815, i64 0, i64 %.0.i.i.i
+  %816 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %815, i64 %.0.i.i.i
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 8
   store ptr %816, ptr %47, align 8, !alias.scope !418, !noalias !414
   store ptr %145, ptr %759, align 8, !alias.scope !418, !noalias !414
@@ -3515,7 +3515,7 @@ default.unreachable11.i231:                       ; preds = %.noexc234
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i.i.i184": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h27e2eec83068238eE.exit.i.i181"
   %1271 = load ptr, ptr %139, align 8, !noalias !668, !nonnull !7, !align !35, !noundef !7
-  %1272 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %1271, i64 0, i64 %.0.i.i.i.i182
+  %1272 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1271, i64 %.0.i.i.i.i182
   %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   store ptr %1272, ptr %21, align 8, !alias.scope !665, !noalias !662
   store ptr %145, ptr %159, align 8, !alias.scope !665, !noalias !662
@@ -3866,7 +3866,7 @@ default.unreachable11.i231:                       ; preds = %.noexc234
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i.i.i.i": ; preds = %.lr.ph.i.i
   %1373 = load ptr, ptr %139, align 8, !noalias !757, !nonnull !7, !align !35, !noundef !7
-  %1374 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %1373, i64 0, i64 %.0.i.i.i.i.i
+  %1374 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1373, i64 %.0.i.i.i.i.i
   %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 8
   store ptr %1374, ptr %14, align 8, !alias.scope !754, !noalias !751
   store ptr %145, ptr %146, align 8, !alias.scope !754, !noalias !751
@@ -4483,7 +4483,7 @@ _ZN8smallvec10infallible17hc7405d8a7bbba02fE.exit.i.i.i.i: ; preds = %_ZN8smallv
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i141.i.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h27e2eec83068238eE.exit139.i.i"
   %1574 = load ptr, ptr %139, align 8, !noalias !862, !nonnull !7, !align !35, !noundef !7
-  %1575 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %1574, i64 0, i64 %.0.i.i140.i.i
+  %1575 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1574, i64 %.0.i.i140.i.i
   %1576 = getelementptr inbounds nuw i8, ptr %1575, i64 8
   store ptr %1575, ptr %8, align 8, !alias.scope !859, !noalias !856
   store ptr %145, ptr %155, align 8, !alias.scope !859, !noalias !856
@@ -4866,7 +4866,7 @@ _ZN8smallvec10infallible17hc7405d8a7bbba02fE.exit.i.i.i.i: ; preds = %_ZN8smallv
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i186.i.i": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbffa00eb73853504E.exit179.i.i"
   %1699 = load ptr, ptr %139, align 8, !noalias !936, !nonnull !7, !align !35, !noundef !7
-  %1700 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %1699, i64 0, i64 %.0.i.i185.i.i
+  %1700 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1699, i64 %.0.i.i185.i.i
   %1701 = getelementptr inbounds nuw i8, ptr %1700, i64 8
   store ptr %1700, ptr %7, align 8, !alias.scope !933, !noalias !930
   store ptr %145, ptr %157, align 8, !alias.scope !933, !noalias !930
@@ -10624,7 +10624,7 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hd36f06a66409ff1
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.exit.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h27e2eec83068238eE.exit"
   %92 = load ptr, ptr %28, align 8, !noalias !2360, !nonnull !7, !align !35, !noundef !7
-  %93 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %92, i64 0, i64 %.0.i.i
+  %93 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %92, i64 %.0.i.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %93, ptr %9, align 8, !alias.scope !2357, !noalias !2353
   store ptr %29, ptr %30, align 8, !alias.scope !2357, !noalias !2353
@@ -11156,7 +11156,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inne
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17hb27bed3527062959E.exit": ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %23 = load ptr, ptr %22, align 8, !noalias !2564, !nonnull !7, !align !35, !noundef !7
-  %24 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %23, i64 0, i64 %.0.i.i
+  %24 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %23, i64 %.0.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %24, ptr %8, align 8, !alias.scope !2561, !noalias !2558
@@ -11857,7 +11857,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17hd720c3509d585ff0E.exit": ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %27 = load ptr, ptr %26, align 8, !noalias !2772, !nonnull !7, !align !35, !noundef !7
-  %28 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %27, i64 0, i64 %.0.i.i
+  %28 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %27, i64 %.0.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 168
   store ptr %28, ptr %7, align 8, !alias.scope !2769, !noalias !2765
@@ -11980,7 +11980,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17h67adde35fd140f31E.exit": ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %25 = load ptr, ptr %24, align 8, !noalias !2790, !nonnull !7, !align !35, !noundef !7
-  %26 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %25, i64 0, i64 %.0.i.i
+  %26 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %25, i64 %.0.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr %26, ptr %6, align 8, !alias.scope !2787, !noalias !2783

@@ -195,8 +195,8 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h46595ec51d454
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds [0 x i16], ptr %0, i64 0, i64 %2
-  %12 = getelementptr inbounds [0 x i16], ptr %0, i64 0, i64 %3
+  %11 = getelementptr inbounds i16, ptr %0, i64 %2
+  %12 = getelementptr inbounds i16, ptr %0, i64 %3
   %.0.copyload = load i16, ptr %11, align 2
   %13 = load i16, ptr %12, align 2
   store i16 %13, ptr %11, align 2
@@ -277,8 +277,8 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.0, i64 1)
-  %7 = getelementptr inbounds [0 x i16], ptr %0, i64 0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds [0 x i16], ptr %2, i64 0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds i16, ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds i16, ptr %2, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr align 2 %7, ptr align 2 %8)
   br i1 %9, label %.preheader.split, label %.critedge
 

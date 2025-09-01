@@ -41,7 +41,7 @@ define dso_local noundef ptr @uv_handle_type_name(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table.uv_handle_type_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uv_handle_type_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -84,7 +84,7 @@ define dso_local noundef ptr @uv_req_type_name(i32 noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.uv_req_type_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uv_req_type_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

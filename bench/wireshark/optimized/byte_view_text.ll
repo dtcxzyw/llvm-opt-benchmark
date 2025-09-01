@@ -947,7 +947,7 @@ _ZN7QStringD2Ev.exit75:                           ; preds = %132, %_ZN17QArrayDa
 
 switch.lookup:                                    ; preds = %139
   %146 = zext nneg i32 %144 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12ByteViewText22updateByteViewSettingsEv, i64 0, i64 %146
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12ByteViewText22updateByteViewSettingsEv, i64 %146
   %switch.load = load i64, ptr %switch.gep, align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %148 = load ptr, ptr %147, align 8
@@ -1720,7 +1720,7 @@ define void @_ZN12ByteViewText17updateContextMenuEv(ptr noundef readonly align 8
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12ByteViewText22updateByteViewSettingsEv, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12ByteViewText22updateByteViewSettingsEv, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %10 = load ptr, ptr %9, align 8
@@ -2235,7 +2235,7 @@ define void @_ZN12ByteViewText22updateByteViewSettingsEv(ptr noundef align 8 der
 
 switch.lookup:                                    ; preds = %1
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12ByteViewText22updateByteViewSettingsEv, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12ByteViewText22updateByteViewSettingsEv, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %14 = load ptr, ptr %13, align 8
@@ -3340,7 +3340,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i: ; preds = %_ZNK17QA
   %185 = load i8, ptr %184, align 1
   %186 = lshr i8 %185, 4
   %187 = zext nneg i8 %186 to i64
-  %188 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %187
+  %188 = getelementptr i8, ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 %187
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i16
   %191 = invoke noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable_or_null(24) %13, i16 %190)
@@ -3432,7 +3432,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i208: ; preds = %_ZNK1
 229:                                              ; preds = %224
   %230 = udiv i8 %227, 100
   %231 = zext nneg i8 %230 to i64
-  %232 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %231
+  %232 = getelementptr i8, ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 %231
   %233 = load i8, ptr %232, align 1
   %234 = zext i8 %233 to i16
   br label %235
@@ -3450,7 +3450,7 @@ _ZN7QStringpLE5QChar.exit212:                     ; preds = %235
   %240 = udiv i8 %227, 10
   %241 = urem i8 %240, 10
   %242 = zext nneg i8 %241 to i64
-  %243 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %242
+  %243 = getelementptr i8, ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 %242
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i16
   br label %246
@@ -3486,7 +3486,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i219: ; preds = %_ZNK1
   %259 = load i8, ptr %258, align 1
   %260 = lshr i8 %259, 6
   %261 = zext nneg i8 %260 to i64
-  %262 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %261
+  %262 = getelementptr i8, ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 %261
   %263 = load i8, ptr %262, align 1
   %264 = zext i8 %263 to i16
   %265 = invoke noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable_or_null(24) %13, i16 %264)
@@ -3514,7 +3514,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i226: ; preds = %_ZNK1
   %274 = lshr i8 %273, 3
   %275 = and i8 %274, 7
   %276 = zext nneg i8 %275 to i64
-  %277 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %276
+  %277 = getelementptr i8, ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 %276
   %278 = load i8, ptr %277, align 1
   %279 = zext i8 %278 to i16
   %280 = invoke noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable_or_null(24) %13, i16 %279)
@@ -3545,7 +3545,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i233: ; preds = %_ZNK1
 .invoke:                                          ; preds = %196, %_ZN7QStringpLE5QChar.exit214, %285
   %.sink637 = phi i8 [ %200, %196 ], [ %249, %_ZN7QStringpLE5QChar.exit214 ], [ %289, %285 ]
   %290 = zext nneg i8 %.sink637 to i64
-  %291 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %290
+  %291 = getelementptr i8, ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 %290
   %292 = load i8, ptr %291, align 1
   %293 = zext i8 %292 to i16
   %294 = invoke noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable_or_null(24) %13, i16 %293)
@@ -3672,7 +3672,7 @@ _ZN5QListIiED2Ev.exit252:                         ; preds = %.body240, %_ZN17QAr
 
 switch.lookup:                                    ; preds = %332
   %339 = zext nneg i32 %333 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12ByteViewText8drawLineEP8QPainterii, i64 0, i64 %339
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12ByteViewText8drawLineEP8QPainterii, i64 %339
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -3960,7 +3960,7 @@ _ZN5QListIiED2Ev.exit290:                         ; preds = %.body274, %_ZN17QAr
 
 switch.lookup657:                                 ; preds = %433
   %436 = zext nneg i32 %434 to i64
-  %switch.gep658 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 0, i64 %436
+  %switch.gep658 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %436
   %switch.load659 = load i32, ptr %switch.gep658, align 4
   %437 = add nuw nsw i32 %switch.load659, 1
   %.sroa.speculated30.i = call i32 @llvm.smax.i32(i32 %2, i32 %423)
@@ -4007,7 +4007,7 @@ _ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS
 
 switch.lookup660:                                 ; preds = %464
   %467 = zext nneg i32 %465 to i64
-  %switch.gep661 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 0, i64 %467
+  %switch.gep661 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %467
   %switch.load662 = load i32, ptr %switch.gep661, align 4
   %468 = add nuw nsw i32 %switch.load662, 1
   %.sroa.speculated30.i296 = call i32 @llvm.smax.i32(i32 %2, i32 %454)
@@ -4066,7 +4066,7 @@ _ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS
 
 switch.lookup663:                                 ; preds = %496
   %499 = zext nneg i32 %497 to i64
-  %switch.gep664 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 0, i64 %499
+  %switch.gep664 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %499
   %switch.load665 = load i32, ptr %switch.gep664, align 4
   %500 = add nuw nsw i32 %switch.load665, 1
   %.sroa.speculated30.i305 = call i32 @llvm.smax.i32(i32 %2, i32 %486)
@@ -5634,7 +5634,7 @@ define noundef zeroext i1 @_ZN12ByteViewText17addHexFormatRangeER5QListIN11QText
 
 switch.lookup:                                    ; preds = %15
   %19 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12ByteViewText17addHexFormatRangeER5QListIN11QTextLayout11FormatRangeEEiiiiNS_13HighlightModeE, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = add nuw nsw i32 %switch.load, 1
   %.sroa.speculated30 = tail call i32 @llvm.smax.i32(i32 %4, i32 %2)

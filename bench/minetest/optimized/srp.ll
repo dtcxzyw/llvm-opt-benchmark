@@ -120,7 +120,7 @@ if.end13:                                         ; preds = %if.end.i61, %if.the
 cleanup:                                          ; preds = %if.end13
   %5 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
   %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @_ZL11g_rand_buff, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call14, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %add = add i32 %5, 16
   store i32 %add, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
@@ -190,7 +190,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %idxprom = zext i32 %ng_type to i64
-  %arrayidx = getelementptr inbounds nuw [5 x %struct.NGHex], ptr @_ZL19global_Ng_constants, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.NGHex, ptr @_ZL19global_Ng_constants, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 16, !tbaa !13
   %g_hex6 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %g_hex6, align 8, !tbaa !15
@@ -420,7 +420,7 @@ if.end.i.if.end3_crit_edge.i:                     ; preds = %if.end.i.i200
 _ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_crit_edge.i, %if.else
   %8 = phi i32 [ %.pre.i, %if.end.i.if.end3_crit_edge.i ], [ %6, %if.else ]
   %idxprom.i = zext i32 %8 to i64
-  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZL11g_rand_buff, i64 %idxprom.i
   call void @__gmpz_import(ptr noundef nonnull %b, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %arrayidx.i)
   %9 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
   %add.i = add i32 %9, 32
@@ -1191,7 +1191,7 @@ if.end.i.if.end3_crit_edge.i:                     ; preds = %if.end.i.i
 _ZL15mpz_fill_randomP12__mpz_struct.exit:         ; preds = %if.end.i.if.end3_crit_edge.i, %if.else
   %2 = phi i32 [ %.pre.i, %if.end.i.if.end3_crit_edge.i ], [ %0, %if.else ]
   %idxprom.i = zext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr @_ZL11g_rand_buff, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZL11g_rand_buff, i64 %idxprom.i
   tail call void @__gmpz_import(ptr noundef nonnull %a1, i64 noundef 32, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %arrayidx.i)
   %3 = load i32, ptr @_ZL10g_rand_idx, align 4, !tbaa !8
   %add.i = add i32 %3, 32

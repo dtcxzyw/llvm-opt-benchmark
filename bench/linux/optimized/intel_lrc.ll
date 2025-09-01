@@ -328,7 +328,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %188 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i64
-  %191 = getelementptr [4 x ptr], ptr %187, i64 0, i64 %190
+  %191 = getelementptr ptr, ptr %187, i64 %190
   br label %192
 
 192:                                              ; preds = %186, %180
@@ -355,7 +355,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %209 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %210 = load i8, ptr %209, align 1
   %211 = zext i8 %210 to i64
-  %212 = getelementptr [4 x ptr], ptr %208, i64 0, i64 %211
+  %212 = getelementptr ptr, ptr %208, i64 %211
   br label %213
 
 213:                                              ; preds = %207, %192
@@ -382,7 +382,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %230 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i64
-  %233 = getelementptr [4 x ptr], ptr %229, i64 0, i64 %232
+  %233 = getelementptr ptr, ptr %229, i64 %232
   br label %234
 
 234:                                              ; preds = %228, %213
@@ -408,7 +408,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %250 = getelementptr inbounds nuw i8, ptr %173, i64 537
   %251 = load i8, ptr %250, align 1
   %252 = zext i8 %251 to i64
-  %253 = getelementptr [4 x ptr], ptr %249, i64 0, i64 %252
+  %253 = getelementptr ptr, ptr %249, i64 %252
   br label %254
 
 254:                                              ; preds = %248, %234, %172

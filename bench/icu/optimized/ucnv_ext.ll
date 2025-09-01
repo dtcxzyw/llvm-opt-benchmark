@@ -88,7 +88,7 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchToU_77(ptr noundef %0, ptr
   %.04451 = phi ptr [ %28, %.lr.ph ], [ %62, %61 ]
   %62 = getelementptr inbounds nuw i8, ptr %.04451, i64 1
   %63 = load i8, ptr %.04451, align 1, !tbaa !24
-  %64 = getelementptr inbounds nuw [31 x i8], ptr %60, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv
   store i8 %63, ptr %64, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -116,7 +116,7 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchToU_77(ptr noundef %0, ptr
   %.14553 = phi ptr [ %65, %.lr.ph56 ], [ %71, %70 ]
   %71 = getelementptr inbounds nuw i8, ptr %.14553, i64 1
   %72 = load i8, ptr %.14553, align 1, !tbaa !24
-  %73 = getelementptr inbounds nuw [31 x i8], ptr %68, i64 0, i64 %indvars.iv61
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv61
   store i8 %72, ptr %73, align 1, !tbaa !24
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count65
@@ -511,7 +511,7 @@ define void @ucnv_extContinueMatchToU_77(ptr noundef %0, ptr noundef %1, i32 nou
   %.06167 = phi ptr [ %28, %.lr.ph.preheader ], [ %77, %.lr.ph ]
   %77 = getelementptr inbounds nuw i8, ptr %.06167, i64 1
   %78 = load i8, ptr %.06167, align 1, !tbaa !24
-  %79 = getelementptr inbounds [31 x i8], ptr %23, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv
   store i8 %78, ptr %79, align 1, !tbaa !24
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -712,7 +712,7 @@ _ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit: ; preds = 
   %.03540 = phi ptr [ %14, %.lr.ph ], [ %84, %83 ]
   %84 = getelementptr inbounds nuw i8, ptr %.03540, i64 2
   %85 = load i16, ptr %.03540, align 2, !tbaa !48
-  %86 = getelementptr inbounds nuw [19 x i16], ptr %82, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv
   store i16 %85, ptr %86, align 2, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1211,7 +1211,7 @@ _ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit: ; preds = 
   %.05461 = phi ptr [ %18, %.lr.ph.preheader ], [ %96, %.lr.ph ]
   %96 = getelementptr inbounds nuw i8, ptr %.05461, i64 2
   %97 = load i16, ptr %.05461, align 2, !tbaa !48
-  %98 = getelementptr inbounds [19 x i16], ptr %13, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds i16, ptr %13, i64 %indvars.iv
   store i16 %97, ptr %98, align 2, !tbaa !48
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

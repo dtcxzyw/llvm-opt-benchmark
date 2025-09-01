@@ -264,10 +264,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %64
 
 77:                                               ; preds = %77, %76
   %indvars.iv.i = phi i64 [ 0, %76 ], [ %indvars.iv.next.i, %77 ]
-  %78 = getelementptr inbounds nuw [3 x double], ptr %13, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i
   %79 = load double, ptr %78, align 8, !tbaa !27, !noalias !22
   %80 = fptrunc double %79 to float
-  %81 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i
   store float %80, ptr %81, align 4, !tbaa !25, !alias.scope !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

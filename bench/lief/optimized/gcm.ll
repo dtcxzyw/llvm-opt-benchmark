@@ -42,7 +42,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [2 x i64], align 16
   %6 = alloca i64, align 8
-  switch i32 %3, label %81 [
+  switch i32 %3, label %79 [
     i32 256, label %7
     i32 192, label %7
     i32 128, label %7
@@ -51,25 +51,25 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
 7:                                                ; preds = %4, %4, %4
   %8 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %1, i32 noundef %3, i32 noundef 1) #11
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %81, label %10
+  br i1 %9, label %79, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %8, i64 8
   %.val = load i32, ptr %11, align 8
   %12 = and i32 %.val, 31
   %.not = icmp eq i32 %12, 16
-  br i1 %.not, label %13, label %81
+  br i1 %.not, label %13, label %79
 
 13:                                               ; preds = %10
   tail call void @mbedtls_cipher_free(ptr noundef %0) #11
   %14 = tail call i32 @mbedtls_cipher_setup(ptr noundef %0, ptr noundef nonnull %8) #11
   %.not24 = icmp eq i32 %14, 0
-  br i1 %.not24, label %15, label %81
+  br i1 %.not24, label %15, label %79
 
 15:                                               ; preds = %13
   %16 = tail call i32 @mbedtls_cipher_setkey(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 1) #11
   %.not25 = icmp eq i32 %16, 0
-  br i1 %.not25, label %17, label %81
+  br i1 %.not25, label %17, label %79
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -118,10 +118,10 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
 35:                                               ; preds = %35, %34
   %.04049.i = phi i32 [ 4, %34 ], [ %60, %35 ]
   %36 = zext nneg i32 %.04049.i to i64
-  %37 = getelementptr inbounds nuw [16 x [2 x i64]], ptr %29, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %36
   %38 = shl nuw nsw i32 %.04049.i, 1
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [16 x [2 x i64]], ptr %29, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.0.copyload.i.i.i = load i64, ptr %42, align 1
@@ -155,7 +155,7 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
 .preheader48.i:                                   ; preds = %35, %.preheader48.i
   %.150.i = phi i32 [ %68, %.preheader48.i ], [ 8, %35 ]
   %61 = zext nneg i32 %.150.i to i64
-  %62 = getelementptr inbounds nuw [16 x [2 x i64]], ptr %29, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !3
   %64 = call i64 @llvm.bswap.i64(i64 %63)
   store i64 %64, ptr %62, align 8
@@ -168,43 +168,42 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
   br i1 %.not43.i, label %.lr.ph54.i, label %.preheader48.i, !llvm.loop !17
 
 .lr.ph54.i:                                       ; preds = %.preheader48.i, %._crit_edge.i
-  %.255.i = phi i32 [ %79, %._crit_edge.i ], [ 2, %.preheader48.i ]
+  %.255.i = phi i32 [ %77, %._crit_edge.i ], [ 2, %.preheader48.i ]
   %69 = zext i32 %.255.i to i64
-  %70 = getelementptr inbounds nuw [16 x [2 x i64]], ptr %29, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %mbedtls_xor_no_simd.exit.i.critedge
 
 mbedtls_xor_no_simd.exit.i.critedge:              ; preds = %mbedtls_xor_no_simd.exit.i.critedge, %.lr.ph54.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph54.i ], [ %indvars.iv.next.i, %mbedtls_xor_no_simd.exit.i.critedge ]
-  %72 = add nuw nsw i64 %indvars.iv.i, %69
-  %73 = getelementptr inbounds nuw [16 x [2 x i64]], ptr %29, i64 0, i64 %72
-  %74 = getelementptr inbounds nuw [16 x [2 x i64]], ptr %29, i64 0, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [2 x i64], ptr %70, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %indvars.iv.i
   %.0.copyload.i44.i = load i64, ptr %70, align 1
-  %.0.copyload.i.i = load i64, ptr %74, align 1
-  %75 = xor i64 %.0.copyload.i.i, %.0.copyload.i44.i
-  store i64 %75, ptr %73, align 1
+  %.0.copyload.i.i = load i64, ptr %72, align 1
+  %73 = xor i64 %.0.copyload.i.i, %.0.copyload.i44.i
+  store i64 %73, ptr %gep.i, align 1
   %.0.copyload.i44.i.c = load i64, ptr %71, align 1
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %.0.copyload.i.i.c = load i64, ptr %76, align 1
-  %77 = xor i64 %.0.copyload.i.i.c, %.0.copyload.i44.i.c
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i64 %77, ptr %78, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %.0.copyload.i.i.c = load i64, ptr %74, align 1
+  %75 = xor i64 %.0.copyload.i.i.c, %.0.copyload.i44.i.c
+  %76 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
+  store i64 %75, ptr %76, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %69
   br i1 %exitcond.not.i, label %._crit_edge.i, label %mbedtls_xor_no_simd.exit.i.critedge, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %mbedtls_xor_no_simd.exit.i.critedge
-  %79 = shl i32 %.255.i, 1
-  %80 = icmp slt i32 %79, 16
-  br i1 %80, label %.lr.ph54.i, label %gcm_gen_table.exit, !llvm.loop !19
+  %77 = shl i32 %.255.i, 1
+  %78 = icmp slt i32 %77, 16
+  br i1 %78, label %.lr.ph54.i, label %gcm_gen_table.exit, !llvm.loop !19
 
 gcm_gen_table.exit:                               ; preds = %._crit_edge.i, %17, %gcm_set_acceleration.exit.thread.i, %gcm_set_acceleration.exit.i
   %.0.i = phi i32 [ %18, %17 ], [ 0, %gcm_set_acceleration.exit.i ], [ 0, %gcm_set_acceleration.exit.thread.i ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %81
+  br label %79
 
-81:                                               ; preds = %7, %10, %13, %15, %gcm_gen_table.exit, %4
+79:                                               ; preds = %7, %10, %13, %15, %gcm_gen_table.exit, %4
   %.0 = phi i32 [ -20, %4 ], [ -20, %7 ], [ -20, %10 ], [ %14, %13 ], [ %16, %15 ], [ %.0.i, %gcm_gen_table.exit ]
   ret i32 %.0
 }
@@ -345,7 +344,7 @@ mbedtls_xor_no_simd.exit35.preheader.i.preheader.critedge: ; preds = %3
   %18 = load i64, ptr %14, align 8, !tbaa !3
   %19 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %16, i64 60)
   %20 = lshr i64 %18, 4
-  %21 = getelementptr inbounds nuw [16 x i16], ptr @last4, i64 0, i64 %17
+  %21 = getelementptr inbounds nuw i16, ptr @last4, i64 %17
   %22 = load i16, ptr %21, align 2, !tbaa !24
   %23 = zext i16 %22 to i64
   %24 = shl nuw i64 %23, 48
@@ -369,7 +368,7 @@ mbedtls_xor_no_simd.exit35.preheader.i:           ; preds = %mbedtls_xor_no_simd
   %34 = and i64 %.sroa.11.0, 15
   %35 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0.0, i64 %.sroa.11.0, i64 60)
   %36 = lshr i64 %.sroa.0.0, 4
-  %37 = getelementptr inbounds nuw [16 x i16], ptr @last4, i64 0, i64 %34
+  %37 = getelementptr inbounds nuw i16, ptr @last4, i64 %34
   %38 = load i16, ptr %37, align 2, !tbaa !24
   %39 = zext i16 %38 to i64
   %40 = shl nuw i64 %39, 48
@@ -385,7 +384,7 @@ mbedtls_xor_no_simd.exit35.preheader.i:           ; preds = %mbedtls_xor_no_simd
   %48 = and i64 %46, 15
   %49 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %46, i64 60)
   %50 = lshr i64 %44, 4
-  %51 = getelementptr inbounds nuw [16 x i16], ptr @last4, i64 0, i64 %48
+  %51 = getelementptr inbounds nuw i16, ptr @last4, i64 %48
   %52 = load i16, ptr %51, align 2, !tbaa !24
   %53 = zext i16 %52 to i64
   %54 = shl nuw i64 %53, 48
@@ -1089,10 +1088,10 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
 ._crit_edge:                                      ; preds = %17, %18
   %.pre-phi = phi i32 [ %16, %18 ], [ %.pre, %17 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
-  %21 = getelementptr inbounds nuw [6 x i32], ptr @pt_index_test_data, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr @pt_index_test_data, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [2 x [32 x i8]], ptr @key_test_data, i64 0, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr @key_test_data, i64 %23
   %25 = call i32 @mbedtls_gcm_setkey(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %24, i32 noundef %.pre-phi)
   %26 = icmp eq i32 %25, -114
   %or.cond = select i1 %26, i1 %14, i1 false
@@ -1107,24 +1106,24 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %.not162, label %29, label %.thread247
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw [6 x i64], ptr @pt_len_test_data, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i64, ptr @pt_len_test_data, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw [6 x i32], ptr @iv_index_test_data, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr @iv_index_test_data, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !31
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [3 x [64 x i8]], ptr @iv_test_data, i64 0, i64 %34
-  %36 = getelementptr inbounds nuw [6 x i64], ptr @iv_len_test_data, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds [64 x i8], ptr @iv_test_data, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr @iv_len_test_data, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw [6 x i32], ptr @add_index_test_data, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr @add_index_test_data, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !31
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [2 x [64 x i8]], ptr @additional_test_data, i64 0, i64 %40
-  %42 = getelementptr inbounds nuw [6 x i64], ptr @add_len_test_data, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds [64 x i8], ptr @additional_test_data, i64 %40
+  %42 = getelementptr inbounds nuw i64, ptr @add_len_test_data, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8, !tbaa !3
-  %44 = getelementptr inbounds nuw [6 x i32], ptr @pt_index_test_data, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr @pt_index_test_data, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !31
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [2 x [64 x i8]], ptr @pt_test_data, i64 0, i64 %46
+  %47 = getelementptr inbounds [64 x i8], ptr @pt_test_data, i64 %46
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %48 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull readonly %35, i64 noundef %37)
   %.not.i = icmp eq i32 %48, 0
@@ -1153,13 +1152,13 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %51
 
 54:                                               ; preds = %mbedtls_gcm_crypt_and_tag.exit
   %55 = add nuw nsw i64 %indvars.iv, %15
-  %56 = getelementptr inbounds nuw [18 x [64 x i8]], ptr @ct_test_data, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [64 x i8], ptr @ct_test_data, i64 %55
   %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %56, i64 %31)
   %.not164 = icmp eq i32 %bcmp, 0
   br i1 %.not164, label %57, label %.thread247
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw [18 x [16 x i8]], ptr @tag_test_data, i64 0, i64 %55
+  %58 = getelementptr inbounds nuw [16 x i8], ptr @tag_test_data, i64 %55
   %bcmp165 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %58, i64 16)
   %.not166 = icmp eq i32 %bcmp165, 0
   br i1 %.not166, label %59, label %.thread247
@@ -1269,7 +1268,7 @@ mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
   br i1 %.not181, label %91, label %.thread243
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds [2 x [64 x i8]], ptr @pt_test_data, i64 0, i64 %46, i64 32
+  %92 = getelementptr inbounds [64 x i8], ptr @pt_test_data, i64 %46, i64 32
   %93 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %92, i64 noundef %87, ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull %7)
   %.not182 = icmp eq i32 %93, 0
   br i1 %.not182, label %94, label %.thread247

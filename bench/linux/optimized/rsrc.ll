@@ -180,7 +180,7 @@ define dso_local void @io_rsrc_node_ref_zero(ptr noundef readonly captures(none)
 
 48:                                               ; preds = %48, %46
   %49 = phi i64 [ 0, %46 ], [ %52, %48 ]
-  %50 = getelementptr [0 x %struct.bio_vec], ptr %47, i64 0, i64 %49
+  %50 = getelementptr %struct.bio_vec, ptr %47, i64 %49
   %51 = load ptr, ptr %50, align 8
   tail call void @unpin_user_page(ptr noundef %51) #12
   %52 = add nuw nsw i64 %49, 1
@@ -1902,7 +1902,7 @@ define dso_local void @__io_sqe_buffers_unregister(ptr noundef captures(none) %0
 
 21:                                               ; preds = %21, %19
   %22 = phi i64 [ 0, %19 ], [ %25, %21 ]
-  %23 = getelementptr [0 x %struct.bio_vec], ptr %20, i64 0, i64 %22
+  %23 = getelementptr %struct.bio_vec, ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void @unpin_user_page(ptr noundef %24) #12
   %25 = add nuw nsw i64 %22, 1
@@ -2012,7 +2012,7 @@ define internal fastcc void @io_buffer_unmap(ptr noundef readonly captures(none)
 
 11:                                               ; preds = %11, %9
   %12 = phi i64 [ 0, %9 ], [ %15, %11 ]
-  %13 = getelementptr [0 x %struct.bio_vec], ptr %10, i64 0, i64 %12
+  %13 = getelementptr %struct.bio_vec, ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void @unpin_user_page(ptr noundef %14) #12
   %15 = add nuw nsw i64 %12, 1
@@ -2569,7 +2569,7 @@ thread-pre-split:                                 ; preds = %79, %76, %85, %14
   %207 = phi i32 [ %202, %204 ], [ %248, %247 ]
   %208 = phi i32 [ 0, %204 ], [ %249, %247 ]
   %209 = sext i32 %208 to i64
-  %210 = getelementptr [0 x %struct.bio_vec], ptr %205, i64 0, i64 %209
+  %210 = getelementptr %struct.bio_vec, ptr %205, i64 %209
   %211 = load ptr, ptr %210, align 8
   %212 = load volatile i64, ptr %211, align 8
   %213 = and i64 %212, 64
@@ -2776,7 +2776,7 @@ thread-pre-split:                                 ; preds = %79, %76, %85, %14
   %324 = phi i64 [ %306, %311 ], [ %334, %321 ]
   %325 = sub nuw nsw i64 4096, %323
   %326 = tail call i64 @llvm.umin.i64(i64 %324, i64 %325)
-  %327 = getelementptr [0 x %struct.bio_vec], ptr %312, i64 0, i64 %322
+  %327 = getelementptr %struct.bio_vec, ptr %312, i64 %322
   %328 = getelementptr ptr, ptr %12, i64 %322
   %329 = load ptr, ptr %328, align 8
   %330 = trunc nuw nsw i64 %326 to i32

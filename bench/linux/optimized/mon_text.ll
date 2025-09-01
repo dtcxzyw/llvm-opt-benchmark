@@ -613,7 +613,7 @@ define internal fastcc void @mon_text_read_data(ptr noundef captures(none) %0, p
   %46 = load i32, ptr %16, align 4
   %47 = sub i32 %46, %42
   %48 = sext i32 %47 to i64
-  %49 = getelementptr [32 x i8], ptr %24, i64 0, i64 %28
+  %49 = getelementptr i8, ptr %24, i64 %28
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %45, i64 noundef %48, ptr noundef nonnull @.str.10, i32 noundef %51) #11

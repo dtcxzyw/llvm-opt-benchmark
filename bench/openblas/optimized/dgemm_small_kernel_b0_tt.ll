@@ -1192,7 +1192,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 722:                                              ; preds = %716, %722
   %indvars.iv = phi i64 [ 0, %716 ], [ %indvars.iv.next, %722 ]
   %723 = mul nsw i64 %9, %indvars.iv
-  %724 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %724 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   store i64 %723, ptr %724, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond2276.not = icmp eq i64 %indvars.iv.next, 8

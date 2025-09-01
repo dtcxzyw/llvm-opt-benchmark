@@ -164,18 +164,18 @@ define hidden void @_ZN6Assimp3MDC11BuildVertexERKNS0_5FrameERKNS0_10BaseVertexE
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [256 x [3 x float]], ptr @_ZL10mdcNormals, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [3 x float], ptr @_ZL10mdcNormals, i64 %44
   %46 = load float, ptr %45, align 4
   store float %46, ptr %4, align 4
   %47 = load i8, ptr %42, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x [3 x float]], ptr @_ZL10mdcNormals, i64 0, i64 %48, i64 1
+  %49 = getelementptr inbounds nuw [3 x float], ptr @_ZL10mdcNormals, i64 %48, i64 1
   %50 = load float, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %50, ptr %51, align 4
   %52 = load i8, ptr %42, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x [3 x float]], ptr @_ZL10mdcNormals, i64 0, i64 %53, i64 2
+  %54 = getelementptr inbounds nuw [3 x float], ptr @_ZL10mdcNormals, i64 %53, i64 2
   %55 = load float, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %55, ptr %56, align 4
@@ -1272,7 +1272,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
   store i32 %219, ptr %218, align 4
   %220 = getelementptr inbounds nuw i8, ptr %188, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %220, ptr align 1 %.pre419, i64 %215, i1 false)
-  %221 = getelementptr inbounds nuw [1024 x i8], ptr %220, i64 0, i64 %215
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %215
   store i8 0, ptr %221, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -1631,7 +1631,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.1211354.us = phi ptr [ %445, %398 ], [ %.0210365, %387 ]
   %.1213353.us = phi ptr [ %446, %398 ], [ %.0212364, %387 ]
   %.1215352.us = phi ptr [ %444, %398 ], [ %.0214363, %387 ]
-  %389 = getelementptr inbounds nuw [3 x i32], ptr %.0208367, i64 0, i64 %indvars.iv408
+  %389 = getelementptr inbounds nuw i32, ptr %.0208367, i64 %indvars.iv408
   %390 = load i32, ptr %389, align 1
   %391 = load i32, ptr %182, align 1
   %.not248.us = icmp ult i32 %390, %391
@@ -1753,7 +1753,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %indvars.iv405 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next406, %472 ]
   %.1213353 = phi ptr [ %.0212364, %.split.preheader ], [ %528, %472 ]
   %.1215352 = phi ptr [ %.0214363, %.split.preheader ], [ %527, %472 ]
-  %462 = getelementptr inbounds nuw [3 x i32], ptr %.0208367, i64 0, i64 %indvars.iv405
+  %462 = getelementptr inbounds nuw i32, ptr %.0208367, i64 %indvars.iv405
   %463 = load i32, ptr %462, align 1
   %464 = load i32, ptr %182, align 1
   %.not248 = icmp ult i32 %463, %464
@@ -1821,18 +1821,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %509 = getelementptr inbounds nuw i8, ptr %475, i64 3
   %510 = load i8, ptr %509, align 1
   %511 = zext i8 %510 to i64
-  %512 = getelementptr inbounds nuw [256 x [3 x float]], ptr @_ZL10mdcNormals, i64 0, i64 %511
+  %512 = getelementptr inbounds nuw [3 x float], ptr @_ZL10mdcNormals, i64 %511
   %513 = load float, ptr %512, align 4
   store float %513, ptr %.1213353, align 4
   %514 = load i8, ptr %509, align 1
   %515 = zext i8 %514 to i64
-  %516 = getelementptr inbounds nuw [256 x [3 x float]], ptr @_ZL10mdcNormals, i64 0, i64 %515, i64 1
+  %516 = getelementptr inbounds nuw [3 x float], ptr @_ZL10mdcNormals, i64 %515, i64 1
   %517 = load float, ptr %516, align 4
   %518 = getelementptr inbounds nuw i8, ptr %.1213353, i64 4
   store float %517, ptr %518, align 4
   %519 = load i8, ptr %509, align 1
   %520 = zext i8 %519 to i64
-  %521 = getelementptr inbounds nuw [256 x [3 x float]], ptr @_ZL10mdcNormals, i64 0, i64 %520, i64 2
+  %521 = getelementptr inbounds nuw [3 x float], ptr @_ZL10mdcNormals, i64 %520, i64 2
   %522 = load float, ptr %521, align 4
   %523 = getelementptr inbounds nuw i8, ptr %.1213353, i64 8
   store float %522, ptr %523, align 4
@@ -1911,7 +1911,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %555 = getelementptr inbounds nuw i8, ptr %548, i64 240
   %556 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %554, ptr nonnull align 4 %555, i64 %556, i1 false)
-  %557 = getelementptr inbounds nuw [1024 x i8], ptr %554, i64 0, i64 %556
+  %557 = getelementptr inbounds nuw i8, ptr %554, i64 %556
   store i8 0, ptr %557, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -2002,7 +2002,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %549, %552
   %597 = getelementptr inbounds nuw i8, ptr %591, i64 240
   %598 = zext nneg i32 %spec.select.i289 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %596, ptr nonnull align 4 %597, i64 %598, i1 false)
-  %599 = getelementptr inbounds nuw [1024 x i8], ptr %596, i64 0, i64 %598
+  %599 = getelementptr inbounds nuw i8, ptr %596, i64 %598
   store i8 0, ptr %599, align 1
   br label %_ZN8aiStringaSERKS_.exit290
 
@@ -2228,7 +2228,7 @@ _ZN10aiMaterial11AddPropertyI9aiColor3DEE8aiReturnPKT_jPKcjj.exit300: ; preds = 
   store i32 %682, ptr %12, align 4
   %683 = load ptr, ptr %662, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %629, ptr align 1 %683, i64 %679, i1 false)
-  %684 = getelementptr inbounds nuw [1024 x i8], ptr %629, i64 0, i64 %679
+  %684 = getelementptr inbounds nuw i8, ptr %629, i64 %679
   store i8 0, ptr %684, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit301
 

@@ -352,7 +352,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 
 hwloc_disc_component_register.exit:               ; preds = %._crit_edge10.i, %104, %103, %76, %73, %65, %63, %53, %51, %43, %136, %29, %31, %16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %139 = getelementptr inbounds nuw [12 x ptr], ptr @hwloc_static_components, i64 0, i64 %indvars.iv.next
+  %139 = getelementptr inbounds nuw ptr, ptr @hwloc_static_components, i64 %indvars.iv.next
   %140 = load ptr, ptr %139, align 8, !tbaa !29
   %.not24 = icmp eq i64 %indvars.iv.next, 11
   br i1 %.not24, label %.loopexit, label %12, !llvm.loop !31

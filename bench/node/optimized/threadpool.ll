@@ -487,10 +487,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel.4, i64 0, i64 %3
+  %switch.gep13 = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel.4, i64 %3
   %switch.load14 = load i64, ptr %switch.gep13, align 8
   %loop12 = getelementptr inbounds nuw i8, ptr %req, i64 %switch.load
   %work_req13 = getelementptr inbounds nuw i8, ptr %req, i64 %switch.load14

@@ -524,10 +524,10 @@ default.unreachable1372:                          ; preds = %71
   %185 = add i32 %182, 1
   store i32 %185, ptr %28, align 4, !tbaa !42
   %186 = zext i32 %182 to i64
-  %187 = getelementptr inbounds nuw [19 x i16], ptr @inflateBack.order, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i16, ptr @inflateBack.order, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !43
   %189 = zext i16 %188 to i64
-  %190 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw i16, ptr %29, i64 %189
   store i16 %184, ptr %190, align 2, !tbaa !43
   %191 = lshr i64 %.7543.lcssa, 3
   %192 = add i32 %.7.lcssa, -3
@@ -537,10 +537,10 @@ default.unreachable1372:                          ; preds = %71
 .lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
   %indvars.iv1260 = phi i64 [ %163, %.lr.ph895.preheader ], [ %indvars.iv.next1261, %.lr.ph895 ]
   %indvars.iv.next1261 = add nuw nsw i64 %indvars.iv1260, 1
-  %194 = getelementptr inbounds nuw [19 x i16], ptr @inflateBack.order, i64 0, i64 %indvars.iv1260
+  %194 = getelementptr inbounds nuw i16, ptr @inflateBack.order, i64 %indvars.iv1260
   %195 = load i16, ptr %194, align 2, !tbaa !43
   %196 = zext i16 %195 to i64
-  %197 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i16, ptr %29, i64 %196
   store i16 0, ptr %197, align 2, !tbaa !43
   %198 = and i64 %indvars.iv.next1261, 4294967295
   %exitcond.not = icmp eq i64 %198, 19
@@ -712,7 +712,7 @@ default.unreachable1372:                          ; preds = %71
   %263 = add i32 %262, 1
   store i32 %263, ptr %28, align 4, !tbaa !42
   %264 = zext i32 %262 to i64
-  %265 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i16, ptr %29, i64 %264
   store i16 %.sroa.41.0.copyload.lcssa, ptr %265, align 2, !tbaa !43
   %.pre1297 = load i32, ptr %25, align 4, !tbaa !39
   %.pre1298 = load i32, ptr %26, align 8, !tbaa !40
@@ -808,7 +808,7 @@ default.unreachable1372:                          ; preds = %71
 300:                                              ; preds = %._crit_edge929
   %301 = add i32 %297, -1
   %302 = zext i32 %301 to i64
-  %303 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw i16, ptr %29, i64 %302
   %304 = load i16, ptr %303, align 2, !tbaa !43
   %305 = trunc i64 %295 to i32
   %306 = and i32 %305, 3
@@ -938,7 +938,7 @@ default.unreachable1372:                          ; preds = %71
   %363 = add nsw i32 %.3942, -1
   %364 = add i32 %362, 1
   %365 = zext i32 %362 to i64
-  %366 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %365
+  %366 = getelementptr inbounds nuw i16, ptr %29, i64 %365
   store i16 %.0525, ptr %366, align 2, !tbaa !43
   %.not658 = icmp eq i32 %363, 0
   br i1 %.not658, label %.loopexit, label %.preheader692, !llvm.loop !52

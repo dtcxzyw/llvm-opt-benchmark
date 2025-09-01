@@ -2114,20 +2114,20 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %_ZNSt7__cxx1118basi
 387:                                              ; preds = %.preheader397, %469
   %indvars.iv = phi i64 [ 0, %.preheader397 ], [ %indvars.iv.next, %469 ]
   %.084593 = phi i64 [ 0, %.preheader397 ], [ %.185, %469 ]
-  %388 = getelementptr inbounds nuw [426 x i64], ptr %45, i64 0, i64 %indvars.iv
+  %388 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv
   %389 = load i64, ptr %388, align 8, !tbaa !27
   %.not111 = icmp eq i64 %389, 0
   br i1 %.not111, label %469, label %390
 
 390:                                              ; preds = %387
-  %391 = getelementptr inbounds nuw [0 x %struct.VNTypeInfo], ptr @_ZN6VNType13typeInfoTableE, i64 0, i64 %indvars.iv, i32 3
+  %391 = getelementptr inbounds nuw %struct.VNTypeInfo, ptr @_ZN6VNType13typeInfoTableE, i64 %indvars.iv, i32 3
   %392 = load i64, ptr %391, align 8, !tbaa !136
   %393 = mul i64 %392, %389
   %394 = add i64 %393, %.084593
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  %395 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %indvars.iv
+  %395 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %indvars.iv
   %396 = load ptr, ptr %395, align 8, !tbaa !141, !noalias !138
   store ptr %132, ptr %29, align 8, !tbaa !16, !alias.scope !138
   %397 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %396) #21
@@ -2501,13 +2501,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
 
 542:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219, %626
   %indvars.iv623 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219 ], [ %indvars.iv.next624, %626 ]
-  %543 = getelementptr inbounds nuw [426 x i64], ptr %45, i64 0, i64 %indvars.iv623
+  %543 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv623
   %544 = load i64, ptr %543, align 8, !tbaa !27
   %.not106 = icmp eq i64 %544, 0
   br i1 %.not106, label %626, label %545
 
 545:                                              ; preds = %542
-  %546 = getelementptr inbounds nuw [0 x %struct.VNTypeInfo], ptr @_ZN6VNType13typeInfoTableE, i64 0, i64 %indvars.iv623, i32 3
+  %546 = getelementptr inbounds nuw %struct.VNTypeInfo, ptr @_ZN6VNType13typeInfoTableE, i64 %indvars.iv623, i32 3
   %547 = load i64, ptr %546, align 8, !tbaa !136
   %548 = uitofp i64 %544 to double
   %549 = fmul double %548, 1.000000e+02
@@ -2517,7 +2517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %553 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %indvars.iv623
+  %553 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %indvars.iv623
   %554 = load ptr, ptr %553, align 8, !tbaa !141, !noalias !146
   store ptr %499, ptr %32, align 8, !tbaa !16, !alias.scope !146
   %555 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %554) #21
@@ -2746,8 +2746,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
 
 .preheader385:                                    ; preds = %.preheader396, %640
   %indvars.iv631 = phi i64 [ 0, %.preheader396 ], [ %indvars.iv.next632, %640 ]
-  %627 = getelementptr inbounds nuw [426 x [426 x i64]], ptr %509, i64 0, i64 %indvars.iv631
-  %628 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %indvars.iv631
+  %627 = getelementptr inbounds nuw [426 x i64], ptr %509, i64 %indvars.iv631
+  %628 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %indvars.iv631
   br label %641
 
 .preheader:                                       ; preds = %640
@@ -2771,7 +2771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
 
 641:                                              ; preds = %.preheader385, %865
   %indvars.iv627 = phi i64 [ 0, %.preheader385 ], [ %indvars.iv.next628, %865 ]
-  %642 = getelementptr inbounds nuw [426 x i64], ptr %627, i64 0, i64 %indvars.iv627
+  %642 = getelementptr inbounds nuw i64, ptr %627, i64 %indvars.iv627
   %643 = load i64, ptr %642, align 8, !tbaa !27
   %.not99 = icmp eq i64 %643, 0
   br i1 %.not99, label %865, label %644
@@ -2907,7 +2907,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   store i8 0, ptr %677, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  %688 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %indvars.iv627
+  %688 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %indvars.iv627
   %689 = load ptr, ptr %688, align 8, !tbaa !141, !noalias !163
   store ptr %516, ptr %37, align 8, !tbaa !16, !alias.scope !163
   %690 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %689) #21
@@ -3464,7 +3464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 
 867:                                              ; preds = %.preheader, %941
   %indvars.iv635 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next636, %941 ]
-  %868 = getelementptr inbounds nuw [3 x i64], ptr %629, i64 0, i64 %indvars.iv635
+  %868 = getelementptr inbounds nuw i64, ptr %629, i64 %indvars.iv635
   %869 = load i64, ptr %868, align 8, !tbaa !27
   %.not = icmp eq i64 %869, 0
   br i1 %.not, label %941, label %870
@@ -3489,7 +3489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
   %875 = getelementptr inbounds nuw i8, ptr %874, i64 %873
   store i8 0, ptr %875, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !170
-  %876 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZNK11VBranchPred5asciiEvE5names, i64 0, i64 %indvars.iv635
+  %876 = getelementptr inbounds nuw ptr, ptr @_ZZNK11VBranchPred5asciiEvE5names, i64 %indvars.iv635
   %877 = load ptr, ptr %876, align 8, !tbaa !141
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %878 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %877) #21, !noalias !173
@@ -4146,7 +4146,7 @@ define linkonce_odr dso_local void @_ZN12StatsVisitor5visitEP7AstNode(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %5, align 8, !tbaa !179
   %6 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %7 = getelementptr inbounds nuw [426 x i64], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %4, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !27
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !27
@@ -4350,7 +4350,7 @@ define linkonce_odr dso_local void @_ZN12StatsVisitor5visitEP8AstCFunc(ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %18, align 8, !tbaa !179
   %19 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %20 = getelementptr inbounds nuw [426 x i64], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !27
   %22 = add i64 %21, 1
   store i64 %22, ptr %20, align 8, !tbaa !27
@@ -4832,11 +4832,11 @@ define linkonce_odr dso_local void @_ZN12StatsVisitor5visitEP11AstNodeExpr(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %7, align 8, !tbaa !179
   %8 = zext i16 %.sroa.0.0.copyload.i to i64
-  %9 = getelementptr inbounds nuw [426 x [426 x i64]], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [426 x i64], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i5 = load i16, ptr %10, align 8, !tbaa !179
   %11 = zext i16 %.sroa.0.0.copyload.i5 to i64
-  %12 = getelementptr inbounds nuw [426 x i64], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !27
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !27
@@ -4845,7 +4845,7 @@ define linkonce_odr dso_local void @_ZN12StatsVisitor5visitEP11AstNodeExpr(ptr n
 15:                                               ; preds = %._crit_edge, %5
   %.pre-phi = phi i64 [ %.pre12, %._crit_edge ], [ %11, %5 ]
   store ptr %1, ptr %3, align 8, !tbaa !67
-  %16 = getelementptr inbounds nuw [426 x i64], ptr %.pre, i64 0, i64 %.pre-phi
+  %16 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.pre-phi
   %17 = load i64, ptr %16, align 8, !tbaa !27
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8, !tbaa !27
@@ -4881,14 +4881,14 @@ define linkonce_odr dso_local void @_ZN12StatsVisitor5visitEP9AstNodeIf(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.sroa.0.0.copyload.i = load i8, ptr %6, align 8, !tbaa !183
   %7 = zext i8 %.sroa.0.0.copyload.i to i64
-  %8 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !27
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %11, align 8, !tbaa !179
   %12 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %13 = getelementptr inbounds nuw [426 x i64], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !27
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !27
@@ -5525,7 +5525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %140, align 8, !tbaa !179
   %141 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %142 = getelementptr inbounds nuw [426 x i64], ptr %139, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i64, ptr %139, i64 %141
   %143 = load i64, ptr %142, align 8, !tbaa !27
   %144 = add i64 %143, 1
   store i64 %144, ptr %142, align 8, !tbaa !27
@@ -5612,7 +5612,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType8typeInfoEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #4 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !202
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw [0 x %struct.VNTypeInfo], ptr @_ZN6VNType13typeInfoTableE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.VNTypeInfo, ptr @_ZN6VNType13typeInfoTableE, i64 %3
   ret ptr %4
 }
 
@@ -5620,7 +5620,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK6VNType8typeInfoEv(ptr noundef no
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #4 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !202
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !141
   ret ptr %5
 }

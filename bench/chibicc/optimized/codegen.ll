@@ -869,9 +869,9 @@ store_fp.exit.i:                                  ; preds = %238, %236
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %244 = sext i32 %.078121.i to i64
-  %245 = getelementptr inbounds [6 x ptr], ptr @argreg8, i64 0, i64 %244
+  %245 = getelementptr inbounds ptr, ptr @argreg8, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !53
-  %247 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %244
+  %247 = getelementptr inbounds ptr, ptr @argreg64, i64 %244
   br label %248
 
 248:                                              ; preds = %248, %.lr.ph.i.i
@@ -886,10 +886,10 @@ store_fp.exit.i:                                  ; preds = %238, %236
 
 switch.lookup:                                    ; preds = %240
   %252 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %252
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.codegen.2, i64 %252
   %switch.load = load ptr, ptr %switch.gep, align 8
   %253 = sext i32 %.078121.i to i64
-  %254 = getelementptr inbounds [6 x ptr], ptr %switch.load, i64 0, i64 %253
+  %254 = getelementptr inbounds ptr, ptr %switch.load, i64 %253
   %255 = load ptr, ptr %254, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %255, i32 noundef %226)
   br label %store_gp.exit.i
@@ -928,9 +928,9 @@ store_fp.exit95.i:                                ; preds = %264, %262
 
 266:                                              ; preds = %258
   %267 = add nsw i32 %.280.i, 1
-  %switch.tableidx40 = add nsw i32 %256, -9
-  %268 = icmp ult i32 %switch.tableidx40, 8
-  %switch.maskindex42 = trunc i32 %switch.tableidx40 to i8
+  %switch.tableidx39 = add nsw i32 %256, -9
+  %268 = icmp ult i32 %switch.tableidx39, 8
+  %switch.maskindex42 = trunc i32 %switch.tableidx39 to i8
   %switch.shifted43 = lshr i8 -117, %switch.maskindex42
   %switch.lobit44 = trunc i8 %switch.shifted43 to i1
   %or.cond47 = select i1 %268, i1 %switch.lobit44, i1 false
@@ -938,9 +938,9 @@ store_fp.exit95.i:                                ; preds = %264, %262
 
 .lr.ph.i99.i:                                     ; preds = %266
   %269 = sext i32 %.280.i to i64
-  %270 = getelementptr inbounds [6 x ptr], ptr @argreg8, i64 0, i64 %269
+  %270 = getelementptr inbounds ptr, ptr @argreg8, i64 %269
   %271 = load ptr, ptr %270, align 8, !tbaa !53
-  %272 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %269
+  %272 = getelementptr inbounds ptr, ptr @argreg64, i64 %269
   %273 = add nsw i32 %256, -9
   br label %274
 
@@ -955,11 +955,11 @@ store_fp.exit95.i:                                ; preds = %264, %262
   br i1 %exitcond.not.i101.i, label %store_gp.exit102.i, label %274, !llvm.loop !64
 
 switch.lookup41:                                  ; preds = %266
-  %278 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep45 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %278
+  %278 = zext nneg i32 %switch.tableidx39 to i64
+  %switch.gep45 = getelementptr inbounds nuw ptr, ptr @switch.table.codegen.2, i64 %278
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   %279 = sext i32 %.280.i to i64
-  %280 = getelementptr inbounds [6 x ptr], ptr %switch.load46, i64 0, i64 %279
+  %280 = getelementptr inbounds ptr, ptr %switch.load46, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %281, i32 noundef %261)
   br label %store_gp.exit102.i
@@ -989,9 +989,9 @@ store_fp.exit104.i:                               ; preds = %286, %282
   %289 = add nsw i32 %.078121.i, 1
   %290 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %291 = load i32, ptr %290, align 4, !tbaa !32
-  %switch.tableidx49 = add i32 %291, -1
-  %292 = icmp ult i32 %switch.tableidx49, 8
-  %switch.maskindex51 = trunc i32 %switch.tableidx49 to i8
+  %switch.tableidx48 = add i32 %291, -1
+  %292 = icmp ult i32 %switch.tableidx48, 8
+  %switch.maskindex51 = trunc i32 %switch.tableidx48 to i8
   %switch.shifted52 = lshr i8 -117, %switch.maskindex51
   %switch.lobit53 = trunc i8 %switch.shifted52 to i1
   %or.cond56 = select i1 %292, i1 %switch.lobit53, i1 false
@@ -1003,9 +1003,9 @@ store_fp.exit104.i:                               ; preds = %286, %282
 
 .lr.ph.i108.i:                                    ; preds = %.preheader.i107.i
   %294 = sext i32 %.078121.i to i64
-  %295 = getelementptr inbounds [6 x ptr], ptr @argreg8, i64 0, i64 %294
+  %295 = getelementptr inbounds ptr, ptr @argreg8, i64 %294
   %296 = load ptr, ptr %295, align 8, !tbaa !53
-  %297 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %294
+  %297 = getelementptr inbounds ptr, ptr @argreg64, i64 %294
   br label %298
 
 298:                                              ; preds = %298, %.lr.ph.i108.i
@@ -1019,11 +1019,11 @@ store_fp.exit104.i:                               ; preds = %286, %282
   br i1 %exitcond.not.i110.i, label %store_gp.exit102.i, label %298, !llvm.loop !64
 
 switch.lookup50:                                  ; preds = %288
-  %302 = zext nneg i32 %switch.tableidx49 to i64
-  %switch.gep54 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %302
+  %302 = zext nneg i32 %switch.tableidx48 to i64
+  %switch.gep54 = getelementptr inbounds nuw ptr, ptr @switch.table.codegen.2, i64 %302
   %switch.load55 = load ptr, ptr %switch.gep54, align 8
   %303 = sext i32 %.078121.i to i64
-  %304 = getelementptr inbounds [6 x ptr], ptr %switch.load55, i64 0, i64 %303
+  %304 = getelementptr inbounds ptr, ptr %switch.load55, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %305, i32 noundef %226)
   br label %store_gp.exit102.i
@@ -2017,8 +2017,8 @@ getTypeId.exit.i:                                 ; preds = %172, %171, %170, %1
 
 getTypeId.exit10.i:                               ; preds = %195, %194, %193, %188, %183, %178, %173, %getTypeId.exit.i
   %.0.i9.i = phi i64 [ 7, %195 ], [ %177, %173 ], [ %182, %178 ], [ %187, %183 ], [ %192, %188 ], [ 9, %193 ], [ 10, %194 ], [ 8, %getTypeId.exit.i ]
-  %196 = getelementptr inbounds nuw [11 x [11 x ptr]], ptr @cast_table, i64 0, i64 %.0.i.i
-  %197 = getelementptr inbounds nuw [11 x ptr], ptr %196, i64 0, i64 %.0.i9.i
+  %196 = getelementptr inbounds nuw [11 x ptr], ptr @cast_table, i64 %.0.i.i
+  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %.0.i9.i
   %198 = load ptr, ptr %197, align 8, !tbaa !53
   %.not.i = icmp eq ptr %198, null
   br i1 %.not.i, label %common.ret443, label %199
@@ -2634,7 +2634,7 @@ push_args.exit:                                   ; preds = %406, %410, %416
 465:                                              ; preds = %462
   %466 = add nsw i32 %.1285, 1
   %467 = sext i32 %.1285 to i64
-  %468 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %467
+  %468 = getelementptr inbounds ptr, ptr @argreg64, i64 %467
   %469 = load ptr, ptr %468, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.252, ptr noundef %469)
   br label %470
@@ -2660,7 +2660,7 @@ push_args.exit:                                   ; preds = %406, %410, %416
 476:                                              ; preds = %473
   %477 = add nsw i32 %.4, 1
   %478 = sext i32 %.4 to i64
-  %479 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %478
+  %479 = getelementptr inbounds ptr, ptr @argreg64, i64 %478
   %480 = load ptr, ptr %479, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.252, ptr noundef %480)
   %481 = load i32, ptr @depth, align 4, !tbaa !87
@@ -2688,7 +2688,7 @@ push_args.exit:                                   ; preds = %406, %410, %416
 491:                                              ; preds = %489
   %492 = add nsw i32 %.1285, 1
   %493 = sext i32 %.1285 to i64
-  %494 = getelementptr inbounds [6 x ptr], ptr @argreg64, i64 0, i64 %493
+  %494 = getelementptr inbounds ptr, ptr @argreg64, i64 %493
   %495 = load ptr, ptr %494, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.252, ptr noundef %495)
   %496 = load i32, ptr @depth, align 4, !tbaa !87
@@ -2815,10 +2815,10 @@ push_args.exit:                                   ; preds = %406, %410, %416
 
 switch.lookup:                                    ; preds = %526
   %555 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr, i64 0, i64 %555
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr, i64 %555
   %switch.load = load ptr, ptr %switch.gep, align 8
   %556 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep387 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr.4, i64 0, i64 %556
+  %switch.gep387 = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr.4, i64 %556
   %switch.load388 = load ptr, ptr %switch.gep387, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.149, ptr noundef nonnull %switch.load)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.150)
@@ -2850,9 +2850,9 @@ switch.lookup:                                    ; preds = %526
   %570 = load ptr, ptr %569, align 8, !tbaa !72
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 4
   %572 = load i32, ptr %571, align 4, !tbaa !32
-  %switch.tableidx390 = add i32 %572, -1
-  %573 = icmp ult i32 %switch.tableidx390, 8
-  %switch.maskindex392 = trunc i32 %switch.tableidx390 to i8
+  %switch.tableidx389 = add i32 %572, -1
+  %573 = icmp ult i32 %switch.tableidx389, 8
+  %switch.maskindex392 = trunc i32 %switch.tableidx389 to i8
   %switch.shifted393 = lshr i8 -117, %switch.maskindex392
   %switch.lobit394 = trunc i8 %switch.shifted393 to i1
   %or.cond397 = select i1 %573, i1 %switch.lobit394, i1 false
@@ -2863,8 +2863,8 @@ switch.lookup:                                    ; preds = %526
   unreachable
 
 switch.lookup391:                                 ; preds = %557
-  %575 = zext nneg i32 %switch.tableidx390 to i64
-  %switch.gep395 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr.4, i64 0, i64 %575
+  %575 = zext nneg i32 %switch.tableidx389 to i64
+  %switch.gep395 = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr.4, i64 %575
   %switch.load396 = load ptr, ptr %switch.gep395, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load396)
   br label %common.ret443
@@ -3003,18 +3003,18 @@ switch.lookup391:                                 ; preds = %557
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.177)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.178)
   %619 = load i32, ptr %.tr, align 16, !tbaa !86
-  %switch.tableidx399 = add i32 %619, -12
-  %620 = icmp ult i32 %switch.tableidx399, 3
-  br i1 %620, label %switch.lookup398, label %622
+  %switch.tableidx398 = add i32 %619, -12
+  %620 = icmp ult i32 %switch.tableidx398, 3
+  br i1 %620, label %switch.lookup399, label %622
 
-switch.lookup398:                                 ; preds = %618
-  %621 = zext nneg i32 %switch.tableidx399 to i64
-  %switch.gep400 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.gen_expr.5, i64 0, i64 %621
+switch.lookup399:                                 ; preds = %618
+  %621 = zext nneg i32 %switch.tableidx398 to i64
+  %switch.gep400 = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr.5, i64 %621
   %switch.load401 = load ptr, ptr %switch.gep400, align 8
   br label %622
 
-622:                                              ; preds = %618, %switch.lookup398
-  %.str.165.sink = phi ptr [ %switch.load401, %switch.lookup398 ], [ @.str.169, %618 ]
+622:                                              ; preds = %618, %switch.lookup399
+  %.str.165.sink = phi ptr [ %switch.load401, %switch.lookup399 ], [ @.str.169, %618 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.165.sink)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.171)
   br label %common.ret443
@@ -3593,7 +3593,7 @@ define internal fastcc void @store(ptr noundef readonly captures(none) %0) unnam
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.store, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.store, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.loopexit.sink.split
 

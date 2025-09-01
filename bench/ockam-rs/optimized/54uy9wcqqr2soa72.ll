@@ -4766,10 +4766,10 @@ define hidden { ptr, i64 } @_ZN5ockam6remote9lifecycle9RelayType3str17hb11c56cce
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !139, !noundef !14
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5ockam6remote9lifecycle9RelayType3str17hb11c56ccec3697ecE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5ockam6remote9lifecycle9RelayType3str17hb11c56ccec3697ecE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5ockam6remote9lifecycle9RelayType3str17hb11c56ccec3697ecE.17, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ockam6remote9lifecycle9RelayType3str17hb11c56ccec3697ecE.17, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

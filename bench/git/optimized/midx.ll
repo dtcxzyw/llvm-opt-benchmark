@@ -1432,7 +1432,7 @@ midx_for_object.exit:                             ; preds = %.critedge.i
 
 39:                                               ; preds = %.preheader, %41
   %.0811.i.i = phi i64 [ %42, %41 ], [ 0, %.preheader ]
-  %40 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %40 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %31, %40
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %41
 
@@ -2617,7 +2617,7 @@ midx_for_object.exit.i:                           ; preds = %.critedge.i.i
 
 120:                                              ; preds = %.preheader430, %122
   %.0811.i.i.i = phi i64 [ %123, %122 ], [ 0, %.preheader430 ]
-  %121 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %121 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %112, %121
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %122
 
@@ -2704,7 +2704,7 @@ midx_for_object.exit.i139:                        ; preds = %.critedge.i.i137
 
 158:                                              ; preds = %.preheader429, %160
   %.0811.i.i.i140 = phi i64 [ %161, %160 ], [ 0, %.preheader429 ]
-  %159 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i140
+  %159 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i140
   %.not.i.i.i141 = icmp eq ptr %150, %159
   br i1 %.not.i.i.i141, label %.split.loop.exit9.i.i.i145, label %160
 

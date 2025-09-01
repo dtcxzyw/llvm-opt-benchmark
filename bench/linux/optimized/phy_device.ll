@@ -663,7 +663,7 @@ define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noun
 38:                                               ; preds = %36, %9
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %40 = sext i32 %1 to i64
-  %41 = getelementptr [32 x i32], ptr %39, i64 0, i64 %40
+  %41 = getelementptr i32, ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 1176
   store i32 %42, ptr %43, align 8
@@ -697,7 +697,7 @@ define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noun
 
 58:                                               ; preds = %66, %56
   %59 = phi i64 [ 1, %56 ], [ %67, %66 ]
-  %60 = getelementptr [32 x i32], ptr %57, i64 0, i64 %59
+  %60 = getelementptr i32, ptr %57, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %66, label %63
@@ -761,7 +761,7 @@ define internal i32 @phy_bus_match(ptr noundef %0, ptr noundef readonly captures
 
 21:                                               ; preds = %32, %17
   %22 = phi i64 [ 1, %17 ], [ %33, %32 ]
-  %23 = getelementptr [32 x i32], ptr %19, i64 0, i64 %22
+  %23 = getelementptr i32, ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %32, label %26
@@ -1144,7 +1144,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
 
 67:                                               ; preds = %64
   %68 = shl i32 %65, 16
-  %69 = getelementptr [32 x i32], ptr %49, i64 0, i64 %51
+  %69 = getelementptr i32, ptr %49, i64 %51
   store i32 %68, ptr %69, align 4
   %70 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %52, i32 noundef 3) #18
   %71 = icmp slt i32 %70, 0
@@ -2430,7 +2430,7 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_package_join(ptr noundef cap
   tail call void @mutex_lock(ptr noundef nonnull %8) #18
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2368
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr [32 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %29
@@ -2535,7 +2535,7 @@ define dso_local void @phy_package_leave(ptr noundef captures(none) %0) #0 align
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 2368
   %13 = load i8, ptr %3, align 8
   %14 = zext i8 %13 to i64
-  %15 = getelementptr [32 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr ptr, ptr %12, i64 %14
   store ptr null, ptr %15, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %9) #18
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2603,7 +2603,7 @@ define internal void @devm_phy_package_leave(ptr readnone captures(none) %0, ptr
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 2368
   %15 = load i8, ptr %5, align 8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [32 x ptr], ptr %14, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %14, i64 %16
   store ptr null, ptr %17, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %11) #18
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24

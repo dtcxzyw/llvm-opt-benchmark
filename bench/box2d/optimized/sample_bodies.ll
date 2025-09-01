@@ -2558,9 +2558,9 @@ define linkonce_odr dso_local void @_ZN5SleepC2ER8Settings(ptr noundef nonnull a
           to label %66 unwind label %75
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw [2 x %struct.b2ShapeId], ptr %40, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %40, i64 %indvars.iv
   store i64 %65, ptr %67, align 8
-  %68 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv
   store i8 0, ptr %68, align 1, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3132,7 +3132,7 @@ define linkonce_odr dso_local void @_ZN5Sleep4StepER8Settings(ptr noundef nonnul
   %133 = phi i32 [ %.pre, %.preheader ], [ %142, %132 ]
   %134 = phi i1 [ true, %.preheader ], [ false, %132 ]
   %indvars.iv42 = phi i64 [ 0, %.preheader ], [ 1, %132 ]
-  %135 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 0, i64 %indvars.iv42
+  %135 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv42
   %136 = load i8, ptr %135, align 1, !tbaa !83, !range !13, !noundef !14
   %137 = trunc nuw i8 %136 to i1
   %138 = select i1 %137, ptr @.str.26, ptr @.str.27

@@ -862,7 +862,7 @@ define internal fastcc void @util_do_cmds(ptr noundef nonnull %0, ptr noundef no
   %sext = shl i64 %17, 32
   %22 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %9, i64 %22, i1 false)
-  %23 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %17
+  %23 = getelementptr inbounds i8, ptr %4, i64 %17
   store i8 0, ptr %23, align 1, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %25 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %24, i32 noundef 0) #7

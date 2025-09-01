@@ -97,7 +97,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %15
-  %23 = getelementptr [7 x %struct.module_memory], ptr %7, i64 0, i64 %16
+  %23 = getelementptr %struct.module_memory, ptr %7, i64 %16
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -151,7 +151,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
   br i1 %59, label %60, label %69
 
 60:                                               ; preds = %53
-  %61 = getelementptr [7 x %struct.module_memory], ptr %7, i64 0, i64 %54
+  %61 = getelementptr %struct.module_memory, ptr %7, i64 %54
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8

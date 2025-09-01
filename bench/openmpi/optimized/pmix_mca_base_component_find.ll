@@ -35,7 +35,7 @@ define range(i32 -46, 1) i32 @pmix_mca_base_component_find(ptr noundef %0, ptr n
 
 11:                                               ; preds = %4
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12, i32 2
   %14 = load i32, ptr %13, align 4, !tbaa !19
   %15 = icmp sgt i32 %14, 9
   br i1 %15, label %16, label %21
@@ -207,7 +207,7 @@ pmix_obj_new_tma.exit.thread74:                   ; preds = %77, %.preheader, %p
 
 84:                                               ; preds = %82
   %85 = zext nneg i32 %83 to i64
-  %86 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %85, i32 2
+  %86 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %85, i32 2
   %87 = load i32, ptr %86, align 4, !tbaa !19
   %88 = icmp sgt i32 %87, 9
   br i1 %88, label %89, label %94

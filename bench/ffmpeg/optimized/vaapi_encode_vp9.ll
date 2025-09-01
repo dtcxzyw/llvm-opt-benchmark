@@ -264,7 +264,7 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %23
   %.1.i = select i1 %.not11.i, i8 %spec.select12.i, i8 %24
   %25 = zext nneg i32 %.110.i to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !94
   %28 = or disjoint i8 %.1.i, 1
   %29 = add i8 %28, %27
@@ -464,13 +464,13 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
 .preheader:                                       ; preds = %.preheader115, %._crit_edge
   %135 = phi i1 [ true, %.preheader115 ], [ false, %._crit_edge ]
   %indvars.iv121 = phi i64 [ 0, %.preheader115 ], [ 1, %._crit_edge ]
-  %136 = getelementptr inbounds nuw [2 x i32], ptr %133, i64 0, i64 %indvars.iv121
+  %136 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv121
   %137 = load i32, ptr %136, align 4, !tbaa !64
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %139 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %134, i64 0, i64 %indvars.iv121
+  %139 = getelementptr inbounds nuw [2 x ptr], ptr %134, i64 %indvars.iv121
   br label %140
 
 ._crit_edge:                                      ; preds = %151, %.preheader
@@ -478,13 +478,13 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
 
 140:                                              ; preds = %.lr.ph, %151
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
-  %141 = getelementptr inbounds nuw [2 x ptr], ptr %139, i64 0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv
   %142 = load ptr, ptr %141, align 8, !tbaa !100
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !85
   %145 = load i32, ptr %144, align 4, !tbaa !98
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds [8 x i32], ptr %132, i64 0, i64 %146
+  %147 = getelementptr inbounds i32, ptr %132, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !64
   %149 = icmp eq i32 %148, -1
   br i1 %149, label %151, label %150

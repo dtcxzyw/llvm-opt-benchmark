@@ -299,7 +299,7 @@ define range(i32 0, 2) i32 @ssl_load_groups(ptr noundef %0) local_unnamed_addr #
 .preheader.us:                                    ; preds = %..loopexit_crit_edge.us, %.preheader37.split.us
   %.041.us = phi i64 [ 0, %.preheader37.split.us ], [ %.1.us, %..loopexit_crit_edge.us ]
   %.03339.us = phi i64 [ 0, %.preheader37.split.us ], [ %20, %..loopexit_crit_edge.us ]
-  %9 = getelementptr inbounds nuw [17 x i16], ptr @supported_groups_default, i64 0, i64 %.03339.us
+  %9 = getelementptr inbounds nuw i16, ptr @supported_groups_default, i64 %.03339.us
   %10 = load i16, ptr %9, align 2, !tbaa !93
   br label %13
 
@@ -317,7 +317,7 @@ define range(i32 0, 2) i32 @ssl_load_groups(ptr noundef %0) local_unnamed_addr #
 
 17:                                               ; preds = %13
   %18 = add i64 %.041.us, 1
-  %19 = getelementptr inbounds nuw [17 x i16], ptr %2, i64 0, i64 %.041.us
+  %19 = getelementptr inbounds nuw i16, ptr %2, i64 %.041.us
   store i16 %10, ptr %19, align 2, !tbaa !93
   br label %..loopexit_crit_edge.us
 
@@ -550,7 +550,7 @@ define i32 @tls1_group_id2nid(i16 noundef zeroext %0, i32 noundef %1) local_unna
 
 .preheader:                                       ; preds = %2, %5
   %.011 = phi i64 [ %6, %5 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.011
+  %7 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.011
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i16, ptr %8, align 4, !tbaa !122
   %10 = icmp eq i16 %9, %0
@@ -577,13 +577,13 @@ define zeroext i16 @tls1_nid2group_id(i32 noundef %0) local_unnamed_addr #5 {
 
 2:                                                ; preds = %1, %9
   %.07 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %3 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07
+  %3 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07
   %4 = load i32, ptr %3, align 8, !tbaa !124
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07, i32 1
+  %7 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07, i32 1
   %8 = load i16, ptr %7, align 4, !tbaa !122
   br label %.loopexit
 
@@ -920,7 +920,7 @@ tls1_group_id_lookup.exit.thread:                 ; preds = %11, %3
 
 .preheader.i:                                     ; preds = %18, %26
   %.011.i = phi i64 [ %27, %26 ], [ 0, %18 ]
-  %28 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.011.i
+  %28 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.011.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i16, ptr %29, align 4, !tbaa !122
   %31 = icmp eq i16 %30, %1
@@ -1393,7 +1393,7 @@ tls1_in_list.exit:                                ; preds = %.lr.ph.i
 
 .preheader.i.i:                                   ; preds = %96, %103
   %.011.i.i = phi i64 [ %104, %103 ], [ 0, %96 ]
-  %105 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.011.i.i
+  %105 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.011.i.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i16, ptr %106, align 4, !tbaa !122
   %108 = icmp eq i16 %107, %78
@@ -1535,7 +1535,7 @@ define range(i32 0, 2) i32 @tls1_set_groups(ptr noundef captures(none) %0, ptr n
 
 23:                                               ; preds = %27, %.preheader
   %.07.i = phi i64 [ 0, %.preheader ], [ %28, %27 ]
-  %24 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07.i
+  %24 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07.i
   %25 = load i32, ptr %24, align 8, !tbaa !124
   %26 = icmp eq i32 %25, %22
   br i1 %26, label %tls1_nid2group_id.exit, label %27
@@ -1546,7 +1546,7 @@ define range(i32 0, 2) i32 @tls1_set_groups(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond.not.i, label %.thread60, label %23, !llvm.loop !125
 
 tls1_nid2group_id.exit:                           ; preds = %23
-  %29 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07.i, i32 1
+  %29 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07.i, i32 1
   %30 = load i16, ptr %29, align 4, !tbaa !122
   %31 = and i16 %30, 255
   %32 = icmp samesign ugt i16 %31, 63
@@ -2031,7 +2031,7 @@ tls1_in_list.exit:                                ; preds = %.lr.ph.i, %.critedg
 
 .preheader.i.i:                                   ; preds = %51, %58
   %.011.i.i = phi i64 [ %59, %58 ], [ 0, %51 ]
-  %60 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.011.i.i
+  %60 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.011.i.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i16, ptr %61, align 4, !tbaa !122
   %63 = icmp eq i16 %62, %1
@@ -2187,7 +2187,7 @@ define range(i32 0, 2) i32 @ssl_setup_sigalgs(ptr noundef captures(address_is_nu
   %.07788 = phi ptr [ @sigalg_lookup_tbl, %16 ], [ %53, %52 ]
   %23 = getelementptr inbounds nuw %struct.sigalg_lookup_st, ptr %9, i64 %.089
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %.07788, i64 40, i1 false), !tbaa.struct !177
-  %24 = getelementptr inbounds nuw [31 x i16], ptr @tls12_sigalgs, i64 0, i64 %.089
+  %24 = getelementptr inbounds nuw i16, ptr @tls12_sigalgs, i64 %.089
   %25 = load i16, ptr %24, align 2, !tbaa !93
   %26 = getelementptr inbounds nuw i16, ptr %14, i64 %.089
   store i16 %25, ptr %26, align 2, !tbaa !93
@@ -2200,7 +2200,7 @@ define range(i32 0, 2) i32 @ssl_setup_sigalgs(ptr noundef captures(address_is_nu
   %30 = getelementptr inbounds nuw i8, ptr %.07788, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !180
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [14 x ptr], ptr %18, i64 0, i64 %32
+  %33 = getelementptr inbounds ptr, ptr %18, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !181
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
@@ -2660,7 +2660,7 @@ define internal fastcc ptr @tls1_get_legacy_sigalg(ptr noundef %0, i32 noundef %
 
 72:                                               ; preds = %.thread66
   %73 = zext nneg i32 %.04669 to i64
-  %74 = getelementptr inbounds nuw [9 x i16], ptr @tls_default_sigalg, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i16, ptr @tls_default_sigalg, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !93
   %76 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %76, align 8, !tbaa !126
@@ -3387,13 +3387,13 @@ ssl_get_EC_curve_nid.exit:                        ; preds = %1
 
 .preheader:                                       ; preds = %ssl_get_EC_curve_nid.exit, %13
   %.07.i = phi i64 [ %14, %13 ], [ 0, %ssl_get_EC_curve_nid.exit ]
-  %7 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07.i
+  %7 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07.i
   %8 = load i32, ptr %7, align 8, !tbaa !124
   %9 = icmp eq i32 %8, %5
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07.i, i32 1
+  %11 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07.i, i32 1
   %12 = load i16, ptr %11, align 4, !tbaa !122
   br label %tls1_nid2group_id.exit
 
@@ -6079,7 +6079,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
   %.066 = getelementptr inbounds nuw i8, ptr %0, i64 %.066.idx
   %16 = sext i32 %.067 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.066, i64 %16, i1 false)
-  %17 = getelementptr inbounds [40 x i8], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds i8, ptr %4, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !141
   %18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 43) #15
   %19 = icmp eq ptr %18, null
@@ -6132,7 +6132,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = add i64 %12, 1
   store i64 %43, ptr %2, align 8, !tbaa !272
-  %44 = getelementptr inbounds nuw [62 x i16], ptr %42, i64 0, i64 %12
+  %44 = getelementptr inbounds nuw i16, ptr %42, i64 %12
   store i16 %41, ptr %44, align 2, !tbaa !93
   %45 = icmp eq i64 %.16492, %24
   br i1 %45, label %.loopexit81.thread, label %85
@@ -6159,7 +6159,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = add i64 %46, 1
   store i64 %55, ptr %2, align 8, !tbaa !272
-  %56 = getelementptr inbounds nuw [62 x i16], ptr %54, i64 0, i64 %46
+  %56 = getelementptr inbounds nuw i16, ptr %54, i64 %46
   store i16 %53, ptr %56, align 2, !tbaa !93
   br label %85
 
@@ -6207,7 +6207,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
   %79 = load i64, ptr %2, align 8, !tbaa !272
   %80 = add i64 %79, 1
   store i64 %80, ptr %2, align 8, !tbaa !272
-  %81 = getelementptr inbounds nuw [62 x i16], ptr %78, i64 0, i64 %79
+  %81 = getelementptr inbounds nuw i16, ptr %78, i64 %79
   store i16 %77, ptr %81, align 2, !tbaa !93
   br label %85
 
@@ -6224,7 +6224,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
 
 .lr.ph96:                                         ; preds = %85
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %88 = getelementptr inbounds nuw [62 x i16], ptr %87, i64 0, i64 %86
+  %88 = getelementptr inbounds nuw i16, ptr %87, i64 %86
   %89 = load i16, ptr %88, align 2, !tbaa !93
   br label %92
 
@@ -6235,7 +6235,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
 
 92:                                               ; preds = %.lr.ph96, %90
   %.495 = phi i64 [ 0, %.lr.ph96 ], [ %91, %90 ]
-  %93 = getelementptr inbounds nuw [62 x i16], ptr %87, i64 0, i64 %.495
+  %93 = getelementptr inbounds nuw i16, ptr %87, i64 %.495
   %94 = load i16, ptr %93, align 2, !tbaa !93
   %95 = icmp eq i16 %94, %89
   br i1 %95, label %96, label %90
@@ -6613,10 +6613,10 @@ tls12_rpk_and_privkey.exit.thread:                ; preds = %38, %42, %46, %tls1
 
 switch.lookup:                                    ; preds = %122
   %124 = zext nneg i32 %.1184 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.tls1_check_chain, i64 0, i64 %124
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tls1_check_chain, i64 %124
   %switch.load = load i32, ptr %switch.gep, align 4
   %125 = zext nneg i32 %.1184 to i64
-  %switch.gep411 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.tls1_check_chain.9, i64 0, i64 %125
+  %switch.gep411 = getelementptr inbounds nuw i32, ptr @switch.table.tls1_check_chain.9, i64 %125
   %switch.load412 = load i32, ptr %switch.gep411, align 4
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %127 = load ptr, ptr %126, align 8, !tbaa !209
@@ -7503,13 +7503,13 @@ ssl_get_EC_curve_nid.exit.i:                      ; preds = %tls1_check_pkey_com
 
 .preheader.i29:                                   ; preds = %ssl_get_EC_curve_nid.exit.i, %48
   %.07.i.i = phi i64 [ %49, %48 ], [ 0, %ssl_get_EC_curve_nid.exit.i ]
-  %42 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07.i.i
+  %42 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07.i.i
   %43 = load i32, ptr %42, align 8, !tbaa !124
   %44 = icmp eq i32 %43, %40
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %.preheader.i29
-  %46 = getelementptr inbounds nuw [45 x %struct.anon.5], ptr @nid_to_group, i64 0, i64 %.07.i.i, i32 1
+  %46 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.07.i.i, i32 1
   %47 = load i16, ptr %46, align 4, !tbaa !122
   br label %tls1_get_group_id.exit
 
@@ -9799,7 +9799,7 @@ define internal i32 @gid_cb(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
 19:                                               ; preds = %.preheader239, %51
   %20 = phi i1 [ true, %.preheader239 ], [ false, %51 ]
   %.0190280 = phi i64 [ 0, %.preheader239 ], [ 1, %51 ]
-  %21 = getelementptr inbounds nuw [2 x %struct.default_group_string_st], ptr @default_group_strings, i64 0, i64 %.0190280
+  %21 = getelementptr inbounds nuw %struct.default_group_string_st, ptr @default_group_strings, i64 %.0190280
   %22 = load ptr, ptr %21, align 16, !tbaa !324
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #15
   %24 = icmp eq i64 %23, %15
@@ -9942,7 +9942,7 @@ define internal i32 @gid_cb(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
 89:                                               ; preds = %87
   %90 = zext nneg i32 %.0167267 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %.0161263, i64 %90, i1 false)
-  %91 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %90
   store i8 0, ptr %91, align 1, !tbaa !141
   %92 = load ptr, ptr %2, align 8, !tbaa !166
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1664
@@ -9991,7 +9991,7 @@ tls1_group_name2id.exit:                          ; preds = %97, %102
 
 .preheader238:                                    ; preds = %.preheader238.preheader, %112
   %.1191286 = phi i64 [ %113, %112 ], [ 0, %.preheader238.preheader ]
-  %114 = getelementptr inbounds nuw [7 x %struct.name2id_st], ptr @name2id_arr, i64 0, i64 %.1191286
+  %114 = getelementptr inbounds nuw %struct.name2id_st, ptr @name2id_arr, i64 %.1191286
   %115 = load ptr, ptr %114, align 16, !tbaa !332
   %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %115) #15
   %117 = icmp eq i32 %116, 0

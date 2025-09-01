@@ -725,7 +725,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %9 = sext i32 %5 to i64
-  %10 = getelementptr [3 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14

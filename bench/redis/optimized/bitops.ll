@@ -69,7 +69,7 @@ define dso_local i64 @redisPopcount(ptr noundef %0, i64 noundef %1) local_unname
   %12 = getelementptr inbounds nuw i8, ptr %.08895, i64 1
   %13 = load i8, ptr %.08895, align 1, !tbaa !5
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @redisPopcount.bitsinbyte, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @redisPopcount.bitsinbyte, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !5
   %17 = zext i8 %16 to i64
   %18 = add nuw nsw i64 %.08496, %17
@@ -252,7 +252,7 @@ define dso_local i64 @redisPopcount(ptr noundef %0, i64 noundef %1) local_unname
   %146 = getelementptr inbounds nuw i8, ptr %.391122, i64 1
   %147 = load i8, ptr %.391122, align 1, !tbaa !5
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw [256 x i8], ptr @redisPopcount.bitsinbyte, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr @redisPopcount.bitsinbyte, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !5
   %151 = zext i8 %150 to i64
   %152 = add nsw i64 %.387123, %151
@@ -1286,7 +1286,7 @@ define dso_local void @getbitCommand(ptr noundef %0) local_unnamed_addr #3 {
   %7 = load ptr, ptr %6, align 8, !tbaa !72
   %8 = call i32 @getBitOffsetFromArgument(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0)
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %73
+  br i1 %.not, label %9, label %71
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %4, align 8, !tbaa !61
@@ -1295,12 +1295,12 @@ define dso_local void @getbitCommand(ptr noundef %0) local_unnamed_addr #3 {
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !77
   %14 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %13) #18
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %73, label %16
+  br i1 %15, label %71, label %16
 
 16:                                               ; preds = %9
   %17 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 0) #18
   %.not21 = icmp eq i32 %17, 0
-  br i1 %.not21, label %18, label %73
+  br i1 %.not21, label %18, label %71
 
 18:                                               ; preds = %16
   %19 = load i64, ptr %3, align 8, !tbaa !11
@@ -1308,7 +1308,7 @@ define dso_local void @getbitCommand(ptr noundef %0) local_unnamed_addr #3 {
   %21 = load i32, ptr %14, align 8
   %22 = lshr i32 %21, 4
   %23 = and i32 %22, 15
-  switch i32 %23, label %52 [
+  switch i32 %23, label %50 [
     i32 0, label %24
     i32 8, label %24
   ]
@@ -1359,52 +1359,45 @@ define dso_local void @getbitCommand(ptr noundef %0) local_unnamed_addr #3 {
 sdslen.exit:                                      ; preds = %31, %34, %38, %42, %46
   %.0.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ]
   %49 = icmp ult i64 %20, %.0.i
-  br i1 %49, label %50, label %.thread
+  br i1 %49, label %58, label %.thread
 
-50:                                               ; preds = %sdslen.exit
-  %51 = getelementptr inbounds nuw i8, ptr %26, i64 %20
-  br label %62
+50:                                               ; preds = %18
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !26
+  %53 = ptrtoint ptr %52 to i64
+  %54 = call i32 @ll2string(ptr noundef nonnull %2, i64 noundef 32, i64 noundef %53) #18
+  %55 = sext i32 %54 to i64
+  %56 = icmp ult i64 %20, %55
+  br i1 %56, label %58, label %.thread
 
-52:                                               ; preds = %18
-  %53 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !26
-  %55 = ptrtoint ptr %54 to i64
-  %56 = call i32 @ll2string(ptr noundef nonnull %2, i64 noundef 32, i64 noundef %55) #18
-  %57 = sext i32 %56 to i64
-  %58 = icmp ult i64 %20, %57
-  br i1 %58, label %59, label %.thread
+.thread:                                          ; preds = %sdslen.exit, %50, %24
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
+  br label %69
 
-59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %20
-  br label %62
+58:                                               ; preds = %50, %sdslen.exit
+  %.sink = phi ptr [ %26, %sdslen.exit ], [ %2, %50 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sink, i64 %20
+  %60 = load i8, ptr %59, align 1, !tbaa !5
+  %.fr31 = freeze i8 %60
+  %61 = zext i8 %.fr31 to i32
+  %62 = trunc i64 %19 to i32
+  %63 = and i32 %62, 7
+  %64 = xor i32 %63, 7
+  %65 = shl nuw nsw i32 1, %64
+  %.fr = freeze i32 %65
+  %66 = and i32 %.fr, %61
+  %.not22 = icmp eq i32 %66, 0
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
+  %spec.select = select i1 %.not22, ptr %68, ptr %67
+  br label %69
 
-.thread:                                          ; preds = %sdslen.exit, %52, %24
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
+69:                                               ; preds = %58, %.thread
+  %70 = phi ptr [ %57, %.thread ], [ %spec.select, %58 ]
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %70) #18
   br label %71
 
-62:                                               ; preds = %59, %50
-  %.sink.in = phi ptr [ %60, %59 ], [ %51, %50 ]
-  %.sink = load i8, ptr %.sink.in, align 1, !tbaa !5
-  %.sink.fr = freeze i8 %.sink
-  %63 = zext i8 %.sink.fr to i32
-  %64 = trunc i64 %19 to i32
-  %65 = and i32 %64, 7
-  %66 = xor i32 %65, 7
-  %67 = shl nuw nsw i32 1, %66
-  %.fr = freeze i32 %67
-  %68 = and i32 %.fr, %63
-  %.not22 = icmp eq i32 %68, 0
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
-  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
-  %spec.select = select i1 %.not22, ptr %70, ptr %69
-  br label %71
-
-71:                                               ; preds = %62, %.thread
-  %72 = phi ptr [ %61, %.thread ], [ %spec.select, %62 ]
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %72) #18
-  br label %73
-
-73:                                               ; preds = %9, %16, %1, %71
+71:                                               ; preds = %9, %16, %1, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -1673,7 +1666,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %107 = phi i64 [ %.promoted.us311, %.preheader264.us ], [ %115, %104 ]
   %108 = phi i64 [ %.0206.promoted.us, %.preheader264.us ], [ %112, %104 ]
   %.0207302.us = phi i64 [ 1, %.preheader264.us ], [ %123, %104 ]
-  %109 = getelementptr inbounds nuw [16 x ptr], ptr %2, i64 0, i64 %.0207302.us
+  %109 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0207302.us
   %110 = load ptr, ptr %109, align 8, !tbaa !84
   %111 = load i64, ptr %110, align 8, !tbaa !11
   %112 = and i64 %108, %111
@@ -1733,7 +1726,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %136 = phi i64 [ %.promoted.us300, %.preheader267.us ], [ %144, %133 ]
   %137 = phi i64 [ %.1.promoted.us, %.preheader267.us ], [ %141, %133 ]
   %.1208291.us = phi i64 [ 1, %.preheader267.us ], [ %152, %133 ]
-  %138 = getelementptr inbounds nuw [16 x ptr], ptr %2, i64 0, i64 %.1208291.us
+  %138 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1208291.us
   %139 = load ptr, ptr %138, align 8, !tbaa !84
   %140 = load i64, ptr %139, align 8, !tbaa !11
   %141 = or i64 %137, %140
@@ -1793,7 +1786,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %165 = phi i64 [ %.promoted.us, %.preheader270.us ], [ %173, %162 ]
   %166 = phi i64 [ %.2.promoted.us, %.preheader270.us ], [ %170, %162 ]
   %.2209282.us = phi i64 [ 1, %.preheader270.us ], [ %181, %162 ]
-  %167 = getelementptr inbounds nuw [16 x ptr], ptr %2, i64 0, i64 %.2209282.us
+  %167 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2209282.us
   %168 = load ptr, ptr %167, align 8, !tbaa !84
   %169 = load i64, ptr %168, align 8, !tbaa !11
   %170 = xor i64 %166, %169
@@ -3636,7 +3629,7 @@ getObjectReadOnlyString.exit:                     ; preds = %322
 361:                                              ; preds = %.lr.ph430.split
   %362 = getelementptr inbounds nuw i8, ptr %.0189.ph, i64 %360
   %363 = load i8, ptr %362, align 1, !tbaa !5
-  %364 = getelementptr inbounds nuw [9 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %364 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   store i8 %363, ptr %364, align 1, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 9

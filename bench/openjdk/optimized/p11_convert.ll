@@ -602,7 +602,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   %62 = getelementptr inbounds nuw i16, ptr %52, i64 %.0131
   %63 = load i16, ptr %62, align 2
   %64 = trunc i16 %63 to i8
-  %65 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 0, i64 %.0131
+  %65 = getelementptr inbounds nuw i8, ptr %41, i64 %.0131
   store i8 %64, ptr %65, align 1
   %66 = add nuw nsw i64 %.0131, 1
   %exitcond.not = icmp eq i64 %66, %invariant.umin
@@ -659,7 +659,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   %90 = getelementptr inbounds nuw i16, ptr %78, i64 %.1134
   %91 = load i16, ptr %90, align 2
   %92 = trunc i16 %91 to i8
-  %93 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 0, i64 %.1134
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 %.1134
   store i8 %92, ptr %93, align 1
   %94 = add nuw nsw i64 %.1134, 1
   %exitcond146.not = icmp eq i64 %94, %invariant.umin133
@@ -716,7 +716,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   %118 = getelementptr inbounds nuw i16, ptr %106, i64 %.2139
   %119 = load i16, ptr %118, align 2
   %120 = trunc i16 %119 to i8
-  %121 = getelementptr inbounds nuw [2 x i8], ptr %116, i64 0, i64 %.2139
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 %.2139
   store i8 %120, ptr %121, align 1
   %122 = add nuw nsw i64 %.2139, 1
   %exitcond148.not = icmp eq i64 %122, %invariant.umin138

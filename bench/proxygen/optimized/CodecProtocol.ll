@@ -138,7 +138,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.ep
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i8 %proto to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN8proxygen22getCodecProtocolStringB5cxx11ENS_13CodecProtocolE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8proxygen22getCodecProtocolStringB5cxx11ENS_13CodecProtocolE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

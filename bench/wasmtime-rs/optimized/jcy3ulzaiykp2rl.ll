@@ -674,7 +674,7 @@ define hidden void @_ZN14cranelift_wasm5state20FuncTranslationState15get_direct_
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h122af0411e3b64b4E.exit": ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 304
   %30 = load ptr, ptr %29, align 8, !alias.scope !56, !noalias !59, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] }, i32, i8, [3 x i8] }], ptr %30, i64 0, i64 %24, i32 1
+  %31 = getelementptr inbounds nuw { { i8, [23 x i8] }, i32, i8, [3 x i8] }, ptr %30, i64 %24, i32 1
   %32 = load i32, ptr %31, align 8, !noundef !4
   %33 = tail call noundef align 8 dereferenceable(776) ptr @"_ZN85_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5b2c5c33452cbb1eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
@@ -691,7 +691,7 @@ define hidden void @_ZN14cranelift_wasm5state20FuncTranslationState15get_direct_
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7da92df8fd1a3f8fE.exit": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h122af0411e3b64b4E.exit"
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 280
   %40 = load ptr, ptr %39, align 8, !alias.scope !62, !noalias !65, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %40, i64 0, i64 %34, i32 0, i32 1
+  %41 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %40, i64 %34, i32 0, i32 1
   %42 = load i64, ptr %41, align 8, !noundef !4
   %.not.i = icmp eq i64 %42, 0
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6c58dc4b332ba6fdE.exit, label %.lr.ph.i
@@ -830,7 +830,7 @@ define hidden void @_ZN14cranelift_wasm5state20FuncTranslationState16get_indirec
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7da92df8fd1a3f8fE.exit": ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 280
   %30 = load ptr, ptr %29, align 8, !alias.scope !78, !noalias !81, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %30, i64 0, i64 %24, i32 0, i32 1
+  %31 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %30, i64 %24, i32 0, i32 1
   %32 = load i64, ptr %31, align 8, !noundef !4
   %.not.i = icmp eq i64 %32, 0
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6c58dc4b332ba6fdE.exit, label %.lr.ph.i

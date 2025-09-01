@@ -117,7 +117,7 @@ define internal i32 @luaB_assert(ptr noundef %0) #0 {
 define internal noundef i32 @luaB_collectgarbage(ptr noundef %0) #0 {
   %2 = tail call i32 @luaL_checkoption(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.29, ptr noundef nonnull @luaB_collectgarbage.opts) #9
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [9 x i8], ptr @luaB_collectgarbage.optsnum, i64 0, i64 %3
+  %4 = getelementptr inbounds i8, ptr @luaB_collectgarbage.optsnum, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !5
   switch i8 %5, label %50 [
     i8 3, label %6
@@ -194,7 +194,7 @@ define internal noundef i32 @luaB_collectgarbage(ptr noundef %0) #0 {
 40:                                               ; preds = %1
   %41 = tail call i32 @luaL_checkoption(ptr noundef %0, i32 noundef 2, ptr noundef null, ptr noundef nonnull @luaB_collectgarbage.params) #9
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [6 x i8], ptr @luaB_collectgarbage.pnum, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr @luaB_collectgarbage.pnum, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !5
   %45 = sext i8 %44 to i32
   %46 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 3, i64 noundef -1) #9

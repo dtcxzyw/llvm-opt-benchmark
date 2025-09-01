@@ -379,10 +379,10 @@ define internal noundef zeroext i1 @_RNvXso_NtCs2al5CLA23zg_9rustc_ast6formatNtB
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !6, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._RNvXso_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_21FormatArgPositionKindNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._RNvXso_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_21FormatArgPositionKindNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._RNvXso_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_21FormatArgPositionKindNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt.167, i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._RNvXso_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_21FormatArgPositionKindNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt.167, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h3ae05f1225cf0e93E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -393,10 +393,10 @@ define internal noundef zeroext i1 @_RNvXsv_NtCs2al5CLA23zg_9rustc_ast6formatNtB
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !7, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._RNvXsv_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_11FormatTraitNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._RNvXsv_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_11FormatTraitNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._RNvXsv_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_11FormatTraitNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt.168, i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._RNvXsv_NtCs2al5CLA23zg_9rustc_ast6formatNtB5_11FormatTraitNtNtCs9nhK3FOW46N_4core3fmt5Debug3fmt.168, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h3ae05f1225cf0e93E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2107,7 +2107,7 @@ switch.lookup:
   %3 = or disjoint i8 %.val, 4
   %switch.offset = zext nneg i8 %3 to i64
   %4 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc6e5f1a7a84f5883E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc6e5f1a7a84f5883E", i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h3ae05f1225cf0e93E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.offset)
   ret i1 %5
@@ -27788,7 +27788,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   unreachable
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds [0 x { { { i64, [21 x i64] }, { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } } } }, { { { { i64, ptr }, i64 } } }, i64 }], ptr %2, i64 0, i64 %.val5.i, i32 2
+  %94 = getelementptr inbounds { { { i64, [21 x i64] }, { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } } } }, { { { { i64, ptr }, i64 } } }, i64 }, ptr %2, i64 %.val5.i, i32 2
   %95 = load i64, ptr %94, align 8, !noalias !6276, !noundef !4
   %.sroa.0.015.i.i = and i64 %65, %95
   %96 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.015.i.i
@@ -27940,7 +27940,7 @@ _ZN4core3ptr19swap_nonoverlapping17h40054f0b79c649f6E.exit.loopexit.i: ; preds =
 
 .lr.ph.i:                                         ; preds = %153, %_ZN4core3ptr19swap_nonoverlapping17h40054f0b79c649f6E.exit.loopexit.i
   %.val5.i20.i = phi i64 [ %.val5.i.i, %_ZN4core3ptr19swap_nonoverlapping17h40054f0b79c649f6E.exit.loopexit.i ], [ %.val5.i18.i, %153 ]
-  %162 = getelementptr inbounds [0 x { { { i64, [21 x i64] }, { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } } } }, { { { { i64, ptr }, i64 } } }, i64 }], ptr %2, i64 0, i64 %.val5.i20.i, i32 2
+  %162 = getelementptr inbounds { { { i64, [21 x i64] }, { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } } } }, { { { { i64, ptr }, i64 } } }, i64 }, ptr %2, i64 %.val5.i20.i, i32 2
   %163 = load i64, ptr %162, align 8, !noalias !6312, !noundef !4
   %.sroa.0.015.i.i17 = and i64 %163, %19
   %164 = getelementptr inbounds i8, ptr %.val.i10, i64 %.sroa.0.015.i.i17
@@ -28258,7 +28258,7 @@ _RNvMsa_NtNtCs7WBlwiK43N0_9hashbrown3raw5innerNtB5_13RawTableInner20full_buckets
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17hb6c5dea2c5ed4b31E.exit
 
 81:                                               ; preds = %._crit_edge89
-  %82 = getelementptr inbounds [0 x { { { i32, i16, i16 }, { { { i64, ptr }, i64 } } }, i64, {} }], ptr %2, i64 0, i64 %.val5.i, i32 1
+  %82 = getelementptr inbounds { { { i32, i16, i16 }, { { { i64, ptr }, i64 } } }, i64, {} }, ptr %2, i64 %.val5.i, i32 1
   %83 = load i64, ptr %82, align 8, !noalias !6355, !noundef !4
   %.sroa.0.05.i.i = and i64 %36, %83
   %84 = getelementptr inbounds i8, ptr %33, i64 %.sroa.0.05.i.i
@@ -28431,7 +28431,7 @@ _ZN4core3ptr19swap_nonoverlapping17h40054f0b79c649f6E.exit.loopexit: ; preds = %
 .lr.ph:                                           ; preds = %145, %_ZN4core3ptr19swap_nonoverlapping17h40054f0b79c649f6E.exit.loopexit
   %.val5.i1282 = phi i64 [ %.val5.i12, %_ZN4core3ptr19swap_nonoverlapping17h40054f0b79c649f6E.exit.loopexit ], [ %.val5.i1281, %145 ]
   %157 = phi ptr [ %153, %_ZN4core3ptr19swap_nonoverlapping17h40054f0b79c649f6E.exit.loopexit ], [ %142, %145 ]
-  %158 = getelementptr inbounds [0 x { { { i32, i16, i16 }, { { { i64, ptr }, i64 } } }, i64, {} }], ptr %2, i64 0, i64 %.val5.i1282, i32 1
+  %158 = getelementptr inbounds { { { i32, i16, i16 }, { { { i64, ptr }, i64 } } }, i64, {} }, ptr %2, i64 %.val5.i1282, i32 1
   %159 = load i64, ptr %158, align 8, !noalias !6401, !noundef !4
   %.val1 = load i64, ptr %19, align 8, !noundef !4
   %.sroa.0.05.i = and i64 %.val1, %159

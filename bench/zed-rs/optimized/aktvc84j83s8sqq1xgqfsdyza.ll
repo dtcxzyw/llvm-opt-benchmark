@@ -1162,7 +1162,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %14 = add i64 %.sroa.7.0, 1
   %15 = load i8, ptr %.sroa.0.0, align 1, !noundef !5
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17h66f00613314c56ccE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser6ESCAPE17h66f00613314c56ccE, i64 %16
   %18 = load i8, ptr %17, align 1, !noundef !5
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %8, label %43
@@ -1315,9 +1315,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h7a5b129a5edd337bE.exit28:
   %87 = zext nneg i8 %86 to i64
   %88 = lshr i8 %15, 4
   %89 = zext nneg i8 %88 to i64
-  %90 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 %89
   %91 = load i8, ptr %90, align 1, !noundef !5
-  %92 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 0, i64 %87
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 %87
   %93 = load i8, ptr %92, align 1, !noundef !5
   %94 = load i64, ptr %6, align 8, !alias.scope !318, !noalias !327, !noundef !5
   %95 = load i64, ptr %.val22, align 8, !alias.scope !318, !noalias !327, !noundef !5
@@ -1404,7 +1404,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser27format_escaped_str_conte
   %14 = add i64 %.sroa.7.0, 1
   %15 = load i8, ptr %.sroa.0.0, align 1, !noundef !5
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17h66f00613314c56ccE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser6ESCAPE17h66f00613314c56ccE, i64 %16
   %18 = load i8, ptr %17, align 1, !noundef !5
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %8, label %43
@@ -1557,9 +1557,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h81b8588da7b5d44aE.exit28:
   %87 = zext nneg i8 %86 to i64
   %88 = lshr i8 %15, 4
   %89 = zext nneg i8 %88 to i64
-  %90 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 %89
   %91 = load i8, ptr %90, align 1, !noundef !5
-  %92 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 0, i64 %87
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 %87
   %93 = load i8, ptr %92, align 1, !noundef !5
   %94 = load i64, ptr %6, align 8, !alias.scope !392, !noalias !401, !noundef !5
   %95 = load i64, ptr %.val22, align 8, !alias.scope !392, !noalias !401, !noundef !5

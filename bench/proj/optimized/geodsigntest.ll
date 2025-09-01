@@ -280,13 +280,13 @@ Init.exit:                                        ; preds = %3
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i, %52
   %.0.lcssa.i.i = phi double [ %57, %52 ], [ %60, %.lr.ph.i.i ]
   %62 = add i32 %54, %.018.i
-  %63 = add i32 %62, 1
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [18 x double], ptr @A3coeff.coeff, i64 0, i64 %64
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr double, ptr @A3coeff.coeff, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 8
   %66 = load double, ptr %65, align 8, !tbaa !4
   %67 = fdiv double %.0.lcssa.i.i, %66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %68 = getelementptr inbounds nuw [6 x double], ptr %51, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i
   store double %67, ptr %68, align 8, !tbaa !4
   %69 = add i32 %62, 2
   %70 = add nsw i32 %.01417.i, -1
@@ -334,13 +334,13 @@ A3coeff.exit:                                     ; preds = %polyvalx.exit.i
 polyvalx.exit.i39:                                ; preds = %.lr.ph.i.i34, %73
   %.0.lcssa.i.i40 = phi double [ %79, %73 ], [ %82, %.lr.ph.i.i34 ]
   %84 = add i32 %75, %.123.i
-  %85 = add i32 %84, 1
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [45 x double], ptr @C3coeff.coeff, i64 0, i64 %86
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr double, ptr @C3coeff.coeff, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 8
   %88 = load double, ptr %87, align 8, !tbaa !4
   %89 = fdiv double %.0.lcssa.i.i40, %88
   %indvars.iv.next.i41 = add nsw i64 %indvars.iv.i32, 1
-  %90 = getelementptr inbounds [15 x double], ptr %71, i64 0, i64 %indvars.iv.i32
+  %90 = getelementptr inbounds double, ptr %71, i64 %indvars.iv.i32
   store double %89, ptr %90, align 8, !tbaa !4
   %91 = add i32 %84, 2
   %92 = add nsw i32 %.01722.i, -1
@@ -362,72 +362,72 @@ C3coeff.exit:                                     ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %.preheader.i43
 
-.preheader.i43:                                   ; preds = %117, %C3coeff.exit
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %117 ], [ 6, %C3coeff.exit ]
-  %indvars.iv71 = phi i32 [ %indvars.iv.next72, %117 ], [ 6, %C3coeff.exit ]
-  %indvars.iv69 = phi i32 [ %indvars.iv.next70, %117 ], [ 5, %C3coeff.exit ]
-  %.023.i = phi i32 [ %116, %117 ], [ 0, %C3coeff.exit ]
-  %.01522.i = phi i32 [ %120, %117 ], [ 0, %C3coeff.exit ]
-  %.01621.i = phi i32 [ %119, %117 ], [ 0, %C3coeff.exit ]
+.preheader.i43:                                   ; preds = %118, %C3coeff.exit
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %118 ], [ 6, %C3coeff.exit ]
+  %indvars.iv71 = phi i32 [ %indvars.iv.next72, %118 ], [ 6, %C3coeff.exit ]
+  %indvars.iv69 = phi i32 [ %indvars.iv.next70, %118 ], [ 5, %C3coeff.exit ]
+  %.023.i = phi i32 [ %117, %118 ], [ 0, %C3coeff.exit ]
+  %.01522.i = phi i32 [ %121, %118 ], [ 0, %C3coeff.exit ]
+  %.01621.i = phi i32 [ %120, %118 ], [ 0, %C3coeff.exit ]
   %98 = sext i32 %.01621.i to i64
   br label %99
 
 99:                                               ; preds = %polyvalx.exit.i51, %.preheader.i43
-  %indvars.iv28.i = phi i64 [ %98, %.preheader.i43 ], [ %indvars.iv.next29.i, %polyvalx.exit.i51 ]
+  %indvars.iv27.i = phi i64 [ %98, %.preheader.i43 ], [ %indvars.iv.next28.i, %polyvalx.exit.i51 ]
   %indvars.iv.i44 = phi i64 [ 5, %.preheader.i43 ], [ %indvars.iv.next.i53, %polyvalx.exit.i51 ]
-  %.120.i = phi i32 [ %.023.i, %.preheader.i43 ], [ %116, %polyvalx.exit.i51 ]
-  %100 = load double, ptr %15, align 8, !tbaa !14
-  %101 = sext i32 %.120.i to i64
-  %102 = getelementptr inbounds double, ptr @C4coeff.coeff, i64 %101
-  %103 = load double, ptr %102, align 8, !tbaa !4
+  %.120.i = phi i32 [ %.023.i, %.preheader.i43 ], [ %117, %polyvalx.exit.i51 ]
+  %100 = sub nuw nsw i64 5, %indvars.iv.i44
+  %101 = load double, ptr %15, align 8, !tbaa !14
+  %102 = sext i32 %.120.i to i64
+  %103 = getelementptr inbounds double, ptr @C4coeff.coeff, i64 %102
+  %104 = load double, ptr %103, align 8, !tbaa !4
   %.not.i.i45 = icmp eq i64 %indvars.iv.i44, 5
   br i1 %.not.i.i45, label %polyvalx.exit.i51, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %99
-  %104 = trunc i64 %indvars.iv.i44 to i32
-  %105 = sub i32 5, %104
+  %105 = trunc nuw nsw i64 %100 to i32
   br label %.lr.ph.i.i46
 
 .lr.ph.i.i46:                                     ; preds = %.lr.ph.i.i46, %.lr.ph.i.preheader.i
-  %.011.i.i47 = phi double [ %108, %.lr.ph.i.i46 ], [ %103, %.lr.ph.i.preheader.i ]
+  %.011.i.i47 = phi double [ %108, %.lr.ph.i.i46 ], [ %104, %.lr.ph.i.preheader.i ]
   %.0610.i.i48 = phi i32 [ %106, %.lr.ph.i.i46 ], [ %105, %.lr.ph.i.preheader.i ]
-  %.19.pn.i.i49 = phi ptr [ %.19.i.i50, %.lr.ph.i.i46 ], [ %102, %.lr.ph.i.preheader.i ]
+  %.19.pn.i.i49 = phi ptr [ %.19.i.i50, %.lr.ph.i.i46 ], [ %103, %.lr.ph.i.preheader.i ]
   %.19.i.i50 = getelementptr inbounds nuw i8, ptr %.19.pn.i.i49, i64 8
   %106 = add nsw i32 %.0610.i.i48, -1
   %107 = load double, ptr %.19.i.i50, align 8, !tbaa !4
-  %108 = tail call double @llvm.fmuladd.f64(double %.011.i.i47, double %100, double %107)
+  %108 = tail call double @llvm.fmuladd.f64(double %.011.i.i47, double %101, double %107)
   %109 = icmp samesign ugt i32 %.0610.i.i48, 1
   br i1 %109, label %.lr.ph.i.i46, label %polyvalx.exit.i51
 
 polyvalx.exit.i51:                                ; preds = %.lr.ph.i.i46, %99
-  %.pre-phi = phi i32 [ 5, %99 ], [ %104, %.lr.ph.i.i46 ]
-  %.0.lcssa.i.i52 = phi double [ %103, %99 ], [ %108, %.lr.ph.i.i46 ]
-  %reass.sub24.i = sub i32 %.120.i, %.pre-phi
-  %110 = add i32 %reass.sub24.i, 6
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds [77 x double], ptr @C4coeff.coeff, i64 0, i64 %111
+  %.0.lcssa.i.i52 = phi double [ %104, %99 ], [ %108, %.lr.ph.i.i46 ]
+  %110 = getelementptr double, ptr @C4coeff.coeff, i64 %100
+  %111 = getelementptr double, ptr %110, i64 %102
+  %112 = getelementptr i8, ptr %111, i64 8
   %113 = load double, ptr %112, align 8, !tbaa !4
   %114 = fdiv double %.0.lcssa.i.i52, %113
-  %indvars.iv.next29.i = add nsw i64 %indvars.iv28.i, 1
-  %115 = getelementptr inbounds [21 x double], ptr %97, i64 0, i64 %indvars.iv28.i
+  %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, 1
+  %115 = getelementptr inbounds double, ptr %97, i64 %indvars.iv27.i
   store double %114, ptr %115, align 8, !tbaa !4
-  %116 = add i32 %reass.sub24.i, 7
+  %116 = trunc nuw nsw i64 %indvars.iv.i44 to i32
+  %reass.sub24.i = sub i32 %.120.i, %116
+  %117 = add i32 %reass.sub24.i, 7
   %indvars.iv.next.i53 = add nsw i64 %indvars.iv.i44, -1
-  %lftr.wideiv73 = trunc i64 %indvars.iv.next29.i to i32
+  %lftr.wideiv73 = trunc i64 %indvars.iv.next28.i to i32
   %exitcond74 = icmp eq i32 %indvars.iv71, %lftr.wideiv73
-  br i1 %exitcond74, label %117, label %99
+  br i1 %exitcond74, label %118, label %99
 
-117:                                              ; preds = %polyvalx.exit.i51
-  %118 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %119 = add i32 %.01621.i, %118
-  %120 = add nuw nsw i32 %.01522.i, 1
+118:                                              ; preds = %polyvalx.exit.i51
+  %119 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %120 = add i32 %.01621.i, %119
+  %121 = add nuw nsw i32 %.01522.i, 1
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
-  %exitcond35.not.i = icmp eq i32 %120, 6
+  %exitcond34.not.i = icmp eq i32 %121, 6
   %indvars.iv.next70 = add nsw i32 %indvars.iv69, -1
   %indvars.iv.next72 = add i32 %indvars.iv71, %indvars.iv69
-  br i1 %exitcond35.not.i, label %C4coeff.exit, label %.preheader.i43
+  br i1 %exitcond34.not.i, label %C4coeff.exit, label %.preheader.i43
 
-C4coeff.exit:                                     ; preds = %117
+C4coeff.exit:                                     ; preds = %118
   ret void
 }
 
@@ -750,9 +750,9 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i112, %118
   %.0.lcssa.i.i = phi double [ %124, %118 ], [ %127, %.lr.ph.i.i112 ]
   %129 = fmul double %.020.i, %.0.lcssa.i.i
   %130 = add nuw nsw i32 %121, %.01718.i
-  %131 = add nuw nsw i32 %130, 1
-  %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw [18 x double], ptr @C1f.coeff, i64 0, i64 %132
+  %131 = zext nneg i32 %130 to i64
+  %132 = getelementptr inbounds nuw double, ptr @C1f.coeff, i64 %131
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load double, ptr %133, align 8, !tbaa !4
   %135 = fdiv double %129, %134
   %136 = getelementptr inbounds nuw double, ptr %117, i64 %indvars.iv.i
@@ -849,9 +849,9 @@ polyvalx.exit.i126:                               ; preds = %.lr.ph.i.i121, %175
   %.0.lcssa.i.i127 = phi double [ %181, %175 ], [ %184, %.lr.ph.i.i121 ]
   %186 = fmul double %.020.i118, %.0.lcssa.i.i127
   %187 = add nuw nsw i32 %178, %.01718.i119
-  %188 = add nuw nsw i32 %187, 1
-  %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw [18 x double], ptr @C1pf.coeff, i64 0, i64 %189
+  %188 = zext nneg i32 %187 to i64
+  %189 = getelementptr inbounds nuw double, ptr @C1pf.coeff, i64 %188
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load double, ptr %190, align 8, !tbaa !4
   %192 = fdiv double %186, %191
   %193 = getelementptr inbounds nuw double, ptr %173, i64 %indvars.iv.i117
@@ -920,9 +920,9 @@ polyvalx.exit.i145:                               ; preds = %.lr.ph.i.i140, %209
   %.0.lcssa.i.i146 = phi double [ %215, %209 ], [ %218, %.lr.ph.i.i140 ]
   %220 = fmul double %.020.i137, %.0.lcssa.i.i146
   %221 = add nuw nsw i32 %212, %.01718.i138
-  %222 = add nuw nsw i32 %221, 1
-  %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw [18 x double], ptr @C2f.coeff, i64 0, i64 %223
+  %222 = zext nneg i32 %221 to i64
+  %223 = getelementptr inbounds nuw double, ptr @C2f.coeff, i64 %222
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load double, ptr %224, align 8, !tbaa !4
   %226 = fdiv double %220, %225
   %227 = getelementptr inbounds nuw double, ptr %208, i64 %indvars.iv.i136
@@ -8824,7 +8824,7 @@ checkEquals.exit1788:                             ; preds = %checkEquals.exit, %
 1282:                                             ; preds = %1280, %equiv.exit1798
   %indvars.iv2281 = phi i64 [ 0, %1280 ], [ %indvars.iv.next2282, %equiv.exit1798 ]
   %.05952271 = phi i32 [ 0, %1280 ], [ %spec.select761, %equiv.exit1798 ]
-  %1283 = getelementptr inbounds nuw [4 x [5 x double]], ptr @__const.main.C, i64 0, i64 %indvars.iv2281
+  %1283 = getelementptr inbounds nuw [5 x double], ptr @__const.main.C, i64 %indvars.iv2281
   %1284 = load double, ptr %1283, align 8, !tbaa !4
   %1285 = getelementptr inbounds nuw i8, ptr %1283, i64 8
   %1286 = load double, ptr %1285, align 8, !tbaa !4
@@ -8907,7 +8907,7 @@ equiv.exit1798:                                   ; preds = %equiv.exit1793, %13
   %1320 = phi i1 [ true, %1317 ], [ false, %equiv.exit1808 ]
   %indvars.iv2284 = phi i64 [ 0, %1317 ], [ 1, %equiv.exit1808 ]
   %.05922273 = phi i32 [ 0, %1317 ], [ %spec.select762, %equiv.exit1808 ]
-  %1321 = getelementptr inbounds nuw [2 x [2 x double]], ptr @__const.main.C.142, i64 0, i64 %indvars.iv2284
+  %1321 = getelementptr inbounds nuw [2 x double], ptr @__const.main.C.142, i64 %indvars.iv2284
   %1322 = load double, ptr %1321, align 16, !tbaa !4
   %1323 = call double @geod_geninverse(ptr noundef nonnull readonly %119, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1322, ptr noundef null, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %1324 = load double, ptr %120, align 8, !tbaa !4
@@ -8980,7 +8980,7 @@ equiv.exit1808:                                   ; preds = %equiv.exit1803, %13
 1350:                                             ; preds = %1348, %equiv.exit1818
   %indvars.iv2287 = phi i64 [ 0, %1348 ], [ %indvars.iv.next2288, %equiv.exit1818 ]
   %.05902275 = phi i32 [ 0, %1348 ], [ %spec.select763, %equiv.exit1818 ]
-  %1351 = getelementptr inbounds nuw [4 x [3 x double]], ptr @__const.main.C.144, i64 0, i64 %indvars.iv2287
+  %1351 = getelementptr inbounds nuw [3 x double], ptr @__const.main.C.144, i64 %indvars.iv2287
   %1352 = load double, ptr %1351, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @geod_lineinit(ptr noundef nonnull %1, ptr noundef nonnull readonly %122, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1352, i32 noundef 2827)
@@ -9241,9 +9241,9 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i116, %A1m
   %.0.lcssa.i.i = phi double [ %29, %A1m1f.exit ], [ %32, %.lr.ph.i.i116 ]
   %34 = fmul double %.020.i, %.0.lcssa.i.i
   %35 = add nuw nsw i32 %26, %.01718.i
-  %36 = add nuw nsw i32 %35, 1
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [18 x double], ptr @C1f.coeff, i64 0, i64 %37
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr inbounds nuw double, ptr @C1f.coeff, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load double, ptr %38, align 8, !tbaa !4
   %40 = fdiv double %34, %39
   %41 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
@@ -9293,9 +9293,9 @@ polyvalx.exit.i136:                               ; preds = %.lr.ph.i.i131, %A2m
   %.0.lcssa.i.i137 = phi double [ %53, %A2m1f.exit ], [ %56, %.lr.ph.i.i131 ]
   %58 = fmul double %.020.i128, %.0.lcssa.i.i137
   %59 = add nuw nsw i32 %50, %.01718.i129
-  %60 = add nuw nsw i32 %59, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [18 x double], ptr @C2f.coeff, i64 0, i64 %61
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds nuw double, ptr @C2f.coeff, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load double, ptr %62, align 8, !tbaa !4
   %64 = fdiv double %58, %63
   %65 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i127
@@ -9441,7 +9441,7 @@ SinCosSeries.exit157:                             ; preds = %SinCosSeries.exit15
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %C2f.exit ]
   %153 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   %154 = load double, ptr %153, align 8, !tbaa !4
-  %155 = getelementptr inbounds nuw [7 x double], ptr %18, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
   %156 = load double, ptr %155, align 8, !tbaa !4
   %157 = fneg double %156
   %158 = fmul double %78, %157

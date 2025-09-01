@@ -431,7 +431,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
 
 39:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heba2a2d3f6652dceE.exit"
   %40 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds [0 x i8], ptr %40, i64 0, i64 %36
+  %41 = getelementptr inbounds i8, ptr %40, i64 %36
   %42 = load i8, ptr %41, align 1, !range !17, !noundef !3
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %48, label %.backedge
@@ -468,7 +468,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
-  %61 = getelementptr inbounds [0 x i8], ptr %60, i64 0, i64 %56
+  %61 = getelementptr inbounds i8, ptr %60, i64 %56
   %62 = load i8, ptr %61, align 1, !range !17, !noundef !3
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %65, label %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
@@ -1246,7 +1246,7 @@ default.unreachable711:                           ; preds = %232
 
 271:                                              ; preds = %.noexc111
   %272 = load ptr, ptr %122, align 8, !nonnull !3, !noundef !3
-  %273 = getelementptr inbounds [0 x i8], ptr %272, i64 0, i64 %268
+  %273 = getelementptr inbounds i8, ptr %272, i64 %268
   %274 = load i8, ptr %273, align 1, !range !17, !noundef !3
   %275 = icmp eq i8 %274, 0
   br i1 %275, label %279, label %281
@@ -1392,7 +1392,7 @@ default.unreachable711:                           ; preds = %232
 
 310:                                              ; preds = %.noexc98
   %311 = load ptr, ptr %122, align 8, !nonnull !3, !noundef !3
-  %312 = getelementptr inbounds [0 x i8], ptr %311, i64 0, i64 %307
+  %312 = getelementptr inbounds i8, ptr %311, i64 %307
   %313 = load i8, ptr %312, align 1, !range !17, !noundef !3
   %314 = icmp eq i8 %313, 0
   br i1 %314, label %316, label %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit102
@@ -1526,7 +1526,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 
 334:                                              ; preds = %.noexc79
   %335 = load ptr, ptr %103, align 8, !nonnull !3, !noundef !3
-  %336 = getelementptr inbounds [0 x i8], ptr %335, i64 0, i64 %331
+  %336 = getelementptr inbounds i8, ptr %335, i64 %331
   %337 = load i8, ptr %336, align 1, !range !17, !noundef !3
   invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr nonnull align 8 %1, i16 %.sroa.24.0.extract.trunc.i)
           to label %.noexc80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1542,7 +1542,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 
 341:                                              ; preds = %.noexc81
   %342 = load ptr, ptr %103, align 8, !nonnull !3, !noundef !3
-  %343 = getelementptr inbounds [0 x i8], ptr %342, i64 0, i64 %338
+  %343 = getelementptr inbounds i8, ptr %342, i64 %338
   store i8 %337, ptr %343, align 1
   invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %1)
           to label %.noexc83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1564,7 +1564,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 
 347:                                              ; preds = %.noexc522
   %348 = load ptr, ptr %105, align 8, !nonnull !3, !noundef !3
-  %349 = getelementptr inbounds [0 x i8], ptr %348, i64 0, i64 %344
+  %349 = getelementptr inbounds i8, ptr %348, i64 %344
   %350 = load i8, ptr %349, align 1, !range !17, !noundef !3
   %351 = icmp eq i8 %350, 0
   br i1 %351, label %353, label %356
@@ -1619,7 +1619,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 
 360:                                              ; preds = %.noexc86
   %361 = load ptr, ptr %105, align 8, !nonnull !3, !noundef !3
-  %362 = getelementptr inbounds [0 x i8], ptr %361, i64 0, i64 %357
+  %362 = getelementptr inbounds i8, ptr %361, i64 %357
   %363 = load i8, ptr %362, align 1, !range !17, !noundef !3
   %364 = icmp eq i8 %363, 0
   br i1 %364, label %366, label %367
@@ -1779,7 +1779,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 392:                                              ; preds = %380
   %393 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %394 = load ptr, ptr %393, align 8, !nonnull !3, !noundef !3
-  %395 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }], ptr %394, i64 0, i64 %381
+  %395 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %394, i64 %381
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %396, i64 32, i1 false)
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 208
@@ -1847,7 +1847,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_ex
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %13 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds i8, ptr %12, i64 %6
   %14 = load i8, ptr %13, align 1, !range !17, !noundef !3
   %15 = icmp samesign ult i8 %14, 2
   br i1 %15, label %17, label %.critedge
@@ -1869,7 +1869,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_ex
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %18
+  %23 = getelementptr inbounds i8, ptr %22, i64 %18
   %24 = load i8, ptr %23, align 1, !range !17, !noundef !3
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %27, label %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
@@ -1923,7 +1923,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit:
 40:                                               ; preds = %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %42 = load ptr, ptr %41, align 8, !nonnull !3, !noundef !3
-  %43 = getelementptr inbounds [0 x { i8, [47 x i8] }], ptr %42, i64 0, i64 %36
+  %43 = getelementptr inbounds { i8, [47 x i8] }, ptr %42, i64 %36
   %44 = call { ptr, i64 } @_ZN14cranelift_isle10trie_again7Binding7sources17hd96c7d1a4c299cddE(ptr nonnull align 16 %43)
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1

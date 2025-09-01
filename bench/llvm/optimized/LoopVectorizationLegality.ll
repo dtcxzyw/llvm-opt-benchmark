@@ -6168,7 +6168,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm17TargetLibraryInfo19has
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = lshr i64 %4, 6
-  %6 = getelementptr inbounds nuw [9 x i64], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = and i64 %4, 63
   %9 = shl nuw i64 1, %8
@@ -6180,7 +6180,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit: ; preds = %2
   %11 = load ptr, ptr %0, align 8, !tbaa !434
   %12 = lshr i32 %1, 2
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [131 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !114
   %16 = zext i8 %15 to i32
   %17 = shl i32 %1, 1

@@ -48230,7 +48230,7 @@ _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheade
 
 _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i: ; preds = %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheader, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit35.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit35.i ], [ 0, %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i.preheader ]
-  %713 = getelementptr inbounds nuw [64 x %"struct.std::__detail::_Scratch_list"], ptr %5, i64 0, i64 %indvars.iv.i
+  %713 = getelementptr inbounds nuw %"struct.std::__detail::_Scratch_list", ptr %5, i64 %indvars.iv.i
   %714 = load ptr, ptr %713, align 16, !tbaa !617
   %715 = icmp eq ptr %714, %713
   br i1 %715, label %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit35.i, label %716

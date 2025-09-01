@@ -1650,7 +1650,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.0810.us.i.i.i.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i.i.i.i ], [ %37, %._crit_edge.us.i.i.i.i.i ]
   %27 = mul nuw nsw i64 %.0810.us.i.i.i.i.i, %21
   %invariant.gep.us.i.i.i.i.i = getelementptr i32, ptr %23, i64 %27
-  %28 = getelementptr inbounds nuw [24 x i32], ptr %26, i64 0, i64 %.0810.us.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %.0810.us.i.i.i.i.i
   br label %29
 
 29:                                               ; preds = %29, %.preheader.us.i.i.i.i.i
@@ -1943,7 +1943,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.0812.us.i.i.i.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i.i.i.i ], [ %35, %._crit_edge.us.i.i.i.i.i ]
   %27 = mul nuw nsw i64 %.0812.us.i.i.i.i.i, %21
   %invariant.gep.us.i.i.i.i.i = getelementptr double, ptr %23, i64 %27
-  %28 = getelementptr inbounds nuw [24 x i32], ptr %26, i64 0, i64 %.0812.us.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %.0812.us.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %10, %30
@@ -3531,7 +3531,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.0810.us.i.i.i.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i.i.i.i ], [ %37, %._crit_edge.us.i.i.i.i.i ]
   %27 = mul nuw nsw i64 %.0810.us.i.i.i.i.i, %21
   %invariant.gep.us.i.i.i.i.i = getelementptr i32, ptr %23, i64 %27
-  %28 = getelementptr inbounds nuw [12 x i32], ptr %26, i64 0, i64 %.0810.us.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %.0810.us.i.i.i.i.i
   br label %29
 
 29:                                               ; preds = %29, %.preheader.us.i.i.i.i.i
@@ -3635,7 +3635,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.0812.us.i.i.i.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i.i.i.i ], [ %35, %._crit_edge.us.i.i.i.i.i ]
   %27 = mul nuw nsw i64 %.0812.us.i.i.i.i.i, %21
   %invariant.gep.us.i.i.i.i.i = getelementptr double, ptr %23, i64 %27
-  %28 = getelementptr inbounds nuw [12 x i32], ptr %26, i64 0, i64 %.0812.us.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %.0812.us.i.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %10, %30

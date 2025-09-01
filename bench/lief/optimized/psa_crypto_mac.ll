@@ -176,7 +176,7 @@ mac_init.exit:                                    ; preds = %12
 
 switch.lookup:                                    ; preds = %.fold.split.i
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_mac_finish_internal, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.psa_mac_finish_internal, i64 %38
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.thread84.i
 
@@ -221,7 +221,7 @@ switch.lookup:                                    ; preds = %.fold.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.05585.i = phi i64 [ %54, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %51 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 0, i64 %.05585.i
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 %.05585.i
   %52 = load i8, ptr %51, align 1, !tbaa !18
   %53 = xor i8 %52, 54
   store i8 %53, ptr %51, align 1, !tbaa !18
@@ -242,10 +242,10 @@ switch.lookup:                                    ; preds = %.fold.split.i
 
 58:                                               ; preds = %58, %._crit_edge.i22
   %.186.i = phi i64 [ 0, %._crit_edge.i22 ], [ %63, %58 ]
-  %59 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 0, i64 %.186.i
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 %.186.i
   %60 = load i8, ptr %59, align 1, !tbaa !18
   %61 = xor i8 %60, 106
-  %62 = getelementptr inbounds nuw [144 x i8], ptr %57, i64 0, i64 %.186.i
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %.186.i
   store i8 %61, ptr %62, align 1, !tbaa !18
   %63 = add nuw i64 %.186.i, 1
   %exitcond92.not.i = icmp eq i64 %63, %50
@@ -442,7 +442,7 @@ switch.hole_check:                                ; preds = %20
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_mac_finish_internal, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.psa_mac_finish_internal, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %29
 

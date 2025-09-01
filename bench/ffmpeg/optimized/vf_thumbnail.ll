@@ -454,16 +454,16 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
 
 119:                                              ; preds = %.preheader113, %._crit_edge134
   %indvars.iv164 = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next165, %._crit_edge134 ]
-  %120 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %indvars.iv164
+  %120 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv164
   %121 = load i32, ptr %120, align 4, !tbaa !52
   %122 = mul nsw i32 %121, %2
   %123 = sdiv i32 %122, %3
   %124 = mul nsw i32 %121, %18
   %125 = sdiv i32 %124, %3
-  %126 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv164
+  %126 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv164
   %127 = load i32, ptr %126, align 4, !tbaa !52
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %indvars.iv164
+  %129 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv164
   %130 = load i32, ptr %129, align 4, !tbaa !52
   %.idx = shl nuw nsw i64 %indvars.iv164, 10
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
@@ -473,7 +473,7 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond186, label %.preheader.us.preheader, label %._crit_edge134
 
 .preheader.us.preheader:                          ; preds = %119
-  %134 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv164
+  %134 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv164
   %135 = load ptr, ptr %134, align 8, !tbaa !61
   %136 = mul nsw i32 %127, %123
   %137 = sext i32 %136 to i64
@@ -537,8 +537,8 @@ define internal fastcc ptr @get_best_frame(ptr noundef %0) unnamed_addr #1 {
 
 .preheader55.us:                                  ; preds = %._crit_edge.us, %.split.us
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %._crit_edge.us ], [ 0, %.split.us ]
-  %invariant.gep.us = getelementptr inbounds nuw [768 x i32], ptr %10, i64 0, i64 %indvars.iv71
-  %11 = getelementptr inbounds nuw [768 x double], ptr %2, i64 0, i64 %indvars.iv71
+  %invariant.gep.us = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv71
+  %11 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv71
   %.promoted.us = load double, ptr %11, align 8, !tbaa !73
   br label %12
 
@@ -562,7 +562,7 @@ define internal fastcc ptr @get_best_frame(ptr noundef %0) unnamed_addr #1 {
 
 .preheader55:                                     ; preds = %1, %.preheader55
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader55 ], [ 0, %1 ]
-  %18 = getelementptr inbounds nuw [768 x double], ptr %2, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !73
   %20 = fdiv nsz double %19, %8
   store double %20, ptr %18, align 8, !tbaa !73

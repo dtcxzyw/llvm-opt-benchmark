@@ -1761,7 +1761,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
   %604 = phi i32 [ %607, %.lr.ph ], [ %603, %601 ]
   %605 = call ptr @xsignal(i32 noundef %604, ptr noundef %2) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %606 = getelementptr inbounds nuw [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
+  %606 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
   %607 = load i32, ptr %606, align 4
   %.not136 = icmp eq i32 %607, 0
   br i1 %.not136, label %.loopexit, label %.lr.ph, !llvm.loop !15

@@ -21,7 +21,7 @@ define void @Abc_TtCountGenerate() local_unnamed_addr #0 {
 
 .preheader17:                                     ; preds = %0, %24
   %indvars.iv23 = phi i64 [ 0, %0 ], [ %indvars.iv.next24, %24 ]
-  %2 = getelementptr inbounds nuw [256 x i32], ptr @Abc_TtCountGenerate.bit_count, i64 0, i64 %indvars.iv23
+  %2 = getelementptr inbounds nuw i32, ptr @Abc_TtCountGenerate.bit_count, i64 %indvars.iv23
   %3 = load i32, ptr %2, align 4, !tbaa !3
   br label %4
 
@@ -43,10 +43,10 @@ define void @Abc_TtCountGenerate() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %7, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 2, %7 ]
-  %13 = getelementptr inbounds nuw [3 x i64], ptr @Abc_TtCountGenerate.s_CMasks6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i64, ptr @Abc_TtCountGenerate.s_CMasks6, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !9
   %15 = and i64 %14, %indvars.iv23
-  %16 = getelementptr inbounds nuw [256 x i32], ptr @Abc_TtCountGenerate.bit_count, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @Abc_TtCountGenerate.bit_count, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -95,8 +95,8 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !14
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %15
-  %17 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [32 x i64], ptr @Table, i64 %15
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !9
   %19 = add i64 %12, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -148,8 +148,8 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv61
   %35 = load i8, ptr %34, align 1, !tbaa !14
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %36
-  %38 = getelementptr inbounds nuw [32 x i64], ptr %37, i64 0, i64 %indvars.iv61
+  %37 = getelementptr inbounds nuw [32 x i64], ptr @Table, i64 %36
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv61
   %39 = load i64, ptr %38, align 8, !tbaa !9
   %40 = add i64 %33, %39
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
@@ -272,7 +272,7 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #4 {
 
 .preheader:                                       ; preds = %.preheader12, %17
   %indvars.iv19 = phi i64 [ 0, %.preheader12 ], [ %indvars.iv.next20, %17 ]
-  %8 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %indvars.iv19
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv19
   br label %9
 
 9:                                                ; preds = %.preheader, %9
@@ -306,8 +306,8 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #4 {
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %24
-  %26 = getelementptr inbounds nuw [32 x i64], ptr %25, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [32 x i64], ptr @Table, i64 %24
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = add i64 %27, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -330,8 +330,8 @@ define void @Abc_TtCountOnesInCofsTest() local_unnamed_addr #4 {
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv61.i
   %34 = load i8, ptr %33, align 1, !tbaa !14
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x [32 x i64]], ptr @Table, i64 0, i64 %35
-  %37 = getelementptr inbounds nuw [32 x i64], ptr %36, i64 0, i64 %indvars.iv61.i
+  %36 = getelementptr inbounds nuw [32 x i64], ptr @Table, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv61.i
   %38 = load i64, ptr %37, align 8, !tbaa !9
   %39 = add i64 %38, %32
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1

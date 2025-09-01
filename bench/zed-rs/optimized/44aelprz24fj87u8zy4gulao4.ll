@@ -18568,7 +18568,7 @@ define internal fastcc void @"_ZN4core3ptr329drop_in_place$LT$futures_util..futu
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i = phi i64 [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i" ]
-  %28 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %24, i64 0, i64 %.sroa.0.09.i.i.i.i.i
+  %28 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %24, i64 %.sroa.0.09.i.i.i.i.i
   %29 = add nuw i64 %.sroa.0.09.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4174)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4177)
@@ -19128,7 +19128,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Optio
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %17, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i" ]
-  %16 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %12, i64 0, i64 %.sroa.0.09.i.i.i.i
+  %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %12, i64 %.sroa.0.09.i.i.i.i
   %17 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4415)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4418)
@@ -26018,8 +26018,8 @@ define hidden { i64, ptr } @_ZN5prost8encoding13decode_varint17haa96bba9e6c27a8e
   br label %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h2fa803aaa9bf44b7E.llvm.17925810963617146123.exit6"
 
 132:                                              ; preds = %17
-  %133 = add nsw i64 %5, -1
-  %134 = getelementptr inbounds nuw [0 x i8], ptr %3, i64 0, i64 %133
+  %133 = getelementptr i8, ptr %3, i64 %5
+  %134 = getelementptr i8, ptr %133, i64 -1
   %135 = load i8, ptr %134, align 1, !noundef !16
   %136 = icmp sgt i8 %135, -1
   br i1 %136, label %22, label %137
@@ -29829,10 +29829,10 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$prost..encoding..WireType$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !6818, !noundef !16
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.17925810963617146123", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.17925810963617146123", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.17925810963617146123.167", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.17925810963617146123.167", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -32339,9 +32339,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   unreachable
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds [0 x i8], ptr %102, i64 0, i64 %148
+  %156 = getelementptr inbounds i8, ptr %102, i64 %148
   %157 = load i8, ptr %156, align 1, !alias.scope !7415, !noalias !7421, !noundef !16
-  %158 = getelementptr inbounds [0 x i8], ptr %100, i64 0, i64 %152
+  %158 = getelementptr inbounds i8, ptr %100, i64 %152
   %159 = load i8, ptr %158, align 1, !alias.scope !7413, !noalias !7419, !noundef !16
   %.not24.i = icmp eq i8 %157, %159
   br i1 %.not24.i, label %144, label %161
@@ -32356,9 +32356,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
 
 162:                                              ; preds = %141
   %163 = add nuw i64 %.sroa.04.0.i, 1
-  %164 = getelementptr inbounds [0 x i8], ptr %102, i64 0, i64 %.sroa.04.0.i
+  %164 = getelementptr inbounds i8, ptr %102, i64 %.sroa.04.0.i
   %165 = load i8, ptr %164, align 1, !alias.scope !7415, !noalias !7421, !noundef !16
-  %166 = getelementptr inbounds [0 x i8], ptr %100, i64 0, i64 %142
+  %166 = getelementptr inbounds i8, ptr %100, i64 %142
   %167 = load i8, ptr %166, align 1, !alias.scope !7413, !noalias !7419, !noundef !16
   %.not25.i = icmp eq i8 %165, %167
   br i1 %.not25.i, label %138, label %170
@@ -47046,7 +47046,7 @@ _ZN3std3env3var17hd8d8765e41c3f485E.exit.i:       ; preds = %"_ZN4core3ptr42drop
 904:                                              ; preds = %891
   %905 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %906 = load ptr, ptr %905, align 8, !alias.scope !10427, !noalias !10428, !nonnull !16, !noundef !16
-  %907 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %906, i64 0, i64 %.sroa.52.0.copyload.i.i.i.i, i32 1
+  %907 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %906, i64 %.sroa.52.0.copyload.i.i.i.i, i32 1
   %908 = invoke { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hd9f09d81f3fd9171E(ptr noundef nonnull align 8 %907)
           to label %911 unwind label %909, !noalias !10291
 
@@ -47461,7 +47461,7 @@ _ZN3std3env3var17hd8d8765e41c3f485E.exit.i:       ; preds = %"_ZN4core3ptr42drop
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit278.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %1038, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit278.i" ]
-  %1037 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val190.i, i64 0, i64 %.sroa.0.09.i.i.i.i
+  %1037 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val190.i, i64 %.sroa.0.09.i.i.i.i
   %1038 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !10587)
   call void @llvm.experimental.noalias.scope.decl(metadata !10590)

@@ -59,7 +59,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Util_Paths_0__Lean_toJson
   %.01943 = phi i64 [ %35, %51 ], [ %1, %3 ]
   %.02142 = phi ptr [ %.0.i.i29, %51 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02142, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01943
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01943
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -846,7 +846,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Util_Paths_0__Lean_fromJs
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1

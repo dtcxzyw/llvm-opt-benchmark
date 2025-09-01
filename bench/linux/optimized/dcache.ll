@@ -6702,7 +6702,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 63
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, ptrtoint (ptr @nr_dentry to i64)
   %22 = inttoptr i64 %21 to ptr
@@ -6735,7 +6735,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 39:                                               ; preds = %35
   %40 = and i64 %36, 63
-  %41 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %40
+  %41 = getelementptr i64, ptr @__per_cpu_offset, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @nr_dentry_unused to i64)
   %44 = inttoptr i64 %43 to ptr
@@ -6768,7 +6768,7 @@ define internal i32 @proc_nr_dentry(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 61:                                               ; preds = %57
   %62 = and i64 %58, 63
-  %63 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %62
+  %63 = getelementptr i64, ptr @__per_cpu_offset, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, ptrtoint (ptr @nr_dentry_negative to i64)
   %66 = inttoptr i64 %65 to ptr

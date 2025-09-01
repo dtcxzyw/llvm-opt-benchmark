@@ -3671,7 +3671,7 @@ invoke.cont7:                                     ; preds = %.noexc, %for.body5
   %9 = phi i64 [ %.pre.i.i.i, %.noexc ], [ %8, %for.body5 ]
   %inc.i.i.i = add i64 %9, 1
   store i64 %inc.i.i.i, ptr %mti.i.i.i, align 8, !tbaa !81
-  %arrayidx.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng, i64 0, i64 %9
+  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rng, i64 %9
   %10 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !70
   %shr.i.i.i = lshr i64 %10, 11
   %xor.i.i.i = xor i64 %shr.i.i.i, %10

@@ -722,7 +722,7 @@ lv_obj_remove_state.exit245:                      ; preds = %151, %155
 
 .lr.ph.i:                                         ; preds = %263, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %263 ]
-  %264 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %260, i64 0, i64 %indvars.iv.i, i32 1
+  %264 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %260, i64 %indvars.iv.i, i32 1
   %265 = load i8, ptr %264, align 1, !tbaa !46
   %266 = icmp ult i8 %265, -3
   br i1 %266, label %.critedge.i, label %263

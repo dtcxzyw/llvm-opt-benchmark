@@ -328,23 +328,23 @@ get_dither_value.exit152:                         ; preds = %get_dither_value.ex
 124:                                              ; preds = %.preheader156, %._crit_edge178
   %indvars.iv207 = phi i64 [ 0, %.preheader156 ], [ %indvars.iv.next208, %._crit_edge178 ]
   %125 = load ptr, ptr %3, align 8, !tbaa !33
-  %126 = getelementptr inbounds nuw [8 x ptr], ptr %125, i64 0, i64 %indvars.iv207
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv207
   %127 = load ptr, ptr %126, align 8, !tbaa !55
   %.not130 = icmp eq ptr %127, null
   br i1 %.not130, label %.critedge, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  %130 = getelementptr inbounds nuw [8 x i32], ptr %129, i64 0, i64 %indvars.iv207
+  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv207
   %131 = load i32, ptr %130, align 4, !tbaa !54
   %.not131 = icmp eq i32 %131, 0
   br i1 %.not131, label %.critedge, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw [8 x ptr], ptr %.0115, i64 0, i64 %indvars.iv207
+  %133 = getelementptr inbounds nuw ptr, ptr %.0115, i64 %indvars.iv207
   %134 = load ptr, ptr %133, align 8, !tbaa !55
   %135 = load ptr, ptr %32, align 8, !tbaa !56
-  %136 = getelementptr inbounds nuw [8 x i32], ptr %33, i64 0, i64 %indvars.iv207
+  %136 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv207
   %137 = load i32, ptr %136, align 4, !tbaa !54
   %138 = load i32, ptr %34, align 8, !tbaa !53
   %139 = trunc i64 %indvars.iv207 to i32

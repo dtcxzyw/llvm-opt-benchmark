@@ -4262,7 +4262,7 @@ define dso_local noundef zeroext i1 @io_cqe_cache_refill(ptr noundef captures(no
   %30 = shl i32 %11, %28
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %32 = zext i32 %30 to i64
-  %33 = getelementptr [0 x %struct.io_uring_cqe], ptr %31, i64 0, i64 %32
+  %33 = getelementptr %struct.io_uring_cqe, ptr %31, i64 %32
   store ptr %33, ptr %5, align 64
   %34 = zext i32 %29 to i64
   %35 = getelementptr %struct.io_uring_cqe, ptr %33, i64 %34
@@ -4448,7 +4448,7 @@ define dso_local noundef zeroext i1 @io_fill_cqe_req_aux(ptr noundef readonly ca
   %78 = add i32 %77, 1
   store i32 %78, ptr %30, align 4
   %79 = zext i32 %77 to i64
-  %80 = getelementptr [16 x %struct.io_uring_cqe], ptr %76, i64 0, i64 %79
+  %80 = getelementptr %struct.io_uring_cqe, ptr %76, i64 %79
   store i64 %8, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %2, ptr %81, align 8
@@ -4476,7 +4476,7 @@ define internal fastcc void @__io_flush_post_cqes(ptr noundef %0) unnamed_addr #
 
 9:                                                ; preds = %32, %5
   %10 = phi i64 [ 0, %5 ], [ %33, %32 ]
-  %11 = getelementptr [16 x %struct.io_uring_cqe], ptr %6, i64 0, i64 %10
+  %11 = getelementptr %struct.io_uring_cqe, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i32, ptr %13, align 8
@@ -5074,7 +5074,7 @@ define dso_local void @io_req_defer_failed(ptr noundef %0, i32 noundef %1) local
   store i32 %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %19, ptr %21, align 4
-  %22 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %5, i32 4
+  %22 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %5, i32 4
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %25
@@ -5185,7 +5185,7 @@ define dso_local noundef zeroext i1 @__io_alloc_req_refill(ptr noundef %0) local
 
 42:                                               ; preds = %42, %40
   %43 = phi i64 [ 0, %40 ], [ %52, %42 ]
-  %44 = getelementptr [8 x ptr], ptr %2, i64 0, i64 %43
+  %44 = getelementptr ptr, ptr %2, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store ptr %0, ptr %46, align 8
@@ -6068,7 +6068,7 @@ define internal void @io_req_task_cancel(ptr noundef %0, ptr noundef captures(no
   store i32 %11, ptr %10, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %14, i32 4
+  %30 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %14, i32 4
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %34, label %33
@@ -6567,7 +6567,7 @@ define dso_local noundef zeroext i1 @io_alloc_async_data(ptr noundef captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %4
+  %5 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %4
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %8, label %9, !prof !26
@@ -6578,7 +6578,7 @@ define dso_local noundef zeroext i1 @io_alloc_async_data(ptr noundef captures(no
   tail call void asm sideeffect "1109: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1109b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1109) #24, !srcloc !111
   %.pre = load i8, ptr %2, align 8
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert1 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert1 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.phi.trans.insert
   %.pre2 = load i16, ptr %.phi.trans.insert1, align 8
   br label %9
 
@@ -6607,7 +6607,7 @@ define dso_local i32 @io_req_prep_async(ptr noundef %0) local_unnamed_addr #1 al
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %4
+  %5 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %4
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 1
   %8 = icmp eq i16 %7, 0
@@ -6633,7 +6633,7 @@ define dso_local i32 @io_req_prep_async(ptr noundef %0) local_unnamed_addr #1 al
   br label %21
 
 21:                                               ; preds = %17, %14, %9, %1
-  %22 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %4, i32 2
+  %22 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %4, i32 2
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %52, label %25
@@ -6659,7 +6659,7 @@ define dso_local i32 @io_req_prep_async(ptr noundef %0) local_unnamed_addr #1 al
 34:                                               ; preds = %31
   %35 = load i8, ptr %2, align 8
   %36 = zext i8 %35 to i64
-  %37 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %36
+  %37 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %36
   %38 = load i16, ptr %37, align 8
   %39 = icmp eq i16 %38, 0
   br i1 %39, label %40, label %41, !prof !26
@@ -6670,7 +6670,7 @@ define dso_local i32 @io_req_prep_async(ptr noundef %0) local_unnamed_addr #1 al
   tail call void asm sideeffect "1109: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1109b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1109) #24, !srcloc !111
   %.pre = load i8, ptr %2, align 8
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert1 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert1 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.phi.trans.insert
   %.pre2 = load i16, ptr %.phi.trans.insert1, align 8
   br label %41
 
@@ -6796,7 +6796,7 @@ define internal fastcc range(i32 -528, -529) i32 @io_issue_sqe(ptr noundef %0, i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %5
+  %6 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %5
   %7 = tail call fastcc zeroext i1 @io_assign_file(ptr noundef %0, ptr noundef %6, i32 noundef %1)
   br i1 %7, label %8, label %io_req_complete_post.exit, !prof !25
 
@@ -7192,7 +7192,7 @@ define dso_local void @io_wq_submit_work(ptr noundef %0) local_unnamed_addr #1 a
   %3 = getelementptr i8, ptr %0, i64 -144
   %4 = load i8, ptr %3, align 8
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %5
+  %6 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %5
   %7 = getelementptr i8, ptr %0, i64 -140
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 524288
@@ -7683,7 +7683,7 @@ define dso_local i32 @io_submit_sqes(ptr noundef %0, i32 noundef %1) local_unnam
 
 97:                                               ; preds = %76
   %98 = zext nneg i8 %84 to i64
-  %99 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %98
+  %99 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %98
   %100 = and i32 %88, 226
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %142, label %102, !prof !25
@@ -9132,7 +9132,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @__se_sys_io_uring
   %32 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %31) #24, !srcloc !124
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %34 = and i64 %32, %31
-  %35 = getelementptr [16 x ptr], ptr %33, i64 0, i64 %34
+  %35 = getelementptr ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %.thread, label %44
@@ -10250,7 +10250,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_uring
 
 23:                                               ; preds = %20, %18
   %24 = phi i64 [ 0, %18 ], [ %21, %20 ]
-  %25 = getelementptr [3 x i32], ptr %19, i64 0, i64 %24
+  %25 = getelementptr i32, ptr %19, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %20, label %.loopexit
@@ -10930,7 +10930,7 @@ define internal fastcc void @io_prep_async_work(ptr noundef initializes((208, 22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %4
+  %5 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -11398,7 +11398,7 @@ define internal fastcc void @io_clean_op(ptr noundef %0) unnamed_addr #1 align 1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load i8, ptr %49, align 8
   %51 = zext i8 %50 to i64
-  %52 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %51, i32 3
+  %52 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %51, i32 3
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %56, label %55
@@ -11697,7 +11697,7 @@ define internal fastcc void @io_queue_async(ptr noundef %0, i32 noundef range(i3
   store i32 %1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %23, ptr %25, align 4
-  %26 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %10, i32 4
+  %26 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %10, i32 4
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29

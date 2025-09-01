@@ -1732,7 +1732,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %30 = load i32, ptr %0, align 8
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %29, i64 %31, i32 2
-  %33 = getelementptr inbounds nuw [16 x i16], ptr %32, i64 0, i64 %indvars.iv43
+  %33 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv43
   store i16 0, ptr %33, align 2
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %34 = load i32, ptr %25, align 8
@@ -1751,7 +1751,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %40 = load i32, ptr %0, align 8
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %39, i64 %41, i32 1
-  %43 = getelementptr inbounds nuw [3 x i16], ptr %42, i64 0, i64 %indvars.iv49
+  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv49
   store i16 0, ptr %43, align 2
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 3
@@ -1765,7 +1765,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %47 = load i32, ptr %0, align 8
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %46, i64 %48, i32 2
-  %50 = getelementptr inbounds nuw [16 x i16], ptr %49, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv
   store i16 %45, ptr %50, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %25, align 8
@@ -1781,7 +1781,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %57 = load i32, ptr %0, align 8
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %56, i64 %58, i32 1
-  %60 = getelementptr inbounds nuw [3 x i16], ptr %59, i64 0, i64 %indvars.iv46
+  %60 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv46
   store i16 %55, ptr %60, align 2
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, 3
@@ -2106,7 +2106,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %34 ]
   %35 = load ptr, ptr %23, align 8
   %36 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %35, i64 %24, i32 2
-  %37 = getelementptr inbounds nuw [16 x i16], ptr %36, i64 0, i64 %indvars.iv27
+  %37 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv27
   %38 = load i16, ptr %37, align 2
   %39 = uitofp i16 %38 to double
   %40 = fdiv double %39, 6.553500e+04

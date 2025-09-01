@@ -414,9 +414,9 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
 15:                                               ; preds = %11
   %16 = lshr i64 %1, 51
   %17 = load ptr, ptr %8, align 8, !nonnull !8, !align !22, !noundef !8
-  %18 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { { i64 }, {} }, i64, i64 }], ptr %17, i64 0, i64 %7
+  %18 = getelementptr inbounds nuw { { ptr, i64 }, { { i64 }, {} }, i64, i64 }, ptr %17, i64 %7
   %19 = load ptr, ptr %0, align 8, !nonnull !8, !align !22, !noundef !8
-  %20 = getelementptr inbounds nuw [0 x i64], ptr %19, i64 0, i64 %7
+  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %22 = load i64, ptr %21, align 8, !noundef !8
   %23 = sub i64 %3, %22
@@ -531,7 +531,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !8, !align !22, !noundef !8
-  %13 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { { i64 }, {} }, i64, i64 }], ptr %12, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw { { ptr, i64 }, { { i64 }, {} }, i64, i64 }, ptr %12, i64 %7
   %14 = lshr i64 %1, 51
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -606,7 +606,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.15887933665
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !alias.scope !50, !nonnull !8, !align !22, !noundef !8
-  %26 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { { i64 }, {} }, i64, i64 }], ptr %25, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw { { ptr, i64 }, { { i64 }, {} }, i64, i64 }, ptr %25, i64 %20
   %27 = lshr i64 %1, 51
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -739,7 +739,7 @@ common.resume:                                    ; preds = %33, %27, %71
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = urem i64 %2, %15
   %.val = load ptr, ptr %39, align 8, !nonnull !8, !noundef !8
-  %41 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }], ptr %.val, i64 0, i64 %40
+  %41 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }, ptr %.val, i64 %40
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h9a8ab2b7a4fb4993E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %41)
   %42 = load i64, ptr %7, align 8, !range !4, !noundef !8
   %trunc = trunc nuw i64 %42 to i1
@@ -2887,7 +2887,7 @@ common.resume:                                    ; preds = %34, %13
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h40a2a92860122a81E.exit.i": ; preds = %35
   %.val.i = load ptr, ptr %22, align 8, !nonnull !8, !noundef !8
-  %39 = getelementptr inbounds nuw [0 x { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { i64, i32 } }], ptr %.val.i, i64 0, i64 %.010.i, i32 5
+  %39 = getelementptr inbounds nuw { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { i64, i32 } }, ptr %.val.i, i64 %.010.i, i32 5
   %40 = invoke { i64, i32 } @_ZN3std4time7Instant7elapsed17h41dccf670f2803caE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %39)
           to label %.noexc22 unwind label %.loopexit.split-lp
 

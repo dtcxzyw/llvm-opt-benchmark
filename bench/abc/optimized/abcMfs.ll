@@ -421,14 +421,14 @@ define void @Abc_NtkFillTruthStore(ptr noundef captures(none) %0) local_unnamed_
 
 .preheader23:                                     ; preds = %1, %9
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %9 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw [6 x i64], ptr @Abc_NtkFillTruthStore.Truth6, i64 0, i64 %indvars.iv30
+  %4 = getelementptr inbounds nuw i64, ptr @Abc_NtkFillTruthStore.Truth6, i64 %indvars.iv30
   %5 = load i64, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw [1024 x i64], ptr %0, i64 %indvars.iv30
   br label %7
 
 7:                                                ; preds = %.preheader23, %7
   %indvars.iv = phi i64 [ 0, %.preheader23 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [1024 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %5, ptr %8, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
@@ -453,7 +453,7 @@ define void @Abc_NtkFillTruthStore(ptr noundef captures(none) %0) local_unnamed_
   %16 = and i32 %12, %15
   %.not = icmp ne i32 %16, 0
   %17 = sext i1 %.not to i64
-  %18 = getelementptr inbounds nuw [1024 x i64], ptr %13, i64 0, i64 %indvars.iv34
+  %18 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv34
   store i64 %17, ptr %18, align 8, !tbaa !49
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 1024
@@ -598,14 +598,14 @@ Abc_NtkFillTruthStore.exit.preheader:             ; preds = %74, %Vec_WrdStart.e
 
 .preheader23.i:                                   ; preds = %Vec_WrdStart.exit159, %64
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %64 ], [ 0, %Vec_WrdStart.exit159 ]
-  %59 = getelementptr inbounds nuw [6 x i64], ptr @Abc_NtkFillTruthStore.Truth6, i64 0, i64 %indvars.iv30.i
+  %59 = getelementptr inbounds nuw i64, ptr @Abc_NtkFillTruthStore.Truth6, i64 %indvars.iv30.i
   %60 = load i64, ptr %59, align 8, !tbaa !49
   %61 = getelementptr inbounds nuw [1024 x i64], ptr %3, i64 %indvars.iv30.i
   br label %62
 
 62:                                               ; preds = %62, %.preheader23.i
   %indvars.iv.i = phi i64 [ 0, %.preheader23.i ], [ %indvars.iv.next.i, %62 ]
-  %63 = getelementptr inbounds nuw [1024 x i64], ptr %61, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
   store i64 %60, ptr %63, align 8, !tbaa !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
@@ -630,7 +630,7 @@ Abc_NtkFillTruthStore.exit.preheader:             ; preds = %74, %Vec_WrdStart.e
   %71 = and i32 %67, %70
   %.not.i = icmp ne i32 %71, 0
   %72 = sext i1 %.not.i to i64
-  %73 = getelementptr inbounds nuw [1024 x i64], ptr %68, i64 0, i64 %indvars.iv34.i
+  %73 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv34.i
   store i64 %72, ptr %73, align 8, !tbaa !49
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 1024
@@ -653,8 +653,8 @@ Abc_NtkFillTruthStore.exit.preheader:             ; preds = %74, %Vec_WrdStart.e
 
 Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthStore.exit.preheader, %Abc_NtkFillTruthStore.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_NtkFillTruthStore.exit ], [ 0, %Abc_NtkFillTruthStore.exit.preheader ]
-  %78 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr %3, i64 0, i64 %indvars.iv
-  %79 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [1024 x i64], ptr %3, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %78, ptr %79, align 8, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1233,14 +1233,14 @@ Abc_NtkFillTruthStore.exit.preheader:             ; preds = %64, %Vec_WrdAlloc.e
 
 .preheader23.i:                                   ; preds = %Vec_WrdAlloc.exit, %54
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %54 ], [ 0, %Vec_WrdAlloc.exit ]
-  %49 = getelementptr inbounds nuw [6 x i64], ptr @Abc_NtkFillTruthStore.Truth6, i64 0, i64 %indvars.iv30.i
+  %49 = getelementptr inbounds nuw i64, ptr @Abc_NtkFillTruthStore.Truth6, i64 %indvars.iv30.i
   %50 = load i64, ptr %49, align 8, !tbaa !49
   %51 = getelementptr inbounds nuw [1024 x i64], ptr %3, i64 %indvars.iv30.i
   br label %52
 
 52:                                               ; preds = %52, %.preheader23.i
   %indvars.iv.i = phi i64 [ 0, %.preheader23.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = getelementptr inbounds nuw [1024 x i64], ptr %51, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv.i
   store i64 %50, ptr %53, align 8, !tbaa !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
@@ -1265,7 +1265,7 @@ Abc_NtkFillTruthStore.exit.preheader:             ; preds = %64, %Vec_WrdAlloc.e
   %61 = and i32 %57, %60
   %.not.i152 = icmp ne i32 %61, 0
   %62 = sext i1 %.not.i152 to i64
-  %63 = getelementptr inbounds nuw [1024 x i64], ptr %58, i64 0, i64 %indvars.iv34.i
+  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv34.i
   store i64 %62, ptr %63, align 8, !tbaa !49
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 1024
@@ -1288,8 +1288,8 @@ Abc_NtkFillTruthStore.exit.preheader:             ; preds = %64, %Vec_WrdAlloc.e
 
 Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthStore.exit.preheader, %Abc_NtkFillTruthStore.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_NtkFillTruthStore.exit ], [ 0, %Abc_NtkFillTruthStore.exit.preheader ]
-  %68 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr %3, i64 0, i64 %indvars.iv
-  %69 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [1024 x i64], ptr %3, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16

@@ -2380,7 +2380,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %32
 
 _ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit:   ; preds = %32, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
   %42 = zext i32 %.022 to i64
-  %43 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %28, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !451
   %45 = load ptr, ptr %44, align 8, !tbaa !470
   %46 = load ptr, ptr %29, align 8, !tbaa !449

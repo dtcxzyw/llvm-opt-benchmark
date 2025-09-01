@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %or.cond, label %25, label %28
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds nuw [17 x i8], ptr @Hex, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr @Hex, i64 %23
   %27 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1) #2
   %.not23 = icmp eq i32 %27, 1
   br i1 %.not23, label %28, label %.loopexit24

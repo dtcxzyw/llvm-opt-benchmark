@@ -3826,7 +3826,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m
   %1346 = icmp eq i32 %1344, 2
   %1347 = getelementptr inbounds nuw i8, ptr %1337, i64 24
   %1348 = zext i1 %1346 to i64
-  %1349 = getelementptr inbounds nuw [0 x ptr], ptr %1347, i64 0, i64 %1348
+  %1349 = getelementptr inbounds nuw ptr, ptr %1347, i64 %1348
   %1350 = load ptr, ptr %1349, align 8, !tbaa !25, !noalias !86
   %1351 = getelementptr inbounds nuw i8, ptr %1350, i64 8
   %1352 = load i64, ptr %1351, align 8
@@ -4259,7 +4259,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal12
   %1539 = icmp eq i32 %1460, 2
   %spec.select.i.i2170 = select i1 %1539, i64 2, i64 1
   %1540 = getelementptr inbounds nuw i8, ptr %1453, i64 24
-  %1541 = getelementptr inbounds nuw [0 x ptr], ptr %1540, i64 0, i64 %spec.select.i.i2170
+  %1541 = getelementptr inbounds nuw ptr, ptr %1540, i64 %spec.select.i.i2170
   %1542 = load ptr, ptr %1541, align 8, !tbaa !25, !noalias !92
   store ptr %1542, ptr %35, align 8, !tbaa !43, !alias.scope !92
   invoke void @_ZNK4cvc58internal6theory9Evaluator12evalInternalENS0_12NodeTemplateILb0EEERKSt6vectorINS3_ILb1EEESaIS6_EESA_RSt13unordered_mapIS4_S6_St4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEERSB_IS4_NS1_10EvalResultESD_SF_SaISG_ISH_SM_EEE(ptr dead_on_unwind nonnull writable sret(%"struct.cvc5::internal::theory::EvalResult") align 8 %34, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(56) %33)
@@ -4301,7 +4301,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %1560 = icmp eq i32 %1558, 2
   %spec.select.i.i2195 = select i1 %1560, i64 2, i64 1
   %1561 = getelementptr inbounds nuw i8, ptr %1551, i64 24
-  %1562 = getelementptr inbounds nuw [0 x ptr], ptr %1561, i64 0, i64 %spec.select.i.i2195
+  %1562 = getelementptr inbounds nuw ptr, ptr %1561, i64 %spec.select.i.i2195
   %1563 = load ptr, ptr %1562, align 8, !tbaa !25, !noalias !98
   store ptr %1563, ptr %36, align 8, !tbaa !43, !alias.scope !98
   %1564 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS3_ILb1EEEESaIS8_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(8) %36)
@@ -4653,7 +4653,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %1686 = icmp eq i32 %1684, 2
   %1687 = getelementptr inbounds nuw i8, ptr %1677, i64 24
   %1688 = zext i1 %1686 to i64
-  %1689 = getelementptr inbounds nuw [0 x ptr], ptr %1687, i64 0, i64 %1688
+  %1689 = getelementptr inbounds nuw ptr, ptr %1687, i64 %1688
   %1690 = load ptr, ptr %1689, align 8, !tbaa !25, !noalias !104
   store ptr %1690, ptr %39, align 8, !tbaa !43, !alias.scope !104
   %1691 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %39)
@@ -4717,7 +4717,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %1715 = icmp eq i32 %1713, 2
   %1716 = getelementptr inbounds nuw i8, ptr %1706, i64 24
   %1717 = zext i1 %1715 to i64
-  %1718 = getelementptr inbounds nuw [0 x ptr], ptr %1716, i64 0, i64 %1717
+  %1718 = getelementptr inbounds nuw ptr, ptr %1716, i64 %1717
   %1719 = load ptr, ptr %1718, align 8, !tbaa !25, !noalias !107
   store ptr %1719, ptr %40, align 8, !tbaa !43, !alias.scope !107
   %1720 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %40)
@@ -4802,8 +4802,8 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %spec.select.i.i2245 = add nuw i64 %.0105510679, %1761
   %1762 = getelementptr inbounds nuw i8, ptr %1751, i64 24
   %sext4216 = shl i64 %spec.select.i.i2245, 32
-  %1763 = ashr exact i64 %sext4216, 32
-  %1764 = getelementptr inbounds [0 x ptr], ptr %1762, i64 0, i64 %1763
+  %1763 = ashr exact i64 %sext4216, 29
+  %1764 = getelementptr inbounds i8, ptr %1762, i64 %1763
   %1765 = load ptr, ptr %1764, align 8, !tbaa !25, !noalias !110
   store ptr %1765, ptr %41, align 8, !tbaa !43, !alias.scope !110
   %1766 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %41)
@@ -4870,7 +4870,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %1792 = icmp eq i32 %1790, 2
   %1793 = getelementptr inbounds nuw i8, ptr %1783, i64 24
   %1794 = zext i1 %1792 to i64
-  %1795 = getelementptr inbounds nuw [0 x ptr], ptr %1793, i64 0, i64 %1794
+  %1795 = getelementptr inbounds nuw ptr, ptr %1793, i64 %1794
   %1796 = load ptr, ptr %1795, align 8, !tbaa !25, !noalias !114
   store ptr %1796, ptr %43, align 8, !tbaa !43, !alias.scope !114
   %1797 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %43)
@@ -4955,8 +4955,8 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %spec.select.i.i2259 = add nuw i64 %.0106110673, %1838
   %1839 = getelementptr inbounds nuw i8, ptr %1828, i64 24
   %sext4215 = shl i64 %spec.select.i.i2259, 32
-  %1840 = ashr exact i64 %sext4215, 32
-  %1841 = getelementptr inbounds [0 x ptr], ptr %1839, i64 0, i64 %1840
+  %1840 = ashr exact i64 %sext4215, 29
+  %1841 = getelementptr inbounds i8, ptr %1839, i64 %1840
   %1842 = load ptr, ptr %1841, align 8, !tbaa !25, !noalias !117
   store ptr %1842, ptr %44, align 8, !tbaa !43, !alias.scope !117
   %1843 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %44)
@@ -5023,7 +5023,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %1869 = icmp eq i32 %1867, 2
   %1870 = getelementptr inbounds nuw i8, ptr %1860, i64 24
   %1871 = zext i1 %1869 to i64
-  %1872 = getelementptr inbounds nuw [0 x ptr], ptr %1870, i64 0, i64 %1871
+  %1872 = getelementptr inbounds nuw ptr, ptr %1870, i64 %1871
   %1873 = load ptr, ptr %1872, align 8, !tbaa !25, !noalias !121
   store ptr %1873, ptr %46, align 8, !tbaa !43, !alias.scope !121
   %1874 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %46)
@@ -5105,8 +5105,8 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %spec.select.i.i2273 = add nuw i64 %.0106710667, %1914
   %1915 = getelementptr inbounds nuw i8, ptr %1904, i64 24
   %sext4214 = shl i64 %spec.select.i.i2273, 32
-  %1916 = ashr exact i64 %sext4214, 32
-  %1917 = getelementptr inbounds [0 x ptr], ptr %1915, i64 0, i64 %1916
+  %1916 = ashr exact i64 %sext4214, 29
+  %1917 = getelementptr inbounds i8, ptr %1915, i64 %1916
   %1918 = load ptr, ptr %1917, align 8, !tbaa !25, !noalias !124
   store ptr %1918, ptr %47, align 8, !tbaa !43, !alias.scope !124
   %1919 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %47)
@@ -5281,7 +5281,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %1973 = icmp eq i32 %1971, 2
   %1974 = getelementptr inbounds nuw i8, ptr %1964, i64 24
   %1975 = zext i1 %1973 to i64
-  %1976 = getelementptr inbounds nuw [0 x ptr], ptr %1974, i64 0, i64 %1975
+  %1976 = getelementptr inbounds nuw ptr, ptr %1974, i64 %1975
   %1977 = load ptr, ptr %1976, align 8, !tbaa !25, !noalias !128
   store ptr %1977, ptr %52, align 8, !tbaa !43, !alias.scope !128
   %1978 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %52)
@@ -5405,8 +5405,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit2299: ; preds = %_Z
   %spec.select.i.i2306 = add nuw i64 %.0106810664, %2023
   %2024 = getelementptr inbounds nuw i8, ptr %2013, i64 24
   %sext4213 = shl i64 %spec.select.i.i2306, 32
-  %2025 = ashr exact i64 %sext4213, 32
-  %2026 = getelementptr inbounds [0 x ptr], ptr %2024, i64 0, i64 %2025
+  %2025 = ashr exact i64 %sext4213, 29
+  %2026 = getelementptr inbounds i8, ptr %2024, i64 %2025
   %2027 = load ptr, ptr %2026, align 8, !tbaa !25, !noalias !131
   store ptr %2027, ptr %54, align 8, !tbaa !43, !alias.scope !131
   %2028 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %54)
@@ -5543,7 +5543,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2320:          ; preds = %2054, %.body2296
   %2068 = icmp eq i32 %2066, 2
   %2069 = getelementptr inbounds nuw i8, ptr %2059, i64 24
   %2070 = zext i1 %2068 to i64
-  %2071 = getelementptr inbounds nuw [0 x ptr], ptr %2069, i64 0, i64 %2070
+  %2071 = getelementptr inbounds nuw ptr, ptr %2069, i64 %2070
   %2072 = load ptr, ptr %2071, align 8, !tbaa !25, !noalias !135
   store ptr %2072, ptr %56, align 8, !tbaa !43, !alias.scope !135
   %2073 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %56)
@@ -5568,7 +5568,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2084 = icmp eq i32 %2082, 2
   %spec.select.i.i2326 = select i1 %2084, i64 2, i64 1
   %2085 = getelementptr inbounds nuw i8, ptr %2075, i64 24
-  %2086 = getelementptr inbounds nuw [0 x ptr], ptr %2085, i64 0, i64 %spec.select.i.i2326
+  %2086 = getelementptr inbounds nuw ptr, ptr %2085, i64 %spec.select.i.i2326
   %2087 = load ptr, ptr %2086, align 8, !tbaa !25, !noalias !138
   store ptr %2087, ptr %57, align 8, !tbaa !43, !alias.scope !138
   %2088 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %57)
@@ -5714,7 +5714,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2342:          ; preds = %.body2334, %2112
   %2131 = icmp eq i32 %2129, 2
   %2132 = getelementptr inbounds nuw i8, ptr %2122, i64 24
   %2133 = zext i1 %2131 to i64
-  %2134 = getelementptr inbounds nuw [0 x ptr], ptr %2132, i64 0, i64 %2133
+  %2134 = getelementptr inbounds nuw ptr, ptr %2132, i64 %2133
   %2135 = load ptr, ptr %2134, align 8, !tbaa !25, !noalias !141
   store ptr %2135, ptr %60, align 8, !tbaa !43, !alias.scope !141
   %2136 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %60)
@@ -5846,7 +5846,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2359:          ; preds = %.body2351, %2155
   %2174 = icmp eq i32 %2172, 2
   %2175 = getelementptr inbounds nuw i8, ptr %2165, i64 24
   %2176 = zext i1 %2174 to i64
-  %2177 = getelementptr inbounds nuw [0 x ptr], ptr %2175, i64 0, i64 %2176
+  %2177 = getelementptr inbounds nuw ptr, ptr %2175, i64 %2176
   %2178 = load ptr, ptr %2177, align 8, !tbaa !25, !noalias !144
   store ptr %2178, ptr %64, align 8, !tbaa !43, !alias.scope !144
   %2179 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %64)
@@ -5970,8 +5970,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit2372: ; preds = %_Z
   %spec.select.i.i2379 = add nuw i64 %.0106910661, %2224
   %2225 = getelementptr inbounds nuw i8, ptr %2214, i64 24
   %sext4212 = shl i64 %spec.select.i.i2379, 32
-  %2226 = ashr exact i64 %sext4212, 32
-  %2227 = getelementptr inbounds [0 x ptr], ptr %2225, i64 0, i64 %2226
+  %2226 = ashr exact i64 %sext4212, 29
+  %2227 = getelementptr inbounds i8, ptr %2225, i64 %2226
   %2228 = load ptr, ptr %2227, align 8, !tbaa !25, !noalias !147
   store ptr %2228, ptr %66, align 8, !tbaa !43, !alias.scope !147
   %2229 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %66)
@@ -6109,7 +6109,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2395:          ; preds = %2255, %.body2368
   %2269 = icmp eq i32 %2267, 2
   %2270 = getelementptr inbounds nuw i8, ptr %2260, i64 24
   %2271 = zext i1 %2269 to i64
-  %2272 = getelementptr inbounds nuw [0 x ptr], ptr %2270, i64 0, i64 %2271
+  %2272 = getelementptr inbounds nuw ptr, ptr %2270, i64 %2271
   %2273 = load ptr, ptr %2272, align 8, !tbaa !25, !noalias !151
   store ptr %2273, ptr %69, align 8, !tbaa !43, !alias.scope !151
   %2274 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %69)
@@ -6219,8 +6219,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit2408: ; preds = %_Z
   %spec.select.i.i2409 = add nuw i64 %.0107110659, %2325
   %2326 = getelementptr inbounds nuw i8, ptr %2315, i64 24
   %sext4209 = shl i64 %spec.select.i.i2409, 32
-  %2327 = ashr exact i64 %sext4209, 32
-  %2328 = getelementptr inbounds [0 x ptr], ptr %2326, i64 0, i64 %2327
+  %2327 = ashr exact i64 %sext4209, 29
+  %2328 = getelementptr inbounds i8, ptr %2326, i64 %2327
   %2329 = load ptr, ptr %2328, align 8, !tbaa !25, !noalias !154
   store ptr %2329, ptr %70, align 8, !tbaa !43, !alias.scope !154
   %2330 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %70)
@@ -6341,8 +6341,8 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %spec.select.i.i2436 = add nuw i64 %.0107110659, %2370
   %2371 = getelementptr inbounds nuw i8, ptr %2360, i64 24
   %sext4211 = shl i64 %spec.select.i.i2436, 32
-  %2372 = ashr exact i64 %sext4211, 32
-  %2373 = getelementptr inbounds [0 x ptr], ptr %2371, i64 0, i64 %2372
+  %2372 = ashr exact i64 %sext4211, 29
+  %2373 = getelementptr inbounds i8, ptr %2371, i64 %2372
   %2374 = load ptr, ptr %2373, align 8, !tbaa !25, !noalias !159
   store ptr %2374, ptr %74, align 8, !tbaa !43, !alias.scope !159
   %2375 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %74)
@@ -6427,8 +6427,8 @@ _ZNK4cvc58internal8Rational12getNumeratorEv.exit: ; preds = %2390
   %spec.select.i.i2448 = add nuw i64 %.0107110659, %2401
   %2402 = getelementptr inbounds nuw i8, ptr %2391, i64 24
   %sext4210 = shl i64 %spec.select.i.i2448, 32
-  %2403 = ashr exact i64 %sext4210, 32
-  %2404 = getelementptr inbounds [0 x ptr], ptr %2402, i64 0, i64 %2403
+  %2403 = ashr exact i64 %sext4210, 29
+  %2404 = getelementptr inbounds i8, ptr %2402, i64 %2403
   %2405 = load ptr, ptr %2404, align 8, !tbaa !25, !noalias !162
   store ptr %2405, ptr %77, align 8, !tbaa !43, !alias.scope !162
   %2406 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %77)
@@ -6745,7 +6745,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2482:          ; preds = %2476, %.body2404
   %2490 = icmp eq i32 %2488, 2
   %2491 = getelementptr inbounds nuw i8, ptr %2481, i64 24
   %2492 = zext i1 %2490 to i64
-  %2493 = getelementptr inbounds nuw [0 x ptr], ptr %2491, i64 0, i64 %2492
+  %2493 = getelementptr inbounds nuw ptr, ptr %2491, i64 %2492
   %2494 = load ptr, ptr %2493, align 8, !tbaa !25, !noalias !166
   store ptr %2494, ptr %83, align 8, !tbaa !43, !alias.scope !166
   %2495 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %83)
@@ -6770,7 +6770,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2506 = icmp eq i32 %2504, 2
   %spec.select.i.i2488 = select i1 %2506, i64 2, i64 1
   %2507 = getelementptr inbounds nuw i8, ptr %2497, i64 24
-  %2508 = getelementptr inbounds nuw [0 x ptr], ptr %2507, i64 0, i64 %spec.select.i.i2488
+  %2508 = getelementptr inbounds nuw ptr, ptr %2507, i64 %spec.select.i.i2488
   %2509 = load ptr, ptr %2508, align 8, !tbaa !25, !noalias !169
   store ptr %2509, ptr %84, align 8, !tbaa !43, !alias.scope !169
   %2510 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %84)
@@ -6851,7 +6851,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2541 = icmp eq i32 %2539, 2
   %2542 = getelementptr inbounds nuw i8, ptr %2532, i64 24
   %2543 = zext i1 %2541 to i64
-  %2544 = getelementptr inbounds nuw [0 x ptr], ptr %2542, i64 0, i64 %2543
+  %2544 = getelementptr inbounds nuw ptr, ptr %2542, i64 %2543
   %2545 = load ptr, ptr %2544, align 8, !tbaa !25, !noalias !172
   store ptr %2545, ptr %86, align 8, !tbaa !43, !alias.scope !172
   %2546 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %86)
@@ -6876,7 +6876,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2557 = icmp eq i32 %2555, 2
   %spec.select.i.i2500 = select i1 %2557, i64 2, i64 1
   %2558 = getelementptr inbounds nuw i8, ptr %2548, i64 24
-  %2559 = getelementptr inbounds nuw [0 x ptr], ptr %2558, i64 0, i64 %spec.select.i.i2500
+  %2559 = getelementptr inbounds nuw ptr, ptr %2558, i64 %spec.select.i.i2500
   %2560 = load ptr, ptr %2559, align 8, !tbaa !25, !noalias !175
   store ptr %2560, ptr %87, align 8, !tbaa !43, !alias.scope !175
   %2561 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %87)
@@ -6957,7 +6957,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2592 = icmp eq i32 %2590, 2
   %2593 = getelementptr inbounds nuw i8, ptr %2583, i64 24
   %2594 = zext i1 %2592 to i64
-  %2595 = getelementptr inbounds nuw [0 x ptr], ptr %2593, i64 0, i64 %2594
+  %2595 = getelementptr inbounds nuw ptr, ptr %2593, i64 %2594
   %2596 = load ptr, ptr %2595, align 8, !tbaa !25, !noalias !178
   store ptr %2596, ptr %89, align 8, !tbaa !43, !alias.scope !178
   %2597 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %89)
@@ -6982,7 +6982,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2608 = icmp eq i32 %2606, 2
   %spec.select.i.i2512 = select i1 %2608, i64 2, i64 1
   %2609 = getelementptr inbounds nuw i8, ptr %2599, i64 24
-  %2610 = getelementptr inbounds nuw [0 x ptr], ptr %2609, i64 0, i64 %spec.select.i.i2512
+  %2610 = getelementptr inbounds nuw ptr, ptr %2609, i64 %spec.select.i.i2512
   %2611 = load ptr, ptr %2610, align 8, !tbaa !25, !noalias !181
   store ptr %2611, ptr %90, align 8, !tbaa !43, !alias.scope !181
   %2612 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %90)
@@ -7063,7 +7063,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2642 = icmp eq i32 %2640, 2
   %2643 = getelementptr inbounds nuw i8, ptr %2633, i64 24
   %2644 = zext i1 %2642 to i64
-  %2645 = getelementptr inbounds nuw [0 x ptr], ptr %2643, i64 0, i64 %2644
+  %2645 = getelementptr inbounds nuw ptr, ptr %2643, i64 %2644
   %2646 = load ptr, ptr %2645, align 8, !tbaa !25, !noalias !184
   store ptr %2646, ptr %92, align 8, !tbaa !43, !alias.scope !184
   %2647 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %92)
@@ -7088,7 +7088,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2658 = icmp eq i32 %2656, 2
   %spec.select.i.i2524 = select i1 %2658, i64 2, i64 1
   %2659 = getelementptr inbounds nuw i8, ptr %2649, i64 24
-  %2660 = getelementptr inbounds nuw [0 x ptr], ptr %2659, i64 0, i64 %spec.select.i.i2524
+  %2660 = getelementptr inbounds nuw ptr, ptr %2659, i64 %spec.select.i.i2524
   %2661 = load ptr, ptr %2660, align 8, !tbaa !25, !noalias !187
   store ptr %2661, ptr %93, align 8, !tbaa !43, !alias.scope !187
   %2662 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %93)
@@ -7169,7 +7169,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2692 = icmp eq i32 %2690, 2
   %2693 = getelementptr inbounds nuw i8, ptr %2683, i64 24
   %2694 = zext i1 %2692 to i64
-  %2695 = getelementptr inbounds nuw [0 x ptr], ptr %2693, i64 0, i64 %2694
+  %2695 = getelementptr inbounds nuw ptr, ptr %2693, i64 %2694
   %2696 = load ptr, ptr %2695, align 8, !tbaa !25, !noalias !190
   store ptr %2696, ptr %95, align 8, !tbaa !43, !alias.scope !190
   %2697 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %95)
@@ -7332,7 +7332,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2551:          ; preds = %2717
   %2745 = icmp eq i32 %2743, 2
   %2746 = getelementptr inbounds nuw i8, ptr %2736, i64 24
   %2747 = zext i1 %2745 to i64
-  %2748 = getelementptr inbounds nuw [0 x ptr], ptr %2746, i64 0, i64 %2747
+  %2748 = getelementptr inbounds nuw ptr, ptr %2746, i64 %2747
   %2749 = load ptr, ptr %2748, align 8, !tbaa !25, !noalias !196
   store ptr %2749, ptr %98, align 8, !tbaa !43, !alias.scope !196
   %2750 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %98)
@@ -7431,7 +7431,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2780 = icmp eq i32 %2778, 2
   %2781 = getelementptr inbounds nuw i8, ptr %2771, i64 24
   %2782 = zext i1 %2780 to i64
-  %2783 = getelementptr inbounds nuw [0 x ptr], ptr %2781, i64 0, i64 %2782
+  %2783 = getelementptr inbounds nuw ptr, ptr %2781, i64 %2782
   %2784 = load ptr, ptr %2783, align 8, !tbaa !25, !noalias !199
   store ptr %2784, ptr %102, align 8, !tbaa !43, !alias.scope !199
   %2785 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %102)
@@ -7646,7 +7646,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2593:          ; preds = %.body2584
   %2843 = icmp eq i32 %2841, 2
   %2844 = getelementptr inbounds nuw i8, ptr %2834, i64 24
   %2845 = zext i1 %2843 to i64
-  %2846 = getelementptr inbounds nuw [0 x ptr], ptr %2844, i64 0, i64 %2845
+  %2846 = getelementptr inbounds nuw ptr, ptr %2844, i64 %2845
   %2847 = load ptr, ptr %2846, align 8, !tbaa !25, !noalias !205
   store ptr %2847, ptr %104, align 8, !tbaa !43, !alias.scope !205
   %2848 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %104)
@@ -7712,7 +7712,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %2873 = icmp eq i32 %2871, 2
   %2874 = getelementptr inbounds nuw i8, ptr %2864, i64 24
   %2875 = zext i1 %2873 to i64
-  %2876 = getelementptr inbounds nuw [0 x ptr], ptr %2874, i64 0, i64 %2875
+  %2876 = getelementptr inbounds nuw ptr, ptr %2874, i64 %2875
   %2877 = load ptr, ptr %2876, align 8, !tbaa !25, !noalias !208
   store ptr %2877, ptr %106, align 8, !tbaa !43, !alias.scope !208
   %2878 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %106)
@@ -8096,7 +8096,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2636:           ; preds = %_ZN4cvc58internal7I
   %2987 = icmp eq i32 %2985, 2
   %2988 = getelementptr inbounds nuw i8, ptr %2978, i64 24
   %2989 = zext i1 %2987 to i64
-  %2990 = getelementptr inbounds nuw [0 x ptr], ptr %2988, i64 0, i64 %2989
+  %2990 = getelementptr inbounds nuw ptr, ptr %2988, i64 %2989
   %2991 = load ptr, ptr %2990, align 8, !tbaa !25, !noalias !211
   store ptr %2991, ptr %117, align 8, !tbaa !43, !alias.scope !211
   %2992 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %117)
@@ -8209,7 +8209,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2647:           ; preds = %3015, %3009
   %3029 = icmp eq i32 %3027, 2
   %3030 = getelementptr inbounds nuw i8, ptr %3020, i64 24
   %3031 = zext i1 %3029 to i64
-  %3032 = getelementptr inbounds nuw [0 x ptr], ptr %3030, i64 0, i64 %3031
+  %3032 = getelementptr inbounds nuw ptr, ptr %3030, i64 %3031
   %3033 = load ptr, ptr %3032, align 8, !tbaa !25, !noalias !214
   store ptr %3033, ptr %120, align 8, !tbaa !43, !alias.scope !214
   %3034 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %120)
@@ -8564,7 +8564,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %3137 = icmp eq i32 %3135, 2
   %3138 = getelementptr inbounds nuw i8, ptr %3128, i64 24
   %3139 = zext i1 %3137 to i64
-  %3140 = getelementptr inbounds nuw [0 x ptr], ptr %3138, i64 0, i64 %3139
+  %3140 = getelementptr inbounds nuw ptr, ptr %3138, i64 %3139
   %3141 = load ptr, ptr %3140, align 8, !tbaa !25, !noalias !219
   store ptr %3141, ptr %128, align 8, !tbaa !43, !alias.scope !219
   %3142 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %128)
@@ -8734,8 +8734,8 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i2696: ; preds = %3
   %spec.select.i.i2702 = add nuw i64 %.0107610656, %3202
   %3203 = getelementptr inbounds nuw i8, ptr %3192, i64 24
   %sext4207 = shl i64 %spec.select.i.i2702, 32
-  %3204 = ashr exact i64 %sext4207, 32
-  %3205 = getelementptr inbounds [0 x ptr], ptr %3203, i64 0, i64 %3204
+  %3204 = ashr exact i64 %sext4207, 29
+  %3205 = getelementptr inbounds i8, ptr %3203, i64 %3204
   %3206 = load ptr, ptr %3205, align 8, !tbaa !25, !noalias !222
   store ptr %3206, ptr %130, align 8, !tbaa !43, !alias.scope !222
   %3207 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %130)
@@ -8993,7 +8993,7 @@ _ZN4cvc58internal6StringD2Ev.exit2717:            ; preds = %3281, %3279, %3189
   %3296 = icmp eq i32 %3294, 2
   %3297 = getelementptr inbounds nuw i8, ptr %3287, i64 24
   %3298 = zext i1 %3296 to i64
-  %3299 = getelementptr inbounds nuw [0 x ptr], ptr %3297, i64 0, i64 %3298
+  %3299 = getelementptr inbounds nuw ptr, ptr %3297, i64 %3298
   %3300 = load ptr, ptr %3299, align 8, !tbaa !25, !noalias !226
   store ptr %3300, ptr %132, align 8, !tbaa !43, !alias.scope !226
   %3301 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %132)
@@ -9131,7 +9131,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2734:          ; preds = %.body2726, %3327
   %3346 = icmp eq i32 %3344, 2
   %3347 = getelementptr inbounds nuw i8, ptr %3337, i64 24
   %3348 = zext i1 %3346 to i64
-  %3349 = getelementptr inbounds nuw [0 x ptr], ptr %3347, i64 0, i64 %3348
+  %3349 = getelementptr inbounds nuw ptr, ptr %3347, i64 %3348
   %3350 = load ptr, ptr %3349, align 8, !tbaa !25, !noalias !229
   store ptr %3350, ptr %135, align 8, !tbaa !43, !alias.scope !229
   %3351 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %135)
@@ -9169,7 +9169,7 @@ _ZN4cvc58internal7IntegerC2Em.exit:               ; preds = %_ZNSt13unordered_ma
   %3369 = icmp eq i32 %3367, 2
   %spec.select.i.i2741 = select i1 %3369, i64 2, i64 1
   %3370 = getelementptr inbounds nuw i8, ptr %3360, i64 24
-  %3371 = getelementptr inbounds nuw [0 x ptr], ptr %3370, i64 0, i64 %spec.select.i.i2741
+  %3371 = getelementptr inbounds nuw ptr, ptr %3370, i64 %spec.select.i.i2741
   %3372 = load ptr, ptr %3371, align 8, !tbaa !25, !noalias !232
   store ptr %3372, ptr %138, align 8, !tbaa !43, !alias.scope !232
   %3373 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %138)
@@ -9199,7 +9199,7 @@ _ZNK4cvc58internal8Rational12getNumeratorEv.exit2747: ; preds = %_ZNSt13unordere
   %3384 = icmp eq i32 %3382, 2
   %spec.select.i.i2748 = select i1 %3384, i64 3, i64 2
   %3385 = getelementptr inbounds nuw i8, ptr %3375, i64 24
-  %3386 = getelementptr inbounds nuw [0 x ptr], ptr %3385, i64 0, i64 %spec.select.i.i2748
+  %3386 = getelementptr inbounds nuw ptr, ptr %3385, i64 %spec.select.i.i2748
   %3387 = load ptr, ptr %3386, align 8, !tbaa !25, !noalias !235
   store ptr %3387, ptr %140, align 8, !tbaa !43, !alias.scope !235
   %3388 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %140)
@@ -9752,7 +9752,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2790:           ; preds = %_ZN4cvc58internal7I
   %3570 = icmp eq i32 %3568, 2
   %3571 = getelementptr inbounds nuw i8, ptr %3561, i64 24
   %3572 = zext i1 %3570 to i64
-  %3573 = getelementptr inbounds nuw [0 x ptr], ptr %3571, i64 0, i64 %3572
+  %3573 = getelementptr inbounds nuw ptr, ptr %3571, i64 %3572
   %3574 = load ptr, ptr %3573, align 8, !tbaa !25, !noalias !241
   store ptr %3574, ptr %149, align 8, !tbaa !43, !alias.scope !241
   %3575 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %149)
@@ -9790,7 +9790,7 @@ _ZN4cvc58internal7IntegerC2Em.exit2798:           ; preds = %_ZNSt13unordered_ma
   %3593 = icmp eq i32 %3591, 2
   %spec.select.i.i2799 = select i1 %3593, i64 2, i64 1
   %3594 = getelementptr inbounds nuw i8, ptr %3584, i64 24
-  %3595 = getelementptr inbounds nuw [0 x ptr], ptr %3594, i64 0, i64 %spec.select.i.i2799
+  %3595 = getelementptr inbounds nuw ptr, ptr %3594, i64 %spec.select.i.i2799
   %3596 = load ptr, ptr %3595, align 8, !tbaa !25, !noalias !244
   store ptr %3596, ptr %152, align 8, !tbaa !43, !alias.scope !244
   %3597 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %152)
@@ -10098,7 +10098,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2827:           ; preds = %_ZN4cvc58internal7I
   %3689 = icmp eq i32 %3687, 2
   %3690 = getelementptr inbounds nuw i8, ptr %3680, i64 24
   %3691 = zext i1 %3689 to i64
-  %3692 = getelementptr inbounds nuw [0 x ptr], ptr %3690, i64 0, i64 %3691
+  %3692 = getelementptr inbounds nuw ptr, ptr %3690, i64 %3691
   %3693 = load ptr, ptr %3692, align 8, !tbaa !25, !noalias !248
   store ptr %3693, ptr %157, align 8, !tbaa !43, !alias.scope !248
   %3694 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %157)
@@ -10136,7 +10136,7 @@ _ZN4cvc58internal7IntegerC2Em.exit2835:           ; preds = %_ZNSt13unordered_ma
   %3712 = icmp eq i32 %3710, 2
   %spec.select.i.i2836 = select i1 %3712, i64 2, i64 1
   %3713 = getelementptr inbounds nuw i8, ptr %3703, i64 24
-  %3714 = getelementptr inbounds nuw [0 x ptr], ptr %3713, i64 0, i64 %spec.select.i.i2836
+  %3714 = getelementptr inbounds nuw ptr, ptr %3713, i64 %spec.select.i.i2836
   %3715 = load ptr, ptr %3714, align 8, !tbaa !25, !noalias !251
   store ptr %3715, ptr %160, align 8, !tbaa !43, !alias.scope !251
   %3716 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %160)
@@ -10165,7 +10165,7 @@ _ZNK4cvc58internal8Rational12getNumeratorEv.exit2842: ; preds = %_ZNSt13unordere
   %3727 = icmp eq i32 %3725, 2
   %spec.select.i.i2843 = select i1 %3727, i64 3, i64 2
   %3728 = getelementptr inbounds nuw i8, ptr %3718, i64 24
-  %3729 = getelementptr inbounds nuw [0 x ptr], ptr %3728, i64 0, i64 %spec.select.i.i2843
+  %3729 = getelementptr inbounds nuw ptr, ptr %3728, i64 %spec.select.i.i2843
   %3730 = load ptr, ptr %3729, align 8, !tbaa !25, !noalias !254
   store ptr %3730, ptr %161, align 8, !tbaa !43, !alias.scope !254
   %3731 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %161)
@@ -10475,7 +10475,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2866:           ; preds = %_ZN4cvc58internal7I
   %3834 = icmp eq i32 %3832, 2
   %3835 = getelementptr inbounds nuw i8, ptr %3825, i64 24
   %3836 = zext i1 %3834 to i64
-  %3837 = getelementptr inbounds nuw [0 x ptr], ptr %3835, i64 0, i64 %3836
+  %3837 = getelementptr inbounds nuw ptr, ptr %3835, i64 %3836
   %3838 = load ptr, ptr %3837, align 8, !tbaa !25, !noalias !257
   store ptr %3838, ptr %165, align 8, !tbaa !43, !alias.scope !257
   %3839 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %165)
@@ -10513,7 +10513,7 @@ _ZN4cvc58internal7IntegerC2Em.exit2874:           ; preds = %_ZNSt13unordered_ma
   %3857 = icmp eq i32 %3855, 2
   %spec.select.i.i2875 = select i1 %3857, i64 2, i64 1
   %3858 = getelementptr inbounds nuw i8, ptr %3848, i64 24
-  %3859 = getelementptr inbounds nuw [0 x ptr], ptr %3858, i64 0, i64 %spec.select.i.i2875
+  %3859 = getelementptr inbounds nuw ptr, ptr %3858, i64 %spec.select.i.i2875
   %3860 = load ptr, ptr %3859, align 8, !tbaa !25, !noalias !260
   store ptr %3860, ptr %168, align 8, !tbaa !43, !alias.scope !260
   %3861 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %168)
@@ -10847,7 +10847,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2904:           ; preds = %_ZN4cvc58internal7I
   %3969 = icmp eq i32 %3967, 2
   %3970 = getelementptr inbounds nuw i8, ptr %3960, i64 24
   %3971 = zext i1 %3969 to i64
-  %3972 = getelementptr inbounds nuw [0 x ptr], ptr %3970, i64 0, i64 %3971
+  %3972 = getelementptr inbounds nuw ptr, ptr %3970, i64 %3971
   %3973 = load ptr, ptr %3972, align 8, !tbaa !25, !noalias !263
   store ptr %3973, ptr %173, align 8, !tbaa !43, !alias.scope !263
   %3974 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %173)
@@ -10872,7 +10872,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %3985 = icmp eq i32 %3983, 2
   %spec.select.i.i2910 = select i1 %3985, i64 2, i64 1
   %3986 = getelementptr inbounds nuw i8, ptr %3976, i64 24
-  %3987 = getelementptr inbounds nuw [0 x ptr], ptr %3986, i64 0, i64 %spec.select.i.i2910
+  %3987 = getelementptr inbounds nuw ptr, ptr %3986, i64 %spec.select.i.i2910
   %3988 = load ptr, ptr %3987, align 8, !tbaa !25, !noalias !266
   store ptr %3988, ptr %174, align 8, !tbaa !43, !alias.scope !266
   %3989 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %174)
@@ -10965,7 +10965,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4023 = icmp eq i32 %4021, 2
   %4024 = getelementptr inbounds nuw i8, ptr %4014, i64 24
   %4025 = zext i1 %4023 to i64
-  %4026 = getelementptr inbounds nuw [0 x ptr], ptr %4024, i64 0, i64 %4025
+  %4026 = getelementptr inbounds nuw ptr, ptr %4024, i64 %4025
   %4027 = load ptr, ptr %4026, align 8, !tbaa !25, !noalias !269
   store ptr %4027, ptr %176, align 8, !tbaa !43, !alias.scope !269
   %4028 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %176)
@@ -11002,7 +11002,7 @@ _ZN4cvc58internal7IntegerC2Em.exit2924:           ; preds = %_ZNSt13unordered_ma
   %4046 = icmp eq i32 %4044, 2
   %spec.select.i.i2925 = select i1 %4046, i64 2, i64 1
   %4047 = getelementptr inbounds nuw i8, ptr %4037, i64 24
-  %4048 = getelementptr inbounds nuw [0 x ptr], ptr %4047, i64 0, i64 %spec.select.i.i2925
+  %4048 = getelementptr inbounds nuw ptr, ptr %4047, i64 %spec.select.i.i2925
   %4049 = load ptr, ptr %4048, align 8, !tbaa !25, !noalias !272
   store ptr %4049, ptr %178, align 8, !tbaa !43, !alias.scope !272
   %4050 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %178)
@@ -11028,7 +11028,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4061 = icmp eq i32 %4059, 2
   %spec.select.i.i2930 = select i1 %4061, i64 3, i64 2
   %4062 = getelementptr inbounds nuw i8, ptr %4052, i64 24
-  %4063 = getelementptr inbounds nuw [0 x ptr], ptr %4062, i64 0, i64 %spec.select.i.i2930
+  %4063 = getelementptr inbounds nuw ptr, ptr %4062, i64 %spec.select.i.i2930
   %4064 = load ptr, ptr %4063, align 8, !tbaa !25, !noalias !275
   store ptr %4064, ptr %180, align 8, !tbaa !43, !alias.scope !275
   %4065 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %180)
@@ -11449,7 +11449,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit2970:           ; preds = %4171, %4087
   %4185 = icmp eq i32 %4183, 2
   %4186 = getelementptr inbounds nuw i8, ptr %4176, i64 24
   %4187 = zext i1 %4185 to i64
-  %4188 = getelementptr inbounds nuw [0 x ptr], ptr %4186, i64 0, i64 %4187
+  %4188 = getelementptr inbounds nuw ptr, ptr %4186, i64 %4187
   %4189 = load ptr, ptr %4188, align 8, !tbaa !25, !noalias !278
   store ptr %4189, ptr %187, align 8, !tbaa !43, !alias.scope !278
   %4190 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %187)
@@ -11474,7 +11474,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4201 = icmp eq i32 %4199, 2
   %spec.select.i.i2976 = select i1 %4201, i64 2, i64 1
   %4202 = getelementptr inbounds nuw i8, ptr %4192, i64 24
-  %4203 = getelementptr inbounds nuw [0 x ptr], ptr %4202, i64 0, i64 %spec.select.i.i2976
+  %4203 = getelementptr inbounds nuw ptr, ptr %4202, i64 %spec.select.i.i2976
   %4204 = load ptr, ptr %4203, align 8, !tbaa !25, !noalias !281
   store ptr %4204, ptr %188, align 8, !tbaa !43, !alias.scope !281
   %4205 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %188)
@@ -11499,7 +11499,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4216 = icmp eq i32 %4214, 2
   %spec.select.i.i2981 = select i1 %4216, i64 3, i64 2
   %4217 = getelementptr inbounds nuw i8, ptr %4207, i64 24
-  %4218 = getelementptr inbounds nuw [0 x ptr], ptr %4217, i64 0, i64 %spec.select.i.i2981
+  %4218 = getelementptr inbounds nuw ptr, ptr %4217, i64 %spec.select.i.i2981
   %4219 = load ptr, ptr %4218, align 8, !tbaa !25, !noalias !284
   store ptr %4219, ptr %189, align 8, !tbaa !43, !alias.scope !284
   %4220 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %189)
@@ -11685,7 +11685,7 @@ _ZN4cvc58internal6StringD2Ev.exit2998:            ; preds = %4266, %4264, %4260
   %4281 = icmp eq i32 %4279, 2
   %4282 = getelementptr inbounds nuw i8, ptr %4272, i64 24
   %4283 = zext i1 %4281 to i64
-  %4284 = getelementptr inbounds nuw [0 x ptr], ptr %4282, i64 0, i64 %4283
+  %4284 = getelementptr inbounds nuw ptr, ptr %4282, i64 %4283
   %4285 = load ptr, ptr %4284, align 8, !tbaa !25, !noalias !287
   store ptr %4285, ptr %192, align 8, !tbaa !43, !alias.scope !287
   %4286 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %192)
@@ -11710,7 +11710,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4297 = icmp eq i32 %4295, 2
   %spec.select.i.i3004 = select i1 %4297, i64 2, i64 1
   %4298 = getelementptr inbounds nuw i8, ptr %4288, i64 24
-  %4299 = getelementptr inbounds nuw [0 x ptr], ptr %4298, i64 0, i64 %spec.select.i.i3004
+  %4299 = getelementptr inbounds nuw ptr, ptr %4298, i64 %spec.select.i.i3004
   %4300 = load ptr, ptr %4299, align 8, !tbaa !25, !noalias !290
   store ptr %4300, ptr %193, align 8, !tbaa !43, !alias.scope !290
   %4301 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %193)
@@ -11735,7 +11735,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4312 = icmp eq i32 %4310, 2
   %spec.select.i.i3009 = select i1 %4312, i64 3, i64 2
   %4313 = getelementptr inbounds nuw i8, ptr %4303, i64 24
-  %4314 = getelementptr inbounds nuw [0 x ptr], ptr %4313, i64 0, i64 %spec.select.i.i3009
+  %4314 = getelementptr inbounds nuw ptr, ptr %4313, i64 %spec.select.i.i3009
   %4315 = load ptr, ptr %4314, align 8, !tbaa !25, !noalias !293
   store ptr %4315, ptr %194, align 8, !tbaa !43, !alias.scope !293
   %4316 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %194)
@@ -12102,7 +12102,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit3036:                ; preds = %4455, %4457
   %4472 = icmp eq i32 %4470, 2
   %4473 = getelementptr inbounds nuw i8, ptr %4463, i64 24
   %4474 = zext i1 %4472 to i64
-  %4475 = getelementptr inbounds nuw [0 x ptr], ptr %4473, i64 0, i64 %4474
+  %4475 = getelementptr inbounds nuw ptr, ptr %4473, i64 %4474
   %4476 = load ptr, ptr %4475, align 8, !tbaa !25, !noalias !297
   store ptr %4476, ptr %199, align 8, !tbaa !43, !alias.scope !297
   %4477 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %199)
@@ -12127,7 +12127,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4488 = icmp eq i32 %4486, 2
   %spec.select.i.i3042 = select i1 %4488, i64 2, i64 1
   %4489 = getelementptr inbounds nuw i8, ptr %4479, i64 24
-  %4490 = getelementptr inbounds nuw [0 x ptr], ptr %4489, i64 0, i64 %spec.select.i.i3042
+  %4490 = getelementptr inbounds nuw ptr, ptr %4489, i64 %spec.select.i.i3042
   %4491 = load ptr, ptr %4490, align 8, !tbaa !25, !noalias !300
   store ptr %4491, ptr %200, align 8, !tbaa !43, !alias.scope !300
   %4492 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %200)
@@ -12299,7 +12299,7 @@ _ZN4cvc58internal6StringD2Ev.exit3056:            ; preds = %4546, %4544, %4538
   %4561 = icmp eq i32 %4559, 2
   %4562 = getelementptr inbounds nuw i8, ptr %4552, i64 24
   %4563 = zext i1 %4561 to i64
-  %4564 = getelementptr inbounds nuw [0 x ptr], ptr %4562, i64 0, i64 %4563
+  %4564 = getelementptr inbounds nuw ptr, ptr %4562, i64 %4563
   %4565 = load ptr, ptr %4564, align 8, !tbaa !25, !noalias !303
   store ptr %4565, ptr %204, align 8, !tbaa !43, !alias.scope !303
   %4566 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %204)
@@ -12324,7 +12324,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %4577 = icmp eq i32 %4575, 2
   %spec.select.i.i3062 = select i1 %4577, i64 2, i64 1
   %4578 = getelementptr inbounds nuw i8, ptr %4568, i64 24
-  %4579 = getelementptr inbounds nuw [0 x ptr], ptr %4578, i64 0, i64 %spec.select.i.i3062
+  %4579 = getelementptr inbounds nuw ptr, ptr %4578, i64 %spec.select.i.i3062
   %4580 = load ptr, ptr %4579, align 8, !tbaa !25, !noalias !306
   store ptr %4580, ptr %205, align 8, !tbaa !43, !alias.scope !306
   %4581 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %205)
@@ -12499,7 +12499,7 @@ _ZN4cvc58internal6StringD2Ev.exit3078:            ; preds = %4637, %4635, %4629
   %4652 = icmp eq i32 %4650, 2
   %4653 = getelementptr inbounds nuw i8, ptr %4643, i64 24
   %4654 = zext i1 %4652 to i64
-  %4655 = getelementptr inbounds nuw [0 x ptr], ptr %4653, i64 0, i64 %4654
+  %4655 = getelementptr inbounds nuw ptr, ptr %4653, i64 %4654
   %4656 = load ptr, ptr %4655, align 8, !tbaa !25, !noalias !309
   store ptr %4656, ptr %210, align 8, !tbaa !43, !alias.scope !309
   %4657 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %210)
@@ -12866,7 +12866,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit3117:           ; preds = %4756, %4689
   %4770 = icmp eq i32 %4768, 2
   %4771 = getelementptr inbounds nuw i8, ptr %4761, i64 24
   %4772 = zext i1 %4770 to i64
-  %4773 = getelementptr inbounds nuw [0 x ptr], ptr %4771, i64 0, i64 %4772
+  %4773 = getelementptr inbounds nuw ptr, ptr %4771, i64 %4772
   %4774 = load ptr, ptr %4773, align 8, !tbaa !25, !noalias !317
   store ptr %4774, ptr %216, align 8, !tbaa !43, !alias.scope !317
   %4775 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %216)
@@ -13101,7 +13101,7 @@ _ZN4cvc58internal8RationalD2Ev.exit3146:          ; preds = %.body3138, %4821
   %4840 = icmp eq i32 %4838, 2
   %4841 = getelementptr inbounds nuw i8, ptr %4831, i64 24
   %4842 = zext i1 %4840 to i64
-  %4843 = getelementptr inbounds nuw [0 x ptr], ptr %4841, i64 0, i64 %4842
+  %4843 = getelementptr inbounds nuw ptr, ptr %4841, i64 %4842
   %4844 = load ptr, ptr %4843, align 8, !tbaa !25, !noalias !320
   store ptr %4844, ptr %222, align 8, !tbaa !43, !alias.scope !320
   %4845 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %222)
@@ -13557,7 +13557,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit3192:           ; preds = %4975, %4901
   %4989 = icmp eq i32 %4987, 2
   %4990 = getelementptr inbounds nuw i8, ptr %4980, i64 24
   %4991 = zext i1 %4989 to i64
-  %4992 = getelementptr inbounds nuw [0 x ptr], ptr %4990, i64 0, i64 %4991
+  %4992 = getelementptr inbounds nuw ptr, ptr %4990, i64 %4991
   %4993 = load ptr, ptr %4992, align 8, !tbaa !25, !noalias !323
   store ptr %4993, ptr %230, align 8, !tbaa !43, !alias.scope !323
   %4994 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %230)
@@ -13790,7 +13790,7 @@ _ZN4cvc58internal8RationalD2Ev.exit3221:          ; preds = %.body3213, %5044
   %5063 = icmp eq i32 %5061, 2
   %5064 = getelementptr inbounds nuw i8, ptr %5054, i64 24
   %5065 = zext i1 %5063 to i64
-  %5066 = getelementptr inbounds nuw [0 x ptr], ptr %5064, i64 0, i64 %5065
+  %5066 = getelementptr inbounds nuw ptr, ptr %5064, i64 %5065
   %5067 = load ptr, ptr %5066, align 8, !tbaa !25, !noalias !326
   store ptr %5067, ptr %235, align 8, !tbaa !43, !alias.scope !326
   %5068 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %235)
@@ -14060,7 +14060,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit3247:                ; preds = %.loopexit4248, %.lo
   %5153 = icmp eq i32 %5151, 2
   %5154 = getelementptr inbounds nuw i8, ptr %5144, i64 24
   %5155 = zext i1 %5153 to i64
-  %5156 = getelementptr inbounds nuw [0 x ptr], ptr %5154, i64 0, i64 %5155
+  %5156 = getelementptr inbounds nuw ptr, ptr %5154, i64 %5155
   %5157 = load ptr, ptr %5156, align 8, !tbaa !25, !noalias !330
   store ptr %5157, ptr %239, align 8, !tbaa !43, !alias.scope !330
   %5158 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %239)
@@ -14354,7 +14354,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit3276:                ; preds = %.loopexit4238, %.lo
   %5251 = icmp eq i32 %5249, 2
   %5252 = getelementptr inbounds nuw i8, ptr %5242, i64 24
   %5253 = zext i1 %5251 to i64
-  %5254 = getelementptr inbounds nuw [0 x ptr], ptr %5252, i64 0, i64 %5253
+  %5254 = getelementptr inbounds nuw ptr, ptr %5252, i64 %5253
   %5255 = load ptr, ptr %5254, align 8, !tbaa !25, !noalias !334
   store ptr %5255, ptr %243, align 8, !tbaa !43, !alias.scope !334
   %5256 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %243)
@@ -14379,7 +14379,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %5267 = icmp eq i32 %5265, 2
   %spec.select.i.i3282 = select i1 %5267, i64 2, i64 1
   %5268 = getelementptr inbounds nuw i8, ptr %5258, i64 24
-  %5269 = getelementptr inbounds nuw [0 x ptr], ptr %5268, i64 0, i64 %spec.select.i.i3282
+  %5269 = getelementptr inbounds nuw ptr, ptr %5268, i64 %spec.select.i.i3282
   %5270 = load ptr, ptr %5269, align 8, !tbaa !25, !noalias !337
   store ptr %5270, ptr %244, align 8, !tbaa !43, !alias.scope !337
   %5271 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %244)
@@ -14515,7 +14515,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %5316 = icmp eq i32 %5314, 2
   %5317 = getelementptr inbounds nuw i8, ptr %5307, i64 24
   %5318 = zext i1 %5316 to i64
-  %5319 = getelementptr inbounds nuw [0 x ptr], ptr %5317, i64 0, i64 %5318
+  %5319 = getelementptr inbounds nuw ptr, ptr %5317, i64 %5318
   %5320 = load ptr, ptr %5319, align 8, !tbaa !25, !noalias !340
   store ptr %5320, ptr %249, align 8, !tbaa !43, !alias.scope !340
   %5321 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %249)
@@ -14618,7 +14618,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3302:         ; preds = %5333, %5339, %5331
   %5353 = icmp eq i32 %5351, 2
   %5354 = getelementptr inbounds nuw i8, ptr %5344, i64 24
   %5355 = zext i1 %5353 to i64
-  %5356 = getelementptr inbounds nuw [0 x ptr], ptr %5354, i64 0, i64 %5355
+  %5356 = getelementptr inbounds nuw ptr, ptr %5354, i64 %5355
   %5357 = load ptr, ptr %5356, align 8, !tbaa !25, !noalias !343
   store ptr %5357, ptr %252, align 8, !tbaa !43, !alias.scope !343
   %5358 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %252)
@@ -14732,7 +14732,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3313:         ; preds = %5370, %5376, %5368
   %5395 = icmp eq i32 %5393, 2
   %5396 = getelementptr inbounds nuw i8, ptr %5386, i64 24
   %5397 = zext i1 %5395 to i64
-  %5398 = getelementptr inbounds nuw [0 x ptr], ptr %5396, i64 0, i64 %5397
+  %5398 = getelementptr inbounds nuw ptr, ptr %5396, i64 %5397
   %5399 = load ptr, ptr %5398, align 8, !tbaa !25, !noalias !346
   store ptr %5399, ptr %257, align 8, !tbaa !43, !alias.scope !346
   %5400 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %257)
@@ -14844,7 +14844,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3324:         ; preds = %5416, %5422, %5414
   %5436 = icmp eq i32 %5434, 2
   %5437 = getelementptr inbounds nuw i8, ptr %5427, i64 24
   %5438 = zext i1 %5436 to i64
-  %5439 = getelementptr inbounds nuw [0 x ptr], ptr %5437, i64 0, i64 %5438
+  %5439 = getelementptr inbounds nuw ptr, ptr %5437, i64 %5438
   %5440 = load ptr, ptr %5439, align 8, !tbaa !25, !noalias !349
   store ptr %5440, ptr %259, align 8, !tbaa !43, !alias.scope !349
   %5441 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %259)
@@ -14930,8 +14930,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit3332: ; preds = %_Z
   %spec.select.i.i3335 = add nuw i64 %.0105810649, %5479
   %5480 = getelementptr inbounds nuw i8, ptr %5469, i64 24
   %sext4206 = shl i64 %spec.select.i.i3335, 32
-  %5481 = ashr exact i64 %sext4206, 32
-  %5482 = getelementptr inbounds [0 x ptr], ptr %5480, i64 0, i64 %5481
+  %5481 = ashr exact i64 %sext4206, 29
+  %5482 = getelementptr inbounds i8, ptr %5480, i64 %5481
   %5483 = load ptr, ptr %5482, align 8, !tbaa !25, !noalias !352
   store ptr %5483, ptr %261, align 8, !tbaa !43, !alias.scope !352
   %5484 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %261)
@@ -15071,7 +15071,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3346:         ; preds = %5513, %5466
   %5527 = icmp eq i32 %5525, 2
   %5528 = getelementptr inbounds nuw i8, ptr %5518, i64 24
   %5529 = zext i1 %5527 to i64
-  %5530 = getelementptr inbounds nuw [0 x ptr], ptr %5528, i64 0, i64 %5529
+  %5530 = getelementptr inbounds nuw ptr, ptr %5528, i64 %5529
   %5531 = load ptr, ptr %5530, align 8, !tbaa !25, !noalias !356
   store ptr %5531, ptr %264, align 8, !tbaa !43, !alias.scope !356
   %5532 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %264)
@@ -15157,8 +15157,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit3355: ; preds = %_Z
   %spec.select.i.i3358 = add nuw i64 %.0105610646, %5570
   %5571 = getelementptr inbounds nuw i8, ptr %5560, i64 24
   %sext4205 = shl i64 %spec.select.i.i3358, 32
-  %5572 = ashr exact i64 %sext4205, 32
-  %5573 = getelementptr inbounds [0 x ptr], ptr %5571, i64 0, i64 %5572
+  %5572 = ashr exact i64 %sext4205, 29
+  %5573 = getelementptr inbounds i8, ptr %5571, i64 %5572
   %5574 = load ptr, ptr %5573, align 8, !tbaa !25, !noalias !359
   store ptr %5574, ptr %266, align 8, !tbaa !43, !alias.scope !359
   %5575 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %266)
@@ -15298,7 +15298,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3370:         ; preds = %5604, %5557
   %5618 = icmp eq i32 %5616, 2
   %5619 = getelementptr inbounds nuw i8, ptr %5609, i64 24
   %5620 = zext i1 %5618 to i64
-  %5621 = getelementptr inbounds nuw [0 x ptr], ptr %5619, i64 0, i64 %5620
+  %5621 = getelementptr inbounds nuw ptr, ptr %5619, i64 %5620
   %5622 = load ptr, ptr %5621, align 8, !tbaa !25, !noalias !363
   store ptr %5622, ptr %269, align 8, !tbaa !43, !alias.scope !363
   %5623 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %269)
@@ -15384,8 +15384,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit3379: ; preds = %_Z
   %spec.select.i.i3382 = add nuw i64 %.0105410643, %5661
   %5662 = getelementptr inbounds nuw i8, ptr %5651, i64 24
   %sext4204 = shl i64 %spec.select.i.i3382, 32
-  %5663 = ashr exact i64 %sext4204, 32
-  %5664 = getelementptr inbounds [0 x ptr], ptr %5662, i64 0, i64 %5663
+  %5663 = ashr exact i64 %sext4204, 29
+  %5664 = getelementptr inbounds i8, ptr %5662, i64 %5663
   %5665 = load ptr, ptr %5664, align 8, !tbaa !25, !noalias !366
   store ptr %5665, ptr %271, align 8, !tbaa !43, !alias.scope !366
   %5666 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %271)
@@ -15525,7 +15525,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3394:         ; preds = %5695, %5648
   %5709 = icmp eq i32 %5707, 2
   %5710 = getelementptr inbounds nuw i8, ptr %5700, i64 24
   %5711 = zext i1 %5709 to i64
-  %5712 = getelementptr inbounds nuw [0 x ptr], ptr %5710, i64 0, i64 %5711
+  %5712 = getelementptr inbounds nuw ptr, ptr %5710, i64 %5711
   %5713 = load ptr, ptr %5712, align 8, !tbaa !25, !noalias !370
   store ptr %5713, ptr %274, align 8, !tbaa !43, !alias.scope !370
   %5714 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %274)
@@ -15611,8 +15611,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit3403: ; preds = %_Z
   %spec.select.i.i3406 = add nuw i64 %.0105210640, %5752
   %5753 = getelementptr inbounds nuw i8, ptr %5742, i64 24
   %sext4203 = shl i64 %spec.select.i.i3406, 32
-  %5754 = ashr exact i64 %sext4203, 32
-  %5755 = getelementptr inbounds [0 x ptr], ptr %5753, i64 0, i64 %5754
+  %5754 = ashr exact i64 %sext4203, 29
+  %5755 = getelementptr inbounds i8, ptr %5753, i64 %5754
   %5756 = load ptr, ptr %5755, align 8, !tbaa !25, !noalias !373
   store ptr %5756, ptr %276, align 8, !tbaa !43, !alias.scope !373
   %5757 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %276)
@@ -15752,7 +15752,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3418:         ; preds = %5786, %5739
   %5800 = icmp eq i32 %5798, 2
   %5801 = getelementptr inbounds nuw i8, ptr %5791, i64 24
   %5802 = zext i1 %5800 to i64
-  %5803 = getelementptr inbounds nuw [0 x ptr], ptr %5801, i64 0, i64 %5802
+  %5803 = getelementptr inbounds nuw ptr, ptr %5801, i64 %5802
   %5804 = load ptr, ptr %5803, align 8, !tbaa !25, !noalias !377
   store ptr %5804, ptr %279, align 8, !tbaa !43, !alias.scope !377
   %5805 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %279)
@@ -15838,8 +15838,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit3427: ; preds = %_Z
   %spec.select.i.i3430 = add nuw i64 %.0105010637, %5843
   %5844 = getelementptr inbounds nuw i8, ptr %5833, i64 24
   %sext4202 = shl i64 %spec.select.i.i3430, 32
-  %5845 = ashr exact i64 %sext4202, 32
-  %5846 = getelementptr inbounds [0 x ptr], ptr %5844, i64 0, i64 %5845
+  %5845 = ashr exact i64 %sext4202, 29
+  %5846 = getelementptr inbounds i8, ptr %5844, i64 %5845
   %5847 = load ptr, ptr %5846, align 8, !tbaa !25, !noalias !380
   store ptr %5847, ptr %281, align 8, !tbaa !43, !alias.scope !380
   %5848 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %281)
@@ -15979,7 +15979,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3442:         ; preds = %5877, %5830
   %5891 = icmp eq i32 %5889, 2
   %5892 = getelementptr inbounds nuw i8, ptr %5882, i64 24
   %5893 = zext i1 %5891 to i64
-  %5894 = getelementptr inbounds nuw [0 x ptr], ptr %5892, i64 0, i64 %5893
+  %5894 = getelementptr inbounds nuw ptr, ptr %5892, i64 %5893
   %5895 = load ptr, ptr %5894, align 8, !tbaa !25, !noalias !384
   store ptr %5895, ptr %284, align 8, !tbaa !43, !alias.scope !384
   %5896 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %284)
@@ -16065,8 +16065,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit3451: ; preds = %_Z
   %spec.select.i.i3454 = add nuw i64 %.0104810635, %5934
   %5935 = getelementptr inbounds nuw i8, ptr %5924, i64 24
   %sext = shl i64 %spec.select.i.i3454, 32
-  %5936 = ashr exact i64 %sext, 32
-  %5937 = getelementptr inbounds [0 x ptr], ptr %5935, i64 0, i64 %5936
+  %5936 = ashr exact i64 %sext, 29
+  %5937 = getelementptr inbounds i8, ptr %5935, i64 %5936
   %5938 = load ptr, ptr %5937, align 8, !tbaa !25, !noalias !387
   store ptr %5938, ptr %286, align 8, !tbaa !43, !alias.scope !387
   %5939 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %286)
@@ -16206,7 +16206,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3466:         ; preds = %5968, %5921
   %5982 = icmp eq i32 %5980, 2
   %5983 = getelementptr inbounds nuw i8, ptr %5973, i64 24
   %5984 = zext i1 %5982 to i64
-  %5985 = getelementptr inbounds nuw [0 x ptr], ptr %5983, i64 0, i64 %5984
+  %5985 = getelementptr inbounds nuw ptr, ptr %5983, i64 %5984
   %5986 = load ptr, ptr %5985, align 8, !tbaa !25, !noalias !391
   store ptr %5986, ptr %289, align 8, !tbaa !43, !alias.scope !391
   %5987 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %289)
@@ -16239,7 +16239,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3473:     ; preds = %_ZNSt13unordered_ma
   %6000 = icmp eq i32 %5998, 2
   %spec.select.i.i3474 = select i1 %6000, i64 2, i64 1
   %6001 = getelementptr inbounds nuw i8, ptr %5991, i64 24
-  %6002 = getelementptr inbounds nuw [0 x ptr], ptr %6001, i64 0, i64 %spec.select.i.i3474
+  %6002 = getelementptr inbounds nuw ptr, ptr %6001, i64 %spec.select.i.i3474
   %6003 = load ptr, ptr %6002, align 8, !tbaa !25, !noalias !394
   store ptr %6003, ptr %291, align 8, !tbaa !43, !alias.scope !394
   %6004 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %291)
@@ -16397,7 +16397,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3488:         ; preds = %6038, %6023
   %6052 = icmp eq i32 %6050, 2
   %6053 = getelementptr inbounds nuw i8, ptr %6043, i64 24
   %6054 = zext i1 %6052 to i64
-  %6055 = getelementptr inbounds nuw [0 x ptr], ptr %6053, i64 0, i64 %6054
+  %6055 = getelementptr inbounds nuw ptr, ptr %6053, i64 %6054
   %6056 = load ptr, ptr %6055, align 8, !tbaa !25, !noalias !397
   store ptr %6056, ptr %294, align 8, !tbaa !43, !alias.scope !397
   %6057 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %294)
@@ -16430,7 +16430,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3495:     ; preds = %_ZNSt13unordered_ma
   %6070 = icmp eq i32 %6068, 2
   %spec.select.i.i3496 = select i1 %6070, i64 2, i64 1
   %6071 = getelementptr inbounds nuw i8, ptr %6061, i64 24
-  %6072 = getelementptr inbounds nuw [0 x ptr], ptr %6071, i64 0, i64 %spec.select.i.i3496
+  %6072 = getelementptr inbounds nuw ptr, ptr %6071, i64 %spec.select.i.i3496
   %6073 = load ptr, ptr %6072, align 8, !tbaa !25, !noalias !400
   store ptr %6073, ptr %296, align 8, !tbaa !43, !alias.scope !400
   %6074 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %296)
@@ -16588,7 +16588,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3510:         ; preds = %6108, %6093
   %6122 = icmp eq i32 %6120, 2
   %6123 = getelementptr inbounds nuw i8, ptr %6113, i64 24
   %6124 = zext i1 %6122 to i64
-  %6125 = getelementptr inbounds nuw [0 x ptr], ptr %6123, i64 0, i64 %6124
+  %6125 = getelementptr inbounds nuw ptr, ptr %6123, i64 %6124
   %6126 = load ptr, ptr %6125, align 8, !tbaa !25, !noalias !403
   store ptr %6126, ptr %299, align 8, !tbaa !43, !alias.scope !403
   %6127 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %299)
@@ -16621,7 +16621,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3517:     ; preds = %_ZNSt13unordered_ma
   %6140 = icmp eq i32 %6138, 2
   %spec.select.i.i3518 = select i1 %6140, i64 2, i64 1
   %6141 = getelementptr inbounds nuw i8, ptr %6131, i64 24
-  %6142 = getelementptr inbounds nuw [0 x ptr], ptr %6141, i64 0, i64 %spec.select.i.i3518
+  %6142 = getelementptr inbounds nuw ptr, ptr %6141, i64 %spec.select.i.i3518
   %6143 = load ptr, ptr %6142, align 8, !tbaa !25, !noalias !406
   store ptr %6143, ptr %301, align 8, !tbaa !43, !alias.scope !406
   %6144 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %301)
@@ -16779,7 +16779,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3532:         ; preds = %6178, %6163
   %6192 = icmp eq i32 %6190, 2
   %6193 = getelementptr inbounds nuw i8, ptr %6183, i64 24
   %6194 = zext i1 %6192 to i64
-  %6195 = getelementptr inbounds nuw [0 x ptr], ptr %6193, i64 0, i64 %6194
+  %6195 = getelementptr inbounds nuw ptr, ptr %6193, i64 %6194
   %6196 = load ptr, ptr %6195, align 8, !tbaa !25, !noalias !409
   store ptr %6196, ptr %304, align 8, !tbaa !43, !alias.scope !409
   %6197 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %304)
@@ -16812,7 +16812,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3539:     ; preds = %_ZNSt13unordered_ma
   %6210 = icmp eq i32 %6208, 2
   %spec.select.i.i3540 = select i1 %6210, i64 2, i64 1
   %6211 = getelementptr inbounds nuw i8, ptr %6201, i64 24
-  %6212 = getelementptr inbounds nuw [0 x ptr], ptr %6211, i64 0, i64 %spec.select.i.i3540
+  %6212 = getelementptr inbounds nuw ptr, ptr %6211, i64 %spec.select.i.i3540
   %6213 = load ptr, ptr %6212, align 8, !tbaa !25, !noalias !412
   store ptr %6213, ptr %306, align 8, !tbaa !43, !alias.scope !412
   %6214 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %306)
@@ -16970,7 +16970,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3554:         ; preds = %6248, %6233
   %6262 = icmp eq i32 %6260, 2
   %6263 = getelementptr inbounds nuw i8, ptr %6253, i64 24
   %6264 = zext i1 %6262 to i64
-  %6265 = getelementptr inbounds nuw [0 x ptr], ptr %6263, i64 0, i64 %6264
+  %6265 = getelementptr inbounds nuw ptr, ptr %6263, i64 %6264
   %6266 = load ptr, ptr %6265, align 8, !tbaa !25, !noalias !415
   store ptr %6266, ptr %309, align 8, !tbaa !43, !alias.scope !415
   %6267 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %309)
@@ -17002,7 +17002,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3561:     ; preds = %_ZNSt13unordered_ma
   %6280 = icmp eq i32 %6278, 2
   %spec.select.i.i3562 = select i1 %6280, i64 2, i64 1
   %6281 = getelementptr inbounds nuw i8, ptr %6271, i64 24
-  %6282 = getelementptr inbounds nuw [0 x ptr], ptr %6281, i64 0, i64 %spec.select.i.i3562
+  %6282 = getelementptr inbounds nuw ptr, ptr %6281, i64 %spec.select.i.i3562
   %6283 = load ptr, ptr %6282, align 8, !tbaa !25, !noalias !418
   store ptr %6283, ptr %310, align 8, !tbaa !43, !alias.scope !418
   %6284 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %310)
@@ -17115,7 +17115,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3570:         ; preds = %6307, %6299
   %6321 = icmp eq i32 %6319, 2
   %6322 = getelementptr inbounds nuw i8, ptr %6312, i64 24
   %6323 = zext i1 %6321 to i64
-  %6324 = getelementptr inbounds nuw [0 x ptr], ptr %6322, i64 0, i64 %6323
+  %6324 = getelementptr inbounds nuw ptr, ptr %6322, i64 %6323
   %6325 = load ptr, ptr %6324, align 8, !tbaa !25, !noalias !421
   store ptr %6325, ptr %313, align 8, !tbaa !43, !alias.scope !421
   %6326 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %313)
@@ -17147,7 +17147,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3577:     ; preds = %_ZNSt13unordered_ma
   %6339 = icmp eq i32 %6337, 2
   %spec.select.i.i3578 = select i1 %6339, i64 2, i64 1
   %6340 = getelementptr inbounds nuw i8, ptr %6330, i64 24
-  %6341 = getelementptr inbounds nuw [0 x ptr], ptr %6340, i64 0, i64 %spec.select.i.i3578
+  %6341 = getelementptr inbounds nuw ptr, ptr %6340, i64 %spec.select.i.i3578
   %6342 = load ptr, ptr %6341, align 8, !tbaa !25, !noalias !424
   store ptr %6342, ptr %314, align 8, !tbaa !43, !alias.scope !424
   %6343 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %314)
@@ -17260,7 +17260,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3586:         ; preds = %6366, %6358
   %6380 = icmp eq i32 %6378, 2
   %6381 = getelementptr inbounds nuw i8, ptr %6371, i64 24
   %6382 = zext i1 %6380 to i64
-  %6383 = getelementptr inbounds nuw [0 x ptr], ptr %6381, i64 0, i64 %6382
+  %6383 = getelementptr inbounds nuw ptr, ptr %6381, i64 %6382
   %6384 = load ptr, ptr %6383, align 8, !tbaa !25, !noalias !427
   store ptr %6384, ptr %317, align 8, !tbaa !43, !alias.scope !427
   %6385 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %317)
@@ -17292,7 +17292,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3593:     ; preds = %_ZNSt13unordered_ma
   %6398 = icmp eq i32 %6396, 2
   %spec.select.i.i3594 = select i1 %6398, i64 2, i64 1
   %6399 = getelementptr inbounds nuw i8, ptr %6389, i64 24
-  %6400 = getelementptr inbounds nuw [0 x ptr], ptr %6399, i64 0, i64 %spec.select.i.i3594
+  %6400 = getelementptr inbounds nuw ptr, ptr %6399, i64 %spec.select.i.i3594
   %6401 = load ptr, ptr %6400, align 8, !tbaa !25, !noalias !430
   store ptr %6401, ptr %318, align 8, !tbaa !43, !alias.scope !430
   %6402 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %318)
@@ -17405,7 +17405,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3602:         ; preds = %6425, %6417
   %6439 = icmp eq i32 %6437, 2
   %6440 = getelementptr inbounds nuw i8, ptr %6430, i64 24
   %6441 = zext i1 %6439 to i64
-  %6442 = getelementptr inbounds nuw [0 x ptr], ptr %6440, i64 0, i64 %6441
+  %6442 = getelementptr inbounds nuw ptr, ptr %6440, i64 %6441
   %6443 = load ptr, ptr %6442, align 8, !tbaa !25, !noalias !433
   store ptr %6443, ptr %321, align 8, !tbaa !43, !alias.scope !433
   %6444 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %321)
@@ -17437,7 +17437,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3609:     ; preds = %_ZNSt13unordered_ma
   %6457 = icmp eq i32 %6455, 2
   %spec.select.i.i3610 = select i1 %6457, i64 2, i64 1
   %6458 = getelementptr inbounds nuw i8, ptr %6448, i64 24
-  %6459 = getelementptr inbounds nuw [0 x ptr], ptr %6458, i64 0, i64 %spec.select.i.i3610
+  %6459 = getelementptr inbounds nuw ptr, ptr %6458, i64 %spec.select.i.i3610
   %6460 = load ptr, ptr %6459, align 8, !tbaa !25, !noalias !436
   store ptr %6460, ptr %322, align 8, !tbaa !43, !alias.scope !436
   %6461 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %322)
@@ -17550,7 +17550,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3618:         ; preds = %6484, %6476
   %6498 = icmp eq i32 %6496, 2
   %spec.select.i.i3619 = select i1 %6498, i64 2, i64 1
   %6499 = getelementptr inbounds nuw i8, ptr %6489, i64 24
-  %6500 = getelementptr inbounds nuw [0 x ptr], ptr %6499, i64 0, i64 %spec.select.i.i3619
+  %6500 = getelementptr inbounds nuw ptr, ptr %6499, i64 %spec.select.i.i3619
   %6501 = load ptr, ptr %6500, align 8, !tbaa !25, !noalias !439
   store ptr %6501, ptr %325, align 8, !tbaa !43, !alias.scope !439
   %6502 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %325)
@@ -17582,7 +17582,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3625:     ; preds = %_ZNSt13unordered_ma
   %6515 = icmp eq i32 %6513, 2
   %6516 = getelementptr inbounds nuw i8, ptr %6506, i64 24
   %6517 = zext i1 %6515 to i64
-  %6518 = getelementptr inbounds nuw [0 x ptr], ptr %6516, i64 0, i64 %6517
+  %6518 = getelementptr inbounds nuw ptr, ptr %6516, i64 %6517
   %6519 = load ptr, ptr %6518, align 8, !tbaa !25, !noalias !442
   store ptr %6519, ptr %326, align 8, !tbaa !43, !alias.scope !442
   %6520 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %326)
@@ -17695,7 +17695,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3634:         ; preds = %6543, %6535
   %6557 = icmp eq i32 %6555, 2
   %spec.select.i.i3635 = select i1 %6557, i64 2, i64 1
   %6558 = getelementptr inbounds nuw i8, ptr %6548, i64 24
-  %6559 = getelementptr inbounds nuw [0 x ptr], ptr %6558, i64 0, i64 %spec.select.i.i3635
+  %6559 = getelementptr inbounds nuw ptr, ptr %6558, i64 %spec.select.i.i3635
   %6560 = load ptr, ptr %6559, align 8, !tbaa !25, !noalias !445
   store ptr %6560, ptr %329, align 8, !tbaa !43, !alias.scope !445
   %6561 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %329)
@@ -17727,7 +17727,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3641:     ; preds = %_ZNSt13unordered_ma
   %6574 = icmp eq i32 %6572, 2
   %6575 = getelementptr inbounds nuw i8, ptr %6565, i64 24
   %6576 = zext i1 %6574 to i64
-  %6577 = getelementptr inbounds nuw [0 x ptr], ptr %6575, i64 0, i64 %6576
+  %6577 = getelementptr inbounds nuw ptr, ptr %6575, i64 %6576
   %6578 = load ptr, ptr %6577, align 8, !tbaa !25, !noalias !448
   store ptr %6578, ptr %330, align 8, !tbaa !43, !alias.scope !448
   %6579 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %330)
@@ -17840,7 +17840,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3650:         ; preds = %6602, %6594
   %6616 = icmp eq i32 %6614, 2
   %spec.select.i.i3651 = select i1 %6616, i64 2, i64 1
   %6617 = getelementptr inbounds nuw i8, ptr %6607, i64 24
-  %6618 = getelementptr inbounds nuw [0 x ptr], ptr %6617, i64 0, i64 %spec.select.i.i3651
+  %6618 = getelementptr inbounds nuw ptr, ptr %6617, i64 %spec.select.i.i3651
   %6619 = load ptr, ptr %6618, align 8, !tbaa !25, !noalias !451
   store ptr %6619, ptr %333, align 8, !tbaa !43, !alias.scope !451
   %6620 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %333)
@@ -17872,7 +17872,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3657:     ; preds = %_ZNSt13unordered_ma
   %6633 = icmp eq i32 %6631, 2
   %6634 = getelementptr inbounds nuw i8, ptr %6624, i64 24
   %6635 = zext i1 %6633 to i64
-  %6636 = getelementptr inbounds nuw [0 x ptr], ptr %6634, i64 0, i64 %6635
+  %6636 = getelementptr inbounds nuw ptr, ptr %6634, i64 %6635
   %6637 = load ptr, ptr %6636, align 8, !tbaa !25, !noalias !454
   store ptr %6637, ptr %334, align 8, !tbaa !43, !alias.scope !454
   %6638 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %334)
@@ -17985,7 +17985,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3666:         ; preds = %6661, %6653
   %6675 = icmp eq i32 %6673, 2
   %spec.select.i.i3667 = select i1 %6675, i64 2, i64 1
   %6676 = getelementptr inbounds nuw i8, ptr %6666, i64 24
-  %6677 = getelementptr inbounds nuw [0 x ptr], ptr %6676, i64 0, i64 %spec.select.i.i3667
+  %6677 = getelementptr inbounds nuw ptr, ptr %6676, i64 %spec.select.i.i3667
   %6678 = load ptr, ptr %6677, align 8, !tbaa !25, !noalias !457
   store ptr %6678, ptr %337, align 8, !tbaa !43, !alias.scope !457
   %6679 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %337)
@@ -18017,7 +18017,7 @@ _ZN4cvc58internal9BitVectorC2ERKS1_.exit3673:     ; preds = %_ZNSt13unordered_ma
   %6692 = icmp eq i32 %6690, 2
   %6693 = getelementptr inbounds nuw i8, ptr %6683, i64 24
   %6694 = zext i1 %6692 to i64
-  %6695 = getelementptr inbounds nuw [0 x ptr], ptr %6693, i64 0, i64 %6694
+  %6695 = getelementptr inbounds nuw ptr, ptr %6693, i64 %6694
   %6696 = load ptr, ptr %6695, align 8, !tbaa !25, !noalias !460
   store ptr %6696, ptr %338, align 8, !tbaa !43, !alias.scope !460
   %6697 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %338)
@@ -18130,7 +18130,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3682:         ; preds = %6720, %6712
   %6734 = icmp eq i32 %6732, 2
   %6735 = getelementptr inbounds nuw i8, ptr %6725, i64 24
   %6736 = zext i1 %6734 to i64
-  %6737 = getelementptr inbounds nuw [0 x ptr], ptr %6735, i64 0, i64 %6736
+  %6737 = getelementptr inbounds nuw ptr, ptr %6735, i64 %6736
   %6738 = load ptr, ptr %6737, align 8, !tbaa !25, !noalias !463
   store ptr %6738, ptr %341, align 8, !tbaa !43, !alias.scope !463
   %6739 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %341)
@@ -18334,7 +18334,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3701:         ; preds = %6791, %6775
   %6805 = icmp eq i32 %6803, 2
   %6806 = getelementptr inbounds nuw i8, ptr %6796, i64 24
   %6807 = zext i1 %6805 to i64
-  %6808 = getelementptr inbounds nuw [0 x ptr], ptr %6806, i64 0, i64 %6807
+  %6808 = getelementptr inbounds nuw ptr, ptr %6806, i64 %6807
   %6809 = load ptr, ptr %6808, align 8, !tbaa !25, !noalias !468
   store ptr %6809, ptr %346, align 8, !tbaa !43, !alias.scope !468
   %6810 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %346)
@@ -18538,7 +18538,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3720:         ; preds = %6862, %6846
   %6876 = icmp eq i32 %6874, 2
   %6877 = getelementptr inbounds nuw i8, ptr %6867, i64 24
   %6878 = zext i1 %6876 to i64
-  %6879 = getelementptr inbounds nuw [0 x ptr], ptr %6877, i64 0, i64 %6878
+  %6879 = getelementptr inbounds nuw ptr, ptr %6877, i64 %6878
   %6880 = load ptr, ptr %6879, align 8, !tbaa !25, !noalias !473
   store ptr %6880, ptr %351, align 8, !tbaa !43, !alias.scope !473
   %6881 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %351)
@@ -18567,7 +18567,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %6892 = icmp eq i32 %6890, 2
   %spec.select.i.i3726 = select i1 %6892, i64 2, i64 1
   %6893 = getelementptr inbounds nuw i8, ptr %6883, i64 24
-  %6894 = getelementptr inbounds nuw [0 x ptr], ptr %6893, i64 0, i64 %spec.select.i.i3726
+  %6894 = getelementptr inbounds nuw ptr, ptr %6893, i64 %spec.select.i.i3726
   %6895 = load ptr, ptr %6894, align 8, !tbaa !25, !noalias !476
   store ptr %6895, ptr %353, align 8, !tbaa !43, !alias.scope !476
   %6896 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %353)
@@ -18885,7 +18885,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_E
   %6996 = icmp eq i32 %6994, 2
   %6997 = getelementptr inbounds nuw i8, ptr %6987, i64 24
   %6998 = zext i1 %6996 to i64
-  %6999 = getelementptr inbounds nuw [0 x ptr], ptr %6997, i64 0, i64 %6998
+  %6999 = getelementptr inbounds nuw ptr, ptr %6997, i64 %6998
   %7000 = load ptr, ptr %6999, align 8, !tbaa !25, !noalias !479
   store ptr %7000, ptr %362, align 8, !tbaa !43, !alias.scope !479
   %7001 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %362)
@@ -18915,7 +18915,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %7015 = icmp eq i32 %7013, 2
   %spec.select.i.i3758 = select i1 %7015, i64 2, i64 1
   %7016 = getelementptr inbounds nuw i8, ptr %7006, i64 24
-  %7017 = getelementptr inbounds nuw [0 x ptr], ptr %7016, i64 0, i64 %spec.select.i.i3758
+  %7017 = getelementptr inbounds nuw ptr, ptr %7016, i64 %spec.select.i.i3758
   %7018 = load ptr, ptr %7017, align 8, !tbaa !25, !noalias !482
   store ptr %7018, ptr %363, align 8, !tbaa !43, !alias.scope !482
   %7019 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %363)
@@ -18980,7 +18980,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %7043 = icmp eq i32 %7041, 2
   %spec.select.i.i3765 = select i1 %7043, i64 3, i64 2
   %7044 = getelementptr inbounds nuw i8, ptr %7034, i64 24
-  %7045 = getelementptr inbounds nuw [0 x ptr], ptr %7044, i64 0, i64 %spec.select.i.i3765
+  %7045 = getelementptr inbounds nuw ptr, ptr %7044, i64 %spec.select.i.i3765
   %7046 = load ptr, ptr %7045, align 8, !tbaa !25, !noalias !485
   store ptr %7046, ptr %364, align 8, !tbaa !43, !alias.scope !485
   %7047 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %364)
@@ -19031,7 +19031,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_6theory10EvalResult
   %7066 = icmp eq i32 %7064, 2
   %7067 = getelementptr inbounds nuw i8, ptr %7057, i64 24
   %7068 = zext i1 %7066 to i64
-  %7069 = getelementptr inbounds nuw [0 x ptr], ptr %7067, i64 0, i64 %7068
+  %7069 = getelementptr inbounds nuw ptr, ptr %7067, i64 %7068
   %7070 = load ptr, ptr %7069, align 8, !tbaa !25, !noalias !488
   store ptr %7070, ptr %366, align 8, !tbaa !43, !alias.scope !488
   %7071 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %366)
@@ -19251,7 +19251,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit3800:         ; preds = %_ZN4cvc58internal7I
   %7130 = icmp eq i32 %7128, 2
   %7131 = getelementptr inbounds nuw i8, ptr %7121, i64 24
   %7132 = zext i1 %7130 to i64
-  %7133 = getelementptr inbounds nuw [0 x ptr], ptr %7131, i64 0, i64 %7132
+  %7133 = getelementptr inbounds nuw ptr, ptr %7131, i64 %7132
   %7134 = load ptr, ptr %7133, align 8, !tbaa !25, !noalias !491
   store ptr %7134, ptr %371, align 8, !tbaa !43, !alias.scope !491
   %7135 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %371)
@@ -19453,7 +19453,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit3820:           ; preds = %7184, %7168
   %7198 = icmp eq i32 %7196, 2
   %7199 = getelementptr inbounds nuw i8, ptr %7189, i64 24
   %7200 = zext i1 %7198 to i64
-  %7201 = getelementptr inbounds nuw [0 x ptr], ptr %7199, i64 0, i64 %7200
+  %7201 = getelementptr inbounds nuw ptr, ptr %7199, i64 %7200
   %7202 = load ptr, ptr %7201, align 8, !tbaa !25, !noalias !496
   store ptr %7202, ptr %376, align 8, !tbaa !43, !alias.scope !496
   %7203 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %376)
@@ -19483,7 +19483,7 @@ _ZNK4cvc58internal8Rational12getNumeratorEv.exit3827: ; preds = %_ZNSt13unordere
   %7214 = icmp eq i32 %7212, 2
   %spec.select.i.i3828 = select i1 %7214, i64 2, i64 1
   %7215 = getelementptr inbounds nuw i8, ptr %7205, i64 24
-  %7216 = getelementptr inbounds nuw [0 x ptr], ptr %7215, i64 0, i64 %spec.select.i.i3828
+  %7216 = getelementptr inbounds nuw ptr, ptr %7215, i64 %spec.select.i.i3828
   %7217 = load ptr, ptr %7216, align 8, !tbaa !25, !noalias !499
   store ptr %7217, ptr %378, align 8, !tbaa !43, !alias.scope !499
   %7218 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_NS2_6theory10EvalResultEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %378)
@@ -19702,7 +19702,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit3853:           ; preds = %_ZN4cvc58internal7I
   %7282 = icmp eq i32 %7280, 2
   %7283 = getelementptr inbounds nuw i8, ptr %7273, i64 24
   %7284 = zext i1 %7282 to i64
-  %7285 = getelementptr inbounds nuw [0 x ptr], ptr %7283, i64 0, i64 %7284
+  %7285 = getelementptr inbounds nuw ptr, ptr %7283, i64 %7284
   %7286 = load ptr, ptr %7285, align 8, !tbaa !25, !noalias !502
   store ptr %7286, ptr %384, align 8, !tbaa !43, !alias.scope !502
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %383, ptr noundef nonnull align 8 dereferenceable(8) %384, i1 noundef zeroext false)

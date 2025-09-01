@@ -327,7 +327,7 @@ fetch_fp_info.exit:                               ; preds = %45
 .thread.i:                                        ; preds = %150, %149
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %151 = getelementptr inbounds nuw [100 x i32], ptr %59, i64 0, i64 %indvars.iv99.i
+  %151 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv99.i
   %152 = load i32, ptr %151, align 4
   call void @getTypeInputInfo(i32 noundef %152, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   br i1 %135, label %156, label %153
@@ -342,7 +342,7 @@ fetch_fp_info.exit:                               ; preds = %45
   %157 = load i32, ptr %8, align 4
   %158 = load i32, ptr %9, align 4
   %159 = call i64 @OidInputFunctionCall(i32 noundef %157, ptr noundef %.063.i, i32 noundef %158, i32 noundef -1) #11
-  %160 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %130, i64 0, i64 %indvars.iv99.i
+  %160 = getelementptr inbounds nuw %struct.NullableDatum, ptr %130, i64 %indvars.iv99.i
   store i64 %159, ptr %160, align 8
   %.not76.i = icmp eq ptr %.063.i, null
   %161 = load ptr, ptr %7, align 8
@@ -362,14 +362,14 @@ fetch_fp_info.exit:                               ; preds = %45
 164:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %165 = getelementptr inbounds nuw [100 x i32], ptr %59, i64 0, i64 %indvars.iv99.i
+  %165 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv99.i
   %166 = load i32, ptr %165, align 4
   call void @getTypeBinaryInputInfo(i32 noundef %166, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
   %..i = select i1 %135, ptr null, ptr %7
   %167 = load i32, ptr %10, align 4
   %168 = load i32, ptr %11, align 4
   %169 = call i64 @OidReceiveFunctionCall(i32 noundef %167, ptr noundef %..i, i32 noundef %168, i32 noundef -1) #11
-  %170 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %130, i64 0, i64 %indvars.iv99.i
+  %170 = getelementptr inbounds nuw %struct.NullableDatum, ptr %130, i64 %indvars.iv99.i
   store i64 %169, ptr %170, align 8
   br i1 %135, label %180, label %171
 

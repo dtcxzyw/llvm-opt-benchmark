@@ -11568,7 +11568,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %4
 
 switch.lookup:                                    ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
   %11 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE15TraverseTypeLocENS_7TypeLocE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE15TraverseTypeLocENS_7TypeLocE, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -11641,7 +11641,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 switch.lookup:
   %2 = load i32, ptr %1, align 4, !tbaa !470
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !376
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
@@ -86953,7 +86953,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %4
 
 switch.lookup:                                    ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
   %11 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [59 x i64], ptr @switch.table._ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE15TraverseTypeLocENS_7TypeLocE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE15TraverseTypeLocENS_7TypeLocE, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -87026,7 +87026,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 switch.lookup:
   %2 = load i32, ptr %1, align 4, !tbaa !470
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !376
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load

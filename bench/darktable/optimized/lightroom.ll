@@ -479,7 +479,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 
 110:                                              ; preds = %73, %110
   %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %110 ]
-  %111 = getelementptr inbounds nuw [7 x ptr], ptr @dt_lightroom_import.names, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw ptr, ptr @dt_lightroom_import.names, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %112 = load ptr, ptr %111, align 8, !tbaa !55
   %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 50, ptr noundef nonnull @.str.23, ptr noundef %112) #11
@@ -734,7 +734,7 @@ dt_image_orientation_to_flip_bits.exit:           ; preds = %122, %122, %124, %1
 
 switch.lookup:                                    ; preds = %252
   %255 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dt_lightroom_import, i64 0, i64 %255
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dt_lightroom_import, i64 %255
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dt_image_orientation_to_flip_bits.exit291
 
@@ -868,7 +868,7 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 
 324:                                              ; preds = %.lr.ph, %324
   %indvars.iv331 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next332, %324 ]
-  %325 = getelementptr inbounds nuw [32 x %struct.spot_t], ptr %323, i64 0, i64 %indvars.iv331
+  %325 = getelementptr inbounds nuw %struct.spot_t, ptr %323, i64 %indvars.iv331
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 4
   %327 = load float, ptr %326, align 4, !tbaa !89
   %328 = load float, ptr %325, align 4, !tbaa !91
@@ -945,9 +945,9 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 
 366:                                              ; preds = %352, %366
   %indvars.iv334 = phi i64 [ 0, %352 ], [ %indvars.iv.next335, %366 ]
-  %367 = getelementptr inbounds nuw [7 x float], ptr @__const.dt_lightroom_import.linear_ab, i64 0, i64 %indvars.iv334
+  %367 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv334
   %368 = load float, ptr %367, align 4, !tbaa !77
-  %369 = getelementptr inbounds nuw [20 x %struct.dt_iop_tonecurve_node_t], ptr %364, i64 0, i64 %indvars.iv334
+  %369 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %364, i64 %indvars.iv334
   store float %368, ptr %369, align 4, !tbaa !97
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
   %exitcond337.not = icmp eq i64 %indvars.iv.next335, 7
@@ -959,7 +959,7 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 
 371:                                              ; preds = %.preheader318, %371
   %indvars.iv338 = phi i64 [ 0, %.preheader318 ], [ %indvars.iv.next339, %371 ]
-  %372 = getelementptr inbounds nuw [7 x float], ptr @__const.dt_lightroom_import.linear_ab, i64 0, i64 %indvars.iv338
+  %372 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv338
   %373 = load float, ptr %372, align 4, !tbaa !77
   %.idx286 = shl nuw nsw i64 %indvars.iv338, 3
   %374 = getelementptr inbounds nuw i8, ptr %365, i64 %.idx286
@@ -974,9 +974,9 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 
 376:                                              ; preds = %.preheader317, %376
   %indvars.iv342 = phi i64 [ 0, %.preheader317 ], [ %indvars.iv.next343, %376 ]
-  %377 = getelementptr inbounds nuw [7 x float], ptr @__const.dt_lightroom_import.linear_ab, i64 0, i64 %indvars.iv342
+  %377 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv342
   %378 = load float, ptr %377, align 4, !tbaa !77
-  %379 = getelementptr inbounds nuw [20 x %struct.dt_iop_tonecurve_node_t], ptr %370, i64 0, i64 %indvars.iv342
+  %379 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %370, i64 %indvars.iv342
   store float %378, ptr %379, align 4, !tbaa !97
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %exitcond345.not = icmp eq i64 %indvars.iv.next343, 7
@@ -998,7 +998,7 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 
 385:                                              ; preds = %.preheader316, %385
   %indvars.iv346 = phi i64 [ 0, %.preheader316 ], [ %indvars.iv.next347, %385 ]
-  %386 = getelementptr inbounds nuw [7 x float], ptr @__const.dt_lightroom_import.linear_ab, i64 0, i64 %indvars.iv346
+  %386 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv346
   %387 = load float, ptr %386, align 4, !tbaa !77
   %.idx = shl nuw nsw i64 %indvars.iv346, 3
   %388 = getelementptr inbounds nuw i8, ptr %375, i64 %.idx
@@ -1049,12 +1049,12 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 
 418:                                              ; preds = %.lr.ph327, %418
   %indvars.iv350 = phi i64 [ 0, %.lr.ph327 ], [ %indvars.iv.next351, %418 ]
-  %419 = getelementptr inbounds nuw [20 x [2 x i32]], ptr %384, i64 0, i64 %indvars.iv350
+  %419 = getelementptr inbounds nuw [2 x i32], ptr %384, i64 %indvars.iv350
   %420 = load i32, ptr %419, align 4, !tbaa !6
   %421 = sitofp i32 %420 to double
   %422 = fmul reassoc nsz arcp contract afn double %421, 0x3F70101010101010
   %423 = fptrunc reassoc nsz arcp contract afn double %422 to float
-  %424 = getelementptr inbounds nuw [20 x %struct.dt_iop_tonecurve_node_t], ptr %381, i64 0, i64 %indvars.iv350
+  %424 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %381, i64 %indvars.iv350
   store float %423, ptr %424, align 4, !tbaa !97
   %425 = getelementptr inbounds nuw i8, ptr %419, i64 4
   %426 = load i32, ptr %425, align 8, !tbaa !6
@@ -1155,7 +1155,7 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 
 .preheader:                                       ; preds = %476, %481
   %indvars.iv359 = phi i64 [ 0, %476 ], [ %indvars.iv.next360, %481 ]
-  %479 = getelementptr inbounds nuw [3 x [8 x float]], ptr %478, i64 0, i64 %indvars.iv359
+  %479 = getelementptr inbounds nuw [8 x float], ptr %478, i64 %indvars.iv359
   br label %482
 
 480:                                              ; preds = %481
@@ -1173,7 +1173,7 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
   %484 = uitofp nneg i32 %483 to double
   %485 = fmul reassoc nsz arcp contract afn double %484, 0x3FC2492492492492
   %486 = fptrunc reassoc nsz arcp contract afn double %485 to float
-  %487 = getelementptr inbounds nuw [8 x float], ptr %479, i64 0, i64 %indvars.iv355
+  %487 = getelementptr inbounds nuw float, ptr %479, i64 %indvars.iv355
   store float %486, ptr %487, align 4, !tbaa !77
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next356, 8
@@ -3551,7 +3551,7 @@ lr2dt_clarity.exit:                               ; preds = %716
 
 909:                                              ; preds = %905
   %910 = sext i32 %904 to i64
-  %911 = getelementptr inbounds [32 x %struct.spot_t], ptr %894, i64 0, i64 %910
+  %911 = getelementptr inbounds %struct.spot_t, ptr %894, i64 %910
   %912 = call i32 @g_str_has_prefix(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.131) #11
   %.not.i = icmp eq i32 %912, 0
   br i1 %.not.i, label %_read_float.exit.thread, label %913
@@ -3856,7 +3856,7 @@ _read_float.exit.thread:                          ; preds = %915, %934, %953, %9
   %1031 = tail call ptr @xmlNodeListGetString(ptr noundef nonnull %1, ptr noundef %1030, i32 noundef 1) #11
   %1032 = load i32, ptr %1023, align 4, !tbaa !210
   %1033 = sext i32 %1032 to i64
-  %1034 = getelementptr inbounds [20 x [2 x i32]], ptr %1022, i64 0, i64 %1033
+  %1034 = getelementptr inbounds [2 x i32], ptr %1022, i64 %1033
   %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 4
   %1036 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1031, ptr noundef nonnull @.str.137, ptr noundef nonnull %1034, ptr noundef nonnull %1035) #11
   %.not617 = icmp eq i32 %1036, 0

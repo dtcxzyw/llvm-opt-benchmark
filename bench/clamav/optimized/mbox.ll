@@ -4959,7 +4959,7 @@ define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr noundef nonnu
   %.043.lcssa.i.i = phi i64 [ 4, %62 ], [ %.04349.i.i, %.lr.ph.i.i ], [ %.04349.i.i, %.lr.ph.i.i ], [ %.04349.i.i, %.lr.ph.i.i ], [ %69, %68 ]
   %.lcssa.i.i = phi i64 [ %63, %62 ], [ %65, %.lr.ph.i.i ], [ %65, %.lr.ph.i.i ], [ %65, %.lr.ph.i.i ], [ %70, %68 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %47, i64 %.043.lcssa.i.i, i1 false)
-  %74 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %.043.lcssa.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 %.043.lcssa.i.i
   store i8 0, ptr %74, align 1, !tbaa !43
   call void @html_tag_arg_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.185, ptr noundef nonnull %4) #21
   br label %75
@@ -6635,7 +6635,7 @@ define internal fastcc nonnull ptr @appendReadStruct(ptr noundef nonnull %0, ptr
   %5 = sub i64 1024, %4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %7 = icmp ugt i64 %6, %5
-  %8 = getelementptr inbounds nuw [1025 x i8], ptr %0, i64 0, i64 %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   br i1 %7, label %9, label %22
 
 9:                                                ; preds = %2

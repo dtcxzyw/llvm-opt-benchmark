@@ -264,21 +264,21 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 64:                                               ; preds = %64, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw [3 x double], ptr %41, i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv.i
   %66 = load double, ptr %65, align 8, !tbaa !113
-  %67 = getelementptr inbounds nuw [3 x double], ptr %51, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i
   %68 = load double, ptr %67, align 8, !tbaa !113
   %69 = fadd double %66, %68
   store double %69, ptr %67, align 8, !tbaa !113
-  %70 = getelementptr inbounds nuw [3 x double], ptr %52, i64 0, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv.i
   %71 = load double, ptr %70, align 8, !tbaa !113
-  %72 = getelementptr inbounds nuw [3 x double], ptr %53, i64 0, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv.i
   %73 = load double, ptr %72, align 8, !tbaa !113
   %74 = fadd double %71, %73
   store double %74, ptr %72, align 8, !tbaa !113
-  %75 = getelementptr inbounds nuw [3 x double], ptr %54, i64 0, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.i
   %76 = load double, ptr %75, align 8, !tbaa !113
-  %77 = getelementptr inbounds nuw [3 x double], ptr %55, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv.i
   %78 = load double, ptr %77, align 8, !tbaa !113
   %79 = fadd double %76, %78
   store double %79, ptr %77, align 8, !tbaa !113
@@ -288,9 +288,9 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 80:                                               ; preds = %80, %.preheader49.i
   %indvars.iv59.i = phi i64 [ 0, %.preheader49.i ], [ %indvars.iv.next60.i, %80 ]
-  %81 = getelementptr inbounds nuw [3 x double], ptr %62, i64 0, i64 %indvars.iv59.i
+  %81 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv59.i
   %82 = load double, ptr %81, align 8, !tbaa !113
-  %83 = getelementptr inbounds nuw [3 x double], ptr %63, i64 0, i64 %indvars.iv59.i
+  %83 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv59.i
   %84 = load double, ptr %83, align 8, !tbaa !113
   %85 = fadd double %82, %84
   store double %85, ptr %83, align 8, !tbaa !113
@@ -316,9 +316,9 @@ define void @_Z17pull_print_outputP6pull_tld(ptr noundef readonly captures(none)
 
 92:                                               ; preds = %92, %87
   %indvars.iv64.i = phi i64 [ 0, %87 ], [ %indvars.iv.next65.i, %92 ]
-  %93 = getelementptr inbounds nuw [3 x double], ptr %89, i64 0, i64 %indvars.iv64.i
+  %93 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv64.i
   %94 = load double, ptr %93, align 8, !tbaa !113
-  %95 = getelementptr inbounds nuw [3 x double], ptr %88, i64 0, i64 %indvars.iv64.i
+  %95 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv64.i
   %96 = load double, ptr %95, align 8, !tbaa !113
   %97 = fadd double %94, %96
   store double %97, ptr %95, align 8, !tbaa !113
@@ -607,7 +607,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 245:                                              ; preds = %259, %.preheader100.i
   %indvars.iv114.i = phi i64 [ 0, %.preheader100.i ], [ %indvars.iv.next115.i, %259 ]
-  %246 = getelementptr inbounds nuw [3 x i32], ptr %241, i64 0, i64 %indvars.iv114.i
+  %246 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv114.i
   %247 = load i32, ptr %246, align 4, !tbaa !125
   %.not79.i = icmp eq i32 %247, 0
   br i1 %.not79.i, label %259, label %248
@@ -616,7 +616,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   br i1 %.not80.i, label %253, label %249
 
 249:                                              ; preds = %248
-  %250 = getelementptr inbounds nuw [3 x double], ptr %243, i64 0, i64 %indvars.iv114.i
+  %250 = getelementptr inbounds nuw double, ptr %243, i64 %indvars.iv114.i
   %251 = load double, ptr %250, align 8, !tbaa !113
   %252 = fdiv double %251, %.076.i
   br label %.sink.split.i
@@ -624,7 +624,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 253:                                              ; preds = %248
   %254 = load ptr, ptr %244, align 8, !tbaa !112
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 200
-  %256 = getelementptr inbounds nuw [3 x double], ptr %255, i64 0, i64 %indvars.iv114.i
+  %256 = getelementptr inbounds nuw double, ptr %255, i64 %indvars.iv114.i
   %257 = load double, ptr %256, align 8, !tbaa !113
   br label %.sink.split.i
 
@@ -640,7 +640,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 260:                                              ; preds = %284, %.preheader102.i
   %indvars.iv.i24 = phi i64 [ 0, %.preheader102.i ], [ %indvars.iv.next.i26, %284 ]
-  %261 = getelementptr inbounds nuw [3 x i32], ptr %241, i64 0, i64 %indvars.iv.i24
+  %261 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv.i24
   %262 = load i32, ptr %261, align 4, !tbaa !125
   %.not.i25 = icmp eq i32 %262, 0
   br i1 %.not.i25, label %284, label %263
@@ -657,7 +657,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %270 = sext i32 %269 to i64
   %271 = load ptr, ptr %268, align 8, !tbaa !79
   %272 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %271, i64 %270
-  %273 = getelementptr inbounds nuw [3 x double], ptr %272, i64 0, i64 %indvars.iv.i24
+  %273 = getelementptr inbounds nuw double, ptr %272, i64 %indvars.iv.i24
   %274 = load double, ptr %273, align 8, !tbaa !113
   %275 = fdiv double %274, %.076.i
   br label %.sink.split130.i
@@ -667,7 +667,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %278 = sext i32 %277 to i64
   %279 = load ptr, ptr %113, align 8, !tbaa !78
   %280 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %279, i64 %278, i32 13
-  %281 = getelementptr inbounds nuw [3 x double], ptr %280, i64 0, i64 %indvars.iv.i24
+  %281 = getelementptr inbounds nuw double, ptr %280, i64 %indvars.iv.i24
   %282 = load double, ptr %281, align 8, !tbaa !113
   br label %.sink.split130.i
 
@@ -693,7 +693,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 .preheader.i28:                                   ; preds = %290, %.preheader.lr.ph.i
   %indvars.iv122.i = phi i64 [ 1, %.preheader.lr.ph.i ], [ %indvars.iv.next123.i, %290 ]
-  %289 = getelementptr inbounds nuw [6 x i32], ptr %288, i64 0, i64 %indvars.iv122.i
+  %289 = getelementptr inbounds nuw i32, ptr %288, i64 %indvars.iv122.i
   br label %294
 
 290:                                              ; preds = %318
@@ -705,7 +705,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
 
 294:                                              ; preds = %318, %.preheader.i28
   %indvars.iv118.i = phi i64 [ 0, %.preheader.i28 ], [ %indvars.iv.next119.i, %318 ]
-  %295 = getelementptr inbounds nuw [3 x i32], ptr %241, i64 0, i64 %indvars.iv118.i
+  %295 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv118.i
   %296 = load i32, ptr %295, align 4, !tbaa !125
   %.not78.i = icmp eq i32 %296, 0
   br i1 %.not78.i, label %318, label %297
@@ -722,7 +722,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %304 = sext i32 %303 to i64
   %305 = load ptr, ptr %302, align 8, !tbaa !79
   %306 = getelementptr inbounds nuw %class.PullGroupHistory, ptr %305, i64 %304
-  %307 = getelementptr inbounds nuw [3 x double], ptr %306, i64 0, i64 %indvars.iv118.i
+  %307 = getelementptr inbounds nuw double, ptr %306, i64 %indvars.iv118.i
   %308 = load double, ptr %307, align 8, !tbaa !113
   %309 = fdiv double %308, %.076.i
   br label %.sink.split132.i
@@ -732,7 +732,7 @@ _ZL19pull_print_coord_drI21PullCoordinateHistoryEvP8_IO_FILERK13pull_params_tRK1
   %312 = sext i32 %311 to i64
   %313 = load ptr, ptr %113, align 8, !tbaa !78
   %314 = getelementptr inbounds nuw %struct.pull_group_work_t, ptr %313, i64 %312, i32 13
-  %315 = getelementptr inbounds nuw [3 x double], ptr %314, i64 0, i64 %indvars.iv118.i
+  %315 = getelementptr inbounds nuw double, ptr %314, i64 %indvars.iv118.i
   %316 = load double, ptr %315, align 8, !tbaa !113
   br label %.sink.split132.i
 
@@ -3001,7 +3001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153.us: ; preds = 
 
 286:                                              ; preds = %392, %.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us, %392 ]
-  %287 = getelementptr inbounds nuw [3 x i32], ptr %281, i64 0, i64 %indvars.iv.i.us
+  %287 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv.i.us
   %288 = load i32, ptr %287, align 4, !tbaa !125
   %.not.i160.us = icmp eq i32 %288, 0
   br i1 %.not.i160.us, label %392, label %289
@@ -3347,7 +3347,7 @@ _ZL31set_legend_for_coord_componentsPK17pull_coord_work_tiPSt6vectorINSt7__cxx11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %485 ]
   %411 = load ptr, ptr %194, align 8, !tbaa !122
   %412 = getelementptr inbounds nuw %struct.pull_coord_work_t, ptr %411, i64 %.045212.us, i32 0, i32 7
-  %413 = getelementptr inbounds nuw [3 x i32], ptr %412, i64 0, i64 %indvars.iv
+  %413 = getelementptr inbounds nuw i32, ptr %412, i64 %indvars.iv
   %414 = load i32, ptr %413, align 4, !tbaa !125
   %.not84.us = icmp eq i32 %414, 0
   br i1 %.not84.us, label %485, label %415

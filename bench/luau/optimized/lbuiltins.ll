@@ -1595,7 +1595,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_typeP9lua_StateP10lua_T
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2944
   %15 = sext i32 %11 to i64
-  %16 = getelementptr inbounds [11 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   store ptr %17, ptr %1, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1753,8 +1753,8 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
 
 37:                                               ; preds = %33
   %38 = trunc nuw i32 %36 to i8
-  %39 = add nsw i64 %indvars.iv, -1
-  %40 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %39
+  %39 = getelementptr i8, ptr %7, i64 %indvars.iv
+  %40 = getelementptr i8, ptr %39, i64 -1
   store i8 %38, ptr %40, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1762,7 +1762,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
 
 .critedge43:                                      ; preds = %37, %17, %26
   %41 = sext i32 %5 to i64
-  %42 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %7, i64 %41
   store i8 0, ptr %42, align 1, !tbaa !9
   %43 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %41)
   store ptr %43, ptr %1, align 8, !tbaa !9
@@ -2655,7 +2655,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_getmetatableP9lua_State
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2856
   %22 = sext i32 %11 to i64
-  %23 = getelementptr inbounds [11 x ptr], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   br label %24
 
 24:                                               ; preds = %15, %18, %12

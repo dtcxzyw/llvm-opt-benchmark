@@ -1086,7 +1086,7 @@ read_ints.exit55.i:                               ; preds = %128
 .lr.ph.i:                                         ; preds = %137, %read_ints.exit61.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %read_ints.exit61.i ], [ 0, %137 ]
   %139 = load ptr, ptr %97, align 8, !tbaa !31
-  %140 = getelementptr inbounds nuw [1024 x i32], ptr %8, i64 0, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %141 = load i32, ptr %140, align 4, !tbaa !57
   %142 = zext i32 %141 to i64
   %143 = shl nuw nsw i64 %142, 12
@@ -3757,10 +3757,10 @@ define internal fastcc void @parse_mpeg1waveformatex(ptr captures(none) initiali
 
 switch.lookup:                                    ; preds = %7
   %15 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.parse_mpeg1waveformatex, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.parse_mpeg1waveformatex, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds nuw [8 x i64], ptr @switch.table.parse_mpeg1waveformatex.4, i64 0, i64 %16
+  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table.parse_mpeg1waveformatex.4, i64 %16
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.16.val, i64 128
   store i32 1, ptr %17, align 8, !tbaa !57

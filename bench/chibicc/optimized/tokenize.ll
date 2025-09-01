@@ -368,7 +368,7 @@ define dso_local void @convert_pp_tokens(ptr noundef captures(none) %0) local_un
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.lr.ph ]
-  %7 = getelementptr inbounds nuw [45 x ptr], ptr @is_keyword.kw, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr @is_keyword.kw, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !39
   tail call void @hashmap_put(ptr noundef nonnull @is_keyword.map, ptr noundef %8, ptr noundef nonnull inttoptr (i64 1 to ptr)) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1744,7 +1744,7 @@ define internal fastcc i32 @read_punct(ptr noundef readonly captures(none) %0) u
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [23 x ptr], ptr @read_punct.kw, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @read_punct.kw, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #30
   %7 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %5, i64 noundef %6) #30

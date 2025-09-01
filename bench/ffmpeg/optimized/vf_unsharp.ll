@@ -210,25 +210,25 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 66:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
-  %67 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8, !tbaa !55
   store ptr %68, ptr %6, align 8, !tbaa !58
-  %69 = getelementptr inbounds nuw [8 x ptr], ptr %17, i64 0, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   %70 = load ptr, ptr %69, align 8, !tbaa !60
   store ptr %70, ptr %56, align 8, !tbaa !61
-  %71 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8, !tbaa !60
   store ptr %72, ptr %57, align 8, !tbaa !62
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %74 = load i32, ptr %73, align 4, !tbaa !52
   store i32 %74, ptr %58, align 8, !tbaa !63
-  %75 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   %76 = load i32, ptr %75, align 4, !tbaa !52
   store i32 %76, ptr %59, align 4, !tbaa !64
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %60, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 4, !tbaa !52
   store i32 %78, ptr %61, align 8, !tbaa !65
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %62, i64 0, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
   %80 = load i32, ptr %79, align 4, !tbaa !52
   store i32 %80, ptr %63, align 4, !tbaa !66
   %81 = load ptr, ptr %64, align 8, !tbaa !67

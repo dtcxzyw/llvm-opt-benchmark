@@ -12280,10 +12280,10 @@ define linkonce_odr hidden void @_ZNK4llvm12DenormalMode3strB5cxx11Ev(ptr dead_o
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.2, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.2, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext nneg i8 %11 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.3, i64 0, i64 %14
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.3, i64 %14
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !309
@@ -12334,10 +12334,10 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %34, %32
 
 switch.lookup4:                                   ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i
   %39 = zext nneg i8 %37 to i64
-  %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.2, i64 0, i64 %39
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.2, i64 %39
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %40 = zext nneg i8 %37 to i64
-  %switch.gep7 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.3, i64 0, i64 %40
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.3, i64 %40
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i5.i, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !309

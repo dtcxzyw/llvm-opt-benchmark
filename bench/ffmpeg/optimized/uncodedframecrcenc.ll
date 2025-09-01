@@ -131,10 +131,10 @@ define internal range(i32 -12, 1) i32 @write_frame(ptr noundef readonly captures
   br i1 %58, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %57
-  %59 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8, !tbaa !51
   %61 = sext i32 %44 to i64
-  %62 = getelementptr inbounds nuw [8 x i32], ptr %42, i64 0, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = sext i32 %63 to i64
   br label %65
@@ -153,7 +153,7 @@ define internal range(i32 -12, 1) i32 @write_frame(ptr noundef readonly captures
   %.035.lcssa.i = phi i32 [ 0, %57 ], [ %66, %65 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.035.lcssa.i) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %69 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv.next.i
+  %69 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i
   %70 = load i32, ptr %69, align 4, !tbaa !48
   %.not40.i = icmp eq i32 %70, 0
   br i1 %.not40.i, label %video_frame_cksum.exit, label %43, !llvm.loop !54

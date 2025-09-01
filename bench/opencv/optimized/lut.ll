@@ -272,7 +272,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %59, %62
   %98 = load i32, ptr %8, align 8, !tbaa !42
   %99 = and i32 %98, 7
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN2cvL6lutTabE, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL6lutTabE, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !43
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %102, ptr %103, align 8, !tbaa !44
@@ -341,7 +341,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %59, %62
   %126 = load i32, ptr %8, align 8, !tbaa !42
   %127 = and i32 %126, 7
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN2cvL6lutTabE, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL6lutTabE, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %7, ptr %13, align 16, !tbaa !41

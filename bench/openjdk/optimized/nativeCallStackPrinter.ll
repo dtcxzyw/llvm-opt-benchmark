@@ -37,7 +37,7 @@ define hidden void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStac
 
 11:                                               ; preds = %2, %60
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %60 ]
-  %12 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %65, label %15

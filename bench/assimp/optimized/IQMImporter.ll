@@ -776,7 +776,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   %204 = load ptr, ptr %8, align 8
   %205 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %145, ptr align 1 %204, i64 %205, i1 false)
-  %206 = getelementptr inbounds nuw [1024 x i8], ptr %145, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr %145, i64 %205
   store i8 0, ptr %206, align 1
   %207 = icmp eq ptr %204, %143
   br i1 %207, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i306, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i305

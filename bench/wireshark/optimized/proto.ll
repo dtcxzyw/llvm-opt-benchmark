@@ -5908,7 +5908,7 @@ switch.lookup:                                    ; preds = %18
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %1, i32 noundef %2)
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.get_hfi_length, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_hfi_length, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %4, align 4
   br label %thread-pre-split60
@@ -20109,7 +20109,7 @@ protoo_strlcpy.exit302:                           ; preds = %200, %202
 
 switch.lookup:                                    ; preds = %212
   %216 = zext nneg i32 %spec.store.select.i303 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.hfinfo_numeric_value_format, i64 0, i64 %216
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_numeric_value_format, i64 %216
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_numeric_value_format64.exit
 
@@ -20889,14 +20889,14 @@ define hidden noundef ptr @hfinfo_char_value_format_display(i32 noundef %0, ptr 
 32:                                               ; preds = %18
   %33 = and i32 %2, 15
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr [16 x i8], ptr @hfinfo_char_value_format_display.hex_digits, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @hfinfo_char_value_format_display.hex_digits, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr i8, ptr %1, i64 4
   store i8 %36, ptr %37, align 1
   %38 = lshr i32 %2, 4
   %39 = and i32 %38, 15
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [16 x i8], ptr @hfinfo_char_value_format_display.hex_digits, i64 0, i64 %40
+  %41 = getelementptr i8, ptr @hfinfo_char_value_format_display.hex_digits, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = getelementptr i8, ptr %1, i64 3
   store i8 %42, ptr %43, align 1
@@ -20909,7 +20909,7 @@ define hidden noundef ptr @hfinfo_char_value_format_display(i32 noundef %0, ptr 
 
 switch.lookup:                                    ; preds = %16
   %46 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @switch.table.hfinfo_char_value_format_display, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.hfinfo_char_value_format_display, i64 %46
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %47
 
@@ -20955,7 +20955,7 @@ define internal fastcc ptr @hfinfo_numeric_value_format(ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %3
   %13 = zext nneg i32 %.0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.hfinfo_numeric_value_format, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_numeric_value_format, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %14
 
@@ -21030,7 +21030,7 @@ hfinfo_mask_bitwidth.exit.i:                      ; preds = %14
 
 switch.lookup:                                    ; preds = %26
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_hex_digits.exit
 
@@ -21075,22 +21075,22 @@ hfinfo_mask_bitwidth.exit.i67:                    ; preds = %40
 
 51:                                               ; preds = %40
   %52 = load i32, ptr %6, align 8
-  %switch.tableidx86 = add i32 %52, -3
-  %53 = icmp ult i32 %switch.tableidx86, 17
-  br i1 %53, label %switch.lookup85, label %54
+  %switch.tableidx85 = add i32 %52, -3
+  %53 = icmp ult i32 %switch.tableidx85, 17
+  br i1 %53, label %switch.lookup86, label %54
 
 54:                                               ; preds = %51
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.1, i32 noundef 10848) #37
   unreachable
 
-switch.lookup85:                                  ; preds = %51
-  %55 = zext nneg i32 %switch.tableidx86 to i64
-  %switch.gep87 = getelementptr inbounds nuw [17 x i32], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 0, i64 %55
+switch.lookup86:                                  ; preds = %51
+  %55 = zext nneg i32 %switch.tableidx85 to i64
+  %switch.gep87 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %55
   %switch.load88 = load i32, ptr %switch.gep87, align 4
   br label %hfinfo_hex_digits.exit70
 
-hfinfo_hex_digits.exit70:                         ; preds = %switch.lookup85, %hfinfo_mask_bitwidth.exit.i67
-  %.0.i69 = phi i32 [ %50, %hfinfo_mask_bitwidth.exit.i67 ], [ %switch.load88, %switch.lookup85 ]
+hfinfo_hex_digits.exit70:                         ; preds = %switch.lookup86, %hfinfo_mask_bitwidth.exit.i67
+  %.0.i69 = phi i32 [ %50, %hfinfo_mask_bitwidth.exit.i67 ], [ %switch.load88, %switch.lookup86 ]
   %56 = tail call ptr @hex_to_str_back_len(ptr noundef %5, i32 noundef %3, i32 noundef %.0.i69)
   br label %101
 
@@ -21132,38 +21132,38 @@ hfinfo_mask_bitwidth.exit.i72:                    ; preds = %63
 
 77:                                               ; preds = %63
   %78 = load i32, ptr %6, align 8
-  %switch.tableidx90 = add i32 %78, -3
-  %79 = icmp ult i32 %switch.tableidx90, 17
-  br i1 %79, label %switch.lookup89, label %80
+  %switch.tableidx89 = add i32 %78, -3
+  %79 = icmp ult i32 %switch.tableidx89, 17
+  br i1 %79, label %switch.lookup90, label %80
 
 80:                                               ; preds = %77
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.1, i32 noundef 10848) #37
   unreachable
 
-switch.lookup89:                                  ; preds = %77
-  %81 = zext nneg i32 %switch.tableidx90 to i64
-  %switch.gep91 = getelementptr inbounds nuw [17 x i32], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 0, i64 %81
+switch.lookup90:                                  ; preds = %77
+  %81 = zext nneg i32 %switch.tableidx89 to i64
+  %switch.gep91 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %81
   %switch.load92 = load i32, ptr %switch.gep91, align 4
   br label %hfinfo_hex_digits.exit75
 
-hfinfo_hex_digits.exit75:                         ; preds = %switch.lookup89, %hfinfo_mask_bitwidth.exit.i72
-  %.0.i74 = phi i32 [ %76, %hfinfo_mask_bitwidth.exit.i72 ], [ %switch.load92, %switch.lookup89 ]
+hfinfo_hex_digits.exit75:                         ; preds = %switch.lookup90, %hfinfo_mask_bitwidth.exit.i72
+  %.0.i74 = phi i32 [ %76, %hfinfo_mask_bitwidth.exit.i72 ], [ %switch.load92, %switch.lookup90 ]
   %82 = tail call ptr @hex_to_str_back_len(ptr noundef %66, i32 noundef %3, i32 noundef %.0.i74)
   br label %101
 
 83:                                               ; preds = %4, %4, %4, %4
-  %switch.tableidx94 = add i32 %1, -13
-  %84 = icmp ult i32 %switch.tableidx94, 4
-  br i1 %84, label %switch.lookup93, label %display_to_port_type.exit
+  %switch.tableidx93 = add i32 %1, -13
+  %84 = icmp ult i32 %switch.tableidx93, 4
+  br i1 %84, label %switch.lookup94, label %display_to_port_type.exit
 
-switch.lookup93:                                  ; preds = %83
-  %85 = zext nneg i32 %switch.tableidx94 to i64
-  %switch.gep95 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %85
+switch.lookup94:                                  ; preds = %83
+  %85 = zext nneg i32 %switch.tableidx93 to i64
+  %switch.gep95 = getelementptr inbounds nuw i32, ptr @switch.table.fill_label_number, i64 %85
   %switch.load96 = load i32, ptr %switch.gep95, align 4
   br label %display_to_port_type.exit
 
-display_to_port_type.exit:                        ; preds = %83, %switch.lookup93
-  %.0.i76 = phi i32 [ %switch.load96, %switch.lookup93 ], [ 0, %83 ]
+display_to_port_type.exit:                        ; preds = %83, %switch.lookup94
+  %.0.i76 = phi i32 [ %switch.load96, %switch.lookup94 ], [ 0, %83 ]
   %86 = tail call i32 @port_with_resolution_to_str_buf(ptr noundef %2, i64 noundef 80, i32 noundef %.0.i76, i32 noundef %3)
   br label %101
 
@@ -21258,7 +21258,7 @@ hfinfo_mask_bitwidth.exit.i:                      ; preds = %14
 
 switch.lookup:                                    ; preds = %26
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_hex_digits.exit
 
@@ -21303,22 +21303,22 @@ hfinfo_mask_bitwidth.exit.i48:                    ; preds = %40
 
 51:                                               ; preds = %40
   %52 = load i32, ptr %6, align 8
-  %switch.tableidx65 = add i32 %52, -3
-  %53 = icmp ult i32 %switch.tableidx65, 17
-  br i1 %53, label %switch.lookup64, label %54
+  %switch.tableidx64 = add i32 %52, -3
+  %53 = icmp ult i32 %switch.tableidx64, 17
+  br i1 %53, label %switch.lookup65, label %54
 
 54:                                               ; preds = %51
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.1, i32 noundef 10848) #37
   unreachable
 
-switch.lookup64:                                  ; preds = %51
-  %55 = zext nneg i32 %switch.tableidx65 to i64
-  %switch.gep66 = getelementptr inbounds nuw [17 x i32], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 0, i64 %55
+switch.lookup65:                                  ; preds = %51
+  %55 = zext nneg i32 %switch.tableidx64 to i64
+  %switch.gep66 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %55
   %switch.load67 = load i32, ptr %switch.gep66, align 4
   br label %hfinfo_hex_digits.exit51
 
-hfinfo_hex_digits.exit51:                         ; preds = %switch.lookup64, %hfinfo_mask_bitwidth.exit.i48
-  %.0.i50 = phi i32 [ %50, %hfinfo_mask_bitwidth.exit.i48 ], [ %switch.load67, %switch.lookup64 ]
+hfinfo_hex_digits.exit51:                         ; preds = %switch.lookup65, %hfinfo_mask_bitwidth.exit.i48
+  %.0.i50 = phi i32 [ %50, %hfinfo_mask_bitwidth.exit.i48 ], [ %switch.load67, %switch.lookup65 ]
   %56 = tail call ptr @hex64_to_str_back_len(ptr noundef %5, i64 noundef %3, i32 noundef %.0.i50)
   br label %85
 
@@ -21360,22 +21360,22 @@ hfinfo_mask_bitwidth.exit.i53:                    ; preds = %63
 
 77:                                               ; preds = %63
   %78 = load i32, ptr %6, align 8
-  %switch.tableidx69 = add i32 %78, -3
-  %79 = icmp ult i32 %switch.tableidx69, 17
-  br i1 %79, label %switch.lookup68, label %80
+  %switch.tableidx68 = add i32 %78, -3
+  %79 = icmp ult i32 %switch.tableidx68, 17
+  br i1 %79, label %switch.lookup69, label %80
 
 80:                                               ; preds = %77
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.1, i32 noundef 10848) #37
   unreachable
 
-switch.lookup68:                                  ; preds = %77
-  %81 = zext nneg i32 %switch.tableidx69 to i64
-  %switch.gep70 = getelementptr inbounds nuw [17 x i32], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 0, i64 %81
+switch.lookup69:                                  ; preds = %77
+  %81 = zext nneg i32 %switch.tableidx68 to i64
+  %switch.gep70 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %81
   %switch.load71 = load i32, ptr %switch.gep70, align 4
   br label %hfinfo_hex_digits.exit56
 
-hfinfo_hex_digits.exit56:                         ; preds = %switch.lookup68, %hfinfo_mask_bitwidth.exit.i53
-  %.0.i55 = phi i32 [ %76, %hfinfo_mask_bitwidth.exit.i53 ], [ %switch.load71, %switch.lookup68 ]
+hfinfo_hex_digits.exit56:                         ; preds = %switch.lookup69, %hfinfo_mask_bitwidth.exit.i53
+  %.0.i55 = phi i32 [ %76, %hfinfo_mask_bitwidth.exit.i53 ], [ %switch.load71, %switch.lookup69 ]
   %82 = tail call ptr @hex64_to_str_back_len(ptr noundef %66, i64 noundef %3, i32 noundef %.0.i55)
   br label %85
 
@@ -22293,7 +22293,7 @@ hfinfo_same_name_get_prev.exit349:                ; preds = %254, %240
 294:                                              ; preds = %291
   %295 = getelementptr inbounds nuw i8, ptr %290, i64 240
   %296 = load i64, ptr %295, align 8
-  %297 = getelementptr [240 x i8], ptr %290, i64 0, i64 %296
+  %297 = getelementptr i8, ptr %290, i64 %296
   %298 = add i64 %293, 1
   %spec.select = call i64 @llvm.umin.i64(i64 %298, i64 240)
   %299 = call i64 @g_strlcpy(ptr noundef nonnull %9, ptr noundef %297, i64 noundef %spec.select)
@@ -22311,7 +22311,7 @@ hfinfo_same_name_get_prev.exit349:                ; preds = %254, %240
   %304 = sub i32 %6, %.9273
   %305 = sext i32 %304 to i64
   %306 = load i64, ptr %10, align 8
-  %307 = getelementptr [240 x i8], ptr %9, i64 0, i64 %306
+  %307 = getelementptr i8, ptr %9, i64 %306
   %308 = sext i32 %.9273 to i64
   %309 = getelementptr i8, ptr %4, i64 %308
   %310 = call i64 @g_strlcpy(ptr noundef %309, ptr noundef %307, i64 noundef range(i64 -2147483648, 2147483648) %305)
@@ -27588,7 +27588,7 @@ define internal fastcc void @fill_label_number(ptr noundef readonly captures(non
   call void %21(ptr noundef nonnull %6, i32 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef nonnull %6, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %58
+  br label %59
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -27637,11 +27637,11 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %30
 
 43:                                               ; preds = %42
   call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef nonnull %31, ptr noundef %.0.i67, ptr noundef %2)
-  br label %58
+  br label %59
 
 44:                                               ; preds = %42
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef %.0.i67, ptr noundef %2)
-  br label %58
+  br label %59
 
 45:                                               ; preds = %hfinfo_number_vals_format.exit
   %46 = icmp eq ptr %31, null
@@ -27652,38 +27652,38 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %30
 48:                                               ; preds = %.thread, %45
   %spec.store.select70 = phi ptr [ %spec.store.select69, %.thread ], [ %spec.store.select, %45 ]
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef nonnull %spec.store.select70, ptr noundef %2)
-  br label %58
+  br label %59
 
 49:                                               ; preds = %45
   call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %37, ptr noundef %2)
-  br label %58
+  br label %59
 
 50:                                               ; preds = %27, %24
   %.off = add i32 %17, -13
   %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %switch.lookup, label %53
+  br i1 %switch, label %switch.lookup, label %54
 
 switch.lookup:                                    ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %switch.tableidx = add nsw i32 %17, -13
-  %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %51
+  %51 = zext nneg i32 %17 to i64
+  %52 = getelementptr i32, ptr @switch.table.fill_label_number, i64 %51
+  %switch.gep = getelementptr i8, ptr %52, i64 -52
   %switch.load = load i32, ptr %switch.gep, align 4
-  %52 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %7, i64 noundef 240, i32 noundef %switch.load, i32 noundef %.0)
+  %53 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %7, i64 noundef 240, i32 noundef %switch.load, i32 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef nonnull %7, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %58
+  br label %59
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp eq i32 %55, 35
-  %spec.store.select.i63 = select i1 %56, i32 1, i32 %17
-  %57 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef readonly %8, i32 noundef %spec.store.select.i63, ptr noundef nonnull %5, i32 noundef %.0)
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef %57, ptr noundef %2)
-  br label %58
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 35
+  %spec.store.select.i63 = select i1 %57, i32 1, i32 %17
+  %58 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef readonly %8, i32 noundef %spec.store.select.i63, ptr noundef nonnull %5, i32 noundef %.0)
+  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef %8, ptr noundef %58, ptr noundef %2)
+  br label %59
 
-58:                                               ; preds = %44, %43, %49, %48, %53, %switch.lookup, %23
+59:                                               ; preds = %44, %43, %49, %48, %54, %switch.lookup, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -29956,7 +29956,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
 
 switch.lookup:                                    ; preds = %66
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [34 x ptr], ptr @switch.table.proto_registrar_dump_elastic, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.proto_registrar_dump_elastic, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %73 = load ptr, ptr %72, align 8

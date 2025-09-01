@@ -158,8 +158,8 @@ define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %1 ]
   %.0.tr = trunc i64 %indvars.iv to i8
   %2 = shl i8 %.0.tr, 1
-  %3 = add nsw i64 %indvars.iv, -1
-  %4 = getelementptr inbounds nuw [256 x i8], ptr @smbuf, i64 0, i64 %3
+  %3 = getelementptr i8, ptr @smbuf, i64 %indvars.iv
+  %4 = getelementptr i8, ptr %3, i64 -1
   store i8 %2, ptr %4, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1192,7 +1192,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_1() #0 {
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %2 ]
   %storemerge.tr = trunc i64 %indvars.iv to i8
   %3 = shl i8 %storemerge.tr, 1
-  %4 = getelementptr inbounds nuw [255 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %3, ptr %4, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 255
@@ -1263,8 +1263,8 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_2() #0 {
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %2 ]
   %storemerge.tr = trunc i64 %indvars.iv to i8
   %3 = shl i8 %storemerge.tr, 1
-  %4 = add nsw i64 %indvars.iv, -1
-  %5 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %4
+  %4 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %5 = getelementptr i8, ptr %4, i64 -1
   store i8 %3, ptr %5, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
@@ -1352,7 +1352,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_3() #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
   %storemerge.tr = trunc i64 %indvars.iv to i8
   %3 = shl i8 %storemerge.tr, 1
-  %4 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %3, ptr %4, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
@@ -1487,8 +1487,8 @@ define internal range(i32 0, 2) i32 @test_PACKET_as_length_prefixed_2() #0 {
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %2 ]
   %.0.tr = trunc i64 %indvars.iv to i8
   %3 = shl i8 %.0.tr, 1
-  %4 = add nsw i64 %indvars.iv, -1
-  %5 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %4
+  %4 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %5 = getelementptr i8, ptr %4, i64 -1
   store i8 %3, ptr %5, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
@@ -1562,7 +1562,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_vlint() #0 {
 
 3:                                                ; preds = %0, %1
   %.014 = phi i64 [ 0, %0 ], [ %2, %1 ]
-  %4 = getelementptr inbounds nuw [20 x %struct.quic_test_case], ptr @test_PACKET_get_quic_vlint.cases, i64 0, i64 %.014
+  %4 = getelementptr inbounds nuw %struct.quic_test_case, ptr @test_PACKET_get_quic_vlint.cases, i64 %.014
   %5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 509, ptr noundef nonnull @.str.126, i32 noundef 1) #6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %21, label %PACKET_get_quic_vlint.exit
@@ -1607,7 +1607,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_length_prefixed() #0 {
   %.054 = phi i64 [ 0, %0 ], [ %39, %38 ]
   %.sroa.5.053 = phi i64 [ 0, %0 ], [ %.sroa.5.14147, %38 ]
   %.sroa.0.052 = phi ptr [ null, %0 ], [ %.sroa.0.14049, %38 ]
-  %2 = getelementptr inbounds nuw [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %.054
+  %2 = getelementptr inbounds nuw %struct.quic_test_case.0, ptr @test_PACKET_get_quic_length_prefixed.cases, i64 %.054
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !18
   %.not = icmp eq i32 %4, 0

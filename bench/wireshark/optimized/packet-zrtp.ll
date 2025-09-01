@@ -391,7 +391,7 @@ define internal i32 @dissect_zrtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 52:                                               ; preds = %55
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %53 = getelementptr [6 x %struct._value_zrtp_versions], ptr @valid_zrtp_versions, i64 0, i64 %indvars.iv.next.i.i
+  %53 = getelementptr %struct._value_zrtp_versions, ptr @valid_zrtp_versions, i64 %indvars.iv.next.i.i
   %54 = load ptr, ptr %53, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
   br i1 %exitcond.i.i, label %check_valid_version.exit.i, label %55, !llvm.loop !6

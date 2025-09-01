@@ -74,14 +74,14 @@ define dso_local zeroext i1 @mdexists(ptr noundef captures(none) %0, i32 noundef
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %mdclose.exit
 
 .lr.ph.i:                                         ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %7
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %7
   %13 = zext nneg i32 %9 to i64
   %14 = load ptr, ptr %12, align 8
   %indvars.iv.next.i3 = add nsw i64 %13, -1
@@ -157,14 +157,14 @@ mdclose.exit:                                     ; preds = %.loopexit.loopexit.
 define dso_local void @mdclose(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = getelementptr inbounds [4 x ptr], ptr %8, i64 0, i64 %4
+  %9 = getelementptr inbounds ptr, ptr %8, i64 %4
   %10 = zext nneg i32 %6 to i64
   %11 = load ptr, ptr %9, align 8
   %indvars.iv.next15 = add nsw i64 %10, -1
@@ -238,14 +238,14 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
 define internal fastcc ptr @mdopenfork(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 33) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = getelementptr inbounds [4 x ptr], ptr %10, i64 0, i64 %5
+  %11 = getelementptr inbounds ptr, ptr %10, i64 %5
   %12 = load ptr, ptr %11, align 8
   br label %56
 
@@ -299,7 +299,7 @@ define internal fastcc ptr @mdopenfork(ptr noundef captures(none) %0, i32 nounde
   %41 = load ptr, ptr @MdCxt, align 8
   %42 = tail call ptr @MemoryContextAlloc(ptr noundef %41, i64 noundef 8) #15
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %44 = getelementptr inbounds [4 x ptr], ptr %43, i64 0, i64 %5
+  %44 = getelementptr inbounds ptr, ptr %43, i64 %5
   store ptr %42, ptr %44, align 8
   br label %_fdvec_resize.exit
 
@@ -309,7 +309,7 @@ define internal fastcc ptr @mdopenfork(ptr noundef captures(none) %0, i32 nounde
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %49 = getelementptr inbounds [4 x ptr], ptr %48, i64 0, i64 %5
+  %49 = getelementptr inbounds ptr, ptr %48, i64 %5
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @repalloc(ptr noundef %50, i64 noundef 8) #15
   store ptr %51, ptr %49, align 8
@@ -318,7 +318,7 @@ define internal fastcc ptr @mdopenfork(ptr noundef captures(none) %0, i32 nounde
 _fdvec_resize.exit:                               ; preds = %40, %45, %47
   store i32 1, ptr %6, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %53 = getelementptr inbounds [4 x ptr], ptr %52, i64 0, i64 %5
+  %53 = getelementptr inbounds ptr, ptr %52, i64 %5
   %54 = load ptr, ptr %53, align 8
   store i32 %24, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
@@ -337,7 +337,7 @@ define dso_local void @mdcreate(ptr noundef captures(none) %0, i32 noundef %1, i
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %61, label %10
@@ -390,7 +390,7 @@ define dso_local void @mdcreate(ptr noundef captures(none) %0, i32 noundef %1, i
   tail call void @pfree(ptr noundef %20) #15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = sext i32 %1 to i64
-  %40 = getelementptr inbounds [4 x i32], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds i32, ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %48
@@ -399,7 +399,7 @@ define dso_local void @mdcreate(ptr noundef captures(none) %0, i32 noundef %1, i
   %44 = load ptr, ptr @MdCxt, align 8
   %45 = tail call ptr @MemoryContextAlloc(ptr noundef %44, i64 noundef 8) #15
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %47 = getelementptr inbounds [4 x ptr], ptr %46, i64 0, i64 %39
+  %47 = getelementptr inbounds ptr, ptr %46, i64 %39
   store ptr %45, ptr %47, align 8
   br label %_fdvec_resize.exit
 
@@ -409,7 +409,7 @@ define dso_local void @mdcreate(ptr noundef captures(none) %0, i32 noundef %1, i
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %52 = getelementptr inbounds [4 x ptr], ptr %51, i64 0, i64 %39
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %39
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @repalloc(ptr noundef %53, i64 noundef 8) #15
   store ptr %54, ptr %52, align 8
@@ -418,7 +418,7 @@ define dso_local void @mdcreate(ptr noundef captures(none) %0, i32 noundef %1, i
 _fdvec_resize.exit:                               ; preds = %43, %48, %50
   store i32 1, ptr %40, align 4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %56 = getelementptr inbounds [4 x ptr], ptr %55, i64 0, i64 %39
+  %56 = getelementptr inbounds ptr, ptr %55, i64 %39
   %57 = load ptr, ptr %56, align 8
   store i32 %.0, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -846,14 +846,14 @@ define internal fastcc ptr @_mdfd_getseg(ptr noundef captures(none) %0, i32 noun
   %6 = lshr i32 %2, 17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %6, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = getelementptr inbounds [4 x ptr], ptr %13, i64 0, i64 %8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 %8
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %6 to i64
   %17 = getelementptr inbounds nuw %struct._MdfdVec, ptr %15, i64 %16
@@ -869,7 +869,7 @@ define internal fastcc ptr @_mdfd_getseg(ptr noundef captures(none) %0, i32 noun
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %22 = getelementptr inbounds [4 x ptr], ptr %21, i64 0, i64 %8
+  %22 = getelementptr inbounds ptr, ptr %21, i64 %8
   %23 = load ptr, ptr %22, align 8
   %24 = zext nneg i32 %10 to i64
   %25 = getelementptr %struct._MdfdVec, ptr %23, i64 %24
@@ -1601,13 +1601,13 @@ declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 
 define dso_local void @mdwriteback(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %.not34 = icmp eq i32 %3, 0
   br i1 %.not34, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %6
+  %9 = getelementptr inbounds i32, ptr %8, i64 %6
   br label %10
 
 10:                                               ; preds = %.lr.ph, %15
@@ -1656,11 +1656,11 @@ define dso_local i32 @mdnblocks(ptr noundef captures(none) %0, i32 noundef %1) l
   %3 = tail call fastcc ptr @mdopenfork(ptr noundef %0, i32 noundef %1, i32 noundef 1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %5
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %5
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %8 to i64
   %13 = getelementptr inbounds nuw %struct._MdfdVec, ptr %11, i64 %12
@@ -1756,7 +1756,7 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
   %22 = icmp eq i32 %21, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   br i1 %22, label %27, label %33
 
@@ -1766,7 +1766,7 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = getelementptr inbounds [4 x ptr], ptr %30, i64 0, i64 %24
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %24
   %32 = load ptr, ptr %31, align 8
   tail call void @pfree(ptr noundef %32) #15
   store ptr null, ptr %31, align 8
@@ -1782,7 +1782,7 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
   %38 = shl nsw i64 %37, 3
   %39 = tail call ptr @MemoryContextAlloc(ptr noundef %36, i64 noundef %38) #15
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %41 = getelementptr inbounds [4 x ptr], ptr %40, i64 0, i64 %24
+  %41 = getelementptr inbounds ptr, ptr %40, i64 %24
   store ptr %39, ptr %41, align 8
   br label %_fdvec_resize.exit
 
@@ -1792,7 +1792,7 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = getelementptr inbounds [4 x ptr], ptr %45, i64 0, i64 %24
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %24
   %47 = load ptr, ptr %46, align 8
   %48 = sext i32 %21 to i64
   %49 = shl nsw i64 %48, 3
@@ -1803,7 +1803,7 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
 _fdvec_resize.exit:                               ; preds = %27, %29, %35, %42, %44
   store i32 %21, ptr %25, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %52 = getelementptr inbounds [4 x ptr], ptr %51, i64 0, i64 %24
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %24
   %53 = load ptr, ptr %52, align 8
   %54 = zext i32 %2 to i64
   %55 = getelementptr inbounds nuw %struct._MdfdVec, ptr %53, i64 %54
@@ -1849,14 +1849,14 @@ define dso_local void @mdtruncate(ptr noundef captures(none) %0, i32 noundef %1,
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = getelementptr inbounds [4 x ptr], ptr %28, i64 0, i64 %24
+  %29 = getelementptr inbounds ptr, ptr %28, i64 %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = zext nneg i32 %26 to i64
   br label %32
@@ -1990,7 +1990,7 @@ define dso_local void @mdregistersync(ptr noundef captures(none) %0, i32 noundef
   %3 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   br label %8
 
@@ -2007,7 +2007,7 @@ define dso_local void @mdregistersync(ptr noundef captures(none) %0, i32 noundef
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %5
+  %13 = getelementptr inbounds ptr, ptr %12, i64 %5
   %14 = zext nneg i32 %.0 to i64
   %15 = sext i32 %7 to i64
   br label %16
@@ -2081,7 +2081,7 @@ define dso_local void @mdimmedsync(ptr noundef captures(none) %0, i32 noundef %1
   %3 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   br label %8
 
@@ -2098,7 +2098,7 @@ define dso_local void @mdimmedsync(ptr noundef captures(none) %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %5
+  %13 = getelementptr inbounds ptr, ptr %12, i64 %5
   %14 = zext nneg i32 %.0 to i64
   %15 = sext i32 %7 to i64
   br label %16
@@ -2308,7 +2308,7 @@ define dso_local i32 @mdsyncfiletag(ptr noundef readonly captures(none) %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = sext i16 %9 to i64
-  %11 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %.not = icmp ult i64 %6, %13
@@ -2316,7 +2316,7 @@ define dso_local i32 @mdsyncfiletag(ptr noundef readonly captures(none) %0, ptr 
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %16 = getelementptr inbounds [4 x ptr], ptr %15, i64 0, i64 %10
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %10
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw %struct._MdfdVec, ptr %17, i64 %6
   %19 = load i32, ptr %18, align 4

@@ -393,7 +393,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %27 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %27)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %19, i64 %20, i1 false), !noalias !67
-  %28 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %6, i64 0, i64 %.sroa.7.031
+  %28 = getelementptr inbounds nuw { [4 x i64] }, ptr %6, i64 %.sroa.7.031
   store ptr %25, ptr %28, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %26, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
@@ -483,7 +483,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 32:                                               ; preds = %.noexc
   %33 = extractvalue { ptr, i64 } %23, 1
-  %34 = getelementptr inbounds nuw [0 x { [6 x i64] }], ptr %6, i64 0, i64 %.sroa.7.033
+  %34 = getelementptr inbounds nuw { [6 x i64] }, ptr %6, i64 %.sroa.7.033
   store ptr %24, ptr %34, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %33, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
@@ -1353,7 +1353,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %29 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %29)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %21, i64 %22, i1 false), !noalias !295
-  %30 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %8, i64 0, i64 %.sroa.7.031.i
+  %30 = getelementptr inbounds nuw { [4 x i64] }, ptr %8, i64 %.sroa.7.031.i
   store ptr %27, ptr %30, align 8, !noalias !281
   %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %28, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 8, !noalias !281
@@ -1467,7 +1467,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 34:                                               ; preds = %.noexc.i
   %35 = extractvalue { ptr, i64 } %25, 1
-  %36 = getelementptr inbounds nuw [0 x { [6 x i64] }], ptr %8, i64 0, i64 %.sroa.7.033.i
+  %36 = getelementptr inbounds nuw { [6 x i64] }, ptr %8, i64 %.sroa.7.033.i
   store ptr %26, ptr %36, align 8, !noalias !307
   %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %35, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 8, !noalias !307

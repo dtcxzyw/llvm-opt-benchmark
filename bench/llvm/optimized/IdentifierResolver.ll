@@ -563,7 +563,7 @@ _ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i: ; pr
   %80 = phi ptr [ %.pre.i20, %._crit_edge.i ], [ %71, %_ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw [512 x %"class.clang::IdentifierResolver::IdDeclInfo"], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw %"class.clang::IdentifierResolver::IdDeclInfo", ptr %81, i64 %82
   %84 = ptrtoint ptr %83 to i64
   %85 = or i64 %84, 1
   %86 = inttoptr i64 %85 to ptr
@@ -761,7 +761,7 @@ _ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit: ; pred
   %30 = phi ptr [ %.pre, %._crit_edge ], [ %21, %_ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = zext i32 %29 to i64
-  %33 = getelementptr inbounds nuw [512 x %"class.clang::IdentifierResolver::IdDeclInfo"], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"class.clang::IdentifierResolver::IdDeclInfo", ptr %31, i64 %32
   %34 = ptrtoint ptr %33 to i64
   %35 = or i64 %34, 1
   %36 = inttoptr i64 %35 to ptr
@@ -1604,7 +1604,7 @@ _ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i: ; pr
   %125 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %116, %_ZN5clang18IdentifierResolver13IdDeclInfoMap14IdDeclInfoPoolC2EPS2_.exit.i ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = zext i32 %124 to i64
-  %128 = getelementptr inbounds nuw [512 x %"class.clang::IdentifierResolver::IdDeclInfo"], ptr %126, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw %"class.clang::IdentifierResolver::IdDeclInfo", ptr %126, i64 %127
   %129 = ptrtoint ptr %128 to i64
   %130 = or i64 %129, 1
   %131 = inttoptr i64 %130 to ptr

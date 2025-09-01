@@ -780,7 +780,7 @@ smart_str_0.exit:                                 ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !85
-  %44 = getelementptr inbounds nuw [1 x i8], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
   store i8 0, ptr %44, align 1, !tbaa !26
   %45 = load ptr, ptr %5, align 8, !tbaa !82
   %.not.i27 = icmp eq ptr %45, null

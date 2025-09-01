@@ -82,14 +82,14 @@ define dso_local noundef zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %0
   %29 = phi ptr [ %17, %.lr.ph.i ], [ %72, %71 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
   %.0424.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %71 ]
-  %30 = getelementptr inbounds nuw [0 x i16], ptr %22, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv.i
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i64
   %.not.i = icmp eq i16 %31, 0
   br i1 %.not.i, label %71, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw [0 x i32], ptr %23, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 4
   %36 = call i32 @get_opclass_input_type(i32 noundef %35) #5
   %37 = load i32, ptr %34, align 4

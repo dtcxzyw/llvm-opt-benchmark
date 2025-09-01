@@ -32,257 +32,275 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 4:                                                ; preds = %1
   %5 = and i32 %0, 16777215
-  br label %150
+  br label %168
 
 6:                                                ; preds = %1
   %7 = add i32 %0, -1
   %or.cond = icmp ult i32 %7, 255
-  br i1 %or.cond, label %150, label %8
+  br i1 %or.cond, label %168, label %8
 
 8:                                                ; preds = %6
   %9 = add i32 %0, -417
   %or.cond3 = icmp ult i32 %9, 95
-  br i1 %or.cond3, label %10, label %15
+  br i1 %or.cond3, label %10, label %16
 
 10:                                               ; preds = %8
-  %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw [95 x i16], ptr @keysym_to_unicode_1a1_1ff, i64 0, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = zext i16 %13 to i32
-  br label %150
+  %11 = zext nneg i32 %0 to i64
+  %12 = getelementptr i16, ptr @keysym_to_unicode_1a1_1ff, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -834
+  %14 = load i16, ptr %13, align 2
+  %15 = zext i16 %14 to i32
+  br label %168
 
-15:                                               ; preds = %8
-  %16 = add i32 %0, -673
-  %or.cond5 = icmp ult i32 %16, 94
-  br i1 %or.cond5, label %17, label %22
+16:                                               ; preds = %8
+  %17 = add i32 %0, -673
+  %or.cond5 = icmp ult i32 %17, 94
+  br i1 %or.cond5, label %18, label %24
 
-17:                                               ; preds = %15
-  %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw [94 x i16], ptr @keysym_to_unicode_2a1_2fe, i64 0, i64 %18
-  %20 = load i16, ptr %19, align 2
-  %21 = zext i16 %20 to i32
-  br label %150
+18:                                               ; preds = %16
+  %19 = zext nneg i32 %0 to i64
+  %20 = getelementptr i16, ptr @keysym_to_unicode_2a1_2fe, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -1346
+  %22 = load i16, ptr %21, align 2
+  %23 = zext i16 %22 to i32
+  br label %168
 
-22:                                               ; preds = %15
-  %23 = add i32 %0, -930
-  %or.cond7 = icmp ult i32 %23, 93
-  br i1 %or.cond7, label %24, label %29
+24:                                               ; preds = %16
+  %25 = add i32 %0, -930
+  %or.cond7 = icmp ult i32 %25, 93
+  br i1 %or.cond7, label %26, label %32
 
-24:                                               ; preds = %22
-  %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw [93 x i16], ptr @keysym_to_unicode_3a2_3fe, i64 0, i64 %25
-  %27 = load i16, ptr %26, align 2
-  %28 = zext i16 %27 to i32
-  br label %150
+26:                                               ; preds = %24
+  %27 = zext nneg i32 %0 to i64
+  %28 = getelementptr i16, ptr @keysym_to_unicode_3a2_3fe, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -1860
+  %30 = load i16, ptr %29, align 2
+  %31 = zext i16 %30 to i32
+  br label %168
 
-29:                                               ; preds = %22
-  %30 = add i32 %0, -1185
-  %or.cond9 = icmp ult i32 %30, 63
-  br i1 %or.cond9, label %31, label %36
+32:                                               ; preds = %24
+  %33 = add i32 %0, -1185
+  %or.cond9 = icmp ult i32 %33, 63
+  br i1 %or.cond9, label %34, label %40
 
-31:                                               ; preds = %29
-  %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr inbounds nuw [63 x i16], ptr @keysym_to_unicode_4a1_4df, i64 0, i64 %32
-  %34 = load i16, ptr %33, align 2
-  %35 = zext i16 %34 to i32
-  br label %150
+34:                                               ; preds = %32
+  %35 = zext nneg i32 %0 to i64
+  %36 = getelementptr i16, ptr @keysym_to_unicode_4a1_4df, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -2370
+  %38 = load i16, ptr %37, align 2
+  %39 = zext i16 %38 to i32
+  br label %168
 
-36:                                               ; preds = %29
-  %37 = add i32 %0, -1418
-  %or.cond11 = icmp ult i32 %37, 117
-  br i1 %or.cond11, label %38, label %44
+40:                                               ; preds = %32
+  %41 = add i32 %0, -1418
+  %or.cond11 = icmp ult i32 %41, 117
+  br i1 %or.cond11, label %42, label %48
 
-38:                                               ; preds = %36
-  %39 = add nsw i32 %0, -1424
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [111 x i16], ptr @keysym_to_unicode_590_5fe, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2
-  %43 = zext i16 %42 to i32
-  br label %150
+42:                                               ; preds = %40
+  %43 = add nsw i32 %0, -1424
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i16, ptr @keysym_to_unicode_590_5fe, i64 %44
+  %46 = load i16, ptr %45, align 2
+  %47 = zext i16 %46 to i32
+  br label %168
 
-44:                                               ; preds = %36
-  %45 = and i32 %0, -128
-  %or.cond13 = icmp eq i32 %45, 1664
-  br i1 %or.cond13, label %46, label %52
+48:                                               ; preds = %40
+  %49 = and i32 %0, -128
+  %or.cond13 = icmp eq i32 %49, 1664
+  br i1 %or.cond13, label %50, label %56
 
-46:                                               ; preds = %44
-  %47 = add nsw i32 %0, -1664
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [128 x i16], ptr @keysym_to_unicode_680_6ff, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2
-  %51 = zext i16 %50 to i32
-  br label %150
+50:                                               ; preds = %48
+  %51 = zext nneg i32 %0 to i64
+  %52 = getelementptr i16, ptr @keysym_to_unicode_680_6ff, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 -3328
+  %54 = load i16, ptr %53, align 2
+  %55 = zext i16 %54 to i32
+  br label %168
 
-52:                                               ; preds = %44
-  %53 = add i32 %0, -1953
-  %or.cond15 = icmp ult i32 %53, 89
-  br i1 %or.cond15, label %54, label %59
+56:                                               ; preds = %48
+  %57 = add i32 %0, -1953
+  %or.cond15 = icmp ult i32 %57, 89
+  br i1 %or.cond15, label %58, label %64
 
-54:                                               ; preds = %52
-  %55 = zext nneg i32 %53 to i64
-  %56 = getelementptr inbounds nuw [89 x i16], ptr @keysym_to_unicode_7a1_7f9, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = zext i16 %57 to i32
-  br label %150
+58:                                               ; preds = %56
+  %59 = zext nneg i32 %0 to i64
+  %60 = getelementptr i16, ptr @keysym_to_unicode_7a1_7f9, i64 %59
+  %61 = getelementptr i8, ptr %60, i64 -3906
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i32
+  br label %168
 
-59:                                               ; preds = %52
-  %60 = add i32 %0, -2212
-  %or.cond17 = icmp ult i32 %60, 91
-  br i1 %or.cond17, label %61, label %66
+64:                                               ; preds = %56
+  %65 = add i32 %0, -2212
+  %or.cond17 = icmp ult i32 %65, 91
+  br i1 %or.cond17, label %66, label %72
 
-61:                                               ; preds = %59
-  %62 = zext nneg i32 %60 to i64
-  %63 = getelementptr inbounds nuw [91 x i16], ptr @keysym_to_unicode_8a4_8fe, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  br label %150
+66:                                               ; preds = %64
+  %67 = zext nneg i32 %0 to i64
+  %68 = getelementptr i16, ptr @keysym_to_unicode_8a4_8fe, i64 %67
+  %69 = getelementptr i8, ptr %68, i64 -4424
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i32
+  br label %168
 
-66:                                               ; preds = %59
-  %67 = add i32 %0, -2527
-  %or.cond19 = icmp ult i32 %67, 26
-  br i1 %or.cond19, label %68, label %73
+72:                                               ; preds = %64
+  %73 = add i32 %0, -2527
+  %or.cond19 = icmp ult i32 %73, 26
+  br i1 %or.cond19, label %74, label %80
 
-68:                                               ; preds = %66
-  %69 = zext nneg i32 %67 to i64
-  %70 = getelementptr inbounds nuw [26 x i16], ptr @keysym_to_unicode_9df_9f8, i64 0, i64 %69
-  %71 = load i16, ptr %70, align 2
-  %72 = zext i16 %71 to i32
-  br label %150
-
-73:                                               ; preds = %66
-  %74 = add i32 %0, -2721
-  %or.cond21 = icmp ult i32 %74, 94
-  br i1 %or.cond21, label %75, label %80
-
-75:                                               ; preds = %73
-  %76 = zext nneg i32 %74 to i64
-  %77 = getelementptr inbounds nuw [94 x i16], ptr @keysym_to_unicode_aa1_afe, i64 0, i64 %76
+74:                                               ; preds = %72
+  %75 = zext nneg i32 %0 to i64
+  %76 = getelementptr i16, ptr @keysym_to_unicode_9df_9f8, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 -5054
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i32
-  br label %150
+  br label %168
 
-80:                                               ; preds = %73
-  %81 = add i32 %0, -3295
-  %or.cond23 = icmp ult i32 %81, 28
-  br i1 %or.cond23, label %82, label %87
+80:                                               ; preds = %72
+  %81 = add i32 %0, -2721
+  %or.cond21 = icmp ult i32 %81, 94
+  br i1 %or.cond21, label %82, label %88
 
 82:                                               ; preds = %80
-  %83 = zext nneg i32 %81 to i64
-  %84 = getelementptr inbounds nuw [28 x i16], ptr @keysym_to_unicode_cdf_cfa, i64 0, i64 %83
-  %85 = load i16, ptr %84, align 2
-  %86 = zext i16 %85 to i32
-  br label %150
+  %83 = zext nneg i32 %0 to i64
+  %84 = getelementptr i16, ptr @keysym_to_unicode_aa1_afe, i64 %83
+  %85 = getelementptr i8, ptr %84, i64 -5442
+  %86 = load i16, ptr %85, align 2
+  %87 = zext i16 %86 to i32
+  br label %168
 
-87:                                               ; preds = %80
-  %88 = add i32 %0, -3489
-  %or.cond25 = icmp ult i32 %88, 89
-  br i1 %or.cond25, label %89, label %94
+88:                                               ; preds = %80
+  %89 = add i32 %0, -3295
+  %or.cond23 = icmp ult i32 %89, 28
+  br i1 %or.cond23, label %90, label %96
 
-89:                                               ; preds = %87
-  %90 = zext nneg i32 %88 to i64
-  %91 = getelementptr inbounds nuw [89 x i16], ptr @keysym_to_unicode_da1_df9, i64 0, i64 %90
-  %92 = load i16, ptr %91, align 2
-  %93 = zext i16 %92 to i32
-  br label %150
+90:                                               ; preds = %88
+  %91 = zext nneg i32 %0 to i64
+  %92 = getelementptr i16, ptr @keysym_to_unicode_cdf_cfa, i64 %91
+  %93 = getelementptr i8, ptr %92, i64 -6590
+  %94 = load i16, ptr %93, align 2
+  %95 = zext i16 %94 to i32
+  br label %168
 
-94:                                               ; preds = %87
-  %95 = add i32 %0, -3744
-  %or.cond27 = icmp ult i32 %95, 96
-  br i1 %or.cond27, label %96, label %101
+96:                                               ; preds = %88
+  %97 = add i32 %0, -3489
+  %or.cond25 = icmp ult i32 %97, 89
+  br i1 %or.cond25, label %98, label %104
 
-96:                                               ; preds = %94
-  %97 = zext nneg i32 %95 to i64
-  %98 = getelementptr inbounds nuw [96 x i16], ptr @keysym_to_unicode_ea0_eff, i64 0, i64 %97
-  %99 = load i16, ptr %98, align 2
-  %100 = zext i16 %99 to i32
-  br label %150
+98:                                               ; preds = %96
+  %99 = zext nneg i32 %0 to i64
+  %100 = getelementptr i16, ptr @keysym_to_unicode_da1_df9, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 -6978
+  %102 = load i16, ptr %101, align 2
+  %103 = zext i16 %102 to i32
+  br label %168
 
-101:                                              ; preds = %94
-  %102 = add i32 %0, -4769
-  %or.cond29 = icmp ult i32 %102, 94
-  br i1 %or.cond29, label %103, label %108
+104:                                              ; preds = %96
+  %105 = add i32 %0, -3744
+  %or.cond27 = icmp ult i32 %105, 96
+  br i1 %or.cond27, label %106, label %112
 
-103:                                              ; preds = %101
-  %104 = zext nneg i32 %102 to i64
-  %105 = getelementptr inbounds nuw [94 x i16], ptr @keysym_to_unicode_12a1_12fe, i64 0, i64 %104
-  %106 = load i16, ptr %105, align 2
-  %107 = zext i16 %106 to i32
-  br label %150
+106:                                              ; preds = %104
+  %107 = zext nneg i32 %0 to i64
+  %108 = getelementptr i16, ptr @keysym_to_unicode_ea0_eff, i64 %107
+  %109 = getelementptr i8, ptr %108, i64 -7488
+  %110 = load i16, ptr %109, align 2
+  %111 = zext i16 %110 to i32
+  br label %168
 
-108:                                              ; preds = %101
-  %109 = add i32 %0, -5052
-  %or.cond31 = icmp ult i32 %109, 3
-  br i1 %or.cond31, label %110, label %115
+112:                                              ; preds = %104
+  %113 = add i32 %0, -4769
+  %or.cond29 = icmp ult i32 %113, 94
+  br i1 %or.cond29, label %114, label %120
 
-110:                                              ; preds = %108
-  %111 = zext nneg i32 %109 to i64
-  %112 = getelementptr inbounds nuw [3 x i16], ptr @keysym_to_unicode_13bc_13be, i64 0, i64 %111
-  %113 = load i16, ptr %112, align 2
-  %114 = zext i16 %113 to i32
-  br label %150
+114:                                              ; preds = %112
+  %115 = zext nneg i32 %0 to i64
+  %116 = getelementptr i16, ptr @keysym_to_unicode_12a1_12fe, i64 %115
+  %117 = getelementptr i8, ptr %116, i64 -9538
+  %118 = load i16, ptr %117, align 2
+  %119 = zext i16 %118 to i32
+  br label %168
 
-115:                                              ; preds = %108
-  %116 = add i32 %0, -5281
-  %or.cond33 = icmp ult i32 %116, 95
-  br i1 %or.cond33, label %117, label %122
+120:                                              ; preds = %112
+  %121 = add i32 %0, -5052
+  %or.cond31 = icmp ult i32 %121, 3
+  br i1 %or.cond31, label %122, label %128
 
-117:                                              ; preds = %115
-  %118 = zext nneg i32 %116 to i64
-  %119 = getelementptr inbounds nuw [95 x i16], ptr @keysym_to_unicode_14a1_14ff, i64 0, i64 %118
-  %120 = load i16, ptr %119, align 2
-  %121 = zext i16 %120 to i32
-  br label %150
+122:                                              ; preds = %120
+  %123 = zext nneg i32 %0 to i64
+  %124 = getelementptr i16, ptr @keysym_to_unicode_13bc_13be, i64 %123
+  %125 = getelementptr i8, ptr %124, i64 -10104
+  %126 = load i16, ptr %125, align 2
+  %127 = zext i16 %126 to i32
+  br label %168
 
-122:                                              ; preds = %115
-  %123 = add i32 %0, -5584
-  %or.cond35 = icmp ult i32 %123, 39
-  br i1 %or.cond35, label %124, label %129
+128:                                              ; preds = %120
+  %129 = add i32 %0, -5281
+  %or.cond33 = icmp ult i32 %129, 95
+  br i1 %or.cond33, label %130, label %136
 
-124:                                              ; preds = %122
-  %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr inbounds nuw [39 x i16], ptr @keysym_to_unicode_15d0_15f6, i64 0, i64 %125
-  %127 = load i16, ptr %126, align 2
-  %128 = zext i16 %127 to i32
-  br label %150
-
-129:                                              ; preds = %122
-  %130 = add i32 %0, -5792
-  %or.cond37 = icmp ult i32 %130, 87
-  br i1 %or.cond37, label %131, label %136
-
-131:                                              ; preds = %129
-  %132 = zext nneg i32 %130 to i64
-  %133 = getelementptr inbounds nuw [87 x i16], ptr @keysym_to_unicode_16a0_16f6, i64 0, i64 %132
+130:                                              ; preds = %128
+  %131 = zext nneg i32 %0 to i64
+  %132 = getelementptr i16, ptr @keysym_to_unicode_14a1_14ff, i64 %131
+  %133 = getelementptr i8, ptr %132, i64 -10562
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
-  br label %150
+  br label %168
 
-136:                                              ; preds = %129
-  %137 = add i32 %0, -7839
-  %or.cond39 = icmp ult i32 %137, 97
-  br i1 %or.cond39, label %138, label %143
+136:                                              ; preds = %128
+  %137 = add i32 %0, -5584
+  %or.cond35 = icmp ult i32 %137, 39
+  br i1 %or.cond35, label %138, label %144
 
 138:                                              ; preds = %136
-  %139 = zext nneg i32 %137 to i64
-  %140 = getelementptr inbounds nuw [97 x i16], ptr @keysym_to_unicode_1e9f_1eff, i64 0, i64 %139
-  %141 = load i16, ptr %140, align 2
-  %142 = zext i16 %141 to i32
-  br label %150
+  %139 = zext nneg i32 %0 to i64
+  %140 = getelementptr i16, ptr @keysym_to_unicode_15d0_15f6, i64 %139
+  %141 = getelementptr i8, ptr %140, i64 -11168
+  %142 = load i16, ptr %141, align 2
+  %143 = zext i16 %142 to i32
+  br label %168
 
-143:                                              ; preds = %136
-  %144 = add i32 %0, -8352
-  %or.cond41 = icmp ult i32 %144, 13
-  br i1 %or.cond41, label %145, label %150
+144:                                              ; preds = %136
+  %145 = add i32 %0, -5792
+  %or.cond37 = icmp ult i32 %145, 87
+  br i1 %or.cond37, label %146, label %152
 
-145:                                              ; preds = %143
-  %146 = zext nneg i32 %144 to i64
-  %147 = getelementptr inbounds nuw [13 x i16], ptr @keysym_to_unicode_20a0_20ac, i64 0, i64 %146
-  %148 = load i16, ptr %147, align 2
-  %149 = zext i16 %148 to i32
-  br label %150
+146:                                              ; preds = %144
+  %147 = zext nneg i32 %0 to i64
+  %148 = getelementptr i16, ptr @keysym_to_unicode_16a0_16f6, i64 %147
+  %149 = getelementptr i8, ptr %148, i64 -11584
+  %150 = load i16, ptr %149, align 2
+  %151 = zext i16 %150 to i32
+  br label %168
 
-150:                                              ; preds = %143, %6, %145, %138, %131, %124, %117, %110, %103, %96, %89, %82, %75, %68, %61, %54, %46, %38, %31, %24, %17, %10, %4
-  %.0 = phi i32 [ %5, %4 ], [ %14, %10 ], [ %21, %17 ], [ %28, %24 ], [ %35, %31 ], [ %43, %38 ], [ %51, %46 ], [ %58, %54 ], [ %65, %61 ], [ %72, %68 ], [ %79, %75 ], [ %86, %82 ], [ %93, %89 ], [ %100, %96 ], [ %107, %103 ], [ %114, %110 ], [ %121, %117 ], [ %128, %124 ], [ %135, %131 ], [ %142, %138 ], [ %149, %145 ], [ %0, %6 ], [ 0, %143 ]
+152:                                              ; preds = %144
+  %153 = add i32 %0, -7839
+  %or.cond39 = icmp ult i32 %153, 97
+  br i1 %or.cond39, label %154, label %160
+
+154:                                              ; preds = %152
+  %155 = zext nneg i32 %0 to i64
+  %156 = getelementptr i16, ptr @keysym_to_unicode_1e9f_1eff, i64 %155
+  %157 = getelementptr i8, ptr %156, i64 -15678
+  %158 = load i16, ptr %157, align 2
+  %159 = zext i16 %158 to i32
+  br label %168
+
+160:                                              ; preds = %152
+  %161 = add i32 %0, -8352
+  %or.cond41 = icmp ult i32 %161, 13
+  br i1 %or.cond41, label %162, label %168
+
+162:                                              ; preds = %160
+  %163 = zext nneg i32 %0 to i64
+  %164 = getelementptr i16, ptr @keysym_to_unicode_20a0_20ac, i64 %163
+  %165 = getelementptr i8, ptr %164, i64 -16704
+  %166 = load i16, ptr %165, align 2
+  %167 = zext i16 %166 to i32
+  br label %168
+
+168:                                              ; preds = %160, %6, %162, %154, %146, %138, %130, %122, %114, %106, %98, %90, %82, %74, %66, %58, %50, %42, %34, %26, %18, %10, %4
+  %.0 = phi i32 [ %5, %4 ], [ %15, %10 ], [ %23, %18 ], [ %31, %26 ], [ %39, %34 ], [ %47, %42 ], [ %55, %50 ], [ %63, %58 ], [ %71, %66 ], [ %79, %74 ], [ %87, %82 ], [ %95, %90 ], [ %103, %98 ], [ %111, %106 ], [ %119, %114 ], [ %127, %122 ], [ %135, %130 ], [ %143, %138 ], [ %151, %146 ], [ %159, %154 ], [ %167, %162 ], [ %0, %6 ], [ 0, %160 ]
   ret i32 %.0
 }
 

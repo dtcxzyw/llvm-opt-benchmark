@@ -284,7 +284,7 @@ ClearHistogramsLiteral.exit.preheader.i.i:        ; preds = %108
   %129 = getelementptr inbounds nuw i8, ptr %.05.i29.i.i, i64 1
   %130 = load i8, ptr %.05.i29.i.i, align 1, !tbaa !26
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw [256 x i32], ptr %122, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %122, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !27
   %134 = add i32 %133, 1
   store i32 %134, ptr %132, align 4, !tbaa !27
@@ -329,7 +329,7 @@ InitialEntropyCodesLiteral.exit.i:                ; preds = %HistogramAddVectorL
   %154 = getelementptr inbounds nuw i8, ptr %.05.i12.i.i.i, i64 1
   %155 = load i8, ptr %.05.i12.i.i.i, align 1, !tbaa !26
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw [256 x i32], ptr %137, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i32, ptr %137, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !27
   %159 = add i32 %158, 1
   store i32 %159, ptr %157, align 4, !tbaa !27
@@ -348,9 +348,9 @@ RandomSampleLiteral.exit.i.i:                     ; preds = %152
 
 166:                                              ; preds = %166, %RandomSampleLiteral.exit.i.i
   %.0.i18.i.i = phi i64 [ 0, %RandomSampleLiteral.exit.i.i ], [ %172, %166 ]
-  %167 = getelementptr inbounds nuw [256 x i32], ptr %137, i64 0, i64 %.0.i18.i.i
+  %167 = getelementptr inbounds nuw i32, ptr %137, i64 %.0.i18.i.i
   %168 = load i32, ptr %167, align 4, !tbaa !27
-  %169 = getelementptr inbounds nuw [256 x i32], ptr %162, i64 0, i64 %.0.i18.i.i
+  %169 = getelementptr inbounds nuw i32, ptr %162, i64 %.0.i18.i.i
   %170 = load i32, ptr %169, align 4, !tbaa !27
   %171 = add i32 %170, %168
   store i32 %171, ptr %169, align 4, !tbaa !27
@@ -417,7 +417,7 @@ RefineEntropyCodesLiteral.exit.i:                 ; preds = %HistogramAddHistogr
   br i1 %203, label %204, label %207
 
 204:                                              ; preds = %199
-  %205 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %202
+  %205 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %202
   %206 = load double, ptr %205, align 8, !tbaa !53
   br label %FastLog2.exit.i.i
 
@@ -441,7 +441,7 @@ FastLog2.exit.i.i:                                ; preds = %207, %204
 .preheader130.i.i:                                ; preds = %FastLog2.exit.i.i, %.loopexit129.i.i
   %.2133.i.i = phi i64 [ %212, %.loopexit129.i.i ], [ 256, %FastLog2.exit.i.i ]
   %212 = add nsw i64 %.2133.i.i, -1
-  %invariant.gep.i.i = getelementptr [256 x i32], ptr %105, i64 0, i64 %212
+  %invariant.gep.i.i = getelementptr i32, ptr %105, i64 %212
   %213 = mul i64 %212, %.1178.i
   %214 = getelementptr double, ptr %178, i64 %213
   br label %215
@@ -461,7 +461,7 @@ FastLog2.exit.i.i:                                ; preds = %207, %204
   br i1 %222, label %223, label %226
 
 223:                                              ; preds = %221
-  %224 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %219
+  %224 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %219
   %225 = load double, ptr %224, align 8, !tbaa !53
   br label %BitCost.exit.i.i
 
@@ -677,7 +677,7 @@ ClearHistogramsLiteral.exit.i.i:                  ; preds = %ClearHistogramsLite
   %323 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.010.i.i
   %324 = load i8, ptr %323, align 1, !tbaa !26
   %325 = zext i8 %324 to i64
-  %326 = getelementptr inbounds nuw [256 x i32], ptr %322, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw i32, ptr %322, i64 %325
   %327 = load i32, ptr %326, align 4, !tbaa !27
   %328 = add i32 %327, 1
   store i32 %328, ptr %326, align 4, !tbaa !27
@@ -828,7 +828,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %398 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.2363417.i.i
   %399 = load i8, ptr %398, align 1, !tbaa !26
   %400 = zext i8 %399 to i64
-  %401 = getelementptr inbounds nuw [256 x i32], ptr %393, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw i32, ptr %393, i64 %400
   %402 = load i32, ptr %401, align 4, !tbaa !27
   %403 = add i32 %402, 1
   store i32 %403, ptr %401, align 4, !tbaa !27
@@ -1058,7 +1058,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %503 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.4456.i.i
   %504 = load i8, ptr %503, align 1, !tbaa !26
   %505 = zext i8 %504 to i64
-  %506 = getelementptr inbounds nuw [256 x i32], ptr %368, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw i32, ptr %368, i64 %505
   %507 = load i32, ptr %506, align 4, !tbaa !27
   %508 = add i32 %507, 1
   store i32 %508, ptr %506, align 4, !tbaa !27
@@ -1468,7 +1468,7 @@ ClearHistogramsCommand.exit.preheader.i.i:        ; preds = %670
   %691 = getelementptr inbounds nuw i8, ptr %.05.i29.i.i78, i64 2
   %692 = load i16, ptr %.05.i29.i.i78, align 2, !tbaa !61
   %693 = zext i16 %692 to i64
-  %694 = getelementptr inbounds nuw [704 x i32], ptr %684, i64 0, i64 %693
+  %694 = getelementptr inbounds nuw i32, ptr %684, i64 %693
   %695 = load i32, ptr %694, align 4, !tbaa !27
   %696 = add i32 %695, 1
   store i32 %696, ptr %694, align 4, !tbaa !27
@@ -1511,7 +1511,7 @@ InitialEntropyCodesCommand.exit.i:                ; preds = %HistogramAddVectorC
   %715 = getelementptr inbounds nuw i8, ptr %.05.i12.i.i.i84, i64 2
   %716 = load i16, ptr %.05.i12.i.i.i84, align 2, !tbaa !61
   %717 = zext i16 %716 to i64
-  %718 = getelementptr inbounds nuw [704 x i32], ptr %699, i64 0, i64 %717
+  %718 = getelementptr inbounds nuw i32, ptr %699, i64 %717
   %719 = load i32, ptr %718, align 4, !tbaa !27
   %720 = add i32 %719, 1
   store i32 %720, ptr %718, align 4, !tbaa !27
@@ -1530,9 +1530,9 @@ RandomSampleCommand.exit.i.i:                     ; preds = %713
 
 727:                                              ; preds = %727, %RandomSampleCommand.exit.i.i
   %.0.i18.i.i86 = phi i64 [ 0, %RandomSampleCommand.exit.i.i ], [ %733, %727 ]
-  %728 = getelementptr inbounds nuw [704 x i32], ptr %699, i64 0, i64 %.0.i18.i.i86
+  %728 = getelementptr inbounds nuw i32, ptr %699, i64 %.0.i18.i.i86
   %729 = load i32, ptr %728, align 4, !tbaa !27
-  %730 = getelementptr inbounds nuw [704 x i32], ptr %723, i64 0, i64 %.0.i18.i.i86
+  %730 = getelementptr inbounds nuw i32, ptr %723, i64 %.0.i18.i.i86
   %731 = load i32, ptr %730, align 4, !tbaa !27
   %732 = add i32 %731, %729
   store i32 %732, ptr %730, align 4, !tbaa !27
@@ -1601,7 +1601,7 @@ RefineEntropyCodesCommand.exit.i:                 ; preds = %HistogramAddHistogr
   br i1 %765, label %766, label %769
 
 766:                                              ; preds = %761
-  %767 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %764
+  %767 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %764
   %768 = load double, ptr %767, align 8, !tbaa !53
   br label %FastLog2.exit.i.i92
 
@@ -1625,7 +1625,7 @@ FastLog2.exit.i.i92:                              ; preds = %769, %766
 .preheader130.i.i95:                              ; preds = %FastLog2.exit.i.i92, %.loopexit129.i.i102
   %.2133.i.i96 = phi i64 [ %774, %.loopexit129.i.i102 ], [ 704, %FastLog2.exit.i.i92 ]
   %774 = add nsw i64 %.2133.i.i96, -1
-  %invariant.gep.i.i97 = getelementptr [704 x i32], ptr %667, i64 0, i64 %774
+  %invariant.gep.i.i97 = getelementptr i32, ptr %667, i64 %774
   %775 = mul i64 %774, %.1179.i
   %776 = getelementptr double, ptr %740, i64 %775
   br label %777
@@ -1645,7 +1645,7 @@ FastLog2.exit.i.i92:                              ; preds = %769, %766
   br i1 %784, label %785, label %788
 
 785:                                              ; preds = %783
-  %786 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %781
+  %786 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %781
   %787 = load double, ptr %786, align 8, !tbaa !53
   br label %BitCost.exit.i.i100
 
@@ -1861,7 +1861,7 @@ ClearHistogramsCommand.exit.i.i:                  ; preds = %ClearHistogramsComm
   %885 = getelementptr inbounds nuw i16, ptr %601, i64 %.010.i.i143
   %886 = load i16, ptr %885, align 2, !tbaa !61
   %887 = zext i16 %886 to i64
-  %888 = getelementptr inbounds nuw [704 x i32], ptr %884, i64 0, i64 %887
+  %888 = getelementptr inbounds nuw i32, ptr %884, i64 %887
   %889 = load i32, ptr %888, align 4, !tbaa !27
   %890 = add i32 %889, 1
   store i32 %890, ptr %888, align 4, !tbaa !27
@@ -2012,7 +2012,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %959 = getelementptr inbounds nuw i16, ptr %601, i64 %.2363417.i.i173
   %960 = load i16, ptr %959, align 2, !tbaa !61
   %961 = zext i16 %960 to i64
-  %962 = getelementptr inbounds nuw [704 x i32], ptr %955, i64 0, i64 %961
+  %962 = getelementptr inbounds nuw i32, ptr %955, i64 %961
   %963 = load i32, ptr %962, align 4, !tbaa !27
   %964 = add i32 %963, 1
   store i32 %964, ptr %962, align 4, !tbaa !27
@@ -2245,7 +2245,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1065 = getelementptr inbounds nuw i16, ptr %601, i64 %.4456.i.i207
   %1066 = load i16, ptr %1065, align 2, !tbaa !61
   %1067 = zext i16 %1066 to i64
-  %1068 = getelementptr inbounds nuw [704 x i32], ptr %930, i64 0, i64 %1067
+  %1068 = getelementptr inbounds nuw i32, ptr %930, i64 %1067
   %1069 = load i32, ptr %1068, align 4, !tbaa !27
   %1070 = add i32 %1069, 1
   store i32 %1070, ptr %1068, align 4, !tbaa !27
@@ -2676,7 +2676,7 @@ ClearHistogramsDistance.exit.preheader.i.i:       ; preds = %1247
   %1268 = getelementptr inbounds nuw i8, ptr %.05.i29.i.i253, i64 2
   %1269 = load i16, ptr %.05.i29.i.i253, align 2, !tbaa !61
   %1270 = zext i16 %1269 to i64
-  %1271 = getelementptr inbounds nuw [544 x i32], ptr %1261, i64 0, i64 %1270
+  %1271 = getelementptr inbounds nuw i32, ptr %1261, i64 %1270
   %1272 = load i32, ptr %1271, align 4, !tbaa !27
   %1273 = add i32 %1272, 1
   store i32 %1273, ptr %1271, align 4, !tbaa !27
@@ -2719,7 +2719,7 @@ InitialEntropyCodesDistance.exit.i:               ; preds = %HistogramAddVectorD
   %1292 = getelementptr inbounds nuw i8, ptr %.05.i12.i.i.i259, i64 2
   %1293 = load i16, ptr %.05.i12.i.i.i259, align 2, !tbaa !61
   %1294 = zext i16 %1293 to i64
-  %1295 = getelementptr inbounds nuw [544 x i32], ptr %1276, i64 0, i64 %1294
+  %1295 = getelementptr inbounds nuw i32, ptr %1276, i64 %1294
   %1296 = load i32, ptr %1295, align 4, !tbaa !27
   %1297 = add i32 %1296, 1
   store i32 %1297, ptr %1295, align 4, !tbaa !27
@@ -2738,9 +2738,9 @@ RandomSampleDistance.exit.i.i:                    ; preds = %1290
 
 1304:                                             ; preds = %1304, %RandomSampleDistance.exit.i.i
   %.0.i18.i.i261 = phi i64 [ 0, %RandomSampleDistance.exit.i.i ], [ %1310, %1304 ]
-  %1305 = getelementptr inbounds nuw [544 x i32], ptr %1276, i64 0, i64 %.0.i18.i.i261
+  %1305 = getelementptr inbounds nuw i32, ptr %1276, i64 %.0.i18.i.i261
   %1306 = load i32, ptr %1305, align 4, !tbaa !27
-  %1307 = getelementptr inbounds nuw [544 x i32], ptr %1300, i64 0, i64 %.0.i18.i.i261
+  %1307 = getelementptr inbounds nuw i32, ptr %1300, i64 %.0.i18.i.i261
   %1308 = load i32, ptr %1307, align 4, !tbaa !27
   %1309 = add i32 %1308, %1306
   store i32 %1309, ptr %1307, align 4, !tbaa !27
@@ -2809,7 +2809,7 @@ RefineEntropyCodesDistance.exit.i:                ; preds = %HistogramAddHistogr
   br i1 %1342, label %1343, label %1346
 
 1343:                                             ; preds = %1338
-  %1344 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1341
+  %1344 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %1341
   %1345 = load double, ptr %1344, align 8, !tbaa !53
   br label %FastLog2.exit.i.i269
 
@@ -2833,7 +2833,7 @@ FastLog2.exit.i.i269:                             ; preds = %1346, %1343
 .preheader130.i.i272:                             ; preds = %FastLog2.exit.i.i269, %.loopexit129.i.i279
   %.2133.i.i273 = phi i64 [ %1351, %.loopexit129.i.i279 ], [ 544, %FastLog2.exit.i.i269 ]
   %1351 = add nsw i64 %.2133.i.i273, -1
-  %invariant.gep.i.i274 = getelementptr [544 x i32], ptr %1244, i64 0, i64 %1351
+  %invariant.gep.i.i274 = getelementptr i32, ptr %1244, i64 %1351
   %1352 = mul i64 %1351, %.1179.i267
   %1353 = getelementptr double, ptr %1317, i64 %1352
   br label %1354
@@ -2853,7 +2853,7 @@ FastLog2.exit.i.i269:                             ; preds = %1346, %1343
   br i1 %1361, label %1362, label %1365
 
 1362:                                             ; preds = %1360
-  %1363 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1358
+  %1363 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %1358
   %1364 = load double, ptr %1363, align 8, !tbaa !53
   br label %BitCost.exit.i.i277
 
@@ -3069,7 +3069,7 @@ ClearHistogramsDistance.exit.i.i:                 ; preds = %ClearHistogramsDist
   %1462 = getelementptr inbounds nuw i16, ptr %1164, i64 %.010.i.i320
   %1463 = load i16, ptr %1462, align 2, !tbaa !61
   %1464 = zext i16 %1463 to i64
-  %1465 = getelementptr inbounds nuw [544 x i32], ptr %1461, i64 0, i64 %1464
+  %1465 = getelementptr inbounds nuw i32, ptr %1461, i64 %1464
   %1466 = load i32, ptr %1465, align 4, !tbaa !27
   %1467 = add i32 %1466, 1
   store i32 %1467, ptr %1465, align 4, !tbaa !27
@@ -3220,7 +3220,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1536 = getelementptr inbounds nuw i16, ptr %1164, i64 %.2363417.i.i353
   %1537 = load i16, ptr %1536, align 2, !tbaa !61
   %1538 = zext i16 %1537 to i64
-  %1539 = getelementptr inbounds nuw [544 x i32], ptr %1532, i64 0, i64 %1538
+  %1539 = getelementptr inbounds nuw i32, ptr %1532, i64 %1538
   %1540 = load i32, ptr %1539, align 4, !tbaa !27
   %1541 = add i32 %1540, 1
   store i32 %1541, ptr %1539, align 4, !tbaa !27
@@ -3453,7 +3453,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1642 = getelementptr inbounds nuw i16, ptr %1164, i64 %.4456.i.i396
   %1643 = load i16, ptr %1642, align 2, !tbaa !61
   %1644 = zext i16 %1643 to i64
-  %1645 = getelementptr inbounds nuw [544 x i32], ptr %1507, i64 0, i64 %1644
+  %1645 = getelementptr inbounds nuw i32, ptr %1507, i64 %1644
   %1646 = load i32, ptr %1645, align 4, !tbaa !27
   %1647 = add i32 %1646, 1
   store i32 %1647, ptr %1645, align 4, !tbaa !27

@@ -474,7 +474,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %.
   %86 = icmp eq i32 %84, 2
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %88 = zext i1 %86 to i64
-  %89 = getelementptr inbounds nuw [0 x ptr], ptr %87, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !51, !noalias !48
   store ptr %90, ptr %17, align 8, !tbaa !29, !alias.scope !48
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext false)

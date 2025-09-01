@@ -272,7 +272,7 @@ define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [256 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = icmp ult ptr %9, %10
@@ -328,7 +328,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = sext i8 %6 to i64
-  %18 = getelementptr inbounds [256 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = icmp eq ptr %19, null
   %. = select i1 %20, i32 0, i32 %7
@@ -377,7 +377,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %46 = load i8, ptr %22, align 1, !tbaa !23
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds [256 x ptr], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !16
   %50 = icmp eq ptr %49, null
   %51 = sext i8 %46 to i32
@@ -438,7 +438,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %81 = load i8, ptr %57, align 1, !tbaa !23
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds [256 x ptr], ptr %80, i64 0, i64 %82
+  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !16
   %85 = icmp eq ptr %84, null
   %86 = sext i8 %81 to i32
@@ -464,7 +464,7 @@ define hidden noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef readonly captures(
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [256 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   br label %10
 
@@ -542,7 +542,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %33 = load i8, ptr %32, align 1, !tbaa !23
   %34 = sext i8 %33 to i64
-  %35 = getelementptr inbounds [256 x ptr], ptr %26, i64 0, i64 %34
+  %35 = getelementptr inbounds ptr, ptr %26, i64 %34
   store ptr %25, ptr %35, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -553,7 +553,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv407
   %38 = load i8, ptr %37, align 1, !tbaa !23
   %39 = sext i8 %38 to i64
-  %40 = getelementptr inbounds [256 x ptr], ptr %30, i64 0, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %30, i64 %39
   store ptr %14, ptr %40, align 8, !tbaa !16
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
@@ -672,7 +672,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   br label %262
 
 85:                                               ; preds = %.lr.ph359
-  %86 = getelementptr inbounds nuw [256 x ptr], ptr %80, i64 0, i64 %indvars.iv418
+  %86 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv418
   store ptr %79, ptr %86, align 8, !tbaa !16
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %87 = getelementptr ptr, ptr %4, i64 %indvars.iv.next419
@@ -702,7 +702,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   br label %262
 
 95:                                               ; preds = %.lr.ph367
-  %96 = getelementptr inbounds nuw [256 x ptr], ptr %90, i64 0, i64 %indvars.iv421
+  %96 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv421
   store ptr %14, ptr %96, align 8, !tbaa !16
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
   %97 = getelementptr ptr, ptr %5, i64 %indvars.iv.next422
@@ -798,7 +798,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 138:                                              ; preds = %.thread
   store i8 61, ptr %129, align 1, !tbaa !23
   %139 = sext i32 %133 to i64
-  %140 = getelementptr inbounds [256 x ptr], ptr %106, i64 0, i64 %139
+  %140 = getelementptr inbounds ptr, ptr %106, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !16
   %142 = icmp ult ptr %141, %79
   %143 = icmp ugt ptr %141, %107
@@ -818,7 +818,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 149:                                              ; preds = %130
   %150 = sext i32 %131 to i64
-  %151 = getelementptr inbounds [256 x ptr], ptr %106, i64 0, i64 %150
+  %151 = getelementptr inbounds ptr, ptr %106, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !16
   %153 = icmp ult ptr %152, %79
   %154 = icmp ugt ptr %152, %107
@@ -861,7 +861,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 171:                                              ; preds = %123
   %172 = sext i8 %125 to i64
-  %173 = getelementptr inbounds [256 x ptr], ptr %106, i64 0, i64 %172
+  %173 = getelementptr inbounds ptr, ptr %106, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !16
   %175 = icmp eq ptr %174, null
   br i1 %175, label %176, label %179
@@ -1135,7 +1135,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %28 = sext i32 %24 to i64
-  %29 = getelementptr inbounds [256 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %32 = icmp ult ptr %30, %31
@@ -1179,7 +1179,7 @@ _Z9opt_givenP7OPTARGSPKc.exit:                    ; preds = %23, %35, %41
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %56 = sext i32 %52 to i64
-  %57 = getelementptr inbounds [256 x ptr], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %60 = icmp ult ptr %58, %59
@@ -1212,7 +1212,7 @@ _Z9opt_givenP7OPTARGSPKc.exit306:                 ; preds = %51, %63, %69
 75:                                               ; preds = %_Z9opt_givenP7OPTARGSPKc.exit306
   %76 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %77 = sext i32 %73 to i64
-  %78 = getelementptr inbounds [256 x ptr], ptr %76, i64 0, i64 %77
+  %78 = getelementptr inbounds ptr, ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !16
   %.fr = freeze ptr %79
   %80 = getelementptr i8, ptr %21, i64 72
@@ -1258,7 +1258,7 @@ _Z9opt_givenP7OPTARGSPKc.exit309.thread.thread:   ; preds = %_Z9opt_givenP7OPTAR
 102:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit309.thread.thread
   %103 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %104 = sext i32 %100 to i64
-  %105 = getelementptr inbounds [256 x ptr], ptr %103, i64 0, i64 %104
+  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !16
   %107 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %108 = icmp ult ptr %106, %107
@@ -1297,7 +1297,7 @@ _Z9opt_givenP7OPTARGSPKc.exit312.thread:          ; preds = %111, %_Z9opt_givenP
 126:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit312.thread
   %127 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %128 = sext i32 %124 to i64
-  %129 = getelementptr inbounds [256 x ptr], ptr %127, i64 0, i64 %128
+  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !16
   %131 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %132 = icmp ult ptr %130, %131
@@ -1328,7 +1328,7 @@ _Z9opt_givenP7OPTARGSPKc.exit315:                 ; preds = %126
 
 147:                                              ; preds = %144
   %148 = sext i32 %145 to i64
-  %149 = getelementptr inbounds [256 x ptr], ptr %127, i64 0, i64 %148
+  %149 = getelementptr inbounds ptr, ptr %127, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !16
   br label %_Z7opt_argP7OPTARGSPKc.exit
 
@@ -1357,7 +1357,7 @@ thread-pre-split:                                 ; preds = %135, %_Z9opt_givenP
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %162 = sext i32 %158 to i64
-  %163 = getelementptr inbounds [256 x ptr], ptr %161, i64 0, i64 %162
+  %163 = getelementptr inbounds ptr, ptr %161, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !16
   br label %_Z7opt_argP7OPTARGSPKc.exit318
 
@@ -1376,7 +1376,7 @@ _Z7opt_argP7OPTARGSPKc.exit318:                   ; preds = %157, %160
 168:                                              ; preds = %165
   %169 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %170 = sext i32 %166 to i64
-  %171 = getelementptr inbounds [256 x ptr], ptr %169, i64 0, i64 %170
+  %171 = getelementptr inbounds ptr, ptr %169, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !16
   %173 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %174 = icmp ult ptr %172, %173
@@ -1414,7 +1414,7 @@ _Z9opt_givenP7OPTARGSPKc.exit321.thread:          ; preds = %177, %165, %_Z7opt_
 189:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit321.thread
   %190 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %191 = sext i32 %187 to i64
-  %192 = getelementptr inbounds [256 x ptr], ptr %190, i64 0, i64 %191
+  %192 = getelementptr inbounds ptr, ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !16
   %194 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %195 = icmp ult ptr %193, %194
@@ -1453,7 +1453,7 @@ _Z9opt_givenP7OPTARGSPKc.exit326.thread:          ; preds = %198, %_Z9opt_givenP
 211:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit326.thread
   %212 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %213 = sext i32 %209 to i64
-  %214 = getelementptr inbounds [256 x ptr], ptr %212, i64 0, i64 %213
+  %214 = getelementptr inbounds ptr, ptr %212, i64 %213
   %215 = load ptr, ptr %214, align 8, !tbaa !16
   %216 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %217 = icmp ult ptr %215, %216
@@ -1492,7 +1492,7 @@ _Z9opt_givenP7OPTARGSPKc.exit331.thread:          ; preds = %220, %_Z9opt_givenP
 233:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit331.thread
   %234 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %235 = sext i32 %231 to i64
-  %236 = getelementptr inbounds [256 x ptr], ptr %234, i64 0, i64 %235
+  %236 = getelementptr inbounds ptr, ptr %234, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !16
   %238 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %239 = icmp ult ptr %237, %238
@@ -1530,7 +1530,7 @@ _Z9opt_givenP7OPTARGSPKc.exit336.thread:          ; preds = %242, %_Z9opt_givenP
 255:                                              ; preds = %_Z9opt_givenP7OPTARGSPKc.exit336.thread
   %256 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %257 = sext i32 %253 to i64
-  %258 = getelementptr inbounds [256 x ptr], ptr %256, i64 0, i64 %257
+  %258 = getelementptr inbounds ptr, ptr %256, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !16
   %260 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %261 = icmp ult ptr %259, %260
@@ -1562,7 +1562,7 @@ _Z9opt_givenP7OPTARGSPKc.exit341:                 ; preds = %255
 
 275:                                              ; preds = %.preheader414.preheader
   %276 = sext i32 %273 to i64
-  %277 = getelementptr inbounds [256 x ptr], ptr %256, i64 0, i64 %276
+  %277 = getelementptr inbounds ptr, ptr %256, i64 %276
   %278 = load ptr, ptr %277, align 8, !tbaa !16
   br label %_Z7opt_argP7OPTARGSPKc.exit343
 
@@ -1583,7 +1583,7 @@ _Z7opt_argP7OPTARGSPKc.exit343:                   ; preds = %.preheader414.prehe
 
 287:                                              ; preds = %283
   %288 = sext i32 %285 to i64
-  %289 = getelementptr inbounds [256 x ptr], ptr %256, i64 0, i64 %288
+  %289 = getelementptr inbounds ptr, ptr %256, i64 %288
   %290 = load ptr, ptr %289, align 8, !tbaa !16
   br label %_Z7opt_argP7OPTARGSPKc.exit345
 
@@ -2394,7 +2394,7 @@ _Z10opt_recordP7OPTARGS.exit:                     ; preds = %581, %586
 .preheader:                                       ; preds = %607, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %607 ]
   %.0201424 = phi i32 [ %.0201., %.preheader ], [ 0, %607 ]
-  %611 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %611 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %612 = load i32, ptr %611, align 4, !tbaa !41
   %.0201. = call i32 @llvm.smax.i32(i32 %.0201424, i32 %612)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

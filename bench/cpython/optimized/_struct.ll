@@ -1419,7 +1419,7 @@ define internal fastcc ptr @s_unpack_internal(ptr noundef readonly captures(none
 
 42:                                               ; preds = %41
   %43 = add i64 %.14359, 1
-  %44 = getelementptr [1 x ptr], ptr %12, i64 0, i64 %.14359
+  %44 = getelementptr ptr, ptr %12, i64 %.14359
   store ptr %.035, ptr %44, align 8, !tbaa !17
   %45 = load i64, ptr %20, align 8, !tbaa !59
   %46 = getelementptr i8, ptr %.03760, i64 %45
@@ -1968,7 +1968,7 @@ whichtable.exit.i.i:                              ; preds = %59, %57, %54, %54
 62:                                               ; preds = %60
   %63 = getelementptr i8, ptr %.0118.i.i, i64 1
   %64 = zext i8 %61 to i64
-  %65 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %64
+  %65 = getelementptr i32, ptr @_Py_ctype_table, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !72
   %67 = and i32 %66, 8
   %.not139.i.i = icmp eq i32 %67, 0
@@ -2165,7 +2165,7 @@ align.exit.i.i:                                   ; preds = %116, %109
 152:                                              ; preds = %150
   %153 = getelementptr i8, ptr %.3121.i.i, i64 1
   %154 = zext i8 %151 to i64
-  %155 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %154
+  %155 = getelementptr i32, ptr @_Py_ctype_table, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !72
   %157 = and i32 %156, 8
   %.not137.i.i = icmp eq i32 %157, 0

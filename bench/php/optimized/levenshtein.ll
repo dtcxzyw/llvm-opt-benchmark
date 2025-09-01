@@ -132,7 +132,7 @@ define hidden void @zif_levenshtein(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not87.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52
-  %56 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %.06482.i
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 %.06482.i
   %.pre88.i = load i64, ptr %.06981.i, align 8, !tbaa !4
   br label %57
 
@@ -141,7 +141,7 @@ define hidden void @zif_levenshtein(ptr noundef readonly captures(none) %0, ptr 
   %59 = phi i64 [ %.pre88.i, %.lr.ph.i ], [ %68, %57 ]
   %.179.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %57 ]
   %60 = load i8, ptr %56, align 1, !tbaa !8
-  %61 = getelementptr inbounds nuw [1 x i8], ptr %47, i64 0, i64 %.179.i
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 %.179.i
   %62 = load i8, ptr %61, align 1, !tbaa !8
   %63 = icmp eq i8 %60, %62
   %64 = select i1 %63, i64 0, i64 %19

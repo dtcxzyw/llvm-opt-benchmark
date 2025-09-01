@@ -7296,7 +7296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread: ; preds
 
 .lr.ph.i:                                         ; preds = %144, %.lr.ph.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next40.i, %144 ]
-  %135 = getelementptr inbounds nuw [0 x ptr], ptr %131, i64 0, i64 %indvars.iv39.i
+  %135 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv39.i
   %136 = load ptr, ptr %135, align 8, !tbaa !283
   %137 = ptrtoint ptr %136 to i64
   br label %139
@@ -7308,7 +7308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread: ; preds
 
 139:                                              ; preds = %138, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %138 ]
-  %140 = getelementptr inbounds nuw [0 x ptr], ptr %134, i64 0, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i
   %141 = load ptr, ptr %140, align 8, !tbaa !283
   %142 = ptrtoint ptr %141 to i64
   %143 = xor i64 %142, %137
@@ -7552,7 +7552,7 @@ define hidden noundef zeroext i1 @_ZN7datalog7context14check_subsumesERKNS_4rule
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv39 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next40, %24 ]
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv39
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv39
   %16 = load ptr, ptr %15, align 8, !tbaa !283
   %17 = ptrtoint ptr %16 to i64
   br label %19
@@ -7564,7 +7564,7 @@ define hidden noundef zeroext i1 @_ZN7datalog7context14check_subsumesERKNS_4rule
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !283
   %22 = ptrtoint ptr %21 to i64
   %23 = xor i64 %22, %17
@@ -7819,7 +7819,7 @@ define hidden void @_ZN7datalog7context8add_factEP3app(ptr noundef nonnull align
 14:                                               ; preds = %.lr.ph, %30
   %15 = phi ptr [ null, %.lr.ph ], [ %31, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !273
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %18
@@ -9428,7 +9428,7 @@ _Z19quick_for_each_exprIN7datalog7context16engine_type_procEEvRT_R13ast_fast_mar
 
 126:                                              ; preds = %.lr.ph, %_Z19quick_for_each_exprIN7datalog7context16engine_type_procEEvRT_R13ast_fast_markILj1EEP4expr.exit51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z19quick_for_each_exprIN7datalog7context16engine_type_procEEvRT_R13ast_fast_markILj1EEP4expr.exit51 ]
-  %127 = getelementptr inbounds nuw [0 x ptr], ptr %119, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !283
   %129 = ptrtoint ptr %128 to i64
   %130 = and i64 %129, -8
@@ -13330,7 +13330,7 @@ _ZNK7datalog7context12is_predicateEP9func_decl.exit.i: ; preds = %570, %578
 
 .lr.ph.i317:                                      ; preds = %588, %.lr.ph.preheader.i315
   %indvars.iv.i318 = phi i64 [ 0, %.lr.ph.preheader.i315 ], [ %indvars.iv.next.i320, %588 ]
-  %589 = getelementptr inbounds nuw [0 x ptr], ptr %585, i64 0, i64 %indvars.iv.i318
+  %589 = getelementptr inbounds nuw ptr, ptr %585, i64 %indvars.iv.i318
   %590 = load ptr, ptr %589, align 8, !tbaa !273
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 4
   %592 = load i32, ptr %591, align 4
@@ -14571,7 +14571,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20._crit_edge: ; pre
 
 20:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22 ]
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !474
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !226
@@ -16480,7 +16480,7 @@ _ZNK7datalog7context12is_predicateEP9func_decl.exit: ; preds = %23, %31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !273
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
@@ -22990,7 +22990,7 @@ _ZN7datalog7context16engine_type_procclEP4expr.exit: ; preds = %_ZNK17array_reco
 109:                                              ; preds = %.lr.ph, %_ZN7datalog7context16engine_type_procclEP4expr.exit105
   %110 = phi i32 [ %106, %.lr.ph ], [ %270, %_ZN7datalog7context16engine_type_procclEP4expr.exit105 ]
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [0 x ptr], ptr %108, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw ptr, ptr %108, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !273
   %114 = add nuw i32 %110, 1
   store i32 %114, ptr %105, align 8, !tbaa !712

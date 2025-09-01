@@ -71,7 +71,7 @@ define void @_ZN3gmx22OutputAdapterContainer10addAdapterESt10unique_ptrINS_14IOu
   %4 = alloca %"class.gmx::InternalError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.gmx::ExceptionInfo", align 8
-  %7 = getelementptr inbounds nuw [513 x %"class.std::unique_ptr"], ptr %0, i64 0, i64 %2
+  %7 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %0, i64 %2
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9

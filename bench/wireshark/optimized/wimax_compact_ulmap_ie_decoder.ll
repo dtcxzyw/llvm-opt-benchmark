@@ -390,7 +390,7 @@ define hidden range(i32 0, 72) i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %
 
 switch.lookup:                                    ; preds = %43
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = sub nuw nsw i32 4, %44
   br label %.sink.split.i616
@@ -524,21 +524,21 @@ wimax_compact_ulmap_rcid_ie_decoder.exit:         ; preds = %43, %.sink.split.i6
 
 112:                                              ; preds = %107
   %113 = load i32, ptr @cid_type, align 4
-  %switch.tableidx742 = add i32 %113, -1
-  %114 = icmp ult i32 %switch.tableidx742, 3
-  br i1 %114, label %switch.lookup741, label %wimax_compact_ulmap_rcid_ie_decoder.exit627
+  %switch.tableidx741 = add i32 %113, -1
+  %114 = icmp ult i32 %switch.tableidx741, 3
+  br i1 %114, label %switch.lookup742, label %wimax_compact_ulmap_rcid_ie_decoder.exit627
 
-switch.lookup741:                                 ; preds = %112
-  %115 = zext nneg i32 %switch.tableidx742 to i64
-  %switch.gep743 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 0, i64 %115
+switch.lookup742:                                 ; preds = %112
+  %115 = zext nneg i32 %switch.tableidx741 to i64
+  %switch.gep743 = getelementptr inbounds nuw ptr, ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 %115
   %switch.load744 = load ptr, ptr %switch.gep743, align 8
   %switch.offset746 = sub nuw nsw i32 4, %113
   br label %.sink.split.i629
 
-.sink.split.i629:                                 ; preds = %switch.lookup741, %107, %.split576
-  %hf_rcid_ie_normal_cid.sink.i630 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split576 ], [ @hf_rcid_ie_cid11_3, %107 ], [ %switch.load744, %switch.lookup741 ]
-  %.sink2.i631 = phi i32 [ 3, %.split576 ], [ 2, %107 ], [ 2, %switch.lookup741 ]
-  %.0.ph.i632 = phi i32 [ 4, %.split576 ], [ 3, %107 ], [ %switch.offset746, %switch.lookup741 ]
+.sink.split.i629:                                 ; preds = %switch.lookup742, %107, %.split576
+  %hf_rcid_ie_normal_cid.sink.i630 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split576 ], [ @hf_rcid_ie_cid11_3, %107 ], [ %switch.load744, %switch.lookup742 ]
+  %.sink2.i631 = phi i32 [ 3, %.split576 ], [ 2, %107 ], [ 2, %switch.lookup742 ]
+  %.0.ph.i632 = phi i32 [ 4, %.split576 ], [ 3, %107 ], [ %switch.offset746, %switch.lookup742 ]
   %116 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i630, align 4
   %117 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %116, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i631, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit627
@@ -840,21 +840,21 @@ wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i
 
 270:                                              ; preds = %265
   %271 = load i32, ptr @cid_type, align 4
-  %switch.tableidx748 = add i32 %271, -1
-  %272 = icmp ult i32 %switch.tableidx748, 3
-  br i1 %272, label %switch.lookup747, label %wimax_compact_ulmap_rcid_ie_decoder.exit641
+  %switch.tableidx747 = add i32 %271, -1
+  %272 = icmp ult i32 %switch.tableidx747, 3
+  br i1 %272, label %switch.lookup748, label %wimax_compact_ulmap_rcid_ie_decoder.exit641
 
-switch.lookup747:                                 ; preds = %270
-  %273 = zext nneg i32 %switch.tableidx748 to i64
-  %switch.gep749 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 0, i64 %273
+switch.lookup748:                                 ; preds = %270
+  %273 = zext nneg i32 %switch.tableidx747 to i64
+  %switch.gep749 = getelementptr inbounds nuw ptr, ptr @switch.table.wimax_compact_ulmap_ie_decoder.5, i64 %273
   %switch.load750 = load ptr, ptr %switch.gep749, align 8
   %switch.offset752 = sub nuw nsw i32 4, %271
   br label %.sink.split.i643
 
-.sink.split.i643:                                 ; preds = %switch.lookup747, %265, %.split581
-  %hf_rcid_ie_normal_cid.sink.i644 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split581 ], [ @hf_rcid_ie_cid11_3, %265 ], [ %switch.load750, %switch.lookup747 ]
-  %.sink2.i645 = phi i32 [ 3, %.split581 ], [ 2, %265 ], [ 2, %switch.lookup747 ]
-  %.0.ph.i646 = phi i32 [ 4, %.split581 ], [ 3, %265 ], [ %switch.offset752, %switch.lookup747 ]
+.sink.split.i643:                                 ; preds = %switch.lookup748, %265, %.split581
+  %hf_rcid_ie_normal_cid.sink.i644 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split581 ], [ @hf_rcid_ie_cid11_3, %265 ], [ %switch.load750, %switch.lookup748 ]
+  %.sink2.i645 = phi i32 [ 3, %.split581 ], [ 2, %265 ], [ 2, %switch.lookup748 ]
+  %.0.ph.i646 = phi i32 [ 4, %.split581 ], [ 3, %265 ], [ %switch.offset752, %switch.lookup748 ]
   %274 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i644, align 4
   %275 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %274, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i645, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit641

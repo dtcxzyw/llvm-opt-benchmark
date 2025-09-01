@@ -416,7 +416,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_IR_UniqueIds_checkParams___
 6:                                                ; preds = %.lr.ph, %120
   %.046105 = phi i64 [ %1, %.lr.ph ], [ %121, %120 ]
   %.049104 = phi ptr [ %3, %.lr.ph ], [ %96, %120 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.046105
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.046105
   %8 = load ptr, ptr %7, align 8, !tbaa !5
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -1140,7 +1140,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_IR_UniqueIds_checkFnBody___spec__1(
 6:                                                ; preds = %.lr.ph, %113
   %.04598 = phi i64 [ %1, %.lr.ph ], [ %114, %113 ]
   %.04897 = phi ptr [ %3, %.lr.ph ], [ %89, %113 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04598
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04598
   %8 = load ptr, ptr %7, align 8, !tbaa !5
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -4225,7 +4225,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normArgs___spec__1(
   %.01942 = phi i64 [ %32, %48 ], [ %2, %4 ]
   %.02141 = phi ptr [ %.0.i.i29, %48 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.02141, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01942
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01942
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -6390,7 +6390,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_withParams___spec__
   %.04795 = phi i64 [ %.148, %118 ], [ %2, %4 ]
   %.04994 = phi ptr [ %.150, %118 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.04994, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04795
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04795
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -6703,7 +6703,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_withParams___spec__
   %.04795 = phi i64 [ %.148, %118 ], [ %2, %4 ]
   %.04994 = phi ptr [ %.150, %118 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.04994, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04795
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04795
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -7020,7 +7020,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_NormalizeIds_
   %.02548 = phi i64 [ %1, %.lr.ph ], [ %53, %51 ]
   %.02747 = phi ptr [ %3, %.lr.ph ], [ %52, %51 ]
   %.02946 = phi ptr [ %4, %.lr.ph ], [ %.0.i, %51 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02548
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02548
   %9 = load ptr, ptr %8, align 8, !tbaa !5
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -7157,7 +7157,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_withParams___spec__
   %.04795 = phi i64 [ %.148, %118 ], [ %2, %4 ]
   %.04994 = phi ptr [ %.150, %118 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.04994, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04795
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04795
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -7973,7 +7973,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__
   %.04795 = phi i64 [ %.148, %118 ], [ %2, %4 ]
   %.04994 = phi ptr [ %.150, %118 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.04994, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04795
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04795
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -8286,7 +8286,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__
   %.04795 = phi i64 [ %.148, %118 ], [ %2, %4 ]
   %.04994 = phi ptr [ %.150, %118 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.04994, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04795
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04795
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -8599,7 +8599,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__
   %.04795 = phi i64 [ %.148, %118 ], [ %2, %4 ]
   %.04994 = phi ptr [ %.150, %118 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.04994, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04795
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04795
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -9715,7 +9715,7 @@ lean_dec.exit42:                                  ; preds = %14, %13, %11, %._cr
   %.03577 = phi ptr [ %2, %.lr.ph ], [ %.0.i.i58, %98 ]
   %.03776 = phi ptr [ %4, %.lr.ph ], [ %64, %98 ]
   %19 = getelementptr inbounds nuw i8, ptr %.03577, i64 24
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %.03378
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.03378
   %21 = load ptr, ptr %20, align 8, !tbaa !5
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -16186,7 +16186,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_MapVars_mapArgs___spec__1(ptr no
   %.045105 = phi i64 [ %2, %.lr.ph ], [ %41, %lean_dec.exit56 ]
   %.047104 = phi ptr [ %3, %.lr.ph ], [ %.148, %lean_dec.exit56 ]
   %15 = getelementptr inbounds nuw i8, ptr %.047104, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.045105
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.045105
   %17 = load ptr, ptr %16, align 8, !tbaa !5
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -18077,7 +18077,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_MapVars_mapFnBody___spec__1(ptr 
   %.070165 = phi i64 [ %2, %.lr.ph ], [ %41, %lean_dec.exit88 ]
   %.072164 = phi ptr [ %3, %.lr.ph ], [ %.173, %lean_dec.exit88 ]
   %15 = getelementptr inbounds nuw i8, ptr %.072164, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.070165
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.070165
   %17 = load ptr, ptr %16, align 8, !tbaa !5
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1

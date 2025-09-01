@@ -1936,7 +1936,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
 
 1160:                                             ; preds = %1140
   %1161 = zext nneg i32 %1158 to i64
-  %1162 = getelementptr inbounds nuw [7 x ptr], ptr @SDL_GetEventDescription_REAL.pen_axisnames, i64 0, i64 %1161
+  %1162 = getelementptr inbounds nuw ptr, ptr @SDL_GetEventDescription_REAL.pen_axisnames, i64 %1161
   %1163 = load ptr, ptr %1162, align 8
   br label %1164
 
@@ -2389,7 +2389,7 @@ SDL_TransferTemporaryMemoryFromEvent.exit:        ; preds = %.lr.ph, %15, %19, %
 
 36:                                               ; preds = %._crit_edge35, %36
   %indvars.iv = phi i64 [ 0, %._crit_edge35 ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw [256 x ptr], ptr @SDL_disabled_events, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   tail call void @SDL_free_REAL(ptr noundef %38) #8
   store ptr null, ptr %37, align 8
@@ -4528,7 +4528,7 @@ define hidden void @SDL_SetEventEnabled_REAL(i32 noundef %0, i1 noundef zeroext 
   %3 = lshr i32 %0, 8
   %4 = and i32 %3, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x ptr], ptr @SDL_disabled_events, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %8
@@ -4537,7 +4537,7 @@ define hidden void @SDL_SetEventEnabled_REAL(i32 noundef %0, i1 noundef zeroext 
   %9 = lshr i32 %0, 5
   %10 = and i32 %9, 7
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %0, 31
   %15 = shl nuw i32 1, %14
@@ -4564,7 +4564,7 @@ define hidden void @SDL_SetEventEnabled_REAL(i32 noundef %0, i1 noundef zeroext 
   %25 = lshr i32 %0, 5
   %26 = and i32 %25, 7
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %7, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, %24
   store i32 %30, ptr %28, align 4
@@ -4652,7 +4652,7 @@ thread-pre-split.thread:                          ; preds = %56, %thread-pre-spl
   %61 = lshr i32 %0, 5
   %62 = and i32 %61, 7
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %58, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, %60
   store i32 %66, ptr %64, align 4
@@ -4714,7 +4714,7 @@ define hidden noundef zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %0) local_un
   %2 = lshr i32 %0, 8
   %3 = and i32 %2, 255
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x ptr], ptr @SDL_disabled_events, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %16, label %7
@@ -4723,7 +4723,7 @@ define hidden noundef zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %0) local_un
   %8 = lshr i32 %0, 5
   %9 = and i32 %8, 7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %0, 31
   %14 = shl nuw i32 1, %13
@@ -4765,7 +4765,7 @@ define hidden void @SDL_SendAppEvent(i32 noundef %0) local_unnamed_addr #0 {
   %4 = lshr i32 %0, 8
   %5 = and i32 %4, 255
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x ptr], ptr @SDL_disabled_events, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %18, label %9
@@ -4774,7 +4774,7 @@ define hidden void @SDL_SendAppEvent(i32 noundef %0) local_unnamed_addr #0 {
   %10 = lshr i32 %0, 5
   %11 = and i32 %10, 7
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %0, 31
   %16 = shl nuw i32 1, %15

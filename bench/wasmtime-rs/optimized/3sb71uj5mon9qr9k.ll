@@ -50,7 +50,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN103_$LT$cranel
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -69,7 +69,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN103_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -88,7 +88,7 @@ define hidden noundef nonnull align 4 dereferenceable(24) ptr @"_ZN103_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -107,7 +107,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN103_$LT$cranel
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -126,7 +126,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN103_$LT$cranel
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -145,7 +145,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN103_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { i64, [4 x i64] } }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { i32, [1 x i32], { i64, [4 x i64] } }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -164,7 +164,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN103_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { { i32, [2 x i32] }, i8, [3 x i8] }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { { i32, [2 x i32] }, i8, [3 x i8] }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -183,7 +183,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { i64, [2 x i64] }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -202,7 +202,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN103_$LT$cranel
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -221,7 +221,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -246,7 +246,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN106_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, i32, [1 x i32] }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i32, [1 x i32] }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -265,7 +265,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -284,7 +284,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN106_$LT$crane
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { i64, [4 x i64] } }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { i32, [1 x i32], { i64, [4 x i64] } }, ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3
@@ -3664,7 +3664,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h37c8d1c576e4ee31E.llvm.70733
 "_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.i.i.i.i.i.i": ; preds = %37
   %43 = getelementptr inbounds i8, ptr %3, i64 -56
   %44 = load ptr, ptr %43, align 8, !alias.scope !472, !noalias !453, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds nuw [0 x i64], ptr %44, i64 0, i64 %38
+  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %38
   %46 = load i64, ptr %45, align 8, !noalias !475, !noundef !4
   %47 = and i64 %33, 63
   %48 = lshr i64 %46, %47

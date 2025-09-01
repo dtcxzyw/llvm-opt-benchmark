@@ -522,14 +522,14 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
 135:                                              ; preds = %133
   %136 = add nsw i32 %.3300322, 1
   %137 = sext i32 %.3300322 to i64
-  %138 = getelementptr [129 x i8], ptr %5, i64 0, i64 %137
+  %138 = getelementptr i8, ptr %5, i64 %137
   store i8 46, ptr %138, align 1
   br label %172
 
 139:                                              ; preds = %133
   %140 = add nsw i32 %.3300322, 1
   %141 = sext i32 %.3300322 to i64
-  %142 = getelementptr [129 x i8], ptr %5, i64 0, i64 %141
+  %142 = getelementptr i8, ptr %5, i64 %141
   store i8 124, ptr %142, align 1
   %143 = add i32 %.3323, 1
   %144 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %143)
@@ -553,9 +553,9 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br i1 %154, label %162, label %155
 
 155:                                              ; preds = %153
-  %156 = add nsw i32 %.3300322, -1
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr [129 x i8], ptr %5, i64 0, i64 %157
+  %156 = zext nneg i32 %.3300322 to i64
+  %157 = getelementptr i8, ptr %5, i64 %156
+  %158 = getelementptr i8, ptr %157, i64 -1
   %159 = load i8, ptr %158, align 1
   %.not309 = icmp eq i8 %159, 32
   br i1 %.not309, label %160, label %162
@@ -575,7 +575,7 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   %168 = select i1 %.not311, i8 46, i8 %163
   %169 = add nsw i32 %.3300322, 1
   %170 = sext i32 %.3300322 to i64
-  %171 = getelementptr [129 x i8], ptr %5, i64 0, i64 %170
+  %171 = getelementptr i8, ptr %5, i64 %170
   store i8 %168, ptr %171, align 1
   br label %172
 
@@ -590,7 +590,7 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
 
 ._crit_edge:                                      ; preds = %172
   %177 = sext i32 %.4301 to i64
-  %178 = getelementptr [129 x i8], ptr %5, i64 0, i64 %177
+  %178 = getelementptr i8, ptr %5, i64 %177
   store i8 0, ptr %178, align 1
   %179 = icmp sgt i32 %.4301, 0
   br i1 %179, label %180, label %300

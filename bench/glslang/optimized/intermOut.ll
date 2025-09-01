@@ -1953,7 +1953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEpLE
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEpLEPKc.exit
   %54 = zext nneg i32 %52 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.12, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.12, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang27GetPrecisionQualifierStringENS_19TPrecisionQualifierE.exit
 
@@ -6763,8 +6763,8 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %120
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
+23:                                               ; preds = %.lr.ph, %112
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
   call fastcc void @_ZN7glslangL14OutputTreeTextER9TInfoSinkPK11TIntermNodei(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef %4)
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -6772,20 +6772,20 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
   %27 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
-  switch i32 %29, label %116 [
+  switch i32 %29, label %108 [
     i32 12, label %30
     i32 1, label %33
     i32 2, label %33
     i32 3, label %33
-    i32 4, label %80
-    i32 5, label %84
-    i32 6, label %88
-    i32 7, label %92
-    i32 8, label %96
-    i32 9, label %99
-    i32 10, label %102
-    i32 11, label %105
-    i32 23, label %108
+    i32 4, label %72
+    i32 5, label %76
+    i32 6, label %80
+    i32 7, label %84
+    i32 8, label %88
+    i32 9, label %91
+    i32 10, label %94
+    i32 11, label %97
+    i32 23, label %100
   ]
 
 30:                                               ; preds = %23
@@ -6797,7 +6797,7 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1187) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.53) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
 33:                                               ; preds = %23, %23, %23
   %34 = load double, ptr %27, align 8
@@ -6824,168 +6824,160 @@ define internal fastcc void @_ZN7glslangL19OutputConstantUnionER9TInfoSinkPKNS_1
   %.031.i = select i1 %42, ptr @.str.1206, ptr %spec.select.i
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 340, ptr noundef nonnull %.031.i, double noundef %34) #14
   %46 = icmp sgt i32 %45, 5
-  br i1 %46, label %47, label %73
+  br i1 %46, label %47, label %65
 
 47:                                               ; preds = %41
-  %48 = add nsw i32 %45, -5
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [340 x i8], ptr %6, i64 0, i64 %49
+  %48 = zext nneg i32 %45 to i64
+  %49 = getelementptr i8, ptr %6, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 -5
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 101
-  br i1 %52, label %53, label %73
+  br i1 %52, label %53, label %65
 
 53:                                               ; preds = %47
-  %54 = add nsw i32 %45, -4
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [340 x i8], ptr %6, i64 0, i64 %55
-  %57 = load i8, ptr %56, align 1
-  switch i8 %57, label %73 [
-    i8 43, label %58
-    i8 45, label %58
+  %54 = getelementptr i8, ptr %49, i64 -4
+  %55 = load i8, ptr %54, align 1
+  switch i8 %55, label %65 [
+    i8 43, label %56
+    i8 45, label %56
   ]
 
-58:                                               ; preds = %53, %53
-  %59 = add nsw i32 %45, -3
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [340 x i8], ptr %6, i64 0, i64 %60
+56:                                               ; preds = %53, %53
+  %57 = getelementptr i8, ptr %49, i64 -3
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp eq i8 %58, 48
+  br i1 %59, label %60, label %65
+
+60:                                               ; preds = %56
+  %61 = getelementptr i8, ptr %49, i64 -2
   %62 = load i8, ptr %61, align 1
-  %63 = icmp eq i8 %62, 48
-  br i1 %63, label %64, label %73
+  store i8 %62, ptr %57, align 1
+  %63 = getelementptr i8, ptr %49, i64 -1
+  %64 = load i8, ptr %63, align 1
+  store i8 %64, ptr %61, align 1
+  store i8 0, ptr %63, align 1
+  br label %65
 
-64:                                               ; preds = %58
-  %65 = add nsw i32 %45, -2
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [340 x i8], ptr %6, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
-  store i8 %68, ptr %61, align 1
-  %69 = add nsw i32 %45, -1
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [340 x i8], ptr %6, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  store i8 %72, ptr %67, align 1
-  store i8 0, ptr %71, align 1
-  br label %73
-
-73:                                               ; preds = %64, %58, %53, %47, %41
+65:                                               ; preds = %60, %56, %53, %47, %41
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %6) #14
-  br i1 %cond.i, label %74, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit
+  br i1 %cond.i, label %66, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit
 
-74:                                               ; preds = %73
-  %75 = bitcast double %34 to i64
+66:                                               ; preds = %65
+  %67 = bitcast double %34 to i64
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1208) #14
-  br label %76
+  br label %68
 
-76:                                               ; preds = %76, %74
-  %.036.i = phi i64 [ 0, %74 ], [ %78, %76 ]
-  %.03035.i = phi i64 [ %75, %74 ], [ %79, %76 ]
+68:                                               ; preds = %68, %66
+  %.036.i = phi i64 [ 0, %66 ], [ %70, %68 ]
+  %.03035.i = phi i64 [ %67, %66 ], [ %71, %68 ]
   %.not.i = icmp sgt i64 %.03035.i, -1
   %.str.1209..str.1210.i = select i1 %.not.i, ptr @.str.1210, ptr @.str.1209
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %.str.1209..str.1210.i) #14
-  %77 = shl i64 %.03035.i, 1
-  %78 = add nuw nsw i64 %.036.i, 1
-  %79 = or disjoint i64 %77, 1
-  %exitcond.not.i = icmp eq i64 %78, 64
-  br i1 %exitcond.not.i, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, label %76, !llvm.loop !9
+  %69 = shl i64 %.03035.i, 1
+  %70 = add nuw nsw i64 %.036.i, 1
+  %71 = or disjoint i64 %69, 1
+  %exitcond.not.i = icmp eq i64 %70, 64
+  br i1 %exitcond.not.i, label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, label %68, !llvm.loop !9
 
 _ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit.sink.split: ; preds = %39, %37
   %.str.1203.sink = phi ptr [ %.str.1203..str.1204, %37 ], [ @.str.1205, %39 ]
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %.str.1203.sink) #14
   br label %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit
 
-_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit: ; preds = %76, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit.sink.split, %73
+_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit: ; preds = %68, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit.sink.split, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-80:                                               ; preds = %23
-  %81 = load i8, ptr %27, align 8
-  %82 = sext i8 %81 to i32
-  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %82, ptr noundef nonnull @.str.1189) #14
+72:                                               ; preds = %23
+  %73 = load i8, ptr %27, align 8
+  %74 = sext i8 %73 to i32
+  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %74, ptr noundef nonnull @.str.1189) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %7) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-84:                                               ; preds = %23
-  %85 = load i8, ptr %27, align 8
-  %86 = zext i8 %85 to i32
-  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %86, ptr noundef nonnull @.str.1191) #14
+76:                                               ; preds = %23
+  %77 = load i8, ptr %27, align 8
+  %78 = zext i8 %77 to i32
+  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %78, ptr noundef nonnull @.str.1191) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %8) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-88:                                               ; preds = %23
-  %89 = load i16, ptr %27, align 8
-  %90 = sext i16 %89 to i32
-  %91 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %90, ptr noundef nonnull @.str.1192) #14
+80:                                               ; preds = %23
+  %81 = load i16, ptr %27, align 8
+  %82 = sext i16 %81 to i32
+  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %82, ptr noundef nonnull @.str.1192) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %9) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-92:                                               ; preds = %23
-  %93 = load i16, ptr %27, align 8
-  %94 = zext i16 %93 to i32
-  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %94, ptr noundef nonnull @.str.1193) #14
+84:                                               ; preds = %23
+  %85 = load i16, ptr %27, align 8
+  %86 = zext i16 %85 to i32
+  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %86, ptr noundef nonnull @.str.1193) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %10) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-96:                                               ; preds = %23
-  %97 = load i32, ptr %27, align 8
-  %98 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %97, ptr noundef nonnull @.str.1194) #14
+88:                                               ; preds = %23
+  %89 = load i32, ptr %27, align 8
+  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 300, ptr noundef nonnull @.str.1188, i32 noundef %89, ptr noundef nonnull @.str.1194) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %11) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-99:                                               ; preds = %23
-  %100 = load i32, ptr %27, align 8
-  %101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %100, ptr noundef nonnull @.str.1195) #14
+91:                                               ; preds = %23
+  %92 = load i32, ptr %27, align 8
+  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 300, ptr noundef nonnull @.str.1190, i32 noundef %92, ptr noundef nonnull @.str.1195) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %12) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-102:                                              ; preds = %23
-  %103 = load i64, ptr %27, align 8
-  %104 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 300, ptr noundef nonnull @.str.1196, i64 noundef %103, ptr noundef nonnull @.str.1197) #14
+94:                                               ; preds = %23
+  %95 = load i64, ptr %27, align 8
+  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 300, ptr noundef nonnull @.str.1196, i64 noundef %95, ptr noundef nonnull @.str.1197) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %13) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-105:                                              ; preds = %23
-  %106 = load i64, ptr %27, align 8
-  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 300, ptr noundef nonnull @.str.1198, i64 noundef %106, ptr noundef nonnull @.str.1199) #14
+97:                                               ; preds = %23
+  %98 = load i64, ptr %27, align 8
+  %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 300, ptr noundef nonnull @.str.1198, i64 noundef %98, ptr noundef nonnull @.str.1199) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %14) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
+
+100:                                              ; preds = %23
+  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1200) #14
+  %101 = load ptr, ptr %21, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %103, i64 %indvars.iv
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load ptr, ptr %106, align 8
+  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %107) #14
+  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1201) #14
+  br label %112
 
 108:                                              ; preds = %23
-  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1200) #14
-  %109 = load ptr, ptr %21, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %111, i64 %indvars.iv
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %115 = load ptr, ptr %114, align 8
-  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %115) #14
-  call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull @.str.1201) #14
-  br label %120
-
-116:                                              ; preds = %23
-  %117 = load ptr, ptr %1, align 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = call noundef nonnull align 8 dereferenceable(24) ptr %118(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
+  %109 = load ptr, ptr %1, align 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = call noundef nonnull align 8 dereferenceable(24) ptr %110(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.1181) #14
-  call void @_ZN7glslang13TInfoSinkBase8locationERKNS_10TSourceLocEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %119, i1 noundef zeroext false)
+  call void @_ZN7glslang13TInfoSinkBase8locationERKNS_10TSourceLocEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %111, i1 noundef zeroext false)
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.1202) #14
   call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.54) #14
-  br label %120
+  br label %112
 
-120:                                              ; preds = %30, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, %80, %84, %88, %92, %96, %99, %102, %105, %108, %116
+112:                                              ; preds = %30, %_ZN7glslangL12OutputDoubleER9TInfoSinkdNS_16TOutputTraverser12EExtraOutputE.exit, %72, %76, %80, %84, %88, %91, %94, %97, %100, %108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %120, %5
+._crit_edge:                                      ; preds = %112, %5
   ret void
 }
 
@@ -7387,7 +7379,7 @@ define noundef zeroext i1 @_ZN7glslang16TOutputTraverser11visitBranchENS_6TVisit
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN7glslang16TOutputTraverser11visitBranchENS_6TVisitEPNS_13TIntermBranchE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang16TOutputTraverser11visitBranchENS_6TVisitEPNS_13TIntermBranchE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -7582,7 +7574,7 @@ define void @_ZN7glslang13TIntermediate6outputER9TInfoSinkb(ptr noundef nonnull 
 
 switch.lookup:                                    ; preds = %39
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit
 
@@ -7601,18 +7593,18 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit: ; preds =
 46:                                               ; preds = %43
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.807) #14
   %47 = load i32, ptr %44, align 4
-  %switch.tableidx83 = add i32 %47, -1
-  %48 = icmp ult i32 %switch.tableidx83, 3
-  br i1 %48, label %switch.lookup82, label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit
+  %switch.tableidx82 = add i32 %47, -1
+  %48 = icmp ult i32 %switch.tableidx82, 3
+  br i1 %48, label %switch.lookup83, label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit
 
-switch.lookup82:                                  ; preds = %46
-  %49 = zext nneg i32 %switch.tableidx83 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.3, i64 0, i64 %49
+switch.lookup83:                                  ; preds = %46
+  %49 = zext nneg i32 %switch.tableidx82 to i64
+  %switch.gep84 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.3, i64 %49
   %switch.load85 = load ptr, ptr %switch.gep84, align 8
   br label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit
 
-_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit: ; preds = %46, %switch.lookup82
-  %.0.i55 = phi ptr [ %switch.load85, %switch.lookup82 ], [ @.str.918, %46 ]
+_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit: ; preds = %46, %switch.lookup83
+  %.0.i55 = phi ptr [ %switch.load85, %switch.lookup83 ], [ @.str.918, %46 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i55) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   br label %50
@@ -7638,35 +7630,35 @@ _ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit: ; pre
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.806) #14
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %57 = load i32, ptr %56, align 8
-  %switch.tableidx87 = add i32 %57, -1
-  %58 = icmp ult i32 %switch.tableidx87, 9
-  br i1 %58, label %switch.lookup86, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57
+  %switch.tableidx86 = add i32 %57, -1
+  %58 = icmp ult i32 %switch.tableidx86, 9
+  br i1 %58, label %switch.lookup87, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57
 
-switch.lookup86:                                  ; preds = %55
-  %59 = zext nneg i32 %switch.tableidx87 to i64
-  %switch.gep88 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 0, i64 %59
+switch.lookup87:                                  ; preds = %55
+  %59 = zext nneg i32 %switch.tableidx86 to i64
+  %switch.gep88 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 %59
   %switch.load89 = load ptr, ptr %switch.gep88, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57
 
-_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57: ; preds = %55, %switch.lookup86
-  %.0.i56 = phi ptr [ %switch.load89, %switch.lookup86 ], [ @.str.918, %55 ]
+_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57: ; preds = %55, %switch.lookup87
+  %.0.i56 = phi ptr [ %switch.load89, %switch.lookup87 ], [ @.str.918, %55 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i56) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.807) #14
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 796
   %61 = load i32, ptr %60, align 4
-  %switch.tableidx91 = add i32 %61, -1
-  %62 = icmp ult i32 %switch.tableidx91, 3
-  br i1 %62, label %switch.lookup90, label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit59
+  %switch.tableidx90 = add i32 %61, -1
+  %62 = icmp ult i32 %switch.tableidx90, 3
+  br i1 %62, label %switch.lookup91, label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit59
 
-switch.lookup90:                                  ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57
-  %63 = zext nneg i32 %switch.tableidx91 to i64
-  %switch.gep92 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.3, i64 0, i64 %63
+switch.lookup91:                                  ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57
+  %63 = zext nneg i32 %switch.tableidx90 to i64
+  %switch.gep92 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.3, i64 %63
   %switch.load93 = load ptr, ptr %switch.gep92, align 8
   br label %_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit59
 
-_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit59: ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57, %switch.lookup90
-  %.0.i58 = phi ptr [ %switch.load93, %switch.lookup90 ], [ @.str.918, %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57 ]
+_ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit59: ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57, %switch.lookup91
+  %.0.i58 = phi ptr [ %switch.load93, %switch.lookup91 ], [ @.str.918, %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit57 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i58) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.808) #14
@@ -7701,35 +7693,35 @@ _ZN7glslang10TQualifier22getVertexSpacingStringENS_14TVertexSpacingE.exit59: ; p
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.806) #14
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %78 = load i32, ptr %77, align 8
-  %switch.tableidx95 = add i32 %78, -1
-  %79 = icmp ult i32 %switch.tableidx95, 9
-  br i1 %79, label %switch.lookup94, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65
+  %switch.tableidx94 = add i32 %78, -1
+  %79 = icmp ult i32 %switch.tableidx94, 9
+  br i1 %79, label %switch.lookup95, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65
 
-switch.lookup94:                                  ; preds = %70
-  %80 = zext nneg i32 %switch.tableidx95 to i64
-  %switch.gep96 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 0, i64 %80
+switch.lookup95:                                  ; preds = %70
+  %80 = zext nneg i32 %switch.tableidx94 to i64
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 %80
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65
 
-_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65: ; preds = %70, %switch.lookup94
-  %.0.i64 = phi ptr [ %switch.load97, %switch.lookup94 ], [ @.str.918, %70 ]
+_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65: ; preds = %70, %switch.lookup95
+  %.0.i64 = phi ptr [ %switch.load97, %switch.lookup95 ], [ @.str.918, %70 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i64) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.812) #14
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %82 = load i32, ptr %81, align 4
-  %switch.tableidx99 = add i32 %82, -1
-  %83 = icmp ult i32 %switch.tableidx99, 9
-  br i1 %83, label %switch.lookup98, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit67
+  %switch.tableidx98 = add i32 %82, -1
+  %83 = icmp ult i32 %switch.tableidx98, 9
+  br i1 %83, label %switch.lookup99, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit67
 
-switch.lookup98:                                  ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65
-  %84 = zext nneg i32 %switch.tableidx99 to i64
-  %switch.gep100 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 0, i64 %84
+switch.lookup99:                                  ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65
+  %84 = zext nneg i32 %switch.tableidx98 to i64
+  %switch.gep100 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 %84
   %switch.load101 = load ptr, ptr %switch.gep100, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit67
 
-_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit67: ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65, %switch.lookup98
-  %.0.i66 = phi ptr [ %switch.load101, %switch.lookup98 ], [ @.str.918, %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65 ]
+_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit67: ; preds = %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65, %switch.lookup99
+  %.0.i66 = phi ptr [ %switch.load101, %switch.lookup99 ], [ @.str.918, %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i66) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   br label %180
@@ -7813,18 +7805,18 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit67: ; preds
 123:                                              ; preds = %120
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.820) #14
   %124 = load i32, ptr %121, align 8
-  %switch.tableidx103 = add i32 %124, -1
-  %125 = icmp ult i32 %switch.tableidx103, 4
-  br i1 %125, label %switch.lookup102, label %_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit
+  %switch.tableidx102 = add i32 %124, -1
+  %125 = icmp ult i32 %switch.tableidx102, 4
+  br i1 %125, label %switch.lookup103, label %_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit
 
-switch.lookup102:                                 ; preds = %123
-  %126 = zext nneg i32 %switch.tableidx103 to i64
-  %switch.gep104 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.6, i64 0, i64 %126
+switch.lookup103:                                 ; preds = %123
+  %126 = zext nneg i32 %switch.tableidx102 to i64
+  %switch.gep104 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.6, i64 %126
   %switch.load105 = load ptr, ptr %switch.gep104, align 8
   br label %_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit
 
-_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit: ; preds = %123, %switch.lookup102
-  %.0.i68 = phi ptr [ %switch.load105, %switch.lookup102 ], [ @.str.918, %123 ]
+_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit: ; preds = %123, %switch.lookup103
+  %.0.i68 = phi ptr [ %switch.load105, %switch.lookup103 ], [ @.str.918, %123 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i68) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   br label %127
@@ -7850,7 +7842,7 @@ _ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit: ; preds =
 switch.lookup106:                                 ; preds = %131
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.822) #14
   %135 = zext nneg i32 %.079 to i64
-  %switch.gep107 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.7, i64 0, i64 %135
+  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.7, i64 %135
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %switch.load108) #14
   br label %136
@@ -7873,18 +7865,18 @@ switch.lookup106:                                 ; preds = %131
 142:                                              ; preds = %139
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.823) #14
   %143 = load i32, ptr %140, align 4
-  %switch.tableidx110 = add i32 %143, -1
-  %144 = icmp ult i32 %switch.tableidx110, 6
-  br i1 %144, label %switch.lookup109, label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit
+  %switch.tableidx109 = add i32 %143, -1
+  %144 = icmp ult i32 %switch.tableidx109, 6
+  br i1 %144, label %switch.lookup110, label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit
 
-switch.lookup109:                                 ; preds = %142
-  %145 = zext nneg i32 %switch.tableidx110 to i64
-  %switch.gep111 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.8, i64 0, i64 %145
+switch.lookup110:                                 ; preds = %142
+  %145 = zext nneg i32 %switch.tableidx109 to i64
+  %switch.gep111 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.8, i64 %145
   %switch.load112 = load ptr, ptr %switch.gep111, align 8
   br label %_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit
 
-_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit: ; preds = %142, %switch.lookup109
-  %.0.i70 = phi ptr [ %switch.load112, %switch.lookup109 ], [ @.str.918, %142 ]
+_ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exit: ; preds = %142, %switch.lookup110
+  %.0.i70 = phi ptr [ %switch.load112, %switch.lookup110 ], [ @.str.918, %142 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i70) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   br label %180
@@ -7903,18 +7895,18 @@ _ZN7glslang10TQualifier26getInterlockOrderingStringENS_18TInterlockOrderingE.exi
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.812) #14
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %154 = load i32, ptr %153, align 4
-  %switch.tableidx114 = add i32 %154, -1
-  %155 = icmp ult i32 %switch.tableidx114, 9
-  br i1 %155, label %switch.lookup113, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72
+  %switch.tableidx113 = add i32 %154, -1
+  %155 = icmp ult i32 %switch.tableidx113, 9
+  br i1 %155, label %switch.lookup114, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72
 
-switch.lookup113:                                 ; preds = %146
-  %156 = zext nneg i32 %switch.tableidx114 to i64
-  %switch.gep115 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 0, i64 %156
+switch.lookup114:                                 ; preds = %146
+  %156 = zext nneg i32 %switch.tableidx113 to i64
+  %switch.gep115 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TIntermediate6outputER9TInfoSinkb.9, i64 %156
   %switch.load116 = load ptr, ptr %switch.gep115, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72
 
-_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72: ; preds = %146, %switch.lookup113
-  %.0.i71 = phi ptr [ %switch.load116, %switch.lookup113 ], [ @.str.918, %146 ]
+_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72: ; preds = %146, %switch.lookup114
+  %.0.i71 = phi ptr [ %switch.load116, %switch.lookup114 ], [ @.str.918, %146 ]
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.0.i71) #14
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.54) #14
   br label %157
@@ -8787,7 +8779,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup:                                    ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit160
   %368 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_, i64 0, i64 %368
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_, i64 %368
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang10TQualifier22getLayoutPackingStringENS_14TLayoutPackingE.exit
 
@@ -11710,7 +11702,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup1080:                                ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit484
   %1619 = and i64 %1616, 127
-  %switch.gep1081 = getelementptr inbounds nuw [31 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.10, i64 0, i64 %1619
+  %switch.gep1081 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.10, i64 %1619
   %switch.load1082 = load ptr, ptr %switch.gep1081, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -11845,7 +11837,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup1083:                                ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit496
   %1677 = zext nneg i32 %1675 to i64
-  %switch.gep1084 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.12, i64 0, i64 %1677
+  %switch.gep1084 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.12, i64 %1677
   %switch.load1085 = load ptr, ptr %switch.gep1084, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit
 
@@ -13801,7 +13793,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup1086:                                ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit698
   %2589 = zext nneg i32 %2587 to i64
-  %switch.gep1087 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.12, i64 0, i64 %2589
+  %switch.gep1087 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.12, i64 %2589
   %switch.load1088 = load ptr, ptr %switch.gep1087, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit700
 
@@ -14971,7 +14963,7 @@ define linkonce_odr noundef ptr @_ZN7glslang10TQualifier21getLayoutFormatStringE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [52 x ptr], ptr @switch.table._ZN7glslang10TQualifier21getLayoutFormatStringENS_13TLayoutFormatE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang10TQualifier21getLayoutFormatStringENS_13TLayoutFormatE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -15001,7 +14993,7 @@ define linkonce_odr void @_ZNK7glslang5TType18getBasicTypeStringB5cxx11Ev(ptr de
 switch.lookup:                                    ; preds = %9
   %trunc.i.mask = and i32 %4, 31
   %11 = zext nneg i32 %trunc.i.mask to i64
-  %switch.gep = getelementptr inbounds nuw [24 x ptr], ptr @switch.table._ZNK7glslang5TType18getBasicTypeStringB5cxx11Ev, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType18getBasicTypeStringB5cxx11Ev, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK7glslang5TType14getBasicStringEv.exit
 
@@ -15179,53 +15171,49 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 .lr.ph.i2:                                        ; preds = %.lr.ph.i2, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %29, %.lr.ph.i2 ], [ %1, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %42, %.lr.ph.i2 ], [ %26, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %40, %.lr.ph.i2 ], [ %26, %.lr.ph.preheader.i ]
   %27 = urem i32 %.020.i, 100
   %28 = shl nuw nsw i32 %27, 1
   %29 = udiv i32 %.020.i, 100
-  %30 = or disjoint i32 %28, 1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %31
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 %34
   store i8 %33, ptr %35, align 1
-  %36 = zext nneg i32 %28 to i64
-  %37 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 2
-  %39 = add i32 %.01819.i, -1
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %22, i64 %40
-  store i8 %38, ptr %41, align 1
-  %42 = add i32 %.01819.i, -2
-  %43 = icmp ugt i32 %.020.i, 9999
-  br i1 %43, label %.lr.ph.i2, label %._crit_edge.i, !llvm.loop !35
+  %36 = load i8, ptr %31, align 2
+  %37 = add i32 %.01819.i, -1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 %38
+  store i8 %36, ptr %39, align 1
+  %40 = add i32 %.01819.i, -2
+  %41 = icmp ugt i32 %.020.i, 9999
+  br i1 %41, label %.lr.ph.i2, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %44, label %45, label %55
+  %42 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %42, label %43, label %51
 
-45:                                               ; preds = %._crit_edge.i
-  %46 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %47 = or disjoint i32 %46, 1
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i8 %50, ptr %51, align 1
-  %52 = zext nneg i32 %46 to i64
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 2
+43:                                               ; preds = %._crit_edge.i
+  %44 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i8 %48, ptr %49, align 1
+  %50 = load i8, ptr %46, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %57 = or disjoint i8 %56, 48
+51:                                               ; preds = %._crit_edge.i
+  %52 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %53 = or disjoint i8 %52, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %45, %55
-  %storemerge.i = phi i8 [ %57, %55 ], [ %54, %45 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %43, %51
+  %storemerge.i = phi i8 [ %53, %51 ], [ %50, %43 ]
   store i8 %storemerge.i, ptr %22, align 1
   ret void
 }
@@ -15313,53 +15301,49 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %30, %.lr.ph.i11 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %43, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %41, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
   %28 = urem i32 %.020.i, 100
   %29 = shl nuw nsw i32 %28, 1
   %30 = udiv i32 %.020.i, 100
-  %31 = or disjoint i32 %29, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i32 %.01819.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 %35
   store i8 %34, ptr %36, align 1
-  %37 = zext nneg i32 %29 to i64
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 2
-  %40 = add i32 %.01819.i, -1
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 %41
-  store i8 %39, ptr %42, align 1
-  %43 = add i32 %.01819.i, -2
-  %44 = icmp ugt i32 %.020.i, 9999
-  br i1 %44, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !35
+  %37 = load i8, ptr %32, align 2
+  %38 = add i32 %.01819.i, -1
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
+  store i8 %37, ptr %40, align 1
+  %41 = add i32 %.01819.i, -2
+  %42 = icmp ugt i32 %.020.i, 9999
+  br i1 %42, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %45, label %46, label %56
+  %43 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %43, label %44, label %52
 
-46:                                               ; preds = %._crit_edge.i
-  %47 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %48 = or disjoint i32 %47, 1
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %51, ptr %52, align 1
-  %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 2
+44:                                               ; preds = %._crit_edge.i
+  %45 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %49 = load i8, ptr %48, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %49, ptr %50, align 1
+  %51 = load i8, ptr %47, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %58 = or disjoint i8 %57, 48
+52:                                               ; preds = %._crit_edge.i
+  %53 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %46, %56
-  %storemerge.i = phi i8 [ %58, %56 ], [ %55, %46 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %44, %52
+  %storemerge.i = phi i8 [ %54, %52 ], [ %51, %44 ]
   store i8 %storemerge.i, ptr %25, align 1
   ret void
 }
@@ -15855,7 +15839,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 switch.lookup:                                    ; preds = %105
   %108 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK7glslang8TSampler9getStringB5cxx11Ev, i64 0, i64 %108
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang8TSampler9getStringB5cxx11Ev, i64 %108
   %switch.load = load ptr, ptr %switch.gep, align 8
   %109 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %switch.load)
   br label %110
@@ -16481,7 +16465,7 @@ define linkonce_odr noundef ptr @_ZN7glslang24GetBuiltInVariableStringENS_16TBui
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [138 x ptr], ptr @switch.table._ZN7glslang24GetBuiltInVariableStringENS_16TBuiltInVariableE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang24GetBuiltInVariableStringENS_16TBuiltInVariableE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -16976,49 +16960,47 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %30, %.lr.ph.i11 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %41, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %40, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
   %28 = urem i64 %.020.i, 100
   %29 = shl nuw nsw i64 %28, 1
   %30 = udiv i64 %.020.i, 100
-  %31 = or disjoint i64 %29, 1
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %31
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 %34
   store i8 %33, ptr %35, align 1
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %29
-  %37 = load i8, ptr %36, align 2
-  %38 = add i32 %.01819.i, -1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
-  store i8 %37, ptr %40, align 1
-  %41 = add i32 %.01819.i, -2
-  %42 = icmp ugt i64 %.020.i, 9999
-  br i1 %42, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !68
+  %36 = load i8, ptr %31, align 2
+  %37 = add i32 %.01819.i, -1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 %38
+  store i8 %36, ptr %39, align 1
+  %40 = add i32 %.01819.i, -2
+  %41 = icmp ugt i64 %.020.i, 9999
+  br i1 %41, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %43, label %44, label %52
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %42, label %43, label %50
 
-44:                                               ; preds = %._crit_edge.i
-  %45 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %45
-  %51 = load i8, ptr %50, align 2
+43:                                               ; preds = %._crit_edge.i
+  %44 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %45 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %47, ptr %48, align 1
+  %49 = load i8, ptr %45, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %54 = or disjoint i8 %53, 48
+50:                                               ; preds = %._crit_edge.i
+  %51 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %52 = or disjoint i8 %51, 48
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %44, %52
-  %storemerge.i = phi i8 [ %54, %52 ], [ %51, %44 ]
+_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %43, %50
+  %storemerge.i = phi i8 [ %52, %50 ], [ %49, %43 ]
   store i8 %storemerge.i, ptr %25, align 1
   ret void
 }

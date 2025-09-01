@@ -130,7 +130,7 @@ ERR_AFALG_error.exit.i.i:                         ; preds = %26, %23
   %.014.i.i = phi ptr [ %35, %.lr.ph.i.i ], [ %31, %29 ]
   %32 = call i64 @strtol(ptr noundef nonnull captures(none) %.014.i.i, ptr noundef null, i32 noundef 10) #13
   %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %33, ptr %34, align 4, !tbaa !12
   %35 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -282,7 +282,7 @@ ERR_AFALG_error.exit.i12.i:                       ; preds = %89, %86
 
 .preheader.i.i:                                   ; preds = %84, %92
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i10.i, %92 ], [ 0, %84 ]
-  %93 = getelementptr inbounds nuw [3 x i32], ptr @afalg_cipher_nids, i64 0, i64 %indvars.iv.i9.i
+  %93 = getelementptr inbounds nuw i32, ptr @afalg_cipher_nids, i64 %indvars.iv.i9.i
   %94 = load i32, ptr %93, align 4, !tbaa !12
   %95 = call fastcc ptr @afalg_aes_cbc(i32 noundef %94)
   %96 = icmp eq ptr %95, null
@@ -330,7 +330,7 @@ ERR_unload_AFALG_strings.exit.i.i.preheader:      ; preds = %107, %106
 
 ERR_unload_AFALG_strings.exit.i.i:                ; preds = %ERR_unload_AFALG_strings.exit.i.i.preheader, %ERR_unload_AFALG_strings.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %ERR_unload_AFALG_strings.exit.i.i ], [ 0, %ERR_unload_AFALG_strings.exit.i.i.preheader ]
-  %110 = getelementptr inbounds nuw [3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 %indvars.iv.i.i.i, i32 1
+  %110 = getelementptr inbounds nuw %struct.cbc_cipher_handles, ptr @cbc_handle, i64 %indvars.iv.i.i.i, i32 1
   %111 = load ptr, ptr %110, align 8, !tbaa !19
   call void @EVP_CIPHER_meth_free(ptr noundef %111) #13
   store ptr null, ptr %110, align 8, !tbaa !19
@@ -368,7 +368,7 @@ ERR_unload_AFALG_strings.exit.preheader:          ; preds = %1, %2
 
 ERR_unload_AFALG_strings.exit:                    ; preds = %ERR_unload_AFALG_strings.exit.preheader, %ERR_unload_AFALG_strings.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ERR_unload_AFALG_strings.exit ], [ 0, %ERR_unload_AFALG_strings.exit.preheader ]
-  %5 = getelementptr inbounds nuw [3 x %struct.cbc_cipher_handles], ptr @cbc_handle, i64 0, i64 %indvars.iv.i, i32 1
+  %5 = getelementptr inbounds nuw %struct.cbc_cipher_handles, ptr @cbc_handle, i64 %indvars.iv.i, i32 1
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   tail call void @EVP_CIPHER_meth_free(ptr noundef %6) #13
   store ptr null, ptr %5, align 8, !tbaa !19

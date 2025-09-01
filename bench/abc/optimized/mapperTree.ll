@@ -77,7 +77,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr noundef readonly captures(none) 
 24:                                               ; preds = %16
   %25 = tail call i32 @Mio_GateReadPinNum(ptr noundef nonnull %19) #16
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [10 x i32], ptr @s_MapFanoutLimits, i64 0, i64 %26
+  %27 = getelementptr inbounds i32, ptr @s_MapFanoutLimits, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %30 = load i32, ptr %29, align 4
@@ -136,7 +136,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr noundef readonly captures(none) 
   %58 = and i64 %47, 2147483647
   %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !27
-  %61 = getelementptr inbounds nuw [6 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   store ptr %60, ptr %61, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #16
@@ -712,7 +712,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %137, i8 0, i64 256, i1 false)
   %138 = trunc nuw nsw i64 %indvars.iv315 to i32
   store i32 %138, ptr %137, align 8, !tbaa !19
-  %139 = getelementptr inbounds nuw [6 x [2 x i32]], ptr %134, i64 0, i64 %indvars.iv315
+  %139 = getelementptr inbounds nuw [2 x i32], ptr %134, i64 %indvars.iv315
   %140 = load i32, ptr %139, align 8, !tbaa !24
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 72
   store i32 %140, ptr %141, align 8, !tbaa !24
@@ -732,11 +732,11 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
 
 149:                                              ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
-  %150 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %147, i64 0, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %147, i64 %indvars.iv
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store float -9.999000e+03, ptr %151, align 4, !tbaa !42
   store float -9.999000e+03, ptr %150, align 4, !tbaa !43
-  %152 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %148, i64 0, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %148, i64 %indvars.iv
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store float -9.999000e+03, ptr %153, align 4, !tbaa !42
   store float -9.999000e+03, ptr %152, align 4, !tbaa !43
@@ -746,7 +746,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
 
 ._crit_edge244:                                   ; preds = %149, %135
   %154 = getelementptr inbounds nuw i8, ptr %137, i64 80
-  %155 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %154, i64 0, i64 %indvars.iv315
+  %155 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %154, i64 %indvars.iv315
   store float 0.000000e+00, ptr %155, align 4, !tbaa !43
   %.idx = mul nuw nsw i64 %indvars.iv315, 12
   %156 = getelementptr inbounds nuw i8, ptr %137, i64 156
@@ -1117,7 +1117,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 28:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %29 = phi i32 [ %.promoted, %.lr.ph ], [ %38, %37 ]
-  %30 = getelementptr inbounds nuw [6 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -1152,11 +1152,11 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 47:                                               ; preds = %.lr.ph151, %47
   %indvars.iv187 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next188, %47 ]
-  %48 = getelementptr inbounds nuw [6 x ptr], ptr %46, i64 0, i64 %indvars.iv187
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv187
   %49 = load ptr, ptr %48, align 8, !tbaa !27
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load i32, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw [6 x [2 x i32]], ptr %4, i64 0, i64 %indvars.iv187
+  %52 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 %indvars.iv187
   store i32 %51, ptr %52, align 8, !tbaa !24
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 76
   %54 = load i32, ptr %53, align 4, !tbaa !24
@@ -1188,11 +1188,11 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 68:                                               ; preds = %.lr.ph154, %68
   %indvars.iv190 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next191, %68 ]
-  %69 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %66, i64 0, i64 %indvars.iv190
+  %69 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %66, i64 %indvars.iv190
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store float -9.999000e+03, ptr %70, align 4, !tbaa !42
   store float -9.999000e+03, ptr %69, align 4, !tbaa !43
-  %71 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %67, i64 0, i64 %indvars.iv190
+  %71 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %67, i64 %indvars.iv190
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store float -9.999000e+03, ptr %72, align 4, !tbaa !42
   store float -9.999000e+03, ptr %71, align 4, !tbaa !43
@@ -1227,7 +1227,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
   br label %277
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw [6 x ptr], ptr %77, i64 0, i64 %indvars.iv193
+  %86 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv193
   %87 = load ptr, ptr %86, align 8, !tbaa !27
   %88 = call i32 @Mio_PinReadPhase(ptr noundef nonnull %.0128156) #16
   %89 = call double @Mio_PinReadDelayBlockRise(ptr noundef nonnull %.0128156) #16
@@ -1250,13 +1250,13 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 95:                                               ; preds = %135, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %135 ]
-  %96 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %93, i64 0, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %93, i64 %indvars.iv.i
   %97 = load float, ptr %96, align 4, !tbaa !43
   %98 = fcmp ult float %97, 0.000000e+00
   br i1 %98, label %105, label %99
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %78, i64 0, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %78, i64 %indvars.iv.i
   %101 = load float, ptr %100, align 4, !tbaa !43
   %102 = fadd float %97, %90
   %103 = fcmp olt float %101, %102
@@ -1285,13 +1285,13 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
   br label %115
 
 115:                                              ; preds = %114, %109, %105
-  %116 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %94, i64 0, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %94, i64 %indvars.iv.i
   %117 = load float, ptr %116, align 4, !tbaa !43
   %118 = fcmp ult float %117, 0.000000e+00
   br i1 %118, label %125, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %80, i64 0, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %80, i64 %indvars.iv.i
   %121 = load float, ptr %120, align 4, !tbaa !43
   %122 = fadd float %117, %92
   %123 = fcmp olt float %121, %122
@@ -1339,13 +1339,13 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 138:                                              ; preds = %178, %.lr.ph163.i
   %indvars.iv165.i = phi i64 [ 0, %.lr.ph163.i ], [ %indvars.iv.next166.i, %178 ]
-  %139 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %136, i64 0, i64 %indvars.iv165.i
+  %139 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %136, i64 %indvars.iv165.i
   %140 = load float, ptr %139, align 4, !tbaa !43
   %141 = fcmp ult float %140, 0.000000e+00
   br i1 %141, label %148, label %142
 
 142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %78, i64 0, i64 %indvars.iv165.i
+  %143 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %78, i64 %indvars.iv165.i
   %144 = load float, ptr %143, align 4, !tbaa !43
   %145 = fadd float %140, %90
   %146 = fcmp olt float %144, %145
@@ -1374,13 +1374,13 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
   br label %158
 
 158:                                              ; preds = %157, %152, %148
-  %159 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %137, i64 0, i64 %indvars.iv165.i
+  %159 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %137, i64 %indvars.iv165.i
   %160 = load float, ptr %159, align 4, !tbaa !43
   %161 = fcmp ult float %160, 0.000000e+00
   br i1 %161, label %168, label %162
 
 162:                                              ; preds = %158
-  %163 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %80, i64 0, i64 %indvars.iv165.i
+  %163 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %80, i64 %indvars.iv165.i
   %164 = load float, ptr %163, align 4, !tbaa !43
   %165 = fadd float %160, %92
   %166 = fcmp olt float %164, %165
@@ -1452,7 +1452,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %178, %.preheader.i,
   %indvars.iv196 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next197, %219 ]
   %195 = phi float [ -9.999000e+03, %.lr.ph164 ], [ %221, %219 ]
   %196 = phi float [ -9.999000e+03, %.lr.ph164 ], [ %208, %219 ]
-  %197 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %192, i64 0, i64 %indvars.iv196
+  %197 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %192, i64 %indvars.iv196
   %198 = load float, ptr %197, align 4, !tbaa !43
   %199 = fcmp olt float %196, %198
   br i1 %199, label %200, label %201
@@ -1474,7 +1474,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %178, %.preheader.i,
 
 207:                                              ; preds = %206, %201
   %208 = phi float [ %204, %206 ], [ %202, %201 ]
-  %209 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %193, i64 0, i64 %indvars.iv196
+  %209 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %193, i64 %indvars.iv196
   %210 = load float, ptr %209, align 4, !tbaa !43
   %211 = fcmp olt float %195, %210
   br i1 %211, label %212, label %213
@@ -1534,7 +1534,7 @@ Map_LibraryAddFaninDelays.exit:                   ; preds = %178, %.preheader.i,
   %indvars.iv201 = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next202, %237 ]
   %238 = phi float [ %233, %.lr.ph171 ], [ %251, %237 ]
   %239 = phi i32 [ %.promoted168, %.lr.ph171 ], [ %248, %237 ]
-  %240 = getelementptr inbounds nuw [6 x ptr], ptr %236, i64 0, i64 %indvars.iv201
+  %240 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv201
   %241 = load ptr, ptr %240, align 8, !tbaa !27
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %243 = load i32, ptr %242, align 4
@@ -1637,7 +1637,7 @@ define internal fastcc i32 @Map_LibraryGetMaxSuperPi_rec(ptr noundef readonly ca
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %12 ]
-  %13 = getelementptr inbounds nuw [6 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = tail call fastcc i32 @Map_LibraryGetMaxSuperPi_rec(ptr noundef %14)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.015, i32 %15)
@@ -1808,7 +1808,7 @@ define void @Map_LibraryPrintTree(ptr noundef readonly captures(none) %0) local_
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw [6 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = load i32, ptr %27, align 8, !tbaa !19
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %28)
@@ -1855,7 +1855,7 @@ define void @Map_LibraryPrintTree(ptr noundef readonly captures(none) %0) local_
 
 59:                                               ; preds = %.lr.ph67, %97
   %indvars.iv75 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next76, %97 ]
-  %60 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %57, i64 0, i64 %indvars.iv75
+  %60 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %57, i64 %indvars.iv75
   %61 = load float, ptr %60, align 4, !tbaa !43
   %62 = fcmp olt float %61, 0.000000e+00
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -1889,7 +1889,7 @@ define void @Map_LibraryPrintTree(ptr noundef readonly captures(none) %0) local_
   br label %78
 
 78:                                               ; preds = %70, %75, %72, %67
-  %79 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %58, i64 0, i64 %indvars.iv75
+  %79 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %58, i64 %indvars.iv75
   %80 = load float, ptr %79, align 4, !tbaa !43
   %81 = fcmp olt float %80, 0.000000e+00
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 4

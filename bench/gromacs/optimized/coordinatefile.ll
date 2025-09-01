@@ -1125,7 +1125,7 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
 .preheader:                                       ; preds = %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit, %.preheader
   %330 = phi i64 [ %334, %.preheader ], [ 0, %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit ]
   %331 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %29, i64 %330
-  %332 = getelementptr inbounds nuw [513 x %"class.std::unique_ptr.13"], ptr %27, i64 0, i64 %330
+  %332 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %27, i64 %330
   %333 = load i64, ptr %332, align 8, !tbaa !44
   store i64 %333, ptr %331, align 8, !tbaa !44
   store ptr null, ptr %332, align 8, !tbaa !44
@@ -1193,7 +1193,7 @@ _ZN3gmx20TrajectoryFileOpenerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 357:                                              ; preds = %357, %_ZN3gmx20TrajectoryFileOpenerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_9SelectionEPK10gmx_mtop_t.exit.i
   %358 = phi i64 [ 0, %_ZN3gmx20TrajectoryFileOpenerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_9SelectionEPK10gmx_mtop_t.exit.i ], [ %362, %357 ]
   %359 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %356, i64 %358
-  %360 = getelementptr inbounds nuw [513 x %"class.std::unique_ptr.13"], ptr %29, i64 0, i64 %358
+  %360 = getelementptr inbounds nuw %"class.std::unique_ptr.13", ptr %29, i64 %358
   %361 = load i64, ptr %360, align 8, !tbaa !44
   store i64 %361, ptr %359, align 8, !tbaa !44
   store ptr null, ptr %360, align 8, !tbaa !44

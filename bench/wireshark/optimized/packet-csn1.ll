@@ -494,7 +494,7 @@ ProcessError.exit1673:                            ; preds = %231, %235
   %260 = zext i8 %258 to i32
   %261 = lshr i32 %260, %255
   %262 = zext nneg i16 %247 to i64
-  %263 = getelementptr [9 x i8], ptr @tvb_get_masked_bits8.maskBits, i64 0, i64 %262
+  %263 = getelementptr i8, ptr @tvb_get_masked_bits8.maskBits, i64 %262
   %264 = load i8, ptr %263, align 1
   %265 = trunc nuw i32 %261 to i8
   %266 = and i8 %264, %265
@@ -502,7 +502,7 @@ ProcessError.exit1673:                            ; preds = %231, %235
 
 267:                                              ; preds = %251
   %268 = zext nneg i32 %254 to i64
-  %269 = getelementptr [9 x i8], ptr @tvb_get_masked_bits8.maskBits, i64 0, i64 %268
+  %269 = getelementptr i8, ptr @tvb_get_masked_bits8.maskBits, i64 %268
   %270 = load i8, ptr %269, align 1
   %271 = and i8 %270, %258
   %272 = zext i8 %271 to i32
@@ -1300,7 +1300,7 @@ ProcessError.exit1693:                            ; preds = %691, %695
 
 .lr.ph2216.preheader:                             ; preds = %683
   %700 = zext nneg i16 %685 to i64
-  %701 = getelementptr [17 x i8], ptr @ixBitsTab, i64 0, i64 %700
+  %701 = getelementptr i8, ptr @ixBitsTab, i64 %700
   %702 = load i8, ptr %701, align 1
   %703 = getelementptr inbounds nuw i8, ptr %.01333, i64 56
   %704 = load ptr, ptr %703, align 8
@@ -2919,7 +2919,7 @@ define internal fastcc zeroext i8 @tvb_get_masked_bits8(ptr noundef %0, i32 noun
   %12 = zext i8 %10 to i32
   %13 = lshr i32 %12, %7
   %14 = zext nneg i32 %2 to i64
-  %15 = getelementptr [9 x i8], ptr @tvb_get_masked_bits8.maskBits, i64 0, i64 %14
+  %15 = getelementptr i8, ptr @tvb_get_masked_bits8.maskBits, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = trunc nuw i32 %13 to i8
   %18 = and i8 %16, %17
@@ -2927,7 +2927,7 @@ define internal fastcc zeroext i8 @tvb_get_masked_bits8(ptr noundef %0, i32 noun
 
 19:                                               ; preds = %3
   %20 = zext nneg i32 %6 to i64
-  %21 = getelementptr [9 x i8], ptr @tvb_get_masked_bits8.maskBits, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @tvb_get_masked_bits8.maskBits, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %10, %22
   %24 = zext i8 %23 to i32

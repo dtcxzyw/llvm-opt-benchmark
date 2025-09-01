@@ -202,24 +202,24 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
 49:                                               ; preds = %61, %44
   %50 = phi i64 [ 0, %44 ], [ %62, %61 ]
   %51 = phi i16 [ 1008, %44 ], [ %64, %61 ]
-  %52 = phi ptr [ @quirk_printers, %44 ], [ %63, %61 ]
-  %53 = icmp eq i16 %51, %46
-  br i1 %53, label %54, label %61
+  %52 = icmp eq i16 %51, %46
+  br i1 %52, label %53, label %61
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 2
+53:                                               ; preds = %49
+  %54 = getelementptr %struct.quirk_printer_struct, ptr @quirk_printers, i64 %50
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %56 = load i16, ptr %55, align 2
   %57 = icmp eq i16 %56, %48
   br i1 %57, label %58, label %61
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 4
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %60 = load i32, ptr %59, align 4
   br label %.loopexit8
 
-61:                                               ; preds = %54, %49
+61:                                               ; preds = %53, %49
   %62 = add nuw nsw i64 %50, 1
-  %63 = getelementptr [17 x %struct.quirk_printer_struct], ptr @quirk_printers, i64 0, i64 %62
+  %63 = getelementptr %struct.quirk_printer_struct, ptr @quirk_printers, i64 %62
   %64 = load i16, ptr %63, align 8
   %65 = icmp eq i64 %62, 16
   br i1 %65, label %.loopexit8, label %49, !llvm.loop !5
@@ -248,7 +248,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
 
 76:                                               ; preds = %76, %.loopexit8
   %77 = phi i64 [ 0, %.loopexit8 ], [ %79, %76 ]
-  %78 = getelementptr [4 x %struct.anon.3], ptr %69, i64 0, i64 %77
+  %78 = getelementptr %struct.anon.3, ptr %69, i64 %77
   store i32 -1, ptr %78, align 8
   %79 = add nuw nsw i64 %77, 1
   %80 = icmp eq i64 %79, 4
@@ -320,7 +320,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
   %119 = zext i8 %118 to i32
   %120 = load i8, ptr %98, align 1
   %121 = zext i8 %120 to i64
-  %122 = getelementptr [4 x %struct.anon.3], ptr %69, i64 0, i64 %121
+  %122 = getelementptr %struct.anon.3, ptr %69, i64 %121
   store i32 %119, ptr %122, align 8
   %123 = load ptr, ptr %3, align 8
   %124 = load i8, ptr %98, align 1
@@ -351,7 +351,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
 
 139:                                              ; preds = %.loopexit
   %140 = zext nneg i32 %136 to i64
-  %141 = getelementptr [4 x %struct.anon.3], ptr %69, i64 0, i64 %140
+  %141 = getelementptr %struct.anon.3, ptr %69, i64 %140
   %142 = load i32, ptr %141, align 8
   %143 = icmp eq i32 %142, -1
   br i1 %143, label %144, label %157
@@ -399,7 +399,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
 
 167:                                              ; preds = %161
   %168 = zext nneg i32 %162 to i64
-  %169 = getelementptr [4 x %struct.anon.3], ptr %69, i64 0, i64 %168
+  %169 = getelementptr %struct.anon.3, ptr %69, i64 %168
   %170 = load i32, ptr %169, align 8
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %217, label %172
@@ -456,7 +456,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
   %205 = load i32, ptr %27, align 4
   %206 = load i32, ptr %188, align 8
   %207 = sext i32 %206 to i64
-  %208 = getelementptr [4 x %struct.anon.3], ptr %69, i64 0, i64 %207
+  %208 = getelementptr %struct.anon.3, ptr %69, i64 %207
   %209 = load i32, ptr %208, align 8
   %210 = load ptr, ptr %9, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 904
@@ -615,7 +615,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @usblp_set_protocol(ptr nou
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr [4 x %struct.anon.3], ptr %12, i64 0, i64 %13
+  %14 = getelementptr %struct.anon.3, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %36, label %17
@@ -664,7 +664,7 @@ define internal fastcc range(i32 -5, 1024) i32 @usblp_cache_device_id_string(ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [4 x %struct.anon.3], ptr %7, i64 0, i64 %10
+  %11 = getelementptr %struct.anon.3, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 8
   %13 = or i32 %12, %6
   %14 = load ptr, ptr %0, align 8
@@ -1291,7 +1291,7 @@ define internal range(i64 -2147483648, 1) i64 @usblp_ioctl(ptr noundef readonly 
 44:                                               ; preds = %54, %39
   %45 = phi i64 [ 1, %39 ], [ %56, %54 ]
   %46 = phi i32 [ 0, %39 ], [ %55, %54 ]
-  %47 = getelementptr [4 x %struct.anon.3], ptr %43, i64 0, i64 %45
+  %47 = getelementptr %struct.anon.3, ptr %43, i64 %45
   %48 = load i32, ptr %47, align 8
   %49 = icmp sgt i32 %48, -1
   br i1 %49, label %50, label %54
@@ -1891,7 +1891,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @usblp_wwait(ptr noundef %0
 69:                                               ; preds = %56
   %70 = load i32, ptr %21, align 4
   %71 = zext nneg i8 %66 to i64
-  %72 = getelementptr [4 x ptr], ptr @usblp_messages, i64 0, i64 %71
+  %72 = getelementptr ptr, ptr @usblp_messages, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %70, ptr noundef %73) #13
   br label %75

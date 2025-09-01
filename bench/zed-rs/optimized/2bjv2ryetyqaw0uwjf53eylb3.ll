@@ -16803,7 +16803,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit: ; pred
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf9c5ff5bbe7d619fE.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit
   %31 = add i64 %1, -1
-  %32 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %0, i64 0, i64 %31
+  %32 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false), !alias.scope !4989
@@ -16861,7 +16861,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit20.threa
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h6f08f261fda21f87E.exit20: ; preds = %44, %50
   %53 = add i64 %33, -1
-  %54 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %0, i64 0, i64 %53
+  %54 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %53
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %54, i64 40, i1 false), !alias.scope !4989
@@ -16893,7 +16893,7 @@ define hidden void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h54964307945
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf5aedd6c7328dac0E.exit": ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf5aedd6c7328dac0E.exit"
   %.sroa.46.013 = phi i64 [ %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf5aedd6c7328dac0E.exit" ], [ %1, %.lr.ph ]
   %8 = add i64 %.sroa.46.013, -1
-  %9 = getelementptr inbounds [0 x { i64, [7 x i64] }], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !alias.scope !4995
@@ -16963,7 +16963,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit: ; pred
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h82949da1acca1984E.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit
   %26 = add i64 %1, -1
-  %27 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %26
+  %27 = getelementptr inbounds i64, ptr %0, i64 %26
   %.sroa.0.0.copyload.i.i33 = load i64, ptr %0, align 8, !alias.scope !5008
   %28 = load i64, ptr %27, align 8, !alias.scope !5008
   store i64 %28, ptr %0, align 8, !alias.scope !5008
@@ -17015,7 +17015,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit20.threa
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h2a9163ebf8891d03E.exit20: ; preds = %40, %44
   %47 = add i64 %29, -1
-  %48 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %47
+  %48 = getelementptr inbounds i64, ptr %0, i64 %47
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !alias.scope !5008
   %49 = load i64, ptr %48, align 8, !alias.scope !5008
   store i64 %49, ptr %0, align 8, !alias.scope !5008
@@ -37462,10 +37462,10 @@ define { ptr, i64 } @_ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E(ptr noa
 
 switch.lookup:                                    ; preds = %1
   %12 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep4 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E.142, i64 0, i64 %13
+  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E.142, i64 %13
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   %14 = insertvalue { ptr, i64 } poison, ptr %switch.load5, 0
   %15 = insertvalue { ptr, i64 } %14, i64 %switch.load, 1
@@ -37546,7 +37546,7 @@ define { ptr, ptr } @_ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e
 
 switch.lookup:                                    ; preds = %1
   %12 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e799E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e799E, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = insertvalue { ptr, ptr } { ptr inttoptr (i64 1 to ptr), ptr poison }, ptr %switch.load, 1
   ret { ptr, ptr } %13

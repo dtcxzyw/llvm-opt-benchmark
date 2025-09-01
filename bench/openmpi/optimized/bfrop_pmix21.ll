@@ -2816,7 +2816,7 @@ define internal i32 @pmix21_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %9, i32 2
+  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9, i32 2
   %11 = load i32, ptr %10, align 4, !tbaa !50
   %12 = icmp sgt i32 %11, 19
   br i1 %12, label %13, label %15
@@ -3041,7 +3041,7 @@ define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %9, i32 2
+  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9, i32 2
   %11 = load i32, ptr %10, align 4, !tbaa !50
   %12 = icmp sgt i32 %11, 19
   br i1 %12, label %13, label %15
@@ -3068,7 +3068,7 @@ define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, p
 
 19:                                               ; preds = %.lr.ph
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %20, i32 2
+  %21 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %20, i32 2
   %22 = load i32, ptr %21, align 4, !tbaa !50
   %23 = icmp sgt i32 %22, 19
   br i1 %23, label %24, label %26

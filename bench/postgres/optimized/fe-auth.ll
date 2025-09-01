@@ -141,7 +141,7 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %.thread48.i
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.pg_fe_sendauth, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_fe_sendauth, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %auth_method_description.exit.i
 

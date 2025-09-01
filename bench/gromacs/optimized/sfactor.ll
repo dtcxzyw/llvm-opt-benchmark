@@ -1299,7 +1299,7 @@ define noundef i32 @_Z16return_atom_typePKcP20gmx_structurefactors(ptr noundef %
 
 11:                                               ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
-  %12 = getelementptr inbounds nuw [9 x %struct.t_united_h], ptr @__const._Z16return_atom_typePKcP20gmx_structurefactors.uh, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.t_united_h, ptr @__const._Z16return_atom_typePKcP20gmx_structurefactors.uh, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 16, !tbaa !95
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %13) #20
   %15 = icmp eq i32 %14, 0
@@ -1800,7 +1800,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit64:        ; preds = %_ZNKSt7__cxx1112bas
 
 142:                                              ; preds = %139, %128
   %indvars.iv.i87 = phi i64 [ 0, %128 ], [ %indvars.iv.next.i88, %139 ]
-  %143 = getelementptr inbounds nuw [9 x %struct.t_united_h], ptr @__const._Z16return_atom_typePKcP20gmx_structurefactors.uh, i64 0, i64 %indvars.iv.i87
+  %143 = getelementptr inbounds nuw %struct.t_united_h, ptr @__const._Z16return_atom_typePKcP20gmx_structurefactors.uh, i64 %indvars.iv.i87
   %144 = load ptr, ptr %143, align 16, !tbaa !95
   %145 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %135, ptr noundef nonnull dereferenceable(1) %144) #20
   %146 = icmp eq i32 %145, 0

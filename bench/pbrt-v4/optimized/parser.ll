@@ -7494,7 +7494,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit648:     ; preds = %536
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit651:     ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit648
   %541 = fptrunc double %540 to float
-  %542 = getelementptr inbounds nuw [16 x float], ptr %127, i64 0, i64 %indvars.iv6364
+  %542 = getelementptr inbounds nuw float, ptr %127, i64 %indvars.iv6364
   store float %541, ptr %542, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   %indvars.iv.next6365 = add nuw nsw i64 %indvars.iv6364, 1
@@ -10607,7 +10607,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1164:    ; preds = %1445
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1167:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1164
   %1450 = fptrunc double %1449 to float
-  %1451 = getelementptr inbounds nuw [9 x float], ptr %159, i64 0, i64 %indvars.iv6360
+  %1451 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv6360
   store float %1450, ptr %1451, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
   %indvars.iv.next6361 = add nuw nsw i64 %indvars.iv6360, 1
@@ -12947,7 +12947,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1684:    ; preds = %2093
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1687:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1684
   %2098 = fptrunc double %2097 to float
-  %2099 = getelementptr inbounds nuw [4 x float], ptr %182, i64 0, i64 %indvars.iv6356
+  %2099 = getelementptr inbounds nuw float, ptr %182, i64 %indvars.iv6356
   store float %2098, ptr %2099, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   %indvars.iv.next6357 = add nuw nsw i64 %indvars.iv6356, 1
@@ -13166,7 +13166,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1746:    ; preds = %2149
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1749:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1746
   %2154 = fptrunc double %2153 to float
-  %2155 = getelementptr inbounds nuw [3 x float], ptr %186, i64 0, i64 %indvars.iv6352
+  %2155 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv6352
   store float %2154, ptr %2155, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %187)
   %indvars.iv.next6353 = add nuw nsw i64 %indvars.iv6352, 1
@@ -13587,7 +13587,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1854:    ; preds = %2250
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1857:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1854
   %2255 = fptrunc double %2254 to float
-  %2256 = getelementptr inbounds nuw [16 x float], ptr %191, i64 0, i64 %indvars.iv6348
+  %2256 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv6348
   store float %2255, ptr %2256, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %192)
   %indvars.iv.next6349 = add nuw nsw i64 %indvars.iv6348, 1
@@ -13858,7 +13858,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1912:    ; preds = %2309
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1915:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1912
   %2314 = fptrunc double %2313 to float
-  %2315 = getelementptr inbounds nuw [3 x float], ptr %194, i64 0, i64 %indvars.iv6345
+  %2315 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv6345
   store float %2314, ptr %2315, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %195)
   %indvars.iv.next6346 = add nuw nsw i64 %indvars.iv6345, 1
@@ -41728,7 +41728,7 @@ _ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 .preheader.i.i:                                   ; preds = %211, %_ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit
   %indvars.iv12.i.i = phi i64 [ 0, %_ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit ], [ %indvars.iv.next13.i.i, %211 ]
-  %210 = getelementptr inbounds nuw [4 x [4 x float]], ptr %27, i64 0, i64 %indvars.iv12.i.i
+  %210 = getelementptr inbounds nuw [4 x float], ptr %27, i64 %indvars.iv12.i.i
   br label %212
 
 211:                                              ; preds = %212
@@ -41740,7 +41740,7 @@ _ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %indvars.iv.i.i185 = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i186, %212 ]
   %213 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i185
   %214 = uitofp i1 %213 to float
-  %215 = getelementptr inbounds nuw [4 x float], ptr %210, i64 0, i64 %indvars.iv.i.i185
+  %215 = getelementptr inbounds nuw float, ptr %210, i64 %indvars.iv.i.i185
   store float %214, ptr %215, align 4, !tbaa !22
   %indvars.iv.next.i.i186 = add nuw nsw i64 %indvars.iv.i.i185, 1
   %exitcond.not.i.i187 = icmp eq i64 %indvars.iv.next.i.i186, 4
@@ -41752,7 +41752,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %211
 
 .preheader.i1.i:                                  ; preds = %218, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv12.i2.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ %indvars.iv.next13.i6.i, %218 ]
-  %217 = getelementptr inbounds nuw [4 x [4 x float]], ptr %216, i64 0, i64 %indvars.iv12.i2.i
+  %217 = getelementptr inbounds nuw [4 x float], ptr %216, i64 %indvars.iv12.i2.i
   br label %219
 
 218:                                              ; preds = %219
@@ -41764,7 +41764,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %211
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %219 ]
   %220 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %221 = uitofp i1 %220 to float
-  %222 = getelementptr inbounds nuw [4 x float], ptr %217, i64 0, i64 %indvars.iv.i3.i
+  %222 = getelementptr inbounds nuw float, ptr %217, i64 %indvars.iv.i3.i
   store float %221, ptr %222, align 4, !tbaa !22
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -53079,7 +53079,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(96) ptr @_
 26:                                               ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
   %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
-  %28 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !507
   store ptr %29, ptr %27, align 8, !tbaa !507
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

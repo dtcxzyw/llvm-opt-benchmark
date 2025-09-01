@@ -6587,7 +6587,7 @@ define internal i64 @cpuset_write_resmask(ptr noundef %0, ptr noundef %1, i64 no
   %484 = trunc i64 %483 to i32
   %485 = tail call i32 @llvm.umin.i32(i32 %484, i32 64)
   %486 = zext nneg i32 %485 to i64
-  %487 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %486
+  %487 = getelementptr ptr, ptr @node_data, i64 %486
   %488 = load ptr, ptr %487, align 8
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4864
   %490 = tail call ptr @__next_zones_zonelist(ptr noundef nonnull %489, i32 noundef 2, ptr noundef nonnull %459) #19
@@ -6912,7 +6912,7 @@ define internal noundef i32 @sched_partition_show(ptr noundef %0, ptr readnone c
 
 17:                                               ; preds = %12
   %18 = zext i32 %15 to i64
-  %19 = getelementptr [9 x ptr], ptr @perr_strings, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr @perr_strings, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %13, ptr noundef %20) #19
   br label %22
@@ -8269,7 +8269,7 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
   %252 = trunc i64 %251 to i32
   %253 = call i32 @llvm.umin.i32(i32 %252, i32 64)
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %254
+  %255 = getelementptr ptr, ptr @node_data, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4864
   %258 = call ptr @__next_zones_zonelist(ptr noundef nonnull %257, i32 noundef 2, ptr noundef nonnull @cpuset_hotplug_update_tasks.new_mems) #19

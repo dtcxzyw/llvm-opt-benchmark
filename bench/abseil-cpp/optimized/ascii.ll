@@ -207,7 +207,7 @@ define dso_local void @_ZN4absl26RemoveExtraAsciiWhitespaceEPNSt7__cxx1112basic_
   %.01822 = phi ptr [ %20, %.lr.ph ], [ %10, %.lr.ph.preheader ]
   %13 = load i8, ptr %.01822, align 1, !tbaa !4
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = and i8 %16, 8
   %18 = icmp ne i8 %17, 0
@@ -262,7 +262,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   %.02946.i.i.i.i = phi ptr [ %36, %35 ], [ %1, %.lr.ph.i.i.i.preheader.i ]
   %9 = load i8, ptr %.02946.i.i.i.i, align 1, !tbaa !4
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = and i8 %12, 8
   %.not.i = icmp eq i8 %13, 0
@@ -272,7 +272,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !4
   %20 = and i8 %19, 8
   %.not5.i = icmp eq i8 %20, 0
@@ -282,7 +282,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = and i8 %26, 8
   %.not6.i = icmp eq i8 %27, 0
@@ -292,7 +292,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = and i8 %33, 8
   %.not7.i = icmp eq i8 %34, 0
@@ -321,7 +321,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
 40:                                               ; preds = %._crit_edge.i.i.i.i
   %41 = load i8, ptr %.029.lcssa.i.i.i.i, align 1, !tbaa !4
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = and i8 %44, 8
   %.not8.i = icmp eq i8 %45, 0
@@ -335,7 +335,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   %.1.i.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !4
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !4
   %53 = and i8 %52, 8
   %.not9.i = icmp eq i8 %53, 0
@@ -349,7 +349,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl20StripAsciiWhitespaceESt17b
   %.2.i.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !4
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = and i8 %60, 8
   %.not10.i = icmp eq i8 %61, 0
@@ -399,7 +399,7 @@ _ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE
   %75 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i, i64 -1
   %76 = load i8, ptr %75, align 1, !tbaa !4, !noalias !21
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !4, !noalias !21
   %80 = and i8 %79, 8
   %.not.i14 = icmp eq i8 %80, 0
@@ -409,7 +409,7 @@ _ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE
   %82 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i, i64 -2
   %83 = load i8, ptr %82, align 1, !tbaa !4, !noalias !21
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !4, !noalias !21
   %87 = and i8 %86, 8
   %.not9.i15 = icmp eq i8 %87, 0
@@ -419,7 +419,7 @@ _ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE
   %89 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i, i64 -3
   %90 = load i8, ptr %89, align 1, !tbaa !4, !noalias !21
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !4, !noalias !21
   %94 = and i8 %93, 8
   %.not10.i16 = icmp eq i8 %94, 0
@@ -429,7 +429,7 @@ _ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE
   %96 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i, i64 -4
   %97 = load i8, ptr %96, align 1, !tbaa !4, !noalias !21
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !4, !noalias !21
   %101 = and i8 %100, 8
   %.not11.i = icmp eq i8 %101, 0
@@ -458,7 +458,7 @@ _ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE
   %107 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i, i64 -1
   %108 = load i8, ptr %107, align 1, !tbaa !4, !noalias !21
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !4, !noalias !21
   %112 = and i8 %111, 8
   %.not12.i = icmp eq i8 %112, 0
@@ -469,7 +469,7 @@ _ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE
   %114 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i, i64 -1
   %115 = load i8, ptr %114, align 1, !tbaa !4, !noalias !21
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !4, !noalias !21
   %119 = and i8 %118, 8
   %.not13.i = icmp eq i8 %119, 0
@@ -480,7 +480,7 @@ _ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE
   %121 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i, i64 -1
   %122 = load i8, ptr %121, align 1, !tbaa !4, !noalias !21
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !4, !noalias !21
   %126 = and i8 %125, 8
   %.not14.i = icmp eq i8 %126, 0

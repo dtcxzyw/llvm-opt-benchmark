@@ -256,7 +256,7 @@ define hidden void @_ZN3sat6clause4elimENS_7literalE(ptr noundef nonnull align 4
 .lr.ph:                                           ; preds = %2, %10
   %.012 = phi i32 [ %11, %10 ], [ 0, %2 ]
   %6 = zext i32 %.012 to i64
-  %7 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !12
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %._crit_edge, label %10
@@ -279,9 +279,9 @@ define hidden void @_ZN3sat6clause4elimENS_7literalE(ptr noundef nonnull align 4
 14:                                               ; preds = %.lr.ph21, %14
   %indvars.iv = phi i64 [ %13, %.lr.ph21 ], [ %indvars.iv.next, %14 ]
   %.1.in18 = phi i32 [ %.0.lcssa, %.lr.ph21 ], [ %19, %14 ]
-  %15 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %3, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv
   %16 = zext i32 %.1.in18 to i64
-  %17 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %16
   %18 = load i32, ptr %15, align 4, !tbaa !16
   store i32 %18, ptr %17, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -293,7 +293,7 @@ define hidden void @_ZN3sat6clause4elimENS_7literalE(ptr noundef nonnull align 4
 ._crit_edge22:                                    ; preds = %14, %._crit_edge
   %20 = add i32 %5, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %21
   store i32 %1, ptr %22, align 4, !tbaa !16
   store i32 %20, ptr %4, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -573,7 +573,7 @@ _Z7deallocIN13sat_allocator5chunkEEvPT_.exit.i:   ; preds = %15, %.lr.ph.i
 
 17:                                               ; preds = %_ZN6vectorIPvLb0EjE5resetEv.exit.i, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i ], [ %indvars.iv.next.i, %_ZN6vectorIPvLb0EjE5resetEv.exit.i ]
-  %18 = getelementptr inbounds nuw [65 x %class.ptr_vector.1], ptr %12, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw %class.ptr_vector.1, ptr %12, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !39
   %.not.i11.i = icmp eq ptr %19, null
   br i1 %.not.i11.i, label %_ZN6vectorIPvLb0EjE5resetEv.exit.i, label %20
@@ -700,7 +700,7 @@ define linkonce_odr hidden noundef ptr @_ZN13sat_allocator8allocateEm(ptr nounde
   %11 = add nuw nsw i64 %1, 7
   %12 = lshr i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = getelementptr inbounds nuw [65 x %class.ptr_vector.1], ptr %13, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw %class.ptr_vector.1, ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !39
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZNK6vectorIPvLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIPvLb0EjE5emptyEv.exit
@@ -997,7 +997,7 @@ _ZN6id_gen7recycleEj.exit:                        ; preds = %2, %_ZN6vectorIjLb0
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = add nuw nsw i64 %25, 27
   %34 = lshr i64 %33, 3
-  %35 = getelementptr inbounds nuw [65 x %class.ptr_vector.1], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %class.ptr_vector.1, ptr %32, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !39
   %37 = icmp eq ptr %36, null
   br i1 %37, label %44, label %38
@@ -1064,7 +1064,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3satlsERSoRKNS_
   br label %14
 
 14:                                               ; preds = %12, %11
-  %15 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %6, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %"class.sat::literal", ptr %6, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %15, align 4, !tbaa !16
   %16 = icmp eq i32 %.sroa.0.0.copyload, -2
   br i1 %16, label %17, label %19
@@ -1175,7 +1175,7 @@ _ZNK3sat14clause_wrapper4sizeEv.exit:             ; preds = %2
   br label %.lr.ph18
 
 _ZNK3sat14clause_wrapperixEj.exit.us:             ; preds = %.lr.ph18
-  %11 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload.i.us = load i32, ptr %11, align 4, !tbaa !16
   %12 = icmp eq i32 %.sroa.0.0.copyload.i.us, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1237,7 +1237,7 @@ _ZNK3sat14clause_wrapper4sizeEv.exit:             ; preds = %2
   br label %.lr.ph18
 
 _ZNK3sat14clause_wrapperixEj.exit.us:             ; preds = %.lr.ph18
-  %12 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %9, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload.i.us = load i32, ptr %12, align 4, !tbaa !16
   %13 = lshr i32 %.sroa.0.0.copyload.i.us, 1
   %14 = icmp eq i32 %13, %1

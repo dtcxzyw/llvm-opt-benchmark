@@ -152,7 +152,7 @@ define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = xor i8 %17, 1
   store i8 %18, ptr %16, align 1, !tbaa !11
@@ -196,7 +196,7 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %0) #0 {
   %2 = alloca [2000 x i8], align 16
   %3 = tail call ptr @RSA_new() #5
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.anon, ptr @rsa_security_bits_cases, i64 %4
   %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !17
@@ -215,7 +215,7 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %0) #0 {
 14:                                               ; preds = %12
   %15 = srem i32 %6, 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [8 x i8], ptr @test_rsa_security_bit.vals, i64 0, i64 %16
+  %17 = getelementptr inbounds i8, ptr @test_rsa_security_bit.vals, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = sext i32 %10 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %2, i8 %18, i64 %19, i1 false)

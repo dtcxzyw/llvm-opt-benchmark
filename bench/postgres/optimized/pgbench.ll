@@ -1236,7 +1236,7 @@ process_file.exit:                                ; preds = %140, %142
 
 175:                                              ; preds = %.preheader430, %180
   %indvars.iv = phi i64 [ 0, %.preheader430 ], [ %indvars.iv.next, %180 ]
-  %176 = getelementptr inbounds nuw [3 x ptr], ptr @QUERYMODE, i64 0, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw ptr, ptr @QUERYMODE, i64 %indvars.iv
   %177 = load ptr, ptr %176, align 8
   %178 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %177) #27
   %179 = icmp eq i32 %178, 0
@@ -1557,7 +1557,7 @@ checkInitSteps.exit:                              ; preds = %160, %checkInitStep
 .lr.ph723:                                        ; preds = %298, %._crit_edge720
   %301 = phi i32 [ %306, %._crit_edge720 ], [ %299, %298 ]
   %indvars.iv841 = phi i64 [ %indvars.iv.next842, %._crit_edge720 ], [ 0, %298 ]
-  %302 = getelementptr inbounds nuw [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv841
+  %302 = getelementptr inbounds nuw %struct.ParsedScript, ptr @sql_script, i64 %indvars.iv841
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load ptr, ptr %303, align 16
   %305 = load ptr, ptr %304, align 8
@@ -1594,7 +1594,7 @@ checkInitSteps.exit:                              ; preds = %160, %checkInitStep
   %319 = load ptr, ptr %314, align 8
   %320 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %319, i64 noundef 128) #25
   %321 = call i64 @strcspn(ptr noundef nonnull %9, ptr noundef nonnull @.str.199) #27
-  %322 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw i8, ptr %9, i64 %321
   store i8 0, ptr %322, align 1
   %323 = call ptr @pg_strdup(ptr noundef nonnull %9) #25
   %324 = getelementptr inbounds nuw i8, ptr %314, i64 24
@@ -1738,7 +1738,7 @@ replaceVariable.exit.i.i:                         ; preds = %382, %381
   %387 = getelementptr inbounds i8, ptr %.0.i25.i.i, i64 %.pre29.i.pre-phi.i.i
   %388 = load i32, ptr %338, align 8
   %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds [256 x ptr], ptr %342, i64 0, i64 %389
+  %390 = getelementptr inbounds ptr, ptr %342, i64 %389
   store ptr %360, ptr %390, align 8
   %391 = load i32, ptr %338, align 8
   %392 = add i32 %391, 1
@@ -3169,7 +3169,7 @@ disconnect_all.exit:                              ; preds = %finishCon.exit.i, %
 
 1013:                                             ; preds = %disconnect_all.exit
   %1014 = zext nneg i32 %1012 to i64
-  %1015 = getelementptr inbounds nuw [3 x ptr], ptr @PARTITION_METHOD, i64 0, i64 %1014
+  %1015 = getelementptr inbounds nuw ptr, ptr @PARTITION_METHOD, i64 %1014
   %1016 = load ptr, ptr %1015, align 8
   %1017 = load i32, ptr @partitions, align 4
   %1018 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.305, ptr noundef %1016, i32 noundef %1017) #25
@@ -3178,7 +3178,7 @@ disconnect_all.exit:                              ; preds = %finishCon.exit.i, %
 1019:                                             ; preds = %1013, %disconnect_all.exit
   %1020 = load i32, ptr @querymode, align 4
   %1021 = zext nneg i32 %1020 to i64
-  %1022 = getelementptr inbounds nuw [3 x ptr], ptr @QUERYMODE, i64 0, i64 %1021
+  %1022 = getelementptr inbounds nuw ptr, ptr @QUERYMODE, i64 %1021
   %1023 = load ptr, ptr %1022, align 8
   %1024 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.306, ptr noundef %1023) #25
   %1025 = load i32, ptr @nclients, align 4
@@ -3365,7 +3365,7 @@ printSimpleStats.exit.i:                          ; preds = %1112, %1101, %1099
   br i1 %.b117126.i, label %1139, label %printSimpleStats.exit135.i
 
 1139:                                             ; preds = %.lr.ph140.i
-  %1140 = getelementptr inbounds nuw [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i376
+  %1140 = getelementptr inbounds nuw %struct.ParsedScript, ptr @sql_script, i64 %indvars.iv.i376
   %1141 = getelementptr i8, ptr %1140, i64 64
   %.val133.i = load i64, ptr %1141, align 16
   %1142 = getelementptr i8, ptr %1140, i64 72
@@ -3486,7 +3486,7 @@ printSimpleStats.exit135.i:                       ; preds = %1212, %1208, %.lr.p
   %1230 = icmp eq i32 %1229, 1
   %1231 = select i1 %1230, ptr @.str.340, ptr @.str.341
   %1232 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.338, ptr noundef nonnull %1228, ptr noundef nonnull %1231) #25
-  %1233 = getelementptr inbounds nuw [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i376, i32 2
+  %1233 = getelementptr inbounds nuw %struct.ParsedScript, ptr @sql_script, i64 %indvars.iv.i376, i32 2
   %1234 = load ptr, ptr %1233, align 16
   %1235 = load ptr, ptr %1234, align 8
   %.not131137.i = icmp eq ptr %1235, null
@@ -3707,7 +3707,7 @@ define internal fastcc void @listAvailableScripts() unnamed_addr #0 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr @stderr, align 8
-  %5 = getelementptr inbounds nuw [3 x %struct.BuiltinScript], ptr @builtin_script, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.BuiltinScript, ptr @builtin_script, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -3802,7 +3802,7 @@ define internal fastcc ptr @findBuiltin(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %.020 = phi ptr [ null, %1 ], [ %spec.select17, %4 ]
   %.01418 = phi i32 [ 0, %1 ], [ %spec.select, %4 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.BuiltinScript], ptr @builtin_script, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.BuiltinScript, ptr @builtin_script, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull %0, i64 noundef %3) #27
   %8 = icmp eq i32 %7, 0
@@ -3930,7 +3930,7 @@ define internal fastcc void @runInitSteps(ptr noundef readonly captures(none) %0
 
 29:                                               ; preds = %executeStatement.exit, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %executeStatement.exit ]
-  %30 = getelementptr inbounds nuw [4 x %struct.ddlinfo], ptr @initCreateTables.DDLs, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw %struct.ddlinfo, ptr @initCreateTables.DDLs, i64 %indvars.iv.i
   %.b15.i = load i1, ptr @unlogged_tables, align 1
   %31 = load i32, ptr @partition_method, align 4
   %32 = icmp eq i32 %31, 0
@@ -3954,7 +3954,7 @@ define internal fastcc void @runInitSteps(ptr noundef readonly captures(none) %0
 
 43:                                               ; preds = %40
   %44 = zext nneg i32 %39 to i64
-  %45 = getelementptr inbounds nuw [3 x ptr], ptr @PARTITION_METHOD, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr @PARTITION_METHOD, i64 %44
   %46 = load ptr, ptr %45, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.231, ptr noundef %46) #25
   br label %52
@@ -4157,7 +4157,7 @@ initCreateTables.exit:                            ; preds = %63, %createPartitio
 126:                                              ; preds = %executeStatement.exit37, %123
   %indvars.iv.i28 = phi i64 [ 0, %123 ], [ %indvars.iv.next.i30, %executeStatement.exit37 ]
   call void @resetPQExpBuffer(ptr noundef nonnull %3) #25
-  %127 = getelementptr inbounds nuw [3 x ptr], ptr @initCreatePKeys.DDLINDEXes, i64 0, i64 %indvars.iv.i28
+  %127 = getelementptr inbounds nuw ptr, ptr @initCreatePKeys.DDLINDEXes, i64 %indvars.iv.i28
   %128 = load ptr, ptr %127, align 8
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef %128) #25
   %129 = load ptr, ptr @index_tablespace, align 8
@@ -4203,7 +4203,7 @@ initCreatePKeys.exit:                             ; preds = %executeStatement.ex
 
 142:                                              ; preds = %executeStatement.exit39, %139
   %indvars.iv.i32 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i33, %executeStatement.exit39 ]
-  %143 = getelementptr inbounds nuw [5 x ptr], ptr @initCreateFKeys.DDLKEYs, i64 0, i64 %indvars.iv.i32
+  %143 = getelementptr inbounds nuw ptr, ptr @initCreateFKeys.DDLKEYs, i64 %indvars.iv.i32
   %144 = load ptr, ptr %143, align 8
   %145 = call ptr @PQexec(ptr noundef nonnull %9, ptr noundef %144) #25
   %146 = call i32 @PQresultStatus(ptr noundef %145) #25
@@ -4701,7 +4701,7 @@ pg_time_now_lazy.exit:                            ; preds = %142, %144
 .thread:                                          ; preds = %155
   %159 = add i32 %.0140434, 1
   %160 = sext i32 %.0140434 to i64
-  %161 = getelementptr inbounds [0 x %struct.pollfd], ptr %99, i64 0, i64 %160
+  %161 = getelementptr inbounds %struct.pollfd, ptr %99, i64 %160
   store i32 %157, ptr %161, align 4
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   store i16 1, ptr %162, align 4
@@ -4924,7 +4924,7 @@ socket_has_input.exit:                            ; preds = %217
   %.0.i.i = phi i64 [ %251, %248 ], [ %258, %252 ]
   %253 = add i32 %.05.i.i, 1
   %254 = sext i32 %.05.i.i to i64
-  %255 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %254, i32 1
+  %255 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %254, i32 1
   %256 = load i32, ptr %255, align 8
   %257 = sext i32 %256 to i64
   %258 = sub i64 %.0.i.i, %257
@@ -4943,7 +4943,7 @@ chooseScript.exit.i:                              ; preds = %252, %245
 262:                                              ; preds = %chooseScript.exit.i
   %263 = load i32, ptr %226, align 8
   %264 = sext i32 %.06.i.i to i64
-  %265 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %264
+  %265 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %264
   %266 = load ptr, ptr %265, align 16
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.356, i32 noundef %263, ptr noundef %266) #25
   br label %267
@@ -5102,7 +5102,7 @@ pg_time_now_lazy.exit233.i:                       ; preds = %321, %318
 345:                                              ; preds = %344
   %346 = load i32, ptr %228, align 8
   %347 = sext i32 %346 to i64
-  %348 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %347, i32 3, i32 2
+  %348 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %347, i32 3, i32 2
   %349 = load i64, ptr %348, align 8
   %350 = add i64 %349, 1
   store i64 %350, ptr %348, align 8
@@ -5177,7 +5177,7 @@ pg_time_now_lazy.exit234.i:                       ; preds = %371, %368
 384:                                              ; preds = %.critedge.i
   %385 = load i32, ptr %228, align 8
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %386, i32 2
+  %387 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %386, i32 2
   %388 = load ptr, ptr %387, align 16
   %389 = load i32, ptr %229, align 4
   %390 = sext i32 %389 to i64
@@ -5525,7 +5525,7 @@ assignVariables.exit.i.i:                         ; preds = %.loopexit.i.i.i, %4
 .lr.ph.i31.i.i:                                   ; preds = %534, %getVariable.exit231
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %getVariable.exit231 ], [ 0, %534 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %541 = getelementptr inbounds nuw [256 x ptr], ptr %535, i64 0, i64 %indvars.iv.next.i.i.i
+  %541 = getelementptr inbounds nuw ptr, ptr %535, i64 %indvars.iv.next.i.i.i
   %542 = load ptr, ptr %541, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %543 = load i32, ptr %242, align 8
@@ -5673,7 +5673,7 @@ getQueryParams.exit.i.i:                          ; preds = %getVariable.exit231
 613:                                              ; preds = %getVariable.exit, %.lr.ph.i32.i.i
   %indvars.iv.i33.i.i = phi i64 [ 0, %.lr.ph.i32.i.i ], [ %indvars.iv.next.i34.i.i, %getVariable.exit ]
   %indvars.iv.next.i34.i.i = add nuw nsw i64 %indvars.iv.i33.i.i, 1
-  %614 = getelementptr inbounds nuw [256 x ptr], ptr %612, i64 0, i64 %indvars.iv.next.i34.i.i
+  %614 = getelementptr inbounds nuw ptr, ptr %612, i64 %indvars.iv.next.i34.i.i
   %615 = load ptr, ptr %614, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %616 = load i32, ptr %242, align 8
@@ -5851,7 +5851,7 @@ sendCommand.exit.i:                               ; preds = %683
 700:                                              ; preds = %413
   %701 = load i32, ptr %228, align 8
   %702 = sext i32 %701 to i64
-  %703 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %702, i32 2
+  %703 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %702, i32 2
   %704 = load ptr, ptr %703, align 16
   %705 = load i32, ptr %229, align 4
   %706 = sext i32 %705 to i64
@@ -6251,7 +6251,7 @@ valueTruth.exit101.i.i:                           ; preds = %850
 902:                                              ; preds = %896
   %903 = load i32, ptr %228, align 8
   %904 = sext i32 %903 to i64
-  %905 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %904, i32 2
+  %905 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %904, i32 2
   %906 = load ptr, ptr %905, align 16
   %907 = load ptr, ptr %240, align 8
   %.not.i102.i.i = icmp eq ptr %907, null
@@ -6269,7 +6269,7 @@ valueTruth.exit101.i.i:                           ; preds = %850
 
 .lr.ph.i.i.i.i:                                   ; preds = %908, %922
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %922 ], [ 0, %908 ]
-  %915 = getelementptr inbounds nuw [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i.i.i.i, i32 2
+  %915 = getelementptr inbounds nuw %struct.ParsedScript, ptr @sql_script, i64 %indvars.iv.i.i.i.i, i32 2
   %916 = load ptr, ptr %915, align 16
   br label %917
 
@@ -6476,7 +6476,7 @@ executeMetaCommand.exit.thread.i:                 ; preds = %.critedge.i.i, %998
 .preheader.i:                                     ; preds = %.critedge.i, %1053
   %1008 = load i32, ptr %228, align 8
   %1009 = sext i32 %1008 to i64
-  %1010 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %1009, i32 2
+  %1010 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %1009, i32 2
   %1011 = load ptr, ptr %1010, align 16
   %1012 = load i32, ptr %229, align 4
   %1013 = sext i32 %1012 to i64
@@ -6618,7 +6618,7 @@ executeMetaCommand.exit.thread.i:                 ; preds = %.critedge.i.i, %998
 1072:                                             ; preds = %1069
   %1073 = load i32, ptr %228, align 8
   %1074 = sext i32 %1073 to i64
-  %1075 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %1074, i32 2
+  %1075 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %1074, i32 2
   %1076 = load ptr, ptr %1075, align 16
   %1077 = load i32, ptr %229, align 4
   %1078 = sext i32 %1077 to i64
@@ -6927,7 +6927,7 @@ pg_time_now_lazy.exit245.i:                       ; preds = %1208, %1205
   %1215 = phi i64 [ %1206, %1205 ], [ %1214, %1208 ]
   %1216 = load i32, ptr %228, align 8
   %1217 = sext i32 %1216 to i64
-  %1218 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %1217, i32 2
+  %1218 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %1217, i32 2
   %1219 = load ptr, ptr %1218, align 16
   %1220 = load i32, ptr %229, align 4
   %1221 = sext i32 %1220 to i64
@@ -7259,7 +7259,7 @@ doRetry.exit263.thread.i:                         ; preds = %1366, %doRetry.exit
 1370:                                             ; preds = %.critedge.i
   %1371 = load i32, ptr %228, align 8
   %1372 = sext i32 %1371 to i64
-  %1373 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %1372, i32 2
+  %1373 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %1372, i32 2
   %1374 = load ptr, ptr %1373, align 16
   %1375 = load i32, ptr %229, align 4
   %1376 = sext i32 %1375 to i64
@@ -7289,7 +7289,7 @@ doRetry.exit263.thread.i:                         ; preds = %1366, %doRetry.exit
 1386:                                             ; preds = %.critedge.i
   %1387 = load i32, ptr %228, align 8
   %1388 = sext i32 %1387 to i64
-  %1389 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %1388, i32 2
+  %1389 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %1388, i32 2
   %1390 = load ptr, ptr %1389, align 16
   %1391 = load i32, ptr %229, align 4
   %1392 = sext i32 %1391 to i64
@@ -7513,7 +7513,7 @@ accumStats.exit268:                               ; preds = %addToSimpleStats.ex
 1489:                                             ; preds = %1488
   %1490 = load i32, ptr %228, align 8
   %1491 = sext i32 %1490 to i64
-  %1492 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %1491, i32 3
+  %1492 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %1491, i32 3
   %1493 = load i32, ptr %233, align 8
   %1494 = load i32, ptr %230, align 8
   %1495 = icmp ugt i32 %1494, 1
@@ -8411,12 +8411,12 @@ getMetaCommand.exit.i:                            ; preds = %99, %96, %93, %90, 
 
 132:                                              ; preds = %.lr.ph.i
   %133 = load i32, ptr %5, align 4
-  %134 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %133, ptr %134, align 4
   %135 = load ptr, ptr %4, align 8
   %136 = call ptr @pg_strdup(ptr noundef %135) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %137 = getelementptr inbounds nuw [256 x ptr], ptr %59, i64 0, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i
   store ptr %136, ptr %137, align 8
   %138 = load i32, ptr %54, align 8
   %139 = add i32 %138, 1
@@ -8701,7 +8701,7 @@ process_backslash_command.exit:                   ; preds = %.critedge.thread.i
 
 .lr.ph.i63:                                       ; preds = %257, %.lr.ph.i63
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i65, %.lr.ph.i63 ], [ 0, %257 ]
-  %265 = getelementptr inbounds nuw [256 x ptr], ptr %59, i64 0, i64 %indvars.iv.i64
+  %265 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i64
   %266 = load ptr, ptr %265, align 8
   call void @pg_free(ptr noundef %266) #25
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
@@ -8872,7 +8872,7 @@ addScript.exit:                                   ; preds = %._crit_edge.i.i
   call void @conditional_stack_destroy(ptr noundef %294) #25
   %336 = load i32, ptr @num_scripts, align 4
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %337
+  %338 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %337
   store ptr %1, ptr %338, align 16
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %338, i64 8
   store i32 %2, ptr %.sroa.11.0..sroa_idx, align 8
@@ -9993,7 +9993,7 @@ define internal fastcc void @prepareCommand(ptr noundef captures(none) %0, i32 n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds %struct.ParsedScript, ptr @sql_script, i64 %5, i32 2
   %7 = load ptr, ptr %6, align 16
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
@@ -10021,7 +10021,7 @@ define internal fastcc void @prepareCommand(ptr noundef captures(none) %0, i32 n
 
 .lr.ph.i:                                         ; preds = %16, %30
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %16 ]
-  %23 = getelementptr inbounds nuw [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i, i32 2
+  %23 = getelementptr inbounds nuw %struct.ParsedScript, ptr @sql_script, i64 %indvars.iv.i, i32 2
   %24 = load ptr, ptr %23, align 16
   br label %25
 
@@ -10470,7 +10470,7 @@ lookupVariable.exit:                              ; preds = %54
   %129 = phi i1 [ %136, %133 ], [ false, %128 ]
   %.0149.i84 = phi ptr [ %138, %133 ], [ %125, %128 ]
   %130 = load ptr, ptr %.0149.i84, align 8
-  %131 = getelementptr inbounds nuw [16 x %struct.PgBenchValue], ptr %4, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw %struct.PgBenchValue, ptr %4, i64 %indvars.iv
   %132 = call fastcc zeroext i1 @evaluateExpr(ptr noundef %0, ptr noundef %130, ptr noundef %131)
   br i1 %132, label %133, label %evalStandardFunc.exit
 
@@ -11169,7 +11169,7 @@ coerceToInt.exit194.i:                            ; preds = %298, %valueTypeName
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %393
   %indvars.iv132 = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next133, %393 ]
-  %394 = getelementptr inbounds nuw [16 x %struct.PgBenchValue], ptr %4, i64 0, i64 %indvars.iv132
+  %394 = getelementptr inbounds nuw %struct.PgBenchValue, ptr %4, i64 %indvars.iv132
   %395 = load i32, ptr %394, align 16
   %396 = icmp eq i32 %395, 3
   br i1 %396, label %397, label %393
@@ -11192,7 +11192,7 @@ coerceToInt.exit194.i:                            ; preds = %298, %valueTypeName
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %403 ], [ 1, %.lr.ph105 ]
   %400 = phi double [ %406, %403 ], [ %.promoted101, %.lr.ph105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %401 = getelementptr inbounds nuw [16 x %struct.PgBenchValue], ptr %4, i64 0, i64 %indvars.iv140
+  %401 = getelementptr inbounds nuw %struct.PgBenchValue, ptr %4, i64 %indvars.iv140
   %402 = call fastcc zeroext i1 @coerceToDouble(ptr noundef %401, ptr noundef %12)
   br i1 %402, label %403, label %.critedge175.i
 
@@ -11209,7 +11209,7 @@ coerceToInt.exit194.i:                            ; preds = %298, %valueTypeName
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %410 ], [ 1, %.lr.ph105 ]
   %407 = phi double [ %413, %410 ], [ %.promoted101, %.lr.ph105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %408 = getelementptr inbounds nuw [16 x %struct.PgBenchValue], ptr %4, i64 0, i64 %indvars.iv135
+  %408 = getelementptr inbounds nuw %struct.PgBenchValue, ptr %4, i64 %indvars.iv135
   %409 = call fastcc zeroext i1 @coerceToDouble(ptr noundef %408, ptr noundef %12)
   br i1 %409, label %410, label %.critedge175.i
 
@@ -11261,7 +11261,7 @@ coerceToInt.exit194.i:                            ; preds = %298, %valueTypeName
 418:                                              ; preds = %.lr.ph98, %439
   %indvars.iv145 = phi i64 [ 1, %.lr.ph98 ], [ %indvars.iv.next146, %439 ]
   %419 = phi i64 [ %.promoted, %.lr.ph98 ], [ %storemerge.i, %439 ]
-  %420 = getelementptr inbounds nuw [16 x %struct.PgBenchValue], ptr %4, i64 0, i64 %indvars.iv145
+  %420 = getelementptr inbounds nuw %struct.PgBenchValue, ptr %4, i64 %indvars.iv145
   %421 = load i32, ptr %420, align 16
   switch i32 %421, label %valueTypeName.exit.i195.i [
     i32 2, label %422
@@ -11684,7 +11684,7 @@ define internal fastcc noundef zeroext i1 @runShellCommand(ptr noundef captures(
 34:                                               ; preds = %33
   %35 = add i32 %.04867, 1
   %36 = sext i32 %.04867 to i64
-  %37 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr %5, i64 %36
   store i8 32, ptr %37, align 1
   br label %38
 
@@ -11706,7 +11706,7 @@ define internal fastcc noundef zeroext i1 @runShellCommand(ptr noundef captures(
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.048.lcssa = phi i64 [ 0, %4 ], [ %43, %._crit_edge.loopexit ]
-  %44 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.048.lcssa
+  %44 = getelementptr inbounds i8, ptr %5, i64 %.048.lcssa
   store i8 0, ptr %44, align 1
   %45 = tail call i32 @fflush(ptr noundef null)
   %46 = icmp eq ptr %1, null
@@ -12143,7 +12143,7 @@ define internal fastcc noundef zeroext i1 @coerceToBool(i32 %.0.val, i8 %.8.val,
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.coerceToBool, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.coerceToBool, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %valueTypeName.exit
 

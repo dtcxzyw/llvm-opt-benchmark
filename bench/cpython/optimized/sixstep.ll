@@ -79,7 +79,7 @@ define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %0, i64 noundef %1, 
 
 36:                                               ; preds = %._crit_edge
   %37 = sext i32 %2 to i64
-  %38 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %37
+  %38 = getelementptr i64, ptr @mpd_moduli, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !5
   %40 = tail call i64 @_mpd_getkernel(i64 noundef %1, i32 noundef -1, i32 noundef %2) #6
   %.not93 = icmp eq i32 %21, 0
@@ -884,7 +884,7 @@ define hidden range(i32 0, 2) i32 @inv_six_step_fnt(ptr noundef %0, i64 noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %33 = sext i32 %2 to i64
-  %34 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %33
+  %34 = getelementptr i64, ptr @mpd_moduli, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !5
   %36 = tail call i64 @_mpd_getkernel(i64 noundef %1, i32 noundef 1, i32 noundef %2) #6
   %.not92 = icmp eq i32 %21, 0

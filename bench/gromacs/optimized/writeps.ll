@@ -97,7 +97,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString5Fonts(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [12 x ptr], ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -691,7 +691,7 @@ define void @_Z7ps_fontP8t_psdata5Fontsf(ptr noundef readonly captures(none) %0,
   %.0 = phi i32 [ 0, %5 ], [ %1, %3 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !9
   %10 = sext i32 %.0 to i64
-  %11 = getelementptr inbounds nuw [12 x ptr], ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.46, ptr noundef %12) #18
   %14 = load ptr, ptr %0, align 8, !tbaa !9

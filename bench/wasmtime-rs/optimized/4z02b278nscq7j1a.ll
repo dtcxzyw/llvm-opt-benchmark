@@ -5070,7 +5070,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 _ZN4core5clone5Clone5clone17h3ddae2241c9e0174E.exit: ; preds = %"_ZN69_$LT$wasmtime_wasi..filesystem..Dir$u20$as$u20$core..clone..Clone$GT$5clone17h1dac7df03019c9efE.exit.i"
-  %48 = getelementptr inbounds nuw [0 x { [8 x i64] }], ptr %14, i64 0, i64 %.sroa.7.028
+  %48 = getelementptr inbounds nuw { [8 x i64] }, ptr %14, i64 %.sroa.7.028
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp eq i64 %26, 0
@@ -5213,7 +5213,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 _ZN4core5clone5Clone5clone17h0bc98f38dc327115E.exit: ; preds = %.noexc
-  %33 = getelementptr inbounds nuw [0 x { [6 x i64] }], ptr %14, i64 0, i64 %.sroa.7.030
+  %33 = getelementptr inbounds nuw { [6 x i64] }, ptr %14, i64 %.sroa.7.030
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = icmp eq i64 %22, 0
@@ -5299,7 +5299,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 24:                                               ; preds = %23
   %25 = add nuw nsw i64 %.sroa.7.027, 1
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.028, i64 24
-  %27 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %14, i64 0, i64 %.sroa.7.027
+  %27 = getelementptr inbounds nuw { [3 x i64] }, ptr %14, i64 %.sroa.7.027
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %28 = icmp eq i64 %20, 0
   br i1 %28, label %.thread, label %.lr.ph
@@ -7681,7 +7681,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h1154d037c006ce6
   ret void
 
 29:                                               ; preds = %.loopexit
-  %30 = getelementptr inbounds nuw [0 x { { { [4 x i64] } } }], ptr %18, i64 0, i64 %20
+  %30 = getelementptr inbounds nuw { { { [4 x i64] } } }, ptr %18, i64 %20
   store i64 0, ptr %0, align 8, !alias.scope !959
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
@@ -7751,7 +7751,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$7try_pop17h0fd4326f696
   ret void
 
 31:                                               ; preds = %.loopexit.i
-  %32 = getelementptr inbounds nuw [0 x { { { [4 x i64] } } }], ptr %20, i64 0, i64 %22
+  %32 = getelementptr inbounds nuw { { { [4 x i64] } } }, ptr %20, i64 %22
   %33 = load i64, ptr %6, align 8, !alias.scope !962, !noalias !969, !noundef !12
   %34 = add i64 %33, 1
   store i64 %34, ptr %6, align 8, !alias.scope !962, !noalias !969
@@ -7898,7 +7898,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1706
 "_ZN5tokio4util4slab14Slots$LT$T$GT$9index_for17hc42454ec5d8a4373E.exit": ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load i64, ptr %40, align 8, !noundef !12
-  %42 = getelementptr inbounds nuw [0 x { { { { { { { { i64 } } }, { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, ptr, {} }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } } } } }, ptr } } }, i32, {}, [4 x i8] }], ptr %23, i64 0, i64 %33, i32 1
+  %42 = getelementptr inbounds nuw { { { { { { { { i64 } } }, { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, ptr, {} }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } } } } }, ptr } } }, i32, {}, [4 x i8] }, ptr %23, i64 %33, i32 1
   %43 = trunc i64 %41 to i32
   store i32 %43, ptr %42, align 8
   store i64 %33, ptr %40, align 8
@@ -8185,7 +8185,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 26:                                               ; preds = %25
   %27 = add nuw nsw i64 %.sroa.7.027.i, 1
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.013.028.i, i64 24
-  %29 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %17, i64 0, i64 %.sroa.7.027.i
+  %29 = getelementptr inbounds nuw { [3 x i64] }, ptr %17, i64 %.sroa.7.027.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !1010
   %30 = icmp eq i64 %23, 0
   br i1 %30, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha10df869f18853d6E.llvm.17069743828446960565.exit", label %.lr.ph.i

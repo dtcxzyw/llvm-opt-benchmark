@@ -1097,7 +1097,7 @@ define internal fastcc void @virtinput_fill_evt(ptr noundef %0) unnamed_addr #2 
 
 13:                                               ; preds = %13, %9
   %14 = phi i64 [ 0, %9 ], [ %18, %13 ]
-  %15 = getelementptr [64 x %struct.virtio_input_event], ptr %11, i64 0, i64 %14
+  %15 = getelementptr %struct.virtio_input_event, ptr %11, i64 %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   call void @sg_init_one(ptr noundef nonnull %2, ptr noundef %15, i32 noundef 8) #10

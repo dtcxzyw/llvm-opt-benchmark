@@ -115,13 +115,13 @@ define internal noundef i32 @ogg_write_header(ptr noundef readonly captures(none
 33:                                               ; preds = %25, %ogg_buffer_data.exit
   %exitcond.not = phi i1 [ false, %25 ], [ true, %ogg_buffer_data.exit ]
   %indvars.iv81 = phi i64 [ 1, %25 ], [ 2, %ogg_buffer_data.exit ]
-  %34 = getelementptr inbounds nuw [3 x i32], ptr %31, i64 0, i64 %indvars.iv81
+  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv81
   %35 = load i32, ptr %34, align 4, !tbaa !35
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %ogg_buffer_data.exit, label %.thread16.i
 
 .thread16.i:                                      ; preds = %33
-  %36 = getelementptr inbounds nuw [3 x ptr], ptr %32, i64 0, i64 %indvars.iv81
+  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv81
   %37 = load ptr, ptr %36, align 8, !tbaa !34
   %.val38 = load ptr, ptr %29, align 8, !tbaa !27
   %38 = udiv i32 %35, 255
@@ -173,7 +173,7 @@ define internal noundef i32 @ogg_write_header(ptr noundef readonly captures(none
   %69 = add i8 %64, 1
   store i8 %69, ptr %41, align 1, !tbaa !46
   %70 = zext i8 %64 to i64
-  %71 = getelementptr inbounds nuw [255 x i8], ptr %42, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %42, i64 %70
   store i8 %68, ptr %71, align 1, !tbaa !48
   %.not110.i = icmp eq i32 %66, 0
   br i1 %.not110.i, label %._crit_edge26.i, label %72
@@ -1538,7 +1538,7 @@ ogg_key_granule.exit.thread7:                     ; preds = %39, %ogg_granule_to
   %84 = add i8 %79, 1
   store i8 %84, ptr %53, align 1, !tbaa !46
   %85 = zext i8 %79 to i64
-  %86 = getelementptr inbounds nuw [255 x i8], ptr %54, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %54, i64 %85
   store i8 %83, ptr %86, align 1, !tbaa !48
   %.not110 = icmp eq i32 %81, 0
   br i1 %.not110, label %._crit_edge26, label %87

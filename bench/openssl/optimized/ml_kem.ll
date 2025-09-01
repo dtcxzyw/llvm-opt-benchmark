@@ -64,7 +64,7 @@ define ptr @ossl_ml_kem_get_vinfo(i32 noundef %0) local_unnamed_addr #2 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ossl_ml_kem_key_new, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_ml_kem_key_new, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -81,7 +81,7 @@ define ptr @ossl_ml_kem_key_new(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ossl_ml_kem_key_new, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_ml_kem_key_new, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 184, ptr noundef nonnull @.str, i32 noundef 1592) #13
   %7 = icmp eq ptr %6, null
@@ -2241,7 +2241,7 @@ kdf.exit:                                         ; preds = %24
 
 scalar_decode.exit.i.i:                           ; preds = %74, %scalar_decode.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %scalar_decode.exit.i.i ], [ 0, %74 ]
-  %76 = getelementptr inbounds nuw [256 x i16], ptr %.016.i.i, i64 0, i64 %indvars.iv.i.i.i
+  %76 = getelementptr inbounds nuw i16, ptr %.016.i.i, i64 %indvars.iv.i.i.i
   %77 = load i16, ptr %76, align 2, !tbaa !36
   %78 = zext i16 %77 to i32
   %79 = mul nuw nsw i32 %78, 3329
@@ -2418,7 +2418,7 @@ scalar_decode.exit.i:                             ; preds = %162
 
 166:                                              ; preds = %166, %scalar_decode.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %scalar_decode.exit.i ], [ %indvars.iv.next.i.i, %166 ]
-  %167 = getelementptr inbounds nuw [256 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %167 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i.i
   %168 = load i16, ptr %167, align 2, !tbaa !36
   %169 = zext i16 %168 to i32
   %170 = mul nuw nsw i32 %169, 3329
@@ -2526,9 +2526,9 @@ scalar_decompress.exit.i:                         ; preds = %166
 
 scalar_inverse_ntt.exit.i:                        ; preds = %.preheader.i.i, %scalar_inverse_ntt.exit.i
   %indvars.iv.i21.i = phi i64 [ %indvars.iv.next.i23.i, %scalar_inverse_ntt.exit.i ], [ 0, %.preheader.i.i ]
-  %228 = getelementptr inbounds nuw [256 x i16], ptr %7, i64 0, i64 %indvars.iv.i21.i
+  %228 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i21.i
   %229 = load i16, ptr %228, align 2, !tbaa !36
-  %230 = getelementptr inbounds nuw [256 x i16], ptr %8, i64 0, i64 %indvars.iv.i21.i
+  %230 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i21.i
   %231 = load i16, ptr %230, align 2, !tbaa !36
   %232 = sub i16 %229, %231
   %233 = add i16 %232, 3329
@@ -2543,7 +2543,7 @@ scalar_inverse_ntt.exit.i:                        ; preds = %.preheader.i.i, %sc
 
 scalar_sub.exit.i:                                ; preds = %scalar_inverse_ntt.exit.i, %scalar_sub.exit.i
   %indvars.iv.i25.i = phi i64 [ %indvars.iv.next.i27.i, %scalar_sub.exit.i ], [ 0, %scalar_inverse_ntt.exit.i ]
-  %237 = getelementptr inbounds nuw [256 x i16], ptr %7, i64 0, i64 %indvars.iv.i25.i
+  %237 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i25.i
   %238 = load i16, ptr %237, align 2, !tbaa !36
   %239 = zext i16 %238 to i32
   %240 = shl nuw nsw i32 %239, 1
@@ -2566,91 +2566,91 @@ scalar_sub.exit.i:                                ; preds = %scalar_inverse_ntt.
   %exitcond.not.i28.i = icmp eq i64 %indvars.iv.next.i27.i, 256
   br i1 %exitcond.not.i28.i, label %.preheader.i29.i, label %scalar_sub.exit.i, !llvm.loop !67
 
-.preheader.i29.i:                                 ; preds = %scalar_sub.exit.i, %261
-  %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %261 ], [ 0, %scalar_sub.exit.i ]
-  %.01316.i.i.idx = phi i64 [ %.01316.i.i.add, %261 ], [ 0, %scalar_sub.exit.i ]
+.preheader.i29.i:                                 ; preds = %scalar_sub.exit.i, %259
+  %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %259 ], [ 0, %scalar_sub.exit.i ]
+  %.01316.i.i.idx = phi i64 [ %.01316.i.i.add, %259 ], [ 0, %scalar_sub.exit.i ]
   %.01316.i.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.01316.i.i.idx
+  %invariant.gep.i.i = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv18.i.i
   br label %251
 
 251:                                              ; preds = %251, %.preheader.i29.i
   %indvars.iv.i30.i = phi i64 [ 0, %.preheader.i29.i ], [ %indvars.iv.next.i31.i, %251 ]
-  %.015.i.i = phi i8 [ 0, %.preheader.i29.i ], [ %260, %251 ]
-  %252 = or disjoint i64 %indvars.iv.i30.i, %indvars.iv18.i.i
-  %253 = getelementptr inbounds nuw [256 x i16], ptr %7, i64 0, i64 %252
-  %254 = load i16, ptr %253, align 2, !tbaa !36
-  %255 = and i16 %254, 1
-  %256 = zext nneg i16 %255 to i32
-  %257 = trunc nuw nsw i64 %indvars.iv.i30.i to i32
-  %258 = shl nuw nsw i32 %256, %257
-  %259 = trunc nuw i32 %258 to i8
-  %260 = or i8 %.015.i.i, %259
+  %.015.i.i = phi i8 [ 0, %.preheader.i29.i ], [ %258, %251 ]
+  %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i30.i
+  %252 = load i16, ptr %gep.i.i, align 2, !tbaa !36
+  %253 = and i16 %252, 1
+  %254 = zext nneg i16 %253 to i32
+  %255 = trunc nuw nsw i64 %indvars.iv.i30.i to i32
+  %256 = shl nuw nsw i32 %254, %255
+  %257 = trunc nuw i32 %256 to i8
+  %258 = or i8 %.015.i.i, %257
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %exitcond.not.i32.i = icmp eq i64 %indvars.iv.next.i31.i, 8
-  br i1 %exitcond.not.i32.i, label %261, label %251, !llvm.loop !68
+  br i1 %exitcond.not.i32.i, label %259, label %251, !llvm.loop !68
 
-261:                                              ; preds = %251
-  store i8 %260, ptr %.01316.i.i.ptr, align 1, !tbaa !41
+259:                                              ; preds = %251
+  store i8 %258, ptr %.01316.i.i.ptr, align 1, !tbaa !41
   %.01316.i.i.add = add nuw nsw i64 %.01316.i.i.idx, 1
   %indvars.iv.next19.i.i = add nuw nsw i64 %indvars.iv18.i.i, 8
   %exitcond.not = icmp eq i64 %.01316.i.i.idx, 31
   br i1 %exitcond.not, label %decrypt_cpa.exit, label %.preheader.i29.i, !llvm.loop !69
 
-decrypt_cpa.exit:                                 ; preds = %261
+decrypt_cpa.exit:                                 ; preds = %259
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %262 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %262, ptr noundef nonnull align 1 dereferenceable(32) %14, i64 32, i1 false)
-  %263 = getelementptr i8, ptr %5, i64 40
-  %.val = load ptr, ptr %263, align 8, !tbaa !24
-  %264 = call fastcc i32 @hash_g(ptr noundef %11, ptr noundef %9, i64 noundef 64, ptr noundef %4, ptr %.val)
-  %.not30 = icmp eq i32 %264, 0
-  br i1 %.not30, label %267, label %265
+  %260 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %260, ptr noundef nonnull align 1 dereferenceable(32) %14, i64 32, i1 false)
+  %261 = getelementptr i8, ptr %5, i64 40
+  %.val = load ptr, ptr %261, align 8, !tbaa !24
+  %262 = call fastcc i32 @hash_g(ptr noundef %11, ptr noundef %9, i64 noundef 64, ptr noundef %4, ptr %.val)
+  %.not30 = icmp eq i32 %262, 0
+  br i1 %.not30, label %265, label %263
 
-265:                                              ; preds = %decrypt_cpa.exit
-  %266 = call fastcc i32 @encrypt_cpa(ptr noundef %2, ptr noundef %9, ptr noundef %12, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
-  %.not31 = icmp eq i32 %266, 0
-  br i1 %.not31, label %267, label %268
+263:                                              ; preds = %decrypt_cpa.exit
+  %264 = call fastcc i32 @encrypt_cpa(ptr noundef %2, ptr noundef %9, ptr noundef %12, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
+  %.not31 = icmp eq i32 %264, 0
+  br i1 %.not31, label %265, label %266
 
-267:                                              ; preds = %265, %decrypt_cpa.exit
+265:                                              ; preds = %263, %decrypt_cpa.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false)
   call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 32) #13
   br label %kdf.exit.thread
 
-268:                                              ; preds = %265
-  %269 = load i64, ptr %18, align 8, !tbaa !55
-  %270 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %269) #13
-  %271 = icmp eq i32 %270, 0
-  %272 = select i1 %271, i32 255, i32 0
-  %273 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %272) #14, !srcloc !70
-  %274 = xor i32 %272, -1
-  %275 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %274) #14, !srcloc !70
-  br label %276
+266:                                              ; preds = %263
+  %267 = load i64, ptr %18, align 8, !tbaa !55
+  %268 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %267) #13
+  %269 = icmp eq i32 %268, 0
+  %270 = select i1 %269, i32 255, i32 0
+  %271 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %270) #14, !srcloc !70
+  %272 = xor i32 %270, -1
+  %273 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %272) #14, !srcloc !70
+  br label %274
 
-276:                                              ; preds = %268, %276
-  %indvars.iv = phi i64 [ 0, %268 ], [ %indvars.iv.next, %276 ]
-  %277 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %indvars.iv
+274:                                              ; preds = %266, %274
+  %indvars.iv = phi i64 [ 0, %266 ], [ %indvars.iv.next, %274 ]
+  %275 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
+  %276 = load i8, ptr %275, align 1, !tbaa !41
+  %277 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %278 = load i8, ptr %277, align 1, !tbaa !41
-  %279 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %indvars.iv
-  %280 = load i8, ptr %279, align 1, !tbaa !41
-  %281 = zext i8 %278 to i32
-  %282 = zext i8 %280 to i32
-  %283 = and i32 %273, %281
-  %284 = and i32 %275, %282
-  %285 = or i32 %284, %283
-  %286 = trunc nuw i32 %285 to i8
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %286, ptr %287, align 1, !tbaa !41
+  %279 = zext i8 %276 to i32
+  %280 = zext i8 %278 to i32
+  %281 = and i32 %271, %279
+  %282 = and i32 %273, %280
+  %283 = or i32 %282, %281
+  %284 = trunc nuw i32 %283 to i8
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %284, ptr %285, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond41.not, label %288, label %276, !llvm.loop !71
+  br i1 %exitcond41.not, label %286, label %274, !llvm.loop !71
 
-288:                                              ; preds = %276
+286:                                              ; preds = %274
   call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 32) #13
   call void @OPENSSL_cleanse(ptr noundef nonnull %11, i64 noundef 64) #13
   br label %kdf.exit.thread
 
-kdf.exit.thread:                                  ; preds = %6, %22, %24, %kdf.exit, %288, %267
-  %.0 = phi i32 [ 1, %288 ], [ 1, %267 ], [ 0, %kdf.exit ], [ 0, %24 ], [ 0, %22 ], [ 0, %6 ]
+kdf.exit.thread:                                  ; preds = %6, %22, %24, %kdf.exit, %286, %265
+  %.0 = phi i32 [ 1, %286 ], [ 1, %265 ], [ 0, %kdf.exit ], [ 0, %24 ], [ 0, %22 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3730,9 +3730,9 @@ gencbd_vector.exit.thread:                        ; preds = %301
 
 337:                                              ; preds = %337, %336
   %indvars.iv.i.i = phi i64 [ 0, %336 ], [ %indvars.iv.next.i.i, %337 ]
-  %338 = getelementptr inbounds nuw [256 x i16], ptr %.03.i, i64 0, i64 %indvars.iv.i.i
+  %338 = getelementptr inbounds nuw i16, ptr %.03.i, i64 %indvars.iv.i.i
   %339 = load i16, ptr %338, align 2, !tbaa !36
-  %340 = getelementptr inbounds nuw [256 x i16], ptr %.02.i, i64 0, i64 %indvars.iv.i.i
+  %340 = getelementptr inbounds nuw i16, ptr %.02.i, i64 %indvars.iv.i.i
   %341 = load i16, ptr %340, align 2, !tbaa !36
   %342 = add i16 %341, %339
   %343 = add i16 %342, -3329
@@ -3764,7 +3764,7 @@ vector_add.exit:                                  ; preds = %scalar_add.exit.i
 
 353:                                              ; preds = %353, %352
   %indvars.iv.i.i77 = phi i64 [ 0, %352 ], [ %indvars.iv.next.i.i79, %353 ]
-  %354 = getelementptr inbounds nuw [256 x i16], ptr %.02.i75, i64 0, i64 %indvars.iv.i.i77
+  %354 = getelementptr inbounds nuw i16, ptr %.02.i75, i64 %indvars.iv.i.i77
   %355 = load i16, ptr %354, align 2, !tbaa !36
   %356 = zext i16 %355 to i32
   %357 = shl i32 %356, %23
@@ -3921,9 +3921,9 @@ cbd_2.exit.thread:                                ; preds = %vector_encode.exit
 
 432:                                              ; preds = %432, %431
   %indvars.iv.i = phi i64 [ 0, %431 ], [ %indvars.iv.next.i, %432 ]
-  %433 = getelementptr inbounds nuw [256 x i16], ptr %11, i64 0, i64 %indvars.iv.i
+  %433 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
   %434 = load i16, ptr %433, align 2, !tbaa !36
-  %435 = getelementptr inbounds nuw [256 x i16], ptr %3, i64 0, i64 %indvars.iv.i
+  %435 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %436 = load i16, ptr %435, align 2, !tbaa !36
   %437 = add i16 %436, %434
   %438 = add i16 %437, -3329
@@ -4060,7 +4060,7 @@ scalar_decode_decompress_add.exit:                ; preds = %scalar_add.exit
 
 536:                                              ; preds = %536, %scalar_decode_decompress_add.exit
   %indvars.iv.i95 = phi i64 [ 0, %scalar_decode_decompress_add.exit ], [ %indvars.iv.next.i97, %536 ]
-  %537 = getelementptr inbounds nuw [256 x i16], ptr %11, i64 0, i64 %indvars.iv.i95
+  %537 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i95
   %538 = load i16, ptr %537, align 2, !tbaa !36
   %539 = zext i16 %538 to i32
   %540 = shl i32 %539, %25

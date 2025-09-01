@@ -822,7 +822,7 @@ define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterato
   %22 = call noundef i64 @llvm.umin.i64(i64 %21, i64 4095)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %14, i64 %22, i1 false)
-  %24 = getelementptr inbounds nuw [4096 x i8], ptr %23, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
   store i8 0, ptr %24, align 1
   br label %25
 
@@ -1466,7 +1466,7 @@ define hidden noundef i64 @_ZNK27NetworkPerformanceInterface18NetworkPerformance
   br i1 %or.cond3, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   store i8 0, ptr %13, align 1
   %14 = call i64 @strtoll(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #18
   br label %15
@@ -1533,7 +1533,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK27NetworkPerformanceInterface18N
   br i1 %or.cond3.i, label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %19
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   store i8 0, ptr %23, align 1
   %24 = call i64 @strtoll(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #18
   br label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit
@@ -1556,7 +1556,7 @@ _ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit:
   br i1 %or.cond3.i19, label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit21, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %30
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %30
   store i8 0, ptr %34, align 1
   %35 = call i64 @strtoll(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #18
   br label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit21
@@ -1660,35 +1660,34 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr readnone captures(non
 7:                                                ; preds = %2
   %8 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 2048, ptr noundef nonnull %5)
   %.not.i = icmp eq i64 %8, -1
-  br i1 %.not.i, label %20, label %9
+  br i1 %.not.i, label %19, label %9
 
 9:                                                ; preds = %7
-  %10 = add nsw i64 %8, -1
-  %11 = getelementptr inbounds [2048 x i8], ptr %3, i64 0, i64 %10
+  %10 = getelementptr i8, ptr %3, i64 %8
+  %11 = getelementptr i8, ptr %10, i64 -1
   store i8 0, ptr %11, align 1
   %12 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 41) #19
   %.not16.i = icmp eq ptr %12, null
-  br i1 %.not16.i, label %20, label %13
+  br i1 %.not16.i, label %19, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %15 = getelementptr inbounds i8, ptr %3, i64 %8
-  %16 = icmp ult ptr %14, %15
-  br i1 %16, label %17, label %20
+  %15 = icmp ult ptr %14, %10
+  br i1 %15, label %16, label %19
 
-17:                                               ; preds = %13
-  %18 = call i32 @__isoc99_vsscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #18
-  %19 = zext i32 %18 to i64
-  br label %20
+16:                                               ; preds = %13
+  %17 = call i32 @__isoc99_vsscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #18
+  %18 = zext i32 %17 to i64
+  br label %19
 
-20:                                               ; preds = %17, %13, %9, %7
-  %.0.i = phi i64 [ %19, %17 ], [ %8, %13 ], [ %8, %9 ], [ -1, %7 ]
-  %21 = call i32 @fclose(ptr noundef nonnull %5)
-  %22 = trunc i64 %.0.i to i32
+19:                                               ; preds = %16, %13, %9, %7
+  %.0.i = phi i64 [ %18, %16 ], [ %8, %13 ], [ %8, %9 ], [ -1, %7 ]
+  %20 = call i32 @fclose(ptr noundef nonnull %5)
+  %21 = trunc i64 %.0.i to i32
   br label %_ZL14vread_statdataPKcS0_P13__va_list_tag.exit
 
-_ZL14vread_statdataPKcS0_P13__va_list_tag.exit:   ; preds = %2, %20
-  %.011.i = phi i32 [ %22, %20 ], [ -1, %2 ]
+_ZL14vread_statdataPKcS0_P13__va_list_tag.exit:   ; preds = %2, %19
+  %.011.i = phi i32 [ %21, %19 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %.011.i

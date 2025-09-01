@@ -1471,9 +1471,9 @@ switch.lookup:                                    ; preds = %314
 447:                                              ; preds = %.noexc47, %418
   %.sroa.0.3.i43 = phi i8 [ %431, %.noexc47 ], [ %.sroa.0.2.i42, %418 ]
   %448 = icmp eq i8 %.sroa.0.3.i43, 0
-  br i1 %448, label %switch.lookup469, label %.noexc19.i
+  br i1 %448, label %switch.lookup470, label %.noexc19.i
 
-switch.lookup469:                                 ; preds = %447
+switch.lookup470:                                 ; preds = %447
   %449 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i34, i64 48
   %450 = load i8, ptr %449, align 8, !range !5, !alias.scope !237, !noalias !240, !noundef !3
   %451 = getelementptr inbounds nuw i8, ptr %.sroa.0.02.i.i, i64 48
@@ -1481,8 +1481,8 @@ switch.lookup469:                                 ; preds = %447
   %453 = call i8 @llvm.ucmp.i8.i8(i8 %452, i8 %450)
   br label %.noexc19.i
 
-.noexc19.i:                                       ; preds = %switch.lookup469, %447
-  %.sroa.0.4.i = phi i8 [ %.sroa.0.3.i43, %447 ], [ %453, %switch.lookup469 ]
+.noexc19.i:                                       ; preds = %switch.lookup470, %447
+  %.sroa.0.4.i = phi i8 [ %.sroa.0.3.i43, %447 ], [ %453, %switch.lookup470 ]
   %454 = icmp eq i8 %.sroa.0.4.i, -1
   %455 = xor i1 %454, true
   %.sroa.05.0.i.i = select i1 %454, ptr %.sroa.0.02.i.i, ptr %.sroa.0.0.i34
@@ -3158,17 +3158,17 @@ switch.lookup:                                    ; preds = %238
 391:                                              ; preds = %"_ZN81_$LT$uv_python..installation..PythonInstallationKey$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h2a7e9ff3864eed47E.llvm.3983314315605116038.exit.i62", %363
   %.sroa.0.3.i.i52 = phi i8 [ %375, %"_ZN81_$LT$uv_python..installation..PythonInstallationKey$u20$as$u20$core..cmp..Ord$GT$3cmp28_$u7b$$u7b$closure$u7d$$u7d$17h2a7e9ff3864eed47E.llvm.3983314315605116038.exit.i62" ], [ %.sroa.0.2.i.i51, %363 ]
   %392 = icmp eq i8 %.sroa.0.3.i.i52, 0
-  br i1 %392, label %switch.lookup443, label %"_ZN81_$LT$uv_python..installation..PythonInstallationKey$u20$as$u20$core..cmp..Ord$GT$3cmp17h9bcb735ea92af00cE.exit.i53"
+  br i1 %392, label %switch.lookup444, label %"_ZN81_$LT$uv_python..installation..PythonInstallationKey$u20$as$u20$core..cmp..Ord$GT$3cmp17h9bcb735ea92af00cE.exit.i53"
 
-switch.lookup443:                                 ; preds = %391
+switch.lookup444:                                 ; preds = %391
   %393 = getelementptr inbounds nuw i8, ptr %.sroa.5.133.i45, i64 48
   %394 = load i8, ptr %393, align 8, !range !5, !alias.scope !749, !noalias !750, !noundef !3
   %395 = load i8, ptr %273, align 8, !range !5, !alias.scope !751, !noalias !752, !noundef !3
   %396 = call i8 @llvm.ucmp.i8.i8(i8 %395, i8 %394)
   br label %"_ZN81_$LT$uv_python..installation..PythonInstallationKey$u20$as$u20$core..cmp..Ord$GT$3cmp17h9bcb735ea92af00cE.exit.i53"
 
-"_ZN81_$LT$uv_python..installation..PythonInstallationKey$u20$as$u20$core..cmp..Ord$GT$3cmp17h9bcb735ea92af00cE.exit.i53": ; preds = %switch.lookup443, %391
-  %.sroa.0.4.i.i54 = phi i8 [ %.sroa.0.3.i.i52, %391 ], [ %396, %switch.lookup443 ]
+"_ZN81_$LT$uv_python..installation..PythonInstallationKey$u20$as$u20$core..cmp..Ord$GT$3cmp17h9bcb735ea92af00cE.exit.i53": ; preds = %switch.lookup444, %391
+  %.sroa.0.4.i.i54 = phi i8 [ %.sroa.0.3.i.i52, %391 ], [ %396, %switch.lookup444 ]
   %397 = icmp ne i8 %.sroa.0.4.i.i54, -1
   %398 = getelementptr inbounds i8, ptr %.sroa.19.134.i44, i64 -88
   %.sroa.01.0.i.i55 = select i1 %397, ptr %2, ptr %398

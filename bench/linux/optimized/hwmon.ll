@@ -717,7 +717,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hwmon_notify_event(ptr noundef %
   br i1 %10, label %29, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr [10 x i32], ptr @__templates_size, i64 0, i64 %9
+  %12 = getelementptr i32, ptr @__templates_size, i64 %9
   %13 = load i32, ptr %12, align 4
   %14 = icmp ugt i32 %13, %2
   br i1 %14, label %15, label %29
@@ -725,7 +725,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hwmon_notify_event(ptr noundef %
 15:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %5, i8 0, i64 37, i1 false), !annotation !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !13
-  %16 = getelementptr [10 x ptr], ptr @__templates, i64 0, i64 %9
+  %16 = getelementptr ptr, ptr @__templates, i64 %9
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %2 to i64
   %19 = getelementptr ptr, ptr %17, i64 %18
@@ -933,9 +933,9 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
 
 102:                                              ; preds = %.preheader69
   %103 = zext nneg i32 %100 to i64
-  %104 = getelementptr [10 x ptr], ptr @__templates, i64 0, i64 %103
+  %104 = getelementptr ptr, ptr @__templates, i64 %103
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr [10 x i32], ptr @__templates_size, i64 0, i64 %103
+  %106 = getelementptr i32, ptr @__templates_size, i64 %103
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %109 = load ptr, ptr %108, align 8

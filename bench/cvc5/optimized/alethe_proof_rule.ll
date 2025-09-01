@@ -141,7 +141,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal5proof18aletheRuleToStringEN
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [118 x ptr], ptr @switch.table._ZN4cvc58internal5proof18aletheRuleToStringENS1_10AletheRuleE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal5proof18aletheRuleToStringENS1_10AletheRuleE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

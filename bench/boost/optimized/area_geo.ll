@@ -13856,7 +13856,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [501 x i8], ptr %12, i64 0, i64 %13
+  %19 = getelementptr inbounds i8, ptr %12, i64 %13
   store i8 0, ptr %19, align 1, !tbaa !24
   br label %20
 
@@ -13900,7 +13900,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds [501 x i8], ptr %33, i64 0, i64 %34
+  %37 = getelementptr inbounds i8, ptr %33, i64 %34
   store i8 0, ptr %37, align 1, !tbaa !24
   store ptr %33, ptr %6, align 8, !tbaa !12
   store ptr %37, ptr %7, align 8, !tbaa !14
@@ -22600,7 +22600,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
 
 .preheader613:                                    ; preds = %408, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit
   %.0130775 = phi i64 [ %427, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit ], [ 0, %408 ]
-  %416 = getelementptr inbounds nuw [4 x %"struct.std::pair.158"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 0, i64 %.0130775
+  %416 = getelementptr inbounds nuw %"struct.std::pair.158", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 %.0130775
   %417 = load ptr, ptr %416, align 16, !tbaa !524
   %.not.i284 = icmp eq ptr %417, null
   br i1 %.not.i284, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit, label %418
@@ -23133,7 +23133,7 @@ _ZN5boost9unit_test15unit_test_log_t13get_formatterENS0_13output_formatE.exit.th
 
 .preheader:                                       ; preds = %587, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339
   %.0127776 = phi i64 [ %601, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339 ], [ 0, %587 ]
-  %588 = getelementptr inbounds nuw [11 x %"struct.std::pair.155"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 0, i64 %.0127776
+  %588 = getelementptr inbounds nuw %"struct.std::pair.155", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 %.0127776
   %589 = load ptr, ptr %588, align 16, !tbaa !548
   %.not.i329 = icmp eq ptr %589, null
   br i1 %.not.i329, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339, label %590
@@ -40769,7 +40769,7 @@ _ZN5boost9unit_test9framework20current_test_case_idEv.exit: ; preds = %_ZN5boost
 
 switch.lookup:                                    ; preds = %_ZN5boost9unit_test9framework20current_test_case_idEv.exit
   %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
   %24 = load i64, ptr %23, align 8, !tbaa !336
@@ -41715,13 +41715,13 @@ _ZN5boost9unit_test9framework16test_in_progressEv.exit: ; preds = %7, %13, %16
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %spec.select to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = zext nneg i32 %spec.select to i64
-  %switch.gep17 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.579, i64 0, i64 %28
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.579, i64 %28
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %29 = zext nneg i32 %spec.select to i64
-  %switch.gep19 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.580, i64 0, i64 %29
+  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.580, i64 %29
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   %30 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -42254,7 +42254,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit204: ; preds = %_ZN5boost9unit
   %236 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %24)
   %237 = add nsw i32 %4, -2
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %238
   %240 = load ptr, ptr %239, align 8, !tbaa !174
   store ptr %240, ptr %25, align 8, !tbaa !12
   %strlen.i.i206 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %240)
@@ -42301,7 +42301,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit221: ; preds = %_ZN5boost9unit
   store ptr getelementptr inbounds nuw (i8, ptr @.str.226, i64 2), ptr %254, align 8, !tbaa !14
   %255 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %28)
   %256 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(9) %224)
-  %257 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %238
+  %257 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %238
   %258 = load ptr, ptr %257, align 8, !tbaa !174
   store ptr %258, ptr %29, align 8, !tbaa !12
   %strlen.i.i219 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %258)
@@ -44443,7 +44443,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit184: ; preds = %208,
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit186: ; preds = %219, %227
   %230 = add nsw i32 %4, -2
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !174
   %234 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #57
   %235 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %233, i64 noundef %234)
@@ -44496,7 +44496,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit194: ; preds = %_ZSt
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = tail call noundef nonnull align 8 dereferenceable(8) ptr %261(ptr noundef nonnull align 8 dereferenceable(9) %205, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %263 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %231
+  %263 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %231
   %264 = load ptr, ptr %263, align 8, !tbaa !174
   %265 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #57
   %266 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull %264, i64 noundef %265)
@@ -52179,7 +52179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.split
-  %106 = getelementptr inbounds nuw [7 x i8], ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 0, i64 %.01030
+  %106 = getelementptr inbounds nuw i8, ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 %.01030
   %107 = load i8, ptr %106, align 1, !tbaa !24
   br label %.lr.ph.i
 
@@ -73666,7 +73666,7 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_sta
 
 18:                                               ; preds = %16, %14, %4
   %19 = zext i32 %3 to i64
-  %20 = getelementptr inbounds nuw [5 x %"class.boost::unit_test::basic_cstring"], ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %20, align 16, !tbaa !12
   store ptr %22, ptr %21, align 8, !tbaa !12
@@ -161935,14 +161935,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit143: ; preds = %29
   %397 = add nsw i64 %.02427.i.i, -1
   %398 = fneg double %.029.i.i
   %399 = call double @llvm.fmuladd.f64(double %395, double %.02328.i.i, double %398)
-  %400 = add nsw i64 %.126.i.i, -1
-  %401 = getelementptr inbounds nuw [9 x double], ptr %27, i64 0, i64 %400
+  %400 = getelementptr double, ptr %27, i64 %.126.i.i
+  %401 = getelementptr i8, ptr %400, i64 -8
   %402 = load double, ptr %401, align 8, !tbaa !1478
   %403 = fadd double %399, %402
   %404 = fneg double %.02328.i.i
   %405 = call double @llvm.fmuladd.f64(double %395, double %403, double %404)
   %406 = add nsw i64 %.126.i.i, -2
-  %407 = getelementptr inbounds nuw [9 x double], ptr %27, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw double, ptr %27, i64 %406
   %408 = load double, ptr %407, align 8, !tbaa !1478
   %409 = fadd double %408, %405
   %.not.i.i146 = icmp eq i64 %397, 0
@@ -161963,14 +161963,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C1ILm8EdEEEET_
   %415 = add nsw i64 %.02427.i15.i, -1
   %416 = fneg double %.029.i13.i
   %417 = call double @llvm.fmuladd.f64(double %413, double %.02328.i14.i, double %416)
-  %418 = add nsw i64 %.126.i16.i, -1
-  %419 = getelementptr inbounds nuw [9 x double], ptr %27, i64 0, i64 %418
+  %418 = getelementptr double, ptr %27, i64 %.126.i16.i
+  %419 = getelementptr i8, ptr %418, i64 -8
   %420 = load double, ptr %419, align 8, !tbaa !1478
   %421 = fadd double %417, %420
   %422 = fneg double %.02328.i14.i
   %423 = call double @llvm.fmuladd.f64(double %413, double %421, double %422)
   %424 = add nsw i64 %.126.i16.i, -2
-  %425 = getelementptr inbounds nuw [9 x double], ptr %27, i64 0, i64 %424
+  %425 = getelementptr inbounds nuw double, ptr %27, i64 %424
   %426 = load double, ptr %425, align 8, !tbaa !1478
   %427 = fadd double %426, %423
   %.not.i17.i = icmp eq i64 %415, 0
@@ -162326,14 +162326,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit160: ; preds = %55
   %630 = add nsw i64 %.02427.i.i163, -1
   %631 = fneg double %.029.i.i161
   %632 = call double @llvm.fmuladd.f64(double %628, double %.02328.i.i162, double %631)
-  %633 = add nsw i64 %.126.i.i164, -1
-  %634 = getelementptr inbounds nuw [9 x double], ptr %40, i64 0, i64 %633
+  %633 = getelementptr double, ptr %40, i64 %.126.i.i164
+  %634 = getelementptr i8, ptr %633, i64 -8
   %635 = load double, ptr %634, align 8, !tbaa !1478
   %636 = fadd double %632, %635
   %637 = fneg double %.02328.i.i162
   %638 = call double @llvm.fmuladd.f64(double %628, double %636, double %637)
   %639 = add nsw i64 %.126.i.i164, -2
-  %640 = getelementptr inbounds nuw [9 x double], ptr %40, i64 0, i64 %639
+  %640 = getelementptr inbounds nuw double, ptr %40, i64 %639
   %641 = load double, ptr %640, align 8, !tbaa !1478
   %642 = fadd double %641, %638
   %.not.i.i165 = icmp eq i64 %630, 0
@@ -162356,14 +162356,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C1ILm8EdEEEET_
   %650 = add nsw i64 %.02427.i15.i169, -1
   %651 = fneg double %.029.i13.i167
   %652 = call double @llvm.fmuladd.f64(double %648, double %.02328.i14.i168, double %651)
-  %653 = add nsw i64 %.126.i16.i170, -1
-  %654 = getelementptr inbounds nuw [9 x double], ptr %40, i64 0, i64 %653
+  %653 = getelementptr double, ptr %40, i64 %.126.i16.i170
+  %654 = getelementptr i8, ptr %653, i64 -8
   %655 = load double, ptr %654, align 8, !tbaa !1478
   %656 = fadd double %652, %655
   %657 = fneg double %.02328.i14.i168
   %658 = call double @llvm.fmuladd.f64(double %648, double %656, double %657)
   %659 = add nsw i64 %.126.i16.i170, -2
-  %660 = getelementptr inbounds nuw [9 x double], ptr %40, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw double, ptr %40, i64 %659
   %661 = load double, ptr %660, align 8, !tbaa !1478
   %662 = fadd double %661, %658
   %.not.i17.i171 = icmp eq i64 %650, 0
@@ -163356,14 +163356,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit130: ; preds = %12
   %174 = add nsw i64 %.02427.i, -1
   %175 = fneg double %.029.i
   %176 = call double @llvm.fmuladd.f64(double %170, double %.02328.i, double %175)
-  %177 = add nsw i64 %.126.i, -1
-  %178 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %177
+  %177 = getelementptr double, ptr %27, i64 %.126.i
+  %178 = getelementptr i8, ptr %177, i64 -8
   %179 = load double, ptr %178, align 8, !tbaa !1478
   %180 = fadd double %176, %179
   %181 = fneg double %.02328.i
   %182 = call double @llvm.fmuladd.f64(double %170, double %180, double %181)
   %183 = add nsw i64 %.126.i, -2
-  %184 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw double, ptr %27, i64 %183
   %185 = load double, ptr %184, align 8, !tbaa !1478
   %186 = fadd double %185, %182
   %.not.i = icmp eq i64 %174, 0
@@ -163386,14 +163386,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_
   %194 = add nsw i64 %.02427.i134, -1
   %195 = fneg double %.029.i132
   %196 = call double @llvm.fmuladd.f64(double %192, double %.02328.i133, double %195)
-  %197 = add nsw i64 %.126.i135, -1
-  %198 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %197
+  %197 = getelementptr double, ptr %27, i64 %.126.i135
+  %198 = getelementptr i8, ptr %197, i64 -8
   %199 = load double, ptr %198, align 8, !tbaa !1478
   %200 = fadd double %196, %199
   %201 = fneg double %.02328.i133
   %202 = call double @llvm.fmuladd.f64(double %192, double %200, double %201)
   %203 = add nsw i64 %.126.i135, -2
-  %204 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw double, ptr %27, i64 %203
   %205 = load double, ptr %204, align 8, !tbaa !1478
   %206 = fadd double %205, %202
   %.not.i136 = icmp eq i64 %194, 0
@@ -163652,7 +163652,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry16series_expansion9coeffs_C3I
 _ZN5boost8geometry4math15horner_evaluateIdPdEET_RKS4_T0_S7_.exit.i: ; preds = %101
   %105 = fmul double %.019.i, %98
   %106 = fmul double %105, %104
-  %107 = getelementptr inbounds nuw [8 x double], ptr %0, i64 0, i64 %.01518.i
+  %107 = getelementptr inbounds nuw double, ptr %0, i64 %.01518.i
   store double %106, ptr %107, align 8, !tbaa !1478
   %108 = add i64 %97, %.01617.i
   %109 = add nuw nsw i64 %.01518.i, 1
@@ -166346,14 +166346,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit143: ; preds = %29
   %370 = add nsw i64 %.02427.i.i, -1
   %371 = fneg double %.029.i.i
   %372 = call double @llvm.fmuladd.f64(double %368, double %.02328.i.i, double %371)
-  %373 = add nsw i64 %.126.i.i, -1
-  %374 = getelementptr inbounds nuw [5 x double], ptr %27, i64 0, i64 %373
+  %373 = getelementptr double, ptr %27, i64 %.126.i.i
+  %374 = getelementptr i8, ptr %373, i64 -8
   %375 = load double, ptr %374, align 8, !tbaa !1478
   %376 = fadd double %372, %375
   %377 = fneg double %.02328.i.i
   %378 = call double @llvm.fmuladd.f64(double %368, double %376, double %377)
   %379 = add nsw i64 %.126.i.i, -2
-  %380 = getelementptr inbounds nuw [5 x double], ptr %27, i64 0, i64 %379
+  %380 = getelementptr inbounds nuw double, ptr %27, i64 %379
   %381 = load double, ptr %380, align 8, !tbaa !1478
   %382 = fadd double %381, %378
   %.not.i.i146 = icmp eq i64 %370, 0
@@ -166374,14 +166374,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C1ILm4EdEEEET_
   %388 = add nsw i64 %.02427.i15.i, -1
   %389 = fneg double %.029.i13.i
   %390 = call double @llvm.fmuladd.f64(double %386, double %.02328.i14.i, double %389)
-  %391 = add nsw i64 %.126.i16.i, -1
-  %392 = getelementptr inbounds nuw [5 x double], ptr %27, i64 0, i64 %391
+  %391 = getelementptr double, ptr %27, i64 %.126.i16.i
+  %392 = getelementptr i8, ptr %391, i64 -8
   %393 = load double, ptr %392, align 8, !tbaa !1478
   %394 = fadd double %390, %393
   %395 = fneg double %.02328.i14.i
   %396 = call double @llvm.fmuladd.f64(double %386, double %394, double %395)
   %397 = add nsw i64 %.126.i16.i, -2
-  %398 = getelementptr inbounds nuw [5 x double], ptr %27, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw double, ptr %27, i64 %397
   %399 = load double, ptr %398, align 8, !tbaa !1478
   %400 = fadd double %399, %396
   %.not.i17.i = icmp eq i64 %388, 0
@@ -166704,14 +166704,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit160: ; preds = %52
   %574 = add nsw i64 %.02427.i.i163, -1
   %575 = fneg double %.029.i.i161
   %576 = call double @llvm.fmuladd.f64(double %572, double %.02328.i.i162, double %575)
-  %577 = add nsw i64 %.126.i.i164, -1
-  %578 = getelementptr inbounds nuw [5 x double], ptr %40, i64 0, i64 %577
+  %577 = getelementptr double, ptr %40, i64 %.126.i.i164
+  %578 = getelementptr i8, ptr %577, i64 -8
   %579 = load double, ptr %578, align 8, !tbaa !1478
   %580 = fadd double %576, %579
   %581 = fneg double %.02328.i.i162
   %582 = call double @llvm.fmuladd.f64(double %572, double %580, double %581)
   %583 = add nsw i64 %.126.i.i164, -2
-  %584 = getelementptr inbounds nuw [5 x double], ptr %40, i64 0, i64 %583
+  %584 = getelementptr inbounds nuw double, ptr %40, i64 %583
   %585 = load double, ptr %584, align 8, !tbaa !1478
   %586 = fadd double %585, %582
   %.not.i.i165 = icmp eq i64 %574, 0
@@ -166734,14 +166734,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C1ILm4EdEEEET_
   %594 = add nsw i64 %.02427.i15.i169, -1
   %595 = fneg double %.029.i13.i167
   %596 = call double @llvm.fmuladd.f64(double %592, double %.02328.i14.i168, double %595)
-  %597 = add nsw i64 %.126.i16.i170, -1
-  %598 = getelementptr inbounds nuw [5 x double], ptr %40, i64 0, i64 %597
+  %597 = getelementptr double, ptr %40, i64 %.126.i16.i170
+  %598 = getelementptr i8, ptr %597, i64 -8
   %599 = load double, ptr %598, align 8, !tbaa !1478
   %600 = fadd double %596, %599
   %601 = fneg double %.02328.i14.i168
   %602 = call double @llvm.fmuladd.f64(double %592, double %600, double %601)
   %603 = add nsw i64 %.126.i16.i170, -2
-  %604 = getelementptr inbounds nuw [5 x double], ptr %40, i64 0, i64 %603
+  %604 = getelementptr inbounds nuw double, ptr %40, i64 %603
   %605 = load double, ptr %604, align 8, !tbaa !1478
   %606 = fadd double %605, %602
   %.not.i17.i171 = icmp eq i64 %594, 0
@@ -167633,7 +167633,7 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit130: ; preds = %12
 _ZN5boost8geometry4math15horner_evaluateIdPdEET_RKS4_T0_S7_.exit.i.i: ; preds = %196
   %200 = fmul double %165, %.019.i.i
   %201 = fmul double %200, %199
-  %202 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %.01518.i.i
+  %202 = getelementptr inbounds nuw double, ptr %28, i64 %.01518.i.i
   store double %201, ptr %202, align 8, !tbaa !1478
   %203 = add i64 %193, %.01617.i.i
   %204 = add nuw nsw i64 %.01518.i.i, 1

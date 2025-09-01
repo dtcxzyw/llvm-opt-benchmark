@@ -874,7 +874,7 @@ strcspn_escaped.exit.i.i:                         ; preds = %35, %.preheader52.i
   %113 = phi i8 [ %106, %105 ], [ %109, %107 ]
   %.1.i.i.i.i = phi ptr [ %.0.i.i.i.i, %105 ], [ %108, %107 ]
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !11
   %117 = and i8 %116, 6
   %.not.i.i.i.i.i = icmp eq i8 %117, 0
@@ -945,7 +945,7 @@ parse_pathspec_attr_match.exit.i.i:               ; preds = %.critedge.i.i.i
 
 .preheader.i.i:                                   ; preds = %56, %147
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %147 ], [ 0, %56 ]
-  %140 = getelementptr inbounds nuw [6 x %struct.pathspec_magic], ptr @pathspec_magic, i64 0, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw %struct.pathspec_magic, ptr @pathspec_magic, i64 %indvars.iv.i.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !59
   %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #19
@@ -1000,7 +1000,7 @@ parse_long_magic.exit.i:                          ; preds = %29
 
 158:                                              ; preds = %.preheader.i
   %159 = zext i8 %157 to i64
-  %160 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !11
   %162 = and i8 %161, 32
   %.not25.i.i = icmp eq i8 %162, 0
@@ -1013,7 +1013,7 @@ parse_long_magic.exit.i:                          ; preds = %29
 
 .preheader.i11.i:                                 ; preds = %158, %163
   %indvars.iv.i12.i = phi i64 [ %indvars.iv.next.i13.i, %163 ], [ 0, %158 ]
-  %164 = getelementptr inbounds nuw [6 x %struct.pathspec_magic], ptr @pathspec_magic, i64 0, i64 %indvars.iv.i12.i
+  %164 = getelementptr inbounds nuw %struct.pathspec_magic, ptr @pathspec_magic, i64 %indvars.iv.i12.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = load i8, ptr %165, align 4, !tbaa !58
   %167 = icmp eq i8 %166, %157
@@ -1327,7 +1327,7 @@ get_literal_global.exit:                          ; preds = %269, %272
 
 283:                                              ; preds = %308, %280
   %indvars.iv.i = phi i64 [ 0, %280 ], [ %indvars.iv.next.i, %308 ]
-  %284 = getelementptr inbounds nuw [6 x %struct.pathspec_magic], ptr @pathspec_magic, i64 0, i64 %indvars.iv.i
+  %284 = getelementptr inbounds nuw %struct.pathspec_magic, ptr @pathspec_magic, i64 %indvars.iv.i
   %285 = load i32, ptr %284, align 16, !tbaa !54
   %286 = and i32 %285, %.095103118132
   %.not24.i = icmp eq i32 %286, 0

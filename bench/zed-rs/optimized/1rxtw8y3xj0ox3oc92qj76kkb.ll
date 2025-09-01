@@ -306,9 +306,9 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   unreachable
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %106
+  %113 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %106
   %114 = load i8, ptr %113, align 1, !alias.scope !35, !noalias !41, !noundef !12
-  %115 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %109
+  %115 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %109
   %116 = load i8, ptr %115, align 1, !alias.scope !32, !noalias !37, !noundef !12
   %.not.i35 = icmp eq i8 %114, %116
   br i1 %.not.i35, label %.preheader79, label %118
@@ -323,9 +323,9 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 
 120:                                              ; preds = %101
   %121 = add nuw i64 %.sroa.04.0.i33, 1
-  %122 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i33
+  %122 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %.sroa.04.0.i33
   %123 = load i8, ptr %122, align 1, !alias.scope !35, !noalias !41, !noundef !12
-  %124 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %102
+  %124 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %102
   %125 = load i8, ptr %124, align 1, !alias.scope !32, !noalias !37, !noundef !12
   %.not24.i37 = icmp eq i8 %123, %125
   br i1 %.not24.i37, label %99, label %128
@@ -403,9 +403,9 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   unreachable
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %153
+  %159 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %153
   %160 = load i8, ptr %159, align 1, !alias.scope !45, !noalias !51, !noundef !12
-  %161 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %155
+  %161 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %155
   %162 = load i8, ptr %161, align 1, !alias.scope !42, !noalias !47, !noundef !12
   %.not.i = icmp eq i8 %160, %162
   br i1 %.not.i, label %.preheader, label %164
@@ -420,9 +420,9 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 
 166:                                              ; preds = %149
   %167 = add nuw i64 %.sroa.04.0.i, 1
-  %168 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i
+  %168 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %.sroa.04.0.i
   %169 = load i8, ptr %168, align 1, !alias.scope !45, !noalias !51, !noundef !12
-  %170 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %150
+  %170 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %150
   %171 = load i8, ptr %170, align 1, !alias.scope !42, !noalias !47, !noundef !12
   %.not24.i = icmp eq i8 %169, %171
   br i1 %.not24.i, label %.preheader77, label %174

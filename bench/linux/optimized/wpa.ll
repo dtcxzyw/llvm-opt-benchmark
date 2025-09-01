@@ -1006,7 +1006,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   %99 = load i32, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %101 = sext i32 %99 to i64
-  %102 = getelementptr [17 x [6 x i8]], ptr %100, i64 0, i64 %101
+  %102 = getelementptr [6 x i8], ptr %100, i64 %101
   %103 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef dereferenceable(6) %102, i64 noundef 6)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %109, label %105
@@ -1604,7 +1604,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   %98 = load i32, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %100 = sext i32 %98 to i64
-  %101 = getelementptr [17 x [6 x i8]], ptr %99, i64 0, i64 %100
+  %101 = getelementptr [6 x i8], ptr %99, i64 %100
   %102 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef dereferenceable(6) %101, i64 noundef 6)
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %108, label %104

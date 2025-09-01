@@ -241,7 +241,7 @@ handle_args.exit:                                 ; preds = %66
   %105 = sub nuw nsw i32 32, %104
   %narrow.i = select i1 %.not32.i, i32 0, i32 %105
   %.027.lcssa.i = zext nneg i32 %narrow.i to i64
-  %106 = getelementptr inbounds nuw [32 x i64], ptr @histogram, i64 0, i64 %.027.lcssa.i
+  %106 = getelementptr inbounds nuw i64, ptr @histogram, i64 %.027.lcssa.i
   %107 = load i64, ptr %106, align 8
   %108 = add i64 %107, 1
   store i64 %108, ptr %106, align 8
@@ -283,7 +283,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
 
 131:                                              ; preds = %135, %test_timing.exit
   %.028.i = phi i64 [ 31, %test_timing.exit ], [ %136, %135 ]
-  %132 = getelementptr inbounds nuw [32 x i64], ptr @histogram, i64 0, i64 %.028.i
+  %132 = getelementptr inbounds nuw i64, ptr @histogram, i64 %.028.i
   %133 = load i64, ptr %132, align 8
   %134 = icmp eq i64 %133, 0
   br i1 %134, label %135, label %.critedge.i
@@ -303,7 +303,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.i
   %.02730.i = phi i64 [ %147, %.lr.ph.i ], [ 0, %.critedge.i ]
   %140 = shl nuw i64 1, %.02730.i
-  %141 = getelementptr inbounds nuw [32 x i64], ptr @histogram, i64 0, i64 %.02730.i
+  %141 = getelementptr inbounds nuw i64, ptr @histogram, i64 %.02730.i
   %142 = load i64, ptr %141, align 8
   %143 = sitofp i64 %142 to double
   %144 = fmul double %143, 1.000000e+02

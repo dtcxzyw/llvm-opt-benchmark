@@ -4066,7 +4066,7 @@ define internal void @_ZNK7V3Sched12_GLOBAL__N_123SchedReplicateVarVertex8dotSha
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_123SchedReplicateVarVertex8dotShapeB5cxx11Ev, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_123SchedReplicateVarVertex8dotShapeB5cxx11Ev, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK6AstVar14isPrimaryInishEv.exit
 

@@ -594,7 +594,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   %218 = phi i32 [ %221, %.lr.ph ], [ %217, %216 ]
   %219 = call ptr @xsignal(i32 noundef %218, ptr noundef nonnull @_signal_while_allocating) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %220 = getelementptr inbounds nuw [8 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
+  %220 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
   %221 = load i32, ptr %220, align 4
   %.not287 = icmp eq i32 %221, 0
   br i1 %.not287, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -1461,7 +1461,7 @@ _fork_command.exit:                               ; preds = %477, %479
 
 switch.lookup:                                    ; preds = %604
   %608 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.main, i64 0, i64 %608
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %608
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_forward_signal.exit
 

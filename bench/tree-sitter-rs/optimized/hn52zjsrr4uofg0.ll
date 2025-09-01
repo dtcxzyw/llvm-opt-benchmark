@@ -79,7 +79,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff1b55dddd5461f6E.exit.i.i.i": ; preds = %21
   %.val.i.i.i = load ptr, ptr %16, align 8, !noalias !15, !nonnull !10, !noundef !10
-  %25 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %.val.i.i.i, i64 0, i64 %22
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val.i.i.i, i64 %22
   %26 = load ptr, ptr %25, align 8, !noalias !15, !nonnull !10, !align !21, !noundef !10
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !15, !noundef !10
@@ -927,7 +927,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hff1b55dddd5461f6E.exit.i.i": ; preds = %25
   %.val.i.i = load ptr, ptr %15, align 8, !noalias !294, !nonnull !10, !noundef !10
-  %29 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %.val.i.i, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val.i.i, i64 %26
   %30 = load ptr, ptr %29, align 8, !noalias !294, !nonnull !10, !align !21, !noundef !10
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !294, !noundef !10

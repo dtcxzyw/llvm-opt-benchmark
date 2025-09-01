@@ -376,7 +376,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv11TBitblasterINS0_12
 
 21:                                               ; preds = %21, %17
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %21 ]
-  %22 = getelementptr inbounds nuw [378 x ptr], ptr %20, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   store ptr @_ZN4cvc58internal6theory2bv23UndefinedAtomBBStrategyINS0_12NodeTemplateILb1EEEEET_NS4_ILb0EEEPNS2_11TBitblasterIS6_EE, ptr %22, align 8, !tbaa !49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 378
@@ -406,7 +406,7 @@ _ZN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEE20initAtomBBS
 
 33:                                               ; preds = %33, %_ZN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEE20initAtomBBStrategiesEv.exit
   %indvars.iv.i4 = phi i64 [ 0, %_ZN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEE20initAtomBBStrategiesEv.exit ], [ %indvars.iv.next.i5, %33 ]
-  %34 = getelementptr inbounds nuw [378 x ptr], ptr %32, i64 0, i64 %indvars.iv.i4
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i4
   store ptr @_ZN4cvc58internal6theory2bv12DefaultVarBBINS0_12NodeTemplateILb1EEEEEvNS4_ILb0EEERSt6vectorIT_SaIS8_EEPNS2_11TBitblasterIS8_EE, ptr %34, align 8, !tbaa !49
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 378
@@ -521,7 +521,7 @@ define hidden void @_ZN4cvc58internal6theory2bv14NodeBitblaster6bbAtomENS0_12Nod
   %18 = icmp eq i32 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !59, !noalias !56
   %.pre = load ptr, ptr %1, align 8, !tbaa !53
   %.not.i = icmp eq ptr %.pre, %22
@@ -560,7 +560,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %2, %16, %23
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3160
   %39 = and i64 %34, 1023
-  %40 = getelementptr inbounds nuw [378 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !49
   store ptr %32, ptr %7, align 8, !tbaa !53
   invoke void %41(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate.318") align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %0)
@@ -795,7 +795,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2bv14NodeBitblaster9h
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !59, !noalias !65
   %16 = load ptr, ptr %1, align 8, !tbaa !53
   %.not.i = icmp eq ptr %16, %15
@@ -1129,7 +1129,7 @@ define hidden void @_ZN4cvc58internal6theory2bv14NodeBitblaster6bbTermENS0_12Nod
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 1023
-  %18 = getelementptr inbounds nuw [378 x ptr], ptr %13, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !49
   store ptr %14, ptr %6, align 8, !tbaa !53
   call void %19(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %0)
@@ -1440,7 +1440,7 @@ define hidden void @_ZN4cvc58internal6theory2bv14NodeBitblaster15getStoredBBAtom
   %13 = icmp eq i32 %12, 2
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = zext i1 %13 to i64
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !59, !noalias !86
   %18 = load ptr, ptr %2, align 8, !tbaa !53
   %.not.i = icmp eq ptr %18, %17
@@ -1722,7 +1722,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !59
   store ptr %15, ptr %0, align 8, !tbaa !61
   %16 = load i64, ptr %15, align 8
@@ -2663,7 +2663,7 @@ define hidden void @_ZN4cvc58internal6theory2bv14NodeBitblaster19applyAtomBBStra
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 1023
-  %10 = getelementptr inbounds nuw [378 x ptr], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !49
   store ptr %6, ptr %4, align 8, !tbaa !53
   call void %11(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate.318") align 8 %0, ptr noundef nonnull %4, ptr noundef nonnull %1)
@@ -3451,7 +3451,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv11DefaultEqBBINS0_12
   %24 = icmp eq i32 %22, 2
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %26 = zext i1 %24 to i64
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !59, !noalias !120
   store ptr %28, ptr %9, align 8, !tbaa !53, !alias.scope !120
   %29 = load ptr, ptr %2, align 8, !tbaa !3
@@ -3476,7 +3476,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv11DefaultEqBBINS0_12
   %42 = icmp eq i32 %40, 2
   %spec.select.i.i = select i1 %42, i64 2, i64 1
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %spec.select.i.i
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %spec.select.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !59, !noalias !123
   store ptr %45, ptr %10, align 8, !tbaa !53, !alias.scope !123
   %46 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4031,7 +4031,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultUltBBINS0_1
   %17 = icmp eq i32 %15, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = zext i1 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !133
   store ptr %21, ptr %6, align 8, !tbaa !53, !alias.scope !133
   %22 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4056,7 +4056,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultUltBBINS0_1
   %35 = icmp eq i32 %33, 2
   %spec.select.i.i = select i1 %35, i64 2, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %spec.select.i.i
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %spec.select.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !59, !noalias !136
   store ptr %38, ptr %7, align 8, !tbaa !53, !alias.scope !136
   %39 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4239,7 +4239,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultUleBBINS0_1
   %17 = icmp eq i32 %15, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = zext i1 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !139
   store ptr %21, ptr %6, align 8, !tbaa !53, !alias.scope !139
   %22 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4264,7 +4264,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultUleBBINS0_1
   %35 = icmp eq i32 %33, 2
   %spec.select.i.i = select i1 %35, i64 2, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %spec.select.i.i
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %spec.select.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !59, !noalias !142
   store ptr %38, ptr %7, align 8, !tbaa !53, !alias.scope !142
   %39 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4493,7 +4493,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultSltBBINS0_1
   %17 = icmp eq i32 %15, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = zext i1 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !145
   store ptr %21, ptr %6, align 8, !tbaa !53, !alias.scope !145
   %22 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4518,7 +4518,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultSltBBINS0_1
   %35 = icmp eq i32 %33, 2
   %spec.select.i.i = select i1 %35, i64 2, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %spec.select.i.i
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %spec.select.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !59, !noalias !148
   store ptr %38, ptr %7, align 8, !tbaa !53, !alias.scope !148
   %39 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4701,7 +4701,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultSleBBINS0_1
   %17 = icmp eq i32 %15, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = zext i1 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !151
   store ptr %21, ptr %6, align 8, !tbaa !53, !alias.scope !151
   %22 = load ptr, ptr %2, align 8, !tbaa !3
@@ -4726,7 +4726,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultSleBBINS0_1
   %35 = icmp eq i32 %33, 2
   %spec.select.i.i = select i1 %35, i64 2, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %spec.select.i.i
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %spec.select.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !59, !noalias !154
   store ptr %38, ptr %7, align 8, !tbaa !53, !alias.scope !154
   %39 = load ptr, ptr %2, align 8, !tbaa !3
@@ -9194,7 +9194,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultNotBBINS0_1
   %15 = icmp eq i32 %13, 2
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = zext i1 %15 to i64
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !59, !noalias !294
   store ptr %19, ptr %5, align 8, !tbaa !53, !alias.scope !294
   %20 = load ptr, ptr %2, align 8, !tbaa !3
@@ -9332,7 +9332,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv15DefaultConcatBBINS
   %spec.select.i.i = add nuw nsw i32 %.035126, %37
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = zext nneg i32 %spec.select.i.i to i64
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !59, !noalias !297
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -9514,7 +9514,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultAndBBINS0_1
   %22 = icmp eq i32 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !59, !noalias !302
   store ptr %26, ptr %7, align 8, !tbaa !53, !alias.scope !302
   %27 = load ptr, ptr %2, align 8, !tbaa !3
@@ -9634,7 +9634,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   %spec.select.i.i = add nsw i32 %.015, %87
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %89 = sext i32 %spec.select.i.i to i64
-  %90 = getelementptr inbounds [0 x ptr], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !59, !noalias !305
   store ptr %91, ptr %9, align 8, !tbaa !53, !alias.scope !305
   %92 = load ptr, ptr %2, align 8, !tbaa !3
@@ -10030,7 +10030,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv11DefaultOrBBINS0_12
   %22 = icmp eq i32 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !59, !noalias !316
   store ptr %26, ptr %7, align 8, !tbaa !53, !alias.scope !316
   %27 = load ptr, ptr %2, align 8, !tbaa !3
@@ -10150,7 +10150,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   %spec.select.i.i = add nsw i32 %.015, %87
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %89 = sext i32 %spec.select.i.i to i64
-  %90 = getelementptr inbounds [0 x ptr], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !59, !noalias !319
   store ptr %91, ptr %9, align 8, !tbaa !53, !alias.scope !319
   %92 = load ptr, ptr %2, align 8, !tbaa !3
@@ -10546,7 +10546,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultXorBBINS0_1
   %22 = icmp eq i32 %21, 2
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = zext i1 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !59, !noalias !330
   store ptr %26, ptr %7, align 8, !tbaa !53, !alias.scope !330
   %27 = load ptr, ptr %2, align 8, !tbaa !3
@@ -10666,7 +10666,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   %spec.select.i.i = add nsw i32 %.015, %87
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %89 = sext i32 %spec.select.i.i to i64
-  %90 = getelementptr inbounds [0 x ptr], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !59, !noalias !333
   store ptr %91, ptr %9, align 8, !tbaa !53, !alias.scope !333
   %92 = load ptr, ptr %2, align 8, !tbaa !3
@@ -11069,7 +11069,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultXnorBBINS0_
   %23 = icmp eq i32 %21, 2
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %25 = zext i1 %23 to i64
-  %26 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !59, !noalias !344
   store ptr %27, ptr %9, align 8, !tbaa !53, !alias.scope !344
   %28 = load ptr, ptr %2, align 8, !tbaa !3
@@ -11094,7 +11094,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultXnorBBINS0_
   %41 = icmp eq i32 %39, 2
   %spec.select.i.i = select i1 %41, i64 2, i64 1
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %43 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %spec.select.i.i
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %spec.select.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !59, !noalias !347
   store ptr %44, ptr %10, align 8, !tbaa !53, !alias.scope !347
   %45 = load ptr, ptr %2, align 8, !tbaa !3
@@ -11624,7 +11624,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultCompBBINS0_
   %25 = icmp eq i32 %23, 2
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = zext i1 %25 to i64
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !59, !noalias !357
   store ptr %29, ptr %9, align 8, !tbaa !53, !alias.scope !357
   %30 = load ptr, ptr %2, align 8, !tbaa !3
@@ -11649,7 +11649,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultCompBBINS0_
   %43 = icmp eq i32 %41, 2
   %spec.select.i.i = select i1 %43, i64 2, i64 1
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %spec.select.i.i
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %spec.select.i.i
   %46 = load ptr, ptr %45, align 8, !tbaa !59, !noalias !360
   store ptr %46, ptr %10, align 8, !tbaa !53, !alias.scope !360
   %47 = load ptr, ptr %2, align 8, !tbaa !3
@@ -12289,7 +12289,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultMultBBINS0_
   %17 = icmp eq i32 %15, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = zext i1 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !370
   store ptr %21, ptr %5, align 8, !tbaa !53, !alias.scope !370
   %22 = load ptr, ptr %2, align 8, !tbaa !3
@@ -12365,8 +12365,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultMultBBINS0_
   %spec.select.i.i = add nuw nsw i64 %indvars.iv, %67
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %sext = shl nuw i64 %spec.select.i.i, 32
-  %69 = ashr exact i64 %sext, 32
-  %70 = getelementptr inbounds [0 x ptr], ptr %68, i64 0, i64 %69
+  %69 = ashr exact i64 %sext, 29
+  %70 = getelementptr inbounds i8, ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !59, !noalias !373
   store ptr %71, ptr %7, align 8, !tbaa !53, !alias.scope !373
   %72 = load ptr, ptr %2, align 8, !tbaa !3
@@ -12593,7 +12593,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultAddBBINS0_1
   %19 = icmp eq i32 %18, 2
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = zext i1 %19 to i64
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !59, !noalias !377
   store ptr %23, ptr %5, align 8, !tbaa !53, !alias.scope !377
   %24 = load ptr, ptr %2, align 8, !tbaa !3
@@ -12720,7 +12720,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   %spec.select.i.i = add nsw i32 %.0, %89
   %90 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %91 = sext i32 %spec.select.i.i to i64
-  %92 = getelementptr inbounds [0 x ptr], ptr %90, i64 0, i64 %91
+  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !59, !noalias !380
   store ptr %93, ptr %8, align 8, !tbaa !53, !alias.scope !380
   %94 = load ptr, ptr %2, align 8, !tbaa !3
@@ -12961,7 +12961,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultSubBBINS0_1
   %21 = icmp eq i32 %19, 2
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %23 = zext i1 %21 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !59, !noalias !387
   store ptr %25, ptr %7, align 8, !tbaa !53, !alias.scope !387
   %26 = load ptr, ptr %2, align 8, !tbaa !3
@@ -12986,7 +12986,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultSubBBINS0_1
   %39 = icmp eq i32 %37, 2
   %spec.select.i.i = select i1 %39, i64 2, i64 1
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %spec.select.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %spec.select.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !59, !noalias !390
   store ptr %42, ptr %8, align 8, !tbaa !53, !alias.scope !390
   %43 = load ptr, ptr %2, align 8, !tbaa !3
@@ -13317,7 +13317,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultNegBBINS0_1
   %21 = icmp eq i32 %19, 2
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %23 = zext i1 %21 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !59, !noalias !396
   store ptr %25, ptr %6, align 8, !tbaa !53, !alias.scope !396
   %26 = load ptr, ptr %2, align 8, !tbaa !3
@@ -13884,7 +13884,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultShlBBINS0_1
   %49 = icmp eq i32 %47, 2
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %51 = zext i1 %49 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !59, !noalias !402
   store ptr %53, ptr %20, align 8, !tbaa !53, !alias.scope !402
   %54 = load ptr, ptr %2, align 8, !tbaa !3
@@ -13909,7 +13909,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultShlBBINS0_1
   %67 = icmp eq i32 %65, 2
   %spec.select.i.i = select i1 %67, i64 2, i64 1
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %spec.select.i.i
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %spec.select.i.i
   %70 = load ptr, ptr %69, align 8, !tbaa !59, !noalias !405
   store ptr %70, ptr %21, align 8, !tbaa !53, !alias.scope !405
   %71 = load ptr, ptr %2, align 8, !tbaa !3
@@ -15506,7 +15506,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultLshrBBINS0_
   %52 = icmp eq i32 %50, 2
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !59, !noalias !436
   store ptr %56, ptr %22, align 8, !tbaa !53, !alias.scope !436
   %57 = load ptr, ptr %2, align 8, !tbaa !3
@@ -15531,7 +15531,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultLshrBBINS0_
   %70 = icmp eq i32 %68, 2
   %spec.select.i.i = select i1 %70, i64 2, i64 1
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %72 = getelementptr inbounds nuw [0 x ptr], ptr %71, i64 0, i64 %spec.select.i.i
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %spec.select.i.i
   %73 = load ptr, ptr %72, align 8, !tbaa !59, !noalias !439
   store ptr %73, ptr %23, align 8, !tbaa !53, !alias.scope !439
   %74 = load ptr, ptr %2, align 8, !tbaa !3
@@ -17218,7 +17218,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultAshrBBINS0_
   %51 = icmp eq i32 %49, 2
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %53 = zext i1 %51 to i64
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !59, !noalias !475
   store ptr %55, ptr %20, align 8, !tbaa !53, !alias.scope !475
   %56 = load ptr, ptr %2, align 8, !tbaa !3
@@ -17243,7 +17243,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv13DefaultAshrBBINS0_
   %69 = icmp eq i32 %67, 2
   %spec.select.i.i = select i1 %69, i64 2, i64 1
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %70, i64 0, i64 %spec.select.i.i
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %spec.select.i.i
   %72 = load ptr, ptr %71, align 8, !tbaa !59, !noalias !478
   store ptr %72, ptr %21, align 8, !tbaa !53, !alias.scope !478
   %73 = load ptr, ptr %2, align 8, !tbaa !3
@@ -19002,7 +19002,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv14DefaultUltbvBBINS0
   %18 = icmp eq i32 %16, 2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !59, !noalias !508
   store ptr %22, ptr %6, align 8, !tbaa !53, !alias.scope !508
   %23 = load ptr, ptr %2, align 8, !tbaa !3
@@ -19027,7 +19027,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv14DefaultUltbvBBINS0
   %36 = icmp eq i32 %34, 2
   %spec.select.i.i = select i1 %36, i64 2, i64 1
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %37, i64 0, i64 %spec.select.i.i
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %spec.select.i.i
   %39 = load ptr, ptr %38, align 8, !tbaa !59, !noalias !511
   store ptr %39, ptr %7, align 8, !tbaa !53, !alias.scope !511
   %40 = load ptr, ptr %2, align 8, !tbaa !3
@@ -19303,7 +19303,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv14DefaultSltbvBBINS0
   %18 = icmp eq i32 %16, 2
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !59, !noalias !514
   store ptr %22, ptr %6, align 8, !tbaa !53, !alias.scope !514
   %23 = load ptr, ptr %2, align 8, !tbaa !3
@@ -19328,7 +19328,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv14DefaultSltbvBBINS0
   %36 = icmp eq i32 %34, 2
   %spec.select.i.i = select i1 %36, i64 2, i64 1
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %37, i64 0, i64 %spec.select.i.i
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %spec.select.i.i
   %39 = load ptr, ptr %38, align 8, !tbaa !59, !noalias !517
   store ptr %39, ptr %7, align 8, !tbaa !53, !alias.scope !517
   %40 = load ptr, ptr %2, align 8, !tbaa !3
@@ -19626,7 +19626,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultIteBBINS0_1
   %38 = icmp eq i32 %36, 2
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %40 = zext i1 %38 to i64
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !59, !noalias !520
   store ptr %42, ptr %18, align 8, !tbaa !53, !alias.scope !520
   %43 = load ptr, ptr %2, align 8, !tbaa !3
@@ -19651,7 +19651,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultIteBBINS0_1
   %56 = icmp eq i32 %54, 2
   %spec.select.i.i = select i1 %56, i64 2, i64 1
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %spec.select.i.i
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %spec.select.i.i
   %59 = load ptr, ptr %58, align 8, !tbaa !59, !noalias !523
   store ptr %59, ptr %19, align 8, !tbaa !53, !alias.scope !523
   %60 = load ptr, ptr %2, align 8, !tbaa !3
@@ -19676,7 +19676,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv12DefaultIteBBINS0_1
   %73 = icmp eq i32 %71, 2
   %spec.select.i.i44 = select i1 %73, i64 3, i64 2
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %75 = getelementptr inbounds nuw [0 x ptr], ptr %74, i64 0, i64 %spec.select.i.i44
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %spec.select.i.i44
   %76 = load ptr, ptr %75, align 8, !tbaa !59, !noalias !526
   store ptr %76, ptr %20, align 8, !tbaa !53, !alias.scope !526
   %77 = load ptr, ptr %2, align 8, !tbaa !3
@@ -20594,7 +20594,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv16DefaultExtractBBIN
   %17 = icmp eq i32 %15, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = zext i1 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !554
   store ptr %21, ptr %5, align 8, !tbaa !53, !alias.scope !554
   %22 = load ptr, ptr %2, align 8, !tbaa !3
@@ -20841,7 +20841,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv19DefaultSignExtendB
   %17 = icmp eq i32 %15, 2
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = zext i1 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !558
   store ptr %21, ptr %5, align 8, !tbaa !53, !alias.scope !558
   %22 = load ptr, ptr %2, align 8, !tbaa !3
@@ -25374,7 +25374,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv10UdivUremBBINS0_12N
   %45 = icmp eq i32 %43, 2
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %47 = zext i1 %45 to i64
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !59, !noalias !672
   store ptr %49, ptr %20, align 8, !tbaa !53, !alias.scope !672
   %50 = load ptr, ptr %3, align 8, !tbaa !3
@@ -25399,7 +25399,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv10UdivUremBBINS0_12N
   %63 = icmp eq i32 %61, 2
   %spec.select.i.i = select i1 %63, i64 2, i64 1
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %spec.select.i.i
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %spec.select.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !59, !noalias !675
   store ptr %66, ptr %21, align 8, !tbaa !53, !alias.scope !675
   %67 = load ptr, ptr %3, align 8, !tbaa !3

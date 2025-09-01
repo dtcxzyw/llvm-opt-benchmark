@@ -10646,7 +10646,7 @@ tailrecurse:                                      ; preds = %31, %2
 
 27:                                               ; preds = %.lr.ph164, %24
   %indvars.iv189 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next190, %24 ]
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %indvars.iv189
+  %28 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv189
   %29 = load ptr, ptr %28, align 8, !tbaa !199
   %30 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %29)
   br i1 %30, label %.thread, label %24
@@ -10807,7 +10807,7 @@ _ZNK9parameter7get_astEv.exit..critedge_crit_edge: ; preds = %_ZNK9parameter7get
 
 110:                                              ; preds = %.lr.ph, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %111 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8, !tbaa !189
   %113 = tail call noundef zeroext i1 @_ZN8fpa_util15contains_floatsEP3ast(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %112)
   br i1 %113, label %.thread, label %107

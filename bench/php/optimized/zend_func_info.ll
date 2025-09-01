@@ -681,7 +681,7 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %39 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !26
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [6 x ptr], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !27
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %.thread, label %43

@@ -441,7 +441,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_is_valid(ptr noundef readonly ca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %34 = getelementptr inbounds nuw i64, ptr %.021, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !11
-  %36 = getelementptr inbounds nuw [32 x i64], ptr %30, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !11
   %38 = add nsw i64 %37, %35
   %39 = icmp slt i64 %38, 0
@@ -1420,11 +1420,11 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
 
 .preheader346:                                    ; preds = %.lr.ph, %383
   %401 = zext i32 %384 to i64
-  %402 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i64, ptr %4, i64 %401
   %.idx318 = shl nuw nsw i64 %401, 5
   %403 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx318
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
-  %405 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %401
+  %405 = getelementptr inbounds nuw i64, ptr %5, i64 %401
   %.not315 = icmp eq i32 %384, 0
   %406 = getelementptr inbounds nuw i8, ptr %403, i64 16
   %407 = add i32 %20, -2
@@ -1440,10 +1440,10 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
   %410 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %24, i64 %indvars.iv
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 16
   %412 = load i64, ptr %411, align 8, !tbaa !35
-  %413 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %413 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %412, ptr %413, align 8, !tbaa !11
   %414 = load i64, ptr %410, align 8, !tbaa !44
-  %415 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %415 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %414, ptr %415, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1472,7 +1472,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
 .lr.ph353:                                        ; preds = %417, %.lr.ph353
   %421 = phi ptr [ %438, %.lr.ph353 ], [ %418, %417 ]
   %indvars.iv422 = phi i64 [ %indvars.iv.next423, %.lr.ph353 ], [ 0, %417 ]
-  %422 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv422
+  %422 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv422
   %423 = load i64, ptr %422, align 8, !tbaa !11
   %424 = trunc i64 %423 to i8
   store i8 %424, ptr %421, align 1, !tbaa !10
@@ -1504,7 +1504,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
 .lr.ph355:                                        ; preds = %.lr.ph353, %.lr.ph355
   %439 = phi ptr [ %470, %.lr.ph355 ], [ %438, %.lr.ph353 ]
   %indvars.iv427 = phi i64 [ %indvars.iv.next428, %.lr.ph355 ], [ 0, %.lr.ph353 ]
-  %440 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv427
+  %440 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv427
   %441 = load i64, ptr %440, align 8, !tbaa !11
   %.idx319 = shl nuw nsw i64 %indvars.iv427, 5
   %442 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx319
@@ -1576,7 +1576,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
 .lr.ph368:                                        ; preds = %479, %485
   %.0259366 = phi i32 [ %489, %485 ], [ %407, %479 ]
   %481 = zext nneg i32 %.0259366 to i64
-  %482 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw i64, ptr %4, i64 %481
   %483 = load i64, ptr %482, align 8, !tbaa !11
   %484 = add i64 %483, -1
   store i64 %484, ptr %482, align 8, !tbaa !11
@@ -1609,12 +1609,12 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
   %495 = load i64, ptr %494, align 8, !tbaa !45
   %496 = getelementptr inbounds nuw i8, ptr %492, i64 16
   %497 = load i64, ptr %496, align 8, !tbaa !35
-  %498 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv432
+  %498 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv432
   %499 = load i64, ptr %498, align 8, !tbaa !11
   %500 = sub i64 %497, %499
   %501 = mul i64 %500, %495
   %502 = add i64 %501, %493
-  %503 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv432
+  %503 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv432
   store i64 %502, ptr %503, align 8, !tbaa !11
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
   %exitcond436.not = icmp eq i64 %indvars.iv.next433, %wide.trip.count435
@@ -2055,7 +2055,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
 178:                                              ; preds = %169, %168
   %179 = load i8, ptr %.2450591, align 1, !tbaa !10
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv681
+  %181 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv681
   store i64 %180, ptr %181, align 8, !tbaa !11
   %182 = getelementptr inbounds nuw i8, ptr %.2450591, i64 1
   %183 = load i8, ptr %182, align 1, !tbaa !10
@@ -2066,7 +2066,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %187 = getelementptr inbounds nuw i8, ptr %.2450591, i64 2
   %188 = load i8, ptr %187, align 1, !tbaa !10
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv681
+  %190 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv681
   store i64 %189, ptr %190, align 8, !tbaa !11
   %191 = getelementptr inbounds nuw i8, ptr %.2450591, i64 3
   %192 = load i8, ptr %191, align 1, !tbaa !10
@@ -2077,7 +2077,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %196 = getelementptr inbounds nuw i8, ptr %.2450591, i64 4
   %197 = load i8, ptr %196, align 1, !tbaa !10
   %198 = zext i8 %197 to i64
-  %199 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv681
+  %199 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv681
   store i64 %198, ptr %199, align 8, !tbaa !11
   %200 = getelementptr inbounds nuw i8, ptr %.2450591, i64 5
   %201 = load i8, ptr %200, align 1, !tbaa !10
@@ -2090,7 +2090,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   store i64 %spec.select, ptr %199, align 8, !tbaa !11
   %207 = load i8, ptr %205, align 1, !tbaa !10
   %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv681
+  %209 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv681
   store i64 %208, ptr %209, align 8, !tbaa !11
   %210 = getelementptr inbounds nuw i8, ptr %.2450591, i64 7
   %211 = load i8, ptr %210, align 1, !tbaa !10
@@ -2127,7 +2127,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
 227:                                              ; preds = %218, %217
   %228 = load i8, ptr %.5453587, align 1, !tbaa !10
   %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv676
+  %230 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv676
   store i64 %229, ptr %230, align 8, !tbaa !11
   %231 = getelementptr inbounds nuw i8, ptr %.5453587, i64 1
   %232 = load i8, ptr %231, align 1, !tbaa !10
@@ -2150,7 +2150,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %246 = getelementptr inbounds nuw i8, ptr %.5453587, i64 4
   %247 = load i8, ptr %246, align 1, !tbaa !10
   %248 = zext i8 %247 to i64
-  %249 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv676
+  %249 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv676
   store i64 %248, ptr %249, align 8, !tbaa !11
   %250 = getelementptr inbounds nuw i8, ptr %.5453587, i64 5
   %251 = load i8, ptr %250, align 1, !tbaa !10
@@ -2173,7 +2173,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %265 = getelementptr inbounds nuw i8, ptr %.5453587, i64 8
   %266 = load i8, ptr %265, align 1, !tbaa !10
   %267 = zext i8 %266 to i64
-  %268 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv676
+  %268 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv676
   store i64 %267, ptr %268, align 8, !tbaa !11
   %269 = getelementptr inbounds nuw i8, ptr %.5453587, i64 9
   %270 = load i8, ptr %269, align 1, !tbaa !10
@@ -2198,7 +2198,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   store i64 %spec.select513, ptr %268, align 8, !tbaa !11
   %286 = load i8, ptr %284, align 1, !tbaa !10
   %287 = zext i8 %286 to i64
-  %288 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv676
+  %288 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv676
   store i64 %287, ptr %288, align 8, !tbaa !11
   %289 = getelementptr inbounds nuw i8, ptr %.5453587, i64 13
   %290 = load i8, ptr %289, align 1, !tbaa !10
@@ -2245,7 +2245,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   br label %.thread525
 
 316:                                              ; preds = %307, %306
-  %317 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %317 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 0, ptr %317, align 8, !tbaa !11
   %318 = getelementptr inbounds nuw i8, ptr %.6454585, i64 8
   br label %319
@@ -2265,7 +2265,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   br i1 %exitcond.not, label %327, label %319, !llvm.loop !68
 
 327:                                              ; preds = %319
-  %328 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %328 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   store i64 0, ptr %328, align 8, !tbaa !11
   %329 = getelementptr inbounds nuw i8, ptr %.7574, i64 15
   br label %330
@@ -2285,7 +2285,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   br i1 %exitcond671.not, label %338, label %330, !llvm.loop !69
 
 338:                                              ; preds = %330
-  %339 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %339 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   store i64 0, ptr %339, align 8, !tbaa !11
   %340 = getelementptr inbounds nuw i8, ptr %.8577, i64 15
   br label %341
@@ -2305,7 +2305,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   br i1 %exitcond672.not, label %349, label %341, !llvm.loop !70
 
 349:                                              ; preds = %341
-  %350 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %350 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 0, ptr %350, align 8, !tbaa !11
   %351 = getelementptr inbounds nuw i8, ptr %.9580, i64 15
   br label %352
@@ -2869,7 +2869,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_bounds(ptr noundef readonly cap
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %33 = getelementptr inbounds nuw i64, ptr %.041, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw [32 x i64], ptr %31, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !11
   %37 = add nsw i64 %36, %34
   %38 = icmp slt i64 %37, 0
@@ -2997,7 +2997,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_offset(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.26085 = phi i64 [ 1, %.lr.ph.preheader ], [ %48, %.lr.ph ]
-  %45 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %.26085, ptr %45, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
   %47 = load i64, ptr %46, align 8, !tbaa !11
@@ -3038,7 +3038,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_offset(ptr noundef readonly cap
   br label %.loopexit83
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv98
+  %66 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv98
   %67 = load i64, ptr %66, align 8, !tbaa !11
   %68 = mul nsw i64 %67, %57
   %69 = add i64 %53, %68
@@ -3602,10 +3602,10 @@ H5S__hyper_rebuild.exit79:                        ; preds = %56, %68, %69
   br label %131
 
 111:                                              ; preds = %104
-  %112 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %100, i64 0, i64 %indvars.iv.next
+  %112 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %100, i64 %indvars.iv.next
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i64, ptr %113, align 8, !tbaa !45
-  %115 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %101, i64 0, i64 %105
+  %115 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %101, i64 %105
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !tbaa !45
   %.not76 = icmp eq i64 %114, %117
@@ -3759,7 +3759,7 @@ H5S__hyper_rebuild.exit79:                        ; preds = %56, %68, %69
 
 195:                                              ; preds = %.lr.ph.i
   %196 = sub nsw i64 %194, %193
-  %197 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv.i
+  %197 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
   store i64 %196, ptr %197, align 8, !tbaa !11
   br label %198
 
@@ -3798,13 +3798,13 @@ H5S__hyper_rebuild.exit79:                        ; preds = %56, %68, %69
 
 211:                                              ; preds = %.preheader.i
   %212 = and i64 %indvars.iv.next44.i, 2147483647
-  %213 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw i64, ptr %3, i64 %212
   %214 = load i64, ptr %213, align 8, !tbaa !11
   %.not.i = icmp eq i64 %214, 0
   br i1 %.not.i, label %.preheader.i, label %215, !llvm.loop !107
 
 215:                                              ; preds = %211
-  %216 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %212
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 %212
   store i8 1, ptr %216, align 1, !tbaa !3
   br label %.loopexit.i
 
@@ -3935,7 +3935,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %21, %22
   %indvars.iv81 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next82, %.thread ]
   %59 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv81
   %60 = load i64, ptr %59, align 8, !tbaa !11
-  %61 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %57, i64 0, i64 %indvars.iv81
+  %61 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %57, i64 %indvars.iv81
   %62 = load i64, ptr %61, align 8, !tbaa !44
   %63 = icmp ugt i64 %60, %62
   br i1 %63, label %64, label %.thread
@@ -4037,21 +4037,21 @@ define internal noundef i32 @H5S__hyper_adjust_u(ptr noundef readonly captures(n
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = load ptr, ptr %15, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1032
-  %23 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %22, i64 0, i64 %indvars.iv34
+  %23 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %22, i64 %indvars.iv34
   %24 = load i64, ptr %23, align 8, !tbaa !44
   %25 = sub i64 %24, %20
   store i64 %25, ptr %23, align 8, !tbaa !44
   %26 = load i64, ptr %19, align 8, !tbaa !11
   %27 = load ptr, ptr %15, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2056
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %28, i64 0, i64 %indvars.iv34
+  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv34
   %30 = load i64, ptr %29, align 8, !tbaa !11
   %31 = sub i64 %30, %26
   store i64 %31, ptr %29, align 8, !tbaa !11
   %32 = load i64, ptr %19, align 8, !tbaa !11
   %33 = load ptr, ptr %15, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2312
-  %35 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %indvars.iv34
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv34
   %36 = load i64, ptr %35, align 8, !tbaa !11
   %37 = sub i64 %36, %32
   store i64 %37, ptr %35, align 8, !tbaa !11
@@ -4124,7 +4124,7 @@ define internal noundef i32 @H5S__hyper_adjust_s(ptr noundef readonly captures(n
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.preheader ], [ 0, %14 ]
   %19 = load ptr, ptr %15, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1032
-  %21 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %20, i64 0, i64 %indvars.iv40
+  %21 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %20, i64 %indvars.iv40
   %22 = load i64, ptr %21, align 8, !tbaa !44
   %23 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv40
   %24 = load i64, ptr %23, align 8, !tbaa !11
@@ -4132,14 +4132,14 @@ define internal noundef i32 @H5S__hyper_adjust_s(ptr noundef readonly captures(n
   store i64 %25, ptr %21, align 8, !tbaa !44
   %26 = load ptr, ptr %15, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 2056
-  %28 = getelementptr inbounds nuw [32 x i64], ptr %27, i64 0, i64 %indvars.iv40
+  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv40
   %29 = load i64, ptr %28, align 8, !tbaa !11
   %30 = load i64, ptr %23, align 8, !tbaa !11
   %31 = sub nsw i64 %29, %30
   store i64 %31, ptr %28, align 8, !tbaa !11
   %32 = load ptr, ptr %15, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 2312
-  %34 = getelementptr inbounds nuw [32 x i64], ptr %33, i64 0, i64 %indvars.iv40
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv40
   %35 = load i64, ptr %34, align 8, !tbaa !11
   %36 = load i64, ptr %23, align 8, !tbaa !11
   %37 = sub nsw i64 %35, %36
@@ -4204,7 +4204,7 @@ define internal noundef i32 @H5S__hyper_project_scalar(ptr noundef readonly capt
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %16, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !44
-  %21 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %20, ptr %21, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4222,7 +4222,7 @@ define internal noundef i32 @H5S__hyper_project_scalar(ptr noundef readonly capt
   %.016 = load ptr, ptr %.016.in, align 8, !tbaa !88
   %26 = load i64, ptr %.016, align 8, !tbaa !90
   %27 = zext i32 %.0 to i64
-  %28 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %3, i64 %27
   store i64 %26, ptr %28, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !92
@@ -4314,7 +4314,7 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   %indvars.iv219 = phi i64 [ 0, %.lr.ph188.preheader ], [ %indvars.iv.next220, %.lr.ph188 ]
   %42 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %40, i64 %indvars.iv219
   %43 = load i64, ptr %42, align 8, !tbaa !44
-  %44 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv219
+  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv219
   store i64 %43, ptr %44, align 8, !tbaa !11
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
@@ -4345,7 +4345,7 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   %indvars.iv215 = phi i64 [ 0, %.lr.ph186.preheader ], [ %indvars.iv.next216, %.lr.ph186 ]
   %53 = load ptr, ptr %22, align 8, !tbaa !10
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %54, i64 0, i64 %indvars.iv215
+  %55 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %54, i64 %indvars.iv215
   store i64 0, ptr %55, align 8, !tbaa !44
   %56 = load ptr, ptr %22, align 8, !tbaa !10
   %.idx = shl nuw nsw i64 %indvars.iv215, 5
@@ -4362,7 +4362,7 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   store i64 1, ptr %64, align 8, !tbaa !46
   %65 = load ptr, ptr %22, align 8, !tbaa !10
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1032
-  %67 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %66, i64 0, i64 %indvars.iv215
+  %67 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %66, i64 %indvars.iv215
   store i64 0, ptr %67, align 8, !tbaa !44
   %68 = load ptr, ptr %22, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1040
@@ -4406,12 +4406,12 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   %.2190 = phi i32 [ %.0129, %.lr.ph192.preheader ], [ %138, %.lr.ph192 ]
   %81 = load ptr, ptr %30, align 8, !tbaa !10
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %82, i64 0, i64 %indvars.iv224
+  %83 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %82, i64 %indvars.iv224
   %84 = load i64, ptr %83, align 8, !tbaa !44
   %85 = load ptr, ptr %22, align 8, !tbaa !10
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = zext i32 %.2190 to i64
-  %88 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %86, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %86, i64 %87
   store i64 %84, ptr %88, align 8, !tbaa !44
   %89 = load ptr, ptr %30, align 8, !tbaa !10
   %.idx142 = shl nuw nsw i64 %indvars.iv224, 5
@@ -4441,11 +4441,11 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   store i64 %106, ptr %109, align 8, !tbaa !46
   %110 = load ptr, ptr %30, align 8, !tbaa !10
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 1032
-  %112 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %111, i64 0, i64 %indvars.iv224
+  %112 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %111, i64 %indvars.iv224
   %113 = load i64, ptr %112, align 8, !tbaa !44
   %114 = load ptr, ptr %22, align 8, !tbaa !10
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 1032
-  %116 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %115, i64 0, i64 %87
+  %116 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %115, i64 %87
   store i64 %113, ptr %116, align 8, !tbaa !44
   %117 = load ptr, ptr %30, align 8, !tbaa !10
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1040
@@ -4480,17 +4480,17 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   %indvars.iv229 = phi i64 [ 0, %.lr.ph194.preheader ], [ %indvars.iv.next230, %.lr.ph194 ]
   %139 = load ptr, ptr %22, align 8, !tbaa !10
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 1032
-  %141 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %140, i64 0, i64 %indvars.iv229
+  %141 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %140, i64 %indvars.iv229
   %142 = load i64, ptr %141, align 8, !tbaa !44
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 2056
-  %144 = getelementptr inbounds nuw [32 x i64], ptr %143, i64 0, i64 %indvars.iv229
+  %144 = getelementptr inbounds nuw i64, ptr %143, i64 %indvars.iv229
   store i64 %142, ptr %144, align 8, !tbaa !11
   %145 = load ptr, ptr %22, align 8, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 2056
-  %147 = getelementptr inbounds nuw [32 x i64], ptr %146, i64 0, i64 %indvars.iv229
+  %147 = getelementptr inbounds nuw i64, ptr %146, i64 %indvars.iv229
   %148 = load i64, ptr %147, align 8, !tbaa !11
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 1032
-  %150 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %149, i64 0, i64 %indvars.iv229
+  %150 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %149, i64 %indvars.iv229
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i64, ptr %151, align 8, !tbaa !45
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 16
@@ -4503,7 +4503,7 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   %160 = add i64 %159, %158
   %161 = add i64 %160, %156
   %162 = getelementptr inbounds nuw i8, ptr %145, i64 2312
-  %163 = getelementptr inbounds nuw [32 x i64], ptr %162, i64 0, i64 %indvars.iv229
+  %163 = getelementptr inbounds nuw i64, ptr %162, i64 %indvars.iv229
   store i64 %161, ptr %163, align 8, !tbaa !11
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count232
@@ -4539,7 +4539,7 @@ define internal noundef range(i32 -1, 1) i32 @H5S__hyper_project_simple(ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0126184 = phi ptr [ %.0126180, %.lr.ph.preheader ], [ %.0126, %.lr.ph ]
   %172 = load i64, ptr %.0126184, align 8, !tbaa !90
-  %173 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %172, ptr %173, align 8, !tbaa !11
   %174 = getelementptr inbounds nuw i8, ptr %.0126184, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4710,7 +4710,7 @@ H5S__hyper_free_span.exit.i:                      ; preds = %255, %251, %238, %.
   %262 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store ptr %261, ptr %262, align 8, !tbaa !31
   %263 = zext i32 %222 to i64
-  %264 = getelementptr inbounds nuw [0 x i64], ptr %261, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw i64, ptr %261, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store ptr %264, ptr %265, align 8, !tbaa !31
   %.not.i = icmp eq ptr %.060103.i, null
@@ -5059,7 +5059,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %24, %25
 73:                                               ; preds = %66, %61
   %.sink285 = phi i8 [ 0, %61 ], [ %spec.select, %66 ]
   %.2178 = phi i32 [ %.1177219, %61 ], [ %spec.select290, %66 ]
-  %74 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 0, i64 %indvars.iv249
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv249
   store i8 %.sink285, ptr %74, align 1, !tbaa !10
   %indvars.iv.next250 = add nsw i64 %indvars.iv249, -1
   %75 = and i64 %indvars.iv.next250, 4294967295
@@ -5123,7 +5123,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %24, %25
 99:                                               ; preds = %97
   %100 = mul i64 %98, %.0182224
   %101 = zext i32 %.0172226 to i64
-  %102 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %81, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %81, i64 %101
   store i64 %100, ptr %102, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %104 = load i64, ptr %103, align 8, !tbaa !35
@@ -5149,16 +5149,16 @@ H5S__hyper_rebuild.exit:                          ; preds = %24, %25
   store i64 %115, ptr %116, align 8, !tbaa !10
   %117 = load i64, ptr %91, align 8, !tbaa !11
   %118 = mul i64 %117, %.0182224
-  %119 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %101
+  %119 = getelementptr inbounds nuw i64, ptr %82, i64 %101
   store i64 %118, ptr %119, align 8, !tbaa !10
-  %120 = getelementptr inbounds nuw [32 x i64], ptr %83, i64 0, i64 %indvars.iv.next253
+  %120 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv.next253
   %121 = load i64, ptr %120, align 8, !tbaa !11
   %122 = mul nsw i64 %121, %.0182224
   br label %138
 
 123:                                              ; preds = %97
   %124 = zext i32 %.0172226 to i64
-  %125 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %81, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %81, i64 %124
   store i64 %98, ptr %125, align 8, !tbaa !10
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %127 = load i64, ptr %126, align 8, !tbaa !45
@@ -5172,9 +5172,9 @@ H5S__hyper_rebuild.exit:                          ; preds = %24, %25
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store i64 %132, ptr %133, align 8, !tbaa !10
   %134 = load i64, ptr %91, align 8, !tbaa !11
-  %135 = getelementptr inbounds nuw [32 x i64], ptr %82, i64 0, i64 %124
+  %135 = getelementptr inbounds nuw i64, ptr %82, i64 %124
   store i64 %134, ptr %135, align 8, !tbaa !10
-  %136 = getelementptr inbounds nuw [32 x i64], ptr %83, i64 0, i64 %indvars.iv.next253
+  %136 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv.next253
   %137 = load i64, ptr %136, align 8, !tbaa !11
   br label %138
 
@@ -5182,7 +5182,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %24, %25
   %.sink289 = phi i64 [ %124, %123 ], [ %101, %110 ]
   %.sink287 = phi i64 [ %137, %123 ], [ %122, %110 ]
   %.1183 = phi i64 [ %.0182224, %123 ], [ 1, %110 ]
-  %139 = getelementptr inbounds nuw [32 x i64], ptr %84, i64 0, i64 %.sink289
+  %139 = getelementptr inbounds nuw i64, ptr %84, i64 %.sink289
   store i64 %.sink287, ptr %139, align 8, !tbaa !10
   %140 = add i32 %.0172226, -1
   br label %141
@@ -5195,9 +5195,9 @@ H5S__hyper_rebuild.exit:                          ; preds = %24, %25
 
 143:                                              ; preds = %.lr.ph231, %143
   %indvars.iv254 = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next255, %143 ]
-  %144 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %86, i64 0, i64 %indvars.iv254
+  %144 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %86, i64 %indvars.iv254
   %145 = load i64, ptr %144, align 8, !tbaa !10
-  %146 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv254
+  %146 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv254
   store i64 %145, ptr %146, align 8, !tbaa !10
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count258
@@ -5221,7 +5221,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %24, %25
   %indvars.iv260 = phi i64 [ 0, %.lr.ph234.preheader ], [ %indvars.iv.next261, %.lr.ph234 ]
   %149 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %54, i64 %indvars.iv260
   %150 = load i64, ptr %149, align 8, !tbaa !44
-  %151 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv260
+  %151 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv260
   store i64 %150, ptr %151, align 8, !tbaa !10
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count264
@@ -5302,10 +5302,10 @@ H5S__hyper_copy_span.exit:                        ; preds = %165
   %.0171 = load ptr, ptr %.0171.in216, align 8, !tbaa !10
   %189 = getelementptr inbounds nuw i8, ptr %.0171, i64 56
   %190 = load ptr, ptr %189, align 8, !tbaa !88
-  %191 = getelementptr inbounds nuw [32 x ptr], ptr %187, i64 0, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw ptr, ptr %187, i64 %indvars.iv
   store ptr %190, ptr %191, align 8, !tbaa !10
   %192 = load i64, ptr %190, align 8, !tbaa !90
-  %193 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   store i64 %192, ptr %193, align 8, !tbaa !10
   %194 = load ptr, ptr %189, align 8, !tbaa !88
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
@@ -5346,7 +5346,7 @@ H5S__hyper_copy_span.exit:                        ; preds = %165
 211:                                              ; preds = %.lr.ph239, %211
   %indvars.iv266 = phi i64 [ %210, %.lr.ph239 ], [ %indvars.iv.next267, %211 ]
   %.3236 = phi i64 [ %208, %.lr.ph239 ], [ %215, %211 ]
-  %212 = getelementptr inbounds nuw [32 x i64], ptr %209, i64 0, i64 %indvars.iv266
+  %212 = getelementptr inbounds nuw i64, ptr %209, i64 %indvars.iv266
   store i64 %.3236, ptr %212, align 8, !tbaa !10
   %213 = getelementptr inbounds nuw i64, ptr %.1180, i64 %indvars.iv266
   %214 = load i64, ptr %213, align 8, !tbaa !11
@@ -5376,15 +5376,15 @@ H5S__hyper_copy_span.exit:                        ; preds = %165
 
 222:                                              ; preds = %.lr.ph242, %222
   %indvars.iv270 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next271, %222 ]
-  %223 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv270
+  %223 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv270
   %224 = load i64, ptr %223, align 8, !tbaa !10
-  %225 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %indvars.iv270
+  %225 = getelementptr inbounds nuw i64, ptr %219, i64 %indvars.iv270
   %226 = load i64, ptr %225, align 8, !tbaa !11
   %227 = add nsw i64 %226, %224
-  %228 = getelementptr inbounds nuw [32 x i64], ptr %220, i64 0, i64 %indvars.iv270
+  %228 = getelementptr inbounds nuw i64, ptr %220, i64 %indvars.iv270
   %229 = load i64, ptr %228, align 8, !tbaa !10
   %230 = mul i64 %227, %229
-  %231 = getelementptr inbounds nuw [32 x i64], ptr %221, i64 0, i64 %indvars.iv270
+  %231 = getelementptr inbounds nuw i64, ptr %221, i64 %indvars.iv270
   store i64 %230, ptr %231, align 8, !tbaa !10
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count274
@@ -5810,10 +5810,10 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %96, %95
 .lr.ph128.i:                                      ; preds = %.lr.ph.i, %124
   %.pre-phi = phi i64 [ 0, %124 ], [ %wide.trip.count.i, %.lr.ph.i ]
   %131 = zext i32 %127 to i64
-  %132 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr %9, i64 %131
   %133 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %.081.i, i64 %131, i32 1
-  %134 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %131
-  %135 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %131
+  %134 = getelementptr inbounds nuw i64, ptr %10, i64 %131
+  %135 = getelementptr inbounds nuw i64, ptr %11, i64 %131
   %136 = shl nuw nsw i64 %.pre-phi, 3
   %137 = icmp ne i32 %127, 0
   %138 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %.081.i, i64 %131, i32 2
@@ -5826,16 +5826,16 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %96, %95
   %141 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %.081.i, i64 %indvars.iv.i
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load i64, ptr %142, align 8, !tbaa !35
-  %144 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv.i
+  %144 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
   store i64 %143, ptr %144, align 8, !tbaa !11
   %145 = load i64, ptr %141, align 8, !tbaa !44
-  %146 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
   store i64 %145, ptr %146, align 8, !tbaa !11
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %148 = load i64, ptr %147, align 8, !tbaa !46
   %149 = add i64 %145, -1
   %150 = add i64 %149, %148
-  %151 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv.i
+  %151 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
   store i64 %150, ptr %151, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5919,7 +5919,7 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %96, %95
 .lr.ph113.i:                                      ; preds = %182, %188
   %.0111.i = phi i32 [ %191, %188 ], [ %139, %182 ]
   %184 = zext nneg i32 %.0111.i to i64
-  %185 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i64, ptr %9, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !11
   %187 = add i64 %186, -1
   store i64 %187, ptr %185, align 8, !tbaa !11
@@ -5945,18 +5945,18 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %96, %95
   %196 = load i64, ptr %195, align 8, !tbaa !45
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %198 = load i64, ptr %197, align 8, !tbaa !35
-  %199 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv142.i
+  %199 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv142.i
   %200 = load i64, ptr %199, align 8, !tbaa !11
   %201 = sub i64 %198, %200
   %202 = mul i64 %201, %196
   %203 = add i64 %202, %194
-  %204 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv142.i
+  %204 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv142.i
   store i64 %203, ptr %204, align 8, !tbaa !11
   %205 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %206 = load i64, ptr %205, align 8, !tbaa !46
   %207 = add i64 %206, -1
   %208 = add i64 %207, %203
-  %209 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv142.i
+  %209 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv142.i
   store i64 %208, ptr %209, align 8, !tbaa !11
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %exitcond146.not.i = icmp eq i64 %indvars.iv.next143.i, %.pre-phi
@@ -6071,7 +6071,7 @@ define range(i32 -1, 1) i32 @H5S_hyper_add_span_element(ptr noundef captures(non
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %38, ptr %39, align 8, !tbaa !31
   %40 = zext i32 %1 to i64
-  %41 = getelementptr inbounds nuw [0 x i64], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %38, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !31
   %43 = shl nuw nsw i64 %40, 3
@@ -6197,7 +6197,7 @@ define internal fastcc noalias ptr @H5S__hyper_coord_to_span(i32 noundef %0, ptr
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !31
   %27 = zext i32 %12 to i64
-  %28 = getelementptr inbounds nuw [0 x i64], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %28, ptr %29, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6754,7 +6754,7 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %32, ptr %33, align 8, !tbaa !11
@@ -6799,7 +6799,7 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.preheader.i ], [ 0, %39 ]
   %44 = load ptr, ptr %40, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1032
-  %46 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %45, i64 0, i64 %indvars.iv40.i
+  %46 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %45, i64 %indvars.iv40.i
   %47 = load i64, ptr %46, align 8, !tbaa !44
   %48 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv40.i
   %49 = load i64, ptr %48, align 8, !tbaa !11
@@ -6807,14 +6807,14 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
   store i64 %50, ptr %46, align 8, !tbaa !44
   %51 = load ptr, ptr %40, align 8, !tbaa !10
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 2056
-  %53 = getelementptr inbounds nuw [32 x i64], ptr %52, i64 0, i64 %indvars.iv40.i
+  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv40.i
   %54 = load i64, ptr %53, align 8, !tbaa !11
   %55 = load i64, ptr %48, align 8, !tbaa !11
   %56 = sub nsw i64 %54, %55
   store i64 %56, ptr %53, align 8, !tbaa !11
   %57 = load ptr, ptr %40, align 8, !tbaa !10
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2312
-  %59 = getelementptr inbounds nuw [32 x i64], ptr %58, i64 0, i64 %indvars.iv40.i
+  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv40.i
   %60 = load i64, ptr %59, align 8, !tbaa !11
   %61 = load i64, ptr %48, align 8, !tbaa !11
   %62 = sub nsw i64 %60, %61
@@ -6924,7 +6924,7 @@ define range(i32 -1, 1) i32 @H5S_hyper_denormalize_offset(ptr noundef captures(n
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.preheader.i ], [ 0, %23 ]
   %28 = load ptr, ptr %24, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1032
-  %30 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %29, i64 0, i64 %indvars.iv40.i
+  %30 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %29, i64 %indvars.iv40.i
   %31 = load i64, ptr %30, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv40.i
   %33 = load i64, ptr %32, align 8, !tbaa !11
@@ -6932,14 +6932,14 @@ define range(i32 -1, 1) i32 @H5S_hyper_denormalize_offset(ptr noundef captures(n
   store i64 %34, ptr %30, align 8, !tbaa !44
   %35 = load ptr, ptr %24, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2056
-  %37 = getelementptr inbounds nuw [32 x i64], ptr %36, i64 0, i64 %indvars.iv40.i
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv40.i
   %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = load i64, ptr %32, align 8, !tbaa !11
   %40 = sub nsw i64 %38, %39
   store i64 %40, ptr %37, align 8, !tbaa !11
   %41 = load ptr, ptr %24, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2312
-  %43 = getelementptr inbounds nuw [32 x i64], ptr %42, i64 0, i64 %indvars.iv40.i
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv40.i
   %44 = load i64, ptr %43, align 8, !tbaa !11
   %45 = load i64, ptr %32, align 8, !tbaa !11
   %46 = sub nsw i64 %44, %45
@@ -7331,9 +7331,9 @@ define noundef range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 no
   br i1 %.not, label %.thread294, label %90
 
 90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv253
+  %91 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv253
   store i64 1, ptr %91, align 8, !tbaa !11
-  %92 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv253
+  %92 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv253
   store i64 1, ptr %92, align 8, !tbaa !11
   %93 = mul i64 %88, %83
   br label %99
@@ -7346,15 +7346,15 @@ define noundef range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 no
 .thread294:                                       ; preds = %94, %89
   %96 = phi i64 [ -1, %89 ], [ %88, %94 ]
   %.sink = phi i64 [ %83, %89 ], [ %spec.select297, %94 ]
-  %97 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv253
+  %97 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv253
   store i64 %.sink, ptr %97, align 8, !tbaa !11
-  %98 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv253
+  %98 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv253
   store i64 %96, ptr %98, align 8, !tbaa !11
   br label %99
 
 99:                                               ; preds = %90, %.thread294
   %.sink298 = phi i64 [ %85, %.thread294 ], [ %93, %90 ]
-  %100 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv253
+  %100 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv253
   store i64 %.sink298, ptr %100, align 8, !tbaa !11
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count256
@@ -7579,7 +7579,7 @@ define noundef range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 no
   %215 = load i64, ptr %214, align 8, !tbaa !11
   %216 = getelementptr inbounds nuw i64, ptr %.0189, i64 %187
   %217 = load i64, ptr %216, align 8, !tbaa !11
-  %218 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %187
+  %218 = getelementptr inbounds nuw i64, ptr %11, i64 %187
   %219 = load i64, ptr %218, align 8, !tbaa !11
   %220 = add i64 %219, 1
   %221 = load i8, ptr @H5S_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -7623,7 +7623,7 @@ H5S__hyper_get_clip_diminfo.exit:                 ; preds = %229, %213, %232, %2
   br i1 %.not198, label %241, label %239
 
 239:                                              ; preds = %H5S__hyper_get_clip_diminfo.exit
-  %240 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %187
+  %240 = getelementptr inbounds nuw i64, ptr %8, i64 %187
   store i64 %.0205, ptr %240, align 8, !tbaa !11
   br label %241
 
@@ -7632,7 +7632,7 @@ H5S__hyper_get_clip_diminfo.exit:                 ; preds = %229, %213, %232, %2
   br i1 %.not199, label %244, label %242
 
 242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %187
+  %243 = getelementptr inbounds nuw i64, ptr %9, i64 %187
   store i64 %.0, ptr %243, align 8, !tbaa !11
   br label %244
 
@@ -7781,7 +7781,7 @@ define range(i32 -1, 1) i32 @H5S_hyper_clip_unlim(ptr noundef %0, i64 noundef %1
   %24 = load i32, ptr %23, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 1032
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !35
   %30 = load i64, ptr %27, align 8, !tbaa !44
@@ -7894,7 +7894,7 @@ H5S__hyper_get_clip_diminfo.exit.thread99:        ; preds = %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %84 = icmp eq i64 %indvars.iv, %83
   %spec.select = select i1 %84, i64 %1, i64 -2
-  %85 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %spec.select, ptr %85, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7963,7 +7963,7 @@ H5S__hyper_get_clip_diminfo.exit.thread99:        ; preds = %39
   %112 = add i64 %111, %105
   %113 = add i64 %112, %110
   %114 = getelementptr inbounds nuw i8, ptr %22, i64 2312
-  %115 = getelementptr inbounds [32 x i64], ptr %114, i64 0, i64 %26
+  %115 = getelementptr inbounds i64, ptr %114, i64 %26
   store i64 %113, ptr %115, align 8, !tbaa !11
   br label %116
 
@@ -8027,7 +8027,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__set_regular_hyperslab(ptr noun
   %37 = load i64, ptr %36, align 8, !tbaa !11
   %38 = load ptr, ptr %25, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %39, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %39, i64 %indvars.iv
   store i64 %37, ptr %40, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8, !tbaa !11
@@ -8051,7 +8051,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__set_regular_hyperslab(ptr noun
   %56 = load i64, ptr %36, align 8, !tbaa !11
   %57 = load ptr, ptr %25, align 8, !tbaa !10
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1032
-  %59 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %58, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %58, i64 %indvars.iv
   store i64 %56, ptr %59, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8, !tbaa !11
@@ -8079,7 +8079,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__set_regular_hyperslab(ptr noun
   %79 = load i64, ptr %36, align 8, !tbaa !11
   %80 = load ptr, ptr %25, align 8, !tbaa !10
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 2056
-  %82 = getelementptr inbounds nuw [32 x i64], ptr %81, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv
   store i64 %79, ptr %82, align 8, !tbaa !11
   %83 = load i64, ptr %46, align 8, !tbaa !11
   %84 = icmp eq i64 %83, -1
@@ -8112,7 +8112,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__set_regular_hyperslab(ptr noun
   %.sink = phi i64 [ -1, %88 ], [ %100, %92 ]
   %102 = load ptr, ptr %25, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 2312
-  %104 = getelementptr inbounds nuw [32 x i64], ptr %103, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv
   store i64 %.sink, ptr %104, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8235,7 +8235,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
 
 29:                                               ; preds = %.critedge, %42
   %indvars.iv261 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next262, %42 ]
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %27, i64 0, i64 %indvars.iv261
+  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv261
   %31 = load i64, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv261
   %33 = load i64, ptr %32, align 8, !tbaa !11
@@ -8243,7 +8243,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
   %35 = load i64, ptr %34, align 8, !tbaa !11
   %36 = add i64 %33, -1
   %37 = add i64 %36, %35
-  %38 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %28, i64 0, i64 %indvars.iv261
+  %38 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %28, i64 %indvars.iv261
   %39 = load i64, ptr %38, align 8, !tbaa !44
   %40 = icmp ugt i64 %39, %37
   %41 = icmp ugt i64 %33, %31
@@ -8252,12 +8252,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
 
 42:                                               ; preds = %29
   %. = tail call i64 @llvm.umax.i64(i64 %39, i64 %33)
-  %43 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv261
+  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv261
   store i64 %., ptr %43, align 8, !tbaa !11
   %44 = tail call i64 @llvm.umin.i64(i64 %31, i64 %37)
   %reass.sub = sub i64 %44, %.
   %45 = add i64 %reass.sub, 1
-  %46 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv261
+  %46 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv261
   store i64 %45, ptr %46, align 8, !tbaa !11
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
@@ -8306,7 +8306,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
   %indvars.iv257 = phi i64 [ 0, %61 ], [ %indvars.iv.next258, %141 ]
   %.0175254 = phi i1 [ false, %61 ], [ %spec.select233, %141 ]
   %.0177253 = phi i1 [ false, %61 ], [ %.3180, %141 ]
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %62, i64 0, i64 %indvars.iv257
+  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv257
   %68 = load i64, ptr %67, align 8, !tbaa !11
   %69 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv257
   %70 = load i64, ptr %69, align 8, !tbaa !11
@@ -8314,7 +8314,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
   %72 = load i64, ptr %71, align 8, !tbaa !11
   %73 = add i64 %70, -1
   %74 = add i64 %73, %72
-  %75 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %63, i64 0, i64 %indvars.iv257
+  %75 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %63, i64 %indvars.iv257
   %76 = load i64, ptr %75, align 8, !tbaa !44
   %77 = icmp ugt i64 %76, %74
   %78 = icmp ugt i64 %70, %68
@@ -8429,7 +8429,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
   br i1 %131, label %.thread239, label %132
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv257
+  %133 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv257
   store i64 %.0173, ptr %133, align 8, !tbaa !11
   %.not219 = icmp eq i64 %.0172, %.0173
   br i1 %.not219, label %140, label %134
@@ -8453,13 +8453,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
   %142 = phi i64 [ %.pre271, %140 ], [ %137, %134 ]
   %.idx221.pre-phi = phi i64 [ %.pre269, %140 ], [ %.idx220, %134 ]
   %.sink = phi i64 [ 1, %140 ], [ %139, %134 ]
-  %143 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv257
+  %143 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv257
   store i64 %.sink, ptr %143, align 8, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx221.pre-phi
   %145 = load i64, ptr %144, align 8, !tbaa !46
-  %146 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv257
+  %146 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv257
   store i64 %145, ptr %146, align 8, !tbaa !11
-  %147 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv257
+  %147 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv257
   store i64 %142, ptr %147, align 8, !tbaa !11
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count
@@ -8562,7 +8562,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_generate_spans(ptr nound
 
 20:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %21 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %16, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %16, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !35
   %24 = icmp eq i64 %23, -1
@@ -8588,20 +8588,20 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_generate_spans(ptr nound
 
 37:                                               ; preds = %29
   %38 = load i64, ptr %21, align 8, !tbaa !44
-  %39 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %38, ptr %39, align 8, !tbaa !11
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %41 = load i64, ptr %40, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %41, ptr %42, align 8, !tbaa !11
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %44 = load i64, ptr %43, align 8, !tbaa !35
-  %45 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %44, ptr %45, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %47 = load i64, ptr %46, align 8, !tbaa !46
-  %48 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %47, ptr %48, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8745,7 +8745,7 @@ H5S__hyper_spans_nelem.exit:                      ; preds = %39, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %66 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8, !tbaa !11
-  %68 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %10, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %10, i64 %indvars.iv
   store i64 %67, ptr %68, align 16, !tbaa !44
   %69 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8, !tbaa !11
@@ -9165,7 +9165,7 @@ define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %
   %105 = add i64 %96, -1
   %106 = add i64 %105, %104
   %107 = add i64 %106, %102
-  %108 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv164
+  %108 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv164
   store i64 %107, ptr %108, align 8, !tbaa !11
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %93
@@ -9290,7 +9290,7 @@ define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %
   %indvars.iv169 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next170, %.lr.ph157 ]
   %162 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv169
   %163 = load i64, ptr %162, align 8, !tbaa !11
-  %164 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %10, i64 0, i64 %indvars.iv169
+  %164 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %10, i64 %indvars.iv169
   store i64 %163, ptr %164, align 16, !tbaa !44
   %165 = getelementptr inbounds nuw i64, ptr %spec.store.select, i64 %indvars.iv169
   %166 = load i64, ptr %165, align 8, !tbaa !11
@@ -9549,7 +9549,7 @@ define internal fastcc ptr @H5S__hyper_make_spans(i32 noundef %0, ptr noundef re
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %80, ptr %81, align 8, !tbaa !31
-  %82 = getelementptr inbounds nuw [0 x i64], ptr %80, i64 0, i64 %17
+  %82 = getelementptr inbounds nuw i64, ptr %80, i64 %17
   %83 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %82, ptr %83, align 8, !tbaa !31
   %84 = getelementptr inbounds nuw i8, ptr %70, i64 56
@@ -9781,7 +9781,7 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr noundef readonly capt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %119
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %119 ]
   %.0204 = phi i1 [ false, %.lr.ph.preheader ], [ %.2, %119 ]
-  %28 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %4, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %4, i64 %indvars.iv
   %29 = load i64, ptr %28, align 16, !tbaa !44
   %30 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %2, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8, !tbaa !44
@@ -9984,15 +9984,15 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr noundef readonly capt
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %173
   %indvars.iv208 = phi i64 [ 0, %.lr.ph206.preheader ], [ %indvars.iv.next209, %173 ]
-  %123 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %4, i64 0, i64 %indvars.iv208
+  %123 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %4, i64 %indvars.iv208
   %124 = load i64, ptr %123, align 16, !tbaa !44
   %125 = load ptr, ptr %14, align 8, !tbaa !10
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 1032
-  %127 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %126, i64 0, i64 %indvars.iv208
+  %127 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %126, i64 %indvars.iv208
   store i64 %124, ptr %127, align 8, !tbaa !44
   %128 = load ptr, ptr %14, align 8, !tbaa !10
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %130 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %129, i64 0, i64 %indvars.iv208
+  %130 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %129, i64 %indvars.iv208
   store i64 %124, ptr %130, align 8, !tbaa !44
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !45
@@ -10027,7 +10027,7 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr noundef readonly capt
   store i64 %148, ptr %154, align 8, !tbaa !46
   %155 = load ptr, ptr %14, align 8, !tbaa !10
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 2056
-  %157 = getelementptr inbounds nuw [32 x i64], ptr %156, i64 0, i64 %indvars.iv208
+  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %indvars.iv208
   %158 = load i64, ptr %157, align 8, !tbaa !11
   %159 = icmp ult i64 %124, %158
   br i1 %159, label %160, label %161
@@ -10036,7 +10036,7 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr noundef readonly capt
   store i64 %124, ptr %157, align 8, !tbaa !11
   %.pre213 = load ptr, ptr %14, align 8, !tbaa !10
   %.phi.trans.insert214 = getelementptr inbounds nuw i8, ptr %.pre213, i64 2056
-  %.phi.trans.insert215 = getelementptr inbounds nuw [32 x i64], ptr %.phi.trans.insert214, i64 0, i64 %indvars.iv208
+  %.phi.trans.insert215 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert214, i64 %indvars.iv208
   %.pre216 = load i64, ptr %.phi.trans.insert215, align 8, !tbaa !11
   br label %161
 
@@ -10053,7 +10053,7 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr noundef readonly capt
 
 170:                                              ; preds = %161
   %171 = getelementptr inbounds nuw i8, ptr %163, i64 2312
-  %172 = getelementptr inbounds nuw [32 x i64], ptr %171, i64 0, i64 %indvars.iv208
+  %172 = getelementptr inbounds nuw i64, ptr %171, i64 %indvars.iv208
   store i64 %168, ptr %172, align 8, !tbaa !11
   br label %173
 
@@ -10413,22 +10413,22 @@ define range(i64 -1, -9223372036854775808) i64 @H5Scombine_select(i64 noundef %0
 
 118:                                              ; preds = %118, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %118 ]
-  %119 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %114, i64 0, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %114, i64 %indvars.iv.i
   %120 = load i64, ptr %119, align 8, !tbaa !44
-  %121 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
   store i64 %120, ptr %121, align 8, !tbaa !11
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i
   %123 = load i64, ptr %122, align 8, !tbaa !45
-  %124 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
   store i64 %123, ptr %124, align 8, !tbaa !11
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx.i
   %126 = load i64, ptr %125, align 8, !tbaa !35
-  %127 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
   store i64 %126, ptr %127, align 8, !tbaa !11
   %128 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i
   %129 = load i64, ptr %128, align 8, !tbaa !46
-  %130 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
   store i64 %129, ptr %130, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -10646,22 +10646,22 @@ define range(i32 -1, 1) i32 @H5S__modify_select(ptr noundef %0, i32 noundef %1, 
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %41, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %41, i64 %indvars.iv
   %47 = load i64, ptr %46, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %47, ptr %48, align 8, !tbaa !11
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   %50 = load i64, ptr %49, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !11
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx
   %53 = load i64, ptr %52, align 8, !tbaa !35
-  %54 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   store i64 %53, ptr %54, align 8, !tbaa !11
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %56 = load i64, ptr %55, align 8, !tbaa !46
-  %57 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   store i64 %56, ptr %57, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -11251,7 +11251,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %H5S__hyper_spans_ne
 205:                                              ; preds = %.lr.ph, %217
   %206 = phi i32 [ %203, %.lr.ph ], [ %218, %217 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %217 ]
-  %207 = getelementptr inbounds nuw [32 x ptr], ptr %204, i64 0, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv
   %208 = load ptr, ptr %207, align 8, !tbaa !99
   %.not67 = icmp eq ptr %208, null
   br i1 %.not67, label %217, label %209
@@ -11958,7 +11958,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate
 347:                                              ; preds = %.lr.ph336, %374
   %indvars.iv355 = phi i64 [ %346, %.lr.ph336 ], [ %indvars.iv.next356, %374 ]
   %.3217.in334 = phi i32 [ %343, %.lr.ph336 ], [ %.pre-phi, %374 ]
-  %348 = getelementptr inbounds nuw [32 x ptr], ptr %344, i64 0, i64 %indvars.iv355
+  %348 = getelementptr inbounds nuw ptr, ptr %344, i64 %indvars.iv355
   %349 = load ptr, ptr %348, align 8, !tbaa !99
   %.not278 = icmp eq ptr %349, null
   br i1 %.not278, label %._crit_edge376, label %350
@@ -11970,12 +11970,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate
 350:                                              ; preds = %347
   %351 = add i32 %.3217.in334, -2
   %352 = zext i32 %351 to i64
-  %353 = getelementptr inbounds nuw [32 x ptr], ptr %344, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw ptr, ptr %344, i64 %352
   %354 = load i32, ptr %342, align 8, !tbaa !180
   %355 = trunc nuw i64 %indvars.iv355 to i32
   %reass.sub342 = sub i32 %354, %355
   %356 = add i32 %reass.sub342, 1
-  %357 = getelementptr inbounds nuw [32 x i64], ptr %345, i64 0, i64 %352
+  %357 = getelementptr inbounds nuw i64, ptr %345, i64 %352
   %358 = load i64, ptr %357, align 8, !tbaa !11
   %359 = tail call fastcc i32 @H5S__hyper_append_span(ptr noundef %353, i32 noundef %356, i64 noundef %358, i64 noundef %358, ptr noundef nonnull %349)
   %360 = icmp slt i32 %359, 0
@@ -12069,7 +12069,7 @@ define i64 @H5S_hyper_get_clip_extent(ptr noundef readonly captures(none) %0, pt
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 2568
   %28 = load i32, ptr %27, align 8, !tbaa !28
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %26, i64 0, i64 %29
+  %30 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %26, i64 %29
   br label %45
 
 31:                                               ; preds = %19
@@ -12084,7 +12084,7 @@ define i64 @H5S_hyper_get_clip_extent(ptr noundef readonly captures(none) %0, pt
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 2568
   %41 = load i32, ptr %40, align 8, !tbaa !28
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %39, i64 %42
   %44 = icmp ugt i64 %37, %33
   br i1 %44, label %45, label %49
 
@@ -12190,7 +12190,7 @@ define i64 @H5S_hyper_get_clip_extent_match(ptr noundef readonly captures(none) 
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 2568
   %25 = load i32, ptr %24, align 8, !tbaa !28
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %23, i64 0, i64 %26
+  %27 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !46
   %30 = load i64, ptr %27, align 8, !tbaa !44
@@ -12238,7 +12238,7 @@ H5S__hyper_get_clip_diminfo.exit.thread32:        ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 2568
   %57 = load i32, ptr %56, align 8, !tbaa !28
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %55, i64 %58
   %60 = icmp eq i64 %.019, 0
   br i1 %60, label %75, label %79
 
@@ -12249,7 +12249,7 @@ H5S__hyper_get_clip_diminfo.exit.thread32:        ; preds = %33
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 2568
   %65 = load i32, ptr %64, align 8, !tbaa !28
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %63, i64 0, i64 %66
+  %67 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %63, i64 %66
   br label %75
 
 .thread43:                                        ; preds = %44, %H5S__hyper_get_clip_diminfo.exit.thread32
@@ -12260,7 +12260,7 @@ H5S__hyper_get_clip_diminfo.exit.thread32:        ; preds = %33
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 2568
   %72 = load i32, ptr %71, align 8, !tbaa !28
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %70, i64 0, i64 %73
+  %74 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %70, i64 %73
   br label %79
 
 75:                                               ; preds = %.thread40, %46
@@ -12382,7 +12382,7 @@ define ptr @H5S_hyper_get_unlim_block(ptr noundef %0, i64 noundef %1) local_unna
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 1032
   %30 = zext i32 %28 to i64
   %wide.trip.count = zext i32 %24 to i64
-  %31 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   br label %33
 
@@ -12399,7 +12399,7 @@ define ptr @H5S_hyper_get_unlim_block(ptr noundef %0, i64 noundef %1) local_unna
   br label %45
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %29, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %29, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8, !tbaa !44
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !35
@@ -12408,18 +12408,18 @@ define ptr @H5S_hyper_get_unlim_block(ptr noundef %0, i64 noundef %1) local_unna
 45:                                               ; preds = %40, %35
   %.sink47 = phi i64 [ %39, %35 ], [ %42, %40 ]
   %.sink = phi i64 [ 1, %35 ], [ %44, %40 ]
-  %46 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %.sink47, ptr %46, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %.sink, ptr %47, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %29, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %29, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !11
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %53 = load i64, ptr %52, align 8, !tbaa !46
-  %54 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %53, ptr %54, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -12525,7 +12525,7 @@ define i64 @H5S_hyper_get_first_inc_block(ptr noundef readonly captures(none) %0
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 2568
   %24 = load i32, ptr %23, align 8, !tbaa !28
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [32 x %struct.H5S_hyper_dim_t], ptr %22, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.H5S_hyper_dim_t, ptr %22, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !44
   %.not = icmp ult i64 %27, %1
   br i1 %.not, label %30, label %28
@@ -12922,7 +12922,7 @@ H5S__hyper_is_regular.exit.thread:                ; preds = %56, %H5S__hyper_is_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %107 = load ptr, ptr %64, align 8, !tbaa !10
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %108, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %108, i64 %indvars.iv
   %110 = load i64, ptr %109, align 8, !tbaa !44
   %111 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %110, ptr %111, align 8, !tbaa !11
@@ -13071,7 +13071,7 @@ define internal noundef i32 @H5S__hyper_iter_coords(ptr noundef %0, ptr noundef 
   %.055 = phi i32 [ %20, %.lr.ph56 ], [ %.2, %.critedge2 ]
   %.04154 = phi i32 [ %21, %.lr.ph56 ], [ %.142, %.critedge2 ]
   %25 = zext nneg i32 %.055 to i64
-  %26 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !10, !range !7, !noundef !8
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %.preheader, label %.lr.ph.preheader
@@ -13089,7 +13089,7 @@ define internal noundef i32 @H5S__hyper_iter_coords(ptr noundef %0, ptr noundef 
 32:                                               ; preds = %.preheader
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
   %33 = and i64 %indvars.iv.next63, 4294967295
-  %34 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !10, !range !7, !noundef !8
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %.preheader, label %.critedge.split.loop.exit73, !llvm.loop !202
@@ -13102,12 +13102,12 @@ define internal noundef i32 @H5S__hyper_iter_coords(ptr noundef %0, ptr noundef 
 .critedge:                                        ; preds = %.preheader, %.critedge.split.loop.exit73
   %.lcssa = phi i32 [ %37, %.critedge.split.loop.exit73 ], [ 0, %.preheader ]
   %38 = sext i32 %.04154 to i64
-  %39 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %38
+  %39 = getelementptr inbounds i64, ptr %10, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = add nuw i32 %.055, 1
   %42 = sub i32 %41, %.lcssa
   %43 = zext nneg i32 %.lcssa to i64
-  %44 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %23, i64 %43
   %45 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %46 = tail call i32 @H5VM_array_calc(i64 noundef %40, i32 noundef %42, ptr noundef nonnull %44, ptr noundef %45) #14
   %47 = add nsw i32 %.lcssa, -1
@@ -13117,13 +13117,13 @@ define internal noundef i32 @H5S__hyper_iter_coords(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
   %indvars.iv57 = phi i64 [ %29, %.lr.ph.preheader ], [ %indvars.iv.next58, %52 ]
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
-  %49 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1, !tbaa !10, !range !7, !noundef !8
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %.critedge2.loopexit, label %52
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %indvars.iv57
+  %53 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv57
   %54 = load i64, ptr %53, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %54, ptr %55, align 8, !tbaa !11
@@ -13197,7 +13197,7 @@ define internal noundef i32 @H5S__hyper_iter_block(ptr noundef readonly captures
 
 19:                                               ; preds = %.lr.ph28, %19
   %indvars.iv32 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next33, %19 ]
-  %20 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv32
   %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv32
   store i64 %21, ptr %22, align 8, !tbaa !11
@@ -13214,7 +13214,7 @@ define internal noundef i32 @H5S__hyper_iter_block(ptr noundef readonly captures
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw [32 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !10
   %31 = load i64, ptr %30, align 8, !tbaa !90
   %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
@@ -13307,7 +13307,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_iter_has_next_block(ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw [32 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !96
@@ -13377,7 +13377,7 @@ define internal noundef i32 @H5S__hyper_iter_next(ptr noundef captures(none) %0,
   %.idx.us = shl nuw nsw i64 %24, 5
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.us
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %24
+  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %24
   br label %.preheader139.us
 
 .preheader139.us:                                 ; preds = %.preheader139.us.backedge, %.preheader139.us.preheader
@@ -13388,7 +13388,7 @@ define internal noundef i32 @H5S__hyper_iter_next(ptr noundef captures(none) %0,
 
 29:                                               ; preds = %.preheader139.us
   %30 = zext nneg i32 %.0128167.us to i64
-  %31 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i64, ptr %3, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !11
   %33 = add i64 %32, 1
   store i64 %33, ptr %31, align 8, !tbaa !11
@@ -13415,9 +13415,9 @@ define internal noundef i32 @H5S__hyper_iter_next(ptr noundef captures(none) %0,
   br i1 %46, label %._crit_edge.us, label %47
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw i64, ptr %3, i64 %.pre-phi
   store i64 0, ptr %48, align 8, !tbaa !11
-  %49 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw i64, ptr %4, i64 %.pre-phi
   %50 = load i64, ptr %49, align 8, !tbaa !11
   %51 = add i64 %50, 1
   store i64 %51, ptr %49, align 8, !tbaa !11
@@ -13446,7 +13446,7 @@ define internal noundef i32 @H5S__hyper_iter_next(ptr noundef captures(none) %0,
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i64, ptr %59, align 8, !tbaa !35
   %61 = icmp eq i64 %60, 1
-  %62 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %indvars.iv196
+  %62 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv196
   %63 = load i64, ptr %62, align 8, !tbaa !10
   %64 = load i64, ptr %58, align 8, !tbaa !44
   %65 = sub i64 %63, %64
@@ -13462,9 +13462,9 @@ define internal noundef i32 @H5S__hyper_iter_next(ptr noundef captures(none) %0,
 71:                                               ; preds = %.lr.ph, %66
   %.sink204 = phi i64 [ %69, %66 ], [ %65, %.lr.ph ]
   %.sink = phi i64 [ %70, %66 ], [ 0, %.lr.ph ]
-  %72 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv196
+  %72 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv196
   store i64 %.sink204, ptr %72, align 8, !tbaa !11
-  %73 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv196
+  %73 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv196
   store i64 %.sink, ptr %73, align 8, !tbaa !11
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count
@@ -13486,14 +13486,14 @@ define internal noundef i32 @H5S__hyper_iter_next(ptr noundef captures(none) %0,
   %75 = load i64, ptr %74, align 8, !tbaa !44
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !45
-  %78 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv199
+  %78 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv199
   %79 = load i64, ptr %78, align 8, !tbaa !11
   %80 = mul i64 %79, %77
   %81 = add i64 %80, %75
-  %82 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv199
+  %82 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv199
   %83 = load i64, ptr %82, align 8, !tbaa !11
   %84 = add i64 %81, %83
-  %85 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %indvars.iv199
+  %85 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv199
   store i64 %84, ptr %85, align 8, !tbaa !10
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
@@ -13660,7 +13660,7 @@ define internal noundef i32 @H5S__hyper_iter_next_block(ptr noundef captures(non
   %.idx = shl nuw nsw i64 %22, 5
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %22
+  %25 = getelementptr inbounds nuw i64, ptr %2, i64 %22
   br label %.lr.ph129
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %39
@@ -13669,7 +13669,7 @@ define internal noundef i32 @H5S__hyper_iter_next_block(ptr noundef captures(non
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !35
   %29 = icmp eq i64 %28, 1
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv150
+  %30 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv150
   %31 = load i64, ptr %30, align 8, !tbaa !10
   %32 = load i64, ptr %26, align 8, !tbaa !44
   %33 = sub i64 %31, %32
@@ -13685,9 +13685,9 @@ define internal noundef i32 @H5S__hyper_iter_next_block(ptr noundef captures(non
 39:                                               ; preds = %.lr.ph127, %34
   %.sink158 = phi i64 [ %37, %34 ], [ %33, %.lr.ph127 ]
   %.sink = phi i64 [ %38, %34 ], [ 0, %.lr.ph127 ]
-  %40 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %indvars.iv150
+  %40 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv150
   store i64 %.sink158, ptr %40, align 8, !tbaa !11
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv150
+  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv150
   store i64 %.sink, ptr %41, align 8, !tbaa !11
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count
@@ -13707,7 +13707,7 @@ define internal noundef i32 @H5S__hyper_iter_next_block(ptr noundef captures(non
 
 47:                                               ; preds = %.lr.ph129
   %48 = zext nneg i32 %.0102128 to i64
-  %49 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %2, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !11
   %51 = add i64 %50, 1
   store i64 %51, ptr %49, align 8, !tbaa !11
@@ -13723,9 +13723,9 @@ define internal noundef i32 @H5S__hyper_iter_next_block(ptr noundef captures(non
   br i1 %57, label %.lr.ph134.preheader, label %58
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %.pre-phi
+  %59 = getelementptr inbounds nuw i64, ptr %2, i64 %.pre-phi
   store i64 0, ptr %59, align 8, !tbaa !11
-  %60 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %.pre-phi
+  %60 = getelementptr inbounds nuw i64, ptr %3, i64 %.pre-phi
   %61 = load i64, ptr %60, align 8, !tbaa !11
   %62 = add i64 %61, 1
   store i64 %62, ptr %60, align 8, !tbaa !11
@@ -13750,14 +13750,14 @@ define internal noundef i32 @H5S__hyper_iter_next_block(ptr noundef captures(non
   %70 = load i64, ptr %69, align 8, !tbaa !44
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !45
-  %73 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv153
+  %73 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv153
   %74 = load i64, ptr %73, align 8, !tbaa !11
   %75 = mul i64 %74, %72
   %76 = add i64 %75, %70
-  %77 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %indvars.iv153
+  %77 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv153
   %78 = load i64, ptr %77, align 8, !tbaa !11
   %79 = add i64 %76, %78
-  %80 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv153
+  %80 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv153
   store i64 %79, ptr %80, align 8, !tbaa !10
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
@@ -13891,7 +13891,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   %.0126 = select i1 %.not, i32 %.pre, i32 %spec.select491
   %33 = add i32 %.0126, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %24, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %28, i64 %34
   %38 = load i64, ptr %37, align 8, !tbaa !44
@@ -13951,7 +13951,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %.0120273 = phi i64 [ 0, %.lr.ph ], [ %73, %64 ]
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !10
   %67 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
   %68 = load i64, ptr %67, align 8, !tbaa !11
@@ -14064,7 +14064,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   %109 = getelementptr inbounds nuw i64, ptr %.0164294.i, i64 %indvars.iv.i
   %110 = load i64, ptr %109, align 8, !tbaa !11
   %111 = add nsw i64 %110, %108
-  %112 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
   store i64 %111, ptr %112, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -14072,12 +14072,12 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
 
 .lr.ph202.i:                                      ; preds = %.lr.ph.i, %.lr.ph202.i
   %indvars.iv253.i = phi i64 [ %indvars.iv.next254.i, %.lr.ph202.i ], [ 0, %.lr.ph.i ]
-  %113 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv253.i
+  %113 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv253.i
   %114 = load i64, ptr %113, align 8, !tbaa !10
   %115 = getelementptr inbounds nuw i64, ptr %.0164294.i, i64 %indvars.iv253.i
   %116 = load i64, ptr %115, align 8, !tbaa !11
   %117 = add nsw i64 %116, %114
-  %118 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %indvars.iv253.i
+  %118 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv253.i
   store i64 %117, ptr %118, align 8, !tbaa !11
   %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
   %exitcond257.not.i = icmp eq i64 %indvars.iv.next254.i, %wide.trip.count.i
@@ -14086,7 +14086,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
 .lr.ph205.i:                                      ; preds = %.lr.ph202.i, %.lr.ph205.i
   %indvars.iv258.i = phi i64 [ %indvars.iv.next259.i, %.lr.ph205.i ], [ 0, %.lr.ph202.i ]
   %.0173203.i = phi i64 [ %124, %.lr.ph205.i ], [ 0, %.lr.ph202.i ]
-  %119 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %indvars.iv258.i
+  %119 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv258.i
   %120 = load i64, ptr %119, align 8, !tbaa !11
   %121 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv258.i
   %122 = load i64, ptr %121, align 8, !tbaa !11
@@ -14181,7 +14181,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   br i1 %.not191.i, label %163, label %.preheader195.i, !llvm.loop !226
 
 163:                                              ; preds = %.preheader195.i
-  %164 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %.pre-phi.i
+  %164 = getelementptr inbounds nuw i64, ptr %14, i64 %.pre-phi.i
   %165 = load i64, ptr %164, align 8, !tbaa !11
   %166 = add i64 %165, %136
   store i64 %166, ptr %164, align 8, !tbaa !11
@@ -14204,12 +14204,12 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
 
 .lr.ph215.i:                                      ; preds = %.lr.ph215.i, %.lr.ph215.preheader.i
   %indvars.iv263.i = phi i64 [ 0, %.lr.ph215.preheader.i ], [ %indvars.iv.next264.i, %.lr.ph215.i ]
-  %170 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv263.i
+  %170 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv263.i
   %171 = load i64, ptr %170, align 8, !tbaa !10
   %172 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %28, i64 %indvars.iv263.i
   %173 = load i64, ptr %172, align 8, !tbaa !44
   %174 = sub i64 %171, %173
-  %175 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %indvars.iv263.i
+  %175 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv263.i
   store i64 %174, ptr %175, align 8, !tbaa !11
   %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
   %exitcond267.not.i = icmp eq i64 %indvars.iv.next264.i, %wide.trip.count266.i
@@ -14235,11 +14235,11 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   %.0155219.us.i = phi i32 [ %.0170315.i, %.lr.ph221.us.i ], [ %198, %192 ]
   %.6218.us.i = phi i64 [ %179, %.lr.ph221.us.i ], [ %197, %192 ]
   %181 = zext nneg i32 %.0155219.us.i to i64
-  %182 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i64, ptr %14, i64 %181
   %183 = load i64, ptr %182, align 8, !tbaa !11
   %184 = add i64 %183, 1
   store i64 %184, ptr %182, align 8, !tbaa !11
-  %185 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %181
+  %185 = getelementptr inbounds nuw i64, ptr %15, i64 %181
   %186 = load i64, ptr %185, align 8, !tbaa !11
   %187 = add i64 %186, 1
   store i64 %187, ptr %185, align 8, !tbaa !11
@@ -14251,10 +14251,10 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   br i1 %191, label %._crit_edge222.us.i, label %192
 
 192:                                              ; preds = %180
-  %193 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %181
+  %193 = getelementptr inbounds nuw i64, ptr %13, i64 %181
   %194 = load i64, ptr %193, align 8, !tbaa !11
   store i64 %194, ptr %182, align 8, !tbaa !11
-  %195 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %181
+  %195 = getelementptr inbounds nuw i64, ptr %16, i64 %181
   %196 = load i64, ptr %195, align 8, !tbaa !11
   %197 = add i64 %196, %.6218.us.i
   store i64 0, ptr %185, align 8, !tbaa !11
@@ -14280,7 +14280,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   %208 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv268.i
   %209 = load i64, ptr %208, align 8, !tbaa !11
   %210 = mul i64 %207, %209
-  %211 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv268.i
+  %211 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv268.i
   store i64 %210, ptr %211, align 8, !tbaa !11
   %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
   %exitcond272.not.i = icmp eq i64 %indvars.iv.next269.i, %wide.trip.count266.i
@@ -14327,12 +14327,12 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
   %indvars.iv273.i = phi i64 [ 0, %.lr.ph237.preheader.i ], [ %indvars.iv.next274.i, %.lr.ph237.i ]
-  %221 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %indvars.iv273.i
+  %221 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv273.i
   %222 = load i64, ptr %221, align 8, !tbaa !11
   %223 = getelementptr inbounds nuw i64, ptr %.0164295302311.i, i64 %indvars.iv273.i
   %224 = load i64, ptr %223, align 8, !tbaa !11
   %225 = sub nsw i64 %222, %224
-  %226 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv273.i
+  %226 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv273.i
   store i64 %225, ptr %226, align 8, !tbaa !10
   %indvars.iv.next274.i = add nuw nsw i64 %indvars.iv273.i, 1
   %exitcond277.not.i = icmp eq i64 %indvars.iv.next274.i, %wide.trip.count276.i
@@ -14361,7 +14361,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   store i64 %.1174.i, ptr %.0.i, align 8, !tbaa !11
   %234 = mul i64 %233, %102
   store i64 %234, ptr %.0159.i, align 8, !tbaa !11
-  %235 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %128
+  %235 = getelementptr inbounds nuw i64, ptr %24, i64 %128
   %236 = load i64, ptr %235, align 8, !tbaa !10
   %237 = add i64 %236, %233
   store i64 %237, ptr %235, align 8, !tbaa !10
@@ -14428,12 +14428,12 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
 
 .lr.ph.i154:                                      ; preds = %.lr.ph.i154, %.lr.ph.preheader.i152
   %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.preheader.i152 ], [ %indvars.iv.next.i156, %.lr.ph.i154 ]
-  %262 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv.i155
+  %262 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i155
   %263 = load i64, ptr %262, align 8, !tbaa !10
   %264 = getelementptr inbounds nuw i64, ptr %.0353539.i, i64 %indvars.iv.i155
   %265 = load i64, ptr %264, align 8, !tbaa !11
   %266 = add nsw i64 %265, %263
-  %267 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv.i155
+  %267 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i155
   store i64 %266, ptr %267, align 8, !tbaa !11
   %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i155, 1
   %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i153
@@ -14445,7 +14445,7 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %270 = load i64, ptr %269, align 8, !tbaa !35
   %271 = icmp eq i64 %270, 1
-  %272 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv483.i
+  %272 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv483.i
   %273 = load i64, ptr %272, align 8, !tbaa !10
   %274 = load i64, ptr %268, align 8, !tbaa !44
   %275 = sub i64 %273, %274
@@ -14461,9 +14461,9 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
 281:                                              ; preds = %276, %.lr.ph412.i
   %.sink508.i = phi i64 [ %279, %276 ], [ 0, %.lr.ph412.i ]
   %.sink.i = phi i64 [ %280, %276 ], [ %275, %.lr.ph412.i ]
-  %282 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv483.i
+  %282 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv483.i
   store i64 %.sink508.i, ptr %282, align 8, !tbaa !11
-  %283 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv483.i
+  %283 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv483.i
   store i64 %.sink.i, ptr %283, align 8, !tbaa !11
   %indvars.iv.next484.i = add nuw nsw i64 %indvars.iv483.i, 1
   %exitcond487.not.i = icmp eq i64 %indvars.iv.next484.i, %wide.trip.count.i153
@@ -14472,7 +14472,7 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
 .lr.ph415.i:                                      ; preds = %281, %.lr.ph415.i
   %indvars.iv488.i = phi i64 [ %indvars.iv.next489.i, %.lr.ph415.i ], [ 0, %281 ]
   %.0364413.i = phi i64 [ %289, %.lr.ph415.i ], [ 0, %281 ]
-  %284 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv488.i
+  %284 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv488.i
   %285 = load i64, ptr %284, align 8, !tbaa !11
   %286 = getelementptr inbounds nuw i64, ptr %256, i64 %indvars.iv488.i
   %287 = load i64, ptr %286, align 8, !tbaa !11
@@ -14530,7 +14530,7 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   %320 = getelementptr inbounds nuw i64, ptr %256, i64 %indvars.iv493.i
   %321 = load i64, ptr %320, align 8, !tbaa !11
   %322 = mul i64 %319, %321
-  %323 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv493.i
+  %323 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv493.i
   store i64 %322, ptr %323, align 8, !tbaa !11
   %indvars.iv.next494.i = add nuw nsw i64 %indvars.iv493.i, 1
   %exitcond497.not.i = icmp eq i64 %indvars.iv.next494.i, %wide.trip.count496.i
@@ -14547,14 +14547,14 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   %330 = getelementptr inbounds nuw i64, ptr %256, i64 %indvars.iv498.i
   %331 = load i64, ptr %330, align 8, !tbaa !11
   %332 = mul i64 %329, %331
-  %333 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %indvars.iv498.i
+  %333 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv498.i
   store i64 %332, ptr %333, align 8, !tbaa !11
   %indvars.iv.next499.i = add nuw nsw i64 %indvars.iv498.i, 1
   %exitcond502.not.i = icmp eq i64 %indvars.iv.next499.i, %wide.trip.count496.i
   br i1 %exitcond502.not.i, label %._crit_edge421.i, label %.lr.ph420.i, !llvm.loop !236
 
 ._crit_edge421.i:                                 ; preds = %.lr.ph420.i, %._crit_edge.i158
-  %334 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %292
+  %334 = getelementptr inbounds nuw i64, ptr %9, i64 %292
   %335 = load i64, ptr %334, align 8, !tbaa !11
   %.not396.i = icmp eq i64 %335, 0
   %.phi.trans.insert511.i = getelementptr inbounds nuw i8, ptr %294, i64 16
@@ -14598,10 +14598,10 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   br i1 %.not398.i, label %391, label %349
 
 349:                                              ; preds = %._crit_edge428.i
-  %350 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %292
+  %350 = getelementptr inbounds nuw i64, ptr %11, i64 %292
   %351 = load i64, ptr %350, align 8, !tbaa !11
   %352 = add i64 %351, %.2366.lcssa.i
-  %353 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %292
+  %353 = getelementptr inbounds nuw i64, ptr %8, i64 %292
   store i64 %306, ptr %353, align 8, !tbaa !11
   store i64 0, ptr %334, align 8, !tbaa !11
   %354 = add i32 %.0379538552561.i, -2
@@ -14612,11 +14612,11 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   %.3367432.i = phi i64 [ %388, %381 ], [ %352, %349 ]
   %.0377431.i = phi i32 [ %389, %381 ], [ %354, %349 ]
   %356 = zext nneg i32 %.0377431.i to i64
-  %357 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw i64, ptr %8, i64 %356
   %358 = load i64, ptr %357, align 8, !tbaa !11
   %359 = add i64 %358, 1
   store i64 %359, ptr %357, align 8, !tbaa !11
-  %360 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %356
+  %360 = getelementptr inbounds nuw i64, ptr %10, i64 %356
   %361 = load i64, ptr %360, align 8, !tbaa !11
   %362 = add i64 %361, 1
   store i64 %362, ptr %360, align 8, !tbaa !11
@@ -14632,11 +14632,11 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   %370 = sub i64 %359, %365
   %371 = add i64 %370, %369
   store i64 %371, ptr %357, align 8, !tbaa !11
-  %372 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %356
+  %372 = getelementptr inbounds nuw i64, ptr %12, i64 %356
   %373 = load i64, ptr %372, align 8, !tbaa !11
   %374 = add i64 %373, %.3367432.i
   store i64 0, ptr %360, align 8, !tbaa !11
-  %375 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %356
+  %375 = getelementptr inbounds nuw i64, ptr %9, i64 %356
   %376 = load i64, ptr %375, align 8, !tbaa !11
   %377 = add i64 %376, 1
   store i64 %377, ptr %375, align 8, !tbaa !11
@@ -14651,7 +14651,7 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   %384 = load i64, ptr %383, align 8, !tbaa !11
   %385 = add nsw i64 %384, %382
   store i64 %385, ptr %357, align 8, !tbaa !11
-  %386 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %356
+  %386 = getelementptr inbounds nuw i64, ptr %11, i64 %356
   %387 = load i64, ptr %386, align 8, !tbaa !11
   %388 = add i64 %387, %374
   store i64 0, ptr %375, align 8, !tbaa !11
@@ -14662,7 +14662,7 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
 
 391:                                              ; preds = %._crit_edge428.i
   %392 = mul i64 %338, %300
-  %393 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %292
+  %393 = getelementptr inbounds nuw i64, ptr %8, i64 %292
   %394 = load i64, ptr %393, align 8, !tbaa !11
   %395 = add i64 %394, %392
   store i64 %395, ptr %393, align 8, !tbaa !11
@@ -14682,7 +14682,7 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   %398 = add i64 %396, 7
   %399 = lshr i64 %398, 3
   %400 = and i64 %396, 7
-  %401 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %292
+  %401 = getelementptr inbounds nuw i64, ptr %11, i64 %292
   %402 = add i32 %.0379538552561.i, -2
   %403 = icmp sgt i32 %402, -1
   br label %404
@@ -14812,11 +14812,11 @@ default.unreachable:                              ; preds = %404
   %.13441.i = phi i64 [ %481, %474 ], [ %448, %446 ]
   %.1378440.i = phi i32 [ %482, %474 ], [ %402, %446 ]
   %449 = zext nneg i32 %.1378440.i to i64
-  %450 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw i64, ptr %8, i64 %449
   %451 = load i64, ptr %450, align 8, !tbaa !11
   %452 = add i64 %451, 1
   store i64 %452, ptr %450, align 8, !tbaa !11
-  %453 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %449
+  %453 = getelementptr inbounds nuw i64, ptr %10, i64 %449
   %454 = load i64, ptr %453, align 8, !tbaa !11
   %455 = add i64 %454, 1
   store i64 %455, ptr %453, align 8, !tbaa !11
@@ -14832,11 +14832,11 @@ default.unreachable:                              ; preds = %404
   %463 = sub i64 %452, %458
   %464 = add i64 %463, %462
   store i64 %464, ptr %450, align 8, !tbaa !11
-  %465 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %449
+  %465 = getelementptr inbounds nuw i64, ptr %12, i64 %449
   %466 = load i64, ptr %465, align 8, !tbaa !11
   %467 = add i64 %466, %.13441.i
   store i64 0, ptr %453, align 8, !tbaa !11
-  %468 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %449
+  %468 = getelementptr inbounds nuw i64, ptr %9, i64 %449
   %469 = load i64, ptr %468, align 8, !tbaa !11
   %470 = add i64 %469, 1
   store i64 %470, ptr %468, align 8, !tbaa !11
@@ -14851,7 +14851,7 @@ default.unreachable:                              ; preds = %404
   %477 = load i64, ptr %476, align 8, !tbaa !11
   %478 = add nsw i64 %477, %475
   store i64 %478, ptr %450, align 8, !tbaa !11
-  %479 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %449
+  %479 = getelementptr inbounds nuw i64, ptr %11, i64 %449
   %480 = load i64, ptr %479, align 8, !tbaa !11
   %481 = add i64 %480, %467
   store i64 0, ptr %468, align 8, !tbaa !11
@@ -14909,7 +14909,7 @@ default.unreachable:                              ; preds = %404
   %497 = mul i64 %489, %296
   %498 = sub i64 %488, %497
   %499 = mul i64 %489, %300
-  %500 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %292
+  %500 = getelementptr inbounds nuw i64, ptr %8, i64 %292
   %501 = load i64, ptr %500, align 8, !tbaa !11
   %502 = add i64 %501, %499
   store i64 %502, ptr %500, align 8, !tbaa !11
@@ -14942,12 +14942,12 @@ default.unreachable:                              ; preds = %404
 
 .lr.ph469.i:                                      ; preds = %.lr.ph469.i, %.lr.ph469.preheader.i
   %indvars.iv503.i = phi i64 [ 0, %.lr.ph469.preheader.i ], [ %indvars.iv.next504.i, %.lr.ph469.i ]
-  %512 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv503.i
+  %512 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv503.i
   %513 = load i64, ptr %512, align 8, !tbaa !11
   %514 = getelementptr inbounds nuw i64, ptr %.0353540551562.i, i64 %indvars.iv503.i
   %515 = load i64, ptr %514, align 8, !tbaa !11
   %516 = sub nsw i64 %513, %515
-  %517 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %indvars.iv503.i
+  %517 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv503.i
   store i64 %516, ptr %517, align 8, !tbaa !10
   %indvars.iv.next504.i = add nuw nsw i64 %indvars.iv503.i, 1
   %exitcond507.not.i = icmp eq i64 %indvars.iv.next504.i, %wide.trip.count506.i
@@ -14980,7 +14980,7 @@ H5S__hyper_iter_get_seq_list_opt.exit:            ; preds = %244, %._crit_edge47
   %528 = add i32 %527, -1
   %529 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %530 = zext i32 %528 to i64
-  %531 = getelementptr inbounds nuw [32 x ptr], ptr %529, i64 0, i64 %530
+  %531 = getelementptr inbounds nuw ptr, ptr %529, i64 %530
   %532 = load ptr, ptr %531, align 8, !tbaa !10
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   %534 = getelementptr inbounds nuw i8, ptr %0, i64 808
@@ -15631,7 +15631,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_get_version_enc_size(ptr
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %43 = getelementptr inbounds nuw i64, ptr %.041.i, i64 %indvars.iv.i
   %44 = load i64, ptr %43, align 8, !tbaa !11
-  %45 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i
   %46 = load i64, ptr %45, align 8, !tbaa !11
   %47 = add nsw i64 %46, %44
   %48 = icmp slt i64 %47, 0
@@ -15686,7 +15686,7 @@ H5S__hyper_bounds.exit.thread:                    ; preds = %55, %.preheader.i, 
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %70 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8, !tbaa !11
   %72 = icmp ugt i64 %71, 4294967295
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15795,7 +15795,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
 
 .thread:                                          ; preds = %H5S__hyper_is_regular.exit, %130
   %132 = sext i32 %123 to i64
-  %133 = getelementptr inbounds [7 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %132
+  %133 = getelementptr inbounds i32, ptr @H5O_sds_hyper_ver_bounds, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !20
   br label %145
 
@@ -15816,7 +15816,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
 
 141:                                              ; preds = %138
   %142 = sext i32 %123 to i64
-  %143 = getelementptr inbounds [7 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %142
+  %143 = getelementptr inbounds i32, ptr @H5O_sds_hyper_ver_bounds, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !20
   br label %145
 
@@ -15824,7 +15824,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
   %.089 = phi i32 [ %137, %136 ], [ %134, %.thread ], [ 2, %130 ], [ %144, %141 ], [ 1, %138 ]
   %146 = load i32, ptr %8, align 4, !tbaa !20
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [7 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %147
+  %148 = getelementptr inbounds i32, ptr @H5O_sds_hyper_ver_bounds, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !20
   %150 = icmp ugt i32 %.089, %149
   br i1 %150, label %151, label %163
@@ -15941,7 +15941,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
 192:                                              ; preds = %.lr.ph126, %192
   %indvars.iv144 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next145, %192 ]
   %.078125 = phi i64 [ 0, %.lr.ph126 ], [ %.2, %192 ]
-  %193 = getelementptr inbounds nuw [32 x %struct.H5S_hyper_dim_t], ptr %190, i64 0, i64 %indvars.iv144
+  %193 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %190, i64 %indvars.iv144
   %194 = load i64, ptr %193, align 8, !tbaa !44
   %.fr196 = freeze i64 %194
   %spec.select = call i64 @llvm.umax.i64(i64 %.fr196, i64 %.078125)
@@ -15975,7 +15975,7 @@ H5S__hyper_get_enc_size_real.exit109:             ; preds = %199, %.preheader114
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
   %indvars.iv149 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next150, %.lr.ph131 ]
   %.0130 = phi i64 [ %1, %.lr.ph131.preheader ], [ %spec.select104, %.lr.ph131 ]
-  %202 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv149
+  %202 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv149
   %203 = load i64, ptr %202, align 8, !tbaa !11
   %spec.select104 = call i64 @llvm.umax.i64(i64 %203, i64 %.0130)
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
@@ -17370,7 +17370,7 @@ H5S__hyper_spans_nelem.exit:                      ; preds = %175, %183
 
 switch.lookup:                                    ; preds = %193
   %199 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.H5S__fill_in_new_space, i64 0, i64 %199
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5S__fill_in_new_space, i64 %199
   %switch.load = load i32, ptr %switch.gep, align 4
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %201 = load i32, ptr %200, align 8, !tbaa !21
@@ -19333,7 +19333,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_append_span(ptr noundef 
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %49, ptr %50, align 8, !tbaa !31
   %51 = zext i32 %1 to i64
-  %52 = getelementptr inbounds nuw [0 x i64], ptr %49, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %52, ptr %53, align 8, !tbaa !31
   store ptr %42, ptr %0, align 8, !tbaa !99
@@ -20791,7 +20791,7 @@ define internal fastcc ptr @H5S__hyper_copy_span_helper(ptr noundef captures(non
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds nuw [2 x %struct.H5S_hyper_op_info_t], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.H5S_hyper_op_info_t, ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !146
   %16 = icmp eq i64 %15, %3
   br i1 %16, label %17, label %22
@@ -20825,7 +20825,7 @@ define internal fastcc ptr @H5S__hyper_copy_span_helper(ptr noundef captures(non
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %35, ptr %36, align 8, !tbaa !31
   %37 = zext i32 %1 to i64
-  %38 = getelementptr inbounds nuw [0 x i64], ptr %35, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %38, ptr %39, align 8, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20970,7 +20970,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %16 = phi i32 [ %.pre, %.critedge.preheader ], [ %.be1315, %.critedge.backedge ]
   %17 = phi i64 [ %10, %.critedge.preheader ], [ %121, %.critedge.backedge ]
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !88
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !92
@@ -20978,7 +20978,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %.not500, label %51, label %23
 
 23:                                               ; preds = %.critedge
-  %24 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %18
+  %24 = getelementptr inbounds nuw i64, ptr %11, i64 %18
   %25 = load i64, ptr %24, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !97
@@ -20990,11 +20990,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %30 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %22, i64 noundef %29)
   %31 = load i32, ptr %.phi.trans.insert793, align 4, !tbaa !285
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !88
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !97
-  %37 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %32
+  %37 = getelementptr inbounds nuw i64, ptr %11, i64 %32
   %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = sub i64 %36, %38
   %40 = add i64 %39, 1
@@ -21015,7 +21015,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 51:                                               ; preds = %.critedge
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !97
-  %54 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %18
+  %54 = getelementptr inbounds nuw i64, ptr %11, i64 %18
   %55 = load i64, ptr %54, align 8, !tbaa !11
   %56 = sub i64 %53, %55
   %57 = add i64 %56, 1
@@ -21023,7 +21023,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %51
-  %60 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %18
+  %60 = getelementptr inbounds nuw i64, ptr %11, i64 %18
   %61 = add i64 %55, %17
   store i64 %61, ptr %60, align 8, !tbaa !11
   store i64 0, ptr %9, align 8, !tbaa !187
@@ -21047,7 +21047,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %.pre-phi = phi i64 [ %18, %23 ], [ %.pre-phi.ph, %.sink.split ]
   %66 = phi i32 [ %15, %23 ], [ %.ph997, %.sink.split ]
   %67 = phi i32 [ %16, %23 ], [ %.ph998, %.sink.split ]
-  %68 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %.pre-phi
+  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %.pre-phi
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !96
   store ptr %70, ptr %68, align 8, !tbaa !88
@@ -21056,7 +21056,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 
 71:                                               ; preds = %64
   %72 = load i64, ptr %70, align 8, !tbaa !90
-  %73 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %.pre-phi
+  %73 = getelementptr inbounds nuw i64, ptr %11, i64 %.pre-phi
   store i64 %72, ptr %73, align 8, !tbaa !11
   br label %118
 
@@ -21065,7 +21065,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %.not503, label %114, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %.pre-phi
+  %76 = getelementptr inbounds nuw ptr, ptr %13, i64 %.pre-phi
   %77 = load ptr, ptr %76, align 8, !tbaa !99
   %.not504 = icmp eq ptr %77, null
   br i1 %.not504, label %107, label %78
@@ -21073,11 +21073,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 78:                                               ; preds = %75
   %79 = add i32 %67, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %13, i64 %80
   %82 = load i32, ptr %14, align 8, !tbaa !180
   %reass.sub = sub i32 %82, %67
   %83 = add i32 %reass.sub, 1
-  %84 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %80
+  %84 = getelementptr inbounds nuw i64, ptr %11, i64 %80
   %85 = load i64, ptr %84, align 8, !tbaa !11
   %86 = tail call fastcc i32 @H5S__hyper_append_span(ptr noundef %81, i32 noundef %83, i64 noundef %85, i64 noundef %85, ptr noundef nonnull %77)
   %87 = icmp slt i32 %86, 0
@@ -21092,7 +21092,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 92:                                               ; preds = %78
   %93 = load i32, ptr %.phi.trans.insert793, align 4, !tbaa !285
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %13, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !99
   %97 = tail call fastcc i32 @H5S__hyper_free_span_info(ptr noundef %96)
   %98 = icmp slt i32 %97, 0
@@ -21107,7 +21107,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 103:                                              ; preds = %92
   %104 = load i32, ptr %.phi.trans.insert793, align 4, !tbaa !285
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw ptr, ptr %13, i64 %105
   store ptr null, ptr %106, align 8, !tbaa !99
   br label %107
 
@@ -21116,7 +21116,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %109 = add i32 %108, -1
   store i32 %109, ptr %.phi.trans.insert793, align 4, !tbaa !285
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %11, i64 %110
   %112 = load i64, ptr %111, align 8, !tbaa !11
   %113 = add i64 %112, 1
   store i64 %113, ptr %111, align 8, !tbaa !11
@@ -21137,9 +21137,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 
 122:                                              ; preds = %118
   %123 = zext i32 %119 to i64
-  %124 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i64, ptr %11, i64 %123
   %125 = load i64, ptr %124, align 8, !tbaa !11
-  %126 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %123
+  %126 = getelementptr inbounds nuw ptr, ptr %0, i64 %123
   %127 = load ptr, ptr %126, align 8, !tbaa !88
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i64, ptr %128, align 8, !tbaa !97
@@ -21151,7 +21151,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br label %.critedge, !llvm.loop !286
 
 .loopexit545:                                     ; preds = %28
-  %131 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %32
+  %131 = getelementptr inbounds nuw i64, ptr %11, i64 %32
   %132 = load i64, ptr %9, align 8, !tbaa !187
   %133 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !92
@@ -21172,17 +21172,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %144 = add i32 %143, 1
   store i32 %144, ptr %.phi.trans.insert793, align 4, !tbaa !285
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw ptr, ptr %0, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !88
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load ptr, ptr %148, align 8, !tbaa !92
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 56
   %151 = load ptr, ptr %150, align 8, !tbaa !88
   %152 = zext i32 %144 to i64
-  %153 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %0, i64 %152
   store ptr %151, ptr %153, align 8, !tbaa !88
   %154 = load i64, ptr %151, align 8, !tbaa !90
-  %155 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %152
+  %155 = getelementptr inbounds nuw i64, ptr %11, i64 %152
   store i64 %154, ptr %155, align 8, !tbaa !11
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !92
@@ -21194,8 +21194,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br label %.preheader542
 
 .preheader540:                                    ; preds = %.lr.ph
-  %158 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %152
-  %159 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %152
+  %158 = getelementptr inbounds nuw ptr, ptr %0, i64 %152
+  %159 = getelementptr inbounds nuw i64, ptr %11, i64 %152
   %.pre786 = load i64, ptr %9, align 8, !tbaa !187
   br label %190
 
@@ -21208,11 +21208,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %165 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %163, i64 noundef %164)
   %166 = load i32, ptr %.phi.trans.insert793, align 4, !tbaa !285
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw ptr, ptr %0, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !88
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i64, ptr %170, align 8, !tbaa !97
-  %172 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %167
+  %172 = getelementptr inbounds nuw i64, ptr %11, i64 %167
   %173 = load i64, ptr %172, align 8, !tbaa !11
   %174 = sub i64 %171, %173
   %175 = add i64 %174, 1
@@ -21298,7 +21298,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %225 = phi i32 [ %.pre787, %.loopexit544 ], [ %490, %.critedge2.backedge ]
   %226 = phi i32 [ %.pre787, %.loopexit544 ], [ %.be, %.critedge2.backedge ]
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw ptr, ptr %0, i64 %227
   %229 = load ptr, ptr %228, align 8, !tbaa !88
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %231 = load ptr, ptr %230, align 8, !tbaa !92
@@ -21306,7 +21306,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %.not507, label %399, label %232
 
 232:                                              ; preds = %.critedge2
-  %233 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %227
+  %233 = getelementptr inbounds nuw i64, ptr %219, i64 %227
   %234 = load i64, ptr %233, align 8, !tbaa !11
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %236 = load i64, ptr %235, align 8, !tbaa !97
@@ -21319,11 +21319,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %240 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %231, i64 noundef %239)
   %241 = load i32, ptr %218, align 4, !tbaa !285
   %242 = zext i32 %241 to i64
-  %243 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw ptr, ptr %0, i64 %242
   %244 = load ptr, ptr %243, align 8, !tbaa !88
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load i64, ptr %245, align 8, !tbaa !97
-  %247 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %242
+  %247 = getelementptr inbounds nuw i64, ptr %219, i64 %242
   %248 = load i64, ptr %247, align 8, !tbaa !11
   %249 = add i64 %246, 1
   %250 = sub i64 %249, %248
@@ -21346,7 +21346,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %261, label %262, label %275
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %242
+  %263 = getelementptr inbounds nuw ptr, ptr %224, i64 %242
   %264 = load i32, ptr %223, align 8, !tbaa !180
   %265 = sub i32 %264, %241
   %266 = udiv i64 %254, %258
@@ -21379,13 +21379,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 285:                                              ; preds = %275
   %286 = load i32, ptr %218, align 4, !tbaa !285
   %287 = zext i32 %286 to i64
-  %288 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw ptr, ptr %224, i64 %287
   %289 = load i32, ptr %223, align 8, !tbaa !180
   %290 = sub i32 %289, %286
-  %291 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %287
+  %291 = getelementptr inbounds nuw i64, ptr %219, i64 %287
   %292 = load i64, ptr %291, align 8, !tbaa !11
   %293 = load i64, ptr %220, align 8, !tbaa !188
-  %294 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %287
+  %294 = getelementptr inbounds nuw ptr, ptr %0, i64 %287
   %295 = load ptr, ptr %294, align 8, !tbaa !88
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %297 = load ptr, ptr %296, align 8, !tbaa !92
@@ -21419,14 +21419,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %317 = load i64, ptr %220, align 8, !tbaa !188
   %318 = load i32, ptr %218, align 4, !tbaa !285
   %319 = zext i32 %318 to i64
-  %320 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw ptr, ptr %0, i64 %319
   %321 = load ptr, ptr %320, align 8, !tbaa !88
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
   %323 = load ptr, ptr %322, align 8, !tbaa !92
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 32
   %325 = load i64, ptr %324, align 8, !tbaa !10
   %326 = udiv i64 %317, %325
-  %327 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %319
+  %327 = getelementptr inbounds nuw i64, ptr %219, i64 %319
   %328 = load i64, ptr %327, align 8, !tbaa !11
   %329 = add i64 %328, %326
   store i64 %329, ptr %327, align 8, !tbaa !11
@@ -21442,7 +21442,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %335, label %336, label %348
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %242
+  %337 = getelementptr inbounds nuw ptr, ptr %224, i64 %242
   %338 = load i32, ptr %223, align 8, !tbaa !180
   %339 = sub i32 %338, %241
   %340 = getelementptr inbounds nuw i8, ptr %244, i64 16
@@ -21476,12 +21476,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 360:                                              ; preds = %348
   %361 = load i32, ptr %218, align 4, !tbaa !285
   %362 = zext i32 %361 to i64
-  %363 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %362
+  %363 = getelementptr inbounds nuw ptr, ptr %224, i64 %362
   %364 = load i32, ptr %223, align 8, !tbaa !180
   %365 = sub i32 %364, %361
-  %366 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %362
+  %366 = getelementptr inbounds nuw i64, ptr %219, i64 %362
   %367 = load i64, ptr %366, align 8, !tbaa !11
-  %368 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %362
+  %368 = getelementptr inbounds nuw ptr, ptr %0, i64 %362
   %369 = load ptr, ptr %368, align 8, !tbaa !88
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %371 = load i64, ptr %370, align 8, !tbaa !97
@@ -21509,7 +21509,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 385:                                              ; preds = %378, %336
   %386 = load i32, ptr %218, align 4, !tbaa !285
   %387 = zext i32 %386 to i64
-  %388 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw ptr, ptr %0, i64 %387
   %389 = load ptr, ptr %388, align 8, !tbaa !88
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 16
   %391 = load ptr, ptr %390, align 8, !tbaa !92
@@ -21517,7 +21517,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %393 = load i64, ptr %392, align 8, !tbaa !10
   %394 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %395 = load i64, ptr %394, align 8, !tbaa !97
-  %396 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %387
+  %396 = getelementptr inbounds nuw i64, ptr %219, i64 %387
   %397 = load i64, ptr %396, align 8, !tbaa !11
   %398 = xor i64 %395, -1
   %.neg509 = add i64 %397, %398
@@ -21528,12 +21528,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %400 = load i64, ptr %220, align 8, !tbaa !188
   %401 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %402 = load i64, ptr %401, align 8, !tbaa !97
-  %403 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %227
+  %403 = getelementptr inbounds nuw i64, ptr %219, i64 %227
   %404 = load i64, ptr %403, align 8, !tbaa !11
   %405 = add i64 %402, 1
   %406 = sub i64 %405, %404
   %407 = icmp ult i64 %400, %406
-  %408 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %227
+  %408 = getelementptr inbounds nuw ptr, ptr %224, i64 %227
   br i1 %407, label %409, label %418
 
 409:                                              ; preds = %399
@@ -21563,11 +21563,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 425:                                              ; preds = %418
   %426 = load i32, ptr %218, align 4, !tbaa !285
   %427 = zext i32 %426 to i64
-  %428 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw ptr, ptr %0, i64 %427
   %429 = load ptr, ptr %428, align 8, !tbaa !88
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %431 = load i64, ptr %430, align 8, !tbaa !97
-  %432 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %427
+  %432 = getelementptr inbounds nuw i64, ptr %219, i64 %427
   %433 = load i64, ptr %432, align 8, !tbaa !11
   %434 = xor i64 %431, -1
   %.neg = add i64 %433, %434
@@ -21588,7 +21588,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %437 = phi i32 [ %225, %232 ], [ %.ph999, %._crit_edge788.sink.split ]
   %438 = phi ptr [ %229, %232 ], [ %.ph1000, %._crit_edge788.sink.split ]
   %439 = phi i32 [ %226, %232 ], [ %.ph999, %._crit_edge788.sink.split ]
-  %440 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %.pre-phi795
+  %440 = getelementptr inbounds nuw ptr, ptr %0, i64 %.pre-phi795
   %441 = getelementptr inbounds nuw i8, ptr %438, i64 24
   %442 = load ptr, ptr %441, align 8, !tbaa !96
   store ptr %442, ptr %440, align 8, !tbaa !88
@@ -21597,7 +21597,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 
 443:                                              ; preds = %._crit_edge788
   %444 = load i64, ptr %442, align 8, !tbaa !90
-  %445 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %.pre-phi795
+  %445 = getelementptr inbounds nuw i64, ptr %219, i64 %.pre-phi795
   store i64 %444, ptr %445, align 8, !tbaa !11
   br label %489
 
@@ -21608,13 +21608,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 447:                                              ; preds = %446
   %448 = add i32 %439, -1
   %449 = zext i32 %448 to i64
-  %450 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw ptr, ptr %224, i64 %449
   %451 = load i32, ptr %223, align 8, !tbaa !180
   %reass.sub686 = sub i32 %451, %439
   %452 = add i32 %reass.sub686, 1
-  %453 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %449
+  %453 = getelementptr inbounds nuw i64, ptr %219, i64 %449
   %454 = load i64, ptr %453, align 8, !tbaa !11
-  %455 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %.pre-phi795
+  %455 = getelementptr inbounds nuw ptr, ptr %224, i64 %.pre-phi795
   %456 = load ptr, ptr %455, align 8, !tbaa !99
   %457 = tail call fastcc i32 @H5S__hyper_append_span(ptr noundef %450, i32 noundef %452, i64 noundef %454, i64 noundef %454, ptr noundef %456)
   %458 = icmp slt i32 %457, 0
@@ -21629,7 +21629,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 463:                                              ; preds = %447
   %464 = load i32, ptr %218, align 4, !tbaa !285
   %465 = zext i32 %464 to i64
-  %466 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %465
+  %466 = getelementptr inbounds nuw ptr, ptr %224, i64 %465
   %467 = load ptr, ptr %466, align 8, !tbaa !99
   %468 = tail call fastcc i32 @H5S__hyper_free_span_info(ptr noundef %467)
   %469 = icmp slt i32 %468, 0
@@ -21644,12 +21644,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 474:                                              ; preds = %463
   %475 = load i32, ptr %218, align 4, !tbaa !285
   %476 = zext i32 %475 to i64
-  %477 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw ptr, ptr %224, i64 %476
   store ptr null, ptr %477, align 8, !tbaa !99
   %478 = add i32 %475, -1
   store i32 %478, ptr %218, align 4, !tbaa !285
   %479 = zext i32 %478 to i64
-  %480 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw i64, ptr %219, i64 %479
   %481 = load i64, ptr %480, align 8, !tbaa !11
   %482 = add i64 %481, 1
   store i64 %482, ptr %480, align 8, !tbaa !11
@@ -21675,9 +21675,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 
 493:                                              ; preds = %489
   %494 = zext i32 %490 to i64
-  %495 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %494
+  %495 = getelementptr inbounds nuw i64, ptr %219, i64 %494
   %496 = load i64, ptr %495, align 8, !tbaa !11
-  %497 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %494
+  %497 = getelementptr inbounds nuw ptr, ptr %0, i64 %494
   %498 = load ptr, ptr %497, align 8, !tbaa !88
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 8
   %500 = load i64, ptr %499, align 8, !tbaa !97
@@ -21699,17 +21699,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %505 = add i32 %504, 1
   store i32 %505, ptr %218, align 4, !tbaa !285
   %506 = zext i32 %504 to i64
-  %507 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw ptr, ptr %0, i64 %506
   %508 = load ptr, ptr %507, align 8, !tbaa !88
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %510 = load ptr, ptr %509, align 8, !tbaa !92
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 56
   %512 = load ptr, ptr %511, align 8, !tbaa !88
   %513 = zext i32 %505 to i64
-  %514 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw ptr, ptr %0, i64 %513
   store ptr %512, ptr %514, align 8, !tbaa !88
   %515 = load i64, ptr %512, align 8, !tbaa !90
-  %516 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %513
+  %516 = getelementptr inbounds nuw i64, ptr %219, i64 %513
   store i64 %515, ptr %516, align 8, !tbaa !11
   %517 = getelementptr inbounds nuw i8, ptr %512, i64 16
   %518 = load ptr, ptr %517, align 8, !tbaa !92
@@ -21726,11 +21726,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %524 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %522, i64 noundef %523)
   %525 = load i32, ptr %218, align 4, !tbaa !285
   %526 = zext i32 %525 to i64
-  %527 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %526
+  %527 = getelementptr inbounds nuw ptr, ptr %0, i64 %526
   %528 = load ptr, ptr %527, align 8, !tbaa !88
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
   %530 = load i64, ptr %529, align 8, !tbaa !97
-  %531 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %526
+  %531 = getelementptr inbounds nuw i64, ptr %219, i64 %526
   %532 = load i64, ptr %531, align 8, !tbaa !11
   %533 = add i64 %530, 1
   %534 = sub i64 %533, %532
@@ -21753,7 +21753,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %545, label %546, label %559
 
 546:                                              ; preds = %543
-  %547 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %526
+  %547 = getelementptr inbounds nuw ptr, ptr %224, i64 %526
   %548 = load i32, ptr %223, align 8, !tbaa !180
   %549 = sub i32 %548, %525
   %550 = udiv i64 %538, %542
@@ -21786,13 +21786,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 569:                                              ; preds = %559
   %570 = load i32, ptr %218, align 4, !tbaa !285
   %571 = zext i32 %570 to i64
-  %572 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %571
+  %572 = getelementptr inbounds nuw ptr, ptr %224, i64 %571
   %573 = load i32, ptr %223, align 8, !tbaa !180
   %574 = sub i32 %573, %570
-  %575 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %571
+  %575 = getelementptr inbounds nuw i64, ptr %219, i64 %571
   %576 = load i64, ptr %575, align 8, !tbaa !11
   %577 = load i64, ptr %220, align 8, !tbaa !188
-  %578 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %571
+  %578 = getelementptr inbounds nuw ptr, ptr %0, i64 %571
   %579 = load ptr, ptr %578, align 8, !tbaa !88
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 16
   %581 = load ptr, ptr %580, align 8, !tbaa !92
@@ -21826,14 +21826,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %601 = load i64, ptr %220, align 8, !tbaa !188
   %602 = load i32, ptr %218, align 4, !tbaa !285
   %603 = zext i32 %602 to i64
-  %604 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %603
+  %604 = getelementptr inbounds nuw ptr, ptr %0, i64 %603
   %605 = load ptr, ptr %604, align 8, !tbaa !88
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 16
   %607 = load ptr, ptr %606, align 8, !tbaa !92
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 32
   %609 = load i64, ptr %608, align 8, !tbaa !10
   %610 = udiv i64 %601, %609
-  %611 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %603
+  %611 = getelementptr inbounds nuw i64, ptr %219, i64 %603
   %612 = load i64, ptr %611, align 8, !tbaa !11
   %613 = add i64 %612, %610
   store i64 %613, ptr %611, align 8, !tbaa !11
@@ -21849,7 +21849,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %619, label %620, label %632
 
 620:                                              ; preds = %617
-  %621 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %526
+  %621 = getelementptr inbounds nuw ptr, ptr %224, i64 %526
   %622 = load i32, ptr %223, align 8, !tbaa !180
   %623 = sub i32 %622, %525
   %624 = getelementptr inbounds nuw i8, ptr %528, i64 16
@@ -21883,12 +21883,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 644:                                              ; preds = %632
   %645 = load i32, ptr %218, align 4, !tbaa !285
   %646 = zext i32 %645 to i64
-  %647 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %646
+  %647 = getelementptr inbounds nuw ptr, ptr %224, i64 %646
   %648 = load i32, ptr %223, align 8, !tbaa !180
   %649 = sub i32 %648, %645
-  %650 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %646
+  %650 = getelementptr inbounds nuw i64, ptr %219, i64 %646
   %651 = load i64, ptr %650, align 8, !tbaa !11
-  %652 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %646
+  %652 = getelementptr inbounds nuw ptr, ptr %0, i64 %646
   %653 = load ptr, ptr %652, align 8, !tbaa !88
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 8
   %655 = load i64, ptr %654, align 8, !tbaa !97
@@ -21916,7 +21916,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 669:                                              ; preds = %662, %620
   %670 = load i32, ptr %218, align 4, !tbaa !285
   %671 = zext i32 %670 to i64
-  %672 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %671
+  %672 = getelementptr inbounds nuw ptr, ptr %0, i64 %671
   %673 = load ptr, ptr %672, align 8, !tbaa !88
   %674 = getelementptr inbounds nuw i8, ptr %673, i64 16
   %675 = load ptr, ptr %674, align 8, !tbaa !92
@@ -21924,7 +21924,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %677 = load i64, ptr %676, align 8, !tbaa !10
   %678 = getelementptr inbounds nuw i8, ptr %673, i64 8
   %679 = load i64, ptr %678, align 8, !tbaa !97
-  %680 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %671
+  %680 = getelementptr inbounds nuw i64, ptr %219, i64 %671
   %681 = load i64, ptr %680, align 8, !tbaa !11
   %682 = xor i64 %679, -1
   %.neg520 = add i64 %681, %682
@@ -21952,7 +21952,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %696 = add i64 %695, 1
   %697 = sub i64 %696, %689
   %698 = icmp ult i64 %692, %697
-  %699 = getelementptr inbounds nuw [32 x ptr], ptr %224, i64 0, i64 %693
+  %699 = getelementptr inbounds nuw ptr, ptr %224, i64 %693
   br i1 %698, label %700, label %709
 
 700:                                              ; preds = %.preheader
@@ -21982,11 +21982,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 716:                                              ; preds = %709
   %717 = load i32, ptr %218, align 4, !tbaa !285
   %718 = zext i32 %717 to i64
-  %719 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %718
+  %719 = getelementptr inbounds nuw ptr, ptr %0, i64 %718
   %720 = load ptr, ptr %719, align 8, !tbaa !88
   %721 = getelementptr inbounds nuw i8, ptr %720, i64 8
   %722 = load i64, ptr %721, align 8, !tbaa !97
-  %723 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %718
+  %723 = getelementptr inbounds nuw i64, ptr %219, i64 %718
   %724 = load i64, ptr %723, align 8, !tbaa !11
   %725 = xor i64 %722, -1
   %.neg518 = add i64 %724, %725
@@ -22012,7 +22012,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %734 = load i64, ptr %220, align 8, !tbaa !188
   %735 = load i32, ptr %218, align 4, !tbaa !285
   %736 = zext i32 %735 to i64
-  %737 = getelementptr inbounds nuw [32 x i64], ptr %219, i64 0, i64 %736
+  %737 = getelementptr inbounds nuw i64, ptr %219, i64 %736
   %738 = load i64, ptr %737, align 8, !tbaa !11
   %739 = add i64 %738, %734
   store i64 %739, ptr %737, align 8, !tbaa !11

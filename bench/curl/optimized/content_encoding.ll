@@ -1109,9 +1109,9 @@ brotli_map_error.exit:                            ; preds = %30, %29, %29
   br i1 %or.cond5, label %22, label %.critedge, !llvm.loop !111
 
 switch.lookup:                                    ; preds = %33
-  %switch.tableidx = add nsw i32 %35, 30
-  %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [30 x i32], ptr @switch.table.brotli_do_write, i64 0, i64 %41
+  %41 = sext i32 %35 to i64
+  %42 = getelementptr i32, ptr @switch.table.brotli_do_write, i64 %41
+  %switch.gep = getelementptr i8, ptr %42, i64 120
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge
 

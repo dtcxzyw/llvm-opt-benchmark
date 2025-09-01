@@ -30,7 +30,7 @@ sub_0.critedge:
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %4, align 4, !tbaa !16
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %12
+  %13 = getelementptr inbounds i8, ptr %6, i64 %12
   store i8 %9, ptr %13, align 1, !tbaa !19
   %14 = load ptr, ptr %3, align 8, !tbaa !4
   %15 = tail call i32 @avio_r8(ptr noundef %14) #11
@@ -39,7 +39,7 @@ sub_0.critedge:
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %4, align 4, !tbaa !16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr %6, i64 %19
   store i8 %16, ptr %20, align 1, !tbaa !19
   %21 = load i8, ptr %6, align 8
   %.not35 = icmp eq i8 %21, -1
@@ -75,7 +75,7 @@ sub_031:                                          ; preds = %.tail.thread, %.tai
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %4, align 4, !tbaa !16
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr %6, i64 %34
   store i8 %31, ptr %35, align 1, !tbaa !19
   %36 = load i8, ptr %6, align 8
   %37 = zext i8 %36 to i32
@@ -178,7 +178,7 @@ define i32 @ff_text_r8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %9 = add nsw i32 %3, 1
   store i32 %9, ptr %2, align 8, !tbaa !17
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds i8, ptr %8, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !19
   %13 = zext i8 %12 to i32
   br label %.critedge
@@ -262,7 +262,7 @@ define i32 @ff_text_r8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %49
   %.1.i = select i1 %.not11.i, i16 %spec.select12.i, i16 %50
   %51 = zext nneg i32 %.110.i to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !19
   %54 = zext i8 %53 to i16
   %55 = add nuw nsw i16 %54, 4
@@ -293,7 +293,7 @@ define i32 @ff_text_r8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %4, align 4, !tbaa !16
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds [8 x i8], ptr %64, i64 0, i64 %73
+  %74 = getelementptr inbounds i8, ptr %64, i64 %73
   store i8 %70, ptr %74, align 1, !tbaa !19
   %75 = icmp sgt i32 %.05575, 11
   br i1 %75, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !20
@@ -308,7 +308,7 @@ define i32 @ff_text_r8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %78 = add nsw i32 %76, 1
   store i32 %78, ptr %2, align 8, !tbaa !17
   %79 = sext i32 %76 to i64
-  %80 = getelementptr inbounds [8 x i8], ptr %77, i64 0, i64 %79
+  %80 = getelementptr inbounds i8, ptr %77, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !19
   %82 = zext i8 %81 to i32
   br label %.critedge
@@ -378,7 +378,7 @@ define i32 @ff_text_peek_r8(ptr noundef captures(none) %0) local_unnamed_addr #0
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !19
   %12 = zext i8 %11 to i32
   br label %21
@@ -1431,7 +1431,7 @@ define range(i32 -12, 1) i32 @ff_subtitles_read_text_chunk(ptr noundef captures(
 18:                                               ; preds = %11
   %19 = add nsw i32 %.02453, 1
   %20 = sext i32 %.02453 to i64
-  %21 = getelementptr inbounds [5 x i8], ptr %3, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %3, i64 %20
   store i8 %6, ptr %21, align 1, !tbaa !19
   %22 = icmp eq i32 %19, 4
   br i1 %22, label %._crit_edge, label %23
@@ -1447,7 +1447,7 @@ define range(i32 -12, 1) i32 @ff_subtitles_read_text_chunk(ptr noundef captures(
 
 27:                                               ; preds = %26
   %28 = sext i32 %.02453 to i64
-  %29 = getelementptr inbounds [5 x i8], ptr %3, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %3, i64 %28
   store i8 0, ptr %29, align 1, !tbaa !19
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #11
   br label %30
@@ -1564,7 +1564,7 @@ ff_text_eof.exit.thread:                          ; preds = %8, %ff_text_eof.exi
 
 28:                                               ; preds = %24
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds [8 x i8], ptr %23, i64 0, i64 %29
+  %30 = getelementptr inbounds i8, ptr %23, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !19
   %32 = zext i8 %31 to i32
   br label %ff_text_peek_r8.exit
@@ -1600,7 +1600,7 @@ ff_text_peek_r8.exit:                             ; preds = %28, %33, %37
 
 46:                                               ; preds = %42
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds [8 x i8], ptr %23, i64 0, i64 %47
+  %48 = getelementptr inbounds i8, ptr %23, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !19
   %50 = zext i8 %49 to i32
   br label %ff_text_peek_r8.exit35

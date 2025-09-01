@@ -322,12 +322,11 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen5ResetEv(ptr noundef nonnull w
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7rocksdb19GenerateRawUniqueIdEPmS0_b(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false)
   %7 = load i64, ptr %2, align 8, !tbaa !36
-  %8 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %.04
+  %8 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %.04
   store atomic i64 %7, ptr %8 seq_cst, align 16
   %9 = load i64, ptr %3, align 8, !tbaa !36
-  %10 = or disjoint i64 %.04, 1
-  %11 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %10
-  store atomic i64 %9, ptr %11 seq_cst, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store atomic i64 %9, ptr %10 seq_cst, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %6, label %5, label %4, !llvm.loop !38
@@ -350,28 +349,27 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen12GenerateNextEPmS1_(ptr nound
 9:                                                ; preds = %9, %3
   %10 = phi i1 [ true, %3 ], [ false, %9 ]
   %.010.i = phi i64 [ 0, %3 ], [ 2, %9 ]
-  %11 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %.010.i
+  %11 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %.010.i
   %12 = load atomic i64, ptr %11 monotonic, align 16
   %13 = load i64, ptr %4, align 8, !tbaa !36
   %14 = xor i64 %13, %12
   store i64 %14, ptr %4, align 8, !tbaa !36
-  %15 = or disjoint i64 %.010.i, 1
-  %16 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %15
-  %17 = load atomic i64, ptr %16 monotonic, align 8
-  %18 = load i64, ptr %5, align 8, !tbaa !36
-  %19 = xor i64 %18, %17
-  store i64 %19, ptr %5, align 8, !tbaa !36
-  call void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %14, i64 noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %16 = load atomic i64, ptr %15 monotonic, align 8
+  %17 = load i64, ptr %5, align 8, !tbaa !36
+  %18 = xor i64 %17, %16
+  store i64 %18, ptr %5, align 8, !tbaa !36
+  call void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %14, i64 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %10, label %9, label %_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1_m.exit, !llvm.loop !40
 
 _ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1_m.exit: ; preds = %9
-  %20 = load i64, ptr %4, align 8, !tbaa !36
-  store i64 %20, ptr %2, align 8, !tbaa !36
-  %21 = load i64, ptr %5, align 8, !tbaa !36
-  store i64 %21, ptr %1, align 8, !tbaa !36
-  %22 = and i64 %8, 3
-  %23 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %22
-  %24 = atomicrmw add ptr %23, i64 %20 monotonic, align 8
+  %19 = load i64, ptr %4, align 8, !tbaa !36
+  store i64 %19, ptr %2, align 8, !tbaa !36
+  %20 = load i64, ptr %5, align 8, !tbaa !36
+  store i64 %20, ptr %1, align 8, !tbaa !36
+  %21 = and i64 %8, 3
+  %22 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %21
+  %23 = atomicrmw add ptr %22, i64 %19 monotonic, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -399,7 +397,7 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1
   %11 = load i64, ptr %6, align 8, !tbaa !36
   store i64 %11, ptr %1, align 8, !tbaa !36
   %12 = and i64 %8, 3
-  %13 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %12
   %14 = atomicrmw add ptr %13, i64 %10 monotonic, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -408,18 +406,17 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1
 15:                                               ; preds = %4, %15
   %16 = phi i1 [ true, %4 ], [ false, %15 ]
   %.010 = phi i64 [ 0, %4 ], [ 2, %15 ]
-  %17 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %.010
+  %17 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %.010
   %18 = load atomic i64, ptr %17 monotonic, align 16
   %19 = load i64, ptr %5, align 8, !tbaa !36
   %20 = xor i64 %19, %18
   store i64 %20, ptr %5, align 8, !tbaa !36
-  %21 = or disjoint i64 %.010, 1
-  %22 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %0, i64 0, i64 %21
-  %23 = load atomic i64, ptr %22 monotonic, align 8
-  %24 = load i64, ptr %6, align 8, !tbaa !36
-  %25 = xor i64 %24, %23
-  store i64 %25, ptr %6, align 8, !tbaa !36
-  call void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %20, i64 noundef %25, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = load i64, ptr %6, align 8, !tbaa !36
+  %24 = xor i64 %23, %22
+  store i64 %24, ptr %6, align 8, !tbaa !36
+  call void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %20, i64 noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br i1 %16, label %15, label %9, !llvm.loop !40
 }
 

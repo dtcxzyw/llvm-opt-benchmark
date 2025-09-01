@@ -1834,7 +1834,7 @@ cli_rndnum.exit:                                  ; preds = %21, %22
   %34 = fptoui double %33 to i32
   %35 = trunc i32 %34 to i8
   %36 = add i8 %35, 1
-  %37 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %36, ptr %37, align 1, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 48
@@ -1852,7 +1852,7 @@ cli_rndnum.exit:                                  ; preds = %21, %22
 cli_max_calloc.exit.i:                            ; preds = %38, %cli_max_calloc.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cli_max_calloc.exit.i ], [ 0, %38 ]
   %.0113.i = phi ptr [ %45, %cli_max_calloc.exit.i ], [ %40, %38 ]
-  %41 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %42 = load i8, ptr %41, align 1, !tbaa !27
   %43 = zext i8 %42 to i32
   %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0113.i, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %43) #23
@@ -2170,7 +2170,7 @@ define range(i32 0, 21) i32 @cli_get_filepath_from_filedesc(i32 noundef %0, ptr 
   br label %20
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %10
+  %14 = getelementptr inbounds i8, ptr %3, i64 %10
   store i8 0, ptr %14, align 1, !tbaa !27
   %15 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096) #24
   %16 = call noalias ptr @strndup(ptr noundef nonnull %3, i64 noundef %15) #23

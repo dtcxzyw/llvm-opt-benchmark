@@ -3869,7 +3869,7 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %109, %._crit_edge, 
 131:                                              ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit107
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit107 ]
   %132 = load ptr, ptr %0, align 8, !tbaa !81
-  %133 = getelementptr inbounds nuw [0 x ptr], ptr %113, i64 0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv
   %134 = load ptr, ptr %133, align 8, !tbaa !64
   %135 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %132, i32 noundef 0, i32 noundef 8, ptr noundef %134)
           to label %_ZN11ast_manager6mk_notEP4expr.exit unwind label %213
@@ -5261,7 +5261,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.thread.lr.ph: ; preds = %.preheader
 
 106:                                              ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
-  %107 = getelementptr inbounds nuw [0 x ptr], ptr %82, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !64
   %109 = invoke i32 @_ZN3smt6pb_sls3imp10mk_literalEP4expr(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %108)
           to label %110 unwind label %130
@@ -6021,7 +6021,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit132.lr.ph: ; preds = %.preheader
 
 472:                                              ; preds = %.lr.ph237, %486
   %indvars.iv249 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next250, %486 ]
-  %473 = getelementptr inbounds nuw [0 x ptr], ptr %449, i64 0, i64 %indvars.iv249
+  %473 = getelementptr inbounds nuw ptr, ptr %449, i64 %indvars.iv249
   %474 = load ptr, ptr %473, align 8, !tbaa !64
   %475 = invoke i32 @_ZN3smt6pb_sls3imp10mk_literalEP4expr(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %474)
           to label %476 unwind label %496

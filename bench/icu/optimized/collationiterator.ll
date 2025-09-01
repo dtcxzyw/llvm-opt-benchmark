@@ -2121,14 +2121,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %269, %281, %294, %2
   %.07.i = select i1 %363, i32 %366, i32 %356
   %367 = lshr i32 %.07.i, 5
   %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %368
   %370 = load i8, ptr %369, align 1, !tbaa !43
   %.not.i211 = icmp eq i8 %370, 0
   br i1 %.not.i211, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit
 
 _ZN6icu_7712CollationFCD11mayHaveLcccEi.exit:     ; preds = %362
   %371 = zext i8 %370 to i64
-  %372 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 %371
   %373 = load i32, ptr %372, align 4, !tbaa !12
   %374 = and i32 %.07.i, 31
   %375 = shl nuw i32 1, %374
@@ -2233,14 +2233,14 @@ _ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit: ; preds 
   %.07.i215 = select i1 %427, i32 %430, i32 %.0.i214310
   %431 = lshr i32 %.07.i215, 5
   %432 = zext nneg i32 %431 to i64
-  %433 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 0, i64 %432
+  %433 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %432
   %434 = load i8, ptr %433, align 1, !tbaa !43
   %.not.i216 = icmp eq i8 %434, 0
   br i1 %.not.i216, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218.thread, label %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218
 
 _ZN6icu_7712CollationFCD11mayHaveLcccEi.exit218:  ; preds = %426
   %435 = zext i8 %434 to i64
-  %436 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 0, i64 %435
+  %436 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 %435
   %437 = load i32, ptr %436, align 4, !tbaa !12
   %438 = and i32 %.07.i215, 31
   %439 = shl nuw i32 1, %438

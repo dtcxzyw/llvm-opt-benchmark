@@ -7873,7 +7873,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %_ZN5clang7CodeGen28
 
 switch.lookup:                                    ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit
   %1087 = zext nneg i32 %1085 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN12_GLOBAL__N_114CGObjCGNUstep213GenerateClassEPKN5clang22ObjCImplementationDeclE, i64 0, i64 %1087
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_114CGObjCGNUstep213GenerateClassEPKN5clang22ObjCImplementationDeclE, i64 %1087
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_114CGObjCGNUstep217FlagsForOwnershipEN5clang10Qualifiers12ObjCLifetimeE.exit
 

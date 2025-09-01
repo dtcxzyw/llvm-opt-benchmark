@@ -14,7 +14,7 @@ define void @ws_mempbrk_compile(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %4 = phi i8 [ %8, %.lr.ph ], [ %3, %2 ]
   %.010 = phi ptr [ %7, %.lr.ph ], [ %1, %2 ]
   %5 = sext i8 %4 to i64
-  %6 = getelementptr [256 x i8], ptr %0, i64 0, i64 %5
+  %6 = getelementptr i8, ptr %0, i64 %5
   store i8 1, ptr %6, align 1
   %7 = getelementptr i8, ptr %.010, i64 1
   %8 = load i8, ptr %7, align 1
@@ -39,7 +39,7 @@ define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly capture
   %.01115 = phi ptr [ %14, %13 ], [ %0, %4 ]
   %7 = load i8, ptr %.01115, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [256 x i8], ptr %2, i64 0, i64 %8
+  %9 = getelementptr i8, ptr %2, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %13, label %11
@@ -86,7 +86,7 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   %.01115.i = phi ptr [ %22, %21 ], [ %0, %12 ]
   %15 = load i8, ptr %.01115.i, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %2, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %2, i64 %16
   %18 = load i8, ptr %17, align 1
   %.not.i = icmp eq i8 %18, 0
   br i1 %.not.i, label %21, label %19
@@ -126,7 +126,7 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   %9 = getelementptr i8, ptr %.0, i64 -1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [256 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr i8, ptr %2, i64 %11
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %6, label %14, !llvm.loop !11

@@ -1075,10 +1075,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i184: ; preds = %330, %3
 
 352:                                              ; preds = %352, %._crit_edge.i.i.i
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge.i.i.i ], [ %indvars.iv.next.i.i, %352 ]
-  %353 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %353 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
   %354 = load i8, ptr %353, align 1, !tbaa !14
   %355 = uitofp i8 %354 to double
-  %356 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %356 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i.i
   store double %355, ptr %356, align 8, !tbaa !98
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -1958,10 +1958,10 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %7
 
 113:                                              ; preds = %113, %106
   %indvars.iv.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i, %113 ]
-  %114 = getelementptr inbounds nuw [3 x i8], ptr %24, i64 0, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i
   %115 = load i8, ptr %114, align 1, !tbaa !14
   %116 = uitofp i8 %115 to double
-  %117 = getelementptr inbounds nuw [4 x double], ptr %23, i64 0, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i
   store double %116, ptr %117, align 8, !tbaa !98
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -2157,10 +2157,10 @@ _ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i: ; preds = %162, %157, %150
 
 192:                                              ; preds = %192, %185
   %indvars.iv.i68 = phi i64 [ 0, %185 ], [ %indvars.iv.next.i69, %192 ]
-  %193 = getelementptr inbounds nuw [3 x i8], ptr %29, i64 0, i64 %indvars.iv.i68
+  %193 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv.i68
   %194 = load i8, ptr %193, align 1, !tbaa !14
   %195 = uitofp i8 %194 to double
-  %196 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %indvars.iv.i68
+  %196 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i68
   store double %195, ptr %196, align 8, !tbaa !98
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 3
@@ -2258,10 +2258,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
 
 227:                                              ; preds = %227, %220
   %indvars.iv.i80 = phi i64 [ 0, %220 ], [ %indvars.iv.next.i81, %227 ]
-  %228 = getelementptr inbounds nuw [3 x i8], ptr %33, i64 0, i64 %indvars.iv.i80
+  %228 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv.i80
   %229 = load i8, ptr %228, align 1, !tbaa !14
   %230 = uitofp i8 %229 to double
-  %231 = getelementptr inbounds nuw [4 x double], ptr %32, i64 0, i64 %indvars.iv.i80
+  %231 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv.i80
   store double %230, ptr %231, align 8, !tbaa !98
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 3
@@ -2672,10 +2672,10 @@ _ZNK2cv11_InputArray6getMatEi.exit30:             ; preds = %22, %19
 
 58:                                               ; preds = %58, %57
   %indvars.iv.i.us = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.us, %58 ]
-  %59 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv.i.us
+  %59 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i.us
   %60 = load double, ptr %59, align 8, !tbaa !98, !noalias !130
   %61 = fptrunc double %60 to float
-  %62 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.us
   store float %61, ptr %62, align 4, !tbaa !133, !alias.scope !130
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3

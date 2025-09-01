@@ -1782,7 +1782,7 @@ _ZN12OutputStream4growEm.exit.i.i81:              ; preds = %if.then.i._ZN12Outp
   %25 = load i64, ptr %CurrentPosition.i.i.i69, align 8
   %add.i.i83 = add i64 %25, 2
   store i64 %add.i.i83, ptr %CurrentPosition.i.i.i69, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x i64], ptr %ThunkOffsets26, i64 0, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %ThunkOffsets26, i64 %indvars.iv
   %26 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i.i86 = icmp slt i64 %26, 0
   br i1 %cmp.i.i86, label %if.then.i.i88, label %if.else.i.i87

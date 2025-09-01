@@ -1102,7 +1102,7 @@ define void @_ZN6icu_779SpoofImpl14addScriptCharsEPKcPNS_10UnicodeSetER10UErrorC
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %15 = getelementptr inbounds nuw [30 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !43
   %17 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet21applyIntPropertyValueE9UPropertyiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %6, i32 noundef 4106, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %18 unwind label %21

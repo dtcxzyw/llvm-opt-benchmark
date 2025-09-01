@@ -5599,7 +5599,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit31: ; preds = %83, %
   %117 = add i32 %116, -1
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %119 = zext i32 %117 to i64
-  %120 = getelementptr inbounds nuw [0 x ptr], ptr %118, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !483
   invoke void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %113, ptr noundef %121, ptr noundef nonnull %114, ptr noundef null)
           to label %122 unwind label %135

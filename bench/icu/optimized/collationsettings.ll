@@ -647,7 +647,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %51 = trunc nsw i64 %indvars.iv to i32
   %52 = add i32 %47, %51
   %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %53, ptr %54, align 1, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -661,7 +661,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
 
 56:                                               ; preds = %._crit_edge
   %57 = zext nneg i32 %48 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 %57
   store i8 0, ptr %58, align 1, !tbaa !33
   %59 = add nuw nsw i32 %48, 1
   %60 = icmp slt i32 %.04862, 0
@@ -680,7 +680,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %indvars.iv77 = phi i64 [ %45, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
   %63 = trunc nuw i64 %indvars.iv77 to i32
   %64 = trunc i64 %indvars.iv77 to i8
-  %65 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv77
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv77
   store i8 %64, ptr %65, align 1, !tbaa !33
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %66 = icmp slt i32 %63, 255

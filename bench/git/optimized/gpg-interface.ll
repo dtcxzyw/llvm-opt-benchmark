@@ -198,7 +198,7 @@ gpg_interface_lazy_init.exit:                     ; preds = %3, %6
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %gpg_interface_lazy_init.exit
   %.01018.i = phi i64 [ 0, %gpg_interface_lazy_init.exit ], [ %19, %._crit_edge.i ]
-  %10 = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %.01018.i, i32 3
+  %10 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01018.i, i32 3
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %.not16.i = icmp eq ptr %12, null
@@ -400,7 +400,7 @@ define dso_local i64 @parse_signed_buffer(ptr noundef %0, i64 noundef %1) local_
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.lr.ph
   %.01018.i = phi i64 [ 0, %.lr.ph ], [ %13, %._crit_edge.i ]
-  %4 = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %.01018.i, i32 3
+  %4 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01018.i, i32 3
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %.not16.i = icmp eq ptr %6, null
@@ -461,7 +461,7 @@ define dso_local range(i32 0, 2) i32 @parse_signature(ptr noundef %0, i64 nounde
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.lr.ph.i
   %.01018.i.i = phi i64 [ 0, %.lr.ph.i ], [ %15, %._crit_edge.i.i ]
-  %6 = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %.01018.i.i, i32 3
+  %6 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01018.i.i, i32 3
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %.not16.i.i = icmp eq ptr %8, null
@@ -660,7 +660,7 @@ define dso_local ptr @gpg_trust_level_to_str(i32 noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.sigcheck_gpg_trust_level, ptr @sigcheck_gpg_trust_level, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !42
   %.not = icmp eq i32 %8, %0
@@ -742,20 +742,20 @@ set_signing_key.exit:                             ; preds = %9, %10
   %18 = tail call i32 @config_error_nonbool(ptr noundef nonnull %0) #15
   br label %77
 
-.preheader:                                       ; preds = %16, %22
-  %.069.i = phi i64 [ %23, %22 ], [ 0, %16 ]
-  %19 = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %.069.i
-  %20 = load ptr, ptr %19, align 16, !tbaa !46
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %1) #18
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %get_format_by_name.exit, label %22
+19:                                               ; preds = %.preheader
+  %20 = add nuw nsw i64 %.068.i, 1
+  %exitcond.i = icmp eq i64 %20, 3
+  br i1 %exitcond.i, label %24, label %.preheader, !llvm.loop !46
 
-22:                                               ; preds = %.preheader
-  %23 = add nuw nsw i64 %.069.i, 1
-  %exitcond.i = icmp eq i64 %23, 3
-  br i1 %exitcond.i, label %24, label %.preheader, !llvm.loop !47
+.preheader:                                       ; preds = %16, %19
+  %.068.i = phi i64 [ %20, %19 ], [ 0, %16 ]
+  %21 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.068.i
+  %22 = load ptr, ptr %21, align 16, !tbaa !47
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %1) #18
+  %.not.i = icmp eq i32 %23, 0
+  br i1 %.not.i, label %get_format_by_name.exit, label %19
 
-24:                                               ; preds = %22
+24:                                               ; preds = %19
   %25 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !32
   %.not4.i = icmp eq i32 %25, 0
   br i1 %.not4.i, label %_.exit, label %26
@@ -770,7 +770,7 @@ _.exit:                                           ; preds = %24, %26
   br label %77
 
 get_format_by_name.exit:                          ; preds = %.preheader
-  store ptr %19, ptr @use_format, align 8, !tbaa !38
+  store ptr %21, ptr @use_format, align 8, !tbaa !38
   br label %77
 
 29:                                               ; preds = %14
@@ -797,7 +797,7 @@ get_format_by_name.exit:                          ; preds = %.preheader
 
 38:                                               ; preds = %36, %34
   %.07.i = phi i64 [ 0, %34 ], [ %37, %36 ]
-  %39 = getelementptr inbounds nuw [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %.07.i
+  %39 = getelementptr inbounds nuw %struct.sigcheck_gpg_trust_level, ptr @sigcheck_gpg_trust_level, i64 %.07.i
   %40 = load ptr, ptr %39, align 8, !tbaa !49
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %35) #18
   %.not.i59 = icmp eq i32 %41, 0
@@ -877,18 +877,18 @@ _.exit62:                                         ; preds = %44, %46
   br i1 %.not58, label %77, label %.preheader72
 
 .preheader72:                                     ; preds = %66
-  %69 = load ptr, ptr @gpg_format, align 16, !tbaa !46
+  %69 = load ptr, ptr @gpg_format, align 16, !tbaa !47
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull readonly dereferenceable(1) %.2) #18
   %.not.i6477 = icmp eq i32 %70, 0
   br i1 %.not.i6477, label %get_format_by_name.exit67, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader72, %.lr.ph
-  %.069.i6378 = phi i64 [ %71, %.lr.ph ], [ 0, %.preheader72 ]
-  %71 = add nuw nsw i64 %.069.i6378, 1
+  %.068.i6378 = phi i64 [ %71, %.lr.ph ], [ 0, %.preheader72 ]
+  %71 = add nuw nsw i64 %.068.i6378, 1
   %exitcond.i65 = icmp ne i64 %71, 3
   tail call void @llvm.assume(i1 %exitcond.i65)
-  %72 = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %71
-  %73 = load ptr, ptr %72, align 16, !tbaa !46
+  %72 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %71
+  %73 = load ptr, ptr %72, align 16, !tbaa !47
   %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull readonly dereferenceable(1) %.2) #18
   %.not.i64 = icmp eq i32 %74, 0
   br i1 %.not.i64, label %get_format_by_name.exit67, label %.lr.ph
@@ -1062,7 +1062,7 @@ _.exit15:                                         ; preds = %23, %25
 
 skip_prefix.exit.preheader.i:                     ; preds = %.preheader.i, %skip_prefix.exit70.i
   %.050127.i = phi i64 [ %146, %skip_prefix.exit70.i ], [ 0, %.preheader.i ]
-  %73 = getelementptr inbounds nuw [8 x %struct.anon], ptr @sigcheck_gpg_status, i64 0, i64 %.050127.i
+  %73 = getelementptr inbounds nuw %struct.anon, ptr @sigcheck_gpg_status, i64 %.050127.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !63
   br label %76
@@ -1169,7 +1169,7 @@ replace_cstring.exit73.i:                         ; preds = %107, %103
 
 119:                                              ; preds = %117, %114
   %.07.i74.i = phi i64 [ 0, %114 ], [ %118, %117 ]
-  %120 = getelementptr inbounds nuw [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %.07.i74.i
+  %120 = getelementptr inbounds nuw %struct.sigcheck_gpg_trust_level, ptr @sigcheck_gpg_trust_level, i64 %.07.i74.i
   %121 = load ptr, ptr %120, align 8, !tbaa !49
   %122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull readonly dereferenceable(1) %116) #18
   %.not.i75.i = icmp eq i32 %122, 0
@@ -2664,8 +2664,8 @@ attributes #18 = { nounwind willreturn memory(read) }
 !43 = !{!"sigcheck_gpg_trust_level", !6, i64 0, !6, i64 8, !11, i64 16}
 !44 = !{!43, !6, i64 8}
 !45 = !{!23, !7, i64 40}
-!46 = !{!23, !6, i64 0}
-!47 = distinct !{!47, !27}
+!46 = distinct !{!46, !27}
+!47 = !{!23, !6, i64 0}
 !48 = distinct !{!48, !27}
 !49 = !{!43, !6, i64 0}
 !50 = !{!51, !51, i64 0}

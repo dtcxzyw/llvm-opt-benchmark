@@ -204,7 +204,7 @@ tailrecurse.backedge.i:                           ; preds = %_ZN7GaelMls12Neighb
   %.tr2124.i = phi ptr [ %.tr21.be.i, %tailrecurse.backedge.i ], [ %20, %_ZN7GaelMls12NeighborhoodIfE5clearEv.exit ]
   %72 = and i8 %71, 3
   %73 = zext nneg i8 %72 to i64
-  %74 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw float, ptr %18, i64 %73
   %75 = load float, ptr %74, align 4
   %76 = load float, ptr %.tr2124.i, align 8
   %77 = fcmp olt float %75, %76
@@ -506,7 +506,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %tailrecurs
   %.tr2124 = phi ptr [ %1, %.lr.ph ], [ %.tr21.be, %tailrecurse.backedge ]
   %57 = and i8 %56, 3
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw float, ptr %7, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = load float, ptr %.tr2124, align 8
   %62 = fcmp olt float %60, %61
@@ -661,9 +661,9 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE9buildNodeERNS1_4NodeERSt6vectorIiS
   %94 = and i8 %93, -4
   %95 = or disjoint i8 %94, %91
   store i8 %95, ptr %92, align 4
-  %96 = getelementptr inbounds nuw [3 x float], ptr %31, i64 0, i64 %90
+  %96 = getelementptr inbounds nuw float, ptr %31, i64 %90
   %97 = load float, ptr %96, align 4
-  %98 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %90
+  %98 = getelementptr inbounds nuw float, ptr %3, i64 %90
   %99 = load float, ptr %98, align 4
   %100 = fadd float %97, %99
   %101 = fmul float %100, 5.000000e-01
@@ -673,9 +673,9 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE9buildNodeERNS1_4NodeERSt6vectorIiS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %104 = getelementptr inbounds nuw [3 x float], ptr %103, i64 0, i64 %90
+  %104 = getelementptr inbounds nuw float, ptr %103, i64 %90
   store float %101, ptr %104, align 4
-  %105 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %90
+  %105 = getelementptr inbounds nuw float, ptr %7, i64 %90
   store float %101, ptr %105, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -860,9 +860,9 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE5splitERKSt6vectorIiSaIiEERKN3vcg4B
 27:                                               ; preds = %43, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %43 ]
   %.01617.i = phi float [ 0.000000e+00, %20 ], [ %.1.i, %43 ]
-  %28 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   %31 = load float, ptr %30, align 4
   %32 = fsub float %29, %31
   %33 = fcmp olt float %32, 0.000000e+00
@@ -873,7 +873,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIfE5splitERKSt6vectorIiSaIiEERKN3vcg4B
   br label %43
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i
   %38 = load float, ptr %37, align 4
   %39 = fsub float %38, %29
   %40 = fcmp olt float %39, 0.000000e+00
@@ -972,9 +972,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 83:                                               ; preds = %99, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %indvars.iv.i12 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %indvars.iv.next.i15, %99 ]
   %.01617.i13 = phi float [ 0.000000e+00, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %.1.i14, %99 ]
-  %84 = getelementptr inbounds nuw [3 x float], ptr %82, i64 0, i64 %indvars.iv.i12
+  %84 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv.i12
   %85 = load float, ptr %84, align 4
-  %86 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i12
+  %86 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i12
   %87 = load float, ptr %86, align 4
   %88 = fsub float %85, %87
   %89 = fcmp olt float %88, 0.000000e+00
@@ -985,7 +985,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %99
 
 92:                                               ; preds = %83
-  %93 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %indvars.iv.i12
+  %93 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv.i12
   %94 = load float, ptr %93, align 4
   %95 = fsub float %94, %85
   %96 = fcmp olt float %95, 0.000000e+00
@@ -1366,7 +1366,7 @@ tailrecurse.backedge.i:                           ; preds = %_ZN7GaelMls12Neighb
   %.tr2124.i = phi ptr [ %.tr21.be.i, %tailrecurse.backedge.i ], [ %20, %_ZN7GaelMls12NeighborhoodIdE5clearEv.exit ]
   %72 = and i8 %71, 3
   %73 = zext nneg i8 %72 to i64
-  %74 = getelementptr inbounds nuw [3 x double], ptr %18, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr %18, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = load double, ptr %.tr2124.i, align 8
   %77 = fcmp olt double %75, %76
@@ -1668,7 +1668,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %tailrecurs
   %.tr2124 = phi ptr [ %1, %.lr.ph ], [ %.tr21.be, %tailrecurse.backedge ]
   %57 = and i8 %56, 3
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds nuw [3 x double], ptr %7, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw double, ptr %7, i64 %58
   %60 = load double, ptr %59, align 8
   %61 = load double, ptr %.tr2124, align 8
   %62 = fcmp olt double %60, %61
@@ -1810,9 +1810,9 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiS
   %91 = and i8 %90, -4
   %92 = or disjoint i8 %91, %88
   store i8 %92, ptr %89, align 8
-  %93 = getelementptr inbounds nuw [3 x double], ptr %31, i64 0, i64 %87
+  %93 = getelementptr inbounds nuw double, ptr %31, i64 %87
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %87
+  %95 = getelementptr inbounds nuw double, ptr %3, i64 %87
   %96 = load double, ptr %95, align 8
   %97 = fadd double %94, %96
   %98 = fmul double %97, 5.000000e-01
@@ -1822,9 +1822,9 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %101 = getelementptr inbounds nuw [3 x double], ptr %100, i64 0, i64 %87
+  %101 = getelementptr inbounds nuw double, ptr %100, i64 %87
   store double %98, ptr %101, align 8
-  %102 = getelementptr inbounds nuw [3 x double], ptr %7, i64 0, i64 %87
+  %102 = getelementptr inbounds nuw double, ptr %7, i64 %87
   store double %98, ptr %102, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -2000,9 +2000,9 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE5splitERKSt6vectorIiSaIiEERKN3vcg4B
 27:                                               ; preds = %43, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %43 ]
   %.01619.i = phi double [ 0.000000e+00, %20 ], [ %.1.i, %43 ]
-  %28 = getelementptr inbounds nuw [3 x double], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds nuw [3 x double], ptr %2, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
   %31 = load double, ptr %30, align 8
   %32 = fsub double %29, %31
   %33 = fcmp olt double %32, 0.000000e+00
@@ -2013,7 +2013,7 @@ define weak_odr void @_ZN7GaelMls8BallTreeIdE5splitERKSt6vectorIiSaIiEERKN3vcg4B
   br label %43
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i
   %38 = load double, ptr %37, align 8
   %39 = fsub double %38, %29
   %40 = fcmp olt double %39, 0.000000e+00
@@ -2112,9 +2112,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 83:                                               ; preds = %99, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %indvars.iv.i12 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %indvars.iv.next.i15, %99 ]
   %.01619.i13 = phi double [ 0.000000e+00, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %.1.i14, %99 ]
-  %84 = getelementptr inbounds nuw [3 x double], ptr %82, i64 0, i64 %indvars.iv.i12
+  %84 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv.i12
   %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %indvars.iv.i12
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i12
   %87 = load double, ptr %86, align 8
   %88 = fsub double %85, %87
   %89 = fcmp olt double %88, 0.000000e+00
@@ -2125,7 +2125,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %99
 
 92:                                               ; preds = %83
-  %93 = getelementptr inbounds nuw [3 x double], ptr %17, i64 0, i64 %indvars.iv.i12
+  %93 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i12
   %94 = load double, ptr %93, align 8
   %95 = fsub double %94, %85
   %96 = fcmp olt double %95, 0.000000e+00

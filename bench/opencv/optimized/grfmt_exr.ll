@@ -1787,7 +1787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %_Z
 
 .lr.ph:                                           ; preds = %605, %_ZN2cv10ExrDecoder9UpSampleXEPfii.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10ExrDecoder9UpSampleXEPfii.exit ], [ 0, %605 ]
-  %609 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %609 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %610 = load i32, ptr %609, align 4, !tbaa !103
   %.not304 = icmp eq i32 %610, 1
   br i1 %.not304, label %_ZN2cv10ExrDecoder9UpSampleXEPfii.exit, label %611

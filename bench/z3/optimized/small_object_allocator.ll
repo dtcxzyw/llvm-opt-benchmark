@@ -72,7 +72,7 @@ define hidden void @_ZN22small_object_allocatorD2Ev(ptr noundef nonnull readonly
 
 3:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   br label %_Z7deallocIN22small_object_allocator5chunkEEvPT_.exit
 
@@ -125,7 +125,7 @@ define hidden void @_ZN22small_object_allocator5resetEv(ptr noundef nonnull alig
 
 5:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %6 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %._crit_edge, label %_Z7deallocIN22small_object_allocator5chunkEEvPT_.exit
@@ -139,7 +139,7 @@ _Z7deallocIN22small_object_allocator5chunkEEvPT_.exit: ; preds = %5, %_Z7dealloc
 
 ._crit_edge:                                      ; preds = %_Z7deallocIN22small_object_allocator5chunkEEvPT_.exit, %5
   store ptr null, ptr %6, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr null, ptr %9, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -167,7 +167,7 @@ define hidden void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonn
   %12 = add nuw nsw i64 %1, 7
   %spec.select = lshr i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %14 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %spec.select
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %spec.select
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   store ptr %15, ptr %2, align 8, !tbaa !17
   store ptr %2, ptr %14, align 8, !tbaa !17
@@ -205,7 +205,7 @@ define hidden noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef no
   %spec.select = add nuw nsw i32 %15, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = zext nneg i32 %spec.select to i64
-  %18 = getelementptr inbounds nuw [32 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %.not39 = icmp eq ptr %19, null
   br i1 %.not39, label %22, label %20
@@ -216,7 +216,7 @@ define hidden noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef no
   br label %38
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %17
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = shl nuw nsw i32 %spec.select, 3
   %26 = zext nneg i32 %25 to i64
@@ -269,7 +269,7 @@ define hidden noundef i64 @_ZNK22small_object_allocator15get_wasted_sizeEv(ptr n
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
   %.0912 = phi i64 [ 0, %1 ], [ %.1, %9 ]
   %5 = shl nuw nsw i64 %indvars.iv, 3
-  %6 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   br label %7
 
 7:                                                ; preds = %7, %4
@@ -297,7 +297,7 @@ define hidden noundef i64 @_ZNK22small_object_allocator17get_num_free_objsEv(ptr
 4:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
   %.089 = phi i64 [ 0, %1 ], [ %.1, %8 ]
-  %5 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -341,7 +341,7 @@ define hidden void @_ZN22small_object_allocator11consolidateEv(ptr noundef nonnu
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %21 ]
   %.0912.i = phi i64 [ 0, %12 ], [ %.1.i, %21 ]
   %17 = shl nuw nsw i64 %indvars.iv.i, 3
-  %18 = getelementptr inbounds nuw [32 x ptr], ptr %15, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
   br label %19
 
 19:                                               ; preds = %19, %16
@@ -427,7 +427,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %49, 
   %indvars.iv.i75 = phi i64 [ 0, %59 ], [ %indvars.iv.next.i81, %68 ]
   %.0912.i76 = phi i64 [ 0, %59 ], [ %.1.i77, %68 ]
   %64 = shl nuw nsw i64 %indvars.iv.i75, 3
-  %65 = getelementptr inbounds nuw [32 x ptr], ptr %62, i64 0, i64 %indvars.iv.i75
+  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i75
   br label %66
 
 66:                                               ; preds = %66, %63
@@ -521,7 +521,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit179: ; preds = %9
   %113 = phi ptr [ null, %106 ], [ %392, %.critedge ]
   %114 = phi ptr [ null, %106 ], [ %393, %.critedge ]
   %indvars.iv260 = phi i64 [ 1, %106 ], [ %indvars.iv.next261, %.critedge ]
-  %115 = getelementptr inbounds nuw [32 x ptr], ptr %107, i64 0, i64 %indvars.iv260
+  %115 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv260
   %116 = load ptr, ptr %115, align 8, !tbaa !17
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.critedge, label %118
@@ -545,7 +545,7 @@ _ZN6vectorIPN22small_object_allocator5chunkELb0EjE5resetEv.exit: ; preds = %118,
   br label %_ZN6vectorIPcLb0EjE5resetEv.exit
 
 _ZN6vectorIPcLb0EjE5resetEv.exit:                 ; preds = %_ZN6vectorIPN22small_object_allocator5chunkELb0EjE5resetEv.exit, %121
-  %123 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv260
+  %123 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv260
   %storemerge228 = load ptr, ptr %123, align 8, !tbaa !3
   %.not229 = icmp eq ptr %storemerge228, null
   br i1 %.not229, label %.lr.ph234.preheader, label %.lr.ph
@@ -1319,7 +1319,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %402, %4
   %indvars.iv.i133 = phi i64 [ %indvars.iv.next.i139, %408 ], [ 0, %402 ]
   %.0912.i134 = phi i64 [ %.1.i135, %408 ], [ 0, %402 ]
   %404 = shl nuw nsw i64 %indvars.iv.i133, 3
-  %405 = getelementptr inbounds nuw [32 x ptr], ptr %107, i64 0, i64 %indvars.iv.i133
+  %405 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.i133
   br label %406
 
 406:                                              ; preds = %406, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1432,7 +1432,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151: ; preds = %451,
   %indvars.iv.i152 = phi i64 [ %indvars.iv.next.i158, %457 ], [ 0, %451 ]
   %.0912.i153 = phi i64 [ %.1.i154, %457 ], [ 0, %451 ]
   %453 = shl nuw nsw i64 %indvars.iv.i152, 3
-  %454 = getelementptr inbounds nuw [32 x ptr], ptr %107, i64 0, i64 %indvars.iv.i152
+  %454 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.i152
   br label %455
 
 455:                                              ; preds = %455, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151

@@ -818,7 +818,7 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule11pointsAddedERKNS_23AnalysisD
 
 41:                                               ; preds = %.preheader, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit ]
-  %42 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1, !tbaa !61, !range !28, !noundef !29
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit
@@ -3688,7 +3688,7 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule12setWriteMaskEPKb(ptr noundef
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !61, !range !28, !noundef !29
-  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %7, ptr %8, align 1, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

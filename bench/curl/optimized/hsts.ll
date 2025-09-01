@@ -840,7 +840,7 @@ define hidden range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(non
   %36 = load ptr, ptr %6, align 8, !tbaa !117
   %37 = load i64, ptr %18, align 8, !tbaa !119
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %36, i64 %37, i1 false)
-  %38 = getelementptr inbounds nuw [257 x i8], ptr %7, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 %37
   store i8 0, ptr %38, align 1, !tbaa !24
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %7, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
   %.not24.i.i = icmp eq i32 %bcmp.i.i, 0

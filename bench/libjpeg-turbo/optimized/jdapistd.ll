@@ -494,7 +494,7 @@ define void @jpeg_crop_scanline(ptr noundef %0, ptr noundef captures(address_is_
   %147 = trunc i64 %146 to i32
   %148 = load ptr, ptr %4, align 8, !tbaa !49
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %150 = getelementptr inbounds nuw [10 x i32], ptr %149, i64 0, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv
   store i32 %147, ptr %150, align 4, !tbaa !67
   %151 = load i32, ptr %1, align 4, !tbaa !67
   %152 = load i32, ptr %60, align 8, !tbaa !68
@@ -506,7 +506,7 @@ define void @jpeg_crop_scanline(ptr noundef %0, ptr noundef captures(address_is_
   %158 = add i32 %157, -1
   %159 = load ptr, ptr %4, align 8, !tbaa !49
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 72
-  %161 = getelementptr inbounds nuw [10 x i32], ptr %160, i64 0, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv
   store i32 %158, ptr %161, align 4, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = getelementptr inbounds nuw i8, ptr %.098109, i64 96

@@ -76,7 +76,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i: ; preds = %.
 
 .lr.ph.i.us.i.i.i.i.i:                            ; preds = %.preheader.i.us.i.i.i.i.i, %34
   %.sroa.01.05.i.us.i.i.i.i.i = phi i64 [ %35, %34 ], [ 0, %.preheader.i.us.i.i.i.i.i ]
-  %31 = getelementptr inbounds nuw [0 x i8], ptr %26, i64 0, i64 %.sroa.01.05.i.us.i.i.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 %.sroa.01.05.i.us.i.i.i.i.i
   %32 = load i8, ptr %31, align 1, !alias.scope !27, !noalias !26, !noundef !4
   %33 = icmp eq i8 %32, %.pre92.i.i.i.i.i
   br i1 %33, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i, label %34
@@ -113,7 +113,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i: ; p
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %47
   %.sroa.01.05.i.i.i.i.i.i = phi i64 [ %48, %47 ], [ 0, %.preheader.i.i.i.i.i.i ]
-  %44 = getelementptr inbounds nuw [0 x i8], ptr %42, i64 0, i64 %.sroa.01.05.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %.sroa.01.05.i.i.i.i.i.i
   %45 = load i8, ptr %44, align 1, !alias.scope !27, !noalias !26, !noundef !4
   %46 = icmp eq i8 %45, %.pre92.i.i.i.i.i
   br i1 %46, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i, label %47
@@ -681,7 +681,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset17h7ad5720
 define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17h868b0c92c3c62f8eE.llvm.17206242379407135106(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = lshr i64 %0, 1
   %4 = and i64 %3, 7
-  %5 = getelementptr inbounds nuw [8 x i8], ptr @anon.5f9232a882d82e985af3171ec03be278.7.llvm.17206242379407135106, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @anon.5f9232a882d82e985af3171ec03be278.7.llvm.17206242379407135106, i64 %4
   %6 = load i8, ptr %5, align 1, !noundef !4
   %7 = zext i8 %6 to i64
   %.not6 = icmp ugt i64 %1, 16

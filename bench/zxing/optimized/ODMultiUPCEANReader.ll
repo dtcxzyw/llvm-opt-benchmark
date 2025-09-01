@@ -2372,7 +2372,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
   %29 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv.i
   %30 = load i16, ptr %29, align 2, !tbaa !45
   %31 = uitofp i16 %30 to double
-  %32 = getelementptr inbounds nuw [3 x i16], ptr @_ZN5ZXing4OneDL17EXT_START_PATTERNE, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing4OneDL17EXT_START_PATTERNE, i64 %indvars.iv.i
   %33 = load i16, ptr %32, align 2, !tbaa !45
   %34 = uitofp i16 %33 to double
   %35 = fneg double %34
@@ -3421,7 +3421,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL11DecodeDigitERKNS_11P
   br i1 %.not.i.i.i.i.us.i, label %.lr.ph.i.i38.preheader.i.i.us.i, label %.lr.ph.i.i.i.i.us.i, !llvm.loop !79
 
 .lr.ph.i.i38.preheader.i.i.us.i:                  ; preds = %.lr.ph.i.i.i.i.us.i
-  %10 = getelementptr inbounds nuw [20 x %"struct.std::array.10"], ptr @_ZN5ZXing4OneD12UPCEANCommon16L_AND_G_PATTERNSE, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %"struct.std::array.10", ptr @_ZN5ZXing4OneD12UPCEANCommon16L_AND_G_PATTERNSE, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx44.i.i.i13
   br label %.lr.ph.i.i38.i.i.us.i
 
@@ -3500,7 +3500,7 @@ _ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm4EEE
   br i1 %.not.i.i.i.i.us.i22, label %.lr.ph.i.i38.preheader.i.i.us.i23, label %.lr.ph.i.i.i.i.us.i19, !llvm.loop !79
 
 .lr.ph.i.i38.preheader.i.i.us.i23:                ; preds = %.lr.ph.i.i.i.i.us.i19
-  %41 = getelementptr inbounds nuw [10 x %"struct.std::array.10"], ptr @_ZN5ZXing4OneD12UPCEANCommon10L_PATTERNSE, i64 0, i64 %indvars.iv.i16
+  %41 = getelementptr inbounds nuw %"struct.std::array.10", ptr @_ZN5ZXing4OneD12UPCEANCommon10L_PATTERNSE, i64 %indvars.iv.i16
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx44.i.i.i13
   br label %.lr.ph.i.i38.i.i.us.i24
 
@@ -3763,7 +3763,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %29 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i.i
   %30 = load i16, ptr %29, align 2, !tbaa !45
   %31 = uitofp i16 %30 to double
-  %32 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i
   %33 = load i16, ptr %32, align 2, !tbaa !45
   %34 = uitofp i16 %33 to double
   %35 = fneg double %34
@@ -3832,7 +3832,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13.us:      ; preds = %.lr.ph.i.i.i.i.i7.u
   %59 = getelementptr inbounds nuw i16, ptr %.sroa.0.044.us, i64 %indvars.iv.i.i14.us
   %60 = load i16, ptr %59, align 2, !tbaa !45
   %61 = uitofp i16 %60 to double
-  %62 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i14.us
+  %62 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i14.us
   %63 = load i16, ptr %62, align 2, !tbaa !45
   %64 = uitofp i16 %63 to double
   %65 = fneg double %64
@@ -3885,7 +3885,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13:         ; preds = %.lr.ph.i.i.i.i.i7
   %79 = getelementptr inbounds nuw i16, ptr %.sroa.0.044, i64 %indvars.iv.i.i14
   %80 = load i16, ptr %79, align 2, !tbaa !45
   %81 = uitofp i16 %80 to double
-  %82 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i14
+  %82 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i14
   %83 = load i16, ptr %82, align 2, !tbaa !45
   %84 = uitofp i16 %83 to double
   %85 = fneg double %84

@@ -29,7 +29,7 @@ define void @_ZN6LibRawC2Ej(ptr noundef nonnull align 8 dereferenceable(767680) 
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %8, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -419,7 +419,7 @@ define void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(76
 
 61:                                               ; preds = %61, %53
   %indvars.iv.i = phi i64 [ 0, %53 ], [ %indvars.iv.next.i, %61 ]
-  %62 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %62, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -506,7 +506,7 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %61
 
 101:                                              ; preds = %_ZL8cleargpsP17libraw_gps_info_t.exit, %101
   %indvars.iv55 = phi i64 [ 0, %_ZL8cleargpsP17libraw_gps_info_t.exit ], [ %indvars.iv.next56, %101 ]
-  %102 = getelementptr inbounds nuw [4 x float], ptr %70, i64 0, i64 %indvars.iv55
+  %102 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv55
   store float 1.000000e+00, ptr %102, align 4, !tbaa !15
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 4
@@ -586,9 +586,9 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %61
 
 139:                                              ; preds = %71, %139
   %indvars.iv62 = phi i64 [ 0, %71 ], [ %indvars.iv.next63, %139 ]
-  %140 = getelementptr inbounds nuw [3 x i16], ptr %99, i64 0, i64 %indvars.iv62
+  %140 = getelementptr inbounds nuw i16, ptr %99, i64 %indvars.iv62
   store i16 -32768, ptr %140, align 2, !tbaa !158
-  %141 = getelementptr inbounds nuw [3 x i32], ptr %100, i64 0, i64 %indvars.iv62
+  %141 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv62
   store i32 -1, ptr %141, align 4, !tbaa !82
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3

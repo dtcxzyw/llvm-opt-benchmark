@@ -213,14 +213,14 @@ get_bits_long.exit:                               ; preds = %get_unary.exit, %87
   %.sroa.14.5 = phi i32 [ %spec.select.i.i, %get_unary.exit ], [ %91, %87 ], [ %108, %92 ]
   %.0.i363 = phi i32 [ 0, %get_unary.exit ], [ %89, %87 ], [ %109, %92 ]
   %111 = add i32 %.0.i363, %110
-  %112 = getelementptr inbounds nuw [256 x i32], ptr %62, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   store i32 %111, ptr %112, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %113, label %.preheader412, !llvm.loop !40
 
 113:                                              ; preds = %get_bits_long.exit
-  %114 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %11, i64 0, i64 %indvars.iv510
+  %114 = getelementptr inbounds nuw %struct.VLC, ptr %11, i64 %indvars.iv510
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -234,7 +234,7 @@ get_bits_long.exit:                               ; preds = %get_unary.exit, %87
   %indvars.iv.i = phi i64 [ 0, %113 ], [ %indvars.iv.next.i, %115 ]
   %116 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
   %117 = load i32, ptr %116, align 4, !tbaa !39
-  %118 = getelementptr inbounds nuw [512 x %struct.Node], ptr %5, i64 0, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw %struct.Node, ptr %5, i64 %indvars.iv.i
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 %117, ptr %119, align 4, !tbaa !41
   %120 = trunc i64 %indvars.iv.i to i16
@@ -257,7 +257,7 @@ get_bits_long.exit:                               ; preds = %get_unary.exit, %87
 
 124:                                              ; preds = %153, %.preheader.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %153 ], [ %123, %.preheader.i ]
-  %125 = getelementptr inbounds [512 x %struct.Node], ptr %5, i64 0, i64 %indvars.iv87.i
+  %125 = getelementptr inbounds %struct.Node, ptr %5, i64 %indvars.iv87.i
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 -1, ptr %126, align 4, !tbaa !41
   %127 = trunc nsw i64 %indvars.iv87.i to i32
@@ -268,21 +268,21 @@ get_bits_long.exit:                               ; preds = %get_unary.exit, %87
   %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %142 ], [ %indvars.iv82.i, %124 ]
   %.061.i = phi i32 [ %.162.i, %142 ], [ %127, %124 ]
   %.059.i = phi i32 [ %.160.i, %142 ], [ %127, %124 ]
-  %130 = getelementptr inbounds nuw [512 x %struct.Node], ptr %5, i64 0, i64 %indvars.iv84.i, i32 1
+  %130 = getelementptr inbounds nuw %struct.Node, ptr %5, i64 %indvars.iv84.i, i32 1
   %131 = load i32, ptr %130, align 4, !tbaa !41
   %.not.i365 = icmp eq i32 %131, 0
   br i1 %.not.i365, label %142, label %132
 
 132:                                              ; preds = %129
   %133 = sext i32 %.061.i to i64
-  %134 = getelementptr inbounds [512 x %struct.Node], ptr %5, i64 0, i64 %133, i32 1
+  %134 = getelementptr inbounds %struct.Node, ptr %5, i64 %133, i32 1
   %135 = load i32, ptr %134, align 4, !tbaa !41
   %136 = icmp ult i32 %131, %135
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %132
   %138 = sext i32 %.059.i to i64
-  %139 = getelementptr inbounds [512 x %struct.Node], ptr %5, i64 0, i64 %138, i32 1
+  %139 = getelementptr inbounds %struct.Node, ptr %5, i64 %138, i32 1
   %140 = load i32, ptr %139, align 4, !tbaa !41
   %.not69.i = icmp ult i32 %131, %140
   %141 = trunc nuw nsw i64 %indvars.iv84.i to i32
@@ -303,10 +303,10 @@ get_bits_long.exit:                               ; preds = %get_unary.exit, %87
 
 145:                                              ; preds = %143
   %146 = sext i32 %.160.i to i64
-  %147 = getelementptr inbounds [512 x %struct.Node], ptr %5, i64 0, i64 %146, i32 1
+  %147 = getelementptr inbounds %struct.Node, ptr %5, i64 %146, i32 1
   %148 = load i32, ptr %147, align 4, !tbaa !41
   %149 = sext i32 %.162.i to i64
-  %150 = getelementptr inbounds [512 x %struct.Node], ptr %5, i64 0, i64 %149, i32 1
+  %150 = getelementptr inbounds %struct.Node, ptr %5, i64 %149, i32 1
   %151 = load i32, ptr %150, align 4, !tbaa !41
   store i32 0, ptr %147, align 4, !tbaa !41
   store i32 0, ptr %150, align 4, !tbaa !41
@@ -562,20 +562,20 @@ get_vlc2.exit:                                    ; preds = %242, %251, %272
 
 297:                                              ; preds = %295
   %298 = zext nneg i32 %.062.i to i64
-  %299 = getelementptr inbounds nuw [226 x i8], ptr @table_y1, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr @table_y1, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !31
   %301 = sext i32 %.1288436621 to i64
   %302 = getelementptr inbounds i8, ptr %.2300435622, i64 %301
   store i8 %300, ptr %302, align 1, !tbaa !31
-  %303 = getelementptr inbounds nuw [226 x i8], ptr @table_u, i64 0, i64 %298
+  %303 = getelementptr inbounds nuw i8, ptr @table_u, i64 %298
   %304 = load i8, ptr %303, align 1, !tbaa !31
   %305 = getelementptr i8, ptr %302, i64 1
   store i8 %304, ptr %305, align 1, !tbaa !31
-  %306 = getelementptr inbounds nuw [226 x i8], ptr @table_y2, i64 0, i64 %298
+  %306 = getelementptr inbounds nuw i8, ptr @table_y2, i64 %298
   %307 = load i8, ptr %306, align 1, !tbaa !31
   %308 = getelementptr i8, ptr %302, i64 2
   store i8 %307, ptr %308, align 1, !tbaa !31
-  %309 = getelementptr inbounds nuw [226 x i8], ptr @table_v, i64 0, i64 %298
+  %309 = getelementptr inbounds nuw i8, ptr @table_v, i64 %298
   %310 = load i8, ptr %309, align 1, !tbaa !31
   %311 = getelementptr i8, ptr %302, i64 3
   store i8 %310, ptr %311, align 1, !tbaa !31
@@ -1205,7 +1205,7 @@ define internal noundef i32 @decode_end(ptr noundef readonly captures(none) %0) 
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %3, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.VLC, ptr %3, i64 %indvars.iv
   tail call void @ff_vlc_free(ptr noundef %8) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

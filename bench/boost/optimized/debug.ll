@@ -392,7 +392,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [501 x i8], ptr %12, i64 0, i64 %13
+  %19 = getelementptr inbounds i8, ptr %12, i64 %13
   store i8 0, ptr %19, align 1, !tbaa !15
   br label %20
 
@@ -436,7 +436,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds [501 x i8], ptr %33, i64 0, i64 %34
+  %37 = getelementptr inbounds i8, ptr %33, i64 %34
   store i8 0, ptr %37, align 1, !tbaa !15
   store ptr %33, ptr %6, align 8, !tbaa !16
   store ptr %37, ptr %7, align 8, !tbaa !18

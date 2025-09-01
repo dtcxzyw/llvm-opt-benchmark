@@ -172,7 +172,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm26GenericConvergenceVerifi
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 

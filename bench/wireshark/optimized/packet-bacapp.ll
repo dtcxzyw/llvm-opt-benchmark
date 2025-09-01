@@ -7227,9 +7227,9 @@ define internal fastcc i32 @fCharacterStringBase(ptr noundef nonnull %0, ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = icmp ult i8 %16, 6
   %23 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.fCharacterStringBase, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.fCharacterStringBase, i64 %23
   %24 = zext nneg i8 %16 to i64
-  %switch.gep91 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.fCharacterStringBase.10, i64 0, i64 %24
+  %switch.gep91 = getelementptr inbounds nuw ptr, ptr @switch.table.fCharacterStringBase.10, i64 %24
   br label %25
 
 25:                                               ; preds = %43, %13
@@ -7356,7 +7356,7 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
   %33 = add nuw nsw i32 %.08495, %27
   %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 255)
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr [257 x i8], ptr %11, i64 0, i64 %35
+  %36 = getelementptr i8, ptr %11, i64 %35
   store i8 %32, ptr %36, align 1
   %37 = add nuw nsw i32 %.08495, 1
   %exitcond.not = icmp eq i32 %37, %24
@@ -7425,7 +7425,7 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
   %64 = add nuw nsw i32 %.185101.us.us, %58
   %65 = call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr [257 x i8], ptr %11, i64 0, i64 %66
+  %67 = getelementptr i8, ptr %11, i64 %66
   store i8 %63, ptr %67, align 1
   %68 = add nuw nsw i32 %.185101.us.us, 1
   %exitcond116.not = icmp eq i32 %68, %54
@@ -7477,7 +7477,7 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
   %91 = sub i32 %90, %17
   %92 = call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr [257 x i8], ptr %11, i64 0, i64 %93
+  %94 = getelementptr i8, ptr %11, i64 %93
   store i8 0, ptr %94, align 1
   %95 = load i32, ptr @hf_bacapp_complete_bitstring, align 4
   %96 = load i32, ptr %10, align 4
@@ -18710,7 +18710,7 @@ define internal fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr no
 
 .preheader:                                       ; preds = %4, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %4 ]
-  %23 = getelementptr [56 x %struct._value_string_enum], ptr @BACnetPropertyStatesEnums, i64 0, i64 %indvars.iv
+  %23 = getelementptr %struct._value_string_enum, ptr @BACnetPropertyStatesEnums, i64 %indvars.iv
   %24 = load i8, ptr %23, align 16
   %25 = icmp eq i8 %24, %11
   br i1 %25, label %26, label %29

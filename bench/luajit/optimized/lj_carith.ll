@@ -198,7 +198,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i, %76, 
   br i1 %107, label %105, label %ctype_raw.exit103.i, !llvm.loop !43
 
 ctype_raw.exit103.i:                              ; preds = %105
-  %110 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   store ptr null, ptr %110, align 8, !tbaa !49
   %111 = and i64 %24, 140737488355327
   %112 = inttoptr i64 %111 to ptr
@@ -222,9 +222,9 @@ ctype_raw.exit103.i:                              ; preds = %105
 
 carith_checkarg.exit.thread:                      ; preds = %115, %117
   %120 = xor i64 %indvars.iv.i, 1
-  %121 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw ptr, ptr %21, i64 %120
   store ptr %.0.i102.i, ptr %121, align 8, !tbaa !49
-  %122 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %120
+  %122 = getelementptr inbounds nuw ptr, ptr %8, i64 %120
   store ptr null, ptr %122, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %389
@@ -233,7 +233,7 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   %.sink104 = phi ptr [ %93, %91 ], [ %88, %86 ], [ %.193.i, %ctype_rawchild.exit.i ], [ null, %94 ]
   %.sink = phi ptr [ null, %91 ], [ %.088124.i, %86 ], [ %.094.i, %ctype_rawchild.exit.i ], [ inttoptr (i64 1 to ptr), %94 ]
   %.5.i.ph = phi i32 [ %.089123.i, %91 ], [ %.089123.i, %86 ], [ %.089123.i, %ctype_rawchild.exit.i ], [ 0, %94 ]
-  %123 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   store ptr %.sink104, ptr %123, align 8, !tbaa !49
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
   br label %.thread111.i
@@ -851,7 +851,7 @@ carith_ptr.exit:                                  ; preds = %292, %305, %318, %3
   %indvars.iv.i30 = phi i64 [ 1, %466 ], [ 0, %.thread90.i ]
   %.062101.i = phi i32 [ %.2.i32, %466 ], [ -1, %.thread90.i ]
   %.063100.i = phi i32 [ %.265.i, %466 ], [ -1, %.thread90.i ]
-  %444 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %indvars.iv.i30
+  %444 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i30
   %445 = load ptr, ptr %444, align 8, !tbaa !49
   %.not79.i = icmp ne ptr %445, null
   %.pre104.i = load ptr, ptr %16, align 8, !tbaa !34
@@ -885,7 +885,7 @@ carith_ptr.exit:                                  ; preds = %292, %305, %318, %3
   %461 = ashr i64 %.pre105.i, 47
   %462 = call i64 @llvm.umax.i64(i64 %461, i64 -14)
   %463 = xor i64 %462, -1
-  %464 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %463
+  %464 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %463
   %465 = load ptr, ptr %464, align 8, !tbaa !50
   br label %466
 
@@ -903,10 +903,10 @@ carith_ptr.exit:                                  ; preds = %292, %305, %318, %3
 
 470:                                              ; preds = %467
   %471 = sext i32 %.2.i32 to i64
-  %472 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %471
+  %472 = getelementptr inbounds ptr, ptr %3, i64 %471
   %473 = load ptr, ptr %472, align 8, !tbaa !50
   %474 = sext i32 %.265.i to i64
-  %475 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %474
+  %475 = getelementptr inbounds ptr, ptr %3, i64 %474
   %476 = load ptr, ptr %475, align 8, !tbaa !50
   call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 3239, ptr noundef %473, ptr noundef %476) #7
   unreachable

@@ -471,7 +471,7 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
   %48 = trunc nuw i16 %41 to i8
   %49 = trunc nuw i16 %45 to i8
   %50 = zext nneg i16 %41 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !15
   %53 = and i8 %52, 8
   %.not.i.i = icmp eq i8 %53, 0
@@ -479,7 +479,7 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
 
 54:                                               ; preds = %47
   %55 = zext nneg i16 %45 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !15
   %58 = and i8 %57, 8
   %.not16.i.i = icmp eq i8 %58, 0
@@ -488,13 +488,13 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
 _ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i:      ; preds = %54
   %59 = lshr i8 %48, 5
   %60 = zext nneg i8 %59 to i64
-  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3url16kCharToHexLookupE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN3url16kCharToHexLookupE, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !15
   %63 = sub i8 %48, %62
   %64 = shl i8 %63, 4
   %65 = lshr i8 %49, 5
   %66 = zext nneg i8 %65 to i64
-  %67 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3url16kCharToHexLookupE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN3url16kCharToHexLookupE, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !15
   %69 = sub i8 %49, %68
   %70 = add i8 %69, %64
@@ -634,7 +634,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i.i: ; preds = %112, %_ZN3ur
 
 124:                                              ; preds = %121
   %125 = zext nneg i16 %.sroa.0.0.insert.insert47.i to i64
-  %126 = getelementptr inbounds nuw [128 x i8], ptr @_ZN3url12_GLOBAL__N_115kHostCharLookupE, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @_ZN3url12_GLOBAL__N_115kHostCharLookupE, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !15
   switch i8 %127, label %130 [
     i8 0, label %128
@@ -1025,7 +1025,7 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIc
   %21 = load i8, ptr %19, align 1, !tbaa !15
   %22 = load i8, ptr %20, align 1, !tbaa !15
   %23 = zext i8 %21 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !15
   %26 = and i8 %25, 8
   %.not.i = icmp eq i8 %26, 0
@@ -1033,7 +1033,7 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIc
 
 27:                                               ; preds = %18
   %28 = zext i8 %22 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !15
   %31 = and i8 %30, 8
   %.not16.i = icmp eq i8 %31, 0
@@ -1042,13 +1042,13 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIc
 _ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit:        ; preds = %27
   %32 = lshr i8 %21, 5
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3url16kCharToHexLookupE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN3url16kCharToHexLookupE, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = sub i8 %21, %35
   %37 = shl i8 %36, 4
   %38 = lshr i8 %22, 5
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3url16kCharToHexLookupE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZN3url16kCharToHexLookupE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = sub i8 %22, %41
   %43 = add i8 %42, %37
@@ -1189,7 +1189,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i: ; preds = %85, %_ZN3url12
 
 96:                                               ; preds = %94
   %97 = zext nneg i32 %.sroa.0.0.insert.insert to i64
-  %98 = getelementptr inbounds nuw [128 x i8], ptr @_ZN3url12_GLOBAL__N_115kHostCharLookupE, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @_ZN3url12_GLOBAL__N_115kHostCharLookupE, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !15
   switch i8 %99, label %102 [
     i8 0, label %100
@@ -1590,7 +1590,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, 
   %23 = lshr i32 %0, 4
   %24 = and i32 %23, 15
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = icmp slt i32 %22, %21
   br i1 %28, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9, label %select.unfold.i.preheader.i4
@@ -1636,7 +1636,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit13:      ; preds = %select.unfold.i.i6,
   %43 = phi i32 [ %41, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9 ], [ %22, %select.unfold.i.i6 ]
   %44 = and i32 %0, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !15
   %48 = icmp slt i32 %43, %42
   br i1 %48, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19, label %select.unfold.i.preheader.i14
@@ -1772,7 +1772,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutp
   %38 = trunc nuw i16 %31 to i8
   %39 = trunc nuw i16 %35 to i8
   %40 = zext nneg i16 %31 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !15
   %43 = and i8 %42, 8
   %.not.i.i = icmp eq i8 %43, 0
@@ -1780,7 +1780,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutp
 
 44:                                               ; preds = %37
   %45 = zext nneg i16 %35 to i64
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !15
   %48 = and i8 %47, 8
   %.not16.i.i = icmp eq i8 %48, 0
@@ -1789,13 +1789,13 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutp
 _ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i:      ; preds = %44
   %49 = lshr i8 %38, 5
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3url16kCharToHexLookupE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN3url16kCharToHexLookupE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !15
   %53 = sub i8 %38, %52
   %54 = shl i8 %53, 4
   %55 = lshr i8 %39, 5
   %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3url16kCharToHexLookupE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN3url16kCharToHexLookupE, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !15
   %59 = sub i8 %39, %58
   %60 = add i8 %59, %54
@@ -1960,7 +1960,7 @@ select.unfold.i.i16.i.i:                          ; preds = %select.unfold.i.pre
 
 107:                                              ; preds = %104
   %108 = zext nneg i16 %.sroa.0.0.insert.insert126.i to i64
-  %109 = getelementptr inbounds nuw [128 x i8], ptr @_ZN3url12_GLOBAL__N_115kHostCharLookupE, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @_ZN3url12_GLOBAL__N_115kHostCharLookupE, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !15
   switch i8 %110, label %225 [
     i8 0, label %111
@@ -2035,7 +2035,7 @@ _ZN3url12CanonOutputTItE9push_backEt.exit.i22.i:  ; preds = %select.unfold.i.i.i
   %129 = phi i32 [ %.pre.i47.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i46.i ], [ %112, %select.unfold.i.i.i20.i ]
   %130 = lshr i32 %.sroa.0.0.insert.insert.i, 4
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !15
   %134 = sext i8 %133 to i16
   %135 = icmp slt i32 %128, %129
@@ -2103,7 +2103,7 @@ _ZN3url12CanonOutputTItE9push_backEt.exit13.i27.i: ; preds = %select.unfold.i.i6
   %151 = phi i32 [ %.pre32.i40.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i39.i ], [ %129, %select.unfold.i.i6.i25.i ]
   %152 = and i32 %.sroa.0.0.insert.insert.i, 15
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !15
   %156 = sext i8 %155 to i16
   %157 = icmp slt i32 %150, %151
@@ -2208,7 +2208,7 @@ _ZN3url12CanonOutputTItE9push_backEt.exit.i55.i:  ; preds = %select.unfold.i.i.i
   %186 = phi i32 [ %.pre.i80.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i79.i ], [ %168, %select.unfold.i.i.i53.i ]
   %187 = lshr i32 %.sroa.0.0.insert.insert.i, 4
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !15
   %191 = sext i8 %190 to i16
   %192 = icmp slt i32 %185, %186
@@ -2280,7 +2280,7 @@ _ZN3url12CanonOutputTItE9push_backEt.exit13.i60.i: ; preds = %select.unfold.i.i6
   %209 = phi i32 [ %.pre32.i73.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i72.i ], [ %186, %select.unfold.i.i6.i58.i ]
   %210 = and i32 %.sroa.0.0.insert.insert.i, 15
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3url14kHexCharLookupE, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr @_ZN3url14kHexCharLookupE, i64 %211
   %213 = load i8, ptr %212, align 1, !tbaa !15
   %214 = sext i8 %213 to i16
   %215 = icmp slt i32 %208, %209

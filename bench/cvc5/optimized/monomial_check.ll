@@ -2326,7 +2326,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %135, %139, %145
   %184 = icmp eq i32 %183, 2
   %185 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %186 = zext i1 %184 to i64
-  %187 = getelementptr inbounds nuw [0 x ptr], ptr %185, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw ptr, ptr %185, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !116, !noalias !117
   store ptr %188, ptr %39, align 8, !tbaa !51, !alias.scope !117
   %189 = load i64, ptr %188, align 8, !noalias !117
@@ -2370,7 +2370,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %200, %194, %202
   %211 = icmp eq i32 %210, 2
   %212 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %213 = zext i1 %211 to i64
-  %214 = getelementptr inbounds nuw [0 x ptr], ptr %212, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw ptr, ptr %212, i64 %213
   %215 = load ptr, ptr %214, align 8, !tbaa !116, !noalias !120
   store ptr %215, ptr %38, align 8, !tbaa !51, !alias.scope !120
   %216 = load i64, ptr %215, align 8, !noalias !120
@@ -2410,7 +2410,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %200, %194, %202
   %235 = icmp eq i32 %234, 2
   %236 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %237 = zext i1 %235 to i64
-  %238 = getelementptr inbounds nuw [0 x ptr], ptr %236, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw ptr, ptr %236, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !116, !noalias !123
   store ptr %239, ptr %38, align 8, !tbaa !51, !alias.scope !123
   %240 = load i64, ptr %239, align 8, !noalias !123
@@ -12302,7 +12302,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !116
   store ptr %15, ptr %0, align 8, !tbaa !51
   %16 = load i64, ptr %15, align 8

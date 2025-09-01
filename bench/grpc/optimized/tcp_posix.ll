@@ -2300,7 +2300,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %211 = load ptr, ptr %210, align 8, !tbaa !25
-  %212 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %13, i64 0, i64 %.085206.i
+  %212 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.085206.i
   store ptr %211, ptr %212, align 16, !tbaa !26
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %214 = load i64, ptr %213, align 8, !tbaa !25
@@ -2308,7 +2308,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 
 215:                                              ; preds = %206
   %216 = getelementptr inbounds nuw i8, ptr %207, i64 9
-  %217 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %13, i64 0, i64 %.085206.i
+  %217 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.085206.i
   store ptr %216, ptr %217, align 16, !tbaa !26
   %218 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %219 = load i8, ptr %218, align 8, !tbaa !25
@@ -2317,7 +2317,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 
 221:                                              ; preds = %215, %209
   %222 = phi i64 [ %214, %209 ], [ %220, %215 ]
-  %223 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %13, i64 0, i64 %.085206.i, i32 1
+  %223 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.085206.i, i32 1
   store i64 %222, ptr %223, align 8, !tbaa !28
   %224 = add nuw nsw i64 %.085206.i, 1
   %exitcond.not.i = icmp eq i64 %224, %.sroa.speculated.i43
@@ -2370,7 +2370,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 .noexc55:                                         ; preds = %.noexc54
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 904
   %237 = sext i32 %235 to i64
-  %238 = getelementptr inbounds [20 x %"struct.std::atomic.33"], ptr %236, i64 0, i64 %237
+  %238 = getelementptr inbounds %"struct.std::atomic.33", ptr %236, i64 %237
   %239 = atomicrmw add ptr %238, i64 1 monotonic, align 8
   %240 = load ptr, ptr %60, align 8, !tbaa !132
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
@@ -2386,7 +2386,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 .noexc57:                                         ; preds = %.noexc56
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 1064
   %247 = sext i32 %245 to i64
-  %248 = getelementptr inbounds [10 x %"struct.std::atomic.33"], ptr %246, i64 0, i64 %247
+  %248 = getelementptr inbounds %"struct.std::atomic.33", ptr %246, i64 %247
   %249 = atomicrmw add ptr %248, i64 1 monotonic, align 8
   br label %250
 
@@ -2839,7 +2839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 .noexc71:                                         ; preds = %.noexc70
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 744
   %401 = sext i32 %399 to i64
-  %402 = getelementptr inbounds [20 x %"struct.std::atomic.33"], ptr %400, i64 0, i64 %401
+  %402 = getelementptr inbounds %"struct.std::atomic.33", ptr %400, i64 %401
   %403 = atomicrmw add ptr %402, i64 1 monotonic, align 8
   %404 = uitofp nneg i64 %270 to double
   %405 = load double, ptr %203, align 8, !tbaa !114
@@ -2933,7 +2933,7 @@ thread-pre-split180.i:                            ; preds = %433, %427, %thread-
   %.0213.i = phi i64 [ %461, %460 ], [ 0, %.preheader.i50 ]
   %.071212.i = phi i64 [ %.1.i, %460 ], [ 0, %.preheader.i50 ]
   %.072211.i = phi i64 [ %.173.i, %460 ], [ %270, %.preheader.i50 ]
-  %448 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %13, i64 0, i64 %.0213.i
+  %448 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.0213.i
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %450 = load i64, ptr %449, align 8, !tbaa !28
   %.not98.i = icmp ult i64 %.072211.i, %450
@@ -2947,9 +2947,9 @@ thread-pre-split180.i:                            ; preds = %433, %427, %thread-
   %454 = load ptr, ptr %448, align 16, !tbaa !26
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 %.072211.i
   %456 = sub nuw i64 %450, %.072211.i
-  %457 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %13, i64 0, i64 %.071212.i
+  %457 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.071212.i
   store ptr %455, ptr %457, align 16, !tbaa !26
-  %458 = getelementptr inbounds nuw [64 x %struct.iovec], ptr %13, i64 0, i64 %.071212.i, i32 1
+  %458 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.071212.i, i32 1
   store i64 %456, ptr %458, align 8, !tbaa !28
   %459 = add i64 %.071212.i, 1
   br label %460
@@ -6857,14 +6857,14 @@ _ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P5iovec.exit.i: ; pre
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 504
   %75 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %72)
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [20 x %"struct.std::atomic.33"], ptr %74, i64 0, i64 %76
+  %77 = getelementptr inbounds %"struct.std::atomic.33", ptr %74, i64 %76
   %78 = atomicrmw add ptr %77, i64 1 monotonic, align 8
   %79 = trunc i64 %.0.lcssa.i.i to i32
   %80 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 664
   %82 = call noundef i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %79)
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [10 x %"struct.std::atomic.33"], ptr %81, i64 0, i64 %83
+  %84 = getelementptr inbounds %"struct.std::atomic.33", ptr %81, i64 %83
   %85 = atomicrmw add ptr %84, i64 1 monotonic, align 8
   %86 = load i32, ptr %25, align 8, !tbaa !87
   br label %87
@@ -7335,7 +7335,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %34
-  %41 = getelementptr inbounds nuw [260 x %struct.iovec], ptr %5, i64 0, i64 %.081161
+  %41 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081161
   store ptr %40, ptr %41, align 16, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !25
@@ -7344,7 +7344,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 9
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %34
-  %47 = getelementptr inbounds nuw [260 x %struct.iovec], ptr %5, i64 0, i64 %.081161
+  %47 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081161
   store ptr %46, ptr %47, align 16, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !25
@@ -7354,7 +7354,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 51:                                               ; preds = %44, %37
   %52 = phi i64 [ %43, %37 ], [ %50, %44 ]
   %53 = sub i64 %52, %34
-  %54 = getelementptr inbounds nuw [260 x %struct.iovec], ptr %5, i64 0, i64 %.081161, i32 1
+  %54 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081161, i32 1
   store i64 %53, ptr %54, align 8, !tbaa !28
   %55 = add i64 %53, %.082160
   %56 = add i64 %.192159, 1
@@ -7413,14 +7413,14 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 504
   %76 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %73)
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [20 x %"struct.std::atomic.33"], ptr %75, i64 0, i64 %77
+  %78 = getelementptr inbounds %"struct.std::atomic.33", ptr %75, i64 %77
   %79 = atomicrmw add ptr %78, i64 1 monotonic, align 8
   %80 = trunc i64 %57 to i32
   %81 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 664
   %83 = call noundef i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %80)
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [10 x %"struct.std::atomic.33"], ptr %82, i64 0, i64 %84
+  %85 = getelementptr inbounds %"struct.std::atomic.33", ptr %82, i64 %84
   %86 = atomicrmw add ptr %85, i64 1 monotonic, align 8
   %87 = load i32, ptr %23, align 8, !tbaa !87
   br label %88

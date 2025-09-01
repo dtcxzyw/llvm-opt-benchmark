@@ -17,7 +17,7 @@ define range(i32 0, 280) i32 @av_log2(i32 noundef %0) local_unnamed_addr #0 {
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %3
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %4
   %5 = zext nneg i32 %.110.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.1.i, %8
@@ -32,7 +32,7 @@ define range(i32 0, 264) i32 @av_log2_16bit(i32 noundef %0) local_unnamed_addr #
   %spec.select.i = select i1 %.not.i, i32 %0, i32 %3
   %spec.select7.i = select i1 %.not.i, i32 0, i32 8
   %4 = zext i32 %spec.select.i to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %spec.select7.i, %7

@@ -207,103 +207,102 @@ define dso_local void @ginInsertBAEntries(ptr noundef captures(none) %0, ptr nou
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = zext i16 %2 to i64
-  %29 = add nsw i64 %28, -1
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = zext nneg i32 %5 to i64
-  br label %32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = zext nneg i32 %5 to i64
+  br label %31
 
-32:                                               ; preds = %10, %._crit_edge
-  %.02831 = phi i32 [ %22, %10 ], [ %79, %._crit_edge ]
-  %33 = add nsw i32 %.02831, -1
-  %34 = icmp ult i32 %33, %5
-  br i1 %34, label %.lr.ph, label %._crit_edge
+31:                                               ; preds = %10, %._crit_edge
+  %.02831 = phi i32 [ %22, %10 ], [ %78, %._crit_edge ]
+  %32 = add nsw i32 %.02831, -1
+  %33 = icmp ult i32 %32, %5
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %32
-  %35 = zext nneg i32 %33 to i64
-  %36 = shl nuw i32 %.02831, 1
-  %37 = zext i32 %36 to i64
-  br label %38
+.lr.ph:                                           ; preds = %31
+  %34 = zext nneg i32 %32 to i64
+  %35 = shl nuw i32 %.02831, 1
+  %36 = zext i32 %35 to i64
+  br label %37
 
-38:                                               ; preds = %.lr.ph, %ginInsertBAEntry.exit
-  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %ginInsertBAEntry.exit ]
-  %39 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 1
+37:                                               ; preds = %.lr.ph, %ginInsertBAEntry.exit
+  %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %ginInsertBAEntry.exit ]
+  %38 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %41 = load i8, ptr %40, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %2, ptr %23, align 2
-  store i64 %40, ptr %24, align 8
-  store i8 %42, ptr %25, align 8
+  store i64 %39, ptr %24, align 8
+  store i8 %41, ptr %25, align 8
   store ptr %1, ptr %26, align 8
-  %43 = load ptr, ptr %27, align 8
-  %44 = call ptr @rbt_insert(ptr noundef %43, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
-  %45 = load i8, ptr %8, align 1, !range !4, !noundef !5
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %ginInsertBAEntry.exit
+  %42 = load ptr, ptr %27, align 8
+  %43 = call ptr @rbt_insert(ptr noundef %42, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %44 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %46, label %ginInsertBAEntry.exit
 
-47:                                               ; preds = %38
-  %48 = icmp eq i8 %42, 0
-  br i1 %48, label %49, label %68
+46:                                               ; preds = %37
+  %47 = icmp eq i8 %41, 0
+  br i1 %47, label %48, label %67
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %53, i64 0, i64 %29
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 6
-  %56 = load i8, ptr %55, align 2, !range !4, !noundef !5
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %getDatumCopy.exit.i, label %58
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr i8, ptr %51, i64 8
+  %53 = getelementptr %struct.CompactAttribute, ptr %52, i64 %28
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
+  %55 = load i8, ptr %54, align 2, !range !4, !noundef !5
+  %56 = trunc nuw i8 %55 to i1
+  br i1 %56, label %getDatumCopy.exit.i, label %57
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %60 = load i16, ptr %59, align 4
-  %61 = sext i16 %60 to i32
-  %62 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext false, i32 noundef %61) #9
-  %63 = inttoptr i64 %62 to ptr
-  %64 = call i64 @GetMemoryChunkSpace(ptr noundef %63) #9
-  %65 = load i64, ptr %30, align 8
-  %66 = add i64 %65, %64
-  store i64 %66, ptr %30, align 8
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %59 = load i16, ptr %58, align 4
+  %60 = sext i16 %59 to i32
+  %61 = call i64 @datumCopy(i64 noundef %39, i1 noundef zeroext false, i32 noundef %60) #9
+  %62 = inttoptr i64 %61 to ptr
+  %63 = call i64 @GetMemoryChunkSpace(ptr noundef %62) #9
+  %64 = load i64, ptr %29, align 8
+  %65 = add i64 %64, %63
+  store i64 %65, ptr %29, align 8
   br label %getDatumCopy.exit.i
 
-getDatumCopy.exit.i:                              ; preds = %58, %49
-  %.0.i.i = phi i64 [ %62, %58 ], [ %40, %49 ]
-  %67 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store i64 %.0.i.i, ptr %67, align 8
-  br label %68
+getDatumCopy.exit.i:                              ; preds = %57, %48
+  %.0.i.i = phi i64 [ %61, %57 ], [ %39, %48 ]
+  %66 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  store i64 %.0.i.i, ptr %66, align 8
+  br label %67
 
-68:                                               ; preds = %getDatumCopy.exit.i, %47
-  %69 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  store i32 5, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %44, i64 60
-  store i32 1, ptr %70, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %44, i64 44
-  store i8 0, ptr %71, align 4
-  %72 = call ptr @palloc(i64 noundef 30) #9
-  %73 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  store ptr %72, ptr %73, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %72, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i64 @GetMemoryChunkSpace(ptr noundef %74) #9
-  %76 = load i64, ptr %30, align 8
-  %77 = add i64 %76, %75
-  store i64 %77, ptr %30, align 8
+67:                                               ; preds = %getDatumCopy.exit.i, %46
+  %68 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  store i32 5, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %43, i64 60
+  store i32 1, ptr %69, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %43, i64 44
+  store i8 0, ptr %70, align 4
+  %71 = call ptr @palloc(i64 noundef 30) #9
+  %72 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  store ptr %71, ptr %72, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %71, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  %73 = load ptr, ptr %72, align 8
+  %74 = call i64 @GetMemoryChunkSpace(ptr noundef %73) #9
+  %75 = load i64, ptr %29, align 8
+  %76 = add i64 %75, %74
+  store i64 %76, ptr %29, align 8
   br label %ginInsertBAEntry.exit
 
-ginInsertBAEntry.exit:                            ; preds = %38, %68
+ginInsertBAEntry.exit:                            ; preds = %37, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %37
-  %78 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %78, label %38, label %._crit_edge, !llvm.loop !6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %36
+  %77 = icmp samesign ult i64 %indvars.iv.next, %30
+  br i1 %77, label %37, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %ginInsertBAEntry.exit, %32
-  %79 = lshr i32 %.02831, 1
+._crit_edge:                                      ; preds = %ginInsertBAEntry.exit, %31
+  %78 = lshr i32 %.02831, 1
   %.not = icmp samesign ult i32 %.02831, 2
-  br i1 %.not, label %.loopexit, label %32, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %31, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %6
   ret void

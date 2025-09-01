@@ -963,7 +963,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_base
 
 266:                                              ; preds = %277, %258
   %indvars.iv.i.i = phi i64 [ 0, %258 ], [ %indvars.iv.next.i.i, %277 ]
-  %267 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %267 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 %indvars.iv.i.i
   %269 = load i8, ptr %268, align 1, !tbaa !17
   %270 = add i8 %269, -48

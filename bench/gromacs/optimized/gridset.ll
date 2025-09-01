@@ -126,11 +126,11 @@ define void @_ZN3gmx7GridSet11DomainSetupC2E7PbcTypebPKNS_11BasicVectorIiEEPKNS_
 
 .split:                                           ; preds = %.split.preheader, %.split
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %.split ]
-  %22 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !14
   %24 = icmp sgt i32 %23, 1
   %25 = zext i1 %24 to i8
-  %26 = getelementptr inbounds nuw [3 x i8], ptr %19, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   store i8 %25, ptr %26, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

@@ -1674,7 +1674,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 148:                                              ; preds = %129
   %149 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %150 = load ptr, ptr %149, align 8, !noalias !97, !nonnull !11, !noundef !11
-  %151 = getelementptr inbounds [0 x { i64, { { { { i64 } }, { { { { { ptr, i64 } }, {} }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i32, [1 x i32] }], ptr %150, i64 0, i64 %133
+  %151 = getelementptr inbounds { i64, { { { { i64 } }, { { { { { ptr, i64 } }, {} }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i32, [1 x i32] }, ptr %150, i64 %133
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = cmpxchg weak ptr %152, i64 0, i64 8 acquire monotonic, align 8, !noalias !97
   %.sroa.18.0.in.i.i23.i = extractvalue { i64, i1 } %153, 1
@@ -2315,7 +2315,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit75.
 138:                                              ; preds = %113
   %139 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %140 = load ptr, ptr %139, align 8, !noalias !153, !nonnull !11, !noundef !11
-  %141 = getelementptr inbounds [0 x { { { { { i64 } }, { { i32, i32, i8, [3 x i8] } }, [1 x i32] }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %140, i64 0, i64 %117
+  %141 = getelementptr inbounds { { { { { i64 } }, { { i32, i32, i8, [3 x i8] } }, [1 x i32] }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %140, i64 %117
   %142 = cmpxchg weak ptr %141, i64 0, i64 8 acquire monotonic, align 8, !noalias !153
   %.sroa.18.0.in.i.i44.i = extractvalue { i64, i1 } %142, 1
   br i1 %.sroa.18.0.in.i.i44.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit46.i", label %143
@@ -2886,7 +2886,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 144:                                              ; preds = %125
   %145 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %146 = load ptr, ptr %145, align 8, !noalias !179, !nonnull !11, !noundef !11
-  %147 = getelementptr inbounds [0 x { { { { { i64 } }, { { { ptr, [4 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %146, i64 0, i64 %129
+  %147 = getelementptr inbounds { { { { { i64 } }, { { { ptr, [4 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %146, i64 %129
   %148 = cmpxchg weak ptr %147, i64 0, i64 8 acquire monotonic, align 8, !noalias !179
   %.sroa.18.0.in.i.i23.i = extractvalue { i64, i1 } %148, 1
   br i1 %.sroa.18.0.in.i.i23.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit25.i", label %149
@@ -4088,7 +4088,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 145:                                              ; preds = %126
   %146 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %147 = load ptr, ptr %146, align 8, !noalias !260, !nonnull !11, !noundef !11
-  %148 = getelementptr inbounds [0 x { { { { { i64 } }, { { ptr, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %147, i64 0, i64 %130
+  %148 = getelementptr inbounds { { { { { i64 } }, { { ptr, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %147, i64 %130
   %149 = cmpxchg weak ptr %148, i64 0, i64 8 acquire monotonic, align 8, !noalias !260
   %.sroa.18.0.in.i.i23.i = extractvalue { i64, i1 } %149, 1
   br i1 %.sroa.18.0.in.i.i23.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit25.i", label %150
@@ -4757,7 +4757,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 147:                                              ; preds = %128
   %148 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %149 = load ptr, ptr %148, align 8, !noalias !314, !nonnull !11, !noundef !11
-  %150 = getelementptr inbounds [0 x { { { { { i64 } }, { { { i64, [2 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %149, i64 0, i64 %132
+  %150 = getelementptr inbounds { { { { { i64 } }, { { { i64, [2 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %149, i64 %132
   %151 = cmpxchg weak ptr %150, i64 0, i64 8 acquire monotonic, align 8, !noalias !314
   %.sroa.18.0.in.i.i23.i = extractvalue { i64, i1 } %151, 1
   br i1 %.sroa.18.0.in.i.i23.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit25.i", label %152

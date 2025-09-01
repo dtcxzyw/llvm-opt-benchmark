@@ -169,14 +169,14 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_create(ptr noundef readonly c
 
 30:                                               ; preds = %29
   %31 = lshr i64 %27, 24
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !17
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 24
   br label %H5VM_log2_gen.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %28
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %28
   %38 = load i8, ptr %37, align 1, !tbaa !17
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 16
@@ -188,14 +188,14 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_create(ptr noundef readonly c
 
 42:                                               ; preds = %41
   %43 = lshr i64 %27, 8
-  %44 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !17
   %46 = zext i8 %45 to i32
   %47 = add nuw nsw i32 %46, 8
   br label %H5VM_log2_gen.exit
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %27
+  %49 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %27
   %50 = load i8, ptr %49, align 1, !tbaa !17
   %51 = zext i8 %50 to i32
   br label %H5VM_log2_gen.exit
@@ -525,7 +525,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_insert(ptr noundef readonly c
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8, !tbaa !43
-  %65 = getelementptr inbounds nuw [33 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %64, ptr %65, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -627,7 +627,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_get_addr(ptr noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %49 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !43
-  %51 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -884,7 +884,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_remove(ptr noundef readonly c
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %43 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !43
-  %45 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %44, ptr %45, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1336,14 +1336,14 @@ define internal noalias ptr @H5D__bt2_crt_context(ptr noundef readonly captures(
 
 39:                                               ; preds = %38
   %40 = lshr i64 %36, 24
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !17
   %43 = zext i8 %42 to i32
   %44 = add nuw nsw i32 %43, 24
   br label %H5VM_log2_gen.exit
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %37
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %37
   %47 = load i8, ptr %46, align 1, !tbaa !17
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 16
@@ -1355,14 +1355,14 @@ define internal noalias ptr @H5D__bt2_crt_context(ptr noundef readonly captures(
 
 51:                                               ; preds = %50
   %52 = lshr i64 %36, 8
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !17
   %55 = zext i8 %54 to i32
   %56 = add nuw nsw i32 %55, 8
   br label %H5VM_log2_gen.exit
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %36
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
   %59 = load i8, ptr %58, align 1, !tbaa !17
   %60 = zext i8 %59 to i32
   br label %H5VM_log2_gen.exit
@@ -1516,7 +1516,7 @@ define internal noundef i32 @H5D__bt2_unfilt_encode(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %18 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %28, %26 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %19 = getelementptr inbounds nuw [33 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !43
   br label %21
 
@@ -1581,7 +1581,7 @@ define internal noundef i32 @H5D__bt2_unfilt_decode(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
   %.promoted182122 = phi ptr [ %.promoted20, %.lr.ph.preheader ], [ %32, %31 ]
-  %20 = getelementptr inbounds nuw [33 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 0, ptr %20, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %.promoted182122, i64 8
   br label %22
@@ -1640,7 +1640,7 @@ define internal noundef i32 @H5D__bt2_unfilt_debug(ptr noundef captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.not = icmp eq i64 %indvars.iv, 0
   %21 = select i1 %.not, ptr @.str.10, ptr @.str.15
-  %22 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !43
   %24 = load ptr, ptr %19, align 8, !tbaa !80
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
@@ -1749,7 +1749,7 @@ define internal noundef i32 @H5D__bt2_filt_encode(ptr noundef %0, ptr noundef re
 .lr.ph44:                                         ; preds = %._crit_edge, %59
   %51 = phi ptr [ %61, %59 ], [ %48, %._crit_edge ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %._crit_edge ]
-  %52 = getelementptr inbounds nuw [33 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !43
   br label %54
 
@@ -1862,7 +1862,7 @@ define internal noundef i32 @H5D__bt2_filt_decode(ptr noundef %0, ptr noundef %1
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next, %62 ]
   %.promoted323536 = phi ptr [ %50, %.lr.ph39.preheader ], [ %63, %62 ]
-  %51 = getelementptr inbounds nuw [33 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 0, ptr %51, align 8, !tbaa !43
   %52 = getelementptr inbounds nuw i8, ptr %.promoted323536, i64 8
   br label %53
@@ -1927,7 +1927,7 @@ define internal noundef i32 @H5D__bt2_filt_debug(ptr noundef captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.not = icmp eq i64 %indvars.iv, 0
   %27 = select i1 %.not, ptr @.str.10, ptr @.str.15
-  %28 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8, !tbaa !43
   %30 = load ptr, ptr %25, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv

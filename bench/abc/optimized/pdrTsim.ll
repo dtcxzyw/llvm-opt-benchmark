@@ -1657,7 +1657,7 @@ Vec_IntPush.exit:                                 ; preds = %33, %Vec_IntGrow.ex
 59:                                               ; preds = %.lr.ph, %103
   %60 = phi i32 [ %29, %.lr.ph ], [ %104, %103 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
-  %61 = getelementptr inbounds nuw [0 x i32], ptr %31, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !29
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %103, label %64

@@ -27775,7 +27775,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit65:       ; preds = %_ZN7obj_refI4expr11
 
 158:                                              ; preds = %.lr.ph, %_ZN7obj_refI4expr11ast_managerED2Ev.exit75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7obj_refI4expr11ast_managerED2Ev.exit75 ]
-  %159 = getelementptr inbounds nuw [0 x ptr], ptr %148, i64 0, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv
   %160 = load ptr, ptr %159, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

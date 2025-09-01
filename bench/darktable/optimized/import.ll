@@ -1051,7 +1051,7 @@ define noundef ptr @get_params(ptr noundef readnone captures(none) %0, ptr nound
 
 4:                                                ; preds = %24, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %24 ]
-  %5 = getelementptr inbounds nuw [9 x %struct.anon.0], ptr @_pref, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !138
   switch i32 %7, label %24 [
@@ -1177,7 +1177,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
 
 .preheader.i:                                     ; preds = %5, %19
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %19 ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw [9 x %struct.anon.0], ptr @_pref, i64 0, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !138
   switch i32 %9, label %19 [
@@ -1260,7 +1260,7 @@ _set_default_preferences.exit.i:                  ; preds = %27
 
 .preheader.i73.i:                                 ; preds = %35, %40
   %indvars.iv.i74.i = phi i64 [ %indvars.iv.next.i75.i, %40 ], [ 0, %35 ]
-  %37 = getelementptr inbounds nuw [9 x %struct.anon.0], ptr @_pref, i64 0, i64 %indvars.iv.i74.i, i32 1
+  %37 = getelementptr inbounds nuw %struct.anon.0, ptr @_pref, i64 %indvars.iv.i74.i, i32 1
   %38 = load ptr, ptr %37, align 8, !tbaa !140
   %39 = tail call i32 @g_strcmp0(ptr noundef nonnull %34, ptr noundef %38) #16
   %.not12.i.i = icmp eq i32 %39, 0
@@ -1274,7 +1274,7 @@ _set_default_preferences.exit.i:                  ; preds = %27
 _get_key_index.exit.i:                            ; preds = %.preheader.i73.i
   %sext.i = shl i64 %indvars.iv.i74.i, 32
   %41 = ashr exact i64 %sext.i, 32
-  %42 = getelementptr inbounds [9 x %struct.anon.0], ptr @_pref, i64 0, i64 %41
+  %42 = getelementptr inbounds %struct.anon.0, ptr @_pref, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8, !tbaa !138
   switch i32 %44, label %.thread.i [
@@ -1599,13 +1599,13 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %9 = load i32, ptr %8, align 8, !tbaa !89
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [3 x ptr], ptr @_import_text, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_import_text, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !137
   %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %12, i32 noundef 5) #16
   %14 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.47, i32 noundef 5) #16
   %15 = load i32, ptr %8, align 8, !tbaa !89
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr @_import_text, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @_import_text, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !137
   %19 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %18, i32 noundef 5) #16
   %20 = tail call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef %13, ptr noundef null, i32 noundef 1, ptr noundef %14, i32 noundef -6, ptr noundef %19, i32 noundef -3, ptr noundef null) #16

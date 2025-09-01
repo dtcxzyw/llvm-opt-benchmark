@@ -101,7 +101,7 @@ define internal range(i32 -1, 1) i32 @crawler_expired_init(ptr noundef writeonly
 18:                                               ; preds = %13, %18
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %18 ]
   %19 = load volatile i32, ptr @current_time, align 4, !tbaa !10
-  %20 = getelementptr inbounds nuw [256 x %struct.crawlerstats_t], ptr %15, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.crawlerstats_t, ptr %15, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 520
   store i32 %19, ptr %21, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 528
@@ -121,7 +121,7 @@ define internal void @crawler_expired_eval(ptr noundef readonly captures(none) %
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef %5) #18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds [256 x %struct.crawlerstats_t], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.crawlerstats_t, ptr %7, i64 %8
   %10 = tail call i32 @item_is_flushed(ptr noundef %1) #18
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %12 = load i16, ptr %11, align 2, !tbaa !23
@@ -156,7 +156,7 @@ define internal void @crawler_expired_eval(ptr noundef readonly captures(none) %
   br i1 %brmerge53, label %26, label %69
 
 26:                                               ; preds = %25, %21
-  %27 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %8
+  %27 = getelementptr inbounds %struct.crawler, ptr @crawlers, i64 %8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load i64, ptr %28, align 8, !tbaa !26
   %30 = add i64 %29, 1
@@ -274,7 +274,7 @@ define internal void @crawler_expired_eval(ptr noundef readonly captures(none) %
   %.lhs.trunc = trunc nuw nsw i32 %95 to i16
   %98 = udiv i16 %.lhs.trunc, 60
   %99 = zext nneg i16 %98 to i64
-  %100 = getelementptr inbounds nuw [61 x i64], ptr %9, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i64, ptr %9, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !42
   %102 = add i64 %101, 1
   store i64 %102, ptr %100, align 8, !tbaa !42
@@ -292,7 +292,7 @@ define internal void @crawler_expired_doneclass(ptr noundef readonly captures(no
   %5 = load volatile i32, ptr @current_time, align 4, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [256 x %struct.crawlerstats_t], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.crawlerstats_t, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 524
   store i32 %5, ptr %9, align 4, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 528
@@ -901,7 +901,7 @@ thread-pre-split:                                 ; preds = %lru_crawler_class_d
 .preheader:                                       ; preds = %.lr.ph79, %.preheader.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.preheader.backedge ], [ 1, %.lr.ph79 ]
   %.369 = phi i32 [ %.4, %.preheader.backedge ], [ %.03877, %.lr.ph79 ]
-  %76 = getelementptr inbounds nuw [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw %struct.crawler, ptr @crawlers, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 38
   %78 = load i16, ptr %77, align 2, !tbaa !64
   %.not46 = icmp eq i16 %78, 1
@@ -938,7 +938,7 @@ thread-pre-split:                                 ; preds = %lru_crawler_class_d
   %96 = load i64, ptr %95, align 8, !tbaa !65
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   call void @do_item_stats_add_crawl(i32 noundef range(i32 -2147483648, 256) %97, i64 noundef %92, i64 noundef %94, i64 noundef %96) #18
-  %98 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
   %99 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %98) #18
   %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 40), align 8, !tbaa !55
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -971,7 +971,7 @@ thread-pre-split:                                 ; preds = %lru_crawler_class_d
   %117 = load i64, ptr %116, align 8, !tbaa !65
   %118 = trunc nuw nsw i64 %indvars.iv to i32
   call void @do_item_stats_add_crawl(i32 noundef range(i32 -2147483648, 256) %118, i64 noundef %113, i64 noundef %115, i64 noundef %117) #18
-  %119 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
   %120 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %119) #18
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 40), align 8, !tbaa !55
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -984,7 +984,7 @@ thread-pre-split:                                 ; preds = %lru_crawler_class_d
   br label %lru_crawler_class_done.exit
 
 lru_crawler_class_done.exit.thread61:             ; preds = %81, %86, %104
-  %125 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
   %126 = call i32 @pthread_mutex_lock(ptr noundef nonnull %125) #18
   %127 = call ptr @do_item_crawl_q(ptr noundef nonnull %76) #18
   %128 = icmp eq ptr %127, null
@@ -1308,9 +1308,9 @@ define dso_local i32 @lru_crawler_start(ptr noundef readonly captures(address_is
   br i1 %.not38.us, label %.critedge.us, label %40
 
 40:                                               ; preds = %.critedge.preheader.split.us
-  %41 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv57
+  %41 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv57
   %42 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %41) #18
-  %43 = getelementptr inbounds nuw [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %indvars.iv57
+  %43 = getelementptr inbounds nuw %struct.crawler, ptr @crawlers, i64 %indvars.iv57
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 38
   %45 = load i16, ptr %44, align 2, !tbaa !64
   %46 = icmp eq i16 %45, 0
@@ -1379,7 +1379,7 @@ do_lru_crawler_start.exit.us:                     ; preds = %54, %40
 .thread44:                                        ; preds = %.thread42, %36
   %69 = phi i1 [ false, %36 ], [ %31, %.thread42 ]
   %70 = zext i32 %2 to i64
-  %71 = getelementptr inbounds nuw [4 x ptr], ptr @crawler_mod_regs, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr @crawler_mod_regs, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !25
   store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 40), align 8, !tbaa !55
   store i32 %2, ptr @active_crawler_type, align 4, !tbaa !10
@@ -1447,9 +1447,9 @@ lru_crawler_set_client.exit:                      ; preds = %88
   br i1 %.not38, label %.critedge, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
   %99 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %98) #18
-  %100 = getelementptr inbounds nuw [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw %struct.crawler, ptr @crawlers, i64 %indvars.iv
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 38
   %102 = load i16, ptr %101, align 2, !tbaa !64
   %103 = icmp eq i16 %102, 0
@@ -1566,7 +1566,7 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
   br i1 %.not2326, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %20
-  %.01727 = phi ptr [ %32, %20 ], [ %15, %14 ]
+  %.01727 = phi ptr [ %26, %20 ], [ %15, %14 ]
   %16 = call zeroext i1 @safe_strtoul(ptr noundef nonnull %.01727, ptr noundef nonnull %7) #18
   %17 = load i32, ptr %7, align 4
   %18 = add i32 %17, -1
@@ -1575,35 +1575,29 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
   br i1 %or.cond3.not, label %20, label %.loopexit
 
 20:                                               ; preds = %.lr.ph
-  %21 = or disjoint i32 %17, 192
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %22
+  %21 = zext nneg i32 %17 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 192
   store i8 1, ptr %23, align 1, !tbaa !36
-  %24 = zext nneg i32 %17 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %24
+  store i8 1, ptr %22, align 1, !tbaa !36
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store i8 1, ptr %24, align 1, !tbaa !36
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i8 1, ptr %25, align 1, !tbaa !36
-  %26 = or disjoint i32 %17, 64
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %27
-  store i8 1, ptr %28, align 1, !tbaa !36
-  %29 = or disjoint i32 %17, 128
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %30
-  store i8 1, ptr %31, align 1, !tbaa !36
-  %32 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #18
-  %.not23 = icmp eq ptr %32, null
+  %26 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #18
+  %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %.critedge, label %.lr.ph, !llvm.loop !88
 
 .critedge:                                        ; preds = %20, %14, %.preheader.preheader, %11
   %.018 = phi ptr [ null, %11 ], [ %8, %.preheader.preheader ], [ %8, %14 ], [ %8, %20 ]
-  %33 = call i32 @lru_crawler_start(ptr noundef %.018, i32 noundef %4, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3)
-  %switch.tableidx = add i32 %33, 2
-  %34 = icmp ult i32 %switch.tableidx, 3
-  br i1 %34, label %switch.lookup, label %.loopexit
+  %27 = call i32 @lru_crawler_start(ptr noundef %.018, i32 noundef %4, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3)
+  %switch.tableidx = add i32 %27, 2
+  %28 = icmp ult i32 %switch.tableidx, 3
+  br i1 %28, label %switch.lookup, label %.loopexit
 
 switch.lookup:                                    ; preds = %.critedge
-  %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.lru_crawler_crawl, i64 0, i64 %35
+  %29 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lru_crawler_crawl, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 

@@ -142,7 +142,7 @@ define ptr @Gia_DeriveAig(ptr noundef readonly captures(none) %0, ptr noundef re
 
 30:                                               ; preds = %15
   %31 = sext i8 %13 to i64
-  %32 = getelementptr inbounds [10 x i32], ptr %3, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %3, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !19
   %34 = tail call i32 @Gia_ManHashOr(ptr noundef %4, i32 noundef %33, i32 noundef %29) #21
   store i32 %34, ptr %32, align 4, !tbaa !19
@@ -152,7 +152,7 @@ define ptr @Gia_DeriveAig(ptr noundef readonly captures(none) %0, ptr noundef re
 
 .preheader:                                       ; preds = %30, %.preheader
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.preheader ], [ 0, %30 ]
-  %35 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv43
+  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv43
   %36 = load i32, ptr %35, align 4, !tbaa !19
   tail call fastcc void @Gia_ManAppendCo(ptr noundef %4, i32 noundef %36)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -2255,10 +2255,10 @@ define void @Gia_ManDumpPlaFiles(ptr noundef captures(none) %0, i32 noundef %1, 
 
 32:                                               ; preds = %.preheader86, %._crit_edge
   %indvars.iv103 = phi i64 [ 0, %.preheader86 ], [ %indvars.iv.next104, %._crit_edge ]
-  %33 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv103
+  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv103
   %34 = load i32, ptr %33, align 4, !tbaa !19
   %35 = tail call i32 @Gia_ManSimulateWords(ptr noundef %0, i32 noundef %34)
-  %36 = getelementptr inbounds nuw [3 x [100 x i8]], ptr %7, i64 0, i64 %indvars.iv103
+  %36 = getelementptr inbounds nuw [100 x i8], ptr %7, i64 %indvars.iv103
   %37 = call noalias ptr @fopen(ptr noundef nonnull %36, ptr noundef nonnull @.str.6)
   %.val75 = load ptr, ptr %26, align 8, !tbaa !22
   %38 = getelementptr i8, ptr %.val75, i64 4
@@ -3759,7 +3759,7 @@ define i32 @Gia_ManSimulateBatch(ptr noundef captures(none) initializes((816, 82
   %21 = mul nsw i32 %.val33, %20
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i64, ptr %.val34.val, i64 %22
-  %24 = getelementptr inbounds nuw [10 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %23, ptr %24, align 8, !tbaa !94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3789,7 +3789,7 @@ define i32 @Gia_ManSimulateBatch(ptr noundef captures(none) initializes((816, 82
 
 34:                                               ; preds = %.preheader, %40
   %indvars.iv43 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next44, %40 ]
-  %35 = getelementptr inbounds nuw [10 x ptr], ptr %7, i64 0, i64 %indvars.iv43
+  %35 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv43
   %36 = load ptr, ptr %35, align 8, !tbaa !94
   %37 = getelementptr inbounds nuw i64, ptr %36, i64 %31
   %38 = load i64, ptr %37, align 8, !tbaa !16
@@ -4074,7 +4074,7 @@ Abc_Clock.exit.split:                             ; preds = %Abc_Clock.exit, %Ab
   br i1 %.not, label %42, label %24
 
 24:                                               ; preds = %Abc_Clock.exit.split
-  %25 = getelementptr inbounds nuw [3 x ptr], ptr @__const.Gia_ManTestWordFile.pKnownFileNames, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr @__const.Gia_ManTestWordFile.pKnownFileNames, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !107
   %27 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %26, i64 noundef 5) #25
   %.not23 = icmp eq i32 %27, 0
@@ -4091,7 +4091,7 @@ Abc_Clock.exit.split:                             ; preds = %Abc_Clock.exit, %Ab
   %34 = add i32 %.val.i, %.val3.i
   %35 = xor i32 %34, -1
   %36 = add i32 %29, %35
-  %37 = getelementptr inbounds nuw [3 x i32], ptr @__const.Gia_ManTestWordFile.pLimitFileSizes, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr @__const.Gia_ManTestWordFile.pLimitFileSizes, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !19
   %39 = icmp sgt i32 %36, %38
   br i1 %39, label %40, label %42

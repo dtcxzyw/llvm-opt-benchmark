@@ -5822,7 +5822,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi7ENS_4Sim3EJNS_16VertexS
   %10 = add nsw i32 %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store i8 %6, ptr %13, align 1, !tbaa !382
   %14 = icmp eq i32 %10, 0
   br i1 %14, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS3_6StrideILi0ELi0EEEEEEEEEvOT_RT0_i.exit.sink.split, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi7ELi7ELi0ELi7ELi7EEELi0ENS3_6StrideILi0ELi0EEEEEEEEEvOT_RT0_i.exit
@@ -6553,7 +6553,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %10 = add nsw i32 %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store i8 %6, ptr %13, align 1, !tbaa !382
   %14 = icmp eq i32 %10, 0
   br i1 %14, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi7ELi3ELi0ELi7ELi3EEELi0ENS3_6StrideILi0ELi0EEEEEEEEEvOT_RT0_i.exit.sink.split, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi7ELi3ELi0ELi7ELi3EEELi0ENS3_6StrideILi0ELi0EEEEEEEEEvOT_RT0_i.exit

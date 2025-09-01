@@ -2641,8 +2641,8 @@ _ZN4moldL12get_sym_typeINS_6X86_64EEElRNS_6SymbolIT_EE.exit: ; preds = %10, %_ZN
   %31 = trunc nuw i8 %.val to i1
   %..i = select i1 %31, i64 1, i64 2
   %.0.i = select i1 %30, i64 0, i64 %..i
-  %32 = getelementptr inbounds nuw [3 x [4 x i8]], ptr @_ZZN4mold12InputSectionINS_6X86_64EE10scan_pcrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 0, i64 %.0.i
-  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 0, i64 %.0.i7
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4mold12InputSectionINS_6X86_64EE10scan_pcrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 %.0.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.0.i7
   %34 = load i8, ptr %33, align 1, !tbaa !436
   tail call fastcc void @_ZN4moldL9do_actionINS_6X86_64EEEvRNS_7ContextIT_EENS_6ActionERNS_12InputSectionIS3_EERNS_6SymbolIS3_EERKNS_6ElfRelIS3_EE(ptr noundef nonnull align 8 dereferenceable(4520) %1, i8 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull align 8 dereferenceable(51) %2, ptr noundef nonnull align 1 dereferenceable(24) %3)
   ret void
@@ -2902,8 +2902,8 @@ _ZN4moldL12get_sym_typeINS_6X86_64EEElRNS_6SymbolIT_EE.exit: ; preds = %10, %_ZN
   %31 = trunc nuw i8 %.val to i1
   %..i = select i1 %31, i64 1, i64 2
   %.0.i = select i1 %30, i64 0, i64 %..i
-  %32 = getelementptr inbounds nuw [3 x [4 x i8]], ptr @_ZZN4mold12InputSectionINS_6X86_64EE11scan_absrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 0, i64 %.0.i
-  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 0, i64 %.0.i7
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4mold12InputSectionINS_6X86_64EE11scan_absrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 %.0.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.0.i7
   %34 = load i8, ptr %33, align 1, !tbaa !436
   tail call fastcc void @_ZN4moldL9do_actionINS_6X86_64EEEvRNS_7ContextIT_EENS_6ActionERNS_12InputSectionIS3_EERNS_6SymbolIS3_EERKNS_6ElfRelIS3_EE(ptr noundef nonnull align 8 dereferenceable(4520) %1, i8 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull align 8 dereferenceable(51) %2, ptr noundef nonnull align 1 dereferenceable(24) %3)
   ret void
@@ -3721,8 +3721,8 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit41:            ; preds = %153, %_ZNSt12_Vecto
 
 177:                                              ; preds = %_ZN4mold14update_maximumIhSt4lessIhEEEvRSt6atomicIT_EmT0_.exit.i, %._crit_edge
   %.05.i = phi i64 [ 0, %._crit_edge ], [ %187, %_ZN4mold14update_maximumIhSt4lessIhEEEvRSt6atomicIT_EmT0_.exit.i ]
-  %178 = getelementptr inbounds nuw [2048 x %"struct.mold::Atomic.312"], ptr %176, i64 0, i64 %.05.i
-  %179 = getelementptr inbounds nuw [2048 x %"struct.mold::Atomic.312"], ptr %7, i64 0, i64 %.05.i
+  %178 = getelementptr inbounds nuw %"struct.mold::Atomic.312", ptr %176, i64 %.05.i
+  %179 = getelementptr inbounds nuw %"struct.mold::Atomic.312", ptr %7, i64 %.05.i
   %180 = load atomic i8, ptr %179 monotonic, align 1
   %181 = load atomic i8, ptr %178 monotonic, align 1
   %182 = icmp ult i8 %181, %180
@@ -3861,7 +3861,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit52:         ; preds = %220, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i51
   %242 = and i64 %216, 2047
-  %243 = getelementptr inbounds nuw [2048 x %"struct.mold::Atomic.312"], ptr %7, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw %"struct.mold::Atomic.312", ptr %7, i64 %242
   %244 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %216, i1 false)
   %245 = trunc nuw nsw i64 %244 to i8
   %246 = add nuw nsw i8 %245, 1
@@ -5290,7 +5290,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_
   %21 = shl nuw i64 1, %20
   %22 = and i64 %21, -2
   %23 = sub i64 %17, %22
-  %24 = getelementptr inbounds nuw [64 x %"struct.std::atomic.278"], ptr %12, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw %"struct.std::atomic.278", ptr %12, i64 %20
   %25 = load atomic i64, ptr %24 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %25 to ptr
   %26 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::Symbol<mold::X86_64> *const, std::vector<std::__cxx11::basic_string<char>>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i, i64 %23
@@ -5473,7 +5473,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.e
   %99 = shl nuw i64 1, %98
   %100 = and i64 %99, -2
   %101 = sub i64 %95, %100
-  %102 = getelementptr inbounds nuw [64 x %"struct.std::atomic.278"], ptr %12, i64 0, i64 %98
+  %102 = getelementptr inbounds nuw %"struct.std::atomic.278", ptr %12, i64 %98
   %103 = load atomic i64, ptr %102 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %103 to ptr
   %104 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::Symbol<mold::X86_64> *const, std::vector<std::__cxx11::basic_string<char>>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i, i64 %101, i32 1
@@ -5497,7 +5497,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.e
   %113 = add i64 %.5.ph, 1
   %114 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %113, i1 true)
   %115 = xor i64 %114, 63
-  %116 = getelementptr inbounds nuw [64 x %"struct.std::atomic.278"], ptr %12, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.std::atomic.278", ptr %12, i64 %115
   %117 = load atomic i64, ptr %116 acquire, align 8
   %.not12.i = icmp eq i64 %117, 0
   br i1 %.not12.i, label %118, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE15insert_new_nodeEPNSO_6bucketEPNS1_18hash_map_node_baseISN_EEm.exit
@@ -5690,7 +5690,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSO_6bucketEmb.exit.i, label %.lr.ph.i.i.i, !llvm.loop !531
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSO_6bucketEmb.exit.i: ; preds = %.lr.ph.i.i.i
-  %181 = getelementptr inbounds nuw [64 x %"struct.std::atomic.278"], ptr %12, i64 0, i64 %.237114
+  %181 = getelementptr inbounds nuw %"struct.std::atomic.278", ptr %12, i64 %.237114
   %182 = ptrtoint ptr %177 to i64
   store atomic i64 %182, ptr %181 release, align 8
   %183 = shl i64 2, %.237114
@@ -5717,7 +5717,7 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolI
 
 191:                                              ; preds = %191, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSO_6bucketEmb.exit14.i
   %.038.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSO_6bucketEmb.exit14.i ], [ %196, %191 ]
-  %192 = getelementptr inbounds nuw [64 x %"struct.std::atomic.278"], ptr %12, i64 0, i64 %.038.i
+  %192 = getelementptr inbounds nuw %"struct.std::atomic.278", ptr %12, i64 %.038.i
   %193 = shl nuw nsw i64 1, %.038.i
   %194 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::Symbol<mold::X86_64> *const, std::vector<std::__cxx11::basic_string<char>>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %190, i64 %193
   %195 = ptrtoint ptr %194 to i64
@@ -5836,7 +5836,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d219concurrent_hash_mapIPN4mo
   %13 = and i64 %12, 9223372036854775806
   %14 = sub nsw i64 %8, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = getelementptr inbounds nuw [64 x %"struct.std::atomic.278"], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds nuw %"struct.std::atomic.278", ptr %15, i64 %11
   %17 = load atomic i64, ptr %16 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %17 to ptr
   %18 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::Symbol<mold::X86_64> *const, std::vector<std::__cxx11::basic_string<char>>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i, i64 %14
@@ -7489,7 +7489,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.01098 = phi i64 [ %52, %.lr.ph99 ], [ 1, %.preheader ]
-  %51 = getelementptr inbounds nuw [3 x %"struct.std::atomic.354"], ptr %31, i64 0, i64 %.01098
+  %51 = getelementptr inbounds nuw %"struct.std::atomic.354", ptr %31, i64 %.01098
   store atomic i64 %27, ptr %51 release, align 8
   %52 = add nuw nsw i64 %.01098, 1
   %exitcond103.not = icmp eq i64 %52, %invariant.umin
@@ -8318,7 +8318,7 @@ _ZN3tbb6detail2d113segment_tableISt10unique_ptrIA_hSt14default_deleteIS4_EENS1_2
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.01098 = phi i64 [ %52, %.lr.ph99 ], [ 1, %.preheader ]
-  %51 = getelementptr inbounds nuw [3 x %"struct.std::atomic.217"], ptr %31, i64 0, i64 %.01098
+  %51 = getelementptr inbounds nuw %"struct.std::atomic.217", ptr %31, i64 %.01098
   store atomic i64 %27, ptr %51 release, align 8
   %52 = add nuw nsw i64 %.01098, 1
   %exitcond103.not = icmp eq i64 %52, %invariant.umin

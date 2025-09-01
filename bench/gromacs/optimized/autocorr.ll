@@ -2918,7 +2918,7 @@ define noundef ptr @_Z13add_acf_pargsPiP7t_pargs(ptr noundef captures(none) %0, 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 0, %.preheader.preheader ]
-  %14 = getelementptr inbounds nuw [8 x %struct.t_pargs], ptr @__const._Z13add_acf_pargsPiP7t_pargs.acfpa, i64 0, i64 %indvars.iv21
+  %14 = getelementptr inbounds nuw %struct.t_pargs, ptr @__const._Z13add_acf_pargsPiP7t_pargs.acfpa, i64 %indvars.iv21
   %15 = load i32, ptr %0, align 4, !tbaa !52
   %16 = trunc nuw nsw i64 %indvars.iv21 to i32
   %17 = add nsw i32 %15, %16

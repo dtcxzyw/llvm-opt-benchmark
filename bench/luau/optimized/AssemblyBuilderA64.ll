@@ -1584,7 +1584,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cselENS1_11Regis
   %18 = shl nuw nsw i32 %17, 5
   %19 = or disjoint i32 %18, %15
   %20 = sext i32 %4 to i64
-  %21 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !13
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 12
@@ -1638,7 +1638,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_1
   %25 = shl nuw nsw i32 %24, 10
   %26 = or disjoint i32 %25, %23
   %27 = sext i32 %5 to i64
-  %28 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %27
+  %28 = getelementptr inbounds i8, ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !13
   %30 = zext i8 %29 to i32
   %31 = xor i32 %8, %30
@@ -1689,7 +1689,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644csetENS1_11Regis
   %12 = zext nneg i8 %11 to i32
   %13 = or disjoint i32 %12, 2016
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !13
   %17 = xor i8 %16, 1
   %18 = zext i8 %17 to i32
@@ -3750,9 +3750,9 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %8, %15
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [15 x ptr], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !49
-  %7 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %4
+  %7 = getelementptr inbounds i8, ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 %4
   %8 = load i8, ptr %7, align 1, !tbaa !13
   %9 = zext i8 %8 to i32
   %10 = or disjoint i32 %9, 1409286144
@@ -6322,7 +6322,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11Regi
   %19 = or disjoint i32 %18, %15
   %20 = or disjoint i32 %19, 3072
   %21 = sext i32 %4 to i64
-  %22 = getelementptr inbounds [15 x i8], ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 0, i64 %21
+  %22 = getelementptr inbounds i8, ptr @_ZN4Luau7CodeGen3A64L16codeForConditionE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !13
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 12
@@ -7370,7 +7370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9: ; preds 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit10: ; preds = %18
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.81, i64 noundef 1)
   %25 = sext i32 %5 to i64
-  %26 = getelementptr inbounds [15 x ptr], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 0, i64 %25
+  %26 = getelementptr inbounds ptr, ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !49
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #23

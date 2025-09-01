@@ -1608,7 +1608,7 @@ _nvml_print_gfx_freqs.exit38.i.i:                 ; preds = %499, %_nvml_print_g
   %502 = add i32 %501, -1
   %503 = lshr i32 %502, 1
   %504 = zext nneg i32 %503 to i64
-  %505 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw i32, ptr %9, i64 %504
   %506 = load i32, ptr %505, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %506, i32 noundef %503) #12
   %507 = load i32, ptr %505, align 4
@@ -1628,7 +1628,7 @@ _nvml_print_gfx_freqs.exit39.i.i:                 ; preds = %509, %_nvml_print_g
   %511 = load i32, ptr %8, align 4
   %512 = add i32 %511, -2
   %513 = zext i32 %512 to i64
-  %514 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw i32, ptr %9, i64 %513
   %515 = load i32, ptr %514, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %515, i32 noundef %512) #12
   %516 = load i32, ptr %514, align 4
@@ -1647,7 +1647,7 @@ _nvml_print_gfx_freqs.exit40.i.i:                 ; preds = %518, %_nvml_print_g
   %520 = load i32, ptr %8, align 4
   %521 = add i32 %520, -1
   %522 = zext i32 %521 to i64
-  %523 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %522
+  %523 = getelementptr inbounds nuw i32, ptr %9, i64 %522
   %524 = load i32, ptr %523, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %524, i32 noundef %521) #12
   %525 = load i32, ptr %523, align 4
@@ -1667,7 +1667,7 @@ _nvml_print_gfx_freqs.exit41.i.i:                 ; preds = %527, %_nvml_print_g
 
 .lr.ph.i86.i:                                     ; preds = %.preheader.i.i, %_nvml_print_gfx_freqs.exit42.i.i
   %indvars.iv.i87.i = phi i64 [ %indvars.iv.next.i88.i, %_nvml_print_gfx_freqs.exit42.i.i ], [ 0, %.preheader.i.i ]
-  %529 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %indvars.iv.i87.i
+  %529 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i87.i
   %530 = load i32, ptr %529, align 4
   %531 = trunc nuw i64 %indvars.iv.i87.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %530, i32 noundef %531) #12
@@ -2629,7 +2629,7 @@ define dso_local ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.loopexit.preheader ]
-  %50 = getelementptr inbounds nuw [512 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 4294967295
   %53 = icmp eq i64 %52, 4294967295

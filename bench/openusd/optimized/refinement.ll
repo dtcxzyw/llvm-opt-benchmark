@@ -742,7 +742,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement28populateParentToChildMappingEv.
 
 76:                                               ; preds = %76, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag"], ptr %indvars.iv17.i.sroa.phi, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %indvars.iv17.i.sroa.phi, i64 %indvars.iv.i
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, -32
   %80 = or disjoint i8 %79, %indvars.iv17.i
@@ -870,7 +870,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement28populateChildToPar
 
 3:                                                ; preds = %.preheader, %3
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag"], ptr %indvars.iv17.sroa.phi, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %indvars.iv17.sroa.phi, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, -32
   %7 = or disjoint i8 %6, %indvars.iv17
@@ -2914,7 +2914,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateFaceParent
 .lr.ph90.split:                                   ; preds = %.lr.ph90.split.preheader, %.lr.ph90.split
   %indvars.iv113 = phi i64 [ 0, %.lr.ph90.split.preheader ], [ %indvars.iv.next114, %.lr.ph90.split ]
   %indvars.iv111 = phi i64 [ %65, %.lr.ph90.split.preheader ], [ %indvars.iv.next112, %.lr.ph90.split ]
-  %74 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag"], ptr %1, i64 0, i64 %indvars.iv113
+  %74 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %1, i64 %indvars.iv113
   %75 = load ptr, ptr %22, align 8
   %76 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %75, i64 %indvars.iv111
   %77 = load i8, ptr %74, align 1
@@ -3062,7 +3062,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateFaceParent
   br i1 %.not79, label %172, label %162
 
 162:                                              ; preds = %.lr.ph.split
-  %163 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag"], ptr %146, i64 0, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %146, i64 %indvars.iv
   %164 = sext i32 %161 to i64
   %165 = load ptr, ptr %13, align 8
   %166 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %165, i64 %164
@@ -3322,7 +3322,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
 .lr.ph90.split:                                   ; preds = %.lr.ph90.split.preheader, %.lr.ph90.split
   %indvars.iv113 = phi i64 [ 0, %.lr.ph90.split.preheader ], [ %indvars.iv.next114, %.lr.ph90.split ]
   %indvars.iv111 = phi i64 [ %65, %.lr.ph90.split.preheader ], [ %indvars.iv.next112, %.lr.ph90.split ]
-  %74 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag"], ptr %1, i64 0, i64 %indvars.iv113
+  %74 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %1, i64 %indvars.iv113
   %75 = load ptr, ptr %22, align 8
   %76 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %75, i64 %indvars.iv111
   %77 = load i8, ptr %74, align 1
@@ -3470,7 +3470,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
   br i1 %.not79, label %172, label %162
 
 162:                                              ; preds = %.lr.ph.split
-  %163 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag"], ptr %146, i64 0, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %146, i64 %indvars.iv
   %164 = sext i32 %161 to i64
   %165 = load ptr, ptr %13, align 8
   %166 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %165, i64 %164
@@ -3614,7 +3614,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
   br i1 %.not39, label %83, label %73
 
 73:                                               ; preds = %.preheader
-  %74 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag"], ptr %16, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %16, i64 %indvars.iv
   %75 = sext i32 %72 to i64
   %76 = load ptr, ptr %13, align 8
   %77 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %76, i64 %75

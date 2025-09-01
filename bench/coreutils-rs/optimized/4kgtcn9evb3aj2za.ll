@@ -107,7 +107,7 @@ define hidden { i32, i32 } @"_ZN107_$LT$signal_hook..iterator..backend..Pending$
 
 9:                                                ; preds = %.lr.ph, %18
   %10 = phi i64 [ %.promoted, %.lr.ph ], [ %19, %18 ]
-  %11 = getelementptr inbounds nuw [128 x { i8 }], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw { i8 }, ptr %5, i64 %10
   %12 = trunc nuw nsw i64 %10 to i32
   %13 = tail call { i32, i32 } @"_ZN122_$LT$signal_hook..iterator..exfiltrator..SignalOnly$u20$as$u20$signal_hook..iterator..exfiltrator..sealed..Exfiltrator$GT$4load17h2eb1507987bf6aa6E"(ptr noalias noundef nonnull readonly align 1 %6, ptr noundef nonnull align 1 %11, i32 noundef %12)
   %14 = extractvalue { i32, i32 } %13, 0
@@ -1018,7 +1018,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds nuw [128 x { i8 }], ptr %9, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw { i8 }, ptr %9, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 144
   tail call void @"_ZN122_$LT$signal_hook..iterator..exfiltrator..SignalOnly$u20$as$u20$signal_hook..iterator..exfiltrator..sealed..Exfiltrator$GT$5store17hc7b2ec9b86589008E"(ptr noalias noundef nonnull readonly align 1 %11, ptr noundef nonnull align 1 %10, i32 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1441,7 +1441,7 @@ define hidden void @"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E
 
 16:                                               ; preds = %23, %.lr.ph.i
   %17 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %24, %23 ]
-  %18 = getelementptr inbounds nuw [128 x { i8 }], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw { i8 }, ptr %14, i64 %17
   %19 = trunc nuw nsw i64 %17 to i32
   %20 = call { i32, i32 } @"_ZN122_$LT$signal_hook..iterator..exfiltrator..SignalOnly$u20$as$u20$signal_hook..iterator..exfiltrator..sealed..Exfiltrator$GT$4load17h2eb1507987bf6aa6E"(ptr noalias noundef nonnull readonly align 1 %15, ptr noundef nonnull align 1 %18, i32 noundef %19), !noalias !270
   %21 = extractvalue { i32, i32 } %20, 0
@@ -2567,7 +2567,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !alias.scope !455, !noalias !456, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds nuw [128 x { i8 }], ptr %9, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw { i8 }, ptr %9, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 144
   invoke void @"_ZN122_$LT$signal_hook..iterator..exfiltrator..SignalOnly$u20$as$u20$signal_hook..iterator..exfiltrator..sealed..Exfiltrator$GT$5store17hc7b2ec9b86589008E"(ptr noalias noundef nonnull readonly align 1 %11, ptr noundef nonnull align 1 %10, i32 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %1)
           to label %.noexc.i unwind label %25, !noalias !449
@@ -3183,14 +3183,14 @@ define hidden void @_ZN5uu_dd7numbers23to_magnitude_and_suffix17h118f86e7426b715
 
 19:                                               ; preds = %16
   %20 = add nuw nsw i64 %.0.i, 1
-  %21 = getelementptr inbounds nuw [10 x i128], ptr %7, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i128, ptr %7, i64 %20
   %22 = load i128, ptr %21, align 16, !noalias !554, !noundef !4
   %23 = sub i128 %22, %17
   %24 = icmp ult i128 %23, %1
   br i1 %24, label %16, label %_ZN5uu_dd7numbers10SuffixType15base_and_suffix17hb55550052de65938E.exit
 
 _ZN5uu_dd7numbers10SuffixType15base_and_suffix17hb55550052de65938E.exit: ; preds = %19
-  %25 = getelementptr inbounds nuw [9 x { ptr, i64 }], ptr %6, i64 0, i64 %.0.i
+  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %.0.i
   %26 = load ptr, ptr %25, align 8, !noalias !554, !nonnull !4, !align !372, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !554, !noundef !4

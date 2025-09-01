@@ -1261,7 +1261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %100 = load ptr, ptr %86, align 8, !tbaa !32
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = getelementptr inbounds nuw [268435454 x ptr], ptr %101, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !38
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 216
   %105 = load ptr, ptr %104, align 8, !tbaa !20
@@ -1329,7 +1329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   %129 = inttoptr i64 %128 to ptr
   %130 = load ptr, ptr %86, align 8, !tbaa !32
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = getelementptr inbounds nuw [268435454 x ptr], ptr %131, i64 0, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !38
   %134 = load ptr, ptr %5, align 8, !tbaa !43
   %135 = invoke noundef zeroext i1 @_ZN6google8protobuf24SimpleDescriptorDatabase15DescriptorIndexIPKNS0_19FileDescriptorProtoEE19AddNestedExtensionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoES5_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(232) %133, ptr noundef %134)
@@ -1362,7 +1362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %145 = load ptr, ptr %94, align 8, !tbaa !32
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = getelementptr inbounds nuw [268435454 x ptr], ptr %146, i64 0, i64 %indvars.iv136
+  %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv136
   %148 = load ptr, ptr %147, align 8, !tbaa !38
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 96
   %150 = load ptr, ptr %149, align 8, !tbaa !20
@@ -1452,7 +1452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %180 = load ptr, ptr %141, align 8, !tbaa !32
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %182 = getelementptr inbounds nuw [268435454 x ptr], ptr %181, i64 0, i64 %indvars.iv139
+  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv139
   %183 = load ptr, ptr %182, align 8, !tbaa !38
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %185 = load ptr, ptr %184, align 8, !tbaa !20
@@ -1520,7 +1520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
   %209 = inttoptr i64 %208 to ptr
   %210 = load ptr, ptr %141, align 8, !tbaa !32
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %212 = getelementptr inbounds nuw [268435454 x ptr], ptr %211, i64 0, i64 %indvars.iv139
+  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv139
   %213 = load ptr, ptr %212, align 8, !tbaa !38
   %214 = load ptr, ptr %5, align 8, !tbaa !43
   %215 = invoke noundef zeroext i1 @_ZN6google8protobuf24SimpleDescriptorDatabase15DescriptorIndexIPKNS0_19FileDescriptorProtoEE12AddExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_20FieldDescriptorProtoES5_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef nonnull align 8 dereferenceable(96) %213, ptr noundef %214)
@@ -1541,7 +1541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %220 = load ptr, ptr %174, align 8, !tbaa !32
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %222 = getelementptr inbounds nuw [268435454 x ptr], ptr %221, i64 0, i64 %indvars.iv142
+  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv142
   %223 = load ptr, ptr %222, align 8, !tbaa !38
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 48
   %225 = load ptr, ptr %224, align 8, !tbaa !20
@@ -9431,7 +9431,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24SimpleDescri
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = getelementptr inbounds nuw [268435454 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = tail call noundef zeroext i1 @_ZN6google8protobuf24SimpleDescriptorDatabase15DescriptorIndexIPKNS0_19FileDescriptorProtoEE19AddNestedExtensionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15DescriptorProtoES5_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(232) %21, ptr noundef %3)
   br i1 %22, label %9, label %.thread
@@ -9447,7 +9447,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24SimpleDescri
   %indvars.iv34 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next35, %23 ]
   %27 = load ptr, ptr %16, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = getelementptr inbounds nuw [268435454 x ptr], ptr %28, i64 0, i64 %indvars.iv34
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv34
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %31 = tail call noundef zeroext i1 @_ZN6google8protobuf24SimpleDescriptorDatabase15DescriptorIndexIPKNS0_19FileDescriptorProtoEE12AddExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_20FieldDescriptorProtoES5_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef %3)
   br i1 %31, label %23, label %.thread

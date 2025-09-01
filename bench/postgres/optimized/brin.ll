@@ -1078,8 +1078,8 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr noundef read
   %54 = ptrtoint ptr %34 to i64
   br label %55
 
-55:                                               ; preds = %184, %31
-  %.062 = phi ptr [ null, %31 ], [ %.2, %184 ]
+55:                                               ; preds = %183, %31
+  %.062 = phi ptr [ null, %31 ], [ %.2, %183 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %56 = load volatile i32, ptr @InterruptPending, align 4
   %.not70 = icmp eq i32 %56, 0
@@ -1156,7 +1156,7 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr noundef read
 90:                                               ; preds = %144, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %144 ]
   %.03334.i = phi i8 [ %85, %.lr.ph.i ], [ %.2.i, %144 ]
-  %91 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %89, i64 0, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw %struct.BrinValues, ptr %89, i64 %indvars.iv.i
   %92 = load i8, ptr %84, align 1, !range !4, !noundef !5
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %102, label %94
@@ -1175,7 +1175,7 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr noundef read
 
 102:                                              ; preds = %98, %94, %90
   %103 = phi i1 [ false, %90 ], [ true, %94 ], [ %101, %98 ]
-  %104 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %107 = load i8, ptr %106, align 2, !range !4, !noundef !5
@@ -1276,32 +1276,31 @@ add_values_to_range.exit:                         ; preds = %144, %82
 BufferGetPage.exit:                               ; preds = %154, %160
   %.0.i.i = phi ptr [ %159, %154 ], [ %165, %160 ]
   %166 = load i16, ptr %10, align 2
-  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %168 = zext i16 %166 to i64
-  %169 = add nsw i64 %168, -1
-  %170 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %167, i64 0, i64 %169
+  %167 = zext i16 %166 to i64
+  %168 = getelementptr i8, ptr %.0.i.i, i64 20
+  %169 = getelementptr %struct.ItemIdData, ptr %168, i64 %167
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %171 = load i32, ptr %170, align 4
-  %172 = lshr i32 %171, 17
-  %173 = zext nneg i32 %172 to i64
-  %174 = call ptr @brin_copy_tuple(ptr noundef nonnull %76, i64 noundef %173, ptr noundef null, ptr noundef null) #10
-  %175 = call ptr @brin_form_tuple(ptr noundef nonnull %34, i32 noundef %43, ptr noundef nonnull %83, ptr noundef nonnull %11) #10
-  %176 = load i32, ptr %9, align 4
-  %177 = load i64, ptr %11, align 8
-  %178 = call zeroext i1 @brin_can_do_samepage_update(i32 noundef %176, i64 noundef %173, i64 noundef %177) #10
+  %170 = load i32, ptr %169, align 4
+  %171 = lshr i32 %170, 17
+  %172 = zext nneg i32 %171 to i64
+  %173 = call ptr @brin_copy_tuple(ptr noundef nonnull %76, i64 noundef %172, ptr noundef null, ptr noundef null) #10
+  %174 = call ptr @brin_form_tuple(ptr noundef nonnull %34, i32 noundef %43, ptr noundef nonnull %83, ptr noundef nonnull %11) #10
+  %175 = load i32, ptr %9, align 4
+  %176 = load i64, ptr %11, align 8
+  %177 = call zeroext i1 @brin_can_do_samepage_update(i32 noundef %175, i64 noundef %172, i64 noundef %176) #10
+  %178 = load i32, ptr %9, align 4
+  call void @LockBuffer(i32 noundef %178, i32 noundef 0) #10
   %179 = load i32, ptr %9, align 4
-  call void @LockBuffer(i32 noundef %179, i32 noundef 0) #10
-  %180 = load i32, ptr %9, align 4
-  %181 = load i16, ptr %10, align 2
-  %182 = load i64, ptr %11, align 8
-  %183 = call zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %36, ptr noundef %32, i32 noundef %43, i32 noundef %180, i16 noundef zeroext %181, ptr noundef %174, i64 noundef %173, ptr noundef %175, i64 noundef %182, i1 noundef zeroext %178) #10
-  br i1 %183, label %.thread, label %184
+  %180 = load i16, ptr %10, align 2
+  %181 = load i64, ptr %11, align 8
+  %182 = call zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %36, ptr noundef %32, i32 noundef %43, i32 noundef %179, i16 noundef zeroext %180, ptr noundef %173, i64 noundef %172, ptr noundef %174, i64 noundef %181, i1 noundef zeroext %177) #10
+  br i1 %182, label %.thread, label %183
 
 .thread:                                          ; preds = %BufferGetPage.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-184:                                              ; preds = %BufferGetPage.exit
+183:                                              ; preds = %BufferGetPage.exit
   call void @MemoryContextReset(ptr noundef %.2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1310,24 +1309,24 @@ BufferGetPage.exit:                               ; preds = %154, %160
 .loopexit:                                        ; preds = %75, %.thread, %151
   %.1.ph = phi ptr [ %.2, %151 ], [ %.2, %.thread ], [ %.062, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %185 = load i32, ptr %9, align 4
-  %.not84 = icmp eq i32 %185, 0
-  br i1 %.not84, label %187, label %186
+  %184 = load i32, ptr %9, align 4
+  %.not84 = icmp eq i32 %184, 0
+  br i1 %.not84, label %186, label %185
 
-186:                                              ; preds = %.loopexit
-  call void @ReleaseBuffer(i32 noundef %185) #10
-  br label %187
+185:                                              ; preds = %.loopexit
+  call void @ReleaseBuffer(i32 noundef %184) #10
+  br label %186
 
-187:                                              ; preds = %186, %.loopexit
+186:                                              ; preds = %185, %.loopexit
   store ptr %14, ptr @CurrentMemoryContext, align 8
   %.not73 = icmp eq ptr %.1.ph, null
-  br i1 %.not73, label %189, label %188
+  br i1 %.not73, label %188, label %187
 
-188:                                              ; preds = %187
+187:                                              ; preds = %186
   call void @MemoryContextDelete(ptr noundef nonnull %.1.ph) #10
-  br label %189
+  br label %188
 
-189:                                              ; preds = %188, %187
+188:                                              ; preds = %187, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 false
 }
@@ -1719,13 +1718,13 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   br i1 %144, label %.thread203, label %145
 
 145:                                              ; preds = %141, %134
-  %146 = getelementptr inbounds [0 x %struct.BrinValues], ptr %132, i64 0, i64 %137
+  %146 = getelementptr inbounds %struct.BrinValues, ptr %132, i64 %137
   %147 = load i8, ptr %133, align 1, !range !4, !noundef !5
   %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %.thread209.thread, label %149
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds [0 x ptr], ptr %87, i64 0, i64 %137
+  %150 = getelementptr inbounds ptr, ptr %87, i64 %137
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   %153 = load i8, ptr %152, align 2, !range !4, !noundef !5
@@ -2044,7 +2043,7 @@ define dso_local noundef ptr @brin_build_desc(ptr noundef %0) local_unnamed_addr
   %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %42 ]
   %43 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv49
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %indvars.iv49
+  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv49
   store ptr %44, ptr %45, align 8
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %46 = load i32, ptr %6, align 8
@@ -2248,7 +2247,7 @@ define internal void @brinbuildCallback(ptr noundef %0, ptr noundef readonly cap
 
 62:                                               ; preds = %113, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %113 ]
-  %63 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %58, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw %struct.BrinValues, ptr %58, i64 %indvars.iv.i
   %64 = load i8, ptr %53, align 1, !range !4, !noundef !5
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %74, label %66
@@ -2267,7 +2266,7 @@ define internal void @brinbuildCallback(ptr noundef %0, ptr noundef readonly cap
 
 74:                                               ; preds = %70, %66, %62
   %75 = phi i1 [ false, %62 ], [ true, %66 ], [ %73, %70 ]
-  %76 = getelementptr inbounds nuw [0 x ptr], ptr %59, i64 0, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %79 = load i8, ptr %78, align 2, !range !4, !noundef !5
@@ -3287,9 +3286,9 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
 
 27:                                               ; preds = %.lr.ph85, %.loopexit
   %indvars.iv96 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next97, %.loopexit ]
-  %28 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %24, i64 0, i64 %indvars.iv96
-  %29 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %25, i64 0, i64 %indvars.iv96
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv96
+  %28 = getelementptr inbounds nuw %struct.BrinValues, ptr %24, i64 %indvars.iv96
+  %29 = getelementptr inbounds nuw %struct.BrinValues, ptr %25, i64 %indvars.iv96
+  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv96
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 3
   %33 = load i8, ptr %32, align 1, !range !4, !noundef !5
@@ -3319,7 +3318,7 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %45 = load ptr, ptr %41, align 8
   %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv93
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv93
+  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv93
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 10
   %51 = load i8, ptr %50, align 2, !range !4, !noundef !5
@@ -3351,9 +3350,9 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
 
 66:                                               ; preds = %.lr.ph81, %.critedge
   %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %.critedge ]
-  %67 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %19, i64 0, i64 %indvars.iv90
-  %68 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %20, i64 0, i64 %indvars.iv90
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv90
+  %67 = getelementptr inbounds nuw %struct.BrinValues, ptr %19, i64 %indvars.iv90
+  %68 = getelementptr inbounds nuw %struct.BrinValues, ptr %20, i64 %indvars.iv90
+  %69 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv90
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %72 = load i8, ptr %71, align 2, !range !4, !noundef !5
@@ -3417,7 +3416,7 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %103 = load ptr, ptr %99, align 8
   %104 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv
   %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds nuw [0 x ptr], ptr %100, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 10
   %109 = load i8, ptr %108, align 2, !range !4, !noundef !5
@@ -3616,7 +3615,7 @@ form_and_spill_tuple.exit:                        ; preds = %22, %28
 
 60:                                               ; preds = %111, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %111 ]
-  %61 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %56, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw %struct.BrinValues, ptr %56, i64 %indvars.iv.i
   %62 = load i8, ptr %51, align 1, !range !4, !noundef !5
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %72, label %64
@@ -3635,7 +3634,7 @@ form_and_spill_tuple.exit:                        ; preds = %22, %28
 
 72:                                               ; preds = %68, %64, %60
   %73 = phi i1 [ false, %60 ], [ true, %64 ], [ %71, %68 ]
-  %74 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %77 = load i8, ptr %76, align 2, !range !4, !noundef !5

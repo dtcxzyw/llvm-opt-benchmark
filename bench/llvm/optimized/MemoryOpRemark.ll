@@ -217,7 +217,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = zext i32 %38 to i64
   %41 = lshr i64 %40, 6
-  %42 = getelementptr inbounds nuw [9 x i64], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %39, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !49
   %44 = and i64 %40, 63
   %45 = shl nuw i64 1, %44
@@ -229,7 +229,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %37
   %47 = load ptr, ptr %1, align 8, !tbaa !42
   %48 = lshr i32 %38, 2
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [131 x i8], ptr %47, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !51
   %52 = zext i8 %51 to i32
   %53 = shl i32 %38, 1
@@ -696,7 +696,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = zext i32 %21 to i64
   %24 = lshr i64 %23, 6
-  %25 = getelementptr inbounds nuw [9 x i64], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !49
   %27 = and i64 %23, 63
   %28 = shl nuw i64 1, %27
@@ -708,7 +708,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %31 = load ptr, ptr %20, align 8, !tbaa !42
   %32 = lshr i32 %21, 2
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [131 x i8], ptr %31, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !51
   %36 = zext i8 %35 to i32
   %37 = shl i32 %21, 1
@@ -852,10 +852,10 @@ declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"cl
 define dso_local { ptr, i64 } @_ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
 switch.lookup:
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE.7, i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm14MemoryOpRemark10remarkNameENS0_10RemarkKindE.7, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3042,10 +3042,10 @@ define dso_local void @_ZNK4llvm14AutoInitRemark13explainSourceB5cxx11ENS_9Strin
 define dso_local { ptr, i64 } @_ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
 switch.lookup:
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE.8, i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm14AutoInitRemark10remarkNameENS_14MemoryOpRemark10RemarkKindE.8, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

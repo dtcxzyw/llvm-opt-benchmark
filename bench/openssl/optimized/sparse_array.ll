@@ -32,9 +32,9 @@ define void @ossl_sa_free(ptr noundef %0) local_unnamed_addr #0 {
 .split.us.split.i:                                ; preds = %32, %4
   %.03141.us.i = phi i32 [ %.132.us.i, %32 ], [ 0, %4 ]
   %7 = zext nneg i32 %.03141.us.i to i64
-  %8 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !3
-  %10 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   %12 = icmp sgt i32 %9, 15
   br i1 %12, label %28, label %13
@@ -61,9 +61,9 @@ define void @ossl_sa_free(ptr noundef %0) local_unnamed_addr #0 {
 23:                                               ; preds = %19
   %24 = add nuw nsw i32 %.03141.us.i, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %25
   store i32 0, ptr %26, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %25
   store ptr %18, ptr %27, align 8, !tbaa !11
   br label %32
 
@@ -111,9 +111,9 @@ define void @ossl_sa_free_leaves(ptr noundef %0) local_unnamed_addr #0 {
 .split.split.i:                                   ; preds = %32, %1
   %.03141.i = phi i32 [ %.132.i, %32 ], [ 0, %1 ]
   %6 = zext nneg i32 %.03141.i to i64
-  %7 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !3
-  %9 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = icmp sgt i32 %8, 15
   br i1 %11, label %12, label %16
@@ -152,9 +152,9 @@ define void @ossl_sa_free_leaves(ptr noundef %0) local_unnamed_addr #0 {
 26:                                               ; preds = %22
   %27 = add nuw nsw i32 %.03141.i, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %28
   store i32 0, ptr %29, align 4, !tbaa !3
-  %30 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %28
   store ptr %21, ptr %30, align 8, !tbaa !11
   br label %32
 
@@ -194,9 +194,9 @@ define void @ossl_sa_doall(ptr noundef readonly captures(address_is_null) %0, pt
   %.042.us45.i = phi i64 [ %.1.us51.i, %36 ], [ 0, %5 ]
   %.03141.us46.i = phi i32 [ %.132.us50.i, %36 ], [ 0, %5 ]
   %8 = zext nneg i32 %.03141.us46.i to i64
-  %9 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !3
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %8
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %8
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = icmp sgt i32 %10, 15
   br i1 %13, label %33, label %14
@@ -229,9 +229,9 @@ define void @ossl_sa_doall(ptr noundef readonly captures(address_is_null) %0, pt
 27:                                               ; preds = %20
   %28 = add nuw nsw i32 %.03141.us46.i, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %3, i64 %29
   store i32 0, ptr %30, align 4, !tbaa !3
-  %31 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %29
   store ptr %19, ptr %31, align 8, !tbaa !11
   %32 = shl i64 %22, 4
   br label %36
@@ -276,9 +276,9 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
 .split.us.split.us.i:                             ; preds = %6, %32
   %.03141.us.us.i = phi i32 [ %.132.us.us.i, %32 ], [ 0, %6 ]
   %9 = zext nneg i32 %.03141.us.us.i to i64
-  %10 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !3
-  %12 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %9
+  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = icmp sgt i32 %11, 15
   br i1 %14, label %30, label %15
@@ -305,9 +305,9 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
 25:                                               ; preds = %21
   %26 = add nuw nsw i32 %.03141.us.us.i, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %4, i64 %27
   store i32 0, ptr %28, align 4, !tbaa !3
-  %29 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw ptr, ptr %5, i64 %27
   store ptr %20, ptr %29, align 8, !tbaa !11
   br label %32
 
@@ -324,9 +324,9 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
   %.042.us45.i = phi i64 [ %.1.us51.i, %62 ], [ 0, %6 ]
   %.03141.us46.i = phi i32 [ %.132.us50.i, %62 ], [ 0, %6 ]
   %34 = zext nneg i32 %.03141.us46.i to i64
-  %35 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !3
-  %37 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %34
+  %37 = getelementptr inbounds nuw ptr, ptr %5, i64 %34
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = icmp sgt i32 %36, 15
   br i1 %39, label %59, label %40
@@ -359,9 +359,9 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
 53:                                               ; preds = %46
   %54 = add nuw nsw i32 %.03141.us46.i, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %4, i64 %55
   store i32 0, ptr %56, align 4, !tbaa !3
-  %57 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw ptr, ptr %5, i64 %55
   store ptr %45, ptr %57, align 8, !tbaa !11
   %58 = shl i64 %48, 4
   br label %62

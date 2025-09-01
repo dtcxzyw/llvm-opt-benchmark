@@ -88,7 +88,7 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr noundef
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = sext i32 %14 to i64
-  %38 = getelementptr [7 x i32], ptr %36, i64 0, i64 %37
+  %38 = getelementptr i32, ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %36, align 4
   %41 = sub i32 %39, %40
@@ -256,7 +256,7 @@ define dso_local i32 @g4x_get_vblank_counter(ptr noundef readonly captures(none)
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %17 = sext i32 %13 to i64
-  %18 = getelementptr [7 x i32], ptr %16, i64 0, i64 %17
+  %18 = getelementptr i32, ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %16, align 4
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -456,7 +456,7 @@ define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr noundef readonl
   %104 = load ptr, ptr %12, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 36
   %106 = sext i32 %11 to i64
-  %107 = getelementptr [7 x i32], ptr %105, i64 0, i64 %106
+  %107 = getelementptr i32, ptr %105, i64 %106
   %108 = load i32, ptr %107, align 4
   %109 = load i32, ptr %105, align 4
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 32
@@ -654,7 +654,7 @@ define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(p
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 36
   %43 = sext i32 %4 to i64
-  %44 = getelementptr [7 x i32], ptr %42, i64 0, i64 %43
+  %44 = getelementptr i32, ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %42, align 4
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -743,7 +743,7 @@ define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(p
   tail call void @__const_udelay(i64 noundef 4295) #10
   %101 = load ptr, ptr %40, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 36
-  %103 = getelementptr [7 x i32], ptr %102, i64 0, i64 %43
+  %103 = getelementptr i32, ptr %102, i64 %43
   %104 = load i32, ptr %103, align 4
   %105 = load i32, ptr %102, align 4
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 32
@@ -850,7 +850,7 @@ define internal fastcc void @wait_for_pipe_scanline_moving(ptr %.0.val, i32 %.16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !32
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %15 = getelementptr [7 x i32], ptr %14, i64 0, i64 %6
+  %15 = getelementptr i32, ptr %14, i64 %6
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %14, align 4
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 32

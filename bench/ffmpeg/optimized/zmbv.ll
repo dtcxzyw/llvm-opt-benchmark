@@ -554,7 +554,7 @@ zmbv_decode_intra.exit:                           ; preds = %229, %236
 287:                                              ; preds = %.preheader, %287
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %287 ]
   %288 = mul nuw nsw i64 %indvars.iv, 3
-  %289 = getelementptr inbounds nuw [768 x i8], ptr %285, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 %288
   %290 = load i8, ptr %289, align 1, !tbaa !45
   %291 = zext i8 %290 to i32
   %292 = shl nuw nsw i32 %291, 16
@@ -650,7 +650,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %.1114149 = phi ptr [ %3, %.preheader146 ], [ %13, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.1114149, i64 1
   %14 = load i8, ptr %.1114149, align 1, !tbaa !45
-  %15 = getelementptr inbounds nuw [768 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !45
   %17 = xor i8 %16, %14
   store i8 %17, ptr %15, align 1, !tbaa !45

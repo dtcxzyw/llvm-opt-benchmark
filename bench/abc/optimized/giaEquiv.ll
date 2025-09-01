@@ -3328,7 +3328,7 @@ define range(i32 -1073741824, 1073741824) i32 @Gia_ManEquivSetColors(ptr noundef
   %47 = and i32 %46, 1
   %48 = tail call i32 @Gia_ManEquivSetColor_rec(ptr noundef nonnull %0, ptr noundef nonnull %45, i32 noundef %47)
   %49 = and i64 %indvars.iv7496, 1
-  %50 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %3, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !32
   %52 = add nsw i32 %51, %48
   store i32 %52, ptr %50, align 4, !tbaa !32

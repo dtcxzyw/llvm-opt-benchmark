@@ -542,7 +542,7 @@ define void @_ZN6icu_7712CurrencyUnitC2ENS_14ConstChar16PtrER10UErrorCode(ptr no
           to label %35 unwind label %37
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw [4 x i16], ptr %27, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
   store i16 %34, ptr %36, align 2, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -660,7 +660,7 @@ define void @_ZN6icu_7712CurrencyUnitC2ENS_11StringPieceER10UErrorCode(ptr nound
           to label %21 unwind label %23
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %20, ptr %22, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

@@ -1597,13 +1597,13 @@ define linkonce_odr hidden <4 x float> @_ZN7mitsuba16spectrum_to_srgbIfLm4EEENS_
 
 46:                                               ; preds = %46, %3
   %.028.i.i = phi i64 [ 0, %3 ], [ %54, %46 ]
-  %47 = getelementptr inbounds nuw [3 x %"struct.mitsuba::Spectrum"], ptr %5, i64 0, i64 %.028.i.i
-  %48 = getelementptr inbounds nuw [3 x %"struct.drjit::Mask.71"], ptr %6, i64 0, i64 %.028.i.i
+  %47 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %5, i64 %.028.i.i
+  %48 = getelementptr inbounds nuw %"struct.drjit::Mask.71", ptr %6, i64 %.028.i.i
   %49 = load <8 x i1>, ptr %48, align 1, !noalias !25
   %50 = load <4 x float>, ptr %47, align 16, !noalias !25
   %51 = shufflevector <8 x i1> %49, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %52 = select contract <4 x i1> %51, <4 x float> %50, <4 x float> zeroinitializer
-  %53 = getelementptr inbounds nuw [3 x %"struct.mitsuba::Spectrum"], ptr %7, i64 0, i64 %.028.i.i
+  %53 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %7, i64 %.028.i.i
   store <4 x float> %52, ptr %53, align 16, !alias.scope !25
   %54 = add nuw nsw i64 %.028.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %54, 3
@@ -5812,7 +5812,7 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail13CIE1932TablesIfEC2ERKS2_(pt
   %4 = phi i64 [ 0, %2 ], [ %24, %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i.i ]
   %.idx.i.i = mul nuw nsw i64 %4, 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i
-  %6 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %1, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %1, i64 %4
   store ptr null, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5893,7 +5893,7 @@ _ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EEC2ERKS4_.exit: ; preds = %_ZN5dr
   %.idx.i.i8 = mul nuw nsw i64 %41, 24
   %.add21 = add nuw nsw i64 %.idx.i.i8, 72
   %.ptr24 = getelementptr inbounds nuw i8, ptr %0, i64 %.add21
-  %42 = getelementptr inbounds nuw [3 x %"struct.drjit::DynamicArray"], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"struct.drjit::DynamicArray", ptr %39, i64 %41
   store ptr null, ptr %.ptr24, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.ptr24, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -6387,7 +6387,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %94
   %.014 = phi i64 [ %73, %94 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %28 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %.014
+  %28 = getelementptr inbounds i32, ptr %1, i64 %.014
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
@@ -6401,7 +6401,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %34 = getelementptr inbounds nuw i8, ptr @.str.34, i64 %33
   %35 = load i8, ptr %34, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %36 = getelementptr inbounds [11 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %36 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   store i8 %35, ptr %36, align 1
   %37 = udiv i32 %.013.i.i, 10
   %.not.i.i = icmp samesign ult i32 %.013.i.i, 10
@@ -6416,7 +6416,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %42 = trunc nsw i64 %indvars.iv.i.i to i32
   %43 = add nsw i32 %42, -2
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [11 x i8], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds i8, ptr %4, i64 %44
   store i8 45, ptr %45, align 1
   br label %46
 
@@ -6592,7 +6592,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %84
   %.014 = phi i64 [ %63, %84 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %28 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %.014
+  %28 = getelementptr inbounds i32, ptr %1, i64 %.014
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %30
@@ -6605,14 +6605,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %33 = getelementptr inbounds nuw i8, ptr @.str.34, i64 %32
   %34 = load i8, ptr %33, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %35 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   store i8 %34, ptr %35, align 1
   %36 = udiv i32 %.012.i.i, 10
   %.not.i.i = icmp ult i32 %.012.i.i, 10
   br i1 %.not.i.i, label %37, label %30, !llvm.loop !72
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds [10 x i8], ptr %4, i64 0, i64 %indvars.iv.next.i.i
+  %38 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   %39 = shl i64 %indvars.iv.i.i, 32
   %sext.i.i = sub i64 47244640256, %39
   %40 = ashr exact i64 %sext.i.i, 32

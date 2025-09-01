@@ -228,7 +228,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %22 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %24 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %23, ptr noundef null)
   %25 = icmp eq ptr %24, null
@@ -242,7 +242,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %31
   %indvars.iv95 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next96, %31 ]
-  %27 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv95
+  %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv95
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   %29 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %28, ptr noundef null)
   %30 = icmp eq ptr %29, null

@@ -35,14 +35,14 @@ switch.early.test:                                ; preds = %2
   ]
 
 7:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %2
-  %8 = getelementptr inbounds nuw [256 x ptr], ptr @uriencode_map, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr @uriencode_map, i64 %indvars.iv
   store ptr null, ptr %8, align 8, !tbaa !11
   br label %14
 
 9:                                                ; preds = %switch.early.test
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.022, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %10) #15
-  %12 = getelementptr inbounds nuw [256 x ptr], ptr @uriencode_map, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr @uriencode_map, i64 %indvars.iv
   store ptr %.022, ptr %12, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %.022, i64 3
   br label %14
@@ -79,7 +79,7 @@ define dso_local noundef zeroext i1 @uriencode(ptr noundef readonly captures(non
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !15
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x ptr], ptr @uriencode_map, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @uriencode_map, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %.not = icmp eq ptr %13, null
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.026

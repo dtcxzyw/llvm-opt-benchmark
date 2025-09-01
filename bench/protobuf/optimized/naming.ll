@@ -1310,7 +1310,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %5 = load i8, ptr %type_.i, align 2
   %idxprom = zext i8 %5 to i64
-  %arrayidx = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
   ret ptr %6
 }
@@ -1793,7 +1793,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
   %type_.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %type_.i, align 2
   %idxprom.i = zext i8 %10 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %11 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit, label %cond.true.i.i
@@ -2299,7 +2299,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %10 = phi i64 [ %.sroa.speculated.i.i, %do.cond ], [ %.pre40, %do.body.preheader ]
   %11 = phi ptr [ %add.ptr15.i, %do.cond ], [ %.pre, %do.body.preheader ]
   %index.0 = phi i64 [ %inc, %do.cond ], [ 0, %do.body.preheader ]
-  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %ar, i64 0, i64 %index.0
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %index.0
   store ptr %11, ptr %arrayidx.i.i, align 8
   %size = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i64 %10, ptr %size, align 8

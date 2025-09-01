@@ -1041,7 +1041,7 @@ convert_glob_print_separator.exit.i227.i:         ; preds = %convert_glob_write.
 374:                                              ; preds = %373, %372
   %.1.i249.i = phi i32 [ 3, %373 ], [ 2, %372 ]
   %375 = zext nneg i32 %.1.i249.i to i64
-  %376 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw i8, ptr %42, i64 %375
   store i8 %59, ptr %376, align 1, !tbaa !20
   %377 = add nuw nsw i32 %.1.i249.i, 1
   %378 = zext nneg i32 %377 to i64

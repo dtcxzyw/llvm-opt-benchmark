@@ -745,7 +745,7 @@ copy_array.exit:                                  ; preds = %197
   %301 = extractvalue { i64, ptr } %299, 1
   %302 = call ptr @show_date(i64 noundef %297, i32 noundef %298, i64 %300, ptr %301) #17
   %303 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.45, ptr noundef %302, ptr noundef nonnull %296) #17
-  %304 = getelementptr inbounds nuw [26 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %303, ptr %304, align 8, !tbaa !11
   %305 = load ptr, ptr %29, align 8, !tbaa !11
   call void @free(ptr noundef %305) #17
@@ -783,10 +783,10 @@ Q_.exit.i:                                        ; preds = %317, %315
   %321 = add nsw i32 %320, 1
   store i32 %321, ptr @ref_name_cnt, align 4, !tbaa !9
   %322 = sext i32 %320 to i64
-  %323 = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %322
+  %323 = getelementptr inbounds ptr, ptr @ref_name, i64 %322
   store ptr %319, ptr %323, align 8, !tbaa !11
   %324 = sext i32 %321 to i64
-  %325 = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %324
+  %325 = getelementptr inbounds ptr, ptr @ref_name, i64 %324
   store ptr null, ptr %325, align 8, !tbaa !11
   br label %327
 
@@ -902,7 +902,7 @@ snarf_refs.exit:                                  ; preds = %360, %352, %sort_re
 
 .preheader.preheader.i:                           ; preds = %.preheader.preheader.i.lr.ph, %rev_is_head.exit
   %indvars.iv402 = phi i64 [ 0, %.preheader.preheader.i.lr.ph ], [ %indvars.iv.next403, %rev_is_head.exit ]
-  %373 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %indvars.iv402
+  %373 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv402
   %374 = load ptr, ptr %373, align 8, !tbaa !11
   br label %.preheader.i
 
@@ -1037,7 +1037,7 @@ thread-pre-split:                                 ; preds = %snarf_refs.exit, %s
   br i1 %.not204, label %417, label %413
 
 413:                                              ; preds = %410
-  %414 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %indvars.iv405
+  %414 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv405
   %415 = call fastcc ptr @_(ptr noundef nonnull @.str.51)
   %416 = load ptr, ptr %414, align 8, !tbaa !11
   call void (ptr, ...) @die(ptr noundef %415, ptr noundef %416) #18
@@ -1050,7 +1050,7 @@ thread-pre-split:                                 ; preds = %snarf_refs.exit, %s
   br i1 %.not205, label %420, label %425
 
 420:                                              ; preds = %417
-  %421 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %indvars.iv405
+  %421 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv405
   %422 = call fastcc ptr @_(ptr noundef nonnull @.str.52)
   %423 = load ptr, ptr %421, align 8, !tbaa !11
   %424 = call ptr @oid_to_hex(ptr noundef nonnull %32) #17
@@ -1083,22 +1083,22 @@ mark_seen.exit:                                   ; preds = %425, %429
   br label %438
 
 438:                                              ; preds = %436, %mark_seen.exit
-  %439 = getelementptr inbounds nuw [26 x ptr], ptr %6, i64 0, i64 %indvars.iv405
+  %439 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv405
   store ptr %419, ptr %439, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
-  %440 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %indvars.iv.next406
+  %440 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv.next406
   %441 = load ptr, ptr %440, align 8, !tbaa !11
   %.not193 = icmp eq ptr %441, null
   br i1 %.not193, label %.preheader323, label %.lr.ph355, !llvm.loop !45
 
 .lr.ph359:                                        ; preds = %.preheader323, %.lr.ph359
   %indvars.iv409 = phi i64 [ 0, %.preheader323 ], [ %indvars.iv.next410, %.lr.ph359 ]
-  %442 = getelementptr inbounds nuw [26 x ptr], ptr %6, i64 0, i64 %indvars.iv409
+  %442 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv409
   %443 = load ptr, ptr %442, align 8, !tbaa !43
   %444 = load i32, ptr %443, align 8
   %445 = lshr i32 %444, 4
-  %446 = getelementptr inbounds nuw [26 x i32], ptr %10, i64 0, i64 %indvars.iv409
+  %446 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv409
   store i32 %445, ptr %446, align 4, !tbaa !9
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count
@@ -1378,7 +1378,7 @@ join_revs.exit:                                   ; preds = %._crit_edge.i, %.th
 557:                                              ; preds = %.lr.ph368, %613
   %indvars.iv414 = phi i64 [ 0, %.lr.ph368 ], [ %indvars.iv.next415, %613 ]
   %.1165365 = phi i32 [ -1, %.lr.ph368 ], [ %spec.select207, %613 ]
-  %558 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %indvars.iv414
+  %558 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv414
   %559 = load ptr, ptr %558, align 8, !tbaa !11
   br i1 %.not.i225, label %rev_is_head.exit254.thread, label %.preheader.i228
 
@@ -1443,7 +1443,7 @@ rev_is_head.exit254:                              ; preds = %565, %skip_prefix.e
   br i1 %.not2.i252.not, label %577, label %rev_is_head.exit254.thread
 
 577:                                              ; preds = %rev_is_head.exit254
-  %578 = getelementptr inbounds nuw [26 x ptr], ptr %6, i64 0, i64 %indvars.iv414
+  %578 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv414
   %579 = load ptr, ptr %578, align 8, !tbaa !43
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 4
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %15, ptr noundef nonnull readonly dereferenceable(32) %580, i64 32)
@@ -1484,7 +1484,7 @@ rev_is_head.exit254.thread:                       ; preds = %557, %577, %rev_is_
   %594 = trunc nuw nsw i64 %indvars.iv414 to i32
   %595 = srem i32 %594, %556
   %596 = zext nneg i32 %595 to i64
-  %597 = getelementptr inbounds nuw [0 x ptr], ptr @column_colors_ansi, i64 0, i64 %596
+  %597 = getelementptr inbounds nuw ptr, ptr @column_colors_ansi, i64 %596
   %598 = load ptr, ptr %597, align 8, !tbaa !11
   br label %get_color_code.exit
 
@@ -1505,13 +1505,13 @@ get_color_code.exit:                              ; preds = %._crit_edge364, %59
   br i1 %.not203, label %606, label %609
 
 606:                                              ; preds = %604
-  %607 = getelementptr inbounds nuw [26 x ptr], ptr %6, i64 0, i64 %indvars.iv414
+  %607 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv414
   %608 = load ptr, ptr %607, align 8, !tbaa !43
   call fastcc void @show_one_commit(ptr noundef %608, i32 noundef 1)
   br label %613
 
 609:                                              ; preds = %604
-  %610 = getelementptr inbounds nuw [26 x ptr], ptr %7, i64 0, i64 %indvars.iv414
+  %610 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv414
   %611 = load ptr, ptr %610, align 8, !tbaa !11
   %612 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %611)
   br label %613
@@ -2199,7 +2199,7 @@ omit_in_dense.exit.thread:                        ; preds = %omit_in_dense.exit.
 873:                                              ; preds = %869
   %874 = srem i32 %.5374, %835
   %875 = zext nneg i32 %874 to i64
-  %876 = getelementptr inbounds nuw [0 x ptr], ptr @column_colors_ansi, i64 0, i64 %875
+  %876 = getelementptr inbounds nuw ptr, ptr @column_colors_ansi, i64 %875
   %877 = load ptr, ptr %876, align 8, !tbaa !11
   br label %get_color_code.exit283
 
@@ -2280,7 +2280,7 @@ show_merge_base.exit:                             ; preds = %532, %549, %.thread
 
 898:                                              ; preds = %show_merge_base.exit, %898
   %.0382 = phi i64 [ 0, %show_merge_base.exit ], [ %901, %898 ]
-  %899 = getelementptr inbounds nuw [26 x ptr], ptr %7, i64 0, i64 %.0382
+  %899 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0382
   %900 = load ptr, ptr %899, align 8, !tbaa !11
   call void @free(ptr noundef %900) #17
   %901 = add nuw nsw i64 %.0382, 1
@@ -2494,7 +2494,7 @@ define internal fastcc void @append_ref(ptr noundef %0, ptr noundef %1, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [27 x ptr], ptr @ref_name, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %11) #19
   %.not11 = icmp eq i32 %12, 0
@@ -2524,10 +2524,10 @@ Q_.exit:                                          ; preds = %14, %16
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr @ref_name_cnt, align 4, !tbaa !9
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %21
+  %22 = getelementptr inbounds ptr, ptr @ref_name, i64 %21
   store ptr %18, ptr %22, align 8, !tbaa !11
   %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds [27 x ptr], ptr @ref_name, i64 0, i64 %23
+  %24 = getelementptr inbounds ptr, ptr @ref_name, i64 %23
   store ptr null, ptr %24, align 8, !tbaa !11
   br label %.loopexit12
 

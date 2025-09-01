@@ -750,7 +750,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   br label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17h1fa5b0e6bddb6a8fE.exit"
 
 70:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h07a5c48aa7bc6b42E.exit.i.i"
-  %71 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, i64, { { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { i64, [423 x i64] }, { [3 x i64], i64, [3 x i64] }, { i32, [1 x i32] }, ptr, float, float, float, i8, [3 x i8] } }], ptr %37, i64 0, i64 %41, i32 2
+  %71 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { i64, [423 x i64] }, { [3 x i64], i64, [3 x i64] }, { i32, [1 x i32] }, ptr, float, float, float, i8, [3 x i8] } }, ptr %37, i64 %41, i32 2
   invoke void @"_ZN4core3ptr51drop_in_place$LT$theme..settings..ThemeSettings$GT$17hc39a12f232228fffE"(ptr noalias noundef nonnull align 8 dereferenceable(3576) %71)
           to label %73 unwind label %.thread45
 
@@ -8522,7 +8522,7 @@ define void @_ZN5theme6styles7accents12AccentColors15color_for_index17h6b8f9f919
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = zext i32 %2 to i64
   %12 = urem i64 %11, %5
-  %13 = getelementptr inbounds nuw [0 x { float, float, float, float }], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw { float, float, float, float }, ptr %10, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
   ret void
 }

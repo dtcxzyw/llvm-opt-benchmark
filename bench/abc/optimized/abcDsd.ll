@@ -1016,7 +1016,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %252
 
 254:                                              ; preds = %253, %254
   %indvars.iv43 = phi i64 [ 3, %253 ], [ %indvars.iv.next44, %254 ]
-  %255 = getelementptr inbounds nuw [11 x i32], ptr %5, i64 0, i64 %indvars.iv43
+  %255 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv43
   %256 = load i32, ptr %255, align 4, !tbaa !60
   %257 = trunc nuw nsw i64 %indvars.iv43 to i32
   %258 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %257, i32 noundef %256)

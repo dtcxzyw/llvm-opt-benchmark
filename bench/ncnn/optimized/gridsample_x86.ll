@@ -11812,7 +11812,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
   %147 = phi fast <4 x float> [ %145, %142 ], [ zeroinitializer, %137 ]
   %148 = load <4 x float>, ptr %7, align 16, !tbaa !529
   %149 = fmul fast <4 x float> %148, %120
-  %150 = getelementptr inbounds nuw [4 x <4 x float>], ptr %15, i64 0, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw <4 x float>, ptr %15, i64 %indvars.iv
   store <4 x float> %149, ptr %150, align 16, !tbaa !529
   %151 = load <4 x float>, ptr %8, align 16, !tbaa !529
   %152 = fmul fast <4 x float> %151, %129
@@ -12549,7 +12549,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 131:                                              ; preds = %127, %122
   %132 = phi fast float [ %130, %127 ], [ 0.000000e+00, %122 ]
   %133 = fmul fast float %105, %50
-  %134 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %135 = fmul fast float %114, %53
   %136 = fadd fast float %135, %133
   %137 = fmul fast float %123, %58

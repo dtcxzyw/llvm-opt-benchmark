@@ -91,7 +91,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %1
   br i1 %exitcond73.not.i, label %..loopexit27_crit_edge.us.us.i, label %31, !llvm.loop !31
 
 .preheader.us.us.i:                               ; preds = %.lr.ph33.split.us.split.us.i
-  %33 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 0, i64 %indvars.iv74.i
+  %33 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv74.i
   %34 = load i32, ptr %33, align 4, !tbaa !28
   br label %31
 
@@ -179,7 +179,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %73 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #5
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8, !tbaa !38
-  %75 = getelementptr inbounds nuw [8 x ptr], ptr %69, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   store ptr %71, ptr %75, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -248,7 +248,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %116 = shl i32 %115, %113
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i32, ptr %111, i64 %117
-  %119 = getelementptr inbounds nuw [16 x ptr], ptr %112, i64 0, i64 %indvars.iv70
+  %119 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv70
   store ptr %118, ptr %119, align 8, !tbaa !48
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
@@ -268,7 +268,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %127 = shl i32 %126, %113
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i32, ptr %123, i64 %128
-  %130 = getelementptr inbounds nuw [16 x ptr], ptr %124, i64 0, i64 %indvars.iv74
+  %130 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv74
   store ptr %129, ptr %130, align 8, !tbaa !48
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 8
@@ -288,7 +288,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %138 = shl i32 %137, %113
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i32, ptr %134, i64 %139
-  %141 = getelementptr inbounds nuw [16 x ptr], ptr %135, i64 0, i64 %indvars.iv78
+  %141 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv78
   store ptr %140, ptr %141, align 8, !tbaa !48
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 16
@@ -363,7 +363,7 @@ Vec_IntFree.exit40:                               ; preds = %Vec_IntFree.exit38,
 
 24:                                               ; preds = %Vec_IntFree.exit40, %Vec_IntFree.exit42
   %indvars.iv = phi i64 [ 0, %Vec_IntFree.exit40 ], [ %indvars.iv.next, %Vec_IntFree.exit42 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !38

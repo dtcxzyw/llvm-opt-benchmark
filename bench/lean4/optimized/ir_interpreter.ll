@@ -6933,7 +6933,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit21:       ; preds = %_ZNK4lean7options10
   %85 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !10
   %87 = and i64 %84, 4294967295
-  %88 = getelementptr inbounds nuw [0 x ptr], ptr %59, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %59, i64 %87
   store ptr %86, ptr %88, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -13810,7 +13810,7 @@ _ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163: ; preds = %.noexc164, %344
   %365 = phi ptr [ %.pre267, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163 ], [ %336, %335 ]
   %.sroa.0.0.i160 = phi i64 [ %363, %_ZN4lean2ir11interpreter3varERKNS_3natE.exit.i163 ], [ 1, %335 ]
   %366 = inttoptr i64 %.sroa.0.0.i160 to ptr
-  %367 = getelementptr inbounds nuw [0 x ptr], ptr %332, i64 0, i64 %338
+  %367 = getelementptr inbounds nuw ptr, ptr %332, i64 %338
   store ptr %366, ptr %367, align 8, !tbaa !10
   %368 = add i32 %.0123241, 1
   %369 = zext i32 %368 to i64

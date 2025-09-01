@@ -39,7 +39,7 @@ define internal range(i32 0, 2) i32 @test_strtoul(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [9 x %struct.strtoul_test_entry], ptr @strtoul_tests, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.strtoul_test_entry, ptr @strtoul_tests, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !13

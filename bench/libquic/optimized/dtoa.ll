@@ -533,9 +533,9 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   br i1 %189, label %194, label %.thread
 
 194:                                              ; preds = %185
-  %195 = add nsw i32 %187, -9
-  %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %196
+  %195 = zext nneg i32 %187 to i64
+  %196 = getelementptr double, ptr @_ZN6dmg_fpL4tensE, i64 %195
+  %197 = getelementptr i8, ptr %196, i64 -72
   %198 = load double, ptr %197, align 8, !tbaa !18
   %199 = uitofp i32 %.3 to double
   %200 = tail call double @llvm.fmuladd.f64(double %198, double %188, double %199)
@@ -569,7 +569,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
 
 216:                                              ; preds = %214
   %217 = zext nneg i32 %186 to i64
-  %218 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %217
   %219 = load double, ptr %218, align 8, !tbaa !18
   %220 = fmul double %219, %208
   store double %220, ptr %10, align 8, !tbaa !3
@@ -584,11 +584,11 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   %224 = sub nsw i32 15, %.2370
   %225 = sub nsw i32 %186, %224
   %226 = zext nneg i32 %224 to i64
-  %227 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %226
   %228 = load double, ptr %227, align 8, !tbaa !18
   %229 = fmul double %228, %208
   %230 = sext i32 %225 to i64
-  %231 = getelementptr inbounds [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %230
+  %231 = getelementptr inbounds double, ptr @_ZN6dmg_fpL4tensE, i64 %230
   %232 = load double, ptr %231, align 8, !tbaa !18
   %233 = fmul double %229, %232
   store double %233, ptr %10, align 8, !tbaa !3
@@ -601,7 +601,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
 236:                                              ; preds = %234
   %237 = sub nsw i32 0, %186
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %238
   %240 = load double, ptr %239, align 8, !tbaa !18
   %241 = fdiv double %208, %240
   store double %241, ptr %10, align 8, !tbaa !3
@@ -623,7 +623,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
 
 251:                                              ; preds = %249
   %252 = zext nneg i32 %250 to i64
-  %253 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %252
   %254 = load double, ptr %253, align 8, !tbaa !18
   %255 = fmul double %254, %245
   store double %255, ptr %10, align 8, !tbaa !3
@@ -671,7 +671,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   br i1 %.not474, label %280, label %273
 
 273:                                              ; preds = %.lr.ph792
-  %274 = getelementptr inbounds nuw [5 x double], ptr @_ZN6dmg_fpL7bigtensE, i64 0, i64 %indvars.iv914
+  %274 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL7bigtensE, i64 %indvars.iv914
   %275 = load double, ptr %274, align 8, !tbaa !18
   %276 = fmul double %275, %271
   %277 = bitcast double %276 to i64
@@ -699,7 +699,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   %288 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %289 = add i32 %287, -55574528
   store i32 %289, ptr %288, align 4, !tbaa !3
-  %290 = getelementptr inbounds nuw [5 x double], ptr @_ZN6dmg_fpL7bigtensE, i64 0, i64 %.0378.lcssa
+  %290 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL7bigtensE, i64 %.0378.lcssa
   %291 = load double, ptr %290, align 8, !tbaa !18
   %292 = load double, ptr %10, align 8, !tbaa !3
   %293 = fmul double %291, %292
@@ -737,7 +737,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
 
 309:                                              ; preds = %306
   %310 = zext nneg i32 %308 to i64
-  %311 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %310
   %312 = load double, ptr %311, align 8, !tbaa !18
   %313 = fdiv double %245, %312
   store double %313, ptr %10, align 8, !tbaa !3
@@ -777,7 +777,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   br i1 %.not451, label %337, label %329
 
 329:                                              ; preds = %.lr.ph786
-  %330 = getelementptr inbounds nuw [5 x double], ptr @_ZN6dmg_fpL8tinytensE, i64 0, i64 %indvars.iv
+  %330 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL8tinytensE, i64 %indvars.iv
   %331 = load double, ptr %330, align 8, !tbaa !18
   %332 = fmul double %331, %327
   %333 = bitcast double %332 to i64
@@ -953,7 +953,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %173, %155, %15
   %.23971003 = phi i32 [ %.2397, %._crit_edge.i ], [ %.2397, %.loopexit632 ], [ %380, %.preheader ], [ %380, %.lr.ph803 ]
   %.025.lcssa55.i = phi i32 [ %402, %._crit_edge.i ], [ 0, %.loopexit632 ], [ 0, %.preheader ], [ 0, %.lr.ph803 ]
   %405 = zext nneg i32 %.025.lcssa55.i to i64
-  %406 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %405
+  %406 = getelementptr inbounds nuw ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %405
   %407 = load ptr, ptr %406, align 8, !tbaa !28
   %.not.i.i = icmp eq ptr %407, null
   br i1 %.not.i.i, label %416, label %408
@@ -1107,7 +1107,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549:           ; preds = %_ZN6dmg_fpL5BfreeEP
 
 481:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549
   %482 = sext i32 %479 to i64
-  %483 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %482
+  %483 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %482
   %484 = load ptr, ptr %483, align 8, !tbaa !28
   %.not.i515 = icmp eq ptr %484, null
   br i1 %.not.i515, label %493, label %485
@@ -1255,7 +1255,7 @@ _ZN6dmg_fpL3i2bEi.exit:                           ; preds = %525, %536
 
 565:                                              ; preds = %560
   %566 = sext i32 %562 to i64
-  %567 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %566
+  %567 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %566
   %568 = load ptr, ptr %567, align 8, !tbaa !28
   store ptr %568, ptr %523, align 8, !tbaa !30
   store ptr %523, ptr %567, align 8, !tbaa !28
@@ -1751,7 +1751,7 @@ _ZN6dmg_fpL5ratioEPNS_6BigintES1_.exit:           ; preds = %694, %699
 
 792:                                              ; preds = %787
   %793 = sext i32 %789 to i64
-  %794 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %793
+  %794 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %793
   %795 = load ptr, ptr %794, align 8, !tbaa !28
   store ptr %795, ptr %.1323, align 8, !tbaa !30
   store ptr %.1323, ptr %794, align 8, !tbaa !28
@@ -1773,7 +1773,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit543:           ; preds = %786, %791, %792
 
 801:                                              ; preds = %796
   %802 = sext i32 %798 to i64
-  %803 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %802
+  %803 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %802
   %804 = load ptr, ptr %803, align 8, !tbaa !28
   store ptr %804, ptr %.1319, align 8, !tbaa !30
   store ptr %.1319, ptr %803, align 8, !tbaa !28
@@ -1791,7 +1791,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit545:           ; preds = %801, %800, %_ZN6dmg
 
 809:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit545
   %810 = sext i32 %806 to i64
-  %811 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %810
+  %811 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %810
   %812 = load ptr, ptr %811, align 8, !tbaa !28
   store ptr %812, ptr %.1317, align 8, !tbaa !30
   store ptr %.1317, ptr %811, align 8, !tbaa !28
@@ -1812,7 +1812,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549.backedge:  ; preds = %816, %817
 
 817:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit547
   %818 = sext i32 %814 to i64
-  %819 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %818
+  %819 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %818
   %820 = load ptr, ptr %819, align 8, !tbaa !28
   store ptr %820, ptr %584, align 8, !tbaa !30
   store ptr %584, ptr %819, align 8, !tbaa !28
@@ -1837,7 +1837,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit533.thread:   ; preds = %784, %781, %635, %6
 
 826:                                              ; preds = %821
   %827 = sext i32 %823 to i64
-  %828 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %827
+  %828 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %827
   %829 = load ptr, ptr %828, align 8, !tbaa !28
   store ptr %829, ptr %.1323, align 8, !tbaa !30
   store ptr %.1323, ptr %828, align 8, !tbaa !28
@@ -1859,7 +1859,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit551:           ; preds = %_ZN6dmg_fpL3cmpEPNS
 
 835:                                              ; preds = %830
   %836 = sext i32 %832 to i64
-  %837 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %836
+  %837 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %836
   %838 = load ptr, ptr %837, align 8, !tbaa !28
   store ptr %838, ptr %.1319, align 8, !tbaa !30
   store ptr %.1319, ptr %837, align 8, !tbaa !28
@@ -1881,7 +1881,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit553:           ; preds = %_ZN6dmg_fpL5BfreeEP
 
 844:                                              ; preds = %839
   %845 = sext i32 %841 to i64
-  %846 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %845
+  %846 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %845
   %847 = load ptr, ptr %846, align 8, !tbaa !28
   store ptr %847, ptr %.1317, align 8, !tbaa !30
   store ptr %.1317, ptr %846, align 8, !tbaa !28
@@ -1902,7 +1902,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit555:           ; preds = %_ZN6dmg_fpL5BfreeEP
 
 852:                                              ; preds = %848
   %853 = sext i32 %849 to i64
-  %854 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %853
+  %854 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %853
   %855 = load ptr, ptr %854, align 8, !tbaa !28
   store ptr %855, ptr %.231.lcssa.i, align 8, !tbaa !30
   store ptr %.231.lcssa.i, ptr %854, align 8, !tbaa !28
@@ -1924,7 +1924,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit557:           ; preds = %_ZN6dmg_fpL5BfreeEP
 
 861:                                              ; preds = %856
   %862 = sext i32 %858 to i64
-  %863 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %862
+  %863 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %862
   %864 = load ptr, ptr %863, align 8, !tbaa !28
   store ptr %864, ptr %.0, align 8, !tbaa !30
   store ptr %.0, ptr %863, align 8, !tbaa !28
@@ -2085,9 +2085,9 @@ _ZN6dmg_fpL3i2bEi.exit131.i:                      ; preds = %919, %908
   %935 = getelementptr inbounds nuw i8, ptr %.082.i, i64 24
   %936 = getelementptr inbounds nuw i8, ptr %.082.i, i64 20
   %937 = load i32, ptr %936, align 4, !tbaa !37
-  %938 = add nsw i32 %937, -1
-  %939 = sext i32 %938 to i64
-  %940 = getelementptr inbounds [1 x i32], ptr %935, i64 0, i64 %939
+  %938 = sext i32 %937 to i64
+  %939 = getelementptr i32, ptr %935, i64 %938
+  %940 = getelementptr i8, ptr %939, i64 -4
   %941 = load i32, ptr %940, align 4, !tbaa !20
   %.not.i.i132.i = icmp ult i32 %941, 65536
   %942 = shl nuw i32 %941, 16
@@ -2278,7 +2278,7 @@ _ZN6dmg_fpL3i2bEi.exit131.i:                      ; preds = %919, %908
 
 1013:                                             ; preds = %.thread.i
   %1014 = sext i32 %1010 to i64
-  %1015 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %1014
+  %1015 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %1014
   %1016 = load ptr, ptr %1015, align 8, !tbaa !28
   store ptr %1016, ptr %.5143.i, align 8, !tbaa !30
   store ptr %.5143.i, ptr %1015, align 8, !tbaa !28
@@ -2301,7 +2301,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit.i:            ; preds = %1013, %1012, %.loop
 
 1022:                                             ; preds = %1017
   %1023 = sext i32 %1019 to i64
-  %1024 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %1023
+  %1024 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %1023
   %1025 = load ptr, ptr %1024, align 8, !tbaa !28
   store ptr %1025, ptr %.183.i, align 8, !tbaa !30
   store ptr %.183.i, ptr %1024, align 8, !tbaa !28
@@ -2508,7 +2508,7 @@ _ZN6dmg_fpL11hexdig_initEv.exit:                  ; preds = %.lr.ph.i6.i, %2
   %.sroa.0.069 = phi i32 [ %.sroa.0.1, %58 ], [ 0, %.lr.ph.preheader ]
   %.sroa.9.068 = phi i32 [ %.sroa.9.1, %58 ], [ 0, %.lr.ph.preheader ]
   %36 = zext i8 %.143.in74 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6dmg_fpL6hexdigE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN6dmg_fpL6hexdigE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %.not52 = icmp eq i8 %38, 0
   br i1 %.not52, label %45, label %39
@@ -2873,9 +2873,9 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL8pow5multEPNS_6BigintEi(ptr nound
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = add nsw i32 %3, -1
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN6dmg_fpL8pow5multEPNS_6BigintEiE3p05, i64 0, i64 %6
+  %5 = zext nneg i32 %3 to i64
+  %6 = getelementptr i32, ptr @_ZZN6dmg_fpL8pow5multEPNS_6BigintEiE3p05, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = tail call fastcc noundef ptr @_ZN6dmg_fpL7multaddEPNS_6BigintEii(ptr noundef %0, i32 noundef %8, i32 noundef 0)
   br label %10
@@ -2974,7 +2974,7 @@ _ZN6dmg_fpL3i2bEi.exit:                           ; preds = %16, %27
 
 42:                                               ; preds = %37
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %43
+  %44 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   store ptr %45, ptr %.125, align 8, !tbaa !30
   store ptr %.125, ptr %44, align 8, !tbaa !28
@@ -3027,7 +3027,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef
 
 20:                                               ; preds = %2
   %21 = sext i32 %.059 to i64
-  %22 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %21
+  %22 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %32, label %24
@@ -3209,7 +3209,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL6lshiftEPNS_6BigintEi(ptr noundef
 
 14:                                               ; preds = %._crit_edge
   %15 = sext i32 %.045.lcssa to i64
-  %16 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %15
+  %16 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %26, label %18
@@ -3343,7 +3343,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %18, %46
 
 85:                                               ; preds = %.loopexit
   %86 = sext i32 %82 to i64
-  %87 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %86
+  %87 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !28
   store ptr %88, ptr %0, align 8, !tbaa !30
   store ptr %0, ptr %87, align 8, !tbaa !28
@@ -3448,7 +3448,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %21, %32
 
 43:                                               ; preds = %38
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %44
+  %45 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !28
   %.not.i60 = icmp eq ptr %46, null
   br i1 %.not.i60, label %55, label %47
@@ -3602,7 +3602,7 @@ define void @_ZN6dmg_fp8freedtoaEPc(ptr noundef initializes((4, 12)) %0) local_u
 
 9:                                                ; preds = %1
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   store ptr %12, ptr %2, align 8, !tbaa !30
   store ptr %2, ptr %11, align 8, !tbaa !28
@@ -3650,7 +3650,7 @@ define noundef nonnull ptr @_ZN6dmg_fp4dtoaEdiiPiS0_PPc(double noundef %0, i32 n
 
 19:                                               ; preds = %11
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   store ptr %22, ptr %12, align 8, !tbaa !30
   store ptr %12, ptr %21, align 8, !tbaa !28
@@ -3934,7 +3934,7 @@ _ZN6dmg_fpL8rv_allocEi.exit.i561:                 ; preds = %95, %84
 143:                                              ; preds = %133
   %144 = load double, ptr %9, align 8, !tbaa !3
   %145 = zext nneg i32 %.0437 to i64
-  %146 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %145
   %147 = load double, ptr %146, align 8, !tbaa !18
   %148 = fcmp olt double %144, %147
   br i1 %148, label %select.unfold, label %150
@@ -4035,7 +4035,7 @@ default.unreachable:                              ; preds = %162
   %.0461667 = phi i32 [ %.0461, %._crit_edge.i575 ], [ %.0461, %171 ], [ -1, %162 ], [ -1, %162 ]
   %.07.lcssa14.i = phi i32 [ %173, %._crit_edge.i575 ], [ 0, %171 ], [ 0, %162 ], [ 0, %162 ]
   %178 = zext nneg i32 %.07.lcssa14.i to i64
-  %179 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %178
   %180 = load ptr, ptr %179, align 8, !tbaa !28
   %.not.i.i = icmp eq ptr %180, null
   br i1 %.not.i.i, label %189, label %181
@@ -4125,7 +4125,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
 218:                                              ; preds = %215
   %219 = and i32 %.1438, 15
   %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %220
   %222 = load double, ptr %221, align 8, !tbaa !18
   %223 = lshr i32 %.1438, 4
   %224 = and i32 %.1438, 256
@@ -4149,7 +4149,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
 
 229:                                              ; preds = %.lr.ph826
   %230 = add nsw i32 %.1468822, 1
-  %231 = getelementptr inbounds nuw [5 x double], ptr @_ZN6dmg_fpL7bigtensE, i64 0, i64 %indvars.iv958
+  %231 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL7bigtensE, i64 %indvars.iv958
   %232 = load double, ptr %231, align 8, !tbaa !18
   %233 = fmul double %.0370825, %232
   br label %234
@@ -4176,7 +4176,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
   %239 = sub nsw i32 0, %.1438
   %240 = and i32 %239, 15
   %241 = zext nneg i32 %240 to i64
-  %242 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL4tensE, i64 %241
   %243 = load double, ptr %242, align 8, !tbaa !18
   %244 = fmul double %216, %243
   %.not506816 = icmp samesign ult i32 %239, 16
@@ -4197,7 +4197,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
 
 248:                                              ; preds = %.lr.ph
   %249 = add nsw i32 %.4471817, 1
-  %250 = getelementptr inbounds nuw [5 x double], ptr @_ZN6dmg_fpL7bigtensE, i64 0, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw double, ptr @_ZN6dmg_fpL7bigtensE, i64 %indvars.iv
   %251 = load double, ptr %250, align 8, !tbaa !18
   %252 = fmul double %251, %246
   br label %253
@@ -4257,9 +4257,9 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
 
 279:                                              ; preds = %265
   %.not510 = icmp eq i32 %.0430674, 0
-  %280 = add nsw i32 %.2463, -1
-  %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds nuw [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %281
+  %280 = zext nneg i32 %.2463 to i64
+  %281 = getelementptr double, ptr @_ZN6dmg_fpL4tensE, i64 %280
+  %282 = getelementptr i8, ptr %281, i64 -8
   %283 = load double, ptr %282, align 8, !tbaa !18
   br i1 %.not510, label %311, label %284
 
@@ -4384,7 +4384,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
 
 344:                                              ; preds = %340
   %345 = sext i32 %.1438 to i64
-  %346 = getelementptr inbounds [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %345
+  %346 = getelementptr inbounds double, ptr @_ZN6dmg_fpL4tensE, i64 %345
   %347 = load double, ptr %346, align 8, !tbaa !18
   %348 = icmp slt i32 %.0399678, 0
   %349 = icmp slt i32 %.0461664, 1
@@ -4589,7 +4589,7 @@ _ZN6dmg_fpL3i2bEi.exit:                           ; preds = %398, %409
 
 433:                                              ; preds = %428
   %434 = sext i32 %430 to i64
-  %435 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %434
+  %435 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %434
   %436 = load ptr, ptr %435, align 8, !tbaa !28
   store ptr %436, ptr %103, align 8, !tbaa !30
   store ptr %103, ptr %435, align 8, !tbaa !28
@@ -4680,9 +4680,9 @@ _ZN6dmg_fpL3i2bEi.exit583:                        ; preds = %440, %451
   %472 = getelementptr inbounds nuw i8, ptr %.2374, i64 24
   %473 = getelementptr inbounds nuw i8, ptr %.2374, i64 20
   %474 = load i32, ptr %473, align 4, !tbaa !37
-  %475 = add nsw i32 %474, -1
-  %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds [1 x i32], ptr %472, i64 0, i64 %476
+  %475 = sext i32 %474 to i64
+  %476 = getelementptr i32, ptr %472, i64 %475
+  %477 = getelementptr i8, ptr %476, i64 -4
   %478 = load i32, ptr %477, align 4, !tbaa !20
   %.not.i.i585 = icmp ult i32 %478, 65536
   %479 = shl nuw i32 %478, 16
@@ -4887,7 +4887,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit600.thread688: ; preds = %539, %_ZN6dmg_fpL3
 
 556:                                              ; preds = %552
   %557 = sext i32 %554 to i64
-  %558 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %557
+  %558 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %557
   %559 = load ptr, ptr %558, align 8, !tbaa !28
   %.not.i603 = icmp eq ptr %559, null
   br i1 %.not.i603, label %568, label %560
@@ -5069,7 +5069,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit625.thread:   ; preds = %_ZN6dmg_fpL3cmpEPNS
 
 649:                                              ; preds = %_ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit625.thread
   %650 = sext i32 %646 to i64
-  %651 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %650
+  %651 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %650
   %652 = load ptr, ptr %651, align 8, !tbaa !28
   store ptr %652, ptr %623, align 8, !tbaa !30
   store ptr %623, ptr %651, align 8, !tbaa !28
@@ -5385,7 +5385,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit649.thread707: ; preds = %751, %_ZN6dmg_fpL3
 
 773:                                              ; preds = %768
   %774 = sext i32 %770 to i64
-  %775 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %774
+  %775 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %774
   %776 = load ptr, ptr %775, align 8, !tbaa !28
   store ptr %776, ptr %.4376, align 8, !tbaa !30
   store ptr %.4376, ptr %775, align 8, !tbaa !28
@@ -5413,7 +5413,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit651:           ; preds = %.loopexit721, %772,
 
 783:                                              ; preds = %778
   %784 = sext i32 %780 to i64
-  %785 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %784
+  %785 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %784
   %786 = load ptr, ptr %785, align 8, !tbaa !28
   store ptr %786, ptr %.2393, align 8, !tbaa !30
   store ptr %.2393, ptr %785, align 8, !tbaa !28
@@ -5431,7 +5431,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit653:           ; preds = %777, %782, %783
 
 791:                                              ; preds = %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit653
   %792 = sext i32 %788 to i64
-  %793 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %792
+  %793 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %792
   %794 = load ptr, ptr %793, align 8, !tbaa !28
   store ptr %794, ptr %.7384, align 8, !tbaa !30
   store ptr %.7384, ptr %793, align 8, !tbaa !28
@@ -5465,7 +5465,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit655:           ; preds = %.preheader726, %385
 
 800:                                              ; preds = %795
   %801 = sext i32 %797 to i64
-  %802 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %801
+  %802 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %801
   %803 = load ptr, ptr %802, align 8, !tbaa !28
   store ptr %803, ptr %.2402, align 8, !tbaa !30
   store ptr %.2402, ptr %802, align 8, !tbaa !28
@@ -5537,7 +5537,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL7multaddEPNS_6BigintEii(ptr nound
 
 27:                                               ; preds = %22
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %28
+  %29 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !28
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %39, label %31
@@ -5613,7 +5613,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL7multaddEPNS_6BigintEii(ptr nound
 
 74:                                               ; preds = %63
   %75 = sext i32 %71 to i64
-  %76 = getelementptr inbounds [8 x ptr], ptr @_ZN6dmg_fpL8freelistE, i64 0, i64 %75
+  %76 = getelementptr inbounds ptr, ptr @_ZN6dmg_fpL8freelistE, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !28
   store ptr %77, ptr %0, align 8, !tbaa !30
   store ptr %0, ptr %76, align 8, !tbaa !28
@@ -5625,7 +5625,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit:              ; preds = %74, %73, %19
   %79 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %80 = add nsw i32 %5, 1
   %81 = sext i32 %5 to i64
-  %82 = getelementptr inbounds [1 x i32], ptr %79, i64 0, i64 %81
+  %82 = getelementptr inbounds i32, ptr %79, i64 %81
   store i32 %78, ptr %82, align 4, !tbaa !20
   %83 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   store i32 %80, ptr %83, align 4, !tbaa !37

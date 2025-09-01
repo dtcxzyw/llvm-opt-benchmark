@@ -1291,7 +1291,7 @@ define range(i32 0, 27) i32 @wc_hash2mgf(i32 noundef %0) local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -2088,7 +2088,7 @@ define i32 @wc_RsaSSL_Verify_ex2(ptr noundef readonly captures(address_is_null) 
 
 switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_RsaSSL_Verify_ex2, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %wc_hash2mgf.exit
 
@@ -2899,16 +2899,16 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
 16:                                               ; preds = %9, %13
   %.046 = phi i32 [ %14, %13 ], [ 68, %9 ]
   %17 = zext i32 %2 to i64
-  %18 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
   %19 = add i32 %2, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 %20
   %22 = add i32 %2, 2
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %23
   %25 = add i32 %2, 3
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 %26
   %.not8 = icmp eq i32 %.fr7, 0
   br i1 %.not8, label %.split.us, label %.split.preheader
 

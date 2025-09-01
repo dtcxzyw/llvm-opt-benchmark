@@ -1681,7 +1681,7 @@ putid.exit:                                       ; preds = %39, %40
   br i1 %.not39, label %56, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw [16 x i8], ptr @.str.3, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1
   %55 = getelementptr inbounds nuw i8, ptr %.158, i64 1
   store i8 %54, ptr %.158, align 1
@@ -7302,7 +7302,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
 
 10:                                               ; preds = %9, %4
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw [3 x i32], ptr @cached_role, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @cached_role, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, %0
   %15 = icmp ne i32 %2, 0
@@ -7312,7 +7312,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   br i1 %or.cond76, label %20, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr @cached_roles, i64 0, i64 %11
+  %18 = getelementptr inbounds nuw ptr, ptr @cached_roles, i64 %11
   %19 = load ptr, ptr %18, align 8
   br label %156
 
@@ -7391,7 +7391,7 @@ define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
   %.1123 = phi ptr [ %.060127148, %.lr.ph ], [ %.2, %111 ]
   %.1101121 = phi ptr [ %.0100125149, %.lr.ph ], [ %.2102, %111 ]
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 80
   %.val = load ptr, ptr %57, align 8
@@ -7643,7 +7643,7 @@ roles_list_append.exit91:                         ; preds = %list_length.exit.th
   store ptr %152, ptr @CurrentMemoryContext, align 8
   call void @list_free(ptr noundef %.060.lcssa146) #14
   store i32 0, ptr %12, align 4
-  %154 = getelementptr inbounds nuw [3 x ptr], ptr @cached_roles, i64 0, i64 %11
+  %154 = getelementptr inbounds nuw ptr, ptr @cached_roles, i64 %11
   %155 = load ptr, ptr %154, align 8
   call void @list_free(ptr noundef %155) #14
   store ptr %153, ptr %154, align 8

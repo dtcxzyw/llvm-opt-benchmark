@@ -970,7 +970,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %338 = or disjoint i32 %330, %324
   %339 = or disjoint i32 %338, %334
   %340 = or disjoint i32 %339, %337
-  %341 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv703
+  %341 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv703
   store i32 %340, ptr %341, align 4, !tbaa !87
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
   %exitcond708.not = icmp eq i64 %indvars.iv.next704, %wide.trip.count707
@@ -993,7 +993,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %354 = or disjoint i32 %346, %350
   %355 = or disjoint i32 %354, %353
   %356 = or disjoint i32 %355, -16777216
-  %357 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv697
+  %357 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv697
   store i32 %356, ptr %357, align 4, !tbaa !87
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
   %exitcond702.not = icmp eq i64 %indvars.iv.next698, %wide.trip.count701

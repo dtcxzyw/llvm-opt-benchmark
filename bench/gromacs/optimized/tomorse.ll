@@ -268,7 +268,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %53, %55
 
 84:                                               ; preds = %.preheader, %435
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %435 ]
-  %85 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %87 = load i32, ptr %86, align 4, !tbaa !28
   %88 = and i32 %87, 16
@@ -278,7 +278,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %53, %55
   br i1 %or.cond, label %91, label %435
 
 91:                                               ; preds = %84
-  %92 = getelementptr inbounds nuw [95 x %struct.InteractionsOfType], ptr %76, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %76, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !31
   %95 = load ptr, ptr %92, align 8, !tbaa !34

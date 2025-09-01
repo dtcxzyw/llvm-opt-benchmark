@@ -5359,7 +5359,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 1934:                                             ; preds = %1931
   call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !603
   store <2 x i64> <i64 240, i64 8>, ptr %76, align 16, !noalias !603
-  %1935 = getelementptr inbounds nuw [2 x i64], ptr %76, i64 0, i64 %1932
+  %1935 = getelementptr inbounds nuw i64, ptr %76, i64 %1932
   %1936 = load i64, ptr %1935, align 8, !noalias !603, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %78, i64 %1936, i1 false), !noalias !603
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !603
@@ -17772,9 +17772,9 @@ switch.lookup:                                    ; preds = %763
   %765 = add nsw i64 %.sroa.330.0.i95.i.i, -3
   %766 = icmp ult i64 %765, 12
   %767 = select i1 %766, i64 %765, i64 10
-  %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE", i64 0, i64 %767
+  %switch.gep = getelementptr inbounds i8, ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE", i64 %767
   %switch.load = load i8, ptr %switch.gep, align 1
-  %switch.gep817 = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE.49", i64 0, i64 %767
+  %switch.gep817 = getelementptr inbounds i8, ptr @"switch.table._ZN123_$LT$ockam_transport_websocket..workers..listener..WebSocketListenProcessor$u20$as$u20$ockam_core..processor..Processor$GT$7process28_$u7b$$u7b$closure$u7d$$u7d$17h0ccf93a4b388c17dE.49", i64 %767
   %switch.load818 = load i8, ptr %switch.gep817, align 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.17971264473161138775"(ptr noalias noundef nonnull align 8 dereferenceable(136) %95)
           to label %768 unwind label %761

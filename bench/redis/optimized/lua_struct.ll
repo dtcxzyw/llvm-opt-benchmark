@@ -149,7 +149,7 @@ gettoalign.exit:                                  ; preds = %13
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.lr.ph29.i ], [ 0, %.preheader.i ]
   %.127.i = phi i64 [ %51, %.lr.ph29.i ], [ %.020.i, %.preheader.i ]
   %49 = trunc i64 %.127.i to i8
-  %50 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv32.i
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv32.i
   store i8 %49, ptr %50, align 1, !tbaa !10
   %51 = lshr i64 %.127.i, 8
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
@@ -161,7 +161,7 @@ gettoalign.exit:                                  ; preds = %13
   %.225.i = phi i64 [ %54, %.lr.ph.i ], [ %.020.i, %.preheader23.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %52 = trunc i64 %.225.i to i8
-  %53 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv.next.i
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i
   store i8 %52, ptr %53, align 1, !tbaa !10
   %54 = lshr i64 %.225.i, 8
   %55 = icmp samesign ugt i64 %indvars.iv.i, 1

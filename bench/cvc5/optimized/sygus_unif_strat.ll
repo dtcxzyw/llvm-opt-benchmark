@@ -558,7 +558,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN4cvc58internal6theory11quantifiers
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4cvc58internal6theory11quantifiers17SygusUnifStrategy18buildStrategyGraphENS0_8TypeNodeENS2_8NodeRoleE.1, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4cvc58internal6theory11quantifiers17SygusUnifStrategy18buildStrategyGraphENS0_8TypeNodeENS2_8NodeRoleE.1, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1591,7 +1591,7 @@ _ZNSt3mapIN4cvc58internal6theory11quantifiers8NodeRoleENS3_12StrategyNodeESt4les
 
 switch.lookup:                                    ; preds = %_ZNSt3mapIN4cvc58internal6theory11quantifiers8NodeRoleENS3_12StrategyNodeESt4lessIS4_ESaISt4pairIKS4_S5_EEEixERS9_.exit
   %282 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4cvc58internal6theory11quantifiers17SygusUnifStrategy18buildStrategyGraphENS0_8TypeNodeENS2_8NodeRoleE.1, i64 0, i64 %282
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4cvc58internal6theory11quantifiers17SygusUnifStrategy18buildStrategyGraphENS0_8TypeNodeENS2_8NodeRoleE.1, i64 %282
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE.exit
 
@@ -4927,7 +4927,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit1421: ; preds = %1569, %1563, 
   %spec.select.i.i1423 = add nuw nsw i32 %1600, %1610
   %1611 = getelementptr inbounds nuw i8, ptr %1601, i64 24
   %1612 = sext i32 %spec.select.i.i1423 to i64
-  %1613 = getelementptr inbounds [0 x ptr], ptr %1611, i64 0, i64 %1612
+  %1613 = getelementptr inbounds ptr, ptr %1611, i64 %1612
   %1614 = load ptr, ptr %1613, align 8, !tbaa !50, !noalias !134
   store ptr %1614, ptr %156, align 8, !tbaa !3, !alias.scope !134
   %1615 = load i64, ptr %1614, align 8, !noalias !134
@@ -6649,7 +6649,7 @@ _ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.exit
   %spec.select.i.i1816 = add nsw i32 %2226, %2236
   %2237 = getelementptr inbounds nuw i8, ptr %2227, i64 24
   %2238 = sext i32 %spec.select.i.i1816 to i64
-  %2239 = getelementptr inbounds [0 x ptr], ptr %2237, i64 0, i64 %2238
+  %2239 = getelementptr inbounds ptr, ptr %2237, i64 %2238
   %2240 = load ptr, ptr %2239, align 8, !tbaa !50, !noalias !156
   store ptr %2240, ptr %167, align 8, !tbaa !3, !alias.scope !156
   %2241 = load i64, ptr %2240, align 8, !noalias !156
@@ -9825,18 +9825,18 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i2700: ; preds = %3546, %3540, %3537
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit2703: ; preds = %3559, %3553, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit2697, %3561
   call void @llvm.lifetime.start.p0(ptr nonnull %179)
-  %switch.tableidx6572 = add i32 %.04615, -1
-  %3563 = icmp ult i32 %switch.tableidx6572, 4
-  br i1 %3563, label %switch.lookup6571, label %_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE.exit2705
+  %switch.tableidx6571 = add i32 %.04615, -1
+  %3563 = icmp ult i32 %switch.tableidx6571, 4
+  br i1 %3563, label %switch.lookup6572, label %_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE.exit2705
 
-switch.lookup6571:                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit2703
-  %3564 = zext nneg i32 %switch.tableidx6572 to i64
-  %switch.gep6573 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4cvc58internal6theory11quantifiers17SygusUnifStrategy18buildStrategyGraphENS0_8TypeNodeENS2_8NodeRoleE.1, i64 0, i64 %3564
+switch.lookup6572:                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit2703
+  %3564 = zext nneg i32 %switch.tableidx6571 to i64
+  %switch.gep6573 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4cvc58internal6theory11quantifiers17SygusUnifStrategy18buildStrategyGraphENS0_8TypeNodeENS2_8NodeRoleE.1, i64 %3564
   %switch.load6574 = load i32, ptr %switch.gep6573, align 4
   br label %_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE.exit2705
 
-_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE.exit2705: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit2703, %switch.lookup6571
-  %.0.i2704 = phi i32 [ %switch.load6574, %switch.lookup6571 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit2703 ]
+_ZN4cvc58internal6theory11quantifiers28getEnumeratorRoleForNodeRoleENS2_8NodeRoleE.exit2705: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit2703, %switch.lookup6572
+  %.0.i2704 = phi i32 [ %switch.load6574, %switch.lookup6572 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit2703 ]
   store i32 %.0.i2704, ptr %179, align 4, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %180)
   %3565 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -14739,7 +14739,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE4findERS3_.exit.thread: ; preds = %59, %_
   %spec.select.i.i56 = add nsw i32 %.01680, %103
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %105 = sext i32 %spec.select.i.i56 to i64
-  %106 = getelementptr inbounds [0 x ptr], ptr %104, i64 0, i64 %105
+  %106 = getelementptr inbounds ptr, ptr %104, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !50, !noalias !238
   store ptr %107, ptr %7, align 8, !tbaa !3, !alias.scope !238
   %108 = load i64, ptr %107, align 8, !noalias !238
@@ -15989,7 +15989,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit291: ; preds = %230, %224, %23
   %242 = icmp eq i32 %241, 2
   %243 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %244 = zext i1 %242 to i64
-  %245 = getelementptr inbounds nuw [0 x ptr], ptr %243, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw ptr, ptr %243, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !50, !noalias !256
   store ptr %246, ptr %15, align 8, !tbaa !3, !alias.scope !256
   %247 = load i64, ptr %246, align 8, !noalias !256

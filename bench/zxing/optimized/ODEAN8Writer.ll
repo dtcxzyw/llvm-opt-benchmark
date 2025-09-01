@@ -89,10 +89,10 @@ define void @_ZNK5ZXing4OneD10EAN8Writer6encodeERKNSt7__cxx1112basic_stringIwSt1
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader: ; preds = %5, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ 0, %5 ]
   %.02143 = phi i32 [ %25, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ %15, %5 ]
-  %20 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !12
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [10 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD12UPCEANCommon10L_PATTERNSE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.std::array.12", ptr @_ZN5ZXing4OneD12UPCEANCommon10L_PATTERNSE, i64 %22
   %24 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %.02143, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 noundef 4, i1 noundef zeroext false)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit unwind label %26
 
@@ -118,10 +118,10 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm5EEEEiRSt6vectorIbSaIbEE
 31:                                               ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm5EEEEiRSt6vectorIbSaIbEEiRKT_b.exit, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit30
   %indvars.iv49 = phi i64 [ 4, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm5EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ %indvars.iv.next50, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit30 ]
   %.145 = phi i32 [ %28, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm5EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ %37, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit30 ]
-  %32 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv49
+  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv49
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [10 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD12UPCEANCommon10L_PATTERNSE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.std::array.12", ptr @_ZN5ZXing4OneD12UPCEANCommon10L_PATTERNSE, i64 %34
   %36 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %.145, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 noundef 4, i1 noundef zeroext true)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit30 unwind label %38
 
@@ -229,7 +229,7 @@ define linkonce_odr void @_ZN5ZXing4OneD12UPCEANCommon20DigitString2IntArrayILm8
   %16 = getelementptr inbounds nuw i32, ptr %11, i64 %.027
   %17 = load i32, ptr %16, align 4, !tbaa !26
   %18 = add nsw i32 %17, -48
-  %19 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.027
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %.027
   store i32 %18, ptr %19, align 4, !tbaa !12
   %20 = add i32 %17, -58
   %or.cond25 = icmp ult i32 %20, -10

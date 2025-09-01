@@ -358,16 +358,16 @@ right_encode.exit62:                              ; preds = %46, %right_encode.e
   %.pre-phi.i61 = phi i64 [ %63, %right_encode.exit62.loopexit ], [ 0, %46 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i61
   store i8 %.017.lcssa29.i59, ptr %65, align 1
-  %66 = add nuw nsw i32 %.pre-phi26.i60, 1
-  %67 = zext nneg i32 %.pre-phi26.i60 to i64
-  %68 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %67
-  store i8 -1, ptr %68, align 1
-  %69 = add nuw nsw i32 %.pre-phi26.i60, 2
-  %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %70
+  %66 = zext nneg i32 %.pre-phi26.i60 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 %66
+  store i8 -1, ptr %67, align 1
+  %68 = add nuw nsw i32 %.pre-phi26.i60, 2
+  %69 = zext nneg i32 %.pre-phi26.i60 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store i8 -1, ptr %71, align 1
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %73 = zext nneg i32 %69 to i64
+  %73 = zext nneg i32 %68 to i64
   %74 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %72, ptr noundef nonnull %5, i64 noundef %73) #4
   %.not43 = icmp eq i32 %74, 0
   br i1 %.not43, label %75, label %.critedge48

@@ -381,7 +381,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 21:                                               ; preds = %27, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %22 = getelementptr [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr i8, ptr %20, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !10
   store i8 %23, ptr %4, align 1, !tbaa !10
   %24 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %4, i64 noundef 1) #5
@@ -1218,7 +1218,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 
 95:                                               ; preds = %.critedge102, %81
   %.sink = phi i8 [ %92, %.critedge102 ], [ %83, %81 ]
-  %96 = getelementptr [32 x i8], ptr %69, i64 0, i64 %indvars.iv
+  %96 = getelementptr i8, ptr %69, i64 %indvars.iv
   store i8 %.sink, ptr %96, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32

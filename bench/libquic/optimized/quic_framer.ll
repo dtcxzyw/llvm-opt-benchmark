@@ -2988,8 +2988,8 @@ switch.lookup:                                    ; preds = %_ZN3net10QuicFramer
 
 _ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ; preds = %switch.lookup, %.critedge.i, %.noexc
   %.0.i198 = phi i8 [ 12, %.noexc ], [ 12, %.critedge.i ], [ %switch.masked, %switch.lookup ]
-  %switch.tableidx330 = add nsw i8 %.0.i194, -1
-  %switch.shifted332 = lshr i8 43, %switch.tableidx330
+  %switch.tableidx329 = add nsw i8 %.0.i194, -1
+  %switch.shifted332 = lshr i8 43, %switch.tableidx329
   %switch.lobit333 = trunc i8 %switch.shifted332 to i1
   br i1 %switch.lobit333, label %switch.lookup331, label %55
 
@@ -3023,7 +3023,7 @@ _ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ;
   br label %.body
 
 switch.lookup331:                                 ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
-  %switch.cast334 = zext i8 %switch.tableidx330 to i48
+  %switch.cast334 = zext i8 %switch.tableidx329 to i48
   %switch.shiftamt335 = shl nuw nsw i48 %switch.cast334, 3
   %switch.downshift336 = lshr i48 3298568438016, %switch.shiftamt335
   %switch.masked337 = trunc i48 %switch.downshift336 to i8
@@ -3860,8 +3860,8 @@ switch.lookup:                                    ; preds = %24
 
 _ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ; preds = %switch.lookup, %.critedge.i, %.noexc
   %.0.i126 = phi i8 [ 12, %.noexc ], [ 12, %.critedge.i ], [ %switch.masked, %switch.lookup ]
-  %switch.tableidx232 = add nsw i8 %.0.i123, -1
-  %switch.shifted234 = lshr i8 43, %switch.tableidx232
+  %switch.tableidx231 = add nsw i8 %.0.i123, -1
+  %switch.shifted234 = lshr i8 43, %switch.tableidx231
   %switch.lobit235 = trunc i8 %switch.shifted234 to i1
   br i1 %switch.lobit235, label %switch.lookup233, label %45
 
@@ -3895,7 +3895,7 @@ _ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ;
   br label %.body
 
 switch.lookup233:                                 ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
-  %switch.cast236 = zext i8 %switch.tableidx232 to i48
+  %switch.cast236 = zext i8 %switch.tableidx231 to i48
   %switch.shiftamt237 = shl nuw nsw i48 %switch.cast236, 3
   %switch.downshift238 = lshr i48 3298568438016, %switch.shiftamt237
   %switch.masked239 = trunc i48 %switch.downshift238 to i8
@@ -8705,12 +8705,12 @@ switch.lookup:
   %9 = alloca i64, align 8
   %10 = and i8 %2, 3
   %11 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = lshr i8 %2, 2
   %13 = and i8 %12, 3
   %14 = zext nneg i8 %13 to i64
-  %switch.gep79 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 0, i64 %14
+  %switch.gep79 = getelementptr inbounds nuw i64, ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 %14
   %switch.load80 = load i64, ptr %switch.gep79, align 8
   %15 = lshr i8 %2, 4
   %16 = and i8 %15, 1
@@ -8902,12 +8902,12 @@ switch.lookup:
   %8 = alloca i64, align 8
   %9 = and i8 %2, 3
   %10 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = lshr i8 %2, 2
   %12 = and i8 %11, 3
   %13 = zext nneg i8 %12 to i64
-  %switch.gep65 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 0, i64 %13
+  %switch.gep65 = getelementptr inbounds nuw i64, ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 %13
   %switch.load66 = load i64, ptr %switch.gep65, align 8
   %14 = and i8 %2, 32
   %.not = icmp eq i8 %14, 0
@@ -10156,7 +10156,7 @@ define noundef ptr @_ZNK3net10QuicFramer21alternative_decrypterEv(ptr noundef no
 define void @_ZN3net10QuicFramer12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 captures(none) dereferenceable(408) %0, i8 noundef signext %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = sext i8 %1 to i64
-  %6 = getelementptr inbounds [3 x %"class.std::unique_ptr.23"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !69
   store ptr %2, ptr %6, align 8, !tbaa !69
   %.not.i.i = icmp eq ptr %7, null
@@ -10181,7 +10181,7 @@ define noundef i64 @_ZN3net10QuicFramer14EncryptInPlaceENS_15EncryptionLevelEhmm
   store i64 0, ptr %9, align 8, !tbaa !65
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %12 = sext i8 %1 to i64
-  %13 = getelementptr inbounds [3 x %"class.std::unique_ptr.23"], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !69
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %4
   %16 = sub i64 %5, %4
@@ -10231,7 +10231,7 @@ define noundef i64 @_ZN3net10QuicFramer14EncryptPayloadENS_15EncryptionLevelEhmR
   store i64 0, ptr %8, align 8, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %16 = sext i8 %1 to i64
-  %17 = getelementptr inbounds [3 x %"class.std::unique_ptr.23"], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = load i32, ptr %10, align 4, !tbaa !67
   %20 = tail call { ptr, i64 } @_ZNK3net10QuicPacket9PlaintextB5cxx11ENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %19)
@@ -10288,7 +10288,7 @@ define noundef i64 @_ZN3net10QuicFramer19GetMaxPlaintextSizeEm(ptr noundef nonnu
 5:                                                ; preds = %2, %13
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
   %.013 = phi i64 [ %1, %2 ], [ %.2, %13 ]
-  %6 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.23"], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !69
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8

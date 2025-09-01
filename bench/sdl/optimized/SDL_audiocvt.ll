@@ -237,12 +237,12 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %40, label %59, label %68
 
 59:                                               ; preds = %.loopexit
-  %60 = add nsw i32 %3, -1
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [8 x [8 x ptr]], ptr @channel_converters, i64 0, i64 %61
-  %63 = add nsw i32 %7, -1
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [8 x ptr], ptr %62, i64 0, i64 %64
+  %60 = sext i32 %3 to i64
+  %61 = getelementptr [8 x ptr], ptr @channel_converters, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 -64
+  %63 = sext i32 %7 to i64
+  %64 = getelementptr ptr, ptr %62, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -8
   %66 = load ptr, ptr %65, align 8
   %67 = select i1 %41, ptr %spec.select159, ptr %5
   tail call void %66(ptr noundef %67, ptr noundef %.3, i32 noundef %0) #11

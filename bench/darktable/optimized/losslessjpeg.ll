@@ -399,7 +399,7 @@ _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit.preheader: ; preds = %79, %81, %82
 
 _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit.preheader, %112
   %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ 0, %_ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit.preheader ]
-  %104 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %105 = load i8, ptr %104, align 1, !tbaa !54, !range !55, !noundef !56
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %112
@@ -407,8 +407,8 @@ _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9HuffT
 107:                                              ; preds = %_ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit
   %108 = load ptr, ptr %70, align 8, !tbaa !42
   %109 = getelementptr inbounds nuw %struct.HuffTable, ptr %108, i64 %indvars.iv
-  %110 = getelementptr inbounds nuw [4 x [17 x i32]], ptr %5, i64 0, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw [4 x [256 x i32]], ptr %6, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [17 x i32], ptr %5, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 %indvars.iv
   call void @_ZN9HuffTable7initvalEPjS0_b(ptr noundef nonnull align 8 dereferenceable(2177) %109, ptr noundef nonnull %110, ptr noundef nonnull %111, i1 noundef zeroext %1)
   br label %112
 
@@ -983,7 +983,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit43:                ; preds = %41
   store i32 %49, ptr %5, align 4, !tbaa !6
   %50 = zext i8 %48 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw [17 x i32], ptr %38, i64 0, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next
   store i32 %50, ptr %51, align 4, !tbaa !71
   %52 = add i32 %.03251, %50
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1023,7 +1023,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit45:                ; preds = %57
   %65 = add nuw i32 %58, 1
   store i32 %65, ptr %5, align 4, !tbaa !6
   %66 = zext i8 %64 to i32
-  %67 = getelementptr inbounds nuw [256 x i32], ptr %56, i64 0, i64 %indvars.iv64
+  %67 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv64
   store i32 %66, ptr %67, align 4, !tbaa !71
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
@@ -1306,7 +1306,7 @@ define void @_ZN9HuffTable7initvalEPjS0_b(ptr noundef nonnull align 8 dereferenc
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %16 ]
   %12 = phi i32 [ 16, %4 ], [ %17, %16 ]
   %13 = sub nuw nsw i64 16, %indvars.iv
-  %14 = getelementptr inbounds nuw [17 x i32], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !71
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %18
@@ -1387,7 +1387,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %.03660 = phi i32 [ 0, %.preheader46.lr.ph ], [ %.137.lcssa, %._crit_edge57 ]
   %48 = add nuw nsw i32 %47, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [17 x i32], ptr %0, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %0, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !71
   %.not67 = icmp eq i32 %51, 0
   br i1 %.not67, label %._crit_edge57, label %.preheader.lr.ph
@@ -1416,8 +1416,8 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %.not68, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader
-  %62 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %indvars.iv77
-  %63 = getelementptr inbounds [256 x i32], ptr %45, i64 0, i64 %indvars.iv77
+  %62 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv77
+  %63 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv77
   %64 = sext i32 %.13754 to i64
   br label %76
 

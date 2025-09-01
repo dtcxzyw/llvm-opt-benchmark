@@ -1918,7 +1918,7 @@ _ZN7QStringD2Ev.exit212:                          ; preds = %199, %_ZN17QArrayDa
 
 switch.lookup:                                    ; preds = %212
   %216 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK13DecodeAsModel4dataERK11QModelIndexi, i64 0, i64 %216
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK13DecodeAsModel4dataERK11QModelIndexi, i64 %216
   %switch.load = load ptr, ptr %switch.gep, align 8
   %217 = invoke noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendEPKc(ptr noundef nonnull align 8 dereferenceable_or_null(24) %15, ptr noundef nonnull %switch.load)
           to label %225 unwind label %214

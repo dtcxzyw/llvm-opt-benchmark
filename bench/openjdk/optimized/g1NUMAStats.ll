@@ -437,7 +437,7 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr noundef nonnull align 8 captures
   br i1 %35, label %.lr.ph.i.i, label %_ZN11G1NUMAStats13NodeDataArrayC2Ej.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArrayC2Ej.exit:         ; preds = %.lr.ph.i.i, %6, %._crit_edge.i
-  %36 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %8, ptr %36, align 8
   br i1 %7, label %6, label %37, !llvm.loop !15
 
@@ -453,7 +453,7 @@ define hidden void @_ZN11G1NUMAStatsD2Ev(ptr noundef nonnull readonly align 8 ca
 3:                                                ; preds = %1, %21
   %4 = phi i1 [ true, %1 ], [ false, %21 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %21 ]
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %8
@@ -498,7 +498,7 @@ _ZN11G1NUMAStats13NodeDataArrayD2Ev.exit:         ; preds = %12, %8
 define hidden void @_ZN11G1NUMAStats5clearENS_13NodeDataItemsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
@@ -532,7 +532,7 @@ _ZN11G1NUMAStats13NodeDataArray5clearEv.exit:     ; preds = %10, %2
 define hidden void @_ZN11G1NUMAStats6updateENS_13NodeDataItemsEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -551,7 +551,7 @@ define hidden void @_ZN11G1NUMAStats6updateENS_13NodeDataItemsEjj(ptr noundef no
 define hidden void @_ZN11G1NUMAStats4copyENS_13NodeDataItemsEjPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp eq i32 %9, 0
@@ -604,7 +604,7 @@ define hidden void @_ZN11G1NUMAStats10print_infoENS_13NodeDataItemsE(ptr noundef
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4

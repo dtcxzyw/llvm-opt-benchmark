@@ -451,7 +451,7 @@ define dso_local i32 @intel_dp_mst_encoder_init(ptr noundef %0, i32 noundef %1) 
   br label %70
 
 70:                                               ; preds = %43, %38
-  %71 = getelementptr [4 x ptr], ptr %30, i64 0, i64 %32
+  %71 = getelementptr ptr, ptr %30, i64 %32
   store ptr %41, ptr %71, align 8
   br label %72
 
@@ -876,7 +876,7 @@ define internal ptr @intel_dp_add_mst_connector(ptr noundef %0, ptr noundef %1, 
   br i1 %74, label %80, label %75
 
 75:                                               ; preds = %68
-  %76 = getelementptr [4 x ptr], ptr %67, i64 0, i64 %69
+  %76 = getelementptr ptr, ptr %67, i64 %69
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @drm_connector_attach_encoder(ptr noundef nonnull %9, ptr noundef %77) #12
   %79 = icmp eq i32 %78, 0
@@ -1286,7 +1286,7 @@ define internal ptr @intel_mst_atomic_best_encoder(ptr noundef readonly captures
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 1648
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [4 x ptr], ptr %20, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   ret ptr %25
 }
@@ -1680,7 +1680,7 @@ define internal i32 @intel_dp_mst_compute_config(ptr noundef %0, ptr noundef %1,
   %118 = phi i64 [ 1, %115 ], [ %127, %117 ]
   %119 = phi i32 [ %113, %115 ], [ %125, %117 ]
   %120 = phi i32 [ %113, %115 ], [ %126, %117 ]
-  %121 = getelementptr [3 x i8], ptr %4, i64 0, i64 %118
+  %121 = getelementptr i8, ptr %4, i64 %118
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = mul nuw nsw i32 %123, 3
@@ -1998,7 +1998,7 @@ define internal void @intel_mst_post_disable_dp(ptr noundef %0, ptr noundef %1, 
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %53 = load i32, ptr %52, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr [7 x i32], ptr %51, i64 0, i64 %54
+  %55 = getelementptr i32, ptr %51, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %51, align 4
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -2352,7 +2352,7 @@ define internal void @intel_mst_enable_dp(ptr noundef %0, ptr noundef %1, ptr no
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = sext i32 %12 to i64
-  %60 = getelementptr [7 x i32], ptr %58, i64 0, i64 %59
+  %60 = getelementptr i32, ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = load i32, ptr %58, align 4
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 32

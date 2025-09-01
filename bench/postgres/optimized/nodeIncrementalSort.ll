@@ -381,7 +381,7 @@ ExecProcNode.exit:                                ; preds = %157, %159
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %180 = load i32, ptr @ParallelWorkerNumber, align 4
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %179, i64 0, i64 %181
+  %182 = getelementptr inbounds %struct.IncrementalSortInfo, ptr %179, i64 %181
   %183 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %184 = load i64, ptr %182, align 8
@@ -573,7 +573,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %285 = load i32, ptr @ParallelWorkerNumber, align 4
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %284, i64 0, i64 %286
+  %287 = getelementptr inbounds %struct.IncrementalSortInfo, ptr %284, i64 %286
   br label %.sink.split
 
 288:                                              ; preds = %279, %276
@@ -629,7 +629,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %312 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %313 = load i32, ptr @ParallelWorkerNumber, align 4
   %314 = sext i32 %313 to i64
-  %315 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %312, i64 0, i64 %314
+  %315 = getelementptr inbounds %struct.IncrementalSortInfo, ptr %312, i64 %314
   br label %.sink.split261
 
 316:                                              ; preds = %307, %304

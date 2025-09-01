@@ -43,27 +43,27 @@ define i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i32 noundef
 23:                                               ; preds = %19
   %24 = lshr i32 %15, 18
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_base64, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds nuw i8, ptr %.04350, i64 1
   store i8 %27, ptr %.04350, align 1
   %29 = lshr i32 %15, 12
   %30 = and i32 %29, 63
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_base64, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.04350, i64 2
   store i8 %33, ptr %28, align 1
   %35 = lshr i32 %15, 6
   %36 = and i32 %35, 63
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_base64, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = getelementptr inbounds nuw i8, ptr %.04350, i64 3
   store i8 %39, ptr %34, align 1
   %41 = and i32 %15, 63
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_base64, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds nuw i8, ptr %.04350, i64 4
   store i8 %44, ptr %40, align 1
@@ -97,14 +97,14 @@ define i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i32 noundef
 54:                                               ; preds = %48
   %55 = lshr i32 %.1, 18
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_base64, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = getelementptr inbounds nuw i8, ptr %.144, i64 1
   store i8 %58, ptr %.144, align 1
   %60 = lshr i32 %.1, 12
   %61 = and i32 %60, 63
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_base64, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = getelementptr inbounds nuw i8, ptr %.144, i64 2
   store i8 %64, ptr %59, align 1
@@ -115,7 +115,7 @@ define i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i32 noundef
   %68 = lshr i32 %.1, 6
   %69 = and i32 %68, 63
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_base64, i64 %70
   %72 = load i8, ptr %71, align 1
   br label %73
 
@@ -204,7 +204,7 @@ define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef
 
 18:                                               ; preds = %16
   %19 = zext nneg i8 %12 to i64
-  %20 = getelementptr inbounds nuw [128 x i8], ptr @b64lookup, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @b64lookup, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext nneg i8 %21 to i32
   %23 = icmp slt i8 %21, 0

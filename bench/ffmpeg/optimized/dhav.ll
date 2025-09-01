@@ -973,7 +973,7 @@ define internal fastcc i32 @parse_ext(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 52:                                               ; preds = %44
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw [13 x i32], ptr @sample_rates, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr @sample_rates, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !77
   br label %56
 
@@ -1005,7 +1005,7 @@ define internal fastcc i32 @parse_ext(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 72:                                               ; preds = %62
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr inbounds nuw [13 x i32], ptr @sample_rates, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr @sample_rates, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !77
   br label %76
 

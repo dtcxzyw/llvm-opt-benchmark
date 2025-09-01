@@ -1490,7 +1490,7 @@ define dso_local void @replicationFeedSlaves(ptr noundef readonly captures(none)
 .critedge:                                        ; preds = %4, %11
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !96
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %18, label %153
+  br i1 %.not, label %18, label %146
 
 18:                                               ; preds = %.critedge
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7104), align 8, !tbaa !64
@@ -1507,7 +1507,7 @@ define dso_local void @replicationFeedSlaves(ptr noundef readonly captures(none)
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7064), align 8, !tbaa !69
   %27 = add nsw i64 %26, 1
   store i64 %27, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7064), align 8, !tbaa !69
-  br label %153
+  br label %146
 
 28:                                               ; preds = %21
   tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef 520) #21
@@ -1569,7 +1569,7 @@ prepareReplicasToWrite.exit:                      ; preds = %canFeedReplicaReplB
 
 47:                                               ; preds = %46
   %48 = zext nneg i32 %1 to i64
-  %49 = getelementptr inbounds nuw [10 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 800), i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 800), i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !99
   br label %57
 
@@ -1660,19 +1660,17 @@ feedReplicationBufferWithObject.exit:             ; preds = %63, %67, %72, %75, 
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %94 = sext i32 %3 to i64
   %95 = call i32 @ll2string(ptr noundef nonnull %93, i64 noundef 23, i64 noundef %94) #21
-  %96 = add nsw i32 %95, 1
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [24 x i8], ptr %9, i64 0, i64 %97
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr i8, ptr %9, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 1
   store i8 13, ptr %98, align 1, !tbaa !53
-  %99 = add nsw i32 %95, 2
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds [24 x i8], ptr %9, i64 0, i64 %100
-  store i8 10, ptr %101, align 1, !tbaa !53
-  %102 = add nsw i32 %95, 3
-  %103 = sext i32 %102 to i64
-  call void @feedReplicationBuffer(ptr noundef nonnull %9, i64 noundef %103)
-  %104 = icmp sgt i32 %3, 0
-  br i1 %104, label %.lr.ph.preheader, label %._crit_edge
+  %99 = getelementptr i8, ptr %97, i64 2
+  store i8 10, ptr %99, align 1, !tbaa !53
+  %100 = add nsw i32 %95, 3
+  %101 = sext i32 %100 to i64
+  call void @feedReplicationBuffer(ptr noundef nonnull %9, i64 noundef %101)
+  %102 = icmp sgt i32 %3, 0
+  br i1 %102, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %92
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -1680,96 +1678,91 @@ feedReplicationBufferWithObject.exit:             ; preds = %63, %67, %72, %75, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %feedReplicationBufferWithObject.exit45
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %feedReplicationBufferWithObject.exit45 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %106 = load ptr, ptr %105, align 8, !tbaa !99
-  %107 = call i64 @stringObjectLen(ptr noundef %106) #21
+  %103 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %104 = load ptr, ptr %103, align 8, !tbaa !99
+  %105 = call i64 @stringObjectLen(ptr noundef %104) #21
   store i8 36, ptr %9, align 16, !tbaa !53
-  %108 = call i32 @ll2string(ptr noundef nonnull %93, i64 noundef 23, i64 noundef %107) #21
-  %109 = add nsw i32 %108, 1
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [24 x i8], ptr %9, i64 0, i64 %110
-  store i8 13, ptr %111, align 1, !tbaa !53
-  %112 = add nsw i32 %108, 2
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [24 x i8], ptr %9, i64 0, i64 %113
-  store i8 10, ptr %114, align 1, !tbaa !53
-  %115 = add nsw i32 %108, 3
-  %116 = sext i32 %115 to i64
-  call void @feedReplicationBuffer(ptr noundef nonnull %9, i64 noundef %116)
-  %117 = load ptr, ptr %105, align 8, !tbaa !99
+  %106 = call i32 @ll2string(ptr noundef nonnull %93, i64 noundef 23, i64 noundef %105) #21
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr i8, ptr %9, i64 %107
+  %109 = getelementptr i8, ptr %108, i64 1
+  store i8 13, ptr %109, align 1, !tbaa !53
+  %110 = getelementptr i8, ptr %108, i64 2
+  store i8 10, ptr %110, align 1, !tbaa !53
+  %111 = add nsw i32 %106, 3
+  %112 = sext i32 %111 to i64
+  call void @feedReplicationBuffer(ptr noundef nonnull %9, i64 noundef %112)
+  %113 = load ptr, ptr %103, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %118 = load i32, ptr %117, align 8
-  %119 = and i32 %118, 240
-  %120 = icmp eq i32 %119, 16
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !89
-  br i1 %120, label %123, label %127
+  %114 = load i32, ptr %113, align 8
+  %115 = and i32 %114, 240
+  %116 = icmp eq i32 %115, 16
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %118 = load ptr, ptr %117, align 8, !tbaa !89
+  br i1 %116, label %119, label %123
+
+119:                                              ; preds = %.lr.ph
+  %120 = ptrtoint ptr %118 to i64
+  %121 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 21, i64 noundef %120) #21
+  %122 = sext i32 %121 to i64
+  br label %feedReplicationBufferWithObject.exit45
 
 123:                                              ; preds = %.lr.ph
-  %124 = ptrtoint ptr %122 to i64
-  %125 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 21, i64 noundef %124) #21
-  %126 = sext i32 %125 to i64
-  br label %feedReplicationBufferWithObject.exit45
-
-127:                                              ; preds = %.lr.ph
-  %128 = getelementptr inbounds i8, ptr %122, i64 -1
-  %129 = load i8, ptr %128, align 1, !tbaa !53
-  %130 = zext i8 %129 to i32
-  %131 = and i32 %130, 7
-  switch i32 %131, label %feedReplicationBufferWithObject.exit45 [
-    i32 0, label %132
-    i32 1, label %135
-    i32 2, label %139
-    i32 3, label %143
-    i32 4, label %147
+  %124 = getelementptr inbounds i8, ptr %118, i64 -1
+  %125 = load i8, ptr %124, align 1, !tbaa !53
+  %126 = zext i8 %125 to i32
+  %127 = and i32 %126, 7
+  switch i32 %127, label %feedReplicationBufferWithObject.exit45 [
+    i32 0, label %128
+    i32 1, label %131
+    i32 2, label %135
+    i32 3, label %139
+    i32 4, label %143
   ]
 
-132:                                              ; preds = %127
-  %133 = lshr i32 %130, 3
-  %134 = zext nneg i32 %133 to i64
+128:                                              ; preds = %123
+  %129 = lshr i32 %126, 3
+  %130 = zext nneg i32 %129 to i64
   br label %feedReplicationBufferWithObject.exit45
 
-135:                                              ; preds = %127
-  %136 = getelementptr inbounds i8, ptr %122, i64 -3
-  %137 = load i8, ptr %136, align 1, !tbaa !53
-  %138 = zext i8 %137 to i64
+131:                                              ; preds = %123
+  %132 = getelementptr inbounds i8, ptr %118, i64 -3
+  %133 = load i8, ptr %132, align 1, !tbaa !53
+  %134 = zext i8 %133 to i64
   br label %feedReplicationBufferWithObject.exit45
 
-139:                                              ; preds = %127
-  %140 = getelementptr inbounds i8, ptr %122, i64 -5
-  %141 = load i16, ptr %140, align 1, !tbaa !91
-  %142 = zext i16 %141 to i64
+135:                                              ; preds = %123
+  %136 = getelementptr inbounds i8, ptr %118, i64 -5
+  %137 = load i16, ptr %136, align 1, !tbaa !91
+  %138 = zext i16 %137 to i64
   br label %feedReplicationBufferWithObject.exit45
 
-143:                                              ; preds = %127
-  %144 = getelementptr inbounds i8, ptr %122, i64 -9
-  %145 = load i32, ptr %144, align 1, !tbaa !63
-  %146 = zext i32 %145 to i64
+139:                                              ; preds = %123
+  %140 = getelementptr inbounds i8, ptr %118, i64 -9
+  %141 = load i32, ptr %140, align 1, !tbaa !63
+  %142 = zext i32 %141 to i64
   br label %feedReplicationBufferWithObject.exit45
 
-147:                                              ; preds = %127
-  %148 = getelementptr inbounds i8, ptr %122, i64 -17
-  %149 = load i64, ptr %148, align 1, !tbaa !78
+143:                                              ; preds = %123
+  %144 = getelementptr inbounds i8, ptr %118, i64 -17
+  %145 = load i64, ptr %144, align 1, !tbaa !78
   br label %feedReplicationBufferWithObject.exit45
 
-feedReplicationBufferWithObject.exit45:           ; preds = %123, %127, %132, %135, %139, %143, %147
-  %.05.i43 = phi ptr [ %5, %123 ], [ %122, %127 ], [ %122, %132 ], [ %122, %135 ], [ %122, %139 ], [ %122, %143 ], [ %122, %147 ]
-  %.0.i44 = phi i64 [ %126, %123 ], [ 0, %127 ], [ %134, %132 ], [ %138, %135 ], [ %142, %139 ], [ %146, %143 ], [ %149, %147 ]
+feedReplicationBufferWithObject.exit45:           ; preds = %119, %123, %128, %131, %135, %139, %143
+  %.05.i43 = phi ptr [ %5, %119 ], [ %118, %123 ], [ %118, %128 ], [ %118, %131 ], [ %118, %135 ], [ %118, %139 ], [ %118, %143 ]
+  %.0.i44 = phi i64 [ %122, %119 ], [ 0, %123 ], [ %130, %128 ], [ %134, %131 ], [ %138, %135 ], [ %142, %139 ], [ %145, %143 ]
   call void @feedReplicationBuffer(ptr noundef nonnull %.05.i43, i64 noundef %.0.i44)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %150 = sext i32 %108 to i64
-  %151 = getelementptr inbounds i8, ptr %9, i64 %150
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
-  call void @feedReplicationBuffer(ptr noundef nonnull %152, i64 noundef 2)
+  call void @feedReplicationBuffer(ptr noundef nonnull %109, i64 noundef 2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %feedReplicationBufferWithObject.exit45, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %153
+  br label %146
 
-153:                                              ; preds = %.critedge, %._crit_edge, %25
+146:                                              ; preds = %.critedge, %._crit_edge, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -8048,7 +8041,7 @@ receiveSynchronousResponse.exit:                  ; preds = %41
 86:                                               ; preds = %82, %80
   %.0 = phi i32 [ 2, %82 ], [ 1, %80 ]
   %87 = zext nneg i32 %.0 to i64
-  %88 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %6, i64 %87
   store ptr %79, ptr %88, align 8, !tbaa !163
   %89 = getelementptr inbounds i8, ptr %79, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !53
@@ -8092,7 +8085,7 @@ receiveSynchronousResponse.exit:                  ; preds = %41
 
 sdslen.exit:                                      ; preds = %86, %93, %96, %100, %104, %108
   %.0.i139 = phi i64 [ %95, %93 ], [ %99, %96 ], [ %103, %100 ], [ %107, %104 ], [ %110, %108 ], [ 0, %86 ]
-  %111 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %87
+  %111 = getelementptr inbounds nuw i64, ptr %7, i64 %87
   store i64 %.0.i139, ptr %111, align 8, !tbaa !78
   %112 = add nuw nsw i32 %.0, 1
   %113 = call ptr @sendCommandArgv(ptr noundef nonnull %0, i32 noundef %112, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -8806,7 +8799,7 @@ define internal void @rdbChannelFullSyncWithMaster(ptr noundef %0) #0 {
 34:                                               ; preds = %30, %28
   %.018.i = phi i32 [ 2, %30 ], [ 1, %28 ]
   %35 = zext nneg i32 %.018.i to i64
-  %36 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %6, i64 %35
   store ptr %27, ptr %36, align 8, !tbaa !163
   %37 = getelementptr inbounds i8, ptr %27, i64 -1
   %38 = load i8, ptr %37, align 1, !tbaa !53
@@ -8850,7 +8843,7 @@ define internal void @rdbChannelFullSyncWithMaster(ptr noundef %0) #0 {
 
 sdslen.exit.i:                                    ; preds = %56, %52, %48, %44, %41, %34
   %.0.i.i = phi i64 [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ], [ 0, %34 ]
-  %59 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %35
+  %59 = getelementptr inbounds nuw i64, ptr %7, i64 %35
   store i64 %.0.i.i, ptr %59, align 8, !tbaa !78
   %60 = add nuw nsw i32 %.018.i, 1
   %61 = call ptr @sendCommandArgv(ptr noundef nonnull %0, i32 noundef %60, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -11966,7 +11959,7 @@ define dso_local noundef nonnull ptr @getFailoverStateString() local_unnamed_add
 
 switch.lookup:                                    ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.getFailoverStateString, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.getFailoverStateString, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

@@ -969,7 +969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322: ; preds = %_Z
 
 289:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295, %241
   %.0109581 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295 ], [ %242, %241 ]
-  %290 = getelementptr inbounds nuw [4 x %struct.anon], ptr @backend_strings, i64 0, i64 %.0109581
+  %290 = getelementptr inbounds nuw %struct.anon, ptr @backend_strings, i64 %.0109581
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8, !tbaa !60
   %293 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %292) #17
@@ -1061,7 +1061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338: ; preds = %_Z
 
 318:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335, %312
   %.0112582 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335 ], [ %313, %312 ]
-  %319 = getelementptr inbounds nuw [5 x %struct.anon.0], ptr @acceleration_strings, i64 0, i64 %.0112582
+  %319 = getelementptr inbounds nuw %struct.anon.0, ptr @acceleration_strings, i64 %.0112582
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %321 = load ptr, ptr %320, align 8, !tbaa !68
   %322 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %321) #17
@@ -1329,7 +1329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit356: ; preds = %_Z
 
 415:                                              ; preds = %400, %402
   %.0110583 = phi i64 [ 0, %400 ], [ %403, %402 ]
-  %416 = getelementptr inbounds nuw [5 x %struct.anon.0], ptr @acceleration_strings, i64 0, i64 %.0110583
+  %416 = getelementptr inbounds nuw %struct.anon.0, ptr @acceleration_strings, i64 %.0110583
   %417 = load i32, ptr %416, align 16, !tbaa !71
   %418 = icmp eq i32 %417, %401
   br i1 %418, label %419, label %402
@@ -1814,7 +1814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389: ; preds = %_Z
 
 606:                                              ; preds = %593, %595
   %.053584 = phi i64 [ 0, %593 ], [ %596, %595 ]
-  %607 = getelementptr inbounds nuw [5 x %struct.anon.0], ptr @acceleration_strings, i64 0, i64 %.053584
+  %607 = getelementptr inbounds nuw %struct.anon.0, ptr @acceleration_strings, i64 %.053584
   %608 = load i32, ptr %607, align 16, !tbaa !71
   %609 = icmp eq i32 %608, %594
   br i1 %609, label %610, label %595

@@ -90,9 +90,9 @@ define internal range(i32 -1, 1) i32 @H5D__efl_construct(ptr noundef %0, ptr nou
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !48
-  %21 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !48
   %23 = icmp ugt i64 %20, %22
   br i1 %23, label %24, label %17

@@ -193,7 +193,7 @@ _ZN4cvc58internal24SubtypeElimNodeConverter16isRealTypeStrictENS0_8TypeNodeE.exi
   %52 = icmp eq i32 %51, 2
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !17, !noalias !14
   store ptr %56, ptr %10, align 8, !tbaa !6, !alias.scope !14
   %57 = load i64, ptr %56, align 8, !noalias !14
@@ -250,7 +250,7 @@ _ZN4cvc58internal24SubtypeElimNodeConverter16isRealTypeStrictENS0_8TypeNodeE.exi
   %83 = icmp eq i32 %82, 2
   %spec.select.i.i = select i1 %83, i64 2, i64 1
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %85 = getelementptr inbounds nuw [0 x ptr], ptr %84, i64 0, i64 %spec.select.i.i
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %spec.select.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !17, !noalias !19
   store ptr %86, ptr %12, align 8, !tbaa !6, !alias.scope !19
   %87 = load i64, ptr %86, align 8, !noalias !19

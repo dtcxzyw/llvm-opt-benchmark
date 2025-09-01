@@ -1301,7 +1301,7 @@ _ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EED2Ev.exit: ; pre
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %213 ]
   %224 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.i.i.i.i.i
   %225 = load float, ptr %224, align 4, !tbaa !117
-  %226 = getelementptr inbounds nuw [4 x float], ptr %222, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %226 = getelementptr inbounds nuw float, ptr %222, i64 %indvars.iv.i.i.i.i.i.i
   store float %225, ptr %226, align 4, !tbaa !117
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -3545,9 +3545,9 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
 34:                                               ; preds = %2, %34
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %34 ]
   %.082121 = phi i32 [ 0, %2 ], [ %spec.select, %34 ]
-  %35 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %5, i64 %indvars.iv
   %36 = zext nneg i32 %.082121 to i64
-  %37 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %5, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load double, ptr %38, align 8, !tbaa !185
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -3638,8 +3638,8 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %93 = add i32 %spec.select, %92
   %94 = and i32 %93, 3
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %95
-  %97 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %6, i64 0, i64 %indvars.iv157
+  %96 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %5, i64 %95
+  %97 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %6, i64 %indvars.iv157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %97, ptr noundef nonnull align 16 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !188
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
@@ -3871,7 +3871,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl3nfaERKiS2_RKd(ptr
   %54 = fadd double %29, %53
   %55 = tail call double @log(double noundef %54) #26, !tbaa !92
   %56 = fsub double %.01415.i, %55
-  %57 = getelementptr inbounds nuw [7 x double], ptr @_ZZ17log_gamma_lanczosRKdE1q, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw double, ptr @_ZZ17log_gamma_lanczosRKdE1q, i64 %indvars.iv.i
   %58 = load double, ptr %57, align 8, !tbaa !91
   %59 = tail call double @pow(double noundef %29, double noundef %53) #26, !tbaa !92
   %60 = tail call double @llvm.fmuladd.f64(double %58, double %59, double %.01316.i)
@@ -3925,7 +3925,7 @@ _Z17log_gamma_lanczosRKd.exit:                    ; preds = %51
   %92 = fadd double %67, %91
   %93 = tail call double @log(double noundef %92) #26, !tbaa !92
   %94 = fsub double %.01415.i65, %93
-  %95 = getelementptr inbounds nuw [7 x double], ptr @_ZZ17log_gamma_lanczosRKdE1q, i64 0, i64 %indvars.iv.i63
+  %95 = getelementptr inbounds nuw double, ptr @_ZZ17log_gamma_lanczosRKdE1q, i64 %indvars.iv.i63
   %96 = load double, ptr %95, align 8, !tbaa !91
   %97 = tail call double @pow(double noundef %67, double noundef %91) #26, !tbaa !92
   %98 = tail call double @llvm.fmuladd.f64(double %96, double %97, double %.01316.i64)
@@ -3982,7 +3982,7 @@ _Z17log_gamma_lanczosRKd.exit68:                  ; preds = %89
   %133 = fadd double %108, %132
   %134 = tail call double @log(double noundef %133) #26, !tbaa !92
   %135 = fsub double %.01415.i71, %134
-  %136 = getelementptr inbounds nuw [7 x double], ptr @_ZZ17log_gamma_lanczosRKdE1q, i64 0, i64 %indvars.iv.i69
+  %136 = getelementptr inbounds nuw double, ptr @_ZZ17log_gamma_lanczosRKdE1q, i64 %indvars.iv.i69
   %137 = load double, ptr %136, align 8, !tbaa !91
   %138 = tail call double @pow(double noundef %108, double noundef %132) #26, !tbaa !92
   %139 = tail call double @llvm.fmuladd.f64(double %137, double %138, double %.01316.i70)
@@ -6027,7 +6027,7 @@ _ZNKSt6vectorIN2cv3VecIfLi4EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %22 ], [ 0, %.preheader.i.i.i.i.i ]
   %23 = getelementptr inbounds nuw float, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %24 = load float, ptr %23, align 4, !tbaa !117
-  %25 = getelementptr inbounds nuw [4 x float], ptr %.015.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw float, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store float %24, ptr %25, align 4, !tbaa !117
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -6054,7 +6054,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_
   %indvars.iv.i.i.i.i.i.i.i.i32 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i33, %29 ], [ 0, %.preheader.i.i.i.i.i29 ]
   %30 = getelementptr inbounds nuw float, ptr %.01214.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   %31 = load float, ptr %30, align 4, !tbaa !117
-  %32 = getelementptr inbounds nuw [4 x float], ptr %.015.i.i.i.i.i30, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i32
+  %32 = getelementptr inbounds nuw float, ptr %.015.i.i.i.i.i30, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   store float %31, ptr %32, align 4, !tbaa !117
   %indvars.iv.next.i.i.i.i.i.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i32, 1
   %exitcond.not.i.i.i.i.i.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i33, 4

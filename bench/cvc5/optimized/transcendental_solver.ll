@@ -3461,7 +3461,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl14transcenden
   %71 = icmp eq i32 %70, 2
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %73 = zext i1 %71 to i64
-  %74 = getelementptr inbounds nuw [0 x ptr], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !316, !noalias !347
   store ptr %75, ptr %23, align 8, !tbaa !278, !alias.scope !347
   %76 = load i64, ptr %75, align 8, !noalias !347

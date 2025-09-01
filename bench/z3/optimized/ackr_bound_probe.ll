@@ -611,7 +611,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 66:                                               ; preds = %.lr.ph, %_ZN16ackr_bound_probe4procclEP3app.exit
   %67 = phi i32 [ %63, %.lr.ph ], [ %138, %_ZN16ackr_bound_probe4procclEP3app.exit ]
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %65, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !70
   %71 = add nuw i32 %67, 1
   store i32 %71, ptr %62, align 8, !tbaa !63
@@ -1921,7 +1921,7 @@ _ZN11ackr_helper7app_occC2Ev.exit33:              ; preds = %.loopexit
   br i1 %153, label %154, label %.critedge
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds nuw [0 x ptr], ptr %149, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !70
   %157 = call noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %14, ptr noundef %156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -8727,7 +8727,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_eval
   %.04493 = phi i64 [ %1, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.04692 = phi ptr [ %3, %.lr.ph ], [ %.248, %lean_dec.exit ]
   %.04991 = phi ptr [ %12, %.lr.ph ], [ %.251, %lean_dec.exit ]
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.04493
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %.04493
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1

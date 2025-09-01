@@ -1215,7 +1215,7 @@ select.unfold:                                    ; preds = %.critedge
   %.1392496.us = phi i8 [ %.0391511, %.lr.ph.split.us.preheader ], [ %.2393.us, %410 ]
   %.1397495.us = phi i8 [ %.0396510, %.lr.ph.split.us.preheader ], [ %.2398.us, %410 ]
   %.1402494.us = phi i8 [ %.0401509, %.lr.ph.split.us.preheader ], [ %.2403.us, %410 ]
-  %395 = getelementptr inbounds nuw [4 x %struct.zmq_poller_event_t], ptr %10, i64 0, i64 %indvars.iv515
+  %395 = getelementptr inbounds nuw %struct.zmq_poller_event_t, ptr %10, i64 %indvars.iv515
   %396 = load ptr, ptr %395, align 16, !tbaa !11
   %397 = icmp eq ptr %396, %0
   br i1 %397, label %405, label %398
@@ -1299,7 +1299,7 @@ select.unfold:                                    ; preds = %.critedge
   %.1397495 = phi i8 [ %.2398, %488 ], [ %.0396510, %.lr.ph ]
   %.1402494 = phi i8 [ %.2403, %488 ], [ %.0401509, %.lr.ph ]
   %.1463493 = phi i32 [ %.3465, %488 ], [ %.0462508, %.lr.ph ]
-  %423 = getelementptr inbounds nuw [4 x %struct.zmq_poller_event_t], ptr %10, i64 0, i64 %indvars.iv
+  %423 = getelementptr inbounds nuw %struct.zmq_poller_event_t, ptr %10, i64 %indvars.iv
   %424 = load ptr, ptr %423, align 16, !tbaa !11
   %425 = icmp eq ptr %424, %3
   br i1 %425, label %426, label %474

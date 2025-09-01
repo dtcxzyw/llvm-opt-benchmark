@@ -210,7 +210,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
 
 13:                                               ; preds = %6
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %14, i32 2
+  %15 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %14, i32 2
   %16 = load i32, ptr %15, align 4, !tbaa !57
   %17 = icmp sgt i32 %16, 4
   br i1 %17, label %18, label %19
@@ -226,7 +226,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
 21:                                               ; preds = %19
   %22 = call ptr @ctime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
-  %24 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !14
   br label %26
 
@@ -290,7 +290,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
 
 switch.lookup:                                    ; preds = %53
   %56 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.write_local, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.write_local, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sev2str.exit
 

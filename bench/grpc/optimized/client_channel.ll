@@ -31790,7 +31790,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i72:       ; preds = %130
   %.not.i.i79 = phi i1 [ true, %.noexc25 ], [ false, %149 ]
   %.0813.i.i = phi i64 [ 0, %.noexc25 ], [ 1, %149 ]
   %.0912.i.i = phi i64 [ 2, %.noexc25 ], [ %.1.i.i, %149 ]
-  %144 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 0, i64 %.0813.i.i
+  %144 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 %.0813.i.i
   %145 = load i8, ptr %144, align 1, !tbaa !427, !range !207, !noalias !1068, !noundef !208
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %147, label %149
@@ -31906,7 +31906,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8
   %.not.i.i89 = phi i1 [ true, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88 ], [ false, %185 ]
   %.0813.i.i90 = phi i64 [ 0, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88 ], [ 1, %185 ]
   %.0912.i.i91 = phi i64 [ 2, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88 ], [ %.1.i.i92, %185 ]
-  %180 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 0, i64 %.0813.i.i90
+  %180 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEmv.__found, i64 %.0813.i.i90
   %181 = load i8, ptr %180, align 1, !tbaa !427, !range !207, !noalias !1037, !noundef !208
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %183, label %185

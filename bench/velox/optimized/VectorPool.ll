@@ -332,7 +332,7 @@ init.end.i:                                       ; preds = %invoke.cont38.i, %i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %init.end.i
-  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 %conv.i
   %15 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp55.i = icmp eq ptr %15, %13
   br i1 %cmp55.i, label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end
@@ -451,7 +451,7 @@ _ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exi
 
 if.then:                                          ; preds = %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
   %vectors_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %arrayidx.i.i19 = getelementptr inbounds nuw [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv.i
+  %arrayidx.i.i19 = getelementptr inbounds nuw %"struct.facebook::velox::VectorPool::TypePool", ptr %vectors_, i64 %conv.i
   %27 = load ptr, ptr %this, align 8
   call void @_ZN8facebook5velox10VectorPool8TypePool3popERKSt10shared_ptrIKNS0_4TypeEEiRNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %arrayidx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(168) %27)
   br label %return
@@ -477,7 +477,7 @@ if.then:                                          ; preds = %entry
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %this, align 8
   %conv = sext i32 %dec to i64
-  %arrayidx.i.i = getelementptr inbounds [10 x %"class.std::shared_ptr"], ptr %vectors, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %vectors, i64 %conv
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   store ptr %1, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -957,7 +957,7 @@ init.end.i:                                       ; preds = %invoke.cont38.i, %i
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %init.end.i
-  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 %conv.i
   %20 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp55.i = icmp ne ptr %20, %18
   %cmp10 = icmp slt i8 %19, 0
@@ -1072,7 +1072,7 @@ ehcleanup49.i:                                    ; preds = %ehcleanup48.i, %lpa
 
 if.end12:                                         ; preds = %land.lhs.true.i
   %vectors_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %arrayidx.i.i19 = getelementptr inbounds nuw [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv.i
+  %arrayidx.i.i19 = getelementptr inbounds nuw %"struct.facebook::velox::VectorPool::TypePool", ptr %vectors_, i64 %conv.i
   %call14 = call noundef zeroext i1 @_ZN8facebook5velox10VectorPool8TypePool13maybePushBackERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(168) %arrayidx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %vector)
   br label %return
 
@@ -1121,7 +1121,7 @@ if.end12:                                         ; preds = %lor.lhs.false5
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %this, align 8
   %conv = sext i32 %9 to i64
-  %arrayidx.i.i = getelementptr inbounds [10 x %"class.std::shared_ptr"], ptr %vectors, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %vectors, i64 %conv
   %10 = load ptr, ptr %vector, align 8
   %_M_refcount4.i.i.i = getelementptr inbounds nuw i8, ptr %vector, i64 8
   %11 = load ptr, ptr %_M_refcount4.i.i.i, align 8

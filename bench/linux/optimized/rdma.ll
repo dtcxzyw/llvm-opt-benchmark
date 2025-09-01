@@ -325,7 +325,7 @@ define dso_local i32 @rdmacg_try_charge(ptr noundef writeonly captures(none) %0,
   %71 = phi i32 [ %.promoted, %67 ], [ %80, %79 ]
   %72 = phi i1 [ true, %67 ], [ false, %79 ]
   %73 = phi i64 [ 0, %67 ], [ 1, %79 ]
-  %74 = getelementptr [2 x %struct.rdmacg_resource], ptr %68, i64 0, i64 %73
+  %74 = getelementptr %struct.rdmacg_resource, ptr %68, i64 %73
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 2147483647
   br i1 %76, label %79, label %77
@@ -375,7 +375,7 @@ define dso_local i32 @rdmacg_try_charge(ptr noundef writeonly captures(none) %0,
 
 95:                                               ; preds = %89
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %97 = getelementptr [2 x %struct.rdmacg_resource], ptr %96, i64 0, i64 %49
+  %97 = getelementptr %struct.rdmacg_resource, ptr %96, i64 %49
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, 1
@@ -541,7 +541,7 @@ define internal void @rdmacg_css_offline(ptr noundef readonly captures(address) 
 8:                                                ; preds = %17, %.preheader
   %9 = phi i1 [ true, %.preheader ], [ false, %17 ]
   %10 = phi i64 [ 0, %.preheader ], [ 1, %17 ]
-  %11 = getelementptr [2 x %struct.rdmacg_resource], ptr %6, i64 0, i64 %10
+  %11 = getelementptr %struct.rdmacg_resource, ptr %6, i64 %10
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 2147483647
   br i1 %13, label %17, label %14
@@ -646,14 +646,14 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr readnone c
 .split.us:                                        ; preds = %.split.loop.exit5, %41
   %33 = phi i1 [ false, %41 ], [ true, %.split.loop.exit5 ]
   %34 = phi i64 [ 1, %41 ], [ 0, %.split.loop.exit5 ]
-  %35 = getelementptr [2 x ptr], ptr @rdmacg_resource_names, i64 0, i64 %34
+  %35 = getelementptr ptr, ptr @rdmacg_resource_names, i64 %34
   %36 = load ptr, ptr %35, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef %36) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
   br i1 %31, label %.thread.us, label %37
 
 37:                                               ; preds = %.split.us
-  %38 = getelementptr [2 x %struct.rdmacg_resource], ptr %32, i64 0, i64 %34
+  %38 = getelementptr %struct.rdmacg_resource, ptr %32, i64 %34
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 2147483647
   br i1 %40, label %.thread.us, label %.thread4.us
@@ -689,7 +689,7 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr readnone c
 .split.split:                                     ; preds = %.split, %52
   %44 = phi i1 [ false, %52 ], [ true, %.split ]
   %45 = phi i64 [ 1, %52 ], [ 0, %.split ]
-  %46 = getelementptr [2 x ptr], ptr @rdmacg_resource_names, i64 0, i64 %45
+  %46 = getelementptr ptr, ptr @rdmacg_resource_names, i64 %45
   %47 = load ptr, ptr %46, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef %47) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
@@ -885,7 +885,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   %88 = phi i32 [ %.promoted, %84 ], [ %spec.select33, %87 ]
   %89 = phi i1 [ true, %84 ], [ false, %87 ]
   %90 = phi i64 [ 0, %84 ], [ 1, %87 ]
-  %91 = getelementptr [2 x %struct.rdmacg_resource], ptr %85, i64 0, i64 %90
+  %91 = getelementptr %struct.rdmacg_resource, ptr %85, i64 %90
   %92 = load i32, ptr %91, align 8
   %93 = icmp ne i32 %92, 2147483647
   %94 = zext i1 %93 to i32
@@ -954,7 +954,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   %126 = getelementptr i32, ptr %16, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %127, 2147483647
-  %129 = getelementptr [2 x %struct.rdmacg_resource], ptr %109, i64 0, i64 %125
+  %129 = getelementptr %struct.rdmacg_resource, ptr %109, i64 %125
   %130 = load i32, ptr %129, align 8
   %131 = icmp eq i32 %130, 2147483647
   br i1 %128, label %132, label %133
@@ -973,7 +973,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br label %138
 
 138:                                              ; preds = %134, %133, %132
-  %139 = getelementptr [2 x %struct.rdmacg_resource], ptr %109, i64 0, i64 %125
+  %139 = getelementptr %struct.rdmacg_resource, ptr %109, i64 %125
   store i32 %127, ptr %139, align 8
   %140 = add i64 %124, 4294967296
   %141 = ashr exact i64 %140, 32

@@ -1159,7 +1159,7 @@ define dso_local range(i32 -1815315583, 1) i32 @error_test() local_unnamed_addr 
 
 3:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %4 = getelementptr inbounds nuw [4 x %struct.anon], ptr @error_test.missing, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @error_test.missing, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8, !tbaa !13
   %.not37 = icmp sgt i32 %.03469, %5
   br i1 %.not37, label %9, label %6
@@ -1538,7 +1538,7 @@ define dso_local range(i32 -1636115694, 1) i32 @base64_test() local_unnamed_addr
 .preheader163:                                    ; preds = %75, %83
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %83 ], [ 0, %75 ]
   store i32 128, ptr %5, align 4, !tbaa !22
-  %77 = getelementptr inbounds nuw [17 x i8], ptr @__const.base64_test.badChar, i64 0, i64 %indvars.iv182
+  %77 = getelementptr inbounds nuw i8, ptr @__const.base64_test.badChar, i64 %indvars.iv182
   %78 = load i8, ptr %77, align 1, !tbaa !19
   store i8 %78, ptr %15, align 8, !tbaa !19
   %79 = call i32 @Base64_Decode(ptr noundef nonnull %15, i32 noundef 8, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
@@ -1894,7 +1894,7 @@ define dso_local range(i32 -1278459876, 1) i32 @random_test() local_unnamed_addr
 .preheader54:                                     ; preds = %20, %.preheader54
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader54 ], [ 0, %20 ]
   %23 = trunc i64 %indvars.iv to i8
-  %24 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %23, ptr %24, align 1, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
@@ -1915,7 +1915,7 @@ define dso_local range(i32 -1278459876, 1) i32 @random_test() local_unnamed_addr
 .preheader:                                       ; preds = %25, %.preheader
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader ], [ 0, %25 ]
   %31 = trunc i64 %indvars.iv58 to i8
-  %32 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %indvars.iv58
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv58
   store i8 %31, ptr %32, align 1, !tbaa !19
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 128
@@ -2016,7 +2016,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
 
 .preheader105:                                    ; preds = %17, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %17 ]
-  %23 = getelementptr inbounds nuw [6 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i64, ptr %25, align 16, !tbaa !35
@@ -2101,7 +2101,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
 59:                                               ; preds = %58, %59
   %indvars.iv123 = phi i64 [ 0, %58 ], [ %indvars.iv.next124, %59 ]
   %60 = trunc i64 %indvars.iv123 to i8
-  %61 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv123
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv123
   store i8 %60, ptr %61, align 1, !tbaa !19
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, 1024
@@ -2232,7 +2232,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
 
 .preheader101:                                    ; preds = %16, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %16 ]
-  %22 = getelementptr inbounds nuw [5 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 16, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i64, ptr %24, align 16, !tbaa !35
@@ -2317,7 +2317,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
 58:                                               ; preds = %57, %58
   %indvars.iv119 = phi i64 [ 0, %57 ], [ %indvars.iv.next120, %58 ]
   %59 = trunc i64 %indvars.iv119 to i8
-  %60 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv119
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv119
   store i8 %59, ptr %60, align 1, !tbaa !19
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 1024
@@ -2435,7 +2435,7 @@ define dso_local range(i32 -1610816534, 1) i32 @sha224_test() local_unnamed_addr
 
 .preheader:                                       ; preds = %13, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %13 ]
-  %19 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 16, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i64, ptr %21, align 16, !tbaa !35
@@ -2651,7 +2651,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
 
 .preheader192:                                    ; preds = %35, %118
   %indvars.iv = phi i64 [ %indvars.iv.next, %118 ], [ 0, %35 ]
-  %41 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 16, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = load i64, ptr %43, align 16, !tbaa !35
@@ -2667,7 +2667,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   br label %select.unfold
 
 50:                                               ; preds = %.preheader192
-  %51 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %8, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.testVector, ptr %8, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 16, !tbaa !33
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = load i64, ptr %53, align 16, !tbaa !35
@@ -2828,7 +2828,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
 .preheader191:                                    ; preds = %118, %.preheader191
   %indvars.iv226 = phi i64 [ %indvars.iv.next227, %.preheader191 ], [ 0, %118 ]
   %119 = trunc i64 %indvars.iv226 to i8
-  %120 = getelementptr inbounds nuw [1024 x i8], ptr %11, i64 0, i64 %indvars.iv226
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv226
   store i8 %119, ptr %120, align 1, !tbaa !19
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next227, 1024
@@ -2950,7 +2950,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
 
 .preheader93:                                     ; preds = %14, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %14 ]
-  %20 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 16, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 16, !tbaa !35
@@ -3035,7 +3035,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
 56:                                               ; preds = %55, %56
   %indvars.iv111 = phi i64 [ 0, %55 ], [ %indvars.iv.next112, %56 ]
   %57 = trunc i64 %indvars.iv111 to i8
-  %58 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv111
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv111
   store i8 %57, ptr %58, align 1, !tbaa !19
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 1024
@@ -3208,7 +3208,7 @@ define dso_local i32 @sha512_test() local_unnamed_addr #0 {
 
 .preheader193:                                    ; preds = %33, %116
   %indvars.iv = phi i64 [ %indvars.iv.next, %116 ], [ 0, %33 ]
-  %39 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 16, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i64, ptr %41, align 16, !tbaa !35
@@ -3224,7 +3224,7 @@ define dso_local i32 @sha512_test() local_unnamed_addr #0 {
   br label %.loopexit
 
 48:                                               ; preds = %.preheader193
-  %49 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %10, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %struct.testVector, ptr %10, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 16, !tbaa !33
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load i64, ptr %51, align 16, !tbaa !35
@@ -3385,7 +3385,7 @@ define dso_local i32 @sha512_test() local_unnamed_addr #0 {
 .preheader192:                                    ; preds = %116, %.preheader192
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %.preheader192 ], [ 0, %116 ]
   %117 = trunc i64 %indvars.iv233 to i8
-  %118 = getelementptr inbounds nuw [1024 x i8], ptr %11, i64 0, i64 %indvars.iv233
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv233
   store i8 %117, ptr %118, align 1, !tbaa !19
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next234, 1024
@@ -3528,7 +3528,7 @@ define dso_local i32 @sha512_224_test() local_unnamed_addr #0 {
 
 .preheader105:                                    ; preds = %14, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %14 ]
-  %20 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 16, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 16, !tbaa !35
@@ -3613,7 +3613,7 @@ define dso_local i32 @sha512_224_test() local_unnamed_addr #0 {
 56:                                               ; preds = %55, %56
   %indvars.iv129 = phi i64 [ 0, %55 ], [ %indvars.iv.next130, %56 ]
   %57 = trunc i64 %indvars.iv129 to i8
-  %58 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv129
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv129
   store i8 %57, ptr %58, align 1, !tbaa !19
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 1024
@@ -3753,7 +3753,7 @@ define dso_local i32 @sha512_256_test() local_unnamed_addr #0 {
 
 .preheader105:                                    ; preds = %14, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %14 ]
-  %20 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %5, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %5, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 16, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 16, !tbaa !35
@@ -3838,7 +3838,7 @@ define dso_local i32 @sha512_256_test() local_unnamed_addr #0 {
 56:                                               ; preds = %55, %56
   %indvars.iv129 = phi i64 [ 0, %55 ], [ %indvars.iv.next130, %56 ]
   %57 = trunc i64 %indvars.iv129 to i8
-  %58 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv129
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv129
   store i8 %57, ptr %58, align 1, !tbaa !19
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 1024
@@ -3983,7 +3983,7 @@ sha3_224_test.exit.thread:                        ; preds = %0
 
 .preheader80.i:                                   ; preds = %0, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %0 ]
-  %28 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %20, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %struct.testVector, ptr %20, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 16, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i64, ptr %30, align 16, !tbaa !35
@@ -4026,7 +4026,7 @@ sha3_224_test.exit.thread:                        ; preds = %0
 44:                                               ; preds = %44, %43
   %indvars.iv96.i = phi i64 [ 0, %43 ], [ %indvars.iv.next97.i, %44 ]
   %45 = trunc i64 %indvars.iv96.i to i8
-  %46 = getelementptr inbounds nuw [1024 x i8], ptr %21, i64 0, i64 %indvars.iv96.i
+  %46 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv96.i
   store i8 %45, ptr %46, align 1, !tbaa !19
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next97.i, 1024
@@ -4136,7 +4136,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
 
 .preheader77.i:                                   ; preds = %63, %99
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i23, %99 ], [ 0, %63 ]
-  %70 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %15, i64 0, i64 %indvars.iv.i17
+  %70 = getelementptr inbounds nuw %struct.testVector, ptr %15, i64 %indvars.iv.i17
   %71 = load ptr, ptr %70, align 16, !tbaa !33
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = load i64, ptr %72, align 16, !tbaa !35
@@ -4205,7 +4205,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
 .preheader76.i:                                   ; preds = %99, %.preheader76.i
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %.preheader76.i ], [ 0, %99 ]
   %100 = trunc i64 %indvars.iv93.i to i8
-  %101 = getelementptr inbounds nuw [1024 x i8], ptr %16, i64 0, i64 %indvars.iv93.i
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv93.i
   store i8 %100, ptr %101, align 1, !tbaa !19
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 1024
@@ -4303,7 +4303,7 @@ sha3_384_test.exit.thread:                        ; preds = %116
 
 .preheader81.i:                                   ; preds = %116, %137
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i37, %137 ], [ 0, %116 ]
-  %123 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %10, i64 0, i64 %indvars.iv.i33
+  %123 = getelementptr inbounds nuw %struct.testVector, ptr %10, i64 %indvars.iv.i33
   %124 = load ptr, ptr %123, align 16, !tbaa !33
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %126 = load i64, ptr %125, align 16, !tbaa !35
@@ -4347,7 +4347,7 @@ sha3_384_test.exit.thread:                        ; preds = %116
 139:                                              ; preds = %139, %138
   %indvars.iv97.i = phi i64 [ 0, %138 ], [ %indvars.iv.next98.i, %139 ]
   %140 = trunc i64 %indvars.iv97.i to i8
-  %141 = getelementptr inbounds nuw [1024 x i8], ptr %11, i64 0, i64 %indvars.iv97.i
+  %141 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv97.i
   store i8 %140, ptr %141, align 1, !tbaa !19
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %exitcond100.not.i39 = icmp eq i64 %indvars.iv.next98.i, 1024
@@ -4454,7 +4454,7 @@ sha3_384_test.exit.thread110:                     ; preds = %145, %151, %155
 
 .preheader80.i56:                                 ; preds = %158, %195
   %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i71, %195 ], [ 0, %158 ]
-  %166 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %4, i64 0, i64 %indvars.iv.i57
+  %166 = getelementptr inbounds nuw %struct.testVector, ptr %4, i64 %indvars.iv.i57
   %167 = load ptr, ptr %166, align 16, !tbaa !33
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %169 = load i64, ptr %168, align 16, !tbaa !35
@@ -4527,7 +4527,7 @@ sha3_384_test.exit.thread110:                     ; preds = %145, %151, %155
 197:                                              ; preds = %197, %196
   %indvars.iv96.i73 = phi i64 [ 0, %196 ], [ %indvars.iv.next97.i74, %197 ]
   %198 = trunc i64 %indvars.iv96.i73 to i8
-  %199 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %indvars.iv96.i73
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv96.i73
   store i8 %198, ptr %199, align 1, !tbaa !19
   %indvars.iv.next97.i74 = add nuw nsw i64 %indvars.iv96.i73, 1
   %exitcond99.not.i75 = icmp eq i64 %indvars.iv.next97.i74, 1024
@@ -4689,7 +4689,7 @@ define dso_local range(i32 -1611518934, 1) i32 @hash_test() local_unnamed_addr #
 
 .preheader332:                                    ; preds = %40, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %40 ]
-  %46 = getelementptr inbounds nuw [4 x i32], ptr @__const.hash_test.typesBad, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr @__const.hash_test.typesBad, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !22
   %48 = call i32 @wc_HashInit(ptr noundef nonnull %1, i32 noundef %47) #19
   %.not286 = icmp eq i32 %48, -173
@@ -4731,7 +4731,7 @@ define dso_local range(i32 -1611518934, 1) i32 @hash_test() local_unnamed_addr #
 
 .preheader331:                                    ; preds = %62, %118
   %indvars.iv365 = phi i64 [ %indvars.iv.next366, %118 ], [ 0, %62 ]
-  %64 = getelementptr inbounds nuw [10 x i32], ptr @__const.hash_test.typesGood, i64 0, i64 %indvars.iv365
+  %64 = getelementptr inbounds nuw i32, ptr @__const.hash_test.typesGood, i64 %indvars.iv365
   %65 = load i32, ptr %64, align 4, !tbaa !22
   %66 = call i32 @wc_HashInit(ptr noundef nonnull %1, i32 noundef %65) #19
   %.not240 = icmp eq i32 %66, 0
@@ -4854,7 +4854,7 @@ define dso_local range(i32 -1611518934, 1) i32 @hash_test() local_unnamed_addr #
 
 .preheader:                                       ; preds = %118, %125
   %indvars.iv369 = phi i64 [ %indvars.iv.next370, %125 ], [ 0, %118 ]
-  %119 = getelementptr inbounds nuw [4 x i32], ptr @__const.hash_test.typesHashBad, i64 0, i64 %indvars.iv369
+  %119 = getelementptr inbounds nuw i32, ptr @__const.hash_test.typesHashBad, i64 %indvars.iv369
   %120 = load i32, ptr %119, align 4, !tbaa !22
   %121 = call i32 @wc_Hash(i32 noundef %120, ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull %3, i32 noundef 64) #19
   switch i32 %121, label %122 [
@@ -5138,7 +5138,7 @@ define dso_local range(i32 -1610919213, 1) i32 @hmac_md5_test() local_unnamed_ad
   br label %53
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr @__const.hmac_md5_test.keys, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @__const.hmac_md5_test.keys, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %17 = trunc i64 %16 to i32
@@ -5154,7 +5154,7 @@ define dso_local range(i32 -1610919213, 1) i32 @hmac_md5_test() local_unnamed_ad
   br label %53
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 16, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 16, !tbaa !35
@@ -5268,7 +5268,7 @@ define dso_local range(i32 -1610919321, 1) i32 @hmac_sha_test() local_unnamed_ad
   br label %53
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr @__const.hmac_sha_test.keys, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha_test.keys, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %17 = trunc i64 %16 to i32
@@ -5284,7 +5284,7 @@ define dso_local range(i32 -1610919321, 1) i32 @hmac_sha_test() local_unnamed_ad
   br label %53
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 16, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 16, !tbaa !35
@@ -5398,7 +5398,7 @@ define dso_local range(i32 -1610919421, 1) i32 @hmac_sha224_test() local_unnamed
   br label %53
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr @__const.hmac_sha512_test.keys, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha512_test.keys, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %17 = trunc i64 %16 to i32
@@ -5414,7 +5414,7 @@ define dso_local range(i32 -1610919421, 1) i32 @hmac_sha224_test() local_unnamed
   br label %53
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 16, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 16, !tbaa !35
@@ -5533,7 +5533,7 @@ define dso_local range(i32 -1611019542, 1) i32 @hmac_sha256_test() local_unnamed
   br label %63
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw [5 x ptr], ptr @__const.hmac_sha256_test.keys, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha256_test.keys, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %17 = trunc i64 %16 to i32
@@ -5548,7 +5548,7 @@ define dso_local range(i32 -1611019542, 1) i32 @hmac_sha256_test() local_unnamed
   br label %63
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds nuw [5 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16, !tbaa !33
   %.not53 = icmp eq ptr %24, null
   br i1 %.not53, label %33, label %25
@@ -5688,7 +5688,7 @@ define dso_local range(i32 -1610919661, 1) i32 @hmac_sha384_test() local_unnamed
   br label %53
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr @__const.hmac_sha512_test.keys, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha512_test.keys, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %17 = trunc i64 %16 to i32
@@ -5704,7 +5704,7 @@ define dso_local range(i32 -1610919661, 1) i32 @hmac_sha384_test() local_unnamed
   br label %53
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 16, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 16, !tbaa !35
@@ -5818,7 +5818,7 @@ define dso_local range(i32 -1610919774, 1) i32 @hmac_sha512_test() local_unnamed
   br label %53
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr @__const.hmac_sha512_test.keys, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha512_test.keys, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %17 = trunc i64 %16 to i32
@@ -5834,7 +5834,7 @@ define dso_local range(i32 -1610919774, 1) i32 @hmac_sha512_test() local_unnamed
   br label %53
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 16, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 16, !tbaa !35
@@ -5911,154 +5911,157 @@ define dso_local range(i32 -741578130, 1) i32 @hmac_sha3_test() local_unnamed_ad
 
 .preheader:                                       ; preds = %0, %.split88.us
   %indvars.iv143 = phi i64 [ 0, %0 ], [ %indvars.iv.next144, %.split88.us ]
-  %3 = getelementptr inbounds nuw [4 x ptr], ptr @__const.hmac_sha3_test.key, i64 0, i64 %indvars.iv143
-  %4 = getelementptr inbounds nuw [4 x ptr], ptr @__const.hmac_sha3_test.input, i64 0, i64 %indvars.iv143
-  %5 = shl nuw nsw i64 %indvars.iv143, 2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha3_test.key, i64 %indvars.iv143
+  %4 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha3_test.input, i64 %indvars.iv143
   %.not39 = icmp eq i64 %indvars.iv143, 0
-  br i1 %.not39, label %.preheader.split.us, label %.preheader.split
+  br i1 %.not39, label %.preheader.split.us, label %.preheader.split.preheader
 
-.preheader.split.us:                              ; preds = %.preheader, %29
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %29 ], [ 0, %.preheader ]
-  %6 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #19
-  %.not.us = icmp eq i32 %6, 0
-  br i1 %.not.us, label %7, label %.split.us
+.preheader.split.preheader:                       ; preds = %.preheader
+  %.idx = shl nuw nsw i64 %indvars.iv143, 5
+  %invariant.gep = getelementptr inbounds nuw i8, ptr @__const.hmac_sha3_test.output, i64 %.idx
+  br label %.preheader.split
 
-7:                                                ; preds = %.preheader.split.us
-  %8 = getelementptr inbounds nuw [4 x i32], ptr @__const.hmac_sha3_test.hashType, i64 0, i64 %indvars.iv139
-  %9 = load i32, ptr %8, align 4, !tbaa !22
-  %10 = load ptr, ptr %3, align 8, !tbaa !29
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %12 = trunc i64 %11 to i32
-  %13 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %12) #19
-  %.not35.us = icmp eq i32 %13, 0
-  br i1 %.not35.us, label %14, label %.split76.us
+.preheader.split.us:                              ; preds = %.preheader, %28
+  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %28 ], [ 0, %.preheader ]
+  %5 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #19
+  %.not.us = icmp eq i32 %5, 0
+  br i1 %.not.us, label %6, label %.split.us
 
-14:                                               ; preds = %7
-  %15 = load ptr, ptr %4, align 8, !tbaa !29
-  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
-  %17 = trunc i64 %16 to i32
-  %18 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef nonnull %15, i32 noundef %17) #19
-  %.not36.us = icmp eq i32 %18, 0
-  br i1 %.not36.us, label %19, label %.split79.us
+6:                                                ; preds = %.preheader.split.us
+  %7 = getelementptr inbounds nuw i32, ptr @__const.hmac_sha3_test.hashType, i64 %indvars.iv139
+  %8 = load i32, ptr %7, align 4, !tbaa !22
+  %9 = load ptr, ptr %3, align 8, !tbaa !29
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
+  %11 = trunc i64 %10 to i32
+  %12 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef %8, ptr noundef nonnull %9, i32 noundef %11) #19
+  %.not35.us = icmp eq i32 %12, 0
+  br i1 %.not35.us, label %13, label %.split76.us
 
-19:                                               ; preds = %14
-  %20 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
-  %.not37.us = icmp eq i32 %20, 0
-  br i1 %.not37.us, label %21, label %.split82.us
+13:                                               ; preds = %6
+  %14 = load ptr, ptr %4, align 8, !tbaa !29
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #20
+  %16 = trunc i64 %15 to i32
+  %17 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef nonnull %14, i32 noundef %16) #19
+  %.not36.us = icmp eq i32 %17, 0
+  br i1 %.not36.us, label %18, label %.split79.us
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw [16 x ptr], ptr @__const.hmac_sha3_test.output, i64 0, i64 %indvars.iv139
-  %23 = load ptr, ptr %22, align 8, !tbaa !29
-  %24 = getelementptr inbounds nuw [4 x i32], ptr @__const.hmac_sha3_test.hashSz, i64 0, i64 %indvars.iv139
-  %25 = load i32, ptr %24, align 4, !tbaa !22
-  %26 = sext i32 %25 to i64
-  %bcmp.us = call i32 @bcmp(ptr nonnull %2, ptr %23, i64 %26)
+18:                                               ; preds = %13
+  %19 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
+  %.not37.us = icmp eq i32 %19, 0
+  br i1 %.not37.us, label %20, label %.split82.us
+
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha3_test.output, i64 %indvars.iv139
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw i32, ptr @__const.hmac_sha3_test.hashSz, i64 %indvars.iv139
+  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %25 = sext i32 %24 to i64
+  %bcmp.us = call i32 @bcmp(ptr nonnull %2, ptr %22, i64 %25)
   %.not38.us = icmp eq i32 %bcmp.us, 0
-  br i1 %.not38.us, label %27, label %.loopexit
+  br i1 %.not38.us, label %26, label %.loopexit
 
-27:                                               ; preds = %21
+26:                                               ; preds = %20
   call void @wc_HmacFree(ptr noundef nonnull %1) #19
-  %28 = call i32 @wc_HmacSizeByType(i32 noundef %9) #19
-  %.not40.us = icmp eq i32 %28, %25
-  br i1 %.not40.us, label %29, label %.split85.us
+  %27 = call i32 @wc_HmacSizeByType(i32 noundef %8) #19
+  %.not40.us = icmp eq i32 %27, %24
+  br i1 %.not40.us, label %28, label %.split85.us
 
-29:                                               ; preds = %27
+28:                                               ; preds = %26
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, 4
   br i1 %exitcond142.not, label %.split88.us, label %.preheader.split.us, !llvm.loop !83
 
-.preheader.split:                                 ; preds = %.preheader, %64
-  %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.preheader ]
-  %30 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #19
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %34, label %.split.us
+.preheader.split:                                 ; preds = %.preheader.split.preheader, %61
+  %indvars.iv = phi i64 [ 0, %.preheader.split.preheader ], [ %indvars.iv.next, %61 ]
+  %29 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #19
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %33, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
-  %.us-phi = phi i32 [ %6, %.preheader.split.us ], [ %30, %.preheader.split ]
-  %31 = sub nsw i32 0, %.us-phi
-  %32 = and i32 %31, 2047
-  %narrow.neg54 = mul nsw i32 %32, -100000
-  %33 = add nsw i32 %narrow.neg54, -536878106
+  %.us-phi = phi i32 [ %5, %.preheader.split.us ], [ %29, %.preheader.split ]
+  %30 = sub nsw i32 0, %.us-phi
+  %31 = and i32 %30, 2047
+  %narrow.neg54 = mul nsw i32 %31, -100000
+  %32 = add nsw i32 %narrow.neg54, -536878106
   br label %.loopexit
 
-34:                                               ; preds = %.preheader.split
-  %35 = getelementptr inbounds nuw [4 x i32], ptr @__const.hmac_sha3_test.hashType, i64 0, i64 %indvars.iv
-  %36 = load i32, ptr %35, align 4, !tbaa !22
-  %37 = load ptr, ptr %3, align 8, !tbaa !29
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #20
-  %39 = trunc i64 %38 to i32
-  %40 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef %36, ptr noundef nonnull %37, i32 noundef %39) #19
-  %.not35 = icmp eq i32 %40, 0
-  br i1 %.not35, label %44, label %.split76.us
+33:                                               ; preds = %.preheader.split
+  %34 = getelementptr inbounds nuw i32, ptr @__const.hmac_sha3_test.hashType, i64 %indvars.iv
+  %35 = load i32, ptr %34, align 4, !tbaa !22
+  %36 = load ptr, ptr %3, align 8, !tbaa !29
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #20
+  %38 = trunc i64 %37 to i32
+  %39 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef %35, ptr noundef nonnull %36, i32 noundef %38) #19
+  %.not35 = icmp eq i32 %39, 0
+  br i1 %.not35, label %43, label %.split76.us
 
-.split76.us:                                      ; preds = %34, %7
-  %.us-phi77 = phi i32 [ %13, %7 ], [ %40, %34 ]
-  %41 = sub nsw i32 0, %.us-phi77
-  %42 = and i32 %41, 2047
-  %narrow.neg51 = mul nsw i32 %42, -100000
-  %43 = add nsw i32 %narrow.neg51, -536878111
+.split76.us:                                      ; preds = %33, %6
+  %.us-phi77 = phi i32 [ %12, %6 ], [ %39, %33 ]
+  %40 = sub nsw i32 0, %.us-phi77
+  %41 = and i32 %40, 2047
+  %narrow.neg51 = mul nsw i32 %41, -100000
+  %42 = add nsw i32 %narrow.neg51, -536878111
   br label %.loopexit
 
-44:                                               ; preds = %34
-  %45 = load ptr, ptr %4, align 8, !tbaa !29
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #20
-  %47 = trunc i64 %46 to i32
-  %48 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef nonnull %45, i32 noundef %47) #19
-  %.not36 = icmp eq i32 %48, 0
-  br i1 %.not36, label %52, label %.split79.us
+43:                                               ; preds = %33
+  %44 = load ptr, ptr %4, align 8, !tbaa !29
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #20
+  %46 = trunc i64 %45 to i32
+  %47 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef nonnull %44, i32 noundef %46) #19
+  %.not36 = icmp eq i32 %47, 0
+  br i1 %.not36, label %51, label %.split79.us
 
-.split79.us:                                      ; preds = %44, %14
-  %.us-phi80 = phi i32 [ %18, %14 ], [ %48, %44 ]
-  %49 = sub nsw i32 0, %.us-phi80
-  %50 = and i32 %49, 2047
-  %narrow.neg48 = mul nsw i32 %50, -100000
-  %51 = add nsw i32 %narrow.neg48, -536878115
+.split79.us:                                      ; preds = %43, %13
+  %.us-phi80 = phi i32 [ %17, %13 ], [ %47, %43 ]
+  %48 = sub nsw i32 0, %.us-phi80
+  %49 = and i32 %48, 2047
+  %narrow.neg48 = mul nsw i32 %49, -100000
+  %50 = add nsw i32 %narrow.neg48, -536878115
   br label %.loopexit
 
-52:                                               ; preds = %44
-  %53 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
-  %.not37 = icmp eq i32 %53, 0
-  br i1 %.not37, label %57, label %.split82.us
+51:                                               ; preds = %43
+  %52 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
+  %.not37 = icmp eq i32 %52, 0
+  br i1 %.not37, label %56, label %.split82.us
 
-.split82.us:                                      ; preds = %52, %19
-  %.us-phi83 = phi i32 [ %20, %19 ], [ %53, %52 ]
-  %54 = sub nsw i32 0, %.us-phi83
-  %55 = and i32 %54, 2047
-  %narrow.neg45 = mul nsw i32 %55, -100000
-  %56 = add nsw i32 %narrow.neg45, -536878118
+.split82.us:                                      ; preds = %51, %18
+  %.us-phi83 = phi i32 [ %19, %18 ], [ %52, %51 ]
+  %53 = sub nsw i32 0, %.us-phi83
+  %54 = and i32 %53, 2047
+  %narrow.neg45 = mul nsw i32 %54, -100000
+  %55 = add nsw i32 %narrow.neg45, -536878118
   br label %.loopexit
 
-57:                                               ; preds = %52
-  %58 = add nuw nsw i64 %indvars.iv, %5
-  %59 = getelementptr inbounds nuw [16 x ptr], ptr @__const.hmac_sha3_test.output, i64 0, i64 %58
-  %60 = load ptr, ptr %59, align 8, !tbaa !29
-  %61 = getelementptr inbounds nuw [4 x i32], ptr @__const.hmac_sha3_test.hashSz, i64 0, i64 %indvars.iv
-  %62 = load i32, ptr %61, align 4, !tbaa !22
-  %63 = sext i32 %62 to i64
-  %bcmp = call i32 @bcmp(ptr nonnull %2, ptr %60, i64 %63)
+56:                                               ; preds = %51
+  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
+  %57 = load ptr, ptr %gep, align 8, !tbaa !29
+  %58 = getelementptr inbounds nuw i32, ptr @__const.hmac_sha3_test.hashSz, i64 %indvars.iv
+  %59 = load i32, ptr %58, align 4, !tbaa !22
+  %60 = sext i32 %59 to i64
+  %bcmp = call i32 @bcmp(ptr nonnull %2, ptr %57, i64 %60)
   %.not38 = icmp eq i32 %bcmp, 0
-  br i1 %.not38, label %64, label %.loopexit
+  br i1 %.not38, label %61, label %.loopexit
 
-64:                                               ; preds = %57
+61:                                               ; preds = %56
   call void @wc_HmacFree(ptr noundef nonnull %1) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split88.us, label %.preheader.split, !llvm.loop !83
 
-.split85.us:                                      ; preds = %27
-  %65 = sub nsw i32 0, %28
-  %66 = and i32 %65, 2047
-  %narrow.neg = mul nsw i32 %66, -100000
-  %67 = add nsw i32 %narrow.neg, -536878130
+.split85.us:                                      ; preds = %26
+  %62 = sub nsw i32 0, %27
+  %63 = and i32 %62, 2047
+  %narrow.neg = mul nsw i32 %63, -100000
+  %64 = add nsw i32 %narrow.neg, -536878130
   br label %.loopexit
 
-.split88.us:                                      ; preds = %64, %29
+.split88.us:                                      ; preds = %61, %28
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, 4
   br i1 %exitcond146.not, label %.loopexit, label %.preheader, !llvm.loop !84
 
-.loopexit:                                        ; preds = %.split88.us, %57, %21, %.split85.us, %.split82.us, %.split79.us, %.split76.us, %.split.us
-  %.0 = phi i32 [ %33, %.split.us ], [ %43, %.split76.us ], [ %51, %.split79.us ], [ %56, %.split82.us ], [ %67, %.split85.us ], [ -7208, %21 ], [ -7208, %57 ], [ 0, %.split88.us ]
+.loopexit:                                        ; preds = %.split88.us, %56, %20, %.split85.us, %.split82.us, %.split79.us, %.split76.us, %.split.us
+  %.0 = phi i32 [ %32, %.split.us ], [ %42, %.split76.us ], [ %50, %.split79.us ], [ %55, %.split82.us ], [ %64, %.split85.us ], [ -7208, %20 ], [ -7208, %56 ], [ 0, %.split88.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -6593,12 +6596,12 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %74 ]
   %.not253 = icmp eq i64 %indvars.iv, 3
   %. = select i1 %.not253, i32 16, i32 32
-  %35 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = zext nneg i32 %. to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %36, i64 %37, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %38 = getelementptr inbounds nuw [4 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = load i64, ptr %39, align 1
   store i64 %40, ptr %33, align 4
@@ -6645,7 +6648,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
   br label %.thread
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !29
   %bcmp257 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %66, ptr noundef nonnull dereferenceable(8) %3, i64 8)
   %.not258 = icmp eq i32 %bcmp257, 0
@@ -7139,7 +7142,7 @@ define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
 
 44:                                               ; preds = %0, %71
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %71 ]
-  %45 = getelementptr inbounds nuw [7 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !29
   %47 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %2, ptr noundef %46, i32 noundef 32) #19
   %.not80 = icmp eq i32 %47, 0
@@ -7152,9 +7155,9 @@ define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
   br label %.thread
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw [7 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !29
-  %54 = getelementptr inbounds nuw [7 x i32], ptr @__const.poly1305_test.szm, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr @__const.poly1305_test.szm, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !22
   %56 = call i32 @wc_Poly1305Update(ptr noundef nonnull %2, ptr noundef %53, i32 noundef %55) #19
   %.not81 = icmp eq i32 %56, 0
@@ -7178,7 +7181,7 @@ define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
   br label %.thread
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw [7 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !29
   %bcmp83 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %1, ptr noundef nonnull dereferenceable(16) %67, i64 16)
   %.not84 = icmp eq i32 %bcmp83, 0
@@ -7810,8 +7813,8 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   %212 = zext nneg i32 %.0146443 to i64
   %213 = sub nuw nsw i32 114, %.0146443
   %spec.store.select = call i32 @llvm.umin.i32(i32 %213, i32 32)
-  %214 = getelementptr inbounds nuw [114 x i8], ptr %2, i64 0, i64 %212
-  %215 = getelementptr inbounds nuw [265 x i8], ptr %13, i64 0, i64 %212
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 %212
+  %215 = getelementptr inbounds nuw i8, ptr %13, i64 %212
   %216 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %16, ptr noundef nonnull %214, ptr noundef nonnull %215, i32 noundef %spec.store.select) #19
   %.not332 = icmp eq i32 %216, 0
   br i1 %.not332, label %209, label %.thread
@@ -7886,8 +7889,8 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   %248 = zext nneg i32 %.2148444 to i64
   %249 = sub nuw nsw i32 114, %.2148444
   %spec.store.select4 = call i32 @llvm.umin.i32(i32 %249, i32 32)
-  %250 = getelementptr inbounds nuw [265 x i8], ptr %13, i64 0, i64 %248
-  %251 = getelementptr inbounds nuw [265 x i8], ptr %14, i64 0, i64 %248
+  %250 = getelementptr inbounds nuw i8, ptr %13, i64 %248
+  %251 = getelementptr inbounds nuw i8, ptr %14, i64 %248
   %252 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %16, ptr noundef nonnull %250, ptr noundef nonnull %251, i32 noundef %spec.store.select4) #19
   %.not316 = icmp eq i32 %252, 0
   br i1 %.not316, label %245, label %.thread428
@@ -7965,8 +7968,8 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   %284 = zext nneg i32 %.4445 to i64
   %285 = sub nuw nsw i32 265, %.4445
   %spec.store.select5 = call i32 @llvm.umin.i32(i32 %285, i32 32)
-  %286 = getelementptr inbounds nuw [265 x i8], ptr %8, i64 0, i64 %284
-  %287 = getelementptr inbounds nuw [265 x i8], ptr %13, i64 0, i64 %284
+  %286 = getelementptr inbounds nuw i8, ptr %8, i64 %284
+  %287 = getelementptr inbounds nuw i8, ptr %13, i64 %284
   %288 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %16, ptr noundef nonnull %286, ptr noundef nonnull %287, i32 noundef %spec.store.select5) #19
   %.not300 = icmp eq i32 %288, 0
   br i1 %.not300, label %281, label %.thread431
@@ -8041,8 +8044,8 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   %320 = zext nneg i32 %.6446 to i64
   %321 = sub nuw nsw i32 265, %.6446
   %spec.store.select6 = call i32 @llvm.umin.i32(i32 %321, i32 32)
-  %322 = getelementptr inbounds nuw [265 x i8], ptr %13, i64 0, i64 %320
-  %323 = getelementptr inbounds nuw [265 x i8], ptr %14, i64 0, i64 %320
+  %322 = getelementptr inbounds nuw i8, ptr %13, i64 %320
+  %323 = getelementptr inbounds nuw i8, ptr %14, i64 %320
   %324 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %16, ptr noundef nonnull %322, ptr noundef nonnull %323, i32 noundef %spec.store.select6) #19
   %.not284 = icmp eq i32 %324, 0
   br i1 %.not284, label %317, label %.thread434
@@ -9347,7 +9350,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
 .preheader:                                       ; preds = %217, %.preheader
   %indvars.iv397 = phi i64 [ %indvars.iv.next398, %.preheader ], [ 0, %217 ]
   %.0146369 = phi i32 [ %226, %.preheader ], [ 0, %217 ]
-  %223 = getelementptr inbounds nuw [12 x i8], ptr %17, i64 0, i64 %indvars.iv397
+  %223 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv397
   %224 = load i8, ptr %223, align 1, !tbaa !19
   %225 = zext i8 %224 to i32
   %226 = add i32 %.0146369, %225
@@ -13362,7 +13365,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 
 8:                                                ; preds = %2, %57
   %indvars.iv193 = phi i64 [ 0, %2 ], [ %indvars.iv.next194, %57 ]
-  %9 = getelementptr inbounds nuw [5 x i32], ptr @__const.rsa_pss_test.hash, i64 0, i64 %indvars.iv193
+  %9 = getelementptr inbounds nuw i32, ptr @__const.rsa_pss_test.hash, i64 %indvars.iv193
   %10 = load i32, ptr %9, align 4, !tbaa !22
   %11 = call i32 @wc_Hash(i32 noundef %10, ptr noundef nonnull %5, i32 noundef 25, ptr noundef nonnull %3, i32 noundef 64) #19
   %.not152 = icmp eq i32 %11, 0
@@ -13386,7 +13389,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 
 .preheader167:                                    ; preds = %16, %18
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [5 x i32], ptr @__const.rsa_pss_test.mgf, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr @__const.rsa_pss_test.mgf, i64 %indvars.iv
   br label %20
 
 20:                                               ; preds = %.preheader167, %25
@@ -14163,7 +14166,7 @@ define internal fastcc range(i32 -1611635703, 1) i32 @dh_test_check_pubvalue() u
 
 49:                                               ; preds = %0, %58
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %58 ]
-  %50 = getelementptr inbounds nuw [11 x %struct.dh_pubvalue_test], ptr %17, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %struct.dh_pubvalue_test, ptr %17, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 16, !tbaa !144
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !146
@@ -14184,7 +14187,7 @@ define internal fastcc range(i32 -1611635703, 1) i32 @dh_test_check_pubvalue() u
 
 .preheader:                                       ; preds = %58, %67
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %67 ], [ 0, %58 ]
-  %59 = getelementptr inbounds nuw [5 x %struct.dh_pubvalue_test], ptr %18, i64 0, i64 %indvars.iv29
+  %59 = getelementptr inbounds nuw %struct.dh_pubvalue_test, ptr %18, i64 %indvars.iv29
   %60 = load ptr, ptr %59, align 16, !tbaa !144
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !146
@@ -14925,7 +14928,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef
 .preheader1.i:                                    ; preds = %149, %.preheader1.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader1.i ], [ 0, %149 ]
   %163 = trunc i64 %indvars.iv.i to i8
-  %164 = getelementptr inbounds nuw [66 x i8], ptr %25, i64 0, i64 %indvars.iv.i
+  %164 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i
   store i8 %163, ptr %164, align 1, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 66
@@ -16026,7 +16029,7 @@ define internal fastcc range(i32 -741588927, 1) i32 @_rng_test(ptr noundef %0) u
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %1 ]
   %.02152 = phi i32 [ %spec.select, %.preheader ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !19
   %10 = icmp eq i8 %9, 0
   %11 = zext i1 %10 to i32

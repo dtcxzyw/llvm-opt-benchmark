@@ -4149,7 +4149,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec9add_inputERKNSt7__cxx1
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !122
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -4216,7 +4216,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !122
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -4684,7 +4684,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec19add_accept_languageER
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !122
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -4751,7 +4751,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !122
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -5059,14 +5059,14 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit: ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit.preheader, %30
   %.01218 = phi i64 [ %31, %30 ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit.preheader ]
-  %32 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kTrue, i64 0, i64 %.01218
+  %32 = getelementptr inbounds nuw ptr, ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kTrue, i64 %.01218
   %33 = load ptr, ptr %32, align 8, !tbaa !44
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %33) #27
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.critedge.sink.split, label %36
 
 36:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit
-  %37 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kFalse, i64 0, i64 %.01218
+  %37 = getelementptr inbounds nuw ptr, ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kFalse, i64 %.01218
   %38 = load ptr, ptr %37, align 8, !tbaa !44
   %39 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %38) #27
   %40 = icmp eq i32 %39, 0
@@ -5151,7 +5151,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec19add_control_symbolsER
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !122
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -5218,7 +5218,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !122
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -5253,7 +5253,7 @@ define linkonce_odr void @_ZN13sentencepiece11TrainerSpec24add_user_defined_symb
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr %7, align 8, !tbaa !122
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -5320,7 +5320,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8, !tbaa !122
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
   store ptr %.sink6.i.i.i.i, ptr %52, align 8, !tbaa !125
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -13782,7 +13782,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %15 = load i8, ptr %.sroa.5.011.i, align 1, !tbaa !24, !noalias !263
   %16 = lshr i8 %15, 4
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw [17 x i8], ptr @.str.125, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @.str.125, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !24, !noalias !263
   %20 = tail call i8 @llvm.smax.i8(i8 %19, i8 1)
   %21 = zext nneg i8 %20 to i64
@@ -13858,7 +13858,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i18: ; preds = %"_ZZN13sen
   %41 = load i8, ptr %.sroa.5.011.i25, align 1, !tbaa !24, !noalias !268
   %42 = lshr i8 %41, 4
   %43 = zext nneg i8 %42 to i64
-  %44 = getelementptr inbounds nuw [17 x i8], ptr @.str.125, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @.str.125, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !24, !noalias !268
   %46 = tail call i8 @llvm.smax.i8(i8 %45, i8 1)
   %47 = zext nneg i8 %46 to i64

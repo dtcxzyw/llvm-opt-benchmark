@@ -170,7 +170,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %6, %php_dom_follow_
   store i64 %19, ptr %25, align 8, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %18, i64 %19, i1 false)
-  %27 = getelementptr inbounds nuw [1 x i8], ptr %26, i64 0, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %19
   store i8 0, ptr %27, align 1, !tbaa !9
   store ptr %22, ptr %1, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8

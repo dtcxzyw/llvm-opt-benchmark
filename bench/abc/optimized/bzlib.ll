@@ -632,12 +632,12 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
   %95 = and i32 %82, 255
   %96 = xor i32 %94, %95
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !50
   %100 = xor i32 %93, %99
   store i32 %100, ptr %10, align 8, !tbaa !42
   %101 = zext i32 %82 to i64
-  %102 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 %101
   store i8 1, ptr %102, align 1, !tbaa !43
   %103 = load ptr, ptr %14, align 8, !tbaa !28
   %104 = sext i32 %84 to i64
@@ -725,12 +725,12 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
   %148 = and i32 %139, 255
   %149 = xor i32 %147, %148
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !50
   %153 = xor i32 %146, %152
   store i32 %153, ptr %10, align 8, !tbaa !42
   %154 = zext i32 %139 to i64
-  %155 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %11, i64 %154
   store i8 1, ptr %155, align 1, !tbaa !43
   %156 = load ptr, ptr %14, align 8, !tbaa !28
   %157 = sext i32 %135 to i64
@@ -1125,7 +1125,7 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   %47 = zext i8 %41 to i32
   %48 = xor i32 %46, %47
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !50
   %52 = xor i32 %51, %45
   store i32 %52, ptr %14, align 8, !tbaa !65
@@ -1229,7 +1229,7 @@ BZ2_indexIntoF.exit.i:                            ; preds = %.preheader370.i
 112:                                              ; preds = %BZ2_indexIntoF.exit.i
   %113 = load i32, ptr %24, align 4, !tbaa !76
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %114
+  %115 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !50
   %117 = add nsw i32 %113, 1
   %118 = icmp eq i32 %117, 512
@@ -1306,7 +1306,7 @@ BZ2_indexIntoF.exit293.i:                         ; preds = %.preheader358.i
 154:                                              ; preds = %BZ2_indexIntoF.exit293.i
   %155 = load i32, ptr %24, align 4, !tbaa !76
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %156
+  %157 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !50
   %159 = add nsw i32 %155, 1
   %160 = icmp eq i32 %159, 512
@@ -1378,7 +1378,7 @@ BZ2_indexIntoF.exit300.i:                         ; preds = %.preheader357.i
 194:                                              ; preds = %BZ2_indexIntoF.exit300.i
   %195 = load i32, ptr %24, align 4, !tbaa !76
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %196
+  %197 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !50
   %199 = add nsw i32 %195, 1
   %200 = icmp eq i32 %199, 512
@@ -1449,7 +1449,7 @@ BZ2_indexIntoF.exit307.i:                         ; preds = %.preheader356.i
 234:                                              ; preds = %BZ2_indexIntoF.exit307.i
   %235 = load i32, ptr %24, align 4, !tbaa !76
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %236
+  %237 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !50
   %239 = add nsw i32 %235, 1
   %240 = icmp eq i32 %239, 512
@@ -1511,7 +1511,7 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
 271:                                              ; preds = %BZ2_indexIntoF.exit314.i
   %272 = load i32, ptr %24, align 4, !tbaa !76
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %273
+  %274 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %273
   %275 = load i32, ptr %274, align 4, !tbaa !50
   %276 = add nsw i32 %272, 1
   %277 = icmp eq i32 %276, 512
@@ -1546,7 +1546,7 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
   %293 = zext i8 %287 to i32
   %294 = xor i32 %292, %293
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %295
   %297 = load i32, ptr %296, align 4, !tbaa !50
   %298 = xor i32 %297, %291
   store i32 %298, ptr %14, align 8, !tbaa !65
@@ -1881,7 +1881,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %479 = zext i8 %473 to i32
   %480 = xor i32 %478, %479
   %481 = zext nneg i32 %480 to i64
-  %482 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %481
   %483 = load i32, ptr %482, align 4, !tbaa !50
   %484 = xor i32 %483, %477
   store i32 %484, ptr %14, align 8, !tbaa !65
@@ -1951,7 +1951,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 525:                                              ; preds = %517
   %526 = load i32, ptr %24, align 4, !tbaa !76
   %527 = sext i32 %526 to i64
-  %528 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %527
+  %528 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %527
   %529 = load i32, ptr %528, align 4, !tbaa !50
   %530 = add nsw i32 %526, 1
   %531 = icmp eq i32 %530, 512
@@ -2002,7 +2002,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 551:                                              ; preds = %545
   %552 = load i32, ptr %24, align 4, !tbaa !76
   %553 = sext i32 %552 to i64
-  %554 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %553
+  %554 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %553
   %555 = load i32, ptr %554, align 4, !tbaa !50
   %556 = add nsw i32 %552, 1
   %557 = icmp eq i32 %556, 512
@@ -2048,7 +2048,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 575:                                              ; preds = %569
   %576 = load i32, ptr %24, align 4, !tbaa !76
   %577 = sext i32 %576 to i64
-  %578 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %577
+  %578 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %577
   %579 = load i32, ptr %578, align 4, !tbaa !50
   %580 = add nsw i32 %576, 1
   %581 = icmp eq i32 %580, 512
@@ -2093,7 +2093,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 599:                                              ; preds = %593
   %600 = load i32, ptr %24, align 4, !tbaa !76
   %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %601
+  %602 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %601
   %603 = load i32, ptr %602, align 4, !tbaa !50
   %604 = add nsw i32 %600, 1
   %605 = icmp eq i32 %604, 512
@@ -2130,7 +2130,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 621:                                              ; preds = %614
   %622 = load i32, ptr %24, align 4, !tbaa !76
   %623 = sext i32 %622 to i64
-  %624 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %623
+  %624 = getelementptr inbounds i32, ptr @BZ2_rNums, i64 %623
   %625 = load i32, ptr %624, align 4, !tbaa !50
   %626 = add nsw i32 %622, 1
   %627 = icmp eq i32 %626, 512
@@ -2203,7 +2203,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %659 = lshr i32 %.2345.i, 24
   %660 = xor i32 %659, %654
   %661 = zext nneg i32 %660 to i64
-  %662 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %661
+  %662 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %661
   %663 = load i32, ptr %662, align 4, !tbaa !50
   %664 = xor i32 %663, %658
   %665 = add nsw i32 %.1273342.i, -1
@@ -2230,7 +2230,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %673 = zext i8 %.3263.i to i32
   %674 = xor i32 %672, %673
   %675 = zext nneg i32 %674 to i64
-  %676 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %675
+  %676 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %675
   %677 = load i32, ptr %676, align 4, !tbaa !50
   %678 = xor i32 %677, %671
   %679 = getelementptr inbounds nuw i8, ptr %.4255.i, i64 1
@@ -3320,7 +3320,7 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   %.07485 = phi ptr [ %4, %.lr.ph ], [ %45, %38 ]
   %40 = load i8, ptr %.07485, align 1, !tbaa !43
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds [5000 x i8], ptr %37, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %37, i64 %41
   store i8 %40, ptr %42, align 1, !tbaa !43
   %43 = load i32, ptr %32, align 8, !tbaa !83
   %44 = add nsw i32 %43, 1
@@ -4721,7 +4721,7 @@ define ptr @BZ2_bzerror(ptr noundef readonly captures(none) %0, ptr noundef writ
   store i32 %spec.store.select, ptr %1, align 4, !tbaa !50
   %5 = sub nsw i32 0, %spec.store.select
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [16 x ptr], ptr @bzerrorstrings, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @bzerrorstrings, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !98
   ret ptr %8
 }
@@ -4751,7 +4751,7 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
   %13 = lshr i32 %11, 24
   %14 = xor i32 %13, %9
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !50
   %18 = xor i32 %12, %17
   store i32 %18, ptr %8, align 8, !tbaa !42
@@ -4762,7 +4762,7 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
 ._crit_edge:                                      ; preds = %10, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = zext i32 %3 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   store i8 1, ptr %22, align 1, !tbaa !43
   switch i32 %6, label %65 [
     i32 1, label %23
@@ -4831,9 +4831,9 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
   br label %100
 
 65:                                               ; preds = %._crit_edge
-  %66 = add nsw i32 %6, -4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %67
+  %66 = sext i32 %6 to i64
+  %67 = getelementptr i8, ptr %20, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 -4
   store i8 1, ptr %68, align 1, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8, !tbaa !28

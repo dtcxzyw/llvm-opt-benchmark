@@ -1378,7 +1378,7 @@ thread-pre-split371:                              ; preds = %438, %346, %338, %4
 
 462:                                              ; preds = %464, %458
   %.0811.i.i = phi i64 [ 0, %458 ], [ %465, %464 ]
-  %463 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %463 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %461, %463
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %464
 
@@ -2493,7 +2493,7 @@ reduce_parents.exit55.thread:                     ; preds = %._crit_edge
 
 139:                                              ; preds = %141, %131
   %.0811.i.i.i = phi i64 [ 0, %131 ], [ %142, %141 ]
-  %140 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %140 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %138, %140
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %141
 
@@ -2602,7 +2602,7 @@ oidclr.exit.i:                                    ; preds = %141, %.split.loop.e
   %.05093.i = phi i32 [ %189, %186 ], [ 0, %.preheader.i60 ]
   %.292.i = phi i32 [ %190, %186 ], [ 1, %.preheader.i60 ]
   %182 = zext i8 %180 to i64
-  %183 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !35
   %185 = and i8 %184, 2
   %.not67.i = icmp eq i8 %185, 0
@@ -2905,7 +2905,7 @@ define internal fastcc ptr @get_strategy(ptr noundef %0) unnamed_addr #0 {
 
 11:                                               ; preds = %9, %10
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw [6 x %struct.strategy], ptr @all_strategy, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.strategy, ptr @all_strategy, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 16, !tbaa !68
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.036, ptr noundef nonnull dereferenceable(1) %13) #18
   %.not50 = icmp eq i32 %14, 0
@@ -2934,7 +2934,7 @@ define internal fastcc ptr @get_strategy(ptr noundef %0) unnamed_addr #0 {
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv69 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next70, %23 ]
-  %24 = getelementptr inbounds nuw [6 x %struct.strategy], ptr @all_strategy, i64 0, i64 %indvars.iv69
+  %24 = getelementptr inbounds nuw %struct.strategy, ptr @all_strategy, i64 %indvars.iv69
   %25 = load ptr, ptr %24, align 16, !tbaa !68
   %26 = load i64, ptr %21, align 8, !tbaa !58
   %27 = call i32 @xstrncmpz(ptr noundef %25, ptr noundef nonnull %22, i64 noundef %26) #17
@@ -3163,7 +3163,7 @@ append_strategy.exit:                             ; preds = %._crit_edge.i, %st_
 
 .preheader:                                       ; preds = %2, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %2 ]
-  %36 = getelementptr inbounds nuw [6 x %struct.strategy], ptr @all_strategy, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.strategy, ptr @all_strategy, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !61
   %39 = and i32 %38, %1
@@ -3576,7 +3576,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_tree_trivial(ptr noundef %0, p
 
 30:                                               ; preds = %24, %30
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !202
   %33 = call i32 @parse_tree_gently(ptr noundef %32, i32 noundef 0) #17
   %34 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv

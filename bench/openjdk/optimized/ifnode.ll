@@ -6823,7 +6823,7 @@ define hidden noundef ptr @_ZN6IfNode16simple_subsumingEP12PhaseIterGVN(ptr noun
 
 switch.lookup:                                    ; preds = %50
   %53 = zext nneg i32 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL26subsuming_bool_test_encodeP4Node.exit
 
@@ -6836,7 +6836,7 @@ _ZL26subsuming_bool_test_encodeP4Node.exit:       ; preds = %50, %switch.lookup
 
 switch.lookup63:                                  ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit
   %56 = zext nneg i32 %.val46 to i64
-  %switch.gep64 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 0, i64 %56
+  %switch.gep64 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 %56
   %switch.load65 = load i32, ptr %switch.gep64, align 4
   br label %_ZL26subsuming_bool_test_encodeP4Node.exit48
 
@@ -6851,11 +6851,11 @@ _ZL26subsuming_bool_test_encodeP4Node.exit48:     ; preds = %_ZL26subsuming_bool
   %60 = icmp eq i32 %59, 328
   %61 = zext i1 %60 to i32
   %62 = zext nneg i32 %.0.i47 to i64
-  %63 = getelementptr inbounds nuw [6 x [12 x i32]], ptr @_ZZN6IfNode16simple_subsumingEP12PhaseIterGVNE19s_short_circuit_map, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN6IfNode16simple_subsumingEP12PhaseIterGVNE19s_short_circuit_map, i64 %62
   %64 = shl nuw nsw i32 %.0.i, 1
   %65 = or disjoint i32 %64, %61
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [12 x i32], ptr %63, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %63, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %129, label %70
@@ -7592,7 +7592,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 67:                                               ; preds = %58
   %68 = srem i32 %.091127, 3
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %69
+  %70 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %69
   store ptr %.089129, ptr %70, align 16
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 %59, ptr %71, align 8
@@ -7646,12 +7646,12 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 
 94:                                               ; preds = %92
   %95 = sext i32 %91 to i64
-  %.sroa.1.0..sroa_idx = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %95, i32 1
+  %.sroa.1.0..sroa_idx = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %95, i32 1
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %96 = add nsw i32 %.293, -2
   %97 = srem i32 %96, 3
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %98
+  %99 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %98
   %.sroa.05.0.copyload = load ptr, ptr %99, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
@@ -7678,7 +7678,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   %108 = add nsw i32 %.293, -3
   %109 = srem i32 %108, 3
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %110
+  %111 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %110
   %.sroa.02.0.copyload = load ptr, ptr %111, align 16
   %.not112 = icmp sgt i32 %.sroa.7.0.copyload, %.sroa.1.0.copyload
   br i1 %.not112, label %113, label %112
@@ -7695,7 +7695,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 
 114:                                              ; preds = %89
   %115 = sext i32 %91 to i64
-  %116 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %115
+  %116 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %115
   %.sroa.0.0.copyload = load ptr, ptr %116, align 16
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.0.0.copyload, ptr noundef %22, ptr noundef null, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
   br label %117

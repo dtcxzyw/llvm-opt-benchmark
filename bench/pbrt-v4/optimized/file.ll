@@ -5397,7 +5397,7 @@ switch.early.test:                                ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %86 = trunc nuw nsw i32 %67 to i8
   %87 = zext nneg i32 %.0.ph to i64
-  %88 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 %87
   store i8 %86, ptr %88, align 1, !tbaa !17
   br label %.outer179.backedge
 
@@ -5407,7 +5407,7 @@ switch.early.test:                                ; preds = %78
 
 89:                                               ; preds = %switch.early.test
   %90 = zext nneg i32 %.0.ph to i64
-  %91 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 %90
   store i8 0, ptr %91, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %92 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #29
@@ -5522,7 +5522,7 @@ switch.early.test39:                              ; preds = %120
 121:                                              ; preds = %switch.early.test39, %switch.early.test39, %switch.early.test39, %120
   %122 = trunc nuw nsw i32 %67 to i8
   %123 = zext nneg i32 %.0.ph to i64
-  %124 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 %123
   store i8 %122, ptr %124, align 1, !tbaa !17
   br label %.outer179.backedge
 

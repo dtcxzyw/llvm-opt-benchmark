@@ -79,7 +79,7 @@ define hidden void @CreateExecutionEnvironment(ptr noundef %0, ptr noundef %1, p
 
 21:                                               ; preds = %8
   %22 = and i64 %18, 2147483647
-  %23 = getelementptr inbounds nuw [4097 x i8], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %22
   store i8 0, ptr %23, align 1
   %24 = call ptr @JLI_StringDup(ptr noundef nonnull %16) #12
   %25 = icmp eq ptr %24, null
@@ -419,7 +419,7 @@ define hidden ptr @SetExecname(ptr noundef readonly captures(none) %0) local_unn
 
 6:                                                ; preds = %1
   %7 = and i64 %3, 2147483647
-  %8 = getelementptr inbounds nuw [4097 x i8], ptr %2, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   store i8 0, ptr %8, align 1
   %9 = call ptr @JLI_StringDup(ptr noundef nonnull %2) #12
   %10 = icmp eq ptr %9, null

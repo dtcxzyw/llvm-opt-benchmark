@@ -946,7 +946,7 @@ define hidden noundef range(i32 -1073741824, 1073741824) i32 @_Z7hashstrPKv(ptr 
   %6 = or disjoint i8 %5, 1
   %7 = sext i8 %6 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw [20 x i8], ptr @_ZL4shft, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr @_ZL4shft, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext nneg i8 %9 to i32
   %11 = shl i32 %7, %10
@@ -961,7 +961,7 @@ define hidden noundef range(i32 -1073741824, 1073741824) i32 @_Z7hashstrPKv(ptr 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.010.lcssa = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.lr.ph ]
   %.09.lcssa = phi i32 [ 0, %1 ], [ %13, %.lr.ph ]
-  %18 = getelementptr inbounds nuw [20 x i16], ptr @_ZL4xsum, i64 0, i64 %.010.lcssa
+  %18 = getelementptr inbounds nuw i16, ptr @_ZL4xsum, i64 %.010.lcssa
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
   %21 = add nsw i32 %.09.lcssa, %20

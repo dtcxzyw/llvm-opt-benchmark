@@ -979,7 +979,7 @@ define internal i32 @dissect_autosar_nm(ptr noundef %0, ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %23
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_autosar_nm, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_autosar_nm, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = load i32, ptr @hf_autosar_nm_control_bit_vector, align 4
   %28 = load i32, ptr @ett_autosar_nm_cbv, align 4

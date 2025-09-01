@@ -99,7 +99,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm29inferNonMandatoryLibFuncAttrsERNS
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = zext i32 %7 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [9 x i64], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -111,7 +111,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %6
   %16 = load ptr, ptr %1, align 8, !tbaa !3
   %17 = lshr i32 %7, 2
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [131 x i8], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !15
   %21 = zext i8 %20 to i32
   %22 = shl i32 %7, 1
@@ -2762,7 +2762,7 @@ define dso_local { ptr, ptr } @_ZN4llvm18getOrInsertLibFuncEPNS_6ModuleERKNS_17T
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = zext i32 %2 to i64
   %8 = lshr i64 %7, 6
-  %9 = getelementptr inbounds nuw [9 x i64], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %6, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = and i64 %7, 63
   %12 = shl nuw i64 1, %11
@@ -2774,7 +2774,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %5
   %14 = load ptr, ptr %1, align 8, !tbaa !3
   %15 = lshr i32 %2, 2
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [131 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = zext i8 %18 to i32
   %20 = shl i32 %2, 1
@@ -2787,7 +2787,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %5
   ]
 
 24:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %25 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %7
+  %25 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %7
   %.sroa.05.0.copyload.i = load ptr, ptr %25, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -2949,7 +2949,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18isLibFuncEmittableEPKNS_6ModuleEP
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = zext i32 %2 to i64
   %6 = lshr i64 %5, 6
-  %7 = getelementptr inbounds nuw [9 x i64], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %4, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !13
   %9 = and i64 %5, 63
   %10 = shl nuw i64 1, %9
@@ -2961,7 +2961,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %3
   %12 = load ptr, ptr %1, align 8, !tbaa !3
   %13 = lshr i32 %2, 2
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [131 x i8], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = zext i8 %16 to i32
   %18 = shl i32 %2, 1
@@ -2974,7 +2974,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %3
   ]
 
 22:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %23 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %5
+  %23 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %5
   %.sroa.05.0.copyload.i = load ptr, ptr %23, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -3138,7 +3138,7 @@ define dso_local { ptr, i64 } @_ZN4llvm10getFloatFnEPKNS_6ModuleEPKNS_17TargetLi
   store i32 %4, ptr %6, align 4, !tbaa !11
   %12 = zext i32 %4 to i64
   %13 = lshr i64 %12, 6
-  %14 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !13
   %16 = and i64 %12, 63
   %17 = shl nuw i64 1, %16
@@ -3150,7 +3150,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %11
   %19 = load ptr, ptr %1, align 8, !tbaa !3
   %20 = lshr i32 %4, 2
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [131 x i8], ptr %19, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !15
   %24 = zext i8 %23 to i32
   %25 = shl i32 %4, 1
@@ -3163,7 +3163,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %11
   ]
 
 29:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %30 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %12
+  %30 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %12
   %.sroa.05.0.copyload.i = load ptr, ptr %30, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -3221,7 +3221,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traits
   store i32 %3, ptr %6, align 4, !tbaa !11
   %60 = zext i32 %3 to i64
   %61 = lshr i64 %60, 6
-  %62 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %10, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !13
   %64 = and i64 %60, 63
   %65 = shl nuw i64 1, %64
@@ -3233,7 +3233,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i18: ; preds = %59
   %67 = load ptr, ptr %1, align 8, !tbaa !3
   %68 = lshr i32 %3, 2
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw [131 x i8], ptr %67, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !15
   %72 = zext i8 %71 to i32
   %73 = shl i32 %3, 1
@@ -3246,7 +3246,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i18: ; preds = %59
   ]
 
 77:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i18
-  %78 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %60
+  %78 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %60
   %.sroa.05.0.copyload.i19 = load ptr, ptr %78, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %.sroa.5.0.copyload.i21 = load i64, ptr %.sroa.5.0..sroa_idx.i20, align 8, !tbaa !13
@@ -3304,7 +3304,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traits
   store i32 %5, ptr %6, align 4, !tbaa !11
   %108 = zext i32 %5 to i64
   %109 = lshr i64 %108, 6
-  %110 = getelementptr inbounds nuw [9 x i64], ptr %10, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i64, ptr %10, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !13
   %112 = and i64 %108, 63
   %113 = shl nuw i64 1, %112
@@ -3316,7 +3316,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i36: ; preds = %107
   %115 = load ptr, ptr %1, align 8, !tbaa !3
   %116 = lshr i32 %5, 2
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [131 x i8], ptr %115, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !15
   %120 = zext i8 %119 to i32
   %121 = shl i32 %5, 1
@@ -3329,7 +3329,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i36: ; preds = %107
   ]
 
 125:                                              ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i36
-  %126 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %108
+  %126 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %108
   %.sroa.05.0.copyload.i37 = load ptr, ptr %126, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %.sroa.5.0.copyload.i39 = load i64, ptr %.sroa.5.0..sroa_idx.i38, align 8, !tbaa !13
@@ -3426,7 +3426,7 @@ define internal fastcc noundef ptr @_ZL11emitLibCallN4llvm7LibFuncEPNS_4TypeENS_
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = zext nneg i32 %0 to i64
   %18 = lshr i64 %17, 6
-  %19 = getelementptr inbounds nuw [9 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !13
   %21 = and i64 %17, 63
   %22 = shl nuw i64 1, %21
@@ -3438,7 +3438,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %15
   %24 = load ptr, ptr %7, align 8, !tbaa !3
   %25 = lshr i32 %0, 2
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [131 x i8], ptr %24, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !15
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %0, 1
@@ -3451,7 +3451,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %15
   ]
 
 34:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %35 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %17
+  %35 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %17
   %.sroa.05.0.copyload.i = load ptr, ptr %35, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -6336,7 +6336,7 @@ define dso_local noundef ptr @_ZN4llvm27emitHotColdSizeReturningNewEPNS_5ValueER
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = zext i32 %3 to i64
   %17 = lshr i64 %16, 6
-  %18 = getelementptr inbounds nuw [9 x i64], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !13
   %20 = and i64 %16, 63
   %21 = shl nuw i64 1, %20
@@ -6348,7 +6348,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %14
   %23 = load ptr, ptr %2, align 8, !tbaa !3
   %24 = lshr i32 %3, 2
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [131 x i8], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = zext i8 %27 to i32
   %29 = shl i32 %3, 1
@@ -6361,7 +6361,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %14
   ]
 
 33:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %34 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %16
+  %34 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %16
   %.sroa.05.0.copyload.i = load ptr, ptr %34, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -6522,7 +6522,7 @@ define dso_local noundef ptr @_ZN4llvm34emitHotColdSizeReturningNewAlignedEPNS_5
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = zext i32 %4 to i64
   %18 = lshr i64 %17, 6
-  %19 = getelementptr inbounds nuw [9 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !13
   %21 = and i64 %17, 63
   %22 = shl nuw i64 1, %21
@@ -6534,7 +6534,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %15
   %24 = load ptr, ptr %3, align 8, !tbaa !3
   %25 = lshr i32 %4, 2
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [131 x i8], ptr %24, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !15
   %29 = zext i8 %28 to i32
   %30 = shl i32 %4, 1
@@ -6547,7 +6547,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %15
   ]
 
 34:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %35 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %17
+  %35 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %17
   %.sroa.05.0.copyload.i = load ptr, ptr %35, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -6711,7 +6711,7 @@ define dso_local noundef ptr @_ZN4llvm14emitHotColdNewEPNS_5ValueERNS_13IRBuilde
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = zext i32 %3 to i64
   %16 = lshr i64 %15, 6
-  %17 = getelementptr inbounds nuw [9 x i64], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !13
   %19 = and i64 %15, 63
   %20 = shl nuw i64 1, %19
@@ -6723,7 +6723,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %13
   %22 = load ptr, ptr %2, align 8, !tbaa !3
   %23 = lshr i32 %3, 2
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [131 x i8], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !15
   %27 = zext i8 %26 to i32
   %28 = shl i32 %3, 1
@@ -6736,7 +6736,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %13
   ]
 
 32:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %33 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %15
+  %33 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %15
   %.sroa.05.0.copyload.i = load ptr, ptr %33, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -6889,7 +6889,7 @@ define dso_local noundef ptr @_ZN4llvm21emitHotColdNewNoThrowEPNS_5ValueES1_RNS_
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = zext i32 %4 to i64
   %17 = lshr i64 %16, 6
-  %18 = getelementptr inbounds nuw [9 x i64], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !13
   %20 = and i64 %16, 63
   %21 = shl nuw i64 1, %20
@@ -6901,7 +6901,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %14
   %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = lshr i32 %4, 2
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [131 x i8], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = zext i8 %27 to i32
   %29 = shl i32 %4, 1
@@ -6914,7 +6914,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %14
   ]
 
 33:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %34 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %16
+  %34 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %16
   %.sroa.05.0.copyload.i = load ptr, ptr %34, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -7073,7 +7073,7 @@ define dso_local noundef ptr @_ZN4llvm21emitHotColdNewAlignedEPNS_5ValueES1_RNS_
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = zext i32 %4 to i64
   %17 = lshr i64 %16, 6
-  %18 = getelementptr inbounds nuw [9 x i64], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !13
   %20 = and i64 %16, 63
   %21 = shl nuw i64 1, %20
@@ -7085,7 +7085,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %14
   %23 = load ptr, ptr %3, align 8, !tbaa !3
   %24 = lshr i32 %4, 2
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [131 x i8], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = zext i8 %27 to i32
   %29 = shl i32 %4, 1
@@ -7098,7 +7098,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %14
   ]
 
 33:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %34 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %16
+  %34 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %16
   %.sroa.05.0.copyload.i = load ptr, ptr %34, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13
@@ -7257,7 +7257,7 @@ define dso_local noundef ptr @_ZN4llvm28emitHotColdNewAlignedNoThrowEPNS_5ValueE
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = zext i32 %5 to i64
   %18 = lshr i64 %17, 6
-  %19 = getelementptr inbounds nuw [9 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !13
   %21 = and i64 %17, 63
   %22 = shl nuw i64 1, %21
@@ -7269,7 +7269,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %15
   %24 = load ptr, ptr %4, align 8, !tbaa !3
   %25 = lshr i32 %5, 2
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [131 x i8], ptr %24, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !15
   %29 = zext i8 %28 to i32
   %30 = shl i32 %5, 1
@@ -7282,7 +7282,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %15
   ]
 
 34:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
-  %35 = getelementptr inbounds nuw [523 x %"class.llvm::StringLiteral"], ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 0, i64 %17
+  %35 = getelementptr inbounds nuw %"class.llvm::StringLiteral", ptr @_ZN4llvm21TargetLibraryInfoImpl13StandardNamesE, i64 %17
   %.sroa.05.0.copyload.i = load ptr, ptr %35, align 16, !tbaa !66
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !13

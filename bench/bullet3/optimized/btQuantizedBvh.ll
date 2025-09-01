@@ -1639,9 +1639,9 @@ define linkonce_odr dso_local void @_ZN14btQuantizedBvh21mergeInternalNodeAabbEi
 
 70:                                               ; preds = %10, %84
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %84 ]
-  %71 = getelementptr inbounds nuw [3 x i16], ptr %67, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv
   %72 = load i16, ptr %71, align 2, !tbaa !52
-  %73 = getelementptr inbounds nuw [3 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %74 = load i16, ptr %73, align 2, !tbaa !52
   %75 = icmp ugt i16 %72, %74
   br i1 %75, label %76, label %77
@@ -1651,9 +1651,9 @@ define linkonce_odr dso_local void @_ZN14btQuantizedBvh21mergeInternalNodeAabbEi
   br label %77
 
 77:                                               ; preds = %76, %70
-  %78 = getelementptr inbounds nuw [3 x i16], ptr %68, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2, !tbaa !52
-  %80 = getelementptr inbounds nuw [3 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %81 = load i16, ptr %80, align 2, !tbaa !52
   %82 = icmp ult i16 %79, %81
   br i1 %82, label %83, label %84
@@ -4500,9 +4500,9 @@ define dso_local void @_ZN14btQuantizedBvh16deSerializeFloatER23btQuantizedBvhFl
 
 5:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %7 = load float, ptr %6, align 4, !tbaa !39
-  %8 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -4514,9 +4514,9 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit: ; preds = %5
 
 10:                                               ; preds = %10, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit
   %indvars.iv.i80 = phi i64 [ 0, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit ], [ %indvars.iv.next.i81, %10 ]
-  %11 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i80
+  %11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i80
   %12 = load float, ptr %11, align 4, !tbaa !39
-  %13 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i80
+  %13 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i80
   store float %12, ptr %13, align 4, !tbaa !39
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 4
@@ -4529,9 +4529,9 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit83: ; preds = %10
 
 16:                                               ; preds = %16, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit83
   %indvars.iv.i84 = phi i64 [ 0, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit83 ], [ %indvars.iv.next.i85, %16 ]
-  %17 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %indvars.iv.i84
+  %17 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i84
   %18 = load float, ptr %17, align 4, !tbaa !39
-  %19 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i84
+  %19 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i84
   store float %18, ptr %19, align 4, !tbaa !39
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, 4
@@ -4651,9 +4651,9 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %5
 
 69:                                               ; preds = %69, %65
   %indvars.iv.i91 = phi i64 [ 0, %65 ], [ %indvars.iv.next.i92, %69 ]
-  %70 = getelementptr inbounds nuw [4 x float], ptr %68, i64 0, i64 %indvars.iv.i91
+  %70 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i91
   %71 = load float, ptr %70, align 4, !tbaa !39
-  %72 = getelementptr inbounds nuw [4 x float], ptr %67, i64 0, i64 %indvars.iv.i91
+  %72 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv.i91
   store float %71, ptr %72, align 4, !tbaa !39
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 4
@@ -4661,9 +4661,9 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %5
 
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94: ; preds = %69, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94
   %indvars.iv.i95 = phi i64 [ %indvars.iv.next.i96, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit94 ], [ 0, %69 ]
-  %73 = getelementptr inbounds nuw [4 x float], ptr %.071132, i64 0, i64 %indvars.iv.i95
+  %73 = getelementptr inbounds nuw float, ptr %.071132, i64 %indvars.iv.i95
   %74 = load float, ptr %73, align 4, !tbaa !39
-  %75 = getelementptr inbounds nuw [4 x float], ptr %66, i64 0, i64 %indvars.iv.i95
+  %75 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i95
   store float %74, ptr %75, align 4, !tbaa !39
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 4
@@ -4950,10 +4950,10 @@ define dso_local void @_ZN14btQuantizedBvh17deSerializeDoubleER24btQuantizedBvhD
 
 5:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   %7 = load double, ptr %6, align 8, !tbaa !117
   %8 = fptrunc double %7 to float
-  %9 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   store float %8, ptr %9, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -4965,10 +4965,10 @@ _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit: ; preds = %5
 
 11:                                               ; preds = %11, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit
   %indvars.iv.i80 = phi i64 [ 0, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit ], [ %indvars.iv.next.i81, %11 ]
-  %12 = getelementptr inbounds nuw [4 x double], ptr %1, i64 0, i64 %indvars.iv.i80
+  %12 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i80
   %13 = load double, ptr %12, align 8, !tbaa !117
   %14 = fptrunc double %13 to float
-  %15 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i80
+  %15 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i80
   store float %14, ptr %15, align 4, !tbaa !39
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 4
@@ -4981,10 +4981,10 @@ _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83: ; preds = %11
 
 18:                                               ; preds = %18, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83
   %indvars.iv.i84 = phi i64 [ 0, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit83 ], [ %indvars.iv.next.i85, %18 ]
-  %19 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv.i84
+  %19 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i84
   %20 = load double, ptr %19, align 8, !tbaa !117
   %21 = fptrunc double %20 to float
-  %22 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i84
+  %22 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i84
   store float %21, ptr %22, align 4, !tbaa !39
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, 4
@@ -5104,10 +5104,10 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %6
 
 72:                                               ; preds = %72, %68
   %indvars.iv.i91 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i92, %72 ]
-  %73 = getelementptr inbounds nuw [4 x double], ptr %71, i64 0, i64 %indvars.iv.i91
+  %73 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv.i91
   %74 = load double, ptr %73, align 8, !tbaa !117
   %75 = fptrunc double %74 to float
-  %76 = getelementptr inbounds nuw [4 x float], ptr %70, i64 0, i64 %indvars.iv.i91
+  %76 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i91
   store float %75, ptr %76, align 4, !tbaa !39
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 4
@@ -5115,10 +5115,10 @@ _ZN20btAlignedObjectArrayI18btOptimizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %6
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94: ; preds = %72, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94
   %indvars.iv.i95 = phi i64 [ %indvars.iv.next.i96, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit94 ], [ 0, %72 ]
-  %77 = getelementptr inbounds nuw [4 x double], ptr %.071132, i64 0, i64 %indvars.iv.i95
+  %77 = getelementptr inbounds nuw double, ptr %.071132, i64 %indvars.iv.i95
   %78 = load double, ptr %77, align 8, !tbaa !117
   %79 = fptrunc double %78 to float
-  %80 = getelementptr inbounds nuw [4 x float], ptr %69, i64 0, i64 %indvars.iv.i95
+  %80 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i95
   store float %79, ptr %80, align 4, !tbaa !39
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 4
@@ -5405,9 +5405,9 @@ define dso_local noundef nonnull ptr @_ZNK14btQuantizedBvh9serializeEPvP12btSeri
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %8 = load float, ptr %7, align 4, !tbaa !39
-  %9 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
   store float %8, ptr %9, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -5419,9 +5419,9 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %6
 
 11:                                               ; preds = %11, %_ZNK9btVector39serializeER18btVector3FloatData.exit
   %indvars.iv.i100 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit ], [ %indvars.iv.next.i101, %11 ]
-  %12 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv.i100
+  %12 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i100
   %13 = load float, ptr %12, align 4, !tbaa !39
-  %14 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i100
+  %14 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i100
   store float %13, ptr %14, align 4, !tbaa !39
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, 4
@@ -5434,9 +5434,9 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit103: ; preds = %11
 
 17:                                               ; preds = %17, %_ZNK9btVector39serializeER18btVector3FloatData.exit103
   %indvars.iv.i104 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit103 ], [ %indvars.iv.next.i105, %17 ]
-  %18 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %indvars.iv.i104
+  %18 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i104
   %19 = load float, ptr %18, align 4, !tbaa !39
-  %20 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i104
+  %20 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i104
   store float %19, ptr %20, align 4, !tbaa !39
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, 4
@@ -5510,9 +5510,9 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit107: ; preds = %17
 
 58:                                               ; preds = %58, %53
   %indvars.iv.i108 = phi i64 [ 0, %53 ], [ %indvars.iv.next.i109, %58 ]
-  %59 = getelementptr inbounds nuw [4 x float], ptr %56, i64 0, i64 %indvars.iv.i108
+  %59 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i108
   %60 = load float, ptr %59, align 4, !tbaa !39
-  %61 = getelementptr inbounds nuw [4 x float], ptr %57, i64 0, i64 %indvars.iv.i108
+  %61 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i108
   store float %60, ptr %61, align 4, !tbaa !39
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 4
@@ -5520,9 +5520,9 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit107: ; preds = %17
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit111: ; preds = %58, %_ZNK9btVector39serializeER18btVector3FloatData.exit111
   %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i113, %_ZNK9btVector39serializeER18btVector3FloatData.exit111 ], [ 0, %58 ]
-  %62 = getelementptr inbounds nuw [4 x float], ptr %55, i64 0, i64 %indvars.iv.i112
+  %62 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i112
   %63 = load float, ptr %62, align 4, !tbaa !39
-  %64 = getelementptr inbounds nuw [4 x float], ptr %.091122, i64 0, i64 %indvars.iv.i112
+  %64 = getelementptr inbounds nuw float, ptr %.091122, i64 %indvars.iv.i112
   store float %63, ptr %64, align 4, !tbaa !39
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, 4

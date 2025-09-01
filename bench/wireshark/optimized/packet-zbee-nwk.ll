@@ -1674,7 +1674,7 @@ dissect_zbee_nwk_route_rec.exit.i.i:              ; preds = %.lr.ph.i.i.i, %452
   %522 = trunc i64 %indvars.iv.i.i.i to i32
   %523 = add i32 %.040.i.i.i, %522
   %524 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0237.i, i32 noundef %523)
-  %525 = getelementptr [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %525 = getelementptr i8, ptr %5, i64 %indvars.iv.i.i.i
   store i8 %524, ptr %525, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond46.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16

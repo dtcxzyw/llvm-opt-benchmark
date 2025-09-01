@@ -186,7 +186,7 @@ prte_hwloc_base_core_cpus.exit.thread:            ; preds = %4, %hwloc_get_obj_b
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %18, i32 2
+  %19 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %18, i32 2
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = icmp sgt i32 %20, 4
   br i1 %21, label %22, label %23
@@ -212,7 +212,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %23, %25
 
 28:                                               ; preds = %hwloc_get_obj_by_type.exit
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %29, i32 2
+  %30 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %29, i32 2
   %31 = load i32, ptr %30, align 4, !tbaa !17
   %32 = icmp sgt i32 %31, 4
   br i1 %32, label %33, label %36
@@ -317,7 +317,7 @@ prte_hwloc_base_core_cpus.exit.thread.i:          ; preds = %prte_hwloc_base_cor
 
 47:                                               ; preds = %45
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %48, i32 2
+  %49 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %48, i32 2
   %50 = load i32, ptr %49, align 4, !tbaa !17
   %51 = icmp sgt i32 %50, 4
   br i1 %51, label %52, label %53
@@ -343,7 +343,7 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %55, %53
 
 58:                                               ; preds = %hwloc_get_obj_by_type.exit.i
   %59 = zext nneg i32 %57 to i64
-  %60 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %59, i32 2
+  %60 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %59, i32 2
   %61 = load i32, ptr %60, align 4, !tbaa !17
   %62 = icmp sgt i32 %61, 4
   br i1 %62, label %63, label %prte_hwloc_base_get_pu.exit
@@ -660,7 +660,7 @@ define noundef ptr @prte_hwloc_base_filter_cpus(ptr noundef %0) local_unnamed_ad
 
 6:                                                ; preds = %5
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = icmp sgt i32 %9, 4
   br i1 %10, label %11, label %12
@@ -680,7 +680,7 @@ define noundef ptr @prte_hwloc_base_filter_cpus(ptr noundef %0) local_unnamed_ad
 
 17:                                               ; preds = %16
   %18 = zext nneg i32 %4 to i64
-  %19 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %18, i32 2
+  %19 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %18, i32 2
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = icmp sgt i32 %20, 4
   br i1 %21, label %22, label %23
@@ -710,7 +710,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_get_topology() local_unnamed_addr #
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4, !tbaa !17
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
@@ -736,7 +736,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_get_topology() local_unnamed_addr #
 
 15:                                               ; preds = %14
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %16, i32 2
+  %17 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %16, i32 2
   %18 = load i32, ptr %17, align 4, !tbaa !17
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %21
@@ -778,7 +778,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %23, %21, %prte_hwlo
 
 33:                                               ; preds = %32
   %34 = zext nneg i32 %13 to i64
-  %35 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %34, i32 2
+  %35 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %34, i32 2
   %36 = load i32, ptr %35, align 4, !tbaa !17
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %39
@@ -909,7 +909,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_set_topology(ptr noundef %0) local_
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4, i32 2
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp sgt i32 %6, 4
   br i1 %7, label %8, label %9
@@ -947,7 +947,7 @@ define range(i32 -8, 1) i32 @prte_hwloc_base_set_topology(ptr noundef %0) local_
 
 20:                                               ; preds = %18
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %21, i32 2
+  %22 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %21, i32 2
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = icmp sgt i32 %23, 4
   br i1 %24, label %25, label %84
@@ -987,7 +987,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %26, %prte_hwloc_bas
 
 37:                                               ; preds = %35
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %38, i32 2
+  %39 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %38, i32 2
   %40 = load i32, ptr %39, align 4, !tbaa !17
   %41 = icmp sgt i32 %40, 4
   br i1 %41, label %42, label %84
@@ -1337,7 +1337,7 @@ define noundef i32 @prte_hwloc_base_get_obj_idx(ptr noundef %0, ptr noundef read
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %5, i32 2
   %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = icmp sgt i32 %7, 4
   br i1 %8, label %9, label %10
@@ -1355,7 +1355,7 @@ define noundef i32 @prte_hwloc_base_get_obj_idx(ptr noundef %0, ptr noundef read
 
 14:                                               ; preds = %10
   %15 = zext nneg i32 %13 to i64
-  %16 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %15, i32 2
+  %16 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %15, i32 2
   %17 = load i32, ptr %16, align 4, !tbaa !17
   %18 = icmp sgt i32 %17, 4
   br i1 %18, label %19, label %22
@@ -1594,7 +1594,7 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %14, i32 2
+  %15 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %14, i32 2
   %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = icmp sgt i32 %16, 4
   br i1 %17, label %18, label %19
@@ -1620,7 +1620,7 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 
 25:                                               ; preds = %.lr.ph173
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %26, i32 2
+  %27 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %26, i32 2
   %28 = load i32, ptr %27, align 4, !tbaa !17
   %29 = icmp sgt i32 %28, 4
   br i1 %29, label %30, label %31
@@ -1849,7 +1849,7 @@ prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get
 
 131:                                              ; preds = %129
   %132 = zext nneg i32 %130 to i64
-  %133 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %132, i32 2
+  %133 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %132, i32 2
   %134 = load i32, ptr %133, align 4, !tbaa !17
   %135 = icmp sgt i32 %134, 4
   br i1 %135, label %136, label %140
@@ -2093,7 +2093,7 @@ define zeroext i16 @prte_hwloc_base_get_relative_locality(ptr noundef %0, ptr no
 
 23:                                               ; preds = %._crit_edge
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %24, i32 2
+  %25 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %24, i32 2
   %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = icmp sgt i32 %26, 4
   %.pre51 = load i16, ptr %4, align 2, !tbaa !94
@@ -2161,7 +2161,7 @@ define internal fastcc void @prte_hwloc_base_get_relative_locality_by_depth(ptr 
 
 switch.lookup:                                    ; preds = %17
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i16], ptr @switch.table.prte_hwloc_base_get_relative_locality_by_depth, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.prte_hwloc_base_get_relative_locality_by_depth, i64 %20
   %switch.load = load i16, ptr %switch.gep, align 2
   %21 = load i16, ptr %4, align 2, !tbaa !94
   %22 = or i16 %21, %switch.load
@@ -2190,7 +2190,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8, i32 2
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %62
@@ -2239,7 +2239,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
 
 31:                                               ; preds = %29
   %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %32, i32 2
+  %33 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %32, i32 2
   %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = icmp sgt i32 %34, 4
   br i1 %35, label %36, label %39
@@ -2291,7 +2291,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
 
 54:                                               ; preds = %._crit_edge.thread
   %55 = zext nneg i32 %53 to i64
-  %56 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %55, i32 2
+  %56 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %55, i32 2
   %57 = load i32, ptr %56, align 4, !tbaa !17
   %58 = icmp sgt i32 %57, 4
   br i1 %58, label %59, label %62
@@ -2336,8 +2336,8 @@ hwloc_getline.exit.thread:                        ; preds = %.backedge, %.prehea
 
 hwloc_getline.exit:                               ; preds = %.preheader, %.backedge
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  %6 = add i64 %5, -1
-  %7 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %6
+  %6 = getelementptr i8, ptr %1, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -1
   store i8 0, ptr %7, align 1, !tbaa !54
   %8 = call noalias ptr @strdup(ptr noundef nonnull %1) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -2377,7 +2377,7 @@ hwloc_getline.exit:                               ; preds = %.preheader, %.backe
 
 20:                                               ; preds = %.loopexit
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %21, i32 2
+  %22 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %21, i32 2
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = icmp sgt i32 %23, 4
   br i1 %24, label %25, label %28
@@ -2415,7 +2415,7 @@ define ptr @prte_hwloc_base_print_binding(i16 noundef zeroext %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.prte_hwloc_base_print_binding, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.prte_hwloc_base_print_binding, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -2449,7 +2449,7 @@ switch.lookup:                                    ; preds = %1
 
 19:                                               ; preds = %15
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr %6, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 50, ptr noundef nonnull @.str.43, ptr noundef nonnull %.024) #18
   br label %36
@@ -2458,7 +2458,7 @@ switch.lookup:                                    ; preds = %1
   %25 = and i32 %2, 8192
   %.not26 = icmp eq i32 %25, 0
   %26 = sext i32 %16 to i64
-  %27 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %26
+  %27 = getelementptr inbounds ptr, ptr %6, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !20
   br i1 %.not26, label %31, label %29
 
@@ -2480,7 +2480,7 @@ switch.lookup:                                    ; preds = %1
 36:                                               ; preds = %29, %34, %32, %19
   %37 = load i32, ptr %11, align 8, !tbaa !101
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr %6, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = add nsw i32 %37, 1
   store i32 %41, ptr %11, align 8, !tbaa !101
@@ -3644,7 +3644,7 @@ define noalias ptr @prte_hwloc_base_get_location(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.prte_hwloc_base_get_location, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.prte_hwloc_base_get_location, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 58) #18
   %9 = load ptr, ptr %8, align 8, !tbaa !20

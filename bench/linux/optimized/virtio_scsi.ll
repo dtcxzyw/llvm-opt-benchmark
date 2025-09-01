@@ -454,7 +454,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(n
   %16 = select i1 %14, i1 %15, i1 false
   %17 = icmp ne ptr %13, null
   %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %19, label %90
+  br i1 %18, label %19, label %86
 
 19:                                               ; preds = %2
   %20 = load i32, ptr @virtscsi_poll_queues, align 4
@@ -525,7 +525,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(n
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 %59(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %3) #12
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %90
+  br i1 %61, label %62, label %86
 
 62:                                               ; preds = %.loopexit7
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 496
@@ -540,64 +540,59 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(n
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 520
   store ptr %68, ptr %69, align 8
   %70 = icmp ugt i32 %8, 2
-  br i1 %70, label %71, label %.loopexit
+  br i1 %70, label %.preheader, label %.loopexit
 
-71:                                               ; preds = %62
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  br label %73
+.preheader:                                       ; preds = %62, %.preheader
+  %71 = phi i64 [ %76, %.preheader ], [ 2, %62 ]
+  %72 = getelementptr %struct.virtio_scsi_vq, ptr %63, i64 %71
+  %73 = getelementptr ptr, ptr %11, i64 %71
+  %74 = load ptr, ptr %73, align 8
+  store i32 0, ptr %72, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store ptr %74, ptr %75, align 8
+  %76 = add nuw nsw i64 %71, 1
+  %77 = icmp eq i64 %76, %9
+  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !15
 
-73:                                               ; preds = %73, %71
-  %74 = phi i64 [ 2, %71 ], [ %80, %73 ]
-  %75 = add nsw i64 %74, -2
-  %76 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %72, i64 0, i64 %75
-  %77 = getelementptr ptr, ptr %11, i64 %74
-  %78 = load ptr, ptr %77, align 8
-  store i32 0, ptr %76, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %78, ptr %79, align 8
-  %80 = add nuw nsw i64 %74, 1
-  %81 = icmp eq i64 %80, %9
-  br i1 %81, label %.loopexit, label %73, !llvm.loop !15
-
-.loopexit:                                        ; preds = %73, %62
+.loopexit:                                        ; preds = %.preheader, %62
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 32, ptr %4, align 4
+  %78 = call i32 @__SCT__might_resched() #12
+  %79 = load ptr, ptr %56, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8
+  call void %81(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %4, i32 noundef 4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store i32 96, ptr %5, align 4
   %82 = call i32 @__SCT__might_resched() #12
   %83 = load ptr, ptr %56, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %4, i32 noundef 4) #12
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 96, ptr %5, align 4
-  %86 = call i32 @__SCT__might_resched() #12
-  %87 = load ptr, ptr %56, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 4) #12
+  call void %85(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %90
+  br label %86
 
-90:                                               ; preds = %.loopexit, %.loopexit7, %2
-  %91 = phi i32 [ %60, %.loopexit7 ], [ 0, %.loopexit ], [ -12, %2 ]
+86:                                               ; preds = %.loopexit, %.loopexit7, %2
+  %87 = phi i32 [ %60, %.loopexit7 ], [ 0, %.loopexit ], [ -12, %2 ]
   call void @kfree(ptr noundef %13) #12
   call void @kfree(ptr noundef %12) #12
   call void @kfree(ptr noundef %11) #12
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %98, label %93
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %94, label %89
 
-93:                                               ; preds = %90
+89:                                               ; preds = %86
   call void @virtio_reset_device(ptr noundef %0) #12
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef %0) #12
-  br label %98
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  %93 = load ptr, ptr %92, align 8
+  call void %93(ptr noundef %0) #12
+  br label %94
 
-98:                                               ; preds = %93, %90
+94:                                               ; preds = %89, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %91
+  ret i32 %87
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -613,7 +608,7 @@ define internal fastcc void @virtscsi_kick_event_all(ptr noundef %0) unnamed_add
 
 6:                                                ; preds = %21, %1
   %7 = phi i64 [ 0, %1 ], [ %22, %21 ]
-  %8 = getelementptr [8 x %struct.virtio_scsi_event_node], ptr %3, i64 0, i64 %7
+  %8 = getelementptr %struct.virtio_scsi_event_node, ptr %3, i64 %7
   store ptr %0, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
@@ -665,7 +660,7 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
   %5 = lshr i32 %4, 16
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2592
-  %8 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %7, i64 0, i64 %6
+  %8 = getelementptr %struct.virtio_scsi_vq, ptr %7, i64 %6
   %9 = getelementptr i8, ptr %1, i64 296
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %11 = load i32, ptr %10, align 8
@@ -766,7 +761,7 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
 define internal void @virtscsi_commit_rqs(ptr noundef %0, i16 noundef zeroext %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %4 = zext i16 %1 to i64
-  %5 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %3, i64 0, i64 %4
+  %5 = getelementptr %struct.virtio_scsi_vq, ptr %3, i64 %4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #12
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -850,7 +845,7 @@ define internal range(i32 8194, 8196) i32 @virtscsi_abort(ptr noundef %0) #2 ali
 
 44:                                               ; preds = %44, %41
   %45 = phi i64 [ 0, %41 ], [ %47, %44 ]
-  %46 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %42, i64 0, i64 %45
+  %46 = getelementptr %struct.virtio_scsi_vq, ptr %42, i64 %45
   call fastcc void @virtscsi_vq_done(ptr noundef %46)
   %47 = add nuw nsw i64 %45, 1
   %48 = icmp eq i64 %47, %43
@@ -936,7 +931,7 @@ define internal range(i32 8194, 8196) i32 @virtscsi_device_reset(ptr noundef rea
 
 44:                                               ; preds = %44, %41
   %45 = phi i64 [ 0, %41 ], [ %47, %44 ]
-  %46 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %42, i64 0, i64 %45
+  %46 = getelementptr %struct.virtio_scsi_vq, ptr %42, i64 %45
   call fastcc void @virtscsi_vq_done(ptr noundef %46)
   %47 = add nuw nsw i64 %45, 1
   %48 = icmp eq i64 %47, %43
@@ -989,8 +984,8 @@ define internal void @virtscsi_map_queues(ptr noundef %0) #2 align 16 {
   %10 = phi i32 [ 0, %6 ], [ %18, %25 ]
   %11 = phi i32 [ 0, %6 ], [ %26, %25 ]
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %7, i64 0, i64 %12
-  %14 = getelementptr [3 x i32], ptr %8, i64 0, i64 %12
+  %13 = getelementptr %struct.blk_mq_queue_map, ptr %7, i64 %12
+  %14 = getelementptr i32, ptr %8, i64 %12
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %15, ptr %16, align 8
@@ -1028,7 +1023,7 @@ define internal i32 @virtscsi_mq_poll(ptr noundef %0, i32 noundef %1) #2 align 1
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %5 = zext i32 %1 to i64
-  %6 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %4, i64 0, i64 %5
+  %6 = getelementptr %struct.virtio_scsi_vq, ptr %4, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !5
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
@@ -1103,7 +1098,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   call void @sg_init_one(ptr noundef nonnull %8, ptr noundef nonnull %21, i32 noundef %22) #12
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %23, align 8
-  br label %74
+  br label %72
 
 24:                                               ; preds = %14, %17
   %25 = phi ptr [ %18, %17 ], [ null, %14 ]
@@ -1139,7 +1134,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   %44 = load ptr, ptr %25, align 8
   %45 = add nuw nsw i32 %43, 1
   %46 = zext nneg i32 %43 to i64
-  %47 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr %6, i64 %46
   store ptr %44, ptr %47, align 8
   br label %48
 
@@ -1149,68 +1144,66 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   %51 = trunc nuw nsw i64 %3 to i32
   call void @sg_init_one(ptr noundef nonnull %8, ptr noundef nonnull %50, i32 noundef %51) #12
   %52 = zext nneg i32 %49 to i64
-  %53 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %52
+  %53 = getelementptr ptr, ptr %6, i64 %52
   store ptr %8, ptr %53, align 8
-  br i1 %26, label %74, label %54
+  br i1 %26, label %72, label %54
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %67, label %58
+  br i1 %57, label %65, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %67, label %62
+  br i1 %61, label %65, label %62
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %56, align 8
-  %64 = add nuw nsw i32 %49, 1
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %65
-  store ptr %63, ptr %66, align 8
-  br label %67
+  %64 = getelementptr i8, ptr %53, i64 8
+  store ptr %63, ptr %64, align 8
+  br label %65
 
-67:                                               ; preds = %62, %58, %54
-  %68 = phi i32 [ 2, %62 ], [ 1, %58 ], [ 1, %54 ]
-  %69 = load ptr, ptr %27, align 8
-  %70 = add nuw nsw i32 %68, 1
-  %71 = add nuw nsw i32 %68, %49
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %72
-  store ptr %69, ptr %73, align 8
-  br label %74
+65:                                               ; preds = %62, %58, %54
+  %66 = phi i32 [ 2, %62 ], [ 1, %58 ], [ 1, %54 ]
+  %67 = load ptr, ptr %27, align 8
+  %68 = add nuw nsw i32 %66, 1
+  %69 = add nuw nsw i32 %66, %49
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr ptr, ptr %6, i64 %70
+  store ptr %67, ptr %71, align 8
+  br label %72
 
-74:                                               ; preds = %.thread5, %67, %48
-  %75 = phi i32 [ %49, %67 ], [ %49, %48 ], [ 1, %.thread5 ]
-  %76 = phi i32 [ %70, %67 ], [ 1, %48 ], [ 1, %.thread5 ]
-  %77 = call i32 @virtqueue_add_sgs(ptr noundef %11, ptr noundef nonnull %6, i32 noundef %75, i32 noundef %76, ptr noundef %1, i32 noundef 2080) #12
+72:                                               ; preds = %.thread5, %65, %48
+  %73 = phi i32 [ %49, %65 ], [ %49, %48 ], [ 1, %.thread5 ]
+  %74 = phi i32 [ %68, %65 ], [ 1, %48 ], [ 1, %.thread5 ]
+  %75 = call i32 @virtqueue_add_sgs(ptr noundef %11, ptr noundef nonnull %6, i32 noundef %73, i32 noundef %74, ptr noundef %1, i32 noundef 2080) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %78 = icmp eq i32 %77, 0
-  %79 = and i1 %4, %78
-  br i1 %79, label %80, label %86
+  %76 = icmp eq i32 %75, 0
+  %77 = and i1 %4, %76
+  br i1 %77, label %78, label %84
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %10, align 8
-  %82 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %81) #12
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %10, align 8
+  %80 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %79) #12
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %9) #12
-  br i1 %82, label %83, label %87
+  br i1 %80, label %81, label %85
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %10, align 8
-  %85 = call zeroext i1 @virtqueue_notify(ptr noundef %84) #12
-  br label %87
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %10, align 8
+  %83 = call zeroext i1 @virtqueue_notify(ptr noundef %82) #12
+  br label %85
 
-86:                                               ; preds = %74
+84:                                               ; preds = %72
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %9) #12
-  br label %87
+  br label %85
 
-87:                                               ; preds = %86, %83, %80
-  ret i32 %77
+85:                                               ; preds = %84, %81, %78
+  ret i32 %75
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1638,7 +1631,7 @@ define internal void @virtscsi_req_done(ptr noundef readonly captures(none) %0) 
   %8 = add i32 %7, -2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 2592
   %10 = sext i32 %8 to i64
-  %11 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %9, i64 0, i64 %10
+  %11 = getelementptr %struct.virtio_scsi_vq, ptr %9, i64 %10
   tail call fastcc void @virtscsi_vq_done(ptr noundef %11)
   ret void
 }

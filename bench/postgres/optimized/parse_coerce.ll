@@ -1527,7 +1527,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   %.2201302.ph = phi i32 [ %.0199355, %27 ], [ %.0199355, %31 ], [ %37, %39 ]
   %48 = add i32 %.0165362, 1
   %49 = sext i32 %.0165362 to i64
-  %50 = getelementptr inbounds [100 x i32], ptr %5, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr %5, i64 %49
   store i32 %.sink, ptr %50, align 4
   br label %.thread288
 
@@ -1644,7 +1644,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
 77:                                               ; preds = %75
   %78 = add i32 %.2167309, 1
   %79 = sext i32 %.2167309 to i64
-  %80 = getelementptr inbounds [100 x i32], ptr %5, i64 0, i64 %79
+  %80 = getelementptr inbounds i32, ptr %5, i64 %79
   store i32 %76, ptr %80, align 4
   br label %81
 
@@ -2726,7 +2726,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   %.1387.ph = phi i8 [ %.0386761, %82 ], [ %.0386761, %88 ], [ 1, %109 ]
   %136 = add i32 %.0375764, 1
   %137 = sext i32 %.0375764 to i64
-  %138 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %137
+  %138 = getelementptr inbounds i32, ptr %7, i64 %137
   store i32 %.sink, ptr %138, align 4
   br label %139
 
@@ -3005,7 +3005,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
 240:                                              ; preds = %233
   %241 = add i32 %.0375.lcssa, 1
   %242 = sext i32 %.0375.lcssa to i64
-  %243 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %242
+  %243 = getelementptr inbounds i32, ptr %7, i64 %242
   store i32 %234, ptr %243, align 4
   br label %248
 

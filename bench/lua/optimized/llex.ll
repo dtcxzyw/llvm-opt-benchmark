@@ -77,7 +77,7 @@ define hidden void @luaX_init(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [37 x ptr], ptr @luaX_tokens, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @luaX_tokens, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call ptr @luaS_new(ptr noundef %0, ptr noundef %5) #6
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %6) #6
@@ -104,9 +104,9 @@ define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 no
   br i1 %3, label %4, label %16
 
 4:                                                ; preds = %2
-  %5 = add nsw i32 %1, 1
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %6
+  %5 = sext i32 %1 to i64
+  %6 = getelementptr i8, ptr @luai_ctype_, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !13
   %9 = and i8 %8, 4
   %.not = icmp eq i8 %9, 0
@@ -123,9 +123,9 @@ define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 no
   br label %26
 
 16:                                               ; preds = %2
-  %17 = add nsw i32 %1, -256
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [37 x ptr], ptr @luaX_tokens, i64 0, i64 %18
+  %17 = zext nneg i32 %1 to i64
+  %18 = getelementptr ptr, ptr @luaX_tokens, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -2048
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = icmp samesign ult i32 %1, 288
   br i1 %21, label %22, label %26
@@ -220,9 +220,9 @@ save.exit:                                        ; preds = %.save.exit_crit_edg
   br i1 %37, label %38, label %48
 
 38:                                               ; preds = %36
-  %39 = add nsw i32 %2, 1
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %40
+  %39 = sext i32 %2 to i64
+  %40 = getelementptr i8, ptr @luai_ctype_, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !13
   %43 = and i8 %42, 4
   %.not.i = icmp eq i8 %43, 0
@@ -237,9 +237,9 @@ save.exit:                                        ; preds = %.save.exit_crit_edg
   br label %txtToken.exit
 
 48:                                               ; preds = %36
-  %49 = add nsw i32 %2, -256
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [37 x ptr], ptr @luaX_tokens, i64 0, i64 %50
+  %49 = zext nneg i32 %2 to i64
+  %50 = getelementptr ptr, ptr @luaX_tokens, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -2048
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = icmp samesign ult i32 %2, 288
   br i1 %53, label %54, label %txtToken.exit
@@ -1410,9 +1410,9 @@ save.exit38.i.i.i:                                ; preds = %436, %._crit_edge.i
 456:                                              ; preds = %454, %448
   %457 = phi i32 [ %453, %448 ], [ %455, %454 ]
   store i32 %457, ptr %0, align 8, !tbaa !51
-  %458 = add nsw i32 %457, 1
-  %459 = sext i32 %458 to i64
-  %460 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %459
+  %458 = sext i32 %457 to i64
+  %459 = getelementptr i8, ptr @luai_ctype_, i64 %458
+  %460 = getelementptr i8, ptr %459, i64 1
   %461 = load i8, ptr %460, align 1, !tbaa !13
   %462 = and i8 %461, 16
   %.not31.i.i.i = icmp eq i8 %462, 0
@@ -1543,7 +1543,7 @@ readutf8esc.exit.i.i:                             ; preds = %510, %504
 .lr.ph.i.i:                                       ; preds = %save.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %520, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %save.exit.i.i ]
   %521 = sub nsw i64 8, %indvars.iv.i.i
-  %522 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %521
+  %522 = getelementptr inbounds i8, ptr %4, i64 %521
   %523 = load i8, ptr %522, align 1, !tbaa !13
   %524 = load ptr, ptr %5, align 8, !tbaa !27
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 8
@@ -1694,9 +1694,9 @@ utf8esc.exit.i:                                   ; preds = %save.exit.i.i, %rea
 594:                                              ; preds = %592, %586
   %595 = phi i32 [ %591, %586 ], [ %593, %592 ]
   store i32 %595, ptr %0, align 8, !tbaa !51
-  %596 = add nsw i32 %595, 1
-  %597 = sext i32 %596 to i64
-  %598 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %597
+  %596 = sext i32 %595 to i64
+  %597 = getelementptr i8, ptr @luai_ctype_, i64 %596
+  %598 = getelementptr i8, ptr %597, i64 1
   %599 = load i8, ptr %598, align 1, !tbaa !13
   %600 = and i8 %599, 8
   %.not66160.i = icmp eq i8 %600, 0
@@ -1808,18 +1808,18 @@ utf8esc.exit.i:                                   ; preds = %save.exit.i.i, %rea
 
 inclinenumber.exit80.i:                           ; preds = %648, %631
   %.pr109.i = phi i32 [ %.pr109193.i, %631 ], [ %649, %648 ]
-  %650 = add nsw i32 %.pr109.i, 1
-  %651 = sext i32 %650 to i64
-  %652 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %651
+  %650 = sext i32 %.pr109.i to i64
+  %651 = getelementptr i8, ptr @luai_ctype_, i64 %650
+  %652 = getelementptr i8, ptr %651, i64 1
   %653 = load i8, ptr %652, align 1, !tbaa !13
   %654 = and i8 %653, 8
   %.not66.i = icmp eq i8 %654, 0
   br i1 %.not66.i, label %.loopexit.i, label %.lr.ph.i
 
 655:                                              ; preds = %359
-  %656 = add nsw i32 %360, 1
-  %657 = sext i32 %656 to i64
-  %658 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %657
+  %656 = sext i32 %360 to i64
+  %657 = getelementptr i8, ptr @luai_ctype_, i64 %656
+  %658 = getelementptr i8, ptr %657, i64 1
   %659 = load i8, ptr %658, align 1, !tbaa !13
   %660 = and i8 %659, 2
   %.not.i81.i = icmp eq i8 %660, 0
@@ -1864,9 +1864,9 @@ esccheck.exit.i:                                  ; preds = %655, %717
   %677 = phi i32 [ %718, %717 ], [ %360, %655 ]
   %.020.i.i = phi i32 [ %686, %717 ], [ 0, %655 ]
   %.01519.i.i = phi i32 [ %719, %717 ], [ 0, %655 ]
-  %678 = add nsw i32 %677, 1
-  %679 = sext i32 %678 to i64
-  %680 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %679
+  %678 = sext i32 %677 to i64
+  %679 = getelementptr i8, ptr @luai_ctype_, i64 %678
+  %680 = getelementptr i8, ptr %679, i64 1
   %681 = load i8, ptr %680, align 1, !tbaa !13
   %682 = and i8 %681, 2
   %.not.i83.i = icmp eq i8 %682, 0
@@ -2380,9 +2380,9 @@ check_next1.exit174:                              ; preds = %929, %935
   br label %.loopexit
 
 938:                                              ; preds = %907
-  %939 = add nsw i32 %908, 1
-  %940 = sext i32 %939 to i64
-  %941 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %940
+  %939 = sext i32 %908 to i64
+  %940 = getelementptr i8, ptr @luai_ctype_, i64 %939
+  %941 = getelementptr i8, ptr %940, i64 1
   %942 = load i8, ptr %941, align 1, !tbaa !13
   %943 = and i8 %942, 2
   %.not117 = icmp eq i8 %943, 0
@@ -2397,9 +2397,9 @@ check_next1.exit174:                              ; preds = %929, %935
   br label %.loopexit
 
 948:                                              ; preds = %.critedge
-  %949 = add nsw i32 %10, 1
-  %950 = sext i32 %949 to i64
-  %951 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %950
+  %949 = sext i32 %10 to i64
+  %950 = getelementptr i8, ptr @luai_ctype_, i64 %949
+  %951 = getelementptr i8, ptr %950, i64 1
   %952 = load i8, ptr %951, align 1, !tbaa !13
   %953 = and i8 %952, 1
   %.not139 = icmp eq i8 %953, 0
@@ -2474,9 +2474,9 @@ save.exit180:                                     ; preds = %._crit_edge.i175, %
 987:                                              ; preds = %985, %979
   %988 = phi i32 [ %984, %979 ], [ %986, %985 ]
   store i32 %988, ptr %0, align 8, !tbaa !51
-  %989 = add nsw i32 %988, 1
-  %990 = sext i32 %989 to i64
-  %991 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %990
+  %989 = sext i32 %988 to i64
+  %990 = getelementptr i8, ptr @luai_ctype_, i64 %989
+  %991 = getelementptr i8, ptr %990, i64 1
   %992 = load i8, ptr %991, align 1, !tbaa !13
   %993 = and i8 %992, 3
   %.not142 = icmp eq i8 %993, 0
@@ -3494,9 +3494,9 @@ save.exit.i:                                      ; preds = %66, %._crit_edge.i.
   br label %.backedge
 
 89:                                               ; preds = %51
-  %90 = add nsw i32 %49, 1
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %91
+  %90 = sext i32 %49 to i64
+  %91 = getelementptr i8, ptr @luai_ctype_, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 1
   %93 = load i8, ptr %92, align 1, !tbaa !13
   %94 = zext i8 %93 to i32
   %95 = and i32 %94, 16
@@ -3775,9 +3775,9 @@ save.exit:                                        ; preds = %._crit_edge.i, %14
 36:                                               ; preds = %34, %28
   %37 = phi i32 [ %33, %28 ], [ %35, %34 ]
   store i32 %37, ptr %0, align 8, !tbaa !51
-  %38 = add nsw i32 %37, 1
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %39
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr i8, ptr @luai_ctype_, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !13
   %42 = and i8 %41, 16
   %.not.i = icmp eq i8 %42, 0

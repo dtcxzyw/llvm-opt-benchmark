@@ -73,7 +73,7 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !34
   %10 = icmp sgt i32 %9, 24
-  br i1 %10, label %11, label %.thread88
+  br i1 %10, label %11, label %.thread89
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -81,7 +81,7 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i8, ptr %14, align 1, !tbaa !37
   %16 = icmp ult i8 %15, 2
-  br i1 %16, label %17, label %.thread88
+  br i1 %16, label %17, label %.thread89
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -90,7 +90,7 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %21 = add nuw nsw i64 %20, 24
   %22 = zext nneg i32 %9 to i64
   %.not = icmp samesign ugt i64 %21, %22
-  br i1 %.not, label %.thread88, label %23
+  br i1 %.not, label %.thread89, label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -123,16 +123,17 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond, label %.thread, label %59
 
 .thread:                                          ; preds = %33, %37
-  %39 = phi i32 [ %38, %37 ], [ 3, %33 ]
-  %.17687 = phi ptr [ %.176, %37 ], [ %7, %33 ]
-  %40 = tail call i32 @av_packet_make_writable(ptr noundef nonnull %3) #5
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %103, label %42
+  %.17688 = phi ptr [ %.176, %37 ], [ %7, %33 ]
+  %.07786 = phi i32 [ %.077, %37 ], [ 4, %33 ]
+  %39 = tail call i32 @av_packet_make_writable(ptr noundef nonnull %3) #5
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %103, label %41
 
-42:                                               ; preds = %.thread
-  %43 = zext nneg i32 %39 to i64
-  %44 = getelementptr inbounds nuw [14 x %struct.IMM5_unit], ptr @IMM5_units, i64 0, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 14
+41:                                               ; preds = %.thread
+  %42 = zext nneg i32 %.07786 to i64
+  %43 = getelementptr %struct.IMM5_unit, ptr @IMM5_units, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 -15
+  %45 = getelementptr i8, ptr %43, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !38
   %47 = zext i8 %46 to i32
   %48 = icmp eq i8 %25, 2
@@ -145,37 +146,37 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %53 = add i32 %.074, %47
   store i32 %53, ptr %8, align 8, !tbaa !34
   %54 = zext i8 %46 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %44, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %44, i64 %54, i1 false)
   %55 = load ptr, ptr %12, align 8, !tbaa !36
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %54
   br i1 %48, label %57, label %58
 
-57:                                               ; preds = %42
+57:                                               ; preds = %41
   store i64 -9206238999977394176, ptr %56, align 1
-  br label %.thread88
+  br label %.thread89
 
-58:                                               ; preds = %42
+58:                                               ; preds = %41
   store i64 2896604456441348096, ptr %56, align 1
-  br label %.thread88
+  br label %.thread89
 
 59:                                               ; preds = %37
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %60, ptr %12, align 8, !tbaa !36
   %61 = add nsw i32 %9, -24
   store i32 %61, ptr %8, align 8, !tbaa !34
-  br label %.thread88
+  br label %.thread89
 
-.thread88:                                        ; preds = %59, %58, %57, %17, %11, %4
-  %.075 = phi ptr [ %7, %17 ], [ %7, %11 ], [ %7, %4 ], [ %.176, %59 ], [ %.17687, %58 ], [ %.17687, %57 ]
+.thread89:                                        ; preds = %59, %58, %57, %17, %11, %4
+  %.075 = phi ptr [ %7, %17 ], [ %7, %11 ], [ %7, %4 ], [ %.176, %59 ], [ %.17688, %58 ], [ %.17688, %57 ]
   %62 = tail call i32 @avcodec_send_packet(ptr noundef %.075, ptr noundef nonnull %3) #5
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %65
 
-64:                                               ; preds = %.thread88
+64:                                               ; preds = %.thread89
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
   br label %103
 
-65:                                               ; preds = %.thread88
+65:                                               ; preds = %.thread89
   %66 = tail call i32 @avcodec_receive_frame(ptr noundef %.075, ptr noundef %1) #5
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %103, label %68
@@ -230,7 +231,7 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %103
 
 103:                                              ; preds = %.thread, %65, %68, %64
-  %.1 = phi i32 [ %62, %64 ], [ %102, %68 ], [ %66, %65 ], [ %40, %.thread ]
+  %.1 = phi i32 [ %62, %64 ], [ %102, %68 ], [ %66, %65 ], [ %39, %.thread ]
   ret i32 %.1
 }
 

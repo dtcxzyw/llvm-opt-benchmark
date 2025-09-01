@@ -540,7 +540,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %.preheader
-  %29 = getelementptr [7 x %struct.module_memory], ptr %13, i64 0, i64 %22
+  %29 = getelementptr %struct.module_memory, ptr %13, i64 %22
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8

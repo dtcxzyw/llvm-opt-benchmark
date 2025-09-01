@@ -1715,7 +1715,7 @@ _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit:    ; preds = %_ZN5draco10ObjEncod
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 192
   %46 = load ptr, ptr %45, align 8, !tbaa !134
   %47 = getelementptr inbounds nuw %"struct.std::array.130", ptr %46, i64 %indvars.iv19
-  %48 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.129"], ptr %47, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %47, i64 %indvars.iv
   %.sroa.02.0.copyload.i = load i32, ptr %48, align 4, !tbaa !73
   %49 = call noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 %.sroa.02.0.copyload.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2287,7 +2287,7 @@ define dso_local noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_
   %8 = load ptr, ptr %6, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw %"struct.std::array.130", ptr %8, i64 %7
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.129"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %9, i64 %10
   %.sroa.02.0.copyload = load i32, ptr %11, align 4, !tbaa !73
   %12 = tail call noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 %.sroa.02.0.copyload)
   ret i1 true
@@ -2354,7 +2354,7 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   %45 = getelementptr inbounds nuw %"struct.std::array.130", ptr %44, i64 %43
   %46 = urem i32 %33, 3
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.129"], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %45, i64 %47
   %.sroa.0.0.copyload4.i.i.i = load i32, ptr %48, align 4, !tbaa !73
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
 
@@ -2415,7 +2415,7 @@ _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIn
   %79 = getelementptr inbounds nuw %"struct.std::array.130", ptr %78, i64 %77
   %80 = urem i32 %.sroa.0.0.in.sroa.speculated.i64, 3
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.129"], ptr %79, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %79, i64 %81
   %.sroa.0.0.copyload4.i.i.i37 = load i32, ptr %82, align 4, !tbaa !73
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i38
 
@@ -2470,12 +2470,12 @@ _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIn
   %106 = add nuw nsw i64 %.076, 1
   %.cmp.not = icmp eq i64 %.076, 2
   %107 = select i1 %.cmp.not, i64 0, i64 %106
-  %108 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.129"], ptr %22, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %22, i64 %107
   %.sroa.02.0.copyload = load i32, ptr %108, align 4, !tbaa !73
   %.urem71 = add nsw i64 %.076, -1
   %.cmp72 = icmp eq i64 %.076, 0
   %109 = select i1 %.cmp72, i64 2, i64 %.urem71
-  %110 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.129"], ptr %22, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %22, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !73
   %112 = load ptr, ptr %0, align 8, !tbaa !126
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 100
@@ -3234,7 +3234,7 @@ define dso_local noundef zeroext i1 @_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11Cor
   %13 = getelementptr inbounds nuw %"struct.std::array.130", ptr %12, i64 %11
   %14 = urem i32 %2, 3
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.129"], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"class.draco::IndexType.129", ptr %13, i64 %15
   %.sroa.0.0.copyload4.i.i = load i32, ptr %16, align 4, !tbaa !73
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 

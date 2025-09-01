@@ -12057,8 +12057,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h857db31db71bfb16E.exit.i.i: ; preds = 
   unreachable
 
 124:                                              ; preds = %.lr.ph.i.i
-  %125 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %66, i64 0, i64 %79, i32 2
-  %126 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %66, i64 0, i64 %.sroa.0.060.i.i, i32 1
+  %125 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %66, i64 %79, i32 2
+  %126 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %66, i64 %.sroa.0.060.i.i, i32 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2979)
   call void @llvm.experimental.noalias.scope.decl(metadata !2982)
   %127 = load i64, ptr %125, align 8, !alias.scope !2979, !noalias !2984, !noundef !7
@@ -12091,7 +12091,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h857db31db71bfb16E.exit.i.i: ; preds = 
   br i1 %142, label %143, label %.invoke.i.i
 
 143:                                              ; preds = %135
-  %144 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %66, i64 0, i64 %79, i32 1
+  %144 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %66, i64 %79, i32 1
   %145 = load i64, ptr %144, align 8, !alias.scope !2992, !noalias !2995, !noundef !7
   %146 = icmp ult i64 %128, %145
   br i1 %146, label %147, label %148
@@ -15057,7 +15057,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %6
 
 171:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8e05cdea97731973E.exit.i.i", %.lr.ph.i.i53
   %.sroa.0.07.i.i = phi i64 [ 0, %.lr.ph.i.i53 ], [ %173, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8e05cdea97731973E.exit.i.i" ]
-  %172 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %165, i64 0, i64 %.sroa.0.07.i.i
+  %172 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %165, i64 %.sroa.0.07.i.i
   %173 = add nuw i64 %.sroa.0.07.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3696
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h936cbf44f0d7afbaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %172)
@@ -15094,7 +15094,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %6
   br label %182
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %165, i64 0, i64 %.sroa.0.1.i.i
+  %187 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %165, i64 %.sroa.0.1.i.i
   %188 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8e05cdea97731973E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %187) #40
           to label %182 unwind label %189, !noalias !3695

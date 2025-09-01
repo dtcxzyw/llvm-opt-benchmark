@@ -373,7 +373,7 @@ define internal ptr @_random_Random_getstate(ptr noundef readonly captures(none)
 
 7:                                                ; preds = %13, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %13 ]
-  %8 = getelementptr [624 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr i32, ptr %5, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !29
   %10 = zext i32 %9 to i64
   %11 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %10) #8
@@ -381,7 +381,7 @@ define internal ptr @_random_Random_getstate(ptr noundef readonly captures(none)
   br i1 %12, label %.loopexit.i, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr ptr, ptr %6, i64 %indvars.iv.i
   store ptr %11, ptr %14, align 8, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
@@ -453,7 +453,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
 
 14:                                               ; preds = %21, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %15 = getelementptr [1 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr ptr, ptr %11, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %16) #8
   %18 = icmp eq i64 %17, -1
@@ -466,7 +466,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
 
 21:                                               ; preds = %19, %14
   %22 = trunc i64 %17 to i32
-  %23 = getelementptr [624 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr i32, ptr %3, i64 %indvars.iv.i
   store i32 %22, ptr %23, align 4, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
@@ -564,7 +564,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %15 = lshr exact i32 %12, 1
   %16 = and i32 %10, 1
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %17
+  %18 = getelementptr i32, ptr @genrand_uint32.mag01, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !29
   %20 = xor i32 %19, %14
   %21 = xor i32 %20, %15
@@ -587,7 +587,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %31 = lshr exact i32 %28, 1
   %32 = and i32 %26, 1
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %33
+  %34 = getelementptr i32, ptr @genrand_uint32.mag01, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !29
   %36 = xor i32 %35, %30
   %37 = xor i32 %36, %31
@@ -607,7 +607,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %46 = lshr exact i32 %43, 1
   %47 = and i32 %41, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %48
+  %49 = getelementptr i32, ptr @genrand_uint32.mag01, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !29
   %51 = xor i32 %50, %45
   %52 = xor i32 %51, %46

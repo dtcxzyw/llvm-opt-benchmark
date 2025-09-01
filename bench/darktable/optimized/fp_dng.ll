@@ -401,7 +401,7 @@ define void @_ZN6LibRaw20deflate_dng_load_rawEv(ptr noundef nonnull align 8 dere
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %18 = zext nneg i32 %9 to i64
-  %19 = getelementptr inbounds nuw [10 x %struct.tiff_ifd_t], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !112
   switch i32 %21, label %22 [
@@ -1448,13 +1448,13 @@ define void @_ZN6LibRaw17convertFloatToIntEfff(ptr noundef nonnull align 8 deref
   br i1 %or.cond, label %58, label %65
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw [4104 x i32], ptr %53, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !54
   %61 = uitofp i32 %60 to float
   %62 = fmul reassoc nsz arcp contract afn float %42, %61
   %63 = fptoui float %62 to i32
   store i32 %63, ptr %59, align 4, !tbaa !54
-  %64 = getelementptr inbounds nuw [4104 x i32], ptr %54, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   store i32 %63, ptr %64, align 4, !tbaa !54
   br label %65
 
@@ -1650,7 +1650,7 @@ define void @_ZN6LibRaw28uncompressed_fp_dng_load_rawEv(ptr noundef nonnull alig
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %17 = zext nneg i32 %8 to i64
-  %18 = getelementptr inbounds nuw [10 x %struct.tiff_ifd_t], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %20 = load i32, ptr %19, align 4, !tbaa !112
   switch i32 %20, label %21 [

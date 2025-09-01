@@ -233,7 +233,7 @@ bytestream2_init.exit:                            ; preds = %4
 gif_read_palette.exit.i:                          ; preds = %80
   %98 = load i32, ptr %74, align 4, !tbaa !54
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [256 x i32], ptr %79, i64 0, i64 %99
+  %100 = getelementptr inbounds i32, ptr %79, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !55
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %101, ptr %102, align 8, !tbaa !58

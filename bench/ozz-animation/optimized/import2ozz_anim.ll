@@ -742,7 +742,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i132.i: ; preds = %.noexc135.
 
 .preheader.i.i.i:                                 ; preds = %.noexc63.i, %259
   %.08.i.i.i = phi i64 [ %260, %259 ], [ 0, %.noexc63.i ]
-  %254 = getelementptr inbounds nuw [17 x i8], ptr %48, i64 0, i64 %.08.i.i.i
+  %254 = getelementptr inbounds nuw i8, ptr %48, i64 %.08.i.i.i
   %255 = load i8, ptr %254, align 1, !tbaa !35, !noalias !38
   %256 = getelementptr inbounds nuw i8, ptr @.str.24, i64 %.08.i.i.i
   %257 = load i8, ptr %256, align 1, !tbaa !35, !noalias !38
@@ -1114,7 +1114,7 @@ _ZNSolsEPFRSoS_E.exit78.i:                        ; preds = %.noexc170.i
 
 .preheader.i.i81.i:                               ; preds = %.noexc87.i, %394
   %.08.i.i82.i = phi i64 [ %395, %394 ], [ 0, %.noexc87.i ]
-  %389 = getelementptr inbounds nuw [13 x i8], ptr %45, i64 0, i64 %.08.i.i82.i
+  %389 = getelementptr inbounds nuw i8, ptr %45, i64 %.08.i.i82.i
   %390 = load i8, ptr %389, align 1, !tbaa !35, !noalias !38
   %391 = getelementptr inbounds nuw i8, ptr @.str.25, i64 %.08.i.i82.i
   %392 = load i8, ptr %391, align 1, !tbaa !35, !noalias !38
@@ -3982,7 +3982,7 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
 
 1476:                                             ; preds = %1467
   %1477 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %1414, i64 %1468
-  %1478 = getelementptr inbounds nuw [4 x <4 x float>], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %1478 = getelementptr inbounds nuw <4 x float>, ptr %6, i64 %indvars.iv.i.i
   %1479 = load <4 x float>, ptr %1478, align 16, !tbaa !35, !noalias !123
   %1480 = extractelement <4 x float> %1479, i64 0
   store float %1480, ptr %1477, align 1, !tbaa !35, !noalias !123
@@ -3992,11 +3992,11 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
   %1483 = getelementptr inbounds nuw i8, ptr %1477, i64 8
   %1484 = extractelement <4 x float> %1479, i64 2
   store float %1484, ptr %1483, align 1, !tbaa !35, !noalias !123
-  %1485 = getelementptr inbounds nuw [4 x <4 x float>], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %1485 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %indvars.iv.i.i
   %1486 = load <4 x float>, ptr %1485, align 16, !tbaa !35, !noalias !123
   %1487 = getelementptr inbounds nuw i8, ptr %1477, i64 12
   store <4 x float> %1486, ptr %1487, align 1, !tbaa !35, !noalias !123
-  %1488 = getelementptr inbounds nuw [4 x <4 x float>], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %1488 = getelementptr inbounds nuw <4 x float>, ptr %8, i64 %indvars.iv.i.i
   %1489 = load <4 x float>, ptr %1488, align 16, !tbaa !35, !noalias !123
   %1490 = getelementptr inbounds nuw i8, ptr %1477, i64 28
   %1491 = extractelement <4 x float> %1489, i64 0

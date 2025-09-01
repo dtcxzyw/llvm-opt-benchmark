@@ -530,7 +530,7 @@ _ZN4llvm3ARM9parseArchENS_9StringRefE.exit:       ; preds = %_ZNK4llvm9StringRef
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load i32, ptr %22, align 8, !tbaa !11
   %24 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [42 x i32], ptr @switch.table._ZN4llvm3ARM16parseArchVersionENS_9StringRefE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3ARM16parseArchVersionENS_9StringRefE, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit.thread
 
@@ -582,7 +582,7 @@ _ZN4llvm3ARM9parseArchENS_9StringRefE.exit:       ; preds = %_ZNK4llvm9StringRef
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load i32, ptr %22, align 8, !tbaa !11
   %24 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [42 x i32], ptr @switch.table._ZN4llvm3ARM16parseArchProfileENS_9StringRefE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3ARM16parseArchProfileENS_9StringRefE, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL14getProfileKindN4llvm3ARM8ArchKindE.exit
 
@@ -600,7 +600,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3ARM14getFPUFeaturesENS0_7FPUKindER
 
 .preheader100:                                    ; preds = %2
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -609,7 +609,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3ARM14getFPUFeaturesENS0_7FPUKindER
   br label %14
 
 .preheader:                                       ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit
-  %12 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %5, i32 3
+  %12 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %5, i32 3
   %13 = load i32, ptr %12, align 8, !tbaa !21
   br label %82
 
@@ -1147,7 +1147,7 @@ define dso_local noundef i32 @_ZN4llvm3ARM22getFPUNeonSupportLevelENS0_7FPUKindE
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %4, i32 3
+  %5 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %4, i32 3
   %6 = load i32, ptr %5, align 8, !tbaa !21
   br label %7
 
@@ -1163,7 +1163,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3ARM10getFPUNameENS0_7FPUKindE(i32 nounde
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %5, align 16, !tbaa !31
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !32
@@ -1187,7 +1187,7 @@ define dso_local noundef i32 @_ZN4llvm3ARM13getFPUVersionENS0_7FPUKindE(i32 noun
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %4, i32 2
   %6 = load i32, ptr %5, align 4, !tbaa !16
   br label %7
 
@@ -1203,7 +1203,7 @@ define dso_local noundef i32 @_ZN4llvm3ARM17getFPURestrictionENS0_7FPUKindE(i32 
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %4, i32 4
+  %5 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %4, i32 4
   %6 = load i32, ptr %5, align 4, !tbaa !24
   br label %7
 
@@ -1234,7 +1234,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %3
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [42 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %5, i32 3
+  %6 = getelementptr inbounds nuw %"struct.llvm::ARM::ArchNames", ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 %5, i32 3
   %7 = load i32, ptr %6, align 8, !tbaa !59
   br label %114
 
@@ -1957,7 +1957,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %3
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [42 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %5, i32 4
+  %6 = getelementptr inbounds nuw %"struct.llvm::ARM::ArchNames", ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 %5, i32 4
   %7 = load i64, ptr %6, align 8, !tbaa !60
   br label %_ZN4llvm12StringSwitchImmE4CaseENS_13StringLiteralEm.exit757
 
@@ -2932,7 +2932,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6ve
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3ARM11getArchNameENS0_8ArchKindE(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [42 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.llvm::ARM::ArchNames", ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 %2
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !32
@@ -2944,7 +2944,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3ARM11getArchNameENS0_8ArchKindE(i32 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3ARM10getCPUAttrENS0_8ArchKindE(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [42 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds nuw %"struct.llvm::ARM::ArchNames", ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 %2, i32 1
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !32
@@ -2956,7 +2956,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3ARM10getCPUAttrENS0_8ArchKindE(i32 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3ARM10getSubArchENS0_8ArchKindE(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [42 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.llvm::ARM::ArchNames", ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !3
@@ -2973,7 +2973,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3ARM10getSubArchENS0_8ArchKindE(i32 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN4llvm3ARM11getArchAttrENS0_8ArchKindE(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [42 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %2, i32 6
+  %3 = getelementptr inbounds nuw %"struct.llvm::ARM::ArchNames", ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 %2, i32 6
   %4 = load i32, ptr %3, align 4, !tbaa !87
   ret i32 %4
 }
@@ -3403,7 +3403,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit90.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 114:                                              ; preds = %113
   %115 = zext i32 %101 to i64
-  %116 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 28
   %118 = load i32, ptr %117, align 4, !tbaa !24
   %.not29.i = icmp eq i32 %118, 2
@@ -3460,7 +3460,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit90.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 144:                                              ; preds = %.thread124
   %145 = zext i32 %101 to i64
-  %146 = getelementptr inbounds nuw [24 x %"struct.llvm::ARM::FPUName"], ptr @_ZN4llvm3ARML8FPUNamesE, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw %"struct.llvm::ARM::FPUName", ptr @_ZN4llvm3ARML8FPUNamesE, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 28
   %148 = load i32, ptr %147, align 4, !tbaa !24
   %.not28.i = icmp eq i32 %148, 2
@@ -3871,7 +3871,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm3ARM12parseCPUArchENS_9StringRefE.exit:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %spec.select.i = phi i64 [ %10, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
-  %11 = getelementptr inbounds nuw [42 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %spec.select.i
+  %11 = getelementptr inbounds nuw %"struct.llvm::ARM::ArchNames", ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 %spec.select.i
   %.sroa.0.0.copyload.i16 = load ptr, ptr %11, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.2.0.copyload.i18 = load i64, ptr %.sroa.2.0..sroa_idx.i17, align 8, !tbaa !32

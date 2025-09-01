@@ -144,7 +144,7 @@ ff_bufqueue_get.exit.i:                           ; preds = %ff_bufqueue_get.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = load i16, ptr %26, align 8, !tbaa !34
   %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw [302 x ptr], ptr %23, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !35
   %32 = add i16 %27, -1
   store i16 %32, ptr %24, align 2, !tbaa !33
@@ -1491,7 +1491,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @filter_frame(ptr %.16.val,
 ff_bufqueue_get.exit:                             ; preds = %35
   %37 = load i16, ptr %16, align 8, !tbaa !34
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw [302 x ptr], ptr %11, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %11, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !35
   %41 = add i16 %25, -1
   store i16 %41, ptr %12, align 2, !tbaa !33
@@ -2317,7 +2317,7 @@ analyze_frame.exit:                               ; preds = %108, %98, %107
   %482 = add nuw nsw i32 %481, %478
   %483 = urem i32 %482, 302
   %484 = zext nneg i32 %483 to i64
-  %485 = getelementptr inbounds nuw [302 x ptr], ptr %11, i64 0, i64 %484
+  %485 = getelementptr inbounds nuw ptr, ptr %11, i64 %484
   call void @av_frame_free(ptr noundef nonnull %485) #15
   %.pre.i = load i16, ptr %12, align 2, !tbaa !33
   br label %ff_bufqueue_add.exit
@@ -2332,7 +2332,7 @@ ff_bufqueue_add.exit:                             ; preds = %474, %476
   %491 = add nuw nsw i32 %488, %490
   %492 = urem i32 %491, 302
   %493 = zext nneg i32 %492 to i64
-  %494 = getelementptr inbounds nuw [302 x ptr], ptr %11, i64 0, i64 %493
+  %494 = getelementptr inbounds nuw ptr, ptr %11, i64 %493
   store ptr %475, ptr %494, align 8, !tbaa !35
   %495 = load ptr, ptr %17, align 8, !tbaa !32
   %496 = getelementptr inbounds nuw i8, ptr %.16.val, i64 128

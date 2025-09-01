@@ -6840,7 +6840,7 @@ define internal fastcc i32 @cli_scanhtml(ptr noundef %0) unnamed_addr #0 {
 
 .split.i.i:                                       ; preds = %63, %50
   %.011.i.i = phi i64 [ %64, %63 ], [ 0, %50 ]
-  %56 = getelementptr inbounds nuw [381 x ptr], ptr @URI_LIST, i64 0, i64 %.011.i.i
+  %56 = getelementptr inbounds nuw ptr, ptr @URI_LIST, i64 %.011.i.i
   %57 = load ptr, ptr %56, align 8, !tbaa !37
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #19
   %59 = icmp ugt i64 %55, %58
@@ -6899,7 +6899,7 @@ is_url.exit.i:                                    ; preds = %63, %70
 
 .split.i44.i:                                     ; preds = %88, %.lr.ph57.i
   %.011.i45.i = phi i64 [ %89, %88 ], [ 0, %.lr.ph57.i ]
-  %81 = getelementptr inbounds nuw [381 x ptr], ptr @URI_LIST, i64 0, i64 %.011.i45.i
+  %81 = getelementptr inbounds nuw ptr, ptr @URI_LIST, i64 %.011.i45.i
   %82 = load ptr, ptr %81, align 8, !tbaa !37
   %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #19
   %84 = icmp ugt i64 %80, %83
@@ -9068,7 +9068,7 @@ define internal fastcc i32 @scan_common(ptr noundef %0, ptr noundef readonly cap
 
 58:                                               ; preds = %58, %55
   %indvars.iv.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw [14 x %struct.anon], ptr @perf_events, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw %struct.anon, ptr @perf_events, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 8, !tbaa !205
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !207
@@ -9608,7 +9608,7 @@ get_thread_times.exit.i137:                       ; preds = %305, %302
   %.0.idx27.i = phi i64 [ 0, %get_thread_times.exit.i137 ], [ %.1.idx.i, %328 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %315 = getelementptr inbounds nuw [14 x %struct.anon], ptr @perf_events, i64 0, i64 %indvars.iv.i139
+  %315 = getelementptr inbounds nuw %struct.anon, ptr @perf_events, i64 %indvars.iv.i139
   %316 = load i32, ptr %315, align 8, !tbaa !205
   call void @cli_event_get(ptr noundef nonnull %301, i32 noundef %316, ptr noundef nonnull %10, ptr noundef nonnull %11) #18
   %317 = icmp slt i64 %.0.idx27.i, 511

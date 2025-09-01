@@ -83,8 +83,8 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 
 34:                                               ; preds = %34, %dce_marksnap.exit
   %indvars.iv.i4 = phi i64 [ 0, %dce_marksnap.exit ], [ %indvars.iv.next.i5, %34 ]
-  %35 = getelementptr inbounds nuw [101 x i16], ptr %33, i64 0, i64 %indvars.iv.i4
-  %36 = getelementptr inbounds nuw [101 x ptr], ptr %2, i64 0, i64 %indvars.iv.i4
+  %35 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv.i4
+  %36 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i4
   store ptr %35, ptr %36, align 8, !tbaa !39
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 101
@@ -125,7 +125,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 5
   %54 = load i8, ptr %53, align 1, !tbaa !35
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [102 x i8], ptr @lj_ir_mode, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @lj_ir_mode, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !35
   %58 = and i8 %57, %52
   %59 = icmp ult i8 %58, 96
@@ -134,7 +134,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 60:                                               ; preds = %51
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 6
   %62 = load i16, ptr %61, align 2, !tbaa !35
-  %63 = getelementptr inbounds nuw [101 x ptr], ptr %2, i64 0, i64 %55
+  %63 = getelementptr inbounds nuw ptr, ptr %2, i64 %55
   %64 = load ptr, ptr %63, align 8, !tbaa !39
   store i16 %62, ptr %64, align 2, !tbaa !43
   store i16 3072, ptr %46, align 4, !tbaa !35
@@ -147,7 +147,7 @@ dce_marksnap.exit:                                ; preds = %._crit_edge.i, %6
 66:                                               ; preds = %51, %49
   %.pre-phi.i = phi i64 [ %55, %51 ], [ %.pre32.i, %49 ]
   %67 = getelementptr inbounds nuw i8, ptr %45, i64 6
-  %68 = getelementptr inbounds nuw [101 x ptr], ptr %2, i64 0, i64 %.pre-phi.i
+  %68 = getelementptr inbounds nuw ptr, ptr %2, i64 %.pre-phi.i
   store ptr %67, ptr %68, align 8, !tbaa !39
   %69 = load i16, ptr %45, align 8, !tbaa !35
   %70 = icmp ugt i16 %69, -32768

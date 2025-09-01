@@ -115,7 +115,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %10
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph115 ], [ 0, %.preheader ]
   %59 = getelementptr inbounds nuw i8, ptr %.092.lcssa, i64 %indvars.iv125
   %60 = load i8, ptr %59, align 1, !tbaa !9
-  %61 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %indvars.iv125
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv125
   %62 = load i8, ptr %61, align 1, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %.093.lcssa, i64 %indvars.iv125
   store i8 %62, ptr %63, align 1, !tbaa !9
@@ -198,7 +198,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %10
   %107 = and i64 %106, 4294967295
   %108 = getelementptr inbounds nuw i8, ptr %.092.lcssa, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !9
-  %110 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %111 = load i8, ptr %110, align 1, !tbaa !9
   %112 = getelementptr inbounds nuw i8, ptr %.093.lcssa, i64 %107
   store i8 %111, ptr %112, align 1, !tbaa !9

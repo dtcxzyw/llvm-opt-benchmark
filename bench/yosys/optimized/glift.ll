@@ -8841,7 +8841,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit555:             ; preds = %_ZN5Yosys5RTLIL8IdS
 .preheader2205:                                   ; preds = %1144, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit575
   %indvars.iv5462 = phi i64 [ %indvars.iv.next5463, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit575 ], [ 0, %1144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
-  %1157 = getelementptr inbounds nuw [3 x %"struct.Yosys::RTLIL::SigSpec"], ptr %92, i64 0, i64 %indvars.iv5462
+  %1157 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigSpec", ptr %92, i64 %indvars.iv5462
   %1158 = load i64, ptr %1157, align 8
   store i64 %1158, ptr %95, align 8
   %1159 = getelementptr inbounds nuw i8, ptr %1157, i64 8
@@ -9135,7 +9135,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt
           to label %1258 unwind label %1339
 
 1258:                                             ; preds = %.loopexit2125
-  %1259 = getelementptr inbounds nuw [3 x %"struct.Yosys::RTLIL::SigSpec"], ptr %93, i64 0, i64 %indvars.iv5462
+  %1259 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigSpec", ptr %93, i64 %indvars.iv5462
   %1260 = load i64, ptr %94, align 8
   store i64 %1260, ptr %1259, align 8
   %1261 = getelementptr inbounds nuw i8, ptr %1259, i64 8
@@ -14451,7 +14451,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1030:            ; preds = %_ZN5Yosys5RTLIL8IdS
 .preheader2223:                                   ; preds = %3222, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1090
   %indvars.iv5450 = phi i64 [ %indvars.iv.next5451, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1090 ], [ 0, %3222 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
-  %3237 = getelementptr inbounds nuw [3 x %"struct.Yosys::RTLIL::SigSpec"], ptr %118, i64 0, i64 %indvars.iv5450
+  %3237 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigSpec", ptr %118, i64 %indvars.iv5450
   %3238 = load i64, ptr %3237, align 8
   store i64 %3238, ptr %121, align 8
   %3239 = getelementptr inbounds nuw i8, ptr %3237, i64 8
@@ -14745,7 +14745,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i1864: ; preds = %
           to label %3338 unwind label %3419
 
 3338:                                             ; preds = %.loopexit2142
-  %3339 = getelementptr inbounds nuw [3 x %"struct.Yosys::RTLIL::SigSpec"], ptr %119, i64 0, i64 %indvars.iv5450
+  %3339 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigSpec", ptr %119, i64 %indvars.iv5450
   %3340 = load i64, ptr %120, align 8
   store i64 %3340, ptr %3339, align 8
   %3341 = getelementptr inbounds nuw i8, ptr %3339, i64 8
@@ -17464,7 +17464,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1392:            ; preds = %_ZN5Yosys5RTLIL8IdS
 .preheader2235:                                   ; preds = %4383, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1429
   %indvars.iv5447 = phi i64 [ %indvars.iv.next5448, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1429 ], [ 0, %4383 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %146)
-  %4397 = getelementptr inbounds nuw [4 x %"struct.Yosys::RTLIL::SigSpec"], ptr %144, i64 0, i64 %indvars.iv5447
+  %4397 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigSpec", ptr %144, i64 %indvars.iv5447
   invoke void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %147, ptr noundef nonnull align 8 dereferenceable(56) %4397)
           to label %4398 unwind label %4480
 
@@ -17473,7 +17473,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1392:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %4399 unwind label %4482
 
 4399:                                             ; preds = %4398
-  %4400 = getelementptr inbounds nuw [4 x %"struct.Yosys::RTLIL::SigSpec"], ptr %145, i64 0, i64 %indvars.iv5447
+  %4400 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigSpec", ptr %145, i64 %indvars.iv5447
   %4401 = load i64, ptr %146, align 8
   store i64 %4401, ptr %4400, align 8
   %4402 = getelementptr inbounds nuw i8, ptr %4400, i64 8

@@ -131,7 +131,7 @@ define dso_local void @ExecReadyInterpretedExpr(ptr noundef captures(none) %0) l
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %6 ]
   %7 = getelementptr inbounds nuw ptr, ptr @ExecInterpExpr.dispatch_table, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw [116 x %struct.ExprEvalOpLookup], ptr @reverse_dispatch_table, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ExprEvalOpLookup, ptr @reverse_dispatch_table, i64 %indvars.iv.i
   store ptr %8, ptr %9, align 16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -4527,9 +4527,9 @@ define dso_local void @ExecEvalParamExtern(ptr readnone captures(none) %0, ptr n
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %20 = add nsw i32 %8, -1
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %19, i64 0, i64 %21
+  %20 = zext nneg i32 %8 to i64
+  %21 = getelementptr %struct.ParamExternData, ptr %19, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -16
   br label %23
 
 23:                                               ; preds = %18, %16
@@ -5345,11 +5345,11 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
   %156 = add nsw i64 %indvars.iv261, -1
   %157 = getelementptr inbounds i32, ptr %.1170, i64 %156
   %158 = load i32, ptr %157, align 4
-  %159 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv261
+  %159 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv261
   store i32 %158, ptr %159, align 4
   %160 = getelementptr inbounds i32, ptr %.1173, i64 %156
   %161 = load i32, ptr %160, align 4
-  %162 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv261
+  %162 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv261
   store i32 %161, ptr %162, align 4
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
@@ -5764,7 +5764,7 @@ define dso_local void @ExecEvalFieldSelect(ptr readnone captures(none) %0, ptr n
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %199, label %11
+  br i1 %10, label %200, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5835,7 +5835,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %23, %27
 52:                                               ; preds = %41
   %53 = load ptr, ptr %7, align 8
   store i8 1, ptr %53, align 1
-  br label %199
+  br label %200
 
 54:                                               ; preds = %41
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5893,7 +5893,7 @@ expanded_record_get_field.exit:                   ; preds = %76, %86
   %.0.i60 = phi i64 [ %85, %76 ], [ %87, %86 ]
   %88 = load ptr, ptr %12, align 8
   store i64 %.0.i60, ptr %88, align 8
-  br label %199
+  br label %200
 
 89:                                               ; preds = %18, %11
   %90 = tail call ptr @pg_detoast_datum(ptr noundef nonnull %15) #18
@@ -5943,7 +5943,7 @@ expanded_record_get_field.exit:                   ; preds = %76, %86
 118:                                              ; preds = %107
   %119 = load ptr, ptr %7, align 8
   store i8 1, ptr %119, align 1
-  br label %199
+  br label %200
 
 120:                                              ; preds = %107
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5989,101 +5989,102 @@ expanded_record_get_field.exit:                   ; preds = %76, %86
   %.val.val.i.i = load i16, ptr %145, align 4
   %146 = and i16 %.val.val.i.i, 1
   %.not.i.i.i = icmp eq i16 %146, 0
-  br i1 %.not.i.i.i, label %147, label %185
+  br i1 %.not.i.i.i, label %147, label %186
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %149 = zext nneg i32 %108 to i64
-  %150 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %148, i64 0, i64 %149
-  %151 = load i32, ptr %150, align 4
-  %152 = icmp sgt i32 %151, -1
-  br i1 %152, label %153, label %183
+  %149 = zext nneg i32 %95 to i64
+  %150 = getelementptr %struct.CompactAttribute, ptr %148, i64 %149
+  %151 = getelementptr i8, ptr %150, i64 -16
+  %152 = load i32, ptr %151, align 4
+  %153 = icmp sgt i32 %152, -1
+  br i1 %153, label %154, label %184
 
-153:                                              ; preds = %147
-  %154 = getelementptr inbounds nuw i8, ptr %90, i64 22
-  %155 = load i8, ptr %154, align 2
-  %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw i8, ptr %90, i64 %156
-  %158 = zext nneg i32 %151 to i64
-  %159 = getelementptr inbounds nuw i8, ptr %157, i64 %158
-  %160 = getelementptr inbounds nuw i8, ptr %150, i64 6
-  %161 = load i8, ptr %160, align 2, !range !8, !noundef !9
-  %162 = trunc nuw i8 %161 to i1
-  %163 = getelementptr inbounds nuw i8, ptr %150, i64 4
-  %164 = load i16, ptr %163, align 4
-  br i1 %162, label %165, label %181
+154:                                              ; preds = %147
+  %155 = getelementptr inbounds nuw i8, ptr %90, i64 22
+  %156 = load i8, ptr %155, align 2
+  %157 = zext i8 %156 to i64
+  %158 = getelementptr inbounds nuw i8, ptr %90, i64 %157
+  %159 = zext nneg i32 %152 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 %159
+  %161 = getelementptr i8, ptr %150, i64 -10
+  %162 = load i8, ptr %161, align 2, !range !8, !noundef !9
+  %163 = trunc nuw i8 %162 to i1
+  %164 = getelementptr i8, ptr %150, i64 -12
+  %165 = load i16, ptr %164, align 4
+  br i1 %163, label %166, label %182
 
-165:                                              ; preds = %153
-  switch i16 %164, label %177 [
-    i16 1, label %166
-    i16 2, label %169
-    i16 4, label %172
-    i16 8, label %175
+166:                                              ; preds = %154
+  switch i16 %165, label %178 [
+    i16 1, label %167
+    i16 2, label %170
+    i16 4, label %173
+    i16 8, label %176
   ]
 
-166:                                              ; preds = %165
-  %167 = load i8, ptr %159, align 1
-  %168 = sext i8 %167 to i64
+167:                                              ; preds = %166
+  %168 = load i8, ptr %160, align 1
+  %169 = sext i8 %168 to i64
   br label %heap_getattr.exit
 
-169:                                              ; preds = %165
-  %170 = load i16, ptr %159, align 2
-  %171 = sext i16 %170 to i64
+170:                                              ; preds = %166
+  %171 = load i16, ptr %160, align 2
+  %172 = sext i16 %171 to i64
   br label %heap_getattr.exit
 
-172:                                              ; preds = %165
-  %173 = load i32, ptr %159, align 4
-  %174 = sext i32 %173 to i64
+173:                                              ; preds = %166
+  %174 = load i32, ptr %160, align 4
+  %175 = sext i32 %174 to i64
   br label %heap_getattr.exit
 
-175:                                              ; preds = %165
-  %176 = load i64, ptr %159, align 8
+176:                                              ; preds = %166
+  %177 = load i64, ptr %160, align 8
   br label %heap_getattr.exit
 
-177:                                              ; preds = %165
-  %178 = sext i16 %164 to i32
-  %179 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %179)
-  %180 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef range(i32 -32768, 32768) %178) #18
+178:                                              ; preds = %166
+  %179 = sext i16 %165 to i32
+  %180 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  tail call void @llvm.assume(i1 %180)
+  %181 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef range(i32 -32768, 32768) %179) #18
   tail call void @errfinish(ptr noundef nonnull @.str.46, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #18
   unreachable
 
-181:                                              ; preds = %153
-  %182 = ptrtoint ptr %159 to i64
+182:                                              ; preds = %154
+  %183 = ptrtoint ptr %160 to i64
   br label %heap_getattr.exit
 
-183:                                              ; preds = %147
-  %184 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %95, ptr noundef nonnull %94) #18
+184:                                              ; preds = %147
+  %185 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %95, ptr noundef nonnull %94) #18
   br label %heap_getattr.exit
 
-185:                                              ; preds = %144
-  %186 = getelementptr inbounds nuw i8, ptr %90, i64 23
-  %187 = lshr i32 %108, 3
-  %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i8, ptr %186, i64 %188
-  %190 = load i8, ptr %189, align 1
-  %191 = zext i8 %190 to i32
-  %192 = and i32 %108, 7
-  %193 = shl nuw nsw i32 1, %192
-  %194 = and i32 %193, %191
-  %.not.i20.i.i = icmp eq i32 %194, 0
-  br i1 %.not.i20.i.i, label %195, label %196
+186:                                              ; preds = %144
+  %187 = getelementptr inbounds nuw i8, ptr %90, i64 23
+  %188 = lshr i32 %108, 3
+  %189 = zext nneg i32 %188 to i64
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %189
+  %191 = load i8, ptr %190, align 1
+  %192 = zext i8 %191 to i32
+  %193 = and i32 %108, 7
+  %194 = shl nuw nsw i32 1, %193
+  %195 = and i32 %194, %192
+  %.not.i20.i.i = icmp eq i32 %195, 0
+  br i1 %.not.i20.i.i, label %196, label %197
 
-195:                                              ; preds = %185
+196:                                              ; preds = %186
   store i8 1, ptr %137, align 1
   br label %heap_getattr.exit
 
-196:                                              ; preds = %185
-  %197 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %95, ptr noundef nonnull %94) #18
+197:                                              ; preds = %186
+  %198 = call i64 @nocachegetattr(ptr noundef nonnull %4, i32 noundef range(i32 1, 2048) %95, ptr noundef nonnull %94) #18
   br label %heap_getattr.exit
 
-heap_getattr.exit:                                ; preds = %142, %166, %169, %172, %175, %181, %183, %195, %196
-  %.0.i61 = phi i64 [ %143, %142 ], [ 0, %195 ], [ %197, %196 ], [ %184, %183 ], [ %168, %166 ], [ %171, %169 ], [ %174, %172 ], [ %176, %175 ], [ %182, %181 ]
-  %198 = load ptr, ptr %12, align 8
-  store i64 %.0.i61, ptr %198, align 8
-  br label %199
+heap_getattr.exit:                                ; preds = %142, %167, %170, %173, %176, %182, %184, %196, %197
+  %.0.i61 = phi i64 [ %143, %142 ], [ 0, %196 ], [ %198, %197 ], [ %185, %184 ], [ %169, %167 ], [ %172, %170 ], [ %175, %173 ], [ %177, %176 ], [ %183, %182 ]
+  %199 = load ptr, ptr %12, align 8
+  store i64 %.0.i61, ptr %199, align 8
+  br label %200
 
-199:                                              ; preds = %52, %expanded_record_get_field.exit, %heap_getattr.exit, %3, %118
+200:                                              ; preds = %52, %expanded_record_get_field.exit, %heap_getattr.exit, %3, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -8742,7 +8743,7 @@ define dso_local void @ExecEvalJsonCoercionFinish(ptr readnone captures(none) %0
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @GetJsonBehaviorValueString(i32 %.4.val) unnamed_addr #0 {
   %1 = zext i32 %.4.val to i64
-  %2 = getelementptr inbounds nuw [9 x ptr], ptr @__const.GetJsonBehaviorValueString.behavior_names, i64 0, i64 %1
+  %2 = getelementptr inbounds nuw ptr, ptr @__const.GetJsonBehaviorValueString.behavior_names, i64 %1
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @pstrdup(ptr noundef %3) #18
   ret ptr %4
@@ -9158,8 +9159,8 @@ slot_getallattrs.exit..loopexit_crit_edge:        ; preds = %slot_getallattrs.ex
 
 157:                                              ; preds = %.lr.ph121, %185
   %indvars.iv128 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next129, %185 ]
-  %158 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %154, i64 0, i64 %indvars.iv128
-  %159 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %155, i64 0, i64 %indvars.iv128
+  %158 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %154, i64 %indvars.iv128
+  %159 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %155, i64 %indvars.iv128
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 9
   %161 = load i8, ptr %160, align 1, !range !8, !noundef !9
   %162 = trunc nuw i8 %161 to i1
@@ -9599,7 +9600,7 @@ define dso_local noundef zeroext i1 @ExecEvalPreOrderedDistinctMulti(ptr noundef
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %36, i64 0, i64 %indvars.iv.next
+  %37 = getelementptr inbounds nuw %struct.NullableDatum, ptr %36, i64 %indvars.iv.next
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr %10, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24

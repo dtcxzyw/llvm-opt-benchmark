@@ -2287,7 +2287,7 @@ define void @Saig_ManBmcWriteBlif(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv143 = phi i64 [ 3, %87 ], [ %indvars.iv.next144, %94 ]
   %.0124 = phi i32 [ %93, %87 ], [ %97, %94 ]
   %95 = srem i32 %.0124, 3
-  %96 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv143
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv143
   %switch.selectcmp = icmp eq i32 %95, 1
   %switch.select = select i1 %switch.selectcmp, i8 49, i8 45
   %switch.selectcmp165 = icmp eq i32 %95, 0
@@ -2300,7 +2300,7 @@ define void @Saig_ManBmcWriteBlif(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph126 ], [ 0, %.preheader ]
-  %98 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv146
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv146
   %99 = load i8, ptr %98, align 1, !tbaa !51
   %100 = sext i8 %99 to i32
   %fputc97 = call i32 @fputc(i32 %100, ptr nonnull %7)
@@ -3591,7 +3591,7 @@ Aig_ManObj.exit:                                  ; preds = %72, %75
 
 82:                                               ; preds = %68, %Aig_ManObj.exit
   %.sink = phi i32 [ %81, %Aig_ManObj.exit ], [ -1, %68 ]
-  %83 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %.sink, ptr %83, align 4, !tbaa !28
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %84, label %68, !llvm.loop !165
@@ -3750,7 +3750,7 @@ Saig_ManBmcCofEqual.exit.i.us150:                 ; preds = %.preheader.i.split.
   ]
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw [4 x i32], ptr @Saig_ManBmcCof1.s_Truth, i64 0, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw i32, ptr @Saig_ManBmcCof1.s_Truth, i64 %indvars.iv.i
   %132 = load i32, ptr %131, align 4, !tbaa !28
   %133 = xor i32 %132, -1
   %134 = and i32 %.02227.i, %133
@@ -3762,7 +3762,7 @@ Saig_ManBmcCofEqual.exit.i.us150:                 ; preds = %.preheader.i.split.
   br label %.sink.split.i
 
 139:                                              ; preds = %127
-  %140 = getelementptr inbounds nuw [4 x i32], ptr @Saig_ManBmcCof1.s_Truth, i64 0, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw i32, ptr @Saig_ManBmcCof1.s_Truth, i64 %indvars.iv.i
   %141 = load i32, ptr %140, align 4, !tbaa !28
   %142 = and i32 %141, %.02227.i
   %143 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -3845,7 +3845,7 @@ Saig_ManBmcReduceTruth.exit:                      ; preds = %126, %122, %116, %1
 177:                                              ; preds = %168, %Vec_IntPush.exit
   %indvars.iv165 = phi i64 [ 0, %168 ], [ %indvars.iv.next166, %Vec_IntPush.exit ]
   %178 = load ptr, ptr %174, align 8, !tbaa !119
-  %179 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv165
+  %179 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv165
   %180 = load i32, ptr %179, align 4, !tbaa !28
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %182 = load i32, ptr %181, align 4, !tbaa !83
@@ -4474,7 +4474,7 @@ define internal fastcc void @Saig_ManBmcAddClauses(ptr noundef readonly captures
   %.sink = phi i32 [ %35, %32 ], [ %31, %29 ]
   %36 = add nsw i32 %.046, 1
   %37 = sext i32 %.046 to i64
-  %38 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %37
+  %38 = getelementptr inbounds i32, ptr %5, i64 %37
   store i32 %.sink, ptr %38, align 4, !tbaa !28
   br label %39
 

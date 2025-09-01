@@ -5028,7 +5028,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %27, %_ZNK20btAli
   %indvars.iv = phi i64 [ 0, %56 ], [ %indvars.iv.next, %72 ]
   %61 = getelementptr inbounds nuw float, ptr %.0282379, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !4
-  %63 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %64 = load float, ptr %63, align 4, !tbaa !4
   %65 = fcmp olt float %62, %64
   br i1 %65, label %66, label %67
@@ -5038,7 +5038,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %27, %_ZNK20btAli
   br label %67
 
 67:                                               ; preds = %66, %60
-  %68 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !4
   %70 = fcmp ogt float %62, %69
   br i1 %70, label %71, label %72
@@ -5383,7 +5383,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %177, %181, %_ZN20bt
   %indvars.iv407 = phi i64 [ 0, %.lr.ph388 ], [ %indvars.iv.next408, %235 ]
   %224 = getelementptr inbounds nuw float, ptr %221, i64 %indvars.iv407
   %225 = load float, ptr %224, align 4, !tbaa !4
-  %226 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv407
+  %226 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv407
   %227 = load float, ptr %226, align 4, !tbaa !4
   %228 = fcmp olt float %225, %227
   br i1 %228, label %229, label %230
@@ -5393,7 +5393,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %177, %181, %_ZN20bt
   br label %230
 
 230:                                              ; preds = %229, %223
-  %231 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv407
+  %231 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv407
   %232 = load float, ptr %231, align 4, !tbaa !4
   %233 = fcmp ogt float %225, %232
   br i1 %233, label %234, label %235

@@ -607,28 +607,28 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %.val.val.i = load i16, ptr %15, align 4
   %16 = and i16 %.val.val.i, 1
   %.not.i.i = icmp eq i16 %16, 0
-  %17 = add nsw i32 %1, -1
-  br i1 %.not.i.i, label %18, label %56
+  br i1 %.not.i.i, label %17, label %56
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %19, i64 0, i64 %20
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr %struct.CompactAttribute, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -16
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %24, label %54
 
-24:                                               ; preds = %18
+24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
   %26 = load i8, ptr %25, align 2
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %27
   %29 = zext nneg i32 %22 to i64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 6
+  %31 = getelementptr i8, ptr %20, i64 -10
   %32 = load i8, ptr %31, align 2, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %34 = getelementptr i8, ptr %20, i64 -12
   %35 = load i16, ptr %34, align 4
   br i1 %33, label %36, label %52
 
@@ -671,29 +671,30 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %53 = ptrtoint ptr %30 to i64
   br label %fastgetattr.exit
 
-54:                                               ; preds = %18
+54:                                               ; preds = %17
   %55 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef nonnull %2) #9
   br label %fastgetattr.exit
 
 56:                                               ; preds = %14
-  %57 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
-  %.val20.i = load i8, ptr %57, align 1
-  %58 = zext i8 %.val20.i to i32
-  %59 = shl nuw nsw i32 1, %17
-  %60 = and i32 %59, %58
-  %.not.i21.i = icmp eq i32 %60, 0
-  br i1 %.not.i21.i, label %61, label %62
+  %57 = add nsw i32 %1, -1
+  %58 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
+  %.val20.i = load i8, ptr %58, align 1
+  %59 = zext i8 %.val20.i to i32
+  %60 = shl nuw nsw i32 1, %57
+  %61 = and i32 %60, %59
+  %.not.i21.i = icmp eq i32 %61, 0
+  br i1 %.not.i21.i, label %62, label %63
 
-61:                                               ; preds = %56
+62:                                               ; preds = %56
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-62:                                               ; preds = %56
-  %63 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2) #9
+63:                                               ; preds = %56
+  %64 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2) #9
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %62, %61, %54, %52, %46, %43, %40, %37, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %61 ], [ %63, %62 ], [ %55, %54 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ], [ %53, %52 ]
+fastgetattr.exit:                                 ; preds = %63, %62, %54, %52, %46, %43, %40, %37, %12
+  %.0 = phi i64 [ %13, %12 ], [ 0, %62 ], [ %64, %63 ], [ %55, %54 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ], [ %53, %52 ]
   ret i64 %.0
 }
 

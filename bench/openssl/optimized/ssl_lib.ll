@@ -1869,7 +1869,7 @@ define range(i32 0, 2) i32 @SSL_CTX_dane_enable(ptr noundef captures(none) %0) l
 
 .preheader.i:                                     ; preds = %4, %25
   %.02530.i = phi i64 [ %26, %25 ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw [3 x %struct.anon.6], ptr @dane_mds, i64 0, i64 %.02530.i
+  %10 = getelementptr inbounds nuw %struct.anon.6, ptr @dane_mds, i64 %.02530.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !256
   %13 = icmp eq i32 %12, 0
@@ -3025,7 +3025,7 @@ ssl_evp_md_free.exit83:                           ; preds = %ssl_evp_md_free.exi
 
 74:                                               ; preds = %ssl_evp_md_free.exit83, %ssl_evp_cipher_free.exit
   %.088 = phi i64 [ 0, %ssl_evp_md_free.exit83 ], [ %81, %ssl_evp_cipher_free.exit ]
-  %75 = getelementptr inbounds nuw [24 x ptr], ptr %72, i64 0, i64 %.088
+  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %.088
   %76 = load ptr, ptr %75, align 8, !tbaa !304
   %77 = icmp eq ptr %76, null
   br i1 %77, label %ssl_evp_cipher_free.exit, label %78
@@ -3056,7 +3056,7 @@ ssl_evp_cipher_free.exit:                         ; preds = %74, %78, %80
 
 85:                                               ; preds = %.preheader87, %ssl_evp_md_free.exit86
   %.189 = phi i64 [ 0, %.preheader87 ], [ %92, %ssl_evp_md_free.exit86 ]
-  %86 = getelementptr inbounds nuw [14 x ptr], ptr %73, i64 0, i64 %.189
+  %86 = getelementptr inbounds nuw ptr, ptr %73, i64 %.189
   %87 = load ptr, ptr %86, align 8, !tbaa !259
   %88 = icmp eq ptr %87, null
   br i1 %88, label %ssl_evp_md_free.exit86, label %89

@@ -395,9 +395,9 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br i1 %144, label %145, label %.invoke, !prof !72
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds [0 x i8], ptr %108, i64 0, i64 %140
+  %146 = getelementptr inbounds i8, ptr %108, i64 %140
   %147 = load i8, ptr %146, align 1, !alias.scope !67, !noalias !73, !noundef !21
-  %148 = getelementptr inbounds [0 x i8], ptr %104, i64 0, i64 %143
+  %148 = getelementptr inbounds i8, ptr %104, i64 %143
   %149 = load i8, ptr %148, align 1, !alias.scope !65, !noalias !71, !noundef !21
   %.not28.i14.i = icmp eq i8 %147, %149
   br i1 %.not28.i14.i, label %.preheader4.i, label %150
@@ -413,9 +413,9 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
 
 155:                                              ; preds = %152
   %156 = add nuw i64 %.sroa.04.0.i12.i, 1
-  %157 = getelementptr inbounds [0 x i8], ptr %108, i64 0, i64 %.sroa.04.0.i12.i
+  %157 = getelementptr inbounds i8, ptr %108, i64 %.sroa.04.0.i12.i
   %158 = load i8, ptr %157, align 1, !alias.scope !67, !noalias !73, !noundef !21
-  %159 = getelementptr inbounds [0 x i8], ptr %104, i64 0, i64 %153
+  %159 = getelementptr inbounds i8, ptr %104, i64 %153
   %160 = load i8, ptr %159, align 1, !alias.scope !65, !noalias !71, !noundef !21
   %.not.i17.i = icmp eq i8 %158, %160
   br i1 %.not.i17.i, label %136, label %163
@@ -493,9 +493,9 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br i1 %193, label %194, label %.invoke, !prof !72
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds [0 x i8], ptr %108, i64 0, i64 %191
+  %195 = getelementptr inbounds i8, ptr %108, i64 %191
   %196 = load i8, ptr %195, align 1, !alias.scope !79, !noalias !84, !noundef !21
-  %197 = getelementptr inbounds [0 x i8], ptr %104, i64 0, i64 %192
+  %197 = getelementptr inbounds i8, ptr %104, i64 %192
   %198 = load i8, ptr %197, align 1, !alias.scope !77, !noalias !83, !noundef !21
   %.not28.i.i.us = icmp eq i8 %196, %198
   br i1 %.not28.i.i.us, label %.preheader.i.us, label %.split147.us
@@ -515,9 +515,9 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
 
 203:                                              ; preds = %200
   %204 = add nuw i64 %.sroa.04.0.i.i, 1
-  %205 = getelementptr inbounds [0 x i8], ptr %108, i64 0, i64 %.sroa.04.0.i.i
+  %205 = getelementptr inbounds i8, ptr %108, i64 %.sroa.04.0.i.i
   %206 = load i8, ptr %205, align 1, !alias.scope !79, !noalias !84, !noundef !21
-  %207 = getelementptr inbounds [0 x i8], ptr %104, i64 0, i64 %201
+  %207 = getelementptr inbounds i8, ptr %104, i64 %201
   %208 = load i8, ptr %207, align 1, !alias.scope !77, !noalias !83, !noundef !21
   %.not.i.i = icmp eq i8 %206, %208
   br i1 %.not.i.i, label %.preheader3.i, label %214
@@ -616,7 +616,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %241, %245
   %.05.i.i.i = phi i64 [ %246, %245 ], [ 0, %241 ]
-  %242 = getelementptr inbounds nuw [0 x i8], ptr %237, i64 0, i64 %.05.i.i.i
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 %.05.i.i.i
   %243 = load i8, ptr %242, align 1, !alias.scope !104, !noalias !100, !noundef !21
   %244 = icmp eq i8 %243, 46
   br i1 %244, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %245
@@ -680,7 +680,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %245
 
 .lr.ph.i.i.i72:                                   ; preds = %265, %269
   %.05.i.i.i73 = phi i64 [ %270, %269 ], [ 0, %265 ]
-  %266 = getelementptr inbounds nuw [0 x i8], ptr %261, i64 0, i64 %.05.i.i.i73
+  %266 = getelementptr inbounds nuw i8, ptr %261, i64 %.05.i.i.i73
   %267 = load i8, ptr %266, align 1, !alias.scope !114, !noalias !110, !noundef !21
   %268 = icmp eq i8 %267, 101
   br i1 %268, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i75, label %269

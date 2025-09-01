@@ -1577,7 +1577,7 @@ zend_string_alloc.exit:
 
 12:                                               ; preds = %zend_string_alloc.exit
   store i64 %9, ptr %7, align 8, !tbaa !125
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %8, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   store i8 0, ptr %13, align 1, !tbaa !21
   %14 = lshr i64 %1, 1
   %15 = icmp samesign ult i64 %9, %14
@@ -2336,7 +2336,7 @@ zend_string_alloc.exit:                           ; preds = %41, %61, %.thread99
   br label %77
 
 77:                                               ; preds = %71, %zend_string_alloc.exit
-  %78 = getelementptr inbounds nuw [1 x i8], ptr %69, i64 0, i64 %70
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 %70
   store i8 0, ptr %78, align 1, !tbaa !21
   br label %79
 
@@ -3174,7 +3174,7 @@ _php_stream_eof.exit.thread:                      ; preds = %27, %_php_stream_eo
 .critedge.thread:                                 ; preds = %47, %zend_string_alloc.exit108, %.critedge
   %.086134 = phi i64 [ %.086144, %.critedge ], [ 0, %zend_string_alloc.exit108 ], [ %48, %47 ]
   store i64 %.086134, ptr %22, align 8, !tbaa !125
-  %51 = getelementptr inbounds nuw [1 x i8], ptr %23, i64 0, i64 %.086134
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 %.086134
   store i8 0, ptr %51, align 1, !tbaa !21
   %52 = lshr i64 %spec.store.select, 1
   %53 = icmp ult i64 %.086134, %52
@@ -3563,7 +3563,7 @@ zend_string_alloc.exit.i:                         ; preds = %231, %229
 zend_string_truncate.exit:                        ; preds = %219, %zend_string_alloc.exit.i, %243
   %.0.i = phi ptr [ %220, %219 ], [ %234, %243 ], [ %234, %zend_string_alloc.exit.i ]
   %247 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %248 = getelementptr inbounds nuw [1 x i8], ptr %247, i64 0, i64 %.288
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 %.288
   store i8 0, ptr %248, align 1, !tbaa !21
   br label %zend_string_truncate.exit113
 
@@ -4463,7 +4463,7 @@ sub_0:                                            ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.084, i64 31)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %0, i64 %spec.store.select, i1 false)
-  %39 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %spec.store.select
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %spec.store.select
   store i8 0, ptr %39, align 1, !tbaa !21
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef nonnull %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5741,7 +5741,7 @@ zend_string_init.exit:                            ; preds = %18, %.lr.ph
   store i64 %21, ptr %27, align 8, !tbaa !125
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %6, i64 %21, i1 false)
-  %29 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %21
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %21
   store i8 0, ptr %29, align 1, !tbaa !21
   %30 = getelementptr inbounds nuw ptr, ptr %.138, i64 %indvars.iv
   store ptr %24, ptr %30, align 8, !tbaa !133

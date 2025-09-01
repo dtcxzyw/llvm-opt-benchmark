@@ -348,7 +348,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i.i.i: ; preds = %106
   %120 = add i32 %102, -1
   store i32 %120, ptr %101, align 8, !tbaa !77
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [16 x ptr], ptr %119, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !96
   store i8 0, ptr %123, align 8, !tbaa !79
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 424
@@ -406,7 +406,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
   %143 = load i8, ptr %141, align 8, !tbaa !79
   %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw [10 x i8], ptr %142, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %144
   store i8 5, ptr %145, align 1, !tbaa !95
   %146 = load ptr, ptr %54, align 8, !tbaa !72
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -414,7 +414,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %149 = add i8 %148, 1
   store i8 %149, ptr %146, align 8, !tbaa !79
   %150 = zext i8 %148 to i64
-  %151 = getelementptr inbounds nuw [10 x i64], ptr %147, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i64, ptr %147, i64 %150
   store i64 %97, ptr %151, align 8, !tbaa !100
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIPNS_14IdentifierInfoEvEERKS1_OT_.exit.i.i.i
 
@@ -524,7 +524,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i28.i.i.i: ; preds = %193
   %207 = add i32 %189, -1
   store i32 %207, ptr %188, align 8, !tbaa !77
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw [16 x ptr], ptr %206, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw ptr, ptr %206, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !96
   store i8 0, ptr %210, align 8, !tbaa !79
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 424
@@ -582,7 +582,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 1
   %230 = load i8, ptr %228, align 8, !tbaa !79
   %231 = zext i8 %230 to i64
-  %232 = getelementptr inbounds nuw [10 x i8], ptr %229, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 %231
   store i8 5, ptr %232, align 1, !tbaa !95
   %233 = load ptr, ptr %60, align 8, !tbaa !72
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
@@ -590,7 +590,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %236 = add i8 %235, 1
   store i8 %236, ptr %233, align 8, !tbaa !79
   %237 = zext i8 %235 to i64
-  %238 = getelementptr inbounds nuw [10 x i64], ptr %234, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw i64, ptr %234, i64 %237
   store i64 %184, ptr %238, align 8, !tbaa !100
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIPNS_14IdentifierInfoEvEERKS1_OT_.exit11.i.i.i
 
@@ -5536,7 +5536,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %106
   %120 = add i32 %102, -1
   store i32 %120, ptr %101, align 8, !tbaa !77
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [16 x ptr], ptr %119, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !96
   store i8 0, ptr %123, align 8, !tbaa !79
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 424
@@ -5594,7 +5594,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
   %143 = load i8, ptr %141, align 8, !tbaa !79
   %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw [10 x i8], ptr %142, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %144
   store i8 2, ptr %145, align 1, !tbaa !95
   %146 = load ptr, ptr %95, align 8, !tbaa !72
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -5602,7 +5602,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %149 = add i8 %148, 1
   store i8 %149, ptr %146, align 8, !tbaa !79
   %150 = zext i8 %148 to i64
-  %151 = getelementptr inbounds nuw [10 x i64], ptr %147, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i64, ptr %147, i64 %150
   store i64 %96, ptr %151, align 8, !tbaa !100
   br label %_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
@@ -5711,7 +5711,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i65:    ; preds = %193
   %207 = add i32 %189, -1
   store i32 %207, ptr %188, align 8, !tbaa !77
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw [16 x ptr], ptr %206, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw ptr, ptr %206, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !96
   store i8 0, ptr %210, align 8, !tbaa !79
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 424
@@ -5769,7 +5769,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 1
   %230 = load i8, ptr %228, align 8, !tbaa !79
   %231 = zext i8 %230 to i64
-  %232 = getelementptr inbounds nuw [10 x i8], ptr %229, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 %231
   store i8 2, ptr %232, align 1, !tbaa !95
   %233 = load ptr, ptr %182, align 8, !tbaa !72
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
@@ -5777,7 +5777,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %236 = add i8 %235, 1
   store i8 %236, ptr %233, align 8, !tbaa !79
   %237 = zext i8 %235 to i64
-  %238 = getelementptr inbounds nuw [10 x i64], ptr %234, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw i64, ptr %234, i64 %237
   store i64 %183, ptr %238, align 8, !tbaa !100
   br label %_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit44
 
@@ -6050,7 +6050,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
   %27 = add i32 %9, -1
   store i32 %27, ptr %8, align 8, !tbaa !77
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [16 x ptr], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !96
   store i8 0, ptr %30, align 8, !tbaa !79
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 424
@@ -6109,7 +6109,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %52 = load i8, ptr %49, align 8, !tbaa !79
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [10 x i8], ptr %51, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %53
   store i8 %50, ptr %54, align 1, !tbaa !95
   %55 = load ptr, ptr %0, align 8, !tbaa !72
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -6117,7 +6117,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %58 = add i8 %57, 1
   store i8 %58, ptr %55, align 8, !tbaa !79
   %59 = zext i8 %57 to i64
-  %60 = getelementptr inbounds nuw [10 x i64], ptr %56, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %59
   store i64 %1, ptr %60, align 8, !tbaa !100
   ret void
 }
@@ -6425,7 +6425,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %32
   %46 = add i32 %28, -1
   store i32 %46, ptr %27, align 8, !tbaa !77
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw [16 x ptr], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !96
   store i8 0, ptr %49, align 8, !tbaa !79
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 424
@@ -6483,7 +6483,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %69 = load i8, ptr %67, align 8, !tbaa !79
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [10 x i8], ptr %68, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %70
   store i8 2, ptr %71, align 1, !tbaa !95
   %72 = load ptr, ptr %21, align 8, !tbaa !72
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -6491,7 +6491,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %75 = add i8 %74, 1
   store i8 %75, ptr %72, align 8, !tbaa !79
   %76 = zext i8 %74 to i64
-  %77 = getelementptr inbounds nuw [10 x i64], ptr %73, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %76
   store i64 %22, ptr %77, align 8, !tbaa !100
   br label %_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
@@ -6598,7 +6598,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i25:    ; preds = %117
   %131 = add i32 %113, -1
   store i32 %131, ptr %112, align 8, !tbaa !77
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw [16 x ptr], ptr %130, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw ptr, ptr %130, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !96
   store i8 0, ptr %134, align 8, !tbaa !79
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 424
@@ -6656,7 +6656,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 1
   %154 = load i8, ptr %152, align 8, !tbaa !79
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw [10 x i8], ptr %153, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %155
   store i8 2, ptr %156, align 1, !tbaa !95
   %157 = load ptr, ptr %106, align 8, !tbaa !72
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
@@ -6664,7 +6664,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %160 = add i8 %159, 1
   store i8 %160, ptr %157, align 8, !tbaa !79
   %161 = zext i8 %159 to i64
-  %162 = getelementptr inbounds nuw [10 x i64], ptr %158, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i64, ptr %158, i64 %161
   store i64 %107, ptr %162, align 8, !tbaa !100
   br label %_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit8
 

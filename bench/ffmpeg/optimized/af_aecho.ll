@@ -550,7 +550,7 @@ define internal i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
 
 switch.lookup:                                    ; preds = %48
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_output, i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_output, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %switch.load, ptr %53, align 8, !tbaa !59

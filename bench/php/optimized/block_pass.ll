@@ -1649,7 +1649,7 @@ zend_string_extend.exit.i:                        ; preds = %789, %zend_string_a
   %819 = getelementptr inbounds nuw %struct._zval_struct, ptr %816, i64 %818
   %820 = load ptr, ptr %819, align 8, !tbaa !42
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 24
-  %822 = getelementptr inbounds nuw [1 x i8], ptr %821, i64 0, i64 %744
+  %822 = getelementptr inbounds nuw i8, ptr %821, i64 %744
   store i8 0, ptr %822, align 1, !tbaa !42
   %823 = load ptr, ptr %111, align 8, !tbaa !104
   %824 = load i32, ptr %712, align 8, !tbaa !42
@@ -2997,7 +2997,7 @@ zend_string_extend.exit1067.i:                    ; preds = %1506, %zend_string_
   %1536 = getelementptr inbounds nuw %struct._zval_struct, ptr %1533, i64 %1535
   %1537 = load ptr, ptr %1536, align 8, !tbaa !42
   %1538 = getelementptr inbounds nuw i8, ptr %1537, i64 24
-  %1539 = getelementptr inbounds nuw [1 x i8], ptr %1538, i64 0, i64 %1461
+  %1539 = getelementptr inbounds nuw i8, ptr %1538, i64 %1461
   store i8 0, ptr %1539, align 1, !tbaa !42
   %1540 = load ptr, ptr %111, align 8, !tbaa !104
   %1541 = load i32, ptr %1422, align 4, !tbaa !42

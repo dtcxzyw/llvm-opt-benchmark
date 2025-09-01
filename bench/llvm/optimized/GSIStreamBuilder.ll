@@ -357,7 +357,7 @@ define dso_local void @_ZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_1
   %16 = load i16, ptr %15, align 2
   %17 = lshr i16 %16, 4
   %18 = zext nneg i16 %17 to i64
-  %19 = getelementptr inbounds nuw [4096 x i32], ptr %7, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %7, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !33
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !33
@@ -444,7 +444,7 @@ _ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE6resizeEm.exit: ; preds = %33, %35
   %55 = load i16, ptr %54, align 2
   %56 = lshr i16 %55, 4
   %57 = zext nneg i16 %56 to i64
-  %58 = getelementptr inbounds nuw [4096 x i32], ptr %8, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %8, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !33
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !33
@@ -473,7 +473,7 @@ _ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE6resizeEm.exit: ; preds = %33, %35
   ret void
 
 69:                                               ; preds = %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backERKS5_.exit
-  %70 = getelementptr inbounds nuw [129 x %"struct.llvm::support::detail::packed_endian_specific_integral"], ptr %49, i64 0, i64 %indvars.iv68
+  %70 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %49, i64 %indvars.iv68
   call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 1) ]
   store i32 %.1, ptr %70, align 4
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
@@ -488,9 +488,9 @@ _ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE6resizeEm.exit: ; preds = %33, %35
   br i1 %73, label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backERKS5_.exit, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw [4096 x i32], ptr %7, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw i32, ptr %7, i64 %72
   %76 = load i32, ptr %75, align 4, !tbaa !33
-  %77 = getelementptr inbounds nuw [4096 x i32], ptr %8, i64 0, i64 %72
+  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %72
   %78 = load i32, ptr %77, align 4, !tbaa !33
   %79 = icmp eq i32 %76, %78
   br i1 %79, label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backERKS5_.exit, label %80
@@ -5215,14 +5215,14 @@ define internal void @"_ZN4llvm12function_refIFvmEE11callback_fnIZNS_3pdb20GSIHa
   %9 = load ptr, ptr %8, align 8, !tbaa !273
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !274
-  %12 = getelementptr inbounds nuw [4096 x i32], ptr %11, i64 0, i64 %1
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %1
   %13 = load i32, ptr %12, align 4, !tbaa !33
   %14 = zext i32 %13 to i64
   %.idx20.i = shl nuw nsw i64 %14, 3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx20.i
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !275
-  %18 = getelementptr inbounds nuw [4096 x i32], ptr %17, i64 0, i64 %1
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %1
   %19 = load i32, ptr %18, align 4, !tbaa !33
   %20 = zext i32 %19 to i64
   %.idx.i = shl nuw nsw i64 %20, 3

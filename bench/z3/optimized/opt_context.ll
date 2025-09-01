@@ -20916,7 +20916,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %42, %44, %51
 118:                                              ; preds = %.lr.ph, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %119 = getelementptr inbounds nuw [0 x ptr], ptr %92, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8, !tbaa !21
   %121 = load ptr, ptr %93, align 8, !tbaa !263
   store ptr %120, ptr %19, align 8, !tbaa !57
@@ -23093,7 +23093,7 @@ define hidden noundef ptr @_ZN3opt7context15mk_objective_fnEjNS0_11objective_tEj
 
 switch.lookup:                                    ; preds = %._crit_edge
   %35 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3opt7context15mk_objective_fnEjNS0_11objective_tEjPKP4expr, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3opt7context15mk_objective_fnEjNS0_11objective_tEjPKP4expr, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %36
 
@@ -34692,7 +34692,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !477
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -43241,7 +43241,7 @@ thread-pre-split:                                 ; preds = %.noexc139, %.noexc1
 63:                                               ; preds = %.lr.ph, %_ZN3opt7context5is_fdclEP3app.exit
   %64 = phi i32 [ %60, %.lr.ph ], [ %157, %_ZN3opt7context5is_fdclEP3app.exit ]
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !21
   %68 = add nuw i32 %64, 1
   store i32 %68, ptr %59, align 8, !tbaa !839
@@ -44089,7 +44089,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 61:                                               ; preds = %.lr.ph, %_ZN3opt7context19is_propositional_fnclEP3app.exit
   %62 = phi i32 [ %58, %.lr.ph ], [ %144, %_ZN3opt7context19is_propositional_fnclEP3app.exit ]
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !21
   %66 = add nuw i32 %62, 1
   store i32 %66, ptr %57, align 8, !tbaa !839

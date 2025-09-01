@@ -948,7 +948,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %56 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !21
   %58 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %57)
-  %59 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %58, ptr %59, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

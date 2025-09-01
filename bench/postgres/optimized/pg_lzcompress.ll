@@ -347,9 +347,9 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %181 = phi i32 [ %179, %164 ], [ %163, %157 ]
   %182 = and i32 %181, %47
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw [8192 x i16], ptr @hist_start, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i16, ptr @hist_start, i64 %183
   %185 = sext i32 %.1142240 to i64
-  %186 = getelementptr inbounds [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %185
+  %186 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %185
   %187 = trunc nuw i8 %.1147239 to i1
   br i1 %187, label %188, label %207
 
@@ -368,7 +368,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %198 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %199 = load i32, ptr %198, align 16
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds [8192 x i16], ptr @hist_start, i64 0, i64 %200
+  %201 = getelementptr inbounds i16, ptr @hist_start, i64 %200
   store i16 %197, ptr %201, align 2
   br label %203
 
@@ -389,7 +389,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
 207:                                              ; preds = %203, %204, %180
   %208 = load i16, ptr %184, align 2
   %209 = sext i16 %208 to i64
-  %210 = getelementptr inbounds [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %209
+  %210 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %209
   store ptr %210, ptr %186, align 16
   %211 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store ptr null, ptr %211, align 8
@@ -397,7 +397,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   store i32 %182, ptr %212, align 16
   %213 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store ptr %.1152238, ptr %213, align 8
-  %214 = getelementptr inbounds [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %209, i32 1
+  %214 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %209, i32 1
   store ptr %186, ptr %214, align 8
   %215 = trunc i32 %.1142240 to i16
   store i16 %215, ptr %184, align 2
@@ -451,9 +451,9 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %243 = phi i32 [ %241, %226 ], [ %225, %222 ]
   %244 = and i32 %243, %47
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr inbounds nuw [8192 x i16], ptr @hist_start, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw i16, ptr @hist_start, i64 %245
   %247 = sext i32 %.0141247 to i64
-  %248 = getelementptr inbounds [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %247
+  %248 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %247
   %249 = trunc nuw i8 %.0146246 to i1
   br i1 %249, label %250, label %269
 
@@ -472,7 +472,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %260 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %261 = load i32, ptr %260, align 16
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds [8192 x i16], ptr @hist_start, i64 0, i64 %262
+  %263 = getelementptr inbounds i16, ptr @hist_start, i64 %262
   store i16 %259, ptr %263, align 2
   br label %265
 
@@ -493,7 +493,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
 269:                                              ; preds = %265, %266, %242
   %270 = load i16, ptr %246, align 2
   %271 = sext i16 %270 to i64
-  %272 = getelementptr inbounds [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %271
+  %272 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %271
   store ptr %272, ptr %248, align 16
   %273 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store ptr null, ptr %273, align 8
@@ -501,7 +501,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   store i32 %244, ptr %274, align 16
   %275 = getelementptr inbounds nuw i8, ptr %248, i64 24
   store ptr %.0151245, ptr %275, align 8
-  %276 = getelementptr inbounds [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %271, i32 1
+  %276 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %271, i32 1
   store ptr %248, ptr %276, align 8
   %277 = trunc i32 %.0141247 to i16
   store i16 %277, ptr %246, align 2

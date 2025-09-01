@@ -107,7 +107,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_li
   br i1 %.not28.not.i.i, label %_ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.i, label %16
 
 16:                                               ; preds = %.lr.ph.i.i
-  %17 = getelementptr inbounds nuw [20 x ptr], ptr %6, i64 0, i64 %.02435.i.i
+  %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02435.i.i
   store ptr %15, ptr %17, align 8, !tbaa !11
   %18 = add nuw nsw i64 %.02435.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %18, %2
@@ -115,7 +115,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_li
 
 .critedge30.i.i:                                  ; preds = %16, %.critedge30.i.i
   %.037.i.i = phi i64 [ %23, %.critedge30.i.i ], [ 0, %16 ]
-  %19 = getelementptr inbounds nuw [20 x ptr], ptr %6, i64 0, i64 %.037.i.i
+  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %.037.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::dynamic_link_descriptor", ptr %1, i64 %.037.i.i, i32 1
   %22 = load ptr, ptr %21, align 8, !tbaa !14

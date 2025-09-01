@@ -192,32 +192,31 @@ define hidden void @_ZN3ue27getUcpCEv(ptr dead_on_unwind noalias writable sret(%
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L9ucp_C_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_C_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L9ucp_C_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1204
-  br i1 %17, label %9, label %20, !llvm.loop !5
+  %16 = icmp samesign ult i64 %indvars.iv, 1204
+  br i1 %16, label %9, label %19, !llvm.loop !5
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -257,31 +256,30 @@ define hidden void @_ZN3ue28getUcpCcEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Cc_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Cc_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Cc_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !7
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !7
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -301,32 +299,31 @@ define hidden void @_ZN3ue28getUcpCfEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Cf_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Cf_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Cf_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 32
-  br i1 %17, label %9, label %20, !llvm.loop !8
+  %16 = icmp samesign ult i64 %indvars.iv, 32
+  br i1 %16, label %9, label %19, !llvm.loop !8
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -346,32 +343,31 @@ define hidden void @_ZN3ue28getUcpCnEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1200 x i32], ptr @_ZN3ue2L10ucp_Cn_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Cn_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1200 x i32], ptr @_ZN3ue2L10ucp_Cn_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1198
-  br i1 %17, label %9, label %20, !llvm.loop !9
+  %16 = icmp samesign ult i64 %indvars.iv, 1198
+  br i1 %16, label %9, label %19, !llvm.loop !9
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -391,32 +387,31 @@ define hidden void @_ZN3ue28getUcpCoEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L10ucp_Co_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Co_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L10ucp_Co_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !10
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !10
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -467,32 +462,31 @@ define hidden void @_ZN3ue27getUcpLEv(ptr dead_on_unwind noalias writable sret(%
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1074 x i32], ptr @_ZN3ue2L9ucp_L_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_L_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1074 x i32], ptr @_ZN3ue2L9ucp_L_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1072
-  br i1 %17, label %9, label %20, !llvm.loop !11
+  %16 = icmp samesign ult i64 %indvars.iv, 1072
+  br i1 %16, label %9, label %19, !llvm.loop !11
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -512,32 +506,31 @@ define hidden void @_ZN3ue211getUcpL_andEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [234 x i32], ptr @_ZN3ue2L13ucp_L_and_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_L_and_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [234 x i32], ptr @_ZN3ue2L13ucp_L_and_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 232
-  br i1 %17, label %9, label %20, !llvm.loop !12
+  %16 = icmp samesign ult i64 %indvars.iv, 232
+  br i1 %16, label %9, label %19, !llvm.loop !12
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -557,32 +550,31 @@ define hidden void @_ZN3ue28getUcpLlEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1250 x i32], ptr @_ZN3ue2L10ucp_Ll_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Ll_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1250 x i32], ptr @_ZN3ue2L10ucp_Ll_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1248
-  br i1 %17, label %9, label %20, !llvm.loop !13
+  %16 = icmp samesign ult i64 %indvars.iv, 1248
+  br i1 %16, label %9, label %19, !llvm.loop !13
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -602,32 +594,31 @@ define hidden void @_ZN3ue28getUcpLmEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [112 x i32], ptr @_ZN3ue2L10ucp_Lm_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lm_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [112 x i32], ptr @_ZN3ue2L10ucp_Lm_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 110
-  br i1 %17, label %9, label %20, !llvm.loop !14
+  %16 = icmp samesign ult i64 %indvars.iv, 110
+  br i1 %16, label %9, label %19, !llvm.loop !14
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -647,32 +638,31 @@ define hidden void @_ZN3ue28getUcpLoEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [834 x i32], ptr @_ZN3ue2L10ucp_Lo_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lo_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [834 x i32], ptr @_ZN3ue2L10ucp_Lo_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 832
-  br i1 %17, label %9, label %20, !llvm.loop !15
+  %16 = icmp samesign ult i64 %indvars.iv, 832
+  br i1 %16, label %9, label %19, !llvm.loop !15
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -692,32 +682,31 @@ define hidden void @_ZN3ue28getUcpLtEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Lt_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lt_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Lt_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 18
-  br i1 %17, label %9, label %20, !llvm.loop !16
+  %16 = icmp samesign ult i64 %indvars.iv, 18
+  br i1 %16, label %9, label %19, !llvm.loop !16
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -737,32 +726,31 @@ define hidden void @_ZN3ue28getUcpLuEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1244 x i32], ptr @_ZN3ue2L10ucp_Lu_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lu_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1244 x i32], ptr @_ZN3ue2L10ucp_Lu_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1242
-  br i1 %17, label %9, label %20, !llvm.loop !17
+  %16 = icmp samesign ult i64 %indvars.iv, 1242
+  br i1 %16, label %9, label %19, !llvm.loop !17
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -782,32 +770,31 @@ define hidden void @_ZN3ue27getUcpMEv(ptr dead_on_unwind noalias writable sret(%
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [458 x i32], ptr @_ZN3ue2L9ucp_M_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_M_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [458 x i32], ptr @_ZN3ue2L9ucp_M_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 456
-  br i1 %17, label %9, label %20, !llvm.loop !18
+  %16 = icmp samesign ult i64 %indvars.iv, 456
+  br i1 %16, label %9, label %19, !llvm.loop !18
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -827,32 +814,31 @@ define hidden void @_ZN3ue28getUcpMcEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [294 x i32], ptr @_ZN3ue2L10ucp_Mc_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Mc_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [294 x i32], ptr @_ZN3ue2L10ucp_Mc_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 292
-  br i1 %17, label %9, label %20, !llvm.loop !19
+  %16 = icmp samesign ult i64 %indvars.iv, 292
+  br i1 %16, label %9, label %19, !llvm.loop !19
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -872,32 +858,31 @@ define hidden void @_ZN3ue28getUcpMeEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L10ucp_Me_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Me_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L10ucp_Me_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %17, label %9, label %20, !llvm.loop !20
+  %16 = icmp samesign ult i64 %indvars.iv, 8
+  br i1 %16, label %9, label %19, !llvm.loop !20
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -917,32 +902,31 @@ define hidden void @_ZN3ue28getUcpMnEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [510 x i32], ptr @_ZN3ue2L10ucp_Mn_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Mn_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [510 x i32], ptr @_ZN3ue2L10ucp_Mn_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 508
-  br i1 %17, label %9, label %20, !llvm.loop !21
+  %16 = icmp samesign ult i64 %indvars.iv, 508
+  br i1 %16, label %9, label %19, !llvm.loop !21
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -962,32 +946,31 @@ define hidden void @_ZN3ue27getUcpNEv(ptr dead_on_unwind noalias writable sret(%
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [210 x i32], ptr @_ZN3ue2L9ucp_N_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_N_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [210 x i32], ptr @_ZN3ue2L9ucp_N_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 208
-  br i1 %17, label %9, label %20, !llvm.loop !22
+  %16 = icmp samesign ult i64 %indvars.iv, 208
+  br i1 %16, label %9, label %19, !llvm.loop !22
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1007,32 +990,31 @@ define hidden void @_ZN3ue28getUcpNdEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [100 x i32], ptr @_ZN3ue2L10ucp_Nd_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Nd_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [100 x i32], ptr @_ZN3ue2L10ucp_Nd_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 98
-  br i1 %17, label %9, label %20, !llvm.loop !23
+  %16 = icmp samesign ult i64 %indvars.iv, 98
+  br i1 %16, label %9, label %19, !llvm.loop !23
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1052,32 +1034,31 @@ define hidden void @_ZN3ue28getUcpNlEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [24 x i32], ptr @_ZN3ue2L10ucp_Nl_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Nl_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [24 x i32], ptr @_ZN3ue2L10ucp_Nl_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 22
-  br i1 %17, label %9, label %20, !llvm.loop !24
+  %16 = icmp samesign ult i64 %indvars.iv, 22
+  br i1 %16, label %9, label %19, !llvm.loop !24
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1097,32 +1078,31 @@ define hidden void @_ZN3ue28getUcpNoEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [104 x i32], ptr @_ZN3ue2L10ucp_No_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_No_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [104 x i32], ptr @_ZN3ue2L10ucp_No_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 102
-  br i1 %17, label %9, label %20, !llvm.loop !25
+  %16 = icmp samesign ult i64 %indvars.iv, 102
+  br i1 %16, label %9, label %19, !llvm.loop !25
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1142,32 +1122,31 @@ define hidden void @_ZN3ue27getUcpPEv(ptr dead_on_unwind noalias writable sret(%
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [310 x i32], ptr @_ZN3ue2L9ucp_P_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_P_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [310 x i32], ptr @_ZN3ue2L9ucp_P_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 308
-  br i1 %17, label %9, label %20, !llvm.loop !26
+  %16 = icmp samesign ult i64 %indvars.iv, 308
+  br i1 %16, label %9, label %19, !llvm.loop !26
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1187,32 +1166,31 @@ define hidden void @_ZN3ue28getUcpPcEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L10ucp_Pc_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pc_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L10ucp_Pc_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 10
-  br i1 %17, label %9, label %20, !llvm.loop !27
+  %16 = icmp samesign ult i64 %indvars.iv, 10
+  br i1 %16, label %9, label %19, !llvm.loop !27
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1232,32 +1210,31 @@ define hidden void @_ZN3ue28getUcpPdEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Pd_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pd_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Pd_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 32
-  br i1 %17, label %9, label %20, !llvm.loop !28
+  %16 = icmp samesign ult i64 %indvars.iv, 32
+  br i1 %16, label %9, label %19, !llvm.loop !28
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1277,32 +1254,31 @@ define hidden void @_ZN3ue28getUcpPeEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [144 x i32], ptr @_ZN3ue2L10ucp_Pe_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pe_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [144 x i32], ptr @_ZN3ue2L10ucp_Pe_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 142
-  br i1 %17, label %9, label %20, !llvm.loop !29
+  %16 = icmp samesign ult i64 %indvars.iv, 142
+  br i1 %16, label %9, label %19, !llvm.loop !29
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1322,32 +1298,31 @@ define hidden void @_ZN3ue28getUcpPfEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Pf_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pf_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Pf_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 18
-  br i1 %17, label %9, label %20, !llvm.loop !30
+  %16 = icmp samesign ult i64 %indvars.iv, 18
+  br i1 %16, label %9, label %19, !llvm.loop !30
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1367,32 +1342,31 @@ define hidden void @_ZN3ue28getUcpPiEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L10ucp_Pi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L10ucp_Pi_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 20
-  br i1 %17, label %9, label %20, !llvm.loop !31
+  %16 = icmp samesign ult i64 %indvars.iv, 20
+  br i1 %16, label %9, label %19, !llvm.loop !31
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1412,32 +1386,31 @@ define hidden void @_ZN3ue28getUcpPoEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [302 x i32], ptr @_ZN3ue2L10ucp_Po_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Po_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [302 x i32], ptr @_ZN3ue2L10ucp_Po_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 300
-  br i1 %17, label %9, label %20, !llvm.loop !32
+  %16 = icmp samesign ult i64 %indvars.iv, 300
+  br i1 %16, label %9, label %19, !llvm.loop !32
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1457,32 +1430,31 @@ define hidden void @_ZN3ue28getUcpPsEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [150 x i32], ptr @_ZN3ue2L10ucp_Ps_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Ps_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [150 x i32], ptr @_ZN3ue2L10ucp_Ps_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 148
-  br i1 %17, label %9, label %20, !llvm.loop !33
+  %16 = icmp samesign ult i64 %indvars.iv, 148
+  br i1 %16, label %9, label %19, !llvm.loop !33
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1502,32 +1474,31 @@ define hidden void @_ZN3ue27getUcpSEv(ptr dead_on_unwind noalias writable sret(%
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [420 x i32], ptr @_ZN3ue2L9ucp_S_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_S_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [420 x i32], ptr @_ZN3ue2L9ucp_S_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 418
-  br i1 %17, label %9, label %20, !llvm.loop !34
+  %16 = icmp samesign ult i64 %indvars.iv, 418
+  br i1 %16, label %9, label %19, !llvm.loop !34
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1547,32 +1518,31 @@ define hidden void @_ZN3ue28getUcpScEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Sc_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Sc_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Sc_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 32
-  br i1 %17, label %9, label %20, !llvm.loop !35
+  %16 = icmp samesign ult i64 %indvars.iv, 32
+  br i1 %16, label %9, label %19, !llvm.loop !35
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1592,32 +1562,31 @@ define hidden void @_ZN3ue28getUcpSkEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [56 x i32], ptr @_ZN3ue2L10ucp_Sk_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Sk_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [56 x i32], ptr @_ZN3ue2L10ucp_Sk_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 54
-  br i1 %17, label %9, label %20, !llvm.loop !36
+  %16 = icmp samesign ult i64 %indvars.iv, 54
+  br i1 %16, label %9, label %19, !llvm.loop !36
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1637,32 +1606,31 @@ define hidden void @_ZN3ue28getUcpSmEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @_ZN3ue2L10ucp_Sm_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Sm_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [128 x i32], ptr @_ZN3ue2L10ucp_Sm_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 126
-  br i1 %17, label %9, label %20, !llvm.loop !37
+  %16 = icmp samesign ult i64 %indvars.iv, 126
+  br i1 %16, label %9, label %19, !llvm.loop !37
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1682,32 +1650,31 @@ define hidden void @_ZN3ue28getUcpSoEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [330 x i32], ptr @_ZN3ue2L10ucp_So_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_So_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [330 x i32], ptr @_ZN3ue2L10ucp_So_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 328
-  br i1 %17, label %9, label %20, !llvm.loop !38
+  %16 = icmp samesign ult i64 %indvars.iv, 328
+  br i1 %16, label %9, label %19, !llvm.loop !38
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1727,32 +1694,31 @@ define hidden void @_ZN3ue29getUcpXanEv(ptr dead_on_unwind noalias writable sret
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L11ucp_Xan_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xan_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L11ucp_Xan_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1204
-  br i1 %17, label %9, label %20, !llvm.loop !39
+  %16 = icmp samesign ult i64 %indvars.iv, 1204
+  br i1 %16, label %9, label %19, !llvm.loop !39
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1772,32 +1738,31 @@ define hidden void @_ZN3ue29getUcpXpsEv(ptr dead_on_unwind noalias writable sret
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L11ucp_Xps_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xps_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L11ucp_Xps_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 16
-  br i1 %17, label %9, label %20, !llvm.loop !40
+  %16 = icmp samesign ult i64 %indvars.iv, 16
+  br i1 %16, label %9, label %19, !llvm.loop !40
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1817,32 +1782,31 @@ define hidden void @_ZN3ue29getUcpXspEv(ptr dead_on_unwind noalias writable sret
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xsp_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 18
-  br i1 %17, label %9, label %20, !llvm.loop !41
+  %16 = icmp samesign ult i64 %indvars.iv, 18
+  br i1 %16, label %9, label %19, !llvm.loop !41
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1862,32 +1826,31 @@ define hidden void @_ZN3ue29getUcpXwdEv(ptr dead_on_unwind noalias writable sret
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1208 x i32], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xwd_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1208 x i32], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1206
-  br i1 %17, label %9, label %20, !llvm.loop !42
+  %16 = icmp samesign ult i64 %indvars.iv, 1206
+  br i1 %16, label %9, label %19, !llvm.loop !42
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -1907,32 +1870,31 @@ define hidden void @_ZN3ue27getUcpZEv(ptr dead_on_unwind noalias writable sret(%
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L9ucp_Z_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_Z_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L9ucp_Z_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %17, label %9, label %20, !llvm.loop !43
+  %16 = icmp samesign ult i64 %indvars.iv, 14
+  br i1 %16, label %9, label %19, !llvm.loop !43
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2014,32 +1976,31 @@ define hidden void @_ZN3ue28getUcpZsEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L10ucp_Zs_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Zs_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L10ucp_Zs_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %17, label %9, label %20, !llvm.loop !44
+  %16 = icmp samesign ult i64 %indvars.iv, 12
+  br i1 %16, label %9, label %19, !llvm.loop !44
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2059,32 +2020,31 @@ define hidden void @_ZN3ue212getUcpArabicEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [110 x i32], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Arabic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [110 x i32], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 108
-  br i1 %17, label %9, label %20, !llvm.loop !45
+  %16 = icmp samesign ult i64 %indvars.iv, 108
+  br i1 %16, label %9, label %19, !llvm.loop !45
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2104,32 +2064,31 @@ define hidden void @_ZN3ue214getUcpArmenianEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Armenian_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 10
-  br i1 %17, label %9, label %20, !llvm.loop !46
+  %16 = icmp samesign ult i64 %indvars.iv, 10
+  br i1 %16, label %9, label %19, !llvm.loop !46
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2149,31 +2108,30 @@ define hidden void @_ZN3ue213getUcpAvestanEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Avestan_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !47
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !47
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2193,31 +2151,30 @@ define hidden void @_ZN3ue214getUcpBalineseEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Balinese_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !48
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !48
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2237,31 +2194,30 @@ define hidden void @_ZN3ue211getUcpBamumEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Bamum_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !49
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !49
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2281,31 +2237,30 @@ define hidden void @_ZN3ue215getUcpBassa_VahEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !50
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !50
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2325,31 +2280,30 @@ define hidden void @_ZN3ue211getUcpBatakEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Batak_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Batak_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Batak_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !51
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !51
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2369,32 +2323,31 @@ define hidden void @_ZN3ue213getUcpBengaliEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Bengali_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 26
-  br i1 %17, label %9, label %20, !llvm.loop !52
+  %16 = icmp samesign ult i64 %indvars.iv, 26
+  br i1 %16, label %9, label %19, !llvm.loop !52
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2414,32 +2367,31 @@ define hidden void @_ZN3ue214getUcpBopomofoEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !53
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !53
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2459,32 +2411,31 @@ define hidden void @_ZN3ue212getUcpBrahmiEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !54
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !54
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2535,31 +2486,30 @@ define hidden void @_ZN3ue214getUcpBugineseEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Buginese_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !55
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !55
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2610,31 +2560,30 @@ define hidden void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr dead_on_unwind noal
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !56
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !56
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2685,31 +2634,30 @@ define hidden void @_ZN3ue224getUcpCaucasian_AlbanianEv(ptr dead_on_unwind noali
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !57
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !57
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2729,31 +2677,30 @@ define hidden void @_ZN3ue212getUcpChakmaEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Chakma_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !58
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !58
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -2773,32 +2720,31 @@ define hidden void @_ZN3ue210getUcpChamEv(ptr dead_on_unwind noalias writable sr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L12ucp_Cham_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Cham_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L12ucp_Cham_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %17, label %9, label %20, !llvm.loop !59
+  %16 = icmp samesign ult i64 %indvars.iv, 6
+  br i1 %16, label %9, label %19, !llvm.loop !59
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2849,32 +2795,31 @@ define hidden void @_ZN3ue212getUcpCommonEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [1140 x i32], ptr @_ZN3ue2L14ucp_Common_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Common_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [1140 x i32], ptr @_ZN3ue2L14ucp_Common_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 1138
-  br i1 %17, label %9, label %20, !llvm.loop !60
+  %16 = icmp samesign ult i64 %indvars.iv, 1138
+  br i1 %16, label %9, label %19, !llvm.loop !60
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2894,32 +2839,31 @@ define hidden void @_ZN3ue212getUcpCopticEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Coptic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !61
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !61
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2939,32 +2883,31 @@ define hidden void @_ZN3ue215getUcpCuneiformEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !62
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !62
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -2984,32 +2927,31 @@ define hidden void @_ZN3ue213getUcpCypriotEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 10
-  br i1 %17, label %9, label %20, !llvm.loop !63
+  %16 = icmp samesign ult i64 %indvars.iv, 10
+  br i1 %16, label %9, label %19, !llvm.loop !63
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3029,32 +2971,31 @@ define hidden void @_ZN3ue214getUcpCyrillicEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %17, label %9, label %20, !llvm.loop !64
+  %16 = icmp samesign ult i64 %indvars.iv, 12
+  br i1 %16, label %9, label %19, !llvm.loop !64
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3105,32 +3046,31 @@ define hidden void @_ZN3ue216getUcpDevanagariEv(ptr dead_on_unwind noalias writa
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %17, label %9, label %20, !llvm.loop !65
+  %16 = icmp samesign ult i64 %indvars.iv, 6
+  br i1 %16, label %9, label %19, !llvm.loop !65
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3150,32 +3090,31 @@ define hidden void @_ZN3ue214getUcpDuployanEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Duployan_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %17, label %9, label %20, !llvm.loop !66
+  %16 = icmp samesign ult i64 %indvars.iv, 8
+  br i1 %16, label %9, label %19, !llvm.loop !66
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3257,32 +3196,31 @@ define hidden void @_ZN3ue214getUcpEthiopicEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [64 x i32], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [64 x i32], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 62
-  br i1 %17, label %9, label %20, !llvm.loop !67
+  %16 = icmp samesign ult i64 %indvars.iv, 62
+  br i1 %16, label %9, label %19, !llvm.loop !67
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3302,32 +3240,31 @@ define hidden void @_ZN3ue214getUcpGeorgianEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Georgian_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %17, label %9, label %20, !llvm.loop !68
+  %16 = icmp samesign ult i64 %indvars.iv, 14
+  br i1 %16, label %9, label %19, !llvm.loop !68
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3347,31 +3284,30 @@ define hidden void @_ZN3ue216getUcpGlagoliticEv(ptr dead_on_unwind noalias writa
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !69
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !69
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -3422,32 +3358,31 @@ define hidden void @_ZN3ue213getUcpGranthaEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Grantha_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 26
-  br i1 %17, label %9, label %20, !llvm.loop !70
+  %16 = icmp samesign ult i64 %indvars.iv, 26
+  br i1 %16, label %9, label %19, !llvm.loop !70
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3467,32 +3402,31 @@ define hidden void @_ZN3ue211getUcpGreekEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [72 x i32], ptr @_ZN3ue2L13ucp_Greek_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Greek_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [72 x i32], ptr @_ZN3ue2L13ucp_Greek_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 70
-  br i1 %17, label %9, label %20, !llvm.loop !71
+  %16 = icmp samesign ult i64 %indvars.iv, 70
+  br i1 %16, label %9, label %19, !llvm.loop !71
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3512,32 +3446,31 @@ define hidden void @_ZN3ue214getUcpGujaratiEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %17, label %9, label %20, !llvm.loop !72
+  %16 = icmp samesign ult i64 %indvars.iv, 24
+  br i1 %16, label %9, label %19, !llvm.loop !72
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3557,32 +3490,31 @@ define hidden void @_ZN3ue214getUcpGurmukhiEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 30
-  br i1 %17, label %9, label %20, !llvm.loop !73
+  %16 = icmp samesign ult i64 %indvars.iv, 30
+  br i1 %16, label %9, label %19, !llvm.loop !73
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3602,32 +3534,31 @@ define hidden void @_ZN3ue29getUcpHanEv(ptr dead_on_unwind noalias writable sret
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [30 x i32], ptr @_ZN3ue2L11ucp_Han_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Han_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [30 x i32], ptr @_ZN3ue2L11ucp_Han_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 28
-  br i1 %17, label %9, label %20, !llvm.loop !74
+  %16 = icmp samesign ult i64 %indvars.iv, 28
+  br i1 %16, label %9, label %19, !llvm.loop !74
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3647,32 +3578,31 @@ define hidden void @_ZN3ue212getUcpHangulEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Hangul_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 26
-  br i1 %17, label %9, label %20, !llvm.loop !75
+  %16 = icmp samesign ult i64 %indvars.iv, 26
+  br i1 %16, label %9, label %19, !llvm.loop !75
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3723,32 +3653,31 @@ define hidden void @_ZN3ue212getUcpHebrewEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 16
-  br i1 %17, label %9, label %20, !llvm.loop !76
+  %16 = icmp samesign ult i64 %indvars.iv, 16
+  br i1 %16, label %9, label %19, !llvm.loop !76
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3768,32 +3697,31 @@ define hidden void @_ZN3ue214getUcpHiraganaEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %17, label %9, label %20, !llvm.loop !77
+  %16 = icmp samesign ult i64 %indvars.iv, 6
+  br i1 %16, label %9, label %19, !llvm.loop !77
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3813,31 +3741,30 @@ define hidden void @_ZN3ue222getUcpImperial_AramaicEv(ptr dead_on_unwind noalias
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !78
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !78
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -3857,32 +3784,31 @@ define hidden void @_ZN3ue215getUcpInheritedEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [54 x i32], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Inherited_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [54 x i32], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 52
-  br i1 %17, label %9, label %20, !llvm.loop !79
+  %16 = icmp samesign ult i64 %indvars.iv, 52
+  br i1 %16, label %9, label %19, !llvm.loop !79
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -3902,31 +3828,30 @@ define hidden void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr dead_on_unwind no
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !80
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !80
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -3946,31 +3871,30 @@ define hidden void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr dead_on_unwind n
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !81
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !81
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -3990,32 +3914,31 @@ define hidden void @_ZN3ue214getUcpJavaneseEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Javanese_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !82
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !82
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4066,32 +3989,31 @@ define hidden void @_ZN3ue213getUcpKannadaEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Kannada_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 26
-  br i1 %17, label %9, label %20, !llvm.loop !83
+  %16 = icmp samesign ult i64 %indvars.iv, 26
+  br i1 %16, label %9, label %19, !llvm.loop !83
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4111,32 +4033,31 @@ define hidden void @_ZN3ue214getUcpKatakanaEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Katakana_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %17, label %9, label %20, !llvm.loop !84
+  %16 = icmp samesign ult i64 %indvars.iv, 14
+  br i1 %16, label %9, label %19, !llvm.loop !84
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4156,31 +4077,30 @@ define hidden void @_ZN3ue214getUcpKayah_LiEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !85
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !85
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -4200,32 +4120,31 @@ define hidden void @_ZN3ue216getUcpKharoshthiEv(ptr dead_on_unwind noalias writa
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 14
-  br i1 %17, label %9, label %20, !llvm.loop !86
+  %16 = icmp samesign ult i64 %indvars.iv, 14
+  br i1 %16, label %9, label %19, !llvm.loop !86
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4245,32 +4164,31 @@ define hidden void @_ZN3ue211getUcpKhmerEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Khmer_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %17, label %9, label %20, !llvm.loop !87
+  %16 = icmp samesign ult i64 %indvars.iv, 6
+  br i1 %16, label %9, label %19, !llvm.loop !87
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4290,31 +4208,30 @@ define hidden void @_ZN3ue212getUcpKhojkiEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Khojki_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !88
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !88
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -4334,31 +4251,30 @@ define hidden void @_ZN3ue215getUcpKhudawadiEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !89
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !89
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -4378,32 +4294,31 @@ define hidden void @_ZN3ue29getUcpLaoEv(ptr dead_on_unwind noalias writable sret
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [36 x i32], ptr @_ZN3ue2L11ucp_Lao_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Lao_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [36 x i32], ptr @_ZN3ue2L11ucp_Lao_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 34
-  br i1 %17, label %9, label %20, !llvm.loop !90
+  %16 = icmp samesign ult i64 %indvars.iv, 34
+  br i1 %16, label %9, label %19, !llvm.loop !90
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4423,32 +4338,31 @@ define hidden void @_ZN3ue211getUcpLatinEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [66 x i32], ptr @_ZN3ue2L13ucp_Latin_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Latin_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [66 x i32], ptr @_ZN3ue2L13ucp_Latin_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 64
-  br i1 %17, label %9, label %20, !llvm.loop !91
+  %16 = icmp samesign ult i64 %indvars.iv, 64
+  br i1 %16, label %9, label %19, !llvm.loop !91
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4468,32 +4382,31 @@ define hidden void @_ZN3ue212getUcpLepchaEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !92
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !92
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4513,32 +4426,31 @@ define hidden void @_ZN3ue211getUcpLimbuEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Limbu_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %17, label %9, label %20, !llvm.loop !93
+  %16 = icmp samesign ult i64 %indvars.iv, 8
+  br i1 %16, label %9, label %19, !llvm.loop !93
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4558,32 +4470,31 @@ define hidden void @_ZN3ue214getUcpLinear_AEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !94
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !94
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4603,32 +4514,31 @@ define hidden void @_ZN3ue214getUcpLinear_BEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %17, label %9, label %20, !llvm.loop !95
+  %16 = icmp samesign ult i64 %indvars.iv, 12
+  br i1 %16, label %9, label %19, !llvm.loop !95
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4710,31 +4620,30 @@ define hidden void @_ZN3ue212getUcpLydianEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Lydian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !96
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !96
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -4785,32 +4694,31 @@ define hidden void @_ZN3ue215getUcpMalayalamEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 20
-  br i1 %17, label %9, label %20, !llvm.loop !97
+  %16 = icmp samesign ult i64 %indvars.iv, 20
+  br i1 %16, label %9, label %19, !llvm.loop !97
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4830,31 +4738,30 @@ define hidden void @_ZN3ue213getUcpMandaicEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !98
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !98
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -4874,31 +4781,30 @@ define hidden void @_ZN3ue216getUcpManichaeanEv(ptr dead_on_unwind noalias writa
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !99
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !99
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -4918,32 +4824,31 @@ define hidden void @_ZN3ue218getUcpMeetei_MayekEv(ptr dead_on_unwind noalias wri
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !100
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !100
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -4963,31 +4868,30 @@ define hidden void @_ZN3ue219getUcpMende_KikakuiEv(ptr dead_on_unwind noalias wr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !101
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !101
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -5007,31 +4911,30 @@ define hidden void @_ZN3ue222getUcpMeroitic_CursiveEv(ptr dead_on_unwind noalias
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !102
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !102
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -5082,32 +4985,31 @@ define hidden void @_ZN3ue210getUcpMiaoEv(ptr dead_on_unwind noalias writable sr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L12ucp_Miao_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Miao_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L12ucp_Miao_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !103
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !103
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -5127,31 +5029,30 @@ define hidden void @_ZN3ue210getUcpModiEv(ptr dead_on_unwind noalias writable sr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Modi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Modi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Modi_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !104
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !104
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -5171,32 +5072,31 @@ define hidden void @_ZN3ue215getUcpMongolianEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 10
-  br i1 %17, label %9, label %20, !llvm.loop !105
+  %16 = icmp samesign ult i64 %indvars.iv, 10
+  br i1 %16, label %9, label %19, !llvm.loop !105
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -5216,32 +5116,31 @@ define hidden void @_ZN3ue29getUcpMroEv(ptr dead_on_unwind noalias writable sret
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L11ucp_Mro_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Mro_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L11ucp_Mro_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !106
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !106
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -5261,32 +5160,31 @@ define hidden void @_ZN3ue213getUcpMyanmarEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !107
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !107
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -5306,31 +5204,30 @@ define hidden void @_ZN3ue215getUcpNabataeanEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !108
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !108
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -5350,32 +5247,31 @@ define hidden void @_ZN3ue217getUcpNew_Tai_LueEv(ptr dead_on_unwind noalias writ
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %17, label %9, label %20, !llvm.loop !109
+  %16 = icmp samesign ult i64 %indvars.iv, 6
+  br i1 %16, label %9, label %19, !llvm.loop !109
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -5581,31 +5477,30 @@ define hidden void @_ZN3ue217getUcpOld_PersianEv(ptr dead_on_unwind noalias writ
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !110
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !110
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -5687,32 +5582,31 @@ define hidden void @_ZN3ue211getUcpOriyaEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Oriya_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 26
-  br i1 %17, label %9, label %20, !llvm.loop !111
+  %16 = icmp samesign ult i64 %indvars.iv, 26
+  br i1 %16, label %9, label %19, !llvm.loop !111
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -5732,31 +5626,30 @@ define hidden void @_ZN3ue213getUcpOsmanyaEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !112
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !112
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -5776,32 +5669,31 @@ define hidden void @_ZN3ue218getUcpPahawh_HmongEv(ptr dead_on_unwind noalias wri
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %17, label %9, label %20, !llvm.loop !113
+  %16 = icmp samesign ult i64 %indvars.iv, 8
+  br i1 %16, label %9, label %19, !llvm.loop !113
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -5914,31 +5806,30 @@ define hidden void @_ZN3ue216getUcpPhoenicianEv(ptr dead_on_unwind noalias writa
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !114
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !114
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -5958,32 +5849,31 @@ define hidden void @_ZN3ue221getUcpPsalter_PahlaviEv(ptr dead_on_unwind noalias 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !115
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !115
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6003,31 +5893,30 @@ define hidden void @_ZN3ue212getUcpRejangEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Rejang_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !116
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !116
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6047,31 +5936,30 @@ define hidden void @_ZN3ue211getUcpRunicEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Runic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Runic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Runic_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !117
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !117
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6091,31 +5979,30 @@ define hidden void @_ZN3ue215getUcpSamaritanEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !118
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !118
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6135,31 +6022,30 @@ define hidden void @_ZN3ue216getUcpSaurashtraEv(ptr dead_on_unwind noalias writa
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !119
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !119
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6179,32 +6065,31 @@ define hidden void @_ZN3ue213getUcpSharadaEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Sharada_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !120
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !120
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6255,31 +6140,30 @@ define hidden void @_ZN3ue213getUcpSiddhamEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Siddham_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !121
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !121
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6299,32 +6183,31 @@ define hidden void @_ZN3ue213getUcpSinhalaEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %17, label %9, label %20, !llvm.loop !122
+  %16 = icmp samesign ult i64 %indvars.iv, 24
+  br i1 %16, label %9, label %19, !llvm.loop !122
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6344,31 +6227,30 @@ define hidden void @_ZN3ue218getUcpSora_SompengEv(ptr dead_on_unwind noalias wri
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !123
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !123
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6388,31 +6270,30 @@ define hidden void @_ZN3ue215getUcpSundaneseEv(ptr dead_on_unwind noalias writab
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !124
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !124
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6463,32 +6344,31 @@ define hidden void @_ZN3ue212getUcpSyriacEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Syriac_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !125
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !125
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6508,31 +6388,30 @@ define hidden void @_ZN3ue213getUcpTagalogEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !126
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !126
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6552,32 +6431,31 @@ define hidden void @_ZN3ue214getUcpTagbanwaEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !127
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !127
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6597,31 +6475,30 @@ define hidden void @_ZN3ue212getUcpTai_LeEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !128
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !128
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6641,32 +6518,31 @@ define hidden void @_ZN3ue214getUcpTai_ThamEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %17, label %9, label %20, !llvm.loop !129
+  %16 = icmp samesign ult i64 %indvars.iv, 8
+  br i1 %16, label %9, label %19, !llvm.loop !129
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6686,31 +6562,30 @@ define hidden void @_ZN3ue214getUcpTai_VietEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !130
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !130
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6730,31 +6605,30 @@ define hidden void @_ZN3ue211getUcpTakriEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Takri_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Takri_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Takri_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !131
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !131
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6774,32 +6648,31 @@ define hidden void @_ZN3ue211getUcpTamilEv(ptr dead_on_unwind noalias writable s
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Tamil_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 30
-  br i1 %17, label %9, label %20, !llvm.loop !132
+  %16 = icmp samesign ult i64 %indvars.iv, 30
+  br i1 %16, label %9, label %19, !llvm.loop !132
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6819,32 +6692,31 @@ define hidden void @_ZN3ue212getUcpTeluguEv(ptr dead_on_unwind noalias writable 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Telugu_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %17, label %9, label %20, !llvm.loop !133
+  %16 = icmp samesign ult i64 %indvars.iv, 24
+  br i1 %16, label %9, label %19, !llvm.loop !133
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6895,31 +6767,30 @@ define hidden void @_ZN3ue210getUcpThaiEv(ptr dead_on_unwind noalias writable sr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Thai_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Thai_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Thai_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !134
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !134
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -6939,32 +6810,31 @@ define hidden void @_ZN3ue213getUcpTibetanEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %17, label %9, label %20, !llvm.loop !135
+  %16 = icmp samesign ult i64 %indvars.iv, 12
+  br i1 %16, label %9, label %19, !llvm.loop !135
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -6984,32 +6854,31 @@ define hidden void @_ZN3ue214getUcpTifinaghEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %16
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %15
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
-  store i32 %14, ptr %8, align 4
-  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %16 unwind label %18
+  store i32 %13, ptr %8, align 4
+  %14 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %15 unwind label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %17 = icmp samesign ult i64 %indvars.iv, 4
-  br i1 %17, label %9, label %20, !llvm.loop !136
+  %16 = icmp samesign ult i64 %indvars.iv, 4
+  br i1 %16, label %9, label %19, !llvm.loop !136
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret void
 }
 
@@ -7029,31 +6898,30 @@ define hidden void @_ZN3ue213getUcpTirhutaEv(ptr dead_on_unwind noalias writable
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !137
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !137
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -7073,31 +6941,30 @@ define hidden void @_ZN3ue214getUcpUgariticEv(ptr dead_on_unwind noalias writabl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !138
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !138
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -7148,31 +7015,30 @@ define hidden void @_ZN3ue217getUcpWarang_CitiEv(ptr dead_on_unwind noalias writ
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !139
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !139
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 
@@ -7192,31 +7058,30 @@ define hidden void @_ZN3ue28getUcpYiEv(ptr dead_on_unwind noalias writable sret(
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %9
 
-9:                                                ; preds = %1, %17
-  %10 = phi i1 [ true, %1 ], [ false, %17 ]
-  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %17 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Yi_defE, i64 0, i64 %indvars.iv
+9:                                                ; preds = %1, %16
+  %10 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Yi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Yi_defE, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
-  store i32 %15, ptr %8, align 4
-  %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %17 unwind label %18
+  store i32 %14, ptr %8, align 4
+  %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %10, label %9, label %19, !llvm.loop !140
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %10, label %9, label %20, !llvm.loop !140
-
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   ret void
 }
 

@@ -722,9 +722,9 @@ for.cond.cleanup:                                 ; preds = %for.body
 
 for.body:                                         ; preds = %for.body, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [479 x ptr], ptr @_ZN3irr5videoL20OpenGLFeatureStringsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL20OpenGLFeatureStringsE, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8, !tbaa !22
-  %arrayidx3 = getelementptr inbounds nuw [479 x i8], ptr %FeatureAvailable, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %FeatureAvailable, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx3, align 1, !tbaa !20, !range !23, !noundef !24
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, ptr @.str.1, ptr @.str
@@ -1092,14 +1092,14 @@ for.cond22:                                       ; preds = %for.body25
 
 for.body25:                                       ; preds = %for.cond22, %if.then20
   %indvars.iv = phi i64 [ 0, %if.then20 ], [ %indvars.iv.next, %for.cond22 ]
-  %arrayidx26 = getelementptr inbounds nuw [479 x ptr], ptr @_ZN3irr5videoL20OpenGLFeatureStringsE, i64 0, i64 %indvars.iv
+  %arrayidx26 = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL20OpenGLFeatureStringsE, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx26, align 8, !tbaa !22
   %call27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %p.03989) #16
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then29, label %for.cond22
 
 if.then29:                                        ; preds = %for.body25
-  %arrayidx31 = getelementptr inbounds nuw [479 x i8], ptr %FeatureAvailable, i64 0, i64 %indvars.iv
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %FeatureAvailable, i64 %indvars.iv
   store i8 1, ptr %arrayidx31, align 1, !tbaa !20
   br label %cleanup
 
@@ -7722,7 +7722,7 @@ _ZN3irr4core8strtof10EPKcPS2_.exit77:             ; preds = %while.body18.i57, %
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %_ZN3irr4core8strtof10EPKcPS2_.exit77
-  %arrayidx = getelementptr inbounds nuw [17 x float], ptr @_ZN3irr4coreL15fast_atof_tableE, i64 0, i64 %sub.ptr.sub
+  %arrayidx = getelementptr inbounds nuw float, ptr @_ZN3irr4coreL15fast_atof_tableE, i64 %sub.ptr.sub
   %16 = load float, ptr %arrayidx, align 4, !tbaa !21
   %17 = tail call float @llvm.fmuladd.f32(float %floatValue.1.i54, float %16, float %floatValue.1.i)
   br label %if.end18

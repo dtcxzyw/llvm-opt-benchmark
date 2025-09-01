@@ -1427,7 +1427,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %_ZNKSt6vectorIN4cvc
   %65 = icmp eq i32 %63, 2
   %spec.select.i.i = select i1 %65, i64 2, i64 1
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %66, i64 0, i64 %spec.select.i.i
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %spec.select.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !240, !noalias !295
   store ptr %68, ptr %7, align 8, !tbaa !244, !alias.scope !295
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext false)
@@ -1740,7 +1740,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit17
   %spec.select.i.i182 = add nuw nsw i32 %.0373, %193
   %194 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %195 = zext nneg i32 %spec.select.i.i182 to i64
-  %196 = getelementptr inbounds nuw [0 x ptr], ptr %194, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !240, !noalias !301
   %.not.i.i185 = icmp eq ptr %.sroa.13.1371, %.sroa.26.4370
   br i1 %.not.i.i185, label %199, label %198
@@ -1944,7 +1944,7 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes8BoolToBV11updateCach
   %14 = icmp eq i32 %13, 2
   %spec.select.i.i = select i1 %14, i64 2, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %spec.select.i.i
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %spec.select.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !240, !noalias !308
   store ptr %17, ptr %5, align 8, !tbaa !244, !alias.scope !308
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false)
@@ -3633,8 +3633,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE14getNumChildrenEv.exit: ; preds = %_ZNSt6
   %spec.select.i.i = add nuw nsw i64 %.0198, %103
   %104 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %105 = ashr exact i64 %sext, 32
-  %106 = getelementptr inbounds [0 x ptr], ptr %104, i64 0, i64 %105
+  %105 = ashr exact i64 %sext, 29
+  %106 = getelementptr inbounds i8, ptr %104, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !240, !noalias !317
   %.not.i.i = icmp eq ptr %.sroa.13.2196, %.sroa.26.4195
   br i1 %.not.i.i, label %109, label %108
@@ -5551,7 +5551,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %48, %52, %58
   %79 = icmp eq i32 %77, 2
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %81 = zext i1 %79 to i64
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %80, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !240, !noalias !333
   store ptr %83, ptr %11, align 8, !tbaa !244, !alias.scope !333
   invoke void @_ZNK4cvc58internal13preprocessing6passes8BoolToBV9fromCacheENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %10, ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %11)
@@ -5672,7 +5672,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit120: ; preds = %_ZN4cvc58internal1
   %133 = icmp eq i32 %131, 2
   %spec.select.i.i = select i1 %133, i64 2, i64 1
   %134 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %135 = getelementptr inbounds nuw [0 x ptr], ptr %134, i64 0, i64 %spec.select.i.i
+  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %spec.select.i.i
   %136 = load ptr, ptr %135, align 8, !tbaa !240, !noalias !339
   store ptr %136, ptr %14, align 8, !tbaa !244, !alias.scope !339
   invoke void @_ZNK4cvc58internal13preprocessing6passes8BoolToBV9fromCacheENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %13, ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %14)

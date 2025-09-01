@@ -219,7 +219,7 @@ _ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.
   %36 = load i32, ptr %35, align 4, !tbaa !36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"class.std::vector", ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !75
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -485,7 +485,7 @@ _ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.
   %33 = load i32, ptr %32, align 4, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"class.std::vector", ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !89
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !89
@@ -661,11 +661,11 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
   %.02954 = phi i32 [ 0, %1 ], [ %.130.lcssa, %._crit_edge ]
   %.03253 = phi i32 [ 3, %1 ], [ %.133.lcssa, %._crit_edge ]
   %.04351 = phi i32 [ %..i, %1 ], [ %17, %._crit_edge ]
-  %15 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !92
   %..i39 = tail call noundef i32 @llvm.smin.i32(i32 %16, i32 %.04351)
   %17 = sub nsw i32 %.04351, %..i39
-  %18 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %12, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %"class.std::vector", ptr %12, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !89, !noalias !93
   %21 = load ptr, ptr %18, align 8, !tbaa !89, !noalias !96
@@ -1014,7 +1014,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit: ; preds = 
   %46 = load i32, ptr %45, align 4, !tbaa !36
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw [3 x i32], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !92
   %51 = add nsw i32 %50, %39
   store i32 %51, ptr %49, align 4, !tbaa !92

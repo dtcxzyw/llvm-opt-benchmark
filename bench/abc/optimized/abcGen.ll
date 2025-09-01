@@ -4183,7 +4183,7 @@ define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1
   %.188130 = phi i8 [ %.087132, %.lr.ph ], [ %28, %23 ]
   %.094129 = phi i32 [ %20, %.lr.ph ], [ %29, %23 ]
   %24 = zext i8 %.188130 to i64
-  %25 = getelementptr inbounds nuw [100 x [2 x i8]], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %24
   store i8 %22, ptr %25, align 2, !tbaa !84
   %26 = trunc i32 %.094129 to i8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
@@ -4215,13 +4215,13 @@ define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1
 .preheader119.us.us:                              ; preds = %.preheader120.lr.ph, %.preheader119.us.us.backedge
   %indvars.iv190 = phi i64 [ %indvars.iv190.be, %.preheader119.us.us.backedge ], [ 0, %.preheader120.lr.ph ]
   %.1146.us.us = phi i32 [ %.1146.us.us.be, %.preheader119.us.us.backedge ], [ 0, %.preheader120.lr.ph ]
-  %34 = getelementptr inbounds nuw [10 x [10 x i8]], ptr %3, i64 0, i64 %indvars.iv190
+  %34 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 %indvars.iv190
   br label %35
 
 35:                                               ; preds = %..loopexit_crit_edge.us.us.us, %.preheader119.us.us
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %..loopexit_crit_edge.us.us.us ], [ 0, %.preheader119.us.us ]
   %.2142.us.us.us = phi i32 [ %.5.us.us.us, %..loopexit_crit_edge.us.us.us ], [ %.1146.us.us, %.preheader119.us.us ]
-  %36 = getelementptr inbounds nuw [10 x i8], ptr %34, i64 0, i64 %indvars.iv185
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv185
   %37 = load i8, ptr %36, align 1, !tbaa !84
   %.not108.us.us.us = icmp eq i8 %37, 0
   br i1 %.not108.us.us.us, label %..loopexit_crit_edge.us.us.us, label %.preheader118.us.us.us
@@ -4229,13 +4229,13 @@ define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1
 38:                                               ; preds = %.preheader118.us.us.us, %44
   %indvars.iv180 = phi i64 [ 0, %.preheader118.us.us.us ], [ %indvars.iv.next181, %44 ]
   %.3138.us.us.us = phi i32 [ %.2142.us.us.us, %.preheader118.us.us.us ], [ %.4.us.us.us, %44 ]
-  %39 = getelementptr inbounds nuw [10 x i8], ptr %45, i64 0, i64 %indvars.iv180
+  %39 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv180
   %40 = load i8, ptr %39, align 1, !tbaa !84
   %.not109.us.us.us = icmp eq i8 %40, 0
   br i1 %.not109.us.us.us, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw [10 x i8], ptr %34, i64 0, i64 %indvars.iv180
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv180
   %43 = load i8, ptr %42, align 1, !tbaa !84
   %.not110.us.us.us = icmp eq i8 %43, 0
   %spec.store.select.us.us.us = tail call i8 @llvm.umax.i8(i8 %43, i8 1)
@@ -4256,7 +4256,7 @@ define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1
   br i1 %exitcond189.not, label %._crit_edge.split.us.us.us, label %35, !llvm.loop !146
 
 .preheader118.us.us.us:                           ; preds = %35
-  %45 = getelementptr inbounds nuw [10 x [10 x i8]], ptr %3, i64 0, i64 %indvars.iv185
+  %45 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 %indvars.iv185
   br label %38
 
 ._crit_edge.split.us.us.us:                       ; preds = %..loopexit_crit_edge.us.us.us
@@ -4282,17 +4282,17 @@ define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1
   %50 = lshr i32 %.089151, %49
   %51 = trunc i32 %50 to i8
   %52 = and i8 %51, 1
-  %53 = getelementptr inbounds nuw [100 x [2 x i8]], ptr %4, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !84
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [10 x [10 x i8]], ptr %3, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 %56
   %58 = load i8, ptr %53, align 2, !tbaa !84
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [10 x i8], ptr %57, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %59
   store i8 %52, ptr %60, align 1, !tbaa !84
-  %61 = getelementptr inbounds nuw [10 x [10 x i8]], ptr %3, i64 0, i64 %59
-  %62 = getelementptr inbounds nuw [10 x i8], ptr %61, i64 0, i64 %56
+  %61 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 %59
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %56
   store i8 %52, ptr %62, align 1, !tbaa !84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

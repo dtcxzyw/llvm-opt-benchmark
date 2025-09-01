@@ -2390,7 +2390,7 @@ Vec_IntFill.exit.i.us:                            ; preds = %.lr.ph.i66.i.us, %V
   %172 = trunc nuw nsw i64 %indvars.iv.i.i140.us to i32
   %173 = urem i32 %172, 7
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !35
   %177 = mul i32 %176, %171
   %178 = add i32 %177, %.012.i68.i.us
@@ -2432,7 +2432,7 @@ Hsh_VecManHash.exit.i.us:                         ; preds = %169, %161
   %191 = trunc nuw nsw i64 %indvars.iv.i75.i.us to i32
   %192 = urem i32 %191, 7
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !35
   %196 = mul i32 %195, %190
   %197 = add i32 %196, %.012.i76.i.us
@@ -7289,7 +7289,7 @@ define void @Patt_ManProfileErrors(ptr noundef readonly captures(none) %0, ptr n
   %14 = add nsw i32 %13, %.04355
   %15 = tail call i32 @llvm.smin.i32(i32 %13, i32 32)
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [33 x i32], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr %3, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !35
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !35
@@ -7303,7 +7303,7 @@ define void @Patt_ManProfileErrors(ptr noundef readonly captures(none) %0, ptr n
   %21 = load i32, ptr %20, align 4, !tbaa !35
   %22 = tail call i32 @llvm.smin.i32(i32 %21, i32 32)
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [33 x i32], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %4, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !35
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !35
@@ -7332,7 +7332,7 @@ define void @Patt_ManProfileErrors(ptr noundef readonly captures(none) %0, ptr n
 
 43:                                               ; preds = %.critedge2, %51
   %indvars.iv66 = phi i64 [ 0, %.critedge2 ], [ %indvars.iv.next67, %51 ]
-  %44 = getelementptr inbounds nuw [33 x i32], ptr %3, i64 0, i64 %indvars.iv66
+  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv66
   %45 = load i32, ptr %44, align 4, !tbaa !35
   %.not48 = icmp eq i32 %45, 0
   br i1 %.not48, label %51, label %46
@@ -7356,7 +7356,7 @@ define void @Patt_ManProfileErrors(ptr noundef readonly captures(none) %0, ptr n
 
 54:                                               ; preds = %52, %62
   %indvars.iv70 = phi i64 [ 0, %52 ], [ %indvars.iv.next71, %62 ]
-  %55 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv70
+  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv70
   %56 = load i32, ptr %55, align 4, !tbaa !35
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %62, label %57
@@ -7700,7 +7700,7 @@ Vec_IntSum.exit:                                  ; preds = %26
 
 .preheader:                                       ; preds = %.preheader.preheader, %Vec_IntFree.exit
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %Vec_IntFree.exit ], [ 0, %.preheader.preheader ]
-  %31 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %indvars.iv108
+  %31 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv108
   %32 = load ptr, ptr %31, align 8, !tbaa !105
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !32
@@ -7835,7 +7835,7 @@ Vec_IntFree.exit73:                               ; preds = %36, %38
 
 .critedge:                                        ; preds = %.critedge.preheader, %Vec_IntFree.exit75
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %Vec_IntFree.exit75 ], [ 0, %.critedge.preheader ]
-  %86 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %indvars.iv104
+  %86 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv104
   %87 = load ptr, ptr %86, align 8, !tbaa !105
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !32
@@ -9053,7 +9053,7 @@ define void @Gia_GenerateCexes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 16:                                               ; preds = %.preheader, %Vec_IntFreeP.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntFreeP.exit ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !105
   %19 = icmp eq ptr %18, null
   br i1 %19, label %Vec_IntFreeP.exit, label %20

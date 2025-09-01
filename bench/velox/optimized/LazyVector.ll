@@ -1769,7 +1769,7 @@ for.body41.i:                                     ; preds = %if.end31.i, %if.end
   br i1 %tobool44.not.i, label %if.end59.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %for.body41.i
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %68
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %68
   %69 = load <8 x i32>, ptr %arrayidx.i.i, align 32
   %vecinit.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -2013,7 +2013,7 @@ for.body41.i243:                                  ; preds = %if.end31.i235, %if.
   br i1 %tobool44.not.i249, label %if.end59.i258, label %if.then45.i250
 
 if.then45.i250:                                   ; preds = %for.body41.i243
-  %arrayidx.i.i251 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %95
+  %arrayidx.i.i251 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %95
   %96 = load <8 x i32>, ptr %arrayidx.i.i251, align 32
   %vecinit.i.i.i.i252 = insertelement <8 x i32> poison, i32 %row.246.i246, i64 0
   %vecinit7.i.i.i.i253 = shufflevector <8 x i32> %vecinit.i.i.i.i252, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -4379,7 +4379,7 @@ cond.true.i.i:                                    ; preds = %_ZNK8facebook5velox
 
 cond.false.i.i:                                   ; preds = %_ZNK8facebook5velox6Buffer9asMutableImEEPT_v.exit
   %idxprom.i4.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i5.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i
   %7 = load i8, ptr %arrayidx.i5.i.i, align 1
   %div2.i6.i.i = lshr i32 %idx, 3
   %idxprom1.i.i.i = zext nneg i32 %div2.i6.i.i to i64

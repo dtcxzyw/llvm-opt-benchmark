@@ -137,7 +137,7 @@ define dso_local void @s_p_hashtbl_destroy(ptr noundef %0) #0 {
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %._crit_edge17 ], [ 0, %1 ]
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %8 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %indvars.iv24
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv24
   %9 = load ptr, ptr %8, align 8
   %.not713 = icmp eq ptr %9, null
   br i1 %.not713, label %._crit_edge17, label %.lr.ph16
@@ -1130,7 +1130,7 @@ define dso_local range(i32 0, 2) i32 @s_p_parse_line(ptr noundef %0, ptr noundef
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.split
   %.06.lcssa.i.i = phi i64 [ 0, %.lr.ph.split ], [ %25, %._crit_edge.loopexit.i.i ]
-  %26 = getelementptr inbounds nuw [173 x ptr], ptr %10, i64 0, i64 %.06.lcssa.i.i
+  %26 = getelementptr inbounds nuw ptr, ptr %10, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %26, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -1203,7 +1203,7 @@ define dso_local void @s_p_hashtbl_merge(ptr noundef captures(address_is_null) %
 
 8:                                                ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %9 = getelementptr inbounds nuw [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %.02646 = load ptr, ptr %9, align 8
   %.not47 = icmp eq ptr %.02646, null
   br i1 %.not47, label %._crit_edge, label %.lr.ph
@@ -1258,7 +1258,7 @@ define dso_local void @s_p_hashtbl_merge(ptr noundef captures(address_is_null) %
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %15
   %.06.lcssa.i.i = phi i64 [ 0, %15 ], [ %30, %._crit_edge.loopexit.i.i ]
-  %31 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.06.lcssa.i.i
+  %31 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %31, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -1336,7 +1336,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_edge.loopexit.i.i38
   %.06.lcssa.i.i40 = phi i64 [ 0, %.loopexit ], [ %63, %._crit_edge.loopexit.i.i38 ]
-  %64 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.06.lcssa.i.i40
+  %64 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06.lcssa.i.i40
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %47, align 8
   store ptr %.02649, ptr %64, align 8
@@ -2110,7 +2110,7 @@ define dso_local ptr @s_p_hashtbl_create_cnt(ptr noundef readonly captures(none)
 
 _conf_hashtbl_insert.exit:                        ; preds = %39, %._crit_edge.loopexit.i.i
   %.06.lcssa.i.i = phi i64 [ 0, %39 ], [ %54, %._crit_edge.loopexit.i.i ]
-  %55 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.06.lcssa.i.i
+  %55 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06.lcssa.i.i
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %23, align 8
   store ptr %10, ptr %55, align 8
@@ -2154,7 +2154,7 @@ define dso_local ptr @_hashtbl_copy_keys(ptr noundef readonly captures(none) %0)
 
 7:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %8 = getelementptr inbounds nuw [173 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %.01921 = load ptr, ptr %8, align 8
   %.not2022 = icmp eq ptr %.01921, null
   br i1 %.not2022, label %._crit_edge, label %.lr.ph
@@ -2216,7 +2216,7 @@ define dso_local ptr @_hashtbl_copy_keys(ptr noundef readonly captures(none) %0)
 
 _conf_hashtbl_insert.exit:                        ; preds = %.lr.ph, %._crit_edge.loopexit.i.i
   %.06.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %37, %._crit_edge.loopexit.i.i ]
-  %38 = getelementptr inbounds nuw [173 x ptr], ptr %4, i64 0, i64 %.06.lcssa.i.i
+  %38 = getelementptr inbounds nuw ptr, ptr %4, i64 %.06.lcssa.i.i
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %39, ptr %40, align 8
@@ -2286,7 +2286,7 @@ define internal fastcc range(i32 -1, 1) i32 @_keyvalue_regex(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %24
   %29 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._keyvalue_regex, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._keyvalue_regex, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %5, align 4
   br label %30
@@ -2711,7 +2711,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_next_key(ptr noundef %0, ptr 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %13
   %.06.lcssa.i.i = phi i64 [ 0, %13 ], [ %27, %._crit_edge.loopexit.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %29 = getelementptr inbounds nuw [173 x ptr], ptr %28, i64 0, i64 %.06.lcssa.i.i
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %29, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -2812,7 +2812,7 @@ define dso_local void @s_p_hashtbl_merge_override(ptr noundef captures(address_i
 
 8:                                                ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %9 = getelementptr inbounds nuw [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %.02545 = load ptr, ptr %9, align 8
   %.not46 = icmp eq ptr %.02545, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph
@@ -2867,7 +2867,7 @@ define dso_local void @s_p_hashtbl_merge_override(ptr noundef captures(address_i
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %15
   %.06.lcssa.i.i = phi i64 [ 0, %15 ], [ %30, %._crit_edge.loopexit.i.i ]
-  %31 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.06.lcssa.i.i
+  %31 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %31, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -2935,7 +2935,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_edge.loopexit.i.i37
   %.06.lcssa.i.i39 = phi i64 [ 0, %.loopexit ], [ %57, %._crit_edge.loopexit.i.i37 ]
-  %58 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.06.lcssa.i.i39
+  %58 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06.lcssa.i.i39
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %41, align 8
   store ptr %.02548, ptr %58, align 8
@@ -2966,7 +2966,7 @@ define dso_local void @s_p_hashtbl_merge_keys(ptr noundef captures(address_is_nu
 
 8:                                                ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %9 = getelementptr inbounds nuw [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %.02749 = load ptr, ptr %9, align 8
   %.not50 = icmp eq ptr %.02749, null
   br i1 %.not50, label %._crit_edge, label %.lr.ph
@@ -3005,7 +3005,7 @@ define dso_local void @s_p_hashtbl_merge_keys(ptr noundef captures(address_is_nu
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %.lr.ph
   %.06.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %24, %._crit_edge.loopexit.i.i ]
-  %25 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.06.lcssa.i.i
+  %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %25, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -3093,7 +3093,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_edge.loopexit.i.i41
   %.06.lcssa.i.i43 = phi i64 [ 0, %.loopexit ], [ %66, %._crit_edge.loopexit.i.i41 ]
-  %67 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.06.lcssa.i.i43
+  %67 = getelementptr inbounds nuw ptr, ptr %7, i64 %.06.lcssa.i.i43
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %50, align 8
   store ptr %.02752, ptr %67, align 8
@@ -3159,7 +3159,7 @@ define dso_local range(i32 -1, 1) i32 @s_p_parse_line_expanded(ptr noundef reado
 
 15:                                               ; preds = %._crit_edge.i, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %16 = getelementptr inbounds nuw [173 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %.01820.i = load ptr, ptr %16, align 8
   %.not1921.i = icmp eq ptr %.01820.i, null
   br i1 %.not1921.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3225,7 +3225,7 @@ define dso_local range(i32 -1, 1) i32 @s_p_parse_line_expanded(ptr noundef reado
 
 _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexit.i.i.i, %29
   %.06.lcssa.i.i.i = phi i64 [ 0, %29 ], [ %44, %._crit_edge.loopexit.i.i.i ]
-  %45 = getelementptr inbounds nuw [173 x ptr], ptr %12, i64 0, i64 %.06.lcssa.i.i.i
+  %45 = getelementptr inbounds nuw ptr, ptr %12, i64 %.06.lcssa.i.i.i
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %46, ptr %47, align 8
@@ -3295,7 +3295,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %13
 
 68:                                               ; preds = %.preheader65, %._crit_edge98
   %indvars.iv131 = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next132, %._crit_edge98 ]
-  %69 = getelementptr inbounds nuw [173 x ptr], ptr %12, i64 0, i64 %indvars.iv131
+  %69 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv131
   %.092 = load ptr, ptr %69, align 8
   %.not5193 = icmp eq ptr %.092, null
   br i1 %.not5193, label %._crit_edge98, label %.lr.ph97
@@ -3561,7 +3561,7 @@ define internal fastcc void @_hashtbl_plain_to_string(ptr noundef readonly captu
 
 3:                                                ; preds = %1, %._crit_edge
   %indvars.iv25 = phi i64 [ 0, %1 ], [ %indvars.iv.next26, %._crit_edge ]
-  %4 = getelementptr inbounds nuw [173 x ptr], ptr %2, i64 0, i64 %indvars.iv25
+  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv25
   %.01619 = load ptr, ptr %4, align 8
   %.not20 = icmp eq ptr %.01619, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph22
@@ -3662,7 +3662,7 @@ define dso_local range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonl
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %7
   %.06.lcssa.i.i = phi i64 [ 0, %7 ], [ %21, %._crit_edge.loopexit.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = getelementptr inbounds nuw [173 x ptr], ptr %22, i64 0, i64 %.06.lcssa.i.i
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %23, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -3869,7 +3869,7 @@ define internal fastcc ptr @_get_check(i32 noundef range(i32 1, 15) %0, ptr noun
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %4
   %.06.lcssa.i.i = phi i64 [ 0, %4 ], [ %18, %._crit_edge.loopexit.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %20 = getelementptr inbounds nuw [173 x ptr], ptr %19, i64 0, i64 %.06.lcssa.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %20, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -3950,7 +3950,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_operator(ptr noundef writeonly cap
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %4
   %.06.lcssa.i.i = phi i64 [ 0, %4 ], [ %18, %._crit_edge.loopexit.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %20 = getelementptr inbounds nuw [173 x ptr], ptr %19, i64 0, i64 %.06.lcssa.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %20, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -4077,7 +4077,7 @@ define dso_local noundef ptr @s_p_pack_hashtbl(ptr noundef readonly captures(add
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %9
   %.06.lcssa.i.i = phi i64 [ 0, %9 ], [ %23, %._crit_edge.loopexit.i.i ]
-  %24 = getelementptr inbounds nuw [173 x ptr], ptr %5, i64 0, i64 %.06.lcssa.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %.06.lcssa.i.i
   %.012.i = load ptr, ptr %24, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %_conf_hashtbl_lookup.exit, label %.lr.ph.i
@@ -4372,7 +4372,7 @@ define dso_local ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr noundef readon
 
 _conf_hashtbl_insert.exit:                        ; preds = %34, %._crit_edge.loopexit.i.i
   %.06.lcssa.i.i = phi i64 [ 0, %34 ], [ %51, %._crit_edge.loopexit.i.i ]
-  %52 = getelementptr inbounds nuw [173 x ptr], ptr %18, i64 0, i64 %.06.lcssa.i.i
+  %52 = getelementptr inbounds nuw ptr, ptr %18, i64 %.06.lcssa.i.i
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store ptr %53, ptr %54, align 8
@@ -4891,7 +4891,7 @@ define internal fastcc void @_handle_expline_merge(ptr noundef %0, ptr noundef n
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %4
   %.06.lcssa.i.i = phi i64 [ 0, %4 ], [ %18, %._crit_edge.loopexit.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %20 = getelementptr inbounds nuw [173 x ptr], ptr %19, i64 0, i64 %.06.lcssa.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.06.lcssa.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_conf_hashtbl_index.exit.i
@@ -4958,7 +4958,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %33
   %.06.lcssa.i.i.i = phi i64 [ 0, %33 ], [ %47, %._crit_edge.loopexit.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %49 = getelementptr inbounds nuw [173 x ptr], ptr %48, i64 0, i64 %.06.lcssa.i.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %.06.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %49, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i44
@@ -5022,7 +5022,7 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i44
 _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexit.i.i25.i, %.loopexit.i
   %.06.lcssa.i.i27.i = phi i64 [ 0, %.loopexit.i ], [ %74, %._crit_edge.loopexit.i.i25.i ]
   %75 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %76 = getelementptr inbounds nuw [173 x ptr], ptr %75, i64 0, i64 %.06.lcssa.i.i27.i
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.06.lcssa.i.i27.i
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %57, i64 48
   store ptr %77, ptr %78, align 8
@@ -5092,7 +5092,7 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
 _conf_hashtbl_index.exit.i.i52:                   ; preds = %._crit_edge.loopexit.i.i.i51, %.lr.ph.i45
   %.06.lcssa.i.i.i53 = phi i64 [ 0, %.lr.ph.i45 ], [ %114, %._crit_edge.loopexit.i.i.i51 ]
   %115 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  %116 = getelementptr inbounds nuw [173 x ptr], ptr %115, i64 0, i64 %.06.lcssa.i.i.i53
+  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %.06.lcssa.i.i.i53
   br label %.lr.ph.i.i54
 
 .lr.ph.i.i54:                                     ; preds = %.lr.ph.i.i54, %_conf_hashtbl_index.exit.i.i52
@@ -5184,7 +5184,7 @@ _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
 _conf_hashtbl_index.exit.i.i68:                   ; preds = %._crit_edge.loopexit.i.i.i67, %.lr.ph.i60
   %.06.lcssa.i.i.i69 = phi i64 [ 0, %.lr.ph.i60 ], [ %161, %._crit_edge.loopexit.i.i.i67 ]
   %162 = getelementptr inbounds nuw i8, ptr %147, i64 64
-  %163 = getelementptr inbounds nuw [173 x ptr], ptr %162, i64 0, i64 %.06.lcssa.i.i.i69
+  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %.06.lcssa.i.i.i69
   br label %.lr.ph.i.i70
 
 .lr.ph.i.i70:                                     ; preds = %.lr.ph.i.i70, %_conf_hashtbl_index.exit.i.i68
@@ -5276,7 +5276,7 @@ _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
 _conf_hashtbl_index.exit.i.i87:                   ; preds = %._crit_edge.loopexit.i.i.i86, %.lr.ph.i79
   %.06.lcssa.i.i.i88 = phi i64 [ 0, %.lr.ph.i79 ], [ %208, %._crit_edge.loopexit.i.i.i86 ]
   %209 = getelementptr inbounds nuw i8, ptr %194, i64 64
-  %210 = getelementptr inbounds nuw [173 x ptr], ptr %209, i64 0, i64 %.06.lcssa.i.i.i88
+  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %.06.lcssa.i.i.i88
   br label %.lr.ph.i.i89
 
 .lr.ph.i.i89:                                     ; preds = %.lr.ph.i.i89, %_conf_hashtbl_index.exit.i.i87
@@ -5368,7 +5368,7 @@ _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
 _conf_hashtbl_index.exit.i.i106:                  ; preds = %._crit_edge.loopexit.i.i.i105, %.lr.ph.i98
   %.06.lcssa.i.i.i107 = phi i64 [ 0, %.lr.ph.i98 ], [ %255, %._crit_edge.loopexit.i.i.i105 ]
   %256 = getelementptr inbounds nuw i8, ptr %241, i64 64
-  %257 = getelementptr inbounds nuw [173 x ptr], ptr %256, i64 0, i64 %.06.lcssa.i.i.i107
+  %257 = getelementptr inbounds nuw ptr, ptr %256, i64 %.06.lcssa.i.i.i107
   br label %.lr.ph.i.i108
 
 .lr.ph.i.i108:                                    ; preds = %.lr.ph.i.i108, %_conf_hashtbl_index.exit.i.i106
@@ -5460,7 +5460,7 @@ _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
 _conf_hashtbl_index.exit.i.i125:                  ; preds = %._crit_edge.loopexit.i.i.i124, %.lr.ph.i117
   %.06.lcssa.i.i.i126 = phi i64 [ 0, %.lr.ph.i117 ], [ %302, %._crit_edge.loopexit.i.i.i124 ]
   %303 = getelementptr inbounds nuw i8, ptr %288, i64 64
-  %304 = getelementptr inbounds nuw [173 x ptr], ptr %303, i64 0, i64 %.06.lcssa.i.i.i126
+  %304 = getelementptr inbounds nuw ptr, ptr %303, i64 %.06.lcssa.i.i.i126
   br label %.lr.ph.i.i127
 
 .lr.ph.i.i127:                                    ; preds = %.lr.ph.i.i127, %_conf_hashtbl_index.exit.i.i125
@@ -5552,7 +5552,7 @@ _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
 _conf_hashtbl_index.exit.i.i144:                  ; preds = %._crit_edge.loopexit.i.i.i143, %.lr.ph.i136
   %.06.lcssa.i.i.i145 = phi i64 [ 0, %.lr.ph.i136 ], [ %350, %._crit_edge.loopexit.i.i.i143 ]
   %351 = getelementptr inbounds nuw i8, ptr %336, i64 64
-  %352 = getelementptr inbounds nuw [173 x ptr], ptr %351, i64 0, i64 %.06.lcssa.i.i.i145
+  %352 = getelementptr inbounds nuw ptr, ptr %351, i64 %.06.lcssa.i.i.i145
   br label %.lr.ph.i.i146
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i.i146, %_conf_hashtbl_index.exit.i.i144
@@ -5644,7 +5644,7 @@ _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
 _conf_hashtbl_index.exit.i.i163:                  ; preds = %._crit_edge.loopexit.i.i.i162, %.lr.ph.i155
   %.06.lcssa.i.i.i164 = phi i64 [ 0, %.lr.ph.i155 ], [ %398, %._crit_edge.loopexit.i.i.i162 ]
   %399 = getelementptr inbounds nuw i8, ptr %384, i64 64
-  %400 = getelementptr inbounds nuw [173 x ptr], ptr %399, i64 0, i64 %.06.lcssa.i.i.i164
+  %400 = getelementptr inbounds nuw ptr, ptr %399, i64 %.06.lcssa.i.i.i164
   br label %.lr.ph.i.i165
 
 .lr.ph.i.i165:                                    ; preds = %.lr.ph.i.i165, %_conf_hashtbl_index.exit.i.i163

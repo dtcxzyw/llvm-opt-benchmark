@@ -67,7 +67,7 @@ define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr noundef nonnull align 
   %45 = load i8, ptr %44, align 1, !tbaa !15
   %46 = xor i8 %45, %.neg.i.i
   %47 = srem i64 %10, 8
-  %48 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %47
+  %48 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !15
   %50 = and i8 %46, %49
   %51 = xor i8 %50, %45

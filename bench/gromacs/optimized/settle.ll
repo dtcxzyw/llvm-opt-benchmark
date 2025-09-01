@@ -1272,22 +1272,22 @@ define void @_ZN3gmx11settle_projERKNS_10SettleDataENS_18ConstraintVariableEiPKi
   %.sroa.14.0121 = phi float [ 0.000000e+00, %111 ], [ %151, %133 ]
   %.sroa.8.0120 = phi float [ 0.000000e+00, %111 ], [ %147, %133 ]
   %.sroa.0103.0119 = phi float [ 0.000000e+00, %111 ], [ %141, %133 ]
-  %134 = getelementptr inbounds nuw [3 x float], ptr %130, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv
   %135 = load float, ptr %134, align 4, !tbaa !23
-  %136 = getelementptr inbounds nuw [3 x float], ptr %131, i64 0, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw float, ptr %131, i64 %indvars.iv
   %137 = load float, ptr %136, align 4, !tbaa !23
   %138 = fsub float %135, %137
-  %139 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %140 = load float, ptr %139, align 4, !tbaa !23
   %141 = call float @llvm.fmuladd.f32(float %138, float %140, float %.sroa.0103.0119)
-  %142 = getelementptr inbounds nuw [3 x float], ptr %132, i64 0, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv
   %143 = load float, ptr %142, align 4, !tbaa !23
   %144 = fsub float %135, %143
-  %145 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %146 = load float, ptr %145, align 4, !tbaa !23
   %147 = call float @llvm.fmuladd.f32(float %144, float %146, float %.sroa.8.0120)
   %148 = fsub float %137, %143
-  %149 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
   %150 = load float, ptr %149, align 4, !tbaa !23
   %151 = call float @llvm.fmuladd.f32(float %148, float %150, float %.sroa.14.0121)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1313,28 +1313,28 @@ define void @_ZN3gmx11settle_projERKNS_10SettleDataENS_18ConstraintVariableEiPKi
 
 167:                                              ; preds = %152, %167
   %indvars.iv130 = phi i64 [ 0, %152 ], [ %indvars.iv.next131, %167 ]
-  %168 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv130
+  %168 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv130
   %169 = load float, ptr %168, align 4, !tbaa !23
-  %170 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv130
+  %170 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv130
   %171 = load float, ptr %170, align 4, !tbaa !23
   %172 = fmul float %158, %171
   %173 = call float @llvm.fmuladd.f32(float %155, float %169, float %172)
-  %174 = getelementptr inbounds nuw [3 x float], ptr %162, i64 0, i64 %indvars.iv130
+  %174 = getelementptr inbounds nuw float, ptr %162, i64 %indvars.iv130
   %175 = load float, ptr %174, align 4, !tbaa !23
   %176 = call float @llvm.fmuladd.f32(float %62, float %173, float %175)
   store float %176, ptr %174, align 4, !tbaa !23
-  %177 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv130
+  %177 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv130
   %178 = load float, ptr %177, align 4, !tbaa !23
   %179 = fmul float %161, %178
   %180 = call float @llvm.fmuladd.f32(float %163, float %169, float %179)
-  %181 = getelementptr inbounds nuw [3 x float], ptr %164, i64 0, i64 %indvars.iv130
+  %181 = getelementptr inbounds nuw float, ptr %164, i64 %indvars.iv130
   %182 = load float, ptr %181, align 4, !tbaa !23
   %183 = call float @llvm.fmuladd.f32(float %63, float %180, float %182)
   store float %183, ptr %181, align 4, !tbaa !23
   %184 = fneg float %178
   %185 = fmul float %161, %184
   %186 = call float @llvm.fmuladd.f32(float %165, float %171, float %185)
-  %187 = getelementptr inbounds nuw [3 x float], ptr %166, i64 0, i64 %indvars.iv130
+  %187 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv130
   %188 = load float, ptr %187, align 4, !tbaa !23
   %189 = call float @llvm.fmuladd.f32(float %63, float %186, float %188)
   store float %189, ptr %187, align 4, !tbaa !23
@@ -1348,13 +1348,13 @@ define void @_ZN3gmx11settle_projERKNS_10SettleDataENS_18ConstraintVariableEiPKi
 
 .preheader:                                       ; preds = %190, %218
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %218 ], [ 0, %190 ]
-  %192 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv138
+  %192 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv138
   %193 = load float, ptr %192, align 4, !tbaa !23
   %194 = fmul float %35, %193
-  %195 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv138
+  %195 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv138
   %196 = load float, ptr %195, align 4, !tbaa !23
   %197 = fmul float %35, %196
-  %198 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv138
+  %198 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv138
   %199 = load float, ptr %198, align 4, !tbaa !23
   %200 = fmul float %37, %199
   %201 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv138
@@ -1362,19 +1362,19 @@ define void @_ZN3gmx11settle_projERKNS_10SettleDataENS_18ConstraintVariableEiPKi
 
 202:                                              ; preds = %.preheader, %202
   %indvars.iv134 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next135, %202 ]
-  %203 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv134
+  %203 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv134
   %204 = load float, ptr %203, align 4, !tbaa !23
   %205 = fmul float %194, %204
-  %206 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv134
+  %206 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv134
   %207 = load float, ptr %206, align 4, !tbaa !23
   %208 = fmul float %197, %207
   %209 = fmul float %158, %208
   %210 = call float @llvm.fmuladd.f32(float %205, float %155, float %209)
-  %211 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv134
+  %211 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv134
   %212 = load float, ptr %211, align 4, !tbaa !23
   %213 = fmul float %200, %212
   %214 = call float @llvm.fmuladd.f32(float %213, float %161, float %210)
-  %215 = getelementptr inbounds nuw [3 x float], ptr %201, i64 0, i64 %indvars.iv134
+  %215 = getelementptr inbounds nuw float, ptr %201, i64 %indvars.iv134
   %216 = load float, ptr %215, align 4, !tbaa !23
   %217 = fadd float %216, %214
   store float %217, ptr %215, align 4, !tbaa !23
@@ -1753,14 +1753,14 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 258:                                              ; preds = %258, %204
   %indvars.iv.i.i = phi i64 [ 0, %204 ], [ %indvars.iv.next.i.i, %258 ]
-  %259 = getelementptr inbounds nuw [3 x float], ptr %100, i64 0, i64 %indvars.iv.i.i
+  %259 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv.i.i
   %260 = load float, ptr %259, align 4, !tbaa !23, !noalias !100
-  %261 = getelementptr inbounds nuw [3 x float], ptr %101, i64 0, i64 %indvars.iv.i.i
+  %261 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv.i.i
   %262 = load float, ptr %261, align 4, !tbaa !23, !noalias !100
   %263 = fadd float %260, %262
   %264 = fneg float %263
   %265 = fmul float %146, %264
-  %266 = getelementptr inbounds nuw [3 x float], ptr %102, i64 0, i64 %indvars.iv.i.i
+  %266 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv.i.i
   store float %265, ptr %266, align 4, !tbaa !23, !noalias !100
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -1772,12 +1772,12 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 268:                                              ; preds = %268, %257
   %indvars.iv21.i.i = phi i64 [ 0, %257 ], [ %indvars.iv.next22.i.i, %268 ]
-  %269 = getelementptr inbounds nuw [3 x float], ptr %100, i64 0, i64 %indvars.iv21.i.i
+  %269 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv21.i.i
   %270 = load float, ptr %269, align 4, !tbaa !23, !noalias !100
-  %271 = getelementptr inbounds nuw [3 x float], ptr %102, i64 0, i64 %indvars.iv21.i.i
+  %271 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv21.i.i
   %272 = load float, ptr %271, align 4, !tbaa !23, !noalias !100
   %273 = fadd float %270, %272
-  %274 = getelementptr inbounds nuw [3 x float], ptr %103, i64 0, i64 %indvars.iv21.i.i
+  %274 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv21.i.i
   store float %273, ptr %274, align 4, !tbaa !23, !noalias !100
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, 3
@@ -1864,12 +1864,12 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 333:                                              ; preds = %333, %267
   %indvars.iv25.i.i = phi i64 [ 0, %267 ], [ %indvars.iv.next26.i.i, %333 ]
-  %334 = getelementptr inbounds nuw [3 x float], ptr %101, i64 0, i64 %indvars.iv25.i.i
+  %334 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv25.i.i
   %335 = load float, ptr %334, align 4, !tbaa !23, !noalias !100
-  %336 = getelementptr inbounds nuw [3 x float], ptr %102, i64 0, i64 %indvars.iv25.i.i
+  %336 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv25.i.i
   %337 = load float, ptr %336, align 4, !tbaa !23, !noalias !100
   %338 = fadd float %335, %337
-  %339 = getelementptr inbounds nuw [3 x float], ptr %104, i64 0, i64 %indvars.iv25.i.i
+  %339 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv25.i.i
   store float %338, ptr %339, align 4, !tbaa !23, !noalias !100
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 3
@@ -2032,21 +2032,21 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 460:                                              ; preds = %460, %340
   %indvars.iv32.i.i = phi i64 [ 0, %340 ], [ %indvars.iv.next33.i.i, %460 ]
-  %461 = getelementptr inbounds nuw [3 x float], ptr %105, i64 0, i64 %indvars.iv32.i.i
+  %461 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv32.i.i
   %462 = load float, ptr %461, align 4, !tbaa !23, !noalias !100
-  %463 = getelementptr inbounds nuw [3 x float], ptr %106, i64 0, i64 %indvars.iv32.i.i
+  %463 = getelementptr inbounds nuw float, ptr %106, i64 %indvars.iv32.i.i
   %464 = load float, ptr %463, align 4, !tbaa !23, !noalias !100
   %465 = fmul float %342, %464
   %466 = call float @llvm.fmuladd.f32(float %462, float %341, float %465)
-  %467 = getelementptr inbounds nuw [3 x float], ptr %107, i64 0, i64 %indvars.iv32.i.i
+  %467 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv32.i.i
   %468 = load float, ptr %467, align 4, !tbaa !23, !noalias !100
   %469 = call float @llvm.fmuladd.f32(float %468, float %343, float %466)
-  %470 = getelementptr inbounds nuw [3 x float], ptr %108, i64 0, i64 %indvars.iv32.i.i
+  %470 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv32.i.i
   store float %469, ptr %470, align 4, !tbaa !23, !noalias !100
   %471 = fmul float %345, %464
   %472 = call float @llvm.fmuladd.f32(float %462, float %344, float %471)
   %473 = call float @llvm.fmuladd.f32(float %468, float %346, float %472)
-  %474 = getelementptr inbounds nuw [3 x float], ptr %109, i64 0, i64 %indvars.iv32.i.i
+  %474 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv32.i.i
   store float %473, ptr %474, align 4, !tbaa !23, !noalias !100
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next33.i.i, 3
@@ -2058,14 +2058,14 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 476:                                              ; preds = %476, %358
   %indvars.iv36.i.i = phi i64 [ 0, %358 ], [ %indvars.iv.next37.i.i, %476 ]
-  %477 = getelementptr inbounds nuw [3 x float], ptr %110, i64 0, i64 %indvars.iv36.i.i
+  %477 = getelementptr inbounds nuw float, ptr %110, i64 %indvars.iv36.i.i
   %478 = load float, ptr %477, align 4, !tbaa !23, !noalias !100
-  %479 = getelementptr inbounds nuw [3 x float], ptr %102, i64 0, i64 %indvars.iv36.i.i
+  %479 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv36.i.i
   %480 = load float, ptr %479, align 4, !tbaa !23, !noalias !100
   %481 = fsub float %478, %480
-  %482 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv36.i.i
+  %482 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv36.i.i
   store float %481, ptr %482, align 4, !tbaa !23, !noalias !100
-  %483 = getelementptr inbounds nuw [3 x float], ptr %95, i64 0, i64 %indvars.iv36.i.i
+  %483 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv36.i.i
   %484 = load float, ptr %483, align 4, !tbaa !23, !noalias !100
   %485 = fadd float %481, %484
   store float %485, ptr %483, align 4, !tbaa !23, !noalias !100
@@ -2079,14 +2079,14 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 487:                                              ; preds = %487, %475
   %indvars.iv40.i.i = phi i64 [ 0, %475 ], [ %indvars.iv.next41.i.i, %487 ]
-  %488 = getelementptr inbounds nuw [3 x float], ptr %111, i64 0, i64 %indvars.iv40.i.i
+  %488 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv40.i.i
   %489 = load float, ptr %488, align 4, !tbaa !23, !noalias !100
-  %490 = getelementptr inbounds nuw [3 x float], ptr %103, i64 0, i64 %indvars.iv40.i.i
+  %490 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv40.i.i
   %491 = load float, ptr %490, align 4, !tbaa !23, !noalias !100
   %492 = fsub float %489, %491
-  %493 = getelementptr inbounds nuw [3 x float], ptr %114, i64 0, i64 %indvars.iv40.i.i
+  %493 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv40.i.i
   store float %492, ptr %493, align 4, !tbaa !23, !noalias !100
-  %494 = getelementptr inbounds nuw [3 x float], ptr %96, i64 0, i64 %indvars.iv40.i.i
+  %494 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv40.i.i
   %495 = load float, ptr %494, align 4, !tbaa !23, !noalias !100
   %496 = fadd float %492, %495
   store float %496, ptr %494, align 4, !tbaa !23, !noalias !100
@@ -2165,14 +2165,14 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 540:                                              ; preds = %540, %486
   %indvars.iv44.i.i = phi i64 [ 0, %486 ], [ %indvars.iv.next45.i.i, %540 ]
-  %541 = getelementptr inbounds nuw [3 x float], ptr %112, i64 0, i64 %indvars.iv44.i.i
+  %541 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv44.i.i
   %542 = load float, ptr %541, align 4, !tbaa !23, !noalias !100
-  %543 = getelementptr inbounds nuw [3 x float], ptr %104, i64 0, i64 %indvars.iv44.i.i
+  %543 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv44.i.i
   %544 = load float, ptr %543, align 4, !tbaa !23, !noalias !100
   %545 = fsub float %542, %544
-  %546 = getelementptr inbounds nuw [3 x float], ptr %115, i64 0, i64 %indvars.iv44.i.i
+  %546 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv44.i.i
   store float %545, ptr %546, align 4, !tbaa !23, !noalias !100
-  %547 = getelementptr inbounds nuw [3 x float], ptr %97, i64 0, i64 %indvars.iv44.i.i
+  %547 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv44.i.i
   %548 = load float, ptr %547, align 4, !tbaa !23, !noalias !100
   %549 = fadd float %545, %548
   store float %549, ptr %547, align 4, !tbaa !23, !noalias !100
@@ -2182,9 +2182,9 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 550:                                              ; preds = %550, %497
   %indvars.iv48.i.i = phi i64 [ 0, %497 ], [ %indvars.iv.next49.i.i, %550 ]
-  %551 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv48.i.i
+  %551 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv48.i.i
   %552 = load float, ptr %551, align 4, !tbaa !23, !noalias !100
-  %553 = getelementptr inbounds nuw [3 x float], ptr %116, i64 0, i64 %indvars.iv48.i.i
+  %553 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv48.i.i
   %554 = load float, ptr %553, align 4, !tbaa !23, !noalias !100
   %555 = call noundef float @llvm.fmuladd.f32(float %552, float %6, float %554)
   store float %555, ptr %553, align 4, !tbaa !23, !noalias !100
@@ -2194,9 +2194,9 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 .preheader6.i.i:                                  ; preds = %550, %.preheader6.i.i
   %indvars.iv52.i.i = phi i64 [ %indvars.iv.next53.i.i, %.preheader6.i.i ], [ 0, %550 ]
-  %556 = getelementptr inbounds nuw [3 x float], ptr %114, i64 0, i64 %indvars.iv52.i.i
+  %556 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv52.i.i
   %557 = load float, ptr %556, align 4, !tbaa !23, !noalias !100
-  %558 = getelementptr inbounds nuw [3 x float], ptr %117, i64 0, i64 %indvars.iv52.i.i
+  %558 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv52.i.i
   %559 = load float, ptr %558, align 4, !tbaa !23, !noalias !100
   %560 = call noundef float @llvm.fmuladd.f32(float %557, float %6, float %559)
   store float %560, ptr %558, align 4, !tbaa !23, !noalias !100
@@ -2262,9 +2262,9 @@ define void @_ZN3gmx7csettleERKNS_10SettleDataEiiPK5t_pbcNS_19ArrayRefWithPaddin
 
 .preheader.i.i:                                   ; preds = %.preheader6.i.i, %.preheader.i.i
   %indvars.iv56.i.i = phi i64 [ %indvars.iv.next57.i.i, %.preheader.i.i ], [ 0, %.preheader6.i.i ]
-  %573 = getelementptr inbounds nuw [3 x float], ptr %115, i64 0, i64 %indvars.iv56.i.i
+  %573 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv56.i.i
   %574 = load float, ptr %573, align 4, !tbaa !23, !noalias !100
-  %575 = getelementptr inbounds nuw [3 x float], ptr %118, i64 0, i64 %indvars.iv56.i.i
+  %575 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv56.i.i
   %576 = load float, ptr %575, align 4, !tbaa !23, !noalias !100
   %577 = call noundef float @llvm.fmuladd.f32(float %574, float %6, float %576)
   store float %577, ptr %575, align 4, !tbaa !23, !noalias !100
@@ -2452,14 +2452,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 695:                                              ; preds = %695, %641
   %indvars.iv.i51.i = phi i64 [ 0, %641 ], [ %indvars.iv.next.i52.i, %695 ]
-  %696 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv.i51.i
+  %696 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i51.i
   %697 = load float, ptr %696, align 4, !tbaa !23, !noalias !116
-  %698 = getelementptr inbounds nuw [3 x float], ptr %71, i64 0, i64 %indvars.iv.i51.i
+  %698 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i51.i
   %699 = load float, ptr %698, align 4, !tbaa !23, !noalias !116
   %700 = fadd float %697, %699
   %701 = fneg float %700
   %702 = fmul float %579, %701
-  %703 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv.i51.i
+  %703 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i51.i
   store float %702, ptr %703, align 4, !tbaa !23, !noalias !116
   %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i51.i, 1
   %exitcond.not.i53.i = icmp eq i64 %indvars.iv.next.i52.i, 3
@@ -2471,12 +2471,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 705:                                              ; preds = %705, %694
   %indvars.iv403.i.i = phi i64 [ 0, %694 ], [ %indvars.iv.next404.i.i, %705 ]
-  %706 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv403.i.i
+  %706 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv403.i.i
   %707 = load float, ptr %706, align 4, !tbaa !23, !noalias !116
-  %708 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv403.i.i
+  %708 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv403.i.i
   %709 = load float, ptr %708, align 4, !tbaa !23, !noalias !116
   %710 = fadd float %707, %709
-  %711 = getelementptr inbounds nuw [3 x float], ptr %73, i64 0, i64 %indvars.iv403.i.i
+  %711 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv403.i.i
   store float %710, ptr %711, align 4, !tbaa !23, !noalias !116
   %indvars.iv.next404.i.i = add nuw nsw i64 %indvars.iv403.i.i, 1
   %exitcond406.not.i.i = icmp eq i64 %indvars.iv.next404.i.i, 3
@@ -2563,12 +2563,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 770:                                              ; preds = %770, %704
   %indvars.iv407.i.i = phi i64 [ 0, %704 ], [ %indvars.iv.next408.i.i, %770 ]
-  %771 = getelementptr inbounds nuw [3 x float], ptr %71, i64 0, i64 %indvars.iv407.i.i
+  %771 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv407.i.i
   %772 = load float, ptr %771, align 4, !tbaa !23, !noalias !116
-  %773 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv407.i.i
+  %773 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv407.i.i
   %774 = load float, ptr %773, align 4, !tbaa !23, !noalias !116
   %775 = fadd float %772, %774
-  %776 = getelementptr inbounds nuw [3 x float], ptr %74, i64 0, i64 %indvars.iv407.i.i
+  %776 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv407.i.i
   store float %775, ptr %776, align 4, !tbaa !23, !noalias !116
   %indvars.iv.next408.i.i = add nuw nsw i64 %indvars.iv407.i.i, 1
   %exitcond410.not.i.i = icmp eq i64 %indvars.iv.next408.i.i, 3
@@ -2731,21 +2731,21 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 897:                                              ; preds = %897, %777
   %indvars.iv414.i.i = phi i64 [ 0, %777 ], [ %indvars.iv.next415.i.i, %897 ]
-  %898 = getelementptr inbounds nuw [3 x float], ptr %75, i64 0, i64 %indvars.iv414.i.i
+  %898 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv414.i.i
   %899 = load float, ptr %898, align 4, !tbaa !23, !noalias !116
-  %900 = getelementptr inbounds nuw [3 x float], ptr %76, i64 0, i64 %indvars.iv414.i.i
+  %900 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv414.i.i
   %901 = load float, ptr %900, align 4, !tbaa !23, !noalias !116
   %902 = fmul float %779, %901
   %903 = call float @llvm.fmuladd.f32(float %899, float %778, float %902)
-  %904 = getelementptr inbounds nuw [3 x float], ptr %77, i64 0, i64 %indvars.iv414.i.i
+  %904 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv414.i.i
   %905 = load float, ptr %904, align 4, !tbaa !23, !noalias !116
   %906 = call float @llvm.fmuladd.f32(float %905, float %780, float %903)
-  %907 = getelementptr inbounds nuw [3 x float], ptr %78, i64 0, i64 %indvars.iv414.i.i
+  %907 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv414.i.i
   store float %906, ptr %907, align 4, !tbaa !23, !noalias !116
   %908 = fmul float %782, %901
   %909 = call float @llvm.fmuladd.f32(float %899, float %781, float %908)
   %910 = call float @llvm.fmuladd.f32(float %905, float %783, float %909)
-  %911 = getelementptr inbounds nuw [3 x float], ptr %79, i64 0, i64 %indvars.iv414.i.i
+  %911 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv414.i.i
   store float %910, ptr %911, align 4, !tbaa !23, !noalias !116
   %indvars.iv.next415.i.i = add nuw nsw i64 %indvars.iv414.i.i, 1
   %exitcond417.not.i.i = icmp eq i64 %indvars.iv.next415.i.i, 3
@@ -2757,14 +2757,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 913:                                              ; preds = %913, %795
   %indvars.iv418.i.i = phi i64 [ 0, %795 ], [ %indvars.iv.next419.i.i, %913 ]
-  %914 = getelementptr inbounds nuw [3 x float], ptr %80, i64 0, i64 %indvars.iv418.i.i
+  %914 = getelementptr inbounds nuw float, ptr %80, i64 %indvars.iv418.i.i
   %915 = load float, ptr %914, align 4, !tbaa !23, !noalias !116
-  %916 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv418.i.i
+  %916 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv418.i.i
   %917 = load float, ptr %916, align 4, !tbaa !23, !noalias !116
   %918 = fsub float %915, %917
-  %919 = getelementptr inbounds nuw [3 x float], ptr %83, i64 0, i64 %indvars.iv418.i.i
+  %919 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv418.i.i
   store float %918, ptr %919, align 4, !tbaa !23, !noalias !116
-  %920 = getelementptr inbounds nuw [3 x float], ptr %65, i64 0, i64 %indvars.iv418.i.i
+  %920 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv418.i.i
   %921 = load float, ptr %920, align 4, !tbaa !23, !noalias !116
   %922 = fadd float %918, %921
   store float %922, ptr %920, align 4, !tbaa !23, !noalias !116
@@ -2778,14 +2778,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 924:                                              ; preds = %924, %912
   %indvars.iv422.i.i = phi i64 [ 0, %912 ], [ %indvars.iv.next423.i.i, %924 ]
-  %925 = getelementptr inbounds nuw [3 x float], ptr %81, i64 0, i64 %indvars.iv422.i.i
+  %925 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv422.i.i
   %926 = load float, ptr %925, align 4, !tbaa !23, !noalias !116
-  %927 = getelementptr inbounds nuw [3 x float], ptr %73, i64 0, i64 %indvars.iv422.i.i
+  %927 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv422.i.i
   %928 = load float, ptr %927, align 4, !tbaa !23, !noalias !116
   %929 = fsub float %926, %928
-  %930 = getelementptr inbounds nuw [3 x float], ptr %84, i64 0, i64 %indvars.iv422.i.i
+  %930 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv422.i.i
   store float %929, ptr %930, align 4, !tbaa !23, !noalias !116
-  %931 = getelementptr inbounds nuw [3 x float], ptr %66, i64 0, i64 %indvars.iv422.i.i
+  %931 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv422.i.i
   %932 = load float, ptr %931, align 4, !tbaa !23, !noalias !116
   %933 = fadd float %929, %932
   store float %933, ptr %931, align 4, !tbaa !23, !noalias !116
@@ -2864,14 +2864,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 977:                                              ; preds = %977, %923
   %indvars.iv426.i.i = phi i64 [ 0, %923 ], [ %indvars.iv.next427.i.i, %977 ]
-  %978 = getelementptr inbounds nuw [3 x float], ptr %82, i64 0, i64 %indvars.iv426.i.i
+  %978 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv426.i.i
   %979 = load float, ptr %978, align 4, !tbaa !23, !noalias !116
-  %980 = getelementptr inbounds nuw [3 x float], ptr %74, i64 0, i64 %indvars.iv426.i.i
+  %980 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv426.i.i
   %981 = load float, ptr %980, align 4, !tbaa !23, !noalias !116
   %982 = fsub float %979, %981
-  %983 = getelementptr inbounds nuw [3 x float], ptr %85, i64 0, i64 %indvars.iv426.i.i
+  %983 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv426.i.i
   store float %982, ptr %983, align 4, !tbaa !23, !noalias !116
-  %984 = getelementptr inbounds nuw [3 x float], ptr %67, i64 0, i64 %indvars.iv426.i.i
+  %984 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv426.i.i
   %985 = load float, ptr %984, align 4, !tbaa !23, !noalias !116
   %986 = fadd float %982, %985
   store float %986, ptr %984, align 4, !tbaa !23, !noalias !116
@@ -2881,9 +2881,9 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 987:                                              ; preds = %987, %934
   %indvars.iv430.i.i = phi i64 [ 0, %934 ], [ %indvars.iv.next431.i.i, %987 ]
-  %988 = getelementptr inbounds nuw [3 x float], ptr %83, i64 0, i64 %indvars.iv430.i.i
+  %988 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv430.i.i
   %989 = load float, ptr %988, align 4, !tbaa !23, !noalias !116
-  %990 = getelementptr inbounds nuw [3 x float], ptr %86, i64 0, i64 %indvars.iv430.i.i
+  %990 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv430.i.i
   %991 = load float, ptr %990, align 4, !tbaa !23, !noalias !116
   %992 = call noundef float @llvm.fmuladd.f32(float %989, float %6, float %991)
   store float %992, ptr %990, align 4, !tbaa !23, !noalias !116
@@ -2893,9 +2893,9 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader377.i.i:                                ; preds = %987, %.preheader377.i.i
   %indvars.iv434.i.i = phi i64 [ %indvars.iv.next435.i.i, %.preheader377.i.i ], [ 0, %987 ]
-  %993 = getelementptr inbounds nuw [3 x float], ptr %84, i64 0, i64 %indvars.iv434.i.i
+  %993 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv434.i.i
   %994 = load float, ptr %993, align 4, !tbaa !23, !noalias !116
-  %995 = getelementptr inbounds nuw [3 x float], ptr %87, i64 0, i64 %indvars.iv434.i.i
+  %995 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv434.i.i
   %996 = load float, ptr %995, align 4, !tbaa !23, !noalias !116
   %997 = call noundef float @llvm.fmuladd.f32(float %994, float %6, float %996)
   store float %997, ptr %995, align 4, !tbaa !23, !noalias !116
@@ -2937,9 +2937,9 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader376.i.i:                                ; preds = %.preheader377.i.i, %.preheader376.i.i
   %indvars.iv438.i.i = phi i64 [ %indvars.iv.next439.i.i, %.preheader376.i.i ], [ 0, %.preheader377.i.i ]
-  %1012 = getelementptr inbounds nuw [3 x float], ptr %85, i64 0, i64 %indvars.iv438.i.i
+  %1012 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv438.i.i
   %1013 = load float, ptr %1012, align 4, !tbaa !23, !noalias !116
-  %1014 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv438.i.i
+  %1014 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv438.i.i
   %1015 = load float, ptr %1014, align 4, !tbaa !23, !noalias !116
   %1016 = call noundef float @llvm.fmuladd.f32(float %1013, float %6, float %1015)
   store float %1016, ptr %1014, align 4, !tbaa !23, !noalias !116
@@ -2949,21 +2949,21 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1017:                                             ; preds = %1017, %998
   %indvars.iv442.i.i = phi i64 [ 0, %998 ], [ %indvars.iv.next443.i.i, %1017 ]
-  %1018 = getelementptr inbounds nuw [3 x float], ptr %84, i64 0, i64 %indvars.iv442.i.i
+  %1018 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv442.i.i
   %1019 = load float, ptr %1018, align 4, !tbaa !23, !noalias !116
   %1020 = fmul float %1011, %1019
-  %1021 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv442.i.i
+  %1021 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv442.i.i
   store float %1020, ptr %1021, align 4, !tbaa !23, !noalias !116
-  %1022 = getelementptr inbounds nuw [3 x float], ptr %85, i64 0, i64 %indvars.iv442.i.i
+  %1022 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv442.i.i
   %1023 = load float, ptr %1022, align 4, !tbaa !23, !noalias !116
   %1024 = fmul float %1011, %1023
-  %1025 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv442.i.i
+  %1025 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv442.i.i
   store float %1024, ptr %1025, align 4, !tbaa !23, !noalias !116
-  %1026 = getelementptr inbounds nuw [3 x float], ptr %83, i64 0, i64 %indvars.iv442.i.i
+  %1026 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv442.i.i
   %1027 = load float, ptr %1026, align 4, !tbaa !23, !noalias !116
   %1028 = call float @llvm.fmuladd.f32(float %1010, float %1027, float %1020)
   %1029 = fadd float %1024, %1028
-  %1030 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv442.i.i
+  %1030 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv442.i.i
   store float %1029, ptr %1030, align 4, !tbaa !23, !noalias !116
   %indvars.iv.next443.i.i = add nuw nsw i64 %indvars.iv442.i.i, 1
   %exitcond445.not.i.i = icmp eq i64 %indvars.iv.next443.i.i, 3
@@ -2971,12 +2971,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader374.i.i:                                ; preds = %1017, %1041
   %indvars.iv450.i.i = phi i64 [ %indvars.iv.next451.i.i, %1041 ], [ 0, %1017 ]
-  %1031 = getelementptr inbounds nuw [3 x [3 x float]], ptr %61, i64 0, i64 %indvars.iv450.i.i
-  %1032 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv450.i.i
+  %1031 = getelementptr inbounds nuw [3 x float], ptr %61, i64 %indvars.iv450.i.i
+  %1032 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv450.i.i
   %1033 = load float, ptr %1032, align 4, !tbaa !23, !noalias !116
-  %1034 = getelementptr inbounds nuw [3 x float], ptr %68, i64 0, i64 %indvars.iv450.i.i
+  %1034 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv450.i.i
   %1035 = load float, ptr %1034, align 4, !tbaa !23, !noalias !116
-  %1036 = getelementptr inbounds nuw [3 x float], ptr %69, i64 0, i64 %indvars.iv450.i.i
+  %1036 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv450.i.i
   %1037 = load float, ptr %1036, align 4, !tbaa !23, !noalias !116
   br label %1042
 
@@ -3025,15 +3025,15 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1042:                                             ; preds = %1042, %.preheader374.i.i
   %indvars.iv446.i.i = phi i64 [ 0, %.preheader374.i.i ], [ %indvars.iv.next447.i.i, %1042 ]
-  %1043 = getelementptr inbounds nuw [3 x float], ptr %1031, i64 0, i64 %indvars.iv446.i.i
+  %1043 = getelementptr inbounds nuw float, ptr %1031, i64 %indvars.iv446.i.i
   %1044 = load float, ptr %1043, align 4, !tbaa !23, !noalias !116
-  %1045 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv446.i.i
+  %1045 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv446.i.i
   %1046 = load float, ptr %1045, align 4, !tbaa !23, !noalias !116
-  %1047 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv446.i.i
+  %1047 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv446.i.i
   %1048 = load float, ptr %1047, align 4, !tbaa !23, !noalias !116
   %1049 = fmul float %1035, %1048
   %1050 = call float @llvm.fmuladd.f32(float %1033, float %1046, float %1049)
-  %1051 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv446.i.i
+  %1051 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv446.i.i
   %1052 = load float, ptr %1051, align 4, !tbaa !23, !noalias !116
   %1053 = call float @llvm.fmuladd.f32(float %1037, float %1052, float %1050)
   %1054 = fsub float %1044, %1053
@@ -3044,7 +3044,7 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader.i47.i:                                 ; preds = %1057, %.preheader373.i.i
   %indvars.iv461.i.i = phi i64 [ 0, %.preheader373.i.i ], [ %indvars.iv.next462.i.i, %1057 ]
-  %1055 = getelementptr inbounds nuw [3 x [3 x float]], ptr %61, i64 0, i64 %indvars.iv461.i.i
+  %1055 = getelementptr inbounds nuw [3 x float], ptr %61, i64 %indvars.iv461.i.i
   %1056 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv461.i.i
   br label %1058
 
@@ -3055,9 +3055,9 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1058:                                             ; preds = %1058, %.preheader.i47.i
   %indvars.iv457.i.i = phi i64 [ 0, %.preheader.i47.i ], [ %indvars.iv.next458.i.i, %1058 ]
-  %1059 = getelementptr inbounds nuw [3 x float], ptr %1055, i64 0, i64 %indvars.iv457.i.i
+  %1059 = getelementptr inbounds nuw float, ptr %1055, i64 %indvars.iv457.i.i
   %1060 = load float, ptr %1059, align 4, !tbaa !23, !noalias !116
-  %1061 = getelementptr inbounds nuw [3 x float], ptr %1056, i64 0, i64 %indvars.iv457.i.i
+  %1061 = getelementptr inbounds nuw float, ptr %1056, i64 %indvars.iv457.i.i
   %1062 = load float, ptr %1061, align 4, !tbaa !23, !noalias !116
   %1063 = fadd float %1060, %1062
   store float %1063, ptr %1061, align 4, !tbaa !23, !noalias !116
@@ -3233,14 +3233,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb1EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1174:                                             ; preds = %1174, %1120
   %indvars.iv.i60.i = phi i64 [ 0, %1120 ], [ %indvars.iv.next.i61.i, %1174 ]
-  %1175 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i60.i
+  %1175 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i60.i
   %1176 = load float, ptr %1175, align 4, !tbaa !23
-  %1177 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i60.i
+  %1177 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i60.i
   %1178 = load float, ptr %1177, align 4, !tbaa !23
   %1179 = fadd float %1176, %1178
   %1180 = fneg float %1179
   %1181 = fmul float %1065, %1180
-  %1182 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv.i60.i
+  %1182 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i60.i
   store float %1181, ptr %1182, align 4, !tbaa !23
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i61.i, 3
@@ -3252,12 +3252,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb1EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1184:                                             ; preds = %1184, %1173
   %indvars.iv18.i.i = phi i64 [ 0, %1173 ], [ %indvars.iv.next19.i.i, %1184 ]
-  %1185 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv18.i.i
+  %1185 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv18.i.i
   %1186 = load float, ptr %1185, align 4, !tbaa !23
-  %1187 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv18.i.i
+  %1187 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv18.i.i
   %1188 = load float, ptr %1187, align 4, !tbaa !23
   %1189 = fadd float %1186, %1188
-  %1190 = getelementptr inbounds nuw [3 x float], ptr %51, i64 0, i64 %indvars.iv18.i.i
+  %1190 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv18.i.i
   store float %1189, ptr %1190, align 4, !tbaa !23
   %indvars.iv.next19.i.i = add nuw nsw i64 %indvars.iv18.i.i, 1
   %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next19.i.i, 3
@@ -3344,12 +3344,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb1EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1249:                                             ; preds = %1249, %1183
   %indvars.iv22.i.i = phi i64 [ 0, %1183 ], [ %indvars.iv.next23.i.i, %1249 ]
-  %1250 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv22.i.i
+  %1250 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv22.i.i
   %1251 = load float, ptr %1250, align 4, !tbaa !23
-  %1252 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv22.i.i
+  %1252 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv22.i.i
   %1253 = load float, ptr %1252, align 4, !tbaa !23
   %1254 = fadd float %1251, %1253
-  %1255 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv22.i.i
+  %1255 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv22.i.i
   store float %1254, ptr %1255, align 4, !tbaa !23
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next23.i.i, 3
@@ -3511,21 +3511,21 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb1EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1376:                                             ; preds = %1376, %1256
   %indvars.iv29.i66.i = phi i64 [ 0, %1256 ], [ %indvars.iv.next30.i.i, %1376 ]
-  %1377 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv29.i66.i
+  %1377 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv29.i66.i
   %1378 = load float, ptr %1377, align 4, !tbaa !23
-  %1379 = getelementptr inbounds nuw [3 x float], ptr %54, i64 0, i64 %indvars.iv29.i66.i
+  %1379 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv29.i66.i
   %1380 = load float, ptr %1379, align 4, !tbaa !23
   %1381 = fmul float %1258, %1380
   %1382 = call float @llvm.fmuladd.f32(float %1378, float %1257, float %1381)
-  %1383 = getelementptr inbounds nuw [3 x float], ptr %55, i64 0, i64 %indvars.iv29.i66.i
+  %1383 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv29.i66.i
   %1384 = load float, ptr %1383, align 4, !tbaa !23
   %1385 = call float @llvm.fmuladd.f32(float %1384, float %1259, float %1382)
-  %1386 = getelementptr inbounds nuw [3 x float], ptr %56, i64 0, i64 %indvars.iv29.i66.i
+  %1386 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv29.i66.i
   store float %1385, ptr %1386, align 4, !tbaa !23
   %1387 = fmul float %1261, %1380
   %1388 = call float @llvm.fmuladd.f32(float %1378, float %1260, float %1387)
   %1389 = call float @llvm.fmuladd.f32(float %1384, float %1262, float %1388)
-  %1390 = getelementptr inbounds nuw [3 x float], ptr %57, i64 0, i64 %indvars.iv29.i66.i
+  %1390 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv29.i66.i
   store float %1389, ptr %1390, align 4, !tbaa !23
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i66.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next30.i.i, 3
@@ -3533,12 +3533,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb1EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1391:                                             ; preds = %1391, %1274
   %indvars.iv33.i.i = phi i64 [ 0, %1274 ], [ %indvars.iv.next34.i.i, %1391 ]
-  %1392 = getelementptr inbounds nuw [3 x float], ptr %58, i64 0, i64 %indvars.iv33.i.i
+  %1392 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv33.i.i
   %1393 = load float, ptr %1392, align 4, !tbaa !23
-  %1394 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv33.i.i
+  %1394 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv33.i.i
   %1395 = load float, ptr %1394, align 4, !tbaa !23
   %1396 = fsub float %1393, %1395
-  %1397 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv33.i.i
+  %1397 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv33.i.i
   %1398 = load float, ptr %1397, align 4, !tbaa !23
   %1399 = fadd float %1398, %1396
   store float %1399, ptr %1397, align 4, !tbaa !23
@@ -3548,12 +3548,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb1EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader6.i70.i:                                ; preds = %1391, %.preheader6.i70.i
   %indvars.iv37.i.i = phi i64 [ %indvars.iv.next38.i.i, %.preheader6.i70.i ], [ 0, %1391 ]
-  %1400 = getelementptr inbounds nuw [3 x float], ptr %59, i64 0, i64 %indvars.iv37.i.i
+  %1400 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv37.i.i
   %1401 = load float, ptr %1400, align 4, !tbaa !23
-  %1402 = getelementptr inbounds nuw [3 x float], ptr %51, i64 0, i64 %indvars.iv37.i.i
+  %1402 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv37.i.i
   %1403 = load float, ptr %1402, align 4, !tbaa !23
   %1404 = fsub float %1401, %1403
-  %1405 = getelementptr inbounds nuw [3 x float], ptr %44, i64 0, i64 %indvars.iv37.i.i
+  %1405 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv37.i.i
   %1406 = load float, ptr %1405, align 4, !tbaa !23
   %1407 = fadd float %1406, %1404
   store float %1407, ptr %1405, align 4, !tbaa !23
@@ -3631,12 +3631,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb1ELb1EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader.i71.i:                                 ; preds = %.preheader6.i70.i, %.preheader.i71.i
   %indvars.iv41.i.i = phi i64 [ %indvars.iv.next42.i.i, %.preheader.i71.i ], [ 0, %.preheader6.i70.i ]
-  %1435 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv41.i.i
+  %1435 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv41.i.i
   %1436 = load float, ptr %1435, align 4, !tbaa !23
-  %1437 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv41.i.i
+  %1437 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv41.i.i
   %1438 = load float, ptr %1437, align 4, !tbaa !23
   %1439 = fsub float %1436, %1438
-  %1440 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv41.i.i
+  %1440 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv41.i.i
   %1441 = load float, ptr %1440, align 4, !tbaa !23
   %1442 = fadd float %1441, %1439
   store float %1442, ptr %1440, align 4, !tbaa !23
@@ -3814,14 +3814,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1551:                                             ; preds = %1551, %1497
   %indvars.iv.i80.i = phi i64 [ 0, %1497 ], [ %indvars.iv.next.i81.i, %1551 ]
-  %1552 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i80.i
+  %1552 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i80.i
   %1553 = load float, ptr %1552, align 4, !tbaa !23
-  %1554 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %indvars.iv.i80.i
+  %1554 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i80.i
   %1555 = load float, ptr %1554, align 4, !tbaa !23
   %1556 = fadd float %1553, %1555
   %1557 = fneg float %1556
   %1558 = fmul float %1065, %1557
-  %1559 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %indvars.iv.i80.i
+  %1559 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i80.i
   store float %1558, ptr %1559, align 4, !tbaa !23
   %indvars.iv.next.i81.i = add nuw nsw i64 %indvars.iv.i80.i, 1
   %exitcond.not.i82.i = icmp eq i64 %indvars.iv.next.i81.i, 3
@@ -3833,12 +3833,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1561:                                             ; preds = %1561, %1550
   %indvars.iv31.i.i = phi i64 [ 0, %1550 ], [ %indvars.iv.next32.i.i, %1561 ]
-  %1562 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv31.i.i
+  %1562 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv31.i.i
   %1563 = load float, ptr %1562, align 4, !tbaa !23
-  %1564 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %indvars.iv31.i.i
+  %1564 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv31.i.i
   %1565 = load float, ptr %1564, align 4, !tbaa !23
   %1566 = fadd float %1563, %1565
-  %1567 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %indvars.iv31.i.i
+  %1567 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv31.i.i
   store float %1566, ptr %1567, align 4, !tbaa !23
   %indvars.iv.next32.i.i = add nuw nsw i64 %indvars.iv31.i.i, 1
   %exitcond34.not.i.i = icmp eq i64 %indvars.iv.next32.i.i, 3
@@ -3925,12 +3925,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1626:                                             ; preds = %1626, %1560
   %indvars.iv35.i.i = phi i64 [ 0, %1560 ], [ %indvars.iv.next36.i.i, %1626 ]
-  %1627 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %indvars.iv35.i.i
+  %1627 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv35.i.i
   %1628 = load float, ptr %1627, align 4, !tbaa !23
-  %1629 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %indvars.iv35.i.i
+  %1629 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv35.i.i
   %1630 = load float, ptr %1629, align 4, !tbaa !23
   %1631 = fadd float %1628, %1630
-  %1632 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %indvars.iv35.i.i
+  %1632 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv35.i.i
   store float %1631, ptr %1632, align 4, !tbaa !23
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %exitcond38.not.i.i = icmp eq i64 %indvars.iv.next36.i.i, 3
@@ -4093,21 +4093,21 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1753:                                             ; preds = %1753, %1633
   %indvars.iv42.i.i = phi i64 [ 0, %1633 ], [ %indvars.iv.next43.i.i, %1753 ]
-  %1754 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv42.i.i
+  %1754 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv42.i.i
   %1755 = load float, ptr %1754, align 4, !tbaa !23
-  %1756 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv42.i.i
+  %1756 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv42.i.i
   %1757 = load float, ptr %1756, align 4, !tbaa !23
   %1758 = fmul float %1635, %1757
   %1759 = call float @llvm.fmuladd.f32(float %1755, float %1634, float %1758)
-  %1760 = getelementptr inbounds nuw [3 x float], ptr %28, i64 0, i64 %indvars.iv42.i.i
+  %1760 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv42.i.i
   %1761 = load float, ptr %1760, align 4, !tbaa !23
   %1762 = call float @llvm.fmuladd.f32(float %1761, float %1636, float %1759)
-  %1763 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv42.i.i
+  %1763 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv42.i.i
   store float %1762, ptr %1763, align 4, !tbaa !23
   %1764 = fmul float %1638, %1757
   %1765 = call float @llvm.fmuladd.f32(float %1755, float %1637, float %1764)
   %1766 = call float @llvm.fmuladd.f32(float %1761, float %1639, float %1765)
-  %1767 = getelementptr inbounds nuw [3 x float], ptr %30, i64 0, i64 %indvars.iv42.i.i
+  %1767 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv42.i.i
   store float %1766, ptr %1767, align 4, !tbaa !23
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
@@ -4119,14 +4119,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1769:                                             ; preds = %1769, %1651
   %indvars.iv46.i.i = phi i64 [ 0, %1651 ], [ %indvars.iv.next47.i.i, %1769 ]
-  %1770 = getelementptr inbounds nuw [3 x float], ptr %31, i64 0, i64 %indvars.iv46.i.i
+  %1770 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv46.i.i
   %1771 = load float, ptr %1770, align 4, !tbaa !23
-  %1772 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %indvars.iv46.i.i
+  %1772 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv46.i.i
   %1773 = load float, ptr %1772, align 4, !tbaa !23
   %1774 = fsub float %1771, %1773
-  %1775 = getelementptr inbounds nuw [3 x float], ptr %34, i64 0, i64 %indvars.iv46.i.i
+  %1775 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv46.i.i
   store float %1774, ptr %1775, align 4, !tbaa !23
-  %1776 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv46.i.i
+  %1776 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv46.i.i
   %1777 = load float, ptr %1776, align 4, !tbaa !23
   %1778 = fadd float %1774, %1777
   store float %1778, ptr %1776, align 4, !tbaa !23
@@ -4140,14 +4140,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1780:                                             ; preds = %1780, %1768
   %indvars.iv50.i.i = phi i64 [ 0, %1768 ], [ %indvars.iv.next51.i.i, %1780 ]
-  %1781 = getelementptr inbounds nuw [3 x float], ptr %32, i64 0, i64 %indvars.iv50.i.i
+  %1781 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv50.i.i
   %1782 = load float, ptr %1781, align 4, !tbaa !23
-  %1783 = getelementptr inbounds nuw [3 x float], ptr %24, i64 0, i64 %indvars.iv50.i.i
+  %1783 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv50.i.i
   %1784 = load float, ptr %1783, align 4, !tbaa !23
   %1785 = fsub float %1782, %1784
-  %1786 = getelementptr inbounds nuw [3 x float], ptr %35, i64 0, i64 %indvars.iv50.i.i
+  %1786 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv50.i.i
   store float %1785, ptr %1786, align 4, !tbaa !23
-  %1787 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %indvars.iv50.i.i
+  %1787 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv50.i.i
   %1788 = load float, ptr %1787, align 4, !tbaa !23
   %1789 = fadd float %1785, %1788
   store float %1789, ptr %1787, align 4, !tbaa !23
@@ -4204,14 +4204,14 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1819:                                             ; preds = %1819, %1779
   %indvars.iv54.i.i = phi i64 [ 0, %1779 ], [ %indvars.iv.next55.i.i, %1819 ]
-  %1820 = getelementptr inbounds nuw [3 x float], ptr %33, i64 0, i64 %indvars.iv54.i.i
+  %1820 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv54.i.i
   %1821 = load float, ptr %1820, align 4, !tbaa !23
-  %1822 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %indvars.iv54.i.i
+  %1822 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv54.i.i
   %1823 = load float, ptr %1822, align 4, !tbaa !23
   %1824 = fsub float %1821, %1823
-  %1825 = getelementptr inbounds nuw [3 x float], ptr %36, i64 0, i64 %indvars.iv54.i.i
+  %1825 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv54.i.i
   store float %1824, ptr %1825, align 4, !tbaa !23
-  %1826 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv54.i.i
+  %1826 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv54.i.i
   %1827 = load float, ptr %1826, align 4, !tbaa !23
   %1828 = fadd float %1824, %1827
   store float %1828, ptr %1826, align 4, !tbaa !23
@@ -4221,21 +4221,21 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1829:                                             ; preds = %1829, %1790
   %indvars.iv58.i.i = phi i64 [ 0, %1790 ], [ %indvars.iv.next59.i.i, %1829 ]
-  %1830 = getelementptr inbounds nuw [3 x float], ptr %35, i64 0, i64 %indvars.iv58.i.i
+  %1830 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv58.i.i
   %1831 = load float, ptr %1830, align 4, !tbaa !23
   %1832 = fmul float %1818, %1831
-  %1833 = getelementptr inbounds nuw [3 x float], ptr %38, i64 0, i64 %indvars.iv58.i.i
+  %1833 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv58.i.i
   store float %1832, ptr %1833, align 4, !tbaa !23
-  %1834 = getelementptr inbounds nuw [3 x float], ptr %36, i64 0, i64 %indvars.iv58.i.i
+  %1834 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv58.i.i
   %1835 = load float, ptr %1834, align 4, !tbaa !23
   %1836 = fmul float %1818, %1835
-  %1837 = getelementptr inbounds nuw [3 x float], ptr %39, i64 0, i64 %indvars.iv58.i.i
+  %1837 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv58.i.i
   store float %1836, ptr %1837, align 4, !tbaa !23
-  %1838 = getelementptr inbounds nuw [3 x float], ptr %34, i64 0, i64 %indvars.iv58.i.i
+  %1838 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv58.i.i
   %1839 = load float, ptr %1838, align 4, !tbaa !23
   %1840 = call float @llvm.fmuladd.f32(float %1817, float %1839, float %1832)
   %1841 = fadd float %1836, %1840
-  %1842 = getelementptr inbounds nuw [3 x float], ptr %37, i64 0, i64 %indvars.iv58.i.i
+  %1842 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv58.i.i
   store float %1841, ptr %1842, align 4, !tbaa !23
   %indvars.iv.next59.i.i = add nuw nsw i64 %indvars.iv58.i.i, 1
   %exitcond61.not.i.i = icmp eq i64 %indvars.iv.next59.i.i, 3
@@ -4243,12 +4243,12 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader7.i.i:                                  ; preds = %1829, %1853
   %indvars.iv66.i.i = phi i64 [ %indvars.iv.next67.i.i, %1853 ], [ 0, %1829 ]
-  %1843 = getelementptr inbounds nuw [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv66.i.i
-  %1844 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv66.i.i
+  %1843 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv66.i.i
+  %1844 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv66.i.i
   %1845 = load float, ptr %1844, align 4, !tbaa !23
-  %1846 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv66.i.i
+  %1846 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv66.i.i
   %1847 = load float, ptr %1846, align 4, !tbaa !23
-  %1848 = getelementptr inbounds nuw [3 x float], ptr %20, i64 0, i64 %indvars.iv66.i.i
+  %1848 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv66.i.i
   %1849 = load float, ptr %1848, align 4, !tbaa !23
   br label %1854
 
@@ -4297,15 +4297,15 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1854:                                             ; preds = %1854, %.preheader7.i.i
   %indvars.iv62.i.i = phi i64 [ 0, %.preheader7.i.i ], [ %indvars.iv.next63.i.i, %1854 ]
-  %1855 = getelementptr inbounds nuw [3 x float], ptr %1843, i64 0, i64 %indvars.iv62.i.i
+  %1855 = getelementptr inbounds nuw float, ptr %1843, i64 %indvars.iv62.i.i
   %1856 = load float, ptr %1855, align 4, !tbaa !23
-  %1857 = getelementptr inbounds nuw [3 x float], ptr %37, i64 0, i64 %indvars.iv62.i.i
+  %1857 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv62.i.i
   %1858 = load float, ptr %1857, align 4, !tbaa !23
-  %1859 = getelementptr inbounds nuw [3 x float], ptr %38, i64 0, i64 %indvars.iv62.i.i
+  %1859 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv62.i.i
   %1860 = load float, ptr %1859, align 4, !tbaa !23
   %1861 = fmul float %1847, %1860
   %1862 = call float @llvm.fmuladd.f32(float %1845, float %1858, float %1861)
-  %1863 = getelementptr inbounds nuw [3 x float], ptr %39, i64 0, i64 %indvars.iv62.i.i
+  %1863 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv62.i.i
   %1864 = load float, ptr %1863, align 4, !tbaa !23
   %1865 = call float @llvm.fmuladd.f32(float %1849, float %1864, float %1862)
   %1866 = fsub float %1856, %1865
@@ -4316,7 +4316,7 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 .preheader.i75.i:                                 ; preds = %1869, %.preheader6.i74.i
   %indvars.iv77.i.i = phi i64 [ 0, %.preheader6.i74.i ], [ %indvars.iv.next78.i.i, %1869 ]
-  %1867 = getelementptr inbounds nuw [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv77.i.i
+  %1867 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv77.i.i
   %1868 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv77.i.i
   br label %1870
 
@@ -4327,9 +4327,9 @@ _ZN3gmxL14settleTemplateIfbLi1EPK5t_pbcLb0ELb0EEEvRKNS_10SettleDataEiiT2_PKfPffS
 
 1870:                                             ; preds = %1870, %.preheader.i75.i
   %indvars.iv73.i.i = phi i64 [ 0, %.preheader.i75.i ], [ %indvars.iv.next74.i.i, %1870 ]
-  %1871 = getelementptr inbounds nuw [3 x float], ptr %1867, i64 0, i64 %indvars.iv73.i.i
+  %1871 = getelementptr inbounds nuw float, ptr %1867, i64 %indvars.iv73.i.i
   %1872 = load float, ptr %1871, align 4, !tbaa !23
-  %1873 = getelementptr inbounds nuw [3 x float], ptr %1868, i64 0, i64 %indvars.iv73.i.i
+  %1873 = getelementptr inbounds nuw float, ptr %1868, i64 %indvars.iv73.i.i
   %1874 = load float, ptr %1873, align 4, !tbaa !23
   %1875 = fadd float %1872, %1874
   store float %1875, ptr %1873, align 4, !tbaa !23
@@ -5078,14 +5078,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader60.i:                                   ; preds = %.preheader60.i, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i
   %indvars.iv.i = phi i64 [ 0, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i ], [ %indvars.iv.next.i, %.preheader60.i ]
-  %577 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %100, i64 0, i64 %indvars.iv.i
+  %577 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %100, i64 %indvars.iv.i
   %.sroa.0654.0.copyload.i = load <8 x float>, ptr %577, align 32, !tbaa !52, !noalias !159
-  %578 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %101, i64 0, i64 %indvars.iv.i
+  %578 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %101, i64 %indvars.iv.i
   %.sroa.0653.0.copyload.i = load <8 x float>, ptr %578, align 32, !tbaa !52, !noalias !159
   %579 = fadd <8 x float> %.sroa.0654.0.copyload.i, %.sroa.0653.0.copyload.i
   %580 = fneg <8 x float> %579
   %581 = fmul <8 x float> %143, %580
-  %582 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %102, i64 0, i64 %indvars.iv.i
+  %582 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %102, i64 %indvars.iv.i
   store <8 x float> %581, ptr %582, align 32, !tbaa !52, !noalias !159
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -5097,12 +5097,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader59.i:                                   ; preds = %.preheader59.i, %.preheader59.preheader.i
   %indvars.iv77.i = phi i64 [ 0, %.preheader59.preheader.i ], [ %indvars.iv.next78.i, %.preheader59.i ]
-  %583 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %100, i64 0, i64 %indvars.iv77.i
+  %583 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %100, i64 %indvars.iv77.i
   %.sroa.0645.0.copyload.i = load <8 x float>, ptr %583, align 32, !tbaa !52, !noalias !159
-  %584 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %102, i64 0, i64 %indvars.iv77.i
+  %584 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %102, i64 %indvars.iv77.i
   %.sroa.0644.0.copyload.i = load <8 x float>, ptr %584, align 32, !tbaa !52, !noalias !159
   %585 = fadd <8 x float> %.sroa.0645.0.copyload.i, %.sroa.0644.0.copyload.i
-  %586 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %103, i64 0, i64 %indvars.iv77.i
+  %586 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %103, i64 %indvars.iv77.i
   store <8 x float> %585, ptr %586, align 32, !tbaa !52, !noalias !159
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
@@ -5198,12 +5198,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader58.i:                                   ; preds = %.preheader58.i, %.preheader58.preheader.i
   %indvars.iv81.i = phi i64 [ 0, %.preheader58.preheader.i ], [ %indvars.iv.next82.i, %.preheader58.i ]
-  %653 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %101, i64 0, i64 %indvars.iv81.i
+  %653 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %101, i64 %indvars.iv81.i
   %.sroa.0637.0.copyload.i = load <8 x float>, ptr %653, align 32, !tbaa !52, !noalias !159
-  %654 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %102, i64 0, i64 %indvars.iv81.i
+  %654 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %102, i64 %indvars.iv81.i
   %.sroa.0636.0.copyload.i = load <8 x float>, ptr %654, align 32, !tbaa !52, !noalias !159
   %655 = fadd <8 x float> %.sroa.0637.0.copyload.i, %.sroa.0636.0.copyload.i
-  %656 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %104, i64 0, i64 %indvars.iv81.i
+  %656 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %104, i64 %indvars.iv81.i
   store <8 x float> %655, ptr %656, align 32, !tbaa !52, !noalias !159
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 3
@@ -5413,25 +5413,25 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 810:                                              ; preds = %810, %657
   %indvars.iv88.i = phi i64 [ 0, %657 ], [ %indvars.iv.next89.i, %810 ]
-  %811 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %105, i64 0, i64 %indvars.iv88.i
+  %811 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %105, i64 %indvars.iv88.i
   %.sroa.0411.0.copyload.i = load <8 x float>, ptr %811, align 32, !tbaa !52, !noalias !159
   %812 = fmul <8 x float> %.sroa.0410.0.copyload.i, %.sroa.0411.0.copyload.i
-  %813 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %106, i64 0, i64 %indvars.iv88.i
+  %813 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %106, i64 %indvars.iv88.i
   %.sroa.0408.0.copyload.i = load <8 x float>, ptr %813, align 32, !tbaa !52, !noalias !159
   %814 = fmul <8 x float> %.sroa.0407.0.copyload.i, %.sroa.0408.0.copyload.i
   %815 = fadd <8 x float> %812, %814
-  %816 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %107, i64 0, i64 %indvars.iv88.i
+  %816 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %107, i64 %indvars.iv88.i
   %.sroa.0405.0.copyload.i = load <8 x float>, ptr %816, align 32, !tbaa !52, !noalias !159
   %817 = fmul <8 x float> %.sroa.0404.0.copyload.i, %.sroa.0405.0.copyload.i
   %818 = fadd <8 x float> %815, %817
-  %819 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %108, i64 0, i64 %indvars.iv88.i
+  %819 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %108, i64 %indvars.iv88.i
   store <8 x float> %818, ptr %819, align 32, !tbaa !52, !noalias !159
   %820 = fmul <8 x float> %.sroa.0399.0.copyload.i, %.sroa.0411.0.copyload.i
   %821 = fmul <8 x float> %.sroa.0396.0.copyload.i, %.sroa.0408.0.copyload.i
   %822 = fadd <8 x float> %820, %821
   %823 = fmul <8 x float> %.sroa.0393.0.copyload.i, %.sroa.0405.0.copyload.i
   %824 = fadd <8 x float> %822, %823
-  %825 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %109, i64 0, i64 %indvars.iv88.i
+  %825 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %109, i64 %indvars.iv88.i
   store <8 x float> %824, ptr %825, align 32, !tbaa !52, !noalias !159
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
   %exitcond91.not.i = icmp eq i64 %indvars.iv.next89.i, 3
@@ -5443,14 +5443,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader54.i:                                   ; preds = %.preheader54.i, %.preheader56.preheader.i
   %indvars.iv92.i = phi i64 [ 0, %.preheader56.preheader.i ], [ %indvars.iv.next93.i, %.preheader54.i ]
-  %826 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %110, i64 0, i64 %indvars.iv92.i
+  %826 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %110, i64 %indvars.iv92.i
   %.sroa.074.0.copyload.i = load <8 x float>, ptr %826, align 32, !tbaa !52, !noalias !159
-  %827 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %102, i64 0, i64 %indvars.iv92.i
+  %827 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %102, i64 %indvars.iv92.i
   %.sroa.073.0.copyload.i = load <8 x float>, ptr %827, align 32, !tbaa !52, !noalias !159
   %828 = fsub <8 x float> %.sroa.074.0.copyload.i, %.sroa.073.0.copyload.i
-  %829 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %113, i64 0, i64 %indvars.iv92.i
+  %829 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %113, i64 %indvars.iv92.i
   store <8 x float> %828, ptr %829, align 32, !tbaa !52, !noalias !159
-  %830 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %95, i64 0, i64 %indvars.iv92.i
+  %830 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %95, i64 %indvars.iv92.i
   %.sroa.071.0.copyload.i = load <8 x float>, ptr %830, align 32, !tbaa !52, !noalias !159
   %831 = fadd <8 x float> %828, %.sroa.071.0.copyload.i
   store <8 x float> %831, ptr %830, align 32, !tbaa !52, !noalias !159
@@ -5464,14 +5464,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader53.i:                                   ; preds = %.preheader53.i, %.preheader53.preheader.i
   %indvars.iv96.i = phi i64 [ 0, %.preheader53.preheader.i ], [ %indvars.iv.next97.i, %.preheader53.i ]
-  %832 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %111, i64 0, i64 %indvars.iv96.i
+  %832 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %111, i64 %indvars.iv96.i
   %.sroa.060.0.copyload.i = load <8 x float>, ptr %832, align 32, !tbaa !52, !noalias !159
-  %833 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %103, i64 0, i64 %indvars.iv96.i
+  %833 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %103, i64 %indvars.iv96.i
   %.sroa.059.0.copyload.i = load <8 x float>, ptr %833, align 32, !tbaa !52, !noalias !159
   %834 = fsub <8 x float> %.sroa.060.0.copyload.i, %.sroa.059.0.copyload.i
-  %835 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %114, i64 0, i64 %indvars.iv96.i
+  %835 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %114, i64 %indvars.iv96.i
   store <8 x float> %834, ptr %835, align 32, !tbaa !52, !noalias !159
-  %836 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %96, i64 0, i64 %indvars.iv96.i
+  %836 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %96, i64 %indvars.iv96.i
   %.sroa.057.0.copyload.i = load <8 x float>, ptr %836, align 32, !tbaa !52, !noalias !159
   %837 = fadd <8 x float> %834, %.sroa.057.0.copyload.i
   store <8 x float> %837, ptr %836, align 32, !tbaa !52, !noalias !159
@@ -5820,14 +5820,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader52.i:                                   ; preds = %.preheader52.i, %.preheader52.preheader.i
   %indvars.iv100.i = phi i64 [ 0, %.preheader52.preheader.i ], [ %indvars.iv.next101.i, %.preheader52.i ]
-  %1130 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %112, i64 0, i64 %indvars.iv100.i
+  %1130 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %112, i64 %indvars.iv100.i
   %.sroa.046.0.copyload.i = load <8 x float>, ptr %1130, align 32, !tbaa !52, !noalias !159
-  %1131 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %104, i64 0, i64 %indvars.iv100.i
+  %1131 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %104, i64 %indvars.iv100.i
   %.sroa.045.0.copyload.i = load <8 x float>, ptr %1131, align 32, !tbaa !52, !noalias !159
   %1132 = fsub <8 x float> %.sroa.046.0.copyload.i, %.sroa.045.0.copyload.i
-  %1133 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %115, i64 0, i64 %indvars.iv100.i
+  %1133 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %115, i64 %indvars.iv100.i
   store <8 x float> %1132, ptr %1133, align 32, !tbaa !52, !noalias !159
-  %1134 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %97, i64 0, i64 %indvars.iv100.i
+  %1134 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %97, i64 %indvars.iv100.i
   %.sroa.043.0.copyload.i = load <8 x float>, ptr %1134, align 32, !tbaa !52, !noalias !159
   %1135 = fadd <8 x float> %1132, %.sroa.043.0.copyload.i
   store <8 x float> %1135, ptr %1134, align 32, !tbaa !52, !noalias !159
@@ -5837,9 +5837,9 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 1136:                                             ; preds = %1136, %838
   %indvars.iv104.i = phi i64 [ 0, %838 ], [ %indvars.iv.next105.i, %1136 ]
-  %1137 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %113, i64 0, i64 %indvars.iv104.i
+  %1137 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %113, i64 %indvars.iv104.i
   %.sroa.026.0.copyload.i = load <8 x float>, ptr %1137, align 32, !tbaa !52, !noalias !159
-  %1138 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %116, i64 0, i64 %indvars.iv104.i
+  %1138 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %116, i64 %indvars.iv104.i
   %.sroa.025.0.copyload.i = load <8 x float>, ptr %1138, align 32, !tbaa !52, !noalias !159
   %1139 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.026.0.copyload.i, <8 x float> %217, <8 x float> %.sroa.025.0.copyload.i)
   store <8 x float> %1139, ptr %1138, align 32, !tbaa !52, !noalias !159
@@ -5849,9 +5849,9 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader51.i:                                   ; preds = %1136, %.preheader51.i
   %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %.preheader51.i ], [ 0, %1136 ]
-  %1140 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %114, i64 0, i64 %indvars.iv108.i
+  %1140 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %114, i64 %indvars.iv108.i
   %.sroa.018.0.copyload.i = load <8 x float>, ptr %1140, align 32, !tbaa !52, !noalias !159
-  %1141 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %117, i64 0, i64 %indvars.iv108.i
+  %1141 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %117, i64 %indvars.iv108.i
   %.sroa.017.0.copyload.i = load <8 x float>, ptr %1141, align 32, !tbaa !52, !noalias !159
   %1142 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.018.0.copyload.i, <8 x float> %217, <8 x float> %.sroa.017.0.copyload.i)
   store <8 x float> %1142, ptr %1141, align 32, !tbaa !52, !noalias !159
@@ -5974,9 +5974,9 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit911.i: ; preds = %554
 
 .preheader.i:                                     ; preds = %.preheader51.i, %.preheader.i
   %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %.preheader.i ], [ 0, %.preheader51.i ]
-  %1189 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %115, i64 0, i64 %indvars.iv112.i
+  %1189 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %115, i64 %indvars.iv112.i
   %.sroa.011.0.copyload.i = load <8 x float>, ptr %1189, align 32, !tbaa !52, !noalias !159
-  %1190 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %118, i64 0, i64 %indvars.iv112.i
+  %1190 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %118, i64 %indvars.iv112.i
   %.sroa.010.0.copyload.i = load <8 x float>, ptr %1190, align 32, !tbaa !52, !noalias !159
   %1191 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.011.0.copyload.i, <8 x float> %217, <8 x float> %.sroa.010.0.copyload.i)
   store <8 x float> %1191, ptr %1190, align 32, !tbaa !52, !noalias !159
@@ -6567,14 +6567,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1073.i:                                 ; preds = %.preheader1073.i, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i
   %indvars.iv.i69 = phi i64 [ 0, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i ], [ %indvars.iv.next.i70, %.preheader1073.i ]
-  %1638 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %70, i64 0, i64 %indvars.iv.i69
+  %1638 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %70, i64 %indvars.iv.i69
   %.sroa.0722.0.copyload.i = load <8 x float>, ptr %1638, align 32, !tbaa !52, !noalias !175
-  %1639 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %71, i64 0, i64 %indvars.iv.i69
+  %1639 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %71, i64 %indvars.iv.i69
   %.sroa.0721.0.copyload.i = load <8 x float>, ptr %1639, align 32, !tbaa !52, !noalias !175
   %1640 = fadd <8 x float> %.sroa.0722.0.copyload.i, %.sroa.0721.0.copyload.i
   %1641 = fneg <8 x float> %1640
   %1642 = fmul <8 x float> %1203, %1641
-  %1643 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %72, i64 0, i64 %indvars.iv.i69
+  %1643 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %72, i64 %indvars.iv.i69
   store <8 x float> %1642, ptr %1643, align 32, !tbaa !52, !noalias !175
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, 3
@@ -6586,12 +6586,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1072.i:                                 ; preds = %.preheader1072.i, %.preheader1072.preheader.i
   %indvars.iv1101.i = phi i64 [ 0, %.preheader1072.preheader.i ], [ %indvars.iv.next1102.i, %.preheader1072.i ]
-  %1644 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %70, i64 0, i64 %indvars.iv1101.i
+  %1644 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %70, i64 %indvars.iv1101.i
   %.sroa.0713.0.copyload.i = load <8 x float>, ptr %1644, align 32, !tbaa !52, !noalias !175
-  %1645 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %72, i64 0, i64 %indvars.iv1101.i
+  %1645 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %72, i64 %indvars.iv1101.i
   %.sroa.0712.0.copyload.i = load <8 x float>, ptr %1645, align 32, !tbaa !52, !noalias !175
   %1646 = fadd <8 x float> %.sroa.0713.0.copyload.i, %.sroa.0712.0.copyload.i
-  %1647 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %73, i64 0, i64 %indvars.iv1101.i
+  %1647 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %73, i64 %indvars.iv1101.i
   store <8 x float> %1646, ptr %1647, align 32, !tbaa !52, !noalias !175
   %indvars.iv.next1102.i = add nuw nsw i64 %indvars.iv1101.i, 1
   %exitcond1104.not.i = icmp eq i64 %indvars.iv.next1102.i, 3
@@ -6687,12 +6687,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1071.i:                                 ; preds = %.preheader1071.i, %.preheader1071.preheader.i
   %indvars.iv1105.i = phi i64 [ 0, %.preheader1071.preheader.i ], [ %indvars.iv.next1106.i, %.preheader1071.i ]
-  %1714 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %71, i64 0, i64 %indvars.iv1105.i
+  %1714 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %71, i64 %indvars.iv1105.i
   %.sroa.0705.0.copyload.i = load <8 x float>, ptr %1714, align 32, !tbaa !52, !noalias !175
-  %1715 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %72, i64 0, i64 %indvars.iv1105.i
+  %1715 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %72, i64 %indvars.iv1105.i
   %.sroa.0704.0.copyload.i = load <8 x float>, ptr %1715, align 32, !tbaa !52, !noalias !175
   %1716 = fadd <8 x float> %.sroa.0705.0.copyload.i, %.sroa.0704.0.copyload.i
-  %1717 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %74, i64 0, i64 %indvars.iv1105.i
+  %1717 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %74, i64 %indvars.iv1105.i
   store <8 x float> %1716, ptr %1717, align 32, !tbaa !52, !noalias !175
   %indvars.iv.next1106.i = add nuw nsw i64 %indvars.iv1105.i, 1
   %exitcond1108.not.i = icmp eq i64 %indvars.iv.next1106.i, 3
@@ -6902,25 +6902,25 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 1871:                                             ; preds = %1871, %1718
   %indvars.iv1112.i = phi i64 [ 0, %1718 ], [ %indvars.iv.next1113.i, %1871 ]
-  %1872 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %75, i64 0, i64 %indvars.iv1112.i
+  %1872 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %75, i64 %indvars.iv1112.i
   %.sroa.0479.0.copyload.i = load <8 x float>, ptr %1872, align 32, !tbaa !52, !noalias !175
   %1873 = fmul <8 x float> %.sroa.0478.0.copyload.i, %.sroa.0479.0.copyload.i
-  %1874 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %76, i64 0, i64 %indvars.iv1112.i
+  %1874 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %76, i64 %indvars.iv1112.i
   %.sroa.0476.0.copyload.i = load <8 x float>, ptr %1874, align 32, !tbaa !52, !noalias !175
   %1875 = fmul <8 x float> %.sroa.0475.0.copyload.i, %.sroa.0476.0.copyload.i
   %1876 = fadd <8 x float> %1873, %1875
-  %1877 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %77, i64 0, i64 %indvars.iv1112.i
+  %1877 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %77, i64 %indvars.iv1112.i
   %.sroa.0473.0.copyload.i = load <8 x float>, ptr %1877, align 32, !tbaa !52, !noalias !175
   %1878 = fmul <8 x float> %.sroa.0472.0.copyload.i, %.sroa.0473.0.copyload.i
   %1879 = fadd <8 x float> %1876, %1878
-  %1880 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %78, i64 0, i64 %indvars.iv1112.i
+  %1880 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %78, i64 %indvars.iv1112.i
   store <8 x float> %1879, ptr %1880, align 32, !tbaa !52, !noalias !175
   %1881 = fmul <8 x float> %.sroa.0467.0.copyload.i, %.sroa.0479.0.copyload.i
   %1882 = fmul <8 x float> %.sroa.0464.0.copyload.i, %.sroa.0476.0.copyload.i
   %1883 = fadd <8 x float> %1881, %1882
   %1884 = fmul <8 x float> %.sroa.0461.0.copyload.i, %.sroa.0473.0.copyload.i
   %1885 = fadd <8 x float> %1883, %1884
-  %1886 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %79, i64 0, i64 %indvars.iv1112.i
+  %1886 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %79, i64 %indvars.iv1112.i
   store <8 x float> %1885, ptr %1886, align 32, !tbaa !52, !noalias !175
   %indvars.iv.next1113.i = add nuw nsw i64 %indvars.iv1112.i, 1
   %exitcond1115.not.i = icmp eq i64 %indvars.iv.next1113.i, 3
@@ -6932,14 +6932,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1067.i:                                 ; preds = %.preheader1067.i, %.preheader1069.preheader.i
   %indvars.iv1116.i = phi i64 [ 0, %.preheader1069.preheader.i ], [ %indvars.iv.next1117.i, %.preheader1067.i ]
-  %1887 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %80, i64 0, i64 %indvars.iv1116.i
+  %1887 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %80, i64 %indvars.iv1116.i
   %.sroa.0142.0.copyload.i = load <8 x float>, ptr %1887, align 32, !tbaa !52, !noalias !175
-  %1888 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %72, i64 0, i64 %indvars.iv1116.i
+  %1888 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %72, i64 %indvars.iv1116.i
   %.sroa.0141.0.copyload.i = load <8 x float>, ptr %1888, align 32, !tbaa !52, !noalias !175
   %1889 = fsub <8 x float> %.sroa.0142.0.copyload.i, %.sroa.0141.0.copyload.i
-  %1890 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %83, i64 0, i64 %indvars.iv1116.i
+  %1890 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %83, i64 %indvars.iv1116.i
   store <8 x float> %1889, ptr %1890, align 32, !tbaa !52, !noalias !175
-  %1891 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %65, i64 0, i64 %indvars.iv1116.i
+  %1891 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %65, i64 %indvars.iv1116.i
   %.sroa.0139.0.copyload.i = load <8 x float>, ptr %1891, align 32, !tbaa !52, !noalias !175
   %1892 = fadd <8 x float> %1889, %.sroa.0139.0.copyload.i
   store <8 x float> %1892, ptr %1891, align 32, !tbaa !52, !noalias !175
@@ -6953,14 +6953,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1066.i:                                 ; preds = %.preheader1066.i, %.preheader1066.preheader.i
   %indvars.iv1120.i = phi i64 [ 0, %.preheader1066.preheader.i ], [ %indvars.iv.next1121.i, %.preheader1066.i ]
-  %1893 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %81, i64 0, i64 %indvars.iv1120.i
+  %1893 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %81, i64 %indvars.iv1120.i
   %.sroa.0128.0.copyload.i = load <8 x float>, ptr %1893, align 32, !tbaa !52, !noalias !175
-  %1894 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %73, i64 0, i64 %indvars.iv1120.i
+  %1894 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %73, i64 %indvars.iv1120.i
   %.sroa.0127.0.copyload.i = load <8 x float>, ptr %1894, align 32, !tbaa !52, !noalias !175
   %1895 = fsub <8 x float> %.sroa.0128.0.copyload.i, %.sroa.0127.0.copyload.i
-  %1896 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %84, i64 0, i64 %indvars.iv1120.i
+  %1896 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %84, i64 %indvars.iv1120.i
   store <8 x float> %1895, ptr %1896, align 32, !tbaa !52, !noalias !175
-  %1897 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %66, i64 0, i64 %indvars.iv1120.i
+  %1897 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %66, i64 %indvars.iv1120.i
   %.sroa.0125.0.copyload.i = load <8 x float>, ptr %1897, align 32, !tbaa !52, !noalias !175
   %1898 = fadd <8 x float> %1895, %.sroa.0125.0.copyload.i
   store <8 x float> %1898, ptr %1897, align 32, !tbaa !52, !noalias !175
@@ -7309,14 +7309,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1065.i:                                 ; preds = %.preheader1065.i, %.preheader1065.preheader.i
   %indvars.iv1124.i = phi i64 [ 0, %.preheader1065.preheader.i ], [ %indvars.iv.next1125.i, %.preheader1065.i ]
-  %2191 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %82, i64 0, i64 %indvars.iv1124.i
+  %2191 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %82, i64 %indvars.iv1124.i
   %.sroa.0114.0.copyload.i = load <8 x float>, ptr %2191, align 32, !tbaa !52, !noalias !175
-  %2192 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %74, i64 0, i64 %indvars.iv1124.i
+  %2192 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %74, i64 %indvars.iv1124.i
   %.sroa.0113.0.copyload.i = load <8 x float>, ptr %2192, align 32, !tbaa !52, !noalias !175
   %2193 = fsub <8 x float> %.sroa.0114.0.copyload.i, %.sroa.0113.0.copyload.i
-  %2194 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %85, i64 0, i64 %indvars.iv1124.i
+  %2194 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %85, i64 %indvars.iv1124.i
   store <8 x float> %2193, ptr %2194, align 32, !tbaa !52, !noalias !175
-  %2195 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %67, i64 0, i64 %indvars.iv1124.i
+  %2195 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %67, i64 %indvars.iv1124.i
   %.sroa.0111.0.copyload.i = load <8 x float>, ptr %2195, align 32, !tbaa !52, !noalias !175
   %2196 = fadd <8 x float> %2193, %.sroa.0111.0.copyload.i
   store <8 x float> %2196, ptr %2195, align 32, !tbaa !52, !noalias !175
@@ -7326,9 +7326,9 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 2197:                                             ; preds = %2197, %1899
   %indvars.iv1128.i = phi i64 [ 0, %1899 ], [ %indvars.iv.next1129.i, %2197 ]
-  %2198 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %83, i64 0, i64 %indvars.iv1128.i
+  %2198 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %83, i64 %indvars.iv1128.i
   %.sroa.094.0.copyload.i = load <8 x float>, ptr %2198, align 32, !tbaa !52, !noalias !175
-  %2199 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %86, i64 0, i64 %indvars.iv1128.i
+  %2199 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %86, i64 %indvars.iv1128.i
   %.sroa.093.0.copyload.i = load <8 x float>, ptr %2199, align 32, !tbaa !52, !noalias !175
   %2200 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.094.0.copyload.i, <8 x float> %1277, <8 x float> %.sroa.093.0.copyload.i)
   store <8 x float> %2200, ptr %2199, align 32, !tbaa !52, !noalias !175
@@ -7338,9 +7338,9 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1064.i:                                 ; preds = %2197, %.preheader1064.i
   %indvars.iv1132.i = phi i64 [ %indvars.iv.next1133.i, %.preheader1064.i ], [ 0, %2197 ]
-  %2201 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %84, i64 0, i64 %indvars.iv1132.i
+  %2201 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %84, i64 %indvars.iv1132.i
   %.sroa.086.0.copyload.i = load <8 x float>, ptr %2201, align 32, !tbaa !52, !noalias !175
-  %2202 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %87, i64 0, i64 %indvars.iv1132.i
+  %2202 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %87, i64 %indvars.iv1132.i
   %.sroa.085.0.copyload.i = load <8 x float>, ptr %2202, align 32, !tbaa !52, !noalias !175
   %2203 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.086.0.copyload.i, <8 x float> %1277, <8 x float> %.sroa.085.0.copyload.i)
   store <8 x float> %2203, ptr %2202, align 32, !tbaa !52, !noalias !175
@@ -7439,9 +7439,9 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1063.i:                                 ; preds = %.preheader1064.i, %.preheader1063.i
   %indvars.iv1136.i = phi i64 [ %indvars.iv.next1137.i, %.preheader1063.i ], [ 0, %.preheader1064.i ]
-  %2250 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %85, i64 0, i64 %indvars.iv1136.i
+  %2250 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %85, i64 %indvars.iv1136.i
   %.sroa.078.0.copyload.i = load <8 x float>, ptr %2250, align 32, !tbaa !52, !noalias !175
-  %2251 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %88, i64 0, i64 %indvars.iv1136.i
+  %2251 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %88, i64 %indvars.iv1136.i
   %.sroa.077.0.copyload.i = load <8 x float>, ptr %2251, align 32, !tbaa !52, !noalias !175
   %2252 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %.sroa.078.0.copyload.i, <8 x float> %1277, <8 x float> %.sroa.077.0.copyload.i)
   store <8 x float> %2252, ptr %2251, align 32, !tbaa !52, !noalias !175
@@ -7451,22 +7451,22 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1062.i:                                 ; preds = %.preheader1062.i, %.preheader1062.preheader.i
   %indvars.iv1140.i = phi i64 [ 0, %.preheader1062.preheader.i ], [ %indvars.iv.next1141.i, %.preheader1062.i ]
-  %2253 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %84, i64 0, i64 %indvars.iv1140.i
+  %2253 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %84, i64 %indvars.iv1140.i
   %.sroa.046.0.copyload.i76 = load <8 x float>, ptr %2253, align 32, !tbaa !52, !noalias !175
   %2254 = fmul <8 x float> %2249, %.sroa.046.0.copyload.i76
-  %2255 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %90, i64 0, i64 %indvars.iv1140.i
+  %2255 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %90, i64 %indvars.iv1140.i
   store <8 x float> %2254, ptr %2255, align 32, !tbaa !52, !noalias !175
-  %2256 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %85, i64 0, i64 %indvars.iv1140.i
+  %2256 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %85, i64 %indvars.iv1140.i
   %.sroa.043.0.copyload.i77 = load <8 x float>, ptr %2256, align 32, !tbaa !52, !noalias !175
   %2257 = fmul <8 x float> %2249, %.sroa.043.0.copyload.i77
-  %2258 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %91, i64 0, i64 %indvars.iv1140.i
+  %2258 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %91, i64 %indvars.iv1140.i
   store <8 x float> %2257, ptr %2258, align 32, !tbaa !52, !noalias !175
-  %2259 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %83, i64 0, i64 %indvars.iv1140.i
+  %2259 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %83, i64 %indvars.iv1140.i
   %.sroa.038.0.copyload.i78 = load <8 x float>, ptr %2259, align 32, !tbaa !52, !noalias !175
   %2260 = fmul <8 x float> %2248, %.sroa.038.0.copyload.i78
   %2261 = fadd <8 x float> %2254, %2260
   %2262 = fadd <8 x float> %2257, %2261
-  %2263 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %89, i64 0, i64 %indvars.iv1140.i
+  %2263 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %89, i64 %indvars.iv1140.i
   store <8 x float> %2262, ptr %2263, align 32, !tbaa !52, !noalias !175
   %indvars.iv.next1141.i = add nuw nsw i64 %indvars.iv1140.i, 1
   %exitcond1143.not.i = icmp eq i64 %indvars.iv.next1141.i, 3
@@ -7474,12 +7474,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader1060.i:                                 ; preds = %.preheader1062.i, %2272
   %indvars.iv1148.i = phi i64 [ %indvars.iv.next1149.i, %2272 ], [ 0, %.preheader1062.i ]
-  %2264 = getelementptr inbounds nuw [3 x [3 x %"class.gmx::SimdFloat"]], ptr %61, i64 0, i64 %indvars.iv1148.i
-  %2265 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %62, i64 0, i64 %indvars.iv1148.i
+  %2264 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %61, i64 %indvars.iv1148.i
+  %2265 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %62, i64 %indvars.iv1148.i
   %.sroa.016.0.copyload.i = load <8 x float>, ptr %2265, align 32, !tbaa !52, !noalias !175
-  %2266 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %68, i64 0, i64 %indvars.iv1148.i
+  %2266 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %68, i64 %indvars.iv1148.i
   %.sroa.013.0.copyload.i = load <8 x float>, ptr %2266, align 32, !tbaa !52, !noalias !175
-  %2267 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %69, i64 0, i64 %indvars.iv1148.i
+  %2267 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %69, i64 %indvars.iv1148.i
   %.sroa.010.0.copyload.i79 = load <8 x float>, ptr %2267, align 32, !tbaa !52, !noalias !175
   br label %2273
 
@@ -7528,16 +7528,16 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 2273:                                             ; preds = %2273, %.preheader1060.i
   %indvars.iv1144.i = phi i64 [ 0, %.preheader1060.i ], [ %indvars.iv.next1145.i, %2273 ]
-  %2274 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %2264, i64 0, i64 %indvars.iv1144.i
+  %2274 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %2264, i64 %indvars.iv1144.i
   %.sroa.020.0.copyload.i = load <8 x float>, ptr %2274, align 32, !tbaa !52, !noalias !175
-  %2275 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %89, i64 0, i64 %indvars.iv1144.i
+  %2275 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %89, i64 %indvars.iv1144.i
   %.sroa.015.0.copyload.i = load <8 x float>, ptr %2275, align 32, !tbaa !52, !noalias !175
   %2276 = fmul <8 x float> %.sroa.016.0.copyload.i, %.sroa.015.0.copyload.i
-  %2277 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %90, i64 0, i64 %indvars.iv1144.i
+  %2277 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %90, i64 %indvars.iv1144.i
   %.sroa.012.0.copyload.i = load <8 x float>, ptr %2277, align 32, !tbaa !52, !noalias !175
   %2278 = fmul <8 x float> %.sroa.013.0.copyload.i, %.sroa.012.0.copyload.i
   %2279 = fadd <8 x float> %2276, %2278
-  %2280 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %91, i64 0, i64 %indvars.iv1144.i
+  %2280 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %91, i64 %indvars.iv1144.i
   %.sroa.09.0.copyload.i80 = load <8 x float>, ptr %2280, align 32, !tbaa !52, !noalias !175
   %2281 = fmul <8 x float> %.sroa.010.0.copyload.i79, %.sroa.09.0.copyload.i80
   %2282 = fadd <8 x float> %2279, %2281
@@ -7549,7 +7549,7 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 .preheader.i48:                                   ; preds = %2286, %.preheader1059.i
   %indvars.iv1159.i = phi i64 [ 0, %.preheader1059.i ], [ %indvars.iv.next1160.i, %2286 ]
-  %2284 = getelementptr inbounds nuw [3 x [3 x %"class.gmx::SimdFloat"]], ptr %61, i64 0, i64 %indvars.iv1159.i
+  %2284 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %61, i64 %indvars.iv1159.i
   %2285 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv1159.i
   br label %2287
 
@@ -7560,7 +7560,7 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
 
 2287:                                             ; preds = %2287, %.preheader.i48
   %indvars.iv1155.i = phi i64 [ 0, %.preheader.i48 ], [ %indvars.iv.next1156.i, %2287 ]
-  %2288 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %2284, i64 0, i64 %indvars.iv1155.i
+  %2288 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %2284, i64 %indvars.iv1155.i
   %.sroa.01.0.copyload.i49 = load <8 x float>, ptr %2288, align 32, !tbaa !52, !noalias !175
   %2289 = shufflevector <8 x float> %.sroa.01.0.copyload.i49, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %2290 = shufflevector <8 x float> %.sroa.01.0.copyload.i49, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -7570,7 +7570,7 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit1007.i: ; preds = %1615
   %shift = shufflevector <4 x float> %2293, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd <4 x float> %2293, %shift
   %2294 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %2295 = getelementptr inbounds nuw [3 x float], ptr %2285, i64 0, i64 %indvars.iv1155.i
+  %2295 = getelementptr inbounds nuw float, ptr %2285, i64 %indvars.iv1155.i
   %2296 = load float, ptr %2295, align 4, !tbaa !23, !noalias !175
   %2297 = fadd float %2296, %2294
   store float %2297, ptr %2295, align 4, !tbaa !23, !noalias !175
@@ -8145,14 +8145,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2710
 
 .preheader57.i104:                                ; preds = %.preheader57.i104, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i
   %indvars.iv.i105 = phi i64 [ 0, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i ], [ %indvars.iv.next.i106, %.preheader57.i104 ]
-  %2733 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %48, i64 0, i64 %indvars.iv.i105
+  %2733 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %48, i64 %indvars.iv.i105
   %.sroa.0621.0.copyload.i = load <8 x float>, ptr %2733, align 32, !tbaa !52
-  %2734 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %49, i64 0, i64 %indvars.iv.i105
+  %2734 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %49, i64 %indvars.iv.i105
   %.sroa.0620.0.copyload.i = load <8 x float>, ptr %2734, align 32, !tbaa !52
   %2735 = fadd <8 x float> %.sroa.0621.0.copyload.i, %.sroa.0620.0.copyload.i
   %2736 = fneg <8 x float> %2735
   %2737 = fmul <8 x float> %2307, %2736
-  %2738 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %50, i64 0, i64 %indvars.iv.i105
+  %2738 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %50, i64 %indvars.iv.i105
   store <8 x float> %2737, ptr %2738, align 32, !tbaa !52
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
   %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, 3
@@ -8164,12 +8164,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2710
 
 .preheader56.i:                                   ; preds = %.preheader56.i, %.preheader56.preheader.i108
   %indvars.iv71.i = phi i64 [ 0, %.preheader56.preheader.i108 ], [ %indvars.iv.next72.i, %.preheader56.i ]
-  %2739 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %48, i64 0, i64 %indvars.iv71.i
+  %2739 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %48, i64 %indvars.iv71.i
   %.sroa.0612.0.copyload.i = load <8 x float>, ptr %2739, align 32, !tbaa !52
-  %2740 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %50, i64 0, i64 %indvars.iv71.i
+  %2740 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %50, i64 %indvars.iv71.i
   %.sroa.0611.0.copyload.i = load <8 x float>, ptr %2740, align 32, !tbaa !52
   %2741 = fadd <8 x float> %.sroa.0612.0.copyload.i, %.sroa.0611.0.copyload.i
-  %2742 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %51, i64 0, i64 %indvars.iv71.i
+  %2742 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %51, i64 %indvars.iv71.i
   store <8 x float> %2741, ptr %2742, align 32, !tbaa !52
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next72.i, 3
@@ -8265,12 +8265,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2710
 
 .preheader55.i:                                   ; preds = %.preheader55.i, %.preheader55.preheader.i
   %indvars.iv75.i = phi i64 [ 0, %.preheader55.preheader.i ], [ %indvars.iv.next76.i, %.preheader55.i ]
-  %2809 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %49, i64 0, i64 %indvars.iv75.i
+  %2809 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %49, i64 %indvars.iv75.i
   %.sroa.0604.0.copyload.i = load <8 x float>, ptr %2809, align 32, !tbaa !52
-  %2810 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %50, i64 0, i64 %indvars.iv75.i
+  %2810 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %50, i64 %indvars.iv75.i
   %.sroa.0603.0.copyload.i = load <8 x float>, ptr %2810, align 32, !tbaa !52
   %2811 = fadd <8 x float> %.sroa.0604.0.copyload.i, %.sroa.0603.0.copyload.i
-  %2812 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %52, i64 0, i64 %indvars.iv75.i
+  %2812 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %52, i64 %indvars.iv75.i
   store <8 x float> %2811, ptr %2812, align 32, !tbaa !52
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next76.i, 3
@@ -8479,25 +8479,25 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2710
 
 2966:                                             ; preds = %2966, %2813
   %indvars.iv82.i = phi i64 [ 0, %2813 ], [ %indvars.iv.next83.i, %2966 ]
-  %2967 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %53, i64 0, i64 %indvars.iv82.i
+  %2967 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %53, i64 %indvars.iv82.i
   %.sroa.0378.0.copyload.i = load <8 x float>, ptr %2967, align 32, !tbaa !52
   %2968 = fmul <8 x float> %.sroa.0377.0.copyload.i, %.sroa.0378.0.copyload.i
-  %2969 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %54, i64 0, i64 %indvars.iv82.i
+  %2969 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %54, i64 %indvars.iv82.i
   %.sroa.0375.0.copyload.i = load <8 x float>, ptr %2969, align 32, !tbaa !52
   %2970 = fmul <8 x float> %.sroa.0374.0.copyload.i110, %.sroa.0375.0.copyload.i
   %2971 = fadd <8 x float> %2968, %2970
-  %2972 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %55, i64 0, i64 %indvars.iv82.i
+  %2972 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %55, i64 %indvars.iv82.i
   %.sroa.0372.0.copyload.i = load <8 x float>, ptr %2972, align 32, !tbaa !52
   %2973 = fmul <8 x float> %.sroa.0371.0.copyload.i111, %.sroa.0372.0.copyload.i
   %2974 = fadd <8 x float> %2971, %2973
-  %2975 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %56, i64 0, i64 %indvars.iv82.i
+  %2975 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %56, i64 %indvars.iv82.i
   store <8 x float> %2974, ptr %2975, align 32, !tbaa !52
   %2976 = fmul <8 x float> %.sroa.0366.0.copyload.i, %.sroa.0378.0.copyload.i
   %2977 = fmul <8 x float> %.sroa.0363.0.copyload.i, %.sroa.0375.0.copyload.i
   %2978 = fadd <8 x float> %2976, %2977
   %2979 = fmul <8 x float> %.sroa.0360.0.copyload.i112, %.sroa.0372.0.copyload.i
   %2980 = fadd <8 x float> %2978, %2979
-  %2981 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %57, i64 0, i64 %indvars.iv82.i
+  %2981 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %57, i64 %indvars.iv82.i
   store <8 x float> %2980, ptr %2981, align 32, !tbaa !52
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next83.i, 3
@@ -8505,12 +8505,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2710
 
 .preheader51.i115:                                ; preds = %.preheader51.i115, %.preheader53.preheader.i113
   %indvars.iv86.i = phi i64 [ 0, %.preheader53.preheader.i113 ], [ %indvars.iv.next87.i, %.preheader51.i115 ]
-  %2982 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %58, i64 0, i64 %indvars.iv86.i
+  %2982 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %58, i64 %indvars.iv86.i
   %.sroa.041.0.copyload.i116 = load <8 x float>, ptr %2982, align 32, !tbaa !52
-  %2983 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %50, i64 0, i64 %indvars.iv86.i
+  %2983 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %50, i64 %indvars.iv86.i
   %.sroa.040.0.copyload.i117 = load <8 x float>, ptr %2983, align 32, !tbaa !52
   %2984 = fsub <8 x float> %.sroa.041.0.copyload.i116, %.sroa.040.0.copyload.i117
-  %2985 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %43, i64 0, i64 %indvars.iv86.i
+  %2985 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %43, i64 %indvars.iv86.i
   %.sroa.038.0.copyload.i118 = load <8 x float>, ptr %2985, align 32, !tbaa !52
   %2986 = fadd <8 x float> %.sroa.038.0.copyload.i118, %2984
   store <8 x float> %2986, ptr %2985, align 32, !tbaa !52
@@ -8520,12 +8520,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2710
 
 .preheader49.i:                                   ; preds = %.preheader51.i115, %.preheader49.i
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %.preheader49.i ], [ 0, %.preheader51.i115 ]
-  %2987 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %59, i64 0, i64 %indvars.iv90.i
+  %2987 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %59, i64 %indvars.iv90.i
   %.sroa.027.0.copyload.i = load <8 x float>, ptr %2987, align 32, !tbaa !52
-  %2988 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %51, i64 0, i64 %indvars.iv90.i
+  %2988 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %51, i64 %indvars.iv90.i
   %.sroa.026.0.copyload.i119 = load <8 x float>, ptr %2988, align 32, !tbaa !52
   %2989 = fsub <8 x float> %.sroa.027.0.copyload.i, %.sroa.026.0.copyload.i119
-  %2990 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %44, i64 0, i64 %indvars.iv90.i
+  %2990 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %44, i64 %indvars.iv90.i
   %.sroa.024.0.copyload.i = load <8 x float>, ptr %2990, align 32, !tbaa !52
   %2991 = fadd <8 x float> %.sroa.024.0.copyload.i, %2989
   store <8 x float> %2991, ptr %2990, align 32, !tbaa !52
@@ -8734,12 +8734,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit848.i: ; preds = %2710
 
 .preheader.i120:                                  ; preds = %.preheader49.i, %.preheader.i120
   %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %.preheader.i120 ], [ 0, %.preheader49.i ]
-  %3130 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %60, i64 0, i64 %indvars.iv94.i
+  %3130 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %60, i64 %indvars.iv94.i
   %.sroa.014.0.copyload.i = load <8 x float>, ptr %3130, align 32, !tbaa !52
-  %3131 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %52, i64 0, i64 %indvars.iv94.i
+  %3131 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %52, i64 %indvars.iv94.i
   %.sroa.013.0.copyload.i121 = load <8 x float>, ptr %3131, align 32, !tbaa !52
   %3132 = fsub <8 x float> %.sroa.014.0.copyload.i, %.sroa.013.0.copyload.i121
-  %3133 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %45, i64 0, i64 %indvars.iv94.i
+  %3133 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %45, i64 %indvars.iv94.i
   %.sroa.011.0.copyload.i122 = load <8 x float>, ptr %3133, align 32, !tbaa !52
   %3134 = fadd <8 x float> %.sroa.011.0.copyload.i122, %3132
   store <8 x float> %3134, ptr %3133, align 32, !tbaa !52
@@ -9318,14 +9318,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader61.i156:                                ; preds = %.preheader61.i156, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i
   %indvars.iv.i157 = phi i64 [ 0, %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i ], [ %indvars.iv.next.i158, %.preheader61.i156 ]
-  %3570 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %21, i64 0, i64 %indvars.iv.i157
+  %3570 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %21, i64 %indvars.iv.i157
   %.sroa.0689.0.copyload.i = load <8 x float>, ptr %3570, align 32, !tbaa !52
-  %3571 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %22, i64 0, i64 %indvars.iv.i157
+  %3571 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %22, i64 %indvars.iv.i157
   %.sroa.0688.0.copyload.i = load <8 x float>, ptr %3571, align 32, !tbaa !52
   %3572 = fadd <8 x float> %.sroa.0689.0.copyload.i, %.sroa.0688.0.copyload.i
   %3573 = fneg <8 x float> %3572
   %3574 = fmul <8 x float> %3143, %3573
-  %3575 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %23, i64 0, i64 %indvars.iv.i157
+  %3575 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %23, i64 %indvars.iv.i157
   store <8 x float> %3574, ptr %3575, align 32, !tbaa !52
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i157, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, 3
@@ -9337,12 +9337,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader60.i160:                                ; preds = %.preheader60.i160, %.preheader60.preheader.i
   %indvars.iv86.i161 = phi i64 [ 0, %.preheader60.preheader.i ], [ %indvars.iv.next87.i162, %.preheader60.i160 ]
-  %3576 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %21, i64 0, i64 %indvars.iv86.i161
+  %3576 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %21, i64 %indvars.iv86.i161
   %.sroa.0680.0.copyload.i = load <8 x float>, ptr %3576, align 32, !tbaa !52
-  %3577 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %23, i64 0, i64 %indvars.iv86.i161
+  %3577 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %23, i64 %indvars.iv86.i161
   %.sroa.0679.0.copyload.i = load <8 x float>, ptr %3577, align 32, !tbaa !52
   %3578 = fadd <8 x float> %.sroa.0680.0.copyload.i, %.sroa.0679.0.copyload.i
-  %3579 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %24, i64 0, i64 %indvars.iv86.i161
+  %3579 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %24, i64 %indvars.iv86.i161
   store <8 x float> %3578, ptr %3579, align 32, !tbaa !52
   %indvars.iv.next87.i162 = add nuw nsw i64 %indvars.iv86.i161, 1
   %exitcond89.not.i163 = icmp eq i64 %indvars.iv.next87.i162, 3
@@ -9438,12 +9438,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader59.i165:                                ; preds = %.preheader59.i165, %.preheader59.preheader.i164
   %indvars.iv90.i166 = phi i64 [ 0, %.preheader59.preheader.i164 ], [ %indvars.iv.next91.i167, %.preheader59.i165 ]
-  %3646 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %22, i64 0, i64 %indvars.iv90.i166
+  %3646 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %22, i64 %indvars.iv90.i166
   %.sroa.0672.0.copyload.i = load <8 x float>, ptr %3646, align 32, !tbaa !52
-  %3647 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %23, i64 0, i64 %indvars.iv90.i166
+  %3647 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %23, i64 %indvars.iv90.i166
   %.sroa.0671.0.copyload.i = load <8 x float>, ptr %3647, align 32, !tbaa !52
   %3648 = fadd <8 x float> %.sroa.0672.0.copyload.i, %.sroa.0671.0.copyload.i
-  %3649 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %25, i64 0, i64 %indvars.iv90.i166
+  %3649 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %25, i64 %indvars.iv90.i166
   store <8 x float> %3648, ptr %3649, align 32, !tbaa !52
   %indvars.iv.next91.i167 = add nuw nsw i64 %indvars.iv90.i166, 1
   %exitcond93.not.i168 = icmp eq i64 %indvars.iv.next91.i167, 3
@@ -9653,25 +9653,25 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 3803:                                             ; preds = %3803, %3650
   %indvars.iv97.i = phi i64 [ 0, %3650 ], [ %indvars.iv.next98.i, %3803 ]
-  %3804 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %26, i64 0, i64 %indvars.iv97.i
+  %3804 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %26, i64 %indvars.iv97.i
   %.sroa.0446.0.copyload.i = load <8 x float>, ptr %3804, align 32, !tbaa !52
   %3805 = fmul <8 x float> %.sroa.0445.0.copyload.i, %.sroa.0446.0.copyload.i
-  %3806 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %27, i64 0, i64 %indvars.iv97.i
+  %3806 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %27, i64 %indvars.iv97.i
   %.sroa.0443.0.copyload.i = load <8 x float>, ptr %3806, align 32, !tbaa !52
   %3807 = fmul <8 x float> %.sroa.0442.0.copyload.i, %.sroa.0443.0.copyload.i
   %3808 = fadd <8 x float> %3805, %3807
-  %3809 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %28, i64 0, i64 %indvars.iv97.i
+  %3809 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %28, i64 %indvars.iv97.i
   %.sroa.0440.0.copyload.i = load <8 x float>, ptr %3809, align 32, !tbaa !52
   %3810 = fmul <8 x float> %.sroa.0439.0.copyload.i, %.sroa.0440.0.copyload.i
   %3811 = fadd <8 x float> %3808, %3810
-  %3812 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %29, i64 0, i64 %indvars.iv97.i
+  %3812 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %29, i64 %indvars.iv97.i
   store <8 x float> %3811, ptr %3812, align 32, !tbaa !52
   %3813 = fmul <8 x float> %.sroa.0434.0.copyload.i, %.sroa.0446.0.copyload.i
   %3814 = fmul <8 x float> %.sroa.0431.0.copyload.i, %.sroa.0443.0.copyload.i
   %3815 = fadd <8 x float> %3813, %3814
   %3816 = fmul <8 x float> %.sroa.0428.0.copyload.i173, %.sroa.0440.0.copyload.i
   %3817 = fadd <8 x float> %3815, %3816
-  %3818 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %30, i64 0, i64 %indvars.iv97.i
+  %3818 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %30, i64 %indvars.iv97.i
   store <8 x float> %3817, ptr %3818, align 32, !tbaa !52
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next98.i, 3
@@ -9683,14 +9683,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader55.i179:                                ; preds = %.preheader55.i179, %.preheader57.preheader.i174
   %indvars.iv101.i = phi i64 [ 0, %.preheader57.preheader.i174 ], [ %indvars.iv.next102.i, %.preheader55.i179 ]
-  %3819 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %31, i64 0, i64 %indvars.iv101.i
+  %3819 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %31, i64 %indvars.iv101.i
   %.sroa.0109.0.copyload.i180 = load <8 x float>, ptr %3819, align 32, !tbaa !52
-  %3820 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %23, i64 0, i64 %indvars.iv101.i
+  %3820 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %23, i64 %indvars.iv101.i
   %.sroa.0108.0.copyload.i181 = load <8 x float>, ptr %3820, align 32, !tbaa !52
   %3821 = fsub <8 x float> %.sroa.0109.0.copyload.i180, %.sroa.0108.0.copyload.i181
-  %3822 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %34, i64 0, i64 %indvars.iv101.i
+  %3822 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %34, i64 %indvars.iv101.i
   store <8 x float> %3821, ptr %3822, align 32, !tbaa !52
-  %3823 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %16, i64 0, i64 %indvars.iv101.i
+  %3823 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %16, i64 %indvars.iv101.i
   %.sroa.0106.0.copyload.i182 = load <8 x float>, ptr %3823, align 32, !tbaa !52
   %3824 = fadd <8 x float> %3821, %.sroa.0106.0.copyload.i182
   store <8 x float> %3824, ptr %3823, align 32, !tbaa !52
@@ -9704,14 +9704,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader54.i184:                                ; preds = %.preheader54.i184, %.preheader54.preheader.i183
   %indvars.iv105.i = phi i64 [ 0, %.preheader54.preheader.i183 ], [ %indvars.iv.next106.i, %.preheader54.i184 ]
-  %3825 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %32, i64 0, i64 %indvars.iv105.i
+  %3825 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %32, i64 %indvars.iv105.i
   %.sroa.095.0.copyload.i = load <8 x float>, ptr %3825, align 32, !tbaa !52
-  %3826 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %24, i64 0, i64 %indvars.iv105.i
+  %3826 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %24, i64 %indvars.iv105.i
   %.sroa.094.0.copyload.i185 = load <8 x float>, ptr %3826, align 32, !tbaa !52
   %3827 = fsub <8 x float> %.sroa.095.0.copyload.i, %.sroa.094.0.copyload.i185
-  %3828 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %35, i64 0, i64 %indvars.iv105.i
+  %3828 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %35, i64 %indvars.iv105.i
   store <8 x float> %3827, ptr %3828, align 32, !tbaa !52
-  %3829 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %17, i64 0, i64 %indvars.iv105.i
+  %3829 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %17, i64 %indvars.iv105.i
   %.sroa.092.0.copyload.i = load <8 x float>, ptr %3829, align 32, !tbaa !52
   %3830 = fadd <8 x float> %3827, %.sroa.092.0.copyload.i
   store <8 x float> %3830, ptr %3829, align 32, !tbaa !52
@@ -9903,14 +9903,14 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader53.i187:                                ; preds = %.preheader53.i187, %.preheader53.preheader.i186
   %indvars.iv109.i = phi i64 [ 0, %.preheader53.preheader.i186 ], [ %indvars.iv.next110.i, %.preheader53.i187 ]
-  %3973 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %33, i64 0, i64 %indvars.iv109.i
+  %3973 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %33, i64 %indvars.iv109.i
   %.sroa.081.0.copyload.i = load <8 x float>, ptr %3973, align 32, !tbaa !52
-  %3974 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %25, i64 0, i64 %indvars.iv109.i
+  %3974 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %25, i64 %indvars.iv109.i
   %.sroa.080.0.copyload.i = load <8 x float>, ptr %3974, align 32, !tbaa !52
   %3975 = fsub <8 x float> %.sroa.081.0.copyload.i, %.sroa.080.0.copyload.i
-  %3976 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %36, i64 0, i64 %indvars.iv109.i
+  %3976 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %36, i64 %indvars.iv109.i
   store <8 x float> %3975, ptr %3976, align 32, !tbaa !52
-  %3977 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %18, i64 0, i64 %indvars.iv109.i
+  %3977 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %18, i64 %indvars.iv109.i
   %.sroa.078.0.copyload.i188 = load <8 x float>, ptr %3977, align 32, !tbaa !52
   %3978 = fadd <8 x float> %3975, %.sroa.078.0.copyload.i188
   store <8 x float> %3978, ptr %3977, align 32, !tbaa !52
@@ -9920,22 +9920,22 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader52.i200:                                ; preds = %.preheader52.i200, %.preheader52.preheader.i189
   %indvars.iv113.i = phi i64 [ 0, %.preheader52.preheader.i189 ], [ %indvars.iv.next114.i, %.preheader52.i200 ]
-  %3979 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %35, i64 0, i64 %indvars.iv113.i
+  %3979 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %35, i64 %indvars.iv113.i
   %.sroa.046.0.copyload.i201 = load <8 x float>, ptr %3979, align 32, !tbaa !52
   %3980 = fmul <8 x float> %3972, %.sroa.046.0.copyload.i201
-  %3981 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %38, i64 0, i64 %indvars.iv113.i
+  %3981 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %38, i64 %indvars.iv113.i
   store <8 x float> %3980, ptr %3981, align 32, !tbaa !52
-  %3982 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %36, i64 0, i64 %indvars.iv113.i
+  %3982 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %36, i64 %indvars.iv113.i
   %.sroa.043.0.copyload.i202 = load <8 x float>, ptr %3982, align 32, !tbaa !52
   %3983 = fmul <8 x float> %3972, %.sroa.043.0.copyload.i202
-  %3984 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %39, i64 0, i64 %indvars.iv113.i
+  %3984 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %39, i64 %indvars.iv113.i
   store <8 x float> %3983, ptr %3984, align 32, !tbaa !52
-  %3985 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %34, i64 0, i64 %indvars.iv113.i
+  %3985 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %34, i64 %indvars.iv113.i
   %.sroa.038.0.copyload.i203 = load <8 x float>, ptr %3985, align 32, !tbaa !52
   %3986 = fmul <8 x float> %3971, %.sroa.038.0.copyload.i203
   %3987 = fadd <8 x float> %3980, %3986
   %3988 = fadd <8 x float> %3983, %3987
-  %3989 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %37, i64 0, i64 %indvars.iv113.i
+  %3989 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %37, i64 %indvars.iv113.i
   store <8 x float> %3988, ptr %3989, align 32, !tbaa !52
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
   %exitcond116.not.i = icmp eq i64 %indvars.iv.next114.i, 3
@@ -9943,12 +9943,12 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader50.i:                                   ; preds = %.preheader52.i200, %3998
   %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %3998 ], [ 0, %.preheader52.i200 ]
-  %3990 = getelementptr inbounds nuw [3 x [3 x %"class.gmx::SimdFloat"]], ptr %12, i64 0, i64 %indvars.iv121.i
-  %3991 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %13, i64 0, i64 %indvars.iv121.i
+  %3990 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %12, i64 %indvars.iv121.i
+  %3991 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %13, i64 %indvars.iv121.i
   %.sroa.016.0.copyload.i204 = load <8 x float>, ptr %3991, align 32, !tbaa !52
-  %3992 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %19, i64 0, i64 %indvars.iv121.i
+  %3992 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %19, i64 %indvars.iv121.i
   %.sroa.013.0.copyload.i205 = load <8 x float>, ptr %3992, align 32, !tbaa !52
-  %3993 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %20, i64 0, i64 %indvars.iv121.i
+  %3993 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %20, i64 %indvars.iv121.i
   %.sroa.010.0.copyload.i206 = load <8 x float>, ptr %3993, align 32, !tbaa !52
   br label %3999
 
@@ -9997,16 +9997,16 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 3999:                                             ; preds = %3999, %.preheader50.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader50.i ], [ %indvars.iv.next118.i, %3999 ]
-  %4000 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %3990, i64 0, i64 %indvars.iv117.i
+  %4000 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %3990, i64 %indvars.iv117.i
   %.sroa.020.0.copyload.i207 = load <8 x float>, ptr %4000, align 32, !tbaa !52
-  %4001 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %37, i64 0, i64 %indvars.iv117.i
+  %4001 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %37, i64 %indvars.iv117.i
   %.sroa.015.0.copyload.i208 = load <8 x float>, ptr %4001, align 32, !tbaa !52
   %4002 = fmul <8 x float> %.sroa.016.0.copyload.i204, %.sroa.015.0.copyload.i208
-  %4003 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %38, i64 0, i64 %indvars.iv117.i
+  %4003 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %38, i64 %indvars.iv117.i
   %.sroa.012.0.copyload.i209 = load <8 x float>, ptr %4003, align 32, !tbaa !52
   %4004 = fmul <8 x float> %.sroa.013.0.copyload.i205, %.sroa.012.0.copyload.i209
   %4005 = fadd <8 x float> %4002, %4004
-  %4006 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %39, i64 0, i64 %indvars.iv117.i
+  %4006 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %39, i64 %indvars.iv117.i
   %.sroa.09.0.copyload.i210 = load <8 x float>, ptr %4006, align 32, !tbaa !52
   %4007 = fmul <8 x float> %.sroa.010.0.copyload.i206, %.sroa.09.0.copyload.i210
   %4008 = fadd <8 x float> %4005, %4007
@@ -10018,7 +10018,7 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 .preheader.i135:                                  ; preds = %4012, %.preheader49.i133
   %indvars.iv132.i = phi i64 [ 0, %.preheader49.i133 ], [ %indvars.iv.next133.i, %4012 ]
-  %4010 = getelementptr inbounds nuw [3 x [3 x %"class.gmx::SimdFloat"]], ptr %12, i64 0, i64 %indvars.iv132.i
+  %4010 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %12, i64 %indvars.iv132.i
   %4011 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv132.i
   br label %4013
 
@@ -10029,7 +10029,7 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
 
 4013:                                             ; preds = %4013, %.preheader.i135
   %indvars.iv128.i = phi i64 [ 0, %.preheader.i135 ], [ %indvars.iv.next129.i, %4013 ]
-  %4014 = getelementptr inbounds nuw [3 x %"class.gmx::SimdFloat"], ptr %4010, i64 0, i64 %indvars.iv128.i
+  %4014 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %4010, i64 %indvars.iv128.i
   %.sroa.01.0.copyload.i136 = load <8 x float>, ptr %4014, align 32, !tbaa !52
   %4015 = shufflevector <8 x float> %.sroa.01.0.copyload.i136, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %4016 = shufflevector <8 x float> %.sroa.01.0.copyload.i136, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -10039,7 +10039,7 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit944.i: ; preds = %3547
   %shift287 = shufflevector <4 x float> %4019, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop288 = fadd <4 x float> %4019, %shift287
   %4020 = extractelement <4 x float> %foldExtExtBinop288, i64 0
-  %4021 = getelementptr inbounds nuw [3 x float], ptr %4011, i64 0, i64 %indvars.iv128.i
+  %4021 = getelementptr inbounds nuw float, ptr %4011, i64 %indvars.iv128.i
   %4022 = load float, ptr %4021, align 4, !tbaa !23
   %4023 = fadd float %4022, %4020
   store float %4023, ptr %4021, align 4, !tbaa !23

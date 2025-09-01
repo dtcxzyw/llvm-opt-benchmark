@@ -7058,7 +7058,7 @@ define noundef ptr @_Z9cpp_errorPP7gmx_cppi(ptr noundef readonly captures(none) 
 7:                                                ; preds = %2
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %1, i32 9)
   %8 = zext nneg i32 %spec.store.select to i64
-  %9 = getelementptr inbounds nuw [10 x ptr], ptr @__const._Z9cpp_errorPP7gmx_cppi.ecpp, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @__const._Z9cpp_errorPP7gmx_cppi.ecpp, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %12 = load i64, ptr %11, align 8, !tbaa !21

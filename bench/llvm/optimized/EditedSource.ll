@@ -2392,7 +2392,7 @@ _ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i: ; preds = %41
 
 _ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.thread.i.i: ; preds = %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i, %41
   %52 = zext i8 %40 to i64
-  %53 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !147
   %55 = and i16 %54, 7
   %.not.i.i = icmp eq i16 %55, 0
@@ -2400,7 +2400,7 @@ _ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.thread.i.i: ; preds = %_ZL11canBe
 
 56:                                               ; preds = %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.thread.i.i
   %57 = zext i8 %49 to i64
-  %58 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !147
   %60 = and i16 %59, 7
   %.not9.i.i = icmp eq i16 %60, 0

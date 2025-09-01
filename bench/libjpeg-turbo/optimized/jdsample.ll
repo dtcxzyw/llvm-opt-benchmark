@@ -126,7 +126,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   %74 = sdiv i32 %73, %69
   %75 = load i32, ptr %53, align 8, !tbaa !58
   %76 = load i32, ptr %54, align 4, !tbaa !59
-  %77 = getelementptr inbounds nuw [10 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   store i32 %74, ptr %77, align 4, !tbaa !60
   %78 = getelementptr inbounds nuw i8, ptr %.0118137, i64 48
   %79 = load i32, ptr %78, align 8, !tbaa !61
@@ -157,7 +157,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 91:                                               ; preds = %87
   %92 = tail call i32 @jsimd_can_h2v1_fancy_upsample() #7
   %.not129 = icmp eq i32 %92, 0
-  %93 = getelementptr inbounds nuw [10 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   br i1 %.not129, label %95, label %94
 
 94:                                               ; preds = %91
@@ -171,7 +171,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 96:                                               ; preds = %87, %86
   %97 = tail call i32 @jsimd_can_h2v1_upsample() #7
   %.not128 = icmp eq i32 %97, 0
-  %98 = getelementptr inbounds nuw [10 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   br i1 %.not128, label %100, label %99
 
 99:                                               ; preds = %96
@@ -190,7 +190,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond145, label %105, label %._crit_edge140
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw [10 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   store ptr @h1v2_fancy_upsample, ptr %106, align 8, !tbaa !63
   store i32 1, ptr %59, align 8, !tbaa !48
   br label %139
@@ -212,7 +212,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 113:                                              ; preds = %109
   %114 = tail call i32 @jsimd_can_h2v2_fancy_upsample() #7
   %.not127 = icmp eq i32 %114, 0
-  %115 = getelementptr inbounds nuw [10 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   %h2v2_fancy_upsample.jsimd_h2v2_fancy_upsample = select i1 %.not127, ptr @h2v2_fancy_upsample, ptr @jsimd_h2v2_fancy_upsample
   store ptr %h2v2_fancy_upsample.jsimd_h2v2_fancy_upsample, ptr %115, align 8, !tbaa !63
   store i32 1, ptr %59, align 8, !tbaa !48
@@ -221,7 +221,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 116:                                              ; preds = %109, %108
   %117 = tail call i32 @jsimd_can_h2v2_upsample() #7
   %.not126 = icmp eq i32 %117, 0
-  %118 = getelementptr inbounds nuw [10 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   br i1 %.not126, label %120, label %119
 
 119:                                              ; preds = %116
@@ -245,13 +245,13 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %128, label %129, label %135
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw [10 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   store ptr @int_upsample, ptr %130, align 8, !tbaa !63
   %131 = trunc i32 %123 to i8
-  %132 = getelementptr inbounds nuw [10 x i8], ptr %57, i64 0, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
   store i8 %131, ptr %132, align 1, !tbaa !37
   %133 = trunc i32 %127 to i8
-  %134 = getelementptr inbounds nuw [10 x i8], ptr %58, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
   store i8 %133, ptr %134, align 1, !tbaa !37
   br label %139
 
@@ -287,7 +287,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 .critedge.sink.split:                             ; preds = %80, %63, %143
   %.sink146 = phi ptr [ %62, %143 ], [ %56, %63 ], [ %56, %80 ]
   %fullsize_upsample.sink = phi ptr [ %154, %143 ], [ @noop_upsample, %63 ], [ @fullsize_upsample, %80 ]
-  %155 = getelementptr inbounds nuw [10 x ptr], ptr %.sink146, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw ptr, ptr %.sink146, i64 %indvars.iv
   store ptr %fullsize_upsample.sink, ptr %155, align 8, !tbaa !63
   br label %.critedge
 
@@ -346,12 +346,12 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.04552 = phi ptr [ %19, %.lr.ph ], [ %35, %23 ]
-  %24 = getelementptr inbounds nuw [10 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !63
   %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !71
   %28 = load i32, ptr %2, align 4, !tbaa !60
-  %29 = getelementptr inbounds nuw [10 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !60
   %31 = mul i32 %30, %28
   %32 = zext i32 %31 to i64
@@ -886,12 +886,12 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !90
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [10 x i8], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !37
   %.fr50 = freeze i8 %13
   %14 = zext i8 %.fr50 to i64
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 258
-  %16 = getelementptr inbounds [10 x i8], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %17 = load i8, ptr %16, align 1, !tbaa !37
   %.fr = freeze i8 %17
   %18 = zext i8 %.fr to i32

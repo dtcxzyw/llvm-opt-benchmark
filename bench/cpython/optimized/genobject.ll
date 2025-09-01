@@ -2253,7 +2253,7 @@ _PyFrame_GetFirstComplete.exit:                   ; preds = %11, %_PyFrame_IsInc
   br label %Py_DECREF.exit.thread
 
 45:                                               ; preds = %31
-  %46 = getelementptr [1 x ptr], ptr %30, i64 0, i64 %indvars.iv
+  %46 = getelementptr ptr, ptr %30, i64 %indvars.iv
   store ptr %38, ptr %46, align 8, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %.12855, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !31
@@ -2365,8 +2365,8 @@ define internal fastcc ptr @gen_new_with_qualname(ptr noundef %0, ptr noundef %1
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %38 = getelementptr [1 x %union._PyStackRef], ptr %33, i64 0, i64 %indvars.iv.i
-  %39 = getelementptr [1 x %union._PyStackRef], ptr %27, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr %union._PyStackRef, ptr %33, i64 %indvars.iv.i
+  %39 = getelementptr %union._PyStackRef, ptr %27, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8, !tbaa !4
   store i64 %40, ptr %38, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -1221,10 +1221,10 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw [10 x i32], ptr %51, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %54 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %54, ptr %53, align 4, !tbaa !26
-  %55 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %54, ptr %55, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1375,7 +1375,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
 
 .lr.ph187:                                        ; preds = %Io_NtkDeriveSop.exit, %.lr.ph187
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.lr.ph187 ], [ 0, %Io_NtkDeriveSop.exit ]
-  %128 = getelementptr inbounds nuw [10 x i32], ptr %indvars.iv210.sroa.phi, i64 0, i64 %indvars.iv207
+  %128 = getelementptr inbounds nuw i32, ptr %indvars.iv210.sroa.phi, i64 %indvars.iv207
   %129 = load i32, ptr %128, align 4, !tbaa !26
   %.val151 = load ptr, ptr %1, align 8, !tbaa !39
   %.val152 = load ptr, ptr %77, align 8, !tbaa !42
@@ -1455,12 +1455,12 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %.not = icmp eq i64 %indvars.iv203, 0
   %170 = select i1 %.not, i64 %.0119, i64 %155
   %171 = and i64 %170, 65535
-  %172 = getelementptr inbounds nuw [2 x i64], ptr %6, i64 0, i64 %indvars.iv203
+  %172 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv203
   %173 = mul nuw i64 %171, 281479271743489
   store i64 %173, ptr %172, align 8, !tbaa !65
   %174 = shl nuw nsw i64 %indvars.iv203, 5
   %175 = or disjoint i64 %174, 16
-  %176 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv203
+  %176 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 %indvars.iv203
   br label %177
 
 177:                                              ; preds = %169, %177
@@ -1470,16 +1470,16 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %180 = lshr i64 %.0119, %179
   %181 = trunc i64 %180 to i32
   %182 = and i32 %181, 7
-  %183 = getelementptr inbounds nuw [10 x i32], ptr %176, i64 0, i64 %indvars.iv195
+  %183 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv195
   store i32 %182, ptr %183, align 4, !tbaa !26
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, 4
   br i1 %exitcond199.not, label %184, label %177, !llvm.loop !74
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %indvars.iv203
+  %185 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv203
   %186 = call i64 @If_Dec6MinimumBase(i64 noundef %173, ptr noundef nonnull %176, i32 noundef 4, ptr noundef nonnull %185) #10
-  %187 = getelementptr inbounds nuw [2 x i64], ptr %7, i64 0, i64 %indvars.iv203
+  %187 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv203
   store i64 %186, ptr %187, align 8, !tbaa !65
   %188 = call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
   %189 = load i32, ptr %185, align 4, !tbaa !26
@@ -1488,7 +1488,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
 
 .lr.ph184:                                        ; preds = %184, %199
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %199 ], [ 0, %184 ]
-  %191 = getelementptr inbounds nuw [10 x i32], ptr %176, i64 0, i64 %indvars.iv200
+  %191 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv200
   %192 = load i32, ptr %191, align 4, !tbaa !26
   %193 = icmp eq i32 %192, 7
   %.val130 = load ptr, ptr %1, align 8, !tbaa !39
@@ -1761,8 +1761,8 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
 
 .preheader216:                                    ; preds = %79, %.preheader216
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %.preheader216 ], [ 0, %79 ]
-  %82 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr @Io_NtkWriteNodeIntStruct.TruthStore, i64 0, i64 %indvars.iv246
-  %83 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv246
+  %82 = getelementptr inbounds nuw [1024 x i64], ptr @Io_NtkWriteNodeIntStruct.TruthStore, i64 %indvars.iv246
+  %83 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv246
   store ptr %82, ptr %83, align 8, !tbaa !79
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next247, 16
@@ -1770,9 +1770,9 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
 
 .preheader214:                                    ; preds = %.preheader216, %90
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %90 ], [ 0, %.preheader216 ]
-  %84 = getelementptr inbounds nuw [6 x i64], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv254
+  %84 = getelementptr inbounds nuw i64, ptr @Io_NtkWriteModelIntStruct.Truth6, i64 %indvars.iv254
   %85 = load i64, ptr %84, align 8, !tbaa !65
-  %86 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv254
+  %86 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv254
   %87 = load ptr, ptr %86, align 8, !tbaa !79
   br label %88
 
@@ -1794,7 +1794,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef
   %91 = trunc i64 %indvars.iv262 to i32
   %92 = add i32 %91, -6
   %93 = shl nuw i32 1, %92
-  %94 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv262
+  %94 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 %indvars.iv262
   %95 = load ptr, ptr %94, align 8, !tbaa !79
   br label %96
 
@@ -1953,8 +1953,8 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
 
 166:                                              ; preds = %.lr.ph230, %166
   %indvars.iv266 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next267, %166 ]
-  %167 = add nuw nsw i64 %indvars.iv266, 2
-  %168 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %167
+  %167 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv266
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 2
   %169 = load i8, ptr %168, align 1, !tbaa !54
   %.val188 = load ptr, ptr %1, align 8, !tbaa !39
   %.val189 = load ptr, ptr %165, align 8, !tbaa !42
@@ -2015,8 +2015,8 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
 
 204:                                              ; preds = %.lr.ph234, %215
   %indvars.iv269 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next270, %215 ]
-  %205 = add nuw nsw i64 %indvars.iv269, 2
-  %206 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %205
+  %205 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv269
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 2
   %207 = load i8, ptr %206, align 1, !tbaa !54
   %208 = sext i8 %207 to i32
   %209 = icmp eq i32 %.val193, %208
@@ -2088,8 +2088,8 @@ Kit_TruthIsConst1.exit207:                        ; preds = %select.unfold.i203,
 
 243:                                              ; preds = %.lr.ph238, %260
   %indvars.iv272 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next273, %260 ]
-  %244 = add nuw nsw i64 %indvars.iv272, 2
-  %245 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %244
+  %244 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv272
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 2
   %246 = load i8, ptr %245, align 1, !tbaa !54
   %247 = sext i8 %246 to i32
   %248 = icmp eq i32 %.val193, %247
@@ -2333,8 +2333,8 @@ define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr nounde
 
 .preheader199:                                    ; preds = %73, %.preheader199
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %.preheader199 ], [ 0, %73 ]
-  %76 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr @Io_NtkWriteModelIntStruct.TruthStore, i64 0, i64 %indvars.iv230
-  %77 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv230
+  %76 = getelementptr inbounds nuw [1024 x i64], ptr @Io_NtkWriteModelIntStruct.TruthStore, i64 %indvars.iv230
+  %77 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv230
   store ptr %76, ptr %77, align 8, !tbaa !79
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next231, 16
@@ -2342,9 +2342,9 @@ define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr nounde
 
 .preheader197:                                    ; preds = %.preheader199, %84
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %84 ], [ 0, %.preheader199 ]
-  %78 = getelementptr inbounds nuw [6 x i64], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv238
+  %78 = getelementptr inbounds nuw i64, ptr @Io_NtkWriteModelIntStruct.Truth6, i64 %indvars.iv238
   %79 = load i64, ptr %78, align 8, !tbaa !65
-  %80 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv238
+  %80 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv238
   %81 = load ptr, ptr %80, align 8, !tbaa !79
   br label %82
 
@@ -2366,7 +2366,7 @@ define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr nounde
   %85 = trunc i64 %indvars.iv246 to i32
   %86 = add i32 %85, -6
   %87 = shl nuw i32 1, %86
-  %88 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv246
+  %88 = getelementptr inbounds nuw ptr, ptr @Io_NtkWriteModelIntStruct.pTruths, i64 %indvars.iv246
   %89 = load ptr, ptr %88, align 8, !tbaa !79
   br label %90
 
@@ -2510,8 +2510,8 @@ Kit_TruthIsConst1.exit190:                        ; preds = %select.unfold.i186,
 
 .lr.ph217:                                        ; preds = %149, %.lr.ph217
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %.lr.ph217 ], [ 0, %149 ]
-  %153 = add nuw nsw i64 %indvars.iv250, 2
-  %154 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %153
+  %153 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv250
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 2
   %155 = load i8, ptr %154, align 1, !tbaa !54
   %156 = sext i8 %155 to i32
   %157 = add nsw i32 %156, 97
@@ -2545,8 +2545,8 @@ Kit_TruthIsConst1.exit190:                        ; preds = %select.unfold.i186,
 
 .lr.ph221:                                        ; preds = %171, %185
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %185 ], [ 0, %171 ]
-  %175 = add nuw nsw i64 %indvars.iv253, 2
-  %176 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %175
+  %175 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv253
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 2
   %177 = load i8, ptr %176, align 1, !tbaa !54
   %178 = sext i8 %177 to i32
   %179 = icmp eq i32 %.val175, %178
@@ -2592,8 +2592,8 @@ Kit_TruthIsConst1.exit190:                        ; preds = %select.unfold.i186,
 
 201:                                              ; preds = %.lr.ph225, %216
   %indvars.iv256 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next257, %216 ]
-  %202 = add nuw nsw i64 %indvars.iv256, 2
-  %203 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %202
+  %202 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv256
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 2
   %204 = load i8, ptr %203, align 1, !tbaa !54
   %205 = sext i8 %204 to i32
   %206 = icmp eq i32 %.val175, %205

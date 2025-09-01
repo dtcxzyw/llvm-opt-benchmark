@@ -1696,13 +1696,13 @@ define internal fastcc noundef zeroext i1 @_ZL25tryEorOfLogicalImmediatesmRN4llv
   br i1 %.not55, label %24, label %.critedge57
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds nuw [32 x i8], ptr @_ZZL25tryEorOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEEE19BigToSmallSizeTable, i64 0, i64 %21
+  %25 = getelementptr inbounds nuw i8, ptr @_ZZL25tryEorOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEEE19BigToSmallSizeTable, i64 %21
   %26 = load i8, ptr %25, align 1, !tbaa !25
   %27 = zext nneg i8 %26 to i32
   %28 = lshr i32 %.145, %27
   %29 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %28, i1 false)
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [7 x i64], ptr @_ZZL25tryEorOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEEE17RepeatedOnesTable, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i64, ptr @_ZZL25tryEorOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEEE17RepeatedOnesTable, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !26
   %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %19, i1 false)
   %34 = trunc nuw nsw i64 %33 to i32

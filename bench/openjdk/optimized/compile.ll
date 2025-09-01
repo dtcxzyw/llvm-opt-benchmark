@@ -7007,7 +7007,7 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %1
   %10 = phi i64 [ %.pre10, %.preheader ], [ %27, %_ZN7Compile14too_many_trapsEN14Deoptimization11DeoptReasonEP12ciMethodData.exit.thread ]
   %11 = phi i64 [ %.pre8, %.preheader ], [ %28, %_ZN7Compile14too_many_trapsEN14Deoptimization11DeoptReasonEP12ciMethodData.exit.thread ]
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %_ZN7Compile14too_many_trapsEN14Deoptimization11DeoptReasonEP12ciMethodData.exit.thread ]
-  %12 = getelementptr inbounds nuw [30 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = trunc i64 %indvars.iv to i32
   %15 = add i32 %14, -19
@@ -8550,7 +8550,7 @@ define hidden noundef nonnull ptr @_ZN7Compile17probe_alias_cacheEPK7TypePtr(ptr
   %5 = xor i64 %4, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %7 = and i64 %5, 63
-  %8 = getelementptr inbounds nuw [64 x %"struct.Compile::AliasCacheEntry"], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %"struct.Compile::AliasCacheEntry", ptr %6, i64 %7
   ret ptr %8
 }
 
@@ -9596,7 +9596,7 @@ define hidden noundef zeroext i8 @_ZNK7Compile9AliasType10basic_typeEv(ptr nound
 
 _ZN7ciField11layout_typeEv.exit:                  ; preds = %19, %23
   %27 = phi i64 [ %26, %23 ], [ 12, %19 ]
-  %28 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @type2field, i64 %27
   %29 = load i8, ptr %28, align 1
   br label %30
 
@@ -9689,7 +9689,7 @@ define hidden noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr
   %16 = xor i64 %15, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %18 = and i64 %16, 63
-  %19 = getelementptr inbounds nuw [64 x %"struct.Compile::AliasCacheEntry"], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.Compile::AliasCacheEntry", ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %1
   br i1 %21, label %22, label %30
@@ -10122,7 +10122,7 @@ _ZN7Compile9AliasType9set_fieldEP7ciField.exit:   ; preds = %268, %262, %.thread
   %272 = lshr i64 %271, 6
   %273 = xor i64 %272, %271
   %274 = and i64 %273, 63
-  %275 = getelementptr inbounds nuw [64 x %"struct.Compile::AliasCacheEntry"], ptr %17, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw %"struct.Compile::AliasCacheEntry", ptr %17, i64 %274
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq ptr %276, null
   br i1 %277, label %278, label %280
@@ -10198,7 +10198,7 @@ define hidden noundef zeroext i1 @_ZN7Compile15have_alias_typeEPK7TypePtr(ptr no
   %5 = xor i64 %4, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %7 = and i64 %5, 63
-  %8 = getelementptr inbounds nuw [64 x %"struct.Compile::AliasCacheEntry"], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %"struct.Compile::AliasCacheEntry", ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %1
   %11 = icmp eq ptr %1, null
@@ -10261,7 +10261,7 @@ _ZN7Compile9AliasType9set_fieldEP7ciField.exit.i: ; preds = %37
   %42 = lshr i64 %41, 6
   %43 = xor i64 %42, %41
   %44 = and i64 %43, 63
-  %45 = getelementptr inbounds nuw [64 x %"struct.Compile::AliasCacheEntry"], ptr %6, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %"struct.Compile::AliasCacheEntry", ptr %6, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %50
@@ -14455,7 +14455,7 @@ define hidden noundef i32 @_ZN7Compile19compute_truth_tableER16Unique_Node_ListS
   %30 = load ptr, ptr %29, align 8
   %31 = sub nsw i64 2, %indvars.iv
   %32 = and i64 %31, 4294967295
-  %33 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN7Compile19compute_truth_tableER16Unique_Node_ListS1_.input_funcs, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr @__const._ZN7Compile19compute_truth_tableER16Unique_Node_ListS1_.input_funcs, i64 %32
   %34 = ptrtoint ptr %30 to i64
   %35 = trunc i64 %34 to i32
   %36 = lshr i32 %35, 3
@@ -18531,7 +18531,7 @@ define hidden noundef zeroext i1 @_ZN7Compile14too_many_trapsEP8ciMethodiN14Deop
   %20 = tail call noundef ptr @_ZN14Deoptimization16trap_reason_nameEi(i32 noundef %3) #17
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %22 = sext i32 %3 to i64
-  %23 = getelementptr inbounds [60 x i8], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, 1
   %26 = zext i8 %25 to i32
@@ -18542,7 +18542,7 @@ define hidden noundef zeroext i1 @_ZN7Compile14too_many_trapsEP8ciMethodiN14Deop
 28:                                               ; preds = %9
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw [30 x i32], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = load i64, ptr @PerMethodSpecTrapLimit, align 8
   %34 = load i64, ptr @PerMethodTrapLimit, align 8
@@ -18560,7 +18560,7 @@ define hidden noundef zeroext i1 @_ZN7Compile14too_many_trapsEP8ciMethodiN14Deop
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %41 = sext i32 %3 to i64
-  %42 = getelementptr inbounds [60 x i8], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %40, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = add i8 %43, 1
   %45 = zext i8 %44 to i32
@@ -18585,7 +18585,7 @@ declare noundef ptr @_ZN14Deoptimization16trap_reason_nameEi(i32 noundef) local_
 define hidden noundef zeroext i1 @_ZN7Compile14too_many_trapsEN14Deoptimization11DeoptReasonEP12ciMethodData(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2316) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [30 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %1, -19
   %or.cond3.i.i = icmp ult i32 %8, 3
@@ -18609,7 +18609,7 @@ define hidden noundef zeroext i1 @_ZN7Compile14too_many_trapsEN14Deoptimization1
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds [60 x i8], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, 1
   %23 = zext i8 %22 to i32
@@ -18710,7 +18710,7 @@ _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.
   %41 = tail call noundef ptr @_ZN14Deoptimization16trap_reason_nameEi(i32 noundef %3) #17
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %43 = sext i32 %3 to i64
-  %44 = getelementptr inbounds [60 x i8], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds i8, ptr %42, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = add i8 %45, 1
   %47 = zext i8 %46 to i32
@@ -18722,7 +18722,7 @@ _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.
 50:                                               ; preds = %34, %30, %.thread
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %52 = zext i32 %3 to i64
-  %53 = getelementptr inbounds nuw [30 x i32], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4
   %.not28 = icmp eq i32 %54, 0
   br i1 %.not28, label %74, label %55
@@ -18743,7 +18743,7 @@ _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.
   %62 = tail call noundef ptr @_ZN14Deoptimization16trap_reason_nameEi(i32 noundef %3) #17
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %64 = sext i32 %3 to i64
-  %65 = getelementptr inbounds [60 x i8], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = add i8 %66, 1
   %68 = zext i8 %67 to i32

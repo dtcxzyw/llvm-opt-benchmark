@@ -954,7 +954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 300:                                              ; preds = %.preheader1058, %306
   %indvars.iv = phi i64 [ %indvars.iv.next, %306 ], [ 1, %.preheader1058 ]
   %301 = load ptr, ptr @_ZZ11gmx_clusteriPPcE10methodname, align 16, !tbaa !41
-  %302 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZ11gmx_clusteriPPcE10methodname, i64 0, i64 %indvars.iv
+  %302 = getelementptr inbounds nuw ptr, ptr @_ZZ11gmx_clusteriPPcE10methodname, i64 %indvars.iv
   %303 = load ptr, ptr %302, align 8, !tbaa !41
   %304 = invoke noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef %301, ptr noundef %303)
           to label %305 unwind label %.loopexit.split-lp737.loopexit.split-lp.loopexit.split-lp.loopexit

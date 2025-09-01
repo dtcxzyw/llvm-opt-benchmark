@@ -2978,7 +2978,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 29:                                               ; preds = %28, %29
   %30 = phi i64 [ 0, %28 ], [ %32, %29 ]
-  %31 = getelementptr inbounds nuw [31 x { { { [3 x i64] } }, { i64 } }], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %4, i64 %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   %32 = add nuw nsw i64 %30, 1
   %exitcond.not = icmp eq i64 %32, 31
@@ -3013,7 +3013,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 40:                                               ; preds = %39, %40
   %41 = phi i64 [ 0, %39 ], [ %43, %40 ]
-  %42 = getelementptr inbounds nuw [31 x { { { [3 x i64] } }, { i64 } }], ptr %3, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %3, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   %43 = add nuw nsw i64 %41, 1
   %exitcond142.not = icmp eq i64 %43, 31
@@ -3260,7 +3260,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 29:                                               ; preds = %28, %29
   %30 = phi i64 [ 0, %28 ], [ %32, %29 ]
-  %31 = getelementptr inbounds nuw [31 x { { { [4 x i64] } }, { i64 } }], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %4, i64 %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false)
   %32 = add nuw nsw i64 %30, 1
   %exitcond.not = icmp eq i64 %32, 31
@@ -3295,7 +3295,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 40:                                               ; preds = %39, %40
   %41 = phi i64 [ 0, %39 ], [ %43, %40 ]
-  %42 = getelementptr inbounds nuw [31 x { { { [4 x i64] } }, { i64 } }], ptr %3, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %3, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
   %43 = add nuw nsw i64 %41, 1
   %exitcond142.not = icmp eq i64 %43, 31
@@ -3541,7 +3541,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 29:                                               ; preds = %28, %29
   %30 = phi i64 [ 0, %28 ], [ %32, %29 ]
-  %31 = getelementptr inbounds nuw [31 x { { { [4 x i64] } }, { i64 } }], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %4, i64 %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false)
   %32 = add nuw nsw i64 %30, 1
   %exitcond.not = icmp eq i64 %32, 31
@@ -3576,7 +3576,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 40:                                               ; preds = %39, %40
   %41 = phi i64 [ 0, %39 ], [ %43, %40 ]
-  %42 = getelementptr inbounds nuw [31 x { { { [4 x i64] } }, { i64 } }], ptr %3, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %3, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
   %43 = add nuw nsw i64 %41, 1
   %exitcond142.not = icmp eq i64 %43, 31
@@ -7154,9 +7154,9 @@ define internal fastcc void @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstC
 
 25:                                               ; preds = %24
   %26 = add i64 %.sroa.05.0, 1
-  %27 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %.sroa.05.0
+  %27 = getelementptr ptr, ptr %0, i64 %.sroa.05.0
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %26
+  %29 = getelementptr i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
@@ -7397,7 +7397,7 @@ define void @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstConcatIterator22c
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds [0 x ptr], ptr %.val, i64 0, i64 %16
+  %19 = getelementptr inbounds ptr, ptr %.val, i64 %16
   %.val38 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %20 = atomicrmw add ptr %.val38, i64 1 monotonic, align 8
   %21 = icmp slt i64 %20, 0
@@ -7564,7 +7564,7 @@ define hidden noundef ptr @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstCon
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha5a28c87c128dee0E.exit": ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.716.sroa.0)
   %.val = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds [0 x ptr], ptr %.val, i64 0, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %.val, i64 %15
   %.val29 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   %18 = atomicrmw add ptr %.val29, i64 1 monotonic, align 8
   %19 = icmp slt i64 %18, 0

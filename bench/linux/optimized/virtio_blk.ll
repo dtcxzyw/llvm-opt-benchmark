@@ -1483,7 +1483,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %42 = add nuw nsw i32 %37, 1
   %43 = add nuw nsw i32 %37, %36
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %5, i64 %44
   store ptr %4, ptr %45, align 8
   %46 = call i32 @virtqueue_add_sgs(ptr noundef %23, ptr noundef nonnull %5, i32 noundef %36, i32 noundef %42, ptr noundef %10, i32 noundef 2080) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1727,7 +1727,7 @@ define internal void @virtio_queue_rqs(ptr noundef captures(address_is_null) %0)
   %72 = add nuw nsw i32 %67, 1
   %73 = add nuw nsw i32 %67, %66
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %74
+  %75 = getelementptr ptr, ptr %4, i64 %74
   store ptr %3, ptr %75, align 8
   %76 = call i32 @virtqueue_add_sgs(ptr noundef %54, ptr noundef nonnull %4, i32 noundef %66, i32 noundef %72, ptr noundef %53, i32 noundef 2080) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2126,8 +2126,8 @@ define internal void @virtblk_map_queues(ptr noundef %0) #2 align 16 {
   %12 = phi i32 [ 0, %5 ], [ %20, %27 ]
   %13 = phi i32 [ 0, %5 ], [ %28, %27 ]
   %14 = sext i32 %13 to i64
-  %15 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %8, i64 0, i64 %14
-  %16 = getelementptr [3 x i32], ptr %9, i64 0, i64 %14
+  %15 = getelementptr %struct.blk_mq_queue_map, ptr %8, i64 %14
+  %16 = getelementptr i32, ptr %9, i64 %14
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %17, ptr %18, align 8
@@ -2756,7 +2756,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noun
 27:                                               ; preds = %.thread, %19
   %28 = phi i8 [ %18, %.thread ], [ %24, %19 ]
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr [2 x ptr], ptr @virtblk_cache_types, i64 0, i64 %29
+  %30 = getelementptr ptr, ptr @virtblk_cache_types, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef %31) #14
   %33 = sext i32 %32 to i64

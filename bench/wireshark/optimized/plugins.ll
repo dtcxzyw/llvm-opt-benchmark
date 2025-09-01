@@ -102,7 +102,7 @@ define internal fastcc void @scan_plugins_dir(ptr noundef %0, ptr noundef %1, i3
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.scan_plugins_dir, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.scan_plugins_dir, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %1, ptr noundef nonnull %switch.load, ptr noundef null)
   %10 = tail call ptr @g_dir_open(ptr noundef %9, i32 noundef 0, ptr noundef null)

@@ -1211,7 +1211,7 @@ label_string.exit251.i:                           ; preds = %364
 .thread334.i:                                     ; preds = %410
   %414 = zext nneg i32 %412 to i64
   %415 = getelementptr inbounds nuw i8, ptr %402, i64 16
-  %416 = getelementptr inbounds nuw [14 x %struct.IAMFSoundSystemMap], ptr @ff_iamf_sound_system_map, i64 0, i64 %414, i32 1
+  %416 = getelementptr inbounds nuw %struct.IAMFSoundSystemMap, ptr @ff_iamf_sound_system_map, i64 %414, i32 1
   %417 = call i32 @av_channel_layout_copy(ptr noundef nonnull %415, ptr noundef nonnull %416) #10
   br label %420
 
@@ -1659,9 +1659,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ipcm_decoder_config(ptr no
 
 13:                                               ; preds = %10
   %14 = sext i32 %4 to i64
-  %15 = getelementptr inbounds [2 x [3 x i32]], ptr @ipcm_decoder_config.sample_fmt, i64 0, i64 %14
+  %15 = getelementptr inbounds [3 x i32], ptr @ipcm_decoder_config.sample_fmt, i64 %14
   %16 = zext nneg i32 %7 to i64
-  %17 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %18, ptr %19, align 4, !tbaa !26
@@ -2183,7 +2183,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %54 = zext nneg i32 %50 to i64
-  %55 = getelementptr inbounds nuw [13 x %struct.AVChannelLayout], ptr @ff_iamf_expanded_scalable_ch_layouts, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @ff_iamf_expanded_scalable_ch_layouts, i64 %54
   %56 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %53, ptr noundef nonnull %55) #10
   br label %66
 
@@ -2194,7 +2194,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @scalable_channel_layout_co
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %61 = sext i32 %21 to i64
-  %62 = getelementptr inbounds [10 x %struct.AVChannelLayout], ptr @ff_iamf_scalable_ch_layouts, i64 0, i64 %61
+  %62 = getelementptr inbounds %struct.AVChannelLayout, ptr @ff_iamf_scalable_ch_layouts, i64 %61
   %63 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %60, ptr noundef nonnull %62) #10
   br label %66
 

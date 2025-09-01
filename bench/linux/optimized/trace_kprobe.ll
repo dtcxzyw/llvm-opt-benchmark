@@ -576,7 +576,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
 
 72:                                               ; preds = %49
   %73 = zext nneg i32 %51 to i64
-  %74 = getelementptr [6 x i32], ptr @regs_get_kernel_argument.argument_offs, i64 0, i64 %73
+  %74 = getelementptr i32, ptr @regs_get_kernel_argument.argument_offs, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = zext nneg i32 %75 to i64
   %77 = ptrtoint ptr %1 to i64
@@ -2287,7 +2287,7 @@ define internal fastcc i32 @__register_trace_kprobe(ptr noundef %0) unnamed_addr
 22:                                               ; preds = %18, %16
   %23 = phi i32 [ 0, %16 ], [ %19, %18 ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr [0 x %struct.probe_arg], ptr %17, i64 0, i64 %24
+  %25 = getelementptr %struct.probe_arg, ptr %17, i64 %24
   %26 = tail call i32 @traceprobe_update_arg(ptr noundef %25) #18
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %18, label %.loopexit
@@ -2556,7 +2556,7 @@ define internal noundef i32 @trace_kprobe_show(ptr noundef %0, ptr noundef reado
 56:                                               ; preds = %56, %54
   %57 = phi i32 [ 0, %54 ], [ %64, %56 ]
   %58 = sext i32 %57 to i64
-  %59 = getelementptr [0 x %struct.probe_arg], ptr %55, i64 0, i64 %58
+  %59 = getelementptr %struct.probe_arg, ptr %55, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
@@ -2927,7 +2927,7 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
   %48 = shl i64 %43, 32
   %49 = ashr exact i64 %48, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %23, i64 %49, i1 false)
-  %50 = getelementptr [64 x i8], ptr %9, i64 0, i64 %49
+  %50 = getelementptr i8, ptr %9, i64 %49
   store i8 0, ptr %50, align 1
   %51 = call i32 @kstrtouint(ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %6) #18
   %52 = icmp eq i32 %51, 0
@@ -4791,7 +4791,7 @@ define internal noundef i32 @probes_profile_seq_show(ptr noundef %0, ptr noundef
   %52 = load ptr, ptr %40, align 8
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %48, 63
-  %55 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %54
+  %55 = getelementptr i64, ptr @__per_cpu_offset, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %53
   %58 = inttoptr i64 %57 to ptr

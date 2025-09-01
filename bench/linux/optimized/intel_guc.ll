@@ -400,7 +400,7 @@ define dso_local void @intel_guc_write_params(ptr noundef readonly captures(none
 7:                                                ; preds = %7, %1
   %8 = phi i64 [ 0, %1 ], [ %9, %7 ]
   %9 = add nuw nsw i64 %8, 1
-  %10 = getelementptr [14 x i32], ptr %6, i64 0, i64 %8
+  %10 = getelementptr i32, ptr %6, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr %4, align 8
   %13 = trunc i64 %9 to i32

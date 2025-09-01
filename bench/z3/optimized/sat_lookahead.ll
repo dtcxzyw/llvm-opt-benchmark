@@ -9757,7 +9757,7 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit:      ; preds = %3
   br label %.critedge34.us
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %37, i64 0, i64 %indvars.iv41
+  %25 = getelementptr inbounds nuw %"class.sat::literal", ptr %37, i64 %indvars.iv41
   %26 = load i32, ptr %25, align 4, !tbaa !103
   %27 = lshr i32 %26, 1
   %28 = load ptr, ptr %38, align 8, !tbaa !331
@@ -9809,7 +9809,7 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit:      ; preds = %3
   br i1 %exitcond.not, label %.critedge, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %46, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %"class.sat::literal", ptr %46, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !103
   %52 = lshr i32 %51, 1
   %53 = load ptr, ptr %47, align 8, !tbaa !331
@@ -10549,7 +10549,7 @@ define hidden void @_ZN3sat9lookahead10add_clauseERKNS_6clauseE(ptr noundef nonn
 18:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %19 = getelementptr inbounds nuw %"class.sat::literal", ptr %11, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %17, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %17, i64 %indvars.iv.i
   %21 = load i32, ptr %19, align 4, !tbaa !87
   store i32 %21, ptr %20, align 4, !tbaa !87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -24122,7 +24122,7 @@ _Z7deallocIN13sat_allocator5chunkEEvPT_.exit.i:   ; preds = %15, %.lr.ph.i
 
 17:                                               ; preds = %_ZN6vectorIPvLb0EjE5resetEv.exit.i, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i ], [ %indvars.iv.next.i, %_ZN6vectorIPvLb0EjE5resetEv.exit.i ]
-  %18 = getelementptr inbounds nuw [65 x %class.ptr_vector.34], ptr %12, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw %class.ptr_vector.34, ptr %12, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !495
   %.not.i11.i = icmp eq ptr %19, null
   br i1 %.not.i11.i, label %_ZN6vectorIPvLb0EjE5resetEv.exit.i, label %20

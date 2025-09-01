@@ -1096,10 +1096,10 @@ do_fstat.exit.thread:                             ; preds = %51, %do_fstat.exit
 
 switch.lookup:                                    ; preds = %80
   %85 = zext nneg i32 %83 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.php_stdiop_set_option, i64 0, i64 %85
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.php_stdiop_set_option, i64 %85
   %switch.load = load i32, ptr %switch.gep, align 4
   %86 = zext nneg i32 %83 to i64
-  %switch.gep131 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.php_stdiop_set_option.1, i64 0, i64 %86
+  %switch.gep131 = getelementptr inbounds nuw i32, ptr @switch.table.php_stdiop_set_option.1, i64 %86
   %switch.load132 = load i32, ptr %switch.gep131, align 4
   %87 = tail call ptr @mmap(ptr noundef null, i64 noundef %81, i32 noundef %switch.load, i32 noundef %switch.load132, i32 noundef %16, i64 noundef %76) #17
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1342,7 +1342,7 @@ zend_string_alloc.exit44:                         ; preds = %25
   store i64 %26, ptr %32, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 16 %5, i64 %26, i1 false)
-  %34 = getelementptr inbounds nuw [1 x i8], ptr %33, i64 0, i64 %26
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %26
   store i8 0, ptr %34, align 1, !tbaa !4
   store ptr %29, ptr %2, align 8, !tbaa !9
   br label %35
@@ -1418,7 +1418,7 @@ zend_string_alloc.exit:                           ; preds = %58
   store i64 %59, ptr %65, align 8, !tbaa !31
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %66, ptr nonnull align 16 %5, i64 %59, i1 false)
-  %67 = getelementptr inbounds nuw [1 x i8], ptr %66, i64 0, i64 %59
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %59
   store i8 0, ptr %67, align 1, !tbaa !4
   store ptr %62, ptr %2, align 8, !tbaa !9
   br label %68

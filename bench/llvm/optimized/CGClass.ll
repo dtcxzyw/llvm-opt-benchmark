@@ -12032,7 +12032,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18EmitVTablePtrCheckEPK
 
 switch.lookup:                                    ; preds = %27
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction18EmitVTablePtrCheckEPKNS_13CXXRecordDeclEPN4llvm5ValueENS1_16CFITypeCheckKindENS_14SourceLocationE, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction18EmitVTablePtrCheckEPKNS_13CXXRecordDeclEPN4llvm5ValueENS1_16CFITypeCheckKindENS_14SourceLocationE, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %30
 

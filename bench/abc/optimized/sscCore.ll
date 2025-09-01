@@ -874,7 +874,7 @@ define i32 @Ssc_PerformVerification(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 switch.lookup:                                    ; preds = %3
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Ssc_PerformVerification, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Ssc_PerformVerification, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %puts18 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load)
   br label %16

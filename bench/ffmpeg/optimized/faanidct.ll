@@ -16,10 +16,10 @@ define void @ff_faanidct(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !4
   %6 = sitofp i16 %5 to float
-  %7 = getelementptr inbounds nuw [64 x float], ptr @prescale, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr @prescale, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !8
   %9 = fmul nsz float %8, %6
-  %10 = getelementptr inbounds nuw [64 x float], ptr %2, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %9, ptr %10, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -573,10 +573,10 @@ define void @ff_faanidct_add(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %6 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = sitofp i16 %7 to float
-  %9 = getelementptr inbounds nuw [64 x float], ptr @prescale, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr @prescale, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !8
   %11 = fmul nsz float %10, %8
-  %12 = getelementptr inbounds nuw [64 x float], ptr %4, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -669,10 +669,10 @@ define void @ff_faanidct_put(ptr noundef captures(none) %0, i64 noundef %1, ptr 
   %6 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = sitofp i16 %7 to float
-  %9 = getelementptr inbounds nuw [64 x float], ptr @prescale, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr @prescale, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !8
   %11 = fmul nsz float %10, %8
-  %12 = getelementptr inbounds nuw [64 x float], ptr %4, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64

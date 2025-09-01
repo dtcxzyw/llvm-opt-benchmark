@@ -2419,7 +2419,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
 962:                                              ; preds = %966, %.preheader.i.i.us
   %.473.i.i.us = phi ptr [ %961, %.preheader.i.i.us ], [ %965, %966 ]
   %963 = getelementptr inbounds nuw i8, ptr %.473.i.i.us, i64 8
-  %964 = getelementptr inbounds nuw [2 x ptr], ptr %963, i64 0, i64 %958
+  %964 = getelementptr inbounds nuw ptr, ptr %963, i64 %958
   %965 = load ptr, ptr %964, align 8, !tbaa !54
   %.not81.i.i.us = icmp eq ptr %965, null
   br i1 %.not81.i.i.us, label %.critedge4.i.i.us, label %966

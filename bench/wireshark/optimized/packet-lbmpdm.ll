@@ -1000,7 +1000,7 @@ lbmpdm_definition_field_add.exit.thread.i:        ; preds = %lbmpdm_definition_f
 
 switch.lookup:                                    ; preds = %383
   %388 = zext nneg i16 %385 to i64
-  %switch.gep = getelementptr inbounds nuw [38 x i16], ptr @switch.table.lbmpdm_dissect_lbmpdm_payload, i64 0, i64 %388
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.lbmpdm_dissect_lbmpdm_payload, i64 %388
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %389
 

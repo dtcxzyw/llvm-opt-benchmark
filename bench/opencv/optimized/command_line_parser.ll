@@ -1849,7 +1849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   br label %212
 
 149:                                              ; preds = %.preheader
-  %150 = getelementptr inbounds nuw [4 x double], ptr %2, i64 0, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %151 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %150)
           to label %_ZNSirsERd.exit68 unwind label %147
 
@@ -1920,7 +1920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %172
   %175 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN2cvL8from_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ParamEPv, i64 0, i64 %175
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cvL8from_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ParamEPv, i64 %175
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN2cvL13get_type_nameENS_5ParamE.exit
 

@@ -6542,7 +6542,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !137
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -7526,7 +7526,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 51:                                               ; preds = %.lr.ph, %120
   %52 = phi i32 [ %48, %.lr.ph ], [ %121, %120 ]
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !139
   %56 = add nuw i32 %52, 1
   store i32 %56, ptr %47, align 8, !tbaa !286

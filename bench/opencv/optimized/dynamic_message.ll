@@ -371,7 +371,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZN6google8pro
   %112 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %113 = load i8, ptr %112, align 2, !tbaa !81
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !82
   switch i32 %116, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thread [
     i32 1, label %117
@@ -1627,7 +1627,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8p
   %218 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %219 = load i8, ptr %218, align 2, !tbaa !81
   %220 = zext i8 %219 to i64
-  %221 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !82
   switch i32 %222, label %246 [
     i32 1, label %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit.thread
@@ -1766,7 +1766,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit16.i: ; preds = %_ZN6google
   %240 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %241 = load i8, ptr %240, align 2, !tbaa !81
   %242 = zext i8 %241 to i64
-  %243 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %242
   %244 = load i32, ptr %243, align 4, !tbaa !82
   switch i32 %244, label %246 [
     i32 1, label %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit
@@ -2364,7 +2364,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %.pn = sext i32 %.pn.in to i64
   %135 = getelementptr inbounds i8, ptr %0, i64 %.pn
   %136 = zext i8 %134 to i64
-  %137 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !82
   %139 = icmp eq i32 %138, 9
   br i1 %139, label %.invoke, label %142
@@ -2429,7 +2429,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.pre188 = load i8, ptr %133, align 2, !tbaa !81
   %.phi.trans.insert = zext i8 %.pre188 to i64
-  %.phi.trans.insert189 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert189 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
   %.pre190 = load i32, ptr %.phi.trans.insert189, align 4, !tbaa !82
   br label %149
 
@@ -2588,7 +2588,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %195 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %196 = load i8, ptr %195, align 2, !tbaa !81
   %197 = zext i8 %196 to i64
-  %198 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !82
   switch i32 %199, label %_ZN6google8protobuf16RepeatedPtrFieldINS0_7MessageEED2Ev.exit [
     i32 1, label %200
@@ -2788,7 +2788,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %239 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %240 = load i8, ptr %239, align 2, !tbaa !81
   %241 = zext i8 %240 to i64
-  %242 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !82
   %244 = icmp eq i32 %243, 9
   br i1 %244, label %245, label %259
@@ -2863,7 +2863,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre192 = load i8, ptr %239, align 2, !tbaa !81
   %.phi.trans.insert193 = zext i8 %.pre192 to i64
-  %.phi.trans.insert194 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %.phi.trans.insert193
+  %.phi.trans.insert194 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert193
   %.pre195 = load i32, ptr %.phi.trans.insert194, align 4, !tbaa !82
   br label %266
 
@@ -3111,7 +3111,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %38, %_ZN6googl
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %49 = load i8, ptr %48, align 2, !tbaa !81
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !82
   %53 = icmp eq i32 %52, 10
   br i1 %53, label %54, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thread

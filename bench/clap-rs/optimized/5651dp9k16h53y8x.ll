@@ -2983,9 +2983,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h152500a22e08
   br i1 %40, label %41, label %.split183.us.invoke, !prof !797
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %36
+  %42 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %36
   %43 = load i8, ptr %42, align 1, !alias.scope !792, !noalias !798, !noundef !10
-  %44 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %39
+  %44 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %39
   %45 = load i8, ptr %44, align 1, !alias.scope !789, !noalias !794, !noundef !10
   %.not26.i35.us = icmp eq i8 %43, %45
   br i1 %.not26.i35.us, label %.preheader101.us, label %46
@@ -3001,9 +3001,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h152500a22e08
 
 51:                                               ; preds = %48
   %52 = add nuw i64 %.sroa.04.0.i33.us, 1
-  %53 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i33.us
+  %53 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %.sroa.04.0.i33.us
   %54 = load i8, ptr %53, align 1, !alias.scope !792, !noalias !798, !noundef !10
-  %55 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %49
+  %55 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %49
   %56 = load i8, ptr %55, align 1, !alias.scope !789, !noalias !794, !noundef !10
   %.not.i40.us = icmp eq i8 %54, %56
   br i1 %.not.i40.us, label %32, label %57
@@ -3062,9 +3062,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h152500a22e08
   br i1 %78, label %79, label %.split183.us.invoke, !prof !797
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %75
+  %80 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %75
   %81 = load i8, ptr %80, align 1, !alias.scope !802, !noalias !807, !noundef !10
-  %82 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %77
+  %82 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %77
   %83 = load i8, ptr %82, align 1, !alias.scope !799, !noalias !804, !noundef !10
   %.not26.i.us = icmp eq i8 %81, %83
   br i1 %.not26.i.us, label %.preheader.us, label %84
@@ -3131,9 +3131,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h152500a22e08
 
 112:                                              ; preds = %109
   %113 = add nuw i64 %.sroa.04.0.i.us, 1
-  %114 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i.us
+  %114 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload, i64 %.sroa.04.0.i.us
   %115 = load i8, ptr %114, align 1, !alias.scope !802, !noalias !807, !noundef !10
-  %116 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %110
+  %116 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload, i64 %110
   %117 = load i8, ptr %116, align 1, !alias.scope !799, !noalias !804, !noundef !10
   %.not.i.us = icmp eq i8 %115, %117
   br i1 %.not.i.us, label %.preheader100.us, label %118
@@ -3579,7 +3579,7 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
 
 .lr.ph.i.us:                                      ; preds = %25, %29
   %.05.i.us = phi i64 [ %30, %29 ], [ 0, %25 ]
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %19, i64 0, i64 %.05.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.05.i.us
   %27 = load i8, ptr %26, align 1, !alias.scope !856, !noundef !10
   %28 = icmp eq i8 %27, %21
   br i1 %28, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us, label %29
@@ -3636,7 +3636,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us: ; preds = %.lr.
 
 .lr.ph.i:                                         ; preds = %49, %53
   %.05.i = phi i64 [ %54, %53 ], [ 0, %49 ]
-  %50 = getelementptr inbounds nuw [0 x i8], ptr %43, i64 0, i64 %.05.i
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 %.05.i
   %51 = load i8, ptr %50, align 1, !alias.scope !856, !noundef !10
   %52 = icmp eq i8 %51, %45
   br i1 %52, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit, label %53
@@ -3747,15 +3747,15 @@ define hidden { ptr, i64 } @_ZN8anstream7adapter5strip8next_str17h4bd4a530e0bdbd
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.val14.i.i = load i8, ptr %8, align 1, !noalias !876, !noundef !10
   %11 = zext i8 %.val14.i.i to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 %11
   %13 = load i8, ptr %12, align 1, !noalias !876, !noundef !10
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i
 
 15:                                               ; preds = %.lr.ph.i.i
   %16 = zext nneg i8 %9 to i64
-  %17 = getelementptr inbounds nuw [16 x [256 x i8]], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 %16
-  %18 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw [256 x i8], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
   %19 = load i8, ptr %18, align 1, !noalias !876, !noundef !10
   br label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i
 
@@ -3825,13 +3825,13 @@ _ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i: ; pre
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %.val.i.i = load i8, ptr %34, align 1, !noalias !877, !noundef !10
   %36 = zext i8 %.val.i.i to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 %36
   %38 = load i8, ptr %37, align 1, !noalias !877, !noundef !10
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 3072), i64 0, i64 %36
+  %41 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 3072), i64 %36
   %42 = load i8, ptr %41, align 1, !noalias !877, !noundef !10
   br label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
 

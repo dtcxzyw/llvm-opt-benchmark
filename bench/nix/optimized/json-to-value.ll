@@ -2441,7 +2441,7 @@ define linkonce_odr void @_ZN3nix7JSONSax15JSONObjectState7resolveERNS_9EvalStat
   %18 = add i32 %14, 1
   store i32 %18, ptr %12, align 4
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %11, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %11, i64 %19
   store i32 %.sroa.01.0.copyload, ptr %20, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -6983,7 +6983,7 @@ _ZNKSt5ctypeIcE5widenEc.exit216:                  ; preds = %56, %59
   br i1 %.not.i217, label %_ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET0_RKSG_SI_RT_RKT1_.exit, label %84
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw [256 x i8], ptr %76, i64 0, i64 %80
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 %80
   %86 = load i8, ptr %85, align 1
   %.not.i.i.i = icmp eq i8 %86, 0
   br i1 %.not.i.i.i, label %87, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit.i
@@ -7145,7 +7145,7 @@ _ZNKSt5ctypeIcE5widenEc.exit225:                  ; preds = %136, %139
   %160 = phi ptr [ %153, %.lr.ph ], [ %194, %192 ]
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %156, i64 %162
   %164 = load i8, ptr %163, align 1
   %.not.i.i = icmp eq i8 %164, 0
   br i1 %.not.i.i, label %165, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit
@@ -7324,7 +7324,7 @@ _ZNKSt5ctypeIcE5widenEc.exit230:                  ; preds = %210, %213
   br i1 %.not.i233, label %_ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET0_RKSG_SI_RT_RKT1_.exit, label %245
 
 245:                                              ; preds = %.lr.ph.i231
-  %246 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %241
+  %246 = getelementptr inbounds nuw i8, ptr %156, i64 %241
   %247 = load i8, ptr %246, align 1
   %.not.i.i.i234 = icmp eq i8 %247, 0
   br i1 %.not.i.i.i234, label %248, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit.i235
@@ -7503,7 +7503,7 @@ _ZNKSt5ctypeIcE5widenEc.exit246:                  ; preds = %295, %298
   %.0207302 = phi i8 [ 0, %.lr.ph304 ], [ %.1, %362 ]
   %327 = load i8, ptr %326, align 1
   %328 = zext i8 %327 to i64
-  %329 = getelementptr inbounds nuw [256 x i8], ptr %324, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr %324, i64 %328
   %330 = load i8, ptr %329, align 1
   %.not.i.i247 = icmp eq i8 %330, 0
   br i1 %.not.i.i247, label %331, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250
@@ -7676,7 +7676,7 @@ _ZNKSt5ctypeIcE5widenEc.exit255:                  ; preds = %386, %389
   %399 = load i8, ptr %398, align 1
   %400 = getelementptr inbounds nuw i8, ptr %3, i64 313
   %401 = zext i8 %399 to i64
-  %402 = getelementptr inbounds nuw [256 x i8], ptr %400, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i8, ptr %400, i64 %401
   %403 = load i8, ptr %402, align 1
   %.not.i.i256 = icmp eq i8 %403, 0
   br i1 %.not.i.i256, label %404, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit259
@@ -9219,7 +9219,7 @@ define linkonce_odr ptr @_ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iter
   br i1 %.not, label %.critedge, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %14
   %20 = load i8, ptr %19, align 1
   %.not.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i, label %21, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit
@@ -21586,53 +21586,49 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %45, %.lr.ph.i11 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %58, %.lr.ph.i11 ], [ %42, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %56, %.lr.ph.i11 ], [ %42, %.lr.ph.preheader.i ]
   %43 = urem i32 %.020.i, 100
   %44 = shl nuw nsw i32 %43, 1
   %45 = udiv i32 %.020.i, 100
-  %46 = or disjoint i32 %44, 1
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %47
+  %46 = zext nneg i32 %44 to i64
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = zext i32 %.01819.i to i64
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 %50
   store i8 %49, ptr %51, align 1
-  %52 = zext nneg i32 %44 to i64
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 2
-  %55 = add i32 %.01819.i, -1
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %40, i64 %56
-  store i8 %54, ptr %57, align 1
-  %58 = add i32 %.01819.i, -2
-  %59 = icmp ugt i32 %.020.i, 9999
-  br i1 %59, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !121
+  %52 = load i8, ptr %47, align 2
+  %53 = add i32 %.01819.i, -1
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 %54
+  store i8 %52, ptr %55, align 1
+  %56 = add i32 %.01819.i, -2
+  %57 = icmp ugt i32 %.020.i, 9999
+  br i1 %57, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !121
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %34
   %.0.lcssa.i = phi i32 [ %4, %34 ], [ %45, %.lr.ph.i11 ]
-  %60 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %60, label %61, label %71
+  %58 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %58, label %59, label %67
 
-61:                                               ; preds = %._crit_edge.i
-  %62 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %63 = or disjoint i32 %62, 1
-  %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store i8 %66, ptr %67, align 1
-  %68 = zext nneg i32 %62 to i64
-  %69 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %68
-  %70 = load i8, ptr %69, align 2
+59:                                               ; preds = %._crit_edge.i
+  %60 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  %64 = load i8, ptr %63, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  store i8 %64, ptr %65, align 1
+  %66 = load i8, ptr %62, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-71:                                               ; preds = %._crit_edge.i
-  %72 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %73 = or disjoint i8 %72, 48
+67:                                               ; preds = %._crit_edge.i
+  %68 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %69 = or disjoint i8 %68, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %61, %71
-  %storemerge.i = phi i8 [ %73, %71 ], [ %70, %61 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %59, %67
+  %storemerge.i = phi i8 [ %69, %67 ], [ %66, %59 ]
   store i8 %storemerge.i, ptr %40, align 1
   ret void
 }
@@ -21953,49 +21949,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 .lr.ph.i4:                                        ; preds = %.lr.ph.i4, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %42, %.lr.ph.i4 ], [ %1, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %53, %.lr.ph.i4 ], [ %39, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %52, %.lr.ph.i4 ], [ %39, %.lr.ph.preheader.i ]
   %40 = urem i64 %.020.i, 100
   %41 = shl nuw nsw i64 %40, 1
   %42 = udiv i64 %.020.i, 100
-  %43 = or disjoint i64 %41, 1
-  %44 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %43
+  %43 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %41
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i32 %.01819.i to i64
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 %46
   store i8 %45, ptr %47, align 1
-  %48 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %41
-  %49 = load i8, ptr %48, align 2
-  %50 = add i32 %.01819.i, -1
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %35, i64 %51
-  store i8 %49, ptr %52, align 1
-  %53 = add i32 %.01819.i, -2
-  %54 = icmp ugt i64 %.020.i, 9999
-  br i1 %54, label %.lr.ph.i4, label %._crit_edge.i, !llvm.loop !126
+  %48 = load i8, ptr %43, align 2
+  %49 = add i32 %.01819.i, -1
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 %50
+  store i8 %48, ptr %51, align 1
+  %52 = add i32 %.01819.i, -2
+  %53 = icmp ugt i64 %.020.i, 9999
+  br i1 %53, label %.lr.ph.i4, label %._crit_edge.i, !llvm.loop !126
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %31
   %.0.lcssa.i = phi i64 [ %1, %31 ], [ %42, %.lr.ph.i4 ]
-  %55 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %55, label %56, label %64
+  %54 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %54, label %55, label %62
 
-56:                                               ; preds = %._crit_edge.i
-  %57 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %58 = or disjoint i64 %57, 1
-  %59 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store i8 %60, ptr %61, align 1
-  %62 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %57
-  %63 = load i8, ptr %62, align 2
+55:                                               ; preds = %._crit_edge.i
+  %56 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %57 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  %59 = load i8, ptr %58, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  store i8 %59, ptr %60, align 1
+  %61 = load i8, ptr %57, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-64:                                               ; preds = %._crit_edge.i
-  %65 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %66 = or disjoint i8 %65, 48
+62:                                               ; preds = %._crit_edge.i
+  %63 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %64 = or disjoint i8 %63, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %56, %64
-  %storemerge.i = phi i8 [ %66, %64 ], [ %63, %56 ]
+_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %55, %62
+  %storemerge.i = phi i8 [ %64, %62 ], [ %61, %55 ]
   store i8 %storemerge.i, ptr %35, align 1
   ret void
 }
@@ -26206,7 +26200,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %41 = trunc i32 %40 to i8
   %42 = sub nuw nsw i64 7, %.09.i
   %.sink13.i = select i1 %.not.not.i, i64 %42, i64 %.09.i
-  %43 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %.sink13.i
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink13.i
   store i8 %41, ptr %43, align 1
   %44 = add nuw nsw i64 %.09.i, 1
   %exitcond.i = icmp eq i64 %44, 8
@@ -26324,7 +26318,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %89 = trunc i32 %88 to i8
   %90 = sub nuw nsw i64 3, %.09.i27
   %.sink13.i32 = select i1 %.not.not.i31, i64 %90, i64 %.09.i27
-  %91 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %.sink13.i32
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink13.i32
   store i8 %89, ptr %91, align 1
   %92 = add nuw nsw i64 %.09.i27, 1
   %exitcond.i33 = icmp eq i64 %92, 4
@@ -26534,7 +26528,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %189 = trunc i32 %188 to i8
   %190 = sub nuw nsw i64 3, %.09.i37
   %.sink13.i42 = select i1 %.not.not.i41, i64 %190, i64 %.09.i37
-  %191 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %.sink13.i42
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink13.i42
   store i8 %189, ptr %191, align 1
   %192 = add nuw nsw i64 %.09.i37, 1
   %exitcond.i43 = icmp eq i64 %192, 4
@@ -26662,7 +26656,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %255 = trunc i32 %254 to i8
   %256 = sub nuw nsw i64 3, %.09.i48
   %.sink13.i53 = select i1 %.not.not.i52, i64 %256, i64 %.09.i48
-  %257 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.sink13.i53
+  %257 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink13.i53
   store i8 %255, ptr %257, align 1
   %258 = add nuw nsw i64 %.09.i48, 1
   %exitcond.i54 = icmp eq i64 %258, 4
@@ -26724,7 +26718,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %287 = trunc i32 %286 to i8
   %288 = sub nuw nsw i64 7, %.09.i56
   %.sink13.i61 = select i1 %.not.not.i60, i64 %288, i64 %.09.i56
-  %289 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink13.i61
+  %289 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink13.i61
   store i8 %287, ptr %289, align 1
   %290 = add nuw nsw i64 %.09.i56, 1
   %exitcond.i62 = icmp eq i64 %290, 8
@@ -27806,7 +27800,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = and i8 %20, 1
   %24 = zext nneg i8 %23 to i64
   %.sink12 = xor i64 %.09, %24
-  %25 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 0, i64 %.sink12
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink12
   store i8 %22, ptr %25, align 1
   br i1 %.not, label %9, label %26, !llvm.loop !174
 
@@ -27859,7 +27853,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = trunc i32 %22 to i8
   %24 = sub nuw nsw i64 3, %.09
   %.sink13 = select i1 %21, i64 %24, i64 %.09
-  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.sink13
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink13
   store i8 %23, ptr %25, align 1
   %26 = add nuw nsw i64 %.09, 1
   %exitcond = icmp eq i64 %26, 4
@@ -27914,7 +27908,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = trunc i32 %22 to i8
   %24 = sub nuw nsw i64 7, %.09
   %.sink13 = select i1 %21, i64 %24, i64 %.09
-  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink13
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink13
   store i8 %23, ptr %25, align 1
   %26 = add nuw nsw i64 %.09, 1
   %exitcond = icmp eq i64 %26, 8
@@ -28939,7 +28933,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = trunc i32 %22 to i8
   %24 = sub nuw nsw i64 3, %.09
   %.sink13 = select i1 %21, i64 %24, i64 %.09
-  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.sink13
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink13
   store i8 %23, ptr %25, align 1
   %26 = add nuw nsw i64 %.09, 1
   %exitcond = icmp eq i64 %26, 4
@@ -28994,7 +28988,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = trunc i32 %22 to i8
   %24 = sub nuw nsw i64 7, %.09
   %.sink13 = select i1 %21, i64 %24, i64 %.09
-  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink13
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink13
   store i8 %23, ptr %25, align 1
   %26 = add nuw nsw i64 %.09, 1
   %exitcond = icmp eq i64 %26, 8
@@ -30447,7 +30441,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %42 = and i8 %39, 1
   %43 = zext nneg i8 %42 to i64
   %.sink12.i = xor i64 %.09.i, %43
-  %44 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 0, i64 %.sink12.i
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink12.i
   store i8 %41, ptr %44, align 1
   br i1 %.not.i, label %28, label %45, !llvm.loop !174
 
@@ -30499,7 +30493,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %66 = trunc i32 %65 to i8
   %67 = sub nuw nsw i64 3, %.09.i17
   %.sink13.i = select i1 %64, i64 %67, i64 %.09.i17
-  %68 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.sink13.i
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink13.i
   store i8 %66, ptr %68, align 1
   %69 = add nuw nsw i64 %.09.i17, 1
   %exitcond.i = icmp eq i64 %69, 4
@@ -30616,7 +30610,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %122 = and i8 %119, 1
   %123 = zext nneg i8 %122 to i64
   %.sink12.i35 = xor i64 %.09.i31, %123
-  %124 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 0, i64 %.sink12.i35
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink12.i35
   store i8 %121, ptr %124, align 1
   br i1 %.not.i30, label %108, label %125, !llvm.loop !174
 
@@ -30700,7 +30694,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %162 = trunc i32 %161 to i8
   %163 = sub nuw nsw i64 3, %.09.i42
   %.sink13.i46 = select i1 %160, i64 %163, i64 %.09.i42
-  %164 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %.sink13.i46
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink13.i46
   store i8 %162, ptr %164, align 1
   %165 = add nuw nsw i64 %.09.i42, 1
   %exitcond.i47 = icmp eq i64 %165, 4
@@ -31020,7 +31014,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = and i8 %20, 1
   %24 = zext nneg i8 %23 to i64
   %.sink12 = xor i64 %.09, %24
-  %25 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 0, i64 %.sink12
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink12
   store i8 %22, ptr %25, align 1
   br i1 %.not, label %9, label %26, !llvm.loop !191
 
@@ -31073,7 +31067,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = trunc i32 %22 to i8
   %24 = sub nuw nsw i64 3, %.09
   %.sink13 = select i1 %21, i64 %24, i64 %.09
-  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %.sink13
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink13
   store i8 %23, ptr %25, align 1
   %26 = add nuw nsw i64 %.09, 1
   %exitcond = icmp eq i64 %26, 4
@@ -31128,7 +31122,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %23 = trunc i32 %22 to i8
   %24 = sub nuw nsw i64 7, %.09
   %.sink13 = select i1 %21, i64 %24, i64 %.09
-  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.sink13
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink13
   store i8 %23, ptr %25, align 1
   %26 = add nuw nsw i64 %.09, 1
   %exitcond = icmp eq i64 %26, 8
@@ -31338,7 +31332,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %118 = and i8 %115, 1
   %119 = zext nneg i8 %118 to i64
   %.sink12.i = xor i64 %.09.i, %119
-  %120 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 0, i64 %.sink12.i
+  %120 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink12.i
   store i8 %117, ptr %120, align 1
   br i1 %.not.i, label %104, label %121, !llvm.loop !191
 
@@ -31397,7 +31391,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %149 = trunc i32 %148 to i8
   %150 = sub nuw nsw i64 3, %.09.i52
   %.sink13.i = select i1 %147, i64 %150, i64 %.09.i52
-  %151 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %.sink13.i
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink13.i
   store i8 %149, ptr %151, align 1
   %152 = add nuw nsw i64 %.09.i52, 1
   %exitcond.i = icmp eq i64 %152, 4
@@ -31458,7 +31452,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %181 = trunc i32 %180 to i8
   %182 = sub nuw nsw i64 7, %.09.i56
   %.sink13.i60 = select i1 %179, i64 %182, i64 %.09.i56
-  %183 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %.sink13.i60
+  %183 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink13.i60
   store i8 %181, ptr %183, align 1
   %184 = add nuw nsw i64 %.09.i56, 1
   %exitcond.i61 = icmp eq i64 %184, 8
@@ -31518,7 +31512,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %212 = trunc i32 %211 to i8
   %213 = sub nuw nsw i64 3, %.09.i62
   %.sink13.i66 = select i1 %210, i64 %213, i64 %.09.i62
-  %214 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %.sink13.i66
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink13.i66
   store i8 %212, ptr %214, align 1
   %215 = add nuw nsw i64 %.09.i62, 1
   %exitcond.i67 = icmp eq i64 %215, 4
@@ -31622,7 +31616,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %258 = trunc i32 %257 to i8
   %259 = sub nuw nsw i64 7, %.09.i68
   %.sink13.i72 = select i1 %256, i64 %259, i64 %.09.i68
-  %260 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %.sink13.i72
+  %260 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink13.i72
   store i8 %258, ptr %260, align 1
   %261 = add nuw nsw i64 %.09.i68, 1
   %exitcond.i73 = icmp eq i64 %261, 8
@@ -33153,7 +33147,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %141 = and i8 %138, 1
   %142 = zext nneg i8 %141 to i64
   %.sink12.i = xor i64 %.09.i, %142
-  %143 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 0, i64 %.sink12.i
+  %143 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink12.i
   store i8 %140, ptr %143, align 1
   br i1 %.not.i, label %127, label %144, !llvm.loop !191
 
@@ -33270,7 +33264,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %195 = trunc i32 %194 to i8
   %196 = sub nuw nsw i64 3, %.09.i48
   %.sink13.i = select i1 %193, i64 %196, i64 %.09.i48
-  %197 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %.sink13.i
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink13.i
   store i8 %195, ptr %197, align 1
   %198 = add nuw nsw i64 %.09.i48, 1
   %exitcond.i = icmp eq i64 %198, 4
@@ -33389,7 +33383,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %250 = trunc i32 %249 to i8
   %251 = sub nuw nsw i64 7, %.09.i62
   %.sink13.i66 = select i1 %248, i64 %251, i64 %.09.i62
-  %252 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %.sink13.i66
+  %252 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink13.i66
   store i8 %250, ptr %252, align 1
   %253 = add nuw nsw i64 %.09.i62, 1
   %exitcond.i67 = icmp eq i64 %253, 8
@@ -34296,7 +34290,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %63 = and i8 %60, 1
   %64 = zext nneg i8 %63 to i64
   %.sink12.i = xor i64 %.09.i, %64
-  %65 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 0, i64 %.sink12.i
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink12.i
   store i8 %62, ptr %65, align 1
   br i1 %.not.i, label %49, label %66, !llvm.loop !191
 
@@ -34347,7 +34341,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %85 = trunc i32 %84 to i8
   %86 = sub nuw nsw i64 3, %.09.i26
   %.sink13.i = select i1 %83, i64 %86, i64 %.09.i26
-  %87 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %.sink13.i
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink13.i
   store i8 %85, ptr %87, align 1
   %88 = add nuw nsw i64 %.09.i26, 1
   %exitcond.i = icmp eq i64 %88, 4
@@ -34400,7 +34394,7 @@ _ZN8nlohmann6detail13binary_readerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %108 = trunc i32 %107 to i8
   %109 = sub nuw nsw i64 7, %.09.i30
   %.sink13.i34 = select i1 %106, i64 %109, i64 %.09.i30
-  %110 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %.sink13.i34
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink13.i34
   store i8 %108, ptr %110, align 1
   %111 = add nuw nsw i64 %.09.i30, 1
   %exitcond.i35 = icmp eq i64 %111, 8

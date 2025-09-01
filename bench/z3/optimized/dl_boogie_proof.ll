@@ -712,7 +712,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit12
   %254 = add i32 %253, -1
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 32
   %256 = zext i32 %254 to i64
-  %257 = getelementptr inbounds nuw [0 x ptr], ptr %255, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw ptr, ptr %255, i64 %256
   %258 = load ptr, ptr %257, align 8, !tbaa !55
   %259 = icmp eq ptr %258, %244
   br i1 %259, label %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i130, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit124
@@ -2062,7 +2062,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.us._ZNK6vectorIjLb0EjE4sizeEv.exit..critedge158.
   %92 = add i32 %91, -1
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw [0 x ptr], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !55
   %97 = load ptr, ptr %8, align 8, !tbaa !79
   %98 = getelementptr inbounds nuw %"struct.datalog::boogie_proof::step", ptr %97, i64 %indvars.iv245
@@ -3313,7 +3313,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   %53 = load i32, ptr %52, align 8, !tbaa !54
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %51, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !55
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 20
@@ -3396,7 +3396,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   %100 = add i32 %98, -1
   %101 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %102 = zext i32 %100 to i64
-  %103 = getelementptr inbounds nuw [0 x ptr], ptr %101, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !55
   %105 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %104)
           to label %.noexc56 unwind label %113
@@ -3428,7 +3428,7 @@ _ZNK11ast_manager15get_num_parentsEPK3app.exit:   ; preds = %.critedge, %.noexc5
 115:                                              ; preds = %.lr.ph78, %171
   %116 = phi ptr [ %.pre88, %.lr.ph78 ], [ %172, %171 ]
   %indvars.iv83 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next84, %171 ]
-  %117 = getelementptr inbounds nuw [0 x ptr], ptr %112, i64 0, i64 %indvars.iv83
+  %117 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv83
   %118 = load ptr, ptr %117, align 8, !tbaa !55
   %119 = icmp eq ptr %116, null
   br i1 %119, label %126, label %120

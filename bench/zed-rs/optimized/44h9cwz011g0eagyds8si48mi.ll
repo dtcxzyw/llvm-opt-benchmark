@@ -1130,7 +1130,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.us.us.i.i: ; pred
 
 .lr.ph.i.us.i.i.i.us.us.i.i:                      ; preds = %.preheader.i.us.i.i.i.us.us.i.i, %37
   %.sroa.01.05.i.us.i.i.i.us.us.i.i = phi i64 [ %38, %37 ], [ 0, %.preheader.i.us.i.i.i.us.us.i.i ]
-  %34 = getelementptr inbounds nuw [0 x i8], ptr %29, i64 0, i64 %.sroa.01.05.i.us.i.i.i.us.us.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.01.05.i.us.i.i.i.us.us.i.i
   %35 = load i8, ptr %34, align 1, !alias.scope !314, !noalias !313, !noundef !5
   %36 = icmp eq i8 %35, %.pre92.i.i.i.us.us.i.i
   br i1 %36, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.us.us.i.i, label %37
@@ -1197,7 +1197,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.us.i.i: ; preds =
 
 .lr.ph.i.us.i.i.i.us.i.i:                         ; preds = %.preheader.i.us.i.i.i.us.i.i, %55
   %.sroa.01.05.i.us.i.i.i.us.i.i = phi i64 [ %56, %55 ], [ 0, %.preheader.i.us.i.i.i.us.i.i ]
-  %52 = getelementptr inbounds nuw [0 x i8], ptr %47, i64 0, i64 %.sroa.01.05.i.us.i.i.i.us.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.01.05.i.us.i.i.i.us.i.i
   %53 = load i8, ptr %52, align 1, !alias.scope !314, !noalias !313, !noundef !5
   %54 = icmp eq i8 %53, %.pre92.i.i.i.us.i.i
   br i1 %54, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.us.i.i, label %55
@@ -1255,7 +1255,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.us.i.i: 
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %70
   %.sroa.01.05.i.i.i.i.i.i = phi i64 [ %71, %70 ], [ 0, %.preheader.i.i.i.i.i.i ]
-  %67 = getelementptr inbounds nuw [0 x i8], ptr %65, i64 0, i64 %.sroa.01.05.i.i.i.i.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.01.05.i.i.i.i.i.i
   %68 = load i8, ptr %67, align 1, !alias.scope !314, !noalias !317, !noundef !5
   %69 = icmp eq i8 %68, %.pre92.i.i.i.i.i
   br i1 %69, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i, label %70
@@ -1949,7 +1949,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !444
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !444
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !444
-  %132 = getelementptr inbounds nuw [0 x { [35 x i64] }], ptr %27, i64 0, i64 %.sroa.7.074
+  %132 = getelementptr inbounds nuw { [35 x i64] }, ptr %27, i64 %.sroa.7.074
   store i64 %54, ptr %132, align 8
   %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.sroa.5.0.i, ptr %.sroa.435.0..sroa_idx, align 8

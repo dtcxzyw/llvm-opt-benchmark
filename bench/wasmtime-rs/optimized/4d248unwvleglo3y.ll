@@ -336,9 +336,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h78131ff
   unreachable
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %45
+  %56 = getelementptr inbounds i8, ptr %4, i64 %45
   %57 = load i8, ptr %56, align 1, !noundef !14
-  %58 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %52
+  %58 = getelementptr inbounds i8, ptr %2, i64 %52
   %59 = load i8, ptr %58, align 1, !noundef !14
   %.not28 = icmp eq i8 %57, %59
   br i1 %.not28, label %40, label %61
@@ -359,9 +359,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h78131ff
 
 66:                                               ; preds = %63
   %67 = add nuw i64 %.sroa.04.0, 1
-  %68 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
+  %68 = getelementptr inbounds i8, ptr %4, i64 %.sroa.04.0
   %69 = load i8, ptr %68, align 1, !noundef !14
-  %70 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %64
+  %70 = getelementptr inbounds i8, ptr %2, i64 %64
   %71 = load i8, ptr %70, align 1, !noundef !14
   %.not = icmp eq i8 %69, %71
   br i1 %.not, label %37, label %74
@@ -395,8 +395,8 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$imp
   br i1 %exitcond.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he76c471e9277f1faE.exit", label %3
 
 3:                                                ; preds = %.preheader.split.i
-  %4 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }], ptr %.8.val, i64 0, i64 %.sroa.01.0.i
-  %5 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }], ptr %.8.val1, i64 0, i64 %.sroa.01.0.i
+  %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.8.val, i64 %.sroa.01.0.i
+  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.8.val1, i64 %.sroa.01.0.i
   %6 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h2babe5e592d62501E.llvm.51833738392561384"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
   br i1 %6, label %_ZN4core3cmp9PartialEq2ne17hf28429e3f600810dE.llvm.51833738392561384.exit.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he76c471e9277f1faE.exit"
 
@@ -427,8 +427,8 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$imp
   br i1 %exitcond.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha32b1792e4c5503fE.exit", label %3
 
 3:                                                ; preds = %.preheader.split.i
-  %4 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }], ptr %.8.val, i64 0, i64 %.sroa.01.0.i
-  %5 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }], ptr %.8.val1, i64 0, i64 %.sroa.01.0.i
+  %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %.8.val, i64 %.sroa.01.0.i
+  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %.8.val1, i64 %.sroa.01.0.i
   %6 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h2babe5e592d62501E.llvm.51833738392561384"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
   br i1 %6, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17ha059a7bfea95feb4E.llvm.51833738392561384.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha32b1792e4c5503fE.exit"
 
@@ -2749,7 +2749,7 @@ define void @_ZN18wasmtime_cli_flags13CommonOptions6config17hf1fc0192bae611afE(p
 
 .lr.ph.i.i.i.i:                                   ; preds = %89, %93
   %.05.i.i.i.i = phi i64 [ %94, %93 ], [ 0, %89 ]
-  %90 = getelementptr inbounds nuw [0 x i8], ptr %85, i64 0, i64 %.05.i.i.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 %.05.i.i.i.i
   %91 = load i8, ptr %90, align 1, !alias.scope !314, !noalias !317, !noundef !14
   %92 = icmp eq i8 %91, 45
   br i1 %92, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %93
@@ -4745,8 +4745,8 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %exitcond.not.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h3c86b6b767a107e2E.exit.i", label %561
 
 561:                                              ; preds = %.preheader.split.i.i.i
-  %562 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val.i40, i64 0, i64 %.sroa.01.0.i.i.i
-  %563 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val62.i, i64 0, i64 %.sroa.01.0.i.i.i
+  %562 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val.i40, i64 %.sroa.01.0.i.i.i
+  %563 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val62.i, i64 %.sroa.01.0.i.i.i
   %564 = invoke noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h2babe5e592d62501E.llvm.51833738392561384"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %562, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %563)
           to label %.noexc43 unwind label %.loopexit
 

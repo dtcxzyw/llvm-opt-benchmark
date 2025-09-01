@@ -140,7 +140,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc171, %_ZNSt6v
 
 49:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %.loopexit
   %indvars.iv358 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %indvars.iv.next359, %.loopexit ]
-  %50 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv358, i32 5
+  %50 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv358, i32 5
   %51 = load i32, ptr %50, align 4, !tbaa !35
   %52 = and i32 %51, 8
   %53 = icmp eq i32 %52, 0
@@ -149,7 +149,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc171, %_ZNSt6v
   br i1 %or.cond, label %.loopexit, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv358, i32 2
+  %56 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv358, i32 2
   %57 = load i32, ptr %56, align 16, !tbaa !32
   %58 = icmp eq i32 %57, 2
   br i1 %58, label %60, label %59
@@ -162,7 +162,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc171, %_ZNSt6v
   unreachable
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %37, i64 0, i64 %indvars.iv358
+  %61 = getelementptr inbounds nuw %struct.InteractionList, ptr %37, i64 %indvars.iv358
   %62 = load ptr, ptr %61, align 8, !tbaa !28
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !31

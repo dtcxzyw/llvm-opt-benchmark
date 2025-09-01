@@ -743,7 +743,7 @@ tarRead.exit.i:                                   ; preds = %99, %.thread.i.i, %
   br i1 %.not34.i, label %tarRead.exit.thread.i, label %113
 
 113:                                              ; preds = %tarRead.exit.i
-  %114 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %107
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 %107
   store i8 0, ptr %114, align 1
   call void @ahwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef %107, ptr noundef nonnull %0) #17
   %115 = load i64, ptr %71, align 8
@@ -807,7 +807,7 @@ tarRead.exit.i28:                                 ; preds = %125, %141
   br i1 %.not.i29, label %_PrintFileData.exit, label %141
 
 141:                                              ; preds = %tarRead.exit.i28
-  %142 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %138
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 %138
   store i8 0, ptr %142, align 1
   call void @ahwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %138, ptr noundef nonnull %0) #17
   %143 = load i64, ptr %129, align 8
@@ -1651,7 +1651,7 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr noundef captures(n
 
 .preheader:                                       ; preds = %16, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %16 ]
-  %22 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %.not32 = icmp eq i8 %23, 0
   br i1 %.not32, label %21, label %.critedge

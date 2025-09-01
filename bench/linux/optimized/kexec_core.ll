@@ -153,7 +153,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 12:                                               ; preds = %8, %6
   %13 = phi i64 [ 0, %6 ], [ %10, %8 ]
   %14 = phi i32 [ 0, %6 ], [ %9, %8 ]
-  %15 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %13
+  %15 = getelementptr %struct.kexec_segment, ptr %7, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -192,7 +192,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %36 = phi i32 [ %31, %.thread15 ], [ -99, %8 ]
   %37 = phi i32 [ %32, %.thread15 ], [ 0, %8 ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %35
+  %39 = getelementptr %struct.kexec_segment, ptr %7, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -210,7 +210,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 .preheader:                                       ; preds = %.preheader23, %45
   %49 = phi i1 [ %47, %45 ], [ true, %.preheader23 ]
   %50 = phi i64 [ %46, %45 ], [ 0, %.preheader23 ]
-  %51 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %50
+  %51 = getelementptr %struct.kexec_segment, ptr %7, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = icmp ugt i64 %44, %53
@@ -241,7 +241,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 .preheader51:                                     ; preds = %.thread15, %63
   %69 = phi i64 [ %65, %63 ], [ 0, %.thread15 ]
   %70 = phi i32 [ %64, %63 ], [ 0, %.thread15 ]
-  %71 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %69
+  %71 = getelementptr %struct.kexec_segment, ptr %7, i64 %69
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -294,7 +294,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 105:                                              ; preds = %101, %98
   %106 = phi i64 [ 0, %98 ], [ %103, %101 ]
   %107 = phi i32 [ 0, %98 ], [ %102, %101 ]
-  %108 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %106
+  %108 = getelementptr %struct.kexec_segment, ptr %7, i64 %106
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i64, ptr %109, align 8
   %111 = icmp ult i64 %110, %99
@@ -366,7 +366,7 @@ define dso_local noundef range(i32 0, 2) i32 @kimage_is_destination_range(ptr no
 
 .preheader:                                       ; preds = %3, %19
   %8 = phi i64 [ %20, %19 ], [ 0, %3 ]
-  %9 = getelementptr [16 x %struct.kexec_segment], ptr %4, i64 0, i64 %8
+  %9 = getelementptr %struct.kexec_segment, ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %11, %2
@@ -531,7 +531,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 
 .preheader22:                                     ; preds = %55, %72
   %61 = phi i64 [ %73, %72 ], [ 0, %55 ]
-  %62 = getelementptr [16 x %struct.kexec_segment], ptr %8, i64 0, i64 %61
+  %62 = getelementptr %struct.kexec_segment, ptr %8, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = icmp ugt i64 %64, %57
@@ -669,7 +669,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 
 .preheader25:                                     ; preds = %138, %152
   %141 = phi i64 [ %153, %152 ], [ 0, %138 ]
-  %142 = getelementptr [16 x %struct.kexec_segment], ptr %8, i64 0, i64 %141
+  %142 = getelementptr %struct.kexec_segment, ptr %8, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
@@ -1748,7 +1748,7 @@ define dso_local void @crash_save_cpu(ptr noundef readonly captures(none) %0, i3
   %9 = load ptr, ptr @crash_notes, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   %15 = icmp eq i64 %14, 0
@@ -2126,7 +2126,7 @@ define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef range(
 
 .preheader:                                       ; preds = %82, %97
   %86 = phi i64 [ %98, %97 ], [ 0, %82 ]
-  %87 = getelementptr [16 x %struct.kexec_segment], ptr %17, i64 0, i64 %86
+  %87 = getelementptr %struct.kexec_segment, ptr %17, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = icmp ugt i64 %89, %83

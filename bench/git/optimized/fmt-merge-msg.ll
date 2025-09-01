@@ -1986,7 +1986,7 @@ define internal fastcc void @record_person(i32 noundef range(i32 97, 100) %0, pt
   %.1.i = phi ptr [ %spec.select.i, %9 ], [ %23, %14 ]
   %15 = load i8, ptr %.1.i, align 1, !tbaa !12
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = and i8 %18, 1
   %20 = icmp ne i8 %19, 0

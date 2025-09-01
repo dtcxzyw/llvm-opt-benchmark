@@ -15119,7 +15119,7 @@ define internal fastcc void @_ZN7testing13PrintToStringISt5tupleIJN11opencv_test
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i.i, !llvm.loop !379
 
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  %22 = getelementptr inbounds nuw [20 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_113Feature2DType7PrintToEPSo.vals, i64 0, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
+  %22 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_113Feature2DType7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i.i
   %23 = load i32, ptr %22, align 4, !tbaa !89
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i, %23
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %24, label %9

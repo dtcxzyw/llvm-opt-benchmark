@@ -7067,7 +7067,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h4565c9b3aeb239b0E.exit: ; preds
 
 .lr.ph.i.i.i:                                     ; preds = %177, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17hc5b2283e80efe2aeE.llvm.5005022800651993668.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %185, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17hc5b2283e80efe2aeE.llvm.5005022800651993668.exit.i.i.i" ], [ 0, %177 ]
-  %184 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } } }], ptr %180, i64 0, i64 %.sroa.0.09.i.i.i
+  %184 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %180, i64 %.sroa.0.09.i.i.i
   %185 = add nuw i64 %.sroa.0.09.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1714)
   call void @llvm.experimental.noalias.scope.decl(metadata !1717)
@@ -7121,7 +7121,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h4565c9b3aeb239b0E.exit: ; preds
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %198, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17hc5b2283e80efe2aeE.llvm.5005022800651993668.exit.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i = phi i64 [ %205, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17hc5b2283e80efe2aeE.llvm.5005022800651993668.exit.i.i.i.i.i" ], [ 0, %198 ]
-  %204 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } } }], ptr %200, i64 0, i64 %.sroa.0.09.i.i.i.i.i
+  %204 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %200, i64 %.sroa.0.09.i.i.i.i.i
   %205 = add nuw i64 %.sroa.0.09.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1764)
   call void @llvm.experimental.noalias.scope.decl(metadata !1767)
@@ -10072,7 +10072,7 @@ default.unreachable199:                           ; preds = %3
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %45
   %.sroa.01.05.i.i.i = phi i64 [ %46, %45 ], [ 0, %.preheader.i.i.i ]
-  %42 = getelementptr inbounds nuw [0 x i8], ptr %40, i64 0, i64 %.sroa.01.05.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %.sroa.01.05.i.i.i
   %43 = load i8, ptr %42, align 1, !alias.scope !2765, !noalias !2768, !noundef !4
   %44 = icmp eq i8 %43, 45
   br i1 %44, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i, label %45

@@ -965,7 +965,7 @@ define range(i32 -2147483648, 2) i32 @evdns_server_request_respond(ptr noundef %
 
 59:                                               ; preds = %59, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %59 ]
-  %60 = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %57, i64 0, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw %struct.dnslabel_entry, ptr %57, i64 %indvars.iv.i.i
   %61 = load ptr, ptr %60, align 8
   call void @event_mm_free_(ptr noundef %61) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1213,7 +1213,7 @@ server_request_free_answers.exit.i:               ; preds = %._crit_edge.i.i
 
 170:                                              ; preds = %170, %.lr.ph.i183.i
   %indvars.iv.i184.i = phi i64 [ 0, %.lr.ph.i183.i ], [ %indvars.iv.next.i185.i, %170 ]
-  %171 = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %168, i64 0, i64 %indvars.iv.i184.i
+  %171 = getelementptr inbounds nuw %struct.dnslabel_entry, ptr %168, i64 %indvars.iv.i184.i
   %172 = load ptr, ptr %171, align 8
   call void @event_mm_free_(ptr noundef %172) #21
   %indvars.iv.next.i185.i = add nuw nsw i64 %indvars.iv.i184.i, 1
@@ -1287,7 +1287,7 @@ server_request_free_answers.exit196.i:            ; preds = %._crit_edge.i194.i
 
 195:                                              ; preds = %195, %.lr.ph.i198.i
   %indvars.iv.i199.i = phi i64 [ 0, %.lr.ph.i198.i ], [ %indvars.iv.next.i200.i, %195 ]
-  %196 = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %193, i64 0, i64 %indvars.iv.i199.i
+  %196 = getelementptr inbounds nuw %struct.dnslabel_entry, ptr %193, i64 %indvars.iv.i199.i
   %197 = load ptr, ptr %196, align 8
   call void @event_mm_free_(ptr noundef %197) #21
   %indvars.iv.next.i200.i = add nuw nsw i64 %indvars.iv.i199.i, 1
@@ -3707,7 +3707,7 @@ transaction_id_pick.exit:                         ; preds = %25, %34
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %73
   %59 = phi i64 [ %75, %73 ], [ 0, %.lr.ph.preheader ]
   %.085 = phi i32 [ %74, %73 ], [ 0, %.lr.ph.preheader ]
-  %60 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = call i32 @EVUTIL_ISALPHA_(i8 noundef signext %61) #21
   %.not76 = icmp eq i32 %62, 0
@@ -3716,7 +3716,7 @@ transaction_id_pick.exit:                         ; preds = %25, %34
 .sink.split:                                      ; preds = %.lr.ph
   %63 = lshr i32 %.085, 3
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = and i32 %.085, 7
@@ -4612,12 +4612,12 @@ define ptr @evdns_base_resolve_reverse_ipv6(ptr noundef %0, ptr noundef readonly
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 15, %5 ], [ %indvars.iv.next, %7 ]
   %.03341 = phi ptr [ %6, %5 ], [ %22, %7 ]
-  %8 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = and i32 %10, 15
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %.03341, i64 1
   store i8 %14, ptr %.03341, align 1
@@ -4625,7 +4625,7 @@ define ptr @evdns_base_resolve_reverse_ipv6(ptr noundef %0, ptr noundef readonly
   store i8 46, ptr %15, align 1
   %17 = lshr i32 %10, 4
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.03341, i64 3
   store i8 %20, ptr %16, align 1
@@ -9983,7 +9983,7 @@ dnslabel_table_get_pos.exit.thread.us:            ; preds = %16
 
 28:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %9, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw %struct.dnslabel_entry, ptr %9, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.068, ptr noundef nonnull dereferenceable(1) %30) #23
   %.not.i = icmp eq i32 %31, 0
@@ -10047,7 +10047,7 @@ dnslabel_table_get_pos.exit.thread:               ; preds = %27, %.preheader.spl
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %5, align 8
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %9, i64 0, i64 %62
+  %63 = getelementptr inbounds %struct.dnslabel_entry, ptr %9, i64 %62
   store ptr %57, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 %.us-phi112, ptr %64, align 8
@@ -10080,7 +10080,7 @@ dnslabel_table_get_pos.exit.thread:               ; preds = %27, %.preheader.spl
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %5, align 8
   %82 = sext i32 %80 to i64
-  %83 = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %9, i64 0, i64 %82
+  %83 = getelementptr inbounds %struct.dnslabel_entry, ptr %9, i64 %82
   store ptr %77, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 %.063, ptr %84, align 8
@@ -11468,7 +11468,7 @@ define internal fastcc void @reply_handle(ptr noundef nonnull %0, i16 noundef ze
 
 40:                                               ; preds = %30
   %41 = zext nneg i16 %32 to i64
-  %42 = getelementptr inbounds nuw [5 x i32], ptr @reply_handle.error_codes, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr @reply_handle.error_codes, i64 %41
   %43 = load i32, ptr %42, align 4
   switch i32 %43, label %.thread [
     i32 4, label %44

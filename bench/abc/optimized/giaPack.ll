@@ -832,7 +832,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i32, ptr %.val120, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !33
-  %70 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %69, ptr %70, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %62
@@ -986,7 +986,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 .lr.ph189:                                        ; preds = %.lr.ph189.preheader, %.lr.ph189
   %indvars.iv204 = phi i64 [ 1, %.lr.ph189.preheader ], [ %indvars.iv.next205, %.lr.ph189 ]
   %.1100187 = phi i32 [ %.099, %.lr.ph189.preheader ], [ %133, %.lr.ph189 ]
-  %130 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv204
+  %130 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv204
   %131 = load i32, ptr %130, align 4, !tbaa !33
   %132 = add nsw i32 %131, %2
   %133 = tail call noundef i32 @llvm.smax.i32(i32 %.1100187, i32 %132)

@@ -24266,10 +24266,10 @@ entry:
   %SSK = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %SSK, align 4
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvh16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvh16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep16 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvh16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.123, i64 0, i64 %2
+  %switch.gep16 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvh16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.123, i64 %2
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %switch.load17, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %switch.load, 1
@@ -25315,10 +25315,10 @@ entry:
   %SSK = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %SSK, align 4
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvh16itanium_demangle19SpecialSubstitution11getBaseNameEv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvh16itanium_demangle19SpecialSubstitution11getBaseNameEv, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep16 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvh16itanium_demangle19SpecialSubstitution11getBaseNameEv.124, i64 0, i64 %2
+  %switch.gep16 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvh16itanium_demangle19SpecialSubstitution11getBaseNameEv.124, i64 %2
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %switch.load17, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %switch.load, 1

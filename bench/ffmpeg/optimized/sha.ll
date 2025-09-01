@@ -3376,7 +3376,7 @@ define void @av_sha_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = and i64 %5, 63
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %10, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load ptr, ptr %15, align 8, !tbaa !12
@@ -3404,7 +3404,7 @@ define void @av_sha_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %.0 = phi ptr [ %1, %3 ], [ %18, %11 ], [ %24, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = zext nneg i32 %.029 to i64
-  %28 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %.0, i64 %.028, i1 false)
   ret void
 }
@@ -3428,7 +3428,7 @@ define void @av_sha_final(ptr noundef %0, ptr noundef writeonly captures(none) %
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = and i64 %4, 63
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store i8 -128, ptr %13, align 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8, !tbaa !12
@@ -3444,7 +3444,7 @@ av_sha_update.exit:                               ; preds = %10, %2
   %.0.i = phi ptr [ @.str, %2 ], [ getelementptr inbounds nuw (i8, ptr @.str, i64 1), %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = zext nneg i32 %.029.i to i64
-  %20 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %.0.i, i64 %.028.i, i1 false)
   %21 = and i64 %17, 63
   %.not28 = icmp eq i64 %21, 56
@@ -3466,7 +3466,7 @@ av_sha_update.exit:                               ; preds = %10, %2
   br i1 %.not.i11.not, label %30, label %av_sha_update.exit18
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %25
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 %25
   store i8 0, ptr %31, align 1
   %32 = load ptr, ptr %22, align 8, !tbaa !12
   tail call void %32(ptr noundef nonnull %23, ptr noundef nonnull %18) #6
@@ -3479,7 +3479,7 @@ av_sha_update.exit18:                             ; preds = %30, %24
   %.028.i16 = phi i64 [ 1, %24 ], [ 0, %30 ]
   %.0.i17 = phi ptr [ @.str.1, %24 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %30 ]
   %34 = zext nneg i32 %.029.i15 to i64
-  %35 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %.0.i17, i64 %.028.i16, i1 false)
   %36 = and i64 %33, 63
   %.not = icmp eq i64 %36, 56
@@ -3501,7 +3501,7 @@ av_sha_update.exit26:                             ; preds = %av_sha_update.exit1
 
 .lr.ph31:                                         ; preds = %av_sha_update.exit26, %.lr.ph31
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %av_sha_update.exit26 ]
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !10
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
   %46 = shl nuw nsw i64 %indvars.iv, 2

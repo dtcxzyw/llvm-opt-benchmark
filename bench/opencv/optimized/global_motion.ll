@@ -549,7 +549,7 @@ _ZNK2cv11_InputArray6getMatEi.exit58:             ; preds = %104, %107
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %110 = sext i32 %3 to i64
-  %111 = getelementptr inbounds [6 x ptr], ptr @_ZZN2cv9videostab32estimateGlobalMotionLeastSquaresERKNS_17_InputOutputArrayES3_iPfE5impls, i64 0, i64 %110
+  %111 = getelementptr inbounds ptr, ptr @_ZZN2cv9videostab32estimateGlobalMotionLeastSquaresERKNS_17_InputOutputArrayES3_iPfE5impls, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !36
   invoke void %112(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, i32 noundef %59, ptr noundef %101, ptr noundef %109, ptr noundef %4)
           to label %113 unwind label %124
@@ -4148,7 +4148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN2cv9videostab23MotionEstimatorRansacL2C2ENS0_11MotionModelE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2cv9videostab23MotionEstimatorRansacL2C2ENS0_11MotionModelE, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %20
 

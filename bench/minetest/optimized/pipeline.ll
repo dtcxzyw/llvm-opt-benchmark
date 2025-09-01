@@ -1054,7 +1054,7 @@ if.then31:                                        ; preds = %if.then29
 
 switch.lookup:                                    ; preds = %if.then31
   %26 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZN13TextureBuffer13ensureTextureEPPN3irr5video8ITextureERKNS_17TextureDefinitionER15PipelineContext, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13TextureBuffer13ensureTextureEPPN3irr5video8ITextureERKNS_17TextureDefinitionER15PipelineContext, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 

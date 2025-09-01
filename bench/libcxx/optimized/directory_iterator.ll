@@ -628,10 +628,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__14__fs10filesystem12__dir
 
 switch.lookup:                                    ; preds = %.lr.ph
   %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE, i64 %19
   %switch.load = load i8, ptr %switch.gep, align 1
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep73 = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE.1, i64 0, i64 %20
+  %switch.gep73 = getelementptr inbounds nuw i8, ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE.1, i64 %20
   %switch.load74 = load i8, ptr %switch.gep73, align 1
   br label %_ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit
 

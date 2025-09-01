@@ -454,7 +454,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) #1 {
-  %invariant.gep = getelementptr [40 x [2 x float]], ptr %1, i64 0, i64 %4
+  %invariant.gep = getelementptr [2 x float], ptr %1, i64 %4
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -518,7 +518,7 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   %21 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !19
   %23 = zext nneg i32 %13 to i64
-  %24 = getelementptr inbounds nuw [0 x [2 x float]], ptr @ff_sbr_noise_table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [2 x float], ptr @ff_sbr_noise_table, i64 %23
   %25 = load float, ptr %24, align 8, !tbaa !19
   %26 = tail call nsz float @llvm.fmuladd.f32(float %22, float %25, float %9)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -577,7 +577,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   %25 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %26 = load float, ptr %25, align 4, !tbaa !19
   %27 = zext nneg i32 %17 to i64
-  %28 = getelementptr inbounds nuw [0 x [2 x float]], ptr @ff_sbr_noise_table, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [2 x float], ptr @ff_sbr_noise_table, i64 %27
   %29 = load float, ptr %28, align 8, !tbaa !19
   %30 = tail call nsz float @llvm.fmuladd.f32(float %26, float %29, float %13)
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -632,7 +632,7 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   %21 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !19
   %23 = zext nneg i32 %13 to i64
-  %24 = getelementptr inbounds nuw [0 x [2 x float]], ptr @ff_sbr_noise_table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [2 x float], ptr @ff_sbr_noise_table, i64 %23
   %25 = load float, ptr %24, align 8, !tbaa !19
   %26 = tail call nsz float @llvm.fmuladd.f32(float %22, float %25, float %9)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -692,7 +692,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   %26 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !19
   %28 = zext nneg i32 %18 to i64
-  %29 = getelementptr inbounds nuw [0 x [2 x float]], ptr @ff_sbr_noise_table, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [2 x float], ptr @ff_sbr_noise_table, i64 %28
   %30 = load float, ptr %29, align 8, !tbaa !19
   %31 = tail call nsz float @llvm.fmuladd.f32(float %27, float %30, float %14)
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 4

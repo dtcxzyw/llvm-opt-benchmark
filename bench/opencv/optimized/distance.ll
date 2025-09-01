@@ -39,12 +39,12 @@ define hidden noundef double @_ZN2cv3ccm10deltaCIE76ERKNS_3VecIdLi3EEES4_(ptr no
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %4 ]
-  %5 = getelementptr inbounds nuw [3 x double], ptr %0, i64 0, i64 %indvars.iv.i.i.i
+  %5 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i.i
   %6 = load double, ptr %5, align 8, !tbaa !6, !noalias !3
-  %7 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv.i.i.i
+  %7 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i.i.i
   %8 = load double, ptr %7, align 8, !tbaa !6, !noalias !3
   %9 = fsub double %6, %8
-  %10 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i.i
   store double %9, ptr %10, align 8, !tbaa !6, !alias.scope !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -625,7 +625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN2cv3ccm8distanceENS_3MatES1_NS0_13DISTANCE_TYPEE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv3ccm8distanceENS_3MatES1_NS0_13DISTANCE_TYPEE, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN2cv3ccm12distanceWiseIRFdRKNS_3VecIdLi3EEES5_EEENS_3MatERS8_S9_OT_(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull %switch.load)
   ret void

@@ -1055,7 +1055,7 @@ _ZNSt6vectorIN4llvm15SparseBitVectorILj128EEESaIS2_EE6resizeEm.exit: ; preds = %
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %144 ], [ 0, %140 ]
   %145 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   call void @llvm.assume(i1 %145)
-  %146 = getelementptr inbounds nuw [2 x i64], ptr %143, i64 0, i64 %indvars.iv.i.i.i.i
+  %146 = getelementptr inbounds nuw i64, ptr %143, i64 %indvars.iv.i.i.i.i
   %147 = load i64, ptr %146, align 8, !tbaa !55, !noalias !241
   %.not.i.i.i.i80 = icmp eq i64 %147, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -1115,7 +1115,7 @@ _ZNSt6vectorIN4llvm15SparseBitVectorILj128EEESaIS2_EE6resizeEm.exit: ; preds = %
   %175 = and i32 %.sroa.13.2, 63
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.10.0699, i64 24
   %177 = zext nneg i32 %174 to i64
-  %178 = getelementptr inbounds nuw [2 x i64], ptr %176, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i64, ptr %176, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !55, !noalias !248
   %180 = zext nneg i32 %175 to i64
   %181 = shl nsw i64 -1, %180
@@ -1165,7 +1165,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i: ; preds = %196, %1
   %indvars.iv.i.i194 = phi i64 [ %indvars.iv.next.i.i195, %204 ], [ 0, %200 ]
   %205 = icmp samesign ult i64 %indvars.iv.i.i194, 2
   call void @llvm.assume(i1 %205), !noalias !248
-  %206 = getelementptr inbounds nuw [2 x i64], ptr %203, i64 0, i64 %indvars.iv.i.i194
+  %206 = getelementptr inbounds nuw i64, ptr %203, i64 %indvars.iv.i.i194
   %207 = load i64, ptr %206, align 8, !tbaa !55, !noalias !248
   %.not.i9.i = icmp eq i64 %207, 0
   %indvars.iv.next.i.i195 = add nuw nsw i64 %indvars.iv.i.i194, 1
@@ -1191,7 +1191,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i: ; preds = %204
   %.018.i.ph.frozen.i = freeze i32 %.018.i.ph.i
   %219 = lshr i32 %.018.i.ph.frozen.i, 6
   %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr inbounds nuw [2 x i64], ptr %176, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw i64, ptr %176, i64 %220
   %222 = load i64, ptr %221, align 8, !tbaa !55, !noalias !248
   %.urem12.i = add i32 %.018.i.ph.frozen.i, -64
   %.cmp13.i = icmp ult i32 %.018.i.ph.frozen.i, 64
@@ -1317,7 +1317,7 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit:     ; preds = %260, %.sink.split.i
   %273 = ptrtoint ptr %.sroa.010.0.i to i64
   store i64 %273, ptr %272, align 8, !tbaa !260
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i, i64 24
-  %275 = getelementptr inbounds nuw [2 x i64], ptr %274, i64 0, i64 %162
+  %275 = getelementptr inbounds nuw i64, ptr %274, i64 %162
   %276 = load i64, ptr %275, align 8, !tbaa !55
   %277 = or i64 %276, %159
   store i64 %277, ptr %275, align 8, !tbaa !55
@@ -1476,7 +1476,7 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit103:  ; preds = %338, %.sink.split.i
   %351 = ptrtoint ptr %.sroa.010.0.i96 to i64
   store i64 %351, ptr %350, align 8, !tbaa !260
   %352 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i96, i64 24
-  %353 = getelementptr inbounds nuw [2 x i64], ptr %352, i64 0, i64 %300
+  %353 = getelementptr inbounds nuw i64, ptr %352, i64 %300
   %354 = load i64, ptr %353, align 8, !tbaa !55
   %355 = or i64 %354, %297
   store i64 %355, ptr %353, align 8, !tbaa !55
@@ -5620,7 +5620,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i227: ; preds = %.sink.
   %2402 = lshr i32 %2361, 6
   %2403 = and i32 %2402, 1
   %2404 = zext nneg i32 %2403 to i64
-  %2405 = getelementptr inbounds nuw [2 x i64], ptr %2401, i64 0, i64 %2404
+  %2405 = getelementptr inbounds nuw i64, ptr %2401, i64 %2404
   %2406 = load i64, ptr %2405, align 8, !tbaa !55
   %2407 = and i64 %2406, %2400
   store i64 %2407, ptr %2405, align 8, !tbaa !55
@@ -5629,7 +5629,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i227: ; preds = %.sink.
 2408:                                             ; preds = %2408, %2396
   %.not8.i.i = phi i1 [ true, %2396 ], [ false, %2408 ]
   %indvars.iv.i.i231 = phi i64 [ 0, %2396 ], [ 1, %2408 ]
-  %2409 = getelementptr inbounds nuw [2 x i64], ptr %2401, i64 0, i64 %indvars.iv.i.i231
+  %2409 = getelementptr inbounds nuw i64, ptr %2401, i64 %indvars.iv.i.i231
   %2410 = load i64, ptr %2409, align 8, !tbaa !55
   %.not.i.i232 = icmp eq i64 %2410, 0
   %or.cond.i.i233 = and i1 %.not8.i.i, %.not.i.i232

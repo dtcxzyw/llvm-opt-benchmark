@@ -3062,7 +3062,7 @@ _apply_limit_factor.exit199:                      ; preds = %136, %158, %170
 
 switch.lookup:                                    ; preds = %179
   %206 = zext nneg i32 %182 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %206
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate.7, i64 %206
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_get_tres_state_reason.exit
 
@@ -3136,7 +3136,7 @@ _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %199
 
 switch.lookup606:                                 ; preds = %227
   %254 = zext nneg i32 %230 to i64
-  %switch.gep607 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %254
+  %switch.gep607 = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate.7, i64 %254
   %switch.load608 = load i32, ptr %switch.gep607, align 4
   br label %_get_tres_state_reason.exit206
 
@@ -3210,7 +3210,7 @@ _get_tres_state_reason.exit206:                   ; preds = %switch.lookup606, %
 
 switch.lookup609:                                 ; preds = %275
   %302 = zext nneg i32 %278 to i64
-  %switch.gep610 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %302
+  %switch.gep610 = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate.7, i64 %302
   %switch.load611 = load i32, ptr %switch.gep610, align 4
   br label %_get_tres_state_reason.exit211
 
@@ -3979,7 +3979,7 @@ define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_post_select(ptr no
 
 switch.lookup:                                    ; preds = %86
   %112 = zext nneg i32 %88 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.14, i64 0, i64 %112
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.14, i64 %112
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_get_tres_state_reason.exit
 
@@ -4047,7 +4047,7 @@ _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %105
 
 switch.lookup444:                                 ; preds = %128
   %154 = zext nneg i32 %130 to i64
-  %switch.gep445 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.14, i64 0, i64 %154
+  %switch.gep445 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.14, i64 %154
   %switch.load446 = load i32, ptr %switch.gep445, align 4
   br label %_get_tres_state_reason.exit255
 
@@ -4115,7 +4115,7 @@ _get_tres_state_reason.exit255:                   ; preds = %switch.lookup444, %
 
 switch.lookup447:                                 ; preds = %170
   %196 = zext nneg i32 %172 to i64
-  %switch.gep448 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.14, i64 0, i64 %196
+  %switch.gep448 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.14, i64 %196
   %switch.load449 = load i32, ptr %switch.gep448, align 4
   br label %_get_tres_state_reason.exit260
 
@@ -4284,7 +4284,7 @@ default.unreachable:                              ; preds = %._crit_edge
   br label %_get_tres_state_reason.exit265
 
 switch.lookup450:                                 ; preds = %261
-  %switch.gep451 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.12, i64 0, i64 %indvars.iv118.i
+  %switch.gep451 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.12, i64 %indvars.iv118.i
   %switch.load452 = load i32, ptr %switch.gep451, align 4
   br label %_get_tres_state_reason.exit265
 
@@ -4353,7 +4353,7 @@ _get_tres_state_reason.exit265:                   ; preds = %switch.lookup450, %
   br label %_get_tres_state_reason.exit270
 
 switch.lookup453:                                 ; preds = %301
-  %switch.gep454 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.12, i64 0, i64 %indvars.iv118.i
+  %switch.gep454 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.12, i64 %indvars.iv118.i
   %switch.load455 = load i32, ptr %switch.gep454, align 4
   br label %_get_tres_state_reason.exit270
 
@@ -9862,7 +9862,7 @@ _validate_tres_limits_for_assoc.exit:             ; preds = %111, %96
 
 switch.lookup:                                    ; preds = %154
   %178 = and i64 %storemerge.in, 7
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate, i64 0, i64 %178
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate, i64 %178
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_get_tres_state_reason.exit
 
@@ -10087,7 +10087,7 @@ _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limi
   br label %_get_tres_state_reason.exit250
 
 switch.lookup28:                                  ; preds = %271
-  %switch.gep29 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate.7, i64 0, i64 %indvars.iv.i
+  %switch.gep29 = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate.7, i64 %indvars.iv.i
   %switch.load30 = load i32, ptr %switch.gep29, align 4
   br label %_get_tres_state_reason.exit250
 
@@ -10262,7 +10262,7 @@ _validate_tres_time_limits.exit270:               ; preds = %_validate_time_limi
   br label %_get_tres_state_reason.exit275
 
 switch.lookup31:                                  ; preds = %358
-  %switch.gep32 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate.8, i64 0, i64 %indvars.iv.i254
+  %switch.gep32 = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate.8, i64 %indvars.iv.i254
   %switch.load33 = load i32, ptr %switch.gep32, align 4
   br label %_get_tres_state_reason.exit275
 
@@ -10522,7 +10522,7 @@ _validate_tres_limits_for_assoc.exit290:          ; preds = %483, %468
 
 switch.lookup34:                                  ; preds = %488
   %512 = and i64 %storemerge449.in, 7
-  %switch.gep35 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate.9, i64 0, i64 %512
+  %switch.gep35 = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate.9, i64 %512
   %switch.load36 = load i32, ptr %switch.gep35, align 4
   br label %_get_tres_state_reason.exit295
 
@@ -10608,7 +10608,7 @@ _get_tres_state_reason.exit295:                   ; preds = %switch.lookup34, %5
 
 switch.lookup37:                                  ; preds = %538
   %563 = zext nneg i32 %539 to i64
-  %switch.gep38 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._acct_policy_validate.10, i64 0, i64 %563
+  %switch.gep38 = getelementptr inbounds nuw i32, ptr @switch.table._acct_policy_validate.10, i64 %563
   %switch.load39 = load i32, ptr %switch.gep38, align 4
   br label %_get_tres_state_reason.exit300
 
@@ -11002,7 +11002,7 @@ _validate_tres_limits_for_qos.exit:               ; preds = %37
   br label %_get_tres_state_reason.exit
 
 switch.lookup:                                    ; preds = %55
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate, i64 0, i64 %indvars.iv129.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate, i64 %indvars.iv129.i
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_get_tres_state_reason.exit
 
@@ -11106,7 +11106,7 @@ _validate_tres_limits_for_qos.exit.thread:        ; preds = %_validate_tres_limi
 
 switch.lookup559:                                 ; preds = %118
   %141 = zext nneg i32 %109 to i64
-  %switch.gep560 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.11, i64 0, i64 %141
+  %switch.gep560 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.11, i64 %141
   %switch.load561 = load i32, ptr %switch.gep560, align 4
   br label %_get_tres_state_reason.exit287
 
@@ -11185,7 +11185,7 @@ _get_tres_state_reason.exit287:                   ; preds = %switch.lookup559, %
 
 switch.lookup562:                                 ; preds = %165
   %188 = zext nneg i32 %109 to i64
-  %switch.gep563 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.12, i64 0, i64 %188
+  %switch.gep563 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.12, i64 %188
   %switch.load564 = load i32, ptr %switch.gep563, align 4
   br label %_get_tres_state_reason.exit292
 
@@ -11403,7 +11403,7 @@ _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limi
   br label %_get_tres_state_reason.exit299
 
 switch.lookup565:                                 ; preds = %280
-  %switch.gep566 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.13, i64 0, i64 %indvars.iv.i
+  %switch.gep566 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.13, i64 %indvars.iv.i
   %switch.load567 = load i32, ptr %switch.gep566, align 4
   br label %_get_tres_state_reason.exit299
 
@@ -11573,7 +11573,7 @@ _validate_tres_time_limits.exit319:               ; preds = %_validate_time_limi
   br label %_get_tres_state_reason.exit324
 
 switch.lookup568:                                 ; preds = %363
-  %switch.gep569 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.14, i64 0, i64 %indvars.iv.i303
+  %switch.gep569 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.14, i64 %indvars.iv.i303
   %switch.load570 = load i32, ptr %switch.gep569, align 4
   br label %_get_tres_state_reason.exit324
 
@@ -12175,7 +12175,7 @@ _validate_tres_limits_for_qos.exit382:            ; preds = %656
   br label %_get_tres_state_reason.exit387
 
 switch.lookup571:                                 ; preds = %664
-  %switch.gep572 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._qos_policy_validate.15, i64 0, i64 %indvars.iv129.i377
+  %switch.gep572 = getelementptr inbounds nuw i32, ptr @switch.table._qos_policy_validate.15, i64 %indvars.iv129.i377
   %switch.load573 = load i32, ptr %switch.gep572, align 4
   br label %_get_tres_state_reason.exit387
 

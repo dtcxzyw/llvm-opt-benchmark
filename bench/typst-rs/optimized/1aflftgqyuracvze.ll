@@ -401,10 +401,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !align !58, !noundef !12
   %.val = load i8, ptr %2, align 1, !range !59, !noundef !12
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e408485da3a793fE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e408485da3a793fE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [15 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e408485da3a793fE.35", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e408485da3a793fE.35", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2089,8 +2089,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %.preheader.split
   %6 = add i64 %.sroa.01.0, 1
-  %7 = getelementptr inbounds [0 x double], ptr %0, i64 0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds [0 x double], ptr %2, i64 0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds double, ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds double, ptr %2, i64 %.sroa.01.0
   %9 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
   br i1 %9, label %.preheader.split, label %.thread
 }
@@ -3717,7 +3717,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   %523 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 83)
   %524 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 102)
   %525 = and <16 x i1> %523, %524
-  %526 = getelementptr inbounds nuw [4 x i16], ptr %28, i64 0, i64 %.sroa.022.047.i.i
+  %526 = getelementptr inbounds nuw i16, ptr %28, i64 %.sroa.022.047.i.i
   store <16 x i1> %525, ptr %526, align 2, !noalias !627
   %exitcond.not.i.i = icmp eq i64 %519, 4
   br i1 %exitcond.not.i.i, label %.preheader44.i.i, label %518
@@ -3735,7 +3735,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   %.sroa.028.049.i.i = phi i64 [ %532, %536 ], [ 0, %518 ]
   %.248.i.i = phi i8 [ %.3.i.i, %536 ], [ 0, %518 ]
   %532 = add nuw nsw i64 %.sroa.028.049.i.i, 1
-  %533 = getelementptr inbounds nuw [4 x i16], ptr %28, i64 0, i64 %.sroa.028.049.i.i
+  %533 = getelementptr inbounds nuw i16, ptr %28, i64 %.sroa.028.049.i.i
   %534 = load i16, ptr %533, align 2, !noalias !627, !noundef !12
   %535 = icmp eq i16 %534, 0
   br i1 %535, label %536, label %537
@@ -5025,7 +5025,7 @@ _ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit: ; preds = %.thread.i, %.n
 
 952:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h107604f48adcf879E.exit"
   %953 = load ptr, ptr %108, align 8, !nonnull !12, !noundef !12
-  %954 = getelementptr inbounds nuw [0 x float], ptr %953, i64 0, i64 %945
+  %954 = getelementptr inbounds nuw float, ptr %953, i64 %945
   store float %936, ptr %954, align 4
   br label %.backedge
 

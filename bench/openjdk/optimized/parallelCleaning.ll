@@ -275,7 +275,7 @@ define hidden void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %0, align 8
   %22 = trunc i8 %21 to i1

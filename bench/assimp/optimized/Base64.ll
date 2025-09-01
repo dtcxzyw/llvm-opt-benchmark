@@ -103,7 +103,7 @@ define void @_ZN6Assimp6Base646EncodeEPKhmRNSt7__cxx1112basic_stringIcSt11char_t
   %18 = load i8, ptr %17, align 1
   %19 = lshr i8 %18, 2
   %20 = zext nneg i8 %19 to i64
-  %21 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = add i64 %.05358, 1
   %24 = load ptr, ptr %2, align 8
@@ -122,7 +122,7 @@ define void @_ZN6Assimp6Base646EncodeEPKhmRNSt7__cxx1112basic_stringIcSt11char_t
   %34 = lshr i8 %33, 4
   %35 = or disjoint i8 %34, %28
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = add i64 %.05358, 2
   %40 = load ptr, ptr %2, align 8
@@ -141,7 +141,7 @@ define void @_ZN6Assimp6Base646EncodeEPKhmRNSt7__cxx1112basic_stringIcSt11char_t
   %50 = lshr i8 %49, 6
   %51 = or disjoint i8 %50, %44
   %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = load ptr, ptr %2, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %39
@@ -149,13 +149,13 @@ define void @_ZN6Assimp6Base646EncodeEPKhmRNSt7__cxx1112basic_stringIcSt11char_t
   %57 = load i8, ptr %48, align 1
   %58 = and i8 %57, 63
   %59 = zext nneg i8 %58 to i64
-  %60 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 %59
   %61 = load i8, ptr %60, align 1
   br label %77
 
 62:                                               ; preds = %31
   %63 = zext nneg i8 %44 to i64
-  %64 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 %63
   %65 = load i8, ptr %64, align 4
   %66 = load ptr, ptr %2, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %39
@@ -164,7 +164,7 @@ define void @_ZN6Assimp6Base646EncodeEPKhmRNSt7__cxx1112basic_stringIcSt11char_t
 
 68:                                               ; preds = %16
   %69 = zext nneg i8 %28 to i64
-  %70 = getelementptr inbounds nuw [66 x i8], ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableEncodeBase64E, i64 %69
   %71 = load i8, ptr %70, align 16
   %72 = load ptr, ptr %2, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %23
@@ -388,7 +388,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZN6Assimp6Base6410DecodeCharEc.exit:             ; preds = %.lr.ph
   %58 = zext nneg i8 %51 to i64
-  %59 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %62 = load i8, ptr %61, align 1
@@ -415,7 +415,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit:             ; preds = %.lr.ph
 
 _ZN6Assimp6Base6410DecodeCharEc.exit74:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
   %69 = zext nneg i8 %62 to i64
-  %70 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %73 = load i8, ptr %72, align 1
@@ -466,10 +466,10 @@ _ZN6Assimp6Base6410DecodeCharEc.exit76:           ; preds = %_ZN6Assimp6Base6410
 
 _ZN6Assimp6Base6410DecodeCharEc.exit78:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit76
   %88 = zext nneg i8 %73 to i64
-  %89 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext nneg i8 %81 to i64
-  %92 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = shl i8 %60, 2
   %95 = lshr i8 %71, 4
@@ -523,7 +523,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit78:           ; preds = %_ZN6Assimp6Base6410
 
 _ZN6Assimp6Base6410DecodeCharEc.exit80:           ; preds = %._crit_edge
   %121 = zext nneg i8 %114 to i64
-  %122 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = getelementptr inbounds nuw i8, ptr %113, i64 1
   %125 = load i8, ptr %124, align 1
@@ -550,7 +550,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit80:           ; preds = %._crit_edge
 
 _ZN6Assimp6Base6410DecodeCharEc.exit82:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit80
   %132 = zext nneg i8 %125 to i64
-  %133 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = getelementptr inbounds nuw i8, ptr %113, i64 2
   %136 = load i8, ptr %135, align 1
@@ -577,7 +577,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit82:           ; preds = %_ZN6Assimp6Base6410
 
 _ZN6Assimp6Base6410DecodeCharEc.exit84:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit82
   %143 = zext nneg i8 %136 to i64
-  %144 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = getelementptr inbounds nuw i8, ptr %113, i64 3
   %147 = load i8, ptr %146, align 1
@@ -604,7 +604,7 @@ _ZN6Assimp6Base6410DecodeCharEc.exit84:           ; preds = %_ZN6Assimp6Base6410
 
 _ZN6Assimp6Base6410DecodeCharEc.exit86:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit84
   %154 = zext nneg i8 %147 to i64
-  %155 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = shl i8 %123, 2
   %158 = lshr i8 %134, 4

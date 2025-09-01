@@ -1066,7 +1066,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %27, %21
 
 30:                                               ; preds = %36, %rbimpl_rstring_getmem.exit.i
   %indvars.iv.i = phi i64 [ 0, %rbimpl_rstring_getmem.exit.i ], [ %indvars.iv.next.i, %36 ]
-  %31 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @ossl_pkcs7_sym2typeid.p7_type_tab, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw %struct.anon.0, ptr @ossl_pkcs7_sym2typeid.p7_type_tab, i64 %indvars.iv.i
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #7
   %.not.i = icmp eq i64 %32, %.sroa.3.0.i
   br i1 %.not.i, label %33, label %36

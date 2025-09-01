@@ -266,15 +266,15 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 732
   %14 = add i32 %11, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [200 x i32], ptr %13, i64 0, i64 %15
+  %16 = getelementptr i32, ptr %13, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 1532
-  %19 = getelementptr [200 x i32], ptr %18, i64 0, i64 %15
+  %19 = getelementptr i32, ptr %18, i64 %15
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %21 = sext i32 %17 to i64
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 532
-  %24 = getelementptr [200 x i8], ptr %23, i64 0, i64 %15
+  %24 = getelementptr i8, ptr %23, i64 %15
   %25 = load i8, ptr %24, align 1, !tbaa !9
   %26 = sext i8 %25 to i32
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %4, i64 noundef %21, i64 noundef %22, i64 noundef %21, i64 noundef -1, ptr noundef nonnull @.str.20, i32 noundef %26)
@@ -1028,16 +1028,16 @@ define hidden void @_Pypegen_set_syntax_error(ptr noundef %0, ptr noundef readon
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 732
   %32 = add i32 %29, -1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr [200 x i32], ptr %31, i64 0, i64 %33
+  %34 = getelementptr i32, ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 1532
-  %37 = getelementptr [200 x i32], ptr %36, i64 0, i64 %33
+  %37 = getelementptr i32, ptr %36, i64 %33
   %38 = load i32, ptr %37, align 4, !tbaa !25
   %39 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !4
   %40 = sext i32 %35 to i64
   %41 = sext i32 %38 to i64
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 532
-  %43 = getelementptr [200 x i8], ptr %42, i64 0, i64 %33
+  %43 = getelementptr i8, ptr %42, i64 %33
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = sext i8 %44 to i32
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %40, i64 noundef -1, ptr noundef nonnull @.str.20, i32 noundef %45)
@@ -1147,20 +1147,20 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 732
   %36 = add i32 %33, -1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr [200 x i32], ptr %35, i64 0, i64 %37
+  %38 = getelementptr i32, ptr %35, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !25
   %40 = icmp sgt i32 %24, %39
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 1532
-  %43 = getelementptr [200 x i32], ptr %42, i64 0, i64 %37
+  %43 = getelementptr i32, ptr %42, i64 %37
   %44 = load i32, ptr %43, align 4, !tbaa !25
   %45 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !4
   %46 = sext i32 %39 to i64
   %47 = sext i32 %44 to i64
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 532
-  %49 = getelementptr [200 x i8], ptr %48, i64 0, i64 %37
+  %49 = getelementptr i8, ptr %48, i64 %37
   %50 = load i8, ptr %49, align 1, !tbaa !9
   %51 = sext i8 %50 to i32
   call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %45, i64 noundef %46, i64 noundef %47, i64 noundef %46, i64 noundef -1, ptr noundef nonnull @.str.20, i32 noundef %51)

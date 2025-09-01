@@ -1423,7 +1423,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 229:                                              ; preds = %.lr.ph594, %229
   %indvars.iv635 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next636, %229 ]
-  %230 = getelementptr inbounds nuw [32 x i8], ptr %226, i64 0, i64 %indvars.iv635
+  %230 = getelementptr inbounds nuw i8, ptr %226, i64 %indvars.iv635
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i32
   %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %232)
@@ -1498,7 +1498,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 266:                                              ; preds = %.lr.ph590, %266
   %indvars.iv630 = phi i64 [ 0, %.lr.ph590 ], [ %indvars.iv.next631, %266 ]
-  %267 = getelementptr inbounds nuw [32 x i8], ptr %263, i64 0, i64 %indvars.iv630
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 %indvars.iv630
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %269)
@@ -2173,7 +2173,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 530:                                              ; preds = %528, %536
   %.not510 = phi i1 [ false, %528 ], [ true, %536 ]
   %indvars.iv = phi i64 [ 0, %528 ], [ 1, %536 ]
-  %531 = getelementptr inbounds nuw [3 x ptr], ptr @__const._process_command.levels, i64 0, i64 %indvars.iv
+  %531 = getelementptr inbounds nuw ptr, ptr @__const._process_command.levels, i64 %indvars.iv
   %532 = load ptr, ptr %531, align 8
   %533 = load ptr, ptr %529, align 8
   %534 = tail call i32 @xstrcasecmp(ptr noundef %533, ptr noundef %532) #18
@@ -3196,7 +3196,7 @@ define internal fastcc void @_print_ping(i32 noundef range(i32 1, -2147483648) %
   %51 = phi ptr [ %33, %47 ], [ %.pre, %48 ], [ %33, %42 ]
   %52 = load ptr, ptr @stdout, align 8
   %53 = zext nneg i8 %50 to i64
-  %54 = getelementptr inbounds nuw [2 x ptr], ptr @_print_ping.state, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @_print_ping.state, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.152, ptr noundef nonnull %3, ptr noundef %51, ptr noundef %55) #18
   %57 = getelementptr inbounds nuw i8, ptr %.03749, i64 32
@@ -3516,7 +3516,7 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
 
 20:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %21 = getelementptr inbounds nuw [11 x ptr], ptr @__const._setdebug.levels, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr @__const._setdebug.levels, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %13, align 8
   %24 = tail call i32 @xstrcasecmp(ptr noundef %23, ptr noundef %22) #18

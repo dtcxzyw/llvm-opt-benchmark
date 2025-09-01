@@ -498,10 +498,10 @@ define hidden void @"_ZN10primeorder6affine20AffinePoint$LT$C$GT$10to_compact17h
 18:                                               ; preds = %18, %2
   %.0.i4.i = phi i64 [ 0, %2 ], [ %29, %18 ]
   %.014.i3.i = phi i64 [ 0, %2 ], [ %30, %18 ]
-  %19 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %.014.i3.i
+  %19 = getelementptr inbounds nuw i64, ptr %8, i64 %.014.i3.i
   %20 = load i64, ptr %19, align 8, !alias.scope !153, !noalias !154, !noundef !21
   %21 = zext i64 %20 to i128
-  %22 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %.014.i3.i
+  %22 = getelementptr inbounds nuw i64, ptr %10, i64 %.014.i3.i
   %23 = load i64, ptr %22, align 8, !alias.scope !156, !noalias !157, !noundef !21
   %24 = zext i64 %23 to i128
   %25 = ashr i64 %.0.i4.i, 63
@@ -696,10 +696,10 @@ define hidden noundef i8 @"_ZN13crypto_bigint4uint3cmp89_$LT$impl$u20$subtle..Co
 3:                                                ; preds = %2, %3
   %.0.i4 = phi i64 [ 0, %2 ], [ %14, %3 ]
   %.014.i3 = phi i64 [ 0, %2 ], [ %15, %3 ]
-  %4 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.014.i3
+  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.014.i3
   %5 = load i64, ptr %4, align 8, !alias.scope !194, !noalias !199, !noundef !21
   %6 = zext i64 %5 to i128
-  %7 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %.014.i3
+  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.014.i3
   %8 = load i64, ptr %7, align 8, !alias.scope !197, !noalias !201, !noundef !21
   %9 = zext i64 %8 to i128
   %10 = ashr i64 %.0.i4, 63
@@ -733,10 +733,10 @@ define hidden void @"_ZN13crypto_bigint4uint3sub52_$LT$impl$u20$crypto_bigint..u
 8:                                                ; preds = %4, %8
   %.018 = phi i64 [ %3, %4 ], [ %19, %8 ]
   %.01417 = phi i64 [ 0, %4 ], [ %22, %8 ]
-  %9 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %.01417
+  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %.01417
   %10 = load i64, ptr %9, align 8, !noundef !21
   %11 = zext i64 %10 to i128
-  %12 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %.01417
+  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %.01417
   %13 = load i64, ptr %12, align 8, !noundef !21
   %14 = zext i64 %13 to i128
   %15 = ashr i64 %.018, 63
@@ -746,7 +746,7 @@ define hidden void @"_ZN13crypto_bigint4uint3sub52_$LT$impl$u20$crypto_bigint..u
   %18 = lshr i128 %17, 64
   %19 = trunc nuw i128 %18 to i64
   %20 = trunc i128 %17 to i64
-  %21 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.01417
+  %21 = getelementptr inbounds nuw i64, ptr %5, i64 %.01417
   store i64 %20, ptr %21, align 8
   %22 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %22, 4
@@ -763,10 +763,10 @@ define hidden void @"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$
 4:                                                ; preds = %4, %2
   %.0.i4.i = phi i64 [ 0, %2 ], [ %15, %4 ]
   %.014.i3.i = phi i64 [ 0, %2 ], [ %16, %4 ]
-  %5 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.014.i3.i
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %.014.i3.i
   %6 = load i64, ptr %5, align 8, !noundef !21
   %7 = zext i64 %6 to i128
-  %8 = getelementptr inbounds nuw [4 x i64], ptr @anon.fb60ad9b4e811ac5b3a9c6868ed6715f.10.llvm.18228136452100008479, i64 0, i64 %.014.i3.i
+  %8 = getelementptr inbounds nuw i64, ptr @anon.fb60ad9b4e811ac5b3a9c6868ed6715f.10.llvm.18228136452100008479, i64 %.014.i3.i
   %9 = load i64, ptr %8, align 8, !alias.scope !205, !noalias !208, !noundef !21
   %10 = zext i64 %9 to i128
   %11 = ashr i64 %.0.i4.i, 63
@@ -802,10 +802,10 @@ define hidden void @"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$
 7:                                                ; preds = %7, %6
   %.0.i4.i.i = phi i64 [ 0, %6 ], [ %18, %7 ]
   %.014.i3.i.i = phi i64 [ 0, %6 ], [ %19, %7 ]
-  %8 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.014.i3.i.i
+  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %.014.i3.i.i
   %9 = load i64, ptr %8, align 8, !noundef !21
   %10 = zext i64 %9 to i128
-  %11 = getelementptr inbounds nuw [4 x i64], ptr @anon.fb60ad9b4e811ac5b3a9c6868ed6715f.10.llvm.18228136452100008479, i64 0, i64 %.014.i3.i.i
+  %11 = getelementptr inbounds nuw i64, ptr @anon.fb60ad9b4e811ac5b3a9c6868ed6715f.10.llvm.18228136452100008479, i64 %.014.i3.i.i
   %12 = load i64, ptr %11, align 8, !alias.scope !216, !noalias !219, !noundef !21
   %13 = zext i64 %12 to i128
   %14 = ashr i64 %.0.i4.i.i, 63

@@ -439,7 +439,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge5
   %indvars.iv = phi i64 [ %90, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge5 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %95 = getelementptr inbounds nuw [128 x i8], ptr @enc_main.buf, i64 0, i64 %indvars.iv.next
+  %95 = getelementptr inbounds nuw i8, ptr @enc_main.buf, i64 %indvars.iv.next
   %96 = load i8, ptr %95, align 1, !tbaa !24
   switch i8 %96, label %.critedge.backedge [
     i8 13, label %.critedge5
@@ -1155,7 +1155,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 .lr.ph671:                                        ; preds = %429, %.lr.ph671
   %indvars.iv879 = phi i64 [ %indvars.iv.next880, %.lr.ph671 ], [ 0, %429 ]
-  %433 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %indvars.iv879
+  %433 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv879
   %434 = load i8, ptr %433, align 1, !tbaa !24
   %435 = zext i8 %434 to i32
   %436 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, i32 noundef %435)
@@ -1184,7 +1184,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 .lr.ph675:                                        ; preds = %444, %.lr.ph675
   %indvars.iv882 = phi i64 [ %indvars.iv.next883, %.lr.ph675 ], [ 0, %444 ]
-  %449 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 0, i64 %indvars.iv882
+  %449 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv882
   %450 = load i8, ptr %449, align 1, !tbaa !24
   %451 = zext i8 %450 to i32
   %452 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, i32 noundef %451)
@@ -1214,7 +1214,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 .lr.ph679:                                        ; preds = %461, %.lr.ph679
   %indvars.iv885 = phi i64 [ %indvars.iv.next886, %.lr.ph679 ], [ 0, %461 ]
-  %466 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %indvars.iv885
+  %466 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv885
   %467 = load i8, ptr %466, align 1, !tbaa !24
   %468 = zext i8 %467 to i32
   %469 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, i32 noundef %468)

@@ -151,9 +151,9 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv19 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next20, %15 ]
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr %13, i64 0, i64 %indvars.iv19
+  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv19
   tail call void @av_freep(ptr noundef nonnull %16) #13
-  %17 = getelementptr inbounds nuw [8 x ptr], ptr %14, i64 0, i64 %indvars.iv19
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv19
   %18 = load ptr, ptr %17, align 8, !tbaa !32
   tail call void @av_expr_free(ptr noundef %18) #13
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
@@ -221,10 +221,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 37:                                               ; preds = %22, %37
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %38 = getelementptr inbounds nuw [3 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !57
   store ptr %39, ptr %4, align 8, !tbaa !58
-  %40 = getelementptr inbounds nuw [3 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !57
   store ptr %41, ptr %34, align 8, !tbaa !60
   %42 = load i32, ptr %36, align 8, !tbaa !31
@@ -439,7 +439,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %58 = mul nsw i32 %57, %51
   %59 = sext i32 %58 to i64
   %60 = tail call ptr @av_malloc_array(i64 noundef %59, i64 noundef 4) #13
-  %61 = getelementptr inbounds nuw [2 x [3 x ptr]], ptr %53, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [3 x ptr], ptr %53, i64 %indvars.iv
   store ptr %60, ptr %61, align 8, !tbaa !57
   %62 = load i32, ptr %30, align 8, !tbaa !56
   %63 = mul nsw i32 %62, %51
@@ -488,7 +488,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 
 84:                                               ; preds = %.lr.ph, %80
   %indvars.iv205 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next206, %80 ]
-  %85 = getelementptr inbounds nuw [8 x ptr], ptr %79, i64 0, i64 %indvars.iv205
+  %85 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv205
   %86 = load ptr, ptr %76, align 8, !tbaa !26
   %87 = tail call i32 @av_expr_parse(ptr noundef nonnull %85, ptr noundef %86, ptr noundef nonnull @var_names, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %3) #13
   %88 = icmp sgt i32 %87, -1
@@ -526,7 +526,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 109:                                              ; preds = %.lr.ph178, %105
   %indvars.iv208 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next209, %105 ]
   %110 = tail call ptr @av_malloc_array(i64 noundef %101, i64 noundef %103) #13
-  %111 = getelementptr inbounds nuw [8 x ptr], ptr %104, i64 0, i64 %indvars.iv208
+  %111 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv208
   store ptr %110, ptr %111, align 8, !tbaa !57
   %.not159 = icmp eq ptr %110, null
   br i1 %.not159, label %.loopexit, label %105
@@ -707,7 +707,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %31 = getelementptr inbounds float, ptr %28, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %33 = sext i32 %2 to i64
-  %34 = getelementptr inbounds [8 x ptr], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !57
   %36 = add i32 %17, -1
   %37 = add i32 %36, %23
@@ -1405,7 +1405,7 @@ define internal void @filter_freq_expr_8(ptr noundef %0, ptr noundef readonly ca
   %8 = alloca [64 x float], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds [8 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1494,7 +1494,7 @@ define internal void @filter_freq_expr_8(ptr noundef %0, ptr noundef readonly ca
 
 fdct8_1d.exit.preheader:                          ; preds = %fdct8_1d.exit11
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %81 = getelementptr inbounds [8 x [1 x double]], ptr %80, i64 0, i64 %10
+  %81 = getelementptr inbounds [1 x double], ptr %80, i64 %10
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %filter_freq_8.exit.preheader, label %fdct8_1d.exit
 
@@ -1583,7 +1583,7 @@ fdct8_1d.exit11:                                  ; preds = %14, %fdct8_1d.exit1
 
 fdct8_1d.exit:                                    ; preds = %fdct8_1d.exit.preheader, %fdct8_1d.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %fdct8_1d.exit ], [ 0, %fdct8_1d.exit.preheader ]
-  %147 = getelementptr inbounds nuw [64 x float], ptr %8, i64 0, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %148 = load float, ptr %147, align 4, !tbaa !74
   %149 = tail call nsz float @llvm.fabs.f32(float %148)
   %150 = fpext nsz float %149 to double
@@ -1812,7 +1812,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %8 = alloca [256 x float], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds [8 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2001,7 +2001,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
 
 fdct16_1d.exit.preheader:                         ; preds = %fdct16_1d.exit11
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %173 = getelementptr inbounds [8 x [1 x double]], ptr %172, i64 0, i64 %10
+  %173 = getelementptr inbounds [1 x double], ptr %172, i64 %10
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %filter_freq_16.exit.preheader, label %fdct16_1d.exit
 
@@ -2190,7 +2190,7 @@ fdct16_1d.exit11:                                 ; preds = %14, %fdct16_1d.exit
 
 fdct16_1d.exit:                                   ; preds = %fdct16_1d.exit.preheader, %fdct16_1d.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %fdct16_1d.exit ], [ 0, %fdct16_1d.exit.preheader ]
-  %331 = getelementptr inbounds nuw [256 x float], ptr %8, i64 0, i64 %indvars.iv
+  %331 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %332 = load float, ptr %331, align 4, !tbaa !74
   %333 = tail call nsz float @llvm.fabs.f32(float %332)
   %334 = fpext nsz float %333 to double
@@ -2847,7 +2847,7 @@ fdct8_1d.exit8:                                   ; preds = %12, %fdct8_1d.exit8
 
 145:                                              ; preds = %fdct8_1d.exit.preheader, %fdct8_1d.exit
   %indvars.iv = phi i64 [ 0, %fdct8_1d.exit.preheader ], [ %indvars.iv.next, %fdct8_1d.exit ]
-  %146 = getelementptr inbounds nuw [64 x float], ptr %8, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %147 = load float, ptr %146, align 4, !tbaa !74
   %148 = tail call nsz float @llvm.fabs.f32(float %147)
   %149 = fcmp nsz olt float %148, %79
@@ -3449,7 +3449,7 @@ fdct16_1d.exit8:                                  ; preds = %12, %fdct16_1d.exit
 
 329:                                              ; preds = %fdct16_1d.exit.preheader, %fdct16_1d.exit
   %indvars.iv = phi i64 [ 0, %fdct16_1d.exit.preheader ], [ %indvars.iv.next, %fdct16_1d.exit ]
-  %330 = getelementptr inbounds nuw [256 x float], ptr %8, i64 0, i64 %indvars.iv
+  %330 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %331 = load float, ptr %330, align 4, !tbaa !74
   %332 = tail call nsz float @llvm.fabs.f32(float %331)
   %333 = fcmp nsz olt float %332, %171

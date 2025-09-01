@@ -833,7 +833,7 @@ arraysize.exit89.i:                               ; preds = %._crit_edge.i86.i, 
 
 91:                                               ; preds = %101, %arraysize.exit89.i
   %indvars.iv.i = phi i64 [ 0, %arraysize.exit89.i ], [ %indvars.iv.next.i, %101 ]
-  %92 = getelementptr inbounds nuw [3 x i32], ptr %90, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv.i
   %93 = load i32, ptr %92, align 4
   %.not64.i = icmp eq i32 %93, -1
   br i1 %.not64.i, label %101, label %94

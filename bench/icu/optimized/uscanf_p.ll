@@ -274,7 +274,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
 
 107:                                              ; preds = %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
   %108 = zext nneg i16 %105 to i64
-  %109 = getelementptr inbounds nuw [108 x %struct.u_scanf_info], ptr @_ZL15g_u_scanf_infos, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw %struct.u_scanf_info, ptr @_ZL15g_u_scanf_infos, i64 %108
   %110 = load i32, ptr %109, align 16, !tbaa !26
   %.not36 = icmp eq i32 %110, 2
   br i1 %.not36, label %113, label %111
@@ -2097,7 +2097,7 @@ define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFI
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %15 = load i16, ptr %3, align 2, !tbaa !7
-  %16 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !7
   %18 = icmp eq i16 %15, %17
   br i1 %18, label %19, label %.critedge.thread.loopexit

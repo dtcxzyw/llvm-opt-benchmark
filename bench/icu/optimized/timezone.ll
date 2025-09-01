@@ -1539,7 +1539,7 @@ _ZN6icu_775Grego11monthLengthEii.exit.us:         ; preds = %_ZN6icu_775Grego10i
   %36 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i.us ], [ 12, %33 ]
   %37 = add nsw i32 %36, %26
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !21
   %41 = sext i8 %40 to i32
   %42 = load ptr, ptr %0, align 8, !tbaa !19
@@ -1580,7 +1580,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %57, %_ZN6icu_775Gre
   %60 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i ], [ 12, %57 ]
   %61 = add nsw i32 %60, %50
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %62
+  %63 = getelementptr inbounds i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !21
   %65 = sext i8 %64 to i32
   %66 = load ptr, ptr %0, align 8, !tbaa !19
@@ -4424,7 +4424,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778TimeZone17get
 
 33:                                               ; preds = %20
   %34 = sext i32 %29 to i64
-  %35 = getelementptr inbounds [128 x i8], ptr %6, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr %6, i64 %34
   store i8 0, ptr %35, align 1, !tbaa !21
   %36 = call ptr @ures_getByKey_77(ptr noundef %15, ptr noundef nonnull %6, ptr noundef %15, ptr noundef nonnull %5)
   %37 = load i32, ptr %5, align 4, !tbaa !13

@@ -444,7 +444,7 @@ _ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE6resizeEm.exit: ; preds = %14
           to label %196 unwind label %242
 
 196:                                              ; preds = %194
-  %197 = getelementptr inbounds nuw [3 x %struct.anon], ptr %.ptr5.i, i64 0, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw %struct.anon, ptr %.ptr5.i, i64 %indvars.iv
   store i32 %195, ptr %197, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
@@ -4172,7 +4172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i785: ; preds = 
 
 1389:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i787, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i789
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %1390 = getelementptr inbounds nuw [3 x %struct.anon], ptr %1370, i64 0, i64 %indvars.iv1916
+  %1390 = getelementptr inbounds nuw %struct.anon, ptr %1370, i64 %indvars.iv1916
   %1391 = load ptr, ptr %1377, align 8, !tbaa !69
   %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 24
   %1393 = load ptr, ptr %1392, align 8

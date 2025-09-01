@@ -1720,7 +1720,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow9GPCForestILi5EE5trainERKSt6vecto
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %_ZNSt12__shared_ptrIN2cv7optflow18GPCTrainingSamplesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN2cv7optflow18GPCTrainingSamples6createERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_i(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.16") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %.sroa.29.8.extract.trunc)
-  %12 = getelementptr inbounds nuw [5 x %"class.cv::optflow::GPCTree"], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"class.cv::optflow::GPCTree", ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %7, align 8, !tbaa !76
   invoke void @_ZN2cv7optflow7GPCTree5trainERNS0_18GPCTrainingSamplesENS0_17GPCTrainingParamsE(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(28) %13, i64 %4, i64 %5)
           to label %14 unwind label %37
@@ -2695,7 +2695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i39: ; preds = %
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit45:            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %112 = getelementptr inbounds nuw [5 x %"class.cv::optflow::GPCTree"], ptr %80, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw %"class.cv::optflow::GPCTree", ptr %80, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8, !tbaa !26
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
@@ -2815,7 +2815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 24:                                               ; preds = %21, %24
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw [5 x %"class.cv::optflow::GPCTree"], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %"class.cv::optflow::GPCTree", ptr %22, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %6)
   %26 = load ptr, ptr %25, align 8, !tbaa !26

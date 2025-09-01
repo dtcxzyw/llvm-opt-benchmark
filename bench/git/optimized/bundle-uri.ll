@@ -231,14 +231,14 @@ define dso_local void @print_bundle_list(ptr noundef captures(none) %0, ptr noun
 .preheader:                                       ; preds = %2, %12
   %13 = phi i1 [ false, %12 ], [ true, %2 ]
   %indvars.iv = phi i64 [ 1, %12 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw [2 x %struct.anon], ptr @heuristics, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %indvars.iv
   %15 = load i32, ptr %14, align 16, !tbaa !26
   %16 = icmp eq i32 %15, %11
   br i1 %16, label %17, label %12
 
 17:                                               ; preds = %.preheader
   %18 = zext i32 %11 to i64
-  %19 = getelementptr inbounds nuw [2 x %struct.anon], ptr @heuristics, i64 0, i64 %18, i32 1
+  %19 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %18, i32 1
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %20)
   br label %.loopexit
@@ -1461,7 +1461,7 @@ define internal fastcc range(i32 -1, 1) i32 @bundle_list_update(ptr noundef %0, 
 .preheader:                                       ; preds = %32, %44
   %34 = phi i1 [ false, %44 ], [ true, %32 ]
   %indvars.iv = phi i64 [ 1, %44 ], [ 0, %32 ]
-  %35 = getelementptr inbounds nuw [2 x %struct.anon], ptr @heuristics, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %indvars.iv
   %36 = load i32, ptr %35, align 16, !tbaa !26
   %.not43 = icmp eq i32 %36, 0
   br i1 %.not43, label %44, label %37

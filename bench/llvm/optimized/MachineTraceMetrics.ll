@@ -1476,7 +1476,7 @@ define dso_local noundef ptr @_ZN4llvm19MachineTraceMetrics11getEnsembleENS_20Ma
   %4 = alloca %"class.(anonymous namespace)::LocalEnsemble", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [2 x %"class.std::unique_ptr"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !218
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %86

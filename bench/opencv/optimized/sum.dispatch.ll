@@ -58,7 +58,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline10getSumFuncEi(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %4
 }
@@ -2735,7 +2735,7 @@ define hidden noundef ptr @_ZN2cv10getSumFuncEi(i32 noundef %0) local_unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv10getSumFuncEiE24__cv_trace_location_fn26)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !20
@@ -2825,7 +2825,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 
 .noexc76:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !20
@@ -3020,7 +3020,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us:    ; preds = %_ZNK2cv3Mat8elemSiz
   %98 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4, !tbaa !7
   %100 = sitofp i32 %99 to double
-  %101 = getelementptr inbounds nuw [4 x double], ptr %0, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %102 = load double, ptr %101, align 8, !tbaa !52
   %103 = fadd double %102, %100
   store double %103, ptr %101, align 8, !tbaa !52

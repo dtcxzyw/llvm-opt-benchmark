@@ -2907,7 +2907,7 @@ _ZNSt6vectorIPN10open_spiel10algorithms7MDPNodeESaIS3_EE17_S_check_init_lenEmRKS
 
 switch.lookup:                                    ; preds = %326
   %339 = zext nneg i32 %329 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK10open_spiel10algorithms22TabularBestResponseMDP10GetNodeKeyB5cxx11ERKNS_5StateEi, i64 0, i64 %339
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel10algorithms22TabularBestResponseMDP10GetNodeKeyB5cxx11ERKNS_5StateEi, i64 %339
   %switch.load = load i64, ptr %switch.gep, align 8
   %340 = load ptr, ptr %1, align 8, !noalias !55
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 %switch.load
@@ -3954,7 +3954,7 @@ _ZNSt6vectorIPN10open_spiel10algorithms7MDPNodeESaIS3_EED2Ev.exit357: ; preds = 
 
 switch.lookup1249:                                ; preds = %698
   %712 = zext nneg i32 %702 to i64
-  %switch.gep1250 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK10open_spiel10algorithms22TabularBestResponseMDP10GetNodeKeyB5cxx11ERKNS_5StateEi, i64 0, i64 %712
+  %switch.gep1250 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel10algorithms22TabularBestResponseMDP10GetNodeKeyB5cxx11ERKNS_5StateEi, i64 %712
   %switch.load1251 = load i64, ptr %switch.gep1250, align 8
   %713 = load ptr, ptr %1, align 8, !noalias !62
   %714 = getelementptr inbounds nuw i8, ptr %713, i64 %switch.load1251
@@ -4779,7 +4779,7 @@ define void @_ZNK10open_spiel10algorithms22TabularBestResponseMDP10GetNodeKeyB5c
 
 switch.lookup:                                    ; preds = %4
   %20 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK10open_spiel10algorithms22TabularBestResponseMDP10GetNodeKeyB5cxx11ERKNS_5StateEi, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel10algorithms22TabularBestResponseMDP10GetNodeKeyB5cxx11ERKNS_5StateEi, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   %21 = load ptr, ptr %2, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load

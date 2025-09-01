@@ -114,7 +114,7 @@ define noalias noundef ptr @dt_control_signal_init() local_unnamed_addr #0 {
 
 14:                                               ; preds = %0, %30
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %30 ]
-  %15 = getelementptr inbounds nuw [47 x %struct.dt_signal_description], ptr @_signal_description, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.dt_signal_description, ptr @_signal_description, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = load i64, ptr @_signal_type, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -234,7 +234,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 6:                                                ; preds = %2
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [47 x %struct.dt_signal_description], ptr @_signal_description, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.dt_signal_description, ptr @_signal_description, i64 %7
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %.not52 = icmp eq ptr %9, null
   br i1 %.not52, label %103, label %10
@@ -509,7 +509,7 @@ define void @dt_control_signal_connect(ptr noundef readonly captures(none) %0, i
   %5 = load ptr, ptr %0, align 8, !tbaa !21
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef 80) #11
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [47 x %struct.dt_signal_description], ptr @_signal_description, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.dt_signal_description, ptr @_signal_description, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = tail call i64 @g_signal_connect_data(ptr noundef %6, ptr noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 0) #11
   ret void

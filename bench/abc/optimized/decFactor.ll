@@ -101,7 +101,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   %45 = lshr i32 -1, %44
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %47 = zext nneg i32 %31 to i64
-  %48 = getelementptr inbounds nuw [1 x i32], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
   store i32 %45, ptr %48, align 4, !tbaa !24
   %49 = shl i32 %30, 2
   %50 = and i32 %49, 67108860
@@ -136,7 +136,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   %60 = xor i32 %59, -1
   %61 = lshr i64 %indvars.iv.i, 4
   %62 = and i64 %61, 268435455
-  %63 = getelementptr inbounds nuw [1 x i32], ptr %52, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr %52, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !24
   %65 = and i32 %64, %60
   store i32 %65, ptr %63, align 4, !tbaa !24
@@ -699,7 +699,7 @@ define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef re
   %.015 = phi i32 [ 0, %.lr.ph ], [ %50, %48 ]
   %12 = lshr i32 %.015, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [1 x i32], ptr %9, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !24
   %16 = and i32 %.015, 31
   %17 = shl nuw i32 1, %16

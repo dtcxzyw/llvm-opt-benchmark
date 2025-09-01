@@ -30536,7 +30536,7 @@ define internal { i32, i8 } @_ZN4fish6expand8Expander15stage_wildcards17h3d14d82
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4fish6expand8Expander15stage_wildcards17h3d14d827ec6d6530E, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4fish6expand8Expander15stage_wildcards17h3d14d827ec6d6530E, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %.sroa.01.02.i, align 4
   br label %42
@@ -32199,10 +32199,10 @@ switch.lookup:
   %8 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %8)
   %9 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [28 x i64], ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE", i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext nneg i8 %1 to i64
-  %switch.gep12 = getelementptr inbounds nuw [28 x ptr], ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE.191", i64 0, i64 %10
+  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE.191", i64 %10
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.8.val, i64 56
   %12 = load ptr, ptr %11, align 8, !invariant.load !3
@@ -32219,10 +32219,10 @@ switch.lookup:
 
 switch.lookup14:                                  ; preds = %switch.lookup
   %15 = zext nneg i8 %1 to i64
-  %switch.gep15 = getelementptr inbounds nuw [28 x i64], ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE.192", i64 0, i64 %15
+  %switch.gep15 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE.192", i64 %15
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %16 = zext nneg i8 %1 to i64
-  %switch.gep17 = getelementptr inbounds nuw [28 x ptr], ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE.193", i64 0, i64 %16
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN4fish9highlight9highlight22HighlightColorResolver21resolve_spec_uncached28_$u7b$$u7b$closure$u7d$$u7d$17h6c9ca148b0a72f9aE.193", i64 %16
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   call void %12(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %.0.val, ptr noalias noundef nonnull readonly align 4 %switch.load18, i64 noundef %switch.load16), !noalias !2558
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h2c8db99dc2ce29c3E.exit"
@@ -35244,7 +35244,7 @@ switch.lookup:                                    ; preds = %3
   %.val8 = load ptr, ptr %23, align 8
   %24 = tail call noundef i8 %.val8(ptr noundef nonnull align 1 %17)
   %25 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @"switch.table._ZN82_$LT$fish..highlight..highlight..Highlighter$u20$as$u20$fish..ast..NodeVisitor$GT$5visit17h0738a7be78e541fdE.195", i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN82_$LT$fish..highlight..highlight..Highlighter$u20$as$u20$fish..ast..NodeVisitor$GT$5visit17h0738a7be78e541fdE.195", i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = tail call { ptr, ptr } %.val7(ptr noundef nonnull align 1 %17)
   %27 = extractvalue { ptr, ptr } %26, 0
@@ -35316,7 +35316,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup51:                                  ; preds = %57
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep52 = getelementptr inbounds nuw [9 x i32], ptr @"switch.table._ZN82_$LT$fish..highlight..highlight..Highlighter$u20$as$u20$fish..ast..NodeVisitor$GT$5visit17h0738a7be78e541fdE.194", i64 0, i64 %61
+  %switch.gep52 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN82_$LT$fish..highlight..highlight..Highlighter$u20$as$u20$fish..ast..NodeVisitor$GT$5visit17h0738a7be78e541fdE.194", i64 %61
   %switch.load53 = load i32, ptr %switch.gep52, align 4
   br label %_ZN4fish9highlight9highlight11Highlighter11visit_token17hd072a6b0b294b44aE.exit
 
@@ -35561,7 +35561,7 @@ switch.lookup54:                                  ; preds = %178
   %.val40.i = load i64, ptr %184, align 8, !alias.scope !2716, !noalias !2719
   %185 = tail call noundef i8 @"_ZN77_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..Keyword$GT$7keyword17h4eede38d75b4ca4aE"(ptr noundef nonnull readonly align 1 %181), !noalias !2716
   %186 = zext nneg i8 %185 to i64
-  %switch.gep55 = getelementptr inbounds nuw [19 x i32], ptr @"switch.table._ZN82_$LT$fish..highlight..highlight..Highlighter$u20$as$u20$fish..ast..NodeVisitor$GT$5visit17h0738a7be78e541fdE.195", i64 0, i64 %186
+  %switch.gep55 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN82_$LT$fish..highlight..highlight..Highlighter$u20$as$u20$fish..ast..NodeVisitor$GT$5visit17h0738a7be78e541fdE.195", i64 %186
   %switch.load56 = load i32, ptr %switch.gep55, align 4
   %187 = tail call { ptr, ptr } @"_ZN39_$LT$T$u20$as$u20$fish..ast..AsNode$GT$7as_node17h1b13ca67e673c4b0E"(ptr noundef nonnull readonly align 1 %181), !noalias !2716
   %188 = extractvalue { ptr, ptr } %187, 0

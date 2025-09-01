@@ -17868,7 +17868,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE6assureIcEEPKDaj.exit: ; preds = %4
   %63 = phi i1 [ false, %select.unfold.i.i.i.i.i ], [ true, %61 ]
   %64 = phi i1 [ true, %select.unfold.i.i.i.i.i ], [ false, %61 ]
   %.06.i.i.i.i.i = phi i64 [ 1, %select.unfold.i.i.i.i.i ], [ 0, %61 ]
-  %65 = getelementptr inbounds nuw [2 x ptr], ptr %0, i64 0, i64 %.06.i.i.i.i.i
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.06.i.i.i.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !234
   %.not4.i.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not4.i.i.i.i.i, label %_ZN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIcNS_6entityESaIcEvEENS_14basic_registryIS4_SaIS4_EEEEEKNS2_INS3_IdS4_SaIdEvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IiS4_SaIiEvEES9_EEEEEvE7storageISF_EEvRT_.exit.i, label %select.unfold.i.i.i.i.i
@@ -17916,7 +17916,7 @@ _ZN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIcNS_6e
   %85 = phi i1 [ false, %select.unfold.i.i.i.i16.i ], [ true, %84 ]
   %86 = phi i1 [ true, %select.unfold.i.i.i.i16.i ], [ false, %84 ]
   %.06.i.i.i.i14.i = phi i64 [ 1, %select.unfold.i.i.i.i16.i ], [ 0, %84 ]
-  %87 = getelementptr inbounds nuw [2 x ptr], ptr %0, i64 0, i64 %.06.i.i.i.i14.i
+  %87 = getelementptr inbounds nuw ptr, ptr %0, i64 %.06.i.i.i.i14.i
   %88 = load ptr, ptr %87, align 8, !tbaa !234
   %.not4.i.i.i.i15.i = icmp eq ptr %88, null
   br i1 %.not4.i.i.i.i15.i, label %_ZZNK4entt14basic_registryINS_6entityESaIS1_EE4viewIKcJKdEJKiEEENS_10basic_viewINS_5get_tIJNS_11storage_forIKT_S1_SaINSt12remove_constISC_E4typeEEE4typeEDpNSA_IKT0_S1_SaINSD_ISK_E4typeEEE4typeEEEENS_9exclude_tIJDpNSA_IKT1_S1_SaINSD_ISU_E4typeEEE4typeEEEEvEENSS_IJDpST_EEEENKUlDpPKT_E_clIJNS_16basic_sigh_mixinINS_13basic_storageIiS1_SaIiEvEES3_EENS1B_INS1C_IdS1_SaIdEvEES3_EENS1B_INS1C_IcS1_SaIcEvEES3_EEEEEDaS18_.exit, label %select.unfold.i.i.i.i16.i

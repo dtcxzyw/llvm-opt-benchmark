@@ -1898,7 +1898,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$LP$http..header..name..Head
   br i1 %23, label %"_ZN4core3ptr51drop_in_place$LT$actix_http..header..map..Value$GT$17h495988fc8289a685E.exit", label %24
 
 24:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h5dc345c6e2bb4256E.exit.i.i.i.i"
-  %25 = getelementptr inbounds nuw [0 x { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }], ptr %22, i64 0, i64 %.0.i.i.i.i
+  %25 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %22, i64 %.0.i.i.i.i
   %26 = add nuw nsw i64 %.0.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !504)
@@ -1925,7 +1925,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$LP$http..header..name..Head
   br label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h5dc345c6e2bb4256E.exit7.i.i.i.i"
 
 38:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h5dc345c6e2bb4256E.exit7.i.i.i.i"
-  %39 = getelementptr inbounds [0 x { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }], ptr %22, i64 0, i64 %.1.i.i.i.i
+  %39 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %22, i64 %.1.i.i.i.i
   %40 = add i64 %.1.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)

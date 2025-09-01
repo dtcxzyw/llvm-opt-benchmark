@@ -164,7 +164,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
 
 58:                                               ; preds = %.loopexit
   %59 = zext nneg i8 %56 to i64
-  %60 = getelementptr inbounds nuw [5 x i8], ptr @frame_sizes, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @frame_sizes, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !4
   %62 = zext i8 %61 to i32
   %.not99 = icmp samesign ugt i32 %6, %62
@@ -193,7 +193,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load i32, ptr %49, align 4, !tbaa !14
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [6 x %struct.InterleavePacket], ptr %77, i64 0, i64 %79
+  %80 = getelementptr inbounds %struct.InterleavePacket, ptr %77, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %65, ptr %81, align 4, !tbaa !10
   store i32 0, ptr %80, align 4, !tbaa !35
@@ -232,7 +232,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @return_stored_frame(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [6 x %struct.InterleavePacket], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.InterleavePacket, ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1952
   %12 = load i32, ptr %11, align 4, !tbaa !15
   %.not = icmp ne i32 %12, 0
@@ -276,14 +276,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @return_stored_frame(ptr no
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds [315 x i8], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = icmp ugt i8 %37, 4
   br i1 %38, label %77, label %39
 
 39:                                               ; preds = %33
   %40 = zext nneg i8 %37 to i64
-  %41 = getelementptr inbounds nuw [5 x i8], ptr @frame_sizes, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @frame_sizes, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = zext i8 %42 to i32
   %44 = add nsw i32 %32, %43
@@ -300,7 +300,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @return_stored_frame(ptr no
   %51 = load ptr, ptr %50, align 8, !tbaa !21
   %52 = load i32, ptr %10, align 4, !tbaa !35
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [315 x i8], ptr %34, i64 0, i64 %53
+  %54 = getelementptr inbounds i8, ptr %34, i64 %53
   %55 = zext i8 %42 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %54, i64 %55, i1 false)
   %56 = load i32, ptr %10, align 4, !tbaa !35

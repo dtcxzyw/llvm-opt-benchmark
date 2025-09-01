@@ -1149,7 +1149,7 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
   %5 = trunc i64 %4 to i32
   %6 = and i32 %5, 63
   %7 = and i64 %4, 63
-  %8 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   store i8 -128, ptr %8, align 1, !tbaa !13
   %.029 = add nuw nsw i32 %6, 1
   %9 = and i32 %.029, 3

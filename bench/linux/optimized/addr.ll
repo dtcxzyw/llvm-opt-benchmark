@@ -194,7 +194,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
 45:                                               ; preds = %39
   %46 = getelementptr i8, ptr %29, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %46, i64 %43, i1 false)
-  %47 = getelementptr [13 x i8], ptr %6, i64 0, i64 %43
+  %47 = getelementptr i8, ptr %6, i64 %43
   store i8 0, ptr %47, align 1
   %48 = call ptr @dev_get_by_name(ptr noundef %0, ptr noundef nonnull %6) #10
   %49 = icmp eq ptr %48, null
@@ -382,7 +382,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_uaddr2sockaddr(ptr noundef %0
 10:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(61) %6, i8 0, i64 61, i1 false), !annotation !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %2, i1 false)
-  %11 = getelementptr [61 x i8], ptr %6, i64 0, i64 %2
+  %11 = getelementptr i8, ptr %6, i64 %2
   store i8 0, ptr %11, align 1
   %12 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 46) #10
   %13 = icmp eq ptr %12, null

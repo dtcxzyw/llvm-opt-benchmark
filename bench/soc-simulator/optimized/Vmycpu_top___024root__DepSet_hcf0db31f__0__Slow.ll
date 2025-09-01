@@ -76,7 +76,7 @@ define dso_local void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top
   %.04959 = phi i32 [ 0, %1 ], [ %10, %6 ]
   %7 = and i32 %.04959, 511
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [512 x i64], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %3, i64 %8
   store i64 0, ptr %9, align 8
   %10 = add i32 %.04959, 1
   %11 = zext i32 %10 to i64
@@ -96,7 +96,7 @@ define dso_local void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top
   %.04861 = phi i32 [ 0, %.preheader58 ], [ %22, %18 ]
   %19 = and i32 %.04861, 511
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [512 x i64], ptr %5, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %5, i64 %20
   store i64 0, ptr %21, align 8
   %22 = add i32 %.04861, 1
   %23 = zext i32 %22 to i64
@@ -116,7 +116,7 @@ define dso_local void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top
   %.04763 = phi i32 [ 0, %.preheader56 ], [ %34, %30 ]
   %31 = and i32 %.04763, 1023
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [1024 x i32], ptr %17, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %17, i64 %32
   store i32 0, ptr %33, align 4
   %34 = add i32 %.04763, 1
   %35 = zext i32 %34 to i64
@@ -155,7 +155,7 @@ define dso_local void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top
   %.04665 = phi i32 [ 0, %.preheader54 ], [ %55, %51 ]
   %52 = and i32 %.04665, 1023
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [1024 x i32], ptr %29, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %29, i64 %53
   store i32 0, ptr %54, align 4
   %55 = add i32 %.04665, 1
   %56 = zext i32 %55 to i64
@@ -228,7 +228,7 @@ define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP
   br i1 %4, label %5, label %_ZNK12VlTriggerVecILm2EE3anyEv.exit
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw [1 x i64], ptr %2, i64 0, i64 %.0.i
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %.0.i
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %3, label %8, !llvm.loop !10
@@ -347,7 +347,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %59 = lshr i32 %58, 2
   %60 = and i32 %59, 15
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 158
   store i8 %63, ptr %64, align 2
@@ -407,7 +407,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %111 = lshr i32 %110, 6
   %112 = and i32 %111, 63
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [64 x i8], ptr %108, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = lshr i8 %115, 2
   %117 = and i8 %116, 1
@@ -690,7 +690,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %299 = load i8, ptr %298, align 4
   %300 = zext i8 %299 to i64
-  %301 = getelementptr inbounds nuw [16 x %struct.VlWide], ptr %297, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw %struct.VlWide, ptr %297, i64 %300
   %302 = load i32, ptr %301, align 4
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i32 %302, ptr %303, align 4
@@ -711,7 +711,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %314 = add i8 %313, 1
   %315 = and i8 %314, 15
   %316 = zext nneg i8 %315 to i64
-  %317 = getelementptr inbounds nuw [16 x %struct.VlWide], ptr %311, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw %struct.VlWide, ptr %311, i64 %316
   %318 = load i32, ptr %317, align 4
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 828
   store i32 %318, ptr %319, align 4
@@ -724,7 +724,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 836
   store i32 %324, ptr %325, align 4
   %326 = zext i8 %313 to i64
-  %327 = getelementptr inbounds nuw [16 x %struct.VlWide], ptr %311, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw %struct.VlWide, ptr %311, i64 %326
   %328 = load i32, ptr %327, align 4
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i32 %328, ptr %329, align 4
@@ -3976,7 +3976,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %1874 = lshr i32 %1866, 6
   %1875 = and i32 %1874, 63
   %1876 = zext nneg i32 %1875 to i64
-  %1877 = getelementptr inbounds nuw [64 x i8], ptr %1873, i64 0, i64 %1876
+  %1877 = getelementptr inbounds nuw i8, ptr %1873, i64 %1876
   %1878 = load i8, ptr %1877, align 1
   %1879 = lshr i8 %1878, 2
   %1880 = and i8 %1879, 1
@@ -4244,7 +4244,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i8 %2045, ptr %2046, align 8
   %2047 = load i8, ptr %1882, align 1
   %2048 = zext i8 %2047 to i64
-  %2049 = getelementptr inbounds nuw [2 x i64], ptr %203, i64 0, i64 %2048
+  %2049 = getelementptr inbounds nuw i64, ptr %203, i64 %2048
   %2050 = load i64, ptr %2049, align 8
   %2051 = lshr i64 %2050, 32
   %2052 = trunc nuw i64 %2051 to i32
@@ -4258,7 +4258,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2059 = lshr i32 %2058, 6
   %2060 = and i32 %2059, 63
   %2061 = zext nneg i32 %2060 to i64
-  %2062 = getelementptr inbounds nuw [64 x i8], ptr %1873, i64 0, i64 %2061
+  %2062 = getelementptr inbounds nuw i8, ptr %1873, i64 %2061
   %2063 = load i8, ptr %2062, align 1
   %2064 = lshr i8 %2063, 1
   %2065 = and i8 %2064, 1
@@ -4282,7 +4282,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2082 = lshr i32 %2081, 6
   %2083 = and i32 %2082, 63
   %2084 = zext nneg i32 %2083 to i64
-  %2085 = getelementptr inbounds nuw [64 x i8], ptr %108, i64 0, i64 %2084
+  %2085 = getelementptr inbounds nuw i8, ptr %108, i64 %2084
   %2086 = load i8, ptr %2085, align 1
   %2087 = lshr i8 %2086, 3
   %2088 = load i8, ptr %1977, align 1
@@ -4296,7 +4296,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2096 = getelementptr inbounds nuw i8, ptr %0, i64 203
   store i8 %2095, ptr %2096, align 1
   %2097 = zext nneg i8 %1999 to i64
-  %2098 = getelementptr inbounds nuw [8 x %struct.VlWide], ptr %103, i64 0, i64 %2097
+  %2098 = getelementptr inbounds nuw %struct.VlWide, ptr %103, i64 %2097
   %2099 = load i32, ptr %2098, align 4
   %2100 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store i32 %2099, ptr %2100, align 8
@@ -4311,7 +4311,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2107 = getelementptr inbounds nuw i8, ptr %0, i64 1473
   store i8 %1999, ptr %2107, align 1
   %2108 = zext nneg i8 %2007 to i64
-  %2109 = getelementptr inbounds nuw [8 x %struct.VlWide], ptr %103, i64 0, i64 %2108
+  %2109 = getelementptr inbounds nuw %struct.VlWide, ptr %103, i64 %2108
   %2110 = load i32, ptr %2109, align 4
   %2111 = getelementptr inbounds nuw i8, ptr %0, i64 804
   store i32 %2110, ptr %2111, align 4
@@ -4430,7 +4430,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2197 = icmp eq i32 %2196, 5
   %2198 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %2199 = zext nneg i8 %2095 to i64
-  %2200 = getelementptr inbounds nuw [2 x i32], ptr %658, i64 0, i64 %2199
+  %2200 = getelementptr inbounds nuw i32, ptr %658, i64 %2199
   %.in3467 = select i1 %2197, ptr %2198, ptr %2200
   %2201 = load i32, ptr %.in3467, align 4
   %2202 = trunc nuw nsw i32 %2188 to i8
@@ -5011,10 +5011,10 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2636 = lshr i32 %2635, 2
   %2637 = and i32 %2636, 15
   %2638 = zext nneg i32 %2637 to i64
-  %2639 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 0, i64 %2638
+  %2639 = getelementptr inbounds nuw i8, ptr %55, i64 %2638
   %2640 = load i8, ptr %2639, align 1
   %2641 = zext i8 %2640 to i64
-  %2642 = getelementptr inbounds nuw [64 x i8], ptr %2634, i64 0, i64 %2641
+  %2642 = getelementptr inbounds nuw i8, ptr %2634, i64 %2641
   %2643 = load i8, ptr %2642, align 1
   %2644 = lshr i8 %2643, 1
   %2645 = and i8 %2633, %2632
@@ -5336,7 +5336,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2812 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %2813 = and i32 %2789, 31
   %2814 = zext nneg i32 %2813 to i64
-  %2815 = getelementptr inbounds nuw [32 x i32], ptr %2812, i64 0, i64 %2814
+  %2815 = getelementptr inbounds nuw i32, ptr %2812, i64 %2814
   %2816 = load i32, ptr %2815, align 4
   br label %2817
 
@@ -7813,7 +7813,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 
 611:                                              ; preds = %1, %611
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %611 ]
-  %612 = getelementptr inbounds nuw [16 x %struct.VlWide], ptr %610, i64 0, i64 %indvars.iv
+  %612 = getelementptr inbounds nuw %struct.VlWide, ptr %610, i64 %indvars.iv
   %613 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %612)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -7858,7 +7858,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 640:                                              ; preds = %614, %640
   %indvars.iv572 = phi i64 [ 0, %614 ], [ %indvars.iv.next573, %640 ]
   %641 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %642 = getelementptr inbounds nuw [32 x i32], ptr %638, i64 0, i64 %indvars.iv572
+  %642 = getelementptr inbounds nuw i32, ptr %638, i64 %indvars.iv572
   store i32 %641, ptr %642, align 4
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
   %exitcond575.not = icmp eq i64 %indvars.iv.next573, 32
@@ -7872,7 +7872,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %indvars.iv576 = phi i64 [ 0, %.preheader540 ], [ %indvars.iv.next577, %644 ]
   %645 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
   %646 = trunc i32 %645 to i8
-  %647 = getelementptr inbounds nuw [16 x i8], ptr %639, i64 0, i64 %indvars.iv576
+  %647 = getelementptr inbounds nuw i8, ptr %639, i64 %indvars.iv576
   store i8 %646, ptr %647, align 1
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond579.not = icmp eq i64 %indvars.iv.next577, 16
@@ -7882,7 +7882,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %indvars.iv580 = phi i64 [ 0, %.preheader539 ], [ %indvars.iv.next581, %648 ]
   %649 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 2)
   %650 = trunc i32 %649 to i8
-  %651 = getelementptr inbounds nuw [64 x i8], ptr %643, i64 0, i64 %indvars.iv580
+  %651 = getelementptr inbounds nuw i8, ptr %643, i64 %indvars.iv580
   store i8 %650, ptr %651, align 1
   %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
   %exitcond583.not = icmp eq i64 %indvars.iv.next581, 64
@@ -8081,7 +8081,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 
 783:                                              ; preds = %652, %783
   %indvars.iv584 = phi i64 [ 0, %652 ], [ %indvars.iv.next585, %783 ]
-  %784 = getelementptr inbounds nuw [8 x %struct.VlWide], ptr %781, i64 0, i64 %indvars.iv584
+  %784 = getelementptr inbounds nuw %struct.VlWide, ptr %781, i64 %indvars.iv584
   %785 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 74, ptr noundef nonnull %784)
   %indvars.iv.next585 = add nuw nsw i64 %indvars.iv584, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next585, 8
@@ -8095,7 +8095,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %indvars.iv588 = phi i64 [ 0, %.preheader538 ], [ %indvars.iv.next589, %787 ]
   %788 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 8)
   %789 = trunc i32 %788 to i8
-  %790 = getelementptr inbounds nuw [3 x i8], ptr %782, i64 0, i64 %indvars.iv588
+  %790 = getelementptr inbounds nuw i8, ptr %782, i64 %indvars.iv588
   store i8 %789, ptr %790, align 1
   %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
   %exitcond591.not = icmp eq i64 %indvars.iv.next589, 3
@@ -8108,7 +8108,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 792:                                              ; preds = %.preheader537, %792
   %indvars.iv592 = phi i64 [ 0, %.preheader537 ], [ %indvars.iv.next593, %792 ]
   %793 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 19)
-  %794 = getelementptr inbounds nuw [3 x i32], ptr %786, i64 0, i64 %indvars.iv592
+  %794 = getelementptr inbounds nuw i32, ptr %786, i64 %indvars.iv592
   store i32 %793, ptr %794, align 4
   %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
   %exitcond595.not = icmp eq i64 %indvars.iv.next593, 3
@@ -8118,7 +8118,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %indvars.iv596 = phi i64 [ 0, %.preheader536 ], [ %indvars.iv.next597, %795 ]
   %796 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 3)
   %797 = trunc i32 %796 to i8
-  %798 = getelementptr inbounds nuw [3 x i8], ptr %791, i64 0, i64 %indvars.iv596
+  %798 = getelementptr inbounds nuw i8, ptr %791, i64 %indvars.iv596
   store i8 %797, ptr %798, align 1
   %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596, 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next597, 3
@@ -8134,7 +8134,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %indvars.iv600 = phi i64 [ 0, %799 ], [ %indvars.iv.next601, %802 ]
   %803 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 3)
   %804 = trunc i32 %803 to i8
-  %805 = getelementptr inbounds nuw [64 x i8], ptr %801, i64 0, i64 %indvars.iv600
+  %805 = getelementptr inbounds nuw i8, ptr %801, i64 %indvars.iv600
   store i8 %804, ptr %805, align 1
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond603.not = icmp eq i64 %indvars.iv.next601, 64
@@ -8269,7 +8269,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 893:                                              ; preds = %.preheader535.critedge, %893
   %indvars.iv613 = phi i64 [ 0, %.preheader535.critedge ], [ %indvars.iv.next614, %893 ]
   %894 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %895 = getelementptr inbounds nuw [512 x i64], ptr %891, i64 0, i64 %indvars.iv613
+  %895 = getelementptr inbounds nuw i64, ptr %891, i64 %indvars.iv613
   store i64 %894, ptr %895, align 8
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next614, 512
@@ -8282,7 +8282,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 897:                                              ; preds = %.preheader533, %897
   %indvars.iv617 = phi i64 [ 0, %.preheader533 ], [ %indvars.iv.next618, %897 ]
   %898 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %899 = getelementptr inbounds nuw [64 x i32], ptr %892, i64 0, i64 %indvars.iv617
+  %899 = getelementptr inbounds nuw i32, ptr %892, i64 %indvars.iv617
   store i32 %898, ptr %899, align 4
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %exitcond620.not = icmp eq i64 %indvars.iv.next618, 64
@@ -8295,7 +8295,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 901:                                              ; preds = %.preheader532, %901
   %indvars.iv621 = phi i64 [ 0, %.preheader532 ], [ %indvars.iv.next622, %901 ]
   %902 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %903 = getelementptr inbounds nuw [512 x i64], ptr %896, i64 0, i64 %indvars.iv621
+  %903 = getelementptr inbounds nuw i64, ptr %896, i64 %indvars.iv621
   store i64 %902, ptr %903, align 8
   %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
   %exitcond624.not = icmp eq i64 %indvars.iv.next622, 512
@@ -8304,7 +8304,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 904:                                              ; preds = %.preheader531, %904
   %indvars.iv625 = phi i64 [ 0, %.preheader531 ], [ %indvars.iv.next626, %904 ]
   %905 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %906 = getelementptr inbounds nuw [64 x i32], ptr %900, i64 0, i64 %indvars.iv625
+  %906 = getelementptr inbounds nuw i32, ptr %900, i64 %indvars.iv625
   store i32 %905, ptr %906, align 4
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond628.not = icmp eq i64 %indvars.iv.next626, 64
@@ -8342,7 +8342,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %indvars.iv629 = phi i64 [ 0, %907 ], [ %indvars.iv.next630, %924 ]
   %925 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
   %926 = trunc i32 %925 to i8
-  %927 = getelementptr inbounds nuw [64 x i8], ptr %922, i64 0, i64 %indvars.iv629
+  %927 = getelementptr inbounds nuw i8, ptr %922, i64 %indvars.iv629
   store i8 %926, ptr %927, align 1
   %indvars.iv.next630 = add nuw nsw i64 %indvars.iv629, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next630, 64
@@ -8350,7 +8350,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 
 928:                                              ; preds = %.preheader530, %928
   %indvars.iv633 = phi i64 [ 0, %.preheader530 ], [ %indvars.iv.next634, %928 ]
-  %929 = getelementptr inbounds nuw [4 x %struct.VlWide], ptr %923, i64 0, i64 %indvars.iv633
+  %929 = getelementptr inbounds nuw %struct.VlWide, ptr %923, i64 %indvars.iv633
   %930 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 70, ptr noundef nonnull %929)
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond636.not = icmp eq i64 %indvars.iv.next634, 4
@@ -8395,7 +8395,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 957:                                              ; preds = %931, %957
   %indvars.iv637 = phi i64 [ 0, %931 ], [ %indvars.iv.next638, %957 ]
   %958 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %959 = getelementptr inbounds nuw [16 x i32], ptr %956, i64 0, i64 %indvars.iv637
+  %959 = getelementptr inbounds nuw i32, ptr %956, i64 %indvars.iv637
   store i32 %958, ptr %959, align 4
   %indvars.iv.next638 = add nuw nsw i64 %indvars.iv637, 1
   %exitcond640.not = icmp eq i64 %indvars.iv.next638, 16
@@ -8560,7 +8560,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 1069:                                             ; preds = %.preheader529.critedge, %1069
   %indvars.iv662 = phi i64 [ 0, %.preheader529.critedge ], [ %indvars.iv.next663, %1069 ]
   %1070 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %1071 = getelementptr inbounds nuw [1024 x i32], ptr %1067, i64 0, i64 %indvars.iv662
+  %1071 = getelementptr inbounds nuw i32, ptr %1067, i64 %indvars.iv662
   store i32 %1070, ptr %1071, align 4
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %exitcond665.not = icmp eq i64 %indvars.iv.next663, 1024
@@ -8573,7 +8573,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 1073:                                             ; preds = %.preheader526, %1073
   %indvars.iv666 = phi i64 [ 0, %.preheader526 ], [ %indvars.iv.next667, %1073 ]
   %1074 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %1075 = getelementptr inbounds nuw [64 x i32], ptr %1068, i64 0, i64 %indvars.iv666
+  %1075 = getelementptr inbounds nuw i32, ptr %1068, i64 %indvars.iv666
   store i32 %1074, ptr %1075, align 4
   %indvars.iv.next667 = add nuw nsw i64 %indvars.iv666, 1
   %exitcond669.not = icmp eq i64 %indvars.iv.next667, 64
@@ -8586,7 +8586,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 1077:                                             ; preds = %.preheader525, %1077
   %indvars.iv670 = phi i64 [ 0, %.preheader525 ], [ %indvars.iv.next671, %1077 ]
   %1078 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %1079 = getelementptr inbounds nuw [1024 x i32], ptr %1072, i64 0, i64 %indvars.iv670
+  %1079 = getelementptr inbounds nuw i32, ptr %1072, i64 %indvars.iv670
   store i32 %1078, ptr %1079, align 4
   %indvars.iv.next671 = add nuw nsw i64 %indvars.iv670, 1
   %exitcond673.not = icmp eq i64 %indvars.iv.next671, 1024
@@ -8595,7 +8595,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
 1080:                                             ; preds = %.preheader, %1080
   %indvars.iv674 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next675, %1080 ]
   %1081 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %1082 = getelementptr inbounds nuw [64 x i32], ptr %1076, i64 0, i64 %indvars.iv674
+  %1082 = getelementptr inbounds nuw i32, ptr %1076, i64 %indvars.iv674
   store i32 %1081, ptr %1082, align 4
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %exitcond677.not = icmp eq i64 %indvars.iv.next675, 64

@@ -434,7 +434,7 @@ define dso_local void @lua_copy(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -510,7 +510,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %91 = sub nuw nsw i32 -1001001, %2
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %90, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw %struct.TValue, ptr %90, i64 %92
   br label %106
 
 94:                                               ; preds = %83
@@ -636,7 +636,7 @@ define dso_local void @lua_pushvalue(ptr noundef captures(none) %0, i32 noundef 
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %40 = sub nuw nsw i32 -1001001, %1
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %struct.TValue, ptr %39, i64 %41
   br label %index2value.exit
 
 43:                                               ; preds = %32
@@ -728,7 +728,7 @@ define dso_local range(i32 -1, 16) i32 @lua_type(ptr noundef readonly captures(n
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -765,9 +765,9 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local ptr @lua_typename(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = add nsw i32 %1, 1
-  %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [12 x ptr], ptr @luaT_typenames_, i64 0, i64 %4
+  %3 = sext i32 %1 to i64
+  %4 = getelementptr ptr, ptr @luaT_typenames_, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   ret ptr %6
 }
@@ -835,7 +835,7 @@ define dso_local range(i32 0, 2) i32 @lua_iscfunction(ptr noundef readonly captu
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -924,7 +924,7 @@ define dso_local range(i32 0, 2) i32 @lua_isinteger(ptr noundef readonly capture
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -1013,7 +1013,7 @@ define dso_local i32 @lua_isnumber(ptr noundef readonly captures(none) %0, i32 n
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -1110,7 +1110,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef readonly captures
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -1199,7 +1199,7 @@ define dso_local range(i32 0, 2) i32 @lua_isuserdata(ptr noundef readonly captur
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -1288,7 +1288,7 @@ define dso_local i32 @lua_rawequal(ptr noundef readonly captures(none) %0, i32 n
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -1364,7 +1364,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %91 = sub nuw nsw i32 -1001001, %2
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %90, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw %struct.TValue, ptr %90, i64 %92
   br label %index2value.exit15
 
 94:                                               ; preds = %83
@@ -1498,7 +1498,7 @@ define dso_local i32 @lua_compare(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = sub nuw nsw i32 -1001001, %1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.TValue, ptr %43, i64 %45
   br label %index2value.exit
 
 47:                                               ; preds = %36
@@ -1574,7 +1574,7 @@ index2value.exit:                                 ; preds = %8, %14, %20, %27, %
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %92 = sub nuw nsw i32 -1001001, %2
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %91, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %struct.TValue, ptr %91, i64 %93
   br label %index2value.exit25
 
 95:                                               ; preds = %84
@@ -1690,7 +1690,7 @@ define dso_local i32 @lua_numbertocstring(ptr noundef readonly captures(none) %0
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -1814,7 +1814,7 @@ define dso_local double @lua_tonumberx(ptr noundef readonly captures(none) %0, i
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = sub nuw nsw i32 -1001001, %1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.TValue, ptr %43, i64 %45
   br label %index2value.exit
 
 47:                                               ; preds = %36
@@ -1926,7 +1926,7 @@ define dso_local i64 @lua_tointegerx(ptr noundef readonly captures(none) %0, i32
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = sub nuw nsw i32 -1001001, %1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.TValue, ptr %43, i64 %45
   br label %index2value.exit
 
 47:                                               ; preds = %36
@@ -2037,7 +2037,7 @@ define dso_local range(i32 0, 2) i32 @lua_toboolean(ptr noundef readonly capture
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -2127,7 +2127,7 @@ define dso_local ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -2231,7 +2231,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %102 = sub nuw nsw i32 -1001001, %1
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %101, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %struct.TValue, ptr %101, i64 %103
   br label %index2value.exit30
 
 105:                                              ; preds = %94
@@ -2352,7 +2352,7 @@ define dso_local i64 @lua_rawlen(ptr noundef readonly captures(none) %0, i32 nou
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -2473,7 +2473,7 @@ define dso_local ptr @lua_tocfunction(ptr noundef readonly captures(none) %0, i3
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -2575,7 +2575,7 @@ define dso_local ptr @lua_touserdata(ptr noundef readonly captures(none) %0, i32
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -2684,7 +2684,7 @@ define dso_local ptr @lua_tothread(ptr noundef readonly captures(none) %0, i32 n
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -2778,7 +2778,7 @@ define dso_local ptr @lua_topointer(ptr noundef readonly captures(none) %0, i32 
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -3129,7 +3129,7 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %15, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.TValue, ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %16, align 8, !tbaa !20
   %22 = getelementptr inbounds %union.StackValue, ptr %21, i64 %18
   %23 = getelementptr inbounds nuw %union.StackValue, ptr %22, i64 %indvars.iv
@@ -3337,7 +3337,7 @@ define dso_local range(i32 0, 16) i32 @lua_gettable(ptr noundef %0, i32 noundef 
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -3451,7 +3451,7 @@ define dso_local range(i32 0, 16) i32 @lua_getfield(ptr noundef %0, i32 noundef 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -3576,7 +3576,7 @@ define dso_local range(i32 0, 16) i32 @lua_geti(ptr noundef %0, i32 noundef %1, 
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = sub nuw nsw i32 -1001001, %1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.TValue, ptr %43, i64 %45
   br label %index2value.exit
 
 47:                                               ; preds = %36
@@ -3727,7 +3727,7 @@ define dso_local range(i32 0, 16) i32 @lua_rawget(ptr noundef captures(none) %0,
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %gettable.exit
 
 45:                                               ; preds = %34
@@ -3833,7 +3833,7 @@ define dso_local range(i32 0, 16) i32 @lua_rawgeti(ptr noundef captures(none) %0
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %gettable.exit
 
 46:                                               ; preds = %35
@@ -3975,7 +3975,7 @@ define dso_local range(i32 0, 16) i32 @lua_rawgetp(ptr noundef captures(none) %0
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = sub nuw nsw i32 -1001001, %1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.TValue, ptr %43, i64 %45
   br label %gettable.exit
 
 47:                                               ; preds = %36
@@ -4121,7 +4121,7 @@ define dso_local range(i32 0, 2) i32 @lua_getmetatable(ptr noundef captures(none
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -4161,7 +4161,7 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   %64 = load ptr, ptr %63, align 8, !tbaa !23
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 480
   %66 = zext nneg i8 %55 to i64
-  %67 = getelementptr inbounds nuw [9 x ptr], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   br label %68
 
 68:                                               ; preds = %62, %59, %56
@@ -4249,7 +4249,7 @@ define dso_local range(i32 -1, 16) i32 @lua_getiuservalue(ptr noundef captures(n
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -4289,12 +4289,12 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %69 = add nsw i32 %2, -1
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [1 x %union.UValue], ptr %68, i64 0, i64 %70
+  %69 = zext nneg i32 %2 to i64
+  %70 = getelementptr %union.UValue, ptr %68, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 -16
   %72 = load i64, ptr %71, align 8, !tbaa !20
   store i64 %72, ptr %67, align 8, !tbaa !20
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = getelementptr i8, ptr %70, i64 -8
   %74 = load i8, ptr %73, align 8, !tbaa !21
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i8 %74, ptr %75, align 8, !tbaa !21
@@ -4468,7 +4468,7 @@ define dso_local void @lua_settable(ptr noundef %0, i32 noundef %1) local_unname
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -4615,7 +4615,7 @@ define dso_local void @lua_setfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -4700,7 +4700,7 @@ define dso_local void @lua_seti(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = sub nuw nsw i32 -1001001, %1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.TValue, ptr %43, i64 %45
   br label %index2value.exit
 
 47:                                               ; preds = %36
@@ -4908,7 +4908,7 @@ define internal fastcc void @aux_rawset(ptr noundef %0, i32 noundef %1, ptr noun
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = sub nuw nsw i32 -1001001, %1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.TValue, ptr %43, i64 %45
   br label %gettable.exit
 
 47:                                               ; preds = %36
@@ -5046,7 +5046,7 @@ define dso_local void @lua_rawseti(ptr noundef %0, i32 noundef %1, i64 noundef %
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %gettable.exit
 
 46:                                               ; preds = %35
@@ -5168,7 +5168,7 @@ define dso_local noundef i32 @lua_setmetatable(ptr noundef %0, i32 noundef %1) l
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -5277,7 +5277,7 @@ index2value.exit:                                 ; preds = %6, %12, %18, %25, %
   %98 = load ptr, ptr %97, align 8, !tbaa !23
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 480
   %100 = zext nneg i8 %65 to i64
-  %101 = getelementptr inbounds nuw [9 x ptr], ptr %99, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
   store ptr %.0, ptr %101, align 8, !tbaa !60
   br label %102
 
@@ -5353,7 +5353,7 @@ define dso_local range(i32 0, 2) i32 @lua_setiuservalue(ptr noundef %0, i32 noun
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -5381,7 +5381,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
 60:                                               ; preds = %index2value.exit
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %62 = zext nneg i32 %54 to i64
-  %63 = getelementptr inbounds nuw [1 x %union.UValue], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %union.UValue, ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !20
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
@@ -5906,7 +5906,7 @@ define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, ...) local_unnamed_
   %101 = load i32, ptr %100, align 4, !tbaa !39
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds [6 x i8], ptr %102, i64 0, i64 %103
+  %104 = getelementptr inbounds i8, ptr %102, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !20
   %106 = call i64 @luaO_applyparam(i8 noundef zeroext %105, i64 noundef 100) #13
   %107 = trunc i64 %106 to i32
@@ -6033,7 +6033,7 @@ define dso_local i32 @lua_next(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %gettable.exit
 
 45:                                               ; preds = %34
@@ -6201,7 +6201,7 @@ define dso_local void @lua_len(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = sub nuw nsw i32 -1001001, %1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.TValue, ptr %41, i64 %43
   br label %index2value.exit
 
 45:                                               ; preds = %34
@@ -6378,7 +6378,7 @@ define dso_local ptr @lua_getupvalue(ptr noundef captures(none) %0, i32 noundef 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -6415,7 +6415,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %66 = zext nneg i32 %59 to i64
-  %67 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw %struct.TValue, ptr %65, i64 %66
   br label %aux_upvalue.exit.thread16
 
 68:                                               ; preds = %index2value.exit
@@ -6431,7 +6431,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
 76:                                               ; preds = %68
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %78 = sext i32 %72 to i64
-  %79 = getelementptr inbounds [1 x ptr], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !77
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !20
@@ -6538,7 +6538,7 @@ define dso_local ptr @lua_setupvalue(ptr noundef %0, i32 noundef %1, i32 noundef
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -6575,7 +6575,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %66 = zext nneg i32 %59 to i64
-  %67 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw %struct.TValue, ptr %65, i64 %66
   br label %aux_upvalue.exit.thread26
 
 68:                                               ; preds = %index2value.exit
@@ -6591,7 +6591,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
 76:                                               ; preds = %68
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %78 = sext i32 %72 to i64
-  %79 = getelementptr inbounds [1 x ptr], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !77
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !20
@@ -6719,7 +6719,7 @@ define dso_local ptr @lua_upvalueid(ptr noundef readonly captures(none) %0, i32 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = sub nuw nsw i32 -1001001, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.TValue, ptr %42, i64 %44
   br label %index2value.exit
 
 46:                                               ; preds = %35
@@ -6803,7 +6803,7 @@ index2value.exit:                                 ; preds = %7, %13, %19, %26, %
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %94 = sub nuw nsw i32 -1001001, %1
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %93, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %struct.TValue, ptr %93, i64 %95
   br label %index2value.exit.i
 
 97:                                               ; preds = %86
@@ -6834,9 +6834,9 @@ index2value.exit.i:                               ; preds = %101, %97, %92, %77,
 
 112:                                              ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  %114 = add nsw i32 %2, -1
-  %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [1 x ptr], ptr %113, i64 0, i64 %115
+  %114 = zext nneg i32 %2 to i64
+  %115 = getelementptr ptr, ptr %113, i64 %114
+  %116 = getelementptr i8, ptr %115, i64 -8
   br label %getupvalref.exit
 
 getupvalref.exit:                                 ; preds = %index2value.exit.i, %107, %112
@@ -6858,9 +6858,9 @@ getupvalref.exit:                                 ; preds = %index2value.exit.i,
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  %127 = add nsw i32 %2, -1
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %126, i64 0, i64 %128
+  %127 = zext nneg i32 %2 to i64
+  %128 = getelementptr %struct.TValue, ptr %126, i64 %127
+  %129 = getelementptr i8, ptr %128, i64 -16
   br label %.thread
 
 .thread:                                          ; preds = %118, %121, %125, %index2value.exit, %getupvalref.exit
@@ -6931,7 +6931,7 @@ define dso_local void @lua_upvaluejoin(ptr noundef %0, i32 noundef %1, i32 nound
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %45 = sub nuw nsw i32 -1001001, %1
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %44, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %struct.TValue, ptr %44, i64 %46
   br label %index2value.exit.i
 
 48:                                               ; preds = %37
@@ -6962,9 +6962,9 @@ index2value.exit.i:                               ; preds = %52, %48, %43, %28, 
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %65 = add nsw i32 %2, -1
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [1 x ptr], ptr %64, i64 0, i64 %66
+  %65 = zext nneg i32 %2 to i64
+  %66 = getelementptr ptr, ptr %64, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 -8
   br label %getupvalref.exit
 
 getupvalref.exit:                                 ; preds = %index2value.exit.i, %58, %63
@@ -7028,7 +7028,7 @@ getupvalref.exit:                                 ; preds = %index2value.exit.i,
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %105 = sub nuw nsw i32 -1001001, %3
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw [1 x %struct.TValue], ptr %104, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw %struct.TValue, ptr %104, i64 %106
   br label %index2value.exit.i11
 
 108:                                              ; preds = %97
@@ -7059,9 +7059,9 @@ index2value.exit.i11:                             ; preds = %112, %108, %103, %8
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  %125 = add nsw i32 %4, -1
-  %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [1 x ptr], ptr %124, i64 0, i64 %126
+  %125 = zext nneg i32 %4 to i64
+  %126 = getelementptr ptr, ptr %124, i64 %125
+  %127 = getelementptr i8, ptr %126, i64 -8
   br label %getupvalref.exit17
 
 getupvalref.exit17:                               ; preds = %index2value.exit.i11, %118, %123

@@ -2830,7 +2830,7 @@ define internal fastcc void @_print_jobs(ptr noundef nonnull readonly captures(n
 
 switch.lookup:                                    ; preds = %23
   %32 = zext nneg i16 %30 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._print_jobs.4, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._print_jobs.4, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_print_flag.exit
 
@@ -2843,7 +2843,7 @@ _print_flag.exit:                                 ; preds = %23, %switch.lookup
 
 switch.lookup42:                                  ; preds = %_print_flag.exit
   %36 = zext nneg i16 %34 to i64
-  %switch.gep43 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._print_jobs.4, i64 0, i64 %36
+  %switch.gep43 = getelementptr inbounds nuw ptr, ptr @switch.table._print_jobs.4, i64 %36
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   br label %_print_flag.exit28
 
@@ -2878,7 +2878,7 @@ _print_flag.exit28:                               ; preds = %_print_flag.exit, %
 
 switch.lookup45:                                  ; preds = %44
   %53 = zext nneg i16 %51 to i64
-  %switch.gep46 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._print_jobs.4, i64 0, i64 %53
+  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table._print_jobs.4, i64 %53
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %_print_flag.exit30
 
@@ -2891,7 +2891,7 @@ _print_flag.exit30:                               ; preds = %44, %switch.lookup4
 
 switch.lookup48:                                  ; preds = %_print_flag.exit30
   %57 = zext nneg i16 %55 to i64
-  %switch.gep49 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._print_jobs.4, i64 0, i64 %57
+  %switch.gep49 = getelementptr inbounds nuw ptr, ptr @switch.table._print_jobs.4, i64 %57
   %switch.load50 = load ptr, ptr %switch.gep49, align 8
   br label %_print_flag.exit32
 

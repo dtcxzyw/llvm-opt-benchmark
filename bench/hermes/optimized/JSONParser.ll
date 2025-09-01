@@ -107,7 +107,7 @@ $_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONNumberEEE = comdat any
 define hidden noundef nonnull ptr @_ZN6hermes6parser16JSONKindToStringENS0_8JSONKindE(i32 noundef %kind) local_unnamed_addr #0 {
 entry:
   %0 = zext nneg i32 %kind to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6hermes6parser16JSONKindToStringENS0_8JSONKindE, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6hermes6parser16JSONKindToStringENS0_8JSONKindE, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

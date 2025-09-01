@@ -123,7 +123,7 @@ define hidden { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit.i": ; preds = %11
   %17 = load ptr, ptr %7, align 8, !alias.scope !33, !noalias !36, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw [0 x i8], ptr %17, i64 0, i64 %13
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   %19 = load i8, ptr %18, align 1, !range !45, !noalias !44, !noundef !4
   %switch.i.i.i.i.i = icmp samesign ult i8 %19, 2
   br i1 %switch.i.i.i.i.i, label %20, label %8
@@ -786,7 +786,7 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit": ; preds = %12
   %18 = load ptr, ptr %8, align 8, !alias.scope !184, !noalias !187, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds nuw [0 x i8], ptr %18, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %14
   %20 = load i8, ptr %19, align 1, !range !45, !noalias !194, !noundef !4
   %switch.i.i.i.i = icmp samesign ult i8 %20, 2
   br i1 %switch.i.i.i.i, label %21, label %9
@@ -1201,9 +1201,9 @@ _ZN4core3str11validations15next_code_point17hc2744f6ef45f0174E.exit.thread: ; pr
   unreachable
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds [0 x i8], ptr %97, i64 0, i64 %138
+  %146 = getelementptr inbounds i8, ptr %97, i64 %138
   %147 = load i8, ptr %146, align 1, !alias.scope !216, !noalias !222, !noundef !4
-  %148 = getelementptr inbounds [0 x i8], ptr %95, i64 0, i64 %142
+  %148 = getelementptr inbounds i8, ptr %95, i64 %142
   %149 = load i8, ptr %148, align 1, !alias.scope !214, !noalias !220, !noundef !4
   %.not29.i = icmp eq i8 %147, %149
   br i1 %.not29.i, label %134, label %151
@@ -1223,9 +1223,9 @@ _ZN4core3str11validations15next_code_point17hc2744f6ef45f0174E.exit.thread: ; pr
 
 155:                                              ; preds = %152
   %156 = add nuw i64 %.sroa.04.0.i, 1
-  %157 = getelementptr inbounds [0 x i8], ptr %97, i64 0, i64 %.sroa.04.0.i
+  %157 = getelementptr inbounds i8, ptr %97, i64 %.sroa.04.0.i
   %158 = load i8, ptr %157, align 1, !alias.scope !216, !noalias !222, !noundef !4
-  %159 = getelementptr inbounds [0 x i8], ptr %95, i64 0, i64 %153
+  %159 = getelementptr inbounds i8, ptr %95, i64 %153
   %160 = load i8, ptr %159, align 1, !alias.scope !214, !noalias !220, !noundef !4
   %.not28.i = icmp eq i8 %158, %160
   br i1 %.not28.i, label %131, label %163

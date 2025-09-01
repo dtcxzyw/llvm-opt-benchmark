@@ -1961,7 +1961,7 @@ for_each_cached_alternate.exit.i:                 ; preds = %insert_one_alternat
   %641 = load ptr, ptr %640, align 8, !tbaa !94
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 24
   %643 = load i64, ptr %642, align 8, !tbaa !111
-  %644 = getelementptr inbounds nuw [65 x i8], ptr %40, i64 0, i64 %643
+  %644 = getelementptr inbounds nuw i8, ptr %40, i64 %643
   %645 = load i8, ptr %644, align 1, !tbaa !12
   %.not81.i = icmp eq i8 %645, 10
   br i1 %.not81.i, label %647, label %646
@@ -4608,7 +4608,7 @@ define internal fastcc void @write_fetch_command_and_capabilities(ptr noundef no
 
 31:                                               ; preds = %33, %25
   %.0811.i = phi i64 [ 0, %25 ], [ %34, %33 ]
-  %32 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %32 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %30, %32
   br i1 %.not.i, label %.split.loop.exit9.i, label %33
 
@@ -4649,7 +4649,7 @@ hash_algo_by_ptr.exit:                            ; preds = %33, %.split.loop.ex
 
 49:                                               ; preds = %51, %45
   %.0811.i22 = phi i64 [ 0, %45 ], [ %52, %51 ]
-  %50 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i22
+  %50 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i22
   %.not.i23 = icmp eq ptr %48, %50
   br i1 %.not.i23, label %hash_algo_by_ptr.exit27, label %51
 
@@ -4999,7 +4999,7 @@ define internal fastcc void @sort_ref_list(ptr noundef nonnull captures(none) %0
   br i1 %.not28.us, label %23, label %6
 
 6:                                                ; preds = %.split.us
-  %7 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv19
+  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv19
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %10 = getelementptr inbounds nuw i8, ptr %.1.us, i64 176
@@ -5052,7 +5052,7 @@ sort_ref_list__merge.exit.us:                     ; preds = %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %sort_ref_list__merge.exit ], [ 0, %.split ]
   %.112 = phi ptr [ %spec.select35.i, %sort_ref_list__merge.exit ], [ %.034, %.split ]
   %.02011 = phi i64 [ %42, %sort_ref_list__merge.exit ], [ %.02333, %.split ]
-  %26 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %29 = getelementptr inbounds nuw i8, ptr %.112, i64 176
@@ -5103,7 +5103,7 @@ sort_ref_list__merge.exit:                        ; preds = %35
   %.021.lcssa8 = phi i64 [ 0, %.split ], [ %44, %._crit_edge.loopexit ]
   %.1.lcssa7 = phi ptr [ %.034, %.split ], [ %spec.select35.i, %._crit_edge.loopexit ]
   %45 = add i64 %.02333, 1
-  %46 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %.021.lcssa8
+  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %.021.lcssa8
   store ptr %.1.lcssa7, ptr %46, align 8, !tbaa !22
   %.0.val = load ptr, ptr %.0.val35, align 8, !tbaa !22
   %.not27.not = icmp eq ptr %.0.val, null

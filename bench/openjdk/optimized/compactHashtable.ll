@@ -1496,7 +1496,7 @@ switch.hole_check:                                ; preds = %.lr.ph
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i32], ptr @switch.table._ZN17HashtableTextDump8unescapeEPKcS1_i, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17HashtableTextDump8unescapeEPKcS1_i, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = shl i32 %.01618, 4
   %32 = add i32 %31, %switch.load
@@ -1627,7 +1627,7 @@ switch.hole_check:                                ; preds = %.lr.ph.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %57 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i8], ptr @switch.table._ZN17HashtableTextDump8get_utf8EPci, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17HashtableTextDump8get_utf8EPci, i64 %57
   %switch.load = load i8, ptr %switch.gep, align 1
   %58 = shl i8 %.01618.i, 4
   %59 = add i8 %53, %58

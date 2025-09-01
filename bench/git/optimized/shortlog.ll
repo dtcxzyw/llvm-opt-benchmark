@@ -1549,7 +1549,7 @@ define internal fastcc void @insert_one_record(ptr noundef %0, ptr noundef %1, p
   %16 = phi i8 [ %23, %21 ], [ %15, %14 ]
   %.047 = phi ptr [ %22, %21 ], [ %2, %14 ]
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !43
   %20 = and i8 %19, 1
   %.not36 = icmp eq i8 %20, 0
@@ -1599,7 +1599,7 @@ define internal fastcc void @insert_one_record(ptr noundef %0, ptr noundef %1, p
   %37 = phi i8 [ %44, %42 ], [ %36, %35 ]
   %.351 = phi ptr [ %43, %42 ], [ %.1, %35 ]
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !43
   %41 = and i8 %40, 1
   %.not42 = icmp eq i8 %41, 0

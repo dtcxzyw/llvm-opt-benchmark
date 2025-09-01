@@ -1404,13 +1404,13 @@ switch.early.test73:                              ; preds = %26
 49:                                               ; preds = %45, %41
   %50 = lshr i8 %40, 4
   %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr inbounds nuw [17 x i8], ptr @__const.canon_string.hex, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @__const.canon_string.hex, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !92
   store i8 %53, ptr %9, align 1, !tbaa !92
   %54 = load i8, ptr %.04475, align 1, !tbaa !92
   %55 = and i8 %54, 15
   %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds nuw [17 x i8], ptr @__const.canon_string.hex, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const.canon_string.hex, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !92
   store i8 %58, ptr %10, align 1, !tbaa !92
   %59 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef 3) #10

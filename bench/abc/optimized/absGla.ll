@@ -162,7 +162,7 @@ define i32 @Ga2_ManComputeTruth(ptr noundef readonly %0, ptr noundef readonly %1
   %9 = getelementptr inbounds nuw i32, ptr %.val23, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !32
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [5 x i32], ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !32
   %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val25, i64 %11, i32 1
   store i32 %13, ptr %14, align 4, !tbaa !3
@@ -1308,7 +1308,7 @@ Vec_IntPush.exit220:                              ; preds = %.Vec_IntGrow.exit10
   %354 = sext i32 %352 to i64
   %355 = getelementptr inbounds i32, ptr %351, i64 %354
   store i32 %323, ptr %355, align 4, !tbaa !32
-  %356 = getelementptr inbounds nuw [5 x i32], ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 0, i64 %indvars.iv280
+  %356 = getelementptr inbounds nuw i32, ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 %indvars.iv280
   %357 = load i32, ptr %356, align 4, !tbaa !32
   %.val150 = load ptr, ptr %142, align 8, !tbaa !12
   %358 = sext i32 %323 to i64
@@ -2521,7 +2521,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nound
   br label %21
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw [5 x i32], ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !32
   br label %21
 
@@ -2568,7 +2568,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nound
   %31 = shl nuw i32 1, %30
   %32 = lshr i32 %29, %31
   %33 = xor i32 %32, %29
-  %34 = getelementptr inbounds nuw [5 x i32], ptr @Ga2_ObjTruthDepends.uInvTruth5, i64 0, i64 %indvars.iv139
+  %34 = getelementptr inbounds nuw i32, ptr @Ga2_ObjTruthDepends.uInvTruth5, i64 %indvars.iv139
   %35 = load i32, ptr %34, align 4, !tbaa !32
   %36 = and i32 %35, %33
   %.not102 = icmp eq i32 %36, 0
@@ -2577,7 +2577,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nound
 37:                                               ; preds = %.lr.ph122
   %38 = add nsw i32 %.0121, 1
   %39 = sext i32 %.0121 to i64
-  %40 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %39
+  %40 = getelementptr inbounds i32, ptr %5, i64 %39
   store i32 %30, ptr %40, align 4, !tbaa !32
   br label %41
 
@@ -2686,7 +2686,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nound
 
 79:                                               ; preds = %.lr.ph128, %79
   %indvars.iv149 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next150, %79 ]
-  %80 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv149
+  %80 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv149
   %81 = load i32, ptr %80, align 4, !tbaa !32
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i32, ptr %.val108, i64 %82
@@ -2694,7 +2694,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nound
   %85 = getelementptr inbounds i32, ptr %.val107, i64 %82
   %86 = load i32, ptr %85, align 4, !tbaa !32
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds nuw [5 x i32], ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 0, i64 %indvars.iv149
+  %88 = getelementptr inbounds nuw i32, ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 %indvars.iv149
   %89 = load i32, ptr %88, align 4, !tbaa !32
   %90 = and i32 %84, 1
   %sext = sub nsw i32 0, %90
@@ -2734,7 +2734,7 @@ thread-pre-split:                                 ; preds = %Vec_IntPush.exit
 99:                                               ; preds = %thread-pre-split, %._crit_edge129
   %100 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %._crit_edge129 ]
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %thread-pre-split ], [ 0, %._crit_edge129 ]
-  %101 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv154
+  %101 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154
   %102 = load i32, ptr %101, align 4, !tbaa !32
   %103 = load i32, ptr %3, align 8, !tbaa !37
   %104 = icmp eq i32 %100, %103
@@ -2928,7 +2928,7 @@ define void @Ga2_ManCnfAddStatic(ptr noundef %0, ptr noundef readonly captures(n
   %.sink = phi i32 [ %22, %20 ], [ %26, %23 ]
   %27 = add nsw i32 %.035, 1
   %28 = sext i32 %.035 to i64
-  %29 = getelementptr inbounds [6 x i32], ptr %7, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr %7, i64 %28
   store i32 %.sink, ptr %29, align 4, !tbaa !32
   br label %30
 
@@ -3694,7 +3694,7 @@ Ga2_ObjFindOrAddLit.exit98:                       ; preds = %.critedge7.i, %332
   %.sink.i84 = phi i32 [ %363, %361 ], [ %367, %364 ]
   %368 = add nsw i32 %.035.i, 1
   %369 = sext i32 %.035.i to i64
-  %370 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %369
+  %370 = getelementptr inbounds i32, ptr %3, i64 %369
   store i32 %.sink.i84, ptr %370, align 4, !tbaa !32
   br label %371
 
@@ -3890,7 +3890,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.08.i.i = phi i32 [ 0, %Vec_IntPush.exit ], [ %456, %450 ]
   %451 = getelementptr inbounds nuw i32, ptr %.val193.i, i64 %indvars.iv.i.i
   %452 = load i32, ptr %451, align 4, !tbaa !32
-  %453 = getelementptr inbounds nuw [5 x i32], ptr @Saig_ManBmcHashKey.s_Primes, i64 0, i64 %indvars.iv.i.i
+  %453 = getelementptr inbounds nuw i32, ptr @Saig_ManBmcHashKey.s_Primes, i64 %indvars.iv.i.i
   %454 = load i32, ptr %453, align 4, !tbaa !32
   %455 = mul nsw i32 %454, %452
   %456 = add i32 %455, %.08.i.i
@@ -4043,7 +4043,7 @@ Ga2_ObjFindOrAddLit.exit73:                       ; preds = %475, %493
   %.sink.i58 = phi i32 [ %525, %522 ], [ %521, %519 ]
   %526 = add nsw i32 %.037.i55, 1
   %527 = sext i32 %.037.i55 to i64
-  %528 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %527
+  %528 = getelementptr inbounds i32, ptr %4, i64 %527
   store i32 %.sink.i58, ptr %528, align 4, !tbaa !32
   br label %529
 
@@ -4177,7 +4177,7 @@ Ga2_ObjFindOrAddLit.exit:                         ; preds = %542, %559
   %.sink.i = phi i32 [ %589, %586 ], [ %585, %583 ]
   %590 = add nsw i32 %.037.i, 1
   %591 = sext i32 %.037.i to i64
-  %592 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %591
+  %592 = getelementptr inbounds i32, ptr %5, i64 %591
   store i32 %.sink.i, ptr %592, align 4, !tbaa !32
   br label %593
 
@@ -4645,7 +4645,7 @@ Gia_ObjIsRo.exit86:                               ; preds = %147
   %.sink.i = phi i32 [ %193, %191 ], [ %197, %194 ]
   %198 = add nsw i32 %.035.i, 1
   %199 = sext i32 %.035.i to i64
-  %200 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %199
+  %200 = getelementptr inbounds i32, ptr %5, i64 %199
   store i32 %.sink.i, ptr %200, align 4, !tbaa !32
   br label %201
 
@@ -4747,7 +4747,7 @@ Gia_ObjIsRo.exit86.thread:                        ; preds = %147, %Gia_ObjIsRo.e
   %.sink.i103 = phi i32 [ %246, %243 ], [ %242, %240 ]
   %247 = add nsw i32 %.037.i, 1
   %248 = sext i32 %.037.i to i64
-  %249 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %248
+  %249 = getelementptr inbounds i32, ptr %4, i64 %248
   store i32 %.sink.i103, ptr %249, align 4, !tbaa !32
   br label %250
 

@@ -1155,7 +1155,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 84:                                               ; preds = %79
   %85 = call i32 @tvb_captured_length(ptr noundef nonnull %78)
   %86 = zext i32 %77 to i64
-  %87 = getelementptr [6 x i32], ptr @auth_tag_len, i64 0, i64 %86
+  %87 = getelementptr i32, ptr @auth_tag_len, i64 %86
   %88 = load i32, ptr %87, align 4
   %.not54.i.i = icmp eq i32 %85, %88
   br i1 %.not54.i.i, label %89, label %122
@@ -1194,11 +1194,11 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %93
   %112 = load ptr, ptr %94, align 8
-  %113 = getelementptr [6 x i32], ptr @auth_hash_len, i64 0, i64 %86
+  %113 = getelementptr i32, ptr @auth_hash_len, i64 %86
   %114 = load i32, ptr %113, align 4
   %115 = zext i32 %114 to i64
   %116 = call noalias ptr @wmem_alloc(ptr noundef %112, i64 noundef %115) #11
-  %117 = getelementptr [6 x i32], ptr @auth_hash_algo, i64 0, i64 %86
+  %117 = getelementptr i32, ptr @auth_hash_algo, i64 %86
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %83 to i64
   %120 = call i32 @ws_hmac_buffer(i32 noundef %118, ptr noundef %116, ptr noundef %98, i64 noundef %97, ptr noundef nonnull %81, i64 noundef %119)
@@ -1913,7 +1913,7 @@ define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly c
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %9, ptr %10, align 4
   %11 = zext i32 %9 to i64
-  %12 = getelementptr [4 x ptr], ptr @priv_protos, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr @priv_protos, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %14, align 8
@@ -2833,7 +2833,7 @@ define internal i32 @dissect_snmp_PDUs(i1 zeroext %0, ptr noundef %1, i32 nounde
 
 19:                                               ; preds = %6
   %20 = sext i32 %18 to i64
-  %21 = getelementptr [10 x %struct._value_string], ptr @snmp_PDUs_vals, i64 0, i64 %20, i32 1
+  %21 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %20, i32 1
   %22 = load ptr, ptr %21, align 8
   %.not17 = icmp eq ptr %22, null
   br i1 %.not17, label %snmp_match_request_response.exit.thread, label %23
@@ -2845,7 +2845,7 @@ define internal i32 @dissect_snmp_PDUs(i1 zeroext %0, ptr noundef %1, i32 nounde
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull %22)
   %27 = load i32, ptr %9, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [10 x %struct._value_string], ptr @snmp_PDUs_vals, i64 0, i64 %28
+  %29 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %28
   %30 = load i32, ptr %29, align 16
   store i32 %30, ptr %9, align 4
   %31 = load ptr, ptr %12, align 8
@@ -3352,10 +3352,10 @@ switch.lookup:                                    ; preds = %164
   %.not528 = icmp ne i32 %167, 0
   %spec.select = zext i1 %.not528 to i32
   %168 = zext nneg i32 %165 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_snmp_VarBind, i64 0, i64 %168
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_snmp_VarBind, i64 %168
   %switch.load = load ptr, ptr %switch.gep, align 8
   %169 = zext nneg i32 %165 to i64
-  %switch.gep688 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_snmp_VarBind.3, i64 0, i64 %169
+  %switch.gep688 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_snmp_VarBind.3, i64 %169
   %switch.load689 = load ptr, ptr %switch.gep688, align 8
   %.0436 = load i32, ptr %switch.load689, align 4
   %170 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %.0436, ptr noundef %1, i32 noundef %114, i32 noundef %167, i32 noundef 0)
@@ -4948,7 +4948,7 @@ define internal fastcc void @set_ue_keys(ptr noundef captures(none) initializes(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr [6 x i32], ptr @auth_hash_len, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @auth_hash_len, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = tail call noalias ptr @g_malloc(i64 noundef %8) #14
@@ -5032,7 +5032,7 @@ define internal fastcc void @set_ue_keys(ptr noundef captures(none) initializes(
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = load i32, ptr %3, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr [6 x i32], ptr @auth_hash_algo, i64 0, i64 %54
+  %55 = getelementptr i32, ptr @auth_hash_algo, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %56, i32 noundef 0)
   %.not = icmp eq i32 %57, 0
@@ -5092,14 +5092,14 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = zext i32 %0 to i64
-  %10 = getelementptr [6 x i32], ptr @auth_hash_algo, i64 0, i64 %9
+  %10 = getelementptr i32, ptr @auth_hash_algo, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = call i32 @gcry_md_open(ptr noundef nonnull %7, i32 noundef %11, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %42
 
 13:                                               ; preds = %6
-  %14 = getelementptr [6 x i32], ptr @auth_hash_len, i64 0, i64 %9
+  %14 = getelementptr i32, ptr @auth_hash_len, i64 %9
   %15 = load i32, ptr %14, align 4
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %.split.us, label %.preheader.preheader
@@ -5441,7 +5441,7 @@ define internal ptr @snmp_usm_priv_des(ptr noundef readonly captures(none) %0, p
   %24 = getelementptr i8, ptr %20, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   %26 = xor i8 %25, %23
-  %27 = getelementptr [8 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %27 = getelementptr i8, ptr %6, i64 %indvars.iv
   store i8 %26, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

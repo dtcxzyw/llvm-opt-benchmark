@@ -1262,7 +1262,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @ip6_frag_reasm(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [16 x i8], ptr @ip_frag_ecn_table, i64 0, i64 %11
+  %12 = getelementptr i8, ptr @ip_frag_ecn_table, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, -1
   br i1 %14, label %131, label %15, !prof !7

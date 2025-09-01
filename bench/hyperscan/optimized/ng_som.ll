@@ -1497,7 +1497,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 
 76:                                               ; preds = %74, %71
   %.0813.i.i.i = phi i64 [ 0, %71 ], [ %75, %74 ]
-  %77 = getelementptr inbounds nuw [4 x i64], ptr %73, i64 0, i64 %.0813.i.i.i
+  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %.0813.i.i.i
   %78 = load i64, ptr %77, align 8
   %.not.i.i.i216 = icmp eq i64 %78, -1
   br i1 %.not.i.i.i216, label %74, label %.thread.i
@@ -14500,7 +14500,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHold
 
 1852:                                             ; preds = %1855, %1850
   %.0710.i.i.i.i.i = phi i64 [ 0, %1850 ], [ %1856, %1855 ]
-  %1853 = getelementptr inbounds nuw [4 x i64], ptr %33, i64 0, i64 %.0710.i.i.i.i.i
+  %1853 = getelementptr inbounds nuw i64, ptr %33, i64 %.0710.i.i.i.i.i
   %1854 = load i64, ptr %1853, align 8
   %.not.i.i407.i.i.i = icmp eq i64 %1854, 0
   br i1 %.not.i.i407.i.i.i, label %1855, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i
@@ -14546,7 +14546,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1852
   %.0.i200.i.i.i = select i1 %1870, i64 %.0167844.i.i.i, i64 %1872
   %1873 = lshr i64 %.0.i200.i.i.i, 6
   %1874 = and i64 %1873, 3
-  %1875 = getelementptr inbounds nuw [4 x i64], ptr %33, i64 0, i64 %1874
+  %1875 = getelementptr inbounds nuw i64, ptr %33, i64 %1874
   %1876 = load i64, ptr %1875, align 8
   %1877 = and i64 %.0.i200.i.i.i, 63
   %1878 = shl nuw i64 1, %1877
@@ -14557,7 +14557,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1852
 1880:                                             ; preds = %1871
   %1881 = lshr i64 %.0.i.i.i.i, 6
   %1882 = and i64 %1881, 3
-  %1883 = getelementptr inbounds nuw [4 x i64], ptr %33, i64 0, i64 %1882
+  %1883 = getelementptr inbounds nuw i64, ptr %33, i64 %1882
   %1884 = load i64, ptr %1883, align 8
   %1885 = and i64 %.0.i.i.i.i, 63
   %1886 = shl nuw i64 1, %1885
@@ -14803,7 +14803,7 @@ _ZNSt6vectorIN3ue211ue2_literalESaIS1_EE9push_backERKS1_.exit.i.i.i: ; preds = %
   br label %1985
 
 1978:                                             ; preds = %1975
-  %1979 = getelementptr inbounds nuw [4 x i64], ptr %33, i64 0, i64 %1976
+  %1979 = getelementptr inbounds nuw i64, ptr %33, i64 %1976
   %1980 = load i64, ptr %1979, align 8
   %1981 = shl nsw i64 -2, %1977
   %1982 = and i64 %1980, %1981
@@ -14821,7 +14821,7 @@ _ZNSt6vectorIN3ue211ue2_literalESaIS1_EE9push_backERKS1_.exit.i.i.i: ; preds = %
 
 1987:                                             ; preds = %1985
   %.0.i.i.i.i.i129 = add nuw nsw i64 %.0.in.i.i.i.i.i, 1
-  %1988 = getelementptr inbounds nuw [4 x i64], ptr %33, i64 0, i64 %.0.i.i.i.i.i129
+  %1988 = getelementptr inbounds nuw i64, ptr %33, i64 %.0.i.i.i.i.i129
   %1989 = load i64, ptr %1988, align 8
   %.not22.i.i.i.i.i = icmp eq i64 %1989, 0
   br i1 %.not22.i.i.i.i.i, label %1985, label %1990, !llvm.loop !523
@@ -42367,7 +42367,7 @@ _ZN3ue2L12is_literableERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9u
 
 60:                                               ; preds = %68, %_ZN3ue2L12is_literableERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.thread
   %.0710.i.i.i = phi i64 [ 0, %_ZN3ue2L12is_literableERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.thread ], [ %69, %68 ]
-  %61 = getelementptr inbounds nuw [4 x i64], ptr %59, i64 0, i64 %.0710.i.i.i
+  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %.0710.i.i.i
   %62 = load i64, ptr %61, align 8
   %.not.i.i.i = icmp eq i64 %62, 0
   br i1 %.not.i.i.i, label %68, label %63

@@ -410,7 +410,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13sentencepiece26Trai
 
 18:                                               ; preds = %11
   %19 = sext i32 %12 to i64
-  %20 = getelementptr inbounds [4 x %"class.google::protobuf::internal::ExplicitlyConstructed.7"], ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_stringsB5cxx11E, i64 0, i64 %19
+  %20 = getelementptr inbounds %"class.google::protobuf::internal::ExplicitlyConstructed.7", ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_stringsB5cxx11E, i64 %19
   br label %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit
 
 _ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit: ; preds = %17, %14, %18
@@ -506,7 +506,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN13sentencepiece34Mode
 
 18:                                               ; preds = %11
   %19 = sext i32 %12 to i64
-  %20 = getelementptr inbounds [6 x %"class.google::protobuf::internal::ExplicitlyConstructed.7"], ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_stringsB5cxx11E, i64 0, i64 %19
+  %20 = getelementptr inbounds %"class.google::protobuf::internal::ExplicitlyConstructed.7", ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_stringsB5cxx11E, i64 %19
   br label %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit
 
 _ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit: ; preds = %17, %14, %18
@@ -2336,7 +2336,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %116 = add nsw i32 %111, 1
   store i32 %116, ptr %66, align 8, !tbaa !68
   %117 = sext i32 %111 to i64
-  %118 = getelementptr inbounds [268435454 x ptr], ptr %115, i64 0, i64 %117
+  %118 = getelementptr inbounds ptr, ptr %115, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit
 
@@ -2401,7 +2401,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %151 = add nsw i32 %150, 1
   store i32 %151, ptr %66, align 8, !tbaa !68
   %152 = sext i32 %150 to i64
-  %153 = getelementptr inbounds [268435454 x ptr], ptr %149, i64 0, i64 %152
+  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
   store ptr %.sink6.i.i.i.i.i, ptr %153, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit
 
@@ -2597,7 +2597,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175: ; preds = %220
   %246 = add nsw i32 %241, 1
   store i32 %246, ptr %59, align 8, !tbaa !68
   %247 = sext i32 %241 to i64
-  %248 = getelementptr inbounds [268435454 x ptr], ptr %245, i64 0, i64 %247
+  %248 = getelementptr inbounds ptr, ptr %245, i64 %247
   %249 = load ptr, ptr %248, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit
 
@@ -2662,7 +2662,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %281 = add nsw i32 %280, 1
   store i32 %281, ptr %59, align 8, !tbaa !68
   %282 = sext i32 %280 to i64
-  %283 = getelementptr inbounds [268435454 x ptr], ptr %279, i64 0, i64 %282
+  %283 = getelementptr inbounds ptr, ptr %279, i64 %282
   store ptr %.sink6.i.i.i.i.i180, ptr %283, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit
 
@@ -3517,7 +3517,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270: ; preds = %683
   %714 = add nsw i32 %709, 1
   store i32 %714, ptr %36, align 8, !tbaa !68
   %715 = sext i32 %709 to i64
-  %716 = getelementptr inbounds [268435454 x ptr], ptr %713, i64 0, i64 %715
+  %716 = getelementptr inbounds ptr, ptr %713, i64 %715
   %717 = load ptr, ptr %716, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit
 
@@ -3582,7 +3582,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %749 = add nsw i32 %748, 1
   store i32 %749, ptr %36, align 8, !tbaa !68
   %750 = sext i32 %748 to i64
-  %751 = getelementptr inbounds [268435454 x ptr], ptr %747, i64 0, i64 %750
+  %751 = getelementptr inbounds ptr, ptr %747, i64 %750
   store ptr %.sink6.i.i.i.i.i275, ptr %751, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit
 
@@ -3633,7 +3633,7 @@ _ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit: ; 
   %772 = add nsw i32 %767, 1
   store i32 %772, ptr %32, align 8, !tbaa !68
   %773 = sext i32 %767 to i64
-  %774 = getelementptr inbounds [268435454 x ptr], ptr %771, i64 0, i64 %773
+  %774 = getelementptr inbounds ptr, ptr %771, i64 %773
   %775 = load ptr, ptr %774, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exit
 
@@ -3698,7 +3698,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %807 = add nsw i32 %806, 1
   store i32 %807, ptr %32, align 8, !tbaa !68
   %808 = sext i32 %806 to i64
-  %809 = getelementptr inbounds [268435454 x ptr], ptr %805, i64 0, i64 %808
+  %809 = getelementptr inbounds ptr, ptr %805, i64 %808
   store ptr %.sink6.i.i.i.i.i287, ptr %809, align 8, !tbaa !75
   br label %_ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exit
 
@@ -4569,7 +4569,7 @@ define noundef ptr @_ZNK13sentencepiece11TrainerSpec18_InternalSerializeEPhPN6go
   %.0551 = phi ptr [ %1, %.lr.ph ], [ %.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %12 = load ptr, ptr %7, align 8, !tbaa !69
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = getelementptr inbounds nuw [268435454 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !75
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !41
@@ -4796,7 +4796,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
   %.4553 = phi ptr [ %.3, %.lr.ph554 ], [ %.0.i236, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit238 ]
   %123 = load ptr, ptr %120, align 8, !tbaa !69
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = getelementptr inbounds nuw [268435454 x ptr], ptr %124, i64 0, i64 %indvars.iv614
+  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv614
   %126 = load ptr, ptr %125, align 8, !tbaa !75
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !41
@@ -5739,7 +5739,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit379: ; preds = %
   %.24558 = phi ptr [ %.23, %.lr.ph560 ], [ %.0.i239, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit241 ]
   %563 = load ptr, ptr %557, align 8, !tbaa !69
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 8
-  %565 = getelementptr inbounds nuw [268435454 x ptr], ptr %564, i64 0, i64 %indvars.iv619
+  %565 = getelementptr inbounds nuw ptr, ptr %564, i64 %indvars.iv619
   %566 = load ptr, ptr %565, align 8, !tbaa !75
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   %568 = load i64, ptr %567, align 8, !tbaa !41
@@ -5790,7 +5790,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %.25564 = phi ptr [ %.24.lcssa, %.lr.ph566 ], [ %.0.i242, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit244 ]
   %587 = load ptr, ptr %561, align 8, !tbaa !69
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 8
-  %589 = getelementptr inbounds nuw [268435454 x ptr], ptr %588, i64 0, i64 %indvars.iv624
+  %589 = getelementptr inbounds nuw ptr, ptr %588, i64 %indvars.iv624
   %590 = load ptr, ptr %589, align 8, !tbaa !75
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 8
   %592 = load i64, ptr %591, align 8, !tbaa !41
@@ -6777,7 +6777,7 @@ define noundef i64 @_ZNK13sentencepiece11TrainerSpec12ByteSizeLongEv(ptr noundef
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.0216 = phi i64 [ %7, %.lr.ph ], [ %34, %20 ]
-  %21 = getelementptr inbounds nuw [268435454 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !75
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !41
@@ -6814,7 +6814,7 @@ define noundef i64 @_ZNK13sentencepiece11TrainerSpec12ByteSizeLongEv(ptr noundef
 44:                                               ; preds = %.lr.ph220, %44
   %indvars.iv239 = phi i64 [ 0, %.lr.ph220 ], [ %indvars.iv.next240, %44 ]
   %.1218 = phi i64 [ %15, %.lr.ph220 ], [ %58, %44 ]
-  %45 = getelementptr inbounds nuw [268435454 x ptr], ptr %19, i64 0, i64 %indvars.iv239
+  %45 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv239
   %46 = load ptr, ptr %45, align 8, !tbaa !75
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !41
@@ -6851,7 +6851,7 @@ define noundef i64 @_ZNK13sentencepiece11TrainerSpec12ByteSizeLongEv(ptr noundef
 68:                                               ; preds = %.lr.ph226, %68
   %indvars.iv244 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next245, %68 ]
   %.2224 = phi i64 [ %39, %.lr.ph226 ], [ %82, %68 ]
-  %69 = getelementptr inbounds nuw [268435454 x ptr], ptr %43, i64 0, i64 %indvars.iv244
+  %69 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv244
   %70 = load ptr, ptr %69, align 8, !tbaa !75
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !41
@@ -6880,7 +6880,7 @@ define noundef i64 @_ZNK13sentencepiece11TrainerSpec12ByteSizeLongEv(ptr noundef
 86:                                               ; preds = %.lr.ph232, %86
   %indvars.iv249 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next250, %86 ]
   %.3230 = phi i64 [ %63, %.lr.ph232 ], [ %100, %86 ]
-  %87 = getelementptr inbounds nuw [268435454 x ptr], ptr %67, i64 0, i64 %indvars.iv249
+  %87 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv249
   %88 = load ptr, ptr %87, align 8, !tbaa !75
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i64, ptr %89, align 8, !tbaa !41
@@ -12353,7 +12353,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %60 = add nsw i32 %55, 1
   store i32 %60, ptr %11, align 8, !tbaa !68
   %61 = sext i32 %55 to i64
-  %62 = getelementptr inbounds [268435454 x ptr], ptr %59, i64 0, i64 %61
+  %62 = getelementptr inbounds ptr, ptr %59, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !75
   br label %_ZN13sentencepiece12SelfTestData21_internal_add_samplesEv.exit
 
@@ -12383,7 +12383,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %78 = add nsw i32 %77, 1
   store i32 %78, ptr %11, align 8, !tbaa !68
   %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds [268435454 x ptr], ptr %76, i64 0, i64 %79
+  %80 = getelementptr inbounds ptr, ptr %76, i64 %79
   store ptr %74, ptr %80, align 8, !tbaa !75
   br label %_ZN13sentencepiece12SelfTestData21_internal_add_samplesEv.exit
 
@@ -12549,7 +12549,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %13,
   %17 = load ptr, ptr %6, align 8, !tbaa !69
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = sext i32 %.01321 to i64
-  %20 = getelementptr inbounds [268435454 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !75
   store i8 10, ptr %.0.i16, align 1, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 1
@@ -15453,7 +15453,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %66 = add nsw i32 %61, 1
   store i32 %66, ptr %16, align 8, !tbaa !68
   %67 = sext i32 %61 to i64
-  %68 = getelementptr inbounds [268435454 x ptr], ptr %65, i64 0, i64 %67
+  %68 = getelementptr inbounds ptr, ptr %65, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !75
   br label %_ZN13sentencepiece10ModelProto20_internal_add_piecesEv.exit
 
@@ -15483,7 +15483,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %16, align 8, !tbaa !68
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds [268435454 x ptr], ptr %82, i64 0, i64 %85
+  %86 = getelementptr inbounds ptr, ptr %82, i64 %85
   store ptr %80, ptr %86, align 8, !tbaa !75
   br label %_ZN13sentencepiece10ModelProto20_internal_add_piecesEv.exit
 
@@ -16030,7 +16030,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !69
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.03385 to i64
-  %17 = getelementptr inbounds [268435454 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !75
   store i8 10, ptr %.0.i39, align 1, !tbaa !67
   %19 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 1
@@ -17002,100 +17002,99 @@ define noundef zeroext i1 @_ZNK13sentencepiece10ModelProto13IsInitializedEv(ptr 
   %indvars.iv.i = phi i64 [ %13, %12 ], [ %8, %4 ]
   %10 = trunc nuw i64 %indvars.iv.i to i32
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %20, label %12
+  br i1 %11, label %19, label %12
 
 12:                                               ; preds = %9
   %13 = add nsw i64 %indvars.iv.i, -1
   %14 = load ptr, ptr %7, align 8, !tbaa !69
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = getelementptr inbounds nuw [268435454 x ptr], ptr %15, i64 0, i64 %13
-  %17 = load ptr, ptr %16, align 8, !tbaa !75
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %9, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !174
+  %15 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %16 = load ptr, ptr %15, align 8, !tbaa !75
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
+  br i1 %18, label %9, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !174
 
-20:                                               ; preds = %9
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load i32, ptr %21, align 8, !tbaa !11
-  %23 = and i32 %22, 1
-  %.not = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr %25, null
-  %27 = select i1 %.not, i1 true, i1 %26
-  tail call void @llvm.assume(i1 %27)
-  br i1 %.not, label %31, label %28
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = load i32, ptr %20, align 8, !tbaa !11
+  %22 = and i32 %21, 1
+  %.not = icmp eq i32 %22, 0
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  %26 = select i1 %.not, i1 true, i1 %25
+  tail call void @llvm.assume(i1 %26)
+  br i1 %.not, label %30, label %27
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %29)
-  br i1 %30, label %._crit_edge, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %29 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %28)
+  br i1 %29, label %._crit_edge, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-._crit_edge:                                      ; preds = %28
-  %.pre = load i32, ptr %21, align 8, !tbaa !11
-  br label %31
+._crit_edge:                                      ; preds = %27
+  %.pre = load i32, ptr %20, align 8, !tbaa !11
+  br label %30
 
-31:                                               ; preds = %._crit_edge, %20
-  %32 = phi i32 [ %.pre, %._crit_edge ], [ %22, %20 ]
-  %33 = and i32 %32, 2
-  %.not5 = icmp eq i32 %33, 0
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  %37 = select i1 %.not5, i1 true, i1 %36
-  tail call void @llvm.assume(i1 %37)
-  br i1 %.not5, label %41, label %38
+30:                                               ; preds = %._crit_edge, %19
+  %31 = phi i32 [ %.pre, %._crit_edge ], [ %21, %19 ]
+  %32 = and i32 %31, 2
+  %.not5 = icmp eq i32 %32, 0
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  %36 = select i1 %.not5, i1 true, i1 %35
+  tail call void @llvm.assume(i1 %36)
+  br i1 %.not5, label %40, label %37
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %40 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %39)
-  br i1 %40, label %._crit_edge8, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %39 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %38)
+  br i1 %39, label %._crit_edge8, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-._crit_edge8:                                     ; preds = %38
-  %.pre9 = load i32, ptr %21, align 8, !tbaa !11
-  br label %41
+._crit_edge8:                                     ; preds = %37
+  %.pre9 = load i32, ptr %20, align 8, !tbaa !11
+  br label %40
 
-41:                                               ; preds = %._crit_edge8, %31
-  %42 = phi i32 [ %.pre9, %._crit_edge8 ], [ %32, %31 ]
-  %43 = and i32 %42, 4
-  %.not6 = icmp eq i32 %43, 0
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr %45, null
-  %47 = select i1 %.not6, i1 true, i1 %46
-  tail call void @llvm.assume(i1 %47)
-  br i1 %.not6, label %51, label %48
+40:                                               ; preds = %._crit_edge8, %30
+  %41 = phi i32 [ %.pre9, %._crit_edge8 ], [ %31, %30 ]
+  %42 = and i32 %41, 4
+  %.not6 = icmp eq i32 %42, 0
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  %46 = select i1 %.not6, i1 true, i1 %45
+  tail call void @llvm.assume(i1 %46)
+  br i1 %.not6, label %50, label %47
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %50 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %49)
-  br i1 %50, label %._crit_edge10, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %49 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
+  br i1 %49, label %._crit_edge10, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-._crit_edge10:                                    ; preds = %48
-  %.pre11 = load i32, ptr %21, align 8, !tbaa !11
-  br label %51
+._crit_edge10:                                    ; preds = %47
+  %.pre11 = load i32, ptr %20, align 8, !tbaa !11
+  br label %50
 
-51:                                               ; preds = %._crit_edge10, %41
-  %52 = phi i32 [ %.pre11, %._crit_edge10 ], [ %42, %41 ]
-  %53 = and i32 %52, 8
-  %.not7 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp ne ptr %55, null
-  %57 = select i1 %.not7, i1 true, i1 %56
-  tail call void @llvm.assume(i1 %57)
-  br i1 %.not7, label %61, label %58
+50:                                               ; preds = %._crit_edge10, %40
+  %51 = phi i32 [ %.pre11, %._crit_edge10 ], [ %41, %40 ]
+  %52 = and i32 %51, 8
+  %.not7 = icmp eq i32 %52, 0
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  %56 = select i1 %.not7, i1 true, i1 %55
+  tail call void @llvm.assume(i1 %56)
+  br i1 %.not7, label %60, label %57
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %60 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %59)
-  br i1 %60, label %61, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
+57:                                               ; preds = %50
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %59 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %58)
+  br i1 %59, label %60, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-61:                                               ; preds = %58, %51
+60:                                               ; preds = %57, %50
   br label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %12, %58, %48, %38, %28, %1, %61
-  %.0 = phi i1 [ true, %61 ], [ false, %1 ], [ false, %28 ], [ false, %38 ], [ false, %48 ], [ false, %58 ], [ false, %12 ]
+_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %12, %57, %47, %37, %27, %1, %60
+  %.0 = phi i1 [ true, %60 ], [ false, %1 ], [ false, %27 ], [ false, %37 ], [ false, %47 ], [ false, %57 ], [ false, %12 ]
   ret i1 %.0
 }
 

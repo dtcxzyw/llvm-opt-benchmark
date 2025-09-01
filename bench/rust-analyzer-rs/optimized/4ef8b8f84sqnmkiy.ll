@@ -1491,7 +1491,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %65, %66
 
 switch.lookup:                                    ; preds = %75
   %77 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN6parser7grammar8patterns16pattern_single_r17h15fd824db03ea79eE.llvm.8951843232683538508, i64 0, i64 %77
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6parser7grammar8patterns16pattern_single_r17h15fd824db03ea79eE.llvm.8951843232683538508, i64 %77
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %78
 
@@ -1686,7 +1686,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %128
   %150 = phi i64 [ %144, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i ], [ 1, %128 ]
   %151 = and i64 %150, 63
   %152 = shl nuw i64 1, %151
-  %153 = getelementptr inbounds nuw [3 x i64], ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.14, i64 0, i64 %149
+  %153 = getelementptr inbounds nuw i64, ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.14, i64 %149
   %154 = load i64, ptr %153, align 8, !alias.scope !294, !noundef !4
   %155 = and i64 %152, %154
   %.not75 = icmp eq i64 %155, 0
@@ -2411,7 +2411,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i.i: ; preds = %208
   %229 = phi i64 [ %223, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i.i ], [ 1, %208 ]
   %230 = and i64 %229, 63
   %231 = shl nuw i64 1, %230
-  %232 = getelementptr inbounds nuw [3 x i64], ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.35, i64 0, i64 %228
+  %232 = getelementptr inbounds nuw i64, ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.35, i64 %228
   %233 = load i64, ptr %232, align 8, !alias.scope !435, !noalias !371, !noundef !4
   %234 = and i64 %231, %233
   %.not.i = icmp eq i64 %234, 0
@@ -3013,7 +3013,7 @@ _ZN6parser6parser6Parser5at_ts17hf08b800e2db90132E.exit: ; preds = %10, %_ZN6par
   %33 = phi i64 [ %28, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i ], [ 1, %10 ]
   %34 = and i64 %33, 63
   %35 = shl nuw i64 1, %34
-  %36 = getelementptr inbounds nuw [3 x i64], ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.17, i64 0, i64 %32
+  %36 = getelementptr inbounds nuw i64, ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.17, i64 %32
   %37 = load i64, ptr %36, align 8, !alias.scope !594, !noundef !4
   %38 = and i64 %35, %37
   %39 = icmp ne i64 %38, 0
@@ -4075,7 +4075,7 @@ _ZN6parser6parser6Parser5at_ts17hf08b800e2db90132E.exit: ; preds = %47, %_ZN6par
   %67 = phi i64 [ %62, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i ], [ 1, %47 ]
   %68 = and i64 %67, 63
   %69 = shl nuw i64 1, %68
-  %70 = getelementptr inbounds nuw [3 x i64], ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.35, i64 0, i64 %66
+  %70 = getelementptr inbounds nuw i64, ptr @anon.3a493e9cc57222a1f87d6610b13d2fbf.35, i64 %66
   %71 = load i64, ptr %70, align 8, !alias.scope !779, !noundef !4
   %72 = and i64 %69, %71
   %.not = icmp eq i64 %72, 0
@@ -4569,10 +4569,10 @@ define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..S
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !5, !noundef !4
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [273 x i64], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [273 x ptr], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.2", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.2", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

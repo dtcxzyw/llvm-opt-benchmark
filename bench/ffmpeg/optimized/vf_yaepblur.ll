@@ -124,38 +124,38 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not59, label %91, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %.052, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %.052, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !41
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !42
-  %54 = getelementptr inbounds nuw [8 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !41
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !42
-  %59 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !42
   %61 = load i32, ptr %39, align 8, !tbaa !43
   %62 = add nsw i32 %61, 7
   %63 = sdiv i32 %62, 8
   %64 = mul nsw i32 %63, %60
-  %65 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !42
   call void @av_image_copy_plane(ptr noundef %51, i32 noundef %53, ptr noundef %55, i32 noundef %58, i32 noundef %64, i32 noundef %66) #7
   br label %91
 
 67:                                               ; preds = %42
-  %68 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !42
   store i32 %69, ptr %4, align 8, !tbaa !44
-  %70 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !42
   store i32 %71, ptr %31, align 4, !tbaa !46
-  %72 = getelementptr inbounds nuw [8 x ptr], ptr %.pre63, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw ptr, ptr %.pre63, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !41
   store ptr %73, ptr %32, align 8, !tbaa !47
   %74 = getelementptr inbounds nuw i8, ptr %.pre63, i64 64
-  %75 = getelementptr inbounds nuw [8 x i32], ptr %74, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !42
   store i32 %76, ptr %33, align 8, !tbaa !48
   %77 = load ptr, ptr %34, align 8, !tbaa !49
@@ -164,10 +164,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %80 = load i32, ptr %4, align 8, !tbaa !44
   %81 = call i32 @llvm.smin.i32(i32 %80, i32 %12)
   %82 = call i32 @ff_filter_execute(ptr noundef %6, ptr noundef nonnull @pre_calculate_col, ptr noundef nonnull %4, ptr noundef null, i32 noundef %81) #7
-  %83 = getelementptr inbounds nuw [8 x ptr], ptr %.052, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw ptr, ptr %.052, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !41
   store ptr %84, ptr %35, align 8, !tbaa !50
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4, !tbaa !42
   store i32 %86, ptr %37, align 4, !tbaa !51
   %87 = load ptr, ptr %38, align 8, !tbaa !52

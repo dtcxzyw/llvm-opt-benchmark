@@ -708,7 +708,7 @@ FindPenByInstanceId.exit.thread:                  ; preds = %11, %5, %.preheader
 FindPenByInstanceId.exit:                         ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %18 = zext i32 %3 to i64
-  %19 = getelementptr inbounds nuw [7 x float], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw float, ptr %17, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = fcmp une float %20, %4
   br i1 %21, label %22, label %.critedge
@@ -1074,7 +1074,7 @@ FindPenByInstanceId.exit:                         ; preds = %16
 
 63:                                               ; preds = %58
   %64 = zext nneg i8 %3 to i64
-  %65 = getelementptr inbounds nuw [5 x i8], ptr @SDL_SendPenButton.mouse_buttons, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @SDL_SendPenButton.mouse_buttons, i64 %64
   %66 = load i8, ptr %65, align 1
   call void @SDL_SendMouseButton(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i8 noundef zeroext %66, i1 noundef zeroext %4) #8
   br label %67

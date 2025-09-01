@@ -8751,7 +8751,7 @@ define internal void @_ZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMMode
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %77 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 0, i64 %.046255
+  %77 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.046255
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, 2
   %80 = call i32 @hs_compile(ptr noundef nonnull @.str.305, i32 noundef 256, i32 noundef %79, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -8974,7 +8974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i78: ; preds 
   br i1 %150, label %.critedge62.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %148
-  %151 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 0, i64 %.026257
+  %151 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.026257
   %152 = load i32, ptr %151, align 4
   br label %153
 
@@ -8984,7 +8984,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i78: ; preds 
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
-  %154 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 0, i64 %.0256
+  %154 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.0256
   %155 = load i32, ptr %154, align 4
   %156 = or i32 %155, %152
   %157 = or i32 %156, 2

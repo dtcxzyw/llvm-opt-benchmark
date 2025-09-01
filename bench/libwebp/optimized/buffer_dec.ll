@@ -183,7 +183,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
 52:                                               ; preds = %48
   %53 = zext nneg i32 %.039 to i64
   %54 = zext nneg i32 %40 to i64
-  %55 = getelementptr inbounds nuw [13 x i8], ptr @kModeBpp, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @kModeBpp, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !38
   %57 = zext i8 %56 to i64
   %58 = mul nuw nsw i64 %57, %53
@@ -492,7 +492,7 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr noundef readonly 
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !12
   %22 = zext nneg i32 %11 to i64
-  %23 = getelementptr inbounds nuw [13 x i8], ptr @kModeBpp, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @kModeBpp, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !38
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %4, %25
@@ -687,7 +687,7 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly 
   %93 = mul nsw i64 %90, %92
   %94 = sext i32 %.fr78 to i64
   %95 = zext nneg i32 %2 to i64
-  %96 = getelementptr inbounds nuw [13 x i8], ptr @kModeBpp, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @kModeBpp, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !38
   %.fr79 = freeze i8 %97
   %98 = zext i8 %.fr79 to i64

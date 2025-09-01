@@ -2752,7 +2752,7 @@ define void @_ZN19WiresharkMainWindow23updatePreferenceActionsEv(ptr noundef rea
   %41 = load ptr, ptr %40, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = zext nneg i32 %37 to i64
-  %43 = getelementptr [7 x ptr], ptr @_ZL12layout_icons, i64 0, i64 %42
+  %43 = getelementptr ptr, ptr @_ZL12layout_icons, i64 %42
   %44 = load ptr, ptr %43, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %45 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #25

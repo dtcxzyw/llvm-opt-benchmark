@@ -94,7 +94,7 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr noundef captures(none) %0
   %8 = sub i64 16, %6
   %9 = icmp ult i64 %2, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %6
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %6
   br i1 %9, label %12, label %15
 
 12:                                               ; preds = %7
@@ -313,12 +313,12 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr noundef captures(none) %0
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %4
   store i8 1, ptr %7, align 1, !tbaa !12
   %8 = load i64, ptr %3, align 8, !tbaa !7
   %9 = add i64 %8, 1
   store i64 %9, ptr %3, align 8, !tbaa !7
-  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = sub i64 15, %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %11, i1 false)
   tail call fastcc void @poly1305_process(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %6, i32 noundef 0)
@@ -492,12 +492,12 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
 .split.us:                                        ; preds = %1, %11
   %3 = phi i1 [ false, %11 ], [ true, %1 ]
   %indvars.iv26 = phi i64 [ 1, %11 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv26
-  %5 = getelementptr inbounds nuw [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv26
-  %6 = getelementptr inbounds nuw [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv26
+  %5 = getelementptr inbounds nuw [127 x i8], ptr @test_data, i64 %indvars.iv26
+  %6 = getelementptr inbounds nuw i64, ptr @test_data_len, i64 %indvars.iv26
   %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %7, ptr noundef nonnull %2)
-  %9 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv26
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @test_mac, i64 %indvars.iv26
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %9, i64 16)
   %10 = icmp eq i32 %bcmp.us, 0
   br i1 %10, label %11, label %.critedge
@@ -510,12 +510,12 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
   %indvars.iv = phi i64 [ 1, %22 ], [ 0, %1 ]
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %13)
-  %15 = getelementptr inbounds nuw [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv
-  %16 = getelementptr inbounds nuw [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv
-  %17 = getelementptr inbounds nuw [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [127 x i8], ptr @test_data, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i64, ptr @test_data_len, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !13
   %19 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %18, ptr noundef nonnull %2)
-  %20 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @test_mac, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %20, i64 16)
   %21 = icmp eq i32 %bcmp, 0
   br i1 %21, label %22, label %.split21.us

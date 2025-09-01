@@ -1238,7 +1238,7 @@ arcfour_mic_key.exit.i.i:                         ; preds = %.critedge.i.i.i, %1
   %125 = getelementptr i8, ptr %86, i64 %indvars.iv.i.i
   %126 = load i8, ptr %125, align 1
   %127 = xor i8 %126, -16
-  %128 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i
+  %128 = getelementptr i8, ptr %13, i64 %indvars.iv.i.i
   store i8 %127, ptr %128, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16

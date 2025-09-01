@@ -407,7 +407,7 @@ gauss_solve.exit:                                 ; preds = %189
 
 200:                                              ; preds = %gauss_solve.exit, %200
   %indvars.iv = phi i64 [ 0, %gauss_solve.exit ], [ %indvars.iv.next, %200 ]
-  %201 = getelementptr inbounds nuw [9 x double], ptr %5, i64 0, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %202 = load double, ptr %201, align 8, !tbaa !13
   %203 = fptrunc reassoc nsz arcp contract afn double %202 to float
   %204 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv

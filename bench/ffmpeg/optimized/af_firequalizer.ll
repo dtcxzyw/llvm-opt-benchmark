@@ -2475,9 +2475,9 @@ define internal noundef double @entry_func(ptr noundef %0, double noundef %1, do
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  %19 = add nsw i32 %7, -1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4096 x %struct.GainEntry], ptr %18, i64 0, i64 %20
+  %19 = zext nneg i32 %7 to i64
+  %20 = getelementptr %struct.GainEntry, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -16
   %22 = load double, ptr %21, align 8, !tbaa !146
   %23 = fcmp nsz ugt double %1, %22
   br i1 %23, label %26, label %24
@@ -2491,7 +2491,7 @@ define internal noundef double @entry_func(ptr noundef %0, double noundef %1, do
 26:                                               ; preds = %17, %15
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %28 = sext i32 %7 to i64
-  %29 = getelementptr inbounds [4096 x %struct.GainEntry], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds %struct.GainEntry, ptr %27, i64 %28
   store double %1, ptr %29, align 8, !tbaa !146
   %.idx = shl nsw i64 %28, 4
   %30 = getelementptr i8, ptr %27, i64 %.idx
@@ -2532,7 +2532,7 @@ define internal double @gain_interpolate_func(ptr noundef readonly captures(none
 16:                                               ; preds = %9
   %17 = add nsw i32 %8, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [4096 x %struct.GainEntry], ptr %10, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.GainEntry, ptr %10, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !146
   %21 = fcmp nsz ult double %1, %20
   br i1 %21, label %25, label %22
@@ -2638,7 +2638,7 @@ define internal double @cubic_interpolate_func(ptr noundef readonly captures(non
 14:                                               ; preds = %7
   %15 = add nsw i32 %6, -1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [4096 x %struct.GainEntry], ptr %8, i64 0, i64 %16
+  %17 = getelementptr inbounds %struct.GainEntry, ptr %8, i64 %16
   %18 = load double, ptr %17, align 8, !tbaa !146
   %19 = fcmp nsz ult double %1, %18
   br i1 %19, label %23, label %20

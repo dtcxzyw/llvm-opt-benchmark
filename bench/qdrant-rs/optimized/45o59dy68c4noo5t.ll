@@ -146,7 +146,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   unreachable
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw [0 x i8], ptr %24, i64 0, i64 %storemerge.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %24, i64 %storemerge.i.i
   %73 = load <1 x i8>, ptr %72, align 1, !noundef !3
   %74 = shufflevector <1 x i8> %73, <1 x i8> poison, <16 x i32> zeroinitializer
   store <16 x i8> %74, ptr %11, align 16
@@ -191,7 +191,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %89 = shl nuw nsw i64 %.sroa.023.084.i.i, 4
   %90 = or disjoint i64 %89, %.06388.i.i
   %91 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %90)
-  %92 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.023.084.i.i
+  %92 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.023.084.i.i
   store i16 %91, ptr %92, align 2
   %93 = icmp ugt i64 %88, 3
   br i1 %93, label %.preheader83.i.i, label %87
@@ -208,7 +208,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %.sroa.028.086.i.i = phi i64 [ %99, %103 ], [ 0, %87 ]
   %.285.i.i = phi i8 [ %.3.i.i, %103 ], [ 0, %87 ]
   %99 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %.sroa.028.086.i.i, i64 1)
-  %100 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.028.086.i.i
+  %100 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.028.086.i.i
   %101 = load i16, ptr %100, align 2, !noundef !3
   %102 = icmp eq i16 %101, 0
   br i1 %102, label %103, label %105

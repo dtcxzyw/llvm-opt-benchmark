@@ -52861,7 +52861,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS
 
 switch.lookup:                                    ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS0_11apint_matchELj13ELb0EEEEEbPT_RKT0_.exit.thread.thread
   %203 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm16InstCombinerImpl19foldICmpCommutativeENS_12CmpPredicateEPNS_5ValueES3_RNS_8ICmpInstE, i64 0, i64 %203
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm16InstCombinerImpl19foldICmpCommutativeENS_12CmpPredicateEPNS_5ValueES3_RNS_8ICmpInstE, i64 %203
   %switch.load = load i32, ptr %switch.gep, align 4
   %204 = icmp eq i8 %199, 57
   br i1 %204, label %205, label %228

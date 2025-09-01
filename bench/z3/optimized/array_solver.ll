@@ -1215,7 +1215,7 @@ _ZN3euf13th_euf_solver10force_pushEv.exit:        ; preds = %.lr.ph.i, %1
   %16 = lshr i32 %15, 16
   %.zext = and i32 %16, 1
   %17 = zext nneg i32 %.zext to i64
-  %18 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %17
   store i8 1, ptr %18, align 1, !tbaa !165
   br label %19
 

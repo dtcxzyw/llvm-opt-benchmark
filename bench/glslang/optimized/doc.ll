@@ -1426,7 +1426,7 @@ define noundef nonnull ptr @_ZN3spv12SourceStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN3spv12SourceStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv12SourceStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1546,7 +1546,7 @@ define noundef nonnull ptr @_ZN3spv12MemoryStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3spv12MemoryStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv12MemoryStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2720,7 +2720,7 @@ define noundef nonnull ptr @_ZN3spv27SamplerAddressingModeStringEi(i32 noundef %
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN3spv27SamplerAddressingModeStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv27SamplerAddressingModeStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2745,7 +2745,7 @@ define noundef nonnull ptr @_ZN3spv17ImageFormatStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [42 x ptr], ptr @switch.table._ZN3spv17ImageFormatStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv17ImageFormatStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2761,7 +2761,7 @@ define noundef nonnull ptr @_ZN3spv23ImageChannelOrderStringEi(i32 noundef %0) #
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZN3spv23ImageChannelOrderStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv23ImageChannelOrderStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2777,7 +2777,7 @@ define noundef nonnull ptr @_ZN3spv26ImageChannelDataTypeStringEi(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN3spv26ImageChannelDataTypeStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv26ImageChannelDataTypeStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2793,7 +2793,7 @@ define noundef nonnull ptr @_ZN3spv19ImageOperandsStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN3spv19ImageOperandsStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv19ImageOperandsStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2809,7 +2809,7 @@ define noundef nonnull ptr @_ZN3spv16FPFastMathStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN3spv16FPFastMathStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv16FPFastMathStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2825,7 +2825,7 @@ define noundef nonnull ptr @_ZN3spv20FPRoundingModeStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3spv20FPRoundingModeStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv20FPRoundingModeStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2850,7 +2850,7 @@ define noundef nonnull ptr @_ZN3spv19FuncParamAttrStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN3spv19FuncParamAttrStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv19FuncParamAttrStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2866,7 +2866,7 @@ define noundef nonnull ptr @_ZN3spv21AccessQualifierStringEi(i32 noundef %0) #0 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3spv21AccessQualifierStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv21AccessQualifierStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2891,7 +2891,7 @@ define noundef nonnull ptr @_ZN3spv17LoopControlStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN3spv17LoopControlStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv17LoopControlStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2907,7 +2907,7 @@ define noundef nonnull ptr @_ZN3spv21FunctionControlStringEi(i32 noundef %0) #0 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3spv21FunctionControlStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv21FunctionControlStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2924,7 +2924,7 @@ define noundef nonnull ptr @_ZN3spv21MemorySemanticsStringEi(i32 noundef %0) #0 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN3spv21MemorySemanticsStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv21MemorySemanticsStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2940,7 +2940,7 @@ define noundef nonnull ptr @_ZN3spv18MemoryAccessStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN3spv18MemoryAccessStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv18MemoryAccessStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2956,7 +2956,7 @@ define noundef nonnull ptr @_ZN3spv31CooperativeMatrixOperandsStringEi(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN3spv31CooperativeMatrixOperandsStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv31CooperativeMatrixOperandsStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2972,7 +2972,7 @@ define noundef nonnull ptr @_ZN3spv11ScopeStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN3spv11ScopeStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv11ScopeStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2988,7 +2988,7 @@ define noundef nonnull ptr @_ZN3spv20GroupOperationStringEi(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN3spv20GroupOperationStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv20GroupOperationStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3004,7 +3004,7 @@ define noundef nonnull ptr @_ZN3spv24KernelEnqueueFlagsStringEi(i32 noundef %0) 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3spv24KernelEnqueueFlagsStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3spv24KernelEnqueueFlagsStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

@@ -958,7 +958,7 @@ sub_0.i:                                          ; preds = %.preheader.i, %359
   unreachable
 
 324:                                              ; preds = %320
-  %325 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %321
+  %325 = getelementptr inbounds nuw i8, ptr %6, i64 %321
   store i8 0, ptr %325, align 1
   %326 = load i8, ptr %6, align 16
   %327 = icmp eq i8 %326, 47

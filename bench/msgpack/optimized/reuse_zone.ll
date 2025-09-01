@@ -1675,7 +1675,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 139:                                              ; preds = %137
   %140 = add nuw nsw i64 %34, 4294967100
   %141 = and i64 %140, 4294967295
-  %142 = getelementptr inbounds nuw [28 x i32], ptr @__const._ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE7executeEPKcmRm.trail, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i32, ptr @__const._ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE7executeEPKcmRm.trail, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !4
   %144 = zext i32 %143 to i64
   store i64 %144, ptr %24, align 8, !tbaa !127

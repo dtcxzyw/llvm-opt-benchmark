@@ -1078,7 +1078,7 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
 
 110:                                              ; preds = %110, %105
   %111 = phi i64 [ 0, %105 ], [ %125, %110 ]
-  %112 = getelementptr [9 x i64], ptr %109, i64 0, i64 %111
+  %112 = getelementptr i64, ptr %109, i64 %111
   %113 = load i64, ptr %112, align 8
   %114 = lshr i64 %113, 19
   %115 = and i64 %114, 17592186044415
@@ -1090,7 +1090,7 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %121 = select i1 %119, i64 %120, i64 %117
   %122 = tail call i64 @llvm.smin.i64(i64 %121, i64 32767)
   %123 = trunc nsw i64 %122 to i16
-  %124 = getelementptr [9 x i16], ptr %107, i64 0, i64 %111
+  %124 = getelementptr i16, ptr %107, i64 %111
   store i16 %123, ptr %124, align 2
   %125 = add nuw nsw i64 %111, 1
   %126 = icmp eq i64 %125, 9
@@ -2929,7 +2929,7 @@ define internal void @chv_get_config(ptr noundef captures(none) initializes((432
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = zext i32 %18 to i64
-  %23 = getelementptr [7 x i32], ptr %21, i64 0, i64 %22
+  %23 = getelementptr i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %21, align 4
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -3436,7 +3436,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 36
   %139 = sext i32 %17 to i64
-  %140 = getelementptr [7 x i32], ptr %138, i64 0, i64 %139
+  %140 = getelementptr i32, ptr %138, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = load i32, ptr %138, align 4
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -3506,7 +3506,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %150, ptr elementtype(i32) %183) #12, !srcloc !68
   %184 = load ptr, ptr %136, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 36
-  %186 = getelementptr [7 x i32], ptr %185, i64 0, i64 %139
+  %186 = getelementptr i32, ptr %185, i64 %139
   %187 = load i32, ptr %186, align 4
   %188 = load i32, ptr %185, align 4
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 32
@@ -3575,7 +3575,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %196, ptr elementtype(i32) %228) #12, !srcloc !68
   %229 = load ptr, ptr %136, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 36
-  %231 = getelementptr [7 x i32], ptr %230, i64 0, i64 %139
+  %231 = getelementptr i32, ptr %230, i64 %139
   %232 = load i32, ptr %231, align 4
   %233 = load i32, ptr %230, align 4
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 32
@@ -4004,7 +4004,7 @@ define internal void @i965_read_luts(ptr noundef captures(none) %0) #0 align 16 
   %142 = load ptr, ptr %19, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 36
   %144 = sext i32 %24 to i64
-  %145 = getelementptr [7 x i32], ptr %143, i64 0, i64 %144
+  %145 = getelementptr i32, ptr %143, i64 %144
   %146 = load i32, ptr %145, align 4
   %147 = load i32, ptr %143, align 4
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 32
@@ -4075,7 +4075,7 @@ define internal void @i965_read_luts(ptr noundef captures(none) %0) #0 align 16 
   store i16 %188, ptr %189, align 2
   %190 = load ptr, ptr %19, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 36
-  %192 = getelementptr [7 x i32], ptr %191, i64 0, i64 %144
+  %192 = getelementptr i32, ptr %191, i64 %144
   %193 = load i32, ptr %192, align 4
   %194 = load i32, ptr %191, align 4
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -4145,7 +4145,7 @@ define internal void @i965_read_luts(ptr noundef captures(none) %0) #0 align 16 
   store i16 %234, ptr %235, align 2
   %236 = load ptr, ptr %19, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 36
-  %238 = getelementptr [7 x i32], ptr %237, i64 0, i64 %144
+  %238 = getelementptr i32, ptr %237, i64 %144
   %239 = load i32, ptr %238, align 4
   %240 = load i32, ptr %237, align 4
   %241 = getelementptr inbounds nuw i8, ptr %236, i64 32
@@ -4362,7 +4362,7 @@ define internal void @i9xx_get_config(ptr noundef captures(none) %0) #0 align 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = zext i32 %7 to i64
-  %12 = getelementptr [7 x i32], ptr %10, i64 0, i64 %11
+  %12 = getelementptr i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %10, align 4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -4528,7 +4528,7 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
 
 81:                                               ; preds = %81, %76
   %82 = phi i64 [ 0, %76 ], [ %97, %81 ]
-  %83 = getelementptr [9 x i64], ptr %80, i64 0, i64 %82
+  %83 = getelementptr i64, ptr %80, i64 %82
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 21
   %86 = and i64 %85, 4398046511103
@@ -4541,7 +4541,7 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
   %93 = tail call i64 @llvm.smin.i64(i64 %92, i64 2047)
   %94 = trunc nsw i64 %93 to i16
   %95 = and i16 %94, 4095
-  %96 = getelementptr [9 x i16], ptr %78, i64 0, i64 %82
+  %96 = getelementptr i16, ptr %78, i64 %82
   store i16 %95, ptr %96, align 2
   %97 = add nuw nsw i64 %82, 1
   %98 = icmp eq i64 %97, 9
@@ -4630,7 +4630,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = sext i32 %10 to i64
-  %15 = getelementptr [7 x i32], ptr %13, i64 0, i64 %14
+  %15 = getelementptr i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %13, align 4
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -4704,7 +4704,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %29, ptr elementtype(i32) %62) #12, !srcloc !68
   %63 = load ptr, ptr %11, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %65 = getelementptr [7 x i32], ptr %64, i64 0, i64 %14
+  %65 = getelementptr i32, ptr %64, i64 %14
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %64, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -4773,7 +4773,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %75, ptr elementtype(i32) %107) #12, !srcloc !68
   %108 = load ptr, ptr %11, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
-  %110 = getelementptr [7 x i32], ptr %109, i64 0, i64 %14
+  %110 = getelementptr i32, ptr %109, i64 %14
   %111 = load i32, ptr %110, align 4
   %112 = load i32, ptr %109, align 4
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 32
@@ -4847,7 +4847,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %125, ptr elementtype(i32) %157) #12, !srcloc !68
   %158 = load ptr, ptr %11, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 64
-  %160 = getelementptr [7 x i32], ptr %159, i64 0, i64 %14
+  %160 = getelementptr i32, ptr %159, i64 %14
   %161 = load i32, ptr %160, align 4
   %162 = load i32, ptr %159, align 4
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 32
@@ -4916,7 +4916,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %170, ptr elementtype(i32) %202) #12, !srcloc !68
   %203 = load ptr, ptr %11, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 64
-  %205 = getelementptr [7 x i32], ptr %204, i64 0, i64 %14
+  %205 = getelementptr i32, ptr %204, i64 %14
   %206 = load i32, ptr %205, align 4
   %207 = load i32, ptr %204, align 4
   %208 = getelementptr inbounds nuw i8, ptr %203, i64 32
@@ -4990,7 +4990,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %220, ptr elementtype(i32) %252) #12, !srcloc !68
   %253 = load ptr, ptr %11, align 8
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 64
-  %255 = getelementptr [7 x i32], ptr %254, i64 0, i64 %14
+  %255 = getelementptr i32, ptr %254, i64 %14
   %256 = load i32, ptr %255, align 4
   %257 = load i32, ptr %254, align 4
   %258 = getelementptr inbounds nuw i8, ptr %253, i64 32
@@ -5248,7 +5248,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = sext i32 %10 to i64
-  %15 = getelementptr [7 x i32], ptr %13, i64 0, i64 %14
+  %15 = getelementptr i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %13, align 4
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -5316,7 +5316,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i32 %34, ptr %7, align 2
   %57 = load ptr, ptr %11, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = getelementptr [7 x i32], ptr %58, i64 0, i64 %14
+  %59 = getelementptr i32, ptr %58, i64 %14
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %58, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -5385,7 +5385,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i16 %100, ptr %101, align 2
   %102 = load ptr, ptr %11, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %104 = getelementptr [7 x i32], ptr %103, i64 0, i64 %14
+  %104 = getelementptr i32, ptr %103, i64 %14
   %105 = load i32, ptr %104, align 4
   %106 = load i32, ptr %103, align 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 32
@@ -5453,7 +5453,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i32 %122, ptr %145, align 2
   %146 = load ptr, ptr %11, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  %148 = getelementptr [7 x i32], ptr %147, i64 0, i64 %14
+  %148 = getelementptr i32, ptr %147, i64 %14
   %149 = load i32, ptr %148, align 4
   %150 = load i32, ptr %147, align 4
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -5522,7 +5522,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i16 %189, ptr %190, align 2
   %191 = load ptr, ptr %11, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
-  %193 = getelementptr [7 x i32], ptr %192, i64 0, i64 %14
+  %193 = getelementptr i32, ptr %192, i64 %14
   %194 = load i32, ptr %193, align 4
   %195 = load i32, ptr %192, align 4
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 32
@@ -5590,7 +5590,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i32 %211, ptr %234, align 2
   %235 = load ptr, ptr %11, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 64
-  %237 = getelementptr [7 x i32], ptr %236, i64 0, i64 %14
+  %237 = getelementptr i32, ptr %236, i64 %14
   %238 = load i32, ptr %237, align 4
   %239 = load i32, ptr %236, align 4
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 32
@@ -11552,7 +11552,7 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr readonly captures(none) %.0
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 9223372036854775807
   %33 = tail call i64 @llvm.umin.i64(i64 %32, i64 17179869183)
-  %34 = getelementptr [9 x i16], ptr %0, i64 0, i64 %29
+  %34 = getelementptr i16, ptr %0, i64 %29
   store i16 0, ptr %34, align 2
   %35 = load i64, ptr %30, align 8
   %36 = lshr i64 %35, 48
@@ -18336,7 +18336,7 @@ define internal void @hsw_get_config(ptr noundef captures(none) initializes((432
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = zext i32 %27 to i64
-  %32 = getelementptr [7 x i32], ptr %30, i64 0, i64 %31
+  %32 = getelementptr i32, ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %30, align 4
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -19551,7 +19551,7 @@ define internal void @ilk_get_config(ptr noundef captures(none) initializes((432
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = zext i32 %18 to i64
-  %23 = getelementptr [7 x i32], ptr %21, i64 0, i64 %22
+  %23 = getelementptr i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %21, align 4
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 32

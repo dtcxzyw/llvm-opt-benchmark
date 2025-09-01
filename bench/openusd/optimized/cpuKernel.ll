@@ -92,7 +92,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
   %54 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i
   %57 = load float, ptr %56, align 4
   %58 = tail call float @llvm.fmuladd.f32(float %55, float %52, float %57)
   store float %58, ptr %56, align 4
@@ -166,7 +166,7 @@ _ZN10OpenSubdiv6v3_6_03Osd20ComputeStencilKernelILi4EEEvPKfPfPKiS7_S4_ii.exit: ;
   %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.i94 ], [ %indvars.iv.next.i99, %80 ]
   %81 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv.i98
   %82 = load float, ptr %81, align 4
-  %83 = getelementptr inbounds nuw [8 x float], ptr %11, i64 0, i64 %indvars.iv.i98
+  %83 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i98
   %84 = load float, ptr %83, align 4
   %85 = tail call float @llvm.fmuladd.f32(float %82, float %79, float %84)
   store float %85, ptr %83, align 4

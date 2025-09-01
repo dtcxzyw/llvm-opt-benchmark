@@ -167,14 +167,14 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_create(ptr noundef readonl
 
 23:                                               ; preds = %22
   %24 = lshr i64 %20, 24
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !17
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 24
   br label %H5VM_log2_gen.exit
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %21
   %31 = load i8, ptr %30, align 1, !tbaa !17
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %32, 16
@@ -186,14 +186,14 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_create(ptr noundef readonl
 
 35:                                               ; preds = %34
   %36 = lshr i64 %20, 8
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !17
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 8
   br label %H5VM_log2_gen.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %20
+  %42 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %20
   %43 = load i8, ptr %42, align 1, !tbaa !17
   %44 = zext i8 %43 to i32
   br label %H5VM_log2_gen.exit
@@ -1450,14 +1450,14 @@ define internal noalias ptr @H5D__farray_crt_context(ptr noundef readonly captur
 
 24:                                               ; preds = %23
   %25 = lshr i64 %21, 24
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !17
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 24
   br label %H5VM_log2_gen.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %22
+  %31 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %22
   %32 = load i8, ptr %31, align 1, !tbaa !17
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 16
@@ -1469,14 +1469,14 @@ define internal noalias ptr @H5D__farray_crt_context(ptr noundef readonly captur
 
 36:                                               ; preds = %35
   %37 = lshr i64 %21, 8
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !17
   %40 = zext i8 %39 to i32
   %41 = add nuw nsw i32 %40, 8
   br label %H5VM_log2_gen.exit
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %21
+  %43 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %21
   %44 = load i8, ptr %43, align 1, !tbaa !17
   %45 = zext i8 %44 to i32
   br label %H5VM_log2_gen.exit
@@ -2165,11 +2165,11 @@ define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr noundef readonly cap
 43:                                               ; preds = %.lr.ph, %50
   %.031 = phi i32 [ %40, %.lr.ph ], [ %51, %50 ]
   %44 = zext nneg i32 %.031 to i64
-  %45 = getelementptr inbounds nuw [33 x i64], ptr %24, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %24, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !39
   %47 = add i64 %46, 1
   store i64 %47, ptr %45, align 8, !tbaa !39
-  %48 = getelementptr inbounds nuw [33 x i64], ptr %42, i64 0, i64 %44
+  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %44
   %49 = load i64, ptr %48, align 8, !tbaa !39
   %.not30 = icmp ult i64 %47, %49
   br i1 %.not30, label %.loopexit, label %50

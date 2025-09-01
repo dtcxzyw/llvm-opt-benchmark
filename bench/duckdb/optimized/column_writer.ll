@@ -2744,7 +2744,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11Writ
   %13 = load i64, ptr %12, align 8, !tbaa !28
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !28
-  %15 = getelementptr inbounds nuw [2048 x i64], ptr %11, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i64, ptr %11, i64 %13
   store i64 %7, ptr %15, align 8, !tbaa !24
   %16 = load i64, ptr %12, align 8, !tbaa !28
   %17 = icmp eq i64 %16, 2048
@@ -2775,7 +2775,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11Writ
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw [2048 x i64], ptr %12, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %14
   store i64 %8, ptr %16, align 8, !tbaa !24
   %17 = load i64, ptr %13, align 8, !tbaa !28
   %18 = icmp eq i64 %17, 2048
@@ -2805,7 +2805,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueImEEvRNS_10DbpEncoderERNS_11Writ
   %13 = load i64, ptr %12, align 8, !tbaa !28
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !28
-  %15 = getelementptr inbounds nuw [2048 x i64], ptr %11, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i64, ptr %11, i64 %13
   store i64 %7, ptr %15, align 8, !tbaa !24
   %16 = load i64, ptr %12, align 8, !tbaa !28
   %17 = icmp eq i64 %16, 2048
@@ -2836,7 +2836,7 @@ define void @_ZN6duckdb11dbp_encoder10WriteValueIjEEvRNS_10DbpEncoderERNS_11Writ
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw [2048 x i64], ptr %12, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %14
   store i64 %8, ptr %16, align 8, !tbaa !24
   %17 = load i64, ptr %13, align 8, !tbaa !28
   %18 = icmp eq i64 %17, 2048
@@ -2891,7 +2891,7 @@ define void @_ZN6duckdb12dlba_encoder10WriteValueINS_8string_tEEEvRNS_11DlbaEnco
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw [2048 x i64], ptr %12, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %14
   store i64 %8, ptr %16, align 8, !tbaa !24
   %17 = load i64, ptr %13, align 8, !tbaa !28
   %18 = icmp eq i64 %17, 2048
@@ -10025,17 +10025,17 @@ define linkonce_odr void @_ZN6duckdb10DbpEncoder10WriteBlockERNS_11WriteStreamE(
   %6 = add i64 %5, 255
   %7 = lshr i64 %6, 8
   %.not = icmp ult i64 %6, 256
-  br i1 %.not, label %.preheader, label %.preheader39.lr.ph
+  br i1 %.not, label %.preheader, label %.preheader40.lr.ph
 
-.preheader39.lr.ph:                               ; preds = %2
+.preheader40.lr.ph:                               ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
-  br label %.preheader39
+  br label %.preheader40
 
-.preheader39:                                     ; preds = %.preheader39.lr.ph, %14
-  %.041 = phi i64 [ 0, %.preheader39.lr.ph ], [ %15, %14 ]
-  %11 = shl nuw i64 %.041, 8
+.preheader40:                                     ; preds = %.preheader40.lr.ph, %14
+  %.042 = phi i64 [ 0, %.preheader40.lr.ph ], [ %15, %14 ]
+  %11 = shl nuw i64 %.042, 8
   br label %16
 
 .preheader:                                       ; preds = %14, %2
@@ -10044,14 +10044,14 @@ define linkonce_odr void @_ZN6duckdb10DbpEncoder10WriteBlockERNS_11WriteStreamE(
   br label %41
 
 14:                                               ; preds = %24
-  %15 = add nuw nsw i64 %.041, 1
-  %exitcond45.not = icmp eq i64 %15, %7
-  br i1 %exitcond45.not, label %.preheader, label %.preheader39, !llvm.loop !384
+  %15 = add nuw nsw i64 %.042, 1
+  %exitcond46.not = icmp eq i64 %15, %7
+  br i1 %exitcond46.not, label %.preheader, label %.preheader40, !llvm.loop !384
 
-16:                                               ; preds = %.preheader39, %24
-  %.03340 = phi i64 [ 0, %.preheader39 ], [ %25, %24 ]
-  %17 = add nuw nsw i64 %.03340, %11
-  %18 = getelementptr inbounds nuw [2048 x i64], ptr %8, i64 0, i64 %17
+16:                                               ; preds = %.preheader40, %24
+  %.03341 = phi i64 [ 0, %.preheader40 ], [ %25, %24 ]
+  %17 = add nuw nsw i64 %.03341, %11
+  %18 = getelementptr inbounds nuw i64, ptr %8, i64 %17
   %19 = load i64, ptr %4, align 8, !tbaa !28
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %21, label %24
@@ -10062,9 +10062,9 @@ define linkonce_odr void @_ZN6duckdb10DbpEncoder10WriteBlockERNS_11WriteStreamE(
   br label %24
 
 24:                                               ; preds = %16, %21
-  %storemerge37 = phi i64 [ %23, %21 ], [ 0, %16 ]
-  store i64 %storemerge37, ptr %18, align 8, !tbaa !24
-  %25 = add nuw nsw i64 %.03340, 1
+  %storemerge38 = phi i64 [ %23, %21 ], [ 0, %16 ]
+  store i64 %storemerge38, ptr %18, align 8, !tbaa !24
+  %25 = add nuw nsw i64 %.03341, 1
   %exitcond.not = icmp eq i64 %25, 256
   br i1 %exitcond.not, label %14, label %16, !llvm.loop !385
 
@@ -10100,91 +10100,91 @@ _ZN6duckdb18ParquetDecodeUtils12VarintEncodeImEEvT_RNS_11WriteStreamE.exit: ; pr
 
 .lr.ph:                                           ; preds = %_ZN6duckdb18ParquetDecodeUtils12VarintEncodeImEEvT_RNS_11WriteStreamE.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16432
-  br label %61
+  br label %60
 
 41:                                               ; preds = %.preheader, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit
-  %.03542 = phi i64 [ 0, %.preheader ], [ %56, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit ]
-  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %.03542
-  %43 = icmp samesign ult i64 %.03542, %7
+  %.03543 = phi i64 [ 0, %.preheader ], [ %55, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 %.03543
+  %43 = icmp samesign ult i64 %.03543, %7
   br i1 %43, label %44, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit
 
 44:                                               ; preds = %41
-  %45 = shl nuw nsw i64 %.03542, 8
-  %46 = getelementptr inbounds nuw [2048 x i64], ptr %13, i64 0, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !24
+  %.idx37 = shl nuw nsw i64 %.03543, 11
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx37
+  %46 = load i64, ptr %45, align 8, !tbaa !24
   br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %48 = icmp eq i64 %spec.select.i.i, 0
-  br i1 %48, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit, label %.preheader.preheader.i.i.i
+  %47 = icmp eq i64 %spec.select.i.i, 0
+  br i1 %47, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit, label %.preheader.preheader.i.i.i
 
 .preheader.preheader.i.i.i:                       ; preds = %._crit_edge.i.i
-  %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i, i1 true)
-  %50 = trunc nuw nsw i64 %49 to i8
-  %51 = sub nuw nsw i8 64, %50
-  %52 = icmp ugt i64 %spec.select.i.i, 72057594037927935
-  %..i.i.i.i = select i1 %52, i8 64, i8 %51
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i.i, i1 true)
+  %49 = trunc nuw nsw i64 %48 to i8
+  %50 = sub nuw nsw i8 64, %49
+  %51 = icmp ugt i64 %spec.select.i.i, 72057594037927935
+  %..i.i.i.i = select i1 %51, i8 64, i8 %50
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %44
-  %.014.i.i = phi i64 [ %55, %.lr.ph.i.i ], [ 1, %44 ]
-  %.01113.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %47, %44 ]
-  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %.014.i.i
-  %54 = load i64, ptr %53, align 8, !tbaa !24
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %54, i64 %.01113.i.i)
-  %55 = add nuw nsw i64 %.014.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %55, 256
+  %.014.i.i = phi i64 [ %54, %.lr.ph.i.i ], [ 1, %44 ]
+  %.01113.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %46, %44 ]
+  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %.014.i.i
+  %53 = load i64, ptr %52, align 8, !tbaa !24
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %53, i64 %.01113.i.i)
+  %54 = add nuw nsw i64 %.014.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %54, 256
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !386
 
 _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhPT_m.exit: ; preds = %.preheader.preheader.i.i.i, %._crit_edge.i.i, %41
   %storemerge = phi i8 [ 0, %41 ], [ %..i.i.i.i, %.preheader.preheader.i.i.i ], [ 0, %._crit_edge.i.i ]
   store i8 %storemerge, ptr %42, align 1, !tbaa !3
-  %56 = add nuw nsw i64 %.03542, 1
-  %exitcond46.not = icmp eq i64 %56, 8
-  br i1 %exitcond46.not, label %26, label %41, !llvm.loop !387
+  %55 = add nuw nsw i64 %.03543, 1
+  %exitcond47.not = icmp eq i64 %55, 8
+  br i1 %exitcond47.not, label %26, label %41, !llvm.loop !387
 
 ._crit_edge:                                      ; preds = %_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit, %_ZN6duckdb18ParquetDecodeUtils12VarintEncodeImEEvT_RNS_11WriteStreamE.exit
-  %57 = load i64, ptr %4, align 8, !tbaa !28
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !25
-  %60 = add i64 %59, %57
-  store i64 %60, ptr %58, align 8, !tbaa !25
+  %56 = load i64, ptr %4, align 8, !tbaa !28
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load i64, ptr %57, align 8, !tbaa !25
+  %59 = add i64 %58, %56
+  store i64 %59, ptr %57, align 8, !tbaa !25
   store i64 9223372036854775807, ptr %27, align 8, !tbaa !27
   store i64 0, ptr %4, align 8, !tbaa !28
   ret void
 
-61:                                               ; preds = %.lr.ph, %_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit
-  %.03443 = phi i64 [ 0, %.lr.ph ], [ %80, %_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit ]
-  %62 = shl nuw i64 %.03443, 8
-  %63 = getelementptr inbounds nuw [2048 x i64], ptr %13, i64 0, i64 %62
-  %64 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %.03443
+60:                                               ; preds = %.lr.ph, %_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit
+  %.03444 = phi i64 [ 0, %.lr.ph ], [ %78, %_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit ]
+  %.idx = shl nuw i64 %.03444, 11
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 %.03444
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %40, i8 0, i64 2048, i1 false)
-  %65 = load i8, ptr %64, align 1, !tbaa !3
-  %66 = zext i8 %65 to i64
-  %67 = zext i8 %65 to i32
-  br label %68
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = zext i8 %63 to i64
+  %65 = zext i8 %63 to i32
+  br label %66
 
-68:                                               ; preds = %68, %61
-  %.08.i.i = phi i64 [ 0, %61 ], [ %73, %68 ]
-  %69 = mul nuw nsw i64 %.08.i.i, %66
-  %70 = lshr exact i64 %69, 3
-  %71 = getelementptr inbounds nuw i8, ptr %40, i64 %70
-  %72 = getelementptr inbounds nuw i64, ptr %63, i64 %.08.i.i
-  call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %72, ptr noundef nonnull %71, i32 noundef %67)
-  %73 = add nuw nsw i64 %.08.i.i, 32
-  %74 = icmp samesign ult i64 %.08.i.i, 224
-  br i1 %74, label %68, label %_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit, !llvm.loop !388
+66:                                               ; preds = %66, %60
+  %.08.i.i = phi i64 [ 0, %60 ], [ %71, %66 ]
+  %67 = mul nuw nsw i64 %.08.i.i, %64
+  %68 = lshr exact i64 %67, 3
+  %69 = getelementptr inbounds nuw i8, ptr %40, i64 %68
+  %70 = getelementptr inbounds nuw i64, ptr %61, i64 %.08.i.i
+  call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %70, ptr noundef nonnull %69, i32 noundef %65)
+  %71 = add nuw nsw i64 %.08.i.i, 32
+  %72 = icmp samesign ult i64 %.08.i.i, 224
+  br i1 %72, label %66, label %_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit, !llvm.loop !388
 
-_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit: ; preds = %68
-  %75 = load i8, ptr %64, align 1, !tbaa !3
-  %76 = zext i8 %75 to i64
-  %77 = shl nuw nsw i64 %76, 5
-  %78 = load ptr, ptr %1, align 8, !tbaa !19
-  %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %77)
-  %80 = add nuw nsw i64 %.03443, 1
-  %exitcond47.not = icmp eq i64 %80, %7
-  br i1 %exitcond47.not, label %._crit_edge, label %61, !llvm.loop !389
+_ZN6duckdb18ParquetDecodeUtils14BitPackAlignedImEEvPT_Phmh.exit: ; preds = %66
+  %73 = load i8, ptr %62, align 1, !tbaa !3
+  %74 = zext i8 %73 to i64
+  %75 = shl nuw nsw i64 %74, 5
+  %76 = load ptr, ptr %1, align 8, !tbaa !19
+  %77 = load ptr, ptr %76, align 8
+  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %75)
+  %78 = add nuw nsw i64 %.03444, 1
+  %exitcond48.not = icmp eq i64 %78, %7
+  br i1 %exitcond48.not, label %._crit_edge, label %60, !llvm.loop !389
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -13636,7 +13636,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -14375,7 +14375,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit153.thread: ; preds = %1
   %190 = load i64, ptr %171, align 8, !tbaa !28
   %191 = add i64 %190, 1
   store i64 %191, ptr %171, align 8, !tbaa !28
-  %192 = getelementptr inbounds nuw [2048 x i64], ptr %170, i64 0, i64 %190
+  %192 = getelementptr inbounds nuw i64, ptr %170, i64 %190
   store i64 %187, ptr %192, align 8, !tbaa !24
   %193 = load i64, ptr %171, align 8, !tbaa !28
   %194 = icmp eq i64 %193, 2048
@@ -17292,7 +17292,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = add i64 %6, 1
   store i64 %10, ptr %5, align 8, !tbaa !560
-  %11 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %6
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %6
   store i32 %8, ptr %11, align 4, !tbaa !29
   %12 = icmp eq i64 %10, 32
   br i1 %12, label %13, label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
@@ -17371,7 +17371,7 @@ _ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit12: ; preds = %42
   %47 = load i32, ptr %2, align 4, !tbaa !29
   %48 = add i64 %51, 2
   store i64 %48, ptr %5, align 8, !tbaa !560
-  %49 = getelementptr inbounds nuw [32 x i32], ptr %44, i64 0, i64 %52
+  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %52
   store i32 %47, ptr %49, align 4, !tbaa !29
   store i64 0, ptr %29, align 8, !tbaa !558
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
@@ -17380,7 +17380,7 @@ _ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit12: ; preds = %42
   %.013 = phi i64 [ 0, %.preheader ], [ %54, %50 ]
   %51 = phi i64 [ 0, %.preheader ], [ %52, %50 ]
   %52 = add i64 %51, 1
-  %53 = getelementptr inbounds nuw [32 x i32], ptr %44, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw i32, ptr %44, i64 %51
   store i32 %37, ptr %53, align 4, !tbaa !29
   %54 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %54, %30
@@ -18828,7 +18828,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -19398,7 +19398,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
   %148 = load i64, ptr %123, align 8, !tbaa !28
   %149 = add i64 %148, 1
   store i64 %149, ptr %123, align 8, !tbaa !28
-  %150 = getelementptr inbounds nuw [2048 x i64], ptr %122, i64 0, i64 %148
+  %150 = getelementptr inbounds nuw i64, ptr %122, i64 %148
   store i64 %145, ptr %150, align 8, !tbaa !24
   %151 = load i64, ptr %123, align 8, !tbaa !28
   %152 = icmp eq i64 %151, 2048
@@ -19629,7 +19629,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %244, %241
   %245 = add i64 %.02.i, 1
-  %246 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.02.i
+  %246 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
   store i32 %237, ptr %246, align 4, !tbaa !29
   %247 = icmp eq i64 %245, 2048
   br i1 %247, label %248, label %251
@@ -19707,7 +19707,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %276, %273
   %277 = add i64 %.03.i, 1
-  %278 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %.03.i
+  %278 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
   store i32 %269, ptr %278, align 4, !tbaa !29
   %279 = icmp eq i64 %277, 2048
   br i1 %279, label %280, label %283
@@ -21189,7 +21189,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -21759,7 +21759,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
   %148 = load i64, ptr %123, align 8, !tbaa !28
   %149 = add i64 %148, 1
   store i64 %149, ptr %123, align 8, !tbaa !28
-  %150 = getelementptr inbounds nuw [2048 x i64], ptr %122, i64 0, i64 %148
+  %150 = getelementptr inbounds nuw i64, ptr %122, i64 %148
   store i64 %145, ptr %150, align 8, !tbaa !24
   %151 = load i64, ptr %123, align 8, !tbaa !28
   %152 = icmp eq i64 %151, 2048
@@ -21990,7 +21990,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %244, %241
   %245 = add i64 %.02.i, 1
-  %246 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.02.i
+  %246 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
   store i32 %237, ptr %246, align 4, !tbaa !29
   %247 = icmp eq i64 %245, 2048
   br i1 %247, label %248, label %251
@@ -22068,7 +22068,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %276, %273
   %277 = add i64 %.03.i, 1
-  %278 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %.03.i
+  %278 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
   store i32 %269, ptr %278, align 4, !tbaa !29
   %279 = icmp eq i64 %277, 2048
   br i1 %279, label %280, label %283
@@ -23340,7 +23340,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -23906,7 +23906,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
   %144 = load i64, ptr %120, align 8, !tbaa !28
   %145 = add i64 %144, 1
   store i64 %145, ptr %120, align 8, !tbaa !28
-  %146 = getelementptr inbounds nuw [2048 x i64], ptr %119, i64 0, i64 %144
+  %146 = getelementptr inbounds nuw i64, ptr %119, i64 %144
   store i64 %141, ptr %146, align 8, !tbaa !24
   %147 = load i64, ptr %120, align 8, !tbaa !28
   %148 = icmp eq i64 %147, 2048
@@ -24196,7 +24196,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %265, %262
   %266 = add i64 %.03.i, 1
-  %267 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %.03.i
+  %267 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
   store i32 %258, ptr %267, align 4, !tbaa !29
   %268 = icmp eq i64 %266, 2048
   br i1 %268, label %269, label %272
@@ -25466,7 +25466,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -26025,7 +26025,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %138 = load i64, ptr %115, align 8, !tbaa !28
   %139 = add i64 %138, 1
   store i64 %139, ptr %115, align 8, !tbaa !28
-  %140 = getelementptr inbounds nuw [2048 x i64], ptr %114, i64 0, i64 %138
+  %140 = getelementptr inbounds nuw i64, ptr %114, i64 %138
   store i64 %135, ptr %140, align 8, !tbaa !24
   %141 = load i64, ptr %115, align 8, !tbaa !28
   %142 = icmp eq i64 %141, 2048
@@ -26315,7 +26315,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
   %260 = add i64 %.03.i, 1
-  %261 = getelementptr inbounds nuw [2048 x i64], ptr %8, i64 0, i64 %.03.i
+  %261 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
   store i64 %252, ptr %261, align 8, !tbaa !24
   %262 = icmp eq i64 %260, 2048
   br i1 %262, label %263, label %266
@@ -27791,7 +27791,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -28304,7 +28304,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %1
   %118 = load i64, ptr %102, align 8, !tbaa !28
   %119 = add i64 %118, 1
   store i64 %119, ptr %102, align 8, !tbaa !28
-  %120 = getelementptr inbounds nuw [2048 x i64], ptr %101, i64 0, i64 %118
+  %120 = getelementptr inbounds nuw i64, ptr %101, i64 %118
   store i64 %115, ptr %120, align 8, !tbaa !24
   %121 = load i64, ptr %102, align 8, !tbaa !28
   %122 = icmp eq i64 %121, 2048
@@ -28454,7 +28454,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit139.thread: ; preds = %1
   %.sroa.0.0.copyload.i = load i64, ptr %174, align 8, !tbaa !24
   %175 = lshr i64 %.sroa.0.0.copyload.i, 24
   %176 = add i64 %.02.i, 1
-  %177 = getelementptr inbounds nuw [2048 x i64], ptr %9, i64 0, i64 %.02.i
+  %177 = getelementptr inbounds nuw i64, ptr %9, i64 %.02.i
   store i64 %175, ptr %177, align 8, !tbaa !24
   %178 = icmp eq i64 %176, 2048
   br i1 %178, label %179, label %182
@@ -28513,7 +28513,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   %.sroa.0.0.copyload.i145 = load i64, ptr %195, align 8, !tbaa !24
   %196 = lshr i64 %.sroa.0.0.copyload.i145, 24
   %197 = add i64 %.03.i, 1
-  %198 = getelementptr inbounds nuw [2048 x i64], ptr %8, i64 0, i64 %.03.i
+  %198 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
   store i64 %196, ptr %198, align 8, !tbaa !24
   %199 = icmp eq i64 %197, 2048
   br i1 %199, label %200, label %203
@@ -29667,7 +29667,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -30381,7 +30381,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
   %194 = load double, ptr %10, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %195 = add i64 %.02.i, 1
-  %196 = getelementptr inbounds nuw [2048 x double], ptr %11, i64 0, i64 %.02.i
+  %196 = getelementptr inbounds nuw double, ptr %11, i64 %.02.i
   store double %194, ptr %196, align 8, !tbaa !1082
   %197 = icmp eq i64 %195, 2048
   br i1 %197, label %198, label %201
@@ -30446,7 +30446,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   %216 = load double, ptr %8, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %217 = add i64 %.03.i, 1
-  %218 = getelementptr inbounds nuw [2048 x double], ptr %9, i64 0, i64 %.03.i
+  %218 = getelementptr inbounds nuw double, ptr %9, i64 %.03.i
   store double %216, ptr %218, align 8, !tbaa !1082
   %219 = icmp eq i64 %217, 2048
   br i1 %219, label %220, label %223
@@ -31909,7 +31909,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -32623,7 +32623,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
   %194 = load double, ptr %10, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %195 = add i64 %.02.i, 1
-  %196 = getelementptr inbounds nuw [2048 x double], ptr %11, i64 0, i64 %.02.i
+  %196 = getelementptr inbounds nuw double, ptr %11, i64 %.02.i
   store double %194, ptr %196, align 8, !tbaa !1082
   %197 = icmp eq i64 %195, 2048
   br i1 %197, label %198, label %201
@@ -32688,7 +32688,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   %216 = load double, ptr %8, align 8, !tbaa !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %217 = add i64 %.03.i, 1
-  %218 = getelementptr inbounds nuw [2048 x double], ptr %9, i64 0, i64 %.03.i
+  %218 = getelementptr inbounds nuw double, ptr %9, i64 %.03.i
   store double %216, ptr %218, align 8, !tbaa !1082
   %219 = icmp eq i64 %217, 2048
   br i1 %219, label %220, label %223
@@ -33865,7 +33865,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -34424,7 +34424,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %138 = load i64, ptr %115, align 8, !tbaa !28
   %139 = add i64 %138, 1
   store i64 %139, ptr %115, align 8, !tbaa !28
-  %140 = getelementptr inbounds nuw [2048 x i64], ptr %114, i64 0, i64 %138
+  %140 = getelementptr inbounds nuw i64, ptr %114, i64 %138
   store i64 %135, ptr %140, align 8, !tbaa !24
   %141 = load i64, ptr %115, align 8, !tbaa !28
   %142 = icmp eq i64 %141, 2048
@@ -34714,7 +34714,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
   %260 = add i64 %.03.i, 1
-  %261 = getelementptr inbounds nuw [2048 x i64], ptr %8, i64 0, i64 %.03.i
+  %261 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
   store i64 %252, ptr %261, align 8, !tbaa !24
   %262 = icmp eq i64 %260, 2048
   br i1 %262, label %263, label %266
@@ -35882,7 +35882,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -36443,7 +36443,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   %140 = load i64, ptr %116, align 8, !tbaa !28
   %141 = add i64 %140, 1
   store i64 %141, ptr %116, align 8, !tbaa !28
-  %142 = getelementptr inbounds nuw [2048 x i64], ptr %115, i64 0, i64 %140
+  %142 = getelementptr inbounds nuw i64, ptr %115, i64 %140
   store i64 %137, ptr %142, align 8, !tbaa !24
   %143 = load i64, ptr %116, align 8, !tbaa !28
   %144 = icmp eq i64 %143, 2048
@@ -36734,7 +36734,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %264, %261
   %265 = add i64 %.03.i, 1
-  %266 = getelementptr inbounds nuw [2048 x i64], ptr %8, i64 0, i64 %.03.i
+  %266 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
   store i64 %257, ptr %266, align 8, !tbaa !24
   %267 = icmp eq i64 %265, 2048
   br i1 %267, label %268, label %271
@@ -37905,7 +37905,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -38474,7 +38474,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
   %147 = load i64, ptr %122, align 8, !tbaa !28
   %148 = add i64 %147, 1
   store i64 %148, ptr %122, align 8, !tbaa !28
-  %149 = getelementptr inbounds nuw [2048 x i64], ptr %121, i64 0, i64 %147
+  %149 = getelementptr inbounds nuw i64, ptr %121, i64 %147
   store i64 %144, ptr %149, align 8, !tbaa !24
   %150 = load i64, ptr %122, align 8, !tbaa !28
   %151 = icmp eq i64 %150, 2048
@@ -38705,7 +38705,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %243, %240
   %244 = add i64 %.02.i, 1
-  %245 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.02.i
+  %245 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
   store i32 %236, ptr %245, align 4, !tbaa !29
   %246 = icmp eq i64 %244, 2048
   br i1 %246, label %247, label %250
@@ -38783,7 +38783,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %275, %272
   %276 = add i64 %.03.i, 1
-  %277 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %.03.i
+  %277 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
   store i32 %268, ptr %277, align 4, !tbaa !29
   %278 = icmp eq i64 %276, 2048
   br i1 %278, label %279, label %282
@@ -40056,7 +40056,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -40625,7 +40625,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
   %147 = load i64, ptr %122, align 8, !tbaa !28
   %148 = add i64 %147, 1
   store i64 %148, ptr %122, align 8, !tbaa !28
-  %149 = getelementptr inbounds nuw [2048 x i64], ptr %121, i64 0, i64 %147
+  %149 = getelementptr inbounds nuw i64, ptr %121, i64 %147
   store i64 %144, ptr %149, align 8, !tbaa !24
   %150 = load i64, ptr %122, align 8, !tbaa !28
   %151 = icmp eq i64 %150, 2048
@@ -40856,7 +40856,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %243, %240
   %244 = add i64 %.02.i, 1
-  %245 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.02.i
+  %245 = getelementptr inbounds nuw i32, ptr %9, i64 %.02.i
   store i32 %236, ptr %245, align 4, !tbaa !29
   %246 = icmp eq i64 %244, 2048
   br i1 %246, label %247, label %250
@@ -40934,7 +40934,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %275, %272
   %276 = add i64 %.03.i, 1
-  %277 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %.03.i
+  %277 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
   store i32 %268, ptr %277, align 4, !tbaa !29
   %278 = icmp eq i64 %276, 2048
   br i1 %278, label %279, label %282
@@ -42207,7 +42207,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -42773,7 +42773,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
   %144 = load i64, ptr %120, align 8, !tbaa !28
   %145 = add i64 %144, 1
   store i64 %145, ptr %120, align 8, !tbaa !28
-  %146 = getelementptr inbounds nuw [2048 x i64], ptr %119, i64 0, i64 %144
+  %146 = getelementptr inbounds nuw i64, ptr %119, i64 %144
   store i64 %141, ptr %146, align 8, !tbaa !24
   %147 = load i64, ptr %120, align 8, !tbaa !28
   %148 = icmp eq i64 %147, 2048
@@ -43063,7 +43063,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %265, %262
   %266 = add i64 %.03.i, 1
-  %267 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %.03.i
+  %267 = getelementptr inbounds nuw i32, ptr %8, i64 %.03.i
   store i32 %258, ptr %267, align 4, !tbaa !29
   %268 = icmp eq i64 %266, 2048
   br i1 %268, label %269, label %272
@@ -44545,7 +44545,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -45104,7 +45104,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
   %138 = load i64, ptr %115, align 8, !tbaa !28
   %139 = add i64 %138, 1
   store i64 %139, ptr %115, align 8, !tbaa !28
-  %140 = getelementptr inbounds nuw [2048 x i64], ptr %114, i64 0, i64 %138
+  %140 = getelementptr inbounds nuw i64, ptr %114, i64 %138
   store i64 %135, ptr %140, align 8, !tbaa !24
   %141 = load i64, ptr %115, align 8, !tbaa !28
   %142 = icmp eq i64 %141, 2048
@@ -45394,7 +45394,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
   %260 = add i64 %.03.i, 1
-  %261 = getelementptr inbounds nuw [2048 x i64], ptr %8, i64 0, i64 %.03.i
+  %261 = getelementptr inbounds nuw i64, ptr %8, i64 %.03.i
   store i64 %252, ptr %261, align 8, !tbaa !24
   %262 = icmp eq i64 %260, 2048
   br i1 %262, label %263, label %266
@@ -46872,7 +46872,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -47699,7 +47699,7 @@ _ZN6duckdb11bss_encoder10WriteValueIfEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %238, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %240 = add i64 %.02.i, 1
-  %241 = getelementptr inbounds nuw [2048 x float], ptr %11, i64 0, i64 %.02.i
+  %241 = getelementptr inbounds nuw float, ptr %11, i64 %.02.i
   store float %.sroa.0.0.copyload.i, ptr %241, align 4, !tbaa !1604
   %242 = icmp eq i64 %240, 2048
   br i1 %242, label %243, label %246
@@ -47779,7 +47779,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i149: ; preds = %268, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %270 = add i64 %.03.i, 1
-  %271 = getelementptr inbounds nuw [2048 x float], ptr %9, i64 0, i64 %.03.i
+  %271 = getelementptr inbounds nuw float, ptr %9, i64 %.03.i
   store float %.sroa.0.0.copyload.i148, ptr %271, align 4, !tbaa !1604
   %272 = icmp eq i64 %270, 2048
   br i1 %272, label %273, label %276
@@ -49338,7 +49338,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -50165,7 +50165,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %238, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %240 = add i64 %.02.i, 1
-  %241 = getelementptr inbounds nuw [2048 x double], ptr %11, i64 0, i64 %.02.i
+  %241 = getelementptr inbounds nuw double, ptr %11, i64 %.02.i
   store double %.sroa.0.0.copyload.i, ptr %241, align 8, !tbaa !1082
   %242 = icmp eq i64 %240, 2048
   br i1 %242, label %243, label %246
@@ -50245,7 +50245,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i149: ; preds = %268, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %270 = add i64 %.03.i, 1
-  %271 = getelementptr inbounds nuw [2048 x double], ptr %9, i64 0, i64 %.03.i
+  %271 = getelementptr inbounds nuw double, ptr %9, i64 %.03.i
   store double %.sroa.0.0.copyload.i148, ptr %271, align 8, !tbaa !1082
   %272 = icmp eq i64 %270, 2048
   br i1 %272, label %273, label %276
@@ -51537,7 +51537,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
@@ -52014,7 +52014,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %_
   %109 = sub nuw nsw i64 56, %108
   %110 = lshr i64 %106, %109
   %111 = trunc i64 %110 to i8
-  %112 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 0, i64 %.013.i
+  %112 = getelementptr inbounds nuw i8, ptr %16, i64 %.013.i
   store i8 %111, ptr %112, align 1, !tbaa !3
   %113 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %113, 8
@@ -52026,8 +52026,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %_
   %115 = sub nuw nsw i64 56, %114
   %116 = lshr i64 %.sroa.031.0.copyload, %115
   %117 = trunc i64 %116 to i8
-  %118 = or disjoint i64 %.01214.i, 8
-  %119 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 0, i64 %118
+  %118 = getelementptr inbounds nuw i8, ptr %16, i64 %.01214.i
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i8 %117, ptr %119, align 1, !tbaa !3
   %120 = add nuw nsw i64 %.01214.i, 1
   %exitcond15.not.i = icmp eq i64 %120, 8
@@ -52096,7 +52096,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141.thread: ; preds = %1
   %141 = sub nuw nsw i64 56, %140
   %142 = lshr i64 %138, %141
   %143 = trunc i64 %142 to i8
-  %144 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %.013.i142
+  %144 = getelementptr inbounds nuw i8, ptr %15, i64 %.013.i142
   store i8 %143, ptr %144, align 1, !tbaa !3
   %145 = add nuw nsw i64 %.013.i142, 1
   %exitcond.not.i143 = icmp eq i64 %145, 8
@@ -52108,8 +52108,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141.thread: ; preds = %1
   %147 = sub nuw nsw i64 56, %146
   %148 = lshr i64 %.sroa.027.0.copyload, %147
   %149 = trunc i64 %148 to i8
-  %150 = or disjoint i64 %.01214.i145, 8
-  %151 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %150
+  %150 = getelementptr inbounds nuw i8, ptr %15, i64 %.01214.i145
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i8 %149, ptr %151, align 1, !tbaa !3
   %152 = add nuw nsw i64 %.01214.i145, 1
   %exitcond15.not.i146 = icmp eq i64 %152, 8
@@ -52171,7 +52171,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit156.thread: ; preds = %_
   %171 = sub nuw nsw i64 56, %170
   %172 = lshr i64 %168, %171
   %173 = trunc i64 %172 to i8
-  %174 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %.013.i157
+  %174 = getelementptr inbounds nuw i8, ptr %14, i64 %.013.i157
   store i8 %173, ptr %174, align 1, !tbaa !3
   %175 = add nuw nsw i64 %.013.i157, 1
   %exitcond.not.i158 = icmp eq i64 %175, 8
@@ -52183,8 +52183,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit156.thread: ; preds = %_
   %177 = sub nuw nsw i64 56, %176
   %178 = lshr i64 %.sroa.014.0.copyload, %177
   %179 = trunc i64 %178 to i8
-  %180 = or disjoint i64 %.01214.i160, 8
-  %181 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 0, i64 %180
+  %180 = getelementptr inbounds nuw i8, ptr %14, i64 %.01214.i160
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i8 %179, ptr %181, align 1, !tbaa !3
   %182 = add nuw nsw i64 %.01214.i160, 1
   %exitcond15.not.i161 = icmp eq i64 %182, 8
@@ -52253,7 +52253,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit171.thread: ; preds = %1
   %203 = sub nuw nsw i64 56, %202
   %204 = lshr i64 %200, %203
   %205 = trunc i64 %204 to i8
-  %206 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 0, i64 %.013.i172
+  %206 = getelementptr inbounds nuw i8, ptr %13, i64 %.013.i172
   store i8 %205, ptr %206, align 1, !tbaa !3
   %207 = add nuw nsw i64 %.013.i172, 1
   %exitcond.not.i173 = icmp eq i64 %207, 8
@@ -52265,8 +52265,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit171.thread: ; preds = %1
   %209 = sub nuw nsw i64 56, %208
   %210 = lshr i64 %.sroa.010.0.copyload, %209
   %211 = trunc i64 %210 to i8
-  %212 = or disjoint i64 %.01214.i175, 8
-  %213 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 0, i64 %212
+  %212 = getelementptr inbounds nuw i8, ptr %13, i64 %.01214.i175
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i8 %211, ptr %213, align 1, !tbaa !3
   %214 = add nuw nsw i64 %.01214.i175, 1
   %exitcond15.not.i176 = icmp eq i64 %214, 8
@@ -52319,7 +52319,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit186.thread: ; preds = %2
   %229 = sub nuw nsw i64 56, %228
   %230 = lshr i64 %226, %229
   %231 = trunc i64 %230 to i8
-  %232 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.013.i187
+  %232 = getelementptr inbounds nuw i8, ptr %12, i64 %.013.i187
   store i8 %231, ptr %232, align 1, !tbaa !3
   %233 = add nuw nsw i64 %.013.i187, 1
   %exitcond.not.i188 = icmp eq i64 %233, 8
@@ -52331,8 +52331,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit186.thread: ; preds = %2
   %235 = sub nuw nsw i64 56, %234
   %236 = lshr i64 %.sroa.02.0.copyload, %235
   %237 = trunc i64 %236 to i8
-  %238 = or disjoint i64 %.01214.i190, 8
-  %239 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %238
+  %238 = getelementptr inbounds nuw i8, ptr %12, i64 %.01214.i190
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i8 %237, ptr %239, align 1, !tbaa !3
   %240 = add nuw nsw i64 %.01214.i190, 1
   %exitcond15.not.i191 = icmp eq i64 %240, 8
@@ -52384,7 +52384,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   %253 = sub nuw nsw i64 56, %252
   %254 = lshr i64 %250, %253
   %255 = trunc i64 %254 to i8
-  %256 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %.013.i.i
+  %256 = getelementptr inbounds nuw i8, ptr %10, i64 %.013.i.i
   store i8 %255, ptr %256, align 1, !tbaa !3
   %257 = add nuw nsw i64 %.013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %257, 8
@@ -52396,8 +52396,8 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   %259 = sub nuw nsw i64 56, %258
   %260 = lshr i64 %.sroa.01.0.copyload.i, %259
   %261 = trunc i64 %260 to i8
-  %262 = or disjoint i64 %.01214.i.i, 8
-  %263 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %262
+  %262 = getelementptr inbounds nuw i8, ptr %10, i64 %.01214.i.i
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store i8 %261, ptr %263, align 1, !tbaa !3
   %264 = add nuw nsw i64 %.01214.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %264, 8
@@ -52457,7 +52457,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   %282 = sub nuw nsw i64 56, %281
   %283 = lshr i64 %279, %282
   %284 = trunc i64 %283 to i8
-  %285 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.013.i.i206
+  %285 = getelementptr inbounds nuw i8, ptr %8, i64 %.013.i.i206
   store i8 %284, ptr %285, align 1, !tbaa !3
   %286 = add nuw nsw i64 %.013.i.i206, 1
   %exitcond.not.i.i207 = icmp eq i64 %286, 8
@@ -52469,8 +52469,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   %288 = sub nuw nsw i64 56, %287
   %289 = lshr i64 %.sroa.01.0.copyload.i203, %288
   %290 = trunc i64 %289 to i8
-  %291 = or disjoint i64 %.01214.i.i209, 8
-  %292 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %291
+  %291 = getelementptr inbounds nuw i8, ptr %8, i64 %.01214.i.i209
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store i8 %290, ptr %292, align 1, !tbaa !3
   %293 = add nuw nsw i64 %.01214.i.i209, 1
   %exitcond15.not.i.i210 = icmp eq i64 %293, 8
@@ -53016,7 +53016,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19P
   %47 = sub nuw nsw i64 56, %46
   %48 = lshr i64 %44, %47
   %49 = trunc i64 %48 to i8
-  %50 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %.013.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 %.013.i.i
   store i8 %49, ptr %50, align 1, !tbaa !3
   %51 = add nuw nsw i64 %.013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %51, 8
@@ -53028,8 +53028,8 @@ _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19P
   %53 = sub nuw nsw i64 56, %52
   %54 = lshr i64 %.sroa.0.0.copyload.i4, %53
   %55 = trunc i64 %54 to i8
-  %56 = or disjoint i64 %.01214.i.i, 8
-  %57 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %56
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.01214.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i8 %55, ptr %57, align 1, !tbaa !3
   %58 = add nuw nsw i64 %.01214.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %58, 8
@@ -54076,7 +54076,7 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 

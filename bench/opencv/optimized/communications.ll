@@ -4393,8 +4393,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit315:            ; preds = %_ZNSt12__shared_ptr
 
 .lr.ph1375:                                       ; preds = %1603, %.lr.ph1375
   %.sroa.0905.01373 = phi i64 [ %1650, %.lr.ph1375 ], [ 0, %1603 ]
-  %1645 = getelementptr inbounds nuw [6 x i32], ptr %55, i64 0, i64 %.sroa.0905.01373
-  %1646 = getelementptr inbounds nuw [6 x i32], ptr %57, i64 0, i64 %.sroa.0905.01373
+  %1645 = getelementptr inbounds nuw i32, ptr %55, i64 %.sroa.0905.01373
+  %1646 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.0905.01373
   %1647 = load i32, ptr %1645, align 4, !tbaa !59
   %1648 = load i32, ptr %1646, align 4, !tbaa !59
   %1649 = call i32 @llvm.smax.i32(i32 %1647, i32 %1648)
@@ -4986,7 +4986,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_10ChainRangeINS1_9IterRangeIN9__gnu_cxx17
   %1874 = load i32, ptr %1873, align 4, !tbaa !59, !noalias !303
   %1875 = sext i32 %1874 to i64
   %1876 = mul i64 %1872, %1875
-  %1877 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %1849, i64 0, i64 %.sroa.04.013.i.i
+  %1877 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %1849, i64 %.sroa.04.013.i.i
   store i32 %1874, ptr %1877, align 4, !tbaa !309, !alias.scope !303
   %1878 = trunc i64 %1872 to i32
   %1879 = getelementptr inbounds nuw i8, ptr %1877, i64 4
@@ -12905,9 +12905,9 @@ define internal void @_ZN12_GLOBAL__N_114HostBufferImpl3mapERKN3ade4util9DynMdSp
   %.035.i = phi i64 [ %36, %.lr.ph.i ], [ %20, %12 ]
   %.01934.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %12 ]
   %.sroa.022.033.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %12 ]
-  %21 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %5, i64 0, i64 %.sroa.022.033.i, i32 1
+  %21 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %5, i64 %.sroa.022.033.i, i32 1
   %22 = load i32, ptr %21, align 4, !tbaa !311, !noalias !486
-  %23 = getelementptr inbounds nuw [6 x %"struct.ade::util::Span"], ptr %2, i64 0, i64 %.sroa.022.033.i
+  %23 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %2, i64 %.sroa.022.033.i
   %24 = load i32, ptr %23, align 8, !tbaa !317, !noalias !486
   %25 = mul nsw i32 %24, %22
   %26 = sext i32 %25 to i64
@@ -12915,7 +12915,7 @@ define internal void @_ZN12_GLOBAL__N_114HostBufferImpl3mapERKN3ade4util9DynMdSp
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !315, !noalias !486
   %30 = sub nsw i32 %29, %24
-  %31 = getelementptr inbounds nuw [6 x %"struct.ade::util::SliceDimension"], ptr %0, i64 0, i64 %.sroa.022.033.i
+  %31 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %0, i64 %.sroa.022.033.i
   store i32 %30, ptr %31, align 8, !tbaa !309, !alias.scope !486
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %22, ptr %32, align 4, !tbaa !311, !alias.scope !486

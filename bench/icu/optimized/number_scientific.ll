@@ -654,10 +654,10 @@ define noundef i32 @_ZNK6icu_776number4impl18ScientificModifier5applyERNS_22Form
 67:                                               ; preds = %.lr.ph
   %68 = icmp eq i32 %57, 0
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 264
-  %70 = add nuw nsw i32 %57, 17
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %72 = zext nneg i32 %70 to i64
-  %73 = getelementptr inbounds nuw [29 x %"class.icu_77::UnicodeString"], ptr %71, i64 0, i64 %72
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %71 = zext nneg i32 %57 to i64
+  %72 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %70, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1088
   %.0.i.i = select i1 %68, ptr %69, ptr %73
   %74 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 37, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit

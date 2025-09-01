@@ -1816,7 +1816,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us: ; preds = %._ZN5draco13Encoder
 
 718:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us
   %indvars.iv545 = phi i64 [ %indvars.iv.next546, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us ]
-  %719 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %717, i64 0, i64 %indvars.iv545
+  %719 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %717, i64 %indvars.iv545
   %720 = load i32, ptr %719, align 4, !tbaa !106
   %.not516.us = icmp ult i32 %720, %684
   br i1 %.not516.us, label %721, label %.critedge119
@@ -1881,7 +1881,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit280.us: ; preds = %739, %.critedge.
 756:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit280.us
   %indvars.iv549 = phi i64 [ %indvars.iv.next550, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit284.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit280.us ]
   %757 = load ptr, ptr %0, align 8, !tbaa !14
-  %758 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %717, i64 0, i64 %indvars.iv549
+  %758 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %717, i64 %indvars.iv549
   %.sroa.0.0.copyload.us = load i32, ptr %758, align 4, !tbaa !110
   %759 = load i8, ptr %752, align 4, !tbaa !111, !range !132, !noundef !133
   %760 = trunc nuw i8 %759 to i1
@@ -2185,7 +2185,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %._ZN5draco13Encoder
 
 944:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit
   %indvars.iv538 = phi i64 [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %indvars.iv.next539, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit ]
-  %945 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %941, i64 0, i64 %indvars.iv538
+  %945 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %941, i64 %indvars.iv538
   %946 = load i32, ptr %945, align 4, !tbaa !106
   %.not516 = icmp ult i32 %946, %684
   br i1 %.not516, label %947, label %.critedge119

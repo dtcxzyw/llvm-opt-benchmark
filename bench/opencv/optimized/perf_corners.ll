@@ -19053,7 +19053,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJNSt7__cxx1112basic_stringIcSt11ch
   br i1 %or.cond43.i.i.i, label %.preheader.i.i.i, label %.critedge38.i.i.i, !llvm.loop !553
 
 .critedge38.i.i.i:                                ; preds = %.preheader.i.i.i
-  %559 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_110BorderType7PrintToEPSo.vals, i64 0, i64 %indvars.iv66.i.i.i
+  %559 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_110BorderType7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i
   %560 = load i32, ptr %559, align 4, !tbaa !89, !noalias !538
   %.not35.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %560
   br i1 %.not35.i.i.i, label %561, label %546
@@ -22507,7 +22507,7 @@ define internal fastcc void @_ZN7testing13PrintToStringISt5tupleIJNSt7__cxx1112b
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i, !llvm.loop !553
 
 .critedge38.i.i.i.i.i.i.i.i.i:                    ; preds = %.preheader.i.i.i.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_110BorderType7PrintToEPSo.vals, i64 0, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_110BorderType7PrintToEPSo.vals, i64 %indvars.iv66.i.i.i.i.i.i.i.i.i
   %32 = load i32, ptr %31, align 4, !tbaa !89
   %.not35.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i, %32
   br i1 %.not35.i.i.i.i.i.i.i.i.i, label %33, label %18

@@ -514,7 +514,7 @@ thread-pre-split:                                 ; preds = %135
 
 .preheader:                                       ; preds = %.loopexit20, %184
   %180 = phi i64 [ %185, %184 ], [ 0, %.loopexit20 ]
-  %181 = getelementptr [7 x %struct.aper_size_info_32], ptr @uli_sizes, i64 0, i64 %180
+  %181 = getelementptr %struct.aper_size_info_32, ptr @uli_sizes, i64 %180
   %182 = load i32, ptr %181, align 16
   %183 = icmp eq i32 %182, %174
   br i1 %183, label %187, label %184
@@ -609,7 +609,7 @@ define internal void @agp_amd64_remove(ptr noundef readonly captures(none) %0) #
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [7 x %struct.aper_size_info_32], ptr @amd64_aperture_sizes, i64 0, i64 %16
+  %17 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %16
   %18 = load i32, ptr %17, align 16
   %19 = sext i32 %18 to i64
   tail call void @__release_region(ptr noundef nonnull @iomem_resource, i64 noundef %13, i64 noundef %19) #6
@@ -713,7 +713,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 
 .preheader:                                       ; preds = %.loopexit, %48
   %44 = phi i64 [ %49, %48 ], [ 0, %.loopexit ]
-  %45 = getelementptr [5 x %struct.aper_size_info_32], ptr @nforce3_sizes, i64 0, i64 %44
+  %45 = getelementptr %struct.aper_size_info_32, ptr @nforce3_sizes, i64 %44
   %46 = load i32, ptr %45, align 16
   %47 = icmp eq i32 %46, %37
   br i1 %47, label %51, label %48
@@ -736,7 +736,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   %55 = call i32 @pci_read_config_dword(ptr noundef nonnull %41, i32 noundef 168, ptr noundef nonnull %3) #6
   %56 = load i32, ptr %3, align 4
   %57 = and i32 %56, -16
-  %58 = getelementptr [5 x %struct.aper_size_info_32], ptr @nforce3_sizes, i64 0, i64 %44, i32 3
+  %58 = getelementptr %struct.aper_size_info_32, ptr @nforce3_sizes, i64 %44, i32 3
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, %57
   store i32 %60, ptr %3, align 4

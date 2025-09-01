@@ -477,7 +477,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %17, i64 0, i64 %2
+  %18 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %17, i64 %2
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -497,7 +497,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
 30:                                               ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds [0 x { { { ptr, i64 } }, {}, {} }], ptr %32, i64 0, i64 %2
+  %33 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %32, i64 %2
   %34 = add i64 %23, -1
   %35 = icmp ne i64 %23, 0
   %. = zext i1 %35 to i64
@@ -550,7 +550,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
 
 60:                                               ; preds = %50
   %61 = extractvalue { ptr, i64 } %55, 1
-  %62 = getelementptr inbounds [0 x { { { ptr, i64 } }, {}, {} }], ptr %52, i64 0, i64 %2
+  %62 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %52, i64 %2
   store ptr %56, ptr %5, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %61, ptr %63, align 8
@@ -593,7 +593,7 @@ define hidden noundef i64 @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$cl
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds [0 x i64], ptr %8, i64 0, i64 %1
+  %9 = getelementptr inbounds i64, ptr %8, i64 %1
   %10 = load i64, ptr %9, align 8, !noundef !4
   ret i64 %10
 

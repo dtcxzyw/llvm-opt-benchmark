@@ -1591,7 +1591,7 @@ define internal fastcc range(i32 0, 18) i32 @udvm_state_access(ptr noundef %0, p
 16:                                               ; preds = %.lr.ph
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %17 = load i8, ptr %gep, align 1
-  %18 = getelementptr [20 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %18 = getelementptr i8, ptr %12, i64 %indvars.iv
   store i8 %17, ptr %18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next, %wide.trip.count87
@@ -3883,7 +3883,7 @@ dissect_udvm_reference_operand_memory.exit2706:   ; preds = %1183
 1245:                                             ; preds = %._crit_edge3373, %1245
   %indvars.iv3650 = phi i64 [ 0, %._crit_edge3373 ], [ %indvars.iv.next3651, %1245 ]
   %.33375 = phi i32 [ %1244, %._crit_edge3373 ], [ %spec.select2580, %1245 ]
-  %1246 = getelementptr [20 x i8], ptr %26, i64 0, i64 %indvars.iv3650
+  %1246 = getelementptr i8, ptr %26, i64 %indvars.iv3650
   %1247 = load i8, ptr %1246, align 2
   %1248 = zext nneg i32 %.33375 to i64
   %1249 = getelementptr i8, ptr %61, i64 %1248
@@ -6882,15 +6882,15 @@ thread-pre-split3011:                             ; preds = %2648
 2970:                                             ; preds = %2966
   %2971 = load i16, ptr %36, align 2
   %2972 = zext nneg i8 %2959 to i64
-  %2973 = getelementptr [5 x i16], ptr %22, i64 0, i64 %2972
+  %2973 = getelementptr i16, ptr %22, i64 %2972
   store i16 %2971, ptr %2973, align 2
   %2974 = load i16, ptr %37, align 2
-  %2975 = getelementptr [5 x i16], ptr %23, i64 0, i64 %2972
+  %2975 = getelementptr i16, ptr %23, i64 %2972
   store i16 %2974, ptr %2975, align 2
   %2976 = load i16, ptr %38, align 2
-  %2977 = getelementptr [5 x i16], ptr %24, i64 0, i64 %2972
+  %2977 = getelementptr i16, ptr %24, i64 %2972
   store i16 %2976, ptr %2977, align 2
-  %2978 = getelementptr [5 x i16], ptr %25, i64 0, i64 %2972
+  %2978 = getelementptr i16, ptr %25, i64 %2972
   store i16 %2963, ptr %2978, align 2
   %2979 = zext i16 %2971 to i32
   %2980 = add i32 %135, %2979
@@ -7313,16 +7313,16 @@ thread-pre-split3011:                             ; preds = %2648
   %3234 = zext nneg i8 %3230 to i32
   %3235 = load i16, ptr %36, align 2
   %3236 = zext nneg i8 %3230 to i64
-  %3237 = getelementptr [5 x i16], ptr %22, i64 0, i64 %3236
+  %3237 = getelementptr i16, ptr %22, i64 %3236
   store i16 %3235, ptr %3237, align 2
   %3238 = load i16, ptr %37, align 2
-  %3239 = getelementptr [5 x i16], ptr %23, i64 0, i64 %3236
+  %3239 = getelementptr i16, ptr %23, i64 %3236
   store i16 %3238, ptr %3239, align 2
   %3240 = load i16, ptr %38, align 2
-  %3241 = getelementptr [5 x i16], ptr %24, i64 0, i64 %3236
+  %3241 = getelementptr i16, ptr %24, i64 %3236
   store i16 %3240, ptr %3241, align 2
   %3242 = load i16, ptr %54, align 2
-  %3243 = getelementptr [5 x i16], ptr %25, i64 0, i64 %3236
+  %3243 = getelementptr i16, ptr %25, i64 %3236
   store i16 %3242, ptr %3243, align 2
   %3244 = load i32, ptr @hf_sigcomp_num_state_create, align 4
   %3245 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %3244, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3234)
@@ -7349,7 +7349,7 @@ thread-pre-split3011:                             ; preds = %2648
 
 3259:                                             ; preds = %3246, %3306
   %indvars.iv3657 = phi i64 [ 1, %3246 ], [ %indvars.iv.next3658, %3306 ]
-  %3260 = getelementptr [5 x i16], ptr %22, i64 0, i64 %indvars.iv3657
+  %3260 = getelementptr i16, ptr %22, i64 %indvars.iv3657
   %3261 = load i16, ptr %3260, align 2
   %3262 = zext i16 %3261 to i64
   %3263 = add nuw nsw i64 %3262, 8
@@ -7360,7 +7360,7 @@ thread-pre-split3011:                             ; preds = %2648
   %3267 = trunc i16 %3261 to i8
   %3268 = getelementptr i8, ptr %3264, i64 1
   store i8 %3267, ptr %3268, align 1
-  %3269 = getelementptr [5 x i16], ptr %23, i64 0, i64 %indvars.iv3657
+  %3269 = getelementptr i16, ptr %23, i64 %indvars.iv3657
   %3270 = load i16, ptr %3269, align 2
   %3271 = lshr i16 %3270, 8
   %3272 = trunc nuw i16 %3271 to i8
@@ -7369,7 +7369,7 @@ thread-pre-split3011:                             ; preds = %2648
   %3274 = trunc i16 %3270 to i8
   %3275 = getelementptr i8, ptr %3264, i64 3
   store i8 %3274, ptr %3275, align 1
-  %3276 = getelementptr [5 x i16], ptr %24, i64 0, i64 %indvars.iv3657
+  %3276 = getelementptr i16, ptr %24, i64 %indvars.iv3657
   %3277 = load i16, ptr %3276, align 2
   %3278 = lshr i16 %3277, 8
   %3279 = trunc nuw i16 %3278 to i8
@@ -7378,7 +7378,7 @@ thread-pre-split3011:                             ; preds = %2648
   %3281 = trunc i16 %3277 to i8
   %3282 = getelementptr i8, ptr %3264, i64 5
   store i8 %3281, ptr %3282, align 1
-  %3283 = getelementptr [5 x i16], ptr %25, i64 0, i64 %indvars.iv3657
+  %3283 = getelementptr i16, ptr %25, i64 %indvars.iv3657
   %3284 = load i16, ptr %3283, align 2
   %3285 = lshr i16 %3284, 8
   %3286 = trunc nuw i16 %3285 to i8
@@ -9077,7 +9077,7 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %68 = add i32 %67, 1
   store i32 %68, ptr %6, align 4
   %69 = zext i8 %62 to i64
-  %70 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %69
+  %70 = getelementptr i8, ptr @reverse, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i16
   store i16 %72, ptr %5, align 2
@@ -9169,7 +9169,7 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %120 = add i32 %119, 1
   store i32 %120, ptr %6, align 4
   %121 = zext i8 %118 to i64
-  %122 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %121
+  %122 = getelementptr i8, ptr @reverse, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i16
   store i16 %124, ptr %5, align 2
@@ -9226,11 +9226,11 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %148 = zext i16 %.062.lcssa to i32
   %149 = lshr i32 %148, 8
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %150
+  %151 = getelementptr i8, ptr @reverse, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = and i32 %148, 255
   %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %154
+  %155 = getelementptr i8, ptr @reverse, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = shl nuw nsw i32 %157, 8

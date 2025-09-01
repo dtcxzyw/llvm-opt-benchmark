@@ -176,7 +176,7 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %11 = phi ptr [ %7, %6 ], [ %0, %2 ]
   %12 = phi i64 [ %39, %6 ], [ 0, %2 ]
   %13 = zext i8 %10 to i64
-  %14 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %13
+  %14 = getelementptr i8, ptr @_ctype, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 68
   %17 = icmp eq i8 %16, 0
@@ -262,7 +262,7 @@ define dso_local zeroext i8 @acpi_ut_remove_whitespace(ptr noundef captures(none
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @_ctype, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 32
   %8 = icmp eq i8 %7, 0
@@ -274,7 +274,7 @@ define dso_local zeroext i8 @acpi_ut_remove_whitespace(ptr noundef captures(none
   store ptr %10, ptr %0, align 8
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @_ctype, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 32
   %16 = icmp eq i8 %15, 0
@@ -296,7 +296,7 @@ define dso_local zeroext range(i8 0, 2) i8 @acpi_ut_detect_hex_prefix(ptr nounde
   %6 = getelementptr i8, ptr %2, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @_ctype, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = shl i8 %10, 5
   %12 = and i8 %11, 32
@@ -325,7 +325,7 @@ define dso_local void @acpi_ut_remove_hex_prefix(ptr noundef captures(none) %0) 
   %6 = getelementptr i8, ptr %2, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @_ctype, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = shl i8 %10, 5
   %12 = and i8 %11, 32

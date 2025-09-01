@@ -1868,7 +1868,7 @@ _init_tres.exit.i:                                ; preds = %.lr.ph.i.i, %121
 
 144:                                              ; preds = %_init_tres.exit.i
   %145 = and i64 %141, 2147483647
-  %146 = getelementptr inbounds nuw [512 x i8], ptr %20, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %20, i64 %145
   store i8 0, ptr %146, align 1
   %147 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 41) #20
   %.not.i.i = icmp eq ptr %147, null
@@ -2057,7 +2057,7 @@ _init_tres.exit.i:                                ; preds = %.lr.ph.i.i, %121
 
 206:                                              ; preds = %202
   %207 = and i64 %203, 2147483647
-  %208 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr %12, i64 %207
   store i8 0, ptr %208, align 1
   %209 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.38, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #17
   %.not.i.i.i = icmp eq i32 %209, 7
@@ -2199,7 +2199,7 @@ _set_smaps_file.exit.i:                           ; preds = %239, %238, %236
 
 255:                                              ; preds = %254, %.preheader.i.i
   %indvars.iv.i36.i = phi i64 [ 4, %.preheader.i.i ], [ %indvars.iv.next.i37.i, %254 ]
-  %256 = getelementptr inbounds nuw [128 x i8], ptr %11, i64 0, i64 %indvars.iv.i36.i
+  %256 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i36.i
   %257 = load i8, ptr %256, align 1
   %258 = sext i8 %257 to i64
   %259 = getelementptr inbounds i16, ptr %253, i64 %258
@@ -2209,7 +2209,7 @@ _set_smaps_file.exit.i:                           ; preds = %239, %238, %236
   br i1 %.not32.i.i, label %254, label %262
 
 262:                                              ; preds = %255
-  %263 = getelementptr inbounds nuw [128 x i8], ptr %11, i64 0, i64 %indvars.iv.i36.i
+  %263 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i36.i
   %264 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %263, ptr noundef nonnull @.str.41, ptr noundef nonnull %10) #17
   %265 = icmp eq i32 %264, 1
   br i1 %265, label %266, label %.loopexit.i.i
@@ -2302,7 +2302,7 @@ _get_pss.exit.i:                                  ; preds = %269, %_set_smaps_fi
 
 300:                                              ; preds = %296
   %301 = and i64 %297, 2147483647
-  %302 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr %5, i64 %301
   store i8 0, ptr %302, align 1
   %303 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.43, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9) #17
   %304 = icmp slt i32 %303, 4
@@ -2664,7 +2664,7 @@ define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_a
   br label %47
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %.lcssa
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.lcssa
   store i8 0, ptr %25, align 1
   %26 = call i32 @close(i32 noundef %5) #17
   call void @slurm_xfree(ptr noundef nonnull %2) #17

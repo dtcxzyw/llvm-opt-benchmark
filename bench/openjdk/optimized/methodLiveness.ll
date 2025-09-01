@@ -467,7 +467,7 @@ _ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS
   %173 = zext i8 %172 to i32
   store i32 %173, ptr %116, align 4
   %174 = zext i8 %172 to i64
-  %175 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %174
   %176 = load i32, ptr %175, align 4
   store i32 %176, ptr %117, align 8
   %177 = icmp ult i32 %176, 239
@@ -480,7 +480,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %171
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %171
   %179 = zext nneg i32 %176 to i64
-  %180 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %179
   %181 = load i8, ptr %180, align 1
   %182 = and i8 %181, 15
   %183 = zext nneg i8 %182 to i64
@@ -2588,7 +2588,7 @@ _ZN6BitMap5clearEv.exit5:                         ; preds = %_ZN6BitMap5clearEv.
   %27 = zext i8 %26 to i32
   store i32 %27, ptr %22, align 4
   %28 = zext i8 %26 to i64
-  %29 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %28
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %23, align 8
   %31 = icmp ult i32 %30, 239
@@ -2601,7 +2601,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %24
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %24
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 15
   %37 = zext nneg i8 %36 to i64
@@ -2906,7 +2906,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %33, %32
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %38
+  %39 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 128
   %.not.i.i.i = icmp eq i16 %41, 0
@@ -3185,7 +3185,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %10, %11
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %16
+  %17 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 128
   %.not.i.i = icmp eq i16 %19, 0

@@ -176,7 +176,7 @@ declare dso_local i64 @ktime_get() local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @print_cpu(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
+  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @hrtimer_bases to i64)
   %8 = inttoptr i64 %7 to ptr

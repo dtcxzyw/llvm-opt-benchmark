@@ -43,13 +43,13 @@ define i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr [162 x %struct.anon], ptr @pcap_to_wtap_map, i64 0, i64 %indvars.iv
+  %4 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
-  %8 = getelementptr [162 x %struct.anon], ptr @pcap_to_wtap_map, i64 0, i64 %indvars.iv, i32 1
+  %8 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv, i32 1
   %9 = load i32, ptr %8, align 4
   br label %.loopexit
 
@@ -81,7 +81,7 @@ define hidden i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %0) local_unnamed_a
 
 .preheader:                                       ; preds = %1, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
-  %5 = getelementptr [162 x %struct.anon], ptr @pcap_to_wtap_map, i64 0, i64 %indvars.iv
+  %5 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %0
@@ -830,7 +830,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %227
   %335 = load i8, ptr %292, align 1
   %336 = zext i8 %335 to i64
   %337 = or i64 %334, %336
-  %338 = getelementptr [16 x %struct.erf_ehdr], ptr %293, i64 0, i64 %indvars.iv.i
+  %338 = getelementptr %struct.erf_ehdr, ptr %293, i64 %indvars.iv.i
   store i64 %337, ptr %338, align 1
   br label %339
 
@@ -1999,7 +1999,7 @@ define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captu
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %.2 = phi i32 [ 16, %.preheader ], [ %14, %11 ]
-  %12 = getelementptr [16 x %struct.erf_ehdr], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr %struct.erf_ehdr, ptr %10, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %14 = add nuw nsw i32 %.2, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2286,7 +2286,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
 119:                                              ; preds = %119, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %119 ]
   %.2.i.i = phi i32 [ 16, %.preheader.i.i ], [ %122, %119 ]
-  %120 = getelementptr [16 x %struct.erf_ehdr], ptr %118, i64 0, i64 %indvars.iv.i.i
+  %120 = getelementptr %struct.erf_ehdr, ptr %118, i64 %indvars.iv.i.i
   %121 = load i64, ptr %120, align 8
   %122 = add nuw nsw i32 %.2.i.i, 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2341,7 +2341,7 @@ pcap_get_phdr_size.exit.i:                        ; preds = %131, %129, %127, %.
 137:                                              ; preds = %137, %.preheader.i74.i
   %indvars.iv.i75.i = phi i64 [ 0, %.preheader.i74.i ], [ %indvars.iv.next.i77.i, %137 ]
   %.2.i76.i = phi i32 [ 16, %.preheader.i74.i ], [ %140, %137 ]
-  %138 = getelementptr [16 x %struct.erf_ehdr], ptr %136, i64 0, i64 %indvars.iv.i75.i
+  %138 = getelementptr %struct.erf_ehdr, ptr %136, i64 %indvars.iv.i75.i
   %139 = load i64, ptr %138, align 8
   %140 = add nuw nsw i32 %.2.i76.i, 8
   %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i75.i, 1
@@ -2399,7 +2399,7 @@ pcap_get_phdr_size.exit81.i:                      ; preds = %148, %146, %144, %.
 157:                                              ; preds = %157, %.preheader.i83.i
   %indvars.iv.i84.i = phi i64 [ 0, %.preheader.i83.i ], [ %indvars.iv.next.i86.i, %157 ]
   %.2.i85.i = phi i32 [ 16, %.preheader.i83.i ], [ %160, %157 ]
-  %158 = getelementptr [16 x %struct.erf_ehdr], ptr %156, i64 0, i64 %indvars.iv.i84.i
+  %158 = getelementptr %struct.erf_ehdr, ptr %156, i64 %indvars.iv.i84.i
   %159 = load i64, ptr %158, align 8
   %160 = add nuw nsw i32 %.2.i85.i, 8
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i84.i, 1
@@ -2453,7 +2453,7 @@ pcap_get_phdr_size.exit90.i:                      ; preds = %168, %166, %164, %.
 174:                                              ; preds = %174, %.preheader.i92.i
   %indvars.iv.i93.i = phi i64 [ 0, %.preheader.i92.i ], [ %indvars.iv.next.i95.i, %174 ]
   %.2.i94.i = phi i32 [ 16, %.preheader.i92.i ], [ %177, %174 ]
-  %175 = getelementptr [16 x %struct.erf_ehdr], ptr %173, i64 0, i64 %indvars.iv.i93.i
+  %175 = getelementptr %struct.erf_ehdr, ptr %173, i64 %indvars.iv.i93.i
   %176 = load i64, ptr %175, align 8
   %177 = add nuw nsw i32 %.2.i94.i, 8
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i93.i, 1
@@ -2539,7 +2539,7 @@ pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.
 
 216:                                              ; preds = %239, %207
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %239 ], [ 0, %207 ]
-  %217 = getelementptr [16 x %struct.erf_ehdr], ptr %208, i64 0, i64 %indvars.iv.i
+  %217 = getelementptr %struct.erf_ehdr, ptr %208, i64 %indvars.iv.i
   %218 = load i64, ptr %217, align 8
   %219 = lshr i64 %218, 56
   %220 = trunc nuw i64 %219 to i8

@@ -407,7 +407,7 @@ define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr noundef captures
 27:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 1 %2, i64 %3, i1 false)
-  %28 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %3
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %3
   store i8 -128, ptr %28, align 1, !tbaa !23
   %29 = load i64, ptr %0, align 8, !tbaa !23
   %30 = tail call noundef i64 @llvm.bswap.i64(i64 %29)
@@ -508,7 +508,7 @@ siv128_do_encrypt.exit:                           ; preds = %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1, !tbaa !23
-  %29 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !23
   %31 = xor i8 %30, %28
   store i8 %31, ptr %29, align 1, !tbaa !23

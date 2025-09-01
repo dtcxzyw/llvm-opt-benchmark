@@ -1072,7 +1072,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %109 = add nuw nsw i32 %107, %108
   %110 = and i32 %109, 63
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [64 x %union.qoi_rgba_t], ptr %4, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %4, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !12
   %114 = icmp eq i32 %113, %.sroa.066.0.insert.insert
   br i1 %114, label %115, label %120
@@ -1391,7 +1391,7 @@ define dso_local noalias noundef ptr @qoi_decode(ptr noundef readonly captures(a
 
 129:                                              ; preds = %127
   %130 = zext i8 %105 to i64
-  %131 = getelementptr inbounds nuw [64 x %union.qoi_rgba_t], ptr %5, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %5, i64 %130
   %.sroa.0.0.copyload = load i8, ptr %131, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 1
   %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
@@ -1462,7 +1462,7 @@ default.unreachable:                              ; preds = %127
   %175 = mul nuw nsw i64 %174, 11
   %176 = add nuw nsw i64 %173, %175
   %177 = and i64 %176, 63
-  %178 = getelementptr inbounds nuw [64 x %union.qoi_rgba_t], ptr %5, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %5, i64 %177
   store i8 %.sroa.0.2, ptr %178, align 4
   %.sroa.13.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %178, i64 1
   store i8 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx41, align 1
@@ -1613,7 +1613,7 @@ define dso_local noundef range(i32 1, 5) i32 @_ZN4pbrt10TexelBytesENS_11PixelFor
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4pbrt10TexelBytesENS_11PixelFormatE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4pbrt10TexelBytesENS_11PixelFormatE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -3342,7 +3342,7 @@ _ZN4pbrt4SincEf.exit7.i:                          ; preds = %69, %_ZN4pbrt4SincE
 
 _ZN4pbrt12WindowedSincEfff.exit:                  ; preds = %_ZN4pbrt4SincEf.exit7.i, %47
   %.0.i = phi float [ %72, %_ZN4pbrt4SincEf.exit7.i ], [ 0.000000e+00, %47 ]
-  %73 = getelementptr inbounds nuw [4 x float], ptr %34, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   store float %.0.i, ptr %73, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3355,7 +3355,7 @@ _ZN4pbrt12WindowedSincEfff.exit:                  ; preds = %_ZN4pbrt4SincEf.exi
 
 75:                                               ; preds = %35, %75
   %indvars.iv48 = phi i64 [ 0, %35 ], [ %indvars.iv.next49, %75 ]
-  %76 = getelementptr inbounds nuw [4 x float], ptr %34, i64 0, i64 %indvars.iv48
+  %76 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv48
   %77 = load float, ptr %76, align 4, !tbaa !68
   %78 = fmul float %46, %77
   store float %78, ptr %76, align 4, !tbaa !68
@@ -19125,7 +19125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275.i: ; preds = %
 
 .split1003.us:                                    ; preds = %1721, %1764
   %indvars.iv559.i.us = phi i64 [ %indvars.iv.next560.i.us, %1764 ], [ 0, %1721 ]
-  %1761 = getelementptr inbounds nuw [4 x float], ptr %74, i64 0, i64 %indvars.iv559.i.us
+  %1761 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv559.i.us
   %1762 = load float, ptr %1761, align 4, !tbaa !68, !noalias !375
   %1763 = trunc nuw nsw i64 %indvars.iv559.i.us to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %59, i64 %.sroa.0443.0.insert.insert.i, i32 noundef %1763, float noundef %1762)
@@ -19143,7 +19143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275.i: ; preds = %
 
 .split1003.us1009:                                ; preds = %1721, %1771
   %indvars.iv559.i.us1010 = phi i64 [ %indvars.iv.next560.i.us1012, %1771 ], [ 0, %1721 ]
-  %1766 = getelementptr inbounds nuw [4 x float], ptr %74, i64 0, i64 %indvars.iv559.i.us1010
+  %1766 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv559.i.us1010
   %1767 = load float, ptr %1766, align 4, !tbaa !68, !noalias !375
   %1768 = invoke noundef float @_ZNK4pbrt17sRGBColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 1 dereferenceable(1) %1692, float noundef %1767)
           to label %1769 unwind label %.split1005.split.us, !noalias !375
@@ -19175,7 +19175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275.i: ; preds = %
 
 .split1003:                                       ; preds = %1721, %1782
   %indvars.iv559.i = phi i64 [ %indvars.iv.next560.i, %1782 ], [ 0, %1721 ]
-  %1777 = getelementptr inbounds nuw [4 x float], ptr %74, i64 0, i64 %indvars.iv559.i
+  %1777 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv559.i
   %1778 = load float, ptr %1777, align 4, !tbaa !68, !noalias !375
   %1779 = invoke noundef float @_ZNK4pbrt18GammaColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 4 dereferenceable(5124) %1692, float noundef %1778)
           to label %1780 unwind label %.split1005.split, !noalias !375
@@ -19758,7 +19758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305.i: ; preds = %
 
 .split991.us:                                     ; preds = %1996, %2029
   %indvars.iv550.i.us = phi i64 [ %indvars.iv.next551.i.us, %2029 ], [ 0, %1996 ]
-  %2026 = getelementptr inbounds nuw [3 x float], ptr %78, i64 0, i64 %indvars.iv550.i.us
+  %2026 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv550.i.us
   %2027 = load float, ptr %2026, align 4, !tbaa !68, !noalias !375
   %2028 = trunc nuw nsw i64 %indvars.iv550.i.us to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %59, i64 %.sroa.0426.0.insert.insert.i, i32 noundef %2028, float noundef %2027)
@@ -19776,7 +19776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305.i: ; preds = %
 
 .split991.us997:                                  ; preds = %1996, %2036
   %indvars.iv550.i.us998 = phi i64 [ %indvars.iv.next551.i.us1000, %2036 ], [ 0, %1996 ]
-  %2031 = getelementptr inbounds nuw [3 x float], ptr %78, i64 0, i64 %indvars.iv550.i.us998
+  %2031 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv550.i.us998
   %2032 = load float, ptr %2031, align 4, !tbaa !68, !noalias !375
   %2033 = invoke noundef float @_ZNK4pbrt17sRGBColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 1 dereferenceable(1) %1969, float noundef %2032)
           to label %2034 unwind label %.split993.split.us, !noalias !375
@@ -19808,7 +19808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit305.i: ; preds = %
 
 .split991:                                        ; preds = %1996, %2047
   %indvars.iv550.i = phi i64 [ %indvars.iv.next551.i, %2047 ], [ 0, %1996 ]
-  %2042 = getelementptr inbounds nuw [3 x float], ptr %78, i64 0, i64 %indvars.iv550.i
+  %2042 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv550.i
   %2043 = load float, ptr %2042, align 4, !tbaa !68, !noalias !375
   %2044 = invoke noundef float @_ZNK4pbrt18GammaColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 4 dereferenceable(5124) %1969, float noundef %2043)
           to label %2045 unwind label %.split993.split, !noalias !375
@@ -27472,7 +27472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386: ; preds = %_Z
   %747 = phi float [ 0.000000e+00, %741 ], [ %766, %.split.i ]
   %indvars.iv38.i = phi i64 [ 0, %741 ], [ %indvars.iv.next39.i, %.split.i ]
   %748 = trunc nuw nsw i64 %indvars.iv38.i to i32
-  %749 = getelementptr inbounds nuw [3 x [3 x float]], ptr %35, i64 0, i64 %indvars.iv38.i
+  %749 = getelementptr inbounds nuw [3 x float], ptr %35, i64 %indvars.iv38.i
   switch i32 %748, label %_ZN4pbrt3RGBixEi.exit12.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit12.us.i
     i32 1, label %_ZN4pbrt3RGBixEi.exit12.us22.i
@@ -33252,7 +33252,7 @@ define dso_local void @_ZNK4pbrt5Image20QuantizePixelsToU256EPi(ptr dead_on_unwi
 .preheader.lr.ph:                                 ; preds = %.preheader81
   %28 = and i32 %.088, 127
   %29 = zext nneg i32 %28 to i64
-  %invariant.gep87 = getelementptr inbounds nuw [128 x i16], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %29
+  %invariant.gep87 = getelementptr inbounds nuw i16, ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 %29
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -33266,7 +33266,7 @@ define dso_local void @_ZNK4pbrt5Image20QuantizePixelsToU256EPi(ptr dead_on_unwi
 .lr.ph:                                           ; preds = %.preheader
   %34 = and i32 %.02885, 127
   %35 = zext nneg i32 %34 to i64
-  %gep = getelementptr inbounds nuw [128 x [128 x i16]], ptr %invariant.gep87, i64 0, i64 %35
+  %gep = getelementptr inbounds nuw [128 x i16], ptr %invariant.gep87, i64 %35
   br label %46
 
 ._crit_edge86.loopexit:                           ; preds = %._crit_edge
@@ -33295,7 +33295,7 @@ define dso_local void @_ZNK4pbrt5Image20QuantizePixelsToU256EPi(ptr dead_on_unwi
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = urem i32 %48, 48
   %50 = zext nneg i32 %49 to i64
-  %gep84 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr %gep, i64 0, i64 %50
+  %gep84 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %gep, i64 %50
   %51 = load i16, ptr %gep84, align 2, !tbaa !183
   %52 = uitofp i16 %51 to float
   %53 = fdiv float %52, 6.553500e+04

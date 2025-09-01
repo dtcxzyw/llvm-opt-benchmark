@@ -72,7 +72,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11testFStreamiPPc(i32 noundef %0
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull @.str.1, i32 noundef 4)
-  %16 = getelementptr inbounds nuw [7 x [5 x i8]], ptr @_ZL17expected_bom_data, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [5 x i8], ptr @_ZL17expected_bom_data, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = load i8, ptr %16, align 1, !tbaa !20
   %19 = zext i8 %18 to i64
@@ -80,7 +80,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11testFStreamiPPc(i32 noundef %0
           to label %21 unwind label %56
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw [7 x [45 x i8]], ptr @_ZL9file_data, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [45 x i8], ptr @_ZL9file_data, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %24 = load i8, ptr %22, align 1, !tbaa !20
   %25 = zext i8 %24 to i64
@@ -96,7 +96,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11testFStreamiPPc(i32 noundef %0
           to label %29 unwind label %.loopexit61.i
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i32, ptr @_ZL12expected_bom, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 4, !tbaa !21
   %.not.i = icmp eq i32 %28, %31
   br i1 %.not.i, label %58, label %32
@@ -347,7 +347,7 @@ _ZL7testBOMv.exit:                                ; preds = %116, %.loopexit.sin
   %indvars.iv.i4 = phi i64 [ 0, %_ZL7testBOMv.exit ], [ %indvars.iv.next.i24, %253 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.6, i32 noundef 60)
-  %121 = getelementptr inbounds nuw [7 x [5 x i8]], ptr @_ZL17expected_bom_data, i64 0, i64 %indvars.iv.i4
+  %121 = getelementptr inbounds nuw [5 x i8], ptr @_ZL17expected_bom_data, i64 %indvars.iv.i4
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
   %123 = load i8, ptr %121, align 1, !tbaa !20
   %124 = zext i8 %123 to i64
@@ -355,7 +355,7 @@ _ZL7testBOMv.exit:                                ; preds = %116, %.loopexit.sin
           to label %126 unwind label %.loopexit76.i
 
 126:                                              ; preds = %120
-  %127 = getelementptr inbounds nuw [7 x [45 x i8]], ptr @_ZL9file_data, i64 0, i64 %indvars.iv.i4
+  %127 = getelementptr inbounds nuw [45 x i8], ptr @_ZL9file_data, i64 %indvars.iv.i4
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %129 = load i8, ptr %127, align 1, !tbaa !20
   %130 = zext i8 %129 to i64
@@ -448,7 +448,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i13: ; preds = %.noexc39.i,
           to label %168 unwind label %.loopexit77.i
 
 168:                                              ; preds = %166
-  %169 = getelementptr inbounds nuw [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i4
+  %169 = getelementptr inbounds nuw i32, ptr @_ZL12expected_bom, i64 %indvars.iv.i4
   %170 = load i32, ptr %169, align 4, !tbaa !21
   %.not.i18 = icmp eq i32 %167, %170
   br i1 %.not.i18, label %195, label %171

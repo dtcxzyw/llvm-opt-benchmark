@@ -5751,7 +5751,7 @@ valid_header_name.exit:                           ; preds = %is_token_char.exit.
 
 73:                                               ; preds = %81, %valid_header_name.exit
   %indvars.iv.i505 = phi i64 [ 0, %valid_header_name.exit ], [ %indvars.iv.next.i506, %81 ]
-  %74 = getelementptr [32 x %struct.header_info], ptr @headers, i64 0, i64 %indvars.iv.i505
+  %74 = getelementptr %struct.header_info, ptr @headers, i64 %indvars.iv.i505
   %75 = load ptr, ptr %74, align 8
   %76 = call i64 @strlen(ptr noundef %75) #20
   %77 = icmp eq i64 %76, %.pre-phi
@@ -5929,7 +5929,7 @@ get_hf_for_header.exit.thread:                    ; preds = %118
   br i1 %.not461, label %proto_item_set_hidden.exit512, label %159
 
 159:                                              ; preds = %158
-  %160 = getelementptr [32 x %struct.header_info], ptr @headers, i64 0, i64 %.pre578, i32 1
+  %160 = getelementptr %struct.header_info, ptr @headers, i64 %.pre578, i32 1
   %161 = load ptr, ptr %160, align 8
   %162 = load i32, ptr %161, align 4
   %163 = call ptr @proto_registrar_get_nth(i32 noundef %162)
@@ -6008,7 +6008,7 @@ proto_item_set_hidden.exit512.sink.split:         ; preds = %194, %177
 
 proto_item_set_hidden.exit512:                    ; preds = %proto_item_set_hidden.exit512.sink.split, %158, %194, %186, %177, %171, %166, %180
   %.1436 = phi ptr [ %185, %194 ], [ %185, %186 ], [ %170, %177 ], [ %170, %171 ], [ %170, %166 ], [ %185, %180 ], [ null, %158 ], [ %.1436.ph, %proto_item_set_hidden.exit512.sink.split ]
-  %200 = getelementptr [32 x %struct.header_info], ptr @headers, i64 0, i64 %.pre578
+  %200 = getelementptr %struct.header_info, ptr @headers, i64 %.pre578
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load i32, ptr %201, align 8
   switch i32 %202, label %.critedge502 [

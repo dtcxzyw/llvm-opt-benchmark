@@ -10562,10 +10562,10 @@ _ZN12pingora_core9protocols4http2v16client23http_req_header_to_wire17hb8d958950b
 
 switch.lookup:                                    ; preds = %71
   %75 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E, i64 %75
   %switch.load = load i64, ptr %switch.gep, align 8
   %76 = zext nneg i8 %73 to i64
-  %switch.gep18 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E.85, i64 0, i64 %76
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E.85, i64 %76
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   invoke void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h15a1be303cbe19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18, ptr noalias noundef nonnull readonly align 1 %switch.load19, i64 noundef %switch.load)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1242
@@ -10776,9 +10776,9 @@ switch.lookup:                                    ; preds = %71
 switch.lookup20:                                  ; preds = %.noexc14.i
   %141 = load i8, ptr %138, align 8, !range !178, !noalias !1263, !noundef !7
   %142 = zext nneg i8 %141 to i64
-  %switch.gep21 = getelementptr inbounds nuw [81 x ptr], ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E.86, i64 0, i64 %142
+  %switch.gep21 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E.86, i64 %142
   %143 = zext nneg i8 %141 to i64
-  %switch.gep23 = getelementptr inbounds nuw [81 x i64], ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E.87, i64 0, i64 %143
+  %switch.gep23 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12pingora_core9protocols4http2v26server11HttpSession28pseudo_raw_h1_request_header17h540abe3acc6f4263E.87, i64 %143
   br label %_ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i
 
 _ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i: ; preds = %switch.lookup20, %139

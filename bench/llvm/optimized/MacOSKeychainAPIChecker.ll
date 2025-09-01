@@ -2743,7 +2743,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 
 .split.i.i:                                       ; preds = %32, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i ], [ 0, %32 ]
-  %37 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %indvars.iv.i.i
   %.sroa.06.0.copyload.i.i = load ptr, ptr %37, align 8, !tbaa !9
   %.not.i.i122.i = icmp eq ptr %.sroa.06.0.copyload.i.i, null
   br i1 %.not.i.i122.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
@@ -2776,7 +2776,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvmneENS_9Stri
   br i1 %exitcond.i.i, label %.split.i136.i.preheader, label %.split.i.i, !llvm.loop !145
 
 42:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread27.i.i
-  %43 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %41, i32 1
+  %43 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %41, i32 1
   %44 = load i32, ptr %43, align 8, !tbaa !146
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !148
@@ -2903,12 +2903,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit128.i: ; pred
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
   %92 = load i32, ptr %.1.i.i.ph.i.i, align 8, !tbaa !127
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %93, i32 2
+  %94 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %93, i32 2
   %95 = load i32, ptr %94, align 4, !tbaa !176
   %96 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull @.str.4)
   %97 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull @.str.5)
   %98 = zext i32 %95 to i64
-  %99 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !177
   %101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef %100)
   %102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull @.str.6)
@@ -3013,7 +3013,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i:        ; preds = %140, %_ZNSt10unique
 
 .split.i136.i:                                    ; preds = %.split.i136.i.preheader, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i142.i
   %indvars.iv.i137.i = phi i64 [ %indvars.iv.next.i143.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i142.i ], [ 0, %.split.i136.i.preheader ]
-  %141 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %indvars.iv.i137.i
+  %141 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %indvars.iv.i137.i
   %.sroa.06.0.copyload.i138.i = load ptr, ptr %141, align 8, !tbaa !9
   %.not.i.i139.i = icmp eq ptr %.sroa.06.0.copyload.i138.i, null
   br i1 %.not.i.i139.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i142.i, label %_ZN4llvm9StringRefC2EPKc.exit.i140.i
@@ -3044,7 +3044,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i142.i:  ; preds = %_ZN4llvmneENS_9Stri
 
 147:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread27.i150.i
   %148 = and i64 %indvars.iv.i137.i, 4294967295
-  %149 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load i32, ptr %150, align 8, !tbaa !146
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3321,7 +3321,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit221.i: ; pred
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %25) #24
   %270 = load i32, ptr %181, align 8, !tbaa !127
   %271 = zext i32 %270 to i64
-  %272 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %271, i32 2
+  %272 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %271, i32 2
   %273 = load i32, ptr %272, align 4, !tbaa !176
   %.not95.i = icmp ne i32 %273, %.us-phi37.i152.i
   %274 = icmp eq i32 %212, 1
@@ -4007,7 +4007,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit13: ; preds =
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
   %43 = load i32, ptr %.8.val, align 8, !tbaa !127
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %44, i32 2
+  %45 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %44, i32 2
   %46 = load i32, ptr %45, align 4, !tbaa !176
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !70
@@ -4033,7 +4033,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit13: ; preds =
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %55, %57
   %.0.i.i = phi ptr [ %56, %55 ], [ %9, %57 ]
   %60 = zext i32 %46 to i64
-  %61 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !177
   %.not.i.i14 = icmp eq ptr %62, null
   br i1 %.not.i.i14, label %_ZN4llvm11raw_ostreamlsEPKc.exit17, label %_ZN4llvm9StringRefC2EPKc.exit.i
@@ -5354,7 +5354,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZNK5clang4ento12Pr
 
 .split.us.i:                                      ; preds = %.split.us.i.preheader, %_ZN4llvmneENS_9StringRefES0_.exit.thread.us.i
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.us.i ], [ 0, %.split.us.i.preheader ]
-  %68 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %indvars.iv51.i
+  %68 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %indvars.iv51.i
   %.sroa.06.0.copyload.us.i = load ptr, ptr %68, align 8, !tbaa !9
   %.not.i.us.i = icmp eq ptr %.sroa.06.0.copyload.us.i, null
   br i1 %.not.i.us.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread27.i, label %_ZN4llvm9StringRefC2EPKc.exit.us.i
@@ -5371,7 +5371,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.us.i:    ; preds = %_ZN4llvm9StringRefC
 
 .split.i:                                         ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i ], [ 0, %_ZNK5clang9NamedDecl7getNameEv.exit ]
-  %69 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %indvars.iv.i
   %.sroa.06.0.copyload.i = load ptr, ptr %69, align 8, !tbaa !9
   %.not.i.i29 = icmp eq ptr %.sroa.06.0.copyload.i, null
   br i1 %.not.i.i29, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i, label %_ZN4llvm9StringRefC2EPKc.exit.i
@@ -5402,7 +5402,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmneENS_9Stri
 
 _ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.us.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread27.i
   %spec.select.i = phi i64 [ %74, %_ZN4llvmneENS_9StringRefES0_.exit.thread27.i ], [ 100000, %_ZN4llvmneENS_9StringRefES0_.exit.thread.us.i ], [ 100000, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i ]
-  %75 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %spec.select.i, i32 1
+  %75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %spec.select.i, i32 1
   %76 = load i32, ptr %75, align 8, !tbaa !146
   %77 = load i32, ptr %.sroa.039.0.copyload, align 8
   %78 = lshr i32 %77, 24
@@ -5905,7 +5905,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 
 .split.us.i.i:                                    ; preds = %21, %_ZN4llvmneENS_9StringRefES0_.exit.thread.us.i.i
   %indvars.iv51.i.i = phi i64 [ %indvars.iv.next52.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.us.i.i ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %indvars.iv51.i.i
+  %25 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %indvars.iv51.i.i
   %.sroa.06.0.copyload.us.i.i = load ptr, ptr %25, align 8, !tbaa !9
   %.not.i.us.i.i = icmp eq ptr %.sroa.06.0.copyload.us.i.i, null
   br i1 %.not.i.us.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread27.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.us.i.i
@@ -5922,7 +5922,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.us.i.i:  ; preds = %_ZN4llvm9StringRefC
 
 .split.i.i:                                       ; preds = %21, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i ], [ 0, %21 ]
-  %26 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %indvars.iv.i.i
   %.sroa.06.0.copyload.i.i = load ptr, ptr %26, align 8, !tbaa !9
   %.not.i.i31.i = icmp eq ptr %.sroa.06.0.copyload.i.i, null
   br i1 %.not.i.i31.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
@@ -5956,7 +5956,7 @@ _ZN12_GLOBAL__N_123MacOSKeychainAPIChecker23getTrackedFunctionIndexEN4llvm9Strin
 
 31:                                               ; preds = %_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker23getTrackedFunctionIndexEN4llvm9StringRefEb.exit.i
   %32 = and i64 %.us-phi37.in.i.i, 4294967295
-  %33 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %32, i32 1
+  %33 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %32, i32 1
   %34 = load i32, ptr %33, align 8, !tbaa !146
   %35 = load i32, ptr %1, align 8
   %36 = lshr i32 %35, 24
@@ -6779,10 +6779,10 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i91.i: ; p
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %165, %163
   %.0.i.i.i.i = phi ptr [ %164, %163 ], [ %10, %165 ]
-  %168 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %156, i32 2
+  %168 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %156, i32 2
   %169 = load i32, ptr %168, align 4, !tbaa !176, !noalias !526
   %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo"], ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MacOSKeychainAPIChecker::ADFunctionInfo", ptr @_ZN12_GLOBAL__N_123MacOSKeychainAPIChecker16FunctionsToTrackE, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !177, !noalias !526
   %.not.i.i.i75.i = icmp eq ptr %172, null
   br i1 %.not.i.i.i75.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit16.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i

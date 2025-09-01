@@ -169,7 +169,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x i32], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds i32, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -195,7 +195,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN83_$LT$smallve
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf24076c036132d48E.llvm.584326724020257929.exit": ; preds = %3
   %11 = load ptr, ptr %0, align 8, !alias.scope !27, !noalias !30, !nonnull !11
   %.sink10.i = select i1 %6, ptr %11, ptr %0
-  %12 = getelementptr inbounds [0 x i32], ptr %.sink10.i, i64 0, i64 %1
+  %12 = getelementptr inbounds i32, ptr %.sink10.i, i64 %1
   ret ptr %12
 }
 

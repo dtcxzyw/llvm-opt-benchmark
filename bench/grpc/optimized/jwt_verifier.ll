@@ -332,7 +332,7 @@ define noundef nonnull ptr @_Z34grpc_jwt_verifier_status_to_string24grpc_jwt_ver
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._Z34grpc_jwt_verifier_status_to_string24grpc_jwt_verifier_status, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z34grpc_jwt_verifier_status_to_string24grpc_jwt_verifier_status, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -4126,7 +4126,7 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %981, %978, %975, 
 
 983:                                              ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
   %984 = getelementptr inbounds nuw i8, ptr %488, i64 128
-  %985 = getelementptr inbounds nuw [2 x %struct.grpc_http_response], ptr %984, i64 0, i64 %.151.i
+  %985 = getelementptr inbounds nuw %struct.grpc_http_response, ptr %984, i64 %.151.i
   invoke void @_ZN9grpc_core11HttpRequest3GetENS_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS_9TimestampEP12grpc_closureP18grpc_http_responseNS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.20") align 8 %26, ptr noundef nonnull %27, ptr noundef null, ptr noundef nonnull %494, ptr noundef nonnull %12, i64 %.0.i.i.i105, ptr noundef nonnull %.1.i, ptr noundef nonnull %985, ptr noundef nonnull %28)
           to label %986 unwind label %1016
 

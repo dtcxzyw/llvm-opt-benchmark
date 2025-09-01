@@ -311,7 +311,7 @@ getlength.exit.thread69:                          ; preds = %32
 
 55:                                               ; preds = %53
   %56 = zext nneg i32 %.016.i66 to i64
-  %57 = getelementptr inbounds nuw [37 x ptr], ptr @der__tag, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr @der__tag, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !26
   %59 = call i64 @php_strlcpy(ptr noundef nonnull %3, ptr noundef %58, i64 noundef 128) #7
   br label %der_tag.exit

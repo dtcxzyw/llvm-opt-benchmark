@@ -579,7 +579,7 @@ proxy_v1_get_token_length.exit139.i:              ; preds = %144, %proxy_v1_get_
 196:                                              ; preds = %182
   %197 = zext nneg i32 %191 to i64
   %198 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %189, i64 noundef %197)
-  %199 = getelementptr [107 x i8], ptr %9, i64 0, i64 %197
+  %199 = getelementptr i8, ptr %9, i64 %197
   store i8 0, ptr %199, align 1
   %200 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %8)
   br i1 %200, label %205, label %201

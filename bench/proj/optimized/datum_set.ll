@@ -147,7 +147,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %.0123 = phi ptr [ %spec.select, %.critedge6 ], [ %.sroa.0.0..sroa.0.0..cast, %39 ]
   %43 = call noundef double @_Z7pj_atofPKc(ptr noundef nonnull %.0123)
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %44 = getelementptr inbounds nuw [7 x double], ptr %40, i64 0, i64 %indvars.iv130
+  %44 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv130
   store double %43, ptr %44, align 8, !tbaa !45
   br label %45
 

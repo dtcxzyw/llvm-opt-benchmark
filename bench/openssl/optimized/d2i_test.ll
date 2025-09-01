@@ -118,7 +118,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %12, %24
   %.121 = phi i64 [ %25, %24 ], [ 0, %12 ]
-  %26 = getelementptr inbounds nuw [5 x %struct.error_enum], ptr @setup_tests.expected_errors, i64 0, i64 %.121
+  %26 = getelementptr inbounds nuw %struct.error_enum, ptr @setup_tests.expected_errors, i64 %.121
   %27 = load ptr, ptr %26, align 16, !tbaa !17
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %7) #7
   %29 = icmp eq i32 %28, 0

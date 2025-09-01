@@ -84,7 +84,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
 .critedge.loopexit:                               ; preds = %26, %.lr.ph232
   %30 = add nsw i32 %.0122229, 1
   %31 = sext i32 %.0122229 to i64
-  %32 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %31
+  %32 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %31
   store <2 x float> %17, ptr %32, align 8
   br label %.loopexit
 
@@ -112,11 +112,11 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
 
 .lr.ph242.preheader:                              ; preds = %52
   %44 = zext nneg i32 %.1130 to i64
-  %45 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %44
   %.sroa.059.0.copyload = load <2 x float>, ptr %45, align 8
   %46 = add nsw i32 %.1, -1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %47
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr %45, align 8
   %50 = load <2 x float>, ptr %4, align 16
@@ -133,7 +133,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %indvars.iv274 = phi i64 [ 1, %33 ], [ %indvars.iv.next275, %52 ]
   %.0129237 = phi i32 [ 0, %33 ], [ %.1130, %52 ]
   %.0131236 = phi float [ %43, %33 ], [ %.1132, %52 ]
-  %53 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv274
+  %53 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv274
   %54 = load <2 x float>, ptr %53, align 8
   %.sroa.03.0.vec.extract.i173 = extractelement <2 x float> %54, i64 0
   %55 = fsub float %.sroa.03.0.vec.extract.i173, %35
@@ -152,11 +152,11 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
 
 ._crit_edge243:                                   ; preds = %.lr.ph242
   %62 = zext nneg i32 %.1141 to i64
-  %63 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %62
   %.sroa.045.0.copyload = load <2 x float>, ptr %63, align 8
   %64 = add nsw i32 %.1, -2
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %65
   %67 = load i64, ptr %66, align 8
   store i64 %67, ptr %63, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -193,7 +193,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %indvars.iv278 = phi i64 [ 1, %.lr.ph242.preheader ], [ %indvars.iv.next279, %.lr.ph242 ]
   %.0140240 = phi i32 [ 0, %.lr.ph242.preheader ], [ %.1141, %.lr.ph242 ]
   %.0143239 = phi float [ %51, %.lr.ph242.preheader ], [ %.1144, %.lr.ph242 ]
-  %80 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv278
+  %80 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv278
   %81 = load <2 x float>, ptr %80, align 8
   %foldExtExtBinop356 = fsub <2 x float> %81, %.sroa.059.0.copyload
   %foldExtExtBinop358 = fsub <2 x float> %81, %.sroa.059.0.copyload
@@ -228,7 +228,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %indvars.iv283 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next284, %104 ]
   %.0146246 = phi i32 [ 0, %.lr.ph248 ], [ %.1147, %104 ]
   %.0148245 = phi i32 [ 0, %.lr.ph248 ], [ %.1149, %104 ]
-  %92 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv283
+  %92 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv283
   %93 = load <2 x float>, ptr %92, align 8
   %foldExtExtBinop367 = fsub <2 x float> %93, %.sroa.059.0.copyload
   %foldExtExtBinop369 = fsub <2 x float> %93, %.sroa.059.0.copyload
@@ -258,7 +258,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.1149.ph = phi i32 [ %.0148245, %100 ], [ %97, %96 ]
   %.1147.ph = phi i32 [ %101, %100 ], [ %.0146246, %96 ]
   %102 = sext i32 %.0146246.sink to i64
-  %103 = getelementptr inbounds [6 x %struct.b2Vec2], ptr %.sink318, i64 0, i64 %102
+  %103 = getelementptr inbounds %struct.b2Vec2, ptr %.sink318, i64 %102
   store <2 x float> %93, ptr %103, align 8
   br label %104
 
@@ -288,7 +288,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %9, align 4, !tbaa !3
   %109 = sext i32 %107 to i64
-  %110 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %109
+  %110 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %109
   store <2 x float> %.sroa.045.0.copyload, ptr %110, align 4
   %111 = icmp sgt i32 %89, 0
   br i1 %111, label %.lr.ph258.preheader, label %.preheader223
@@ -303,8 +303,8 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %9, align 4, !tbaa !3
   %114 = sext i32 %112 to i64
-  %115 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %114
-  %116 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %7, i64 0, i64 %indvars.iv288
+  %115 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %114
+  %116 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv288
   %117 = load i64, ptr %116, align 4
   store i64 %117, ptr %115, align 4
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
@@ -326,8 +326,8 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %9, align 4, !tbaa !3
   %123 = sext i32 %121 to i64
-  %124 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %123
-  %125 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %8, i64 0, i64 %indvars.iv293
+  %124 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %123
+  %125 = getelementptr inbounds nuw %struct.b2Vec2, ptr %8, i64 %indvars.iv293
   %126 = load i64, ptr %125, align 4
   store i64 %126, ptr %124, align 4
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
@@ -351,13 +351,13 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %134 = trunc i64 %indvars.iv301 to i32
   %135 = add i32 %134, 2
   %136 = srem i32 %135, %127
-  %137 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv301
+  %137 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv301
   %.sroa.013.0.copyload = load <2 x float>, ptr %137, align 4
   %138 = zext nneg i32 %133 to i64
-  %139 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %138
   %.sroa.012.0.copyload = load <2 x float>, ptr %139, align 4
   %140 = zext nneg i32 %136 to i64
-  %141 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %140
   %.sroa.011.0.copyload = load <2 x float>, ptr %141, align 4
   %foldExtExtBinop379 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.013.0.copyload
   %foldExtExtBinop381 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.013.0.copyload
@@ -404,9 +404,9 @@ b2Normalize.exit211:                              ; preds = %131, %147
 
 .lr.ph260:                                        ; preds = %.preheader, %.lr.ph260
   %indvars.iv298 = phi i64 [ %indvars.iv.next299, %.lr.ph260 ], [ %138, %.preheader ]
-  %156 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv298
+  %156 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv298
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %157 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv.next299
+  %157 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv.next299
   %158 = load i64, ptr %157, align 4
   store i64 %158, ptr %156, align 4
   %159 = load i32, ptr %9, align 4, !tbaa !3
@@ -543,7 +543,7 @@ b2Normalize.exit:                                 ; preds = %11, %17
 45:                                               ; preds = %.lr.ph
   %46 = add nsw i32 %.177, 1
   %47 = sext i32 %.177 to i64
-  %48 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %6, i64 0, i64 %47
+  %48 = getelementptr inbounds %struct.b2Vec2, ptr %6, i64 %47
   store <2 x float> %37, ptr %48, align 8
   br label %49
 
@@ -578,7 +578,7 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %9, align 4, !tbaa !3
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %57
+  %58 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %57
   store <2 x float> %.sroa.0.0.copyload, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %60 = load i32, ptr %59, align 4, !tbaa !3
@@ -595,8 +595,8 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %9, align 4, !tbaa !3
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %64
-  %66 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %7, i64 0, i64 %indvars.iv89
+  %65 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %64
+  %66 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv89
   %67 = load i64, ptr %66, align 4
   store i64 %67, ptr %65, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
@@ -614,8 +614,8 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %9, align 4, !tbaa !3
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %70
-  %72 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %8, i64 0, i64 %indvars.iv94
+  %71 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %70
+  %72 = getelementptr inbounds nuw %struct.b2Vec2, ptr %8, i64 %indvars.iv94
   %73 = load i64, ptr %72, align 4
   store i64 %73, ptr %71, align 4
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
@@ -648,11 +648,11 @@ define noundef zeroext i1 @b2ValidateHull(ptr noundef readonly captures(none) %0
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %..loopexit_crit_edge.us ], [ 0, %.lr.ph117 ]
   %8 = icmp samesign ult i64 %indvars.iv120, %6
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %9 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv120
+  %9 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv120
   %.sroa.028.0.copyload.us = load <2 x float>, ptr %9, align 4
   %10 = and i64 %indvars.iv.next121, 4294967295
   %11 = select i1 %8, i64 %10, i64 0
-  %12 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %11
   %13 = load <2 x float>, ptr %12, align 4
   %foldExtExtBinop = fsub <2 x float> %13, %.sroa.028.0.copyload.us
   %foldExtExtBinop134 = fsub <2 x float> %13, %.sroa.028.0.copyload.us
@@ -687,7 +687,7 @@ b2Normalize.exit.us:                              ; preds = %19, %7
   br i1 %or.cond72.us, label %32, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv
   %29 = load <2 x float>, ptr %28, align 4
   %foldExtExtBinop138 = fsub <2 x float> %29, %.sroa.028.0.copyload.us
   %foldExtExtBinop140 = fsub <2 x float> %29, %.sroa.028.0.copyload.us
@@ -726,13 +726,13 @@ b2Normalize.exit.us:                              ; preds = %19, %7
   %39 = trunc i64 %indvars.iv125 to i32
   %40 = add i32 %39, 2
   %41 = urem i32 %40, %3
-  %42 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv125
+  %42 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv125
   %.sroa.09.0.copyload = load <2 x float>, ptr %42, align 4
   %43 = zext nneg i32 %38 to i64
-  %44 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %43
   %.sroa.08.0.copyload = load <2 x float>, ptr %44, align 4
   %45 = zext nneg i32 %41 to i64
-  %46 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %45
   %.sroa.07.0.copyload = load <2 x float>, ptr %46, align 4
   %foldExtExtBinop149 = fsub <2 x float> %.sroa.07.0.copyload, %.sroa.09.0.copyload
   %foldExtExtBinop151 = fsub <2 x float> %.sroa.07.0.copyload, %.sroa.09.0.copyload

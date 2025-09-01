@@ -20,7 +20,7 @@ define hidden ptr @SSL_get_curve_name(i16 noundef zeroext %0) local_unnamed_addr
 
 4:                                                ; preds = %2, %1
   %.06.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %.06.i
+  %5 = getelementptr inbounds nuw %struct.ssl_ecdh_method_st, ptr @kMethods, i64 %.06.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i16, ptr %6, align 4, !tbaa !8
   %8 = icmp eq i16 %7, %0
@@ -45,7 +45,7 @@ define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr noundef writeonly cap
 
 5:                                                ; preds = %3, %2
   %.06.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %.06.i
+  %6 = getelementptr inbounds nuw %struct.ssl_ecdh_method_st, ptr @kMethods, i64 %.06.i
   %7 = load i32, ptr %6, align 8, !tbaa !16
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %method_from_nid.exit, label %3
@@ -84,7 +84,7 @@ SSL_ECDH_CTX_cleanup.exit.preheader:              ; preds = %2, %5
 
 SSL_ECDH_CTX_cleanup.exit:                        ; preds = %SSL_ECDH_CTX_cleanup.exit.preheader, %8
   %.06.i = phi i64 [ %9, %8 ], [ 0, %SSL_ECDH_CTX_cleanup.exit.preheader ]
-  %10 = getelementptr inbounds nuw [4 x %struct.ssl_ecdh_method_st], ptr @kMethods, i64 0, i64 %.06.i
+  %10 = getelementptr inbounds nuw %struct.ssl_ecdh_method_st, ptr @kMethods, i64 %.06.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %11, align 4, !tbaa !8
   %13 = icmp eq i16 %12, %1

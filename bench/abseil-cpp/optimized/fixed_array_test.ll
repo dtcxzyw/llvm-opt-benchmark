@@ -16039,7 +16039,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.072 = phi i64 [ 0, %59 ], [ %118, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %63 = getelementptr inbounds nuw i32, ptr %9, i64 %.072
-  %64 = getelementptr inbounds nuw [7 x i32], ptr %2, i64 0, i64 %.072
+  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %.072
   %65 = load i32, ptr %64, align 4, !tbaa !28, !noalias !298
   %66 = load i32, ptr %63, align 4, !tbaa !28, !noalias !298
   %67 = icmp eq i32 %65, %66
@@ -16435,7 +16435,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = load ptr, ptr %11, align 8, !tbaa !304
   %66 = getelementptr inbounds nuw i32, ptr %65, i64 %.066
-  %67 = getelementptr inbounds nuw [7 x i32], ptr %2, i64 0, i64 %.066
+  %67 = getelementptr inbounds nuw i32, ptr %2, i64 %.066
   %68 = load i32, ptr %67, align 4, !tbaa !28, !noalias !307
   %69 = load i32, ptr %66, align 4, !tbaa !28, !noalias !307
   %70 = icmp eq i32 %68, %69
@@ -16889,7 +16889,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %80 = load ptr, ptr %14, align 8, !tbaa !313
   %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %.068
-  %82 = getelementptr inbounds nuw [7 x ptr], ptr %2, i64 0, i64 %.068
+  %82 = getelementptr inbounds nuw ptr, ptr %2, i64 %.068
   %83 = load ptr, ptr %82, align 8, !tbaa !318, !noalias !319
   %84 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef %83) #27, !noalias !319
   %85 = icmp eq i32 %84, 0
@@ -55273,7 +55273,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %171)
   %.val234.i = load ptr, ptr %361, align 8, !tbaa !1172
   %487 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val234.i, i64 %indvars.iv471.i
-  %488 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %487, i64 0, i64 %indvars.iv468.i, i32 1
+  %488 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %487, i64 %indvars.iv468.i, i32 1
   %.val221.i = load i32, ptr %488, align 8, !tbaa !836
   store i32 %.val221.i, ptr %171, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %172)
@@ -55447,7 +55447,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %.val226.i = load ptr, ptr %361, align 8, !tbaa !1172
   %543 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val226.i, i64 %indvars.iv471.i
-  %544 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %543, i64 0, i64 %indvars.iv468.i, i32 1
+  %544 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %543, i64 %indvars.iv468.i, i32 1
   %.val220.i = load i32, ptr %544, align 8, !tbaa !836
   store i32 %.val220.i, ptr %176, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %177)
@@ -55669,7 +55669,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %181)
   %.val235.i = load ptr, ptr %361, align 8, !tbaa !1172
   %616 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val235.i, i64 %indvars.iv483.i
-  %617 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %616, i64 0, i64 %indvars.iv480.i, i32 1
+  %617 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %616, i64 %indvars.iv480.i, i32 1
   %.val219.i = load i32, ptr %617, align 8, !tbaa !836
   store i32 %.val219.i, ptr %181, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %182)
@@ -55843,7 +55843,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %.val228.i = load ptr, ptr %361, align 8, !tbaa !1172
   %672 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val228.i, i64 %indvars.iv483.i
-  %673 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %672, i64 0, i64 %indvars.iv480.i, i32 1
+  %673 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %672, i64 %indvars.iv480.i, i32 1
   %.val.i = load i32, ptr %673, align 8, !tbaa !836
   store i32 %.val.i, ptr %186, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %187)
@@ -57202,7 +57202,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
   %.val231.i = load ptr, ptr %943, align 8, !tbaa !1200
   %1069 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val231.i, i64 %indvars.iv468.i51
-  %1070 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1069, i64 0, i64 %indvars.iv465.i52, i32 1
+  %1070 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1069, i64 %indvars.iv465.i52, i32 1
   %.val218.i = load i32, ptr %1070, align 8, !tbaa !836
   store i32 %.val218.i, ptr %124, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
@@ -57376,7 +57376,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %.val223.i = load ptr, ptr %943, align 8, !tbaa !1200
   %1125 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val223.i, i64 %indvars.iv468.i51
-  %1126 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1125, i64 0, i64 %indvars.iv465.i52, i32 1
+  %1126 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1125, i64 %indvars.iv465.i52, i32 1
   %.val217.i = load i32, ptr %1126, align 8, !tbaa !836
   store i32 %.val217.i, ptr %129, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %130)
@@ -57598,7 +57598,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
   %.val232.i = load ptr, ptr %943, align 8, !tbaa !1200
   %1198 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val232.i, i64 %indvars.iv480.i62
-  %1199 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1198, i64 0, i64 %indvars.iv477.i63, i32 1
+  %1199 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1198, i64 %indvars.iv477.i63, i32 1
   %.val216.i = load i32, ptr %1199, align 8, !tbaa !836
   store i32 %.val216.i, ptr %134, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -57772,7 +57772,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %.val225.i73 = load ptr, ptr %943, align 8, !tbaa !1200
   %1254 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val225.i73, i64 %indvars.iv480.i62
-  %1255 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1254, i64 0, i64 %indvars.iv477.i63, i32 1
+  %1255 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1254, i64 %indvars.iv477.i63, i32 1
   %.val.i74 = load i32, ptr %1255, align 8, !tbaa !836
   store i32 %.val.i74, ptr %139, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %140)
@@ -59139,7 +59139,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %.val231.i238 = load ptr, ptr %1531, align 8, !tbaa !1227
   %1657 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val231.i238, i64 %indvars.iv468.i235
-  %1658 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1657, i64 0, i64 %indvars.iv465.i237, i32 1
+  %1658 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1657, i64 %indvars.iv465.i237, i32 1
   %.val218.i239 = load i32, ptr %1658, align 8, !tbaa !836
   store i32 %.val218.i239, ptr %76, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
@@ -59313,7 +59313,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %.val223.i261 = load ptr, ptr %1531, align 8, !tbaa !1227
   %1713 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val223.i261, i64 %indvars.iv468.i235
-  %1714 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1713, i64 0, i64 %indvars.iv465.i237, i32 1
+  %1714 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1713, i64 %indvars.iv465.i237, i32 1
   %.val217.i262 = load i32, ptr %1714, align 8, !tbaa !836
   store i32 %.val217.i262, ptr %81, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -59535,7 +59535,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %.val232.i301 = load ptr, ptr %1531, align 8, !tbaa !1227
   %1786 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val232.i301, i64 %indvars.iv480.i298
-  %1787 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1786, i64 0, i64 %indvars.iv477.i300, i32 1
+  %1787 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1786, i64 %indvars.iv477.i300, i32 1
   %.val216.i302 = load i32, ptr %1787, align 8, !tbaa !836
   store i32 %.val216.i302, ptr %86, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
@@ -59709,7 +59709,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %.val225.i334 = load ptr, ptr %1531, align 8, !tbaa !1227
   %1842 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val225.i334, i64 %indvars.iv480.i298
-  %1843 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %1842, i64 0, i64 %indvars.iv477.i300, i32 1
+  %1843 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %1842, i64 %indvars.iv477.i300, i32 1
   %.val.i335 = load i32, ptr %1843, align 8, !tbaa !836
   store i32 %.val.i335, ptr %91, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
@@ -61076,7 +61076,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %.val231.i532 = load ptr, ptr %2119, align 8, !tbaa !1254
   %2245 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val231.i532, i64 %indvars.iv468.i529
-  %2246 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %2245, i64 0, i64 %indvars.iv465.i531, i32 1
+  %2246 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %2245, i64 %indvars.iv465.i531, i32 1
   %.val218.i533 = load i32, ptr %2246, align 8, !tbaa !836
   store i32 %.val218.i533, ptr %28, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -61250,7 +61250,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %.val223.i555 = load ptr, ptr %2119, align 8, !tbaa !1254
   %2301 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val223.i555, i64 %indvars.iv468.i529
-  %2302 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %2301, i64 0, i64 %indvars.iv465.i531, i32 1
+  %2302 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %2301, i64 %indvars.iv465.i531, i32 1
   %.val217.i556 = load i32, ptr %2302, align 8, !tbaa !836
   store i32 %.val217.i556, ptr %33, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -61472,7 +61472,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %.val232.i595 = load ptr, ptr %2119, align 8, !tbaa !1254
   %2374 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val232.i595, i64 %indvars.iv480.i592
-  %2375 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %2374, i64 0, i64 %indvars.iv477.i594, i32 1
+  %2375 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %2374, i64 %indvars.iv477.i594, i32 1
   %.val216.i596 = load i32, ptr %2375, align 8, !tbaa !836
   store i32 %.val216.i596, ptr %38, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -61646,7 +61646,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %.val225.i628 = load ptr, ptr %2119, align 8, !tbaa !1254
   %2430 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %.val225.i628, i64 %indvars.iv480.i592
-  %2431 = getelementptr [2 x %"class.(anonymous namespace)::ConstructionTester"], ptr %2430, i64 0, i64 %indvars.iv477.i594, i32 1
+  %2431 = getelementptr %"class.(anonymous namespace)::ConstructionTester", ptr %2430, i64 %indvars.iv477.i594, i32 1
   %.val.i629 = load i32, ptr %2431, align 8, !tbaa !836
   store i32 %.val.i629, ptr %43, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %44)

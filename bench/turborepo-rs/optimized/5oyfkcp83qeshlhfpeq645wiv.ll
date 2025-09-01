@@ -309,7 +309,7 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtN
   br i1 %8, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1i_.exit.i, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %2, i64 0, i64 %.sroa.0.0.i.i
+  %10 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i64 %.sroa.0.0.i.i
   %11 = add i64 %.sroa.0.0.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %7 unwind label %14, !noalias !86
@@ -325,7 +325,7 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtN
   br label %12
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %2, i64 0, i64 %.sroa.0.1.i.i
+  %17 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i64 %.sroa.0.1.i.i
   %18 = add i64 %.sroa.0.1.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #32
           to label %12 unwind label %19, !noalias !86
@@ -377,7 +377,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %7, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtCseG2FYMysgNb_3wax5token5TokenEBL_.exit.i, label %8
 
 8:                                                ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i
-  %9 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %2, i64 0, i64 %.sroa.0.0.i.i
+  %9 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %2, i64 %.sroa.0.0.i.i
   %10 = add i64 %.sroa.0.0.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %9)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i unwind label %12, !noalias !99
@@ -393,7 +393,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
 
 14:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
-  %15 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %2, i64 0, i64 %.sroa.0.1.i.i
+  %15 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %2, i64 %.sroa.0.1.i.i
   %16 = add i64 %.sroa.0.1.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %15)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i unwind label %17, !noalias !99
@@ -512,7 +512,7 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSNtNtN
 
 .lr.ph:                                           ; preds = %2, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBM_.exit
   %.sroa.0.010 = phi i64 [ %5, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBM_.exit ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { i8, [23 x i8] }, i64 }], ptr %0, i64 0, i64 %.sroa.0.010
+  %4 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [23 x i8] }, i64 }, ptr %0, i64 %.sroa.0.010
   %5 = add nuw i64 %.sroa.0.010, 1
   %6 = load i64, ptr %4, align 8, !range !138, !alias.scope !139, !noundef !4
   %7 = icmp eq i64 %6, -9223372036854775808
@@ -560,7 +560,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5pars
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { i8, [23 x i8] }, i64 }], ptr %0, i64 0, i64 %.sroa.0.1
+  %19 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [23 x i8] }, i64 }, ptr %0, i64 %.sroa.0.1
   %20 = add i64 %.sroa.0.1, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryEBM_(ptr noalias noundef nonnull align 8 dereferenceable(56) %19) #32
           to label %14 unwind label %22
@@ -728,7 +728,7 @@ define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_p
   br i1 %31, label %_RNvMs_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB4_8IntoIterINtB6_3VecNtNtCseG2FYMysgNb_3wax5token5TokenEE32forget_allocation_drop_remainingB19_.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw [0 x { { i64, ptr, {} }, i64 }], ptr %24, i64 0, i64 %.sroa.0.0.i.i
+  %33 = getelementptr inbounds nuw { { i64, ptr, {} }, i64 }, ptr %24, i64 %.sroa.0.0.i.i
   %34 = add nuw nsw i64 %.sroa.0.0.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %33)
           to label %30 unwind label %37, !noalias !170
@@ -744,7 +744,7 @@ define void @_RINvNtNtCs68wO5nsWeTG_5alloc3vec16in_place_collect18from_iter_in_p
   br label %35
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %24, i64 0, i64 %.sroa.0.1.i.i
+  %40 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %24, i64 %.sroa.0.1.i.i
   %41 = add i64 %.sroa.0.1.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %40) #32
           to label %35 unwind label %42, !noalias !170
@@ -861,7 +861,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %29, label %_RNvMs_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB4_8IntoIterNtNtCseG2FYMysgNb_3wax5token5TokenE32forget_allocation_drop_remainingBZ_.exit, label %30
 
 30:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i
-  %31 = getelementptr inbounds nuw [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %23, i64 0, i64 %.sroa.0.0.i.i
+  %31 = getelementptr inbounds nuw { { i64, [5 x i64] }, { i64, i64 } }, ptr %23, i64 %.sroa.0.0.i.i
   %32 = add nuw nsw i64 %.sroa.0.0.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %31)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i unwind label %34, !noalias !190
@@ -877,7 +877,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
 
 36:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
-  %37 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %23, i64 0, i64 %.sroa.0.1.i.i
+  %37 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %23, i64 %.sroa.0.1.i.i
   %38 = add i64 %.sroa.0.1.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %37)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i unwind label %39, !noalias !190

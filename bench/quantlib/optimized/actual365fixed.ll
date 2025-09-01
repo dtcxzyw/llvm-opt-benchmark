@@ -1087,19 +1087,19 @@ entry:
   %call5.i = tail call noundef i32 @_ZN8QuantLib4Date11monthOffsetENS_5MonthEb(i32 noundef %call2.i, i1 noundef zeroext %call4.i)
   %sub.i = sub i32 %conv.i.i, %call5.i
   %call2 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
-  %sub = add nsw i32 %call2, -1
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 0, i64 %idxprom
-  %1 = load i32, ptr %arrayidx, align 4, !tbaa !22
-  %add = add nsw i32 %sub.i, %1
+  %1 = sext i32 %call2 to i64
+  %2 = getelementptr i32, ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 %1
+  %arrayidx = getelementptr i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx, align 4, !tbaa !22
+  %add = add nsw i32 %sub.i, %3
   %call3 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %mul = mul nsw i32 %call3, 365
   %add4 = add nsw i32 %add, %mul
   %conv = sext i32 %add4 to i64
-  %2 = load i64, ptr %d2, align 8, !tbaa !20
+  %4 = load i64, ptr %d2, align 8, !tbaa !20
   %call.i.i12 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call2.i.i13 = tail call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i12)
-  %sub.i.i14 = sub nsw i64 %2, %call2.i.i13
+  %sub.i.i14 = sub nsw i64 %4, %call2.i.i13
   %conv.i.i15 = trunc i64 %sub.i.i14 to i32
   %call2.i16 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call3.i17 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
@@ -1107,11 +1107,11 @@ entry:
   %call5.i19 = tail call noundef i32 @_ZN8QuantLib4Date11monthOffsetENS_5MonthEb(i32 noundef %call2.i16, i1 noundef zeroext %call4.i18)
   %sub.i20 = sub i32 %conv.i.i15, %call5.i19
   %call6 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
-  %sub7 = add nsw i32 %call6, -1
-  %idxprom8 = sext i32 %sub7 to i64
-  %arrayidx9 = getelementptr inbounds [12 x i32], ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 0, i64 %idxprom8
-  %3 = load i32, ptr %arrayidx9, align 4, !tbaa !22
-  %add10 = add nsw i32 %sub.i20, %3
+  %5 = sext i32 %call6 to i64
+  %6 = getelementptr i32, ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 %5
+  %arrayidx9 = getelementptr i8, ptr %6, i64 -4
+  %7 = load i32, ptr %arrayidx9, align 4, !tbaa !22
+  %add10 = add nsw i32 %sub.i20, %7
   %call11 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %mul12 = mul nsw i32 %call11, 365
   %add13 = add nsw i32 %add10, %mul12
@@ -1121,10 +1121,10 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %4 = load i64, ptr %d1, align 8, !tbaa !20
+  %8 = load i64, ptr %d1, align 8, !tbaa !20
   %call.i.i21 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call2.i.i22 = tail call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i21)
-  %sub.i.i23 = sub nsw i64 %4, %call2.i.i22
+  %sub.i.i23 = sub nsw i64 %8, %call2.i.i22
   %conv.i.i24 = trunc i64 %sub.i.i23 to i32
   %call2.i25 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %call3.i26 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
@@ -1143,10 +1143,10 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp19, label %land.lhs.true20, label %if.end25
 
 land.lhs.true20:                                  ; preds = %if.end
-  %5 = load i64, ptr %d2, align 8, !tbaa !20
+  %9 = load i64, ptr %d2, align 8, !tbaa !20
   %call.i.i30 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call2.i.i31 = tail call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i30)
-  %sub.i.i32 = sub nsw i64 %5, %call2.i.i31
+  %sub.i.i32 = sub nsw i64 %9, %call2.i.i31
   %conv.i.i33 = trunc i64 %sub.i.i32 to i32
   %call2.i34 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %call3.i35 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)

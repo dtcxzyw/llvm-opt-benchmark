@@ -38806,10 +38806,10 @@ define internal noundef zeroext i1 @"_ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !757, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E.107", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN66_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h2418a81cbdd83dc9E.107", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -67729,10 +67729,10 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !3279, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN194_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_literal_within_tuple_call..UnnecessaryLiteralWithinTupleCall$u20$as$u20$ruff_diagnostics..violation..AlwaysFixableViolation$GT$9fix_title17hda4263679279a6f6E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN194_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_literal_within_tuple_call..UnnecessaryLiteralWithinTupleCall$u20$as$u20$ruff_diagnostics..violation..AlwaysFixableViolation$GT$9fix_title17hda4263679279a6f6E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN194_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_literal_within_tuple_call..UnnecessaryLiteralWithinTupleCall$u20$as$u20$ruff_diagnostics..violation..AlwaysFixableViolation$GT$9fix_title17hda4263679279a6f6E.108", i64 0, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN194_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_literal_within_tuple_call..UnnecessaryLiteralWithinTupleCall$u20$as$u20$ruff_diagnostics..violation..AlwaysFixableViolation$GT$9fix_title17hda4263679279a6f6E.108", i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3280
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hb6fd55eaaf790d22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef %switch.load, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !3280

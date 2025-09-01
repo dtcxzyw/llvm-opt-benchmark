@@ -287,7 +287,7 @@ define ptr @H5T__array_create(ptr noundef %0, i32 noundef %1, ptr noundef readon
   %34 = load i64, ptr %33, align 8, !tbaa !11
   %35 = load ptr, ptr %18, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %37 = getelementptr inbounds nuw [32 x i64], ptr %36, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
   store i64 %34, ptr %37, align 8, !tbaa !31
   %38 = load ptr, ptr %18, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
@@ -570,7 +570,7 @@ define range(i32 -1, -2147483648) i32 @H5Tget_array_dims2(i64 noundef %0, ptr no
 
 64:                                               ; preds = %64, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %63, i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i
   %66 = load i64, ptr %65, align 8, !tbaa !31
   %67 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   store i64 %66, ptr %67, align 8, !tbaa !11
@@ -636,7 +636,7 @@ define i32 @H5T__get_array_dims(ptr noundef readonly captures(none) %0, ptr noun
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %17, ptr %18, align 8, !tbaa !11
@@ -925,7 +925,7 @@ define range(i32 -1, -2147483648) i32 @H5Tget_array_dims1(i64 noundef %0, ptr no
 
 65:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %66 = getelementptr inbounds nuw [32 x i64], ptr %64, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i
   %67 = load i64, ptr %66, align 8, !tbaa !31
   %68 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   store i64 %67, ptr %68, align 8, !tbaa !11

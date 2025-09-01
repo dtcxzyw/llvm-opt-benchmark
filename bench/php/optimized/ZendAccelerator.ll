@@ -258,7 +258,7 @@ define hidden void @zend_accel_schedule_restart(i32 noundef %0) local_unnamed_ad
 
 9:                                                ; preds = %8, %6
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw [3 x ptr], ptr @__const.zend_accel_schedule_restart.zend_accel_restart_reason_text, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @__const.zend_accel_schedule_restart.zend_accel_restart_reason_text, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   tail call void (i32, ptr, ...) @zend_accel_error(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef %12) #26
   %13 = load i32, ptr @zend_signal_globals, align 8, !tbaa !42
@@ -1699,7 +1699,7 @@ zend_print_ulong_to_buf.exit:                     ; preds = %252
   br i1 %.not121, label %.critedge, label %297
 
 297:                                              ; preds = %295
-  %298 = getelementptr inbounds nuw [1 x i8], ptr %294, i64 0, i64 %296
+  %298 = getelementptr inbounds nuw i8, ptr %294, i64 %296
   %299 = load i8, ptr %298, align 1, !tbaa !64
   %.not122 = icmp eq i8 %299, 47
   br i1 %.not122, label %.critedge, label %295
@@ -1784,7 +1784,7 @@ zend_string_alloc.exit:                           ; preds = %3
   store i64 %5, ptr %11, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 16 %1, i64 %5, i1 false)
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %12, i64 0, i64 %5
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %5
   store i8 0, ptr %13, align 1, !tbaa !64
   store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 184), align 8, !tbaa !153
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 272), align 8, !tbaa !145
@@ -6971,7 +6971,7 @@ zend_string_alloc.exit:                           ; preds = %125, %127
   store i64 %1, ptr %133, align 8, !tbaa !60
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %134, ptr align 1 %0, i64 %1, i1 false)
-  %135 = getelementptr inbounds nuw [1 x i8], ptr %134, i64 0, i64 %1
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %1
   store i8 0, ptr %135, align 1, !tbaa !64
   store i64 %101, ptr %132, align 8, !tbaa !56
   br label %accel_find_interned_string_ex.exit
@@ -7001,7 +7001,7 @@ zend_string_alloc.exit17:                         ; preds = %139, %141
   store i64 %1, ptr %147, align 8, !tbaa !60
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %148, ptr align 1 %0, i64 %1, i1 false)
-  %149 = getelementptr inbounds nuw [1 x i8], ptr %148, i64 0, i64 %1
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %1
   store i8 0, ptr %149, align 1, !tbaa !64
   br label %accel_find_interned_string_ex.exit
 
@@ -7332,7 +7332,7 @@ zend_string_release_ex.exit6:                     ; preds = %17, %12, %8, %7
   store i64 %18, ptr %24, align 8, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 16 %3, i64 %18, i1 false)
-  %26 = getelementptr inbounds nuw [1 x i8], ptr %25, i64 0, i64 %18
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
   store i8 0, ptr %26, align 1, !tbaa !64
   br label %.sink.split
 
@@ -7444,7 +7444,7 @@ zend_accel_inheritance_cache_find.exit.thread:    ; preds = %zend_accel_inherita
 
 21:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %22 = getelementptr inbounds nuw [1 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !227
   %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !227
@@ -7778,7 +7778,7 @@ accel_restart_is_active.exit:                     ; preds = %32
 
 90:                                               ; preds = %.lr.ph149.us, %75
   %indvars.iv187 = phi i64 [ 0, %.lr.ph149.us ], [ %indvars.iv.next188, %75 ]
-  %91 = getelementptr inbounds nuw [1 x ptr], ptr %101, i64 0, i64 %indvars.iv187
+  %91 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv187
   %92 = load ptr, ptr %91, align 8, !tbaa !227
   %93 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv187
   %94 = load ptr, ptr %93, align 8, !tbaa !227
@@ -7910,7 +7910,7 @@ zend_accel_inheritance_cache_find.exit._crit_edge: ; preds = %.thread123.us, %62
   %indvars.iv192 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next193, %153 ]
   %154 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv192
   %155 = load ptr, ptr %154, align 8, !tbaa !227
-  %156 = getelementptr inbounds nuw [1 x ptr], ptr %152, i64 0, i64 %indvars.iv192
+  %156 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv192
   store ptr %155, ptr %156, align 8, !tbaa !227
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %146
@@ -8054,7 +8054,7 @@ define internal fastcc void @accel_copy_permanent_strings(ptr noundef readonly c
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !200
   %7 = tail call ptr %0(ptr noundef %6) #26, !callees !340
   store ptr %7, ptr %5, align 8, !tbaa !200

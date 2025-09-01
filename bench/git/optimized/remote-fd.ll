@@ -109,58 +109,60 @@ define dso_local noundef i32 @cmd_remote_fd(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %.not815.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %46
-  %.0616.i = phi i64 [ %39, %46 ], [ %38, %.lr.ph19.i ]
-  %39 = add i64 %.0616.i, -1
-  %40 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %39
+  %.0616.i = phi i64 [ %47, %46 ], [ %38, %.lr.ph19.i ]
+  %39 = getelementptr i8, ptr %5, i64 %.0616.i
+  %40 = getelementptr i8, ptr %39, i64 -1
   %41 = load i8, ptr %40, align 1, !tbaa !9
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = and i8 %44, 1
   %.not9.i = icmp eq i8 %45, 0
   br i1 %.not9.i, label %.critedge.i, label %46
 
 46:                                               ; preds = %.lr.ph.i
-  store i8 0, ptr %40, align 1, !tbaa !9
-  %.not8.i = icmp eq i64 %39, 0
+  %47 = add i64 %.0616.i, -1
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 %47
+  store i8 0, ptr %48, align 1, !tbaa !9
+  %.not8.i = icmp eq i64 %47, 0
   br i1 %.not8.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %46, %.lr.ph.i, %.lr.ph19.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %5, ptr noundef nonnull dereferenceable(13) @.str.4, i64 13)
   %.not10.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not10.i, label %.critedge14.i, label %51
+  br i1 %.not10.i, label %.critedge14.i, label %53
 
 .critedge14.i:                                    ; preds = %.critedge.i
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %47 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %48 = call i32 @fflush(ptr noundef %47)
-  %49 = load ptr, ptr @stdin, align 8, !tbaa !10
-  %50 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4095, ptr noundef %49)
-  %.not.i = icmp eq ptr %50, null
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %50 = call i32 @fflush(ptr noundef %49)
+  %51 = load ptr, ptr @stdin, align 8, !tbaa !10
+  %52 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4095, ptr noundef %51)
+  %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph19.i
 
-51:                                               ; preds = %.critedge.i
-  %52 = call i32 @starts_with(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #11
-  %.not11.i = icmp eq i32 %52, 0
-  br i1 %.not11.i, label %58, label %53
+53:                                               ; preds = %.critedge.i
+  %54 = call i32 @starts_with(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #11
+  %.not11.i = icmp eq i32 %54, 0
+  br i1 %.not11.i, label %60, label %55
 
-53:                                               ; preds = %51
+55:                                               ; preds = %53
   %putchar.i = call i32 @putchar(i32 10)
-  %54 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %55 = call i32 @fflush(ptr noundef %54)
-  %56 = call i32 @bidirectional_transfer_loop(i32 noundef %15, i32 noundef %.0) #11
-  %.not12.i = icmp eq i32 %56, 0
-  br i1 %.not12.i, label %command_loop.exit, label %57
+  %56 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %57 = call i32 @fflush(ptr noundef %56)
+  %58 = call i32 @bidirectional_transfer_loop(i32 noundef %15, i32 noundef %.0) #11
+  %.not12.i = icmp eq i32 %58, 0
+  br i1 %.not12.i, label %command_loop.exit, label %59
 
-57:                                               ; preds = %53
+59:                                               ; preds = %55
   call void (ptr, ...) @die(ptr noundef nonnull @.str.8) #10
   unreachable
 
-58:                                               ; preds = %51
+60:                                               ; preds = %53
   call void (ptr, ...) @die(ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #10
   unreachable
 
-command_loop.exit:                                ; preds = %._crit_edge.i, %53
+command_loop.exit:                                ; preds = %._crit_edge.i, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0

@@ -252,7 +252,7 @@ _ZN4llvm5ErrorD2Ev.exit69:                        ; preds = %_ZN4llvmeqENS_9Stri
 
 switch.lookup:                                    ; preds = %65
   %69 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN4llvm9symbolize22SymbolizableObjectFile6createEPKNS_6object10ObjectFileESt10unique_ptrINS_9DIContextESt14default_deleteIS7_EEb, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm9symbolize22SymbolizableObjectFile6createEPKNS_6object10ObjectFileESt10unique_ptrINS_9DIContextESt14default_deleteIS7_EEb, i64 %69
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
 

@@ -953,7 +953,7 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
   %17 = trunc nuw nsw i64 %14 to i8
   %18 = sub nuw nsw i8 23, %17
   store i8 %18, ptr %7, align 1, !tbaa !34
-  %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   store i8 0, ptr %19, align 1, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   br label %66
@@ -2188,7 +2188,7 @@ _ZN3fmt2v86detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_forma
   %71 = lshr i16 %66, 4
   %72 = and i16 %71, 7
   %73 = zext nneg i16 %72 to i64
-  %74 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !14
   %76 = zext i32 %75 to i64
   %77 = shl nuw i64 %76, 32
@@ -2281,7 +2281,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   %106 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %105, i1 true)
   %107 = xor i32 %106, 31
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %108
   %110 = load i64, ptr %109, align 8, !tbaa !43
   %111 = add i64 %110, %.sroa.0.0.insert.ext.i
   %112 = lshr i64 %111, 32
@@ -2334,7 +2334,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   %136 = urem i32 %.021.i.i, 100
   %137 = shl nuw nsw i32 %136, 1
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %138
   %140 = load i16, ptr %139, align 1
   store i16 %140, ptr %135, align 1
   %141 = udiv i32 %.021.i.i, 100
@@ -2358,7 +2358,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   %149 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -2
   %150 = shl nuw nsw i32 %.0.lcssa.i.i, 1
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %151
   %153 = load i16, ptr %152, align 1
   store i16 %153, ptr %149, align 1
   br label %_ZN3fmt2v86detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjEET0_SB_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit
@@ -2933,7 +2933,7 @@ _ZN3fmt2v86detail9write_intIcSt20back_insert_iteratorINSt7__cxx1112basic_stringI
   %454 = lshr i16 %449, 4
   %455 = and i16 %454, 7
   %456 = zext nneg i16 %455 to i64
-  %457 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %456
   %458 = load i32, ptr %457, align 4, !tbaa !14
   %459 = zext i32 %458 to i64
   %460 = shl nuw i64 %459, 32
@@ -3022,7 +3022,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i143: ; preds = %_ZNKSt7__cxx111
   %489 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %488, i1 true)
   %490 = xor i32 %489, 31
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %491
   %493 = load i64, ptr %492, align 8, !tbaa !43
   %494 = add i64 %493, %.sroa.0.0.insert.ext.i138.pre-phi
   %495 = lshr i64 %494, 32
@@ -3076,7 +3076,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i143: ; preds = %_ZNKSt7__cxx111
   %520 = urem i32 %.021.i.i152, 100
   %521 = shl nuw nsw i32 %520, 1
   %522 = zext nneg i32 %521 to i64
-  %523 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %522
+  %523 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %522
   %524 = load i16, ptr %523, align 1
   store i16 %524, ptr %519, align 1
   %525 = udiv i32 %.021.i.i152, 100
@@ -3100,7 +3100,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i143: ; preds = %_ZNKSt7__cxx111
   %533 = getelementptr inbounds i8, ptr %.019.lcssa.i.i149, i64 -2
   %534 = shl nuw nsw i32 %.0.lcssa.i.i150, 1
   %535 = zext nneg i32 %534 to i64
-  %536 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %535
+  %536 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %535
   %537 = load i16, ptr %536, align 1
   store i16 %537, ptr %533, align 1
   br label %_ZNK3fmt2v89formatterIicvE6formatINS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTcldtfp0_3outEERKiRT_.exit
@@ -4190,11 +4190,11 @@ define linkonce_odr ptr @_ZN3fmt2v86detail19write_int_localizedISt20back_insert_
   %10 = or i64 %1, 1
   %11 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
-  %13 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE9bsr2log10.const, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE9bsr2log10.const, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !34
   %15 = zext i8 %14 to i32
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !43
   %19 = icmp ult i64 %1, %18
   %.neg.i.i = sext i1 %19 to i32
@@ -4212,7 +4212,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail19write_int_localizedISt20back_insert_
   %24 = getelementptr inbounds i8, ptr %.01920.i, i64 -2
   %25 = urem i64 %.021.i, 100
   %26 = shl nuw nsw i64 %25, 1
-  %27 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %26
   %28 = load i16, ptr %27, align 1
   store i16 %28, ptr %24, align 1
   %29 = udiv i64 %.021.i, 100
@@ -4235,7 +4235,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail19write_int_localizedISt20back_insert_
 36:                                               ; preds = %._crit_edge.i
   %37 = getelementptr inbounds i8, ptr %.019.lcssa.i, i64 -2
   %38 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %39 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %38
   %40 = load i16, ptr %39, align 1
   store i16 %40, ptr %37, align 1
   br label %_ZN3fmt2v86detail14format_decimalIcmEENS1_21format_decimal_resultIPT_EES5_T0_i.exit
@@ -4737,7 +4737,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ESt20
   %46 = urem i32 %.021.i.i.i, 100
   %47 = shl nuw nsw i32 %46, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %48
   %50 = load i16, ptr %49, align 1
   store i16 %50, ptr %45, align 1
   %51 = udiv i32 %.021.i.i.i, 100
@@ -4761,7 +4761,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ESt20
   %59 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -2
   %60 = shl nuw nsw i32 %.0.lcssa.i.i.i, 1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %61
   %63 = load i16, ptr %62, align 1
   store i16 %63, ptr %59, align 1
   br label %_ZZN3fmt2v86detail9write_intISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcZNS1_9write_intIcSA_jEET0_SC_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlPcE_EESH_SH_ijRKNSG_ISC_EESE_ENKUlSM_E_clESM_.exit
@@ -5028,7 +5028,7 @@ _ZN3fmt2v86detail19handle_dynamic_specINS1_17precision_checkerENS0_20basic_forma
   %67 = lshr i16 %66, 4
   %68 = and i16 %67, 7
   %69 = zext nneg i16 %68 to i64
-  %70 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !14
   %.sroa.0.0.insert.ext.i = zext i32 %64 to i64
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -5112,7 +5112,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   %100 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %99, i1 true)
   %101 = xor i32 %100, 31
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !43
   %105 = add i64 %104, %.sroa.0.0.insert.ext.i
   %106 = lshr i64 %105, 32
@@ -5166,7 +5166,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   %130 = urem i32 %.021.i.i, 100
   %131 = shl nuw nsw i32 %130, 1
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %132
   %134 = load i16, ptr %133, align 1
   store i16 %134, ptr %129, align 1
   %135 = udiv i32 %.021.i.i, 100
@@ -5190,7 +5190,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   %143 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -2
   %144 = shl nuw nsw i32 %.0.lcssa.i.i, 1
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %145
   %147 = load i16, ptr %146, align 1
   store i16 %147, ptr %143, align 1
   br label %_ZN3fmt2v86detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameISC_bEE5valuentsr3std7is_sameIT0_NSt11conditionalIXsr3std7is_sameIT_cEE5valueENS0_8appenderES3_INS1_6bufferISF_EEEE4typeEEE5valueEiE4typeELi0EEESD_SD_SC_RKNS0_18basic_format_specsISF_EENS1_10locale_refE.exit79
@@ -5756,7 +5756,7 @@ _ZN3fmt2v86detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt1
   %444 = lshr i16 %443, 4
   %445 = and i16 %444, 7
   %446 = zext nneg i16 %445 to i64
-  %447 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %446
+  %447 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt2v86detail18make_write_int_argIjEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 %446
   %448 = load i32, ptr %447, align 4, !tbaa !14
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %450 = load i8, ptr %449, align 8, !tbaa !104
@@ -5835,7 +5835,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i113: ; preds = %_ZNKSt7__cxx111
   %477 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %476, i1 true)
   %478 = xor i32 %477, 31
   %479 = zext nneg i32 %478 to i64
-  %480 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %479
   %481 = load i64, ptr %480, align 8, !tbaa !43
   %482 = add i64 %481, %.sroa.024.0.insert.ext.i
   %483 = lshr i64 %482, 32
@@ -5890,7 +5890,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i113: ; preds = %_ZNKSt7__cxx111
   %508 = urem i32 %.021.i.i122, 100
   %509 = shl nuw nsw i32 %508, 1
   %510 = zext nneg i32 %509 to i64
-  %511 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %510
   %512 = load i16, ptr %511, align 1
   store i16 %512, ptr %507, align 1
   %513 = udiv i32 %.021.i.i122, 100
@@ -5914,7 +5914,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i113: ; preds = %_ZNKSt7__cxx111
   %521 = getelementptr inbounds i8, ptr %.019.lcssa.i.i119, i64 -2
   %522 = shl nuw nsw i32 %.0.lcssa.i.i120, 1
   %523 = zext nneg i32 %522 to i64
-  %524 = getelementptr inbounds nuw [201 x i8], ptr @.str.21, i64 0, i64 %523
+  %524 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %523
   %525 = load i16, ptr %524, align 1
   store i16 %525, ptr %521, align 1
   br label %_ZNK3fmt2v89formatterIjcvE6formatINS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTcldtfp0_3outEERKjRT_.exit

@@ -99,9 +99,9 @@ define void @_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8f
   unreachable
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.010
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.010
   %10 = load i8, ptr %9, align 1, !noundef !4
-  %11 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.010
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.010
   store i8 %10, ptr %11, align 1
   %12 = add nuw nsw i64 %.010, 1
   %exitcond12.not = icmp eq i64 %12, 64
@@ -130,7 +130,7 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit: ; pre
 
 .preheader22:                                     ; preds = %3, %19
   %.01926 = phi i64 [ %20, %19 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.01926
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.01926
   %9 = load i8, ptr %8, align 1, !noundef !4
   %10 = add i8 %9, -32
   %or.cond = icmp ult i8 %10, 95
@@ -170,7 +170,7 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit: ; pre
   br i1 %exitcond.not, label %19, label %.preheader
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.025
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.025
   %24 = load i8, ptr %23, align 1, !noundef !4
   %25 = icmp eq i8 %9, %24
   br i1 %25, label %26, label %.backedge
@@ -231,7 +231,7 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i: ; p
 
 .preheader22.i:                                   ; preds = %3, %18
   %.01926.i = phi i64 [ %19, %18 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.01926.i
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.01926.i
   %8 = load i8, ptr %7, align 1, !alias.scope !14, !noalias !11, !noundef !4
   %9 = add i8 %8, -32
   %or.cond.i = icmp ult i8 %9, 95
@@ -271,7 +271,7 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i: ; p
   br i1 %exitcond.not.i, label %18, label %.preheader.i
 
 21:                                               ; preds = %.preheader.i
-  %22 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.025.i
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.025.i
   %23 = load i8, ptr %22, align 1, !alias.scope !14, !noalias !11, !noundef !4
   %24 = icmp eq i8 %8, %23
   br i1 %24, label %25, label %.backedge.i

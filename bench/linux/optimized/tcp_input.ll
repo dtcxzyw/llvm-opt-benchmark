@@ -1202,7 +1202,7 @@ define dso_local void @tcp_enter_recovery(ptr noundef initializes((2140, 2144), 
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 432
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr [132 x i64], ptr %11, i64 0, i64 %7
+  %12 = getelementptr i64, ptr %11, i64 %7
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, ptr elementtype(i64) %12) #20, !srcloc !34
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2140
   store i32 0, ptr %13, align 4
@@ -1743,7 +1743,7 @@ define dso_local noundef zeroext i1 @tcp_oow_rate_limited(ptr noundef %0, ptr no
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %2 to i64
-  %37 = getelementptr [132 x i64], ptr %35, i64 0, i64 %36
+  %37 = getelementptr i64, ptr %35, i64 %36
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, ptr elementtype(i64) %37) #20, !srcloc !35
   br label %41
 
@@ -7483,7 +7483,7 @@ define internal fastcc void @tcp_data_queue(ptr noundef %0, ptr noundef %1) unna
   %152 = select i1 %151, i64 46, i64 47
   %153 = getelementptr inbounds nuw i8, ptr %145, i64 432
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr [132 x i64], ptr %154, i64 0, i64 %152
+  %155 = getelementptr i64, ptr %154, i64 %152
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %155, ptr elementtype(i64) %155) #20, !srcloc !119
   %156 = load i24, ptr %47, align 4
   %157 = or i24 %156, 4
@@ -7755,8 +7755,8 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %316 = phi i64 [ %322, %.preheader ], [ %297, %314 ]
   %317 = phi i32 [ %323, %.preheader ], [ %300, %314 ]
   %318 = sext i32 %317 to i64
-  %319 = getelementptr [4 x %struct.tcp_sack_block], ptr %291, i64 0, i64 %318
-  %320 = getelementptr [4 x %struct.tcp_sack_block], ptr %291, i64 0, i64 %316
+  %319 = getelementptr %struct.tcp_sack_block, ptr %291, i64 %318
+  %320 = getelementptr %struct.tcp_sack_block, ptr %291, i64 %316
   %321 = load i64, ptr %320, align 8
   store i64 %321, ptr %319, align 8
   %322 = add nuw nsw i64 %316, 1
@@ -8016,7 +8016,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %499 = select i1 %498, i64 46, i64 47
   %500 = getelementptr inbounds nuw i8, ptr %491, i64 432
   %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr [132 x i64], ptr %501, i64 0, i64 %499
+  %502 = getelementptr i64, ptr %501, i64 %499
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %502, ptr elementtype(i64) %502) #20, !srcloc !119
   %503 = load i24, ptr %47, align 4
   %504 = or i24 %503, 4
@@ -8389,7 +8389,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %760 = select i1 %759, i64 46, i64 47
   %761 = getelementptr inbounds nuw i8, ptr %752, i64 432
   %762 = load ptr, ptr %761, align 8
-  %763 = getelementptr [132 x i64], ptr %762, i64 0, i64 %760
+  %763 = getelementptr i64, ptr %762, i64 %760
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %763, ptr elementtype(i64) %763) #20, !srcloc !119
   %764 = load i24, ptr %47, align 4
   %765 = or i24 %764, 4
@@ -8423,7 +8423,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %782 = select i1 %781, i64 46, i64 47
   %783 = getelementptr inbounds nuw i8, ptr %774, i64 432
   %784 = load ptr, ptr %783, align 8
-  %785 = getelementptr [132 x i64], ptr %784, i64 0, i64 %782
+  %785 = getelementptr i64, ptr %784, i64 %782
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %785, ptr elementtype(i64) %785) #20, !srcloc !119
   %786 = load i24, ptr %47, align 4
   %787 = or i24 %786, 4
@@ -8462,7 +8462,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %808 = select i1 %807, i64 46, i64 47
   %809 = getelementptr inbounds nuw i8, ptr %800, i64 432
   %810 = load ptr, ptr %809, align 8
-  %811 = getelementptr [132 x i64], ptr %810, i64 0, i64 %808
+  %811 = getelementptr i64, ptr %810, i64 %808
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %811, ptr elementtype(i64) %811) #20, !srcloc !119
   %812 = load i24, ptr %47, align 4
   %813 = or i24 %812, 4
@@ -8591,7 +8591,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %887 = select i1 %886, i64 46, i64 47
   %888 = getelementptr inbounds nuw i8, ptr %879, i64 432
   %889 = load ptr, ptr %888, align 8
-  %890 = getelementptr [132 x i64], ptr %889, i64 0, i64 %887
+  %890 = getelementptr i64, ptr %889, i64 %887
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %890, ptr elementtype(i64) %890) #20, !srcloc !119
   %891 = load i24, ptr %47, align 4
   %892 = or i24 %891, 4
@@ -8658,7 +8658,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %927 = select i1 %926, i64 46, i64 47
   %928 = getelementptr inbounds nuw i8, ptr %919, i64 432
   %929 = load ptr, ptr %928, align 8
-  %930 = getelementptr [132 x i64], ptr %929, i64 0, i64 %927
+  %930 = getelementptr i64, ptr %929, i64 %927
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %930, ptr elementtype(i64) %930) #20, !srcloc !119
   %931 = load i24, ptr %47, align 4
   %932 = or i24 %931, 4
@@ -12771,7 +12771,7 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr noundef 
   %187 = load i32, ptr %186, align 1
   %188 = tail call i32 @llvm.bswap.i32(i32 %187)
   %189 = sext i32 %182 to i64
-  %190 = getelementptr [4 x %struct.tcp_sack_block], ptr %5, i64 0, i64 %189
+  %190 = getelementptr %struct.tcp_sack_block, ptr %5, i64 %189
   store i32 %188, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %192 = load i32, ptr %191, align 1
@@ -12845,7 +12845,7 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr noundef 
   %238 = load ptr, ptr %173, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 432
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr [132 x i64], ptr %240, i64 0, i64 %237
+  %241 = getelementptr i64, ptr %240, i64 %237
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %241, ptr elementtype(i64) %241) #20, !srcloc !182
   %242 = select i1 %184, i32 -1, i32 %183
   br label %250
@@ -12886,14 +12886,14 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr noundef 
   %263 = phi i64 [ 0, %258 ], [ %265, %279 ]
   %264 = phi i32 [ %260, %258 ], [ %281, %279 ]
   %265 = add nuw nsw i64 %263, 1
-  %266 = getelementptr [4 x %struct.tcp_sack_block], ptr %5, i64 0, i64 %265
+  %266 = getelementptr %struct.tcp_sack_block, ptr %5, i64 %265
   %267 = load i32, ptr %266, align 8
   %268 = sub i32 %267, %262
   %269 = icmp slt i32 %268, 0
   br i1 %269, label %270, label %279
 
 270:                                              ; preds = %261
-  %271 = getelementptr [4 x %struct.tcp_sack_block], ptr %5, i64 0, i64 %263
+  %271 = getelementptr %struct.tcp_sack_block, ptr %5, i64 %263
   %272 = load i64, ptr %271, align 8
   %273 = load i64, ptr %266, align 8
   store i64 %273, ptr %271, align 8
@@ -12963,7 +12963,7 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr noundef 
 
 .lr.ph.preheader:                                 ; preds = %.loopexit60
   %312 = sext i32 %284 to i64
-  %313 = getelementptr [4 x %struct.tcp_sack_block], ptr %5, i64 0, i64 %312
+  %313 = getelementptr %struct.tcp_sack_block, ptr %5, i64 %312
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %313, i64 4
   br label %.lr.ph
 
@@ -12972,7 +12972,7 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr noundef 
   %315 = phi ptr [ %507, %505 ], [ null, %.lr.ph.preheader ]
   %316 = phi i32 [ %506, %505 ], [ 0, %.lr.ph.preheader ]
   %317 = sext i32 %316 to i64
-  %318 = getelementptr [4 x %struct.tcp_sack_block], ptr %5, i64 0, i64 %317
+  %318 = getelementptr %struct.tcp_sack_block, ptr %5, i64 %317
   %319 = load i32, ptr %318, align 8
   %320 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %321 = load i32, ptr %320, align 4
@@ -13297,7 +13297,7 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr noundef 
 519:                                              ; preds = %519, %512
   %520 = phi i64 [ 0, %512 ], [ %525, %519 ]
   %521 = phi i32 [ 0, %512 ], [ %524, %519 ]
-  %522 = getelementptr [4 x %struct.tcp_sack_block], ptr %514, i64 0, i64 %520
+  %522 = getelementptr %struct.tcp_sack_block, ptr %514, i64 %520
   store i32 0, ptr %522, align 8
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 4
   store i32 0, ptr %523, align 4
@@ -13311,8 +13311,8 @@ define internal fastcc i32 @tcp_sacktag_write_queue(ptr noundef %0, ptr noundef 
   %529 = phi i32 [ %516, %.thread42 ], [ %530, %527 ]
   %530 = add i32 %529, 1
   %531 = sext i32 %529 to i64
-  %532 = getelementptr [4 x %struct.tcp_sack_block], ptr %517, i64 0, i64 %531
-  %533 = getelementptr [4 x %struct.tcp_sack_block], ptr %5, i64 0, i64 %528
+  %532 = getelementptr %struct.tcp_sack_block, ptr %517, i64 %531
+  %533 = getelementptr %struct.tcp_sack_block, ptr %5, i64 %528
   %534 = load i64, ptr %533, align 8
   store i64 %534, ptr %532, align 8
   %535 = add nuw nsw i64 %528, 1
@@ -16527,7 +16527,7 @@ define internal fastcc noundef zeroext i1 @tcp_try_undo_recovery(ptr noundef %0)
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 432
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr [132 x i64], ptr %62, i64 0, i64 %58
+  %63 = getelementptr i64, ptr %62, i64 %58
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, ptr elementtype(i64) %63) #20, !srcloc !239
   br label %74
 
@@ -17698,7 +17698,7 @@ define internal fastcc void @tcp_send_dupack(ptr noundef %0, ptr noundef readonl
   %124 = select i1 %123, i64 46, i64 47
   %125 = getelementptr inbounds nuw i8, ptr %117, i64 432
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr [132 x i64], ptr %126, i64 0, i64 %124
+  %127 = getelementptr i64, ptr %126, i64 %124
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %127, ptr elementtype(i64) %127) #20, !srcloc !119
   %128 = load i24, ptr %41, align 4
   %129 = or i24 %128, 4

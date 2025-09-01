@@ -348,23 +348,23 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %151 = shl i32 %150, 1
   %152 = and i32 %151, 62
   %153 = zext nneg i32 %142 to i64
-  %154 = getelementptr inbounds nuw [4 x i8], ptr @offset_table, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @offset_table, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !44
   %156 = zext i8 %155 to i32
   %157 = zext nneg i32 %133 to i64
-  %158 = getelementptr inbounds nuw [64 x [4 x i8]], ptr @sign_table, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr @sign_table, i64 %157
   br label %159
 
 159:                                              ; preds = %129, %159
   %indvars.iv = phi i64 [ 0, %129 ], [ %indvars.iv.next, %159 ]
-  %160 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv
   %161 = load i8, ptr %160, align 1, !tbaa !44
   %162 = sext i8 %161 to i32
   %163 = mul nsw i32 %162, %156
   %164 = add nsw i32 %163, %152
   %165 = tail call i32 @llvm.smax.i32(i32 %164, i32 0)
   %166 = tail call i32 @llvm.umin.i32(i32 %165, i32 63)
-  %167 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %166, ptr %167, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -413,7 +413,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %198 = add i32 %spec.select.i205, 3
   %199 = tail call i32 @llvm.umin.i32(i32 %25, i32 %198)
   %200 = zext nneg i32 %197 to i64
-  %201 = getelementptr inbounds nuw [8 x i8], ptr @luma_adjust, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @luma_adjust, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !44
   %203 = zext i8 %202 to i32
   %204 = add nuw nsw i32 %.0173269, %203
@@ -427,7 +427,7 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
 
 206:                                              ; preds = %205, %206
   %indvars.iv298 = phi i64 [ 0, %205 ], [ %indvars.iv.next299, %206 ]
-  %207 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv298
+  %207 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv298
   store i32 %.3176, ptr %207, align 4, !tbaa !34
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next299, 4
@@ -496,12 +496,12 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %252 = add i32 %spec.select.i207, 3
   %253 = tail call i32 @llvm.umin.i32(i32 %25, i32 %252)
   %254 = zext nneg i32 %251 to i64
-  %255 = getelementptr inbounds nuw [8 x i8], ptr @chroma_adjust, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw i8, ptr @chroma_adjust, i64 %254
   %256 = load i8, ptr %255, align 1, !tbaa !44
   %257 = zext i8 %256 to i32
   %258 = add nuw nsw i32 %.0181266, %257
   %259 = and i32 %258, 31
-  %260 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @chroma_adjust, i64 8), i64 0, i64 %254
+  %260 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @chroma_adjust, i64 8), i64 %254
   %261 = load i8, ptr %260, align 1, !tbaa !44
   %262 = zext i8 %261 to i32
   %263 = add nuw nsw i32 %.0179267, %262
@@ -671,14 +671,14 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %352 = getelementptr inbounds nuw i8, ptr %.2166293, i64 %indvars.iv306
   %353 = load i8, ptr %352, align 1, !tbaa !44
   %354 = zext i8 %353 to i64
-  %355 = getelementptr inbounds nuw [32 x i8], ptr @chroma_vals, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw i8, ptr @chroma_vals, i64 %354
   %356 = load i8, ptr %355, align 1, !tbaa !44
   %357 = getelementptr inbounds nuw i8, ptr %.0190290, i64 %indvars.iv306
   store i8 %356, ptr %357, align 1, !tbaa !44
   %358 = getelementptr inbounds nuw i8, ptr %.2188291, i64 %indvars.iv306
   %359 = load i8, ptr %358, align 1, !tbaa !44
   %360 = zext i8 %359 to i64
-  %361 = getelementptr inbounds nuw [32 x i8], ptr @chroma_vals, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr @chroma_vals, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !44
   %363 = getelementptr inbounds nuw i8, ptr %.0191289, i64 %indvars.iv306
   store i8 %362, ptr %363, align 1, !tbaa !44

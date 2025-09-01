@@ -1976,7 +1976,7 @@ define hidden void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   store i32 %51, ptr %49, align 4
   %52 = and i32 %50, %48
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %5, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %struct.epoll_event, ptr %5, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull readonly align 4 dereferenceable(12) %7, i64 12, i1 false)
   %55 = load ptr, ptr %31, align 8
   %56 = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %55, i64 %53
@@ -2681,7 +2681,7 @@ define internal fastcc void @uv__epoll_ctl_flush(i32 noundef %0, ptr noundef rea
   unreachable
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %4, i64 0, i64 %52
+  %57 = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %52
   %58 = load i32, ptr %33, align 8
   %59 = load ptr, ptr %5, align 8
   %60 = load i32, ptr %59, align 4
@@ -2689,7 +2689,7 @@ define internal fastcc void @uv__epoll_ctl_flush(i32 noundef %0, ptr noundef rea
   store i32 %61, ptr %59, align 4
   %62 = and i32 %60, %58
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %2, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %struct.epoll_event, ptr %2, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %57, i64 12, i1 false)
   %65 = load ptr, ptr %34, align 8
   %66 = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %65, i64 %63
@@ -2968,13 +2968,13 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %9, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   %39 = and i32 %34, 7
   %40 = shl nuw nsw i32 1, %39
   %41 = lshr i32 %34, 3
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = trunc nuw i32 %40 to i8
   %46 = or i8 %44, %45
@@ -3058,7 +3058,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   %76 = lshr exact i64 %.068.add, 6
   %77 = trunc nuw nsw i64 %76 to i32
   %78 = zext nneg i32 %73 to i64
-  %79 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %9, i64 0, i64 %78, i32 6
+  %79 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %78, i32 6
   store i32 %77, ptr %79, align 8
   br label %.loopexit86.preheader
 
@@ -3087,7 +3087,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   %storemerge94 = phi i32 [ %108, %106 ], [ 0, %85 ]
   %86 = lshr i32 %storemerge94, 3
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = and i32 %storemerge94, 7
@@ -3106,7 +3106,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
 
 99:                                               ; preds = %94
   %100 = zext i32 %.pre107 to i64
-  %101 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %9, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %100
   %102 = call i32 (ptr, ptr, ...) @fscanf(ptr noundef nonnull %97, ptr noundef nonnull @.str.17, ptr noundef nonnull %101)
   %.not85 = icmp eq i32 %102, 1
   br i1 %.not85, label %104, label %103
@@ -3158,7 +3158,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   %storemerge8298 = phi i32 [ %161, %159 ], [ 0, %117 ]
   %121 = lshr i32 %storemerge8298, 3
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 %122
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   %126 = and i32 %storemerge8298, 7

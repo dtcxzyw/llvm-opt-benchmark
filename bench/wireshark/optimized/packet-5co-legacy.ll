@@ -204,7 +204,7 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %25 ]
-  %9 = getelementptr [22 x %struct.FCOSRegisterDef], ptr @aRegisters, i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -218,48 +218,51 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = add nuw nsw i64 %indvars.iv, 22
-  %21 = getelementptr [44 x %struct.hf_register_info], ptr @proto_register_FiveCoLegacy.hf, i64 0, i64 %20
+  %20 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %21 = getelementptr i8, ptr %20, i64 1760
   store ptr %12, ptr %21, align 16
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr i8, ptr %20, i64 1768
   store ptr %14, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr i8, ptr %20, i64 1776
   store ptr %16, ptr %.sroa.53.0..sroa_idx, align 16
-  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %.sroa.64.0..sroa_idx = getelementptr i8, ptr %20, i64 1784
   store i32 %19, ptr %.sroa.64.0..sroa_idx, align 8
-  %.sroa.75.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 28
+  %.sroa.75.0..sroa_idx = getelementptr i8, ptr %20, i64 1788
   store i32 6, ptr %.sroa.75.0..sroa_idx, align 4
-  %.sroa.86.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %.sroa.86.0..sroa_idx = getelementptr i8, ptr %20, i64 1792
   store ptr %11, ptr %.sroa.86.0..sroa_idx, align 16
-  %.sroa.97.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %.sroa.119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.97.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.97.0..sroa_idx = getelementptr i8, ptr %20, i64 1800
+  %.sroa.119.0..sroa_idx = getelementptr i8, ptr %20, i64 1816
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %.sroa.97.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 -1, ptr %.sroa.119.0..sroa_idx, align 8
   br label %25
 
 22:                                               ; preds = %.preheader
-  %23 = add nuw nsw i64 %indvars.iv, 22
-  %24 = getelementptr [44 x %struct.hf_register_info], ptr @proto_register_FiveCoLegacy.hf, i64 0, i64 %23
+  %23 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %24 = getelementptr i8, ptr %23, i64 1760
   store ptr %12, ptr %24, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr i8, ptr %23, i64 1768
   store ptr %14, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr i8, ptr %23, i64 1776
   store ptr %16, ptr %.sroa.5.0..sroa_idx, align 16
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, i8 0, i64 32, i1 false)
+  %.sroa.6.0..sroa_idx = getelementptr i8, ptr %23, i64 1784
+  %.sroa.11.0..sroa_idx = getelementptr i8, ptr %23, i64 1816
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, i8 0, i64 32, i1 false)
   store i32 -1, ptr %.sroa.11.0..sroa_idx, align 8
   br label %25
 
 25:                                               ; preds = %17, %22
-  %.sink40 = phi ptr [ %21, %17 ], [ %24, %22 ]
-  %.sroa.1210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 60
+  %26 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %27 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %28 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %29 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %.sroa.1210.0..sroa_idx = getelementptr i8, ptr %29, i64 1820
   store i32 0, ptr %.sroa.1210.0..sroa_idx, align 4
-  %.sroa.1311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 64
+  %.sroa.1311.0..sroa_idx = getelementptr i8, ptr %28, i64 1824
   store i32 0, ptr %.sroa.1311.0..sroa_idx, align 16
-  %.sroa.1412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 68
+  %.sroa.1412.0..sroa_idx = getelementptr i8, ptr %27, i64 1828
   store i32 -1, ptr %.sroa.1412.0..sroa_idx, align 4
-  %.sroa.1513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 72
+  %.sroa.1513.0..sroa_idx = getelementptr i8, ptr %26, i64 1832
   store ptr null, ptr %.sroa.1513.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 22
@@ -713,7 +716,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 
 225:                                              ; preds = %.preheader491
   %226 = zext nneg i8 %223 to i64
-  %227 = getelementptr [22 x %struct.FCOSRegisterDef], ptr @aRegisters, i64 0, i64 %226
+  %227 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %226
   %228 = load i32, ptr %227, align 8
   %229 = zext nneg i8 %223 to i32
   %230 = icmp eq i32 %228, %229
@@ -755,7 +758,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 
 245:                                              ; preds = %.lr.ph519
   %246 = zext nneg i8 %243 to i64
-  %247 = getelementptr [22 x %struct.FCOSRegisterDef], ptr @aRegisters, i64 0, i64 %246
+  %247 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %246
   %248 = load i32, ptr %247, align 8
   %249 = zext nneg i8 %243 to i32
   %250 = icmp eq i32 %248, %249
@@ -984,7 +987,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 
 373:                                              ; preds = %370
   %374 = zext nneg i8 %371 to i64
-  %375 = getelementptr [22 x %struct.FCOSRegisterDef], ptr @aRegisters, i64 0, i64 %374
+  %375 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %374
   %376 = load i32, ptr %375, align 8
   %377 = zext nneg i8 %371 to i32
   %378 = icmp eq i32 %376, %377

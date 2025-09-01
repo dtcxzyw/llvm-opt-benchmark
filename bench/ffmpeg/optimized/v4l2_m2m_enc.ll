@@ -499,7 +499,7 @@ v4l2_set_ext_ctrl.exit84.i:                       ; preds = %185, %181
 
 .preheader.i:                                     ; preds = %201, %203
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %203 ], [ 0, %201 ]
-  %204 = getelementptr inbounds nuw [11 x %struct.h264_profile], ptr @v4l2_h264_profile_from_ff.profile, i64 0, i64 %indvars.iv.i.i
+  %204 = getelementptr inbounds nuw %struct.h264_profile, ptr @v4l2_h264_profile_from_ff.profile, i64 %indvars.iv.i.i
   %205 = load i32, ptr %204, align 8, !tbaa !71
   %206 = icmp eq i32 %205, %202
   br i1 %206, label %v4l2_h264_profile_from_ff.exit.i, label %203
@@ -509,7 +509,7 @@ v4l2_h264_profile_from_ff.exit.thread.i:          ; preds = %203
   br label %238
 
 v4l2_h264_profile_from_ff.exit.i:                 ; preds = %.preheader.i
-  %207 = getelementptr inbounds nuw [11 x %struct.h264_profile], ptr @v4l2_h264_profile_from_ff.profile, i64 0, i64 %indvars.iv.i.i, i32 1
+  %207 = getelementptr inbounds nuw %struct.h264_profile, ptr @v4l2_h264_profile_from_ff.profile, i64 %indvars.iv.i.i, i32 1
   %208 = load i32, ptr %207, align 4, !tbaa !73
   call fastcc void @v4l2_set_ext_ctrl(ptr noundef readonly %55, i32 noundef 10029675, i32 noundef %208, ptr noundef nonnull @.str.34, i32 noundef 1)
   br label %238
@@ -526,7 +526,7 @@ v4l2_h264_profile_from_ff.exit.i:                 ; preds = %.preheader.i
 
 .preheader101.i:                                  ; preds = %209, %211
   %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %211 ], [ 0, %209 ]
-  %212 = getelementptr inbounds nuw [5 x %struct.mpeg4_profile], ptr @v4l2_mpeg4_profile_from_ff.profile, i64 0, i64 %indvars.iv.i85.i
+  %212 = getelementptr inbounds nuw %struct.mpeg4_profile, ptr @v4l2_mpeg4_profile_from_ff.profile, i64 %indvars.iv.i85.i
   %213 = load i32, ptr %212, align 8, !tbaa !75
   %214 = icmp eq i32 %213, %210
   br i1 %214, label %v4l2_mpeg4_profile_from_ff.exit.i, label %211
@@ -536,7 +536,7 @@ v4l2_mpeg4_profile_from_ff.exit.thread.i:         ; preds = %211
   br label %217
 
 v4l2_mpeg4_profile_from_ff.exit.i:                ; preds = %.preheader101.i
-  %215 = getelementptr inbounds nuw [5 x %struct.mpeg4_profile], ptr @v4l2_mpeg4_profile_from_ff.profile, i64 0, i64 %indvars.iv.i85.i, i32 1
+  %215 = getelementptr inbounds nuw %struct.mpeg4_profile, ptr @v4l2_mpeg4_profile_from_ff.profile, i64 %indvars.iv.i85.i, i32 1
   %216 = load i32, ptr %215, align 4, !tbaa !77
   call fastcc void @v4l2_set_ext_ctrl(ptr noundef readonly %55, i32 noundef 10029718, i32 noundef %216, ptr noundef nonnull @.str.36, i32 noundef 1)
   br label %217

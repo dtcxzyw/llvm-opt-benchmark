@@ -540,7 +540,7 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %72
+  br i1 %41, label %42, label %69
 
 42:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -564,51 +564,51 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
   store float 1.000000e+00, ptr %50, align 4, !noalias !7
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %59, %42
-  %.03249.i = phi i64 [ 0, %42 ], [ %60, %59 ]
-  %51 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %20, i64 0, i64 %.03249.i
+.preheader.i:                                     ; preds = %56, %42
+  %.03249.i = phi i64 [ 0, %42 ], [ %57, %56 ]
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %19, i64 %.03249.i
+  %51 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %20, i64 %.03249.i
   br label %52
 
 52:                                               ; preds = %52, %.preheader.i
-  %.048.i = phi i64 [ 0, %.preheader.i ], [ %58, %52 ]
-  %53 = shl nuw nsw i64 %.048.i, 2
-  %54 = add nuw nsw i64 %53, %.03249.i
-  %55 = getelementptr inbounds nuw [16 x float], ptr %19, i64 0, i64 %54
-  %56 = load float, ptr %55, align 4, !noalias !7
-  %57 = getelementptr inbounds nuw float, ptr %51, i64 %.048.i
-  store float %56, ptr %57, align 4, !noalias !7
-  %58 = add nuw nsw i64 %.048.i, 1
-  %exitcond.not.i = icmp eq i64 %58, 4
-  br i1 %exitcond.not.i, label %59, label %52, !llvm.loop !10
+  %.048.i = phi i64 [ 0, %.preheader.i ], [ %55, %52 ]
+  %.idx.i = shl nuw nsw i64 %.048.i, 4
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
+  %53 = load float, ptr %gep.i, align 4, !noalias !7
+  %54 = getelementptr inbounds nuw float, ptr %51, i64 %.048.i
+  store float %53, ptr %54, align 4, !noalias !7
+  %55 = add nuw nsw i64 %.048.i, 1
+  %exitcond.not.i = icmp eq i64 %55, 4
+  br i1 %exitcond.not.i, label %56, label %52, !llvm.loop !10
 
-59:                                               ; preds = %52
-  %60 = add nuw nsw i64 %.03249.i, 1
-  %exitcond50.not.i = icmp eq i64 %60, 4
-  br i1 %exitcond50.not.i, label %61, label %.preheader.i, !llvm.loop !12
+56:                                               ; preds = %52
+  %57 = add nuw nsw i64 %.03249.i, 1
+  %exitcond50.not.i = icmp eq i64 %57, 4
+  br i1 %exitcond50.not.i, label %58, label %.preheader.i, !llvm.loop !12
 
-61:                                               ; preds = %59
+58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !7
-  br label %62
+  br label %59
 
-62:                                               ; preds = %62, %61
-  %.09.i.i.i = phi i64 [ 0, %61 ], [ %64, %62 ]
-  %63 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %18, i64 0, i64 %.09.i.i.i
-  store <4 x float> splat (float 5.000000e-01), ptr %63, align 16, !alias.scope !13, !noalias !16
-  %64 = add nuw nsw i64 %.09.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %64, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, label %62, !llvm.loop !19
+59:                                               ; preds = %59, %58
+  %.09.i.i.i = phi i64 [ 0, %58 ], [ %61, %59 ]
+  %60 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %18, i64 %.09.i.i.i
+  store <4 x float> splat (float 5.000000e-01), ptr %60, align 16, !alias.scope !13, !noalias !16
+  %61 = add nuw nsw i64 %.09.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %61, 4
+  br i1 %exitcond.not.i.i.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, label %59, !llvm.loop !19
 
-_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i: ; preds = %62, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
-  %.034.i.i.i = phi i64 [ %71, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i ], [ 0, %62 ]
-  %65 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %18, i64 0, i64 %.034.i.i.i
-  %66 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %20, i64 0, i64 %.034.i.i.i
-  %67 = load <4 x float>, ptr %65, align 16, !noalias !20
-  %68 = load <4 x float>, ptr %66, align 16, !noalias !7
-  %69 = fmul contract <4 x float> %67, %68
-  %70 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %14, i64 0, i64 %.034.i.i.i
-  store <4 x float> %69, ptr %70, align 16
-  %71 = add nuw nsw i64 %.034.i.i.i, 1
-  %exitcond.not.i19.i.i = icmp eq i64 %71, 4
+_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i: ; preds = %59, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
+  %.034.i.i.i = phi i64 [ %68, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i ], [ 0, %59 ]
+  %62 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %18, i64 %.034.i.i.i
+  %63 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %20, i64 %.034.i.i.i
+  %64 = load <4 x float>, ptr %62, align 16, !noalias !20
+  %65 = load <4 x float>, ptr %63, align 16, !noalias !7
+  %66 = fmul contract <4 x float> %64, %65
+  %67 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %14, i64 %.034.i.i.i
+  store <4 x float> %66, ptr %67, align 16
+  %68 = add nuw nsw i64 %.034.i.i.i, 1
+  %exitcond.not.i19.i.i = icmp eq i64 %68, 4
   br i1 %exitcond.not.i19.i.i, label %_ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, !llvm.loop !23
 
 _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ; preds = %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
@@ -617,297 +617,297 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.preheader
 
-72:                                               ; preds = %7
+69:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 1.000000e+00, ptr %16, align 16, !noalias !24
-  %73 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store float 0.000000e+00, ptr %73, align 4, !noalias !24
-  %74 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store float 0.000000e+00, ptr %74, align 8, !noalias !24
-  %75 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store float 1.000000e+00, ptr %75, align 4, !noalias !24
-  %76 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %77 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %76, i8 0, i64 32, i1 false), !noalias !24
-  store float 1.000000e+00, ptr %77, align 16, !noalias !24
-  %78 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  store float 0.000000e+00, ptr %78, align 4, !noalias !24
-  %79 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store float 0.000000e+00, ptr %79, align 8, !noalias !24
-  %80 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store float 1.000000e+00, ptr %80, align 4, !noalias !24
+  %70 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store float 0.000000e+00, ptr %70, align 4, !noalias !24
+  %71 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store float 0.000000e+00, ptr %71, align 8, !noalias !24
+  %72 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store float 1.000000e+00, ptr %72, align 4, !noalias !24
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %73, i8 0, i64 32, i1 false), !noalias !24
+  store float 1.000000e+00, ptr %74, align 16, !noalias !24
+  %75 = getelementptr inbounds nuw i8, ptr %16, i64 52
+  store float 0.000000e+00, ptr %75, align 4, !noalias !24
+  %76 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store float 0.000000e+00, ptr %76, align 8, !noalias !24
+  %77 = getelementptr inbounds nuw i8, ptr %16, i64 60
+  store float 1.000000e+00, ptr %77, align 4, !noalias !24
   br label %.preheader.i70
 
-.preheader.i70:                                   ; preds = %89, %72
-  %.03249.i71 = phi i64 [ 0, %72 ], [ %90, %89 ]
-  %81 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %17, i64 0, i64 %.03249.i71
-  br label %82
+.preheader.i70:                                   ; preds = %83, %69
+  %.03249.i71 = phi i64 [ 0, %69 ], [ %84, %83 ]
+  %invariant.gep.i72 = getelementptr inbounds nuw float, ptr %16, i64 %.03249.i71
+  %78 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.03249.i71
+  br label %79
 
-82:                                               ; preds = %82, %.preheader.i70
-  %.048.i72 = phi i64 [ 0, %.preheader.i70 ], [ %88, %82 ]
-  %83 = shl nuw nsw i64 %.048.i72, 2
-  %84 = add nuw nsw i64 %83, %.03249.i71
-  %85 = getelementptr inbounds nuw [16 x float], ptr %16, i64 0, i64 %84
-  %86 = load float, ptr %85, align 4, !noalias !24
-  %87 = getelementptr inbounds nuw float, ptr %81, i64 %.048.i72
-  store float %86, ptr %87, align 4, !noalias !24
-  %88 = add nuw nsw i64 %.048.i72, 1
-  %exitcond.not.i73 = icmp eq i64 %88, 4
-  br i1 %exitcond.not.i73, label %89, label %82, !llvm.loop !10
+79:                                               ; preds = %79, %.preheader.i70
+  %.048.i73 = phi i64 [ 0, %.preheader.i70 ], [ %82, %79 ]
+  %.idx.i74 = shl nuw nsw i64 %.048.i73, 4
+  %gep.i75 = getelementptr inbounds nuw i8, ptr %invariant.gep.i72, i64 %.idx.i74
+  %80 = load float, ptr %gep.i75, align 4, !noalias !24
+  %81 = getelementptr inbounds nuw float, ptr %78, i64 %.048.i73
+  store float %80, ptr %81, align 4, !noalias !24
+  %82 = add nuw nsw i64 %.048.i73, 1
+  %exitcond.not.i76 = icmp eq i64 %82, 4
+  br i1 %exitcond.not.i76, label %83, label %79, !llvm.loop !10
 
-89:                                               ; preds = %82
-  %90 = add nuw nsw i64 %.03249.i71, 1
-  %exitcond50.not.i74 = icmp eq i64 %90, 4
-  br i1 %exitcond50.not.i74, label %91, label %.preheader.i70, !llvm.loop !12
+83:                                               ; preds = %79
+  %84 = add nuw nsw i64 %.03249.i71, 1
+  %exitcond50.not.i77 = icmp eq i64 %84, 4
+  br i1 %exitcond50.not.i77, label %85, label %.preheader.i70, !llvm.loop !12
 
-91:                                               ; preds = %89
+85:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !24
-  br label %92
+  br label %86
 
-92:                                               ; preds = %92, %91
-  %.09.i.i.i75 = phi i64 [ 0, %91 ], [ %94, %92 ]
-  %93 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %15, i64 0, i64 %.09.i.i.i75
-  store <4 x float> splat (float 5.000000e-01), ptr %93, align 16, !alias.scope !27, !noalias !30
-  %94 = add nuw nsw i64 %.09.i.i.i75, 1
-  %exitcond.not.i.i.i76 = icmp eq i64 %94, 4
-  br i1 %exitcond.not.i.i.i76, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i77, label %92, !llvm.loop !19
+86:                                               ; preds = %86, %85
+  %.09.i.i.i78 = phi i64 [ 0, %85 ], [ %88, %86 ]
+  %87 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %15, i64 %.09.i.i.i78
+  store <4 x float> splat (float 5.000000e-01), ptr %87, align 16, !alias.scope !27, !noalias !30
+  %88 = add nuw nsw i64 %.09.i.i.i78, 1
+  %exitcond.not.i.i.i79 = icmp eq i64 %88, 4
+  br i1 %exitcond.not.i.i.i79, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80, label %86, !llvm.loop !19
 
-_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i77: ; preds = %92, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i77
-  %.034.i.i.i78 = phi i64 [ %101, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i77 ], [ 0, %92 ]
-  %95 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %15, i64 0, i64 %.034.i.i.i78
-  %96 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %17, i64 0, i64 %.034.i.i.i78
-  %97 = load <4 x float>, ptr %95, align 16, !noalias !33
-  %98 = load <4 x float>, ptr %96, align 16, !noalias !24
-  %99 = fmul contract <4 x float> %97, %98
-  %100 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %14, i64 0, i64 %.034.i.i.i78
-  store <4 x float> %99, ptr %100, align 16
-  %101 = add nuw nsw i64 %.034.i.i.i78, 1
-  %exitcond.not.i19.i.i79 = icmp eq i64 %101, 4
-  br i1 %exitcond.not.i19.i.i79, label %_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i77, !llvm.loop !23
+_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80: ; preds = %86, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80
+  %.034.i.i.i81 = phi i64 [ %95, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80 ], [ 0, %86 ]
+  %89 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %15, i64 %.034.i.i.i81
+  %90 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.034.i.i.i81
+  %91 = load <4 x float>, ptr %89, align 16, !noalias !33
+  %92 = load <4 x float>, ptr %90, align 16, !noalias !24
+  %93 = fmul contract <4 x float> %91, %92
+  %94 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %14, i64 %.034.i.i.i81
+  store <4 x float> %93, ptr %94, align 16
+  %95 = add nuw nsw i64 %.034.i.i.i81, 1
+  %exitcond.not.i19.i.i82 = icmp eq i64 %95, 4
+  br i1 %exitcond.not.i19.i.i82, label %_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80, !llvm.loop !23
 
-_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ; preds = %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i77
+_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ; preds = %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i80
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !24
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, %_ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit
-  br label %102
+  br label %96
 
-102:                                              ; preds = %.preheader, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
-  %.089 = phi i64 [ %112, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit ], [ 0, %.preheader ]
-  %103 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %14, i64 0, i64 %.089
-  %.sroa.063.0.copyload = load <4 x float>, ptr %103, align 16
+96:                                               ; preds = %.preheader, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
+  %.092 = phi i64 [ %106, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit ], [ 0, %.preheader ]
+  %97 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %14, i64 %.092
+  %.sroa.063.0.copyload = load <4 x float>, ptr %97, align 16
   store <4 x float> %.sroa.063.0.copyload, ptr %23, align 16
-  br label %104
+  br label %98
 
-104:                                              ; preds = %104, %102
-  %.012.i.i = phi i64 [ 0, %102 ], [ %110, %104 ]
-  %105 = getelementptr inbounds nuw float, ptr %23, i64 %.012.i.i
-  %106 = load float, ptr %105, align 4
-  %107 = insertelement <4 x float> poison, float %106, i64 0
-  %108 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> zeroinitializer
-  %109 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %22, i64 0, i64 %.012.i.i
-  store <4 x float> %108, ptr %109, align 16
-  %110 = add nuw nsw i64 %.012.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %110, 4
-  br i1 %exitcond.not.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit, label %104, !llvm.loop !36
+98:                                               ; preds = %98, %96
+  %.012.i.i = phi i64 [ 0, %96 ], [ %104, %98 ]
+  %99 = getelementptr inbounds nuw float, ptr %23, i64 %.012.i.i
+  %100 = load float, ptr %99, align 4
+  %101 = insertelement <4 x float> poison, float %100, i64 0
+  %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
+  %103 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %22, i64 %.012.i.i
+  store <4 x float> %102, ptr %103, align 16
+  %104 = add nuw nsw i64 %.012.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %104, 4
+  br i1 %exitcond.not.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit, label %98, !llvm.loop !36
 
-_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit: ; preds = %104
-  %111 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %24, i64 0, i64 %.089
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %111, ptr noundef nonnull align 16 dereferenceable(64) %22, i64 64, i1 false)
-  %112 = add nuw nsw i64 %.089, 1
-  %exitcond.not = icmp eq i64 %112, 4
-  br i1 %exitcond.not, label %113, label %102, !llvm.loop !37
+_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit: ; preds = %98
+  %105 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %24, i64 %.092
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %105, ptr noundef nonnull align 16 dereferenceable(64) %22, i64 64, i1 false)
+  %106 = add nuw nsw i64 %.092, 1
+  %exitcond.not = icmp eq i64 %106, 4
+  br i1 %exitcond.not, label %107, label %96, !llvm.loop !37
 
-113:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
-  %114 = load i32, ptr %2, align 4
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %117
+107:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
+  %108 = load i32, ptr %2, align 4
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %111
 
-116:                                              ; preds = %113
+110:                                              ; preds = %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %25, ptr noundef nonnull align 16 dereferenceable(16) %30, i64 16, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.0.copyload4.i.i.i.pre = load i32, ptr %.phi.trans.insert, align 8, !noalias !38
   %.pre = load float, ptr %25, align 16, !noalias !38
-  %.phi.trans.insert91 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %.pre92 = load float, ptr %.phi.trans.insert91, align 4, !noalias !38
-  br label %123
+  %.phi.trans.insert94 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %.pre95 = load float, ptr %.phi.trans.insert94, align 4, !noalias !38
+  br label %117
 
-117:                                              ; preds = %113
-  %118 = load <4 x i32>, ptr %30, align 16
-  %119 = xor <4 x i32> %118, splat (i32 -2147483648)
-  store <4 x i32> %119, ptr %25, align 16
-  %120 = extractelement <4 x i32> %119, i64 2
-  %bc = bitcast <4 x i32> %119 to <4 x float>
-  %121 = extractelement <4 x float> %bc, i64 0
-  %bc98 = bitcast <4 x i32> %119 to <4 x float>
-  %122 = extractelement <4 x float> %bc98, i64 1
-  br label %123
+111:                                              ; preds = %107
+  %112 = load <4 x i32>, ptr %30, align 16
+  %113 = xor <4 x i32> %112, splat (i32 -2147483648)
+  store <4 x i32> %113, ptr %25, align 16
+  %114 = extractelement <4 x i32> %113, i64 2
+  %bc = bitcast <4 x i32> %113 to <4 x float>
+  %115 = extractelement <4 x float> %bc, i64 0
+  %bc101 = bitcast <4 x i32> %113 to <4 x float>
+  %116 = extractelement <4 x float> %bc101, i64 1
+  br label %117
 
-123:                                              ; preds = %117, %116
-  %124 = phi float [ %122, %117 ], [ %.pre92, %116 ]
-  %125 = phi float [ %121, %117 ], [ %.pre, %116 ]
-  %.0.copyload4.i.i.i = phi i32 [ %120, %117 ], [ %.0.copyload4.i.i.i.pre, %116 ]
+117:                                              ; preds = %111, %110
+  %118 = phi float [ %116, %111 ], [ %.pre95, %110 ]
+  %119 = phi float [ %115, %111 ], [ %.pre, %110 ]
+  %.0.copyload4.i.i.i = phi i32 [ %114, %111 ], [ %.0.copyload4.i.i.i.pre, %110 ]
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %27, align 16
-  %126 = and i32 %.0.copyload4.i.i.i, -2147483648
-  %127 = or disjoint i32 %126, 1065353216
-  %128 = bitcast i32 %127 to float
+  %120 = and i32 %.0.copyload4.i.i.i, -2147483648
+  %121 = or disjoint i32 %120, 1065353216
+  %122 = bitcast i32 %121 to float
   %.cast.i.i = bitcast i32 %.0.copyload4.i.i.i to float
-  %129 = fadd contract float %.cast.i.i, %128
-  %130 = fdiv contract float -1.000000e+00, %129
-  %131 = fmul contract float %125, %124
-  %132 = fmul contract float %131, %130
-  %133 = fmul contract float %125, %125
-  %134 = fmul contract float %133, %130
-  %135 = bitcast float %134 to i32
-  %136 = xor i32 %126, %135
-  %137 = bitcast i32 %136 to float
-  %138 = bitcast float %132 to i32
-  %139 = xor i32 %126, %138
-  %140 = bitcast i32 %139 to float
-  %141 = fcmp contract ult float %.cast.i.i, 0.000000e+00
-  %142 = fneg contract float %125
-  %143 = select contract i1 %141, float %125, float %142
-  %144 = fadd contract float %137, 1.000000e+00
-  %145 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %144, i64 0
-  %146 = insertelement <4 x float> %145, float %140, i64 1
-  %147 = insertelement <4 x float> %146, float %143, i64 2
-  store <4 x float> %147, ptr %28, align 16
+  %123 = fadd contract float %.cast.i.i, %122
+  %124 = fdiv contract float -1.000000e+00, %123
+  %125 = fmul contract float %119, %118
+  %126 = fmul contract float %125, %124
+  %127 = fmul contract float %119, %119
+  %128 = fmul contract float %127, %124
+  %129 = bitcast float %128 to i32
+  %130 = xor i32 %120, %129
+  %131 = bitcast i32 %130 to float
+  %132 = bitcast float %126 to i32
+  %133 = xor i32 %120, %132
+  %134 = bitcast i32 %133 to float
+  %135 = fcmp contract ult float %.cast.i.i, 0.000000e+00
+  %136 = fneg contract float %119
+  %137 = select contract i1 %135, float %119, float %136
+  %138 = fadd contract float %131, 1.000000e+00
+  %139 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %138, i64 0
+  %140 = insertelement <4 x float> %139, float %134, i64 1
+  %141 = insertelement <4 x float> %140, float %137, i64 2
+  store <4 x float> %141, ptr %28, align 16
   call void @_ZN7mitsuba7mueller30rotate_mueller_basis_collinearINS_6VectorIfLm3EEEfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEET1_RKS9_RKT_SE_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix") align 16 %26, ptr noundef nonnull align 16 dereferenceable(256) %24, ptr noundef nonnull align 16 dereferenceable(16) %25, ptr noundef nonnull align 16 dereferenceable(16) %27, ptr noundef nonnull align 16 dereferenceable(16) %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %24, ptr noundef nonnull align 16 dereferenceable(256) %26, i64 256, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <4 x float> zeroinitializer, ptr %13, align 16, !noalias !41
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !41
-  br label %148
+  br label %142
 
-148:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, %123
-  %.012.i.i80 = phi i64 [ 0, %123 ], [ %157, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i ]
-  %149 = getelementptr inbounds nuw float, ptr %13, i64 %.012.i.i80
-  %150 = load float, ptr %149, align 4, !noalias !41
-  %151 = insertelement <4 x float> poison, float %150, i64 0
-  %152 = shufflevector <4 x float> %151, <4 x float> poison, <4 x i32> zeroinitializer
-  br label %153
+142:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, %117
+  %.012.i.i83 = phi i64 [ 0, %117 ], [ %151, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i ]
+  %143 = getelementptr inbounds nuw float, ptr %13, i64 %.012.i.i83
+  %144 = load float, ptr %143, align 4, !noalias !41
+  %145 = insertelement <4 x float> poison, float %144, i64 0
+  %146 = shufflevector <4 x float> %145, <4 x float> poison, <4 x i32> zeroinitializer
+  br label %147
 
-153:                                              ; preds = %153, %148
-  %.05.i.i.i.i = phi i64 [ 0, %148 ], [ %155, %153 ]
-  %154 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %12, i64 0, i64 %.05.i.i.i.i
-  store <4 x float> %152, ptr %154, align 16, !noalias !41
-  %155 = add nuw nsw i64 %.05.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %155, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, label %153, !llvm.loop !44
+147:                                              ; preds = %147, %142
+  %.05.i.i.i.i = phi i64 [ 0, %142 ], [ %149, %147 ]
+  %148 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %12, i64 %.05.i.i.i.i
+  store <4 x float> %146, ptr %148, align 16, !noalias !41
+  %149 = add nuw nsw i64 %.05.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %149, 4
+  br i1 %exitcond.not.i.i.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, label %147, !llvm.loop !44
 
-_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i: ; preds = %153
-  %156 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %29, i64 0, i64 %.012.i.i80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %156, ptr noundef nonnull align 16 dereferenceable(64) %12, i64 64, i1 false)
-  %157 = add nuw nsw i64 %.012.i.i80, 1
-  %exitcond.not.i.i81 = icmp eq i64 %157, 4
-  br i1 %exitcond.not.i.i81, label %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i, label %148, !llvm.loop !45
+_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i: ; preds = %147
+  %150 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %29, i64 %.012.i.i83
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %150, ptr noundef nonnull align 16 dereferenceable(64) %12, i64 64, i1 false)
+  %151 = add nuw nsw i64 %.012.i.i83, 1
+  %exitcond.not.i.i84 = icmp eq i64 %151, 4
+  br i1 %exitcond.not.i.i84, label %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i, label %142, !llvm.loop !45
 
 _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i: ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !41
-  br label %158
+  br label %152
 
-158:                                              ; preds = %158, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i
-  %.015.i = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i ], [ %161, %158 ]
-  %159 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %29, i64 0, i64 %.015.i
-  %160 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %159, i64 0, i64 %.015.i
-  store <4 x float> %38, ptr %160, align 16, !alias.scope !41
-  %161 = add nuw nsw i64 %.015.i, 1
-  %exitcond.not.i82 = icmp eq i64 %161, 4
-  br i1 %exitcond.not.i82, label %162, label %158, !llvm.loop !46
+152:                                              ; preds = %152, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i
+  %.015.i = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i ], [ %155, %152 ]
+  %153 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %29, i64 %.015.i
+  %154 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %153, i64 %.015.i
+  store <4 x float> %38, ptr %154, align 16, !alias.scope !41
+  %155 = add nuw nsw i64 %.015.i, 1
+  %exitcond.not.i85 = icmp eq i64 %155, 4
+  br i1 %exitcond.not.i85, label %156, label %152, !llvm.loop !46
 
-162:                                              ; preds = %158
+156:                                              ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %163
+  br label %157
 
-163:                                              ; preds = %192, %162
-  %.05462.i = phi i64 [ 0, %162 ], [ %194, %192 ]
-  %164 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %29, i64 0, i64 %.05462.i
+157:                                              ; preds = %186, %156
+  %.05462.i = phi i64 [ 0, %156 ], [ %188, %186 ]
+  %158 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %29, i64 %.05462.i
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %.sroa.0.0.copyload.i.i.i = load <4 x float>, ptr %164, align 16, !noalias !50
-  br label %165
+  %.sroa.0.0.copyload.i.i.i = load <4 x float>, ptr %158, align 16, !noalias !50
+  br label %159
 
-165:                                              ; preds = %165, %163
-  %.09.i.i = phi i64 [ 0, %163 ], [ %167, %165 ]
-  %166 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %9, i64 0, i64 %.09.i.i
-  store <4 x float> %.sroa.0.0.copyload.i.i.i, ptr %166, align 16, !alias.scope !47, !noalias !53
-  %167 = add nuw nsw i64 %.09.i.i, 1
-  %exitcond.not.i.i83 = icmp eq i64 %167, 4
-  br i1 %exitcond.not.i.i83, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i, label %165, !llvm.loop !54
+159:                                              ; preds = %159, %157
+  %.09.i.i = phi i64 [ 0, %157 ], [ %161, %159 ]
+  %160 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %9, i64 %.09.i.i
+  store <4 x float> %.sroa.0.0.copyload.i.i.i, ptr %160, align 16, !alias.scope !47, !noalias !53
+  %161 = add nuw nsw i64 %.09.i.i, 1
+  %exitcond.not.i.i86 = icmp eq i64 %161, 4
+  br i1 %exitcond.not.i.i86, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i, label %159, !llvm.loop !54
 
-_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i: ; preds = %165
+_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i: ; preds = %159
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  br label %168
+  br label %162
 
-168:                                              ; preds = %168, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i
-  %.034.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i ], [ %175, %168 ]
-  %169 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %24, i64 0, i64 %.034.i.i
-  %170 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %9, i64 0, i64 %.034.i.i
-  %171 = load <4 x float>, ptr %169, align 16, !noalias !58
-  %172 = load <4 x float>, ptr %170, align 16, !noalias !58
-  %173 = fmul contract <4 x float> %171, %172
-  %174 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %8, i64 0, i64 %.034.i.i
-  store <4 x float> %173, ptr %174, align 16, !alias.scope !55, !noalias !53
-  %175 = add nuw nsw i64 %.034.i.i, 1
-  %exitcond.not.i55.i = icmp eq i64 %175, 4
-  br i1 %exitcond.not.i55.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, label %168, !llvm.loop !59
+162:                                              ; preds = %162, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i
+  %.034.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i ], [ %169, %162 ]
+  %163 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %24, i64 %.034.i.i
+  %164 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %9, i64 %.034.i.i
+  %165 = load <4 x float>, ptr %163, align 16, !noalias !58
+  %166 = load <4 x float>, ptr %164, align 16, !noalias !58
+  %167 = fmul contract <4 x float> %165, %166
+  %168 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %8, i64 %.034.i.i
+  store <4 x float> %167, ptr %168, align 16, !alias.scope !55, !noalias !53
+  %169 = add nuw nsw i64 %.034.i.i, 1
+  %exitcond.not.i55.i = icmp eq i64 %169, 4
+  br i1 %exitcond.not.i55.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, label %162, !llvm.loop !59
 
-_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i: ; preds = %168, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
-  %.061.i = phi i64 [ %191, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i ], [ 1, %168 ]
-  %176 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %164, i64 0, i64 %.061.i
+_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i: ; preds = %162, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
+  %.061.i = phi i64 [ %185, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i ], [ 1, %162 ]
+  %170 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %158, i64 %.061.i
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %.sroa.0.0.copyload.i.i56.i = load <4 x float>, ptr %176, align 16, !noalias !63
-  br label %177
+  %.sroa.0.0.copyload.i.i56.i = load <4 x float>, ptr %170, align 16, !noalias !63
+  br label %171
 
-177:                                              ; preds = %177, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i
-  %.09.i57.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i ], [ %179, %177 ]
-  %178 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %11, i64 0, i64 %.09.i57.i
-  store <4 x float> %.sroa.0.0.copyload.i.i56.i, ptr %178, align 16, !alias.scope !60, !noalias !53
-  %179 = add nuw nsw i64 %.09.i57.i, 1
-  %exitcond.not.i58.i = icmp eq i64 %179, 4
-  br i1 %exitcond.not.i58.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i, label %177, !llvm.loop !54
+171:                                              ; preds = %171, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i
+  %.09.i57.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i ], [ %173, %171 ]
+  %172 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %11, i64 %.09.i57.i
+  store <4 x float> %.sroa.0.0.copyload.i.i56.i, ptr %172, align 16, !alias.scope !60, !noalias !53
+  %173 = add nuw nsw i64 %.09.i57.i, 1
+  %exitcond.not.i58.i = icmp eq i64 %173, 4
+  br i1 %exitcond.not.i58.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i, label %171, !llvm.loop !54
 
-_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i: ; preds = %177
-  %180 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %24, i64 0, i64 %.061.i
+_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i: ; preds = %171
+  %174 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %24, i64 %.061.i
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  br label %181
+  br label %175
 
-181:                                              ; preds = %181, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i
-  %.048.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i ], [ %190, %181 ]
-  %182 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %180, i64 0, i64 %.048.i.i
-  %183 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %11, i64 0, i64 %.048.i.i
-  %184 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %8, i64 0, i64 %.048.i.i
-  %185 = load <4 x float>, ptr %182, align 16, !noalias !67
-  %186 = load <4 x float>, ptr %183, align 16, !noalias !67
-  %187 = load <4 x float>, ptr %184, align 16, !noalias !67
-  %188 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %185, <4 x float> %186, <4 x float> %187)
-  %189 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %10, i64 0, i64 %.048.i.i
-  store <4 x float> %188, ptr %189, align 16, !alias.scope !64, !noalias !53
-  %190 = add nuw nsw i64 %.048.i.i, 1
-  %exitcond.not.i60.i = icmp eq i64 %190, 4
-  br i1 %exitcond.not.i60.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i, label %181, !llvm.loop !68
+175:                                              ; preds = %175, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i
+  %.048.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i ], [ %184, %175 ]
+  %176 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %174, i64 %.048.i.i
+  %177 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %11, i64 %.048.i.i
+  %178 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %8, i64 %.048.i.i
+  %179 = load <4 x float>, ptr %176, align 16, !noalias !67
+  %180 = load <4 x float>, ptr %177, align 16, !noalias !67
+  %181 = load <4 x float>, ptr %178, align 16, !noalias !67
+  %182 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %179, <4 x float> %180, <4 x float> %181)
+  %183 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %10, i64 %.048.i.i
+  store <4 x float> %182, ptr %183, align 16, !alias.scope !64, !noalias !53
+  %184 = add nuw nsw i64 %.048.i.i, 1
+  %exitcond.not.i60.i = icmp eq i64 %184, 4
+  br i1 %exitcond.not.i60.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i, label %175, !llvm.loop !68
 
-_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i: ; preds = %181
+_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i: ; preds = %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %10, i64 64, i1 false), !noalias !53
-  %191 = add nuw nsw i64 %.061.i, 1
-  %exitcond.not.i84 = icmp eq i64 %191, 4
-  br i1 %exitcond.not.i84, label %192, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, !llvm.loop !69
+  %185 = add nuw nsw i64 %.061.i, 1
+  %exitcond.not.i87 = icmp eq i64 %185, 4
+  br i1 %exitcond.not.i87, label %186, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, !llvm.loop !69
 
-192:                                              ; preds = %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
-  %193 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %21, i64 0, i64 %.05462.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %193, ptr noundef nonnull align 16 dereferenceable(64) %10, i64 64, i1 false)
-  %194 = add nuw nsw i64 %.05462.i, 1
-  %exitcond63.not.i = icmp eq i64 %194, 4
-  br i1 %exitcond63.not.i, label %195, label %163, !llvm.loop !70
+186:                                              ; preds = %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
+  %187 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %21, i64 %.05462.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %187, ptr noundef nonnull align 16 dereferenceable(64) %10, i64 64, i1 false)
+  %188 = add nuw nsw i64 %.05462.i, 1
+  %exitcond63.not.i = icmp eq i64 %188, 4
+  br i1 %exitcond63.not.i, label %189, label %157, !llvm.loop !70
 
-195:                                              ; preds = %192
+189:                                              ; preds = %186
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -922,19 +922,19 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   store i32 1, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.9.0..sroa_idx, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %197
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %191
 
-197:                                              ; preds = %197, %195
-  %.013.i = phi i64 [ 0, %195 ], [ %200, %197 ]
-  %198 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %24, i64 0, i64 %.013.i
-  %199 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %196, i64 0, i64 %.013.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %199, ptr noundef nonnull align 16 dereferenceable(64) %198, i64 64, i1 false)
-  %200 = add nuw nsw i64 %.013.i, 1
-  %exitcond.not.i85 = icmp eq i64 %200, 4
-  br i1 %exitcond.not.i85, label %_ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES7_EC2B8ne190000IRS8_RS7_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSE_OSF_.exit, label %197, !llvm.loop !71
+191:                                              ; preds = %191, %189
+  %.013.i = phi i64 [ 0, %189 ], [ %194, %191 ]
+  %192 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %24, i64 %.013.i
+  %193 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %190, i64 %.013.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %193, ptr noundef nonnull align 16 dereferenceable(64) %192, i64 64, i1 false)
+  %194 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i88 = icmp eq i64 %194, 4
+  br i1 %exitcond.not.i88, label %_ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES7_EC2B8ne190000IRS8_RS7_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSE_OSF_.exit, label %191, !llvm.loop !71
 
-_ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES7_EC2B8ne190000IRS8_RS7_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSE_OSF_.exit: ; preds = %197
+_ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES7_EC2B8ne190000IRS8_RS7_TnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSE_OSF_.exit: ; preds = %191
   ret void
 }
 
@@ -1041,7 +1041,7 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller30rotate_mueller_basis_colli
 
 86:                                               ; preds = %5, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
   %.035 = phi i64 [ 0, %5 ], [ %96, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit ]
-  %87 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %17, i64 0, i64 %.035
+  %87 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.035
   %.sroa.0.0.copyload = load <4 x float>, ptr %87, align 16
   store <4 x float> %.sroa.0.0.copyload, ptr %15, align 16
   br label %88
@@ -1052,14 +1052,14 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller30rotate_mueller_basis_colli
   %90 = load float, ptr %89, align 4
   %91 = insertelement <4 x float> poison, float %90, i64 0
   %92 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> zeroinitializer
-  %93 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %14, i64 0, i64 %.012.i.i
+  %93 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %14, i64 %.012.i.i
   store <4 x float> %92, ptr %93, align 16
   %94 = add nuw nsw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %94, 4
   br i1 %exitcond.not.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit, label %88, !llvm.loop !36
 
 _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit: ; preds = %88
-  %95 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %16, i64 0, i64 %.035
+  %95 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %16, i64 %.035
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %95, ptr noundef nonnull align 16 dereferenceable(64) %14, i64 64, i1 false)
   %96 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %96, 4
@@ -1074,14 +1074,14 @@ _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb
 
 98:                                               ; preds = %127, %97
   %.05462.i = phi i64 [ 0, %97 ], [ %129, %127 ]
-  %99 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %1, i64 0, i64 %.05462.i
+  %99 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %1, i64 %.05462.i
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %.sroa.0.0.copyload.i.i.i = load <4 x float>, ptr %99, align 16, !noalias !78
   br label %100
 
 100:                                              ; preds = %100, %98
   %.09.i.i = phi i64 [ 0, %98 ], [ %102, %100 ]
-  %101 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %11, i64 0, i64 %.09.i.i
+  %101 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %11, i64 %.09.i.i
   store <4 x float> %.sroa.0.0.copyload.i.i.i, ptr %101, align 16, !alias.scope !75, !noalias !81
   %102 = add nuw nsw i64 %.09.i.i, 1
   %exitcond.not.i.i14 = icmp eq i64 %102, 4
@@ -1093,12 +1093,12 @@ _ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEE
 
 103:                                              ; preds = %103, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i
   %.034.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i ], [ %110, %103 ]
-  %104 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %16, i64 0, i64 %.034.i.i
-  %105 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %11, i64 0, i64 %.034.i.i
+  %104 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %16, i64 %.034.i.i
+  %105 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %11, i64 %.034.i.i
   %106 = load <4 x float>, ptr %104, align 16, !noalias !85
   %107 = load <4 x float>, ptr %105, align 16, !noalias !85
   %108 = fmul contract <4 x float> %106, %107
-  %109 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %10, i64 0, i64 %.034.i.i
+  %109 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %10, i64 %.034.i.i
   store <4 x float> %108, ptr %109, align 16, !alias.scope !82, !noalias !81
   %110 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i55.i = icmp eq i64 %110, 4
@@ -1106,34 +1106,34 @@ _ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEE
 
 _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i: ; preds = %103, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
   %.061.i = phi i64 [ %126, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i ], [ 1, %103 ]
-  %111 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %99, i64 0, i64 %.061.i
+  %111 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %99, i64 %.061.i
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %.sroa.0.0.copyload.i.i56.i = load <4 x float>, ptr %111, align 16, !noalias !89
   br label %112
 
 112:                                              ; preds = %112, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i
   %.09.i57.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i ], [ %114, %112 ]
-  %113 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %13, i64 0, i64 %.09.i57.i
+  %113 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %13, i64 %.09.i57.i
   store <4 x float> %.sroa.0.0.copyload.i.i56.i, ptr %113, align 16, !alias.scope !86, !noalias !81
   %114 = add nuw nsw i64 %.09.i57.i, 1
   %exitcond.not.i58.i = icmp eq i64 %114, 4
   br i1 %exitcond.not.i58.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i, label %112, !llvm.loop !54
 
 _ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i: ; preds = %112
-  %115 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %16, i64 0, i64 %.061.i
+  %115 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %16, i64 %.061.i
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   br label %116
 
 116:                                              ; preds = %116, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i
   %.048.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i ], [ %125, %116 ]
-  %117 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %115, i64 0, i64 %.048.i.i
-  %118 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %13, i64 0, i64 %.048.i.i
-  %119 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %10, i64 0, i64 %.048.i.i
+  %117 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %115, i64 %.048.i.i
+  %118 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %13, i64 %.048.i.i
+  %119 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %10, i64 %.048.i.i
   %120 = load <4 x float>, ptr %117, align 16, !noalias !93
   %121 = load <4 x float>, ptr %118, align 16, !noalias !93
   %122 = load <4 x float>, ptr %119, align 16, !noalias !93
   %123 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %120, <4 x float> %121, <4 x float> %122)
-  %124 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %12, i64 0, i64 %.048.i.i
+  %124 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %12, i64 %.048.i.i
   store <4 x float> %123, ptr %124, align 16, !alias.scope !90, !noalias !81
   %125 = add nuw nsw i64 %.048.i.i, 1
   %exitcond.not.i60.i = icmp eq i64 %125, 4
@@ -1146,7 +1146,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   br i1 %exitcond.not.i, label %127, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, !llvm.loop !69
 
 127:                                              ; preds = %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
-  %128 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %18, i64 0, i64 %.05462.i
+  %128 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %18, i64 %.05462.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %128, ptr noundef nonnull align 16 dereferenceable(64) %12, i64 64, i1 false)
   %129 = add nuw nsw i64 %.05462.i, 1
   %exitcond63.not.i = icmp eq i64 %129, 4
@@ -1161,14 +1161,14 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
 
 .preheader.i:                                     ; preds = %134, %_ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_scalarINS5_7deepestIJT_T0_EE4typeENS5_4exprIJNS5_6scalarIS8_iE4typeENSD_IS9_iE4typeEEE4typeEiE4typeEXT1_EEERKNS4_IS8_XT1_EEERKNS4_IS9_XT1_EEE.exit
   %.02426.i = phi i64 [ 0, %_ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_scalarINS5_7deepestIJT_T0_EE4typeENS5_4exprIJNS5_6scalarIS8_iE4typeENSD_IS9_iE4typeEEE4typeEiE4typeEXT1_EEERKNS4_IS8_XT1_EEERKNS4_IS9_XT1_EEE.exit ], [ %135, %134 ]
-  %invariant.gep.i = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %16, i64 0, i64 %.02426.i
-  %130 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %19, i64 0, i64 %.02426.i
+  %invariant.gep.i = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %16, i64 %.02426.i
+  %130 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %19, i64 %.02426.i
   br label %131
 
 131:                                              ; preds = %131, %.preheader.i
   %.025.i = phi i64 [ 0, %.preheader.i ], [ %133, %131 ]
-  %gep.i = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %invariant.gep.i, i64 0, i64 %.025.i
-  %132 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %130, i64 0, i64 %.025.i
+  %gep.i = getelementptr inbounds nuw %"struct.drjit::Array", ptr %invariant.gep.i, i64 %.025.i
+  %132 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %130, i64 %.025.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %132, ptr noundef nonnull align 16 dereferenceable(16) %gep.i, i64 16, i1 false)
   %133 = add nuw nsw i64 %.025.i, 1
   %exitcond.not.i15 = icmp eq i64 %133, 4
@@ -1188,14 +1188,14 @@ _ZN5drjit9transposeINS_6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEETnNSt3__19enable_
 
 136:                                              ; preds = %165, %_ZN5drjit9transposeINS_6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEETnNSt3__19enable_ifIX10is_array_vIT_EEiE4typeELi0EEES8_RKS8_.exit
   %.05462.i16 = phi i64 [ 0, %_ZN5drjit9transposeINS_6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEETnNSt3__19enable_ifIX10is_array_vIT_EEiE4typeELi0EEES8_RKS8_.exit ], [ %167, %165 ]
-  %137 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %19, i64 0, i64 %.05462.i16
+  %137 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %19, i64 %.05462.i16
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %.sroa.0.0.copyload.i.i.i17 = load <4 x float>, ptr %137, align 16, !noalias !99
   br label %138
 
 138:                                              ; preds = %138, %136
   %.09.i.i18 = phi i64 [ 0, %136 ], [ %140, %138 ]
-  %139 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %7, i64 0, i64 %.09.i.i18
+  %139 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %7, i64 %.09.i.i18
   store <4 x float> %.sroa.0.0.copyload.i.i.i17, ptr %139, align 16, !alias.scope !96, !noalias !102
   %140 = add nuw nsw i64 %.09.i.i18, 1
   %exitcond.not.i.i19 = icmp eq i64 %140, 4
@@ -1207,12 +1207,12 @@ _ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEE
 
 141:                                              ; preds = %141, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i20
   %.034.i.i21 = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i20 ], [ %148, %141 ]
-  %142 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %18, i64 0, i64 %.034.i.i21
-  %143 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %7, i64 0, i64 %.034.i.i21
+  %142 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %18, i64 %.034.i.i21
+  %143 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %7, i64 %.034.i.i21
   %144 = load <4 x float>, ptr %142, align 16, !noalias !106
   %145 = load <4 x float>, ptr %143, align 16, !noalias !106
   %146 = fmul contract <4 x float> %144, %145
-  %147 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %6, i64 0, i64 %.034.i.i21
+  %147 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %6, i64 %.034.i.i21
   store <4 x float> %146, ptr %147, align 16, !alias.scope !103, !noalias !102
   %148 = add nuw nsw i64 %.034.i.i21, 1
   %exitcond.not.i55.i22 = icmp eq i64 %148, 4
@@ -1220,34 +1220,34 @@ _ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEE
 
 _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i23: ; preds = %141, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i31
   %.061.i24 = phi i64 [ %164, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i31 ], [ 1, %141 ]
-  %149 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %137, i64 0, i64 %.061.i24
+  %149 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %137, i64 %.061.i24
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %.sroa.0.0.copyload.i.i56.i25 = load <4 x float>, ptr %149, align 16, !noalias !110
   br label %150
 
 150:                                              ; preds = %150, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i23
   %.09.i57.i26 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i23 ], [ %152, %150 ]
-  %151 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %9, i64 0, i64 %.09.i57.i26
+  %151 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %9, i64 %.09.i57.i26
   store <4 x float> %.sroa.0.0.copyload.i.i56.i25, ptr %151, align 16, !alias.scope !107, !noalias !102
   %152 = add nuw nsw i64 %.09.i57.i26, 1
   %exitcond.not.i58.i27 = icmp eq i64 %152, 4
   br i1 %exitcond.not.i58.i27, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i28, label %150, !llvm.loop !54
 
 _ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i28: ; preds = %150
-  %153 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %18, i64 0, i64 %.061.i24
+  %153 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %18, i64 %.061.i24
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   br label %154
 
 154:                                              ; preds = %154, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i28
   %.048.i.i29 = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i28 ], [ %163, %154 ]
-  %155 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %153, i64 0, i64 %.048.i.i29
-  %156 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %9, i64 0, i64 %.048.i.i29
-  %157 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %6, i64 0, i64 %.048.i.i29
+  %155 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %153, i64 %.048.i.i29
+  %156 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %9, i64 %.048.i.i29
+  %157 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %6, i64 %.048.i.i29
   %158 = load <4 x float>, ptr %155, align 16, !noalias !114
   %159 = load <4 x float>, ptr %156, align 16, !noalias !114
   %160 = load <4 x float>, ptr %157, align 16, !noalias !114
   %161 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %158, <4 x float> %159, <4 x float> %160)
-  %162 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %8, i64 0, i64 %.048.i.i29
+  %162 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %8, i64 %.048.i.i29
   store <4 x float> %161, ptr %162, align 16, !alias.scope !111, !noalias !102
   %163 = add nuw nsw i64 %.048.i.i29, 1
   %exitcond.not.i60.i30 = icmp eq i64 %163, 4
@@ -1260,7 +1260,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   br i1 %exitcond.not.i32, label %165, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i23, !llvm.loop !69
 
 165:                                              ; preds = %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i31
-  %166 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.05462.i16
+  %166 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.05462.i16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %166, ptr noundef nonnull align 16 dereferenceable(64) %8, i64 64, i1 false)
   %167 = add nuw nsw i64 %.05462.i16, 1
   %exitcond63.not.i33 = icmp eq i64 %167, 4
@@ -1292,14 +1292,14 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 
 14:                                               ; preds = %14, %9
   %.05.i.i.i = phi i64 [ 0, %9 ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %7, i64 0, i64 %.05.i.i.i
+  %15 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %7, i64 %.05.i.i.i
   store <4 x float> %13, ptr %15, align 16
   %16 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %16, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i, label %14, !llvm.loop !44
 
 _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i: ; preds = %14
-  %17 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.012.i
+  %17 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.012.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %17, ptr noundef nonnull align 16 dereferenceable(64) %7, i64 64, i1 false)
   %18 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %18, 4
@@ -1311,8 +1311,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 19:                                               ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, %19
   %.016 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %22, %19 ]
-  %20 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.016
-  %21 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %20, i64 0, i64 %.016
+  %20 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.016
+  %21 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %20, i64 %.016
   store <4 x float> zeroinitializer, ptr %21, align 16
   %22 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %22, 4
@@ -1359,7 +1359,7 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %65
+  br i1 %34, label %35, label %62
 
 35:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1383,51 +1383,51 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
   store float 1.000000e+00, ptr %43, align 4, !noalias !116
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %52, %35
-  %.03249.i = phi i64 [ 0, %35 ], [ %53, %52 ]
-  %44 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %17, i64 0, i64 %.03249.i
+.preheader.i:                                     ; preds = %49, %35
+  %.03249.i = phi i64 [ 0, %35 ], [ %50, %49 ]
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %16, i64 %.03249.i
+  %44 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.03249.i
   br label %45
 
 45:                                               ; preds = %45, %.preheader.i
-  %.048.i = phi i64 [ 0, %.preheader.i ], [ %51, %45 ]
-  %46 = shl nuw nsw i64 %.048.i, 2
-  %47 = add nuw nsw i64 %46, %.03249.i
-  %48 = getelementptr inbounds nuw [16 x float], ptr %16, i64 0, i64 %47
-  %49 = load float, ptr %48, align 4, !noalias !116
-  %50 = getelementptr inbounds nuw float, ptr %44, i64 %.048.i
-  store float %49, ptr %50, align 4, !noalias !116
-  %51 = add nuw nsw i64 %.048.i, 1
-  %exitcond.not.i = icmp eq i64 %51, 4
-  br i1 %exitcond.not.i, label %52, label %45, !llvm.loop !10
+  %.048.i = phi i64 [ 0, %.preheader.i ], [ %48, %45 ]
+  %.idx.i = shl nuw nsw i64 %.048.i, 4
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
+  %46 = load float, ptr %gep.i, align 4, !noalias !116
+  %47 = getelementptr inbounds nuw float, ptr %44, i64 %.048.i
+  store float %46, ptr %47, align 4, !noalias !116
+  %48 = add nuw nsw i64 %.048.i, 1
+  %exitcond.not.i = icmp eq i64 %48, 4
+  br i1 %exitcond.not.i, label %49, label %45, !llvm.loop !10
 
-52:                                               ; preds = %45
-  %53 = add nuw nsw i64 %.03249.i, 1
-  %exitcond50.not.i = icmp eq i64 %53, 4
-  br i1 %exitcond50.not.i, label %54, label %.preheader.i, !llvm.loop !12
+49:                                               ; preds = %45
+  %50 = add nuw nsw i64 %.03249.i, 1
+  %exitcond50.not.i = icmp eq i64 %50, 4
+  br i1 %exitcond50.not.i, label %51, label %.preheader.i, !llvm.loop !12
 
-54:                                               ; preds = %52
+51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !116
-  br label %55
+  br label %52
 
-55:                                               ; preds = %55, %54
-  %.09.i.i.i = phi i64 [ 0, %54 ], [ %57, %55 ]
-  %56 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %15, i64 0, i64 %.09.i.i.i
-  store <4 x float> splat (float 5.000000e-01), ptr %56, align 16, !alias.scope !119, !noalias !122
-  %57 = add nuw nsw i64 %.09.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %57, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, label %55, !llvm.loop !19
+52:                                               ; preds = %52, %51
+  %.09.i.i.i = phi i64 [ 0, %51 ], [ %54, %52 ]
+  %53 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %15, i64 %.09.i.i.i
+  store <4 x float> splat (float 5.000000e-01), ptr %53, align 16, !alias.scope !119, !noalias !122
+  %54 = add nuw nsw i64 %.09.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %54, 4
+  br i1 %exitcond.not.i.i.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, label %52, !llvm.loop !19
 
-_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i: ; preds = %55, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
-  %.034.i.i.i = phi i64 [ %64, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i ], [ 0, %55 ]
-  %58 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %15, i64 0, i64 %.034.i.i.i
-  %59 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %17, i64 0, i64 %.034.i.i.i
-  %60 = load <4 x float>, ptr %58, align 16, !noalias !125
-  %61 = load <4 x float>, ptr %59, align 16, !noalias !116
-  %62 = fmul contract <4 x float> %60, %61
-  %63 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %11, i64 0, i64 %.034.i.i.i
-  store <4 x float> %62, ptr %63, align 16
-  %64 = add nuw nsw i64 %.034.i.i.i, 1
-  %exitcond.not.i19.i.i = icmp eq i64 %64, 4
+_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i: ; preds = %52, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
+  %.034.i.i.i = phi i64 [ %61, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i ], [ 0, %52 ]
+  %55 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %15, i64 %.034.i.i.i
+  %56 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %17, i64 %.034.i.i.i
+  %57 = load <4 x float>, ptr %55, align 16, !noalias !125
+  %58 = load <4 x float>, ptr %56, align 16, !noalias !116
+  %59 = fmul contract <4 x float> %57, %58
+  %60 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %11, i64 %.034.i.i.i
+  store <4 x float> %59, ptr %60, align 16
+  %61 = add nuw nsw i64 %.034.i.i.i, 1
+  %exitcond.not.i19.i.i = icmp eq i64 %61, 4
   br i1 %exitcond.not.i19.i.i, label %_ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, !llvm.loop !23
 
 _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ; preds = %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i
@@ -1436,276 +1436,276 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.preheader
 
-65:                                               ; preds = %4
+62:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 1.000000e+00, ptr %13, align 16, !noalias !128
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store float 0.000000e+00, ptr %66, align 4, !noalias !128
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store float 0.000000e+00, ptr %67, align 8, !noalias !128
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store float 1.000000e+00, ptr %68, align 4, !noalias !128
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %69, i8 0, i64 32, i1 false), !noalias !128
-  store float 1.000000e+00, ptr %70, align 16, !noalias !128
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 52
-  store float 0.000000e+00, ptr %71, align 4, !noalias !128
-  %72 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store float 0.000000e+00, ptr %72, align 8, !noalias !128
-  %73 = getelementptr inbounds nuw i8, ptr %13, i64 60
-  store float 1.000000e+00, ptr %73, align 4, !noalias !128
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store float 0.000000e+00, ptr %63, align 4, !noalias !128
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store float 0.000000e+00, ptr %64, align 8, !noalias !128
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store float 1.000000e+00, ptr %65, align 4, !noalias !128
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %66, i8 0, i64 32, i1 false), !noalias !128
+  store float 1.000000e+00, ptr %67, align 16, !noalias !128
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 52
+  store float 0.000000e+00, ptr %68, align 4, !noalias !128
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store float 0.000000e+00, ptr %69, align 8, !noalias !128
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 60
+  store float 1.000000e+00, ptr %70, align 4, !noalias !128
   br label %.preheader.i21
 
-.preheader.i21:                                   ; preds = %82, %65
-  %.03249.i22 = phi i64 [ 0, %65 ], [ %83, %82 ]
-  %74 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %14, i64 0, i64 %.03249.i22
-  br label %75
+.preheader.i21:                                   ; preds = %76, %62
+  %.03249.i22 = phi i64 [ 0, %62 ], [ %77, %76 ]
+  %invariant.gep.i23 = getelementptr inbounds nuw float, ptr %13, i64 %.03249.i22
+  %71 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %14, i64 %.03249.i22
+  br label %72
 
-75:                                               ; preds = %75, %.preheader.i21
-  %.048.i23 = phi i64 [ 0, %.preheader.i21 ], [ %81, %75 ]
-  %76 = shl nuw nsw i64 %.048.i23, 2
-  %77 = add nuw nsw i64 %76, %.03249.i22
-  %78 = getelementptr inbounds nuw [16 x float], ptr %13, i64 0, i64 %77
-  %79 = load float, ptr %78, align 4, !noalias !128
-  %80 = getelementptr inbounds nuw float, ptr %74, i64 %.048.i23
-  store float %79, ptr %80, align 4, !noalias !128
-  %81 = add nuw nsw i64 %.048.i23, 1
-  %exitcond.not.i24 = icmp eq i64 %81, 4
-  br i1 %exitcond.not.i24, label %82, label %75, !llvm.loop !10
+72:                                               ; preds = %72, %.preheader.i21
+  %.048.i24 = phi i64 [ 0, %.preheader.i21 ], [ %75, %72 ]
+  %.idx.i25 = shl nuw nsw i64 %.048.i24, 4
+  %gep.i26 = getelementptr inbounds nuw i8, ptr %invariant.gep.i23, i64 %.idx.i25
+  %73 = load float, ptr %gep.i26, align 4, !noalias !128
+  %74 = getelementptr inbounds nuw float, ptr %71, i64 %.048.i24
+  store float %73, ptr %74, align 4, !noalias !128
+  %75 = add nuw nsw i64 %.048.i24, 1
+  %exitcond.not.i27 = icmp eq i64 %75, 4
+  br i1 %exitcond.not.i27, label %76, label %72, !llvm.loop !10
 
-82:                                               ; preds = %75
-  %83 = add nuw nsw i64 %.03249.i22, 1
-  %exitcond50.not.i25 = icmp eq i64 %83, 4
-  br i1 %exitcond50.not.i25, label %84, label %.preheader.i21, !llvm.loop !12
+76:                                               ; preds = %72
+  %77 = add nuw nsw i64 %.03249.i22, 1
+  %exitcond50.not.i28 = icmp eq i64 %77, 4
+  br i1 %exitcond50.not.i28, label %78, label %.preheader.i21, !llvm.loop !12
 
-84:                                               ; preds = %82
+78:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !128
-  br label %85
+  br label %79
 
-85:                                               ; preds = %85, %84
-  %.09.i.i.i26 = phi i64 [ 0, %84 ], [ %87, %85 ]
-  %86 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %12, i64 0, i64 %.09.i.i.i26
-  store <4 x float> splat (float 5.000000e-01), ptr %86, align 16, !alias.scope !131, !noalias !134
-  %87 = add nuw nsw i64 %.09.i.i.i26, 1
-  %exitcond.not.i.i.i27 = icmp eq i64 %87, 4
-  br i1 %exitcond.not.i.i.i27, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i28, label %85, !llvm.loop !19
+79:                                               ; preds = %79, %78
+  %.09.i.i.i29 = phi i64 [ 0, %78 ], [ %81, %79 ]
+  %80 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %12, i64 %.09.i.i.i29
+  store <4 x float> splat (float 5.000000e-01), ptr %80, align 16, !alias.scope !131, !noalias !134
+  %81 = add nuw nsw i64 %.09.i.i.i29, 1
+  %exitcond.not.i.i.i30 = icmp eq i64 %81, 4
+  br i1 %exitcond.not.i.i.i30, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31, label %79, !llvm.loop !19
 
-_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i28: ; preds = %85, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i28
-  %.034.i.i.i29 = phi i64 [ %94, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i28 ], [ 0, %85 ]
-  %88 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %12, i64 0, i64 %.034.i.i.i29
-  %89 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %14, i64 0, i64 %.034.i.i.i29
-  %90 = load <4 x float>, ptr %88, align 16, !noalias !137
-  %91 = load <4 x float>, ptr %89, align 16, !noalias !128
-  %92 = fmul contract <4 x float> %90, %91
-  %93 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %11, i64 0, i64 %.034.i.i.i29
-  store <4 x float> %92, ptr %93, align 16
-  %94 = add nuw nsw i64 %.034.i.i.i29, 1
-  %exitcond.not.i19.i.i30 = icmp eq i64 %94, 4
-  br i1 %exitcond.not.i19.i.i30, label %_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i28, !llvm.loop !23
+_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31: ; preds = %79, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31
+  %.034.i.i.i32 = phi i64 [ %88, %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31 ], [ 0, %79 ]
+  %82 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %12, i64 %.034.i.i.i32
+  %83 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %14, i64 %.034.i.i.i32
+  %84 = load <4 x float>, ptr %82, align 16, !noalias !137
+  %85 = load <4 x float>, ptr %83, align 16, !noalias !128
+  %86 = fmul contract <4 x float> %84, %85
+  %87 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %11, i64 %.034.i.i.i32
+  store <4 x float> %86, ptr %87, align 16
+  %88 = add nuw nsw i64 %.034.i.i.i32, 1
+  %exitcond.not.i19.i.i33 = icmp eq i64 %88, 4
+  br i1 %exitcond.not.i19.i.i33, label %_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31, !llvm.loop !23
 
-_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ; preds = %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i28
+_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ; preds = %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i31
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !128
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN7mitsuba7mueller24right_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit, %_ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit
-  br label %95
+  br label %89
 
-95:                                               ; preds = %.preheader, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
-  %.036 = phi i64 [ %105, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit ], [ 0, %.preheader ]
-  %96 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %11, i64 0, i64 %.036
-  %.sroa.018.0.copyload = load <4 x float>, ptr %96, align 16
+89:                                               ; preds = %.preheader, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
+  %.039 = phi i64 [ %99, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit ], [ 0, %.preheader ]
+  %90 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %11, i64 %.039
+  %.sroa.018.0.copyload = load <4 x float>, ptr %90, align 16
   store <4 x float> %.sroa.018.0.copyload, ptr %20, align 16
-  br label %97
+  br label %91
 
-97:                                               ; preds = %97, %95
-  %.012.i.i = phi i64 [ 0, %95 ], [ %103, %97 ]
-  %98 = getelementptr inbounds nuw float, ptr %20, i64 %.012.i.i
-  %99 = load float, ptr %98, align 4
-  %100 = insertelement <4 x float> poison, float %99, i64 0
-  %101 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> zeroinitializer
-  %102 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %19, i64 0, i64 %.012.i.i
-  store <4 x float> %101, ptr %102, align 16
-  %103 = add nuw nsw i64 %.012.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %103, 4
-  br i1 %exitcond.not.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit, label %97, !llvm.loop !36
+91:                                               ; preds = %91, %89
+  %.012.i.i = phi i64 [ 0, %89 ], [ %97, %91 ]
+  %92 = getelementptr inbounds nuw float, ptr %20, i64 %.012.i.i
+  %93 = load float, ptr %92, align 4
+  %94 = insertelement <4 x float> poison, float %93, i64 0
+  %95 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> zeroinitializer
+  %96 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %19, i64 %.012.i.i
+  store <4 x float> %95, ptr %96, align 16
+  %97 = add nuw nsw i64 %.012.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %97, 4
+  br i1 %exitcond.not.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit, label %91, !llvm.loop !36
 
-_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit: ; preds = %97
-  %104 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.036
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %104, ptr noundef nonnull align 16 dereferenceable(64) %19, i64 64, i1 false)
-  %105 = add nuw nsw i64 %.036, 1
-  %exitcond.not = icmp eq i64 %105, 4
-  br i1 %exitcond.not, label %106, label %95, !llvm.loop !37
+_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit: ; preds = %91
+  %98 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.039
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %98, ptr noundef nonnull align 16 dereferenceable(64) %19, i64 64, i1 false)
+  %99 = add nuw nsw i64 %.039, 1
+  %exitcond.not = icmp eq i64 %99, 4
+  br i1 %exitcond.not, label %100, label %89, !llvm.loop !37
 
-106:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %107, i64 16, i1 false)
+100:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %101, i64 16, i1 false)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %23, align 16
-  %108 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.0.copyload4.i.i.i = load i32, ptr %108, align 8, !noalias !140
-  %109 = and i32 %.0.copyload4.i.i.i, -2147483648
-  %110 = or disjoint i32 %109, 1065353216
-  %111 = bitcast i32 %110 to float
+  %102 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.0.copyload4.i.i.i = load i32, ptr %102, align 8, !noalias !140
+  %103 = and i32 %.0.copyload4.i.i.i, -2147483648
+  %104 = or disjoint i32 %103, 1065353216
+  %105 = bitcast i32 %104 to float
   %.cast.i.i = bitcast i32 %.0.copyload4.i.i.i to float
-  %112 = fadd contract float %.cast.i.i, %111
-  %113 = fdiv contract float -1.000000e+00, %112
-  %114 = load float, ptr %21, align 16, !noalias !140
-  %115 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %116 = load float, ptr %115, align 4, !noalias !140
-  %117 = fmul contract float %114, %116
-  %118 = fmul contract float %117, %113
-  %119 = fmul contract float %114, %114
-  %120 = fmul contract float %119, %113
-  %121 = bitcast float %120 to i32
-  %122 = xor i32 %109, %121
-  %123 = bitcast i32 %122 to float
-  %124 = bitcast float %118 to i32
-  %125 = xor i32 %109, %124
-  %126 = bitcast i32 %125 to float
-  %127 = fcmp contract ult float %.cast.i.i, 0.000000e+00
-  %128 = fneg contract float %114
-  %129 = select contract i1 %127, float %114, float %128
-  %130 = fadd contract float %123, 1.000000e+00
-  %131 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %130, i64 0
-  %132 = insertelement <4 x float> %131, float %126, i64 1
-  %133 = insertelement <4 x float> %132, float %129, i64 2
-  store <4 x float> %133, ptr %24, align 16
+  %106 = fadd contract float %.cast.i.i, %105
+  %107 = fdiv contract float -1.000000e+00, %106
+  %108 = load float, ptr %21, align 16, !noalias !140
+  %109 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %110 = load float, ptr %109, align 4, !noalias !140
+  %111 = fmul contract float %108, %110
+  %112 = fmul contract float %111, %107
+  %113 = fmul contract float %108, %108
+  %114 = fmul contract float %113, %107
+  %115 = bitcast float %114 to i32
+  %116 = xor i32 %103, %115
+  %117 = bitcast i32 %116 to float
+  %118 = bitcast float %112 to i32
+  %119 = xor i32 %103, %118
+  %120 = bitcast i32 %119 to float
+  %121 = fcmp contract ult float %.cast.i.i, 0.000000e+00
+  %122 = fneg contract float %108
+  %123 = select contract i1 %121, float %108, float %122
+  %124 = fadd contract float %117, 1.000000e+00
+  %125 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %124, i64 0
+  %126 = insertelement <4 x float> %125, float %120, i64 1
+  %127 = insertelement <4 x float> %126, float %123, i64 2
+  store <4 x float> %127, ptr %24, align 16
   call void @_ZN7mitsuba7mueller30rotate_mueller_basis_collinearINS_6VectorIfLm3EEEfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEET1_RKS9_RKT_SE_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix") align 16 %22, ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %23, ptr noundef nonnull align 16 dereferenceable(16) %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 16 dereferenceable(256) %22, i64 256, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <4 x float> zeroinitializer, ptr %10, align 16, !noalias !143
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !143
-  br label %134
+  br label %128
 
-134:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, %106
-  %.012.i.i31 = phi i64 [ 0, %106 ], [ %143, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i ]
-  %135 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i.i31
-  %136 = load float, ptr %135, align 4, !noalias !143
-  %137 = insertelement <4 x float> poison, float %136, i64 0
-  %138 = shufflevector <4 x float> %137, <4 x float> poison, <4 x i32> zeroinitializer
-  br label %139
+128:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, %100
+  %.012.i.i34 = phi i64 [ 0, %100 ], [ %137, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i ]
+  %129 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i.i34
+  %130 = load float, ptr %129, align 4, !noalias !143
+  %131 = insertelement <4 x float> poison, float %130, i64 0
+  %132 = shufflevector <4 x float> %131, <4 x float> poison, <4 x i32> zeroinitializer
+  br label %133
 
-139:                                              ; preds = %139, %134
-  %.05.i.i.i.i = phi i64 [ 0, %134 ], [ %141, %139 ]
-  %140 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %9, i64 0, i64 %.05.i.i.i.i
-  store <4 x float> %138, ptr %140, align 16, !noalias !143
-  %141 = add nuw nsw i64 %.05.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %141, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, label %139, !llvm.loop !44
+133:                                              ; preds = %133, %128
+  %.05.i.i.i.i = phi i64 [ 0, %128 ], [ %135, %133 ]
+  %134 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %9, i64 %.05.i.i.i.i
+  store <4 x float> %132, ptr %134, align 16, !noalias !143
+  %135 = add nuw nsw i64 %.05.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %135, 4
+  br i1 %exitcond.not.i.i.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, label %133, !llvm.loop !44
 
-_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i: ; preds = %139
-  %142 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %25, i64 0, i64 %.012.i.i31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %142, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
-  %143 = add nuw nsw i64 %.012.i.i31, 1
-  %exitcond.not.i.i32 = icmp eq i64 %143, 4
-  br i1 %exitcond.not.i.i32, label %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i, label %134, !llvm.loop !45
+_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i: ; preds = %133
+  %136 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %25, i64 %.012.i.i34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %136, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
+  %137 = add nuw nsw i64 %.012.i.i34, 1
+  %exitcond.not.i.i35 = icmp eq i64 %137, 4
+  br i1 %exitcond.not.i.i35, label %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i, label %128, !llvm.loop !45
 
 _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i: ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !143
-  br label %144
+  br label %138
 
-144:                                              ; preds = %144, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i
-  %.015.i = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i ], [ %147, %144 ]
-  %145 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %25, i64 0, i64 %.015.i
-  %146 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %145, i64 0, i64 %.015.i
-  store <4 x float> %31, ptr %146, align 16, !alias.scope !143
-  %147 = add nuw nsw i64 %.015.i, 1
-  %exitcond.not.i33 = icmp eq i64 %147, 4
-  br i1 %exitcond.not.i33, label %148, label %144, !llvm.loop !46
+138:                                              ; preds = %138, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i
+  %.015.i = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i ], [ %141, %138 ]
+  %139 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %25, i64 %.015.i
+  %140 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %139, i64 %.015.i
+  store <4 x float> %31, ptr %140, align 16, !alias.scope !143
+  %141 = add nuw nsw i64 %.015.i, 1
+  %exitcond.not.i36 = icmp eq i64 %141, 4
+  br i1 %exitcond.not.i36, label %142, label %138, !llvm.loop !46
 
-148:                                              ; preds = %144
+142:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %149
+  br label %143
 
-149:                                              ; preds = %178, %148
-  %.05462.i = phi i64 [ 0, %148 ], [ %180, %178 ]
-  %150 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %25, i64 0, i64 %.05462.i
+143:                                              ; preds = %172, %142
+  %.05462.i = phi i64 [ 0, %142 ], [ %174, %172 ]
+  %144 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %25, i64 %.05462.i
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %.sroa.0.0.copyload.i.i.i = load <4 x float>, ptr %150, align 16, !noalias !149
-  br label %151
+  %.sroa.0.0.copyload.i.i.i = load <4 x float>, ptr %144, align 16, !noalias !149
+  br label %145
 
-151:                                              ; preds = %151, %149
-  %.09.i.i = phi i64 [ 0, %149 ], [ %153, %151 ]
-  %152 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %6, i64 0, i64 %.09.i.i
-  store <4 x float> %.sroa.0.0.copyload.i.i.i, ptr %152, align 16, !alias.scope !146, !noalias !152
-  %153 = add nuw nsw i64 %.09.i.i, 1
-  %exitcond.not.i.i34 = icmp eq i64 %153, 4
-  br i1 %exitcond.not.i.i34, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i, label %151, !llvm.loop !54
+145:                                              ; preds = %145, %143
+  %.09.i.i = phi i64 [ 0, %143 ], [ %147, %145 ]
+  %146 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %6, i64 %.09.i.i
+  store <4 x float> %.sroa.0.0.copyload.i.i.i, ptr %146, align 16, !alias.scope !146, !noalias !152
+  %147 = add nuw nsw i64 %.09.i.i, 1
+  %exitcond.not.i.i37 = icmp eq i64 %147, 4
+  br i1 %exitcond.not.i.i37, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i, label %145, !llvm.loop !54
 
-_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i: ; preds = %151
+_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i: ; preds = %145
   call void @llvm.experimental.noalias.scope.decl(metadata !153)
-  br label %154
+  br label %148
 
-154:                                              ; preds = %154, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i
-  %.034.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i ], [ %161, %154 ]
-  %155 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %0, i64 0, i64 %.034.i.i
-  %156 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %6, i64 0, i64 %.034.i.i
-  %157 = load <4 x float>, ptr %155, align 16, !noalias !156
-  %158 = load <4 x float>, ptr %156, align 16, !noalias !156
-  %159 = fmul contract <4 x float> %157, %158
-  %160 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %5, i64 0, i64 %.034.i.i
-  store <4 x float> %159, ptr %160, align 16, !alias.scope !153, !noalias !152
-  %161 = add nuw nsw i64 %.034.i.i, 1
-  %exitcond.not.i55.i = icmp eq i64 %161, 4
-  br i1 %exitcond.not.i55.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, label %154, !llvm.loop !59
+148:                                              ; preds = %148, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i
+  %.034.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i ], [ %155, %148 ]
+  %149 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %0, i64 %.034.i.i
+  %150 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %6, i64 %.034.i.i
+  %151 = load <4 x float>, ptr %149, align 16, !noalias !156
+  %152 = load <4 x float>, ptr %150, align 16, !noalias !156
+  %153 = fmul contract <4 x float> %151, %152
+  %154 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %5, i64 %.034.i.i
+  store <4 x float> %153, ptr %154, align 16, !alias.scope !153, !noalias !152
+  %155 = add nuw nsw i64 %.034.i.i, 1
+  %exitcond.not.i55.i = icmp eq i64 %155, 4
+  br i1 %exitcond.not.i55.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, label %148, !llvm.loop !59
 
-_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i: ; preds = %154, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
-  %.061.i = phi i64 [ %177, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i ], [ 1, %154 ]
-  %162 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %150, i64 0, i64 %.061.i
+_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i: ; preds = %148, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
+  %.061.i = phi i64 [ %171, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i ], [ 1, %148 ]
+  %156 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %144, i64 %.061.i
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  %.sroa.0.0.copyload.i.i56.i = load <4 x float>, ptr %162, align 16, !noalias !160
-  br label %163
+  %.sroa.0.0.copyload.i.i56.i = load <4 x float>, ptr %156, align 16, !noalias !160
+  br label %157
 
-163:                                              ; preds = %163, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i
-  %.09.i57.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i ], [ %165, %163 ]
-  %164 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %8, i64 0, i64 %.09.i57.i
-  store <4 x float> %.sroa.0.0.copyload.i.i56.i, ptr %164, align 16, !alias.scope !157, !noalias !152
-  %165 = add nuw nsw i64 %.09.i57.i, 1
-  %exitcond.not.i58.i = icmp eq i64 %165, 4
-  br i1 %exitcond.not.i58.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i, label %163, !llvm.loop !54
+157:                                              ; preds = %157, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i
+  %.09.i57.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i ], [ %159, %157 ]
+  %158 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %8, i64 %.09.i57.i
+  store <4 x float> %.sroa.0.0.copyload.i.i56.i, ptr %158, align 16, !alias.scope !157, !noalias !152
+  %159 = add nuw nsw i64 %.09.i57.i, 1
+  %exitcond.not.i58.i = icmp eq i64 %159, 4
+  br i1 %exitcond.not.i58.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i, label %157, !llvm.loop !54
 
-_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i: ; preds = %163
-  %166 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.061.i
+_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i: ; preds = %157
+  %160 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.061.i
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  br label %167
+  br label %161
 
-167:                                              ; preds = %167, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i
-  %.048.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i ], [ %176, %167 ]
-  %168 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %166, i64 0, i64 %.048.i.i
-  %169 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %8, i64 0, i64 %.048.i.i
-  %170 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %5, i64 0, i64 %.048.i.i
-  %171 = load <4 x float>, ptr %168, align 16, !noalias !164
-  %172 = load <4 x float>, ptr %169, align 16, !noalias !164
-  %173 = load <4 x float>, ptr %170, align 16, !noalias !164
-  %174 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %171, <4 x float> %172, <4 x float> %173)
-  %175 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %7, i64 0, i64 %.048.i.i
-  store <4 x float> %174, ptr %175, align 16, !alias.scope !161, !noalias !152
-  %176 = add nuw nsw i64 %.048.i.i, 1
-  %exitcond.not.i60.i = icmp eq i64 %176, 4
-  br i1 %exitcond.not.i60.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i, label %167, !llvm.loop !68
+161:                                              ; preds = %161, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i
+  %.048.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit59.i ], [ %170, %161 ]
+  %162 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %160, i64 %.048.i.i
+  %163 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %8, i64 %.048.i.i
+  %164 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %5, i64 %.048.i.i
+  %165 = load <4 x float>, ptr %162, align 16, !noalias !164
+  %166 = load <4 x float>, ptr %163, align 16, !noalias !164
+  %167 = load <4 x float>, ptr %164, align 16, !noalias !164
+  %168 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %165, <4 x float> %166, <4 x float> %167)
+  %169 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %7, i64 %.048.i.i
+  store <4 x float> %168, ptr %169, align 16, !alias.scope !161, !noalias !152
+  %170 = add nuw nsw i64 %.048.i.i, 1
+  %exitcond.not.i60.i = icmp eq i64 %170, 4
+  br i1 %exitcond.not.i60.i, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i, label %161, !llvm.loop !68
 
-_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i: ; preds = %167
+_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i: ; preds = %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 16 dereferenceable(64) %7, i64 64, i1 false), !noalias !152
-  %177 = add nuw nsw i64 %.061.i, 1
-  %exitcond.not.i35 = icmp eq i64 %177, 4
-  br i1 %exitcond.not.i35, label %178, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, !llvm.loop !69
+  %171 = add nuw nsw i64 %.061.i, 1
+  %exitcond.not.i38 = icmp eq i64 %171, 4
+  br i1 %exitcond.not.i38, label %172, label %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4mul_ERKS5_.exit.preheader.i, !llvm.loop !69
 
-178:                                              ; preds = %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
-  %179 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %18, i64 0, i64 %.05462.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %179, ptr noundef nonnull align 16 dereferenceable(64) %7, i64 64, i1 false)
-  %180 = add nuw nsw i64 %.05462.i, 1
-  %exitcond63.not.i = icmp eq i64 %180, 4
-  br i1 %exitcond63.not.i, label %181, label %149, !llvm.loop !70
+172:                                              ; preds = %_ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ERKS5_S8_.exit.i
+  %173 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %18, i64 %.05462.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %173, ptr noundef nonnull align 16 dereferenceable(64) %7, i64 64, i1 false)
+  %174 = add nuw nsw i64 %.05462.i, 1
+  %exitcond63.not.i = icmp eq i64 %174, 4
+  br i1 %exitcond63.not.i, label %175, label %143, !llvm.loop !70
 
-181:                                              ; preds = %178
+175:                                              ; preds = %172
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1738,14 +1738,14 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 
 18:                                               ; preds = %18, %13
   %.05.i.i.i = phi i64 [ 0, %13 ], [ %20, %18 ]
-  %19 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %5, i64 0, i64 %.05.i.i.i
+  %19 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %5, i64 %.05.i.i.i
   store <4 x float> %17, ptr %19, align 16
   %20 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i, label %18, !llvm.loop !44
 
 _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i: ; preds = %18
-  %21 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.012.i
+  %21 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.012.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %21, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false)
   %22 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %22, 4
@@ -1757,8 +1757,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 23:                                               ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, %23
   %.018 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %26, %23 ]
-  %24 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.018
-  %25 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %24, i64 0, i64 %.018
+  %24 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.018
+  %25 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %24, i64 %.018
   store <4 x float> %12, ptr %25, align 16
   %26 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %26, 4
@@ -4320,29 +4320,29 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller7rotatorIfEEN5drjit6MatrixIT
   store float 1.000000e+00, ptr %52, align 4
   br label %.preheader
 
-.preheader:                                       ; preds = %2, %61
-  %.054 = phi i64 [ 0, %2 ], [ %62, %61 ]
-  %53 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.42"], ptr %0, i64 0, i64 %.054
+.preheader:                                       ; preds = %2, %58
+  %.054 = phi i64 [ 0, %2 ], [ %59, %58 ]
+  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %.054
+  %53 = getelementptr inbounds nuw %"struct.drjit::Array.42", ptr %0, i64 %.054
   br label %54
 
 54:                                               ; preds = %.preheader, %54
-  %.03753 = phi i64 [ 0, %.preheader ], [ %60, %54 ]
-  %55 = shl nuw nsw i64 %.03753, 2
-  %56 = add nuw nsw i64 %55, %.054
-  %57 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %56
-  %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds nuw float, ptr %53, i64 %.03753
-  store float %58, ptr %59, align 4
-  %60 = add nuw nsw i64 %.03753, 1
-  %exitcond.not = icmp eq i64 %60, 4
-  br i1 %exitcond.not, label %61, label %54, !llvm.loop !183
+  %.03753 = phi i64 [ 0, %.preheader ], [ %57, %54 ]
+  %.idx = shl nuw nsw i64 %.03753, 4
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
+  %55 = load float, ptr %gep, align 4
+  %56 = getelementptr inbounds nuw float, ptr %53, i64 %.03753
+  store float %55, ptr %56, align 4
+  %57 = add nuw nsw i64 %.03753, 1
+  %exitcond.not = icmp eq i64 %57, 4
+  br i1 %exitcond.not, label %58, label %54, !llvm.loop !183
 
-61:                                               ; preds = %54
-  %62 = add nuw nsw i64 %.054, 1
-  %exitcond55.not = icmp eq i64 %62, 4
-  br i1 %exitcond55.not, label %63, label %.preheader, !llvm.loop !184
+58:                                               ; preds = %54
+  %59 = add nuw nsw i64 %.054, 1
+  %exitcond55.not = icmp eq i64 %59, 4
+  br i1 %exitcond55.not, label %60, label %.preheader, !llvm.loop !184
 
-63:                                               ; preds = %61
+60:                                               ; preds = %58
   ret void
 }
 

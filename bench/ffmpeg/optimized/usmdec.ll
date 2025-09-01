@@ -145,9 +145,9 @@ define internal i32 @usm_read_packet(ptr noundef %0, ptr noundef %1) #2 {
 
 51:                                               ; preds = %50
   %52 = zext nneg i32 %29 to i64
-  %53 = getelementptr inbounds nuw [4 x [256 x %struct.USMChannel]], ptr %24, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x %struct.USMChannel], ptr %24, i64 %52
   %54 = sext i32 %36 to i64
-  %55 = getelementptr inbounds [256 x %struct.USMChannel], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds %struct.USMChannel, ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !29
   %58 = icmp eq i32 %57, 0
@@ -155,14 +155,14 @@ define internal i32 @usm_read_packet(ptr noundef %0, ptr noundef %1) #2 {
 
 switch.lookup:                                    ; preds = %51
   %59 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.usm_read_packet, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.usm_read_packet, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %switch.load, ptr %60, align 8, !tbaa !32
   store i32 1, ptr %56, align 4, !tbaa !29
   store i32 -1, ptr %55, align 8, !tbaa !33
   %61 = getelementptr inbounds nuw i8, ptr %24, i64 57344
-  %62 = getelementptr inbounds nuw [4 x i32], ptr %61, i64 0, i64 %52
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %52
   %63 = load i32, ptr %62, align 4, !tbaa !34
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !34
@@ -379,13 +379,13 @@ bytestream2_get_be32.exit123.i.i:                 ; preds = %151, %bytestream2_g
   br i1 %162, label %bytestream2_get_byte.exit136.thread.i.i, label %bytestream2_get_byte.exit136.i.i
 
 bytestream2_get_byte.exit136.thread.i.i:          ; preds = %.lr.ph.i.i
-  %163 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 0, ptr %163, align 1, !tbaa !11
   br label %.loopexit.i.i
 
 bytestream2_get_byte.exit136.i.i:                 ; preds = %.lr.ph.i.i
   %164 = load i8, ptr %.sroa.0.0284321.i.i, align 1, !tbaa !11
-  %165 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %164, ptr %165, align 1, !tbaa !11
   %166 = icmp eq i8 %164, 0
   %167 = icmp samesign ugt i64 %indvars.iv.i.i, 254
@@ -403,7 +403,7 @@ bytestream2_get_byte.exit136.i.i:                 ; preds = %.lr.ph.i.i
 .loopexit.i.i:                                    ; preds = %168, %bytestream2_get_byte.exit136.i.i, %bytestream2_get_byte.exit136.thread.i.i, %bytestream2_get_be32.exit123.i.i
   %.0320.i.i = phi i64 [ %indvars.iv.i.i, %bytestream2_get_byte.exit136.thread.i.i ], [ 0, %bytestream2_get_be32.exit123.i.i ], [ %gepdiff.i.i, %168 ], [ %indvars.iv.i.i, %bytestream2_get_byte.exit136.i.i ]
   %172 = and i64 %.0320.i.i, 4294967295
-  %173 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 %172
   store i8 0, ptr %173, align 1, !tbaa !11
   %.mask.i.i = and i32 %.0.i134.i.i, 224
   %174 = icmp eq i32 %.mask.i.i, 32
@@ -714,9 +714,9 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 276:                                              ; preds = %50
   %277 = zext nneg i32 %29 to i64
-  %278 = getelementptr inbounds nuw [4 x [256 x %struct.USMChannel]], ptr %24, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw [256 x %struct.USMChannel], ptr %24, i64 %277
   %279 = sext i32 %36 to i64
-  %280 = getelementptr inbounds [256 x %struct.USMChannel], ptr %278, i64 0, i64 %279
+  %280 = getelementptr inbounds %struct.USMChannel, ptr %278, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
   %282 = load i32, ptr %281, align 4, !tbaa !29
   %283 = icmp eq i32 %282, 1

@@ -87,7 +87,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 19:                                               ; preds = %16
   %20 = load i32, ptr %9, align 8, !tbaa !22
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %21
   store i32 %.01723, ptr %22, align 4, !tbaa !23
   store ptr %18, ptr %2, align 8, !tbaa !24
   store i32 0, ptr %11, align 8, !tbaa !26
@@ -376,8 +376,8 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 48
   %sext.i = shl i64 %52, 32
-  %53 = ashr exact i64 %sext.i, 32
-  %54 = getelementptr inbounds [4 x i32], ptr %44, i64 0, i64 %53
+  %53 = ashr exact i64 %sext.i, 30
+  %54 = getelementptr inbounds i8, ptr %44, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %57 = load i32, ptr %56, align 8, !tbaa !65
@@ -557,13 +557,13 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %132 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %133 = load i32, ptr %132, align 8, !tbaa !23
   %134 = sext i32 %55 to i64
-  %135 = getelementptr inbounds [8 x ptr], ptr %40, i64 0, i64 %134
+  %135 = getelementptr inbounds ptr, ptr %40, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !73
   %137 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  %138 = getelementptr inbounds [8 x i32], ptr %137, i64 0, i64 %134
+  %138 = getelementptr inbounds i32, ptr %137, i64 %134
   %139 = load i32, ptr %138, align 4, !tbaa !23
   %140 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  %141 = getelementptr inbounds [4 x i32], ptr %140, i64 0, i64 %134
+  %141 = getelementptr inbounds i32, ptr %140, i64 %134
   %142 = load i32, ptr %141, align 4, !tbaa !23
   %143 = load i32, ptr %58, align 4, !tbaa !66
   call void @av_image_copy_plane(ptr noundef %69, i32 noundef %133, ptr noundef %136, i32 noundef %139, i32 noundef %142, i32 noundef %143) #6
@@ -771,10 +771,10 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 
 59:                                               ; preds = %55, %59
   %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [4 x i32], ptr %58, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4, !tbaa !23
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [4 x i8], ptr %2, i64 0, i64 %62
+  %63 = getelementptr inbounds i8, ptr %2, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !76
   %65 = zext i8 %64 to i32
   store i32 %65, ptr %60, align 4, !tbaa !23
@@ -826,8 +826,8 @@ define internal noundef i32 @config_output(ptr noundef captures(none) %0) #1 {
   %18 = sdiv exact i64 %17, 48
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %sext = shl i64 %18, 32
-  %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %20
+  %20 = ashr exact i64 %sext, 30
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %.off = add i32 %22, -1
   %switch = icmp ult i32 %.off, 2

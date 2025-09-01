@@ -700,7 +700,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %44, %46
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %74 = load ptr, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %73, ptr align 1 %74, i64 %69, i1 false)
-  %75 = getelementptr inbounds nuw [1024 x i8], ptr %73, i64 0, i64 %69
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %69
   store i8 0, ptr %75, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2452,7 +2452,7 @@ define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleMetricNodeEPN10OD
 
 .preheader.i:                                     ; preds = %45, %54
   %.011.i = phi i64 [ %55, %54 ], [ 0, %45 ]
-  %51 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 0, i64 %.011.i
+  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN7GrammarL16ValidMetricTokenB5cxx11E, i64 %.011.i
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull %49) #33
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %_ZN7GrammarL17isValidMetricTypeEPKc.exit, label %54
@@ -2571,7 +2571,7 @@ _ZN7GrammarL17isValidMetricTypeEPKc.exit.thread57: ; preds = %_ZN7GrammarL17isVa
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %84
   store i8 0, ptr %86, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %87 = getelementptr inbounds [4 x %"struct.Assimp::OpenGEX::MetricInfo"], ptr %22, i64 0, i64 %.08.i60
+  %87 = getelementptr inbounds %"struct.Assimp::OpenGEX::MetricInfo", ptr %22, i64 %.08.i60
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %90 = icmp eq ptr %88, %89
@@ -2892,7 +2892,7 @@ define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleNameNodeEPN10ODDL
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %51 = sext i32 %spec.store.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %50, ptr nonnull align 1 %47, i64 %51, i1 false)
-  %52 = getelementptr inbounds [1024 x i8], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
   store i8 0, ptr %52, align 1
   br label %87
 
@@ -2914,7 +2914,7 @@ define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleNameNodeEPN10ODDL
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %61 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %60, ptr align 1 %61, i64 %56, i1 false)
-  %62 = getelementptr inbounds nuw [1024 x i8], ptr %60, i64 0, i64 %56
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %56
   store i8 0, ptr %62, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -3727,7 +3727,7 @@ _ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit: ; preds = %45, %_ZNK6Assimp7
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %59 = sext i32 %spec.store.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr nonnull align 1 %55, i64 %59, i1 false)
-  %60 = getelementptr inbounds [1024 x i8], ptr %58, i64 0, i64 %59
+  %60 = getelementptr inbounds i8, ptr %58, i64 %59
   store i8 0, ptr %60, align 1
   ret void
 
@@ -3853,7 +3853,7 @@ _ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit: ; preds = %41, %_ZNK6Assimp7
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %55 = sext i32 %spec.store.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr nonnull align 1 %51, i64 %55, i1 false)
-  %56 = getelementptr inbounds [1024 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds i8, ptr %54, i64 %55
   store i8 0, ptr %56, align 1
   ret void
 
@@ -4015,7 +4015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %65 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %64, ptr align 1 %65, i64 %60, i1 false)
-  %66 = getelementptr inbounds nuw [1024 x i8], ptr %64, i64 0, i64 %60
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %60
   store i8 0, ptr %66, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4315,7 +4315,7 @@ define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleTransformNodeEPN1
   %.03.i = phi ptr [ %31, %.lr.ph.i ], [ %26, %22 ]
   %.0222.i = phi i64 [ %32, %.lr.ph.i ], [ 1, %22 ]
   %28 = tail call noundef float @_ZNK10ODDLParser5Value8getFloatEv(ptr noundef nonnull align 8 dereferenceable(32) %.03.i)
-  %29 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %.0222.i
+  %29 = getelementptr inbounds nuw float, ptr %4, i64 %.0222.i
   store float %28, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %31 = load ptr, ptr %30, align 8
@@ -6289,7 +6289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = sext i32 %spec.store.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr nonnull align 1 %25, i64 %29, i1 false)
-  %30 = getelementptr inbounds [1024 x i8], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
   store i8 0, ptr %30, align 1
   %31 = load ptr, ptr %19, align 8
   %32 = call noundef ptr @_ZNK10ODDLParser5Value9getStringEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
@@ -9622,7 +9622,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -9674,7 +9674,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -9950,7 +9950,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -9969,7 +9969,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

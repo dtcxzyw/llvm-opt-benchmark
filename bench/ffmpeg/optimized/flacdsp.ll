@@ -30,16 +30,16 @@ define void @ff_flacdsp_init(ptr noundef writeonly captures(none) initializes((3
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.ff_flacdsp_init, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep21 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.ff_flacdsp_init.1, i64 0, i64 %11
+  %switch.gep21 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init.1, i64 %11
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep23 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.ff_flacdsp_init.2, i64 0, i64 %12
+  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init.2, i64 %12
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep25 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.ff_flacdsp_init.3, i64 0, i64 %13
+  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init.3, i64 %13
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   store ptr %switch.load, ptr %0, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8

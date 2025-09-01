@@ -625,7 +625,7 @@ _ZN6vectorIN15expr2polynomial3imp5frameELb0EjE4backEv.exit: ; preds = %_ZN15expr
 
 106:                                              ; preds = %104
   %107 = zext i32 %105 to i64
-  %108 = getelementptr inbounds nuw [0 x ptr], ptr %103, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw ptr, ptr %103, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !105
   %110 = add nuw i32 %105, 1
   store i32 %110, ptr %102, align 8, !tbaa !104

@@ -45928,9 +45928,9 @@ define hidden void @_ZN9polars_io5cloud19credential_provider20PlCredentialProvid
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal fastcc { ptr, i64 } @_ZN9polars_io5cloud19credential_provider21ObjectStoreCredential12variant_name17he69aa0541f60c44eE(i64 %.0.val) unnamed_addr #5 {
 switch.lookup:
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9polars_io5cloud19credential_provider21ObjectStoreCredential12variant_name17he69aa0541f60c44eE, i64 0, i64 %.0.val
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN9polars_io5cloud19credential_provider21ObjectStoreCredential12variant_name17he69aa0541f60c44eE, i64 %.0.val
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN9polars_io5cloud19credential_provider21ObjectStoreCredential12variant_name17he69aa0541f60c44eE.178, i64 0, i64 %.0.val
+  %switch.gep1 = getelementptr inbounds ptr, ptr @switch.table._ZN9polars_io5cloud19credential_provider21ObjectStoreCredential12variant_name17he69aa0541f60c44eE.178, i64 %.0.val
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %0 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %1 = insertvalue { ptr, i64 } %0, i64 %switch.load, 1

@@ -2649,7 +2649,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang16CXXNamedCastExpr11getCastNameE
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK5clang16CXXNamedCastExpr11getCastNameEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16CXXNamedCastExpr11getCastNameEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

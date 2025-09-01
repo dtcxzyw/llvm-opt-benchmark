@@ -2331,7 +2331,7 @@ define hidden noundef float @_ZN6Assimp3FBX17ParseTokenAsFloatERKNS0_5TokenERPKc
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
 
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %29, %30
-  %31 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %27
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %27
   store i8 0, ptr %31, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4
@@ -3590,7 +3590,7 @@ define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_119ReadBinaryDataArrayEc
 
 switch.lookup:                                    ; preds = %5
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6Assimp3FBX12_GLOBAL__N_119ReadBinaryDataArrayEcjRPKcS3_RSt6vectorIcSaIcEERKNS0_7ElementE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp3FBX12_GLOBAL__N_119ReadBinaryDataArrayEcjRPKcS3_RSt6vectorIcSaIcEERKNS0_7ElementE, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %12
 
@@ -4106,7 +4106,7 @@ define hidden noundef float @_ZN6Assimp3FBX17ParseTokenAsFloatERKNS0_5TokenE(ptr
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit.i:               ; preds = %29, %28
-  %30 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 0, i64 %26
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %26
   store i8 0, ptr %30, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 0.000000e+00, ptr %2, align 4
@@ -12808,7 +12808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

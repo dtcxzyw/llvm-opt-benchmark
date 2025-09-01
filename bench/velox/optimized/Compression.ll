@@ -81,7 +81,7 @@ $_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairI
 define void @_ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %kind) local_unnamed_addr #0 {
 entry:
   %0 = and i64 %kind, 4294967295
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook5velox6common22compressionKindToCodecENS1_15CompressionKindE, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN5folly2io8getCodecENS0_9CodecTypeEi(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %switch.load, i32 noundef -2)
   ret void
@@ -92,9 +92,9 @@ declare void @_ZN5folly2io8getCodecENS0_9CodecTypeEi(ptr sret(%"class.std::uniqu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i64 0, 7) i64 @_ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE(i32 noundef %type) local_unnamed_addr #2 {
 entry:
-  %switch.tableidx = add nsw i32 %type, -1
-  %0 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE, i64 0, i64 %0
+  %0 = sext i32 %type to i64
+  %1 = getelementptr i64, ptr @switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE, i64 %0
+  %switch.gep = getelementptr i8, ptr %1, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -857,7 +857,7 @@ entry:
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
@@ -884,7 +884,7 @@ _ZN5folly6detail15reserveInTargetIJA11_cN8facebook5velox6common15CompressionKind
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %_ZN5folly6detail15reserveInTargetIJA11_cN8facebook5velox6common15CompressionKindEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpRKT_.exit
   %i.i.i.015.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetIJA11_cN8facebook5velox6common15CompressionKindEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpRKT_.exit ], [ %inc.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %6, %7
   br i1 %cmp1.i.i.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
@@ -909,7 +909,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i.i.i.i, -2
   %div.i.i.i.i.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i.i.i.i.i, 100
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i.i.i.i.i
   %8 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i
   store i16 %8, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 1
@@ -920,7 +920,7 @@ while.end.i.i.i.i.i.i.i.i.i:                      ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ %6, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i.i.i ], [ %div.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i.i.i
   %9 = load i16, ptr %arrayidx2.i.i.i.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i

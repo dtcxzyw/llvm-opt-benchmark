@@ -7605,7 +7605,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5Mod
   %10 = load ptr, ptr %3, align 8, !tbaa !674
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = zext i16 %8 to i64
-  %13 = getelementptr inbounds nuw [234 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !690
   %15 = icmp ne ptr %14, null
   br label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE11isTypeLegalEPNS_4TypeE.exit
@@ -7921,7 +7921,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5Mod
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %10 = zext i16 %8 to i64
-  %11 = getelementptr inbounds nuw [234 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !690
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE12haveFastSqrtEPNS_4TypeE.exit, label %_ZNK4llvm3EVTeqES0_.exit.thread.i.i
@@ -7968,7 +7968,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm19TargetTransformInfo5ModelINS_
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %10 = zext i16 %8 to i64
-  %11 = getelementptr inbounds nuw [234 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !690
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE11getFPOpCostEPNS_4TypeE.exit, label %_ZNK4llvm3EVTeqES0_.exit.thread.i.i
@@ -7984,7 +7984,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread.i.i:              ; preds = %_ZNK4llvm18TargetLo
 
 switch.lookup:                                    ; preds = %_ZNK4llvm3EVTeqES0_.exit.thread.i.i
   %17 = zext nneg i8 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE11getFPOpCostEPNS_4TypeE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE11getFPOpCostEPNS_4TypeE, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE11getFPOpCostEPNS_4TypeE.exit
 
@@ -8190,7 +8190,7 @@ _ZNK4llvm12RISCVTTIImpl23getRegisterClassForTypeEbPNS_4TypeE.exit: ; preds = %3,
 define linkonce_odr hidden noundef ptr @_ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getRegisterClassNameEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
 switch.lookup:
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getRegisterClassNameEj, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getRegisterClassNameEj, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -8768,9 +8768,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
 
 19:                                               ; preds = %19, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %19 ]
-  %20 = getelementptr inbounds nuw [5 x i64], ptr %18, i64 0, i64 %indvars.iv.i.i.i
+  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !45, !noalias !723
-  %22 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !45, !alias.scope !723
   %24 = and i64 %23, %21
   store i64 %24, ptr %22, align 8, !tbaa !45, !alias.scope !723
@@ -8823,9 +8823,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   %11 = load ptr, ptr %6, align 8, !tbaa !674
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 395330
   %13 = zext i16 %9 to i64
-  %14 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [5 x i16], ptr %12, i64 %13
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw [5 x i16], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !728
   %18 = trunc i16 %17 to i8
   %19 = icmp ult i8 %18, 16
@@ -8854,9 +8854,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   %11 = load ptr, ptr %6, align 8, !tbaa !674
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 395330
   %13 = zext i16 %9 to i64
-  %14 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [5 x i16], ptr %12, i64 %13
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw [5 x i16], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !728
   %18 = and i16 %17, 11
   %spec.select.i.i = icmp eq i16 %18, 0
@@ -12576,8 +12576,8 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %.thread, %27
 
 32:                                               ; preds = %29
   %33 = zext nneg i16 %28 to i64
-  %34 = add nsw i64 %33, -1
-  %35 = getelementptr inbounds nuw [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %34
+  %34 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -2
   %36 = load i16, ptr %35, align 2, !tbaa !827
   %37 = insertvalue { i16, ptr } poison, i16 %36, 0
   %38 = insertvalue { i16, ptr } %37, ptr null, 1
@@ -12614,10 +12614,10 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit:              ; preds = %32, %39, %41
 
 53:                                               ; preds = %52
   %54 = zext i16 %45 to i64
-  %55 = add nsw i64 %54, -1
-  %56 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %55
+  %55 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 -16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %56, align 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %55, i64 -8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i.i, i8 %.sroa.2.0.copyload.i.i.i, 1
@@ -13649,8 +13649,8 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %.thread, %41
 
 46:                                               ; preds = %43
   %47 = zext nneg i16 %42 to i64
-  %48 = add nsw i64 %47, -1
-  %49 = getelementptr inbounds nuw [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %48
+  %48 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 -2
   %50 = load i16, ptr %49, align 2, !tbaa !827
   %51 = insertvalue { i16, ptr } poison, i16 %50, 0
   %52 = insertvalue { i16, ptr } %51, ptr null, 1
@@ -13687,10 +13687,10 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit:              ; preds = %46, %53, %55
 
 67:                                               ; preds = %66
   %68 = zext i16 %59 to i64
-  %69 = add nsw i64 %68, -1
-  %70 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %69
+  %69 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 -16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %70, align 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %69, i64 -8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i.i, i8 %.sroa.2.0.copyload.i.i.i, 1
@@ -14234,7 +14234,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZNK4llvm16BasicTTIImplBaseINS_1
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = zext i16 %13 to i64
-  %18 = getelementptr inbounds nuw [234 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !690
   %.not.i.not = icmp eq ptr %19, null
   br i1 %.not.i.not, label %_ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit
@@ -14283,7 +14283,7 @@ _ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit.thread: ; preds 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i24: ; preds = %_ZNK4llvm18TargetLoweringBase17isOperationCustomEjNS_3EVTE.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %44 = zext i16 %41 to i64
-  %45 = getelementptr inbounds nuw [234 x ptr], ptr %43, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !690
   %.not.i25 = icmp eq ptr %46, null
   %.not.i4.i.i = icmp eq i16 %33, 0
@@ -14292,9 +14292,9 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i24: ; preds = %_ZNK4ll
 
 47:                                               ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i24
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 340574
-  %49 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %48, i64 0, i64 %44
+  %49 = getelementptr inbounds nuw [234 x i8], ptr %48, i64 %44
   %50 = zext i16 %33 to i64
-  %51 = getelementptr inbounds nuw [234 x i8], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !691
   %53 = icmp eq i8 %52, 0
   br label %_ZNK4llvm18TargetLoweringBase17isTruncStoreLegalENS_3EVTES1_.exit

@@ -3347,7 +3347,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 
 747:                                              ; preds = %743
   %748 = load ptr, ptr %737, align 8, !noalias !661, !nonnull !5, !noundef !5
-  %749 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %748, i64 0, i64 %736
+  %749 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %748, i64 %736
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hb691800f6da1eb92E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %749)
           to label %751 unwind label %.thread.loopexit.i.i.i.i, !noalias !661
 

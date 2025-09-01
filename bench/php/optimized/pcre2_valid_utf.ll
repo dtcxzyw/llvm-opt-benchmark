@@ -46,7 +46,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
 20:                                               ; preds = %15
   %21 = and i32 %7, 63
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_utf8_table4, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_pcre2_utf8_table4, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = zext i8 %24 to i64
   %26 = icmp ult i64 %8, %25

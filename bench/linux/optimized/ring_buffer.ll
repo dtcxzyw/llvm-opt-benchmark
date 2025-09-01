@@ -176,7 +176,7 @@ define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin_forward(ptr no
   %93 = and i64 %56, 4095
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %95 = sext i32 %91 to i64
-  %96 = getelementptr [0 x ptr], ptr %94, i64 0, i64 %95
+  %96 = getelementptr ptr, ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 %93
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -357,7 +357,7 @@ define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin_backward(ptr n
   %93 = and i64 %72, 4095
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %95 = sext i32 %91 to i64
-  %96 = getelementptr [0 x ptr], ptr %94, i64 0, i64 %95
+  %96 = getelementptr ptr, ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 %93
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -581,7 +581,7 @@ define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin(ptr noundef %0
   %123 = and i64 %107, 4095
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %125 = sext i32 %121 to i64
-  %126 = getelementptr [0 x ptr], ptr %124, i64 0, i64 %125
+  %126 = getelementptr ptr, ptr %124, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 %123
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -667,7 +667,7 @@ define dso_local noundef i32 @perf_output_copy(ptr noundef captures(none) %0, pt
   store i32 %29, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 240
   %31 = sext i32 %29 to i64
-  %32 = getelementptr [0 x ptr], ptr %30, i64 0, i64 %31
+  %32 = getelementptr ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %6, align 8
   store i64 4096, ptr %5, align 8
@@ -719,7 +719,7 @@ define dso_local noundef i32 @perf_output_skip(ptr noundef captures(none) %0, i3
   store i32 %26, ptr %9, align 8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 240
   %28 = sext i32 %26 to i64
-  %29 = getelementptr [0 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
   store i64 4096, ptr %4, align 8
@@ -1407,7 +1407,7 @@ define dso_local i64 @perf_output_copy_aux(ptr noundef readonly captures(none) %
   store i32 %55, ptr %18, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 240
   %57 = sext i32 %55 to i64
-  %58 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %57
+  %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %16, align 8
   store i64 4096, ptr %15, align 8
@@ -1446,7 +1446,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
 
 12:                                               ; preds = %6
   %13 = sext i32 %10 to i64
-  %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @numa_node to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -1834,7 +1834,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 .thread:                                          ; preds = %14
   %19 = sext i32 %2 to i64
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
+  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @numa_node to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -1887,7 +1887,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 53:                                               ; preds = %51
   %54 = sext i32 %2 to i64
-  %55 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %54
+  %55 = getelementptr i64, ptr @__per_cpu_offset, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 240
   %57 = zext nneg i32 %0 to i64
   br i1 %15, label %.thread13.us, label %.split
@@ -1907,7 +1907,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
   %67 = load i64, ptr @page_offset_base, align 8
   %68 = add i64 %66, %67
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %58
+  %70 = getelementptr ptr, ptr %56, i64 %58
   store ptr %69, ptr %70, align 8
   %71 = icmp eq i64 %68, 0
   br i1 %71, label %.loopexit15, label %72
@@ -1938,7 +1938,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 .thread14:                                        ; preds = %82, %.thread13.us
   %.us-phi = phi i64 [ %58, %.thread13.us ], [ %75, %82 ]
-  %86 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %.us-phi
+  %86 = getelementptr ptr, ptr %56, i64 %.us-phi
   store ptr null, ptr %86, align 8
   br label %.loopexit15
 
@@ -1950,7 +1950,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
   %92 = load i64, ptr @page_offset_base, align 8
   %93 = add i64 %91, %92
   %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %75
+  %95 = getelementptr ptr, ptr %56, i64 %75
   store ptr %94, ptr %95, align 8
   %96 = icmp eq i64 %93, 0
   br i1 %96, label %.loopexit15, label %102
@@ -2023,7 +2023,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %101, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %128 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %128 = getelementptr ptr, ptr %56, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8
   %130 = load i64, ptr @vmemmap_base, align 8
   %131 = inttoptr i64 %130 to ptr
@@ -2105,7 +2105,7 @@ define dso_local void @rb_free(ptr noundef %0) local_unnamed_addr #0 align 16 {
 
 22:                                               ; preds = %22, %20
   %23 = phi i64 [ 0, %20 ], [ %39, %22 ]
-  %24 = getelementptr [0 x ptr], ptr %21, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr @vmemmap_base, align 8
   %27 = inttoptr i64 %26 to ptr
@@ -2146,7 +2146,7 @@ define dso_local ptr @perf_mmap_to_page(ptr noundef readonly captures(none) %0, 
   %9 = sext i32 %4 to i64
   %10 = add i64 %8, %9
   %11 = icmp ult i64 %10, %1
-  br i1 %11, label %73, label %12
+  br i1 %11, label %71, label %12
 
 12:                                               ; preds = %6
   %13 = icmp ugt i64 %8, %1
@@ -2174,24 +2174,24 @@ define dso_local ptr @perf_mmap_to_page(ptr noundef readonly captures(none) %0, 
   %33 = add i64 %27, %32
   %34 = lshr i64 %33, 12
   %35 = getelementptr %struct.page, ptr %19, i64 %34
-  br label %73
+  br label %71
 
 36:                                               ; preds = %12, %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp ugt i64 %1, %39
-  br i1 %40, label %73, label %41
+  br i1 %40, label %71, label %41
 
 41:                                               ; preds = %36
   %42 = icmp eq i64 %1, 0
   %43 = load i64, ptr @vmemmap_base, align 8
   %44 = inttoptr i64 %43 to ptr
-  br i1 %42, label %45, label %58
+  %45 = getelementptr i8, ptr %0, i64 232
+  br i1 %42, label %46, label %58
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %47 = load ptr, ptr %46, align 8
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %45, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = add i64 %48, 2147483648
   %50 = icmp ugt ptr %47, inttoptr (i64 -2147483649 to ptr)
@@ -2202,28 +2202,26 @@ define dso_local ptr @perf_mmap_to_page(ptr noundef readonly captures(none) %0, 
   %55 = add i64 %49, %54
   %56 = lshr i64 %55, 12
   %57 = getelementptr %struct.page, ptr %44, i64 %56
-  br label %73
+  br label %71
 
 58:                                               ; preds = %41
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %60 = add i64 %1, -1
-  %61 = getelementptr [0 x ptr], ptr %59, i64 0, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  %63 = ptrtoint ptr %62 to i64
-  %64 = add i64 %63, 2147483648
-  %65 = icmp ugt ptr %62, inttoptr (i64 -2147483649 to ptr)
-  %66 = load i64, ptr @phys_base, align 8
-  %67 = load i64, ptr @page_offset_base, align 8
-  %68 = sub i64 -2147483648, %67
-  %69 = select i1 %65, i64 %66, i64 %68
-  %70 = add i64 %64, %69
-  %71 = lshr i64 %70, 12
-  %72 = getelementptr %struct.page, ptr %44, i64 %71
-  br label %73
+  %59 = getelementptr ptr, ptr %45, i64 %1
+  %60 = load ptr, ptr %59, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = add i64 %61, 2147483648
+  %63 = icmp ugt ptr %60, inttoptr (i64 -2147483649 to ptr)
+  %64 = load i64, ptr @phys_base, align 8
+  %65 = load i64, ptr @page_offset_base, align 8
+  %66 = sub i64 -2147483648, %65
+  %67 = select i1 %63, i64 %64, i64 %66
+  %68 = add i64 %62, %67
+  %69 = lshr i64 %68, 12
+  %70 = getelementptr %struct.page, ptr %44, i64 %69
+  br label %71
 
-73:                                               ; preds = %58, %45, %36, %14, %6
-  %74 = phi ptr [ %35, %14 ], [ null, %6 ], [ %57, %45 ], [ %72, %58 ], [ null, %36 ]
-  ret ptr %74
+71:                                               ; preds = %58, %46, %36, %14, %6
+  %72 = phi ptr [ %35, %14 ], [ null, %6 ], [ %57, %46 ], [ %70, %58 ], [ null, %36 ]
+  ret ptr %72
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

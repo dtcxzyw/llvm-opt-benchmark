@@ -17210,7 +17210,7 @@ _ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit.thread: ; preds = 
 
 switch.lookup:                                    ; preds = %392
   %394 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextE, i64 0, i64 %394
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextE, i64 %394
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.thread227
 
@@ -19353,7 +19353,7 @@ switch.lookup:
   %9 = and i8 %8, -2
   store i8 %9, ptr %7, align 8
   %10 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %0, align 8, !tbaa !1251
   ret void
@@ -19923,10 +19923,10 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameEN
 
 switch.lookup:                                    ; preds = %3
   %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [27 x ptr], ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = zext nneg i8 %10 to i64
-  %switch.gep58 = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE.4, i64 0, i64 %13
+  %switch.gep58 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE.4, i64 %13
   %switch.load59 = load i64, ptr %switch.gep58, align 8
   br label %14
 
@@ -20200,7 +20200,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6object23WasmSectionOrderChecker19i
   %14 = phi i32 [ 0, %9 ], [ %49, %43 ]
   %.017 = phi i32 [ %7, %9 ], [ %48, %43 ]
   %15 = sext i32 %.017 to i64
-  %16 = getelementptr inbounds [20 x [20 x i32]], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 0, i64 %15
+  %16 = getelementptr inbounds [20 x i32], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 %15
   %17 = load i32, ptr %16, align 16, !tbaa !224
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
@@ -20210,7 +20210,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6object23WasmSectionOrderChecker19i
   %20 = phi i32 [ %40, %36 ], [ %17, %13 ]
   %.01624 = phi i64 [ %38, %36 ], [ 0, %13 ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [20 x i8], ptr %6, i64 0, i64 %21
+  %22 = getelementptr inbounds i8, ptr %6, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !179, !range !256, !noundef !257
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %36, label %25
@@ -20242,7 +20242,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %25, %27
 36:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %.lr.ph
   %37 = phi i32 [ %35, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %19, %.lr.ph ]
   %38 = add i64 %.01624, 1
-  %39 = getelementptr inbounds nuw [20 x i32], ptr %16, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %16, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !224
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !1273
@@ -20261,14 +20261,14 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %25, %27
   %49 = add i32 %42, -1
   store i32 %49, ptr %11, align 8, !tbaa !271
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds [20 x i8], ptr %0, i64 0, i64 %50
+  %51 = getelementptr inbounds i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !179, !range !256, !noundef !257
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %.loopexit, label %13, !llvm.loop !1274
 
 54:                                               ; preds = %._crit_edge
   %55 = zext nneg i32 %7 to i64
-  %56 = getelementptr inbounds nuw [20 x i8], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %55
   store i8 1, ptr %56, align 1, !tbaa !179
   %.pre = load ptr, ptr %5, align 8, !tbaa !269
   br label %.loopexit

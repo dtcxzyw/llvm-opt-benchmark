@@ -7940,7 +7940,7 @@ define dso_local void @_ZNSt3__19to_stringEi(ptr dead_on_unwind noalias writable
   %18 = mul nuw nsw i32 %17, 1233
   %19 = lshr i32 %18, 12
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [10 x i32], ptr @_ZNSt3__16__itoa10__pow10_32E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !43, !noalias !174
   %23 = icmp ult i32 %.0.i.i.i, %22
   %.neg.i.i.i.i.i = sext i1 %23 to i32
@@ -8040,7 +8040,7 @@ define dso_local void @_ZNSt3__19to_stringEl(ptr dead_on_unwind noalias writable
   %19 = mul nuw nsw i32 %18, 1233
   %20 = lshr i32 %19, 12
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [20 x i64], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !55, !noalias !177
   %24 = icmp ult i64 %.0.i.i.i, %23
   %.neg.i.i.i.i.i = sext i1 %24 to i32
@@ -8075,7 +8075,7 @@ define dso_local void @_ZNSt3__19to_stringEl(ptr dead_on_unwind noalias writable
   %.0.i.i.i.i.i.i = phi i64 [ %39, %35 ], [ %.0.i.i.i, %33 ]
   %41 = udiv i64 %.0.i.i.i.i.i.i, 100000000
   %42 = shl nuw nsw i64 %41, 1
-  %43 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %42
   %44 = load i16, ptr %43, align 2, !noalias !177
   store i16 %44, ptr %.09.i.i.i.i.i.i, align 1, !noalias !177
   %45 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 2
@@ -8084,7 +8084,7 @@ define dso_local void @_ZNSt3__19to_stringEl(ptr dead_on_unwind noalias writable
   %48 = udiv i32 %47, 1000000
   %49 = shl nuw nsw i32 %48, 1
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %50
   %52 = load i16, ptr %51, align 2, !noalias !177
   store i16 %52, ptr %45, align 1, !noalias !177
   %53 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 4
@@ -8092,7 +8092,7 @@ define dso_local void @_ZNSt3__19to_stringEl(ptr dead_on_unwind noalias writable
   %55 = udiv i32 %54, 10000
   %56 = shl nuw nsw i32 %55, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %57
   %59 = load i16, ptr %58, align 2, !noalias !177
   store i16 %59, ptr %53, align 1, !noalias !177
   %60 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 6
@@ -8101,14 +8101,14 @@ define dso_local void @_ZNSt3__19to_stringEl(ptr dead_on_unwind noalias writable
   %62 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %63 = shl nuw nsw i16 %62, 1
   %64 = zext nneg i16 %63 to i64
-  %65 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %64
   %66 = load i16, ptr %65, align 2, !noalias !177
   store i16 %66, ptr %60, align 1, !noalias !177
   %67 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %68 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %69 = shl nuw nsw i16 %68, 1
   %70 = zext nneg i16 %69 to i64
-  %71 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %70
   %72 = load i16, ptr %71, align 2, !noalias !177
   store i16 %72, ptr %67, align 1, !noalias !177
   %73 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 10
@@ -8199,7 +8199,7 @@ define dso_local void @_ZNSt3__19to_stringEx(ptr dead_on_unwind noalias writable
   %19 = mul nuw nsw i32 %18, 1233
   %20 = lshr i32 %19, 12
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [20 x i64], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !55, !noalias !180
   %24 = icmp ult i64 %.0.i.i.i, %23
   %.neg.i.i.i.i.i = sext i1 %24 to i32
@@ -8234,7 +8234,7 @@ define dso_local void @_ZNSt3__19to_stringEx(ptr dead_on_unwind noalias writable
   %.0.i.i.i.i.i.i = phi i64 [ %39, %35 ], [ %.0.i.i.i, %33 ]
   %41 = udiv i64 %.0.i.i.i.i.i.i, 100000000
   %42 = shl nuw nsw i64 %41, 1
-  %43 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %42
   %44 = load i16, ptr %43, align 2, !noalias !180
   store i16 %44, ptr %.09.i.i.i.i.i.i, align 1, !noalias !180
   %45 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 2
@@ -8243,7 +8243,7 @@ define dso_local void @_ZNSt3__19to_stringEx(ptr dead_on_unwind noalias writable
   %48 = udiv i32 %47, 1000000
   %49 = shl nuw nsw i32 %48, 1
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %50
   %52 = load i16, ptr %51, align 2, !noalias !180
   store i16 %52, ptr %45, align 1, !noalias !180
   %53 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 4
@@ -8251,7 +8251,7 @@ define dso_local void @_ZNSt3__19to_stringEx(ptr dead_on_unwind noalias writable
   %55 = udiv i32 %54, 10000
   %56 = shl nuw nsw i32 %55, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %57
   %59 = load i16, ptr %58, align 2, !noalias !180
   store i16 %59, ptr %53, align 1, !noalias !180
   %60 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 6
@@ -8260,14 +8260,14 @@ define dso_local void @_ZNSt3__19to_stringEx(ptr dead_on_unwind noalias writable
   %62 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %63 = shl nuw nsw i16 %62, 1
   %64 = zext nneg i16 %63 to i64
-  %65 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %64
   %66 = load i16, ptr %65, align 2, !noalias !180
   store i16 %66, ptr %60, align 1, !noalias !180
   %67 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %68 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %69 = shl nuw nsw i16 %68, 1
   %70 = zext nneg i16 %69 to i64
-  %71 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %70
   %72 = load i16, ptr %71, align 2, !noalias !180
   store i16 %72, ptr %67, align 1, !noalias !180
   %73 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 10
@@ -8412,7 +8412,7 @@ define dso_local void @_ZNSt3__19to_stringEm(ptr dead_on_unwind noalias writable
   %.0.i.i.i.i.i = phi i64 [ %14, %10 ], [ %1, %8 ]
   %16 = udiv i64 %.0.i.i.i.i.i, 100000000
   %17 = shl nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %17
   %19 = load i16, ptr %18, align 2, !noalias !186
   store i16 %19, ptr %.09.i.i.i.i.i, align 1, !noalias !186
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 2
@@ -8421,7 +8421,7 @@ define dso_local void @_ZNSt3__19to_stringEm(ptr dead_on_unwind noalias writable
   %23 = udiv i32 %22, 1000000
   %24 = shl nuw nsw i32 %23, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %25
   %27 = load i16, ptr %26, align 2, !noalias !186
   store i16 %27, ptr %20, align 1, !noalias !186
   %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 4
@@ -8429,7 +8429,7 @@ define dso_local void @_ZNSt3__19to_stringEm(ptr dead_on_unwind noalias writable
   %30 = udiv i32 %29, 10000
   %31 = shl nuw nsw i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %32
   %34 = load i16, ptr %33, align 2, !noalias !186
   store i16 %34, ptr %28, align 1, !noalias !186
   %35 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 6
@@ -8438,14 +8438,14 @@ define dso_local void @_ZNSt3__19to_stringEm(ptr dead_on_unwind noalias writable
   %37 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %38 = shl nuw nsw i16 %37, 1
   %39 = zext nneg i16 %38 to i64
-  %40 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %39
   %41 = load i16, ptr %40, align 2, !noalias !186
   store i16 %41, ptr %35, align 1, !noalias !186
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %43 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %44 = shl nuw nsw i16 %43, 1
   %45 = zext nneg i16 %44 to i64
-  %46 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %45
   %47 = load i16, ptr %46, align 2, !noalias !186
   store i16 %47, ptr %42, align 1, !noalias !186
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 10
@@ -8533,7 +8533,7 @@ define dso_local void @_ZNSt3__19to_stringEy(ptr dead_on_unwind noalias writable
   %.0.i.i.i.i.i = phi i64 [ %14, %10 ], [ %1, %8 ]
   %16 = udiv i64 %.0.i.i.i.i.i, 100000000
   %17 = shl nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %17
   %19 = load i16, ptr %18, align 2, !noalias !189
   store i16 %19, ptr %.09.i.i.i.i.i, align 1, !noalias !189
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 2
@@ -8542,7 +8542,7 @@ define dso_local void @_ZNSt3__19to_stringEy(ptr dead_on_unwind noalias writable
   %23 = udiv i32 %22, 1000000
   %24 = shl nuw nsw i32 %23, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %25
   %27 = load i16, ptr %26, align 2, !noalias !189
   store i16 %27, ptr %20, align 1, !noalias !189
   %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 4
@@ -8550,7 +8550,7 @@ define dso_local void @_ZNSt3__19to_stringEy(ptr dead_on_unwind noalias writable
   %30 = udiv i32 %29, 10000
   %31 = shl nuw nsw i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %32
   %34 = load i16, ptr %33, align 2, !noalias !189
   store i16 %34, ptr %28, align 1, !noalias !189
   %35 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 6
@@ -8559,14 +8559,14 @@ define dso_local void @_ZNSt3__19to_stringEy(ptr dead_on_unwind noalias writable
   %37 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %38 = shl nuw nsw i16 %37, 1
   %39 = zext nneg i16 %38 to i64
-  %40 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %39
   %41 = load i16, ptr %40, align 2, !noalias !189
   store i16 %41, ptr %35, align 1, !noalias !189
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %43 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %44 = shl nuw nsw i16 %43, 1
   %45 = zext nneg i16 %44 to i64
-  %46 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %45
   %47 = load i16, ptr %46, align 2, !noalias !189
   store i16 %47, ptr %42, align 1, !noalias !189
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 10
@@ -8656,7 +8656,7 @@ define dso_local void @_ZNSt3__110to_wstringEi(ptr dead_on_unwind noalias writab
   %18 = mul nuw nsw i32 %17, 1233
   %19 = lshr i32 %18, 12
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [10 x i32], ptr @_ZNSt3__16__itoa10__pow10_32E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !43, !noalias !192
   %23 = icmp ult i32 %.0.i.i.i, %22
   %.neg.i.i.i.i.i = sext i1 %23 to i32
@@ -8764,7 +8764,7 @@ define dso_local void @_ZNSt3__110to_wstringEl(ptr dead_on_unwind noalias writab
   %19 = mul nuw nsw i32 %18, 1233
   %20 = lshr i32 %19, 12
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [20 x i64], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !55, !noalias !196
   %24 = icmp ult i64 %.0.i.i.i, %23
   %.neg.i.i.i.i.i = sext i1 %24 to i32
@@ -8799,7 +8799,7 @@ define dso_local void @_ZNSt3__110to_wstringEl(ptr dead_on_unwind noalias writab
   %.0.i.i.i.i.i.i = phi i64 [ %39, %35 ], [ %.0.i.i.i, %33 ]
   %41 = udiv i64 %.0.i.i.i.i.i.i, 100000000
   %42 = shl nuw nsw i64 %41, 1
-  %43 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %42
   %44 = load i16, ptr %43, align 2, !noalias !196
   store i16 %44, ptr %.09.i.i.i.i.i.i, align 1, !noalias !196
   %45 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 2
@@ -8808,7 +8808,7 @@ define dso_local void @_ZNSt3__110to_wstringEl(ptr dead_on_unwind noalias writab
   %48 = udiv i32 %47, 1000000
   %49 = shl nuw nsw i32 %48, 1
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %50
   %52 = load i16, ptr %51, align 2, !noalias !196
   store i16 %52, ptr %45, align 1, !noalias !196
   %53 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 4
@@ -8816,7 +8816,7 @@ define dso_local void @_ZNSt3__110to_wstringEl(ptr dead_on_unwind noalias writab
   %55 = udiv i32 %54, 10000
   %56 = shl nuw nsw i32 %55, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %57
   %59 = load i16, ptr %58, align 2, !noalias !196
   store i16 %59, ptr %53, align 1, !noalias !196
   %60 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 6
@@ -8825,14 +8825,14 @@ define dso_local void @_ZNSt3__110to_wstringEl(ptr dead_on_unwind noalias writab
   %62 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %63 = shl nuw nsw i16 %62, 1
   %64 = zext nneg i16 %63 to i64
-  %65 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %64
   %66 = load i16, ptr %65, align 2, !noalias !196
   store i16 %66, ptr %60, align 1, !noalias !196
   %67 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %68 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %69 = shl nuw nsw i16 %68, 1
   %70 = zext nneg i16 %69 to i64
-  %71 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %70
   %72 = load i16, ptr %71, align 2, !noalias !196
   store i16 %72, ptr %67, align 1, !noalias !196
   %73 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 10
@@ -8931,7 +8931,7 @@ define dso_local void @_ZNSt3__110to_wstringEx(ptr dead_on_unwind noalias writab
   %19 = mul nuw nsw i32 %18, 1233
   %20 = lshr i32 %19, 12
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [20 x i64], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !55, !noalias !199
   %24 = icmp ult i64 %.0.i.i.i, %23
   %.neg.i.i.i.i.i = sext i1 %24 to i32
@@ -8966,7 +8966,7 @@ define dso_local void @_ZNSt3__110to_wstringEx(ptr dead_on_unwind noalias writab
   %.0.i.i.i.i.i.i = phi i64 [ %39, %35 ], [ %.0.i.i.i, %33 ]
   %41 = udiv i64 %.0.i.i.i.i.i.i, 100000000
   %42 = shl nuw nsw i64 %41, 1
-  %43 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %42
   %44 = load i16, ptr %43, align 2, !noalias !199
   store i16 %44, ptr %.09.i.i.i.i.i.i, align 1, !noalias !199
   %45 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 2
@@ -8975,7 +8975,7 @@ define dso_local void @_ZNSt3__110to_wstringEx(ptr dead_on_unwind noalias writab
   %48 = udiv i32 %47, 1000000
   %49 = shl nuw nsw i32 %48, 1
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %50
   %52 = load i16, ptr %51, align 2, !noalias !199
   store i16 %52, ptr %45, align 1, !noalias !199
   %53 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 4
@@ -8983,7 +8983,7 @@ define dso_local void @_ZNSt3__110to_wstringEx(ptr dead_on_unwind noalias writab
   %55 = udiv i32 %54, 10000
   %56 = shl nuw nsw i32 %55, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %57
   %59 = load i16, ptr %58, align 2, !noalias !199
   store i16 %59, ptr %53, align 1, !noalias !199
   %60 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 6
@@ -8992,14 +8992,14 @@ define dso_local void @_ZNSt3__110to_wstringEx(ptr dead_on_unwind noalias writab
   %62 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %63 = shl nuw nsw i16 %62, 1
   %64 = zext nneg i16 %63 to i64
-  %65 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %64
   %66 = load i16, ptr %65, align 2, !noalias !199
   store i16 %66, ptr %60, align 1, !noalias !199
   %67 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %68 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %69 = shl nuw nsw i16 %68, 1
   %70 = zext nneg i16 %69 to i64
-  %71 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %70
   %72 = load i16, ptr %71, align 2, !noalias !199
   store i16 %72, ptr %67, align 1, !noalias !199
   %73 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 10
@@ -9160,7 +9160,7 @@ define dso_local void @_ZNSt3__110to_wstringEm(ptr dead_on_unwind noalias writab
   %.0.i.i.i.i.i = phi i64 [ %14, %10 ], [ %1, %8 ]
   %16 = udiv i64 %.0.i.i.i.i.i, 100000000
   %17 = shl nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %17
   %19 = load i16, ptr %18, align 2, !noalias !205
   store i16 %19, ptr %.09.i.i.i.i.i, align 1, !noalias !205
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 2
@@ -9169,7 +9169,7 @@ define dso_local void @_ZNSt3__110to_wstringEm(ptr dead_on_unwind noalias writab
   %23 = udiv i32 %22, 1000000
   %24 = shl nuw nsw i32 %23, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %25
   %27 = load i16, ptr %26, align 2, !noalias !205
   store i16 %27, ptr %20, align 1, !noalias !205
   %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 4
@@ -9177,7 +9177,7 @@ define dso_local void @_ZNSt3__110to_wstringEm(ptr dead_on_unwind noalias writab
   %30 = udiv i32 %29, 10000
   %31 = shl nuw nsw i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %32
   %34 = load i16, ptr %33, align 2, !noalias !205
   store i16 %34, ptr %28, align 1, !noalias !205
   %35 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 6
@@ -9186,14 +9186,14 @@ define dso_local void @_ZNSt3__110to_wstringEm(ptr dead_on_unwind noalias writab
   %37 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %38 = shl nuw nsw i16 %37, 1
   %39 = zext nneg i16 %38 to i64
-  %40 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %39
   %41 = load i16, ptr %40, align 2, !noalias !205
   store i16 %41, ptr %35, align 1, !noalias !205
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %43 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %44 = shl nuw nsw i16 %43, 1
   %45 = zext nneg i16 %44 to i64
-  %46 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %45
   %47 = load i16, ptr %46, align 2, !noalias !205
   store i16 %47, ptr %42, align 1, !noalias !205
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 10
@@ -9289,7 +9289,7 @@ define dso_local void @_ZNSt3__110to_wstringEy(ptr dead_on_unwind noalias writab
   %.0.i.i.i.i.i = phi i64 [ %14, %10 ], [ %1, %8 ]
   %16 = udiv i64 %.0.i.i.i.i.i, 100000000
   %17 = shl nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %17
   %19 = load i16, ptr %18, align 2, !noalias !208
   store i16 %19, ptr %.09.i.i.i.i.i, align 1, !noalias !208
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 2
@@ -9298,7 +9298,7 @@ define dso_local void @_ZNSt3__110to_wstringEy(ptr dead_on_unwind noalias writab
   %23 = udiv i32 %22, 1000000
   %24 = shl nuw nsw i32 %23, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %25
   %27 = load i16, ptr %26, align 2, !noalias !208
   store i16 %27, ptr %20, align 1, !noalias !208
   %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 4
@@ -9306,7 +9306,7 @@ define dso_local void @_ZNSt3__110to_wstringEy(ptr dead_on_unwind noalias writab
   %30 = udiv i32 %29, 10000
   %31 = shl nuw nsw i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %32
   %34 = load i16, ptr %33, align 2, !noalias !208
   store i16 %34, ptr %28, align 1, !noalias !208
   %35 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 6
@@ -9315,14 +9315,14 @@ define dso_local void @_ZNSt3__110to_wstringEy(ptr dead_on_unwind noalias writab
   %37 = udiv i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %38 = shl nuw nsw i16 %37, 1
   %39 = zext nneg i16 %38 to i64
-  %40 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %39
   %41 = load i16, ptr %40, align 2, !noalias !208
   store i16 %41, ptr %35, align 1, !noalias !208
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %43 = urem i16 %.lhs.trunc.i.i.i.i.i.i.i.i, 100
   %44 = shl nuw nsw i16 %43, 1
   %45 = zext nneg i16 %44 to i64
-  %46 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %45
   %47 = load i16, ptr %46, align 2, !noalias !208
   store i16 %47, ptr %42, align 1, !noalias !208
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 10
@@ -10703,7 +10703,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
 13:                                               ; preds = %8
   %14 = shl nuw nsw i32 %1, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %15
   %17 = load i16, ptr %16, align 2
   store i16 %17, ptr %0, align 1
   br label %196
@@ -10723,7 +10723,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %26 = urem i16 %.lhs.trunc, 100
   %27 = shl nuw nsw i16 %26, 1
   %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %28
   %30 = load i16, ptr %29, align 2
   store i16 %30, ptr %25, align 1
   br label %196
@@ -10731,13 +10731,13 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
 31:                                               ; preds = %18
   %32 = shl nuw nsw i16 %20, 1
   %33 = zext nneg i16 %32 to i64
-  %34 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %33
   %35 = load i16, ptr %34, align 2
   store i16 %35, ptr %0, align 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %37 = shl nuw nsw i16 %21, 1
   %38 = zext nneg i16 %37 to i64
-  %39 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %38
   %40 = load i16, ptr %39, align 2
   store i16 %40, ptr %36, align 1
   br label %196
@@ -10758,14 +10758,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %50 = udiv i16 %.lhs.trunc.i, 100
   %51 = shl nuw nsw i16 %50, 1
   %52 = zext nneg i16 %51 to i64
-  %53 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %52
   %54 = load i16, ptr %53, align 2
   store i16 %54, ptr %48, align 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %56 = urem i16 %.lhs.trunc.i, 100
   %57 = shl nuw nsw i16 %56, 1
   %58 = zext nneg i16 %57 to i64
-  %59 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %58
   %60 = load i16, ptr %59, align 2
   store i16 %60, ptr %55, align 1
   br label %196
@@ -10773,7 +10773,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
 61:                                               ; preds = %41
   %62 = shl nuw nsw i32 %43, 1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %63
   %65 = load i16, ptr %64, align 2
   store i16 %65, ptr %0, align 1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -10781,14 +10781,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %67 = udiv i16 %.lhs.trunc.i30, 100
   %68 = shl nuw nsw i16 %67, 1
   %69 = zext nneg i16 %68 to i64
-  %70 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %69
   %71 = load i16, ptr %70, align 2
   store i16 %71, ptr %66, align 1
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %73 = urem i16 %.lhs.trunc.i30, 100
   %74 = shl nuw nsw i16 %73, 1
   %75 = zext nneg i16 %74 to i64
-  %76 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %75
   %77 = load i16, ptr %76, align 2
   store i16 %77, ptr %72, align 1
   br label %196
@@ -10812,7 +10812,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %89 = udiv i32 %88, 10000
   %90 = shl nuw nsw i32 %89, 1
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %91
   %93 = load i16, ptr %92, align 2
   store i16 %93, ptr %87, align 1
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -10821,14 +10821,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %96 = udiv i16 %.lhs.trunc.i.i, 100
   %97 = shl nuw nsw i16 %96, 1
   %98 = zext nneg i16 %97 to i64
-  %99 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %98
   %100 = load i16, ptr %99, align 2
   store i16 %100, ptr %94, align 1
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %102 = urem i16 %.lhs.trunc.i.i, 100
   %103 = shl nuw nsw i16 %102, 1
   %104 = zext nneg i16 %103 to i64
-  %105 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %104
   %106 = load i16, ptr %105, align 2
   store i16 %106, ptr %101, align 1
   br label %196
@@ -10836,14 +10836,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
 107:                                              ; preds = %80
   %108 = shl nuw nsw i32 %82, 1
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %109
   %111 = load i16, ptr %110, align 2
   store i16 %111, ptr %0, align 1
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %113 = udiv i32 %83, 10000
   %114 = shl nuw nsw i32 %113, 1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %115
   %117 = load i16, ptr %116, align 2
   store i16 %117, ptr %112, align 1
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -10852,14 +10852,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %120 = udiv i16 %.lhs.trunc.i.i31, 100
   %121 = shl nuw nsw i16 %120, 1
   %122 = zext nneg i16 %121 to i64
-  %123 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %122
   %124 = load i16, ptr %123, align 2
   store i16 %124, ptr %118, align 1
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %126 = urem i16 %.lhs.trunc.i.i31, 100
   %127 = shl nuw nsw i16 %126, 1
   %128 = zext nneg i16 %127 to i64
-  %129 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %128
   %130 = load i16, ptr %129, align 2
   store i16 %130, ptr %125, align 1
   br label %196
@@ -10879,7 +10879,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %140 = udiv i32 %139, 1000000
   %141 = shl nuw nsw i32 %140, 1
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %142
   %144 = load i16, ptr %143, align 2
   store i16 %144, ptr %138, align 1
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -10887,7 +10887,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %147 = udiv i32 %146, 10000
   %148 = shl nuw nsw i32 %147, 1
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %149
   %151 = load i16, ptr %150, align 2
   store i16 %151, ptr %145, align 1
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -10896,14 +10896,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %154 = udiv i16 %.lhs.trunc.i.i.i, 100
   %155 = shl nuw nsw i16 %154, 1
   %156 = zext nneg i16 %155 to i64
-  %157 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %156
   %158 = load i16, ptr %157, align 2
   store i16 %158, ptr %152, align 1
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %160 = urem i16 %.lhs.trunc.i.i.i, 100
   %161 = shl nuw nsw i16 %160, 1
   %162 = zext nneg i16 %161 to i64
-  %163 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %162
   %164 = load i16, ptr %163, align 2
   store i16 %164, ptr %159, align 1
   br label %196
@@ -10911,14 +10911,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
 165:                                              ; preds = %131
   %166 = shl nuw nsw i32 %133, 1
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %167
   %169 = load i16, ptr %168, align 2
   store i16 %169, ptr %0, align 1
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %171 = udiv i32 %134, 1000000
   %172 = shl nuw nsw i32 %171, 1
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %173
   %175 = load i16, ptr %174, align 2
   store i16 %175, ptr %170, align 1
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -10926,7 +10926,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %178 = udiv i32 %177, 10000
   %179 = shl nuw nsw i32 %178, 1
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %180
   %182 = load i16, ptr %181, align 2
   store i16 %182, ptr %176, align 1
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -10935,14 +10935,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__16__itoa13__base_10_u32B8ne21000
   %185 = udiv i16 %.lhs.trunc.i.i.i32, 100
   %186 = shl nuw nsw i16 %185, 1
   %187 = zext nneg i16 %186 to i64
-  %188 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %187
   %189 = load i16, ptr %188, align 2
   store i16 %189, ptr %183, align 1
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %191 = urem i16 %.lhs.trunc.i.i.i32, 100
   %192 = shl nuw nsw i16 %191, 1
   %193 = zext nneg i16 %192 to i64
-  %194 = getelementptr inbounds nuw [200 x i8], ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %193
   %195 = load i16, ptr %194, align 2
   store i16 %195, ptr %190, align 1
   br label %196

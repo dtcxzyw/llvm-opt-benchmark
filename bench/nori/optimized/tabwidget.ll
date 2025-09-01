@@ -1321,7 +1321,7 @@ define hidden void @_ZN7nanogui13TabWidgetBase4drawEP10NVGcontext(ptr noundef no
 
 230:                                              ; preds = %230, %204
   %.04.i.i = phi i64 [ 0, %204 ], [ %232, %230 ]
-  %231 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.04.i.i
+  %231 = getelementptr inbounds nuw float, ptr %5, i64 %.04.i.i
   store float 2.550000e+02, ptr %231, align 4
   %232 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %232, 4
@@ -1333,12 +1333,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %230
 
 233:                                              ; preds = %233, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
   %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i ], [ %240, %233 ]
-  %234 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.06.i.i
+  %234 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i.i
   %235 = load float, ptr %234, align 4
-  %236 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.06.i.i
+  %236 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i
   %237 = load float, ptr %236, align 4
   %238 = fdiv float %235, %237
-  %239 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %.06.i.i
+  %239 = getelementptr inbounds nuw float, ptr %3, i64 %.06.i.i
   store float %238, ptr %239, align 4
   %240 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i4.i = icmp eq i64 %240, 4

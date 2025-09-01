@@ -728,7 +728,7 @@ Tls13DeriveKey.exit:                              ; preds = %163, %156
 
 171:                                              ; preds = %170
   %172 = zext nneg i32 %.1 to i64
-  %173 = getelementptr inbounds nuw [224 x i8], ptr %15, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i8, ptr %15, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 714
   %175 = load i16, ptr %174, align 2, !tbaa !52
   %176 = zext i16 %175 to i32
@@ -773,7 +773,7 @@ Tls13DeriveKey.exit153:                           ; preds = %180, %171
 
 189:                                              ; preds = %188
   %190 = zext nneg i32 %.2 to i64
-  %191 = getelementptr inbounds nuw [224 x i8], ptr %15, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr %15, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %193 = load i16, ptr %192, align 2, !tbaa !53
   %194 = zext i16 %193 to i32
@@ -818,7 +818,7 @@ Tls13DeriveKey.exit159:                           ; preds = %198, %189
 
 207:                                              ; preds = %206
   %208 = zext nneg i32 %.3 to i64
-  %209 = getelementptr inbounds nuw [224 x i8], ptr %15, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr %15, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %211 = load i16, ptr %210, align 2, !tbaa !53
   %212 = zext i16 %211 to i32
@@ -1707,42 +1707,40 @@ define range(i32 0, 2) i32 @FindSuiteSSL(ptr noundef readonly captures(none) %0,
 
 9:                                                ; preds = %2, %5
   %10 = phi ptr [ %8, %5 ], [ %4, %2 ]
-  %11 = load i16, ptr %10, align 2, !tbaa !90
-  %12 = zext i16 %11 to i32
-  %.not17 = icmp eq i16 %11, 0
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i16, ptr %10, align 2, !tbaa !90
+  %13 = zext i16 %12 to i32
+  %.not17 = icmp eq i16 %12, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = load i8, ptr %1, align 1, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %16
 
-16:                                               ; preds = %.lr.ph, %29
-  %17 = phi i32 [ 0, %.lr.ph ], [ %31, %29 ]
+16:                                               ; preds = %.lr.ph, %27
+  %17 = phi i32 [ 0, %.lr.ph ], [ %29, %27 ]
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [300 x i8], ptr %13, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !57
   %21 = icmp eq i8 %20, %14
-  br i1 %21, label %22, label %29
+  br i1 %21, label %22, label %27
 
 22:                                               ; preds = %16
-  %23 = add nuw nsw i32 %17, 1
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [300 x i8], ptr %13, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !57
-  %27 = load i8, ptr %15, align 1, !tbaa !57
-  %28 = icmp eq i8 %26, %27
-  br i1 %28, label %._crit_edge, label %29
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %24 = load i8, ptr %23, align 1, !tbaa !57
+  %25 = load i8, ptr %15, align 1, !tbaa !57
+  %26 = icmp eq i8 %24, %25
+  br i1 %26, label %._crit_edge, label %27
 
-29:                                               ; preds = %16, %22
-  %30 = add nuw nsw i32 %17, 2
-  %31 = and i32 %30, 65535
-  %32 = icmp samesign ult i32 %31, %12
-  br i1 %32, label %16, label %._crit_edge, !llvm.loop !92
+27:                                               ; preds = %16, %22
+  %28 = add nuw nsw i32 %17, 2
+  %29 = and i32 %28, 65535
+  %30 = icmp samesign ult i32 %29, %13
+  br i1 %30, label %16, label %._crit_edge, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %22, %29, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %29 ], [ 1, %22 ]
+._crit_edge:                                      ; preds = %22, %27, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %27 ], [ 1, %22 ]
   ret i32 %.0
 }
 

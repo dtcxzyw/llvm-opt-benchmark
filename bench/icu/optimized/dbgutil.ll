@@ -747,7 +747,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %1, %8, %10
   %19 = select i1 %14, i32 %18, i32 %16
   call void @u_UCharsToChars_77(ptr noundef %.0.i, ptr noundef nonnull %2, i32 noundef %19)
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %2, i64 %20
   store i8 0, ptr %21, align 1, !tbaa !22
   %22 = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #15
   %23 = trunc i64 %22 to i32
@@ -793,7 +793,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %1, %8, %10
   %19 = select i1 %14, i32 %18, i32 %16
   call void @u_UCharsToChars_77(ptr noundef %.0.i, ptr noundef nonnull %2, i32 noundef %19)
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %2, i64 %20
   store i8 0, ptr %21, align 1, !tbaa !22
   %22 = call double @strtod(ptr noundef nonnull captures(none) %2, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

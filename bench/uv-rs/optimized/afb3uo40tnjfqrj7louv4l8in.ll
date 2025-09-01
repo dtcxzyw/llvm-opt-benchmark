@@ -865,10 +865,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %"_ZN4core4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.val7 = load i8, ptr %15, align 1, !range !256, !noundef !3
   %17 = zext nneg i8 %.val7 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E", i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = zext nneg i8 %.val7 to i64
-  %switch.gep31 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E.43", i64 0, i64 %18
+  %switch.gep31 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E.43", i64 %18
   %switch.load32 = load i64, ptr %switch.gep31, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %.not.i.i.i.i.i.i = icmp ult i64 %11, %switch.load32
@@ -1254,10 +1254,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$url..parser..ParseError$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !357, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.42", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.42", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2737,10 +2737,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i8, ptr %0, align 1, !range !256, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep4 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E.43", i64 0, i64 %7
+  %switch.gep4 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$uv_requirements_txt..UnsupportedOption$u20$as$u20$core..fmt..Display$GT$3fmt17he16fc1f494115ff2E.43", i64 %7
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   store ptr %switch.load, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8

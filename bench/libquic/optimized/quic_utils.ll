@@ -374,7 +374,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils19StreamErrorToStringENS_22QuicRstS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN3net9QuicUtils19StreamErrorToStringENS_22QuicRstStreamErrorCodeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils19StreamErrorToStringENS_22QuicRstStreamErrorCodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -390,7 +390,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils13ErrorToStringENS_13QuicErrorCodeE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [96 x ptr], ptr @switch.table._ZN3net9QuicUtils13ErrorToStringENS_13QuicErrorCodeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils13ErrorToStringENS_13QuicErrorCodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -406,7 +406,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils23EncryptionLevelToStringENS_15Encr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3net9QuicUtils23EncryptionLevelToStringENS_15EncryptionLevelE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils23EncryptionLevelToStringENS_15EncryptionLevelE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -422,7 +422,7 @@ define noundef nonnull ptr @_ZN3net9QuicUtils24TransmissionTypeToStringENS_16Tra
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN3net9QuicUtils24TransmissionTypeToStringENS_16TransmissionTypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net9QuicUtils24TransmissionTypeToStringENS_16TransmissionTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -441,7 +441,7 @@ define void @_ZN3net9QuicUtils11TagToStringB5cxx11Ej(ptr dead_on_unwind noalias 
   %.021 = phi i32 [ %1, %2 ], [ %18, %17 ]
   %.01719 = phi i64 [ 0, %2 ], [ %19, %17 ]
   %5 = trunc i32 %.021 to i8
-  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %.01719
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.01719
   store i8 %5, ptr %6, align 1, !tbaa !3
   %sext = shl i32 %.021, 24
   %7 = icmp eq i32 %sext, 0

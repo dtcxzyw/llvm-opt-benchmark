@@ -271,7 +271,7 @@ define internal fastcc void @pti_clone_user_shared() unnamed_addr #0 section ".i
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpu_tss_rw to i64)
   %16 = inttoptr i64 %15 to ptr

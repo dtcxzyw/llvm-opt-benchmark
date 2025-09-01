@@ -3755,7 +3755,7 @@ proto_item_set_generated.exit:                    ; preds = %57, %60, %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef align 1 dereferenceable(16) %14, i64 noundef 16, i1 noundef false) #20
   %97 = sub nuw nsw i32 16, %95
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr [16 x i8], ptr %6, i64 0, i64 %98
+  %99 = getelementptr i8, ptr %6, i64 %98
   %100 = zext nneg i8 %.0119 to i64
   %101 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %99, i32 noundef %.0118140, i64 noundef %100)
   %102 = load i32, ptr @hf_ipv6_routing_rpl_fulladdr, align 4
@@ -7521,7 +7521,7 @@ dissect_opt_lio.exit:                             ; preds = %683, %689
   %701 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 -2147483646, 2050) %134)
   %702 = lshr i8 %701, 6
   %703 = zext nneg i8 %702 to i64
-  %704 = getelementptr [4 x i8], ptr @dissect_opt_mpl.seed_id_len_arr, i64 0, i64 %703
+  %704 = getelementptr i8, ptr @dissect_opt_mpl.seed_id_len_arr, i64 %703
   %705 = load i8, ptr %704, align 1
   %706 = add nuw nsw i32 %.0294, 3
   %707 = load i32, ptr @hf_ipv6_opt_mpl_sequence, align 4

@@ -327,7 +327,7 @@ define ptr @evws_new_session(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 2
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @basis_64, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 1
   store i8 %35, ptr %.045.i.i, align 1
@@ -338,7 +338,7 @@ define ptr @evws_new_session(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %41 = lshr i8 %40, 4
   %42 = or disjoint i8 %41, %38
   %43 = zext nneg i8 %42 to i64
-  %44 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @basis_64, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 2
   store i8 %45, ptr %36, align 1
@@ -349,13 +349,13 @@ define ptr @evws_new_session(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %51 = lshr i8 %50, 6
   %52 = or disjoint i8 %51, %48
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @basis_64, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 3
   store i8 %55, ptr %46, align 1
   %57 = and i8 %50, 63
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @basis_64, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 4
   store i8 %60, ptr %56, align 1
@@ -368,7 +368,7 @@ ws_gen_accept_key.exit:                           ; preds = %29
   %64 = load i8, ptr %63, align 2
   %65 = lshr i8 %64, 2
   %66 = zext nneg i8 %65 to i64
-  %67 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @basis_64, i64 %66
   %68 = load i8, ptr %67, align 1
   store i8 %68, ptr %61, align 1
   %69 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 5
@@ -379,13 +379,13 @@ ws_gen_accept_key.exit:                           ; preds = %29
   %74 = lshr i8 %73, 4
   %75 = or disjoint i8 %74, %71
   %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @basis_64, i64 %76
   %78 = load i8, ptr %77, align 1
   store i8 %78, ptr %69, align 1
   %79 = shl i8 %73, 2
   %80 = and i8 %79, 60
   %81 = zext nneg i8 %80 to i64
-  %82 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @basis_64, i64 %81
   %83 = load i8, ptr %82, align 4
   %84 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 6
   store i8 %83, ptr %84, align 1
@@ -877,7 +877,7 @@ define internal fastcc void @evws_send(ptr noundef readonly captures(none) %0, i
   %21 = lshr i64 %3, %indvars.iv.i
   %22 = trunc i64 %21 to i8
   %23 = add nuw nsw i64 %.126.i, 1
-  %24 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.126.i
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %.126.i
   store i8 %22, ptr %24, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
   %exitcond.not.i = icmp eq i64 %23, 10

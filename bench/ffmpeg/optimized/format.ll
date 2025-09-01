@@ -26,7 +26,7 @@ define range(i32 0, 2) i32 @sws_isSupportedInput(i32 noundef %0) local_unnamed_a
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i32
@@ -44,7 +44,7 @@ define range(i32 0, 2) i32 @sws_isSupportedOutput(i32 noundef %0) local_unnamed_
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 1
   %8 = and i8 %7, 1
@@ -63,7 +63,7 @@ define range(i32 0, 2) i32 @sws_isSupportedEndiannessConversion(i32 noundef %0) 
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 2
   %8 = and i8 %7, 1
@@ -781,7 +781,7 @@ define range(i32 0, 2) i32 @sws_test_format(i32 noundef %0, i32 noundef %1) loca
 
 5:                                                ; preds = %4
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = lshr i8 %8, 1
   %10 = and i8 %9, 1
@@ -792,7 +792,7 @@ define range(i32 0, 2) i32 @sws_test_format(i32 noundef %0, i32 noundef %1) loca
 
 12:                                               ; preds = %11
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 1
   br label %sws_isSupportedOutput.exit
@@ -810,7 +810,7 @@ define range(i32 0, 2) i32 @sws_test_colorspace(i32 noundef %0, i32 noundef %1) 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.sws_test_colorspace, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.sws_test_colorspace, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -879,7 +879,7 @@ define range(i32 0, 2) i32 @ff_test_fmt(ptr noundef readonly captures(none) %0, 
 
 14:                                               ; preds = %13
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = lshr i8 %17, 1
   br label %sws_test_format.exit
@@ -889,7 +889,7 @@ define range(i32 0, 2) i32 @ff_test_fmt(ptr noundef readonly captures(none) %0, 
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %11 to i64
-  %22 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %21
   %23 = load i8, ptr %22, align 1
   br label %sws_test_format.exit
 
@@ -993,7 +993,7 @@ define range(i32 0, 2) i32 @sws_test_frame(ptr noundef %0, i32 noundef %1) local
 
 sws_test_format.exit.i.us:                        ; preds = %17
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %20
   %22 = load i8, ptr %21, align 1
   %.shrunk.i.i.us = and i8 %22, 1
   %.not.i.us = icmp eq i8 %.shrunk.i.i.us, 0
@@ -1060,7 +1060,7 @@ sws_test_transfer.exit.i.us:                      ; preds = %sws_test_colorspace
 
 sws_test_format.exit.i:                           ; preds = %43
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds nuw [256 x %struct.FormatEntry], ptr @format_entries, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 2
   %.not.i = icmp eq i8 %49, 0

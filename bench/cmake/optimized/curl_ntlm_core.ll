@@ -163,7 +163,7 @@ define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noun
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 14)
   call void @Curl_strntoupper(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %spec.select) #8
-  %8 = getelementptr inbounds nuw [14 x i8], ptr %5, i64 0, i64 %spec.select
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %spec.select
   %9 = sub nuw nsw i64 14, %spec.select
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 0, i64 %9, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

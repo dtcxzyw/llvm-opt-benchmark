@@ -3473,7 +3473,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %5, align 8, !tbaa !527
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !541
   tail call void @_ZN3smt7context11internalizeEP4exprb(ptr noundef nonnull align 8 dereferenceable(10544) %19, ptr noundef %21, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

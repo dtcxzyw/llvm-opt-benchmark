@@ -292,7 +292,7 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
 
 69:                                               ; preds = %64
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr [3 x ptr], ptr @blk_mq_rq_state_name_array, i64 0, i64 %70
+  %71 = getelementptr ptr, ptr @blk_mq_rq_state_name_array, i64 %70
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -1343,7 +1343,7 @@ define internal noundef i32 @hctx_flags_show(ptr noundef readonly captures(none)
   %7 = and i32 %6, 1
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.102) #9
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr [2 x ptr], ptr @alloc_policy_name, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr @alloc_policy_name, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @seq_puts(ptr noundef %1, ptr noundef %10) #9
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.103) #9
@@ -1568,7 +1568,7 @@ define internal noundef i32 @hctx_type_show(ptr noundef readonly captures(none) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
-  %6 = getelementptr [3 x ptr], ptr @hctx_types, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @hctx_types, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.118, ptr noundef %7) #9
   ret i32 0

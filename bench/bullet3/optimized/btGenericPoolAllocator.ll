@@ -349,7 +349,7 @@ define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align
 
 5:                                                ; preds = %16, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %16 ]
-  %6 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %.06.i
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.06.i
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
@@ -406,7 +406,7 @@ define dso_local noundef ptr @_ZN22btGenericPoolAllocator13push_new_poolEv(ptr n
   %6 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 56, i32 noundef 16)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %2, align 8, !tbaa !24
-  %9 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %6, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !29
@@ -601,7 +601,7 @@ define dso_local noundef ptr @_ZN22btGenericPoolAllocator8allocateEm(ptr noundef
 
 6:                                                ; preds = %.lr.ph, %_ZN19btGenericMemoryPool8allocateEm.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN19btGenericMemoryPool8allocateEm.exit ]
-  %7 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %.012
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.012
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i64, ptr %9, align 8, !tbaa !19
@@ -734,7 +734,7 @@ define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator10freeMemoryEPv(
 
 8:                                                ; preds = %.lr.ph, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit
   %.011 = phi i64 [ 0, %.lr.ph ], [ %29, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit ]
-  %9 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %.011
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.011
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = icmp ult ptr %1, %11
@@ -791,7 +791,7 @@ define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr noundef nonnull align
 
 5:                                                ; preds = %.lr.ph, %16
   %.06 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %6 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %.06
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.06
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
@@ -857,7 +857,7 @@ define dso_local noundef ptr @_Z13btPoolReallocPvmm(ptr noundef %0, i64 noundef 
 
 9:                                                ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i, %.lr.ph.i.i
   %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %30, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i ]
-  %10 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %.011.i.i
+  %10 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 24), i64 %.011.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = icmp ult ptr %0, %12
@@ -915,7 +915,7 @@ define dso_local void @_Z10btPoolFreePv(ptr noundef %0) local_unnamed_addr #2 {
 
 5:                                                ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i ]
-  %6 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %.011.i
+  %6 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 24), i64 %.011.i
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = icmp ult ptr %0, %8
@@ -972,7 +972,7 @@ define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD0Ev(ptr noundef 
 
 5:                                                ; preds = %16, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %16 ]
-  %6 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %.06.i
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.06.i
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)

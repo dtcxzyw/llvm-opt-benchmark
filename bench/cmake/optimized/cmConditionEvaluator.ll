@@ -2466,9 +2466,9 @@ _ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK
 
 364:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190
   %.0.i.i185384 = phi i32 [ %.0.i.i185.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190.thread ], [ %363, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit190 ]
-  %365 = add nsw i32 %.0.i.i185384, -1
-  %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds [5 x i32], ptr @_ZN12_GLOBAL__N_111MATCH2CMPOPE, i64 0, i64 %366
+  %365 = sext i32 %.0.i.i185384 to i64
+  %366 = getelementptr i32, ptr @_ZN12_GLOBAL__N_111MATCH2CMPOPE, i64 %365
+  %367 = getelementptr i8, ptr %366, i64 -4
   %368 = load i32, ptr %367, align 4, !tbaa !99
   %369 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0438, i64 16
   %370 = call noundef zeroext i1 @_ZNK25cmExpandedCommandArgument9WasQuotedEv(ptr noundef nonnull align 8 dereferenceable(33) %369)

@@ -4201,14 +4201,14 @@ switch.lookup:
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
   %10 = and i64 %.sroa.0.0.copyload.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.35, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.35, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.2.0.insert.shift.i5.i = and i64 %.sroa.0.0.copyload.i, -4294967296
   %.sroa.0.0.insert.insert.i6.i = or disjoint i64 %switch.load, %.sroa.2.0.insert.shift.i5.i
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i18 = load i64, ptr %11, align 8
   %12 = and i64 %.sroa.0.0.copyload.i18, 4294967295
-  %switch.gep118 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.36, i64 0, i64 %12
+  %switch.gep118 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.36, i64 %12
   %switch.load119 = load i32, ptr %switch.gep118, align 4
   %.sroa.5.0.extract.shift = and i64 %.sroa.0.0.copyload.i18, -4294967296
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4320,7 +4320,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIjN5c
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %.sroa.07.0.copyload = load i64, ptr %57, align 4
   %58 = and i64 %.sroa.07.0.copyload, 4294967295
-  %switch.gep115 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.35, i64 0, i64 %58
+  %switch.gep115 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.35, i64 %58
   %switch.load116 = load i64, ptr %switch.gep115, align 8
   %.sroa.2.0.insert.shift.i5.i27 = and i64 %.sroa.07.0.copyload, -4294967296
   %.sroa.0.0.insert.insert.i6.i28 = or disjoint i64 %switch.load116, %.sroa.2.0.insert.shift.i5.i27
@@ -7351,7 +7351,7 @@ define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager24getStandardM
 
 switch.lookup:                                    ; preds = %19
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang4ento20RetainSummaryManager24getStandardMethodSummaryEPKNS_14ObjCMethodDeclENS_8SelectorENS_8QualTypeE, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang4ento20RetainSummaryManager24getStandardMethodSummaryEPKNS_14ObjCMethodDeclENS_8SelectorENS_8QualTypeE, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %37
 

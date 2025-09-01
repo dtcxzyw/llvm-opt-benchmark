@@ -74,10 +74,10 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
 35:                                               ; preds = %26, %35
   %36 = phi i1 [ true, %26 ], [ false, %35 ]
   %indvars.iv = phi i64 [ 0, %26 ], [ 1, %35 ]
-  %37 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %21, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i32], ptr %21, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8, !tbaa !39
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %33, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x ptr], ptr %33, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !42
   %42 = getelementptr inbounds [2 x i16], ptr %41, i64 %34
   store i16 %39, ptr %42, align 2, !tbaa !43
@@ -419,11 +419,11 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
   %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3364
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds [6 x i32], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [2 x i16], ptr %11, i64 %16
@@ -466,7 +466,7 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %.not84, label %77, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw [4 x i32], ptr @ff_h263_pred_motion.off, i64 0, i64 %13
+  %38 = getelementptr inbounds nuw i32, ptr @ff_h263_pred_motion.off, i64 %13
   %39 = load i32, ptr %38, align 4, !tbaa !39
   %40 = sub nsw i32 %39, %7
   %41 = sext i32 %40 to i64
@@ -567,7 +567,7 @@ mid_pred.exit88:                                  ; preds = %70, %72, %74, %76
   br i1 %.not, label %125, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw [4 x i32], ptr @ff_h263_pred_motion.off, i64 0, i64 %13
+  %94 = getelementptr inbounds nuw i32, ptr @ff_h263_pred_motion.off, i64 %13
   %95 = load i32, ptr %94, align 4, !tbaa !39
   %96 = sub nsw i32 %95, %7
   %97 = sext i32 %96 to i64
@@ -642,7 +642,7 @@ mid_pred.exit96:                                  ; preds = %118, %120, %122, %1
   %132 = sub nsw i32 0, %7
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds [2 x i16], ptr %17, i64 %133
-  %135 = getelementptr inbounds [4 x i32], ptr @ff_h263_pred_motion.off, i64 0, i64 %13
+  %135 = getelementptr inbounds i32, ptr @ff_h263_pred_motion.off, i64 %13
   %136 = load i32, ptr %135, align 4, !tbaa !39
   %137 = sub nsw i32 %136, %7
   %138 = sext i32 %137 to i64
@@ -730,7 +730,7 @@ mid_pred.exit104:                                 ; preds = %171, %173, %174, %1
   %178 = sub nsw i32 0, %7
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds [2 x i16], ptr %17, i64 %179
-  %181 = getelementptr inbounds [4 x i32], ptr @ff_h263_pred_motion.off, i64 0, i64 %13
+  %181 = getelementptr inbounds i32, ptr @ff_h263_pred_motion.off, i64 %13
   %182 = load i32, ptr %181, align 4, !tbaa !39
   %183 = sub nsw i32 %182, %7
   %184 = sext i32 %183 to i64

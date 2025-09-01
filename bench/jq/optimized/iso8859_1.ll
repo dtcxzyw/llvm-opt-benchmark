@@ -48,7 +48,7 @@ define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr noundef c
 
 15:                                               ; preds = %11
   %16 = zext i8 %6 to i64
-  %17 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncISO_8859_1_ToLowerCaseTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @OnigEncISO_8859_1_ToLowerCaseTable, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !9
   br label %19
 
@@ -113,7 +113,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, 
   %21 = phi i1 [ true, %17 ], [ false, %42 ]
   %indvars.iv116 = phi i64 [ 0, %17 ], [ 1, %42 ]
   %.0114 = phi i32 [ 1, %17 ], [ %.2, %42 ]
-  %22 = getelementptr inbounds nuw [2 x i8], ptr @get_case_fold_codes_by_str.sa, i64 0, i64 %indvars.iv116
+  %22 = getelementptr inbounds nuw i8, ptr @get_case_fold_codes_by_str.sa, i64 %indvars.iv116
   %23 = load i8, ptr %22, align 1, !tbaa !9
   %24 = zext i8 %23 to i32
   br label %25
@@ -124,7 +124,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, 
   %.1112 = phi i32 [ %.0114, %.preheader ], [ %.2, %41 ]
   %27 = load i8, ptr %1, align 1, !tbaa !9
   %28 = icmp eq i8 %23, %27
-  %29 = getelementptr inbounds nuw [2 x i8], ptr @get_case_fold_codes_by_str.sa, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr @get_case_fold_codes_by_str.sa, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !9
   br i1 %28, label %31, label %._crit_edge
 
@@ -317,7 +317,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_1_CtypeTable, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr @EncISO_8859_1_CtypeTable, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !18
   %8 = zext i16 %7 to i32
   %9 = lshr i32 %8, %1

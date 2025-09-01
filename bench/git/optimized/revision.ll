@@ -1851,7 +1851,7 @@ define internal fastcc void @do_add_index_objects_to_pending(ptr noundef %0, ptr
 
 55:                                               ; preds = %93, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %93 ]
-  %56 = getelementptr inbounds nuw [3 x i32], ptr %53, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4, !tbaa !42
   %58 = and i32 %57, 61440
   %59 = icmp eq i32 %58, 32768
@@ -1859,7 +1859,7 @@ define internal fastcc void @do_add_index_objects_to_pending(ptr noundef %0, ptr
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %42, align 8, !tbaa !73
-  %62 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %54, i64 0, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw %struct.object_id, ptr %54, i64 %indvars.iv.i
   %63 = call ptr @lookup_blob(ptr noundef %61, ptr noundef nonnull %62) #26
   %.not35.i = icmp eq ptr %63, null
   br i1 %.not35.i, label %64, label %69
@@ -2832,7 +2832,7 @@ define internal fastcc i32 @handle_revision_opt(ptr noundef %0, i32 noundef %1, 
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !28
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !28
   %81 = and i8 %80, 2
   %.not296 = icmp eq i8 %81, 0
@@ -5201,7 +5201,7 @@ revision_opts_finish.exit:                        ; preds = %.loopexit, %167
   %indvars.iv.i.i = phi i64 [ 0, %203 ], [ %indvars.iv.next.i.i, %205 ]
   %207 = load ptr, ptr @the_repository, align 8, !tbaa !71
   %208 = call ptr @get_main_ref_store(ptr noundef %207) #26
-  %209 = getelementptr inbounds nuw [4 x ptr], ptr @lookup_other_head.other_head, i64 0, i64 %indvars.iv.i.i
+  %209 = getelementptr inbounds nuw ptr, ptr @lookup_other_head.other_head, i64 %indvars.iv.i.i
   %210 = load ptr, ptr %209, align 8, !tbaa !200
   %211 = call i32 @refs_read_ref_full(ptr noundef %208, ptr noundef %210, i32 noundef 3, ptr noundef nonnull %6, ptr noundef null) #26
   %.not.i.i218 = icmp eq i32 %211, 0
@@ -9007,7 +9007,7 @@ mark_treesame_root_parents.exit.i.i:              ; preds = %839, %mark_redundan
   %.030.i.i = phi i32 [ 0, %.lr.ph.i34.i ], [ %856, %854 ]
   %.01829.i.i = phi ptr [ null, %.lr.ph.i34.i ], [ %.1.i37.i, %854 ]
   %846 = zext i32 %.030.i.i to i64
-  %847 = getelementptr inbounds nuw [0 x i8], ptr %844, i64 0, i64 %846
+  %847 = getelementptr inbounds nuw i8, ptr %844, i64 %846
   %848 = load i8, ptr %847, align 1, !tbaa !28
   %.not21.i35.i = icmp eq i8 %848, 0
   br i1 %.not21.i35.i, label %854, label %849
@@ -12376,7 +12376,7 @@ define internal fastcc void @update_treesame(ptr noundef %0, ptr noundef %1) unn
   %17 = and i32 %.val, 16416
   %.not40 = icmp ne i32 %17, 32
   %18 = zext i32 %.02843 to i64
-  %19 = getelementptr inbounds nuw [0 x i8], ptr %11, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !28
   %.not38 = icmp eq i8 %20, 0
   %21 = zext i1 %.not38 to i32
@@ -12691,7 +12691,7 @@ rev_compare_tree.exit.thread:                     ; preds = %rev_compare_tree.ex
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %.180, i64 4
-  %121 = getelementptr inbounds nuw [0 x i8], ptr %120, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv
   store i8 1, ptr %121, align 1, !tbaa !28
   br label %153
 
@@ -13439,7 +13439,7 @@ define internal fastcc void @compact_treesame(ptr noundef %0, ptr noundef %1, i3
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %20 = zext i32 %2 to i64
-  %21 = getelementptr inbounds nuw [0 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = xor i32 %2, -1
   %24 = add i32 %16, %23

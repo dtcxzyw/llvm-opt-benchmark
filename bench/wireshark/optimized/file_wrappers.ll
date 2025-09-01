@@ -164,7 +164,7 @@ define range(i32 0, 4) i32 @wtap_get_compression_type(ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %19
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.wtap_get_compression_type, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wtap_get_compression_type, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %file_get_compression_type.exit
 
@@ -1657,7 +1657,7 @@ fill_in_buffer.exit.i:                            ; preds = %52, %50
 
 60:                                               ; preds = %.preheader, %64
   %.03753.i = phi i64 [ %65, %64 ], [ 0, %.preheader ]
-  %61 = getelementptr [3 x ptr], ptr @compression_type_tests, i64 0, i64 %.03753.i
+  %61 = getelementptr ptr, ptr @compression_type_tests, i64 %.03753.i
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %62(ptr noundef %0)
   switch i32 %63, label %64 [

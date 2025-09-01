@@ -47,7 +47,7 @@ define void @_ZN11OpenImageIO6v3_1_012convert_typeIN9Imath_3_14halfEfEEvPKT_PT0_
   %9 = getelementptr inbounds nuw i16, ptr %.014, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2, !tbaa !3
   %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %11, ptr %12, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -151,7 +151,7 @@ define void @_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEEvPKT_PT0_
 
 9:                                                ; preds = %.lr.ph, %_ZN9Imath_3_14halfaSEf.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN9Imath_3_14halfaSEf.exit ]
-  %10 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !7
   %12 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.0919, i64 %indvars.iv
   %13 = bitcast float %11 to i32

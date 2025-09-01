@@ -984,7 +984,7 @@ switch.early.test:                                ; preds = %253
   %389 = load ptr, ptr %383, align 8, !tbaa !74
   %390 = load i8, ptr %389, align 1, !tbaa !75
   %391 = zext i8 %390 to i64
-  %392 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %391
   %393 = load i8, ptr %392, align 1, !tbaa !75
   %394 = and i8 %393, 1
   %.not48.i.i = icmp eq i8 %394, 0
@@ -998,7 +998,7 @@ switch.early.test:                                ; preds = %253
 
 .preheader.i.i:                                   ; preds = %388, %skip_prefix.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %skip_prefix.exit.i.i ], [ 0, %388 ]
-  %398 = getelementptr inbounds nuw [3 x %struct.parse_cmd], ptr @commands, i64 0, i64 %indvars.iv.i.i
+  %398 = getelementptr inbounds nuw %struct.parse_cmd, ptr @commands, i64 %indvars.iv.i.i
   %399 = load ptr, ptr %398, align 8, !tbaa !76
   br label %400
 
@@ -1684,7 +1684,7 @@ batch_objects.exit:                               ; preds = %365, %.loopexit.i
   %649 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %650 = load i32, ptr %649, align 4, !tbaa !101
   %651 = sext i32 %650 to i64
-  %652 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %651
+  %652 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %651
   %653 = call i32 @get_oid_hex_algop(ptr noundef nonnull %scevgep.i, ptr noundef nonnull %18, ptr noundef nonnull %652) #14
   %.not48.i = icmp eq i32 %653, 0
   br i1 %.not48.i, label %655, label %skip_prefix.exit.i

@@ -53000,7 +53000,7 @@ define linkonce_odr void @_ZN8LightGBM7Booster26SetSingleRowPredictorInnerEiiiRK
   store i8 1, ptr %8, align 8, !tbaa !853
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [4 x %"class.std::unique_ptr.300"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds %"class.std::unique_ptr.300", ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !838
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN8LightGBM23SingleRowPredictorInner16IsPredictorEqualERKNS_6ConfigEiPNS_8BoostingE.exit.thread, label %14
@@ -53186,7 +53186,7 @@ define linkonce_odr void @_ZNK8LightGBM7Booster16PredictSingleRowEiiSt8functionI
   store i8 1, ptr %32, align 8, !tbaa !853
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = sext i32 %1 to i64
-  %35 = getelementptr inbounds [4 x %"class.std::unique_ptr.300"], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds %"class.std::unique_ptr.300", ptr %33, i64 %34
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !52, !noalias !1340

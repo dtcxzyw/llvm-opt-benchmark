@@ -6306,7 +6306,7 @@ lean_dec.exit47.thread:                           ; preds = %lean_dec.exit46
 
 21:                                               ; preds = %lean_dec.exit47.thread, %lean_dec.exit47
   %22 = lshr i64 %12, 1
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -6389,7 +6389,7 @@ lean_dec.exit44:                                  ; preds = %46, %45, %43, %39
   br label %.loopexit
 
 54:                                               ; preds = %36, %lean_dec.exit45
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %22
+  %55 = getelementptr inbounds nuw ptr, ptr %8, i64 %22
   %56 = load ptr, ptr %55, align 8, !tbaa !10
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, 1

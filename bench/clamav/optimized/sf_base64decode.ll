@@ -32,7 +32,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
   %.04352 = phi ptr [ %6, %.lr.ph ], [ %.144, %71 ]
   %18 = load i8, ptr %.04054, align 1, !tbaa !7
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @sf_decode64tab, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !7
   %.not = icmp eq i8 %21, 100
   br i1 %.not, label %71, label %22
@@ -55,15 +55,15 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
 
 31:                                               ; preds = %26
   %32 = zext i8 %29 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @sf_decode64tab, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !7
   %35 = load i8, ptr %15, align 1, !tbaa !7
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @sf_decode64tab, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !7
   %39 = load i8, ptr %16, align 1, !tbaa !7
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @sf_decode64tab, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !7
   %43 = load i64, ptr %4, align 8, !tbaa !3
   %44 = icmp ult i64 %43, %3
@@ -71,7 +71,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
 
 45:                                               ; preds = %31
   %46 = zext i8 %27 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @sf_decode64tab, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !7
   %49 = shl i8 %48, 2
   %50 = lshr i8 %34, 4

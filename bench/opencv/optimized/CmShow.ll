@@ -482,10 +482,10 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorISt4pai
 
 184:                                              ; preds = %184, %181
   %indvars.iv.i = phi i64 [ 0, %181 ], [ %indvars.iv.next.i, %184 ]
-  %185 = getelementptr inbounds nuw [3 x i8], ptr %183, i64 0, i64 %indvars.iv.i
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv.i
   %186 = load i8, ptr %185, align 1, !tbaa !37
   %187 = uitofp i8 %186 to double
-  %188 = getelementptr inbounds nuw [4 x double], ptr %24, i64 0, i64 %indvars.iv.i
+  %188 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i
   store double %187, ptr %188, align 8, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

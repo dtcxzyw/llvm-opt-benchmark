@@ -224,7 +224,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %35 = load ptr, ptr %20, align 8, !tbaa !43
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv109
   %37 = load ptr, ptr %36, align 8, !tbaa !40
-  %38 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv109
+  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv109
   %39 = tail call i32 @ff_inlink_consume_samples(ptr noundef %37, i32 noundef %30, i32 noundef %30, ptr noundef nonnull %38) #10
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %33
@@ -295,7 +295,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 71:                                               ; preds = %.preheader84, %84
   %.not96 = phi i1 [ true, %.preheader84 ], [ false, %84 ]
   %indvars.iv106 = phi i64 [ 0, %.preheader84 ], [ 1, %84 ]
-  %72 = getelementptr inbounds nuw [2 x ptr], ptr %70, i64 0, i64 %indvars.iv106
+  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv106
   %73 = load ptr, ptr %72, align 8, !tbaa !57
   %.not77 = icmp eq ptr %73, null
   br i1 %.not77, label %74, label %84

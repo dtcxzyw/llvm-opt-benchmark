@@ -9850,7 +9850,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280: ; preds = %301, %305, %311
   %329 = icmp eq i32 %328, 2
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 24
   %331 = zext i1 %329 to i64
-  %332 = getelementptr inbounds nuw [0 x ptr], ptr %330, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw ptr, ptr %330, i64 %331
   %333 = load ptr, ptr %332, align 8, !tbaa !10, !noalias !382
   store ptr %333, ptr %23, align 8, !tbaa !20, !alias.scope !382
   %334 = load i64, ptr %333, align 8, !noalias !382
@@ -10529,7 +10529,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit53:            ; preds = %_ZNSt6vectorIN4cvc5
   %spec.select.i.i = add nuw nsw i32 %.04566, %174
   %175 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %176 = sext i32 %spec.select.i.i to i64
-  %177 = getelementptr inbounds [0 x ptr], ptr %175, i64 0, i64 %176
+  %177 = getelementptr inbounds ptr, ptr %175, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !10, !noalias !391
   store ptr %178, ptr %10, align 8, !tbaa !20, !alias.scope !391
   %179 = load i64, ptr %178, align 8, !noalias !391
@@ -12710,7 +12710,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal8TypeNode17getArrayIndexTypeE
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !10, !noalias !413
   store ptr %15, ptr %0, align 8, !tbaa !20, !alias.scope !413
   %16 = load i64, ptr %15, align 8, !noalias !413
@@ -12757,7 +12757,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal8TypeNode23getArrayConstituen
   %11 = icmp eq i32 %10, 2
   %spec.select.i.i = select i1 %11, i64 2, i64 1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %spec.select.i.i
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %spec.select.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !10, !noalias !416
   store ptr %14, ptr %0, align 8, !tbaa !20, !alias.scope !416
   %15 = load i64, ptr %14, align 8, !noalias !416
@@ -12804,7 +12804,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal8TypeNode17getSetElementTypeE
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !10, !noalias !419
   store ptr %15, ptr %0, align 8, !tbaa !20, !alias.scope !419
   %16 = load i64, ptr %15, align 8, !noalias !419

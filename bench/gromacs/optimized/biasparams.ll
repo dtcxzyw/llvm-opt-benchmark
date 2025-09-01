@@ -203,7 +203,7 @@ _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasPa
   %.not.i.i.i.i = phi i1 [ true, %.lr.ph.i ], [ false, %57 ]
   %.0813.i.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %57 ]
   %.0912.i.i.i.i = phi i64 [ 2, %.lr.ph.i ], [ %.1.i.i.i.i, %57 ]
-  %52 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 0, i64 %.0813.i.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 %.0813.i.i.i.i
   %53 = load i8, ptr %52, align 1, !tbaa !39, !range !40, !noundef !41
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %57
@@ -539,7 +539,7 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
 
 198:                                              ; preds = %184, %188
   %199 = phi i32 [ %197, %188 ], [ 0, %184 ]
-  %200 = getelementptr inbounds nuw [4 x i32], ptr %183, i64 0, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv
   store i32 %199, ptr %200, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %181

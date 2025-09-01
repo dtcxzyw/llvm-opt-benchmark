@@ -245,11 +245,11 @@ define hidden i32 @decode_smb(ptr noundef readnone captures(none) %0, ptr nounde
   %44 = load i32, ptr %36, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 92
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr [16 x i64], ptr %7, i64 0, i64 %.039
+  %46 = getelementptr i64, ptr %7, i64 %.039
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 96
   store i64 %47, ptr %48, align 8
-  %49 = getelementptr [16 x i64], ptr %9, i64 0, i64 %.039
+  %49 = getelementptr i64, ptr %9, i64 %.039
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 104
   store i64 %50, ptr %51, align 8

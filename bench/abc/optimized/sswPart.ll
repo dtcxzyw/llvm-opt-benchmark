@@ -215,7 +215,7 @@ Ssw_SignalCorrespondenceArray1.exit:              ; preds = %38, %19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %44 = getelementptr inbounds nuw [100 x %struct.Par_ScorrThData_t_], ptr %4, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %struct.Par_ScorrThData_t_, ptr %4, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %44, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false), !tbaa.struct !52
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = trunc nuw nsw i64 %indvars.iv to i32
@@ -279,7 +279,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %56
 
 .preheader48.us:                                  ; preds = %.preheader48.us.backedge, %.preheader48.us.preheader
   %indvars.iv65 = phi i64 [ 0, %.preheader48.us.preheader ], [ %indvars.iv65.be, %.preheader48.us.backedge ]
-  %68 = getelementptr inbounds nuw [100 x %struct.Par_ScorrThData_t_], ptr %4, i64 0, i64 %indvars.iv65
+  %68 = getelementptr inbounds nuw %struct.Par_ScorrThData_t_, ptr %4, i64 %indvars.iv65
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 120
   %70 = load atomic i8, ptr %69 acquire, align 8
   %71 = trunc i8 %70 to i1
@@ -335,7 +335,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge55, %83
 .lr.ph57:                                         ; preds = %Vec_PtrFree.exit, %.lr.ph57
   %.256 = phi i32 [ %90, %.lr.ph57 ], [ 0, %Vec_PtrFree.exit ]
   %84 = sext i32 %.256 to i64
-  %85 = getelementptr inbounds [100 x %struct.Par_ScorrThData_t_], ptr %4, i64 0, i64 %84, i32 5
+  %85 = getelementptr inbounds %struct.Par_ScorrThData_t_, ptr %4, i64 %84, i32 5
   %86 = load atomic i8, ptr %85 acquire, align 8
   %87 = trunc i8 %86 to i1
   %88 = call i32 @nanosleep(ptr noundef nonnull %7, ptr noundef null) #15
@@ -350,7 +350,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge55, %83
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv70 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next71, %.lr.ph59 ]
-  %92 = getelementptr inbounds nuw [100 x %struct.Par_ScorrThData_t_], ptr %4, i64 0, i64 %indvars.iv70
+  %92 = getelementptr inbounds nuw %struct.Par_ScorrThData_t_, ptr %4, i64 %indvars.iv70
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 96
   store ptr null, ptr %93, align 16, !tbaa !47
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 120
@@ -361,7 +361,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge55, %83
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
   %indvars.iv75 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next76, %.lr.ph61 ]
-  %95 = getelementptr inbounds nuw [100 x i64], ptr %5, i64 0, i64 %indvars.iv75
+  %95 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv75
   %96 = load i64, ptr %95, align 8, !tbaa !60
   %97 = call i32 @pthread_join(i64 noundef %96, ptr noundef null) #15
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1

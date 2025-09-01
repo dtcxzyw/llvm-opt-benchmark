@@ -6785,9 +6785,9 @@ _ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit:   ; preds = %._crit_edge75, %115
 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv82 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next83, %122 ]
-  %123 = getelementptr inbounds nuw [18 x float], ptr %113, i64 0, i64 %indvars.iv82
+  %123 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv82
   %124 = load float, ptr %123, align 4, !tbaa !172
-  %125 = getelementptr inbounds nuw [18 x float], ptr %42, i64 0, i64 %indvars.iv82
+  %125 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv82
   %126 = load float, ptr %125, align 4, !tbaa !172
   %127 = fadd float %124, %126
   store float %127, ptr %125, align 4, !tbaa !172
@@ -8633,9 +8633,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypePa
 
 234:                                              ; preds = %234, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %240, %234 ]
-  %235 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %235 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %236 = load float, ptr %235, align 4, !tbaa !172
-  %237 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %237 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %238 = load float, ptr %237, align 4, !tbaa !172
   %239 = fadd float %236, %238
   store float %239, ptr %237, align 4, !tbaa !172
@@ -9413,9 +9413,9 @@ _ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RK
 
 237:                                              ; preds = %237, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %243, %237 ]
-  %238 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %238 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %239 = load float, ptr %238, align 4, !tbaa !172
-  %240 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %240 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %241 = load float, ptr %240, align 4, !tbaa !172
   %242 = fadd float %239, %241
   store float %242, ptr %240, align 4, !tbaa !172
@@ -9990,9 +9990,9 @@ _ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_
 
 236:                                              ; preds = %236, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %242, %236 ]
-  %237 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %237 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %238 = load float, ptr %237, align 4, !tbaa !172
-  %239 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %239 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %240 = load float, ptr %239, align 4, !tbaa !172
   %241 = fadd float %238, %240
   store float %241, ptr %239, align 4, !tbaa !172
@@ -10571,9 +10571,9 @@ _ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_
 
 237:                                              ; preds = %237, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %243, %237 ]
-  %238 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %238 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %239 = load float, ptr %238, align 4, !tbaa !172
-  %240 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %240 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %241 = load float, ptr %240, align 4, !tbaa !172
   %242 = fadd float %239, %241
   store float %242, ptr %240, align 4, !tbaa !172
@@ -11151,9 +11151,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParame
 
 240:                                              ; preds = %240, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %246, %240 ]
-  %241 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %241 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %242 = load float, ptr %241, align 4, !tbaa !172
-  %243 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %243 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %244 = load float, ptr %243, align 4, !tbaa !172
   %245 = fadd float %242, %244
   store float %245, ptr %243, align 4, !tbaa !172
@@ -11729,9 +11729,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuar
 
 238:                                              ; preds = %238, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %244, %238 ]
-  %239 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %239 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %240 = load float, ptr %239, align 4, !tbaa !172
-  %241 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %241 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %242 = load float, ptr %241, align 4, !tbaa !172
   %243 = fadd float %240, %242
   store float %243, ptr %241, align 4, !tbaa !172
@@ -12303,9 +12303,9 @@ _ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT
 
 237:                                              ; preds = %237, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %243, %237 ]
-  %238 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %238 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %239 = load float, ptr %238, align 4, !tbaa !172
-  %240 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %240 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %241 = load float, ptr %240, align 4, !tbaa !172
   %242 = fadd float %239, %241
   store float %242, ptr %240, align 4, !tbaa !172
@@ -13210,9 +13210,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 395:                                              ; preds = %395, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %401, %395 ]
-  %396 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %396 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %397 = load float, ptr %396, align 4, !tbaa !172
-  %398 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %398 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %399 = load float, ptr %398, align 4, !tbaa !172
   %400 = fadd float %397, %399
   store float %400, ptr %398, align 4, !tbaa !172
@@ -14129,9 +14129,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 401:                                              ; preds = %401, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %407, %401 ]
-  %402 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %402 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %403 = load float, ptr %402, align 4, !tbaa !172
-  %404 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %404 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %405 = load float, ptr %404, align 4, !tbaa !172
   %406 = fadd float %403, %405
   store float %406, ptr %404, align 4, !tbaa !172
@@ -15078,9 +15078,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 396:                                              ; preds = %396, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %402, %396 ]
-  %397 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %397 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %398 = load float, ptr %397, align 4, !tbaa !172
-  %399 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %399 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %400 = load float, ptr %399, align 4, !tbaa !172
   %401 = fadd float %398, %400
   store float %401, ptr %399, align 4, !tbaa !172
@@ -15994,9 +15994,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 404:                                              ; preds = %404, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %410, %404 ]
-  %405 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %405 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %406 = load float, ptr %405, align 4, !tbaa !172
-  %407 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %407 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %408 = load float, ptr %407, align 4, !tbaa !172
   %409 = fadd float %406, %408
   store float %409, ptr %407, align 4, !tbaa !172
@@ -16821,9 +16821,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 347:                                              ; preds = %347, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %353, %347 ]
-  %348 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %348 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %349 = load float, ptr %348, align 4, !tbaa !172
-  %350 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %350 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %351 = load float, ptr %350, align 4, !tbaa !172
   %352 = fadd float %349, %351
   store float %352, ptr %350, align 4, !tbaa !172
@@ -17673,9 +17673,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 364:                                              ; preds = %364, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %370, %364 ]
-  %365 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %365 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %366 = load float, ptr %365, align 4, !tbaa !172
-  %367 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %367 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %368 = load float, ptr %367, align 4, !tbaa !172
   %369 = fadd float %366, %368
   store float %369, ptr %367, align 4, !tbaa !172
@@ -18500,9 +18500,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 362:                                              ; preds = %362, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %368, %362 ]
-  %363 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %363 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %364 = load float, ptr %363, align 4, !tbaa !172
-  %365 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %365 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %366 = load float, ptr %365, align 4, !tbaa !172
   %367 = fadd float %364, %366
   store float %367, ptr %365, align 4, !tbaa !172
@@ -19682,9 +19682,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 519:                                              ; preds = %519, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %525, %519 ]
-  %520 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %520 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %521 = load float, ptr %520, align 4, !tbaa !172
-  %522 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.05.i
+  %522 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
   %523 = load float, ptr %522, align 4, !tbaa !172
   %524 = fadd float %521, %523
   store float %524, ptr %522, align 4, !tbaa !172
@@ -20884,9 +20884,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 525:                                              ; preds = %525, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %531, %525 ]
-  %526 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %526 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %527 = load float, ptr %526, align 4, !tbaa !172
-  %528 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.05.i
+  %528 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
   %529 = load float, ptr %528, align 4, !tbaa !172
   %530 = fadd float %527, %529
   store float %530, ptr %528, align 4, !tbaa !172
@@ -21058,7 +21058,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %28 ], [ %96, %89 ]
   %.02326.i = phi float [ 0.000000e+00, %28 ], [ %95, %89 ]
   %.02425.i = phi float [ %88, %28 ], [ %97, %89 ]
-  %90 = getelementptr inbounds nuw [6 x float], ptr %18, i64 0, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
   %91 = load float, ptr %90, align 4, !tbaa !172, !noalias !290
   %92 = fmul float %.01727.i, %91
   %93 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -22085,9 +22085,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 527:                                              ; preds = %527, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %533, %527 ]
-  %528 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.05.i
+  %528 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
   %529 = load float, ptr %528, align 4, !tbaa !172
-  %530 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %530 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %531 = load float, ptr %530, align 4, !tbaa !172
   %532 = fadd float %529, %531
   store float %532, ptr %530, align 4, !tbaa !172
@@ -22188,9 +22188,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 
 35:                                               ; preds = %35, %.lr.ph
   %.05.i = phi i64 [ 0, %.lr.ph ], [ %41, %35 ]
-  %36 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.05.i
+  %36 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
   %37 = load float, ptr %36, align 4, !tbaa !172
-  %38 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %38 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %39 = load float, ptr %38, align 4, !tbaa !172
   %40 = fadd float %37, %39
   store float %40, ptr %38, align 4, !tbaa !172
@@ -22806,9 +22806,9 @@ define linkonce_odr void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesIN
 
 484:                                              ; preds = %484, %.lr.ph.i.i
   %.05.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %490, %484 ]
-  %485 = getelementptr inbounds nuw [4 x float], ptr %21, i64 0, i64 %.05.i.i.i
+  %485 = getelementptr inbounds nuw float, ptr %21, i64 %.05.i.i.i
   %486 = load float, ptr %485, align 4, !tbaa !172
-  %487 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.05.i.i.i
+  %487 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i.i.i
   %488 = load float, ptr %487, align 4, !tbaa !172
   %489 = fadd float %486, %488
   store float %489, ptr %487, align 4, !tbaa !172
@@ -23381,9 +23381,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 224:                                              ; preds = %224, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %230, %224 ]
-  %225 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %225 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %226 = load float, ptr %225, align 4, !tbaa !172
-  %227 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %227 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %228 = load float, ptr %227, align 4, !tbaa !172
   %229 = fadd float %226, %228
   store float %229, ptr %227, align 4, !tbaa !172
@@ -23938,9 +23938,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 227:                                              ; preds = %227, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %233, %227 ]
-  %228 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %228 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %229 = load float, ptr %228, align 4, !tbaa !172
-  %230 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %230 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %231 = load float, ptr %230, align 4, !tbaa !172
   %232 = fadd float %229, %231
   store float %232, ptr %230, align 4, !tbaa !172
@@ -24498,9 +24498,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 226:                                              ; preds = %226, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %232, %226 ]
-  %227 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %227 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %228 = load float, ptr %227, align 4, !tbaa !172
-  %229 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %229 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %230 = load float, ptr %229, align 4, !tbaa !172
   %231 = fadd float %228, %230
   store float %231, ptr %229, align 4, !tbaa !172
@@ -25059,9 +25059,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 227:                                              ; preds = %227, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %233, %227 ]
-  %228 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %228 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %229 = load float, ptr %228, align 4, !tbaa !172
-  %230 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %230 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %231 = load float, ptr %230, align 4, !tbaa !172
   %232 = fadd float %229, %231
   store float %232, ptr %230, align 4, !tbaa !172
@@ -25619,9 +25619,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 230:                                              ; preds = %230, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %236, %230 ]
-  %231 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %231 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %232 = load float, ptr %231, align 4, !tbaa !172
-  %233 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %233 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %234 = load float, ptr %233, align 4, !tbaa !172
   %235 = fadd float %232, %234
   store float %235, ptr %233, align 4, !tbaa !172
@@ -26177,9 +26177,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 228:                                              ; preds = %228, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %234, %228 ]
-  %229 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %229 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %230 = load float, ptr %229, align 4, !tbaa !172
-  %231 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %231 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %232 = load float, ptr %231, align 4, !tbaa !172
   %233 = fadd float %230, %232
   store float %233, ptr %231, align 4, !tbaa !172
@@ -26734,9 +26734,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 227:                                              ; preds = %227, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %233, %227 ]
-  %228 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %228 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %229 = load float, ptr %228, align 4, !tbaa !172
-  %230 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %230 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %231 = load float, ptr %230, align 4, !tbaa !172
   %232 = fadd float %229, %231
   store float %232, ptr %230, align 4, !tbaa !172
@@ -27598,9 +27598,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 378:                                              ; preds = %378, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %384, %378 ]
-  %379 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %379 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %380 = load float, ptr %379, align 4, !tbaa !172
-  %381 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %381 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %382 = load float, ptr %381, align 4, !tbaa !172
   %383 = fadd float %380, %382
   store float %383, ptr %381, align 4, !tbaa !172
@@ -28468,9 +28468,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 384:                                              ; preds = %384, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %390, %384 ]
-  %385 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %385 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %386 = load float, ptr %385, align 4, !tbaa !172
-  %387 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %387 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %388 = load float, ptr %387, align 4, !tbaa !172
   %389 = fadd float %386, %388
   store float %389, ptr %387, align 4, !tbaa !172
@@ -29371,9 +29371,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 379:                                              ; preds = %379, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %385, %379 ]
-  %380 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %380 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %381 = load float, ptr %380, align 4, !tbaa !172
-  %382 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %382 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %383 = load float, ptr %382, align 4, !tbaa !172
   %384 = fadd float %381, %383
   store float %384, ptr %382, align 4, !tbaa !172
@@ -30244,9 +30244,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 387:                                              ; preds = %387, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %393, %387 ]
-  %388 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %388 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %389 = load float, ptr %388, align 4, !tbaa !172
-  %390 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %390 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %391 = load float, ptr %390, align 4, !tbaa !172
   %392 = fadd float %389, %391
   store float %392, ptr %390, align 4, !tbaa !172
@@ -31032,9 +31032,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 326:                                              ; preds = %326, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %327 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %328 = load float, ptr %327, align 4, !tbaa !172
-  %329 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %329 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %330 = load float, ptr %329, align 4, !tbaa !172
   %331 = fadd float %328, %330
   store float %331, ptr %329, align 4, !tbaa !172
@@ -31841,9 +31841,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 344:                                              ; preds = %344, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %350, %344 ]
-  %345 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %345 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %346 = load float, ptr %345, align 4, !tbaa !172
-  %347 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %347 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %348 = load float, ptr %347, align 4, !tbaa !172
   %349 = fadd float %346, %348
   store float %349, ptr %347, align 4, !tbaa !172
@@ -32633,9 +32633,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 335:                                              ; preds = %335, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %341, %335 ]
-  %336 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %336 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %337 = load float, ptr %336, align 4, !tbaa !172
-  %338 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %338 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %339 = load float, ptr %338, align 4, !tbaa !172
   %340 = fadd float %337, %339
   store float %340, ptr %338, align 4, !tbaa !172
@@ -33752,9 +33752,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 495:                                              ; preds = %495, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %501, %495 ]
-  %496 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %496 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %497 = load float, ptr %496, align 4, !tbaa !172
-  %498 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %498 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %499 = load float, ptr %498, align 4, !tbaa !172
   %500 = fadd float %497, %499
   store float %500, ptr %498, align 4, !tbaa !172
@@ -34885,9 +34885,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 501:                                              ; preds = %501, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %507, %501 ]
-  %502 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %502 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %503 = load float, ptr %502, align 4, !tbaa !172
-  %504 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %504 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %505 = load float, ptr %504, align 4, !tbaa !172
   %506 = fadd float %503, %505
   store float %506, ptr %504, align 4, !tbaa !172
@@ -35049,7 +35049,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %20 ], [ %93, %86 ]
   %.02326.i = phi float [ 0.000000e+00, %20 ], [ %92, %86 ]
   %.02425.i = phi float [ %85, %20 ], [ %94, %86 ]
-  %87 = getelementptr inbounds nuw [6 x float], ptr %10, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   %88 = load float, ptr %87, align 4, !tbaa !172, !noalias !318
   %89 = fmul float %.01727.i, %88
   %90 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -36023,9 +36023,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 503:                                              ; preds = %503, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %509, %503 ]
-  %504 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.05.i
+  %504 = getelementptr inbounds nuw float, ptr %12, i64 %.05.i
   %505 = load float, ptr %504, align 4, !tbaa !172
-  %506 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %506 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %507 = load float, ptr %506, align 4, !tbaa !172
   %508 = fadd float %505, %507
   store float %508, ptr %506, align 4, !tbaa !172
@@ -36247,9 +36247,9 @@ _ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit:   ; preds = %._crit_edge, %60
 
 67:                                               ; preds = %.preheader, %67
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw [18 x float], ptr %58, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !172
-  %70 = getelementptr inbounds nuw [18 x float], ptr %40, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
   %71 = load float, ptr %70, align 4, !tbaa !172
   %72 = fadd float %69, %71
   store float %72, ptr %70, align 4, !tbaa !172
@@ -37769,9 +37769,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypePa
 
 214:                                              ; preds = %214, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %215 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %217 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -38315,9 +38315,9 @@ _ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT
 
 217:                                              ; preds = %217, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %218 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %220 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -38864,9 +38864,9 @@ _ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_R
 
 216:                                              ; preds = %216, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %222, %216 ]
-  %217 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %217 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
-  %219 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %219 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %220 = load float, ptr %219, align 4, !tbaa !172
   %221 = fadd float %218, %220
   store float %221, ptr %219, align 4, !tbaa !172
@@ -39414,9 +39414,9 @@ _ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_R
 
 217:                                              ; preds = %217, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %218 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %220 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -39963,9 +39963,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParame
 
 220:                                              ; preds = %220, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %226, %220 ]
-  %221 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %221 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %222 = load float, ptr %221, align 4, !tbaa !172
-  %223 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %223 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %224 = load float, ptr %223, align 4, !tbaa !172
   %225 = fadd float %222, %224
   store float %225, ptr %223, align 4, !tbaa !172
@@ -40510,9 +40510,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuar
 
 218:                                              ; preds = %218, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %224, %218 ]
-  %219 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %219 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %220 = load float, ptr %219, align 4, !tbaa !172
-  %221 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %221 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %222 = load float, ptr %221, align 4, !tbaa !172
   %223 = fadd float %220, %222
   store float %223, ptr %221, align 4, !tbaa !172
@@ -41056,9 +41056,9 @@ _ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0
 
 217:                                              ; preds = %217, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.05.i
+  %218 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.05.i
+  %220 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -41921,9 +41921,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 365:                                              ; preds = %365, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %371, %365 ]
-  %366 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %366 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %367 = load float, ptr %366, align 4, !tbaa !172
-  %368 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %368 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %369 = load float, ptr %368, align 4, !tbaa !172
   %370 = fadd float %367, %369
   store float %370, ptr %368, align 4, !tbaa !172
@@ -42792,9 +42792,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 371:                                              ; preds = %371, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %377, %371 ]
-  %372 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %372 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %373 = load float, ptr %372, align 4, !tbaa !172
-  %374 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %374 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %375 = load float, ptr %374, align 4, !tbaa !172
   %376 = fadd float %373, %375
   store float %376, ptr %374, align 4, !tbaa !172
@@ -43696,9 +43696,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 366:                                              ; preds = %366, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %372, %366 ]
-  %367 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %367 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %368 = load float, ptr %367, align 4, !tbaa !172
-  %369 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %369 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %370 = load float, ptr %369, align 4, !tbaa !172
   %371 = fadd float %368, %370
   store float %371, ptr %369, align 4, !tbaa !172
@@ -44570,9 +44570,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 374:                                              ; preds = %374, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %380, %374 ]
-  %375 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %375 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %376 = load float, ptr %375, align 4, !tbaa !172
-  %377 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %377 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %378 = load float, ptr %377, align 4, !tbaa !172
   %379 = fadd float %376, %378
   store float %379, ptr %377, align 4, !tbaa !172
@@ -45355,9 +45355,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 317:                                              ; preds = %317, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %323, %317 ]
-  %318 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %318 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %319 = load float, ptr %318, align 4, !tbaa !172
-  %320 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %320 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %321 = load float, ptr %320, align 4, !tbaa !172
   %322 = fadd float %319, %321
   store float %322, ptr %320, align 4, !tbaa !172
@@ -46165,9 +46165,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 334:                                              ; preds = %334, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %340, %334 ]
-  %335 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %335 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %336 = load float, ptr %335, align 4, !tbaa !172
-  %337 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %337 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %338 = load float, ptr %337, align 4, !tbaa !172
   %339 = fadd float %336, %338
   store float %339, ptr %337, align 4, !tbaa !172
@@ -46950,9 +46950,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 332:                                              ; preds = %332, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %338, %332 ]
-  %333 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.05.i
+  %333 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
   %334 = load float, ptr %333, align 4, !tbaa !172
-  %335 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.05.i
+  %335 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
   %336 = load float, ptr %335, align 4, !tbaa !172
   %337 = fadd float %334, %336
   store float %337, ptr %335, align 4, !tbaa !172
@@ -48076,9 +48076,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 479:                                              ; preds = %479, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %485, %479 ]
-  %480 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %480 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %481 = load float, ptr %480, align 4, !tbaa !172
-  %482 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.05.i
+  %482 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
   %483 = load float, ptr %482, align 4, !tbaa !172
   %484 = fadd float %481, %483
   store float %484, ptr %482, align 4, !tbaa !172
@@ -49216,9 +49216,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 485:                                              ; preds = %485, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %491, %485 ]
-  %486 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %486 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %487 = load float, ptr %486, align 4, !tbaa !172
-  %488 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.05.i
+  %488 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
   %489 = load float, ptr %488, align 4, !tbaa !172
   %490 = fadd float %487, %489
   store float %490, ptr %488, align 4, !tbaa !172
@@ -49389,7 +49389,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %28 ], [ %95, %88 ]
   %.02326.i = phi float [ 0.000000e+00, %28 ], [ %94, %88 ]
   %.02425.i = phi float [ %87, %28 ], [ %96, %88 ]
-  %89 = getelementptr inbounds nuw [6 x float], ptr %18, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
   %90 = load float, ptr %89, align 4, !tbaa !172, !noalias !357
   %91 = fmul float %.01727.i, %90
   %92 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -50361,9 +50361,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 487:                                              ; preds = %487, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %493, %487 ]
-  %488 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.05.i
+  %488 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
   %489 = load float, ptr %488, align 4, !tbaa !172
-  %490 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %490 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %491 = load float, ptr %490, align 4, !tbaa !172
   %492 = fadd float %489, %491
   store float %492, ptr %490, align 4, !tbaa !172
@@ -50464,9 +50464,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 
 35:                                               ; preds = %35, %.lr.ph
   %.05.i = phi i64 [ 0, %.lr.ph ], [ %41, %35 ]
-  %36 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.05.i
+  %36 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
   %37 = load float, ptr %36, align 4, !tbaa !172
-  %38 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i
+  %38 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
   %39 = load float, ptr %38, align 4, !tbaa !172
   %40 = fadd float %37, %39
   store float %40, ptr %38, align 4, !tbaa !172
@@ -51082,9 +51082,9 @@ define linkonce_odr void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesIN
 
 484:                                              ; preds = %484, %.lr.ph.i.i
   %.05.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %490, %484 ]
-  %485 = getelementptr inbounds nuw [4 x float], ptr %21, i64 0, i64 %.05.i.i.i
+  %485 = getelementptr inbounds nuw float, ptr %21, i64 %.05.i.i.i
   %486 = load float, ptr %485, align 4, !tbaa !172
-  %487 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.05.i.i.i
+  %487 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i.i.i
   %488 = load float, ptr %487, align 4, !tbaa !172
   %489 = fadd float %486, %488
   store float %489, ptr %487, align 4, !tbaa !172
@@ -51640,9 +51640,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 211:                                              ; preds = %211, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %217, %211 ]
-  %212 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %212 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %213 = load float, ptr %212, align 4, !tbaa !172
-  %214 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %214 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %215 = load float, ptr %214, align 4, !tbaa !172
   %216 = fadd float %213, %215
   store float %216, ptr %214, align 4, !tbaa !172
@@ -52180,9 +52180,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 214:                                              ; preds = %214, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %215 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %217 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -52723,9 +52723,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 213:                                              ; preds = %213, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %219, %213 ]
-  %214 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %214 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %215 = load float, ptr %214, align 4, !tbaa !172
-  %216 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %216 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %217 = load float, ptr %216, align 4, !tbaa !172
   %218 = fadd float %215, %217
   store float %218, ptr %216, align 4, !tbaa !172
@@ -53267,9 +53267,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 214:                                              ; preds = %214, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %215 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %217 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -53810,9 +53810,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 217:                                              ; preds = %217, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %218 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %220 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -54351,9 +54351,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 215:                                              ; preds = %215, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %221, %215 ]
-  %216 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %216 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %217 = load float, ptr %216, align 4, !tbaa !172
-  %218 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %218 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
   %220 = fadd float %217, %219
   store float %220, ptr %218, align 4, !tbaa !172
@@ -54891,9 +54891,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 214:                                              ; preds = %214, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %215 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %217 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -55735,9 +55735,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 362:                                              ; preds = %362, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %368, %362 ]
-  %363 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %363 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %364 = load float, ptr %363, align 4, !tbaa !172
-  %365 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %365 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %366 = load float, ptr %365, align 4, !tbaa !172
   %367 = fadd float %364, %366
   store float %367, ptr %365, align 4, !tbaa !172
@@ -56585,9 +56585,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 368:                                              ; preds = %368, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %374, %368 ]
-  %369 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %369 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %370 = load float, ptr %369, align 4, !tbaa !172
-  %371 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %371 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %372 = load float, ptr %371, align 4, !tbaa !172
   %373 = fadd float %370, %372
   store float %373, ptr %371, align 4, !tbaa !172
@@ -57468,9 +57468,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 363:                                              ; preds = %363, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %369, %363 ]
-  %364 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %364 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %365 = load float, ptr %364, align 4, !tbaa !172
-  %366 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %366 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %367 = load float, ptr %366, align 4, !tbaa !172
   %368 = fadd float %365, %367
   store float %368, ptr %366, align 4, !tbaa !172
@@ -58321,9 +58321,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 371:                                              ; preds = %371, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %377, %371 ]
-  %372 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %372 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %373 = load float, ptr %372, align 4, !tbaa !172
-  %374 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %374 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %375 = load float, ptr %374, align 4, !tbaa !172
   %376 = fadd float %373, %375
   store float %376, ptr %374, align 4, !tbaa !172
@@ -59089,9 +59089,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 310:                                              ; preds = %310, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %316, %310 ]
-  %311 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %311 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %312 = load float, ptr %311, align 4, !tbaa !172
-  %313 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %313 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %314 = load float, ptr %313, align 4, !tbaa !172
   %315 = fadd float %312, %314
   store float %315, ptr %313, align 4, !tbaa !172
@@ -59878,9 +59878,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 328:                                              ; preds = %328, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %334, %328 ]
-  %329 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %329 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %330 = load float, ptr %329, align 4, !tbaa !172
-  %331 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %331 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %332 = load float, ptr %331, align 4, !tbaa !172
   %333 = fadd float %330, %332
   store float %333, ptr %331, align 4, !tbaa !172
@@ -60650,9 +60650,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 319:                                              ; preds = %319, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %325, %319 ]
-  %320 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %320 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %321 = load float, ptr %320, align 4, !tbaa !172
-  %322 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %322 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %323 = load float, ptr %322, align 4, !tbaa !172
   %324 = fadd float %321, %323
   store float %324, ptr %322, align 4, !tbaa !172
@@ -61746,9 +61746,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 476:                                              ; preds = %476, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %482, %476 ]
-  %477 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %477 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %478 = load float, ptr %477, align 4, !tbaa !172
-  %479 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %479 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %480 = load float, ptr %479, align 4, !tbaa !172
   %481 = fadd float %478, %480
   store float %481, ptr %479, align 4, !tbaa !172
@@ -62856,9 +62856,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 482:                                              ; preds = %482, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %488, %482 ]
-  %483 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %483 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %484 = load float, ptr %483, align 4, !tbaa !172
-  %485 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05.i
+  %485 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
   %486 = load float, ptr %485, align 4, !tbaa !172
   %487 = fadd float %484, %486
   store float %487, ptr %485, align 4, !tbaa !172
@@ -63019,7 +63019,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %20 ], [ %92, %85 ]
   %.02326.i = phi float [ 0.000000e+00, %20 ], [ %91, %85 ]
   %.02425.i = phi float [ %84, %20 ], [ %93, %85 ]
-  %86 = getelementptr inbounds nuw [6 x float], ptr %10, i64 0, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   %87 = load float, ptr %86, align 4, !tbaa !172, !noalias !383
   %88 = fmul float %.01727.i, %87
   %89 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -63971,9 +63971,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 484:                                              ; preds = %484, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %490, %484 ]
-  %485 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.05.i
+  %485 = getelementptr inbounds nuw float, ptr %12, i64 %.05.i
   %486 = load float, ptr %485, align 4, !tbaa !172
-  %487 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.05.i
+  %487 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
   %488 = load float, ptr %487, align 4, !tbaa !172
   %489 = fadd float %486, %488
   store float %489, ptr %487, align 4, !tbaa !172

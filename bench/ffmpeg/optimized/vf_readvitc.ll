@@ -223,7 +223,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .preheader.i.us:                                  ; preds = %78
   %96 = load i32, ptr %23, align 8, !tbaa !26
-  %97 = getelementptr inbounds nuw [9 x i8], ptr %20, i64 0, i64 %indvars.iv99.i.us
+  %97 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv99.i.us
   br label %98
 
 98:                                               ; preds = %123, %.preheader.i.us

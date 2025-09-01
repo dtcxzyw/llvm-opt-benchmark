@@ -216,9 +216,9 @@ define internal range(i32 -558323010, 1) i32 @config_props(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %45
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.config_props, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_props, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %52 = getelementptr inbounds nuw [4 x ptr], ptr %44, i64 0, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
   store ptr %switch.load, ptr %52, align 8, !tbaa !54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -260,29 +260,29 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 
 17:                                               ; preds = %4, %._crit_edge
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %._crit_edge ]
-  %18 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !46
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !51
   %.not54 = icmp eq i32 %22, 0
   br i1 %.not54, label %.critedge, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !51
   %26 = load i32, ptr %12, align 8, !tbaa !52
   %27 = sdiv i32 %25, %26
-  %28 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !51
   %30 = mul nsw i32 %29, %2
   %31 = sdiv i32 %30, %3
   %32 = mul nsw i32 %29, %14
   %33 = sdiv i32 %32, %3
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %35 = icmp slt i32 %31, %33
   br i1 %35, label %.lr.ph, label %._crit_edge
 
@@ -290,19 +290,19 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %36 = mul nsw i32 %31, %22
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %19, i64 %37
-  %39 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !51
   %41 = add nsw i32 %27, -1
   %42 = mul nsw i32 %40, %41
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %38, i64 %43
-  %45 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !46
   %47 = load i32, ptr %34, align 4, !tbaa !51
   %48 = mul nsw i32 %47, %31
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
-  %51 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   br label %52
 
 52:                                               ; preds = %.lr.ph, %52

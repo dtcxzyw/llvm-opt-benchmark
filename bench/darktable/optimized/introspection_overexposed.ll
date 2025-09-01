@@ -89,7 +89,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 2508
   %37 = load i32, ptr %36, align 4, !tbaa !67
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [3 x [2 x [4 x float]]], ptr @dt_iop_overexposed_colors, i64 0, i64 %38
+  %39 = getelementptr inbounds [2 x [4 x float]], ptr @dt_iop_overexposed_colors, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 64) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 64) ]
@@ -472,7 +472,7 @@ dt_ioppr_get_rgb_matrix_luminance.exit:           ; preds = %dt_ioppr_apply_trc.
   %270 = getelementptr inbounds nuw float, ptr %181, i64 %.0226295
   %271 = load float, ptr %270, align 4, !tbaa !74
   %272 = fsub reassoc nsz arcp contract afn float %271, %.0.i
-  %273 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.0226295
+  %273 = getelementptr inbounds nuw float, ptr %16, i64 %.0226295
   %274 = fmul reassoc nsz arcp contract afn float %272, %272
   %275 = fmul reassoc nsz arcp contract afn float %271, %271
   %276 = fadd reassoc nsz arcp contract afn float %275, %261
@@ -762,7 +762,7 @@ dt_ioppr_get_rgb_matrix_luminance.exit282:        ; preds = %dt_ioppr_apply_trc.
   %455 = getelementptr inbounds nuw float, ptr %371, i64 %.0290
   %456 = load float, ptr %455, align 4, !tbaa !74
   %457 = fsub reassoc nsz arcp contract afn float %456, %.0.i280
-  %458 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.0290
+  %458 = getelementptr inbounds nuw float, ptr %17, i64 %.0290
   %459 = fmul reassoc nsz arcp contract afn float %457, %457
   %460 = fmul reassoc nsz arcp contract afn float %456, %456
   %461 = fadd reassoc nsz arcp contract afn float %460, %446

@@ -230,7 +230,7 @@ contains.exit.us.i:                               ; preds = %is_same.exit.i.us.i
 
 _Py_NewRef.exit39.us.i:                           ; preds = %65, %.loopexit.us.i
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %68 = getelementptr [1 x ptr], ptr %67, i64 0, i64 %.329.us.i
+  %68 = getelementptr ptr, ptr %67, i64 %.329.us.i
   store ptr %43, ptr %68, align 8, !tbaa !4
   %69 = add i64 %.329.us.i, 1
   br label %Py_XDECREF.exit.us.i
@@ -257,7 +257,7 @@ Py_XDECREF.exit.us.i:                             ; preds = %_Py_NewRef.exit39.u
   br label %_Py_NewRef.exit.us.i
 
 _Py_NewRef.exit.us.i:                             ; preds = %77, %.lr.ph.us.i
-  %79 = getelementptr [1 x ptr], ptr %82, i64 0, i64 %.454.us.i
+  %79 = getelementptr ptr, ptr %82, i64 %.454.us.i
   store ptr %74, ptr %79, align 8, !tbaa !4
   %80 = add nsw i64 %.454.us.i, 1
   %exitcond68.not.i = icmp eq i64 %80, %.sink.i
@@ -332,7 +332,7 @@ _Py_NewRef.exit.us.i:                             ; preds = %77, %.lr.ph.us.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %104, %.lr.ph.i
-  %106 = getelementptr [1 x ptr], ptr %99, i64 0, i64 %.454.i
+  %106 = getelementptr ptr, ptr %99, i64 %.454.i
   store ptr %101, ptr %106, align 8, !tbaa !4
   %107 = add nsw i64 %.454.i, 1
   %exitcond.not.i = icmp eq i64 %107, %.sink.i
@@ -352,7 +352,7 @@ _Py_NewRef.exit.i:                                ; preds = %104, %.lr.ph.i
 
 _Py_NewRef.exit39.i:                              ; preds = %111, %.loopexit.i
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %114 = getelementptr [1 x ptr], ptr %113, i64 0, i64 %.329.i
+  %114 = getelementptr ptr, ptr %113, i64 %.329.i
   store ptr %86, ptr %114, align 8, !tbaa !4
   %115 = add i64 %.329.i, 1
   %116 = add nuw nsw i64 %.03056.i, 1
@@ -577,7 +577,7 @@ define internal ptr @union_repr(ptr noundef readonly captures(none) %0) #0 {
 16:                                               ; preds = %13, %.lr.ph
   %17 = load ptr, ptr %2, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = getelementptr [1 x ptr], ptr %18, i64 0, i64 %.02026
+  %19 = getelementptr ptr, ptr %18, i64 %.02026
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call i32 @_Py_typing_type_repr(ptr noundef nonnull %8, ptr noundef %20) #5
   %22 = icmp sgt i32 %21, -1
@@ -884,7 +884,7 @@ _Py_NewRef.exit:                                  ; preds = %53, %58
 .lr.ph:                                           ; preds = %_Py_NewRef.exit, %61
   %.02638 = phi i64 [ %62, %61 ], [ 1, %_Py_NewRef.exit ]
   %.13137 = phi ptr [ %65, %61 ], [ %55, %_Py_NewRef.exit ]
-  %63 = getelementptr [1 x ptr], ptr %54, i64 0, i64 %.02638
+  %63 = getelementptr ptr, ptr %54, i64 %.02638
   %64 = load ptr, ptr %63, align 8, !tbaa !4
   %65 = tail call ptr @PyNumber_Or(ptr noundef nonnull %.13137, ptr noundef %64) #5
   %66 = load i32, ptr %.13137, align 8, !tbaa !27

@@ -796,7 +796,7 @@ proto_item_set_hidden.exit209.i.i:                ; preds = %231, %227, %224, %2
 
 switch.lookup:                                    ; preds = %254
   %259 = zext nneg i8 %93 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_someip_sd_pdu, i64 0, i64 %259
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_someip_sd_pdu, i64 %259
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %260
 
@@ -1209,7 +1209,7 @@ define internal noundef i32 @someipsd_entries_stats_tree_packet(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %32
   %34 = zext nneg i8 %28 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.someipsd_entries_stats_tree_packet, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.someipsd_entries_stats_tree_packet, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 

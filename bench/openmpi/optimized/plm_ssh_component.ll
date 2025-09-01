@@ -195,7 +195,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 27:                                               ; preds = %25
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %28, i32 2
+  %29 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %28, i32 2
   %30 = load i32, ptr %29, align 4, !tbaa !34
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %34
@@ -239,7 +239,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 47:                                               ; preds = %45
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %48, i32 2
+  %49 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %48, i32 2
   %50 = load i32, ptr %49, align 4, !tbaa !34
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %54
@@ -297,7 +297,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 77:                                               ; preds = %67
   %78 = zext nneg i32 %76 to i64
-  %79 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %78, i32 2
+  %79 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %78, i32 2
   %80 = load i32, ptr %79, align 4, !tbaa !34
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %85
@@ -320,7 +320,7 @@ define internal i32 @ssh_component_query(ptr noundef writeonly captures(none) %0
 
 89:                                               ; preds = %87
   %90 = zext nneg i32 %88 to i64
-  %91 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %90, i32 2
+  %91 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %90, i32 2
   %92 = load i32, ptr %91, align 4, !tbaa !34
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %94, label %97
@@ -578,7 +578,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 
 8:                                                ; preds = %7
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %9, i32 2
+  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9, i32 2
   %11 = load i32, ptr %10, align 4, !tbaa !34
   %12 = icmp sgt i32 %11, 4
   br i1 %12, label %13, label %.loopexit
@@ -595,7 +595,7 @@ define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr nounde
 
 18:                                               ; preds = %17
   %19 = zext nneg i32 %6 to i64
-  %20 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %19, i32 2
+  %20 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %19, i32 2
   %21 = load i32, ptr %20, align 4, !tbaa !34
   %22 = icmp sgt i32 %21, 4
   br i1 %22, label %23, label %29

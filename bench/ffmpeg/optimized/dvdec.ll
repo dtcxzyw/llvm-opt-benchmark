@@ -53,12 +53,12 @@ define internal noundef i32 @dvvideo_decode_init(ptr noundef initializes((160, 1
 
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !28
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !28
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %13, ptr %14, align 1, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -73,7 +73,7 @@ define internal noundef i32 @dvvideo_decode_init(ptr noundef initializes((160, 1
 
 .preheader:                                       ; preds = %15, %.preheader
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.preheader ], [ 0, %15 ]
-  %19 = getelementptr inbounds nuw [64 x i8], ptr @ff_dv_zigzag248_direct, i64 0, i64 %indvars.iv26
+  %19 = getelementptr inbounds nuw i8, ptr @ff_dv_zigzag248_direct, i64 %indvars.iv26
   %20 = load i8, ptr %19, align 1, !tbaa !28
   %21 = zext i8 %20 to i32
   %22 = and i32 %21, 7
@@ -84,9 +84,9 @@ define internal noundef i32 @dvvideo_decode_init(ptr noundef initializes((160, 1
   %27 = and i32 %26, 24
   %28 = or disjoint i32 %25, %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !28
-  %32 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %indvars.iv26
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv26
   store i8 %31, ptr %32, align 1, !tbaa !28
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 64
@@ -144,7 +144,7 @@ define internal i32 @dvvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %25 = and i32 %24, 16
   %.not.i = icmp eq i32 %25, 0
   %26 = select i1 %.not.i, i64 2816, i64 4096
-  %27 = getelementptr inbounds nuw [8192 x i32], ptr %22, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %26
   br i1 %.not.i, label %.preheader55.i, label %28
 
 28:                                               ; preds = %20
@@ -166,7 +166,7 @@ define internal i32 @dvvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv93.i = phi i64 [ 0, %.preheader58.i ], [ %indvars.iv.next94.i, %48 ]
   %.165.i = phi ptr [ %.03868.i, %.preheader58.i ], [ %47, %48 ]
   %.14064.i = phi ptr [ %.03967.i, %.preheader58.i ], [ %42, %48 ]
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @dv_init_weight_tables.dv100_qstep, i64 0, i64 %indvars.iv93.i
+  %33 = getelementptr inbounds nuw i8, ptr @dv_init_weight_tables.dv100_qstep, i64 %indvars.iv93.i
   %34 = load i8, ptr %33, align 1, !tbaa !28
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, %32
@@ -213,7 +213,7 @@ define internal i32 @dvvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv106.i = phi i64 [ 0, %.preheader55.i ], [ %indvars.iv.next107.i, %68 ]
   %.482.i = phi ptr [ %.385.i, %.preheader55.i ], [ %.6.lcssa.i, %68 ]
   %.44381.i = phi ptr [ %.34284.i, %.preheader55.i ], [ %.645.lcssa.i, %68 ]
-  %invariant.gep78.i = getelementptr inbounds nuw [22 x [4 x i8]], ptr @ff_dv_quant_shifts, i64 0, i64 %indvars.iv106.i
+  %invariant.gep78.i = getelementptr inbounds nuw [4 x i8], ptr @ff_dv_quant_shifts, i64 %indvars.iv106.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader54.i
@@ -221,14 +221,14 @@ define internal i32 @dvvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %.577.i = phi ptr [ %.482.i, %.preheader54.i ], [ %.6.lcssa.i, %._crit_edge.i ]
   %.54476.i = phi ptr [ %.44381.i, %.preheader54.i ], [ %.645.lcssa.i, %._crit_edge.i ]
   %.15174.i = phi i32 [ 0, %.preheader54.i ], [ %.252.lcssa.i, %._crit_edge.i ]
-  %52 = getelementptr inbounds nuw [4 x i8], ptr @dv_init_weight_tables.dv_quant_areas, i64 0, i64 %indvars.iv102.i
+  %52 = getelementptr inbounds nuw i8, ptr @dv_init_weight_tables.dv_quant_areas, i64 %indvars.iv102.i
   %53 = load i8, ptr %52, align 1, !tbaa !28
   %54 = zext i8 %53 to i32
   %55 = icmp samesign ult i32 %.15174.i, %54
   br i1 %55, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %gep79.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep78.i, i64 0, i64 %indvars.iv102.i
+  %gep79.i = getelementptr inbounds nuw i8, ptr %invariant.gep78.i, i64 %indvars.iv102.i
   %56 = load i8, ptr %gep79.i, align 1, !tbaa !28
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %57, 1
@@ -332,7 +332,7 @@ dv_init_weight_tables.exit:                       ; preds = %49, %69
   %110 = phi i64 [ 1, %97 ], [ 0, %102 ], [ %108, %106 ]
   %111 = load ptr, ptr %10, align 8, !tbaa !42
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  %113 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %112, i64 0, i64 %110
+  %113 = getelementptr inbounds nuw %struct.AVRational, ptr %112, i64 %110
   %114 = load i64, ptr %113, align 8
   %115 = tail call i32 @ff_set_sar(ptr noundef nonnull %0, i64 %114) #10
   br label %116
@@ -469,17 +469,17 @@ define internal void @dv_init_static() #0 {
 7:                                                ; preds = %0, %27
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %27 ]
   %.04446 = phi i32 [ 0, %0 ], [ %28, %27 ]
-  %8 = getelementptr inbounds nuw [409 x i8], ptr @ff_dv_vlc_len, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr @ff_dv_vlc_len, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !28
   %10 = sext i32 %.04446 to i64
   %11 = getelementptr inbounds %struct.VLCElem, ptr getelementptr inbounds nuw (i8, ptr @dv_rl_vlc, i64 3672), i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i8 %9, ptr %12, align 2, !tbaa !28
-  %13 = getelementptr inbounds nuw [409 x i8], ptr @ff_dv_vlc_run, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr @ff_dv_vlc_run, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 3
   store i8 %14, ptr %15, align 1, !tbaa !28
-  %16 = getelementptr inbounds nuw [409 x i8], ptr @ff_dv_vlc_level, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr @ff_dv_vlc_level, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !28
   %18 = zext i8 %17 to i16
   store i16 %18, ptr %11, align 4, !tbaa !28
@@ -545,7 +545,7 @@ define internal void @dv_init_static() #0 {
   %.042.in = phi i16 [ %46, %40 ], [ %36, %34 ]
   %.0 = phi i8 [ %45, %40 ], [ 0, %34 ]
   %48 = trunc i16 %38 to i8
-  %49 = getelementptr inbounds nuw [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %indvars.iv50
+  %49 = getelementptr inbounds nuw %struct.VLCElem, ptr @dv_rl_vlc, i64 %indvars.iv50
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store i8 %48, ptr %50, align 2, !tbaa !28
   store i16 %.042.in, ptr %49, align 4, !tbaa !28
@@ -653,7 +653,7 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
   %.2250 = phi i32 [ %.1249529, %28 ], [ %spec.select289, %38 ], [ %spec.select, %34 ]
   %.2246 = phi i32 [ %.1245530, %28 ], [ %.1245530, %38 ], [ %37, %34 ]
   %40 = getelementptr inbounds nuw i8, ptr %.0271525, i64 4
-  %41 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %indvars.iv599
+  %41 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv599
   store i32 0, ptr %41, align 4, !tbaa !49
   %42 = load ptr, ptr %11, align 8, !tbaa !42
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 60
@@ -663,7 +663,7 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %39
   %46 = shl nuw nsw i32 %32, 6
-  %47 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %indvars.iv599
+  %47 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv599
   br label %48
 
 48:                                               ; preds = %.lr.ph, %239
@@ -729,16 +729,16 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
   %91 = icmp ne i32 %68, 0
   %92 = select i1 %91, i1 %20, i1 false
   %93 = zext i1 %92 to i64
-  %94 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw ptr, ptr %17, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !38
   %96 = zext nneg i32 %68 to i64
-  %97 = getelementptr inbounds nuw [2 x [64 x i8]], ptr %18, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %96
   %98 = icmp eq i32 %74, 3
   %99 = select i1 %98, i32 2816, i32 0
   %100 = mul nuw nsw i32 %68, 1408
   %101 = add nuw nsw i32 %99, %100
   %102 = zext nneg i32 %74 to i64
-  %103 = getelementptr inbounds nuw [4 x i8], ptr @ff_dv_quant_offset, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr @ff_dv_quant_offset, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !28
   %105 = zext i8 %104 to i32
   %106 = add nuw nsw i32 %32, %105
@@ -752,7 +752,7 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
   %.sink617 = phi ptr [ %97, %90 ], [ %18, %80 ]
   %.pn.in = phi i32 [ %108, %90 ], [ %85, %80 ]
   %.pn = zext i32 %.pn.in to i64
-  %.sink = getelementptr inbounds nuw [8192 x i32], ptr %19, i64 0, i64 %.pn
+  %.sink = getelementptr inbounds nuw i32, ptr %19, i64 %.pn
   %111 = getelementptr inbounds nuw i8, ptr %.0264500, i64 24
   store ptr %.sink618, ptr %111, align 8, !tbaa !86
   %112 = getelementptr inbounds nuw i8, ptr %.0264500, i64 8
@@ -783,7 +783,7 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
   %125 = shl i32 %123, %124
   %126 = lshr i32 %125, 22
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw %struct.VLCElem, ptr @dv_rl_vlc, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 2
   %130 = load i8, ptr %129, align 2, !tbaa !28
   %131 = sext i8 %130 to i32
@@ -804,7 +804,7 @@ define internal noundef i32 @dv_decode_video_segment(ptr noundef %0, ptr noundef
   %.056.i = phi i32 [ %140, %133 ], [ %131, %120 ]
   %.055.i = phi i32 [ %139, %133 ], [ %126, %120 ]
   %142 = sext i32 %.055.i to i64
-  %143 = getelementptr inbounds [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %142
+  %143 = getelementptr inbounds %struct.VLCElem, ptr @dv_rl_vlc, i64 %142
   %144 = load i16, ptr %143, align 4, !tbaa !28
   %145 = sext i16 %144 to i32
   %146 = add nsw i32 %.056.i, %.sink705
@@ -1004,7 +1004,7 @@ bit_copy.exit:                                    ; preds = %._crit_edge.i, %234
   %.1272.lcssa = phi ptr [ %40, %39 ], [ %117, %._crit_edge.loopexit ]
   %.4.lcssa = phi i32 [ %.2250, %39 ], [ %.5, %._crit_edge.loopexit ]
   %.sroa.29426.0.ptr.le = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.29426.0.idx.lcssa495
-  %248 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %indvars.iv599
+  %248 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv599
   %249 = load i32, ptr %248, align 4, !tbaa !49
   %250 = icmp sgt i32 %249, 0
   br i1 %250, label %bit_copy.exit327, label %251
@@ -1116,7 +1116,7 @@ flush_put_bits.exit:                              ; preds = %265, %put_bits32.ex
   %.1.i306 = phi i32 [ %352, %334 ], [ %.1.i306.ph, %.preheader740 ]
   %298 = lshr i32 %.1.i306, 22
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds nuw [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw %struct.VLCElem, ptr @dv_rl_vlc, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 2
   %302 = load i8, ptr %301, align 2, !tbaa !28
   %303 = sext i8 %302 to i32
@@ -1137,7 +1137,7 @@ flush_put_bits.exit:                              ; preds = %265, %put_bits32.ex
   %.056.i307 = phi i32 [ %312, %305 ], [ %303, %297 ]
   %.055.i308 = phi i32 [ %311, %305 ], [ %298, %297 ]
   %314 = sext i32 %.055.i308 to i64
-  %315 = getelementptr inbounds [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %314
+  %315 = getelementptr inbounds %struct.VLCElem, ptr @dv_rl_vlc, i64 %314
   %316 = load i16, ptr %315, align 4, !tbaa !28
   %317 = sext i16 %316 to i32
   %318 = add i32 %.056.i307, %.154.i305
@@ -1468,7 +1468,7 @@ flush_put_bits.exit337:                           ; preds = %441, %put_bits32.ex
   %.1.i343 = phi i32 [ %536, %518 ], [ %.1.i343.ph, %.preheader739 ]
   %482 = lshr i32 %.1.i343, 22
   %483 = zext nneg i32 %482 to i64
-  %484 = getelementptr inbounds nuw [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw %struct.VLCElem, ptr @dv_rl_vlc, i64 %483
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 2
   %486 = load i8, ptr %485, align 2, !tbaa !28
   %487 = sext i8 %486 to i32
@@ -1489,7 +1489,7 @@ flush_put_bits.exit337:                           ; preds = %441, %put_bits32.ex
   %.056.i344 = phi i32 [ %496, %489 ], [ %487, %481 ]
   %.055.i345 = phi i32 [ %495, %489 ], [ %482, %481 ]
   %498 = sext i32 %.055.i345 to i64
-  %499 = getelementptr inbounds [1664 x %struct.VLCElem], ptr @dv_rl_vlc, i64 0, i64 %498
+  %499 = getelementptr inbounds %struct.VLCElem, ptr @dv_rl_vlc, i64 %498
   %500 = load i16, ptr %499, align 4, !tbaa !28
   %501 = sext i16 %500 to i32
   %502 = add i32 %.056.i344, %.154.i342
@@ -1614,7 +1614,7 @@ dv_decode_ac.exit348:                             ; preds = %512, %504
   %.4260563 = phi ptr [ %4, %.preheader ], [ %.6262, %880 ]
   %.4268562 = phi ptr [ %3, %.preheader ], [ %.6270, %880 ]
   %568 = load ptr, ptr %11, align 8, !tbaa !42
-  %569 = getelementptr inbounds nuw [5 x i16], ptr %555, i64 0, i64 %indvars.iv613
+  %569 = getelementptr inbounds nuw i16, ptr %555, i64 %indvars.iv613
   %570 = load i16, ptr %569, align 2, !tbaa !47
   %571 = and i16 %570, 255
   %572 = zext nneg i16 %571 to i32
@@ -1668,7 +1668,7 @@ dv_calculate_mb_xy.exit:                          ; preds = %567, %578, %583
   %596 = load ptr, ptr %556, align 8, !tbaa !57
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 64
   %598 = load i32, ptr %597, align 8, !tbaa !49
-  %599 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %indvars.iv613
+  %599 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv613
   %600 = load i32, ptr %599, align 4, !tbaa !49
   %.not = icmp eq i32 %600, 0
   %601 = select i1 %.not, i32 %14, i32 0
@@ -1686,7 +1686,7 @@ dv_calculate_mb_xy.exit:                          ; preds = %567, %578, %583
   %610 = sext i32 %609 to i64
   %611 = getelementptr inbounds i8, ptr %606, i64 %610
   %612 = icmp eq i32 %.0446, 134
-  %613 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %indvars.iv613
+  %613 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv613
   %614 = load i32, ptr %613, align 4, !tbaa !49
   br i1 %612, label %615, label %._crit_edge622
 
@@ -2034,7 +2034,7 @@ dv100_idct_put_last_row_field_luma.exit:          ; preds = %714, %728, %732
   %761 = shl i32 %760, %14
   %762 = sext i32 %761 to i64
   %763 = icmp samesign ugt i16 %571, 87
-  %764 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %indvars.iv613
+  %764 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv613
   br label %765
 
 765:                                              ; preds = %dv100_idct_put_last_row_field_luma.exit, %879
@@ -2043,7 +2043,7 @@ dv100_idct_put_last_row_field_luma.exit:          ; preds = %714, %728, %732
   %.5261560 = phi ptr [ %746, %dv100_idct_put_last_row_field_luma.exit ], [ %.6262, %879 ]
   %.5269559 = phi ptr [ %745, %dv100_idct_put_last_row_field_luma.exit ], [ %.6270, %879 ]
   %766 = load ptr, ptr %556, align 8, !tbaa !57
-  %767 = getelementptr inbounds nuw [8 x ptr], ptr %766, i64 0, i64 %indvars.iv610
+  %767 = getelementptr inbounds nuw ptr, ptr %766, i64 %indvars.iv610
   %768 = load ptr, ptr %767, align 8, !tbaa !101
   %769 = getelementptr inbounds i8, ptr %768, i64 %762
   %770 = load ptr, ptr %11, align 8, !tbaa !42
@@ -2063,7 +2063,7 @@ dv100_idct_put_last_row_field_luma.exit:          ; preds = %714, %728, %732
 .lr.ph557.preheader:                              ; preds = %774
   %.pre629 = load ptr, ptr %556, align 8, !tbaa !57
   %.phi.trans.insert630 = getelementptr inbounds nuw i8, ptr %.pre629, i64 64
-  %.phi.trans.insert631 = getelementptr inbounds nuw [8 x i32], ptr %.phi.trans.insert630, i64 0, i64 %indvars.iv610
+  %.phi.trans.insert631 = getelementptr inbounds nuw i32, ptr %.phi.trans.insert630, i64 %indvars.iv610
   %.pre632 = load i32, ptr %.phi.trans.insert631, align 4, !tbaa !49
   br label %.lr.ph557
 
@@ -2095,7 +2095,7 @@ dv100_idct_put_last_row_field_luma.exit:          ; preds = %714, %728, %732
 ._crit_edge552.loopexit:                          ; preds = %.lr.ph551
   %.pre633 = load ptr, ptr %556, align 8, !tbaa !57
   %.phi.trans.insert634 = getelementptr inbounds nuw i8, ptr %.pre633, i64 64
-  %.phi.trans.insert635 = getelementptr inbounds nuw [8 x i32], ptr %.phi.trans.insert634, i64 0, i64 %indvars.iv610
+  %.phi.trans.insert635 = getelementptr inbounds nuw i32, ptr %.phi.trans.insert634, i64 %indvars.iv610
   %.pre636 = load i32, ptr %.phi.trans.insert635, align 4, !tbaa !49
   br label %._crit_edge552
 
@@ -2119,7 +2119,7 @@ dv100_idct_put_last_row_field_luma.exit:          ; preds = %714, %728, %732
 
 796:                                              ; preds = %795
   %797 = getelementptr inbounds nuw i8, ptr %766, i64 64
-  %798 = getelementptr inbounds nuw [8 x i32], ptr %797, i64 0, i64 %indvars.iv610
+  %798 = getelementptr inbounds nuw i32, ptr %797, i64 %indvars.iv610
   %799 = load i32, ptr %798, align 4, !tbaa !49
   %800 = load i32, ptr %764, align 4, !tbaa !49
   %.not281 = icmp eq i32 %800, 0
@@ -2131,7 +2131,7 @@ dv100_idct_put_last_row_field_luma.exit:          ; preds = %714, %728, %732
   %804 = load i32, ptr %764, align 4, !tbaa !49
   %.not282 = icmp eq i32 %804, 0
   %.phi.trans.insert626 = getelementptr inbounds nuw i8, ptr %766, i64 64
-  %.phi.trans.insert627 = getelementptr inbounds nuw [8 x i32], ptr %.phi.trans.insert626, i64 0, i64 %indvars.iv610
+  %.phi.trans.insert627 = getelementptr inbounds nuw i32, ptr %.phi.trans.insert626, i64 %indvars.iv610
   %.pre628 = load i32, ptr %.phi.trans.insert627, align 4, !tbaa !49
   br i1 %.not282, label %._crit_edge625, label %805
 

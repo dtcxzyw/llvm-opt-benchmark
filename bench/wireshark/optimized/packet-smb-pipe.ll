@@ -1694,7 +1694,7 @@ define internal fastcc noundef zeroext i1 @dissect_pipe_lanman(ptr noundef %0, p
 
 92:                                               ; preds = %92, %90
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %92 ], [ 0, %90 ]
-  %93 = getelementptr [13 x %struct.lanman_desc], ptr @lmd, i64 0, i64 %indvars.iv225
+  %93 = getelementptr %struct.lanman_desc, ptr @lmd, i64 %indvars.iv225
   %94 = load i32, ptr %93, align 8
   %.not.i = icmp eq i32 %94, -1
   %95 = icmp eq i32 %94, %37
@@ -2180,7 +2180,7 @@ dissect_request_parameters.exit:                  ; preds = %100
 
 364:                                              ; preds = %364, %352
   %indvars.iv = phi i64 [ %indvars.iv.next, %364 ], [ 0, %352 ]
-  %365 = getelementptr [13 x %struct.lanman_desc], ptr @lmd, i64 0, i64 %indvars.iv
+  %365 = getelementptr %struct.lanman_desc, ptr @lmd, i64 %indvars.iv
   %366 = load i32, ptr %365, align 8
   %.not.i187 = icmp eq i32 %366, -1
   %367 = icmp eq i32 %366, %363

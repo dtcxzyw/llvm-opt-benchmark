@@ -1441,7 +1441,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit363: ; preds = %629, %623, %63
 
 633:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit363
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
-  %634 = getelementptr inbounds nuw [4 x %"class.std::map"], ptr %153, i64 0, i64 %indvars.iv
+  %634 = getelementptr inbounds nuw %"class.std::map", ptr %153, i64 %indvars.iv
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 16
   %636 = load ptr, ptr %635, align 8, !tbaa !19
   %637 = getelementptr inbounds nuw i8, ptr %634, i64 8
@@ -1958,7 +1958,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit40
   %856 = or disjoint i32 %.0561543, 2
   %857 = select i1 %616, i32 %856, i32 %.0561543
   %858 = zext nneg i32 %857 to i64
-  %859 = getelementptr inbounds nuw [4 x %"class.std::map"], ptr %153, i64 0, i64 %858
+  %859 = getelementptr inbounds nuw %"class.std::map", ptr %153, i64 %858
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 16
   %861 = load ptr, ptr %860, align 8, !tbaa !19
   %862 = getelementptr inbounds nuw i8, ptr %859, i64 8
@@ -2339,7 +2339,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit447: ; preds = %1000, %1004, %1010
   br label %.body858
 
 1014:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit363
-  %1015 = getelementptr inbounds nuw [4 x %"class.std::map"], ptr %153, i64 0, i64 %indvars.iv
+  %1015 = getelementptr inbounds nuw %"class.std::map", ptr %153, i64 %indvars.iv
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 16
   %1017 = load ptr, ptr %1016, align 8, !tbaa !19
   %1018 = getelementptr inbounds nuw i8, ptr %1015, i64 8

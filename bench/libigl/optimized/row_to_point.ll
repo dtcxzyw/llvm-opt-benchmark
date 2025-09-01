@@ -8113,7 +8113,7 @@ define linkonce_odr dso_local void @_ZN4CGAL10Lazy_rep_0INS_7Point_2INS_16Simple
   %9 = phi i64 [ 0, %2 ], [ 1, %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2ERKSB_.exit.i.i.i.i.i ]
   %.idx.i.i.i.i.i = shl nuw nsw i64 %9, 6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i.i
-  %11 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %1, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %1, i64 %9
   invoke void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2ERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %10, ptr noundef nonnull align 16 dereferenceable(64) %11)
           to label %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2ERKSB_.exit.i.i.i.i.i unwind label %12
 
@@ -8174,7 +8174,7 @@ _ZN4CGAL7Point_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   %34 = phi i1 [ true, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i.i.i.i ], [ false, %20 ]
   %35 = phi i64 [ 1, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i.i.i.i ], [ 0, %20 ]
   %36 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %33, i64 %35
-  %37 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %1, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %1, i64 %35
   store i64 0, ptr %36, align 16, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16

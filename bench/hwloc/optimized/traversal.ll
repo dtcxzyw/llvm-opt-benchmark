@@ -120,7 +120,7 @@ define i32 @hwloc_get_type_depth(ptr noundef readonly captures(none) %0, i32 nou
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [20 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !3
   br label %9
 
@@ -153,7 +153,7 @@ define i32 @hwloc_get_depth_type(ptr noundef readonly captures(none) %0, i32 nou
 
 switch.lookup:                                    ; preds = %5
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.hwloc_get_depth_type, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hwloc_get_depth_type, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %16
 
@@ -251,7 +251,7 @@ define ptr @hwloc_get_obj_by_depth(ptr noundef readonly captures(none) %0, i32 n
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !41
   %14 = icmp ult i32 %2, %13
   br i1 %14, label %15, label %30
@@ -303,7 +303,7 @@ define i32 @hwloc_get_nbobjs_by_depth(ptr noundef readonly captures(none) %0, i3
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !41
   br label %19
 
@@ -375,7 +375,7 @@ define hidden ptr @hwloc_get_obj_by_type_and_gp_index(ptr noundef readonly captu
 hwloc_get_type_depth.exit:                        ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [20 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !3
   switch i32 %8, label %32 [
     i32 -1, label %hwloc_get_obj_by_depth_and_gp_index.exit36
@@ -449,7 +449,7 @@ hwloc_get_obj_by_depth_and_gp_index.exit.thread:  ; preds = %29, %16, %.thread, 
   %38 = sub nuw nsw i32 -3, %8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %39, i64 %40
   %42 = load i32, ptr %41, align 8, !tbaa !41
   %.not8.i27 = icmp eq i32 %42, 0
   br i1 %.not8.i27, label %hwloc_get_obj_by_depth_and_gp_index.exit36, label %43
@@ -718,7 +718,7 @@ define noundef nonnull ptr @hwloc_obj_type_string(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.hwloc_obj_type_snprintf, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_obj_type_snprintf, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1427,7 +1427,7 @@ hwloc_get_type_depth.exit:                        ; preds = %4
   %6 = icmp ugt i64 %3, 47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = icmp eq i32 %1, 13
   %12 = icmp eq i32 %10, -2
@@ -1510,7 +1510,7 @@ thread-pre-split:                                 ; preds = %9, %10
 hwloc_get_type_depth.exit.i:                      ; preds = %thread-pre-split
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = zext nneg i32 %.pr to i64
-  %14 = getelementptr inbounds nuw [20 x i32], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = icmp eq i32 %.pr, 13
   %17 = icmp eq i32 %15, -2
@@ -1601,7 +1601,7 @@ define i32 @hwloc_obj_type_snprintf(ptr noalias noundef writeonly captures(none)
 
 switch.lookup:                                    ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %8 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.hwloc_obj_type_snprintf, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_obj_type_snprintf, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %switch.load) #22
   br label %hwloc__osdev_type_snprintf_short.exit
@@ -1618,7 +1618,7 @@ switch.lookup:                                    ; preds = %4, %4, %4, %4, %4, 
 
 switch.lookup57:                                  ; preds = %10
   %18 = zext nneg i32 %16 to i64
-  %switch.gep58 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.hwloc_obj_type_snprintf.1, i64 0, i64 %18
+  %switch.gep58 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_obj_type_snprintf.1, i64 %18
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   br label %hwloc_obj_cache_type_letter.exit
 
@@ -1673,7 +1673,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
 
 .preheader:                                       ; preds = %39, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %39 ]
-  %45 = getelementptr inbounds nuw [7 x %struct._hwloc_osdev_type_names], ptr @names, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %struct._hwloc_osdev_type_names, ptr @names, i64 %indvars.iv.i
   %46 = load i64, ptr %45, align 8, !tbaa !65, !noalias !67
   %47 = and i64 %46, %43
   %.not13.i = icmp eq i64 %47, 0
@@ -1729,7 +1729,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   %.16596.i = phi ptr [ %66, %.preheader.lr.ph.i ], [ %.266.i, %.preheader.i.backedge ]
   %.16895.i = phi i8 [ 91, %.preheader.lr.ph.i ], [ %.269.i, %.preheader.i.backedge ]
   %.17494.i = phi i64 [ %43, %.preheader.lr.ph.i ], [ %.275.i, %.preheader.i.backedge ]
-  %67 = getelementptr inbounds nuw [7 x %struct._hwloc_osdev_type_names], ptr @names, i64 0, i64 %indvars.iv.i46
+  %67 = getelementptr inbounds nuw %struct._hwloc_osdev_type_names, ptr @names, i64 %indvars.iv.i46
   %68 = load i64, ptr %67, align 8, !tbaa !65, !noalias !70
   %69 = and i64 %68, %.17494.i
   %.not83.i = icmp eq i64 %69, 0
@@ -2347,7 +2347,7 @@ define noundef i32 @hwloc_bitmap_singlify_per_core(ptr noundef readonly captures
 16:                                               ; preds = %14
   %17 = sub nuw nsw i32 -3, %11
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %7, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %7, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !41
   %.not8.i.i.i = icmp eq i32 %20, 0
   br i1 %.not8.i.i.i, label %.loopexit, label %21
@@ -2481,7 +2481,7 @@ define ptr @hwloc_get_obj_with_same_locality(ptr noundef readonly captures(none)
 hwloc_get_type_depth.exit.i.lr.ph:                ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw [20 x i32], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %or.cond.i = icmp ugt i32 %17, -3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2489,7 +2489,7 @@ hwloc_get_type_depth.exit.i.lr.ph:                ; preds = %11
   %20 = sub nuw nsw i32 -3, %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw [6 x %struct.hwloc_special_level_s], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.hwloc_special_level_s, ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = sext i32 %17 to i64

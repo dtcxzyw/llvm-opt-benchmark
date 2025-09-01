@@ -5824,7 +5824,7 @@ define void @_ZN19QualityMapperDialog6initTFEv(ptr noundef nonnull align 8 deref
   %32 = icmp eq i32 %31, 10
   %33 = select i1 %32, i32 0, i32 %31
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %class.QString, ptr @_ZN16TransferFunction10defaultTFsE, i64 %34
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %35) #24
   %37 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -6037,10 +6037,10 @@ define void @_ZN19QualityMapperDialog6initTFEv(ptr noundef nonnull align 8 deref
   %110 = phi ptr [ %101, %99 ], [ %254, %._crit_edge115 ]
   %indvars.iv136 = phi i64 [ 0, %99 ], [ %indvars.iv.next137, %._crit_edge115 ]
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 96
-  %112 = getelementptr inbounds nuw [3 x i32], ptr %111, i64 0, i64 %indvars.iv136
+  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv136
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [3 x %class.TfChannel], ptr %110, i64 0, i64 %114
+  %115 = getelementptr inbounds %class.TfChannel, ptr %110, i64 %114
   %116 = invoke noundef i32 @_ZN9TfChannel7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %115)
           to label %switch.lookup unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -6051,7 +6051,7 @@ switch.lookup:                                    ; preds = %109
   %switch.offset = add nuw nsw i32 %117, 7
   %119 = call noundef nonnull align 4 dereferenceable(14) ptr @_ZN6QColoraSEN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %16, i32 noundef %switch.offset) #24
   %120 = load ptr, ptr %100, align 8
-  %121 = getelementptr inbounds nuw [3 x %class.TfChannel], ptr %120, i64 0, i64 %indvars.iv136
+  %121 = getelementptr inbounds nuw %class.TfChannel, ptr %120, i64 %indvars.iv136
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %124 = load ptr, ptr %123, align 8
@@ -6140,7 +6140,7 @@ switch.lookup183:                                 ; preds = %149
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 64
   %176 = load i32, ptr %175, align 8
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds [3 x %class.QList.22], ptr %107, i64 0, i64 %177
+  %178 = getelementptr inbounds %class.QList.22, ptr %107, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = load atomic i32, ptr %179 monotonic, align 4
   %181 = icmp ugt i32 %180, 1
@@ -6311,7 +6311,7 @@ _ZN5QListIP8TFHandleE18detach_helper_growEii.exit.i: ; preds = %_ZN9QtPrivate8Re
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %242 = add nuw i64 %.033112, 1
   %243 = load ptr, ptr %100, align 8
-  %244 = getelementptr inbounds nuw [3 x %class.TfChannel], ptr %243, i64 0, i64 %indvars.iv136
+  %244 = getelementptr inbounds nuw %class.TfChannel, ptr %243, i64 %indvars.iv136
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %247 = load ptr, ptr %246, align 8
@@ -6544,7 +6544,7 @@ _ZN5QListIP13QGraphicsItemED2Ev.exit:             ; preds = %.loopexit97, %_ZN9Q
 
 .preheader95:                                     ; preds = %_ZN5QListIP13QGraphicsItemED2Ev.exit, %.loopexit
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.loopexit ], [ 0, %_ZN5QListIP13QGraphicsItemED2Ev.exit ]
-  %349 = getelementptr inbounds nuw [3 x %class.QList.22], ptr %107, i64 0, i64 %indvars.iv143
+  %349 = getelementptr inbounds nuw %class.QList.22, ptr %107, i64 %indvars.iv143
   %350 = load ptr, ptr %349, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 12
   %352 = load i32, ptr %351, align 4
@@ -8729,7 +8729,7 @@ _ZN5QListIP13QGraphicsItemE5clearEv.exit:         ; preds = %_ZN5QListIP13QGraph
 
 31:                                               ; preds = %.preheader266, %_ZN5QListIP8TFHandleE5clearEv.exit
   %indvars.iv = phi i64 [ 0, %.preheader266 ], [ %indvars.iv.next, %_ZN5QListIP8TFHandleE5clearEv.exit ]
-  %32 = getelementptr inbounds nuw [3 x %class.QList.22], ptr %26, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %class.QList.22, ptr %26, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %33 = load ptr, ptr %32, align 8, !noalias !18
   store ptr %33, ptr %7, align 8, !alias.scope !18
@@ -9082,7 +9082,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i70: ; preds = %_ZN9QtPrivate8RefC
 
 166:                                              ; preds = %.preheader265, %178
   %indvars.iv295 = phi i64 [ 0, %.preheader265 ], [ %indvars.iv.next296, %178 ]
-  %167 = getelementptr inbounds nuw [3 x ptr], ptr %164, i64 0, i64 %indvars.iv295
+  %167 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv295
   %168 = load ptr, ptr %167, align 8
   %.not56 = icmp eq ptr %168, null
   br i1 %.not56, label %178, label %169
@@ -9114,7 +9114,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i70: ; preds = %_ZN9QtPrivate8RefC
 
 .preheader:                                       ; preds = %179, %187
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %187 ], [ 0, %179 ]
-  %181 = getelementptr inbounds nuw [3 x ptr], ptr %164, i64 0, i64 %indvars.iv299
+  %181 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv299
   %182 = load ptr, ptr %181, align 8
   %.not55 = icmp eq ptr %182, null
   br i1 %.not55, label %187, label %183
@@ -11785,13 +11785,13 @@ _ZN3vcg9HistogramIfED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %86 = fadd double %85, 1.000000e+01
   %87 = call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #27
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %3, i32 noundef 2) #24
-  %88 = getelementptr inbounds nuw [3 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
   invoke void @_ZN8EqHandleC1EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEPPS_PdP14QDoubleSpinBoxii(ptr noundef nonnull align 8 dereferenceable(152) %87, ptr noundef nonnull %68, ptr noundef nonnull %3, double %86, double %63, i32 noundef %82, ptr noundef nonnull %65, ptr noundef nonnull %64, ptr noundef %89, i32 noundef 1, i32 noundef 5)
           to label %90 unwind label %93
 
 90:                                               ; preds = %67
-  %91 = getelementptr inbounds nuw [3 x ptr], ptr %65, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
   store ptr %87, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 16
   call void @_ZN14QGraphicsScene7addItemEP13QGraphicsItem(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull %92)
@@ -13549,10 +13549,10 @@ define void @_ZN19QualityMapperDialog20drawTransferFunctionEv(ptr noundef nonnul
   %indvars.iv73 = phi i64 [ 0, %39 ], [ %indvars.iv.next74, %.loopexit ]
   %48 = load ptr, ptr %40, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
-  %50 = getelementptr inbounds nuw [3 x i32], ptr %49, i64 0, i64 %indvars.iv73
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv73
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [3 x %class.TfChannel], ptr %48, i64 0, i64 %52
+  %53 = getelementptr inbounds %class.TfChannel, ptr %48, i64 %52
   %54 = invoke noundef i32 @_ZN9TfChannel7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %53)
           to label %55 unwind label %.loopexit.split-lp.loopexit
 
@@ -13597,7 +13597,7 @@ define void @_ZN19QualityMapperDialog20drawTransferFunctionEv(ptr noundef nonnul
   %62 = fmul float %61, 2.000000e+00
   %63 = fpext float %62 to double
   %64 = sext i32 %54 to i64
-  %65 = getelementptr inbounds [3 x %class.QList.22], ptr %41, i64 0, i64 %64
+  %65 = getelementptr inbounds %class.QList.22, ptr %41, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %68 = load i32, ptr %67, align 4
@@ -15825,7 +15825,7 @@ define void @_ZN19QualityMapperDialog36on_presetComboBox_currentTextChangedERK7Q
 
 7:                                                ; preds = %2, %24
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %24 ]
-  %8 = getelementptr inbounds nuw [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %class.QString, ptr @_ZN16TransferFunction10defaultTFsE, i64 %indvars.iv
   %9 = tail call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %1) #24
   br i1 %9, label %10, label %24
 
@@ -16147,7 +16147,7 @@ define void @_ZN19QualityMapperDialog16moveAheadChannelE11TF_CHANNELS(ptr nounde
 
 12:                                               ; preds = %6, %_ZN9QtPrivate17QForeachContainerI5QListIP8TFHandleEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %_ZN9QtPrivate17QForeachContainerI5QListIP8TFHandleEED2Ev.exit ]
-  %13 = getelementptr inbounds nuw [3 x %class.QList.22], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %class.QList.22, ptr %7, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %14 = load ptr, ptr %13, align 8, !noalias !139
   store ptr %14, ptr %3, align 8, !alias.scope !139
@@ -16504,7 +16504,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [3 x %class.TfChannel], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds %class.TfChannel, ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -16523,7 +16523,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %19 = load ptr, ptr %3, align 8
   %20 = load i32, ptr %5, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [3 x %class.TfChannel], ptr %19, i64 0, i64 %21
+  %22 = getelementptr inbounds %class.TfChannel, ptr %19, i64 %21
   %23 = tail call noundef zeroext i1 @_ZN9TfChannel6isHeadEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %16)
   br i1 %23, label %78, label %24
 
@@ -16538,7 +16538,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %30 = load ptr, ptr %3, align 8
   %31 = load i32, ptr %5, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [3 x %class.TfChannel], ptr %30, i64 0, i64 %32
+  %33 = getelementptr inbounds %class.TfChannel, ptr %30, i64 %32
   %34 = tail call noundef ptr @_ZN9TfChannel6addKeyEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull %25)
   %35 = load i32, ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -16589,7 +16589,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %79 = load ptr, ptr %3, align 8
   %80 = load i32, ptr %5, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [3 x %class.TfChannel], ptr %79, i64 0, i64 %81
+  %82 = getelementptr inbounds %class.TfChannel, ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %85 = load ptr, ptr %84, align 8
@@ -16613,7 +16613,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %98 = load ptr, ptr %3, align 8
   %99 = load i32, ptr %5, align 8
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds [3 x %class.TfChannel], ptr %98, i64 0, i64 %100
+  %101 = getelementptr inbounds %class.TfChannel, ptr %98, i64 %100
   %102 = tail call noundef zeroext i1 @_ZN9TfChannel6isTailEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef %95)
   br i1 %102, label %157, label %103
 
@@ -16628,7 +16628,7 @@ define void @_ZN19QualityMapperDialog21manageBorderTfHandlesEP8TFHandle(ptr noun
   %109 = load ptr, ptr %3, align 8
   %110 = load i32, ptr %5, align 8
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds [3 x %class.TfChannel], ptr %109, i64 0, i64 %111
+  %112 = getelementptr inbounds %class.TfChannel, ptr %109, i64 %111
   %113 = tail call noundef ptr @_ZN9TfChannel6addKeyEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull %104)
   %114 = load i32, ptr %5, align 8
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -16685,7 +16685,7 @@ define void @_ZN19QualityMapperDialog20updateTfHandlesOrderEi(ptr noundef nonnul
   %4 = alloca %"class.QList<TFHandle *>::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [3 x %class.QList.22], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.QList.22, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !noalias !152
   %9 = load atomic i32, ptr %8 monotonic, align 4, !noalias !152
   %10 = icmp ugt i32 %9, 1
@@ -16909,7 +16909,7 @@ define noalias noundef ptr @_ZN19QualityMapperDialog14removeTfHandleEP8TFHandle(
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [3 x %class.QList.22], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds %class.QList.22, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
@@ -16985,7 +16985,7 @@ _ZN5QListIP8TFHandleEixEi.exit:                   ; preds = %.lr.ph, %_ZN5QListI
   %53 = icmp eq ptr %52, %1
   %54 = load i32, ptr %8, align 8
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [3 x %class.QList.22], ptr %7, i64 0, i64 %55
+  %56 = getelementptr inbounds %class.QList.22, ptr %7, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %59 = load i32, ptr %58, align 4
@@ -17068,7 +17068,7 @@ _ZN5QListIP8TFHandleE8removeAtEi.exit:            ; preds = %90, %4, %_ZN5QListI
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 64
   %98 = load i32, ptr %97, align 8
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [3 x %class.TfChannel], ptr %94, i64 0, i64 %99
+  %100 = getelementptr inbounds %class.TfChannel, ptr %94, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %102 = load ptr, ptr %101, align 8
   tail call void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef %102)
@@ -17657,7 +17657,7 @@ define noundef ptr @_ZN19QualityMapperDialog11addTfHandleEP8TFHandle(ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [3 x %class.QList.22], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds %class.QList.22, ptr %8, i64 %11
   call void @_ZN5QListIP8TFHandleE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %13 = load ptr, ptr %3, align 8
   call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef %13, ptr noundef nonnull @.str.138, ptr noundef nonnull %0, ptr noundef nonnull @.str.139, i32 noundef 0)
@@ -17877,7 +17877,7 @@ define void @_ZN19QualityMapperDialog24on_TF_view_doubleClickedE7QPointF(ptr nou
   store float %42, ptr %44, align 4
   %45 = load ptr, ptr %4, align 8
   %46 = sext i32 %7 to i64
-  %47 = getelementptr inbounds [3 x %class.TfChannel], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds %class.TfChannel, ptr %45, i64 %46
   %48 = tail call noundef ptr @_ZN9TfChannel6addKeyEP6TF_KEY(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull %9)
   %49 = add nsw i32 %7, 1
   %50 = sitofp i32 %49 to float

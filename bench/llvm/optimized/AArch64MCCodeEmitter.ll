@@ -175,7 +175,7 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21ge
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = load i32, ptr %1, align 8, !tbaa !10
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [8838 x i64], ptr @_ZZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoEE8InstBits, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr @_ZZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoEE8InstBits, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !52
   switch i32 %6, label %31398 [
     i32 1649, label %31406
@@ -18771,7 +18771,7 @@ _ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS
   %7841 = getelementptr inbounds nuw i8, ptr %7800, i64 40
   %7842 = load i64, ptr %7841, align 8, !tbaa !33
   %7843 = tail call i64 @llvm.fshl.i64(i64 %7842, i64 %7842, i64 61)
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.67, i64 0, i64 %7843
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.67, i64 %7843
   %switch.load = load i64, ptr %switch.gep, align 8
   %7844 = or disjoint i64 %7818, %7838
   %7845 = or disjoint i64 %7844, %7840
@@ -21712,7 +21712,7 @@ _ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS
   %9916 = getelementptr inbounds nuw i8, ptr %9874, i64 56
   %9917 = load i64, ptr %9916, align 8, !tbaa !33
   %9918 = tail call i64 @llvm.fshl.i64(i64 %9917, i64 %9917, i64 61)
-  %switch.gep282 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.67, i64 0, i64 %9918
+  %switch.gep282 = getelementptr inbounds i64, ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.67, i64 %9918
   %switch.load283 = load i64, ptr %switch.gep282, align 8
   %9919 = or disjoint i64 %9893, %9913
   %9920 = or disjoint i64 %9919, %9915

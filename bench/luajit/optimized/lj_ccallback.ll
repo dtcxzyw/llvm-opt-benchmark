@@ -276,7 +276,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i
 
 126:                                              ; preds = %123
   %127 = zext nneg i32 %.081106.i to i64
-  %128 = getelementptr inbounds nuw [8 x %union.FPRCBArg], ptr %34, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw %union.FPRCBArg, ptr %34, i64 %127
   br label %139
 
 129:                                              ; preds = %ctype_rawchild.exit.i
@@ -286,7 +286,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i
 
 132:                                              ; preds = %129
   %133 = zext nneg i32 %.088104.i to i64
-  %134 = getelementptr inbounds nuw [8 x i64], ptr %104, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i64, ptr %104, i64 %133
   br label %139
 
 135:                                              ; preds = %129, %123

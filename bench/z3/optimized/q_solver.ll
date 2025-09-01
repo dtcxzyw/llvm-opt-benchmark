@@ -5809,7 +5809,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit26.lr.ph.split: ; preds = %.preheade
   %35 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !712
   %37 = load ptr, ptr %36, align 8, !tbaa !719
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   store ptr %37, ptr %38, align 8, !tbaa !405
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
@@ -5868,7 +5868,7 @@ define hidden noundef ptr @_ZN1q12q_proof_hint2mkERN3euf6solverERK6symboljN3sat7
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %22 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !405
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   store ptr %23, ptr %24, align 8, !tbaa !405
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
@@ -5963,7 +5963,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %_ZN11ast_manager7in
 
 35:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %36 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !405
   %.not.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %38

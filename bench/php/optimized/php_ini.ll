@@ -742,7 +742,7 @@ append_ini_path.exit206:                          ; preds = %43, %45
   store i64 %82, ptr %88, align 8, !tbaa !56
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull align 1 %.0142279288, i64 %82, i1 false)
-  %90 = getelementptr inbounds nuw [1 x i8], ptr %89, i64 0, i64 %82
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %82
   store i8 0, ptr %90, align 1, !tbaa !47
   store ptr %85, ptr %5, align 8, !tbaa !47
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1210,7 +1210,7 @@ define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, 
   store i64 %48, ptr %54, align 8, !tbaa !56
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 1 %46, i64 %48, i1 false)
-  %56 = getelementptr inbounds nuw [1 x i8], ptr %55, i64 0, i64 %48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %48
   store i8 0, ptr %56, align 1, !tbaa !47
   br label %zend_string_dup.exit
 
@@ -1329,7 +1329,7 @@ zend_symtable_update.exit:                        ; preds = %88, %_zend_handle_n
   store i64 %103, ptr %109, align 8, !tbaa !56
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %110, ptr nonnull align 1 %101, i64 %103, i1 false)
-  %111 = getelementptr inbounds nuw [1 x i8], ptr %110, i64 0, i64 %103
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %103
   store i8 0, ptr %111, align 1, !tbaa !47
   br label %zend_string_dup.exit111
 
@@ -1736,7 +1736,7 @@ zend_string_alloc.exit:                           ; preds = %16
   store i64 %25, ptr %31, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 1 %23, i64 %25, i1 false)
-  %33 = getelementptr inbounds nuw [1 x i8], ptr %32, i64 0, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %25
   store i8 0, ptr %33, align 1, !tbaa !47
   br label %zend_string_dup.exit
 

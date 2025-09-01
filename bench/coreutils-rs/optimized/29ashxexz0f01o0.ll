@@ -8618,7 +8618,7 @@ define hidden void @_ZN7uu_sort5merge21merge_with_file_limit17ha3e30d6d680d5e6bE
   br i1 %165, label %"_ZN4core3ptr70drop_in_place$LT$$u5b$uu_sort..merge..ClosedCompressedTmpFile$u5d$$GT$17h7b2773cb9217b2bbE.llvm.3531809010164697281.exit.i.i", label %166
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds nuw [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %159, i64 0, i64 %.0.i.i158.i
+  %167 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %159, i64 %.0.i.i158.i
   %168 = add nuw nsw i64 %.0.i.i158.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %167)
           to label %164 unwind label %171, !noalias !1446
@@ -8634,7 +8634,7 @@ define hidden void @_ZN7uu_sort5merge21merge_with_file_limit17ha3e30d6d680d5e6bE
   br label %169
 
 173:                                              ; preds = %169
-  %174 = getelementptr inbounds [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %159, i64 0, i64 %.1.i.i.i
+  %174 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %159, i64 %.1.i.i.i
   %175 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %174) #18
           to label %169 unwind label %176, !noalias !1446
@@ -9322,7 +9322,7 @@ default.unreachable:                              ; preds = %._crit_edge320.i, %
   br i1 %366, label %"_ZN4core3ptr70drop_in_place$LT$$u5b$uu_sort..merge..ClosedCompressedTmpFile$u5d$$GT$17h7b2773cb9217b2bbE.llvm.3531809010164697281.exit.i167.i", label %367
 
 367:                                              ; preds = %365
-  %368 = getelementptr inbounds nuw [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %359, i64 0, i64 %.0.i.i163.i
+  %368 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %359, i64 %.0.i.i163.i
   %369 = add nuw nsw i64 %.0.i.i163.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %368)
           to label %365 unwind label %372, !noalias !1446
@@ -9338,7 +9338,7 @@ default.unreachable:                              ; preds = %._crit_edge320.i, %
   br label %370
 
 374:                                              ; preds = %370
-  %375 = getelementptr inbounds [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %359, i64 0, i64 %.1.i.i164.i
+  %375 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %359, i64 %.1.i.i164.i
   %376 = add i64 %.1.i.i164.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %375) #18
           to label %370 unwind label %377, !noalias !1446
@@ -16514,7 +16514,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e
   br i1 %108, label %"_ZN4core3ptr70drop_in_place$LT$$u5b$uu_sort..merge..ClosedCompressedTmpFile$u5d$$GT$17h7b2773cb9217b2bbE.llvm.3531809010164697281.exit.i", label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %102, i64 0, i64 %.0.i.i165
+  %110 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %102, i64 %.0.i.i165
   %111 = add nuw nsw i64 %.0.i.i165, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %110)
           to label %107 unwind label %114
@@ -16530,7 +16530,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e
   br label %112
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %102, i64 0, i64 %.1.i.i
+  %117 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %102, i64 %.1.i.i
   %118 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %117) #18
           to label %112 unwind label %119
@@ -17265,7 +17265,7 @@ default.unreachable:                              ; preds = %._crit_edge323, %"_
   br i1 %322, label %"_ZN4core3ptr70drop_in_place$LT$$u5b$uu_sort..merge..ClosedCompressedTmpFile$u5d$$GT$17h7b2773cb9217b2bbE.llvm.3531809010164697281.exit.i173", label %323
 
 323:                                              ; preds = %321
-  %324 = getelementptr inbounds nuw [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %315, i64 0, i64 %.0.i.i169
+  %324 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %315, i64 %.0.i.i169
   %325 = add nuw nsw i64 %.0.i.i169, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %324)
           to label %321 unwind label %328
@@ -17281,7 +17281,7 @@ default.unreachable:                              ; preds = %._crit_edge323, %"_
   br label %326
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds [0 x { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }], ptr %315, i64 0, i64 %.1.i.i170
+  %331 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %315, i64 %.1.i.i170
   %332 = add i64 %.1.i.i170, 1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$17ha2a89c6b8e2b26f4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %331) #18
           to label %326 unwind label %333
@@ -17518,7 +17518,7 @@ default.unreachable:                              ; preds = %23
   ret { ptr, ptr } %34
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %1, i64 0, i64 %.sroa.0.0.copyload1.i
+  %36 = getelementptr inbounds { i64, [8 x i64] }, ptr %1, i64 %.sroa.0.0.copyload1.i
   %37 = load i64, ptr %36, align 8, !range !118, !noundef !16
   %.not = icmp eq i64 %37, 3
   br i1 %.not, label %76, label %40
@@ -17752,7 +17752,7 @@ default.unreachable:                              ; preds = %23
   ret { ptr, ptr } %34
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds [0 x { i64, [14 x i64] }], ptr %1, i64 0, i64 %.sroa.0.0.copyload1.i
+  %36 = getelementptr inbounds { i64, [14 x i64] }, ptr %1, i64 %.sroa.0.0.copyload1.i
   %37 = load i64, ptr %36, align 8, !range !118, !noundef !16
   %.not = icmp eq i64 %37, 3
   br i1 %.not, label %76, label %40
@@ -17990,7 +17990,7 @@ default.unreachable:                              ; preds = %27
   ret { ptr, ptr } %38
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds [0 x { i64, [6 x i64] }], ptr %1, i64 0, i64 %.sroa.0.0.copyload1.i
+  %40 = getelementptr inbounds { i64, [6 x i64] }, ptr %1, i64 %.sroa.0.0.copyload1.i
   %41 = load i64, ptr %40, align 8, !range !118, !noundef !16
   %.not = icmp eq i64 %41, 3
   br i1 %.not, label %80, label %44

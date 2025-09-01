@@ -2922,7 +2922,7 @@ define hidden i32 @dissect_p1_Credentials(i1 zeroext %0, ptr noundef %1, i32 nou
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr %struct._value_string, ptr @p1_Credentials_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
@@ -2959,7 +2959,7 @@ define hidden i32 @dissect_p1_InitiatorCredentials(i1 zeroext %0, ptr noundef %1
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr %struct._value_string, ptr @p1_Credentials_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
   %.not7.i = icmp eq ptr %14, null
   br i1 %.not7.i, label %dissect_p1_Credentials.exit, label %15
@@ -3010,7 +3010,7 @@ define hidden i32 @dissect_p1_ResponderCredentials(i1 zeroext %0, ptr noundef %1
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr %struct._value_string, ptr @p1_Credentials_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
   %.not7.i = icmp eq ptr %14, null
   br i1 %.not7.i, label %dissect_p1_Credentials.exit, label %15
@@ -3890,7 +3890,7 @@ p1_initialize_content_globals.exit:               ; preds = %4, %10
 
 34:                                               ; preds = %26
   %35 = sext i32 %33 to i64
-  %36 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %35, i32 1
+  %36 = getelementptr %struct._value_string, ptr @p1_MTS_APDU_vals, i64 %35, i32 1
   %37 = load ptr, ptr %36, align 8
   %38 = icmp ne ptr %37, null
   %39 = icmp ne i32 %33, 0
@@ -3952,7 +3952,7 @@ define internal i32 @dissect_p1_MTS_APDU(i1 zeroext %0, ptr noundef %1, i32 noun
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr %struct._value_string, ptr @p1_MTS_APDU_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
   %16 = icmp ne i32 %10, 0
@@ -8379,7 +8379,7 @@ define internal i32 @dissect_p1_ReportType(i1 zeroext %0, ptr noundef %1, i32 no
 
 11:                                               ; preds = %6
   %12 = sext i32 %10 to i64
-  %13 = getelementptr [3 x %struct._value_string], ptr @p1_ReportType_vals, i64 0, i64 %12, i32 1
+  %13 = getelementptr %struct._value_string, ptr @p1_ReportType_vals, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15

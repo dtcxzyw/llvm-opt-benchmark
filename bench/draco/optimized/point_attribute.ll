@@ -2658,7 +2658,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm2EESt4pairIKS1_N5
   %16 = phi i1 [ false, %.critedge ], [ true, %.critedge.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %23, %.critedge ], [ 79, %.critedge.preheader ]
-  %17 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = zext i32 %18 to i64
   %20 = add i64 %.068.i.i, 1013
@@ -3002,7 +3002,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm3EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %21, %.critedge ], [ 79, %.critedge.preheader ]
-  %15 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 4, !tbaa !21
   %17 = zext i32 %16 to i64
   %18 = add i64 %.068.i.i, 1013
@@ -3348,7 +3348,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIjLm4EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %21, %.critedge ], [ 79, %.critedge.preheader ]
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 4, !tbaa !21
   %17 = zext i32 %16 to i64
   %18 = add i64 %.068.i.i, 1013
@@ -5080,7 +5080,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm2EESt4pairIKS1_N5
   %16 = phi i1 [ false, %.critedge ], [ true, %.critedge.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %23, %.critedge ], [ 79, %.critedge.preheader ]
-  %17 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = zext i8 %18 to i64
   %20 = add i64 %.068.i.i, 1013
@@ -5424,7 +5424,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm3EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %21, %.critedge ], [ 79, %.critedge.preheader ]
-  %15 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %16 = load i8, ptr %15, align 1, !tbaa !14
   %17 = zext i8 %16 to i64
   %18 = add i64 %.068.i.i, 1013
@@ -5771,7 +5771,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayIhLm4EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %22, %.critedge ], [ 79, %.critedge.preheader ]
-  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i64
   %19 = add i64 %.068.i.i, 1013
@@ -8539,7 +8539,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm2EESt4pairIKS1_N5
   %16 = phi i1 [ false, %.critedge ], [ true, %.critedge.preheader ]
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %23, %.critedge ], [ 79, %.critedge.preheader ]
-  %17 = getelementptr inbounds nuw [2 x i16], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i
   %18 = load i16, ptr %17, align 2, !tbaa !255
   %19 = zext i16 %18 to i64
   %20 = add i64 %.068.i.i, 1013
@@ -8883,7 +8883,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm3EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %21, %.critedge ], [ 79, %.critedge.preheader ]
-  %15 = getelementptr inbounds nuw [3 x i16], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i
   %16 = load i16, ptr %15, align 2, !tbaa !255
   %17 = zext i16 %16 to i64
   %18 = add i64 %.068.i.i, 1013
@@ -9230,7 +9230,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt5arrayItLm4EESt4pairIKS1_N5
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge ], [ 0, %.critedge.preheader ]
   %.068.i.i = phi i64 [ %22, %.critedge ], [ 79, %.critedge.preheader ]
-  %16 = getelementptr inbounds nuw [4 x i16], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i
   %17 = load i16, ptr %16, align 2, !tbaa !255
   %18 = zext i16 %17 to i64
   %19 = add i64 %.068.i.i, 1013

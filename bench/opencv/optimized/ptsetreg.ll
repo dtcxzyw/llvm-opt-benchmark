@@ -11199,7 +11199,7 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %17, %20
 
 27:                                               ; preds = %.preheader, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds nuw [3 x double], ptr %7, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
   %29 = load double, ptr %28, align 8, !tbaa !110
   %30 = fmul double %29, 2.500000e-01
   store double %30, ptr %28, align 8, !tbaa !110

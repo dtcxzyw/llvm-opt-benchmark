@@ -553,7 +553,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %if.then.i.i.i
   %4 = phi i64 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %2, %for.body.i ]
   %inc.i.i.i.i = add i64 %4, 1
   store i64 %inc.i.i.i.i, ptr %mti.i.i.i.i, align 8, !tbaa !49
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_.i, i64 0, i64 %4
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %rng_.i, i64 %4
   %5 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !32
   %shr.i.i.i.i = lshr i64 %5, 11
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i, %5

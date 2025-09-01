@@ -4943,7 +4943,7 @@ define internal fastcc void @_outBoolExpr(ptr noundef %0, ptr noundef nonnull re
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._outBoolExpr, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._outBoolExpr, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -13820,7 +13820,7 @@ writeOidCols.exit:                                ; preds = %.lr.ph.i49, %writeA
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw [32 x ptr], ptr %36, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ne ptr %39, null
   %41 = zext i1 %40 to i32
@@ -13843,7 +13843,7 @@ writeOidCols.exit:                                ; preds = %.lr.ph.i49, %writeA
 
 48:                                               ; preds = %.lr.ph56, %list_length.exit
   %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %list_length.exit ]
-  %49 = getelementptr inbounds nuw [32 x ptr], ptr %47, i64 0, i64 %indvars.iv59
+  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv59
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %list_length.exit, label %51

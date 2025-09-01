@@ -658,7 +658,7 @@ define range(i32 0, 4) i32 @Saig_ManExtendOneEval2(ptr noundef readonly captures
 
 switch.lookup:                                    ; preds = %3
   %22 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Saig_ManSimInfo2Not.exit
 
@@ -691,7 +691,7 @@ Saig_ManSimInfo2Not.exit:                         ; preds = %switch.lookup, %3
 
 switch.lookup51:                                  ; preds = %25
   %39 = zext nneg i32 %37 to i64
-  %switch.gep52 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %39
+  %switch.gep52 = getelementptr inbounds nuw i32, ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 %39
   %switch.load53 = load i32, ptr %switch.gep52, align 4
   br label %Saig_ManSimInfo2Not.exit41
 
@@ -918,7 +918,7 @@ define range(i32 0, 4) i32 @Saig_ManSimDataInit2(ptr noundef readonly captures(n
 
 switch.lookup:                                    ; preds = %102
   %116 = zext nneg i32 %114 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %116
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 %116
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Saig_ManSimInfo2Not.exit.i
 
@@ -949,7 +949,7 @@ Saig_ManSimInfo2Not.exit.i:                       ; preds = %switch.lookup, %102
 
 switch.lookup182:                                 ; preds = %118
   %132 = zext nneg i32 %130 to i64
-  %switch.gep183 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %132
+  %switch.gep183 = getelementptr inbounds nuw i32, ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 %132
   %switch.load184 = load i32, ptr %switch.gep183, align 4
   br label %Saig_ManSimInfo2Not.exit41.i
 
@@ -1010,7 +1010,7 @@ Saig_ManExtendOneEval2.exit:                      ; preds = %Saig_ManSimInfo2Not
 
 switch.lookup185:                                 ; preds = %148
   %164 = zext nneg i32 %162 to i64
-  %switch.gep186 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %164
+  %switch.gep186 = getelementptr inbounds nuw i32, ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 %164
   %switch.load187 = load i32, ptr %switch.gep186, align 4
   br label %Saig_ManSimInfo2Not.exit.i111
 
@@ -1043,7 +1043,7 @@ Saig_ManSimInfo2Not.exit.i111:                    ; preds = %switch.lookup185, %
 
 switch.lookup188:                                 ; preds = %167
   %181 = zext nneg i32 %179 to i64
-  %switch.gep189 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %181
+  %switch.gep189 = getelementptr inbounds nuw i32, ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 %181
   %switch.load190 = load i32, ptr %switch.gep189, align 4
   br label %Saig_ManSimInfo2Not.exit41.i118
 
@@ -1355,7 +1355,7 @@ default.unreachable:                              ; preds = %109
 
 switch.lookup:                                    ; preds = %81
   %107 = zext nneg i32 %93 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %107
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 %107
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Saig_ManSimInfo2Not.exit
 

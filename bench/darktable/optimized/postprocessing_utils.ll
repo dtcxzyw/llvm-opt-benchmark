@@ -251,7 +251,7 @@ define void @_ZN6LibRaw19convert_to_rgb_loopEPA4_f(ptr noundef nonnull readonly 
   %32 = load i16, ptr %31, align 2, !tbaa !6
   %33 = lshr i16 %32, 3
   %34 = zext nneg i16 %33 to i64
-  %35 = getelementptr inbounds nuw [8192 x i32], ptr %30, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !85
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4, !tbaa !85
@@ -370,19 +370,19 @@ define void @_ZN6LibRaw19convert_to_rgb_loopEPA4_f(ptr noundef nonnull readonly 
   store i16 %111, ptr %85, align 2, !tbaa !6
   %112 = lshr i16 %103, 3
   %113 = zext nneg i16 %112 to i64
-  %114 = getelementptr inbounds nuw [8192 x i32], ptr %62, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr %62, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !85
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %114, align 4, !tbaa !85
   %117 = lshr i16 %107, 3
   %118 = zext nneg i16 %117 to i64
-  %119 = getelementptr inbounds nuw [8192 x i32], ptr %63, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %63, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !85
   %121 = add nsw i32 %120, 1
   store i32 %121, ptr %119, align 4, !tbaa !85
   %122 = lshr i16 %111, 3
   %123 = zext nneg i16 %122 to i64
-  %124 = getelementptr inbounds nuw [8192 x i32], ptr %64, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i32, ptr %64, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !85
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 4, !tbaa !85
@@ -508,25 +508,25 @@ define void @_ZN6LibRaw19convert_to_rgb_loopEPA4_f(ptr noundef nonnull readonly 
   store i16 %215, ptr %180, align 2, !tbaa !6
   %216 = lshr i16 %207, 3
   %217 = zext nneg i16 %216 to i64
-  %218 = getelementptr inbounds nuw [8192 x i32], ptr %153, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i32, ptr %153, i64 %217
   %219 = load i32, ptr %218, align 4, !tbaa !85
   %220 = add nsw i32 %219, 1
   store i32 %220, ptr %218, align 4, !tbaa !85
   %221 = lshr i16 %211, 3
   %222 = zext nneg i16 %221 to i64
-  %223 = getelementptr inbounds nuw [8192 x i32], ptr %154, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i32, ptr %154, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !85
   %225 = add nsw i32 %224, 1
   store i32 %225, ptr %223, align 4, !tbaa !85
   %226 = lshr i16 %215, 3
   %227 = zext nneg i16 %226 to i64
-  %228 = getelementptr inbounds nuw [8192 x i32], ptr %155, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i32, ptr %155, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !85
   %230 = add nsw i32 %229, 1
   store i32 %230, ptr %228, align 4, !tbaa !85
   %231 = lshr i16 %186, 3
   %232 = zext nneg i16 %231 to i64
-  %233 = getelementptr inbounds nuw [8192 x i32], ptr %156, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw i32, ptr %156, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !85
   %235 = add nsw i32 %234, 1
   store i32 %235, ptr %233, align 4, !tbaa !85
@@ -601,7 +601,7 @@ define void @_ZN6LibRaw17scale_colors_loopEPf(ptr noundef nonnull readonly align
 
 21:                                               ; preds = %.preheader81, %50
   %indvars.iv = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next, %50 ]
-  %22 = getelementptr inbounds nuw [4 x i16], ptr %18, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !6
   %.not69 = icmp eq i16 %23, 0
   br i1 %.not69, label %50, label %24
@@ -618,9 +618,9 @@ define void @_ZN6LibRaw17scale_colors_loopEPf(ptr noundef nonnull readonly align
   %33 = urem i32 %32, %16
   %34 = add i32 %31, %33
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [4104 x i32], ptr %11, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %11, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !85
-  %38 = getelementptr inbounds nuw [4104 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !85
   %40 = add i32 %37, %39
   %41 = sub i32 %25, %40
@@ -686,14 +686,14 @@ define void @_ZN6LibRaw17scale_colors_loopEPf(ptr noundef nonnull readonly align
 
 63:                                               ; preds = %.preheader78, %79
   %indvars.iv100 = phi i64 [ 0, %.preheader78 ], [ %indvars.iv.next101, %79 ]
-  %64 = getelementptr inbounds nuw [4 x i16], ptr %61, i64 0, i64 %indvars.iv100
+  %64 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv100
   %65 = load i16, ptr %64, align 2, !tbaa !6
   %.not68 = icmp eq i16 %65, 0
   br i1 %.not68, label %79, label %66
 
 66:                                               ; preds = %63
   %67 = zext i16 %65 to i32
-  %68 = getelementptr inbounds nuw [4104 x i32], ptr %11, i64 0, i64 %indvars.iv100
+  %68 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv100
   %69 = load i32, ptr %68, align 4, !tbaa !85
   %70 = sub i32 %67, %69
   %71 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv100
@@ -724,7 +724,7 @@ define void @_ZN6LibRaw17scale_colors_loopEPf(ptr noundef nonnull readonly align
 
 82:                                               ; preds = %.preheader, %82
   %indvars.iv109 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next110, %82 ]
-  %83 = getelementptr inbounds nuw [4 x i16], ptr %80, i64 0, i64 %indvars.iv109
+  %83 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv109
   %84 = load i16, ptr %83, align 2, !tbaa !6
   %85 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv109
   %86 = load float, ptr %85, align 4, !tbaa !88

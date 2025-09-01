@@ -3781,7 +3781,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 _ZN4core5clone5Clone5clone17h409eb88b68f7f8a0E.exit: ; preds = %.noexc
-  %25 = getelementptr inbounds nuw [0 x { [6 x i64] }], ptr %7, i64 0, i64 %.sroa.7.030
+  %25 = getelementptr inbounds nuw { [6 x i64] }, ptr %7, i64 %.sroa.7.030
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = icmp eq i64 %15, 0
@@ -4870,7 +4870,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 33:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..NodeNameRow$GT$17h2a9afb90415d04d9E.exit.i.i", %.lr.ph.i.i
   %.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %35, %"_ZN4core3ptr145drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..NodeNameRow$GT$17h2a9afb90415d04d9E.exit.i.i" ]
-  %34 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } } }], ptr %24, i64 0, i64 %.07.i.i
+  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %24, i64 %.07.i.i
   %35 = add nuw i64 %.07.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1309
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb90b82ba8fda85baE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
@@ -4907,7 +4907,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %43
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } } }], ptr %24, i64 0, i64 %.1.i.i
+  %48 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %24, i64 %.1.i.i
   %49 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr145drop_in_place$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..NodeNameRow$GT$17h2a9afb90415d04d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #28
           to label %43 unwind label %50, !noalias !1296

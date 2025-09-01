@@ -1220,7 +1220,7 @@ prune_index.exit:                                 ; preds = %get_common_prefix_l
 
 509:                                              ; preds = %526, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.pre-phi.i, %526 ]
-  %510 = getelementptr inbounds nuw [3 x i32], ptr %500, i64 0, i64 %indvars.iv.i
+  %510 = getelementptr inbounds nuw i32, ptr %500, i64 %indvars.iv.i
   %511 = load i32, ptr %510, align 4, !tbaa !4
   %.not30.i = icmp eq i32 %511, 0
   br i1 %.not30.i, label %._crit_edge.i98, label %512
@@ -1232,7 +1232,7 @@ prune_index.exit:                                 ; preds = %get_common_prefix_l
 512:                                              ; preds = %509
   %513 = load ptr, ptr @tag_resolve_undo, align 8, !tbaa !41
   %514 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %515 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %508, i64 0, i64 %indvars.iv.i
+  %515 = getelementptr inbounds nuw %struct.object_id, ptr %508, i64 %indvars.iv.i
   %516 = load i32, ptr @abbrev, align 4, !tbaa !4
   %517 = call ptr @repo_find_unique_abbrev(ptr noundef %514, ptr noundef nonnull %515, i32 noundef %516) #14
   %518 = add nuw nsw i64 %indvars.iv.i, 1
@@ -1576,7 +1576,7 @@ show_other_files.exit:                            ; preds = %34, %19, %14
   br i1 %.not52.i, label %91, label %.critedge55.i
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw [0 x i8], ptr %88, i64 0, i64 %89
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 %89
   %93 = load i8, ptr %92, align 1, !tbaa !63
   %.not58.i = icmp eq i8 %93, 47
   br i1 %.not58.i, label %.critedge57.i, label %.critedge55.i
@@ -1695,7 +1695,7 @@ git_bswap32.exit.i.i:                             ; preds = %construct_fullname.
 
 switch.lookup:                                    ; preds = %git_bswap32.exit.i.i
   %151 = zext nneg i32 %149 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.show_files, i64 0, i64 %151
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.show_files, i64 %151
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ce_excluded.exit
 
@@ -2487,7 +2487,7 @@ show_ce_fmt.exit:                                 ; preds = %strbuf_avail.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) @get_tag.alttag, ptr noundef nonnull readonly align 1 dereferenceable(3) %4, i64 3, i1 false)
   %237 = load i8, ptr %4, align 1, !tbaa !63
   %238 = zext i8 %237 to i64
-  %239 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %238
   %240 = load i8, ptr %239, align 1, !tbaa !63
   %241 = and i8 %240, 4
   %.not16.i36 = icmp eq i8 %241, 0
@@ -2636,7 +2636,7 @@ define internal fastcc void @show_dir_entry(ptr noundef %0, ptr noundef readonly
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = add i32 %6, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [0 x i8], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !63
   %18 = icmp eq i8 %17, 47
   %19 = sext i1 %18 to i32

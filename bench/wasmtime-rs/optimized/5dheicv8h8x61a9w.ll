@@ -7241,7 +7241,7 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
 386:                                              ; preds = %378
   %387 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %388 = load ptr, ptr %387, align 8, !alias.scope !305, !noalias !308, !nonnull !11, !noundef !11
-  %389 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %388, i64 0, i64 %380
+  %389 = getelementptr inbounds nuw { i32, i32 }, ptr %388, i64 %380
   %390 = load i32, ptr %389, align 4, !noalias !311, !noundef !11
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 4
   %392 = load i32, ptr %391, align 4, !noalias !311, !noundef !11
@@ -7592,7 +7592,7 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
 
 507:                                              ; preds = %480
   %508 = load ptr, ptr %432, align 8, !alias.scope !331, !noalias !334, !nonnull !11, !noundef !11
-  %509 = getelementptr inbounds nuw [0 x i32], ptr %508, i64 0, i64 %482
+  %509 = getelementptr inbounds nuw i32, ptr %508, i64 %482
   %510 = load i32, ptr %509, align 4, !noundef !11
   %511 = load i64, ptr %433, align 8, !noundef !11
   %512 = add i64 %511, 1
@@ -8037,7 +8037,7 @@ _ZN16wasmtime_environ6module6Module13push_function17h1f5bf8c78844ae00E.exit: ; p
 
 643:                                              ; preds = %637
   %644 = load ptr, ptr %615, align 8, !alias.scope !421, !noalias !424, !nonnull !11, !noundef !11
-  %645 = getelementptr inbounds nuw [0 x i32], ptr %644, i64 0, i64 %638
+  %645 = getelementptr inbounds nuw i32, ptr %644, i64 %638
   %646 = load i32, ptr %645, align 4, !noundef !11
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc4ff3a2d6ebf493bE.llvm.11220155100889424350"(ptr noalias noundef nonnull align 8 dereferenceable(24) %609, i32 noundef %646, i32 noundef -1)
           to label %_ZN16wasmtime_environ6module6Module13push_function17h1f5bf8c78844ae00E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -8399,7 +8399,7 @@ _ZN16wasmtime_environ6module6Module13push_function17h1f5bf8c78844ae00E.exit: ; p
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit.i": ; preds = %758
   %764 = load ptr, ptr %670, align 8, !alias.scope !463, !noalias !466, !nonnull !11, !noundef !11
-  %765 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %764, i64 0, i64 %760, i32 1
+  %765 = getelementptr inbounds nuw { i32, i32 }, ptr %764, i64 %760, i32 1
   %766 = load i32, ptr %765, align 4, !alias.scope !468, !noalias !460, !noundef !11
   %.not.i1165 = icmp eq i32 %766, -1
   br i1 %.not.i1165, label %767, label %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit
@@ -9382,7 +9382,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1204: ; preds = %1023
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit.i1210": ; preds = %1075
   %1079 = load ptr, ptr %1052, align 8, !alias.scope !563, !noalias !566, !nonnull !11, !noundef !11
-  %1080 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %1079, i64 0, i64 %1076, i32 1
+  %1080 = getelementptr inbounds nuw { i32, i32 }, ptr %1079, i64 %1076, i32 1
   %1081 = load i32, ptr %1080, align 4, !alias.scope !568, !noalias !560, !noundef !11
   %.not.i1211 = icmp eq i32 %1081, -1
   br i1 %.not.i1211, label %1082, label %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1213
@@ -9462,7 +9462,7 @@ _ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h13
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit.i1214": ; preds = %1100
   %1108 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1109 = load ptr, ptr %1108, align 8, !alias.scope !576, !noalias !579, !nonnull !11, !noundef !11
-  %1110 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %1109, i64 0, i64 %1101, i32 1
+  %1110 = getelementptr inbounds nuw { i32, i32 }, ptr %1109, i64 %1101, i32 1
   %1111 = load i32, ptr %1110, align 4, !alias.scope !581, !noalias !573, !noundef !11
   %.not.i1215 = icmp eq i32 %1111, -1
   br i1 %.not.i1215, label %1112, label %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1217
@@ -9788,7 +9788,7 @@ _ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h13
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit.i1225": ; preds = %1210
   %1215 = load ptr, ptr %1130, align 8, !alias.scope !610, !noalias !613, !nonnull !11, !noundef !11
-  %1216 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %1215, i64 0, i64 %1211, i32 1
+  %1216 = getelementptr inbounds nuw { i32, i32 }, ptr %1215, i64 %1211, i32 1
   %1217 = load i32, ptr %1216, align 4, !alias.scope !615, !noalias !607, !noundef !11
   %.not.i1226 = icmp eq i32 %1217, -1
   br i1 %.not.i1226, label %1218, label %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1228
@@ -10207,7 +10207,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1236: ; preds = %1290
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit.i1248": ; preds = %1317
   %1323 = load ptr, ptr %1130, align 8, !alias.scope !652, !noalias !655, !nonnull !11, !noundef !11
-  %1324 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %1323, i64 0, i64 %1319, i32 1
+  %1324 = getelementptr inbounds nuw { i32, i32 }, ptr %1323, i64 %1319, i32 1
   %1325 = load i32, ptr %1324, align 4, !alias.scope !657, !noalias !649, !noundef !11
   %.not.i1249 = icmp eq i32 %1325, -1
   br i1 %.not.i1249, label %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1251, label %"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers..core..operators..Operator$GT$17hd1edeff368f4733eE.exit"
@@ -11031,7 +11031,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1309: ; preds = %1538
 1608:                                             ; preds = %1594
   %1609 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1610 = load ptr, ptr %1609, align 8, !alias.scope !784, !noalias !787, !nonnull !11, !noundef !11
-  %1611 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %1610, i64 0, i64 %1600
+  %1611 = getelementptr inbounds nuw { i32, i32 }, ptr %1610, i64 %1600
   %1612 = load i32, ptr %1611, align 4, !noundef !11
   %1613 = getelementptr inbounds nuw i8, ptr %0, i64 3000
   %1614 = load ptr, ptr %1613, align 8, !nonnull !11, !align !161, !noundef !11
@@ -11044,7 +11044,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1309: ; preds = %1538
 1619:                                             ; preds = %1608
   %1620 = getelementptr inbounds nuw i8, ptr %1614, i64 32
   %1621 = load ptr, ptr %1620, align 8, !alias.scope !789, !noalias !794, !nonnull !11, !noundef !11
-  %1622 = getelementptr inbounds nuw [0 x { { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64, i64 }], ptr %1621, i64 0, i64 %1615
+  %1622 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64, i64 }, ptr %1621, i64 %1615
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store i64 0, ptr %77, align 8
   %1623 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -12796,7 +12796,7 @@ define internal fastcc void @_ZN16wasmtime_environ14module_environ17ModuleEnviro
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit": ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %9 = load ptr, ptr %8, align 8, !alias.scope !1067, !noalias !1070, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %9, i64 0, i64 %3, i32 1
+  %10 = getelementptr inbounds nuw { i32, i32 }, ptr %9, i64 %3, i32 1
   %11 = load i32, ptr %10, align 4, !alias.scope !1072, !noundef !11
   %.not = icmp eq i32 %11, -1
   br i1 %.not, label %12, label %17
@@ -13749,7 +13749,7 @@ common.resume:                                    ; preds = %170, %78, %409
 
 341:                                              ; preds = %200
   %342 = load ptr, ptr %126, align 8, !nonnull !11, !noundef !11
-  %343 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %342, i64 0, i64 %202
+  %343 = getelementptr inbounds { i64, [2 x i64] }, ptr %342, i64 %202
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %343, i64 16
   %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !1210, !noundef !11
@@ -14164,7 +14164,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thre
   br i1 %76, label %77, label %.invoke, !prof !310
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw [0 x { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }], ptr %16, i64 0, i64 %66
+  %78 = getelementptr inbounds nuw { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %16, i64 %66
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %80 = load i32, ptr %79, align 4, !noundef !11
   %81 = icmp ugt i32 %73, %80
@@ -14197,7 +14197,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thre
   unreachable
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw [0 x { i64, [2 x i64] }], ptr %11, i64 0, i64 %88
+  %94 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %11, i64 %88
   %95 = load i64, ptr %94, align 8, !range !49, !noundef !11
   %96 = icmp sgt i64 %95, -9223372036854775806
   br i1 %96, label %97, label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1d4988c5e91a7af0E.exit"

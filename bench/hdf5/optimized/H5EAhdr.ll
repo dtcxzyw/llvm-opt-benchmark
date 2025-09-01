@@ -274,7 +274,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
   %17 = mul nuw nsw i64 %16, 125613361
   %18 = lshr i64 %17, 27
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !52
   %22 = add nuw nsw i32 %13, 1
   %23 = sub i32 %22, %21
@@ -395,7 +395,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   %10 = mul i64 %1, 125613361
   %11 = lshr i64 %10, 27
   %12 = and i64 %11, 31
-  %13 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 259
@@ -404,7 +404,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   %19 = mul nuw nsw i64 %18, 125613361
   %20 = lshr i64 %19, 27
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !52
   %24 = sub i32 %14, %23
   %25 = zext i32 %24 to i64
@@ -517,7 +517,7 @@ define noundef i32 @H5EA__hdr_free_elmts(ptr noundef readonly captures(none) %0,
   %11 = mul i64 %1, 125613361
   %12 = lshr i64 %11, 27
   %13 = and i64 %12, 31
-  %14 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 259
   %17 = load i8, ptr %16, align 1, !tbaa !51
@@ -525,7 +525,7 @@ define noundef i32 @H5EA__hdr_free_elmts(ptr noundef readonly captures(none) %0,
   %19 = mul nuw nsw i64 %18, 125613361
   %20 = lshr i64 %19, 27
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !52
   %24 = sub i32 %15, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 352

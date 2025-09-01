@@ -6638,7 +6638,7 @@ _ZNK8QVariant5valueI17bytes_decode_typeEET_v.exit: ; preds = %.noexc5, %_ZNK8QVa
 
 switch.lookup:                                    ; preds = %56
   %59 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN21ShowPacketBytesDialog31on_cbShowAs_currentIndexChangedEi, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN21ShowPacketBytesDialog31on_cbShowAs_currentIndexChangedEi, i64 %59
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
 
@@ -6805,7 +6805,7 @@ _ZNK8QVariant5valueI15bytes_show_typeEET_v.exit:  ; preds = %.noexc5, %_ZNK8QVar
 
 switch.lookup:                                    ; preds = %56
   %59 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN21ShowPacketBytesDialog31on_cbShowAs_currentIndexChangedEi, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN21ShowPacketBytesDialog31on_cbShowAs_currentIndexChangedEi, i64 %59
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN21ShowPacketBytesDialog18enableShowSelectedEv.exit
 
@@ -7328,7 +7328,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i: ; preds = %_ZNK17QA
   %210 = load i8, ptr %208, align 1
   %211 = lshr i8 %210, 4
   %212 = zext nneg i8 %211 to i64
-  %213 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %212
+  %213 = getelementptr i8, ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 %212
   %214 = load i8, ptr %213, align 1
   store i8 %214, ptr %209, align 1
   %215 = load ptr, ptr %178, align 8
@@ -7352,7 +7352,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i220: ; preds = %_ZNK1
   %223 = load i8, ptr %221, align 1
   %224 = and i8 %223, 15
   %225 = zext nneg i8 %224 to i64
-  %226 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %225
+  %226 = getelementptr i8, ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 %225
   %227 = load i8, ptr %226, align 1
   %228 = getelementptr i8, ptr %.0137576, i64 5
   store i8 %227, ptr %222, align 1
@@ -7619,7 +7619,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i251: ; preds = %_ZNK1
   %314 = load i8, ptr %312, align 1
   %315 = lshr i8 %314, 4
   %316 = zext nneg i8 %315 to i64
-  %317 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %316
+  %317 = getelementptr i8, ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 %316
   %318 = load i8, ptr %317, align 1
   store i8 %318, ptr %313, align 1
   %319 = load ptr, ptr %282, align 8
@@ -7643,7 +7643,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i256: ; preds = %_ZNK1
   %327 = load i8, ptr %325, align 1
   %328 = and i8 %327, 15
   %329 = zext nneg i8 %328 to i64
-  %330 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %329
+  %330 = getelementptr i8, ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 %329
   %331 = load i8, ptr %330, align 1
   %332 = getelementptr i8, ptr %.0142569, i64 5
   store i8 %331, ptr %326, align 1
@@ -8312,7 +8312,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i356: ; preds = %_ZNK1
   %558 = load i8, ptr %557, align 1
   %559 = lshr i8 %558, 4
   %560 = zext nneg i8 %559 to i64
-  %561 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %560
+  %561 = getelementptr i8, ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 %560
   %562 = load i8, ptr %561, align 1
   store i8 %562, ptr %.0130559, align 1
   %563 = load ptr, ptr %516, align 8
@@ -8336,7 +8336,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i361: ; preds = %_ZNK1
   %571 = load i8, ptr %569, align 1
   %572 = and i8 %571, 15
   %573 = zext nneg i8 %572 to i64
-  %574 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %573
+  %574 = getelementptr i8, ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 %573
   %575 = load i8, ptr %574, align 1
   %576 = getelementptr i8, ptr %.0130559, i64 2
   store i8 %575, ptr %570, align 1
@@ -10771,7 +10771,7 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %_ZN7QStringD2Ev.exi
 
 switch.lookup:                                    ; preds = %58
   %61 = zext nneg i32 %59 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN21ShowPacketBytesDialog6saveAsEv, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN21ShowPacketBytesDialog6saveAsEv, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %62
 

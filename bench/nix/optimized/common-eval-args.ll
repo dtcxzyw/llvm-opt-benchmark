@@ -5447,7 +5447,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %142 = add i32 %141, 1
   store i32 %142, ptr %31, align 4
   %143 = zext i32 %141 to i64
-  %144 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %30, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %30, i64 %143
   store i32 %140, ptr %144, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %144, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4

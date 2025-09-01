@@ -1563,7 +1563,7 @@ current_time.exit.i:                              ; preds = %377
 .thread645:                                       ; preds = %403
   %406 = add nuw nsw i32 %.0.i6253143, 1
   %407 = zext nneg i32 %.0.i6253143 to i64
-  %408 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw i32, ptr %2, i64 %407
   store i32 256, ptr %408, align 4, !tbaa !4
   br label %410
 
@@ -1647,9 +1647,9 @@ current_time.exit126.i:                           ; preds = %418
   %446 = shl nuw i64 1, %445
   %447 = sdiv i32 %392, 64
   %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds [16 x i64], ptr %15, i64 0, i64 %448
+  %449 = getelementptr inbounds i64, ptr %15, i64 %448
   %450 = add nsw i32 %392, 1
-  %451 = getelementptr inbounds [16 x i64], ptr %16, i64 0, i64 %448
+  %451 = getelementptr inbounds i64, ptr %16, i64 %448
   %452 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %453 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %458
@@ -2132,7 +2132,7 @@ udp_connect.exit:                                 ; preds = %build_addr.exit.i
   br i1 %.not.i611, label %647, label %659
 
 647:                                              ; preds = %643
-  %648 = getelementptr inbounds nuw [512 x i8], ptr %11, i64 0, i64 %645
+  %648 = getelementptr inbounds nuw i8, ptr %11, i64 %645
   %649 = load i8, ptr %648, align 1, !tbaa !18
   %650 = icmp eq i8 %649, 32
   br i1 %650, label %651, label %659
@@ -2177,7 +2177,7 @@ udp_connect.exit:                                 ; preds = %build_addr.exit.i
   br i1 %.not8.i, label %670, label %682
 
 670:                                              ; preds = %666
-  %671 = getelementptr inbounds nuw [512 x i8], ptr %11, i64 0, i64 %668
+  %671 = getelementptr inbounds nuw i8, ptr %11, i64 %668
   %672 = load i8, ptr %671, align 1, !tbaa !18
   %673 = icmp eq i8 %672, 45
   br i1 %673, label %674, label %682
@@ -2224,7 +2224,7 @@ udp_connect.exit:                                 ; preds = %build_addr.exit.i
   br i1 %.not12.i, label %694, label %698
 
 694:                                              ; preds = %689
-  %695 = getelementptr inbounds nuw [512 x i8], ptr %11, i64 0, i64 %692
+  %695 = getelementptr inbounds nuw i8, ptr %11, i64 %692
   %696 = load i8, ptr %695, align 1, !tbaa !18
   %697 = icmp eq i8 %696, 32
   br i1 %697, label %StartTLS_Init.exit, label %698
@@ -2463,7 +2463,7 @@ StartTLS_Init.exit:                               ; preds = %694
 
 .thread32.i:                                      ; preds = %.thread.i
   %790 = zext nneg i32 %784 to i64
-  %791 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %790
+  %791 = getelementptr inbounds nuw i8, ptr %10, i64 %790
   store i8 0, ptr %791, align 1, !tbaa !18
   %puts29.i = call i32 @puts(ptr nonnull dereferenceable(1) %10)
   %792 = call i32 @wolfSSL_shutdown(ptr noundef nonnull %568) #21
@@ -2486,13 +2486,13 @@ StartTLS_Init.exit:                               ; preds = %694
   %800 = shl nuw i64 1, %799
   %801 = sdiv i32 %796, 64
   %802 = sext i32 %801 to i64
-  %803 = getelementptr inbounds [16 x i64], ptr %7, i64 0, i64 %802
+  %803 = getelementptr inbounds i64, ptr %7, i64 %802
   %804 = load i64, ptr %803, align 8, !tbaa !36
   %805 = or i64 %804, %800
   store i64 %805, ptr %803, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !tbaa !36
   %806 = add nsw i32 %796, 1
-  %807 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %802
+  %807 = getelementptr inbounds i64, ptr %8, i64 %802
   %808 = load i64, ptr %807, align 8, !tbaa !36
   %809 = or i64 %808, %800
   store i64 %809, ptr %807, align 8, !tbaa !36
@@ -2650,13 +2650,13 @@ ClientWrite.exit:                                 ; preds = %.thread.i621, %838
   %863 = shl nuw i64 1, %862
   %864 = sdiv i32 %860, 64
   %865 = sext i32 %864 to i64
-  %866 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %865
+  %866 = getelementptr inbounds i64, ptr %3, i64 %865
   %867 = load i64, ptr %866, align 8, !tbaa !36
   %868 = or i64 %867, %863
   store i64 %868, ptr %866, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false), !tbaa !36
   %869 = add nsw i32 %860, 1
-  %870 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %865
+  %870 = getelementptr inbounds i64, ptr %4, i64 %865
   %871 = load i64, ptr %870, align 8, !tbaa !36
   %872 = or i64 %871, %863
   store i64 %872, ptr %870, align 8, !tbaa !36
@@ -2890,7 +2890,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 define internal fastcc void @Usage() unnamed_addr #2 {
   %1 = load i32, ptr @lng_index, align 4, !tbaa !4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds [2 x [78 x ptr]], ptr @client_usage_msg, i64 0, i64 %2
+  %3 = getelementptr inbounds [78 x ptr], ptr @client_usage_msg, i64 %2
   %4 = load ptr, ptr %3, align 16, !tbaa !16
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3241,7 +3241,7 @@ define internal fastcc void @ClientBenchmarkConnections(ptr noundef nonnull %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %20 = load i32, ptr @lng_index, align 4, !tbaa !4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [2 x [5 x ptr]], ptr @client_bench_conmsg, i64 0, i64 %21
+  %22 = getelementptr inbounds [5 x ptr], ptr @client_bench_conmsg, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = icmp sgt i32 %4, 0
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3381,7 +3381,7 @@ current_time.exit81.us:                           ; preds = %66
 .thread.us:                                       ; preds = %88
   %91 = add nuw nsw i32 %.0.i.us85, 1
   %92 = zext nneg i32 %.0.i.us85 to i64
-  %93 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %11, i64 %92
   store i32 256, ptr %93, align 4, !tbaa !4
   br label %94
 
@@ -3874,12 +3874,12 @@ define internal fastcc i32 @NonBlockingSSL_Connect(ptr noundef nonnull %0) unnam
   %16 = shl nuw i64 1, %15
   %17 = sdiv i32 %10, 64
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds i64, ptr %5, i64 %18
   %20 = add nsw i32 %10, 1
-  %21 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %18
+  %21 = getelementptr inbounds i64, ptr %6, i64 %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %18
-  %24 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %18
+  %23 = getelementptr inbounds i64, ptr %2, i64 %18
+  %24 = getelementptr inbounds i64, ptr %3, i64 %18
   br label %25
 
 25:                                               ; preds = %.lr.ph, %72
@@ -4034,7 +4034,7 @@ declare ptr @wolfSSL_ERR_error_string(i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @showPeerEx(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #8 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [2 x [9 x ptr]], ptr @client_showpeer_msg, i64 0, i64 %3
+  %4 = getelementptr inbounds [9 x ptr], ptr @client_showpeer_msg, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @wolfSSL_get_version(ptr noundef nonnull %0) #21
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.82, ptr noundef %5, ptr noundef %6)
@@ -4172,13 +4172,13 @@ ClientWrite.exit.thread100:                       ; preds = %.thread.i.thread, %
   %36 = shl nuw i64 1, %35
   %37 = sdiv i32 %33, 64
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [16 x i64], ptr %11, i64 0, i64 %38
+  %39 = getelementptr inbounds i64, ptr %11, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !36
   %41 = or i64 %40, %36
   store i64 %41, ptr %39, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 128, i1 false), !tbaa !36
   %42 = add nsw i32 %33, 1
-  %43 = getelementptr inbounds [16 x i64], ptr %12, i64 0, i64 %38
+  %43 = getelementptr inbounds i64, ptr %12, i64 %38
   %44 = load i64, ptr %43, align 8, !tbaa !36
   %45 = or i64 %44, %36
   store i64 %45, ptr %43, align 8, !tbaa !36
@@ -4191,7 +4191,7 @@ ClientWrite.exit.thread100:                       ; preds = %.thread.i.thread, %
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds [16 x i64], ptr %11, i64 0, i64 %38
+  %51 = getelementptr inbounds i64, ptr %11, i64 %38
   %52 = load i64, ptr %51, align 8, !tbaa !36
   %53 = and i64 %52, %36
   %.not33.i.i = icmp eq i64 %53, 0

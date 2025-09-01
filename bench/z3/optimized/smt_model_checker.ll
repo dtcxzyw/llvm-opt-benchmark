@@ -5338,7 +5338,7 @@ thread-pre-split.i.i:                             ; preds = %.thread203.i.i, %40
   %.sroa.6.6 = phi i1 [ %.sroa.6.1, %.lr.ph.i.i ], [ %.sroa.6.7, %141 ]
   %51 = phi i32 [ %47, %.lr.ph.i.i ], [ %142, %141 ]
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %49, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !50
   %55 = add nuw i32 %51, 1
   store i32 %55, ptr %46, align 8, !tbaa !693
@@ -9318,7 +9318,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i: ; preds = %_ZNK6vect
 
 393:                                              ; preds = %389
   %394 = zext nneg i32 %391 to i64
-  %395 = getelementptr inbounds nuw [0 x ptr], ptr %388, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw ptr, ptr %388, i64 %394
   %396 = load ptr, ptr %395, align 8, !tbaa !50
   %397 = and i32 %390, -64
   %398 = add i32 %397, 64
@@ -12631,7 +12631,7 @@ _ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_re
 
 _ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE13constant_foldEP3appRN13rewriter_core5frameE.exit: ; preds = %1714, %1718, %1695, %1691, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %1689
   %1852 = zext nneg i32 %1687 to i64
-  %1853 = getelementptr inbounds nuw [0 x ptr], ptr %1684, i64 0, i64 %1852
+  %1853 = getelementptr inbounds nuw ptr, ptr %1684, i64 %1852
   %1854 = load ptr, ptr %1853, align 8, !tbaa !50
   %1855 = add i32 %.mask.i, 64
   %1856 = and i32 %1686, 63
@@ -17126,7 +17126,7 @@ _ZN3smt13model_checkerclEP4expr.exit:             ; preds = %32
 49:                                               ; preds = %.lr.ph, %_ZN3smt13model_checkerclEP4expr.exit66
   %50 = phi i32 [ %46, %.lr.ph ], [ %125, %_ZN3smt13model_checkerclEP4expr.exit66 ]
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !50
   %54 = add nuw i32 %50, 1
   store i32 %54, ptr %45, align 8, !tbaa !693

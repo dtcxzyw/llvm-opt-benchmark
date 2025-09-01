@@ -6963,11 +6963,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5arith14theory_checker17add_im
   %11 = add i32 %8, -2
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !90
   %16 = add i32 %8, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !64
@@ -19054,9 +19054,9 @@ _ZN3euf17eq_theory_checker9are_equalEP4exprS2_.exit44: ; preds = %.preheader.i6.
 
 68:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !90
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !90
   %73 = tail call noundef i32 @_ZN3euf17eq_theory_checker7expr2idEP4expr(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %70)
   %74 = load ptr, ptr %17, align 8, !tbaa !410

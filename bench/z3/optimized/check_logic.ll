@@ -935,7 +935,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %13, %_ZNK4decl13get
 
 28:                                               ; preds = %26, %31
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %31 ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !117
   invoke void @_ZN11check_logic3imp10check_sortEP4sort(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %30)
           to label %31 unwind label %32
@@ -1490,7 +1490,7 @@ _ZN11check_logic3impclEP3var.exit:                ; preds = %.noexc64
 71:                                               ; preds = %.lr.ph, %_ZN11check_logic3impclEP3var.exit91
   %72 = phi i32 [ %68, %.lr.ph ], [ %158, %_ZN11check_logic3impclEP3var.exit91 ]
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [0 x ptr], ptr %70, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !129
   %76 = add nuw i32 %72, 1
   store i32 %76, ptr %67, align 8, !tbaa !147
@@ -2250,7 +2250,7 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %42
 58:                                               ; preds = %57, %.lr.ph.i49
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i49 ], [ %indvars.iv.next.i, %57 ]
   %.078.i = phi i1 [ false, %.lr.ph.i49 ], [ %.07.mux.i, %57 ]
-  %59 = getelementptr inbounds nuw [0 x ptr], ptr %56, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8, !tbaa !129
   %61 = tail call noundef zeroext i1 @_ZN11check_logic3imp10is_numeralEP4expr(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %60)
   %.07.not.i = xor i1 %.078.i, true
@@ -3573,7 +3573,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit23:    ; preds = %96
 
 .lr.ph.i:                                         ; preds = %121, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %121 ]
-  %122 = getelementptr inbounds nuw [0 x ptr], ptr %119, i64 0, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i
   %123 = load ptr, ptr %122, align 8, !tbaa !129
   %.not.i = icmp eq ptr %123, %120
   br i1 %.not.i, label %121, label %_ZN11check_logic3imp9same_argsEP3app.exit
@@ -3591,7 +3591,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit23:    ; preds = %96
 
 .lr.ph.i28:                                       ; preds = %126, %.loopexit
   %indvars.iv.i29 = phi i64 [ 1, %.loopexit ], [ %indvars.iv.next.i32, %126 ]
-  %127 = getelementptr inbounds nuw [0 x ptr], ptr %124, i64 0, i64 %indvars.iv.i29
+  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.i29
   %128 = load ptr, ptr %127, align 8, !tbaa !129
   %.not.i30 = icmp eq ptr %128, %125
   br i1 %.not.i30, label %126, label %_ZN11check_logic3imp9same_argsEP3app.exit
@@ -3751,7 +3751,7 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
 46:                                               ; preds = %50, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
   %.02449.i = phi ptr [ null, %.lr.ph.i ], [ %.226.i, %50 ]
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %45, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !129
   %49 = tail call noundef zeroext i1 @_ZN11check_logic3imp10is_numeralEP4expr(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %48)
   %.not.i = icmp eq ptr %.02449.i, null

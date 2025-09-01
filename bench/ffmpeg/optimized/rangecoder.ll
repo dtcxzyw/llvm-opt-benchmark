@@ -88,7 +88,7 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
 15:                                               ; preds = %7
   %16 = trunc i32 %spec.select to i8
   %17 = sext i32 %.04863 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr %5, i64 %17
   store i8 %16, ptr %18, align 1, !tbaa !17
   br label %19
 
@@ -114,7 +114,7 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
 
 30:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next.pre-phi, %47 ]
-  %31 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !17
   %.not53 = icmp eq i8 %32, 0
   br i1 %.not53, label %33, label %._crit_edge
@@ -155,10 +155,10 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 1, %.preheader.preheader ]
   %48 = sub nuw nsw i64 256, %indvars.iv70
-  %49 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !17
   %51 = sub i8 0, %50
-  %52 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv70
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv70
   store i8 %51, ptr %52, align 1, !tbaa !17
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 255

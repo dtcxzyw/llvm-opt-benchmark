@@ -118,8 +118,8 @@ define ptr @Wln_ObjConstString(ptr noundef readonly captures(none) %0, i32 nound
   br label %Wln_ObjFanin0.exit
 
 Wln_ObjFanin0.exit:                               ; preds = %2, %11
-  %.in.i.i = phi ptr [ %12, %11 ], [ %10, %2 ]
-  %13 = load i32, ptr %.in.i.i, align 4, !tbaa !23
+  %.sink.i.i = phi ptr [ %12, %11 ], [ %10, %2 ]
+  %13 = load i32, ptr %.sink.i.i, align 4, !tbaa !23
   %14 = tail call ptr @Abc_NamStr(ptr noundef %4, i32 noundef %13) #12
   ret ptr %14
 }
@@ -133,13 +133,13 @@ define void @Wln_ObjUpdateType(ptr noundef captures(none) %0, i32 noundef %1, i3
   %7 = getelementptr inbounds i32, ptr %.val, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [99 x i32], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %4, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = add nsw i32 %11, -1
   store i32 %12, ptr %10, align 4, !tbaa !11
   store i32 %2, ptr %7, align 4, !tbaa !11
   %13 = sext i32 %2 to i64
-  %14 = getelementptr inbounds [99 x i32], ptr %4, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr %4, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !11
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !11
@@ -206,7 +206,7 @@ define void @Wln_ObjAddFanin(ptr noundef readonly captures(none) %0, i32 noundef
   %14 = add nsw i32 %9, 1
   store i32 %14, ptr %13, align 4, !tbaa !21
   %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds i32, ptr %12, i64 %15
   store i32 %2, ptr %16, align 4, !tbaa !23
   br label %49
 
@@ -313,7 +313,7 @@ define noundef i32 @Wln_ObjAddFanins(ptr noundef readonly captures(none) %0, i32
   %20 = add nsw i32 %15, 1
   store i32 %20, ptr %19, align 4, !tbaa !21
   %21 = sext i32 %15 to i64
-  %22 = getelementptr inbounds [2 x i32], ptr %18, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr %18, i64 %21
   store i32 %11, ptr %22, align 4, !tbaa !23
   br label %Wln_ObjAddFanin.exit
 
@@ -1392,7 +1392,7 @@ Vec_IntPush.exit86:                               ; preds = %.Vec_IntGrow.exit10
 472:                                              ; preds = %Vec_IntPush.exit86, %437
   %473 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %474 = sext i32 %1 to i64
-  %475 = getelementptr inbounds [99 x i32], ptr %473, i64 0, i64 %474
+  %475 = getelementptr inbounds i32, ptr %473, i64 %474
   %476 = load i32, ptr %475, align 4, !tbaa !11
   %477 = add nsw i32 %476, 1
   store i32 %477, ptr %475, align 4, !tbaa !11
@@ -1473,7 +1473,7 @@ define i32 @Wln_ObjCreateCo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %26 = getelementptr inbounds i32, ptr %.val.i8, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !11
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [99 x i32], ptr %24, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr %24, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !11
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %29, align 4, !tbaa !11
@@ -1496,7 +1496,7 @@ define i32 @Wln_ObjCreateCo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %44 = add nsw i32 %39, 1
   store i32 %44, ptr %43, align 4, !tbaa !21
   %45 = sext i32 %39 to i64
-  %46 = getelementptr inbounds [2 x i32], ptr %42, i64 0, i64 %45
+  %46 = getelementptr inbounds i32, ptr %42, i64 %45
   store i32 %1, ptr %46, align 4, !tbaa !23
   br label %Wln_ObjAddFanin.exit
 
@@ -1579,7 +1579,7 @@ define void @Wln_ObjPrint(ptr noundef readonly captures(none) %0, i32 noundef %1
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [97 x ptr], ptr @switch.table.Wln_ObjPrint, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Wln_ObjPrint, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Abc_OperName.exit
 
@@ -1596,44 +1596,40 @@ Abc_OperName.exit:                                ; preds = %switch.lookup, %2
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Abc_OperName.exit, %27
-  %.val22 = phi ptr [ %.val, %27 ], [ %.val18, %Abc_OperName.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %Abc_OperName.exit ]
-  %16 = phi i32 [ %29, %27 ], [ %14, %Abc_OperName.exit ]
+.lr.ph:                                           ; preds = %Abc_OperName.exit, %25
+  %.val22 = phi ptr [ %.val, %25 ], [ %.val18, %Abc_OperName.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %Abc_OperName.exit ]
+  %16 = phi i32 [ %27, %25 ], [ %14, %Abc_OperName.exit ]
   %17 = icmp sgt i32 %16, 2
   %18 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val22, i64 %4, i32 2
-  br i1 %17, label %19, label %22
+  br i1 %17, label %19, label %Wln_ObjFanin.exit
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %18, align 8, !tbaa !23
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   br label %Wln_ObjFanin.exit
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw [2 x i32], ptr %18, i64 0, i64 %indvars.iv
-  br label %Wln_ObjFanin.exit
+Wln_ObjFanin.exit:                                ; preds = %.lr.ph, %19
+  %.sink.i = phi ptr [ %20, %19 ], [ %18, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i32, ptr %.sink.i, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4, !tbaa !23
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %25, label %23
 
-Wln_ObjFanin.exit:                                ; preds = %19, %22
-  %.in.i = phi ptr [ %21, %19 ], [ %23, %22 ]
-  %24 = load i32, ptr %.in.i, align 4, !tbaa !23
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %27, label %25
-
-25:                                               ; preds = %Wln_ObjFanin.exit
-  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %24)
+23:                                               ; preds = %Wln_ObjFanin.exit
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %22)
   %.val.pre = load ptr, ptr %9, align 8, !tbaa !20
-  br label %27
+  br label %25
 
-27:                                               ; preds = %25, %Wln_ObjFanin.exit
-  %.val = phi ptr [ %.val.pre, %25 ], [ %.val22, %Wln_ObjFanin.exit ]
+25:                                               ; preds = %23, %Wln_ObjFanin.exit
+  %.val = phi ptr [ %.val.pre, %23 ], [ %.val22, %Wln_ObjFanin.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val, i64 %4, i32 1
-  %29 = load i32, ptr %28, align 4, !tbaa !21
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !44
+  %26 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val, i64 %4, i32 1
+  %27 = load i32, ptr %26, align 4, !tbaa !21
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph, label %.critedge, !llvm.loop !44
 
-.critedge:                                        ; preds = %27, %Abc_OperName.exit
+.critedge:                                        ; preds = %25, %Abc_OperName.exit
   %putchar = tail call i32 @putchar(i32 10)
   ret void
 }

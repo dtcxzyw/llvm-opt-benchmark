@@ -1574,9 +1574,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
   store i32 %.0, ptr @hostlist_ranged_string_dims.last_dims, align 4
   %28 = shl i32 %.0, 2
   store i32 %28, ptr @dim_grid_size, align 4
-  %29 = add nsw i32 %.0, -1
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [5 x i32], ptr @offset, i64 0, i64 %30
+  %29 = zext nneg i32 %.0 to i64
+  %30 = getelementptr i32, ptr @offset, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 -4
   store i32 1, ptr %31, align 4
   %32 = add nsw i32 %.0, -2
   %33 = zext i32 %32 to i64
@@ -1587,11 +1587,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %37, %.lr.ph ]
   %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %36 = mul nsw i32 %store_forwarded, 36
-  %37 = getelementptr inbounds nuw [5 x i32], ptr @offset, i64 0, i64 %indvars.iv
-  store i32 %36, ptr %37, align 4
+  %36 = getelementptr inbounds nuw i32, ptr @offset, i64 %indvars.iv
+  %37 = mul nsw i32 %store_forwarded, 36
+  store i32 %37, ptr %36, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not299 = icmp eq i64 %indvars.iv, 0
   br i1 %.not299, label %.loopexit184, label %.lr.ph, !llvm.loop !26
@@ -1740,7 +1740,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
   %indvars.iv260 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next261, %.lr.ph218 ]
   %indvars.iv258 = phi i64 [ %100, %.lr.ph218.preheader ], [ %indvars.iv.next259, %.lr.ph218 ]
   %101 = load ptr, ptr @alpha_num, align 8
-  %102 = getelementptr inbounds nuw [5 x i32], ptr @grid_start, i64 0, i64 %indvars.iv260
+  %102 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %indvars.iv260
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr %101, i64 %104
@@ -1854,7 +1854,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %indvars.iv241 = phi i64 [ 0, %.lr.ph205.preheader ], [ %indvars.iv.next242, %.lr.ph205 ]
   %indvars.iv239 = phi i64 [ %153, %.lr.ph205.preheader ], [ %indvars.iv.next240, %.lr.ph205 ]
   %154 = load ptr, ptr @alpha_num, align 8
-  %155 = getelementptr inbounds nuw [5 x i32], ptr @grid_start, i64 0, i64 %indvars.iv241
+  %155 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %indvars.iv241
   %156 = load i32, ptr %155, align 4
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i8, ptr %154, i64 %157
@@ -1880,7 +1880,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %indvars.iv250 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next251, %.lr.ph212 ]
   %indvars.iv248 = phi i64 [ %163, %.lr.ph212.preheader ], [ %indvars.iv.next249, %.lr.ph212 ]
   %164 = load ptr, ptr @alpha_num, align 8
-  %165 = getelementptr inbounds nuw [5 x i32], ptr @grid_end, i64 0, i64 %indvars.iv250
+  %165 = getelementptr inbounds nuw i32, ptr @grid_end, i64 %indvars.iv250
   %166 = load i32, ptr %165, align 4
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds i8, ptr %164, i64 %167
@@ -5004,14 +5004,14 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %36 = getelementptr inbounds i8, ptr %31, i64 %35
   %37 = load i8, ptr %36, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %37, ptr %38, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
   br i1 %exitcond.not, label %39, label %hostlist_parse_int_to_array.exit, !llvm.loop !56
 
 39:                                               ; preds = %hostlist_parse_int_to_array.exit
   %40 = and i64 %indvars.iv.next, 4294967295
-  %41 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %40
   store i8 0, ptr %41, align 1
   call void @llvm.stackrestore.p0(ptr %21)
   br label %51
@@ -5936,13 +5936,13 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
 
 hostlist_parse_int_to_array.exit29:               ; preds = %.lr.ph.i25, %hostlist_parse_int_to_array.exit29
   %indvars.iv = phi i64 [ %indvars.iv.next, %hostlist_parse_int_to_array.exit29 ], [ 0, %.lr.ph.i25 ]
-  %17 = getelementptr inbounds nuw [5 x i32], ptr @grid_start, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
   store i32 %., ptr %17, align 4
-  %21 = getelementptr inbounds nuw [5 x i32], ptr @grid_end, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr @grid_end, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
@@ -6271,14 +6271,14 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph, %hostlist_p
   %82 = getelementptr inbounds i8, ptr %77, i64 %81
   %83 = load i8, ptr %82, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %83, ptr %84, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next56, %64
   br i1 %exitcond.not, label %hostlist_parse_int_to_array.exit._crit_edge, label %hostlist_parse_int_to_array.exit, !llvm.loop !66
 
 hostlist_parse_int_to_array.exit._crit_edge:      ; preds = %hostlist_parse_int_to_array.exit
   %85 = and i64 %indvars.iv.next, 4294967295
-  %86 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 %85
   store i8 0, ptr %86, align 1
   call void @llvm.stackrestore.p0(ptr %65)
   br label %97
@@ -7279,7 +7279,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges(i32 noundef 
 .lr.ph74:                                         ; preds = %9
   %16 = add nsw i32 %8, -2
   %17 = icmp eq i32 %0, %16
-  %18 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %10
+  %18 = getelementptr inbounds i32, ptr @offset, i64 %10
   %19 = add nsw i32 %0, 1
   %20 = shl nuw nsw i32 %8, 1
   %21 = add nuw nsw i32 %20, 2
@@ -7625,7 +7625,7 @@ define internal fastcc void @_set_box_in_grid(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %12 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
+  %12 = getelementptr inbounds i32, ptr @offset, i64 %7
   %13 = add nsw i32 %5, -1
   %14 = icmp eq i32 %0, %13
   %15 = add nsw i32 %0, 1
@@ -7690,7 +7690,7 @@ define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %4
+  %9 = getelementptr inbounds i32, ptr @offset, i64 %4
   %10 = add nsw i32 %2, -1
   %11 = icmp eq i32 %0, %10
   %12 = add nsw i32 %0, 1
@@ -7814,18 +7814,18 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i32, ptr @_get_next_box.last, i64 %7
-  %11 = getelementptr inbounds [5 x i32], ptr @grid_end, i64 0, i64 %7
+  %11 = getelementptr inbounds i32, ptr @grid_end, i64 %7
   store i32 %9, ptr %10, align 4
   %12 = load i32, ptr %11, align 4
   %.not4 = icmp sgt i32 %9, %12
   br i1 %.not4, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
+  %13 = getelementptr inbounds i32, ptr @offset, i64 %7
   %14 = add nsw i32 %5, -1
   %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1
-  %17 = getelementptr inbounds [5 x i32], ptr @grid_start, i64 0, i64 %7
+  %17 = getelementptr inbounds i32, ptr @grid_start, i64 %7
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
@@ -7951,7 +7951,7 @@ define internal fastcc void @_set_min_max_of_grid(i32 noundef %0, i32 noundef %1
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
+  %13 = getelementptr inbounds i32, ptr @offset, i64 %7
   %14 = add nsw i32 %5, -1
   %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1

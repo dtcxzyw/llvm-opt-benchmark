@@ -5359,13 +5359,12 @@ invoke.cont.i:                                    ; preds = %_ZNSt8__detail14__t
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
   %975 = shl nuw nsw i64 %indvars.iv.next, 1
-  %976 = or disjoint i64 %975, 1
-  %arrayidx14.i.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %976
+  %976 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %975
+  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %976, i64 1
   %977 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !13, !noalias !16
   %arrayidx15.i.i = getelementptr inbounds nuw i8, ptr %974, i64 1
   store i8 %977, ptr %arrayidx15.i.i, align 1, !tbaa !13
-  %arrayidx17.i.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %975
-  %978 = load i8, ptr %arrayidx17.i.i, align 2, !tbaa !13, !noalias !16
+  %978 = load i8, ptr %976, align 2, !tbaa !13, !noalias !16
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont.i
@@ -5439,18 +5438,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
           to label %invoke.cont178 unwind label %lpad177
 
 invoke.cont178:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %991 = add nuw nsw i64 %indvars.iv, 45
-  %arrayidx181 = getelementptr inbounds nuw [77 x %class.KeyPress], ptr %this, i64 0, i64 %991
+  %991 = getelementptr inbounds nuw %class.KeyPress, ptr %this, i64 %indvars.iv
+  %arrayidx181 = getelementptr inbounds nuw i8, ptr %991, i64 1800
   %992 = load i64, ptr %ref.tmp175, align 8
   store i64 %992, ptr %arrayidx181, align 8
-  %m_name.i1815 = getelementptr inbounds nuw i8, ptr %arrayidx181, i64 8
+  %m_name.i1815 = getelementptr inbounds nuw i8, ptr %991, i64 1808
   %993 = load ptr, ptr %m_name.i1815, align 8, !tbaa !4
-  %994 = getelementptr inbounds nuw i8, ptr %arrayidx181, i64 24
+  %994 = getelementptr inbounds nuw i8, ptr %991, i64 1824
   %cmp.i.i.i1817 = icmp eq ptr %993, %994
   br i1 %cmp.i.i.i1817, label %if.end.i.i1838, label %if.end.thread.i.i1818
 
 if.end.i.i1838:                                   ; preds = %invoke.cont178
-  %_M_string_length.i.i.i1839 = getelementptr inbounds nuw i8, ptr %arrayidx181, i64 16
+  %_M_string_length.i.i.i1839 = getelementptr inbounds nuw i8, ptr %991, i64 1816
   %995 = load i64, ptr %_M_string_length.i.i.i1839, align 8, !tbaa !11
   %cmp3.i.i.i1840 = icmp ult i64 %995, 16
   call void @llvm.assume(i1 %cmp3.i.i.i1840)
@@ -5487,7 +5486,7 @@ if.end.i.i.i.i1837:                               ; preds = %if.then22.i.i1831
 
 if.end32.i.i1833:                                 ; preds = %if.end.i.i.i.i1837, %if.then.i79.i.i1832, %if.then22.i.i1831
   %1000 = load i64, ptr %_M_string_length.i87.i.i1821, align 8, !tbaa !11
-  %_M_string_length.i.i81.i.i1834 = getelementptr inbounds nuw i8, ptr %arrayidx181, i64 16
+  %_M_string_length.i.i81.i.i1834 = getelementptr inbounds nuw i8, ptr %991, i64 1816
   store i64 %1000, ptr %_M_string_length.i.i81.i.i1834, align 8, !tbaa !11
   %1001 = load ptr, ptr %m_name.i1815, align 8, !tbaa !4
   %arrayidx.i.i.i1835 = getelementptr inbounds i8, ptr %1001, i64 %1000
@@ -5506,7 +5505,7 @@ if.end41.thread.i.i1842:                          ; preds = %if.end.i.i1838
 if.end41.i.i1820:                                 ; preds = %if.end.thread.i.i1818
   %1004 = load i64, ptr %994, align 8, !tbaa !13
   store ptr %997, ptr %m_name.i1815, align 8, !tbaa !4
-  %_M_string_length.i88.i.i1822 = getelementptr inbounds nuw i8, ptr %arrayidx181, i64 16
+  %_M_string_length.i88.i.i1822 = getelementptr inbounds nuw i8, ptr %991, i64 1816
   %1005 = load <2 x i64>, ptr %_M_string_length.i87.i.i1821, align 8, !tbaa !13
   store <2 x i64> %1005, ptr %_M_string_length.i88.i.i1822, align 8, !tbaa !13
   %tobool48.not.i.i1823 = icmp eq ptr %993, null
@@ -6621,7 +6620,7 @@ if.then109:                                       ; preds = %if.else32
   %Level = getelementptr inbounds nuw i8, ptr %event, i64 16
   %99 = load i32, ptr %Level, align 8, !tbaa !13
   %idxprom = zext i32 %99 to i64
-  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr @_ZZN15MyEventReceiver7OnEventERKN3irr6SEventEE15irr_loglev_conv, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZZN15MyEventReceiver7OnEventERKN3irr6SEventEE15irr_loglev_conv, i64 %idxprom
   %100 = load i32, ptr %arrayidx, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp110)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp111)
@@ -7888,7 +7887,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %class.KeyPress], ptr %keycache, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
   %keyIsDown.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %vtable.i.i = load ptr, ptr %keyIsDown.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -7900,7 +7899,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %m_keys_down.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %m_keys_down.i, i64 0, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_keys_down.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %2 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -7920,7 +7919,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %class.KeyPress], ptr %keycache, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
   %keyWasDown.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %vtable.i.i = load ptr, ptr %keyWasDown.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -7967,7 +7966,7 @@ _ZNSt7__cxx114listI8KeyPressSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit.i.
 lor.rhs:                                          ; preds = %entry
   %m_past_keys_pressed.i = getelementptr inbounds nuw i8, ptr %this, i64 464
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %m_past_keys_pressed.i, i64 0, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_past_keys_pressed.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -7990,7 +7989,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %class.KeyPress], ptr %keycache, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
   %keyWasPressed.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %vtable.i.i = load ptr, ptr %keyWasPressed.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -8002,7 +8001,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %m_keys_pressed.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %m_keys_pressed.i, i64 0, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_keys_pressed.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %2 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -8022,7 +8021,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %class.KeyPress], ptr %keycache, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
   %keyWasReleased.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %vtable.i.i = load ptr, ptr %keyWasReleased.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -8034,7 +8033,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %m_keys_released.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %m_keys_released.i, i64 0, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_keys_released.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %2 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -8775,7 +8774,7 @@ entry:
   %keydown = getelementptr inbounds nuw i8, ptr %this, i64 3584
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw [77 x %class.KeyPress], ptr %keycache, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
   %vtable.i = load ptr, ptr %keydown, align 8, !tbaa !26
   %0 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %keydown, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx)

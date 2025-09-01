@@ -705,7 +705,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScan
   %65 = add nuw nsw i8 %.0.i, 7
   %66 = and i8 %65, 7
   %67 = zext nneg i8 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %67
   %.sroa.0.0.copyload.i.i = load i32, ptr %68, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %68, i64 4
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !17
@@ -838,7 +838,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %125 = add nuw nsw i8 %.2.i, 1
   %.urem = and i8 %125, 7
   %126 = zext nneg i8 %.urem to i64
-  %127 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %126
   %.sroa.4.0..sroa_idx.i76.i = getelementptr inbounds nuw i8, ptr %127, i64 4
   %.sroa.4.0.copyload.i77.i = load i32, ptr %.sroa.4.0..sroa_idx.i76.i, align 4, !tbaa !17
   %128 = mul nsw i32 %.sroa.4.0.copyload.i77.i, %63
@@ -1063,7 +1063,7 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit.i:        ; preds = %_ZNSt6vectorIN2cv6P
 
 215:                                              ; preds = %212
   %216 = zext nneg i8 %138 to i64
-  %217 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %216
   %218 = getelementptr i8, ptr %217, i64 4
   %.val66.i = load i32, ptr %218, align 4, !tbaa !72
   %219 = add nsw i32 %.val66.i, %.sroa.12126.0.i
@@ -1118,7 +1118,7 @@ _ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7Cont
   store i32 %237, ptr %236, align 4, !tbaa !101
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %239 = sext i8 %.039 to i64
-  %240 = getelementptr inbounds nuw [128 x i32], ptr %238, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i32, ptr %238, i64 %239
   %241 = load i32, ptr %240, align 4, !tbaa !17
   %242 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 %241, ptr %242, align 4, !tbaa !104
@@ -1334,7 +1334,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117icvFetchContourExIaEEvRN2cv3MatE
   %31 = add nuw nsw i8 %.0, 7
   %32 = and i8 %31, 7
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %33
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !17
@@ -1464,7 +1464,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %87 = add nuw nsw i8 %.2, 1
   %88 = srem i8 %87, 8
   %89 = sext i8 %88 to i64
-  %90 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %89
+  %90 = getelementptr inbounds %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %89
   %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %.sroa.4.0.copyload.i71 = load i32, ptr %.sroa.4.0..sroa_idx.i70, align 4, !tbaa !17
   %91 = mul nsw i32 %.sroa.4.0.copyload.i71, %29
@@ -1678,7 +1678,7 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit:          ; preds = %_ZNSt6vectorIN2cv6P
 
 171:                                              ; preds = %168
   %172 = zext nneg i8 %99 to i64
-  %173 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %172
   %174 = getelementptr i8, ptr %173, i64 4
   %.val68 = load i32, ptr %174, align 4, !tbaa !72
   %175 = add nsw i32 %.val68, %.sroa.12120.0152
@@ -1955,7 +1955,7 @@ _ZN2cv4TreeINS_7ContourEE8addChildEii.exit:       ; preds = %110, %119
 define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv6Point_IiEEiii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
   %.02596 = load i32, ptr %8, align 4, !tbaa !17
   %.not97 = icmp eq i32 %.02596, -1
   br i1 %.not97, label %.thread66, label %.lr.ph
@@ -2041,7 +2041,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %68 = add nuw nsw i8 %.063.i, 7
   %69 = and i8 %68, 7
   %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %70
   %.sroa.0.0.copyload.i.i = load i32, ptr %71, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %71, i64 4
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !17
@@ -2081,7 +2081,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %.cmp.i = icmp samesign ult i8 %.265.i, 7
   %90 = select i1 %.cmp.i, i8 %89, i8 %.urem.i
   %91 = sext i8 %90 to i64
-  %92 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %91
+  %92 = getelementptr inbounds %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %91
   %.sroa.0.0.copyload.i79.i = load i32, ptr %92, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i80.i = getelementptr inbounds nuw i8, ptr %92, i64 4
   %.sroa.4.0.copyload.i81.i = load i32, ptr %.sroa.4.0..sroa_idx.i80.i, align 4, !tbaa !17
@@ -2113,7 +2113,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %107 = add nuw nsw i8 %.0.i, 7
   %108 = and i8 %107, 7
   %109 = zext nneg i8 %108 to i64
-  %110 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %109
   %.sroa.0.0.copyload.i82.i = load i32, ptr %110, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i83.i = getelementptr inbounds nuw i8, ptr %110, i64 4
   %.sroa.4.0.copyload.i84.i = load i32, ptr %.sroa.4.0..sroa_idx.i83.i, align 4, !tbaa !17
@@ -2150,7 +2150,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %125 = add nuw nsw i8 %.063.i33, 7
   %126 = and i8 %125, 7
   %127 = zext nneg i8 %126 to i64
-  %128 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %127
   %.sroa.0.0.copyload.i.i34 = load i32, ptr %128, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %.sroa.4.0.copyload.i.i36 = load i32, ptr %.sroa.4.0..sroa_idx.i.i35, align 4, !tbaa !17
@@ -2184,7 +2184,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %.cmp.i41 = icmp samesign ult i8 %.265.i39, 7
   %143 = select i1 %.cmp.i41, i8 %142, i8 %.urem.i40
   %144 = sext i8 %143 to i64
-  %145 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %144
+  %145 = getelementptr inbounds %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %144
   %.sroa.0.0.copyload.i76.i = load i32, ptr %145, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i77.i = getelementptr inbounds nuw i8, ptr %145, i64 4
   %.sroa.4.0.copyload.i78.i = load i32, ptr %.sroa.4.0..sroa_idx.i77.i, align 4, !tbaa !17
@@ -2213,7 +2213,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %157 = add nuw nsw i8 %.0.i49, 7
   %158 = and i8 %157, 7
   %159 = zext nneg i8 %158 to i64
-  %160 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %159
   %.sroa.0.0.copyload.i79.i50 = load i32, ptr %160, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i80.i51 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %.sroa.4.0.copyload.i81.i52 = load i32, ptr %.sroa.4.0..sroa_idx.i80.i51, align 4, !tbaa !17

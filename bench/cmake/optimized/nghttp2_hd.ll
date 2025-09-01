@@ -527,7 +527,7 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph23.split.us
   %57 = load i32, ptr %56, align 4, !tbaa !31
   %58 = and i32 %57, 127
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [128 x ptr], ptr %1, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !64
   %.not13.i = icmp eq ptr %61, null
   br i1 %.not13.i, label %hd_map_remove.exit, label %.lr.ph.i.preheader
@@ -667,7 +667,7 @@ define dso_local void @nghttp2_hd_table_get(ptr dead_on_unwind noalias writable 
   br label %24
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %2
+  %17 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %2
   store ptr %17, ptr %0, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -919,7 +919,7 @@ emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.
 
 90:                                               ; preds = %88
   %91 = zext nneg i32 %79 to i64
-  %92 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %91, i32 4
+  %92 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %91, i32 4
   %93 = load i32, ptr %92, align 4, !tbaa !86
   br label %name_hash.exit.i
 
@@ -974,7 +974,7 @@ hd_deflate_decide_indexing.exit.i:                ; preds = %102, %101, %101, %1
   %.not.i76.i = icmp eq i32 %111, 2
   %112 = and i32 %.05982.i, 127
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [128 x ptr], ptr %64, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw ptr, ptr %64, i64 %113
   %.01934.i.i.i = load ptr, ptr %114, align 8, !tbaa !64
   %.not35.i.i.i = icmp eq ptr %.01934.i.i.i, null
   br i1 %.not35.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.i.i.i
@@ -1140,7 +1140,7 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
 
 170:                                              ; preds = %185, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %167, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %185 ]
-  %171 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %indvars.iv.i.i.i
+  %171 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %indvars.iv.i.i.i
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 120
   %173 = load i32, ptr %172, align 8, !tbaa !75
   %174 = icmp eq i32 %173, %79
@@ -1289,7 +1289,7 @@ search_hd_table.exit.thread.thread104.i:          ; preds = %186
   br label %nghttp2_hd_table_get.exit.i
 
 235:                                              ; preds = %224
-  %236 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %.sroa.024.0.i89.i
+  %236 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %.sroa.024.0.i89.i
   br label %nghttp2_hd_table_get.exit.i
 
 nghttp2_hd_table_get.exit.i:                      ; preds = %235, %226
@@ -2174,7 +2174,7 @@ hd_inflate_read_len.exit283:                      ; preds = %decode_length.exit.
   br label %.thread347
 
 198:                                              ; preds = %187
-  %199 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %186
+  %199 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %186
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 40
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 120
   br label %.thread347
@@ -2857,7 +2857,7 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_indname(ptr nou
   br label %nghttp2_hd_table_get.exit
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5
+  %19 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %5
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   br label %nghttp2_hd_table_get.exit
 
@@ -3364,7 +3364,7 @@ define dso_local ptr @nghttp2_hd_deflate_get_table_entry(ptr noundef readonly ca
   br label %hd_get_table_entry.exit
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
+  %25 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %5, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %2, %4, %12, %24
@@ -3426,7 +3426,7 @@ define dso_local ptr @nghttp2_hd_inflate_get_table_entry(ptr noundef readonly ca
   br label %hd_get_table_entry.exit
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
+  %25 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %5, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %2, %4, %12, %24
@@ -4052,7 +4052,7 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, 
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = and i32 %74, 127
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [128 x ptr], ptr %2, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %2, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !64
   %.not13.i = icmp eq ptr %78, null
   br i1 %.not13.i, label %hd_map_remove.exit, label %.lr.ph.i.preheader
@@ -4230,7 +4230,7 @@ hd_ringbuf_push_front.exit:                       ; preds = %125
 154:                                              ; preds = %143
   %155 = and i32 %3, 127
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw [128 x ptr], ptr %2, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw ptr, ptr %2, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !64
   %159 = icmp eq ptr %158, null
   br i1 %159, label %hd_map_insert.exit, label %160

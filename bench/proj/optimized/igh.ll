@@ -53,7 +53,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_ighP8PJconsts(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8, !tbaa !40
   %8 = tail call noundef ptr @pj_sinu(ptr noundef null), !callees !41
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = getelementptr i8, ptr %2, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !42
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread, label %10
@@ -74,7 +74,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_ighP8PJconsts(ptr no
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 440
   store double 0xBFFBECDE5DA115A9, ptr %16, align 8, !tbaa !46
   %17 = tail call noundef ptr @pj_sinu(ptr noundef null), !callees !41
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %18 = getelementptr i8, ptr %2, i64 24
   store ptr %17, ptr %18, align 8, !tbaa !42
   %.not.i59 = icmp eq ptr %17, null
   br i1 %.not.i59, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread, label %19
@@ -95,7 +95,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_ighP8PJconsts(ptr no
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 440
   store double 0x3FE0C152382D7365, ptr %25, align 8, !tbaa !46
   %26 = tail call noundef ptr @pj_sinu(ptr noundef null), !callees !41
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %27 = getelementptr i8, ptr %2, i64 32
   store ptr %26, ptr %27, align 8, !tbaa !42
   %.not.i63 = icmp eq ptr %26, null
   br i1 %.not.i63, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread, label %28
@@ -116,7 +116,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_ighP8PJconsts(ptr no
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 440
   store double 0xC00657184AE74487, ptr %34, align 8, !tbaa !46
   %35 = tail call noundef ptr @pj_sinu(ptr noundef null), !callees !41
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %36 = getelementptr i8, ptr %2, i64 40
   store ptr %35, ptr %36, align 8, !tbaa !42
   %.not.i67 = icmp eq ptr %35, null
   br i1 %.not.i67, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread, label %37
@@ -137,7 +137,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_ighP8PJconsts(ptr no
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 440
   store double 0xBFF0C152382D7365, ptr %43, align 8, !tbaa !46
   %44 = tail call noundef ptr @pj_sinu(ptr noundef null), !callees !41
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %45 = getelementptr i8, ptr %2, i64 48
   store ptr %44, ptr %45, align 8, !tbaa !42
   %.not.i71 = icmp eq ptr %44, null
   br i1 %.not.i71, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread, label %46
@@ -158,7 +158,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_ighP8PJconsts(ptr no
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 440
   store double 0x3FD657184AE74487, ptr %52, align 8, !tbaa !46
   %53 = tail call noundef ptr @pj_sinu(ptr noundef null), !callees !41
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %54 = getelementptr i8, ptr %2, i64 56
   store ptr %53, ptr %54, align 8, !tbaa !42
   %.not.i75 = icmp eq ptr %53, null
   br i1 %.not.i75, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread, label %55
@@ -176,7 +176,7 @@ _ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thr
 
 .preheader.i:                                     ; preds = %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit.thread ]
-  %59 = getelementptr inbounds nuw [12 x ptr], ptr %57, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8, !tbaa !42
   %.not.i79 = icmp eq ptr %60, null
   br i1 %.not.i79, label %65, label %61
@@ -245,7 +245,7 @@ _ZL22pj_igh_data_destructorP8PJconstsi.exit:      ; preds = %65, %_ZL17pj_igh_se
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 464
   store double %91, ptr %94, align 8, !tbaa !45
   %95 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %96 = getelementptr i8, ptr %2, i64 8
   store ptr %95, ptr %96, align 8, !tbaa !42
   %.not.i85 = icmp eq ptr %95, null
   br i1 %.not.i85, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit88.thread, label %97
@@ -268,7 +268,7 @@ _ZL22pj_igh_data_destructorP8PJconstsi.exit:      ; preds = %65, %_ZL17pj_igh_se
   %104 = load double, ptr %92, align 8, !tbaa !51
   %105 = fneg double %104
   %106 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %107 = getelementptr i8, ptr %2, i64 64
   store ptr %106, ptr %107, align 8, !tbaa !42
   %.not.i89 = icmp eq ptr %106, null
   br i1 %.not.i89, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit88.thread, label %108
@@ -291,7 +291,7 @@ _ZL22pj_igh_data_destructorP8PJconstsi.exit:      ; preds = %65, %_ZL17pj_igh_se
   %115 = load double, ptr %92, align 8, !tbaa !51
   %116 = fneg double %115
   %117 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %118 = getelementptr i8, ptr %2, i64 72
   store ptr %117, ptr %118, align 8, !tbaa !42
   %.not.i93 = icmp eq ptr %117, null
   br i1 %.not.i93, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit88.thread, label %119
@@ -314,7 +314,7 @@ _ZL22pj_igh_data_destructorP8PJconstsi.exit:      ; preds = %65, %_ZL17pj_igh_se
   %126 = load double, ptr %92, align 8, !tbaa !51
   %127 = fneg double %126
   %128 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
-  %129 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %129 = getelementptr i8, ptr %2, i64 80
   store ptr %128, ptr %129, align 8, !tbaa !42
   %.not.i97 = icmp eq ptr %128, null
   br i1 %.not.i97, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit88.thread, label %130
@@ -337,7 +337,7 @@ _ZL22pj_igh_data_destructorP8PJconstsi.exit:      ; preds = %65, %_ZL17pj_igh_se
   %137 = load double, ptr %92, align 8, !tbaa !51
   %138 = fneg double %137
   %139 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
-  %140 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %140 = getelementptr i8, ptr %2, i64 88
   store ptr %139, ptr %140, align 8, !tbaa !42
   %.not.i101 = icmp eq ptr %139, null
   br i1 %.not.i101, label %_ZL17pj_igh_setup_zoneP8PJconstsPN9pj_igh_ns11pj_igh_dataEiPFS0_S0_Eddd.exit88.thread, label %141
@@ -398,7 +398,7 @@ define internal noundef ptr @_ZL22pj_igh_data_destructorP8PJconstsi(ptr noundef 
 
 .preheader:                                       ; preds = %4, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %4 ]
-  %8 = getelementptr inbounds nuw [12 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -496,9 +496,9 @@ select.unfold102:                                 ; preds = %15
 
 34:                                               ; preds = %15, %19, %27, %32, %select.unfold102, %select.unfold101, %24, %25, %select.unfold100, %29, %30, %select.unfold
   %.090.ph = phi i32 [ 11, %32 ], [ 10, %30 ], [ 9, %29 ], [ 7, %27 ], [ 6, %25 ], [ 5, %24 ], [ 4, %19 ], [ 2, %15 ], [ 12, %select.unfold ], [ 8, %select.unfold100 ], [ 3, %select.unfold101 ], [ 1, %select.unfold102 ]
-  %35 = add nsw i32 %.090.ph, -1
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %36
+  %35 = zext nneg i32 %.090.ph to i64
+  %36 = getelementptr ptr, ptr %5, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 456
   %40 = load double, ptr %39, align 8, !tbaa !44
@@ -703,7 +703,7 @@ define internal { double, double } @_ZL13igh_s_forward5PJ_LPP8PJconsts(double %0
   %.0 = phi i64 [ %9, %7 ], [ %14, %12 ], [ 5, %18 ], [ 6, %19 ], [ %., %21 ], [ 9, %23 ], [ 10, %24 ], [ %.26, %26 ]
   %29 = add nuw nsw i64 %.0, 4294967295
   %30 = and i64 %29, 4294967295
-  %31 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %5, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 440
   %34 = load double, ptr %33, align 8, !tbaa !46

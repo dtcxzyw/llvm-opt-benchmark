@@ -247,7 +247,7 @@ handle_args.exit:                                 ; preds = %57
   %indvars.iv.i = phi i64 [ 0, %handle_args.exit ], [ %indvars.iv.next.i, %71 ]
   %72 = call i32 @pg_prng_int32(ptr noundef nonnull @pg_global_prng_state) #14
   %73 = trunc i32 %72 to i8
-  %74 = getelementptr inbounds nuw [16777216 x i8], ptr @full_buf, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw i8, ptr @full_buf, i64 %indvars.iv.i
   store i8 %73, ptr %74, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16777216

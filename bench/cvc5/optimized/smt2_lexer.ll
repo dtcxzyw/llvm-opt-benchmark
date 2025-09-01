@@ -232,7 +232,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
 
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 97, %3 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !13
   %13 = or i8 %12, 48
   store i8 %13, ptr %11, align 1, !tbaa !13
@@ -242,7 +242,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
 
 .preheader38:                                     ; preds = %10, %.preheader38
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.preheader38 ], [ 97, %10 ]
-  %14 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv52
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv52
   %15 = load i8, ptr %14, align 1, !tbaa !13
   %16 = or i8 %15, 4
   store i8 %16, ptr %14, align 1, !tbaa !13
@@ -252,7 +252,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
 
 .preheader37:                                     ; preds = %.preheader38, %.preheader37
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.preheader37 ], [ 65, %.preheader38 ]
-  %17 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv56
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv56
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = or i8 %18, 48
   store i8 %19, ptr %17, align 1, !tbaa !13
@@ -262,7 +262,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
 
 .preheader36:                                     ; preds = %.preheader37, %.preheader36
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader36 ], [ 65, %.preheader37 ]
-  %20 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv60
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv60
   %21 = load i8, ptr %20, align 1, !tbaa !13
   %22 = or i8 %21, 4
   store i8 %22, ptr %20, align 1, !tbaa !13
@@ -287,7 +287,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
 
 .preheader:                                       ; preds = %.preheader36, %.preheader
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader ], [ 48, %.preheader36 ]
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv64
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv64
   %34 = load i8, ptr %33, align 1, !tbaa !13
   %35 = or i8 %34, 38
   store i8 %35, ptr %33, align 1, !tbaa !13
@@ -306,7 +306,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   %.sroa.032.045 = phi ptr [ %44, %.lr.ph ], [ %30, %23 ]
   %39 = load i8, ptr %.sroa.032.045, align 1, !tbaa !13
   %40 = sext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !13
   %43 = or i8 %42, 48
   store i8 %43, ptr %41, align 1, !tbaa !13
@@ -337,7 +337,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   %.sroa.028.047 = phi ptr [ %62, %.lr.ph49 ], [ %36, %._crit_edge ]
   %57 = load i8, ptr %.sroa.028.047, align 1, !tbaa !13
   %58 = sext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !13
   %61 = or i8 %60, 64
   store i8 %61, ptr %59, align 1, !tbaa !13
@@ -523,7 +523,7 @@ define hidden noundef range(i32 0, 86) i32 @_ZN4cvc56parser9Smt2Lexer16computeNe
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %46
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 %46
   %51 = load i8, ptr %50, align 1, !tbaa !13
   %52 = sext i8 %51 to i32
   store i32 %52, ptr %36, align 8, !tbaa !54
@@ -584,7 +584,7 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %43, %71
 77:                                               ; preds = %_ZN4cvc56parser5Lexer8nextCharEv.exit
   %78 = and i32 %.0.i, 255
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %39, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !13
   %82 = and i8 %81, 1
   %.not195 = icmp eq i8 %82, 0
@@ -622,7 +622,7 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %43, %71
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %94
+  %98 = getelementptr inbounds nuw i8, ptr %35, i64 %94
   %99 = load i8, ptr %98, align 1, !tbaa !13
   %100 = sext i8 %99 to i32
   store i32 %100, ptr %36, align 8, !tbaa !54
@@ -694,7 +694,7 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit86:          ; preds = %91, %121
   ]
 
 .thread180.loopexit206:                           ; preds = %87
-  %126 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %79
+  %126 = getelementptr inbounds nuw i8, ptr %39, i64 %79
   %.pre = load i32, ptr %25, align 8, !tbaa !46
   br label %.thread180
 
@@ -808,7 +808,7 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %136, %_ZNSt6vectorI
   br i1 %169, label %170, label %175
 
 170:                                              ; preds = %166
-  %171 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %167
+  %171 = getelementptr inbounds nuw i8, ptr %35, i64 %167
   %172 = load i8, ptr %171, align 1, !tbaa !13
   %173 = sext i8 %172 to i32
   store i32 %173, ptr %36, align 8, !tbaa !54
@@ -1387,7 +1387,7 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151: ; preds = %_ZN4cvc56parser9Smt
   br i1 %383, label %384, label %389
 
 384:                                              ; preds = %380
-  %385 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %381
+  %385 = getelementptr inbounds nuw i8, ptr %35, i64 %381
   %386 = load i8, ptr %385, align 1, !tbaa !13
   %387 = sext i8 %386 to i32
   store i32 %387, ptr %36, align 8, !tbaa !54
@@ -1447,7 +1447,7 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit136:         ; preds = %378, %406
 411:                                              ; preds = %_ZN4cvc56parser5Lexer8nextCharEv.exit136
   %412 = and i32 %.0.i134, 255
   %413 = zext nneg i32 %412 to i64
-  %414 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i8, ptr %39, i64 %413
   %415 = load i8, ptr %414, align 1, !tbaa !13
   %416 = and i8 %415, 64
   %.not197 = icmp eq i8 %416, 0
@@ -1963,7 +1963,7 @@ define linkonce_odr hidden noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr nou
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %16 = getelementptr inbounds nuw [32768 x i8], ptr %15, i64 0, i64 %10
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %10
   %17 = load i8, ptr %16, align 1, !tbaa !13
   %18 = sext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32880
@@ -2134,7 +2134,7 @@ define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer21parseNonEmptyCharLi
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %17 = getelementptr inbounds nuw [32768 x i8], ptr %16, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %11
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32880
@@ -2208,7 +2208,7 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32922
   %56 = and i32 %.0.i, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !13
   %60 = zext i8 %59 to i32
   %61 = and i32 %1, %60
@@ -2317,7 +2317,7 @@ define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer16parseLiteralCharEi(
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %17 = getelementptr inbounds nuw [32768 x i8], ptr %16, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %11
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32880
@@ -2487,7 +2487,7 @@ define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer9parseCharENS1_14Char
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %17 = getelementptr inbounds nuw [32768 x i8], ptr %16, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %11
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32880
@@ -2561,7 +2561,7 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32922
   %56 = and i32 %.0.i, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !13
   %60 = zext i8 %59 to i32
   %61 = and i32 %1, %60
@@ -2676,7 +2676,7 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %_ZN4cvc56parser9Smt
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw [32768 x i8], ptr %8, i64 0, i64 %22
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %22
   %27 = load i8, ptr %26, align 1, !tbaa !13
   %28 = sext i8 %27 to i32
   store i32 %28, ptr %9, align 8, !tbaa !54
@@ -2739,7 +2739,7 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %19, %47, %50
   %.0.i = phi i32 [ %20, %19 ], [ 10, %47 ], [ %51, %50 ]
   %54 = and i32 %.0.i, 255
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %58 = zext i8 %57 to i32
   %59 = and i32 %1, %58
@@ -2969,7 +2969,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 %.01420
   %97 = load i8, ptr %96, align 1, !tbaa !13
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [256 x i8], ptr %94, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !13
   %101 = and i8 %100, 2
   %.not18 = icmp eq i8 %101, 0

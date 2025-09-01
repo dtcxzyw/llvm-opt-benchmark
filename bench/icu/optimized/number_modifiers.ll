@@ -258,9 +258,9 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_776number4impl27
 
 6:                                                ; preds = %2, %6
   %.07 = phi i64 [ 0, %2 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %.07
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.07
   %8 = load ptr, ptr %7, align 8, !tbaa !18
-  %9 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %.07
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.07
   store ptr %8, ptr %9, align 8, !tbaa !18
   store ptr null, ptr %7, align 8, !tbaa !18
   %10 = add nuw nsw i64 %.07, 1

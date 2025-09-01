@@ -931,7 +931,7 @@ precheck.exit:                                    ; preds = %26
 
 56:                                               ; preds = %47
   %57 = zext nneg i32 %51 to i64
-  %58 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !26
   %60 = zext i8 %59 to i32
   %61 = and i32 %60, 3
@@ -1358,7 +1358,7 @@ define hidden void @luaG_typeerror(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !77
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !22
@@ -1649,7 +1649,7 @@ define hidden void @luaG_concaterror(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !22
@@ -1708,7 +1708,7 @@ define hidden void @luaG_aritherror(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !33
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !22
@@ -1762,12 +1762,12 @@ define hidden noundef i32 @luaG_ordererror(ptr noundef %0, ptr noundef readonly 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !33
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr @luaT_typenames, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %15 = load i8, ptr %14, align 1, !tbaa !26

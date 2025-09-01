@@ -116,7 +116,7 @@ define dso_local range(i32 -1, 1) i32 @set_disambiguate_hint_config(ptr noundef 
 
 .preheader:                                       ; preds = %2, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [6 x %struct.anon], ptr @set_disambiguate_hint_config.hints, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.anon, ptr @set_disambiguate_hint_config.hints, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16, !tbaa !6
   %8 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef %7) #20
   %.not12 = icmp eq i32 %8, 0
@@ -288,7 +288,7 @@ define dso_local i32 @repo_for_each_abbrev(ptr noundef %0, ptr noundef readonly 
 .critedge.i:                                      ; preds = %27, %23, %17
   %.047.i = phi i8 [ %19, %23 ], [ %29, %27 ], [ %19, %17 ]
   %.0.i = phi i8 [ %24, %23 ], [ %28, %27 ], [ %20, %17 ]
-  %30 = getelementptr inbounds nuw [65 x i8], ptr %15, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i
   store i8 %.047.i, ptr %30, align 1, !tbaa !16
   %31 = and i64 %indvars.iv.i, 1
   %.not56.i = icmp eq i64 %31, 0
@@ -296,7 +296,7 @@ define dso_local i32 @repo_for_each_abbrev(ptr noundef %0, ptr noundef readonly 
   %spec.select.i = select i1 %.not56.i, i8 %32, i8 %.0.i
   %33 = lshr i64 %indvars.iv.i, 1
   %34 = and i64 %33, 2147483647
-  %35 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !16
   %37 = or i8 %36, %spec.select.i
   store i8 %37, ptr %35, align 1, !tbaa !16
@@ -309,7 +309,7 @@ define dso_local i32 @repo_for_each_abbrev(ptr noundef %0, ptr noundef readonly 
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %sext = shl i64 %8, 32
   %39 = ashr exact i64 %sext, 32
-  %40 = getelementptr inbounds [65 x i8], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr %0, ptr %41, align 8, !tbaa !22
@@ -318,7 +318,7 @@ define dso_local i32 @repo_for_each_abbrev(ptr noundef %0, ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %43
   %.0811.i.i = phi i64 [ %44, %43 ], [ 0, %._crit_edge.i ]
-  %42 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %42 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %2, %42
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %43
 
@@ -413,7 +413,7 @@ define internal fastcc void @find_short_packed_object(ptr noundef nonnull %0) un
 
 8:                                                ; preds = %1
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 400
@@ -799,7 +799,7 @@ define dso_local i32 @repo_find_unique_abbrev_r(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %4
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %14
+  %15 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %14
   br label %19
 
 16:                                               ; preds = %4
@@ -897,13 +897,13 @@ define dso_local i32 @repo_find_unique_abbrev_r(ptr noundef %0, ptr noundef %1, 
   %64 = icmp eq i32 %63, 0
   %65 = lshr i32 %.016.i.i.i, 1
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !16
   %69 = lshr i8 %68, 4
   %70 = and i8 %68, 15
   %.pn.in.i.i.i.i = select i1 %64, i8 %69, i8 %70
   %.pn.i.i.i.i = zext nneg i8 %.pn.in.i.i.i.i to i64
-  %.0.in.i.i.i.i = getelementptr inbounds nuw [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %.pn.i.i.i.i
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr @get_hex_char_from_oid.hex, i64 %.pn.i.i.i.i
   %.0.i.i.i.i = load i8, ptr %.0.in.i.i.i.i, align 1, !tbaa !16
   %71 = icmp eq i8 %62, %.0.i.i.i.i
   br i1 %71, label %72, label %.critedge.i.i.i
@@ -952,13 +952,13 @@ define dso_local i32 @repo_find_unique_abbrev_r(ptr noundef %0, ptr noundef %1, 
   %94 = icmp eq i32 %93, 0
   %95 = lshr i32 %.016.i29.i.i, 1
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !16
   %99 = lshr i8 %98, 4
   %100 = and i8 %98, 15
   %.pn.in.i.i30.i.i = select i1 %94, i8 %99, i8 %100
   %.pn.i.i31.i.i = zext nneg i8 %.pn.in.i.i30.i.i to i64
-  %.0.in.i.i32.i.i = getelementptr inbounds nuw [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %.pn.i.i31.i.i
+  %.0.in.i.i32.i.i = getelementptr inbounds nuw i8, ptr @get_hex_char_from_oid.hex, i64 %.pn.i.i31.i.i
   %.0.i.i33.i.i = load i8, ptr %.0.in.i.i32.i.i, align 1, !tbaa !16
   %101 = icmp eq i8 %92, %.0.i.i33.i.i
   br i1 %101, label %102, label %.critedge.i34.i.i
@@ -1016,13 +1016,13 @@ extend_abbrev_len.exit.i.i:                       ; preds = %extend_abbrev_len.e
   %122 = icmp eq i32 %121, 0
   %123 = lshr i32 %.016.i41.i.i, 1
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !16
   %127 = lshr i8 %126, 4
   %128 = and i8 %126, 15
   %.pn.in.i.i42.i.i = select i1 %122, i8 %127, i8 %128
   %.pn.i.i43.i.i = zext nneg i8 %.pn.in.i.i42.i.i to i64
-  %.0.in.i.i44.i.i = getelementptr inbounds nuw [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %.pn.i.i43.i.i
+  %.0.in.i.i44.i.i = getelementptr inbounds nuw i8, ptr @get_hex_char_from_oid.hex, i64 %.pn.i.i43.i.i
   %.0.i.i45.i.i = load i8, ptr %.0.in.i.i44.i.i, align 1, !tbaa !16
   %129 = icmp eq i8 %120, %.0.i.i45.i.i
   br i1 %129, label %130, label %.critedge.i46.i.i
@@ -1138,13 +1138,13 @@ thread-pre-split.sink.split.i.i:                  ; preds = %167, %162
   %174 = icmp eq i32 %173, 0
   %175 = lshr i32 %.016.i.i, 1
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr %6, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !16
   %179 = lshr i8 %178, 4
   %180 = and i8 %178, 15
   %.pn.in.i.i.i = select i1 %174, i8 %179, i8 %180
   %.pn.i.i.i = zext nneg i8 %.pn.in.i.i.i to i64
-  %.0.in.i.i.i = getelementptr inbounds nuw [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %.pn.i.i.i
+  %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr @get_hex_char_from_oid.hex, i64 %.pn.i.i.i
   %.0.i.i.i = load i8, ptr %.0.in.i.i.i, align 1, !tbaa !16
   %181 = icmp eq i8 %172, %.0.i.i.i
   br i1 %181, label %182, label %.critedge.i.i
@@ -1201,13 +1201,13 @@ thread-pre-split.i.i:                             ; preds = %188, %.critedge.i.i
   %204 = icmp eq i32 %203, 0
   %205 = lshr i32 %.016.i.i19.i, 1
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr %6, i64 %206
   %208 = load i8, ptr %207, align 1, !tbaa !16
   %209 = lshr i8 %208, 4
   %210 = and i8 %208, 15
   %.pn.in.i.i.i20.i = select i1 %204, i8 %209, i8 %210
   %.pn.i.i.i21.i = zext nneg i8 %.pn.in.i.i.i20.i to i64
-  %.0.in.i.i.i22.i = getelementptr inbounds nuw [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %.pn.i.i.i21.i
+  %.0.in.i.i.i22.i = getelementptr inbounds nuw i8, ptr @get_hex_char_from_oid.hex, i64 %.pn.i.i.i21.i
   %.0.i.i.i23.i = load i8, ptr %.0.in.i.i.i22.i, align 1, !tbaa !16
   %211 = icmp eq i8 %202, %.0.i.i.i23.i
   br i1 %211, label %212, label %.critedge.i.i24.i
@@ -1296,7 +1296,7 @@ find_abbrev_len_packed.exit:                      ; preds = %find_abbrev_len_for
 .critedge.i:                                      ; preds = %243, %239, %233
   %.047.i = phi i8 [ %235, %239 ], [ %245, %243 ], [ %235, %233 ]
   %.0.i = phi i8 [ %240, %239 ], [ %244, %243 ], [ %236, %233 ]
-  %246 = getelementptr inbounds nuw [65 x i8], ptr %231, i64 0, i64 %indvars.iv.i
+  %246 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv.i
   store i8 %.047.i, ptr %246, align 1, !tbaa !16
   %247 = and i64 %indvars.iv.i, 1
   %.not56.i = icmp eq i64 %247, 0
@@ -1304,7 +1304,7 @@ find_abbrev_len_packed.exit:                      ; preds = %find_abbrev_len_for
   %spec.select.i = select i1 %.not56.i, i8 %248, i8 %.0.i
   %249 = lshr i64 %indvars.iv.i, 1
   %250 = and i64 %249, 2147483647
-  %251 = getelementptr inbounds nuw [32 x i8], ptr %232, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr %232, i64 %250
   %252 = load i8, ptr %251, align 1, !tbaa !16
   %253 = or i8 %252, %spec.select.i
   store i8 %253, ptr %251, align 1, !tbaa !16
@@ -1316,7 +1316,7 @@ find_abbrev_len_packed.exit:                      ; preds = %find_abbrev_len_for
   store i32 %225, ptr %9, align 8, !tbaa !18
   %254 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %255 = sext i32 %225 to i64
-  %256 = getelementptr inbounds [65 x i8], ptr %254, i64 0, i64 %255
+  %256 = getelementptr inbounds i8, ptr %254, i64 %255
   store i8 0, ptr %256, align 1, !tbaa !16
   %257 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr %0, ptr %257, align 8, !tbaa !22
@@ -1325,7 +1325,7 @@ find_abbrev_len_packed.exit:                      ; preds = %find_abbrev_len_for
 
 .preheader.i:                                     ; preds = %._crit_edge.i28, %259
   %.0811.i.i = phi i64 [ %260, %259 ], [ 0, %._crit_edge.i28 ]
-  %258 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %258 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i30 = icmp eq ptr %20, %258
   br i1 %.not.i.i30, label %.split.loop.exit9.i.i, label %259
 
@@ -1468,13 +1468,13 @@ define internal noundef i32 @repo_extend_abbrev_len(ptr readnone captures(none) 
   %12 = icmp eq i32 %11, 0
   %13 = lshr i32 %.016.i, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !16
   %17 = lshr i8 %16, 4
   %18 = and i8 %16, 15
   %.pn.in.i.i = select i1 %12, i8 %17, i8 %18
   %.pn.i.i = zext nneg i8 %.pn.in.i.i to i64
-  %.0.in.i.i = getelementptr inbounds nuw [17 x i8], ptr @get_hex_char_from_oid.hex, i64 0, i64 %.pn.i.i
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr @get_hex_char_from_oid.hex, i64 %.pn.i.i
   %.0.i.i = load i8, ptr %.0.in.i.i, align 1, !tbaa !16
   %19 = icmp eq i8 %10, %.0.i.i
   br i1 %19, label %20, label %.critedge.i
@@ -1511,7 +1511,7 @@ extend_abbrev_len.exit:                           ; preds = %.critedge.i, %26, %
 define dso_local noundef nonnull ptr @repo_find_unique_abbrev(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @repo_find_unique_abbrev.bufno, align 4, !tbaa !14
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [4 x [65 x i8]], ptr @repo_find_unique_abbrev.hexbuffer, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [65 x i8], ptr @repo_find_unique_abbrev.hexbuffer, i64 %5
   %7 = add nuw nsw i32 %4, 1
   %8 = and i32 %7, 3
   store i32 %8, ptr @repo_find_unique_abbrev.bufno, align 4, !tbaa !14
@@ -3903,7 +3903,7 @@ get_oid_basic.exit:                               ; preds = %168, %184, %248, %3
   %.027.ptr47.i = getelementptr inbounds i8, ptr %1, i64 %.027.idx46.i
   %335 = load i8, ptr %.027.ptr47.i, align 1, !tbaa !16
   %336 = zext i8 %335 to i64
-  %337 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %336
   %338 = load i8, ptr %337, align 1, !tbaa !16
   %339 = icmp eq i8 %338, -1
   %340 = icmp eq i8 %335, 103
@@ -3925,7 +3925,7 @@ get_oid_basic.exit:                               ; preds = %168, %184, %248, %3
   %349 = getelementptr i8, ptr %348, i64 -1
   %350 = load i8, ptr %349, align 1, !tbaa !16
   %351 = zext i8 %350 to i64
-  %352 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %351
   %353 = load i8, ptr %352, align 1, !tbaa !16
   %.not.i.i101 = icmp eq i8 %353, -1
   br i1 %.not.i.i101, label %ref_and_count_parts_valid.exit.thread.i, label %354
@@ -3943,7 +3943,7 @@ get_oid_basic.exit:                               ; preds = %168, %184, %248, %3
 
 359:                                              ; preds = %.lr.ph.i.i103
   %360 = zext i8 %357 to i64
-  %361 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !16
   %.not18.i.i = icmp eq i8 %362, -1
   br i1 %.not18.i.i, label %ref_and_count_parts_valid.exit.thread.i, label %363
@@ -4487,7 +4487,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_short_oid(ptr noundef %0, ptr n
 .critedge.i:                                      ; preds = %30, %26, %20
   %.047.i = phi i8 [ %22, %26 ], [ %32, %30 ], [ %22, %20 ]
   %.0.i = phi i8 [ %27, %26 ], [ %31, %30 ], [ %23, %20 ]
-  %33 = getelementptr inbounds nuw [65 x i8], ptr %18, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i
   store i8 %.047.i, ptr %33, align 1, !tbaa !16
   %34 = and i64 %indvars.iv.i, 1
   %.not56.i = icmp eq i64 %34, 0
@@ -4495,7 +4495,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_short_oid(ptr noundef %0, ptr n
   %spec.select.i = select i1 %.not56.i, i8 %35, i8 %.0.i
   %36 = lshr i64 %indvars.iv.i, 1
   %37 = and i64 %36, 2147483647
-  %38 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !16
   %40 = or i8 %39, %spec.select.i
   store i8 %40, ptr %38, align 1, !tbaa !16
@@ -4507,7 +4507,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_short_oid(ptr noundef %0, ptr n
   store i32 %2, ptr %6, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %42 = sext i32 %2 to i64
-  %43 = getelementptr inbounds [65 x i8], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
   store i8 0, ptr %43, align 1, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %0, ptr %44, align 8, !tbaa !22
@@ -4516,7 +4516,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_short_oid(ptr noundef %0, ptr n
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %46
   %.0811.i.i = phi i64 [ %47, %46 ], [ 0, %._crit_edge.i ]
-  %45 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %45 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %spec.store.select, %45
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %46
 
@@ -4902,7 +4902,7 @@ define internal noundef i32 @show_ambiguous_object(ptr noundef %0, ptr noundef %
   %20 = load i32, ptr @default_abbrev, align 4, !tbaa !14
   %21 = load i32, ptr @repo_find_unique_abbrev.bufno, align 4, !tbaa !14
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [4 x [65 x i8]], ptr @repo_find_unique_abbrev.hexbuffer, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [65 x i8], ptr @repo_find_unique_abbrev.hexbuffer, i64 %22
   %24 = add nuw nsw i32 %21, 1
   %25 = and i32 %24, 3
   store i32 %25, ptr @repo_find_unique_abbrev.bufno, align 4, !tbaa !14

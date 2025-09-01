@@ -1011,7 +1011,7 @@ define internal range(i32 0, 3) i32 @lj_cf_jit_util_funcbc(ptr noundef %0) #0 {
   %16 = load ptr, ptr %13, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = zext nneg i32 %12 to i64
-  %19 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !68
   %21 = uitofp i16 %20 to double
   store double %21, ptr %17, align 8, !tbaa !34
@@ -1177,7 +1177,7 @@ jit_checktrace.exit:                              ; preds = %6
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 116
   %48 = load i8, ptr %47, align 4, !tbaa !77
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [9 x ptr], ptr @jit_trlinkname, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr @jit_trlinkname, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !78
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #11
   %53 = tail call ptr @lj_str_new(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef %52) #8
@@ -1239,7 +1239,7 @@ jit_checktrace.exit:                              ; preds = %1, %6, %10
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !34
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [102 x i8], ptr @lj_ir_mode, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @lj_ir_mode, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !34
   %35 = zext i8 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1676,7 +1676,7 @@ define internal range(i32 0, 2) i32 @lj_cf_jit_util_ircalladdr(ptr noundef %0) #
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr inbounds nuw [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.CCallInfo, ptr @lj_ir_callinfo, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !32
@@ -1774,7 +1774,7 @@ define internal noundef i32 @lj_cf_jit_opt_start(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %31
   %33 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.lj_cf_jit_opt_start, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lj_cf_jit_opt_start, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %jitopt_level.exit
 
@@ -1906,7 +1906,7 @@ jitopt_flag.exit:                                 ; preds = %69, %99
 
 94:                                               ; preds = %.critedge.i
   %95 = zext nneg i32 %.02737.i to i64
-  %96 = getelementptr inbounds nuw [15 x i32], ptr %15, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %15, i64 %95
   store i32 %.024.lcssa.i, ptr %96, align 4, !tbaa !14
   %97 = icmp eq i32 %.02737.i, 6
   br i1 %97, label %98, label %jitopt_param.exit

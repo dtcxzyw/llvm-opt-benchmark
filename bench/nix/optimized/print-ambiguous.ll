@@ -1323,7 +1323,7 @@ _ZNSt12_Vector_baseIPKN3nix4AttrESaIS3_EE11_M_allocateEm.exit.i: ; preds = %3
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIPKN3nix4AttrESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit ]
   %16 = phi ptr [ %11, %.lr.ph ], [ %42, %_ZNSt6vectorIPKN3nix4AttrESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit ]
   %17 = phi ptr [ %9, %.lr.ph ], [ %41, %_ZNSt6vectorIPKN3nix4AttrESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit ]
-  %18 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %12, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %12, i64 %indvars.iv
   %.not.i = icmp eq ptr %15, %16
   br i1 %.not.i, label %21, label %19
 

@@ -917,7 +917,7 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
   %.02022 = phi i64 [ 0, %.lr.ph ], [ %25, %21 ]
   %22 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %20, i64 %.02022
   %23 = load i64, ptr %22, align 8, !tbaa !47
-  %24 = getelementptr inbounds nuw [16 x i64], ptr %2, i64 0, i64 %.02022
+  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %.02022
   store i64 %23, ptr %24, align 8, !tbaa !10
   %25 = add nuw i64 %.02022, 1
   %exitcond.not = icmp eq i64 %25, %18
@@ -944,7 +944,7 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
   %34 = load ptr, ptr %0, align 8, !tbaa !28
   %35 = icmp eq i64 %.1, 0
   %36 = select i1 %35, ptr @H5AC_OHDR, ptr @H5AC_OHDR_CHK
-  %37 = getelementptr inbounds nuw [16 x i64], ptr %2, i64 0, i64 %.1
+  %37 = getelementptr inbounds nuw i64, ptr %2, i64 %.1
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = tail call i32 @H5AC_expunge_entry(ptr noundef %34, ptr noundef nonnull %36, i64 noundef %38, i32 noundef 0) #4
   %40 = icmp slt i32 %39, 0

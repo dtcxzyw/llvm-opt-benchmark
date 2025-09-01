@@ -95,7 +95,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__acpi_device_uevent_modalias(pt
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, -1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [2048 x i8], ptr %15, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %15, i64 %19
   %21 = sub i32 2048, %17
   br i1 %14, label %24, label %22
 
@@ -149,7 +149,7 @@ define internal fastcc i32 @create_of_modalias(ptr noundef nonnull readonly capt
   %14 = phi i8 [ %23, %.preheader6 ], [ %12, %10 ]
   %15 = phi ptr [ %22, %.preheader6 ], [ %11, %10 ]
   %16 = zext i8 %14 to i64
-  %17 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @_ctype, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = shl i8 %18, 5
   %20 = and i8 %19, 32
@@ -326,7 +326,7 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_device_uevent_modalias(ptr 
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [2048 x i8], ptr %16, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %16, i64 %20
   %22 = sub i32 2048, %18
   br i1 %15, label %25, label %23
 

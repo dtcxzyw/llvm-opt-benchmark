@@ -420,7 +420,7 @@ _ZNK11func_interp11num_entriesEv.exit.i.i:        ; preds = %_ZlsRSo6symbol.exit
 
 161:                                              ; preds = %165, %.lr.ph.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next.i.i, %165 ]
-  %162 = getelementptr inbounds nuw [0 x ptr], ptr %158, i64 0, i64 %indvars.iv.i.i
+  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv.i.i
   %163 = load ptr, ptr %162, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(976) %99, i32 noundef 0, i32 noundef 0, ptr noundef null)

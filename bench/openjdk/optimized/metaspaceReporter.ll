@@ -349,12 +349,12 @@ define hidden void @_ZN9metaspace17MetaspaceReporter12print_reportEP12outputStre
 
 switch.lookup:                                    ; preds = %22, %38
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %38 ]
-  %27 = getelementptr inbounds nuw [4 x i64], ptr %23, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw [4 x i64], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9metaspace17MetaspaceReporter12print_reportEP12outputStreammi, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9metaspace17MetaspaceReporter12print_reportEP12outputStreammi, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = call noundef ptr @_ZN9metaspace14loaders_pluralEm(i64 noundef %28) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %switch.load, i64 noundef %28, ptr noundef %32) #3
@@ -363,11 +363,11 @@ switch.lookup:                                    ; preds = %22, %38
 
 33:                                               ; preds = %switch.lookup
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18) #3
-  %34 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   call void @_ZN9metaspace23print_number_of_classesEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %30, i64 noundef %35) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.19) #3
-  %36 = getelementptr inbounds nuw [4 x %"struct.metaspace::ClmsStats"], ptr %26, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %"struct.metaspace::ClmsStats", ptr %26, i64 %indvars.iv
   call void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull align 8 dereferenceable(1472) %36, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %18) #3
   br label %38
 

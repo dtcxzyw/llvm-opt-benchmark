@@ -2818,7 +2818,7 @@ ClearOrSaveResult.exit93:                         ; preds = %561, %519, %525, %5
 
 577:                                              ; preds = %576, %577
   %indvars.iv = phi i64 [ 0, %576 ], [ %indvars.iv.next, %577 ]
-  %578 = getelementptr inbounds nuw [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 0, i64 %indvars.iv
+  %578 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 %indvars.iv
   %579 = load ptr, ptr %578, align 8
   call void @pg_free(ptr noundef %579) #16
   store ptr null, ptr %578, align 8

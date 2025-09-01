@@ -826,27 +826,27 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   switch i32 %28, label %50 [
     i32 1, label %53
     i32 2, label %56
-    i32 3, label %72
-    i32 4, label %75
-    i32 5, label %78
-    i32 8, label %81
-    i32 6, label %84
-    i32 18, label %107
-    i32 7, label %110
-    i32 17, label %133
-    i32 20, label %156
-    i32 24, label %179
-    i32 9, label %182
-    i32 10, label %185
-    i32 11, label %188
-    i32 12, label %191
-    i32 14, label %194
-    i32 15, label %217
-    i32 16, label %240
-    i32 13, label %243
-    i32 22, label %266
-    i32 23, label %289
-    i32 19, label %292
+    i32 3, label %71
+    i32 4, label %74
+    i32 5, label %77
+    i32 8, label %80
+    i32 6, label %83
+    i32 18, label %106
+    i32 7, label %109
+    i32 17, label %132
+    i32 20, label %155
+    i32 24, label %178
+    i32 9, label %181
+    i32 10, label %184
+    i32 11, label %187
+    i32 12, label %190
+    i32 14, label %193
+    i32 15, label %216
+    i32 16, label %239
+    i32 13, label %242
+    i32 22, label %265
+    i32 23, label %288
+    i32 19, label %291
   ]
 
 50:                                               ; preds = %49
@@ -869,445 +869,443 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 
 60:                                               ; preds = %60, %56
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i.i.i.i, %60 ]
-  %61 = phi ptr [ @.str.43, %56 ], [ %67, %60 ]
-  %62 = phi ptr [ @frsrpc_frsrpc_CommPktCommand_vals, %56 ], [ %65, %60 ]
+  %61 = phi ptr [ @.str.43, %56 ], [ %66, %60 ]
   %.025.i.i.i.i.i = phi ptr [ null, %56 ], [ %spec.select.i.i.i.i.i, %60 ]
+  %62 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv.i.i.i.i.i
   %63 = load i32, ptr %62, align 16
   %64 = icmp eq i32 %63, %59
   %spec.select.i.i.i.i.i = select i1 %64, ptr %61, ptr %.025.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %65 = getelementptr [13 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 0, i64 %indvars.iv.next.i.i.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8
+  %65 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv.next.i.i.i.i.i, i32 1
+  %66 = load ptr, ptr %65, align 8
   %exitcond.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 12
-  br i1 %exitcond.i.i.i.i.i, label %68, label %60, !llvm.loop !8
+  br i1 %exitcond.i.i.i.i.i, label %67, label %60, !llvm.loop !8
 
-68:                                               ; preds = %60
+67:                                               ; preds = %60
   %.not23.i.i.i.i.i = icmp eq ptr %spec.select.i.i.i.i.i, null
-  br i1 %.not23.i.i.i.i.i, label %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i, label %69
+  br i1 %.not23.i.i.i.i.i, label %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i, label %68
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %71 = load ptr, ptr %70, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef nonnull %spec.select.i.i.i.i.i)
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %70 = load ptr, ptr %69, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef nonnull %spec.select.i.i.i.i.i)
   br label %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i: ; preds = %69, %68
+frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i: ; preds = %68, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-72:                                               ; preds = %49
-  %73 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_to, align 4
-  %74 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %73, i32 poison)
+71:                                               ; preds = %49
+  %72 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_to, align 4
+  %73 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %72, i32 poison)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-75:                                               ; preds = %49
-  %76 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_from, align 4
-  %77 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %76, i32 poison)
+74:                                               ; preds = %49
+  %75 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_from, align 4
+  %76 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %75, i32 poison)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-78:                                               ; preds = %49
-  %79 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica, align 4
-  %80 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %79, i32 poison)
+77:                                               ; preds = %49
+  %78 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica, align 4
+  %79 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %78, i32 poison)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-81:                                               ; preds = %49
-  %82 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_connection, align 4
-  %83 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %82, i32 poison)
+80:                                               ; preds = %49
+  %81 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_connection, align 4
+  %82 = call i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %81, i32 poison)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-84:                                               ; preds = %49
+83:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %85 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i, label %87
+  %84 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i, label %86
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %33, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
-  %90 = load i32, ptr %89, align 8
-  %91 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid_, align 4
-  %92 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %91, ptr noundef nonnull %16)
-  %93 = load ptr, ptr %33, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 96
-  %95 = load i32, ptr %94, align 8
-  %96 = and i32 %95, -2
-  store i32 %96, ptr %94, align 8
-  %97 = load i64, ptr %16, align 8
-  %98 = trunc i64 %97 to i32
-  %99 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %92, i32 noundef %98, i32 noundef -1)
-  %100 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid, align 4
-  %101 = call i32 @dissect_ndr_uuid_t(ptr noundef %99, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %100, ptr noundef null)
-  %102 = load i64, ptr %16, align 8
-  %103 = trunc i64 %102 to i32
-  %104 = add i32 %92, %103
-  %105 = load ptr, ptr %33, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 96
-  store i32 %90, ptr %106, align 8
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %33, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 96
+  %89 = load i32, ptr %88, align 8
+  %90 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid_, align 4
+  %91 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %16)
+  %92 = load ptr, ptr %33, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 96
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, -2
+  store i32 %95, ptr %93, align 8
+  %96 = load i64, ptr %16, align 8
+  %97 = trunc i64 %96 to i32
+  %98 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %91, i32 noundef %97, i32 noundef -1)
+  %99 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid, align 4
+  %100 = call i32 @dissect_ndr_uuid_t(ptr noundef %98, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %99, ptr noundef null)
+  %101 = load i64, ptr %16, align 8
+  %102 = trunc i64 %101 to i32
+  %103 = add i32 %91, %102
+  %104 = load ptr, ptr %33, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 96
+  store i32 %89, ptr %105, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i: ; preds = %87, %84
-  %.0.i.i.i.i = phi i32 [ 0, %84 ], [ %104, %87 ]
+frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i: ; preds = %86, %83
+  %.0.i.i.i.i = phi i32 [ 0, %83 ], [ %103, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-107:                                              ; preds = %49
-  %108 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_last_join_time, align 4
-  %109 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %108)
+106:                                              ; preds = %49
+  %107 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_last_join_time, align 4
+  %108 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %107)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-110:                                              ; preds = %49
+109:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %111 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i, label %113
+  %110 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i, label %112
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr %33, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 96
-  %116 = load i32, ptr %115, align 8
-  %117 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector_, align 4
-  %118 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %117, ptr noundef nonnull %15)
-  %119 = load ptr, ptr %33, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 96
-  %121 = load i32, ptr %120, align 8
-  %122 = and i32 %121, -2
-  store i32 %122, ptr %120, align 8
-  %123 = load i64, ptr %15, align 8
-  %124 = trunc i64 %123 to i32
-  %125 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %118, i32 noundef %124, i32 noundef -1)
-  %126 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector, align 4
-  %127 = call i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %125, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %126, i32 poison)
-  %128 = load i64, ptr %15, align 8
-  %129 = trunc i64 %128 to i32
-  %130 = add i32 %118, %129
-  %131 = load ptr, ptr %33, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 96
-  store i32 %116, ptr %132, align 8
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %33, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 96
+  %115 = load i32, ptr %114, align 8
+  %116 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector_, align 4
+  %117 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %116, ptr noundef nonnull %15)
+  %118 = load ptr, ptr %33, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 96
+  %120 = load i32, ptr %119, align 8
+  %121 = and i32 %120, -2
+  store i32 %121, ptr %119, align 8
+  %122 = load i64, ptr %15, align 8
+  %123 = trunc i64 %122 to i32
+  %124 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %117, i32 noundef %123, i32 noundef -1)
+  %125 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector, align 4
+  %126 = call i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %124, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %125, i32 poison)
+  %127 = load i64, ptr %15, align 8
+  %128 = trunc i64 %127 to i32
+  %129 = add i32 %117, %128
+  %130 = load ptr, ptr %33, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
+  store i32 %115, ptr %131, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i: ; preds = %113, %110
-  %.0.i155.i.i.i = phi i32 [ 0, %110 ], [ %130, %113 ]
+frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i: ; preds = %112, %109
+  %.0.i155.i.i.i = phi i32 [ 0, %109 ], [ %129, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-133:                                              ; preds = %49
+132:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %134 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %135 = trunc nuw i8 %134 to i1
-  br i1 %135, label %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i, label %136
+  %133 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i, label %135
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %33, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 96
-  %139 = load i32, ptr %138, align 8
-  %140 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time_, align 4
-  %141 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %140, ptr noundef nonnull %14)
-  %142 = load ptr, ptr %33, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 96
-  %144 = load i32, ptr %143, align 8
-  %145 = and i32 %144, -2
-  store i32 %145, ptr %143, align 8
-  %146 = load i64, ptr %14, align 8
-  %147 = trunc i64 %146 to i32
-  %148 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %141, i32 noundef %147, i32 noundef -1)
-  %149 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time, align 4
-  %150 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %148, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %149)
-  %151 = load i64, ptr %14, align 8
-  %152 = trunc i64 %151 to i32
-  %153 = add i32 %141, %152
-  %154 = load ptr, ptr %33, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 96
-  store i32 %139, ptr %155, align 8
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %33, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 96
+  %138 = load i32, ptr %137, align 8
+  %139 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time_, align 4
+  %140 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %139, ptr noundef nonnull %14)
+  %141 = load ptr, ptr %33, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 96
+  %143 = load i32, ptr %142, align 8
+  %144 = and i32 %143, -2
+  store i32 %144, ptr %142, align 8
+  %145 = load i64, ptr %14, align 8
+  %146 = trunc i64 %145 to i32
+  %147 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %140, i32 noundef %146, i32 noundef -1)
+  %148 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time, align 4
+  %149 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %147, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %148)
+  %150 = load i64, ptr %14, align 8
+  %151 = trunc i64 %150 to i32
+  %152 = add i32 %140, %151
+  %153 = load ptr, ptr %33, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 96
+  store i32 %138, ptr %154, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i: ; preds = %136, %133
-  %.0.i156.i.i.i = phi i32 [ 0, %133 ], [ %153, %136 ]
+frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i: ; preds = %135, %132
+  %.0.i156.i.i.i = phi i32 [ 0, %132 ], [ %152, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-156:                                              ; preds = %49
+155:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %157 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i, label %159
+  %156 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i, label %158
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %33, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 96
-  %162 = load i32, ptr %161, align 8
-  %163 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_, align 4
-  %164 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %163, ptr noundef nonnull %13)
-  %165 = load ptr, ptr %33, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 96
-  %167 = load i32, ptr %166, align 8
-  %168 = and i32 %167, -2
-  store i32 %168, ptr %166, align 8
-  %169 = load i64, ptr %13, align 8
-  %170 = trunc i64 %169 to i32
-  %171 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %164, i32 noundef %170, i32 noundef -1)
-  %172 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid, align 4
-  %173 = call i32 @dissect_ndr_uuid_t(ptr noundef %171, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %172, ptr noundef null)
-  %174 = load i64, ptr %13, align 8
-  %175 = trunc i64 %174 to i32
-  %176 = add i32 %164, %175
-  %177 = load ptr, ptr %33, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 96
-  store i32 %162, ptr %178, align 8
+158:                                              ; preds = %155
+  %159 = load ptr, ptr %33, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 96
+  %161 = load i32, ptr %160, align 8
+  %162 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_, align 4
+  %163 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %162, ptr noundef nonnull %13)
+  %164 = load ptr, ptr %33, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 96
+  %166 = load i32, ptr %165, align 8
+  %167 = and i32 %166, -2
+  store i32 %167, ptr %165, align 8
+  %168 = load i64, ptr %13, align 8
+  %169 = trunc i64 %168 to i32
+  %170 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %163, i32 noundef %169, i32 noundef -1)
+  %171 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid, align 4
+  %172 = call i32 @dissect_ndr_uuid_t(ptr noundef %170, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %171, ptr noundef null)
+  %173 = load i64, ptr %13, align 8
+  %174 = trunc i64 %173 to i32
+  %175 = add i32 %163, %174
+  %176 = load ptr, ptr %33, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 96
+  store i32 %161, ptr %177, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i: ; preds = %159, %156
-  %.0.i157.i.i.i = phi i32 [ 0, %156 ], [ %176, %159 ]
+frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i: ; preds = %158, %155
+  %.0.i157.i.i.i = phi i32 [ 0, %155 ], [ %175, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-179:                                              ; preds = %49
-  %180 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_compression_guid, align 4
-  %181 = call i32 @dissect_ndr_uuid_t(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %180, ptr noundef null)
+178:                                              ; preds = %49
+  %179 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_compression_guid, align 4
+  %180 = call i32 @dissect_ndr_uuid_t(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %179, ptr noundef null)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-182:                                              ; preds = %49
-  %183 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_block, align 4
-  %184 = call i32 @dissect_ndr_datablob(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %183, i32 noundef 1)
+181:                                              ; preds = %49
+  %182 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_block, align 4
+  %183 = call i32 @dissect_ndr_datablob(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %182, i32 noundef 1)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-185:                                              ; preds = %49
-  %186 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_block_size, align 4
-  %187 = call i32 @dissect_ndr_uint64(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %186, ptr noundef null)
+184:                                              ; preds = %49
+  %185 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_block_size, align 4
+  %186 = call i32 @dissect_ndr_uint64(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %185, ptr noundef null)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-188:                                              ; preds = %49
-  %189 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_size, align 4
-  %190 = call i32 @dissect_ndr_uint64(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %189, ptr noundef null)
+187:                                              ; preds = %49
+  %188 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_size, align 4
+  %189 = call i32 @dissect_ndr_uint64(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %188, ptr noundef null)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-191:                                              ; preds = %49
-  %192 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_offset, align 4
-  %193 = call i32 @dissect_ndr_uint64(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %192, ptr noundef null)
+190:                                              ; preds = %49
+  %191 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_offset, align 4
+  %192 = call i32 @dissect_ndr_uint64(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %191, ptr noundef null)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-194:                                              ; preds = %49
+193:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %195 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %196 = trunc nuw i8 %195 to i1
-  br i1 %196, label %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i, label %197
+  %194 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %195 = trunc nuw i8 %194 to i1
+  br i1 %195, label %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i, label %196
 
-197:                                              ; preds = %194
-  %198 = load ptr, ptr %33, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 96
-  %200 = load i32, ptr %199, align 8
-  %201 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn_, align 4
-  %202 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %201, ptr noundef nonnull %12)
-  %203 = load ptr, ptr %33, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 96
-  %205 = load i32, ptr %204, align 8
-  %206 = and i32 %205, -2
-  store i32 %206, ptr %204, align 8
-  %207 = load i64, ptr %12, align 8
-  %208 = trunc i64 %207 to i32
-  %209 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %202, i32 noundef %208, i32 noundef -1)
-  %210 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn, align 4
-  %211 = call i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %209, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %210, i32 poison)
-  %212 = load i64, ptr %12, align 8
-  %213 = trunc i64 %212 to i32
-  %214 = add i32 %202, %213
-  %215 = load ptr, ptr %33, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 96
-  store i32 %200, ptr %216, align 8
+196:                                              ; preds = %193
+  %197 = load ptr, ptr %33, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 96
+  %199 = load i32, ptr %198, align 8
+  %200 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn_, align 4
+  %201 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %200, ptr noundef nonnull %12)
+  %202 = load ptr, ptr %33, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 96
+  %204 = load i32, ptr %203, align 8
+  %205 = and i32 %204, -2
+  store i32 %205, ptr %203, align 8
+  %206 = load i64, ptr %12, align 8
+  %207 = trunc i64 %206 to i32
+  %208 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %201, i32 noundef %207, i32 noundef -1)
+  %209 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn, align 4
+  %210 = call i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %208, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %209, i32 poison)
+  %211 = load i64, ptr %12, align 8
+  %212 = trunc i64 %211 to i32
+  %213 = add i32 %201, %212
+  %214 = load ptr, ptr %33, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 96
+  store i32 %199, ptr %215, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i: ; preds = %197, %194
-  %.0.i158.i.i.i = phi i32 [ 0, %194 ], [ %214, %197 ]
+frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i: ; preds = %196, %193
+  %.0.i158.i.i.i = phi i32 [ 0, %193 ], [ %213, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-217:                                              ; preds = %49
+216:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %218 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %219 = trunc nuw i8 %218 to i1
-  br i1 %219, label %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i, label %220
+  %217 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %218 = trunc nuw i8 %217 to i1
+  br i1 %218, label %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i, label %219
 
-220:                                              ; preds = %217
-  %221 = load ptr, ptr %33, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 96
-  %223 = load i32, ptr %222, align 8
-  %224 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid_, align 4
-  %225 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %224, ptr noundef nonnull %11)
-  %226 = load ptr, ptr %33, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 96
-  %228 = load i32, ptr %227, align 8
-  %229 = and i32 %228, -2
-  store i32 %229, ptr %227, align 8
-  %230 = load i64, ptr %11, align 8
-  %231 = trunc i64 %230 to i32
-  %232 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %225, i32 noundef %231, i32 noundef -1)
-  %233 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid, align 4
-  %234 = call i32 @dissect_ndr_uuid_t(ptr noundef %232, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %233, ptr noundef null)
-  %235 = load i64, ptr %11, align 8
-  %236 = trunc i64 %235 to i32
-  %237 = add i32 %225, %236
-  %238 = load ptr, ptr %33, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 96
-  store i32 %223, ptr %239, align 8
+219:                                              ; preds = %216
+  %220 = load ptr, ptr %33, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 96
+  %222 = load i32, ptr %221, align 8
+  %223 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid_, align 4
+  %224 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %223, ptr noundef nonnull %11)
+  %225 = load ptr, ptr %33, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 96
+  %227 = load i32, ptr %226, align 8
+  %228 = and i32 %227, -2
+  store i32 %228, ptr %226, align 8
+  %229 = load i64, ptr %11, align 8
+  %230 = trunc i64 %229 to i32
+  %231 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %224, i32 noundef %230, i32 noundef -1)
+  %232 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid, align 4
+  %233 = call i32 @dissect_ndr_uuid_t(ptr noundef %231, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %232, ptr noundef null)
+  %234 = load i64, ptr %11, align 8
+  %235 = trunc i64 %234 to i32
+  %236 = add i32 %224, %235
+  %237 = load ptr, ptr %33, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 96
+  store i32 %222, ptr %238, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i: ; preds = %220, %217
-  %.0.i159.i.i.i = phi i32 [ 0, %217 ], [ %237, %220 ]
+frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i: ; preds = %219, %216
+  %.0.i159.i.i.i = phi i32 [ 0, %216 ], [ %236, %219 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-240:                                              ; preds = %49
-  %241 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_sequence_number, align 4
-  %242 = call i32 @PIDL_dissect_uint32(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %241, i32 noundef 0)
+239:                                              ; preds = %49
+  %240 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_sequence_number, align 4
+  %241 = call i32 @PIDL_dissect_uint32(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %240, i32 noundef 0)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-243:                                              ; preds = %49
+242:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %244 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %245 = trunc nuw i8 %244 to i1
-  br i1 %245, label %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i, label %246
+  %243 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %244 = trunc nuw i8 %243 to i1
+  br i1 %244, label %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i, label %245
 
-246:                                              ; preds = %243
-  %247 = load ptr, ptr %33, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 96
-  %249 = load i32, ptr %248, align 8
-  %250 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co_, align 4
-  %251 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %250, ptr noundef nonnull %10)
-  %252 = load ptr, ptr %33, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 96
-  %254 = load i32, ptr %253, align 8
-  %255 = and i32 %254, -2
-  store i32 %255, ptr %253, align 8
-  %256 = load i64, ptr %10, align 8
-  %257 = trunc i64 %256 to i32
-  %258 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %251, i32 noundef %257, i32 noundef -1)
-  %259 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co, align 4
-  %260 = call i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %258, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %259, i32 poison)
-  %261 = load i64, ptr %10, align 8
-  %262 = trunc i64 %261 to i32
-  %263 = add i32 %251, %262
-  %264 = load ptr, ptr %33, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 96
-  store i32 %249, ptr %265, align 8
+245:                                              ; preds = %242
+  %246 = load ptr, ptr %33, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 96
+  %248 = load i32, ptr %247, align 8
+  %249 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co_, align 4
+  %250 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %249, ptr noundef nonnull %10)
+  %251 = load ptr, ptr %33, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 96
+  %253 = load i32, ptr %252, align 8
+  %254 = and i32 %253, -2
+  store i32 %254, ptr %252, align 8
+  %255 = load i64, ptr %10, align 8
+  %256 = trunc i64 %255 to i32
+  %257 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %250, i32 noundef %256, i32 noundef -1)
+  %258 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co, align 4
+  %259 = call i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %257, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %258, i32 poison)
+  %260 = load i64, ptr %10, align 8
+  %261 = trunc i64 %260 to i32
+  %262 = add i32 %250, %261
+  %263 = load ptr, ptr %33, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 96
+  store i32 %248, ptr %264, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i: ; preds = %246, %243
-  %.0.i160.i.i.i = phi i32 [ 0, %243 ], [ %263, %246 ]
+frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i: ; preds = %245, %242
+  %.0.i160.i.i.i = phi i32 [ 0, %242 ], [ %262, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-266:                                              ; preds = %49
+265:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %267 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %268 = trunc nuw i8 %267 to i1
-  br i1 %268, label %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i, label %269
+  %266 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %267 = trunc nuw i8 %266 to i1
+  br i1 %267, label %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i, label %268
 
-269:                                              ; preds = %266
-  %270 = load ptr, ptr %33, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 96
-  %272 = load i32, ptr %271, align 8
-  %273 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_, align 4
-  %274 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %273, ptr noundef nonnull %9)
-  %275 = load ptr, ptr %33, align 8
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 96
-  %277 = load i32, ptr %276, align 8
-  %278 = and i32 %277, -2
-  store i32 %278, ptr %276, align 8
-  %279 = load i64, ptr %9, align 8
-  %280 = trunc i64 %279 to i32
-  %281 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %274, i32 noundef %280, i32 noundef -1)
-  %282 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k, align 4
-  %283 = call i32 @frsrpc_dissect_struct_CommPktCoRecordExtensionWin2k(ptr noundef %281, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %282, i32 poison)
-  %284 = load i64, ptr %9, align 8
-  %285 = trunc i64 %284 to i32
-  %286 = add i32 %274, %285
-  %287 = load ptr, ptr %33, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 96
-  store i32 %272, ptr %288, align 8
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %33, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 96
+  %271 = load i32, ptr %270, align 8
+  %272 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_, align 4
+  %273 = call i32 @dissect_ndr_uint3264(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %272, ptr noundef nonnull %9)
+  %274 = load ptr, ptr %33, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 96
+  %276 = load i32, ptr %275, align 8
+  %277 = and i32 %276, -2
+  store i32 %277, ptr %275, align 8
+  %278 = load i64, ptr %9, align 8
+  %279 = trunc i64 %278 to i32
+  %280 = call ptr @tvb_new_subset_length_caplen(ptr noundef %45, i32 noundef %273, i32 noundef %279, i32 noundef -1)
+  %281 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k, align 4
+  %282 = call i32 @frsrpc_dissect_struct_CommPktCoRecordExtensionWin2k(ptr noundef %280, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %281, i32 poison)
+  %283 = load i64, ptr %9, align 8
+  %284 = trunc i64 %283 to i32
+  %285 = add i32 %273, %284
+  %286 = load ptr, ptr %33, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 96
+  store i32 %271, ptr %287, align 8
   br label %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i
 
-frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i: ; preds = %269, %266
-  %.0.i161.i.i.i = phi i32 [ 0, %266 ], [ %286, %269 ]
+frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i: ; preds = %268, %265
+  %.0.i161.i.i.i = phi i32 [ 0, %265 ], [ %285, %268 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-289:                                              ; preds = %49
-  %290 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_extension2, align 4
-  %291 = call i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %290, i32 poison)
+288:                                              ; preds = %49
+  %289 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_extension2, align 4
+  %290 = call i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %289, i32 poison)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-292:                                              ; preds = %49
-  %293 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_bopend, align 4
-  %294 = call i32 @PIDL_dissect_uint32(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %293, i32 noundef 0)
+291:                                              ; preds = %49
+  %292 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_bopend, align 4
+  %293 = call i32 @PIDL_dissect_uint32(ptr noundef %45, i32 noundef 0, ptr noundef %2, ptr noundef %.0153.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %292, i32 noundef 0)
   br label %frsrpc_dissect_element_CommPktChunk_data_.exit.i
 
-frsrpc_dissect_element_CommPktChunk_data_.exit.i: ; preds = %292, %289, %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i, %240, %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i, %191, %188, %185, %182, %179, %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i, %107, %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i, %81, %78, %75, %72, %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i, %53, %50
-  %.0.i.i.i = phi i32 [ %52, %50 ], [ %55, %53 ], [ %58, %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %.0.i.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i ], [ %109, %107 ], [ %.0.i155.i.i.i, %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i ], [ %.0.i156.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i ], [ %.0.i157.i.i.i, %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i ], [ %181, %179 ], [ %184, %182 ], [ %187, %185 ], [ %190, %188 ], [ %193, %191 ], [ %.0.i158.i.i.i, %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i ], [ %.0.i159.i.i.i, %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i ], [ %242, %240 ], [ %.0.i160.i.i.i, %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i ], [ %.0.i161.i.i.i, %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i ], [ %291, %289 ], [ %294, %292 ]
-  %295 = load ptr, ptr %18, align 8
-  call void @proto_item_set_len(ptr noundef %295, i32 noundef %.0.i.i.i)
+frsrpc_dissect_element_CommPktChunk_data_.exit.i: ; preds = %291, %288, %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i, %239, %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i, %190, %187, %184, %181, %178, %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i, %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i, %106, %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i, %80, %77, %74, %71, %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i, %53, %50
+  %.0.i.i.i = phi i32 [ %52, %50 ], [ %55, %53 ], [ %58, %frsrpc_dissect_element_CommPktChunkData_command.exit.i.i.i ], [ %73, %71 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ], [ %.0.i.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_guid.exit.i.i.i ], [ %108, %106 ], [ %.0.i155.i.i.i, %frsrpc_dissect_element_CommPktChunkData_vvector.exit.i.i.i ], [ %.0.i156.i.i.i, %frsrpc_dissect_element_CommPktChunkData_join_time.exit.i.i.i ], [ %.0.i157.i.i.i, %frsrpc_dissect_element_CommPktChunkData_replica_version_guid.exit.i.i.i ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %192, %190 ], [ %.0.i158.i.i.i, %frsrpc_dissect_element_CommPktChunkData_gvsn.exit.i.i.i ], [ %.0.i159.i.i.i, %frsrpc_dissect_element_CommPktChunkData_co_guid.exit.i.i.i ], [ %241, %239 ], [ %.0.i160.i.i.i, %frsrpc_dissect_element_CommPktChunkData_remote_co.exit.i.i.i ], [ %.0.i161.i.i.i, %frsrpc_dissect_element_CommPktChunkData_co_ext_win2k.exit.i.i.i ], [ %290, %288 ], [ %293, %291 ]
+  %294 = load ptr, ptr %18, align 8
+  call void @proto_item_set_len(ptr noundef %294, i32 noundef %.0.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %296 = load i64, ptr %19, align 8
-  %297 = trunc i64 %296 to i32
-  %298 = add i32 %38, %297
-  %299 = load ptr, ptr %33, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 96
-  store i32 %36, ptr %300, align 8
+  %295 = load i64, ptr %19, align 8
+  %296 = trunc i64 %295 to i32
+  %297 = add i32 %38, %296
+  %298 = load ptr, ptr %33, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 96
+  store i32 %36, ptr %299, align 8
   br label %frsrpc_dissect_element_CommPktChunk_data.exit
 
 frsrpc_dissect_element_CommPktChunk_data.exit:    ; preds = %25, %frsrpc_dissect_element_CommPktChunk_data_.exit.i
-  %.0.i = phi i32 [ %27, %25 ], [ %298, %frsrpc_dissect_element_CommPktChunk_data_.exit.i ]
+  %.0.i = phi i32 [ %27, %25 ], [ %297, %frsrpc_dissect_element_CommPktChunk_data_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %301
+  br label %300
 
-301:                                              ; preds = %frsrpc_dissect_element_CommPktChunk_data.exit, %301
-  %indvars.iv = phi i64 [ 0, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %indvars.iv.next, %301 ]
-  %302 = phi ptr [ @.str.55, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %308, %301 ]
-  %303 = phi ptr [ @frsrpc_frsrpc_CommPktChunkType_vals, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %306, %301 ]
-  %.03950 = phi ptr [ null, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %spec.select, %301 ]
-  %304 = load i32, ptr %303, align 16
-  %305 = icmp eq i32 %304, %28
-  %spec.select = select i1 %305, ptr %302, ptr %.03950
+300:                                              ; preds = %frsrpc_dissect_element_CommPktChunk_data.exit, %300
+  %indvars.iv = phi i64 [ 0, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %indvars.iv.next, %300 ]
+  %301 = phi ptr [ @.str.55, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %306, %300 ]
+  %.03950 = phi ptr [ null, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %spec.select, %300 ]
+  %302 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 %indvars.iv
+  %303 = load i32, ptr %302, align 16
+  %304 = icmp eq i32 %303, %28
+  %spec.select = select i1 %304, ptr %301, ptr %.03950
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %306 = getelementptr [24 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 0, i64 %indvars.iv.next
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  %308 = load ptr, ptr %307, align 8
+  %305 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 %indvars.iv.next, i32 1
+  %306 = load ptr, ptr %305, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond, label %309, label %301, !llvm.loop !10
+  br i1 %exitcond, label %307, label %300, !llvm.loop !10
 
-309:                                              ; preds = %301
+307:                                              ; preds = %300
   %.not44 = icmp eq ptr %spec.select, null
-  br i1 %.not44, label %311, label %310
+  br i1 %.not44, label %309, label %308
 
-310:                                              ; preds = %309
+308:                                              ; preds = %307
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.038, ptr noundef nonnull @.str.91, ptr noundef nonnull %spec.select)
-  br label %311
+  br label %309
 
-311:                                              ; preds = %310, %309
-  %312 = sub i32 %.0.i, %1
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %312)
-  %313 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 96
-  %316 = load i32, ptr %315, align 8
-  %317 = and i32 %316, 1
-  %.not45 = icmp eq i32 %317, 0
-  br i1 %.not45, label %325, label %318
+309:                                              ; preds = %308, %307
+  %310 = sub i32 %.0.i, %1
+  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %310)
+  %311 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %312 = load ptr, ptr %311, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 96
+  %314 = load i32, ptr %313, align 8
+  %315 = and i32 %314, 1
+  %.not45 = icmp eq i32 %315, 0
+  br i1 %.not45, label %323, label %316
 
-318:                                              ; preds = %311
-  %319 = load i8, ptr %29, align 1, !range !6, !noundef !7
-  %320 = trunc nuw i8 %319 to i1
-  %321 = and i32 %.0.i, 3
-  %.not46 = icmp eq i32 %321, 0
-  %or.cond = select i1 %320, i1 true, i1 %.not46
-  br i1 %or.cond, label %325, label %322
+316:                                              ; preds = %309
+  %317 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %318 = trunc nuw i8 %317 to i1
+  %319 = and i32 %.0.i, 3
+  %.not46 = icmp eq i32 %319, 0
+  %or.cond = select i1 %318, i1 true, i1 %.not46
+  br i1 %or.cond, label %323, label %320
 
-322:                                              ; preds = %318
-  %323 = and i32 %.0.i, -4
-  %324 = add i32 %323, 4
-  br label %325
+320:                                              ; preds = %316
+  %321 = and i32 %.0.i, -4
+  %322 = add i32 %321, 4
+  br label %323
 
-325:                                              ; preds = %322, %318, %311
-  %.0 = phi i32 [ %.0.i, %318 ], [ %324, %322 ], [ %.0.i, %311 ]
+323:                                              ; preds = %320, %316, %309
+  %.0 = phi i32 [ %.0.i, %316 ], [ %322, %320 ], [ %.0.i, %309 ]
   ret i32 %.0
 }
 
@@ -1343,38 +1341,37 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
 
 15:                                               ; preds = %12, %15
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %15 ]
-  %16 = phi ptr [ @.str.43, %12 ], [ %22, %15 ]
-  %17 = phi ptr [ @frsrpc_frsrpc_CommPktCommand_vals, %12 ], [ %20, %15 ]
+  %16 = phi ptr [ @.str.43, %12 ], [ %21, %15 ]
   %.025 = phi ptr [ null, %12 ], [ %spec.select, %15 ]
+  %17 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv
   %18 = load i32, ptr %17, align 16
   %19 = icmp eq i32 %18, %14
   %spec.select = select i1 %19, ptr %16, ptr %.025
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr [13 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 0, i64 %indvars.iv.next
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %20 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv.next, i32 1
+  %21 = load ptr, ptr %20, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond, label %23, label %15, !llvm.loop !8
+  br i1 %exitcond, label %22, label %15, !llvm.loop !8
 
-23:                                               ; preds = %15
+22:                                               ; preds = %15
   %.not23 = icmp eq ptr %spec.select, null
-  br i1 %.not23, label %27, label %24
+  br i1 %.not23, label %26, label %23
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load ptr, ptr %25, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef nonnull %spec.select)
-  br label %27
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = load ptr, ptr %24, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef nonnull %spec.select)
+  br label %26
 
-27:                                               ; preds = %24, %23
-  br i1 %.not, label %30, label %28
+26:                                               ; preds = %23, %22
+  br i1 %.not, label %29, label %27
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr %9, align 4
-  store i32 %29, ptr %7, align 4
-  br label %30
+27:                                               ; preds = %26
+  %28 = load i32, ptr %9, align 4
+  store i32 %28, ptr %7, align 4
+  br label %29
 
-30:                                               ; preds = %28, %27
+29:                                               ; preds = %27, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %13
 }

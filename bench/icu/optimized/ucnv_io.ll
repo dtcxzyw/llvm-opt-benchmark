@@ -50,7 +50,7 @@ define noundef ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef returned writeon
 
 10:                                               ; preds = %6
   %11 = zext nneg i8 %7 to i64
-  %12 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   switch i8 %13, label %.critedge [
     i8 0, label %..backedge_crit_edge
@@ -72,7 +72,7 @@ define noundef ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef returned writeon
 
 18:                                               ; preds = %15
   %19 = zext nneg i8 %16 to i64
-  %20 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = add i8 %21, -1
   %23 = icmp ult i8 %22, 2
@@ -126,7 +126,7 @@ define noundef ptr @ucnv_io_stripEBCDICForCompare_77(ptr noundef returned writeo
 10:                                               ; preds = %6
   %11 = and i8 %7, 127
   %12 = zext nneg i8 %11 to i64
-  %13 = getelementptr inbounds nuw [128 x i8], ptr @_ZL11ebcdicTypes, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZL11ebcdicTypes, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3
   switch i8 %14, label %.critedge [
     i8 0, label %..backedge_crit_edge
@@ -149,7 +149,7 @@ define noundef ptr @ucnv_io_stripEBCDICForCompare_77(ptr noundef returned writeo
 19:                                               ; preds = %16
   %20 = and i8 %17, 127
   %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr inbounds nuw [128 x i8], ptr @_ZL11ebcdicTypes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZL11ebcdicTypes, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = add i8 %23, -1
   %25 = icmp ult i8 %24, 2
@@ -205,7 +205,7 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
 
 10:                                               ; preds = %.lr.ph
   %11 = zext nneg i8 %7 to i64
-  %12 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   switch i8 %13, label %.critedge [
     i8 0, label %..backedge50_crit_edge
@@ -227,7 +227,7 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
 
 18:                                               ; preds = %15
   %19 = zext nneg i8 %16 to i64
-  %20 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = add i8 %21, -1
   %23 = icmp ult i8 %22, 2
@@ -264,7 +264,7 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
 
 33:                                               ; preds = %.lr.ph78
   %34 = zext nneg i8 %30 to i64
-  %35 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !3
   switch i8 %36, label %.critedge49 [
     i8 0, label %..backedge_crit_edge
@@ -286,7 +286,7 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
 
 41:                                               ; preds = %38
   %42 = zext nneg i8 %39 to i64
-  %43 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !3
   %45 = add i8 %44, -1
   %46 = icmp ult i8 %45, 2
@@ -595,7 +595,7 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
 
 24:                                               ; preds = %20
   %25 = zext nneg i8 %21 to i64
-  %26 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !3
   switch i8 %27, label %.critedge.i.loopexit [
     i8 0, label %..backedge_crit_edge.i
@@ -617,7 +617,7 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
 
 32:                                               ; preds = %29
   %33 = zext nneg i8 %30 to i64
-  %34 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZL10asciiTypes, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = add i8 %35, -1
   %37 = icmp ult i8 %36, 2
@@ -1611,7 +1611,7 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %64 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !24
   %66 = tail call noundef i32 %63(i32 noundef %65)
-  %67 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %66, ptr %67, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1628,20 +1628,20 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %.lr.ph202
   %70 = phi i32 [ %68, %.lr.ph202.preheader ], [ %74, %.lr.ph202 ]
   %indvars.iv222 = phi i64 [ 2, %.lr.ph202.preheader ], [ %indvars.iv.next223, %.lr.ph202 ]
-  %71 = add nsw i64 %indvars.iv222, -1
-  %72 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %71
+  %71 = getelementptr i32, ptr %6, i64 %indvars.iv222
+  %72 = getelementptr i8, ptr %71, i64 -4
   %73 = load i32, ptr %72, align 4, !tbaa !24
   %74 = add i32 %73, %70
-  %75 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %indvars.iv222
+  %75 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv222
   store i32 %74, ptr %75, align 4, !tbaa !24
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
   br i1 %exitcond226.not, label %._crit_edge203, label %.lr.ph202, !llvm.loop !65
 
 ._crit_edge203:                                   ; preds = %.lr.ph202
-  %76 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %indvars.iv222
+  %76 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv222
   %77 = load i32, ptr %76, align 4, !tbaa !24
-  %78 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv222
+  %78 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv222
   %79 = load i32, ptr %78, align 4, !tbaa !24
   %80 = add i32 %79, %77
   br i1 %48, label %81, label %._crit_edge203._crit_edge

@@ -1420,7 +1420,7 @@ define noundef i32 @_ZNK6icu_7713MlBreakEngine18evaluateBreakpointERKNS_13Unicod
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %.not92 = icmp eq i32 %23, -1
   %. = select i1 %.not92, i32 %4, i32 %23
-  %24 = getelementptr inbounds nuw [13 x %"class.icu_77::Hashtable"], ptr %17, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %"class.icu_77::Hashtable", ptr %17, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = sub nsw i32 %., %20
   call void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %20, i32 noundef %25)
@@ -1471,8 +1471,8 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit: ; preds = %21
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %.not90 = icmp eq i32 %40, -1
   %.94 = select i1 %.not90, i32 %4, i32 %40
-  %41 = add nuw nsw i64 %indvars.iv109, 6
-  %42 = getelementptr inbounds nuw [13 x %"class.icu_77::Hashtable"], ptr %17, i64 0, i64 %41
+  %41 = getelementptr inbounds nuw %"class.icu_77::Hashtable", ptr %17, i64 %indvars.iv109
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 528
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %43 = sub nsw i32 %.94, %34
   call void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %10, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %34, i32 noundef %43)
@@ -1528,8 +1528,8 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit96: ; preds = %38
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %.not87 = icmp eq i32 %62, -1
   %.95 = select i1 %.not87, i32 %4, i32 %62
-  %63 = add nuw nsw i64 %indvars.iv113, 9
-  %64 = getelementptr inbounds nuw [13 x %"class.icu_77::Hashtable"], ptr %17, i64 0, i64 %63
+  %63 = getelementptr inbounds nuw %"class.icu_77::Hashtable", ptr %17, i64 %indvars.iv113
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 792
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %65 = sub nsw i32 %.95, %53
   call void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %53, i32 noundef %65)

@@ -1609,7 +1609,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   %95 = icmp eq i32 %94, 2
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %97 = zext i1 %95 to i64
-  %98 = getelementptr inbounds nuw [0 x ptr], ptr %96, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !7, !noalias !41
   store ptr %99, ptr %14, align 8, !tbaa !11, !alias.scope !41
   %100 = load i64, ptr %99, align 8, !noalias !41
@@ -1693,7 +1693,7 @@ _ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEE
   %132 = icmp eq i32 %131, 2
   %133 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %134 = zext i1 %132 to i64
-  %135 = getelementptr inbounds nuw [0 x ptr], ptr %133, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !7, !noalias !51
   store ptr %136, ptr %13, align 8, !tbaa !11, !alias.scope !51
   %137 = load i64, ptr %136, align 8, !noalias !51
@@ -1723,7 +1723,7 @@ _ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEE
           to label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit81 unwind label %212
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit81: ; preds = %148, %142, %150, %_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEE.exit
-  %152 = load ptr, ptr %indvars.iv.sroa.phi, align 8, !tbaa !11
+  %152 = load ptr, ptr %indvars.iv.sroa.phi178, align 8, !tbaa !11
   %153 = load ptr, ptr %13, align 8, !tbaa !11
   %.not.i82 = icmp eq ptr %152, %153
   br i1 %.not.i82, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %154, !prof !20
@@ -1749,7 +1749,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit81: ; preds = %148, %142, %150, %
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %163, %157, %154
   %164 = load ptr, ptr %13, align 8, !tbaa !11
-  store ptr %164, ptr %indvars.iv.sroa.phi, align 8, !tbaa !11
+  store ptr %164, ptr %indvars.iv.sroa.phi178, align 8, !tbaa !11
   %165 = load i64, ptr %164, align 8
   %166 = lshr i64 %165, 40
   %167 = trunc nuw nsw i64 %166 to i32
@@ -1887,7 +1887,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit90: ; preds = %.critedge, %196, %2
   br label %259
 
 218:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %219 = load ptr, ptr %indvars.iv.sroa.phi178, align 8, !tbaa !11
+  %219 = load ptr, ptr %indvars.iv.sroa.phi, align 8, !tbaa !11
   %.not.i91 = icmp eq ptr %219, %59
   br i1 %.not.i91, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit96, label %220, !prof !20
 
@@ -1912,7 +1912,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit90: ; preds = %.critedge, %196, %2
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i93:  ; preds = %229, %223, %220
   %230 = load ptr, ptr %12, align 8, !tbaa !11
-  store ptr %230, ptr %indvars.iv.sroa.phi178, align 8, !tbaa !11
+  store ptr %230, ptr %indvars.iv.sroa.phi, align 8, !tbaa !11
   %231 = load i64, ptr %230, align 8
   %232 = lshr i64 %231, 40
   %233 = trunc nuw nsw i64 %232 to i32

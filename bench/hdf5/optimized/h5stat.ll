@@ -791,7 +791,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %205, label %206, label %.lr.ph.i.i51.preheader
 
 206:                                              ; preds = %202
-  %207 = getelementptr inbounds nuw [10 x i64], ptr %199, i64 0, i64 %204
+  %207 = getelementptr inbounds nuw i64, ptr %199, i64 %204
   %208 = load i64, ptr %207, align 8, !tbaa !18
   %209 = add i64 %208, 1
   store i64 %209, ptr %207, align 8, !tbaa !18
@@ -1779,7 +1779,7 @@ attribute_stats.exit.i:                           ; preds = %299, %._crit_edge.i
 347:                                              ; preds = %344, %342
   %348 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %349 = zext nneg i32 %324 to i64
-  %350 = getelementptr inbounds nuw [4 x i64], ptr %348, i64 0, i64 %349
+  %350 = getelementptr inbounds nuw i64, ptr %348, i64 %349
   %351 = load i64, ptr %350, align 8, !tbaa !18
   %352 = add i64 %351, 1
   store i64 %352, ptr %350, align 8, !tbaa !18
@@ -1905,7 +1905,7 @@ attribute_stats.exit.i:                           ; preds = %299, %._crit_edge.i
 423:                                              ; preds = %422, %418
   %424 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %425 = zext nneg i32 %400 to i64
-  %426 = getelementptr inbounds nuw [32 x i64], ptr %424, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw i64, ptr %424, i64 %425
   %427 = load i64, ptr %426, align 8, !tbaa !18
   %428 = add i64 %427, 1
   store i64 %428, ptr %426, align 8, !tbaa !18
@@ -2290,7 +2290,7 @@ ceil_log10.exit.i53:                              ; preds = %.lr.ph.i200.i, %446
 
 640:                                              ; preds = %638
   %641 = zext nneg i32 %636 to i64
-  %642 = getelementptr inbounds nuw [8 x i64], ptr %634, i64 0, i64 %641
+  %642 = getelementptr inbounds nuw i64, ptr %634, i64 %641
   %643 = load i64, ptr %642, align 8, !tbaa !18
   %644 = add i64 %643, 1
   store i64 %644, ptr %642, align 8, !tbaa !18
@@ -2865,7 +2865,7 @@ print_group_info.exit.i:                          ; preds = %._crit_edge55.i.i, 
 
 202:                                              ; preds = %208, %197
   %indvars.iv.i29.i = phi i64 [ 0, %197 ], [ %indvars.iv.next.i30.i, %208 ]
-  %203 = getelementptr inbounds nuw [32 x i64], ptr %201, i64 0, i64 %indvars.iv.i29.i
+  %203 = getelementptr inbounds nuw i64, ptr %201, i64 %indvars.iv.i29.i
   %204 = load i64, ptr %203, align 8, !tbaa !18
   %.not76.i.i = icmp eq i64 %204, 0
   br i1 %.not76.i.i, label %208, label %205
@@ -3014,7 +3014,7 @@ print_group_info.exit.i:                          ; preds = %._crit_edge55.i.i, 
   %281 = select i1 %280, ptr @.str.166, ptr @.str.167
   %282 = select i1 %279, ptr @.str.165, ptr %281
   %283 = select i1 %278, ptr @.str.164, ptr %282
-  %284 = getelementptr inbounds nuw [4 x i64], ptr %276, i64 0, i64 %indvars.iv96.i.i
+  %284 = getelementptr inbounds nuw i64, ptr %276, i64 %indvars.iv96.i.i
   %285 = load i64, ptr %284, align 8, !tbaa !18
   %286 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.163, ptr noundef nonnull %283, i64 noundef %285)
   %indvars.iv.next97.i.i = add nuw nsw i64 %indvars.iv96.i.i, 1
@@ -3265,7 +3265,7 @@ print_attr_info.exit.i:                           ; preds = %._crit_edge46.i.i, 
 433:                                              ; preds = %441, %420
   %indvars.iv.i48.i = phi i64 [ 0, %420 ], [ %indvars.iv.next.i50.i, %441 ]
   %.02632.i.i = phi i64 [ 0, %420 ], [ %.127.i.i, %441 ]
-  %434 = getelementptr inbounds nuw [10 x i64], ptr %432, i64 0, i64 %indvars.iv.i48.i
+  %434 = getelementptr inbounds nuw i64, ptr %432, i64 %indvars.iv.i48.i
   %435 = load i64, ptr %434, align 8, !tbaa !18
   %.not31.i49.i = icmp eq i64 %435, 0
   br i1 %.not31.i49.i, label %441, label %436
@@ -3341,7 +3341,7 @@ print_freespace_info.exit.i:                      ; preds = %._crit_edge42.i.i, 
   %468 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %469 = load i32, ptr %468, align 8, !tbaa !132
   %470 = zext i32 %469 to i64
-  %471 = getelementptr inbounds nuw [6 x ptr], ptr @FS_STRATEGY_NAME, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw ptr, ptr @FS_STRATEGY_NAME, i64 %470
   %472 = load ptr, ptr %471, align 8, !tbaa !4
   %473 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef nonnull @.str.204, ptr noundef %472) #15
   %474 = load ptr, ptr @stdout, align 8, !tbaa !59

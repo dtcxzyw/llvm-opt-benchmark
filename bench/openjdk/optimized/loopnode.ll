@@ -3171,7 +3171,7 @@ _ZNK14PhaseIdealLoop9is_memberEPK13IdealLoopTreeP4Node.exit: ; preds = %.lr.ph.i
   store ptr %103, ptr %4, align 8
   %105 = load i32, ptr %5, align 4
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw [10 x i8], ptr @.str.16, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = sext i8 %108 to i32
   %110 = add nsw i32 %109, -48

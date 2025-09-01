@@ -34,7 +34,7 @@ define dso_local void @populate_compact_attribute(ptr noundef captures(none) %0,
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %10, i64 0, i64 %8
+  %11 = getelementptr inbounds %struct.CompactAttribute, ptr %10, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   store i32 -1, ptr %11, align 4
@@ -423,7 +423,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   br i1 %77, label %78, label %91
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %71, i64 0, i64 %indvars.iv106
+  %79 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %71, i64 %indvars.iv106
   %80 = getelementptr inbounds nuw %struct.AttrMissing, ptr %74, i64 %indvars.iv106, i32 1
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 6
@@ -1042,7 +1042,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   br i1 %160, label %161, label %.critedge169
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %150, i64 0, i64 %indvars.iv198
+  %162 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %150, i64 %indvars.iv198
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %164 = load i64, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %156, i64 8

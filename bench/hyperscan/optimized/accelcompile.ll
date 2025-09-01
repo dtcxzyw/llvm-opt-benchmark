@@ -317,7 +317,7 @@ _ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader: ;
 
 _ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47: ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader, %116
   %.0813.i.i.i = phi i64 [ %117, %116 ], [ 0, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader ]
-  %118 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0813.i.i.i
+  %118 = getelementptr inbounds nuw i64, ptr %3, i64 %.0813.i.i.i
   %119 = load i64, ptr %118, align 8
   %.not.i.i.i12 = icmp eq i64 %119, -1
   br i1 %.not.i.i.i12, label %116, label %_ZNK3ue29CharReach3allEv.exit.thread.loopexit.i
@@ -362,7 +362,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i:           ; preds = %_ZNK3ue29CharReach3
 
 140:                                              ; preds = %148, %137
   %.0710.i.i.i = phi i64 [ 0, %137 ], [ %149, %148 ]
-  %141 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0710.i.i.i
+  %141 = getelementptr inbounds nuw i64, ptr %3, i64 %.0710.i.i.i
   %142 = load i64, ptr %141, align 8
   %.not.i.i28.i = icmp eq i64 %142, 0
   br i1 %.not.i.i28.i, label %148, label %143
@@ -398,7 +398,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %148, %143
 
 156:                                              ; preds = %165, %153
   %.0710.i.i29.i = phi i64 [ 0, %153 ], [ %166, %165 ]
-  %157 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0710.i.i29.i
+  %157 = getelementptr inbounds nuw i64, ptr %3, i64 %.0710.i.i29.i
   %158 = load i64, ptr %157, align 8
   %.not.i.i30.i = icmp eq i64 %158, 0
   br i1 %.not.i.i30.i, label %165, label %159

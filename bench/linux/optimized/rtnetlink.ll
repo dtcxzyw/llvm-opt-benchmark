@@ -413,7 +413,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(pt
 13:                                               ; preds = %9
   tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %14
+  %15 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %23
@@ -581,7 +581,7 @@ define dso_local noundef range(i32 -2, 1) i32 @rtnl_unregister(i32 noundef %0, i
 9:                                                ; preds = %5
   tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -625,7 +625,7 @@ define dso_local void @rtnl_unregister_all(i32 noundef %0) #0 align 16 {
 4:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %5
   %7 = load ptr, ptr %6, align 8
   store volatile ptr null, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -5352,7 +5352,7 @@ define internal i32 @rtnl_dump_ifinfo(ptr noundef %0, ptr noundef captures(none)
   %83 = phi i32 [ 0, %74 ], [ %160, %157 ]
   %84 = phi ptr [ null, %74 ], [ %159, %157 ]
   %85 = phi i32 [ 0, %74 ], [ %158, %157 ]
-  %86 = getelementptr [66 x ptr], ptr %5, i64 0, i64 %80
+  %86 = getelementptr ptr, ptr %5, i64 %80
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %157, label %89
@@ -7002,7 +7002,7 @@ define internal i32 @rtnl_dump_all(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %.split
-  %24 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %19
+  %24 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %19
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -7938,7 +7938,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %57 = phi i32 [ %49, %47 ], [ %82, %81 ]
   %58 = phi i32 [ 0, %47 ], [ %83, %81 ]
   %59 = phi i64 [ 0, %47 ], [ %84, %81 ]
-  %60 = getelementptr [18 x ptr], ptr %4, i64 0, i64 %59
+  %60 = getelementptr ptr, ptr %4, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %81, label %63
@@ -8353,7 +8353,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
 .preheader.split.us:                              ; preds = %50, %66
   %57 = phi i32 [ %67, %66 ], [ 0, %50 ]
   %58 = phi i64 [ %68, %66 ], [ 0, %50 ]
-  %59 = getelementptr [66 x ptr], ptr %3, i64 0, i64 %58
+  %59 = getelementptr ptr, ptr %3, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = icmp ne ptr %60, null
   %62 = icmp eq i64 %58, 29
@@ -8374,7 +8374,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
 .preheader.split:                                 ; preds = %.thread60, %82
   %70 = phi i32 [ %83, %82 ], [ 0, %.thread60 ]
   %71 = phi i64 [ %84, %82 ], [ 0, %.thread60 ]
-  %72 = getelementptr [66 x ptr], ptr %3, i64 0, i64 %71
+  %72 = getelementptr ptr, ptr %3, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %82, label %75
@@ -12070,7 +12070,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %33 = icmp ugt i8 %20, -127
   %34 = select i1 %33, i8 0, i8 %20
   %35 = zext i8 %34 to i64
-  %36 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %35
   %37 = load volatile ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -12231,7 +12231,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %131 = icmp ugt i8 %20, -127
   %132 = select i1 %131, i8 0, i8 %20
   %133 = zext i8 %132 to i64
-  %134 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %133
+  %134 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %133
   %135 = load volatile ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %139
@@ -12337,7 +12337,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %194 = icmp samesign ugt i32 %163, 129
   %195 = select i1 %194, i32 0, i32 %163
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr [130 x ptr], ptr @rtnl_msg_handlers, i64 0, i64 %196
+  %197 = getelementptr ptr, ptr @rtnl_msg_handlers, i64 %196
   %198 = load volatile ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
   br i1 %199, label %200, label %202
@@ -14707,7 +14707,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr n
 
 .preheader:                                       ; preds = %31, %56
   %38 = phi i64 [ %57, %56 ], [ 1, %31 ]
-  %39 = getelementptr [6 x ptr], ptr %5, i64 0, i64 %38
+  %39 = getelementptr ptr, ptr %5, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %56, label %42
@@ -14733,7 +14733,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr n
 52:                                               ; preds = %42
   %53 = getelementptr i8, ptr %40, i64 4
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr [6 x i32], ptr %2, i64 0, i64 %38
+  %55 = getelementptr i32, ptr %2, i64 %38
   store i32 %54, ptr %55, align 4
   br label %56
 

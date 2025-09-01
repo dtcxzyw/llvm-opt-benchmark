@@ -60866,10 +60866,10 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !4209, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN11ruff_linter5rules8pyflakes6format15error_to_string17ha6c7d5146b310e6bE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5rules8pyflakes6format15error_to_string17ha6c7d5146b310e6bE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN11ruff_linter5rules8pyflakes6format15error_to_string17ha6c7d5146b310e6bE.557, i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5rules8pyflakes6format15error_to_string17ha6c7d5146b310e6bE.557, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5790
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hb6fd55eaaf790d22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef %switch.load, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !5790
@@ -72633,10 +72633,10 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !422, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..print_empty_string..PrintEmptyString$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17h88cd73d95078fd22E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..print_empty_string..PrintEmptyString$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17h88cd73d95078fd22E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep5 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..print_empty_string..PrintEmptyString$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17h88cd73d95078fd22E.558", i64 0, i64 %5
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN130_$LT$ruff_linter..rules..refurb..rules..print_empty_string..PrintEmptyString$u20$as$u20$ruff_diagnostics..violation..Violation$GT$9fix_title17h88cd73d95078fd22E.558", i64 %5
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !6941
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hb6fd55eaaf790d22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef %switch.load, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !6941
@@ -73768,10 +73768,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i8, ptr %1, align 1, !range !4209, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep3 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E.560, i64 0, i64 %7
+  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E.560, i64 %7
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   store ptr %switch.load4, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -73995,10 +73995,10 @@ select.unfold:                                    ; preds = %91, %56, %61, %66, 
 .noexc:                                           ; preds = %select.unfold
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7036
   %99 = zext nneg i8 %.sroa.0.0.i.ph to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E, i64 0, i64 %99
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E, i64 %99
   %switch.load = load i64, ptr %switch.gep, align 8
   %100 = zext nneg i8 %.sroa.0.0.i.ph to i64
-  %switch.gep23 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E.560, i64 0, i64 %100
+  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5rules6refurb5rules16regex_flag_alias16regex_flag_alias17h813b68d1baeee2d0E.560, i64 %100
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   invoke void @_ZN11ruff_linter8importer13ImportRequest6import17hee51c6eda46a9c84E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 1 @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.674, i64 noundef 2, ptr noalias noundef nonnull readonly align 1 %switch.load24, i64 noundef %switch.load)
           to label %.noexc4 unwind label %.body.thread19
@@ -85073,7 +85073,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i8, ptr %1, align 1, !range !4209, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN139_$LT$ruff_linter..rules..refurb..rules..regex_flag_alias..RegexFlagAlias$u20$as$u20$ruff_diagnostics..violation..AlwaysFixableViolation$GT$7message17hf2d67c8366b71fdcE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN139_$LT$ruff_linter..rules..refurb..rules..regex_flag_alias..RegexFlagAlias$u20$as$u20$ruff_diagnostics..violation..AlwaysFixableViolation$GT$7message17hf2d67c8366b71fdcE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8

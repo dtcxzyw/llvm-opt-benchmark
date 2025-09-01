@@ -6565,7 +6565,7 @@ _ZNSt22_Optional_payload_baseIN4llvm21TargetLibraryInfoImplEE10_M_destroyEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %194 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL14optimizeModuleRN4llvm6ModuleERNS_13TargetMachineEjbbPNS_18ModuleSummaryIndexE, i64 0, i64 %194
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL14optimizeModuleRN4llvm6ModuleERNS_13TargetMachineEjbbPNS_18ModuleSummaryIndexE, i64 %194
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.8.0.in.in = load i64, ptr %switch.load, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %23)

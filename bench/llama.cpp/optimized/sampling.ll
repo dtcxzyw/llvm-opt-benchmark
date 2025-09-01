@@ -3155,7 +3155,7 @@ define noundef signext range(i8 63, 122) i8 @_Z26common_sampler_type_to_chr19com
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._Z26common_sampler_type_to_chr19common_sampler_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._Z26common_sampler_type_to_chr19common_sampler_type, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 

@@ -1806,7 +1806,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -1933,7 +1933,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -1974,7 +1974,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2015,7 +2015,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2056,7 +2056,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2097,7 +2097,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2138,7 +2138,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2179,7 +2179,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2220,7 +2220,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2261,7 +2261,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2302,7 +2302,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2343,7 +2343,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %10 = urem i64 %2, %8
   %11 = add i64 %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   store i8 1, ptr %13, align 1, !tbaa !36
   %14 = load ptr, ptr %0, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 3969
@@ -2395,7 +2395,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.017.us
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
@@ -2413,7 +2413,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %.017
   store i8 1, ptr %25, align 1, !tbaa !36
   %26 = load ptr, ptr %0, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969
@@ -2459,7 +2459,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.017.us
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
@@ -2477,7 +2477,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(32) ptr @_ZN12vectorUnit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %.017
   store i8 1, ptr %25, align 1, !tbaa !36
   %26 = load ptr, ptr %0, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969
@@ -2523,7 +2523,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.017.us
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
@@ -2541,7 +2541,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %.017
   store i8 1, ptr %25, align 1, !tbaa !36
   %26 = load ptr, ptr %0, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969
@@ -2587,7 +2587,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.017.us = phi i64 [ %17, %.lr.ph.split.us ], [ %11, %.lr.ph ]
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017.us
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.017.us
   store i8 1, ptr %16, align 1, !tbaa !36
   %17 = add i64 %.017.us, 1
   %.not.us = icmp ugt i64 %17, %14
@@ -2605,7 +2605,7 @@ define weak_odr noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.017 = phi i64 [ %36, %35 ], [ %11, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.017
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %.017
   store i8 1, ptr %25, align 1, !tbaa !36
   %26 = load ptr, ptr %0, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3969

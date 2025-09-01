@@ -1920,7 +1920,7 @@ _ZL8is_equiviPP7t_equivPPciS2_S2_iS2_S2_.exit.i:  ; preds = %._crit_edge58.i.i
   %795 = ashr exact i64 %sext190.i, 32
   %796 = getelementptr inbounds i8, ptr %788, i64 %795
   %797 = load i8, ptr %796, align 1, !tbaa !32
-  %798 = getelementptr inbounds nuw [4 x i8], ptr @_ZL4Hnum, i64 0, i64 %indvars.iv274.i
+  %798 = getelementptr inbounds nuw i8, ptr @_ZL4Hnum, i64 %indvars.iv274.i
   %799 = load i8, ptr %798, align 1, !tbaa !32
   %800 = icmp eq i8 %797, %799
   br i1 %800, label %801, label %805
@@ -3839,7 +3839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
 
 _ZL9noe2scalefff.exit.i:                          ; preds = %.lr.ph23.preheader.i.i, %.preheader.i.i
   %.pre-phi.i.i = phi i64 [ %1487, %.preheader.i.i ], [ %wide.trip.count29.i.i, %.lr.ph23.preheader.i.i ]
-  %1492 = getelementptr inbounds nuw [7 x i8], ptr @_ZZL9noe2scalefffE3buf, i64 0, i64 %.pre-phi.i.i
+  %1492 = getelementptr inbounds nuw i8, ptr @_ZZL9noe2scalefffE3buf, i64 %.pre-phi.i.i
   store i8 0, ptr %1492, align 1, !tbaa !32
   %1493 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1426, ptr noundef nonnull @.str.115, i32 noundef %1436, i32 noundef %1437, ptr noundef %.sroa.912.0.copyload.i, ptr noundef %.sroa.1013.0.copyload.i, i32 noundef %1438, i32 noundef %1467, i32 noundef %1468, ptr noundef %.sroa.94.0.copyload.i, ptr noundef %.sroa.10.0.copyload.i, i32 noundef %1469, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1474, i32 noundef %1475, ptr noundef nonnull %3, ptr noundef nonnull @_ZZL9noe2scalefffE3buf) #18
   br label %1494

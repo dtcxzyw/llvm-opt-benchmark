@@ -1174,7 +1174,7 @@ define hidden ptr @X509_VERIFY_PARAM_lookup(ptr noundef %0) local_unnamed_addr #
 
 12:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
-  %13 = getelementptr inbounds nuw [5 x %struct.X509_VERIFY_PARAM_st], ptr @default_table, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.X509_VERIFY_PARAM_st, ptr @default_table, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16, !tbaa !16
   %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %0) #17
   %16 = icmp eq i32 %15, 0

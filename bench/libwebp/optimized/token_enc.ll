@@ -85,7 +85,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffTokens(i32 noundef %0, ptr noun
   %18 = sext i32 %10 to i64
   %19 = getelementptr inbounds [3 x [11 x i32]], ptr %17, i64 %18
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds [3 x [11 x i32]], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds [11 x i32], ptr %19, i64 %20
   %22 = icmp sgt i32 %9, -1
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !14
@@ -241,7 +241,7 @@ AddToken.exit146:                                 ; preds = %TBufferNewPage.exit
   br i1 %.not309, label %101, label %110
 
 101:                                              ; preds = %AddToken.exit146
-  %102 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
+  %102 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv.next
   %103 = load i8, ptr %102, align 1, !tbaa !34
   %104 = zext i8 %103 to i32
   %105 = add nsw i32 %11, %104
@@ -1350,7 +1350,7 @@ AddConstantToken.exit285:                         ; preds = %TBufferNewPage.exit
 AddConstantToken.exit:                            ; preds = %AddConstantToken.exit285, %AddToken.exit178, %AddToken.exit170, %TBufferNewPage.exit.thread.i196, %327, %TBufferNewPage.exit.thread.i209, %369, %AddToken.exit154
   %.sink365 = phi i32 [ 11, %AddToken.exit154 ], [ 22, %369 ], [ 22, %TBufferNewPage.exit.thread.i209 ], [ 22, %327 ], [ 22, %TBufferNewPage.exit.thread.i196 ], [ 22, %AddToken.exit170 ], [ 22, %AddToken.exit178 ], [ 22, %AddConstantToken.exit285 ]
   %.sink362 = phi i64 [ 1, %AddToken.exit154 ], [ 2, %369 ], [ 2, %TBufferNewPage.exit.thread.i209 ], [ 2, %327 ], [ 2, %TBufferNewPage.exit.thread.i196 ], [ 2, %AddToken.exit170 ], [ 2, %AddToken.exit178 ], [ 2, %AddConstantToken.exit285 ]
-  %651 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
+  %651 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv.next
   %652 = load i8, ptr %651, align 1, !tbaa !34
   %653 = zext i8 %652 to i32
   %654 = add nsw i32 %11, %653
@@ -1359,7 +1359,7 @@ AddConstantToken.exit:                            ; preds = %AddConstantToken.ex
   %657 = load ptr, ptr %16, align 8, !tbaa !29
   %658 = zext i8 %652 to i64
   %.split = getelementptr inbounds nuw [3 x [11 x i32]], ptr %657, i64 %658
-  %659 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %.split, i64 0, i64 %.sink362
+  %659 = getelementptr inbounds nuw [11 x i32], ptr %.split, i64 %.sink362
   %660 = load i32, ptr %23, align 8, !tbaa !14
   %661 = icmp sgt i32 %660, 0
   br i1 %661, label %._crit_edge.i289, label %662
@@ -1690,7 +1690,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
 
 31:                                               ; preds = %25, %22
   %.pn.i.pn = phi i64 [ %.pn.i, %22 ], [ %.pn.i26, %25 ]
-  %.pn.in.in.in = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i.pn
+  %.pn.in.in.in = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i.pn
   %.pn.in.in = load i16, ptr %.pn.in.in.in, align 2, !tbaa !31
   %.pn = zext i16 %.pn.in.in to i64
   %.2 = add i64 %.130, %.pn

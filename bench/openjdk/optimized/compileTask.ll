@@ -1185,7 +1185,7 @@ define hidden void @_ZN11CompileTask15log_task_queuedEv(ptr noundef nonnull read
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN11CompileTask11reason_nameENS_13CompileReasonEE12reason_names, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @_ZZN11CompileTask11reason_nameENS_13CompileReasonEE12reason_names, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull @.str.25, ptr noundef %22) #10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128

@@ -255,13 +255,13 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %10
 
 154:                                              ; preds = %.lr.ph, %154
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %154 ]
-  %155 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %153, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [2 x i16], ptr %153, i64 %indvars.iv
   %156 = load i16, ptr %155, align 4, !tbaa !95
-  %157 = getelementptr inbounds nuw [3 x i16], ptr %.sroa.31.0..sroa_idx, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw i16, ptr %.sroa.31.0..sroa_idx, i64 %indvars.iv
   store i16 %156, ptr %157, align 2, !tbaa !95
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 2
   %159 = load i16, ptr %158, align 2, !tbaa !95
-  %160 = getelementptr inbounds nuw [3 x i16], ptr %.sroa.32.0..sroa_idx, i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i16, ptr %.sroa.32.0..sroa_idx, i64 %indvars.iv
   store i16 %159, ptr %160, align 2, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -321,21 +321,21 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %10
 
 188:                                              ; preds = %181, %188
   %indvars.iv105 = phi i64 [ 0, %181 ], [ %indvars.iv.next106, %188 ]
-  %189 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %indvars.iv105
+  %189 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %indvars.iv105
   %190 = load i8, ptr %189, align 1, !tbaa !97
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw [64 x i8], ptr %183, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i8, ptr %183, i64 %191
   %193 = load i8, ptr %192, align 1, !tbaa !97
   %194 = zext i8 %193 to i64
-  %195 = getelementptr inbounds nuw [64 x i16], ptr %184, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i16, ptr %184, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !95
   %197 = trunc i16 %196 to i8
-  %198 = getelementptr inbounds nuw [64 x i8], ptr %185, i64 0, i64 %indvars.iv105
+  %198 = getelementptr inbounds nuw i8, ptr %185, i64 %indvars.iv105
   store i8 %197, ptr %198, align 1, !tbaa !97
-  %199 = getelementptr inbounds nuw [64 x i16], ptr %186, i64 0, i64 %194
+  %199 = getelementptr inbounds nuw i16, ptr %186, i64 %194
   %200 = load i16, ptr %199, align 2, !tbaa !95
   %201 = trunc i16 %200 to i8
-  %202 = getelementptr inbounds nuw [64 x i8], ptr %187, i64 0, i64 %indvars.iv105
+  %202 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv105
   store i8 %201, ptr %202, align 1, !tbaa !97
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 64

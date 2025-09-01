@@ -457,7 +457,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %169 = phi i8 [ %178, %176 ], [ %164, %.preheader63 ]
   %170 = phi ptr [ %177, %176 ], [ %162, %.preheader63 ]
   %171 = zext i8 %169 to i64
-  %172 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %171
+  %172 = getelementptr i8, ptr @_ctype, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = and i8 %173, 32
   %175 = icmp eq i8 %174, 0
@@ -471,7 +471,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
 
 .preheader63.split:                               ; preds = %.preheader63
   %180 = zext i8 %164 to i64
-  %181 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %180
+  %181 = getelementptr i8, ptr @_ctype, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = and i8 %182, 32
   %184 = icmp eq i8 %183, 0
@@ -479,7 +479,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
 
 185:                                              ; preds = %.lr.ph
   %186 = zext i8 %193 to i64
-  %187 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %186
+  %187 = getelementptr i8, ptr @_ctype, i64 %186
   %188 = load i8, ptr %187, align 1
   %189 = and i8 %188, 32
   %190 = icmp eq i8 %189, 0

@@ -99,28 +99,28 @@ Vec_WrdStart.exit:                                ; preds = %Vec_WecStart.exit, 
 
 .preheader:                                       ; preds = %41
   %40 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  br label %45
+  br label %44
 
 41:                                               ; preds = %Vec_WrdStart.exit, %41
-  %42 = phi ptr [ %37, %Vec_WrdStart.exit ], [ %43, %41 ]
+  %store_forwarded = phi ptr [ %37, %Vec_WrdStart.exit ], [ %43, %41 ]
   %indvars.iv = phi i64 [ 1, %Vec_WrdStart.exit ], [ %indvars.iv.next, %41 ]
-  %43 = getelementptr inbounds i64, ptr %42, i64 %39
-  %44 = getelementptr inbounds nuw [4 x ptr], ptr %38, i64 0, i64 %indvars.iv
-  store ptr %43, ptr %44, align 8, !tbaa !46
+  %42 = getelementptr ptr, ptr %38, i64 %indvars.iv
+  %43 = getelementptr inbounds i64, ptr %store_forwarded, i64 %39
+  store ptr %43, ptr %42, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %41, !llvm.loop !47
 
-45:                                               ; preds = %.preheader, %45
-  %indvars.iv30 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next31, %45 ]
-  %46 = tail call i64 @Gia_ManRandomW(i32 noundef 0) #20
-  %47 = getelementptr inbounds nuw [113 x i64], ptr %40, i64 0, i64 %indvars.iv30
-  store i64 %46, ptr %47, align 8, !tbaa !49
+44:                                               ; preds = %.preheader, %44
+  %indvars.iv30 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next31, %44 ]
+  %45 = tail call i64 @Gia_ManRandomW(i32 noundef 0) #20
+  %46 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv30
+  store i64 %45, ptr %46, align 8, !tbaa !49
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 113
-  br i1 %exitcond33.not, label %48, label %45, !llvm.loop !50
+  br i1 %exitcond33.not, label %47, label %44, !llvm.loop !50
 
-48:                                               ; preds = %45
+47:                                               ; preds = %44
   ret ptr %calloc
 }
 
@@ -822,7 +822,7 @@ Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   %77 = load i64, ptr %20, align 8, !tbaa !49
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %79 = sext i32 %spec.select to i64
-  %80 = getelementptr inbounds [113 x i64], ptr %78, i64 0, i64 %79
+  %80 = getelementptr inbounds i64, ptr %78, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !49
   %82 = xor i64 %81, -1
   %83 = or i64 %76, %82
@@ -876,7 +876,7 @@ Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   %120 = add i32 %spec.select, %119
   %121 = srem i32 %120, 113
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds [113 x i64], ptr %67, i64 0, i64 %122
+  %123 = getelementptr inbounds i64, ptr %67, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !49
   %125 = xor i64 %124, -1
   %126 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv

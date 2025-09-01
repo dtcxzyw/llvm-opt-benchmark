@@ -2779,7 +2779,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %57
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %57
   %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %57 ], [ 0, %.preheader.i.i.i.preheader ]
-  %59 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i.i, i32 1
+  %59 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv21.i.i.i, i32 1
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %48, %60
   br i1 %61, label %62, label %57
@@ -2941,7 +2941,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %72
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %72
   %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %72 ], [ 0, %.preheader.i.i.i.preheader ]
-  %74 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i.i, i32 1
+  %74 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv21.i.i.i, i32 1
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %63, %75
   br i1 %76, label %77, label %72
@@ -3311,7 +3311,7 @@ getKindFromId.exit.i.thread:                      ; preds = %53
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %53
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %53 ], [ 0, %.preheader.i.i.preheader ]
-  %55 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i, i32 1
+  %55 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv21.i.i, i32 1
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %44, %56
   br i1 %57, label %58, label %53
@@ -3625,7 +3625,7 @@ getKindFromId.exit.i.thread:                      ; preds = %38
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %38
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %38 ], [ 0, %.preheader.i.i.preheader ]
-  %40 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i, i32 1
+  %40 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv21.i.i, i32 1
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %29, %41
   br i1 %42, label %43, label %38
@@ -3691,7 +3691,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_diagnosticrequest(i32 no
 
 27:                                               ; preds = %27, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr [15 x ptr], ptr @reload_dmflag_items, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr ptr, ptr @reload_dmflag_items, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %31 = trunc i64 %indvars.iv.i to i32
@@ -3984,7 +3984,7 @@ getKindFromId.exit.i.thread.i:                    ; preds = %114
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %114
   %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %114 ], [ 0, %.preheader.i.i.i.preheader ]
-  %116 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i.i, i32 1
+  %116 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv21.i.i.i, i32 1
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %105, %117
   br i1 %118, label %119, label %114
@@ -5586,7 +5586,7 @@ getKindFromId.exit.i.thread:                      ; preds = %34
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %34
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %34 ], [ 0, %.preheader.i.i.preheader ]
-  %36 = getelementptr [18 x %struct._Kind], ptr @predefined_kinds, i64 0, i64 %indvars.iv21.i.i, i32 1
+  %36 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv21.i.i, i32 1
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %25, %37
   br i1 %38, label %39, label %34

@@ -706,7 +706,7 @@ define internal i32 @dissect_ansi_683(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.not.i, label %32, label %dissect_ansi_683_for_message.exit
 
 32:                                               ; preds = %24
-  %33 = getelementptr [25 x ptr], ptr @ansi_683_for_msg_fcn, i64 0, i64 %28
+  %33 = getelementptr ptr, ptr @ansi_683_for_msg_fcn, i64 %28
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @tvb_reported_length(ptr noundef %0)
   %36 = add i32 %35, -1
@@ -730,7 +730,7 @@ dissect_ansi_683_for_message.exit:                ; preds = %19, %24, %32
   %44 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %39)
   %45 = load i32, ptr %5, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr [25 x ptr], ptr @ansi_683_rev_msg_fcn, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr @ansi_683_rev_msg_fcn, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 @tvb_reported_length(ptr noundef %0)
   %50 = add i32 %49, -1
@@ -2320,10 +2320,10 @@ define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1,
   %.0301 = phi i32 [ %.131, %29 ], [ %7, %4 ]
   %11 = and i32 %.0301, 15
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [16 x i8], ptr @dtmf_digits, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @dtmf_digits, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext nneg i32 %.03 to i64
-  %16 = getelementptr [17 x i8], ptr %5, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %5, i64 %15
   store i8 %14, ptr %16, align 1
   %17 = add nuw i32 %.03, 1
   %18 = icmp ult i32 %17, %8
@@ -2335,10 +2335,10 @@ define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1,
   %22 = zext i8 %21 to i32
   %23 = lshr i32 %22, 4
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr [16 x i8], ptr @dtmf_digits, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @dtmf_digits, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext nneg i32 %17 to i64
-  %28 = getelementptr [17 x i8], ptr %5, i64 0, i64 %27
+  %28 = getelementptr i8, ptr %5, i64 %27
   store i8 %26, ptr %28, align 1
   %.pre = add nuw i32 %.03, 2
   br label %29
@@ -2357,7 +2357,7 @@ define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1,
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.028.lcssa = phi i32 [ %3, %4 ], [ %.129, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %4 ], [ %31, %._crit_edge.loopexit ]
-  %32 = getelementptr [17 x i8], ptr %5, i64 0, i64 %.0.lcssa
+  %32 = getelementptr i8, ptr %5, i64 %.0.lcssa
   store i8 0, ptr %32, align 1
   %33 = load i32, ptr @hf_ansi_683_mobile_directory_number, align 4
   %34 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %33, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull %5)

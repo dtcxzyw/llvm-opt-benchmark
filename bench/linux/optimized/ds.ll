@@ -242,7 +242,7 @@ define dso_local range(i64 1100585369600, 0) i64 @adl_latency_data_small(ptr nou
   %20 = and i32 %17, 32
   %21 = icmp eq i32 %20, 0
   %22 = and i64 %1, 15
-  %23 = getelementptr [16 x i64], ptr %16, i64 0, i64 %22
+  %23 = getelementptr i64, ptr %16, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = select i1 %21, i64 1744830464, i64 1342177280
   %26 = shl i64 %1, 21
@@ -291,7 +291,7 @@ define dso_local range(i64 1100585369600, 0) i64 @mtl_latency_data_small(ptr nou
   %20 = and i32 %17, 64
   %21 = icmp eq i32 %20, 0
   %22 = and i64 %1, 15
-  %23 = getelementptr [16 x i64], ptr %16, i64 0, i64 %22
+  %23 = getelementptr i64, ptr %16, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = select i1 %21, i64 1744830464, i64 1342177280
   %26 = shl i64 %1, 20
@@ -306,7 +306,7 @@ define dso_local range(i64 1100585369600, 0) i64 @mtl_latency_data_small(ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @init_debug_store_on_cpu(i32 noundef %0) local_unnamed_addr #3 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_hw_events to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -333,7 +333,7 @@ declare dso_local i32 @wrmsr_on_cpu(i32 noundef, i32 noundef, i32 noundef, i32 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @fini_debug_store_on_cpu(i32 noundef %0) local_unnamed_addr #3 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_hw_events to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -376,7 +376,7 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #3 align 16 {
 
 15:                                               ; preds = %11
   %16 = and i64 %12, 63
-  %17 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %16
+  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, ptrtoint (ptr @cpu_hw_events to i64)
   %20 = inttoptr i64 %19 to ptr
@@ -406,7 +406,7 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #3 align 16 {
 
 34:                                               ; preds = %30
   %35 = and i64 %31, 63
-  %36 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %35
+  %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, ptrtoint (ptr @cpu_hw_events to i64)
   %39 = inttoptr i64 %38 to ptr
@@ -463,7 +463,7 @@ define internal fastcc void @release_pebs_buffer(i32 noundef range(i32 0, 64) %0
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %6
+  %7 = getelementptr i64, ptr @__per_cpu_offset, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, ptrtoint (ptr @cpu_hw_events to i64)
   %10 = inttoptr i64 %9 to ptr
@@ -544,7 +544,7 @@ define internal fastcc void @release_bts_buffer(i32 noundef range(i32 0, 64) %0)
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %6
+  %7 = getelementptr i64, ptr @__per_cpu_offset, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @get_cpu_entry_area(i32 noundef %0) #14
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 110592
@@ -643,7 +643,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #3 align 16 {
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 106496
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(4096) %29, i8 0, i64 4096, i1 false)
   %30 = and i64 %24, 63
-  %31 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %30
+  %31 = getelementptr i64, ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, ptrtoint (ptr @cpu_hw_events to i64)
   %34 = inttoptr i64 %33 to ptr
@@ -985,7 +985,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #3 align 16 {
 
 243:                                              ; preds = %239
   %244 = and i64 %240, 63
-  %245 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %244
+  %245 = getelementptr i64, ptr @__per_cpu_offset, i64 %244
   %246 = load i64, ptr %245, align 8
   %247 = add i64 %246, ptrtoint (ptr @cpu_hw_events to i64)
   %248 = inttoptr i64 %247 to ptr
@@ -1035,7 +1035,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #3 align 16 {
 
 274:                                              ; preds = %270
   %275 = and i64 %271, 63
-  %276 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %275
+  %276 = getelementptr i64, ptr @__per_cpu_offset, i64 %275
   %277 = load i64, ptr %276, align 8
   %278 = add i64 %277, ptrtoint (ptr @cpu_hw_events to i64)
   %279 = inttoptr i64 %278 to ptr
@@ -1869,7 +1869,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) loca
   %163 = phi i64 [ %161, %156 ], [ 0, %151 ]
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %165 = zext i32 %152 to i64
-  %166 = getelementptr [48 x i64], ptr %164, i64 0, i64 %165
+  %166 = getelementptr i64, ptr %164, i64 %165
   store i64 %163, ptr %166, align 8
   %167 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !53
   %168 = inttoptr i64 %167 to ptr
@@ -1884,7 +1884,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) loca
 ._crit_edge:                                      ; preds = %162
   %175 = load i32, ptr %11, align 4
   %176 = sext i32 %175 to i64
-  %177 = getelementptr [48 x i64], ptr %171, i64 0, i64 %176
+  %177 = getelementptr i64, ptr %171, i64 %176
   %178 = load i64, ptr %177, align 8
   %179 = and i32 %172, 1024
   %180 = icmp eq i32 %179, 0
@@ -1907,7 +1907,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) loca
   %194 = add nsw i32 %187, -24
   %195 = select i1 %193, i32 %194, i32 %187
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr [48 x i64], ptr %171, i64 0, i64 %196
+  %197 = getelementptr i64, ptr %171, i64 %196
   %198 = load i64, ptr %197, align 8
   br label %199
 
@@ -2778,8 +2778,8 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
 .lr.ph26:                                         ; preds = %.preheader, %.lr.ph26
   %67 = phi i64 [ %75, %.lr.ph26 ], [ %64, %.preheader ]
   %68 = shl i64 %67, 32
-  %69 = ashr exact i64 %68, 32
-  %70 = getelementptr [48 x i16], ptr %6, i64 0, i64 %69
+  %69 = ashr exact i64 %68, 31
+  %70 = getelementptr i8, ptr %6, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = add i16 %71, 1
   store i16 %72, ptr %70, align 2
@@ -2827,8 +2827,8 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
 .lr.ph:                                           ; preds = %.preheader20, %.lr.ph
   %99 = phi i64 [ %107, %.lr.ph ], [ %96, %.preheader20 ]
   %100 = shl i64 %99, 32
-  %101 = ashr exact i64 %100, 32
-  %102 = getelementptr [48 x i16], ptr %7, i64 0, i64 %101
+  %101 = ashr exact i64 %100, 31
+  %102 = getelementptr i8, ptr %7, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = add i16 %103, 1
   store i16 %104, ptr %102, align 2
@@ -2841,8 +2841,8 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
 
 110:                                              ; preds = %91
   %111 = shl i64 %87, 32
-  %112 = ashr exact i64 %111, 32
-  %113 = getelementptr [48 x i16], ptr %6, i64 0, i64 %112
+  %112 = ashr exact i64 %111, 31
+  %113 = getelementptr i8, ptr %6, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = add i16 %114, 1
   store i16 %115, ptr %113, align 2
@@ -2861,19 +2861,19 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
   %121 = phi i64 [ %273, %270 ], [ %50, %45 ]
   %122 = shl i64 %121, 32
   %123 = ashr exact i64 %122, 32
-  %124 = getelementptr [48 x i16], ptr %6, i64 0, i64 %123
+  %124 = getelementptr i16, ptr %6, i64 %123
   %125 = load i16, ptr %124, align 2
   %126 = icmp eq i16 %125, 0
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %.lr.ph27
-  %128 = getelementptr [48 x i16], ptr %7, i64 0, i64 %123
+  %128 = getelementptr i16, ptr %7, i64 %123
   %129 = load i16, ptr %128, align 2
   %130 = icmp eq i16 %129, 0
   br i1 %130, label %270, label %131
 
 131:                                              ; preds = %127, %.lr.ph27
-  %132 = getelementptr [64 x ptr], ptr %11, i64 0, i64 %123
+  %132 = getelementptr ptr, ptr %11, i64 %123
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %136, !prof !6
@@ -2898,7 +2898,7 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
   br label %270
 
 142:                                              ; preds = %136
-  %143 = getelementptr [48 x i16], ptr %7, i64 0, i64 %123
+  %143 = getelementptr i16, ptr %7, i64 %123
   %144 = load i16, ptr %143, align 2
   %145 = icmp eq i16 %144, 0
   br i1 %145, label %152, label %146
@@ -3242,8 +3242,8 @@ define internal void @intel_pmu_drain_pebs_icl(ptr noundef %0, ptr noundef %1) #
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %76 = phi i64 [ %84, %.lr.ph ], [ %73, %61 ]
   %77 = shl i64 %76, 32
-  %78 = ashr exact i64 %77, 32
-  %79 = getelementptr [48 x i16], ptr %6, i64 0, i64 %78
+  %78 = ashr exact i64 %77, 31
+  %79 = getelementptr i8, ptr %6, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = add i16 %80, 1
   store i16 %81, ptr %79, align 2
@@ -3267,13 +3267,13 @@ define internal void @intel_pmu_drain_pebs_icl(ptr noundef %0, ptr noundef %1) #
   %92 = phi i64 [ %229, %226 ], [ %58, %53 ]
   %93 = shl i64 %92, 32
   %94 = ashr exact i64 %93, 32
-  %95 = getelementptr [48 x i16], ptr %6, i64 0, i64 %94
+  %95 = getelementptr i16, ptr %6, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = icmp eq i16 %96, 0
   br i1 %97, label %226, label %98
 
 98:                                               ; preds = %.lr.ph25
-  %99 = getelementptr [64 x ptr], ptr %10, i64 0, i64 %94
+  %99 = getelementptr ptr, ptr %10, i64 %94
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %103, !prof !6
@@ -4151,7 +4151,7 @@ define internal fastcc i64 @get_data_src(ptr noundef %0, i64 noundef %1) unnamed
 17:                                               ; preds = %11, %9
   %18 = phi ptr [ @pebs_data_source, %9 ], [ %16, %11 ]
   %19 = and i64 %1, 15
-  %20 = getelementptr [16 x i64], ptr %18, i64 0, i64 %19
+  %20 = getelementptr i64, ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
   %23 = and i16 %22, 64
@@ -4208,7 +4208,7 @@ define internal fastcc i64 @get_data_src(ptr noundef %0, i64 noundef %1) unnamed
 57:                                               ; preds = %51, %50
   %58 = phi ptr [ @pebs_data_source, %50 ], [ %56, %51 ]
   %59 = and i64 %1, 15
-  %60 = getelementptr [16 x i64], ptr %58, i64 0, i64 %59
+  %60 = getelementptr i64, ptr %58, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %1, 16
   %63 = icmp eq i64 %62, 0
@@ -4305,8 +4305,8 @@ define internal fastcc void @intel_pmu_pebs_event_update_no_drain(ptr noundef %0
 .lr.ph:                                           ; preds = %2, %18
   %8 = phi i64 [ %21, %18 ], [ %5, %2 ]
   %9 = shl i64 %8, 32
-  %10 = ashr exact i64 %9, 32
-  %11 = getelementptr [64 x ptr], ptr %0, i64 0, i64 %10
+  %10 = ashr exact i64 %9, 29
+  %11 = getelementptr i8, ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 404
   %14 = load i32, ptr %13, align 4

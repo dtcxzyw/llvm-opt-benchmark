@@ -234,7 +234,7 @@ define dso_local void @prte_info_components_close() local_unnamed_addr #2 {
   %4 = phi ptr [ %7, %.lr.ph ], [ %1, %.preheader22 ]
   %5 = tail call i32 @pmix_mca_base_framework_close(ptr noundef nonnull %4) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr @prte_frameworks, i64 0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !42

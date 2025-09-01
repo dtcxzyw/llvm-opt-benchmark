@@ -2013,7 +2013,7 @@ define void @_ZN5faiss14fvec_madd_simdEmPKffS1_Pf(i64 noundef %0, ptr noundef re
 
 10:                                               ; preds = %10, %5
   %indvars.iv.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i.i, %10 ]
-  %11 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
   store float %2, ptr %11, align 4, !tbaa !81
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2043,14 +2043,14 @@ _ZN5faiss12simd8float32C2Ef.exit:                 ; preds = %10
 
 13:                                               ; preds = %13, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
   %15 = load float, ptr %14, align 4, !tbaa !81, !noalias !103
-  %16 = getelementptr inbounds nuw [8 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %17 = load float, ptr %16, align 4, !tbaa !81, !noalias !103
-  %18 = getelementptr inbounds nuw [8 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !81, !noalias !103
   %20 = tail call float @llvm.fmuladd.f32(float %15, float %17, float %19)
-  %21 = getelementptr inbounds nuw [8 x float], ptr %9, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   store float %20, ptr %21, align 4, !tbaa !81, !alias.scope !103
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -2136,7 +2136,7 @@ define internal void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16Ind
 
 43:                                               ; preds = %43, %39
   %indvars.iv.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [8 x float], ptr %10, i64 0, i64 %indvars.iv.i.i.i
+  %44 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i.i
   store float -2.000000e+00, ptr %44, align 4, !tbaa !81
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -2170,14 +2170,14 @@ _ZN5faiss12simd8float32C2Ef.exit.i:               ; preds = %43
 
 51:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %51 ]
-  %52 = getelementptr inbounds nuw [8 x float], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %52 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i
   %53 = load float, ptr %52, align 4, !tbaa !81, !noalias !109
-  %54 = getelementptr inbounds nuw [8 x float], ptr %12, i64 0, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i
   %55 = load float, ptr %54, align 4, !tbaa !81, !noalias !109
-  %56 = getelementptr inbounds nuw [8 x float], ptr %11, i64 0, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.i
   %57 = load float, ptr %56, align 4, !tbaa !81, !noalias !109
   %58 = call float @llvm.fmuladd.f32(float %53, float %55, float %57)
-  %59 = getelementptr inbounds nuw [8 x float], ptr %13, i64 0, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i.i
   store float %58, ptr %59, align 4, !tbaa !81, !alias.scope !109
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8

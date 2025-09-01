@@ -1935,7 +1935,7 @@ _mpd_add_pad.exit.thread123:                      ; preds = %178
 
 212:                                              ; preds = %212, %.preheader91.us.i
   %.07392.us.i = phi i64 [ 0, %.preheader91.us.i ], [ %216, %212 ]
-  %213 = getelementptr [5 x i8], ptr %181, i64 0, i64 %.07392.us.i
+  %213 = getelementptr i8, ptr %181, i64 %.07392.us.i
   %214 = load i8, ptr %213, align 1, !tbaa !11
   %215 = getelementptr i8, ptr %211, i64 %.07392.us.i
   store i8 %214, ptr %215, align 1, !tbaa !11
@@ -1963,7 +1963,7 @@ _mpd_add_pad.exit.thread123:                      ; preds = %178
 
 221:                                              ; preds = %221, %.preheader.us.i
   %.195.us.i = phi i64 [ 0, %.preheader.us.i ], [ %225, %221 ]
-  %222 = getelementptr [5 x i8], ptr %181, i64 0, i64 %.195.us.i
+  %222 = getelementptr i8, ptr %181, i64 %.195.us.i
   %223 = load i8, ptr %222, align 1, !tbaa !11
   %224 = getelementptr i8, ptr %220, i64 %.195.us.i
   store i8 %223, ptr %224, align 1, !tbaa !11
@@ -2108,7 +2108,7 @@ define hidden noundef i32 @mpd_snprint_flags(ptr noundef initializes((0, 1)) %0,
 
 8:                                                ; preds = %4
   %9 = sext i32 %.02329 to i64
-  %10 = getelementptr [15 x ptr], ptr @mpd_flag_string, i64 0, i64 %indvars.iv
+  %10 = getelementptr ptr, ptr @mpd_flag_string, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.02230, i64 noundef %9, ptr noundef nonnull @.str.12, ptr noundef %11) #18
   %13 = icmp sgt i32 %12, -1

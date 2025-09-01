@@ -2195,7 +2195,7 @@ define void @_ZN5Yosys12memhasher_doEv() local_unnamed_addr #7 {
 
 switch.lookup:                                    ; preds = %0
   %10 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5Yosys12memhasher_doEv, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5Yosys12memhasher_doEv, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 
@@ -28958,6 +28958,10 @@ define void @_ZN5Yosys17proc_self_dirnameB5cxx11Ev(ptr dead_on_unwind noalias wr
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %6, label %.preheader
 
+.preheader:                                       ; preds = %1
+  %.not79 = icmp eq i64 %4, 0
+  br i1 %.not79, label %._crit_edge.i.i.thread, label %.lr.ph
+
 6:                                                ; preds = %1
   %7 = tail call ptr @__errno_location() #45
   %8 = load i32, ptr %7, align 4, !tbaa !23
@@ -28965,61 +28969,62 @@ define void @_ZN5Yosys17proc_self_dirnameB5cxx11Ev(ptr dead_on_unwind noalias wr
   tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.314, ptr noundef %9) #43
   unreachable
 
-.preheader:                                       ; preds = %1, %11
-  %.0 = phi i64 [ %12, %11 ], [ %4, %1 ]
-  %.not7 = icmp eq i64 %.0, 0
-  br i1 %.not7, label %._crit_edge.i.i.thread, label %11
-
-._crit_edge.i.i.thread:                           ; preds = %.preheader
+._crit_edge.i.i.thread:                           ; preds = %14, %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %0, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !48
-  br label %23
+  br label %24
 
-11:                                               ; preds = %.preheader
-  %12 = add nsw i64 %.0, -1
-  %13 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !43
-  %.not = icmp eq i8 %14, 47
-  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !190
+.lr.ph:                                           ; preds = %.preheader, %14
+  %.010 = phi i64 [ %15, %14 ], [ %4, %.preheader ]
+  %11 = getelementptr i8, ptr %3, i64 %.010
+  %12 = getelementptr i8, ptr %11, i64 -1
+  %13 = load i8, ptr %12, align 1, !tbaa !43
+  %.not = icmp eq i8 %13, 47
+  br i1 %.not, label %.critedge, label %14
 
-.critedge:                                        ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %0, align 8, !tbaa !47
+14:                                               ; preds = %.lr.ph
+  %15 = add nsw i64 %.010, -1
+  %.not7 = icmp eq i64 %15, 0
+  br i1 %.not7, label %._crit_edge.i.i.thread, label %.lr.ph, !llvm.loop !190
+
+.critedge:                                        ; preds = %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %16, ptr %0, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 %.0, ptr %2, align 8, !tbaa !48
-  %16 = icmp samesign ugt i64 %.0, 15
-  br i1 %16, label %._crit_edge.i.i.thread11, label %._crit_edge.i.i
+  store i64 %.010, ptr %2, align 8, !tbaa !48
+  %17 = icmp samesign ugt i64 %.010, 15
+  br i1 %17, label %._crit_edge.i.i.thread13, label %._crit_edge.i.i
 
-._crit_edge.i.i.thread11:                         ; preds = %.critedge
-  %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %17, ptr %0, align 8, !tbaa !44
-  %18 = load i64, ptr %2, align 8, !tbaa !48
-  store i64 %18, ptr %15, align 8, !tbaa !43
-  br label %21
+._crit_edge.i.i.thread13:                         ; preds = %.critedge
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
+  store ptr %18, ptr %0, align 8, !tbaa !44
+  %19 = load i64, ptr %2, align 8, !tbaa !48
+  store i64 %19, ptr %16, align 8, !tbaa !43
+  br label %22
 
 ._crit_edge.i.i:                                  ; preds = %.critedge
-  %cond = icmp eq i64 %.0, 1
-  br i1 %cond, label %19, label %21
+  %cond = icmp eq i64 %.010, 1
+  br i1 %cond, label %20, label %22
 
-19:                                               ; preds = %._crit_edge.i.i
-  %20 = load i8, ptr %3, align 16, !tbaa !43
-  store i8 %20, ptr %15, align 8, !tbaa !43
-  br label %23
+20:                                               ; preds = %._crit_edge.i.i
+  %21 = load i8, ptr %3, align 16, !tbaa !43
+  store i8 %21, ptr %16, align 8, !tbaa !43
+  br label %24
 
-21:                                               ; preds = %._crit_edge.i.i.thread11, %._crit_edge.i.i
-  %22 = phi ptr [ %17, %._crit_edge.i.i.thread11 ], [ %15, %._crit_edge.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 16 %3, i64 %.0, i1 false)
-  br label %23
+22:                                               ; preds = %._crit_edge.i.i.thread13, %._crit_edge.i.i
+  %23 = phi ptr [ %18, %._crit_edge.i.i.thread13 ], [ %16, %._crit_edge.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 16 dereferenceable(1) %3, i64 %.010, i1 false)
+  br label %24
 
-23:                                               ; preds = %21, %19, %._crit_edge.i.i.thread
-  %24 = load i64, ptr %2, align 8, !tbaa !48
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !49
-  %26 = load ptr, ptr %0, align 8, !tbaa !44
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
-  store i8 0, ptr %27, align 1, !tbaa !43
+24:                                               ; preds = %22, %20, %._crit_edge.i.i.thread
+  %25 = load i64, ptr %2, align 8, !tbaa !48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %26, align 8, !tbaa !49
+  %27 = load ptr, ptr %0, align 8, !tbaa !44
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
+  store i8 0, ptr %28, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

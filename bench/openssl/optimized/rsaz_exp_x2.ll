@@ -39,7 +39,7 @@ define range(i32 0, 2) i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %0, ptr noun
   %31 = add nsw i32 %30, -4
   %32 = or disjoint i32 %31, %29
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [6 x ptr], ptr @ossl_rsaz_amm52_x1, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr @ossl_rsaz_amm52_x1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   %36 = sext i32 %27 to i64
   %37 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %36, ptr noundef nonnull @.str, i32 noundef 239) #6
@@ -733,9 +733,9 @@ to_words52.exit258:                               ; preds = %get_digit.exit40.i2
   %391 = zext i1 %390 to i32
   %392 = add nuw nsw i32 %31, %391
   %393 = zext nneg i32 %392 to i64
-  %394 = getelementptr inbounds nuw [6 x ptr], ptr @ossl_rsaz_amm52_x2, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw ptr, ptr @ossl_rsaz_amm52_x2, i64 %393
   %395 = load ptr, ptr %394, align 8, !tbaa !3
-  %396 = getelementptr inbounds nuw [6 x ptr], ptr @ossl_extract_multiplier_win5, i64 0, i64 %393
+  %396 = getelementptr inbounds nuw ptr, ptr @ossl_extract_multiplier_win5, i64 %393
   %397 = load ptr, ptr %396, align 8, !tbaa !3
   switch i32 %12, label %RSAZ_mod_exp_x2_ifma256.exit.thread [
     i32 1024, label %400

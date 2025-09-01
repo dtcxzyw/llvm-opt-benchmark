@@ -1337,7 +1337,7 @@ define noundef zeroext i1 @_ZN7rocksdb20PlainTableFileReader11ReadNonMmapEjjPNS_
   %15 = xor i32 %14, -1
   %16 = add i32 %10, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [2 x %"class.std::unique_ptr.55"], ptr %11, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !118
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !106
@@ -1378,7 +1378,7 @@ define noundef zeroext i1 @_ZN7rocksdb20PlainTableFileReader11ReadNonMmapEjjPNS_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %35, i8 0, i64 20, i1 false)
   %36 = add nuw nsw i32 %10, 1
   store i32 %36, ptr %9, align 8, !tbaa !114
-  %37 = getelementptr inbounds nuw [2 x %"class.std::unique_ptr.55"], ptr %33, i64 0, i64 %34
+  %37 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %33, i64 %34
   %38 = load ptr, ptr %37, align 8, !tbaa !118
   store ptr %35, ptr %37, align 8, !tbaa !118
   %.not.i.i = icmp eq ptr %38, null
@@ -1401,7 +1401,7 @@ _ZNKSt14default_deleteIN7rocksdb20PlainTableFileReader6BufferEEclEPS2_.exit.i.i:
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = add i32 %10, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [2 x %"class.std::unique_ptr.55"], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %42, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !118
   br label %_ZNSt10unique_ptrIN7rocksdb20PlainTableFileReader6BufferESt14default_deleteIS2_EE5resetEPS2_.exit
 

@@ -231,9 +231,9 @@ define dso_local range(i32 -1, 1) i32 @job_apply_verb_locked(ptr noundef %0, i32
   %10 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %6) #15
   %11 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobVerb_lookup, i32 noundef %1) #15
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw [8 x [11 x i8]], ptr @JobVerbTable, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [11 x i8], ptr @JobVerbTable, i64 %12
   %14 = zext i32 %6 to i64
-  %15 = getelementptr inbounds nuw [11 x i8], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
   %18 = select i1 %17, ptr @.str.2, ptr @.str.3
@@ -753,9 +753,9 @@ define internal fastcc void @job_state_transition_locked(ptr noundef %0, i32 nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [11 x [11 x i8]], ptr @JobSTT, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [11 x i8], ptr @JobSTT, i64 %11
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw [11 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
   %17 = select i1 %16, ptr @.str.2, ptr @.str.33

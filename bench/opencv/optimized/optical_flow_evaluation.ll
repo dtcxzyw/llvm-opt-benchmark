@@ -5884,7 +5884,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
 157:                                              ; preds = %139, %229
   %indvars.iv = phi i64 [ 0, %139 ], [ %indvars.iv.next, %229 ]
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %158 = getelementptr inbounds nuw [5 x float], ptr @__const._ZL14calculateStatsN2cv3MatES0_b.R_thresholds, i64 0, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw float, ptr @__const._ZL14calculateStatsN2cv3MatES0_b.R_thresholds, i64 %indvars.iv
   %159 = load float, ptr %158, align 4, !tbaa !113
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %160 unwind label %235
@@ -6203,7 +6203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
 
 271:                                              ; preds = %259, %_ZL7stat_AXN2cv3MatEif.exit
   %indvars.iv106 = phi i64 [ 0, %259 ], [ %indvars.iv.next107, %_ZL7stat_AXN2cv3MatEif.exit ]
-  %272 = getelementptr inbounds nuw [3 x float], ptr @__const._ZL14calculateStatsN2cv3MatES0_b.A_thresholds, i64 0, i64 %indvars.iv106
+  %272 = getelementptr inbounds nuw float, ptr @__const._ZL14calculateStatsN2cv3MatES0_b.A_thresholds, i64 %indvars.iv106
   %273 = load float, ptr %272, align 4, !tbaa !113
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef nonnull align 8 dereferenceable(96) %27)
           to label %274 unwind label %305

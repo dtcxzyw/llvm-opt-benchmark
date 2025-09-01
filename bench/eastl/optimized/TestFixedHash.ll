@@ -36943,9 +36943,9 @@ for.body.i.i.i.preheader.i.i.i.i.i:               ; preds = %while.body, %for.in
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.preheader.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [10 x i32], ptr %ref.tmp686, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %ref.tmp686, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %594 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4, !noalias !649
-  %arrayidx4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [10 x i32], ptr %pNode.addr.05.i.i.i.i.i856, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %arrayidx4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %pNode.addr.05.i.i.i.i.i856, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %595 = load i32, ptr %arrayidx4.i.i.i.i.i.i.i.i, align 4, !noalias !649
   %cmp5.not.i.i.i.i.i.i.i.i = icmp eq i32 %594, %595
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1

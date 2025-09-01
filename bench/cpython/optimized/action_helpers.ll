@@ -1423,11 +1423,11 @@ define hidden ptr @_PyPegen_map_names_to_ids(ptr noundef readonly captures(none)
 
 14:                                               ; preds = %.lr.ph, %14
   %.01417 = phi i64 [ 0, %.lr.ph ], [ %20, %14 ]
-  %15 = getelementptr [1 x ptr], ptr %12, i64 0, i64 %.01417
+  %15 = getelementptr ptr, ptr %12, i64 %.01417
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !27
-  %19 = getelementptr [1 x ptr], ptr %13, i64 0, i64 %.01417
+  %19 = getelementptr ptr, ptr %13, i64 %.01417
   store ptr %18, ptr %19, align 8, !tbaa !28
   %20 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %20, %7
@@ -1489,7 +1489,7 @@ define hidden ptr @_PyPegen_get_cmpops(ptr noundef readonly captures(none) %0, p
   %16 = getelementptr ptr, ptr %13, i64 %.01417
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = load i32, ptr %17, align 8, !tbaa !54
-  %19 = getelementptr [1 x i32], ptr %14, i64 0, i64 %.01417
+  %19 = getelementptr i32, ptr %14, i64 %.01417
   store i32 %18, ptr %19, align 4, !tbaa !57
   %20 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %20, %7
@@ -1532,7 +1532,7 @@ define hidden ptr @_PyPegen_get_exprs(ptr noundef readonly captures(none) %0, pt
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !56
-  %20 = getelementptr [1 x ptr], ptr %14, i64 0, i64 %.01417
+  %20 = getelementptr ptr, ptr %14, i64 %.01417
   store ptr %19, ptr %20, align 8, !tbaa !51
   %21 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %21, %7
@@ -1601,10 +1601,10 @@ define hidden ptr @_PyPegen_set_expr_context(ptr noundef %0, ptr noundef readonl
 
 32:                                               ; preds = %.lr.ph30, %32
   %.017.i29 = phi i64 [ 0, %.lr.ph30 ], [ %37, %32 ]
-  %33 = getelementptr [1 x ptr], ptr %30, i64 0, i64 %.017.i29
+  %33 = getelementptr ptr, ptr %30, i64 %.017.i29
   %34 = load ptr, ptr %33, align 8, !tbaa !51
   %35 = tail call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %0, ptr noundef %34, i32 noundef %2)
-  %36 = getelementptr [1 x ptr], ptr %31, i64 0, i64 %.017.i29
+  %36 = getelementptr ptr, ptr %31, i64 %.017.i29
   store ptr %35, ptr %36, align 8, !tbaa !51
   %37 = add nuw nsw i64 %.017.i29, 1
   %exitcond31.not = icmp eq i64 %37, %23
@@ -1654,10 +1654,10 @@ _set_seq_context.exit:                            ; preds = %32, %.preheader, %1
 
 63:                                               ; preds = %.lr.ph, %63
   %.017.i2328 = phi i64 [ 0, %.lr.ph ], [ %68, %63 ]
-  %64 = getelementptr [1 x ptr], ptr %61, i64 0, i64 %.017.i2328
+  %64 = getelementptr ptr, ptr %61, i64 %.017.i2328
   %65 = load ptr, ptr %64, align 8, !tbaa !51
   %66 = tail call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %2)
-  %67 = getelementptr [1 x ptr], ptr %62, i64 0, i64 %.017.i2328
+  %67 = getelementptr ptr, ptr %62, i64 %.017.i2328
   store ptr %66, ptr %67, align 8, !tbaa !51
   %68 = add nuw nsw i64 %.017.i2328, 1
   %exitcond.not = icmp eq i64 %68, %54
@@ -1784,7 +1784,7 @@ define hidden ptr @_PyPegen_get_keys(ptr noundef readonly captures(none) %0, ptr
   %16 = getelementptr ptr, ptr %13, i64 %.01417
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = load ptr, ptr %17, align 8, !tbaa !62
-  %19 = getelementptr [1 x ptr], ptr %14, i64 0, i64 %.01417
+  %19 = getelementptr ptr, ptr %14, i64 %.01417
   store ptr %18, ptr %19, align 8, !tbaa !51
   %20 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %20, %7
@@ -1825,7 +1825,7 @@ define hidden ptr @_PyPegen_get_values(ptr noundef readonly captures(none) %0, p
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !64
-  %20 = getelementptr [1 x ptr], ptr %14, i64 0, i64 %.01417
+  %20 = getelementptr ptr, ptr %14, i64 %.01417
   store ptr %19, ptr %20, align 8, !tbaa !51
   %21 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %21, %7
@@ -1883,7 +1883,7 @@ define hidden ptr @_PyPegen_get_pattern_keys(ptr noundef readonly captures(none)
   %16 = getelementptr ptr, ptr %13, i64 %.01417
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = load ptr, ptr %17, align 8, !tbaa !67
-  %19 = getelementptr [1 x ptr], ptr %14, i64 0, i64 %.01417
+  %19 = getelementptr ptr, ptr %14, i64 %.01417
   store ptr %18, ptr %19, align 8, !tbaa !51
   %20 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %20, %7
@@ -1924,7 +1924,7 @@ define hidden ptr @_PyPegen_get_patterns(ptr noundef readonly captures(none) %0,
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !70
-  %20 = getelementptr [1 x ptr], ptr %14, i64 0, i64 %.01417
+  %20 = getelementptr ptr, ptr %14, i64 %.01417
   store ptr %19, ptr %20, align 8, !tbaa !72
   %21 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %21, %7
@@ -2177,7 +2177,7 @@ define hidden ptr @_PyPegen_make_arguments(ptr noundef readonly captures(none) %
   %24 = getelementptr ptr, ptr %21, i64 %.01417.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = load ptr, ptr %25, align 8, !tbaa !74
-  %27 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.01417.i.i
+  %27 = getelementptr ptr, ptr %22, i64 %.01417.i.i
   store ptr %26, ptr %27, align 8, !tbaa !95
   %28 = add nuw nsw i64 %.01417.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %28, %15
@@ -2294,7 +2294,7 @@ _make_posonlyargs.exit.thread93:                  ; preds = %53, %.preheader.i.i
   %77 = getelementptr ptr, ptr %74, i64 %.01417.i.i48
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   %79 = load ptr, ptr %78, align 8, !tbaa !74
-  %80 = getelementptr [1 x ptr], ptr %75, i64 0, i64 %.01417.i.i48
+  %80 = getelementptr ptr, ptr %75, i64 %.01417.i.i48
   store ptr %79, ptr %80, align 8, !tbaa !95
   %81 = add nuw nsw i64 %.01417.i.i48, 1
   %exitcond.not.i.i49 = icmp eq i64 %81, %67
@@ -2379,7 +2379,7 @@ _get_names.exit.thread.i32:                       ; preds = %76, %_get_names.exi
   %115 = getelementptr ptr, ptr %112, i64 %.01417.i33.i
   %116 = load ptr, ptr %115, align 8, !tbaa !19
   %117 = load ptr, ptr %116, align 8, !tbaa !74
-  %118 = getelementptr [1 x ptr], ptr %113, i64 0, i64 %.01417.i33.i
+  %118 = getelementptr ptr, ptr %113, i64 %.01417.i33.i
   store ptr %117, ptr %118, align 8, !tbaa !95
   %119 = add nuw nsw i64 %.01417.i33.i, 1
   %exitcond.not.i34.i = icmp eq i64 %119, %67
@@ -2442,7 +2442,7 @@ _make_posargs.exit.thread100:                     ; preds = %101, %114, %.prehea
   %146 = load ptr, ptr %145, align 8, !tbaa !19
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !77
-  %149 = getelementptr [1 x ptr], ptr %143, i64 0, i64 %.01417.i.i67
+  %149 = getelementptr ptr, ptr %143, i64 %.01417.i.i67
   store ptr %148, ptr %149, align 8, !tbaa !51
   %150 = add nuw nsw i64 %.01417.i.i67, 1
   %exitcond.not.i.i68 = icmp eq i64 %150, %136
@@ -2473,7 +2473,7 @@ _get_defaults.exit.thread.i:                      ; preds = %144, %_get_defaults
   %160 = load ptr, ptr %159, align 8, !tbaa !19
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !77
-  %163 = getelementptr [1 x ptr], ptr %157, i64 0, i64 %.01417.i41.i
+  %163 = getelementptr ptr, ptr %157, i64 %.01417.i41.i
   store ptr %162, ptr %163, align 8, !tbaa !51
   %164 = add nuw nsw i64 %.01417.i41.i, 1
   %exitcond.not.i42.i = icmp eq i64 %164, %151
@@ -2571,7 +2571,7 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
   %206 = load ptr, ptr %205, align 8, !tbaa !19
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load ptr, ptr %207, align 8, !tbaa !77
-  %209 = getelementptr [1 x ptr], ptr %203, i64 0, i64 %.01417.i50.i
+  %209 = getelementptr ptr, ptr %203, i64 %.01417.i50.i
   store ptr %208, ptr %209, align 8, !tbaa !51
   %210 = add nuw nsw i64 %.01417.i50.i, 1
   %exitcond.not.i51.i = icmp eq i64 %210, %196
@@ -2615,7 +2615,7 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
   %230 = load ptr, ptr %229, align 8, !tbaa !19
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8, !tbaa !77
-  %233 = getelementptr [1 x ptr], ptr %227, i64 0, i64 %.01417.i56.i
+  %233 = getelementptr ptr, ptr %227, i64 %.01417.i56.i
   store ptr %232, ptr %233, align 8, !tbaa !51
   %234 = add nuw nsw i64 %.01417.i56.i, 1
   %exitcond.not.i57.i = icmp eq i64 %234, %220
@@ -2667,7 +2667,7 @@ _make_posdefaults.exit.thread108:                 ; preds = %228, %204, %184, %.
   %254 = getelementptr ptr, ptr %251, i64 %.01417.i.i76
   %255 = load ptr, ptr %254, align 8, !tbaa !19
   %256 = load ptr, ptr %255, align 8, !tbaa !74
-  %257 = getelementptr [1 x ptr], ptr %252, i64 0, i64 %.01417.i.i76
+  %257 = getelementptr ptr, ptr %252, i64 %.01417.i.i76
   store ptr %256, ptr %257, align 8, !tbaa !95
   %258 = add nuw nsw i64 %.01417.i.i76, 1
   %exitcond.not.i.i77 = icmp eq i64 %258, %245
@@ -2719,7 +2719,7 @@ _get_names.exit.thread28.i:                       ; preds = %244
   %280 = load ptr, ptr %279, align 8, !tbaa !19
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %282 = load ptr, ptr %281, align 8, !tbaa !77
-  %283 = getelementptr [1 x ptr], ptr %277, i64 0, i64 %.01417.i25.i
+  %283 = getelementptr ptr, ptr %277, i64 %.01417.i25.i
   store ptr %282, ptr %283, align 8, !tbaa !51
   %284 = add nuw nsw i64 %.01417.i25.i, 1
   %exitcond.not.i26.i = icmp eq i64 %284, %270
@@ -2982,7 +2982,7 @@ _seq_number_of_starred_exprs.exit:                ; preds = %9
   %33 = load ptr, ptr %29, align 8, !tbaa !106
   %34 = add i32 %.01825, 1
   %35 = sext i32 %.01825 to i64
-  %36 = getelementptr [1 x ptr], ptr %26, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr %26, i64 %35
   store ptr %33, ptr %36, align 8, !tbaa !51
   br label %37
 
@@ -3067,7 +3067,7 @@ define hidden ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef readonly captur
   %33 = load ptr, ptr %29, align 8, !tbaa !106
   %34 = add i32 %.01926, 1
   %35 = sext i32 %.01926 to i64
-  %36 = getelementptr [1 x ptr], ptr %26, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr %26, i64 %35
   store ptr %33, ptr %36, align 8, !tbaa !111
   br label %37
 
@@ -3233,7 +3233,7 @@ _PyPegen_new_type_comment.exit:                   ; preds = %20
   br i1 %.not39, label %.critedge, label %35
 
 35:                                               ; preds = %_PyPegen_new_type_comment.exit
-  %36 = getelementptr [1 x ptr], ptr %12, i64 0, i64 %.02742
+  %36 = getelementptr ptr, ptr %12, i64 %.02742
   store ptr %34, ptr %36, align 8, !tbaa !123
   %37 = add nuw nsw i64 %.02742, 1
   %exitcond.not = icmp eq i64 %37, %5
@@ -3361,7 +3361,7 @@ define hidden range(i32 0, 2) i32 @_PyPegen_check_legacy_stmt(ptr noundef readno
   %.not11 = phi i1 [ false, %.preheader ], [ true, %5 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !27
-  %7 = getelementptr [2 x ptr], ptr @__const._PyPegen_check_legacy_stmt.candidates, i64 0, i64 %indvars.iv
+  %7 = getelementptr ptr, ptr @__const._PyPegen_check_legacy_stmt.candidates, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !127
   %9 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %6, ptr noundef %8) #11
   %10 = icmp eq i32 %9, 0
@@ -3453,7 +3453,7 @@ define hidden ptr @_PyPegen_setup_full_format_spec(ptr noundef %0, ptr noundef r
 13:                                               ; preds = %.lr.ph, %26
   %.05977 = phi i64 [ 0, %.lr.ph ], [ %28, %26 ]
   %.06076 = phi i64 [ 0, %.lr.ph ], [ %29, %26 ]
-  %14 = getelementptr [1 x ptr], ptr %12, i64 0, i64 %.06076
+  %14 = getelementptr ptr, ptr %12, i64 %.06076
   %15 = load ptr, ptr %14, align 8, !tbaa !51
   %16 = load i32, ptr %15, align 8, !tbaa !60
   %17 = icmp eq i32 %16, 20
@@ -3499,7 +3499,7 @@ define hidden ptr @_PyPegen_setup_full_format_spec(ptr noundef %0, ptr noundef r
 36:                                               ; preds = %.lr.ph80, %51
   %.05579 = phi i64 [ 0, %.lr.ph80 ], [ %52, %51 ]
   %.05678 = phi i64 [ 0, %.lr.ph80 ], [ %.157, %51 ]
-  %37 = getelementptr [1 x ptr], ptr %34, i64 0, i64 %.05579
+  %37 = getelementptr ptr, ptr %34, i64 %.05579
   %38 = load ptr, ptr %37, align 8, !tbaa !51
   %39 = load i32, ptr %38, align 8, !tbaa !60
   %40 = icmp eq i32 %39, 20
@@ -3521,7 +3521,7 @@ define hidden ptr @_PyPegen_setup_full_format_spec(ptr noundef %0, ptr noundef r
 
 48:                                               ; preds = %45, %41, %36
   %49 = add i64 %.05678, 1
-  %50 = getelementptr [1 x ptr], ptr %35, i64 0, i64 %.05678
+  %50 = getelementptr ptr, ptr %35, i64 %.05678
   store ptr %38, ptr %50, align 8, !tbaa !51
   br label %51
 
@@ -3604,7 +3604,7 @@ define hidden ptr @_PyPegen_concatenate_strings(ptr noundef %0, ptr noundef read
   %.0149253 = phi i32 [ 0, %.lr.ph ], [ %.2151, %34 ]
   %.0152252 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
   %.0162251 = phi i64 [ 0, %.lr.ph ], [ %.1163, %34 ]
-  %15 = getelementptr [1 x ptr], ptr %13, i64 0, i64 %.0152252
+  %15 = getelementptr ptr, ptr %13, i64 %.0152252
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = load i32, ptr %16, align 8, !tbaa !60
   switch i32 %17, label %32 [
@@ -3679,7 +3679,7 @@ define hidden ptr @_PyPegen_concatenate_strings(ptr noundef %0, ptr noundef read
 
 .lr.ph289:                                        ; preds = %43, %.lr.ph289
   %.1153287 = phi i64 [ %53, %.lr.ph289 ], [ 0, %43 ]
-  %49 = getelementptr [1 x ptr], ptr %45, i64 0, i64 %.1153287
+  %49 = getelementptr ptr, ptr %45, i64 %.1153287
   %50 = load ptr, ptr %49, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !27
@@ -3776,7 +3776,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
   %.3155270.us = phi i64 [ %103, %102 ], [ 0, %.lr.ph271 ]
   %.0183269.us = phi i32 [ %.1184.us, %102 ], [ 0, %.lr.ph271 ]
   %.0185268.us = phi i64 [ %.1186.us, %102 ], [ 0, %.lr.ph271 ]
-  %87 = getelementptr [1 x ptr], ptr %86, i64 0, i64 %.3155270.us
+  %87 = getelementptr ptr, ptr %86, i64 %.3155270.us
   %88 = load ptr, ptr %87, align 8, !tbaa !51
   %89 = load i32, ptr %88, align 8, !tbaa !60
   %90 = icmp eq i32 %89, 20
@@ -3819,7 +3819,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
 104:                                              ; preds = %.lr.ph267, %.critedge239
   %.2154266 = phi i64 [ 0, %.lr.ph267 ], [ %127, %.critedge239 ]
   %.0176265 = phi i64 [ 0, %.lr.ph267 ], [ %.3179, %.critedge239 ]
-  %105 = getelementptr [1 x ptr], ptr %83, i64 0, i64 %.2154266
+  %105 = getelementptr ptr, ptr %83, i64 %.2154266
   %106 = load ptr, ptr %105, align 8, !tbaa !51
   %107 = load i32, ptr %106, align 8, !tbaa !60
   %cond1 = icmp eq i32 %107, 19
@@ -3841,14 +3841,14 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
 
 114:                                              ; preds = %.lr.ph261
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %116 = getelementptr [1 x ptr], ptr %115, i64 0, i64 %.0188259
+  %116 = getelementptr ptr, ptr %115, i64 %.0188259
   %117 = load ptr, ptr %116, align 8, !tbaa !51
   %.not207 = icmp eq ptr %117, null
   br i1 %.not207, label %.critedge, label %118
 
 118:                                              ; preds = %114
   %119 = add i64 %.1177260, 1
-  %120 = getelementptr [1 x ptr], ptr %84, i64 0, i64 %.1177260
+  %120 = getelementptr ptr, ptr %84, i64 %.1177260
   store ptr %117, ptr %120, align 8, !tbaa !51
   %121 = add nuw nsw i64 %.0188259, 1
   %122 = load ptr, ptr %108, align 8, !tbaa !27
@@ -3857,7 +3857,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
 
 124:                                              ; preds = %104
   %125 = add i64 %.0176265, 1
-  %126 = getelementptr [1 x ptr], ptr %84, i64 0, i64 %.0176265
+  %126 = getelementptr ptr, ptr %84, i64 %.0176265
   store ptr %106, ptr %126, align 8, !tbaa !51
   br label %.critedge239
 
@@ -3871,7 +3871,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
   %.3155270 = phi i64 [ %135, %133 ], [ 0, %.lr.ph271 ]
   %.0183269 = phi i1 [ %134, %133 ], [ true, %.lr.ph271 ]
   %.0185268 = phi i64 [ %.2187, %133 ], [ 0, %.lr.ph271 ]
-  %128 = getelementptr [1 x ptr], ptr %86, i64 0, i64 %.3155270
+  %128 = getelementptr ptr, ptr %86, i64 %.3155270
   %129 = load ptr, ptr %128, align 8, !tbaa !51
   %.pre.pre = load i32, ptr %129, align 8, !tbaa !60
   %.not206 = icmp ne i32 %.pre.pre, 20
@@ -3913,7 +3913,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
 146:                                              ; preds = %.lr.ph285, %213
   %.4156284 = phi i64 [ 0, %.lr.ph285 ], [ %214, %213 ]
   %.5181283 = phi i64 [ 0, %.lr.ph285 ], [ %.6182.ph, %213 ]
-  %147 = getelementptr [1 x ptr], ptr %144, i64 0, i64 %.4156284
+  %147 = getelementptr ptr, ptr %144, i64 %.4156284
   %148 = load ptr, ptr %147, align 8, !tbaa !51
   %149 = load i32, ptr %148, align 8, !tbaa !60
   %150 = icmp eq i32 %149, 20
@@ -3925,7 +3925,7 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
   br i1 %153, label %154, label %Py_DECREF.exit
 
 154:                                              ; preds = %151
-  %155 = getelementptr [1 x ptr], ptr %144, i64 0, i64 %152
+  %155 = getelementptr ptr, ptr %144, i64 %152
   %156 = load ptr, ptr %155, align 8, !tbaa !51
   %157 = load i32, ptr %156, align 8, !tbaa !60
   %158 = icmp eq i32 %157, 20
@@ -3939,14 +3939,14 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
   br i1 %163, label %.critedge, label %.lr.ph276.preheader
 
 .lr.ph276.preheader:                              ; preds = %159
-  %164 = getelementptr [1 x ptr], ptr %144, i64 0, i64 %.4156284
+  %164 = getelementptr ptr, ptr %144, i64 %.4156284
   %165 = load ptr, ptr %164, align 8, !tbaa !51
   %166 = load i32, ptr %165, align 8, !tbaa !60
   %167 = icmp eq i32 %166, 20
   br i1 %167, label %.lr.ph367, label %._crit_edge277
 
 .lr.ph276:                                        ; preds = %176
-  %168 = getelementptr [1 x ptr], ptr %144, i64 0, i64 %177
+  %168 = getelementptr ptr, ptr %144, i64 %177
   %169 = load ptr, ptr %168, align 8, !tbaa !51
   %170 = load i32, ptr %169, align 8, !tbaa !60
   %171 = icmp eq i32 %170, 20
@@ -4039,7 +4039,7 @@ Py_DECREF.exit:                                   ; preds = %191, %154, %151
   %.0164 = phi ptr [ %.1165, %207 ], [ %.1165, %203 ], [ %.1165, %Py_DECREF.exit ], [ %148, %146 ]
   %.5157 = phi i64 [ %.6158, %207 ], [ %.6158, %203 ], [ %.6158, %Py_DECREF.exit ], [ %.4156284, %146 ]
   %211 = add i64 %.5181283, 1
-  %212 = getelementptr [1 x ptr], ptr %145, i64 0, i64 %.5181283
+  %212 = getelementptr ptr, ptr %145, i64 %.5181283
   store ptr %.0164, ptr %212, align 8, !tbaa !51
   br label %213
 
@@ -4303,7 +4303,7 @@ _seq_number_of_starred_exprs.exit.i:              ; preds = %22
   %45 = load ptr, ptr %41, align 8, !tbaa !106
   %46 = add i32 %.01825.i, 1
   %47 = sext i32 %.01825.i to i64
-  %48 = getelementptr [1 x ptr], ptr %38, i64 0, i64 %47
+  %48 = getelementptr ptr, ptr %38, i64 %47
   store ptr %45, ptr %48, align 8, !tbaa !51
   br label %49
 
@@ -4378,7 +4378,7 @@ _PyPegen_seq_extract_starred_exprs.exit:          ; preds = %49, %30
   %77 = load ptr, ptr %73, align 8, !tbaa !106
   %78 = add i32 %.01926.i, 1
   %79 = sext i32 %.01926.i to i64
-  %80 = getelementptr [1 x ptr], ptr %70, i64 0, i64 %79
+  %80 = getelementptr ptr, ptr %70, i64 %79
   store ptr %77, ptr %80, align 8, !tbaa !111
   br label %81
 
@@ -4425,9 +4425,9 @@ _PyPegen_seq_delete_starred_exprs.exit:           ; preds = %81, %63, %.split21.
 
 95:                                               ; preds = %.lr.ph, %95
   %.067 = phi i64 [ 0, %.lr.ph ], [ %99, %95 ]
-  %96 = getelementptr [1 x ptr], ptr %90, i64 0, i64 %.067
+  %96 = getelementptr ptr, ptr %90, i64 %.067
   %97 = load ptr, ptr %96, align 8, !tbaa !51
-  %98 = getelementptr [1 x ptr], ptr %91, i64 0, i64 %.067
+  %98 = getelementptr ptr, ptr %91, i64 %.067
   store ptr %97, ptr %98, align 8, !tbaa !51
   %99 = add nuw nsw i64 %.067, 1
   %exitcond.not = icmp eq i64 %99, %13
@@ -4436,9 +4436,9 @@ _PyPegen_seq_delete_starred_exprs.exit:           ; preds = %81, %63, %.split21.
 100:                                              ; preds = %.lr.ph69, %100
   %.168 = phi i64 [ %.0.lcssa, %.lr.ph69 ], [ %105, %100 ]
   %101 = sub i64 %.168, %13
-  %102 = getelementptr [1 x ptr], ptr %93, i64 0, i64 %101
+  %102 = getelementptr ptr, ptr %93, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !51
-  %104 = getelementptr [1 x ptr], ptr %94, i64 0, i64 %.168
+  %104 = getelementptr ptr, ptr %94, i64 %.168
   store ptr %103, ptr %104, align 8, !tbaa !51
   %105 = add nuw nsw i64 %.168, 1
   %exitcond71.not = icmp eq i64 %105, %.047
@@ -4509,7 +4509,7 @@ define hidden ptr @_PyPegen_get_invalid_target(ptr noundef readonly captures(add
 
 .lr.ph120:                                        ; preds = %10, %13
   %.045119 = phi i64 [ %14, %13 ], [ 0, %10 ]
-  %15 = getelementptr [1 x ptr], ptr %12, i64 0, i64 %.045119
+  %15 = getelementptr ptr, ptr %12, i64 %.045119
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = tail call ptr @_PyPegen_get_invalid_target(ptr noundef %16, i32 noundef %.tr64.ph110)
   %.not59 = icmp eq ptr %17, null
@@ -4535,7 +4535,7 @@ define hidden ptr @_PyPegen_get_invalid_target(ptr noundef readonly captures(add
 
 .lr.ph114:                                        ; preds = %21, %24
   %.050113 = phi i64 [ %25, %24 ], [ 0, %21 ]
-  %26 = getelementptr [1 x ptr], ptr %23, i64 0, i64 %.050113
+  %26 = getelementptr ptr, ptr %23, i64 %.050113
   %27 = load ptr, ptr %26, align 8, !tbaa !51
   %28 = tail call ptr @_PyPegen_get_invalid_target(ptr noundef %27, i32 noundef %.tr64.ph110)
   %.not = icmp eq ptr %28, null
@@ -4606,7 +4606,7 @@ define hidden ptr @_PyPegen_arguments_parsing_error(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %.lr.ph, %14
   %.01015 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
   %.01114 = phi i64 [ 0, %.lr.ph ], [ %18, %14 ]
-  %15 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %.01114
+  %15 = getelementptr ptr, ptr %9, i64 %.01114
   %16 = load ptr, ptr %15, align 8, !tbaa !111
   %17 = load ptr, ptr %16, align 8, !tbaa !155
   %.not13 = icmp eq ptr %17, null
@@ -4644,52 +4644,51 @@ _PyPegen_seq_last_item.exit:                      ; preds = %10, %12
   %18 = getelementptr ptr, ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %22 = add nsw i64 %8, -1
-  %23 = getelementptr [1 x ptr], ptr %21, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !51
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !40
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %29 = load i32, ptr %28, align 4, !tbaa !42
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !149
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %_PyPegen_get_last_comprehension_item.exit.thread19, label %34
+  %21 = getelementptr i8, ptr %5, i64 8
+  %22 = getelementptr ptr, ptr %21, i64 %8
+  %23 = load ptr, ptr %22, align 8, !tbaa !51
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load i32, ptr %24, align 8, !tbaa !40
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  %28 = load i32, ptr %27, align 4, !tbaa !42
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !149
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %_PyPegen_get_last_comprehension_item.exit.thread19, label %33
 
-34:                                               ; preds = %_PyPegen_seq_last_item.exit
-  %35 = load i64, ptr %32, align 8, !tbaa !49
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %_PyPegen_get_last_comprehension_item.exit.thread19, label %_PyPegen_seq_last_item.exit.i13
+33:                                               ; preds = %_PyPegen_seq_last_item.exit
+  %34 = load i64, ptr %31, align 8, !tbaa !49
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %_PyPegen_get_last_comprehension_item.exit.thread19, label %_PyPegen_seq_last_item.exit.i13
 
-_PyPegen_get_last_comprehension_item.exit.thread19: ; preds = %34, %_PyPegen_seq_last_item.exit
+_PyPegen_get_last_comprehension_item.exit.thread19: ; preds = %33, %_PyPegen_seq_last_item.exit
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %_PyPegen_get_last_comprehension_item.exit16
 
-_PyPegen_seq_last_item.exit.i13:                  ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !17
-  %41 = getelementptr ptr, ptr %40, i64 %35
-  %42 = getelementptr i8, ptr %41, i64 -8
-  %43 = getelementptr ptr, ptr %40, i64 %35
-  %44 = getelementptr i8, ptr %43, i64 -8
+_PyPegen_seq_last_item.exit.i13:                  ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !17
+  %40 = getelementptr ptr, ptr %39, i64 %34
+  %41 = getelementptr i8, ptr %40, i64 -8
+  %42 = getelementptr ptr, ptr %39, i64 %34
+  %43 = getelementptr i8, ptr %42, i64 -8
   br label %_PyPegen_get_last_comprehension_item.exit16
 
 _PyPegen_get_last_comprehension_item.exit16:      ; preds = %_PyPegen_get_last_comprehension_item.exit.thread19, %_PyPegen_seq_last_item.exit.i13
-  %.0.i18.pn27.pn.in = phi ptr [ %37, %_PyPegen_get_last_comprehension_item.exit.thread19 ], [ %42, %_PyPegen_seq_last_item.exit.i13 ]
-  %.0.in.i14 = phi ptr [ %38, %_PyPegen_get_last_comprehension_item.exit.thread19 ], [ %44, %_PyPegen_seq_last_item.exit.i13 ]
+  %.0.i18.pn27.pn.in = phi ptr [ %36, %_PyPegen_get_last_comprehension_item.exit.thread19 ], [ %41, %_PyPegen_seq_last_item.exit.i13 ]
+  %.0.in.i14 = phi ptr [ %37, %_PyPegen_get_last_comprehension_item.exit.thread19 ], [ %43, %_PyPegen_seq_last_item.exit.i13 ]
   %.0.i18.pn27.pn = load ptr, ptr %.0.i18.pn27.pn.in, align 8, !tbaa !19
   %.in30.in = getelementptr inbounds nuw i8, ptr %.0.i18.pn27.pn, i64 40
   %.in30 = load i32, ptr %.in30.in, align 8, !tbaa !43
-  %45 = sext i32 %.in30 to i64
+  %44 = sext i32 %.in30 to i64
   %.0.i15 = load ptr, ptr %.0.in.i14, align 8, !tbaa !19
-  %46 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 44
-  %47 = load i32, ptr %46, align 4, !tbaa !44
-  %48 = sext i32 %47 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %0, ptr noundef %20, i64 noundef %27, i64 noundef %30, i64 noundef %45, i64 noundef %48, ptr noundef nonnull @.str.39)
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 44
+  %46 = load i32, ptr %45, align 4, !tbaa !44
+  %47 = sext i32 %46 to i64
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %0, ptr noundef %20, i64 noundef %26, i64 noundef %29, i64 noundef %44, i64 noundef %47, ptr noundef nonnull @.str.39)
   br label %.thread
 
 .thread:                                          ; preds = %3, %7, %_PyPegen_get_last_comprehension_item.exit16
@@ -4723,7 +4722,7 @@ define hidden ptr @_PyPegen_joined_str(ptr noundef %0, ptr noundef readonly capt
 16:                                               ; preds = %.lr.ph, %31
   %.070112 = phi i64 [ %7, %.lr.ph ], [ %.171, %31 ]
   %.072111 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
-  %17 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %.072111
+  %17 = getelementptr ptr, ptr %9, i64 %.072111
   %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = load i32, ptr %18, align 8, !tbaa !60
   %20 = icmp eq i32 %19, 19
@@ -4768,15 +4767,15 @@ define hidden ptr @_PyPegen_joined_str(ptr noundef %0, ptr noundef readonly capt
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   br label %41
 
-41:                                               ; preds = %.lr.ph116, %121
-  %.074115 = phi i64 [ 0, %.lr.ph116 ], [ %122, %121 ]
-  %.075114 = phi i64 [ 0, %.lr.ph116 ], [ %.378, %121 ]
-  %42 = getelementptr [1 x ptr], ptr %39, i64 0, i64 %.074115
+41:                                               ; preds = %.lr.ph116, %123
+  %.074115 = phi i64 [ 0, %.lr.ph116 ], [ %124, %123 ]
+  %.075114 = phi i64 [ 0, %.lr.ph116 ], [ %.378, %123 ]
+  %42 = getelementptr ptr, ptr %39, i64 %.074115
   %43 = load ptr, ptr %42, align 8, !tbaa !51
   %44 = load i32, ptr %43, align 8, !tbaa !60
-  switch i32 %44, label %.sink.split [
+  switch i32 %44, label %120 [
     i32 19, label %45
-    i32 20, label %63
+    i32 20, label %64
   ]
 
 45:                                               ; preds = %41
@@ -4800,185 +4799,185 @@ define hidden ptr @_PyPegen_joined_str(ptr noundef %0, ptr noundef readonly capt
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !51
-  %59 = add i64 %.075114, 1
-  %60 = getelementptr [1 x ptr], ptr %40, i64 0, i64 %.075114
-  store ptr %58, ptr %60, align 8, !tbaa !51
-  %61 = getelementptr i8, ptr %47, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !51
-  br label %.sink.split
+  %59 = getelementptr ptr, ptr %40, i64 %.075114
+  store ptr %58, ptr %59, align 8, !tbaa !51
+  %60 = getelementptr i8, ptr %47, i64 24
+  %61 = load ptr, ptr %60, align 8, !tbaa !51
+  %62 = add i64 %.075114, 2
+  %63 = getelementptr i8, ptr %59, i64 8
+  store ptr %61, ptr %63, align 8, !tbaa !51
+  br label %123
 
-63:                                               ; preds = %41
-  %64 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !27
-  %66 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %65) #11
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %.thread98, label %sub_0.i
+64:                                               ; preds = %41
+  %65 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !27
+  %67 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %66) #11
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %.thread98, label %sub_0.i
 
-sub_0.i:                                          ; preds = %63
-  %68 = load i8, ptr %66, align 1
-  switch i8 %68, label %.tail26.thread.i [
+sub_0.i:                                          ; preds = %64
+  %69 = load i8, ptr %67, align 1
+  switch i8 %69, label %.tail26.thread.i [
     i8 123, label %sub_1.i
     i8 125, label %sub_128.i
   ]
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  %70 = load i8, ptr %69, align 1
-  %.not32.i = icmp eq i8 %70, 123
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %71 = load i8, ptr %70, align 1
+  %.not32.i = icmp eq i8 %71, 123
   br i1 %.not32.i, label %.tail.i, label %.tail26.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 2
-  %72 = load i8, ptr %71, align 1
-  %73 = icmp eq i8 %72, 0
-  br i1 %73, label %80, label %.tail26.thread.i
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 2
+  %73 = load i8, ptr %72, align 1
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %81, label %.tail26.thread.i
 
 sub_128.i:                                        ; preds = %sub_0.i
-  %74 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  %75 = load i8, ptr %74, align 1
-  %.not34.i = icmp eq i8 %75, 125
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %76 = load i8, ptr %75, align 1
+  %.not34.i = icmp eq i8 %76, 125
   br i1 %.not34.i, label %.tail26.i, label %.tail26.thread.i
 
 .tail26.i:                                        ; preds = %sub_128.i
-  %76 = getelementptr inbounds nuw i8, ptr %66, i64 2
-  %77 = load i8, ptr %76, align 1
-  %78 = icmp eq i8 %77, 0
-  br i1 %78, label %80, label %.tail26.thread.i
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 2
+  %78 = load i8, ptr %77, align 1
+  %79 = icmp eq i8 %78, 0
+  br i1 %79, label %81, label %.tail26.thread.i
 
 .tail26.thread.i:                                 ; preds = %.tail26.i, %sub_128.i, %.tail.i, %sub_1.i, %sub_0.i
-  %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #12
-  br label %80
+  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #12
+  br label %81
 
-80:                                               ; preds = %.tail26.thread.i, %.tail26.i, %.tail.i
-  %.023.i = phi i64 [ %79, %.tail26.thread.i ], [ 1, %.tail26.i ], [ 1, %.tail.i ]
-  br i1 %.not100, label %81, label %85
+81:                                               ; preds = %.tail26.thread.i, %.tail26.i, %.tail.i
+  %.023.i = phi i64 [ %80, %.tail26.thread.i ], [ 1, %.tail26.i ], [ 1, %.tail.i ]
+  br i1 %.not100, label %82, label %86
 
-81:                                               ; preds = %80
-  %82 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %66, i32 noundef 92) #12
-  %83 = icmp eq ptr %82, null
-  %84 = zext i1 %83 to i32
-  br label %85
+82:                                               ; preds = %81
+  %83 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %67, i32 noundef 92) #12
+  %84 = icmp eq ptr %83, null
+  %85 = zext i1 %84 to i32
+  br label %86
 
-85:                                               ; preds = %81, %80
-  %86 = phi i32 [ 1, %80 ], [ %84, %81 ]
-  %87 = tail call ptr @_PyPegen_decode_string(ptr noundef %0, i32 noundef %86, ptr noundef nonnull %66, i64 noundef %.023.i, ptr noundef %3) #11
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %89, label %91
+86:                                               ; preds = %82, %81
+  %87 = phi i32 [ 1, %81 ], [ %85, %82 ]
+  %88 = tail call ptr @_PyPegen_decode_string(ptr noundef %0, i32 noundef %87, ptr noundef nonnull %67, i64 noundef %.023.i, ptr noundef %3) #11
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %85
-  %90 = tail call i32 @_Pypegen_raise_decode_error(ptr noundef %0) #11
+90:                                               ; preds = %86
+  %91 = tail call i32 @_Pypegen_raise_decode_error(ptr noundef %0) #11
   br label %.thread98
 
-91:                                               ; preds = %85
-  %92 = load ptr, ptr %35, align 8, !tbaa !4
-  %93 = tail call i32 @_PyArena_AddPyObject(ptr noundef %92, ptr noundef nonnull %87) #11
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %95, label %_PyPegen_decode_fstring_part.exit
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %35, align 8, !tbaa !4
+  %94 = tail call i32 @_PyArena_AddPyObject(ptr noundef %93, ptr noundef nonnull %88) #11
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %96, label %_PyPegen_decode_fstring_part.exit
 
-95:                                               ; preds = %91
-  %96 = load i32, ptr %87, align 8, !tbaa !27
-  %.not.i.i = icmp sgt i32 %96, -1
-  br i1 %.not.i.i, label %97, label %.thread98
+96:                                               ; preds = %92
+  %97 = load i32, ptr %88, align 8, !tbaa !27
+  %.not.i.i = icmp sgt i32 %97, -1
+  br i1 %.not.i.i, label %98, label %.thread98
 
-97:                                               ; preds = %95
-  %98 = add nsw i32 %96, -1
-  store i32 %98, ptr %87, align 8, !tbaa !27
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %.thread98
+98:                                               ; preds = %96
+  %99 = add nsw i32 %97, -1
+  store i32 %99, ptr %88, align 8, !tbaa !27
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %.thread98
 
-100:                                              ; preds = %97
-  tail call void @_Py_Dealloc(ptr noundef nonnull %87) #11
+101:                                              ; preds = %98
+  tail call void @_Py_Dealloc(ptr noundef nonnull %88) #11
   br label %.thread98
 
-_PyPegen_decode_fstring_part.exit:                ; preds = %91
-  %101 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %102 = load i32, ptr %101, align 8, !tbaa !40
-  %103 = getelementptr inbounds nuw i8, ptr %43, i64 36
-  %104 = load i32, ptr %103, align 4, !tbaa !42
-  %105 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %106 = load i32, ptr %105, align 8, !tbaa !43
-  %107 = getelementptr inbounds nuw i8, ptr %43, i64 44
-  %108 = load i32, ptr %107, align 4, !tbaa !44
-  %109 = load ptr, ptr %35, align 8, !tbaa !4
-  %110 = tail call ptr @_PyAST_Constant(ptr noundef nonnull %87, ptr noundef null, i32 noundef %102, i32 noundef %104, i32 noundef %106, i32 noundef %108, ptr noundef %109) #11
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %.thread98, label %112
+_PyPegen_decode_fstring_part.exit:                ; preds = %92
+  %102 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %103 = load i32, ptr %102, align 8, !tbaa !40
+  %104 = getelementptr inbounds nuw i8, ptr %43, i64 36
+  %105 = load i32, ptr %104, align 4, !tbaa !42
+  %106 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %107 = load i32, ptr %106, align 8, !tbaa !43
+  %108 = getelementptr inbounds nuw i8, ptr %43, i64 44
+  %109 = load i32, ptr %108, align 4, !tbaa !44
+  %110 = load ptr, ptr %35, align 8, !tbaa !4
+  %111 = tail call ptr @_PyAST_Constant(ptr noundef nonnull %88, ptr noundef null, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %109, ptr noundef %110) #11
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %.thread98, label %113
 
-112:                                              ; preds = %_PyPegen_decode_fstring_part.exit
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !27
-  %115 = getelementptr i8, ptr %114, i64 8
-  %.val = load ptr, ptr %115, align 8, !tbaa !114
+113:                                              ; preds = %_PyPegen_decode_fstring_part.exit
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !27
+  %116 = getelementptr i8, ptr %115, i64 8
+  %.val = load ptr, ptr %116, align 8, !tbaa !114
   %.not = icmp eq ptr %.val, @PyUnicode_Type
-  br i1 %.not, label %116, label %.sink.split
+  br i1 %.not, label %117, label %120
 
-116:                                              ; preds = %112
-  %117 = getelementptr i8, ptr %114, i64 16
-  %.val94 = load i64, ptr %117, align 8, !tbaa !136
-  %118 = icmp eq i64 %.val94, 0
-  br i1 %118, label %121, label %.sink.split
+117:                                              ; preds = %113
+  %118 = getelementptr i8, ptr %115, i64 16
+  %.val94 = load i64, ptr %118, align 8, !tbaa !136
+  %119 = icmp eq i64 %.val94, 0
+  br i1 %119, label %123, label %120
 
-.sink.split:                                      ; preds = %116, %112, %41, %56
-  %.sink = phi i64 [ 2, %56 ], [ 1, %41 ], [ 1, %112 ], [ 1, %116 ]
-  %.075114.sink = phi i64 [ %59, %56 ], [ %.075114, %41 ], [ %.075114, %112 ], [ %.075114, %116 ]
-  %.073.sink = phi ptr [ %62, %56 ], [ %43, %41 ], [ %110, %112 ], [ %110, %116 ]
-  %119 = add i64 %.075114, %.sink
-  %120 = getelementptr [1 x ptr], ptr %40, i64 0, i64 %.075114.sink
-  store ptr %.073.sink, ptr %120, align 8, !tbaa !51
-  br label %121
+120:                                              ; preds = %41, %113, %117
+  %.073 = phi ptr [ %111, %117 ], [ %111, %113 ], [ %43, %41 ]
+  %121 = add i64 %.075114, 1
+  %122 = getelementptr ptr, ptr %40, i64 %.075114
+  store ptr %.073, ptr %122, align 8, !tbaa !51
+  br label %123
 
-121:                                              ; preds = %.sink.split, %116
-  %.378 = phi i64 [ %.075114, %116 ], [ %119, %.sink.split ]
-  %122 = add nuw nsw i64 %.074115, 1
-  %exitcond127.not = icmp eq i64 %122, %11
+123:                                              ; preds = %120, %56, %117
+  %.378 = phi i64 [ %121, %120 ], [ %62, %56 ], [ %.075114, %117 ]
+  %124 = add nuw nsw i64 %.074115, 1
+  %exitcond127.not = icmp eq i64 %124, %11
   br i1 %exitcond127.not, label %._crit_edge117, label %41, !llvm.loop !159
 
-._crit_edge117:                                   ; preds = %121, %.preheader101
-  %.075.lcssa = phi i64 [ 0, %.preheader101 ], [ %.378, %121 ]
+._crit_edge117:                                   ; preds = %123, %.preheader101
+  %.075.lcssa = phi i64 [ 0, %.preheader101 ], [ %.378, %123 ]
   %.not93 = icmp eq i64 %.075.lcssa, %.070.lcssa
-  br i1 %.not93, label %.loopexit, label %123
+  br i1 %.not93, label %.loopexit, label %125
 
-123:                                              ; preds = %._crit_edge117
-  %124 = load ptr, ptr %35, align 8, !tbaa !4
-  %125 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef %.075.lcssa, ptr noundef %124) #11
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %.thread98, label %.preheader
+125:                                              ; preds = %._crit_edge117
+  %126 = load ptr, ptr %35, align 8, !tbaa !4
+  %127 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef %.075.lcssa, ptr noundef %126) #11
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %.thread98, label %.preheader
 
-.preheader:                                       ; preds = %123
-  %127 = icmp sgt i64 %.075.lcssa, 0
-  br i1 %127, label %.lr.ph120, label %.loopexit
+.preheader:                                       ; preds = %125
+  %129 = icmp sgt i64 %.075.lcssa, 0
+  br i1 %129, label %.lr.ph120, label %.loopexit
 
 .lr.ph120:                                        ; preds = %.preheader
-  %128 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %129 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  br label %130
+  %130 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  br label %132
 
-130:                                              ; preds = %.lr.ph120, %130
-  %.0119 = phi i64 [ 0, %.lr.ph120 ], [ %134, %130 ]
-  %131 = getelementptr [1 x ptr], ptr %128, i64 0, i64 %.0119
-  %132 = load ptr, ptr %131, align 8, !tbaa !51
-  %133 = getelementptr [1 x ptr], ptr %129, i64 0, i64 %.0119
-  store ptr %132, ptr %133, align 8, !tbaa !51
-  %134 = add nuw nsw i64 %.0119, 1
-  %exitcond128.not = icmp eq i64 %134, %.075.lcssa
-  br i1 %exitcond128.not, label %.loopexit, label %130, !llvm.loop !160
+132:                                              ; preds = %.lr.ph120, %132
+  %.0119 = phi i64 [ 0, %.lr.ph120 ], [ %136, %132 ]
+  %133 = getelementptr ptr, ptr %130, i64 %.0119
+  %134 = load ptr, ptr %133, align 8, !tbaa !51
+  %135 = getelementptr ptr, ptr %131, i64 %.0119
+  store ptr %134, ptr %135, align 8, !tbaa !51
+  %136 = add nuw nsw i64 %.0119, 1
+  %exitcond128.not = icmp eq i64 %136, %.075.lcssa
+  br i1 %exitcond128.not, label %.loopexit, label %132, !llvm.loop !160
 
-.loopexit:                                        ; preds = %130, %.preheader, %._crit_edge117
-  %.068 = phi ptr [ %37, %._crit_edge117 ], [ %125, %.preheader ], [ %125, %130 ]
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %136 = load i32, ptr %135, align 4, !tbaa !129
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %138 = load i32, ptr %137, align 8, !tbaa !131
-  %139 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %140 = load i32, ptr %139, align 4, !tbaa !161
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %142 = load i32, ptr %141, align 8, !tbaa !130
-  %143 = load ptr, ptr %35, align 8, !tbaa !4
-  %144 = tail call ptr @_PyAST_JoinedStr(ptr noundef nonnull %.068, i32 noundef %136, i32 noundef %138, i32 noundef %140, i32 noundef %142, ptr noundef %143) #11
+.loopexit:                                        ; preds = %132, %.preheader, %._crit_edge117
+  %.068 = phi ptr [ %37, %._crit_edge117 ], [ %127, %.preheader ], [ %127, %132 ]
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %138 = load i32, ptr %137, align 4, !tbaa !129
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %140 = load i32, ptr %139, align 8, !tbaa !131
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %142 = load i32, ptr %141, align 4, !tbaa !161
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %144 = load i32, ptr %143, align 8, !tbaa !130
+  %145 = load ptr, ptr %35, align 8, !tbaa !4
+  %146 = tail call ptr @_PyAST_JoinedStr(ptr noundef nonnull %.068, i32 noundef %138, i32 noundef %140, i32 noundef %142, i32 noundef %144, ptr noundef %145) #11
   br label %.thread98
 
-.thread98:                                        ; preds = %_PyPegen_decode_fstring_part.exit, %63, %.critedge, %89, %95, %97, %100, %33, %.loopexit, %123, %._crit_edge
-  %.069 = phi ptr [ null, %._crit_edge ], [ null, %33 ], [ %144, %.loopexit ], [ null, %123 ], [ null, %100 ], [ null, %97 ], [ null, %95 ], [ null, %89 ], [ null, %.critedge ], [ null, %63 ], [ null, %_PyPegen_decode_fstring_part.exit ]
+.thread98:                                        ; preds = %_PyPegen_decode_fstring_part.exit, %64, %.critedge, %90, %96, %98, %101, %33, %.loopexit, %125, %._crit_edge
+  %.069 = phi ptr [ null, %._crit_edge ], [ null, %33 ], [ %146, %.loopexit ], [ null, %125 ], [ null, %101 ], [ null, %98 ], [ null, %96 ], [ null, %90 ], [ null, %.critedge ], [ null, %64 ], [ null, %_PyPegen_decode_fstring_part.exit ]
   ret ptr %.069
 }
 

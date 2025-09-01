@@ -118,151 +118,151 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9Stockfishls
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str) #18
   br label %.preheader
 
-.preheader:                                       ; preds = %2, %21
-  %indvars.iv37 = phi i64 [ 7, %2 ], [ %indvars.iv.next38, %21 ]
-  %11 = shl i64 %indvars.iv37, 3
-  br label %12
+.preheader:                                       ; preds = %2, %18
+  %indvars.iv37 = phi i64 [ 7, %2 ], [ %indvars.iv.next38, %18 ]
+  %.idx = shl i64 %indvars.iv37, 5
+  %invariant.gep = getelementptr i8, ptr %1, i64 %.idx
+  br label %11
 
-12:                                               ; preds = %.preheader, %12
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1) #18
-  %14 = add nuw nsw i64 %indvars.iv, %11
-  %15 = getelementptr inbounds [64 x i32], ptr %1, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @.str.24, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %13, i8 noundef signext %19) #18
+11:                                               ; preds = %.preheader, %11
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1) #18
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %13 = load i32, ptr %gep, align 4
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr @.str.24, i64 %14
+  %16 = load i8, ptr %15, align 1
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %12, i8 noundef signext %16) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %12, !llvm.loop !5
+  br i1 %exitcond.not, label %18, label %11, !llvm.loop !5
 
-21:                                               ; preds = %12
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1) #18
-  %23 = trunc i64 %indvars.iv37 to i32
-  %24 = add i32 %23, 1
-  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %24) #18
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str) #18
+18:                                               ; preds = %11
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1) #18
+  %20 = trunc i64 %indvars.iv37 to i32
+  %21 = add i32 %20, 1
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %21) #18
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str) #18
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
   %.not41 = icmp eq i64 %indvars.iv37, 0
-  br i1 %.not41, label %27, label %.preheader, !llvm.loop !7
+  br i1 %.not41, label %24, label %.preheader, !llvm.loop !7
 
-27:                                               ; preds = %21
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2) #18
-  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.3) #18
+24:                                               ; preds = %18
+  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2) #18
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.3) #18
   call void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(865) %1)
-  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.4) #18
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZSt3hexRSt8ios_base) #18
-  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZSt9uppercaseRSt8ios_base) #18
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %33, i8 48) #18
-  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %34, i32 16) #18
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 28
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp slt i32 %41, 14
-  br i1 %42, label %_ZNK9Stockfish8Position3keyEv.exit, label %43
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.4) #18
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @_ZSt3hexRSt8ios_base) #18
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @_ZSt9uppercaseRSt8ios_base) #18
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %30, i8 48) #18
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 16) #18
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 848
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 28
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp slt i32 %38, 14
+  br i1 %39, label %_ZNK9Stockfish8Position3keyEv.exit, label %40
 
-43:                                               ; preds = %27
-  %44 = add nsw i32 %41, -14
-  %45 = lshr i32 %44, 3
-  %46 = zext nneg i32 %45 to i64
-  %47 = mul i64 %46, 6364136223846793005
-  %48 = add i64 %47, 1442695040888963407
-  %49 = xor i64 %48, %39
+40:                                               ; preds = %24
+  %41 = add nsw i32 %38, -14
+  %42 = lshr i32 %41, 3
+  %43 = zext nneg i32 %42 to i64
+  %44 = mul i64 %43, 6364136223846793005
+  %45 = add i64 %44, 1442695040888963407
+  %46 = xor i64 %45, %36
   br label %_ZNK9Stockfish8Position3keyEv.exit
 
-_ZNK9Stockfish8Position3keyEv.exit:               ; preds = %27, %43
-  %50 = phi i64 [ %49, %43 ], [ %39, %27 ]
-  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef %50) #18
-  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %51, i8 32) #18
-  %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull @_ZSt3decRSt8ios_base) #18
-  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.5) #18
+_ZNK9Stockfish8Position3keyEv.exit:               ; preds = %24, %40
+  %47 = phi i64 [ %46, %40 ], [ %36, %24 ]
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef %47) #18
+  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %48, i8 32) #18
+  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull @_ZSt3decRSt8ios_base) #18
+  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  %55 = load ptr, ptr %36, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %57 = load i64, ptr %56, align 16
-  %.not34 = icmp eq i64 %57, 0
+  %52 = load ptr, ptr %33, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %54 = load i64, ptr %53, align 16
+  %.not34 = icmp eq i64 %54, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK9Stockfish8Position3keyEv.exit, %.lr.ph
-  %.035 = phi i64 [ %61, %.lr.ph ], [ %57, %_ZNK9Stockfish8Position3keyEv.exit ]
-  %58 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.035, i1 true)
-  %59 = trunc nuw nsw i64 %58 to i32
-  %60 = add i64 %.035, -1
-  %61 = and i64 %60, %.035
-  call void @_ZN9Stockfish3UCI6squareB5cxx11ENS_6SquareE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %59) #18
-  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.6) #18
+  %.035 = phi i64 [ %58, %.lr.ph ], [ %54, %_ZNK9Stockfish8Position3keyEv.exit ]
+  %55 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.035, i1 true)
+  %56 = trunc nuw nsw i64 %55 to i32
+  %57 = add i64 %.035, -1
+  %58 = and i64 %57, %.035
+  call void @_ZN9Stockfish3UCI6squareB5cxx11ENS_6SquareE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %56) #18
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull @.str.6) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  %.not = icmp eq i64 %61, 0
+  %.not = icmp eq i64 %58, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK9Stockfish8Position3keyEv.exit
-  %64 = load i32, ptr @_ZN9Stockfish10Tablebases14MaxCardinalityE, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %66 = load i64, ptr %65, align 8
-  %.sroa.2.0.extract.shift.i = lshr i64 %66, 16
-  %.sroa.3.0.extract.shift.i = lshr i64 %66, 32
-  %.sroa.4.0.extract.shift.i = lshr i64 %66, 48
-  %67 = and i64 %66, 65535
-  %68 = getelementptr inbounds nuw [65536 x i8], ptr @_ZN9Stockfish8PopCnt16E, i64 0, i64 %67
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = and i64 %.sroa.2.0.extract.shift.i, 65535
-  %72 = getelementptr inbounds nuw [65536 x i8], ptr @_ZN9Stockfish8PopCnt16E, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = add nuw nsw i32 %74, %70
-  %76 = and i64 %.sroa.3.0.extract.shift.i, 65535
-  %77 = getelementptr inbounds nuw [65536 x i8], ptr @_ZN9Stockfish8PopCnt16E, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = add nuw nsw i32 %75, %79
-  %81 = getelementptr inbounds nuw [65536 x i8], ptr @_ZN9Stockfish8PopCnt16E, i64 0, i64 %.sroa.4.0.extract.shift.i
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = add nuw nsw i32 %80, %83
-  %.not20 = icmp slt i32 %64, %84
-  br i1 %.not20, label %111, label %85
+  %61 = load i32, ptr @_ZN9Stockfish10Tablebases14MaxCardinalityE, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %63 = load i64, ptr %62, align 8
+  %.sroa.2.0.extract.shift.i = lshr i64 %63, 16
+  %.sroa.3.0.extract.shift.i = lshr i64 %63, 32
+  %.sroa.4.0.extract.shift.i = lshr i64 %63, 48
+  %64 = and i64 %63, 65535
+  %65 = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish8PopCnt16E, i64 %64
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %68 = and i64 %.sroa.2.0.extract.shift.i, 65535
+  %69 = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish8PopCnt16E, i64 %68
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i32
+  %72 = add nuw nsw i32 %71, %67
+  %73 = and i64 %.sroa.3.0.extract.shift.i, 65535
+  %74 = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish8PopCnt16E, i64 %73
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = add nuw nsw i32 %72, %76
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish8PopCnt16E, i64 %.sroa.4.0.extract.shift.i
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = add nuw nsw i32 %77, %80
+  %.not20 = icmp slt i32 %61, %81
+  br i1 %.not20, label %108, label %82
 
-85:                                               ; preds = %._crit_edge
-  %86 = load ptr, ptr %36, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %88 = load i32, ptr %87, align 8
-  %89 = and i32 %88, 15
-  %.not31 = icmp eq i32 %89, 0
-  br i1 %.not31, label %90, label %111
+82:                                               ; preds = %._crit_edge
+  %83 = load ptr, ptr %33, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %85, 15
+  %.not31 = icmp eq i32 %86, 0
+  br i1 %.not31, label %87, label %108
 
-90:                                               ; preds = %85
+87:                                               ; preds = %82
   call void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(865) %1)
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %92 = load i8, ptr %91, align 8
-  %93 = trunc i8 %92 to i1
-  %94 = call noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPNS_9StateInfoE(ptr noundef nonnull align 8 dereferenceable(865) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext %93, ptr noundef nonnull %5)
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  %89 = load i8, ptr %88, align 8
+  %90 = trunc i8 %89 to i1
+  %91 = call noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPNS_9StateInfoE(ptr noundef nonnull align 8 dereferenceable(865) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext %90, ptr noundef nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  %95 = call noundef i32 @_ZN9Stockfish10Tablebases9probe_wdlERNS_8PositionEPNS0_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %6, ptr noundef nonnull %8) #18
-  %96 = call noundef i32 @_ZN9Stockfish10Tablebases9probe_dtzERNS_8PositionEPNS0_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %6, ptr noundef nonnull %9) #18
-  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7) #18
-  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %97, i32 4) #18
-  %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef %95) #18
-  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull @.str.8) #18
-  %101 = load i32, ptr %8, align 4
-  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %100, i32 noundef %101) #18
-  %103 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull @.str.9) #18
-  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull @.str.10) #18
-  %105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 4) #18
-  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %105, i32 noundef %96) #18
-  %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull @.str.8) #18
-  %108 = load i32, ptr %9, align 4
-  %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %107, i32 noundef %108) #18
-  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.9) #18
-  br label %111
+  %92 = call noundef i32 @_ZN9Stockfish10Tablebases9probe_wdlERNS_8PositionEPNS0_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %6, ptr noundef nonnull %8) #18
+  %93 = call noundef i32 @_ZN9Stockfish10Tablebases9probe_dtzERNS_8PositionEPNS0_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %6, ptr noundef nonnull %9) #18
+  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7) #18
+  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %94, i32 4) #18
+  %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %95, i32 noundef %92) #18
+  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull @.str.8) #18
+  %98 = load i32, ptr %8, align 4
+  %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %97, i32 noundef %98) #18
+  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull @.str.9) #18
+  %101 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull @.str.10) #18
+  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %101, i32 4) #18
+  %103 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %102, i32 noundef %93) #18
+  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull @.str.8) #18
+  %105 = load i32, ptr %9, align 4
+  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 noundef %105) #18
+  %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull @.str.9) #18
+  br label %108
 
-111:                                              ; preds = %90, %85, %._crit_edge
+108:                                              ; preds = %87, %82, %._crit_edge
   ret ptr %0
 }
 
@@ -288,233 +288,233 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #18
   br label %.preheader31
 
-.preheader31:                                     ; preds = %33, %2
-  %indvars.iv38 = phi i64 [ 7, %2 ], [ %indvars.iv.next39, %33 ]
+.preheader31:                                     ; preds = %31, %2
+  %indvars.iv38 = phi i64 [ 7, %2 ], [ %indvars.iv.next39, %31 ]
   %8 = shl i64 %indvars.iv38, 3
+  %invariant.gep = getelementptr i32, ptr %1, i64 %8
+  %9 = getelementptr i32, ptr %1, i64 %8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader31, %29
-  %.034 = phi i32 [ 0, %.preheader31 ], [ %30, %29 ]
-  %9 = sext i32 %.034 to i64
-  br label %10
+.preheader:                                       ; preds = %.preheader31, %27
+  %.034 = phi i32 [ 0, %.preheader31 ], [ %28, %27 ]
+  %10 = sext i32 %.034 to i64
+  br label %11
 
-10:                                               ; preds = %.preheader, %14
-  %indvars.iv = phi i64 [ %9, %.preheader ], [ %indvars.iv.next, %14 ]
-  %.0833 = phi i32 [ 0, %.preheader ], [ %15, %14 ]
-  %11 = add nsw i64 %indvars.iv, %8
-  %12 = getelementptr inbounds [64 x i32], ptr %1, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %.not36 = icmp eq i32 %13, 0
-  br i1 %.not36, label %14, label %.critedge
+11:                                               ; preds = %.preheader, %13
+  %indvars.iv = phi i64 [ %10, %.preheader ], [ %indvars.iv.next, %13 ]
+  %.0833 = phi i32 [ 0, %.preheader ], [ %14, %13 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %12 = load i32, ptr %gep, align 4
+  %.not36 = icmp eq i32 %12, 0
+  br i1 %.not36, label %13, label %.critedge
 
-14:                                               ; preds = %10
-  %15 = add nuw nsw i32 %.0833, 1
+13:                                               ; preds = %11
+  %14 = add nuw nsw i32 %.0833, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %16 = icmp slt i64 %indvars.iv, 7
-  br i1 %16, label %10, label %.thread62, !llvm.loop !9
+  %15 = icmp slt i64 %indvars.iv, 7
+  br i1 %15, label %11, label %.thread62, !llvm.loop !9
 
-.thread62:                                        ; preds = %14
-  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %15) #18
-  br label %29
+.thread62:                                        ; preds = %13
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %14) #18
+  br label %27
 
-.critedge:                                        ; preds = %10
-  %18 = trunc nsw i64 %indvars.iv to i32
+.critedge:                                        ; preds = %11
+  %17 = trunc nsw i64 %indvars.iv to i32
   %.not11 = icmp eq i32 %.0833, 0
-  br i1 %.not11, label %.thread, label %19
+  br i1 %.not11, label %.thread, label %18
 
-19:                                               ; preds = %.critedge
-  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %.0833) #18
+18:                                               ; preds = %.critedge
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %.0833) #18
   br label %.thread
 
-.thread:                                          ; preds = %.critedge, %19
+.thread:                                          ; preds = %.critedge, %18
   %sext = shl i64 %indvars.iv, 32
-  %21 = ashr exact i64 %sext, 32
-  %22 = add nsw i64 %8, %21
-  %23 = getelementptr inbounds [64 x i32], ptr %1, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr @.str.24, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %27) #18
-  br label %29
+  %20 = ashr exact i64 %sext, 30
+  %21 = getelementptr i8, ptr %9, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr @.str.24, i64 %23
+  %25 = load i8, ptr %24, align 1
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %25) #18
+  br label %27
 
-29:                                               ; preds = %.thread62, %.thread
-  %.1.lcssa5761 = phi i32 [ %18, %.thread ], [ 8, %.thread62 ]
-  %30 = add nsw i32 %.1.lcssa5761, 1
-  %31 = icmp slt i32 %.1.lcssa5761, 7
-  br i1 %31, label %.preheader, label %32, !llvm.loop !10
+27:                                               ; preds = %.thread62, %.thread
+  %.1.lcssa5761 = phi i32 [ %17, %.thread ], [ 8, %.thread62 ]
+  %28 = add nsw i32 %.1.lcssa5761, 1
+  %29 = icmp slt i32 %.1.lcssa5761, 7
+  br i1 %29, label %.preheader, label %30, !llvm.loop !10
 
-32:                                               ; preds = %29
+30:                                               ; preds = %27
   %.not30 = icmp eq i64 %indvars.iv38, 0
-  br i1 %.not30, label %35, label %33
+  br i1 %.not30, label %33, label %31
 
-33:                                               ; preds = %32
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext 47) #18
+31:                                               ; preds = %30
+  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext 47) #18
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
   br label %.preheader31, !llvm.loop !11
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 860
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 0
-  %.str.14..str.15 = select i1 %38, ptr @.str.14, ptr @.str.15
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.str.14..str.15) #18
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load i32, ptr %42, align 8
-  %44 = and i32 %43, 1
-  %.not25 = icmp eq i32 %44, 0
-  br i1 %.not25, label %56, label %45
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 860
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, 0
+  %.str.14..str.15 = select i1 %36, ptr @.str.14, ptr @.str.15
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.str.14..str.15) #18
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 848
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = load i32, ptr %40, align 8
+  %42 = and i32 %41, 1
+  %.not25 = icmp eq i32 %42, 0
+  br i1 %.not25, label %54, label %43
 
-45:                                               ; preds = %35
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 660
-  %50 = load i32, ptr %49, align 4
-  %51 = trunc i32 %50 to i8
-  %52 = and i8 %51, 7
-  %53 = add nuw nsw i8 %52, 65
-  %54 = select i1 %48, i8 %53, i8 75
-  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %54) #18
-  %.pre = load ptr, ptr %40, align 8
+43:                                               ; preds = %33
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  %45 = load i8, ptr %44, align 8
+  %46 = trunc i8 %45 to i1
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 660
+  %48 = load i32, ptr %47, align 4
+  %49 = trunc i32 %48 to i8
+  %50 = and i8 %49, 7
+  %51 = add nuw nsw i8 %50, 65
+  %52 = select i1 %46, i8 %51, i8 75
+  %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %52) #18
+  %.pre = load ptr, ptr %38, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre41 = load i32, ptr %.phi.trans.insert, align 8
-  br label %56
+  br label %54
 
-56:                                               ; preds = %45, %35
-  %57 = phi i32 [ %.pre41, %45 ], [ %43, %35 ]
-  %58 = phi ptr [ %.pre, %45 ], [ %41, %35 ]
-  %59 = and i32 %57, 2
-  %.not26 = icmp eq i32 %59, 0
-  br i1 %.not26, label %71, label %60
+54:                                               ; preds = %43, %33
+  %55 = phi i32 [ %.pre41, %43 ], [ %41, %33 ]
+  %56 = phi ptr [ %.pre, %43 ], [ %39, %33 ]
+  %57 = and i32 %55, 2
+  %.not26 = icmp eq i32 %57, 0
+  br i1 %.not26, label %69, label %58
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %62 = load i8, ptr %61, align 8
-  %63 = trunc i8 %62 to i1
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 664
-  %65 = load i32, ptr %64, align 8
-  %66 = trunc i32 %65 to i8
-  %67 = and i8 %66, 7
-  %68 = add nuw nsw i8 %67, 65
-  %69 = select i1 %63, i8 %68, i8 81
-  %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %69) #18
-  %.pre42 = load ptr, ptr %40, align 8
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  %60 = load i8, ptr %59, align 8
+  %61 = trunc i8 %60 to i1
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 664
+  %63 = load i32, ptr %62, align 8
+  %64 = trunc i32 %63 to i8
+  %65 = and i8 %64, 7
+  %66 = add nuw nsw i8 %65, 65
+  %67 = select i1 %61, i8 %66, i8 81
+  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %67) #18
+  %.pre42 = load ptr, ptr %38, align 8
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.pre42, i64 24
   %.pre44 = load i32, ptr %.phi.trans.insert43, align 8
-  br label %71
+  br label %69
 
-71:                                               ; preds = %60, %56
-  %72 = phi i32 [ %.pre44, %60 ], [ %57, %56 ]
-  %73 = phi ptr [ %.pre42, %60 ], [ %58, %56 ]
-  %74 = and i32 %72, 4
-  %.not27 = icmp eq i32 %74, 0
-  br i1 %.not27, label %86, label %75
+69:                                               ; preds = %58, %54
+  %70 = phi i32 [ %.pre44, %58 ], [ %55, %54 ]
+  %71 = phi ptr [ %.pre42, %58 ], [ %56, %54 ]
+  %72 = and i32 %70, 4
+  %.not27 = icmp eq i32 %72, 0
+  br i1 %.not27, label %84, label %73
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %77 = load i8, ptr %76, align 8
-  %78 = trunc i8 %77 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %80 = load i32, ptr %79, align 8
-  %81 = trunc i32 %80 to i8
-  %82 = and i8 %81, 7
-  %83 = add nuw nsw i8 %82, 97
-  %84 = select i1 %78, i8 %83, i8 107
-  %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %84) #18
-  %.pre45 = load ptr, ptr %40, align 8
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  %75 = load i8, ptr %74, align 8
+  %76 = trunc i8 %75 to i1
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 672
+  %78 = load i32, ptr %77, align 8
+  %79 = trunc i32 %78 to i8
+  %80 = and i8 %79, 7
+  %81 = add nuw nsw i8 %80, 97
+  %82 = select i1 %76, i8 %81, i8 107
+  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %82) #18
+  %.pre45 = load ptr, ptr %38, align 8
   %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %.pre45, i64 24
   %.pre47 = load i32, ptr %.phi.trans.insert46, align 8
-  br label %86
+  br label %84
 
-86:                                               ; preds = %75, %71
-  %87 = phi i32 [ %.pre47, %75 ], [ %72, %71 ]
-  %88 = phi ptr [ %.pre45, %75 ], [ %73, %71 ]
-  %89 = and i32 %87, 8
-  %.not28 = icmp eq i32 %89, 0
-  br i1 %.not28, label %101, label %90
+84:                                               ; preds = %73, %69
+  %85 = phi i32 [ %.pre47, %73 ], [ %70, %69 ]
+  %86 = phi ptr [ %.pre45, %73 ], [ %71, %69 ]
+  %87 = and i32 %85, 8
+  %.not28 = icmp eq i32 %87, 0
+  br i1 %.not28, label %99, label %88
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %92 = load i8, ptr %91, align 8
-  %93 = trunc i8 %92 to i1
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %95 = load i32, ptr %94, align 8
-  %96 = trunc i32 %95 to i8
-  %97 = and i8 %96, 7
-  %98 = add nuw nsw i8 %97, 97
-  %99 = select i1 %93, i8 %98, i8 113
-  %100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %99) #18
-  %.pre48 = load ptr, ptr %40, align 8
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  %90 = load i8, ptr %89, align 8
+  %91 = trunc i8 %90 to i1
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  %93 = load i32, ptr %92, align 8
+  %94 = trunc i32 %93 to i8
+  %95 = and i8 %94, 7
+  %96 = add nuw nsw i8 %95, 97
+  %97 = select i1 %91, i8 %96, i8 113
+  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %97) #18
+  %.pre48 = load ptr, ptr %38, align 8
   %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %.pre48, i64 24
   %.pre50 = load i32, ptr %.phi.trans.insert49, align 8
-  br label %101
+  br label %99
 
-101:                                              ; preds = %90, %86
-  %102 = phi i32 [ %.pre50, %90 ], [ %87, %86 ]
-  %103 = phi ptr [ %.pre48, %90 ], [ %88, %86 ]
-  %104 = and i32 %102, 15
-  %.not29 = icmp eq i32 %104, 0
-  br i1 %.not29, label %105, label %107
+99:                                               ; preds = %88, %84
+  %100 = phi i32 [ %.pre50, %88 ], [ %85, %84 ]
+  %101 = phi ptr [ %.pre48, %88 ], [ %86, %84 ]
+  %102 = and i32 %100, 15
+  %.not29 = icmp eq i32 %102, 0
+  br i1 %.not29, label %103, label %105
 
-105:                                              ; preds = %101
-  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext 45) #18
-  %.pre51 = load ptr, ptr %40, align 8
-  br label %107
+103:                                              ; preds = %99
+  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext 45) #18
+  %.pre51 = load ptr, ptr %38, align 8
+  br label %105
 
-107:                                              ; preds = %105, %101
-  %108 = phi ptr [ %.pre51, %105 ], [ %103, %101 ]
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 36
-  %110 = load i32, ptr %109, align 4
-  %.not = icmp eq i32 %110, 64
-  br i1 %.not, label %111, label %113
+105:                                              ; preds = %103, %99
+  %106 = phi ptr [ %.pre51, %103 ], [ %101, %99 ]
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 36
+  %108 = load i32, ptr %107, align 4
+  %.not = icmp eq i32 %108, 64
+  br i1 %.not, label %109, label %111
 
-111:                                              ; preds = %107
+109:                                              ; preds = %105
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  %112 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %112, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  %110 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %110, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 3))
-  br label %116
+  br label %114
 
-113:                                              ; preds = %107
-  call void @_ZN9Stockfish3UCI6squareB5cxx11ENS_6SquareE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i32 noundef %110) #18
-  %114 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, ptr noundef nonnull @.str.6) #18, !noalias !12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %114) #18
-  %115 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.6) #18, !noalias !15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %115) #18
-  br label %116
+111:                                              ; preds = %105
+  call void @_ZN9Stockfish3UCI6squareB5cxx11ENS_6SquareE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i32 noundef %108) #18
+  %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, ptr noundef nonnull @.str.6) #18, !noalias !12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %112) #18
+  %113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.6) #18, !noalias !15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %113) #18
+  br label %114
 
-116:                                              ; preds = %113, %111
-  %117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  %118 = load ptr, ptr %40, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 28
-  %120 = load i32, ptr %119, align 4
-  %121 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %117, i32 noundef %120) #18
-  %122 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull @.str.6) #18
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 856
-  %124 = load i32, ptr %123, align 8
-  %125 = load i32, ptr %36, align 4
-  %126 = icmp eq i32 %125, 1
-  %.neg = sext i1 %126 to i32
-  %127 = add i32 %124, %.neg
-  %128 = sdiv i32 %127, 2
-  %129 = add nsw i32 %128, 1
-  %130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %122, i32 noundef %129) #18
+114:                                              ; preds = %111, %109
+  %115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  %116 = load ptr, ptr %38, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 28
+  %118 = load i32, ptr %117, align 4
+  %119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %115, i32 noundef %118) #18
+  %120 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.6) #18
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 856
+  %122 = load i32, ptr %121, align 8
+  %123 = load i32, ptr %34, align 4
+  %124 = icmp eq i32 %123, 1
+  %.neg = sext i1 %124 to i32
+  %125 = add i32 %122, %.neg
+  %126 = sdiv i32 %125, 2
+  %127 = add nsw i32 %126, 1
+  %128 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %120, i32 noundef %127) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br i1 %.not, label %.critedge14, label %.critedge13
 
-.critedge13:                                      ; preds = %116
+.critedge13:                                      ; preds = %114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  br label %131
+  br label %129
 
-.critedge14:                                      ; preds = %116
+.critedge14:                                      ; preds = %114
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  br label %131
+  br label %129
 
-131:                                              ; preds = %.critedge13, %.critedge14
+129:                                              ; preds = %.critedge13, %.critedge14
   call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3) #18
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #18
   ret void
@@ -625,10 +625,10 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %33
 38:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
   %39 = trunc i64 %37 to i32
   %40 = sext i32 %.054 to i64
-  %41 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %40
+  %41 = getelementptr inbounds i32, ptr %0, i64 %40
   store i32 %39, ptr %41, align 4
   %42 = and i64 %37, 7
-  %43 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr %17, i64 %42
   %44 = zext nneg i32 %.054 to i64
   %45 = shl nuw i64 1, %44
   %46 = load i64, ptr %43, align 8
@@ -639,17 +639,17 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %33
   store i64 %49, ptr %17, align 8
   %50 = ashr i32 %39, 3
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %18, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %53, %45
   store i64 %54, ptr %52, align 8
   %55 = and i64 %37, 4294967295
-  %56 = getelementptr inbounds nuw [16 x i32], ptr %19, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %19, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %56, align 4
   %59 = and i64 %37, 4294967288
-  %60 = getelementptr inbounds nuw [16 x i32], ptr %19, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %19, i64 %59
   %61 = load i32, ptr %60, align 8
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %60, align 8
@@ -715,7 +715,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
 
 98:                                               ; preds = %98, %96
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %98 ], [ %97, %96 ]
-  %99 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %indvars.iv60
+  %99 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv60
   %100 = load i32, ptr %99, align 4
   %.not32 = icmp eq i32 %100, %93
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
@@ -728,7 +728,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
 
 104:                                              ; preds = %104, %101
   %indvars.iv = phi i64 [ %indvars.iv.next, %104 ], [ %103, %101 ]
-  %105 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4
   %.not31 = icmp eq i32 %106, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -758,7 +758,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %.pre-phi = phi i32 [ %102, %.loopexit.loopexit58 ], [ %.pre, %.loopexit.loopexit ], [ %111, %110 ]
   %.150 = phi i32 [ %114, %.loopexit.loopexit58 ], [ %113, %.loopexit.loopexit ], [ %112, %110 ]
   %115 = zext i1 %.not30 to i64
-  %116 = getelementptr inbounds nuw [2 x i64], ptr %82, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %82, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = load i64, ptr %83, align 8
   %119 = and i64 %118, %117
@@ -773,17 +773,17 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %128 = load i32, ptr %127, align 8
   %129 = or i32 %125, %128
   store i32 %129, ptr %127, align 8
-  %130 = getelementptr inbounds nuw [64 x i32], ptr %84, i64 0, i64 %120
+  %130 = getelementptr inbounds nuw i32, ptr %84, i64 %120
   %131 = load i32, ptr %130, align 4
   %132 = or i32 %125, %131
   store i32 %132, ptr %130, align 4
   %133 = sext i32 %.150 to i64
-  %134 = getelementptr inbounds [64 x i32], ptr %84, i64 0, i64 %133
+  %134 = getelementptr inbounds i32, ptr %84, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = or i32 %135, %125
   store i32 %136, ptr %134, align 4
   %137 = zext nneg i32 %125 to i64
-  %138 = getelementptr inbounds nuw [16 x i32], ptr %85, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i32, ptr %85, i64 %137
   store i32 %.150, ptr %138, align 4
   %139 = and i32 %125, 5
   %.not.i36 = icmp eq i32 %139, 0
@@ -791,13 +791,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %141 = or disjoint i32 %140, %.pre-phi
   %142 = select i1 %.not.i36, i32 3, i32 5
   %143 = or disjoint i32 %142, %.pre-phi
-  %144 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %133
+  %144 = getelementptr inbounds [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %133
   %145 = zext nneg i32 %143 to i64
-  %146 = getelementptr inbounds nuw [64 x i64], ptr %144, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i64, ptr %144, i64 %145
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %120
+  %148 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %120
   %149 = zext nneg i32 %141 to i64
-  %150 = getelementptr inbounds nuw [64 x i64], ptr %148, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr %148, i64 %149
   %151 = load i64, ptr %150, align 16
   %152 = or i64 %151, %147
   %153 = shl nuw i64 1, %120
@@ -806,7 +806,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %156 = or i64 %153, %155
   %157 = xor i64 %156, -1
   %158 = and i64 %152, %157
-  %159 = getelementptr inbounds nuw [16 x i64], ptr %86, i64 0, i64 %137
+  %159 = getelementptr inbounds nuw i64, ptr %86, i64 %137
   store i64 %158, ptr %159, align 8
   br label %.backedge
 
@@ -865,13 +865,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 36
   %201 = load i32, ptr %200, align 4
   %202 = zext i32 %198 to i64
-  %203 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 %202
   %204 = sext i32 %201 to i64
-  %205 = getelementptr inbounds [64 x i64], ptr %203, i64 0, i64 %204
+  %205 = getelementptr inbounds i64, ptr %203, i64 %204
   %206 = load i64, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %208 = zext i32 %197 to i64
-  %209 = getelementptr inbounds nuw [2 x i64], ptr %207, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i64, ptr %207, i64 %208
   %210 = load i64, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -882,7 +882,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   br i1 %.not27, label %.critedge35, label %216
 
 216:                                              ; preds = %189
-  %217 = getelementptr inbounds nuw [2 x i64], ptr %207, i64 0, i64 %202
+  %217 = getelementptr inbounds nuw i64, ptr %207, i64 %202
   %218 = load i64, ptr %217, align 8
   %219 = icmp eq i32 %197, 1
   %220 = select i1 %219, i32 8, i32 -8
@@ -952,7 +952,7 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
   %.019.ptr = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.019.idx69
   %2 = load i32, ptr %.019.ptr, align 4
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %3
   br label %5
 
 5:                                                ; preds = %1, %5
@@ -965,7 +965,7 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
   %10 = lshr i64 %9, 27
   %11 = xor i64 %10, %9
   %12 = mul i64 %11, 2685821657736338717
-  %13 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -986,7 +986,7 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
   %19 = lshr i64 %18, 27
   %20 = xor i64 %19, %18
   %21 = mul i64 %20, 2685821657736338717
-  %22 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %indvars.iv88
+  %22 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 %indvars.iv88
   store i64 %21, ptr %22, align 8
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 8
@@ -1002,7 +1002,7 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
   %27 = lshr i64 %26, 27
   %28 = xor i64 %27, %26
   %29 = mul i64 %28, 2685821657736338717
-  %30 = getelementptr inbounds nuw [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %indvars.iv92
+  %30 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish7Zobrist8castlingE, i64 %indvars.iv92
   store i64 %29, ptr %30, align 8
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 16
@@ -1035,9 +1035,9 @@ _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader: ; preds = %.lr.
   %45 = load i32, ptr %.021.ptr, align 4
   %46 = and i32 %45, 7
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish13PseudoAttacksE, i64 %47
   %49 = zext i32 %45 to i64
-  %50 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %49
   br label %51
 
 .loopexit:                                        ; preds = %._crit_edge, %51
@@ -1053,11 +1053,11 @@ _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader: ; preds = %.lr.
   br i1 %52, label %.lr.ph80, label %.loopexit
 
 .lr.ph80:                                         ; preds = %51
-  %53 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %indvars.iv102, i32 2
-  %54 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %indvars.iv102, i32 2
-  %55 = getelementptr inbounds nuw [64 x i64], ptr %48, i64 0, i64 %indvars.iv102
+  %53 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %indvars.iv102, i32 2
+  %54 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %indvars.iv102, i32 2
+  %55 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv102
   %56 = shl nuw nsw i64 %indvars.iv102, 6
-  %57 = getelementptr inbounds nuw [64 x i64], ptr %50, i64 0, i64 %indvars.iv102
+  %57 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv102
   br label %58
 
 58:                                               ; preds = %.lr.ph80, %._crit_edge
@@ -1102,15 +1102,15 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %59, %62, %
   %76 = add nuw nsw i64 %indvars.iv98, %56
   %77 = trunc i64 %76 to i16
   %78 = load i64, ptr %57, align 8
-  %79 = getelementptr inbounds nuw [64 x i64], ptr %50, i64 0, i64 %indvars.iv98
+  %79 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv98
   %80 = load i64, ptr %79, align 8
   %81 = xor i64 %78, %80
   %82 = xor i64 %81, %37
   %83 = and i64 %82, 8191
-  %84 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %83
   %85 = load i64, ptr %84, align 8
   store i64 %82, ptr %84, align 8
-  %86 = getelementptr inbounds nuw [8192 x %"class.Stockfish::Move"], ptr @_ZN9Stockfish10cuckooMoveE, i64 0, i64 %83
+  %86 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr @_ZN9Stockfish10cuckooMoveE, i64 %83
   %.sroa.0.0.copyload.i74 = load i16, ptr %86, align 2
   store i16 %77, ptr %86, align 2
   %87 = icmp eq i16 %.sroa.0.0.copyload.i74, 0
@@ -1132,10 +1132,10 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %59, %62, %
   %95 = and i32 %94, 8191
   %96 = select i1 %93, i32 %95, i32 %92
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %97
   %99 = load i64, ptr %98, align 8
   store i64 %90, ptr %98, align 8
-  %100 = getelementptr inbounds nuw [8192 x %"class.Stockfish::Move"], ptr @_ZN9Stockfish10cuckooMoveE, i64 0, i64 %97
+  %100 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr @_ZN9Stockfish10cuckooMoveE, i64 %97
   %.sroa.0.0.copyload.i = load i16, ptr %100, align 2
   store i16 %.sroa.0.0.copyload.i76, ptr %100, align 2
   %101 = icmp eq i16 %.sroa.0.0.copyload.i, 0
@@ -1188,7 +1188,7 @@ declare i32 @toupper(i32 noundef) local_unnamed_addr #6
 define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6SquareE(ptr noundef nonnull align 8 captures(none) dereferenceable(865) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %9 = load i64, ptr %8, align 8
@@ -1207,18 +1207,18 @@ define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6
   %22 = or i32 %17, %21
   store i32 %22, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %24 = getelementptr inbounds nuw [64 x i32], ptr %23, i64 0, i64 %11
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %11
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %17, %25
   store i32 %26, ptr %24, align 4
   %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds [64 x i32], ptr %23, i64 0, i64 %27
+  %28 = getelementptr inbounds i32, ptr %23, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, %17
   store i32 %30, ptr %28, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %32 = zext nneg i32 %17 to i64
-  %33 = getelementptr inbounds nuw [16 x i32], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
   store i32 %2, ptr %33, align 4
   %34 = and i32 %17, 5
   %.not = icmp eq i32 %34, 0
@@ -1227,13 +1227,13 @@ define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6
   %37 = or disjoint i32 %35, %36
   %38 = select i1 %.not, i32 3, i32 5
   %39 = or disjoint i32 %38, %36
-  %40 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %27
+  %40 = getelementptr inbounds [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %27
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds [64 x i64], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds i64, ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %11
+  %44 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %11
   %45 = sext i32 %37 to i64
-  %46 = getelementptr inbounds [64 x i64], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds i64, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 16
   %48 = or i64 %47, %43
   %49 = shl nuw i64 1, %11
@@ -1243,7 +1243,7 @@ define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6
   %53 = xor i64 %52, -1
   %54 = and i64 %48, %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %56 = getelementptr inbounds nuw [16 x i64], ptr %55, i64 0, i64 %32
+  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %32
   store i64 %54, ptr %56, align 8
   ret void
 }
@@ -1281,7 +1281,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %20 = load i64, ptr %19, align 8
@@ -1289,26 +1289,26 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %21, i1 true)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %22
+  %25 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %22
   %26 = load i64, ptr %25, align 8
   %27 = load i64, ptr %15, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %27, %26
-  %31 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %22
+  %31 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %22
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, %32
   %36 = or i64 %35, %30
   %37 = and i64 %36, %29
-  %38 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %22
+  %38 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %22
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %39
   %43 = or i64 %37, %42
-  %44 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %22
+  %44 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %22
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 16
   %47 = load i64, ptr %44, align 16
@@ -1330,7 +1330,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %63 = or i64 %62, %60
   %64 = and i64 %63, %58
   %65 = or i64 %43, %64
-  %66 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %22
+  %66 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %22
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 16
   %69 = load i64, ptr %66, align 16
@@ -1350,13 +1350,13 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %83 = or i64 %82, %62
   %84 = and i64 %83, %80
   %85 = or i64 %65, %84
-  %86 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %22
+  %86 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %22
   %87 = load i64, ptr %86, align 8
   %88 = and i64 %87, %20
   %89 = or i64 %85, %88
   %90 = xor i32 %14, 1
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %15, i64 %91
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %89, %93
   %95 = load ptr, ptr %2, align 8
@@ -1372,11 +1372,11 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %98 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.02426, i1 true)
   %99 = add i64 %.02426, -1
   %100 = and i64 %99, %.02426
-  %101 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %98
+  %101 = getelementptr inbounds nuw i32, ptr %0, i64 %98
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %103
-  %105 = getelementptr inbounds nuw [64 x i64], ptr %104, i64 0, i64 %98
+  %104 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %103
+  %105 = getelementptr inbounds nuw i64, ptr %104, i64 %98
   %106 = load i64, ptr %105, align 8
   %107 = load ptr, ptr %2, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
@@ -1399,13 +1399,13 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   br label %128
 
 118:                                              ; preds = %.lr.ph
-  %119 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %103
+  %119 = getelementptr inbounds nuw i32, ptr @_ZN9StockfishL10PieceValueE, i64 %103
   %120 = load i32, ptr %119, align 4
   %121 = load ptr, ptr %2, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = ashr i32 %102, 3
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [2 x i32], ptr %122, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %126, %120
   store i32 %127, ptr %125, align 4
@@ -1425,7 +1425,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
 132:                                              ; preds = %._crit_edge
   %133 = and i32 %131, 7
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 %134
   %136 = load i64, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %138 = load i64, ptr %137, align 8
@@ -1454,7 +1454,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %151 = load i32, ptr %150, align 8
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %152
+  %153 = getelementptr inbounds i64, ptr @_ZN9Stockfish7Zobrist8castlingE, i64 %152
   %154 = load i64, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 40
   %156 = load i64, ptr %155, align 8
@@ -1468,18 +1468,18 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull r
   %.018.ptr = getelementptr inbounds nuw i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.018.idx31
   %160 = load i32, ptr %.018.ptr, align 4
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw [16 x i32], ptr %158, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i32, ptr %158, i64 %161
   %163 = load i32, ptr %162, align 4
   %164 = icmp sgt i32 %163, 0
   br i1 %164, label %.lr.ph29, label %._crit_edge30
 
 .lr.ph29:                                         ; preds = %159
-  %165 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %161
+  %165 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %161
   br label %166
 
 166:                                              ; preds = %.lr.ph29, %166
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %166 ]
-  %167 = getelementptr inbounds nuw [64 x i64], ptr %165, i64 0, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw i64, ptr %165, i64 %indvars.iv
   %168 = load i64, ptr %167, align 8
   %169 = load ptr, ptr %2, align 8
   %170 = load i64, ptr %169, align 64
@@ -1518,7 +1518,7 @@ define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef non
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %7
+  %13 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 %7
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1527,7 +1527,7 @@ define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef non
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %19, %17
   %21 = and i64 %20, %14
-  %22 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %7
+  %22 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 %7
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %25 = load i64, ptr %24, align 8
@@ -1543,7 +1543,7 @@ define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef non
   br i1 %.not22.i, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %34 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %7
+  %34 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %7
   br label %35
 
 35:                                               ; preds = %56, %.lr.ph.i
@@ -1551,7 +1551,7 @@ define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef non
   %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023.i, i1 true)
   %37 = add i64 %.023.i, -1
   %38 = and i64 %37, %.023.i
-  %39 = getelementptr inbounds nuw [64 x i64], ptr %34, i64 0, i64 %36
+  %39 = getelementptr inbounds nuw i64, ptr %34, i64 %36
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, %33
   %42 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
@@ -1597,13 +1597,13 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit: ; preds = %_ZNK
   %63 = load ptr, ptr %8, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 80
   store i64 0, ptr %64, align 8
-  %65 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %60
+  %65 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 %60
   %66 = load i64, ptr %65, align 8
   %67 = load i64, ptr %16, align 8
   %68 = load i64, ptr %18, align 8
   %69 = or i64 %68, %67
   %70 = and i64 %69, %66
-  %71 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %60
+  %71 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 %60
   %72 = load i64, ptr %71, align 8
   %73 = load i64, ptr %24, align 8
   %74 = or i64 %73, %67
@@ -1617,7 +1617,7 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit: ; preds = %_ZNK
   br i1 %.not22.i4, label %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit
-  %81 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %60
+  %81 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %60
   br label %82
 
 82:                                               ; preds = %103, %.lr.ph.i5
@@ -1625,7 +1625,7 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit: ; preds = %_ZNK
   %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023.i6, i1 true)
   %84 = add i64 %.023.i6, -1
   %85 = and i64 %84, %.023.i6
-  %86 = getelementptr inbounds nuw [64 x i64], ptr %81, i64 0, i64 %83
+  %86 = getelementptr inbounds nuw i64, ptr %81, i64 %83
   %87 = load i64, ptr %86, align 8
   %88 = and i64 %87, %80
   %89 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %88)
@@ -1661,24 +1661,24 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10: ; preds = %10
   %105 = load i32, ptr %104, align 4
   %106 = xor i32 %105, 1
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i64, ptr %2, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = load i64, ptr %4, align 8
   %111 = and i64 %110, %109
   %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %111, i1 true)
-  %113 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %107
-  %114 = getelementptr inbounds nuw [64 x i64], ptr %113, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 %107
+  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %112
   %115 = load i64, ptr %114, align 8
   %116 = load ptr, ptr %8, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 104
   store i64 %115, ptr %117, align 8
-  %118 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %112
+  %118 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %112
   %119 = load i64, ptr %118, align 8
   %120 = load ptr, ptr %8, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 112
   store i64 %119, ptr %121, align 16
   %122 = load i64, ptr %15, align 8
-  %123 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %112
+  %123 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %112
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 16
   %126 = load i64, ptr %123, align 16
@@ -1697,7 +1697,7 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10: ; preds = %10
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 120
   store i64 %137, ptr %139, align 8
   %140 = load i64, ptr %15, align 8
-  %141 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %112
+  %141 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %112
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 16
   %144 = load i64, ptr %141, align 16
@@ -1733,7 +1733,7 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10: ; preds = %10
 define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load i64, ptr %7, align 8
@@ -1742,15 +1742,15 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %14 = getelementptr inbounds nuw [2 x i64], ptr %13, i64 0, i64 %4
+  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %4
   store i64 0, ptr %14, align 8
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = xor i32 %1, 1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 0, i64 %10
+  %20 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 2048), i64 %10
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1759,14 +1759,14 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %26, %24
   %28 = and i64 %27, %21
-  %29 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 0, i64 %10
+  %29 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1536), i64 %10
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %32 = load i64, ptr %31, align 8
   %33 = or i64 %32, %24
   %34 = and i64 %33, %30
   %35 = or i64 %34, %28
-  %36 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %18
+  %36 = getelementptr inbounds nuw i64, ptr %3, i64 %18
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %35, %37
   %39 = load i64, ptr %22, align 8
@@ -1775,7 +1775,7 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %41 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %10
+  %41 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %10
   br label %42
 
 42:                                               ; preds = %.lr.ph, %65
@@ -1783,7 +1783,7 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
   %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023, i1 true)
   %44 = add i64 %.023, -1
   %45 = and i64 %44, %.023
-  %46 = getelementptr inbounds nuw [64 x i64], ptr %41, i64 0, i64 %43
+  %46 = getelementptr inbounds nuw i64, ptr %41, i64 %43
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, %40
   %49 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %48)
@@ -1793,7 +1793,7 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
 50:                                               ; preds = %42
   %51 = load ptr, ptr %11, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %53 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %4
+  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %4
   %54 = load i64, ptr %53, align 8
   %55 = or i64 %54, %48
   store i64 %55, ptr %53, align 8
@@ -1805,7 +1805,7 @@ define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5Color
 58:                                               ; preds = %50
   %59 = load ptr, ptr %11, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 80
-  %61 = getelementptr inbounds nuw [2 x i64], ptr %60, i64 0, i64 %18
+  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %18
   %62 = shl nuw i64 1, %43
   %63 = load i64, ptr %61, align 8
   %64 = or i64 %63, %62
@@ -1839,7 +1839,7 @@ define dso_local noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %17, i64 %16)
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %.sroa.speculated) #18
   %18 = zext i32 %2 to i64
-  %19 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %18
   %20 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   %21 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   %22 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
@@ -1944,27 +1944,27 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %4
+  %5 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %8, %6
-  %12 = getelementptr inbounds [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %4
+  %12 = getelementptr inbounds i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %4
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, %13
   %17 = or i64 %16, %11
   %18 = and i64 %17, %10
-  %19 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %4
+  %19 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %4
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, %20
   %24 = or i64 %18, %23
-  %25 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %4
+  %25 = getelementptr inbounds %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 16
   %28 = load i64, ptr %25, align 16
@@ -1986,7 +1986,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
   %44 = or i64 %43, %41
   %45 = and i64 %44, %39
   %46 = or i64 %24, %45
-  %47 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %4
+  %47 = getelementptr inbounds %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 16
   %50 = load i64, ptr %47, align 16
@@ -2006,7 +2006,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
   %64 = or i64 %63, %43
   %65 = and i64 %64, %61
   %66 = or i64 %46, %65
-  %67 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %4
+  %67 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %4
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %70 = load i64, ptr %69, align 8
@@ -2033,7 +2033,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %11 = zext nneg i16 %8 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %13 = zext i32 %4 to i64
-  %14 = getelementptr inbounds nuw [2 x i64], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %17 = load i64, ptr %16, align 8
@@ -2052,7 +2052,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %29 = xor i64 %28, %23
   %30 = shl nuw i64 1, %11
   %31 = or i64 %29, %30
-  %32 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %19
+  %32 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %19
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 16
   %35 = load i64, ptr %32, align 16
@@ -2069,7 +2069,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %46 = load i64, ptr %45, align 8
   %47 = xor i32 %4, 1
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw [2 x i64], ptr %12, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %12, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %52 = load i64, ptr %51, align 8
@@ -2082,7 +2082,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   br i1 %.not37, label %58, label %.loopexit
 
 58:                                               ; preds = %10
-  %59 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %19
+  %59 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %19
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 16
   %62 = load i64, ptr %59, align 16
@@ -2138,7 +2138,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %105 = load i64, ptr %104, align 8
   %106 = xor i32 %4, 1
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw [2 x i64], ptr %88, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i64, ptr %88, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = sext i32 %83 to i64
   br label %113
@@ -2151,19 +2151,19 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
 
 113:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ %110, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %114 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %indvars.iv
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %89, %115
-  %117 = getelementptr inbounds [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %indvars.iv
+  %117 = getelementptr inbounds i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %indvars.iv
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %93, %118
   %120 = or i64 %119, %116
   %121 = and i64 %120, %91
-  %122 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %indvars.iv
+  %122 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %indvars.iv
   %123 = load i64, ptr %122, align 8
   %124 = and i64 %95, %123
   %125 = or i64 %121, %124
-  %126 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %indvars.iv
+  %126 = getelementptr inbounds %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %indvars.iv
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 16
   %129 = load i64, ptr %126, align 16
@@ -2180,7 +2180,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %140 = load i64, ptr %139, align 8
   %141 = and i64 %100, %140
   %142 = or i64 %125, %141
-  %143 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %indvars.iv
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 16
   %146 = load i64, ptr %143, align 16
@@ -2197,7 +2197,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %157 = load i64, ptr %156, align 8
   %158 = and i64 %103, %157
   %159 = or i64 %142, %158
-  %160 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %indvars.iv
   %161 = load i64, ptr %160, align 8
   %162 = and i64 %105, %161
   %163 = or i64 %159, %162
@@ -2216,7 +2216,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 64
   %172 = zext i32 %4 to i64
-  %173 = getelementptr inbounds nuw [2 x i64], ptr %171, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i64, ptr %171, i64 %172
   %174 = load i64, ptr %173, align 8
   %175 = zext nneg i16 %8 to i64
   %176 = shl nuw i64 1, %175
@@ -2226,7 +2226,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
 
 178:                                              ; preds = %2
   %179 = zext nneg i16 %6 to i64
-  %180 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i32, ptr %0, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = and i32 %181, 7
   %183 = icmp eq i32 %182, 6
@@ -2238,27 +2238,27 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %187 = shl nuw i64 1, %179
   %188 = xor i64 %186, %187
   %189 = zext nneg i16 %8 to i64
-  %190 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %189
+  %190 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %189
   %191 = load i64, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %193 = load i64, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %195 = load i64, ptr %194, align 8
   %196 = and i64 %193, %191
-  %197 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %189
+  %197 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %189
   %198 = load i64, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %200 = load i64, ptr %199, align 8
   %201 = and i64 %200, %198
   %202 = or i64 %201, %196
   %203 = and i64 %202, %195
-  %204 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %189
+  %204 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %189
   %205 = load i64, ptr %204, align 8
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %207 = load i64, ptr %206, align 8
   %208 = and i64 %207, %205
   %209 = or i64 %203, %208
-  %210 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %189
+  %210 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %189
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load ptr, ptr %211, align 16
   %213 = load i64, ptr %210, align 16
@@ -2280,7 +2280,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %229 = or i64 %228, %226
   %230 = and i64 %229, %224
   %231 = or i64 %209, %230
-  %232 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %189
+  %232 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %189
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load ptr, ptr %233, align 16
   %235 = load i64, ptr %232, align 16
@@ -2300,7 +2300,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %249 = or i64 %248, %228
   %250 = and i64 %249, %246
   %251 = or i64 %231, %250
-  %252 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %189
+  %252 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %189
   %253 = load i64, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %255 = load i64, ptr %254, align 8
@@ -2308,7 +2308,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %257 = or i64 %251, %256
   %258 = xor i32 %4, 1
   %259 = zext i32 %258 to i64
-  %260 = getelementptr inbounds nuw [2 x i64], ptr %192, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw i64, ptr %192, i64 %259
   %261 = load i64, ptr %260, align 8
   %262 = and i64 %257, %261
   %.not33 = icmp eq i64 %262, 0
@@ -2319,7 +2319,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 64
   %267 = zext i32 %4 to i64
-  %268 = getelementptr inbounds nuw [2 x i64], ptr %266, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i64, ptr %266, i64 %267
   %269 = load i64, ptr %268, align 8
   %270 = shl nuw i64 1, %179
   %271 = and i64 %269, %270
@@ -2328,14 +2328,14 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
 
 272:                                              ; preds = %263
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %274 = getelementptr inbounds nuw [2 x i64], ptr %273, i64 0, i64 %267
+  %274 = getelementptr inbounds nuw i64, ptr %273, i64 %267
   %275 = load i64, ptr %274, align 8
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %277 = load i64, ptr %276, align 8
   %278 = and i64 %277, %275
-  %279 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish6LineBBE, i64 0, i64 %179
+  %279 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish6LineBBE, i64 %179
   %280 = zext nneg i16 %8 to i64
-  %281 = getelementptr inbounds nuw [64 x i64], ptr %279, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw i64, ptr %279, i64 %280
   %282 = load i64, ptr %281, align 8
   %neg = sub i64 0, %278
   %283 = and i64 %282, %neg
@@ -2360,7 +2360,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
   %10 = and i16 %1, 63
   %11 = zext nneg i16 %10 to i32
   %12 = zext nneg i16 %8 to i64
-  %13 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not = icmp ult i16 %1, 16384
   br i1 %.not, label %110, label %15
@@ -2597,7 +2597,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %115 = zext i32 %6 to i64
-  %116 = getelementptr inbounds nuw [2 x i64], ptr %114, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = zext nneg i16 %10 to i64
   %119 = shl nuw i64 1, %118
@@ -2616,12 +2616,12 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   br i1 %.not41, label %126, label %268
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %115
-  %128 = getelementptr inbounds nuw [64 x i64], ptr %127, i64 0, i64 %12
+  %127 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 %115
+  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %12
   %129 = load i64, ptr %128, align 8
   %130 = xor i32 %6, 1
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [2 x i64], ptr %114, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr %114, i64 %131
   %133 = load i64, ptr %132, align 8
   %134 = and i64 %129, %133
   %135 = and i64 %134, %119
@@ -2636,7 +2636,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   br i1 %140, label %141, label %145
 
 141:                                              ; preds = %136
-  %142 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %118
+  %142 = getelementptr inbounds nuw i32, ptr %0, i64 %118
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %237, label %145
@@ -2655,7 +2655,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   br i1 %153, label %154, label %268
 
 154:                                              ; preds = %149
-  %155 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %118
+  %155 = getelementptr inbounds nuw i32, ptr %0, i64 %118
   %156 = load i32, ptr %155, align 4
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %268
@@ -2663,7 +2663,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
 158:                                              ; preds = %154
   %159 = sub nsw i32 %11, %138
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %160
+  %161 = getelementptr inbounds i32, ptr %0, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %237, label %268
@@ -2678,7 +2678,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   ]
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
+  %168 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %12
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 16
   %171 = load i64, ptr %168, align 16
@@ -2696,7 +2696,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 183:                                              ; preds = %164
-  %184 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
+  %184 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %12
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %186 = load ptr, ptr %185, align 16
   %187 = load i64, ptr %184, align 16
@@ -2714,7 +2714,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 199:                                              ; preds = %164
-  %200 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
+  %200 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %12
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load ptr, ptr %201, align 16
   %203 = load i64, ptr %200, align 16
@@ -2729,7 +2729,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   %212 = and i64 %211, 4294967295
   %213 = getelementptr inbounds nuw i64, ptr %202, i64 %212
   %214 = load i64, ptr %213, align 8
-  %215 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
+  %215 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %12
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load ptr, ptr %216, align 16
   %218 = load i64, ptr %215, align 16
@@ -2749,8 +2749,8 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
 
 231:                                              ; preds = %164
   %232 = zext nneg i32 %122 to i64
-  %233 = getelementptr inbounds nuw [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %232
-  %234 = getelementptr inbounds nuw [64 x i64], ptr %233, i64 0, i64 %12
+  %233 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish13PseudoAttacksE, i64 %232
+  %234 = getelementptr inbounds nuw i64, ptr %233, i64 %12
   %235 = load i64, ptr %234, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
@@ -2783,8 +2783,8 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %167, %183,
   %249 = and i64 %248, %117
   %250 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %249, i1 true)
   %251 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %241, i1 true)
-  %252 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %250
-  %253 = getelementptr inbounds nuw [64 x i64], ptr %252, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %250
+  %253 = getelementptr inbounds nuw i64, ptr %252, i64 %251
   %254 = load i64, ptr %253, align 8
   %255 = and i64 %254, %119
   %.not46 = icmp eq i64 %255, 0
@@ -2798,7 +2798,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %167, %183,
   %261 = tail call noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %11, i64 noundef %260)
   %262 = xor i32 %6, 1
   %263 = zext i32 %262 to i64
-  %264 = getelementptr inbounds nuw [2 x i64], ptr %114, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw i64, ptr %114, i64 %263
   %265 = load i64, ptr %264, align 8
   %266 = and i64 %265, %261
   %.not45 = icmp eq i64 %266, 0
@@ -2821,14 +2821,14 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %4 = and i16 %3, 63
   %5 = and i16 %1, 63
   %6 = zext nneg i16 %4 to i64
-  %7 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = zext nneg i16 %5 to i64
   %17 = shl nuw i64 1, %16
@@ -2842,7 +2842,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %22 = xor i32 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw [2 x i64], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = shl nuw i64 1, %6
   %28 = and i64 %26, %27
@@ -2851,13 +2851,13 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %31 = getelementptr inbounds nuw [2 x i64], ptr %30, i64 0, i64 %24
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %24
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, %32
-  %36 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish6LineBBE, i64 0, i64 %6
-  %37 = getelementptr inbounds nuw [64 x i64], ptr %36, i64 0, i64 %16
+  %36 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish6LineBBE, i64 %6
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %16
   %38 = load i64, ptr %37, align 8
   %neg = sub i64 0, %35
   %39 = and i64 %38, %neg
@@ -2890,7 +2890,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   ]
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %16
+  %51 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 16
   %54 = load i64, ptr %51, align 16
@@ -2908,7 +2908,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 66:                                               ; preds = %44
-  %67 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %16
+  %67 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %16
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 16
   %70 = load i64, ptr %67, align 16
@@ -2926,7 +2926,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 82:                                               ; preds = %44
-  %83 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %16
+  %83 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %16
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 16
   %86 = load i64, ptr %83, align 16
@@ -2941,7 +2941,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %95 = and i64 %94, 4294967295
   %96 = getelementptr inbounds nuw i64, ptr %85, i64 %95
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %16
+  %98 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %16
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 16
   %101 = load i64, ptr %98, align 16
@@ -2960,14 +2960,14 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 114:                                              ; preds = %44
-  %115 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %16
+  %115 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %16
   %116 = load i64, ptr %115, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
 _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %50, %66, %82, %114
   %.0.i = phi i64 [ %116, %114 ], [ %65, %50 ], [ %81, %66 ], [ %113, %82 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %118 = getelementptr inbounds nuw [2 x i64], ptr %117, i64 0, i64 %24
+  %118 = getelementptr inbounds nuw i64, ptr %117, i64 %24
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %121 = load i64, ptr %120, align 8
@@ -2990,13 +2990,13 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %50, %66, %
   %135 = xor i64 %134, %27
   %136 = or i64 %135, %17
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %138 = getelementptr inbounds nuw [2 x i64], ptr %137, i64 0, i64 %24
+  %138 = getelementptr inbounds nuw i64, ptr %137, i64 %24
   %139 = load i64, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %141 = load i64, ptr %140, align 8
   %142 = and i64 %141, %139
   %143 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %142, i1 true)
-  %144 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load ptr, ptr %145, align 16
   %147 = load i64, ptr %144, align 16
@@ -3012,7 +3012,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %50, %66, %
   %157 = getelementptr inbounds nuw i64, ptr %146, i64 %156
   %158 = load i64, ptr %157, align 8
   %159 = zext i32 %21 to i64
-  %160 = getelementptr inbounds nuw [2 x i64], ptr %137, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i64, ptr %137, i64 %159
   %161 = load i64, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %163 = load i64, ptr %162, align 8
@@ -3020,7 +3020,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %50, %66, %
   %165 = load i64, ptr %164, align 8
   %166 = or i64 %165, %163
   %167 = and i64 %166, %158
-  %168 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %143
+  %168 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %143
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 16
   %171 = load i64, ptr %168, align 16
@@ -3131,7 +3131,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %51 = zext nneg i16 %50 to i32
   store i32 %51, ptr %5, align 4
   %52 = zext nneg i16 %48 to i64
-  %53 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %0, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = and i16 %1, -16384
   %56 = icmp slt i16 %1, -16384
@@ -3139,7 +3139,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 
 57:                                               ; preds = %4
   %58 = zext nneg i16 %50 to i64
-  %59 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = icmp ugt i16 %1, -16385
   br i1 %61, label %.thread113, label %74
@@ -3147,14 +3147,14 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 .thread113:                                       ; preds = %57
   call void @_ZN9Stockfish8Position11do_castlingILb1EEEvNS_5ColorENS_6SquareERS3_S4_S4_(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %45, i32 noundef %49, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %62
   %64 = load i32, ptr %6, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [64 x i64], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds i64, ptr %63, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = load i32, ptr %7, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [64 x i64], ptr %63, i64 0, i64 %69
+  %70 = getelementptr inbounds i64, ptr %63, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = xor i64 %67, %71
   %73 = xor i64 %72, %13
@@ -3182,9 +3182,9 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %.089122132136 = phi i32 [ %79, %77 ], [ %60, %.thread124 ]
   %.0111 = phi i32 [ %81, %77 ], [ %51, %.thread124 ]
   %82 = zext i32 %.089122132136 to i64
-  %83 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %82
   %84 = sext i32 %.0111 to i64
-  %85 = getelementptr inbounds [64 x i64], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds i64, ptr %83, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = load ptr, ptr %8, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -3195,12 +3195,12 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 
 91:                                               ; preds = %.thread124
   %92 = zext i32 %60 to i64
-  %93 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr @_ZN9StockfishL10PieceValueE, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr %8, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = zext i32 %46 to i64
-  %98 = getelementptr inbounds nuw [2 x i32], ptr %96, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = sub nsw i32 %99, %94
   store i32 %100, ptr %98, align 4
@@ -3219,7 +3219,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   store i32 %.1112, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %42, i64 11232
   store i32 64, ptr %104, align 4
-  %105 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %.pre-phi149
+  %105 = getelementptr inbounds i32, ptr %0, i64 %.pre-phi149
   %106 = load i32, ptr %105, align 4
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %108 = zext nneg i32 %.1112 to i64
@@ -3229,38 +3229,38 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   store i64 %111, ptr %107, align 8
   %112 = and i32 %106, 7
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [8 x i64], ptr %107, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %107, i64 %113
   %115 = load i64, ptr %114, align 8
   %116 = xor i64 %115, %109
   store i64 %116, ptr %114, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %118 = ashr i32 %106, 3
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw [2 x i64], ptr %117, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i64, ptr %117, i64 %119
   %121 = load i64, ptr %120, align 8
   %122 = xor i64 %121, %109
   store i64 %122, ptr %120, align 8
   store i32 0, ptr %105, align 4
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %124 = zext i32 %106 to i64
-  %125 = getelementptr inbounds nuw [16 x i32], ptr %123, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr %123, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %126, -1
   store i32 %127, ptr %125, align 4
   %128 = and i32 %106, -8
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw [16 x i32], ptr %123, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i32, ptr %123, i64 %129
   %131 = load i32, ptr %130, align 8
   %132 = add nsw i32 %131, -1
   store i32 %132, ptr %130, align 8
-  %133 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %.pre-phi150
-  %134 = getelementptr inbounds [64 x i64], ptr %133, i64 0, i64 %.pre-phi149
+  %133 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %.pre-phi150
+  %134 = getelementptr inbounds i64, ptr %133, i64 %.pre-phi149
   %135 = load i64, ptr %134, align 8
   %136 = xor i64 %135, %13
-  %137 = getelementptr inbounds nuw [16 x i32], ptr %123, i64 0, i64 %.pre-phi150
+  %137 = getelementptr inbounds nuw i32, ptr %123, i64 %.pre-phi150
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds [64 x i64], ptr %133, i64 0, i64 %139
+  %140 = getelementptr inbounds i64, ptr %133, i64 %139
   %141 = load i64, ptr %140, align 8
   %142 = load ptr, ptr %8, align 8
   %143 = load i64, ptr %142, align 64
@@ -3277,11 +3277,11 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %149 = phi i1 [ false, %101 ], [ false, %74 ], [ true, %.thread113 ]
   %.1 = phi i64 [ %136, %101 ], [ %13, %74 ], [ %73, %.thread113 ]
   %150 = zext i32 %54 to i64
-  %151 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %150
-  %152 = getelementptr inbounds nuw [64 x i64], ptr %151, i64 0, i64 %52
+  %151 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %150
+  %152 = getelementptr inbounds nuw i64, ptr %151, i64 %52
   %153 = load i64, ptr %152, align 8
   %154 = sext i32 %148 to i64
-  %155 = getelementptr inbounds [64 x i64], ptr %151, i64 0, i64 %154
+  %155 = getelementptr inbounds i64, ptr %151, i64 %154
   %156 = load i64, ptr %155, align 8
   %157 = xor i64 %153, %.1
   %158 = xor i64 %157, %156
@@ -3294,7 +3294,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 162:                                              ; preds = %147
   %163 = and i32 %161, 7
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 %164
   %166 = load i64, ptr %165, align 8
   %167 = xor i64 %166, %158
   store i32 64, ptr %160, align 4
@@ -3311,9 +3311,9 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 
 172:                                              ; preds = %168
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %174 = getelementptr inbounds nuw [64 x i32], ptr %173, i64 0, i64 %52
+  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %52
   %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds [64 x i32], ptr %173, i64 0, i64 %154
+  %176 = getelementptr inbounds i32, ptr %173, i64 %154
   %177 = load i32, ptr %176, align 4
   %178 = or i32 %177, %175
   %.not96 = icmp eq i32 %178, 0
@@ -3321,7 +3321,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 
 179:                                              ; preds = %172
   %180 = sext i32 %171 to i64
-  %181 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %180
+  %181 = getelementptr inbounds i64, ptr @_ZN9Stockfish7Zobrist8castlingE, i64 %180
   %182 = load i64, ptr %181, align 8
   %183 = xor i32 %178, -1
   %184 = and i32 %171, %183
@@ -3330,7 +3330,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = load i32, ptr %186, align 8
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %188
+  %189 = getelementptr inbounds i64, ptr @_ZN9Stockfish7Zobrist8castlingE, i64 %188
   %190 = load i64, ptr %189, align 8
   %191 = xor i64 %182, %190
   %192 = xor i64 %191, %.2
@@ -3358,19 +3358,19 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   store i64 %205, ptr %203, align 8
   %206 = and i32 %198, 7
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw [8 x i64], ptr %203, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i64, ptr %203, i64 %207
   %209 = load i64, ptr %208, align 8
   %210 = xor i64 %209, %202
   store i64 %210, ptr %208, align 8
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %212 = ashr i32 %198, 3
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw [2 x i64], ptr %211, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i64, ptr %211, i64 %213
   %215 = load i64, ptr %214, align 8
   %216 = xor i64 %215, %202
   store i64 %216, ptr %214, align 8
   store i32 0, ptr %53, align 4
-  %217 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %154
+  %217 = getelementptr inbounds i32, ptr %0, i64 %154
   store i32 %198, ptr %217, align 4
   br label %218
 
@@ -3389,13 +3389,13 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %.neg138 = select i1 %225, i32 -8, i32 8
   %226 = add i32 %148, %.neg138
   %227 = zext i32 %45 to i64
-  %228 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 %227
   %229 = sext i32 %226 to i64
-  %230 = getelementptr inbounds [64 x i64], ptr %228, i64 0, i64 %229
+  %230 = getelementptr inbounds i64, ptr %228, i64 %229
   %231 = load i64, ptr %230, align 8
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %233 = zext i32 %46 to i64
-  %234 = getelementptr inbounds nuw [2 x i64], ptr %232, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw i64, ptr %232, i64 %233
   %235 = load i64, ptr %234, align 8
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %237 = load i64, ptr %236, align 8
@@ -3413,7 +3413,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %245 = load i32, ptr %244, align 4
   %246 = and i32 %245, 7
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 %247
   %249 = load i64, ptr %248, align 8
   %250 = xor i64 %249, %.3
   br label %352
@@ -3429,7 +3429,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %256 = zext nneg i16 %narrow.i to i32
   %257 = shl i32 %45, 3
   %258 = or disjoint i32 %257, %256
-  %259 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %154
+  %259 = getelementptr inbounds i32, ptr %0, i64 %154
   %260 = load i32, ptr %259, align 4
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %262 = zext nneg i32 %148 to i64
@@ -3439,33 +3439,33 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   store i64 %265, ptr %261, align 8
   %266 = and i32 %260, 7
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw [8 x i64], ptr %261, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i64, ptr %261, i64 %267
   %269 = load i64, ptr %268, align 8
   %270 = xor i64 %269, %263
   store i64 %270, ptr %268, align 8
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %272 = ashr i32 %260, 3
   %273 = zext i32 %272 to i64
-  %274 = getelementptr inbounds nuw [2 x i64], ptr %271, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i64, ptr %271, i64 %273
   %275 = load i64, ptr %274, align 8
   %276 = xor i64 %275, %263
   store i64 %276, ptr %274, align 8
   store i32 0, ptr %259, align 4
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %278 = zext i32 %260 to i64
-  %279 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw i32, ptr %277, i64 %278
   %280 = load i32, ptr %279, align 4
   %281 = add nsw i32 %280, -1
   store i32 %281, ptr %279, align 4
   %282 = and i32 %260, -8
   %283 = zext i32 %282 to i64
-  %284 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i32, ptr %277, i64 %283
   %285 = load i32, ptr %284, align 8
   %286 = add nsw i32 %285, -1
   store i32 %286, ptr %284, align 8
   store i32 %258, ptr %259, align 4
   %287 = zext nneg i16 %narrow.i to i64
-  %288 = getelementptr inbounds nuw [8 x i64], ptr %261, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i64, ptr %261, i64 %287
   %289 = load i64, ptr %288, align 8
   %290 = or i64 %289, %263
   store i64 %290, ptr %288, align 8
@@ -3474,17 +3474,17 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   store i64 %292, ptr %261, align 8
   %293 = ashr exact i32 %257, 3
   %294 = zext i32 %293 to i64
-  %295 = getelementptr inbounds nuw [2 x i64], ptr %271, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw i64, ptr %271, i64 %294
   %296 = load i64, ptr %295, align 8
   %297 = or i64 %296, %263
   store i64 %297, ptr %295, align 8
   %298 = zext i32 %258 to i64
-  %299 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i32, ptr %277, i64 %298
   %300 = load i32, ptr %299, align 4
   %301 = add nsw i32 %300, 1
   store i32 %301, ptr %299, align 4
   %302 = zext i32 %257 to i64
-  %303 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw i32, ptr %277, i64 %302
   %304 = load i32, ptr %303, align 8
   %305 = add nsw i32 %304, 1
   store i32 %305, ptr %303, align 8
@@ -3493,23 +3493,23 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %307 = getelementptr inbounds nuw i8, ptr %42, i64 11204
   %308 = load i32, ptr %43, align 4
   %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds [3 x i32], ptr %307, i64 0, i64 %309
+  %310 = getelementptr inbounds i32, ptr %307, i64 %309
   store i32 %258, ptr %310, align 4
   %311 = getelementptr inbounds nuw i8, ptr %42, i64 11216
   %312 = load i32, ptr %43, align 4
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds [3 x i32], ptr %311, i64 0, i64 %313
+  %314 = getelementptr inbounds i32, ptr %311, i64 %313
   store i32 64, ptr %314, align 4
   %315 = load i32, ptr %43, align 4
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds [3 x i32], ptr %306, i64 0, i64 %316
+  %317 = getelementptr inbounds i32, ptr %306, i64 %316
   store i32 %148, ptr %317, align 4
   %318 = load i32, ptr %43, align 4
   %319 = add nsw i32 %318, 1
   store i32 %319, ptr %43, align 4
   %320 = load i64, ptr %155, align 8
-  %321 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %298
-  %322 = getelementptr inbounds [64 x i64], ptr %321, i64 0, i64 %154
+  %321 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %298
+  %322 = getelementptr inbounds i64, ptr %321, i64 %154
   %323 = load i64, ptr %322, align 8
   %324 = xor i64 %.3, %323
   %325 = xor i64 %324, %320
@@ -3519,26 +3519,26 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %329 = xor i64 %328, %320
   store i64 %329, ptr %327, align 8
   %330 = load i32, ptr %299, align 4
-  %331 = add nsw i32 %330, -1
-  %332 = sext i32 %331 to i64
-  %333 = getelementptr inbounds [64 x i64], ptr %321, i64 0, i64 %332
+  %331 = sext i32 %330 to i64
+  %332 = getelementptr i64, ptr %321, i64 %331
+  %333 = getelementptr i8, ptr %332, i64 -8
   %334 = load i64, ptr %333, align 8
-  %335 = getelementptr inbounds nuw [16 x i32], ptr %277, i64 0, i64 %150
+  %335 = getelementptr inbounds nuw i32, ptr %277, i64 %150
   %336 = load i32, ptr %335, align 4
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds [64 x i64], ptr %151, i64 0, i64 %337
+  %338 = getelementptr inbounds i64, ptr %151, i64 %337
   %339 = load i64, ptr %338, align 8
   %340 = xor i64 %339, %334
   %341 = load ptr, ptr %8, align 8
   %342 = load i64, ptr %341, align 64
   %343 = xor i64 %340, %342
   store i64 %343, ptr %341, align 64
-  %344 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %298
+  %344 = getelementptr inbounds nuw i32, ptr @_ZN9StockfishL10PieceValueE, i64 %298
   %345 = load i32, ptr %344, align 4
   %346 = load ptr, ptr %8, align 8
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 16
   %348 = zext i32 %45 to i64
-  %349 = getelementptr inbounds nuw [2 x i32], ptr %347, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw i32, ptr %347, i64 %348
   %350 = load i32, ptr %349, align 4
   %351 = add nsw i32 %350, %345
   store i32 %351, ptr %349, align 4
@@ -3550,7 +3550,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %.pre-phi = phi i64 [ %154, %251 ], [ %.pre147, %253 ], [ %154, %240 ]
   %.5 = phi i64 [ %.3, %251 ], [ %325, %253 ], [ %250, %240 ]
   %353 = load i64, ptr %152, align 8
-  %354 = getelementptr inbounds [64 x i64], ptr %151, i64 0, i64 %.pre-phi
+  %354 = getelementptr inbounds i64, ptr %151, i64 %.pre-phi
   %355 = load i64, ptr %354, align 8
   %356 = xor i64 %355, %353
   %357 = load ptr, ptr %8, align 8
@@ -3576,7 +3576,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 368:                                              ; preds = %363
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %370 = zext i32 %46 to i64
-  %371 = getelementptr inbounds nuw [2 x i64], ptr %369, i64 0, i64 %370
+  %371 = getelementptr inbounds nuw i64, ptr %369, i64 %370
   %372 = load i64, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %374 = load i64, ptr %373, align 8
@@ -3584,26 +3584,26 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %376 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %375, i1 true)
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %378 = load i64, ptr %377, align 8
-  %379 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %376
+  %379 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %376
   %380 = load i64, ptr %379, align 8
   %381 = load i64, ptr %369, align 8
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %383 = load i64, ptr %382, align 8
   %384 = and i64 %381, %380
-  %385 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %376
+  %385 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %376
   %386 = load i64, ptr %385, align 8
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %388 = load i64, ptr %387, align 8
   %389 = and i64 %388, %386
   %390 = or i64 %389, %384
   %391 = and i64 %390, %383
-  %392 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %376
+  %392 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %376
   %393 = load i64, ptr %392, align 8
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %395 = load i64, ptr %394, align 8
   %396 = and i64 %395, %393
   %397 = or i64 %391, %396
-  %398 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %376
+  %398 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %376
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
   %400 = load ptr, ptr %399, align 16
   %401 = load i64, ptr %398, align 16
@@ -3625,7 +3625,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %417 = or i64 %416, %414
   %418 = and i64 %417, %412
   %419 = or i64 %397, %418
-  %420 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %376
+  %420 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %376
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 16
   %422 = load ptr, ptr %421, align 16
   %423 = load i64, ptr %420, align 16
@@ -3645,12 +3645,12 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %437 = or i64 %436, %416
   %438 = and i64 %437, %434
   %439 = or i64 %419, %438
-  %440 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %376
+  %440 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %376
   %441 = load i64, ptr %440, align 8
   %442 = and i64 %441, %374
   %443 = or i64 %439, %442
   %444 = zext i32 %45 to i64
-  %445 = getelementptr inbounds nuw [2 x i64], ptr %369, i64 0, i64 %444
+  %445 = getelementptr inbounds nuw i64, ptr %369, i64 %444
   %446 = load i64, ptr %445, align 8
   %447 = and i64 %443, %446
   br label %448
@@ -3751,7 +3751,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb1EEEvN
   store i32 %27, ptr %28, align 4
   store i32 2, ptr %16, align 4
   %29 = sext i32 %2 to i64
-  %30 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = zext nneg i32 %2 to i64
@@ -3761,33 +3761,33 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb1EEEvN
   store i64 %36, ptr %32, align 8
   %37 = and i32 %31, 7
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %32, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = xor i64 %40, %34
   store i64 %41, ptr %39, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %43 = ashr i32 %31, 3
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [2 x i64], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %42, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = xor i64 %46, %34
   store i64 %47, ptr %45, align 8
   store i32 0, ptr %30, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %49 = zext i32 %31 to i64
-  %50 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, -1
   store i32 %52, ptr %50, align 4
   %53 = and i32 %31, -8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %48, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr %55, align 8
   %58 = load i32, ptr %4, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %59
+  %60 = getelementptr inbounds i32, ptr %0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = zext nneg i32 %58 to i64
   %63 = shl nuw i64 1, %62
@@ -3796,36 +3796,36 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb1EEEvN
   store i64 %65, ptr %32, align 8
   %66 = and i32 %61, 7
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %32, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %69, %63
   store i64 %70, ptr %68, align 8
   %71 = ashr i32 %61, 3
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw [2 x i64], ptr %42, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr %42, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = xor i64 %74, %63
   store i64 %75, ptr %73, align 8
   store i32 0, ptr %60, align 4
   %76 = zext i32 %61 to i64
-  %77 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %48, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = add nsw i32 %78, -1
   store i32 %79, ptr %77, align 4
   %80 = and i32 %61, -8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %48, i64 %81
   %83 = load i32, ptr %82, align 8
   %84 = add nsw i32 %83, -1
   store i32 %84, ptr %82, align 8
   %85 = load i32, ptr %4, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %86
+  %87 = getelementptr inbounds i32, ptr %0, i64 %86
   store i32 0, ptr %87, align 4
   store i32 0, ptr %30, align 4
   %88 = load i32, ptr %3, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %89
+  %90 = getelementptr inbounds i32, ptr %0, i64 %89
   store i32 %18, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %92 = zext nneg i32 %88 to i64
@@ -3838,23 +3838,23 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb1EEEvN
   store i64 %97, ptr %32, align 8
   %98 = ashr exact i32 %17, 3
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [2 x i64], ptr %42, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i64, ptr %42, i64 %99
   %101 = load i64, ptr %100, align 8
   %102 = or i64 %101, %93
   store i64 %102, ptr %100, align 8
   %103 = zext i32 %18 to i64
-  %104 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr %48, i64 %103
   %105 = load i32, ptr %104, align 8
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %104, align 8
   %107 = zext i32 %17 to i64
-  %108 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i32, ptr %48, i64 %107
   %109 = load i32, ptr %108, align 8
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %108, align 8
   %111 = load i32, ptr %5, align 4
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %112
+  %113 = getelementptr inbounds i32, ptr %0, i64 %112
   store i32 %23, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %115 = zext nneg i32 %111 to i64
@@ -3869,7 +3869,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb1EEEvN
   %122 = or i64 %121, %116
   store i64 %122, ptr %100, align 8
   %123 = zext i32 %23 to i64
-  %124 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i32, ptr %48, i64 %123
   %125 = load i32, ptr %124, align 8
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 8
@@ -3894,7 +3894,7 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   %12 = zext nneg i16 %11 to i32
   store i32 %12, ptr %3, align 4
   %13 = zext nneg i16 %11 to i64
-  %14 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   %15 = and i16 %1, -16384
   switch i16 %15, label %._crit_edge [
     i16 16384, label %.thread
@@ -3917,26 +3917,26 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   store i64 %20, ptr %17, align 8
   %21 = and i32 %16, 7
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = xor i64 %24, %18
   store i64 %25, ptr %23, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %27 = ashr i32 %16, 3
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i64], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = xor i64 %30, %18
   store i64 %31, ptr %29, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %33 = zext i32 %16 to i64
-  %34 = getelementptr inbounds nuw [16 x i32], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr %34, align 4
   %37 = and i32 %16, -8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [16 x i32], ptr %32, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %32, i64 %38
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr %39, align 8
@@ -3950,17 +3950,17 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   %48 = or i64 %47, %46
   %49 = ashr exact i32 %42, 3
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [2 x i64], ptr %26, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %26, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, %18
   store i64 %53, ptr %51, align 8
   %54 = zext i32 %43 to i64
-  %55 = getelementptr inbounds nuw [16 x i32], ptr %32, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %32, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 4
   %58 = zext i32 %42 to i64
-  %59 = getelementptr inbounds nuw [16 x i32], ptr %32, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %32, i64 %58
   %60 = load i32, ptr %59, align 8
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 8
@@ -3983,19 +3983,19 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   store i64 %71, ptr %70, align 8
   %72 = and i32 %66, 7
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [8 x i64], ptr %70, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %70, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = xor i64 %75, %69
   store i64 %76, ptr %74, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %78 = ashr i32 %66, 3
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw [2 x i64], ptr %77, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %77, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = xor i64 %81, %69
   store i64 %82, ptr %80, align 8
   store i32 0, ptr %14, align 4
-  %83 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %67
+  %83 = getelementptr inbounds nuw i32, ptr %0, i64 %67
   store i32 %66, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %85 = load ptr, ptr %84, align 8
@@ -4011,11 +4011,11 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   %91 = select i1 %89, i32 %.neg, i32 0
   %.0 = add nsw i32 %91, %12
   %92 = sext i32 %.0 to i64
-  %93 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %92
+  %93 = getelementptr inbounds i32, ptr %0, i64 %92
   store i32 %87, ptr %93, align 4
   %94 = and i32 %87, 7
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [8 x i64], ptr %70, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %70, i64 %95
   %97 = zext nneg i32 %.0 to i64
   %98 = shl nuw i64 1, %97
   %99 = load i64, ptr %96, align 8
@@ -4026,19 +4026,19 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   store i64 %102, ptr %70, align 8
   %103 = ashr i32 %87, 3
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw [2 x i64], ptr %77, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i64, ptr %77, i64 %104
   %106 = load i64, ptr %105, align 8
   %107 = or i64 %106, %98
   store i64 %107, ptr %105, align 8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %109 = zext i32 %87 to i64
-  %110 = getelementptr inbounds nuw [16 x i32], ptr %108, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %110, align 4
   %113 = and i32 %87, -8
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw [16 x i32], ptr %108, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i32, ptr %108, i64 %114
   %116 = load i32, ptr %115, align 8
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 8
@@ -4070,7 +4070,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb0EEEvN
   %13 = or disjoint i32 %12, %10
   store i32 %13, ptr %3, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %0, i64 %14
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = zext nneg i32 %13 to i64
@@ -4080,33 +4080,33 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb0EEEvN
   store i64 %21, ptr %17, align 8
   %22 = and i32 %16, 7
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, %19
   store i64 %26, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %28 = ashr i32 %16, 3
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [2 x i64], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = xor i64 %31, %19
   store i64 %32, ptr %30, align 8
   store i32 0, ptr %15, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %34 = zext i32 %16 to i64
-  %35 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, -1
   store i32 %37, ptr %35, align 4
   %38 = and i32 %16, -8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %33, i64 %39
   %41 = load i32, ptr %40, align 8
   %42 = add nsw i32 %41, -1
   store i32 %42, ptr %40, align 8
   %43 = load i32, ptr %5, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %44
+  %45 = getelementptr inbounds i32, ptr %0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = zext nneg i32 %43 to i64
   %48 = shl nuw i64 1, %47
@@ -4115,40 +4115,40 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb0EEEvN
   store i64 %50, ptr %17, align 8
   %51 = and i32 %46, 7
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i64, ptr %17, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = xor i64 %54, %48
   store i64 %55, ptr %53, align 8
   %56 = ashr i32 %46, 3
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [2 x i64], ptr %27, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i64, ptr %27, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = xor i64 %59, %48
   store i64 %60, ptr %58, align 8
   store i32 0, ptr %45, align 4
   %61 = zext i32 %46 to i64
-  %62 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %33, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, -1
   store i32 %64, ptr %62, align 4
   %65 = and i32 %46, -8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %33, i64 %66
   %68 = load i32, ptr %67, align 8
   %69 = add nsw i32 %68, -1
   store i32 %69, ptr %67, align 8
   %70 = load i32, ptr %5, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %71
+  %72 = getelementptr inbounds i32, ptr %0, i64 %71
   store i32 0, ptr %72, align 4
   %73 = load i32, ptr %3, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %74
+  %75 = getelementptr inbounds i32, ptr %0, i64 %74
   store i32 0, ptr %75, align 4
   %76 = shl i32 %1, 3
   %77 = or disjoint i32 %76, 6
   %78 = sext i32 %2 to i64
-  %79 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %78
+  %79 = getelementptr inbounds i32, ptr %0, i64 %78
   store i32 %77, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %81 = zext nneg i32 %2 to i64
@@ -4161,24 +4161,24 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb0EEEvN
   store i64 %86, ptr %17, align 8
   %87 = ashr exact i32 %76, 3
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw [2 x i64], ptr %27, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i64, ptr %27, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = or i64 %90, %82
   store i64 %91, ptr %89, align 8
   %92 = zext i32 %77 to i64
-  %93 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %33, i64 %92
   %94 = load i32, ptr %93, align 8
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %93, align 8
   %96 = zext i32 %76 to i64
-  %97 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr %33, i64 %96
   %98 = load i32, ptr %97, align 8
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %97, align 8
   %100 = or disjoint i32 %76, 4
   %101 = load i32, ptr %4, align 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %102
+  %103 = getelementptr inbounds i32, ptr %0, i64 %102
   store i32 %100, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %105 = zext nneg i32 %101 to i64
@@ -4193,7 +4193,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb0EEEvN
   %112 = or i64 %111, %106
   store i64 %112, ptr %89, align 8
   %113 = zext i32 %100 to i64
-  %114 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr %33, i64 %113
   %115 = load i32, ptr %114, align 8
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %114, align 8
@@ -4250,7 +4250,7 @@ define dso_local void @_ZN9Stockfish8Position12do_null_moveERNS_9StateInfoERNS_1
 30:                                               ; preds = %3
   %31 = and i32 %29, 7
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [8 x i64], ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish7Zobrist9enpassantE, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %36 = load i64, ptr %35, align 8
@@ -4339,10 +4339,10 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position9key_afterENS_4MoveE(ptr no
   %4 = and i16 %3, 63
   %5 = and i16 %1, 63
   %6 = zext nneg i16 %4 to i64
-  %7 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = zext nneg i16 %5 to i64
-  %10 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %13 = load ptr, ptr %12, align 8
@@ -4355,14 +4355,14 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position9key_afterENS_4MoveE(ptr no
 
 18:                                               ; preds = %2
   %19 = zext i32 %11 to i64
-  %20 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %19
-  %21 = getelementptr inbounds nuw [64 x i64], ptr %20, i64 0, i64 %9
+  %20 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %19
+  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %9
   %22 = load i64, ptr %21, align 8
   %23 = zext i32 %8 to i64
-  %24 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %23
-  %25 = getelementptr inbounds nuw [64 x i64], ptr %24, i64 0, i64 %9
+  %24 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %23
+  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %9
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw [64 x i64], ptr %24, i64 0, i64 %6
+  %27 = getelementptr inbounds nuw i64, ptr %24, i64 %6
   %28 = load i64, ptr %27, align 8
   %29 = xor i64 %22, %26
   %30 = xor i64 %29, %28
@@ -4371,10 +4371,10 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position9key_afterENS_4MoveE(ptr no
 
 32:                                               ; preds = %2
   %33 = zext i32 %8 to i64
-  %34 = getelementptr inbounds nuw [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %33
-  %35 = getelementptr inbounds nuw [64 x i64], ptr %34, i64 0, i64 %9
+  %34 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish7Zobrist3psqE, i64 %33
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %9
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw [64 x i64], ptr %34, i64 0, i64 %6
+  %37 = getelementptr inbounds nuw i64, ptr %34, i64 %6
   %38 = load i64, ptr %37, align 8
   %39 = xor i64 %36, %38
   %40 = xor i64 %39, %17
@@ -4414,10 +4414,10 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
 6:                                                ; preds = %3
   %7 = and i16 %1, 63
   %8 = zext nneg i16 %7 to i64
-  %9 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @_ZN9StockfishL10PieceValueE, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sub nsw i32 %13, %2
   %15 = icmp slt i32 %14, 0
@@ -4427,10 +4427,10 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %17 = lshr i16 %1, 6
   %18 = and i16 %17, 63
   %19 = zext nneg i16 %18 to i64
-  %20 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @_ZN9StockfishL10PieceValueE, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = sub nsw i32 %24, %14
   %26 = icmp slt i32 %25, 1
@@ -4445,27 +4445,27 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %33 = xor i64 %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 0, i64 %8
+  %36 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish11PawnAttacksE, i64 512), i64 %8
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %39, %37
-  %43 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %8
+  %43 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish11PawnAttacksE, i64 %8
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, %44
   %48 = or i64 %47, %42
   %49 = and i64 %48, %41
-  %50 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %8
+  %50 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 %8
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, %51
   %55 = or i64 %49, %54
-  %56 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %8
+  %56 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 16
   %59 = load i64, ptr %56, align 16
@@ -4487,7 +4487,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %75 = or i64 %74, %72
   %76 = and i64 %75, %70
   %77 = or i64 %55, %76
-  %78 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %8
+  %78 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 16
   %81 = load i64, ptr %78, align 16
@@ -4507,7 +4507,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %95 = or i64 %94, %74
   %96 = and i64 %95, %92
   %97 = or i64 %77, %96
-  %98 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 0, i64 %8
+  %98 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 3072), i64 %8
   %99 = load i64, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %101 = load i64, ptr %100, align 8
@@ -4516,7 +4516,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %104 = xor i32 %35, 1
   %105 = and i64 %103, %33
   %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds nuw [2 x i64], ptr %38, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i64, ptr %38, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = and i64 %108, %105
   %.not92108 = icmp eq i64 %109, 0
@@ -4540,14 +4540,14 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %.071110 = phi i64 [ %33, %.lr.ph ], [ %.172, %220 ]
   %.073109 = phi i32 [ %25, %.lr.ph ], [ %.174, %220 ]
   %120 = zext i32 %.070111 to i64
-  %121 = getelementptr inbounds nuw [2 x i64], ptr %112, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %112, i64 %120
   %122 = load i64, ptr %121, align 8
   %123 = and i64 %122, %.071110
   %.not93 = icmp eq i64 %123, 0
   br i1 %.not93, label %129, label %124
 
 124:                                              ; preds = %114
-  %125 = getelementptr inbounds nuw [2 x i64], ptr %113, i64 0, i64 %117
+  %125 = getelementptr inbounds nuw i64, ptr %113, i64 %117
   %126 = load i64, ptr %125, align 8
   %127 = xor i64 %126, -1
   %128 = and i64 %115, %127
@@ -4691,7 +4691,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   %221 = xor i32 %119, 1
   %222 = and i64 %.169, %.172
   %223 = zext i32 %221 to i64
-  %224 = getelementptr inbounds nuw [2 x i64], ptr %38, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i64, ptr %38, i64 %223
   %225 = load i64, ptr %224, align 8
   %226 = and i64 %225, %222
   %.not92 = icmp eq i64 %226, 0
@@ -4814,7 +4814,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   %26 = load i64, ptr %25, align 8
   %27 = xor i64 %26, %13
   %28 = and i64 %27, 8191
-  %29 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, %27
   br i1 %31, label %._crit_edge, label %32
@@ -4826,22 +4826,22 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
 32:                                               ; preds = %20
   %33 = lshr i64 %27, 16
   %34 = and i64 %33, 8191
-  %35 = getelementptr inbounds nuw [8192 x i64], ptr @_ZN9Stockfish6cuckooE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, %27
   br i1 %37, label %38, label %65
 
 38:                                               ; preds = %._crit_edge, %32
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %34, %32 ]
-  %39 = getelementptr inbounds nuw [8192 x %"class.Stockfish::Move"], ptr @_ZN9Stockfish10cuckooMoveE, i64 0, i64 %.pre-phi
+  %39 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr @_ZN9Stockfish10cuckooMoveE, i64 %.pre-phi
   %40 = load i16, ptr %39, align 2
   %41 = lshr i16 %40, 6
   %42 = and i16 %41, 63
   %43 = and i16 %40, 63
   %44 = zext nneg i16 %42 to i64
-  %45 = getelementptr inbounds nuw [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [64 x i64], ptr @_ZN9Stockfish9BetweenBBE, i64 %44
   %46 = zext nneg i16 %43 to i64
-  %47 = getelementptr inbounds nuw [64 x i64], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = shl nuw i64 1, %46
   %50 = xor i64 %49, %48
@@ -4854,12 +4854,12 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   br i1 %53, label %.loopexit, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %44
+  %55 = getelementptr inbounds nuw i32, ptr %0, i64 %44
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 0
   %.v = select i1 %57, i16 %43, i16 %42
   %58 = zext nneg i16 %.v to i64
-  %59 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = ashr i32 %60, 3
   %.not30 = icmp eq i32 %61, %19

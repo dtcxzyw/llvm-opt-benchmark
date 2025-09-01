@@ -364,7 +364,7 @@ define hidden void @_ZN2cv16RobertsonWeightsEv(ptr dead_on_unwind noalias nonnul
 
 16:                                               ; preds = %16, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   store float %15, ptr %17, align 4, !tbaa !28, !alias.scope !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -800,7 +800,7 @@ define hidden void @_ZN2cv14linearResponseEi(ptr dead_on_unwind noalias nonnull 
 
 13:                                               ; preds = %13, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   store float %12, ptr %14, align 4, !tbaa !28, !alias.scope !62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

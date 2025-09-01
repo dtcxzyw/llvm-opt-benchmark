@@ -682,7 +682,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br i1 %44, label %"_ZN4core3ptr91drop_in_place$LT$core..array..iter..IntoIter$LT$gpui..element..AnyElement$C$1_usize$GT$$GT$17hbe3d4d198c345535E.exit", label %45
 
 45:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit.i.i.i"
-  %46 = getelementptr inbounds [0 x { { ptr, { ptr, ptr } } }], ptr %43, i64 0, i64 %.sroa.0.0.i.i.i
+  %46 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %43, i64 %.sroa.0.0.i.i.i
   %47 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65818d49fac2176E.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46)
           to label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit.i.i.i" unwind label %49
@@ -698,7 +698,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit7.i.i.i"
 
 51:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit7.i.i.i"
-  %52 = getelementptr inbounds [0 x { { ptr, { ptr, ptr } } }], ptr %43, i64 0, i64 %.sroa.0.1.i.i.i
+  %52 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %43, i64 %.sroa.0.1.i.i.i
   %53 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65818d49fac2176E.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
           to label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit7.i.i.i" unwind label %54
@@ -804,7 +804,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br i1 %85, label %"_ZN4core3ptr91drop_in_place$LT$core..array..iter..IntoIter$LT$gpui..element..AnyElement$C$1_usize$GT$$GT$17hbe3d4d198c345535E.exit21", label %86
 
 86:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit.i.i.i17"
-  %87 = getelementptr inbounds [0 x { { ptr, { ptr, ptr } } }], ptr %84, i64 0, i64 %.sroa.0.0.i.i.i18
+  %87 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %84, i64 %.sroa.0.0.i.i.i18
   %88 = add i64 %.sroa.0.0.i.i.i18, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65818d49fac2176E.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87)
           to label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit.i.i.i17" unwind label %90
@@ -820,7 +820,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit7.i.i.i19"
 
 92:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit7.i.i.i19"
-  %93 = getelementptr inbounds [0 x { { ptr, { ptr, ptr } } }], ptr %84, i64 0, i64 %.sroa.0.1.i.i.i20
+  %93 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %84, i64 %.sroa.0.1.i.i.i20
   %94 = add i64 %.sroa.0.1.i.i.i20, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf65818d49fac2176E.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93)
           to label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h7bb3056ac39d1018E.exit7.i.i.i19" unwind label %95

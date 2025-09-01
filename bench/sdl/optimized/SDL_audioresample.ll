@@ -16,7 +16,7 @@ define hidden void @SDL_SetupAudioResampler() local_unnamed_addr #0 {
   %1 = alloca [24 x float], align 16
   %2 = alloca [121 x float], align 16
   %3 = tail call zeroext i1 @SDL_ShouldInit_REAL(ptr noundef nonnull @SDL_SetupAudioResampler.init) #8
-  br i1 %3, label %.preheader, label %103
+  br i1 %3, label %.preheader, label %102
 
 .preheader:                                       ; preds = %0, %.preheader
   %.016.i.i.i = phi float [ %7, %.preheader ], [ 1.000000e+00, %0 ]
@@ -96,103 +96,103 @@ BesselI0.exit32.i.i:                              ; preds = %28
   %47 = uitofp nneg i32 %37 to float
   %48 = fdiv float %46, %47
   %49 = fmul float %36, %48
-  %50 = getelementptr inbounds nuw [121 x float], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i.i
   store float %49, ptr %50, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 121
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %18, !llvm.loop !6
 
-.preheader.i.i:                                   ; preds = %BesselI0.exit32.i.i, %100
-  %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %100 ], [ 0, %BesselI0.exit32.i.i ]
-  %51 = getelementptr inbounds nuw [8 x [10 x %union.Cubic]], ptr @ResamplerFilter, i64 0, i64 %indvars.iv46.i.i
+.preheader.i.i:                                   ; preds = %BesselI0.exit32.i.i, %99
+  %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %99 ], [ 0, %BesselI0.exit32.i.i ]
+  %51 = getelementptr inbounds nuw [10 x %union.Cubic], ptr @ResamplerFilter, i64 %indvars.iv46.i.i
   %52 = sub nuw nsw i64 7, %indvars.iv46.i.i
-  %53 = getelementptr inbounds nuw [8 x [10 x %union.Cubic]], ptr @ResamplerFilter, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [10 x %union.Cubic], ptr @ResamplerFilter, i64 %52
   br label %54
 
 54:                                               ; preds = %54, %.preheader.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next43.i.i, %54 ]
   %55 = shl nuw nsw i64 %indvars.iv42.i.i, 3
   %56 = add nuw nsw i64 %55, %indvars.iv46.i.i
-  %57 = mul nuw nsw i64 %56, 3
-  %58 = getelementptr inbounds nuw [121 x float], ptr %2, i64 0, i64 %57
-  %59 = sub nuw nsw i64 4, %indvars.iv42.i.i
-  %60 = getelementptr inbounds nuw [10 x %union.Cubic], ptr %51, i64 0, i64 %59
-  %61 = add nuw nsw i64 %indvars.iv42.i.i, 5
-  %62 = getelementptr inbounds nuw [10 x %union.Cubic], ptr %53, i64 0, i64 %61
-  %63 = load float, ptr %58, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %67 = load float, ptr %66, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  %69 = load float, ptr %68, align 4
-  store float %63, ptr %60, align 16
-  %70 = fmul float %65, 9.000000e+00
-  %71 = tail call float @llvm.fmuladd.f32(float %63, float -5.500000e+00, float %70)
-  %72 = tail call float @llvm.fmuladd.f32(float %67, float -4.500000e+00, float %71)
-  %73 = fadd float %69, %72
-  %74 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store float %73, ptr %74, align 4
-  %75 = fmul float %65, -2.250000e+01
-  %76 = tail call float @llvm.fmuladd.f32(float %63, float 9.000000e+00, float %75)
-  %77 = tail call float @llvm.fmuladd.f32(float %67, float 1.800000e+01, float %76)
-  %78 = tail call float @llvm.fmuladd.f32(float %69, float -4.500000e+00, float %77)
-  %79 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store float %78, ptr %79, align 8
-  %80 = fmul float %65, 1.350000e+01
-  %81 = tail call float @llvm.fmuladd.f32(float %63, float -4.500000e+00, float %80)
-  %82 = tail call float @llvm.fmuladd.f32(float %67, float -1.350000e+01, float %81)
-  %83 = tail call float @llvm.fmuladd.f32(float %69, float 4.500000e+00, float %82)
-  %84 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store float %83, ptr %84, align 4
-  store float %69, ptr %62, align 16
-  %85 = fmul float %67, 9.000000e+00
-  %86 = tail call float @llvm.fmuladd.f32(float %69, float -5.500000e+00, float %85)
-  %87 = tail call float @llvm.fmuladd.f32(float %65, float -4.500000e+00, float %86)
-  %88 = fadd float %63, %87
-  %89 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store float %88, ptr %89, align 4
-  %90 = fmul float %67, -2.250000e+01
-  %91 = tail call float @llvm.fmuladd.f32(float %69, float 9.000000e+00, float %90)
-  %92 = tail call float @llvm.fmuladd.f32(float %65, float 1.800000e+01, float %91)
-  %93 = tail call float @llvm.fmuladd.f32(float %63, float -4.500000e+00, float %92)
-  %94 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store float %93, ptr %94, align 8
-  %95 = fmul float %67, 1.350000e+01
-  %96 = tail call float @llvm.fmuladd.f32(float %69, float -4.500000e+00, float %95)
-  %97 = tail call float @llvm.fmuladd.f32(float %65, float -1.350000e+01, float %96)
-  %98 = tail call float @llvm.fmuladd.f32(float %63, float 4.500000e+00, float %97)
-  %99 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  store float %98, ptr %99, align 4
+  %.idx.i.i = mul nuw nsw i64 %56, 12
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %58 = sub nuw nsw i64 4, %indvars.iv42.i.i
+  %59 = getelementptr inbounds nuw %union.Cubic, ptr %51, i64 %58
+  %60 = getelementptr inbounds nuw %union.Cubic, ptr %53, i64 %indvars.iv42.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 80
+  %62 = load float, ptr %57, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %64 = load float, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %66 = load float, ptr %65, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %68 = load float, ptr %67, align 4
+  store float %62, ptr %59, align 16
+  %69 = fmul float %64, 9.000000e+00
+  %70 = tail call float @llvm.fmuladd.f32(float %62, float -5.500000e+00, float %69)
+  %71 = tail call float @llvm.fmuladd.f32(float %66, float -4.500000e+00, float %70)
+  %72 = fadd float %68, %71
+  %73 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store float %72, ptr %73, align 4
+  %74 = fmul float %64, -2.250000e+01
+  %75 = tail call float @llvm.fmuladd.f32(float %62, float 9.000000e+00, float %74)
+  %76 = tail call float @llvm.fmuladd.f32(float %66, float 1.800000e+01, float %75)
+  %77 = tail call float @llvm.fmuladd.f32(float %68, float -4.500000e+00, float %76)
+  %78 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store float %77, ptr %78, align 8
+  %79 = fmul float %64, 1.350000e+01
+  %80 = tail call float @llvm.fmuladd.f32(float %62, float -4.500000e+00, float %79)
+  %81 = tail call float @llvm.fmuladd.f32(float %66, float -1.350000e+01, float %80)
+  %82 = tail call float @llvm.fmuladd.f32(float %68, float 4.500000e+00, float %81)
+  %83 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  store float %82, ptr %83, align 4
+  store float %68, ptr %61, align 16
+  %84 = fmul float %66, 9.000000e+00
+  %85 = tail call float @llvm.fmuladd.f32(float %68, float -5.500000e+00, float %84)
+  %86 = tail call float @llvm.fmuladd.f32(float %64, float -4.500000e+00, float %85)
+  %87 = fadd float %62, %86
+  %88 = getelementptr inbounds nuw i8, ptr %60, i64 84
+  store float %87, ptr %88, align 4
+  %89 = fmul float %66, -2.250000e+01
+  %90 = tail call float @llvm.fmuladd.f32(float %68, float 9.000000e+00, float %89)
+  %91 = tail call float @llvm.fmuladd.f32(float %64, float 1.800000e+01, float %90)
+  %92 = tail call float @llvm.fmuladd.f32(float %62, float -4.500000e+00, float %91)
+  %93 = getelementptr inbounds nuw i8, ptr %60, i64 88
+  store float %92, ptr %93, align 8
+  %94 = fmul float %66, 1.350000e+01
+  %95 = tail call float @llvm.fmuladd.f32(float %68, float -4.500000e+00, float %94)
+  %96 = tail call float @llvm.fmuladd.f32(float %64, float -1.350000e+01, float %95)
+  %97 = tail call float @llvm.fmuladd.f32(float %62, float 4.500000e+00, float %96)
+  %98 = getelementptr inbounds nuw i8, ptr %60, i64 92
+  store float %97, ptr %98, align 4
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 5
-  br i1 %exitcond45.not.i.i, label %100, label %54, !llvm.loop !7
+  br i1 %exitcond45.not.i.i, label %99, label %54, !llvm.loop !7
 
-100:                                              ; preds = %54
+99:                                               ; preds = %54
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, 8
   br i1 %exitcond49.not.i.i, label %GenerateResamplerFilter.exit.i, label %.preheader.i.i, !llvm.loop !8
 
-GenerateResamplerFilter.exit.i:                   ; preds = %100
+GenerateResamplerFilter.exit.i:                   ; preds = %99
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %101
+  br label %100
 
-101:                                              ; preds = %101, %GenerateResamplerFilter.exit.i
-  %indvars.iv.i = phi i64 [ 0, %GenerateResamplerFilter.exit.i ], [ %indvars.iv.next.i, %101 ]
-  %102 = getelementptr inbounds nuw [8 x ptr], ptr @ResampleFrame, i64 0, i64 %indvars.iv.i
-  store ptr @ResampleFrame_Generic, ptr %102, align 8
+100:                                              ; preds = %100, %GenerateResamplerFilter.exit.i
+  %indvars.iv.i = phi i64 [ 0, %GenerateResamplerFilter.exit.i ], [ %indvars.iv.next.i, %100 ]
+  %101 = getelementptr inbounds nuw ptr, ptr @ResampleFrame, i64 %indvars.iv.i
+  store ptr @ResampleFrame_Generic, ptr %101, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %SetupAudioResampler.exit, label %101, !llvm.loop !9
+  br i1 %exitcond.not.i, label %SetupAudioResampler.exit, label %100, !llvm.loop !9
 
-SetupAudioResampler.exit:                         ; preds = %101
+SetupAudioResampler.exit:                         ; preds = %100
   store ptr @ResampleFrame_Mono, ptr @ResampleFrame, align 16
   store ptr @ResampleFrame_Stereo, ptr getelementptr inbounds nuw (i8, ptr @ResampleFrame, i64 8), align 8
   tail call void @SDL_SetInitialized_REAL(ptr noundef nonnull @SDL_SetupAudioResampler.init, i1 noundef zeroext true) #8
-  br label %103
+  br label %102
 
-103:                                              ; preds = %SetupAudioResampler.exit, %0
+102:                                              ; preds = %SetupAudioResampler.exit, %0
   ret void
 }
 
@@ -290,9 +290,9 @@ ResamplerMul.exit.thread15:                       ; preds = %3, %5, %ResamplerMu
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_ResampleAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = load i64, ptr %6, align 8
-  %9 = add nsw i32 %0, -1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [8 x ptr], ptr @ResampleFrame, i64 0, i64 %10
+  %9 = sext i32 %0 to i64
+  %10 = getelementptr ptr, ptr @ResampleFrame, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = shl nsw i32 %0, 2
   %14 = sext i32 %13 to i64
@@ -301,39 +301,35 @@ define hidden void @SDL_ResampleAudio(i32 noundef %0, ptr noundef %1, i32 nounde
   %17 = icmp sgt i32 %4, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7
-  %18 = sext i32 %0 to i64
-  br label %19
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  %.030 = phi ptr [ %31, %.lr.ph ], [ %3, %7 ]
+  %.02629 = phi i32 [ %32, %.lr.ph ], [ 0, %7 ]
+  %.02728 = phi i64 [ %21, %.lr.ph ], [ %8, %7 ]
+  %18 = lshr i64 %.02728, 32
+  %19 = trunc nuw i64 %18 to i32
+  %20 = trunc i64 %.02728 to i32
+  %21 = add nsw i64 %.02728, %5
+  %22 = lshr i64 %.02728, 29
+  %23 = and i64 %22, 7
+  %24 = getelementptr inbounds nuw [10 x %union.Cubic], ptr @ResamplerFilter, i64 %23
+  %25 = and i32 %20, 536870911
+  %26 = uitofp nneg i32 %25 to float
+  %27 = fmul float %26, 0x3E20000000000000
+  %28 = mul nsw i32 %0, %19
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds float, ptr %16, i64 %29
+  tail call void %12(ptr noundef %30, ptr noundef %.030, ptr noundef nonnull %24, float noundef %27, i32 noundef %0) #8
+  %31 = getelementptr inbounds float, ptr %.030, i64 %9
+  %32 = add nuw nsw i32 %.02629, 1
+  %exitcond.not = icmp eq i32 %32, %4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-19:                                               ; preds = %.lr.ph, %19
-  %.030 = phi ptr [ %3, %.lr.ph ], [ %33, %19 ]
-  %.02629 = phi i32 [ 0, %.lr.ph ], [ %34, %19 ]
-  %.02728 = phi i64 [ %8, %.lr.ph ], [ %23, %19 ]
-  %20 = lshr i64 %.02728, 32
-  %21 = trunc nuw i64 %20 to i32
-  %22 = trunc i64 %.02728 to i32
-  %23 = add nsw i64 %.02728, %5
-  %24 = lshr i64 %.02728, 29
-  %25 = and i64 %24, 7
-  %26 = getelementptr inbounds nuw [8 x [10 x %union.Cubic]], ptr @ResamplerFilter, i64 0, i64 %25
-  %27 = and i32 %22, 536870911
-  %28 = uitofp nneg i32 %27 to float
-  %29 = fmul float %28, 0x3E20000000000000
-  %30 = mul nsw i32 %0, %21
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds float, ptr %16, i64 %31
-  tail call void %12(ptr noundef %32, ptr noundef %.030, ptr noundef nonnull %26, float noundef %29, i32 noundef %0) #8
-  %33 = getelementptr inbounds float, ptr %.030, i64 %18
-  %34 = add nuw nsw i32 %.02629, 1
-  %exitcond.not = icmp eq i32 %34, %4
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !10
-
-._crit_edge:                                      ; preds = %19, %7
-  %.027.lcssa = phi i64 [ %8, %7 ], [ %23, %19 ]
-  %35 = sext i32 %2 to i64
-  %36 = shl nsw i64 %35, 32
-  %37 = sub nsw i64 %.027.lcssa, %36
-  store i64 %37, ptr %6, align 8
+._crit_edge:                                      ; preds = %.lr.ph, %7
+  %.027.lcssa = phi i64 [ %8, %7 ], [ %21, %.lr.ph ]
+  %33 = sext i32 %2 to i64
+  %34 = shl nsw i64 %33, 32
+  %35 = sub nsw i64 %.027.lcssa, %34
+  store i64 %35, ptr %6, align 8
   ret void
 }
 
@@ -366,7 +362,7 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %.03033, i64 12
   %20 = load float, ptr %19, align 4
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %8, float %18)
-  %22 = getelementptr inbounds nuw [10 x float], ptr %6, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw i8, ptr %.03033, i64 16
@@ -384,7 +380,7 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
   %25 = mul nuw nsw i64 %indvars.iv39, %10
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %25
   %26 = load float, ptr %gep, align 4
-  %27 = getelementptr inbounds nuw [10 x float], ptr %6, i64 0, i64 %indvars.iv39
+  %27 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv39
   %28 = load float, ptr %27, align 4
   %29 = tail call float @llvm.fmuladd.f32(float %26, float %28, float %.036)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1

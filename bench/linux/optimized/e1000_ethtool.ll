@@ -1473,7 +1473,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %98, label %.loopexit68, label %99, !llvm.loop !22
 
 99:                                               ; preds = %.preheader67
-  %100 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %97
+  %100 = getelementptr i32, ptr @reg_pattern_test.test, i64 %97
   %101 = load i32, ptr %100, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %101, ptr elementtype(i32) %93) #18, !srcloc !13
   %102 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93) #18, !srcloc !6
@@ -1518,7 +1518,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %123, label %.loopexit66, label %124, !llvm.loop !22
 
 124:                                              ; preds = %.preheader65
-  %125 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %122
+  %125 = getelementptr i32, ptr @reg_pattern_test.test, i64 %122
   %126 = load i32, ptr %125, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %126, ptr elementtype(i32) %118) #18, !srcloc !13
   %127 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %118) #18, !srcloc !6
@@ -1564,7 +1564,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %149, label %.loopexit64, label %150, !llvm.loop !22
 
 150:                                              ; preds = %.preheader63
-  %151 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %148
+  %151 = getelementptr i32, ptr @reg_pattern_test.test, i64 %148
   %152 = load i32, ptr %151, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %152, ptr elementtype(i32) %144) #18, !srcloc !13
   %153 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %144) #18, !srcloc !6
@@ -1610,7 +1610,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %175, label %.loopexit62, label %176, !llvm.loop !22
 
 176:                                              ; preds = %.preheader61
-  %177 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %174
+  %177 = getelementptr i32, ptr @reg_pattern_test.test, i64 %174
   %178 = load i32, ptr %177, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %178, ptr elementtype(i32) %170) #18, !srcloc !13
   %179 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %170) #18, !srcloc !6
@@ -1660,7 +1660,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %205, label %.loopexit60, label %206, !llvm.loop !22
 
 206:                                              ; preds = %.preheader59
-  %207 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %204
+  %207 = getelementptr i32, ptr @reg_pattern_test.test, i64 %204
   %208 = load i32, ptr %207, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %208, ptr elementtype(i32) %200) #18, !srcloc !13
   %209 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %200) #18, !srcloc !6
@@ -1710,7 +1710,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %235, label %reg_pattern_test.exit.thread, label %236, !llvm.loop !22
 
 236:                                              ; preds = %.preheader.i
-  %237 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %234
+  %237 = getelementptr i32, ptr @reg_pattern_test.test, i64 %234
   %238 = load i32, ptr %237, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %238, ptr elementtype(i32) %230) #18, !srcloc !13
   %239 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %230) #18, !srcloc !6
@@ -2805,7 +2805,7 @@ define internal void @e1000_get_strings(ptr readnone captures(none) %0, i32 noun
 .preheader:                                       ; preds = %3, %.preheader
   %5 = phi i64 [ %9, %.preheader ], [ 0, %3 ]
   %6 = phi ptr [ %8, %.preheader ], [ %2, %3 ]
-  %7 = getelementptr [46 x %struct.e1000_stats], ptr @e1000_gstrings_stats, i64 0, i64 %5
+  %7 = getelementptr %struct.e1000_stats, ptr @e1000_gstrings_stats, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(32) %6, ptr noundef align 4 dereferenceable(32) %7, i64 32, i1 false)
   %8 = getelementptr i8, ptr %6, i64 32
   %9 = add nuw nsw i64 %5, 1
@@ -3322,7 +3322,7 @@ define internal fastcc zeroext i1 @reg_pattern_test(ptr noundef readonly capture
   br i1 %17, label %.loopexit, label %18, !llvm.loop !22
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %16
+  %19 = getelementptr i32, ptr @reg_pattern_test.test, i64 %16
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %21, ptr elementtype(i32) %9) #18, !srcloc !13

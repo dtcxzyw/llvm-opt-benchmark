@@ -27773,7 +27773,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN12_GLOBAL__N_17FAddendELb1EE9push_backES4_.
 57:                                               ; preds = %._crit_edge
   %58 = add i32 %.03786, 1
   %59 = zext i32 %.03786 to i64
-  %60 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::FAddend"], ptr %11, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw %"class.(anonymous namespace)::FAddend", ptr %11, i64 %59
   %.val50 = load ptr, ptr %12, align 8, !tbaa !135
   %61 = getelementptr inbounds nuw ptr, ptr %.val50, i64 %28
   %62 = load ptr, ptr %61, align 8, !tbaa !625

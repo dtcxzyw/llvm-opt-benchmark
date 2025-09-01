@@ -21867,7 +21867,7 @@ _ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit._crit_edge: ; preds = %_ZStlsISt1
 
 switch.lookup:                                    ; preds = %309
   %311 = zext nneg i8 %308 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_19FSTWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE, i64 0, i64 %311
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_19FSTWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE, i64 %311
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 
@@ -30510,7 +30510,7 @@ _ZNSt8_Rb_treeIiSt4pairIKijESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2E
 
 switch.lookup:                                    ; preds = %271
   %273 = zext nneg i8 %270 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_19FSTWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE, i64 0, i64 %273
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_19FSTWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE, i64 %273
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 

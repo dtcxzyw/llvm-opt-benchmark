@@ -4482,7 +4482,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %22
 54:                                               ; preds = %45, %95
   %indvars.iv = phi i64 [ 0, %45 ], [ %indvars.iv.next, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %55 = getelementptr inbounds nuw [14 x ptr], ptr @_ZN6icu_7712_GLOBAL__N_19positionsE, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_7712_GLOBAL__N_19positionsE, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !61
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %56, i32 noundef -1, i32 noundef 0)
           to label %57 unwind label %88
@@ -4927,7 +4927,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7
   %34 = load ptr, ptr %2, align 8, !tbaa !27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = sext i32 %31 to i64
-  %37 = getelementptr inbounds [16 x i16], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds i16, ptr %35, i64 %36
   store i16 0, ptr %37, align 2, !tbaa !31
   %38 = load ptr, ptr %33, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -4980,7 +4980,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit26: ; preds = %_ZNK6icu
   %68 = load ptr, ptr %2, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = sext i32 %.016 to i64
-  %71 = getelementptr inbounds [16 x i16], ptr %69, i64 0, i64 %70
+  %71 = getelementptr inbounds i16, ptr %69, i64 %70
   store i16 0, ptr %71, align 2, !tbaa !31
   br label %72
 
@@ -5916,7 +5916,7 @@ _ZNK6icu_7713UnicodeString20tempSubStringBetweenEii.exit: ; preds = %57
 
 71:                                               ; preds = %76, %69
   %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %76 ]
-  %72 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 0, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8, !tbaa !61
   %74 = invoke i32 @uprv_stricmp_77(ptr noundef %70, ptr noundef %73)
           to label %.noexc unwind label %.loopexit
@@ -6551,7 +6551,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7719CollationRuleParser14
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L20gSpecialReorderCodesE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = tail call i32 @uprv_stricmp_77(ptr noundef %0, ptr noundef %4)
   %6 = icmp eq i32 %5, 0

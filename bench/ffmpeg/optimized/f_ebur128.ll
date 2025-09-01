@@ -2723,7 +2723,7 @@ define internal void @drawtext(ptr noundef readonly captures(none) %0, i32 nound
 14:                                               ; preds = %.lr.ph, %46
   %15 = phi i32 [ %.pre, %.lr.ph ], [ %41, %46 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %16 = phi ptr [ %7, %.lr.ph ], [ %47, %46 ]
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %17 = load ptr, ptr %0, align 8, !tbaa !38
   %18 = mul nsw i32 %15, %2
   %19 = sext i32 %18 to i64
@@ -2779,7 +2779,7 @@ define internal void @drawtext(ptr noundef readonly captures(none) %0, i32 nound
 
 46:                                               ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %indvars.iv.next
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.next
   %48 = load i8, ptr %47, align 1, !tbaa !168
   %.not31 = icmp eq i8 %48, 0
   br i1 %.not31, label %._crit_edge, label %14, !llvm.loop !171

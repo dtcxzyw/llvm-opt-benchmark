@@ -197,7 +197,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %96 = and i32 %95, %14
   %97 = shl i32 %96, %25
   %98 = zext i32 %97 to i64
-  %99 = getelementptr [0 x %struct.io_uring_cqe], ptr %92, i64 0, i64 %98
+  %99 = getelementptr %struct.io_uring_cqe, ptr %92, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i32, ptr %101, align 8
@@ -577,7 +577,7 @@ define internal fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %1, 
   %60 = phi i64 [ 0, %57 ], [ %69, %59 ]
   %61 = icmp eq i64 %60, 0
   %62 = select i1 %61, ptr @.str.33, ptr @.str.32
-  %63 = getelementptr [0 x %struct.kgid_t], ptr %58, i64 0, i64 %60
+  %63 = getelementptr %struct.kgid_t, ptr %58, i64 %60
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, -1
   %66 = load i32, ptr @overflowgid, align 4

@@ -6139,7 +6139,7 @@ switch.lookup:
   %6 = alloca %"class.llvm::SmallString.95", align 8
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZL16writeSymbolTableRN4llvm11raw_ostreamENS_6object7Archive4KindEbNS_8ArrayRefIN12_GLOBAL__N_110MemberDataEEENS_9StringRefEmjmmb.57, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL16writeSymbolTableRN4llvm11raw_ostreamENS_6object7Archive4KindEbNS_8ArrayRefIN12_GLOBAL__N_110MemberDataEEENS_9StringRefEmjmmb.57, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %.off.i.i = add nsw i32 %0, -2
   %switch.i.i = icmp ult i32 %.off.i.i, 3
@@ -6260,10 +6260,10 @@ define internal fastcc void @_ZL16writeSymbolTableRN4llvm11raw_ostreamENS_6objec
 
 switch.lookup:                                    ; preds = %10
   %26 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZL16writeSymbolTableRN4llvm11raw_ostreamENS_6object7Archive4KindEbNS_8ArrayRefIN12_GLOBAL__N_110MemberDataEEENS_9StringRefEmjmmb, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL16writeSymbolTableRN4llvm11raw_ostreamENS_6object7Archive4KindEbNS_8ArrayRefIN12_GLOBAL__N_110MemberDataEEENS_9StringRefEmjmmb, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   %27 = zext nneg i32 %1 to i64
-  %switch.gep51 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZL16writeSymbolTableRN4llvm11raw_ostreamENS_6object7Archive4KindEbNS_8ArrayRefIN12_GLOBAL__N_110MemberDataEEENS_9StringRefEmjmmb.57, i64 0, i64 %27
+  %switch.gep51 = getelementptr inbounds nuw i64, ptr @switch.table._ZL16writeSymbolTableRN4llvm11raw_ostreamENS_6object7Archive4KindEbNS_8ArrayRefIN12_GLOBAL__N_110MemberDataEEENS_9StringRefEmjmmb.57, i64 %27
   %switch.load52 = load i64, ptr %switch.gep51, align 8
   br label %_ZL11is64BitKindN4llvm6object7Archive4KindE.exit
 

@@ -973,7 +973,7 @@ define noundef ptr @SplittingStepCoefficients_IDToName(i32 noundef %0) local_unn
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.SplittingStepCoefficients_IDToName, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SplittingStepCoefficients_IDToName, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

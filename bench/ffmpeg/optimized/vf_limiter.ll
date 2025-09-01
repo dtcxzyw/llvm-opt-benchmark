@@ -246,30 +246,30 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   br i1 %.not.us, label %57, label %28
 
 28:                                               ; preds = %.lr.ph.split.us
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv64
+  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv64
   %30 = load i32, ptr %29, align 4, !tbaa !44
   %31 = mul nsw i32 %30, %14
   %32 = sdiv i32 %31, %3
   %33 = mul nsw i32 %30, %2
   %34 = sdiv i32 %33, %3
   %35 = load ptr, ptr %16, align 8, !tbaa !53
-  %36 = getelementptr inbounds nuw [8 x ptr], ptr %.fr61, i64 0, i64 %indvars.iv64
+  %36 = getelementptr inbounds nuw ptr, ptr %.fr61, i64 %indvars.iv64
   %37 = load ptr, ptr %36, align 8, !tbaa !55
-  %38 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %indvars.iv64
+  %38 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv64
   %39 = load i32, ptr %38, align 4, !tbaa !44
   %40 = mul nsw i32 %39, %34
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %37, i64 %41
-  %43 = getelementptr inbounds nuw [8 x ptr], ptr %.fr, i64 0, i64 %indvars.iv64
+  %43 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %indvars.iv64
   %44 = load ptr, ptr %43, align 8, !tbaa !55
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv64
+  %45 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv64
   %46 = load i32, ptr %45, align 4, !tbaa !44
   %47 = mul nsw i32 %46, %34
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %44, i64 %48
   %50 = sext i32 %39 to i64
   %51 = sext i32 %46 to i64
-  %52 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv64
+  %52 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv64
   %53 = load i32, ptr %52, align 4, !tbaa !44
   %54 = sub nsw i32 %32, %34
   %55 = load i32, ptr %20, align 8, !tbaa !20
@@ -287,7 +287,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ 0, %.lr.ph ]
-  %61 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !44
   %63 = mul nsw i32 %62, %2
   %64 = sdiv i32 %63, %3
@@ -301,21 +301,21 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   br i1 %.not, label %71, label %89
 
 71:                                               ; preds = %.lr.ph.split
-  %72 = getelementptr inbounds nuw [8 x ptr], ptr %.fr, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !55
-  %74 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4, !tbaa !44
   %76 = mul nsw i32 %75, %64
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %73, i64 %77
-  %79 = getelementptr inbounds nuw [8 x ptr], ptr %.fr61, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw ptr, ptr %.fr61, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !55
-  %81 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !44
   %83 = mul nsw i32 %82, %64
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %80, i64 %84
-  %86 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !44
   %88 = sub nsw i32 %66, %64
   tail call void @av_image_copy_plane(ptr noundef %78, i32 noundef %75, ptr noundef %85, i32 noundef %82, i32 noundef %87, i32 noundef %88) #7
@@ -323,23 +323,23 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 
 89:                                               ; preds = %.lr.ph.split
   %90 = load ptr, ptr %16, align 8, !tbaa !53
-  %91 = getelementptr inbounds nuw [8 x ptr], ptr %.fr61, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw ptr, ptr %.fr61, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !55
-  %93 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !44
   %95 = mul nsw i32 %94, %64
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr %92, i64 %96
-  %98 = getelementptr inbounds nuw [8 x ptr], ptr %.fr, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !55
-  %100 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4, !tbaa !44
   %102 = mul nsw i32 %101, %64
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %99, i64 %103
   %105 = sext i32 %94 to i64
   %106 = sext i32 %101 to i64
-  %107 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4, !tbaa !44
   %109 = sub nsw i32 %66, %64
   %110 = load i32, ptr %20, align 8, !tbaa !20

@@ -1227,7 +1227,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit.th
 
 382:                                              ; preds = %.lr.ph411, %382
   %indvars.iv441 = phi i64 [ 0, %.lr.ph411 ], [ %indvars.iv.next442, %382 ]
-  %383 = getelementptr inbounds nuw [1 x i32], ptr %380, i64 0, i64 %indvars.iv441
+  %383 = getelementptr inbounds nuw i32, ptr %380, i64 %indvars.iv441
   store i32 -1, ptr %383, align 4, !tbaa !11
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
   %384 = icmp samesign ult i64 %indvars.iv.next442, %381
@@ -2243,7 +2243,7 @@ define noundef ptr @Unr_ManUnrollStart(ptr noundef %0, i32 noundef %1) local_unn
   %34 = or disjoint i64 %32, %33
   store i64 %34, ptr %23, align 4
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  %36 = getelementptr inbounds nuw [1 x i32], ptr %35, i64 0, i64 %31
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %31
   store i32 0, ptr %36, align 4, !tbaa !11
   %.pre = load ptr, ptr %3, align 8, !tbaa !21
   br label %37
@@ -2419,7 +2419,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %92 = srem i32 %91, %86
   %93 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds [1 x i32], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds i32, ptr %93, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !11
   %97 = and i32 %87, 1
   %98 = xor i32 %96, %97
@@ -2440,7 +2440,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %112 = srem i32 %111, %108
   %113 = getelementptr inbounds nuw i8, ptr %101, i64 20
   %114 = sext i32 %112 to i64
-  %115 = getelementptr inbounds [1 x i32], ptr %113, i64 0, i64 %114
+  %115 = getelementptr inbounds i32, ptr %113, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !11
   %117 = lshr i32 %87, 1
   %118 = and i32 %117, 1
@@ -2462,7 +2462,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %132 = or disjoint i64 %130, %131
   store i64 %132, ptr %74, align 4
   %133 = getelementptr inbounds nuw i8, ptr %72, i64 20
-  %134 = getelementptr inbounds nuw [1 x i32], ptr %133, i64 0, i64 %129
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %129
   store i32 %121, ptr %134, align 4, !tbaa !11
   br label %202
 
@@ -2490,7 +2490,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %151 = srem i32 %150, %145
   %152 = getelementptr inbounds nuw i8, ptr %138, i64 20
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds [1 x i32], ptr %152, i64 0, i64 %153
+  %154 = getelementptr inbounds i32, ptr %152, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !11
   %156 = and i32 %146, 1
   %157 = xor i32 %155, %156
@@ -2508,7 +2508,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %167 = or disjoint i64 %165, %166
   store i64 %167, ptr %74, align 4
   %168 = getelementptr inbounds nuw i8, ptr %72, i64 20
-  %169 = getelementptr inbounds nuw [1 x i32], ptr %168, i64 0, i64 %164
+  %169 = getelementptr inbounds nuw i32, ptr %168, i64 %164
   store i32 %157, ptr %169, align 4, !tbaa !11
   %170 = and i64 %75, 8589934592
   %.not47 = icmp eq i64 %170, 0
@@ -2555,7 +2555,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %199 = or disjoint i64 %197, %198
   store i64 %199, ptr %74, align 4
   %200 = getelementptr inbounds nuw i8, ptr %72, i64 20
-  %201 = getelementptr inbounds nuw [1 x i32], ptr %200, i64 0, i64 %196
+  %201 = getelementptr inbounds nuw i32, ptr %200, i64 %196
   store i32 %189, ptr %201, align 4, !tbaa !11
   br label %202
 
@@ -2857,7 +2857,7 @@ define ptr @Unr_ManUnroll(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %34 = or disjoint i64 %32, %33
   store i64 %34, ptr %23, align 4
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  %36 = getelementptr inbounds nuw [1 x i32], ptr %35, i64 0, i64 %31
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %31
   store i32 0, ptr %36, align 4, !tbaa !11
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !21
   br label %37

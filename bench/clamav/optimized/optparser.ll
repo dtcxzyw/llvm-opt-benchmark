@@ -997,7 +997,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 48:                                               ; preds = %46
   %49 = sext i32 %.0272.us to i64
-  %50 = getelementptr inbounds [150 x %struct.option], ptr %13, i64 0, i64 %49
+  %50 = getelementptr inbounds %struct.option, ptr %13, i64 %49
   store ptr %45, ptr %50, align 16, !tbaa !31
   %51 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %52 = load i32, ptr %51, align 8, !tbaa !29
@@ -1047,7 +1047,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 74:                                               ; preds = %72
   %75 = add nsw i32 %.0270.us, 1
   %76 = sext i32 %.0270.us to i64
-  %77 = getelementptr inbounds [150 x i8], ptr %14, i64 0, i64 %76
+  %77 = getelementptr inbounds i8, ptr %14, i64 %76
   store i8 %71, ptr %77, align 1, !tbaa !20
   %78 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %79 = load i32, ptr %78, align 4, !tbaa !34
@@ -1057,7 +1057,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 80:                                               ; preds = %74
   %81 = add nsw i32 %.0270.us, 2
   %82 = sext i32 %75 to i64
-  %83 = getelementptr inbounds [150 x i8], ptr %14, i64 0, i64 %82
+  %83 = getelementptr inbounds i8, ptr %14, i64 %82
   store i8 58, ptr %83, align 1, !tbaa !20
   %84 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %85 = load i32, ptr %84, align 8, !tbaa !29
@@ -1074,7 +1074,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 90:                                               ; preds = %87
   %91 = add nsw i32 %.0270.us, 3
   %92 = sext i32 %81 to i64
-  %93 = getelementptr inbounds [150 x i8], ptr %14, i64 0, i64 %92
+  %93 = getelementptr inbounds i8, ptr %14, i64 %92
   store i8 58, ptr %93, align 1, !tbaa !20
   br label %94
 
@@ -1210,10 +1210,10 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 151:                                              ; preds = %144
   %152 = sext i32 %.us-phi481 to i64
-  %153 = getelementptr inbounds [150 x i8], ptr %14, i64 0, i64 %152
+  %153 = getelementptr inbounds i8, ptr %14, i64 %152
   store i8 0, ptr %153, align 1, !tbaa !20
   %154 = sext i32 %.us-phi to i64
-  %155 = getelementptr inbounds [150 x %struct.option], ptr %13, i64 0, i64 %154
+  %155 = getelementptr inbounds %struct.option, ptr %13, i64 %154
   store ptr null, ptr %155, align 16, !tbaa !31
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store ptr null, ptr %156, align 16, !tbaa !36
@@ -1467,7 +1467,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 .lr.ph:                                           ; preds = %.preheader422, %238
   %indvars.iv577 = phi i64 [ %indvars.iv.next578, %238 ], [ 0, %.preheader422 ]
-  %239 = getelementptr inbounds nuw [150 x %struct.option], ptr %13, i64 0, i64 %indvars.iv577
+  %239 = getelementptr inbounds nuw %struct.option, ptr %13, i64 %indvars.iv577
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   %241 = load i32, ptr %240, align 8, !tbaa !37
   %242 = icmp eq i32 %232, %241
@@ -1476,7 +1476,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 .critedge387:                                     ; preds = %231
   %243 = load i32, ptr %8, align 4, !tbaa !40
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds [150 x %struct.option], ptr %13, i64 0, i64 %244
+  %245 = getelementptr inbounds %struct.option, ptr %13, i64 %244
   br label %.loopexit423
 
 .loopexit423:                                     ; preds = %.lr.ph, %.critedge387

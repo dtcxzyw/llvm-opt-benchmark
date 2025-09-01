@@ -538,7 +538,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal4prop18TheoryPreregistrar14no
   %18 = icmp eq i32 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !241, !noalias !238
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
 

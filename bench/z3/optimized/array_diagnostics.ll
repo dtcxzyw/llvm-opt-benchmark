@@ -827,13 +827,13 @@ define hidden void @_ZNK5array6solver21validate_select_storeEPN3euf5enodeE(ptr n
   br i1 %exitcond.not, label %.critedge, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !232
   %15 = load ptr, ptr %8, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !232
@@ -845,7 +845,7 @@ define hidden void @_ZNK5array6solver21validate_select_storeEPN3euf5enodeE(ptr n
   %22 = load ptr, ptr %8, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %24 = zext i32 %7 to i64
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !232
@@ -900,7 +900,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE3endEv.exit:        ; preds = %56, %35
   %48 = phi i32 [ %62, %56 ], [ %38, %35 ]
   %49 = phi ptr [ %57, %56 ], [ %.pre.i, %35 ]
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %56 ], [ 1, %35 ]
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv112
+  %50 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv112
   %51 = load ptr, ptr %50, align 8, !tbaa !17
   %52 = getelementptr inbounds i8, ptr %49, i64 -8
   %53 = load i32, ptr %52, align 4, !tbaa !10

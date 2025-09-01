@@ -414,7 +414,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
 
 78:                                               ; preds = %.lr.ph
   %79 = zext nneg i8 %77 to i64
-  %80 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %3, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !48
   %82 = and i32 %81, 16711680
   %83 = and i32 %81, 65280
@@ -619,7 +619,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
 
 76:                                               ; preds = %.lr.ph
   %77 = zext nneg i8 %75 to i64
-  %78 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr %3, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !48
   %80 = and i32 %79, 65280
   br label %89

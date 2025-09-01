@@ -149,13 +149,13 @@ define dso_local ptr @ipt_alloc_initial_table(ptr noundef %0) #0 align 16 {
   br i1 %40, label %54, label %41
 
 41:                                               ; preds = %34
-  %42 = getelementptr [5 x i32], ptr %31, i64 0, i64 %35
+  %42 = getelementptr i32, ptr %31, i64 %35
   store i32 %37, ptr %42, align 4
-  %43 = getelementptr [5 x i32], ptr %32, i64 0, i64 %35
+  %43 = getelementptr i32, ptr %32, i64 %35
   store i32 %37, ptr %43, align 4
   %44 = add i32 %38, 1
   %45 = zext i32 %38 to i64
-  %46 = getelementptr [0 x %struct.ipt_standard], ptr %33, i64 0, i64 %45
+  %46 = getelementptr %struct.ipt_standard, ptr %33, i64 %45
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %46, i8 0, i64 88, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
   store i16 112, ptr %47, align 8
@@ -279,7 +279,7 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
   %64 = phi ptr [ %62, %55 ], [ %54, %41 ]
   %65 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %66 = zext i8 %5 to i64
-  %67 = getelementptr [5 x i32], ptr %65, i64 0, i64 %66
+  %67 = getelementptr i32, ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
   %70 = getelementptr i8, ptr %50, i64 %69
@@ -289,7 +289,7 @@ define dso_local i32 @ipt_do_table(ptr noundef %0, ptr noundef %1, ptr noundef %
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %75 = getelementptr inbounds nuw i8, ptr %47, i64 52
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %77 = getelementptr [5 x i32], ptr %76, i64 0, i64 %66
+  %77 = getelementptr i32, ptr %76, i64 %66
   br label %78
 
 78:                                               ; preds = %287, %63
@@ -1017,7 +1017,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %77
-  %83 = getelementptr [5 x i32], ptr %16, i64 0, i64 %72
+  %83 = getelementptr i32, ptr %16, i64 %72
   store i32 %79, ptr %83, align 4
   br label %84
 
@@ -1049,7 +1049,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br i1 %100, label %101, label %.thread
 
 101:                                              ; preds = %98
-  %102 = getelementptr [5 x i32], ptr %29, i64 0, i64 %72
+  %102 = getelementptr i32, ptr %29, i64 %72
   store i32 %86, ptr %102, align 4
   br label %103
 
@@ -1124,7 +1124,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br i1 %148, label %.thread49, label %149
 
 149:                                              ; preds = %143
-  %150 = getelementptr [5 x i32], ptr %16, i64 0, i64 %144
+  %150 = getelementptr i32, ptr %16, i64 %144
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
   %153 = getelementptr i8, ptr %2, i64 %152
@@ -2396,7 +2396,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
 
 105:                                              ; preds = %101
   %106 = and i64 %102, 63
-  %107 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %106
+  %107 = getelementptr i64, ptr @__per_cpu_offset, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, ptrtoint (ptr @xt_recseq to i64)
   %110 = inttoptr i64 %109 to ptr
@@ -2744,7 +2744,7 @@ define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 nou
 
 74:                                               ; preds = %73
   %75 = and i64 %65, 63
-  %76 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %75
+  %76 = getelementptr i64, ptr @__per_cpu_offset, i64 %75
   br label %77
 
 77:                                               ; preds = %88, %74

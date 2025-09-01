@@ -717,7 +717,7 @@ _ZN4llvm13SmallDenseMapIiNS_9SetVectorIPKNS_15DILocalVariableENS_11SmallVectorIS
   %.not.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %.lr.ph.i.i.i.i.i.i47.i ], [ false, %168 ]
   %.0813.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i47.i ], [ 1, %168 ]
   %.0912.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i.i.i.i.i47.i ], [ %.1.i.i.i.i.i.i.i.i.i.i.i, %168 ]
-  %163 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i.i.i.i.i
+  %163 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i.i.i.i.i.i.i.i.i
   %164 = load i8, ptr %163, align 1, !tbaa !262, !range !290, !noalias !282, !noundef !291
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %166, label %168
@@ -835,7 +835,7 @@ _ZN4llvm9SetVectorIPKNS_15DILocalVariableENS_11SmallVectorIS3_Lj0EEENS_8DenseSet
   %.not.i.i.i.i.i.i.i49.i = phi i1 [ true, %.lr.ph.i.i.i.i ], [ false, %213 ]
   %.0813.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ 1, %213 ]
   %.0912.i.i.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i.i.i.i.i, %213 ]
-  %208 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i.i
+  %208 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i.i.i.i.i.i
   %209 = load i8, ptr %208, align 1, !tbaa !262, !range !290, !noalias !275, !noundef !291
   %210 = trunc nuw i8 %209 to i1
   br i1 %210, label %211, label %213

@@ -2674,8 +2674,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 46:                                               ; preds = %45, %43
   call void @_Z5rtrimPc(ptr noundef nonnull %9)
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #26
-  %48 = add i64 %47, -1
-  %49 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %48
+  %48 = getelementptr i8, ptr %9, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 -1
   %50 = load i8, ptr %49, align 1, !tbaa !19
   %51 = icmp eq i8 %50, 93
   br i1 %51, label %52, label %55
@@ -5190,7 +5190,7 @@ define linkonce_odr noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(pt
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.phi.trans.insert1 = zext nneg i32 %3 to i64
-  %.phi.trans.insert2 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert1
+  %.phi.trans.insert2 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert, i64 %.phi.trans.insert1
   %.pre = load i64, ptr %.phi.trans.insert2, align 8, !tbaa !91
   %5 = add nuw nsw i32 %3, 1
   br label %64

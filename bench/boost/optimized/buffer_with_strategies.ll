@@ -14377,7 +14377,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [501 x i8], ptr %12, i64 0, i64 %13
+  %19 = getelementptr inbounds i8, ptr %12, i64 %13
   store i8 0, ptr %19, align 1, !tbaa !24
   br label %20
 
@@ -14421,7 +14421,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds [501 x i8], ptr %33, i64 0, i64 %34
+  %37 = getelementptr inbounds i8, ptr %33, i64 %34
   store i8 0, ptr %37, align 1, !tbaa !24
   store ptr %33, ptr %6, align 8, !tbaa !12
   store ptr %37, ptr %7, align 8, !tbaa !14
@@ -23121,7 +23121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
 
 .preheader613:                                    ; preds = %408, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit
   %.0130775 = phi i64 [ %427, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit ], [ 0, %408 ]
-  %416 = getelementptr inbounds nuw [4 x %"struct.std::pair.158"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 0, i64 %.0130775
+  %416 = getelementptr inbounds nuw %"struct.std::pair.158", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 %.0130775
   %417 = load ptr, ptr %416, align 16, !tbaa !524
   %.not.i284 = icmp eq ptr %417, null
   br i1 %.not.i284, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit, label %418
@@ -23654,7 +23654,7 @@ _ZN5boost9unit_test15unit_test_log_t13get_formatterENS0_13output_formatE.exit.th
 
 .preheader:                                       ; preds = %587, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339
   %.0127776 = phi i64 [ %601, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339 ], [ 0, %587 ]
-  %588 = getelementptr inbounds nuw [11 x %"struct.std::pair.155"], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 0, i64 %.0127776
+  %588 = getelementptr inbounds nuw %"struct.std::pair.155", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 %.0127776
   %589 = load ptr, ptr %588, align 16, !tbaa !548
   %.not.i329 = icmp eq ptr %589, null
   br i1 %.not.i329, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit339, label %590
@@ -41290,7 +41290,7 @@ _ZN5boost9unit_test9framework20current_test_case_idEv.exit: ; preds = %_ZN5boost
 
 switch.lookup:                                    ; preds = %_ZN5boost9unit_test9framework20current_test_case_idEv.exit
   %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
   %24 = load i64, ptr %23, align 8, !tbaa !336
@@ -42236,13 +42236,13 @@ _ZN5boost9unit_test9framework16test_in_progressEv.exit: ; preds = %7, %13, %16
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %spec.select to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = zext nneg i32 %spec.select to i64
-  %switch.gep17 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.586, i64 0, i64 %28
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.586, i64 %28
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %29 = zext nneg i32 %spec.select to i64
-  %switch.gep19 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.587, i64 0, i64 %29
+  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.587, i64 %29
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   %30 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -42775,7 +42775,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit204: ; preds = %_ZN5boost9unit
   %236 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %24)
   %237 = add nsw i32 %4, -2
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %238
   %240 = load ptr, ptr %239, align 8, !tbaa !174
   store ptr %240, ptr %25, align 8, !tbaa !12
   %strlen.i.i206 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %240)
@@ -42822,7 +42822,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit221: ; preds = %_ZN5boost9unit
   store ptr getelementptr inbounds nuw (i8, ptr @.str.226, i64 2), ptr %254, align 8, !tbaa !14
   %255 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %28)
   %256 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(9) %224)
-  %257 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %238
+  %257 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %238
   %258 = load ptr, ptr %257, align 8, !tbaa !174
   store ptr %258, ptr %29, align 8, !tbaa !12
   %strlen.i.i219 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %258)
@@ -44964,7 +44964,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit184: ; preds = %208,
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit186: ; preds = %219, %227
   %230 = add nsw i32 %4, -2
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !174
   %234 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #56
   %235 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %233, i64 noundef %234)
@@ -45017,7 +45017,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit194: ; preds = %_ZSt
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = tail call noundef nonnull align 8 dereferenceable(8) ptr %261(ptr noundef nonnull align 8 dereferenceable(9) %205, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %263 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 0, i64 %231
+  %263 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %231
   %264 = load ptr, ptr %263, align 8, !tbaa !174
   %265 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #56
   %266 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull %264, i64 noundef %265)
@@ -52700,7 +52700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit24: ; preds =
   br i1 %.not6.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.split
-  %106 = getelementptr inbounds nuw [7 x i8], ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 0, i64 %.01030
+  %106 = getelementptr inbounds nuw i8, ptr @_ZZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEEE10to_replace, i64 %.01030
   %107 = load i8, ptr %106, align 1, !tbaa !24
   br label %.lr.ph.i
 
@@ -74187,7 +74187,7 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_sta
 
 18:                                               ; preds = %16, %14, %4
   %19 = zext i32 %3 to i64
-  %20 = getelementptr inbounds nuw [5 x %"class.boost::unit_test::basic_cstring"], ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %20, align 16, !tbaa !12
   store ptr %22, ptr %21, align 8, !tbaa !12
@@ -150500,12 +150500,12 @@ _ZNSt12_Vector_baseIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_
   %56 = load i64, ptr %55, align 8, !tbaa !2681
   %57 = add i64 %56, 1
   store i64 %57, ptr %55, align 8, !tbaa !2681
-  %58 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %54, i64 0, i64 %56
+  %58 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %54, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %59 = load i64, ptr %55, align 8, !tbaa !2681
   %60 = add i64 %59, 1
   store i64 %60, ptr %55, align 8, !tbaa !2681
-  %61 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %54, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %54, i64 %59
   br label %63
 
 62:                                               ; preds = %.noexc56
@@ -150749,7 +150749,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE9push
   %101 = load i64, ptr %100, align 8, !tbaa !2681
   %102 = add i64 %101, 1
   store i64 %102, ptr %100, align 8, !tbaa !2681
-  %103 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %99, i64 0, i64 %101
+  %103 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %99, i64 %101
   br label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE15add_piece_pointERNSL_5pieceERKS9_b.exit.i.i
 
 _ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE15add_piece_pointERNSL_5pieceERKS9_b.exit.i.i: ; preds = %98, %94
@@ -150956,7 +150956,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE9push
   %189 = load i64, ptr %188, align 8, !tbaa !2681
   %190 = add i64 %189, 1
   store i64 %190, ptr %188, align 8, !tbaa !2681
-  %191 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %187, i64 0, i64 %189
+  %191 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %187, i64 %189
   br label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE9add_pieceISA_IS9_SaIS9_EEEEvNSH_10piece_typeERKS9_RKT_.exit86.thread
 
 _ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE9add_pieceISA_IS9_SaIS9_EEEEvNSH_10piece_typeERKS9_RKT_.exit86.thread: ; preds = %182, %186
@@ -151077,7 +151077,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EED2Ev.
   %250 = load i64, ptr %249, align 8, !tbaa !2681
   %251 = add i64 %250, 1
   store i64 %251, ptr %249, align 8, !tbaa !2681
-  %252 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %248, i64 0, i64 %250
+  %252 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %248, i64 %250
   br label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE10add_endcapINSH_9end_roundESA_IS9_SaIS9_EEEEvRKT_RKT0_RKS9_.exit.thread
 
 _ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE10add_endcapINSH_9end_roundESA_IS9_SaIS9_EEEEvRKT_RKT0_RKS9_.exit.thread: ; preds = %243, %247
@@ -151221,7 +151221,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EED2Ev.
   %323 = load i64, ptr %322, align 8, !tbaa !2681
   %324 = add i64 %323, 1
   store i64 %324, ptr %322, align 8, !tbaa !2681
-  %325 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %321, i64 0, i64 %323
+  %325 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %321, i64 %323
   br label %_ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE9add_pieceISA_IS9_SaIS9_EEEEvNSH_10piece_typeERKS9_RKT_.exit104.thread
 
 _ZN5boost8geometry6detail6buffer25buffered_piece_collectionINS0_5model4ringINS4_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_10strategies6buffer9cartesianIvEENS0_8strategy6buffer18distance_symmetricIdEENS1_17no_rescale_policyEE9add_pieceISA_IS9_SaIS9_EEEEvNSH_10piece_typeERKS9_RKT_.exit104.thread: ; preds = %316, %320
@@ -153132,12 +153132,12 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE5clea
   %52 = load i64, ptr %51, align 8, !tbaa !2681
   %53 = add i64 %52, 1
   store i64 %53, ptr %51, align 8, !tbaa !2681
-  %54 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %50, i64 0, i64 %52
+  %54 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %50, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.071.096, i64 16, i1 false)
   %55 = load i64, ptr %51, align 8, !tbaa !2681
   %56 = add i64 %55, 1
   store i64 %56, ptr %51, align 8, !tbaa !2681
-  %57 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %50, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %50, i64 %55
   br label %59
 
 58:                                               ; preds = %.noexc52
@@ -162313,7 +162313,7 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_6buffer27unique_sub_rang
   %.v.i = phi i64 [ 40, %70 ], [ 64, %84 ]
   %76 = phi i1 [ true, %70 ], [ false, %84 ]
   %indvars.iv.i = phi i64 [ 0, %70 ], [ 1, %84 ]
-  %77 = getelementptr inbounds nuw [2 x i32], ptr %73, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 4, !tbaa !263
   switch i32 %78, label %81 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
@@ -162371,7 +162371,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay14touch_interi
   %.v.i = phi i64 [ 40, %7 ], [ 64, %24 ]
   %16 = phi i1 [ true, %7 ], [ false, %24 ]
   %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %24 ]
-  %17 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !263
   switch i32 %18, label %21 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
@@ -162479,11 +162479,11 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   %60 = icmp ne i32 %56, -1
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %62 = zext i1 %60 to i64
-  %63 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %61, i64 %62
   store i32 1, ptr %63, align 8, !tbaa !2856
   %not.81 = xor i1 %60, true
   %64 = zext i1 %not.81 to i64
-  %65 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %61, i64 %64
   store i32 2, ptr %65, align 8, !tbaa !2856
   br label %165
 
@@ -162667,11 +162667,11 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   %.1 = phi i32 [ %.0, %135 ], [ %.3, %143 ], [ %.0, %138 ]
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %150 = zext nneg i32 %.1 to i64
-  %151 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %149, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %149, i64 %150
   store i32 1, ptr %151, align 8, !tbaa !2856
   %152 = sub nuw nsw i32 1, %.1
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %149, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %149, i64 %153
   store i32 2, ptr %154, align 8, !tbaa !2856
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 1, ptr %155, align 4, !tbaa !2853
@@ -162721,7 +162721,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay14touch_interi
   %.v.i = phi i64 [ 40, %7 ], [ 64, %24 ]
   %16 = phi i1 [ true, %7 ], [ false, %24 ]
   %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %24 ]
-  %17 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !263
   switch i32 %18, label %21 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
@@ -162829,11 +162829,11 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   %60 = icmp eq i32 %56, -1
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %62 = zext i1 %60 to i64
-  %63 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %61, i64 %62
   store i32 1, ptr %63, align 8, !tbaa !2856
   %not.80 = xor i1 %60, true
   %64 = zext i1 %not.80 to i64
-  %65 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %61, i64 %64
   store i32 2, ptr %65, align 8, !tbaa !2856
   br label %165
 
@@ -163017,11 +163017,11 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   %.1 = phi i32 [ %.0, %135 ], [ %.3, %143 ], [ %.0, %138 ]
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %150 = zext nneg i32 %.1 to i64
-  %151 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %149, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %149, i64 %150
   store i32 1, ptr %151, align 8, !tbaa !2856
   %152 = sub nuw nsw i32 1, %.1
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %149, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %149, i64 %153
   store i32 2, ptr %154, align 8, !tbaa !2856
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 1, ptr %155, align 4, !tbaa !2853
@@ -163075,7 +163075,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay5touchINS1_6bu
   %.v.i = phi i64 [ 40, %7 ], [ 64, %28 ]
   %20 = phi i1 [ true, %7 ], [ false, %28 ]
   %indvars.iv.i = phi i64 [ 0, %7 ], [ 1, %28 ]
-  %21 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4, !tbaa !263
   switch i32 %22, label %25 [
     i32 1, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit.i
@@ -163991,10 +163991,10 @@ _ZN5boost8geometry6detail13segment_ratio4lessIdLb0EE5applyINS0_13segment_ratioId
   store i32 5, ptr %48, align 8, !tbaa !2852
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = zext i1 %47 to i64
-  %51 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %49, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %2, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !1713
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %53 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::fraction_type"], ptr %52, i64 0, i64 %50
+  %53 = getelementptr inbounds nuw %"struct.boost::geometry::fraction_type", ptr %52, i64 %50
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false), !tbaa.struct !2906
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -164670,10 +164670,10 @@ _ZN5boost8geometry6detail13segment_ratio4lessIdLb0EE5applyINS0_13segment_ratioId
   store i32 6, ptr %51, align 8, !tbaa !2852
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = zext i1 %50 to i64
-  %54 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %52, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %2, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !1713
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %56 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::fraction_type"], ptr %55, i64 0, i64 %53
+  %56 = getelementptr inbounds nuw %"struct.boost::geometry::fraction_type", ptr %55, i64 %53
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false), !tbaa.struct !2906
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -167583,7 +167583,7 @@ _ZN5boost8geometry13segment_ratioIdE4zeroEv.exit50: ; preds = %_ZN5boost8geometr
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = zext nneg i32 %.0 to i64
-  %53 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %51, i64 %52
   %54 = load ptr, ptr %2, align 8, !tbaa !2952
   %55 = load double, ptr %54, align 8, !tbaa !2338
   store double %55, ptr %53, align 8, !tbaa !2338
@@ -167592,7 +167592,7 @@ _ZN5boost8geometry13segment_ratioIdE4zeroEv.exit50: ; preds = %_ZN5boost8geometr
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store double %57, ptr %58, align 8, !tbaa !2338
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %60 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::fraction_type"], ptr %59, i64 0, i64 %52
+  %60 = getelementptr inbounds nuw %"struct.boost::geometry::fraction_type", ptr %59, i64 %52
   %61 = load atomic i8, ptr @_ZGVZN5boost8geometry13segment_ratioIdE4zeroEvE6result acquire, align 8, !noalias !3062
   %62 = icmp eq i8 %61, 0
   br i1 %62, label %63, label %_ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52, !prof !101
@@ -167615,7 +167615,7 @@ _ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52: ; preds = %50, %63, %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %60, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !2906
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost8geometry13segment_ratioIdE4zeroEvE6result, i64 24, i1 false)
-  %68 = getelementptr inbounds nuw [2 x %"class.boost::geometry::segment_ratio"], ptr %14, i64 0, i64 %52
+  %68 = getelementptr inbounds nuw %"class.boost::geometry::segment_ratio", ptr %14, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !2906
   %69 = add nuw nsw i32 %.0, 1
   br label %70
@@ -167631,7 +167631,7 @@ _ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52: ; preds = %50, %63, %65
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = zext nneg i32 %.1 to i64
-  %76 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %74, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !3065
   %79 = load double, ptr %78, align 8, !tbaa !2338
@@ -167641,7 +167641,7 @@ _ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52: ; preds = %50, %63, %65
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store double %81, ptr %82, align 8, !tbaa !2338
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %84 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::fraction_type"], ptr %83, i64 0, i64 %75
+  %84 = getelementptr inbounds nuw %"struct.boost::geometry::fraction_type", ptr %83, i64 %75
   %85 = load atomic i8, ptr @_ZGVZN5boost8geometry13segment_ratioIdE3oneEvE6result acquire, align 8, !noalias !3066
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %87, label %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit, !prof !101
@@ -167681,7 +167681,7 @@ _ZN5boost8geometry13segment_ratioIdE3oneEv.exit:  ; preds = %73, %87, %89
   br label %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit55
 
 _ZN5boost8geometry13segment_ratioIdE3oneEv.exit55: ; preds = %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit, %94, %96
-  %97 = getelementptr inbounds nuw [2 x %"class.boost::geometry::segment_ratio"], ptr %14, i64 0, i64 %75
+  %97 = getelementptr inbounds nuw %"class.boost::geometry::segment_ratio", ptr %14, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost8geometry13segment_ratioIdE3oneEvE6result, i64 24, i1 false)
   %98 = add nuw nsw i32 %.1, 1
   br label %99
@@ -167696,7 +167696,7 @@ _ZN5boost8geometry13segment_ratioIdE3oneEv.exit55: ; preds = %_ZN5boost8geometry
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %104 = zext nneg i32 %.2 to i64
-  %105 = getelementptr inbounds nuw [2 x %"class.boost::geometry::model::point"], ptr %103, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !3065
   %108 = load double, ptr %107, align 8, !tbaa !2338
@@ -167706,7 +167706,7 @@ _ZN5boost8geometry13segment_ratioIdE3oneEv.exit55: ; preds = %_ZN5boost8geometry
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store double %110, ptr %111, align 8, !tbaa !2338
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %113 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::fraction_type"], ptr %112, i64 0, i64 %104
+  %113 = getelementptr inbounds nuw %"struct.boost::geometry::fraction_type", ptr %112, i64 %104
   %114 = load atomic i8, ptr @_ZGVZN5boost8geometry13segment_ratioIdE3oneEvE6result acquire, align 8, !noalias !3072
   %115 = icmp eq i8 %114, 0
   br i1 %115, label %116, label %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit57, !prof !101
@@ -167729,7 +167729,7 @@ _ZN5boost8geometry13segment_ratioIdE3oneEv.exit57: ; preds = %102, %116, %118
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %113, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !2906
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5boost8geometry13segment_ratioIdE3oneEvE6result, i64 24, i1 false)
-  %121 = getelementptr inbounds nuw [2 x %"class.boost::geometry::segment_ratio"], ptr %14, i64 0, i64 %104
+  %121 = getelementptr inbounds nuw %"class.boost::geometry::segment_ratio", ptr %14, i64 %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !2906
   %122 = add nuw nsw i32 %.2, 1
   br label %123
@@ -174643,7 +174643,7 @@ _ZN5boost8geometry6detail7overlay8fill_sbsINS2_12sort_by_side11side_sorterILb0EL
   %40 = phi i1 [ true, %35 ], [ false, %.noexc ]
   %indvars.iv.i = phi i64 [ 0, %35 ], [ 1, %.noexc ]
   %.126.i = phi i1 [ %.02029.i, %35 ], [ false, %.noexc ]
-  %41 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %36, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %36, i64 %indvars.iv.i
   %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   %43 = invoke { double, double } @_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE3ENS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_10strategies6buffer9cartesianIvEESt4lessIiEE3addINS1_6buffer16buffer_turn_infoISA_NS0_13segment_ratioIdEEEENSJ_21buffer_turn_operationISA_SM_EENSJ_24buffered_ring_collectionINSJ_13buffered_ringINS6_4ringISA_Lb1ELb1ESt6vectorSaEEEEEESW_EESA_RKT_RKT0_liRKT1_RKT2_b(ptr noundef nonnull align 8 dereferenceable(57) %9, ptr noundef nonnull align 8 dereferenceable(432) %33, ptr noundef nonnull align 8 dereferenceable(184) %41, i64 noundef %31, i32 noundef %42, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %.126.i)
           to label %.noexc unwind label %.loopexit
@@ -174942,7 +174942,7 @@ _ZNK5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12ove
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 40
   %164 = load i32, ptr %163, align 8, !tbaa !3196
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %162, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %162, i64 %165
   br i1 %or.cond, label %167, label %169
 
 167:                                              ; preds = %158
@@ -188990,7 +188990,7 @@ define linkonce_odr hidden void @_ZZN5boost8geometry6detail7overlay13enrich_assi
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !3471
-  %11 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %8, i64 %10
   %12 = add i64 %1, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3503
@@ -189020,7 +189020,7 @@ define linkonce_odr hidden void @_ZZN5boost8geometry6detail7overlay13enrich_assi
   %34 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_info", ptr %6, i64 %5, i32 0, i32 6
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !3471, !noalias !3505
-  %37 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %34, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %34, i64 %36
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.432.0.copyload = load i64, ptr %.sroa.432.0..sroa_idx, align 8
   %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -189095,7 +189095,7 @@ _ZNK5boost8geometry18segment_identifiereqERKS1_.exit.thread: ; preds = %28, %3, 
   %72 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_info", ptr %6, i64 %71, i32 0, i32 6
   %73 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::indexed_turn_operation", ptr %17, i64 %.162.us81, i32 1
   %74 = load i64, ptr %73, align 8, !tbaa !3471, !noalias !3511
-  %75 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %72, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %72, i64 %74
   %.sroa.424.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.sroa.424.0.copyload.us = load i64, ptr %.sroa.424.0..sroa_idx.us, align 8
   %.sroa.525.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -189157,7 +189157,7 @@ _ZNK5boost8geometry18segment_identifiereqERKS1_.exit20.us: ; preds = %83
   %102 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_info", ptr %6, i64 %95, i32 0, i32 6
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %104 = load i64, ptr %103, align 8, !tbaa !3471, !noalias !3516
-  %105 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %102, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %102, i64 %104
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 32
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 48
@@ -192929,7 +192929,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay22traversal_ri
   %8 = alloca %"class.boost::geometry::model::ring", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load i32, ptr %12, align 8, !tbaa !2862
   %14 = icmp eq i32 %13, 0
@@ -193014,7 +193014,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay22traversal_ri
   %56 = load ptr, ptr %55, align 8, !tbaa !3524
   %57 = load ptr, ptr %56, align 8, !tbaa !2638
   %58 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_info", ptr %57, i64 %2, i32 0, i32 6
-  %59 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %58, i64 0, i64 %10
+  %59 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %58, i64 %10
   store i8 0, ptr %6, align 1, !tbaa !3521
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !2425
@@ -193170,7 +193170,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry6detail7overlay22trave
   %10 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_info", ptr %9, i64 %2
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !3588
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -193208,7 +193208,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry6detail7overlay22trave
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %33 = load i32, ptr %6, align 4, !tbaa !263
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i64, ptr %36, align 8, !tbaa !2596
   %38 = icmp eq i64 %37, -1
@@ -193560,7 +193560,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay9traversalILb0
 14:                                               ; preds = %.preheader, %_ZN5boost8geometry6detail7overlay10visit_info8finalizeEv.exit
   %15 = phi i1 [ true, %.preheader ], [ false, %_ZN5boost8geometry6detail7overlay10visit_info8finalizeEv.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %_ZN5boost8geometry6detail7overlay10visit_info8finalizeEv.exit ]
-  %16 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %11, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %18 = load i32, ptr %17, align 4, !tbaa !2862
   %.off = add i32 %18, -1
@@ -194193,7 +194193,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry6detail7overlay22trave
   %14 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_info", ptr %13, i64 %10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = sext i32 %9 to i64
-  %17 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %15, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load i64, ptr %18, align 8, !tbaa !3519
@@ -194226,7 +194226,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry6detail7overlay22trave
 32:                                               ; preds = %30
   %33 = sub nsw i32 1, %2
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %15, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %15, i64 %34
   %36 = load i32, ptr %15, align 8, !tbaa !2856
   %37 = icmp eq i32 %36, 1
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 224
@@ -194425,7 +194425,7 @@ _ZN5boost8geometry13copy_segmentsILb0ENS0_6detail6buffer24buffered_ring_collecti
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
   %155 = load i32, ptr %4, align 4, !tbaa !263
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %154, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %154, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 160
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 165
   %160 = load i8, ptr %159, align 1, !tbaa !2864, !range !17, !noundef !18
@@ -194708,7 +194708,7 @@ _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6
   %82 = phi i1 [ false, %97 ], [ true, %76 ]
   %indvars.iv22.i.i = phi i64 [ 1, %97 ], [ 0, %76 ]
   %.018.us.i.i = phi i8 [ %.1.us.i.i, %97 ], [ 0, %76 ]
-  %83 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %53, i64 0, i64 %indvars.iv22.i.i
+  %83 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %53, i64 %indvars.iv22.i.i
   %84 = load i32, ptr %83, align 8, !tbaa !2856
   %85 = icmp eq i32 %84, 1
   br i1 %85, label %86, label %97
@@ -194743,7 +194743,7 @@ _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6
   %98 = phi i1 [ false, %116 ], [ true, %76 ]
   %indvars.iv.i.i = phi i64 [ 1, %116 ], [ 0, %76 ]
   %.018.i.i = phi i8 [ %.1.i.i, %116 ], [ 0, %76 ]
-  %99 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %53, i64 0, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %53, i64 %indvars.iv.i.i
   %100 = load i32, ptr %99, align 8, !tbaa !2856
   %101 = icmp eq i32 %100, 1
   br i1 %101, label %102, label %116
@@ -195637,7 +195637,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost8geometry6detail7overla
 .preheader.split.us:                              ; preds = %.preheader, %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE3ENS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_10strategies6buffer9cartesianIvEESt7greaterIiEE3addINS1_6buffer16buffer_turn_infoISA_NS0_13segment_ratioIdEEEENSJ_21buffer_turn_operationISA_SM_EENSJ_24buffered_ring_collectionINSJ_13buffered_ringINS6_4ringISA_Lb1ELb1ESt6vectorSaEEEEEESW_EEvRKT_RKT0_liRKNS0_18segment_identifierERKT1_RKT2_b.exit.us
   %31 = phi i1 [ false, %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE3ENS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_10strategies6buffer9cartesianIvEESt7greaterIiEE3addINS1_6buffer16buffer_turn_infoISA_NS0_13segment_ratioIdEEEENSJ_21buffer_turn_operationISA_SM_EENSJ_24buffered_ring_collectionINSJ_13buffered_ringINS6_4ringISA_Lb1ELb1ESt6vectorSaEEEEEESW_EEvRKT_RKT0_liRKNS0_18segment_identifierERKT1_RKT2_b.exit.us ], [ true, %.preheader ]
   %indvars.iv33 = phi i64 [ 1, %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE3ENS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_10strategies6buffer9cartesianIvEESt7greaterIiEE3addINS1_6buffer16buffer_turn_infoISA_NS0_13segment_ratioIdEEEENSJ_21buffer_turn_operationISA_SM_EENSJ_24buffered_ring_collectionINSJ_13buffered_ringINS6_4ringISA_Lb1ELb1ESt6vectorSaEEEEEESW_EEvRKT_RKT0_liRKNS0_18segment_identifierERKT1_RKT2_b.exit.us ], [ 0, %.preheader ]
-  %32 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %29, i64 0, i64 %indvars.iv33
+  %32 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %29, i64 %indvars.iv33
   %33 = load ptr, ptr %0, align 8, !tbaa !3633
   %34 = load ptr, ptr %10, align 8, !tbaa !3634
   %35 = trunc nuw nsw i64 %indvars.iv33 to i32
@@ -195761,7 +195761,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost8geometry6detail7overla
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !3195
   %19 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_info", ptr %11, i64 %18, i32 0, i32 6
-  %20 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %19, i64 0, i64 %16, i32 0, i32 1, i32 10
+  %20 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %19, i64 %16, i32 0, i32 1, i32 10
   br label %21
 
 21:                                               ; preds = %44, %.lr.ph.i
@@ -195785,7 +195785,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost8geometry6detail7overla
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %35 = load i32, ptr %34, align 8, !tbaa !3196
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %33, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %33, i64 %36
   %38 = load i32, ptr %37, align 8, !tbaa !2856
   switch i32 %38, label %44 [
     i32 1, label %39
@@ -195842,7 +195842,7 @@ _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %62 = load i32, ptr %61, align 8, !tbaa !3196
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %60, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %60, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 165
   %66 = load i8, ptr %65, align 1, !tbaa !2864, !range !17, !noundef !18
   %67 = trunc nuw i8 %66 to i1
@@ -195917,7 +195917,7 @@ _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %100 = load i32, ptr %99, align 8, !tbaa !3196
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %98, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %98, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 165
   %104 = load i8, ptr %103, align 1, !tbaa !2864, !range !17, !noundef !18
   %105 = trunc nuw i8 %104 to i1
@@ -198332,7 +198332,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail7overlay
 .preheader:                                       ; preds = %21, %_ZNSt6vectorIN5boost8geometry6detail7overlay13cluster_exitsILNS1_12overlay_typeE3ES_INS2_6buffer16buffer_turn_infoINS1_5model5pointIdLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIdEEEESaISF_EENS3_12sort_by_side11side_sorterILb0ELb0ELS5_3ESC_NS1_10strategies6buffer9cartesianIvEESt7greaterIiEEEE19linked_turn_op_infoESaISS_EE9push_backEOSS_.exit
   %.not99 = phi i1 [ false, %_ZNSt6vectorIN5boost8geometry6detail7overlay13cluster_exitsILNS1_12overlay_typeE3ES_INS2_6buffer16buffer_turn_infoINS1_5model5pointIdLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIdEEEESaISF_EENS3_12sort_by_side11side_sorterILb0ELb0ELS5_3ESC_NS1_10strategies6buffer9cartesianIvEESt7greaterIiEEEE19linked_turn_op_infoESaISS_EE9push_backEOSS_.exit ], [ true, %21 ]
   %indvars.iv = phi i64 [ 1, %_ZNSt6vectorIN5boost8geometry6detail7overlay13cluster_exitsILNS1_12overlay_typeE3ES_INS2_6buffer16buffer_turn_infoINS1_5model5pointIdLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIdEEEESaISF_EENS3_12sort_by_side11side_sorterILb0ELb0ELS5_3ESC_NS1_10strategies6buffer9cartesianIvEESt7greaterIiEEEE19linked_turn_op_infoESaISS_EE9push_backEOSS_.exit ], [ 0, %21 ]
-  %29 = getelementptr inbounds nuw [2 x %"struct.boost::geometry::detail::buffer::buffer_turn_operation"], ptr %22, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffer_turn_operation", ptr %22, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i64, ptr %30, align 8, !tbaa !2596
   %32 = icmp eq i64 %31, -1

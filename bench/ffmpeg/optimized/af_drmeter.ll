@@ -81,13 +81,13 @@ define internal void @uninit(ptr noundef %0) #0 {
   %36 = tail call i32 @llvm.umin.i32(i32 %35, i32 32768)
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 131100
   %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds nuw [32769 x i32], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !32
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %43 = zext nneg i32 %36 to i64
-  %44 = getelementptr inbounds nuw [32769 x i32], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !32
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4, !tbaa !32
@@ -101,7 +101,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 48:                                               ; preds = %56, %18
   %indvars.iv.i = phi i64 [ 32768, %18 ], [ %indvars.iv.next.i, %56 ]
   %.05274.i = phi i32 [ 0, %18 ], [ %.153.i, %56 ]
-  %49 = getelementptr inbounds nuw [32769 x i32], ptr %42, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !32
   %.not61.i = icmp eq i32 %50, 0
   br i1 %.not61.i, label %56, label %51
@@ -135,7 +135,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %.078.i = phi i64 [ %.1.i, %69 ], [ 0, %.loopexit.i ]
   %.04777.i = phi i64 [ %70, %69 ], [ 32768, %.loopexit.i ]
   %.05476.i = phi float [ %.155.i, %69 ], [ 0.000000e+00, %.loopexit.i ]
-  %59 = getelementptr inbounds nuw [32769 x i32], ptr %37, i64 0, i64 %.04777.i
+  %59 = getelementptr inbounds nuw i32, ptr %37, i64 %.04777.i
   %60 = load i32, ptr %59, align 4, !tbaa !32
   %.not64.i = icmp eq i32 %60, 0
   br i1 %.not64.i, label %69, label %61
@@ -292,12 +292,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %58 = tail call i32 @llvm.umin.i32(i32 %57, i32 32768)
   %59 = zext nneg i32 %53 to i64
-  %60 = getelementptr inbounds nuw [32769 x i32], ptr %28, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %28, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !32
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 4, !tbaa !32
   %63 = zext nneg i32 %58 to i64
-  %64 = getelementptr inbounds nuw [32769 x i32], ptr %29, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %29, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !32
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !32
@@ -380,13 +380,13 @@ update_stat.exit:                                 ; preds = %34, %44
   %113 = tail call i32 @llvm.umin.i32(i32 %112, i32 32768)
   %114 = getelementptr inbounds nuw i8, ptr %88, i64 131100
   %115 = zext nneg i32 %108 to i64
-  %116 = getelementptr inbounds nuw [32769 x i32], ptr %114, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !32
   %118 = add i32 %117, 1
   store i32 %118, ptr %116, align 4, !tbaa !32
   %119 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %120 = zext nneg i32 %113 to i64
-  %121 = getelementptr inbounds nuw [32769 x i32], ptr %119, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i32, ptr %119, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !32
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 4, !tbaa !32

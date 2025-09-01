@@ -83,7 +83,7 @@ define dso_local range(i64 0, 2186138353665) i64 @_ZN5clang13serialization18Type
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [508 x i64], ptr @switch.table._ZN5clang13serialization18TypeIdxFromBuiltinEPKNS_11BuiltinTypeE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang13serialization18TypeIdxFromBuiltinEPKNS_11BuiltinTypeE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %8
 

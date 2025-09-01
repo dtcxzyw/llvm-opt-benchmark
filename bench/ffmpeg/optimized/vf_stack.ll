@@ -1173,28 +1173,28 @@ define internal noundef i32 @process_slice(ptr noundef readonly captures(none) %
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !69
-  %35 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !64
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !64
   %39 = mul nsw i32 %38, %36
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %34, i64 %40
-  %42 = getelementptr inbounds nuw [4 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !64
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load ptr, ptr %28, align 8, !tbaa !102
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %46, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !69
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %49, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !64
-  %52 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !64
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !64
   tail call void @av_image_copy_plane(ptr noundef %45, i32 noundef %36, ptr noundef %48, i32 noundef %51, i32 noundef %53, i32 noundef %55) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

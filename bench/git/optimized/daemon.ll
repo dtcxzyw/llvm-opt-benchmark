@@ -1281,7 +1281,7 @@ parse_extra_args.exit.i:                          ; preds = %367, %._crit_edge.i
 
 371:                                              ; preds = %.preheader728, %.loopexit.i
   %.02671.i = phi i64 [ %611, %.loopexit.i ], [ 0, %.preheader728 ]
-  %372 = getelementptr inbounds nuw [3 x %struct.daemon_service], ptr @daemon_service, i64 0, i64 %.02671.i
+  %372 = getelementptr inbounds nuw %struct.daemon_service, ptr @daemon_service, i64 %.02671.i
   br label %373
 
 373:                                              ; preds = %374, %371
@@ -2486,7 +2486,7 @@ define internal fastcc void @enable_service(ptr noundef %0, i32 noundef range(i3
 
 5:                                                ; preds = %2, %3
   %.0711 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw [3 x %struct.daemon_service], ptr @daemon_service, i64 0, i64 %.0711
+  %6 = getelementptr inbounds nuw %struct.daemon_service, ptr @daemon_service, i64 %.0711
   %7 = load ptr, ptr %6, align 16, !tbaa !29
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #22
   %.not = icmp eq i32 %8, 0
@@ -2513,7 +2513,7 @@ define internal fastcc void @make_service_overridable(ptr noundef %0, i32 nounde
 
 5:                                                ; preds = %2, %3
   %.0711 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw [3 x %struct.daemon_service], ptr @daemon_service, i64 0, i64 %.0711
+  %6 = getelementptr inbounds nuw %struct.daemon_service, ptr @daemon_service, i64 %.0711
   %7 = load ptr, ptr %6, align 16, !tbaa !29
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #22
   %.not = icmp eq i32 %8, 0

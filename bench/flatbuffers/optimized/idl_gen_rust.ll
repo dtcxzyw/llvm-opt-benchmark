@@ -41268,7 +41268,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers4rust13RustGenerator18GetEnu
 
 11:                                               ; preds = %3
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers4rust13RustGenerator18GetEnumTypeForDeclB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers4rust13RustGenerator18GetEnumTypeForDeclB5cxx11ERKNS_4TypeEE9ctypename, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !550
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %0, align 8, !tbaa !4
@@ -44767,13 +44767,13 @@ define internal fastcc noundef range(i32 0, 20) i32 @_ZN11flatbuffers12_GLOBAL__
 
 switch.lookup:                                    ; preds = %11
   %61 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %63
 
 switch.lookup20:                                  ; preds = %26
   %62 = zext nneg i32 %39 to i64
-  %switch.gep21 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.58, i64 0, i64 %62
+  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.58, i64 %62
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %63
 
@@ -55171,7 +55171,7 @@ _ZNK11flatbuffers4rust13RustGenerator15WrapInNameSpaceB5cxx11ERKNS_10DefinitionE
 32:                                               ; preds = %3
   %33 = load i32, ptr %2, align 8, !tbaa !549
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers4rust13RustGenerator12GetTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4rust13RustGenerator12GetTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !550
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %0, align 8, !tbaa !4
@@ -66855,7 +66855,7 @@ define linkonce_odr dso_local void @_ZZN11flatbuffers4rust13RustGenerator8GenTab
 
 switch.lookup:                                    ; preds = %13
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZZN11flatbuffers4rust13RustGenerator8GenTableERKNS_9StructDefEENKUlRKNS_8FieldDefEE0_clES7_, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZZN11flatbuffers4rust13RustGenerator8GenTableERKNS_9StructDefEENKUlRKNS_8FieldDefEE0_clES7_, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit
 

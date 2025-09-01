@@ -1664,7 +1664,7 @@ define internal void @sip_stat_init(ptr noundef %0) #0 {
 
 23:                                               ; preds = %20, %23
   %indvars.iv = phi i64 [ 1, %20 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr [18 x ptr], ptr @sip_methods, i64 0, i64 %indvars.iv
+  %24 = getelementptr ptr, ptr @sip_methods, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = call noalias ptr @g_strdup(ptr noundef %25)
   store ptr %26, ptr %22, align 8
@@ -1709,7 +1709,7 @@ define internal void @sip_stat_init(ptr noundef %0) #0 {
   %44 = add i32 %43, -1
   call void @stat_tap_init_table_row(ptr noundef %35, i32 noundef %44, i32 noundef 6, ptr noundef nonnull %2)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %45 = getelementptr [76 x %struct._value_string], ptr @sip_response_code_vals, i64 0, i64 %indvars.iv.next45
+  %45 = getelementptr %struct._value_string, ptr @sip_response_code_vals, i64 %indvars.iv.next45
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %exitcond47 = icmp eq i64 %indvars.iv.next45, 75
@@ -2678,7 +2678,7 @@ define internal void @sip_init_protocol() #0 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %3 ]
   %4 = tail call ptr @wmem_file_scope()
-  %5 = getelementptr [127 x %struct.sip_header_t], ptr @sip_headers, i64 0, i64 %indvars.iv
+  %5 = getelementptr %struct.sip_header_t, ptr @sip_headers, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16
   %7 = tail call noalias ptr @wmem_strdup(ptr noundef %4, ptr noundef %6)
   %8 = tail call ptr @ascii_strdown_inplace(ptr noundef %7)
@@ -3145,7 +3145,7 @@ sip_parse_line.exit:                              ; preds = %103, %.thread.i, %8
 
 150:                                              ; preds = %158, %146
   %indvars.iv.i = phi i64 [ 1, %146 ], [ %indvars.iv.next.i, %158 ]
-  %151 = getelementptr [18 x ptr], ptr @sip_methods, i64 0, i64 %indvars.iv.i
+  %151 = getelementptr ptr, ptr @sip_methods, i64 %indvars.iv.i
   %152 = load ptr, ptr %151, align 8
   %153 = call i64 @strlen(ptr noundef %152) #18
   %154 = icmp eq i64 %153, %149
@@ -3495,7 +3495,7 @@ dfilter_sip_status_line.exit:                     ; preds = %222, %229
 
 340:                                              ; preds = %349, %338
   %indvars.iv.i1583 = phi i64 [ 1, %338 ], [ %indvars.iv.next.i1584, %349 ]
-  %341 = getelementptr [127 x %struct.sip_header_t], ptr @sip_headers, i64 0, i64 %indvars.iv.i1583, i32 1
+  %341 = getelementptr %struct.sip_header_t, ptr @sip_headers, i64 %indvars.iv.i1583, i32 1
   %342 = load ptr, ptr %341, align 8
   %.not18.i = icmp eq ptr %342, null
   br i1 %.not18.i, label %349, label %343
@@ -4376,7 +4376,7 @@ proto_item_set_hidden.exit1595:                   ; preds = %proto_item_set_gene
 
 783:                                              ; preds = %sip_is_known_sip_header.exit, %sip_is_known_sip_header.exit, %sip_is_known_sip_header.exit
   %784 = zext nneg i32 %.013.i to i64
-  %785 = getelementptr [127 x i32], ptr @hf_header_array, i64 0, i64 %784
+  %785 = getelementptr i32, ptr @hf_header_array, i64 %784
   %786 = load i32, ptr %785, align 4
   %787 = load i32, ptr %16, align 4
   %788 = call zeroext i1 @proto_field_is_referenced(ptr noundef %277, i32 noundef %786)
@@ -4607,7 +4607,7 @@ dissect_sip_contact_item.exit:                    ; preds = %872, %829, %867
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, i8 0, i64 80, i1 false)
   %882 = zext nneg i32 %.013.i to i64
-  %883 = getelementptr [127 x i32], ptr @hf_header_array, i64 0, i64 %882
+  %883 = getelementptr i32, ptr @hf_header_array, i64 %882
   %884 = load i32, ptr %883, align 4
   %885 = load i32, ptr %16, align 4
   %886 = call zeroext i1 @proto_field_is_referenced(ptr noundef nonnull %277, i32 noundef %884)
@@ -5238,7 +5238,7 @@ dissect_sip_authorization_item.exit.thread:       ; preds = %.dissect_sip_author
 
 1216:                                             ; preds = %sip_is_known_sip_header.exit
   %1217 = sext i32 %.013.i to i64
-  %1218 = getelementptr [127 x i32], ptr @hf_header_array, i64 0, i64 %1217
+  %1218 = getelementptr i32, ptr @hf_header_array, i64 %1217
   %1219 = load i32, ptr %1218, align 4
   %1220 = load i32, ptr %16, align 4
   %1221 = sub i32 %1220, %.012862029
@@ -7091,7 +7091,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %60 = add i32 %58, 1
   store i32 %60, ptr %51, align 8
   %61 = sext i32 %58 to i64
-  %62 = getelementptr [1 x i8], ptr %59, i64 0, i64 %61
+  %62 = getelementptr i8, ptr %59, i64 %61
   store i8 58, ptr %62, align 1
   %63 = load ptr, ptr %6, align 8
   %64 = load ptr, ptr %14, align 8
@@ -7116,7 +7116,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %76 = add i32 %74, 1
   store i32 %76, ptr %67, align 8
   %77 = sext i32 %74 to i64
-  %78 = getelementptr [1 x i8], ptr %75, i64 0, i64 %77
+  %78 = getelementptr i8, ptr %75, i64 %77
   store i8 58, ptr %78, align 1
   %79 = load ptr, ptr %6, align 8
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
@@ -7149,7 +7149,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %98 = add i32 %96, 1
   store i32 %98, ptr %89, align 8
   %99 = sext i32 %96 to i64
-  %100 = getelementptr [1 x i8], ptr %97, i64 0, i64 %99
+  %100 = getelementptr i8, ptr %97, i64 %99
   store i8 58, ptr %100, align 1
   %101 = load ptr, ptr %6, align 8
   %102 = load ptr, ptr %22, align 8
@@ -7182,7 +7182,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %120 = add i32 %118, 1
   store i32 %120, ptr %111, align 8
   %121 = sext i32 %118 to i64
-  %122 = getelementptr [1 x i8], ptr %119, i64 0, i64 %121
+  %122 = getelementptr i8, ptr %119, i64 %121
   store i8 58, ptr %122, align 1
   %123 = load ptr, ptr %6, align 8
   %124 = load ptr, ptr %26, align 8
@@ -7207,7 +7207,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %136 = add i32 %134, 1
   store i32 %136, ptr %127, align 8
   %137 = sext i32 %134 to i64
-  %138 = getelementptr [1 x i8], ptr %135, i64 0, i64 %137
+  %138 = getelementptr i8, ptr %135, i64 %137
   store i8 58, ptr %138, align 1
   %139 = load ptr, ptr %6, align 8
   %140 = load ptr, ptr %32, align 8
@@ -7232,7 +7232,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %152 = add i32 %150, 1
   store i32 %152, ptr %143, align 8
   %153 = sext i32 %150 to i64
-  %154 = getelementptr [1 x i8], ptr %151, i64 0, i64 %153
+  %154 = getelementptr i8, ptr %151, i64 %153
   store i8 58, ptr %154, align 1
   %155 = load ptr, ptr %6, align 8
   %156 = load ptr, ptr %36, align 8
@@ -7257,7 +7257,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %168 = add i32 %166, 1
   store i32 %168, ptr %159, align 8
   %169 = sext i32 %166 to i64
-  %170 = getelementptr [1 x i8], ptr %167, i64 0, i64 %169
+  %170 = getelementptr i8, ptr %167, i64 %169
   store i8 58, ptr %170, align 1
   %171 = load ptr, ptr %6, align 8
   %172 = load ptr, ptr %7, align 8
@@ -7282,7 +7282,7 @@ define internal fastcc zeroext i1 @sip_validate_authorization(ptr noundef readon
   %184 = add i32 %182, 1
   store i32 %184, ptr %175, align 8
   %185 = sext i32 %182 to i64
-  %186 = getelementptr [1 x i8], ptr %183, i64 0, i64 %185
+  %186 = getelementptr i8, ptr %183, i64 %185
   store i8 58, ptr %186, align 1
   %187 = load ptr, ptr %6, align 8
   %188 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
@@ -7936,66 +7936,65 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %32 = sub i32 %spec.select95, %25
   %33 = add i32 %32, 1
   %34 = tail call ptr @tvb_get_string_enc(ptr noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef %33, i32 noundef 2)
-  %35 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.789)
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %._crit_edge, label %.lr.ph109
+  br label %38
 
-.lr.ph109:                                        ; preds = %26, %37
-  %indvars.iv108 = phi i64 [ %indvars.iv.next, %37 ], [ 0, %26 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv108, 1
+35:                                               ; preds = %38
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %36 = getelementptr %struct.mech_parameter_t, ptr @sec_mechanism_parameters_hf_array, i64 %indvars.iv.next
+  %37 = load ptr, ptr %36, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %61, label %37, !llvm.loop !58
+  br i1 %exitcond, label %63, label %38, !llvm.loop !58
 
-37:                                               ; preds = %.lr.ph109
-  %38 = getelementptr [10 x %struct.mech_parameter_t], ptr @sec_mechanism_parameters_hf_array, i64 0, i64 %indvars.iv.next
-  %39 = load ptr, ptr %38, align 8
+38:                                               ; preds = %26, %35
+  %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %35 ]
+  %39 = phi ptr [ @.str.789, %26 ], [ %37, %35 ]
   %40 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef nonnull %39)
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %._crit_edge, label %.lr.ph109, !llvm.loop !58
+  br i1 %41, label %42, label %35
 
-._crit_edge:                                      ; preds = %37, %26
-  %.lcssa = phi ptr [ @sec_mechanism_parameters_hf_array, %26 ], [ %38, %37 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %43 = load i32, ptr %42, align 8
-  switch i32 %43, label %.thread [
-    i32 0, label %44
-    i32 1, label %50
+42:                                               ; preds = %38
+  %43 = getelementptr %struct.mech_parameter_t, ptr @sec_mechanism_parameters_hf_array, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 8
+  switch i32 %45, label %.thread [
+    i32 0, label %46
+    i32 1, label %52
   ]
 
-44:                                               ; preds = %._crit_edge
-  %45 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %46, align 4
-  %48 = add i32 %32, -1
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %31, i32 noundef %48, i32 noundef 2)
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %48, align 4
+  %50 = add i32 %32, -1
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %31, i32 noundef %50, i32 noundef 2)
   br label %.thread
 
-50:                                               ; preds = %._crit_edge
+52:                                               ; preds = %42
   %.not93 = icmp eq ptr %34, null
-  br i1 %.not93, label %51, label %53
+  br i1 %.not93, label %53, label %55
 
-51:                                               ; preds = %50
-  %52 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sip_sipsec_malformed, ptr noundef %0, i32 noundef %19, i32 noundef -1)
+53:                                               ; preds = %52
+  %54 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_sip_sipsec_malformed, ptr noundef %0, i32 noundef %19, i32 noundef -1)
   br label %.thread
 
-53:                                               ; preds = %50
-  %54 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #22
-  %55 = trunc i64 %54 to i32
-  %56 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %57, align 4
-  %59 = add i32 %32, -1
-  %60 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %31, i32 noundef %59, i32 noundef %55)
+55:                                               ; preds = %52
+  %56 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #22
+  %57 = trunc i64 %56 to i32
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i32, ptr %59, align 4
+  %61 = add i32 %32, -1
+  %62 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %31, i32 noundef %61, i32 noundef %57)
   br label %.thread
 
-61:                                               ; preds = %.lr.ph109
-  %62 = tail call ptr @proto_tree_add_format_text(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %23)
+63:                                               ; preds = %35
+  %64 = tail call ptr @proto_tree_add_format_text(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %23)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %51, %53, %44, %61
+.thread:                                          ; preds = %42, %53, %55, %46, %63
   %.081 = add i32 %spec.select95, 1
-  %63 = icmp slt i32 %.081, %4
-  br i1 %63, label %17, label %.critedge, !llvm.loop !59
+  %65 = icmp slt i32 %.081, %4
+  br i1 %65, label %17, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %.thread, %17, %8, %5
   ret void

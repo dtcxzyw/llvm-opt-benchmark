@@ -386,7 +386,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF
 
 8:                                                ; preds = %.lr.ph, %6
   %.01734 = phi i64 [ %2, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01734
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01734
   %10 = load ptr, ptr %9, align 8, !tbaa !7
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -9472,7 +9472,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertForE
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %31, %30, %28, %22
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.058154
+  %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %.058154
   %33 = load ptr, ptr %32, align 8, !tbaa !7
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1
@@ -11189,7 +11189,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertForE
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %31, %30, %28, %22
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.058154
+  %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %.058154
   %33 = load ptr, ptr %32, align 8, !tbaa !7
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1
@@ -15939,7 +15939,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_LCNF_Testing_
   %.066178 = phi i64 [ %1, %.lr.ph ], [ %225, %224 ]
   %.069177 = phi ptr [ %3, %.lr.ph ], [ %107, %224 ]
   %.072176 = phi ptr [ %8, %.lr.ph ], [ %76, %224 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.066178
+  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %.066178
   %21 = load ptr, ptr %20, align 8, !tbaa !7
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -17713,7 +17713,7 @@ lean_dec.exit25:                                  ; preds = %15, %13, %24, %23, 
   %.1.i37 = phi ptr [ %18, %21 ], [ %18, %23 ], [ %18, %24 ], [ inttoptr (i64 1 to ptr), %13 ], [ %17, %15 ]
   %25 = ptrtoint ptr %.1.i37 to i64
   %26 = lshr i64 %25, 1
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !7
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -17739,7 +17739,7 @@ lean_dec.exit25:                                  ; preds = %15, %13, %24, %23, 
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %lean_dec.exit25, %33, %35, %36
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %26
+  %37 = getelementptr inbounds nuw ptr, ptr %9, i64 %26
   %38 = load ptr, ptr %37, align 8, !tbaa !7
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -19643,7 +19643,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_Testing_assertSize___
   %.01944 = phi i64 [ %38, %54 ], [ %1, %3 ]
   %.02143 = phi ptr [ %.0.i.i30, %54 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02143, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01944
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01944
   %6 = load ptr, ptr %5, align 8, !tbaa !7
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -19790,7 +19790,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Testing_assertSize
 6:                                                ; preds = %.lr.ph, %lean_dec.exit20.thread32
   %.01648 = phi i64 [ %1, %.lr.ph ], [ %45, %lean_dec.exit20.thread32 ]
   %.01847 = phi ptr [ %3, %.lr.ph ], [ %.0.i2631, %lean_dec.exit20.thread32 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01648
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01648
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -23829,7 +23829,7 @@ lean_dec.exit88:                                  ; preds = %78, %77, %75, %lean
   br label %lean_dec.exit87
 
 lean_dec.exit87:                                  ; preds = %91, %90, %88, %82
-  %92 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.067210
+  %92 = getelementptr inbounds nuw ptr, ptr %14, i64 %.067210
   %93 = load ptr, ptr %92, align 8, !tbaa !7
   %94 = ptrtoint ptr %93 to i64
   %95 = and i64 %94, 1

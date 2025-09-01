@@ -5201,7 +5201,7 @@ _ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit:   ; preds = %_ZN11ast_manager7in
   %109 = load ptr, ptr %32, align 8, !tbaa !119
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %111 = zext i32 %.sroa.5.0.copyload to i64
-  %112 = getelementptr inbounds nuw [0 x ptr], ptr %110, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !151
   invoke void @_ZN5modelclEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %9, ptr noundef nonnull align 8 dereferenceable(160) %109, ptr noundef %113)
           to label %114 unwind label %123

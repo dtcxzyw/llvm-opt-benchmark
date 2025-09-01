@@ -525,7 +525,7 @@ define dso_local i32 @drm_plane_create_blend_mode_property(ptr noundef %0, i32 n
 
 .preheader:                                       ; preds = %10, %28
   %14 = phi i64 [ %29, %28 ], [ 0, %10 ]
-  %15 = getelementptr [3 x %struct.drm_prop_enum_list], ptr @drm_plane_create_blend_mode_property.props, i64 0, i64 %14
+  %15 = getelementptr %struct.drm_prop_enum_list, ptr @drm_plane_create_blend_mode_property.props, i64 %14
   %16 = load i32, ptr %15, align 16
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17

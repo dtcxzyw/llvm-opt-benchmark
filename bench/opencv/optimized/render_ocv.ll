@@ -250,7 +250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i, %85 ]
   %86 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv.i.i.i.i
   %87 = load double, ptr %86, align 8, !tbaa !11
-  %88 = getelementptr inbounds nuw [4 x double], ptr %49, i64 0, i64 %indvars.iv.i.i.i.i
+  %88 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv.i.i.i.i
   store double %87, ptr %88, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
@@ -654,7 +654,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i103 = phi i64 [ 0, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i104, %222 ]
   %223 = getelementptr inbounds nuw double, ptr %221, i64 %indvars.iv.i.i.i.i103
   %224 = load double, ptr %223, align 8, !tbaa !11
-  %225 = getelementptr inbounds nuw [4 x double], ptr %34, i64 0, i64 %indvars.iv.i.i.i.i103
+  %225 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i.i.i.i103
   store double %224, ptr %225, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i104 = add nuw nsw i64 %indvars.iv.i.i.i.i103, 1
   %exitcond.not.i.i.i.i105 = icmp eq i64 %indvars.iv.next.i.i.i.i104, 4
@@ -925,7 +925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i, %126 ]
   %127 = getelementptr inbounds nuw double, ptr %125, i64 %indvars.iv.i.i.i.i
   %128 = load double, ptr %127, align 8, !tbaa !11
-  %129 = getelementptr inbounds nuw [4 x double], ptr %68, i64 0, i64 %indvars.iv.i.i.i.i
+  %129 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv.i.i.i.i
   store double %128, ptr %129, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
@@ -1418,7 +1418,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i103 = phi i64 [ 0, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i104, %324 ]
   %325 = getelementptr inbounds nuw double, ptr %323, i64 %indvars.iv.i.i.i.i103
   %326 = load double, ptr %325, align 8, !tbaa !11
-  %327 = getelementptr inbounds nuw [4 x double], ptr %36, i64 0, i64 %indvars.iv.i.i.i.i103
+  %327 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i.i.i.i103
   store double %326, ptr %327, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i104 = add nuw nsw i64 %indvars.iv.i.i.i.i103, 1
   %exitcond.not.i.i.i.i105 = icmp eq i64 %indvars.iv.next.i.i.i.i104, 4

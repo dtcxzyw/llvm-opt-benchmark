@@ -3359,7 +3359,7 @@ define nonnull ptr @l_Array_mapMUnsafe_map___at___private_Lean_Hygiene_0__Lean_s
   %.03164 = phi ptr [ %.0.i.i47, %80 ], [ %2, %4 ]
   %.03363 = phi ptr [ %46, %80 ], [ %3, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.03164, i64 24
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.02965
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02965
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1

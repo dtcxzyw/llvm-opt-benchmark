@@ -209,13 +209,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 32:                                               ; preds = %21, %filter.exit
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %filter.exit ]
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %.not57 = icmp eq ptr %34, null
   br i1 %.not57, label %.critedge, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !51
   %.not58 = icmp eq i32 %37, 0
   br i1 %.not58, label %.critedge, label %38
@@ -232,12 +232,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %39 = tail call i32 @llvm.smin.i32(i32 %.048, i32 %.047)
   %40 = shl nsw i32 %.0, 1
   %41 = icmp sgt i32 %39, %40
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr %.051, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %.051, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !50
   br i1 %41, label %44, label %165
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !51
   %47 = add nsw i32 %.048, 15
   %48 = ashr i32 %47, 1
@@ -428,7 +428,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %139 = mul nsw i64 %indvars.iv192.i, %77
   %140 = getelementptr inbounds i8, ptr %34, i64 %139
   %141 = and i64 %indvars.iv192.i, 7
-  %142 = getelementptr inbounds nuw [8 x [8 x i16]], ptr @dither, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i16], ptr @dither, i64 %141
   tail call void %136(ptr noundef %138, ptr noundef nonnull %140, ptr noundef nonnull %72, i32 noundef %.048, i32 noundef %57, ptr noundef nonnull %142) #7
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %exitcond196.not.i = icmp eq i64 %indvars.iv.next193.i, %wide.trip.count175.i.pre-phi
@@ -446,7 +446,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %149 = getelementptr inbounds i8, ptr %34, i64 %148
   %150 = and i32 %.2132.i, 7
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [8 x [8 x i16]], ptr @dither, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i16], ptr @dither, i64 %151
   tail call void %143(ptr noundef %146, ptr noundef nonnull %149, ptr noundef nonnull %72, i32 noundef %.048, i32 noundef %57, ptr noundef nonnull %152) #7
   %.not138.i = icmp slt i32 %.pre-phi, %.047
   br i1 %.not138.i, label %153, label %filter.exit
@@ -461,7 +461,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %160 = getelementptr inbounds i8, ptr %34, i64 %159
   %161 = and i32 %.pre-phi, 7
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [8 x [8 x i16]], ptr @dither, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i16], ptr @dither, i64 %162
   tail call void %154(ptr noundef %157, ptr noundef nonnull %160, ptr noundef nonnull %72, i32 noundef %.048, i32 noundef %57, ptr noundef nonnull %163) #7
   %164 = add nuw nsw i32 %.2132.i, 2
   %.not139.i = icmp slt i32 %164, %.047
@@ -472,7 +472,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not61, label %filter.exit, label %166
 
 166:                                              ; preds = %165
-  %167 = getelementptr inbounds nuw [8 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %168 = load i32, ptr %167, align 4, !tbaa !51
   tail call void @av_image_copy_plane(ptr noundef %43, i32 noundef %168, ptr noundef nonnull %34, i32 noundef %37, i32 noundef %.048, i32 noundef %.047) #7
   br label %filter.exit

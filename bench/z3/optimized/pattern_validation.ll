@@ -618,7 +618,7 @@ _ZN26pattern_validation_functorclEP3var.exit:     ; preds = %_ZN8uint_set6insert
 151:                                              ; preds = %.lr.ph, %_ZN26pattern_validation_functorclEP3var.exit83
   %152 = phi i32 [ %148, %.lr.ph ], [ %337, %_ZN26pattern_validation_functorclEP3var.exit83 ]
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw [0 x ptr], ptr %150, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw ptr, ptr %150, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !64
   %156 = add nuw i32 %152, 1
   store i32 %156, ptr %147, align 8, !tbaa !63

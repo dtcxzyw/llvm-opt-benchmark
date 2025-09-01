@@ -5551,7 +5551,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 61:                                               ; preds = %.lr.ph, %_ZZN17purify_arith_proc6rw_cfg18init_cannot_purifyEvEN4procclEP3app.exit
   %62 = phi i32 [ %58, %.lr.ph ], [ %135, %_ZZN17purify_arith_proc6rw_cfg18init_cannot_purifyEvEN4procclEP3app.exit ]
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !129
   %66 = add nuw i32 %62, 1
   store i32 %66, ptr %57, align 8, !tbaa !257
@@ -21212,7 +21212,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 58:                                               ; preds = %.lr.ph, %.backedge
   %59 = phi i32 [ %55, %.lr.ph ], [ %132, %.backedge ]
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !129
   %63 = add nuw i32 %59, 1
   store i32 %63, ptr %54, align 8, !tbaa !257
@@ -21494,7 +21494,7 @@ _ZNK17arith_recognizers6is_sinEPK4expr.exit.i126: ; preds = %139
   %indvars.iv.i123 = phi i64 [ 0, %.lr.ph.i122 ], [ %indvars.iv.next.i124, %.noexc128 ]
   %153 = load ptr, ptr %0, align 8, !tbaa !372
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  %155 = getelementptr inbounds nuw [0 x ptr], ptr %151, i64 0, i64 %indvars.iv.i123
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i123
   %156 = load ptr, ptr %155, align 8, !tbaa !129
   invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %154, ptr noundef %156, i1 noundef zeroext true)
           to label %.noexc128 unwind label %67
@@ -22420,7 +22420,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !129
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -26839,7 +26839,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN17purify_arith_proc6rw_cfgEE
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !129
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -30120,7 +30120,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !135
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

@@ -2529,7 +2529,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
 
 switch.lookup:                                    ; preds = %56
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.parsePackModeInfo, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parsePackModeInfo, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %mode2Str.exit
 

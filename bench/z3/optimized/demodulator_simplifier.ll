@@ -905,7 +905,7 @@ thread-pre-split.i.i:                             ; preds = %.thread170.i.i, %._
 43:                                               ; preds = %_ZZN17demodulator_index10insert_bwdEP4exprjEN4procclEP3app.exit.i.i, %.lr.ph.i.i
   %44 = phi i32 [ %40, %.lr.ph.i.i ], [ %115, %_ZZN17demodulator_index10insert_bwdEP4exprjEN4procclEP3app.exit.i.i ]
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !49
   %48 = add nuw i32 %44, 1
   store i32 %48, ptr %39, align 8, !tbaa !48
@@ -1514,7 +1514,7 @@ thread-pre-split.i.i:                             ; preds = %.thread184.i.i, %._
 49:                                               ; preds = %_ZZN17demodulator_index10remove_bwdEP4exprjEN4procclEP3app.exit.i.i, %.lr.ph.i.i
   %50 = phi i32 [ %46, %.lr.ph.i.i ], [ %119, %_ZZN17demodulator_index10remove_bwdEP4exprjEN4procclEP3app.exit.i.i ]
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !49
   %54 = add nuw i32 %50, 1
   store i32 %54, ptr %45, align 8, !tbaa !48
@@ -7041,7 +7041,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !146
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

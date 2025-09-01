@@ -615,7 +615,7 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
 
 101:                                              ; preds = %ProcessRecoveryConflictInterrupt.exit.i, %100
   %indvars.iv.i = phi i64 [ 7, %100 ], [ %indvars.iv.next.i, %ProcessRecoveryConflictInterrupt.exit.i ]
-  %102 = getelementptr inbounds nuw [14 x i32], ptr @RecoveryConflictPendingReasons, i64 0, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw i32, ptr @RecoveryConflictPendingReasons, i64 %indvars.iv.i
   %103 = load volatile i32, ptr %102, align 4
   %.not.i = icmp eq i32 %103, 0
   br i1 %.not.i, label %ProcessRecoveryConflictInterrupt.exit.i, label %104
@@ -1709,7 +1709,7 @@ define dso_local void @FloatExceptionHandler(i32 %0) #7 {
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define dso_local void @HandleRecoveryConflictInterrupt(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [14 x i32], ptr @RecoveryConflictPendingReasons, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @RecoveryConflictPendingReasons, i64 %2
   store volatile i32 1, ptr %3, align 4
   store volatile i32 1, ptr @RecoveryConflictPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
@@ -2033,7 +2033,7 @@ switch.hole_check:                                ; preds = %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.process_postgres_switches, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_postgres_switches, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @SetConfigOption(ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.60, i32 noundef %1, i32 noundef %2) #22
   br label %7
@@ -2242,7 +2242,7 @@ switch.hole_check:                                ; preds = %58
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.process_postgres_switches, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_postgres_switches, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @SetConfigOption(ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.60, i32 noundef %2, i32 noundef %.070) #22
   br label %.backedge.backedge
@@ -4456,7 +4456,7 @@ IsTransactionExitStmt.exit.thread.i75:            ; preds = %719, %716, %713, %7
   br label %835
 
 835:                                              ; preds = %831, %830
-  %836 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %759, i64 0, i64 %indvars.iv247.i
+  %836 = getelementptr inbounds nuw %struct.ParamExternData, ptr %759, i64 %indvars.iv247.i
   store i64 %.0165.i, ptr %836, align 8
   %837 = getelementptr inbounds nuw i8, ptr %836, i64 8
   store i8 %771, ptr %837, align 8
@@ -6765,7 +6765,7 @@ define internal fastcc void @errdetail_recovery_conflict(i32 noundef range(i32 0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.errdetail_recovery_conflict, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.errdetail_recovery_conflict, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %switch.load) #22
   br label %5

@@ -61535,60 +61535,60 @@ define void @"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$pro
 switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !7792, !noundef !3
-  %switch.tableidx = add nsw i8 %3, -1
-  %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h1064cef37f42a448E", i64 0, i64 %4
+  %4 = zext nneg i8 %3 to i64
+  %5 = getelementptr i64, ptr @"switch.table._ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h1064cef37f42a448E", i64 %4
+  %switch.gep = getelementptr i8, ptr %5, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7793)
-  %5 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17he357f201cdaf36a4E"(ptr noundef nonnull align 8 @"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h6dd8a590707d432aE"), !noalias !7793
-  %6 = load i64, ptr %5, align 8, !range !116, !noalias !7793, !noundef !3
-  %7 = trunc nuw i64 %6 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %7, label %9, label %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
+  %6 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17he357f201cdaf36a4E"(ptr noundef nonnull align 8 @"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17h6dd8a590707d432aE"), !noalias !7793
+  %7 = load i64, ptr %6, align 8, !range !116, !noalias !7793, !noundef !3
+  %8 = trunc nuw i64 %7 to i1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br i1 %8, label %10, label %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
 
-9:                                                ; preds = %switch.lookup
-  %10 = load ptr, ptr %8, align 8, !noalias !7793, !nonnull !3, !noundef !3
-  %11 = atomicrmw add ptr %10, i64 1 monotonic, align 8, !noalias !7793
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %13, label %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
+10:                                               ; preds = %switch.lookup
+  %11 = load ptr, ptr %9, align 8, !noalias !7793, !nonnull !3, !noundef !3
+  %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8, !noalias !7793
+  %13 = icmp slt i64 %12, 0
+  br i1 %13, label %14, label %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
 
-13:                                               ; preds = %9
+14:                                               ; preds = %10
   tail call void @llvm.trap()
   unreachable
 
-"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit": ; preds = %switch.lookup, %9
-  %.sroa.01.0.i = phi i64 [ 1, %9 ], [ 0, %switch.lookup ]
-  %.sroa.5.0.i = load ptr, ptr %8, align 8, !noalias !7793, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load i64, ptr %14, align 8, !noalias !7793, !noundef !3
+"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit": ; preds = %switch.lookup, %10
+  %.sroa.01.0.i = phi i64 [ 1, %10 ], [ 0, %switch.lookup ]
+  %.sroa.5.0.i = load ptr, ptr %9, align 8, !noalias !7793, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %16 = load i64, ptr %15, align 8, !noalias !7793, !noundef !3
   store i64 %.sroa.01.0.i, ptr %2, align 8, !alias.scope !7793
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.5.0.i, ptr %16, align 8, !alias.scope !7793
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %15, ptr %17, align 8, !alias.scope !7793
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.sroa.5.0.i, ptr %17, align 8, !alias.scope !7793
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %16, ptr %18, align 8, !alias.scope !7793
   invoke void @_ZN8protobuf7reflect5enums14EnumDescriptor14value_by_index17h4a6760bb87b03712E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %switch.load)
-          to label %20 unwind label %18
+          to label %21 unwind label %19
 
-18:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$protobuf..reflect..enums..EnumDescriptor$GT$17h80ec976af8edaa35E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #32
-          to label %23 unwind label %21
+          to label %24 unwind label %22
 
-20:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
+21:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..lnk..ShowCommand$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17h4115c8b307a50ba8E.exit"
   call void @"_ZN4core3ptr61drop_in_place$LT$protobuf..reflect..enums..EnumDescriptor$GT$17h80ec976af8edaa35E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #33
   unreachable
 
-23:                                               ; preds = %18
-  resume { ptr, i32 } %19
+24:                                               ; preds = %19
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -95773,7 +95773,7 @@ define noundef range(i8 0, 67) i8 @"_ZN88_$LT$yara_x..modules..protos..sandbox..
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [66 x i8], ptr @"switch.table._ZN88_$LT$yara_x..modules..protos..sandbox..BehaviourTag$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hb698ba56b59ae796E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN88_$LT$yara_x..modules..protos..sandbox..BehaviourTag$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hb698ba56b59ae796E", i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -96086,7 +96086,7 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !9884, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [66 x i64], ptr @"switch.table._ZN96_$LT$yara_x..modules..protos..sandbox..BehaviourTag$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17hd53a4d9006c381b9E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN96_$LT$yara_x..modules..protos..sandbox..BehaviourTag$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17hd53a4d9006c381b9E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9885)

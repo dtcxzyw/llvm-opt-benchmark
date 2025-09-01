@@ -1520,7 +1520,7 @@ _ZNSt7__cxx114listIN6Assimp23ComputeUVMappingProcess11MappingInfoESaIS3_EE9push_
 
 133:                                              ; preds = %136, %131
   %indvars.iv.i = phi i64 [ 0, %131 ], [ %indvars.iv.next.i, %136 ]
-  %134 = getelementptr inbounds nuw [8 x ptr], ptr %132, i64 0, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.i
   %135 = load ptr, ptr %134, align 8
   %.not.i = icmp eq ptr %135, null
   br i1 %.not.i, label %_Z18FindEmptyUVChannelP6aiMesh.exit, label %136
@@ -1563,7 +1563,7 @@ _Z18FindEmptyUVChannelP6aiMesh.exit:              ; preds = %133
   %152 = add nuw nsw i64 %151, 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %147, i8 0, i64 %152, i1 false)
   %153 = and i64 %indvars.iv.i, 4294967295
-  %154 = getelementptr inbounds nuw [8 x ptr], ptr %132, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw ptr, ptr %132, i64 %153
   store ptr %147, ptr %154, align 8
   %155 = load i32, ptr %49, align 4
   switch i32 %155, label %_ZN6Assimp23ComputeUVMappingProcess17ComputeBoxMappingEP6aiMeshP10aiVector3tIfE.exit [

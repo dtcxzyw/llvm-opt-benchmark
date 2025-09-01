@@ -1639,7 +1639,7 @@ define internal void @diag_downleft_8x8_c(ptr noundef writeonly captures(none) %
   %19 = add nuw nsw i16 %18, %16
   %20 = lshr i16 %19, 2
   %21 = trunc nuw i16 %20 to i8
-  %22 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %21, ptr %22, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %23, label %6, !llvm.loop !14
@@ -1712,7 +1712,7 @@ define internal void @diag_downright_8x8_c(ptr noundef writeonly captures(none) 
   %20 = add nuw nsw i16 %19, %17
   %21 = lshr i16 %20, 2
   %22 = trunc nuw i16 %21 to i8
-  %23 = getelementptr inbounds nuw [15 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %22, ptr %23, align 1, !tbaa !8
   %24 = zext i8 %8 to i16
   %25 = zext i8 %7 to i16
@@ -1725,62 +1725,61 @@ define internal void @diag_downright_8x8_c(ptr noundef writeonly captures(none) 
   %32 = add nuw nsw i16 %31, %29
   %33 = lshr i16 %32, 2
   %34 = trunc nuw i16 %33 to i8
-  %35 = add nuw nsw i64 %indvars.iv, 9
-  %36 = getelementptr inbounds nuw [15 x i8], ptr %5, i64 0, i64 %35
-  store i8 %34, ptr %36, align 1, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 9
+  store i8 %34, ptr %35, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %37, label %6, !llvm.loop !16
+  br i1 %exitcond.not, label %36, label %6, !llvm.loop !16
 
-37:                                               ; preds = %6
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %39 = load i8, ptr %38, align 1, !tbaa !8
-  %40 = zext i8 %39 to i16
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  %42 = load i8, ptr %41, align 1, !tbaa !8
-  %43 = zext i8 %42 to i16
-  %44 = shl nuw nsw i16 %43, 1
-  %45 = getelementptr inbounds i8, ptr %3, i64 -1
-  %46 = load i8, ptr %45, align 1, !tbaa !8
-  %47 = zext i8 %46 to i16
-  %48 = add nuw nsw i16 %47, 2
-  %49 = add nuw nsw i16 %48, %40
-  %50 = add nuw nsw i16 %49, %44
-  %51 = lshr i16 %50, 2
-  %52 = trunc nuw i16 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  store i8 %52, ptr %53, align 1, !tbaa !8
-  %54 = shl nuw nsw i16 %47, 1
-  %55 = zext i8 %.pre43 to i16
-  %56 = add nuw nsw i16 %43, 2
+36:                                               ; preds = %6
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %38 = load i8, ptr %37, align 1, !tbaa !8
+  %39 = zext i8 %38 to i16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 7
+  %41 = load i8, ptr %40, align 1, !tbaa !8
+  %42 = zext i8 %41 to i16
+  %43 = shl nuw nsw i16 %42, 1
+  %44 = getelementptr inbounds i8, ptr %3, i64 -1
+  %45 = load i8, ptr %44, align 1, !tbaa !8
+  %46 = zext i8 %45 to i16
+  %47 = add nuw nsw i16 %46, 2
+  %48 = add nuw nsw i16 %47, %39
+  %49 = add nuw nsw i16 %48, %43
+  %50 = lshr i16 %49, 2
+  %51 = trunc nuw i16 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  store i8 %51, ptr %52, align 1, !tbaa !8
+  %53 = shl nuw nsw i16 %46, 1
+  %54 = zext i8 %.pre43 to i16
+  %55 = add nuw nsw i16 %42, 2
+  %56 = add nuw nsw i16 %55, %53
   %57 = add nuw nsw i16 %56, %54
-  %58 = add nuw nsw i16 %57, %55
-  %59 = lshr i16 %58, 2
-  %60 = trunc nuw i16 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  store i8 %60, ptr %61, align 1, !tbaa !8
-  %62 = shl nuw nsw i16 %55, 1
-  %63 = zext i8 %.pre45 to i16
-  %64 = add nuw nsw i16 %48, %62
-  %65 = add nuw nsw i16 %64, %63
-  %66 = lshr i16 %65, 2
-  %67 = trunc nuw i16 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %67, ptr %68, align 1, !tbaa !8
-  br label %69
+  %58 = lshr i16 %57, 2
+  %59 = trunc nuw i16 %58 to i8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  store i8 %59, ptr %60, align 1, !tbaa !8
+  %61 = shl nuw nsw i16 %54, 1
+  %62 = zext i8 %.pre45 to i16
+  %63 = add nuw nsw i16 %47, %61
+  %64 = add nuw nsw i16 %63, %62
+  %65 = lshr i16 %64, 2
+  %66 = trunc nuw i16 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 %66, ptr %67, align 1, !tbaa !8
+  br label %68
 
-69:                                               ; preds = %37, %69
-  %indvars.iv38 = phi i64 [ 0, %37 ], [ %indvars.iv.next39, %69 ]
-  %70 = mul nsw i64 %1, %indvars.iv38
-  %71 = getelementptr inbounds i8, ptr %0, i64 %70
-  %72 = sub nsw i64 0, %indvars.iv38
-  %73 = getelementptr inbounds i8, ptr %61, i64 %72
-  %74 = load i64, ptr %73, align 1
-  store i64 %74, ptr %71, align 1
+68:                                               ; preds = %36, %68
+  %indvars.iv38 = phi i64 [ 0, %36 ], [ %indvars.iv.next39, %68 ]
+  %69 = mul nsw i64 %1, %indvars.iv38
+  %70 = getelementptr inbounds i8, ptr %0, i64 %69
+  %71 = sub nsw i64 0, %indvars.iv38
+  %72 = getelementptr inbounds i8, ptr %60, i64 %71
+  %73 = load i64, ptr %72, align 1
+  store i64 %73, ptr %70, align 1
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 8
-  br i1 %exitcond41.not, label %75, label %69, !llvm.loop !17
+  br i1 %exitcond41.not, label %74, label %68, !llvm.loop !17
 
-75:                                               ; preds = %69
+74:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -1889,7 +1888,7 @@ define internal void @vert_right_8x8_c(ptr noundef writeonly captures(none) %0, 
   %83 = lshr i16 %82, 1
   %84 = trunc nuw i16 %83 to i8
   %85 = add nuw nsw i64 %indvars.iv59, 4
-  %86 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 %85
   store i8 %84, ptr %86, align 1, !tbaa !8
   %87 = getelementptr i8, ptr %76, i64 -1
   %88 = load i8, ptr %87, align 1, !tbaa !8
@@ -1900,7 +1899,7 @@ define internal void @vert_right_8x8_c(ptr noundef writeonly captures(none) %0, 
   %93 = add nuw nsw i16 %92, %89
   %94 = lshr i16 %93, 2
   %95 = trunc nuw i16 %94 to i8
-  %96 = getelementptr inbounds nuw [11 x i8], ptr %6, i64 0, i64 %85
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 %85
   store i8 %95, ptr %96, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next60, 7
   br i1 %exitcond.not, label %.preheader, label %74, !llvm.loop !19
@@ -1939,7 +1938,7 @@ define internal void @hor_down_8x8_c(ptr noundef writeonly captures(none) %0, i6
   br label %6
 
 6:                                                ; preds = %4, %6
-  %7 = phi i8 [ %.pre48, %4 ], [ %38, %6 ]
+  %7 = phi i8 [ %.pre48, %4 ], [ %37, %6 ]
   %8 = phi i8 [ %.pre, %4 ], [ %10, %6 ]
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1953,7 +1952,7 @@ define internal void @hor_down_8x8_c(ptr noundef writeonly captures(none) %0, i6
   %16 = lshr i16 %15, 1
   %17 = trunc nuw i16 %16 to i8
   %18 = shl nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw [22 x i8], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   store i8 %17, ptr %19, align 2, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !8
@@ -1964,82 +1963,81 @@ define internal void @hor_down_8x8_c(ptr noundef writeonly captures(none) %0, i6
   %26 = add nuw nsw i16 %25, %22
   %27 = lshr i16 %26, 2
   %28 = trunc nuw i16 %27 to i8
-  %29 = or disjoint i64 %18, 1
-  %30 = getelementptr inbounds nuw [22 x i8], ptr %5, i64 0, i64 %29
-  store i8 %28, ptr %30, align 1, !tbaa !8
-  %31 = getelementptr i8, ptr %3, i64 %indvars.iv
-  %32 = getelementptr i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !8
-  %34 = zext i8 %33 to i16
-  %35 = zext i8 %7 to i16
-  %36 = shl nuw nsw i16 %35, 1
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
-  %38 = load i8, ptr %37, align 1, !tbaa !8
-  %39 = zext i8 %38 to i16
-  %40 = add nuw nsw i16 %34, 2
-  %41 = add nuw nsw i16 %40, %36
-  %42 = add nuw nsw i16 %41, %39
-  %43 = lshr i16 %42, 2
-  %44 = trunc nuw i16 %43 to i8
-  %45 = or disjoint i64 %indvars.iv, 16
-  %46 = getelementptr inbounds nuw [22 x i8], ptr %5, i64 0, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !8
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i8 %28, ptr %29, align 1, !tbaa !8
+  %30 = getelementptr i8, ptr %3, i64 %indvars.iv
+  %31 = getelementptr i8, ptr %30, i64 -1
+  %32 = load i8, ptr %31, align 1, !tbaa !8
+  %33 = zext i8 %32 to i16
+  %34 = zext i8 %7 to i16
+  %35 = shl nuw nsw i16 %34, 1
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
+  %37 = load i8, ptr %36, align 1, !tbaa !8
+  %38 = zext i8 %37 to i16
+  %39 = add nuw nsw i16 %33, 2
+  %40 = add nuw nsw i16 %39, %35
+  %41 = add nuw nsw i16 %40, %38
+  %42 = lshr i16 %41, 2
+  %43 = trunc nuw i16 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store i8 %43, ptr %45, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %47, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %46, label %6, !llvm.loop !21
 
-47:                                               ; preds = %6
-  %48 = getelementptr inbounds i8, ptr %3, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !8
-  %50 = zext i8 %49 to i16
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  %52 = load i8, ptr %51, align 1, !tbaa !8
-  %53 = zext i8 %52 to i16
-  %54 = add nuw nsw i16 %53, 1
-  %55 = add nuw nsw i16 %54, %50
-  %56 = lshr i16 %55, 1
-  %57 = trunc nuw i16 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  store i8 %57, ptr %58, align 2, !tbaa !8
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %60 = load i8, ptr %59, align 1, !tbaa !8
-  %61 = zext i8 %60 to i16
-  %62 = add nuw nsw i16 %54, %61
-  %63 = lshr i16 %62, 1
-  %64 = trunc nuw i16 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 %64, ptr %65, align 4, !tbaa !8
-  %66 = zext i8 %.pre48 to i16
-  %67 = shl nuw nsw i16 %50, 1
-  %68 = add nuw nsw i16 %67, 2
-  %69 = add nuw nsw i16 %68, %53
-  %70 = add nuw nsw i16 %69, %66
-  %71 = lshr i16 %70, 2
-  %72 = trunc nuw i16 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  store i8 %72, ptr %73, align 1, !tbaa !8
-  %74 = shl nuw nsw i16 %53, 1
-  %75 = add nuw nsw i16 %50, 2
-  %76 = add nuw nsw i16 %75, %74
-  %77 = add nuw nsw i16 %76, %61
-  %78 = lshr i16 %77, 2
-  %79 = trunc nuw i16 %78 to i8
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  store i8 %79, ptr %80, align 1, !tbaa !8
-  br label %81
+46:                                               ; preds = %6
+  %47 = getelementptr inbounds i8, ptr %3, i64 -1
+  %48 = load i8, ptr %47, align 1, !tbaa !8
+  %49 = zext i8 %48 to i16
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 7
+  %51 = load i8, ptr %50, align 1, !tbaa !8
+  %52 = zext i8 %51 to i16
+  %53 = add nuw nsw i16 %52, 1
+  %54 = add nuw nsw i16 %53, %49
+  %55 = lshr i16 %54, 1
+  %56 = trunc nuw i16 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  store i8 %56, ptr %57, align 2, !tbaa !8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %59 = load i8, ptr %58, align 1, !tbaa !8
+  %60 = zext i8 %59 to i16
+  %61 = add nuw nsw i16 %53, %60
+  %62 = lshr i16 %61, 1
+  %63 = trunc nuw i16 %62 to i8
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 %63, ptr %64, align 4, !tbaa !8
+  %65 = zext i8 %.pre48 to i16
+  %66 = shl nuw nsw i16 %49, 1
+  %67 = add nuw nsw i16 %66, 2
+  %68 = add nuw nsw i16 %67, %52
+  %69 = add nuw nsw i16 %68, %65
+  %70 = lshr i16 %69, 2
+  %71 = trunc nuw i16 %70 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  store i8 %71, ptr %72, align 1, !tbaa !8
+  %73 = shl nuw nsw i16 %52, 1
+  %74 = add nuw nsw i16 %49, 2
+  %75 = add nuw nsw i16 %74, %73
+  %76 = add nuw nsw i16 %75, %60
+  %77 = lshr i16 %76, 2
+  %78 = trunc nuw i16 %77 to i8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 13
+  store i8 %78, ptr %79, align 1, !tbaa !8
+  br label %80
 
-81:                                               ; preds = %47, %81
-  %indvars.iv44 = phi i64 [ 0, %47 ], [ %indvars.iv.next45, %81 ]
-  %82 = mul nsw i64 %1, %indvars.iv44
-  %83 = getelementptr inbounds i8, ptr %0, i64 %82
+80:                                               ; preds = %46, %80
+  %indvars.iv44 = phi i64 [ 0, %46 ], [ %indvars.iv.next45, %80 ]
+  %81 = mul nsw i64 %1, %indvars.iv44
+  %82 = getelementptr inbounds i8, ptr %0, i64 %81
   %.neg = mul nsw i64 %indvars.iv44, -2
-  %84 = getelementptr inbounds i8, ptr %58, i64 %.neg
-  %85 = load i64, ptr %84, align 2
-  store i64 %85, ptr %83, align 1
+  %83 = getelementptr inbounds i8, ptr %57, i64 %.neg
+  %84 = load i64, ptr %83, align 2
+  store i64 %84, ptr %82, align 1
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 8
-  br i1 %exitcond47.not, label %86, label %81, !llvm.loop !22
+  br i1 %exitcond47.not, label %85, label %80, !llvm.loop !22
 
-86:                                               ; preds = %81
+85:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -2066,7 +2064,7 @@ define internal void @vert_left_8x8_c(ptr noundef writeonly captures(none) %0, i
   %15 = add nuw nsw i16 %14, %13
   %16 = lshr i16 %15, 1
   %17 = trunc nuw i16 %16 to i8
-  %18 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %17, ptr %18, align 1, !tbaa !8
   %19 = shl nuw nsw i16 %13, 1
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 2
@@ -2077,7 +2075,7 @@ define internal void @vert_left_8x8_c(ptr noundef writeonly captures(none) %0, i
   %25 = add nuw nsw i16 %24, %22
   %26 = lshr i16 %25, 2
   %27 = trunc nuw i16 %26 to i8
-  %28 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %27, ptr %28, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %29, label %7, !llvm.loop !23
@@ -2159,7 +2157,7 @@ define internal void @hor_up_8x8_c(ptr noundef writeonly captures(none) %0, i64 
   %15 = lshr i16 %14, 1
   %16 = trunc nuw i16 %15 to i8
   %17 = shl nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [14 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   store i8 %16, ptr %18, align 1, !tbaa !8
   %19 = shl nuw nsw i16 %12, 1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -2170,65 +2168,64 @@ define internal void @hor_up_8x8_c(ptr noundef writeonly captures(none) %0, i64 
   %25 = add nuw nsw i16 %24, %22
   %26 = lshr i16 %25, 2
   %27 = trunc nuw i16 %26 to i8
-  %28 = or disjoint i64 %17, 1
-  %29 = getelementptr inbounds nuw [14 x i8], ptr %5, i64 0, i64 %28
-  store i8 %27, ptr %29, align 1, !tbaa !8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store i8 %27, ptr %28, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %30, label %6, !llvm.loop !25
+  br i1 %exitcond.not, label %29, label %6, !llvm.loop !25
 
-30:                                               ; preds = %6
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %32 = load i8, ptr %31, align 1, !tbaa !8
-  %33 = zext i8 %32 to i16
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  %35 = load i8, ptr %34, align 1, !tbaa !8
-  %36 = zext i8 %35 to i16
-  %37 = add nuw nsw i16 %33, 1
-  %38 = add nuw nsw i16 %37, %36
-  %39 = lshr i16 %38, 1
-  %40 = trunc nuw i16 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 %40, ptr %41, align 1, !tbaa !8
-  %42 = mul nuw nsw i16 %36, 3
-  %43 = add nuw nsw i16 %33, 2
-  %44 = add nuw nsw i16 %43, %42
-  %45 = lshr i16 %44, 2
-  %46 = trunc nuw i16 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  store i8 %46, ptr %47, align 1, !tbaa !8
-  br label %48
+29:                                               ; preds = %6
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %31 = load i8, ptr %30, align 1, !tbaa !8
+  %32 = zext i8 %31 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 7
+  %34 = load i8, ptr %33, align 1, !tbaa !8
+  %35 = zext i8 %34 to i16
+  %36 = add nuw nsw i16 %32, 1
+  %37 = add nuw nsw i16 %36, %35
+  %38 = lshr i16 %37, 1
+  %39 = trunc nuw i16 %38 to i8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 %39, ptr %40, align 1, !tbaa !8
+  %41 = mul nuw nsw i16 %35, 3
+  %42 = add nuw nsw i16 %32, 2
+  %43 = add nuw nsw i16 %42, %41
+  %44 = lshr i16 %43, 2
+  %45 = trunc nuw i16 %44 to i8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 13
+  store i8 %45, ptr %46, align 1, !tbaa !8
+  br label %47
 
-48:                                               ; preds = %30, %48
-  %indvars.iv44 = phi i64 [ 0, %30 ], [ %indvars.iv.next45, %48 ]
-  %49 = mul nsw i64 %1, %indvars.iv44
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  %51 = shl nuw nsw i64 %indvars.iv44, 1
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
-  %53 = load i64, ptr %52, align 1
-  store i64 %53, ptr %50, align 1
+47:                                               ; preds = %29, %47
+  %indvars.iv44 = phi i64 [ 0, %29 ], [ %indvars.iv.next45, %47 ]
+  %48 = mul nsw i64 %1, %indvars.iv44
+  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+  %50 = shl nuw nsw i64 %indvars.iv44, 1
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %50
+  %52 = load i64, ptr %51, align 1
+  store i64 %52, ptr %49, align 1
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 4
-  br i1 %exitcond47.not, label %.preheader, label %48, !llvm.loop !26
+  br i1 %exitcond47.not, label %.preheader, label %47, !llvm.loop !26
 
-.preheader:                                       ; preds = %48, %.preheader
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 4, %48 ]
-  %54 = mul nsw i64 %1, %indvars.iv48
-  %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = shl nuw nsw i64 %indvars.iv48, 1
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 %56
-  %58 = sub nuw nsw i64 14, %56
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %57, i64 %58, i1 false)
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 14
-  %60 = sub nsw i64 0, %56
-  %61 = getelementptr inbounds i8, ptr %59, i64 %60
-  %62 = load i8, ptr %34, align 1, !tbaa !8
-  %63 = add nsw i64 %56, -6
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %61, i8 %62, i64 %63, i1 false)
+.preheader:                                       ; preds = %47, %.preheader
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 4, %47 ]
+  %53 = mul nsw i64 %1, %indvars.iv48
+  %54 = getelementptr inbounds i8, ptr %0, i64 %53
+  %55 = shl nuw nsw i64 %indvars.iv48, 1
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %55
+  %57 = sub nuw nsw i64 14, %55
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 1 %56, i64 %57, i1 false)
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 14
+  %59 = sub nsw i64 0, %55
+  %60 = getelementptr inbounds i8, ptr %58, i64 %59
+  %61 = load i8, ptr %33, align 1, !tbaa !8
+  %62 = add nsw i64 %55, -6
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %60, i8 %61, i64 %62, i1 false)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 8
-  br i1 %exitcond51.not, label %64, label %.preheader, !llvm.loop !27
+  br i1 %exitcond51.not, label %63, label %.preheader, !llvm.loop !27
 
-64:                                               ; preds = %.preheader
+63:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -2730,7 +2727,7 @@ define internal void @diag_downleft_16x16_c(ptr noundef writeonly captures(none)
   %19 = add nuw nsw i16 %18, %16
   %20 = lshr i16 %19, 2
   %21 = trunc nuw i16 %20 to i8
-  %22 = getelementptr inbounds nuw [15 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %21, ptr %22, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
   br i1 %exitcond.not, label %23, label %6, !llvm.loop !37
@@ -2803,7 +2800,7 @@ define internal void @diag_downright_16x16_c(ptr noundef writeonly captures(none
   %20 = add nuw nsw i16 %19, %17
   %21 = lshr i16 %20, 2
   %22 = trunc nuw i16 %21 to i8
-  %23 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %22, ptr %23, align 1, !tbaa !8
   %24 = zext i8 %8 to i16
   %25 = zext i8 %7 to i16
@@ -2816,61 +2813,60 @@ define internal void @diag_downright_16x16_c(ptr noundef writeonly captures(none
   %32 = add nuw nsw i16 %31, %29
   %33 = lshr i16 %32, 2
   %34 = trunc nuw i16 %33 to i8
-  %35 = add nuw nsw i64 %indvars.iv, 17
-  %36 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %35
-  store i8 %34, ptr %36, align 1, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 17
+  store i8 %34, ptr %35, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %37, label %6, !llvm.loop !39
+  br i1 %exitcond.not, label %36, label %6, !llvm.loop !39
 
-37:                                               ; preds = %6
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %39 = load i8, ptr %38, align 1, !tbaa !8
-  %40 = zext i8 %39 to i16
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %42 = load i8, ptr %41, align 1, !tbaa !8
-  %43 = zext i8 %42 to i16
-  %44 = shl nuw nsw i16 %43, 1
-  %45 = getelementptr inbounds i8, ptr %3, i64 -1
-  %46 = load i8, ptr %45, align 1, !tbaa !8
-  %47 = zext i8 %46 to i16
-  %48 = add nuw nsw i16 %47, 2
-  %49 = add nuw nsw i16 %48, %40
-  %50 = add nuw nsw i16 %49, %44
-  %51 = lshr i16 %50, 2
-  %52 = trunc nuw i16 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  store i8 %52, ptr %53, align 2, !tbaa !8
-  %54 = shl nuw nsw i16 %47, 1
-  %55 = zext i8 %.pre43 to i16
-  %56 = add nuw nsw i16 %43, 2
+36:                                               ; preds = %6
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %38 = load i8, ptr %37, align 1, !tbaa !8
+  %39 = zext i8 %38 to i16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 15
+  %41 = load i8, ptr %40, align 1, !tbaa !8
+  %42 = zext i8 %41 to i16
+  %43 = shl nuw nsw i16 %42, 1
+  %44 = getelementptr inbounds i8, ptr %3, i64 -1
+  %45 = load i8, ptr %44, align 1, !tbaa !8
+  %46 = zext i8 %45 to i16
+  %47 = add nuw nsw i16 %46, 2
+  %48 = add nuw nsw i16 %47, %39
+  %49 = add nuw nsw i16 %48, %43
+  %50 = lshr i16 %49, 2
+  %51 = trunc nuw i16 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  store i8 %51, ptr %52, align 2, !tbaa !8
+  %53 = shl nuw nsw i16 %46, 1
+  %54 = zext i8 %.pre43 to i16
+  %55 = add nuw nsw i16 %42, 2
+  %56 = add nuw nsw i16 %55, %53
   %57 = add nuw nsw i16 %56, %54
-  %58 = add nuw nsw i16 %57, %55
-  %59 = lshr i16 %58, 2
-  %60 = trunc nuw i16 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  store i8 %60, ptr %61, align 1, !tbaa !8
-  %62 = shl nuw nsw i16 %55, 1
-  %63 = zext i8 %.pre45 to i16
-  %64 = add nuw nsw i16 %48, %62
-  %65 = add nuw nsw i16 %64, %63
-  %66 = lshr i16 %65, 2
-  %67 = trunc nuw i16 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %67, ptr %68, align 16, !tbaa !8
-  br label %69
+  %58 = lshr i16 %57, 2
+  %59 = trunc nuw i16 %58 to i8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  store i8 %59, ptr %60, align 1, !tbaa !8
+  %61 = shl nuw nsw i16 %54, 1
+  %62 = zext i8 %.pre45 to i16
+  %63 = add nuw nsw i16 %47, %61
+  %64 = add nuw nsw i16 %63, %62
+  %65 = lshr i16 %64, 2
+  %66 = trunc nuw i16 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 %66, ptr %67, align 16, !tbaa !8
+  br label %68
 
-69:                                               ; preds = %37, %69
-  %indvars.iv38 = phi i64 [ 0, %37 ], [ %indvars.iv.next39, %69 ]
-  %70 = mul nsw i64 %1, %indvars.iv38
-  %71 = getelementptr inbounds i8, ptr %0, i64 %70
-  %72 = sub nsw i64 0, %indvars.iv38
-  %73 = getelementptr inbounds i8, ptr %61, i64 %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %71, ptr noundef nonnull align 1 dereferenceable(16) %73, i64 16, i1 false)
+68:                                               ; preds = %36, %68
+  %indvars.iv38 = phi i64 [ 0, %36 ], [ %indvars.iv.next39, %68 ]
+  %69 = mul nsw i64 %1, %indvars.iv38
+  %70 = getelementptr inbounds i8, ptr %0, i64 %69
+  %71 = sub nsw i64 0, %indvars.iv38
+  %72 = getelementptr inbounds i8, ptr %60, i64 %71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %70, ptr noundef nonnull align 1 dereferenceable(16) %72, i64 16, i1 false)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 16
-  br i1 %exitcond41.not, label %74, label %69, !llvm.loop !40
+  br i1 %exitcond41.not, label %73, label %68, !llvm.loop !40
 
-74:                                               ; preds = %69
+73:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -2902,7 +2898,7 @@ define internal void @vert_right_16x16_c(ptr noundef writeonly captures(none) %0
   %22 = add nuw nsw i16 %21, %19
   %23 = lshr i16 %22, 2
   %24 = trunc nuw i16 %23 to i8
-  %25 = getelementptr inbounds nuw [23 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %27 = load i8, ptr %26, align 1, !tbaa !8
@@ -2913,7 +2909,7 @@ define internal void @vert_right_16x16_c(ptr noundef writeonly captures(none) %0
   %32 = add nuw nsw i16 %31, %28
   %33 = lshr i16 %32, 2
   %34 = trunc nuw i16 %33 to i8
-  %35 = getelementptr inbounds nuw [23 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %34, ptr %35, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -2979,7 +2975,7 @@ define internal void @vert_right_16x16_c(ptr noundef writeonly captures(none) %0
   %85 = lshr i16 %84, 1
   %86 = trunc nuw i16 %85 to i8
   %87 = add nuw nsw i64 %indvars.iv59, 8
-  %88 = getelementptr inbounds nuw [23 x i8], ptr %5, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
   store i8 %86, ptr %88, align 1, !tbaa !8
   %89 = getelementptr i8, ptr %78, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !8
@@ -2990,7 +2986,7 @@ define internal void @vert_right_16x16_c(ptr noundef writeonly captures(none) %0
   %95 = add nuw nsw i16 %94, %91
   %96 = lshr i16 %95, 2
   %97 = trunc nuw i16 %96 to i8
-  %98 = getelementptr inbounds nuw [23 x i8], ptr %6, i64 0, i64 %87
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 %87
   store i8 %97, ptr %98, align 1, !tbaa !8
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 15
   br i1 %exitcond62.not, label %.preheader, label %76, !llvm.loop !42
@@ -3027,7 +3023,7 @@ define internal void @hor_down_16x16_c(ptr noundef writeonly captures(none) %0, 
   br label %6
 
 6:                                                ; preds = %4, %6
-  %7 = phi i8 [ %.pre48, %4 ], [ %38, %6 ]
+  %7 = phi i8 [ %.pre48, %4 ], [ %37, %6 ]
   %8 = phi i8 [ %.pre, %4 ], [ %10, %6 ]
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3041,7 +3037,7 @@ define internal void @hor_down_16x16_c(ptr noundef writeonly captures(none) %0, 
   %16 = lshr i16 %15, 1
   %17 = trunc nuw i16 %16 to i8
   %18 = shl nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw [46 x i8], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   store i8 %17, ptr %19, align 2, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !8
@@ -3052,81 +3048,80 @@ define internal void @hor_down_16x16_c(ptr noundef writeonly captures(none) %0, 
   %26 = add nuw nsw i16 %25, %22
   %27 = lshr i16 %26, 2
   %28 = trunc nuw i16 %27 to i8
-  %29 = or disjoint i64 %18, 1
-  %30 = getelementptr inbounds nuw [46 x i8], ptr %5, i64 0, i64 %29
-  store i8 %28, ptr %30, align 1, !tbaa !8
-  %31 = getelementptr i8, ptr %3, i64 %indvars.iv
-  %32 = getelementptr i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !8
-  %34 = zext i8 %33 to i16
-  %35 = zext i8 %7 to i16
-  %36 = shl nuw nsw i16 %35, 1
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
-  %38 = load i8, ptr %37, align 1, !tbaa !8
-  %39 = zext i8 %38 to i16
-  %40 = add nuw nsw i16 %34, 2
-  %41 = add nuw nsw i16 %40, %36
-  %42 = add nuw nsw i16 %41, %39
-  %43 = lshr i16 %42, 2
-  %44 = trunc nuw i16 %43 to i8
-  %45 = or disjoint i64 %indvars.iv, 32
-  %46 = getelementptr inbounds nuw [46 x i8], ptr %5, i64 0, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !8
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i8 %28, ptr %29, align 1, !tbaa !8
+  %30 = getelementptr i8, ptr %3, i64 %indvars.iv
+  %31 = getelementptr i8, ptr %30, i64 -1
+  %32 = load i8, ptr %31, align 1, !tbaa !8
+  %33 = zext i8 %32 to i16
+  %34 = zext i8 %7 to i16
+  %35 = shl nuw nsw i16 %34, 1
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
+  %37 = load i8, ptr %36, align 1, !tbaa !8
+  %38 = zext i8 %37 to i16
+  %39 = add nuw nsw i16 %33, 2
+  %40 = add nuw nsw i16 %39, %35
+  %41 = add nuw nsw i16 %40, %38
+  %42 = lshr i16 %41, 2
+  %43 = trunc nuw i16 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store i8 %43, ptr %45, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %47, label %6, !llvm.loop !44
+  br i1 %exitcond.not, label %46, label %6, !llvm.loop !44
 
-47:                                               ; preds = %6
-  %48 = getelementptr inbounds i8, ptr %3, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !8
-  %50 = zext i8 %49 to i16
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %52 = load i8, ptr %51, align 1, !tbaa !8
-  %53 = zext i8 %52 to i16
-  %54 = add nuw nsw i16 %53, 1
-  %55 = add nuw nsw i16 %54, %50
-  %56 = lshr i16 %55, 1
-  %57 = trunc nuw i16 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 30
-  store i8 %57, ptr %58, align 2, !tbaa !8
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %60 = load i8, ptr %59, align 1, !tbaa !8
-  %61 = zext i8 %60 to i16
-  %62 = add nuw nsw i16 %54, %61
-  %63 = lshr i16 %62, 1
-  %64 = trunc nuw i16 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i8 %64, ptr %65, align 4, !tbaa !8
-  %66 = zext i8 %.pre48 to i16
-  %67 = shl nuw nsw i16 %50, 1
-  %68 = add nuw nsw i16 %67, 2
-  %69 = add nuw nsw i16 %68, %53
-  %70 = add nuw nsw i16 %69, %66
-  %71 = lshr i16 %70, 2
-  %72 = trunc nuw i16 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 31
-  store i8 %72, ptr %73, align 1, !tbaa !8
-  %74 = shl nuw nsw i16 %53, 1
-  %75 = add nuw nsw i16 %50, 2
-  %76 = add nuw nsw i16 %75, %74
-  %77 = add nuw nsw i16 %76, %61
-  %78 = lshr i16 %77, 2
-  %79 = trunc nuw i16 %78 to i8
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 29
-  store i8 %79, ptr %80, align 1, !tbaa !8
-  br label %81
+46:                                               ; preds = %6
+  %47 = getelementptr inbounds i8, ptr %3, i64 -1
+  %48 = load i8, ptr %47, align 1, !tbaa !8
+  %49 = zext i8 %48 to i16
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 15
+  %51 = load i8, ptr %50, align 1, !tbaa !8
+  %52 = zext i8 %51 to i16
+  %53 = add nuw nsw i16 %52, 1
+  %54 = add nuw nsw i16 %53, %49
+  %55 = lshr i16 %54, 1
+  %56 = trunc nuw i16 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 30
+  store i8 %56, ptr %57, align 2, !tbaa !8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %59 = load i8, ptr %58, align 1, !tbaa !8
+  %60 = zext i8 %59 to i16
+  %61 = add nuw nsw i16 %53, %60
+  %62 = lshr i16 %61, 1
+  %63 = trunc nuw i16 %62 to i8
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i8 %63, ptr %64, align 4, !tbaa !8
+  %65 = zext i8 %.pre48 to i16
+  %66 = shl nuw nsw i16 %49, 1
+  %67 = add nuw nsw i16 %66, 2
+  %68 = add nuw nsw i16 %67, %52
+  %69 = add nuw nsw i16 %68, %65
+  %70 = lshr i16 %69, 2
+  %71 = trunc nuw i16 %70 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 31
+  store i8 %71, ptr %72, align 1, !tbaa !8
+  %73 = shl nuw nsw i16 %52, 1
+  %74 = add nuw nsw i16 %49, 2
+  %75 = add nuw nsw i16 %74, %73
+  %76 = add nuw nsw i16 %75, %60
+  %77 = lshr i16 %76, 2
+  %78 = trunc nuw i16 %77 to i8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 29
+  store i8 %78, ptr %79, align 1, !tbaa !8
+  br label %80
 
-81:                                               ; preds = %47, %81
-  %indvars.iv44 = phi i64 [ 0, %47 ], [ %indvars.iv.next45, %81 ]
-  %82 = mul nsw i64 %1, %indvars.iv44
-  %83 = getelementptr inbounds i8, ptr %0, i64 %82
+80:                                               ; preds = %46, %80
+  %indvars.iv44 = phi i64 [ 0, %46 ], [ %indvars.iv.next45, %80 ]
+  %81 = mul nsw i64 %1, %indvars.iv44
+  %82 = getelementptr inbounds i8, ptr %0, i64 %81
   %.neg = mul nsw i64 %indvars.iv44, -2
-  %84 = getelementptr inbounds i8, ptr %58, i64 %.neg
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %83, ptr noundef nonnull align 2 dereferenceable(16) %84, i64 16, i1 false)
+  %83 = getelementptr inbounds i8, ptr %57, i64 %.neg
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %82, ptr noundef nonnull align 2 dereferenceable(16) %83, i64 16, i1 false)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 16
-  br i1 %exitcond47.not, label %85, label %81, !llvm.loop !45
+  br i1 %exitcond47.not, label %84, label %80, !llvm.loop !45
 
-85:                                               ; preds = %81
+84:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -3153,7 +3148,7 @@ define internal void @vert_left_16x16_c(ptr noundef writeonly captures(none) %0,
   %15 = add nuw nsw i16 %14, %13
   %16 = lshr i16 %15, 1
   %17 = trunc nuw i16 %16 to i8
-  %18 = getelementptr inbounds nuw [15 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %17, ptr %18, align 1, !tbaa !8
   %19 = shl nuw nsw i16 %13, 1
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 2
@@ -3164,7 +3159,7 @@ define internal void @vert_left_16x16_c(ptr noundef writeonly captures(none) %0,
   %25 = add nuw nsw i16 %24, %22
   %26 = lshr i16 %25, 2
   %27 = trunc nuw i16 %26 to i8
-  %28 = getelementptr inbounds nuw [15 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %27, ptr %28, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
   br i1 %exitcond.not, label %29, label %7, !llvm.loop !46
@@ -3246,7 +3241,7 @@ define internal void @hor_up_16x16_c(ptr noundef writeonly captures(none) %0, i6
   %15 = lshr i16 %14, 1
   %16 = trunc nuw i16 %15 to i8
   %17 = shl nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [30 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   store i8 %16, ptr %18, align 2, !tbaa !8
   %19 = shl nuw nsw i16 %12, 1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -3257,64 +3252,63 @@ define internal void @hor_up_16x16_c(ptr noundef writeonly captures(none) %0, i6
   %25 = add nuw nsw i16 %24, %22
   %26 = lshr i16 %25, 2
   %27 = trunc nuw i16 %26 to i8
-  %28 = or disjoint i64 %17, 1
-  %29 = getelementptr inbounds nuw [30 x i8], ptr %5, i64 0, i64 %28
-  store i8 %27, ptr %29, align 1, !tbaa !8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store i8 %27, ptr %28, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %30, label %6, !llvm.loop !48
+  br i1 %exitcond.not, label %29, label %6, !llvm.loop !48
 
-30:                                               ; preds = %6
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %32 = load i8, ptr %31, align 1, !tbaa !8
-  %33 = zext i8 %32 to i16
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 15
-  %35 = load i8, ptr %34, align 1, !tbaa !8
-  %36 = zext i8 %35 to i16
-  %37 = add nuw nsw i16 %33, 1
-  %38 = add nuw nsw i16 %37, %36
-  %39 = lshr i16 %38, 1
-  %40 = trunc nuw i16 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i8 %40, ptr %41, align 4, !tbaa !8
-  %42 = mul nuw nsw i16 %36, 3
-  %43 = add nuw nsw i16 %33, 2
-  %44 = add nuw nsw i16 %43, %42
-  %45 = lshr i16 %44, 2
-  %46 = trunc nuw i16 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 29
-  store i8 %46, ptr %47, align 1, !tbaa !8
-  br label %48
+29:                                               ; preds = %6
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %31 = load i8, ptr %30, align 1, !tbaa !8
+  %32 = zext i8 %31 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 15
+  %34 = load i8, ptr %33, align 1, !tbaa !8
+  %35 = zext i8 %34 to i16
+  %36 = add nuw nsw i16 %32, 1
+  %37 = add nuw nsw i16 %36, %35
+  %38 = lshr i16 %37, 1
+  %39 = trunc nuw i16 %38 to i8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i8 %39, ptr %40, align 4, !tbaa !8
+  %41 = mul nuw nsw i16 %35, 3
+  %42 = add nuw nsw i16 %32, 2
+  %43 = add nuw nsw i16 %42, %41
+  %44 = lshr i16 %43, 2
+  %45 = trunc nuw i16 %44 to i8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 29
+  store i8 %45, ptr %46, align 1, !tbaa !8
+  br label %47
 
-48:                                               ; preds = %30, %48
-  %indvars.iv44 = phi i64 [ 0, %30 ], [ %indvars.iv.next45, %48 ]
-  %49 = mul nsw i64 %1, %indvars.iv44
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  %51 = shl nuw nsw i64 %indvars.iv44, 1
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %50, ptr noundef nonnull align 2 dereferenceable(16) %52, i64 16, i1 false)
+47:                                               ; preds = %29, %47
+  %indvars.iv44 = phi i64 [ 0, %29 ], [ %indvars.iv.next45, %47 ]
+  %48 = mul nsw i64 %1, %indvars.iv44
+  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+  %50 = shl nuw nsw i64 %indvars.iv44, 1
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 2 dereferenceable(16) %51, i64 16, i1 false)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 8
-  br i1 %exitcond47.not, label %.preheader, label %48, !llvm.loop !49
+  br i1 %exitcond47.not, label %.preheader, label %47, !llvm.loop !49
 
-.preheader:                                       ; preds = %48, %.preheader
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 8, %48 ]
-  %53 = mul nsw i64 %1, %indvars.iv48
-  %54 = getelementptr inbounds i8, ptr %0, i64 %53
-  %55 = shl nuw nsw i64 %indvars.iv48, 1
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %55
-  %57 = sub nuw nsw i64 30, %55
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 2 %56, i64 %57, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 30
-  %59 = sub nsw i64 0, %55
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  %61 = load i8, ptr %34, align 1, !tbaa !8
-  %62 = add nsw i64 %55, -14
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %60, i8 %61, i64 %62, i1 false)
+.preheader:                                       ; preds = %47, %.preheader
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 8, %47 ]
+  %52 = mul nsw i64 %1, %indvars.iv48
+  %53 = getelementptr inbounds i8, ptr %0, i64 %52
+  %54 = shl nuw nsw i64 %indvars.iv48, 1
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 %54
+  %56 = sub nuw nsw i64 30, %54
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 2 %55, i64 %56, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 30
+  %58 = sub nsw i64 0, %54
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  %60 = load i8, ptr %33, align 1, !tbaa !8
+  %61 = add nsw i64 %54, -14
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %59, i8 %60, i64 %61, i1 false)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 16
-  br i1 %exitcond51.not, label %63, label %.preheader, !llvm.loop !50
+  br i1 %exitcond51.not, label %62, label %.preheader, !llvm.loop !50
 
-63:                                               ; preds = %.preheader
+62:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -4122,7 +4116,7 @@ define internal void @diag_downleft_32x32_c(ptr noundef writeonly captures(none)
   %19 = add nuw nsw i16 %18, %16
   %20 = lshr i16 %19, 2
   %21 = trunc nuw i16 %20 to i8
-  %22 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %21, ptr %22, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond.not, label %23, label %6, !llvm.loop !60
@@ -4195,7 +4189,7 @@ define internal void @diag_downright_32x32_c(ptr noundef writeonly captures(none
   %20 = add nuw nsw i16 %19, %17
   %21 = lshr i16 %20, 2
   %22 = trunc nuw i16 %21 to i8
-  %23 = getelementptr inbounds nuw [63 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %22, ptr %23, align 1, !tbaa !8
   %24 = zext i8 %8 to i16
   %25 = zext i8 %7 to i16
@@ -4208,61 +4202,60 @@ define internal void @diag_downright_32x32_c(ptr noundef writeonly captures(none
   %32 = add nuw nsw i16 %31, %29
   %33 = lshr i16 %32, 2
   %34 = trunc nuw i16 %33 to i8
-  %35 = add nuw nsw i64 %indvars.iv, 33
-  %36 = getelementptr inbounds nuw [63 x i8], ptr %5, i64 0, i64 %35
-  store i8 %34, ptr %36, align 1, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 33
+  store i8 %34, ptr %35, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %37, label %6, !llvm.loop !62
+  br i1 %exitcond.not, label %36, label %6, !llvm.loop !62
 
-37:                                               ; preds = %6
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %39 = load i8, ptr %38, align 1, !tbaa !8
-  %40 = zext i8 %39 to i16
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 31
-  %42 = load i8, ptr %41, align 1, !tbaa !8
-  %43 = zext i8 %42 to i16
-  %44 = shl nuw nsw i16 %43, 1
-  %45 = getelementptr inbounds i8, ptr %3, i64 -1
-  %46 = load i8, ptr %45, align 1, !tbaa !8
-  %47 = zext i8 %46 to i16
-  %48 = add nuw nsw i16 %47, 2
-  %49 = add nuw nsw i16 %48, %40
-  %50 = add nuw nsw i16 %49, %44
-  %51 = lshr i16 %50, 2
-  %52 = trunc nuw i16 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 30
-  store i8 %52, ptr %53, align 2, !tbaa !8
-  %54 = shl nuw nsw i16 %47, 1
-  %55 = zext i8 %.pre43 to i16
-  %56 = add nuw nsw i16 %43, 2
+36:                                               ; preds = %6
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %38 = load i8, ptr %37, align 1, !tbaa !8
+  %39 = zext i8 %38 to i16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 31
+  %41 = load i8, ptr %40, align 1, !tbaa !8
+  %42 = zext i8 %41 to i16
+  %43 = shl nuw nsw i16 %42, 1
+  %44 = getelementptr inbounds i8, ptr %3, i64 -1
+  %45 = load i8, ptr %44, align 1, !tbaa !8
+  %46 = zext i8 %45 to i16
+  %47 = add nuw nsw i16 %46, 2
+  %48 = add nuw nsw i16 %47, %39
+  %49 = add nuw nsw i16 %48, %43
+  %50 = lshr i16 %49, 2
+  %51 = trunc nuw i16 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 30
+  store i8 %51, ptr %52, align 2, !tbaa !8
+  %53 = shl nuw nsw i16 %46, 1
+  %54 = zext i8 %.pre43 to i16
+  %55 = add nuw nsw i16 %42, 2
+  %56 = add nuw nsw i16 %55, %53
   %57 = add nuw nsw i16 %56, %54
-  %58 = add nuw nsw i16 %57, %55
-  %59 = lshr i16 %58, 2
-  %60 = trunc nuw i16 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 31
-  store i8 %60, ptr %61, align 1, !tbaa !8
-  %62 = shl nuw nsw i16 %55, 1
-  %63 = zext i8 %.pre45 to i16
-  %64 = add nuw nsw i16 %48, %62
-  %65 = add nuw nsw i16 %64, %63
-  %66 = lshr i16 %65, 2
-  %67 = trunc nuw i16 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 %67, ptr %68, align 16, !tbaa !8
-  br label %69
+  %58 = lshr i16 %57, 2
+  %59 = trunc nuw i16 %58 to i8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 31
+  store i8 %59, ptr %60, align 1, !tbaa !8
+  %61 = shl nuw nsw i16 %54, 1
+  %62 = zext i8 %.pre45 to i16
+  %63 = add nuw nsw i16 %47, %61
+  %64 = add nuw nsw i16 %63, %62
+  %65 = lshr i16 %64, 2
+  %66 = trunc nuw i16 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 %66, ptr %67, align 16, !tbaa !8
+  br label %68
 
-69:                                               ; preds = %37, %69
-  %indvars.iv38 = phi i64 [ 0, %37 ], [ %indvars.iv.next39, %69 ]
-  %70 = mul nsw i64 %1, %indvars.iv38
-  %71 = getelementptr inbounds i8, ptr %0, i64 %70
-  %72 = sub nsw i64 0, %indvars.iv38
-  %73 = getelementptr inbounds i8, ptr %61, i64 %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %71, ptr noundef nonnull align 1 dereferenceable(32) %73, i64 32, i1 false)
+68:                                               ; preds = %36, %68
+  %indvars.iv38 = phi i64 [ 0, %36 ], [ %indvars.iv.next39, %68 ]
+  %69 = mul nsw i64 %1, %indvars.iv38
+  %70 = getelementptr inbounds i8, ptr %0, i64 %69
+  %71 = sub nsw i64 0, %indvars.iv38
+  %72 = getelementptr inbounds i8, ptr %60, i64 %71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %70, ptr noundef nonnull align 1 dereferenceable(32) %72, i64 32, i1 false)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 32
-  br i1 %exitcond41.not, label %74, label %69, !llvm.loop !63
+  br i1 %exitcond41.not, label %73, label %68, !llvm.loop !63
 
-74:                                               ; preds = %69
+73:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -4294,7 +4287,7 @@ define internal void @vert_right_32x32_c(ptr noundef writeonly captures(none) %0
   %22 = add nuw nsw i16 %21, %19
   %23 = lshr i16 %22, 2
   %24 = trunc nuw i16 %23 to i8
-  %25 = getelementptr inbounds nuw [47 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %27 = load i8, ptr %26, align 1, !tbaa !8
@@ -4305,7 +4298,7 @@ define internal void @vert_right_32x32_c(ptr noundef writeonly captures(none) %0
   %32 = add nuw nsw i16 %31, %28
   %33 = lshr i16 %32, 2
   %34 = trunc nuw i16 %33 to i8
-  %35 = getelementptr inbounds nuw [47 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %34, ptr %35, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
@@ -4371,7 +4364,7 @@ define internal void @vert_right_32x32_c(ptr noundef writeonly captures(none) %0
   %85 = lshr i16 %84, 1
   %86 = trunc nuw i16 %85 to i8
   %87 = add nuw nsw i64 %indvars.iv59, 16
-  %88 = getelementptr inbounds nuw [47 x i8], ptr %5, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
   store i8 %86, ptr %88, align 1, !tbaa !8
   %89 = getelementptr i8, ptr %78, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !8
@@ -4382,7 +4375,7 @@ define internal void @vert_right_32x32_c(ptr noundef writeonly captures(none) %0
   %95 = add nuw nsw i16 %94, %91
   %96 = lshr i16 %95, 2
   %97 = trunc nuw i16 %96 to i8
-  %98 = getelementptr inbounds nuw [47 x i8], ptr %6, i64 0, i64 %87
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 %87
   store i8 %97, ptr %98, align 1, !tbaa !8
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 31
   br i1 %exitcond62.not, label %.preheader, label %76, !llvm.loop !65
@@ -4419,7 +4412,7 @@ define internal void @hor_down_32x32_c(ptr noundef writeonly captures(none) %0, 
   br label %6
 
 6:                                                ; preds = %4, %6
-  %7 = phi i8 [ %.pre48, %4 ], [ %38, %6 ]
+  %7 = phi i8 [ %.pre48, %4 ], [ %37, %6 ]
   %8 = phi i8 [ %.pre, %4 ], [ %10, %6 ]
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4433,7 +4426,7 @@ define internal void @hor_down_32x32_c(ptr noundef writeonly captures(none) %0, 
   %16 = lshr i16 %15, 1
   %17 = trunc nuw i16 %16 to i8
   %18 = shl nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw [94 x i8], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   store i8 %17, ptr %19, align 2, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !8
@@ -4444,81 +4437,80 @@ define internal void @hor_down_32x32_c(ptr noundef writeonly captures(none) %0, 
   %26 = add nuw nsw i16 %25, %22
   %27 = lshr i16 %26, 2
   %28 = trunc nuw i16 %27 to i8
-  %29 = or disjoint i64 %18, 1
-  %30 = getelementptr inbounds nuw [94 x i8], ptr %5, i64 0, i64 %29
-  store i8 %28, ptr %30, align 1, !tbaa !8
-  %31 = getelementptr i8, ptr %3, i64 %indvars.iv
-  %32 = getelementptr i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !8
-  %34 = zext i8 %33 to i16
-  %35 = zext i8 %7 to i16
-  %36 = shl nuw nsw i16 %35, 1
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
-  %38 = load i8, ptr %37, align 1, !tbaa !8
-  %39 = zext i8 %38 to i16
-  %40 = add nuw nsw i16 %34, 2
-  %41 = add nuw nsw i16 %40, %36
-  %42 = add nuw nsw i16 %41, %39
-  %43 = lshr i16 %42, 2
-  %44 = trunc nuw i16 %43 to i8
-  %45 = or disjoint i64 %indvars.iv, 64
-  %46 = getelementptr inbounds nuw [94 x i8], ptr %5, i64 0, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !8
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i8 %28, ptr %29, align 1, !tbaa !8
+  %30 = getelementptr i8, ptr %3, i64 %indvars.iv
+  %31 = getelementptr i8, ptr %30, i64 -1
+  %32 = load i8, ptr %31, align 1, !tbaa !8
+  %33 = zext i8 %32 to i16
+  %34 = zext i8 %7 to i16
+  %35 = shl nuw nsw i16 %34, 1
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
+  %37 = load i8, ptr %36, align 1, !tbaa !8
+  %38 = zext i8 %37 to i16
+  %39 = add nuw nsw i16 %33, 2
+  %40 = add nuw nsw i16 %39, %35
+  %41 = add nuw nsw i16 %40, %38
+  %42 = lshr i16 %41, 2
+  %43 = trunc nuw i16 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
+  store i8 %43, ptr %45, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %47, label %6, !llvm.loop !67
+  br i1 %exitcond.not, label %46, label %6, !llvm.loop !67
 
-47:                                               ; preds = %6
-  %48 = getelementptr inbounds i8, ptr %3, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !8
-  %50 = zext i8 %49 to i16
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 31
-  %52 = load i8, ptr %51, align 1, !tbaa !8
-  %53 = zext i8 %52 to i16
-  %54 = add nuw nsw i16 %53, 1
-  %55 = add nuw nsw i16 %54, %50
-  %56 = lshr i16 %55, 1
-  %57 = trunc nuw i16 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 62
-  store i8 %57, ptr %58, align 2, !tbaa !8
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %60 = load i8, ptr %59, align 1, !tbaa !8
-  %61 = zext i8 %60 to i16
-  %62 = add nuw nsw i16 %54, %61
-  %63 = lshr i16 %62, 1
-  %64 = trunc nuw i16 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store i8 %64, ptr %65, align 4, !tbaa !8
-  %66 = zext i8 %.pre48 to i16
-  %67 = shl nuw nsw i16 %50, 1
-  %68 = add nuw nsw i16 %67, 2
-  %69 = add nuw nsw i16 %68, %53
-  %70 = add nuw nsw i16 %69, %66
-  %71 = lshr i16 %70, 2
-  %72 = trunc nuw i16 %71 to i8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 63
-  store i8 %72, ptr %73, align 1, !tbaa !8
-  %74 = shl nuw nsw i16 %53, 1
-  %75 = add nuw nsw i16 %50, 2
-  %76 = add nuw nsw i16 %75, %74
-  %77 = add nuw nsw i16 %76, %61
-  %78 = lshr i16 %77, 2
-  %79 = trunc nuw i16 %78 to i8
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 61
-  store i8 %79, ptr %80, align 1, !tbaa !8
-  br label %81
+46:                                               ; preds = %6
+  %47 = getelementptr inbounds i8, ptr %3, i64 -1
+  %48 = load i8, ptr %47, align 1, !tbaa !8
+  %49 = zext i8 %48 to i16
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 31
+  %51 = load i8, ptr %50, align 1, !tbaa !8
+  %52 = zext i8 %51 to i16
+  %53 = add nuw nsw i16 %52, 1
+  %54 = add nuw nsw i16 %53, %49
+  %55 = lshr i16 %54, 1
+  %56 = trunc nuw i16 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 62
+  store i8 %56, ptr %57, align 2, !tbaa !8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %59 = load i8, ptr %58, align 1, !tbaa !8
+  %60 = zext i8 %59 to i16
+  %61 = add nuw nsw i16 %53, %60
+  %62 = lshr i16 %61, 1
+  %63 = trunc nuw i16 %62 to i8
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i8 %63, ptr %64, align 4, !tbaa !8
+  %65 = zext i8 %.pre48 to i16
+  %66 = shl nuw nsw i16 %49, 1
+  %67 = add nuw nsw i16 %66, 2
+  %68 = add nuw nsw i16 %67, %52
+  %69 = add nuw nsw i16 %68, %65
+  %70 = lshr i16 %69, 2
+  %71 = trunc nuw i16 %70 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 63
+  store i8 %71, ptr %72, align 1, !tbaa !8
+  %73 = shl nuw nsw i16 %52, 1
+  %74 = add nuw nsw i16 %49, 2
+  %75 = add nuw nsw i16 %74, %73
+  %76 = add nuw nsw i16 %75, %60
+  %77 = lshr i16 %76, 2
+  %78 = trunc nuw i16 %77 to i8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 61
+  store i8 %78, ptr %79, align 1, !tbaa !8
+  br label %80
 
-81:                                               ; preds = %47, %81
-  %indvars.iv44 = phi i64 [ 0, %47 ], [ %indvars.iv.next45, %81 ]
-  %82 = mul nsw i64 %1, %indvars.iv44
-  %83 = getelementptr inbounds i8, ptr %0, i64 %82
+80:                                               ; preds = %46, %80
+  %indvars.iv44 = phi i64 [ 0, %46 ], [ %indvars.iv.next45, %80 ]
+  %81 = mul nsw i64 %1, %indvars.iv44
+  %82 = getelementptr inbounds i8, ptr %0, i64 %81
   %.neg = mul nsw i64 %indvars.iv44, -2
-  %84 = getelementptr inbounds i8, ptr %58, i64 %.neg
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %83, ptr noundef nonnull align 2 dereferenceable(32) %84, i64 32, i1 false)
+  %83 = getelementptr inbounds i8, ptr %57, i64 %.neg
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %82, ptr noundef nonnull align 2 dereferenceable(32) %83, i64 32, i1 false)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 32
-  br i1 %exitcond47.not, label %85, label %81, !llvm.loop !68
+  br i1 %exitcond47.not, label %84, label %80, !llvm.loop !68
 
-85:                                               ; preds = %81
+84:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -4545,7 +4537,7 @@ define internal void @vert_left_32x32_c(ptr noundef writeonly captures(none) %0,
   %15 = add nuw nsw i16 %14, %13
   %16 = lshr i16 %15, 1
   %17 = trunc nuw i16 %16 to i8
-  %18 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %17, ptr %18, align 1, !tbaa !8
   %19 = shl nuw nsw i16 %13, 1
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 2
@@ -4556,7 +4548,7 @@ define internal void @vert_left_32x32_c(ptr noundef writeonly captures(none) %0,
   %25 = add nuw nsw i16 %24, %22
   %26 = lshr i16 %25, 2
   %27 = trunc nuw i16 %26 to i8
-  %28 = getelementptr inbounds nuw [31 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %27, ptr %28, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond.not, label %29, label %7, !llvm.loop !69
@@ -4638,7 +4630,7 @@ define internal void @hor_up_32x32_c(ptr noundef writeonly captures(none) %0, i6
   %15 = lshr i16 %14, 1
   %16 = trunc nuw i16 %15 to i8
   %17 = shl nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [62 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   store i8 %16, ptr %18, align 2, !tbaa !8
   %19 = shl nuw nsw i16 %12, 1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -4649,64 +4641,63 @@ define internal void @hor_up_32x32_c(ptr noundef writeonly captures(none) %0, i6
   %25 = add nuw nsw i16 %24, %22
   %26 = lshr i16 %25, 2
   %27 = trunc nuw i16 %26 to i8
-  %28 = or disjoint i64 %17, 1
-  %29 = getelementptr inbounds nuw [62 x i8], ptr %5, i64 0, i64 %28
-  store i8 %27, ptr %29, align 1, !tbaa !8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store i8 %27, ptr %28, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %30, label %6, !llvm.loop !71
+  br i1 %exitcond.not, label %29, label %6, !llvm.loop !71
 
-30:                                               ; preds = %6
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %32 = load i8, ptr %31, align 1, !tbaa !8
-  %33 = zext i8 %32 to i16
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 31
-  %35 = load i8, ptr %34, align 1, !tbaa !8
-  %36 = zext i8 %35 to i16
-  %37 = add nuw nsw i16 %33, 1
-  %38 = add nuw nsw i16 %37, %36
-  %39 = lshr i16 %38, 1
-  %40 = trunc nuw i16 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store i8 %40, ptr %41, align 4, !tbaa !8
-  %42 = mul nuw nsw i16 %36, 3
-  %43 = add nuw nsw i16 %33, 2
-  %44 = add nuw nsw i16 %43, %42
-  %45 = lshr i16 %44, 2
-  %46 = trunc nuw i16 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 61
-  store i8 %46, ptr %47, align 1, !tbaa !8
-  br label %48
+29:                                               ; preds = %6
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %31 = load i8, ptr %30, align 1, !tbaa !8
+  %32 = zext i8 %31 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 31
+  %34 = load i8, ptr %33, align 1, !tbaa !8
+  %35 = zext i8 %34 to i16
+  %36 = add nuw nsw i16 %32, 1
+  %37 = add nuw nsw i16 %36, %35
+  %38 = lshr i16 %37, 1
+  %39 = trunc nuw i16 %38 to i8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i8 %39, ptr %40, align 4, !tbaa !8
+  %41 = mul nuw nsw i16 %35, 3
+  %42 = add nuw nsw i16 %32, 2
+  %43 = add nuw nsw i16 %42, %41
+  %44 = lshr i16 %43, 2
+  %45 = trunc nuw i16 %44 to i8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 61
+  store i8 %45, ptr %46, align 1, !tbaa !8
+  br label %47
 
-48:                                               ; preds = %30, %48
-  %indvars.iv44 = phi i64 [ 0, %30 ], [ %indvars.iv.next45, %48 ]
-  %49 = mul nsw i64 %1, %indvars.iv44
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  %51 = shl nuw nsw i64 %indvars.iv44, 1
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %50, ptr noundef nonnull align 2 dereferenceable(32) %52, i64 32, i1 false)
+47:                                               ; preds = %29, %47
+  %indvars.iv44 = phi i64 [ 0, %29 ], [ %indvars.iv.next45, %47 ]
+  %48 = mul nsw i64 %1, %indvars.iv44
+  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+  %50 = shl nuw nsw i64 %indvars.iv44, 1
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %49, ptr noundef nonnull align 2 dereferenceable(32) %51, i64 32, i1 false)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 16
-  br i1 %exitcond47.not, label %.preheader, label %48, !llvm.loop !72
+  br i1 %exitcond47.not, label %.preheader, label %47, !llvm.loop !72
 
-.preheader:                                       ; preds = %48, %.preheader
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 16, %48 ]
-  %53 = mul nsw i64 %1, %indvars.iv48
-  %54 = getelementptr inbounds i8, ptr %0, i64 %53
-  %55 = shl nuw nsw i64 %indvars.iv48, 1
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %55
-  %57 = sub nuw nsw i64 62, %55
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 2 %56, i64 %57, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 62
-  %59 = sub nsw i64 0, %55
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  %61 = load i8, ptr %34, align 1, !tbaa !8
-  %62 = add nsw i64 %55, -30
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %60, i8 %61, i64 %62, i1 false)
+.preheader:                                       ; preds = %47, %.preheader
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 16, %47 ]
+  %52 = mul nsw i64 %1, %indvars.iv48
+  %53 = getelementptr inbounds i8, ptr %0, i64 %52
+  %54 = shl nuw nsw i64 %indvars.iv48, 1
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 %54
+  %56 = sub nuw nsw i64 62, %54
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 2 %55, i64 %56, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 62
+  %58 = sub nsw i64 0, %54
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  %60 = load i8, ptr %33, align 1, !tbaa !8
+  %61 = add nsw i64 %54, -30
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %59, i8 %60, i64 %61, i1 false)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 32
-  br i1 %exitcond51.not, label %63, label %.preheader, !llvm.loop !73
+  br i1 %exitcond51.not, label %62, label %.preheader, !llvm.loop !73
 
-63:                                               ; preds = %.preheader
+62:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -5626,7 +5617,7 @@ define internal void @idct_idct_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %115 = getelementptr inbounds i8, ptr %.13748, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !8
   %117 = zext i8 %116 to i32
-  %118 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv55
+  %118 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv55
   %119 = load i16, ptr %118, align 2, !tbaa !80
   %120 = sext i16 %119 to i32
   %121 = add nsw i32 %120, 8
@@ -5778,7 +5769,7 @@ define internal void @iadst_idct_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %95 = getelementptr inbounds i8, ptr %.028, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !8
   %97 = zext i8 %96 to i32
-  %98 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv30
+  %98 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv30
   %99 = load i16, ptr %98, align 2, !tbaa !80
   %100 = sext i16 %99 to i32
   %101 = add nsw i32 %100, 8
@@ -5930,7 +5921,7 @@ define internal void @idct_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 no
   %95 = getelementptr inbounds i8, ptr %.028, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !8
   %97 = zext i8 %96 to i32
-  %98 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv30
+  %98 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv30
   %99 = load i16, ptr %98, align 2, !tbaa !80
   %100 = sext i16 %99 to i32
   %101 = add nsw i32 %100, 8
@@ -6085,7 +6076,7 @@ define internal void @iadst_iadst_4x4_add_c(ptr noundef captures(none) %0, i64 n
   %97 = getelementptr inbounds i8, ptr %.031, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !8
   %99 = zext i8 %98 to i32
-  %100 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv33
+  %100 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv33
   %101 = load i16, ptr %100, align 2, !tbaa !80
   %102 = sext i16 %101 to i32
   %103 = add nsw i32 %102, 8
@@ -6405,7 +6396,7 @@ define internal void @idct_idct_8x8_add_c(ptr noundef captures(none) %0, i64 nou
   %231 = getelementptr inbounds i8, ptr %.13750, i64 %230
   %232 = load i8, ptr %231, align 1, !tbaa !8
   %233 = zext i8 %232 to i32
-  %234 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv57
+  %234 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv57
   %235 = load i16, ptr %234, align 2, !tbaa !80
   %236 = sext i16 %235 to i32
   %237 = add nsw i32 %236, 16
@@ -6710,7 +6701,7 @@ define internal void @iadst_idct_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %234 = getelementptr inbounds i8, ptr %.030, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !8
   %236 = zext i8 %235 to i32
-  %237 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv32
+  %237 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv32
   %238 = load i16, ptr %237, align 2, !tbaa !80
   %239 = sext i16 %238 to i32
   %240 = add nsw i32 %239, 16
@@ -7015,7 +7006,7 @@ define internal void @idct_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 no
   %234 = getelementptr inbounds i8, ptr %.030, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !8
   %236 = zext i8 %235 to i32
-  %237 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv32
+  %237 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv32
   %238 = load i16, ptr %237, align 2, !tbaa !80
   %239 = sext i16 %238 to i32
   %240 = add nsw i32 %239, 16
@@ -7348,7 +7339,7 @@ define internal void @iadst_iadst_8x8_add_c(ptr noundef captures(none) %0, i64 n
   %259 = getelementptr inbounds i8, ptr %.039, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !8
   %261 = zext i8 %260 to i32
-  %262 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv41
+  %262 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv41
   %263 = load i16, ptr %262, align 2, !tbaa !80
   %264 = sext i16 %263 to i32
   %265 = add nsw i32 %264, 16
@@ -7980,7 +7971,7 @@ define internal void @idct_idct_16x16_add_c(ptr noundef captures(none) %0, i64 n
   %509 = getelementptr inbounds i8, ptr %.13759, i64 %508
   %510 = load i8, ptr %509, align 1, !tbaa !8
   %511 = zext i8 %510 to i32
-  %512 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv66
+  %512 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv66
   %513 = load i16, ptr %512, align 2, !tbaa !80
   %514 = sext i16 %513 to i32
   %515 = add nsw i32 %514, 32
@@ -8627,7 +8618,7 @@ define internal void @iadst_idct_16x16_add_c(ptr noundef captures(none) %0, i64 
   %541 = getelementptr inbounds i8, ptr %.027, i64 %540
   %542 = load i8, ptr %541, align 1, !tbaa !8
   %543 = zext i8 %542 to i32
-  %544 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv29
+  %544 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv29
   %545 = load i16, ptr %544, align 2, !tbaa !80
   %546 = sext i16 %545 to i32
   %547 = add nsw i32 %546, 32
@@ -9274,7 +9265,7 @@ define internal void @idct_iadst_16x16_add_c(ptr noundef captures(none) %0, i64 
   %541 = getelementptr inbounds i8, ptr %.027, i64 %540
   %542 = load i8, ptr %541, align 1, !tbaa !8
   %543 = zext i8 %542 to i32
-  %544 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv29
+  %544 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv29
   %545 = load i16, ptr %544, align 2, !tbaa !80
   %546 = sext i16 %545 to i32
   %547 = add nsw i32 %546, 32
@@ -9979,7 +9970,7 @@ define internal void @iadst_iadst_16x16_add_c(ptr noundef captures(none) %0, i64
   %595 = getelementptr inbounds i8, ptr %.042, i64 %594
   %596 = load i8, ptr %595, align 1, !tbaa !8
   %597 = zext i8 %596 to i32
-  %598 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv44
+  %598 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv44
   %599 = load i16, ptr %598, align 2, !tbaa !80
   %600 = sext i16 %599 to i32
   %601 = add nsw i32 %600, 32
@@ -11347,7 +11338,7 @@ define internal void @idct_idct_32x32_add_c(ptr noundef captures(none) %0, i64 n
   %1157 = getelementptr inbounds i8, ptr %.13787, i64 %1156
   %1158 = load i8, ptr %1157, align 1, !tbaa !8
   %1159 = zext i8 %1158 to i32
-  %1160 = getelementptr inbounds nuw [32 x i16], ptr %6, i64 0, i64 %indvars.iv94
+  %1160 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv94
   %1161 = load i16, ptr %1160, align 2, !tbaa !80
   %1162 = sext i16 %1161 to i32
   %1163 = add nsw i32 %1162, 32
@@ -11464,7 +11455,7 @@ define internal void @iwht_iwht_4x4_add_c(ptr noundef captures(none) %0, i64 nou
   %54 = getelementptr inbounds i8, ptr %.035, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8
   %56 = zext i8 %55 to i32
-  %57 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv37
+  %57 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv37
   %58 = load i16, ptr %57, align 2, !tbaa !80
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %59, %56
@@ -13855,9 +13846,9 @@ avg_c.exit:                                       ; preds = %.split
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_64hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13865,9 +13856,9 @@ define internal void @put_8tap_smooth_64hv_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_64hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13875,9 +13866,9 @@ define internal void @put_8tap_regular_64hv_c(ptr noundef writeonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_64hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13891,9 +13882,9 @@ define internal void @put_bilin_64hv_c(ptr noundef writeonly captures(none) %0, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_32hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13901,9 +13892,9 @@ define internal void @put_8tap_smooth_32hv_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_32hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13911,9 +13902,9 @@ define internal void @put_8tap_regular_32hv_c(ptr noundef writeonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_32hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13927,9 +13918,9 @@ define internal void @put_bilin_32hv_c(ptr noundef writeonly captures(none) %0, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_16hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13937,9 +13928,9 @@ define internal void @put_8tap_smooth_16hv_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_16hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13947,9 +13938,9 @@ define internal void @put_8tap_regular_16hv_c(ptr noundef writeonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_16hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13963,9 +13954,9 @@ define internal void @put_bilin_16hv_c(ptr noundef writeonly captures(none) %0, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_8hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13973,9 +13964,9 @@ define internal void @put_8tap_smooth_8hv_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_8hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13983,9 +13974,9 @@ define internal void @put_8tap_regular_8hv_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_8hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -13999,9 +13990,9 @@ define internal void @put_bilin_8hv_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_4hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14009,9 +14000,9 @@ define internal void @put_8tap_smooth_4hv_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_4hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14019,9 +14010,9 @@ define internal void @put_8tap_regular_4hv_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_4hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @put_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14035,7 +14026,7 @@ define internal void @put_bilin_4hv_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_64v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14043,7 +14034,7 @@ define internal void @put_8tap_smooth_64v_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_64v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14051,7 +14042,7 @@ define internal void @put_8tap_regular_64v_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_64v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14065,7 +14056,7 @@ define internal void @put_bilin_64v_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_32v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14073,7 +14064,7 @@ define internal void @put_8tap_smooth_32v_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_32v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14081,7 +14072,7 @@ define internal void @put_8tap_regular_32v_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_32v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14095,7 +14086,7 @@ define internal void @put_bilin_32v_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_16v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14103,7 +14094,7 @@ define internal void @put_8tap_smooth_16v_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_16v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14111,7 +14102,7 @@ define internal void @put_8tap_regular_16v_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_16v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14125,7 +14116,7 @@ define internal void @put_bilin_16v_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_8v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14133,7 +14124,7 @@ define internal void @put_8tap_smooth_8v_c(ptr noundef writeonly captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_8v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14141,7 +14132,7 @@ define internal void @put_8tap_regular_8v_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_8v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14155,7 +14146,7 @@ define internal void @put_bilin_8v_c(ptr noundef writeonly captures(none) %0, i6
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_4v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14163,7 +14154,7 @@ define internal void @put_8tap_smooth_4v_c(ptr noundef writeonly captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_4v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14171,7 +14162,7 @@ define internal void @put_8tap_regular_4v_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_4v_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14185,7 +14176,7 @@ define internal void @put_bilin_4v_c(ptr noundef writeonly captures(none) %0, i6
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_64h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14193,7 +14184,7 @@ define internal void @put_8tap_smooth_64h_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_64h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14201,7 +14192,7 @@ define internal void @put_8tap_regular_64h_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_64h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14215,7 +14206,7 @@ define internal void @put_bilin_64h_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_32h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14223,7 +14214,7 @@ define internal void @put_8tap_smooth_32h_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_32h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14231,7 +14222,7 @@ define internal void @put_8tap_regular_32h_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_32h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14245,7 +14236,7 @@ define internal void @put_bilin_32h_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_16h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14253,7 +14244,7 @@ define internal void @put_8tap_smooth_16h_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_16h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14261,7 +14252,7 @@ define internal void @put_8tap_regular_16h_c(ptr noundef writeonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_16h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14275,7 +14266,7 @@ define internal void @put_bilin_16h_c(ptr noundef writeonly captures(none) %0, i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_8h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14283,7 +14274,7 @@ define internal void @put_8tap_smooth_8h_c(ptr noundef writeonly captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_8h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14291,7 +14282,7 @@ define internal void @put_8tap_regular_8h_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_8h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14305,7 +14296,7 @@ define internal void @put_bilin_8h_c(ptr noundef writeonly captures(none) %0, i6
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_smooth_4h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14313,7 +14304,7 @@ define internal void @put_8tap_smooth_4h_c(ptr noundef writeonly captures(none) 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_regular_4h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14321,7 +14312,7 @@ define internal void @put_8tap_regular_4h_c(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_8tap_sharp_4h_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @put_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14335,9 +14326,9 @@ define internal void @put_bilin_4h_c(ptr noundef writeonly captures(none) %0, i6
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_64hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14345,9 +14336,9 @@ define internal void @avg_8tap_smooth_64hv_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_64hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14355,9 +14346,9 @@ define internal void @avg_8tap_regular_64hv_c(ptr noundef captures(none) %0, i64
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_64hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14371,9 +14362,9 @@ define internal void @avg_bilin_64hv_c(ptr noundef captures(none) %0, i64 nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_32hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14381,9 +14372,9 @@ define internal void @avg_8tap_smooth_32hv_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_32hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14391,9 +14382,9 @@ define internal void @avg_8tap_regular_32hv_c(ptr noundef captures(none) %0, i64
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_32hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14407,9 +14398,9 @@ define internal void @avg_bilin_32hv_c(ptr noundef captures(none) %0, i64 nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_16hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14417,9 +14408,9 @@ define internal void @avg_8tap_smooth_16hv_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_16hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14427,9 +14418,9 @@ define internal void @avg_8tap_regular_16hv_c(ptr noundef captures(none) %0, i64
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_16hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14443,9 +14434,9 @@ define internal void @avg_bilin_16hv_c(ptr noundef captures(none) %0, i64 nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_8hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14453,9 +14444,9 @@ define internal void @avg_8tap_smooth_8hv_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_8hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14463,9 +14454,9 @@ define internal void @avg_8tap_regular_8hv_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_8hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14479,9 +14470,9 @@ define internal void @avg_bilin_8hv_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_4hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14489,9 +14480,9 @@ define internal void @avg_8tap_smooth_4hv_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_4hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14499,9 +14490,9 @@ define internal void @avg_8tap_regular_4hv_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_4hv_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %10
   tail call fastcc void @avg_8tap_2d_hv_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %11)
   ret void
 }
@@ -14515,7 +14506,7 @@ define internal void @avg_bilin_4hv_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_64v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14523,7 +14514,7 @@ define internal void @avg_8tap_smooth_64v_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_64v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14531,7 +14522,7 @@ define internal void @avg_8tap_regular_64v_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_64v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14545,7 +14536,7 @@ define internal void @avg_bilin_64v_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_32v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14553,7 +14544,7 @@ define internal void @avg_8tap_smooth_32v_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_32v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14561,7 +14552,7 @@ define internal void @avg_8tap_regular_32v_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_32v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14575,7 +14566,7 @@ define internal void @avg_bilin_32v_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_16v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14583,7 +14574,7 @@ define internal void @avg_8tap_smooth_16v_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_16v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14591,7 +14582,7 @@ define internal void @avg_8tap_regular_16v_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_16v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14605,7 +14596,7 @@ define internal void @avg_bilin_16v_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_8v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14613,7 +14604,7 @@ define internal void @avg_8tap_smooth_8v_c(ptr noundef captures(none) %0, i64 no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_8v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14621,7 +14612,7 @@ define internal void @avg_8tap_regular_8v_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_8v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14635,7 +14626,7 @@ define internal void @avg_bilin_8v_c(ptr noundef captures(none) %0, i64 noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_4v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14643,7 +14634,7 @@ define internal void @avg_8tap_smooth_4v_c(ptr noundef captures(none) %0, i64 no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_4v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14651,7 +14642,7 @@ define internal void @avg_8tap_regular_4v_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_4v_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 %5, i32 noundef %6) #2 {
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_v_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14665,7 +14656,7 @@ define internal void @avg_bilin_4v_c(ptr noundef captures(none) %0, i64 noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_64h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14673,7 +14664,7 @@ define internal void @avg_8tap_smooth_64h_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_64h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14681,7 +14672,7 @@ define internal void @avg_8tap_regular_64h_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_64h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 64, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14695,7 +14686,7 @@ define internal void @avg_bilin_64h_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_32h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14703,7 +14694,7 @@ define internal void @avg_8tap_smooth_32h_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_32h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14711,7 +14702,7 @@ define internal void @avg_8tap_regular_32h_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_32h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 32, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14725,7 +14716,7 @@ define internal void @avg_bilin_32h_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_16h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14733,7 +14724,7 @@ define internal void @avg_8tap_smooth_16h_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_16h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14741,7 +14732,7 @@ define internal void @avg_8tap_regular_16h_c(ptr noundef captures(none) %0, i64 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_16h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 16, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14755,7 +14746,7 @@ define internal void @avg_bilin_16h_c(ptr noundef captures(none) %0, i64 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_8h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14763,7 +14754,7 @@ define internal void @avg_8tap_smooth_8h_c(ptr noundef captures(none) %0, i64 no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_8h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14771,7 +14762,7 @@ define internal void @avg_8tap_regular_8h_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_8h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 8, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14785,7 +14776,7 @@ define internal void @avg_bilin_8h_c(ptr noundef captures(none) %0, i64 noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_smooth_4h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr @ff_vp9_subpel_filters, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr @ff_vp9_subpel_filters, i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14793,7 +14784,7 @@ define internal void @avg_8tap_smooth_4h_c(ptr noundef captures(none) %0, i64 no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_regular_4h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 256), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }
@@ -14801,7 +14792,7 @@ define internal void @avg_8tap_regular_4h_c(ptr noundef captures(none) %0, i64 n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @avg_8tap_sharp_4h_c(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6) #2 {
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [16 x [8 x i16]], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i16], ptr getelementptr inbounds nuw (i8, ptr @ff_vp9_subpel_filters, i64 512), i64 %8
   tail call fastcc void @avg_8tap_1d_h_c(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef 4, i32 noundef %4, ptr noundef nonnull %9)
   ret void
 }

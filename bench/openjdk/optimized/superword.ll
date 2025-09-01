@@ -586,7 +586,7 @@ _ZNK4Node13is_memory_phiEv.exit.thread:           ; preds = %136, %146, %153, %_
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load i32, ptr %188, align 8
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %190, i32 1
+  %191 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %190, i32 1
   %192 = load i8, ptr %191, align 4
   br label %193
 
@@ -829,7 +829,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit:                ; preds = %259, %263
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i32, ptr %313, align 8
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %315, i32 1
+  %316 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %315, i32 1
   %317 = load i8, ptr %316, align 4
   br label %318
 
@@ -980,7 +980,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %355, %_ZNK14PhaseId
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 16
   %407 = load i32, ptr %406, align 8
   %408 = zext i32 %407 to i64
-  %409 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %408, i32 1
+  %409 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %408, i32 1
   %410 = load i8, ptr %409, align 4
   %411 = icmp eq i8 %410, 10
   br i1 %411, label %412, label %.loopexit
@@ -1078,7 +1078,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit185:                 ; preds = %.lr.ph222, %_ZNK14P
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 16
   %470 = load i32, ptr %469, align 8
   %471 = zext i32 %470 to i64
-  %472 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %471, i32 1
+  %472 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %471, i32 1
   %473 = load i8, ptr %472, align 4
   %.not166 = icmp eq i8 %473, %.0148
   br i1 %.not166, label %474, label %.loopexit
@@ -1169,7 +1169,7 @@ define hidden noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11, i32 1
   %13 = load i8, ptr %12, align 4
   %14 = tail call noundef i32 @_ZN13ReductionNode6opcodeEi9BasicType(i32 noundef %4, i8 noundef zeroext %13) #12
   %.not = icmp eq i32 %4, %14
@@ -1209,7 +1209,7 @@ define hidden noundef zeroext i1 @_ZN15VLoopReductions21is_reduction_operatorEPK
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11, i32 1
   %13 = load i8, ptr %12, align 4
   %14 = tail call noundef i32 @_ZN13ReductionNode6opcodeEi9BasicType(i32 noundef %4, i8 noundef zeroext %13) #12
   %15 = icmp ne i32 %4, %14
@@ -1469,7 +1469,7 @@ define hidden void @_ZN15VLoopReductions15mark_reductionsEv(ptr noundef nonnull 
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %44, i32 1
+  %45 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %44, i32 1
   %46 = load i8, ptr %45, align 4
   %47 = tail call noundef i32 @_ZN13ReductionNode6opcodeEi9BasicType(i32 noundef %37, i8 noundef zeroext %46) #12
   %.not = icmp eq i32 %37, %47
@@ -4890,7 +4890,7 @@ define hidden void @_ZN9SuperWord40create_adjacent_memop_pairs_in_one_groupERK13
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %27) #12
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %2, %3
   br i1 %32, label %.lr.ph37, label %._crit_edge38
@@ -5066,7 +5066,7 @@ define linkonce_odr hidden noundef i32 @_ZNK9SuperWord9data_sizeEP4Node(ptr noun
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %19) #12
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %21
   %23 = load i32, ptr %22, align 4
   ret i32 %23
 }
@@ -6070,10 +6070,10 @@ _ZNK9SuperWord5in_bbEPK4Node.exit:                ; preds = %12, %_ZNK14PhaseIde
 
 113:                                              ; preds = %65
   %114 = zext nneg i8 %86 to i64
-  %115 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = zext nneg i8 %104 to i64
-  %118 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %116, %119
   %121 = icmp sgt i32 %116, %119
@@ -6134,7 +6134,7 @@ define hidden noundef zeroext i1 @_ZN9SuperWord10isomorphicEP4NodeS1_(ptr nounde
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %43, i32 1
+  %44 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %43, i32 1
   %45 = load i8, ptr %44, align 4
   %46 = icmp eq i8 %45, 10
   br i1 %46, label %47, label %_ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit
@@ -6143,7 +6143,7 @@ define hidden noundef zeroext i1 @_ZN9SuperWord10isomorphicEP4NodeS1_(ptr nounde
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %50, i32 1
+  %51 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %50, i32 1
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 10
   br i1 %53, label %54, label %_ZNK9SuperWord14same_velt_typeEP4NodeS1_.exit
@@ -6151,7 +6151,7 @@ define hidden noundef zeroext i1 @_ZN9SuperWord10isomorphicEP4NodeS1_(ptr nounde
 54:                                               ; preds = %47
   %55 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %32) #12
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = load ptr, ptr %17, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
@@ -6168,7 +6168,7 @@ define hidden noundef zeroext i1 @_ZN9SuperWord10isomorphicEP4NodeS1_(ptr nounde
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %71) #12
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %58, %75
   br i1 %76, label %78, label %116
@@ -9934,7 +9934,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit: ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %32, i32 1
+  %33 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %32, i32 1
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i8 %34, 10
   br i1 %35, label %39, label %36
@@ -14077,14 +14077,14 @@ define hidden noundef zeroext i1 @_ZNK9SuperWord37is_velt_basic_type_compatible_
 
 49:                                               ; preds = %8
   %50 = zext i8 %44 to i64
-  %51 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 8
   br i1 %53, label %54, label %79
 
 54:                                               ; preds = %49
   %55 = zext i8 %26 to i64
-  %56 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 4
   br label %79
@@ -14095,24 +14095,24 @@ define hidden noundef zeroext i1 @_ZNK9SuperWord37is_velt_basic_type_compatible_
 
 61:                                               ; preds = %59
   %62 = zext i8 %44 to i64
-  %63 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 2
   br i1 %65, label %66, label %79
 
 66:                                               ; preds = %61
   %67 = zext i8 %26 to i64
-  %68 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 4
   br label %79
 
 71:                                               ; preds = %59
   %72 = zext i8 %26 to i64
-  %73 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = zext i8 %44 to i64
-  %76 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %74, %77
   br label %79
@@ -15444,7 +15444,7 @@ _ZN26GrowableArrayWithAllocatorIPK4Type13GrowableArrayIS2_EE11at_put_growEiRKS2_
   %60 = zext i8 %51 to i64
   %61 = select i1 %or.cond.i, i64 9, i64 %60
   %62 = select i1 %59, i64 4, i64 %61
-  %63 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %_ZNK10VLoopTypes14container_typeEP4Node.exit
 
@@ -15465,7 +15465,7 @@ _ZN26GrowableArrayWithAllocatorIPK4Type13GrowableArrayIS2_EE11at_put_growEiRKS2_
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %81, i32 1
+  %82 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %81, i32 1
   %83 = load i8, ptr %82, align 4
   %84 = icmp eq i8 %83, 10
   br i1 %84, label %85, label %_ZNK10VLoopTypes14container_typeEP4Node.exit
@@ -15539,7 +15539,7 @@ _ZNK10VLoopTypes14container_typeEP4Node.exit:     ; preds = %47, %65, %90, %92
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load i32, ptr %130, align 8
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %132, i32 1
+  %133 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %132, i32 1
   %134 = load i8, ptr %133, align 4
   %135 = icmp eq i8 %134, 10
   br i1 %135, label %136, label %.loopexit110
@@ -15659,7 +15659,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %150, %_ZNK14PhaseId
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load i32, ptr %212, align 8
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %214, i32 1
+  %215 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %214, i32 1
   %216 = load i8, ptr %215, align 4
   %217 = icmp eq i8 %216, 10
   br i1 %217, label %218, label %.loopexit
@@ -15674,7 +15674,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %150, %_ZNK14PhaseId
   %225 = load ptr, ptr %224, align 8
   %226 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %225) #12
   %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %227
   %229 = load i32, ptr %228, align 4
   %230 = load ptr, ptr %4, align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 32
@@ -15691,7 +15691,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %150, %_ZNK14PhaseId
   %242 = load ptr, ptr %241, align 8
   %243 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %242) #12
   %244 = zext i8 %243 to i64
-  %245 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %244
   %246 = load i32, ptr %245, align 4
   %247 = icmp slt i32 %229, %246
   br i1 %247, label %248, label %.loopexit
@@ -15807,7 +15807,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit85:                  ; preds = %.lr.ph123, %_ZNK14P
   %323 = getelementptr inbounds nuw i8, ptr %315, i64 16
   %324 = load i32, ptr %323, align 8
   %325 = zext i32 %324 to i64
-  %326 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %325, i32 1
+  %326 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %325, i32 1
   %327 = load i8, ptr %326, align 4
   %328 = icmp eq i8 %327, 10
   br i1 %328, label %329, label %_ZNK10VLoopTypes14same_velt_typeEP4NodeS1_.exit
@@ -15816,7 +15816,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit85:                  ; preds = %.lr.ph123, %_ZNK14P
   %330 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %331 = load i32, ptr %330, align 8
   %332 = zext i32 %331 to i64
-  %333 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %332, i32 1
+  %333 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %332, i32 1
   %334 = load i8, ptr %333, align 4
   %335 = icmp eq i8 %334, 10
   br i1 %335, label %336, label %_ZNK10VLoopTypes14same_velt_typeEP4NodeS1_.exit
@@ -15824,7 +15824,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit85:                  ; preds = %.lr.ph123, %_ZNK14P
 336:                                              ; preds = %329
   %337 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %315) #12
   %338 = zext i8 %337 to i64
-  %339 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %338
   %340 = load i32, ptr %339, align 4
   %341 = load ptr, ptr %4, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 32
@@ -15841,7 +15841,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit85:                  ; preds = %.lr.ph123, %_ZNK14P
   %353 = load ptr, ptr %352, align 8
   %354 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %353) #12
   %355 = zext i8 %354 to i64
-  %356 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %355
   %357 = load i32, ptr %356, align 4
   %358 = icmp eq i32 %340, %357
   br i1 %358, label %360, label %.loopexit
@@ -15971,7 +15971,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit97:                  ; preds = %375, %_ZNK14PhaseId
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   %438 = load i32, ptr %437, align 8
   %439 = zext i32 %438 to i64
-  %440 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %439, i32 1
+  %440 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %439, i32 1
   %441 = load i8, ptr %440, align 4
   %442 = icmp eq i8 %441, 10
   br i1 %442, label %445, label %443
@@ -16188,7 +16188,7 @@ define hidden noundef ptr @_ZNK10VLoopTypes14container_typeEP4Node(ptr noundef n
   %20 = zext i8 %11 to i64
   %21 = select i1 %or.cond, i64 9, i64 %20
   %22 = select i1 %19, i64 4, i64 %21
-  %23 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %54
 
@@ -16209,7 +16209,7 @@ define hidden noundef ptr @_ZNK10VLoopTypes14container_typeEP4Node(ptr noundef n
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %41, i32 1
+  %42 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %41, i32 1
   %43 = load i8, ptr %42, align 4
   %44 = icmp eq i8 %43, 10
   br i1 %44, label %45, label %54

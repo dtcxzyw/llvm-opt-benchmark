@@ -760,8 +760,8 @@ define hidden void @proto_register_xmpp() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr [20 x i32], ptr @ett_unknown, i64 0, i64 %indvars.iv
-  %3 = getelementptr [20 x ptr], ptr @proto_register_xmpp.ett_unknown_ptr, i64 0, i64 %indvars.iv
+  %2 = getelementptr i32, ptr @ett_unknown, i64 %indvars.iv
+  %3 = getelementptr ptr, ptr @proto_register_xmpp.ett_unknown_ptr, i64 %indvars.iv
   store ptr %2, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20

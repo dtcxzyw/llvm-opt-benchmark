@@ -10387,7 +10387,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %666, %572
 
 .lr.ph.i.i.i:                                     ; preds = %879, %.lr.ph.i.i.i
   %.sroa.0.07.i.i.i = phi i64 [ %887, %.lr.ph.i.i.i ], [ 0, %879 ]
-  %886 = getelementptr inbounds [0 x i32], ptr %882, i64 0, i64 %.sroa.0.07.i.i.i
+  %886 = getelementptr inbounds i32, ptr %882, i64 %.sroa.0.07.i.i.i
   %887 = add nuw i64 %.sroa.0.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4559)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4562)
@@ -14329,7 +14329,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i: ; pred
 
 .lr.ph.i.us.i.i.i.i.i.i.i.i:                      ; preds = %.preheader.i.us.i.i.i.i.i.i.i.i, %67
   %.sroa.01.05.i.us.i.i.i.i.i.i.i.i = phi i64 [ %68, %67 ], [ 0, %.preheader.i.us.i.i.i.i.i.i.i.i ]
-  %64 = getelementptr inbounds nuw [0 x i8], ptr %59, i64 0, i64 %.sroa.01.05.i.us.i.i.i.i.i.i.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 %.sroa.01.05.i.us.i.i.i.i.i.i.i.i
   %65 = load i8, ptr %64, align 1, !alias.scope !5867, !noalias !5866, !noundef !6
   %66 = icmp eq i8 %65, %.pre92.i.i.i.i.i.i.i.i
   br i1 %66, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i.i.i, label %67
@@ -14366,7 +14366,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %80
   %.sroa.01.05.i.i.i.i.i.i.i.i.i = phi i64 [ %81, %80 ], [ 0, %.preheader.i.i.i.i.i.i.i.i.i ]
-  %77 = getelementptr inbounds nuw [0 x i8], ptr %75, i64 0, i64 %.sroa.01.05.i.i.i.i.i.i.i.i.i
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %.sroa.01.05.i.i.i.i.i.i.i.i.i
   %78 = load i8, ptr %77, align 1, !alias.scope !5867, !noalias !5866, !noundef !6
   %79 = icmp eq i8 %78, %.pre92.i.i.i.i.i.i.i.i
   br i1 %79, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i.i.i, label %80
@@ -26899,7 +26899,7 @@ default.unreachable816:                           ; preds = %1466, %1435, %1420,
 
 145:                                              ; preds = %140
   %146 = add i64 %144, -1
-  %147 = getelementptr inbounds [0 x i8], ptr %142, i64 0, i64 %146
+  %147 = getelementptr inbounds i8, ptr %142, i64 %146
   %148 = load i8, ptr %147, align 1, !noalias !8208, !noundef !6
   %149 = icmp eq i8 %148, 0
   %spec.select.i = select i1 %149, i64 %146, i64 %144

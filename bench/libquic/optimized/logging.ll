@@ -1743,7 +1743,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit29: ; preds = %175, %1
 
 _ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit: ; preds = %182
   %184 = zext nneg i32 %180 to i64
-  %185 = getelementptr inbounds nuw [4 x ptr], ptr @_ZN7logging12_GLOBAL__N_118log_severity_namesE, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw ptr, ptr @_ZN7logging12_GLOBAL__N_118log_severity_namesE, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !128
   br label %_ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit.thread
 

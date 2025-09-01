@@ -561,7 +561,7 @@ define void @_ZN10open_spiel4json8ToStringB5cxx11ERKNS0_5ValueEbi(ptr dead_on_un
 31:                                               ; preds = %37, %4
   %.010.i.i.i = phi i64 [ 0, %4 ], [ %38, %37 ]
   %.079.i.i.i = phi i64 [ 7, %4 ], [ %.1.i.i.i, %37 ]
-  %32 = getelementptr inbounds nuw [7 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN10open_spiel4json4NullEJS2_bldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 0, i64 %.010.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN10open_spiel4json4NullEJS2_bldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 %.010.i.i.i
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %37
@@ -618,7 +618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .preheader77:                                     ; preds = %_ZNK10open_spiel4json5Value6IsNullEv.exit, %52
   %.010.i.i.i27 = phi i64 [ %53, %52 ], [ 0, %_ZNK10open_spiel4json5Value6IsNullEv.exit ]
   %.079.i.i.i28 = phi i64 [ %.1.i.i.i29, %52 ], [ 7, %_ZNK10open_spiel4json5Value6IsNullEv.exit ]
-  %47 = getelementptr inbounds nuw [7 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIbJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 0, i64 %.010.i.i.i27
+  %47 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIbJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 %.010.i.i.i27
   %48 = load i8, ptr %47, align 1
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %52
@@ -727,7 +727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
 .preheader76:                                     ; preds = %_ZNK10open_spiel4json5Value6IsBoolEv.exit, %84
   %.010.i.i.i37 = phi i64 [ %85, %84 ], [ 0, %_ZNK10open_spiel4json5Value6IsBoolEv.exit ]
   %.079.i.i.i38 = phi i64 [ %.1.i.i.i39, %84 ], [ 7, %_ZNK10open_spiel4json5Value6IsBoolEv.exit ]
-  %79 = getelementptr inbounds nuw [7 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIlJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 0, i64 %.010.i.i.i37
+  %79 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIlJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 %.010.i.i.i37
   %80 = load i8, ptr %79, align 1
   %81 = trunc i8 %80 to i1
   br i1 %81, label %82, label %84
@@ -799,7 +799,7 @@ _ZNK10open_spiel4json5Value6GetIntEv.exit:        ; preds = %87
 .preheader75:                                     ; preds = %_ZNK10open_spiel4json5Value5IsIntEv.exit, %107
   %.010.i.i.i45 = phi i64 [ %108, %107 ], [ 0, %_ZNK10open_spiel4json5Value5IsIntEv.exit ]
   %.079.i.i.i46 = phi i64 [ %.1.i.i.i47, %107 ], [ 7, %_ZNK10open_spiel4json5Value5IsIntEv.exit ]
-  %102 = getelementptr inbounds nuw [7 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIdJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 0, i64 %.010.i.i.i45
+  %102 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIdJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_5ValueESaISA_EESt3mapIS8_SA_St4lessIS8_ESaISt4pairIKS8_SA_EEEEEmv.__found, i64 %.010.i.i.i45
   %103 = load i8, ptr %102, align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %107
@@ -910,7 +910,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %_ZNK10open_spiel4js
 .preheader74:                                     ; preds = %_ZNK10open_spiel4json5Value8IsDoubleEv.exit, %144
   %.010.i.i.i54 = phi i64 [ %145, %144 ], [ 0, %_ZNK10open_spiel4json5Value8IsDoubleEv.exit ]
   %.079.i.i.i55 = phi i64 [ %.1.i.i.i56, %144 ], [ 7, %_ZNK10open_spiel4json5Value8IsDoubleEv.exit ]
-  %139 = getelementptr inbounds nuw [7 x i8], ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJN10open_spiel4json4NullEbldS5_St6vectorINS7_5ValueESaISA_EESt3mapIS5_SA_St4lessIS5_ESaISt4pairIKS5_SA_EEEEEmv.__found, i64 0, i64 %.010.i.i.i54
+  %139 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJN10open_spiel4json4NullEbldS5_St6vectorINS7_5ValueESaISA_EESt3mapIS5_SA_St4lessIS5_ESaISt4pairIKS5_SA_EEEEEmv.__found, i64 %.010.i.i.i54
   %140 = load i8, ptr %139, align 1
   %141 = trunc i8 %140 to i1
   br i1 %141, label %142, label %144
@@ -997,7 +997,7 @@ _ZNK10open_spiel4json5Value9GetStringB5cxx11Ev.exit: ; preds = %_ZN4absl7debian2
 .preheader73:                                     ; preds = %_ZNK10open_spiel4json5Value8IsStringEv.exit, %168
   %.010.i.i.i63 = phi i64 [ %169, %168 ], [ 0, %_ZNK10open_spiel4json5Value8IsStringEv.exit ]
   %.079.i.i.i64 = phi i64 [ %.1.i.i.i65, %168 ], [ 7, %_ZNK10open_spiel4json5Value8IsStringEv.exit ]
-  %163 = getelementptr inbounds nuw [7 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN10open_spiel4json5ValueESaIS3_EEJNS2_4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St3mapISC_S3_St4lessISC_ESaISt4pairIKSC_S3_EEEEEmv.__found, i64 0, i64 %.010.i.i.i63
+  %163 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN10open_spiel4json5ValueESaIS3_EEJNS2_4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St3mapISC_S3_St4lessISC_ESaISt4pairIKSC_S3_EEEEEmv.__found, i64 %.010.i.i.i63
   %164 = load i8, ptr %163, align 1
   %165 = trunc i8 %164 to i1
   br i1 %165, label %166, label %168
@@ -1025,7 +1025,7 @@ _ZNK10open_spiel4json5Value7IsArrayEv.exit:       ; preds = %166, %168
 .preheader:                                       ; preds = %_ZNK10open_spiel4json5Value7IsArrayEv.exit, %178
   %.010.i.i.i68 = phi i64 [ %179, %178 ], [ 0, %_ZNK10open_spiel4json5Value7IsArrayEv.exit ]
   %.079.i.i.i69 = phi i64 [ %.1.i.i.i70, %178 ], [ 7, %_ZNK10open_spiel4json5Value7IsArrayEv.exit ]
-  %173 = getelementptr inbounds nuw [7 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS6_ESaISt4pairIKS6_S9_EEEJNS8_4NullEbldS6_St6vectorIS9_SaIS9_EESG_EEmv.__found, i64 0, i64 %.010.i.i.i68
+  %173 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS6_ESaISt4pairIKS6_S9_EEEJNS8_4NullEbldS6_St6vectorIS9_SaIS9_EESG_EEmv.__found, i64 %.010.i.i.i68
   %174 = load i8, ptr %173, align 1
   %175 = trunc i8 %174 to i1
   br i1 %175, label %176, label %178
@@ -1517,11 +1517,11 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %23 = zext i32 %22 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %24 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %58
+          to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc15 unwind label %58
+          to label %.noexc15 unwind label %56
 
 .noexc15:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %23, i8 noundef signext 45)
@@ -1536,7 +1536,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %27 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.lobit)
-          to label %28 unwind label %60
+          to label %28 unwind label %58
 
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %29 = icmp ugt i64 %4, 99
@@ -1548,70 +1548,68 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %33, %.lr.ph.i16 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %44, %.lr.ph.i16 ], [ %30, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %43, %.lr.ph.i16 ], [ %30, %.lr.ph.preheader.i ]
   %31 = urem i64 %.020.i, 100
   %32 = shl nuw nsw i64 %31, 1
   %33 = udiv i64 %.020.i, 100
-  %34 = or disjoint i64 %32, 1
-  %35 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %34
+  %34 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = zext i32 %.01819.i to i64
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 %37
   store i8 %36, ptr %38, align 1
-  %39 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %32
-  %40 = load i8, ptr %39, align 2
-  %41 = add i32 %.01819.i, -1
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %27, i64 %42
-  store i8 %40, ptr %43, align 1
-  %44 = add i32 %.01819.i, -2
-  %45 = icmp ugt i64 %.020.i, 9999
-  br i1 %45, label %.lr.ph.i16, label %._crit_edge.i, !llvm.loop !13
+  %39 = load i8, ptr %34, align 2
+  %40 = add i32 %.01819.i, -1
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 %41
+  store i8 %39, ptr %42, align 1
+  %43 = add i32 %.01819.i, -2
+  %44 = icmp ugt i64 %.020.i, 9999
+  br i1 %44, label %.lr.ph.i16, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i16, %28
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i16 ]
-  %46 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %46, label %47, label %55
+  %45 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %45, label %46, label %53
 
-47:                                               ; preds = %._crit_edge.i
-  %48 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %49 = or disjoint i64 %48, 1
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
-  %54 = load i8, ptr %53, align 2
+46:                                               ; preds = %._crit_edge.i
+  %47 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %48 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %50, ptr %51, align 1
+  %52 = load i8, ptr %48, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %57 = or disjoint i8 %56, 48
+53:                                               ; preds = %._crit_edge.i
+  %54 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %55 = or disjoint i8 %54, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %47, %55
-  %storemerge.i = phi i8 [ %57, %55 ], [ %54, %47 ]
+_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %46, %53
+  %storemerge.i = phi i8 [ %55, %53 ], [ %52, %46 ]
   store i8 %storemerge.i, ptr %27, align 1
   ret void
 
-58:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  %59 = landingpad { ptr, i32 }
+56:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %25, %58
-  %eh.lpad-body = phi { ptr, i32 } [ %59, %58 ], [ %26, %25 ]
+.body:                                            ; preds = %25, %56
+  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %26, %25 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
-  br label %62
+  br label %60
 
-60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %61 = landingpad { ptr, i32 }
+58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
-  br label %62
+  br label %60
 
-62:                                               ; preds = %60, %.body
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %eh.lpad-body, %.body ]
+60:                                               ; preds = %58, %.body
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3777,7 +3775,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %33
   %37 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %switch.load)
           to label %39 unwind label %.loopexit

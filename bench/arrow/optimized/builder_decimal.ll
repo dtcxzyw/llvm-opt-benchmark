@@ -602,7 +602,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !41
   %39 = srem i64 %35, 8
-  %40 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = or i8 %41, %38
   store i8 %42, ptr %37, align 1, !tbaa !41
@@ -648,7 +648,7 @@ define void @_ZN5arrow16Decimal32Builder12UnsafeAppendENS_9Decimal32E(ptr nounde
   %22 = getelementptr inbounds i8, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = srem i64 %20, 8
-  %25 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %24
+  %25 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = or i8 %26, %23
   store i8 %27, ptr %22, align 1, !tbaa !41
@@ -675,7 +675,7 @@ define void @_ZN5arrow16Decimal32Builder12UnsafeAppendESt17basic_string_viewIcSt
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !41
   %11 = srem i64 %7, 8
-  %12 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = or i8 %13, %10
   store i8 %14, ptr %9, align 1, !tbaa !41
@@ -2014,7 +2014,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !41
   %39 = srem i64 %35, 8
-  %40 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = or i8 %41, %38
   store i8 %42, ptr %37, align 1, !tbaa !41
@@ -2058,7 +2058,7 @@ define void @_ZN5arrow16Decimal64Builder12UnsafeAppendENS_9Decimal64E(ptr nounde
   %22 = getelementptr inbounds i8, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = srem i64 %20, 8
-  %25 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %24
+  %25 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = or i8 %26, %23
   store i8 %27, ptr %22, align 1, !tbaa !41
@@ -2082,7 +2082,7 @@ define void @_ZN5arrow16Decimal64Builder12UnsafeAppendESt17basic_string_viewIcSt
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !41
   %11 = srem i64 %7, 8
-  %12 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = or i8 %13, %10
   store i8 %14, ptr %9, align 1, !tbaa !41
@@ -2913,7 +2913,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !41
   %40 = srem i64 %36, 8
-  %41 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !41
   %43 = or i8 %42, %39
   store i8 %43, ptr %38, align 1, !tbaa !41
@@ -2959,7 +2959,7 @@ define void @_ZN5arrow17Decimal128Builder12UnsafeAppendENS_10Decimal128E(ptr nou
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = srem i64 %21, 8
-  %26 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %25
+  %26 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = or i8 %27, %24
   store i8 %28, ptr %23, align 1, !tbaa !41
@@ -2983,7 +2983,7 @@ define void @_ZN5arrow17Decimal128Builder12UnsafeAppendESt17basic_string_viewIcS
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !41
   %11 = srem i64 %7, 8
-  %12 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = or i8 %13, %10
   store i8 %14, ptr %9, align 1, !tbaa !41
@@ -3812,7 +3812,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !41
   %39 = srem i64 %35, 8
-  %40 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = or i8 %41, %38
   store i8 %42, ptr %37, align 1, !tbaa !41
@@ -3856,7 +3856,7 @@ define void @_ZN5arrow17Decimal256Builder12UnsafeAppendERKNS_10Decimal256E(ptr n
   %22 = getelementptr inbounds i8, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = srem i64 %20, 8
-  %25 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %24
+  %25 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = or i8 %26, %23
   store i8 %27, ptr %22, align 1, !tbaa !41
@@ -3880,7 +3880,7 @@ define void @_ZN5arrow17Decimal256Builder12UnsafeAppendESt17basic_string_viewIcS
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !41
   %11 = srem i64 %7, 8
-  %12 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = or i8 %13, %10
   store i8 %14, ptr %9, align 1, !tbaa !41

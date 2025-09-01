@@ -400,13 +400,13 @@ bytestream2_get_le32.exit185.i:                   ; preds = %125, %bytestream2_g
 
 131:                                              ; preds = %143, %bytestream2_get_le32.exit185.i
   %indvars.iv252.i = phi i64 [ 0, %bytestream2_get_le32.exit185.i ], [ %indvars.iv.next253.i, %143 ]
-  %132 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv252.i
+  %132 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv252.i
   br label %133
 
 133:                                              ; preds = %141, %131
   %indvars.iv.i = phi i64 [ 2, %131 ], [ %indvars.iv.next.i, %141 ]
   %134 = phi i32 [ %130, %131 ], [ %142, %141 ]
-  %135 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %136 = load i32, ptr %135, align 4, !tbaa !47
   %137 = icmp ult i32 %136, %134
   br i1 %137, label %138, label %141
@@ -424,7 +424,7 @@ bytestream2_get_le32.exit185.i:                   ; preds = %125, %bytestream2_g
   br i1 %.not273.i, label %143, label %133, !llvm.loop !48
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv252.i
+  %144 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv252.i
   store i32 %142, ptr %144, align 4
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next253.i, 3
@@ -647,13 +647,13 @@ define internal void @build_requant_tab() #3 {
 
 1:                                                ; preds = %0, %18
   %indvars.iv17 = phi i64 [ 0, %0 ], [ %indvars.iv.next18, %18 ]
-  %2 = getelementptr inbounds nuw [8 x i8], ptr @build_requant_tab.offsets, i64 0, i64 %indvars.iv17
+  %2 = getelementptr inbounds nuw i8, ptr @build_requant_tab.offsets, i64 %indvars.iv17
   %3 = load i8, ptr %2, align 1, !tbaa !40
   %.fr13 = freeze i8 %3
   %4 = sext i8 %.fr13 to i64
-  %5 = getelementptr inbounds nuw [8 x i8], ptr @build_requant_tab.deltas, i64 0, i64 %indvars.iv17
+  %5 = getelementptr inbounds nuw i8, ptr @build_requant_tab.deltas, i64 %indvars.iv17
   %6 = load i8, ptr %5, align 1, !tbaa !40
-  %7 = getelementptr inbounds nuw [8 x [128 x i8]], ptr @requant_tab, i64 0, i64 %indvars.iv17
+  %7 = getelementptr inbounds nuw [128 x i8], ptr @requant_tab, i64 %indvars.iv17
   %8 = trunc i64 %indvars.iv17 to i32
   %9 = add i32 %8, 2
   br label %10
@@ -666,7 +666,7 @@ define internal void @build_requant_tab() #3 {
   %14 = sub nsw i32 %12, %13
   %15 = trunc i32 %14 to i8
   %16 = add i8 %6, %15
-  %17 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %16, ptr %17, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
@@ -737,7 +737,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @allocate_frame_buffers(ptr
   %.not = icmp eq i64 %indvars.iv, 0
   %.v = select i1 %.not, i32 %25, i32 %27
   %34 = zext nneg i32 %.v to i64
-  %35 = getelementptr inbounds nuw [3 x %struct.Plane], ptr %32, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.Plane, ptr %32, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i64 %34, ptr %36, align 8, !tbaa !63
   %37 = select i1 %.not, i32 %6, i32 %20
@@ -899,7 +899,7 @@ define internal fastcc void @output_plane(ptr noundef readonly captures(none) %0
 .preheader.lr.ph:                                 ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !60
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i32, ptr %15, align 8, !tbaa !65
@@ -985,7 +985,7 @@ define internal fastcc void @free_frame_buffers(ptr noundef initializes((492, 49
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [3 x %struct.Plane], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.Plane, ptr %4, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @av_freep(ptr noundef nonnull %7) #10
@@ -1436,7 +1436,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @copy_cell(ptr noundef read
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 507
   %13 = load i8, ptr %12, align 1, !tbaa !59
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !60
   %17 = mul i64 %8, %6
   %reass.add = add i64 %17, %10
@@ -1509,7 +1509,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @copy_cell(ptr noundef read
 .lr.ph:                                           ; preds = %60
   %63 = xor i8 %13, 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %11, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !60
   %67 = zext i32 %.077 to i64
   %68 = mul i64 %8, %67
@@ -1613,7 +1613,7 @@ define internal fastcc i32 @decode_cell(ptr noundef readonly captures(none) %0, 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 507
   %29 = load i8, ptr %28, align 1, !tbaa !59
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %27, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !60
   %33 = sext i32 %26 to i64
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
@@ -1687,7 +1687,7 @@ define internal fastcc i32 @decode_cell(ptr noundef readonly captures(none) %0, 
   %83 = add i32 %26, %82
   %84 = xor i8 %29, 1
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %27, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %27, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !60
   %88 = sext i32 %83 to i64
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
@@ -1739,10 +1739,10 @@ define internal fastcc i32 @decode_cell(ptr noundef readonly captures(none) %0, 
 
 114:                                              ; preds = %110
   %115 = zext nneg i32 %.0130 to i64
-  %116 = getelementptr inbounds nuw [24 x %struct.vqEntry], ptr @vq_tab, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %struct.vqEntry, ptr @vq_tab, i64 %115
   store ptr %116, ptr %9, align 16, !tbaa !95
   %117 = zext nneg i32 %.0131 to i64
-  %118 = getelementptr inbounds nuw [24 x %struct.vqEntry], ptr @vq_tab, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw %struct.vqEntry, ptr @vq_tab, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %118, ptr %119, align 8, !tbaa !95
   %120 = icmp samesign ugt i32 %.0130, 15
@@ -1766,7 +1766,7 @@ define internal fastcc i32 @decode_cell(ptr noundef readonly captures(none) %0, 
 .lr.ph:                                           ; preds = %.preheader
   %130 = and i32 %.0127, 7
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [8 x [128 x i8]], ptr @requant_tab, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [128 x i8], ptr @requant_tab, i64 %131
   br label %133
 
 133:                                              ; preds = %.lr.ph, %133
@@ -1775,7 +1775,7 @@ define internal fastcc i32 @decode_cell(ptr noundef readonly captures(none) %0, 
   %135 = load i8, ptr %134, align 1, !tbaa !40
   %136 = and i8 %135, 127
   %137 = zext nneg i8 %136 to i64
-  %138 = getelementptr inbounds nuw [128 x i8], ptr %132, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !40
   store i8 %139, ptr %134, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

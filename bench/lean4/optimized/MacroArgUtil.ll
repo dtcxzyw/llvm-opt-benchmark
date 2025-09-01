@@ -129,7 +129,7 @@ define internal fastcc ptr @lean_array_fget(ptr noundef readonly captures(none) 
   %3 = ptrtoint ptr %1 to i64
   %4 = lshr i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -512,7 +512,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_exp
   %.0136309 = phi i64 [ %2, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.0138307 = phi ptr [ %4, %.lr.ph ], [ %.2140, %lean_dec.exit ]
   %.0141306 = phi ptr [ %7, %.lr.ph ], [ %.2143, %lean_dec.exit ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.0136309
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0136309
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -1407,7 +1407,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_exp
   %.0136309 = phi i64 [ %3, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.0138307 = phi ptr [ %5, %.lr.ph ], [ %.2140, %lean_dec.exit ]
   %.0141306 = phi ptr [ %8, %.lr.ph ], [ %.2143, %lean_dec.exit ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0136309
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0136309
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
@@ -2913,7 +2913,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_exp
   %.0136309 = phi i64 [ %3, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.0138307 = phi ptr [ %5, %.lr.ph ], [ %.2140, %lean_dec.exit ]
   %.0141306 = phi ptr [ %8, %.lr.ph ], [ %.2143, %lean_dec.exit ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0136309
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0136309
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
@@ -3796,7 +3796,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_exp
   %.0136309 = phi i64 [ %4, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.0138307 = phi ptr [ %6, %.lr.ph ], [ %.2140, %lean_dec.exit ]
   %.0141306 = phi ptr [ %9, %.lr.ph ], [ %.2143, %lean_dec.exit ]
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.0136309
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0136309
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1

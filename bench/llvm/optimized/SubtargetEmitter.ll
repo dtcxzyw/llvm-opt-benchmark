@@ -17641,7 +17641,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEjNS_12DenseMapInfoIS4_vEENS_6d
   %46 = shl nuw i64 1, %45
   %47 = lshr i32 %43, 6
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %4, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !13
   %51 = or i64 %46, %50
   store i64 %51, ptr %49, align 8, !tbaa !13
@@ -17695,7 +17695,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit25
 
 _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %71, %73
-  %76 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %77 = load i64, ptr %76, align 8, !tbaa !13
   %78 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream9write_hexEy(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %77) #22
   %79 = load ptr, ptr %8, align 8, !tbaa !19

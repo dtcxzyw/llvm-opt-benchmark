@@ -78,7 +78,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   %.0 = select i1 %1, i32 %14, i32 %23
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %25 = sext i32 %.0 to i64
-  %26 = getelementptr inbounds [3 x i64], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds i64, ptr %24, i64 %25
   %27 = load i64, ptr %26, align 8
   %.not = icmp ugt i64 %0, %27
   br i1 %.not, label %31, label %28
@@ -95,7 +95,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   store i64 %0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 160
   store i32 1, ptr %34, align 8
-  %35 = getelementptr inbounds [3 x %struct.dlist_head], ptr %18, i64 0, i64 %25
+  %35 = getelementptr inbounds %struct.dlist_head, ptr %18, i64 %25
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   %.not121517.i = icmp eq ptr %36, %35
@@ -855,7 +855,7 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr noundef captures(none) ini
   %.03638 = phi i32 [ %.1, %53 ], [ 0, %.preheader ]
   %10 = load ptr, ptr @WalSndCtl, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %12 = getelementptr inbounds nuw [0 x %struct.WalSnd], ptr %11, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.WalSnd, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %0, align 8
   %14 = sext i32 %.03638 to i64
   %15 = getelementptr inbounds %struct.SyncRepStandbyData, ptr %13, i64 %14
@@ -1019,7 +1019,7 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
 .preheader:                                       ; preds = %11, %SyncRepWakeQueue.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %SyncRepWakeQueue.exit ], [ 0, %11 ]
   %15 = load ptr, ptr @WalSndCtl, align 8
-  %16 = getelementptr inbounds nuw [3 x %struct.dlist_head], ptr %15, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.dlist_head, ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null

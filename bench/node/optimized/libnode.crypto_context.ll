@@ -741,7 +741,7 @@ land.lhs.true:                                    ; preds = %init.end5
 
 for.body:                                         ; preds = %land.lhs.true, %_ZNSt6vectorIP7x509_stSaIS1_EE9push_backERKS1_.exit
   %i.013 = phi i64 [ %inc, %_ZNSt6vectorIP7x509_stSaIS1_EE9push_backERKS1_.exit ], [ 0, %land.lhs.true ]
-  %arrayidx = getelementptr inbounds nuw [146 x ptr], ptr @_ZN4node6cryptoL10root_certsE, i64 0, i64 %i.013
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN4node6cryptoL10root_certsE, i64 %i.013
   %11 = load ptr, ptr %arrayidx, align 8
   %call11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
   call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull %11, i64 noundef %call11, ptr noundef null) #20
@@ -981,10 +981,10 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit, %for.cond
   %i.010 = phi i64 [ 0, %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit ], [ %inc, %for.cond ]
   %12 = load ptr, ptr %isolate_.i, align 8
-  %arrayidx = getelementptr inbounds nuw [146 x ptr], ptr @_ZN4node6cryptoL10root_certsE, i64 0, i64 %i.010
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN4node6cryptoL10root_certsE, i64 %i.010
   %13 = load ptr, ptr %arrayidx, align 8
   %call3 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %12, ptr noundef %13, i32 noundef 0, i32 noundef -1) #20
-  %arrayidx7 = getelementptr inbounds nuw [146 x %"class.v8::Local"], ptr %result, i64 0, i64 %i.010
+  %arrayidx7 = getelementptr inbounds nuw %"class.v8::Local", ptr %result, i64 %i.010
   store ptr %call3, ptr %arrayidx7, align 8
   %cmp.i.i = icmp eq ptr %call3, null
   br i1 %cmp.i.i, label %return, label %for.cond

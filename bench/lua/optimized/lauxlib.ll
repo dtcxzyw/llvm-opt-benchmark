@@ -1679,7 +1679,7 @@ skipcomment.exit39.thread:                        ; preds = %24, %27, %48, %51, 
   %64 = add nuw nsw i32 %61, 1
   store i32 %64, ptr %4, align 8, !tbaa !39
   %65 = zext nneg i32 %61 to i64
-  %66 = getelementptr inbounds nuw [8192 x i8], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %65
   store i8 %62, ptr %66, align 1, !tbaa !15
   br label %67
 
@@ -2249,7 +2249,7 @@ define dso_local i32 @luaL_makeseed(ptr noundef readnone captures(none) %0) loca
   %8 = lshr i32 %.015.i, 3
   %9 = shl i32 %.015.i, 7
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = add i32 %10, %12
   %14 = xor i32 %13, %.015.i
@@ -2280,7 +2280,7 @@ define dso_local ptr @luaL_newstate() local_unnamed_addr #0 {
   %7 = lshr i32 %.015.i, 3
   %8 = shl i32 %.015.i, 7
   %9 = add i32 %7, %8
-  %10 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !32
   %12 = add i32 %9, %11
   %13 = xor i32 %12, %.015.i

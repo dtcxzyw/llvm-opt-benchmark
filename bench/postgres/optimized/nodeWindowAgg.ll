@@ -444,7 +444,7 @@ list_length.exit:                                 ; preds = %182, %186
   %216 = load ptr, ptr %215, align 8
   %217 = call i32 @exprType(ptr noundef %216) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %218 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %218 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %217, ptr %218, align 4
   %219 = load i32, ptr %210, align 4
   %220 = sext i32 %219 to i64
@@ -1487,7 +1487,7 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %216
   %337 = load ptr, ptr %334, align 8
   %338 = getelementptr inbounds nuw %union.ListCell, ptr %337, i64 %indvars.iv111.i.i
   %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %60, i64 0, i64 %indvars.iv.i.i
+  %340 = getelementptr inbounds nuw %struct.NullableDatum, ptr %60, i64 %indvars.iv.i.i
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 32
   %343 = load ptr, ptr %342, align 8
@@ -2006,7 +2006,7 @@ initialize_windowaggregate.exit.i:                ; preds = %495, %492
   %594 = load ptr, ptr %591, align 8
   %595 = getelementptr inbounds nuw %union.ListCell, ptr %594, i64 %indvars.iv113.i.i
   %596 = load ptr, ptr %595, align 8
-  %597 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %68, i64 0, i64 %indvars.iv.i192.i
+  %597 = getelementptr inbounds nuw %struct.NullableDatum, ptr %68, i64 %indvars.iv.i192.i
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %599 = getelementptr inbounds nuw i8, ptr %596, i64 32
   %600 = load ptr, ptr %599, align 8
@@ -2340,7 +2340,7 @@ advance_windowaggregate.exit.i:                   ; preds = %708, %636, %623, %6
 
 .lr.ph.i197.i:                                    ; preds = %.lr.ph.i197.i, %.lr.ph.preheader.i.i
   %indvars.iv.i198.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i199.i, %.lr.ph.i197.i ]
-  %762 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %81, i64 0, i64 %indvars.iv.i198.i
+  %762 = getelementptr inbounds nuw %struct.NullableDatum, ptr %81, i64 %indvars.iv.i198.i
   store i64 0, ptr %762, align 8
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 8
   store i8 1, ptr %763, align 8

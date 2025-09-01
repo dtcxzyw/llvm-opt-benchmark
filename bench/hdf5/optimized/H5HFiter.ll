@@ -185,14 +185,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
 
 82:                                               ; preds = %81
   %83 = lshr i64 %77, 56
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !56
   %86 = zext i8 %85 to i32
   %87 = add nuw nsw i32 %86, 56
   br label %H5VM_log2_gen.exit
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %80
+  %89 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %80
   %90 = load i8, ptr %89, align 1, !tbaa !56
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %91, 48
@@ -204,14 +204,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
 
 94:                                               ; preds = %93
   %95 = lshr i64 %77, 40
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !56
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %98, 40
   br label %H5VM_log2_gen.exit
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %78
+  %101 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %78
   %102 = load i8, ptr %101, align 1, !tbaa !56
   %103 = zext i8 %102 to i32
   %104 = add nuw nsw i32 %103, 32
@@ -228,14 +228,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
 
 108:                                              ; preds = %107
   %109 = lshr i64 %77, 24
-  %110 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !56
   %112 = zext i8 %111 to i32
   %113 = add nuw nsw i32 %112, 24
   br label %H5VM_log2_gen.exit
 
 114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %106
+  %115 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %106
   %116 = load i8, ptr %115, align 1, !tbaa !56
   %117 = zext i8 %116 to i32
   %118 = add nuw nsw i32 %117, 16
@@ -247,14 +247,14 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
 
 120:                                              ; preds = %119
   %121 = lshr i64 %77, 8
-  %122 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !56
   %124 = zext i8 %123 to i32
   %125 = add nuw nsw i32 %124, 8
   br label %H5VM_log2_gen.exit
 
 126:                                              ; preds = %119
-  %127 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %77
+  %127 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %77
   %128 = load i8, ptr %127, align 1, !tbaa !56
   %129 = zext i8 %128 to i32
   br label %H5VM_log2_gen.exit

@@ -22,7 +22,7 @@ define ptr @ossl_dh_gen_type_id2name(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw %struct.dh_name2id_st, ptr @dhtype2id, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !5
   %8 = icmp eq i32 %7, %0
@@ -43,7 +43,7 @@ define i32 @ossl_dh_gen_type_name2id(ptr noundef readonly captures(none) %0, i32
 
 3:                                                ; preds = %2, %16
   %.010 = phi i64 [ 0, %2 ], [ %17, %16 ]
-  %4 = getelementptr inbounds nuw [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %.010
+  %4 = getelementptr inbounds nuw %struct.dh_name2id_st, ptr @dhtype2id, i64 %.010
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !13
   %7 = icmp eq i32 %6, -1

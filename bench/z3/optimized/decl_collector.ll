@@ -2462,7 +2462,7 @@ _ZNK4sort10is_sort_ofEii.exit:                    ; preds = %_ZNK4decl13get_fami
 
 62:                                               ; preds = %.lr.ph146, %._crit_edge143
   %indvars.iv181 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next182, %._crit_edge143 ]
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %indvars.iv181
+  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv181
   %64 = load ptr, ptr %63, align 8, !tbaa !23
   %65 = load i32, ptr %48, align 4, !tbaa !193
   %66 = load i32, ptr %49, align 8, !tbaa !194

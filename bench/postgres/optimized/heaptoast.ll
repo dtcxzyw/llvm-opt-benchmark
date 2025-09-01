@@ -144,14 +144,14 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br label %61
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds nuw [1600 x %struct.ToastAttrInfo], ptr %9, i64 0, i64 %51, i32 2
+  %58 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51, i32 2
   %59 = load i8, ptr %58, align 4
   %60 = or i8 %59, 32
   store i8 %60, ptr %58, align 4
   br label %61
 
 61:                                               ; preds = %57, %56
-  %62 = getelementptr inbounds nuw [1600 x %struct.ToastAttrInfo], ptr %9, i64 0, i64 %51, i32 1
+  %62 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51, i32 1
   %63 = load i32, ptr %62, align 8
   %64 = sext i32 %63 to i64
   %65 = icmp ult i64 %39, %64
@@ -353,7 +353,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 
 10:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %11 = getelementptr inbounds nuw [1664 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %28, label %14
@@ -366,7 +366,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw [1664 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
   %22 = load i8, ptr %21, align 1
@@ -377,7 +377,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   %25 = call ptr @detoast_external_attr(ptr noundef nonnull %21) #8
   %26 = ptrtoint ptr %25 to i64
   store i64 %26, ptr %19, align 8
-  %27 = getelementptr inbounds nuw [1664 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 1, ptr %27, align 1
   br label %28
 
@@ -441,13 +441,13 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %74
   %indvars.iv43 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next44, %74 ]
-  %67 = getelementptr inbounds nuw [1664 x i8], ptr %5, i64 0, i64 %indvars.iv43
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv43
   %68 = load i8, ptr %67, align 1, !range !4, !noundef !5
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %.lr.ph40
-  %71 = getelementptr inbounds nuw [1664 x i64], ptr %3, i64 0, i64 %indvars.iv43
+  %71 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv43
   %72 = load i64, ptr %71, align 8
   %73 = inttoptr i64 %72 to ptr
   call void @pfree(ptr noundef %73) #8
@@ -510,7 +510,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 17:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.058 = phi i1 [ false, %.lr.ph ], [ %.1, %37 ]
-  %18 = getelementptr inbounds nuw [1664 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !range !4, !noundef !5
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %37, label %21
@@ -523,7 +523,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br i1 %24, label %25, label %37
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw [1664 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8
   %28 = inttoptr i64 %27 to ptr
   %29 = load i8, ptr %28, align 1
@@ -537,7 +537,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %34 = call ptr @detoast_attr(ptr noundef nonnull %28) #8
   %35 = ptrtoint ptr %34 to i64
   store i64 %35, ptr %26, align 8
-  %36 = getelementptr inbounds nuw [1664 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 1, ptr %36, align 1
   br label %37
 
@@ -601,13 +601,13 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %73
   %indvars.iv63 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next64, %73 ]
-  %66 = getelementptr inbounds nuw [1664 x i8], ptr %7, i64 0, i64 %indvars.iv63
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv63
   %67 = load i8, ptr %66, align 1, !range !4, !noundef !5
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %.lr.ph61
-  %70 = getelementptr inbounds nuw [1664 x i64], ptr %5, i64 0, i64 %indvars.iv63
+  %70 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv63
   %71 = load i64, ptr %70, align 8
   %72 = inttoptr i64 %71 to ptr
   call void @pfree(ptr noundef %72) #8
@@ -667,7 +667,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   br i1 %19, label %20, label %32
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw [1664 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = inttoptr i64 %22 to ptr
   %24 = load i8, ptr %23, align 1
@@ -680,7 +680,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   store i64 %28, ptr %21, align 8
   %29 = add i32 %.02325, 1
   %30 = sext i32 %.02325 to i64
-  %31 = getelementptr inbounds [1664 x ptr], ptr %5, i64 0, i64 %30
+  %31 = getelementptr inbounds ptr, ptr %5, i64 %30
   store ptr %27, ptr %31, align 8
   br label %32
 
@@ -701,7 +701,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %.lr.ph29
   %indvars.iv32 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next33, %.lr.ph29 ]
-  %35 = getelementptr inbounds nuw [1664 x ptr], ptr %5, i64 0, i64 %indvars.iv32
+  %35 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv32
   %36 = load ptr, ptr %35, align 8
   call void @pfree(ptr noundef %36) #8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
@@ -949,28 +949,28 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  %8 = add nsw i32 %1, -1
-  br i1 %.not.i, label %9, label %47
+  br i1 %.not.i, label %8, label %47
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %10, i64 0, i64 %11
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = zext nneg i32 %1 to i64
+  %11 = getelementptr %struct.CompactAttribute, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -16
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %45
 
-15:                                               ; preds = %9
+15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 %18
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
+  %22 = getelementptr i8, ptr %11, i64 -10
   %23 = load i8, ptr %22, align 2, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %25 = getelementptr i8, ptr %11, i64 -12
   %26 = load i16, ptr %25, align 4
   br i1 %24, label %27, label %43
 
@@ -1013,29 +1013,30 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %44 = ptrtoint ptr %21 to i64
   br label %fetch_att.exit
 
-45:                                               ; preds = %9
+45:                                               ; preds = %8
   %46 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #8
   br label %fetch_att.exit
 
 47:                                               ; preds = %4
-  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %.val20 = load i8, ptr %48, align 1
-  %49 = zext i8 %.val20 to i32
-  %50 = shl nuw nsw i32 1, %8
-  %51 = and i32 %50, %49
-  %.not.i21 = icmp eq i32 %51, 0
-  br i1 %.not.i21, label %52, label %53
+  %48 = add nsw i32 %1, -1
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %.val20 = load i8, ptr %49, align 1
+  %50 = zext i8 %.val20 to i32
+  %51 = shl nuw nsw i32 1, %48
+  %52 = and i32 %51, %50
+  %.not.i21 = icmp eq i32 %52, 0
+  br i1 %.not.i21, label %53, label %54
 
-52:                                               ; preds = %47
+53:                                               ; preds = %47
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-53:                                               ; preds = %47
-  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
+54:                                               ; preds = %47
+  %55 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %53, %52
-  %.1 = phi i64 [ 0, %52 ], [ %54, %53 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
+fetch_att.exit:                                   ; preds = %43, %37, %34, %31, %28, %45, %54, %53
+  %.1 = phi i64 [ 0, %53 ], [ %55, %54 ], [ %46, %45 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %38, %37 ], [ %44, %43 ]
   ret i64 %.1
 }
 

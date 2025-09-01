@@ -2632,7 +2632,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %34 = shl nuw i64 1, %33
   %35 = sdiv i32 %31, 64
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [16 x i64], ptr %0, i64 0, i64 %36
+  %37 = getelementptr inbounds i64, ptr %0, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !7
   %39 = or i64 %34, %38
   store i64 %39, ptr %37, align 8, !tbaa !7
@@ -2661,7 +2661,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %50 = shl nuw i64 1, %49
   %51 = sdiv i32 %47, 64
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [16 x i64], ptr %0, i64 0, i64 %52
+  %53 = getelementptr inbounds i64, ptr %0, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !7
   %55 = or i64 %50, %54
   store i64 %55, ptr %53, align 8, !tbaa !7
@@ -2680,7 +2680,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %63 = shl nuw i64 1, %62
   %64 = sdiv i32 %60, 64
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [16 x i64], ptr %16, i64 0, i64 %65
+  %66 = getelementptr inbounds i64, ptr %16, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !7
   %68 = or i64 %63, %67
   store i64 %68, ptr %66, align 8, !tbaa !7
@@ -2699,7 +2699,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %74 = shl nuw i64 1, %73
   %75 = sdiv i32 %.pre, 64
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [16 x i64], ptr %17, i64 0, i64 %76
+  %77 = getelementptr inbounds i64, ptr %17, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !7
   %79 = or i64 %74, %78
   store i64 %79, ptr %77, align 8, !tbaa !7
@@ -2875,7 +2875,7 @@ zmq_getsockopt.exit:                              ; preds = %15
   %39 = load i32, ptr %38, align 8, !tbaa !34
   %40 = sdiv i32 %39, 64
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [16 x i64], ptr %7, i64 0, i64 %41
+  %42 = getelementptr inbounds i64, ptr %7, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !7
   %44 = srem i32 %39, 64
   %45 = zext nneg i32 %44 to i64
@@ -2890,7 +2890,7 @@ zmq_getsockopt.exit:                              ; preds = %15
 
 49:                                               ; preds = %48, %37
   %50 = phi i16 [ 1, %48 ], [ 0, %37 ]
-  %51 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %41
+  %51 = getelementptr inbounds i64, ptr %8, i64 %41
   %52 = load i64, ptr %51, align 8, !tbaa !7
   %53 = and i64 %52, %46
   %.not48 = icmp eq i64 %53, 0
@@ -2903,7 +2903,7 @@ zmq_getsockopt.exit:                              ; preds = %15
 
 56:                                               ; preds = %54, %49
   %57 = phi i16 [ %55, %54 ], [ %50, %49 ]
-  %58 = getelementptr inbounds [16 x i64], ptr %9, i64 0, i64 %41
+  %58 = getelementptr inbounds i64, ptr %9, i64 %41
   %59 = load i64, ptr %58, align 8, !tbaa !7
   %60 = and i64 %59, %46
   %.not49 = icmp eq i64 %60, 0

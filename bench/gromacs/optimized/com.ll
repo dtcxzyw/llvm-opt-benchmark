@@ -260,9 +260,9 @@ _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit50:  ; preds = %41, %._crit_edge, %
 
 84:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
-  %85 = getelementptr inbounds nuw [3 x float], ptr %.sroa.0.05.i, i64 0, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw float, ptr %.sroa.0.05.i, i64 %indvars.iv.i
   %86 = load float, ptr %85, align 4, !tbaa !39
-  %87 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   %88 = load float, ptr %87, align 4, !tbaa !39
   %89 = call float @llvm.fmuladd.f32(float %79, float %86, float %88)
   store float %89, ptr %87, align 4, !tbaa !39

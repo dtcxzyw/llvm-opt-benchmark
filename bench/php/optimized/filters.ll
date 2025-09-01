@@ -55,24 +55,23 @@ define hidden range(i32 -1, 1) i32 @zm_startup_standard_filters(i32 noundef %0, 
 
 3:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr inbounds nuw [7 x %struct.anon], ptr @standard_filters, i64 0, i64 %indvars.iv.next
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv.next
   %5 = load ptr, ptr %4, align 16, !tbaa !4
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %15, label %6
+  br i1 %exitcond, label %14, label %6
 
 6:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %7 = phi ptr [ @strfilter_rot13_ops, %2 ], [ %5, %3 ]
-  %8 = phi ptr [ @standard_filters, %2 ], [ %4, %3 ]
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !14
-  %13 = tail call i32 @php_stream_filter_register_factory(ptr noundef %10, ptr noundef %12) #18
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  %12 = tail call i32 @php_stream_filter_register_factory(ptr noundef %9, ptr noundef %11) #18
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %14, label %3
 
-15:                                               ; preds = %3, %6
+14:                                               ; preds = %3, %6
   %.05 = phi i32 [ -1, %6 ], [ 0, %3 ]
   ret i32 %.05
 }
@@ -90,7 +89,7 @@ define hidden noundef i32 @zm_shutdown_standard_filters(i32 noundef %0, i32 noun
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = tail call i32 @php_stream_filter_unregister_factory(ptr noundef %6) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw [7 x %struct.anon], ptr @standard_filters, i64 0, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 16, !tbaa !4
   %exitcond = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond, label %10, label %3
@@ -451,7 +450,7 @@ define internal fastcc range(i32 -1, 1) i32 @strfilter_convert_append_bucket(ptr
   %39 = load i8, ptr %31, align 1, !tbaa !25
   %40 = add nuw nsw i64 %35, 1
   store i64 %40, ptr %22, align 8, !tbaa !37
-  %41 = getelementptr inbounds nuw [128 x i8], ptr %25, i64 0, i64 %35
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 %35
   store i8 %39, ptr %41, align 1, !tbaa !25
   %42 = add i64 %33, -1
   store i64 %42, ptr %12, align 8, !tbaa !24
@@ -1538,14 +1537,14 @@ define internal i32 @php_conv_base64_encode_convert(ptr noundef captures(none) %
   %37 = load i8, ptr %36, align 1, !tbaa !25
   %38 = lshr i8 %37, 2
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %.058.i, i64 1
   store i8 %41, ptr %.058.i, align 1, !tbaa !25
   %43 = load i8, ptr %36, align 1, !tbaa !25
   %44 = shl i8 %43, 4
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %45
   %47 = load i8, ptr %46, align 16, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %.058.i, i64 2
   store i8 %47, ptr %42, align 1, !tbaa !25
@@ -1599,7 +1598,7 @@ define internal i32 @php_conv_base64_encode_convert(ptr noundef captures(none) %
   %73 = load i8, ptr %72, align 1, !tbaa !25
   %74 = lshr i8 %73, 2
   %75 = zext nneg i8 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !25
   %78 = getelementptr inbounds nuw i8, ptr %.260.i, i64 1
   store i8 %77, ptr %.260.i, align 1, !tbaa !25
@@ -1608,14 +1607,14 @@ define internal i32 @php_conv_base64_encode_convert(ptr noundef captures(none) %
   %81 = load i8, ptr %80, align 1, !tbaa !25
   %82 = tail call i8 @llvm.fshl.i8(i8 %79, i8 %81, i8 4)
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !25
   %86 = getelementptr inbounds nuw i8, ptr %.260.i, i64 2
   store i8 %85, ptr %78, align 1, !tbaa !25
   %87 = load i8, ptr %80, align 1, !tbaa !25
   %88 = shl i8 %87, 2
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %89
   %91 = load i8, ptr %90, align 4, !tbaa !25
   %92 = getelementptr inbounds nuw i8, ptr %.260.i, i64 3
   store i8 %91, ptr %86, align 1, !tbaa !25
@@ -1698,7 +1697,7 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %126 = load i8, ptr %125, align 1, !tbaa !25
   %127 = lshr i8 %126, 2
   %128 = zext nneg i8 %127 to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !25
   %131 = getelementptr inbounds nuw i8, ptr %.1111, i64 1
   store i8 %130, ptr %.1111, align 1, !tbaa !25
@@ -1706,7 +1705,7 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %133 = load i8, ptr %101, align 1, !tbaa !25
   %134 = tail call i8 @llvm.fshl.i8(i8 %132, i8 %133, i8 4)
   %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %135
   %137 = load i8, ptr %136, align 1, !tbaa !25
   %138 = getelementptr inbounds nuw i8, ptr %.1111, i64 2
   store i8 %137, ptr %131, align 1, !tbaa !25
@@ -1715,13 +1714,13 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %141 = load i8, ptr %140, align 1, !tbaa !25
   %142 = tail call i8 @llvm.fshl.i8(i8 %139, i8 %141, i8 2)
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !25
   %146 = getelementptr inbounds nuw i8, ptr %.1111, i64 3
   store i8 %145, ptr %138, align 1, !tbaa !25
   %147 = load i8, ptr %140, align 1, !tbaa !25
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !25
   store i8 %150, ptr %146, align 1, !tbaa !25
   br label %.sink.split
@@ -1767,7 +1766,7 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %171 = load i8, ptr %170, align 1, !tbaa !25
   %172 = lshr i8 %171, 2
   %173 = zext nneg i8 %172 to i64
-  %174 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !25
   %176 = getelementptr inbounds nuw i8, ptr %.3113, i64 1
   store i8 %175, ptr %.3113, align 1, !tbaa !25
@@ -1776,7 +1775,7 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %179 = load i8, ptr %178, align 1, !tbaa !25
   %180 = tail call i8 @llvm.fshl.i8(i8 %177, i8 %179, i8 4)
   %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %181
   %183 = load i8, ptr %182, align 1, !tbaa !25
   %184 = getelementptr inbounds nuw i8, ptr %.3113, i64 2
   store i8 %183, ptr %176, align 1, !tbaa !25
@@ -1784,13 +1783,13 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %186 = load i8, ptr %101, align 1, !tbaa !25
   %187 = tail call i8 @llvm.fshl.i8(i8 %185, i8 %186, i8 2)
   %188 = zext i8 %187 to i64
-  %189 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !25
   %191 = getelementptr inbounds nuw i8, ptr %.3113, i64 3
   store i8 %190, ptr %184, align 1, !tbaa !25
   %192 = load i8, ptr %101, align 1, !tbaa !25
   %193 = zext i8 %192 to i64
-  %194 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !25
   store i8 %195, ptr %191, align 1, !tbaa !25
   br label %.sink.split
@@ -1876,7 +1875,7 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %221 = load i8, ptr %.2118165, align 1, !tbaa !25
   %222 = lshr i8 %221, 2
   %223 = zext nneg i8 %222 to i64
-  %224 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %223
   %225 = load i8, ptr %224, align 1, !tbaa !25
   %226 = getelementptr inbounds nuw i8, ptr %.5115, i64 1
   store i8 %225, ptr %.5115, align 1, !tbaa !25
@@ -1885,7 +1884,7 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %229 = load i8, ptr %228, align 1, !tbaa !25
   %230 = tail call i8 @llvm.fshl.i8(i8 %227, i8 %229, i8 4)
   %231 = zext i8 %230 to i64
-  %232 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !25
   %234 = getelementptr inbounds nuw i8, ptr %.5115, i64 2
   store i8 %233, ptr %226, align 1, !tbaa !25
@@ -1894,13 +1893,13 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %237 = load i8, ptr %236, align 1, !tbaa !25
   %238 = tail call i8 @llvm.fshl.i8(i8 %235, i8 %237, i8 2)
   %239 = zext i8 %238 to i64
-  %240 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !25
   %242 = getelementptr inbounds nuw i8, ptr %.5115, i64 3
   store i8 %241, ptr %234, align 1, !tbaa !25
   %243 = load i8, ptr %236, align 1, !tbaa !25
   %244 = zext i8 %243 to i64
-  %245 = getelementptr inbounds nuw [256 x i8], ptr @b64_tbl_enc, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr @b64_tbl_enc, i64 %244
   %246 = load i8, ptr %245, align 1, !tbaa !25
   %247 = getelementptr inbounds nuw i8, ptr %.5115, i64 4
   store i8 %246, ptr %242, align 1, !tbaa !25
@@ -1919,7 +1918,7 @@ php_conv_base64_encode_flush.exit:                ; preds = %22, %58, %97
   %256 = load i8, ptr %.3119174, align 1, !tbaa !25
   %257 = add i64 %254, 1
   store i64 %257, ptr %11, align 8, !tbaa !47
-  %258 = getelementptr inbounds nuw [3 x i8], ptr %205, i64 0, i64 %254
+  %258 = getelementptr inbounds nuw i8, ptr %205, i64 %254
   store i8 %256, ptr %258, align 1, !tbaa !25
   %259 = add nsw i64 %.3123173, -1
   %.not151 = icmp eq i64 %259, 0
@@ -2064,7 +2063,7 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr noundef 
   %39 = getelementptr inbounds nuw i8, ptr %.097, i64 1
   %40 = load i8, ptr %.097, align 1, !tbaa !25
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i32], ptr @b64_tbl_dec, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr @b64_tbl_dec, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !80
   %44 = add i64 %.091, -1
   %45 = and i32 %43, 128
@@ -2569,13 +2568,13 @@ define internal range(i32 0, 3) i32 @php_conv_qprint_encode_convert(ptr noundef 
   store i8 61, ptr %.7216, align 1, !tbaa !25
   %176 = lshr i32 %68, 4
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw [17 x i8], ptr @php_conv_qprint_encode_convert.qp_digits, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @php_conv_qprint_encode_convert.qp_digits, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !25
   %180 = getelementptr inbounds nuw i8, ptr %.7216, i64 2
   store i8 %179, ptr %175, align 1, !tbaa !25
   %181 = and i32 %68, 15
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw [17 x i8], ptr @php_conv_qprint_encode_convert.qp_digits, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @php_conv_qprint_encode_convert.qp_digits, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !25
   %185 = getelementptr inbounds nuw i8, ptr %.7216, i64 3
   store i8 %184, ptr %180, align 1, !tbaa !25

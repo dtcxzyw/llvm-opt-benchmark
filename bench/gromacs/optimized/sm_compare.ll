@@ -289,7 +289,7 @@ _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62: ; pred
 
 100:                                              ; preds = %98
   invoke void @__cxa_throw(ptr %96, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #21
-          to label %163 unwind label %103
+          to label %164 unwind label %103
 
 .thread:                                          ; preds = %94
   %101 = landingpad { ptr, i32 }
@@ -338,13 +338,13 @@ select.unfold:                                    ; preds = %90, %86, %76, %81
   br i1 %.not, label %132, label %110
 
 110:                                              ; preds = %select.unfold
-  br i1 %.not52, label %111, label %162
+  br i1 %.not52, label %111, label %163
 
 111:                                              ; preds = %110
   %112 = and i32 %40, 2
   %113 = and i32 %112, %73
   %.not49 = icmp eq i32 %113, 0
-  br i1 %.not49, label %114, label %162
+  br i1 %.not49, label %114, label %163
 
 114:                                              ; preds = %111
   %115 = and i32 %73, 2
@@ -382,20 +382,20 @@ _ZL16convert_int_realiP15t_compare_value.exit:    ; preds = %122, %116
   %129 = load i32, ptr %41, align 8, !tbaa !7
   %130 = or i32 %129, 36
   store i32 %130, ptr %41, align 8, !tbaa !7
-  br label %162
+  br label %163
 
 131:                                              ; preds = %114
   tail call fastcc void @_ZL16convert_real_intiP15t_compare_value14e_comparison_tb(i32 noundef %.0.i, ptr noundef nonnull %8, i32 noundef %.0.i63.ph, i1 noundef zeroext false)
-  br label %162
+  br label %163
 
 132:                                              ; preds = %select.unfold
-  br i1 %.not52, label %162, label %133
+  br i1 %.not52, label %163, label %133
 
 133:                                              ; preds = %132
   %134 = and i32 %40, 2
   %135 = and i32 %134, %73
   %.not53 = icmp eq i32 %135, 0
-  br i1 %.not53, label %145, label %136
+  br i1 %.not53, label %146, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -414,62 +414,62 @@ _ZL16convert_int_realiP15t_compare_value.exit:    ; preds = %122, %116
   br i1 %143, label %switch.lookup, label %_ZL23reverse_comparison_type14e_comparison_t.exit
 
 switch.lookup:                                    ; preds = %136
-  %switch.tableidx = add nsw i32 %.0.i63.ph, -1
-  %144 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 0, i64 %144
+  %144 = zext nneg i32 %.0.i63.ph to i64
+  %145 = getelementptr i32, ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 %144
+  %switch.gep = getelementptr i8, ptr %145, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL23reverse_comparison_type14e_comparison_t.exit
 
 _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %136, %switch.lookup
   %.0.i64 = phi i32 [ %switch.load, %switch.lookup ], [ %.0.i63.ph, %136 ]
   store i32 %.0.i64, ptr %107, align 8, !tbaa !24
-  br label %162
+  br label %163
 
-145:                                              ; preds = %133
+146:                                              ; preds = %133
   %.not54 = icmp eq i32 %134, 0
-  br i1 %.not54, label %146, label %161
+  br i1 %.not54, label %147, label %162
 
-146:                                              ; preds = %145
-  %147 = sext i32 %.0.i to i64
-  %148 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.7, i32 noundef 349, i64 noundef range(i64 -2147483648, 2147483648) %147, i64 noundef 4)
-  %149 = icmp sgt i32 %.0.i, 0
-  br i1 %149, label %.lr.ph.i65, label %_ZL16convert_int_realiP15t_compare_value.exit70
+147:                                              ; preds = %146
+  %148 = sext i32 %.0.i to i64
+  %149 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.7, i32 noundef 349, i64 noundef range(i64 -2147483648, 2147483648) %148, i64 noundef 4)
+  %150 = icmp sgt i32 %.0.i, 0
+  br i1 %150, label %.lr.ph.i65, label %_ZL16convert_int_realiP15t_compare_value.exit70
 
-.lr.ph.i65:                                       ; preds = %146
-  %150 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %151 = load ptr, ptr %150, align 8, !tbaa !19
+.lr.ph.i65:                                       ; preds = %147
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %152 = load ptr, ptr %151, align 8, !tbaa !19
   %wide.trip.count.i66 = zext nneg i32 %.0.i to i64
-  br label %152
+  br label %153
 
-152:                                              ; preds = %152, %.lr.ph.i65
-  %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i68, %152 ]
-  %153 = getelementptr inbounds nuw i32, ptr %151, i64 %indvars.iv.i67
-  %154 = load i32, ptr %153, align 4, !tbaa !28
-  %155 = sitofp i32 %154 to float
-  %156 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv.i67
-  store float %155, ptr %156, align 4, !tbaa !29
+153:                                              ; preds = %153, %.lr.ph.i65
+  %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i68, %153 ]
+  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i67
+  %155 = load i32, ptr %154, align 4, !tbaa !28
+  %156 = sitofp i32 %155 to float
+  %157 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv.i67
+  store float %156, ptr %157, align 4, !tbaa !29
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i66
-  br i1 %exitcond.not.i69, label %_ZL16convert_int_realiP15t_compare_value.exit70, label %152, !llvm.loop !31
+  br i1 %exitcond.not.i69, label %_ZL16convert_int_realiP15t_compare_value.exit70, label %153, !llvm.loop !31
 
-_ZL16convert_int_realiP15t_compare_value.exit70:  ; preds = %152, %146
-  %157 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %158 = load ptr, ptr %157, align 8, !tbaa !20
-  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.7, i32 noundef 355, ptr noundef %158)
-  store ptr %148, ptr %157, align 8, !tbaa !20
-  %159 = load i32, ptr %8, align 8, !tbaa !7
-  %160 = or i32 %159, 36
-  store i32 %160, ptr %8, align 8, !tbaa !7
-  br label %162
+_ZL16convert_int_realiP15t_compare_value.exit70:  ; preds = %153, %147
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %159 = load ptr, ptr %158, align 8, !tbaa !20
+  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.7, i32 noundef 355, ptr noundef %159)
+  store ptr %149, ptr %158, align 8, !tbaa !20
+  %160 = load i32, ptr %8, align 8, !tbaa !7
+  %161 = or i32 %160, 36
+  store i32 %161, ptr %8, align 8, !tbaa !7
+  br label %163
 
-161:                                              ; preds = %145
+162:                                              ; preds = %146
   tail call fastcc void @_ZL16convert_real_intiP15t_compare_value14e_comparison_tb(i32 noundef %.0.i59, ptr noundef nonnull %41, i32 noundef %.0.i63.ph, i1 noundef zeroext true)
-  br label %162
+  br label %163
 
-162:                                              ; preds = %110, %132, %_ZL16convert_int_realiP15t_compare_value.exit70, %161, %_ZL23reverse_comparison_type14e_comparison_t.exit, %111, %131, %_ZL16convert_int_realiP15t_compare_value.exit
+163:                                              ; preds = %110, %132, %_ZL16convert_int_realiP15t_compare_value.exit70, %162, %_ZL23reverse_comparison_type14e_comparison_t.exit, %111, %131, %_ZL16convert_int_realiP15t_compare_value.exit
   ret void
 
-163:                                              ; preds = %100
+164:                                              ; preds = %100
   unreachable
 }
 
@@ -971,7 +971,7 @@ define internal fastcc void @_ZL16convert_real_intiP15t_compare_value14e_compari
 
 switch.lookup:                                    ; preds = %11
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL23reverse_comparison_type14e_comparison_t.exit
 

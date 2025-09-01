@@ -117,14 +117,14 @@ define i32 @T_CString_integerToString_77(ptr noundef %0, i32 noundef %1, i32 nou
   %17 = select i1 %14, i32 %15, i32 %16
   %18 = trunc i32 %17 to i8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds [30 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %19 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
   store i8 %18, ptr %19, align 1, !tbaa !3
   %20 = udiv i32 %.1, %2
   %.not = icmp ugt i32 %2, %.1
   br i1 %.not, label %21, label %11, !llvm.loop !9
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds [30 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %22 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
   %23 = trunc nsw i64 %indvars.iv to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.022
   %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %22) #12
@@ -172,14 +172,14 @@ define i32 @T_CString_int64ToString_77(ptr noundef %0, i64 noundef %1, i32 nound
   %19 = select i1 %16, i32 %17, i32 %18
   %20 = trunc i32 %19 to i8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = getelementptr inbounds [30 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %21 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
   store i8 %20, ptr %21, align 1, !tbaa !3
   %22 = udiv i64 %.1, %11
   %.not = icmp ult i64 %.1, %11
   br i1 %.not, label %23, label %12, !llvm.loop !10
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds [30 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %24 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
   %25 = trunc nsw i64 %indvars.iv to i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.022
   %27 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %24) #12

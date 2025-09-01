@@ -210,7 +210,7 @@ define dso_local noundef zeroext i1 @_ZN11btShapeHull9buildHullEfi(ptr noundef n
   %17 = tail call { <2 x float>, <2 x float> } %16(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(16) %13)
   %18 = extractvalue { <2 x float>, <2 x float> } %17, 0
   %19 = extractvalue { <2 x float>, <2 x float> } %17, 1
-  %20 = getelementptr inbounds nuw [276 x %class.btVector3], ptr %3, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %indvars.iv
   store <2 x float> %18, ptr %20, align 16
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store <2 x float> %19, ptr %.sroa.47.0..sroa_idx, align 8, !tbaa !30
@@ -245,7 +245,7 @@ define dso_local noundef zeroext i1 @_ZN11btShapeHull9buildHullEfi(ptr noundef n
   %37 = extractvalue { <2 x float>, <2 x float> } %36, 0
   %38 = extractvalue { <2 x float>, <2 x float> } %36, 1
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %39 = getelementptr inbounds nuw [276 x %class.btVector3], ptr %3, i64 0, i64 %indvars.iv80
+  %39 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %indvars.iv80
   store <2 x float> %37, ptr %39, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store <2 x float> %38, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30

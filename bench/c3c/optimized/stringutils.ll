@@ -890,7 +890,7 @@ define dso_local void @scratch_buffer_printf(ptr noundef readonly captures(none)
   %4 = sub i32 65536, %3
   %5 = zext i32 %4 to i64
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %6
   %8 = call i32 @vsnprintf(ptr noundef nonnull %7, i64 noundef %5, ptr noundef %0, ptr noundef nonnull %2) #21
   %9 = zext i32 %8 to i64
   %10 = add nsw i64 %5, -1
@@ -924,7 +924,7 @@ define dso_local void @scratch_buffer_append_double(double noundef %0) local_unn
   %indvars.iv = phi i64 [ %2, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = and i64 %indvars.iv.next, 4294967295
-  %4 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %3
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %._crit_edge [
     i8 48, label %6
@@ -961,7 +961,7 @@ define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) local_u
 6:                                                ; preds = %1
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %7
   store i8 %0, ptr %8, align 1
   ret void
 }
@@ -970,7 +970,7 @@ define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) local_u
 define dso_local noundef nonnull ptr @scratch_buffer_to_string() local_unnamed_addr #16 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %2 = zext i32 %1 to i64
-  %3 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %2
   store i8 0, ptr %3, align 1
   ret ptr @scratch_buffer
 }

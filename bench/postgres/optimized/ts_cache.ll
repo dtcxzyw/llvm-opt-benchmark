@@ -796,7 +796,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 
 113:                                              ; preds = %111
   %114 = zext nneg i32 %.0100132 to i64
-  %115 = getelementptr inbounds nuw [257 x %struct.ListDictionary], ptr %5, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw %struct.ListDictionary, ptr %5, i64 %114
   store i32 %.0102131, ptr %115, align 16
   %116 = load ptr, ptr @CacheMemoryContext, align 8
   %117 = zext nneg i32 %.0102131 to i64
@@ -829,7 +829,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %131 = load i32, ptr %130, align 4
   %132 = add nsw i32 %.0102131, 1
   %133 = sext i32 %.0102131 to i64
-  %134 = getelementptr inbounds [100 x i32], ptr %6, i64 0, i64 %133
+  %134 = getelementptr inbounds i32, ptr %6, i64 %133
   store i32 %131, ptr %134, align 4
   br label %135
 
@@ -851,7 +851,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 
 138:                                              ; preds = %._crit_edge135
   %139 = zext nneg i32 %.0100.lcssa to i64
-  %140 = getelementptr inbounds nuw [257 x %struct.ListDictionary], ptr %5, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw %struct.ListDictionary, ptr %5, i64 %139
   store i32 %.0102.lcssa, ptr %140, align 16
   %141 = load ptr, ptr @CacheMemoryContext, align 8
   %142 = zext nneg i32 %.0102.lcssa to i64

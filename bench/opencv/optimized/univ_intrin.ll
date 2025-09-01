@@ -1746,7 +1746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216: ; preds = %_Z
 
 603:                                              ; preds = %.lr.ph57.us.us.us.i, %603
   %indvars.iv110.i = phi i64 [ %indvars.iv103.i, %.lr.ph57.us.us.us.i ], [ %indvars.iv.next111.i, %603 ]
-  %604 = getelementptr inbounds nuw [100005 x float], ptr %7, i64 0, i64 %indvars.iv110.i
+  %604 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv110.i
   %605 = load float, ptr %604, align 4, !tbaa !32
   %606 = getelementptr inbounds nuw float, ptr %628, i64 %indvars.iv110.i
   %607 = load float, ptr %606, align 4, !tbaa !32
@@ -1766,7 +1766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216: ; preds = %_Z
   %615 = getelementptr inbounds nuw i8, ptr %611, i64 %614
   %616 = getelementptr inbounds nuw float, ptr %615, i64 %indvars.iv105.i
   %617 = load <4 x float>, ptr %616, align 1, !tbaa !29
-  %618 = getelementptr inbounds nuw [100005 x float], ptr %7, i64 0, i64 %indvars.iv105.i
+  %618 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv105.i
   %619 = load <4 x float>, ptr %618, align 16, !tbaa !29
   %620 = fadd <4 x float> %617, %619
   store <4 x float> %620, ptr %616, align 1, !tbaa !29
@@ -1844,7 +1844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216: ; preds = %_Z
 
 640:                                              ; preds = %640, %.preheader.us65.us.us.i
   %indvars.iv.i220 = phi i64 [ %indvars.iv.next.i221, %640 ], [ 0, %.preheader.us65.us.us.i ]
-  %641 = getelementptr inbounds nuw [100005 x float], ptr %7, i64 0, i64 %indvars.iv.i220
+  %641 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i220
   %642 = load float, ptr %641, align 4, !tbaa !32
   %643 = getelementptr inbounds nuw float, ptr %639, i64 %indvars.iv.i220
   %644 = load float, ptr %643, align 4, !tbaa !32

@@ -1489,7 +1489,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %153, %149, %147
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %125
   %164 = zext nneg i32 %53 to i64
-  %165 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL12getMergeFuncEiE8mergeTab, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL12getMergeFuncEiE8mergeTab, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !74
   %167 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %168 = load i32, ptr %167, align 4, !tbaa !60

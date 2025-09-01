@@ -3604,7 +3604,7 @@ define internal zeroext i1 @reached_end_position(i64 noundef %0, i32 %1, i1 zero
   %13 = shl nuw i64 1, %12
   %14 = sdiv i32 %10, 64
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %15
+  %16 = getelementptr inbounds i64, ptr %4, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = or i64 %13, %17
   store i64 %18, ptr %16, align 8

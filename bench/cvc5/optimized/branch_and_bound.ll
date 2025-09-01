@@ -798,7 +798,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %_ZN4cvc58internal8R
   %264 = icmp eq i32 %263, 2
   %265 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %266 = zext i1 %264 to i64
-  %267 = getelementptr inbounds nuw [0 x ptr], ptr %265, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw ptr, ptr %265, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !244, !noalias !241
   store ptr %268, ptr %55, align 8, !tbaa !231, !alias.scope !241
   %269 = load i64, ptr %268, align 8, !noalias !241
@@ -7344,7 +7344,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !244
   store ptr %15, ptr %0, align 8, !tbaa !231
   %16 = load i64, ptr %15, align 8

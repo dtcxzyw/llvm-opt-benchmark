@@ -175,7 +175,7 @@ define noundef nonnull ptr @_Z7ftp2exti(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3, i32 1
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3, i32 1
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %.not = icmp eq i8 %6, 0
@@ -216,7 +216,7 @@ define noundef nonnull ptr @_Z15ftp2ext_generici(i32 noundef %0) local_unnamed_a
 
 _Z7ftp2exti.exit:                                 ; preds = %2
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %7, i32 1
+  %8 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %7, i32 1
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %.not.i = icmp eq i8 %10, 0
@@ -236,7 +236,7 @@ define noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %0) local_unnamed_addr #1 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3, i32 1
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3, i32 1
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   br label %6
 
@@ -252,7 +252,7 @@ define noundef i32 @_Z17ftp2generic_counti(i32 noundef %0) local_unnamed_addr #1
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3, i32 5
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3, i32 5
   %5 = load i32, ptr %4, align 8, !tbaa !13
   br label %6
 
@@ -268,7 +268,7 @@ define noundef ptr @_Z16ftp2generic_listi(i32 noundef %0) local_unnamed_addr #1 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3, i32 6
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3, i32 6
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   br label %6
 
@@ -284,7 +284,7 @@ define noundef ptr @_Z8ftp2desci(i32 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3, i32 4
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3, i32 4
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   br label %6
 
@@ -300,7 +300,7 @@ define noundef zeroext i1 @_Z11ftp_is_texti(i32 noundef %0) local_unnamed_addr #
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = icmp eq i32 %5, 0
   br label %7
@@ -317,7 +317,7 @@ define noundef zeroext i1 @_Z10ftp_is_xdri(i32 noundef %0) local_unnamed_addr #1
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = icmp eq i32 %5, 1
   br label %7
@@ -334,7 +334,7 @@ define noundef ptr @_Z9ftp2defnmi(i32 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3, i32 2
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   br label %6
 
@@ -350,7 +350,7 @@ define noundef ptr @_Z10ftp2defopti(i32 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %3, i32 3
+  %4 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %3, i32 3
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   br label %6
 
@@ -703,7 +703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
 
 112:                                              ; preds = %108, %149
   %indvars.iv = phi i64 [ 0, %108 ], [ %indvars.iv.next, %149 ]
-  %113 = getelementptr inbounds nuw [44 x %struct.t_deffile], ptr @_ZL7deffile, i64 0, i64 %indvars.iv, i32 1
+  %113 = getelementptr inbounds nuw %struct.t_deffile, ptr @_ZL7deffile, i64 %indvars.iv, i32 1
   %114 = load ptr, ptr %113, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)

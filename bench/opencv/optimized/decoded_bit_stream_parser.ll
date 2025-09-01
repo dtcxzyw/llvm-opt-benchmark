@@ -1192,7 +1192,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 150:                                              ; preds = %69
   %151 = sdiv i32 %60, 100
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %152
+  %153 = getelementptr inbounds i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !20
   %155 = load ptr, ptr %20, align 8, !tbaa !29
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 %indvars.iv
@@ -1200,7 +1200,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   %157 = sdiv i32 %60, 10
   %158 = srem i32 %157, 10
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %159
+  %160 = getelementptr inbounds i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !20
   %162 = load ptr, ptr %20, align 8, !tbaa !29
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 %indvars.iv
@@ -1208,7 +1208,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   store i8 %161, ptr %164, align 1, !tbaa !20
   %165 = srem i32 %60, 10
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %166
+  %167 = getelementptr inbounds i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %166
   %168 = load i8, ptr %167, align 1, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %169 = load ptr, ptr %20, align 8, !tbaa !29
@@ -1483,14 +1483,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 265:                                              ; preds = %214
   %266 = sdiv i32 %205, 10
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %267
+  %268 = getelementptr inbounds i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %267
   %269 = load i8, ptr %268, align 1, !tbaa !20
   %270 = load ptr, ptr %20, align 8, !tbaa !29
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 %.072.lcssa
   store i8 %269, ptr %271, align 1, !tbaa !20
   %272 = srem i32 %205, 10
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %273
+  %274 = getelementptr inbounds i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %273
   %275 = load i8, ptr %274, align 1, !tbaa !20
   %276 = load ptr, ptr %20, align 8, !tbaa !29
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 %.072.lcssa
@@ -1749,7 +1749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %_Z
 
 369:                                              ; preds = %318
   %370 = sext i32 %309 to i64
-  %371 = getelementptr inbounds [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %370
+  %371 = getelementptr inbounds i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %370
   %372 = load i8, ptr %371, align 1, !tbaa !20
   %373 = load ptr, ptr %20, align 8, !tbaa !29
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 %.072.lcssa
@@ -1939,7 +1939,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit8:                ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %18
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds nuw [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %1
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %1
   %28 = load i8, ptr %27, align 1, !tbaa !20
   br label %29
 
@@ -2132,7 +2132,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit8.i:              ; preds = %_ZNKSt7__cxx1112bas
 
 79:                                               ; preds = %62
   %80 = zext nneg i32 %63 to i64
-  %81 = getelementptr inbounds nuw [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !20
   br label %_ZN5zxing6qrcode22DecodedBitStreamParser18toAlphaNumericCharEmRNS_12ErrorHandlerE.exit
 
@@ -2217,7 +2217,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit8.i64:            ; preds = %_ZNKSt7__cxx1112bas
 
 108:                                              ; preds = %93
   %109 = zext nneg i32 %64 to i64
-  %110 = getelementptr inbounds nuw [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !20
   br label %_ZN5zxing6qrcode22DecodedBitStreamParser18toAlphaNumericCharEmRNS_12ErrorHandlerE.exit72
 
@@ -2408,7 +2408,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit8.i88:            ; preds = %_ZNKSt7__cxx1112bas
 
 184:                                              ; preds = %162
   %185 = zext nneg i32 %161 to i64
-  %186 = getelementptr inbounds nuw [45 x i8], ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @_ZN5zxing6qrcode22DecodedBitStreamParser18ALPHANUMERIC_CHARSE, i64 %185
   %187 = load i8, ptr %186, align 1, !tbaa !20
   br label %_ZN5zxing6qrcode22DecodedBitStreamParser18toAlphaNumericCharEmRNS_12ErrorHandlerE.exit96
 

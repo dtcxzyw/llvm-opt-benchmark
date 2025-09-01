@@ -153,7 +153,7 @@ Gia_ObjIsXor.exit:                                ; preds = %17
 53:                                               ; preds = %50, %48
   %.3136 = phi i32 [ %52, %50 ], [ %.2135, %48 ]
   %54 = zext nneg i32 %.3136 to i64
-  %55 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !33
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 4, !tbaa !33
@@ -325,7 +325,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %53, %17, %Gia_ObjIs
 142:                                              ; preds = %.sink.split, %137, %127
   %.7 = phi i32 [ %.6, %127 ], [ %.8, %137 ], [ %141, %.sink.split ]
   %143 = zext nneg i32 %.7 to i64
-  %144 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i32, ptr %5, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !33
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %144, align 4, !tbaa !33
@@ -361,7 +361,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %53, %17, %Gia_ObjIs
 
 156:                                              ; preds = %153, %156
   %indvars.iv211 = phi i64 [ 0, %153 ], [ %indvars.iv.next212, %156 ]
-  %157 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv211
+  %157 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv211
   %158 = load i32, ptr %157, align 4, !tbaa !33
   %159 = trunc nuw nsw i64 %indvars.iv211 to i32
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %159, i32 noundef %158)
@@ -908,8 +908,8 @@ define range(i32 0, 4) i32 @Dtc_ObjComputeTruth(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %4 ]
-  %6 = add nsw i64 %indvars.iv, -1
-  %7 = getelementptr inbounds [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %6
+  %6 = getelementptr i32, ptr @__const.Dtc_ObjComputeTruth.Truths, i64 %indvars.iv
+  %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !33
   %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !33
@@ -1220,7 +1220,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntFill.exit, %
 .lr.ph:                                           ; preds = %.loopexit, %Vec_IntPush.exit73
   %100 = phi ptr [ %.pre.i69155, %Vec_IntPush.exit73 ], [ %.val.i, %.loopexit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntPush.exit73 ], [ 0, %.loopexit ]
-  %101 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4, !tbaa !33
   %103 = load i32, ptr %24, align 4, !tbaa !3
   %104 = load i32, ptr %4, align 8, !tbaa !10
@@ -1266,8 +1266,8 @@ Vec_IntPush.exit73:                               ; preds = %Vec_IntPush.exit73.
 
 .lr.ph.i75:                                       ; preds = %117, %.lr.ph.i75
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i77, %.lr.ph.i75 ], [ 1, %117 ]
-  %118 = add nsw i64 %indvars.iv.i76, -1
-  %119 = getelementptr inbounds [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %118
+  %118 = getelementptr i32, ptr @__const.Dtc_ObjComputeTruth.Truths, i64 %indvars.iv.i76
+  %119 = getelementptr i8, ptr %118, i64 -4
   %120 = load i32, ptr %119, align 4, !tbaa !33
   %121 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i76
   %122 = load i32, ptr %121, align 4, !tbaa !33
@@ -1410,8 +1410,8 @@ Vec_IntPush.exit101:                              ; preds = %Vec_IntPush.exit101
 
 .lr.ph.i105:                                      ; preds = %182, %.lr.ph.i105
   %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i107, %.lr.ph.i105 ], [ 1, %182 ]
-  %183 = add nsw i64 %indvars.iv.i106, -1
-  %184 = getelementptr inbounds [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %183
+  %183 = getelementptr i32, ptr @__const.Dtc_ObjComputeTruth.Truths, i64 %indvars.iv.i106
+  %184 = getelementptr i8, ptr %183, i64 -4
   %185 = load i32, ptr %184, align 4, !tbaa !33
   %186 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i106
   %187 = load i32, ptr %186, align 4, !tbaa !33
@@ -3752,7 +3752,7 @@ define ptr @Gia_ManGenerateExtraAig(i32 noundef %0, i32 noundef %1, i32 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %6)
-  %9 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %8, ptr %9, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3810,7 +3810,7 @@ define ptr @Gia_ManGenerateExtraAig(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 39:                                               ; preds = %.preheader.us, %Gia_ManAppendCo.exit.us
   %indvars.iv26 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next27, %Gia_ManAppendCo.exit.us ]
-  %40 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv26
+  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv26
   %41 = load i32, ptr %40, align 4, !tbaa !33
   %42 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %6)
   %43 = load i64, ptr %42, align 4
@@ -4293,7 +4293,7 @@ define void @Gia_ManDupFadd(ptr noundef %0, ptr noundef %1, ptr noundef readonly
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val93.us, i64 %61, i32 1
   %63 = load i32, ptr %62, align 4, !tbaa !52
-  %64 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv149
+  %64 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv149
   store i32 %63, ptr %64, align 4, !tbaa !33
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 3
@@ -4317,7 +4317,7 @@ define void @Gia_ManDupFadd(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 
 73:                                               ; preds = %.split119, %66
   %74 = phi i32 [ %72, %66 ], [ %.083127.fr, %.split119 ]
-  %75 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv145
+  %75 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv145
   store i32 %74, ptr %75, align 4, !tbaa !33
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 3
@@ -4390,7 +4390,7 @@ define void @Gia_ManDupFadd(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 
 .preheader:                                       ; preds = %.thread, %.preheader
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.preheader ], [ 0, %.thread ]
-  %105 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv153
+  %105 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv153
   %106 = load i32, ptr %105, align 4, !tbaa !33
   %107 = xor i32 %106, 1
   store i32 %107, ptr %105, align 4, !tbaa !33
@@ -4412,7 +4412,7 @@ define void @Gia_ManDupFadd(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 
 114:                                              ; preds = %113, %Gia_ManAppendCo.exit
   %indvars.iv157 = phi i64 [ 0, %113 ], [ %indvars.iv.next158, %Gia_ManAppendCo.exit ]
-  %115 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv157
+  %115 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv157
   %116 = load i32, ptr %115, align 4, !tbaa !33
   %117 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %118 = load i64, ptr %117, align 4

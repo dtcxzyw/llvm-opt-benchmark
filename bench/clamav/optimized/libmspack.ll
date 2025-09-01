@@ -791,11 +791,11 @@ define internal void @mspack_fmap_message(ptr readnone captures(none) %0, ptr no
   %9 = call i32 @vsnprintf(ptr noundef nonnull %8, i64 noundef 8173, ptr noundef %1, ptr noundef nonnull %3) #15
   call void @llvm.va_end.p0(ptr nonnull %3)
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
-  %11 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   store i8 10, ptr %11, align 1, !tbaa !87
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
-  %13 = add i64 %12, 1
-  %14 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %13
+  %13 = getelementptr i8, ptr %4, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 1
   store i8 0, ptr %14, align 1, !tbaa !87
   call void @clrs_eprint(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

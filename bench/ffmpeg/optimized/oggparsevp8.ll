@@ -202,7 +202,7 @@ define internal noundef i32 @vp8_packet(ptr noundef readonly captures(none) %0, 
   %.062 = phi ptr [ %32, %.lr.ph ], [ %46, %._crit_edge64 ]
   %.04761 = phi ptr [ %32, %.lr.ph ], [ %.1, %._crit_edge64 ]
   %.04860 = phi i32 [ %25, %.lr.ph ], [ %.149, %._crit_edge64 ]
-  %36 = getelementptr inbounds [255 x i8], ptr %33, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !36
   %.not57 = icmp eq i8 %37, -1
   br i1 %.not57, label %._crit_edge64, label %38

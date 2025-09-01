@@ -4450,7 +4450,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %42
 
 251:                                              ; preds = %237
   %252 = zext i32 %244 to i64
-  %253 = getelementptr inbounds nuw [10 x i8], ptr @.str.7, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr @.str.7, i64 %252
   %254 = load i8, ptr %253, align 1
   %255 = sext i8 %254 to i32
   %256 = add nsw i32 %255, -48
@@ -9532,10 +9532,10 @@ _ZN4Node7set_reqEjPS_.exit548:                    ; preds = %_ZN4Node7del_outEPS
   %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 16
   %1041 = load i32, ptr %1040, align 8
   %1042 = zext i32 %1041 to i64
-  %1043 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %1042, i32 1
+  %1043 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %1042, i32 1
   %1044 = load i8, ptr %1043, align 4
   %1045 = zext i8 %1044 to i64
-  %1046 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %1045
+  %1046 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %1045
   %1047 = load ptr, ptr %1046, align 8
   %1048 = load ptr, ptr %1017, align 8
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 40
@@ -9629,7 +9629,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %1061, %1071, %1082
 
 1099:                                             ; preds = %._crit_edge724
   %1100 = zext i32 %1096 to i64
-  %1101 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %1100, i32 1
+  %1101 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %1100, i32 1
   %1102 = load i8, ptr %1101, align 4
   br label %_ZL16get_convert_typeP4NodePK4Type.exit
 
@@ -9650,7 +9650,7 @@ _ZL16get_convert_typeP4NodePK4Type.exit:          ; preds = %._crit_edge724, %10
 
 1110:                                             ; preds = %_ZL16get_convert_typeP4NodePK4Type.exit
   %1111 = zext i32 %1107 to i64
-  %1112 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %1111, i32 1
+  %1112 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %1111, i32 1
   %1113 = load i8, ptr %1112, align 4
   br label %_ZL16get_convert_typeP4NodePK4Type.exit561
 
@@ -10846,7 +10846,7 @@ define internal fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr nou
 
 switch.lookup:                                    ; preds = %52
   %57 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZL11is_absoluteP8PhaseGVNP7PhiNodei, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL11is_absoluteP8PhaseGVNP7PhiNodei, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.071 = load ptr, ptr %switch.load, align 8
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -11304,14 +11304,14 @@ define internal fastcc noundef ptr @_ZL15split_flow_pathP8PhaseGVNP7PhiNode(ptr 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %13, i32 1
+  %14 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %13, i32 1
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 99
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %8
   %18 = zext i8 %15 to i64
-  %19 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @type2size, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 1
   br i1 %21, label %.loopexit, label %22
@@ -12919,7 +12919,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7PhiNode11out
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %6, i32 4
+  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6, i32 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %23, label %10
@@ -12935,7 +12935,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7PhiNode11out
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 328
   %20 = zext i32 %8 to i64
-  %21 = getelementptr inbounds nuw [16 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %23
 

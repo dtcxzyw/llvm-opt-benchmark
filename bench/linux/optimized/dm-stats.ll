@@ -122,7 +122,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dm_stats_init(ptr noundef %0) lo
   %18 = load ptr, ptr %6, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %14, 63
-  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
+  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr
@@ -176,7 +176,7 @@ define dso_local void @dm_stats_cleanup(ptr noundef %0) local_unnamed_addr #0 al
 
 18:                                               ; preds = %33, %13
   %19 = phi i64 [ 0, %13 ], [ %35, %33 ]
-  %20 = getelementptr [0 x %struct.dm_stat_shared], ptr %14, i64 0, i64 %19
+  %20 = getelementptr %struct.dm_stat_shared, ptr %14, i64 %19
   %21 = load volatile i32, ptr %20, align 4
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = load volatile i32, ptr %22, align 4
@@ -252,7 +252,7 @@ define internal void @dm_stat_free(ptr noundef %0) #0 align 16 {
 
 21:                                               ; preds = %17
   %22 = and i64 %18, 63
-  %23 = getelementptr [64 x ptr], ptr %8, i64 0, i64 %22
+  %23 = getelementptr ptr, ptr %8, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
@@ -516,12 +516,12 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
   %89 = load i64, ptr %74, align 8
   %90 = sub i64 %89, %85
   %91 = tail call i64 @llvm.umin.i64(i64 %84, i64 %90)
-  %92 = getelementptr [0 x %struct.dm_stat_shared], ptr %79, i64 0, i64 %83
+  %92 = getelementptr %struct.dm_stat_shared, ptr %79, i64 %83
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !24
   %93 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !25
   %94 = sext i32 %93 to i64
-  %95 = getelementptr [64 x ptr], ptr %80, i64 0, i64 %94
+  %95 = getelementptr ptr, ptr %80, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr %struct.dm_stat_percpu, ptr %96, i64 %83
   %98 = load i32, ptr %47, align 4
@@ -593,21 +593,21 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
   br label %139
 
 139:                                              ; preds = %138, %105
-  %140 = getelementptr [2 x %struct.atomic_t], ptr %92, i64 0, i64 %43
+  %140 = getelementptr %struct.atomic_t, ptr %92, i64 %43
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %140, ptr elementtype(i32) %140) #16, !srcloc !26
-  %141 = getelementptr [2 x i64], ptr %97, i64 0, i64 %43
+  %141 = getelementptr i64, ptr %97, i64 %43
   %142 = load i64, ptr %141, align 8
   %143 = add i64 %142, %91
   store i64 %143, ptr %141, align 8
   %144 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %145 = getelementptr [2 x i64], ptr %144, i64 0, i64 %43
+  %145 = getelementptr i64, ptr %144, i64 %43
   %146 = load i64, ptr %145, align 8
   %147 = add i64 %146, 1
   store i64 %147, ptr %145, align 8
   %148 = load i8, ptr %6, align 8, !range !27, !noundef !28
   %149 = zext nneg i8 %148 to i64
   %150 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %151 = getelementptr [2 x i64], ptr %150, i64 0, i64 %43
+  %151 = getelementptr i64, ptr %150, i64 %43
   %152 = load i64, ptr %151, align 8
   %153 = add i64 %152, %149
   store i64 %153, ptr %151, align 8
@@ -619,7 +619,7 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
 157:                                              ; preds = %139
   %158 = load i64, ptr %41, align 8
   %159 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %160 = getelementptr [2 x i64], ptr %159, i64 0, i64 %43
+  %160 = getelementptr i64, ptr %159, i64 %43
   %161 = load i64, ptr %160, align 8
   %162 = add i64 %161, %158
   store i64 %162, ptr %160, align 8
@@ -628,7 +628,7 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
 
 164:                                              ; preds = %139
   %165 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %166 = getelementptr [2 x i64], ptr %165, i64 0, i64 %43
+  %166 = getelementptr i64, ptr %165, i64 %43
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, %36
   store i64 %168, ptr %166, align 8
@@ -721,12 +721,12 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
 222:                                              ; preds = %.split
   %223 = load i64, ptr %74, align 8
   %224 = sub i64 %223, %216
-  %225 = getelementptr [0 x %struct.dm_stat_shared], ptr %79, i64 0, i64 %214
+  %225 = getelementptr %struct.dm_stat_shared, ptr %79, i64 %214
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !24
   %226 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !25
   %227 = sext i32 %226 to i64
-  %228 = getelementptr [64 x ptr], ptr %80, i64 0, i64 %227
+  %228 = getelementptr ptr, ptr %80, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr %struct.dm_stat_percpu, ptr %229, i64 %214
   %231 = load i32, ptr %47, align 4
@@ -798,7 +798,7 @@ define dso_local void @dm_stats_account_io(ptr noundef %0, i64 noundef %1, i64 n
   br label %272
 
 272:                                              ; preds = %271, %238
-  %273 = getelementptr [2 x %struct.atomic_t], ptr %225, i64 0, i64 %43
+  %273 = getelementptr %struct.atomic_t, ptr %225, i64 %43
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %273, ptr elementtype(i32) %273) #16, !srcloc !37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !30
   %274 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !31
@@ -1257,7 +1257,7 @@ sub_0:                                            ; preds = %25
 
 233:                                              ; preds = %231
   %234 = and i64 %228, 63
-  %235 = getelementptr [64 x ptr], ptr %217, i64 0, i64 %234
+  %235 = getelementptr ptr, ptr %217, i64 %234
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 96
   %238 = load ptr, ptr %237, align 8
@@ -1801,7 +1801,7 @@ sub_056:                                          ; preds = %.tail.thread, %.tai
   %72 = phi i64 [ %66, %62 ], [ %81, %328 ]
   %73 = phi i64 [ %58, %62 ], [ %330, %328 ]
   %74 = phi i32 [ 0, %62 ], [ %325, %328 ]
-  %75 = getelementptr [0 x %struct.dm_stat_shared], ptr %67, i64 0, i64 %73
+  %75 = getelementptr %struct.dm_stat_shared, ptr %67, i64 %73
   %76 = add i64 %72, %60
   %77 = load i64, ptr %68, align 8
   %78 = icmp ugt i64 %76, %77
@@ -2399,7 +2399,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
 
 92:                                               ; preds = %92, %90
   %93 = phi i64 [ 0, %90 ], [ %97, %92 ]
-  %94 = getelementptr [0 x %struct.dm_stat_shared], ptr %91, i64 0, i64 %93
+  %94 = getelementptr %struct.dm_stat_shared, ptr %91, i64 %93
   store volatile i32 0, ptr %94, align 4
   %95 = getelementptr i8, ptr %94, i64 4
   store volatile i32 0, ptr %95, align 4
@@ -2462,7 +2462,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
 
 129:                                              ; preds = %125
   %130 = and i64 %126, 63
-  %131 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %130
+  %131 = getelementptr i64, ptr @__per_cpu_offset, i64 %130
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, ptrtoint (ptr @numa_node to i64)
   %134 = inttoptr i64 %133 to ptr
@@ -2472,7 +2472,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
   br i1 %137, label %.loopexit23, label %138
 
 138:                                              ; preds = %129
-  %139 = getelementptr [64 x ptr], ptr %118, i64 0, i64 %130
+  %139 = getelementptr ptr, ptr %118, i64 %130
   store ptr %136, ptr %139, align 8
   %140 = load i32, ptr %74, align 8
   %141 = icmp eq i32 %140, 0
@@ -2750,7 +2750,7 @@ define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef
 
 10:                                               ; preds = %.loopexit, %6
   %11 = phi i64 [ %1, %6 ], [ %102, %.loopexit ]
-  %12 = getelementptr [0 x %struct.dm_stat_shared], ptr %7, i64 0, i64 %11
+  %12 = getelementptr %struct.dm_stat_shared, ptr %7, i64 %11
   br i1 %3, label %13, label %14
 
 13:                                               ; preds = %10
@@ -2761,7 +2761,7 @@ define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !65
   %15 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !66
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [64 x ptr], ptr %8, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr %struct.dm_stat_percpu, ptr %18, i64 %11
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -2851,7 +2851,7 @@ define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !65
   %84 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !68
   %85 = sext i32 %84 to i64
-  %86 = getelementptr [64 x ptr], ptr %8, i64 0, i64 %85
+  %86 = getelementptr ptr, ptr %8, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %81, align 8
   %89 = getelementptr i64, ptr %88, i64 %83
@@ -2886,7 +2886,7 @@ define internal fastcc void @__dm_stat_init_temporary_percpu_totals(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !71
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [64 x ptr], ptr %4, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr %struct.dm_stat_percpu, ptr %8, i64 %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3007,7 +3007,7 @@ define internal fastcc void @__dm_stat_init_temporary_percpu_totals(ptr noundef 
 
 86:                                               ; preds = %82
   %87 = and i64 %83, 63
-  %88 = getelementptr [64 x ptr], ptr %4, i64 0, i64 %87
+  %88 = getelementptr ptr, ptr %4, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr %struct.dm_stat_percpu, ptr %89, i64 %2
   %91 = load volatile i64, ptr %90, align 8

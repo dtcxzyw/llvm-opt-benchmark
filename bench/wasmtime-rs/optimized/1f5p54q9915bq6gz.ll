@@ -2144,9 +2144,9 @@ _ZN6object4read3elf4file10FileHeader11is_mips64el17hf47cc5127810bdbbE.exit.i: ; 
   br i1 %64, label %switch.lookup, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
 65:                                               ; preds = %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i"
-  %switch.tableidx120 = add i32 %56, -1
-  %66 = icmp ult i32 %switch.tableidx120, 15
-  br i1 %66, label %switch.lookup119, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
+  %switch.tableidx119 = add i32 %56, -1
+  %66 = icmp ult i32 %switch.tableidx119, 15
+  br i1 %66, label %switch.lookup120, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
 67:                                               ; preds = %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i"
   %68 = icmp eq i32 %56, 6
@@ -2197,9 +2197,9 @@ _ZN6object4read3elf4file10FileHeader11is_mips64el17hf47cc5127810bdbbE.exit.i: ; 
   ]
 
 76:                                               ; preds = %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i"
-  %switch.tableidx128 = add i32 %56, -1
-  %77 = icmp ult i32 %switch.tableidx128, 28
-  br i1 %77, label %switch.lookup127, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
+  %switch.tableidx127 = add i32 %56, -1
+  %77 = icmp ult i32 %switch.tableidx127, 28
+  br i1 %77, label %switch.lookup128, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
 78:                                               ; preds = %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i"
   switch i32 %56, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit [
@@ -2208,9 +2208,9 @@ _ZN6object4read3elf4file10FileHeader11is_mips64el17hf47cc5127810bdbbE.exit.i: ; 
   ]
 
 79:                                               ; preds = %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i"
-  %switch.tableidx136 = add i32 %56, -11
-  %80 = icmp ult i32 %switch.tableidx136, 15
-  br i1 %80, label %switch.lookup135, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
+  %switch.tableidx135 = add i32 %56, -11
+  %80 = icmp ult i32 %switch.tableidx135, 15
+  br i1 %80, label %switch.lookup136, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
 81:                                               ; preds = %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i", %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i", %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i"
   switch i32 %56, label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit [
@@ -2333,53 +2333,53 @@ _ZN6object4read3elf4file10FileHeader11is_mips64el17hf47cc5127810bdbbE.exit.i: ; 
 
 switch.lookup:                                    ; preds = %63
   %118 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE", i64 0, i64 %118
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE", i64 %118
   %switch.load = load i8, ptr %switch.gep, align 1
   %119 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep117 = getelementptr inbounds nuw [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.208", i64 0, i64 %119
+  %switch.gep117 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.208", i64 %119
   %switch.load118 = load i8, ptr %switch.gep117, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
-switch.lookup119:                                 ; preds = %65
-  %120 = zext nneg i32 %switch.tableidx120 to i64
-  %switch.gep121 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.209", i64 0, i64 %120
+switch.lookup120:                                 ; preds = %65
+  %120 = zext nneg i32 %switch.tableidx119 to i64
+  %switch.gep121 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.209", i64 %120
   %switch.load122 = load i8, ptr %switch.gep121, align 1
-  %121 = zext nneg i32 %switch.tableidx120 to i64
-  %switch.gep123 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.210", i64 0, i64 %121
+  %121 = zext nneg i32 %switch.tableidx119 to i64
+  %switch.gep123 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.210", i64 %121
   %switch.load124 = load i8, ptr %switch.gep123, align 1
-  %122 = zext nneg i32 %switch.tableidx120 to i64
-  %switch.gep125 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.211", i64 0, i64 %122
+  %122 = zext nneg i32 %switch.tableidx119 to i64
+  %switch.gep125 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.211", i64 %122
   %switch.load126 = load i8, ptr %switch.gep125, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
-switch.lookup127:                                 ; preds = %76
-  %123 = zext nneg i32 %switch.tableidx128 to i64
-  %switch.gep129 = getelementptr inbounds nuw [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.212", i64 0, i64 %123
+switch.lookup128:                                 ; preds = %76
+  %123 = zext nneg i32 %switch.tableidx127 to i64
+  %switch.gep129 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.212", i64 %123
   %switch.load130 = load i8, ptr %switch.gep129, align 1
-  %124 = zext nneg i32 %switch.tableidx128 to i64
-  %switch.gep131 = getelementptr inbounds nuw [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.213", i64 0, i64 %124
+  %124 = zext nneg i32 %switch.tableidx127 to i64
+  %switch.gep131 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.213", i64 %124
   %switch.load132 = load i8, ptr %switch.gep131, align 1
-  %125 = zext nneg i32 %switch.tableidx128 to i64
-  %switch.gep133 = getelementptr inbounds nuw [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.214", i64 0, i64 %125
+  %125 = zext nneg i32 %switch.tableidx127 to i64
+  %switch.gep133 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.214", i64 %125
   %switch.load134 = load i8, ptr %switch.gep133, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
-switch.lookup135:                                 ; preds = %79
-  %126 = zext nneg i32 %switch.tableidx136 to i64
-  %switch.gep137 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.215", i64 0, i64 %126
+switch.lookup136:                                 ; preds = %79
+  %126 = zext nneg i32 %switch.tableidx135 to i64
+  %switch.gep137 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.215", i64 %126
   %switch.load138 = load i8, ptr %switch.gep137, align 1
-  %127 = zext nneg i32 %switch.tableidx136 to i64
-  %switch.gep139 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.216", i64 0, i64 %127
+  %127 = zext nneg i32 %switch.tableidx135 to i64
+  %switch.gep139 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.216", i64 %127
   %switch.load140 = load i8, ptr %switch.gep139, align 1
-  %128 = zext nneg i32 %switch.tableidx136 to i64
-  %switch.gep141 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.217", i64 0, i64 %128
+  %128 = zext nneg i32 %switch.tableidx135 to i64
+  %switch.gep141 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.217", i64 %128
   %switch.load142 = load i8, ptr %switch.gep141, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit
 
-_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit: ; preds = %switch.lookup135, %79, %switch.lookup127, %76, %switch.lookup119, %65, %switch.lookup, %63, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i", %57, %58, %60, %61, %62, %67, %69, %70, %71, %72, %74, %75, %78, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117
-  %.07.i = phi i8 [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 7, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 1, %93 ], [ 1, %94 ], [ 1, %95 ], [ 1, %96 ], [ 1, %97 ], [ 1, %98 ], [ 1, %99 ], [ 8, %100 ], [ 8, %101 ], [ 8, %102 ], [ 1, %103 ], [ 1, %104 ], [ 1, %105 ], [ 1, %106 ], [ 1, %107 ], [ 1, %108 ], [ 1, %109 ], [ 1, %110 ], [ 1, %111 ], [ 1, %112 ], [ 1, %113 ], [ 1, %114 ], [ 1, %115 ], [ 1, %116 ], [ 1, %117 ], [ 1, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i" ], [ 1, %58 ], [ 1, %67 ], [ 1, %72 ], [ 1, %57 ], [ 1, %60 ], [ 1, %61 ], [ 1, %62 ], [ 1, %63 ], [ 1, %65 ], [ 1, %69 ], [ 1, %70 ], [ 1, %71 ], [ 1, %74 ], [ 1, %75 ], [ 1, %76 ], [ 1, %78 ], [ 1, %79 ], [ 1, %81 ], [ 1, %82 ], [ 1, %switch.lookup ], [ %switch.load122, %switch.lookup119 ], [ %switch.load130, %switch.lookup127 ], [ %switch.load138, %switch.lookup135 ]
-  %.06.i = phi i8 [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 2, %86 ], [ 2, %87 ], [ 2, %88 ], [ 7, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 1, %93 ], [ 1, %94 ], [ 2, %95 ], [ 1, %96 ], [ 1, %97 ], [ 2, %98 ], [ 2, %99 ], [ 2, %100 ], [ 2, %101 ], [ 2, %102 ], [ 1, %103 ], [ 1, %104 ], [ 1, %105 ], [ 1, %106 ], [ 1, %107 ], [ 1, %108 ], [ 1, %109 ], [ 1, %110 ], [ 1, %111 ], [ 1, %112 ], [ 1, %113 ], [ 1, %114 ], [ 1, %115 ], [ 1, %116 ], [ 2, %117 ], [ 0, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i" ], [ %..i, %58 ], [ %.9.i, %67 ], [ %.11.i, %72 ], [ 0, %57 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %65 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %78 ], [ 0, %79 ], [ 0, %81 ], [ 0, %82 ], [ %switch.load, %switch.lookup ], [ %switch.load124, %switch.lookup119 ], [ %switch.load132, %switch.lookup127 ], [ %switch.load140, %switch.lookup135 ]
-  %.0.i = phi i8 [ 64, %83 ], [ 32, %84 ], [ 16, %85 ], [ 64, %86 ], [ 32, %87 ], [ 16, %88 ], [ 26, %89 ], [ 32, %90 ], [ 16, %91 ], [ 64, %92 ], [ 32, %93 ], [ 32, %94 ], [ 32, %95 ], [ 32, %96 ], [ 64, %97 ], [ 32, %98 ], [ 64, %99 ], [ 16, %100 ], [ 21, %101 ], [ 26, %102 ], [ 16, %103 ], [ 32, %104 ], [ 64, %105 ], [ 32, %106 ], [ 16, %107 ], [ 32, %108 ], [ 64, %109 ], [ 32, %110 ], [ 64, %111 ], [ 64, %112 ], [ 32, %113 ], [ 32, %114 ], [ 64, %115 ], [ 32, %116 ], [ 32, %117 ], [ 0, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i" ], [ %.8.i, %58 ], [ %.10.i, %67 ], [ %.12.i, %72 ], [ 0, %57 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %65 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %78 ], [ 0, %79 ], [ 0, %81 ], [ 0, %82 ], [ %switch.load118, %switch.lookup ], [ %switch.load126, %switch.lookup119 ], [ %switch.load134, %switch.lookup127 ], [ %switch.load142, %switch.lookup135 ]
+_ZN6object4read3elf10relocation16parse_relocation17h50156b71074c3d73E.exit: ; preds = %switch.lookup136, %79, %switch.lookup128, %76, %switch.lookup120, %65, %switch.lookup, %63, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i", %57, %58, %60, %61, %62, %67, %69, %70, %71, %72, %74, %75, %78, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117
+  %.07.i = phi i8 [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 7, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 1, %93 ], [ 1, %94 ], [ 1, %95 ], [ 1, %96 ], [ 1, %97 ], [ 1, %98 ], [ 1, %99 ], [ 8, %100 ], [ 8, %101 ], [ 8, %102 ], [ 1, %103 ], [ 1, %104 ], [ 1, %105 ], [ 1, %106 ], [ 1, %107 ], [ 1, %108 ], [ 1, %109 ], [ 1, %110 ], [ 1, %111 ], [ 1, %112 ], [ 1, %113 ], [ 1, %114 ], [ 1, %115 ], [ 1, %116 ], [ 1, %117 ], [ 1, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i" ], [ 1, %58 ], [ 1, %67 ], [ 1, %72 ], [ 1, %57 ], [ 1, %60 ], [ 1, %61 ], [ 1, %62 ], [ 1, %63 ], [ 1, %65 ], [ 1, %69 ], [ 1, %70 ], [ 1, %71 ], [ 1, %74 ], [ 1, %75 ], [ 1, %76 ], [ 1, %78 ], [ 1, %79 ], [ 1, %81 ], [ 1, %82 ], [ 1, %switch.lookup ], [ %switch.load122, %switch.lookup120 ], [ %switch.load130, %switch.lookup128 ], [ %switch.load138, %switch.lookup136 ]
+  %.06.i = phi i8 [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 2, %86 ], [ 2, %87 ], [ 2, %88 ], [ 7, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 1, %93 ], [ 1, %94 ], [ 2, %95 ], [ 1, %96 ], [ 1, %97 ], [ 2, %98 ], [ 2, %99 ], [ 2, %100 ], [ 2, %101 ], [ 2, %102 ], [ 1, %103 ], [ 1, %104 ], [ 1, %105 ], [ 1, %106 ], [ 1, %107 ], [ 1, %108 ], [ 1, %109 ], [ 1, %110 ], [ 1, %111 ], [ 1, %112 ], [ 1, %113 ], [ 1, %114 ], [ 1, %115 ], [ 1, %116 ], [ 2, %117 ], [ 0, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i" ], [ %..i, %58 ], [ %.9.i, %67 ], [ %.11.i, %72 ], [ 0, %57 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %65 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %78 ], [ 0, %79 ], [ 0, %81 ], [ 0, %82 ], [ %switch.load, %switch.lookup ], [ %switch.load124, %switch.lookup120 ], [ %switch.load132, %switch.lookup128 ], [ %switch.load140, %switch.lookup136 ]
+  %.0.i = phi i8 [ 64, %83 ], [ 32, %84 ], [ 16, %85 ], [ 64, %86 ], [ 32, %87 ], [ 16, %88 ], [ 26, %89 ], [ 32, %90 ], [ 16, %91 ], [ 64, %92 ], [ 32, %93 ], [ 32, %94 ], [ 32, %95 ], [ 32, %96 ], [ 64, %97 ], [ 32, %98 ], [ 64, %99 ], [ 16, %100 ], [ 21, %101 ], [ 26, %102 ], [ 16, %103 ], [ 32, %104 ], [ 64, %105 ], [ 32, %106 ], [ 16, %107 ], [ 32, %108 ], [ 64, %109 ], [ 32, %110 ], [ 64, %111 ], [ 64, %112 ], [ 32, %113 ], [ 32, %114 ], [ 64, %115 ], [ 32, %116 ], [ 32, %117 ], [ 0, %"_ZN89_$LT$object..elf..Rela64$LT$Endian$GT$$u20$as$u20$object..read..elf..relocation..Rela$GT$6r_type17h6710b250146ebaa7E.exit.i" ], [ %.8.i, %58 ], [ %.10.i, %67 ], [ %.12.i, %72 ], [ 0, %57 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %65 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %78 ], [ 0, %79 ], [ 0, %81 ], [ 0, %82 ], [ %switch.load118, %switch.lookup ], [ %switch.load126, %switch.lookup120 ], [ %switch.load134, %switch.lookup128 ], [ %switch.load142, %switch.lookup136 ]
   %129 = shl i64 %.0.i.i.i174.i, 32
   %spec.select.i.i = select i1 %.0.i3.i, i64 %129, i64 %.0.i.i.i174.i
   %130 = lshr i64 %spec.select.i.i, 32
@@ -2670,9 +2670,9 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.ex
 
 48:                                               ; preds = %31
   %trunc17.i = trunc nuw i32 %36 to i8
-  %switch.tableidx121 = add i8 %trunc17.i, -1
-  %49 = icmp ult i8 %switch.tableidx121, 15
-  br i1 %49, label %switch.lookup120, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+  %switch.tableidx120 = add i8 %trunc17.i, -1
+  %49 = icmp ult i8 %switch.tableidx120, 15
+  br i1 %49, label %switch.lookup121, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 50:                                               ; preds = %31
   %51 = icmp eq i32 %36, 6
@@ -2729,9 +2729,9 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.ex
 
 59:                                               ; preds = %31
   %trunc11.i = trunc nuw i32 %36 to i8
-  %switch.tableidx129 = add i8 %trunc11.i, -1
-  %60 = icmp ult i8 %switch.tableidx129, 28
-  br i1 %60, label %switch.lookup128, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+  %switch.tableidx128 = add i8 %trunc11.i, -1
+  %60 = icmp ult i8 %switch.tableidx128, 28
+  br i1 %60, label %switch.lookup129, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 61:                                               ; preds = %31
   %trunc10.i = trunc nuw i32 %36 to i8
@@ -2742,9 +2742,9 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.ex
 
 62:                                               ; preds = %31
   %trunc9.i = trunc nuw i32 %36 to i8
-  %switch.tableidx137 = add i8 %trunc9.i, -11
-  %63 = icmp ult i8 %switch.tableidx137, 15
-  br i1 %63, label %switch.lookup136, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
+  %switch.tableidx136 = add i8 %trunc9.i, -11
+  %63 = icmp ult i8 %switch.tableidx136, 15
+  br i1 %63, label %switch.lookup137, label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
 64:                                               ; preds = %31, %31, %31
   %trunc8.i = trunc nuw i32 %36 to i8
@@ -2848,53 +2848,53 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0e2a58c443b7a461E.ex
 
 switch.lookup:                                    ; preds = %46
   %94 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE", i64 0, i64 %94
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE", i64 %94
   %switch.load = load i8, ptr %switch.gep, align 1
   %95 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep118 = getelementptr inbounds nuw [23 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.208", i64 0, i64 %95
+  %switch.gep118 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.208", i64 %95
   %switch.load119 = load i8, ptr %switch.gep118, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-switch.lookup120:                                 ; preds = %48
-  %96 = zext nneg i8 %switch.tableidx121 to i64
-  %switch.gep122 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.209", i64 0, i64 %96
+switch.lookup121:                                 ; preds = %48
+  %96 = zext nneg i8 %switch.tableidx120 to i64
+  %switch.gep122 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.209", i64 %96
   %switch.load123 = load i8, ptr %switch.gep122, align 1
-  %97 = zext nneg i8 %switch.tableidx121 to i64
-  %switch.gep124 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.210", i64 0, i64 %97
+  %97 = zext nneg i8 %switch.tableidx120 to i64
+  %switch.gep124 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.210", i64 %97
   %switch.load125 = load i8, ptr %switch.gep124, align 1
-  %98 = zext nneg i8 %switch.tableidx121 to i64
-  %switch.gep126 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.211", i64 0, i64 %98
+  %98 = zext nneg i8 %switch.tableidx120 to i64
+  %switch.gep126 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.211", i64 %98
   %switch.load127 = load i8, ptr %switch.gep126, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-switch.lookup128:                                 ; preds = %59
-  %99 = zext nneg i8 %switch.tableidx129 to i64
-  %switch.gep130 = getelementptr inbounds nuw [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.212", i64 0, i64 %99
+switch.lookup129:                                 ; preds = %59
+  %99 = zext nneg i8 %switch.tableidx128 to i64
+  %switch.gep130 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.212", i64 %99
   %switch.load131 = load i8, ptr %switch.gep130, align 1
-  %100 = zext nneg i8 %switch.tableidx129 to i64
-  %switch.gep132 = getelementptr inbounds nuw [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.213", i64 0, i64 %100
+  %100 = zext nneg i8 %switch.tableidx128 to i64
+  %switch.gep132 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.213", i64 %100
   %switch.load133 = load i8, ptr %switch.gep132, align 1
-  %101 = zext nneg i8 %switch.tableidx129 to i64
-  %switch.gep134 = getelementptr inbounds nuw [28 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.214", i64 0, i64 %101
+  %101 = zext nneg i8 %switch.tableidx128 to i64
+  %switch.gep134 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.214", i64 %101
   %switch.load135 = load i8, ptr %switch.gep134, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-switch.lookup136:                                 ; preds = %62
-  %102 = zext nneg i8 %switch.tableidx137 to i64
-  %switch.gep138 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.215", i64 0, i64 %102
+switch.lookup137:                                 ; preds = %62
+  %102 = zext nneg i8 %switch.tableidx136 to i64
+  %switch.gep138 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.215", i64 %102
   %switch.load139 = load i8, ptr %switch.gep138, align 1
-  %103 = zext nneg i8 %switch.tableidx137 to i64
-  %switch.gep140 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.216", i64 0, i64 %103
+  %103 = zext nneg i8 %switch.tableidx136 to i64
+  %switch.gep140 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.216", i64 %103
   %switch.load141 = load i8, ptr %switch.gep140, align 1
-  %104 = zext nneg i8 %switch.tableidx137 to i64
-  %switch.gep142 = getelementptr inbounds nuw [15 x i8], ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.217", i64 0, i64 %104
+  %104 = zext nneg i8 %switch.tableidx136 to i64
+  %switch.gep142 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$object..read..elf..relocation..ElfSectionRelocationIterator$LT$Elf$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc22862af8e1f9d9eE.217", i64 %104
   %switch.load143 = load i8, ptr %switch.gep142, align 1
   br label %_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit
 
-_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit: ; preds = %switch.lookup136, %62, %switch.lookup128, %59, %switch.lookup120, %48, %switch.lookup, %46, %31, %39, %41, %43, %44, %45, %50, %52, %53, %54, %55, %57, %58, %61, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93
-  %.07.i = phi i8 [ 1, %66 ], [ 1, %67 ], [ 1, %68 ], [ 1, %69 ], [ 1, %70 ], [ 1, %71 ], [ 1, %72 ], [ 1, %73 ], [ 1, %74 ], [ 1, %75 ], [ 8, %76 ], [ 8, %77 ], [ 8, %78 ], [ 1, %79 ], [ 1, %80 ], [ 1, %81 ], [ 1, %82 ], [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 1, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 1, %93 ], [ 1, %31 ], [ 1, %41 ], [ 1, %50 ], [ 1, %55 ], [ 1, %43 ], [ 1, %44 ], [ 1, %45 ], [ 1, %46 ], [ 1, %48 ], [ 1, %52 ], [ 1, %53 ], [ 1, %54 ], [ 1, %57 ], [ 1, %58 ], [ 1, %59 ], [ 1, %61 ], [ 1, %62 ], [ 1, %64 ], [ 1, %65 ], [ 1, %39 ], [ 1, %switch.lookup ], [ %switch.load123, %switch.lookup120 ], [ %switch.load131, %switch.lookup128 ], [ %switch.load139, %switch.lookup136 ]
-  %.06.i = phi i8 [ 1, %66 ], [ 1, %67 ], [ 1, %68 ], [ 1, %69 ], [ 1, %70 ], [ 2, %71 ], [ 1, %72 ], [ 1, %73 ], [ 2, %74 ], [ 2, %75 ], [ 2, %76 ], [ 2, %77 ], [ 2, %78 ], [ 1, %79 ], [ 1, %80 ], [ 1, %81 ], [ 1, %82 ], [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 1, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 2, %93 ], [ 0, %31 ], [ %..i, %41 ], [ %.23.i, %50 ], [ %.25.i, %55 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %48 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %61 ], [ 0, %62 ], [ 0, %64 ], [ 0, %65 ], [ %spec.select.i, %39 ], [ %switch.load, %switch.lookup ], [ %switch.load125, %switch.lookup120 ], [ %switch.load133, %switch.lookup128 ], [ %switch.load141, %switch.lookup136 ]
-  %.0.i = phi i8 [ 32, %66 ], [ 16, %67 ], [ 64, %68 ], [ 32, %69 ], [ 32, %70 ], [ 32, %71 ], [ 32, %72 ], [ 64, %73 ], [ 32, %74 ], [ 64, %75 ], [ 16, %76 ], [ 21, %77 ], [ 26, %78 ], [ 16, %79 ], [ 32, %80 ], [ 64, %81 ], [ 32, %82 ], [ 16, %83 ], [ 32, %84 ], [ 64, %85 ], [ 32, %86 ], [ 64, %87 ], [ 64, %88 ], [ 32, %89 ], [ 32, %90 ], [ 64, %91 ], [ 32, %92 ], [ 32, %93 ], [ 0, %31 ], [ %.22.i, %41 ], [ %.24.i, %50 ], [ %.26.i, %55 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %48 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %61 ], [ 0, %62 ], [ 0, %64 ], [ 0, %65 ], [ %spec.select28.i, %39 ], [ %switch.load119, %switch.lookup ], [ %switch.load127, %switch.lookup120 ], [ %switch.load135, %switch.lookup128 ], [ %switch.load143, %switch.lookup136 ]
+_ZN6object4read3elf10relocation16parse_relocation17h7f61e3fb6edb151eE.exit: ; preds = %switch.lookup137, %62, %switch.lookup129, %59, %switch.lookup121, %48, %switch.lookup, %46, %31, %39, %41, %43, %44, %45, %50, %52, %53, %54, %55, %57, %58, %61, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93
+  %.07.i = phi i8 [ 1, %66 ], [ 1, %67 ], [ 1, %68 ], [ 1, %69 ], [ 1, %70 ], [ 1, %71 ], [ 1, %72 ], [ 1, %73 ], [ 1, %74 ], [ 1, %75 ], [ 8, %76 ], [ 8, %77 ], [ 8, %78 ], [ 1, %79 ], [ 1, %80 ], [ 1, %81 ], [ 1, %82 ], [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 1, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 1, %93 ], [ 1, %31 ], [ 1, %41 ], [ 1, %50 ], [ 1, %55 ], [ 1, %43 ], [ 1, %44 ], [ 1, %45 ], [ 1, %46 ], [ 1, %48 ], [ 1, %52 ], [ 1, %53 ], [ 1, %54 ], [ 1, %57 ], [ 1, %58 ], [ 1, %59 ], [ 1, %61 ], [ 1, %62 ], [ 1, %64 ], [ 1, %65 ], [ 1, %39 ], [ 1, %switch.lookup ], [ %switch.load123, %switch.lookup121 ], [ %switch.load131, %switch.lookup129 ], [ %switch.load139, %switch.lookup137 ]
+  %.06.i = phi i8 [ 1, %66 ], [ 1, %67 ], [ 1, %68 ], [ 1, %69 ], [ 1, %70 ], [ 2, %71 ], [ 1, %72 ], [ 1, %73 ], [ 2, %74 ], [ 2, %75 ], [ 2, %76 ], [ 2, %77 ], [ 2, %78 ], [ 1, %79 ], [ 1, %80 ], [ 1, %81 ], [ 1, %82 ], [ 1, %83 ], [ 1, %84 ], [ 1, %85 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 1, %89 ], [ 1, %90 ], [ 1, %91 ], [ 1, %92 ], [ 2, %93 ], [ 0, %31 ], [ %..i, %41 ], [ %.23.i, %50 ], [ %.25.i, %55 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %48 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %61 ], [ 0, %62 ], [ 0, %64 ], [ 0, %65 ], [ %spec.select.i, %39 ], [ %switch.load, %switch.lookup ], [ %switch.load125, %switch.lookup121 ], [ %switch.load133, %switch.lookup129 ], [ %switch.load141, %switch.lookup137 ]
+  %.0.i = phi i8 [ 32, %66 ], [ 16, %67 ], [ 64, %68 ], [ 32, %69 ], [ 32, %70 ], [ 32, %71 ], [ 32, %72 ], [ 64, %73 ], [ 32, %74 ], [ 64, %75 ], [ 16, %76 ], [ 21, %77 ], [ 26, %78 ], [ 16, %79 ], [ 32, %80 ], [ 64, %81 ], [ 32, %82 ], [ 16, %83 ], [ 32, %84 ], [ 64, %85 ], [ 32, %86 ], [ 64, %87 ], [ 64, %88 ], [ 32, %89 ], [ 32, %90 ], [ 64, %91 ], [ 32, %92 ], [ 32, %93 ], [ 0, %31 ], [ %.22.i, %41 ], [ %.24.i, %50 ], [ %.26.i, %55 ], [ 0, %43 ], [ 0, %44 ], [ 0, %45 ], [ 0, %46 ], [ 0, %48 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %61 ], [ 0, %62 ], [ 0, %64 ], [ 0, %65 ], [ %spec.select28.i, %39 ], [ %switch.load119, %switch.lookup ], [ %switch.load127, %switch.lookup121 ], [ %switch.load135, %switch.lookup129 ], [ %switch.load143, %switch.lookup137 ]
   %105 = tail call i32 @llvm.bswap.i32(i32 %.sink17.i)
   %.0.i.i32.i = select i1 %8, i32 %105, i32 %.sink17.i
   %106 = lshr i32 %.0.i.i32.i, 8
@@ -11467,7 +11467,7 @@ _ZN5gimli4read6abbrev12Abbreviation18parse_has_children17h82444fedfbff2ea4E.exit
 
 80:                                               ; preds = %80, %_ZN5gimli4read6abbrev12Abbreviation18parse_has_children17h82444fedfbff2ea4E.exit.i
   %81 = phi i64 [ 0, %_ZN5gimli4read6abbrev12Abbreviation18parse_has_children17h82444fedfbff2ea4E.exit.i ], [ %83, %80 ]
-  %82 = getelementptr inbounds nuw [5 x { i64, i16, i16, [2 x i16] }], ptr %4, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw { i64, i16, i16, [2 x i16] }, ptr %4, i64 %81
   store i64 0, ptr %82, align 8, !noalias !2680
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i16 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !2680
@@ -14804,7 +14804,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x i64], ptr %37, i64 0, i64 %32
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %32
   %39 = load i64, ptr %38, align 8, !noundef !4
   store i64 %21, ptr %38, align 8
   %40 = load i64, ptr %13, align 8, !noundef !4
@@ -14813,7 +14813,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds nuw [0 x i64], ptr %43, i64 0, i64 %21
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %21
   store i64 %39, ptr %44, align 8
   br label %.backedge.us
 
@@ -14873,7 +14873,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %67 = getelementptr inbounds nuw [0 x i64], ptr %66, i64 0, i64 %61
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %61
   %68 = load i64, ptr %67, align 8, !noundef !4
   store i64 %52, ptr %67, align 8
   %69 = load i64, ptr %13, align 8, !noundef !4
@@ -14913,7 +14913,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 82:                                               ; preds = %65
   %83 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %52
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %52
   store i64 %68, ptr %84, align 8
   br label %.backedge
 
@@ -14996,7 +14996,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x i64], ptr %37, i64 0, i64 %32
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %32
   %39 = load i64, ptr %38, align 8, !noundef !4
   store i64 %21, ptr %38, align 8
   %40 = load i64, ptr %13, align 8, !noundef !4
@@ -15005,7 +15005,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds nuw [0 x i64], ptr %43, i64 0, i64 %21
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %21
   store i64 %39, ptr %44, align 8
   br label %.backedge.us
 
@@ -15065,7 +15065,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %67 = getelementptr inbounds nuw [0 x i64], ptr %66, i64 0, i64 %61
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %61
   %68 = load i64, ptr %67, align 8, !noundef !4
   store i64 %52, ptr %67, align 8
   %69 = load i64, ptr %13, align 8, !noundef !4
@@ -15105,7 +15105,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 82:                                               ; preds = %65
   %83 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %52
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %52
   store i64 %68, ptr %84, align 8
   br label %.backedge
 
@@ -20527,8 +20527,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %.preheader.split
   %6 = add i64 %.sroa.01.0, 1
-  %7 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %0, i64 0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds [0 x { i32, [11 x i32] }], ptr %2, i64 0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds { i32, [11 x i32] }, ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds { i32, [11 x i32] }, ptr %2, i64 %.sroa.01.0
   %9 = tail call noundef zeroext i1 @"_ZN82_$LT$wasmtime..runtime..component..values..Val$u20$as$u20$core..cmp..PartialEq$GT$2eq17h696950105e4bcda3E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %8)
   br i1 %9, label %.preheader.split, label %.thread
 }
@@ -25257,7 +25257,7 @@ define hidden void @_ZN8wasmtime7runtime10trampoline22generate_memory_export17hb
 _ZN8wasmtime7runtime5store11StoreOpaque12instance_mut17haa1c9305e9826543E.exit: ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds [0 x { { i64, [1 x i64] }, ptr }], ptr %16, i64 0, i64 %9, i32 1
+  %17 = getelementptr inbounds { { i64, [1 x i64] }, ptr }, ptr %16, i64 %9, i32 1
   call void @_ZN16wasmtime_runtime8instance14InstanceHandle19get_exported_memory17hea2a5dbb09b203deE(ptr noalias noundef nonnull sret({ { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr, ptr, i32, [1 x i32] }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -25301,7 +25301,7 @@ define hidden void @_ZN8wasmtime7runtime10trampoline21generate_table_export17h6f
 _ZN8wasmtime7runtime5store11StoreOpaque12instance_mut17haa1c9305e9826543E.exit: ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds [0 x { { i64, [1 x i64] }, ptr }], ptr %15, i64 0, i64 %8, i32 1
+  %16 = getelementptr inbounds { { i64, [1 x i64] }, ptr }, ptr %15, i64 %8, i32 1
   call void @_ZN16wasmtime_runtime8instance14InstanceHandle18get_exported_table17h548c21303b6816f8E(ptr noalias noundef nonnull sret({ { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr, ptr }) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %16, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

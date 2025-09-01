@@ -242,13 +242,13 @@ define internal range(i32 -2147483648, 1) i32 @gxf_write_header(ptr noundef %0) 
 
 101:                                              ; preds = %100, %93
   %indvars.iv.i = phi i64 [ 0, %93 ], [ %indvars.iv.next.i, %100 ]
-  %102 = getelementptr inbounds nuw [6 x %struct.anon], ptr @gxf_lines_tab, i64 0, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw %struct.anon, ptr @gxf_lines_tab, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 8, !tbaa !68
   %104 = icmp eq i32 %99, %103
   br i1 %104, label %gxf_find_lines_index.exit, label %100
 
 gxf_find_lines_index.exit:                        ; preds = %101
-  %105 = getelementptr inbounds nuw [6 x %struct.anon], ptr @gxf_lines_tab, i64 0, i64 %indvars.iv.i, i32 1
+  %105 = getelementptr inbounds nuw %struct.anon, ptr @gxf_lines_tab, i64 %indvars.iv.i, i32 1
   %106 = load i32, ptr %105, align 4, !tbaa !70
   br label %.loopexit
 
@@ -337,7 +337,7 @@ gxf_find_lines_index.exit:                        ; preds = %101
   %.2107 = phi ptr [ %.0105155, %56 ], [ %29, %115 ], [ %29, %119 ], [ %29, %123 ], [ %29, %134 ], [ %29, %140 ], [ %.0105155, %30 ]
   %146 = shl nuw nsw i32 %.2111, 8
   %147 = zext nneg i32 %.2111 to i64
-  %148 = getelementptr inbounds nuw [255 x i8], ptr %3, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !75
   %150 = add i8 %149, 1
   store i8 %150, ptr %148, align 1, !tbaa !75

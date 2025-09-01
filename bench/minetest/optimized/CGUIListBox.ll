@@ -5003,9 +5003,9 @@ if.end:                                           ; preds = %entry
   %conv.i18 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
   %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i18, i32 2
-  %arrayidx = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %arrayidx.split, i64 %idxprom
   store i8 1, ptr %arrayidx, align 4, !tbaa !131
-  %Color = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom, i32 1
+  %Color = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %arrayidx.split, i64 %idxprom, i32 1
   store i32 %color.coerce, ptr %Color, align 4, !tbaa !52
   br label %return
 
@@ -5051,7 +5051,7 @@ if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
   %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2
-  %arrayidx = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %arrayidx.split, i64 %idxprom
   store i8 0, ptr %arrayidx, align 4, !tbaa !131
   br label %return
 
@@ -5080,7 +5080,7 @@ if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
   %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2
-  %arrayidx = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %arrayidx.split, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 4, !tbaa !131, !range !70, !noundef !71
   %tobool = icmp ne i8 %3, 0
   br label %return
@@ -5111,7 +5111,7 @@ if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
   %Color.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2
-  %Color = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %Color.split, i64 0, i64 %idxprom, i32 1
+  %Color = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor", ptr %Color.split, i64 %idxprom, i32 1
   %3 = load i32, ptr %Color, align 8, !tbaa !52
   br label %return
 
@@ -5136,7 +5136,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i32 %colorType to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK3irr3gui11CGUIListBox19getItemDefaultColorENS0_18EGUI_LISTBOX_COLORE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3irr3gui11CGUIListBox19getItemDefaultColorENS0_18EGUI_LISTBOX_COLORE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %vtable16 = load ptr, ptr %call, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable16, align 8
@@ -6081,7 +6081,7 @@ entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %Type, align 8, !tbaa !173
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [27 x ptr], ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !75
   ret ptr %1
 }

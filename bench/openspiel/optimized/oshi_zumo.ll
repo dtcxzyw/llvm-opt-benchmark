@@ -1870,7 +1870,7 @@ define void @_ZNK10open_spiel9oshi_zumo13OshiZumoState12LegalActionsEi(ptr dead_
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %35 = zext nneg i32 %2 to i64
-  %36 = getelementptr inbounds nuw [2 x i32], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   %.not31 = icmp sgt i32 %33, %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8

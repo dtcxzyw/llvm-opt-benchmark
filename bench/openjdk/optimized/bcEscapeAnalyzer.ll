@@ -2104,7 +2104,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %17, %_ZN8ciMethod4c
   %73 = zext i8 %72 to i32
   store i32 %73, ptr %46, align 4
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %74
   %76 = load i32, ptr %75, align 4
   store i32 %76, ptr %47, align 8
   %77 = icmp ult i32 %76, 239
@@ -2117,7 +2117,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i: ; preds = %70
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %70
   %79 = zext nneg i32 %76 to i64
-  %80 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = and i8 %81, 15
   %83 = zext nneg i8 %82 to i64
@@ -2553,7 +2553,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %185, %184
   %187 = load i32, ptr %46, align 4
   %188 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %189 = sext i32 %187 to i64
-  %190 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %189
+  %190 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %189
   %191 = load i16, ptr %190, align 2
   %192 = and i16 %191, 128
   %.not.i.i.i = icmp eq i16 %192, 0
@@ -3152,7 +3152,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i400: ; preds = %456, %455
   %458 = load i32, ptr %46, align 4
   %459 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %460 = sext i32 %458 to i64
-  %461 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %460
+  %461 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %460
   %462 = load i16, ptr %461, align 2
   %463 = and i16 %462, 128
   %.not.i.i.i401 = icmp eq i16 %463, 0
@@ -6101,7 +6101,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit717: ; preds = %1762
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit716
   %1772 = zext i8 %1728 to i64
-  %1773 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %1772
+  %1773 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1772
   %1774 = load i32, ptr %1773, align 4
   %1775 = icmp eq i32 %1774, 1
   %1776 = load i32, ptr %49, align 8
@@ -6289,7 +6289,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit10.i728: ; pr
 
 _Z17is_reference_type9BasicTypeb.exit725:         ; preds = %_ZN7ciField4typeEv.exit723
   %1862 = zext i8 %1811 to i64
-  %1863 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %1862
+  %1863 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1862
   %1864 = load i32, ptr %1863, align 4
   %1865 = icmp eq i32 %1864, 1
   %1866 = load i32, ptr %49, align 8
@@ -6424,7 +6424,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit764: ; preds = %_
 
 .lr.ph.i767:                                      ; preds = %1917
   %1920 = zext i8 %1811 to i64
-  %1921 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %1920
+  %1921 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1920
   %1922 = load i32, ptr %1921, align 4
   %1923 = shl nsw i32 %1922, 3
   %1924 = icmp eq i32 %1918, -1
@@ -6591,7 +6591,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit780: ; preds = %1987
 
 1997:                                             ; preds = %1979
   %1998 = zext i8 %1985 to i64
-  %1999 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %1998
+  %1999 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1998
   %2000 = load i32, ptr %1999, align 4
   switch i32 %2000, label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit [
     i32 1, label %2001
@@ -7871,7 +7871,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge277.t
   %114 = phi i8 [ %104, %98 ], [ %.pre345, %106 ]
   %.sroa.0213.2 = phi i32 [ %.sroa.0213.1278, %98 ], [ %111, %106 ]
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i32, ptr @type2size, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, %.1280
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
@@ -8863,7 +8863,7 @@ _ZN9VectorSet3setEj.exit18:                       ; preds = %_ZN9VectorSet3setEj
   %60 = phi i32 [ %.pre24, %_ZN9VectorSet3setEj.exit18 ], [ %35, %34 ]
   %61 = phi i8 [ %.pre, %_ZN9VectorSet3setEj.exit18 ], [ %40, %34 ]
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @type2size, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = add nsw i32 %64, %.120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

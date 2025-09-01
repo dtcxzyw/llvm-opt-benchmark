@@ -361,7 +361,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
 
 116:                                              ; preds = %109
   %117 = zext i8 %111 to i64
-  %118 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !24
   %120 = and i8 %119, 1
   %.not52.i = icmp eq i8 %120, 0
@@ -373,7 +373,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
 
 .preheader67.i:                                   ; preds = %116, %.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %116 ]
-  %122 = getelementptr inbounds nuw [13 x %struct.parse_cmd], ptr @command, i64 0, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw %struct.parse_cmd, ptr @command, i64 %indvars.iv.i
   %123 = load ptr, ptr %122, align 8, !tbaa !29
   %124 = load ptr, ptr %104, align 8, !tbaa !27
   %125 = call i32 @starts_with(ptr noundef %124, ptr noundef %123) #11
@@ -624,7 +624,7 @@ update_refs_stdin.exit:                           ; preds = %._crit_edge.i, %183
 
 220:                                              ; preds = %222, %217
   %.0811.i.i = phi i64 [ 0, %217 ], [ %223, %222 ]
-  %221 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %221 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %219, %221
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %222
 
@@ -990,7 +990,7 @@ define internal void @parse_cmd_verify(ptr noundef %0, ptr noundef %1, ptr nound
 
 15:                                               ; preds = %17, %11
   %.0811.i.i = phi i64 [ 0, %11 ], [ %18, %17 ]
-  %16 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %16 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %14, %16
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %17
 
@@ -1742,7 +1742,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull c
 
 27:                                               ; preds = %29, %24
   %.0811.i.i = phi i64 [ 0, %24 ], [ %30, %29 ]
-  %28 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %28 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %26, %28
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %29
 
@@ -1802,7 +1802,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull c
 
 53:                                               ; preds = %55, %49
   %.0811.i.i52 = phi i64 [ 0, %49 ], [ %56, %55 ]
-  %54 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i52
+  %54 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i52
   %.not.i.i53 = icmp eq ptr %52, %54
   br i1 %.not.i.i53, label %.split.loop.exit9.i.i56, label %55
 
@@ -1885,7 +1885,7 @@ define internal fastcc ptr @parse_arg(ptr noundef %0, ptr noundef nonnull %1) un
 
 13:                                               ; preds = %10
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !24
   %17 = and i8 %16, 1
   %.not7 = icmp eq i8 %17, 0
@@ -1899,7 +1899,7 @@ define internal fastcc ptr @parse_arg(ptr noundef %0, ptr noundef nonnull %1) un
   %20 = phi i8 [ %4, %.lr.ph ], [ %36, %strbuf_addch.exit ]
   %21 = phi ptr [ %0, %.lr.ph ], [ %27, %strbuf_addch.exit ]
   %22 = zext i8 %20 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !24
   %25 = and i8 %24, 1
   %.not4 = icmp eq i8 %25, 0

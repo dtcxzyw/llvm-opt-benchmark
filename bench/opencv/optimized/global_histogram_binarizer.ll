@@ -1491,7 +1491,7 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 27:                                               ; preds = %23
   %28 = add nsw i32 %.0123152, 1
   %29 = sext i32 %.0123152 to i64
-  %30 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr %4, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %31, ptr %30, align 4, !tbaa !24
   br label %52
@@ -1521,7 +1521,7 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 46:                                               ; preds = %42
   %47 = add nsw i32 %.0111155, 1
   %48 = sext i32 %.0111155 to i64
-  %49 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %48
+  %49 = getelementptr inbounds i32, ptr %3, i64 %48
   %50 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %50, ptr %49, align 4, !tbaa !24
   %51 = icmp sgt i32 %10, %.0114154
@@ -1539,7 +1539,7 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv183 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next184, %.lr.ph ]
-  %53 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv183
+  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv183
   %54 = load i32, ptr %53, align 4, !tbaa !24
   %55 = icmp sgt i32 %54, 17
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -1558,7 +1558,7 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %56
   %indvars.iv188 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next189, %56 ]
-  %57 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv188
+  %57 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv188
   %58 = load i32, ptr %57, align 4, !tbaa !24
   %59 = icmp slt i32 %58, 17
   br i1 %59, label %60, label %56
@@ -1585,7 +1585,7 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %63
   %indvars.iv194 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next195, %63 ]
-  %64 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv194
+  %64 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv194
   %65 = load i32, ptr %64, align 4, !tbaa !24
   %66 = icmp sgt i32 %65, %61
   %67 = icmp slt i32 %65, 17
@@ -1616,7 +1616,7 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %74
   %indvars.iv200 = phi i64 [ 0, %.lr.ph173.preheader ], [ %indvars.iv.next201, %74 ]
-  %75 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv200
+  %75 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv200
   %76 = load i32, ptr %75, align 4, !tbaa !24
   %77 = icmp sgt i32 %76, %73
   %78 = icmp slt i32 %76, 253

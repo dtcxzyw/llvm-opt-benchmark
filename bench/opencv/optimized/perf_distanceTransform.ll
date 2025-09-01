@@ -15685,7 +15685,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   br i1 %or.cond43.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i, label %.critedge38.i.i.i.i.i.i.i.i.i.i, !llvm.loop !527
 
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i
-  %518 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_17DstType7PrintToEPSo.vals, i64 0, i64 %indvars.iv67.i.i.i.i.i.i.i.i.i.i
+  %518 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_17DstType7PrintToEPSo.vals, i64 %indvars.iv67.i.i.i.i.i.i.i.i.i.i
   %519 = load i32, ptr %518, align 4, !tbaa !89, !noalias !513
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %519
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %520, label %505
@@ -16597,7 +16597,7 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
 .critedge37.i.i:                                  ; preds = %19, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.preheader.i.i
   %.2.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %.preheader.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv.next71.i.i, %19 ]
   %.lcssa49.i.i = phi i64 [ %13, %.preheader.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv.next71.i.i, %19 ]
-  %24 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18MaskSize7PrintToEPSo.vals, i64 0, i64 %indvars.iv73.i.i
+  %24 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_18MaskSize7PrintToEPSo.vals, i64 %indvars.iv73.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !89
   %.not35.i.i = icmp eq i32 %.0.val, %25
   br i1 %.not35.i.i, label %26, label %4
@@ -16766,7 +16766,7 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
 .critedge37.i.i:                                  ; preds = %19, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.preheader.i.i
   %.2.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %.preheader.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv.next71.i.i, %19 ]
   %.lcssa49.i.i = phi i64 [ %13, %.preheader.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv70.i.i, %.lr.ph.i.i ], [ %indvars.iv.next71.i.i, %19 ]
-  %24 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112DistanceType7PrintToEPSo.vals, i64 0, i64 %indvars.iv73.i.i
+  %24 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_112DistanceType7PrintToEPSo.vals, i64 %indvars.iv73.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !89
   %.not35.i.i = icmp eq i32 %.0.val, %25
   br i1 %.not35.i.i, label %26, label %4
@@ -18875,7 +18875,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 .critedge38.i.i.i.i.i.i.i.i.i.i:                  ; preds = %518, %switch.early.test.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next73.i.i.i.i.i.i.i.i.i.i, %518 ]
   %.lcssa53.i.i.i.i.i.i.i.i.i.i = phi i64 [ %512, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next73.i.i.i.i.i.i.i.i.i.i, %518 ]
-  %523 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_19LabelType7PrintToEPSo.vals, i64 0, i64 %indvars.iv75.i.i.i.i.i.i.i.i.i.i
+  %523 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_19LabelType7PrintToEPSo.vals, i64 %indvars.iv75.i.i.i.i.i.i.i.i.i.i
   %524 = load i32, ptr %523, align 4, !tbaa !89, !noalias !596
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %524
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %525, label %505

@@ -169,7 +169,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %38 = lshr i64 %1, 15
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %39
   %.sroa.04.0.copyload = load i64, ptr %40, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !28
@@ -210,7 +210,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %61 = getelementptr inbounds nuw [32 x i64], ptr %60, i64 0, i64 %58
+  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %58
   store i64 %56, ptr %61, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -374,7 +374,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
-  %41 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %40
   %.sroa.05.0.copyload = load i64, ptr %41, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !28
@@ -424,7 +424,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
 
 63:                                               ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %64, i64 0, i64 %60
+  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %60
   store i64 %57, ptr %65, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -681,7 +681,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %47 = lshr i64 %1, 15
   %48 = and i64 %47, 31
-  %49 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %46, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.float128_t, ptr %46, i64 %48
   %.sroa.04.0.copyload = load i64, ptr %49, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !28
@@ -720,7 +720,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %68 = getelementptr inbounds nuw [32 x i64], ptr %67, i64 0, i64 %38
+  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %38
   store i64 %65, ptr %68, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -892,7 +892,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %48 = lshr i64 %1, 15
   %49 = and i64 %48, 31
-  %50 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %47, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %struct.float128_t, ptr %47, i64 %49
   %.sroa.05.0.copyload = load i64, ptr %50, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !28
@@ -940,7 +940,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %72 = getelementptr inbounds nuw [32 x i64], ptr %71, i64 0, i64 %39
+  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %39
   store i64 %66, ptr %72, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

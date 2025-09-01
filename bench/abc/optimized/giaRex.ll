@@ -2306,7 +2306,7 @@ define void @Gia_ManAutomWalkOne(ptr noundef readonly captures(none) %0, i32 nou
   %.096 = phi i32 [ %.2, %52 ], [ 1000000000, %15 ]
   %.04595 = phi i32 [ %.247, %52 ], [ -1, %15 ]
   %.05094 = phi i32 [ %.252, %52 ], [ -1, %15 ]
-  %19 = getelementptr inbounds nuw [64 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !62
   %21 = icmp eq i64 %20, %5
   br i1 %21, label %52, label %22
@@ -2505,7 +2505,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %97 = getelementptr inbounds i32, ptr %93, i64 %96
   store i32 0, ptr %97, align 4, !tbaa !32
   %98 = sext i32 %.15179 to i64
-  %99 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %98
+  %99 = getelementptr inbounds i64, ptr %7, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !62
   %101 = load i32, ptr %11, align 4, !tbaa !72
   %102 = load i32, ptr %2, align 8, !tbaa !76
@@ -2580,7 +2580,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   %132 = load i32, ptr %131, align 4, !tbaa !32
   %133 = add nsw i32 %132, 1
   store i32 %133, ptr %131, align 4, !tbaa !32
-  %134 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %.pre-phi
+  %134 = getelementptr inbounds i64, ptr %7, i64 %.pre-phi
   %135 = load i64, ptr %134, align 8, !tbaa !62
   %136 = add nsw i32 %.15179, 97
   %putchar = tail call i32 @putchar(i32 %136)

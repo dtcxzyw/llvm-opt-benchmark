@@ -11269,7 +11269,7 @@ define internal noundef zeroext i1 @HeadMatchesImpl(i1 zeroext %0, i32 noundef %
   %33 = phi i32 [ %28, %25 ], [ %23, %29 ]
   %34 = phi ptr [ %27, %25 ], [ %22, %29 ]
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -11372,7 +11372,7 @@ define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 n
   %33 = phi i32 [ %28, %25 ], [ %23, %29 ]
   %34 = phi ptr [ %27, %25 ], [ %22, %29 ]
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -11511,7 +11511,7 @@ define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, p
   %26 = phi i32 [ %21, %18 ], [ %16, %22 ]
   %27 = phi ptr [ %20, %18 ], [ %15, %22 ]
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %28, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -11552,7 +11552,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   %10 = add i32 %9, 1
   store i32 %10, ptr @create_or_drop_command_generator.list_index, align 4
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds [51 x %struct.pgsql_thing_t], ptr @words_after_create, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.pgsql_thing_t, ptr @words_after_create, i64 %11
   %13 = load ptr, ptr %12, align 16
   %.not12 = icmp eq ptr %13, null
   br i1 %.not12, label %pg_strdup_keyword_case.exit, label %.lr.ph
@@ -11569,7 +11569,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
 19:                                               ; preds = %.lr.ph
   %20 = add i32 %.pre16, -1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [51 x %struct.pgsql_thing_t], ptr @words_after_create, i64 0, i64 %21, i32 5
+  %22 = getelementptr inbounds %struct.pgsql_thing_t, ptr @words_after_create, i64 %21, i32 5
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, %2
   %.not8 = icmp eq i32 %24, 0
@@ -11637,7 +11637,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   %52 = add i32 %.pre16, 1
   store i32 %52, ptr @create_or_drop_command_generator.list_index, align 4
   %53 = sext i32 %.pre16 to i64
-  %54 = getelementptr inbounds [51 x %struct.pgsql_thing_t], ptr @words_after_create, i64 0, i64 %53
+  %54 = getelementptr inbounds %struct.pgsql_thing_t, ptr @words_after_create, i64 %53
   %55 = load ptr, ptr %54, align 16
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %pg_strdup_keyword_case.exit, label %.lr.ph, !llvm.loop !28
@@ -12207,7 +12207,7 @@ exec_query.exit:                                  ; preds = %179, %185, %187, %1
 
 264:                                              ; preds = %261
   %265 = zext nneg i32 %262 to i64
-  %266 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %265
   %267 = load i8, ptr %266, align 1
   %.not10.i169 = icmp eq i8 %267, 0
   br i1 %.not10.i169, label %identifier_needs_quotes.exit, label %identifier_needs_quotes.exit.thread, !llvm.loop !32
@@ -12240,7 +12240,7 @@ identifier_needs_quotes.exit:                     ; preds = %264, %261, %250
 
 281:                                              ; preds = %278
   %282 = zext nneg i32 %279 to i64
-  %283 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %282
   %284 = load i8, ptr %283, align 1
   %.not10.i174 = icmp eq i8 %284, 0
   br i1 %.not10.i174, label %identifier_needs_quotes.exit175, label %identifier_needs_quotes.exit.thread, !llvm.loop !32
@@ -12300,7 +12300,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
 
 315:                                              ; preds = %312
   %316 = zext nneg i32 %313 to i64
-  %317 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %316
   %318 = load i8, ptr %317, align 1
   %.not10.i.i = icmp eq i8 %318, 0
   br i1 %.not10.i.i, label %.loopexit95.i, label %.thread.i
@@ -12361,7 +12361,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
 
 341:                                              ; preds = %338
   %342 = zext nneg i32 %339 to i64
-  %343 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr @ScanKeywordCategories, i64 %342
   %344 = load i8, ptr %343, align 1
   %.not10.i83.i = icmp eq i8 %344, 0
   br i1 %.not10.i83.i, label %.loopexit.i177, label %.thread89.i

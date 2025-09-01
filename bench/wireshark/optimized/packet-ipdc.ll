@@ -656,7 +656,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
 71:                                               ; preds = %.lr.ph.i
   %72 = add i32 %.02146.i, 1
   %73 = zext i32 %72 to i64
-  %74 = getelementptr [103 x %struct._ipdc_tag_type_val], ptr @ipdc_tag_types, i64 0, i64 %73
+  %74 = getelementptr %struct._ipdc_tag_type_val, ptr @ipdc_tag_types, i64 %73
   %75 = load i32, ptr %74, align 8
   %.not.i = icmp eq i32 %75, %66
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8

@@ -120,7 +120,7 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
 .preheader.i:                                     ; preds = %46, %.preheader.i
   %.02439.i = phi i64 [ %54, %.preheader.i ], [ 0, %46 ]
   %.138.i = phi i32 [ %53, %.preheader.i ], [ %49, %46 ]
-  %50 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 0, i64 %.02439.i
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 %.02439.i
   %51 = load i8, ptr %50, align 1, !tbaa !24
   %52 = sext i8 %51 to i32
   %53 = sub nsw i32 %.138.i, %52
@@ -142,25 +142,26 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
 61:                                               ; preds = %57
   %62 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.3, i64 noundef 8) #5
   %63 = icmp eq i32 %62, 0
-  %64 = zext i1 %63 to i64
+  %..i = select i1 %63, i64 2, i64 1
   br label %is_tar.exit
 
 is_tar.exit:                                      ; preds = %61, %57
-  %.0.i = phi i64 [ 2, %57 ], [ %64, %61 ]
-  %65 = icmp eq i32 %5, 1024
-  br i1 %65, label %is_tar.exit.thread, label %66
+  %.0.i = phi i64 [ 3, %57 ], [ %..i, %61 ]
+  %64 = icmp eq i32 %5, 1024
+  br i1 %64, label %is_tar.exit.thread, label %65
 
-66:                                               ; preds = %is_tar.exit
+65:                                               ; preds = %is_tar.exit
   %.not15 = icmp eq i32 %5, 0
-  %67 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @tartype, i64 0, i64 %.0.i
+  %66 = getelementptr [32 x i8], ptr @tartype, i64 %.0.i
+  %67 = getelementptr i8, ptr %66, i64 -32
   %68 = select i1 %.not15, ptr %67, ptr @.str.1
-  %69 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %68) #7
+  %69 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %68) #7
   %70 = icmp eq i32 %69, -1
   %. = select i1 %70, i32 -1, i32 1
   br label %is_tar.exit.thread
 
-is_tar.exit.thread:                               ; preds = %55, %16, %7, %66, %is_tar.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %is_tar.exit ], [ %., %66 ], [ 0, %7 ], [ 0, %16 ], [ 0, %55 ]
+is_tar.exit.thread:                               ; preds = %55, %16, %7, %65, %is_tar.exit, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %is_tar.exit ], [ %., %65 ], [ 0, %7 ], [ 0, %16 ], [ 0, %55 ]
   ret i32 %.0
 }
 

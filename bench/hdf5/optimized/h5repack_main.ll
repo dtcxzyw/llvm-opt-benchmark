@@ -584,7 +584,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 126:                                              ; preds = %123, %120
   %127 = load i8, ptr %5, align 1, !tbaa !18
-  %128 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %127, ptr %128, align 1, !tbaa !18
   %129 = call i32 @feof(ptr noundef nonnull %101) #14
   %.not28.i.i = icmp eq i32 %129, 0
@@ -599,7 +599,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 132:                                              ; preds = %130, %130, %126
-  %133 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 0, ptr %133, align 1, !tbaa !18
   %bcmp29.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.253, i64 3)
   %.not30.i.i = icmp eq i32 %bcmp29.i.i, 0
@@ -735,7 +735,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %145
 
 182:                                              ; preds = %182, %179
   %indvars.iv.i = phi i64 [ 0, %179 ], [ %indvars.iv.next.i, %182 ]
-  %183 = getelementptr inbounds nuw [8 x i32], ptr %48, i64 0, i64 %indvars.iv.i
+  %183 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i
   store i32 %181, ptr %183, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5

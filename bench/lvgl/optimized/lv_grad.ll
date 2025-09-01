@@ -61,7 +61,7 @@ define void @lv_grad_init_stops(ptr noundef writeonly captures(address_is_null) 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split
   %18 = phi i1 [ false, %.split.us.split ], [ true, %.split.us ]
   %indvars.iv46 = phi i64 [ 1, %.split.us.split ], [ 0, %.split.us ]
-  %19 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %indvars.iv46
+  %19 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %0, i64 %indvars.iv46
   %20 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) %20, i64 3, i1 false), !tbaa.struct !8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46
@@ -105,7 +105,7 @@ define void @lv_grad_init_stops(ptr noundef writeonly captures(address_is_null) 
 .split.split:                                     ; preds = %.split, %.split.split
   %36 = phi i1 [ false, %.split.split ], [ true, %.split ]
   %indvars.iv = phi i64 [ 1, %.split.split ], [ 0, %.split ]
-  %37 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %0, i64 %indvars.iv
   %38 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %37, ptr noundef nonnull align 1 dereferenceable(3) %38, i64 3, i1 false), !tbaa.struct !8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv

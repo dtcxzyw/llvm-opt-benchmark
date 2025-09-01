@@ -1076,7 +1076,7 @@ define dso_local noundef ptr @_ZNK6asmjit9_abi_1_1010CodeHolder13sectionByNameEP
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds nuw [36 x i8], ptr %20, i64 0, i64 %8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %8
   %25 = load i8, ptr %24, align 1, !tbaa !72
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.loopexit, label %27
@@ -1130,7 +1130,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1010CodeHolder24
 11:                                               ; preds = %.preheader
   %12 = icmp ult i64 %9, %1
   %13 = zext i1 %12 to i64
-  %14 = getelementptr inbounds nuw [2 x i64], ptr %7, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %7, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !104
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
@@ -1243,7 +1243,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %20
   %25 = load i64, ptr %24, align 8, !tbaa !104
   %26 = and i64 %25, 1
   %27 = or i64 %26, %13
@@ -1311,7 +1311,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %68 = load i64, ptr %67, align 8, !tbaa !104
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
-  %71 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %21
+  %71 = getelementptr inbounds nuw i64, ptr %17, i64 %21
   %72 = load i64, ptr %71, align 8, !tbaa !104
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
@@ -1320,11 +1320,11 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %77 = zext i1 %76 to i64
   %78 = xor i1 %76, true
   %79 = zext i1 %78 to i64
-  %80 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %16, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !104
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds nuw [2 x i64], ptr %83, i64 0, i64 %77
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %77
   %85 = load i64, ptr %84, align 8, !tbaa !104
   %86 = and i64 %85, -2
   br i1 %75, label %87, label %90
@@ -1338,7 +1338,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %91 = inttoptr i64 %86 to ptr
   %92 = icmp ne i64 %86, 0
   tail call void @llvm.assume(i1 %92)
-  %93 = getelementptr inbounds nuw [2 x i64], ptr %91, i64 0, i64 %79
+  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %79
   %94 = load i64, ptr %93, align 8, !tbaa !104
   %95 = and i64 %94, -2
   %96 = and i64 %85, 1
@@ -1358,7 +1358,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %106 = and i64 %105, 1
   %107 = or disjoint i64 %106, %86
   store i64 %107, ptr %80, align 8, !tbaa !104
-  %108 = getelementptr inbounds nuw [2 x i64], ptr %91, i64 0, i64 %77
+  %108 = getelementptr inbounds nuw i64, ptr %91, i64 %77
   %109 = load i64, ptr %108, align 8, !tbaa !104
   %110 = and i64 %109, -2
   %111 = or disjoint i64 %110, %106
@@ -1400,7 +1400,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %135 = zext i1 %134 to i64
   %136 = icmp eq ptr %16, null
   %137 = select i1 %136, ptr %18, ptr %16
-  %138 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %135
+  %138 = getelementptr inbounds nuw i64, ptr %55, i64 %135
   %139 = load i64, ptr %138, align 8, !tbaa !104
   %140 = and i64 %139, -2
   %141 = inttoptr i64 %140 to ptr
@@ -1667,7 +1667,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
 94:                                               ; preds = %88
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %95, ptr nonnull align 1 %2, i64 %.fr23, i1 false)
-  %96 = getelementptr inbounds nuw [12 x i8], ptr %95, i64 0, i64 %.fr23
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.fr23
   store i8 0, ptr %96, align 1, !tbaa !72
   br label %103
 
@@ -1832,7 +1832,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
 199:                                              ; preds = %191
   %200 = getelementptr inbounds nuw i8, ptr %189, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %200, ptr align 1 %2, i64 %.fr23, i1 false)
-  %201 = getelementptr inbounds nuw [12 x i8], ptr %200, i64 0, i64 %.fr23
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.fr23
   store i8 0, ptr %201, align 1, !tbaa !72
   br label %208
 
@@ -2968,7 +2968,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
 219:                                              ; preds = %.preheader
   %220 = icmp ult i64 %217, %155
   %221 = zext i1 %220 to i64
-  %222 = getelementptr inbounds nuw [2 x i64], ptr %215, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw i64, ptr %215, i64 %221
   %223 = load i64, ptr %222, align 8, !tbaa !104
   %224 = and i64 %223, -2
   %225 = inttoptr i64 %224 to ptr

@@ -528,7 +528,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03001141 = phi i64 [ 1, %.lr.ph.preheader ], [ %271, %.lr.ph ]
-  %269 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %269 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   %270 = load i64, ptr %269, align 8, !tbaa !23
   %271 = mul i64 %270, %.03001141
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2622,7 +2622,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03441077 = phi i64 [ 1, %.lr.ph.preheader ], [ %342, %.lr.ph ]
-  %340 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %340 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %341 = load i64, ptr %340, align 8, !tbaa !23
   %342 = mul i64 %341, %.03441077
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2681,7 +2681,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 .lr.ph1081:                                       ; preds = %.lr.ph1081.preheader, %.lr.ph1081
   %indvars.iv1469 = phi i64 [ 0, %.lr.ph1081.preheader ], [ %indvars.iv.next1470, %.lr.ph1081 ]
   %.03371079 = phi i64 [ 1, %.lr.ph1081.preheader ], [ %369, %.lr.ph1081 ]
-  %367 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv1469
+  %367 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv1469
   %368 = load i64, ptr %367, align 8, !tbaa !23
   %369 = mul i64 %368, %.03371079
   %indvars.iv.next1470 = add nuw nsw i64 %indvars.iv1469, 1

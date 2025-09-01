@@ -921,8 +921,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .preheader:                                       ; preds = %.split.loop.exit, %.preheader
   %indvars.iv983 = phi i64 [ %indvars.iv.next984, %.preheader ], [ 1, %.split.loop.exit ]
-  %495 = add nsw i64 %indvars.iv983, -1
-  %496 = getelementptr inbounds [4 x i32], ptr %29, i64 0, i64 %495
+  %495 = getelementptr i32, ptr %29, i64 %indvars.iv983
+  %496 = getelementptr i8, ptr %495, i64 -4
   store i32 1, ptr %496, align 4, !tbaa !3
   %indvars.iv.next984 = add nuw nsw i64 %indvars.iv983, 1
   %exitcond986.not = icmp eq i64 %indvars.iv.next984, 5

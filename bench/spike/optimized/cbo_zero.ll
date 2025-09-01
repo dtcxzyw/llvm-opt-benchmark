@@ -206,7 +206,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_cbo_zeroP1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %65 = lshr i64 %1, 15
   %66 = and i64 %65, 31
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %64, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %64, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %63, i64 noundef %68)
   ret i64 %61
@@ -261,13 +261,13 @@ define linkonce_odr void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 deref
   call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %20, i1 noundef zeroext false, i64 noundef %8, ptr noundef nonnull byval(%"class.std::optional") align 8 %6)
   %21 = lshr i64 %20, 12
   %22 = and i64 %21, 255
-  %23 = getelementptr inbounds nuw [256 x i64], ptr %14, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %14, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = icmp eq i64 %24, %21
   br i1 %25, label %26, label %30, !prof !169
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %15, i64 0, i64 %22
+  %27 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %15, i64 %22
   %28 = load ptr, ptr %27, align 8, !tbaa !170
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %20
   store i8 0, ptr %29, align 1
@@ -413,7 +413,7 @@ define noundef i64 @_Z19fast_rv64i_cbo_zeroP11processor_t6insn_tm(ptr noundef re
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %63 = lshr i64 %1, 15
   %64 = and i64 %63, 31
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %61, i64 noundef %66)
   ret i64 %59
@@ -523,7 +523,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_cbo_zero
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %65 = lshr i64 %1, 15
   %66 = and i64 %65, 31
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %64, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %64, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %63, i64 noundef %68)
   ret i64 %61
@@ -631,7 +631,7 @@ define noundef i64 @_Z21logged_rv64i_cbo_zeroP11processor_t6insn_tm(ptr noundef 
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %63 = lshr i64 %1, 15
   %64 = and i64 %63, 31
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %61, i64 noundef %66)
   ret i64 %59
@@ -757,7 +757,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_cbo_zeroP1
   %71 = add i64 %70, 17179869184
   %72 = ashr exact i64 %71, 32
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %74 = getelementptr inbounds nuw [32 x i64], ptr %73, i64 0, i64 %60
+  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %60
   %75 = load i64, ptr %74, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %69, i64 noundef %75)
   ret i64 %72
@@ -881,7 +881,7 @@ define noundef i64 @_Z19fast_rv64e_cbo_zeroP11processor_t6insn_tm(ptr noundef re
   %69 = load ptr, ptr %68, align 8, !tbaa !95
   %70 = add i64 %2, 4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %72 = getelementptr inbounds nuw [32 x i64], ptr %71, i64 0, i64 %60
+  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %60
   %73 = load i64, ptr %72, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %69, i64 noundef %73)
   ret i64 %70
@@ -1007,7 +1007,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_cbo_zero
   %71 = add i64 %70, 17179869184
   %72 = ashr exact i64 %71, 32
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %74 = getelementptr inbounds nuw [32 x i64], ptr %73, i64 0, i64 %60
+  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %60
   %75 = load i64, ptr %74, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %69, i64 noundef %75)
   ret i64 %72
@@ -1131,7 +1131,7 @@ define noundef i64 @_Z21logged_rv64e_cbo_zeroP11processor_t6insn_tm(ptr noundef 
   %69 = load ptr, ptr %68, align 8, !tbaa !95
   %70 = add i64 %2, 4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %72 = getelementptr inbounds nuw [32 x i64], ptr %71, i64 0, i64 %60
+  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %60
   %73 = load i64, ptr %72, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %69, i64 noundef %73)
   ret i64 %70

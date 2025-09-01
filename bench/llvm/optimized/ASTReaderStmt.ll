@@ -277,7 +277,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.1488" = type { [64 x i8] }
 %"struct.clang::DefaultArguments" = type { i32, %"class.llvm::ArrayRef.1486" }
 %"class.llvm::ArrayRef.1486" = type { ptr, i64 }
-%"class.clang::detail::CXXOperatorIdName" = type { i32, ptr }
 %"class.llvm::detail::IEEEFloat" = type <{ ptr, %"union.llvm::detail::IEEEFloat::Significand", i32, i8, [3 x i8] }>
 %"union.llvm::detail::IEEEFloat::Significand" = type { i64 }
 %"class.clang::APValue::LValuePathEntry" = type { i64 }
@@ -16409,7 +16408,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit15: ; preds = %69, %70
   %90 = getelementptr inbounds i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !47
   %92 = add i32 %87, -1
-  %93 = getelementptr inbounds nuw [7 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   store ptr %91, ptr %93, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %20
@@ -36645,8 +36644,8 @@ _ZN5clang15ASTRecordReader12readQualTypeEv.exit44: ; preds = %99, %102
   %133 = load i64, ptr %132, align 8, !tbaa !32
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 17432
   %sext = shl i64 %133, 32
-  %135 = ashr exact i64 %sext, 32
-  %136 = getelementptr inbounds [46 x %"class.clang::detail::CXXOperatorIdName"], ptr %134, i64 0, i64 %135
+  %135 = ashr exact i64 %sext, 28
+  %136 = getelementptr inbounds i8, ptr %134, i64 %135
   %137 = ptrtoint ptr %136 to i64
   %138 = or disjoint i64 %137, 6
   br label %160

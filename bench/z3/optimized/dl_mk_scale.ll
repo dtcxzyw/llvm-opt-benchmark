@@ -883,7 +883,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %190, %193
 200:                                              ; preds = %.lr.ph, %_ZN7obj_refI3app11ast_managerED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %201 = getelementptr inbounds nuw [0 x ptr], ptr %196, i64 0, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv
   %202 = load ptr, ptr %201, align 8, !tbaa !223
   %203 = ptrtoint ptr %202 to i64
   %204 = and i64 %203, -8
@@ -1073,7 +1073,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %210, %.noexc93
 274:                                              ; preds = %.lr.ph271, %_ZN7obj_refI3app11ast_managerED2Ev.exit102
   %indvars.iv281 = phi i64 [ %199, %.lr.ph271 ], [ %indvars.iv.next282, %_ZN7obj_refI3app11ast_managerED2Ev.exit102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %275 = getelementptr inbounds nuw [0 x ptr], ptr %198, i64 0, i64 %indvars.iv281
+  %275 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv281
   %276 = load ptr, ptr %275, align 8, !tbaa !223
   %277 = ptrtoint ptr %276 to i64
   %278 = and i64 %277, -8
@@ -2570,7 +2570,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager12m
 
 85:                                               ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit ]
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %70, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8, !tbaa !229
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8, !tbaa !287
@@ -3501,7 +3501,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 81:                                               ; preds = %.lr.ph, %99
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %69, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !229
   %84 = invoke noundef ptr @_ZN7datalog8mk_scale9linearizeEjP4expr(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1, ptr noundef %83)
           to label %85 unwind label %79
@@ -4428,7 +4428,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %._crit_edge195
 96:                                               ; preds = %.lr.ph, %160
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %160 ]
   %97 = load ptr, ptr %11, align 8, !tbaa !338
-  %98 = getelementptr inbounds nuw [0 x ptr], ptr %86, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !313
   %100 = trunc nuw i64 %indvars.iv to i32
   %101 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %97, i32 noundef %100, ptr noundef %99)

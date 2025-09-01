@@ -2724,7 +2724,7 @@ define internal fastcc void @SnapBuildWaitSnapshot(ptr noundef readonly captures
 
 6:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %7 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %8) #14
   br i1 %9, label %10, label %13

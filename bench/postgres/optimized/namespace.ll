@@ -1683,7 +1683,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv364 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next365, %.thread260 ]
   %.0192331 = phi ptr [ null, %.lr.ph335 ], [ %.1193, %.thread260 ]
   %.0194327 = phi i1 [ false, %.lr.ph335 ], [ %.1195, %.thread260 ]
-  %34 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv364
+  %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv364
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = getelementptr i8, ptr %35, i64 80
@@ -1916,7 +1916,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
 .split.us.us.i:                                   ; preds = %133
   %sext.i = shl i64 %indvars.iv144.i, 32
   %137 = ashr exact i64 %sext.i, 32
-  %138 = getelementptr inbounds [100 x i8], ptr %11, i64 0, i64 %137
+  %138 = getelementptr inbounds i8, ptr %11, i64 %137
   %139 = load i8, ptr %138, align 1, !range !4, !noundef !5
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %MatchNamedCall.exit.thread, label %124
@@ -1987,7 +1987,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
 .split.us.i:                                      ; preds = %160, %.split.us.loopexit.i
   %.us-phi.i = phi i32 [ %indvars138.le.i, %.split.us.loopexit.i ], [ %.06699.i, %160 ]
   %163 = sext i32 %.us-phi.i to i64
-  %164 = getelementptr inbounds [100 x i8], ptr %11, i64 0, i64 %163
+  %164 = getelementptr inbounds i8, ptr %11, i64 %163
   %165 = load i8, ptr %164, align 1, !range !4, !noundef !5
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %MatchNamedCall.exit.thread, label %170
@@ -2032,7 +2032,7 @@ define dso_local ptr @FuncnameGetCandidates(ptr noundef readonly captures(addres
 .lr.ph112.i:                                      ; preds = %192, %.lr.ph112.preheader.i
   %indvars.iv154.i = phi i64 [ %180, %.lr.ph112.preheader.i ], [ %indvars.iv.next155.i, %192 ]
   %.465111.i = phi i32 [ %.162.lcssa.i, %.lr.ph112.preheader.i ], [ %.5.i, %192 ]
-  %182 = getelementptr inbounds [100 x i8], ptr %11, i64 0, i64 %indvars.iv154.i
+  %182 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv154.i
   %183 = load i8, ptr %182, align 1, !range !4, !noundef !5
   %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %192, label %185
@@ -2155,7 +2155,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i32, ptr %.0214, i64 %231
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds nuw [0 x i32], ptr %227, i64 0, i64 %indvars.iv355
+  %234 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv355
   store i32 %233, ptr %234, align 4
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
@@ -2184,7 +2184,7 @@ MatchNamedCall.exit:                              ; preds = %192, %.critedge.thr
 
 245:                                              ; preds = %.lr.ph322, %245
   %indvars.iv360 = phi i64 [ %244, %.lr.ph322 ], [ %indvars.iv.next361, %245 ]
-  %246 = getelementptr inbounds [0 x i32], ptr %243, i64 0, i64 %indvars.iv360
+  %246 = getelementptr inbounds i32, ptr %243, i64 %indvars.iv360
   store i32 %.0205, ptr %246, align 4
   %indvars.iv.next361 = add nsw i64 %indvars.iv360, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next361 to i32
@@ -2636,7 +2636,7 @@ define dso_local i32 @OpernameGetOprid(ptr noundef readonly captures(address_is_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 80
   %.val = load ptr, ptr %51, align 8
@@ -2738,7 +2738,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv176 = phi i64 [ 0, %.lr.ph136.split.us.split.preheader ], [ %indvars.iv.next177, %.thread105.us ]
   %.074132.us = phi ptr [ null, %.lr.ph136.split.us.split.preheader ], [ %.175.us, %.thread105.us ]
   %.080131.us = phi i32 [ 0, %.lr.ph136.split.us.split.preheader ], [ %.181.us, %.thread105.us ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %indvars.iv176
+  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv176
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 80
   %.val.us = load ptr, ptr %31, align 8
@@ -2889,7 +2889,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.thread105.us151 ], [ 0, %.lr.ph136.split ]
   %.074132.us146 = phi ptr [ %.175.us153, %.thread105.us151 ], [ null, %.lr.ph136.split ]
   %.080131.us147 = phi i32 [ %.181.us152, %.thread105.us151 ], [ 0, %.lr.ph136.split ]
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %indvars.iv168
+  %99 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv168
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr i8, ptr %100, i64 80
   %.val.us149 = load ptr, ptr %101, align 8
@@ -2943,7 +2943,7 @@ define dso_local ptr @OpernameGetCandidates(ptr noundef readonly captures(addres
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread105 ], [ 0, %.lr.ph136.split ]
   %.074132 = phi ptr [ %.175, %.thread105 ], [ null, %.lr.ph136.split ]
   %.080131 = phi i32 [ %.181, %.thread105 ], [ 0, %.lr.ph136.split ]
-  %127 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr i8, ptr %128, i64 80
   %.val = load ptr, ptr %129, align 8

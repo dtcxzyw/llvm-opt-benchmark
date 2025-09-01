@@ -48,7 +48,7 @@ define void @pg_sha256_update(ptr noundef captures(none) %0, ptr noundef readonl
   %11 = sub nuw nsw i64 64, %9
   %.not40 = icmp ult i64 %2, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %9
   br i1 %.not40, label %19, label %14
 
 14:                                               ; preds = %10
@@ -170,7 +170,7 @@ define internal fastcc void @SHA256_Transform(ptr noundef captures(none) %0, ptr
   %47 = and i32 %.0132, %46
   %48 = or i32 %47, %45
   %49 = add i32 %44, %48
-  %50 = getelementptr inbounds nuw [64 x i32], ptr @K256, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr @K256, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %49, %51
   %53 = add i32 %52, %36
@@ -229,7 +229,7 @@ define internal fastcc void @SHA256_Transform(ptr noundef captures(none) %0, ptr
   %91 = and i32 %.1133, %90
   %92 = or i32 %91, %89
   %93 = add i32 %88, %92
-  %94 = getelementptr inbounds nuw [64 x i32], ptr @K256, i64 0, i64 %indvars.iv150
+  %94 = getelementptr inbounds nuw i32, ptr @K256, i64 %indvars.iv150
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %93, %95
   %97 = add nuw i64 %indvars.iv150, 9
@@ -299,14 +299,14 @@ define void @pg_sha256_final(ptr noundef captures(none) %0, ptr noundef writeonl
 11:                                               ; preds = %3
   %12 = add nuw nsw i32 %8, 1
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store i8 -128, ptr %14, align 1
   %15 = icmp samesign ult i32 %8, 56
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %17
   %19 = sub nuw nsw i32 55, %8
   %20 = zext nneg i32 %19 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %20, i1 false)
@@ -318,7 +318,7 @@ define void @pg_sha256_final(ptr noundef captures(none) %0, ptr noundef writeonl
 
 22:                                               ; preds = %21
   %23 = zext nneg i32 %12 to i64
-  %24 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 %23
   %25 = xor i32 %8, 63
   %26 = zext nneg i32 %25 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %26, i1 false)
@@ -344,7 +344,7 @@ SHA256_Last.exit:                                 ; preds = %16, %27, %28
 
 31:                                               ; preds = %SHA256_Last.exit, %31
   %indvars.iv = phi i64 [ 0, %SHA256_Last.exit ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %rev = tail call i32 @llvm.bswap.i32(i32 %33)
   store i32 %rev, ptr %32, align 4
@@ -393,7 +393,7 @@ define void @pg_sha512_update(ptr noundef captures(none) %0, ptr noundef readonl
   %11 = sub nuw nsw i64 128, %9
   %.not51 = icmp ult i64 %2, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %9
   br i1 %.not51, label %25, label %14
 
 14:                                               ; preds = %10
@@ -566,7 +566,7 @@ define internal fastcc void @SHA512_Transform(ptr noundef captures(none) %0, ptr
   %67 = and i64 %.0136, %66
   %68 = or i64 %67, %65
   %69 = add i64 %64, %68
-  %70 = getelementptr inbounds nuw [80 x i64], ptr @K512, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i64, ptr @K512, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %69, %71
   %73 = add i64 %72, %56
@@ -625,7 +625,7 @@ define internal fastcc void @SHA512_Transform(ptr noundef captures(none) %0, ptr
   %111 = and i64 %.1137, %110
   %112 = or i64 %111, %109
   %113 = add i64 %108, %112
-  %114 = getelementptr inbounds nuw [80 x i64], ptr @K512, i64 0, i64 %indvars.iv154
+  %114 = getelementptr inbounds nuw i64, ptr @K512, i64 %indvars.iv154
   %115 = load i64, ptr %114, align 8
   %116 = add i64 %113, %115
   %117 = add nuw i64 %indvars.iv154, 9
@@ -699,14 +699,14 @@ define void @pg_sha512_final(ptr noundef captures(none) %0, ptr noundef writeonl
 14:                                               ; preds = %3
   %15 = add nuw nsw i32 %8, 1
   %16 = zext nneg i32 %8 to i64
-  %17 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %16
   store i8 -128, ptr %17, align 1
   %18 = icmp samesign ult i32 %8, 112
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %20
   %22 = sub nuw nsw i32 111, %8
   %23 = zext nneg i32 %22 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %23, i1 false)
@@ -718,7 +718,7 @@ define void @pg_sha512_final(ptr noundef captures(none) %0, ptr noundef writeonl
 
 25:                                               ; preds = %24
   %26 = zext nneg i32 %15 to i64
-  %27 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 %26
   %28 = xor i32 %8, 127
   %29 = zext nneg i32 %28 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %29, i1 false)
@@ -748,7 +748,7 @@ SHA512_Last.exit:                                 ; preds = %19, %30, %31
 
 36:                                               ; preds = %SHA512_Last.exit, %36
   %indvars.iv = phi i64 [ 0, %SHA512_Last.exit ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8
   %39 = tail call i64 @llvm.bswap.i64(i64 %38)
   store i64 %39, ptr %37, align 8
@@ -810,14 +810,14 @@ define void @pg_sha384_final(ptr noundef captures(none) %0, ptr noundef writeonl
 14:                                               ; preds = %3
   %15 = add nuw nsw i32 %8, 1
   %16 = zext nneg i32 %8 to i64
-  %17 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %16
   store i8 -128, ptr %17, align 1
   %18 = icmp samesign ult i32 %8, 112
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %20
   %22 = sub nuw nsw i32 111, %8
   %23 = zext nneg i32 %22 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %23, i1 false)
@@ -829,7 +829,7 @@ define void @pg_sha384_final(ptr noundef captures(none) %0, ptr noundef writeonl
 
 25:                                               ; preds = %24
   %26 = zext nneg i32 %15 to i64
-  %27 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 %26
   %28 = xor i32 %8, 127
   %29 = zext nneg i32 %28 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %29, i1 false)
@@ -859,7 +859,7 @@ SHA512_Last.exit:                                 ; preds = %19, %30, %31
 
 36:                                               ; preds = %SHA512_Last.exit, %36
   %indvars.iv = phi i64 [ 0, %SHA512_Last.exit ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8
   %39 = tail call i64 @llvm.bswap.i64(i64 %38)
   store i64 %39, ptr %37, align 8
@@ -908,7 +908,7 @@ define void @pg_sha224_update(ptr noundef captures(none) %0, ptr noundef readonl
   %11 = sub nuw nsw i64 64, %9
   %.not40.i = icmp ult i64 %2, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %9
   br i1 %.not40.i, label %19, label %14
 
 14:                                               ; preds = %10
@@ -988,14 +988,14 @@ define void @pg_sha224_final(ptr noundef captures(none) %0, ptr noundef writeonl
 11:                                               ; preds = %3
   %12 = add nuw nsw i32 %8, 1
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store i8 -128, ptr %14, align 1
   %15 = icmp samesign ult i32 %8, 56
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %17
   %19 = sub nuw nsw i32 55, %8
   %20 = zext nneg i32 %19 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %20, i1 false)
@@ -1007,7 +1007,7 @@ define void @pg_sha224_final(ptr noundef captures(none) %0, ptr noundef writeonl
 
 22:                                               ; preds = %21
   %23 = zext nneg i32 %12 to i64
-  %24 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 %23
   %25 = xor i32 %8, 63
   %26 = zext nneg i32 %25 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %26, i1 false)
@@ -1033,7 +1033,7 @@ SHA256_Last.exit:                                 ; preds = %16, %27, %28
 
 31:                                               ; preds = %SHA256_Last.exit, %31
   %indvars.iv = phi i64 [ 0, %SHA256_Last.exit ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %rev = tail call i32 @llvm.bswap.i32(i32 %33)
   store i32 %rev, ptr %32, align 4

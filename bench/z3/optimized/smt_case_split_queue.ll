@@ -5596,7 +5596,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121has_child_assigned
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %33
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %33 ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv70
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv70
   %11 = load ptr, ptr %10, align 8, !tbaa !636
   %12 = invoke noundef i32 @_ZNK3smt7context14get_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef %11)
           to label %13 unwind label %.split.us.split.us
@@ -5655,7 +5655,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.us.us: ; preds = %.noexc.us.us, %20
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %43
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %43 ], [ 0, %.lr.ph ]
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv75
+  %35 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv75
   %36 = load ptr, ptr %35, align 8, !tbaa !636
   %37 = invoke noundef i32 @_ZNK3smt7context14get_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef %36)
           to label %38 unwind label %.split.split.us
@@ -5685,7 +5685,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.us.us: ; preds = %.noexc.us.us, %20
 .lr.ph.split.split:                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
   %.02847 = phi i1 [ %.129.ph, %55 ], [ false, %.lr.ph ]
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !636
   %47 = invoke noundef i32 @_ZNK3smt7context14get_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef %46)
           to label %48 unwind label %.split.split
@@ -8896,7 +8896,7 @@ _ZN12_GLOBAL__N_125rel_goal_case_split_queue17set_generation_fnclEP4expr.exit.i.
 50:                                               ; preds = %_ZN12_GLOBAL__N_125rel_goal_case_split_queue17set_generation_fnclEP4expr.exit84.i.i, %.lr.ph.i.i
   %51 = phi i32 [ %47, %.lr.ph.i.i ], [ %137, %_ZN12_GLOBAL__N_125rel_goal_case_split_queue17set_generation_fnclEP4expr.exit84.i.i ]
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %49, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !636
   %55 = add nuw i32 %51, 1
   store i32 %55, ptr %46, align 8, !tbaa !769
@@ -9608,7 +9608,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit.thread: ; preds = %_ZNK6vectorIPN3
   %42 = phi ptr [ %10, %.lr.ph ], [ %91, %90 ]
   %43 = phi ptr [ %10, %.lr.ph ], [ %92, %90 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !636
   %46 = getelementptr inbounds i8, ptr %43, i64 -8
   %47 = load i32, ptr %46, align 4, !tbaa !57

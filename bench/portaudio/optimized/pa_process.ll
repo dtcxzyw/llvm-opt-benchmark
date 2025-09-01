@@ -1608,14 +1608,14 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
 .preheader178:                                    ; preds = %41, %66
   %43 = phi i1 [ false, %66 ], [ true, %41 ]
   %indvars.iv221 = phi i64 [ 1, %66 ], [ 0, %41 ]
-  %44 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %indvars.iv221
+  %44 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv221
   %45 = load i64, ptr %44, align 8, !tbaa !48
   %46 = trunc i64 %45 to i32
   %.not175 = icmp eq i32 %46, 0
   br i1 %.not175, label %66, label %47
 
 47:                                               ; preds = %.preheader178
-  %48 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %indvars.iv221
+  %48 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv221
   %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = load i32, ptr %17, align 8, !tbaa !15
   %.not216 = icmp eq i32 %50, 0

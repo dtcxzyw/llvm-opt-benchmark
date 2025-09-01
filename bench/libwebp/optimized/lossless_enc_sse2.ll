@@ -252,7 +252,7 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noalias noundef %0, i3
 
 61:                                               ; preds = %27, %61
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw [8 x i16], ptr %8, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !15
   %64 = zext i16 %63 to i64
   %65 = getelementptr inbounds nuw i32, ptr %6, i64 %64
@@ -356,7 +356,7 @@ define internal void @CollectColorRedTransforms_SSE2(ptr noalias noundef %0, i32
 
 45:                                               ; preds = %19, %45
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [8 x i16], ptr %7, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
   %47 = load i16, ptr %46, align 2, !tbaa !15
   %48 = zext i16 %47 to i64
   %49 = getelementptr inbounds nuw i32, ptr %5, i64 %48
@@ -673,7 +673,7 @@ define internal i64 @CombinedShannonEntropy_SSE2(ptr noundef readonly captures(n
 
 41:                                               ; preds = %36
   %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !27
   br label %VP8LFastSLog2.exit
 
@@ -701,7 +701,7 @@ VP8LFastSLog2.exit:                               ; preds = %41, %45
 
 57:                                               ; preds = %.lr.ph._crit_edge
   %58 = zext nneg i32 %54 to i64
-  %59 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !27
   br label %VP8LFastSLog2.exit65
 
@@ -732,7 +732,7 @@ VP8LFastSLog2.exit65:                             ; preds = %57, %61
 
 71:                                               ; preds = %69
   %72 = zext nneg i32 %.159.lcssa to i64
-  %73 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !27
   br label %VP8LFastSLog2.exit66
 
@@ -748,7 +748,7 @@ VP8LFastSLog2.exit66:                             ; preds = %71, %75
 
 80:                                               ; preds = %VP8LFastSLog2.exit66
   %81 = zext nneg i32 %.162.lcssa to i64
-  %82 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i64, ptr @kSLog2Table, i64 %81
   %83 = load i64, ptr %82, align 8, !tbaa !27
   br label %VP8LFastSLog2.exit67
 

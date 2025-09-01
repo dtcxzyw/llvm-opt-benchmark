@@ -243,7 +243,7 @@ core_yyensure_buffer_stack.exit:                  ; preds = %39, %42, %50
   store i8 %88, ptr %87, align 1
   %89 = load i32, ptr %79, align 4
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [25 x ptr], ptr @yy_start_state_list, i64 0, i64 %90
+  %91 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %90
   %92 = load ptr, ptr %91, align 8
   br label %.loopexit869
 
@@ -1339,7 +1339,7 @@ check_string_escape_warning.exit:                 ; preds = %670, %697, %700
 
 switch.lookup:                                    ; preds = %check_string_escape_warning.exit
   %712 = zext nneg i32 %706 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table.core_yylex, i64 0, i64 %712
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.core_yylex, i64 %712
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %unescape_single_char.exit
 
@@ -2848,7 +2848,7 @@ process_integer_literal.exit821:                  ; preds = %1501, %1503
   store ptr %1649, ptr %77, align 8
   %1650 = load i32, ptr %79, align 4
   %1651 = sext i32 %1650 to i64
-  %1652 = getelementptr inbounds [25 x ptr], ptr @yy_start_state_list, i64 0, i64 %1651
+  %1652 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1651
   %1653 = load ptr, ptr %1652, align 8
   %1654 = icmp sgt i32 %1646, 0
   br i1 %1654, label %.lr.ph.i, label %yy_get_previous_state.exit
@@ -3323,7 +3323,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread863_crit_edge: ; preds = %
   store ptr %1890, ptr %77, align 8
   %1891 = load i32, ptr %79, align 4
   %1892 = sext i32 %1891 to i64
-  %1893 = getelementptr inbounds [25 x ptr], ptr @yy_start_state_list, i64 0, i64 %1892
+  %1893 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1892
   %1894 = load ptr, ptr %1893, align 8
   %1895 = icmp sgt i32 %1888, 0
   br i1 %1895, label %.lr.ph.i833, label %.loopexit869.loopexit
@@ -3351,7 +3351,7 @@ yy_get_next_buffer.exit.thread863:                ; preds = %1683, %yy_get_next_
   store ptr %1905, ptr %77, align 8
   %1906 = load i32, ptr %79, align 4
   %1907 = sext i32 %1906 to i64
-  %1908 = getelementptr inbounds [25 x ptr], ptr @yy_start_state_list, i64 0, i64 %1907
+  %1908 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1907
   %1909 = load ptr, ptr %1908, align 8
   %1910 = icmp ult ptr %1903, %1905
   br i1 %1910, label %.lr.ph.i842, label %.loopexit870.backedge

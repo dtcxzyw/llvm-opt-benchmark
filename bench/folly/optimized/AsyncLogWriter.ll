@@ -223,7 +223,7 @@ define void @_ZN5folly14AsyncLogWriter12writeMessageEONSt7__cxx1112basic_stringI
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8, !tbaa !39
   %24 = and i64 %23, 1
-  %25 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %18, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"class.std::vector", ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -338,7 +338,7 @@ define void @_ZN5folly14AsyncLogWriter5flushEv(ptr noundef nonnull align 8 deref
 
 19:                                               ; preds = %13
   %20 = and i64 %17, 1
-  %21 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %15, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %"class.std::vector", ptr %15, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1085,7 +1085,7 @@ define void @_ZN5folly14AsyncLogWriter8ioThreadEv(ptr noundef nonnull align 8 de
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i64, ptr %12, align 8, !tbaa !39
   %14 = and i64 %13, 1
-  %15 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"class.std::vector", ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %17
 
@@ -1715,7 +1715,7 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexE
   %32 = getelementptr inbounds i8, ptr %30, i64 -40
   %33 = load i64, ptr %32, align 8, !tbaa !39
   %34 = and i64 %33, 1
-  %35 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %31, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"class.std::vector", ptr %31, i64 %34
   %36 = getelementptr inbounds i8, ptr %30, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !38
   %38 = load i8, ptr %6, align 8, !tbaa !51, !range !54, !noundef !55

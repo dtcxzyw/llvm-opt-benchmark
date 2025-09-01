@@ -1445,8 +1445,8 @@ thread-pre-split.i:                               ; preds = %173
 
 274:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, %269
   %indvars.iv.i = phi i64 [ 0, %269 ], [ %indvars.iv.next.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ]
-  %275 = getelementptr inbounds nuw [10 x %"class.std::vector.29"], ptr %61, i64 0, i64 %indvars.iv.i
-  %276 = getelementptr inbounds nuw [10 x %"class.std::vector.29"], ptr %270, i64 0, i64 %indvars.iv.i
+  %275 = getelementptr inbounds nuw %"class.std::vector.29", ptr %61, i64 %indvars.iv.i
+  %276 = getelementptr inbounds nuw %"class.std::vector.29", ptr %270, i64 %indvars.iv.i
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %278 = load ptr, ptr %277, align 8, !tbaa !176
   %279 = load ptr, ptr %276, align 8, !tbaa !177
@@ -1509,7 +1509,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %298, %296, %294, %2
           to label %308 unwind label %315
 
 308:                                              ; preds = %305
-  %309 = getelementptr inbounds nuw [10 x %"class.std::vector.29"], ptr %61, i64 0, i64 %indvars.iv137.i
+  %309 = getelementptr inbounds nuw %"class.std::vector.29", ptr %61, i64 %indvars.iv137.i
   %310 = sext i32 %307 to i64
   %311 = load ptr, ptr %309, align 8, !tbaa !177
   %312 = getelementptr inbounds nuw i32, ptr %311, i64 %310
@@ -1565,7 +1565,7 @@ _ZN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIiSaIiEELS1_10EED2Ev
 
 333:                                              ; preds = %330
   %334 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %332)
-  %335 = getelementptr inbounds nuw [10 x %"class.std::vector.29"], ptr %61, i64 0, i64 %indvars.iv140.i
+  %335 = getelementptr inbounds nuw %"class.std::vector.29", ptr %61, i64 %indvars.iv140.i
   %336 = load ptr, ptr %335, align 8, !tbaa !75
   %337 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %338 = load ptr, ptr %337, align 8, !tbaa !75
@@ -2370,7 +2370,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i6:       ; preds = %_ZNKSt7__cxx1112bas
 
 696:                                              ; preds = %.lr.ph139.i
   %697 = sext i32 %694 to i64
-  %698 = getelementptr inbounds [0 x ptr], ptr @enx_block_id_name, i64 0, i64 %697
+  %698 = getelementptr inbounds ptr, ptr @enx_block_id_name, i64 %697
   %699 = load ptr, ptr %698, align 8, !tbaa !62
   br label %700
 

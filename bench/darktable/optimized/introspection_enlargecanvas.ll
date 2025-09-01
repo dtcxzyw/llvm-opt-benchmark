@@ -695,13 +695,13 @@ _compute_pos.exit:                                ; preds = %.thread, %33, %35
 
 switch.lookup:                                    ; preds = %_compute_pos.exit
   %41 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x float], ptr @switch.table.process, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.process, i64 %41
   %switch.load = load float, ptr %switch.gep, align 4
   %42 = zext nneg i32 %39 to i64
-  %switch.gep26 = getelementptr inbounds nuw [5 x float], ptr @switch.table.process.1, i64 0, i64 %42
+  %switch.gep26 = getelementptr inbounds nuw float, ptr @switch.table.process.1, i64 %42
   %switch.load27 = load float, ptr %switch.gep26, align 4
   %43 = zext nneg i32 %39 to i64
-  %switch.gep28 = getelementptr inbounds nuw [5 x float], ptr @switch.table.process.2, i64 0, i64 %43
+  %switch.gep28 = getelementptr inbounds nuw float, ptr @switch.table.process.2, i64 %43
   %switch.load29 = load float, ptr %switch.gep28, align 4
   store float %switch.load, ptr %8, align 16, !tbaa !40
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -891,7 +891,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [7 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7

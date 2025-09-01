@@ -91,7 +91,7 @@ define internal noalias ptr @engine_open(ptr readnone captures(none) %0, ptr nou
   %18 = ptrtoint ptr %9 to i64
   %19 = sub i64 %17, %18
   %20 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %9, i64 noundef %19) #8
-  %21 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %19
   store i8 0, ptr %21, align 1, !tbaa !3
   %22 = call ptr @ENGINE_by_id(ptr noundef nonnull %5) #8
   %23 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, i32 noundef 90) #8

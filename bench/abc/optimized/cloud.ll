@@ -41,10 +41,10 @@ define noalias noundef ptr @Cloud_Init(i32 noundef %0, i32 noundef %1) local_unn
 
 10:                                               ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr @CacheLogRatioDefault, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr @CacheLogRatioDefault, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !13
   %13 = sub nsw i32 %spec.store.select, %12
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %13, ptr %14, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -59,10 +59,10 @@ define noalias noundef ptr @Cloud_Init(i32 noundef %0, i32 noundef %1) local_unn
 
 19:                                               ; preds = %15, %19
   %indvars.iv65 = phi i64 [ 0, %15 ], [ %indvars.iv.next66, %19 ]
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv65
+  %20 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv65
   %21 = load i32, ptr %20, align 4, !tbaa !13
   %22 = sub i32 32, %21
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv65
+  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv65
   store i32 %22, ptr %23, align 4, !tbaa !13
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 4
@@ -377,7 +377,7 @@ define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %13, %19
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %19 ]
-  %16 = getelementptr inbounds nuw [20 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !40
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %19, label %18
@@ -447,7 +447,7 @@ define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.phi.trans.insert10 = zext i32 %1 to i64
-  %.phi.trans.insert11 = getelementptr inbounds nuw [4 x i32], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert10
+  %.phi.trans.insert11 = getelementptr inbounds nuw i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert10
   %.pre = load i32, ptr %.phi.trans.insert11, align 4, !tbaa !13
   br label %14
 
@@ -457,11 +457,11 @@ define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, 
   %7 = sub nsw i32 %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
   store i32 %7, ptr %10, align 4, !tbaa !13
   %11 = sub i32 32, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %9
   store i32 %11, ptr %13, align 4, !tbaa !13
   br label %14
 
@@ -472,7 +472,7 @@ define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, 
   %17 = sext i32 %16 to i64
   %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 32) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %20 = getelementptr inbounds nuw [20 x ptr], ptr %19, i64 0, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.pre-phi
   store ptr %18, ptr %20, align 8, !tbaa !40
   %21 = shl i32 32, %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60

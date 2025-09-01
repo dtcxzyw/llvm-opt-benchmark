@@ -185,8 +185,8 @@ define void @ff_tx_init_tabs_double(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [19 x i32], ptr @sr_tabs_init_once, i64 0, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw [19 x ptr], ptr @sr_tabs_init_funcs, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr @sr_tabs_init_once, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr @sr_tabs_init_funcs, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = tail call i32 @pthread_once(ptr noundef nonnull %11, ptr noundef %13) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -201,13 +201,13 @@ define void @ff_tx_init_tabs_double(i32 noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %15, %.loopexit
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.loopexit ], [ 0, %15 ]
   %.141 = phi i32 [ %.2, %.loopexit ], [ %.024, %15 ]
-  %17 = getelementptr inbounds nuw [3 x %struct.FFTabInitData], ptr @nptwo_tabs_init_data, i64 0, i64 %indvars.iv47
+  %17 = getelementptr inbounds nuw %struct.FFTabInitData, ptr @nptwo_tabs_init_data, i64 %indvars.iv47
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %19
 
 19:                                               ; preds = %.preheader, %22
   %indvars.iv44 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next45, %22 ]
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv44
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv44
   %21 = load i32, ptr %20, align 4, !tbaa !10
   %.not33 = icmp eq i32 %21, 0
   br i1 %.not33, label %.loopexit, label %22
@@ -219,7 +219,7 @@ define void @ff_tx_init_tabs_double(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not34, label %24, label %19, !llvm.loop !12
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [3 x i32], ptr @nptwo_tabs_init_once, i64 0, i64 %indvars.iv47
+  %25 = getelementptr inbounds nuw i32, ptr @nptwo_tabs_init_once, i64 %indvars.iv47
   %26 = load ptr, ptr %17, align 8, !tbaa !13
   %27 = tail call i32 @pthread_once(ptr noundef nonnull %25, ptr noundef %26) #16
   %28 = sdiv i32 %.141, %21
@@ -3317,7 +3317,7 @@ define internal i32 @ff_tx_fft_pfa_init_double_c(ptr noundef %0, ptr readnone ca
 .lr.ph161:                                        ; preds = %.preheader149, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.preheader149 ]
   %.0104159 = phi i64 [ %.1105, %.loopexit ], [ %2, %.preheader149 ]
-  %12 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !10
   %14 = sdiv i32 %4, %13
   %15 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
@@ -4301,7 +4301,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_double_c(ptr noundef readonly captu
   %114 = fneg nsz double %113
   %115 = fmul nsz double %.sroa.6.0, %114
   %116 = tail call nsz double @llvm.fmuladd.f64(double %.sroa.077.0, double %111, double %115)
-  %117 = getelementptr inbounds nuw [3 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store double %116, ptr %118, align 8, !tbaa !52
   %119 = fmul nsz double %.sroa.6.0, %111
@@ -4475,7 +4475,7 @@ define internal i32 @ff_tx_mdct_pfa_init_double_c(ptr noundef initializes((140, 
   %43 = trunc nuw nsw i64 %42 to i32
   %44 = urem i32 %43, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [15 x i32], ptr %9, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %9, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !10
   %48 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !10
@@ -4744,7 +4744,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_double_c(ptr noundef readonly captu
   %161 = fneg nsz double %160
   %162 = fmul nsz double %.sroa.6.0, %161
   %163 = tail call nsz double @llvm.fmuladd.f64(double %.sroa.077.0, double %158, double %162)
-  %164 = getelementptr inbounds nuw [5 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store double %163, ptr %165, align 8, !tbaa !52
   %166 = fmul nsz double %.sroa.6.0, %158
@@ -5100,7 +5100,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_double_c(ptr noundef readonly captu
   %211 = fneg nsz double %210
   %212 = fmul nsz double %.sroa.6.0, %211
   %213 = tail call nsz double @llvm.fmuladd.f64(double %.sroa.077.0, double %208, double %212)
-  %214 = getelementptr inbounds nuw [7 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store double %213, ptr %215, align 8, !tbaa !52
   %216 = fmul nsz double %.sroa.6.0, %208
@@ -5486,7 +5486,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_double_c(ptr noundef readonly captu
   %227 = fneg nsz double %226
   %228 = fmul nsz double %.sroa.6.0, %227
   %229 = tail call nsz double @llvm.fmuladd.f64(double %.sroa.077.0, double %224, double %228)
-  %230 = getelementptr inbounds nuw [9 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store double %229, ptr %231, align 8, !tbaa !52
   %232 = fmul nsz double %.sroa.6.0, %224
@@ -6040,7 +6040,7 @@ fft15.exit:                                       ; preds = %63
   %359 = fneg nsz double %358
   %360 = fmul nsz double %.sroa.6.0, %359
   %361 = tail call nsz double @llvm.fmuladd.f64(double %.sroa.077.0, double %356, double %360)
-  %362 = getelementptr inbounds nuw [15 x %struct.AVComplexDouble], ptr %6, i64 0, i64 %indvars.iv
+  %362 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %6, i64 %indvars.iv
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store double %361, ptr %363, align 8, !tbaa !52
   %364 = fmul nsz double %.sroa.6.0, %356
@@ -6259,7 +6259,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_double_c(ptr noundef readonly captu
   %90 = fneg nsz double %89
   %91 = fmul nsz double %85, %90
   %92 = tail call nsz double @llvm.fmuladd.f64(double %81, double %87, double %91)
-  %93 = getelementptr inbounds nuw [3 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   store double %92, ptr %93, align 16, !tbaa !50
   %94 = fmul nsz double %85, %87
   %95 = tail call nsz double @llvm.fmuladd.f64(double %81, double %89, double %94)
@@ -6525,7 +6525,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_double_c(ptr noundef readonly captu
   %137 = fneg nsz double %136
   %138 = fmul nsz double %132, %137
   %139 = tail call nsz double @llvm.fmuladd.f64(double %128, double %134, double %138)
-  %140 = getelementptr inbounds nuw [5 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   store double %139, ptr %140, align 16, !tbaa !50
   %141 = fmul nsz double %132, %134
   %142 = tail call nsz double @llvm.fmuladd.f64(double %128, double %136, double %141)
@@ -6847,7 +6847,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_double_c(ptr noundef readonly captu
   %187 = fneg nsz double %186
   %188 = fmul nsz double %182, %187
   %189 = tail call nsz double @llvm.fmuladd.f64(double %178, double %184, double %188)
-  %190 = getelementptr inbounds nuw [7 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   store double %189, ptr %190, align 16, !tbaa !50
   %191 = fmul nsz double %182, %184
   %192 = tail call nsz double @llvm.fmuladd.f64(double %178, double %186, double %191)
@@ -7199,7 +7199,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_double_c(ptr noundef readonly captu
   %203 = fneg nsz double %202
   %204 = fmul nsz double %198, %203
   %205 = tail call nsz double @llvm.fmuladd.f64(double %194, double %200, double %204)
-  %206 = getelementptr inbounds nuw [9 x %struct.AVComplexDouble], ptr %5, i64 0, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %5, i64 %indvars.iv
   store double %205, ptr %206, align 16, !tbaa !50
   %207 = fmul nsz double %198, %200
   %208 = tail call nsz double @llvm.fmuladd.f64(double %194, double %202, double %207)
@@ -7719,7 +7719,7 @@ fft15.exit:                                       ; preds = %65
   %335 = fneg nsz double %334
   %336 = fmul nsz double %330, %335
   %337 = tail call nsz double @llvm.fmuladd.f64(double %326, double %332, double %336)
-  %338 = getelementptr inbounds nuw [15 x %struct.AVComplexDouble], ptr %6, i64 0, i64 %indvars.iv
+  %338 = getelementptr inbounds nuw %struct.AVComplexDouble, ptr %6, i64 %indvars.iv
   store double %337, ptr %338, align 16, !tbaa !50
   %339 = fmul nsz double %330, %332
   %340 = tail call nsz double @llvm.fmuladd.f64(double %326, double %334, double %339)

@@ -14017,7 +14017,7 @@ _ZN5serde2de10EnumAccess7variant17h6a1840397571df8cE.exit.i: ; preds = %48
   br i1 %172, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h597a483f8982e506E.llvm.8822578354236523850.exit.i", label %173
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %168, i64 0, i64 %.sroa.0.0.i.i.i
+  %174 = getelementptr inbounds { i64, [8 x i64] }, ptr %168, i64 %.sroa.0.0.i.i.i
   %175 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17haadfc3ce759dfeddE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(72) %174)
           to label %171 unwind label %178, !noalias !1895
@@ -14033,7 +14033,7 @@ _ZN5serde2de10EnumAccess7variant17h6a1840397571df8cE.exit.i: ; preds = %48
   br label %176
 
 180:                                              ; preds = %176
-  %181 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %168, i64 0, i64 %.sroa.0.1.i.i.i
+  %181 = getelementptr inbounds { i64, [8 x i64] }, ptr %168, i64 %.sroa.0.1.i.i.i
   %182 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17haadfc3ce759dfeddE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(72) %181) #48
           to label %176 unwind label %183, !noalias !1895
@@ -14594,7 +14594,7 @@ _ZN5serde2de10EnumAccess7variant17h84a06bb8249ee1e8E.exit.i: ; preds = %48
   br i1 %172, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h597a483f8982e506E.llvm.8822578354236523850.exit.i", label %173
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %168, i64 0, i64 %.sroa.0.0.i.i.i
+  %174 = getelementptr inbounds { i64, [8 x i64] }, ptr %168, i64 %.sroa.0.0.i.i.i
   %175 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17haadfc3ce759dfeddE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(72) %174)
           to label %171 unwind label %178, !noalias !2014
@@ -14610,7 +14610,7 @@ _ZN5serde2de10EnumAccess7variant17h84a06bb8249ee1e8E.exit.i: ; preds = %48
   br label %176
 
 180:                                              ; preds = %176
-  %181 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %168, i64 0, i64 %.sroa.0.1.i.i.i
+  %181 = getelementptr inbounds { i64, [8 x i64] }, ptr %168, i64 %.sroa.0.1.i.i.i
   %182 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17haadfc3ce759dfeddE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(72) %181) #48
           to label %176 unwind label %183, !noalias !2014
@@ -15942,7 +15942,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 
 25:                                               ; preds = %24, %25
   %26 = phi i64 [ 0, %24 ], [ %28, %25 ]
-  %27 = getelementptr inbounds nuw [31 x { { { [9 x i64] } }, { i64 } }], ptr %5, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw { { { [9 x i64] } }, { i64 } }, ptr %5, i64 %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %27, i8 0, i64 80, i1 false)
   %28 = add nuw nsw i64 %26, 1
   %exitcond.not = icmp eq i64 %28, 31
@@ -15982,7 +15982,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 
 37:                                               ; preds = %36, %37
   %38 = phi i64 [ 0, %36 ], [ %40, %37 ]
-  %39 = getelementptr inbounds nuw [31 x { { { [9 x i64] } }, { i64 } }], ptr %4, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw { { { [9 x i64] } }, { i64 } }, ptr %4, i64 %38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %39, i8 0, i64 80, i1 false)
   %40 = add nuw nsw i64 %38, 1
   %exitcond114.not = icmp eq i64 %40, 31
@@ -85688,7 +85688,7 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
 25:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h74dcd1b168d77a08E.exit"
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !10, !noundef !10
-  %28 = getelementptr inbounds nuw [0 x { i32, [5 x i32] }], ptr %27, i64 0, i64 %22
+  %28 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %27, i64 %22
   %29 = load i32, ptr %28, align 8, !range !12197, !noundef !10
   %trunc = trunc nuw i32 %29 to i1
   br i1 %trunc, label %46, label %32

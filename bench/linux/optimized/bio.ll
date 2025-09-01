@@ -677,7 +677,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   %25 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !22
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %26
+  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %24
   %30 = inttoptr i64 %29 to ptr
@@ -1572,7 +1572,7 @@ define dso_local void @bio_put(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !49
   %27 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !50
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %28
+  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %26
   %32 = inttoptr i64 %31 to ptr
@@ -4511,7 +4511,7 @@ define dso_local void @bioset_exit(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %15
   %21 = ptrtoint ptr %19 to i64
   %22 = and i64 %16, 63
-  %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
+  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = inttoptr i64 %25 to ptr
@@ -5080,7 +5080,7 @@ define internal noundef i32 @bio_cpu_dead(i32 noundef %0, ptr noundef readonly c
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %7 to i64
   %11 = zext i32 %0 to i64
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   %15 = inttoptr i64 %14 to ptr

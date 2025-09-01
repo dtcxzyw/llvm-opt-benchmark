@@ -313,7 +313,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %_ZNK7obj_mapI4sortP
 75:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
   %76 = load ptr, ptr %67, align 8, !tbaa !27
-  %77 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !78
   %79 = load ptr, ptr %76, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
@@ -874,7 +874,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit.thre
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit94 ]
   %.062122 = phi i8 [ 0, %.lr.ph ], [ %.365, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit94 ]
   %.073120 = phi i1 [ false, %.lr.ph ], [ %.174, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit94 ]
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !78
   %66 = trunc nuw i8 %.062122 to i1
   br i1 %66, label %_ZNK8datatype4util11is_datatypeEPK4sort.exit87.thread, label %67
@@ -1494,7 +1494,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %83 = phi ptr [ null, %.lr.ph.preheader ], [ %.sink531, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit148 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit148 ]
   %.0120355 = phi i8 [ 0, %.lr.ph.preheader ], [ %.3123, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit148 ]
-  %84 = getelementptr inbounds nuw [0 x ptr], ptr %67, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !78
   %86 = trunc nuw i8 %.0120355 to i1
   br i1 %86, label %.thread284, label %87
@@ -2257,7 +2257,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit228.t
   %374 = phi ptr [ null, %.lr.ph364 ], [ %.sink544, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit181 ]
   %indvars.iv393 = phi i64 [ 0, %.lr.ph364 ], [ %indvars.iv.next394, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit181 ]
   %.0104361 = phi i8 [ 0, %.lr.ph364 ], [ %.2106, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit181 ]
-  %375 = getelementptr inbounds nuw [0 x ptr], ptr %370, i64 0, i64 %indvars.iv393
+  %375 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv393
   %376 = load ptr, ptr %375, align 8, !tbaa !78
   %377 = trunc nuw i8 %.0104361 to i1
   br i1 %377, label %470, label %378

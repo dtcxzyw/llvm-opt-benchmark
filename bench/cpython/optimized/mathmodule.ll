@@ -1792,7 +1792,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   %.06515.i = phi i32 [ 0, %.lr.ph.i ], [ %86, %80 ]
   %.06814.i = phi i64 [ 0, %.lr.ph.i ], [ %88, %80 ]
   %.07213.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.173.i, %80 ]
-  %47 = getelementptr [1 x ptr], ptr %44, i64 0, i64 %.06814.i
+  %47 = getelementptr ptr, ptr %44, i64 %.06814.i
   %48 = load ptr, ptr %47, align 8, !tbaa !12
   %49 = getelementptr i8, ptr %48, i64 8
   %.val120.i = load ptr, ptr %49, align 8, !tbaa !16
@@ -1830,7 +1830,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 
 63:                                               ; preds = %61, %58, %56, %53, %50
   %.071.i = phi double [ %.val122.i, %50 ], [ -1.000000e+00, %56 ], [ %54, %53 ], [ -1.000000e+00, %61 ], [ %59, %58 ]
-  %64 = getelementptr [1 x ptr], ptr %45, i64 0, i64 %.06814.i
+  %64 = getelementptr ptr, ptr %45, i64 %.06814.i
   %65 = load ptr, ptr %64, align 8, !tbaa !12
   %66 = getelementptr i8, ptr %65, i64 8
   %.val118.i = load ptr, ptr %66, align 8, !tbaa !16
@@ -2295,7 +2295,7 @@ define internal ptr @math_factorial(ptr readnone captures(none) %0, ptr noundef 
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = getelementptr [21 x i64], ptr @SmallFactorials, i64 0, i64 %4
+  %22 = getelementptr i64, ptr @SmallFactorials, i64 %4
   %23 = load i64, ptr %22, align 8, !tbaa !37
   %24 = call ptr @PyLong_FromUnsignedLong(i64 noundef %23) #16
   br label %Py_DECREF.exit
@@ -3850,8 +3850,8 @@ Py_DECREF.exit116:                                ; preds = %22, %27, %30
   %36 = zext nneg i32 %35 to i64
   %37 = shl i64 %25, %36
   %38 = lshr i64 %37, 56
-  %39 = add nsw i64 %38, -64
-  %40 = getelementptr [192 x i8], ptr @_approximate_isqrt_tab, i64 0, i64 %39
+  %39 = getelementptr i8, ptr @_approximate_isqrt_tab, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -64
   %41 = load i8, ptr %40, align 1, !tbaa !13
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 7
@@ -3917,8 +3917,8 @@ Py_DECREF.exit118:                                ; preds = %73, %76, %79
 
 .split:                                           ; preds = %Py_DECREF.exit118
   %81 = lshr i64 %74, 56
-  %82 = add nsw i64 %81, -64
-  %83 = getelementptr [192 x i8], ptr @_approximate_isqrt_tab, i64 0, i64 %82
+  %82 = getelementptr i8, ptr @_approximate_isqrt_tab, i64 %81
+  %83 = getelementptr i8, ptr %82, i64 -64
   %84 = load i8, ptr %83, align 1, !tbaa !13
   %85 = zext i8 %84 to i32
   %86 = shl nuw nsw i32 %85, 7
@@ -8197,7 +8197,7 @@ define internal double @m_tgamma(double noundef %0) #10 {
   %22 = fptosi double %0 to i32
   %23 = add i32 %22, -1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr [23 x double], ptr @gamma_integral, i64 0, i64 %24
+  %25 = getelementptr double, ptr @gamma_integral, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !33
   br label %96
 
@@ -8379,10 +8379,10 @@ define internal fastcc double @lanczos_sum(double noundef %0) unnamed_addr #12 {
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 12, %1 ]
   %.01731 = phi double [ %8, %.preheader ], [ 0.000000e+00, %1 ]
   %.01930 = phi double [ %5, %.preheader ], [ 0.000000e+00, %1 ]
-  %3 = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv37
+  %3 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv37
   %4 = load double, ptr %3, align 8, !tbaa !33
   %5 = tail call double @llvm.fmuladd.f64(double %.01930, double %0, double %4)
-  %6 = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv37
+  %6 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv37
   %7 = load double, ptr %6, align 8, !tbaa !33
   %8 = tail call double @llvm.fmuladd.f64(double %.01731, double %0, double %7)
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
@@ -8394,11 +8394,11 @@ define internal fastcc double @lanczos_sum(double noundef %0) unnamed_addr #12 {
   %.228 = phi double [ %16, %.preheader25 ], [ 0.000000e+00, %1 ]
   %.22127 = phi double [ %12, %.preheader25 ], [ 0.000000e+00, %1 ]
   %9 = fdiv double %.22127, %0
-  %10 = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv
+  %10 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv
   %11 = load double, ptr %10, align 8, !tbaa !33
   %12 = fadd double %9, %11
   %13 = fdiv double %.228, %0
-  %14 = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv
+  %14 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !33
   %16 = fadd double %13, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8494,10 +8494,10 @@ define internal double @m_lgamma(double noundef %0) #10 {
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %.preheader.i ], [ 12, %19 ]
   %.01731.i = phi double [ %26, %.preheader.i ], [ 0.000000e+00, %19 ]
   %.01930.i = phi double [ %23, %.preheader.i ], [ 0.000000e+00, %19 ]
-  %21 = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv37.i
+  %21 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv37.i
   %22 = load double, ptr %21, align 8, !tbaa !33
   %23 = tail call double @llvm.fmuladd.f64(double %.01930.i, double %2, double %22)
-  %24 = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv37.i
+  %24 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv37.i
   %25 = load double, ptr %24, align 8, !tbaa !33
   %26 = tail call double @llvm.fmuladd.f64(double %.01731.i, double %2, double %25)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, -1
@@ -8509,11 +8509,11 @@ define internal double @m_lgamma(double noundef %0) #10 {
   %.228.i = phi double [ %34, %.preheader25.i ], [ 0.000000e+00, %19 ]
   %.22127.i = phi double [ %30, %.preheader25.i ], [ 0.000000e+00, %19 ]
   %27 = fdiv double %.22127.i, %2
-  %28 = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv.i
   %29 = load double, ptr %28, align 8, !tbaa !33
   %30 = fadd double %27, %29
   %31 = fdiv double %.228.i, %2
-  %32 = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv.i
   %33 = load double, ptr %32, align 8, !tbaa !33
   %34 = fadd double %31, %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8822,29 +8822,29 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %5
-  %8 = getelementptr [35 x i8], ptr @perm_comb_small.fast_comb_limits1, i64 0, i64 %1
+  %8 = getelementptr i8, ptr @perm_comb_small.fast_comb_limits1, i64 %1
   %9 = load i8, ptr %8, align 1, !tbaa !13
   %10 = zext i8 %9 to i64
   %.not93 = icmp ugt i64 %0, %10
   br i1 %.not93, label %35, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr [128 x i64], ptr @reduced_factorial_odd_part, i64 0, i64 %0
+  %12 = getelementptr i64, ptr @reduced_factorial_odd_part, i64 %0
   %13 = load i64, ptr %12, align 8, !tbaa !37
-  %14 = getelementptr [128 x i64], ptr @inverted_factorial_odd_part, i64 0, i64 %1
+  %14 = getelementptr i64, ptr @inverted_factorial_odd_part, i64 %1
   %15 = load i64, ptr %14, align 8, !tbaa !37
   %16 = mul i64 %15, %13
   %17 = sub nsw i64 %0, %1
-  %18 = getelementptr [128 x i64], ptr @inverted_factorial_odd_part, i64 0, i64 %17
+  %18 = getelementptr i64, ptr @inverted_factorial_odd_part, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !37
   %20 = mul i64 %16, %19
-  %21 = getelementptr [128 x i8], ptr @factorial_trailing_zeros, i64 0, i64 %0
+  %21 = getelementptr i8, ptr @factorial_trailing_zeros, i64 %0
   %22 = load i8, ptr %21, align 1, !tbaa !13
   %23 = zext i8 %22 to i64
-  %24 = getelementptr [128 x i8], ptr @factorial_trailing_zeros, i64 0, i64 %1
+  %24 = getelementptr i8, ptr @factorial_trailing_zeros, i64 %1
   %25 = load i8, ptr %24, align 1, !tbaa !13
   %26 = zext i8 %25 to i64
-  %27 = getelementptr [128 x i8], ptr @factorial_trailing_zeros, i64 0, i64 %17
+  %27 = getelementptr i8, ptr @factorial_trailing_zeros, i64 %17
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %29 = zext i8 %28 to i64
   %30 = add nuw nsw i64 %26, %29
@@ -8859,7 +8859,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %35
-  %38 = getelementptr [14 x i64], ptr @perm_comb_small.fast_comb_limits2, i64 0, i64 %1
+  %38 = getelementptr i64, ptr @perm_comb_small.fast_comb_limits2, i64 %1
   %39 = load i64, ptr %38, align 8, !tbaa !66
   %.not94 = icmp ugt i64 %0, %39
   br i1 %.not94, label %.thread, label %.preheader
@@ -8889,7 +8889,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %46
-  %49 = getelementptr [21 x i64], ptr @perm_comb_small.fast_perm_limits, i64 0, i64 %1
+  %49 = getelementptr i64, ptr @perm_comb_small.fast_perm_limits, i64 %1
   %50 = load i64, ptr %49, align 8, !tbaa !66
   %.not = icmp ugt i64 %0, %50
   br i1 %.not, label %.thread, label %51
@@ -8903,16 +8903,16 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 54:                                               ; preds = %51
-  %55 = getelementptr [128 x i64], ptr @reduced_factorial_odd_part, i64 0, i64 %0
+  %55 = getelementptr i64, ptr @reduced_factorial_odd_part, i64 %0
   %56 = load i64, ptr %55, align 8, !tbaa !37
   %57 = sub nsw i64 %0, %1
-  %58 = getelementptr [128 x i64], ptr @inverted_factorial_odd_part, i64 0, i64 %57
+  %58 = getelementptr i64, ptr @inverted_factorial_odd_part, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !37
   %60 = mul i64 %59, %56
-  %61 = getelementptr [128 x i8], ptr @factorial_trailing_zeros, i64 0, i64 %0
+  %61 = getelementptr i8, ptr @factorial_trailing_zeros, i64 %0
   %62 = load i8, ptr %61, align 1, !tbaa !13
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [128 x i8], ptr @factorial_trailing_zeros, i64 0, i64 %57
+  %64 = getelementptr i8, ptr @factorial_trailing_zeros, i64 %57
   %65 = load i8, ptr %64, align 1, !tbaa !13
   %66 = zext i8 %65 to i64
   %67 = sub nsw i64 %63, %66

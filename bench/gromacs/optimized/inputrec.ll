@@ -1791,7 +1791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %1
   %22 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._Z29tcouple_min_integration_steps19TemperatureCoupling, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z29tcouple_min_integration_steps19TemperatureCoupling, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2069,7 +2069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %1
   %22 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._Z29pcouple_min_integration_steps16PressureCoupling, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z29pcouple_min_integration_steps16PressureCoupling, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2323,7 +2323,7 @@ define noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr noundef n
 
 .preheader:                                       ; preds = %1, %9
   %indvars.iv21 = phi i64 [ 0, %1 ], [ %indvars.iv.next22, %9 ]
-  %3 = getelementptr inbounds nuw [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv21
+  %3 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv21
   br label %5
 
 4:                                                ; preds = %5
@@ -2333,7 +2333,7 @@ define noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr noundef n
 
 5:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %7 = load float, ptr %6, align 4, !tbaa !243
   %8 = fcmp une float %7, 0.000000e+00
   br i1 %8, label %.loopexit, label %4
@@ -2487,7 +2487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i._ZNSt7__
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit_crit_edge, %68
   %72 = phi i64 [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i._ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit_crit_edge ], [ 4611686018427387903, %68 ]
-  %73 = getelementptr inbounds nuw [7 x %"class.std::__cxx11::basic_string"], ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !15
   %76 = icmp ult i64 %72, %75
@@ -2726,7 +2726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit458: ; preds = %_Z
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %182 = load i32, ptr %181, align 8, !tbaa !293
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_Z14c_pbcTypeNamesB5cxx11, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !12
   call void @_Z6pr_strP8_IO_FILEiPKcS2_(ptr noundef %0, i32 noundef %.0431, ptr noundef nonnull @.str.62, ptr noundef %185)
   %186 = getelementptr inbounds nuw i8, ptr %3, i64 180
@@ -3174,7 +3174,7 @@ _ZL9pr_matrixP8_IO_FILEiPKcPA3_Kfb.exit459:       ; preds = %327, %289, %263
   %494 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.172, i32 noundef %494)
   %495 = load ptr, ptr %10, align 8, !tbaa !12
-  %496 = getelementptr inbounds nuw [6 x i32], ptr %492, i64 0, i64 %indvars.iv.i.i
+  %496 = getelementptr inbounds nuw i32, ptr %492, i64 %indvars.iv.i.i
   %497 = load i32, ptr %496, align 4, !tbaa !337
   invoke void @_Z6pr_intP8_IO_FILEiPKci(ptr noundef %0, i32 noundef %.0431, ptr noundef %495, i32 noundef %497)
           to label %498 unwind label %508
@@ -3793,7 +3793,7 @@ _ZL6pr_rotP8_IO_FILEiPK5t_rot.exit:               ; preds = %702, %680, %_ZL6pr_
   %827 = trunc nuw nsw i64 %indvars.iv.i468 to i32
   %828 = call noundef ptr @_Z17enumValueToString34FreeEnergyPerturbationCouplingType(i32 noundef %827)
   %829 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.235, ptr noundef %828) #24
-  %830 = getelementptr inbounds nuw [7 x i8], ptr %822, i64 0, i64 %indvars.iv.i468
+  %830 = getelementptr inbounds nuw i8, ptr %822, i64 %indvars.iv.i468
   %831 = load i8, ptr %830, align 1, !tbaa !460, !range !249, !noundef !250
   %832 = trunc nuw i8 %831 to i1
   br i1 %832, label %833, label %835
@@ -3822,7 +3822,7 @@ _ZL6pr_rotP8_IO_FILEiPK5t_rot.exit:               ; preds = %702, %680, %_ZL6pr_
   br i1 %843, label %.lr.ph.i472, label %._crit_edge.i471
 
 .lr.ph.i472:                                      ; preds = %838
-  %844 = getelementptr inbounds nuw [7 x %"class.std::vector.59"], ptr %825, i64 0, i64 %indvars.iv113.i
+  %844 = getelementptr inbounds nuw %"class.std::vector.59", ptr %825, i64 %indvars.iv113.i
   br label %845
 
 845:                                              ; preds = %845, %.lr.ph.i472
@@ -4144,7 +4144,7 @@ _ZL9pr_matrixP8_IO_FILEiPKcPA3_Kfb.exit473:       ; preds = %982, %1001
   %indvars.iv.i474 = phi i64 [ 0, %1028 ], [ 1, %1047 ]
   %1049 = trunc nuw nsw i64 %indvars.iv.i474 to i32
   %1050 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.287, i32 noundef %1049) #24
-  %1051 = getelementptr inbounds nuw [2 x i8], ptr %1032, i64 0, i64 %indvars.iv.i474
+  %1051 = getelementptr inbounds nuw i8, ptr %1032, i64 %indvars.iv.i474
   %1052 = load i8, ptr %1051, align 1, !tbaa !460, !range !249, !noundef !250
   %1053 = trunc nuw i8 %1052 to i1
   %1054 = select i1 %1053, ptr @.str.148, ptr @.str.149
@@ -4228,7 +4228,7 @@ _ZL9pr_matrixP8_IO_FILEiPKcPA3_Kfb.exit473:       ; preds = %982, %1001
   %1101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.298, ptr noundef %1100, i32 noundef %1095) #24
   %1102 = load ptr, ptr %1033, align 8, !tbaa !204
   %1103 = getelementptr inbounds nuw %struct.t_swapGroup, ptr %1102, i64 %indvars.iv91.i, i32 3
-  %1104 = getelementptr inbounds nuw [2 x i32], ptr %1103, i64 0, i64 %indvars.iv94.i
+  %1104 = getelementptr inbounds nuw i32, ptr %1103, i64 %indvars.iv94.i
   %1105 = load i32, ptr %1104, align 4, !tbaa !337
   call void @_Z6pr_intP8_IO_FILEiPKci(ptr noundef %0, i32 noundef %.0431, ptr noundef nonnull %6, i32 noundef %1105)
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
@@ -4531,7 +4531,7 @@ _ZL7pr_swapP8_IO_FILEiPK12t_swapcoords.exit:      ; preds = %._crit_edge82.i, %.
   %indvars.iv67.i = phi i64 [ 0, %.preheader1.i ], [ %indvars.iv.next68.i, %1267 ]
   %1268 = load ptr, ptr %1266, align 8, !tbaa !552
   %1269 = getelementptr inbounds nuw [3 x float], ptr %1268, i64 %indvars.iv70.i
-  %1270 = getelementptr inbounds nuw [3 x float], ptr %1269, i64 0, i64 %indvars.iv67.i
+  %1270 = getelementptr inbounds nuw float, ptr %1269, i64 %indvars.iv67.i
   %1271 = load float, ptr %1270, align 4, !tbaa !243
   %1272 = fpext float %1271 to double
   %1273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.240, double noundef %1272) #24
@@ -4567,7 +4567,7 @@ _ZL7pr_swapP8_IO_FILEiPK12t_swapcoords.exit:      ; preds = %._crit_edge82.i, %.
   %indvars.iv73.i = phi i64 [ 0, %.preheader.i479 ], [ %indvars.iv.next74.i, %1284 ]
   %1285 = load ptr, ptr %1283, align 8, !tbaa !555
   %1286 = getelementptr inbounds nuw [3 x i32], ptr %1285, i64 %indvars.iv77.i
-  %1287 = getelementptr inbounds nuw [3 x i32], ptr %1286, i64 0, i64 %indvars.iv73.i
+  %1287 = getelementptr inbounds nuw i32, ptr %1286, i64 %indvars.iv73.i
   %1288 = load i32, ptr %1287, align 4, !tbaa !337
   %.not.i480 = icmp eq i32 %1288, 0
   %.str.314..str.315.i = select i1 %.not.i480, ptr @.str.315, ptr @.str.314
@@ -5261,8 +5261,8 @@ _ZL26cmpPressureCouplingOptionsP8_IO_FILERK23PressureCouplingOptionsS3_ff.exit: 
   br i1 %393, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %394 = getelementptr inbounds nuw [7 x %"class.std::vector.59"], ptr %388, i64 0, i64 %indvars.iv94.i
-  %395 = getelementptr inbounds nuw [7 x %"class.std::vector.59"], ptr %389, i64 0, i64 %indvars.iv94.i
+  %394 = getelementptr inbounds nuw %"class.std::vector.59", ptr %388, i64 %indvars.iv94.i
+  %395 = getelementptr inbounds nuw %"class.std::vector.59", ptr %389, i64 %indvars.iv94.i
   br label %396
 
 396:                                              ; preds = %396, %.lr.ph.i
@@ -7652,7 +7652,7 @@ define noundef zeroext i1 @_Z18haveFreeEnergyTypeRK10t_inputreci(ptr noundef non
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [7 x %"class.std::vector.59"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.std::vector.59", ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !155
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11

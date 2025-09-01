@@ -969,7 +969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i: ; preds = %
   %359 = load i32, ptr %358, align 4, !tbaa !22
   %360 = getelementptr inbounds nuw i8, ptr %357, i64 12
   %361 = load i32, ptr %360, align 4, !tbaa !22
-  %362 = getelementptr inbounds nuw [20 x i32], ptr @_ZZL11parse_humanRKN2cv3MatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE10tail_order, i64 0, i64 %indvars.iv.i
+  %362 = getelementptr inbounds nuw i32, ptr @_ZZL11parse_humanRKN2cv3MatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiE10tail_order, i64 %indvars.iv.i
   %363 = load i32, ptr %362, align 4, !tbaa !22, !noalias !24
   %364 = load ptr, ptr %269, align 8, !tbaa !42, !noalias !24
   %365 = load ptr, ptr %270, align 8, !tbaa !48, !noalias !24
@@ -1081,7 +1081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !24
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !24
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !24
-  %389 = getelementptr inbounds nuw [20 x %"class.cv::Vec.3"], ptr %17, i64 0, i64 %indvars.iv.i
+  %389 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %17, i64 %indvars.iv.i
   store i32 -1056833536, ptr %38, align 8, !tbaa !30, !noalias !24
   store ptr %389, ptr %301, align 8, !tbaa !32, !noalias !24
   store i64 12884901889, ptr %300, align 8, !noalias !24

@@ -2821,12 +2821,12 @@ define void @_ZN7glslang17TParseContextBase20parseSwizzleSelectorERKNS_10TSource
   %34 = add nsw i32 %31, 1
   store i32 %34, ptr %4, align 4
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %35
+  %36 = getelementptr inbounds i32, ptr %21, i64 %35
   store i32 0, ptr %36, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit: ; preds = %30, %33
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 0, ptr %37, align 4
   br label %130
 
@@ -2839,12 +2839,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit: ; preds = %30, %33
   %42 = add nsw i32 %39, 1
   store i32 %42, ptr %4, align 4
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %43
+  %44 = getelementptr inbounds i32, ptr %21, i64 %43
   store i32 0, ptr %44, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit57
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit57: ; preds = %38, %41
-  %45 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 1, ptr %45, align 4
   br label %130
 
@@ -2857,12 +2857,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit57: ; preds = %38, %41
   %50 = add nsw i32 %47, 1
   store i32 %50, ptr %4, align 4
   %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr %21, i64 %51
   store i32 0, ptr %52, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit58
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit58: ; preds = %46, %49
-  %53 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 2, ptr %53, align 4
   br label %130
 
@@ -2875,12 +2875,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit58: ; preds = %46, %49
   %58 = add nsw i32 %55, 1
   store i32 %58, ptr %4, align 4
   %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %59
+  %60 = getelementptr inbounds i32, ptr %21, i64 %59
   store i32 1, ptr %60, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit59
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit59: ; preds = %54, %57
-  %61 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 0, ptr %61, align 4
   br label %130
 
@@ -2893,12 +2893,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit59: ; preds = %54, %57
   %66 = add nsw i32 %63, 1
   store i32 %66, ptr %4, align 4
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %67
+  %68 = getelementptr inbounds i32, ptr %21, i64 %67
   store i32 1, ptr %68, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit60
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit60: ; preds = %62, %65
-  %69 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 1, ptr %69, align 4
   br label %130
 
@@ -2911,12 +2911,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit60: ; preds = %62, %65
   %74 = add nsw i32 %71, 1
   store i32 %74, ptr %4, align 4
   %75 = sext i32 %71 to i64
-  %76 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %75
+  %76 = getelementptr inbounds i32, ptr %21, i64 %75
   store i32 1, ptr %76, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit61
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit61: ; preds = %70, %73
-  %77 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 2, ptr %77, align 4
   br label %130
 
@@ -2929,12 +2929,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit61: ; preds = %70, %73
   %82 = add nsw i32 %79, 1
   store i32 %82, ptr %4, align 4
   %83 = sext i32 %79 to i64
-  %84 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %83
+  %84 = getelementptr inbounds i32, ptr %21, i64 %83
   store i32 2, ptr %84, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit62
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit62: ; preds = %78, %81
-  %85 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 0, ptr %85, align 4
   br label %130
 
@@ -2947,12 +2947,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit62: ; preds = %78, %81
   %90 = add nsw i32 %87, 1
   store i32 %90, ptr %4, align 4
   %91 = sext i32 %87 to i64
-  %92 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %91
+  %92 = getelementptr inbounds i32, ptr %21, i64 %91
   store i32 2, ptr %92, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit63
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit63: ; preds = %86, %89
-  %93 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 1, ptr %93, align 4
   br label %130
 
@@ -2965,12 +2965,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit63: ; preds = %86, %89
   %98 = add nsw i32 %95, 1
   store i32 %98, ptr %4, align 4
   %99 = sext i32 %95 to i64
-  %100 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %99
+  %100 = getelementptr inbounds i32, ptr %21, i64 %99
   store i32 2, ptr %100, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit64
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit64: ; preds = %94, %97
-  %101 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 2, ptr %101, align 4
   br label %130
 
@@ -2983,12 +2983,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit64: ; preds = %94, %97
   %106 = add nsw i32 %103, 1
   store i32 %106, ptr %4, align 4
   %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %107
+  %108 = getelementptr inbounds i32, ptr %21, i64 %107
   store i32 3, ptr %108, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit65
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit65: ; preds = %102, %105
-  %109 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 0, ptr %109, align 4
   br label %130
 
@@ -3001,12 +3001,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit65: ; preds = %102, %105
   %114 = add nsw i32 %111, 1
   store i32 %114, ptr %4, align 4
   %115 = sext i32 %111 to i64
-  %116 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %115
+  %116 = getelementptr inbounds i32, ptr %21, i64 %115
   store i32 3, ptr %116, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit66
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit66: ; preds = %110, %113
-  %117 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 1, ptr %117, align 4
   br label %130
 
@@ -3019,12 +3019,12 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit66: ; preds = %110, %113
   %122 = add nsw i32 %119, 1
   store i32 %122, ptr %4, align 4
   %123 = sext i32 %119 to i64
-  %124 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %123
+  %124 = getelementptr inbounds i32, ptr %21, i64 %123
   store i32 3, ptr %124, align 4
   br label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit67
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit67: ; preds = %118, %121
-  %125 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 2, ptr %125, align 4
   br label %130
 
@@ -3040,9 +3040,9 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit67: ; preds = %118, %121
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !27
 
-131:                                              ; preds = %.lr.ph76, %154
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next81, %154 ]
-  %132 = getelementptr inbounds nuw [4 x i32], ptr %25, i64 0, i64 %indvars.iv80
+131:                                              ; preds = %.lr.ph76, %153
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next81, %153 ]
+  %132 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv80
   %133 = load i32, ptr %132, align 4
   %.not = icmp slt i32 %133, %3
   br i1 %.not, label %141, label %134
@@ -3060,45 +3060,44 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit67: ; preds = %118, %121
 
 141:                                              ; preds = %131
   %.not55 = icmp eq i64 %indvars.iv80, 0
-  br i1 %.not55, label %154, label %142
+  br i1 %.not55, label %153, label %142
 
 142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv80
+  %143 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv80
   %144 = load i32, ptr %143, align 4
-  %145 = add nsw i64 %indvars.iv80, -1
-  %146 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %145
-  %147 = load i32, ptr %146, align 4
-  %.not56 = icmp eq i32 %144, %147
-  br i1 %.not56, label %154, label %.thread
+  %145 = getelementptr i8, ptr %143, i64 -4
+  %146 = load i32, ptr %145, align 4
+  %.not56 = icmp eq i32 %144, %146
+  br i1 %.not56, label %153, label %.thread
 
 .thread:                                          ; preds = %142
-  %148 = trunc nuw nsw i64 %indvars.iv80 to i32
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 344
-  %153 = load ptr, ptr %152, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %153(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.29, ptr noundef %150, ptr noundef nonnull @.str.17) #16
-  store i32 %148, ptr %4, align 4
+  %147 = trunc nuw nsw i64 %indvars.iv80 to i32
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = load ptr, ptr %0, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 344
+  %152 = load ptr, ptr %151, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %152(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.29, ptr noundef %149, ptr noundef nonnull @.str.17) #16
+  store i32 %147, ptr %4, align 4
   br label %.loopexit.thread
 
-154:                                              ; preds = %141, %142
+153:                                              ; preds = %141, %142
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %.loopexit.thread, label %131, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %134
-  %155 = phi i32 [ %135, %134 ], [ %23, %.preheader ]
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit68, label %.loopexit.thread
+  %154 = phi i32 [ %135, %134 ], [ %23, %.preheader ]
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit68, label %.loopexit.thread
 
 _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit68: ; preds = %.loopexit
-  %157 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %4, align 4
-  store i32 0, ptr %157, align 4
+  store i32 0, ptr %156, align 4
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %154, %.thread, %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit68, %.loopexit
+.loopexit.thread:                                 ; preds = %153, %.thread, %_ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit68, %.loopexit
   ret void
 }
 
@@ -4992,7 +4991,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup:                                    ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit160
   %368 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_, i64 0, i64 %368
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_, i64 %368
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang10TQualifier22getLayoutPackingStringENS_14TLayoutPackingE.exit
 
@@ -7915,7 +7914,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup1080:                                ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit484
   %1619 = and i64 %1616, 127
-  %switch.gep1081 = getelementptr inbounds nuw [31 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.2, i64 0, i64 %1619
+  %switch.gep1081 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.2, i64 %1619
   %switch.load1082 = load ptr, ptr %switch.gep1081, align 8
   br label %_ZNK7glslang5TType25getStorageQualifierStringEv.exit
 
@@ -8050,7 +8049,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup1083:                                ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit496
   %1677 = zext nneg i32 %1675 to i64
-  %switch.gep1084 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.4, i64 0, i64 %1677
+  %switch.gep1084 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.4, i64 %1677
   %switch.load1085 = load ptr, ptr %switch.gep1084, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit
 
@@ -10006,7 +10005,7 @@ _ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_t
 
 switch.lookup1086:                                ; preds = %_ZZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ENKUlPKcE_clES9_.exit698
   %2589 = zext nneg i32 %2587 to i64
-  %switch.gep1087 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.4, i64 0, i64 %2589
+  %switch.gep1087 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.4, i64 %2589
   %switch.load1088 = load ptr, ptr %switch.gep1087, align 8
   br label %_ZNK7glslang5TType27getPrecisionQualifierStringEv.exit700
 
@@ -13417,49 +13416,47 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %30, %.lr.ph.i11 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %41, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %40, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
   %28 = urem i64 %.020.i, 100
   %29 = shl nuw nsw i64 %28, 1
   %30 = udiv i64 %.020.i, 100
-  %31 = or disjoint i64 %29, 1
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %31
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 %34
   store i8 %33, ptr %35, align 1
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %29
-  %37 = load i8, ptr %36, align 2
-  %38 = add i32 %.01819.i, -1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
-  store i8 %37, ptr %40, align 1
-  %41 = add i32 %.01819.i, -2
-  %42 = icmp ugt i64 %.020.i, 9999
-  br i1 %42, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !72
+  %36 = load i8, ptr %31, align 2
+  %37 = add i32 %.01819.i, -1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 %38
+  store i8 %36, ptr %39, align 1
+  %40 = add i32 %.01819.i, -2
+  %41 = icmp ugt i64 %.020.i, 9999
+  br i1 %41, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !72
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %43, label %44, label %52
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %42, label %43, label %50
 
-44:                                               ; preds = %._crit_edge.i
-  %45 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %45
-  %51 = load i8, ptr %50, align 2
+43:                                               ; preds = %._crit_edge.i
+  %44 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %45 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %47, ptr %48, align 1
+  %49 = load i8, ptr %45, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %54 = or disjoint i8 %53, 48
+50:                                               ; preds = %._crit_edge.i
+  %51 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %52 = or disjoint i8 %51, 48
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %44, %52
-  %storemerge.i = phi i8 [ %54, %52 ], [ %51, %44 ]
+_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %43, %50
+  %storemerge.i = phi i8 [ %52, %50 ], [ %49, %43 ]
   store i8 %storemerge.i, ptr %25, align 1
   ret void
 }
@@ -19263,7 +19260,7 @@ define linkonce_odr noundef ptr @_ZN7glslang10TQualifier21getLayoutFormatStringE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [52 x ptr], ptr @switch.table._ZN7glslang10TQualifier21getLayoutFormatStringENS_13TLayoutFormatE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang10TQualifier21getLayoutFormatStringENS_13TLayoutFormatE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -19293,7 +19290,7 @@ define linkonce_odr void @_ZNK7glslang5TType18getBasicTypeStringB5cxx11Ev(ptr de
 switch.lookup:                                    ; preds = %9
   %trunc.i.mask = and i32 %4, 31
   %11 = zext nneg i32 %trunc.i.mask to i64
-  %switch.gep = getelementptr inbounds nuw [24 x ptr], ptr @switch.table._ZNK7glslang5TType18getBasicTypeStringB5cxx11Ev, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang5TType18getBasicTypeStringB5cxx11Ev, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK7glslang5TType14getBasicStringEv.exit
 
@@ -19409,53 +19406,49 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 .lr.ph.i2:                                        ; preds = %.lr.ph.i2, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %29, %.lr.ph.i2 ], [ %1, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %42, %.lr.ph.i2 ], [ %26, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %40, %.lr.ph.i2 ], [ %26, %.lr.ph.preheader.i ]
   %27 = urem i32 %.020.i, 100
   %28 = shl nuw nsw i32 %27, 1
   %29 = udiv i32 %.020.i, 100
-  %30 = or disjoint i32 %28, 1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %31
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 %34
   store i8 %33, ptr %35, align 1
-  %36 = zext nneg i32 %28 to i64
-  %37 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 2
-  %39 = add i32 %.01819.i, -1
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %22, i64 %40
-  store i8 %38, ptr %41, align 1
-  %42 = add i32 %.01819.i, -2
-  %43 = icmp ugt i32 %.020.i, 9999
-  br i1 %43, label %.lr.ph.i2, label %._crit_edge.i, !llvm.loop !133
+  %36 = load i8, ptr %31, align 2
+  %37 = add i32 %.01819.i, -1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 %38
+  store i8 %36, ptr %39, align 1
+  %40 = add i32 %.01819.i, -2
+  %41 = icmp ugt i32 %.020.i, 9999
+  br i1 %41, label %.lr.ph.i2, label %._crit_edge.i, !llvm.loop !133
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i2, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %1, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %29, %.lr.ph.i2 ]
-  %44 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %44, label %45, label %55
+  %42 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %42, label %43, label %51
 
-45:                                               ; preds = %._crit_edge.i
-  %46 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %47 = or disjoint i32 %46, 1
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i8 %50, ptr %51, align 1
-  %52 = zext nneg i32 %46 to i64
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 2
+43:                                               ; preds = %._crit_edge.i
+  %44 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i8 %48, ptr %49, align 1
+  %50 = load i8, ptr %46, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %57 = or disjoint i8 %56, 48
+51:                                               ; preds = %._crit_edge.i
+  %52 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %53 = or disjoint i8 %52, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %45, %55
-  %storemerge.i = phi i8 [ %57, %55 ], [ %54, %45 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %43, %51
+  %storemerge.i = phi i8 [ %53, %51 ], [ %50, %43 ]
   store i8 %storemerge.i, ptr %22, align 1
   ret void
 }
@@ -19523,53 +19516,49 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %30, %.lr.ph.i11 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %43, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %41, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
   %28 = urem i32 %.020.i, 100
   %29 = shl nuw nsw i32 %28, 1
   %30 = udiv i32 %.020.i, 100
-  %31 = or disjoint i32 %29, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i32 %.01819.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 %35
   store i8 %34, ptr %36, align 1
-  %37 = zext nneg i32 %29 to i64
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 2
-  %40 = add i32 %.01819.i, -1
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 %41
-  store i8 %39, ptr %42, align 1
-  %43 = add i32 %.01819.i, -2
-  %44 = icmp ugt i32 %.020.i, 9999
-  br i1 %44, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !133
+  %37 = load i8, ptr %32, align 2
+  %38 = add i32 %.01819.i, -1
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
+  store i8 %37, ptr %40, align 1
+  %41 = add i32 %.01819.i, -2
+  %42 = icmp ugt i32 %.020.i, 9999
+  br i1 %42, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !133
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %.0.lcssa.i = phi i32 [ %4, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %45, label %46, label %56
+  %43 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %43, label %44, label %52
 
-46:                                               ; preds = %._crit_edge.i
-  %47 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %48 = or disjoint i32 %47, 1
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %51, ptr %52, align 1
-  %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 2
+44:                                               ; preds = %._crit_edge.i
+  %45 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %49 = load i8, ptr %48, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %49, ptr %50, align 1
+  %51 = load i8, ptr %47, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %58 = or disjoint i8 %57, 48
+52:                                               ; preds = %._crit_edge.i
+  %53 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %46, %56
-  %storemerge.i = phi i8 [ %58, %56 ], [ %55, %46 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %44, %52
+  %storemerge.i = phi i8 [ %54, %52 ], [ %51, %44 ]
   store i8 %storemerge.i, ptr %25, align 1
   ret void
 }
@@ -19937,7 +19926,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 switch.lookup:                                    ; preds = %105
   %108 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK7glslang8TSampler9getStringB5cxx11Ev, i64 0, i64 %108
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7glslang8TSampler9getStringB5cxx11Ev, i64 %108
   %switch.load = load ptr, ptr %switch.gep, align 8
   %109 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %switch.load)
   br label %110
@@ -20291,7 +20280,7 @@ define linkonce_odr noundef ptr @_ZN7glslang24GetBuiltInVariableStringENS_16TBui
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [138 x ptr], ptr @switch.table._ZN7glslang24GetBuiltInVariableStringENS_16TBuiltInVariableE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang24GetBuiltInVariableStringENS_16TBuiltInVariableE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

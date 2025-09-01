@@ -807,7 +807,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Colors = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext nneg i32 %color to i64
-  %arrayidx = getelementptr inbounds nuw [25 x %"class.irr::video::SColor"], ptr %Colors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %Colors, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !22
   br label %return
 
@@ -825,7 +825,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Colors = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext nneg i32 %which to i64
-  %arrayidx = getelementptr inbounds nuw [25 x %"class.irr::video::SColor"], ptr %Colors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %Colors, i64 %idxprom
   store i32 %newColor.coerce, ptr %arrayidx, align 4, !tbaa !22
   br label %if.end
 
@@ -842,7 +842,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Sizes = getelementptr inbounds nuw i8, ptr %this, i64 108
   %idxprom = zext nneg i32 %size to i64
-  %arrayidx = getelementptr inbounds nuw [23 x i32], ptr %Sizes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %Sizes, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !22
   br label %return
 
@@ -860,7 +860,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Sizes = getelementptr inbounds nuw i8, ptr %this, i64 108
   %idxprom = zext nneg i32 %which to i64
-  %arrayidx = getelementptr inbounds nuw [23 x i32], ptr %Sizes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %Sizes, i64 %idxprom
   store i32 %size, ptr %arrayidx, align 4, !tbaa !22
   br label %if.end
 
@@ -877,7 +877,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %Fonts = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom = zext nneg i32 %which to i64
-  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr %Fonts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %Fonts, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8, !tbaa !25
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %return
@@ -911,7 +911,7 @@ if.then2:                                         ; preds = %entry
   store i32 %inc.i, ptr %ReferenceCounter.i, align 8, !tbaa !29
   %Fonts = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom = zext nneg i32 %which to i64
-  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr %Fonts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %Fonts, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !25
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end12, label %if.then4
@@ -1007,7 +1007,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Icons = getelementptr inbounds nuw i8, ptr %this, i64 200
   %idxprom = zext nneg i32 %icon to i64
-  %arrayidx = getelementptr inbounds nuw [23 x i32], ptr %Icons, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %Icons, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !22
   br label %return
 
@@ -1025,7 +1025,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Icons = getelementptr inbounds nuw i8, ptr %this, i64 200
   %idxprom = zext nneg i32 %icon to i64
-  %arrayidx = getelementptr inbounds nuw [23 x i32], ptr %Icons, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %Icons, i64 %idxprom
   store i32 %index, ptr %arrayidx, align 4, !tbaa !22
   br label %if.end
 
@@ -1038,9 +1038,9 @@ define noundef ptr @_ZNK3irr3gui8CGUISkin14getDefaultTextENS0_17EGUI_DEFAULT_TEX
 entry:
   %cmp = icmp ult i32 %text, 8
   %Texts = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %idxprom = zext nneg i32 %text to i64
-  %arrayidx = getelementptr inbounds nuw [8 x %"class.irr::core::string"], ptr %Texts, i64 0, i64 %idxprom
-  %retval.0.in = select i1 %cmp, ptr %arrayidx, ptr %Texts
+  %narrow = select i1 %cmp, i32 %text, i32 0
+  %retval.0.in.idx = zext nneg i32 %narrow to i64
+  %retval.0.in = getelementptr inbounds nuw %"class.irr::core::string", ptr %Texts, i64 %retval.0.in.idx
   %retval.0 = load ptr, ptr %retval.0.in, align 8, !tbaa !24
   ret ptr %retval.0
 }
@@ -1056,7 +1056,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Texts = getelementptr inbounds nuw i8, ptr %this, i64 344
   %idxprom = zext nneg i32 %which to i64
-  %arrayidx = getelementptr inbounds nuw [8 x %"class.irr::core::string"], ptr %Texts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.irr::core::string", ptr %Texts, i64 %idxprom
   %tobool.not.i = icmp eq ptr %newText, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -2729,10 +2729,10 @@ land.end:                                         ; preds = %land.rhs, %if.end
   %cond = phi i64 [ 18, %if.end ], [ %2, %land.rhs ]
   %Icons = getelementptr inbounds nuw i8, ptr %this, i64 200
   %idxprom = zext i32 %icon to i64
-  %arrayidx = getelementptr inbounds nuw [23 x i32], ptr %Icons, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %Icons, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4, !tbaa !22
   %Colors = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %arrayidx7 = getelementptr inbounds nuw [25 x %"class.irr::video::SColor"], ptr %Colors, i64 0, i64 %cond
+  %arrayidx7 = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %Colors, i64 %cond
   %vtable9 = load ptr, ptr %3, align 8, !tbaa !3
   %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 64
   %5 = load ptr, ptr %vfn10, align 8

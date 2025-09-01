@@ -188,7 +188,7 @@ common.resume:                                    ; preds = %40, %16
   %28 = or disjoint i64 %26, %27
   %29 = call i64 @llvm.bswap.i64(i64 %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %30 = getelementptr [0 x i8], ptr %1, i64 0, i64 %22
+  %30 = getelementptr i8, ptr %1, i64 %22
   store i8 -128, ptr %30, align 1, !alias.scope !25, !noalias !26
   %31 = icmp eq i8 %21, 63
   br i1 %31, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9905fe69a7aacca1E.llvm.16590639573034840061.exit.thread.thread.i", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9905fe69a7aacca1E.llvm.16590639573034840061.exit.thread.i"
@@ -586,7 +586,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
 15:                                               ; preds = %24, %3
   %.sroa.02.033 = phi i64 [ 0, %3 ], [ %26, %24 ]
   %.sroa.09.032 = phi i64 [ 0, %3 ], [ %.sroa.09.1.lcssa, %24 ]
-  %16 = getelementptr inbounds nuw [5 x { i64, i64 }], ptr %4, i64 0, i64 %.sroa.02.033
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i64 %.sroa.02.033
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4
@@ -600,7 +600,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
 
 .lr.ph:                                           ; preds = %15, %41
   %.sroa.09.131 = phi i64 [ %31, %41 ], [ %.sroa.09.032, %15 ]
-  %.sroa.013.030 = phi i64 [ %48, %41 ], [ %17, %15 ]
+  %.sroa.013.030 = phi i64 [ %47, %41 ], [ %17, %15 ]
   %21 = icmp ult i64 %.sroa.09.131, 16
   br i1 %21, label %28, label %33, !prof !164
 
@@ -609,7 +609,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
   br i1 %23, label %24, label %27, !prof !164
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   store i8 45, ptr %25, align 1
   %26 = add nuw nsw i64 %.sroa.02.033, 1
   br label %15
@@ -619,7 +619,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
   unreachable
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %.sroa.09.131
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.09.131
   %30 = load i8, ptr %29, align 1, !noundef !4
   %31 = add nuw nsw i64 %.sroa.09.131, 1
   %32 = icmp ult i64 %.sroa.013.030, 36
@@ -632,30 +632,29 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.165
 34:                                               ; preds = %28
   %35 = lshr i8 %30, 4
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [16 x i8], ptr %anon.0cb9b3cd82a9bc1899a20c7efca9230d.46.anon.0cb9b3cd82a9bc1899a20c7efca9230d.45, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %anon.0cb9b3cd82a9bc1899a20c7efca9230d.46.anon.0cb9b3cd82a9bc1899a20c7efca9230d.45, i64 %36
   %38 = load i8, ptr %37, align 1, !noundef !4
-  %39 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %.sroa.013.030
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.013.030
   store i8 %38, ptr %39, align 1
   %.not20 = icmp eq i64 %.sroa.013.030, 35
-  br i1 %.not20, label %50, label %41, !prof !165
+  br i1 %.not20, label %49, label %41, !prof !165
 
 40:                                               ; preds = %28
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.013.030, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0cb9b3cd82a9bc1899a20c7efca9230d.52) #18
   unreachable
 
 41:                                               ; preds = %34
-  %42 = add nuw nsw i64 %.sroa.013.030, 1
-  %43 = and i8 %30, 15
-  %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds nuw [16 x i8], ptr %anon.0cb9b3cd82a9bc1899a20c7efca9230d.46.anon.0cb9b3cd82a9bc1899a20c7efca9230d.45, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1, !noundef !4
-  %47 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %42
-  store i8 %46, ptr %47, align 1
-  %48 = add nuw nsw i64 %.sroa.013.030, 2
-  %49 = icmp ult i64 %48, %19
-  br i1 %49, label %.lr.ph, label %._crit_edge
+  %42 = and i8 %30, 15
+  %43 = zext nneg i8 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %anon.0cb9b3cd82a9bc1899a20c7efca9230d.46.anon.0cb9b3cd82a9bc1899a20c7efca9230d.45, i64 %43
+  %45 = load i8, ptr %44, align 1, !noundef !4
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store i8 %45, ptr %46, align 1
+  %47 = add nuw nsw i64 %.sroa.013.030, 2
+  %48 = icmp ult i64 %47, %19
+  br i1 %48, label %.lr.ph, label %._crit_edge
 
-50:                                               ; preds = %34
+49:                                               ; preds = %34
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef 36, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0cb9b3cd82a9bc1899a20c7efca9230d.54) #18
   unreachable
 }

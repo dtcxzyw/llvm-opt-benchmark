@@ -633,7 +633,7 @@ _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
 46:                                               ; preds = %.loopexit
   %47 = tail call noundef i64 @llvm.umin.i64(i64 %28, i64 29)
   %48 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %27, i64 noundef %47) #19
-  %49 = getelementptr inbounds nuw [30 x i8], ptr %8, i64 0, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 %47
   store i8 0, ptr %49, align 1
   %50 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %7, i64 noundef 119, ptr noundef nonnull @.str.6, ptr noundef nonnull %8) #19
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8

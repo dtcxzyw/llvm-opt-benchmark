@@ -68,7 +68,7 @@ define hidden noundef nonnull ptr @mbedtls_ecp_grp_id_list() local_unnamed_addr 
   %.07 = phi ptr [ %4, %.preheader ], [ @ecp_supported_curves, %0 ]
   %.046 = phi i64 [ %2, %.preheader ], [ 0, %0 ]
   %2 = add nuw nsw i64 %.046, 1
-  %3 = getelementptr inbounds nuw [14 x i32], ptr @ecp_supported_grp_id, i64 0, i64 %.046
+  %3 = getelementptr inbounds nuw i32, ptr @ecp_supported_grp_id, i64 %.046
   store i32 %1, ptr %3, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !7
@@ -1364,7 +1364,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %158
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr inbounds nuw %struct.mbedtls_ecp_point, ptr %121, i64 %168
   %170 = add i64 %.15513.i.i, 1
-  %171 = getelementptr inbounds nuw [7 x ptr], ptr %13, i64 0, i64 %.15513.i.i
+  %171 = getelementptr inbounds nuw ptr, ptr %13, i64 %.15513.i.i
   store ptr %169, ptr %171, align 8, !tbaa !43
   %172 = shl nuw nsw i32 %167, 1
   %173 = and i32 %172, 254
@@ -1405,7 +1405,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %158
   %.318.i.i = phi i64 [ %187, %.lr.ph19.i.i ], [ 0, %184 ]
   %188 = getelementptr inbounds nuw %struct.mbedtls_ecp_point, ptr %121, i64 %.318.i.i
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 48
-  %190 = getelementptr inbounds nuw [7 x ptr], ptr %13, i64 0, i64 %.318.i.i
+  %190 = getelementptr inbounds nuw ptr, ptr %13, i64 %.318.i.i
   store ptr %189, ptr %190, align 8, !tbaa !43
   %191 = add nuw nsw i64 %187, 1
   %exitcond30.not.i.i = icmp eq i64 %191, %120

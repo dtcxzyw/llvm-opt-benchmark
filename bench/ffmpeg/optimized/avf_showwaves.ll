@@ -818,7 +818,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
 
 switch.lookup:                                    ; preds = %88
   %115 = zext nneg i32 %90 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_output, i64 0, i64 %115
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_output, i64 %115
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -869,7 +869,7 @@ switch.lookup:                                    ; preds = %88
   %.sink176 = phi i32 [ %123, %121 ], [ %127, %125 ], [ %131, %129 ], [ %135, %133 ]
   %switch.table.config_output.7.sink = phi ptr [ @switch.table.config_output.4, %121 ], [ @switch.table.config_output.5, %125 ], [ @switch.table.config_output.6, %129 ], [ @switch.table.config_output.7, %133 ]
   %137 = zext nneg i32 %.sink176 to i64
-  %switch.gep174 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.config_output.7.sink, i64 0, i64 %137
+  %switch.gep174 = getelementptr inbounds nuw ptr, ptr %switch.table.config_output.7.sink, i64 %137
   %switch.load175 = load ptr, ptr %switch.gep174, align 8
   %138 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr %switch.load175, ptr %138, align 8, !tbaa !81

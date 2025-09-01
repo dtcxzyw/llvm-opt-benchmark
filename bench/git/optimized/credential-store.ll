@@ -788,7 +788,7 @@ declare void @strbuf_addstr_urlencode(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 0, 2) i32 @is_rfc3986_unreserved(i8 noundef signext %0) #11 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !37
   %.fr = freeze i8 %4
   %5 = and i8 %.fr, 6
@@ -815,7 +815,7 @@ switch.early.test:                                ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 0, 2) i32 @is_rfc3986_reserved_or_unreserved(i8 noundef signext %0) #11 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !37
   %.fr.i = freeze i8 %4
   %5 = and i8 %.fr.i, 6

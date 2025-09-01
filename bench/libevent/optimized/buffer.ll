@@ -5638,7 +5638,7 @@ evbuffer_write_sendfile.exit:                     ; preds = %34, %34, %37
   %46 = getelementptr inbounds nuw i8, ptr %.03143.i, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
-  %49 = getelementptr inbounds nuw [128 x %struct.iovec], ptr %4, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw %struct.iovec, ptr %4, i64 %indvars.iv.i
   store ptr %48, ptr %49, align 16
   %50 = getelementptr inbounds nuw i8, ptr %.03143.i, i64 24
   %51 = load i64, ptr %50, align 8

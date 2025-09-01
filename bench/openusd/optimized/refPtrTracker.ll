@@ -1559,7 +1559,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_9TfHashMapIPKvNS_15TfRefPt
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L5_typeE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L5_typeE, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %24)
           to label %26 unwind label %43
@@ -1783,7 +1783,7 @@ _ZNKSt13unordered_mapIPKN32pxrInternal_v0_24__pxrReserved__9TfRefBaseEmNS0_6TfHa
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.049, i64 48
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L5_typeE, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L5_typeE, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef %86)
           to label %88 unwind label %.loopexit

@@ -1727,11 +1727,11 @@ switch.lookup:
   %3 = alloca double, align 8
   %4 = load i16, ptr %0, align 8, !tbaa !32
   %5 = zext nneg i16 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = load i16, ptr %1, align 8, !tbaa !32
   %7 = zext nneg i16 %6 to i64
-  %switch.gep114 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 0, i64 %7
+  %switch.gep114 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %7
   %switch.load115 = load i32, ptr %switch.gep114, align 4
   %.not = icmp eq i32 %switch.load, %switch.load115
   br i1 %.not, label %8, label %_ZNK4llvm4json5Value9getAsNullEv.exit28

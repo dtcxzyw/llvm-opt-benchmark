@@ -2912,7 +2912,7 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %.3343.i = phi i32 [ %.2.i240, %328 ], [ -3000, %._crit_edge288.thread ]
   %.0307340.i = phi i32 [ %330, %328 ], [ 0, %._crit_edge288.thread ]
   %332 = zext nneg i32 %.0307340.i to i64
-  %333 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %332
+  %333 = getelementptr inbounds nuw i8, ptr %4, i64 %332
   store i8 0, ptr %333, align 1, !tbaa !39
   br label %334
 
@@ -3005,7 +3005,7 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %.9366.i = phi i32 [ 1, %.thread361.i ], [ %.9.i, %380 ]
   %.1308364.i = phi i32 [ %366, %.thread361.i ], [ %.1308.i, %380 ]
   %383 = zext nneg i32 %.1308364.i to i64
-  %384 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw i8, ptr %4, i64 %383
   store i8 0, ptr %384, align 1, !tbaa !39
   br label %385
 
@@ -3540,7 +3540,7 @@ define internal noalias noundef ptr @test_server_nofail(ptr noundef captures(add
 
 103:                                              ; preds = %100
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 %104
   store i8 0, ptr %105, align 1, !tbaa !39
   %106 = load ptr, ptr @stderr, align 8, !tbaa !22
   %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.1026, ptr noundef nonnull %5) #28
@@ -3932,7 +3932,7 @@ udp_connect.exit:                                 ; preds = %build_addr.exit.i
 
 164:                                              ; preds = %161
   %165 = zext nneg i32 %162 to i64
-  %166 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr %6, i64 %165
   store i8 0, ptr %166, align 1, !tbaa !39
   %167 = load ptr, ptr @stderr, align 8, !tbaa !22
   %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.1031, ptr noundef nonnull %6) #28
@@ -4098,7 +4098,7 @@ ForceZero.exit:
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %8 = trunc i64 %indvars.iv to i8
   %9 = add nuw nsw i8 %8, 1
-  %10 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %9, ptr %10, align 1, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -4167,7 +4167,7 @@ ForceZero.exit112:                                ; preds = %.lr.ph35.i108, %.pr
 
 26:                                               ; preds = %25
   %27 = icmp eq i32 %.2118, 2
-  %28 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %indvars.iv126
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv126
   %29 = load i8, ptr %28, align 1, !tbaa !39
   %.not101 = icmp ne i8 %29, 0
   %brmerge = select i1 %.not101, i1 true, i1 %27
@@ -4189,7 +4189,7 @@ ForceZero.exit112:                                ; preds = %.lr.ph35.i108, %.pr
 
 39:                                               ; preds = %38
   %40 = icmp eq i32 %.2118, 2
-  %41 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %indvars.iv126
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv126
   %42 = load i8, ptr %41, align 1, !tbaa !39
   %43 = icmp eq i8 %42, 0
   %brmerge105 = select i1 %43, i1 true, i1 %40
@@ -4484,7 +4484,7 @@ define internal range(i32 0, 2) i32 @test_wc_Md5HmacSetKey() #0 {
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
   %indvars.iv = phi i64 [ 0, %.backedge.preheader ], [ %indvars.iv.be, %.backedge.backedge ]
   %16 = phi i1 [ %3, %.backedge.preheader ], [ %.be, %.backedge.backedge ]
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Md5HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Md5HmacSetKey.keys, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !83
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #32
   %20 = trunc i64 %19 to i32
@@ -4864,7 +4864,7 @@ define internal range(i32 0, 2) i32 @test_wc_ShaHmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -5241,7 +5241,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha224HmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -5618,7 +5618,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha256HmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -5995,7 +5995,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha384HmacSetKey() #0 {
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
   %21 = trunc i64 %20 to i32
@@ -6605,7 +6605,7 @@ define internal range(i32 0, 2) i32 @test_wc_Chacha_Process() #0 {
 62:                                               ; preds = %.thread899, %62
   %indvars.iv = phi i64 [ 0, %.thread899 ], [ %indvars.iv.next, %62 ]
   %63 = trunc i64 %indvars.iv to i8
-  %64 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %63, ptr %64, align 1, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -7539,7 +7539,7 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br i1 %147, label %148, label %165
 
 148:                                              ; preds = %.backedge906
-  %149 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %150 = load i8, ptr %149, align 1, !tbaa !39
   %151 = icmp eq i8 %150, 0
   br i1 %151, label %.thread, label %152
@@ -7645,7 +7645,7 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br i1 %204, label %205, label %222
 
 205:                                              ; preds = %.backedge
-  %206 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %indvars.iv871
+  %206 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv871
   %207 = load i8, ptr %206, align 1, !tbaa !39
   %208 = icmp eq i8 %207, 0
   br i1 %208, label %.thread901, label %209
@@ -17036,7 +17036,7 @@ define internal range(i32 0, 2) i32 @test_wc_ParseCert_Error() #0 {
 22:                                               ; preds = %0, %44
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %44 ]
   %.046 = phi i32 [ 3, %0 ], [ %.2, %44 ]
-  %23 = getelementptr inbounds nuw [5 x %struct.testStruct], ptr %7, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.testStruct, ptr %7, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16, !tbaa !130
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !132
@@ -24963,7 +24963,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_ERR_strings() #0 {
 
 64:                                               ; preds = %70, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %70 ]
-  %65 = getelementptr inbounds nuw [13 x %struct.anon.1], ptr @error_test.missing, i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw %struct.anon.1, ptr @error_test.missing, i64 %indvars.iv.i
   %66 = load i32, ptr %65, align 8, !tbaa !143
   %.not.i = icmp sgt i32 %.0143249.i, %66
   br i1 %.not.i, label %70, label %67
@@ -28638,7 +28638,7 @@ define internal noundef i32 @test_wolfSSL_UseSNI_connection() #8 {
   %.06 = phi i64 [ 0, %0 ], [ 1, %13 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 88, i1 false)
-  %15 = getelementptr inbounds nuw [2 x %struct.anon.2], ptr @__const.test_wolfSSL_UseSNI_connection.methods, i64 0, i64 %.06
+  %15 = getelementptr inbounds nuw %struct.anon.2, ptr @__const.test_wolfSSL_UseSNI_connection.methods, i64 %.06
   %16 = load ptr, ptr %15, align 16, !tbaa !153
   store ptr %16, ptr %1, align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -28891,7 +28891,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SNI_GetFromBuffer() #0 {
 98:                                               ; preds = %86
   %99 = load i32, ptr %7, align 4, !tbaa !67
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 %100
   store i8 0, ptr %101, align 1, !tbaa !39
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.2050, ptr noundef nonnull dereferenceable(15) %6, i64 15)
   %102 = icmp eq i32 %bcmp, 0
@@ -28926,7 +28926,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SNI_GetFromBuffer() #0 {
 122:                                              ; preds = %111
   %123 = load i32, ptr %7, align 4, !tbaa !67
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 %124
   store i8 0, ptr %125, align 1, !tbaa !39
   %bcmp552 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @.str.2054, ptr noundef nonnull dereferenceable(17) %6, i64 17)
   %126 = icmp eq i32 %bcmp552, 0
@@ -29838,7 +29838,7 @@ define internal range(i32 0, 2) i32 @test_short_session_id() #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %10 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %11 = getelementptr inbounds nuw [2 x %struct.anon.3], ptr @__const.test_short_session_id.params, i64 0, i64 %.05056
+  %11 = getelementptr inbounds nuw %struct.anon.3, ptr @__const.test_short_session_id.params, i64 %.05056
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !164
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.2077, ptr noundef %13) #28
@@ -30228,10 +30228,10 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   br i1 %134, label %.critedge117, label %.critedge.thread
 
 .critedge117:                                     ; preds = %.thread607, %.critedge165
-  %.0563627 = phi i32 [ %228, %.critedge165 ], [ 0, %.thread607 ]
+  %.0563627 = phi i32 [ %225, %.critedge165 ], [ 0, %.thread607 ]
   %135 = add nsw i32 %.0563627, 1
   %136 = sext i32 %.0563627 to i64
-  %137 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %136
+  %137 = getelementptr inbounds i8, ptr %5, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !39
   %139 = icmp eq i8 %138, 22
   br i1 %139, label %140, label %.thread612.sink.split
@@ -30239,7 +30239,7 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
 140:                                              ; preds = %.critedge117
   %141 = add nsw i32 %.0563627, 2
   %142 = sext i32 %135 to i64
-  %143 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %142
+  %143 = getelementptr inbounds i8, ptr %5, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !39
   %145 = icmp eq i8 %144, 3
   br i1 %145, label %146, label %.thread612.sink.split
@@ -30247,7 +30247,7 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
 146:                                              ; preds = %140
   %147 = add nsw i32 %.0563627, 3
   %148 = sext i32 %141 to i64
-  %149 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %148
+  %149 = getelementptr inbounds i8, ptr %5, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !39
   %151 = icmp eq i8 %150, 3
   br i1 %151, label %.thread612, label %.thread612.sink.split
@@ -30278,15 +30278,15 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   %.22 = phi i32 [ 1, %146 ], [ 0, %.thread612.sink.split ]
   %165 = add nsw i32 %.3566, 2
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %166
+  %167 = getelementptr inbounds i8, ptr %5, i64 %166
   %168 = load i8, ptr %167, align 1, !tbaa !39
   %169 = icmp eq i8 %168, 13
-  br i1 %169, label %170, label %.critedge165
+  %170 = sext i32 %.3566 to i64
+  %171 = getelementptr i8, ptr %5, i64 %170
+  br i1 %169, label %172, label %.critedge165
 
-170:                                              ; preds = %.thread612
-  %171 = add nsw i32 %.3566, 6
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %172
+172:                                              ; preds = %.thread612
+  %173 = getelementptr i8, ptr %171, i64 6
   %174 = load i8, ptr %173, align 1, !tbaa !39
   %175 = zext i8 %174 to i32
   %176 = add i32 %.3566, 7
@@ -30305,143 +30305,140 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   %or.cond586629 = and i1 %186, %164
   br i1 %or.cond586629, label %.critedge167.preheader, label %.critedge
 
-.critedge167.preheader:                           ; preds = %170
+.critedge167.preheader:                           ; preds = %172
   %187 = add nsw i32 %185, %184
   %188 = sext i32 %185 to i64
   %189 = sext i32 %187 to i64
   br label %.critedge167
 
-.critedge167:                                     ; preds = %.critedge167.preheader, %219
-  %indvars.iv = phi i64 [ %188, %.critedge167.preheader ], [ %indvars.iv.next, %219 ]
-  %190 = add nsw i64 %indvars.iv, 1
-  %191 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %190
+.critedge167:                                     ; preds = %.critedge167.preheader, %218
+  %indvars.iv = phi i64 [ %188, %.critedge167.preheader ], [ %indvars.iv.next, %218 ]
+  %190 = getelementptr i8, ptr %5, i64 %indvars.iv
+  %191 = getelementptr i8, ptr %190, i64 1
   %192 = load i8, ptr %191, align 1, !tbaa !39
-  switch i8 %192, label %206 [
+  switch i8 %192, label %205 [
     i8 7, label %193
     i8 8, label %193
-    i8 3, label %219
+    i8 3, label %218
   ]
 
 193:                                              ; preds = %.critedge167, %.critedge167
-  %194 = getelementptr inbounds [65536 x i8], ptr %5, i64 0, i64 %indvars.iv
-  %195 = load i8, ptr %194, align 1, !tbaa !39
-  %196 = icmp eq i8 %195, 8
-  br i1 %196, label %219, label %197
+  %194 = load i8, ptr %190, align 1, !tbaa !39
+  %195 = icmp eq i8 %194, 8
+  br i1 %195, label %218, label %196
 
-197:                                              ; preds = %193
-  %198 = zext i8 %195 to i32
-  %199 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96050)
-  %200 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %201 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %200)
-  %202 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2096, ptr noundef nonnull @.str.2097)
-  %203 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %204 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %203)
-  %205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %198, i32 noundef 8)
+196:                                              ; preds = %193
+  %197 = zext i8 %194 to i32
+  %198 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96050)
+  %199 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %200 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %199)
+  %201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2096, ptr noundef nonnull @.str.2097)
+  %202 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %203 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %202)
+  %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %197, i32 noundef 8)
   br label %.thread
 
-206:                                              ; preds = %.critedge167
-  %207 = zext i8 %192 to i32
-  %208 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96052)
-  %209 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %210 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %209)
-  %211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2098, ptr noundef nonnull @.str.2099)
-  %212 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %213 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %212)
-  %214 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %207, i32 noundef 3)
+205:                                              ; preds = %.critedge167
+  %206 = zext i8 %192 to i32
+  %207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96052)
+  %208 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %209 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %208)
+  %210 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2098, ptr noundef nonnull @.str.2099)
+  %211 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %212 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %211)
+  %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %206, i32 noundef 3)
   br label %.thread
 
-.thread:                                          ; preds = %197, %206
-  %215 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %216 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %215)
-  %217 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %218 = call i32 @fflush(ptr noundef %217)
+.thread:                                          ; preds = %196, %205
+  %214 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %215 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %214)
+  %216 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %217 = call i32 @fflush(ptr noundef %216)
   %indvars.iv.next656 = add nsw i64 %indvars.iv, 2
   br label %.critedge.loopexit
 
-219:                                              ; preds = %.critedge167, %193
+218:                                              ; preds = %.critedge167, %193
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
-  %220 = icmp slt i64 %indvars.iv.next, %189
-  br i1 %220, label %.critedge167, label %.critedge.loopexit, !llvm.loop !173
+  %219 = icmp slt i64 %indvars.iv.next, %189
+  br i1 %219, label %.critedge167, label %.critedge.loopexit, !llvm.loop !173
 
 .critedge165:                                     ; preds = %.thread612
-  %221 = sext i32 %.3566 to i64
-  %222 = getelementptr inbounds i8, ptr %5, i64 %221
-  %.val = load i8, ptr %222, align 1, !tbaa !39
-  %223 = zext i8 %.val to i32
-  %224 = shl nuw nsw i32 %223, 8
-  %225 = getelementptr i8, ptr %222, i64 1
-  %.val587 = load i8, ptr %225, align 1, !tbaa !39
-  %226 = zext i8 %.val587 to i32
-  %227 = or disjoint i32 %224, %226
-  %228 = add nsw i32 %227, %165
-  %229 = load i32, ptr %132, align 8, !tbaa !163
-  %230 = icmp slt i32 %228, %229
-  %or.cond = and i1 %164, %230
+  %.val = load i8, ptr %171, align 1, !tbaa !39
+  %220 = zext i8 %.val to i32
+  %221 = shl nuw nsw i32 %220, 8
+  %222 = getelementptr i8, ptr %171, i64 1
+  %.val587 = load i8, ptr %222, align 1, !tbaa !39
+  %223 = zext i8 %.val587 to i32
+  %224 = or disjoint i32 %221, %223
+  %225 = add nsw i32 %224, %165
+  %226 = load i32, ptr %132, align 8, !tbaa !163
+  %227 = icmp slt i32 %225, %226
+  %or.cond = and i1 %164, %227
   br i1 %or.cond, label %.critedge117, label %.critedge
 
-.critedge.loopexit:                               ; preds = %219, %.thread
-  %indvars.iv.next659 = phi i64 [ %indvars.iv.next656, %.thread ], [ %indvars.iv.next, %219 ]
-  %.26658 = phi i32 [ 0, %.thread ], [ 1, %219 ]
-  %231 = trunc nsw i64 %indvars.iv.next659 to i32
+.critedge.loopexit:                               ; preds = %218, %.thread
+  %indvars.iv.next659 = phi i64 [ %indvars.iv.next656, %.thread ], [ %indvars.iv.next, %218 ]
+  %.26658 = phi i32 [ 0, %.thread ], [ 1, %218 ]
+  %228 = trunc nsw i64 %indvars.iv.next659 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge165, %.critedge.loopexit, %170
-  %.6569 = phi i32 [ %185, %170 ], [ %231, %.critedge.loopexit ], [ %228, %.critedge165 ]
-  %.28 = phi i32 [ %.22, %170 ], [ %.26658, %.critedge.loopexit ], [ %.22, %.critedge165 ]
-  %232 = icmp eq i32 %.28, 1
-  br i1 %232, label %.critedge.thread, label %.thread620
+.critedge:                                        ; preds = %.critedge165, %.critedge.loopexit, %172
+  %.6569 = phi i32 [ %185, %172 ], [ %228, %.critedge.loopexit ], [ %225, %.critedge165 ]
+  %.28 = phi i32 [ %.22, %172 ], [ %.26658, %.critedge.loopexit ], [ %.22, %.critedge165 ]
+  %229 = icmp eq i32 %.28, 1
+  br i1 %229, label %.critedge.thread, label %.thread620
 
 .critedge.thread:                                 ; preds = %.thread607, %.critedge
   %.6569662 = phi i32 [ %.6569, %.critedge ], [ 0, %.thread607 ]
-  %233 = load i32, ptr %132, align 8, !tbaa !163
-  %234 = icmp slt i32 %.6569662, %233
-  br i1 %234, label %247, label %235
+  %230 = load i32, ptr %132, align 8, !tbaa !163
+  %231 = icmp slt i32 %.6569662, %230
+  br i1 %231, label %244, label %232
 
-235:                                              ; preds = %.critedge.thread
-  %236 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96060)
+232:                                              ; preds = %.critedge.thread
+  %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96060)
+  %234 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %235 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %234)
+  %236 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1666, ptr noundef nonnull @.str.1041, ptr noundef nonnull @.str.2100)
   %237 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %238 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %237)
-  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1666, ptr noundef nonnull @.str.1041, ptr noundef nonnull @.str.2100)
+  %238 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %237)
+  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1668, i32 noundef %.6569662, i32 noundef %230)
   %240 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %241 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %240)
-  %242 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1668, i32 noundef %.6569662, i32 noundef %233)
-  %243 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %244 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %243)
-  %245 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %246 = call i32 @fflush(ptr noundef %245)
+  %241 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %240)
+  %242 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %243 = call i32 @fflush(ptr noundef %242)
   br label %.thread620
 
-247:                                              ; preds = %.critedge.thread
-  %248 = load ptr, ptr %3, align 8, !tbaa !150
-  %249 = load ptr, ptr %4, align 8, !tbaa !150
-  %250 = call i32 @test_memio_do_handshake(ptr noundef %248, ptr noundef %249, i32 noundef 10, ptr noundef null) #27
-  %251 = icmp eq i32 %250, 0
-  br i1 %251, label %.thread620, label %252
+244:                                              ; preds = %.critedge.thread
+  %245 = load ptr, ptr %3, align 8, !tbaa !150
+  %246 = load ptr, ptr %4, align 8, !tbaa !150
+  %247 = call i32 @test_memio_do_handshake(ptr noundef %245, ptr noundef %246, i32 noundef 10, ptr noundef null) #27
+  %248 = icmp eq i32 %247, 0
+  br i1 %248, label %.thread620, label %249
 
-252:                                              ; preds = %247
-  %253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96063)
+249:                                              ; preds = %244
+  %250 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 96063)
+  %251 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %252 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %251)
+  %253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1990, ptr noundef nonnull @.str.1024)
   %254 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %255 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %254)
-  %256 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1990, ptr noundef nonnull @.str.1024)
+  %255 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %254)
+  %256 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %247, i32 noundef 0)
   %257 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %258 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %257)
-  %259 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %250, i32 noundef 0)
-  %260 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %261 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %260)
-  %262 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %263 = call i32 @fflush(ptr noundef %262)
+  %258 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %257)
+  %259 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %260 = call i32 @fflush(ptr noundef %259)
   br label %.thread620
 
-.thread620:                                       ; preds = %120, %104, %88, %72, %56, %40, %.thread592, %235, %.critedge, %247, %252
-  %.32 = phi i32 [ 0, %252 ], [ 1, %247 ], [ 0, %235 ], [ 0, %.critedge ], [ 0, %.thread592 ], [ 0, %40 ], [ 0, %56 ], [ 0, %72 ], [ 0, %88 ], [ 0, %104 ], [ 0, %120 ]
-  %264 = load ptr, ptr %3, align 8, !tbaa !150
-  call void @wolfSSL_free(ptr noundef %264) #27
-  %265 = load ptr, ptr %4, align 8, !tbaa !150
-  call void @wolfSSL_free(ptr noundef %265) #27
-  %266 = load ptr, ptr %1, align 8, !tbaa !149
-  call void @wolfSSL_CTX_free(ptr noundef %266) #27
-  %267 = load ptr, ptr %2, align 8, !tbaa !149
-  call void @wolfSSL_CTX_free(ptr noundef %267) #27
+.thread620:                                       ; preds = %120, %104, %88, %72, %56, %40, %.thread592, %232, %.critedge, %244, %249
+  %.32 = phi i32 [ 0, %249 ], [ 1, %244 ], [ 0, %232 ], [ 0, %.critedge ], [ 0, %.thread592 ], [ 0, %40 ], [ 0, %56 ], [ 0, %72 ], [ 0, %88 ], [ 0, %104 ], [ 0, %120 ]
+  %261 = load ptr, ptr %3, align 8, !tbaa !150
+  call void @wolfSSL_free(ptr noundef %261) #27
+  %262 = load ptr, ptr %4, align 8, !tbaa !150
+  call void @wolfSSL_free(ptr noundef %262) #27
+  %263 = load ptr, ptr %1, align 8, !tbaa !149
+  call void @wolfSSL_CTX_free(ptr noundef %263) #27
+  %264 = load ptr, ptr %2, align 8, !tbaa !149
+  call void @wolfSSL_CTX_free(ptr noundef %264) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -32107,7 +32104,7 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   store ptr null, ptr %4, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = getelementptr inbounds nuw [3 x %struct.anon.4], ptr @__const.test_wolfSSL_SendUserCanceled.params, i64 0, i64 %.0322605
+  %9 = getelementptr inbounds nuw %struct.anon.4, ptr @__const.test_wolfSSL_SendUserCanceled.params, i64 %.0322605
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !164
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %11)
@@ -32694,7 +32691,7 @@ define internal i32 @test_wolfSSL_inject() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = getelementptr inbounds nuw [3 x %struct.anon.5], ptr @__const.test_wolfSSL_inject.params, i64 0, i64 %.0273426
+  %10 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.test_wolfSSL_inject.params, i64 %.0273426
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !164
   %13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %12)
@@ -33125,7 +33122,7 @@ define dso_local void @ApiTest_PrintTestCases() local_unnamed_addr #7 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = getelementptr inbounds nuw [955 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8, !tbaa !188
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.970, i32 noundef %4, ptr noundef %3)
@@ -33148,9 +33145,9 @@ define dso_local range(i32 -173, 1) i32 @ApiTest_RunIdx(i32 noundef %0) local_un
 
 5:                                                ; preds = %1
   store i32 0, ptr @testAll, align 4, !tbaa !67
-  %6 = add nsw i32 %0, -1
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [955 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %7, i32 2
+  %6 = zext nneg i32 %0 to i64
+  %7 = getelementptr %struct.TEST_CASE, ptr @testCases, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i8, ptr %8, align 8
   %10 = or i8 %9, 1
   store i8 %10, ptr %8, align 8
@@ -33172,7 +33169,7 @@ define dso_local range(i32 -173, 1) i32 @ApiTest_RunName(ptr noundef %0) local_u
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [955 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !188
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #32
   %7 = icmp eq i32 %6, 0
@@ -33232,7 +33229,7 @@ define dso_local range(i32 0, 2) i32 @ApiTest() local_unnamed_addr #0 {
   br i1 %.not59, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw [955 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv, i32 2
+  %14 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv, i32 2
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 1
   %.not60 = icmp eq i8 %16, 0
@@ -33244,7 +33241,7 @@ define dso_local range(i32 0, 2) i32 @ApiTest() local_unnamed_addr #0 {
 
 17:                                               ; preds = %13, %11
   %18 = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw [955 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !188
   %21 = trunc nuw nsw i64 %18 to i32
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.976, i32 noundef %21, ptr noundef %20)
@@ -33369,7 +33366,7 @@ gettime_secs.exit63:                              ; preds = %gettime_secs.exit
 
 87:                                               ; preds = %86, %._crit_edge
   %indvars.iv73 = phi i64 [ 0, %86 ], [ %.pre78, %._crit_edge ]
-  %88 = getelementptr inbounds nuw [955 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv73
+  %88 = getelementptr inbounds nuw %struct.TEST_CASE, ptr @testCases, i64 %indvars.iv73
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load i8, ptr %89, align 8
   %91 = and i8 %90, 2
@@ -35315,7 +35312,7 @@ define internal fastcc void @test_wolfSSL_client_server(ptr noundef nonnull capt
 
 102:                                              ; preds = %100
   %103 = zext nneg i32 %97 to i64
-  %104 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 %103
   store i8 0, ptr %104, align 1, !tbaa !39
   %105 = load ptr, ptr @stderr, align 8, !tbaa !22
   %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.1031, ptr noundef nonnull %5) #28
@@ -35898,7 +35895,7 @@ define internal noalias noundef ptr @run_wolfssl_server(ptr noundef captures(add
 
 106:                                              ; preds = %104
   %107 = zext nneg i32 %101 to i64
-  %108 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 %107
   store i8 0, ptr %108, align 1, !tbaa !39
   %109 = load ptr, ptr @stderr, align 8, !tbaa !22
   %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.1026, ptr noundef nonnull %5) #28
@@ -36059,7 +36056,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged_ctx_ready(ptr
   %5 = load i64, ptr @test_tls_cert_store_unchanged_before_hashes_idx, align 8, !tbaa !56
   %6 = add i64 %5, 1
   store i64 %6, ptr @test_tls_cert_store_unchanged_before_hashes_idx, align 8, !tbaa !56
-  %7 = getelementptr inbounds nuw [2 x i32], ptr @test_tls_cert_store_unchanged_before_hashes, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i32, ptr @test_tls_cert_store_unchanged_before_hashes, i64 %5
   store i32 %4, ptr %7, align 4, !tbaa !67
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %20
@@ -36132,7 +36129,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged_ctx_cleanup(p
   %16 = load i64, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
   %17 = add i64 %16, 1
   store i64 %17, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
-  %18 = getelementptr inbounds nuw [2 x i32], ptr @test_tls_cert_store_unchanged_after_hashes, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i32, ptr @test_tls_cert_store_unchanged_after_hashes, i64 %16
   store i32 %15, ptr %18, align 4, !tbaa !67
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %31
@@ -36199,7 +36196,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged_on_hs(ptr nou
   %28 = load i64, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
   %29 = add i64 %28, 1
   store i64 %29, ptr @test_tls_cert_store_unchanged_after_hashes_idx, align 8, !tbaa !56
-  %30 = getelementptr inbounds nuw [2 x i32], ptr @test_tls_cert_store_unchanged_after_hashes, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw i32, ptr @test_tls_cert_store_unchanged_after_hashes, i64 %28
   store i32 %27, ptr %30, align 4, !tbaa !67
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %31, label %.thread96

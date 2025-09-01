@@ -1660,10 +1660,10 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
 32:                                               ; preds = %._crit_edge, %29
   %.pre-phi = phi i16 [ %.pre, %._crit_edge ], [ %30, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %34 = getelementptr inbounds nuw [4 x ptr], ptr %33, i64 0, i64 %3
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %3
   store ptr %.031, ptr %34, align 8, !tbaa !145
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %36 = getelementptr inbounds nuw [4 x i16], ptr %35, i64 0, i64 %3
+  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %3
   store i16 %.pre-phi, ptr %36, align 2, !tbaa !91
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %38 = load i64, ptr %37, align 8, !tbaa !138
@@ -3836,7 +3836,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %.lr.ph, %39
   %.086139 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %42 = getelementptr inbounds nuw [4 x i16], ptr %37, i64 0, i64 %.086139
+  %42 = getelementptr inbounds nuw i16, ptr %37, i64 %.086139
   %43 = load i16, ptr %42, align 2, !tbaa !91
   %44 = zext i16 %43 to i32
   %45 = icmp eq i32 %27, %44
@@ -3902,7 +3902,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 65:                                               ; preds = %.lr.ph145, %70
   %66 = phi i64 [ %63, %.lr.ph145 ], [ %71, %70 ]
   %.288143 = phi i64 [ 0, %.lr.ph145 ], [ %72, %70 ]
-  %67 = getelementptr inbounds nuw [4 x ptr], ptr %64, i64 0, i64 %.288143
+  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %.288143
   %68 = load ptr, ptr %67, align 8, !tbaa !145
   %.not109 = icmp eq ptr %68, null
   br i1 %.not109, label %70, label %69
@@ -3932,7 +3932,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 75:                                               ; preds = %.lr.ph148, %87
   %.389147 = phi i64 [ 0, %.lr.ph148 ], [ %88, %87 ]
-  %76 = getelementptr inbounds nuw [4 x i16], ptr %33, i64 0, i64 %.389147
+  %76 = getelementptr inbounds nuw i16, ptr %33, i64 %.389147
   %77 = load i16, ptr %76, align 2, !tbaa !91
   %78 = zext i16 %77 to i32
   %79 = icmp eq i32 %27, %78
@@ -3941,7 +3941,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 80:                                               ; preds = %75
   %81 = trunc nuw i32 %27 to i16
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %83 = getelementptr inbounds nuw [4 x ptr], ptr %82, i64 0, i64 %.389147
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.389147
   %84 = load ptr, ptr %83, align 8, !tbaa !145
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1246
   store i16 %81, ptr %85, align 2, !tbaa !139

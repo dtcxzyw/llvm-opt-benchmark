@@ -576,14 +576,14 @@ define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef %0, ptr noundef %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.024
   %12 = load i8, ptr %11, align 1, !tbaa !33
   %13 = tail call signext i8 @_mi_toupper(i8 noundef signext %12) #10
-  %14 = getelementptr inbounds nuw [65 x i8], ptr %4, i64 0, i64 %.024
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.024
   store i8 %13, ptr %14, align 1, !tbaa !33
   %15 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %15, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %16 = getelementptr inbounds nuw [65 x i8], ptr %4, i64 0, i64 %10
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   store i8 0, ptr %16, align 1, !tbaa !33
   %17 = call ptr @getenv(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

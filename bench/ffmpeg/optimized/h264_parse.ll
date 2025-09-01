@@ -53,13 +53,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
   %20 = shl i32 %18, %19
   %21 = lshr i32 %20, 23
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i32
   %26 = add i32 %10, %25
   %..i = tail call i32 @llvm.umin.i32(i32 %12, i32 %26)
   store i32 %..i, ptr %9, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %22
+  %27 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %22
   %28 = load i8, ptr %27, align 1, !tbaa !16
   %29 = zext i8 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -93,13 +93,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
   %48 = shl i32 %46, %47
   %49 = lshr i32 %48, 23
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !16
   %53 = zext i8 %52 to i32
   %54 = add i32 %39, %53
   %..i212 = tail call i32 @llvm.umin.i32(i32 %40, i32 %54)
   store i32 %..i212, ptr %9, align 8, !tbaa !10
-  %55 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %50
+  %55 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %50
   %56 = load i8, ptr %55, align 1, !tbaa !16
   %57 = zext i8 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -130,9 +130,9 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 70:                                               ; preds = %._crit_edge, %64
   %71 = phi i1 [ true, %64 ], [ false, %._crit_edge ]
   %indvars.iv302 = phi i64 [ 0, %64 ], [ 1, %._crit_edge ]
-  %72 = getelementptr inbounds nuw [2 x i32], ptr %65, i64 0, i64 %indvars.iv302
+  %72 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv302
   store i32 0, ptr %72, align 4, !tbaa !25
-  %73 = getelementptr inbounds nuw [2 x i32], ptr %66, i64 0, i64 %indvars.iv302
+  %73 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv302
   store i32 0, ptr %73, align 4, !tbaa !25
   %74 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv302
   %75 = load i32, ptr %74, align 4, !tbaa !25
@@ -141,8 +141,8 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 
 .lr.ph:                                           ; preds = %70
   %77 = load ptr, ptr %0, align 8, !tbaa !15
-  %invariant.gep = getelementptr inbounds nuw [2 x [2 x i32]], ptr %67, i64 0, i64 %indvars.iv302
-  %invariant.gep269 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %68, i64 0, i64 %indvars.iv302
+  %invariant.gep = getelementptr inbounds nuw [2 x i32], ptr %67, i64 %indvars.iv302
+  %invariant.gep269 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %68, i64 %indvars.iv302
   br label %78
 
 78:                                               ; preds = %.lr.ph, %.loopexit
@@ -178,13 +178,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 100:                                              ; preds = %91
   %101 = lshr i32 %98, 23
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !16
   %105 = zext i8 %104 to i32
   %106 = add i32 %spec.select.i, %105
   %..i213 = tail call i32 @llvm.umin.i32(i32 %84, i32 %106)
   store i32 %..i213, ptr %9, align 8, !tbaa !10
-  %107 = getelementptr inbounds nuw [512 x i8], ptr @ff_se_golomb_vlc_code, i64 0, i64 %102
+  %107 = getelementptr inbounds nuw i8, ptr @ff_se_golomb_vlc_code, i64 %102
   %108 = load i8, ptr %107, align 1, !tbaa !16
   %109 = sext i8 %108 to i32
   br label %get_se_golomb.exit
@@ -200,7 +200,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %112
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %113
   %114 = zext nneg i32 %.110.i.i to i64
-  %115 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !16
   %117 = zext i8 %116 to i32
   %118 = add nuw nsw i32 %.1.i.i, %117
@@ -228,7 +228,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 
 get_se_golomb.exit:                               ; preds = %100, %110
   %.0.i = phi i32 [ %109, %100 ], [ %134, %110 ]
-  %gep = getelementptr inbounds nuw [48 x [2 x [2 x i32]]], ptr %invariant.gep, i64 0, i64 %indvars.iv299
+  %gep = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv299
   store i32 %.0.i, ptr %gep, align 4, !tbaa !25
   %135 = load i32, ptr %9, align 8, !tbaa !10
   %136 = load i32, ptr %11, align 8, !tbaa !14
@@ -245,13 +245,13 @@ get_se_golomb.exit:                               ; preds = %100, %110
 145:                                              ; preds = %get_se_golomb.exit
   %146 = lshr i32 %143, 23
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !16
   %150 = zext i8 %149 to i32
   %151 = add i32 %135, %150
   %..i224 = tail call i32 @llvm.umin.i32(i32 %136, i32 %151)
   store i32 %..i224, ptr %9, align 8, !tbaa !10
-  %152 = getelementptr inbounds nuw [512 x i8], ptr @ff_se_golomb_vlc_code, i64 0, i64 %147
+  %152 = getelementptr inbounds nuw i8, ptr @ff_se_golomb_vlc_code, i64 %147
   %153 = load i8, ptr %152, align 1, !tbaa !16
   %154 = sext i8 %153 to i32
   br label %get_se_golomb.exit225
@@ -267,7 +267,7 @@ get_se_golomb.exit:                               ; preds = %100, %110
   %.110.i.i218 = select i1 %.not11.i.i217, i32 %spec.select.i.i215, i32 %157
   %.1.i.i219 = select i1 %.not11.i.i217, i32 %spec.select12.i.i216, i32 %158
   %159 = zext nneg i32 %.110.i.i218 to i64
-  %160 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !16
   %162 = zext i8 %161 to i32
   %163 = add nuw nsw i32 %.1.i.i219, %162
@@ -317,7 +317,7 @@ get_se_golomb.exit225:                            ; preds = %145, %155
   br label %188
 
 186:                                              ; preds = %78
-  %gep268 = getelementptr inbounds nuw [48 x [2 x [2 x i32]]], ptr %invariant.gep, i64 0, i64 %indvars.iv299
+  %gep268 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv299
   store i32 %35, ptr %gep268, align 4, !tbaa !25
   %187 = getelementptr inbounds nuw i8, ptr %gep268, i64 4
   store i32 0, ptr %187, align 4, !tbaa !25
@@ -344,7 +344,7 @@ get_se_golomb.exit225:                            ; preds = %145, %155
   %201 = lshr exact i32 128, %200
   %202 = and i32 %201, %199
   %.not203 = icmp eq i32 %202, 0
-  %gep272 = getelementptr inbounds nuw [48 x [2 x [2 x [2 x i32]]]], ptr %invariant.gep269, i64 0, i64 %indvars.iv299
+  %gep272 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep269, i64 %indvars.iv299
   br i1 %.not203, label %.preheader257, label %.preheader258
 
 .preheader258:                                    ; preds = %190, %300
@@ -365,13 +365,13 @@ get_se_golomb.exit225:                            ; preds = %145, %155
 213:                                              ; preds = %.preheader258
   %214 = lshr i32 %211, 23
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !16
   %218 = zext i8 %217 to i32
   %219 = add i32 %203, %218
   %..i237 = tail call i32 @llvm.umin.i32(i32 %204, i32 %219)
   store i32 %..i237, ptr %9, align 8, !tbaa !10
-  %220 = getelementptr inbounds nuw [512 x i8], ptr @ff_se_golomb_vlc_code, i64 0, i64 %215
+  %220 = getelementptr inbounds nuw i8, ptr @ff_se_golomb_vlc_code, i64 %215
   %221 = load i8, ptr %220, align 1, !tbaa !16
   %222 = sext i8 %221 to i32
   br label %get_se_golomb.exit238
@@ -387,7 +387,7 @@ get_se_golomb.exit225:                            ; preds = %145, %155
   %.110.i.i231 = select i1 %.not11.i.i230, i32 %spec.select.i.i228, i32 %225
   %.1.i.i232 = select i1 %.not11.i.i230, i32 %spec.select12.i.i229, i32 %226
   %227 = zext nneg i32 %.110.i.i231 to i64
-  %228 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %227
   %229 = load i8, ptr %228, align 1, !tbaa !16
   %230 = zext i8 %229 to i32
   %231 = add nuw nsw i32 %.1.i.i232, %230
@@ -415,7 +415,7 @@ get_se_golomb.exit225:                            ; preds = %145, %155
 
 get_se_golomb.exit238:                            ; preds = %213, %223
   %.0.i236 = phi i32 [ %222, %213 ], [ %247, %223 ]
-  %248 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %gep272, i64 0, i64 %indvars.iv
+  %248 = getelementptr inbounds nuw [2 x i32], ptr %gep272, i64 %indvars.iv
   store i32 %.0.i236, ptr %248, align 4, !tbaa !25
   %249 = load i32, ptr %9, align 8, !tbaa !10
   %250 = load i32, ptr %11, align 8, !tbaa !14
@@ -432,13 +432,13 @@ get_se_golomb.exit238:                            ; preds = %213, %223
 259:                                              ; preds = %get_se_golomb.exit238
   %260 = lshr i32 %257, 23
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %261
   %263 = load i8, ptr %262, align 1, !tbaa !16
   %264 = zext i8 %263 to i32
   %265 = add i32 %249, %264
   %..i249 = tail call i32 @llvm.umin.i32(i32 %250, i32 %265)
   store i32 %..i249, ptr %9, align 8, !tbaa !10
-  %266 = getelementptr inbounds nuw [512 x i8], ptr @ff_se_golomb_vlc_code, i64 0, i64 %261
+  %266 = getelementptr inbounds nuw i8, ptr @ff_se_golomb_vlc_code, i64 %261
   %267 = load i8, ptr %266, align 1, !tbaa !16
   %268 = sext i8 %267 to i32
   br label %get_se_golomb.exit250
@@ -454,7 +454,7 @@ get_se_golomb.exit238:                            ; preds = %213, %223
   %.110.i.i243 = select i1 %.not11.i.i242, i32 %spec.select.i.i240, i32 %271
   %.1.i.i244 = select i1 %.not11.i.i242, i32 %spec.select12.i.i241, i32 %272
   %273 = zext nneg i32 %.110.i.i243 to i64
-  %274 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %273
   %275 = load i8, ptr %274, align 1, !tbaa !16
   %276 = zext i8 %275 to i32
   %277 = add nuw nsw i32 %.1.i.i244, %276
@@ -526,14 +526,14 @@ get_se_golomb.exit250:                            ; preds = %259, %269
   br i1 %69, label %306, label %.loopexit
 
 306:                                              ; preds = %.thread
-  %gep274 = getelementptr inbounds nuw [48 x [2 x [2 x i32]]], ptr %invariant.gep, i64 0, i64 %indvars.iv299
+  %gep274 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv299
   %307 = load i32, ptr %gep274, align 4, !tbaa !25
   %308 = shl nuw nsw i64 %indvars.iv299, 1
   %309 = add nuw nsw i64 %308, 16
   %310 = add nuw nsw i64 %308, 17
-  %gep276 = getelementptr inbounds nuw [48 x [2 x [2 x i32]]], ptr %invariant.gep, i64 0, i64 %310
+  %gep276 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %310
   store i32 %307, ptr %gep276, align 4, !tbaa !25
-  %gep278 = getelementptr inbounds nuw [48 x [2 x [2 x i32]]], ptr %invariant.gep, i64 0, i64 %309
+  %gep278 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %309
   store i32 %307, ptr %gep278, align 4, !tbaa !25
   %311 = getelementptr inbounds nuw i8, ptr %gep274, i64 4
   %312 = load i32, ptr %311, align 4, !tbaa !25
@@ -546,19 +546,19 @@ get_se_golomb.exit250:                            ; preds = %259, %269
   br i1 %.not208, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %306
-  %gep280 = getelementptr inbounds nuw [48 x [2 x [2 x [2 x i32]]]], ptr %invariant.gep269, i64 0, i64 %indvars.iv299
-  %gep282 = getelementptr inbounds nuw [48 x [2 x [2 x [2 x i32]]]], ptr %invariant.gep269, i64 0, i64 %310
-  %gep284 = getelementptr inbounds nuw [48 x [2 x [2 x [2 x i32]]]], ptr %invariant.gep269, i64 0, i64 %309
+  %gep280 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep269, i64 %indvars.iv299
+  %gep282 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep269, i64 %310
+  %gep284 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep269, i64 %309
   br label %316
 
 316:                                              ; preds = %.preheader, %316
   %317 = phi i1 [ true, %.preheader ], [ false, %316 ]
   %indvars.iv296 = phi i64 [ 0, %.preheader ], [ 1, %316 ]
-  %318 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %gep280, i64 0, i64 %indvars.iv296
+  %318 = getelementptr inbounds nuw [2 x i32], ptr %gep280, i64 %indvars.iv296
   %319 = load i32, ptr %318, align 4, !tbaa !25
-  %320 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %gep282, i64 0, i64 %indvars.iv296
+  %320 = getelementptr inbounds nuw [2 x i32], ptr %gep282, i64 %indvars.iv296
   store i32 %319, ptr %320, align 4, !tbaa !25
-  %321 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %gep284, i64 0, i64 %indvars.iv296
+  %321 = getelementptr inbounds nuw [2 x i32], ptr %gep284, i64 %indvars.iv296
   store i32 %319, ptr %321, align 4, !tbaa !25
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %323 = load i32, ptr %322, align 4, !tbaa !25
@@ -620,7 +620,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_check_intra4x4_pred_mode(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i8, ptr %7, align 1, !tbaa !16
   %9 = sext i8 %8 to i64
-  %10 = getelementptr inbounds [12 x i8], ptr @ff_h264_check_intra4x4_pred_mode.top, i64 0, i64 %9
+  %10 = getelementptr inbounds i8, ptr @ff_h264_check_intra4x4_pred_mode.top, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !16
   %12 = shl nuw i64 1, %9
   %13 = and i64 %12, 249
@@ -648,7 +648,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_check_intra4x4_pred_mode(ptr nound
 
 .preheader:                                       ; preds = %.loopexit46, %.thread44
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.thread44 ], [ 0, %.loopexit46 ]
-  %19 = getelementptr inbounds nuw [4 x i32], ptr @ff_h264_check_intra4x4_pred_mode.mask, i64 0, i64 %indvars.iv53
+  %19 = getelementptr inbounds nuw i32, ptr @ff_h264_check_intra4x4_pred_mode.mask, i64 %indvars.iv53
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %21 = and i32 %20, %3
   %.not40 = icmp eq i32 %21, 0
@@ -660,7 +660,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_check_intra4x4_pred_mode(ptr nound
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i8, ptr %25, align 1, !tbaa !16
   %27 = sext i8 %26 to i64
-  %28 = getelementptr inbounds [12 x i8], ptr @ff_h264_check_intra4x4_pred_mode.left, i64 0, i64 %27
+  %28 = getelementptr inbounds i8, ptr @ff_h264_check_intra4x4_pred_mode.left, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !16
   %30 = shl nuw i64 1, %27
   %31 = and i64 %30, 370
@@ -709,7 +709,7 @@ define range(i32 -1094995529, 128) i32 @ff_h264_check_intra_pred_mode(ptr nounde
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr inbounds nuw [4 x i8], ptr @ff_h264_check_intra_pred_mode.top, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @ff_h264_check_intra_pred_mode.top, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !16
   %14 = sext i8 %13 to i32
   %.not20 = icmp samesign ult i32 %3, 2
@@ -736,7 +736,7 @@ define range(i32 -1094995529, 128) i32 @ff_h264_check_intra_pred_mode(ptr nounde
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %.015 to i64
-  %24 = getelementptr inbounds nuw [5 x i8], ptr @ff_h264_check_intra_pred_mode.left, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @ff_h264_check_intra_pred_mode.left, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = sext i8 %25 to i32
   %.not22 = icmp eq i32 %4, 0
@@ -812,13 +812,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_parse_ref_count(ptr noundef writeo
 41:                                               ; preds = %32
   %42 = lshr i32 %39, 23
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !16
   %46 = zext i8 %45 to i32
   %47 = add i32 %spec.select.i, %46
   %..i = tail call i32 @llvm.umin.i32(i32 %24, i32 %47)
   store i32 %..i, ptr %16, align 8, !tbaa !10
-  %48 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %43
+  %48 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %43
   %49 = load i8, ptr %48, align 1, !tbaa !16
   %50 = zext i8 %49 to i32
   br label %get_ue_golomb.exit
@@ -834,7 +834,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_parse_ref_count(ptr noundef writeo
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %53
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %54
   %55 = zext nneg i32 %.110.i.i to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !16
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %.1.i.i, %58
@@ -873,13 +873,13 @@ get_ue_golomb.exit:                               ; preds = %41, %51
 79:                                               ; preds = %68
   %80 = lshr i32 %77, 23
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !16
   %84 = zext i8 %83 to i32
   %85 = add i32 %69, %84
   %..i57 = tail call i32 @llvm.umin.i32(i32 %70, i32 %85)
   store i32 %..i57, ptr %16, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %81
+  %86 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %81
   %87 = load i8, ptr %86, align 1, !tbaa !16
   %88 = zext i8 %87 to i32
   br label %get_ue_golomb.exit58
@@ -895,7 +895,7 @@ get_ue_golomb.exit:                               ; preds = %41, %51
   %.110.i.i51 = select i1 %.not11.i.i50, i32 %spec.select.i.i48, i32 %91
   %.1.i.i52 = select i1 %.not11.i.i50, i32 %spec.select12.i.i49, i32 %92
   %93 = zext nneg i32 %.110.i.i51 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !16
   %96 = zext i8 %95 to i32
   %97 = add nuw nsw i32 %.1.i.i52, %96
@@ -1089,7 +1089,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
 74:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.095114 = phi i64 [ 0, %.lr.ph ], [ %78, %74 ]
-  %75 = getelementptr inbounds nuw [256 x i32], ptr %73, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !25
   %77 = sext i32 %76 to i64
   %78 = add nsw i64 %.095114, %77
@@ -1116,7 +1116,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
 87:                                               ; preds = %.lr.ph120, %87
   %indvars.iv124 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next125, %87 ]
   %.093117 = phi i64 [ %83, %.lr.ph120 ], [ %91, %87 ]
-  %88 = getelementptr inbounds nuw [256 x i32], ptr %85, i64 0, i64 %indvars.iv124
+  %88 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv124
   %89 = load i32, ptr %88, align 4, !tbaa !25
   %90 = sext i32 %89 to i64
   %91 = add nsw i64 %.093117, %90

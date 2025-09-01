@@ -543,7 +543,7 @@ define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef c
 13:                                               ; preds = %12, %29
   %14 = phi i32 [ %.pre, %12 ], [ %17, %29 ]
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %29 ]
-  %15 = getelementptr inbounds nuw [3 x ptr], ptr @__const.get_official_database_lists.hardcodedStandardDatabaseList, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr @__const.get_official_database_lists.hardcodedStandardDatabaseList, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = add i32 %14, 1
   %18 = load ptr, ptr %0, align 8, !tbaa !12
@@ -581,7 +581,7 @@ define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef c
 .preheader:                                       ; preds = %.preheader.preheader, %46
   %30 = phi i32 [ %.pre108, %.preheader.preheader ], [ %33, %46 ]
   %indvars.iv104 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next105, %46 ]
-  %31 = getelementptr inbounds nuw [3 x ptr], ptr @__const.get_official_database_lists.hardcodedOptionalDatabaseList, i64 0, i64 %indvars.iv104
+  %31 = getelementptr inbounds nuw ptr, ptr @__const.get_official_database_lists.hardcodedOptionalDatabaseList, i64 %indvars.iv104
   %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = add i32 %30, 1
   %34 = load ptr, ptr %2, align 8, !tbaa !12

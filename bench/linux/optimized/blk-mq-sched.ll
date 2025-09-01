@@ -537,7 +537,7 @@ define internal fastcc range(i32 -11, 2) i32 @__blk_mq_sched_dispatch_requests(p
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 68
   %244 = load i16, ptr %199, align 4
   %245 = zext i16 %244 to i64
-  %246 = getelementptr [3 x i16], ptr %243, i64 0, i64 %245
+  %246 = getelementptr i16, ptr %243, i64 %245
   %247 = load i16, ptr %246, align 2
   %248 = add i16 %247, 1
   %249 = load i16, ptr %200, align 2
@@ -594,7 +594,7 @@ define dso_local zeroext i1 @blk_mq_sched_bio_merge(ptr noundef %0, ptr noundef 
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = zext i32 %15 to i64
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
+  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %18
   %23 = inttoptr i64 %22 to ptr
@@ -607,7 +607,7 @@ define dso_local zeroext i1 @blk_mq_sched_bio_merge(ptr noundef %0, ptr noundef 
   %30 = icmp eq i32 %29, 0
   %31 = zext i1 %30 to i64
   %32 = select i1 %28, i64 %31, i64 2
-  %33 = getelementptr [3 x ptr], ptr %26, i64 0, i64 %32
+  %33 = getelementptr ptr, ptr %26, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
   %36 = load i64, ptr %35, align 8
@@ -620,7 +620,7 @@ define dso_local zeroext i1 @blk_mq_sched_bio_merge(ptr noundef %0, ptr noundef 
   %41 = load i16, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %43 = zext i16 %41 to i64
-  %44 = getelementptr [3 x %struct.list_head], ptr %42, i64 0, i64 %43
+  %44 = getelementptr %struct.list_head, ptr %42, i64 %43
   %45 = load volatile ptr, ptr %44, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   %46 = icmp eq ptr %45, %44

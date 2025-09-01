@@ -594,7 +594,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK2OT18glyf_accelerator_t29get_adva
   %33 = add i32 %32, -1
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %2, i32 %33)
   %34 = zext i32 %.sroa.speculated.i to i64
-  %35 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %31, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %31, i64 %34
   %36 = load i16, ptr %35, align 1, !tbaa !29
   %37 = call noundef i16 @llvm.bswap.i16(i16 %36)
   %38 = zext i16 %37 to i32
@@ -630,7 +630,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK2OT18glyf_accelerator_t29get_adva
   %57 = add i32 %56, -1
   %.sroa.speculated.i19 = call i32 @llvm.umin.i32(i32 %2, i32 %57)
   %58 = zext i32 %.sroa.speculated.i19 to i64
-  %59 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %55, i64 %58
   %60 = load i16, ptr %59, align 1, !tbaa !29
   %61 = call noundef i16 @llvm.bswap.i16(i16 %60)
   %62 = zext i16 %61 to i32
@@ -1792,7 +1792,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11
   %171 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i187, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !18
   %173 = zext i32 %165 to i64
-  %174 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %172, i64 0, i64 %173, i32 1
+  %174 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %172, i64 %173, i32 1
   br label %188
 
 175:                                              ; preds = %157
@@ -1814,7 +1814,7 @@ _ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11
   %181 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i10.i, i64 16
   %182 = load ptr, ptr %181, align 8, !tbaa !18
   %183 = zext i32 %166 to i64
-  %184 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %182, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %182, i64 %183
   %185 = sub i32 %165, %166
   %186 = zext i32 %185 to i64
   %187 = getelementptr inbounds nuw %"struct.OT::IntType.147", ptr %184, i64 %186
@@ -1856,7 +1856,7 @@ _ZNK2OT8hmtxvmtxINS_4hmtxENS_4hheaENS_4HVAREE13accelerator_t40get_leading_bearin
   %212 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i196, i64 16
   %213 = load ptr, ptr %212, align 8, !tbaa !18
   %214 = zext i32 %165 to i64
-  %215 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %213, i64 0, i64 %214, i32 1
+  %215 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %213, i64 %214, i32 1
   br label %.sink.split.i192
 
 216:                                              ; preds = %_ZNK2OT8hmtxvmtxINS_4hmtxENS_4hheaENS_4HVAREE13accelerator_t40get_leading_bearing_without_var_unscaledEjPi.exit
@@ -1873,7 +1873,7 @@ _ZNK2OT8hmtxvmtxINS_4hmtxENS_4hheaENS_4HVAREE13accelerator_t40get_leading_bearin
   %222 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i10.i191, i64 16
   %223 = load ptr, ptr %222, align 8, !tbaa !18
   %224 = zext i32 %207 to i64
-  %225 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %223, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %223, i64 %224
   %226 = sub i32 %165, %207
   %227 = zext i32 %226 to i64
   %228 = getelementptr inbounds nuw %"struct.OT::IntType.147", ptr %225, i64 %227
@@ -1904,7 +1904,7 @@ _ZNK2OT8hmtxvmtxINS_4vmtxENS_4vheaENS_4VVAREE13accelerator_t40get_leading_bearin
   %240 = add i32 %166, -1
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %165, i32 %240)
   %241 = zext i32 %.sroa.speculated.i to i64
-  %242 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %239, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %239, i64 %241
   %243 = load i16, ptr %242, align 1, !tbaa !29
   %244 = call noundef i16 @llvm.bswap.i16(i16 %243)
   %245 = zext i16 %244 to i32
@@ -1938,7 +1938,7 @@ _ZNK2OT8hmtxvmtxINS_4hmtxENS_4hheaENS_4HVAREE13accelerator_t32get_advance_withou
   %260 = add i32 %207, -1
   %.sroa.speculated.i205 = call i32 @llvm.umin.i32(i32 %165, i32 %260)
   %261 = zext i32 %.sroa.speculated.i205 to i64
-  %262 = getelementptr inbounds nuw [1 x %"struct.OT::LongMetric"], ptr %259, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw %"struct.OT::LongMetric", ptr %259, i64 %261
   %263 = load i16, ptr %262, align 1, !tbaa !29
   %264 = call noundef i16 @llvm.bswap.i16(i16 %263)
   %265 = zext i16 %264 to i32
@@ -6315,7 +6315,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34, !prof !15
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %35 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %19
+  %35 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %19
   %36 = load i32, ptr %35, align 4, !tbaa !74
   br label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
 
@@ -8617,7 +8617,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE
 
 100:                                              ; preds = %.lr.ph, %124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %124 ]
-  %101 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.231"], ptr %3, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw %"struct.OT::OffsetTo.231", ptr %3, i64 %indvars.iv
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load ptr, ptr %4, align 8, !tbaa !113
   %104 = ptrtoint ptr %102 to i64

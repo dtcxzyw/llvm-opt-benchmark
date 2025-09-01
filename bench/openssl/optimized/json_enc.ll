@@ -2715,8 +2715,8 @@ json_write_char.exit:                             ; preds = %wbuf_write_char.exi
   %124 = or disjoint i32 %121, 48
   %125 = select i1 %122, i32 %123, i32 %124
   %126 = trunc nuw nsw i32 %125 to i8
-  %127 = add nuw nsw i64 %indvars.iv, 2
-  %128 = getelementptr inbounds nuw [7 x i8], ptr %8, i64 0, i64 %127
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 2
   store i8 %126, ptr %128, align 1, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

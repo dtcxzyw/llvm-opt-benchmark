@@ -1165,10 +1165,10 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %123 = and i32 %120, 16777215
   %124 = or i32 %117, %123
   store i32 %124, ptr %113, align 4
-  %125 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv234
+  %125 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %indvars.iv234
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %126, %110
-  %128 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv234
+  %128 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %indvars.iv234
   %129 = load i32, ptr %128, align 4
   %130 = add nsw i32 %129, %98
   %131 = icmp ult i32 %127, %18

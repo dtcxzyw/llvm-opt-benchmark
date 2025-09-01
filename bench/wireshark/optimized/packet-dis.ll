@@ -7830,7 +7830,7 @@ dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit: ; preds = %._crit_edge7.i,
 
 switch.lookup:                                    ; preds = %573
   %652 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.parse_pdu_payload, i64 0, i64 %652
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_pdu_payload, i64 %652
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i
 

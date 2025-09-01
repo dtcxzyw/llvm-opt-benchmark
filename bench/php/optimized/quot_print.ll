@@ -79,7 +79,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
 
 29:                                               ; preds = %26
   %30 = zext i8 %27 to i64
-  %31 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @php_quot_print_decode.hexval_tbl, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !14
   %33 = icmp ult i32 %32, 16
   br i1 %33, label %34, label %52
@@ -92,7 +92,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %37 = getelementptr inbounds nuw i8, ptr %.2104, i64 2
   %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr @php_quot_print_decode.hexval_tbl, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !14
   %42 = icmp ugt i32 %41, 15
   br i1 %42, label %43, label %44
@@ -145,7 +145,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %57 = getelementptr inbounds nuw i8, ptr %.3139, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !4
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr @php_quot_print_decode.hexval_tbl, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = icmp eq i32 %61, 64
   br i1 %62, label %63, label %.preheader
@@ -579,7 +579,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   %.sink11.i136 = select i1 %.not.i133, i8 %spec.select.i135, i8 -48
   %57 = add i8 %.sink11.i136, %37
   %58 = add i8 %57, %53
-  %59 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
+  %59 = getelementptr inbounds nuw i8, ptr %28, i64 %.0105.ph
   store i8 %58, ptr %59, align 1, !tbaa !4
   %60 = add i64 %.0, 3
   br label %.loopexit.outer.backedge
@@ -627,18 +627,18 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   br label %.loopexit.backedge
 
 75:                                               ; preds = %61
-  %76 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
+  %76 = getelementptr inbounds nuw i8, ptr %28, i64 %.0105.ph
   store i8 61, ptr %76, align 1, !tbaa !4
   br label %.loopexit.outer.backedge
 
 77:                                               ; preds = %.loopexit
   %78 = add i64 %.0, 1
-  %79 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
+  %79 = getelementptr inbounds nuw i8, ptr %28, i64 %.0105.ph
   store i8 %30, ptr %79, align 1, !tbaa !4
   br label %.loopexit.outer.backedge
 
 80:                                               ; preds = %.loopexit
-  %81 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
+  %81 = getelementptr inbounds nuw i8, ptr %28, i64 %.0105.ph
   store i8 0, ptr %81, align 1, !tbaa !4
   store i64 %.0105.ph, ptr %27, align 8, !tbaa !13
   store ptr %24, ptr %1, align 8, !tbaa !4

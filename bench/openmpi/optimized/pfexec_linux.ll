@@ -77,7 +77,7 @@ define internal range(i32 -47, 1) i32 @spawn_job(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %5, i32 2
   %7 = load i32, ptr %6, align 4, !tbaa !18
   %8 = icmp sgt i32 %7, 4
   br i1 %8, label %9, label %11
@@ -529,7 +529,7 @@ define internal i32 @sigproc(i32 noundef %0, i32 noundef %1) #0 {
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12, i32 2
   %14 = load i32, ptr %13, align 4, !tbaa !18
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %28
@@ -548,7 +548,7 @@ define internal i32 @sigproc(i32 noundef %0, i32 noundef %1) #0 {
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22, i32 2
+  %23 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %22, i32 2
   %24 = load i32, ptr %23, align 4, !tbaa !18
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %26, label %28
@@ -932,7 +932,7 @@ define internal i32 @fork_proc(ptr noundef readonly captures(none) %0, ptr nound
 84:                                               ; preds = %78
   %85 = load i32, ptr %67, align 4, !tbaa !96
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [512 x i8], ptr %5, i64 0, i64 %86
+  %87 = getelementptr inbounds i8, ptr %5, i64 %86
   store i8 0, ptr %87, align 1, !tbaa !102
   br label %88
 
@@ -955,7 +955,7 @@ define internal i32 @fork_proc(ptr noundef readonly captures(none) %0, ptr nound
 97:                                               ; preds = %91
   %98 = load i32, ptr %68, align 4, !tbaa !103
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [512 x i8], ptr %6, i64 0, i64 %99
+  %100 = getelementptr inbounds i8, ptr %6, i64 %99
   store i8 0, ptr %100, align 1, !tbaa !102
   br label %101
 

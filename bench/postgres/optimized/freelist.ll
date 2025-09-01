@@ -63,7 +63,7 @@ define dso_local ptr @StrategyGetBuffer(ptr noundef captures(address_is_null) %0
   store i32 %spec.store.select.i, ptr %5, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = sext i32 %spec.store.select.i to i64
-  %12 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GetBufferFromRing.exit.thread, label %15
@@ -172,7 +172,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [0 x i32], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds i32, ptr %67, i64 %70
   store i32 %66, ptr %71, align 4
   br label %72
 
@@ -283,7 +283,7 @@ ClockSweepTick.exit:                              ; preds = %79, %84, %104
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds [0 x i32], ptr %125, i64 0, i64 %128
+  %129 = getelementptr inbounds i32, ptr %125, i64 %128
   store i32 %124, ptr %129, align 4
   br label %130
 
@@ -649,7 +649,7 @@ define dso_local range(i32 0, 5) i32 @IOContextForStrategy(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.IOContextForStrategy, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.IOContextForStrategy, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -670,7 +670,7 @@ define dso_local noundef zeroext i1 @StrategyRejectBuffer(ptr noundef captures(n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr i8, ptr %1, i64 20
   %.val = load i32, ptr %12, align 4

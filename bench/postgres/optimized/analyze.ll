@@ -4453,7 +4453,7 @@ define dso_local noundef nonnull ptr @LCS_asString(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.LCS_asString, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.LCS_asString, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

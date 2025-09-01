@@ -83,7 +83,7 @@ define dso_local noundef zeroext range(i8 4, 23) i8 @_ZN4Luau7CodeGen3X6415getCo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @switch.table._ZN4Luau7CodeGen3X6415getConditionIntENS0_11IrConditionE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4Luau7CodeGen3X6415getConditionIntENS0_11IrConditionE, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 

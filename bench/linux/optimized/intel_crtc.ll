@@ -565,7 +565,7 @@ define dso_local i32 @intel_crtc_init(ptr noundef %0, i32 noundef %1) local_unna
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2646
   %29 = sext i32 %1 to i64
-  %30 = getelementptr [4 x i8], ptr %28, i64 0, i64 %29
+  %30 = getelementptr i8, ptr %28, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 2048
@@ -604,7 +604,7 @@ define dso_local i32 @intel_crtc_init(ptr noundef %0, i32 noundef %1) local_unna
   store i8 %54, ptr %51, align 1
   tail call void @intel_init_fifo_underrun_reporting(ptr noundef %0, ptr noundef nonnull %4, i1 noundef zeroext false) #12
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2642
-  %56 = getelementptr [4 x i8], ptr %55, i64 0, i64 %29
+  %56 = getelementptr i8, ptr %55, i64 %29
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %.loopexit, label %.preheader

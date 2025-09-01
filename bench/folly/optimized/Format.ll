@@ -843,7 +843,7 @@ _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %24, %23, %21, %10
   %26 = sub nuw nsw i8 23, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %26, ptr %27, align 1, !tbaa !47
-  %28 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %2
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   store i8 0, ptr %28, align 1, !tbaa !47
   br label %_ZN5folly13fbstring_coreIcEC2EPKcmb.exit
 
@@ -2377,7 +2377,7 @@ define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 derefere
 26:                                               ; preds = %24
   %27 = load i8, ptr %25, align 1, !tbaa !47
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5folly6detailL16formatAlignTableE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detailL16formatAlignTableE, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !89
   %.not28 = icmp eq i8 %30, 5
   %31 = load i8, ptr %22, align 1, !tbaa !47
@@ -2396,14 +2396,14 @@ define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 derefere
 37:                                               ; preds = %24
   %38 = load i8, ptr %22, align 1, !tbaa !47
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5folly6detailL16formatAlignTableE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detailL16formatAlignTableE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !89
   %.not29 = icmp eq i8 %41, 5
   br i1 %.not29, label %48, label %46
 
 .thread:                                          ; preds = %26
   %42 = zext i8 %31 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5folly6detailL16formatAlignTableE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detailL16formatAlignTableE, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !89
   %.not2993 = icmp eq i8 %44, 5
   br i1 %.not2993, label %48, label %.thread94
@@ -2423,7 +2423,7 @@ define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 derefere
   %49 = phi ptr [ %22, %37 ], [ %35, %32 ], [ %22, %.thread ], [ %25, %.thread94 ]
   %50 = load i8, ptr %49, align 1, !tbaa !47
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5folly6detailL15formatSignTableE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detailL15formatSignTableE, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !91
   %.not30 = icmp eq i8 %53, 4
   br i1 %.not30, label %58, label %54

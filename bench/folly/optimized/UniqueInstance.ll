@@ -1215,7 +1215,7 @@ _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %24, %23, %21, %10
   %26 = sub nuw nsw i8 23, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %26, ptr %27, align 1, !tbaa !23
-  %28 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   store i8 0, ptr %28, align 1, !tbaa !23
   br label %_ZN5folly13fbstring_coreIcEC2EPKcmb.exit
 

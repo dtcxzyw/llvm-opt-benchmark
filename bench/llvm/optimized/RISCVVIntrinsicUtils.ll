@@ -519,7 +519,7 @@ switch.lookup:
   %26 = load i8, ptr %0, align 8, !tbaa !32
   %27 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %26, i1 true)
   %28 = zext nneg i8 %27 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5clang5RISCV7RVVType14applyBasicTypeEv, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang5RISCV7RVVType14applyBasicTypeEv, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   %29 = shl nuw nsw i8 %27, 3
   %switch.shiftamt = zext nneg i8 %29 to i64
@@ -558,7 +558,7 @@ switch.lookup:
   %1 = load i8, ptr %0, align 8, !tbaa !32
   %2 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %1, i1 true)
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5clang5RISCV7RVVType14applyBasicTypeEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang5RISCV7RVVType14applyBasicTypeEv, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = shl nuw nsw i8 %2, 3
   %switch.shiftamt = zext nneg i8 %4 to i64

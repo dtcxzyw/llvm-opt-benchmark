@@ -801,7 +801,7 @@ _ZNKSt6vectorIN8interpol5pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i147: ; p
   %.sroa.0227.2283 = phi ptr [ null, %.preheader ], [ %.sroa.0227.5, %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EE9push_backEOS2_.exit177 ]
   %.sroa.20.1282 = phi ptr [ null, %.preheader ], [ %.sroa.20.4, %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EE9push_backEOS2_.exit177 ]
   %.sroa.40.2281 = phi ptr [ null, %.preheader ], [ %.sroa.40.5, %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EE9push_backEOS2_.exit177 ]
-  %35 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %25, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %25, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !46
   %37 = fmul reassoc nsz arcp contract afn float %36, %16
   %38 = load float, ptr %14, align 4, !tbaa !36
@@ -1453,7 +1453,7 @@ _ZNKSt6vectorIN8interpol5pointIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i76: ; pr
   %.sroa.0156.2202 = phi ptr [ null, %.lr.ph ], [ %.sroa.0156.5, %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EE9push_backEOS2_.exit106 ]
   %.sroa.15.1201 = phi ptr [ null, %.lr.ph ], [ %.sroa.15.4, %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EE9push_backEOS2_.exit106 ]
   %.sroa.30.2200 = phi ptr [ null, %.lr.ph ], [ %.sroa.30.5, %_ZNSt6vectorIN8interpol5pointIfEESaIS2_EE9push_backEOS2_.exit106 ]
-  %35 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %25, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %25, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !46
   %37 = fmul reassoc nsz arcp contract afn float %36, %16
   %38 = load float, ptr %14, align 4, !tbaa !36

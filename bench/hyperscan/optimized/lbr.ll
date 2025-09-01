@@ -543,7 +543,7 @@ repeatIsDead.exit124.i.thread38:                  ; preds = %repeatIsDead.exit12
   %109 = add i32 %103, -1
   store i32 %109, ptr %30, align 8
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %110
   store i32 0, ptr %111, align 8
   %.idx117.i = mul nuw nsw i64 %110, 24
   %112 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx117.i
@@ -594,7 +594,7 @@ repeatIsDead.exit.i.thread54:                     ; preds = %114, %repeatIsDead.
 .lr.ph149:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %124 = phi i64 [ %123, %.lr.ph ], [ %121, %.lr.ph.preheader ]
   %indvars.iv148 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %104, %.lr.ph.preheader ]
-  %125 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv148
+  %125 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %indvars.iv148
   %126 = load i32, ptr %125, align 8
   switch i32 %126, label %130 [
     i32 4, label %127
@@ -777,7 +777,7 @@ nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i
   %178 = add i32 %170, -1
   store i32 %178, ptr %30, align 8
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %179
   store i32 0, ptr %180, align 8
   %.idx116.i = mul nuw nsw i64 %179, 24
   %181 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx116.i
@@ -786,7 +786,7 @@ nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i
   br label %nfaExecLbrDot_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %114, %repeatIsDead.exit.i
-  %183 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %104
+  %183 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %104
   %184 = load i32, ptr %183, align 8
   switch i32 %184, label %lbrTop.exit.i [
     i32 2, label %185
@@ -1208,7 +1208,7 @@ repeatNextMatch.exit:                             ; preds = %74, %67, %65, %82, 
   %94 = add i32 %.pre, -1
   store i32 %94, ptr %30, align 8
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %struct.mq_item, ptr %45, i64 %95
   store i32 0, ptr %96, align 8
   %97 = load i64, ptr %36, align 8
   %98 = sub i64 %.0.i33, %97
@@ -1231,7 +1231,7 @@ repeatIsDead.exit124.i.thread39:                  ; preds = %55, %repeatNextMatc
   %107 = add i32 %101, -1
   store i32 %107, ptr %30, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw %struct.mq_item, ptr %45, i64 %108
   store i32 0, ptr %109, align 8
   %.idx117.i = mul nuw nsw i64 %108, 24
   %110 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx117.i
@@ -1282,7 +1282,7 @@ repeatIsDead.exit.i.thread64:                     ; preds = %112, %repeatIsDead.
 .lr.ph159:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %122 = phi i64 [ %121, %.lr.ph ], [ %119, %.lr.ph.preheader ]
   %indvars.iv158 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %102, %.lr.ph.preheader ]
-  %123 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %indvars.iv158
+  %123 = getelementptr inbounds nuw %struct.mq_item, ptr %45, i64 %indvars.iv158
   %124 = load i32, ptr %123, align 8
   switch i32 %124, label %128 [
     i32 4, label %125
@@ -1465,7 +1465,7 @@ nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i
   %176 = add i32 %168, -1
   store i32 %176, ptr %30, align 8
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw %struct.mq_item, ptr %45, i64 %177
   store i32 0, ptr %178, align 8
   %.idx116.i = mul nuw nsw i64 %177, 24
   %179 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx116.i
@@ -1474,7 +1474,7 @@ nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i
   br label %nfaExecLbrDot_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %112, %repeatIsDead.exit.i
-  %181 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %102
+  %181 = getelementptr inbounds nuw %struct.mq_item, ptr %45, i64 %102
   %182 = load i32, ptr %181, align 8
   switch i32 %182, label %lbrTop.exit.i [
     i32 2, label %183
@@ -1814,7 +1814,7 @@ repeatIsDead.exit85.thread122:                    ; preds = %31, %repeatIsDead.e
   br i1 %.not.i90, label %nfaExecLbrDot_TopScan.exit, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %29, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %indvars.iv
   %43 = load i32, ptr %42, align 8
   switch i32 %43, label %47 [
     i32 4, label %44
@@ -1986,7 +1986,7 @@ repeatIsDead.exit79.thread:                       ; preds = %31, %repeatIsDead.e
   %.pn.in = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i75.pn
   %.pn = load i64, ptr %.pn.in, align 8
   %88 = add i64 %.pn, %32
-  %89 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %29, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %87
   %90 = load i32, ptr %89, align 8
   switch i32 %90, label %lbrTop.exit [
     i32 2, label %91
@@ -3095,7 +3095,7 @@ repeatIsDead.exit126.i.thread71:                  ; preds = %181, %repeatIsDead.
   %189 = add i32 %183, -1
   store i32 %189, ptr %30, align 8
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %190
   store i32 0, ptr %191, align 8
   %.idx119.i = mul nuw nsw i64 %190, 24
   %192 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx119.i
@@ -3156,7 +3156,7 @@ repeatIsDead.exit.i.thread103:                    ; preds = %194, %repeatIsDead.
 .lr.ph296:                                        ; preds = %.lr.ph182, %210
   %213 = phi i64 [ %212, %210 ], [ %209, %.lr.ph182 ]
   %indvars.iv295 = phi i64 [ %indvars.iv.next, %210 ], [ %206, %.lr.ph182 ]
-  %214 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv295
+  %214 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %indvars.iv295
   %215 = load i32, ptr %214, align 8
   switch i32 %215, label %220 [
     i32 4, label %216
@@ -3476,7 +3476,7 @@ nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph182, %210, %2
   %344 = add i32 %336, -1
   store i32 %344, ptr %30, align 8
   %345 = zext i32 %344 to i64
-  %346 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %345
   store i32 0, ptr %346, align 8
   %.idx118.i = mul nuw nsw i64 %345, 24
   %347 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx118.i
@@ -3485,7 +3485,7 @@ nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph182, %210, %2
   br label %nfaExecLbrVerm_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %194, %repeatIsDead.exit.i
-  %349 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %184
+  %349 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %184
   %350 = load i32, ptr %349, align 8
   switch i32 %350, label %lbrTop.exit.i [
     i32 2, label %351
@@ -4061,7 +4061,7 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %174 = add i32 %173, -1
   store i32 %174, ptr %30, align 8
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %175
   store i32 0, ptr %176, align 8
   %177 = load i64, ptr %36, align 8
   %178 = sub i64 %.0.i33, %177
@@ -4088,7 +4088,7 @@ repeatIsDead.exit126.i.thread76:                  ; preds = %171, %repeatIsDead.
   %187 = add i32 %181, -1
   store i32 %187, ptr %30, align 8
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %188
   store i32 0, ptr %189, align 8
   %.idx119.i = mul nuw nsw i64 %188, 24
   %190 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx119.i
@@ -4149,7 +4149,7 @@ repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.
 .lr.ph308:                                        ; preds = %.lr.ph196, %208
   %211 = phi i64 [ %210, %208 ], [ %207, %.lr.ph196 ]
   %indvars.iv307 = phi i64 [ %indvars.iv.next, %208 ], [ %204, %.lr.ph196 ]
-  %212 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv307
+  %212 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %indvars.iv307
   %213 = load i32, ptr %212, align 8
   switch i32 %213, label %218 [
     i32 4, label %214
@@ -4469,7 +4469,7 @@ nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph196, %208, %2
   %342 = add i32 %334, -1
   store i32 %342, ptr %30, align 8
   %343 = zext i32 %342 to i64
-  %344 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %343
   store i32 0, ptr %344, align 8
   %.idx118.i = mul nuw nsw i64 %343, 24
   %345 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx118.i
@@ -4478,7 +4478,7 @@ nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph196, %208, %2
   br label %nfaExecLbrVerm_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %192, %repeatIsDead.exit.i
-  %347 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %182
+  %347 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %182
   %348 = load i32, ptr %347, align 8
   switch i32 %348, label %lbrTop.exit.i [
     i32 2, label %349
@@ -5181,7 +5181,7 @@ repeatIsDead.exit85.thread187:                    ; preds = %nfaExecLbrVerm_Stre
   br i1 %.not.i96, label %nfaExecLbrVerm_TopScan.exit, label %223
 
 223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %33, i64 0, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw %struct.mq_item, ptr %33, i64 %indvars.iv
   %225 = load i32, ptr %224, align 8
   switch i32 %225, label %230 [
     i32 4, label %226
@@ -5487,7 +5487,7 @@ repeatLastTop.exit:                               ; preds = %327, %327, %.thread
 repeatIsDead.exit79.thread:                       ; preds = %nfaExecLbrVerm_StreamSilent.exit94, %repeatIsDead.exit79
   %346 = load i32, ptr %4, align 8
   %347 = zext i32 %346 to i64
-  %348 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %33, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw %struct.mq_item, ptr %33, i64 %347
   %349 = load i32, ptr %348, align 8
   switch i32 %349, label %lbrTop.exit [
     i32 2, label %350
@@ -6602,7 +6602,7 @@ repeatIsDead.exit126.i.thread55:                  ; preds = %184, %repeatIsDead.
   %192 = add i32 %186, -1
   store i32 %192, ptr %30, align 8
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %193
   store i32 0, ptr %194, align 8
   %.idx119.i = mul nuw nsw i64 %193, 24
   %195 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx119.i
@@ -6663,7 +6663,7 @@ repeatIsDead.exit.i.thread87:                     ; preds = %197, %repeatIsDead.
 .lr.ph280:                                        ; preds = %.lr.ph166, %213
   %216 = phi i64 [ %215, %213 ], [ %212, %.lr.ph166 ]
   %indvars.iv279 = phi i64 [ %indvars.iv.next, %213 ], [ %209, %.lr.ph166 ]
-  %217 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv279
+  %217 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %indvars.iv279
   %218 = load i32, ptr %217, align 8
   switch i32 %218, label %223 [
     i32 4, label %219
@@ -6986,7 +6986,7 @@ nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph166, %213, %2
   %349 = add i32 %341, -1
   store i32 %349, ptr %30, align 8
   %350 = zext i32 %349 to i64
-  %351 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %350
   store i32 0, ptr %351, align 8
   %.idx118.i = mul nuw nsw i64 %350, 24
   %352 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx118.i
@@ -6995,7 +6995,7 @@ nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph166, %213, %2
   br label %nfaExecLbrNVerm_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %197, %repeatIsDead.exit.i
-  %354 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %187
+  %354 = getelementptr inbounds nuw %struct.mq_item, ptr %50, i64 %187
   %355 = load i32, ptr %354, align 8
   switch i32 %355, label %lbrTop.exit.i [
     i32 2, label %356
@@ -7575,7 +7575,7 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %177 = add i32 %176, -1
   store i32 %177, ptr %30, align 8
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %178
   store i32 0, ptr %179, align 8
   %180 = load i64, ptr %36, align 8
   %181 = sub i64 %.0.i33, %180
@@ -7602,7 +7602,7 @@ repeatIsDead.exit126.i.thread60:                  ; preds = %174, %repeatIsDead.
   %190 = add i32 %184, -1
   store i32 %190, ptr %30, align 8
   %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %191
   store i32 0, ptr %192, align 8
   %.idx119.i = mul nuw nsw i64 %191, 24
   %193 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx119.i
@@ -7663,7 +7663,7 @@ repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.
 .lr.ph292:                                        ; preds = %.lr.ph180, %211
   %214 = phi i64 [ %213, %211 ], [ %210, %.lr.ph180 ]
   %indvars.iv291 = phi i64 [ %indvars.iv.next, %211 ], [ %207, %.lr.ph180 ]
-  %215 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv291
+  %215 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %indvars.iv291
   %216 = load i32, ptr %215, align 8
   switch i32 %216, label %221 [
     i32 4, label %217
@@ -7986,7 +7986,7 @@ nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph180, %211, %2
   %347 = add i32 %339, -1
   store i32 %347, ptr %30, align 8
   %348 = zext i32 %347 to i64
-  %349 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %348
   store i32 0, ptr %349, align 8
   %.idx118.i = mul nuw nsw i64 %348, 24
   %350 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx118.i
@@ -7995,7 +7995,7 @@ nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph180, %211, %2
   br label %nfaExecLbrNVerm_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %195, %repeatIsDead.exit.i
-  %352 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %185
+  %352 = getelementptr inbounds nuw %struct.mq_item, ptr %47, i64 %185
   %353 = load i32, ptr %352, align 8
   switch i32 %353, label %lbrTop.exit.i [
     i32 2, label %354
@@ -8706,7 +8706,7 @@ repeatIsDead.exit85.thread172:                    ; preds = %nfaExecLbrNVerm_Str
   br i1 %.not.i96, label %nfaExecLbrNVerm_TopScan.exit, label %229
 
 229:                                              ; preds = %226
-  %230 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %33, i64 0, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw %struct.mq_item, ptr %33, i64 %indvars.iv
   %231 = load i32, ptr %230, align 8
   switch i32 %231, label %236 [
     i32 4, label %232
@@ -9015,7 +9015,7 @@ repeatLastTop.exit:                               ; preds = %335, %335, %.thread
 repeatIsDead.exit79.thread:                       ; preds = %nfaExecLbrNVerm_StreamSilent.exit94, %repeatIsDead.exit79
   %354 = load i32, ptr %4, align 8
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %33, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw %struct.mq_item, ptr %33, i64 %355
   %357 = load i32, ptr %356, align 8
   switch i32 %357, label %lbrTop.exit [
     i32 2, label %358
@@ -10009,7 +10009,7 @@ repeatIsDead.exit126.i.thread42:                  ; preds = %124, %repeatIsDead.
   %132 = add i32 %126, -1
   store i32 %132, ptr %30, align 8
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %133
   store i32 0, ptr %134, align 8
   %.idx119.i = mul nuw nsw i64 %133, 24
   %135 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx119.i
@@ -10070,7 +10070,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %137, %repeatIsDead.
 .lr.ph185:                                        ; preds = %.lr.ph, %153
   %156 = phi i64 [ %155, %153 ], [ %152, %.lr.ph ]
   %indvars.iv184 = phi i64 [ %indvars.iv.next, %153 ], [ %149, %.lr.ph ]
-  %157 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %indvars.iv184
+  %157 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %indvars.iv184
   %158 = load i32, ptr %157, align 8
   switch i32 %158, label %163 [
     i32 4, label %159
@@ -10292,7 +10292,7 @@ nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %153, %163
   %237 = add i32 %229, -1
   store i32 %237, ptr %30, align 8
   %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %238
   store i32 0, ptr %239, align 8
   %.idx118.i = mul nuw nsw i64 %238, 24
   %240 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx118.i
@@ -10301,7 +10301,7 @@ nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %153, %163
   br label %nfaExecLbrShuf_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %137, %repeatIsDead.exit.i
-  %242 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %127
+  %242 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %127
   %243 = load i32, ptr %242, align 8
   switch i32 %243, label %lbrTop.exit.i [
     i32 2, label %244
@@ -10760,7 +10760,7 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %117 = add i32 %116, -1
   store i32 %117, ptr %30, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %118
   store i32 0, ptr %119, align 8
   %120 = load i64, ptr %36, align 8
   %121 = sub i64 %.0.i33, %120
@@ -10787,7 +10787,7 @@ repeatIsDead.exit126.i.thread47:                  ; preds = %114, %repeatIsDead.
   %130 = add i32 %124, -1
   store i32 %130, ptr %30, align 8
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %131
   store i32 0, ptr %132, align 8
   %.idx119.i = mul nuw nsw i64 %131, 24
   %133 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx119.i
@@ -10848,7 +10848,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
 .lr.ph197:                                        ; preds = %.lr.ph, %151
   %154 = phi i64 [ %153, %151 ], [ %150, %.lr.ph ]
   %indvars.iv196 = phi i64 [ %indvars.iv.next, %151 ], [ %147, %.lr.ph ]
-  %155 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv196
+  %155 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %indvars.iv196
   %156 = load i32, ptr %155, align 8
   switch i32 %156, label %161 [
     i32 4, label %157
@@ -11070,7 +11070,7 @@ nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %151, %161
   %235 = add i32 %227, -1
   store i32 %235, ptr %30, align 8
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %236
   store i32 0, ptr %237, align 8
   %.idx118.i = mul nuw nsw i64 %236, 24
   %238 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx118.i
@@ -11079,7 +11079,7 @@ nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %151, %161
   br label %nfaExecLbrShuf_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %135, %repeatIsDead.exit.i
-  %240 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %125
+  %240 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %125
   %241 = load i32, ptr %240, align 8
   switch i32 %241, label %lbrTop.exit.i [
     i32 2, label %242
@@ -11539,7 +11539,7 @@ repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrShuf_Stre
   br i1 %.not.i96, label %nfaExecLbrShuf_TopScan.exit, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %indvars.iv
   %108 = load i32, ptr %107, align 8
   switch i32 %108, label %113 [
     i32 4, label %109
@@ -11747,7 +11747,7 @@ repeatLastTop.exit:                               ; preds = %160, %160, %.thread
 repeatIsDead.exit79.thread:                       ; preds = %nfaExecLbrShuf_StreamSilent.exit94, %repeatIsDead.exit79
   %179 = load i32, ptr %4, align 8
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %180
   %182 = load i32, ptr %181, align 8
   switch i32 %182, label %lbrTop.exit [
     i32 2, label %183
@@ -12741,7 +12741,7 @@ repeatIsDead.exit126.i.thread42:                  ; preds = %124, %repeatIsDead.
   %132 = add i32 %126, -1
   store i32 %132, ptr %30, align 8
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %133
   store i32 0, ptr %134, align 8
   %.idx119.i = mul nuw nsw i64 %133, 24
   %135 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx119.i
@@ -12802,7 +12802,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %137, %repeatIsDead.
 .lr.ph185:                                        ; preds = %.lr.ph, %153
   %156 = phi i64 [ %155, %153 ], [ %152, %.lr.ph ]
   %indvars.iv184 = phi i64 [ %indvars.iv.next, %153 ], [ %149, %.lr.ph ]
-  %157 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %indvars.iv184
+  %157 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %indvars.iv184
   %158 = load i32, ptr %157, align 8
   switch i32 %158, label %163 [
     i32 4, label %159
@@ -13024,7 +13024,7 @@ nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %153, %163
   %237 = add i32 %229, -1
   store i32 %237, ptr %30, align 8
   %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %238
   store i32 0, ptr %239, align 8
   %.idx118.i = mul nuw nsw i64 %238, 24
   %240 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx118.i
@@ -13033,7 +13033,7 @@ nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %153, %163
   br label %nfaExecLbrTruf_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %137, %repeatIsDead.exit.i
-  %242 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %127
+  %242 = getelementptr inbounds nuw %struct.mq_item, ptr %51, i64 %127
   %243 = load i32, ptr %242, align 8
   switch i32 %243, label %lbrTop.exit.i [
     i32 2, label %244
@@ -13492,7 +13492,7 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %117 = add i32 %116, -1
   store i32 %117, ptr %30, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %118
   store i32 0, ptr %119, align 8
   %120 = load i64, ptr %36, align 8
   %121 = sub i64 %.0.i33, %120
@@ -13519,7 +13519,7 @@ repeatIsDead.exit126.i.thread47:                  ; preds = %114, %repeatIsDead.
   %130 = add i32 %124, -1
   store i32 %130, ptr %30, align 8
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %131
   store i32 0, ptr %132, align 8
   %.idx119.i = mul nuw nsw i64 %131, 24
   %133 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx119.i
@@ -13580,7 +13580,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
 .lr.ph197:                                        ; preds = %.lr.ph, %151
   %154 = phi i64 [ %153, %151 ], [ %150, %.lr.ph ]
   %indvars.iv196 = phi i64 [ %indvars.iv.next, %151 ], [ %147, %.lr.ph ]
-  %155 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv196
+  %155 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %indvars.iv196
   %156 = load i32, ptr %155, align 8
   switch i32 %156, label %161 [
     i32 4, label %157
@@ -13802,7 +13802,7 @@ nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %151, %161
   %235 = add i32 %227, -1
   store i32 %235, ptr %30, align 8
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %236
   store i32 0, ptr %237, align 8
   %.idx118.i = mul nuw nsw i64 %236, 24
   %238 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx118.i
@@ -13811,7 +13811,7 @@ nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %151, %161
   br label %nfaExecLbrTruf_Q_i.exit
 
 repeatIsDead.exit.i.thread:                       ; preds = %135, %repeatIsDead.exit.i
-  %240 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %125
+  %240 = getelementptr inbounds nuw %struct.mq_item, ptr %48, i64 %125
   %241 = load i32, ptr %240, align 8
   switch i32 %241, label %lbrTop.exit.i [
     i32 2, label %242
@@ -14271,7 +14271,7 @@ repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrTruf_Stre
   br i1 %.not.i96, label %nfaExecLbrTruf_TopScan.exit, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %indvars.iv
   %108 = load i32, ptr %107, align 8
   switch i32 %108, label %113 [
     i32 4, label %109
@@ -14479,7 +14479,7 @@ repeatLastTop.exit:                               ; preds = %160, %160, %.thread
 repeatIsDead.exit79.thread:                       ; preds = %nfaExecLbrTruf_StreamSilent.exit94, %repeatIsDead.exit79
   %179 = load i32, ptr %4, align 8
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %34, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %180
   %182 = load i32, ptr %181, align 8
   switch i32 %182, label %lbrTop.exit [
     i32 2, label %183

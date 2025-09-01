@@ -525,10 +525,10 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %8
 define hidden noundef ptr @_ZN2cv12cpu_baseline14getConvertFuncEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = and i32 %1, 7
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline14getConvertFuncEiiE6cvtTab, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline14getConvertFuncEiiE6cvtTab, i64 %4
   %6 = and i32 %0, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   ret ptr %9
 }
@@ -5194,10 +5194,10 @@ define hidden noundef ptr @_ZN2cv14getConvertFuncEii(i32 noundef %0, i32 noundef
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv14getConvertFuncEiiE25__cv_trace_location_fn139)
   %4 = and i32 %1, 7
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline14getConvertFuncEiiE6cvtTab, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline14getConvertFuncEiiE6cvtTab, i64 %5
   %7 = and i32 %0, 7
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !12
@@ -5387,9 +5387,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %62, %65
 
 .noexc112:                                        ; preds = %85
   %86 = zext nneg i32 %51 to i64
-  %87 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline14getConvertFuncEiiE6cvtTab, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline14getConvertFuncEiiE6cvtTab, i64 %86
   %88 = zext nneg i32 %23 to i64
-  %89 = getelementptr inbounds nuw [8 x ptr], ptr %87, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !23
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %92 = load i32, ptr %91, align 8, !tbaa !12

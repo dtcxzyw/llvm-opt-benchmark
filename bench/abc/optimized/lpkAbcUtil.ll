@@ -99,12 +99,12 @@ Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthC
   %41 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = trunc i64 %indvars.iv to i8
-  %44 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
   store i8 %43, ptr %44, align 1, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = lshr i32 %46, 12
-  %48 = getelementptr inbounds nuw [16 x i32], ptr %40, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -356,14 +356,14 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %53, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1, !tbaa !17
   %47 = sext i32 %.02629 to i64
-  %48 = getelementptr inbounds [16 x i8], ptr %37, i64 0, i64 %47
+  %48 = getelementptr inbounds i8, ptr %37, i64 %47
   store i8 %46, ptr %48, align 1, !tbaa !17
-  %49 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %51 = getelementptr inbounds [16 x i32], ptr %38, i64 0, i64 %47
+  %51 = getelementptr inbounds i32, ptr %38, i64 %47
   store i32 %50, ptr %51, align 4, !tbaa !14
   %52 = add nsw i32 %.02629, 1
   br label %53
@@ -417,7 +417,7 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = phi i32 [ %6, %.lr.ph ], [ %35, %15 ]
+  %16 = phi i32 [ %6, %.lr.ph ], [ %33, %15 ]
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef %16, i32 noundef %17) #13
   %18 = load i32, ptr %3, align 8
@@ -428,28 +428,27 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
   %22 = lshr i32 %21, 7
   %23 = and i32 %22, 31
   %24 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %10, i32 noundef %23) #13
-  %25 = shl nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %25
-  store i32 %24, ptr %26, align 4, !tbaa !14
-  %27 = load i32, ptr %3, align 8
-  %28 = lshr i32 %27, 7
-  %29 = and i32 %28, 31
-  %30 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %13, i32 noundef %29) #13
-  %31 = or disjoint i64 %25, 1
-  %32 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %31
-  store i32 %30, ptr %32, align 4, !tbaa !14
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
+  store i32 %24, ptr %25, align 4, !tbaa !14
+  %26 = load i32, ptr %3, align 8
+  %27 = lshr i32 %26, 7
+  %28 = and i32 %27, 31
+  %29 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %13, i32 noundef %28) #13
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 %29, ptr %30, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i32, ptr %3, align 8
-  %34 = lshr i32 %33, 7
-  %35 = and i32 %34, 31
-  %36 = zext nneg i32 %35 to i64
-  %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %15, label %._crit_edge, !llvm.loop !22
+  %31 = load i32, ptr %3, align 8
+  %32 = lshr i32 %31, 7
+  %33 = and i32 %32, 31
+  %34 = zext nneg i32 %33 to i64
+  %35 = icmp samesign ult i64 %indvars.iv.next, %34
+  br i1 %35, label %15, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %15, %1
-  %.lcssa = phi i32 [ %4, %1 ], [ %33, %15 ]
-  %38 = or i32 %.lcssa, 1073741824
-  store i32 %38, ptr %3, align 8
+  %.lcssa = phi i32 [ %4, %1 ], [ %31, %15 ]
+  %36 = or i32 %.lcssa, 1073741824
+  store i32 %36, ptr %3, align 8
   ret void
 }
 

@@ -333,7 +333,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
 
 137:                                              ; preds = %145, %.lr.ph.i56.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i56.i ], [ %indvars.iv.next.i.i, %145 ]
-  %138 = getelementptr inbounds nuw [1025 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %139 = load i8, ptr %138, align 1, !tbaa !20
   %140 = sext i8 %139 to i64
   %141 = getelementptr inbounds i16, ptr %.pre.i.i, i64 %140

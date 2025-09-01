@@ -2709,10 +2709,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10.i:             ; preds = %870, %868
   %.0.i.i9.i = phi ptr [ %869, %868 ], [ %2, %870 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %873 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw [38 x i64], ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE, i64 0, i64 %873
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE, i64 %873
   %switch.load = load i64, ptr %switch.gep, align 8
   %874 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep535 = getelementptr inbounds nuw [38 x ptr], ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE.75, i64 0, i64 %874
+  %switch.gep535 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm16EmitMatcherTableEPNS_7MatcherERKNS_18CodeGenDAGPatternsERNS_11raw_ostreamE.75, i64 %874
   %switch.load536 = load ptr, ptr %switch.gep535, align 8
   store ptr %switch.load536, ptr %6, align 8, !tbaa !44, !alias.scope !153
   store i64 %switch.load, ptr %.sroa.2.0..sroa_idx.i.i.i154, align 8, !tbaa !45, !alias.scope !153
@@ -18870,10 +18870,10 @@ _ZN4llvm11raw_ostreamlsEc.exit743:                ; preds = %1144, %1146
   %1157 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.101)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1158 = zext nneg i16 %1155 to i64
-  %1159 = add nsw i64 %1158, -1
-  %1160 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %1159
+  %1159 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %1158
+  %1160 = getelementptr i8, ptr %1159, i64 -16
   %.sroa.0.0.copyload.i744 = load i64, ptr %1160, align 16
-  %.sroa.2.0..sroa_idx.i745 = getelementptr inbounds nuw i8, ptr %1160, i64 8
+  %.sroa.2.0..sroa_idx.i745 = getelementptr i8, ptr %1159, i64 -8
   %.sroa.2.0.copyload.i746 = load i8, ptr %.sroa.2.0..sroa_idx.i745, align 8
   store i64 %.sroa.0.0.copyload.i744, ptr %16, align 8
   %.sroa.2194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -18951,10 +18951,10 @@ _ZN4llvm11raw_ostreamlsEc.exit743:                ; preds = %1144, %1146
   %1212 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1210, ptr noundef nonnull @.str.104)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1213 = zext nneg i16 %1205 to i64
-  %1214 = add nsw i64 %1213, -1
-  %1215 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %1214
+  %1214 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %1213
+  %1215 = getelementptr i8, ptr %1214, i64 -16
   %.sroa.0.0.copyload.i749 = load i64, ptr %1215, align 16
-  %.sroa.2.0..sroa_idx.i750 = getelementptr inbounds nuw i8, ptr %1215, i64 8
+  %.sroa.2.0..sroa_idx.i750 = getelementptr i8, ptr %1214, i64 -8
   %.sroa.2.0.copyload.i751 = load i8, ptr %.sroa.2.0..sroa_idx.i750, align 8
   store i64 %.sroa.0.0.copyload.i749, ptr %17, align 8
   %.sroa.2180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -19769,10 +19769,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit844:              ; preds = %1602, %1604
   %1665 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.122)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1666 = zext nneg i16 %1663 to i64
-  %1667 = add nsw i64 %1666, -1
-  %1668 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %1667
+  %1667 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %1666
+  %1668 = getelementptr i8, ptr %1667, i64 -16
   %.sroa.0.0.copyload.i857 = load i64, ptr %1668, align 16
-  %.sroa.2.0..sroa_idx.i858 = getelementptr inbounds nuw i8, ptr %1668, i64 8
+  %.sroa.2.0..sroa_idx.i858 = getelementptr i8, ptr %1667, i64 -8
   %.sroa.2.0.copyload.i859 = load i8, ptr %.sroa.2.0..sroa_idx.i858, align 8
   store i64 %.sroa.0.0.copyload.i857, ptr %19, align 8
   %.sroa.2138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -20009,10 +20009,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit880: ; preds = %_Z
   %1804 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.127)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1805 = zext nneg i16 %1768 to i64
-  %1806 = add nsw i64 %1805, -1
-  %1807 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %1806
+  %1806 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %1805
+  %1807 = getelementptr i8, ptr %1806, i64 -16
   %.sroa.0.0.copyload.i881 = load i64, ptr %1807, align 16
-  %.sroa.2.0..sroa_idx.i882 = getelementptr inbounds nuw i8, ptr %1807, i64 8
+  %.sroa.2.0..sroa_idx.i882 = getelementptr i8, ptr %1806, i64 -8
   %.sroa.2.0.copyload.i883 = load i8, ptr %.sroa.2.0..sroa_idx.i882, align 8
   store i64 %.sroa.0.0.copyload.i881, ptr %22, align 8
   %.sroa.2101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8

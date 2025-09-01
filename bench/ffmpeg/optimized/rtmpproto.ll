@@ -734,22 +734,22 @@ rtmp_calc_swfhash.exit:                           ; preds = %214, %rtmp_uncompre
   %252 = add i32 %251, 40
   %253 = and i32 %252, 63
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw [64 x i32], ptr %22, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw i32, ptr %22, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !25
   %257 = add i32 %251, 9
   %258 = and i32 %257, 63
   %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds nuw [64 x i32], ptr %22, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw i32, ptr %22, i64 %259
   %261 = load i32, ptr %260, align 4, !tbaa !25
   %262 = add i32 %261, %256
   %263 = and i32 %251, 63
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw [64 x i32], ptr %22, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i32, ptr %22, i64 %264
   store i32 %262, ptr %265, align 4, !tbaa !25
   %266 = add i32 %251, 1
   %267 = lshr i32 %262, 24
   %268 = trunc nuw i32 %267 to i8
-  %269 = getelementptr inbounds nuw [1537 x i8], ptr %23, i64 0, i64 %indvars.iv.i
+  %269 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i
   store i8 %268, ptr %269, align 1, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1537
@@ -944,22 +944,22 @@ rtmp_calc_swf_verification.exit.i:                ; preds = %330
   %348 = add i32 %347, 40
   %349 = and i32 %348, 63
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw [64 x i32], ptr %22, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i32, ptr %22, i64 %350
   %352 = load i32, ptr %351, align 4, !tbaa !25
   %353 = add i32 %347, 9
   %354 = and i32 %353, 63
   %355 = zext nneg i32 %354 to i64
-  %356 = getelementptr inbounds nuw [64 x i32], ptr %22, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw i32, ptr %22, i64 %355
   %357 = load i32, ptr %356, align 4, !tbaa !25
   %358 = add i32 %357, %352
   %359 = and i32 %347, 63
   %360 = zext nneg i32 %359 to i64
-  %361 = getelementptr inbounds nuw [64 x i32], ptr %22, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw i32, ptr %22, i64 %360
   store i32 %358, ptr %361, align 4, !tbaa !25
   %362 = add i32 %347, 1
   %363 = lshr i32 %358, 24
   %364 = trunc nuw i32 %363 to i8
-  %365 = getelementptr inbounds nuw [1537 x i8], ptr %23, i64 0, i64 %indvars.iv90.i
+  %365 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv90.i
   store i8 %364, ptr %365, align 1, !tbaa !24
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 1536
@@ -2760,13 +2760,13 @@ gen_delete_stream.exit:                           ; preds = %47, %50
 .preheader:                                       ; preds = %67, %._crit_edge
   %70 = phi i1 [ true, %67 ], [ false, %._crit_edge ]
   %indvars.iv32 = phi i64 [ 0, %67 ], [ 1, %._crit_edge ]
-  %71 = getelementptr inbounds nuw [2 x i32], ptr %68, i64 0, i64 %indvars.iv32
+  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv32
   %72 = load i32, ptr %71, align 4, !tbaa !25
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %74 = getelementptr inbounds nuw [2 x ptr], ptr %69, i64 0, i64 %indvars.iv32
+  %74 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv32
   br label %75
 
 75:                                               ; preds = %.lr.ph, %75
@@ -2781,7 +2781,7 @@ gen_delete_stream.exit:                           ; preds = %47, %50
   br i1 %80, label %75, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %75, %.preheader
-  %81 = getelementptr inbounds nuw [2 x ptr], ptr %69, i64 0, i64 %indvars.iv32
+  %81 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv32
   call void @av_freep(ptr noundef nonnull %81) #11
   br i1 %70, label %.preheader, label %82, !llvm.loop !105
 
@@ -5389,7 +5389,7 @@ define internal fastcc range(i32 -1313558101, 1) i32 @handle_connect_error(ptr n
   %18 = getelementptr inbounds nuw i8, ptr %.164106, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = add nuw nsw i32 %.073105, 1
-  %20 = getelementptr inbounds nuw [15 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %14, ptr %20, align 1, !tbaa !24
   %21 = load i8, ptr %18, align 1, !tbaa !24
   %.not87 = icmp eq i8 %21, 0
@@ -5406,7 +5406,7 @@ define internal fastcc range(i32 -1313558101, 1) i32 @handle_connect_error(ptr n
 
 .critedge:                                        ; preds = %.critedge.loopexit, %11
   %.073.lcssa = phi i64 [ 0, %11 ], [ %23, %.critedge.loopexit ]
-  %24 = getelementptr inbounds nuw [15 x i8], ptr %4, i64 0, i64 %.073.lcssa
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %.073.lcssa
   store i8 0, ptr %24, align 1, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %26 = load i8, ptr %25, align 8, !tbaa !24

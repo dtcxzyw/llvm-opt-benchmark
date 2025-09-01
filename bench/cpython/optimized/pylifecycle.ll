@@ -1715,7 +1715,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %88, %84
   %92 = add nsw i32 %91, -1
   store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 0, i64 %93
+  %94 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !256
   store ptr null, ptr %94, align 8, !tbaa !256
   %96 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2320), i8 1, i8 0 seq_cst seq_cst, align 1
@@ -3846,7 +3846,7 @@ _PyMutex_Lock.exit:                               ; preds = %1, %4
   %11 = add nsw i32 %5, 1
   store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %12 = sext i32 %5 to i64
-  %13 = getelementptr [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 0, i64 %12
+  %13 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 %12
   store ptr %0, ptr %13, align 8, !tbaa !256
   %14 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2320), i8 1, i8 0 seq_cst seq_cst, align 1
   %15 = extractvalue { i8, i1 } %14, 1

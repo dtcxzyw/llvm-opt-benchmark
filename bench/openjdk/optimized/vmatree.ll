@@ -488,7 +488,7 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit70.thread: ; preds = %"_ZN5TreapImN7VM
 
 185:                                              ; preds = %182
   %186 = zext i8 %.sroa.8.0 to i64
-  %187 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %186
   switch i8 %.sroa.5.0, label %.thread [
     i8 0, label %188
     i8 1, label %193
@@ -566,7 +566,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   store ptr %220, ptr %28, align 8
   %221 = load i8, ptr %206, align 1
   %222 = zext i8 %221 to i64
-  %223 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %222
   %224 = load i8, ptr %205, align 8
   %.sroa.0.0.pre = load i64, ptr %14, align 8
   switch i8 %224, label %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge [
@@ -619,7 +619,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
 
 238:                                              ; preds = %237
   %239 = zext i8 %.sroa.13.0.copyload to i64
-  %240 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %239
   %241 = load i64, ptr %10, align 8
   %.neg45 = sub i64 %.sroa.0.0.pre, %241
   %242 = load i64, ptr %240, align 8
@@ -629,7 +629,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
 
 244:                                              ; preds = %237
   %245 = zext i8 %.sroa.13.0.copyload to i64
-  %246 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %245
   %247 = load i64, ptr %10, align 8
   %.neg43 = sub i64 %.sroa.0.0.pre, %247
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
@@ -646,7 +646,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %255 = load i8, ptr %254, align 4
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %256
   switch i8 %4, label %271 [
     i8 0, label %258
     i8 1, label %263

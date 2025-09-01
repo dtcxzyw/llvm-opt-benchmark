@@ -1422,7 +1422,7 @@ _ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit: ; preds = %2
   %27 = lshr i64 %24, 7
   %28 = and i64 %24, 127
   %29 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %27
-  %30 = getelementptr [128 x i8], ptr %29, i64 0, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 %28
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, -1
   br i1 %32, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit.thread, label %.lr.ph.i
@@ -1446,7 +1446,7 @@ _ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit: ; preds = %2
   %44 = lshr i64 %spec.store.select.i.i, 7
   %45 = and i64 %spec.store.select.i.i, 127
   %46 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %44
-  %47 = getelementptr [128 x i8], ptr %46, i64 0, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 %45
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, -1
   br i1 %49, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit.thread, label %.lr.ph.i, !llvm.loop !14
@@ -1470,7 +1470,7 @@ _ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit: ; preds = %_ZNK12QHashPrivate
   %56 = lshr i64 %.018.lcssa.i20, 7
   %57 = getelementptr %"struct.QHashPrivate::Span", ptr %54, i64 %56
   %58 = and i64 %.018.lcssa.i20, 127
-  %59 = getelementptr [128 x i8], ptr %57, i64 0, i64 %58
+  %59 = getelementptr i8, ptr %57, i64 %58
   %60 = load i8, ptr %59, align 1
   %.not.i11 = icmp eq i8 %60, -1
   br i1 %.not.i11, label %_ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit.thread, label %61
@@ -1838,7 +1838,7 @@ _ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit: ; preds = %.noexc, %_ZN5QHash
   %29 = and i64 %26, 127
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr [128 x i8], ptr %28, i64 0, i64 %29
+  %32 = getelementptr i8, ptr %28, i64 %29
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
   %35 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %31, i64 %34
@@ -1866,7 +1866,7 @@ _ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit: ; preds = %.noexc, %_ZN5QHash
   %48 = and i64 %45, 127
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 128
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr [128 x i8], ptr %47, i64 0, i64 %48
+  %51 = getelementptr i8, ptr %47, i64 %48
   %52 = load i8, ptr %51, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = load ptr, ptr %3, align 8
@@ -1977,7 +1977,7 @@ define void @_ZN16FunnelTextDialog13buttonClickedEv(ptr noundef align 8 derefere
   %27 = lshr i64 %24, 7
   %28 = and i64 %24, 127
   %29 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %27
-  %30 = getelementptr [128 x i8], ptr %29, i64 0, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 %28
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, -1
   br i1 %32, label %_ZNK5QHashIP7QObjectP12_funnel_bt_tE8containsERKS1_.exit.thread, label %.lr.ph.i.i.i
@@ -2001,7 +2001,7 @@ define void @_ZN16FunnelTextDialog13buttonClickedEv(ptr noundef align 8 derefere
   %44 = lshr i64 %spec.store.select.i.i.i.i, 7
   %45 = and i64 %spec.store.select.i.i.i.i, 127
   %46 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %44
-  %47 = getelementptr [128 x i8], ptr %46, i64 0, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 %45
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, -1
   br i1 %49, label %_ZNK5QHashIP7QObjectP12_funnel_bt_tE8containsERKS1_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !14
@@ -2010,7 +2010,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit.i.i
   %.pre7.i.i = and i64 %.01827.i.i.i, 127
   %.pre.i.i = lshr i64 %.01827.i.i.i, 7
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %.pre.i.i
-  %.phi.trans.insert8.i = getelementptr [128 x i8], ptr %.phi.trans.insert.i, i64 0, i64 %.pre7.i.i
+  %.phi.trans.insert8.i = getelementptr i8, ptr %.phi.trans.insert.i, i64 %.pre7.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert8.i, align 1
   %.not.i.i.i = icmp eq i8 %.pre.i, -1
   br i1 %.not.i.i.i, label %_ZNK5QHashIP7QObjectP12_funnel_bt_tE8containsERKS1_.exit.thread, label %_ZNK5QHashIP7QObjectP12_funnel_bt_tE8containsERKS1_.exit
@@ -4465,7 +4465,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_f
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr %"struct.QHashPrivate::Span", ptr %7, i64 %4
-  %9 = getelementptr [128 x i8], ptr %8, i64 0, i64 %5
+  %9 = getelementptr i8, ptr %8, i64 %5
   %10 = load i8, ptr %9, align 1
   store i8 -1, ptr %9, align 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -4489,7 +4489,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_f
   %25 = and i64 %spec.store.select.i50, 127
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %24
-  %28 = getelementptr [128 x i8], ptr %27, i64 0, i64 %25
+  %28 = getelementptr i8, ptr %27, i64 %25
   %29 = load i8, ptr %28, align 1
   %.not51 = icmp eq i8 %29, -1
   br i1 %.not51, label %._crit_edge, label %.lr.ph54
@@ -4541,8 +4541,8 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_f
 
 62:                                               ; preds = %58
   %63 = getelementptr %"struct.QHashPrivate::Span", ptr %34, i64 %36
-  %64 = getelementptr [128 x i8], ptr %63, i64 0, i64 %35
-  %65 = getelementptr [128 x i8], ptr %63, i64 0, i64 %60
+  %64 = getelementptr i8, ptr %63, i64 %35
+  %65 = getelementptr i8, ptr %63, i64 %60
   store i8 %32, ptr %65, align 1
   store i8 -1, ptr %64, align 1
   br label %.loopexit
@@ -4569,7 +4569,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_f
   %76 = and i64 %spec.store.select.i, 127
   %77 = load ptr, ptr %6, align 8
   %78 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %75
-  %79 = getelementptr [128 x i8], ptr %78, i64 0, i64 %76
+  %79 = getelementptr i8, ptr %78, i64 %76
   %80 = load i8, ptr %79, align 1
   %.not = icmp eq i8 %80, -1
   br i1 %.not, label %._crit_edge, label %31
@@ -4583,7 +4583,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_f
 
 85:                                               ; preds = %._crit_edge
   %86 = getelementptr %"struct.QHashPrivate::Span", ptr %81, i64 %4
-  %87 = getelementptr [128 x i8], ptr %86, i64 0, i64 %5
+  %87 = getelementptr i8, ptr %86, i64 %5
   %88 = load i8, ptr %87, align 1
   %.not48 = icmp eq i8 %88, -1
   br i1 %.not48, label %89, label %_ZN12QHashPrivate8iteratorINS_4NodeIP7QObjectP12_funnel_bt_tEEEppEv.exit
@@ -4605,7 +4605,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_f
   %99 = lshr i64 %95, 7
   %100 = getelementptr %"struct.QHashPrivate::Span", ptr %98, i64 %99
   %101 = and i64 %95, 127
-  %102 = getelementptr [128 x i8], ptr %100, i64 0, i64 %101
+  %102 = getelementptr i8, ptr %100, i64 %101
   %103 = load i8, ptr %102, align 1
   %.not.i.i = icmp eq i8 %103, -1
   br i1 %.not.i.i, label %93, label %_ZN12QHashPrivate8iteratorINS_4NodeIP7QObjectP12_funnel_bt_tEEEppEv.exit, !llvm.loop !24
@@ -4880,7 +4880,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
 
 61:                                               ; preds = %54, %145
   %.02331 = phi i64 [ 0, %54 ], [ %146, %145 ]
-  %62 = getelementptr [128 x i8], ptr %56, i64 0, i64 %.02331
+  %62 = getelementptr i8, ptr %56, i64 %.02331
   %63 = load i8, ptr %62, align 1
   %.not30 = icmp eq i8 %63, -1
   br i1 %.not30, label %145, label %64
@@ -4911,7 +4911,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %85 = lshr i64 %83, 7
   %86 = and i64 %83, 127
   %87 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %85
-  %88 = getelementptr [128 x i8], ptr %87, i64 0, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 %86
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit, label %.lr.ph.i
@@ -4935,7 +4935,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %102 = lshr i64 %spec.store.select.i.i, 7
   %103 = and i64 %spec.store.select.i.i, 127
   %104 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %102
-  %105 = getelementptr [128 x i8], ptr %104, i64 0, i64 %103
+  %105 = getelementptr i8, ptr %104, i64 %103
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, -1
   br i1 %107, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !14
@@ -5015,7 +5015,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE6insertEm.exit: ; pre
   %142 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %139, i64 %141
   %143 = load i8, ptr %142, align 1
   store i8 %143, ptr %114, align 1
-  %144 = getelementptr [128 x i8], ptr %112, i64 0, i64 %113
+  %144 = getelementptr i8, ptr %112, i64 %113
   store i8 %140, ptr %144, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %142, ptr noundef align 8 dereferenceable(16) %67, i64 16, i1 false)
   br label %145
@@ -5100,7 +5100,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE10addStorageEv.exit: 
 
 30:                                               ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE10addStorageEv.exit, %4
   %31 = phi i8 [ %.pre, %_ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE10addStorageEv.exit ], [ %6, %4 ]
-  %32 = getelementptr [128 x i8], ptr %0, i64 0, i64 %3
+  %32 = getelementptr i8, ptr %0, i64 %3
   store i8 %31, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load ptr, ptr %33, align 8
@@ -5109,7 +5109,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE10addStorageEv.exit: 
   %37 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1
   store i8 %38, ptr %5, align 1
-  %39 = getelementptr [128 x i8], ptr %1, i64 0, i64 %2
+  %39 = getelementptr i8, ptr %1, i64 %2
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   store i8 -1, ptr %39, align 1
@@ -5162,7 +5162,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt
   %24 = lshr i64 %21, 7
   %25 = and i64 %21, 127
   %26 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %24
-  %27 = getelementptr [128 x i8], ptr %26, i64 0, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 %25
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit, label %.lr.ph.i
@@ -5191,7 +5191,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt
   %41 = lshr i64 %spec.store.select.i.i, 7
   %42 = and i64 %spec.store.select.i.i, 127
   %43 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %41
-  %44 = getelementptr [128 x i8], ptr %43, i64 0, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 %42
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, -1
   br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !14
@@ -5201,7 +5201,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit: ; 
   %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit.loopexit_crit_edge ], [ %42, %38 ]
   %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %38 ]
   %47 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %.pre-phi20
-  %48 = getelementptr [128 x i8], ptr %47, i64 0, i64 %.pre-phi
+  %48 = getelementptr i8, ptr %47, i64 %.pre-phi
   %49 = load i8, ptr %48, align 1
   %.not.i = icmp eq i8 %49, -1
   br i1 %.not.i, label %50, label %136
@@ -5247,7 +5247,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit: ; 
   %75 = lshr i64 %72, 7
   %76 = and i64 %72, 127
   %77 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %75
-  %78 = getelementptr [128 x i8], ptr %77, i64 0, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 %76
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, -1
   br i1 %80, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit11, label %.lr.ph.i5
@@ -5271,7 +5271,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit: ; 
   %92 = lshr i64 %spec.store.select.i.i7, 7
   %93 = and i64 %spec.store.select.i.i7, 127
   %94 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %92
-  %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
   br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit11, label %.lr.ph.i5, !llvm.loop !14
@@ -5350,7 +5350,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE10addStorageEv.exit.i
   %131 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %128, i64 %130
   %132 = load i8, ptr %131, align 1
   store i8 %132, ptr %102, align 1
-  %133 = getelementptr [128 x i8], ptr %100, i64 0, i64 %101
+  %133 = getelementptr i8, ptr %100, i64 %101
   store i8 %129, ptr %133, align 1
   %134 = load i64, ptr %51, align 8
   %135 = add i64 %134, 1
@@ -5483,7 +5483,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE8freeDataEv.exit: ; p
 
 55:                                               ; preds = %48, %133
   %.02332 = phi i64 [ 0, %48 ], [ %134, %133 ]
-  %56 = getelementptr [128 x i8], ptr %49, i64 0, i64 %.02332
+  %56 = getelementptr i8, ptr %49, i64 %.02332
   %57 = load i8, ptr %56, align 1
   %.not = icmp eq i8 %57, -1
   br i1 %.not, label %133, label %58
@@ -5511,7 +5511,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE8freeDataEv.exit: ; p
   %78 = lshr i64 %76, 7
   %79 = and i64 %76, 127
   %80 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %78
-  %81 = getelementptr [128 x i8], ptr %80, i64 0, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 %79
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %82, -1
   br i1 %83, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit, label %.lr.ph.i
@@ -5540,7 +5540,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE8freeDataEv.exit: ; p
   %95 = lshr i64 %spec.store.select.i.i, 7
   %96 = and i64 %spec.store.select.i.i, 127
   %97 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %95
-  %98 = getelementptr [128 x i8], ptr %97, i64 0, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 %96
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, -1
   br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit, label %.lr.ph.i, !llvm.loop !14
@@ -5613,7 +5613,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIP7QObjectP12_funnel_bt_tEEE6insertEm.exit: ; pre
   %130 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QObject *, _funnel_bt_t *>>::Entry", ptr %127, i64 %129
   %131 = load i8, ptr %130, align 1
   store i8 %131, ptr %102, align 1
-  %132 = getelementptr [128 x i8], ptr %101, i64 0, i64 %.pre-phi37
+  %132 = getelementptr i8, ptr %101, i64 %.pre-phi37
   store i8 %128, ptr %132, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %130, ptr noundef align 8 dereferenceable(16) %61, i64 16, i1 false)
   br label %133

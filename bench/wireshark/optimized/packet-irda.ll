@@ -696,8 +696,8 @@ define hidden void @proto_register_irda() local_unnamed_addr #0 {
 
 15:                                               ; preds = %0, %15
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr [32 x i32], ptr @ett_param, i64 0, i64 %indvars.iv
-  %17 = getelementptr [32 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %16 = getelementptr i32, ptr @ett_param, i64 %indvars.iv
+  %17 = getelementptr ptr, ptr %1, i64 %indvars.iv
   store ptr %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -709,8 +709,8 @@ define hidden void @proto_register_irda() local_unnamed_addr #0 {
 
 19:                                               ; preds = %18, %19
   %indvars.iv11 = phi i64 [ 0, %18 ], [ %indvars.iv.next12, %19 ]
-  %20 = getelementptr [32 x i32], ptr @ett_iap_entry, i64 0, i64 %indvars.iv11
-  %21 = getelementptr [32 x ptr], ptr %2, i64 0, i64 %indvars.iv11
+  %20 = getelementptr i32, ptr @ett_iap_entry, i64 %indvars.iv11
+  %21 = getelementptr ptr, ptr %2, i64 %indvars.iv11
   store ptr %20, ptr %21, align 8
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 32
@@ -1008,10 +1008,10 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
 
 .sink.split.i.i:                                  ; preds = %.sink.split.sink.split.i.i, %153, %150
   %hf_lmp_reason.sink.i.i = phi ptr [ @hf_lmp_rsvd, %153 ], [ @hf_lmp_reason, %150 ], [ @hf_lmp_mode, %.sink.split.sink.split.i.i ]
-  %.sink216.i.i = phi i32 [ 3, %153 ], [ 3, %150 ], [ 4, %.sink.split.sink.split.i.i ]
+  %.sink212.i.i = phi i32 [ 3, %153 ], [ 3, %150 ], [ 4, %.sink.split.sink.split.i.i ]
   %.0139.ph.i.i = phi i32 [ 4, %153 ], [ 4, %150 ], [ 5, %.sink.split.sink.split.i.i ]
   %159 = load i32, ptr %hf_lmp_reason.sink.i.i, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %159, ptr noundef %101, i32 noundef %.sink216.i.i, i32 noundef 1, i32 noundef 0)
+  %160 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %159, ptr noundef %101, i32 noundef %.sink212.i.i, i32 noundef 1, i32 noundef 0)
   br label %161
 
 161:                                              ; preds = %.sink.split.i.i, %153, %150, %129
@@ -1190,29 +1190,24 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   %247 = call i64 @strlen(ptr noundef %241) #8
   %248 = call ptr @format_text(ptr noundef %246, ptr noundef %241, i64 noundef %247)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %242, i32 noundef 25, ptr noundef nonnull @.str.257, ptr noundef %245, ptr noundef %248)
-  br i1 %.not117124.i.i.i, label %.loopexit.i.i.i, label %.preheader136.i.preheader.i.i
+  br i1 %.not117124.i.i.i, label %.loopexit.i.i.i, label %.preheader136.i.i.i
 
-.preheader136.i.preheader.i.i:                    ; preds = %.thread.i.i.i
-  %249 = call i32 @strcmp(ptr noundef %238, ptr noundef nonnull dereferenceable(7) @.str.258) #8
-  %250 = icmp eq i32 %249, 0
-  br i1 %250, label %.preheader.i.i.i, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.preheader136.i.preheader.i.i, %.preheader136.i.i.i
-  %indvars.iv.i173.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader136.i.i.i ], [ 0, %.preheader136.i.preheader.i.i ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i173.i.i, 1
+249:                                              ; preds = %.preheader136.i.i.i
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %250 = getelementptr %struct.ias_class_dissector, ptr @class_dissector, i64 %indvars.iv.next.i.i.i
+  %251 = load ptr, ptr %250, align 16
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
   br i1 %exitcond.i.i.i, label %.loopexit.i.i.i, label %.preheader136.i.i.i, !llvm.loop !9
 
-.preheader136.i.i.i:                              ; preds = %.lr.ph.i.i
-  %251 = getelementptr [4 x %struct.ias_class_dissector], ptr @class_dissector, i64 0, i64 %indvars.iv.next.i.i.i
-  %252 = load ptr, ptr %251, align 16
+.preheader136.i.i.i:                              ; preds = %.thread.i.i.i, %249
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %249 ], [ 0, %.thread.i.i.i ]
+  %252 = phi ptr [ %251, %249 ], [ @.str.258, %.thread.i.i.i ]
   %253 = call i32 @strcmp(ptr noundef %238, ptr noundef nonnull dereferenceable(1) %252) #8
   %254 = icmp eq i32 %253, 0
-  br i1 %254, label %.preheader.i.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %254, label %.preheader.i.i.i, label %249
 
-.preheader.i.i.i:                                 ; preds = %.preheader136.i.i.i, %.preheader136.i.preheader.i.i
-  %.lcssa167.i.i = phi ptr [ @class_dissector, %.preheader136.i.preheader.i.i ], [ %251, %.preheader136.i.i.i ]
-  %255 = getelementptr inbounds nuw i8, ptr %.lcssa167.i.i, i64 8
+.preheader.i.i.i:                                 ; preds = %.preheader136.i.i.i
+  %255 = getelementptr %struct.ias_class_dissector, ptr @class_dissector, i64 %indvars.iv.i.i.i, i32 1
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr %256, align 8
   %.not119142.i.i.i = icmp eq ptr %257, null
@@ -1221,21 +1216,21 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
 .lr.ph.i.preheader.i.i:                           ; preds = %.preheader.i.i.i
   %258 = call i32 @strcmp(ptr noundef %241, ptr noundef nonnull dereferenceable(1) %257) #8
   %259 = icmp eq i32 %258, 0
-  br i1 %259, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph175.i.i
+  br i1 %259, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph175.i.i:                                    ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
-  %.0107143.i174.i.i = phi i32 [ %260, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %260 = add i32 %.0107143.i174.i.i, 1
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
+  %.0107143.i172.i.i = phi i32 [ %260, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %260 = add i32 %.0107143.i172.i.i, 1
   %261 = sext i32 %260 to i64
   %262 = getelementptr %struct.ias_attr_dissector, ptr %256, i64 %261
   %263 = load ptr, ptr %262, align 8
   %.not119.i.i.i = icmp eq ptr %263, null
   br i1 %.not119.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph175.i.i
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
   %264 = call i32 @strcmp(ptr noundef %241, ptr noundef nonnull dereferenceable(1) %263) #8
   %265 = icmp eq i32 %264, 0
-  br i1 %265, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph175.i.i, !llvm.loop !10
+  br i1 %265, label %.lr.ph.i._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i._crit_edge.i.i:                          ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
   %.lcssa.i.i = phi ptr [ %256, %.lr.ph.i.preheader.i.i ], [ %262, %.lr.ph.i.i.i ]
@@ -1243,7 +1238,7 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   store ptr %.lcssa.i.i, ptr %266, align 8
   br label %.loopexit.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph175.i.i, %.lr.ph.i._crit_edge.i.i, %.preheader.i.i.i, %.thread.i.i.i
+.loopexit.i.i.i:                                  ; preds = %249, %.lr.ph.i.i, %.lr.ph.i._crit_edge.i.i, %.preheader.i.i.i, %.thread.i.i.i
   br i1 %.not142155.i.i, label %289, label %267
 
 .thread125.i.i.i:                                 ; preds = %176
@@ -1522,7 +1517,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   %indvars.iv.next.i148.i.i = add nuw nsw i64 %indvars.iv.i147.i.i, 1
   %405 = trunc nuw nsw i64 %indvars.iv.next.i148.i.i to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %404, ptr noundef nonnull @.str.267, i32 noundef %405)
-  %406 = getelementptr [32 x i32], ptr @ett_iap_entry, i64 0, i64 %indvars.iv.i147.i.i
+  %406 = getelementptr i32, ptr @ett_iap_entry, i64 %indvars.iv.i147.i.i
   %407 = load i32, ptr %406, align 4
   %408 = call ptr @proto_item_add_subtree(ptr noundef %404, i32 noundef %407)
   %409 = load i32, ptr @hf_iap_obj_id, align 4
@@ -2017,7 +2012,7 @@ define internal fastcc noundef i32 @dissect_negotiation(ptr noundef %0, ptr noun
   %17 = add nuw nsw i32 %16, 2
   %18 = call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %15, ptr noundef %0, i32 noundef %.0140, i32 noundef %17, i32 noundef 0)
   %19 = zext i32 %.086139 to i64
-  %20 = getelementptr [32 x i32], ptr @ett_param, i64 0, i64 %19
+  %20 = getelementptr i32, ptr @ett_param, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %21)
   %23 = add i32 %.0140, 2
@@ -2824,7 +2819,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %131
   %133 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.dissect_xid, i64 0, i64 %133
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_xid, i64 %133
   %switch.load = load i32, ptr %switch.gep, align 4
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %135 = load ptr, ptr %134, align 8

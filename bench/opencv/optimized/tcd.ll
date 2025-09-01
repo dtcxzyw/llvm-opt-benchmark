@@ -647,9 +647,9 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %191 = getelementptr inbounds nuw i8, ptr %.0464629, i64 12
   store i32 %190, ptr %191, align 4, !tbaa !100
   %192 = zext i32 %.0457630 to i64
-  %193 = getelementptr inbounds nuw [33 x i32], ptr %158, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %158, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !101
-  %195 = getelementptr inbounds nuw [33 x i32], ptr %159, i64 0, i64 %192
+  %195 = getelementptr inbounds nuw i32, ptr %159, i64 %192
   %196 = load i32, ptr %195, align 4, !tbaa !101
   %197 = shl nsw i32 -1, %194
   %198 = and i32 %197, %173
@@ -1492,22 +1492,22 @@ define hidden range(i32 0, 2) i32 @opj_tcd_encode_tile(ptr noundef %0, i32 nound
   %45 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %35, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !102
-  %48 = getelementptr inbounds nuw [33 x i32], ptr %38, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !101
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %50 = load i32, ptr %49, align 4, !tbaa !103
-  %51 = getelementptr inbounds nuw [33 x i32], ptr %39, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   store i32 %50, ptr %51, align 4, !tbaa !101
   %52 = load i32, ptr %46, align 8, !tbaa !102
   %53 = mul i32 %50, %52
   %54 = add i32 %53, %.062121
-  %55 = getelementptr inbounds nuw [33 x i32], ptr %40, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !101
-  %57 = getelementptr inbounds nuw [33 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   store i32 %56, ptr %57, align 4, !tbaa !101
-  %58 = getelementptr inbounds nuw [33 x i32], ptr %42, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !101
-  %60 = getelementptr inbounds nuw [33 x i32], ptr %43, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
   store i32 %59, ptr %60, align 4, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %30, align 4, !tbaa !94
@@ -1898,7 +1898,7 @@ opj_tcd_t1_encode.exit:                           ; preds = %199, %201, %203
   %indvars.iv358.i.i = phi i64 [ 0, %.lr.ph305.i.i ], [ %indvars.iv.next359.i.i, %opj_tcd_is_band_empty.exit.thread.i.i ]
   %.2227302.i.i = phi double [ %.1226310.i.i, %.lr.ph305.i.i ], [ %.3228.i.i, %opj_tcd_is_band_empty.exit.thread.i.i ]
   %.2234301.i.i = phi double [ %.1233309.i.i, %.lr.ph305.i.i ], [ %.3235.i.i, %opj_tcd_is_band_empty.exit.thread.i.i ]
-  %253 = getelementptr inbounds nuw [3 x %struct.opj_tcd_band], ptr %247, i64 0, i64 %indvars.iv358.i.i
+  %253 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %247, i64 %indvars.iv358.i.i
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load i32, ptr %254, align 8, !tbaa !110
   %256 = load i32, ptr %253, align 8, !tbaa !108
@@ -2134,7 +2134,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
 
 369:                                              ; preds = %.critedge.i.i, %.lr.ph336.i.i
   %indvars.iv374.i.i = phi i64 [ 0, %.lr.ph336.i.i ], [ %indvars.iv.next375.i.i, %.critedge.i.i ]
-  %370 = getelementptr inbounds nuw [100 x float], ptr %362, i64 0, i64 %indvars.iv374.i.i
+  %370 = getelementptr inbounds nuw float, ptr %362, i64 %indvars.iv374.i.i
   %371 = load float, ptr %370, align 4, !tbaa !175
   %372 = fcmp ogt float %371, 0.000000e+00
   br i1 %372, label %373, label %377
@@ -2148,7 +2148,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
 377:                                              ; preds = %373, %369
   %378 = phi i32 [ %376, %373 ], [ %4, %369 ]
   %379 = load double, ptr %363, align 8, !tbaa !199
-  %380 = getelementptr inbounds nuw [100 x float], ptr %364, i64 0, i64 %indvars.iv374.i.i
+  %380 = getelementptr inbounds nuw float, ptr %364, i64 %indvars.iv374.i.i
   %381 = load float, ptr %380, align 4, !tbaa !175
   %382 = fdiv float %381, 1.000000e+01
   %383 = fpext float %382 to double
@@ -2179,8 +2179,8 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
   %395 = trunc nuw i64 %indvars.iv374.i.i to i32
   %396 = add nuw nsw i64 %indvars.iv374.i.i, 4294967295
   %397 = and i64 %396, 4294967295
-  %398 = getelementptr inbounds nuw [100 x double], ptr %10, i64 0, i64 %397
-  %399 = getelementptr inbounds nuw [100 x double], ptr %367, i64 0, i64 %indvars.iv374.i.i
+  %398 = getelementptr inbounds nuw double, ptr %10, i64 %397
+  %399 = getelementptr inbounds nuw double, ptr %367, i64 %indvars.iv374.i.i
   %400 = add nuw i32 %395, 1
   br label %401
 
@@ -2332,17 +2332,17 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
   br label %.critedge.i.i
 
 472:                                              ; preds = %466
-  %473 = add nsw i64 %indvars.iv374.i.i, -1
-  %474 = getelementptr inbounds nuw [100 x double], ptr %10, i64 0, i64 %473
+  %473 = getelementptr double, ptr %10, i64 %indvars.iv374.i.i
+  %474 = getelementptr i8, ptr %473, i64 -8
   %475 = load double, ptr %474, align 8, !tbaa !205
-  %476 = getelementptr inbounds nuw [100 x double], ptr %367, i64 0, i64 %indvars.iv374.i.i
+  %476 = getelementptr inbounds nuw double, ptr %367, i64 %indvars.iv374.i.i
   %477 = load double, ptr %476, align 8, !tbaa !205
   %478 = fadd double %475, %477
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %472, %470
   %479 = phi double [ %471, %470 ], [ %478, %472 ]
-  %480 = getelementptr inbounds nuw [100 x double], ptr %10, i64 0, i64 %indvars.iv374.i.i
+  %480 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv374.i.i
   store double %479, ptr %480, align 8, !tbaa !205
   %indvars.iv.next375.i.i = add nuw nsw i64 %indvars.iv374.i.i, 1
   %481 = load i32, ptr %360, align 8, !tbaa !201
@@ -2378,10 +2378,10 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
   %indvars.iv.i16.i = phi i64 [ 0, %.lr.ph.split.i.i ], [ %indvars.iv.next.i17.i, %opj_tcd_makelayer_fixed.exit.loopexit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %496 = icmp eq i64 %indvars.iv.i16.i, 0
-  %invariant.gep169.i.i.i = getelementptr inbounds nuw [10 x [10 x [3 x i32]]], ptr %9, i64 0, i64 %indvars.iv.i16.i
+  %invariant.gep169.i.i.i = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %indvars.iv.i16.i
   %497 = add nuw nsw i64 %indvars.iv.i16.i, 4294967295
   %498 = and i64 %497, 4294967295
-  %invariant.gep.i.i.i = getelementptr inbounds nuw [10 x [10 x [3 x i32]]], ptr %9, i64 0, i64 %498
+  %invariant.gep.i.i.i = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %498
   br i1 %496, label %.preheader141.lr.ph.i.us.i.i, label %.preheader141.lr.ph.i.i.i
 
 .preheader141.lr.ph.i.us.i.i:                     ; preds = %.lr.ph176.i.i.i, %._crit_edge168.i.us.i.i
@@ -2409,7 +2409,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
   %indvars.iv191.i.us.i.i = phi i64 [ %indvars.iv.next192.i.us.i.i, %._crit_edge.us.i.us.i.i ], [ 0, %.preheader141.lr.ph.split.us.i.us.i.i ]
   %509 = trunc nuw i64 %indvars.iv191.i.us.i.i to i32
   %510 = mul i32 %.pre.i.us.i.i, %509
-  %511 = getelementptr inbounds nuw [10 x [10 x [3 x i32]]], ptr %9, i64 0, i64 %indvars.iv191.i.us.i.i
+  %511 = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %indvars.iv191.i.us.i.i
   br label %.preheader140.us.i.us.i.i
 
 .preheader140.us.i.us.i.i:                        ; preds = %526, %.preheader141.us.i.us.i.i
@@ -2417,7 +2417,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
   %512 = trunc nuw i64 %indvars.iv187.i.us.i.i to i32
   %513 = add i32 %510, %512
   %514 = mul i32 %513, 3
-  %515 = getelementptr inbounds nuw [10 x [3 x i32]], ptr %511, i64 0, i64 %indvars.iv187.i.us.i.i
+  %515 = getelementptr inbounds nuw [3 x i32], ptr %511, i64 %indvars.iv187.i.us.i.i
   br label %516
 
 516:                                              ; preds = %516, %.preheader140.us.i.us.i.i
@@ -2430,7 +2430,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
   %522 = sitofp i32 %521 to float
   %523 = fmul float %508, %522
   %524 = fptosi float %523 to i32
-  %525 = getelementptr inbounds nuw [3 x i32], ptr %515, i64 0, i64 %indvars.iv.i.us.i.i
+  %525 = getelementptr inbounds nuw i32, ptr %515, i64 %indvars.iv.i.us.i.i
   store i32 %524, ptr %525, align 4, !tbaa !101
   %indvars.iv.next.i.us.i.i = add nuw nsw i64 %indvars.iv.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.us.i.i, 3
@@ -2468,7 +2468,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
   %533 = getelementptr inbounds nuw i8, ptr %530, i64 32
   %534 = getelementptr inbounds nuw i8, ptr %530, i64 16
   %535 = getelementptr inbounds nuw i8, ptr %530, i64 20
-  %gep170.i.us.us.i.i = getelementptr inbounds nuw [10 x [3 x i32]], ptr %invariant.gep169.i.i.i, i64 0, i64 %indvars.iv211.i.us.us.i.i
+  %gep170.i.us.us.i.i = getelementptr inbounds nuw [3 x i32], ptr %invariant.gep169.i.i.i, i64 %indvars.iv211.i.us.us.i.i
   %wide.trip.count209.i.us.us.i.i = zext i32 %532 to i64
   br label %536
 
@@ -2479,7 +2479,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
 
 536:                                              ; preds = %opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i, %.lr.ph159.i.us.us.i.i
   %indvars.iv206.i.us.us.us.i.i = phi i64 [ 0, %.lr.ph159.i.us.us.i.i ], [ %indvars.iv.next207.i.us.us.us.i.i, %opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i ]
-  %537 = getelementptr inbounds nuw [3 x %struct.opj_tcd_band], ptr %533, i64 0, i64 %indvars.iv206.i.us.us.us.i.i
+  %537 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %533, i64 %indvars.iv206.i.us.us.us.i.i
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 8
   %539 = load i32, ptr %538, align 8, !tbaa !110
   %540 = load i32, ptr %537, align 8, !tbaa !108
@@ -2504,7 +2504,7 @@ opj_tcd_is_band_empty.exit.i.us.us.us.i.i:        ; preds = %536
 .lr.ph156.i.us.us.us.i.i:                         ; preds = %.preheader.i.us.us.us.i.i
   %549 = getelementptr inbounds nuw i8, ptr %537, i64 24
   %550 = load ptr, ptr %549, align 8, !tbaa !37
-  %gep.i.us.us.us.i.i = getelementptr inbounds nuw [3 x i32], ptr %gep170.i.us.us.i.i, i64 0, i64 %indvars.iv206.i.us.us.us.i.i
+  %gep.i.us.us.us.i.i = getelementptr inbounds nuw i32, ptr %gep170.i.us.us.i.i, i64 %indvars.iv206.i.us.us.us.i.i
   %wide.trip.count204.i.us.us.us.i.i = zext i32 %548 to i64
   br label %551
 
@@ -2602,7 +2602,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %indvars.iv191.i.i.i = phi i64 [ %indvars.iv.next192.i.i.i, %._crit_edge.us.i.i.i ], [ 0, %.preheader141.lr.ph.split.us.i.i.i ]
   %593 = trunc nuw i64 %indvars.iv191.i.i.i to i32
   %594 = mul i32 %.pre.i.i.i, %593
-  %595 = getelementptr inbounds nuw [10 x [10 x [3 x i32]]], ptr %9, i64 0, i64 %indvars.iv191.i.i.i
+  %595 = getelementptr inbounds nuw [10 x [3 x i32]], ptr %9, i64 %indvars.iv191.i.i.i
   br label %.preheader140.us.i.i.i
 
 596:                                              ; preds = %597
@@ -2620,7 +2620,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %603 = sitofp i32 %602 to float
   %604 = fmul float %592, %603
   %605 = fptosi float %604 to i32
-  %606 = getelementptr inbounds nuw [3 x i32], ptr %610, i64 0, i64 %indvars.iv.i.i.i
+  %606 = getelementptr inbounds nuw i32, ptr %610, i64 %indvars.iv.i.i.i
   store i32 %605, ptr %606, align 4, !tbaa !101
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -2631,7 +2631,7 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %607 = trunc nuw i64 %indvars.iv187.i.i.i to i32
   %608 = add i32 %594, %607
   %609 = mul i32 %608, 3
-  %610 = getelementptr inbounds nuw [10 x [3 x i32]], ptr %595, i64 0, i64 %indvars.iv187.i.i.i
+  %610 = getelementptr inbounds nuw [3 x i32], ptr %595, i64 %indvars.iv187.i.i.i
   br label %597
 
 ._crit_edge.us.i.i.i:                             ; preds = %596
@@ -2656,14 +2656,14 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %617 = getelementptr inbounds nuw i8, ptr %614, i64 32
   %618 = getelementptr inbounds nuw i8, ptr %614, i64 16
   %619 = getelementptr inbounds nuw i8, ptr %614, i64 20
-  %gep170.i.i.i = getelementptr inbounds nuw [10 x [3 x i32]], ptr %invariant.gep169.i.i.i, i64 0, i64 %indvars.iv211.i.i.i
-  %gep171.i.i.i = getelementptr inbounds nuw [10 x [3 x i32]], ptr %invariant.gep.i.i.i, i64 0, i64 %indvars.iv211.i.i.i
+  %gep170.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %invariant.gep169.i.i.i, i64 %indvars.iv211.i.i.i
+  %gep171.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %invariant.gep.i.i.i, i64 %indvars.iv211.i.i.i
   %wide.trip.count209.i.i.i = zext i32 %616 to i64
   br label %620
 
 620:                                              ; preds = %opj_tcd_is_band_empty.exit.thread.i.i.i, %.lr.ph159.i.i.i
   %indvars.iv206.i.i.i = phi i64 [ 0, %.lr.ph159.i.i.i ], [ %indvars.iv.next207.i.i.i, %opj_tcd_is_band_empty.exit.thread.i.i.i ]
-  %621 = getelementptr inbounds nuw [3 x %struct.opj_tcd_band], ptr %617, i64 0, i64 %indvars.iv206.i.i.i
+  %621 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %617, i64 %indvars.iv206.i.i.i
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 8
   %623 = load i32, ptr %622, align 8, !tbaa !110
   %624 = load i32, ptr %621, align 8, !tbaa !108
@@ -2688,8 +2688,8 @@ opj_tcd_is_band_empty.exit.i.i.i:                 ; preds = %620
 .lr.ph156.i.i.i:                                  ; preds = %.preheader.i.i.i
   %633 = getelementptr inbounds nuw i8, ptr %621, i64 24
   %634 = load ptr, ptr %633, align 8, !tbaa !37
-  %gep.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %gep170.i.i.i, i64 0, i64 %indvars.iv206.i.i.i
-  %gep163.i.i.i = getelementptr inbounds nuw [3 x i32], ptr %gep171.i.i.i, i64 0, i64 %indvars.iv206.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw i32, ptr %gep170.i.i.i, i64 %indvars.iv206.i.i.i
+  %gep163.i.i.i = getelementptr inbounds nuw i32, ptr %gep171.i.i.i, i64 %indvars.iv206.i.i.i
   %wide.trip.count204.i.i.i = zext i32 %632 to i64
   br label %635
 
@@ -5268,7 +5268,7 @@ declare double @llvm.fabs.f64(double) #12
 define internal fastcc range(i32 0, 2) i32 @opj_tcd_makelayer(ptr captures(none) %.24.val.0.val, i32 noundef %0, double noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %.24.val.0.val, i64 48
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw [100 x double], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw double, ptr %4, i64 %5
   store double 0.000000e+00, ptr %6, align 8, !tbaa !205
   %7 = getelementptr inbounds nuw i8, ptr %.24.val.0.val, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !29
@@ -5318,7 +5318,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_makelayer(ptr captures(none)
 26:                                               ; preds = %.lr.ph15, %opj_tcd_is_band_empty.exit.thread
   %indvars.iv46 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next47, %opj_tcd_is_band_empty.exit.thread ]
   %.210712 = phi i32 [ %.110618, %.lr.ph15 ], [ %.3108, %opj_tcd_is_band_empty.exit.thread ]
-  %27 = getelementptr inbounds nuw [3 x %struct.opj_tcd_band], ptr %23, i64 0, i64 %indvars.iv46
+  %27 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %23, i64 %indvars.iv46
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !110
   %30 = load i32, ptr %27, align 8, !tbaa !108

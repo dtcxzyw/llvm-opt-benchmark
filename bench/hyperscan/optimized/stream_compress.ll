@@ -58,7 +58,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %30 = add i32 %19, -1
   %31 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %30, i1 true)
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr i8, ptr %2, i64 %3
   store i64 %26, ptr %16, align 1
@@ -81,7 +81,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %40, label %41, label %.thread389.i
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 3
@@ -106,7 +106,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %60 = or disjoint i32 %57, %59
   %61 = add nuw nsw i32 %56, 1
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 3
@@ -175,7 +175,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %105 = add i32 %94, -1
   %106 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %105, i1 true)
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   store i64 %101, ptr %91, align 1
@@ -198,7 +198,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %115, label %116, label %.thread407.i
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv631.i
+  %117 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv631.i
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 3
@@ -223,7 +223,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %135 = or disjoint i32 %132, %134
   %136 = add nuw nsw i32 %131, 1
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = zext i32 %139 to i64
   %141 = shl nuw nsw i64 %140, 3
@@ -288,7 +288,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %177 = add i32 %166, -1
   %178 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %177, i1 true)
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %179
   %181 = load i8, ptr %180, align 1
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   store i64 %173, ptr %163, align 1
@@ -311,7 +311,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %187, label %188, label %.thread425.i
 
 188:                                              ; preds = %186
-  %189 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv634.i
+  %189 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv634.i
   %190 = load i32, ptr %189, align 4
   %191 = zext i32 %190 to i64
   %192 = shl nuw nsw i64 %191, 3
@@ -336,7 +336,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %207 = or disjoint i32 %204, %206
   %208 = add nuw nsw i32 %203, 1
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %209
   %211 = load i32, ptr %210, align 4
   %212 = zext i32 %211 to i64
   %213 = shl nuw nsw i64 %212, 3
@@ -478,7 +478,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %308 = add i32 %297, -1
   %309 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %308, i1 true)
   %310 = zext nneg i32 %309 to i64
-  %311 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %310
   %312 = load i8, ptr %311, align 1
   %313 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   store i64 %304, ptr %294, align 1
@@ -501,7 +501,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %318, label %319, label %.thread443.i
 
 319:                                              ; preds = %317
-  %320 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv637.i
+  %320 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv637.i
   %321 = load i32, ptr %320, align 4
   %322 = zext i32 %321 to i64
   %323 = shl nuw nsw i64 %322, 3
@@ -526,7 +526,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %338 = or disjoint i32 %335, %337
   %339 = add nuw nsw i32 %334, 1
   %340 = zext nneg i32 %339 to i64
-  %341 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %340
   %342 = load i32, ptr %341, align 4
   %343 = zext i32 %342 to i64
   %344 = shl nuw nsw i64 %343, 3
@@ -594,7 +594,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %383 = add i32 %372, -1
   %384 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %383, i1 true)
   %385 = zext nneg i32 %384 to i64
-  %386 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %385
   %387 = load i8, ptr %386, align 1
   %388 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   store i64 %379, ptr %366, align 1
@@ -617,7 +617,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %393, label %394, label %.thread461.i
 
 394:                                              ; preds = %392
-  %395 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv640.i
+  %395 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv640.i
   %396 = load i32, ptr %395, align 4
   %397 = zext i32 %396 to i64
   %398 = shl nuw nsw i64 %397, 3
@@ -642,7 +642,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %413 = or disjoint i32 %410, %412
   %414 = add nuw nsw i32 %409, 1
   %415 = zext nneg i32 %414 to i64
-  %416 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %415
   %417 = load i32, ptr %416, align 4
   %418 = zext i32 %417 to i64
   %419 = shl nuw nsw i64 %418, 3
@@ -707,7 +707,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %455 = add i32 %444, -1
   %456 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %455, i1 true)
   %457 = zext nneg i32 %456 to i64
-  %458 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %457
   %459 = load i8, ptr %458, align 1
   %460 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   store i64 %451, ptr %441, align 1
@@ -730,7 +730,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %465, label %466, label %.thread479.i
 
 466:                                              ; preds = %464
-  %467 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv643.i
+  %467 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv643.i
   %468 = load i32, ptr %467, align 4
   %469 = zext i32 %468 to i64
   %470 = shl nuw nsw i64 %469, 3
@@ -755,7 +755,7 @@ define hidden i32 @expand_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %485 = or disjoint i32 %482, %484
   %486 = add nuw nsw i32 %481, 1
   %487 = zext nneg i32 %486 to i64
-  %488 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %487
+  %488 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %487
   %489 = load i32, ptr %488, align 4
   %490 = zext i32 %489 to i64
   %491 = shl nuw nsw i64 %490, 3
@@ -947,7 +947,7 @@ mmbit_get_flat_block.exit357.i:                   ; preds = %580, %572, %569, %5
 591:                                              ; preds = %516
   %592 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %514, i1 true)
   %593 = zext nneg i32 %592 to i64
-  %594 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %593
   %595 = load i8, ptr %594, align 1
   %596 = zext i8 %595 to i32
   br label %.backedge540.i
@@ -961,7 +961,7 @@ mmbit_get_flat_block.exit357.i:                   ; preds = %580, %572, %569, %5
 
 598:                                              ; preds = %.backedge540.i
   %599 = zext i32 %.1.i340.i to i64
-  %600 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %599
+  %600 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %599
   %601 = load i32, ptr %600, align 4
   %602 = zext i32 %601 to i64
   %603 = shl nuw nsw i64 %602, 3
@@ -1027,7 +1027,7 @@ mmbit_iterate.exit.i:                             ; preds = %611, %551
   %637 = sub nuw nsw i64 64, %636
   %638 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %514, i1 true)
   %639 = zext nneg i32 %638 to i64
-  %640 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %639
+  %640 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %639
   %641 = zext nneg i32 %626 to i64
   br label %642
 
@@ -1292,7 +1292,7 @@ mmbit_get_flat_block.exit365.i:                   ; preds = %767, %759, %756, %7
 
 784:                                              ; preds = %.backedge.i
   %785 = zext i32 %.1.i333.i to i64
-  %786 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %785
+  %786 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %785
   %787 = load i32, ptr %786, align 4
   %788 = zext i32 %787 to i64
   %789 = shl nuw nsw i64 %788, 3
@@ -1533,7 +1533,7 @@ mmbit_get_flat_block.exit.i.i:                    ; preds = %898, %891, %883, %8
   %916 = add i32 %815, -1
   %917 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %916, i1 true)
   %918 = zext nneg i32 %917 to i64
-  %919 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %918
+  %919 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %918
   %920 = load i8, ptr %919, align 1
   %921 = zext i8 %920 to i32
   store i64 %914, ptr %5, align 16
@@ -1571,7 +1571,7 @@ mmbit_mask_index.exit.i.i:                        ; preds = %923
   %939 = zext i32 %938 to i64
   %940 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %821, i64 %939
   %941 = zext i32 %930 to i64
-  %942 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %941
+  %942 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %941
   %943 = load i32, ptr %942, align 4
   %944 = zext i32 %943 to i64
   %945 = shl nuw nsw i64 %944, 3
@@ -1624,7 +1624,7 @@ mmbit_sparse_iter_begin.exit.i:                   ; preds = %mmbit_mask_index.ex
   %969 = getelementptr inbounds nuw i8, ptr %1, i64 404
   %970 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %971 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %972 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %.pre-phi147
+  %972 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %.pre-phi147
   br i1 %822, label %.lr.ph146.split.us.i, label %.lr.ph146.i..lr.ph146.split.i_crit_edge
 
 .lr.ph146.i..lr.ph146.split.i_crit_edge:          ; preds = %.lr.ph146.i
@@ -1727,7 +1727,7 @@ mmbit_mask_index.exit.i.i.us.i:                   ; preds = %1023
   %1041 = zext i32 %1040 to i64
   %1042 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %821, i64 %1041
   %1043 = zext i32 %1032 to i64
-  %1044 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1043
+  %1044 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1043
   %1045 = load i32, ptr %1044, align 4
   %1046 = zext i32 %1045 to i64
   %1047 = shl nuw nsw i64 %1046, 3
@@ -2015,7 +2015,7 @@ define hidden i64 @compress_stream(ptr noundef writeonly initializes((0, 9)) %0,
   %22 = add i32 %15, -1
   %23 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   br label %.backedge703.i
@@ -2030,7 +2030,7 @@ define hidden i64 @compress_stream(ptr noundef writeonly initializes((0, 9)) %0,
 
 29:                                               ; preds = %.backedge703.i
   %30 = zext i32 %.027.i405.i to i64
-  %31 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 3
@@ -2114,7 +2114,7 @@ mmbit_compsize.exit418.thread.i:                  ; preds = %18
 
 68:                                               ; preds = %.preheader19
   %69 = zext i32 %.044.i.i to i64
-  %70 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = zext i32 %71 to i64
   %73 = shl nuw nsw i64 %72, 3
@@ -2198,7 +2198,7 @@ mmbit_compsize.exit418.thread.i:                  ; preds = %18
   %118 = add i32 %111, -1
   %119 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %118, i1 true)
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   br label %.backedge700.i
@@ -2213,7 +2213,7 @@ mmbit_compsize.exit418.thread.i:                  ; preds = %18
 
 125:                                              ; preds = %.backedge700.i
   %126 = zext i32 %.027.i388.i to i64
-  %127 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = zext i32 %128 to i64
   %130 = shl nuw nsw i64 %129, 3
@@ -2297,7 +2297,7 @@ mmbit_compsize.exit401.thread.i:                  ; preds = %114
 
 164:                                              ; preds = %.preheader18
   %165 = zext i32 %.044.i242.i to i64
-  %166 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %165
   %167 = load i32, ptr %166, align 4
   %168 = zext i32 %167 to i64
   %169 = shl nuw nsw i64 %168, 3
@@ -2376,7 +2376,7 @@ mmbit_compsize.exit401.thread.i:                  ; preds = %114
   %210 = add i32 %203, -1
   %211 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %210, i1 true)
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %212
   %214 = load i8, ptr %213, align 1
   %215 = zext i8 %214 to i32
   br label %.backedge697.i
@@ -2391,7 +2391,7 @@ mmbit_compsize.exit401.thread.i:                  ; preds = %114
 
 217:                                              ; preds = %.backedge697.i
   %218 = zext i32 %.027.i371.i to i64
-  %219 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = zext i32 %220 to i64
   %222 = shl nuw nsw i64 %221, 3
@@ -2475,7 +2475,7 @@ mmbit_compsize.exit384.thread.i:                  ; preds = %206
 
 256:                                              ; preds = %.preheader17
   %257 = zext i32 %.044.i259.i to i64
-  %258 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %257
   %259 = load i32, ptr %258, align 4
   %260 = zext i32 %259 to i64
   %261 = shl nuw nsw i64 %260, 3
@@ -2612,7 +2612,7 @@ mmbit_compsize.exit384.thread.i:                  ; preds = %206
   %350 = add i32 %343, -1
   %351 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %350, i1 true)
   %352 = zext nneg i32 %351 to i64
-  %353 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %352
   %354 = load i8, ptr %353, align 1
   %355 = zext i8 %354 to i32
   br label %.backedge694.i
@@ -2627,7 +2627,7 @@ mmbit_compsize.exit384.thread.i:                  ; preds = %206
 
 357:                                              ; preds = %.backedge694.i
   %358 = zext i32 %.027.i354.i to i64
-  %359 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %358
   %360 = load i32, ptr %359, align 4
   %361 = zext i32 %360 to i64
   %362 = shl nuw nsw i64 %361, 3
@@ -2711,7 +2711,7 @@ mmbit_compsize.exit367.thread.i:                  ; preds = %346
 
 396:                                              ; preds = %.preheader16
   %397 = zext i32 %.044.i276.i to i64
-  %398 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %397
   %399 = load i32, ptr %398, align 4
   %400 = zext i32 %399 to i64
   %401 = shl nuw nsw i64 %400, 3
@@ -2793,7 +2793,7 @@ mmbit_compsize.exit367.thread.i:                  ; preds = %346
   %445 = add i32 %438, -1
   %446 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %445, i1 true)
   %447 = zext nneg i32 %446 to i64
-  %448 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %447
+  %448 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %447
   %449 = load i8, ptr %448, align 1
   %450 = zext i8 %449 to i32
   br label %.backedge691.i
@@ -2808,7 +2808,7 @@ mmbit_compsize.exit367.thread.i:                  ; preds = %346
 
 452:                                              ; preds = %.backedge691.i
   %453 = zext i32 %.027.i337.i to i64
-  %454 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %453
   %455 = load i32, ptr %454, align 4
   %456 = zext i32 %455 to i64
   %457 = shl nuw nsw i64 %456, 3
@@ -2892,7 +2892,7 @@ mmbit_compsize.exit350.thread.i:                  ; preds = %441
 
 491:                                              ; preds = %.preheader15
   %492 = zext i32 %.044.i293.i to i64
-  %493 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %492
   %494 = load i32, ptr %493, align 4
   %495 = zext i32 %494 to i64
   %496 = shl nuw nsw i64 %495, 3
@@ -2971,7 +2971,7 @@ mmbit_compsize.exit350.thread.i:                  ; preds = %441
   %537 = add i32 %530, -1
   %538 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %537, i1 true)
   %539 = zext nneg i32 %538 to i64
-  %540 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %539
+  %540 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %539
   %541 = load i8, ptr %540, align 1
   %542 = zext i8 %541 to i32
   br label %.backedge688.i
@@ -2986,7 +2986,7 @@ mmbit_compsize.exit350.thread.i:                  ; preds = %441
 
 544:                                              ; preds = %.backedge688.i
   %545 = zext i32 %.027.i.i to i64
-  %546 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %545
   %547 = load i32, ptr %546, align 4
   %548 = zext i32 %547 to i64
   %549 = shl nuw nsw i64 %548, 3
@@ -3070,7 +3070,7 @@ mmbit_compsize.exit.thread.i:                     ; preds = %533
 
 583:                                              ; preds = %.preheader
   %584 = zext i32 %.044.i310.i to i64
-  %585 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %584
+  %585 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %584
   %586 = load i32, ptr %585, align 4
   %587 = zext i32 %586 to i64
   %588 = shl nuw nsw i64 %587, 3
@@ -3286,7 +3286,7 @@ mmbit_get_flat_block.exit221.i:                   ; preds = %686, %678, %675, %6
 697:                                              ; preds = %622
   %698 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %620, i1 true)
   %699 = zext nneg i32 %698 to i64
-  %700 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %699
+  %700 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %699
   %701 = load i8, ptr %700, align 1
   %702 = zext i8 %701 to i32
   br label %.backedge686.i
@@ -3300,7 +3300,7 @@ mmbit_get_flat_block.exit221.i:                   ; preds = %686, %678, %675, %6
 
 704:                                              ; preds = %.backedge686.i
   %705 = zext i32 %.1.i204.i to i64
-  %706 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %705
+  %706 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %705
   %707 = load i32, ptr %706, align 4
   %708 = zext i32 %707 to i64
   %709 = shl nuw nsw i64 %708, 3
@@ -3366,7 +3366,7 @@ mmbit_iterate.exit.i:                             ; preds = %717, %657
   %743 = sub nuw nsw i64 64, %742
   %744 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %620, i1 true)
   %745 = zext nneg i32 %744 to i64
-  %746 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %745
+  %746 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %745
   %747 = zext nneg i32 %732 to i64
   br label %1145
 
@@ -3566,7 +3566,7 @@ mmbit_get_flat_block.exit.i.i.i:                  ; preds = %839, %832, %824, %8
   %857 = add i32 %754, -1
   %858 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %857, i1 true)
   %859 = zext nneg i32 %858 to i64
-  %860 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %859
+  %860 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %859
   %861 = load i8, ptr %860, align 1
   %862 = zext i8 %861 to i32
   store i64 %855, ptr %5, align 16
@@ -3604,7 +3604,7 @@ mmbit_mask_index.exit.i.i.i:                      ; preds = %864
   %880 = zext i32 %879 to i64
   %881 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %760, i64 %880
   %882 = zext i32 %871 to i64
-  %883 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %882
+  %883 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %882
   %884 = load i32, ptr %883, align 4
   %885 = zext i32 %884 to i64
   %886 = shl nuw nsw i64 %885, 3
@@ -3665,7 +3665,7 @@ mmbit_sparse_iter_begin.exit.i.i:                 ; preds = %mmbit_mask_index.ex
   %916 = add i32 %754, -1
   %917 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %916, i1 true)
   %918 = zext nneg i32 %917 to i64
-  %919 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %918
+  %919 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %918
   %920 = load i8, ptr %919, align 1
   %921 = zext i8 %920 to i32
   %922 = zext i8 %920 to i64
@@ -3752,7 +3752,7 @@ mmbit_mask_index.exit.i.i.us.i.i:                 ; preds = %965
   %983 = zext i32 %982 to i64
   %984 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %760, i64 %983
   %985 = zext i32 %974 to i64
-  %986 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %985
+  %986 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %985
   %987 = load i32, ptr %986, align 4
   %988 = zext i32 %987 to i64
   %989 = shl nuw nsw i64 %988, 3
@@ -4288,7 +4288,7 @@ mmbit_get_flat_block.exit229.i:                   ; preds = %1268, %1260, %1257,
 
 1285:                                             ; preds = %.backedge.i
   %1286 = zext i32 %.1.i198.i to i64
-  %1287 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1286
+  %1287 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1286
   %1288 = load i32, ptr %1287, align 4
   %1289 = zext i32 %1288 to i64
   %1290 = shl nuw nsw i64 %1289, 3
@@ -4361,7 +4361,7 @@ mmbit_iterate.exit182.i:                          ; preds = %1298, %1275, %1238,
   %1327 = add i32 %1320, -1
   %1328 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %1327, i1 true)
   %1329 = zext nneg i32 %1328 to i64
-  %1330 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %1329
+  %1330 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %1329
   %1331 = load i8, ptr %1330, align 1
   %1332 = zext i8 %1331 to i32
   br label %.backedge268.i.i
@@ -4376,7 +4376,7 @@ mmbit_iterate.exit182.i:                          ; preds = %1298, %1275, %1238,
 
 1334:                                             ; preds = %.backedge268.i.i
   %1335 = zext i32 %.027.i.i.i to i64
-  %1336 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1335
+  %1336 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1335
   %1337 = load i32, ptr %1336, align 4
   %1338 = zext i32 %1337 to i64
   %1339 = shl nuw nsw i64 %1338, 3
@@ -4460,7 +4460,7 @@ mmbit_compsize.exit.thread.i.i:                   ; preds = %1323
 
 1373:                                             ; preds = %.preheader680.i
   %1374 = zext i32 %.044.i116.i.i to i64
-  %1375 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1374
+  %1375 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1374
   %1376 = load i32, ptr %1375, align 4
   %1377 = zext i32 %1376 to i64
   %1378 = shl nuw nsw i64 %1377, 3
@@ -4538,7 +4538,7 @@ mmbit_compsize.exit.thread.i.i:                   ; preds = %1323
   %1418 = add i32 %1411, -1
   %1419 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %1418, i1 true)
   %1420 = zext nneg i32 %1419 to i64
-  %1421 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %1420
+  %1421 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %1420
   %1422 = load i8, ptr %1421, align 1
   %1423 = zext i8 %1422 to i32
   br label %.backedge265.i.i
@@ -4553,7 +4553,7 @@ mmbit_compsize.exit.thread.i.i:                   ; preds = %1323
 
 1425:                                             ; preds = %.backedge265.i.i
   %1426 = zext i32 %.027.i143.i.i to i64
-  %1427 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1426
+  %1427 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1426
   %1428 = load i32, ptr %1427, align 4
   %1429 = zext i32 %1428 to i64
   %1430 = shl nuw nsw i64 %1429, 3
@@ -4637,7 +4637,7 @@ mmbit_compsize.exit156.thread.i.i:                ; preds = %1414
 
 1464:                                             ; preds = %.preheader.i
   %1465 = zext i32 %.044.i.i422.i to i64
-  %1466 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1465
+  %1466 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1465
   %1467 = load i32, ptr %1466, align 4
   %1468 = zext i32 %1467 to i64
   %1469 = shl nuw nsw i64 %1468, 3
@@ -4857,7 +4857,7 @@ mmbit_get_flat_block.exit107.i.i:                 ; preds = %1570, %1562, %1559,
 1581:                                             ; preds = %1506
   %1582 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %1504, i1 true)
   %1583 = zext nneg i32 %1582 to i64
-  %1584 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %1583
+  %1584 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %1583
   %1585 = load i8, ptr %1584, align 1
   %1586 = zext i8 %1585 to i32
   br label %.backedge263.i.i
@@ -4871,7 +4871,7 @@ mmbit_get_flat_block.exit107.i.i:                 ; preds = %1570, %1562, %1559,
 
 1588:                                             ; preds = %.backedge263.i.i
   %1589 = zext i32 %.1.i72.i.i to i64
-  %1590 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1589
+  %1590 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1589
   %1591 = load i32, ptr %1590, align 4
   %1592 = zext i32 %1591 to i64
   %1593 = shl nuw nsw i64 %1592, 3
@@ -4936,7 +4936,7 @@ mmbit_iterate.exit60.i.i:                         ; preds = %1601, %1541
   %1626 = sub nuw nsw i64 64, %1625
   %1627 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %1504, i1 true)
   %1628 = zext nneg i32 %1627 to i64
-  %1629 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %1628
+  %1629 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %1628
   br i1 %1507, label %.lr.ph280.split.split.us.i.i, label %.lr.ph280.split.split.i.i
 
 .lr.ph280.split.split.us.i.i:                     ; preds = %.lr.ph280.i.i, %mmbit_iterate.exit.us284.i.i
@@ -4971,7 +4971,7 @@ mmbit_iterate.exit60.i.i:                         ; preds = %1601, %1541
 
 1645:                                             ; preds = %.backedge.us.i.i
   %1646 = zext i32 %.1.i78.us.i.i to i64
-  %1647 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1646
+  %1647 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1646
   %1648 = load i32, ptr %1647, align 4
   %1649 = zext i32 %1648 to i64
   %1650 = shl nuw nsw i64 %1649, 3
@@ -5296,7 +5296,7 @@ define hidden i64 @size_compress_stream(ptr noundef readonly %0, ptr noundef rea
   %17 = add i32 %7, -1
   %18 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   br label %.backedge95.i
@@ -5311,7 +5311,7 @@ define hidden i64 @size_compress_stream(ptr noundef readonly %0, ptr noundef rea
 
 24:                                               ; preds = %.backedge95.i
   %25 = zext i32 %.027.i.i to i64
-  %26 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 3
@@ -5398,7 +5398,7 @@ mmbit_compsize.exit.i:                            ; preds = %50, %13, %9
   %78 = add i32 %68, -1
   %79 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %78, i1 true)
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   br label %.backedge94.i
@@ -5413,7 +5413,7 @@ mmbit_compsize.exit.i:                            ; preds = %50, %13, %9
 
 85:                                               ; preds = %.backedge94.i
   %86 = zext i32 %.027.i162.i to i64
-  %87 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = zext i32 %88 to i64
   %90 = shl nuw nsw i64 %89, 3
@@ -5494,7 +5494,7 @@ mmbit_compsize.exit175.i:                         ; preds = %111, %74, %70
   %134 = add i32 %124, -1
   %135 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %134, i1 true)
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   br label %.backedge93.i
@@ -5509,7 +5509,7 @@ mmbit_compsize.exit175.i:                         ; preds = %111, %74, %70
 
 141:                                              ; preds = %.backedge93.i
   %142 = zext i32 %.027.i179.i to i64
-  %143 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %142
   %144 = load i32, ptr %143, align 4
   %145 = zext i32 %144 to i64
   %146 = shl nuw nsw i64 %145, 3
@@ -5613,7 +5613,7 @@ mmbit_compsize.exit192.i:                         ; preds = %167, %130, %126
   %207 = add i32 %197, -1
   %208 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %207, i1 true)
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %209
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   br label %.backedge92.i
@@ -5628,7 +5628,7 @@ mmbit_compsize.exit192.i:                         ; preds = %167, %130, %126
 
 214:                                              ; preds = %.backedge92.i
   %215 = zext i32 %.027.i196.i to i64
-  %216 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %215
   %217 = load i32, ptr %216, align 4
   %218 = zext i32 %217 to i64
   %219 = shl nuw nsw i64 %218, 3
@@ -5711,7 +5711,7 @@ mmbit_compsize.exit209.i:                         ; preds = %240, %203, %199
   %265 = add i32 %255, -1
   %266 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %265, i1 true)
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %267
   %269 = load i8, ptr %268, align 1
   %270 = zext i8 %269 to i32
   br label %.backedge91.i
@@ -5726,7 +5726,7 @@ mmbit_compsize.exit209.i:                         ; preds = %240, %203, %199
 
 272:                                              ; preds = %.backedge91.i
   %273 = zext i32 %.027.i213.i to i64
-  %274 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %273
   %275 = load i32, ptr %274, align 4
   %276 = zext i32 %275 to i64
   %277 = shl nuw nsw i64 %276, 3
@@ -5806,7 +5806,7 @@ mmbit_compsize.exit226.i:                         ; preds = %298, %261, %257
   %320 = add i32 %310, -1
   %321 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %320, i1 true)
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %322
   %324 = load i8, ptr %323, align 1
   %325 = zext i8 %324 to i32
   br label %.backedge90.i
@@ -5821,7 +5821,7 @@ mmbit_compsize.exit226.i:                         ; preds = %298, %261, %257
 
 327:                                              ; preds = %.backedge90.i
   %328 = zext i32 %.027.i230.i to i64
-  %329 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %328
   %330 = load i32, ptr %329, align 4
   %331 = zext i32 %330 to i64
   %332 = shl nuw nsw i64 %331, 3
@@ -6034,7 +6034,7 @@ mmbit_get_flat_block.exit137.i:                   ; preds = %430, %422, %419, %4
 441:                                              ; preds = %367
   %442 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %365, i1 true)
   %443 = zext nneg i32 %442 to i64
-  %444 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %443
+  %444 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %443
   %445 = load i8, ptr %444, align 1
   %446 = zext i8 %445 to i32
   br label %.backedge89.i
@@ -6048,7 +6048,7 @@ mmbit_get_flat_block.exit137.i:                   ; preds = %430, %422, %419, %4
 
 448:                                              ; preds = %.backedge89.i
   %449 = zext i32 %.1.i120.i to i64
-  %450 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %449
   %451 = load i32, ptr %450, align 4
   %452 = zext i32 %451 to i64
   %453 = shl nuw nsw i64 %452, 3
@@ -6117,7 +6117,7 @@ mmbit_iterate.exit.i:                             ; preds = %461, %401
   %490 = sub nuw nsw i64 64, %489
   %491 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %365, i1 true)
   %492 = zext nneg i32 %491 to i64
-  %493 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %492
   %494 = zext nneg i32 %479 to i64
   br label %826
 
@@ -6309,7 +6309,7 @@ mmbit_get_flat_block.exit.i.i.i:                  ; preds = %580, %573, %565, %5
   %598 = add i32 %124, -1
   %599 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %598, i1 true)
   %600 = zext nneg i32 %599 to i64
-  %601 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %600
   %602 = load i8, ptr %601, align 1
   %603 = zext i8 %602 to i32
   store i64 %596, ptr %3, align 16
@@ -6347,7 +6347,7 @@ mmbit_mask_index.exit.i.i.i:                      ; preds = %605
   %621 = zext i32 %620 to i64
   %622 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %499, i64 %621
   %623 = zext i32 %612 to i64
-  %624 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %623
+  %624 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %623
   %625 = load i32, ptr %624, align 4
   %626 = zext i32 %625 to i64
   %627 = shl nuw nsw i64 %626, 3
@@ -6412,7 +6412,7 @@ mmbit_sparse_iter_begin.exit.i.i:                 ; preds = %mmbit_mask_index.ex
   %661 = add i32 %124, -1
   %662 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %661, i1 true)
   %663 = zext nneg i32 %662 to i64
-  %664 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %663
+  %664 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %663
   %665 = load i8, ptr %664, align 1
   %666 = zext i8 %665 to i32
   %667 = zext i8 %665 to i64
@@ -6476,7 +6476,7 @@ mmbit_mask_index.exit.i.i.us.i.i:                 ; preds = %689
   %707 = zext i32 %706 to i64
   %708 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %499, i64 %707
   %709 = zext i32 %698 to i64
-  %710 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %709
+  %710 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %709
   %711 = load i32, ptr %710, align 4
   %712 = zext i32 %711 to i64
   %713 = shl nuw nsw i64 %712, 3
@@ -6954,7 +6954,7 @@ mmbit_get_flat_block.exit145.i:                   ; preds = %939, %931, %928, %9
 
 956:                                              ; preds = %.backedge.i
   %957 = zext i32 %.1.i114.i to i64
-  %958 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %957
+  %958 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %957
   %959 = load i32, ptr %958, align 4
   %960 = zext i32 %959 to i64
   %961 = shl nuw nsw i64 %960, 3
@@ -7033,7 +7033,7 @@ mmbit_compsize.exit109.thread7.i.i:               ; preds = %992
   %997 = add i32 %.fr85.i.i, -1
   %998 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %997, i1 true)
   %999 = zext nneg i32 %998 to i64
-  %1000 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %999
+  %1000 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %999
   %1001 = load i8, ptr %1000, align 1
   %1002 = zext i8 %1001 to i32
   br label %.backedge57.i.i
@@ -7048,7 +7048,7 @@ mmbit_compsize.exit109.thread7.i.i:               ; preds = %992
 
 1004:                                             ; preds = %.backedge57.i.i
   %1005 = zext i32 %.027.i96.i.i to i64
-  %1006 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1005
+  %1006 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1005
   %1007 = load i32, ptr %1006, align 4
   %1008 = zext i32 %1007 to i64
   %1009 = shl nuw nsw i64 %1008, 3
@@ -7113,7 +7113,7 @@ mmbit_compsize.exit109.i.i:                       ; preds = %.thread.i.i
   %1039 = getelementptr inbounds nuw i8, ptr %4, i64 %.pn.i.i
   %1040 = load i64, ptr %1039, align 1
   %1041 = icmp eq i64 %1040, 0
-  %.phi.trans.insert = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %.pre210.i.pre-phi
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %.pre210.i.pre-phi
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %.pre114 = zext i8 %.pre to i32
   br i1 %1041, label %mmbit_compsize.exit.i.i, label %.preheader
@@ -7128,7 +7128,7 @@ mmbit_compsize.exit109.i.i:                       ; preds = %.thread.i.i
 
 1043:                                             ; preds = %.preheader
   %1044 = zext i32 %.027.i.i.i to i64
-  %1045 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1044
+  %1045 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1044
   %1046 = load i32, ptr %1045, align 4
   %1047 = zext i32 %1046 to i64
   %1048 = shl nuw nsw i64 %1047, 3
@@ -7355,7 +7355,7 @@ mmbit_get_flat_block.exit83.i.i:                  ; preds = %1151, %1143, %1140,
 
 1163:                                             ; preds = %.backedge55.i.i
   %1164 = zext i32 %.1.i48.i.i to i64
-  %1165 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1164
+  %1165 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1164
   %1166 = load i32, ptr %1165, align 4
   %1167 = zext i32 %1166 to i64
   %1168 = shl nuw nsw i64 %1167, 3
@@ -7432,7 +7432,7 @@ mmbit_iterate.exit36.i..lr.ph69.i249_crit_edge.i: ; preds = %mmbit_iterate.exit3
   %1208 = sub nuw nsw i64 64, %1207
   %1209 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %1195, i1 true)
   %1210 = zext nneg i32 %1209 to i64
-  %1211 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %1210
+  %1211 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %1210
   br i1 %991, label %.lr.ph69.split.split.us.i253.i, label %.lr.ph69.split.split.i251.i
 
 .lr.ph69.split.split.us.i253.i:                   ; preds = %.lr.ph69.i249.i, %mmbit_iterate.exit.us72.i.i
@@ -7459,7 +7459,7 @@ mmbit_iterate.exit36.i..lr.ph69.i249_crit_edge.i: ; preds = %mmbit_iterate.exit3
 
 1220:                                             ; preds = %.backedge.us.i.i
   %1221 = zext i32 %.1.i54.us.i.i to i64
-  %1222 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %1221
+  %1222 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1221
   %1223 = load i32, ptr %1222, align 4
   %1224 = zext i32 %1223 to i64
   %1225 = shl nuw nsw i64 %1224, 3
@@ -7777,7 +7777,7 @@ define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %0
   %27 = add i32 %16, -1
   %28 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i64 %23, ptr %13, align 1
@@ -7800,7 +7800,7 @@ define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %0
   br i1 %37, label %38, label %.thread153
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 3
@@ -7825,7 +7825,7 @@ define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %0
   %57 = or disjoint i32 %54, %56
   %58 = add nuw nsw i32 %53, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = shl nuw nsw i64 %62, 3
@@ -7889,7 +7889,7 @@ define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %0
   %98 = add i32 %87, -1
   %99 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %98, i1 true)
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i64 %94, ptr %85, align 1
@@ -7912,7 +7912,7 @@ define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %0
   br i1 %108, label %109, label %.thread171
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv294
+  %110 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv294
   %111 = load i32, ptr %110, align 4
   %112 = zext i32 %111 to i64
   %113 = shl nuw nsw i64 %112, 3
@@ -7937,7 +7937,7 @@ define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %0
   %128 = or disjoint i32 %125, %127
   %129 = add nuw nsw i32 %124, 1
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = zext i32 %132 to i64
   %134 = shl nuw nsw i64 %133, 3
@@ -8134,7 +8134,7 @@ mmbit_get_flat_block.exit141:                     ; preds = %213, %216, %219, %2
 238:                                              ; preds = %162
   %239 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %160, i1 true)
   %240 = zext nneg i32 %239 to i64
-  %241 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %240
   %242 = load i8, ptr %241, align 1
   %243 = zext i8 %242 to i32
   br label %.backedge223
@@ -8148,7 +8148,7 @@ mmbit_get_flat_block.exit141:                     ; preds = %213, %216, %219, %2
 
 245:                                              ; preds = %.backedge223
   %246 = zext i32 %.1.i104 to i64
-  %247 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %246
   %248 = load i32, ptr %247, align 4
   %249 = zext i32 %248 to i64
   %250 = shl nuw nsw i64 %249, 3
@@ -8213,7 +8213,7 @@ mmbit_iterate.exit87:                             ; preds = %258, %197
   %283 = sub nuw nsw i64 64, %282
   %284 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %160, i1 true)
   %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %285
   %287 = icmp ugt i32 %.fr271, 256
   br i1 %287, label %.lr.ph246.split.split.us, label %.lr.ph246.split.split
 
@@ -8253,7 +8253,7 @@ mmbit_iterate.exit87:                             ; preds = %258, %197
 
 305:                                              ; preds = %.backedge.us
   %306 = zext i32 %.1.i112.us to i64
-  %307 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %306
+  %307 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %306
   %308 = load i32, ptr %307, align 4
   %309 = zext i32 %308 to i64
   %310 = shl nuw nsw i64 %309, 3

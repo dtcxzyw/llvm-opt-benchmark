@@ -1308,7 +1308,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @simple_length(ptr noun
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %8 = zext i8 %3 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = and i8 %10, 8
   %.not = icmp eq i8 %11, 0
@@ -1333,7 +1333,7 @@ define dso_local range(i32 0, 2) i32 @no_wildcard(ptr noundef readonly captures(
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %8 = zext i8 %3 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = and i8 %10, 8
   %.not.i = icmp eq i8 %11, 0
@@ -1425,7 +1425,7 @@ define dso_local void @parse_path_pattern(ptr noundef captures(none) %0, ptr nou
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %37 = zext i8 %32 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !4
   %40 = and i8 %39, 8
   %.not.i = icmp eq i8 %40, 0
@@ -1455,7 +1455,7 @@ simple_length.exit:                               ; preds = %31, %35
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %52 = zext i8 %47 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = and i8 %54, 8
   %.not.i.i = icmp eq i8 %55, 0
@@ -1747,7 +1747,7 @@ define dso_local void @add_pattern(ptr noundef readonly captures(none) %0, ptr n
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %35 = zext i8 %30 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = and i8 %37, 8
   %.not.i.i = icmp eq i8 %38, 0
@@ -1776,7 +1776,7 @@ simple_length.exit.i:                             ; preds = %33, %29
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 1
   %50 = zext i8 %45 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !4
   %53 = and i8 %52, 8
   %.not.i.i.i = icmp eq i8 %53, 0
@@ -2011,7 +2011,7 @@ _.exit96.i:                                       ; preds = %134, %.tail131.thre
   %.071143.i = phi ptr [ %167, %165 ], [ %138, %.lr.ph.preheader.i35 ]
   %.072142.i = phi ptr [ %166, %165 ], [ %66, %.lr.ph.preheader.i35 ]
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !4
   %144 = and i8 %143, 8
   %.not92.i = icmp eq i8 %144, 0
@@ -2029,7 +2029,7 @@ _.exit96.i:                                       ; preds = %134, %.tail131.thre
 150:                                              ; preds = %148
   %151 = load i8, ptr %.070144.i, align 1, !tbaa !4
   %152 = zext i8 %151 to i64
-  %153 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !4
   %155 = and i8 %154, 8
   %.not93.i = icmp eq i8 %155, 0
@@ -2835,7 +2835,7 @@ trim_trailing_spaces.exit:                        ; preds = %34, %39, %40
 define dso_local noundef ptr @add_pattern_list(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [3 x %struct.exclude_list_group], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.exclude_list_group, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !141
@@ -3671,7 +3671,7 @@ define dso_local ptr @last_matching_pattern(ptr noundef %0, ptr noundef %1, ptr 
 
 18:                                               ; preds = %31, %15
   %indvars.iv24.i = phi i64 [ 0, %15 ], [ %indvars.iv.next25.i, %31 ]
-  %19 = getelementptr inbounds nuw [3 x %struct.exclude_list_group], ptr %17, i64 0, i64 %indvars.iv24.i
+  %19 = getelementptr inbounds nuw %struct.exclude_list_group, ptr %17, i64 %indvars.iv24.i
   %20 = load i32, ptr %19, align 8, !tbaa !60
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = zext i32 %20 to i64
@@ -3942,7 +3942,7 @@ add_pattern_list.exit:                            ; preds = %._crit_edge.i, %st_
 
 129:                                              ; preds = %._crit_edge192, %119
   %indvars.iv24.i = phi i64 [ 0, %119 ], [ %indvars.iv.next25.i, %._crit_edge192 ]
-  %130 = getelementptr inbounds nuw [3 x %struct.exclude_list_group], ptr %64, i64 0, i64 %indvars.iv24.i
+  %130 = getelementptr inbounds nuw %struct.exclude_list_group, ptr %64, i64 %indvars.iv24.i
   %131 = load i32, ptr %130, align 8, !tbaa !60
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %133 = icmp sgt i32 %131, 0
@@ -4057,7 +4057,7 @@ last_matching_pattern_from_lists.exit:            ; preds = %._crit_edge192, %15
 
 182:                                              ; preds = %184, %.critedge
   %.0811.i.i = phi i64 [ 0, %.critedge ], [ %185, %184 ]
-  %183 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %183 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %181, %183
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %184
 
@@ -4190,7 +4190,7 @@ define dso_local range(i32 0, 2) i32 @is_excluded(ptr noundef %0, ptr noundef %1
 
 18:                                               ; preds = %31, %15
   %indvars.iv24.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next25.i.i, %31 ]
-  %19 = getelementptr inbounds nuw [3 x %struct.exclude_list_group], ptr %17, i64 0, i64 %indvars.iv24.i.i
+  %19 = getelementptr inbounds nuw %struct.exclude_list_group, ptr %17, i64 %indvars.iv24.i.i
   %20 = load i32, ptr %19, align 8, !tbaa !60
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = zext i32 %20 to i64
@@ -4424,7 +4424,7 @@ define dso_local range(i32 0, 2) i32 @check_dir_entry_contains(ptr noundef reado
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = add i32 %3, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %13, label %17
@@ -5359,7 +5359,7 @@ cmp_icase.exit.thread.us:                         ; preds = %.lr.ph.split.us
 cmp_icase.exit:                                   ; preds = %14
   %16 = zext i8 %12 to i32
   %17 = zext i8 %12 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !4
   %20 = and i8 %19, 4
   %.not.i.i = icmp eq i8 %20, 0
@@ -5367,7 +5367,7 @@ cmp_icase.exit:                                   ; preds = %14
   %spec.select.i.i = select i1 %.not.i.i, i32 %16, i32 %21
   %22 = zext i8 %13 to i32
   %23 = zext i8 %13 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = and i8 %25, 4
   %.not.i9.i = icmp eq i8 %26, 0
@@ -5466,7 +5466,7 @@ cmp_icase.exit.thread.us.i:                       ; preds = %.lr.ph.split.us.i
 cmp_icase.exit.i:                                 ; preds = %15
   %17 = zext i8 %13 to i32
   %18 = zext i8 %13 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !4
   %21 = and i8 %20, 4
   %.not.i.i.i = icmp eq i8 %21, 0
@@ -5474,7 +5474,7 @@ cmp_icase.exit.i:                                 ; preds = %15
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %17, i32 %22
   %23 = zext i8 %14 to i32
   %24 = zext i8 %14 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = and i8 %26, 4
   %.not.i9.i.i = icmp eq i8 %27, 0
@@ -5631,7 +5631,7 @@ define dso_local noundef ptr @git_url_basename(ptr noundef %0, i32 noundef %1, i
 
 19:                                               ; preds = %.lr.ph141
   %20 = zext i8 %18 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = and i8 %22, 1
   %.not105 = icmp eq i8 %23, 0
@@ -5708,7 +5708,7 @@ define dso_local noundef ptr @git_url_basename(ptr noundef %0, i32 noundef %1, i
   %47 = getelementptr inbounds i8, ptr %.191, i64 -1
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !4
   %52 = and i8 %51, 2
   %.not110 = icmp eq i8 %52, 0
@@ -5798,7 +5798,7 @@ strip_suffix_mem.exit:                            ; preds = %63, %.critedge10
   %80 = phi i8 [ %.pr, %88 ], [ %79, %78 ]
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %80, i8 32)
   %81 = zext i8 %spec.store.select to i64
-  %82 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !4
   %84 = and i8 %83, 1
   %.not119 = icmp eq i8 %84, 0
@@ -6364,7 +6364,7 @@ define dso_local void @dir_clear(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1, %._crit_edge
   %indvars.iv47 = phi i64 [ 0, %1 ], [ %indvars.iv.next48, %._crit_edge ]
-  %10 = getelementptr inbounds nuw [3 x %struct.exclude_list_group], ptr %4, i64 0, i64 %indvars.iv47
+  %10 = getelementptr inbounds nuw %struct.exclude_list_group, ptr %4, i64 %indvars.iv47
   %11 = load i32, ptr %10, align 8, !tbaa !60
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
@@ -7161,7 +7161,7 @@ git_bswap32.exit.i.i:                             ; preds = %23
 
 69:                                               ; preds = %.preheader105, %71
   %.0811.i.i.i = phi i64 [ %72, %71 ], [ 0, %.preheader105 ]
-  %70 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %70 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %61, %70
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %71
 
@@ -7244,7 +7244,7 @@ load_oid_stat.exit:                               ; preds = %71, %.split.loop.ex
 
 119:                                              ; preds = %.preheader, %121
   %.0811.i.i.i78 = phi i64 [ %122, %121 ], [ 0, %.preheader ]
-  %120 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i78
+  %120 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i78
   %.not.i.i.i79 = icmp eq ptr %111, %120
   br i1 %.not.i.i.i79, label %.split.loop.exit9.i.i.i82, label %121
 
@@ -7714,7 +7714,7 @@ define internal void @read_oid(i64 noundef %0, ptr noundef captures(none) %1) #2
 
 27:                                               ; preds = %.preheader, %29
   %.0811.i.i = phi i64 [ %30, %29 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %28 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %7, %28
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %29
 
@@ -8936,7 +8936,7 @@ define internal fastcc i32 @resolve_dtype(i32 noundef %0, ptr noundef %1, ptr no
   br i1 %.not27.i, label %33, label %.loopexit.i
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds [0 x i8], ptr %31, i64 0, i64 %24
+  %34 = getelementptr inbounds i8, ptr %31, i64 %24
   %35 = load i8, ptr %34, align 1, !tbaa !4
   %36 = icmp sgt i8 %35, 47
   br i1 %36, label %.loopexit.i, label %37
@@ -9507,7 +9507,7 @@ ps_strncmp.exit.i:                                ; preds = %105, %103
 
 142:                                              ; preds = %155, %139
   %indvars.iv24.i.i.i = phi i64 [ 0, %139 ], [ %indvars.iv.next25.i.i.i, %155 ]
-  %143 = getelementptr inbounds nuw [3 x %struct.exclude_list_group], ptr %141, i64 0, i64 %indvars.iv24.i.i.i
+  %143 = getelementptr inbounds nuw %struct.exclude_list_group, ptr %141, i64 %indvars.iv24.i.i.i
   %144 = load i32, ptr %143, align 8, !tbaa !60
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %146 = zext i32 %144 to i64
@@ -9862,7 +9862,7 @@ define internal fastcc range(i32 0, 3) i32 @directory_exists_in_index(ptr nounde
   br i1 %.not28, label %29, label %directory_exists_in_index_icase.exit
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds [0 x i8], ptr %27, i64 0, i64 %22
+  %30 = getelementptr inbounds i8, ptr %27, i64 %22
   %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = icmp ugt i8 %31, 47
   br i1 %32, label %directory_exists_in_index_icase.exit, label %33

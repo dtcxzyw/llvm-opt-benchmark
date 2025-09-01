@@ -268,7 +268,7 @@ define hidden noundef nonnull ptr @_ZN14CompressedOops14mode_to_stringENS_4ModeE
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN14CompressedOops14mode_to_stringENS_4ModeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14CompressedOops14mode_to_stringENS_4ModeE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

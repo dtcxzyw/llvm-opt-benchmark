@@ -2955,9 +2955,9 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br label %84
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv146
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv146
   %80 = load i8, ptr %79, align 1, !tbaa !75
-  %81 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %indvars.iv146
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv146
   %82 = load i8, ptr %81, align 1, !tbaa !75
   %83 = icmp ne i8 %80, %82
   %.not81 = icmp eq i64 %indvars.iv146, %75
@@ -2986,8 +2986,8 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
 .lr.ph126.preheader:                              ; preds = %91
   %92 = add nsw i32 %68, -1
   %93 = zext nneg i32 %92 to i64
-  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %93
-  %.phi.trans.insert150 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %93
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 %93
+  %.phi.trans.insert150 = getelementptr inbounds nuw i8, ptr %8, i64 %93
   br label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %108
@@ -3002,9 +3002,9 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br label %102
 
 95:                                               ; preds = %.lr.ph126
-  %96 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %97 = load i8, ptr %96, align 1, !tbaa !75
-  %98 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %99 = load i8, ptr %98, align 1, !tbaa !75
   %100 = icmp ult i8 %97, %99
   %101 = icmp ne i64 %indvars.iv, 0
@@ -3731,7 +3731,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82 ]
   %.fca.0.extract108109 = phi i64 [ %.0..0..fca.0.load.i52, %.lr.ph ], [ %.fca.0.extract, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82 ]
   %.8..8..8..sroa.28.0.copyload = load i64, ptr %.8..8..8..sroa_idx, align 8
-  %58 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)

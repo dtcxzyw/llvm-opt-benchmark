@@ -77,7 +77,7 @@ define dso_local void @Curl_debug(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 19:                                               ; preds = %18
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw [7 x [3 x i8]], ptr @Curl_debug.s_infotype, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [3 x i8], ptr @Curl_debug.s_infotype, i64 %20
   %22 = load ptr, ptr %5, align 8, !tbaa !78
   %23 = tail call i64 @fwrite(ptr noundef nonnull %21, i64 noundef 2, i64 noundef 1, ptr noundef %22)
   %24 = load ptr, ptr %5, align 8, !tbaa !78
@@ -138,10 +138,10 @@ define dso_local void @Curl_failf(ptr noundef %0, ptr noundef %1, ...) local_unn
 23:                                               ; preds = %19, %15, %11
   %24 = add nsw i32 %12, 1
   %25 = sext i32 %12 to i64
-  %26 = getelementptr inbounds [258 x i8], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds i8, ptr %4, i64 %25
   store i8 10, ptr %26, align 1, !tbaa !80
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds [258 x i8], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds i8, ptr %4, i64 %27
   store i8 0, ptr %28, align 1, !tbaa !80
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %4, i64 noundef %27)
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -169,14 +169,14 @@ define dso_local void @Curl_infof(ptr noundef %0, ptr noundef %1, ...) local_unn
   %3 = alloca [2053 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %40, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %7 = load i64, ptr %6, align 2
   %8 = and i64 %7, 134217728
   %.not8 = icmp eq i64 %8, 0
-  br i1 %.not8, label %44, label %9
+  br i1 %.not8, label %40, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4712
@@ -188,7 +188,7 @@ define dso_local void @Curl_infof(ptr noundef %0, ptr noundef %1, ...) local_unn
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !82
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %44
+  br i1 %15, label %16, label %40
 
 16:                                               ; preds = %12, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -215,36 +215,32 @@ define dso_local void @Curl_infof(ptr noundef %0, ptr noundef %1, ...) local_unn
   br i1 %28, label %29, label %trc_infof.exit
 
 29:                                               ; preds = %21
-  %30 = add nsw i32 %27, -1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %31
+  %30 = zext nneg i32 %27 to i64
+  %31 = getelementptr i8, ptr %3, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -1
   store i8 46, ptr %32, align 1, !tbaa !80
-  %33 = add nuw nsw i32 %27, 1
-  %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %34
-  store i8 46, ptr %35, align 1, !tbaa !80
-  %36 = add nuw nsw i32 %27, 2
-  %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %37
-  store i8 46, ptr %38, align 1, !tbaa !80
+  store i8 46, ptr %31, align 1, !tbaa !80
+  %33 = add nuw nsw i32 %27, 2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 46, ptr %34, align 1, !tbaa !80
   br label %trc_infof.exit
 
 trc_infof.exit:                                   ; preds = %21, %29
-  %.1.i = phi i32 [ %36, %29 ], [ %27, %21 ]
-  %39 = add nsw i32 %.1.i, 1
-  %40 = sext i32 %.1.i to i64
-  %41 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %40
-  store i8 10, ptr %41, align 1, !tbaa !80
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %42
-  store i8 0, ptr %43, align 1, !tbaa !80
-  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %42)
+  %.1.i = phi i32 [ %33, %29 ], [ %27, %21 ]
+  %35 = add nsw i32 %.1.i, 1
+  %36 = sext i32 %.1.i to i64
+  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  store i8 10, ptr %37, align 1, !tbaa !80
+  %38 = sext i32 %35 to i64
+  %39 = getelementptr inbounds i8, ptr %3, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !80
+  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %40
 
-44:                                               ; preds = %trc_infof.exit, %12, %5, %2
+40:                                               ; preds = %trc_infof.exit, %12, %5, %2
   ret void
 }
 
@@ -340,10 +336,10 @@ define dso_local void @Curl_trc_cf_infof(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.va_end.p0(ptr nonnull %4)
   %52 = add nsw i32 %51, 1
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds [2050 x i8], ptr %5, i64 0, i64 %53
+  %54 = getelementptr inbounds i8, ptr %5, i64 %53
   store i8 10, ptr %54, align 1, !tbaa !80
   %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds [2050 x i8], ptr %5, i64 0, i64 %55
+  %56 = getelementptr inbounds i8, ptr %5, i64 %55
   store i8 0, ptr %56, align 1, !tbaa !80
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, i64 noundef %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -361,14 +357,14 @@ define dso_local void @Curl_trc_read(ptr noundef %0, ptr noundef %1, ...) local_
   %3 = alloca [2053 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %40, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %7 = load i64, ptr %6, align 2
   %8 = and i64 %7, 134217728
   %.not8 = icmp eq i64 %8, 0
-  br i1 %.not8, label %44, label %9
+  br i1 %.not8, label %40, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4712
@@ -383,12 +379,12 @@ define dso_local void @Curl_trc_read(ptr noundef %0, ptr noundef %1, ...) local_
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8
   %17 = icmp sgt i32 %16, 0
   %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %19, label %44
+  br i1 %or.cond, label %19, label %40
 
 18:                                               ; preds = %9
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_read, i64 8), align 8, !tbaa !82
   %.old1 = icmp sgt i32 %.old, 0
-  br i1 %.old1, label %19, label %44
+  br i1 %.old1, label %19, label %40
 
 19:                                               ; preds = %12, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -406,36 +402,32 @@ define dso_local void @Curl_trc_read(ptr noundef %0, ptr noundef %1, ...) local_
   br i1 %28, label %29, label %trc_infof.exit
 
 29:                                               ; preds = %19
-  %30 = add nsw i32 %27, -1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %31
+  %30 = zext nneg i32 %27 to i64
+  %31 = getelementptr i8, ptr %3, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -1
   store i8 46, ptr %32, align 1, !tbaa !80
-  %33 = add nuw nsw i32 %27, 1
-  %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %34
-  store i8 46, ptr %35, align 1, !tbaa !80
-  %36 = add nuw nsw i32 %27, 2
-  %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %37
-  store i8 46, ptr %38, align 1, !tbaa !80
+  store i8 46, ptr %31, align 1, !tbaa !80
+  %33 = add nuw nsw i32 %27, 2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 46, ptr %34, align 1, !tbaa !80
   br label %trc_infof.exit
 
 trc_infof.exit:                                   ; preds = %19, %29
-  %.1.i = phi i32 [ %36, %29 ], [ %27, %19 ]
-  %39 = add nsw i32 %.1.i, 1
-  %40 = sext i32 %.1.i to i64
-  %41 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %40
-  store i8 10, ptr %41, align 1, !tbaa !80
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %42
-  store i8 0, ptr %43, align 1, !tbaa !80
-  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %42)
+  %.1.i = phi i32 [ %33, %29 ], [ %27, %19 ]
+  %35 = add nsw i32 %.1.i, 1
+  %36 = sext i32 %.1.i to i64
+  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  store i8 10, ptr %37, align 1, !tbaa !80
+  %38 = sext i32 %35 to i64
+  %39 = getelementptr inbounds i8, ptr %3, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !80
+  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %40
 
-44:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
+40:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
   ret void
 }
 
@@ -444,14 +436,14 @@ define dso_local void @Curl_trc_write(ptr noundef %0, ptr noundef %1, ...) local
   %3 = alloca [2053 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %40, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %7 = load i64, ptr %6, align 2
   %8 = and i64 %7, 134217728
   %.not8 = icmp eq i64 %8, 0
-  br i1 %.not8, label %44, label %9
+  br i1 %.not8, label %40, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4712
@@ -466,12 +458,12 @@ define dso_local void @Curl_trc_write(ptr noundef %0, ptr noundef %1, ...) local
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8
   %17 = icmp sgt i32 %16, 0
   %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %19, label %44
+  br i1 %or.cond, label %19, label %40
 
 18:                                               ; preds = %9
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !82
   %.old1 = icmp sgt i32 %.old, 0
-  br i1 %.old1, label %19, label %44
+  br i1 %.old1, label %19, label %40
 
 19:                                               ; preds = %12, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -489,36 +481,32 @@ define dso_local void @Curl_trc_write(ptr noundef %0, ptr noundef %1, ...) local
   br i1 %28, label %29, label %trc_infof.exit
 
 29:                                               ; preds = %19
-  %30 = add nsw i32 %27, -1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %31
+  %30 = zext nneg i32 %27 to i64
+  %31 = getelementptr i8, ptr %3, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -1
   store i8 46, ptr %32, align 1, !tbaa !80
-  %33 = add nuw nsw i32 %27, 1
-  %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %34
-  store i8 46, ptr %35, align 1, !tbaa !80
-  %36 = add nuw nsw i32 %27, 2
-  %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %37
-  store i8 46, ptr %38, align 1, !tbaa !80
+  store i8 46, ptr %31, align 1, !tbaa !80
+  %33 = add nuw nsw i32 %27, 2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 46, ptr %34, align 1, !tbaa !80
   br label %trc_infof.exit
 
 trc_infof.exit:                                   ; preds = %19, %29
-  %.1.i = phi i32 [ %36, %29 ], [ %27, %19 ]
-  %39 = add nsw i32 %.1.i, 1
-  %40 = sext i32 %.1.i to i64
-  %41 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %40
-  store i8 10, ptr %41, align 1, !tbaa !80
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %42
-  store i8 0, ptr %43, align 1, !tbaa !80
-  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %42)
+  %.1.i = phi i32 [ %33, %29 ], [ %27, %19 ]
+  %35 = add nsw i32 %.1.i, 1
+  %36 = sext i32 %.1.i to i64
+  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  store i8 10, ptr %37, align 1, !tbaa !80
+  %38 = sext i32 %35 to i64
+  %39 = getelementptr inbounds i8, ptr %3, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !80
+  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %40
 
-44:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
+40:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
   ret void
 }
 
@@ -527,14 +515,14 @@ define dso_local void @Curl_trc_ftp(ptr noundef %0, ptr noundef %1, ...) local_u
   %3 = alloca [2053 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %40, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %7 = load i64, ptr %6, align 2
   %8 = and i64 %7, 134217728
   %.not8 = icmp eq i64 %8, 0
-  br i1 %.not8, label %44, label %9
+  br i1 %.not8, label %40, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4712
@@ -549,12 +537,12 @@ define dso_local void @Curl_trc_ftp(ptr noundef %0, ptr noundef %1, ...) local_u
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8
   %17 = icmp sgt i32 %16, 0
   %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %19, label %44
+  br i1 %or.cond, label %19, label %40
 
 18:                                               ; preds = %9
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8, !tbaa !82
   %.old1 = icmp sgt i32 %.old, 0
-  br i1 %.old1, label %19, label %44
+  br i1 %.old1, label %19, label %40
 
 19:                                               ; preds = %12, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -572,36 +560,32 @@ define dso_local void @Curl_trc_ftp(ptr noundef %0, ptr noundef %1, ...) local_u
   br i1 %28, label %29, label %trc_infof.exit
 
 29:                                               ; preds = %19
-  %30 = add nsw i32 %27, -1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %31
+  %30 = zext nneg i32 %27 to i64
+  %31 = getelementptr i8, ptr %3, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -1
   store i8 46, ptr %32, align 1, !tbaa !80
-  %33 = add nuw nsw i32 %27, 1
-  %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %34
-  store i8 46, ptr %35, align 1, !tbaa !80
-  %36 = add nuw nsw i32 %27, 2
-  %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %37
-  store i8 46, ptr %38, align 1, !tbaa !80
+  store i8 46, ptr %31, align 1, !tbaa !80
+  %33 = add nuw nsw i32 %27, 2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 46, ptr %34, align 1, !tbaa !80
   br label %trc_infof.exit
 
 trc_infof.exit:                                   ; preds = %19, %29
-  %.1.i = phi i32 [ %36, %29 ], [ %27, %19 ]
-  %39 = add nsw i32 %.1.i, 1
-  %40 = sext i32 %.1.i to i64
-  %41 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %40
-  store i8 10, ptr %41, align 1, !tbaa !80
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %42
-  store i8 0, ptr %43, align 1, !tbaa !80
-  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %42)
+  %.1.i = phi i32 [ %33, %29 ], [ %27, %19 ]
+  %35 = add nsw i32 %.1.i, 1
+  %36 = sext i32 %.1.i to i64
+  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  store i8 10, ptr %37, align 1, !tbaa !80
+  %38 = sext i32 %35 to i64
+  %39 = getelementptr inbounds i8, ptr %3, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !80
+  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %40
 
-44:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
+40:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
   ret void
 }
 
@@ -610,14 +594,14 @@ define dso_local void @Curl_trc_ws(ptr noundef %0, ptr noundef %1, ...) local_un
   %3 = alloca [2053 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %5
+  br i1 %.not, label %40, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %7 = load i64, ptr %6, align 2
   %8 = and i64 %7, 134217728
   %.not8 = icmp eq i64 %8, 0
-  br i1 %.not8, label %44, label %9
+  br i1 %.not8, label %40, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4712
@@ -632,12 +616,12 @@ define dso_local void @Curl_trc_ws(ptr noundef %0, ptr noundef %1, ...) local_un
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ws, i64 8), align 8
   %17 = icmp sgt i32 %16, 0
   %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %19, label %44
+  br i1 %or.cond, label %19, label %40
 
 18:                                               ; preds = %9
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ws, i64 8), align 8, !tbaa !82
   %.old1 = icmp sgt i32 %.old, 0
-  br i1 %.old1, label %19, label %44
+  br i1 %.old1, label %19, label %40
 
 19:                                               ; preds = %12, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -655,36 +639,32 @@ define dso_local void @Curl_trc_ws(ptr noundef %0, ptr noundef %1, ...) local_un
   br i1 %28, label %29, label %trc_infof.exit
 
 29:                                               ; preds = %19
-  %30 = add nsw i32 %27, -1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %31
+  %30 = zext nneg i32 %27 to i64
+  %31 = getelementptr i8, ptr %3, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -1
   store i8 46, ptr %32, align 1, !tbaa !80
-  %33 = add nuw nsw i32 %27, 1
-  %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %34
-  store i8 46, ptr %35, align 1, !tbaa !80
-  %36 = add nuw nsw i32 %27, 2
-  %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw [2053 x i8], ptr %3, i64 0, i64 %37
-  store i8 46, ptr %38, align 1, !tbaa !80
+  store i8 46, ptr %31, align 1, !tbaa !80
+  %33 = add nuw nsw i32 %27, 2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 46, ptr %34, align 1, !tbaa !80
   br label %trc_infof.exit
 
 trc_infof.exit:                                   ; preds = %19, %29
-  %.1.i = phi i32 [ %36, %29 ], [ %27, %19 ]
-  %39 = add nsw i32 %.1.i, 1
-  %40 = sext i32 %.1.i to i64
-  %41 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %40
-  store i8 10, ptr %41, align 1, !tbaa !80
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds [2053 x i8], ptr %3, i64 0, i64 %42
-  store i8 0, ptr %43, align 1, !tbaa !80
-  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %42)
+  %.1.i = phi i32 [ %33, %29 ], [ %27, %19 ]
+  %35 = add nsw i32 %.1.i, 1
+  %36 = sext i32 %.1.i to i64
+  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  store i8 10, ptr %37, align 1, !tbaa !80
+  %38 = sext i32 %35 to i64
+  %39 = getelementptr inbounds i8, ptr %3, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !80
+  call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %40
 
-44:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
+40:                                               ; preds = %trc_infof.exit, %18, %12, %5, %2
   ret void
 }
 
@@ -731,7 +711,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .split.us.i.i:                                    ; preds = %13, %.split.us.i.i
   %.019.us.i.i = phi i64 [ %18, %.split.us.i.i ], [ 0, %13 ]
-  %15 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.us.i.i
+  %15 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.us.i.i
   %16 = load ptr, ptr %15, align 16, !tbaa !94
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %.0.i, ptr %17, align 4, !tbaa !89
@@ -741,7 +721,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .preheader.split21.us.i.i:                        ; preds = %.split.us.i.i, %.preheader.split21.us.i.i
   %.120.us.i.i = phi i64 [ %22, %.preheader.split21.us.i.i ], [ 0, %.split.us.i.i ]
-  %19 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.us.i.i
+  %19 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.us.i.i
   %20 = load ptr, ptr %19, align 16, !tbaa !98
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %.0.i, ptr %21, align 8, !tbaa !82
@@ -756,14 +736,14 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .split.i.i:                                       ; preds = %23, %32
   %.019.i.i = phi i64 [ %33, %32 ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i.i, i32 1
+  %25 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i.i, i32 1
   %26 = load i32, ptr %25, align 8, !tbaa !101
   %27 = and i32 %26, 1
   %.not18.i.i = icmp eq i32 %27, 0
   br i1 %.not18.i.i, label %32, label %28
 
 28:                                               ; preds = %.split.i.i
-  %29 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i.i
+  %29 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i.i
   %30 = load ptr, ptr %29, align 16, !tbaa !94
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 %.0.i, ptr %31, align 4, !tbaa !89
@@ -776,14 +756,14 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .preheader.split21.i.i:                           ; preds = %32, %41
   %.120.i.i = phi i64 [ %42, %41 ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i.i, i32 1
+  %34 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i.i, i32 1
   %35 = load i32, ptr %34, align 8, !tbaa !102
   %36 = and i32 %35, 1
   %.not16.i.i = icmp eq i32 %36, 0
   br i1 %.not16.i.i, label %41, label %37
 
 37:                                               ; preds = %.preheader.split21.i.i
-  %38 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i.i
+  %38 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i.i
   %39 = load ptr, ptr %38, align 16, !tbaa !98
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %.0.i, ptr %40, align 8, !tbaa !82
@@ -801,14 +781,14 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .split.i27.i:                                     ; preds = %43, %52
   %.019.i28.i = phi i64 [ %53, %52 ], [ 0, %43 ]
-  %45 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i28.i, i32 1
+  %45 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i28.i, i32 1
   %46 = load i32, ptr %45, align 8, !tbaa !101
   %47 = and i32 %46, 2
   %.not18.i29.i = icmp eq i32 %47, 0
   br i1 %.not18.i29.i, label %52, label %48
 
 48:                                               ; preds = %.split.i27.i
-  %49 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i28.i
+  %49 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i28.i
   %50 = load ptr, ptr %49, align 16, !tbaa !94
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 %.0.i, ptr %51, align 4, !tbaa !89
@@ -821,14 +801,14 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .preheader.split21.i32.i:                         ; preds = %52, %61
   %.120.i33.i = phi i64 [ %62, %61 ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i33.i, i32 1
+  %54 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i33.i, i32 1
   %55 = load i32, ptr %54, align 8, !tbaa !102
   %56 = and i32 %55, 2
   %.not16.i34.i = icmp eq i32 %56, 0
   br i1 %.not16.i34.i, label %61, label %57
 
 57:                                               ; preds = %.preheader.split21.i32.i
-  %58 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i33.i
+  %58 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i33.i
   %59 = load ptr, ptr %58, align 16, !tbaa !98
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 %.0.i, ptr %60, align 8, !tbaa !82
@@ -846,14 +826,14 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .split.i37.i:                                     ; preds = %63, %72
   %.019.i38.i = phi i64 [ %73, %72 ], [ 0, %63 ]
-  %65 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i38.i, i32 1
+  %65 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i38.i, i32 1
   %66 = load i32, ptr %65, align 8, !tbaa !101
   %67 = and i32 %66, 4
   %.not18.i39.i = icmp eq i32 %67, 0
   br i1 %.not18.i39.i, label %72, label %68
 
 68:                                               ; preds = %.split.i37.i
-  %69 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.019.i38.i
+  %69 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i38.i
   %70 = load ptr, ptr %69, align 16, !tbaa !94
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 %.0.i, ptr %71, align 4, !tbaa !89
@@ -866,14 +846,14 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .preheader.split21.i42.i:                         ; preds = %72, %81
   %.120.i43.i = phi i64 [ %82, %81 ], [ 0, %72 ]
-  %74 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i43.i, i32 1
+  %74 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i43.i, i32 1
   %75 = load i32, ptr %74, align 8, !tbaa !102
   %76 = and i32 %75, 4
   %.not16.i44.i = icmp eq i32 %76, 0
   br i1 %.not16.i44.i, label %81, label %77
 
 77:                                               ; preds = %.preheader.split21.i42.i
-  %78 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.120.i43.i
+  %78 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i43.i
   %79 = load ptr, ptr %78, align 16, !tbaa !98
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 %.0.i, ptr %80, align 8, !tbaa !82
@@ -891,7 +871,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .preheader.i:                                     ; preds = %63, %83
   %.014.i.i = phi i64 [ %84, %83 ], [ 0, %63 ]
-  %85 = getelementptr inbounds nuw [15 x %struct.trc_cft_def], ptr @trc_cfts, i64 0, i64 %.014.i.i
+  %85 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.014.i.i
   %86 = load ptr, ptr %85, align 16, !tbaa !94
   %87 = load ptr, ptr %86, align 8, !tbaa !92
   %88 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %87) #8
@@ -913,7 +893,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .loopexit12.i.i:                                  ; preds = %.loopexit12.i.i.preheader, %91
   %.115.i.i = phi i64 [ %92, %91 ], [ 0, %.loopexit12.i.i.preheader ]
-  %93 = getelementptr inbounds nuw [5 x %struct.trc_feat_def], ptr @trc_feats, i64 0, i64 %.115.i.i
+  %93 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.115.i.i
   %94 = load ptr, ptr %93, align 16, !tbaa !98
   %95 = load ptr, ptr %94, align 8, !tbaa !84
   %96 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %95) #8

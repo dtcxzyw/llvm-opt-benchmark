@@ -347,7 +347,7 @@ define noundef ptr @Hop_ObjCreate(ptr noundef %0, ptr noundef readonly captures(
   %.val = load i32, ptr %7, align 8
   %16 = and i32 %.val, 7
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [6 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !20
@@ -537,7 +537,7 @@ define void @Hop_ObjDelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 4, !tbaa !20

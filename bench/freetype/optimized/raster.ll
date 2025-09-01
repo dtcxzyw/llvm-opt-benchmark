@@ -1167,7 +1167,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %275 = ashr i32 %274, 1
   %276 = add nsw i32 %.0, 1
   %277 = sext i32 %.0 to i64
-  %278 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %277
+  %278 = getelementptr inbounds i32, ptr %7, i64 %277
   store i32 %.027, ptr %278, align 4, !tbaa !3
   %279 = add nsw i32 %275, 1
   br label %36
@@ -1462,7 +1462,7 @@ Convert_Glyph.exit.thread165:                     ; preds = %269, %259
   store i32 %409, ptr %407, align 8, !tbaa !130
   %410 = getelementptr inbounds nuw i8, ptr %402, i64 40
   %411 = sext i32 %409 to i64
-  %412 = getelementptr inbounds [1 x i64], ptr %410, i64 0, i64 %411
+  %412 = getelementptr inbounds i64, ptr %410, i64 %411
   %413 = load i64, ptr %412, align 8, !tbaa !124
   %414 = getelementptr inbounds nuw i8, ptr %402, i64 32
   store i64 %413, ptr %414, align 8, !tbaa !126
@@ -1538,7 +1538,7 @@ Increment.exit.i:                                 ; preds = %427, %.preheader.i.
   store i32 %436, ptr %434, align 8, !tbaa !130
   %437 = getelementptr inbounds nuw i8, ptr %429, i64 40
   %438 = sext i32 %436 to i64
-  %439 = getelementptr inbounds [1 x i64], ptr %437, i64 0, i64 %438
+  %439 = getelementptr inbounds i64, ptr %437, i64 %438
   %440 = load i64, ptr %439, align 8, !tbaa !124
   %441 = getelementptr inbounds nuw i8, ptr %429, i64 32
   store i64 %440, ptr %441, align 8, !tbaa !126
@@ -1618,7 +1618,7 @@ Convert_Glyph.exit.thread45:                      ; preds = %36, %._crit_edge.i,
   %461 = add nsw i32 %.0, -1
   %462 = add nsw i32 %.027, -1
   %463 = zext nneg i32 %461 to i64
-  %464 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %463
+  %464 = getelementptr inbounds nuw i32, ptr %7, i64 %463
   %465 = load i32, ptr %464, align 4, !tbaa !3
   br label %.outer
 
@@ -1899,7 +1899,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %56, ptr %57, align 8, !tbaa !130
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds nuw [1 x i64], ptr %6, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %6, i64 %58
   br label %60
 
 60:                                               ; preds = %51, %33

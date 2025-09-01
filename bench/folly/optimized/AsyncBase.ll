@@ -368,7 +368,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringISt6atomicIN5folly
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i
 
@@ -389,7 +389,7 @@ _ZN6google22MakeCheckOpValueStringISt6atomicIN5folly11AsyncBaseOp5StateEEEEvPSoR
 
 switch.lookup6:                                   ; preds = %12
   %15 = zext nneg i32 %13 to i64
-  %switch.gep7 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 0, i64 %15
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %15
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i4
 
@@ -432,7 +432,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5follylsERSoNS_11Async
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5folly12_GLOBAL__N_122asyncIoOpStateToStringENS_11AsyncBaseOp5StateE.exit
 
@@ -674,7 +674,7 @@ define void @_ZN5folly11AsyncBaseOp7fd2nameB5cxx11Ei(ptr dead_on_unwind noalias 
 
 13:                                               ; preds = %19, %2
   %.08.i2.i.i.i.i.i.i = phi i64 [ 0, %2 ], [ %20, %19 ]
-  %14 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i2.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i2.i.i.i.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !40, !noalias !32
   %16 = icmp ugt i64 %15, %12
   br i1 %16, label %17, label %19, !prof !24
@@ -1350,7 +1350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 25:                                               ; preds = %29, %22
   %.08.i.i2.i.i.i = phi i64 [ 0, %22 ], [ %30, %29 ]
-  %26 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i.i2.i.i.i
+  %26 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i2.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !40
   %28 = icmp ugt i64 %27, %24
   br i1 %28, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i, label %29, !prof !24
@@ -1375,7 +1375,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %33 = add i64 %.014.i3.i.i.i, -2
   %34 = udiv i64 %.0.i4.i.i.i, 100
   %35 = urem i64 %.0.i4.i.i.i, 100
-  %36 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 %33
   store i16 %37, ptr %38, align 1
@@ -1386,7 +1386,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %spec.select.i.i10.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %spec.select.i.i11.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %34, %.lr.ph.i.i.i ]
-  %40 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
+  %40 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %41 = load i16, ptr %40, align 2, !tbaa !54
   %42 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %42, label %43, label %44, !prof !24
@@ -2012,7 +2012,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringIN5folly11AsyncBas
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i
 
@@ -2033,7 +2033,7 @@ _ZN6google22MakeCheckOpValueStringIN5folly11AsyncBaseOp5StateEEEvPSoRKT_.exit: ;
 
 switch.lookup7:                                   ; preds = %12
   %15 = zext nneg i32 %13 to i64
-  %switch.gep8 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 0, i64 %15
+  %switch.gep8 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6google17MakeCheckOpStringIN5folly11AsyncBaseOp5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.12, i64 %15
   %switch.load9 = load ptr, ptr %switch.gep8, align 8
   br label %_ZN5follylsERSoNS_11AsyncBaseOp5StateE.exit.i4
 

@@ -219,7 +219,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:
   store i32 16, ptr %16, align 4, !tbaa !19
   %17 = load i32, ptr %0, align 8, !tbaa !20
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZN4llvm14ProfileSummary5getMDERNS_11LLVMContextEbb.KindStr, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @__const._ZN4llvm14ProfileSummary5getMDERNS_11LLVMContextEbb.KindStr, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %21 = call noundef ptr @_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nonnull @.str.4, i64 13) #14

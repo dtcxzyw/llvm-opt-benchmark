@@ -33,7 +33,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i8, ptr %1, align 4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK5clang8comments7Comment18getCommentKindNameEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang8comments7Comment18getCommentKindNameEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -177,7 +177,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   %.02946.i.i.i.i.i = phi ptr [ %38, %37 ], [ %3, %.lr.ph.i.i.i.i.i.preheader ]
   %11 = load i8, ptr %.02946.i.i.i.i.i, align 1, !tbaa !23
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !24
   %15 = and i16 %14, 7
   %.not = icmp eq i16 %15, 0
@@ -187,7 +187,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   %17 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !23
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !24
   %22 = and i16 %21, 7
   %.not1 = icmp eq i16 %22, 0
@@ -197,7 +197,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   %24 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !23
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !24
   %29 = and i16 %28, 7
   %.not2 = icmp eq i16 %29, 0
@@ -207,7 +207,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   %31 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   %32 = load i8, ptr %31, align 1, !tbaa !23
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !24
   %36 = and i16 %35, 7
   %.not3 = icmp eq i16 %36, 0
@@ -232,7 +232,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
 42:                                               ; preds = %._crit_edge.i.i.i.i.i
   %43 = load i8, ptr %.029.lcssa.i.i.i.i.i, align 1, !tbaa !23
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !24
   %47 = and i16 %46, 7
   %.not4 = icmp eq i16 %47, 0
@@ -246,7 +246,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   %.1.i.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %51 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !23
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !24
   %55 = and i16 %54, 7
   %.not5 = icmp eq i16 %55, 0
@@ -260,7 +260,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitesp
   %.2.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %59 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !23
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !24
   %63 = and i16 %62, 7
   %.not6 = icmp eq i16 %63, 0
@@ -342,7 +342,7 @@ _ZNK5clang8comments11TextComment12isWhitespaceEv.exit: ; preds = %11
 define dso_local noundef nonnull ptr @_ZN5clang8comments19ParamCommandComment20getDirectionAsStringENS0_25ParamCommandPassDirectionE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang8comments19ParamCommandComment20getDirectionAsStringENS0_25ParamCommandPassDirectionE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang8comments19ParamCommandComment20getDirectionAsStringENS0_25ParamCommandPassDirectionE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

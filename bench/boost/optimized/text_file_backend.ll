@@ -29686,7 +29686,7 @@ define linkonce_odr hidden void @_ZN5boost9gregorian5to_tmERKNS0_4dateE(ptr dead
 
 switch.lookup:                                    ; preds = %9
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5boost9gregorian5to_tmERKNS0_4dateE, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost9gregorian5to_tmERKNS0_4dateE, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 

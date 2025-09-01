@@ -68,7 +68,7 @@ define range(i32 -271, 140) i32 @ff_vvc_nscale_derive(i32 noundef %0, i32 nounde
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %10
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %11
   %12 = zext nneg i32 %.110.i to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = zext i8 %14 to i32
   %.not.i30 = icmp ult i32 %1, 65536
@@ -81,7 +81,7 @@ define range(i32 -271, 140) i32 @ff_vvc_nscale_derive(i32 noundef %0, i32 nounde
   %.110.i34 = select i1 %.not11.i33, i32 %spec.select.i31, i32 %17
   %.1.i35 = select i1 %.not11.i33, i32 %spec.select12.i32, i32 %18
   %19 = zext nneg i32 %.110.i34 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %.1.i, -2
@@ -115,7 +115,7 @@ ff_vvc_intra_pred_angle_derive.exit:              ; preds = %30, %34, %36
   %.010.i = phi i32 [ %31, %30 ], [ %35, %34 ], [ %37, %36 ]
   %spec.select.i48 = tail call i32 @llvm.abs.i32(i32 %.010.i, i1 true)
   %38 = zext nneg i32 %spec.select.i48 to i64
-  %39 = getelementptr inbounds nuw [31 x i32], ptr @ff_vvc_intra_pred_angle_derive.angles, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @ff_vvc_intra_pred_angle_derive.angles, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !7
   %41 = sub nsw i32 0, %40
   %.inv14.i = icmp slt i32 %.010.i, 0
@@ -151,7 +151,7 @@ ff_vvc_intra_inv_angle_derive.exit:               ; preds = %44, %48
   %.110.i40 = select i1 %.not11.i39, i32 %spec.select.i37, i32 %56
   %.1.i41 = select i1 %.not11.i39, i32 %spec.select12.i38, i32 %57
   %58 = zext nneg i32 %.110.i40 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = zext i8 %60 to i32
   %62 = mul nsw i32 %.0.i, 3
@@ -166,7 +166,7 @@ ff_vvc_intra_inv_angle_derive.exit:               ; preds = %44, %48
   %.110.i46 = select i1 %.not11.i45, i32 %spec.select.i43, i32 %65
   %.1.i47.neg51 = select i1 %.not11.i45, i32 %spec.select12.i44.neg, i32 %.neg50
   %66 = zext nneg i32 %.110.i46 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !4
   %69 = zext i8 %68 to i32
   %.neg49 = add nuw nsw i32 %.1.i41, %61
@@ -211,7 +211,7 @@ define i32 @ff_vvc_intra_pred_angle_derive(i32 noundef %0) local_unnamed_addr #0
   %.010 = phi i32 [ %4, %3 ], [ %8, %7 ], [ %10, %9 ]
   %spec.select = tail call i32 @llvm.abs.i32(i32 %.010, i1 true)
   %12 = zext nneg i32 %spec.select to i64
-  %13 = getelementptr inbounds nuw [31 x i32], ptr @ff_vvc_intra_pred_angle_derive.angles, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @ff_vvc_intra_pred_angle_derive.angles, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !7
   %15 = sub nsw i32 0, %14
   %.inv14 = icmp slt i32 %.010, 0
@@ -295,11 +295,11 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds [3 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  %16 = getelementptr inbounds [3 x i8], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 30
@@ -358,10 +358,10 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   %54 = icmp sgt i32 %4, 0
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4580512
   %56 = zext i1 %54 to i64
-  %57 = getelementptr inbounds nuw [2 x i32], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !7
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4547744
-  %60 = getelementptr inbounds nuw [2 x [1024 x %struct.ReconstructedArea]], ptr %59, i64 0, i64 %56
+  %60 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %59, i64 %56
   %61 = zext i32 %58 to i64
   br label %62
 
@@ -378,7 +378,7 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   br i1 %66, label %67, label %.critedge
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %60, i64 0, i64 %64
+  %68 = getelementptr inbounds nuw %struct.ReconstructedArea, ptr %60, i64 %64
   %69 = load i32, ptr %68, align 4, !tbaa !86
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i32, ptr %70, align 4, !tbaa !88
@@ -428,11 +428,11 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds [3 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  %16 = getelementptr inbounds [3 x i8], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = zext nneg i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 30
@@ -480,10 +480,10 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   %45 = icmp sgt i32 %4, 0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4580512
   %47 = zext i1 %45 to i64
-  %48 = getelementptr inbounds nuw [2 x i32], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !7
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4547744
-  %51 = getelementptr inbounds nuw [2 x [1024 x %struct.ReconstructedArea]], ptr %50, i64 0, i64 %47
+  %51 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %50, i64 %47
   %52 = zext i32 %49 to i64
   br label %53
 
@@ -500,7 +500,7 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   br i1 %57, label %58, label %.critedge
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %51, i64 0, i64 %55
+  %59 = getelementptr inbounds nuw %struct.ReconstructedArea, ptr %51, i64 %55
   %60 = load i32, ptr %59, align 4, !tbaa !86
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i32, ptr %61, align 4, !tbaa !88
@@ -605,7 +605,7 @@ define i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef readonly captures(none) %
   %.110.i42 = select i1 %.not11.i41, i32 %spec.select.i39, i32 %17
   %.1.i43 = select i1 %.not11.i41, i32 %spec.select12.i40, i32 %18
   %19 = zext nneg i32 %.110.i42 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = zext i8 %21 to i32
   %.not.i = icmp ult i32 %.034, 65536
@@ -618,7 +618,7 @@ define i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef readonly captures(none) %
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %24
   %.1.i.neg46 = select i1 %.not11.i, i32 %spec.select12.i.neg, i32 %.neg45
   %25 = zext nneg i32 %.110.i to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !4
   %28 = zext i8 %27 to i32
   %.neg44 = sub nsw i32 %22, %28

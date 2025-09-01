@@ -547,9 +547,9 @@ define void @_ZN6icu_775units6Factor10multiplyByERKS1_(ptr noundef nonnull align
 
 20:                                               ; preds = %2, %20
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [15 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = getelementptr inbounds nuw [15 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = add nsw i32 %24, %22
   store i32 %25, ptr %23, align 4, !tbaa !12
@@ -586,9 +586,9 @@ define void @_ZN6icu_775units6Factor8divideByERKS1_(ptr noundef nonnull align 8 
 
 20:                                               ; preds = %2, %20
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [15 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = getelementptr inbounds nuw [15 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = sub nsw i32 %24, %22
   store i32 %25, ptr %23, align 4, !tbaa !12
@@ -627,7 +627,7 @@ define void @_ZN6icu_775units6Factor5powerEi(ptr noundef nonnull align 8 capture
 
 13:                                               ; preds = %2, %13
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [15 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = mul nsw i32 %15, %1
   store i32 %16, ptr %14, align 4, !tbaa !12
@@ -701,7 +701,7 @@ define void @_ZN6icu_775units6Factor19substituteConstantsEv(ptr noundef nonnull 
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %25 ]
   %6 = phi double [ %.promoted13, %1 ], [ %26, %25 ]
   %7 = phi double [ %.promoted, %1 ], [ %27, %25 ]
-  %8 = getelementptr inbounds nuw [15 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %25, label %11
@@ -709,7 +709,7 @@ define void @_ZN6icu_775units6Factor19substituteConstantsEv(ptr noundef nonnull 
 11:                                               ; preds = %5
   %12 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
   %13 = icmp slt i32 %9, 0
-  %14 = getelementptr inbounds nuw [15 x double], ptr @_ZN6icu_775unitsL15constantsValuesE, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr @_ZN6icu_775unitsL15constantsValuesE, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !20
   %16 = uitofp nneg i32 %12 to double
   %17 = tail call noundef double @pow(double noundef %15, double noundef %16) #21, !tbaa !12
@@ -3018,9 +3018,9 @@ define internal fastcc void @_ZN6icu_775units12_GLOBAL__N_118loadConversionRateE
 
 27:                                               ; preds = %27, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw [15 x i32], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !12
-  %30 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = add nsw i32 %31, %29
   store i32 %32, ptr %30, align 4, !tbaa !12
@@ -3045,9 +3045,9 @@ _ZN6icu_775units6Factor10multiplyByERKS1_.exit:   ; preds = %27
 
 40:                                               ; preds = %40, %35
   %indvars.iv.i49 = phi i64 [ 0, %35 ], [ %indvars.iv.next.i50, %40 ]
-  %41 = getelementptr inbounds nuw [15 x i32], ptr %39, i64 0, i64 %indvars.iv.i49
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i49
   %42 = load i32, ptr %41, align 4, !tbaa !12
-  %43 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i49
+  %43 = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i49
   %44 = load i32, ptr %43, align 4, !tbaa !12
   %45 = sub nsw i32 %44, %42
   store i32 %45, ptr %43, align 4, !tbaa !12
@@ -3064,9 +3064,9 @@ _ZN6icu_775units6Factor10multiplyByERKS1_.exit:   ; preds = %27
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i52 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i53, %51 ]
-  %52 = getelementptr inbounds nuw [15 x i32], ptr %50, i64 0, i64 %indvars.iv.i52
+  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i52
   %53 = load i32, ptr %52, align 4, !tbaa !12
-  %54 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i52
+  %54 = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i52
   %55 = load i32, ptr %54, align 4, !tbaa !12
   %56 = add nsw i32 %55, %53
   store i32 %56, ptr %54, align 4, !tbaa !12
@@ -3095,7 +3095,7 @@ _ZN6icu_775units6Factor8divideByERKS1_.exit:      ; preds = %51, %40
   %indvars.iv.i56 = phi i64 [ 0, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %indvars.iv.next.i57, %86 ]
   %65 = phi double [ %.promoted13.i, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %89, %86 ]
   %66 = phi double [ %.promoted.i, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %90, %86 ]
-  %67 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i56
+  %67 = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i56
   %68 = load i32, ptr %67, align 4, !tbaa !12
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %86, label %70
@@ -3103,7 +3103,7 @@ _ZN6icu_775units6Factor8divideByERKS1_.exit:      ; preds = %51, %40
 70:                                               ; preds = %62
   %71 = call i32 @llvm.abs.i32(i32 %68, i1 true)
   %72 = icmp slt i32 %68, 0
-  %73 = getelementptr inbounds nuw [15 x double], ptr @_ZN6icu_775unitsL15constantsValuesE, i64 0, i64 %indvars.iv.i56
+  %73 = getelementptr inbounds nuw double, ptr @_ZN6icu_775unitsL15constantsValuesE, i64 %indvars.iv.i56
   %74 = load double, ptr %73, align 8, !tbaa !20
   %75 = uitofp nneg i32 %71 to double
   %76 = call noundef double @pow(double noundef %74, double noundef %75) #21, !tbaa !12
@@ -3250,7 +3250,7 @@ _ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UError
   %indvars.iv.i72 = phi i64 [ 0, %127 ], [ %indvars.iv.next.i73, %155 ]
   %134 = phi double [ %.promoted13.i71, %127 ], [ %158, %155 ]
   %135 = phi double [ %.promoted.i70, %127 ], [ %159, %155 ]
-  %136 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i69, i64 0, i64 %indvars.iv.i72
+  %136 = getelementptr inbounds nuw i32, ptr %scevgep.i69, i64 %indvars.iv.i72
   %137 = load i32, ptr %136, align 4, !tbaa !12
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %155, label %139
@@ -3258,7 +3258,7 @@ _ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UError
 139:                                              ; preds = %131
   %140 = call i32 @llvm.abs.i32(i32 %137, i1 true)
   %141 = icmp slt i32 %137, 0
-  %142 = getelementptr inbounds nuw [15 x double], ptr @_ZN6icu_775unitsL15constantsValuesE, i64 0, i64 %indvars.iv.i72
+  %142 = getelementptr inbounds nuw double, ptr @_ZN6icu_775unitsL15constantsValuesE, i64 %indvars.iv.i72
   %143 = load double, ptr %142, align 8, !tbaa !20
   %144 = uitofp nneg i32 %140 to double
   %145 = call noundef double @pow(double noundef %143, double noundef %144) #21, !tbaa !12
@@ -3871,7 +3871,7 @@ _ZN6icu_775units6Factor5powerEi.exit:             ; preds = %136
 
 136:                                              ; preds = %136, %_ZN6icu_775units6Factor11applyPrefixENS_14UMeasurePrefixE.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN6icu_775units6Factor11applyPrefixENS_14UMeasurePrefixE.exit ], [ %indvars.iv.next.i, %136 ]
-  %137 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i15, i64 0, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw i32, ptr %scevgep.i15, i64 %indvars.iv.i
   %138 = load i32, ptr %137, align 4, !tbaa !12
   %139 = mul nsw i32 %138, %124
   store i32 %139, ptr %137, align 4, !tbaa !12
@@ -3881,9 +3881,9 @@ _ZN6icu_775units6Factor5powerEi.exit:             ; preds = %136
 
 140:                                              ; preds = %140, %_ZN6icu_775units6Factor5powerEi.exit
   %indvars.iv.i16 = phi i64 [ 0, %_ZN6icu_775units6Factor5powerEi.exit ], [ %indvars.iv.next.i17, %140 ]
-  %141 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i15, i64 0, i64 %indvars.iv.i16
+  %141 = getelementptr inbounds nuw i32, ptr %scevgep.i15, i64 %indvars.iv.i16
   %142 = load i32, ptr %141, align 4, !tbaa !12
-  %143 = getelementptr inbounds nuw [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i16
+  %143 = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i16
   %144 = load i32, ptr %143, align 4, !tbaa !12
   %145 = add nsw i32 %144, %142
   store i32 %145, ptr %143, align 4, !tbaa !12

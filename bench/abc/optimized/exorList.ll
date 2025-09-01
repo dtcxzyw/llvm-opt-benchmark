@@ -453,7 +453,7 @@ CubeInsert.exit18:                                ; preds = %CubeInsert.exit17, 
 189:                                              ; preds = %.lr.ph, %184, %CubeInsert.exit16
   %190 = load i32, ptr @s_Iter.1, align 4, !tbaa !23
   %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %191
   store ptr %192, ptr @pQ, align 8, !tbaa !39
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %194 = load i32, ptr @s_Iter.4, align 8, !tbaa !27
@@ -562,7 +562,7 @@ IteratorCubePairNext.exit:                        ; preds = %214
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 -2147483647, -2147483648) i32 @GetQuequeStats(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -580,7 +580,7 @@ define range(i32 0, 2) i32 @IteratorCubePairStart(i32 noundef %0, ptr noundef %1
   store ptr %1, ptr @s_Iter.2, align 8, !tbaa !25
   store ptr %2, ptr @s_Iter.3, align 8, !tbaa !26
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !22
   store i32 %7, ptr @s_Iter.4, align 8, !tbaa !27
@@ -943,12 +943,12 @@ CubeExtract.exit:                                 ; preds = %117, %118
   store i32 %138, ptr %136, align 4, !tbaa !17
   %139 = and i32 %138, 65535
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !32
   %143 = zext i8 %142 to i16
   %144 = ashr i32 %138, 16
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %145
+  %146 = getelementptr inbounds i8, ptr @BitCount, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !32
   %148 = zext i8 %147 to i16
   %149 = add nuw nsw i16 %148, %143
@@ -1285,7 +1285,7 @@ CubeExtract.exit26:                               ; preds = %77, %78
 
 88:                                               ; preds = %.backedge, %CubeExtract.exit26
   %indvars.iv = phi i64 [ 0, %CubeExtract.exit26 ], [ %indvars.iv.be, %.backedge ]
-  %89 = getelementptr inbounds nuw [5 x ptr], ptr @s_CubeGroup, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr @s_CubeGroup, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !3
   %91 = load i8, ptr %90, align 8, !tbaa !62
   %.not19 = icmp eq i8 %91, 0
@@ -1478,7 +1478,7 @@ CubeExtract.exit.i:                               ; preds = %171, %170
   br i1 %.not22, label %213, label %209
 
 209:                                              ; preds = %208
-  %210 = getelementptr inbounds nuw [5 x ptr], ptr @s_CubeGroup, i64 0, i64 %indvars.iv74
+  %210 = getelementptr inbounds nuw ptr, ptr @s_CubeGroup, i64 %indvars.iv74
   %211 = load ptr, ptr %210, align 8, !tbaa !3
   %212 = tail call i32 @CheckForCloseCubes(ptr noundef %211, i32 noundef 1)
   br label %213
@@ -1571,7 +1571,7 @@ CubeInsert.exit29:                                ; preds = %CubeInsert.exit, %2
 249:                                              ; preds = %214, %CubeInsert.exit29, %.lr.ph
   %250 = load i32, ptr @s_Iter.1, align 4, !tbaa !23
   %251 = zext i32 %250 to i64
-  %252 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %251
   store ptr %252, ptr @pQ, align 8, !tbaa !39
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 32
   %254 = load i32, ptr @s_Iter.4, align 8, !tbaa !27
@@ -1850,7 +1850,7 @@ CubeExtract.exit30:                               ; preds = %77, %78
 89:                                               ; preds = %88, %100
   %90 = phi i32 [ 0, %88 ], [ %101, %100 ]
   %indvars.iv = phi i64 [ 0, %88 ], [ %indvars.iv.next, %100 ]
-  %91 = getelementptr inbounds nuw [5 x ptr], ptr @s_CubeGroup, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw ptr, ptr @s_CubeGroup, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !3
   %93 = load i8, ptr %92, align 8, !tbaa !62
   %.not27 = icmp eq i8 %93, 0
@@ -1868,7 +1868,7 @@ CubeExtract.exit30:                               ; preds = %77, %78
 100:                                              ; preds = %89, %94
   %101 = phi i32 [ %99, %94 ], [ %90, %89 ]
   %.sink = phi i32 [ %97, %94 ], [ 0, %89 ]
-  %102 = getelementptr inbounds nuw [5 x i32], ptr @s_fInserted, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw i32, ptr @s_fInserted, i64 %indvars.iv
   store i32 %.sink, ptr %102, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1882,7 +1882,7 @@ CubeExtract.exit30:                               ; preds = %77, %78
 
 .preheader:                                       ; preds = %103, %.preheader
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.preheader ], [ 0, %103 ]
-  %104 = getelementptr inbounds nuw [5 x ptr], ptr @s_CubeGroup, i64 0, i64 %indvars.iv83
+  %104 = getelementptr inbounds nuw ptr, ptr @s_CubeGroup, i64 %indvars.iv83
   %105 = load ptr, ptr %104, align 8, !tbaa !3
   store i8 1, ptr %105, align 8, !tbaa !62
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -2001,11 +2001,11 @@ UndoRecentChanges.exit.preheader:                 ; preds = %142, %._crit_edge.i
 
 UndoRecentChanges.exit:                           ; preds = %UndoRecentChanges.exit.preheader, %UndoRecentChanges.exit
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %UndoRecentChanges.exit ], [ 0, %UndoRecentChanges.exit.preheader ]
-  %163 = getelementptr inbounds nuw [5 x i32], ptr @s_fInserted, i64 0, i64 %indvars.iv79
+  %163 = getelementptr inbounds nuw i32, ptr @s_fInserted, i64 %indvars.iv79
   %164 = load i32, ptr %163, align 4, !tbaa !17
   %.not25 = icmp eq i32 %164, 0
   %165 = zext i1 %.not25 to i8
-  %166 = getelementptr inbounds nuw [5 x ptr], ptr @s_CubeGroup, i64 0, i64 %indvars.iv79
+  %166 = getelementptr inbounds nuw ptr, ptr @s_CubeGroup, i64 %indvars.iv79
   %167 = load ptr, ptr %166, align 8, !tbaa !3
   store i8 %165, ptr %167, align 8, !tbaa !62
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
@@ -2014,13 +2014,13 @@ UndoRecentChanges.exit:                           ; preds = %UndoRecentChanges.e
 
 .preheader39:                                     ; preds = %103, %174
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %174 ], [ 0, %103 ]
-  %168 = getelementptr inbounds nuw [5 x i32], ptr @s_fInserted, i64 0, i64 %indvars.iv87
+  %168 = getelementptr inbounds nuw i32, ptr @s_fInserted, i64 %indvars.iv87
   %169 = load i32, ptr %168, align 4, !tbaa !17
   %.not24 = icmp eq i32 %169, 0
   br i1 %.not24, label %170, label %174
 
 170:                                              ; preds = %.preheader39
-  %171 = getelementptr inbounds nuw [5 x ptr], ptr @s_CubeGroup, i64 0, i64 %indvars.iv87
+  %171 = getelementptr inbounds nuw ptr, ptr @s_CubeGroup, i64 %indvars.iv87
   %172 = load ptr, ptr %171, align 8, !tbaa !3
   %173 = tail call i32 @CheckForCloseCubes(ptr noundef %172, i32 noundef 1)
   br label %174
@@ -2096,7 +2096,7 @@ CubeInsert.exit33:                                ; preds = %CubeInsert.exit, %1
 205:                                              ; preds = %175, %CubeInsert.exit33, %.lr.ph
   %206 = load i32, ptr @s_Iter.1, align 4, !tbaa !23
   %207 = zext i32 %206 to i64
-  %208 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %207
   store ptr %208, ptr @pQ, align 8, !tbaa !39
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load i32, ptr @s_Iter.4, align 8, !tbaa !27
@@ -2391,7 +2391,7 @@ define void @PrintQuequeStats() local_unnamed_addr #9 {
 define range(i32 0, 2) i32 @IteratorCubePairNext() local_unnamed_addr #3 {
   %1 = load i32, ptr @s_Iter.1, align 4, !tbaa !23
   %2 = zext i32 %1 to i64
-  %3 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %2
   store ptr %3, ptr @pQ, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr @s_Iter.4, align 8, !tbaa !27
@@ -2472,7 +2472,7 @@ define noundef i32 @AllocateQueques(i32 noundef %0) local_unnamed_addr #12 {
 
 4:                                                ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = tail call noalias ptr @malloc(i64 noundef %3) #17
@@ -2498,7 +2498,7 @@ define noundef i32 @AllocateQueques(i32 noundef %0) local_unnamed_addr #12 {
   br i1 %or.cond, label %.loopexit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw [3 x i32], ptr @s_nPosMax, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr @s_nPosMax, i64 %indvars.iv
   store i32 0, ptr %20, align 4, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 1, ptr %21, align 8, !tbaa !45
@@ -2524,7 +2524,7 @@ define void @DelocateQueques() local_unnamed_addr #1 {
 
 1:                                                ; preds = %0, %17
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %17 ]
-  %2 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw %struct.que, ptr @s_Que, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

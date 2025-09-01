@@ -1326,9 +1326,9 @@ define noundef ptr @Bmc_CexCareTotal(ptr noundef readonly captures(none) %0, i32
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv36 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next37, %._crit_edge.us ]
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %25, i64 0, i64 %indvars.iv36
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv36
   %29 = load i32, ptr %28, align 4, !tbaa !37
-  %30 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv36
+  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv36
   store i32 %29, ptr %30, align 4, !tbaa !37
   br label %31
 
@@ -1338,7 +1338,7 @@ define noundef ptr @Bmc_CexCareTotal(ptr noundef readonly captures(none) %0, i32
   %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv31
   %34 = load ptr, ptr %33, align 8, !tbaa !65
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  %36 = getelementptr inbounds nuw [0 x i32], ptr %35, i64 0, i64 %indvars.iv36
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv36
   %37 = load i32, ptr %36, align 4, !tbaa !37
   %38 = and i32 %32, %37
   store i32 %38, ptr %30, align 4, !tbaa !37
@@ -1353,9 +1353,9 @@ define noundef ptr @Bmc_CexCareTotal(ptr noundef readonly captures(none) %0, i32
 
 .lr.ph27.split:                                   ; preds = %.lr.ph27, %.lr.ph27.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph27.split ], [ 0, %.lr.ph27 ]
-  %39 = getelementptr inbounds nuw [0 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !37
-  %41 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 %40, ptr %41, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count39
@@ -2034,7 +2034,7 @@ Vec_IntFree.exit273:                              ; preds = %Vec_IntFree.exit, %
 
 314:                                              ; preds = %.loopexit
   %315 = tail call ptr @Bmc_CexCarePropagateBwd(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %37, ptr noundef nonnull %48)
-  %316 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %316 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %315, ptr %316, align 8, !tbaa !65
   br i1 %.not232, label %323, label %317
 
@@ -2048,7 +2048,7 @@ Vec_IntFree.exit273:                              ; preds = %Vec_IntFree.exit, %
 switch.lookup:                                    ; preds = %318
   %switch.tableidx = add nuw nsw i64 %indvars.iv, 4294967295
   %320 = and i64 %switch.tableidx, 4294967295
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %320
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Bmc_CexCareMinimizeAig, i64 %320
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -2100,7 +2100,7 @@ Vec_IntFree.exit277:                              ; preds = %Vec_IntFree.exit275
   %indvars.iv390 = phi i64 [ 1, %.lr.ph366.preheader ], [ %indvars.iv.next391, %337 ]
   %.0202365 = phi ptr [ %328, %.lr.ph366.preheader ], [ %.1, %337 ]
   %.0208363 = phi i32 [ %329, %.lr.ph366.preheader ], [ %.1209, %337 ]
-  %331 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv390
+  %331 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv390
   %332 = load ptr, ptr %331, align 8, !tbaa !65
   %333 = icmp eq ptr %332, null
   br i1 %333, label %337, label %334
@@ -2137,7 +2137,7 @@ Vec_IntFree.exit277:                              ; preds = %Vec_IntFree.exit275
 
 .lr.ph371:                                        ; preds = %.lr.ph371.preheader, %344
   %indvars.iv395 = phi i64 [ 0, %.lr.ph371.preheader ], [ %indvars.iv.next396, %344 ]
-  %341 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv395
+  %341 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv395
   %342 = load ptr, ptr %341, align 8, !tbaa !65
   %.not237 = icmp eq ptr %342, null
   %.not238 = icmp eq ptr %.0202.lcssa, %342

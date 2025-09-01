@@ -94,7 +94,7 @@ define void @jinit_downsampler(ptr noundef %0) local_unnamed_addr #0 {
 50:                                               ; preds = %45
   %51 = load i32, ptr %39, align 8, !tbaa !51
   %.not82 = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   br i1 %.not82, label %54, label %53
 
 53:                                               ; preds = %50
@@ -121,7 +121,7 @@ define void @jinit_downsampler(ptr noundef %0) local_unnamed_addr #0 {
 63:                                               ; preds = %58
   %64 = tail call i32 @jsimd_can_h2v1_downsample() #5
   %.not81 = icmp eq i32 %64, 0
-  %65 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   br i1 %.not81, label %67, label %66
 
 66:                                               ; preds = %63
@@ -143,7 +143,7 @@ define void @jinit_downsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not79, label %75, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   store ptr @h2v2_smooth_downsample, ptr %74, align 8, !tbaa !52
   store i32 1, ptr %23, align 8, !tbaa !42
   br label %95
@@ -151,7 +151,7 @@ define void @jinit_downsampler(ptr noundef %0) local_unnamed_addr #0 {
 75:                                               ; preds = %71
   %76 = tail call i32 @jsimd_can_h2v2_downsample() #5
   %.not80 = icmp eq i32 %76, 0
-  %77 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   br i1 %.not80, label %79, label %78
 
 78:                                               ; preds = %75
@@ -176,7 +176,7 @@ define void @jinit_downsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   store ptr @int_downsample, ptr %90, align 8, !tbaa !52
   br label %95
 
@@ -252,7 +252,7 @@ define internal void @sep_downsample(ptr noundef %0, ptr noundef readonly captur
   %23 = mul i32 %22, %4
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %24
-  %26 = getelementptr inbounds nuw [10 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !52
   tail call void %27(ptr noundef nonnull %0, ptr noundef %.01819, ptr noundef %18, ptr noundef %25) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

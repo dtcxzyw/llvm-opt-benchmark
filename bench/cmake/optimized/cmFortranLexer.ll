@@ -220,10 +220,10 @@ _Z26cmFortran_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.1 = phi i32 [ %.0406, %.loopexit ], [ %132, %._crit_edge ]
   %96 = load i8, ptr %.1412, align 1, !tbaa !35
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @_ZL5yy_ec, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !35
   %100 = sext i32 %.1 to i64
-  %101 = getelementptr inbounds [216 x i16], ptr @_ZL9yy_accept, i64 0, i64 %100
+  %101 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !38
   %.not486 = icmp eq i16 %102, 0
   br i1 %.not486, label %104, label %103
@@ -234,12 +234,12 @@ _Z26cmFortran_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   br label %104
 
 104:                                              ; preds = %103, %95
-  %105 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %100
+  %105 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %100
   %106 = load i16, ptr %105, align 2, !tbaa !38
   %107 = sext i16 %106 to i64
   %108 = zext i8 %99 to i64
   %109 = add nsw i64 %107, %108
-  %110 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %109
+  %110 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %109
   %111 = load i16, ptr %110, align 2, !tbaa !38
   %112 = sext i16 %111 to i32
   %.not4871075 = icmp eq i32 %.1, %112
@@ -249,37 +249,37 @@ _Z26cmFortran_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %113 = phi i64 [ %126, %121 ], [ %108, %104 ]
   %114 = phi i64 [ %122, %121 ], [ %100, %104 ]
   %.04091076 = phi i8 [ %.1410, %121 ], [ %99, %104 ]
-  %115 = getelementptr inbounds [225 x i16], ptr @_ZL6yy_def, i64 0, i64 %114
+  %115 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !38
   %117 = icmp sgt i16 %116, 215
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %.lr.ph
-  %119 = getelementptr inbounds nuw [50 x i8], ptr @_ZL7yy_meta, i64 0, i64 %113
+  %119 = getelementptr inbounds nuw i8, ptr @_ZL7yy_meta, i64 %113
   %120 = load i8, ptr %119, align 1, !tbaa !35
   br label %121
 
 121:                                              ; preds = %118, %.lr.ph
   %.1410 = phi i8 [ %120, %118 ], [ %.04091076, %.lr.ph ]
   %122 = sext i16 %116 to i64
-  %123 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %122
+  %123 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !38
   %125 = sext i16 %124 to i64
   %126 = zext i8 %.1410 to i64
   %127 = add nsw i64 %125, %126
-  %128 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %127
+  %128 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %127
   %129 = load i16, ptr %128, align 2, !tbaa !38
   %.not487 = icmp eq i16 %116, %129
   br i1 %.not487, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %121, %104
   %.lcssa550 = phi i64 [ %109, %104 ], [ %127, %121 ]
-  %130 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa550
+  %130 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa550
   %131 = load i16, ptr %130, align 2, !tbaa !38
   %132 = sext i16 %131 to i32
   %133 = getelementptr inbounds nuw i8, ptr %.1412, i64 1
   %134 = sext i16 %131 to i64
-  %135 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %134
+  %135 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !38
   %.not488 = icmp eq i16 %136, 492
   br i1 %.not488, label %.preheader.outer, label %95, !llvm.loop !44
@@ -295,7 +295,7 @@ _Z26cmFortran_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.2413 = phi ptr [ %157, %155 ], [ %.2413.ph, %.preheader.outer ]
   %.3 = phi i32 [ %158, %155 ], [ %.3.ph, %.preheader.outer ]
   %138 = sext i32 %.3 to i64
-  %139 = getelementptr inbounds [216 x i16], ptr @_ZL9yy_accept, i64 0, i64 %138
+  %139 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !38
   %141 = icmp eq i16 %140, 0
   br i1 %141, label %142, label %148
@@ -304,7 +304,7 @@ _Z26cmFortran_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %143 = load ptr, ptr %78, align 8, !tbaa !41
   %144 = load i32, ptr %77, align 8, !tbaa !40
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [216 x i16], ptr @_ZL9yy_accept, i64 0, i64 %145
+  %146 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !38
   br label %148
 
@@ -1747,14 +1747,14 @@ _ZL7yyunputiPcPv.exit:                            ; preds = %285, %326
 
 1134:                                             ; preds = %.lr.ph35.i
   %1135 = zext i8 %1133 to i64
-  %1136 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %1135
+  %1136 = getelementptr inbounds nuw i8, ptr @_ZL5yy_ec, i64 %1135
   %1137 = load i8, ptr %1136, align 1, !tbaa !35
   br label %1138
 
 1138:                                             ; preds = %1134, %.lr.ph35.i
   %1139 = phi i8 [ %1137, %1134 ], [ 1, %.lr.ph35.i ]
   %1140 = sext i32 %.02433.i to i64
-  %1141 = getelementptr inbounds [216 x i16], ptr @_ZL9yy_accept, i64 0, i64 %1140
+  %1141 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %1140
   %1142 = load i16, ptr %1141, align 2, !tbaa !38
   %.not28.i493 = icmp eq i16 %1142, 0
   br i1 %.not28.i493, label %1144, label %1143
@@ -1765,12 +1765,12 @@ _ZL7yyunputiPcPv.exit:                            ; preds = %285, %326
   br label %1144
 
 1144:                                             ; preds = %1143, %1138
-  %1145 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1140
+  %1145 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1140
   %1146 = load i16, ptr %1145, align 2, !tbaa !38
   %1147 = sext i16 %1146 to i64
   %1148 = zext i8 %1139 to i64
   %1149 = add nsw i64 %1147, %1148
-  %1150 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1149
+  %1150 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1149
   %1151 = load i16, ptr %1150, align 2, !tbaa !38
   %1152 = sext i16 %1151 to i32
   %.not2930.i = icmp eq i32 %.02433.i, %1152
@@ -1780,32 +1780,32 @@ _ZL7yyunputiPcPv.exit:                            ; preds = %285, %326
   %1153 = phi i64 [ %1166, %1161 ], [ %1148, %1144 ]
   %1154 = phi i64 [ %1162, %1161 ], [ %1140, %1144 ]
   %.031.i = phi i8 [ %.1.i, %1161 ], [ %1139, %1144 ]
-  %1155 = getelementptr inbounds [225 x i16], ptr @_ZL6yy_def, i64 0, i64 %1154
+  %1155 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %1154
   %1156 = load i16, ptr %1155, align 2, !tbaa !38
   %1157 = icmp sgt i16 %1156, 215
   br i1 %1157, label %1158, label %1161
 
 1158:                                             ; preds = %.lr.ph.i494
-  %1159 = getelementptr inbounds nuw [50 x i8], ptr @_ZL7yy_meta, i64 0, i64 %1153
+  %1159 = getelementptr inbounds nuw i8, ptr @_ZL7yy_meta, i64 %1153
   %1160 = load i8, ptr %1159, align 1, !tbaa !35
   br label %1161
 
 1161:                                             ; preds = %1158, %.lr.ph.i494
   %.1.i = phi i8 [ %1160, %1158 ], [ %.031.i, %.lr.ph.i494 ]
   %1162 = sext i16 %1156 to i64
-  %1163 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1162
+  %1163 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1162
   %1164 = load i16, ptr %1163, align 2, !tbaa !38
   %1165 = sext i16 %1164 to i64
   %1166 = zext i8 %.1.i to i64
   %1167 = add nsw i64 %1165, %1166
-  %1168 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1167
+  %1168 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1167
   %1169 = load i16, ptr %1168, align 2, !tbaa !38
   %.not29.i495 = icmp eq i16 %1156, %1169
   br i1 %.not29.i495, label %._crit_edge.i496, label %.lr.ph.i494, !llvm.loop !52
 
 ._crit_edge.i496:                                 ; preds = %1161, %1144
   %.lcssa.i497 = phi i64 [ %1149, %1144 ], [ %1167, %1161 ]
-  %1170 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i497
+  %1170 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i497
   %1171 = load i16, ptr %1170, align 2, !tbaa !38
   %1172 = sext i16 %1171 to i32
   %1173 = getelementptr inbounds nuw i8, ptr %.02632.i, i64 1
@@ -1815,7 +1815,7 @@ _ZL7yyunputiPcPv.exit:                            ; preds = %285, %326
 _ZL21yy_get_previous_statePv.exit:                ; preds = %._crit_edge.i496, %1119
   %.024.lcssa.i = phi i32 [ %1131, %1119 ], [ %1172, %._crit_edge.i496 ]
   %1174 = sext i32 %.024.lcssa.i to i64
-  %1175 = getelementptr inbounds [216 x i16], ptr @_ZL9yy_accept, i64 0, i64 %1174
+  %1175 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %1174
   %1176 = load i16, ptr %1175, align 2, !tbaa !38
   %.not.i498 = icmp eq i16 %1176, 0
   br i1 %.not.i498, label %1178, label %1177
@@ -1826,11 +1826,11 @@ _ZL21yy_get_previous_statePv.exit:                ; preds = %._crit_edge.i496, %
   br label %1178
 
 1178:                                             ; preds = %1177, %_ZL21yy_get_previous_statePv.exit
-  %1179 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1174
+  %1179 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1174
   %1180 = load i16, ptr %1179, align 2, !tbaa !38
   %1181 = sext i16 %1180 to i64
   %1182 = add nsw i64 %1181, 1
-  %1183 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1182
+  %1183 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1182
   %1184 = load i16, ptr %1183, align 2, !tbaa !38
   %1185 = sext i16 %1184 to i32
   %.not1819.i = icmp eq i32 %.024.lcssa.i, %1185
@@ -1838,21 +1838,21 @@ _ZL21yy_get_previous_statePv.exit:                ; preds = %._crit_edge.i496, %
 
 .lr.ph.i499:                                      ; preds = %1178, %.lr.ph.i499
   %1186 = phi i64 [ %1189, %.lr.ph.i499 ], [ %1174, %1178 ]
-  %1187 = getelementptr inbounds [225 x i16], ptr @_ZL6yy_def, i64 0, i64 %1186
+  %1187 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %1186
   %1188 = load i16, ptr %1187, align 2, !tbaa !38
   %1189 = sext i16 %1188 to i64
-  %1190 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1189
+  %1190 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1189
   %1191 = load i16, ptr %1190, align 2, !tbaa !38
   %1192 = sext i16 %1191 to i64
   %1193 = add nsw i64 %1192, 1
-  %1194 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1193
+  %1194 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1193
   %1195 = load i16, ptr %1194, align 2, !tbaa !38
   %.not18.i = icmp eq i16 %1188, %1195
   br i1 %.not18.i, label %_ZL16yy_try_NUL_transiPv.exit, label %.lr.ph.i499, !llvm.loop !54
 
 _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i499, %1178
   %.lcssa.i501 = phi i64 [ %1182, %1178 ], [ %1193, %.lr.ph.i499 ]
-  %1196 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i501
+  %1196 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i501
   %1197 = load i16, ptr %1196, align 2, !tbaa !38
   %1198 = icmp eq i16 %1197, 215
   %.not490543 = icmp eq i64 %.lcssa.i501, 0
@@ -2146,14 +2146,14 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread541_crit_edg
 
 1337:                                             ; preds = %.lr.ph35.i511
   %1338 = zext i8 %1336 to i64
-  %1339 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %1338
+  %1339 = getelementptr inbounds nuw i8, ptr @_ZL5yy_ec, i64 %1338
   %1340 = load i8, ptr %1339, align 1, !tbaa !35
   br label %1341
 
 1341:                                             ; preds = %1337, %.lr.ph35.i511
   %1342 = phi i8 [ %1340, %1337 ], [ 1, %.lr.ph35.i511 ]
   %1343 = sext i32 %.02433.i512 to i64
-  %1344 = getelementptr inbounds [216 x i16], ptr @_ZL9yy_accept, i64 0, i64 %1343
+  %1344 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %1343
   %1345 = load i16, ptr %1344, align 2, !tbaa !38
   %.not28.i515 = icmp eq i16 %1345, 0
   br i1 %.not28.i515, label %1347, label %1346
@@ -2164,12 +2164,12 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread541_crit_edg
   br label %1347
 
 1347:                                             ; preds = %1346, %1341
-  %1348 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1343
+  %1348 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1343
   %1349 = load i16, ptr %1348, align 2, !tbaa !38
   %1350 = sext i16 %1349 to i64
   %1351 = zext i8 %1342 to i64
   %1352 = add nsw i64 %1350, %1351
-  %1353 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1352
+  %1353 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1352
   %1354 = load i16, ptr %1353, align 2, !tbaa !38
   %1355 = sext i16 %1354 to i32
   %.not2930.i516 = icmp eq i32 %.02433.i512, %1355
@@ -2179,32 +2179,32 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread541_crit_edg
   %1356 = phi i64 [ %1369, %1364 ], [ %1351, %1347 ]
   %1357 = phi i64 [ %1365, %1364 ], [ %1343, %1347 ]
   %.031.i518 = phi i8 [ %.1.i519, %1364 ], [ %1342, %1347 ]
-  %1358 = getelementptr inbounds [225 x i16], ptr @_ZL6yy_def, i64 0, i64 %1357
+  %1358 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %1357
   %1359 = load i16, ptr %1358, align 2, !tbaa !38
   %1360 = icmp sgt i16 %1359, 215
   br i1 %1360, label %1361, label %1364
 
 1361:                                             ; preds = %.lr.ph.i517
-  %1362 = getelementptr inbounds nuw [50 x i8], ptr @_ZL7yy_meta, i64 0, i64 %1356
+  %1362 = getelementptr inbounds nuw i8, ptr @_ZL7yy_meta, i64 %1356
   %1363 = load i8, ptr %1362, align 1, !tbaa !35
   br label %1364
 
 1364:                                             ; preds = %1361, %.lr.ph.i517
   %.1.i519 = phi i8 [ %1363, %1361 ], [ %.031.i518, %.lr.ph.i517 ]
   %1365 = sext i16 %1359 to i64
-  %1366 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1365
+  %1366 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1365
   %1367 = load i16, ptr %1366, align 2, !tbaa !38
   %1368 = sext i16 %1367 to i64
   %1369 = zext i8 %.1.i519 to i64
   %1370 = add nsw i64 %1368, %1369
-  %1371 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1370
+  %1371 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1370
   %1372 = load i16, ptr %1371, align 2, !tbaa !38
   %.not29.i520 = icmp eq i16 %1359, %1372
   br i1 %.not29.i520, label %._crit_edge.i521, label %.lr.ph.i517, !llvm.loop !52
 
 ._crit_edge.i521:                                 ; preds = %1364, %1347
   %.lcssa.i522 = phi i64 [ %1352, %1347 ], [ %1370, %1364 ]
-  %1373 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i522
+  %1373 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i522
   %1374 = load i16, ptr %1373, align 2, !tbaa !38
   %1375 = sext i16 %1374 to i32
   %1376 = getelementptr inbounds nuw i8, ptr %.02632.i513, i64 1
@@ -2240,14 +2240,14 @@ _ZL18yy_get_next_bufferPv.exit.thread541:         ; preds = %1213, %_ZL18yy_get_
 
 1387:                                             ; preds = %.lr.ph35.i526
   %1388 = zext i8 %1386 to i64
-  %1389 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %1388
+  %1389 = getelementptr inbounds nuw i8, ptr @_ZL5yy_ec, i64 %1388
   %1390 = load i8, ptr %1389, align 1, !tbaa !35
   br label %1391
 
 1391:                                             ; preds = %1387, %.lr.ph35.i526
   %1392 = phi i8 [ %1390, %1387 ], [ 1, %.lr.ph35.i526 ]
   %1393 = sext i32 %.02433.i527 to i64
-  %1394 = getelementptr inbounds [216 x i16], ptr @_ZL9yy_accept, i64 0, i64 %1393
+  %1394 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %1393
   %1395 = load i16, ptr %1394, align 2, !tbaa !38
   %.not28.i530 = icmp eq i16 %1395, 0
   br i1 %.not28.i530, label %1397, label %1396
@@ -2258,12 +2258,12 @@ _ZL18yy_get_next_bufferPv.exit.thread541:         ; preds = %1213, %_ZL18yy_get_
   br label %1397
 
 1397:                                             ; preds = %1396, %1391
-  %1398 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1393
+  %1398 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1393
   %1399 = load i16, ptr %1398, align 2, !tbaa !38
   %1400 = sext i16 %1399 to i64
   %1401 = zext i8 %1392 to i64
   %1402 = add nsw i64 %1400, %1401
-  %1403 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1402
+  %1403 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1402
   %1404 = load i16, ptr %1403, align 2, !tbaa !38
   %1405 = sext i16 %1404 to i32
   %.not2930.i531 = icmp eq i32 %.02433.i527, %1405
@@ -2273,32 +2273,32 @@ _ZL18yy_get_next_bufferPv.exit.thread541:         ; preds = %1213, %_ZL18yy_get_
   %1406 = phi i64 [ %1419, %1414 ], [ %1401, %1397 ]
   %1407 = phi i64 [ %1415, %1414 ], [ %1393, %1397 ]
   %.031.i533 = phi i8 [ %.1.i534, %1414 ], [ %1392, %1397 ]
-  %1408 = getelementptr inbounds [225 x i16], ptr @_ZL6yy_def, i64 0, i64 %1407
+  %1408 = getelementptr inbounds i16, ptr @_ZL6yy_def, i64 %1407
   %1409 = load i16, ptr %1408, align 2, !tbaa !38
   %1410 = icmp sgt i16 %1409, 215
   br i1 %1410, label %1411, label %1414
 
 1411:                                             ; preds = %.lr.ph.i532
-  %1412 = getelementptr inbounds nuw [50 x i8], ptr @_ZL7yy_meta, i64 0, i64 %1406
+  %1412 = getelementptr inbounds nuw i8, ptr @_ZL7yy_meta, i64 %1406
   %1413 = load i8, ptr %1412, align 1, !tbaa !35
   br label %1414
 
 1414:                                             ; preds = %1411, %.lr.ph.i532
   %.1.i534 = phi i8 [ %1413, %1411 ], [ %.031.i533, %.lr.ph.i532 ]
   %1415 = sext i16 %1409 to i64
-  %1416 = getelementptr inbounds [225 x i16], ptr @_ZL7yy_base, i64 0, i64 %1415
+  %1416 = getelementptr inbounds i16, ptr @_ZL7yy_base, i64 %1415
   %1417 = load i16, ptr %1416, align 2, !tbaa !38
   %1418 = sext i16 %1417 to i64
   %1419 = zext i8 %.1.i534 to i64
   %1420 = add nsw i64 %1418, %1419
-  %1421 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_chk, i64 0, i64 %1420
+  %1421 = getelementptr inbounds i16, ptr @_ZL6yy_chk, i64 %1420
   %1422 = load i16, ptr %1421, align 2, !tbaa !38
   %.not29.i535 = icmp eq i16 %1409, %1422
   br i1 %.not29.i535, label %._crit_edge.i536, label %.lr.ph.i532, !llvm.loop !52
 
 ._crit_edge.i536:                                 ; preds = %1414, %1397
   %.lcssa.i537 = phi i64 [ %1402, %1397 ], [ %1420, %1414 ]
-  %1423 = getelementptr inbounds [542 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i537
+  %1423 = getelementptr inbounds i16, ptr @_ZL6yy_nxt, i64 %.lcssa.i537
   %1424 = load i16, ptr %1423, align 2, !tbaa !38
   %1425 = sext i16 %1424 to i32
   %1426 = getelementptr inbounds nuw i8, ptr %.02632.i528, i64 1

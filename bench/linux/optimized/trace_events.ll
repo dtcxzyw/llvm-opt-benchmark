@@ -653,7 +653,7 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef
   %138 = getelementptr i8, ptr %7, i64 %137
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i64
-  %141 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %140
+  %141 = getelementptr i8, ptr @_ctype, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = and i8 %142, 32
   %144 = icmp eq i8 %143, 0
@@ -704,7 +704,7 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef
   %174 = phi i8 [ %185, %183 ], [ %172, %170 ]
   %175 = phi ptr [ %184, %183 ], [ %171, %170 ]
   %176 = zext i8 %174 to i64
-  %177 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %176
+  %177 = getelementptr i8, ptr @_ctype, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = and i8 %178, 7
   %180 = icmp ne i8 %179, 0
@@ -1765,7 +1765,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   %68 = getelementptr i8, ptr %67, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
-  %71 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %70
+  %71 = getelementptr i8, ptr @_ctype, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 7
   %74 = icmp eq i8 %73, 0
@@ -1777,7 +1777,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
 
 77:                                               ; preds = %64
   %78 = zext i8 %53 to i64
-  %79 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %78
+  %79 = getelementptr i8, ptr @_ctype, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, 3
   %82 = icmp ne i8 %81, 0
@@ -1798,7 +1798,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   %90 = getelementptr i8, ptr %54, i64 %50
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i64
-  %93 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %92
+  %93 = getelementptr i8, ptr @_ctype, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = and i8 %94, 7
   %96 = icmp ne i8 %95, 0
@@ -1842,7 +1842,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   %120 = getelementptr i8, ptr %119, i64 1
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i64
-  %123 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %122
+  %123 = getelementptr i8, ptr @_ctype, i64 %122
   %124 = load i8, ptr %123, align 1
   %125 = and i8 %124, 7
   %126 = icmp ne i8 %125, 0
@@ -1939,7 +1939,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   %178 = getelementptr i8, ptr %175, i64 1
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i64
-  %181 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %180
+  %181 = getelementptr i8, ptr @_ctype, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = and i8 %182, 3
   %184 = icmp ne i8 %183, 0
@@ -2088,7 +2088,7 @@ define internal noundef i32 @setup_trace_triggers(ptr noundef %0) #3 section ".i
 
 9:                                                ; preds = %5
   %10 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.22) #19
-  %11 = getelementptr [32 x %struct.boot_triggers], ptr @bootup_triggers, i64 0, i64 %6
+  %11 = getelementptr %struct.boot_triggers, ptr @bootup_triggers, i64 %6
   store ptr %10, ptr %11, align 16
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2732,7 +2732,7 @@ define dso_local void @__trace_early_add_events(ptr noundef %0) local_unnamed_ad
 
 .preheader:                                       ; preds = %38, %56
   %42 = phi i64 [ %57, %56 ], [ 0, %38 ]
-  %43 = getelementptr [32 x %struct.boot_triggers], ptr @bootup_triggers, i64 0, i64 %42
+  %43 = getelementptr %struct.boot_triggers, ptr @bootup_triggers, i64 %42
   %44 = load ptr, ptr %43, align 16
   %45 = tail call i32 @strcmp(ptr noundef %39, ptr noundef %44) #19
   %46 = icmp eq i32 %45, 0
@@ -3158,7 +3158,7 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
   %48 = load ptr, ptr %33, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %44, 63
-  %51 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %50
+  %51 = getelementptr i64, ptr @__per_cpu_offset, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %49
   %54 = inttoptr i64 %53 to ptr
@@ -4424,7 +4424,7 @@ define internal fastcc ptr @trace_create_new_event(ptr noundef %0, ptr noundef %
   %16 = getelementptr i8, ptr %11, i64 -1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @_ctype, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 32
   %22 = icmp ne i8 %21, 0
@@ -4441,7 +4441,7 @@ define internal fastcc ptr @trace_create_new_event(ptr noundef %0, ptr noundef %
 
 30:                                               ; preds = %25
   %31 = zext i8 %28 to i64
-  %32 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %31
+  %32 = getelementptr i8, ptr @_ctype, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 32
   %35 = icmp ne i8 %34, 0
@@ -6179,7 +6179,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @system_enable_read(ptr n
 118:                                              ; preds = %.split7.us, %4
   %119 = phi i64 [ 0, %4 ], [ %117, %.split7.us ]
   tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #19
-  %120 = getelementptr [4 x i8], ptr %5, i64 0, i64 %119
+  %120 = getelementptr i8, ptr %5, i64 %119
   %121 = load i8, ptr %120, align 1
   store i8 %121, ptr %6, align 2
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -7600,7 +7600,7 @@ __register_event.exit:                            ; preds = %.thread.i, %53, %55
   %82 = getelementptr i8, ptr %77, i64 -1
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i64
-  %85 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %84
+  %85 = getelementptr i8, ptr @_ctype, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, 32
   %88 = icmp ne i8 %87, 0
@@ -7617,7 +7617,7 @@ __register_event.exit:                            ; preds = %.thread.i, %53, %55
 
 96:                                               ; preds = %91
   %97 = zext i8 %94 to i64
-  %98 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %97
+  %98 = getelementptr i8, ptr @_ctype, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = and i8 %99, 32
   %101 = icmp ne i8 %100, 0

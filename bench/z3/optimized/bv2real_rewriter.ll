@@ -22205,7 +22205,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 69:                                               ; preds = %.lr.ph, %_ZN12bv2real_util21contains_bv2real_procclEP3app.exit
   %70 = phi i32 [ %66, %.lr.ph ], [ %179, %_ZN12bv2real_util21contains_bv2real_procclEP3app.exit ]
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %68, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !140
   %74 = add nuw i32 %70, 1
   store i32 %74, ptr %65, align 8, !tbaa !334
@@ -26547,7 +26547,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI20bv2real_rewriter_cfgE11proc
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !140
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -29254,7 +29254,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI20bv2real_rewriter_cfgE11proc
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !140
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -32678,7 +32678,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI25bv2real_elim_rewriter_cfgE1
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !140
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -35335,7 +35335,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI25bv2real_elim_rewriter_cfgE1
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !140
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

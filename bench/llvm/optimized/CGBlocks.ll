@@ -12633,7 +12633,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
 switch.lookup:                                    ; preds = %131
   %134 = lshr i32 %132, 28
   %135 = zext nneg i32 %134 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22emitByrefStructureInitERKNS1_15AutoVarEmissionE, i64 0, i64 %135
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22emitByrefStructureInitERKNS1_15AutoVarEmissionE, i64 %135
   %switch.load = load ptr, ptr %switch.gep, align 8
   %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   br label %.thread188.thread
@@ -14488,7 +14488,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_116BlockLayou
 
 switch.lookup:                                    ; preds = %15
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
@@ -14503,9 +14503,9 @@ switch.lookup:                                    ; preds = %15
 
 21:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   %.val9.i.i = load i32, ptr %6, align 4
-  %switch.tableidx27 = add i32 %.val9.i.i, -3
-  %22 = icmp ult i32 %switch.tableidx27, 6
-  br i1 %22, label %switch.lookup26, label %24
+  %switch.tableidx26 = add i32 %.val9.i.i, -3
+  %22 = icmp ult i32 %switch.tableidx26, 6
+  br i1 %22, label %switch.lookup27, label %24
 
 23:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
@@ -14513,14 +14513,14 @@ switch.lookup:                                    ; preds = %15
 24:                                               ; preds = %21, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-switch.lookup26:                                  ; preds = %21
-  %25 = zext nneg i32 %switch.tableidx27 to i64
-  %switch.gep28 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %25
+switch.lookup27:                                  ; preds = %21
+  %25 = zext nneg i32 %switch.tableidx26 to i64
+  %switch.gep28 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %25
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit: ; preds = %switch.lookup26, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i", %23, %24
-  %.0.i10.i.i = phi i32 [ 4, %24 ], [ 3, %23 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i" ], [ %switch.load29, %switch.lookup26 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit: ; preds = %switch.lookup27, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i", %23, %24
+  %.0.i10.i.i = phi i32 [ 4, %24 ], [ 3, %23 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i" ], [ %switch.load29, %switch.lookup27 ]
   %26 = icmp samesign ult i32 %.0.i.i.i, %.0.i10.i.i
   br i1 %26, label %27, label %32
 
@@ -14548,10 +14548,10 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EE
   %.sroa.614.0.copyload.i = load i32, ptr %.sroa.614.0..sroa_idx.i, align 8, !tbaa !1072
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pn18, i64 108
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !1072
-  %switch.tableidx31 = add i32 %.sroa.614.0.copyload.i, -3
-  %33 = icmp ult i32 %switch.tableidx31, 6
-  %34 = zext nneg i32 %switch.tableidx31 to i64
-  %switch.gep32 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %34
+  %switch.tableidx30 = add i32 %.sroa.614.0.copyload.i, -3
+  %33 = icmp ult i32 %switch.tableidx30, 6
+  %34 = zext nneg i32 %switch.tableidx30 to i64
+  %switch.gep32 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %34
   br label %35
 
 35:                                               ; preds = %51, %32
@@ -14573,7 +14573,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EE
   ]
 
 40:                                               ; preds = %39
-  br i1 %33, label %switch.lookup30, label %42
+  br i1 %33, label %switch.lookup31, label %42
 
 41:                                               ; preds = %39
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
@@ -14581,12 +14581,12 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EE
 42:                                               ; preds = %40, %39
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-switch.lookup30:                                  ; preds = %40
+switch.lookup31:                                  ; preds = %40
   %switch.load33 = load i32, ptr %switch.gep32, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup30, %42, %41, %39
-  %.0.i.i.i.i = phi i32 [ 4, %42 ], [ 3, %41 ], [ 0, %39 ], [ %switch.load33, %switch.lookup30 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup31, %42, %41, %39
+  %.0.i.i.i.i = phi i32 [ 4, %42 ], [ 3, %41 ], [ 0, %39 ], [ %switch.load33, %switch.lookup31 ]
   %43 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %.val8.i.i.i = load i32, ptr %43, align 8, !tbaa !1526
   switch i32 %.val8.i.i.i, label %48 [
@@ -14598,9 +14598,9 @@ switch.lookup30:                                  ; preds = %40
 44:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   %45 = getelementptr inbounds i8, ptr %.09.i, i64 -8
   %.val9.i.i.i = load i32, ptr %45, align 4
-  %switch.tableidx35 = add i32 %.val9.i.i.i, -3
-  %46 = icmp ult i32 %switch.tableidx35, 6
-  br i1 %46, label %switch.lookup34, label %48
+  %switch.tableidx34 = add i32 %.val9.i.i.i, -3
+  %46 = icmp ult i32 %switch.tableidx34, 6
+  br i1 %46, label %switch.lookup35, label %48
 
 47:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
@@ -14608,14 +14608,14 @@ switch.lookup30:                                  ; preds = %40
 48:                                               ; preds = %44, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
-switch.lookup34:                                  ; preds = %44
-  %49 = zext nneg i32 %switch.tableidx35 to i64
-  %switch.gep36 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %49
+switch.lookup35:                                  ; preds = %44
+  %49 = zext nneg i32 %switch.tableidx34 to i64
+  %switch.gep36 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %49
   %switch.load37 = load i32, ptr %switch.gep36, align 4
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i: ; preds = %switch.lookup34, %48, %47, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %48 ], [ 3, %47 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load37, %switch.lookup34 ]
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i: ; preds = %switch.lookup35, %48, %47, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %48 ], [ 3, %47 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load37, %switch.lookup35 ]
   %50 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
   br i1 %50, label %51, label %_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_116BlockLayoutChunkEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
 
@@ -14705,7 +14705,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPN12_GLOBAL__N_116Bloc
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
@@ -14722,9 +14722,9 @@ switch.lookup:                                    ; preds = %23
 30:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   %31 = getelementptr inbounds nuw i8, ptr %.tr87, i64 48
   %.val9.i.i = load i32, ptr %31, align 4
-  %switch.tableidx119 = add i32 %.val9.i.i, -3
-  %32 = icmp ult i32 %switch.tableidx119, 6
-  br i1 %32, label %switch.lookup118, label %34
+  %switch.tableidx118 = add i32 %.val9.i.i, -3
+  %32 = icmp ult i32 %switch.tableidx118, 6
+  br i1 %32, label %switch.lookup119, label %34
 
 33:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
@@ -14732,14 +14732,14 @@ switch.lookup:                                    ; preds = %23
 34:                                               ; preds = %30, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-switch.lookup118:                                 ; preds = %30
-  %35 = zext nneg i32 %switch.tableidx119 to i64
-  %switch.gep120 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %35
+switch.lookup119:                                 ; preds = %30
+  %35 = zext nneg i32 %switch.tableidx118 to i64
+  %switch.gep120 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %35
   %switch.load121 = load i32, ptr %switch.gep120, align 4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit: ; preds = %switch.lookup118, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i", %33, %34
-  %.0.i10.i.i = phi i32 [ 4, %34 ], [ 3, %33 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i" ], [ %switch.load121, %switch.lookup118 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit: ; preds = %switch.lookup119, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i", %33, %34
+  %.0.i10.i.i = phi i32 [ 4, %34 ], [ 3, %33 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i" ], [ %switch.load121, %switch.lookup119 ]
   %36 = icmp samesign ult i32 %.0.i.i.i, %.0.i10.i.i
   br i1 %36, label %37, label %.loopexit
 
@@ -14770,10 +14770,10 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i: ; preds 
   %.val8.i.i.i = load i32, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %.val9.i.i.i = load i32, ptr %48, align 8
-  %switch.tableidx127 = add i32 %.val9.i.i.i, -3
-  %49 = icmp ult i32 %switch.tableidx127, 6
-  %50 = zext nneg i32 %switch.tableidx127 to i64
-  %switch.gep128 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %50
+  %switch.tableidx126 = add i32 %.val9.i.i.i, -3
+  %49 = icmp ult i32 %switch.tableidx126, 6
+  %50 = zext nneg i32 %switch.tableidx126 to i64
+  %switch.gep128 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %50
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i
@@ -14801,9 +14801,9 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %.val7.i.i.i = load i32, ptr %59, align 4
-  %switch.tableidx123 = add i32 %.val7.i.i.i, -3
-  %60 = icmp ult i32 %switch.tableidx123, 6
-  br i1 %60, label %switch.lookup122, label %62
+  %switch.tableidx122 = add i32 %.val7.i.i.i, -3
+  %60 = icmp ult i32 %switch.tableidx122, 6
+  br i1 %60, label %switch.lookup123, label %62
 
 61:                                               ; preds = %56
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
@@ -14811,14 +14811,14 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
 62:                                               ; preds = %58, %56
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-switch.lookup122:                                 ; preds = %58
-  %63 = zext nneg i32 %switch.tableidx123 to i64
-  %switch.gep124 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %63
+switch.lookup123:                                 ; preds = %58
+  %63 = zext nneg i32 %switch.tableidx122 to i64
+  %switch.gep124 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %63
   %switch.load125 = load i32, ptr %switch.gep124, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup122, %62, %61, %56
-  %.0.i.i.i.i = phi i32 [ 4, %62 ], [ 3, %61 ], [ 0, %56 ], [ %switch.load125, %switch.lookup122 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup123, %62, %61, %56
+  %.0.i.i.i.i = phi i32 [ 4, %62 ], [ 3, %61 ], [ 0, %56 ], [ %switch.load125, %switch.lookup123 ]
   switch i32 %.val8.i.i.i, label %66 [
     i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
     i32 5, label %64
@@ -14826,7 +14826,7 @@ switch.lookup122:                                 ; preds = %58
   ]
 
 64:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
-  br i1 %49, label %switch.lookup126, label %66
+  br i1 %49, label %switch.lookup127, label %66
 
 65:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
@@ -14834,12 +14834,12 @@ switch.lookup122:                                 ; preds = %58
 66:                                               ; preds = %64, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-switch.lookup126:                                 ; preds = %64
+switch.lookup127:                                 ; preds = %64
   %switch.load129 = load i32, ptr %switch.gep128, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i": ; preds = %switch.lookup126, %66, %65, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %66 ], [ 3, %65 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load129, %switch.lookup126 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i": ; preds = %switch.lookup127, %66, %65, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %66 ], [ 3, %65 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load129, %switch.lookup127 ]
   %67 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
 
@@ -14879,10 +14879,10 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42: ; pred
   %.val.i.i.i43 = load i32, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %.val7.i.i.i44 = load i32, ptr %82, align 8
-  %switch.tableidx131 = add i32 %.val7.i.i.i44, -3
-  %83 = icmp ult i32 %switch.tableidx131, 6
-  %84 = zext nneg i32 %switch.tableidx131 to i64
-  %switch.gep132 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %84
+  %switch.tableidx130 = add i32 %.val7.i.i.i44, -3
+  %83 = icmp ult i32 %switch.tableidx130, 6
+  %84 = zext nneg i32 %switch.tableidx130 to i64
+  %switch.gep132 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %84
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45
 
 _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42
@@ -14906,7 +14906,7 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45: ; preds = %_
   ]
 
 91:                                               ; preds = %90
-  br i1 %83, label %switch.lookup130, label %93
+  br i1 %83, label %switch.lookup131, label %93
 
 92:                                               ; preds = %90
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
@@ -14914,12 +14914,12 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45: ; preds = %_
 93:                                               ; preds = %91, %90
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
 
-switch.lookup130:                                 ; preds = %91
+switch.lookup131:                                 ; preds = %91
   %switch.load133 = load i32, ptr %switch.gep132, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54": ; preds = %switch.lookup130, %93, %92, %90
-  %.0.i.i.i.i55 = phi i32 [ 4, %93 ], [ 3, %92 ], [ 0, %90 ], [ %switch.load133, %switch.lookup130 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54": ; preds = %switch.lookup131, %93, %92, %90
+  %.0.i.i.i.i55 = phi i32 [ 4, %93 ], [ 3, %92 ], [ 0, %90 ], [ %switch.load133, %switch.lookup131 ]
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %.val8.i.i.i56 = load i32, ptr %94, align 8, !tbaa !1526
   switch i32 %.val8.i.i.i56, label %99 [
@@ -14931,9 +14931,9 @@ switch.lookup130:                                 ; preds = %91
 95:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %.val9.i.i.i59 = load i32, ptr %96, align 4
-  %switch.tableidx135 = add i32 %.val9.i.i.i59, -3
-  %97 = icmp ult i32 %switch.tableidx135, 6
-  br i1 %97, label %switch.lookup134, label %99
+  %switch.tableidx134 = add i32 %.val9.i.i.i59, -3
+  %97 = icmp ult i32 %switch.tableidx134, 6
+  br i1 %97, label %switch.lookup135, label %99
 
 98:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57"
@@ -14941,14 +14941,14 @@ switch.lookup130:                                 ; preds = %91
 99:                                               ; preds = %95, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57"
 
-switch.lookup134:                                 ; preds = %95
-  %100 = zext nneg i32 %switch.tableidx135 to i64
-  %switch.gep136 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %100
+switch.lookup135:                                 ; preds = %95
+  %100 = zext nneg i32 %switch.tableidx134 to i64
+  %switch.gep136 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %100
   %switch.load137 = load i32, ptr %switch.gep136, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57": ; preds = %switch.lookup134, %99, %98, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
-  %.0.i10.i.i.i58 = phi i32 [ 4, %99 ], [ 3, %98 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54" ], [ %switch.load137, %switch.lookup134 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57": ; preds = %switch.lookup135, %99, %98, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
+  %.0.i10.i.i.i58 = phi i32 [ 4, %99 ], [ 3, %98 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54" ], [ %switch.load137, %switch.lookup135 ]
   %101 = icmp samesign ult i32 %.0.i.i.i.i55, %.0.i10.i.i.i58
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
@@ -15178,7 +15178,7 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit: ; preds = %ta
 
 switch.lookup:                                    ; preds = %26
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
@@ -15195,9 +15195,9 @@ switch.lookup:                                    ; preds = %26
 33:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   %34 = getelementptr inbounds nuw i8, ptr %.01826.i, i64 48
   %.val9.i.i.i = load i32, ptr %34, align 4
-  %switch.tableidx190 = add i32 %.val9.i.i.i, -3
-  %35 = icmp ult i32 %switch.tableidx190, 6
-  br i1 %35, label %switch.lookup189, label %37
+  %switch.tableidx189 = add i32 %.val9.i.i.i, -3
+  %35 = icmp ult i32 %switch.tableidx189, 6
+  br i1 %35, label %switch.lookup190, label %37
 
 36:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
@@ -15205,14 +15205,14 @@ switch.lookup:                                    ; preds = %26
 37:                                               ; preds = %33, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-switch.lookup189:                                 ; preds = %33
-  %38 = zext nneg i32 %switch.tableidx190 to i64
-  %switch.gep191 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %38
+switch.lookup190:                                 ; preds = %33
+  %38 = zext nneg i32 %switch.tableidx189 to i64
+  %switch.gep191 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %38
   %switch.load192 = load i32, ptr %switch.gep191, align 4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i: ; preds = %switch.lookup189, %37, %36, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %37 ], [ 3, %36 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load192, %switch.lookup189 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i: ; preds = %switch.lookup190, %37, %36, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %37 ], [ 3, %36 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load192, %switch.lookup190 ]
   %39 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
   br i1 %39, label %40, label %42
 
@@ -15306,9 +15306,9 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit62.thread: ; pr
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.024.i, i64 48
   %.val7.i.i.i72 = load i32, ptr %70, align 4
-  %switch.tableidx194 = add i32 %.val7.i.i.i72, -3
-  %71 = icmp ult i32 %switch.tableidx194, 6
-  br i1 %71, label %switch.lookup193, label %73
+  %switch.tableidx193 = add i32 %.val7.i.i.i72, -3
+  %71 = icmp ult i32 %switch.tableidx193, 6
+  br i1 %71, label %switch.lookup194, label %73
 
 72:                                               ; preds = %67
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
@@ -15316,14 +15316,14 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit62.thread: ; pr
 73:                                               ; preds = %69, %67
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
 
-switch.lookup193:                                 ; preds = %69
-  %74 = zext nneg i32 %switch.tableidx194 to i64
-  %switch.gep195 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %74
+switch.lookup194:                                 ; preds = %69
+  %74 = zext nneg i32 %switch.tableidx193 to i64
+  %switch.gep195 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %74
   %switch.load196 = load i32, ptr %switch.gep195, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66": ; preds = %switch.lookup193, %73, %72, %67
-  %.0.i.i.i.i67 = phi i32 [ 4, %73 ], [ 3, %72 ], [ 0, %67 ], [ %switch.load196, %switch.lookup193 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66": ; preds = %switch.lookup194, %73, %72, %67
+  %.0.i.i.i.i67 = phi i32 [ 4, %73 ], [ 3, %72 ], [ 0, %67 ], [ %switch.load196, %switch.lookup194 ]
   %.val8.i.i.i68 = load i32, ptr %60, align 8, !tbaa !1526
   switch i32 %.val8.i.i.i68, label %78 [
     i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
@@ -15333,9 +15333,9 @@ switch.lookup193:                                 ; preds = %69
 
 75:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
   %.val9.i.i.i71 = load i32, ptr %61, align 4
-  %switch.tableidx198 = add i32 %.val9.i.i.i71, -3
-  %76 = icmp ult i32 %switch.tableidx198, 6
-  br i1 %76, label %switch.lookup197, label %78
+  %switch.tableidx197 = add i32 %.val9.i.i.i71, -3
+  %76 = icmp ult i32 %switch.tableidx197, 6
+  br i1 %76, label %switch.lookup198, label %78
 
 77:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
@@ -15343,14 +15343,14 @@ switch.lookup193:                                 ; preds = %69
 78:                                               ; preds = %75, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
 
-switch.lookup197:                                 ; preds = %75
-  %79 = zext nneg i32 %switch.tableidx198 to i64
-  %switch.gep199 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %79
+switch.lookup198:                                 ; preds = %75
+  %79 = zext nneg i32 %switch.tableidx197 to i64
+  %switch.gep199 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %79
   %switch.load200 = load i32, ptr %switch.gep199, align 4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69: ; preds = %switch.lookup197, %78, %77, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
-  %.0.i10.i.i.i70 = phi i32 [ 4, %78 ], [ 3, %77 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66" ], [ %switch.load200, %switch.lookup197 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69: ; preds = %switch.lookup198, %78, %77, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
+  %.0.i10.i.i.i70 = phi i32 [ 4, %78 ], [ 3, %77 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66" ], [ %switch.load200, %switch.lookup198 ]
   %80 = icmp samesign ult i32 %.0.i.i.i.i67, %.0.i10.i.i.i70
   br i1 %80, label %81, label %86
 
@@ -15404,10 +15404,10 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i: ; preds 
   %.val8.i.i.i75 = load i32, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %.val9.i.i.i76 = load i32, ptr %104, align 8
-  %switch.tableidx206 = add i32 %.val9.i.i.i76, -3
-  %105 = icmp ult i32 %switch.tableidx206, 6
-  %106 = zext nneg i32 %switch.tableidx206 to i64
-  %switch.gep207 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %106
+  %switch.tableidx205 = add i32 %.val9.i.i.i76, -3
+  %105 = icmp ult i32 %switch.tableidx205, 6
+  %106 = zext nneg i32 %switch.tableidx205 to i64
+  %switch.gep207 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %106
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i
@@ -15435,9 +15435,9 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %.val7.i.i.i83 = load i32, ptr %115, align 4
-  %switch.tableidx202 = add i32 %.val7.i.i.i83, -3
-  %116 = icmp ult i32 %switch.tableidx202, 6
-  br i1 %116, label %switch.lookup201, label %118
+  %switch.tableidx201 = add i32 %.val7.i.i.i83, -3
+  %116 = icmp ult i32 %switch.tableidx201, 6
+  br i1 %116, label %switch.lookup202, label %118
 
 117:                                              ; preds = %112
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
@@ -15445,14 +15445,14 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
 118:                                              ; preds = %114, %112
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
 
-switch.lookup201:                                 ; preds = %114
-  %119 = zext nneg i32 %switch.tableidx202 to i64
-  %switch.gep203 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %119
+switch.lookup202:                                 ; preds = %114
+  %119 = zext nneg i32 %switch.tableidx201 to i64
+  %switch.gep203 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %119
   %switch.load204 = load i32, ptr %switch.gep203, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80": ; preds = %switch.lookup201, %118, %117, %112
-  %.0.i.i.i.i81 = phi i32 [ 4, %118 ], [ 3, %117 ], [ 0, %112 ], [ %switch.load204, %switch.lookup201 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80": ; preds = %switch.lookup202, %118, %117, %112
+  %.0.i.i.i.i81 = phi i32 [ 4, %118 ], [ 3, %117 ], [ 0, %112 ], [ %switch.load204, %switch.lookup202 ]
   switch i32 %.val8.i.i.i75, label %122 [
     i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
     i32 5, label %120
@@ -15460,7 +15460,7 @@ switch.lookup201:                                 ; preds = %114
   ]
 
 120:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
-  br i1 %105, label %switch.lookup205, label %122
+  br i1 %105, label %switch.lookup206, label %122
 
 121:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
@@ -15468,12 +15468,12 @@ switch.lookup201:                                 ; preds = %114
 122:                                              ; preds = %120, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-switch.lookup205:                                 ; preds = %120
+switch.lookup206:                                 ; preds = %120
   %switch.load208 = load i32, ptr %switch.gep207, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i": ; preds = %switch.lookup205, %122, %121, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
-  %.0.i10.i.i.i82 = phi i32 [ 4, %122 ], [ 3, %121 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80" ], [ %switch.load208, %switch.lookup205 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i": ; preds = %switch.lookup206, %122, %121, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
+  %.0.i10.i.i.i82 = phi i32 [ 4, %122 ], [ 3, %121 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80" ], [ %switch.load208, %switch.lookup206 ]
   %123 = icmp samesign ult i32 %.0.i.i.i.i81, %.0.i10.i.i.i82
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
 
@@ -15513,10 +15513,10 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90: ; pred
   %.val.i.i.i91 = load i32, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 48
   %.val7.i.i.i92 = load i32, ptr %138, align 8
-  %switch.tableidx210 = add i32 %.val7.i.i.i92, -3
-  %139 = icmp ult i32 %switch.tableidx210, 6
-  %140 = zext nneg i32 %switch.tableidx210 to i64
-  %switch.gep211 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %140
+  %switch.tableidx209 = add i32 %.val7.i.i.i92, -3
+  %139 = icmp ult i32 %switch.tableidx209, 6
+  %140 = zext nneg i32 %switch.tableidx209 to i64
+  %switch.gep211 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %140
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93
 
 _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90
@@ -15540,7 +15540,7 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93: ; preds = %_
   ]
 
 147:                                              ; preds = %146
-  br i1 %139, label %switch.lookup209, label %149
+  br i1 %139, label %switch.lookup210, label %149
 
 148:                                              ; preds = %146
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
@@ -15548,12 +15548,12 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93: ; preds = %_
 149:                                              ; preds = %147, %146
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
 
-switch.lookup209:                                 ; preds = %147
+switch.lookup210:                                 ; preds = %147
   %switch.load212 = load i32, ptr %switch.gep211, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102": ; preds = %switch.lookup209, %149, %148, %146
-  %.0.i.i.i.i103 = phi i32 [ 4, %149 ], [ 3, %148 ], [ 0, %146 ], [ %switch.load212, %switch.lookup209 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102": ; preds = %switch.lookup210, %149, %148, %146
+  %.0.i.i.i.i103 = phi i32 [ 4, %149 ], [ 3, %148 ], [ 0, %146 ], [ %switch.load212, %switch.lookup210 ]
   %150 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %.val8.i.i.i104 = load i32, ptr %150, align 8, !tbaa !1526
   switch i32 %.val8.i.i.i104, label %155 [
@@ -15565,9 +15565,9 @@ switch.lookup209:                                 ; preds = %147
 151:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
   %152 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %.val9.i.i.i107 = load i32, ptr %152, align 4
-  %switch.tableidx214 = add i32 %.val9.i.i.i107, -3
-  %153 = icmp ult i32 %switch.tableidx214, 6
-  br i1 %153, label %switch.lookup213, label %155
+  %switch.tableidx213 = add i32 %.val9.i.i.i107, -3
+  %153 = icmp ult i32 %switch.tableidx213, 6
+  br i1 %153, label %switch.lookup214, label %155
 
 154:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105"
@@ -15575,14 +15575,14 @@ switch.lookup209:                                 ; preds = %147
 155:                                              ; preds = %151, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105"
 
-switch.lookup213:                                 ; preds = %151
-  %156 = zext nneg i32 %switch.tableidx214 to i64
-  %switch.gep215 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %156
+switch.lookup214:                                 ; preds = %151
+  %156 = zext nneg i32 %switch.tableidx213 to i64
+  %switch.gep215 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %156
   %switch.load216 = load i32, ptr %switch.gep215, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105": ; preds = %switch.lookup213, %155, %154, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
-  %.0.i10.i.i.i106 = phi i32 [ 4, %155 ], [ 3, %154 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102" ], [ %switch.load216, %switch.lookup213 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105": ; preds = %switch.lookup214, %155, %154, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
+  %.0.i10.i.i.i106 = phi i32 [ 4, %155 ], [ 3, %154 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102" ], [ %switch.load216, %switch.lookup214 ]
   %157 = icmp samesign ult i32 %.0.i.i.i.i103, %.0.i10.i.i.i106
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
@@ -15896,7 +15896,7 @@ _ZSt12__move_mergeIPN12_GLOBAL__N_116BlockLayoutChunkES2_N9__gnu_cxx5__ops15_Ite
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
@@ -15913,9 +15913,9 @@ switch.lookup:                                    ; preds = %23
 30:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   %31 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 48
   %.val9.i.i.i = load i32, ptr %31, align 4
-  %switch.tableidx96 = add i32 %.val9.i.i.i, -3
-  %32 = icmp ult i32 %switch.tableidx96, 6
-  br i1 %32, label %switch.lookup95, label %34
+  %switch.tableidx95 = add i32 %.val9.i.i.i, -3
+  %32 = icmp ult i32 %switch.tableidx95, 6
+  br i1 %32, label %switch.lookup96, label %34
 
 33:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
@@ -15923,14 +15923,14 @@ switch.lookup:                                    ; preds = %23
 34:                                               ; preds = %30, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-switch.lookup95:                                  ; preds = %30
-  %35 = zext nneg i32 %switch.tableidx96 to i64
-  %switch.gep97 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %35
+switch.lookup96:                                  ; preds = %30
+  %35 = zext nneg i32 %switch.tableidx95 to i64
+  %switch.gep97 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %35
   %switch.load98 = load i32, ptr %switch.gep97, align 4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i: ; preds = %switch.lookup95, %34, %33, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %34 ], [ 3, %33 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load98, %switch.lookup95 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i: ; preds = %switch.lookup96, %34, %33, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %34 ], [ 3, %33 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load98, %switch.lookup96 ]
   %36 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
   br i1 %36, label %37, label %39
 
@@ -16020,9 +16020,9 @@ _ZSt12__move_mergeIPN12_GLOBAL__N_116BlockLayoutChunkES2_N9__gnu_cxx5__ops15_Ite
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %.01923.i30, i64 48
   %.val7.i.i.i41 = load i32, ptr %69, align 4
-  %switch.tableidx100 = add i32 %.val7.i.i.i41, -3
-  %70 = icmp ult i32 %switch.tableidx100, 6
-  br i1 %70, label %switch.lookup99, label %72
+  %switch.tableidx99 = add i32 %.val7.i.i.i41, -3
+  %70 = icmp ult i32 %switch.tableidx99, 6
+  br i1 %70, label %switch.lookup100, label %72
 
 71:                                               ; preds = %66
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
@@ -16030,14 +16030,14 @@ _ZSt12__move_mergeIPN12_GLOBAL__N_116BlockLayoutChunkES2_N9__gnu_cxx5__ops15_Ite
 72:                                               ; preds = %68, %66
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
 
-switch.lookup99:                                  ; preds = %68
-  %73 = zext nneg i32 %switch.tableidx100 to i64
-  %switch.gep101 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %73
+switch.lookup100:                                 ; preds = %68
+  %73 = zext nneg i32 %switch.tableidx99 to i64
+  %switch.gep101 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %73
   %switch.load102 = load i32, ptr %switch.gep101, align 4
   br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35": ; preds = %switch.lookup99, %72, %71, %66
-  %.0.i.i.i.i36 = phi i32 [ 4, %72 ], [ 3, %71 ], [ 0, %66 ], [ %switch.load102, %switch.lookup99 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35": ; preds = %switch.lookup100, %72, %71, %66
+  %.0.i.i.i.i36 = phi i32 [ 4, %72 ], [ 3, %71 ], [ 0, %66 ], [ %switch.load102, %switch.lookup100 ]
   %74 = getelementptr inbounds nuw i8, ptr %.01827.i29, i64 40
   %.val8.i.i.i37 = load i32, ptr %74, align 8, !tbaa !1526
   switch i32 %.val8.i.i.i37, label %79 [
@@ -16049,9 +16049,9 @@ switch.lookup99:                                  ; preds = %68
 75:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
   %76 = getelementptr inbounds nuw i8, ptr %.01827.i29, i64 48
   %.val9.i.i.i40 = load i32, ptr %76, align 4
-  %switch.tableidx104 = add i32 %.val9.i.i.i40, -3
-  %77 = icmp ult i32 %switch.tableidx104, 6
-  br i1 %77, label %switch.lookup103, label %79
+  %switch.tableidx103 = add i32 %.val9.i.i.i40, -3
+  %77 = icmp ult i32 %switch.tableidx103, 6
+  br i1 %77, label %switch.lookup104, label %79
 
 78:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38
@@ -16059,14 +16059,14 @@ switch.lookup99:                                  ; preds = %68
 79:                                               ; preds = %75, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38
 
-switch.lookup103:                                 ; preds = %75
-  %80 = zext nneg i32 %switch.tableidx104 to i64
-  %switch.gep105 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 0, i64 %80
+switch.lookup104:                                 ; preds = %75
+  %80 = zext nneg i32 %switch.tableidx103 to i64
+  %switch.gep105 = getelementptr inbounds nuw i32, ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.59, i64 %80
   %switch.load106 = load i32, ptr %switch.gep105, align 4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38: ; preds = %switch.lookup103, %79, %78, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
-  %.0.i10.i.i.i39 = phi i32 [ 4, %79 ], [ 3, %78 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35" ], [ %switch.load106, %switch.lookup103 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38: ; preds = %switch.lookup104, %79, %78, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
+  %.0.i10.i.i.i39 = phi i32 [ 4, %79 ], [ 3, %78 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35" ], [ %switch.load106, %switch.lookup104 ]
   %81 = icmp samesign ult i32 %.0.i.i.i.i36, %.0.i10.i.i.i39
   br i1 %81, label %82, label %84
 

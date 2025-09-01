@@ -11046,7 +11046,7 @@ define hidden void @_ZN12tab_switcher19TabSwitcherDelegate14update_matches17hc6e
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN4core3ptr43drop_in_place$LT$tab_switcher..TabMatch$GT$17hb9974d42f68f6622E.exit.i"
   %.sroa.0.08.i = phi i64 [ %21, %"_ZN4core3ptr43drop_in_place$LT$tab_switcher..TabMatch$GT$17hb9974d42f68f6622E.exit.i" ], [ 0, %2 ]
-  %20 = getelementptr inbounds [0 x { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }], ptr %16, i64 0, i64 %.sroa.0.08.i
+  %20 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }, ptr %16, i64 %.sroa.0.08.i
   %21 = add nuw i64 %.sroa.0.08.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2667)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2670)
@@ -11105,7 +11105,7 @@ define hidden void @_ZN12tab_switcher19TabSwitcherDelegate14update_matches17hc6e
   br i1 %42, label %common.resume, label %43
 
 43:                                               ; preds = %.body.i
-  %44 = getelementptr inbounds [0 x { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }], ptr %16, i64 0, i64 %.sroa.0.1.i
+  %44 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }, ptr %16, i64 %.sroa.0.1.i
   %45 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$tab_switcher..TabMatch$GT$17hb9974d42f68f6622E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %44) #36
           to label %.body.i unwind label %46

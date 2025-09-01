@@ -763,7 +763,7 @@ define noundef i32 @_ZN3zmq12ws_decoder_t13message_readyEPKh(ptr noundef nonnull
   %18 = load i8, ptr %17, align 1, !tbaa !32
   %19 = and i32 %.010, 3
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !32
   %23 = xor i8 %22, %18
   store i8 %23, ptr %17, align 1, !tbaa !32

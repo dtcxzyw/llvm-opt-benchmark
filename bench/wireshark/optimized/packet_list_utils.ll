@@ -204,9 +204,9 @@ define hidden noundef zeroext i1 @display_column_strings(i32 noundef %0, ptr nou
   br i1 %.not46, label %30, label %28
 
 28:                                               ; preds = %25
-  %switch.tableidx106 = add i32 %23, -3
-  %29 = icmp ult i32 %switch.tableidx106, 33
-  %switch.maskindex109 = zext nneg i32 %switch.tableidx106 to i64
+  %switch.tableidx105 = add i32 %23, -3
+  %29 = icmp ult i32 %switch.tableidx105, 33
+  %switch.maskindex109 = zext nneg i32 %switch.tableidx105 to i64
   %switch.shifted110 = lshr i64 4295098367, %switch.maskindex109
   %switch.lobit111 = trunc i64 %switch.shifted110 to i1
   %or.cond112 = select i1 %29, i1 %switch.lobit111, i1 false

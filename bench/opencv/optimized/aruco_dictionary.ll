@@ -2316,7 +2316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.13254 = phi i8 [ %.3, %82 ], [ %.03160, %.preheader ]
   %.13553 = phi i32 [ %.236, %82 ], [ %.03459, %.preheader ]
   %49 = sext i32 %.155 to i64
-  %50 = getelementptr inbounds [8 x i8], ptr @__const._ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi.base2List, i64 0, i64 %49
+  %50 = getelementptr inbounds i8, ptr @__const._ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi.base2List, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !24
   %.not47 = icmp ult i8 %.13254, %51
   br i1 %.not47, label %62, label %52
@@ -4202,10 +4202,10 @@ define void @_ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTyp
 
 switch.lookup:                                    ; preds = %222
   %334 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE, i64 0, i64 %334
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE, i64 %334
   %switch.load = load ptr, ptr %switch.gep, align 8
   %335 = zext nneg i32 %1 to i64
-  %switch.gep97 = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 0, i64 %335
+  %switch.gep97 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 %335
   %switch.load98 = load ptr, ptr %switch.gep97, align 8
   br label %336
 

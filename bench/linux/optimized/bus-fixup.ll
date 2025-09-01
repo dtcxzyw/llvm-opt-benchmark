@@ -49,7 +49,7 @@ define dso_local void @mei_cl_bus_dev_fixup(ptr noundef %0) local_unnamed_addr #
 
 13:                                               ; preds = %29, %1
   %14 = phi i64 [ 0, %1 ], [ %30, %29 ]
-  %15 = getelementptr [10 x %struct.mei_fixup], ptr @mei_fixups, i64 0, i64 %14
+  %15 = getelementptr %struct.mei_fixup, ptr @mei_fixups, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
@@ -684,12 +684,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   br i1 %35, label %63, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr [3 x %struct.mkhi_fw_ver_block], ptr %27, i64 0, i64 %31
+  %37 = getelementptr %struct.mkhi_fw_ver_block, ptr %27, i64 %31
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 3
   %39 = load i8, ptr %38, align 1
   %40 = load ptr, ptr %13, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 3324
-  %42 = getelementptr [3 x %struct.mei_fw_version], ptr %41, i64 0, i64 %31
+  %42 = getelementptr %struct.mei_fw_version, ptr %41, i64 %31
   store i8 %39, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %44 = load i8, ptr %43, align 2

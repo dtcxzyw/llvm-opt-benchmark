@@ -151,7 +151,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 48:                                               ; preds = %.lr.ph, %44
   %.081109 = phi i64 [ 0, %.lr.ph ], [ %45, %44 ]
-  %49 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 0, i64 %.081109
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 %.081109
   %50 = load i8, ptr %49, align 1, !tbaa !30
   %51 = zext i8 %50 to i32
   %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %51) #3
@@ -181,7 +181,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 63:                                               ; preds = %.lr.ph111, %59
   %.1110 = phi i64 [ 0, %.lr.ph111 ], [ %60, %59 ]
-  %64 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 0, i64 %.1110
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 %.1110
   %65 = load i8, ptr %64, align 1, !tbaa !30
   %66 = zext i8 %65 to i32
   %67 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %66) #3
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 83:                                               ; preds = %.lr.ph115, %79
   %.2113 = phi i64 [ 0, %.lr.ph115 ], [ %80, %79 ]
-  %84 = getelementptr inbounds nuw [512 x i8], ptr %78, i64 0, i64 %.2113
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 %.2113
   %85 = load i8, ptr %84, align 1, !tbaa !30
   %86 = zext i8 %85 to i32
   %87 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %86) #3
@@ -467,7 +467,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef
 
 24:                                               ; preds = %.lr.ph, %20
   %.023 = phi i64 [ 0, %.lr.ph ], [ %21, %20 ]
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %.023
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 %.023
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = zext i8 %26 to i32
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %27) #3
@@ -496,7 +496,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef
 
 38:                                               ; preds = %.lr.ph25, %34
   %.124 = phi i64 [ 0, %.lr.ph25 ], [ %35, %34 ]
-  %39 = getelementptr inbounds nuw [512 x i8], ptr %33, i64 0, i64 %.124
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %.124
   %40 = load i8, ptr %39, align 1, !tbaa !30
   %41 = zext i8 %40 to i32
   %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %41) #3

@@ -6262,7 +6262,7 @@ define i32 @LZ4_compress_fast_continue(ptr noundef %0, ptr noundef %1, ptr nound
 
 25:                                               ; preds = %25, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !34
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %27, i32 %22)
   store i32 %storemerge.i, ptr %26, align 4, !tbaa !34
@@ -10486,7 +10486,7 @@ define i32 @LZ4_compress_forceExtDict(ptr noundef captures(none) %0, ptr noundef
 
 16:                                               ; preds = %16, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !34
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %18, i32 %11)
   store i32 %storemerge.i, ptr %17, align 4, !tbaa !34
@@ -12287,14 +12287,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit15.thread79: ; preds = %83, %_ZL20read_var
   %135 = load i8, ptr %134, align 1, !tbaa !6
   %136 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %135, ptr %136, align 1, !tbaa !6
-  %137 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %74
+  %137 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %74
   %138 = load i32, ptr %137, align 4, !tbaa !34
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds nuw i8, ptr %77, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %142 = load i32, ptr %140, align 1
   store i32 %142, ptr %141, align 1
-  %143 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %74
+  %143 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %74
   %144 = load i32, ptr %143, align 4, !tbaa !34
   %145 = sext i32 %144 to i64
   %146 = sub nsw i64 0, %145
@@ -12590,14 +12590,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit24:         ; preds = %252, %247
   %279 = load i8, ptr %278, align 1, !tbaa !6
   %280 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %279, ptr %280, align 1, !tbaa !6
-  %281 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i
+  %281 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i
   %282 = load i32, ptr %281, align 4, !tbaa !34
   %283 = zext i32 %282 to i64
   %284 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %283
   %285 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %286 = load i32, ptr %284, align 1
   store i32 %286, ptr %285, align 1
-  %287 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i
+  %287 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i
   %288 = load i32, ptr %287, align 4, !tbaa !34
   %289 = sext i32 %288 to i64
   %290 = sub nsw i64 0, %289
@@ -12970,14 +12970,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit19.thread83: ; preds = %80, %_ZL20read_var
   %132 = load i8, ptr %131, align 1, !tbaa !6
   %133 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %132, ptr %133, align 1, !tbaa !6
-  %134 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %71
+  %134 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %71
   %135 = load i32, ptr %134, align 4, !tbaa !34
   %136 = zext i32 %135 to i64
   %137 = getelementptr inbounds nuw i8, ptr %74, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %139 = load i32, ptr %137, align 1
   store i32 %139, ptr %138, align 1
-  %140 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %71
+  %140 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %71
   %141 = load i32, ptr %140, align 4, !tbaa !34
   %142 = sext i32 %141 to i64
   %143 = sub nsw i64 0, %142
@@ -13325,14 +13325,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit28:         ; preds = %258, %253
   %300 = load i8, ptr %299, align 1, !tbaa !6
   %301 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %300, ptr %301, align 1, !tbaa !6
-  %302 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i
+  %302 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i
   %303 = load i32, ptr %302, align 4, !tbaa !34
   %304 = zext i32 %303 to i64
   %305 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %304
   %306 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %307 = load i32, ptr %305, align 1
   store i32 %307, ptr %306, align 1
-  %308 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i
+  %308 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i
   %309 = load i32, ptr %308, align 4, !tbaa !34
   %310 = sext i32 %309 to i64
   %311 = sub nsw i64 0, %310
@@ -13796,14 +13796,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit15.thread79: ; preds = %78, %_ZL20read_var
   %126 = load i8, ptr %125, align 1, !tbaa !6
   %127 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr, i64 3
   store i8 %126, ptr %127, align 1, !tbaa !6
-  %128 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %71
+  %128 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %71
   %129 = load i32, ptr %128, align 4, !tbaa !34
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr, i64 4
   %133 = load i32, ptr %131, align 1
   store i32 %133, ptr %132, align 1
-  %134 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %71
+  %134 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %71
   %135 = load i32, ptr %134, align 4, !tbaa !34
   %136 = sext i32 %135 to i64
   %137 = sub nsw i64 0, %136
@@ -14103,14 +14103,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit24:         ; preds = %234, %229
   %259 = load i8, ptr %258, align 1, !tbaa !6
   %260 = getelementptr inbounds nuw i8, ptr %.4.i.ptr, i64 3
   store i8 %259, ptr %260, align 1, !tbaa !6
-  %261 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i
+  %261 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i
   %262 = load i32, ptr %261, align 4, !tbaa !34
   %263 = zext i32 %262 to i64
   %264 = getelementptr inbounds nuw i8, ptr %.0362.i.ptr, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %.4.i.ptr, i64 4
   %266 = load i32, ptr %264, align 1
   store i32 %266, ptr %265, align 1
-  %267 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i
+  %267 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i
   %268 = load i32, ptr %267, align 4, !tbaa !34
   %269 = sext i32 %268 to i64
   %270 = sub nsw i64 0, %269
@@ -14673,14 +14673,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit17.thread81: ; preds = %90, %_ZL20read_var
   %166 = load i8, ptr %165, align 1, !tbaa !6
   %167 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %166, ptr %167, align 1, !tbaa !6
-  %168 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %81
+  %168 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %81
   %169 = load i32, ptr %168, align 4, !tbaa !34
   %170 = zext i32 %169 to i64
   %171 = getelementptr inbounds nuw i8, ptr %84, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %173 = load i32, ptr %171, align 1
   store i32 %173, ptr %172, align 1
-  %174 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %81
+  %174 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %81
   %175 = load i32, ptr %174, align 4, !tbaa !34
   %176 = sext i32 %175 to i64
   %177 = sub nsw i64 0, %176
@@ -15028,14 +15028,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit26:         ; preds = %283, %278
   %335 = load i8, ptr %334, align 1, !tbaa !6
   %336 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %335, ptr %336, align 1, !tbaa !6
-  %337 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i
+  %337 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i
   %338 = load i32, ptr %337, align 4, !tbaa !34
   %339 = zext i32 %338 to i64
   %340 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %342 = load i32, ptr %340, align 1
   store i32 %342, ptr %341, align 1
-  %343 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i
+  %343 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i
   %344 = load i32, ptr %343, align 4, !tbaa !34
   %345 = sext i32 %344 to i64
   %346 = sub nsw i64 0, %345
@@ -15473,14 +15473,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit21.thread85: ; preds = %87, %_ZL20read_var
   %170 = load i8, ptr %169, align 1, !tbaa !6
   %171 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %170, ptr %171, align 1, !tbaa !6
-  %172 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %78
+  %172 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %78
   %173 = load i32, ptr %172, align 4, !tbaa !34
   %174 = zext i32 %173 to i64
   %175 = getelementptr inbounds nuw i8, ptr %81, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %177 = load i32, ptr %175, align 1
   store i32 %177, ptr %176, align 1
-  %178 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %78
+  %178 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %78
   %179 = load i32, ptr %178, align 4, !tbaa !34
   %180 = sext i32 %179 to i64
   %181 = sub nsw i64 0, %180
@@ -15893,14 +15893,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit30:         ; preds = %296, %291
   %370 = load i8, ptr %369, align 1, !tbaa !6
   %371 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %370, ptr %371, align 1, !tbaa !6
-  %372 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i
+  %372 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i
   %373 = load i32, ptr %372, align 4, !tbaa !34
   %374 = zext i32 %373 to i64
   %375 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %374
   %376 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %377 = load i32, ptr %375, align 1
   store i32 %377, ptr %376, align 1
-  %378 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i
+  %378 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i
   %379 = load i32, ptr %378, align 4, !tbaa !34
   %380 = sext i32 %379 to i64
   %381 = sub nsw i64 0, %380
@@ -16385,14 +16385,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit77.thread143: ; preds = %118, %_ZL20read_v
   %194 = load i8, ptr %193, align 1, !tbaa !6
   %195 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3
   store i8 %194, ptr %195, align 1, !tbaa !6
-  %196 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %109
+  %196 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %109
   %197 = load i32, ptr %196, align 4, !tbaa !34
   %198 = zext i32 %197 to i64
   %199 = getelementptr inbounds nuw i8, ptr %112, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   %201 = load i32, ptr %199, align 1
   store i32 %201, ptr %200, align 1
-  %202 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %109
+  %202 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %109
   %203 = load i32, ptr %202, align 4, !tbaa !34
   %204 = sext i32 %203 to i64
   %205 = sub nsw i64 0, %204
@@ -16741,14 +16741,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit86:         ; preds = %311, %306
   %364 = load i8, ptr %363, align 1, !tbaa !6
   %365 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 3
   store i8 %364, ptr %365, align 1, !tbaa !6
-  %366 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i.i
+  %366 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i.i
   %367 = load i32, ptr %366, align 4, !tbaa !34
   %368 = zext i32 %367 to i64
   %369 = getelementptr inbounds nuw i8, ptr %.0362.i.i, i64 %368
   %370 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 4
   %371 = load i32, ptr %369, align 1
   store i32 %371, ptr %370, align 1
-  %372 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i.i
+  %372 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i.i
   %373 = load i32, ptr %372, align 4, !tbaa !34
   %374 = sext i32 %373 to i64
   %375 = sub nsw i64 0, %374
@@ -17163,14 +17163,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit16.thread80: ; preds = %86, %_ZL20read_var
   %138 = load i8, ptr %137, align 1, !tbaa !6
   %139 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   store i8 %138, ptr %139, align 1, !tbaa !6
-  %140 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %77
+  %140 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %77
   %141 = load i32, ptr %140, align 4, !tbaa !34
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds nuw i8, ptr %80, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   %145 = load i32, ptr %143, align 1
   store i32 %145, ptr %144, align 1
-  %146 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %77
+  %146 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %77
   %147 = load i32, ptr %146, align 4, !tbaa !34
   %148 = sext i32 %147 to i64
   %149 = sub nsw i64 0, %148
@@ -17466,14 +17466,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit25:         ; preds = %255, %250
   %281 = load i8, ptr %280, align 1, !tbaa !6
   %282 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
   store i8 %281, ptr %282, align 1, !tbaa !6
-  %283 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i
+  %283 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i
   %284 = load i32, ptr %283, align 4, !tbaa !34
   %285 = zext i32 %284 to i64
   %286 = getelementptr inbounds nuw i8, ptr %.0362.i, i64 %285
   %287 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %288 = load i32, ptr %286, align 1
   store i32 %288, ptr %287, align 1
-  %289 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i
+  %289 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i
   %290 = load i32, ptr %289, align 4, !tbaa !34
   %291 = sext i32 %290 to i64
   %292 = sub nsw i64 0, %291
@@ -18365,14 +18365,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit19.thread83.i: ; preds = %_ZL20read_variab
   %135 = load i8, ptr %134, align 1, !tbaa !6
   %136 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr.i, i64 3
   store i8 %135, ptr %136, align 1, !tbaa !6
-  %137 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %80
+  %137 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %80
   %138 = load i32, ptr %137, align 4, !tbaa !34
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %.3.i.ptr.ptr.i, i64 4
   %142 = load i32, ptr %140, align 1
   store i32 %142, ptr %141, align 1
-  %143 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %80
+  %143 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %80
   %144 = load i32, ptr %143, align 4, !tbaa !34
   %145 = sext i32 %144 to i64
   %146 = sub nsw i64 0, %145
@@ -18726,14 +18726,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit28.i:       ; preds = %250, %245
   %288 = load i8, ptr %287, align 1, !tbaa !6
   %289 = getelementptr inbounds nuw i8, ptr %.4.i.ptr.i, i64 3
   store i8 %288, ptr %289, align 1, !tbaa !6
-  %290 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i.i
+  %290 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i.i
   %291 = load i32, ptr %290, align 4, !tbaa !34
   %292 = zext i32 %291 to i64
   %293 = getelementptr inbounds nuw i8, ptr %.0362.i.ptr.i, i64 %292
   %294 = getelementptr inbounds nuw i8, ptr %.4.i.ptr.i, i64 4
   %295 = load i32, ptr %293, align 1
   store i32 %295, ptr %294, align 1
-  %296 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i.i
+  %296 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i.i
   %297 = load i32, ptr %296, align 4, !tbaa !34
   %298 = sext i32 %297 to i64
   %299 = sub nsw i64 0, %298
@@ -19066,14 +19066,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit20.thread84.i: ; preds = %_ZL20read_variab
   %455 = load i8, ptr %454, align 1, !tbaa !6
   %456 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 3
   store i8 %455, ptr %456, align 1, !tbaa !6
-  %457 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %394
+  %457 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %394
   %458 = load i32, ptr %457, align 4, !tbaa !34
   %459 = zext i32 %458 to i64
   %460 = getelementptr inbounds nuw i8, ptr %397, i64 %459
   %461 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 4
   %462 = load i32, ptr %460, align 1
   store i32 %462, ptr %461, align 1
-  %463 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %394
+  %463 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %394
   %464 = load i32, ptr %463, align 4, !tbaa !34
   %465 = sext i32 %464 to i64
   %466 = sub nsw i64 0, %465
@@ -19421,14 +19421,14 @@ _ZL20read_variable_lengthPPKhS0_i.exit29.i:       ; preds = %581, %576
   %622 = load i8, ptr %621, align 1, !tbaa !6
   %623 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 3
   store i8 %622, ptr %623, align 1, !tbaa !6
-  %624 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10inc32table, i64 0, i64 %.0369.i.i38
+  %624 = getelementptr inbounds nuw i32, ptr @_ZL10inc32table, i64 %.0369.i.i38
   %625 = load i32, ptr %624, align 4, !tbaa !34
   %626 = zext i32 %625 to i64
   %627 = getelementptr inbounds nuw i8, ptr %.0362.i.i, i64 %626
   %628 = getelementptr inbounds nuw i8, ptr %.4.i.i, i64 4
   %629 = load i32, ptr %627, align 1
   store i32 %629, ptr %628, align 1
-  %630 = getelementptr inbounds nuw [8 x i32], ptr @_ZL10dec64table, i64 0, i64 %.0369.i.i38
+  %630 = getelementptr inbounds nuw i32, ptr @_ZL10dec64table, i64 %.0369.i.i38
   %631 = load i32, ptr %630, align 4, !tbaa !34
   %632 = sext i32 %631 to i64
   %633 = sub nsw i64 0, %632

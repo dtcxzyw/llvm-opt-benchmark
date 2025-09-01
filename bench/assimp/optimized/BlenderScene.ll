@@ -3265,7 +3265,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
   br i1 %.not85, label %.lr.ph78, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader72
-  %90 = getelementptr inbounds nuw [4 x [4 x float]], ptr %1, i64 0, i64 %indvar
+  %90 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvar
   br label %103
 
 .preheader:                                       ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
@@ -3302,7 +3302,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
 
 103:                                              ; preds = %.lr.ph, %105
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
-  %104 = getelementptr inbounds nuw [4 x float], ptr %90, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %46, ptr noundef nonnull align 4 dereferenceable(4) %104, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %105 unwind label %108
 
@@ -3631,7 +3631,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %90 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIcEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %93
 
@@ -8051,7 +8051,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %90 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIcEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %93
 
@@ -8580,7 +8580,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %92 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 4 dereferenceable(4) %92, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %95
 
@@ -9627,7 +9627,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %71
   br i1 %.not82, label %.lr.ph75, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader69
-  %90 = getelementptr inbounds nuw [4 x [2 x float]], ptr %1, i64 0, i64 %indvars.iv88
+  %90 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv88
   br label %98
 
 .preheader:                                       ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
@@ -9651,13 +9651,13 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %71
 
 .lr.ph75:                                         ; preds = %.preheader69, %.preheader68
   %.036.lcssa101 = phi i64 [ 1, %.preheader68 ], [ 0, %.preheader69 ]
-  %97 = getelementptr inbounds nuw [4 x [2 x float]], ptr %1, i64 0, i64 %indvars.iv88
+  %97 = getelementptr inbounds nuw [2 x float], ptr %1, i64 %indvars.iv88
   br label %106
 
 98:                                               ; preds = %.lr.ph, %101
   %99 = phi i1 [ true, %.lr.ph ], [ false, %101 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %101 ]
-  %100 = getelementptr inbounds nuw [2 x float], ptr %90, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %47, ptr noundef nonnull align 4 dereferenceable(4) %100, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %101 unwind label %104
 
@@ -9676,7 +9676,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %71
 
 106:                                              ; preds = %.lr.ph75, %106
   %indvars.iv85 = phi i64 [ %.036.lcssa101, %.lr.ph75 ], [ 1, %106 ]
-  %107 = getelementptr inbounds nuw [2 x float], ptr %97, i64 0, i64 %indvars.iv85
+  %107 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv85
   store float 0.000000e+00, ptr %107, align 4
   %108 = icmp eq i64 %indvars.iv85, 0
   br i1 %108, label %106, label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit, !llvm.loop !13
@@ -9994,7 +9994,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZNK6Assimp7Blender9Structure7ConvertIiEEvRT_RKNS0_12FileDatabaseE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6Assimp7Blender9Structure7ConvertIiEEvRT_RKNS0_12FileDatabaseE.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %93 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   invoke void @_ZN6Assimp7Blender17ConvertDispatcherIiEEvRT_RKNS0_9StructureERKNS0_12FileDatabaseE(ptr noundef nonnull align 4 dereferenceable(4) %93, ptr noundef nonnull align 8 dereferenceable(120) %46, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZNK6Assimp7Blender9Structure7ConvertIiEEvRT_RKNS0_12FileDatabaseE.exit unwind label %96
 
@@ -13152,7 +13152,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %_ZNSt7__c
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %.03864 = phi i64 [ %89, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %63 = getelementptr inbounds nuw [18 x %"struct.Assimp::Blender::Pointer"], ptr %6, i64 0, i64 %.03864
+  %63 = getelementptr inbounds nuw %"struct.Assimp::Blender::Pointer", ptr %6, i64 %.03864
   %64 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %65 = trunc nuw i8 %64 to i1
   %66 = load ptr, ptr %9, align 8
@@ -13305,7 +13305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
 
 113:                                              ; preds = %106, %113
   %.03669 = phi i64 [ 0, %106 ], [ %115, %113 ]
-  %114 = getelementptr inbounds nuw [18 x %"class.std::shared_ptr.62"], ptr %1, i64 0, i64 %.03669
+  %114 = getelementptr inbounds nuw %"class.std::shared_ptr.62", ptr %1, i64 %.03669
   call void @_ZNSt12__shared_ptrIN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EE5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %114) #23
   %115 = add nuw nsw i64 %.03669, 1
   %exitcond71.not = icmp eq i64 %115, 18
@@ -13352,8 +13352,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %116
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.068 = phi i64 [ %137, %.preheader ], [ 0, %.preheader.preheader ]
   %.03567 = phi i1 [ %136, %.preheader ], [ true, %.preheader.preheader ]
-  %133 = getelementptr inbounds nuw [18 x %"class.std::shared_ptr.62"], ptr %1, i64 0, i64 %.068
-  %134 = getelementptr inbounds nuw [18 x %"struct.Assimp::Blender::Pointer"], ptr %6, i64 0, i64 %.068
+  %133 = getelementptr inbounds nuw %"class.std::shared_ptr.62", ptr %1, i64 %.068
+  %134 = getelementptr inbounds nuw %"struct.Assimp::Blender::Pointer", ptr %6, i64 %.068
   %135 = call noundef zeroext i1 @_ZNK6Assimp7Blender9Structure14ResolvePointerISt10shared_ptrNS0_4MTexEEEbRT_IT0_ERKNS0_7PointerERKNS0_12FileDatabaseERKNS0_5FieldEb(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull align 8 dereferenceable(232) %3, ptr noundef nonnull align 8 dereferenceable(100) %36, i1 noundef zeroext false)
   %136 = select i1 %135, i1 %.03567, i1 false
   %137 = add nuw nsw i64 %.068, 1
@@ -19946,7 +19946,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %93 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %46, ptr noundef nonnull align 4 dereferenceable(4) %93, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %96
 
@@ -20268,7 +20268,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %92 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 4 dereferenceable(4) %92, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %95
 
@@ -20666,7 +20666,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %86 = phi i1 [ false, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ true, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
   %indvars.iv = phi i64 [ 1, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %87 = getelementptr inbounds nuw [2 x float], ptr %1, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIfEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 4 dereferenceable(4) %87, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %90
 
@@ -20686,7 +20686,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit: ; preds = %.lr.ph
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
   %92 = phi i1 [ false, %.lr.ph53 ], [ %.not54, %.lr.ph53.preheader ]
   %indvars.iv56 = phi i64 [ 1, %.lr.ph53 ], [ %indvars.iv56.ph, %.lr.ph53.preheader ]
-  %93 = getelementptr inbounds nuw [2 x float], ptr %1, i64 0, i64 %indvars.iv56
+  %93 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv56
   store float 0.000000e+00, ptr %93, align 4
   br i1 %92, label %.lr.ph53, label %.loopexit, !llvm.loop !35
 
@@ -22459,7 +22459,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %90 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIcEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %93
 
@@ -23891,7 +23891,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %90 = getelementptr inbounds nuw [240 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIcEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %93
 
@@ -24214,7 +24214,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %91 = getelementptr inbounds nuw [240 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIcEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %46, ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %94
 
@@ -25960,7 +25960,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZNK6Assimp7Blender9Structure7ConvertIiEEvRT_RKNS0_12FileDatabaseE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6Assimp7Blender9Structure7ConvertIiEEvRT_RKNS0_12FileDatabaseE.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %92 = getelementptr inbounds nuw [42 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   invoke void @_ZN6Assimp7Blender17ConvertDispatcherIiEEvRT_RKNS0_9StructureERKNS0_12FileDatabaseE(ptr noundef nonnull align 4 dereferenceable(4) %92, ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZNK6Assimp7Blender9Structure7ConvertIiEEvRT_RKNS0_12FileDatabaseE.exit unwind label %95
 
@@ -26959,7 +26959,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
 
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %90 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertIcEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit unwind label %93
 
@@ -49779,7 +49779,7 @@ define linkonce_odr hidden void @_ZN6Assimp7Blender9Structure19_defaultInitializ
 
 5:                                                ; preds = %3, %_ZNSt12__shared_ptrIN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZNSt12__shared_ptrIN6Assimp7Blender4MTexELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %6 = getelementptr inbounds nuw [18 x %"class.std::shared_ptr.62"], ptr %1, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %"class.std::shared_ptr.62", ptr %1, i64 %indvars.iv
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8

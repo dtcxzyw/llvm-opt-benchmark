@@ -853,7 +853,7 @@ dt_iop_equalizer_wtf.exit:                        ; preds = %.loopexit.i, %._cri
   %indvars.iv269 = phi i64 [ 0, %424 ], [ %indvars.iv.next270, %._crit_edge228 ]
   %435 = icmp ne i64 %indvars.iv269, 0
   %436 = zext i1 %435 to i64
-  %437 = getelementptr inbounds nuw [3 x ptr], ptr %23, i64 0, i64 %436
+  %437 = getelementptr inbounds nuw ptr, ptr %23, i64 %436
   %438 = load ptr, ptr %437, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -876,13 +876,13 @@ dt_iop_equalizer_wtf.exit:                        ; preds = %.loopexit.i, %._cri
 
 445:                                              ; preds = %445, %.lr.ph.i164
   %indvars.iv.i166 = phi i64 [ 0, %.lr.ph.i164 ], [ %indvars.iv.next.i167, %445 ]
-  %446 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %442, i64 0, i64 %indvars.iv.i166
+  %446 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %442, i64 %indvars.iv.i166
   %447 = load float, ptr %446, align 8, !tbaa !44
-  %448 = getelementptr inbounds nuw [20 x float], ptr %7, i64 0, i64 %indvars.iv.i166
+  %448 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i166
   store float %447, ptr %448, align 4, !tbaa !33
   %449 = getelementptr inbounds nuw i8, ptr %446, i64 4
   %450 = load float, ptr %449, align 4, !tbaa !46
-  %451 = getelementptr inbounds nuw [20 x float], ptr %8, i64 0, i64 %indvars.iv.i166
+  %451 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i166
   store float %450, ptr %451, align 4, !tbaa !33
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i168 = icmp eq i64 %indvars.iv.next.i167, %wide.trip.count.i165
@@ -1568,10 +1568,10 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 .preheader:                                       ; preds = %4, %26
   %indvars.iv39 = phi i64 [ 0, %4 ], [ %indvars.iv.next40, %26 ]
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv39
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv39
   %9 = load ptr, ptr %8, align 8, !tbaa !36
-  %10 = getelementptr inbounds nuw [3 x [6 x float]], ptr %1, i64 0, i64 %indvars.iv39
-  %11 = getelementptr inbounds nuw [3 x [6 x float]], ptr %7, i64 0, i64 %indvars.iv39
+  %10 = getelementptr inbounds nuw [6 x float], ptr %1, i64 %indvars.iv39
+  %11 = getelementptr inbounds nuw [6 x float], ptr %7, i64 %indvars.iv39
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %27
 
@@ -1599,11 +1599,11 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 27:                                               ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [6 x float], ptr %10, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !33
-  %30 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !33
-  %32 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %12, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %12, i64 %indvars.iv
   store float %29, ptr %32, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store float %31, ptr %33, align 4, !tbaa !46
@@ -1677,10 +1677,10 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   store float 0.000000e+00, ptr %31, align 4, !tbaa !47
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store float 1.000000e+00, ptr %32, align 8, !tbaa !48
-  %33 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv41
+  %33 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv41
   store ptr %23, ptr %33, align 8, !tbaa !36
-  %34 = getelementptr inbounds nuw [3 x [6 x float]], ptr %6, i64 0, i64 %indvars.iv41
-  %35 = getelementptr inbounds nuw [3 x [6 x float]], ptr %8, i64 0, i64 %indvars.iv41
+  %34 = getelementptr inbounds nuw [6 x float], ptr %6, i64 %indvars.iv41
+  %35 = getelementptr inbounds nuw [6 x float], ptr %8, i64 %indvars.iv41
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br label %38
 
@@ -1693,12 +1693,12 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
 38:                                               ; preds = %22, %38
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %38 ]
   %39 = phi i8 [ 0, %22 ], [ %48, %38 ]
-  %40 = getelementptr inbounds nuw [6 x float], ptr %34, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !33
-  %42 = getelementptr inbounds nuw [6 x float], ptr %35, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   %43 = load float, ptr %42, align 4, !tbaa !33
   %44 = zext i8 %39 to i64
-  %45 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %36, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %36, i64 %44
   store float %41, ptr %45, align 8, !tbaa !44
   %.idx.i = shl nuw nsw i64 %44, 3
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
@@ -1742,7 +1742,7 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 
 8:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = load ptr, ptr %11, align 8, !tbaa !80
@@ -1777,14 +1777,14 @@ define void @init(ptr noundef writeonly captures(none) initializes((676, 700), (
 
 .preheader20:                                     ; preds = %1, %18
   %indvars.iv29 = phi i64 [ 0, %1 ], [ %indvars.iv.next30, %18 ]
-  %10 = getelementptr inbounds nuw [3 x [6 x float]], ptr %4, i64 0, i64 %indvars.iv29
+  %10 = getelementptr inbounds nuw [6 x float], ptr %4, i64 %indvars.iv29
   br label %13
 
 11:                                               ; preds = %18
   ret void
 
 .preheader:                                       ; preds = %13
-  %12 = getelementptr inbounds nuw [3 x [6 x float]], ptr %9, i64 0, i64 %indvars.iv29
+  %12 = getelementptr inbounds nuw [6 x float], ptr %9, i64 %indvars.iv29
   br label %19
 
 13:                                               ; preds = %.preheader20, %13
@@ -1792,7 +1792,7 @@ define void @init(ptr noundef writeonly captures(none) initializes((676, 700), (
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = uitofp nneg i32 %14 to float
   %16 = fmul reassoc nsz arcp contract afn float %15, 0x3FC99999A0000000
-  %17 = getelementptr inbounds nuw [6 x float], ptr %10, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   store float %16, ptr %17, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1805,7 +1805,7 @@ define void @init(ptr noundef writeonly captures(none) initializes((676, 700), (
 
 19:                                               ; preds = %.preheader, %19
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %19 ]
-  %20 = getelementptr inbounds nuw [6 x float], ptr %12, i64 0, i64 %indvars.iv25
+  %20 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv25
   store float 5.000000e-01, ptr %20, align 4, !tbaa !33
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 6
@@ -1857,7 +1857,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [8 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

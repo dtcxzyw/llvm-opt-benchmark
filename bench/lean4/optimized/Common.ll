@@ -1555,7 +1555,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lake_Build_Common_0__Lake_toJs
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -3805,7 +3805,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_BuildMetadata_fromJson_x3f___spec__
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -10658,7 +10658,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_Build_Common_0__Lake_s
 6:                                                ; preds = %.lr.ph, %lean_alloc_ctor.exit
   %.04390 = phi i64 [ %1, %.lr.ph ], [ %55, %lean_alloc_ctor.exit ]
   %.04589 = phi ptr [ %3, %.lr.ph ], [ %113, %lean_alloc_ctor.exit ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.04390
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.04390
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -41697,7 +41697,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_buildFileUnlessU
   br label %lean_dec.exit57
 
 lean_dec.exit57:                                  ; preds = %21, %20, %18, %12
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.04684
+  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %.04684
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -95009,7 +95009,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_inputDir___spec__2(ptr noundef %
 9:                                                ; preds = %.lr.ph, %lean_dec.exit32
   %.02656 = phi i64 [ %2, %.lr.ph ], [ %45, %lean_dec.exit32 ]
   %.02855 = phi ptr [ %4, %.lr.ph ], [ %.230, %lean_dec.exit32 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02656
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02656
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -119687,7 +119687,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit197
   %.0136413 = phi ptr [ %8, %.lr.ph ], [ %421, %455 ]
   %.0139412 = phi ptr [ %9, %.lr.ph ], [ %.4158, %455 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0133414, i64 24
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %.0130415
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0130415
   %66 = load ptr, ptr %65, align 8, !tbaa !9
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 1
@@ -155416,7 +155416,7 @@ define i64 @l_Array_foldlMUnsafe_fold___at_Lake_buildO___spec__1(ptr noundef rea
 6:                                                ; preds = %.lr.ph, %26
   %.01832 = phi i64 [ %1, %.lr.ph ], [ %30, %26 ]
   %.02031 = phi i64 [ %3, %.lr.ph ], [ %29, %26 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01832
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01832
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -173960,7 +173960,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lake_Build_Common_0__Lak
 8:                                                ; preds = %.lr.ph, %19
   %.01327 = phi i64 [ %4, %.lr.ph ], [ %21, %19 ]
   %.01526 = phi ptr [ %5, %.lr.ph ], [ %20, %19 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.01327
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01327
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -174035,7 +174035,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at___private_Lake_Build_Common_0__Lak
 8:                                                ; preds = %.lr.ph, %lean_dec.exit53
   %.04195 = phi i64 [ %4, %.lr.ph ], [ %.142, %lean_dec.exit53 ]
   %.04394 = phi ptr [ %5, %.lr.ph ], [ %.144, %lean_dec.exit53 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.04195
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04195
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -174370,7 +174370,7 @@ define ptr @l___private_Lake_Build_Common_0__Lake_mkLinkObjArgs(ptr noundef read
 6:                                                ; preds = %17, %.lr.ph.i
   %.01327.i = phi i64 [ 0, %.lr.ph.i ], [ %19, %17 ]
   %.01526.i = phi ptr [ %4, %.lr.ph.i ], [ %18, %17 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01327.i
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01327.i
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -174473,7 +174473,7 @@ lean_dec.exit15:                                  ; preds = %26, %25, %23, %lean
 28:                                               ; preds = %39, %.lr.ph.i
   %.01327.i = phi i64 [ %.val, %.lr.ph.i ], [ %41, %39 ]
   %.01526.i = phi ptr [ %5, %.lr.ph.i ], [ %40, %39 ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %.01327.i
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %.01327.i
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, 1
@@ -174801,7 +174801,7 @@ define ptr @l___private_Lake_Build_Common_0__Lake_mkLinkObjArgs___boxed(ptr noun
 6:                                                ; preds = %17, %.lr.ph.i.i
   %.01327.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %19, %17 ]
   %.01526.i.i = phi ptr [ %4, %.lr.ph.i.i ], [ %18, %17 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01327.i.i
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01327.i.i
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -184346,7 +184346,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_Build_Common_0__Lake_m
 9:                                                ; preds = %.lr.ph, %123
   %.038100 = phi i64 [ %2, %.lr.ph ], [ %124, %123 ]
   %.04199 = phi ptr [ %4, %.lr.ph ], [ %97, %123 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.038100
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.038100
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -186096,7 +186096,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_Build_Common_0__Lake_m
 6:                                                ; preds = %.lr.ph, %100
   %.03585 = phi i64 [ %1, %.lr.ph ], [ %101, %100 ]
   %.03884 = phi ptr [ %3, %.lr.ph ], [ %81, %100 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.03585
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03585
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -244113,7 +244113,7 @@ define ptr @l_Lake_buildSharedLib___lambda__1(ptr noundef readonly captures(none
 16:                                               ; preds = %27, %.lr.ph.i.i
   %.01327.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %29, %27 ]
   %.01526.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %28, %27 ]
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.01327.i.i
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %.01327.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
@@ -251926,7 +251926,7 @@ define ptr @l_Lake_buildLeanSharedLib___lambda__1(ptr noundef readonly captures(
 17:                                               ; preds = %28, %.lr.ph.i.i
   %.01327.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %30, %28 ]
   %.01526.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %29, %28 ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %.01327.i.i
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %.01327.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !9
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1
@@ -286882,7 +286882,7 @@ lean_dec.exit393:                                 ; preds = %78, %77, %75, %lean
 82:                                               ; preds = %93, %.lr.ph.i.i
   %.01327.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %95, %93 ]
   %.01526.i.i = phi ptr [ %80, %.lr.ph.i.i ], [ %94, %93 ]
-  %83 = getelementptr inbounds nuw [0 x ptr], ptr %81, i64 0, i64 %.01327.i.i
+  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %.01327.i.i
   %84 = load ptr, ptr %83, align 8, !tbaa !9
   %85 = ptrtoint ptr %84 to i64
   %86 = and i64 %85, 1

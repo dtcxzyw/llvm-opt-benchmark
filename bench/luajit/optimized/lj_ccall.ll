@@ -420,7 +420,7 @@ ctype_raw.exit.i:                                 ; preds = %127
   %164 = load i64, ptr %indvars.iv.i.sroa.phi.i.i, align 8, !tbaa !51
   %165 = add nuw nsw i32 %.0233.i.i.i, 1
   %166 = zext nneg i32 %.0233.i.i.i to i64
-  %167 = getelementptr inbounds nuw [6 x i64], ptr %58, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw i64, ptr %58, i64 %166
   store i64 %164, ptr %167, align 8, !tbaa !51
   br label %177
 
@@ -437,7 +437,7 @@ ctype_raw.exit.i:                                 ; preds = %127
   %173 = load i64, ptr %indvars.iv.i.sroa.phi.i.i, align 8, !tbaa !51
   %174 = add nuw nsw i32 %.0224.i.i.i, 1
   %175 = zext nneg i32 %.0224.i.i.i to i64
-  %176 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %175
   store i64 %173, ptr %176, align 16, !tbaa !4
   br label %177
 
@@ -507,7 +507,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   %205 = add nuw nsw i32 %.pre-phi272.i, %.0179249.i
   %206 = icmp ult i32 %205, 9
   %207 = zext nneg i32 %.0179249.i to i64
-  %208 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %207
   br i1 %206, label %236, label %220
 
 209:                                              ; preds = %146
@@ -526,7 +526,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
 
 217:                                              ; preds = %.thread234.i
   %218 = zext nneg i32 %.3166256.i to i64
-  %219 = getelementptr inbounds nuw [6 x i64], ptr %58, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i64, ptr %58, i64 %218
   br label %236
 
 220:                                              ; preds = %.thread234.i, %209, %._crit_edge270.i
@@ -618,7 +618,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
 265:                                              ; preds = %263
   %266 = add nsw i32 %.5184.i, -2
   %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %267
   %269 = icmp eq ptr %.3160.i, %268
   br i1 %269, label %270, label %276
 
@@ -627,7 +627,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   %272 = load double, ptr %271, align 8, !tbaa !4
   %273 = add nsw i32 %.5184.i, -1
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %274
   store double %272, ptr %275, align 16, !tbaa !4
   store double 0.000000e+00, ptr %271, align 8, !tbaa !4
   br label %276
@@ -754,7 +754,7 @@ ctype_rawchild.exit.i37:                          ; preds = %308
 329:                                              ; preds = %325
   %330 = add i32 %.01417.i.i, 1
   %331 = zext i32 %.01417.i.i to i64
-  %332 = getelementptr inbounds nuw [6 x i64], ptr %58, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw i64, ptr %58, i64 %331
   br label %.sink.split.i.i
 
 333:                                              ; preds = %325
@@ -765,7 +765,7 @@ ctype_rawchild.exit.i37:                          ; preds = %308
 335:                                              ; preds = %333
   %336 = add i32 %.01318.i.i, 1
   %337 = zext i32 %.01318.i.i to i64
-  %338 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %337
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %335, %329

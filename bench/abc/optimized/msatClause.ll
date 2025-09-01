@@ -163,7 +163,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %79 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 %78, ptr %79, align 4, !tbaa !8
   %80 = load i32, ptr %61, align 4, !tbaa !8
-  %81 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %.0.lcssa
+  %81 = getelementptr inbounds nuw i32, ptr %56, i64 %.0.lcssa
   store i32 %80, ptr %81, align 4, !tbaa !8
   %82 = load i32, ptr %50, align 4
   %83 = lshr i32 %82, 3
@@ -550,7 +550,7 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr noundef captures(none) %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !8
   %29 = ashr i32 %28, 1
   %30 = sext i32 %29 to i64
@@ -561,7 +561,7 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr noundef captures(none) %0, 
   br i1 %.not, label %26, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %28, ptr %36, align 4, !tbaa !8
   store i32 %5, ptr %35, align 4, !tbaa !8
@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr noundef captures(none) %0, p
   %8 = phi i32 [ %4, %.lr.ph ], [ %23, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.02233 = phi i32 [ 0, %.lr.ph ], [ %.1, %22 ]
-  %9 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !8
   %11 = ashr i32 %10, 1
   %12 = sext i32 %11 to i64
@@ -608,7 +608,7 @@ define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr noundef captures(none) %0, p
 16:                                               ; preds = %7
   %17 = add nsw i32 %.02233, 1
   %18 = sext i32 %.02233 to i64
-  %19 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr %6, i64 %18
   store i32 %10, ptr %19, align 4, !tbaa !8
   %.pre = load i32, ptr %3, align 4
   br label %22
@@ -671,7 +671,7 @@ define void @Msat_ClauseCalcReason(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !8
   %17 = xor i32 %16, 1
   tail call void @Msat_IntVecPush(ptr noundef %3, i32 noundef %17) #12
@@ -747,7 +747,7 @@ define void @Msat_ClausePrint(ptr noundef readonly captures(address_is_null) %0)
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [0 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !8
   %24 = and i32 %23, 1
   %.not10 = icmp eq i32 %24, 0
@@ -787,7 +787,7 @@ define void @Msat_ClauseWriteDimacs(ptr noundef captures(none) %0, ptr noundef r
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !8
   %13 = and i32 %12, 1
   %.not12 = icmp eq i32 %13, 0
@@ -841,7 +841,7 @@ define void @Msat_ClausePrintSymbols(ptr noundef readonly captures(address_is_nu
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !8
   %12 = and i32 %11, 1
   %.not = icmp eq i32 %12, 0

@@ -44,7 +44,7 @@ define internal range(i32 -558323010, 1) i32 @extract_extradata_init(ptr noundef
 
 9:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw [11 x %struct.anon], ptr @extract_tab, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.anon, ptr @extract_tab, i64 %indvars.iv
   %11 = load i32, ptr %10, align 16, !tbaa !23
   %12 = icmp eq i32 %11, %7
   br i1 %12, label %13, label %8

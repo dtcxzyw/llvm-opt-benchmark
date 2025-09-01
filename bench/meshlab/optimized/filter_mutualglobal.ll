@@ -5162,7 +5162,7 @@ _ZN7QStringD2Ev.exit82:                           ; preds = %50, %_ZN9QtPrivate8
   %indvars.iv118 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next119, %113 ]
   %114 = load ptr, ptr %97, align 8
   %115 = getelementptr inbounds nuw %class.CFaceO, ptr %114, i64 %indvars.iv121, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %116 = getelementptr inbounds nuw [3 x ptr], ptr %115, i64 0, i64 %indvars.iv118
+  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv118
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %98, align 8
   %119 = ptrtoint ptr %117 to i64
@@ -7907,7 +7907,7 @@ define void @_ZN18FilterMutualGlobal9CalcPairsER12MeshDocumentb(ptr dead_on_unwi
   %indvars.iv442 = phi i64 [ 0, %.preheader314 ], [ %indvars.iv.next443, %73 ]
   %74 = load ptr, ptr %53, align 8
   %75 = getelementptr inbounds nuw %class.CFaceO, ptr %74, i64 %indvars.iv445, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %76 = getelementptr inbounds nuw [3 x ptr], ptr %75, i64 0, i64 %indvars.iv442
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv442
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %54, align 8
   %79 = ptrtoint ptr %77 to i64
@@ -13242,7 +13242,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit173:       ; preds = %._crit_edge, %_ZNSt
 
 453:                                              ; preds = %.preheader, %453
   %indvars.iv289 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next290, %453 ]
-  %454 = getelementptr inbounds nuw [3 x ptr], ptr %452, i64 0, i64 %indvars.iv289
+  %454 = getelementptr inbounds nuw ptr, ptr %452, i64 %indvars.iv289
   %455 = load ptr, ptr %454, align 8
   %456 = ptrtoint ptr %455 to i64
   %457 = sub i64 %456, %441
@@ -13584,7 +13584,7 @@ define noundef zeroext i1 @_ZN18FilterMutualGlobal11UpdateGraphER12MeshDocument8
   %indvars.iv90 = phi i64 [ 0, %.preheader71 ], [ %indvars.iv.next91, %63 ]
   %64 = load ptr, ptr %44, align 8
   %65 = getelementptr inbounds nuw %class.CFaceO, ptr %64, i64 %indvars.iv93, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %66 = getelementptr inbounds nuw [3 x ptr], ptr %65, i64 0, i64 %indvars.iv90
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv90
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %45, align 8
   %69 = ptrtoint ptr %67 to i64

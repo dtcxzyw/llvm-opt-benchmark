@@ -210,33 +210,32 @@ define noundef i32 @_ZNK8triggers9trigger_t17legalize_mhselectEb(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %5
-  %7 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %5
-  %.in.i = select i1 %1, ptr %6, ptr %7
-  %8 = load i32, ptr %.in.i, align 4, !tbaa !11
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [8 x %"class.std::optional.127"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %9
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %12 = load i8, ptr %11, align 4, !tbaa !12, !range !14, !noundef !15
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, label %14
+  %.in.v.i = select i1 %1, ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h
+  %.in.i = getelementptr inbounds nuw i32, ptr %.in.v.i, i64 %5
+  %6 = load i32, ptr %.in.i, align 4, !tbaa !11
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw %"class.std::optional.127", ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = load i8, ptr %9, align 4, !tbaa !12, !range !14, !noundef !15
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, label %12
 
-14:                                               ; preds = %2
+12:                                               ; preds = %2
   invoke void @_ZSt27__throw_bad_optional_accessv() #20
-          to label %.noexc.i unwind label %15
+          to label %.noexc.i unwind label %13
 
-.noexc.i:                                         ; preds = %14
+.noexc.i:                                         ; preds = %12
   unreachable
 
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %12
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #21
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #21
   unreachable
 
 _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %2
-  %.sroa.02.0.copyload.i = load i64, ptr %10, align 16
+  %.sroa.02.0.copyload.i = load i64, ptr %8, align 16
   %.sroa.01.0.extract.trunc = trunc i64 %.sroa.02.0.copyload.i to i32
   ret i32 %.sroa.01.0.extract.trunc
 }
@@ -252,81 +251,80 @@ define noundef i64 @_ZNK8triggers9trigger_t11tdata3_readEPK11processor_t(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %9
-  %11 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %9
-  %.in.i.i = select i1 %.0.i.i.not, ptr %11, ptr %10
-  %12 = load i32, ptr %.in.i.i, align 4, !tbaa !11
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [8 x %"class.std::optional.127"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %16 = load i8, ptr %15, align 4, !tbaa !12, !range !14, !noundef !15
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK8triggers9trigger_t17legalize_mhselectEb.exit, label %18
+  %.in.v.i.i = select i1 %.0.i.i.not, ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h
+  %.in.i.i = getelementptr inbounds nuw i32, ptr %.in.v.i.i, i64 %9
+  %10 = load i32, ptr %.in.i.i, align 4, !tbaa !11
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw %"class.std::optional.127", ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %14 = load i8, ptr %13, align 4, !tbaa !12, !range !14, !noundef !15
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %_ZNK8triggers9trigger_t17legalize_mhselectEb.exit, label %16
 
-18:                                               ; preds = %2
+16:                                               ; preds = %2
   invoke void @_ZSt27__throw_bad_optional_accessv() #20
-          to label %.noexc.i.i unwind label %19
+          to label %.noexc.i.i unwind label %17
 
-.noexc.i.i:                                       ; preds = %18
+.noexc.i.i:                                       ; preds = %16
   unreachable
 
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #21
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #21
   unreachable
 
 _ZNK8triggers9trigger_t17legalize_mhselectEb.exit: ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 3964
-  %23 = load i32, ptr %22, align 4, !tbaa !17
-  %24 = icmp eq i32 %23, 32
-  %25 = select i1 %24, i64 4227858432, i64 -2251799813685248
-  %26 = shl nsw i64 %25, 1
-  %27 = xor i64 %26, -1
-  %28 = and i64 %25, %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i32, ptr %29, align 8, !tbaa !140
-  %31 = zext i32 %30 to i64
-  %32 = mul i64 %28, %31
-  %33 = and i64 %32, %25
-  %34 = select i1 %24, i64 58720256, i64 1970324836974592
-  %.sroa.02.0.copyload.i.i = load i64, ptr %14, align 16
-  %35 = and i64 %.sroa.02.0.copyload.i.i, 4294967295
-  %36 = shl nuw nsw i64 %34, 1
-  %37 = xor i64 %36, -1
-  %38 = and i64 %34, %37
-  %39 = mul i64 %38, %35
-  %40 = and i64 %39, %34
-  %41 = or disjoint i64 %33, %40
-  %42 = select i1 %24, i64 786432, i64 1030792151040
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = load i32, ptr %43, align 8, !tbaa !141
-  %45 = zext i32 %44 to i64
-  %46 = shl nuw nsw i64 %42, 1
-  %47 = xor i64 %46, -1
-  %48 = and i64 %42, %47
-  %49 = mul i64 %48, %45
-  %50 = and i64 %49, %42
-  %51 = or disjoint i64 %41, %50
-  %52 = select i1 %24, i64 262140, i64 17179869180
-  %53 = xor i64 %52, -1
-  %54 = and i64 %51, %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %56 = load i32, ptr %55, align 4, !tbaa !142
-  %57 = zext i32 %56 to i64
-  %58 = shl nuw nsw i64 %52, 1
-  %59 = xor i64 %58, -1
-  %60 = and i64 %52, %59
-  %61 = mul i64 %60, %57
-  %62 = and i64 %61, %52
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = load i32, ptr %63, align 8, !tbaa !143
-  %65 = and i32 %64, 3
-  %66 = zext nneg i32 %65 to i64
-  %67 = or disjoint i64 %62, %66
-  %68 = or i64 %67, %54
-  ret i64 %68
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 3964
+  %21 = load i32, ptr %20, align 4, !tbaa !17
+  %22 = icmp eq i32 %21, 32
+  %23 = select i1 %22, i64 4227858432, i64 -2251799813685248
+  %24 = shl nsw i64 %23, 1
+  %25 = xor i64 %24, -1
+  %26 = and i64 %23, %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = load i32, ptr %27, align 8, !tbaa !140
+  %29 = zext i32 %28 to i64
+  %30 = mul i64 %26, %29
+  %31 = and i64 %30, %23
+  %32 = select i1 %22, i64 58720256, i64 1970324836974592
+  %.sroa.02.0.copyload.i.i = load i64, ptr %12, align 16
+  %33 = and i64 %.sroa.02.0.copyload.i.i, 4294967295
+  %34 = shl nuw nsw i64 %32, 1
+  %35 = xor i64 %34, -1
+  %36 = and i64 %32, %35
+  %37 = mul i64 %36, %33
+  %38 = and i64 %37, %32
+  %39 = or disjoint i64 %31, %38
+  %40 = select i1 %22, i64 786432, i64 1030792151040
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = load i32, ptr %41, align 8, !tbaa !141
+  %43 = zext i32 %42 to i64
+  %44 = shl nuw nsw i64 %40, 1
+  %45 = xor i64 %44, -1
+  %46 = and i64 %40, %45
+  %47 = mul i64 %46, %43
+  %48 = and i64 %47, %40
+  %49 = or disjoint i64 %39, %48
+  %50 = select i1 %22, i64 262140, i64 17179869180
+  %51 = xor i64 %50, -1
+  %52 = and i64 %49, %51
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %54 = load i32, ptr %53, align 4, !tbaa !142
+  %55 = zext i32 %54 to i64
+  %56 = shl nuw nsw i64 %50, 1
+  %57 = xor i64 %56, -1
+  %58 = and i64 %50, %57
+  %59 = mul i64 %58, %55
+  %60 = and i64 %59, %50
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = load i32, ptr %61, align 8, !tbaa !143
+  %63 = and i32 %62, 3
+  %64 = zext nneg i32 %63 to i64
+  %65 = or disjoint i64 %60, %64
+  %66 = or i64 %65, %52
+  ret i64 %66
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -609,7 +607,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
   %22 = xor i64 %18, %21
   %23 = and i64 %22, %.140
   %.not47 = icmp eq i64 %23, 0
-  br i1 %.not47, label %51, label %118
+  br i1 %.not47, label %51, label %116
 
 24:                                               ; preds = %7, %24
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %24 ]
@@ -647,7 +645,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
   %49 = and i32 %47, %48
   %50 = zext nneg i32 %49 to i64
   %.not = icmp eq i64 %45, %50
-  br i1 %.not, label %51, label %118
+  br i1 %.not, label %51, label %116
 
 51:                                               ; preds = %12, %32, %2
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 1104
@@ -659,121 +657,120 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h, i64 0, i64 %58
-  %60 = getelementptr inbounds nuw [8 x i32], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, i64 0, i64 %58
-  %.in.i = select i1 %.0.i.i.not, ptr %60, ptr %59
-  %61 = load i32, ptr %.in.i, align 4, !tbaa !11
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [8 x %"class.std::optional.127"], ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 0, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = load i8, ptr %64, align 4, !tbaa !12, !range !14, !noundef !15
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, label %67
+  %.in.v.i = select i1 %.0.i.i.not, ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_no_h, ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE12warlize_if_h
+  %.in.i = getelementptr inbounds nuw i32, ptr %.in.v.i, i64 %58
+  %59 = load i32, ptr %.in.i, align 4, !tbaa !11
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds nuw %"class.std::optional.127", ptr @_ZZNK8triggers9trigger_t18interpret_mhselectEbE5table, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 12
+  %63 = load i8, ptr %62, align 4, !tbaa !12, !range !14, !noundef !15
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, label %65
 
-67:                                               ; preds = %51
+65:                                               ; preds = %51
   invoke void @_ZSt27__throw_bad_optional_accessv() #20
-          to label %.noexc.i unwind label %68
+          to label %.noexc.i unwind label %66
 
-.noexc.i:                                         ; preds = %67
+.noexc.i:                                         ; preds = %65
   unreachable
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %65
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #21
+  %68 = extractvalue { ptr, i32 } %67, 0
+  tail call void @__clang_call_terminate(ptr %68) #21
   unreachable
 
 _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %51
-  %.sroa.02.0.copyload.i = load i64, ptr %63, align 16
-  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %.sroa.02.0.copyload.i = load i64, ptr %61, align 16
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.23.0.copyload.i = load i32, ptr %.sroa.23.0..sroa_idx.i, align 8
   %.sroa.0.4.extract.shift = lshr i64 %.sroa.02.0.copyload.i, 32
   %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
-  switch i32 %.sroa.0.4.extract.trunc, label %117 [
-    i32 1, label %71
-    i32 2, label %91
+  switch i32 %.sroa.0.4.extract.trunc, label %115 [
+    i32 1, label %69
+    i32 2, label %89
   ]
 
-71:                                               ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 2384
-  %73 = load ptr, ptr %72, align 8, !tbaa !156
-  %74 = load ptr, ptr %73, align 8, !tbaa !147
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef i64 %76(ptr noundef nonnull align 8 dereferenceable(37) %73) #22
-  %78 = and i32 %.sroa.23.0.copyload.i, 256
-  %.not63 = icmp eq i32 %78, 0
-  br i1 %.not63, label %.invoke, label %79
+69:                                               ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 2384
+  %71 = load ptr, ptr %70, align 8, !tbaa !156
+  %72 = load ptr, ptr %71, align 8, !tbaa !147
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(37) %71) #22
+  %76 = and i32 %.sroa.23.0.copyload.i, 256
+  %.not63 = icmp eq i32 %76, 0
+  br i1 %.not63, label %.invoke, label %77
 
-79:                                               ; preds = %71
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %81 = load i32, ptr %80, align 8, !tbaa !140
-  %82 = trunc i32 %.sroa.23.0.copyload.i to i1
-  %83 = shl i32 %81, 1
+77:                                               ; preds = %69
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %79 = load i32, ptr %78, align 8, !tbaa !140
+  %80 = trunc i32 %.sroa.23.0.copyload.i to i1
+  %81 = shl i32 %79, 1
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.02.0.copyload.i to i32
-  %84 = lshr i32 %.sroa.0.0.extract.trunc, 2
-  %85 = or i32 %83, %84
-  %86 = select i1 %82, i32 %85, i32 %81
-  %87 = icmp eq i32 %4, 32
-  %88 = select i1 %87, i64 127, i64 16383
-  %89 = and i64 %77, %88
-  %90 = zext i32 %86 to i64
-  %.not49 = icmp eq i64 %89, %90
-  br i1 %.not49, label %117, label %118
+  %82 = lshr i32 %.sroa.0.0.extract.trunc, 2
+  %83 = or i32 %81, %82
+  %84 = select i1 %80, i32 %83, i32 %79
+  %85 = icmp eq i32 %4, 32
+  %86 = select i1 %85, i64 127, i64 16383
+  %87 = and i64 %75, %86
+  %88 = zext i32 %84 to i64
+  %.not49 = icmp eq i64 %87, %88
+  br i1 %.not49, label %115, label %116
 
-91:                                               ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %93 = load ptr, ptr %92, align 8, !tbaa !156
-  %94 = load ptr, ptr %93, align 8, !tbaa !147
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(37) %93) #22
-  %98 = and i32 %.sroa.23.0.copyload.i, 256
-  %.not61 = icmp eq i32 %98, 0
-  br i1 %.not61, label %.invoke, label %99
+89:                                               ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 2144
+  %91 = load ptr, ptr %90, align 8, !tbaa !156
+  %92 = load ptr, ptr %91, align 8, !tbaa !147
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call noundef i64 %94(ptr noundef nonnull align 8 dereferenceable(37) %91) #22
+  %96 = and i32 %.sroa.23.0.copyload.i, 256
+  %.not61 = icmp eq i32 %96, 0
+  br i1 %.not61, label %.invoke, label %97
 
-.invoke:                                          ; preds = %91, %71
+.invoke:                                          ; preds = %89, %69
   invoke void @_ZSt27__throw_bad_optional_accessv() #20
-          to label %.cont unwind label %119
+          to label %.cont unwind label %117
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-99:                                               ; preds = %91
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %101 = load i32, ptr %100, align 8, !tbaa !140
-  %102 = trunc i32 %.sroa.23.0.copyload.i to i1
-  %103 = shl i32 %101, 1
+97:                                               ; preds = %89
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %99 = load i32, ptr %98, align 8, !tbaa !140
+  %100 = trunc i32 %.sroa.23.0.copyload.i to i1
+  %101 = shl i32 %99, 1
   %.sroa.0.0.extract.trunc54 = trunc i64 %.sroa.02.0.copyload.i to i32
-  %104 = lshr i32 %.sroa.0.0.extract.trunc54, 2
-  %105 = or i32 %103, %104
-  %106 = select i1 %102, i32 %105, i32 %101
-  %107 = icmp eq i32 %4, 32
-  %108 = select i1 %107, i64 532676608, i64 288212783965667328
-  %109 = and i64 %97, %108
-  %110 = shl nuw nsw i64 %108, 1
-  %111 = xor i64 %110, -1
-  %112 = and i64 %108, %111
-  %113 = udiv i64 %109, %112
-  %114 = select i1 %107, i32 127, i32 16383
-  %115 = and i32 %106, %114
-  %116 = zext nneg i32 %115 to i64
-  %.not48 = icmp eq i64 %113, %116
-  br i1 %.not48, label %117, label %118
+  %102 = lshr i32 %.sroa.0.0.extract.trunc54, 2
+  %103 = or i32 %101, %102
+  %104 = select i1 %100, i32 %103, i32 %99
+  %105 = icmp eq i32 %4, 32
+  %106 = select i1 %105, i64 532676608, i64 288212783965667328
+  %107 = and i64 %95, %106
+  %108 = shl nuw nsw i64 %106, 1
+  %109 = xor i64 %108, -1
+  %110 = and i64 %106, %109
+  %111 = udiv i64 %107, %110
+  %112 = select i1 %105, i32 127, i32 16383
+  %113 = and i32 %104, %112
+  %114 = zext nneg i32 %113 to i64
+  %.not48 = icmp eq i64 %111, %114
+  br i1 %.not48, label %115, label %116
 
-117:                                              ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, %99, %79
-  br label %118
+115:                                              ; preds = %_ZNK8triggers9trigger_t18interpret_mhselectEb.exit, %97, %77
+  br label %116
 
-118:                                              ; preds = %117, %99, %79, %12, %32
-  %.1 = phi i1 [ false, %12 ], [ false, %32 ], [ true, %117 ], [ false, %79 ], [ false, %99 ]
+116:                                              ; preds = %115, %97, %77, %12, %32
+  %.1 = phi i1 [ false, %12 ], [ false, %32 ], [ true, %115 ], [ false, %77 ], [ false, %97 ]
   ret i1 %.1
 
-119:                                              ; preds = %.invoke
-  %120 = landingpad { ptr, i32 }
+117:                                              ; preds = %.invoke
+  %118 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  tail call void @__clang_call_terminate(ptr %121) #21
+  %119 = extractvalue { ptr, i32 } %118, 0
+  tail call void @__clang_call_terminate(ptr %119) #21
   unreachable
 }
 

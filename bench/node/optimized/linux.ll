@@ -918,7 +918,7 @@ if.else.i:                                        ; preds = %if.else
   store i32 %inc.i, ptr %13, align 4
   %and.i = and i32 %14, %12
   %idxprom.i = zext i32 %and.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %10, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.epoll_event, ptr %10, i64 %idxprom.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(12) %dummy, i64 12, i1 false)
   %sqe16.i = getelementptr inbounds nuw i8, ptr %0, i64 280
   %15 = load ptr, ptr %sqe16.i, align 8
@@ -1017,7 +1017,7 @@ if.else:                                          ; preds = %entry
   store i32 %inc, ptr %3, align 4
   %and = and i32 %4, %2
   %idxprom = zext i32 %and to i64
-  %arrayidx = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %events, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.epoll_event, ptr %events, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %arrayidx, ptr noundef nonnull align 1 dereferenceable(12) %e, i64 12, i1 false)
   %sqe16 = getelementptr inbounds nuw i8, ptr %ctl, i64 80
   %5 = load ptr, ptr %sqe16, align 8
@@ -2697,7 +2697,7 @@ if.else.i:                                        ; preds = %if.then80
   store i32 %inc.i, ptr %84, align 4
   %and.i96 = and i32 %85, %83
   %idxprom.i97 = zext i32 %and.i96 to i64
-  %arrayidx.i98 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %prep, i64 0, i64 %idxprom.i97
+  %arrayidx.i98 = getelementptr inbounds nuw %struct.epoll_event, ptr %prep, i64 %idxprom.i97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i98, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr70, i64 12, i1 false)
   %86 = load ptr, ptr %sqe16.i, align 8
   %arrayidx18.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %86, i64 %idxprom.i97
@@ -2972,7 +2972,7 @@ if.then32:                                        ; preds = %if.end28
   unreachable
 
 if.end33:                                         ; preds = %if.end28
-  %arrayidx35 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %oldevents, i64 0, i64 %conv20
+  %arrayidx35 = getelementptr inbounds nuw %struct.epoll_event, ptr %oldevents, i64 %conv20
   %18 = load i32, ptr %ringfd, align 8
   %cmp.i = icmp eq i32 %18, -1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -2994,7 +2994,7 @@ if.else.i:                                        ; preds = %if.end33
   store i32 %inc.i, ptr %20, align 4
   %and.i = and i32 %21, %19
   %idxprom.i = zext i32 %and.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %events, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.epoll_event, ptr %events, i64 %idxprom.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx35, i64 12, i1 false)
   %22 = load ptr, ptr %sqe16.i, align 8
   %arrayidx18.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %22, i64 %idxprom.i
@@ -3137,7 +3137,7 @@ if.then16:                                        ; preds = %land.rhs9
 
 if.end19:                                         ; preds = %do.body5
   %call14.c = tail call i32 @uv__close(i32 noundef %call) #18
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %call6
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %call6
   store i8 0, ptr %arrayidx, align 1
   %call21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %buf, i32 noundef 32) #19
   %cmp22 = icmp eq ptr %call21, null
@@ -3307,13 +3307,13 @@ if.end23:                                         ; preds = %if.end18
 
 if.end27:                                         ; preds = %if.end23
   %conv = zext nneg i32 %1 to i64
-  %arrayidx = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %call4, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx, ptr noundef nonnull align 8 dereferenceable(56) %t, i64 56, i1 false)
   %and = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %and
   %shr = lshr i32 %1, 3
   %idxprom28 = zext nneg i32 %shr to i64
-  %arrayidx29 = getelementptr inbounds nuw [1024 x i8], ptr %bitmap, i64 0, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %bitmap, i64 %idxprom28
   %2 = load i8, ptr %arrayidx29, align 1
   %3 = trunc nuw i32 %shl to i8
   %conv31 = or i8 %2, %3
@@ -3397,7 +3397,7 @@ if.then91:                                        ; preds = %if.end88
   %sub.ptr.div = lshr exact i64 %model.0.add, 6
   %conv93 = trunc nuw nsw i64 %sub.ptr.div to i32
   %idxprom94 = zext nneg i32 %6 to i64
-  %model96 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %call4, i64 0, i64 %idxprom94, i32 6
+  %model96 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idxprom94, i32 6
   store i32 %conv93, ptr %model96, align 8
   br label %while.cond98.preheader
 
@@ -3426,7 +3426,7 @@ for.body115:                                      ; preds = %nocpuinfo, %for.inc
   %storemerge62 = phi i32 [ %inc143, %for.inc142 ], [ 0, %nocpuinfo ]
   %shr116 = lshr i32 %storemerge62, 3
   %idxprom117 = zext nneg i32 %shr116 to i64
-  %arrayidx118 = getelementptr inbounds nuw [1024 x i8], ptr %bitmap, i64 0, i64 %idxprom117
+  %arrayidx118 = getelementptr inbounds nuw i8, ptr %bitmap, i64 %idxprom117
   %8 = load i8, ptr %arrayidx118, align 1
   %conv119 = zext i8 %8 to i32
   %and120 = and i32 %storemerge62, 7
@@ -3445,7 +3445,7 @@ if.end125:                                        ; preds = %for.body115
 
 if.end133:                                        ; preds = %if.end125
   %idxprom134 = zext i32 %.pre68 to i64
-  %arrayidx135 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %call4, i64 0, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idxprom134
   %call136 = call i32 (ptr, ptr, ...) @fscanf(ptr noundef nonnull %call129, ptr noundef nonnull @.str.17, ptr noundef nonnull %arrayidx135)
   %cmp137.not = icmp eq i32 %call136, 1
   br i1 %cmp137.not, label %if.end140, label %if.then139
@@ -3497,7 +3497,7 @@ for.body159:                                      ; preds = %if.end153, %for.inc
   %storemerge5465 = phi i32 [ %inc199, %for.inc198 ], [ 0, %if.end153 ]
   %shr160 = lshr i32 %storemerge5465, 3
   %idxprom161 = zext nneg i32 %shr160 to i64
-  %arrayidx162 = getelementptr inbounds nuw [1024 x i8], ptr %bitmap, i64 0, i64 %idxprom161
+  %arrayidx162 = getelementptr inbounds nuw i8, ptr %bitmap, i64 %idxprom161
   %12 = load i8, ptr %arrayidx162, align 1
   %conv163 = zext i8 %12 to i32
   %and164 = and i32 %storemerge5465, 7

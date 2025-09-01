@@ -22,7 +22,7 @@ define internal i32 @g723_1_parse(ptr noundef captures(none) %0, ptr noundef rea
   %12 = load i8, ptr %4, align 1, !tbaa !15
   %13 = and i8 %12, 3
   %14 = zext nneg i8 %13 to i64
-  %15 = getelementptr inbounds nuw [4 x i8], ptr @frame_size, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @frame_size, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 356

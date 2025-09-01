@@ -104,7 +104,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 
 .lr.ph129.split:                                  ; preds = %.lr.ph129.split.preheader, %51
   %indvars.iv144 = phi i64 [ 0, %.lr.ph129.split.preheader ], [ %indvars.iv.next145, %51 ]
-  %37 = getelementptr inbounds nuw [2 x ptr], ptr %36, i64 0, i64 %indvars.iv144
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv144
   %38 = load ptr, ptr %37, align 8, !tbaa !30
   %.not114 = icmp eq ptr %38, null
   br i1 %.not114, label %39, label %51
@@ -313,7 +313,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 .preheader:                                       ; preds = %.loopexit, %178
   %165 = phi i1 [ false, %178 ], [ true, %.loopexit ]
   %indvars.iv156 = phi i64 [ 1, %178 ], [ 0, %.loopexit ]
-  %166 = getelementptr inbounds nuw [2 x ptr], ptr %55, i64 0, i64 %indvars.iv156
+  %166 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv156
   %167 = load ptr, ptr %166, align 8, !tbaa !30
   %.not113 = icmp eq ptr %167, null
   br i1 %.not113, label %168, label %178

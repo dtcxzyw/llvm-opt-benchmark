@@ -592,7 +592,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
 
 248:                                              ; preds = %252, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %252 ]
-  %249 = getelementptr inbounds nuw [32 x i32], ptr %247, i64 0, i64 %indvars.iv.i
+  %249 = getelementptr inbounds nuw i32, ptr %247, i64 %indvars.iv.i
   %250 = load i32, ptr %249, align 4
   %251 = and i32 %250, 7
   %.not223.i = icmp eq i32 %251, 0

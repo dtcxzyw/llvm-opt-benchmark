@@ -1277,7 +1277,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i19:        ; preds = %33
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit20
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit20: ; preds = %33, %_ZN11ast_manager7inc_refEP3ast.exit.i.i19
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !44
   %44 = load ptr, ptr %16, align 8, !tbaa !25
   invoke void @_ZN3mbp10term_graph14internalize_eqEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(244) %44, ptr noundef %37, ptr noundef %43)
@@ -1524,7 +1524,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i31:        ; preds = %70
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit32
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit32: ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i31, %70
-  %75 = getelementptr inbounds nuw [0 x ptr], ptr %59, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !44
   %77 = load ptr, ptr %22, align 8, !tbaa !100
   %78 = invoke noundef zeroext i1 @_ZN5model9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(160) %77, ptr noundef %69, ptr noundef %76)

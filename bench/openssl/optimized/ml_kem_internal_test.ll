@@ -126,7 +126,7 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   br i1 %.not70.not, label %.critedge, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw [3 x i32], ptr @sanity_test.alg, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr @sanity_test.alg, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = call ptr @ossl_ml_kem_key_new(ptr noundef null, ptr noundef null, i32 noundef %28) #5
   %30 = call ptr @ossl_ml_kem_key_new(ptr noundef null, ptr noundef null, i32 noundef %28) #5
@@ -168,7 +168,7 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %53 = load i64, ptr %52, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %53
-  %55 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @ml_kem_expected_rho, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [32 x i8], ptr @ml_kem_expected_rho, i64 %indvars.iv
   %56 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %54, i64 noundef 32, ptr noundef nonnull %55, i64 noundef 32) #5
   %.not73 = icmp eq i32 %56, 0
   br i1 %.not73, label %.thread, label %57
@@ -207,13 +207,13 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   br i1 %.not77, label %.thread, label %74
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @ml_kem_expected_ctext_sha256, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [32 x i8], ptr @ml_kem_expected_ctext_sha256, i64 %indvars.iv
   %76 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %75, i64 noundef 32) #5
   %.not78 = icmp eq i32 %76, 0
   br i1 %.not78, label %.thread, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @ml_kem_expected_shared_secret, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [32 x i8], ptr @ml_kem_expected_shared_secret, i64 %indvars.iv
   %79 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 202, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull %78, i64 noundef 32) #5
   %.not79 = icmp eq i32 %79, 0
   br i1 %.not79, label %.thread, label %80

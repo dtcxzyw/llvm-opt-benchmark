@@ -18782,10 +18782,10 @@ switch.lookup:                                    ; preds = %148
   %222 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %223 = load i8, ptr %222, align 16, !range !826, !noundef !4
   %224 = zext nneg i8 %223 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN7stacker4grow28_$u7b$$u7b$closure$u7d$$u7d$17h9841f4e6abaf7e11E", i64 0, i64 %224
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN7stacker4grow28_$u7b$$u7b$closure$u7d$$u7d$17h9841f4e6abaf7e11E", i64 %224
   %switch.load = load ptr, ptr %switch.gep, align 8
   %225 = zext nneg i8 %223 to i64
-  %switch.gep6 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN7stacker4grow28_$u7b$$u7b$closure$u7d$$u7d$17h9841f4e6abaf7e11E.362", i64 0, i64 %225
+  %switch.gep6 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN7stacker4grow28_$u7b$$u7b$closure$u7d$$u7d$17h9841f4e6abaf7e11E.362", i64 %225
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   store ptr %switch.load, ptr %110, align 8, !noalias !2078
   %226 = getelementptr inbounds nuw i8, ptr %110, i64 8

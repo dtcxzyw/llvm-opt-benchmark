@@ -1985,7 +1985,7 @@ define internal void @GPU_DestroyRenderer(ptr noundef readonly captures(none) %0
 
 14:                                               ; preds = %9, %19
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %19 ]
-  %15 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not38 = icmp eq ptr %16, null
   br i1 %.not38, label %19, label %17
@@ -2414,12 +2414,12 @@ RestartRenderPass.exit:                           ; preds = %5, %19
   %87 = zext i1 %86 to i64
   %88 = icmp eq i32 %83, 2
   %89 = select i1 %88, i64 2, i64 0
-  %90 = or disjoint i64 %89, %87
-  %91 = icmp eq i32 %85, 2
-  %92 = select i1 %91, i64 4, i64 0
-  %93 = or disjoint i64 %90, %92
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %95 = getelementptr inbounds nuw [8 x ptr], ptr %94, i64 0, i64 %93
+  %90 = icmp eq i32 %85, 2
+  %91 = select i1 %90, i64 4, i64 0
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %89
+  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %87
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %91
   %96 = load ptr, ptr %95, align 8
   %.not.i95 = icmp eq ptr %96, null
   br i1 %.not.i95, label %97, label %GetSampler.exit

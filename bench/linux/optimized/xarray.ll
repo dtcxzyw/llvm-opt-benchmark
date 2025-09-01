@@ -111,7 +111,7 @@ define dso_local ptr @xas_load(ptr noundef captures(none) %0) #0 align 16 {
   %18 = lshr i64 %15, %17
   %19 = and i64 %18, 63
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %21 = getelementptr [64 x ptr], ptr %20, i64 0, i64 %19
+  %21 = getelementptr ptr, ptr %20, i64 %19
   %22 = load volatile ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 3
@@ -123,7 +123,7 @@ define dso_local ptr @xas_load(ptr noundef captures(none) %0) #0 align 16 {
 28:                                               ; preds = %13
   %29 = lshr i64 %23, 2
   %30 = and i64 %29, 255
-  %31 = getelementptr [64 x ptr], ptr %20, i64 0, i64 %30
+  %31 = getelementptr ptr, ptr %20, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   br label %63
 
@@ -206,7 +206,7 @@ define dso_local ptr @xas_load(ptr noundef captures(none) %0) #0 align 16 {
   %86 = and i8 %85, 63
   %87 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %88 = and i64 %84, 63
-  %89 = getelementptr [64 x ptr], ptr %87, i64 0, i64 %88
+  %89 = getelementptr ptr, ptr %87, i64 %88
   %90 = load volatile ptr, ptr %89, align 8
   store ptr %77, ptr %2, align 8
   %91 = ptrtoint ptr %90 to i64
@@ -225,7 +225,7 @@ define dso_local ptr @xas_load(ptr noundef captures(none) %0) #0 align 16 {
   %99 = phi i64 [ %104, %.split.us ], [ %91, %96 ]
   %100 = lshr i64 %99, 2
   %101 = and i64 %100, 4294967295
-  %102 = getelementptr [64 x ptr], ptr %87, i64 0, i64 %101
+  %102 = getelementptr ptr, ptr %87, i64 %101
   %103 = load volatile ptr, ptr %102, align 8
   %104 = ptrtoint ptr %103 to i64
   %105 = and i64 %104, 3
@@ -238,7 +238,7 @@ define dso_local ptr @xas_load(ptr noundef captures(none) %0) #0 align 16 {
   %109 = phi i64 [ %120, %.split ], [ %91, %96 ]
   %110 = lshr i64 %109, 2
   %111 = and i64 %110, 4294967295
-  %112 = getelementptr [64 x ptr], ptr %87, i64 0, i64 %111
+  %112 = getelementptr ptr, ptr %87, i64 %111
   %113 = load volatile ptr, ptr %112, align 8
   %114 = ptrtoint ptr %113 to i64
   %115 = and i64 %114, 3
@@ -712,7 +712,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   br i1 %156, label %161, label %157
 
 157:                                              ; preds = %152
-  %158 = getelementptr [3 x [1 x i64]], ptr %132, i64 0, i64 %134
+  %158 = getelementptr [1 x i64], ptr %132, i64 %134
   %159 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %158, i64 0) #8, !srcloc !12
   %160 = icmp ult i8 %159, 2
   tail call void @llvm.assume(i1 %160)
@@ -789,7 +789,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   %199 = zext i8 %198 to i32
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %201 = zext i8 %197 to i64
-  %202 = getelementptr [64 x ptr], ptr %200, i64 0, i64 %201
+  %202 = getelementptr ptr, ptr %200, i64 %201
   br label %203
 
 203:                                              ; preds = %183, %.thread20, %195
@@ -921,7 +921,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   %287 = and i8 %286, 63
   %288 = getelementptr inbounds nuw i8, ptr %281, i64 40
   %289 = and i64 %285, 63
-  %290 = getelementptr [64 x ptr], ptr %288, i64 0, i64 %289
+  %290 = getelementptr ptr, ptr %288, i64 %289
   %291 = load volatile ptr, ptr %290, align 8
   store ptr %281, ptr %4, align 8
   %292 = ptrtoint ptr %291 to i64
@@ -940,7 +940,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   %300 = phi i64 [ %305, %.split.us ], [ %292, %297 ]
   %301 = lshr i64 %300, 2
   %302 = and i64 %301, 4294967295
-  %303 = getelementptr [64 x ptr], ptr %288, i64 0, i64 %302
+  %303 = getelementptr ptr, ptr %288, i64 %302
   %304 = load volatile ptr, ptr %303, align 8
   %305 = ptrtoint ptr %304 to i64
   %306 = and i64 %305, 3
@@ -953,7 +953,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   %310 = phi i64 [ %321, %.split ], [ %292, %297 ]
   %311 = lshr i64 %310, 2
   %312 = and i64 %311, 4294967295
-  %313 = getelementptr [64 x ptr], ptr %288, i64 0, i64 %312
+  %313 = getelementptr ptr, ptr %288, i64 %312
   %314 = load volatile ptr, ptr %313, align 8
   %315 = ptrtoint ptr %314 to i64
   %316 = and i64 %315, 3
@@ -979,7 +979,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   %329 = phi ptr [ %.us-phi, %.split34.us ], [ %291, %280 ]
   store i8 %328, ptr %212, align 2
   %330 = zext i8 %328 to i64
-  %331 = getelementptr [64 x ptr], ptr %288, i64 0, i64 %330
+  %331 = getelementptr ptr, ptr %288, i64 %330
   %332 = icmp ugt i32 %221, %8
   br i1 %332, label %216, label %.critedge.thread, !llvm.loop !17
 
@@ -1059,7 +1059,7 @@ define dso_local ptr @xas_store(ptr noundef captures(none) %0, ptr noundef %1) #
 44:                                               ; preds = %._crit_edge50
   %45 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %46 = zext i8 %39 to i64
-  %47 = getelementptr [64 x ptr], ptr %45, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = icmp eq i8 %36, 0
   br i1 %48, label %.loopexit23, label %49
 
@@ -1073,7 +1073,7 @@ define dso_local ptr @xas_store(ptr noundef captures(none) %0, ptr noundef %1) #
   %54 = phi i64 [ 0, %49 ], [ %72, %71 ]
   %55 = load ptr, ptr %19, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 552
-  %57 = getelementptr [3 x [1 x i64]], ptr %56, i64 0, i64 %54
+  %57 = getelementptr [1 x i64], ptr %56, i64 %54
   %58 = load i8, ptr %38, align 2
   %59 = zext i8 %58 to i64
   %60 = add nuw nsw i64 %59, 1
@@ -1175,7 +1175,7 @@ define dso_local ptr @xas_store(ptr noundef captures(none) %0, ptr noundef %1) #
   %115 = load i8, ptr %113, align 1
   %116 = zext i8 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 552
-  %118 = getelementptr [3 x [1 x i64]], ptr %117, i64 0, i64 %75
+  %118 = getelementptr [1 x i64], ptr %117, i64 %75
   %119 = tail call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %118, i64 %116) #8, !srcloc !11
   %120 = icmp ult i8 %119, 2
   tail call void @llvm.assume(i1 %120)
@@ -1264,7 +1264,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
   %169 = phi ptr [ %166, %164 ], [ %.ph12, %.loopexit ]
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 40
   %171 = zext i32 %168 to i64
-  %172 = getelementptr [64 x ptr], ptr %170, i64 0, i64 %171
+  %172 = getelementptr ptr, ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = load i8, ptr %169, align 8
   %175 = icmp eq i8 %174, 0
@@ -1378,7 +1378,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
   %236 = phi ptr [ %148, %221 ], [ %232, %227 ], [ null, %233 ]
   %237 = add i32 %150, 1
   %238 = zext i32 %237 to i64
-  %239 = getelementptr [64 x ptr], ptr %146, i64 0, i64 %238
+  %239 = getelementptr ptr, ptr %146, i64 %238
   %240 = load ptr, ptr %239, align 8
   %241 = ptrtoint ptr %240 to i64
   %242 = and i64 %241, 3
@@ -1460,7 +1460,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
   %287 = getelementptr inbounds nuw i8, ptr %278, i64 40
   %288 = load i8, ptr %38, align 2
   %289 = zext i8 %288 to i64
-  %290 = getelementptr [64 x ptr], ptr %287, i64 0, i64 %289
+  %290 = getelementptr ptr, ptr %287, i64 %289
   store ptr null, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %278, i64 2
   %292 = load i8, ptr %291, align 2
@@ -1678,7 +1678,7 @@ define dso_local void @xas_init_marks(ptr noundef readonly captures(none) %0) #1
   %45 = load i8, ptr %43, align 1
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 552
-  %48 = getelementptr [3 x [1 x i64]], ptr %47, i64 0, i64 %5
+  %48 = getelementptr [1 x i64], ptr %47, i64 %5
   %49 = tail call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, i64 %46) #8, !srcloc !11
   %50 = icmp ult i8 %49, 2
   tail call void @llvm.assume(i1 %50)
@@ -1753,7 +1753,7 @@ define dso_local zeroext i1 @xas_get_mark(ptr noundef readonly captures(none) %0
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 552
   %19 = zext i32 %1 to i64
-  %20 = getelementptr [3 x [1 x i64]], ptr %18, i64 0, i64 %19
+  %20 = getelementptr [1 x i64], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %22 = load i8, ptr %21, align 2
   %23 = zext i8 %22 to i64
@@ -1792,7 +1792,7 @@ define dso_local void @xas_set_mark(ptr noundef readonly captures(none) %0, i32 
   %16 = load i8, ptr %14, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 552
-  %19 = getelementptr [3 x [1 x i64]], ptr %18, i64 0, i64 %12
+  %19 = getelementptr [1 x i64], ptr %18, i64 %12
   %20 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %17) #8, !srcloc !12
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
@@ -1848,7 +1848,7 @@ define dso_local void @xas_clear_mark(ptr noundef readonly captures(none) %0, i3
   %16 = load i8, ptr %14, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 552
-  %19 = getelementptr [3 x [1 x i64]], ptr %18, i64 0, i64 %12
+  %19 = getelementptr [1 x i64], ptr %18, i64 %12
   %20 = tail call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 %17) #8, !srcloc !11
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
@@ -1940,7 +1940,7 @@ define dso_local void @xas_split_alloc(ptr noundef captures(none) %0, ptr nounde
   %36 = trunc i64 %34 to i32
   %37 = and i32 %36, %7
   %38 = icmp eq i32 %37, 0
-  %39 = getelementptr [64 x ptr], ptr %32, i64 0, i64 %34
+  %39 = getelementptr ptr, ptr %32, i64 %34
   br i1 %38, label %40, label %44
 
 40:                                               ; preds = %33
@@ -2012,7 +2012,7 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
 13:                                               ; preds = %13, %8
   %14 = phi i64 [ %25, %13 ], [ 0, %8 ]
   %15 = phi i32 [ %23, %13 ], [ 0, %8 ]
-  %16 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %14
+  %16 = getelementptr [1 x i64], ptr %12, i64 %14
   %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 %11) #8, !srcloc !27
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -2086,7 +2086,7 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %.split.us
-  %72 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %66
+  %72 = getelementptr [1 x i64], ptr %12, i64 %66
   %73 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %72, i64 %63) #8, !srcloc !12
   %74 = icmp ult i8 %73, 2
   tail call void @llvm.assume(i1 %74)
@@ -2106,11 +2106,11 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   br i1 %82, label %88, label %83
 
 83:                                               ; preds = %.split
-  %84 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %78
+  %84 = getelementptr [1 x i64], ptr %12, i64 %78
   %85 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %84, i64 %63) #8, !srcloc !12
   %86 = icmp ult i8 %85, 2
   tail call void @llvm.assume(i1 %86)
-  %87 = getelementptr [3 x [1 x i64]], ptr %65, i64 0, i64 %78
+  %87 = getelementptr [1 x i64], ptr %65, i64 %78
   store i64 -1, ptr %87, align 8
   br label %88
 
@@ -2124,7 +2124,7 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   %92 = or i64 %91, 2
   %93 = inttoptr i64 %92 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !36
-  %94 = getelementptr [64 x ptr], ptr %35, i64 0, i64 %63
+  %94 = getelementptr ptr, ptr %35, i64 %63
   store volatile ptr %93, ptr %94, align 8
   %95 = sub i8 %48, %41
   %96 = load ptr, ptr %46, align 8
@@ -2151,7 +2151,7 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   br i1 %109, label %114, label %110
 
 110:                                              ; preds = %104
-  %111 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %105
+  %111 = getelementptr [1 x i64], ptr %12, i64 %105
   %112 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %111, i64 %103) #8, !srcloc !12
   %113 = icmp ult i8 %112, 2
   tail call void @llvm.assume(i1 %113)
@@ -2164,7 +2164,7 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
 
 117:                                              ; preds = %114
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !37
-  %118 = getelementptr [64 x ptr], ptr %35, i64 0, i64 %103
+  %118 = getelementptr ptr, ptr %35, i64 %103
   store volatile ptr %1, ptr %118, align 8
   %119 = icmp ugt i32 %49, %102
   br i1 %119, label %120, label %.loopexit
@@ -2181,7 +2181,7 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !38
   %127 = add nsw i64 %126, -1
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr [64 x ptr], ptr %35, i64 0, i64 %126
+  %129 = getelementptr ptr, ptr %35, i64 %126
   store volatile ptr %123, ptr %129, align 8
   %130 = icmp ult i32 %102, %128
   br i1 %130, label %125, label %.loopexit, !llvm.loop !39
@@ -2248,7 +2248,7 @@ define dso_local void @xas_pause(ptr noundef captures(none) %0) #0 align 16 {
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %14
-  %19 = getelementptr [64 x ptr], ptr %13, i64 0, i64 %16
+  %19 = getelementptr ptr, ptr %13, i64 %16
   %20 = load volatile ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 3
@@ -2349,7 +2349,7 @@ define dso_local ptr @__xas_prev(ptr noundef captures(none) %0) #0 align 16 {
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %39 = zext i8 %35 to i64
-  %40 = getelementptr [64 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load volatile ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, 3
@@ -2386,7 +2386,7 @@ define dso_local ptr @__xas_prev(ptr noundef captures(none) %0) #0 align 16 {
   store i8 %62, ptr %20, align 2
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %64 = and i64 %60, 63
-  %65 = getelementptr [64 x ptr], ptr %63, i64 0, i64 %64
+  %65 = getelementptr ptr, ptr %63, i64 %64
   %66 = load volatile ptr, ptr %65, align 8
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 3
@@ -2465,7 +2465,7 @@ define dso_local ptr @__xas_next(ptr noundef captures(none) %0) #0 align 16 {
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %39 = zext i8 %35 to i64
-  %40 = getelementptr [64 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load volatile ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, 3
@@ -2502,7 +2502,7 @@ define dso_local ptr @__xas_next(ptr noundef captures(none) %0) #0 align 16 {
   store i8 %62, ptr %20, align 2
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %64 = and i64 %60, 63
-  %65 = getelementptr [64 x ptr], ptr %63, i64 0, i64 %64
+  %65 = getelementptr ptr, ptr %63, i64 %64
   %66 = load volatile ptr, ptr %65, align 8
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 3
@@ -2642,7 +2642,7 @@ define dso_local ptr @xas_find(ptr noundef captures(none) %0, i64 noundef %1) #0
 80:                                               ; preds = %.preheader
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %82 = zext i8 %66 to i64
-  %83 = getelementptr [64 x ptr], ptr %81, i64 0, i64 %82
+  %83 = getelementptr ptr, ptr %81, i64 %82
   %84 = load volatile ptr, ptr %83, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = and i64 %85, 3
@@ -2800,7 +2800,7 @@ define dso_local ptr @xas_find_marked(ptr noundef captures(none) %0, i64 noundef
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %75 = zext i8 %60 to i64
-  %76 = getelementptr [64 x ptr], ptr %74, i64 0, i64 %75
+  %76 = getelementptr ptr, ptr %74, i64 %75
   %77 = load volatile ptr, ptr %76, align 8
   %78 = ptrtoint ptr %77 to i64
   %79 = and i64 %78, 3
@@ -2834,7 +2834,7 @@ define dso_local ptr @xas_find_marked(ptr noundef captures(none) %0, i64 noundef
 
 100:                                              ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %59, i64 552
-  %102 = getelementptr [3 x [1 x i64]], ptr %101, i64 0, i64 %55
+  %102 = getelementptr [1 x i64], ptr %101, i64 %55
   %103 = zext nneg i32 %98 to i64
   %104 = load i64, ptr %102, align 8
   %105 = shl nsw i64 -1, %103
@@ -2877,7 +2877,7 @@ define dso_local ptr @xas_find_marked(ptr noundef captures(none) %0, i64 noundef
   %129 = phi i8 [ 0, %123 ], [ %61, %.thread10 ]
   %130 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %131 = zext i8 %127 to i64
-  %132 = getelementptr [64 x ptr], ptr %130, i64 0, i64 %131
+  %132 = getelementptr ptr, ptr %130, i64 %131
   %133 = load volatile ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %142
@@ -2974,7 +2974,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   %23 = lshr i64 %20, %22
   %24 = and i64 %23, 63
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %26 = getelementptr [64 x ptr], ptr %25, i64 0, i64 %24
+  %26 = getelementptr ptr, ptr %25, i64 %24
   %27 = load volatile ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 3
@@ -2986,7 +2986,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
 33:                                               ; preds = %18
   %34 = lshr i64 %28, 2
   %35 = and i64 %34, 255
-  %36 = getelementptr [64 x ptr], ptr %25, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr %25, i64 %35
   %37 = load volatile ptr, ptr %36, align 8
   br label %67
 
@@ -3065,7 +3065,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   %87 = and i8 %86, 63
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %89 = and i64 %85, 63
-  %90 = getelementptr [64 x ptr], ptr %88, i64 0, i64 %89
+  %90 = getelementptr ptr, ptr %88, i64 %89
   %91 = load volatile ptr, ptr %90, align 8
   store ptr %82, ptr %2, align 8
   %92 = ptrtoint ptr %91 to i64
@@ -3084,7 +3084,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   %100 = phi i64 [ %105, %.split.us ], [ %92, %97 ]
   %101 = lshr i64 %100, 2
   %102 = and i64 %101, 4294967295
-  %103 = getelementptr [64 x ptr], ptr %88, i64 0, i64 %102
+  %103 = getelementptr ptr, ptr %88, i64 %102
   %104 = load volatile ptr, ptr %103, align 8
   %105 = ptrtoint ptr %104 to i64
   %106 = and i64 %105, 3
@@ -3097,7 +3097,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   %110 = phi i64 [ %121, %.split ], [ %92, %97 ]
   %111 = lshr i64 %110, 2
   %112 = and i64 %111, 4294967295
-  %113 = getelementptr [64 x ptr], ptr %88, i64 0, i64 %112
+  %113 = getelementptr ptr, ptr %88, i64 %112
   %114 = load volatile ptr, ptr %113, align 8
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, 3
@@ -3185,7 +3185,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   %165 = add i8 %149, 1
   store i8 %165, ptr %142, align 2
   %166 = zext i8 %165 to i64
-  %167 = getelementptr [64 x ptr], ptr %147, i64 0, i64 %166
+  %167 = getelementptr ptr, ptr %147, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = ptrtoint ptr %168 to i64
   %170 = and i64 %169, 3
@@ -3270,7 +3270,7 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %16 = lshr i64 %1, %15
   %17 = and i64 %16, 63
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.134.0, i64 40
-  %19 = getelementptr [64 x ptr], ptr %18, i64 0, i64 %17
+  %19 = getelementptr ptr, ptr %18, i64 %17
   %20 = load volatile ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 3
@@ -3282,7 +3282,7 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
 26:                                               ; preds = %13
   %27 = lshr i64 %21, 2
   %28 = and i64 %27, 255
-  %29 = getelementptr [64 x ptr], ptr %18, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr %18, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
   br label %53
 
@@ -3344,7 +3344,7 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %71 = lshr i64 %1, %70
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %73 = and i64 %71, 63
-  %74 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %73
+  %74 = getelementptr ptr, ptr %72, i64 %73
   %75 = load volatile ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = and i64 %76, 3
@@ -3361,7 +3361,7 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %83 = phi i64 [ %88, %.split.us.i ], [ %76, %82 ]
   %84 = lshr i64 %83, 2
   %85 = and i64 %84, 4294967295
-  %86 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %85
+  %86 = getelementptr ptr, ptr %72, i64 %85
   %87 = load volatile ptr, ptr %86, align 8
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %88, 3
@@ -3374,7 +3374,7 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %93 = phi i64 [ %104, %.split.i ], [ %76, %82 ]
   %94 = lshr i64 %93, 2
   %95 = and i64 %94, 4294967295
-  %96 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %95
+  %96 = getelementptr ptr, ptr %72, i64 %95
   %97 = load volatile ptr, ptr %96, align 8
   %98 = ptrtoint ptr %97 to i64
   %99 = and i64 %98, 3
@@ -4242,7 +4242,7 @@ define dso_local i32 @xa_get_order(ptr noundef %0, i64 noundef %1) #1 align 16 {
 
 23:                                               ; preds = %18
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr [64 x ptr], ptr %17, i64 0, i64 %24
+  %25 = getelementptr ptr, ptr %17, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 3
@@ -4501,7 +4501,7 @@ define dso_local void @__xa_set_mark(ptr noundef %0, i64 noundef %1, i32 noundef
   %24 = load i8, ptr %22, align 1
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 552
-  %27 = getelementptr [3 x [1 x i64]], ptr %26, i64 0, i64 %20
+  %27 = getelementptr [1 x i64], ptr %26, i64 %20
   %28 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %25) #8, !srcloc !12
   %29 = icmp ult i8 %28, 2
   tail call void @llvm.assume(i1 %29)
@@ -4573,7 +4573,7 @@ define dso_local void @__xa_clear_mark(ptr noundef %0, i64 noundef %1, i32 nound
   %24 = load i8, ptr %22, align 1
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 552
-  %27 = getelementptr [3 x [1 x i64]], ptr %26, i64 0, i64 %20
+  %27 = getelementptr [1 x i64], ptr %26, i64 %20
   %28 = tail call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %25) #8, !srcloc !11
   %29 = icmp ult i8 %28, 2
   tail call void @llvm.assume(i1 %29)
@@ -4658,7 +4658,7 @@ define dso_local noundef zeroext i1 @xa_get_mark(ptr noundef %0, i64 noundef %1,
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 552
-  %32 = getelementptr [3 x [1 x i64]], ptr %31, i64 0, i64 %20
+  %32 = getelementptr [1 x i64], ptr %31, i64 %20
   %33 = and i64 %25, 255
   %34 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 %33) #8, !srcloc !27
   %35 = icmp ult i8 %34, 2
@@ -4682,7 +4682,7 @@ define dso_local noundef zeroext i1 @xa_get_mark(ptr noundef %0, i64 noundef %1,
   %47 = lshr i64 %1, %46
   %48 = and i64 %47, 63
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %50 = getelementptr [64 x ptr], ptr %49, i64 0, i64 %48
+  %50 = getelementptr ptr, ptr %49, i64 %48
   %51 = load volatile ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, 3
@@ -4704,7 +4704,7 @@ define dso_local noundef zeroext i1 @xa_get_mark(ptr noundef %0, i64 noundef %1,
   %59 = phi i64 [ %64, %.split.us ], [ %52, %57 ]
   %60 = lshr i64 %59, 2
   %61 = and i64 %60, 4294967295
-  %62 = getelementptr [64 x ptr], ptr %49, i64 0, i64 %61
+  %62 = getelementptr ptr, ptr %49, i64 %61
   %63 = load volatile ptr, ptr %62, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %64, 3
@@ -4717,7 +4717,7 @@ define dso_local noundef zeroext i1 @xa_get_mark(ptr noundef %0, i64 noundef %1,
   %69 = phi i64 [ %80, %.split ], [ %52, %57 ]
   %70 = lshr i64 %69, 2
   %71 = and i64 %70, 4294967295
-  %72 = getelementptr [64 x ptr], ptr %49, i64 0, i64 %71
+  %72 = getelementptr ptr, ptr %49, i64 %71
   %73 = load volatile ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
   %75 = and i64 %74, 3
@@ -4778,7 +4778,7 @@ define dso_local void @xa_set_mark(ptr noundef %0, i64 noundef %1, i32 noundef %
   %24 = load i8, ptr %22, align 1
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 552
-  %27 = getelementptr [3 x [1 x i64]], ptr %26, i64 0, i64 %20
+  %27 = getelementptr [1 x i64], ptr %26, i64 %20
   %28 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %25) #8, !srcloc !12
   %29 = icmp ult i8 %28, 2
   tail call void @llvm.assume(i1 %29)
@@ -4852,7 +4852,7 @@ define dso_local void @xa_clear_mark(ptr noundef %0, i64 noundef %1, i32 noundef
   %24 = load i8, ptr %22, align 1
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 552
-  %27 = getelementptr [3 x [1 x i64]], ptr %26, i64 0, i64 %20
+  %27 = getelementptr [1 x i64], ptr %26, i64 %20
   %28 = tail call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %25) #8, !srcloc !11
   %29 = icmp ult i8 %28, 2
   tail call void @llvm.assume(i1 %29)
@@ -5108,7 +5108,7 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = icmp eq i32 %4, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  br i1 %12, label %138, label %13
+  br i1 %12, label %136, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -5171,7 +5171,7 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
   %46 = add nuw nsw i8 %43, 1
   %47 = zext nneg i8 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 552
-  %49 = getelementptr [3 x [1 x i64]], ptr %48, i64 0, i64 %20
+  %49 = getelementptr [1 x i64], ptr %48, i64 %20
   %50 = load i64, ptr %49, align 8
   %51 = shl nsw i64 -1, %47
   %52 = and i64 %50, %51
@@ -5201,7 +5201,7 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %68 = getelementptr [64 x ptr], ptr %67, i64 0, i64 %61
+  %68 = getelementptr ptr, ptr %67, i64 %61
   %69 = load volatile ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %73
@@ -5218,22 +5218,22 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
 76:                                               ; preds = %13
   %77 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %.thread19, label %.preheader
+  br i1 %78, label %.thread19, label %.preheader20
 
-.preheader:                                       ; preds = %76, %134
-  %79 = phi i32 [ %89, %134 ], [ 0, %76 ]
-  %80 = phi ptr [ %135, %134 ], [ %77, %76 ]
+.preheader20:                                     ; preds = %76, %132
+  %79 = phi i32 [ %89, %132 ], [ 0, %76 ]
+  %80 = phi ptr [ %133, %132 ], [ %77, %76 ]
   %81 = ptrtoint ptr %80 to i64
   switch i64 %81, label %83 [
     i64 1030, label %88
     i64 1026, label %82
   ]
 
-82:                                               ; preds = %.preheader
+82:                                               ; preds = %.preheader20
   store ptr inttoptr (i64 3 to ptr), ptr %10, align 8
   br label %88
 
-83:                                               ; preds = %.preheader
+83:                                               ; preds = %.preheader20
   %84 = add i32 %79, 1
   %85 = zext i32 %79 to i64
   %86 = getelementptr ptr, ptr %1, i64 %85
@@ -5241,20 +5241,20 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
   %87 = icmp eq i32 %84, %4
   br i1 %87, label %.thread19, label %88
 
-88:                                               ; preds = %83, %82, %.preheader
-  %89 = phi i32 [ %84, %83 ], [ %79, %.preheader ], [ %79, %82 ]
+88:                                               ; preds = %83, %82, %.preheader20
+  %89 = phi i32 [ %84, %83 ], [ %79, %.preheader20 ], [ %79, %82 ]
   %90 = load ptr, ptr %10, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 3
   %93 = icmp ne i64 %92, 0
   %94 = icmp eq ptr %90, null
   %95 = or i1 %94, %93
-  br i1 %95, label %107, label %96, !prof !28
+  br i1 %95, label %106, label %96, !prof !28
 
 96:                                               ; preds = %88
   %97 = load i8, ptr %90, align 8
   %98 = icmp eq i8 %97, 0
-  br i1 %98, label %99, label %107, !prof !78
+  br i1 %98, label %99, label %106, !prof !78
 
 99:                                               ; preds = %96
   %100 = load i8, ptr %9, align 2
@@ -5262,80 +5262,79 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
   %102 = load i64, ptr %8, align 8
   %103 = and i64 %102, 63
   %104 = icmp eq i64 %103, %101
-  br i1 %104, label %105, label %107, !prof !78
+  br i1 %104, label %.preheader, label %106, !prof !78
 
-105:                                              ; preds = %99
-  %106 = getelementptr inbounds nuw i8, ptr %90, i64 40
+.preheader:                                       ; preds = %99
+  %105 = getelementptr i8, ptr %90, i64 48
   %umax = tail call i64 @llvm.umax.i64(i64 %102, i64 %3)
-  br label %109
+  br label %108
 
-107:                                              ; preds = %99, %96, %88
-  %108 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %134
+106:                                              ; preds = %99, %96, %88
+  %107 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %132
 
-109:                                              ; preds = %129, %105
-  %110 = phi i8 [ %100, %105 ], [ %130, %129 ]
-  %111 = phi i64 [ %102, %105 ], [ %131, %129 ]
-  %112 = icmp ult i64 %111, %3
-  br i1 %112, label %115, label %113, !prof !78
+108:                                              ; preds = %.preheader, %127
+  %109 = phi i8 [ %128, %127 ], [ %100, %.preheader ]
+  %110 = phi i64 [ %129, %127 ], [ %102, %.preheader ]
+  %111 = icmp ult i64 %110, %3
+  br i1 %111, label %114, label %112, !prof !78
 
-113:                                              ; preds = %109
-  store i8 %110, ptr %9, align 2
+112:                                              ; preds = %108
+  store i8 %109, ptr %9, align 2
   store i64 %umax, ptr %8, align 8
-  %114 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %134
+  %113 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %132
 
-115:                                              ; preds = %109
-  %116 = icmp eq i8 %110, 63
-  br i1 %116, label %117, label %119, !prof !28
+114:                                              ; preds = %108
+  %115 = icmp eq i8 %109, 63
+  br i1 %115, label %116, label %118, !prof !28
 
-117:                                              ; preds = %115
+116:                                              ; preds = %114
   store i8 63, ptr %9, align 2
-  store i64 %111, ptr %8, align 8
-  %118 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %134
+  store i64 %110, ptr %8, align 8
+  %117 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %132
 
-119:                                              ; preds = %115
-  %120 = zext i8 %110 to i64
-  %121 = add nuw nsw i64 %120, 1
-  %122 = getelementptr [64 x ptr], ptr %106, i64 0, i64 %121
-  %123 = load volatile ptr, ptr %122, align 8
-  %124 = ptrtoint ptr %123 to i64
-  %125 = and i64 %124, 3
-  %126 = icmp eq i64 %125, 2
-  br i1 %126, label %127, label %129, !prof !28
+118:                                              ; preds = %114
+  %119 = zext i8 %109 to i64
+  %120 = getelementptr ptr, ptr %105, i64 %119
+  %121 = load volatile ptr, ptr %120, align 8
+  %122 = ptrtoint ptr %121 to i64
+  %123 = and i64 %122, 3
+  %124 = icmp eq i64 %123, 2
+  br i1 %124, label %125, label %127, !prof !28
 
-127:                                              ; preds = %119
-  store i8 %110, ptr %9, align 2
-  store i64 %111, ptr %8, align 8
-  %128 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
-  br label %134
+125:                                              ; preds = %118
+  store i8 %109, ptr %9, align 2
+  store i64 %110, ptr %8, align 8
+  %126 = call ptr @xas_find(ptr noundef nonnull %7, i64 noundef %3)
+  br label %132
 
-129:                                              ; preds = %119
-  %130 = add i8 %110, 1
-  %131 = add nuw i64 %111, 1
-  %132 = icmp eq ptr %123, null
-  br i1 %132, label %109, label %133, !llvm.loop !80
+127:                                              ; preds = %118
+  %128 = add i8 %109, 1
+  %129 = add nuw i64 %110, 1
+  %130 = icmp eq ptr %121, null
+  br i1 %130, label %108, label %131, !llvm.loop !80
 
-133:                                              ; preds = %129
-  store i8 %130, ptr %9, align 2
-  store i64 %131, ptr %8, align 8
-  br label %134
+131:                                              ; preds = %127
+  store i8 %128, ptr %9, align 2
+  store i64 %129, ptr %8, align 8
+  br label %132
 
-134:                                              ; preds = %133, %127, %117, %113, %107
-  %135 = phi ptr [ %108, %107 ], [ %114, %113 ], [ %118, %117 ], [ %128, %127 ], [ %123, %133 ]
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %.thread19, label %.preheader, !llvm.loop !81
+132:                                              ; preds = %131, %125, %116, %112, %106
+  %133 = phi ptr [ %107, %106 ], [ %113, %112 ], [ %117, %116 ], [ %126, %125 ], [ %121, %131 ]
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %.thread19, label %.preheader20, !llvm.loop !81
 
-.thread19:                                        ; preds = %134, %83, %.thread, %73, %26, %76, %16
-  %137 = phi i32 [ 0, %16 ], [ 0, %76 ], [ %32, %.thread ], [ %4, %26 ], [ %32, %73 ], [ %4, %83 ], [ %89, %134 ]
+.thread19:                                        ; preds = %132, %83, %.thread, %73, %26, %76, %16
+  %135 = phi i32 [ 0, %16 ], [ 0, %76 ], [ %32, %.thread ], [ %4, %26 ], [ %32, %73 ], [ %4, %83 ], [ %89, %132 ]
   tail call void @__rcu_read_unlock() #8
-  br label %138
+  br label %136
 
-138:                                              ; preds = %.thread19, %6
-  %139 = phi i32 [ 0, %6 ], [ %137, %.thread19 ]
+136:                                              ; preds = %.thread19, %6
+  %137 = phi i32 [ 0, %6 ], [ %135, %.thread19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %139
+  ret i32 %137
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5455,7 +5454,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i
   %42 = phi ptr [ %39, %37 ], [ %.ph7, %.loopexit ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = zext i32 %41 to i64
-  %45 = getelementptr [64 x ptr], ptr %43, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %42, align 8
   %48 = icmp eq i8 %47, 0

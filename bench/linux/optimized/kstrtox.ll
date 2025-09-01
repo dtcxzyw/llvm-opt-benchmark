@@ -73,7 +73,7 @@ define dso_local ptr @_parse_integer_fixup_radix(ptr noundef readonly captures(r
   %14 = getelementptr i8, ptr %0, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @_ctype, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, 68
   %20 = icmp eq i8 %19, 0
@@ -273,7 +273,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoull(ptr noundef readonly c
   %17 = getelementptr i8, ptr %7, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @_ctype, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 68
   %23 = icmp eq i8 %22, 0
@@ -415,7 +415,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoll(ptr noundef readonly ca
   %18 = getelementptr i8, ptr %0, i64 3
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @_ctype, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 68
   %24 = icmp eq i8 %23, 0
@@ -797,7 +797,7 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   br i1 %7, label %8, label %kstrtobool.exit
 
 8:                                                ; preds = %3
-  %9 = getelementptr [4 x i8], ptr %4, i64 0, i64 %5
+  %9 = getelementptr i8, ptr %4, i64 %5
   store i8 0, ptr %9, align 1
   %10 = load i8, ptr %4, align 4
   switch i8 %10, label %kstrtobool.exit [
@@ -859,7 +859,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoull_from_user(ptr noundef 
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr [67 x i8], ptr %5, i64 0, i64 %6
+  %10 = getelementptr i8, ptr %5, i64 %6
   store i8 0, ptr %10, align 1
   %11 = call i32 @kstrtoull(ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3), !range !7
   br label %12
@@ -881,7 +881,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoll_from_user(ptr noundef %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr [67 x i8], ptr %5, i64 0, i64 %6
+  %10 = getelementptr i8, ptr %5, i64 %6
   store i8 0, ptr %10, align 1
   %11 = call i32 @kstrtoll(ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3), !range !8
   br label %12
@@ -903,7 +903,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoul_from_user(ptr noundef %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr [67 x i8], ptr %5, i64 0, i64 %6
+  %10 = getelementptr i8, ptr %5, i64 %6
   store i8 0, ptr %10, align 1
   %11 = call noundef i32 @kstrtoull(ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3), !range !7
   br label %12
@@ -925,7 +925,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtol_from_user(ptr noundef %0
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr [67 x i8], ptr %5, i64 0, i64 %6
+  %10 = getelementptr i8, ptr %5, i64 %6
   store i8 0, ptr %10, align 1
   %11 = call noundef i32 @kstrtoll(ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3), !range !8
   br label %12
@@ -948,7 +948,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtouint_from_user(ptr noundef
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %4
-  %11 = getelementptr [35 x i8], ptr %6, i64 0, i64 %7
+  %11 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
@@ -989,7 +989,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoint_from_user(ptr noundef 
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %4
-  %11 = getelementptr [35 x i8], ptr %6, i64 0, i64 %7
+  %11 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
@@ -1031,7 +1031,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou16_from_user(ptr noundef 
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %4
-  %11 = getelementptr [19 x i8], ptr %6, i64 0, i64 %7
+  %11 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
@@ -1072,7 +1072,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos16_from_user(ptr noundef 
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %4
-  %11 = getelementptr [19 x i8], ptr %6, i64 0, i64 %7
+  %11 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
@@ -1114,7 +1114,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou8_from_user(ptr noundef %
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %4
-  %11 = getelementptr [11 x i8], ptr %6, i64 0, i64 %7
+  %11 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
@@ -1155,7 +1155,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8_from_user(ptr noundef %
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %4
-  %11 = getelementptr [11 x i8], ptr %6, i64 0, i64 %7
+  %11 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6

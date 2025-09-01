@@ -509,7 +509,7 @@ define hidden void @_ZNK4cvc58internal11NodeBuilder8getChildEi(ptr dead_on_unwin
   %spec.select.i = add nsw i32 %2, %14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = sext i32 %spec.select.i to i64
-  %17 = getelementptr inbounds [0 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   store ptr %18, ptr %0, align 8, !tbaa !25
   %19 = load i64, ptr %18, align 8
@@ -559,7 +559,7 @@ define hidden void @_ZNK4cvc58internal11NodeBuilderixEi(ptr dead_on_unwind noali
   %spec.select.i.i = add nsw i32 %2, %14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = sext i32 %spec.select.i.i to i64
-  %17 = getelementptr inbounds [0 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !17, !noalias !27
   store ptr %18, ptr %0, align 8, !tbaa !25, !alias.scope !27
   %19 = load i64, ptr %18, align 8, !noalias !27
@@ -870,7 +870,7 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %33, %39, %41
   %51 = and i64 %46, -288230371856744449
   %52 = or disjoint i64 %50, %51
   store i64 %52, ptr %45, align 8
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %48
+  %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %48
   store ptr %27, ptr %53, align 8, !tbaa !17
   br label %54
 
@@ -1081,7 +1081,7 @@ _ZN4cvc58internal11NodeBuilder6appendERKNS0_8TypeNodeE.exit: ; preds = %45, %51,
   %63 = and i64 %58, -288230371856744449
   %64 = or disjoint i64 %62, %63
   store i64 %64, ptr %57, align 8
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %56, i64 0, i64 %60
+  %65 = getelementptr inbounds nuw ptr, ptr %56, i64 %60
   store ptr %39, ptr %65, align 8, !tbaa !17
   ret ptr %0
 }
@@ -1148,7 +1148,7 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %24, %30, %32
   %42 = and i64 %37, -288230371856744449
   %43 = or disjoint i64 %41, %42
   store i64 %43, ptr %36, align 8
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %39
+  %44 = getelementptr inbounds nuw ptr, ptr %35, i64 %39
   store ptr %18, ptr %44, align 8, !tbaa !17
   ret ptr %0
 }
@@ -1226,7 +1226,7 @@ _ZN4cvc58internal11NodeBuilder6appendERKNS0_8TypeNodeE.exit.i: ; preds = %36, %3
   %46 = and i64 %41, -288230371856744449
   %47 = or disjoint i64 %45, %46
   store i64 %47, ptr %40, align 8
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %43
+  %48 = getelementptr inbounds nuw ptr, ptr %39, i64 %43
   store ptr %22, ptr %48, align 8, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
   %.not.i = icmp eq ptr %49, %5

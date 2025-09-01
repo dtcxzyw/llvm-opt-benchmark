@@ -555,7 +555,7 @@ define float @If_ManMarkMapping_rec(ptr noundef captures(none) %0, ptr noundef c
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = lshr i64 %.val35, 24
   %44 = and i64 %43, 255
-  %45 = getelementptr inbounds nuw [33 x float], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw float, ptr %42, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !63
   br label %If_CutLutArea.exit
 
@@ -575,7 +575,7 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %58
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %58 ], [ 0, %.lr.ph ]
   %.02439.us = phi float [ %62, %58 ], [ %47, %.lr.ph ]
-  %52 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %indvars.iv48
+  %52 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv48
   %53 = load i32, ptr %52, align 4, !tbaa !64
   %.val36.us = load ptr, ptr %50, align 8, !tbaa !3
   %54 = getelementptr i8, ptr %.val36.us, i64 8
@@ -602,7 +602,7 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
   %.02439 = phi float [ %82, %73 ], [ %47, %.lr.ph ]
-  %67 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !64
   %.val36 = load ptr, ptr %50, align 8, !tbaa !3
   %69 = getelementptr i8, ptr %.val36, i64 8
@@ -1390,7 +1390,7 @@ define void @If_CutTraverse(ptr noundef readonly captures(none) %0, ptr noundef 
 
 11:                                               ; preds = %.lr.ph, %Vec_PtrPush.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit ]
-  %12 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !64
   %.val21 = load ptr, ptr %10, align 8, !tbaa !3
   %14 = getelementptr i8, ptr %.val21, i64 8

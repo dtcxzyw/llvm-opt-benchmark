@@ -574,7 +574,7 @@ read_text_file.exit:                              ; preds = %11, %19
 
 22:                                               ; preds = %read_text_file.exit
   %23 = sext i32 %.0.i to i64
-  %24 = getelementptr inbounds [8096 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %5, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !31
   br label %25
 

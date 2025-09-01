@@ -261,7 +261,7 @@ default.unreachable:                              ; preds = %.lr.ph230
 100:                                              ; preds = %.lr.ph230
   %101 = lshr i8 %99, 6
   %102 = zext nneg i8 %101 to i64
-  %103 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr @opa2_table, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !19
   %105 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %indvars.iv268
   store i8 %104, ptr %105, align 1, !tbaa !19
@@ -271,7 +271,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %107 = lshr i8 %99, 4
   %108 = and i8 %107, 3
   %109 = zext nneg i8 %108 to i64
-  %110 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @opa2_table, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !19
   %112 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %indvars.iv268
   store i8 %111, ptr %112, align 1, !tbaa !19
@@ -281,7 +281,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %114 = lshr i8 %99, 2
   %115 = and i8 %114, 3
   %116 = zext nneg i8 %115 to i64
-  %117 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @opa2_table, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !19
   %119 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %indvars.iv268
   store i8 %118, ptr %119, align 1, !tbaa !19
@@ -290,7 +290,7 @@ default.unreachable:                              ; preds = %.lr.ph230
 120:                                              ; preds = %.lr.ph230
   %121 = and i8 %99, 3
   %122 = zext nneg i8 %121 to i64
-  %123 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @opa2_table, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !19
   %125 = getelementptr inbounds nuw i8, ptr %.1154235, i64 %indvars.iv268
   store i8 %124, ptr %125, align 1, !tbaa !19
@@ -349,7 +349,7 @@ default.unreachable:                              ; preds = %.lr.ph230
   %.10167.idx = zext nneg i32 %141 to i64
   %.10167 = getelementptr inbounds nuw i8, ptr %.9166216, i64 %.10167.idx
   %.pn = zext nneg i8 %.pn.in to i64
-  %.sink.in = getelementptr inbounds nuw [16 x i8], ptr @opa4_table, i64 0, i64 %.pn
+  %.sink.in = getelementptr inbounds nuw i8, ptr @opa4_table, i64 %.pn
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !19
   %145 = getelementptr inbounds nuw i8, ptr %.2155224, i64 %indvars.iv265
   store i8 %.sink, ptr %145, align 1, !tbaa !19

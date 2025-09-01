@@ -137,11 +137,11 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %72 = sub nsw i32 0, %71
   store i32 %72, ptr %15, align 4, !tbaa !3
   %73 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %15, i32 noundef 6) #5
-  br label %171
+  br label %172
 
 74:                                               ; preds = %70
   %75 = icmp eq i32 %49, 0
-  br i1 %75, label %171, label %76
+  br i1 %75, label %172, label %76
 
 76:                                               ; preds = %74
   br i1 %40, label %77, label %83
@@ -156,7 +156,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.inv290 = fcmp oge double %spec.select276, %81
   %82 = select i1 %.inv290, double %spec.select276, double %81
   store double %82, ptr %11, align 8, !tbaa !7
-  br label %171
+  br label %172
 
 83:                                               ; preds = %76
   %.not266.not291.not = icmp eq i32 %52, 1
@@ -234,7 +234,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %113, ptr %115, align 8, !tbaa !7
   %116 = getelementptr inbounds double, ptr %27, i64 %114
   store double 0.000000e+00, ptr %116, align 8, !tbaa !7
-  br label %171
+  br label %172
 
 117:                                              ; preds = %104
   store ptr %0, ptr %.sroa.0337, align 16, !tbaa !12
@@ -290,13 +290,13 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 134:                                              ; preds = %._crit_edge310
   call void @dlaqr0_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
-  br label %156
+  br label %157
 
 135:                                              ; preds = %._crit_edge310
   call void @dlahqr_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %13) #5
   %136 = load i32, ptr %13, align 4, !tbaa !3
   %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %138, label %156
+  br i1 %137, label %138, label %157
 
 138:                                              ; preds = %135
   store i32 %136, ptr %18, align 4, !tbaa !3
@@ -306,73 +306,74 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 141:                                              ; preds = %138
   call void @dlaqr0_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %18, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
-  br label %156
+  br label %157
 
 142:                                              ; preds = %138
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %22, ptr noundef nonnull @c__49) #5
   %143 = load i32, ptr %2, align 4, !tbaa !3
-  %144 = mul nsw i32 %143, 49
-  %145 = add i32 %143, -49
-  %146 = add i32 %145, %144
+  %144 = add nsw i32 %143, 1
+  %145 = mul nsw i32 %143, 49
+  %146 = add nsw i32 %144, %145
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [2401 x double], ptr %22, i64 0, i64 %147
-  store double 0.000000e+00, ptr %148, align 8, !tbaa !7
-  %149 = sub nsw i32 49, %143
-  store i32 %149, ptr %15, align 4, !tbaa !3
-  %150 = sext i32 %144 to i64
-  %151 = getelementptr inbounds [2401 x double], ptr %22, i64 0, i64 %150
-  call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull @c__49, ptr noundef nonnull %15, ptr noundef nonnull @c_b11, ptr noundef nonnull @c_b11, ptr noundef nonnull %151, ptr noundef nonnull @c__49) #5
+  %148 = getelementptr double, ptr %22, i64 %147
+  %149 = getelementptr i8, ptr %148, i64 -400
+  store double 0.000000e+00, ptr %149, align 8, !tbaa !7
+  %150 = sub nsw i32 49, %143
+  store i32 %150, ptr %15, align 4, !tbaa !3
+  %151 = sext i32 %145 to i64
+  %152 = getelementptr inbounds double, ptr %22, i64 %151
+  call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull @c__49, ptr noundef nonnull %15, ptr noundef nonnull @c_b11, ptr noundef nonnull @c_b11, ptr noundef nonnull %152, ptr noundef nonnull @c__49) #5
   call void @dlaqr0_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c__49, ptr noundef nonnull %3, ptr noundef nonnull %18, ptr noundef nonnull %22, ptr noundef nonnull @c__49, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull @c__49, ptr noundef nonnull %13) #5
-  %152 = load i32, ptr %20, align 4, !tbaa !3
-  %.not268 = icmp eq i32 %152, 0
-  br i1 %.not268, label %153, label %155
+  %153 = load i32, ptr %20, align 4, !tbaa !3
+  %.not268 = icmp eq i32 %153, 0
+  br i1 %.not268, label %154, label %156
 
-153:                                              ; preds = %142
-  %154 = load i32, ptr %13, align 4, !tbaa !3
-  %.not269 = icmp eq i32 %154, 0
-  br i1 %.not269, label %.thread286, label %155
+154:                                              ; preds = %142
+  %155 = load i32, ptr %13, align 4, !tbaa !3
+  %.not269 = icmp eq i32 %155, 0
+  br i1 %.not269, label %.thread286, label %156
 
-155:                                              ; preds = %153, %142
+156:                                              ; preds = %154, %142
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %22, ptr noundef nonnull @c__49, ptr noundef %5, ptr noundef nonnull %6) #5
-  br label %156
+  br label %157
 
-156:                                              ; preds = %135, %155, %141, %134
+157:                                              ; preds = %135, %156, %141, %134
   %.pr281 = load i32, ptr %20, align 4, !tbaa !3
   %.not270 = icmp eq i32 %.pr281, 0
-  br i1 %.not270, label %157, label %158
+  br i1 %.not270, label %158, label %159
 
-157:                                              ; preds = %156
+158:                                              ; preds = %157
   %.pr285 = load i32, ptr %13, align 4, !tbaa !3
   %.not271 = icmp eq i32 %.pr285, 0
-  br i1 %.not271, label %.thread286, label %158
+  br i1 %.not271, label %.thread286, label %159
 
-158:                                              ; preds = %157, %156
-  %159 = load i32, ptr %2, align 4, !tbaa !3
-  %160 = icmp sgt i32 %159, 2
-  br i1 %160, label %161, label %.thread286
+159:                                              ; preds = %158, %157
+  %160 = load i32, ptr %2, align 4, !tbaa !3
+  %161 = icmp sgt i32 %160, 2
+  br i1 %161, label %162, label %.thread286
 
-161:                                              ; preds = %158
-  %162 = add nsw i32 %159, -2
-  store i32 %162, ptr %15, align 4, !tbaa !3
-  store i32 %162, ptr %16, align 4, !tbaa !3
-  %163 = sext i32 %23 to i64
-  %164 = getelementptr double, ptr %25, i64 %163
-  %165 = getelementptr i8, ptr %164, i64 24
-  call void @dlaset_(ptr noundef nonnull @.str.7, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b11, ptr noundef nonnull @c_b11, ptr noundef %165, ptr noundef nonnull %6) #5
+162:                                              ; preds = %159
+  %163 = add nsw i32 %160, -2
+  store i32 %163, ptr %15, align 4, !tbaa !3
+  store i32 %163, ptr %16, align 4, !tbaa !3
+  %164 = sext i32 %23 to i64
+  %165 = getelementptr double, ptr %25, i64 %164
+  %166 = getelementptr i8, ptr %165, i64 24
+  call void @dlaset_(ptr noundef nonnull @.str.7, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b11, ptr noundef nonnull @c_b11, ptr noundef %166, ptr noundef nonnull %6) #5
   br label %.thread286
 
-.thread286:                                       ; preds = %153, %161, %158, %157
-  %166 = load i32, ptr %2, align 4, !tbaa !3
-  %167 = icmp slt i32 %166, 2
-  %168 = uitofp nneg i32 %166 to double
-  %spec.select278 = select i1 %167, double 1.000000e+00, double %168
-  %169 = load double, ptr %11, align 8, !tbaa !7
-  %.inv = fcmp oge double %spec.select278, %169
-  %170 = select i1 %.inv, double %spec.select278, double %169
-  store double %170, ptr %11, align 8, !tbaa !7
-  br label %171
+.thread286:                                       ; preds = %154, %162, %159, %158
+  %167 = load i32, ptr %2, align 4, !tbaa !3
+  %168 = icmp slt i32 %167, 2
+  %169 = uitofp nneg i32 %167 to double
+  %spec.select278 = select i1 %168, double 1.000000e+00, double %169
+  %170 = load double, ptr %11, align 8, !tbaa !7
+  %.inv = fcmp oge double %spec.select278, %170
+  %171 = select i1 %.inv, double %spec.select278, double %170
+  store double %171, ptr %11, align 8, !tbaa !7
+  br label %172
 
-171:                                              ; preds = %74, %.thread286, %108, %77, %.thread
+172:                                              ; preds = %74, %.thread286, %108, %77, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)

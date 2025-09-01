@@ -2788,9 +2788,9 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$spdx..error..ParseError$u20$as$u20$
 define hidden { ptr, i64 } @"_ZN62_$LT$spdx..error..ParseError$u20$as$u20$core..error..Error$GT$11description17h9a43df6be4d12596E.llvm.12101516472763982539"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #17 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !108, !noundef !8
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN62_$LT$spdx..error..ParseError$u20$as$u20$core..error..Error$GT$11description17h9a43df6be4d12596E.llvm.12101516472763982539", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$spdx..error..ParseError$u20$as$u20$core..error..Error$GT$11description17h9a43df6be4d12596E.llvm.12101516472763982539", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN62_$LT$spdx..error..ParseError$u20$as$u20$core..error..Error$GT$11description17h9a43df6be4d12596E.llvm.12101516472763982539.48", i64 0, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$spdx..error..ParseError$u20$as$u20$core..error..Error$GT$11description17h9a43df6be4d12596E.llvm.12101516472763982539.48", i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1

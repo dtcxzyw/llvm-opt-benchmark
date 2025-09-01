@@ -1000,7 +1000,7 @@ _ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thr
 
 111:                                              ; preds = %.preheader, %116
   %indvars.iv = phi i64 [ %indvars.iv.next, %116 ], [ 0, %.preheader ]
-  %112 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %indvars.iv
   %113 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv
   %114 = load float, ptr %113, align 4, !tbaa !4
   %115 = fcmp olt float %114, 0.000000e+00

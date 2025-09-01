@@ -1480,7 +1480,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_13BooleanOptionEEEPNT_8InfoTypeERKS3_.ex
 
 .preheader.i:                                     ; preds = %._crit_edge, %260
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %260 ], [ 0, %._crit_edge ]
-  %257 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmx12_GLOBAL__N_116c_xvgFormatNamesE, i64 0, i64 %indvars.iv.i
+  %257 = getelementptr inbounds nuw ptr, ptr @_ZN3gmx12_GLOBAL__N_116c_xvgFormatNamesE, i64 %indvars.iv.i
   %258 = load ptr, ptr %257, align 8, !tbaa !4
   %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(1) %258) #23
   %.not14.i = icmp eq i32 %259, 0

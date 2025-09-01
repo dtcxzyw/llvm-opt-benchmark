@@ -240,10 +240,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %5 = load i8, ptr %4, align 1, !range !12, !alias.scope !8, !noalias !13, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep1 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E.57", i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E.57", i64 %7
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2737,10 +2737,10 @@ define internal noundef zeroext i1 @"_ZN83_$LT$ruff_python_trivia..tokenizer..Si
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !423, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [90 x i64], ptr @"switch.table._ZN83_$LT$ruff_python_trivia..tokenizer..SimpleTokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17he0b4b98034067ddbE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_python_trivia..tokenizer..SimpleTokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17he0b4b98034067ddbE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [90 x ptr], ptr @"switch.table._ZN83_$LT$ruff_python_trivia..tokenizer..SimpleTokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17he0b4b98034067ddbE.55", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_python_trivia..tokenizer..SimpleTokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17he0b4b98034067ddbE.55", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -5017,10 +5017,10 @@ switch.lookup:
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i8, ptr %13, align 8, !range !434, !noundef !3
   %15 = zext nneg i8 %14 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN172_$LT$ruff_python_formatter..expression..expr_unary_op..FormatExprUnaryOp$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..ExprUnaryOp$GT$$GT$10fmt_fields17h0e7a559301c963f8E", i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN172_$LT$ruff_python_formatter..expression..expr_unary_op..FormatExprUnaryOp$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..ExprUnaryOp$GT$$GT$10fmt_fields17h0e7a559301c963f8E", i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext nneg i8 %14 to i64
-  %switch.gep13 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN172_$LT$ruff_python_formatter..expression..expr_unary_op..FormatExprUnaryOp$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..ExprUnaryOp$GT$$GT$10fmt_fields17h0e7a559301c963f8E.56", i64 0, i64 %16
+  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN172_$LT$ruff_python_formatter..expression..expr_unary_op..FormatExprUnaryOp$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..ExprUnaryOp$GT$$GT$10fmt_fields17h0e7a559301c963f8E.56", i64 %16
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5296,10 +5296,10 @@ switch.lookup:
   %4 = alloca [24 x i8], align 8
   %5 = load i8, ptr %2, align 1, !range !12, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E.57", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN196_$LT$ruff_python_formatter..expression..operator..FormatOperator$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..Operator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17h309e7b78953bdef8E.57", i64 %7
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8

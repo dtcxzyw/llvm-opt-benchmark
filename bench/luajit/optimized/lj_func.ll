@@ -242,7 +242,7 @@ define hidden ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %1, ptr nounde
   %49 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 %48, ptr %49, align 8, !tbaa !44
   %50 = ptrtoint ptr %32 to i64
-  %51 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %30, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.GCRef, ptr %30, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -422,7 +422,7 @@ func_finduv.exit:                                 ; preds = %65, %73, %.critedge
 
 108:                                              ; preds = %104, %func_finduv.exit
   %.0 = phi i64 [ %103, %func_finduv.exit ], [ %107, %104 ]
-  %109 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %43, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %struct.GCRef, ptr %43, i64 %indvars.iv
   store i64 %.0, ptr %109, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

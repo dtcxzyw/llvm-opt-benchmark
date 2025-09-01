@@ -244,14 +244,14 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
 70:                                               ; preds = %62
   %71 = and i32 %58, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %72
   %74 = load i8, ptr %73, align 1, !noalias !76, !noundef !7
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17he414eda2bc05a79eE.exit.i.i.i.i.i.i"
 
 75:                                               ; preds = %62
   %76 = and i32 %58, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %77
   %79 = load i8, ptr %78, align 1, !noalias !76, !noundef !7
   %80 = lshr i8 %79, 1
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17he414eda2bc05a79eE.exit.i.i.i.i.i.i"
@@ -515,14 +515,14 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
 70:                                               ; preds = %62
   %71 = and i32 %58, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %72
   %74 = load i8, ptr %73, align 1, !noalias !154, !noundef !7
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17h79356c54ee1482ddE.exit.i.i.i.i.i.i"
 
 75:                                               ; preds = %62
   %76 = and i32 %58, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %77
   %79 = load i8, ptr %78, align 1, !noalias !154, !noundef !7
   %80 = lshr i8 %79, 1
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17h79356c54ee1482ddE.exit.i.i.i.i.i.i"
@@ -786,14 +786,14 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
 70:                                               ; preds = %62
   %71 = and i32 %58, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %72
   %74 = load i8, ptr %73, align 1, !noalias !231, !noundef !7
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hfd5004ca61b9d459E.exit.i.i.i.i.i.i"
 
 75:                                               ; preds = %62
   %76 = and i32 %58, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %77
   %79 = load i8, ptr %78, align 1, !noalias !231, !noundef !7
   %80 = lshr i8 %79, 1
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hfd5004ca61b9d459E.exit.i.i.i.i.i.i"
@@ -956,14 +956,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
 12:                                               ; preds = %4
   %13 = and i32 %0, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %14
   %16 = load i8, ptr %15, align 1, !noundef !7
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hf5df068ac2d74cc6E.exit"
 
 17:                                               ; preds = %4
   %18 = and i32 %0, 255
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %19
   %21 = load i8, ptr %20, align 1, !noundef !7
   %22 = lshr i8 %21, 1
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hf5df068ac2d74cc6E.exit"
@@ -1131,14 +1131,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
 12:                                               ; preds = %4
   %13 = and i32 %0, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %14
   %16 = load i8, ptr %15, align 1, !noundef !7
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hb79444b5912e301cE.exit"
 
 17:                                               ; preds = %4
   %18 = and i32 %0, 255
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %19
   %21 = load i8, ptr %20, align 1, !noundef !7
   %22 = lshr i8 %21, 1
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hb79444b5912e301cE.exit"
@@ -1306,14 +1306,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
 12:                                               ; preds = %4
   %13 = and i32 %0, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %14
   %16 = load i8, ptr %15, align 1, !noundef !7
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17h3d3f3eeb1ca8ecd4E.exit"
 
 17:                                               ; preds = %4
   %18 = and i32 %0, 255
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hc3415e65fd54ec9eE, i64 %19
   %21 = load i8, ptr %20, align 1, !noundef !7
   %22 = lshr i8 %21, 1
   br label %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17h3d3f3eeb1ca8ecd4E.exit"
@@ -1646,10 +1646,10 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN4core4iter6traits8i
 36:                                               ; preds = %36, %23
   %.sroa.010.028.i = phi i64 [ 0, %23 ], [ %37, %36 ]
   %37 = add nuw nsw i64 %.sroa.010.028.i, 1
-  %38 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.02430.i, i64 0, i64 %.sroa.010.028.i
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.02430.i, i64 %.sroa.010.028.i
   %39 = load i8, ptr %38, align 1, !noalias !335, !noundef !7
   %40 = icmp sgt i8 %39, -65
-  %41 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.sroa.010.028.i
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.010.028.i
   %42 = zext i1 %40 to i8
   store i8 %42, ptr %41, align 1, !noalias !335
   %exitcond.not.i = icmp eq i64 %37, 32
@@ -1679,7 +1679,7 @@ define internal fastcc noundef range(i32 0, 1114113) i32 @_ZN4core4iter6traits8i
   %53 = add i64 %.sroa.0.239.i, -1
   %54 = load i8, ptr %49, align 1, !noalias !335, !noundef !7
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @anon.71f9e8cd75003df8b128ba4a52bc1e35.34, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @anon.71f9e8cd75003df8b128ba4a52bc1e35.34, i64 %55
   %57 = load i8, ptr %56, align 1, !noalias !335, !noundef !7
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 %58

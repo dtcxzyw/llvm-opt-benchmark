@@ -2505,9 +2505,9 @@ _ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE.exit.i: ; preds = %39
   unreachable
 
 switch.lookup:                                    ; preds = %_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE.exit.i
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep135 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE.1, i64 0, i64 %44
+  %switch.gep135 = getelementptr inbounds nuw i64, ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE.1, i64 %44
   %switch.load136 = load i64, ptr %switch.gep135, align 8
   br label %_ZL20getCheckerOptionTypeRKN4llvm6RecordE.exit
 

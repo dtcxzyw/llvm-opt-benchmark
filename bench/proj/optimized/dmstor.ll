@@ -185,7 +185,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
 
 .thread:                                          ; preds = %49, %54
   %62 = zext nneg i32 %.04684 to i64
-  %63 = getelementptr inbounds nuw [3 x double], ptr @_ZL2vm, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw double, ptr @_ZL2vm, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !17
   %65 = call double @llvm.fmuladd.f64(double %.0.i, double %64, double %.04285)
   br label %._crit_edge
@@ -203,7 +203,7 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
 
 70:                                               ; preds = %66
   %71 = zext nneg i32 %.3 to i64
-  %72 = getelementptr inbounds nuw [3 x double], ptr @_ZL2vm, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw double, ptr @_ZL2vm, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !17
   %74 = call double @llvm.fmuladd.f64(double %.0.i, double %73, double %.04285)
   %75 = getelementptr inbounds nuw i8, ptr %50, i64 %.0

@@ -590,7 +590,7 @@ define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr noundef nonn
   %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = and i32 %4, 7
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeEE5funcs, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeEE5funcs, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = lshr i32 %4, 3
   %10 = and i32 %9, 511
@@ -1392,10 +1392,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %69
   %71 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x double], ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd, i64 %71
   %switch.load = load double, ptr %switch.gep, align 8
   %72 = zext nneg i32 %20 to i64
-  %switch.gep74 = getelementptr inbounds nuw [5 x double], ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd.3, i64 0, i64 %72
+  %switch.gep74 = getelementptr inbounds nuw double, ptr @switch.table._ZN2cv6bgsegm27BackgroundSubtractorGMGImpl5applyERKNS_11_InputArrayERKNS_12_OutputArrayEd.3, i64 %72
   %switch.load75 = load double, ptr %switch.gep74, align 8
   br label %73
 

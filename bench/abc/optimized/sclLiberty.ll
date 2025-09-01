@@ -11517,7 +11517,7 @@ Vec_PtrFree.exit:                                 ; preds = %579, %580
   %592 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #28
   %593 = getelementptr inbounds nuw i8, ptr %590, i64 8
   store ptr %592, ptr %593, align 8, !tbaa !99
-  %594 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv805
+  %594 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv805
   store ptr %590, ptr %594, align 8, !tbaa !160
   %indvars.iv.next806 = add nuw nsw i64 %indvars.iv805, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next806, 4
@@ -11581,7 +11581,7 @@ Vec_PtrFree.exit595:                              ; preds = %613, %.preheader729
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %615 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv812
+  %615 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv812
   %616 = load ptr, ptr %615, align 8, !tbaa !160
   %617 = call i32 @Scl_LibertyComputeWorstCase(ptr noundef %616, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %618 = getelementptr i8, ptr %616, i64 4

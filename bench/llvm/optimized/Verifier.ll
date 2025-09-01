@@ -23528,7 +23528,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95
   %217 = call noundef i32 @_ZNK4llvm9Attribute13getKindAsEnumEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #27
   %218 = zext i32 %217 to i64
   %219 = lshr i64 %218, 6
-  %220 = getelementptr inbounds nuw [2 x i64], ptr %23, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i64, ptr %23, i64 %219
   %221 = load i64, ptr %220, align 8, !tbaa !55
   %222 = and i64 %218, 63
   %223 = shl nuw i64 1, %222
@@ -30121,7 +30121,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier11visitDIFileERKN4llvm6DI
   %.sroa.0.013.i.i = phi ptr [ %42, %41 ], [ %33, %.lr.ph.i.i.preheader ]
   %37 = load i8, ptr %.sroa.0.013.i.i, align 1, !tbaa !96
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !856
   %.not = icmp eq i16 %40, -1
   br i1 %.not, label %_ZNK4llvm9StringRef11find_if_notENS_12function_refIFbcEEEm.exit, label %41
@@ -69993,7 +69993,7 @@ _ZN4llvm6AMDGPU21isFlatGlobalAddrSpaceEj.exit:    ; preds = %_ZNK4llvm4Type22get
 switch.lookup:                                    ; preds = %2625
   %2632 = getelementptr inbounds nuw i8, ptr %2612, i64 32
   %2633 = load i32, ptr %2632, align 8, !tbaa !774
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseE.62, i64 0, i64 %.0.i.i1362
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseE.62, i64 %.0.i.i1362
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not860 = icmp ult i32 %2633, %switch.load
   br i1 %.not860, label %2634, label %switch.lookup1883
@@ -70025,7 +70025,7 @@ switch.lookup:                                    ; preds = %2625
 switch.lookup1883:                                ; preds = %switch.lookup
   %2644 = getelementptr inbounds nuw i8, ptr %2618, i64 32
   %2645 = load i32, ptr %2644, align 8, !tbaa !774
-  %switch.gep1884 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseE.62, i64 0, i64 %.0.i.i1364
+  %switch.gep1884 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseE.62, i64 %.0.i.i1364
   %switch.load1885 = load i32, ptr %switch.gep1884, align 4
   %.not861 = icmp ult i32 %2645, %switch.load1885
   br i1 %.not861, label %2646, label %2656

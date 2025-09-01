@@ -1059,7 +1059,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegist
   %.sroa.041.066 = phi ptr [ null, %1 ], [ %.sroa.041.1, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit ]
   %.sroa.7.065 = phi ptr [ null, %1 ], [ %.sroa.7.1, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit ]
   %.sroa.13.064 = phi ptr [ null, %1 ], [ %.sroa.13.1, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit ]
-  %3 = getelementptr inbounds nuw [128 x %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set"], ptr %0, i64 0, i64 %storemerge67, i32 2
+  %3 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set", ptr %0, i64 %storemerge67, i32 2
   %4 = atomicrmw xchg ptr %3, i8 1 seq_cst, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.lr.ph.i.i.i, label %.loopexit
@@ -1095,7 +1095,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %12, %_ZN3tbb6de
   br i1 %15, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %2
-  %16 = getelementptr inbounds nuw [128 x %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set"], ptr %0, i64 0, i64 %storemerge67, i32 0, i32 0, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set", ptr %0, i64 %storemerge67, i32 0, i32 0, i32 0, i32 3
   %17 = load i64, ptr %16, align 8
   %.not.i.i = icmp eq ptr %.sroa.7.065, %.sroa.13.064
   br i1 %.not.i.i, label %19, label %18
@@ -1459,7 +1459,7 @@ define linkonce_odr ptr @_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry
 _ZNK32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry10_GetSetNumEPKc.exit: ; preds = %10, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i64 [ 0, %10 ], [ %20, %._crit_edge.loopexit.i.i ]
   %21 = trunc nuw nsw i64 %.0.lcssa.i.i to i32
-  %22 = getelementptr inbounds nuw [128 x %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set"], ptr %0, i64 0, i64 %.0.lcssa.i.i
+  %22 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set", ptr %0, i64 %.0.lcssa.i.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 60
   %24 = atomicrmw xchg ptr %23, i8 1 seq_cst, align 1
   %25 = trunc i8 %24 to i1
@@ -2352,7 +2352,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry8_IsEmptyEPKc.exit: ; pr
 _ZNK32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry10_GetSetNumEPKc.exit: ; preds = %.lr.ph.i.i
   %15 = and i32 %12, 127
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [128 x %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set"], ptr %0, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set", ptr %0, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 60
   %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
   %20 = trunc i8 %19 to i1
@@ -2855,7 +2855,7 @@ define linkonce_odr ptr @_ZNK32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistr
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry10_GetSetNumEPKc.exit: ; preds = %5, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i64 [ 0, %5 ], [ %15, %._crit_edge.loopexit.i.i ]
-  %16 = getelementptr inbounds nuw [128 x %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set"], ptr %0, i64 0, i64 %.0.lcssa.i.i
+  %16 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TokenRegistry::_Set", ptr %0, i64 %.0.lcssa.i.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 60
   %18 = atomicrmw xchg ptr %17, i8 1 seq_cst, align 1
   %19 = trunc i8 %18 to i1

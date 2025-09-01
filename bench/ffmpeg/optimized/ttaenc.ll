@@ -154,9 +154,9 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
   store i32 0, ptr %42, align 4, !tbaa !46
   %43 = getelementptr inbounds nuw %struct.TTAChannel, ptr %41, i64 %indvars.iv, i32 1
   %44 = load i32, ptr %16, align 8, !tbaa !33
-  %45 = add nsw i32 %44, -1
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [0 x i8], ptr @ff_tta_filter_configs, i64 0, i64 %46
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr i8, ptr @ff_tta_filter_configs, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 -1
   %48 = load i8, ptr %47, align 1, !tbaa !50
   %49 = zext i8 %48 to i32
   call void @ff_tta_filter_init(ptr noundef nonnull %43, i32 noundef %49) #7
@@ -273,10 +273,10 @@ get_sample.exit135:                               ; preds = %82, %87, %91
 
 switch.lookup:                                    ; preds = %98
   %102 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.tta_encode_frame, i64 0, i64 %102
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.tta_encode_frame, i64 %102
   %switch.load = load i64, ptr %switch.gep, align 8
   %103 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep333 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.tta_encode_frame.2, i64 0, i64 %103
+  %switch.gep333 = getelementptr inbounds nuw i64, ptr @switch.table.tta_encode_frame.2, i64 %103
   %switch.load334 = load i64, ptr %switch.gep333, align 8
   %104 = load i32, ptr %59, align 4, !tbaa !46
   %105 = sext i32 %104 to i64
@@ -340,7 +340,7 @@ switch.lookup:                                    ; preds = %98
 
 143:                                              ; preds = %.sink.split316, %137
   %144 = zext i32 %124 to i64
-  %145 = getelementptr inbounds nuw [0 x i32], ptr @ff_tta_shift_1, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr @ff_tta_shift_1, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !56
   %.not129 = icmp ult i32 %123, %146
   br i1 %.not129, label %216, label %147
@@ -530,7 +530,7 @@ put_bits.exit143:                                 ; preds = %216, %224
 
 227:                                              ; preds = %put_bits.exit143
   %228 = zext i32 %.0106 to i64
-  %229 = getelementptr inbounds nuw [0 x i32], ptr @ff_tta_shift_1, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw i32, ptr @ff_tta_shift_1, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !56
   %231 = add i32 %230, -1
   %232 = and i32 %231, %.0103

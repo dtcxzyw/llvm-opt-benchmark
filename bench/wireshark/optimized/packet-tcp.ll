@@ -7294,7 +7294,7 @@ proto_item_set_generated.exit1126:                ; preds = %507, %514, %517
   %584 = lshr i8 %583, 6
   %.2.i.i = or disjoint i8 %spec.select.i.i, %584
   %585 = zext nneg i8 %.2.i.i to i64
-  %586 = getelementptr [9 x i8], ptr @tcp_flags_to_str_first_letter.digits, i64 0, i64 %585
+  %586 = getelementptr i8, ptr @tcp_flags_to_str_first_letter.digits, i64 %585
   %587 = load i8, ptr %586, align 1
   call void @wmem_strbuf_append_c(ptr noundef %571, i8 noundef signext %587)
   br label %599
@@ -7313,7 +7313,7 @@ proto_item_set_generated.exit1126:                ; preds = %507, %514, %517
   br i1 %.not.i1127, label %598, label %595
 
 595:                                              ; preds = %589
-  %596 = getelementptr [13 x i8], ptr @tcp_flags_to_str_first_letter.first_letters, i64 0, i64 %indvars.iv.i
+  %596 = getelementptr i8, ptr @tcp_flags_to_str_first_letter.first_letters, i64 %indvars.iv.i
   %597 = load i8, ptr %596, align 1
   call void @wmem_strbuf_append_c(ptr noundef %571, i8 noundef signext %597)
   br label %599
@@ -10937,7 +10937,7 @@ addresses_equal.exit:                             ; preds = %76, %68, %copy_addr
   %90 = zext i1 %89 to i8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = zext i1 %88 to i64
-  %93 = getelementptr [2 x ptr], ptr %91, i64 0, i64 %92
+  %93 = getelementptr ptr, ptr %91, i64 %92
   %94 = load ptr, ptr %93, align 8
   %.not114 = icmp eq ptr %94, null
   br i1 %.not114, label %.loopexit, label %.preheader
@@ -10958,11 +10958,11 @@ addresses_equal.exit:                             ; preds = %76, %68, %copy_addr
 .loopexit:                                        ; preds = %96, %addresses_equal.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = zext i1 %89 to i64
-  %105 = getelementptr [2 x i32], ptr %103, i64 0, i64 %104
+  %105 = getelementptr i32, ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 0
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %109 = getelementptr [2 x i32], ptr %108, i64 0, i64 %104
+  %109 = getelementptr i32, ptr %108, i64 %104
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, 0
   %or.cond137 = select i1 %107, i1 %111, i1 false
@@ -10975,7 +10975,7 @@ addresses_equal.exit:                             ; preds = %76, %68, %copy_addr
 .loopexit._crit_edge:                             ; preds = %.loopexit, %112
   %113 = phi i32 [ %spec.select, %112 ], [ %110, %.loopexit ]
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %115 = getelementptr [2 x i32], ptr %114, i64 0, i64 %104
+  %115 = getelementptr i32, ptr %114, i64 %104
   %116 = sub i32 %spec.select, %113
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %118, label %select.unfold
@@ -11048,7 +11048,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %155, label %152, label %.thread, !llvm.loop !25
 
 156:                                              ; preds = %127
-  %157 = getelementptr [2 x ptr], ptr %91, i64 0, i64 %104
+  %157 = getelementptr ptr, ptr %91, i64 %104
   %158 = load ptr, ptr %157, align 8
   %159 = tail call ptr @g_list_append(ptr noundef %158, ptr noundef %128)
   store ptr %159, ptr %157, align 8
@@ -11681,14 +11681,14 @@ define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr nou
 134:                                              ; preds = %126
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 84
   %136 = zext nneg i32 %.0136177 to i64
-  %137 = getelementptr [4 x i32], ptr %135, i64 0, i64 %136
+  %137 = getelementptr i32, ptr %135, i64 %136
   store i32 %99, ptr %137, align 4
   %138 = load ptr, ptr %90, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 100
   %142 = add nuw nsw i32 %.0136177, 1
-  %143 = getelementptr [4 x i32], ptr %141, i64 0, i64 %136
+  %143 = getelementptr i32, ptr %141, i64 %136
   store i32 %114, ptr %143, align 4
   %144 = trunc nuw nsw i32 %142 to i8
   %145 = load ptr, ptr %90, align 8
@@ -11709,9 +11709,9 @@ define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr nou
 
 153:                                              ; preds = %150
   %154 = zext nneg i8 %151 to i64
-  %155 = getelementptr [4 x i32], ptr %92, i64 0, i64 %154
+  %155 = getelementptr i32, ptr %92, i64 %154
   store i32 %99, ptr %155, align 4
-  %156 = getelementptr [4 x i32], ptr %93, i64 0, i64 %154
+  %156 = getelementptr i32, ptr %93, i64 %154
   store i32 %114, ptr %156, align 4
   %157 = add nuw nsw i8 %151, 1
   store i8 %157, ptr %91, align 1
@@ -12098,7 +12098,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
 73:                                               ; preds = %70, %83
   %indvars.iv = phi i64 [ 0, %70 ], [ %indvars.iv.next, %83 ]
   %.0104125 = phi i1 [ false, %70 ], [ %.1, %83 ]
-  %74 = getelementptr [6 x %struct.capvec], ptr @__const.dissect_tcpopt_scps.capvecs, i64 0, i64 %indvars.iv
+  %74 = getelementptr %struct.capvec, ptr @__const.dissect_tcpopt_scps.capvecs, i64 %indvars.iv
   %75 = load i8, ptr %74, align 16
   %76 = and i8 %75, %69
   %.not113 = icmp eq i8 %76, 0
@@ -15580,13 +15580,13 @@ tcp_analyze_get_acked_struct.exit791:             ; preds = %455, %469
 
 631:                                              ; preds = %.preheader843, %.backedge
   %indvars.iv1029 = phi i64 [ 0, %.preheader843 ], [ %indvars.iv.be, %.backedge ]
-  %632 = getelementptr [4 x i32], ptr %629, i64 0, i64 %indvars.iv1029
+  %632 = getelementptr i32, ptr %629, i64 %indvars.iv1029
   %633 = load i32, ptr %632, align 4
   %.not689 = icmp ult i32 %1, %633
   br i1 %.not689, label %.backedge, label %634
 
 634:                                              ; preds = %631
-  %635 = getelementptr [4 x i32], ptr %630, i64 0, i64 %indvars.iv1029
+  %635 = getelementptr i32, ptr %630, i64 %indvars.iv1029
   %636 = load i32, ptr %635, align 4
   %.not1027 = icmp ugt i32 %560, %636
   br i1 %.not1027, label %.backedge, label %.critedge761
@@ -16637,9 +16637,9 @@ tcp_analyze_get_acked_struct.exit803:             ; preds = %1041, %1046
 1160:                                             ; preds = %.preheader, %1160
   %indvars.iv876 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next877, %1160 ]
   %.0572872 = phi i32 [ 0, %.preheader ], [ %1166, %1160 ]
-  %1161 = getelementptr [4 x i32], ptr %1158, i64 0, i64 %indvars.iv876
+  %1161 = getelementptr i32, ptr %1158, i64 %indvars.iv876
   %1162 = load i32, ptr %1161, align 4
-  %1163 = getelementptr [4 x i32], ptr %1159, i64 0, i64 %indvars.iv876
+  %1163 = getelementptr i32, ptr %1159, i64 %indvars.iv876
   %1164 = load i32, ptr %1163, align 4
   %1165 = add i32 %1162, %.0572872
   %1166 = sub i32 %1165, %1164
@@ -16836,7 +16836,7 @@ define internal fastcc noundef ptr @tcp_flags_to_str(ptr noundef %0, ptr noundef
 
 16:                                               ; preds = %14, %12
   %.1 = phi ptr [ %15, %14 ], [ %.02226, %12 ]
-  %17 = getelementptr [9 x [4 x i8]], ptr @tcp_flags_to_str.flags, i64 0, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr @tcp_flags_to_str.flags, i64 %indvars.iv
   %18 = tail call ptr @g_stpcpy(ptr noundef %.1, ptr noundef %17)
   br label %19
 
@@ -16862,7 +16862,7 @@ define internal fastcc noundef ptr @tcp_flags_to_str(ptr noundef %0, ptr noundef
   %.2.i = or disjoint i8 %spec.select.i, %29
   %30 = tail call ptr @g_stpcpy(ptr noundef %.2, ptr noundef nonnull @.str.946)
   %31 = zext nneg i8 %.2.i to i64
-  %32 = getelementptr [8 x [2 x i8]], ptr @tcp_flags_to_str.digit, i64 0, i64 %31
+  %32 = getelementptr [2 x i8], ptr @tcp_flags_to_str.digit, i64 %31
   %33 = tail call ptr @g_stpcpy(ptr noundef %30, ptr noundef %32)
   %.pre = load i16, ptr %5, align 2
   br label %34
@@ -17116,7 +17116,7 @@ define internal nonnull ptr @tcp_conv_get_filter_type(ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.tcp_endpoint_get_filter_type, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tcp_endpoint_get_filter_type, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
@@ -17174,7 +17174,7 @@ define internal nonnull ptr @tcp_endpoint_get_filter_type(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.tcp_endpoint_get_filter_type, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tcp_endpoint_get_filter_type, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
@@ -17203,7 +17203,7 @@ define internal fastcc noundef zeroext i1 @check_follow_fragments(ptr noundef ca
   %6 = zext i1 %1 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = zext i1 %1 to i64
-  %9 = getelementptr [2 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @g_list_first(ptr noundef %10)
   %12 = icmp eq ptr %11, null
@@ -17214,7 +17214,7 @@ define internal fastcc noundef zeroext i1 @check_follow_fragments(ptr noundef ca
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = getelementptr [2 x i32], ptr %17, i64 0, i64 %8
+  %18 = getelementptr i32, ptr %17, i64 %8
   %19 = load i32, ptr %18, align 4
   br label %20
 
@@ -17872,7 +17872,7 @@ mptcp_attach_subflow.exit57:                      ; preds = %mptcp_alloc_analysi
 
 68:                                               ; preds = %63, %59
   %.0 = phi i64 [ 1, %59 ], [ 0, %63 ]
-  %69 = getelementptr [2 x %struct._mptcp_meta_flow_t], ptr %60, i64 0, i64 %.0
+  %69 = getelementptr %struct._mptcp_meta_flow_t, ptr %60, i64 %.0
   %70 = load ptr, ptr %15, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr %69, ptr %71, align 8
@@ -17919,14 +17919,14 @@ mptcp_attach_subflow.exit57:                      ; preds = %mptcp_alloc_analysi
   %93 = icmp ne ptr %1, %92
   %spec.select = xor i1 %91, %93
   %94 = zext i1 %spec.select to i64
-  %95 = getelementptr [2 x %struct._mptcp_meta_flow_t], ptr %90, i64 0, i64 %94
+  %95 = getelementptr %struct._mptcp_meta_flow_t, ptr %90, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 80
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store ptr %95, ptr %98, align 8
   %not..in = xor i1 %spec.select, true
   %99 = zext i1 %not..in to i64
-  %100 = getelementptr [2 x %struct._mptcp_meta_flow_t], ptr %90, i64 0, i64 %99
+  %100 = getelementptr %struct._mptcp_meta_flow_t, ptr %90, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 80

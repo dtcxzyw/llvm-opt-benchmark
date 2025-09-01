@@ -1664,54 +1664,53 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 784
   br label %301
 
-301:                                              ; preds = %.lr.ph, %322
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %322 ]
-  %302 = phi i32 [ %295, %.lr.ph ], [ %324, %322 ]
-  %303 = phi ptr [ @ff_sd_global_map, %.lr.ph ], [ %323, %322 ]
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
-  %305 = load i32, ptr %304, align 4, !tbaa !135
-  %306 = load ptr, ptr %297, align 8, !tbaa !136
-  %307 = load i32, ptr %298, align 8, !tbaa !137
-  %308 = call ptr @av_frame_side_data_get_c(ptr noundef %306, i32 noundef %307, i32 noundef %305) #8
-  %.not76 = icmp eq ptr %308, null
-  br i1 %.not76, label %322, label %309
+301:                                              ; preds = %.lr.ph, %321
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %321 ]
+  %302 = phi i32 [ %295, %.lr.ph ], [ %323, %321 ]
+  %303 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv, i32 1
+  %304 = load i32, ptr %303, align 4, !tbaa !135
+  %305 = load ptr, ptr %297, align 8, !tbaa !136
+  %306 = load i32, ptr %298, align 8, !tbaa !137
+  %307 = call ptr @av_frame_side_data_get_c(ptr noundef %305, i32 noundef %306, i32 noundef %304) #8
+  %.not76 = icmp eq ptr %307, null
+  br i1 %.not76, label %321, label %308
 
-309:                                              ; preds = %301
-  %310 = load ptr, ptr %299, align 8, !tbaa !138
-  %311 = load i32, ptr %300, align 8, !tbaa !139
-  %312 = call ptr @av_packet_side_data_get(ptr noundef %310, i32 noundef %311, i32 noundef %302) #8
-  %.not77 = icmp eq ptr %312, null
-  br i1 %.not77, label %313, label %322
+308:                                              ; preds = %301
+  %309 = load ptr, ptr %299, align 8, !tbaa !138
+  %310 = load i32, ptr %300, align 8, !tbaa !139
+  %311 = call ptr @av_packet_side_data_get(ptr noundef %309, i32 noundef %310, i32 noundef %302) #8
+  %.not77 = icmp eq ptr %311, null
+  br i1 %.not77, label %312, label %321
 
-313:                                              ; preds = %309
-  %314 = getelementptr inbounds nuw i8, ptr %308, i64 16
-  %315 = load i64, ptr %314, align 8, !tbaa !77
-  %316 = call ptr @av_packet_side_data_new(ptr noundef nonnull %299, ptr noundef nonnull %300, i32 noundef %302, i64 noundef %315, i32 noundef 0) #8
-  %.not78 = icmp eq ptr %316, null
-  br i1 %.not78, label %.loopexit, label %317
+312:                                              ; preds = %308
+  %313 = getelementptr inbounds nuw i8, ptr %307, i64 16
+  %314 = load i64, ptr %313, align 8, !tbaa !77
+  %315 = call ptr @av_packet_side_data_new(ptr noundef nonnull %299, ptr noundef nonnull %300, i32 noundef %302, i64 noundef %314, i32 noundef 0) #8
+  %.not78 = icmp eq ptr %315, null
+  br i1 %.not78, label %.loopexit, label %316
 
-317:                                              ; preds = %313
-  %318 = load ptr, ptr %316, align 8, !tbaa !140
-  %319 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  %320 = load ptr, ptr %319, align 8, !tbaa !79
-  %321 = load i64, ptr %314, align 8, !tbaa !77
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %318, ptr align 1 %320, i64 %321, i1 false)
-  br label %322
+316:                                              ; preds = %312
+  %317 = load ptr, ptr %315, align 8, !tbaa !140
+  %318 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  %319 = load ptr, ptr %318, align 8, !tbaa !79
+  %320 = load i64, ptr %313, align 8, !tbaa !77
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 1 %319, i64 %320, i1 false)
+  br label %321
 
-322:                                              ; preds = %317, %309, %301
+321:                                              ; preds = %316, %308, %301
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %323 = getelementptr inbounds nuw [0 x %struct.SideDataMap], ptr @ff_sd_global_map, i64 0, i64 %indvars.iv.next
-  %324 = load i32, ptr %323, align 4, !tbaa !133
-  %325 = icmp ugt i32 %324, 37
-  br i1 %325, label %.critedge, label %301, !llvm.loop !142
+  %322 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv.next
+  %323 = load i32, ptr %322, align 4, !tbaa !133
+  %324 = icmp ugt i32 %323, 37
+  br i1 %324, label %.critedge, label %301, !llvm.loop !142
 
-.critedge:                                        ; preds = %322, %294
-  %326 = call i32 @ff_frame_thread_encoder_init(ptr noundef nonnull %0) #8
-  %. = call i32 @llvm.smin.i32(i32 %326, i32 0)
+.critedge:                                        ; preds = %321, %294
+  %325 = call i32 @ff_frame_thread_encoder_init(ptr noundef nonnull %0) #8
+  %. = call i32 @llvm.smin.i32(i32 %325, i32 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %313, %.critedge, %291, %279, %249, %290, %36, %25, %20
-  %.0 = phi i32 [ -22, %20 ], [ -22, %25 ], [ -38, %290 ], [ -22, %36 ], [ %.059, %249 ], [ -12, %279 ], [ -12, %291 ], [ %., %.critedge ], [ -12, %313 ]
+.loopexit:                                        ; preds = %312, %.critedge, %291, %279, %249, %290, %36, %25, %20
+  %.0 = phi i32 [ -22, %20 ], [ -22, %25 ], [ -38, %290 ], [ -22, %36 ], [ %.059, %249 ], [ -12, %279 ], [ -12, %291 ], [ %., %.critedge ], [ -12, %312 ]
   ret i32 %.0
 }
 
@@ -1978,7 +1977,7 @@ define range(i32 -22, 1) i32 @ff_check_codec_matrices(ptr noundef %0, i32 nounde
 
 14:                                               ; preds = %4, %.critedge39
   %indvars.iv50 = phi i64 [ 0, %4 ], [ %indvars.iv.next51, %.critedge39 ]
-  %15 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv50
+  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv50
   %16 = load ptr, ptr %15, align 8, !tbaa !157
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge39, label %17
@@ -2002,7 +2001,7 @@ define range(i32 -22, 1) i32 @ff_check_codec_matrices(ptr noundef %0, i32 nounde
 25:                                               ; preds = %.preheader
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = zext i16 %2 to i32
-  %28 = getelementptr inbounds nuw [3 x ptr], ptr @__const.ff_check_codec_matrices.names, i64 0, i64 %indvars.iv50
+  %28 = getelementptr inbounds nuw ptr, ptr @__const.ff_check_codec_matrices.names, i64 %indvars.iv50
   %29 = load ptr, ptr %28, align 8, !tbaa !161
   %30 = zext i16 %22 to i32
   %31 = zext i16 %3 to i32

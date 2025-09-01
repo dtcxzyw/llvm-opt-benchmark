@@ -244,7 +244,7 @@ define dso_local i32 @mbox_send_message(ptr noundef %0, ptr noundef %1) #0 align
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = sext i32 %16 to i64
-  %19 = getelementptr [20 x ptr], ptr %17, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr %17, i64 %18
   store ptr %1, ptr %19, align 8
   %20 = load i32, ptr %11, align 8
   %21 = add i32 %20, 1
@@ -349,7 +349,7 @@ define internal fastcc void @msg_submit(ptr noundef %0) unnamed_addr #0 align 16
   %17 = select i1 %14, i32 %16, i32 %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = zext i32 %17 to i64
-  %20 = getelementptr [20 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8

@@ -101,7 +101,7 @@ define noundef range(i64 0, 72057594037927936) i64 @_ZN11duckdb_zstd21ZSTD_cross
   %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !10
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr @_ZN11duckdb_zstdL25kInverseProbabilityLog256E, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL25kInverseProbabilityLog256E, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !10
   %16 = mul i32 %15, %12
   %17 = zext i32 %16 to i64
@@ -186,7 +186,7 @@ define noundef range(i32 0, 4) i32 @_ZN11duckdb_zstd23ZSTD_selectEncodingTypeEPN
   %46 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4, !tbaa !10
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw [256 x i32], ptr @_ZN11duckdb_zstdL25kInverseProbabilityLog256E, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL25kInverseProbabilityLog256E, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !10
   %51 = mul i32 %50, %47
   %52 = zext i32 %51 to i64
@@ -305,7 +305,7 @@ _ZN11duckdb_zstdL15ZSTD_NCountCostEPKjjmj.exit:   ; preds = %_ZN11duckdb_zstd15Z
   %113 = icmp ugt i64 %4, %110
   %or.cond.i = and i1 %112, %113
   %114 = select i1 %or.cond.i, i64 1, i64 %111
-  %115 = getelementptr inbounds nuw [256 x i32], ptr @_ZN11duckdb_zstdL25kInverseProbabilityLog256E, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL25kInverseProbabilityLog256E, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !10
   %117 = mul i32 %116, %108
   %118 = add i32 %117, %.016.i
@@ -534,22 +534,22 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %88 = getelementptr inbounds nuw %"struct.duckdb_zstd::seqDef_s", ptr %8, i64 %20
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i16, ptr %89, align 4, !tbaa !18
-  %91 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %75
+  %91 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %75
   %92 = load i8, ptr %91, align 1, !tbaa !17
   %93 = zext i8 %92 to i32
   %94 = zext i8 %92 to i64
-  %95 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !10
   %97 = zext i16 %90 to i32
   %98 = and i32 %96, %97
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %88, i64 6
   %101 = load i16, ptr %100, align 2, !tbaa !20
-  %102 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %30
+  %102 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %30
   %103 = load i8, ptr %102, align 1, !tbaa !17
   %104 = zext i8 %103 to i32
   %105 = zext i8 %103 to i64
-  %106 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !10
   %108 = zext i16 %101 to i32
   %109 = and i32 %107, %108
@@ -576,7 +576,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
 117:                                              ; preds = %116
   %118 = add nsw i32 %45, -56
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !10
   %122 = and i32 %121, %.pre153.i
   %123 = zext i32 %122 to i64
@@ -604,7 +604,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %.sroa.112.0.i = phi ptr [ %0, %116 ], [ %spec.store.select.i.i, %117 ], [ %0, %..thread_crit_edge.i ]
   %138 = lshr i32 %135, %136
   %139 = zext nneg i32 %137 to i64
-  %140 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !10
   %142 = and i32 %141, %138
   %143 = zext i32 %142 to i64
@@ -616,7 +616,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
 
 148:                                              ; preds = %19
   %149 = load i32, ptr %88, align 4, !tbaa !21
-  %150 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %53
+  %150 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %53
   %151 = load i32, ptr %150, align 4, !tbaa !10
   %152 = and i32 %151, %149
   %153 = zext i32 %152 to i64
@@ -665,12 +665,12 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 %.086.i139.i
   %172 = load i8, ptr %171, align 1, !tbaa !17
   %173 = zext i8 %168 to i64
-  %174 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !17
   %176 = zext i8 %175 to i32
   %177 = zext i8 %170 to i32
   %178 = zext i8 %172 to i64
-  %179 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %178
   %180 = load i8, ptr %179, align 1, !tbaa !17
   %181 = zext i8 %180 to i32
   %182 = zext i8 %170 to i64
@@ -682,7 +682,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %185 = add nuw nsw i64 %.sroa.041.0143.i, %184
   %186 = lshr i64 %185, 16
   %187 = trunc nuw nsw i64 %186 to i32
-  %188 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %186
+  %188 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %186
   %189 = load i32, ptr %188, align 4, !tbaa !10
   %190 = zext i32 %189 to i64
   %191 = and i64 %.sroa.041.0143.i, %190
@@ -702,7 +702,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %202 = add nuw nsw i64 %.sroa.047.0142.i, %201
   %203 = lshr i64 %202, 16
   %204 = trunc nuw nsw i64 %203 to i32
-  %205 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %203
+  %205 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %203
   %206 = load i32, ptr %205, align 4, !tbaa !10
   %207 = zext i32 %206 to i64
   %208 = and i64 %.sroa.047.0142.i, %207
@@ -722,7 +722,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %219 = add nuw nsw i64 %.sroa.0.0140.i, %218
   %220 = lshr i64 %219, 16
   %221 = trunc nuw nsw i64 %220 to i32
-  %222 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %220
+  %222 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %220
   %223 = load i32, ptr %222, align 4, !tbaa !10
   %224 = zext i32 %223 to i64
   %225 = and i64 %.sroa.0.0140.i, %224
@@ -762,7 +762,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
   %251 = load i16, ptr %250, align 4, !tbaa !18
   %252 = zext i8 %175 to i64
-  %253 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %252
   %254 = load i32, ptr %253, align 4, !tbaa !10
   %255 = zext i16 %251 to i32
   %256 = and i32 %254, %255
@@ -774,7 +774,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %262 = getelementptr inbounds nuw i8, ptr %249, i64 6
   %263 = load i16, ptr %262, align 2, !tbaa !20
   %264 = zext i8 %180 to i64
-  %265 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !10
   %267 = zext i16 %263 to i32
   %268 = and i32 %266, %267
@@ -820,7 +820,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
 287:                                              ; preds = %286
   %288 = add nsw i32 %177, -56
   %289 = zext i32 %288 to i64
-  %290 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !10
   %292 = and i32 %291, %.pre155.i
   %293 = zext i32 %292 to i64
@@ -848,7 +848,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %.sroa.112.5.i = phi ptr [ %.sroa.112.4.i, %286 ], [ %spec.store.select.i33.i, %287 ], [ %.sroa.112.4.i, %..thread128_crit_edge.i ]
   %308 = lshr i32 %305, %306
   %309 = zext nneg i32 %307 to i64
-  %310 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %309
+  %310 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %309
   %311 = load i32, ptr %310, align 4, !tbaa !10
   %312 = and i32 %311, %308
   %313 = zext i32 %312 to i64
@@ -860,7 +860,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
 
 318:                                              ; preds = %283
   %319 = load i32, ptr %249, align 4, !tbaa !21
-  %320 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %182
+  %320 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %182
   %321 = load i32, ptr %320, align 4, !tbaa !10
   %322 = and i32 %321, %319
   %323 = zext i32 %322 to i64
@@ -899,7 +899,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %.sroa.047.0.lcssa.i = phi i64 [ %.sroa.047.0135.i, %158 ], [ %.sroa.047.0.i, %328 ]
   %.sroa.041.0.lcssa.i = phi i64 [ %.sroa.041.0136.i, %158 ], [ %.sroa.041.0.i, %328 ]
   %337 = zext i16 %.val.i.i.fr.i to i64
-  %338 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %337
   %339 = load i32, ptr %338, align 4, !tbaa !10
   %340 = zext i32 %339 to i64
   %341 = and i64 %.sroa.047.0.lcssa.i, %340
@@ -917,7 +917,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %351 = shl nuw nsw i64 %347, 3
   %352 = lshr i64 %344, %351
   %353 = zext i16 %.val.i.i11.fr.i to i64
-  %354 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %353
   %355 = load i32, ptr %354, align 4, !tbaa !10
   %356 = zext i32 %355 to i64
   %357 = and i64 %.sroa.041.0.lcssa.i, %356
@@ -935,7 +935,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd20ZSTD_encodeSequencesEPvmPK
   %367 = shl nuw nsw i64 %363, 3
   %368 = lshr i64 %360, %367
   %369 = zext i16 %.val.i.i16.fr.i to i64
-  %370 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %369
   %371 = load i32, ptr %370, align 4, !tbaa !10
   %372 = zext i32 %371 to i64
   %373 = and i64 %.sroa.0.0.lcssa.i, %372
@@ -1081,22 +1081,22 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %84 = getelementptr inbounds nuw %"struct.duckdb_zstd::seqDef_s", ptr %8, i64 %16
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i16, ptr %85, align 4, !tbaa !18
-  %87 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %71
+  %87 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %71
   %88 = load i8, ptr %87, align 1, !tbaa !17
   %89 = zext i8 %88 to i32
   %90 = zext i8 %88 to i64
-  %91 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !10
   %93 = zext i16 %86 to i32
   %94 = and i32 %92, %93
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 6
   %97 = load i16, ptr %96, align 2, !tbaa !20
-  %98 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %26
+  %98 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %26
   %99 = load i8, ptr %98, align 1, !tbaa !17
   %100 = zext i8 %99 to i32
   %101 = zext i8 %99 to i64
-  %102 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !10
   %104 = zext i16 %97 to i32
   %105 = and i32 %103, %104
@@ -1123,7 +1123,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
 113:                                              ; preds = %112
   %114 = add nsw i32 %41, -56
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !10
   %118 = and i32 %117, %.pre153
   %119 = zext i32 %118 to i64
@@ -1151,7 +1151,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %.sroa.112.0 = phi ptr [ %0, %112 ], [ %spec.store.select.i, %113 ], [ %0, %..thread_crit_edge ]
   %134 = lshr i32 %131, %132
   %135 = zext nneg i32 %133 to i64
-  %136 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !10
   %138 = and i32 %134, %137
   %139 = zext i32 %138 to i64
@@ -1163,7 +1163,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
 
 144:                                              ; preds = %15
   %145 = load i32, ptr %84, align 4, !tbaa !21
-  %146 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %49
+  %146 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %49
   %147 = load i32, ptr %146, align 4, !tbaa !10
   %148 = and i32 %147, %145
   %149 = zext i32 %148 to i64
@@ -1212,12 +1212,12 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 %.086.i139
   %168 = load i8, ptr %167, align 1, !tbaa !17
   %169 = zext i8 %164 to i64
-  %170 = getelementptr inbounds nuw [36 x i8], ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7LL_bitsE, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !17
   %172 = zext i8 %171 to i32
   %173 = zext i8 %166 to i32
   %174 = zext i8 %168 to i64
-  %175 = getelementptr inbounds nuw [53 x i8], ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !17
   %177 = zext i8 %176 to i32
   %178 = zext i8 %166 to i64
@@ -1229,7 +1229,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %181 = add nuw nsw i64 %.sroa.041.0143, %180
   %182 = lshr i64 %181, 16
   %183 = trunc nuw nsw i64 %182 to i32
-  %184 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %182
+  %184 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %182
   %185 = load i32, ptr %184, align 4, !tbaa !10
   %186 = zext i32 %185 to i64
   %187 = and i64 %.sroa.041.0143, %186
@@ -1249,7 +1249,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %198 = add nuw nsw i64 %.sroa.047.0142, %197
   %199 = lshr i64 %198, 16
   %200 = trunc nuw nsw i64 %199 to i32
-  %201 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %199
+  %201 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %199
   %202 = load i32, ptr %201, align 4, !tbaa !10
   %203 = zext i32 %202 to i64
   %204 = and i64 %.sroa.047.0142, %203
@@ -1269,7 +1269,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %215 = add nuw nsw i64 %.sroa.0.0140, %214
   %216 = lshr i64 %215, 16
   %217 = trunc nuw nsw i64 %216 to i32
-  %218 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %216
+  %218 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %216
   %219 = load i32, ptr %218, align 4, !tbaa !10
   %220 = zext i32 %219 to i64
   %221 = and i64 %.sroa.0.0140, %220
@@ -1309,7 +1309,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %247 = load i16, ptr %246, align 4, !tbaa !18
   %248 = zext i8 %171 to i64
-  %249 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %248
   %250 = load i32, ptr %249, align 4, !tbaa !10
   %251 = zext i16 %247 to i32
   %252 = and i32 %250, %251
@@ -1321,7 +1321,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %258 = getelementptr inbounds nuw i8, ptr %245, i64 6
   %259 = load i16, ptr %258, align 2, !tbaa !20
   %260 = zext i8 %176 to i64
-  %261 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !10
   %263 = zext i16 %259 to i32
   %264 = and i32 %262, %263
@@ -1367,7 +1367,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
 283:                                              ; preds = %282
   %284 = add nsw i32 %173, -56
   %285 = zext i32 %284 to i64
-  %286 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %285
   %287 = load i32, ptr %286, align 4, !tbaa !10
   %288 = and i32 %287, %.pre155
   %289 = zext i32 %288 to i64
@@ -1395,7 +1395,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %.sroa.112.5 = phi ptr [ %.sroa.112.4, %282 ], [ %spec.store.select.i33, %283 ], [ %.sroa.112.4, %..thread128_crit_edge ]
   %304 = lshr i32 %301, %302
   %305 = zext nneg i32 %303 to i64
-  %306 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %305
   %307 = load i32, ptr %306, align 4, !tbaa !10
   %308 = and i32 %304, %307
   %309 = zext i32 %308 to i64
@@ -1407,7 +1407,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
 
 314:                                              ; preds = %279
   %315 = load i32, ptr %245, align 4, !tbaa !21
-  %316 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %178
+  %316 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %178
   %317 = load i32, ptr %316, align 4, !tbaa !10
   %318 = and i32 %317, %315
   %319 = zext i32 %318 to i64
@@ -1446,7 +1446,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %.sroa.047.0.lcssa = phi i64 [ %.sroa.047.0135, %154 ], [ %.sroa.047.0, %324 ]
   %.sroa.041.0.lcssa = phi i64 [ %.sroa.041.0136, %154 ], [ %.sroa.041.0, %324 ]
   %333 = zext i16 %.val.i.i.fr to i64
-  %334 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %333
   %335 = load i32, ptr %334, align 4, !tbaa !10
   %336 = zext i32 %335 to i64
   %337 = and i64 %.sroa.047.0.lcssa, %336
@@ -1464,7 +1464,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %347 = shl nuw nsw i64 %343, 3
   %348 = lshr i64 %340, %347
   %349 = zext i16 %.val.i.i11.fr to i64
-  %350 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %349
+  %350 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %349
   %351 = load i32, ptr %350, align 4, !tbaa !10
   %352 = zext i32 %351 to i64
   %353 = and i64 %.sroa.041.0.lcssa, %352
@@ -1482,7 +1482,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL25ZSTD_enco
   %363 = shl nuw nsw i64 %359, 3
   %364 = lshr i64 %356, %363
   %365 = zext i16 %.val.i.i16.fr to i64
-  %366 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %365
+  %366 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %365
   %367 = load i32, ptr %366, align 4, !tbaa !10
   %368 = zext i32 %367 to i64
   %369 = and i64 %.sroa.0.0.lcssa, %368

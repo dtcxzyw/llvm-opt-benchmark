@@ -1567,7 +1567,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 80:                                               ; preds = %75
   %81 = load i32, ptr %0, align 8, !tbaa !4
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw [3 x ptr], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !12
   %85 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %84, i64 noundef range(i64 0, 536870912) %37, i64 noundef 4) #14, !alias.scope !26
   %86 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %37, ptr noundef nonnull %22)
@@ -1775,7 +1775,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_flac(ptr 
 
 .preheader.i:                                     ; preds = %59, %.preheader.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ %indvars.iv.ph.i, %.preheader.outer.i ]
-  %56 = getelementptr inbounds nuw [3 x ptr], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw ptr, ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %indvars.iv.i
   %57 = load ptr, ptr %56, align 8, !tbaa !12
   %bcmp216.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %57, i64 4)
   %58 = icmp eq i32 %bcmp216.i, 0
@@ -1799,7 +1799,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_flac(ptr 
 62:                                               ; preds = %55
   %63 = load i32, ptr %0, align 8, !tbaa !4
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [3 x ptr], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !12
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %66, i64 4)
   %.not158.i = icmp eq i32 %bcmp.i, 0

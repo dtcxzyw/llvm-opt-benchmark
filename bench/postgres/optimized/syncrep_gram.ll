@@ -104,7 +104,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
 
 35:                                               ; preds = %.thread263
   %36 = sext i32 %.0182 to i64
-  %37 = getelementptr inbounds [24 x i8], ptr @yypact, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr @yypact, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = shl nuw i64 1, %36
@@ -135,7 +135,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %.4 to i64
-  %54 = getelementptr inbounds nuw [263 x i8], ptr @yytranslate, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
   br label %57
@@ -149,14 +149,14 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw [23 x i8], ptr @yycheck, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
   %.not238 = icmp eq i32 %.0199, %63
   br i1 %.not238, label %64, label %69
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw [23 x i8], ptr @yytable, i64 0, i64 %60
+  %65 = getelementptr inbounds nuw i8, ptr @yytable, i64 %60
   %66 = load i8, ptr %65, align 1
   %67 = getelementptr inbounds nuw i8, ptr %.2204, i64 8
   %68 = load i64, ptr %4, align 8
@@ -170,10 +170,10 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   br i1 %.not240, label %71, label %.thread286.sink.split
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds [24 x i8], ptr @yydefact, i64 0, i64 %36
+  %72 = getelementptr inbounds i8, ptr @yydefact, i64 %36
   %73 = load i8, ptr %72, align 1
   %74 = sext i8 %73 to i64
-  %75 = getelementptr inbounds [11 x i8], ptr @yyr2, i64 0, i64 %74
+  %75 = getelementptr inbounds i8, ptr @yyr2, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i64
   %78 = sub nsw i64 1, %77
@@ -252,11 +252,11 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   %118 = getelementptr inbounds i8, ptr %.2216, i64 %116
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr %.sroa.038.0, ptr %119, align 8
-  %120 = getelementptr inbounds [11 x i8], ptr @yyr1, i64 0, i64 %74
+  %120 = getelementptr inbounds i8, ptr @yyr1, i64 %74
   %121 = load i8, ptr %120, align 1
   %122 = sext i8 %121 to i64
   %123 = add nsw i64 %122, -11
-  %124 = getelementptr inbounds [5 x i8], ptr @yypgoto, i64 0, i64 %123
+  %124 = getelementptr inbounds i8, ptr @yypgoto, i64 %123
   %125 = load i8, ptr %124, align 1
   %126 = sext i8 %125 to i32
   %127 = load i8, ptr %118, align 1
@@ -267,17 +267,17 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
 
 130:                                              ; preds = %115
   %131 = zext nneg i32 %129 to i64
-  %132 = getelementptr inbounds nuw [23 x i8], ptr @yycheck, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %131
   %133 = load i8, ptr %132, align 1
   %134 = icmp eq i8 %133, %127
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw [23 x i8], ptr @yytable, i64 0, i64 %131
+  %136 = getelementptr inbounds nuw i8, ptr @yytable, i64 %131
   br label %139
 
 137:                                              ; preds = %130, %115
-  %138 = getelementptr inbounds [5 x i8], ptr @yydefgoto, i64 0, i64 %123
+  %138 = getelementptr inbounds i8, ptr @yydefgoto, i64 %123
   br label %139
 
 139:                                              ; preds = %137, %135

@@ -538,7 +538,7 @@ define i32 @b2CreateWorld(ptr noundef readonly captures(none) %0) local_unnamed_
 
 10:                                               ; preds = %1, %14
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %14 ]
-  %11 = getelementptr inbounds nuw [128 x %struct.b2World], ptr @b2_worlds, i64 0, i64 %indvars.iv, i32 64
+  %11 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %indvars.iv, i32 64
   %12 = load i8, ptr %11, align 1, !tbaa !79, !range !77, !noundef !78
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %15, label %14
@@ -2432,7 +2432,7 @@ b2GetBit.exit205.thread.i:                        ; preds = %b2GetBit.exit205.i,
   %206 = select i1 %205, float 7.500000e+00, float 5.000000e+00
   %207 = load ptr, ptr %50, align 8, !tbaa !289
   %208 = sext i32 %204 to i64
-  %209 = getelementptr inbounds [12 x i32], ptr @__const.b2DrawWithBounds.graphColors, i64 0, i64 %208
+  %209 = getelementptr inbounds i32, ptr @__const.b2DrawWithBounds.graphColors, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !86
   %211 = load ptr, ptr %39, align 8, !tbaa !272
   %212 = load <2 x float>, ptr %200, align 4
@@ -3194,7 +3194,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 .lr.ph311:                                        ; preds = %598
   %603 = icmp eq i64 %indvars.iv360, 11
   %604 = select i1 %603, float 7.500000e+00, float 5.000000e+00
-  %605 = getelementptr inbounds nuw [12 x i32], ptr @__const.b2DrawWithBounds.graphColors, i64 0, i64 %indvars.iv360
+  %605 = getelementptr inbounds nuw i32, ptr @__const.b2DrawWithBounds.graphColors, i64 %indvars.iv360
   %wide.trip.count358 = zext nneg i32 %601 to i64
   br label %606
 
@@ -3615,7 +3615,7 @@ define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeon
   %16 = load i32, ptr %15, align 16, !tbaa !353
   %17 = getelementptr i8, ptr %5, i64 -408
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds [2 x %struct.b2SensorEndTouchEventArray], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 16, !tbaa !187
   %22 = load ptr, ptr %14, align 8, !tbaa !354
@@ -3656,7 +3656,7 @@ define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeo
   %16 = load i32, ptr %15, align 16, !tbaa !360
   %17 = getelementptr i8, ptr %5, i64 -376
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds [2 x %struct.b2ContactEndTouchEventArray], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.b2ContactEndTouchEventArray, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 16, !tbaa !188
   %22 = getelementptr i8, ptr %5, i64 -336
@@ -4297,13 +4297,13 @@ define void @b2World_GetCounters(ptr dead_on_unwind noalias writable writeonly s
 
 46:                                               ; preds = %2, %46
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw [12 x %struct.b2GraphColor], ptr %43, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %43, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !211
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %51 = load i32, ptr %50, align 8, !tbaa !390
   %52 = add nsw i32 %51, %49
-  %53 = getelementptr inbounds nuw [12 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   store i32 %52, ptr %53, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -5690,8 +5690,8 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %10, i64 0, i64 %indvars.iv
-  %37 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %1, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
   %38 = load <2 x float>, ptr %37, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %38, i64 0
   %foldExtExtBinop = fmul <2 x float> %3, %38

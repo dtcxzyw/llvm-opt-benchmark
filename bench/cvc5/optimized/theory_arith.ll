@@ -2188,7 +2188,7 @@ define hidden void @_ZN4cvc58internal6theory5arith11TheoryArith16notifySharedTer
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !733, !noalias !730
   %.pre = load ptr, ptr %1, align 8, !tbaa !725
   %.not.i = icmp eq ptr %.pre, %15
@@ -3996,7 +3996,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !733
   store ptr %15, ptr %0, align 8, !tbaa !707
   %16 = load i64, ptr %15, align 8
@@ -4312,7 +4312,7 @@ define hidden void @_ZN4cvc58internal6theory5arith11TheoryArith22getCandidateMod
   %12 = icmp eq i32 %11, 2
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = zext i1 %12 to i64
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !733, !noalias !790
   %.pre = load ptr, ptr %2, align 8, !tbaa !725
   %.not.i = icmp eq ptr %.pre, %16

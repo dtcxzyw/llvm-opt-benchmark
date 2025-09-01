@@ -432,7 +432,7 @@ define dso_local i32 @GetTopMostAncestorInPublication(i32 noundef %0, ptr nounde
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.012.i = phi ptr [ null, %.lr.ph.i ], [ %27, %17 ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 80
   %.val.i = load ptr, ptr %20, align 8
@@ -480,7 +480,7 @@ GetRelationPublications.exit:                     ; preds = %17, %.lr.ph56
 41:                                               ; preds = %41, %.lr.ph.i33
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i37, %41 ]
   %.012.i35 = phi ptr [ null, %.lr.ph.i33 ], [ %51, %41 ]
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %indvars.iv.i34
+  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i34
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 80
   %.val.i36 = load ptr, ptr %44, align 8
@@ -537,7 +537,7 @@ define dso_local ptr @GetRelationPublications(i32 noundef %0) local_unnamed_addr
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.012 = phi ptr [ null, %.lr.ph ], [ %18, %8 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 80
   %.val = load ptr, ptr %11, align 8
@@ -578,7 +578,7 @@ define dso_local ptr @GetSchemaPublications(i32 noundef %0) local_unnamed_addr #
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.012 = phi ptr [ null, %.lr.ph ], [ %18, %8 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 80
   %.val = load ptr, ptr %11, align 8
@@ -771,7 +771,7 @@ check_publication_add_relation.exit:              ; preds = %51
   %97 = trunc i32 %96 to i16
   %98 = add i32 %.09.i, 1
   %99 = sext i32 %.09.i to i64
-  %100 = getelementptr inbounds [0 x i16], ptr %94, i64 0, i64 %99
+  %100 = getelementptr inbounds i16, ptr %94, i64 %99
   store i16 %97, ptr %100, align 2
   %101 = tail call i32 @bms_next_member(ptr noundef %72, i32 noundef %96) #6
   %102 = icmp sgt i32 %101, -1

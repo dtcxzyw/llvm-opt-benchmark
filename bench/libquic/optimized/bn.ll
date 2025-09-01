@@ -346,7 +346,7 @@ define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %0) local_unna
 
 4:                                                ; preds = %3
   %5 = lshr i64 %0, 56
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !17
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %8, 56
@@ -354,7 +354,7 @@ define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %0) local_unna
 
 10:                                               ; preds = %3
   %11 = lshr i64 %0, 48
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !17
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, 48
@@ -366,7 +366,7 @@ define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %0) local_unna
 
 17:                                               ; preds = %16
   %18 = lshr i64 %0, 40
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !17
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %21, 40
@@ -374,7 +374,7 @@ define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %0) local_unna
 
 23:                                               ; preds = %16
   %24 = lshr i64 %0, 32
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !17
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 32
@@ -390,7 +390,7 @@ define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %0) local_unna
 
 31:                                               ; preds = %30
   %32 = lshr i64 %0, 24
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !17
   %35 = zext i8 %34 to i32
   %36 = add nuw nsw i32 %35, 24
@@ -398,7 +398,7 @@ define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %0) local_unna
 
 37:                                               ; preds = %30
   %38 = lshr i64 %0, 16
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !17
   %41 = zext i8 %40 to i32
   %42 = add nuw nsw i32 %41, 16
@@ -410,14 +410,14 @@ define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %0) local_unna
 
 44:                                               ; preds = %43
   %45 = lshr i64 %0, 8
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !17
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 8
   br label %54
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %0
+  %51 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %0
   %52 = load i8, ptr %51, align 1, !tbaa !17
   %53 = zext i8 %52 to i32
   br label %54
@@ -455,7 +455,7 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %13
   %15 = lshr i64 %11, 56
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !17
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %18, 56
@@ -463,7 +463,7 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %13
   %21 = lshr i64 %11, 48
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !17
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, 48
@@ -475,7 +475,7 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %26
   %28 = lshr i64 %11, 40
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !17
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 40
@@ -483,7 +483,7 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %26
   %34 = lshr i64 %11, 32
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !17
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %37, 32
@@ -499,7 +499,7 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
 
 41:                                               ; preds = %40
   %42 = lshr i64 %11, 24
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !17
   %45 = zext i8 %44 to i32
   %46 = add nuw nsw i32 %45, 24
@@ -507,7 +507,7 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
 
 47:                                               ; preds = %40
   %48 = lshr i64 %11, 16
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !17
   %51 = zext i8 %50 to i32
   %52 = add nuw nsw i32 %51, 16
@@ -519,14 +519,14 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
 
 54:                                               ; preds = %53
   %55 = lshr i64 %11, 8
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !17
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %58, 8
   br label %BN_num_bits_word.exit
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %11
+  %61 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %11
   %62 = load i8, ptr %61, align 1, !tbaa !17
   %63 = zext i8 %62 to i32
   br label %BN_num_bits_word.exit
@@ -571,7 +571,7 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
 
 14:                                               ; preds = %13
   %15 = lshr i64 %11, 56
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !17
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %18, 56
@@ -579,7 +579,7 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
 
 20:                                               ; preds = %13
   %21 = lshr i64 %11, 48
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !17
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, 48
@@ -591,7 +591,7 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
 
 27:                                               ; preds = %26
   %28 = lshr i64 %11, 40
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !17
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 40
@@ -599,7 +599,7 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
 
 33:                                               ; preds = %26
   %34 = lshr i64 %11, 32
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !17
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %37, 32
@@ -615,7 +615,7 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
 
 41:                                               ; preds = %40
   %42 = lshr i64 %11, 24
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !17
   %45 = zext i8 %44 to i32
   %46 = add nuw nsw i32 %45, 24
@@ -623,7 +623,7 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
 
 47:                                               ; preds = %40
   %48 = lshr i64 %11, 16
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !17
   %51 = zext i8 %50 to i32
   %52 = add nuw nsw i32 %51, 16
@@ -635,14 +635,14 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
 
 54:                                               ; preds = %53
   %55 = lshr i64 %11, 8
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !17
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %58, 8
   br label %BN_num_bits_word.exit.i
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @BN_num_bits_word.bits, i64 0, i64 %11
+  %61 = getelementptr inbounds nuw i8, ptr @BN_num_bits_word.bits, i64 %11
   %62 = load i8, ptr %61, align 1, !tbaa !17
   %63 = zext i8 %62 to i32
   br label %BN_num_bits_word.exit.i

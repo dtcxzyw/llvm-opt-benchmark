@@ -143,9 +143,9 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
 
 60:                                               ; preds = %50
   %61 = add i32 %.05764, 1
-  %62 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !47
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = icmp slt i32 %55, -1
   %67 = icmp slt i32 %53, -7

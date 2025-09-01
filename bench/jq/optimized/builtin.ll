@@ -5151,7 +5151,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   %.0422631.add = add nuw nsw i64 %.0422631.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.192, i64 %.0422631.add
   %136 = sext i8 %135 to i64
-  %137 = getelementptr inbounds [128 x i32], ptr %12, i64 0, i64 %136
+  %137 = getelementptr inbounds i32, ptr %12, i64 %136
   store i32 1, ptr %137, align 4, !tbaa !19
   %138 = load i8, ptr %.ptr, align 1, !tbaa !25
   %exitcond703 = icmp eq i64 %.0422631.add, 66
@@ -5188,7 +5188,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 152:                                              ; preds = %.lr.ph639
   %153 = zext nneg i8 %149 to i64
-  %154 = getelementptr inbounds nuw [128 x i32], ptr %12, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i32, ptr %12, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !19
   %.not458 = icmp eq i32 %155, 0
   br i1 %.not458, label %158, label %156
@@ -5280,7 +5280,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   br i1 %.not468, label %.preheader562, label %199
 
 .preheader562:                                    ; preds = %.critedge
-  %198 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv700
+  %198 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv700
   %.promoted = load i8, ptr %198, align 1, !tbaa !25
   %.4429628 = getelementptr inbounds nuw i8, ptr %.2427, i64 1
   br label %207
@@ -5578,9 +5578,9 @@ sub_1:                                            ; preds = %sub_0
   %331 = lshr i32 %324, %330
   %332 = and i32 %331, 63
   %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw [65 x i8], ptr @BASE64_ENCODE_TABLE, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr @BASE64_ENCODE_TABLE, i64 %333
   %335 = load i8, ptr %334, align 1, !tbaa !25
-  %336 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv691
+  %336 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv691
   store i8 %335, ptr %336, align 1, !tbaa !25
   %indvars.iv.next692 = add nuw nsw i64 %indvars.iv691, 1
   %exitcond695.not = icmp eq i64 %indvars.iv.next692, 4
@@ -5641,7 +5641,7 @@ sub_1:                                            ; preds = %sub_0
 
 360:                                              ; preds = %.lr.ph
   %361 = zext i8 %359 to i64
-  %362 = getelementptr inbounds nuw [255 x i8], ptr @BASE64_DECODE_TABLE, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw i8, ptr @BASE64_DECODE_TABLE, i64 %361
   %363 = load i8, ptr %362, align 1, !tbaa !25
   %364 = icmp eq i8 %363, -1
   br i1 %364, label %.critedge19, label %365
@@ -6949,7 +6949,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 set_tm_yday.exit:                                 ; preds = %77, %79
   %.014.i = phi i32 [ -1, %77 ], [ %88, %79 ]
   %89 = zext nneg i32 %43 to i64
-  %90 = getelementptr inbounds nuw [12 x i32], ptr @set_tm_yday.d, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr @set_tm_yday.d, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !19
   %92 = add i32 %.014.i, %40
   %93 = add i32 %92, %91
@@ -7980,7 +7980,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %.038 = phi ptr [ %13, %.lr.ph ], [ %2, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %9 = sext i8 %7 to i64
-  %10 = getelementptr inbounds [128 x ptr], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %4, i64 %9
   store ptr %8, ptr %10, align 8, !tbaa !38
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
@@ -8016,7 +8016,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
 
 27:                                               ; preds = %.lr.ph46
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds [128 x ptr], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds ptr, ptr %4, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %.not33 = icmp eq ptr %30, null
   br i1 %.not33, label %33, label %31
@@ -8303,7 +8303,7 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
 
 25:                                               ; preds = %17, %22
   %26 = phi i32 [ %24, %22 ], [ -2147483648, %17 ]
-  %27 = getelementptr inbounds nuw [8 x i64], ptr @jv2tm.offsets, i64 0, i64 %.03047
+  %27 = getelementptr inbounds nuw i64, ptr @jv2tm.offsets, i64 %.03047
   %28 = load i64, ptr %27, align 8, !tbaa !66
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !19

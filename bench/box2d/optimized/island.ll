@@ -1595,7 +1595,7 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   store i8 1, ptr %121, align 4, !tbaa !133
   %130 = xor i32 %113, 1
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %116, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %116, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !97
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds %struct.b2Body, ptr %15, i64 %134
@@ -1690,7 +1690,7 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   store i8 1, ptr %174, align 2, !tbaa !135
   %178 = xor i32 %166, 1
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw [2 x %struct.b2JointEdge], ptr %169, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %169, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !112
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds %struct.b2Body, ptr %15, i64 %182

@@ -4675,7 +4675,7 @@ Gia_ObjHaveEdge.exit.thread:                      ; preds = %32, %Gia_ObjHaveEdg
 56:                                               ; preds = %53
   %57 = add nsw i32 %.0154223, 1
   %58 = sext i32 %.0154223 to i64
-  %59 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %58
+  %59 = getelementptr inbounds i32, ptr %6, i64 %58
   store i32 %26, ptr %59, align 4, !tbaa !34
   br label %60
 
@@ -4770,7 +4770,7 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
 
 101:                                              ; preds = %99
   %102 = sext i32 %.0152231 to i64
-  %103 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %102
+  %103 = getelementptr inbounds i32, ptr %7, i64 %102
   store i32 %80, ptr %103, align 4, !tbaa !34
   br label %104
 
@@ -4846,7 +4846,7 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
 
 131:                                              ; preds = %.lr.ph242, %145
   %indvars.iv269 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next270, %145 ]
-  %132 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv269
+  %132 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv269
   %133 = load i32, ptr %132, align 4, !tbaa !34
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i32, ptr %.val183, i64 %134
@@ -4886,7 +4886,7 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
 155:                                              ; preds = %.lr.ph248, %Gia_ObjEdgeAdd.exit200
   %indvars.iv274 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next275, %Gia_ObjEdgeAdd.exit200 ]
   %.0137246 = phi i32 [ 0, %.lr.ph248 ], [ %177, %Gia_ObjEdgeAdd.exit200 ]
-  %156 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv274
+  %156 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv274
   %157 = load i32, ptr %156, align 4, !tbaa !34
   %158 = load i32, ptr %153, align 4, !tbaa !34
   %159 = icmp eq i32 %158, 0
@@ -4977,7 +4977,7 @@ Gia_ObjEdgeAdd.exit200:                           ; preds = %171, %172, %176
 
 192:                                              ; preds = %.lr.ph252, %206
   %indvars.iv279 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next280, %206 ]
-  %193 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv279
+  %193 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv279
   %194 = load i32, ptr %193, align 4, !tbaa !34
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i32, ptr %.val181, i64 %195
@@ -5017,7 +5017,7 @@ Gia_ObjEdgeAdd.exit200:                           ; preds = %171, %172, %176
 216:                                              ; preds = %.lr.ph259, %Gia_ObjEdgeAdd.exit206
   %indvars.iv284 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next285, %Gia_ObjEdgeAdd.exit206 ]
   %.1138257 = phi i32 [ 0, %.lr.ph259 ], [ %238, %Gia_ObjEdgeAdd.exit206 ]
-  %217 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv284
+  %217 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv284
   %218 = load i32, ptr %217, align 4, !tbaa !34
   %219 = load i32, ptr %214, align 4, !tbaa !34
   %220 = icmp eq i32 %219, 0

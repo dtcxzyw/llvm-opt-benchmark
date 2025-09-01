@@ -101,7 +101,7 @@ for.body:                                         ; preds = %entry, %_ZN4llvh12D
   %conv3 = zext i8 %0 to i64
   store ptr %chars.02, ptr %ref.tmp, align 8
   store i64 %conv3, ptr %Length.i, align 8
-  %arrayidx = getelementptr inbounds nuw [534 x i32], ptr @_ZZN12_GLOBAL__N_125createPredefinedStringSetEvE3ids, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_125createPredefinedStringSetEvE3ids, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i), !noalias !5
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i), !noalias !5

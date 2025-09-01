@@ -277,7 +277,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   %14 = trunc i64 %indvars.iv to i32
   %15 = or i32 %14, 4096
   %16 = call noundef i32 @_ZNK6icu_7713CollationData22getLastPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %1, i32 noundef %15)
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !28
   %18 = icmp eq i32 %16, 0
   br i1 %18, label %.loopexit, label %19
@@ -463,7 +463,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit34:      ; preds = %71, %73
   %.0 = phi i32 [ %89, %_ZNK6icu_7713CollationData7getCE32Ei.exit34 ], [ %53, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %69, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ]
   %92 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder14getCEsFromCE32ERKNS_13CollationDataEijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 8 dereferenceable(140) %.025, i32 noundef %91, i32 noundef %.0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.not30 = icmp eq i8 %92, 0
-  %93 = getelementptr inbounds nuw [448 x [2 x i64]], ptr %8, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [2 x i64], ptr %8, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   br i1 %.not30, label %165, label %95
 
@@ -729,7 +729,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
   br i1 %39, label %40, label %._crit_edge
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds [4 x i32], ptr %16, i64 0, i64 %indvars.iv.next
+  %41 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv.next
   %42 = load i32, ptr %41, align 4, !tbaa !28
   %43 = icmp ult i32 %42, %31
   br i1 %43, label %36, label %._crit_edge, !llvm.loop !55
@@ -990,7 +990,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
 
 33:                                               ; preds = %14, %64
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %64 ]
-  %34 = getelementptr inbounds nuw [448 x [2 x i64]], ptr %25, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [2 x i64], ptr %25, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !47
   %.mask.i = and i64 %35, -4294967296
   %36 = icmp ne i64 %.mask.i, 4294967296
@@ -1091,7 +1091,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
 
 35:                                               ; preds = %12, %112
   %indvars.iv50 = phi i64 [ 0, %12 ], [ %indvars.iv.next51, %112 ]
-  %36 = getelementptr inbounds nuw [448 x [2 x i64]], ptr %20, i64 0, i64 %indvars.iv50
+  %36 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 %indvars.iv50
   %37 = load i64, ptr %36, align 8, !tbaa !47
   %.mask.i = and i64 %37, -4294967296
   %38 = icmp ne i64 %.mask.i, 4294967296
@@ -1296,7 +1296,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7725CollationFastLatinBuilder
 
 16:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next
   %18 = load i32, ptr %17, align 4, !tbaa !28
   %.not30 = icmp ugt i32 %1, %18
   br i1 %.not30, label %.lr.ph, label %.thread, !llvm.loop !61

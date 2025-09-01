@@ -6418,10 +6418,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !168, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !711, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hab642337bc925696E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hab642337bc925696E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hab642337bc925696E.671", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hab642337bc925696E.671", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -46305,9 +46305,9 @@ define void @"_ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$co
   br label %.thread2603
 
 switch.lookup:                                    ; preds = %169
-  %switch.gep = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2763 = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 0, i64 %switch.tableidx
+  %switch.gep2763 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 %switch.tableidx
   %switch.load2764 = load i64, ptr %switch.gep2763, align 8
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.62136.0..sroa_idx, i64 %switch.load
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !8226, !noalias !8229, !nonnull !4, !align !168, !noundef !4
@@ -46321,9 +46321,9 @@ switch.lookup:                                    ; preds = %169
   %177 = load i64, ptr %.sroa.62143.0..sroa_idx, align 8, !range !8225, !alias.scope !8231, !noalias !8234, !noundef !4
   %178 = add nsw i64 %177, -2
   %179 = call i64 @llvm.umin.i64(i64 %178, i64 27)
-  %switch.tableidx2767 = add nsw i64 %179, -2
-  %180 = icmp ult i64 %switch.tableidx2767, 26
-  %switch.maskindex2769 = trunc nsw i64 %switch.tableidx2767 to i32
+  %switch.tableidx2766 = add nsw i64 %179, -2
+  %180 = icmp ult i64 %switch.tableidx2766, 26
+  %switch.maskindex2769 = trunc nsw i64 %switch.tableidx2766 to i32
   %switch.shifted2770 = lshr i32 40959879, %switch.maskindex2769
   %switch.lobit2771 = trunc i32 %switch.shifted2770 to i1
   %or.cond2776 = select i1 %180, i1 %switch.lobit2771, i1 false
@@ -46335,9 +46335,9 @@ switch.lookup:                                    ; preds = %169
   br label %240
 
 switch.lookup2768:                                ; preds = %176
-  %switch.gep2772 = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 0, i64 %switch.tableidx2767
+  %switch.gep2772 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 %switch.tableidx2766
   %switch.load2773 = load i64, ptr %switch.gep2772, align 8
-  %switch.gep2774 = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 0, i64 %switch.tableidx2767
+  %switch.gep2774 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 %switch.tableidx2766
   %switch.load2775 = load i64, ptr %switch.gep2774, align 8
   %.sroa.0.0.in.i2275 = getelementptr inbounds nuw i8, ptr %.sroa.62143.0..sroa_idx, i64 %switch.load2773
   %.sroa.0.0.i2276 = load ptr, ptr %.sroa.0.0.in.i2275, align 8, !alias.scope !8231, !noalias !8234, !nonnull !4, !align !168, !noundef !4
@@ -46351,9 +46351,9 @@ switch.lookup2768:                                ; preds = %176
   %184 = load i64, ptr %.sroa.62150.0..sroa_idx, align 8, !range !8225, !alias.scope !8236, !noalias !8239, !noundef !4
   %185 = add nsw i64 %184, -2
   %186 = call i64 @llvm.umin.i64(i64 %185, i64 27)
-  %switch.tableidx2778 = add nsw i64 %186, -2
-  %187 = icmp ult i64 %switch.tableidx2778, 26
-  %switch.maskindex2780 = trunc nsw i64 %switch.tableidx2778 to i32
+  %switch.tableidx2777 = add nsw i64 %186, -2
+  %187 = icmp ult i64 %switch.tableidx2777, 26
+  %switch.maskindex2780 = trunc nsw i64 %switch.tableidx2777 to i32
   %switch.shifted2781 = lshr i32 40959879, %switch.maskindex2780
   %switch.lobit2782 = trunc i32 %switch.shifted2781 to i1
   %or.cond2787 = select i1 %187, i1 %switch.lobit2782, i1 false
@@ -46365,9 +46365,9 @@ switch.lookup2768:                                ; preds = %176
   br label %235
 
 switch.lookup2779:                                ; preds = %183
-  %switch.gep2783 = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 0, i64 %switch.tableidx2778
+  %switch.gep2783 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 %switch.tableidx2777
   %switch.load2784 = load i64, ptr %switch.gep2783, align 8
-  %switch.gep2785 = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 0, i64 %switch.tableidx2778
+  %switch.gep2785 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 %switch.tableidx2777
   %switch.load2786 = load i64, ptr %switch.gep2785, align 8
   %.sroa.0.0.in.i2284 = getelementptr inbounds nuw i8, ptr %.sroa.62150.0..sroa_idx, i64 %switch.load2784
   %.sroa.0.0.i2285 = load ptr, ptr %.sroa.0.0.in.i2284, align 8, !alias.scope !8236, !noalias !8239, !nonnull !4, !align !168, !noundef !4
@@ -46381,9 +46381,9 @@ switch.lookup2779:                                ; preds = %183
   %191 = load i64, ptr %.sroa.62129.0..sroa_idx, align 8, !range !8225, !alias.scope !8241, !noalias !8244, !noundef !4
   %192 = add nsw i64 %191, -2
   %193 = call i64 @llvm.umin.i64(i64 %192, i64 27)
-  %switch.tableidx2789 = add nsw i64 %193, -2
-  %194 = icmp ult i64 %switch.tableidx2789, 26
-  %switch.maskindex2791 = trunc nsw i64 %switch.tableidx2789 to i32
+  %switch.tableidx2788 = add nsw i64 %193, -2
+  %194 = icmp ult i64 %switch.tableidx2788, 26
+  %switch.maskindex2791 = trunc nsw i64 %switch.tableidx2788 to i32
   %switch.shifted2792 = lshr i32 40959879, %switch.maskindex2791
   %switch.lobit2793 = trunc i32 %switch.shifted2792 to i1
   %or.cond2798 = select i1 %194, i1 %switch.lobit2793, i1 false
@@ -46395,9 +46395,9 @@ switch.lookup2779:                                ; preds = %183
   br label %.thread2603
 
 switch.lookup2790:                                ; preds = %190
-  %switch.gep2794 = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 0, i64 %switch.tableidx2789
+  %switch.gep2794 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.677", i64 %switch.tableidx2788
   %switch.load2795 = load i64, ptr %switch.gep2794, align 8
-  %switch.gep2796 = getelementptr inbounds nuw [26 x i64], ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 0, i64 %switch.tableidx2789
+  %switch.gep2796 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$yara_x..modules..utils..crypto..PublicKey$u20$as$u20$core..convert..TryFrom$LT$$RF$x509_parser..x509..SubjectPublicKeyInfo$GT$$GT$8try_from17h6af149b3a074481bE.678", i64 %switch.tableidx2788
   %switch.load2797 = load i64, ptr %switch.gep2796, align 8
   %.sroa.0.0.in.i2293 = getelementptr inbounds nuw i8, ptr %.sroa.62129.0..sroa_idx, i64 %switch.load2795
   %.sroa.0.0.i2294 = load ptr, ptr %.sroa.0.0.in.i2293, align 8, !alias.scope !8241, !noalias !8244, !nonnull !4, !align !168, !noundef !4

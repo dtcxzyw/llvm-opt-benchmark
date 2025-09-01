@@ -862,9 +862,9 @@ _ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE9push_backERKS4_.exit.i22: ; preds = %
 
 145:                                              ; preds = %.lr.ph, %_ZN3smt19conflict_resolution7mark_eqEPNS_5enodeES2_.exit34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3smt19conflict_resolution7mark_eqEPNS_5enodeES2_.exit34 ]
-  %146 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %147 = load ptr, ptr %146, align 8, !tbaa !182
-  %148 = getelementptr inbounds nuw [0 x ptr], ptr %74, i64 0, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
   %149 = load ptr, ptr %148, align 8, !tbaa !182
   %.not.i27 = icmp eq ptr %147, %149
   br i1 %.not.i27, label %_ZN3smt19conflict_resolution7mark_eqEPNS_5enodeES2_.exit34, label %150
@@ -1679,7 +1679,7 @@ define hidden noundef range(i32 0, 16777216) i32 @_ZN3smt19conflict_resolution11
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ %46, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %.358 = phi i32 [ %.2, %.lr.ph ], [ %.sroa.speculated29, %47 ]
-  %48 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %43, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"class.sat::literal", ptr %43, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %48, align 4, !tbaa !117
   %49 = lshr i32 %.sroa.02.0.copyload, 1
   %50 = zext nneg i32 %49 to i64
@@ -3612,7 +3612,7 @@ _ZN3smt19conflict_resolution33process_antecedent_for_unsat_coreEN3sat7literalE.e
 
 153:                                              ; preds = %.lr.ph, %_ZN3smt19conflict_resolution33process_antecedent_for_unsat_coreEN3sat7literalE.exit69
   %indvars.iv = phi i64 [ %152, %.lr.ph ], [ %indvars.iv.next, %_ZN3smt19conflict_resolution33process_antecedent_for_unsat_coreEN3sat7literalE.exit69 ]
-  %154 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %151, i64 0, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw %"class.sat::literal", ptr %151, i64 %indvars.iv
   %.sroa.07.0.copyload = load i32, ptr %154, align 4, !tbaa !117
   %155 = xor i32 %.sroa.07.0.copyload, 1
   %156 = lshr i32 %.sroa.07.0.copyload, 1
@@ -4603,7 +4603,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 
 123:                                              ; preds = %.lr.ph, %123
   %indvars.iv = phi i64 [ %122, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %124 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %121, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw %"class.sat::literal", ptr %121, i64 %indvars.iv
   %.sroa.012.0.copyload = load i32, ptr %124, align 4, !tbaa !117
   %125 = xor i32 %.sroa.012.0.copyload, 1
   call void @_ZN3smt19conflict_resolution18process_antecedentEN3sat7literalERj(ptr noundef nonnull align 8 dereferenceable(356) %0, i32 %125, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -5185,7 +5185,7 @@ _ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not, label %.critedge, label %59
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %53, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %"class.sat::literal", ptr %53, i64 %indvars.iv
   %.sroa.07.0.copyload = load i32, ptr %60, align 4, !tbaa !117
   %61 = xor i32 %.sroa.07.0.copyload, 1
   %62 = tail call noundef zeroext i1 @_ZN3smt19conflict_resolution35process_antecedent_for_minimizationEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(356) %0, i32 %61)
@@ -5764,7 +5764,7 @@ define hidden noundef ptr @_ZN3smt19conflict_resolution13norm_eq_proofEPNS_5enod
   %9 = add i32 %8, -1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !118
   %14 = load ptr, ptr %1, align 8, !tbaa !176
   %15 = load ptr, ptr %2, align 8, !tbaa !176
@@ -6461,9 +6461,9 @@ _ZN6bufferIP3appLb0ELj16EED2Ev.exit:              ; preds = %179, %182
   %195 = phi i32 [ 0, %.lr.ph ], [ %227, %225 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %225 ]
   %.055159 = phi i1 [ true, %.lr.ph ], [ %.156, %225 ]
-  %196 = getelementptr inbounds nuw [0 x ptr], ptr %191, i64 0, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv
   %197 = load ptr, ptr %196, align 8, !tbaa !182
-  %198 = getelementptr inbounds nuw [0 x ptr], ptr %192, i64 0, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv
   %199 = load ptr, ptr %198, align 8, !tbaa !182
   %.not = icmp eq ptr %197, %199
   br i1 %.not, label %225, label %200
@@ -7201,7 +7201,7 @@ _ZN6bufferIP3appLb0ELj16EE6expandEv.exit.i57:     ; preds = %.noexc62, %._crit_e
 132:                                              ; preds = %.lr.ph, %151
   %indvars.iv = phi i64 [ %131, %.lr.ph ], [ %indvars.iv.next, %151 ]
   %.229115 = phi i1 [ %.027, %.lr.ph ], [ %spec.select39, %151 ]
-  %133 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %130, i64 0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw %"class.sat::literal", ptr %130, i64 %indvars.iv
   %.sroa.01.0.copyload = load i32, ptr %133, align 4, !tbaa !117
   %134 = xor i32 %.sroa.01.0.copyload, 1
   %135 = invoke noundef ptr @_ZN3smt19conflict_resolution9get_proofEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(356) %0, i32 %134)
@@ -8108,7 +8108,7 @@ _ZNK3smt6clause17get_justificationEv.exit:        ; preds = %19, %25
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %55, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.229 = phi i1 [ %.014, %.lr.ph ], [ %spec.select17, %56 ]
-  %57 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %54, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %"class.sat::literal", ptr %54, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %57, align 4, !tbaa !117
   %58 = xor i32 %.sroa.0.0.copyload, 1
   %59 = tail call noundef ptr @_ZN3smt19conflict_resolution9get_proofEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(356) %0, i32 %58)
@@ -8290,9 +8290,9 @@ _ZNK3smt5enode12get_num_argsEv.exit.thread:       ; preds = %23
 51:                                               ; preds = %.lr.ph, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit ]
   %.556 = phi i1 [ %.03158, %.lr.ph ], [ %.6, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit ]
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !182
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !182
   %.not39 = icmp eq ptr %53, %55
   br i1 %.not39, label %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit, label %56

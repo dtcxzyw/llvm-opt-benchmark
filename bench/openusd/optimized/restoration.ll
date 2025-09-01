@@ -478,7 +478,7 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us68, %33, %.preheader61
   %49 = sext i32 %7 to i64
-  %50 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %49
+  %50 = getelementptr inbounds %struct.sgr_params_type, ptr @av1_sgr_params, i64 %49
   %51 = load i32, ptr %50, align 16
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %151
@@ -765,7 +765,7 @@ define hidden void @av1_apply_selfguided_restoration_c(ptr noundef %0, i32 nound
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 646352
   %13 = tail call i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef nonnull %12, i32 noundef %1, i32 noundef %4, i32 noundef %9, i32 noundef %10)
   %14 = sext i32 %4 to i64
-  %15 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %14
+  %15 = getelementptr inbounds %struct.sgr_params_type, ptr @av1_sgr_params, i64 %14
   %16 = load i32, ptr %15, align 16
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %22
@@ -1224,7 +1224,7 @@ define hidden void @av1_loop_restoration_filter_unit(ptr noundef readonly captur
   %68 = zext i1 %67 to i32
   %69 = or disjoint i32 %66, %68
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [4 x ptr], ptr @stripe_filters, i64 0, i64 %70
+  %71 = getelementptr inbounds ptr, ptr @stripe_filters, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = lshr i32 64, %6
   %74 = icmp sgt i32 %22, 0
@@ -1309,8 +1309,8 @@ get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary
   %132 = getelementptr inbounds i8, ptr %130, i64 %131
   %133 = mul nsw i64 %indvars.iv129.i, %93
   %134 = getelementptr inbounds i8, ptr %124, i64 %133
-  %135 = add nsw i64 %indvars.iv129.i, 3
-  %136 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %135
+  %135 = getelementptr [392 x i16], ptr %3, i64 %indvars.iv129.i
+  %136 = getelementptr i8, ptr %135, i64 2352
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %136, ptr align 1 %134, i64 %87, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 1 %132, i64 %87, i1 false)
   %indvars.iv.next130.i = add nsw i64 %indvars.iv129.i, 1
@@ -1330,8 +1330,8 @@ get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary
   %145 = getelementptr inbounds i8, ptr %142, i64 %144
   %146 = mul nsw i64 %indvars.iv.i, %93
   %147 = getelementptr inbounds i8, ptr %124, i64 %146
-  %148 = add nsw i64 %indvars.iv.i, 3
-  %149 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %148
+  %148 = getelementptr [392 x i16], ptr %3, i64 %indvars.iv.i
+  %149 = getelementptr i8, ptr %148, i64 2352
   %150 = ptrtoint ptr %147 to i64
   %151 = shl i64 %150, 1
   %152 = inttoptr i64 %151 to ptr
@@ -1390,7 +1390,7 @@ get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary
   %173 = getelementptr inbounds i8, ptr %171, i64 %172
   %174 = mul nsw i64 %indvars.iv137.i, %93
   %175 = getelementptr inbounds i8, ptr %165, i64 %174
-  %176 = getelementptr inbounds nuw [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv137.i
+  %176 = getelementptr inbounds nuw [392 x i16], ptr %95, i64 %indvars.iv137.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %176, ptr align 1 %175, i64 %87, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %175, ptr align 1 %173, i64 %87, i1 false)
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
@@ -1410,7 +1410,7 @@ get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary
   %185 = getelementptr inbounds i8, ptr %182, i64 %184
   %186 = mul nsw i64 %indvars.iv133.i, %93
   %187 = getelementptr inbounds i8, ptr %164, i64 %186
-  %188 = getelementptr inbounds nuw [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv133.i
+  %188 = getelementptr inbounds nuw [392 x i16], ptr %95, i64 %indvars.iv133.i
   %189 = ptrtoint ptr %187 to i64
   %190 = shl i64 %189, 1
   %191 = inttoptr i64 %190 to ptr
@@ -1486,8 +1486,8 @@ setup_processing_stripe_boundary.exit:            ; preds = %.split125.i, %.spli
   %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.split.us.i83 ], [ -3, %230 ]
   %234 = mul nsw i64 %indvars.iv88.i, %93
   %235 = getelementptr inbounds i8, ptr %233, i64 %234
-  %236 = add nsw i64 %indvars.iv88.i, 3
-  %237 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %236
+  %236 = getelementptr [392 x i16], ptr %3, i64 %indvars.iv88.i
+  %237 = getelementptr i8, ptr %236, i64 2352
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %235, ptr readonly align 2 %237, i64 %99, i1 false)
   %indvars.iv.next89.i = add nsw i64 %indvars.iv88.i, 1
   %exitcond91.not.i = icmp eq i64 %indvars.iv.next89.i, 0
@@ -1500,8 +1500,8 @@ setup_processing_stripe_boundary.exit:            ; preds = %.split125.i, %.spli
   %240 = ptrtoint ptr %239 to i64
   %241 = shl i64 %240, 1
   %242 = inttoptr i64 %241 to ptr
-  %243 = add nsw i64 %indvars.iv.i80, 3
-  %244 = getelementptr inbounds [3 x [392 x i16]], ptr %3, i64 0, i64 %243
+  %243 = getelementptr [392 x i16], ptr %3, i64 %indvars.iv.i80
+  %244 = getelementptr i8, ptr %243, i64 2352
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %242, ptr readonly align 2 %244, i64 %99, i1 false)
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 0
@@ -1561,7 +1561,7 @@ setup_processing_stripe_boundary.exit:            ; preds = %.split125.i, %.spli
 263:                                              ; preds = %.split84.us.i
   %264 = mul nsw i64 %indvars.iv96.i, %93
   %265 = getelementptr inbounds i8, ptr %262, i64 %264
-  %266 = getelementptr inbounds nuw [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv96.i
+  %266 = getelementptr inbounds nuw [392 x i16], ptr %95, i64 %indvars.iv96.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %265, ptr nonnull readonly align 2 %266, i64 %99, i1 false)
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next97.i, 3
@@ -1578,7 +1578,7 @@ setup_processing_stripe_boundary.exit:            ; preds = %.split125.i, %.spli
   %270 = ptrtoint ptr %269 to i64
   %271 = shl i64 %270, 1
   %272 = inttoptr i64 %271 to ptr
-  %273 = getelementptr inbounds nuw [3 x [392 x i16]], ptr %95, i64 0, i64 %indvars.iv92.i
+  %273 = getelementptr inbounds nuw [392 x i16], ptr %95, i64 %indvars.iv92.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %272, ptr nonnull readonly align 2 %273, i64 %99, i1 false)
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   %exitcond95.not.i = icmp eq i64 %indvars.iv.next93.i, 3
@@ -1677,7 +1677,7 @@ define hidden void @av1_loop_restoration_filter_frame_init(ptr noundef captures(
 
 36:                                               ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %37 = getelementptr inbounds nuw [3 x %struct.RestorationInfo], ptr %30, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %30, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 56
   store i32 %3, ptr %39, align 8
@@ -1687,14 +1687,14 @@ define hidden void @av1_loop_restoration_filter_frame_init(ptr noundef captures(
 41:                                               ; preds = %36
   %42 = icmp ne i64 %indvars.iv, 0
   %43 = zext i1 %42 to i64
-  %44 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %13, i64 %43
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 0, i64 %43
+  %46 = getelementptr inbounds nuw i32, ptr %15, i64 %43
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw [3 x %struct.FilterFrameCtxt], ptr %31, i64 0, i64 %indvars.iv
-  %49 = getelementptr inbounds nuw [3 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw [2 x i32], ptr %33, i64 0, i64 %43
+  %51 = getelementptr inbounds nuw i32, ptr %33, i64 %43
   %52 = load i32, ptr %51, align 4
   tail call void @av1_extend_frame(ptr noundef %50, i32 noundef %45, i32 noundef %47, i32 noundef %52, i32 noundef 3, i32 noundef 3, i32 noundef %10)
   store ptr %37, ptr %48, align 8
@@ -1729,7 +1729,7 @@ define hidden void @av1_loop_restoration_filter_frame_init(ptr noundef captures(
   store ptr %67, ptr %68, align 8
   %69 = load ptr, ptr %12, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %71 = getelementptr inbounds nuw [3 x ptr], ptr %70, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store ptr %72, ptr %73, align 8
@@ -1737,7 +1737,7 @@ define hidden void @av1_loop_restoration_filter_frame_init(ptr noundef captures(
   %75 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store i32 %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %77 = getelementptr inbounds nuw [2 x i32], ptr %76, i64 0, i64 %43
+  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %43
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %48, i64 52
   store i32 %78, ptr %79, align 4
@@ -1835,7 +1835,7 @@ define hidden void @av1_loop_restoration_copy_planes(ptr noundef readonly captur
 
 9:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %10 = getelementptr inbounds nuw [3 x %struct.RestorationInfo], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %5, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %19, label %13
@@ -1850,7 +1850,7 @@ define hidden void @av1_loop_restoration_copy_planes(ptr noundef readonly captur
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %15 = getelementptr inbounds nuw [3 x ptr], ptr @av1_loop_restoration_copy_planes.copy_funs, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr @av1_loop_restoration_copy_planes.copy_funs, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %7, align 8
   %18 = load ptr, ptr %8, align 8
@@ -1888,7 +1888,7 @@ define hidden void @av1_loop_restoration_filter_frame(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %22, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %22 ]
-  %12 = getelementptr inbounds nuw [3 x %struct.RestorationInfo], ptr %8, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %8, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %22, label %15
@@ -1916,7 +1916,7 @@ foreach_rest_unit_in_planes.exit:                 ; preds = %22
 
 26:                                               ; preds = %36, %foreach_rest_unit_in_planes.exit
   %indvars.iv.i13 = phi i64 [ 0, %foreach_rest_unit_in_planes.exit ], [ %indvars.iv.next.i14, %36 ]
-  %27 = getelementptr inbounds nuw [3 x %struct.RestorationInfo], ptr %8, i64 0, i64 %indvars.iv.i13
+  %27 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %8, i64 %indvars.iv.i13
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %36, label %30
@@ -1931,7 +1931,7 @@ foreach_rest_unit_in_planes.exit:                 ; preds = %22
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 12
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %32 = getelementptr inbounds nuw [3 x ptr], ptr @av1_loop_restoration_copy_planes.copy_funs, i64 0, i64 %indvars.iv.i13
+  %32 = getelementptr inbounds nuw ptr, ptr @av1_loop_restoration_copy_planes.copy_funs, i64 %indvars.iv.i13
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %24, align 8
   %35 = load ptr, ptr %25, align 8
@@ -2041,7 +2041,7 @@ define hidden void @av1_foreach_rest_unit_in_plane(ptr noundef readonly captures
   %16 = phi i32 [ 0, %7 ], [ %14, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 23608
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.RestorationInfo, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -2163,7 +2163,7 @@ define hidden range(i32 0, 2) i32 @av1_loop_restoration_corners_in_sb(ptr nounde
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 23608
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [3 x %struct.RestorationInfo], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds %struct.RestorationInfo, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %105, label %18
@@ -2199,11 +2199,11 @@ av1_whole_frame_rect.exit:                        ; preds = %18, %20
   %41 = add nsw i32 %38, %40
   %42 = ashr i32 %41, %29
   %43 = zext i8 %4 to i64
-  %44 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @mi_size_high, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = add nsw i32 %2, %46
-  %48 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %43
+  %48 = getelementptr inbounds nuw i8, ptr @mi_size_wide, i64 %43
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = add nsw i32 %3, %50
@@ -2341,12 +2341,12 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %21, %.split.us
   br i1 %.not73.i.us, label %.lr.ph.i.us, label %save_tile_row_boundary_lines.exit.us
 
 .lr.ph.i.us:                                      ; preds = %av1_whole_frame_rect.exit.i.us
-  %35 = getelementptr inbounds nuw [3 x ptr], ptr %11, i64 0, i64 %indvars.iv72
+  %35 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv72
   %36 = zext i1 %20 to i64
-  %37 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %12, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %39 = getelementptr inbounds nuw [2 x i32], ptr %19, i64 0, i64 %36
-  %40 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 0, i64 %36
+  %39 = getelementptr inbounds nuw i32, ptr %19, i64 %36
+  %40 = getelementptr inbounds nuw i32, ptr %15, i64 %36
   %.in.i23.us = getelementptr inbounds nuw i8, ptr %33, i64 8
   %41 = trunc nuw nsw i64 %indvars.iv72 to i32
   %42 = trunc nuw nsw i64 %indvars.iv72 to i32
@@ -2673,11 +2673,11 @@ av1_whole_frame_rect.exit.i:                      ; preds = %206, %.split
   br i1 %.not73.i, label %.lr.ph.i, label %save_tile_row_boundary_lines.exit
 
 .lr.ph.i:                                         ; preds = %av1_whole_frame_rect.exit.i
-  %220 = getelementptr inbounds nuw [3 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %221 = zext i1 %205 to i64
-  %222 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw i32, ptr %12, i64 %221
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 16
-  %224 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 0, i64 %221
+  %224 = getelementptr inbounds nuw i32, ptr %15, i64 %221
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %save_cdef_boundary_lines.exit
@@ -2856,9 +2856,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @calculate_intermediate_result(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483642, -2147483648) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) unnamed_addr #9 {
   %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.sgr_params_type, ptr @av1_sgr_params, i64 %11
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %1, 6
   %17 = add nsw i32 %2, 6
@@ -2896,11 +2896,11 @@ define internal fastcc void @calculate_intermediate_result(ptr noundef nonnull r
   br i1 %.not7273, label %._crit_edge77, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %42 = add nsw i32 %35, -1
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [25 x i32], ptr @av1_one_by_x, i64 0, i64 %43
+  %42 = zext nneg i32 %35 to i64
+  %43 = getelementptr i32, ptr @av1_one_by_x, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 -4
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %46 = getelementptr inbounds nuw [2 x i32], ptr %45, i64 0, i64 %13
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %13
   %47 = load i32, ptr %46, align 4
   %48 = load i32, ptr %44, align 8
   %49 = add i32 %1, 1
@@ -2933,7 +2933,7 @@ define internal fastcc void @calculate_intermediate_result(ptr noundef nonnull r
   %67 = lshr i32 %66, 20
   %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 255)
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw [256 x i32], ptr @av1_x_by_xplus1, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr @av1_x_by_xplus1, i64 %69
   %71 = load i32, ptr %70, align 4
   store i32 %71, ptr %55, align 4
   %72 = sub nsw i32 256, %71

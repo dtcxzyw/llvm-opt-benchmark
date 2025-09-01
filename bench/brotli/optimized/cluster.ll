@@ -32,7 +32,7 @@ define hidden void @BrotliCompareAndPushToQueueLiteral(ptr noundef readonly capt
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %14
+  %23 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %14
   %24 = load double, ptr %23, align 8, !tbaa !7
   br label %FastLog2.exit67
 
@@ -47,7 +47,7 @@ FastLog2.exit67:                                  ; preds = %22, %25
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %FastLog2.exit67
-  %30 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %18
+  %30 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %18
   %31 = load double, ptr %30, align 8, !tbaa !7
   br label %FastLog2.exit65
 
@@ -64,7 +64,7 @@ FastLog2.exit65:                                  ; preds = %29, %32
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %FastLog2.exit65
-  %39 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %19
+  %39 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %19
   %40 = load double, ptr %39, align 8, !tbaa !7
   br label %FastLog2.exit
 
@@ -120,9 +120,9 @@ FastLog2.exit:                                    ; preds = %38, %41
 
 75:                                               ; preds = %69, %75
   %.0.i77 = phi i64 [ 0, %69 ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw [256 x i32], ptr %50, i64 0, i64 %.0.i77
+  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.i77
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %.0.i77
+  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i77
   %79 = load i32, ptr %78, align 4, !tbaa !3
   %80 = add i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !3
@@ -276,7 +276,7 @@ define hidden i64 @BrotliHistogramCombineLiteral(ptr noundef captures(none) %0, 
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %32
+  %41 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %32
   %42 = load double, ptr %41, align 8, !tbaa !7
   br label %FastLog2.exit67.i
 
@@ -291,7 +291,7 @@ FastLog2.exit67.i:                                ; preds = %43, %40
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %FastLog2.exit67.i
-  %48 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %36
+  %48 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %36
   %49 = load double, ptr %48, align 8, !tbaa !7
   br label %FastLog2.exit65.i
 
@@ -308,7 +308,7 @@ FastLog2.exit65.i:                                ; preds = %50, %47
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %FastLog2.exit65.i
-  %57 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %37
+  %57 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %37
   %58 = load double, ptr %57, align 8, !tbaa !7
   br label %FastLog2.exit.i
 
@@ -361,9 +361,9 @@ FastLog2.exit.i:                                  ; preds = %59, %56
 
 90:                                               ; preds = %90, %85
   %.0.i77.i = phi i64 [ 0, %85 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw [256 x i32], ptr %68, i64 0, i64 %.0.i77.i
+  %91 = getelementptr inbounds nuw i32, ptr %68, i64 %.0.i77.i
   %92 = load i32, ptr %91, align 4, !tbaa !3
-  %93 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %.0.i77.i
+  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i77.i
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = add i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !3
@@ -466,9 +466,9 @@ BrotliCompareAndPushToQueueLiteral.exit:          ; preds = %23, %HistogramAddHi
 
 138:                                              ; preds = %126, %138
   %.0.i152 = phi i64 [ 0, %126 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw [256 x i32], ptr %132, i64 0, i64 %.0.i152
+  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %.0.i152
   %140 = load i32, ptr %139, align 4, !tbaa !3
-  %141 = getelementptr inbounds nuw [256 x i32], ptr %130, i64 0, i64 %.0.i152
+  %141 = getelementptr inbounds nuw i32, ptr %130, i64 %.0.i152
   %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = add i32 %142, %140
   store i32 %143, ptr %141, align 4, !tbaa !3
@@ -624,7 +624,7 @@ HistogramPairIsLess.exit:                         ; preds = %179
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %202
-  %215 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %206
+  %215 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %206
   %216 = load double, ptr %215, align 8, !tbaa !7
   br label %FastLog2.exit67.i112
 
@@ -639,7 +639,7 @@ FastLog2.exit67.i112:                             ; preds = %217, %214
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %FastLog2.exit67.i112
-  %222 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %210
+  %222 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %210
   %223 = load double, ptr %222, align 8, !tbaa !7
   br label %FastLog2.exit65.i114
 
@@ -656,7 +656,7 @@ FastLog2.exit65.i114:                             ; preds = %224, %221
   br i1 %229, label %230, label %233
 
 230:                                              ; preds = %FastLog2.exit65.i114
-  %231 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %211
+  %231 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %211
   %232 = load double, ptr %231, align 8, !tbaa !7
   br label %FastLog2.exit.i116
 
@@ -709,9 +709,9 @@ FastLog2.exit.i116:                               ; preds = %233, %230
 
 264:                                              ; preds = %264, %259
   %.0.i77.i118 = phi i64 [ 0, %259 ], [ %270, %264 ]
-  %265 = getelementptr inbounds nuw [256 x i32], ptr %242, i64 0, i64 %.0.i77.i118
+  %265 = getelementptr inbounds nuw i32, ptr %242, i64 %.0.i77.i118
   %266 = load i32, ptr %265, align 4, !tbaa !3
-  %267 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %.0.i77.i118
+  %267 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i77.i118
   %268 = load i32, ptr %267, align 4, !tbaa !3
   %269 = add i32 %268, %266
   store i32 %269, ptr %267, align 4, !tbaa !3
@@ -823,9 +823,9 @@ define hidden double @BrotliHistogramBitCostDistanceLiteral(ptr noundef readonly
 
 13:                                               ; preds = %7, %13
   %.0.i8 = phi i64 [ 0, %7 ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %.0.i8
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i8
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = getelementptr inbounds nuw [256 x i32], ptr %2, i64 0, i64 %.0.i8
+  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i8
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = add i32 %17, %15
   store i32 %18, ptr %16, align 4, !tbaa !3
@@ -881,9 +881,9 @@ define hidden void @BrotliHistogramRemapLiteral(ptr noundef readonly captures(no
 
 24:                                               ; preds = %24, %19
   %.0.i8.i.us = phi i64 [ 0, %19 ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %.0.i8.i.us
+  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i8.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %.0.i8.i.us
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i.us
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = add i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !3
@@ -927,9 +927,9 @@ BrotliHistogramBitCostDistanceLiteral.exit54.us.us.preheader: ; preds = %.lr.ph6
 
 47:                                               ; preds = %47, %42
   %.0.i8.i50.us = phi i64 [ 0, %42 ], [ %53, %47 ]
-  %48 = getelementptr inbounds nuw [256 x i32], ptr %39, i64 0, i64 %.0.i8.i50.us
+  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.0.i8.i50.us
   %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %.0.i8.i50.us
+  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i50.us
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !3
@@ -1019,9 +1019,9 @@ BrotliHistogramBitCostDistanceLiteral.exit54.us.us: ; preds = %BrotliHistogramBi
 
 85:                                               ; preds = %85, %80
   %.0.i8.i = phi i64 [ 0, %80 ], [ %91, %85 ]
-  %86 = getelementptr inbounds nuw [256 x i32], ptr %76, i64 0, i64 %.0.i8.i
+  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %.0.i8.i
   %87 = load i32, ptr %86, align 4, !tbaa !3
-  %88 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %.0.i8.i
+  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i
   %89 = load i32, ptr %88, align 4, !tbaa !3
   %90 = add i32 %89, %87
   store i32 %90, ptr %88, align 4, !tbaa !3
@@ -1072,9 +1072,9 @@ BrotliHistogramBitCostDistanceLiteral.exit:       ; preds = %.lr.ph61.split, %Hi
 
 110:                                              ; preds = %.lr.ph74, %110
   %.0.i72 = phi i64 [ 0, %.lr.ph74 ], [ %116, %110 ]
-  %111 = getelementptr inbounds nuw [256 x i32], ptr %104, i64 0, i64 %.0.i72
+  %111 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i72
   %112 = load i32, ptr %111, align 4, !tbaa !3
-  %113 = getelementptr inbounds nuw [256 x i32], ptr %103, i64 0, i64 %.0.i72
+  %113 = getelementptr inbounds nuw i32, ptr %103, i64 %.0.i72
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = add i32 %114, %112
   store i32 %115, ptr %113, align 4, !tbaa !3
@@ -1329,7 +1329,7 @@ define hidden void @BrotliCompareAndPushToQueueCommand(ptr noundef readonly capt
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %14
+  %23 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %14
   %24 = load double, ptr %23, align 8, !tbaa !7
   br label %FastLog2.exit67
 
@@ -1344,7 +1344,7 @@ FastLog2.exit67:                                  ; preds = %22, %25
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %FastLog2.exit67
-  %30 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %18
+  %30 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %18
   %31 = load double, ptr %30, align 8, !tbaa !7
   br label %FastLog2.exit65
 
@@ -1361,7 +1361,7 @@ FastLog2.exit65:                                  ; preds = %29, %32
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %FastLog2.exit65
-  %39 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %19
+  %39 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %19
   %40 = load double, ptr %39, align 8, !tbaa !7
   br label %FastLog2.exit
 
@@ -1417,9 +1417,9 @@ FastLog2.exit:                                    ; preds = %38, %41
 
 75:                                               ; preds = %69, %75
   %.0.i6277 = phi i64 [ 0, %69 ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw [704 x i32], ptr %50, i64 0, i64 %.0.i6277
+  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.i6277
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = getelementptr inbounds nuw [704 x i32], ptr %1, i64 0, i64 %.0.i6277
+  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277
   %79 = load i32, ptr %78, align 4, !tbaa !3
   %80 = add i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !3
@@ -1570,7 +1570,7 @@ define hidden i64 @BrotliHistogramCombineCommand(ptr noundef captures(none) %0, 
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %32
+  %41 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %32
   %42 = load double, ptr %41, align 8, !tbaa !7
   br label %FastLog2.exit67.i
 
@@ -1585,7 +1585,7 @@ FastLog2.exit67.i:                                ; preds = %43, %40
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %FastLog2.exit67.i
-  %48 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %36
+  %48 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %36
   %49 = load double, ptr %48, align 8, !tbaa !7
   br label %FastLog2.exit65.i
 
@@ -1602,7 +1602,7 @@ FastLog2.exit65.i:                                ; preds = %50, %47
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %FastLog2.exit65.i
-  %57 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %37
+  %57 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %37
   %58 = load double, ptr %57, align 8, !tbaa !7
   br label %FastLog2.exit.i
 
@@ -1655,9 +1655,9 @@ FastLog2.exit.i:                                  ; preds = %59, %56
 
 90:                                               ; preds = %90, %85
   %.0.i6277.i = phi i64 [ 0, %85 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw [704 x i32], ptr %68, i64 0, i64 %.0.i6277.i
+  %91 = getelementptr inbounds nuw i32, ptr %68, i64 %.0.i6277.i
   %92 = load i32, ptr %91, align 4, !tbaa !3
-  %93 = getelementptr inbounds nuw [704 x i32], ptr %1, i64 0, i64 %.0.i6277.i
+  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = add i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !3
@@ -1760,9 +1760,9 @@ BrotliCompareAndPushToQueueCommand.exit:          ; preds = %23, %HistogramAddHi
 
 138:                                              ; preds = %126, %138
   %.0.i109152 = phi i64 [ 0, %126 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw [704 x i32], ptr %132, i64 0, i64 %.0.i109152
+  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %.0.i109152
   %140 = load i32, ptr %139, align 4, !tbaa !3
-  %141 = getelementptr inbounds nuw [704 x i32], ptr %130, i64 0, i64 %.0.i109152
+  %141 = getelementptr inbounds nuw i32, ptr %130, i64 %.0.i109152
   %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = add i32 %142, %140
   store i32 %143, ptr %141, align 4, !tbaa !3
@@ -1918,7 +1918,7 @@ HistogramPairIsLess.exit:                         ; preds = %179
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %202
-  %215 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %206
+  %215 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %206
   %216 = load double, ptr %215, align 8, !tbaa !7
   br label %FastLog2.exit67.i112
 
@@ -1933,7 +1933,7 @@ FastLog2.exit67.i112:                             ; preds = %217, %214
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %FastLog2.exit67.i112
-  %222 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %210
+  %222 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %210
   %223 = load double, ptr %222, align 8, !tbaa !7
   br label %FastLog2.exit65.i114
 
@@ -1950,7 +1950,7 @@ FastLog2.exit65.i114:                             ; preds = %224, %221
   br i1 %229, label %230, label %233
 
 230:                                              ; preds = %FastLog2.exit65.i114
-  %231 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %211
+  %231 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %211
   %232 = load double, ptr %231, align 8, !tbaa !7
   br label %FastLog2.exit.i116
 
@@ -2003,9 +2003,9 @@ FastLog2.exit.i116:                               ; preds = %233, %230
 
 264:                                              ; preds = %264, %259
   %.0.i6277.i118 = phi i64 [ 0, %259 ], [ %270, %264 ]
-  %265 = getelementptr inbounds nuw [704 x i32], ptr %242, i64 0, i64 %.0.i6277.i118
+  %265 = getelementptr inbounds nuw i32, ptr %242, i64 %.0.i6277.i118
   %266 = load i32, ptr %265, align 4, !tbaa !3
-  %267 = getelementptr inbounds nuw [704 x i32], ptr %1, i64 0, i64 %.0.i6277.i118
+  %267 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i118
   %268 = load i32, ptr %267, align 4, !tbaa !3
   %269 = add i32 %268, %266
   store i32 %269, ptr %267, align 4, !tbaa !3
@@ -2114,9 +2114,9 @@ define hidden double @BrotliHistogramBitCostDistanceCommand(ptr noundef readonly
 
 13:                                               ; preds = %7, %13
   %.0.i8 = phi i64 [ 0, %7 ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw [704 x i32], ptr %1, i64 0, i64 %.0.i8
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i8
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = getelementptr inbounds nuw [704 x i32], ptr %2, i64 0, i64 %.0.i8
+  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i8
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = add i32 %17, %15
   store i32 %18, ptr %16, align 4, !tbaa !3
@@ -2172,9 +2172,9 @@ define hidden void @BrotliHistogramRemapCommand(ptr noundef readonly captures(no
 
 24:                                               ; preds = %24, %19
   %.0.i8.i.us = phi i64 [ 0, %19 ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw [704 x i32], ptr %15, i64 0, i64 %.0.i8.i.us
+  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i8.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw [704 x i32], ptr %5, i64 0, i64 %.0.i8.i.us
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i.us
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = add i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !3
@@ -2218,9 +2218,9 @@ BrotliHistogramBitCostDistanceCommand.exit54.us.us.preheader: ; preds = %.lr.ph6
 
 47:                                               ; preds = %47, %42
   %.0.i8.i50.us = phi i64 [ 0, %42 ], [ %53, %47 ]
-  %48 = getelementptr inbounds nuw [704 x i32], ptr %39, i64 0, i64 %.0.i8.i50.us
+  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.0.i8.i50.us
   %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = getelementptr inbounds nuw [704 x i32], ptr %5, i64 0, i64 %.0.i8.i50.us
+  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i50.us
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !3
@@ -2310,9 +2310,9 @@ BrotliHistogramBitCostDistanceCommand.exit54.us.us: ; preds = %BrotliHistogramBi
 
 85:                                               ; preds = %85, %80
   %.0.i8.i = phi i64 [ 0, %80 ], [ %91, %85 ]
-  %86 = getelementptr inbounds nuw [704 x i32], ptr %76, i64 0, i64 %.0.i8.i
+  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %.0.i8.i
   %87 = load i32, ptr %86, align 4, !tbaa !3
-  %88 = getelementptr inbounds nuw [704 x i32], ptr %5, i64 0, i64 %.0.i8.i
+  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i
   %89 = load i32, ptr %88, align 4, !tbaa !3
   %90 = add i32 %89, %87
   store i32 %90, ptr %88, align 4, !tbaa !3
@@ -2363,9 +2363,9 @@ BrotliHistogramBitCostDistanceCommand.exit:       ; preds = %.lr.ph61.split, %Hi
 
 110:                                              ; preds = %.lr.ph74, %110
   %.0.i72 = phi i64 [ 0, %.lr.ph74 ], [ %116, %110 ]
-  %111 = getelementptr inbounds nuw [704 x i32], ptr %104, i64 0, i64 %.0.i72
+  %111 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i72
   %112 = load i32, ptr %111, align 4, !tbaa !3
-  %113 = getelementptr inbounds nuw [704 x i32], ptr %103, i64 0, i64 %.0.i72
+  %113 = getelementptr inbounds nuw i32, ptr %103, i64 %.0.i72
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = add i32 %114, %112
   store i32 %115, ptr %113, align 4, !tbaa !3
@@ -2616,7 +2616,7 @@ define hidden void @BrotliCompareAndPushToQueueDistance(ptr noundef readonly cap
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %14
+  %23 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %14
   %24 = load double, ptr %23, align 8, !tbaa !7
   br label %FastLog2.exit67
 
@@ -2631,7 +2631,7 @@ FastLog2.exit67:                                  ; preds = %22, %25
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %FastLog2.exit67
-  %30 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %18
+  %30 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %18
   %31 = load double, ptr %30, align 8, !tbaa !7
   br label %FastLog2.exit65
 
@@ -2648,7 +2648,7 @@ FastLog2.exit65:                                  ; preds = %29, %32
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %FastLog2.exit65
-  %39 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %19
+  %39 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %19
   %40 = load double, ptr %39, align 8, !tbaa !7
   br label %FastLog2.exit
 
@@ -2704,9 +2704,9 @@ FastLog2.exit:                                    ; preds = %38, %41
 
 75:                                               ; preds = %69, %75
   %.0.i6277 = phi i64 [ 0, %69 ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw [544 x i32], ptr %50, i64 0, i64 %.0.i6277
+  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.i6277
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = getelementptr inbounds nuw [544 x i32], ptr %1, i64 0, i64 %.0.i6277
+  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277
   %79 = load i32, ptr %78, align 4, !tbaa !3
   %80 = add i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !3
@@ -2857,7 +2857,7 @@ define hidden i64 @BrotliHistogramCombineDistance(ptr noundef captures(none) %0,
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %32
+  %41 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %32
   %42 = load double, ptr %41, align 8, !tbaa !7
   br label %FastLog2.exit67.i
 
@@ -2872,7 +2872,7 @@ FastLog2.exit67.i:                                ; preds = %43, %40
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %FastLog2.exit67.i
-  %48 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %36
+  %48 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %36
   %49 = load double, ptr %48, align 8, !tbaa !7
   br label %FastLog2.exit65.i
 
@@ -2889,7 +2889,7 @@ FastLog2.exit65.i:                                ; preds = %50, %47
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %FastLog2.exit65.i
-  %57 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %37
+  %57 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %37
   %58 = load double, ptr %57, align 8, !tbaa !7
   br label %FastLog2.exit.i
 
@@ -2942,9 +2942,9 @@ FastLog2.exit.i:                                  ; preds = %59, %56
 
 90:                                               ; preds = %90, %85
   %.0.i6277.i = phi i64 [ 0, %85 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw [544 x i32], ptr %68, i64 0, i64 %.0.i6277.i
+  %91 = getelementptr inbounds nuw i32, ptr %68, i64 %.0.i6277.i
   %92 = load i32, ptr %91, align 4, !tbaa !3
-  %93 = getelementptr inbounds nuw [544 x i32], ptr %1, i64 0, i64 %.0.i6277.i
+  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = add i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !3
@@ -3047,9 +3047,9 @@ BrotliCompareAndPushToQueueDistance.exit:         ; preds = %23, %HistogramAddHi
 
 138:                                              ; preds = %126, %138
   %.0.i109152 = phi i64 [ 0, %126 ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw [544 x i32], ptr %132, i64 0, i64 %.0.i109152
+  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %.0.i109152
   %140 = load i32, ptr %139, align 4, !tbaa !3
-  %141 = getelementptr inbounds nuw [544 x i32], ptr %130, i64 0, i64 %.0.i109152
+  %141 = getelementptr inbounds nuw i32, ptr %130, i64 %.0.i109152
   %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = add i32 %142, %140
   store i32 %143, ptr %141, align 4, !tbaa !3
@@ -3205,7 +3205,7 @@ HistogramPairIsLess.exit:                         ; preds = %179
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %202
-  %215 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %206
+  %215 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %206
   %216 = load double, ptr %215, align 8, !tbaa !7
   br label %FastLog2.exit67.i112
 
@@ -3220,7 +3220,7 @@ FastLog2.exit67.i112:                             ; preds = %217, %214
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %FastLog2.exit67.i112
-  %222 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %210
+  %222 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %210
   %223 = load double, ptr %222, align 8, !tbaa !7
   br label %FastLog2.exit65.i114
 
@@ -3237,7 +3237,7 @@ FastLog2.exit65.i114:                             ; preds = %224, %221
   br i1 %229, label %230, label %233
 
 230:                                              ; preds = %FastLog2.exit65.i114
-  %231 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %211
+  %231 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %211
   %232 = load double, ptr %231, align 8, !tbaa !7
   br label %FastLog2.exit.i116
 
@@ -3290,9 +3290,9 @@ FastLog2.exit.i116:                               ; preds = %233, %230
 
 264:                                              ; preds = %264, %259
   %.0.i6277.i118 = phi i64 [ 0, %259 ], [ %270, %264 ]
-  %265 = getelementptr inbounds nuw [544 x i32], ptr %242, i64 0, i64 %.0.i6277.i118
+  %265 = getelementptr inbounds nuw i32, ptr %242, i64 %.0.i6277.i118
   %266 = load i32, ptr %265, align 4, !tbaa !3
-  %267 = getelementptr inbounds nuw [544 x i32], ptr %1, i64 0, i64 %.0.i6277.i118
+  %267 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i6277.i118
   %268 = load i32, ptr %267, align 4, !tbaa !3
   %269 = add i32 %268, %266
   store i32 %269, ptr %267, align 4, !tbaa !3
@@ -3401,9 +3401,9 @@ define hidden double @BrotliHistogramBitCostDistanceDistance(ptr noundef readonl
 
 13:                                               ; preds = %7, %13
   %.0.i8 = phi i64 [ 0, %7 ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw [544 x i32], ptr %1, i64 0, i64 %.0.i8
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i8
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = getelementptr inbounds nuw [544 x i32], ptr %2, i64 0, i64 %.0.i8
+  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i8
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = add i32 %17, %15
   store i32 %18, ptr %16, align 4, !tbaa !3
@@ -3459,9 +3459,9 @@ define hidden void @BrotliHistogramRemapDistance(ptr noundef readonly captures(n
 
 24:                                               ; preds = %24, %19
   %.0.i8.i.us = phi i64 [ 0, %19 ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw [544 x i32], ptr %15, i64 0, i64 %.0.i8.i.us
+  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i8.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw [544 x i32], ptr %5, i64 0, i64 %.0.i8.i.us
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i.us
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = add i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !3
@@ -3505,9 +3505,9 @@ BrotliHistogramBitCostDistanceDistance.exit54.us.us.preheader: ; preds = %.lr.ph
 
 47:                                               ; preds = %47, %42
   %.0.i8.i50.us = phi i64 [ 0, %42 ], [ %53, %47 ]
-  %48 = getelementptr inbounds nuw [544 x i32], ptr %39, i64 0, i64 %.0.i8.i50.us
+  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.0.i8.i50.us
   %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = getelementptr inbounds nuw [544 x i32], ptr %5, i64 0, i64 %.0.i8.i50.us
+  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i50.us
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !3
@@ -3597,9 +3597,9 @@ BrotliHistogramBitCostDistanceDistance.exit54.us.us: ; preds = %BrotliHistogramB
 
 85:                                               ; preds = %85, %80
   %.0.i8.i = phi i64 [ 0, %80 ], [ %91, %85 ]
-  %86 = getelementptr inbounds nuw [544 x i32], ptr %76, i64 0, i64 %.0.i8.i
+  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %.0.i8.i
   %87 = load i32, ptr %86, align 4, !tbaa !3
-  %88 = getelementptr inbounds nuw [544 x i32], ptr %5, i64 0, i64 %.0.i8.i
+  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i8.i
   %89 = load i32, ptr %88, align 4, !tbaa !3
   %90 = add i32 %89, %87
   store i32 %90, ptr %88, align 4, !tbaa !3
@@ -3650,9 +3650,9 @@ BrotliHistogramBitCostDistanceDistance.exit:      ; preds = %.lr.ph61.split, %Hi
 
 110:                                              ; preds = %.lr.ph74, %110
   %.0.i72 = phi i64 [ 0, %.lr.ph74 ], [ %116, %110 ]
-  %111 = getelementptr inbounds nuw [544 x i32], ptr %104, i64 0, i64 %.0.i72
+  %111 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i72
   %112 = load i32, ptr %111, align 4, !tbaa !3
-  %113 = getelementptr inbounds nuw [544 x i32], ptr %103, i64 0, i64 %.0.i72
+  %113 = getelementptr inbounds nuw i32, ptr %103, i64 %.0.i72
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = add i32 %114, %112
   store i32 %115, ptr %113, align 4, !tbaa !3

@@ -93,8 +93,8 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_airoceanP8PJconsts(p
 
 .preheader:                                       ; preds = %17, %_ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i ], [ 0, %17 ]
-  %19 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr @_ZL18base_ico_air_trans, i64 0, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr %10, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x [4 x double]], ptr @_ZL18base_ico_air_trans, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x [4 x double]], ptr %10, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -120,27 +120,27 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_airoceanP8PJconsts(p
 
 34:                                               ; preds = %34, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %34 ]
-  %35 = getelementptr inbounds nuw [4 x double], ptr %19, i64 0, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i
   %36 = load double, ptr %35, align 8, !tbaa !43
-  %37 = getelementptr inbounds nuw [4 x double], ptr %21, i64 0, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.i.i
   %38 = load double, ptr %37, align 8, !tbaa !43
   %39 = fmul double %30, %38
   %40 = tail call double @llvm.fmuladd.f64(double %29, double %36, double %39)
-  %41 = getelementptr inbounds nuw [4 x double], ptr %22, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv.i.i
   %42 = load double, ptr %41, align 8, !tbaa !43
   %43 = tail call double @llvm.fmuladd.f64(double %31, double %42, double %40)
-  %44 = getelementptr inbounds nuw [4 x double], ptr %23, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i
   %45 = load double, ptr %44, align 8, !tbaa !43
   %46 = tail call double @llvm.fmuladd.f64(double %32, double %45, double %43)
-  %47 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i.i
   store double %46, ptr %47, align 8, !tbaa !43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %33, label %34, !llvm.loop !46
 
 _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit.i: ; preds = %33
-  %48 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr @_ZL18base_air_ico_trans, i64 0, i64 %indvars.iv.i
-  %49 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr %11, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x [4 x double]], ptr @_ZL18base_air_ico_trans, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x [4 x double]], ptr %11, i64 %indvars.iv.i
   br label %.preheader.i15.i
 
 .preheader.i15.i:                                 ; preds = %59, %_ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit.i
@@ -163,26 +163,26 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit.i: ; preds = %3
 
 60:                                               ; preds = %60, %.preheader.i15.i
   %indvars.iv.i17.i = phi i64 [ 0, %.preheader.i15.i ], [ %indvars.iv.next.i18.i, %60 ]
-  %61 = getelementptr inbounds nuw [4 x double], ptr @_ZL27orient_horizontal_inv_trans, i64 0, i64 %indvars.iv.i17.i
+  %61 = getelementptr inbounds nuw double, ptr @_ZL27orient_horizontal_inv_trans, i64 %indvars.iv.i17.i
   %62 = load double, ptr %61, align 8, !tbaa !43
-  %63 = getelementptr inbounds nuw [4 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZL27orient_horizontal_inv_trans, i64 32), i64 0, i64 %indvars.iv.i17.i
+  %63 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZL27orient_horizontal_inv_trans, i64 32), i64 %indvars.iv.i17.i
   %64 = load double, ptr %63, align 8, !tbaa !43
   %65 = fmul double %56, %64
   %66 = tail call double @llvm.fmuladd.f64(double %55, double %62, double %65)
-  %67 = getelementptr inbounds nuw [4 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZL27orient_horizontal_inv_trans, i64 64), i64 0, i64 %indvars.iv.i17.i
+  %67 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZL27orient_horizontal_inv_trans, i64 64), i64 %indvars.iv.i17.i
   %68 = load double, ptr %67, align 8, !tbaa !43
   %69 = tail call double @llvm.fmuladd.f64(double %57, double %68, double %66)
-  %70 = getelementptr inbounds nuw [4 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZL27orient_horizontal_inv_trans, i64 96), i64 0, i64 %indvars.iv.i17.i
+  %70 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZL27orient_horizontal_inv_trans, i64 96), i64 %indvars.iv.i17.i
   %71 = load double, ptr %70, align 8, !tbaa !43
   %72 = tail call double @llvm.fmuladd.f64(double %58, double %71, double %69)
-  %73 = getelementptr inbounds nuw [4 x double], ptr %54, i64 0, i64 %indvars.iv.i17.i
+  %73 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.i17.i
   store double %72, ptr %73, align 8, !tbaa !43
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i19.i = icmp eq i64 %indvars.iv.next.i18.i, 4
   br i1 %exitcond.not.i19.i, label %59, label %60, !llvm.loop !46
 
 _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = %59
-  %74 = getelementptr inbounds nuw [23 x %"struct.(anonymous namespace)::pj_face"], ptr @_ZL19base_airocean_faces, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_face", ptr @_ZL19base_airocean_faces, i64 %indvars.iv.i
   %75 = load double, ptr %74, align 8, !tbaa !47, !noalias !49
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load double, ptr %76, align 8, !tbaa !52, !noalias !49
@@ -221,7 +221,7 @@ _ZN12_GLOBAL__N_116pj_airocean_data8mat_multEPA4_KdS3_PA4_d.exit22.i: ; preds = 
   %110 = fadd double %109, 0.000000e+00
   %111 = tail call double @llvm.fmuladd.f64(double %101, double 0.000000e+00, double %108)
   %112 = fadd double %111, 1.000000e+00
-  %113 = getelementptr inbounds nuw [23 x %"struct.(anonymous namespace)::pj_face"], ptr %7, i64 0, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_face", ptr %7, i64 %indvars.iv.i
   store double %81, ptr %113, align 8, !tbaa !43
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %113, i64 8
   store double %84, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !43
@@ -290,7 +290,7 @@ define internal { double, double } @_ZL16airocean_inverse5PJ_XYP8PJconsts(double
 
 9:                                                ; preds = %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i ]
-  %10 = getelementptr inbounds nuw [23 x %"struct.(anonymous namespace)::pj_face"], ptr %8, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_face", ptr %8, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -361,7 +361,7 @@ _Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit.thread: 
 60:                                               ; preds = %_Z18get_dym_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK5PJ_XY.exit
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 7360
   %62 = and i64 %indvars.iv.i, 255
-  %63 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [4 x [4 x double]], ptr %61, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !43, !noalias !64
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load double, ptr %65, align 8, !tbaa !43, !noalias !64
@@ -484,7 +484,7 @@ define internal { double, double } @_ZL16airocean_forward5PJ_LPP8PJconsts(double
 
 29:                                               ; preds = %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %_Z16is_point_in_facePK6PJ_XYZPKN12_GLOBAL__N_17pj_faceE.exit.thread.i ]
-  %30 = getelementptr inbounds nuw [23 x %"struct.(anonymous namespace)::pj_face"], ptr %5, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw %"struct.(anonymous namespace)::pj_face", ptr %5, i64 %indvars.iv.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -557,9 +557,9 @@ _Z18get_ico_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZ.exit.thread:
 82:                                               ; preds = %_Z18get_ico_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZ.exit
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 1656
   %84 = and i64 %indvars.iv.i, 255
-  %85 = getelementptr inbounds nuw [23 x %struct.PJ_XYZ], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw %struct.PJ_XYZ, ptr %83, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 2208
-  %87 = getelementptr inbounds nuw [23 x %struct.PJ_XYZ], ptr %86, i64 0, i64 %84
+  %87 = getelementptr inbounds nuw %struct.PJ_XYZ, ptr %86, i64 %84
   %88 = load double, ptr %85, align 8, !tbaa !47, !noalias !72
   %89 = load double, ptr %87, align 8, !tbaa !47, !noalias !72
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -583,7 +583,7 @@ _Z18get_ico_face_indexPKN12_GLOBAL__N_116pj_airocean_dataEPK6PJ_XYZ.exit.thread:
   %108 = tail call double @llvm.fmuladd.f64(double %106, double %27, double %27)
   %109 = tail call double @llvm.fmuladd.f64(double %106, double %22, double %22)
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 4416
-  %111 = getelementptr inbounds nuw [23 x [4 x [4 x double]]], ptr %110, i64 0, i64 %84
+  %111 = getelementptr inbounds nuw [4 x [4 x double]], ptr %110, i64 %84
   %112 = load double, ptr %111, align 8, !tbaa !43
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %114 = load double, ptr %113, align 8, !tbaa !43

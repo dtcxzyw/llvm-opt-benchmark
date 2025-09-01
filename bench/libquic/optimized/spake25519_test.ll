@@ -1189,7 +1189,7 @@ _ZNSt10unique_ptrI13spake2_ctx_st14OpenSSLDeleterIS0_XadL_Z15SPAKE2_CTX_freeEEEE
   %60 = shl nuw nsw i32 1, %59
   %61 = lshr i32 %51, 3
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !15
   %65 = trunc nuw i32 %60 to i8
   %66 = xor i8 %64, %65

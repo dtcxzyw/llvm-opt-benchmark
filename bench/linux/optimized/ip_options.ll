@@ -1305,7 +1305,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_get(ptr noundef %0, p
   %35 = phi i32 [ %36, %.preheader ], [ %4, %30 ]
   %36 = add i32 %35, 1
   %37 = sext i32 %35 to i64
-  %38 = getelementptr [0 x i8], ptr %17, i64 0, i64 %37
+  %38 = getelementptr i8, ptr %17, i64 %37
   store i8 0, ptr %38, align 1
   %39 = and i32 %36, 3
   %40 = icmp eq i32 %39, 0

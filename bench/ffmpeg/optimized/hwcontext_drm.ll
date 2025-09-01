@@ -337,7 +337,7 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
 
 28:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %29 = getelementptr inbounds nuw [4 x %struct.AVDRMObjectDescriptor], ptr %23, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.AVDRMObjectDescriptor, ptr %23, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !56
   %32 = load i32, ptr %29, align 8, !tbaa !58
@@ -354,13 +354,13 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
   br label %98
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds nuw [4 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   store ptr %33, ptr %41, align 8, !tbaa !46
   %42 = load i64, ptr %30, align 8, !tbaa !56
-  %43 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   store i64 %42, ptr %43, align 8, !tbaa !59
   %44 = load i32, ptr %29, align 8, !tbaa !58
-  %45 = getelementptr inbounds nuw [4 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !13
   %46 = call i32 (i32, i64, ...) @ioctl(i32 noundef %44, i64 noundef 1074291200, ptr noundef nonnull %5) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -391,7 +391,7 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
   %58 = phi i32 [ %52, %.lr.ph105 ], [ %83, %._crit_edge100 ]
   %indvars.iv123 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next124, %._crit_edge100 ]
   %.082103 = phi i32 [ 0, %.lr.ph105 ], [ %.183.lcssa, %._crit_edge100 ]
-  %59 = getelementptr inbounds nuw [4 x %struct.AVDRMLayerDescriptor], ptr %54, i64 0, i64 %indvars.iv123
+  %59 = getelementptr inbounds nuw %struct.AVDRMLayerDescriptor, ptr %54, i64 %indvars.iv123
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !64
   %62 = icmp sgt i32 %61, 0
@@ -405,20 +405,20 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
 65:                                               ; preds = %.lr.ph99, %65
   %indvars.iv118 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next119, %65 ]
   %indvars.iv116 = phi i64 [ %64, %.lr.ph99 ], [ %indvars.iv.next117, %65 ]
-  %66 = getelementptr inbounds nuw [4 x %struct.AVDRMPlaneDescriptor], ptr %63, i64 0, i64 %indvars.iv118
+  %66 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %63, i64 %indvars.iv118
   %67 = load i32, ptr %66, align 8, !tbaa !66
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [4 x ptr], ptr %55, i64 0, i64 %68
+  %69 = getelementptr inbounds ptr, ptr %55, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !46
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !68
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
-  %74 = getelementptr inbounds [8 x ptr], ptr %1, i64 0, i64 %indvars.iv116
+  %74 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv116
   store ptr %73, ptr %74, align 8, !tbaa !31
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !69
   %77 = trunc i64 %76 to i32
-  %78 = getelementptr inbounds [8 x i32], ptr %56, i64 0, i64 %indvars.iv116
+  %78 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv116
   store i32 %77, ptr %78, align 4, !tbaa !13
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
@@ -478,13 +478,13 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
 103:                                              ; preds = %.lr.ph110, %111
   %104 = phi i32 [ %99, %.lr.ph110 ], [ %112, %111 ]
   %indvars.iv126 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next127, %111 ]
-  %105 = getelementptr inbounds nuw [4 x ptr], ptr %101, i64 0, i64 %indvars.iv126
+  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv126
   %106 = load ptr, ptr %105, align 8, !tbaa !46
   %.not93 = icmp eq ptr %106, null
   br i1 %.not93, label %111, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw [4 x i64], ptr %102, i64 0, i64 %indvars.iv126
+  %108 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv126
   %109 = load i64, ptr %108, align 8, !tbaa !59
   %110 = call i32 @munmap(ptr noundef nonnull %106, i64 noundef %109) #7
   %.pre131 = load i32, ptr %6, align 8, !tbaa !54
@@ -551,12 +551,12 @@ define internal void @drm_unmap_frame(ptr readnone captures(none) %0, ptr nounde
   %14 = or i32 %13, 4
   %15 = sext i32 %14 to i64
   store i64 %15, ptr %3, align 8, !tbaa !51
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !13
   %18 = call i32 (i32, i64, ...) @ioctl(i32 noundef %17, i64 noundef 1074291200, ptr noundef nonnull %3) #7
-  %19 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !46
-  %21 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !59
   %23 = call i32 @munmap(ptr noundef %20, i64 noundef %22) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

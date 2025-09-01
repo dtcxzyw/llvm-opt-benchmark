@@ -905,7 +905,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 29:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !67
   %32 = invoke noundef ptr @_ZN9expr_rand11choose_exprEP4sort(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %31)
           to label %33 unwind label %54
@@ -1234,7 +1234,7 @@ _ZNK10arith_util6pluginEv.exit.i:                 ; preds = %.noexc, %27
 45:                                               ; preds = %._crit_edge, %_ZN9expr_rand13add_func_declEP9func_decl.exit
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %_ZN9expr_rand13add_func_declEP9func_decl.exit ]
   %46 = load ptr, ptr %0, align 8, !tbaa !51
-  %47 = getelementptr inbounds nuw [7 x i32], ptr @__const._ZN9expr_rand16initialize_arithEj.kinds, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr @__const._ZN9expr_rand16initialize_arithEj.kinds, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !28
   %49 = call noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %46, i32 noundef %18, i32 noundef %48, i32 noundef 0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6, ptr noundef null)
   %.not.i.i.i.i.i = icmp eq ptr %49, null
@@ -1949,7 +1949,7 @@ define hidden void @_ZN9expr_rand13initialize_bvEj(ptr noundef nonnull align 8 d
   %79 = load i8, ptr %54, align 4
   %80 = and i8 %79, -2
   store i8 %80, ptr %54, align 4
-  %81 = getelementptr inbounds nuw [6 x i32], ptr @__const._ZN9expr_rand13initialize_bvEj.sizes, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i32, ptr @__const._ZN9expr_rand13initialize_bvEj.sizes, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !28
   %83 = invoke noundef ptr @_ZNK7bv_util10mk_numeralERK8rationalj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %82)
           to label %84 unwind label %107
@@ -2461,7 +2461,7 @@ _ZN8rationalD2Ev.exit149:                         ; preds = %.noexc.i148
   %261 = urem i32 %.086580, 6
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw [6 x i32], ptr @__const._ZN9expr_rand13initialize_bvEj.sizes, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i32, ptr @__const._ZN9expr_rand13initialize_bvEj.sizes, i64 %262
   %264 = load i32, ptr %263, align 4, !tbaa !28
   store i32 %264, ptr %26, align 8, !tbaa !80
   store i8 0, ptr %225, align 8, !tbaa !82
@@ -2512,7 +2512,7 @@ _ZN9expr_rand7add_varEP4sort.exit:                ; preds = %.noexc152
 278:                                              ; preds = %.preheader, %1013
   %indvars.iv584 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next585, %1013 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %279 = getelementptr inbounds nuw [6 x i32], ptr @__const._ZN9expr_rand13initialize_bvEj.sizes, i64 0, i64 %indvars.iv584
+  %279 = getelementptr inbounds nuw i32, ptr @__const._ZN9expr_rand13initialize_bvEj.sizes, i64 %indvars.iv584
   %280 = load i32, ptr %279, align 4, !tbaa !28
   store i32 %280, ptr %27, align 8, !tbaa !80
   store i8 0, ptr %226, align 8, !tbaa !82

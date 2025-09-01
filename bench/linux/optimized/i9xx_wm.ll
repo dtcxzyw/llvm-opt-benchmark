@@ -1015,7 +1015,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 .preheader.i:                                     ; preds = %177, %214
   %194 = phi i64 [ %215, %214 ], [ 0, %177 ]
-  %195 = getelementptr [30 x %struct.cxsr_latency], ptr @cxsr_latency_table, i64 0, i64 %194
+  %195 = getelementptr %struct.cxsr_latency, ptr @cxsr_latency_table, i64 %194
   %196 = load i8, ptr %195, align 2
   %197 = and i8 %196, 1
   %198 = icmp eq i8 %197, 0
@@ -1362,7 +1362,7 @@ ilk_validate_pipe_wm.exit:                        ; preds = %119, %121
 
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ 1, %142 ], [ %145, %144 ]
-  %148 = getelementptr [5 x %struct.intel_wm_level], ptr %14, i64 0, i64 %147
+  %148 = getelementptr %struct.intel_wm_level, ptr %14, i64 %147
   %149 = trunc i64 %147 to i32
   tail call fastcc void @ilk_compute_wm_level(ptr noundef %6, i32 noundef %149, ptr noundef %13, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %148)
   %150 = call fastcc zeroext i1 @ilk_validate_wm_level(i32 noundef %149, ptr noundef nonnull %4, ptr noundef %148)
@@ -1439,8 +1439,8 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_intermediate_wm(ptr n
 
 .preheader:                                       ; preds = %29, %.preheader
   %48 = phi i64 [ %74, %.preheader ], [ 0, %29 ]
-  %49 = getelementptr [5 x %struct.intel_wm_level], ptr %14, i64 0, i64 %48
-  %50 = getelementptr [5 x %struct.intel_wm_level], ptr %15, i64 0, i64 %48
+  %49 = getelementptr %struct.intel_wm_level, ptr %14, i64 %48
+  %50 = getelementptr %struct.intel_wm_level, ptr %15, i64 %48
   %51 = load i8, ptr %50, align 4, !range !27, !noundef !28
   %52 = load i8, ptr %49, align 4, !range !27, !noundef !28
   %53 = and i8 %52, %51
@@ -1651,7 +1651,7 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %35(ptr noundef nonnull %29, i32 %33, i1 noundef zeroext true) #14
   %37 = sext i32 %28 to i64
-  %38 = getelementptr [3 x i32], ptr %23, i64 0, i64 %37
+  %38 = getelementptr i32, ptr %23, i64 %37
   store i32 %36, ptr %38, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %26, i8 0, i64 104, i1 false)
   %39 = getelementptr i8, ptr %20, i64 1636
@@ -1684,7 +1684,7 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %43, %.preheader
   %56 = phi i64 [ %58, %.preheader ], [ 0, %43 ]
-  %57 = getelementptr [5 x %struct.intel_wm_level], ptr %26, i64 0, i64 %56
+  %57 = getelementptr %struct.intel_wm_level, ptr %26, i64 %56
   store i8 1, ptr %57, align 4
   %58 = add nuw nsw i64 %56, 1
   %59 = load i8, ptr %44, align 8
@@ -1778,10 +1778,10 @@ define internal void @ilk_wm_get_hw_state(ptr noundef %0) #0 align 16 {
 define internal fastcc void @ilk_compute_wm_level(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) initializes((0, 1)) %6) unnamed_addr #0 align 16 {
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 6898
-  %10 = getelementptr [5 x i16], ptr %9, i64 0, i64 %8
+  %10 = getelementptr i16, ptr %9, i64 %8
   %11 = load i16, ptr %10, align 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 6908
-  %13 = getelementptr [5 x i16], ptr %12, i64 0, i64 %8
+  %13 = getelementptr i16, ptr %12, i64 %8
   %14 = load i16, ptr %13, align 2
   %15 = icmp sgt i32 %1, 0
   %16 = mul i16 %11, 5
@@ -1793,7 +1793,7 @@ define internal fastcc void @ilk_compute_wm_level(ptr noundef readonly captures(
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 6888
-  %23 = getelementptr [5 x i16], ptr %22, i64 0, i64 %8
+  %23 = getelementptr i16, ptr %22, i64 %8
   %24 = load i16, ptr %23, align 2
   %25 = mul i16 %24, 5
   %26 = select i1 %15, i16 %25, i16 %24
@@ -2332,12 +2332,12 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %118 = phi i64 [ 1, %115 ], [ %130, %117 ]
   %119 = phi i32 [ 0, %115 ], [ %129, %117 ]
   %120 = phi i32 [ 0, %115 ], [ %125, %117 ]
-  %121 = getelementptr [5 x %struct.intel_wm_level], ptr %2, i64 0, i64 %118
+  %121 = getelementptr %struct.intel_wm_level, ptr %2, i64 %118
   %122 = load i8, ptr %121, align 4, !range !27, !noundef !28
   %123 = icmp eq i8 %122, 0
   %124 = trunc i64 %118 to i32
   %125 = select i1 %123, i32 %120, i32 %124
-  %126 = getelementptr [5 x %struct.intel_wm_level], ptr %5, i64 0, i64 %118
+  %126 = getelementptr %struct.intel_wm_level, ptr %5, i64 %118
   %127 = load i8, ptr %126, align 4, !range !27, !noundef !28
   %128 = icmp eq i8 %127, 0
   %129 = select i1 %128, i32 %119, i32 %124
@@ -2404,7 +2404,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %166 = trunc nuw nsw i64 %159 to i32
   %167 = add nuw nsw i32 %165, %166
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr [5 x %struct.intel_wm_level], ptr %145, i64 0, i64 %168
+  %169 = getelementptr %struct.intel_wm_level, ptr %145, i64 %168
   %170 = load i32, ptr %153, align 4
   %171 = and i32 %170, 12582912
   %172 = icmp eq i32 %171, 0
@@ -2415,7 +2415,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   br label %179
 
 175:                                              ; preds = %164
-  %176 = getelementptr [5 x i16], ptr %156, i64 0, i64 %168
+  %176 = getelementptr i16, ptr %156, i64 %168
   %177 = load i16, ptr %176, align 2
   %178 = zext i16 %177 to i32
   br label %179
@@ -2434,7 +2434,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %190 = and i32 %189, 255
   %191 = or disjoint i32 %187, %190
   %192 = add nsw i64 %159, -1
-  %193 = getelementptr [3 x i32], ptr %154, i64 0, i64 %192
+  %193 = getelementptr i32, ptr %154, i64 %192
   %194 = load i8, ptr %169, align 4, !range !27, !noundef !28
   %195 = icmp eq i8 %194, 0
   %196 = or disjoint i32 %191, -2147483648
@@ -2452,7 +2452,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %206 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %207 = load i32, ptr %206, align 4
   %208 = and i32 %207, 2047
-  %209 = getelementptr [3 x i32], ptr %155, i64 0, i64 %192
+  %209 = getelementptr i32, ptr %155, i64 %192
   store i32 %208, ptr %209, align 4
   %210 = icmp ugt i16 %197, 6
   %211 = icmp eq i32 %207, 0
@@ -2547,7 +2547,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   %261 = and i32 %260, 255
   %262 = or disjoint i32 %258, %261
   %263 = sext i32 %250 to i64
-  %264 = getelementptr [3 x i32], ptr %7, i64 0, i64 %263
+  %264 = getelementptr i32, ptr %7, i64 %263
   store i32 %262, ptr %264, align 4
   br label %265
 
@@ -2572,9 +2572,9 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
   br i1 %277, label %289, label %278
 
 278:                                              ; preds = %272
-  %279 = getelementptr [3 x i32], ptr %268, i64 0, i64 %273
+  %279 = getelementptr i32, ptr %268, i64 %273
   %280 = load i32, ptr %279, align 4
-  %281 = getelementptr [3 x i32], ptr %7, i64 0, i64 %273
+  %281 = getelementptr i32, ptr %7, i64 %273
   %282 = load i32, ptr %281, align 4
   %283 = icmp eq i32 %280, %282
   br i1 %283, label %289, label %284
@@ -2617,17 +2617,17 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
 311:                                              ; preds = %325, %308
   %312 = phi i64 [ 1, %308 ], [ %326, %325 ]
   %313 = add nsw i64 %312, -1
-  %314 = getelementptr [3 x i32], ptr %309, i64 0, i64 %313
+  %314 = getelementptr i32, ptr %309, i64 %313
   %315 = load i32, ptr %314, align 4
-  %316 = getelementptr [3 x i32], ptr %154, i64 0, i64 %313
+  %316 = getelementptr i32, ptr %154, i64 %313
   %317 = load i32, ptr %316, align 4
   %318 = icmp eq i32 %315, %317
   br i1 %318, label %319, label %.preheader.preheader
 
 319:                                              ; preds = %311
-  %320 = getelementptr [3 x i32], ptr %310, i64 0, i64 %313
+  %320 = getelementptr i32, ptr %310, i64 %313
   %321 = load i32, ptr %320, align 4
-  %322 = getelementptr [3 x i32], ptr %155, i64 0, i64 %313
+  %322 = getelementptr i32, ptr %155, i64 %313
   %323 = load i32, ptr %322, align 4
   %324 = icmp eq i32 %321, %323
   br i1 %324, label %325, label %.preheader.preheader
@@ -2966,7 +2966,7 @@ define internal fastcc void @ilk_wm_merge(ptr noundef readonly captures(address)
 29:                                               ; preds = %91, %25
   %30 = phi i64 [ 1, %25 ], [ %92, %91 ]
   %31 = phi i32 [ %20, %25 ], [ %80, %91 ]
-  %32 = getelementptr [5 x %struct.intel_wm_level], ptr %2, i64 0, i64 %30
+  %32 = getelementptr %struct.intel_wm_level, ptr %2, i64 %30
   store i8 1, ptr %32, align 4
   %33 = load ptr, ptr %26, align 8
   %34 = icmp eq ptr %33, %26
@@ -2982,7 +2982,7 @@ define internal fastcc void @ilk_wm_merge(ptr noundef readonly captures(address)
 40:                                               ; preds = %68, %35
   %41 = phi ptr [ %33, %35 ], [ %69, %68 ]
   %42 = getelementptr i8, ptr %41, i64 1708
-  %43 = getelementptr [5 x %struct.intel_wm_level], ptr %42, i64 0, i64 %30
+  %43 = getelementptr %struct.intel_wm_level, ptr %42, i64 %30
   %44 = getelementptr i8, ptr %41, i64 1809
   %45 = load i8, ptr %44, align 1, !range !27, !noundef !28
   %46 = icmp eq i8 %45, 0
@@ -3098,7 +3098,7 @@ define internal fastcc void @ilk_wm_merge(ptr noundef readonly captures(address)
 
 111:                                              ; preds = %111, %109
   %112 = phi i64 [ 2, %109 ], [ %114, %111 ]
-  %113 = getelementptr [5 x %struct.intel_wm_level], ptr %2, i64 0, i64 %112
+  %113 = getelementptr %struct.intel_wm_level, ptr %2, i64 %112
   store i8 0, ptr %113, align 4
   %114 = add nuw nsw i64 %112, 1
   %115 = icmp eq i64 %114, %110
@@ -3179,7 +3179,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %55 = getelementptr inbounds nuw i8, ptr %31, i64 184
   %56 = icmp eq i32 %46, 7
   %57 = zext i32 %46 to i64
-  %58 = getelementptr [8 x i16], ptr %17, i64 0, i64 %57
+  %58 = getelementptr i16, ptr %17, i64 %57
   %59 = select i1 %56, i16 63, i16 511
   br label %80
 
@@ -3193,13 +3193,13 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
 
 66:                                               ; preds = %60
   %67 = zext i32 %46 to i64
-  %68 = getelementptr [8 x i16], ptr %17, i64 0, i64 %67
+  %68 = getelementptr i16, ptr %17, i64 %67
   br label %69
 
 69:                                               ; preds = %69, %66
   %70 = phi i64 [ 0, %66 ], [ %76, %69 ]
   %71 = phi i1 [ false, %66 ], [ %75, %69 ]
-  %72 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %68, i64 0, i64 %70
+  %72 = getelementptr %struct.g4x_pipe_wm, ptr %68, i64 %70
   %73 = load i16, ptr %72, align 2
   %74 = icmp ne i16 %73, 0
   %75 = or i1 %71, %74
@@ -3217,7 +3217,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %84 = load ptr, ptr %31, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 6888
-  %87 = getelementptr [5 x i16], ptr %86, i64 0, i64 %81
+  %87 = getelementptr i16, ptr %86, i64 %81
   %88 = load i16, ptr %87, align 2
   %89 = icmp eq i16 %88, 0
   br i1 %89, label %.thread56, label %90
@@ -3275,7 +3275,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
 
 .thread:                                          ; preds = %92, %90, %113
   %128 = phi i16 [ %126, %113 ], [ 63, %92 ], [ 0, %90 ]
-  %129 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %58, i64 0, i64 %81
+  %129 = getelementptr %struct.g4x_pipe_wm, ptr %58, i64 %81
   %130 = load i16, ptr %129, align 2
   %131 = icmp ne i16 %130, %128
   %132 = zext i1 %131 to i8
@@ -3311,14 +3311,14 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
 
 152:                                              ; preds = %143
   %153 = zext i32 %46 to i64
-  %154 = getelementptr [8 x i16], ptr %17, i64 0, i64 %153
+  %154 = getelementptr i16, ptr %17, i64 %153
   %155 = zext nneg i32 %144 to i64
   br label %156
 
 156:                                              ; preds = %156, %152
   %157 = phi i64 [ %155, %152 ], [ %163, %156 ]
   %158 = phi i1 [ false, %152 ], [ %162, %156 ]
-  %159 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %154, i64 0, i64 %157
+  %159 = getelementptr %struct.g4x_pipe_wm, ptr %154, i64 %157
   %160 = load i16, ptr %159, align 2
   %161 = icmp ne i16 %160, -1
   %162 = or i1 %158, %161
@@ -3351,13 +3351,13 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %177 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %178 = load ptr, ptr %177, align 8
   %179 = zext i32 %46 to i64
-  %180 = getelementptr [8 x i16], ptr %17, i64 0, i64 %179
+  %180 = getelementptr i16, ptr %17, i64 %179
   %181 = load i16, ptr %180, align 2
   %182 = zext i16 %181 to i32
-  %183 = getelementptr [8 x i16], ptr %20, i64 0, i64 %179
+  %183 = getelementptr i16, ptr %20, i64 %179
   %184 = load i16, ptr %183, align 2
   %185 = zext i16 %184 to i32
-  %186 = getelementptr [8 x i16], ptr %21, i64 0, i64 %179
+  %186 = getelementptr i16, ptr %21, i64 %179
   %187 = load i16, ptr %186, align 2
   %188 = zext i16 %187 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %176, i32 noundef 2, ptr noundef nonnull @.str.24, ptr noundef %178, i32 noundef %182, i32 noundef %185, i32 noundef %188) #14
@@ -3449,18 +3449,18 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %255
-  %259 = getelementptr [8 x i16], ptr %219, i64 0, i64 %248
+  %259 = getelementptr i16, ptr %219, i64 %248
   store i16 0, ptr %259, align 2
   br label %270
 
 260:                                              ; preds = %255
-  %261 = getelementptr [8 x i16], ptr %222, i64 0, i64 %248
+  %261 = getelementptr i16, ptr %222, i64 %248
   %262 = load i16, ptr %261, align 2
   %263 = zext i16 %262 to i32
   %264 = mul nuw nsw i32 %263, 511
   %265 = udiv i32 %264, %244
   %266 = trunc i32 %265 to i16
-  %267 = getelementptr [8 x i16], ptr %219, i64 0, i64 %248
+  %267 = getelementptr i16, ptr %219, i64 %248
   store i16 %266, ptr %267, align 2
   %268 = and i32 %265, 65535
   %269 = sub i32 %249, %268
@@ -3508,7 +3508,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
 
 298:                                              ; preds = %295
   %299 = tail call i32 @llvm.smin.i32(i32 %284, i32 %287)
-  %300 = getelementptr [8 x i16], ptr %219, i64 0, i64 %286
+  %300 = getelementptr i16, ptr %219, i64 %286
   %301 = load i16, ptr %300, align 2
   %302 = trunc i32 %299 to i16
   %303 = add i16 %301, %302
@@ -3693,9 +3693,9 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly ca
 
 52:                                               ; preds = %74, %47
   %53 = phi i64 [ 0, %47 ], [ %87, %74 ]
-  %54 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %13, i64 0, i64 %53
-  %55 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %14, i64 0, i64 %53
-  %56 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %12, i64 0, i64 %53
+  %54 = getelementptr %struct.g4x_pipe_wm, ptr %13, i64 %53
+  %55 = getelementptr %struct.g4x_pipe_wm, ptr %14, i64 %53
+  %56 = getelementptr %struct.g4x_pipe_wm, ptr %12, i64 %53
   br label %57
 
 57:                                               ; preds = %71, %52
@@ -3708,12 +3708,12 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly ca
   br i1 %63, label %71, label %64
 
 64:                                               ; preds = %57
-  %65 = getelementptr [8 x i16], ptr %54, i64 0, i64 %58
+  %65 = getelementptr i16, ptr %54, i64 %58
   %66 = load i16, ptr %65, align 2
-  %67 = getelementptr [8 x i16], ptr %55, i64 0, i64 %58
+  %67 = getelementptr i16, ptr %55, i64 %58
   %68 = load i16, ptr %67, align 2
   %69 = tail call i16 @llvm.umin.i16(i16 %66, i16 %68)
-  %70 = getelementptr [8 x i16], ptr %56, i64 0, i64 %58
+  %70 = getelementptr i16, ptr %56, i64 %58
   store i16 %69, ptr %70, align 2
   br label %71
 
@@ -3723,12 +3723,12 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly ca
   br i1 %73, label %74, label %57, !llvm.loop !95
 
 74:                                               ; preds = %71
-  %75 = getelementptr [3 x %struct.g4x_sr_wm], ptr %49, i64 0, i64 %53
+  %75 = getelementptr %struct.g4x_sr_wm, ptr %49, i64 %53
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr [3 x %struct.g4x_sr_wm], ptr %50, i64 0, i64 %53
+  %77 = getelementptr %struct.g4x_sr_wm, ptr %50, i64 %53
   %78 = load i16, ptr %77, align 2
   %79 = tail call i16 @llvm.umin.i16(i16 %76, i16 %78)
-  %80 = getelementptr [3 x %struct.g4x_sr_wm], ptr %51, i64 0, i64 %53
+  %80 = getelementptr %struct.g4x_sr_wm, ptr %51, i64 %53
   store i16 %79, ptr %80, align 2
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %82 = load i16, ptr %81, align 2
@@ -3764,7 +3764,7 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly ca
 
 104:                                              ; preds = %119, %100
   %105 = phi i64 [ %103, %100 ], [ %122, %119 ]
-  %106 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %12, i64 0, i64 %105
+  %106 = getelementptr %struct.g4x_pipe_wm, ptr %12, i64 %105
   br label %107
 
 107:                                              ; preds = %116, %104
@@ -3777,7 +3777,7 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly ca
   br i1 %113, label %116, label %114
 
 114:                                              ; preds = %107
-  %115 = getelementptr [8 x i16], ptr %106, i64 0, i64 %108
+  %115 = getelementptr i16, ptr %106, i64 %108
   store i16 -1, ptr %115, align 2
   br label %116
 
@@ -3787,7 +3787,7 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly ca
   br i1 %118, label %119, label %107, !llvm.loop !97
 
 119:                                              ; preds = %116
-  %120 = getelementptr [3 x %struct.g4x_sr_wm], ptr %102, i64 0, i64 %105
+  %120 = getelementptr %struct.g4x_sr_wm, ptr %102, i64 %105
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 2
   store i16 -1, ptr %121, align 2
   store i16 -1, ptr %120, align 2
@@ -4197,7 +4197,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %17 = add i32 %16, 2031696
   %18 = tail call i32 %14(ptr noundef nonnull %3, i32 %17, i1 noundef zeroext true) #14
   %19 = trunc i32 %18 to i8
-  %20 = getelementptr [3 x %struct.vlv_wm_ddl_values], ptr %5, i64 0, i64 %7
+  %20 = getelementptr %struct.vlv_wm_ddl_values, ptr %5, i64 %7
   store i8 %19, ptr %20, align 2
   %21 = lshr i32 %18, 24
   %22 = trunc nuw i32 %21 to i8
@@ -4622,7 +4622,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %329 = getelementptr i8, ptr %239, i64 1762
   %330 = getelementptr i8, ptr %239, i64 1637
   %331 = sext i32 %247 to i64
-  %332 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %34, i64 0, i64 %331
+  %332 = getelementptr %struct.g4x_pipe_wm, ptr %34, i64 %331
   br label %339
 
 333:                                              ; preds = %367
@@ -4637,14 +4637,14 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 
 339:                                              ; preds = %367, %328
   %340 = phi i64 [ 0, %328 ], [ %368, %367 ]
-  %341 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %244, i64 0, i64 %340
+  %341 = getelementptr %struct.g4x_pipe_wm, ptr %244, i64 %340
   %342 = load i16, ptr %44, align 2
-  %343 = getelementptr [3 x %struct.g4x_sr_wm], ptr %329, i64 0, i64 %340
+  %343 = getelementptr %struct.g4x_sr_wm, ptr %329, i64 %340
   store i16 %342, ptr %343, align 2
   %344 = load i16, ptr %78, align 2
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 2
   store i16 %344, ptr %345, align 2
-  %346 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %243, i64 0, i64 %340
+  %346 = getelementptr %struct.g4x_pipe_wm, ptr %243, i64 %340
   br label %347
 
 347:                                              ; preds = %364, %339
@@ -4657,16 +4657,16 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %353, label %364, label %354
 
 354:                                              ; preds = %347
-  %355 = getelementptr [8 x i16], ptr %332, i64 0, i64 %348
+  %355 = getelementptr i16, ptr %332, i64 %348
   %356 = load i16, ptr %355, align 2
-  %357 = getelementptr [8 x i16], ptr %346, i64 0, i64 %348
+  %357 = getelementptr i16, ptr %346, i64 %348
   store i16 %356, ptr %357, align 2
-  %358 = getelementptr [8 x i16], ptr %245, i64 0, i64 %348
+  %358 = getelementptr i16, ptr %245, i64 %348
   %359 = load i16, ptr %358, align 2
   %360 = icmp ugt i16 %356, %359
   %361 = sub i16 %359, %356
   %362 = select i1 %360, i16 -1, i16 %361
-  %363 = getelementptr [8 x i16], ptr %341, i64 0, i64 %348
+  %363 = getelementptr i16, ptr %341, i64 %348
   store i16 %362, ptr %363, align 2
   br label %364
 
@@ -4701,12 +4701,12 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %385, label %386, label %.loopexit20
 
 386:                                              ; preds = %379
-  %387 = getelementptr [8 x i16], ptr %244, i64 0, i64 %373
+  %387 = getelementptr i16, ptr %244, i64 %373
   br label %388
 
 388:                                              ; preds = %388, %386
   %389 = phi i64 [ %338, %386 ], [ %391, %388 ]
-  %390 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %387, i64 0, i64 %389
+  %390 = getelementptr %struct.g4x_pipe_wm, ptr %387, i64 %389
   store i16 -1, ptr %390, align 2
   %391 = add nuw nsw i64 %389, 1
   %392 = load i8, ptr %382, align 8
@@ -4733,7 +4733,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 
 405:                                              ; preds = %420, %403
   %406 = phi i64 [ %338, %403 ], [ %423, %420 ]
-  %407 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %243, i64 0, i64 %406
+  %407 = getelementptr %struct.g4x_pipe_wm, ptr %243, i64 %406
   br label %408
 
 408:                                              ; preds = %417, %405
@@ -4746,7 +4746,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %414, label %417, label %415
 
 415:                                              ; preds = %408
-  %416 = getelementptr [8 x i16], ptr %407, i64 0, i64 %409
+  %416 = getelementptr i16, ptr %407, i64 %409
   store i16 -1, ptr %416, align 2
   br label %417
 
@@ -4756,7 +4756,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %419, label %420, label %408, !llvm.loop !97
 
 420:                                              ; preds = %417
-  %421 = getelementptr [3 x %struct.g4x_sr_wm], ptr %404, i64 0, i64 %406
+  %421 = getelementptr %struct.g4x_sr_wm, ptr %404, i64 %406
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 2
   store i16 -1, ptr %422, align 2
   store i16 -1, ptr %421, align 2
@@ -4781,7 +4781,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   %432 = phi ptr [ %430, %429 ], [ null, %.loopexit21 ]
   %433 = add i32 %247, 65
   %434 = sext i32 %247 to i64
-  %435 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %34, i64 0, i64 %434
+  %435 = getelementptr %struct.g4x_pipe_wm, ptr %34, i64 %434
   %436 = load i16, ptr %435, align 2
   %437 = zext i16 %436 to i32
   %438 = getelementptr i8, ptr %435, i64 14
@@ -4853,12 +4853,12 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 486:                                              ; preds = %483
   %487 = getelementptr inbounds nuw i8, ptr %475, i64 1556
   %488 = zext i32 %479 to i64
-  %489 = getelementptr [8 x i16], ptr %487, i64 0, i64 %488
+  %489 = getelementptr i16, ptr %487, i64 %488
   br label %490
 
 490:                                              ; preds = %490, %486
   %491 = phi i64 [ 0, %486 ], [ %493, %490 ]
-  %492 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %489, i64 0, i64 %491
+  %492 = getelementptr %struct.g4x_pipe_wm, ptr %489, i64 %491
   store i16 0, ptr %492, align 2
   %493 = add nuw nsw i64 %491, 1
   %494 = load i8, ptr %468, align 8
@@ -4965,7 +4965,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
 
 30:                                               ; preds = %75, %23
   %31 = phi i64 [ 0, %23 ], [ %93, %75 ]
-  %32 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %4, i64 0, i64 %31
+  %32 = getelementptr %struct.g4x_pipe_wm, ptr %4, i64 %31
   %33 = load i8, ptr %24, align 2
   %34 = zext i8 %33 to i32
   %35 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %34) #16, !srcloc !43
@@ -4996,7 +4996,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   br i1 %53, label %97, label %54
 
 54:                                               ; preds = %49
-  %55 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %5, i64 0, i64 %31
+  %55 = getelementptr %struct.g4x_pipe_wm, ptr %5, i64 %31
   br label %56
 
 56:                                               ; preds = %72, %54
@@ -5009,14 +5009,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   br i1 %62, label %72, label %63
 
 63:                                               ; preds = %56
-  %64 = getelementptr [8 x i16], ptr %32, i64 0, i64 %57
+  %64 = getelementptr i16, ptr %32, i64 %57
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr [8 x i16], ptr %6, i64 0, i64 %57
+  %66 = getelementptr i16, ptr %6, i64 %57
   %67 = load i16, ptr %66, align 2
   %68 = icmp ugt i16 %65, %67
   %69 = sub i16 %67, %65
   %70 = select i1 %68, i16 -1, i16 %69
-  %71 = getelementptr [8 x i16], ptr %55, i64 0, i64 %57
+  %71 = getelementptr i16, ptr %55, i64 %57
   store i16 %70, ptr %71, align 2
   br label %72
 
@@ -5037,7 +5037,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   %84 = icmp ugt i16 %80, %83
   %85 = sub i16 %83, %80
   %86 = select i1 %84, i16 -1, i16 %85
-  %87 = getelementptr [3 x %struct.g4x_sr_wm], ptr %29, i64 0, i64 %31
+  %87 = getelementptr %struct.g4x_sr_wm, ptr %29, i64 %31
   store i16 %86, ptr %87, align 2
   %88 = load i16, ptr %50, align 2
   %89 = icmp ugt i16 %88, 63
@@ -5073,7 +5073,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
 
 110:                                              ; preds = %125, %108
   %111 = phi i64 [ %109, %108 ], [ %128, %125 ]
-  %112 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %5, i64 0, i64 %111
+  %112 = getelementptr %struct.g4x_pipe_wm, ptr %5, i64 %111
   br label %113
 
 113:                                              ; preds = %122, %110
@@ -5086,7 +5086,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   br i1 %119, label %122, label %120
 
 120:                                              ; preds = %113
-  %121 = getelementptr [8 x i16], ptr %112, i64 0, i64 %114
+  %121 = getelementptr i16, ptr %112, i64 %114
   store i16 -1, ptr %121, align 2
   br label %122
 
@@ -5096,7 +5096,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr n
   br i1 %124, label %125, label %113, !llvm.loop !97
 
 125:                                              ; preds = %122
-  %126 = getelementptr [3 x %struct.g4x_sr_wm], ptr %29, i64 0, i64 %111
+  %126 = getelementptr %struct.g4x_sr_wm, ptr %29, i64 %111
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i16 -1, ptr %127, align 2
   store i16 -1, ptr %126, align 2
@@ -5195,10 +5195,10 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %47 = getelementptr i8, ptr %45, i64 1632
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %2, i64 0, i64 %49
+  %50 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %49
   %51 = load i8, ptr %7, align 2
   %52 = zext i8 %51 to i64
-  %53 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %46, i64 0, i64 %52
+  %53 = getelementptr %struct.g4x_pipe_wm, ptr %46, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %50, ptr noundef align 2 dereferenceable(18) %53, i64 18, i1 false)
   %54 = getelementptr i8, ptr %45, i64 1636
   %55 = load i8, ptr %54, align 4, !range !27, !noundef !28
@@ -5212,12 +5212,12 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %61 = getelementptr i8, ptr %45, i64 1762
   %62 = load i8, ptr %7, align 2
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [3 x %struct.g4x_sr_wm], ptr %61, i64 0, i64 %63
+  %64 = getelementptr %struct.g4x_sr_wm, ptr %61, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %42, ptr noundef align 2 dereferenceable(6) %64, i64 6, i1 false)
   br label %65
 
 65:                                               ; preds = %60, %44
-  %66 = getelementptr [3 x %struct.vlv_wm_ddl_values], ptr %43, i64 0, i64 %49
+  %66 = getelementptr %struct.vlv_wm_ddl_values, ptr %43, i64 %49
   store i8 -126, ptr %66, align 2
   %67 = getelementptr i8, ptr %66, i64 1
   store i8 -126, ptr %67, align 1
@@ -5335,7 +5335,7 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   br label %135
 
 135:                                              ; preds = %132, %128, %115, %112
-  %136 = getelementptr [3 x %struct.vlv_wm_ddl_values], ptr %103, i64 0, i64 %106
+  %136 = getelementptr %struct.vlv_wm_ddl_values, ptr %103, i64 %106
   %137 = getelementptr i8, ptr %136, i64 7
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
@@ -5792,13 +5792,13 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
 
 66:                                               ; preds = %60
   %67 = zext i32 %48 to i64
-  %68 = getelementptr [8 x i16], ptr %17, i64 0, i64 %67
+  %68 = getelementptr i16, ptr %17, i64 %67
   br label %69
 
 69:                                               ; preds = %69, %66
   %70 = phi i64 [ 0, %66 ], [ %76, %69 ]
   %71 = phi i1 [ false, %66 ], [ %75, %69 ]
-  %72 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %68, i64 0, i64 %70
+  %72 = getelementptr %struct.g4x_pipe_wm, ptr %68, i64 %70
   %73 = load i16, ptr %72, align 2
   %74 = icmp ne i16 %73, 0
   %75 = or i1 %71, %74
@@ -5849,11 +5849,11 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   %104 = phi i64 [ 0, %54 ], [ %260, %259 ]
   %105 = phi i32 [ 0, %54 ], [ %261, %259 ]
   %106 = phi i8 [ 0, %54 ], [ %.ph, %259 ]
-  %107 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %17, i64 0, i64 %104
+  %107 = getelementptr %struct.g4x_pipe_wm, ptr %17, i64 %104
   %108 = load ptr, ptr %33, align 8
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 6888
-  %111 = getelementptr [5 x i16], ptr %110, i64 0, i64 %104
+  %111 = getelementptr i16, ptr %110, i64 %104
   %112 = load i16, ptr %111, align 2
   %113 = zext i16 %112 to i32
   %114 = mul nuw nsw i32 %113, 10
@@ -6019,7 +6019,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   br i1 %209, label %265, label %210
 
 210:                                              ; preds = %207
-  %211 = getelementptr [8 x i16], ptr %107, i64 0, i64 %58
+  %211 = getelementptr i16, ptr %107, i64 %58
   %212 = load i16, ptr %211, align 2
   %213 = icmp ne i16 %212, %198
   %214 = zext i1 %213 to i8
@@ -6132,14 +6132,14 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
 
 275:                                              ; preds = %.loopexit
   %276 = zext i32 %48 to i64
-  %277 = getelementptr [8 x i16], ptr %17, i64 0, i64 %276
+  %277 = getelementptr i16, ptr %17, i64 %276
   %278 = zext nneg i32 %267 to i64
   br label %279
 
 279:                                              ; preds = %279, %275
   %280 = phi i64 [ %278, %275 ], [ %286, %279 ]
   %281 = phi i1 [ false, %275 ], [ %285, %279 ]
-  %282 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %277, i64 0, i64 %280
+  %282 = getelementptr %struct.g4x_pipe_wm, ptr %277, i64 %280
   %283 = load i16, ptr %282, align 2
   %284 = icmp ne i16 %283, -1
   %285 = or i1 %281, %284
@@ -6218,13 +6218,13 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   %333 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %334 = load ptr, ptr %333, align 8
   %335 = zext i32 %48 to i64
-  %336 = getelementptr [8 x i16], ptr %17, i64 0, i64 %335
+  %336 = getelementptr i16, ptr %17, i64 %335
   %337 = load i16, ptr %336, align 2
   %338 = zext i16 %337 to i32
-  %339 = getelementptr [8 x i16], ptr %20, i64 0, i64 %335
+  %339 = getelementptr i16, ptr %20, i64 %335
   %340 = load i16, ptr %339, align 2
   %341 = zext i16 %340 to i32
-  %342 = getelementptr [8 x i16], ptr %21, i64 0, i64 %335
+  %342 = getelementptr i16, ptr %21, i64 %335
   %343 = load i16, ptr %342, align 2
   %344 = zext i16 %343 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %332, i32 noundef 2, ptr noundef nonnull @.str.36, ptr noundef %334, i32 noundef %338, i32 noundef %341, i32 noundef %344) #14
@@ -6386,12 +6386,12 @@ define internal noundef i32 @g4x_compute_intermediate_wm(ptr noundef readonly ca
   br i1 %73, label %99, label %74
 
 74:                                               ; preds = %67
-  %75 = getelementptr [8 x i16], ptr %14, i64 0, i64 %68
+  %75 = getelementptr i16, ptr %14, i64 %68
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr [8 x i16], ptr %15, i64 0, i64 %68
+  %77 = getelementptr i16, ptr %15, i64 %68
   %78 = load i16, ptr %77, align 2
   %79 = tail call i16 @llvm.umax.i16(i16 %76, i16 %78)
-  %80 = getelementptr [8 x i16], ptr %13, i64 0, i64 %68
+  %80 = getelementptr i16, ptr %13, i64 %68
   store i16 %79, ptr %80, align 2
   %81 = zext i16 %79 to i32
   %82 = trunc i64 %68 to i32
@@ -6824,7 +6824,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %97, ptr noundef nonnull align 2 dereferenceable(6) %40, i64 6, i1 false)
   %98 = getelementptr i8, ptr %84, i64 1637
   %99 = sext i32 %89 to i64
-  %100 = getelementptr [2 x %struct.g4x_pipe_wm], ptr %2, i64 0, i64 %99
+  %100 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %99
   br label %101
 
 101:                                              ; preds = %112, %83
@@ -6837,9 +6837,9 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %107, label %112, label %108
 
 108:                                              ; preds = %101
-  %109 = getelementptr [8 x i16], ptr %100, i64 0, i64 %102
+  %109 = getelementptr i16, ptr %100, i64 %102
   %110 = load i16, ptr %109, align 2
-  %111 = getelementptr [8 x i16], ptr %87, i64 0, i64 %102
+  %111 = getelementptr i16, ptr %87, i64 %102
   store i16 %110, ptr %111, align 2
   br label %112
 
@@ -6876,9 +6876,9 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %131, label %136, label %132
 
 132:                                              ; preds = %125
-  %133 = getelementptr [8 x i16], ptr %87, i64 0, i64 %126
+  %133 = getelementptr i16, ptr %87, i64 %126
   %134 = load i16, ptr %133, align 2
-  %135 = getelementptr [8 x i16], ptr %124, i64 0, i64 %126
+  %135 = getelementptr i16, ptr %124, i64 %126
   store i16 %134, ptr %135, align 2
   br label %136
 
@@ -6947,12 +6947,12 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %177, label %178, label %.loopexit17
 
 178:                                              ; preds = %171
-  %179 = getelementptr [8 x i16], ptr %124, i64 0, i64 %165
+  %179 = getelementptr i16, ptr %124, i64 %165
   br label %180
 
 180:                                              ; preds = %180, %178
   %181 = phi i64 [ %163, %178 ], [ %183, %180 ]
-  %182 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %179, i64 0, i64 %181
+  %182 = getelementptr %struct.g4x_pipe_wm, ptr %179, i64 %181
   store i16 -1, ptr %182, align 2
   %183 = add nuw nsw i64 %181, 1
   %184 = load i8, ptr %174, align 8
@@ -7132,8 +7132,8 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 
 .split.us:                                        ; preds = %291, %.split.us
   %295 = phi i64 [ %299, %.split.us ], [ 0, %291 ]
-  %296 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %292, i64 0, i64 %295
-  %297 = getelementptr [8 x i16], ptr %296, i64 0, i64 %293
+  %296 = getelementptr %struct.g4x_pipe_wm, ptr %292, i64 %295
+  %297 = getelementptr i16, ptr %296, i64 %293
   store i16 0, ptr %297, align 2
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 16
   store i16 0, ptr %298, align 2
@@ -7144,12 +7144,12 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %302, label %.split.us, label %.loopexit15, !llvm.loop !188
 
 .split:                                           ; preds = %291
-  %invariant.gep = getelementptr [8 x i16], ptr %292, i64 0, i64 %293
+  %invariant.gep = getelementptr i16, ptr %292, i64 %293
   br label %303
 
 303:                                              ; preds = %303, %.split
   %304 = phi i64 [ 0, %.split ], [ %305, %303 ]
-  %gep = getelementptr [3 x %struct.g4x_pipe_wm], ptr %invariant.gep, i64 0, i64 %304
+  %gep = getelementptr %struct.g4x_pipe_wm, ptr %invariant.gep, i64 %304
   store i16 0, ptr %gep, align 2
   %305 = add nuw nsw i64 %304, 1
   %306 = load i8, ptr %273, align 8
@@ -7263,9 +7263,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %25
-  %33 = getelementptr [8 x i16], ptr %3, i64 0, i64 %26
+  %33 = getelementptr i16, ptr %3, i64 %26
   %34 = load i16, ptr %33, align 2
-  %35 = getelementptr [8 x i16], ptr %4, i64 0, i64 %26
+  %35 = getelementptr i16, ptr %4, i64 %26
   store i16 %34, ptr %35, align 2
   br label %36
 
@@ -7490,7 +7490,7 @@ define internal fastcc void @g4x_program_watermarks(ptr noundef %0) unnamed_addr
   %50 = getelementptr i8, ptr %48, i64 1632
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr [2 x %struct.g4x_pipe_wm], ptr %2, i64 0, i64 %52
+  %53 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %53, ptr noundef align 2 dereferenceable(18) %49, i64 18, i1 false)
   %54 = getelementptr i8, ptr %48, i64 1636
   %55 = load i8, ptr %54, align 4, !range !27, !noundef !28
@@ -7745,7 +7745,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
 
 .preheader8:                                      ; preds = %1, %38
   %18 = phi i64 [ %39, %38 ], [ 0, %1 ]
-  %19 = getelementptr [30 x %struct.cxsr_latency], ptr @cxsr_latency_table, i64 0, i64 %18
+  %19 = getelementptr %struct.cxsr_latency, ptr @cxsr_latency_table, i64 %18
   %20 = load i8, ptr %19, align 2
   %21 = and i8 %20, 1
   %22 = icmp eq i8 %21, 0

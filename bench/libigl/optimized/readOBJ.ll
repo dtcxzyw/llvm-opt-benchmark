@@ -1062,7 +1062,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit214:  ; preds = %_ZNSt6vectorIS_IiSa
 
 173:                                              ; preds = %170
   %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #19
-  %175 = getelementptr inbounds nuw [2048 x i8], ptr %19, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr %19, i64 %174
   %176 = load i64, ptr %107, align 8, !tbaa !13
   %177 = icmp eq i64 %176, %174
   br i1 %177, label %178, label %_ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKNSt7__cxx1112basic_stringIS3_T0_T1_EE.exit.thread503
@@ -1646,7 +1646,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i273:           ; preds = %380, %378, %377
 
 388:                                              ; preds = %.lr.ph732, %388
   %indvars.iv = phi i64 [ 0, %.lr.ph732 ], [ %indvars.iv.next, %388 ]
-  %389 = getelementptr inbounds nuw [3 x double], ptr %28, i64 0, i64 %indvars.iv
+  %389 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
   %390 = load double, ptr %389, align 8, !tbaa !69
   %391 = getelementptr inbounds nuw double, ptr %360, i64 %indvars.iv
   store double %390, ptr %391, align 8, !tbaa !69

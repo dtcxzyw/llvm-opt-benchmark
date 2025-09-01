@@ -562,7 +562,7 @@ _ZN17grpc_event_engine12experimental25ResolvedAddressIsV4MappedERKNS0_11EventEng
 
 32:                                               ; preds = %28, %31
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %31 ]
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1, !tbaa !17
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %31, label %.loopexit

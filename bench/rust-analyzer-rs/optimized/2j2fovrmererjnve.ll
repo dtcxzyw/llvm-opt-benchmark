@@ -4381,7 +4381,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h551a6990d627ea63E.exit": ; preds = %36
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !321, !noalias !324
-  %45 = getelementptr inbounds [0 x { { { { { i64 } }, { { ptr, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %.pre.i, i64 0, i64 %28
+  %45 = getelementptr inbounds { { { { { i64 } }, { { ptr, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %.pre.i, i64 %28
   %46 = icmp eq ptr %.pre.i, null
   br i1 %46, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h551a6990d627ea63E.exit.thread", label %.noexc
 
@@ -4619,7 +4619,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hc595131115549facE.exit": ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h72051644f8ecd0c4E.llvm.6986466436814177072.exit.thread9.i", %..thread_crit_edge.i
   %45 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %31, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h72051644f8ecd0c4E.llvm.6986466436814177072.exit.thread9.i" ]
   %.sroa.5.0.i1214.i = phi i64 [ %28, %..thread_crit_edge.i ], [ 0, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h72051644f8ecd0c4E.llvm.6986466436814177072.exit.thread9.i" ]
-  %46 = getelementptr inbounds [0 x { i64, { { { { i64 } }, { { { { { ptr, i64 } }, {} }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i32, [1 x i32] }], ptr %45, i64 0, i64 %.sroa.5.0.i1214.i, i32 1
+  %46 = getelementptr inbounds { i64, { { { { i64 } }, { { { { { ptr, i64 } }, {} }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i32, [1 x i32] }, ptr %45, i64 %.sroa.5.0.i1214.i, i32 1
   %47 = load atomic i64, ptr %46 monotonic, align 8
   %48 = and i64 %47, 8
   %49 = icmp eq i64 %48, 0
@@ -4854,7 +4854,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h3455fa9e825515a6E.exit": ; preds = %38
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !422, !noalias !425
-  %47 = getelementptr inbounds [0 x { { { { { i64 } }, { { { ptr, [4 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %.pre.i, i64 0, i64 %30
+  %47 = getelementptr inbounds { { { { { i64 } }, { { { ptr, [4 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %.pre.i, i64 %30
   %48 = icmp eq ptr %.pre.i, null
   br i1 %48, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h3455fa9e825515a6E.exit.thread", label %.noexc
 
@@ -5123,7 +5123,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hef896c01897c40e7E.exit": ; preds = %37
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !477, !noalias !480
-  %46 = getelementptr inbounds [0 x { { { { { i64 } }, { { { i64, [2 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %.pre.i, i64 0, i64 %29
+  %46 = getelementptr inbounds { { { { { i64 } }, { { { i64, [2 x i64] }, i32, i8, [3 x i8] } } }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %.pre.i, i64 %29
   %47 = icmp eq ptr %.pre.i, null
   br i1 %47, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hef896c01897c40e7E.exit.thread", label %.noexc
 
@@ -5354,7 +5354,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h4e19644ca44d6a62E.exit": ; preds = %35
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !526, !noalias !529
-  %45 = getelementptr inbounds [0 x { { { { { i64 } }, { { i32, i32, i8, [3 x i8] } }, [1 x i32] }, i32, [1 x i32] }, i64, i32, [1 x i32] }], ptr %.pre.i, i64 0, i64 %27
+  %45 = getelementptr inbounds { { { { { i64 } }, { { i32, i32, i8, [3 x i8] } }, [1 x i32] }, i32, [1 x i32] }, i64, i32, [1 x i32] }, ptr %.pre.i, i64 %27
   %46 = icmp eq ptr %.pre.i, null
   br i1 %46, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h4e19644ca44d6a62E.exit.thread", label %.noexc
 

@@ -299,7 +299,7 @@ sub_0:                                            ; preds = %._crit_edge
   %.097145 = phi ptr [ %.097143, %.lr.ph147.preheader ], [ %.097, %.lr.ph147 ]
   %73 = tail call ptr @Mio_PinDup(ptr noundef nonnull %65) #12
   store ptr %73, ptr %.097145, align 8, !tbaa !51
-  %74 = getelementptr inbounds nuw [100 x ptr], ptr %4, i64 0, i64 %indvars.iv171
+  %74 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv171
   %75 = load ptr, ptr %74, align 8, !tbaa !8
   store ptr %75, ptr %73, align 8, !tbaa !50
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
@@ -334,7 +334,7 @@ sub_0:                                            ; preds = %._crit_edge
 
 79:                                               ; preds = %.preheader123.us, %93
   %indvars.iv = phi i64 [ 0, %.preheader123.us ], [ %indvars.iv.next, %93 ]
-  %80 = getelementptr inbounds nuw [100 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !8
   %.not108.us = icmp eq ptr %81, null
   br i1 %.not108.us, label %93, label %82
@@ -346,13 +346,13 @@ sub_0:                                            ; preds = %._crit_edge
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw [100 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   tail call void @free(ptr noundef nonnull %81) #12
   store ptr null, ptr %87, align 8, !tbaa !8
   %88 = load ptr, ptr %.199137.us, align 8, !tbaa !50
   %89 = add nsw i32 %.094139.us, 1
   %90 = sext i32 %.094139.us to i64
-  %91 = getelementptr inbounds [100 x ptr], ptr %5, i64 0, i64 %90
+  %91 = getelementptr inbounds ptr, ptr %5, i64 %90
   store ptr %88, ptr %91, align 8, !tbaa !8
   br label %..loopexit_crit_edge.us
 
@@ -388,7 +388,7 @@ sub_0:                                            ; preds = %._crit_edge
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %96
   %indvars.iv166 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next167, %96 ]
-  %97 = getelementptr inbounds nuw [100 x ptr], ptr %4, i64 0, i64 %indvars.iv166
+  %97 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv166
   %98 = load ptr, ptr %97, align 8, !tbaa !8
   %.not107 = icmp eq ptr %98, null
   br i1 %.not107, label %96, label %99
@@ -674,7 +674,7 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 
 250:                                              ; preds = %250, %240
   %indvars.iv.i110 = phi i64 [ 0, %240 ], [ %indvars.iv.next.i111, %250 ]
-  %251 = getelementptr inbounds nuw [8 x [4 x i64]], ptr %2, i64 0, i64 %indvars.iv.i110
+  %251 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 %indvars.iv.i110
   %252 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i110
   store ptr %251, ptr %252, align 8, !tbaa !60
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1

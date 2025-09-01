@@ -1090,7 +1090,7 @@ gv_calloc.exit.i:                                 ; preds = %.thread
 
 .thread35:                                        ; preds = %agxbsizeof.exit.thread
   %33 = zext nneg i8 %.val.i to i64
-  %34 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
   store i8 %1, ptr %34, align 1, !tbaa !13
   %35 = load i8, ptr %3, align 1, !tbaa !13
   %36 = add i8 %35, 1

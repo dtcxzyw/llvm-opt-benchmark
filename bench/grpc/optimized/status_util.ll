@@ -59,7 +59,7 @@ define noundef zeroext i1 @_Z28grpc_status_code_from_stringPKcP16grpc_status_cod
 
 5:                                                ; preds = %2, %3
   %.0711 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw [17 x %struct.status_string_entry], ptr @_ZL23g_status_string_entries, i64 0, i64 %.0711
+  %6 = getelementptr inbounds nuw %struct.status_string_entry, ptr @_ZL23g_status_string_entries, i64 %.0711
   %7 = load ptr, ptr %6, align 16, !tbaa !5
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %7) #17
   %9 = icmp eq i32 %8, 0
@@ -85,7 +85,7 @@ define noundef nonnull ptr @_Z26grpc_status_code_to_string16grpc_status_code(i32
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._Z26grpc_status_code_to_string16grpc_status_code, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z26grpc_status_code_to_string16grpc_status_code, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -115,7 +115,7 @@ define void @_ZNK9grpc_core8internal13StatusCodeSet8ToStringB5cxx11Ev(ptr dead_o
   %.sroa.023.046 = phi ptr [ null, %2 ], [ %.sroa.023.1, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRKPKcEEERS3_DpOT_.exit ]
   %.sroa.9.045 = phi ptr [ null, %2 ], [ %.sroa.9.1, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRKPKcEEERS3_DpOT_.exit ]
   %.sroa.15.044 = phi ptr [ null, %2 ], [ %.sroa.15.1, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRKPKcEEERS3_DpOT_.exit ]
-  %8 = getelementptr inbounds nuw [17 x %struct.status_string_entry], ptr @_ZL23g_status_string_entries, i64 0, i64 %.0947
+  %8 = getelementptr inbounds nuw %struct.status_string_entry, ptr @_ZL23g_status_string_entries, i64 %.0947
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !12
   %11 = load i32, ptr %1, align 4, !tbaa !14

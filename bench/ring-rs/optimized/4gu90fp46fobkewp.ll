@@ -813,8 +813,8 @@ define noundef zeroext i1 @"_ZN119_$LT$ring..ec..curve25519..ed25519..verificati
 37:                                               ; preds = %37, %33
   %.010.i.i.i = phi i64 [ 0, %33 ], [ %43, %37 ]
   %38 = sub nuw nsw i64 15, %.010.i.i.i
-  %39 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.010.i.i.i
-  %40 = getelementptr inbounds nuw [0 x i8], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 %.010.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %38
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %41 = load i8, ptr %39, align 1, !alias.scope !121, !noalias !124, !noundef !10

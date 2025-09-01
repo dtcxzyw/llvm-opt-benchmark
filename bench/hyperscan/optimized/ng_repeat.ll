@@ -4548,7 +4548,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
 
 .loopexit189.i:                                   ; preds = %.loopexit189.i.preheader, %1534
   %.0813.i.i.i = phi i64 [ %1535, %1534 ], [ 0, %.loopexit189.i.preheader ]
-  %1536 = getelementptr inbounds nuw [4 x i64], ptr %1413, i64 0, i64 %.0813.i.i.i
+  %1536 = getelementptr inbounds nuw i64, ptr %1413, i64 %.0813.i.i.i
   %1537 = load i64, ptr %1536, align 8
   %.not.i.i.i411 = icmp eq i64 %1537, -1
   br i1 %.not.i.i.i411, label %1534, label %_ZNK3ue29CharReach3allEv.exit.thread.i
@@ -39910,7 +39910,7 @@ define internal fastcc void @_ZN3ue2L11buildFeederERNS_8NGHolderERKNS_17BoundedR
 
 17:                                               ; preds = %15, %4
   %.0813.i.i = phi i64 [ 0, %4 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %.0813.i.i
+  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %.0813.i.i
   %19 = load i64, ptr %18, align 8
   %.not.i.i = icmp eq i64 %19, -1
   br i1 %.not.i.i, label %15, label %_ZNK3ue29CharReach3allEv.exit.thread

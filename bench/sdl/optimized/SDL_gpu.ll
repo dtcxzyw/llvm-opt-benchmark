@@ -1074,7 +1074,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 170:                                              ; preds = %163
   %171 = load i32, ptr %165, align 4
-  %172 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %164
+  %172 = getelementptr inbounds nuw i32, ptr %3, i64 %164
   store i32 %171, ptr %172, align 4
   %.not257542.not = icmp eq i32 %.0205546, 0
   br i1 %.not257542.not, label %.thread443, label %.lr.ph545
@@ -1086,7 +1086,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 .lr.ph545:                                        ; preds = %170, %173
   %indvars.iv586 = phi i64 [ %indvars.iv.next587, %173 ], [ 0, %170 ]
-  %174 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv586
+  %174 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv586
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, %171
   br i1 %176, label %.preheader507, label %173
@@ -1970,7 +1970,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %indvars.iv291 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next292, %148 ]
   %149 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv291
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw [4 x ptr], ptr %146, i64 0, i64 %indvars.iv291
+  %151 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv291
   store ptr %150, ptr %151, align 8
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count294
@@ -2138,7 +2138,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
 
 .preheader63.us:                                  ; preds = %.preheader63.us.preheader, %._crit_edge.us
   %indvars.iv75 = phi i64 [ 0, %.preheader63.us.preheader ], [ %indvars.iv.next76, %._crit_edge.us ]
-  %32 = getelementptr inbounds nuw [4 x ptr], ptr %31, i64 0, i64 %indvars.iv75
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv75
   br label %33
 
 33:                                               ; preds = %.preheader63.us, %.thread53.us
@@ -2708,7 +2708,7 @@ define hidden range(i32 0, 17) i32 @SDL_GPUTextureFormatTexelBlockSize_REAL(i32 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [104 x i32], ptr @switch.table.SDL_GPUTextureFormatTexelBlockSize_REAL, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GPUTextureFormatTexelBlockSize_REAL, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -2758,7 +2758,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly
 
 17:                                               ; preds = %15
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw [105 x i8], ptr @TextureFormatIsComputeWritable, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @TextureFormatIsComputeWritable, i64 %18
   %20 = load i8, ptr %19, align 1, !range !5, !noundef !6
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %.thread
@@ -3716,7 +3716,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader385, %64,
 
 169:                                              ; preds = %167
   %170 = zext i32 %160 to i64
-  %171 = getelementptr inbounds nuw [105 x i8], ptr @TextureFormatIsComputeWritable, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr @TextureFormatIsComputeWritable, i64 %170
   %172 = load i8, ptr %171, align 1, !range !5, !noundef !6
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %174, label %.preheader366.preheader
@@ -4690,7 +4690,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
 
 .preheader63.us:                                  ; preds = %.preheader63.us.preheader, %._crit_edge.us
   %indvars.iv75 = phi i64 [ 0, %.preheader63.us.preheader ], [ %indvars.iv.next76, %._crit_edge.us ]
-  %32 = getelementptr inbounds nuw [4 x ptr], ptr %31, i64 0, i64 %indvars.iv75
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv75
   br label %33
 
 33:                                               ; preds = %.preheader63.us, %.thread53.us
@@ -4832,7 +4832,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
 
 .preheader62.us:                                  ; preds = %.preheader62.us.preheader, %._crit_edge.us
   %indvars.iv74 = phi i64 [ 0, %.preheader62.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %indvars.iv74
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv74
   br label %27
 
 27:                                               ; preds = %.preheader62.us, %.thread52.us
@@ -5039,7 +5039,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
 
 .preheader62.us:                                  ; preds = %.preheader62.us.preheader, %._crit_edge.us
   %indvars.iv74 = phi i64 [ 0, %.preheader62.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %indvars.iv74
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv74
   br label %27
 
 27:                                               ; preds = %.preheader62.us, %.thread52.us
@@ -7994,7 +7994,7 @@ define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockWidth(i32 noundef %
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [104 x i32], ptr @switch.table.Texture_GetBlockWidth, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Texture_GetBlockWidth, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -8022,7 +8022,7 @@ define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockHeight(i32 noundef 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [104 x i32], ptr @switch.table.Texture_GetBlockHeight, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Texture_GetBlockHeight, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 

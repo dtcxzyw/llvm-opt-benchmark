@@ -2143,7 +2143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = 
   %8 = zext i8 %7 to i32
   %9 = lshr i32 %8, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4base9HexEncodeB5cxx11EPKvmE9kHexChars, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZZN4base9HexEncodeB5cxx11EPKvmE9kHexChars, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !6
   %13 = shl i64 %.012, 1
   %14 = load ptr, ptr %0, align 8, !tbaa !19
@@ -2151,7 +2151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = 
   store i8 %12, ptr %15, align 1, !tbaa !6
   %16 = and i32 %8, 15
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4base9HexEncodeB5cxx11EPKvmE9kHexChars, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZZN4base9HexEncodeB5cxx11EPKvmE9kHexChars, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !6
   %20 = load ptr, ptr %0, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %13

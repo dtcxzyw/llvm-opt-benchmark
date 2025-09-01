@@ -1428,7 +1428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
 441:                                              ; preds = %434
   %442 = lshr i32 %439, 23
   %443 = zext nneg i32 %442 to i64
-  %444 = getelementptr inbounds nuw [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %443
+  %444 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %443
   %445 = load i16, ptr %444, align 2, !tbaa !74
   %.not.i.us = icmp eq i16 %445, 0
   br i1 %.not.i.us, label %455, label %446
@@ -1465,7 +1465,7 @@ _ZN4halfC2Ef.exit.us:                             ; preds = %457, %455, %446
 464:                                              ; preds = %_ZN4halfC2Ef.exit.us
   %465 = lshr i32 %462, 23
   %466 = zext nneg i32 %465 to i64
-  %467 = getelementptr inbounds nuw [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %466
   %468 = load i16, ptr %467, align 2, !tbaa !74
   %.not.i346.us = icmp eq i16 %468, 0
   br i1 %.not.i346.us, label %478, label %469
@@ -1503,7 +1503,7 @@ _ZN4halfC2Ef.exit349.us:                          ; preds = %480, %478, %469
 488:                                              ; preds = %_ZN4halfC2Ef.exit349.us
   %489 = lshr i32 %486, 23
   %490 = zext nneg i32 %489 to i64
-  %491 = getelementptr inbounds nuw [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %490
+  %491 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %490
   %492 = load i16, ptr %491, align 2, !tbaa !74
   %.not.i350.us = icmp eq i16 %492, 0
   br i1 %.not.i350.us, label %502, label %493
@@ -2158,7 +2158,7 @@ _ZNSt12forward_listISt4pairIiPvESaIS2_EE13emplace_frontIJRiRPfEEERS2_DpOT_.exit:
 717:                                              ; preds = %711
   %718 = lshr i32 %715, 23
   %719 = zext nneg i32 %718 to i64
-  %720 = getelementptr inbounds nuw [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %719
+  %720 = getelementptr inbounds nuw i16, ptr @_ZN4half5_eLutE, i64 %719
   %721 = load i16, ptr %720, align 2, !tbaa !74
   %.not.i382.us = icmp eq i16 %721, 0
   br i1 %.not.i382.us, label %731, label %722

@@ -2094,7 +2094,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
 
 58:                                               ; preds = %.preheader65, %58
   %indvars.iv77 = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next78, %58 ]
-  %59 = getelementptr inbounds nuw [4 x %"class.cv::RNG"], ptr %41, i64 0, i64 %indvars.iv77
+  %59 = getelementptr inbounds nuw %"class.cv::RNG", ptr %41, i64 %indvars.iv77
   store i64 4294967295, ptr %59, align 8, !tbaa !69
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 4
@@ -5532,7 +5532,7 @@ define hidden void @_ZNK2cv8ximgproc25EdgeAwareInterpolatorImpl27RansacInterpola
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 448
   %149 = load i32, ptr %1, align 4, !tbaa !105
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [4 x %"class.cv::RNG"], ptr %148, i64 0, i64 %150
+  %151 = getelementptr inbounds %"class.cv::RNG", ptr %148, i64 %150
   %152 = load ptr, ptr %52, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %54, align 16
@@ -14362,20 +14362,20 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv8ximgproc19RICInterpolatorImpl
   %41 = getelementptr inbounds nuw %"struct.cv::ximgproc::SparseMatch", ptr %40, i64 %39
   %42 = load float, ptr %41, align 4, !tbaa !91
   %43 = shl nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw [6 x float], ptr %6, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw float, ptr %6, i64 %43
   store float %42, ptr %44, align 8, !tbaa !95
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %46 = load float, ptr %45, align 4, !tbaa !94
   %47 = or disjoint i64 %43, 1
-  %48 = getelementptr inbounds nuw [6 x float], ptr %6, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw float, ptr %6, i64 %47
   store float %46, ptr %48, align 4, !tbaa !95
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %50 = load float, ptr %49, align 4, !tbaa !311
-  %51 = getelementptr inbounds nuw [6 x float], ptr %7, i64 0, i64 %43
+  %51 = getelementptr inbounds nuw float, ptr %7, i64 %43
   store float %50, ptr %51, align 8, !tbaa !95
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %53 = load float, ptr %52, align 4, !tbaa !312
-  %54 = getelementptr inbounds nuw [6 x float], ptr %7, i64 0, i64 %47
+  %54 = getelementptr inbounds nuw float, ptr %7, i64 %47
   store float %53, ptr %54, align 4, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

@@ -431,7 +431,7 @@ define internal i32 @p9_fd_create_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .preheader:                                       ; preds = %15, %21
   %24 = phi i64 [ %22, %21 ], [ 0, %15 ]
-  %25 = getelementptr [4 x i32], ptr %5, i64 0, i64 %24
+  %25 = getelementptr i32, ptr %5, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 255
   br i1 %27, label %.loopexit, label %21
@@ -571,7 +571,7 @@ define internal void @p9_fd_close(ptr noundef captures(address_is_null) %0) #2 a
 10:                                               ; preds = %19, %7
   %11 = phi i1 [ true, %7 ], [ false, %19 ]
   %12 = phi i64 [ 0, %7 ], [ 1, %19 ]
-  %13 = getelementptr [2 x %struct.p9_poll_wait], ptr %9, i64 0, i64 %12
+  %13 = getelementptr %struct.p9_poll_wait, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -1773,7 +1773,7 @@ define internal void @p9_pollwait(ptr readnone captures(none) %0, ptr noundef %1
 7:                                                ; preds = %6, %3
   %8 = phi i1 [ true, %3 ], [ false, %6 ]
   %9 = phi i64 [ 0, %3 ], [ 1, %6 ]
-  %10 = getelementptr [2 x %struct.p9_poll_wait], ptr %5, i64 0, i64 %9
+  %10 = getelementptr %struct.p9_poll_wait, ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null

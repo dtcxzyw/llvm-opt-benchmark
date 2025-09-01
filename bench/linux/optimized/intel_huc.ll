@@ -599,7 +599,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %7 = zext i32 %1 to i64
-  %8 = getelementptr [2 x %struct.anon.4], ptr %6, i64 0, i64 %7
+  %8 = getelementptr %struct.anon.4, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -712,7 +712,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %21 = zext i32 %1 to i64
-  %22 = getelementptr [2 x %struct.anon.4], ptr %20, i64 0, i64 %21
+  %22 = getelementptr %struct.anon.4, ptr %20, i64 %21
   %23 = load ptr, ptr %13, align 8
   %24 = load i32, ptr %22, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 144
@@ -728,7 +728,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %21, %19 ]
   %32 = phi i32 [ 0, %._crit_edge ], [ %27, %19 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %34 = getelementptr [2 x %struct.anon.4], ptr %33, i64 0, i64 %.pre-phi
+  %34 = getelementptr %struct.anon.4, ptr %33, i64 %.pre-phi
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, %32
@@ -826,7 +826,7 @@ define dso_local zeroext i1 @intel_huc_is_authenticated(ptr noundef readonly cap
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %11 = zext i32 %1 to i64
-  %12 = getelementptr [2 x %struct.anon.4], ptr %10, i64 0, i64 %11
+  %12 = getelementptr %struct.anon.4, ptr %10, i64 %11
   %13 = load ptr, ptr %3, align 8
   %14 = load i32, ptr %12, align 4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 144
@@ -842,7 +842,7 @@ define dso_local zeroext i1 @intel_huc_is_authenticated(ptr noundef readonly cap
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %11, %9 ]
   %22 = phi i32 [ 0, %._crit_edge ], [ %17, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %24 = getelementptr [2 x %struct.anon.4], ptr %23, i64 0, i64 %.pre-phi
+  %24 = getelementptr %struct.anon.4, ptr %23, i64 %.pre-phi
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, %22

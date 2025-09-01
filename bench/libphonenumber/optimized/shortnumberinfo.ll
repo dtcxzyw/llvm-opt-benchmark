@@ -3676,7 +3676,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15ShortNumberInfo28GetExampleShort
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4i18n12phonenumbers15ShortNumberInfo28GetExampleShortNumberForCostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_15ShortNumberCostE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4i18n12phonenumbers15ShortNumberInfo28GetExampleShortNumberForCostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_15ShortNumberCostE, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %switch.load
   %21 = load ptr, ptr %20, align 8, !tbaa !181

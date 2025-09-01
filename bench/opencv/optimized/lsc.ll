@@ -3100,10 +3100,10 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %._crit_edge97, %49
 72:                                               ; preds = %.preheader, %105
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %105 ]
   %.04091 = phi i32 [ 0, %.preheader ], [ %.141, %105 ]
-  %73 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dx8, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dx8, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !59
   %75 = add nsw i32 %74, %63
-  %76 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dy8, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dy8, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !59
   %78 = add nsw i32 %77, %48
   %79 = icmp sgt i32 %75, -1
@@ -3344,14 +3344,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 48:                                               ; preds = %38, %73
   %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %73 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dx8, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dx8, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !59
   %51 = add nsw i32 %50, %21
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %53, label %73
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dy8, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv8ximgproc17SuperpixelLSCImpl27PreEnforceLabelConnectivityEi.dy8, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !59
   %56 = add nsw i32 %55, %47
   %57 = icmp slt i32 %51, %46

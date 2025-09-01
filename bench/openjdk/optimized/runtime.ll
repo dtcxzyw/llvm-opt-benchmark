@@ -3273,7 +3273,7 @@ define hidden noundef ptr @_ZN11OptoRuntime12osr_end_TypeEv() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN11OptoRuntime24is_callee_saved_registerE19MachRegisterNumbers(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [0 x i8], ptr @register_save_policy, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @register_save_policy, i64 %2
   %4 = load i8, ptr %3, align 1
   %switch.tableidx = add i8 %4, -65
   %5 = icmp ult i8 %switch.tableidx, 14

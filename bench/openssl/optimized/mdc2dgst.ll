@@ -32,7 +32,7 @@ define noundef i32 @MDC2_Update(ptr noundef %0, ptr noundef readonly captures(no
   %7 = sub nsw i64 8, %6
   %8 = icmp ult i64 %2, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
   br i1 %8, label %11, label %14
 
 11:                                               ; preds = %5
@@ -191,7 +191,7 @@ define noundef i32 @MDC2_Final(ptr noundef writeonly captures(none) initializes(
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = add i32 %3, 1
   %12 = zext i32 %3 to i64
-  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
   store i8 -128, ptr %13, align 1, !tbaa !9
   br label %14
 
@@ -199,7 +199,7 @@ define noundef i32 @MDC2_Final(ptr noundef writeonly captures(none) initializes(
   %.0 = phi i32 [ %11, %9 ], [ %3, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = zext i32 %.0 to i64
-  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = sub i32 8, %.0
   %19 = zext i32 %18 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %19, i1 false)

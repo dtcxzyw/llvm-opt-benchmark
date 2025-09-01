@@ -1073,130 +1073,129 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %101 = load i32, ptr %100, align 8, !tbaa !37
   switch i32 %101, label %.critedge86 [
-    i32 1, label %105
+    i32 1, label %104
     i32 4, label %.preheader
   ]
 
 .preheader:                                       ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %103 = load i32, ptr %102, align 8, !tbaa !23
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %._crit_edge, label %.lr.ph
+  br label %111
 
-105:                                              ; preds = %99
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %107 = load i32, ptr %106, align 8, !tbaa !23
-  %108 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %98, i32 noundef %107) #11
-  %.not74 = icmp eq i32 %108, 0
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %106 = load i32, ptr %105, align 8, !tbaa !23
+  %107 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %98, i32 noundef %106) #11
+  %.not74 = icmp eq i32 %107, 0
   br i1 %.not74, label %.critedge86, label %.critedge84
 
-.lr.ph:                                           ; preds = %.preheader, %109
-  %indvars.iv115 = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv115, 1
+108:                                              ; preds = %111
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %109 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv.next
+  %110 = load i32, ptr %109, align 16, !tbaa !39
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.thread, label %109, !llvm.loop !39
+  br i1 %exitcond, label %.thread, label %111, !llvm.loop !41
 
-109:                                              ; preds = %.lr.ph
-  %110 = getelementptr inbounds nuw [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %111 = load i32, ptr %110, align 16, !tbaa !41
-  %112 = icmp eq i32 %103, %111
-  br i1 %112, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+111:                                              ; preds = %.preheader, %108
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %108 ]
+  %112 = phi i32 [ 1, %.preheader ], [ %110, %108 ]
+  %113 = icmp eq i32 %103, %112
+  br i1 %113, label %114, label %108
 
-._crit_edge:                                      ; preds = %109, %.preheader
-  %.lcssa = phi ptr [ @padding_item, %.preheader ], [ %110, %109 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !43
-  %.not72 = icmp eq ptr %114, null
-  br i1 %.not72, label %.thread, label %115
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv, i32 1
+  %116 = load ptr, ptr %115, align 8, !tbaa !43
+  %.not72 = icmp eq ptr %116, null
+  br i1 %.not72, label %.thread, label %117
 
-115:                                              ; preds = %._crit_edge
-  %116 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %98, ptr noundef nonnull %114) #11
-  %.not73 = icmp eq i32 %116, 0
+117:                                              ; preds = %114
+  %118 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %98, ptr noundef nonnull %116) #11
+  %.not73 = icmp eq i32 %118, 0
   br i1 %.not73, label %.critedge86, label %.critedge84
 
-.thread:                                          ; preds = %.lr.ph, %._crit_edge
+.thread:                                          ; preds = %108, %114
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1429, ptr noundef nonnull @__func__.rsa_get_ctx_params) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #11
   br label %.critedge84
 
-.critedge84:                                      ; preds = %.thread, %115, %105, %97
-  %117 = call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef nonnull @.str.27) #11
-  %.not75 = icmp eq ptr %117, null
-  br i1 %.not75, label %121, label %118
+.critedge84:                                      ; preds = %.thread, %117, %104, %97
+  %119 = call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef nonnull @.str.27) #11
+  %.not75 = icmp eq ptr %119, null
+  br i1 %.not75, label %123, label %120
 
-118:                                              ; preds = %.critedge84
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %120 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %117, ptr noundef nonnull %119) #11
-  %.not76 = icmp eq i32 %120, 0
-  br i1 %.not76, label %.critedge86, label %121
+120:                                              ; preds = %.critedge84
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %122 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %119, ptr noundef nonnull %121) #11
+  %.not76 = icmp eq i32 %122, 0
+  br i1 %.not76, label %.critedge86, label %123
 
-121:                                              ; preds = %118, %.critedge84
-  %122 = call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef nonnull @.str.28) #11
-  %.not77 = icmp eq ptr %122, null
-  br i1 %.not77, label %126, label %123
+123:                                              ; preds = %120, %.critedge84
+  %124 = call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef nonnull @.str.28) #11
+  %.not77 = icmp eq ptr %124, null
+  br i1 %.not77, label %128, label %125
 
-123:                                              ; preds = %121
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %125 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %122, ptr noundef nonnull %124) #11
-  %.not78 = icmp eq i32 %125, 0
-  br i1 %.not78, label %.critedge86, label %126
+125:                                              ; preds = %123
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %127 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %124, ptr noundef nonnull %126) #11
+  %.not78 = icmp eq i32 %127, 0
+  br i1 %.not78, label %.critedge86, label %128
 
-126:                                              ; preds = %123, %121
-  %127 = call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef nonnull @.str.29) #11
-  %.not79 = icmp eq ptr %127, null
-  br i1 %.not79, label %.critedge88, label %128
+128:                                              ; preds = %125, %123
+  %129 = call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef nonnull @.str.29) #11
+  %.not79 = icmp eq ptr %129, null
+  br i1 %.not79, label %.critedge88, label %130
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %130 = load i32, ptr %129, align 8, !tbaa !37
-  switch i32 %130, label %.critedge88 [
-    i32 1, label %131
-    i32 4, label %135
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %132 = load i32, ptr %131, align 8, !tbaa !37
+  switch i32 %132, label %.critedge88 [
+    i32 1, label %133
+    i32 4, label %137
   ]
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %133 = load i32, ptr %132, align 8, !tbaa !16
-  %134 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %127, i32 noundef %133) #11
-  %.not82 = icmp eq i32 %134, 0
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %135 = load i32, ptr %134, align 8, !tbaa !16
+  %136 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %129, i32 noundef %135) #11
+  %.not82 = icmp eq i32 %136, 0
   br i1 %.not82, label %.critedge86, label %.critedge88
 
-135:                                              ; preds = %128
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %137 = load i32, ptr %136, align 8, !tbaa !16
-  %138 = icmp ugt i32 %137, -5
-  br i1 %138, label %switch.lookup, label %139
+137:                                              ; preds = %130
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %139 = load i32, ptr %138, align 8, !tbaa !16
+  %140 = icmp ugt i32 %139, -5
+  br i1 %140, label %switch.lookup, label %141
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !44
-  %142 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %143 = load i64, ptr %142, align 8, !tbaa !45
-  %144 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %141, i64 noundef %143, ptr noundef nonnull @.str.33, i32 noundef %137) #11
-  %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %146, label %.critedge86
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %143 = load ptr, ptr %142, align 8, !tbaa !44
+  %144 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %145 = load i64, ptr %144, align 8, !tbaa !45
+  %146 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %143, i64 noundef %145, ptr noundef nonnull @.str.33, i32 noundef %139) #11
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %148, label %.critedge86
 
-146:                                              ; preds = %139
-  %147 = zext nneg i32 %144 to i64
-  %148 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  store i64 %147, ptr %148, align 8, !tbaa !46
+148:                                              ; preds = %141
+  %149 = zext nneg i32 %146 to i64
+  %150 = getelementptr inbounds nuw i8, ptr %129, i64 32
+  store i64 %149, ptr %150, align 8, !tbaa !46
   br label %.critedge88
 
-switch.lookup:                                    ; preds = %135
-  %switch.tableidx = add nsw i32 %137, 4
-  %149 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.rsa_get_ctx_params, i64 0, i64 %149
+switch.lookup:                                    ; preds = %137
+  %151 = sext i32 %139 to i64
+  %152 = getelementptr ptr, ptr @switch.table.rsa_get_ctx_params, i64 %151
+  %switch.gep = getelementptr i8, ptr %152, i64 32
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %150 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %127, ptr noundef nonnull %switch.load) #11
-  %.not81 = icmp eq i32 %150, 0
+  %153 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %129, ptr noundef nonnull %switch.load) #11
+  %.not81 = icmp eq i32 %153, 0
   br i1 %.not81, label %.critedge86, label %.critedge88
 
-.critedge88:                                      ; preds = %switch.lookup, %146, %128, %131, %126
+.critedge88:                                      ; preds = %switch.lookup, %148, %130, %133, %128
   br label %.critedge86
 
-.critedge86:                                      ; preds = %switch.lookup, %139, %131, %123, %118, %99, %115, %105, %96, %2, %.critedge88
-  %.0 = phi i32 [ 1, %.critedge88 ], [ 0, %96 ], [ 0, %2 ], [ 0, %105 ], [ 0, %115 ], [ 0, %99 ], [ 0, %118 ], [ 0, %123 ], [ 0, %131 ], [ 0, %139 ], [ 0, %switch.lookup ]
+.critedge86:                                      ; preds = %switch.lookup, %141, %133, %125, %120, %99, %117, %104, %96, %2, %.critedge88
+  %.0 = phi i32 [ 1, %.critedge88 ], [ 0, %96 ], [ 0, %2 ], [ 0, %104 ], [ 0, %117 ], [ 0, %99 ], [ 0, %120 ], [ 0, %125 ], [ 0, %133 ], [ 0, %141 ], [ 0, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -1311,15 +1310,15 @@ ossl_param_is_empty.exit:                         ; preds = %14
   br i1 %exitcond, label %thread-pre-split, label %.preheader, !llvm.loop !48
 
 .preheader:                                       ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !43
-  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %42) #12
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !48
+  %40 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv.next, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !43
+  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %41) #12
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !48
 
 .preheader._crit_edge:                            ; preds = %.preheader
-  %45 = load i32, ptr %40, align 16, !tbaa !41
+  %44 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv.next
+  %45 = load i32, ptr %44, align 16, !tbaa !39
   br label %46
 
 46:                                               ; preds = %.preheader._crit_edge, %.preheader.preheader
@@ -3820,16 +3819,16 @@ attributes #12 = { nounwind willreturn memory(read) }
 !36 = !{!4, !11, i64 120}
 !37 = !{!38, !11, i64 8}
 !38 = !{!"ossl_param_st", !9, i64 0, !11, i64 8, !6, i64 16, !14, i64 24, !14, i64 32}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!42, !11, i64 0}
-!42 = !{!"ossl_item_st", !11, i64 0, !6, i64 8}
-!43 = !{!42, !6, i64 8}
+!39 = !{!40, !11, i64 0}
+!40 = !{!"ossl_item_st", !11, i64 0, !6, i64 8}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!40, !6, i64 8}
 !44 = !{!38, !6, i64 16}
 !45 = !{!38, !14, i64 24}
 !46 = !{!38, !14, i64 32}
 !47 = !{!38, !9, i64 0}
-!48 = distinct !{!48, !40}
+!48 = distinct !{!48, !42}
 !49 = !{!4, !14, i64 192}
 !50 = !{ptr @rsa_set_ctx_params, ptr @rsa_sigalg_set_ctx_params}
 !51 = !{i64 0, i64 8, !31, i64 8, i64 4, !33, i64 16, i64 8, !52, i64 24, i64 8, !21, i64 32, i64 8, !21}

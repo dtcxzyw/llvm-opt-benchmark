@@ -463,14 +463,14 @@ InitZopfliCostModel.exit:                         ; preds = %41, %46
   %101 = load i8, ptr %100, align 1, !tbaa !7
   %102 = or i8 %101, %99
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %57, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !7
   %106 = zext i8 %105 to i64
   br label %107
 
 107:                                              ; preds = %.thread, %78
   %.0134 = phi i64 [ %106, %.thread ], [ 0, %78 ]
-  %108 = getelementptr inbounds nuw [64 x ptr], ptr %60, i64 0, i64 %.0134
+  %108 = getelementptr inbounds nuw ptr, ptr %60, i64 %.0134
   %109 = load ptr, ptr %108, align 8, !tbaa !58
   %110 = sub i64 %1, %.0534
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
@@ -840,7 +840,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 
 260:                                              ; preds = %StoreAndFindMatchesH10.exit, %260
   %.173.i427 = phi i64 [ 0, %StoreAndFindMatchesH10.exit ], [ %262, %260 ]
-  %261 = getelementptr inbounds nuw [38 x i32], ptr %13, i64 0, i64 %.173.i427
+  %261 = getelementptr inbounds nuw i32, ptr %13, i64 %.173.i427
   store i32 268435455, ptr %261, align 4, !tbaa !3, !noalias !62
   %262 = add nuw nsw i64 %.173.i427, 1
   %exitcond.not = icmp eq i64 %262, 38
@@ -866,7 +866,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 271:                                              ; preds = %.lr.ph432, %291
   %.6.i430 = phi ptr [ %.4.i, %.lr.ph432 ], [ %.7.i, %291 ]
   %.071.i429 = phi i64 [ %265, %.lr.ph432 ], [ %292, %291 ]
-  %272 = getelementptr inbounds nuw [38 x i32], ptr %13, i64 0, i64 %.071.i429
+  %272 = getelementptr inbounds nuw i32, ptr %13, i64 %.071.i429
   %273 = load i32, ptr %272, align 4, !tbaa !3, !noalias !62
   %274 = icmp ult i32 %273, 268435455
   br i1 %274, label %275, label %291
@@ -921,9 +921,9 @@ FindAllMatchesH10.exit:                           ; preds = %291, %268, %263
   %.0.i150452 = phi i64 [ 0, %297 ], [ %411, %418 ]
   %.026.i451 = phi i64 [ 0, %297 ], [ %419, %418 ]
   %.027.i450 = phi i64 [ 3, %297 ], [ %.128.i, %418 ]
-  %301 = getelementptr inbounds nuw [16 x ptr], ptr %69, i64 0, i64 %.026.i451
+  %301 = getelementptr inbounds nuw ptr, ptr %69, i64 %.026.i451
   %302 = load ptr, ptr %301, align 8, !tbaa !101, !noalias !95
-  %303 = getelementptr inbounds nuw [16 x i64], ptr %70, i64 0, i64 %.026.i451
+  %303 = getelementptr inbounds nuw i64, ptr %70, i64 %.026.i451
   %304 = load i64, ptr %303, align 8, !tbaa !34, !noalias !95
   %305 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %68, i64 %.0.i150452
   %306 = sub i64 64, %.0.i150452
@@ -1941,7 +1941,7 @@ define internal fastcc void @ZopfliCostModelSetFromLiteralCosts(ptr noundef %0, 
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %.preheader42
-  %26 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %23
   %27 = load double, ptr %26, align 8, !tbaa !164
   br label %FastLog2.exit
 
@@ -1968,7 +1968,7 @@ FastLog2.exit:                                    ; preds = %25, %28
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %.lr.ph47
-  %39 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %36
+  %39 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %36
   %40 = load double, ptr %39, align 8, !tbaa !164
   br label %FastLog2.exit40
 
@@ -2025,7 +2025,7 @@ define internal fastcc i64 @UpdateNodes(i64 noundef %0, i64 noundef %1, i64 noun
   %32 = load i64, ptr %29, align 8, !tbaa !55
   %33 = sub i64 0, %32
   %34 = and i64 %33, 7
-  %35 = getelementptr inbounds nuw [8 x %struct.PosData], ptr %11, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.PosData, ptr %11, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %37 = load float, ptr %36, align 4, !tbaa !154
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 2840
@@ -2092,7 +2092,7 @@ ComputeMinimumCopyLength.exit:                    ; preds = %.lr.ph.i, %53, %13
 74:                                               ; preds = %71
   %75 = sub i64 %.0205371, %.val
   %76 = and i64 %75, 7
-  %77 = getelementptr inbounds nuw [8 x %struct.PosData], ptr %11, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw %struct.PosData, ptr %11, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !152
   %79 = sub i64 %2, %78
   %80 = icmp ult i64 %79, 6
@@ -2146,7 +2146,7 @@ GetInsertLengthCode.exit:                         ; preds = %81, %85, %99, %105,
   %109 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %110 = load float, ptr %109, align 8, !tbaa !155
   %111 = zext nneg i16 %.0.i to i64
-  %112 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliInsExtra, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr @kBrotliInsExtra, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !3
   %114 = uitofp i32 %113 to float
   %115 = fadd float %110, %114
@@ -2171,12 +2171,12 @@ GetInsertLengthCode.exit:                         ; preds = %81, %85, %99, %105,
   %.1356 = phi i64 [ %.0372, %.lr.ph357 ], [ %.3.ph, %.loopexit ]
   %.0206355 = phi i64 [ %60, %.lr.ph357 ], [ %.1207.ph, %.loopexit ]
   %.0209353 = phi i64 [ 0, %.lr.ph357 ], [ %298, %.loopexit ]
-  %128 = getelementptr inbounds nuw [16 x i32], ptr @kDistanceCacheIndex, i64 0, i64 %.0209353
+  %128 = getelementptr inbounds nuw i32, ptr @kDistanceCacheIndex, i64 %.0209353
   %129 = load i32, ptr %128, align 4, !tbaa !3
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw [4 x i32], ptr %122, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i32, ptr %122, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !3
-  %133 = getelementptr inbounds nuw [16 x i32], ptr @kDistanceCacheOffset, i64 0, i64 %.0209353
+  %133 = getelementptr inbounds nuw i32, ptr @kDistanceCacheOffset, i64 %.0209353
   %134 = load i32, ptr %133, align 4, !tbaa !3
   %135 = add nsw i32 %134, %132
   %136 = sext i32 %135 to i64
@@ -2287,14 +2287,14 @@ GetInsertLengthCode.exit:                         ; preds = %81, %85, %99, %105,
 183:                                              ; preds = %183, %180
   %.0215 = phi i64 [ 0, %180 ], [ %184, %183 ]
   %184 = add i64 %.0215, 1
-  %185 = getelementptr inbounds nuw [16 x i64], ptr %65, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i64, ptr %65, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !34
   %187 = add i64 %186, %136
   %.not231 = icmp ult i64 %182, %187
   br i1 %.not231, label %188, label %183, !llvm.loop !170
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds nuw [16 x i64], ptr %65, i64 0, i64 %.0215
+  %189 = getelementptr inbounds nuw i64, ptr %65, i64 %.0215
   %190 = load i64, ptr %189, align 8, !tbaa !34
   %191 = add i64 %190, %136
   %192 = sub i64 %182, %191
@@ -2305,7 +2305,7 @@ GetInsertLengthCode.exit:                         ; preds = %81, %85, %99, %105,
   br i1 %.not232, label %196, label %.loopexit
 
 196:                                              ; preds = %188
-  %197 = getelementptr inbounds nuw [16 x ptr], ptr %66, i64 0, i64 %.0215
+  %197 = getelementptr inbounds nuw ptr, ptr %66, i64 %.0215
   %198 = load ptr, ptr %197, align 8, !tbaa !171
   %199 = getelementptr i8, ptr %198, i64 %192
   %200 = getelementptr i8, ptr %199, i64 %.0206355
@@ -2468,12 +2468,12 @@ CombineLengthCodes.exit:                          ; preds = %261, %GetCopyLength
   %275 = icmp ult i16 %.pn.i, 128
   %276 = select i1 %275, float %121, float %230
   %277 = zext i16 %.0.i239290 to i64
-  %278 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliCopyExtra, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw i32, ptr @kBrotliCopyExtra, i64 %277
   %279 = load i32, ptr %278, align 4, !tbaa !3
   %280 = uitofp i32 %279 to float
   %281 = fadd float %276, %280
   %282 = zext i16 %.0.i242 to i64
-  %283 = getelementptr inbounds nuw [704 x float], ptr %10, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw float, ptr %10, i64 %282
   %284 = load float, ptr %283, align 4, !tbaa !151
   %285 = fadd float %284, %281
   %286 = getelementptr %struct.ZopfliNode, ptr %68, i64 %.0219349, i32 3
@@ -2656,12 +2656,12 @@ GetCopyLengthCode.exit241:                        ; preds = %359, %364, %376, %3
   %394 = or disjoint i16 %393, %305
   %.0.i248 = or disjoint i16 %394, %392
   %395 = zext i16 %.0.i240 to i64
-  %396 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliCopyExtra, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw i32, ptr @kBrotliCopyExtra, i64 %395
   %397 = load i32, ptr %396, align 4, !tbaa !3
   %398 = uitofp i32 %397 to float
   %399 = fadd float %350, %398
   %400 = zext i16 %.0.i248 to i64
-  %401 = getelementptr inbounds nuw [704 x float], ptr %10, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw float, ptr %10, i64 %400
   %402 = load float, ptr %401, align 4, !tbaa !151
   %403 = fadd float %402, %399
   %404 = getelementptr %struct.ZopfliNode, ptr %68, i64 %.2218362, i32 3
@@ -3020,7 +3020,7 @@ define hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef %0, i64 n
   %84 = load i8, ptr %83, align 1, !tbaa !7
   %85 = or i8 %84, %82
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %47, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !7
   %89 = zext i8 %88 to i64
   br label %90
@@ -3059,7 +3059,7 @@ define hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef %0, i64 n
 104:                                              ; preds = %103, %90
   %.1208 = phi ptr [ %100, %103 ], [ %.0207621, %90 ]
   %.1 = phi i64 [ %.0204, %103 ], [ %.0624, %90 ]
-  %105 = getelementptr inbounds nuw [64 x ptr], ptr %51, i64 0, i64 %.0205
+  %105 = getelementptr inbounds nuw ptr, ptr %51, i64 %.0205
   %106 = load ptr, ptr %105, align 8, !tbaa !58
   %107 = getelementptr %struct.BackwardMatch, ptr %.1208, i64 %.0199623
   %108 = getelementptr %struct.BackwardMatch, ptr %107, i64 %44
@@ -3430,7 +3430,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 
 258:                                              ; preds = %StoreAndFindMatchesH10.exit, %258
   %.173.i524 = phi i64 [ 0, %StoreAndFindMatchesH10.exit ], [ %260, %258 ]
-  %259 = getelementptr inbounds nuw [38 x i32], ptr %17, i64 0, i64 %.173.i524
+  %259 = getelementptr inbounds nuw i32, ptr %17, i64 %.173.i524
   store i32 268435455, ptr %259, align 4, !tbaa !3, !noalias !183
   %260 = add nuw nsw i64 %.173.i524, 1
   %exitcond.not = icmp eq i64 %260, 38
@@ -3456,7 +3456,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %StoreAndFindMatches
 269:                                              ; preds = %.lr.ph529, %289
   %.6.i527 = phi ptr [ %.4.i, %.lr.ph529 ], [ %.7.i, %289 ]
   %.071.i526 = phi i64 [ %263, %.lr.ph529 ], [ %290, %289 ]
-  %270 = getelementptr inbounds nuw [38 x i32], ptr %17, i64 0, i64 %.071.i526
+  %270 = getelementptr inbounds nuw i32, ptr %17, i64 %.071.i526
   %271 = load i32, ptr %270, align 4, !tbaa !3, !noalias !183
   %272 = icmp ult i32 %271, 268435455
   br i1 %272, label %273, label %289
@@ -3513,9 +3513,9 @@ FindAllMatchesH10.exit:                           ; preds = %289, %266, %261
   %.0.i231549 = phi i64 [ 0, %296 ], [ %411, %418 ]
   %.026.i548 = phi i64 [ 0, %296 ], [ %419, %418 ]
   %.027.i547 = phi i64 [ 3, %296 ], [ %.128.i, %418 ]
-  %301 = getelementptr inbounds nuw [16 x ptr], ptr %58, i64 0, i64 %.026.i548
+  %301 = getelementptr inbounds nuw ptr, ptr %58, i64 %.026.i548
   %302 = load ptr, ptr %301, align 8, !tbaa !101, !noalias !201
-  %303 = getelementptr inbounds nuw [16 x i64], ptr %59, i64 0, i64 %.026.i548
+  %303 = getelementptr inbounds nuw i64, ptr %59, i64 %.026.i548
   %304 = load i64, ptr %303, align 8, !tbaa !34, !noalias !201
   %305 = getelementptr inbounds nuw %struct.BackwardMatch, ptr %298, i64 %.0.i231549
   %306 = sub i64 64, %.0.i231549
@@ -4369,7 +4369,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i328, %702
   %719 = getelementptr inbounds nuw i8, ptr %710, i64 12
   %720 = load i16, ptr %719, align 4, !tbaa !243
   %721 = zext i16 %720 to i64
-  %722 = getelementptr inbounds nuw [704 x i32], ptr %688, i64 0, i64 %721
+  %722 = getelementptr inbounds nuw i32, ptr %688, i64 %721
   %723 = load i32, ptr %722, align 4, !tbaa !3
   %724 = add i32 %723, 1
   store i32 %724, ptr %722, align 4, !tbaa !3
@@ -4379,7 +4379,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i328, %702
 726:                                              ; preds = %.lr.ph79.i
   %727 = and i16 %718, 1023
   %728 = zext nneg i16 %727 to i64
-  %729 = getelementptr inbounds nuw [544 x i32], ptr %689, i64 0, i64 %728
+  %729 = getelementptr inbounds nuw i32, ptr %689, i64 %728
   %730 = load i32, ptr %729, align 4, !tbaa !3
   %731 = add i32 %730, 1
   store i32 %731, ptr %729, align 4, !tbaa !3
@@ -4396,7 +4396,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i328, %702
   %735 = getelementptr inbounds nuw i8, ptr %3, i64 %734
   %736 = load i8, ptr %735, align 1, !tbaa !7
   %737 = zext i8 %736 to i64
-  %738 = getelementptr inbounds nuw [256 x i32], ptr %687, i64 0, i64 %737
+  %738 = getelementptr inbounds nuw i32, ptr %687, i64 %737
   %739 = load i32, ptr %738, align 4, !tbaa !3
   %740 = add i32 %739, 1
   store i32 %740, ptr %738, align 4, !tbaa !3
@@ -4430,7 +4430,7 @@ BrotliInitZopfliNodes.exit:                       ; preds = %.lr.ph.i328, %702
   br i1 %750, label %751, label %754
 
 751:                                              ; preds = %._crit_edge.i.i
-  %752 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %748
+  %752 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %748
   %753 = load double, ptr %752, align 8, !tbaa !164
   br label %FastLog2.exit39.i.i
 
@@ -4463,7 +4463,7 @@ FastLog2.exit39.i.i:                              ; preds = %754, %751
 
 766:                                              ; preds = %764
   %767 = zext nneg i32 %760 to i64
-  %768 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %767
+  %768 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %767
   %769 = load double, ptr %768, align 8, !tbaa !164
   br label %FastLog2.exit.i.i
 
@@ -4526,7 +4526,7 @@ SetCost.exit.i:                                   ; preds = %778
   %795 = getelementptr inbounds nuw i8, ptr %3, i64 %794
   %796 = load i8, ptr %795, align 1, !tbaa !7
   %797 = zext i8 %796 to i64
-  %798 = getelementptr inbounds nuw [256 x float], ptr %691, i64 0, i64 %797
+  %798 = getelementptr inbounds nuw float, ptr %691, i64 %797
   %799 = load float, ptr %798, align 4, !tbaa !151
   %800 = fadd float %.06984.i, %799
   %801 = fadd float %792, %800
@@ -4889,7 +4889,7 @@ define internal fastcc void @SetCost(ptr noundef readonly captures(none) %0, i64
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
   %.032.lcssa59 = phi i64 [ %8, %._crit_edge ], [ 0, %4 ]
-  %11 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.032.lcssa59
+  %11 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.032.lcssa59
   %12 = load double, ptr %11, align 8, !tbaa !164
   br label %FastLog2.exit41
 
@@ -4925,7 +4925,7 @@ FastLog2.exit41:                                  ; preds = %._crit_edge.thread,
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %.loopexit
-  %25 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.033
+  %25 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %.033
   %26 = load double, ptr %25, align 8, !tbaa !164
   br label %FastLog2.exit39
 
@@ -4958,7 +4958,7 @@ FastLog2.exit39:                                  ; preds = %24, %27
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %33 to i64
-  %41 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !164
   br label %FastLog2.exit
 

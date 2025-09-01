@@ -2451,7 +2451,7 @@ define void @_ZN3nix30ValuePrintingTests_tAttrs_Test8TestBodyEv(ptr noundef nonn
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 4
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %13, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %13, i64 %17
   store i32 %12, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -2463,7 +2463,7 @@ define void @_ZN3nix30ValuePrintingTests_tAttrs_Test8TestBodyEv(ptr noundef nonn
   %21 = add i32 %20, 1
   store i32 %21, ptr %14, align 4
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %13, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %13, i64 %22
   store i32 %19, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i4, align 4
@@ -2594,7 +2594,7 @@ define void @_ZTv0_n48_N3nix30ValuePrintingTests_tAttrs_Test8TestBodyEv(ptr noun
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %17, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %17, i64 %21
   store i32 %16, ptr %22, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %.sroa.02.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
@@ -2606,7 +2606,7 @@ define void @_ZTv0_n48_N3nix30ValuePrintingTests_tAttrs_Test8TestBodyEv(ptr noun
   %25 = add i32 %24, 1
   store i32 %25, ptr %18, align 4
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %17, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %17, i64 %26
   store i32 %23, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %.sroa.0.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i4.i, align 4
@@ -3496,7 +3496,7 @@ define void @_ZN3nix34ValuePrintingTests_depthAttrs_Test8TestBodyEv(ptr noundef 
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %25, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %25, i64 %29
   store i32 %24, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %.sroa.010.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -3508,7 +3508,7 @@ define void @_ZN3nix34ValuePrintingTests_depthAttrs_Test8TestBodyEv(ptr noundef 
   %33 = add i32 %32, 1
   store i32 %33, ptr %26, align 4
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %25, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %25, i64 %34
   store i32 %31, ptr %35, align 8
   %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %.sroa.08.0.copyload, ptr %.sroa.2.0..sroa_idx.i12, align 4
@@ -3520,7 +3520,7 @@ define void @_ZN3nix34ValuePrintingTests_depthAttrs_Test8TestBodyEv(ptr noundef 
   %38 = add i32 %37, 1
   store i32 %38, ptr %26, align 4
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %25, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %25, i64 %39
   store i32 %36, ptr %40, align 8
   %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %.sroa.06.0.copyload, ptr %.sroa.2.0..sroa_idx.i14, align 4
@@ -3541,7 +3541,7 @@ define void @_ZN3nix34ValuePrintingTests_depthAttrs_Test8TestBodyEv(ptr noundef 
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %45, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %45, i64 %49
   store i32 %44, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %.sroa.04.0.copyload, ptr %.sroa.2.0..sroa_idx.i16, align 4
@@ -3553,7 +3553,7 @@ define void @_ZN3nix34ValuePrintingTests_depthAttrs_Test8TestBodyEv(ptr noundef 
   %53 = add i32 %52, 1
   store i32 %53, ptr %46, align 4
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %45, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %45, i64 %54
   store i32 %51, ptr %55, align 8
   %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i18, align 4
@@ -3565,7 +3565,7 @@ define void @_ZN3nix34ValuePrintingTests_depthAttrs_Test8TestBodyEv(ptr noundef 
   %58 = add i32 %57, 1
   store i32 %58, ptr %46, align 4
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %45, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %45, i64 %59
   store i32 %56, ptr %60, align 8
   %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i20, align 4
@@ -3889,7 +3889,7 @@ define void @_ZN3nix33ValuePrintingTests_depthList_Test8TestBodyEv(ptr noundef n
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %20, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %20, i64 %24
   store i32 %19, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %.sroa.08.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -3901,7 +3901,7 @@ define void @_ZN3nix33ValuePrintingTests_depthList_Test8TestBodyEv(ptr noundef n
   %28 = add i32 %27, 1
   store i32 %28, ptr %21, align 4
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %20, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %20, i64 %29
   store i32 %26, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %.sroa.06.0.copyload, ptr %.sroa.2.0..sroa_idx.i10, align 4
@@ -3922,7 +3922,7 @@ define void @_ZN3nix33ValuePrintingTests_depthList_Test8TestBodyEv(ptr noundef n
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 4
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %35, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %35, i64 %39
   store i32 %34, ptr %40, align 8
   %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %.sroa.04.0.copyload, ptr %.sroa.2.0..sroa_idx.i12, align 4
@@ -3934,7 +3934,7 @@ define void @_ZN3nix33ValuePrintingTests_depthList_Test8TestBodyEv(ptr noundef n
   %43 = add i32 %42, 1
   store i32 %43, ptr %36, align 4
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %35, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %35, i64 %44
   store i32 %41, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i14, align 4
@@ -3946,7 +3946,7 @@ define void @_ZN3nix33ValuePrintingTests_depthList_Test8TestBodyEv(ptr noundef n
   %48 = add i32 %47, 1
   store i32 %48, ptr %36, align 4
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %35, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %35, i64 %49
   store i32 %46, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i16, align 4
@@ -4400,7 +4400,7 @@ define void @_ZN3nix38ValuePrintingTests_attrsTypeFirst_Test8TestBodyEv(ptr noun
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %16, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %16, i64 %20
   store i32 %15, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -4412,7 +4412,7 @@ define void @_ZN3nix38ValuePrintingTests_attrsTypeFirst_Test8TestBodyEv(ptr noun
   %24 = add i32 %23, 1
   store i32 %24, ptr %17, align 4
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %16, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %16, i64 %25
   store i32 %22, ptr %26, align 8
   %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i4, align 4
@@ -5134,7 +5134,7 @@ define void @_ZN3nix39ValuePrintingTests_ansiColorsAttrs_Test8TestBodyEv(ptr nou
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %14, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %14, i64 %18
   store i32 %13, ptr %19, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -5146,7 +5146,7 @@ define void @_ZN3nix39ValuePrintingTests_ansiColorsAttrs_Test8TestBodyEv(ptr nou
   %22 = add i32 %21, 1
   store i32 %22, ptr %15, align 4
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %14, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %14, i64 %23
   store i32 %20, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i4, align 4
@@ -5208,7 +5208,7 @@ define void @_ZTv0_n48_N3nix39ValuePrintingTests_ansiColorsAttrs_Test8TestBodyEv
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %18, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %18, i64 %22
   store i32 %17, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %.sroa.02.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
@@ -5220,7 +5220,7 @@ define void @_ZTv0_n48_N3nix39ValuePrintingTests_ansiColorsAttrs_Test8TestBodyEv
   %26 = add i32 %25, 1
   store i32 %26, ptr %19, align 4
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %18, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %18, i64 %27
   store i32 %24, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %.sroa.0.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i4.i, align 4
@@ -5274,7 +5274,7 @@ define void @_ZN3nix44ValuePrintingTests_ansiColorsDerivation_Test8TestBodyEv(pt
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %12, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %12, i64 %16
   store i32 %.sroa.01.0.copyload, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -5344,7 +5344,7 @@ define void @_ZTv0_n48_N3nix44ValuePrintingTests_ansiColorsDerivation_Test8TestB
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %16, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %16, i64 %20
   store i32 %.sroa.01.0.copyload.i, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %.sroa.0.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
@@ -5545,7 +5545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %30, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %30, i64 %34
   store i32 %.sroa.03.0.copyload, ptr %35, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -5557,7 +5557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %37 = add i32 %32, 2
   store i32 %37, ptr %31, align 4
   %38 = zext i32 %33 to i64
-  %39 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %30, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %30, i64 %38
   store i32 %.sroa.01.0.copyload, ptr %39, align 8
   %.sroa.2.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i7, align 4
@@ -6622,7 +6622,7 @@ define void @_ZN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_Test8TestBodyEv
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %12, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %12, i64 %16
   store i32 %11, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -6634,7 +6634,7 @@ define void @_ZN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_Test8TestBodyEv
   %20 = add i32 %19, 1
   store i32 %20, ptr %13, align 4
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %12, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %12, i64 %21
   store i32 %18, ptr %22, align 8
   %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i4, align 4
@@ -6885,7 +6885,7 @@ define void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_Test8TestBodyEv(p
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %17, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %17, i64 %21
   store i32 %16, ptr %22, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %.sroa.04.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -6897,7 +6897,7 @@ define void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_Test8TestBodyEv(p
   %25 = add i32 %24, 1
   store i32 %25, ptr %18, align 4
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %17, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %17, i64 %26
   store i32 %23, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %.sroa.02.0.copyload, ptr %.sroa.2.0..sroa_idx.i6, align 4
@@ -6936,7 +6936,7 @@ define void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_Test8TestBodyEv(p
   %39 = add i32 %38, 1
   store i32 %39, ptr %18, align 4
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %17, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %17, i64 %40
   store i32 %37, ptr %41, align 8
   %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i8, align 4

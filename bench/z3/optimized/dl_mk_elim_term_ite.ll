@@ -678,7 +678,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
 62:                                               ; preds = %.lr.ph, %81
   %63 = phi ptr [ null, %.lr.ph ], [ %82, %81 ]
   %indvars.iv = phi i64 [ %59, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %58, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !245
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %66, -8
@@ -936,7 +936,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit1
 
 159:                                              ; preds = %.lr.ph298, %178
   %indvars.iv346 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next347, %178 ]
-  %160 = getelementptr inbounds nuw [0 x ptr], ptr %156, i64 0, i64 %indvars.iv346
+  %160 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv346
   %161 = load ptr, ptr %160, align 8, !tbaa !245
   %162 = ptrtoint ptr %161 to i64
   %163 = and i64 %162, -8
@@ -1556,7 +1556,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i177:     ; preds = %.noexc178
 403:                                              ; preds = %.lr.ph310, %_ZN7obj_refI4expr11ast_managerED2Ev.exit185
   %indvars.iv350 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next351, %_ZN7obj_refI4expr11ast_managerED2Ev.exit185 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %404 = getelementptr inbounds nuw [0 x ptr], ptr %391, i64 0, i64 %indvars.iv350
+  %404 = getelementptr inbounds nuw ptr, ptr %391, i64 %indvars.iv350
   %405 = load ptr, ptr %404, align 8, !tbaa !245
   %406 = ptrtoint ptr %405 to i64
   %407 = and i64 %406, -8
@@ -1827,7 +1827,7 @@ thread-pre-split.i.i.i:                           ; preds = %.thread223.i.i.i, %
 512:                                              ; preds = %_ZN12_GLOBAL__N_124uninterp_const_collectorclEP3app.exit.i.i.i, %.lr.ph.i.i.i
   %513 = phi i32 [ %509, %.lr.ph.i.i.i ], [ %623, %_ZN12_GLOBAL__N_124uninterp_const_collectorclEP3app.exit.i.i.i ]
   %514 = zext i32 %513 to i64
-  %515 = getelementptr inbounds nuw [0 x ptr], ptr %511, i64 0, i64 %514
+  %515 = getelementptr inbounds nuw ptr, ptr %511, i64 %514
   %516 = load ptr, ptr %515, align 8, !tbaa !225
   %517 = add nuw i32 %513, 1
   store i32 %517, ptr %508, align 8, !tbaa !308
@@ -3177,7 +3177,7 @@ thread-pre-split.i.i.i:                           ; preds = %.thread203.i.i.i, %
 37:                                               ; preds = %_ZN12_GLOBAL__N_113term_ite_procclEP4expr.exit.i.i.i, %.lr.ph.i.i.i
   %38 = phi i32 [ %34, %.lr.ph.i.i.i ], [ %126, %_ZN12_GLOBAL__N_113term_ite_procclEP4expr.exit.i.i.i ]
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !225
   %42 = add nuw i32 %38, 1
   store i32 %42, ptr %33, align 8, !tbaa !308

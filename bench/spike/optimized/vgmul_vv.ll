@@ -323,7 +323,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vgmul_vvP1
 
 138:                                              ; preds = %134, %138
   %.0110139 = phi i64 [ 0, %134 ], [ %156, %138 ]
-  %139 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %139 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %140 = load i32, ptr %139, align 4, !tbaa !151
   %141 = shl i32 %140, 1
   %142 = and i32 %141, -1431655766
@@ -356,7 +356,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vgmul_vvP1
 
 158:                                              ; preds = %137, %158
   %.0109140 = phi i64 [ 0, %137 ], [ %176, %158 ]
-  %159 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %159 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %160 = load i32, ptr %159, align 4, !tbaa !151
   %161 = shl i32 %160, 1
   %162 = and i32 %161, -1431655766
@@ -386,7 +386,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vgmul_vvP1
   %181 = phi i32 [ %.promoted144, %157 ], [ %217, %216 ]
   %182 = lshr i32 %.0108145, 5
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %5, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !151
   %186 = zext i32 %185 to i64
   %187 = and i32 %.0108145, 31
@@ -398,9 +398,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vgmul_vvP1
 
 .preheader:                                       ; preds = %177, %.preheader
   %.0107141 = phi i64 [ %196, %.preheader ], [ 0, %177 ]
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
-  %193 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %193 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %194 = load i32, ptr %193, align 4, !tbaa !151
   %195 = xor i32 %194, %192
   store i32 %195, ptr %193, align 4, !tbaa !151
@@ -456,7 +456,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vgmul_vvP1
 
 .preheader138:                                    ; preds = %216, %.preheader138
   %.0146 = phi i64 [ %238, %.preheader138 ], [ 0, %216 ]
-  %221 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %221 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %222 = load i32, ptr %221, align 4, !tbaa !151
   %223 = shl i32 %222, 1
   %224 = and i32 %223, -1431655766
@@ -844,7 +844,7 @@ define noundef i64 @_Z19fast_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 136:                                              ; preds = %132, %136
   %.0110139 = phi i64 [ 0, %132 ], [ %154, %136 ]
-  %137 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %137 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %138 = load i32, ptr %137, align 4, !tbaa !151
   %139 = shl i32 %138, 1
   %140 = and i32 %139, -1431655766
@@ -877,7 +877,7 @@ define noundef i64 @_Z19fast_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 156:                                              ; preds = %135, %156
   %.0109140 = phi i64 [ 0, %135 ], [ %174, %156 ]
-  %157 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %157 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %158 = load i32, ptr %157, align 4, !tbaa !151
   %159 = shl i32 %158, 1
   %160 = and i32 %159, -1431655766
@@ -907,7 +907,7 @@ define noundef i64 @_Z19fast_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
   %179 = phi i32 [ %.promoted144, %155 ], [ %215, %214 ]
   %180 = lshr i32 %.0108145, 5
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr %5, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !151
   %184 = zext i32 %183 to i64
   %185 = and i32 %.0108145, 31
@@ -919,9 +919,9 @@ define noundef i64 @_Z19fast_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 .preheader:                                       ; preds = %175, %.preheader
   %.0107141 = phi i64 [ %194, %.preheader ], [ 0, %175 ]
-  %189 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %189 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %190 = load i32, ptr %189, align 4, !tbaa !151
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
   %193 = xor i32 %192, %190
   store i32 %193, ptr %191, align 4, !tbaa !151
@@ -977,7 +977,7 @@ define noundef i64 @_Z19fast_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 .preheader138:                                    ; preds = %214, %.preheader138
   %.0146 = phi i64 [ %236, %.preheader138 ], [ 0, %214 ]
-  %219 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %219 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %220 = load i32, ptr %219, align 4, !tbaa !151
   %221 = shl i32 %220, 1
   %222 = and i32 %221, -1431655766
@@ -1254,7 +1254,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vgmul_vv
 
 138:                                              ; preds = %134, %138
   %.0110139 = phi i64 [ 0, %134 ], [ %156, %138 ]
-  %139 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %139 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %140 = load i32, ptr %139, align 4, !tbaa !151
   %141 = shl i32 %140, 1
   %142 = and i32 %141, -1431655766
@@ -1287,7 +1287,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vgmul_vv
 
 158:                                              ; preds = %137, %158
   %.0109140 = phi i64 [ 0, %137 ], [ %176, %158 ]
-  %159 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %159 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %160 = load i32, ptr %159, align 4, !tbaa !151
   %161 = shl i32 %160, 1
   %162 = and i32 %161, -1431655766
@@ -1317,7 +1317,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vgmul_vv
   %181 = phi i32 [ %.promoted144, %157 ], [ %217, %216 ]
   %182 = lshr i32 %.0108145, 5
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %5, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !151
   %186 = zext i32 %185 to i64
   %187 = and i32 %.0108145, 31
@@ -1329,9 +1329,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vgmul_vv
 
 .preheader:                                       ; preds = %177, %.preheader
   %.0107141 = phi i64 [ %196, %.preheader ], [ 0, %177 ]
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
-  %193 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %193 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %194 = load i32, ptr %193, align 4, !tbaa !151
   %195 = xor i32 %194, %192
   store i32 %195, ptr %193, align 4, !tbaa !151
@@ -1387,7 +1387,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vgmul_vv
 
 .preheader138:                                    ; preds = %216, %.preheader138
   %.0146 = phi i64 [ %238, %.preheader138 ], [ 0, %216 ]
-  %221 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %221 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %222 = load i32, ptr %221, align 4, !tbaa !151
   %223 = shl i32 %222, 1
   %224 = and i32 %223, -1431655766
@@ -1662,7 +1662,7 @@ define noundef i64 @_Z21logged_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 136:                                              ; preds = %132, %136
   %.0110139 = phi i64 [ 0, %132 ], [ %154, %136 ]
-  %137 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %137 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %138 = load i32, ptr %137, align 4, !tbaa !151
   %139 = shl i32 %138, 1
   %140 = and i32 %139, -1431655766
@@ -1695,7 +1695,7 @@ define noundef i64 @_Z21logged_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 156:                                              ; preds = %135, %156
   %.0109140 = phi i64 [ 0, %135 ], [ %174, %156 ]
-  %157 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %157 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %158 = load i32, ptr %157, align 4, !tbaa !151
   %159 = shl i32 %158, 1
   %160 = and i32 %159, -1431655766
@@ -1725,7 +1725,7 @@ define noundef i64 @_Z21logged_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef 
   %179 = phi i32 [ %.promoted144, %155 ], [ %215, %214 ]
   %180 = lshr i32 %.0108145, 5
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr %5, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !151
   %184 = zext i32 %183 to i64
   %185 = and i32 %.0108145, 31
@@ -1737,9 +1737,9 @@ define noundef i64 @_Z21logged_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 .preheader:                                       ; preds = %175, %.preheader
   %.0107141 = phi i64 [ %194, %.preheader ], [ 0, %175 ]
-  %189 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %189 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %190 = load i32, ptr %189, align 4, !tbaa !151
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
   %193 = xor i32 %192, %190
   store i32 %193, ptr %191, align 4, !tbaa !151
@@ -1795,7 +1795,7 @@ define noundef i64 @_Z21logged_rv64i_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 .preheader138:                                    ; preds = %214, %.preheader138
   %.0146 = phi i64 [ %236, %.preheader138 ], [ 0, %214 ]
-  %219 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %219 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %220 = load i32, ptr %219, align 4, !tbaa !151
   %221 = shl i32 %220, 1
   %222 = and i32 %221, -1431655766
@@ -2072,7 +2072,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vgmul_vvP1
 
 138:                                              ; preds = %134, %138
   %.0110139 = phi i64 [ 0, %134 ], [ %156, %138 ]
-  %139 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %139 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %140 = load i32, ptr %139, align 4, !tbaa !151
   %141 = shl i32 %140, 1
   %142 = and i32 %141, -1431655766
@@ -2105,7 +2105,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vgmul_vvP1
 
 158:                                              ; preds = %137, %158
   %.0109140 = phi i64 [ 0, %137 ], [ %176, %158 ]
-  %159 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %159 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %160 = load i32, ptr %159, align 4, !tbaa !151
   %161 = shl i32 %160, 1
   %162 = and i32 %161, -1431655766
@@ -2135,7 +2135,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vgmul_vvP1
   %181 = phi i32 [ %.promoted144, %157 ], [ %217, %216 ]
   %182 = lshr i32 %.0108145, 5
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %5, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !151
   %186 = zext i32 %185 to i64
   %187 = and i32 %.0108145, 31
@@ -2147,9 +2147,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vgmul_vvP1
 
 .preheader:                                       ; preds = %177, %.preheader
   %.0107141 = phi i64 [ %196, %.preheader ], [ 0, %177 ]
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
-  %193 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %193 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %194 = load i32, ptr %193, align 4, !tbaa !151
   %195 = xor i32 %194, %192
   store i32 %195, ptr %193, align 4, !tbaa !151
@@ -2205,7 +2205,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vgmul_vvP1
 
 .preheader138:                                    ; preds = %216, %.preheader138
   %.0146 = phi i64 [ %238, %.preheader138 ], [ 0, %216 ]
-  %221 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %221 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %222 = load i32, ptr %221, align 4, !tbaa !151
   %223 = shl i32 %222, 1
   %224 = and i32 %223, -1431655766
@@ -2480,7 +2480,7 @@ define noundef i64 @_Z19fast_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 136:                                              ; preds = %132, %136
   %.0110139 = phi i64 [ 0, %132 ], [ %154, %136 ]
-  %137 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %137 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %138 = load i32, ptr %137, align 4, !tbaa !151
   %139 = shl i32 %138, 1
   %140 = and i32 %139, -1431655766
@@ -2513,7 +2513,7 @@ define noundef i64 @_Z19fast_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 156:                                              ; preds = %135, %156
   %.0109140 = phi i64 [ 0, %135 ], [ %174, %156 ]
-  %157 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %157 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %158 = load i32, ptr %157, align 4, !tbaa !151
   %159 = shl i32 %158, 1
   %160 = and i32 %159, -1431655766
@@ -2543,7 +2543,7 @@ define noundef i64 @_Z19fast_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
   %179 = phi i32 [ %.promoted144, %155 ], [ %215, %214 ]
   %180 = lshr i32 %.0108145, 5
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr %5, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !151
   %184 = zext i32 %183 to i64
   %185 = and i32 %.0108145, 31
@@ -2555,9 +2555,9 @@ define noundef i64 @_Z19fast_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 .preheader:                                       ; preds = %175, %.preheader
   %.0107141 = phi i64 [ %194, %.preheader ], [ 0, %175 ]
-  %189 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %189 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %190 = load i32, ptr %189, align 4, !tbaa !151
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
   %193 = xor i32 %192, %190
   store i32 %193, ptr %191, align 4, !tbaa !151
@@ -2613,7 +2613,7 @@ define noundef i64 @_Z19fast_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef %0
 
 .preheader138:                                    ; preds = %214, %.preheader138
   %.0146 = phi i64 [ %236, %.preheader138 ], [ 0, %214 ]
-  %219 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %219 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %220 = load i32, ptr %219, align 4, !tbaa !151
   %221 = shl i32 %220, 1
   %222 = and i32 %221, -1431655766
@@ -2890,7 +2890,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vgmul_vv
 
 138:                                              ; preds = %134, %138
   %.0110139 = phi i64 [ 0, %134 ], [ %156, %138 ]
-  %139 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %139 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %140 = load i32, ptr %139, align 4, !tbaa !151
   %141 = shl i32 %140, 1
   %142 = and i32 %141, -1431655766
@@ -2923,7 +2923,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vgmul_vv
 
 158:                                              ; preds = %137, %158
   %.0109140 = phi i64 [ 0, %137 ], [ %176, %158 ]
-  %159 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %159 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %160 = load i32, ptr %159, align 4, !tbaa !151
   %161 = shl i32 %160, 1
   %162 = and i32 %161, -1431655766
@@ -2953,7 +2953,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vgmul_vv
   %181 = phi i32 [ %.promoted144, %157 ], [ %217, %216 ]
   %182 = lshr i32 %.0108145, 5
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %5, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !151
   %186 = zext i32 %185 to i64
   %187 = and i32 %.0108145, 31
@@ -2965,9 +2965,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vgmul_vv
 
 .preheader:                                       ; preds = %177, %.preheader
   %.0107141 = phi i64 [ %196, %.preheader ], [ 0, %177 ]
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
-  %193 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %193 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %194 = load i32, ptr %193, align 4, !tbaa !151
   %195 = xor i32 %194, %192
   store i32 %195, ptr %193, align 4, !tbaa !151
@@ -3023,7 +3023,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vgmul_vv
 
 .preheader138:                                    ; preds = %216, %.preheader138
   %.0146 = phi i64 [ %238, %.preheader138 ], [ 0, %216 ]
-  %221 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %221 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %222 = load i32, ptr %221, align 4, !tbaa !151
   %223 = shl i32 %222, 1
   %224 = and i32 %223, -1431655766
@@ -3298,7 +3298,7 @@ define noundef i64 @_Z21logged_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 136:                                              ; preds = %132, %136
   %.0110139 = phi i64 [ 0, %132 ], [ %154, %136 ]
-  %137 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %.0110139
+  %137 = getelementptr inbounds nuw i32, ptr %5, i64 %.0110139
   %138 = load i32, ptr %137, align 4, !tbaa !151
   %139 = shl i32 %138, 1
   %140 = and i32 %139, -1431655766
@@ -3331,7 +3331,7 @@ define noundef i64 @_Z21logged_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 156:                                              ; preds = %135, %156
   %.0109140 = phi i64 [ 0, %135 ], [ %174, %156 ]
-  %157 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0109140
+  %157 = getelementptr inbounds nuw i32, ptr %6, i64 %.0109140
   %158 = load i32, ptr %157, align 4, !tbaa !151
   %159 = shl i32 %158, 1
   %160 = and i32 %159, -1431655766
@@ -3361,7 +3361,7 @@ define noundef i64 @_Z21logged_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef 
   %179 = phi i32 [ %.promoted144, %155 ], [ %215, %214 ]
   %180 = lshr i32 %.0108145, 5
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr %5, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !151
   %184 = zext i32 %183 to i64
   %185 = and i32 %.0108145, 31
@@ -3373,9 +3373,9 @@ define noundef i64 @_Z21logged_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 .preheader:                                       ; preds = %175, %.preheader
   %.0107141 = phi i64 [ %194, %.preheader ], [ 0, %175 ]
-  %189 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.0107141
+  %189 = getelementptr inbounds nuw i32, ptr %6, i64 %.0107141
   %190 = load i32, ptr %189, align 4, !tbaa !151
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0107141
+  %191 = getelementptr inbounds nuw i32, ptr %7, i64 %.0107141
   %192 = load i32, ptr %191, align 4, !tbaa !151
   %193 = xor i32 %192, %190
   store i32 %193, ptr %191, align 4, !tbaa !151
@@ -3431,7 +3431,7 @@ define noundef i64 @_Z21logged_rv64e_vgmul_vvP11processor_t6insn_tm(ptr noundef 
 
 .preheader138:                                    ; preds = %214, %.preheader138
   %.0146 = phi i64 [ %236, %.preheader138 ], [ 0, %214 ]
-  %219 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.0146
+  %219 = getelementptr inbounds nuw i32, ptr %7, i64 %.0146
   %220 = load i32, ptr %219, align 4, !tbaa !151
   %221 = shl i32 %220, 1
   %222 = and i32 %221, -1431655766

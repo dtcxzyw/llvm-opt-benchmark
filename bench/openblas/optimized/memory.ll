@@ -329,7 +329,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 
 24:                                               ; preds = %28, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load volatile i32, ptr %26, align 16, !tbaa !8
   %.not49 = icmp eq i32 %27, 0
@@ -502,9 +502,9 @@ define internal ptr @alloc_mmap(ptr noundef %0) #0 {
 
 11:                                               ; preds = %7
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %12
+  %13 = getelementptr inbounds %struct.release_t, ptr @release_info, i64 %12
   store ptr %.0, ptr %13, align 8, !tbaa !32
-  %14 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %12, i32 1
+  %14 = getelementptr inbounds %struct.release_t, ptr @release_info, i64 %12, i32 1
   store ptr @alloc_mmap_free, ptr %14, align 8, !tbaa !34
   br label %.split
 
@@ -545,9 +545,9 @@ define internal noundef nonnull ptr @alloc_malloc(ptr readnone captures(none) %0
 
 7:                                                ; preds = %4
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.release_t, ptr @release_info, i64 %8
   store ptr %spec.store.select, ptr %9, align 8, !tbaa !32
-  %10 = getelementptr inbounds [50 x %struct.release_t], ptr @release_info, i64 0, i64 %8, i32 1
+  %10 = getelementptr inbounds %struct.release_t, ptr @release_info, i64 %8, i32 1
   store ptr @alloc_malloc_free, ptr %10, align 8, !tbaa !34
   br label %17
 
@@ -594,7 +594,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %4 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %indvars.iv, i32 1
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %indvars.iv, i32 1
   %5 = load volatile ptr, ptr %4, align 8, !tbaa !19
   %.not = icmp eq ptr %5, %0
   br i1 %.not, label %.thread, label %6
@@ -641,7 +641,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 .thread:                                          ; preds = %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !38
   %18 = and i64 %indvars.iv, 4294967295
-  %19 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %18, i32 2
+  %19 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %18, i32 2
   store volatile i32 0, ptr %19, align 16, !tbaa !8
   br label %22
 
@@ -684,7 +684,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
   br i1 %5, label %6, label %10, !prof !31
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw [50 x %struct.release_t], ptr @release_info, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.release_t, ptr @release_info, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !34
   tail call void %9(ptr noundef nonnull %7) #15
@@ -711,7 +711,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
 
 .preheader17:                                     ; preds = %.preheader17.preheader, %.preheader17
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader17 ], [ 0, %.preheader17.preheader ]
-  %20 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %indvars.iv22
+  %20 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %indvars.iv22
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store volatile ptr null, ptr %21, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16

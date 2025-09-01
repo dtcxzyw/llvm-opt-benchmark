@@ -331,7 +331,7 @@ freeUsershape.exit.i:                             ; preds = %48, %46
 
 .preheader59.i.i:                                 ; preds = %53, %56
   %.03360.i.i = phi i64 [ %57, %56 ], [ 0, %53 ]
-  %58 = getelementptr inbounds nuw [10 x %struct.knowntype_t], ptr @knowntypes, i64 0, i64 %.03360.i.i
+  %58 = getelementptr inbounds nuw %struct.knowntype_t, ptr @knowntypes, i64 %.03360.i.i
   %59 = load ptr, ptr %58, align 16, !tbaa !59
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !61
@@ -1272,7 +1272,7 @@ gv_calloc.exit.i.i:                               ; preds = %.thread.i
 
 .thread35.i:                                      ; preds = %agxbsizeof.exit.thread.i
   %47 = zext nneg i8 %.val.i.i to i64
-  %48 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
   store i8 %21, ptr %48, align 1, !tbaa !30
   %49 = load i8, ptr %9, align 1, !tbaa !30
   %50 = add i8 %49, 1
@@ -1381,7 +1381,7 @@ gv_calloc.exit.i.i116:                            ; preds = %.thread.i115
 
 .thread35.i122:                                   ; preds = %agxbsizeof.exit.thread.i113
   %82 = zext nneg i8 %.val.i to i64
-  %83 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 %82
   store i8 0, ptr %83, align 1, !tbaa !30
   %84 = load i8, ptr %9, align 1, !tbaa !30
   %85 = add i8 %84, 1

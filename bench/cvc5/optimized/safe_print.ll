@@ -89,7 +89,7 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit19: ; preds = %11
   %16 = urem i64 %.121, 10
   %17 = trunc nuw nsw i64 %16 to i8
   %18 = or disjoint i8 %17, 48
-  %19 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01620
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.01620
   store i8 %18, ptr %19, align 1, !tbaa !15
   %20 = udiv i64 %.121, 10
   %21 = add nsw i64 %.01620, -1
@@ -150,7 +150,7 @@ define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %0, ptr noundef
   %9 = urem i64 %.016, 10
   %10 = trunc nuw nsw i64 %9 to i8
   %11 = or disjoint i8 %10, 48
-  %12 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01315
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.01315
   store i8 %11, ptr %12, align 1, !tbaa !15
   %13 = udiv i64 %.016, 10
   %14 = add nsw i64 %.01315, -1
@@ -203,7 +203,7 @@ define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %0, ptr noundef
   %10 = urem i64 %.016.i, 10
   %11 = trunc nuw nsw i64 %10 to i8
   %12 = or disjoint i8 %11, 48
-  %13 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01315.i
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.01315.i
   store i8 %12, ptr %13, align 1, !tbaa !15
   %14 = udiv i64 %.016.i, 10
   %15 = add nsw i64 %.01315.i, -1
@@ -271,7 +271,7 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   %18 = fmul double %.1, 1.000000e+01
   %19 = fptosi double %18 to i8
   %20 = add i8 %19, 48
-  %21 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.019
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %.019
   store i8 %20, ptr %21, align 1, !tbaa !15
   %22 = sitofp i8 %19 to double
   %23 = fsub double %18, %22
@@ -376,7 +376,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %2
   %14 = or disjoint i8 %13, 48
   %15 = add nuw nsw i8 %13, 87
   %.sink = select i1 %12, i8 %14, i8 %15
-  %16 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.01822
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.01822
   store i8 %.sink, ptr %16, align 1, !tbaa !15
   %17 = lshr i64 %.023, 4
   %18 = add nsw i64 %.01822, -1
@@ -426,7 +426,7 @@ define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %0, ptr
   %10 = urem i64 %.016.i, 10
   %11 = trunc nuw nsw i64 %10 to i8
   %12 = or disjoint i8 %11, 48
-  %13 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.01315.i
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.01315.i
   store i8 %12, ptr %13, align 1, !tbaa !15
   %14 = udiv i64 %.016.i, 10
   %15 = add nsw i64 %.01315.i, -1
@@ -472,7 +472,7 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   %29 = urem i64 %.01720.i, 10
   %30 = trunc nuw nsw i64 %29 to i8
   %31 = or disjoint i8 %30, 48
-  %32 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %.0.i
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
   store i8 %31, ptr %32, align 1, !tbaa !15
   %33 = udiv i64 %.01720.i, 10
   %34 = icmp ugt i64 %.01720.i, 9
@@ -514,7 +514,7 @@ define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef 
   %7 = urem i64 %.01720, 10
   %8 = trunc nuw nsw i64 %7 to i8
   %9 = or disjoint i8 %8, 48
-  %10 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.0
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.0
   store i8 %9, ptr %10, align 1, !tbaa !15
   %11 = udiv i64 %.01720, 10
   %12 = icmp ugt i64 %.01720, 9

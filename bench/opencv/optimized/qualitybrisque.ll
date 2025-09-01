@@ -2548,8 +2548,8 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit140:        ; preds = %_ZNSt6vectorIfSaIfE
   %237 = phi double [ %.promoted, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit140 ], [ %312, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit180 ]
   %238 = phi double [ %.promoted239, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit140 ], [ %314, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit180 ]
   %.066.lcssa.i252262 = phi double [ %.promoted251, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit140 ], [ %.066.lcssa.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit180 ]
-  %239 = add nsw i64 %indvars.iv331, -1
-  %240 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @__const._ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE.shifts, i64 0, i64 %239
+  %239 = getelementptr [2 x i32], ptr @__const._ZN12_GLOBAL__N_121ComputeBrisqueFeatureERKN2cv3MatE.shifts, i64 %indvars.iv331
+  %240 = getelementptr i8, ptr %239, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %241 = load ptr, ptr %110, align 8, !tbaa !79
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
@@ -2570,7 +2570,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit140:        ; preds = %_ZNSt6vectorIfSaIfE
 .preheader.lr.ph:                                 ; preds = %.preheader196
   %247 = load i32, ptr %112, align 4, !tbaa !74
   %248 = icmp sgt i32 %247, 0
-  %249 = getelementptr inbounds nuw i8, ptr %240, i64 4
+  %249 = getelementptr i8, ptr %239, i64 -4
   br i1 %248, label %.preheader.lr.ph.split.us, label %._crit_edge225
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph

@@ -326,7 +326,7 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   %8 = load i8, ptr %5, align 1, !tbaa !4
   %9 = zext i8 %8 to i32
   %10 = zext i8 %8 to i64
-  %11 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %10
+  %11 = getelementptr i32, ptr @_Py_ctype_table, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = and i32 %12, 3
   %.not = icmp eq i32 %13, 0

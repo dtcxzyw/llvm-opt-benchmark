@@ -4014,7 +4014,7 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
 
 .preheader.i.i:                                   ; preds = %210, %236
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %236 ], [ 0, %210 ]
-  %222 = getelementptr inbounds nuw [30 x %struct.signv], ptr @sig_name_num, i64 0, i64 %indvars.iv.i.i
+  %222 = getelementptr inbounds nuw %struct.signv, ptr @sig_name_num, i64 %indvars.iv.i.i
   %223 = load ptr, ptr %222, align 16
   %224 = call i32 @xstrcasecmp(ptr noundef %223, ptr noundef %213) #17
   %225 = icmp eq i32 %224, 0
@@ -7095,7 +7095,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %415 = load ptr, ptr %414, align 8
   %416 = load i32, ptr %0, align 8
   %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds [0 x ptr], ptr @sview_colors, i64 0, i64 %417
+  %418 = getelementptr inbounds ptr, ptr @sview_colors, i64 %417
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds nuw i8, ptr %51, i64 152
   %421 = load ptr, ptr %420, align 8
@@ -7124,7 +7124,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %438 = load ptr, ptr %437, align 8
   %439 = load i32, ptr %0, align 8
   %440 = sext i32 %439 to i64
-  %441 = getelementptr inbounds [0 x ptr], ptr @sview_colors, i64 0, i64 %440
+  %441 = getelementptr inbounds ptr, ptr @sview_colors, i64 %440
   %442 = load ptr, ptr %441, align 8
   %443 = getelementptr inbounds nuw i8, ptr %51, i64 152
   %444 = load ptr, ptr %443, align 8
@@ -7842,7 +7842,7 @@ _stepstr_from_step.exit:                          ; preds = %58, %59, %60, %61, 
   %81 = load i32, ptr %80, align 8
   %82 = call ptr @uid_to_string_cached(i32 noundef %81) #17
   %83 = sext i32 %79 to i64
-  %84 = getelementptr inbounds [0 x ptr], ptr @sview_colors, i64 0, i64 %83
+  %84 = getelementptr inbounds ptr, ptr @sview_colors, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %87 = load ptr, ptr %86, align 8

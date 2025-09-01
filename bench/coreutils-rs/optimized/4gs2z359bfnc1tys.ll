@@ -545,7 +545,7 @@ _ZN4core3ptr19swap_nonoverlapping17hc2e69355eb0f5fdcE.exit.i: ; preds = %217, %4
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr %26, align 8, !noalias !42, !nonnull !7, !noundef !7
-  %160 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %159, i64 0, i64 %.063.lcssa302.i
+  %160 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %159, i64 %.063.lcssa302.i
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 37
@@ -676,7 +676,7 @@ _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit.i.i: ; pr
 
 223:                                              ; preds = %121
   %224 = load ptr, ptr %26, align 8, !noalias !42, !nonnull !7, !noundef !7
-  %225 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %224, i64 0, i64 %123
+  %225 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %224, i64 %123
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load i64, ptr %226, align 8, !noalias !42, !noundef !7
   %228 = sub i64 %227, %.061.i

@@ -147,7 +147,7 @@ Abc_Clock.exit.._crit_edge_crit_edge:             ; preds = %Abc_Clock.exit
   %46 = zext i1 %45 to i32
   %spec.select = shl i32 %42, %46
   store i32 %spec.select, ptr %44, align 4, !tbaa !39
-  %47 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr @s_FraigPrimes, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !39
   %49 = mul i32 %48, %spec.select
   %50 = load i32, ptr %39, align 8, !tbaa !38
@@ -181,7 +181,7 @@ Abc_Clock.exit.._crit_edge_crit_edge:             ; preds = %Abc_Clock.exit
   %66 = load ptr, ptr %15, align 8, !tbaa !32
   %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv62
   store i32 %65, ptr %67, align 4, !tbaa !39
-  %68 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv62
+  %68 = getelementptr inbounds nuw i32, ptr @s_FraigPrimes, i64 %indvars.iv62
   %69 = load i32, ptr %68, align 4, !tbaa !39
   %70 = mul i32 %69, %65
   %71 = load i32, ptr %61, align 4, !tbaa !42
@@ -508,7 +508,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %62 = or i32 %61, %59
   %63 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv251
   store i32 %62, ptr %63, align 4, !tbaa !39
-  %64 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv251
+  %64 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv251
   %65 = load i32, ptr %64, align 4, !tbaa !39
   %66 = mul i32 %65, %62
   %67 = xor i32 %66, %.0147203
@@ -527,7 +527,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %73 = xor i32 %72, -1
   %74 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv256
   store i32 %73, ptr %74, align 4, !tbaa !39
-  %75 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv256
+  %75 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv256
   %76 = load i32, ptr %75, align 4, !tbaa !39
   %77 = mul i32 %76, %73
   %78 = xor i32 %77, %.1148207
@@ -572,7 +572,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %90 = or i32 %86, %89
   %91 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   store i32 %90, ptr %91, align 4, !tbaa !39
-  %92 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4, !tbaa !39
   %94 = mul i32 %93, %90
   %95 = xor i32 %94, %.3150181
@@ -591,7 +591,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %101 = and i32 %100, %98
   %102 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv226
   store i32 %101, ptr %102, align 4, !tbaa !39
-  %103 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv226
+  %103 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv226
   %104 = load i32, ptr %103, align 4, !tbaa !39
   %105 = mul i32 %104, %101
   %106 = xor i32 %105, %.4151183
@@ -635,7 +635,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %117 = or i32 %116, %114
   %118 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv241
   store i32 %117, ptr %118, align 4, !tbaa !39
-  %119 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv241
+  %119 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv241
   %120 = load i32, ptr %119, align 4, !tbaa !39
   %121 = mul i32 %120, %117
   %122 = xor i32 %121, %.5152195
@@ -654,7 +654,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %128 = and i32 %124, %127
   %129 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv246
   store i32 %128, ptr %129, align 4, !tbaa !39
-  %130 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv246
+  %130 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv246
   %131 = load i32, ptr %130, align 4, !tbaa !39
   %132 = mul i32 %131, %128
   %133 = xor i32 %132, %.6153199
@@ -692,7 +692,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %142 = xor i32 %141, -1
   %143 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv231
   store i32 %142, ptr %143, align 4, !tbaa !39
-  %144 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv231
+  %144 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv231
   %145 = load i32, ptr %144, align 4, !tbaa !39
   %146 = mul i32 %145, %142
   %147 = xor i32 %146, %.7154187
@@ -710,7 +710,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %152 = and i32 %151, %149
   %153 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv236
   store i32 %152, ptr %153, align 4, !tbaa !39
-  %154 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv236
+  %154 = getelementptr inbounds i32, ptr @s_FraigPrimes, i64 %indvars.iv236
   %155 = load i32, ptr %154, align 4, !tbaa !39
   %156 = mul i32 %155, %152
   %157 = xor i32 %156, %.8191

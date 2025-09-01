@@ -216,10 +216,10 @@ define dso_local { ptr, i64 } @_ZN4llvm20getEHPersonalityNameENS_13EHPersonality
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN4llvm20getEHPersonalityNameENS_13EHPersonalityE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm20getEHPersonalityNameENS_13EHPersonalityE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN4llvm20getEHPersonalityNameENS_13EHPersonalityE.1, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm20getEHPersonalityNameENS_13EHPersonalityE.1, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

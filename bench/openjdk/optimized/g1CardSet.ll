@@ -780,7 +780,7 @@ define hidden noundef ptr @_ZN22G1CardSetConfiguration24mem_object_alloc_options
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN22G1CardSetConfiguration24mem_object_type_name_strEj.names, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._ZN22G1CardSetConfiguration24mem_object_type_name_strEj.names, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -799,13 +799,13 @@ define hidden void @_ZN21G1CardSetCoarsenStats3setERS_(ptr noundef nonnull write
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [7 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw [7 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds nuw [7 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw [7 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -823,15 +823,15 @@ define hidden void @_ZN21G1CardSetCoarsenStats13subtract_fromERS_(ptr noundef no
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [7 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw [7 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %7, %9
   store i64 %10, ptr %8, align 8
-  %11 = getelementptr inbounds nuw [7 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw [7 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %15 = sub i64 %12, %14
   store i64 %15, ptr %13, align 8
@@ -846,13 +846,13 @@ define hidden void @_ZN21G1CardSetCoarsenStats13subtract_fromERS_(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21G1CardSetCoarsenStats17record_coarseningEjb(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [7 x i64], ptr %0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %4
   %6 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %5) #19, !srcloc !9
   br i1 %2, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = getelementptr inbounds nuw [7 x i64], ptr %8, i64 0, i64 %4
+  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %4
   %10 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %9) #19, !srcloc !9
   br label %11
 
@@ -1497,12 +1497,12 @@ _ZN9G1CardSet17acquire_containerEPVPv.exit:       ; preds = %_ZN18G1CardSetConta
   %64 = and i32 %63, 3
   %65 = or disjoint i32 %64, 4
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [7 x i64], ptr @_ZN9G1CardSet14_coarsen_statsE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 %66
   %68 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %67) #19, !srcloc !9
   br i1 %61, label %.critedge, label %_ZN21G1CardSetCoarsenStats17record_coarseningEjb.exit
 
 _ZN21G1CardSetCoarsenStats17record_coarseningEjb.exit: ; preds = %60
-  %69 = getelementptr inbounds nuw [7 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 0, i64 %66
+  %69 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 %66
   %70 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %69) #19, !srcloc !9
   %71 = load ptr, ptr @_ZN9G1CardSet11FullCardSetE, align 8
   %72 = icmp eq ptr %58, %71
@@ -2807,12 +2807,12 @@ _ZN9G1CardSet17acquire_containerEPVPv.exit:       ; preds = %_ZN18G1CardSetConta
   %52 = trunc i64 %51 to i32
   %53 = and i32 %52, 3
   %54 = and i64 %51, 3
-  %55 = getelementptr inbounds nuw [7 x i64], ptr @_ZN9G1CardSet14_coarsen_statsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 %54
   %56 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %55) #19, !srcloc !9
   br i1 %50, label %.critedge, label %_ZN21G1CardSetCoarsenStats17record_coarseningEjb.exit
 
 _ZN21G1CardSetCoarsenStats17record_coarseningEjb.exit: ; preds = %49
-  %57 = getelementptr inbounds nuw [7 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 0, i64 %54
+  %57 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 %54
   %58 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %57) #19, !srcloc !9
   %59 = load ptr, ptr @_ZN9G1CardSet11FullCardSetE, align 8
   %60 = icmp eq ptr %47, %59
@@ -3712,15 +3712,15 @@ define hidden void @_ZN9G1CardSet19print_coarsen_statsEP12outputStream(ptr nound
 
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %3 = getelementptr inbounds nuw [7 x i64], ptr @_ZN9G1CardSet14_coarsen_statsE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw i64, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 %indvars.iv.i
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds nuw [7 x i64], ptr @_ZN9G1CardSet19_last_coarsen_statsE, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i64, ptr @_ZN9G1CardSet19_last_coarsen_statsE, i64 %indvars.iv.i
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %4, %6
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds nuw [7 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw [7 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet19_last_coarsen_statsE, i64 56), i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet19_last_coarsen_statsE, i64 56), i64 %indvars.iv.i
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
   store i64 %12, ptr %10, align 8
@@ -6624,7 +6624,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #19
@@ -7367,7 +7367,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -7384,7 +7384,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -7462,7 +7462,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -7506,7 +7506,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -7520,7 +7520,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -7586,7 +7586,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -7655,7 +7655,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #19
@@ -7921,7 +7921,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -7938,7 +7938,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -8016,7 +8016,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65

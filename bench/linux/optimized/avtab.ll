@@ -706,7 +706,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr noundef captures(none)
 82:                                               ; preds = %98, %76
   %83 = phi i64 [ 0, %76 ], [ %100, %98 ]
   %84 = phi i32 [ 4, %76 ], [ %99, %98 ]
-  %85 = getelementptr [9 x i16], ptr @spec_order, i64 0, i64 %83
+  %85 = getelementptr i16, ptr @spec_order, i64 %83
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = and i32 %59, %87
@@ -718,7 +718,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr noundef captures(none)
   store i16 %91, ptr %79, align 2
   %92 = add i32 %84, 1
   %93 = zext i32 %84 to i64
-  %94 = getelementptr [8 x i32], ptr %9, i64 0, i64 %93
+  %94 = getelementptr i32, ptr %9, i64 %93
   %95 = load i32, ptr %94, align 4
   store i32 %95, ptr %7, align 8
   %96 = call i32 %3(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4) #13

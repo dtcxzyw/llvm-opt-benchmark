@@ -6415,7 +6415,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_controls(ptr
 27:                                               ; preds = %52, %.preheader
   %28 = phi i1 [ true, %.preheader ], [ false, %52 ]
   %29 = phi i64 [ 0, %.preheader ], [ 1, %52 ]
-  %30 = getelementptr [2 x %struct.hda_pcm_stream], ptr %24, i64 0, i64 %29
+  %30 = getelementptr %struct.hda_pcm_stream, ptr %24, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !annotation !9
   %31 = load ptr, ptr %25, align 8
@@ -6742,7 +6742,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_parse_pcms(ptr nou
 19:                                               ; preds = %79, %.lr.ph
   %20 = phi i1 [ true, %.lr.ph ], [ false, %79 ]
   %21 = phi i64 [ 0, %.lr.ph ], [ 1, %79 ]
-  %22 = getelementptr [2 x %struct.hda_pcm_stream], ptr %18, i64 0, i64 %21
+  %22 = getelementptr %struct.hda_pcm_stream, ptr %18, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %79, label %25
@@ -6908,7 +6908,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr [4 x [5 x i32]], ptr @get_empty_pcm_device.audio_idx, i64 0, i64 %33
+  %34 = getelementptr [5 x i32], ptr @get_empty_pcm_device.audio_idx, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %46
 
@@ -6922,7 +6922,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
 40:                                               ; preds = %46
   %41 = add i32 %48, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr [5 x i32], ptr %34, i64 0, i64 %42
+  %43 = getelementptr i32, ptr %34, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = icmp ugt i32 %44, 7
   br i1 %45, label %53, label %46, !llvm.loop !63
@@ -6941,7 +6941,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
   %54 = load ptr, ptr %12, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 640
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr [4 x ptr], ptr @snd_hda_pcm_type_name, i64 0, i64 %33
+  %57 = getelementptr ptr, ptr @snd_hda_pcm_type_name, i64 %33
   %58 = load ptr, ptr %57, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %56, ptr noundef nonnull @.str.39, ptr noundef %58) #26
   %59 = load ptr, ptr %12, align 8
@@ -7375,7 +7375,7 @@ define dso_local noundef i32 @snd_hda_input_mux_info(ptr noundef readonly captur
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = zext i32 %13 to i64
-  %17 = getelementptr [36 x %struct.hda_input_mux_item], ptr %15, i64 0, i64 %16
+  %17 = getelementptr %struct.hda_input_mux_item, ptr %15, i64 %16
   %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef %17) #24
   br label %19
 
@@ -7936,7 +7936,7 @@ define dso_local noundef i32 @snd_hda_multi_out_analog_prepare(ptr noundef %0, p
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %.split
-  %89 = getelementptr [5 x i16], ptr %82, i64 0, i64 %85
+  %89 = getelementptr i16, ptr %82, i64 %85
   %90 = load i16, ptr %89, align 2
   %91 = icmp eq i16 %90, 0
   br i1 %91, label %93, label %92
@@ -7991,7 +7991,7 @@ define dso_local noundef i32 @snd_hda_multi_out_analog_prepare(ptr noundef %0, p
 
 119:                                              ; preds = %131, %.loopexit
   %120 = phi i64 [ 0, %.loopexit ], [ %133, %131 ]
-  %121 = getelementptr [5 x i16], ptr %96, i64 0, i64 %120
+  %121 = getelementptr i16, ptr %96, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = icmp eq i16 %122, 0
   br i1 %123, label %135, label %124
@@ -8060,7 +8060,7 @@ define dso_local noundef i32 @snd_hda_multi_out_analog_cleanup(ptr noundef %0, p
 
 22:                                               ; preds = %28, %18
   %23 = phi i64 [ 0, %18 ], [ %29, %28 ]
-  %24 = getelementptr [5 x i16], ptr %19, i64 0, i64 %23
+  %24 = getelementptr i16, ptr %19, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %28, label %27
@@ -8076,7 +8076,7 @@ define dso_local noundef i32 @snd_hda_multi_out_analog_cleanup(ptr noundef %0, p
 
 31:                                               ; preds = %37, %20
   %32 = phi i64 [ 0, %20 ], [ %38, %37 ]
-  %33 = getelementptr [5 x i16], ptr %21, i64 0, i64 %32
+  %33 = getelementptr i16, ptr %21, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %37, label %36
@@ -8175,7 +8175,7 @@ define dso_local range(i32 0, 6) i32 @snd_hda_get_default_vref(ptr noundef %0, i
 define dso_local i32 @snd_hda_correct_pin_ctl(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = icmp eq i32 %2, 0
-  br i1 %5, label %62, label %6
+  br i1 %5, label %61, label %6
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8186,7 +8186,7 @@ define dso_local i32 @snd_hda_correct_pin_ctl(ptr noundef %0, i16 noundef zeroex
   %10 = select i1 %9, i32 %8, i32 -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %62, label %12
+  br i1 %11, label %61, label %12
 
 12:                                               ; preds = %6
   %13 = and i32 %2, 64
@@ -8213,7 +8213,7 @@ define dso_local i32 @snd_hda_correct_pin_ctl(ptr noundef %0, i16 noundef zeroex
   %26 = phi i32 [ %19, %18 ], [ %2, %12 ], [ %24, %20 ]
   %27 = and i32 %26, 32
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %62, label %29
+  br i1 %28, label %61, label %29
 
 29:                                               ; preds = %25
   %30 = and i32 %10, 32
@@ -8222,7 +8222,7 @@ define dso_local i32 @snd_hda_correct_pin_ctl(ptr noundef %0, i16 noundef zeroex
 
 32:                                               ; preds = %29
   %33 = and i32 %26, -40
-  br label %62
+  br label %61
 
 34:                                               ; preds = %29
   %35 = lshr i32 %10, 8
@@ -8230,46 +8230,45 @@ define dso_local i32 @snd_hda_correct_pin_ctl(ptr noundef %0, i16 noundef zeroex
   %37 = and i32 %26, 7
   br label %38
 
-38:                                               ; preds = %55, %34
-  %39 = phi i64 [ 0, %34 ], [ %57, %55 ]
-  %40 = phi i32 [ %37, %34 ], [ %56, %55 ]
-  %41 = getelementptr [4 x [2 x i32]], ptr @snd_hda_correct_pin_ctl.cap_lists, i64 0, i64 %39
+38:                                               ; preds = %54, %34
+  %39 = phi i64 [ 0, %34 ], [ %56, %54 ]
+  %40 = phi i32 [ %37, %34 ], [ %55, %54 ]
+  %41 = getelementptr [2 x i32], ptr @snd_hda_correct_pin_ctl.cap_lists, i64 %39
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %40, %42
-  br i1 %43, label %44, label %55
+  br i1 %43, label %44, label %54
 
 44:                                               ; preds = %38
   %45 = getelementptr i8, ptr %41, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %36, %46
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %55
+  br i1 %48, label %49, label %54
 
 49:                                               ; preds = %44
   %50 = icmp eq i64 %39, 3
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %49
-  %52 = add nuw nsw i64 %39, 1
-  %53 = getelementptr [4 x [2 x i32]], ptr @snd_hda_correct_pin_ctl.cap_lists, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 8
-  br label %55
+  %52 = getelementptr i8, ptr %41, i64 8
+  %53 = load i32, ptr %52, align 8
+  br label %54
 
-55:                                               ; preds = %51, %44, %38
-  %56 = phi i32 [ %40, %44 ], [ %54, %51 ], [ %40, %38 ]
-  %57 = add nuw nsw i64 %39, 1
-  %58 = icmp eq i64 %57, 4
-  br i1 %58, label %.thread, label %38, !llvm.loop !85
+54:                                               ; preds = %51, %44, %38
+  %55 = phi i32 [ %40, %44 ], [ %53, %51 ], [ %40, %38 ]
+  %56 = add nuw nsw i64 %39, 1
+  %57 = icmp eq i64 %56, 4
+  br i1 %57, label %.thread, label %38, !llvm.loop !85
 
-.thread:                                          ; preds = %49, %55
-  %59 = phi i32 [ %56, %55 ], [ 0, %49 ]
-  %60 = and i32 %26, -8
-  %61 = or i32 %59, %60
-  br label %62
+.thread:                                          ; preds = %49, %54
+  %58 = phi i32 [ %55, %54 ], [ 0, %49 ]
+  %59 = and i32 %26, -8
+  %60 = or i32 %58, %59
+  br label %61
 
-62:                                               ; preds = %.thread, %32, %25, %6, %3
-  %63 = phi i32 [ 0, %3 ], [ %2, %6 ], [ %61, %.thread ], [ %33, %32 ], [ %26, %25 ]
-  ret i32 %63
+61:                                               ; preds = %.thread, %32, %25, %6, %3
+  %62 = phi i32 [ 0, %3 ], [ %2, %6 ], [ %60, %.thread ], [ %33, %32 ], [ %26, %25 ]
+  ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -8331,99 +8330,98 @@ define dso_local i32 @_snd_hda_set_pin_ctl(ptr noundef %0, i16 noundef zeroext %
   %38 = and i32 %27, 7
   br label %39
 
-39:                                               ; preds = %56, %35
-  %40 = phi i64 [ 0, %35 ], [ %58, %56 ]
-  %41 = phi i32 [ %38, %35 ], [ %57, %56 ]
-  %42 = getelementptr [4 x [2 x i32]], ptr @snd_hda_correct_pin_ctl.cap_lists, i64 0, i64 %40
+39:                                               ; preds = %55, %35
+  %40 = phi i64 [ 0, %35 ], [ %57, %55 ]
+  %41 = phi i32 [ %38, %35 ], [ %56, %55 ]
+  %42 = getelementptr [2 x i32], ptr @snd_hda_correct_pin_ctl.cap_lists, i64 %40
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %41, %43
-  br i1 %44, label %45, label %56
+  br i1 %44, label %45, label %55
 
 45:                                               ; preds = %39
   %46 = getelementptr i8, ptr %42, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %37, %47
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %56
+  br i1 %49, label %50, label %55
 
 50:                                               ; preds = %45
   %51 = icmp eq i64 %40, 3
   br i1 %51, label %.thread.i, label %52
 
 52:                                               ; preds = %50
-  %53 = add nuw nsw i64 %40, 1
-  %54 = getelementptr [4 x [2 x i32]], ptr @snd_hda_correct_pin_ctl.cap_lists, i64 0, i64 %53
-  %55 = load i32, ptr %54, align 8
-  br label %56
+  %53 = getelementptr i8, ptr %42, i64 8
+  %54 = load i32, ptr %53, align 8
+  br label %55
 
-56:                                               ; preds = %52, %45, %39
-  %57 = phi i32 [ %41, %45 ], [ %55, %52 ], [ %41, %39 ]
-  %58 = add nuw nsw i64 %40, 1
-  %59 = icmp eq i64 %58, 4
-  br i1 %59, label %.thread.i, label %39, !llvm.loop !85
+55:                                               ; preds = %52, %45, %39
+  %56 = phi i32 [ %41, %45 ], [ %54, %52 ], [ %41, %39 ]
+  %57 = add nuw nsw i64 %40, 1
+  %58 = icmp eq i64 %57, 4
+  br i1 %58, label %.thread.i, label %39, !llvm.loop !85
 
-.thread.i:                                        ; preds = %56, %50
-  %60 = phi i32 [ %57, %56 ], [ 0, %50 ]
-  %61 = and i32 %27, -8
-  %62 = or i32 %60, %61
+.thread.i:                                        ; preds = %55, %50
+  %59 = phi i32 [ %56, %55 ], [ 0, %50 ]
+  %60 = and i32 %27, -8
+  %61 = or i32 %59, %60
   br label %snd_hda_correct_pin_ctl.exit
 
 snd_hda_correct_pin_ctl.exit:                     ; preds = %4, %7, %26, %33, %.thread.i
-  %63 = phi i32 [ 0, %4 ], [ %2, %7 ], [ %62, %.thread.i ], [ %34, %33 ], [ %27, %26 ]
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1320
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %64, align 8
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.thread, label %69
+  %62 = phi i32 [ 0, %4 ], [ %2, %7 ], [ %61, %.thread.i ], [ %34, %33 ], [ %27, %26 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i32, ptr %63, align 8
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %.thread, label %68
 
-69:                                               ; preds = %snd_hda_correct_pin_ctl.exit
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  br label %71
+68:                                               ; preds = %snd_hda_correct_pin_ctl.exit
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  br label %70
 
-71:                                               ; preds = %76, %69
-  %72 = phi i32 [ 0, %69 ], [ %77, %76 ]
-  %73 = phi ptr [ %66, %69 ], [ %81, %76 ]
-  %74 = load i16, ptr %73, align 4
-  %75 = icmp eq i16 %74, %1
-  br i1 %75, label %83, label %76
+70:                                               ; preds = %75, %68
+  %71 = phi i32 [ 0, %68 ], [ %76, %75 ]
+  %72 = phi ptr [ %65, %68 ], [ %80, %75 ]
+  %73 = load i16, ptr %72, align 4
+  %74 = icmp eq i16 %73, %1
+  br i1 %74, label %82, label %75
 
-76:                                               ; preds = %71
-  %77 = add nuw i32 %72, 1
-  %78 = load i32, ptr %70, align 8
-  %79 = mul i32 %78, %77
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr i8, ptr %66, i64 %80
-  %82 = icmp eq i32 %77, %67
-  br i1 %82, label %.thread, label %71, !llvm.loop !16
+75:                                               ; preds = %70
+  %76 = add nuw i32 %71, 1
+  %77 = load i32, ptr %69, align 8
+  %78 = mul i32 %77, %76
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr i8, ptr %65, i64 %79
+  %81 = icmp eq i32 %76, %66
+  br i1 %81, label %.thread, label %70, !llvm.loop !16
 
-83:                                               ; preds = %71
-  %84 = icmp eq ptr %73, null
-  br i1 %84, label %.thread, label %85
+82:                                               ; preds = %70
+  %83 = icmp eq ptr %72, null
+  br i1 %83, label %.thread, label %84
 
-85:                                               ; preds = %83
-  %86 = trunc i32 %63 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %73, i64 3
-  store i8 %86, ptr %87, align 1
+84:                                               ; preds = %82
+  %85 = trunc i32 %62 to i8
+  %86 = getelementptr inbounds nuw i8, ptr %72, i64 3
+  store i8 %85, ptr %86, align 1
   br label %.thread
 
-.thread:                                          ; preds = %76, %snd_hda_correct_pin_ctl.exit, %85, %83
-  br i1 %3, label %88, label %93
+.thread:                                          ; preds = %75, %snd_hda_correct_pin_ctl.exit, %84, %82
+  br i1 %3, label %87, label %92
 
-88:                                               ; preds = %.thread
-  %89 = zext i16 %1 to i32
-  %90 = shl i32 %89, 20
-  %91 = or disjoint i32 %90, 984832
-  %92 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %91, i32 noundef %63) #24
-  br label %95
+87:                                               ; preds = %.thread
+  %88 = zext i16 %1 to i32
+  %89 = shl i32 %88, 20
+  %90 = or disjoint i32 %89, 984832
+  %91 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %90, i32 noundef %62) #24
+  br label %94
 
-93:                                               ; preds = %.thread
-  %94 = tail call i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, i32 noundef 1799, i32 noundef %63) #24
-  br label %95
+92:                                               ; preds = %.thread
+  %93 = tail call i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, i32 noundef 1799, i32 noundef %62) #24
+  br label %94
 
-95:                                               ; preds = %93, %88
-  %96 = phi i32 [ %92, %88 ], [ %94, %93 ]
-  ret i32 %96
+94:                                               ; preds = %92, %87
+  %95 = phi i32 [ %91, %87 ], [ %93, %92 ]
+  ret i32 %95
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -8449,7 +8447,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_imux_item(ptr nounde
 15:                                               ; preds = %15, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %10 ]
   %16 = phi i32 [ %21, %15 ], [ 0, %10 ]
-  %17 = getelementptr [36 x %struct.hda_input_mux_item], ptr %11, i64 0, i64 %indvars.iv
+  %17 = getelementptr %struct.hda_input_mux_item, ptr %11, i64 %indvars.iv
   %18 = tail call i32 @strncmp(ptr noundef %2, ptr noundef %17, i64 noundef %12) #24
   %19 = icmp eq i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -8473,7 +8471,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_imux_item(ptr nounde
   %28 = icmp sgt i32 %23, 0
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = zext i32 %27 to i64
-  %31 = getelementptr [36 x %struct.hda_input_mux_item], ptr %29, i64 0, i64 %30
+  %31 = getelementptr %struct.hda_input_mux_item, ptr %29, i64 %30
   br i1 %28, label %32, label %34
 
 32:                                               ; preds = %26
@@ -8807,7 +8805,7 @@ define dso_local void @snd_print_pcm_bits(i32 noundef %0, ptr noundef %1, i32 no
   %13 = getelementptr i8, ptr %1, i64 %12
   %14 = sub i32 %2, %6
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [5 x i32], ptr @snd_print_pcm_bits.bits, i64 0, i64 %5
+  %16 = getelementptr i32, ptr @snd_print_pcm_bits.bits, i64 %5
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %13, i64 noundef %15, ptr noundef nonnull @.str.27, i32 noundef %17) #24
   %19 = add i32 %18, %6

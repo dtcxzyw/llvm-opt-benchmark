@@ -755,7 +755,7 @@ define noundef range(i32 0, 11) i32 @_ZN6icu_776number4impl14stem_to_object12rou
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN6icu_776number4impl14stem_to_object12roundingModeENS1_8skeleton8StemEnumE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_776number4impl14stem_to_object12roundingModeENS1_8skeleton8StemEnumE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1538,7 +1538,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; pre
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %64
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %66) #18, !srcloc !26
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds [16 x i16], ptr %66, i64 0, i64 %67
+  %68 = getelementptr inbounds i16, ptr %66, i64 %67
   store i16 0, ptr %68, align 2, !tbaa !19
   %69 = sub nsw i32 %63, %49
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1548,7 +1548,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %64
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit38: ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %70) #18, !srcloc !26
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds [16 x i16], ptr %70, i64 0, i64 %71
+  %72 = getelementptr inbounds i16, ptr %70, i64 %71
   store i16 0, ptr %72, align 2, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %0, i8 0, i64 480, i1 false)
   invoke void @_ZN6icu_776number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %0)
@@ -5175,34 +5175,34 @@ switch.lookup:                                    ; preds = %156
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %173 = load i8, ptr %172, align 1, !tbaa !98, !range !88, !noundef !89
   %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %175, label %switch.lookup155
+  br i1 %174, label %175, label %switch.lookup156
 
 175:                                              ; preds = %171
   store i32 65811, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
-switch.lookup155:                                 ; preds = %171
+switch.lookup156:                                 ; preds = %171
   store i8 1, ptr %172, align 1, !tbaa !98
-  %switch.tableidx156 = add nsw i32 %100, -31
+  %switch.tableidx155 = add nsw i32 %100, -31
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store i32 %switch.tableidx156, ptr %176, align 8, !tbaa !66
+  store i32 %switch.tableidx155, ptr %176, align 8, !tbaa !66
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
 177:                                              ; preds = %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %179 = load i8, ptr %178, align 1, !tbaa !99, !range !88, !noundef !89
   %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %181, label %switch.lookup157
+  br i1 %180, label %181, label %switch.lookup158
 
 181:                                              ; preds = %177
   store i32 65811, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
-switch.lookup157:                                 ; preds = %177
+switch.lookup158:                                 ; preds = %177
   store i8 1, ptr %178, align 1, !tbaa !99
-  %switch.tableidx158 = add nsw i32 %100, -38
+  %switch.tableidx157 = add nsw i32 %100, -38
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 156
-  store i32 %switch.tableidx158, ptr %182, align 4, !tbaa !67
+  store i32 %switch.tableidx157, ptr %182, align 4, !tbaa !67
   br label %_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit
 
 183:                                              ; preds = %_ZNK6icu_7710UCharsTrie8getValueEv.exit, %_ZNK6icu_7710UCharsTrie8getValueEv.exit
@@ -5377,8 +5377,8 @@ switch.lookup157:                                 ; preds = %177
   tail call void @abort() #20
   unreachable
 
-_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit: ; preds = %47, %46, %53, %137, %105, %253, %252, %247, %246, %241, %240, %235, %234, %229, %224, %223, %218, %217, %212, %207, %206, %201, %200, %195, %194, %188, %187, %switch.lookup157, %181, %switch.lookup155, %175, %168, %167, %switch.lookup, %160, %152, %151, %144, %143, %136, %127, %126, %121, %114, %113, %104, %33, %28, %27, %23, %22, %17, %16
-  %.0 = phi i32 [ 0, %16 ], [ 2, %17 ], [ 0, %22 ], [ 3, %23 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ], [ 0, %53 ], [ 0, %104 ], [ 0, %113 ], [ 0, %114 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %136 ], [ 0, %143 ], [ 0, %144 ], [ 0, %151 ], [ 0, %152 ], [ 0, %160 ], [ 0, %switch.lookup ], [ 0, %167 ], [ 0, %168 ], [ 0, %175 ], [ 0, %switch.lookup155 ], [ 0, %181 ], [ 0, %switch.lookup157 ], [ 0, %187 ], [ 0, %188 ], [ 0, %194 ], [ 4, %195 ], [ 0, %200 ], [ 5, %201 ], [ 0, %206 ], [ 6, %207 ], [ 0, %212 ], [ 0, %217 ], [ 7, %218 ], [ 0, %223 ], [ 8, %224 ], [ 0, %229 ], [ 0, %234 ], [ 9, %235 ], [ 0, %240 ], [ 10, %241 ], [ 0, %246 ], [ 11, %247 ], [ 0, %252 ], [ 12, %253 ], [ %., %105 ], [ %.141, %137 ], [ 0, %46 ], [ 0, %47 ]
+_ZN6icu_776number4impl17blueprint_helpers16parseIntegerStemERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode.exit: ; preds = %47, %46, %53, %137, %105, %253, %252, %247, %246, %241, %240, %235, %234, %229, %224, %223, %218, %217, %212, %207, %206, %201, %200, %195, %194, %188, %187, %switch.lookup158, %181, %switch.lookup156, %175, %168, %167, %switch.lookup, %160, %152, %151, %144, %143, %136, %127, %126, %121, %114, %113, %104, %33, %28, %27, %23, %22, %17, %16
+  %.0 = phi i32 [ 0, %16 ], [ 2, %17 ], [ 0, %22 ], [ 3, %23 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ], [ 0, %53 ], [ 0, %104 ], [ 0, %113 ], [ 0, %114 ], [ 0, %121 ], [ 0, %126 ], [ 0, %127 ], [ 0, %136 ], [ 0, %143 ], [ 0, %144 ], [ 0, %151 ], [ 0, %152 ], [ 0, %160 ], [ 0, %switch.lookup ], [ 0, %167 ], [ 0, %168 ], [ 0, %175 ], [ 0, %switch.lookup156 ], [ 0, %181 ], [ 0, %switch.lookup158 ], [ 0, %187 ], [ 0, %188 ], [ 0, %194 ], [ 4, %195 ], [ 0, %200 ], [ 5, %201 ], [ 0, %206 ], [ 6, %207 ], [ 0, %212 ], [ 0, %217 ], [ 7, %218 ], [ 0, %223 ], [ 8, %224 ], [ 0, %229 ], [ 0, %234 ], [ 9, %235 ], [ 0, %240 ], [ 10, %241 ], [ 0, %246 ], [ 11, %247 ], [ 0, %252 ], [ 12, %253 ], [ %., %105 ], [ %.141, %137 ], [ 0, %46 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -6323,7 +6323,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %41, %43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %120
   %indvars.iv103 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next104, %120 ]
-  %121 = getelementptr inbounds nuw [40 x %"class.icu_77::MeasureUnit"], ptr %13, i64 0, i64 %indvars.iv103
+  %121 = getelementptr inbounds nuw %"class.icu_77::MeasureUnit", ptr %13, i64 %indvars.iv103
   %122 = load ptr, ptr %9, align 8, !tbaa !3
   %123 = invoke noundef ptr @_ZNK6icu_7711MeasureUnit10getSubtypeEv(ptr noundef nonnull align 8 dereferenceable(19) %121)
           to label %.critedge72 unwind label %.loopexit83

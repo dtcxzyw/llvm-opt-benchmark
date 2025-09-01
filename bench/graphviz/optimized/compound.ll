@@ -479,7 +479,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
 
 272:                                              ; preds = %272, %.lr.ph285.i
   %.0205282.i = phi i64 [ 0, %.lr.ph285.i ], [ %276, %272 ]
-  %273 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.0205282.i
+  %273 = getelementptr inbounds nuw %struct.pointf_s, ptr %3, i64 %.0205282.i
   %274 = sub i64 %.3284.i, %.0205282.i
   %275 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre.i, i64 %274
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %273, ptr noundef nonnull align 8 dereferenceable(16) %275, i64 16, i1 false), !tbaa.struct !49
@@ -492,7 +492,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   %277 = load ptr, ptr %57, align 8, !tbaa !45
   %278 = sub i64 %.3284.i, %.0204287.i
   %279 = getelementptr inbounds nuw %struct.pointf_s, ptr %277, i64 %278
-  %280 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.0204287.i
+  %280 = getelementptr inbounds nuw %struct.pointf_s, ptr %3, i64 %.0204287.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 16 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !49
   %281 = add nuw nsw i64 %.0204287.i, 1
   %exitcond295.not.i = icmp eq i64 %281, 4

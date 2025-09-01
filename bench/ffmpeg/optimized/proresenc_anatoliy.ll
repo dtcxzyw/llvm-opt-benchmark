@@ -279,7 +279,7 @@ define internal range(i32 -22, 1) i32 @prores_encode_init(ptr noundef initialize
   tail call void @ff_fdctdsp_init(ptr noundef nonnull %93, ptr noundef nonnull %0) #8
   %94 = load i32, ptr %28, align 8, !tbaa !37
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds [7 x %struct.AVProfile], ptr @profiles, i64 0, i64 %95, i32 1
+  %96 = getelementptr inbounds %struct.AVProfile, ptr @profiles, i64 %95, i32 1
   %97 = load ptr, ptr %96, align 8, !tbaa !45
   %98 = load i32, ptr %97, align 1, !tbaa !47
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -292,9 +292,9 @@ define internal range(i32 -22, 1) i32 @prores_encode_init(ptr noundef initialize
   %indvars.iv = phi i64 [ 1, %92 ], [ %indvars.iv.next, %scale_mat.exit95 ]
   %103 = load i32, ptr %28, align 8, !tbaa !37
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [6 x [64 x i8]], ptr @QMAT_LUMA, i64 0, i64 %104
+  %105 = getelementptr inbounds [64 x i8], ptr @QMAT_LUMA, i64 %104
   %106 = add nsw i64 %indvars.iv, -1
-  %107 = getelementptr inbounds [16 x [64 x i32]], ptr %100, i64 0, i64 %106
+  %107 = getelementptr inbounds [64 x i32], ptr %100, i64 %106
   %108 = trunc nuw nsw i64 %indvars.iv to i32
   br label %109
 
@@ -313,8 +313,8 @@ define internal range(i32 -22, 1) i32 @prores_encode_init(ptr noundef initialize
 scale_mat.exit:                                   ; preds = %109
   %115 = load i32, ptr %28, align 8, !tbaa !37
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [6 x [64 x i8]], ptr @QMAT_CHROMA, i64 0, i64 %116
-  %118 = getelementptr inbounds [16 x [64 x i32]], ptr %101, i64 0, i64 %106
+  %117 = getelementptr inbounds [64 x i8], ptr @QMAT_CHROMA, i64 %116
+  %118 = getelementptr inbounds [64 x i32], ptr %101, i64 %106
   br label %119
 
 119:                                              ; preds = %119, %scale_mat.exit
@@ -536,12 +536,12 @@ int_from_list_or_default.exit87:                  ; preds = %int_from_list_or_de
   store i8 3, ptr %99, align 1, !tbaa !47
   %101 = load i32, ptr %48, align 8, !tbaa !37
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [6 x [64 x i8]], ptr @QMAT_LUMA, i64 0, i64 %102
+  %103 = getelementptr inbounds [64 x i8], ptr @QMAT_LUMA, i64 %102
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %100, ptr noundef nonnull align 16 dereferenceable(64) %103, i64 64, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %23, i64 92
   %105 = load i32, ptr %48, align 8, !tbaa !37
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [6 x [64 x i8]], ptr @QMAT_CHROMA, i64 0, i64 %106
+  %107 = getelementptr inbounds [64 x i8], ptr @QMAT_CHROMA, i64 %106
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %104, ptr noundef nonnull align 16 dereferenceable(64) %107, i64 64, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %23, i64 156
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -688,7 +688,7 @@ define internal fastcc i32 @prores_encode_picture(ptr noundef %0, ptr noundef re
 .preheader342.us.preheader:                       ; preds = %.preheader342.lr.ph
   %51 = load i32, ptr %31, align 8, !tbaa !37
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [6 x i32], ptr @qp_start_table, i64 0, i64 %52
+  %53 = getelementptr inbounds i32, ptr @qp_start_table, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !49
   %55 = add nsw i32 %3, -8
   br label %.preheader342.us
@@ -731,7 +731,7 @@ define internal fastcc i32 @prores_encode_picture(ptr noundef %0, ptr noundef re
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %76 = load i32, ptr %31, align 8, !tbaa !37
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [6 x i32], ptr @bitrate_table, i64 0, i64 %77
+  %78 = getelementptr inbounds i32, ptr @bitrate_table, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !49
   %80 = mul i32 %79, %.1.us
   %81 = lshr i32 %80, 2
@@ -1941,7 +1941,7 @@ calc_plane_dct.exit.us:                           ; preds = %fdct_get.exit95.i.u
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 56
   %598 = add nsw i32 %.1293386.us, -1
   %599 = sext i32 %598 to i64
-  %600 = getelementptr inbounds [16 x [64 x i32]], ptr %597, i64 0, i64 %599
+  %600 = getelementptr inbounds [64 x i32], ptr %597, i64 %599
   %601 = getelementptr inbounds nuw i8, ptr %596, i64 8248
   %602 = load ptr, ptr %601, align 8, !tbaa !33
   %603 = call fastcc i32 @encode_slice_plane(ptr noundef nonnull %7, i32 noundef %.1.us, ptr noundef %594, i32 noundef %595, ptr noundef nonnull %600, i32 noundef 0, ptr noundef %602)
@@ -1955,7 +1955,7 @@ calc_plane_dct.exit.us:                           ; preds = %fdct_get.exit95.i.u
   %608 = getelementptr inbounds nuw i8, ptr %594, i64 %607
   %609 = sub i32 %595, %603
   %610 = getelementptr inbounds nuw i8, ptr %596, i64 4152
-  %611 = getelementptr inbounds [16 x [64 x i32]], ptr %610, i64 0, i64 %599
+  %611 = getelementptr inbounds [64 x i32], ptr %610, i64 %599
   %612 = getelementptr inbounds nuw i8, ptr %596, i64 8256
   %613 = load i32, ptr %612, align 8, !tbaa !39
   %614 = load ptr, ptr %601, align 8, !tbaa !33
@@ -2105,7 +2105,7 @@ calc_plane_dct.exit281.i.us:                      ; preds = %calc_plane_dct.exit
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 56
   %683 = add nsw i32 %.1293386.us, -1
   %684 = sext i32 %683 to i64
-  %685 = getelementptr inbounds [16 x [64 x i32]], ptr %682, i64 0, i64 %684
+  %685 = getelementptr inbounds [64 x i32], ptr %682, i64 %684
   %686 = getelementptr inbounds nuw i8, ptr %681, i64 8248
   %687 = load ptr, ptr %686, align 8, !tbaa !33
   %688 = call fastcc i32 @encode_slice_plane(ptr noundef nonnull %7, i32 noundef %.1.us, ptr noundef %679, i32 noundef %680, ptr noundef nonnull %685, i32 noundef 0, ptr noundef %687)
@@ -2119,7 +2119,7 @@ calc_plane_dct.exit281.i.us:                      ; preds = %calc_plane_dct.exit
   %693 = getelementptr inbounds nuw i8, ptr %679, i64 %692
   %694 = sub i32 %680, %688
   %695 = getelementptr inbounds nuw i8, ptr %681, i64 4152
-  %696 = getelementptr inbounds [16 x [64 x i32]], ptr %695, i64 0, i64 %684
+  %696 = getelementptr inbounds [64 x i32], ptr %695, i64 %684
   %697 = getelementptr inbounds nuw i8, ptr %681, i64 8256
   %698 = load i32, ptr %697, align 8, !tbaa !39
   %699 = load ptr, ptr %686, align 8, !tbaa !33
@@ -2144,7 +2144,7 @@ encode_slice_data.exit249.i.us:                   ; preds = %677, %691
 711:                                              ; preds = %encode_slice_data.exit249.i.us
   %712 = load i32, ptr %31, align 8, !tbaa !37
   %713 = sext i32 %712 to i64
-  %714 = getelementptr inbounds [6 x i32], ptr @qp_end_table, i64 0, i64 %713
+  %714 = getelementptr inbounds i32, ptr @qp_end_table, i64 %713
   %715 = load i32, ptr %714, align 4, !tbaa !49
   %716 = icmp slt i32 %.1293386.us, %715
   br i1 %716, label %.preheader.i.us.preheader, label %718
@@ -2160,7 +2160,7 @@ encode_slice_data.exit249.i.us:                   ; preds = %677, %691
 720:                                              ; preds = %718
   %721 = load i32, ptr %31, align 8, !tbaa !37
   %722 = sext i32 %721 to i64
-  %723 = getelementptr inbounds [6 x i32], ptr @qp_start_table, i64 0, i64 %722
+  %723 = getelementptr inbounds i32, ptr @qp_start_table, i64 %722
   %724 = load i32, ptr %723, align 4, !tbaa !49
   %725 = icmp sgt i32 %.1293386.us, %724
   br i1 %725, label %.preheader379.i.us.preheader, label %.critedge.i.us
@@ -2177,7 +2177,7 @@ encode_slice_data.exit249.i.us:                   ; preds = %677, %691
   %727 = load ptr, ptr %10, align 8, !tbaa !4
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 56
   %729 = add nsw i64 %indvars.iv, -2
-  %730 = getelementptr inbounds [16 x [64 x i32]], ptr %728, i64 0, i64 %729
+  %730 = getelementptr inbounds [64 x i32], ptr %728, i64 %729
   %731 = getelementptr inbounds nuw i8, ptr %727, i64 8248
   %732 = load ptr, ptr %731, align 8, !tbaa !33
   %733 = call fastcc i32 @encode_slice_plane(ptr noundef nonnull %7, i32 noundef %.1.us, ptr noundef %679, i32 noundef %680, ptr noundef nonnull %730, i32 noundef 0, ptr noundef %732)
@@ -2195,7 +2195,7 @@ encode_slice_data.exit249.i.us:                   ; preds = %677, %691
   %738 = getelementptr inbounds nuw i8, ptr %679, i64 %737
   %739 = sub i32 %680, %733
   %740 = getelementptr inbounds nuw i8, ptr %727, i64 4152
-  %741 = getelementptr inbounds [16 x [64 x i32]], ptr %740, i64 0, i64 %729
+  %741 = getelementptr inbounds [64 x i32], ptr %740, i64 %729
   %742 = getelementptr inbounds nuw i8, ptr %727, i64 8256
   %743 = load i32, ptr %742, align 8, !tbaa !39
   %744 = load ptr, ptr %731, align 8, !tbaa !33
@@ -2220,7 +2220,7 @@ encode_slice_data.exit253.i.us:                   ; preds = %736, %.preheader379
 755:                                              ; preds = %encode_slice_data.exit253.i.us
   %756 = load i32, ptr %31, align 8, !tbaa !37
   %757 = sext i32 %756 to i64
-  %758 = getelementptr inbounds [6 x i32], ptr @qp_start_table, i64 0, i64 %757
+  %758 = getelementptr inbounds i32, ptr @qp_start_table, i64 %757
   %759 = load i32, ptr %758, align 4, !tbaa !49
   %760 = sext i32 %759 to i64
   %761 = icmp sgt i64 %indvars.iv.next, %760
@@ -2233,7 +2233,7 @@ encode_slice_data.exit253.i.us:                   ; preds = %736, %.preheader379
   %indvars.iv.next450 = add nsw i64 %indvars.iv449, 1
   %762 = load ptr, ptr %10, align 8, !tbaa !4
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 56
-  %764 = getelementptr inbounds [16 x [64 x i32]], ptr %763, i64 0, i64 %indvars.iv449
+  %764 = getelementptr inbounds [64 x i32], ptr %763, i64 %indvars.iv449
   %765 = getelementptr inbounds nuw i8, ptr %762, i64 8248
   %766 = load ptr, ptr %765, align 8, !tbaa !33
   %767 = call fastcc i32 @encode_slice_plane(ptr noundef nonnull %7, i32 noundef %.1.us, ptr noundef %679, i32 noundef %680, ptr noundef nonnull %764, i32 noundef 0, ptr noundef %766)
@@ -2251,7 +2251,7 @@ encode_slice_data.exit253.i.us:                   ; preds = %736, %.preheader379
   %772 = getelementptr inbounds nuw i8, ptr %679, i64 %771
   %773 = sub i32 %680, %767
   %774 = getelementptr inbounds nuw i8, ptr %762, i64 4152
-  %775 = getelementptr inbounds [16 x [64 x i32]], ptr %774, i64 0, i64 %indvars.iv449
+  %775 = getelementptr inbounds [64 x i32], ptr %774, i64 %indvars.iv449
   %776 = getelementptr inbounds nuw i8, ptr %762, i64 8256
   %777 = load i32, ptr %776, align 8, !tbaa !39
   %778 = load ptr, ptr %765, align 8, !tbaa !33
@@ -2276,7 +2276,7 @@ encode_slice_data.exit251.i.us:                   ; preds = %770, %.preheader.en
 789:                                              ; preds = %encode_slice_data.exit251.i.us
   %790 = load i32, ptr %31, align 8, !tbaa !37
   %791 = sext i32 %790 to i64
-  %792 = getelementptr inbounds [6 x i32], ptr @qp_end_table, i64 0, i64 %791
+  %792 = getelementptr inbounds i32, ptr @qp_end_table, i64 %791
   %793 = load i32, ptr %792, align 4, !tbaa !49
   %794 = sext i32 %793 to i64
   %795 = icmp slt i64 %indvars.iv.next450, %794
@@ -3358,7 +3358,7 @@ define internal fastcc i32 @encode_slice_plane(ptr noundef nonnull readonly capt
   %36 = ashr i32 %34, 31
   %37 = xor i32 %35, %36
   %38 = sext i32 %.02930.i to i64
-  %39 = getelementptr inbounds [7 x i8], ptr @ff_prores_dc_codebook, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr @ff_prores_dc_codebook, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !47
   %41 = zext i8 %40 to i32
   call fastcc void @encode_vlc_codeword(ptr noundef nonnull %8, i32 noundef %41, i32 noundef %37)
@@ -3406,12 +3406,12 @@ encode_dcs.exit:                                  ; preds = %.lr.ph.i, %7
 59:                                               ; preds = %.lr.ph.i12
   %60 = tail call i32 @llvm.abs.i32(i32 %58, i1 true)
   %61 = sext i32 %.140.i to i64
-  %62 = getelementptr inbounds [16 x i8], ptr @ff_prores_run_to_cb, i64 0, i64 %61
+  %62 = getelementptr inbounds i8, ptr @ff_prores_run_to_cb, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !47
   %64 = zext i8 %63 to i32
   call fastcc void @encode_vlc_codeword(ptr noundef nonnull %8, i32 noundef %64, i32 noundef %.13239.i)
   %65 = zext nneg i32 %.13538.i to i64
-  %66 = getelementptr inbounds nuw [10 x i8], ptr @ff_prores_level_to_cb, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @ff_prores_level_to_cb, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !47
   %68 = zext i8 %67 to i32
   %69 = add nsw i32 %60, -1
@@ -3551,7 +3551,7 @@ define internal fastcc void @encode_vlc_codeword(ptr noundef nonnull captures(no
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %13
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %14
   %15 = zext nneg i32 %.110.i to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !47
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %.1.i, %18

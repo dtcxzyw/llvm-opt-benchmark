@@ -22,7 +22,7 @@ define i32 @Map_NodeReadRefPhaseAct(ptr noundef readonly captures(none) %0, i32 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %9, i64 %10
   br label %14
 
 12:                                               ; preds = %5, %2
@@ -51,7 +51,7 @@ define float @Map_NodeReadRefPhaseEst(ptr noundef readonly captures(none) %0, i3
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds float, ptr %9, i64 %10
   br label %14
 
 12:                                               ; preds = %5, %2
@@ -80,7 +80,7 @@ define i32 @Map_NodeIncRefPhaseAct(ptr noundef captures(none) %0, i32 noundef %1
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !8
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !8
@@ -114,7 +114,7 @@ define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr nounde
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !8
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr %11, align 4, !tbaa !8
@@ -254,11 +254,11 @@ define float @Map_CutGetAreaFlow(ptr noundef captures(none) %0, i32 noundef %1) 
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %9
   %20 = icmp eq i32 %19, 0
-  %21 = getelementptr inbounds nuw [6 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %24 = zext i1 %20 to i64
-  %25 = getelementptr inbounds nuw [2 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !3
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %33
@@ -266,7 +266,7 @@ define float @Map_CutGetAreaFlow(ptr noundef captures(none) %0, i32 noundef %1) 
 28:                                               ; preds = %16
   %29 = xor i1 %20, true
   %30 = zext i1 %29 to i64
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %23, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %23, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   br label %33
 
@@ -290,7 +290,7 @@ define float @Map_CutGetAreaFlow(ptr noundef captures(none) %0, i32 noundef %1) 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %43 = zext i1 %.0.in to i64
-  %44 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw float, ptr %42, i64 %43
   br label %Map_NodeReadRefPhaseEst.exit
 
 45:                                               ; preds = %38, %33
@@ -365,7 +365,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %79
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %79 ], [ 0, %.lr.ph.split.us.preheader ]
   %.05567.us = phi float [ %.1.us, %79 ], [ %9, %.lr.ph.split.us.preheader ]
-  %25 = getelementptr inbounds nuw [6 x ptr], ptr %24, i64 0, i64 %indvars.iv71
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv71
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = trunc nuw nsw i64 %indvars.iv71 to i32
   %28 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %27) #7
@@ -387,7 +387,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %36, align 8, !tbaa !8
   %39 = sext i32 %28 to i64
-  %40 = getelementptr inbounds [3 x i32], ptr %35, i64 0, i64 %39
+  %40 = getelementptr inbounds i32, ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !8
   %42 = add nsw i32 %41, -1
   store i32 %42, ptr %40, align 4, !tbaa !8
@@ -397,7 +397,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 44:                                               ; preds = %31, %.lr.ph.split.us
   %45 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %46 = sext i32 %28 to i64
-  %47 = getelementptr inbounds [3 x i32], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !8
   %49 = add nsw i32 %48, -1
   store i32 %49, ptr %47, align 4, !tbaa !8
@@ -405,7 +405,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds [2 x ptr], ptr %29, i64 0, i64 %46
+  %52 = getelementptr inbounds ptr, ptr %29, i64 %46
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %62
@@ -431,7 +431,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 67:                                               ; preds = %62, %34
   %.pre-phi74 = phi i64 [ %46, %62 ], [ %39, %34 ]
   %.3.us = phi float [ %.4.us, %62 ], [ %.05567.us, %34 ]
-  %68 = getelementptr inbounds [2 x ptr], ptr %29, i64 0, i64 %.pre-phi74
+  %68 = getelementptr inbounds ptr, ptr %29, i64 %.pre-phi74
   %69 = load ptr, ptr %68, align 8, !tbaa !3
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %76
@@ -440,7 +440,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.not66.us = icmp eq i32 %28, 0
   %72 = zext i1 %.not66.us to i32
   %73 = zext i1 %.not66.us to i64
-  %74 = getelementptr inbounds nuw [2 x ptr], ptr %29, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %29, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !3
   br label %76
 
@@ -462,7 +462,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 .lr.ph.split:                                     ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]
   %.05567 = phi float [ %.1, %137 ], [ %9, %.lr.ph ]
-  %83 = getelementptr inbounds nuw [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !29
   %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %85) #7
@@ -484,7 +484,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %94, align 8, !tbaa !8
   %97 = sext i32 %86 to i64
-  %98 = getelementptr inbounds [3 x i32], ptr %93, i64 0, i64 %97
+  %98 = getelementptr inbounds i32, ptr %93, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !8
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !8
@@ -494,7 +494,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 102:                                              ; preds = %89, %.lr.ph.split
   %103 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %104 = sext i32 %86 to i64
-  %105 = getelementptr inbounds [3 x i32], ptr %103, i64 0, i64 %104
+  %105 = getelementptr inbounds i32, ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !8
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %105, align 4, !tbaa !8
@@ -502,7 +502,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %108, label %109, label %120
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds [2 x ptr], ptr %87, i64 0, i64 %104
+  %110 = getelementptr inbounds ptr, ptr %87, i64 %104
   %111 = load ptr, ptr %110, align 8, !tbaa !3
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %120
@@ -528,7 +528,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 125:                                              ; preds = %92, %120
   %.pre-phi = phi i64 [ %97, %92 ], [ %104, %120 ]
   %.3 = phi float [ %.05567, %92 ], [ %.2, %120 ]
-  %126 = getelementptr inbounds [2 x ptr], ptr %87, i64 0, i64 %.pre-phi
+  %126 = getelementptr inbounds ptr, ptr %87, i64 %.pre-phi
   %127 = load ptr, ptr %126, align 8, !tbaa !3
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %134
@@ -537,7 +537,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.not66 = icmp eq i32 %86, 0
   %130 = zext i1 %.not66 to i32
   %131 = zext i1 %.not66 to i64
-  %132 = getelementptr inbounds nuw [2 x ptr], ptr %87, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw ptr, ptr %87, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !3
   br label %134
 
@@ -609,7 +609,7 @@ define void @Map_MappingSetRefs_rec(ptr noundef readonly captures(none) %0, ptr 
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 8, !tbaa !8
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !8
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !8
@@ -647,7 +647,7 @@ tailrecurse:                                      ; preds = %23
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 8, !tbaa !8
   %38 = zext nneg i32 %33 to i64
-  %39 = getelementptr inbounds nuw [3 x i32], ptr %34, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %34, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !8
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !8
@@ -656,14 +656,14 @@ tailrecurse:                                      ; preds = %23
 
 42:                                               ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 144
-  %44 = getelementptr inbounds nuw [2 x ptr], ptr %43, i64 0, i64 %17
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %17
   %45 = load ptr, ptr %44, align 8, !tbaa !3
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %42
   %48 = and i64 %21, 1
-  %49 = getelementptr inbounds nuw [2 x ptr], ptr %43, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   br label %51
 
@@ -704,7 +704,7 @@ tailrecurse:                                      ; preds = %23
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   %69 = lshr i32 %62, %68
   %70 = and i32 %69, 1
-  %71 = getelementptr inbounds nuw [6 x ptr], ptr %66, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !29
   %73 = ptrtoint ptr %72 to i64
   %74 = zext nneg i32 %70 to i64

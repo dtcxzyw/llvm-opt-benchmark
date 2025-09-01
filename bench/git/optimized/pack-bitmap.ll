@@ -4914,7 +4914,7 @@ _.exit44:                                         ; preds = %78, %80
   %85 = sub i32 %.03264, %43
   %86 = urem i32 %85, 160
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [160 x ptr], ptr %2, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %2, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !257
   %.not37 = icmp eq ptr %89, null
   br i1 %.not37, label %90, label %95
@@ -4938,7 +4938,7 @@ _.exit47:                                         ; preds = %90, %92
   %96 = call fastcc ptr @store_bitmap(ptr noundef nonnull %0, ptr noundef %62, ptr noundef nonnull %3, ptr noundef %.031, i32 noundef %47)
   %97 = urem i32 %.03264, 160
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw [160 x ptr], ptr %2, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr %2, i64 %98
   store ptr %96, ptr %99, align 8, !tbaa !257
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %100 = add nuw i32 %.03264, 1
@@ -7711,7 +7711,7 @@ st_mult.exit:                                     ; preds = %217
 242:                                              ; preds = %240
   %243 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %244 = zext i8 %241 to i64
-  %245 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %244
   %246 = load i8, ptr %245, align 1, !tbaa !10
   %247 = and i8 %246, 1
   %.not11.i = icmp eq i8 %247, 0

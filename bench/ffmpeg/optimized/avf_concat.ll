@@ -63,13 +63,13 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %spec.select = phi ptr [ @get_video_buffer, %.preheader48 ], [ @get_audio_buffer, %._crit_edge ]
   %14 = phi i1 [ true, %.preheader48 ], [ false, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.preheader48 ], [ 1, %._crit_edge ]
-  %15 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !24
   %.not58 = icmp eq i32 %16, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader46
-  %17 = getelementptr inbounds nuw [3 x i8], ptr @.str.13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !25
   %19 = sext i8 %18 to i32
   %20 = trunc nuw nsw i64 %indvars.iv to i32
@@ -106,13 +106,13 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %.preheader45, %._crit_edge55
   %33 = phi i1 [ true, %.preheader45 ], [ false, %._crit_edge55 ]
   %indvars.iv65 = phi i64 [ 0, %.preheader45 ], [ 1, %._crit_edge55 ]
-  %34 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 0, i64 %indvars.iv65
+  %34 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv65
   %35 = load i32, ptr %34, align 4, !tbaa !24
   %.not59 = icmp eq i32 %35, 0
   br i1 %.not59, label %._crit_edge55, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.preheader
-  %36 = getelementptr inbounds nuw [3 x i8], ptr @.str.13, i64 0, i64 %indvars.iv65
+  %36 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %indvars.iv65
   %37 = load i8, ptr %36, align 1, !tbaa !25
   %38 = sext i8 %37 to i32
   %39 = trunc nuw nsw i64 %indvars.iv65 to i32
@@ -184,7 +184,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   %.not90 = phi i1 [ true, %3 ], [ false, %._crit_edge77 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %._crit_edge77 ]
   %.04987 = phi i32 [ 0, %3 ], [ %.150.lcssa, %._crit_edge77 ]
-  %10 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !24
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge77, label %.lr.ph76

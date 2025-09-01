@@ -26869,10 +26869,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !971, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !3888, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h286ce3d9d92287d1E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h286ce3d9d92287d1E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h286ce3d9d92287d1E.339", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h286ce3d9d92287d1E.339", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -43279,10 +43279,10 @@ define internal noundef zeroext i1 @"_ZN83_$LT$polars_parquet_format..thrift..pr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4453, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E.340", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E.340", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -44092,10 +44092,10 @@ define internal noundef zeroext i1 @"_ZN88_$LT$polars_io..parquet..read..options
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !5710, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN88_$LT$polars_io..parquet..read..options..ParallelStrategy$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c9fee00ff0e7ef9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$polars_io..parquet..read..options..ParallelStrategy$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c9fee00ff0e7ef9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN88_$LT$polars_io..parquet..read..options..ParallelStrategy$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c9fee00ff0e7ef9E.341", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$polars_io..parquet..read..options..ParallelStrategy$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c9fee00ff0e7ef9E.341", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -44106,7 +44106,7 @@ define internal noundef zeroext i1 @"_ZN88_$LT$polars_parquet..parquet..parquet_
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !3888, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN88_$LT$polars_parquet..parquet..parquet_bridge..Repetition$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4e6d0d53e69e603E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$polars_parquet..parquet..parquet_bridge..Repetition$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4e6d0d53e69e603E", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 8)
   ret i1 %4
@@ -45443,7 +45443,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN13polars_stream13physical_plan3fmt9N
 switch.lookup:
   %1 = load i8, ptr %0, align 16, !range !5913, !noundef !7
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [27 x i8], ptr @switch.table._ZN13polars_stream13physical_plan3fmt9NodeStyle13for_node_kind17hdf0c7b12c9bb63ffE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN13polars_stream13physical_plan3fmt9NodeStyle13for_node_kind17hdf0c7b12c9bb63ffE, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -46982,10 +46982,10 @@ switch.lookup:                                    ; preds = %165
   %229 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %230 = load i8, ptr %229, align 16, !range !3888, !noalias !6010, !noundef !7
   %231 = zext nneg i8 %230 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN13polars_stream13physical_plan3fmt18visualize_plan_rec17he04f83fe8fd9fc3fE, i64 0, i64 %231
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13polars_stream13physical_plan3fmt18visualize_plan_rec17he04f83fe8fd9fc3fE, i64 %231
   %switch.load = load ptr, ptr %switch.gep, align 8
   %232 = zext nneg i8 %230 to i64
-  %switch.gep221 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN13polars_stream13physical_plan3fmt18visualize_plan_rec17he04f83fe8fd9fc3fE.342, i64 0, i64 %232
+  %switch.gep221 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13polars_stream13physical_plan3fmt18visualize_plan_rec17he04f83fe8fd9fc3fE.342, i64 %232
   %switch.load222 = load i64, ptr %switch.gep221, align 8
   store ptr %switch.load, ptr %123, align 8, !noalias !6010
   %233 = getelementptr inbounds nuw i8, ptr %123, i64 8

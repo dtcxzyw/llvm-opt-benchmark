@@ -1941,7 +1941,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender14readCustomDataERSt10shared
 
 12:                                               ; preds = %4
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw [42 x %"struct.Assimp::Blender::CustomDataTypeDescription"], ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 %13
   %.sroa.0.0.copyload = load ptr, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8

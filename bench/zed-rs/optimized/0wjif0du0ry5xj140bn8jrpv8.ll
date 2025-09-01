@@ -2479,7 +2479,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h11634b7df25a7188E(ptr noun
   br i1 %9, label %switch.lookup, label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h670aee94c0507b6fE.llvm.1860926721951506806.exit.i"
 
 switch.lookup:                                    ; preds = %6
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17h32d3eaeda1d267fbE, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17h32d3eaeda1d267fbE, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h0887ddb6b87dd5b4E.llvm.1860926721951506806"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %10)
@@ -2487,12 +2487,12 @@ switch.lookup:                                    ; preds = %6
 
 "_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17hc2d30f9780d2201fE.exit.i": ; preds = %5, %1
   %11 = load i64, ptr %0, align 8, !range !278, !alias.scope !282, !noundef !4
-  %switch.tableidx2 = add nsw i64 %11, -1
-  %12 = icmp ult i64 %switch.tableidx2, 3
-  br i1 %12, label %switch.lookup1, label %"_ZN4core3ptr86drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..deferred..Deferred$GT$$GT$17h81ada6cd2b2ceafdE.exit"
+  %switch.tableidx1 = add nsw i64 %11, -1
+  %12 = icmp ult i64 %switch.tableidx1, 3
+  br i1 %12, label %switch.lookup2, label %"_ZN4core3ptr86drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..deferred..Deferred$GT$$GT$17h81ada6cd2b2ceafdE.exit"
 
-switch.lookup1:                                   ; preds = %"_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17hc2d30f9780d2201fE.exit.i"
-  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17h32d3eaeda1d267fbE, i64 0, i64 %switch.tableidx2
+switch.lookup2:                                   ; preds = %"_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17hc2d30f9780d2201fE.exit.i"
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17h32d3eaeda1d267fbE, i64 %switch.tableidx1
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load4
   tail call void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h0887ddb6b87dd5b4E.llvm.1860926721951506806"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %13)
@@ -2507,7 +2507,7 @@ switch.lookup1:                                   ; preds = %"_ZN4core3ptr55drop
 "_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h670aee94c0507b6fE.llvm.1860926721951506806.exit.i": ; preds = %6, %switch.lookup
   resume { ptr, i32 } %7
 
-"_ZN4core3ptr86drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..deferred..Deferred$GT$$GT$17h81ada6cd2b2ceafdE.exit": ; preds = %"_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17hc2d30f9780d2201fE.exit.i", %switch.lookup1
+"_ZN4core3ptr86drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..deferred..Deferred$GT$$GT$17h81ada6cd2b2ceafdE.exit": ; preds = %"_ZN4core3ptr55drop_in_place$LT$gpui..elements..deferred..Deferred$GT$17hc2d30f9780d2201fE.exit.i", %switch.lookup2
   ret void
 }
 
@@ -2649,7 +2649,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h32d3eaeda1d267fbE(ptr noun
   br i1 %3, label %switch.lookup, label %"_ZN4core3ptr72drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Empty$GT$$GT$17h7a2183c3c8b7011dE.exit"
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17h32d3eaeda1d267fbE, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17h32d3eaeda1d267fbE, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   tail call void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h0887ddb6b87dd5b4E.llvm.1860926721951506806"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %4)
@@ -3626,7 +3626,7 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
 25:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h4f1f472be5c0604eE.exit"
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw [0 x { i32, [5 x i32] }], ptr %27, i64 0, i64 %22
+  %28 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %27, i64 %22
   %29 = load i32, ptr %28, align 8, !range !157, !noundef !4
   %trunc = trunc nuw i32 %29 to i1
   br i1 %trunc, label %46, label %32
@@ -4481,7 +4481,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 
 50:                                               ; preds = %20
   %51 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %51, i64 0, i64 %22, i32 1
+  %52 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %51, i64 %22, i32 1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr noundef nonnull align 8 dereferenceable(72) %52, i64 72, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %52, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
@@ -6972,7 +6972,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 106:                                              ; preds = %._crit_edge
-  %107 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %1, i64 0, i64 %.val3.i, i32 2
+  %107 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %.val3.i, i32 2
   %108 = load i64, ptr %107, align 8, !noalias !1195, !noundef !4
   %.sroa.0.011.i = and i64 %59, %108
   %109 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.011.i
@@ -7138,7 +7138,7 @@ _ZN4core3ptr19swap_nonoverlapping17he788916ef83cc68fE.exit.loopexit.i: ; preds =
 .lr.ph.i7:                                        ; preds = %171, %_ZN4core3ptr19swap_nonoverlapping17he788916ef83cc68fE.exit.loopexit.i
   %.val3.i16.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17he788916ef83cc68fE.exit.loopexit.i ], [ %.val3.i15.i, %171 ]
   %183 = phi ptr [ %179, %_ZN4core3ptr19swap_nonoverlapping17he788916ef83cc68fE.exit.loopexit.i ], [ %168, %171 ]
-  %184 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %1, i64 0, i64 %.val3.i16.i, i32 2
+  %184 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %.val3.i16.i, i32 2
   %185 = load i64, ptr %184, align 8, !noalias !1223, !noundef !4
   %.val8.i = load i64, ptr %11, align 8, !alias.scope !1205, !noundef !4
   %.sroa.0.011.i.i = and i64 %.val8.i, %185
@@ -7445,7 +7445,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24fin
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %18, i64 0, i64 %.val.i.i
+  %38 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %18, i64 %.val.i.i
   %.val2.i.i.i = load i64, ptr %20, align 8, !noalias !1248, !noundef !4
   %39 = getelementptr i8, ptr %38, i64 16
   %.val4.i.i.i = load i64, ptr %39, align 8, !noalias !1248, !noundef !4

@@ -8445,7 +8445,7 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h003e254d97a66b3bE.exit": ; preds = %69
   %74 = load ptr, ptr %22, align 8, !alias.scope !2776, !noalias !2779, !nonnull !49, !noundef !49
-  %75 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }], ptr %74, i64 0, i64 %70, i32 0, i32 1
+  %75 = getelementptr inbounds nuw { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %74, i64 %70, i32 0, i32 1
   %76 = load i64, ptr %75, align 8, !noundef !49
   br label %80
 
@@ -8482,7 +8482,7 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h4e2b8fcb1c3c7606E.exit.i": ; preds = %87
   %91 = load ptr, ptr %28, align 8, !alias.scope !2795, !noalias !2798, !nonnull !49, !noundef !49
-  %92 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %91, i64 0, i64 %85
+  %92 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %91, i64 %85
   %.not6.i = icmp eq i32 %.val54, %.val53
   br i1 %.not6.i, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h4e2b8fcb1c3c7606E.exit._crit_edge.i", label %93
 
@@ -8567,7 +8567,7 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h4e2b8fcb1c3c7606E.exit.i56": ; preds = %128
   %132 = load ptr, ptr %40, align 8, !alias.scope !2816, !noalias !2819, !nonnull !49, !noundef !49
-  %133 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %132, i64 0, i64 %126
+  %133 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %132, i64 %126
   %134 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %135 = getelementptr inbounds nuw i8, ptr %120, i64 20
   %136 = load i32, ptr %135, align 4, !alias.scope !2811, !noalias !2822, !noundef !49
@@ -11397,7 +11397,7 @@ switch.lookup:                                    ; preds = %1
   %narrow = add nuw nsw i8 %2, 9
   %switch.offset = zext nneg i8 %narrow to i64
   %17 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN16wasmtime_environ9component4info10Trampoline11symbol_name17hc6f8771b7bd20bfbE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16wasmtime_environ9component4info10Trampoline11symbol_name17hc6f8771b7bd20bfbE, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %18
 
@@ -11462,7 +11462,7 @@ switch.lookup:                                    ; preds = %1
   %narrow = add nuw nsw i8 %17, 12
   %switch.offset = zext nneg i8 %narrow to i64
   %18 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN16wasmtime_environ4fact9transcode10Transcoder4name17h28e0d11280c304e7E, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16wasmtime_environ4fact9transcode10Transcoder4name17h28e0d11280c304e7E, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %19
 
@@ -11601,7 +11601,7 @@ switch.lookup:                                    ; preds = %30
   %narrow = add nuw nsw i8 %32, 9
   %switch.offset = zext nneg i8 %narrow to i64
   %47 = zext nneg i8 %32 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN16wasmtime_environ9component4info10Trampoline11symbol_name17hc6f8771b7bd20bfbE, i64 0, i64 %47
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16wasmtime_environ9component4info10Trampoline11symbol_name17hc6f8771b7bd20bfbE, i64 %47
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN16wasmtime_environ9component4info9Transcode15symbol_fragment17h3b743871b1feaff1E.exit
 
@@ -12045,7 +12045,7 @@ switch.lookup:                                    ; preds = %2
   %narrow = add nuw nsw i8 %24, 12
   %switch.offset = zext nneg i8 %narrow to i64
   %25 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN16wasmtime_environ4fact9transcode10Transcoder4name17h28e0d11280c304e7E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16wasmtime_environ4fact9transcode10Transcoder4name17h28e0d11280c304e7E, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8972240245584090867.exit
 

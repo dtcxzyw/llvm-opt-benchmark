@@ -3212,7 +3212,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
 
 180:                                              ; preds = %.lr.ph411, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit125
   %indvars.iv493 = phi i64 [ 0, %.lr.ph411 ], [ %indvars.iv.next494, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertERKPS1_.exit125 ]
-  %181 = getelementptr inbounds nuw [0 x ptr], ptr %175, i64 0, i64 %indvars.iv493
+  %181 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv493
   %182 = load ptr, ptr %181, align 8, !tbaa !445
   %183 = ptrtoint ptr %182 to i64
   %184 = and i64 %183, -8
@@ -9255,7 +9255,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 33:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %34 = load ptr, ptr %9, align 8, !tbaa !610
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !578
   %37 = trunc nuw i64 %indvars.iv to i32
   %38 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %34, i32 noundef %37, ptr noundef %36)

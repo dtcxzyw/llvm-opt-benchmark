@@ -2889,7 +2889,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$$u5b$vfs..vfs_path.
 
 8:                                                ; preds = %1, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h270056fafb2dec54E.exit"
   %.07 = phi i64 [ 0, %1 ], [ 1, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h270056fafb2dec54E.exit" ]
-  %9 = getelementptr inbounds nuw [2 x { { i64, [3 x i64] } }], ptr %0, i64 0, i64 %.07
+  %9 = getelementptr inbounds nuw { { i64, [3 x i64] } }, ptr %0, i64 %.07
   %10 = add nuw nsw i64 %.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1118)
@@ -5843,10 +5843,10 @@ define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..S
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !1364, !noundef !49
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [273 x i64], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [273 x ptr], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.105", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.105", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -6506,10 +6506,10 @@ switch.lookup:
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %33 = load i8, ptr %32, align 8, !range !1357, !noundef !49
   %34 = zext nneg i8 %33 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN15ide_diagnostics8handlers14incorrect_case14incorrect_case17h47ac2a9a60bdd270E, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ide_diagnostics8handlers14incorrect_case14incorrect_case17h47ac2a9a60bdd270E, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   %35 = zext nneg i8 %33 to i64
-  %switch.gep51 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN15ide_diagnostics8handlers14incorrect_case14incorrect_case17h47ac2a9a60bdd270E.106, i64 0, i64 %35
+  %switch.gep51 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15ide_diagnostics8handlers14incorrect_case14incorrect_case17h47ac2a9a60bdd270E.106, i64 %35
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -6810,7 +6810,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit.i: ; pred
 
 .lr.ph.i.i.i.i:                                   ; preds = %110, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit.i
   %.05.i.i.i.i = phi i64 [ %111, %110 ], [ 0, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit.i ]
-  %107 = getelementptr inbounds nuw [0 x i8], ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.394, i64 0, i64 %.05.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.394, i64 %.05.i.i.i.i
   %108 = load i8, ptr %107, align 1, !alias.scope !1810, !noalias !1815, !noundef !49
   %109 = icmp eq i8 %108, 32
   br i1 %109, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.904175533805868711.exit.thread12.i.i", label %110
@@ -8652,7 +8652,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %456
 
 .lr.ph.i.i.i.i:                                   ; preds = %487, %483
   %.05.i.i.i.i = phi i64 [ %488, %487 ], [ 0, %483 ]
-  %484 = getelementptr inbounds nuw [0 x i8], ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.403, i64 0, i64 %.05.i.i.i.i
+  %484 = getelementptr inbounds nuw i8, ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.403, i64 %.05.i.i.i.i
   %485 = load i8, ptr %484, align 1, !alias.scope !2316, !noalias !2321, !noundef !49
   %486 = icmp eq i8 %485, 32
   br i1 %486, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.904175533805868711.exit.thread12.i.i", label %487
@@ -9010,7 +9010,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %"_ZN4cor
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %68, %64
   %.05.i.i.i.i.i = phi i64 [ %69, %68 ], [ 0, %64 ]
-  %65 = getelementptr inbounds nuw [0 x i8], ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.411, i64 0, i64 %.05.i.i.i.i.i
+  %65 = getelementptr inbounds nuw i8, ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.411, i64 %.05.i.i.i.i.i
   %66 = load i8, ptr %65, align 1, !alias.scope !2380, !noalias !2385, !noundef !49
   %67 = icmp eq i8 %66, 32
   br i1 %67, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.904175533805868711.exit.thread12.i.i.i", label %68
@@ -9698,7 +9698,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %"_ZN4cor
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %63, %59
   %.05.i.i.i.i.i = phi i64 [ %64, %63 ], [ 0, %59 ]
-  %60 = getelementptr inbounds nuw [0 x i8], ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.416, i64 0, i64 %.05.i.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr @anon.c5e1a61762c65cdb2dd6c051083ecde9.416, i64 %.05.i.i.i.i.i
   %61 = load i8, ptr %60, align 1, !alias.scope !2579, !noalias !2584, !noundef !49
   %62 = icmp eq i8 %61, 32
   br i1 %62, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.llvm.904175533805868711.exit.thread12.i.i.i", label %63
@@ -15235,8 +15235,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit: ; preds 
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit26: ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %35 = add i64 %28, -1
-  %36 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %26, i64 0, i64 %35
+  %35 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %26, i64 %28
+  %36 = getelementptr i8, ptr %35, i64 -24
   store ptr %36, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

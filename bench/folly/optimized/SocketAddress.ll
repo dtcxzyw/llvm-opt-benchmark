@@ -970,7 +970,7 @@ define void @_ZN5folly13SocketAddress11setFromPathENS_5RangeIPKcEE(ptr noundef n
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  %29 = getelementptr inbounds nuw [108 x i8], ptr %28, i64 0, i64 %6
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %6
   store i8 0, ptr %29, align 1, !tbaa !31
   br label %30
 

@@ -105,7 +105,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 40:                                               ; preds = %37
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %41, i32 2
+  %42 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %41, i32 2
   %43 = load i32, ptr %42, align 4, !tbaa !29
   %44 = icmp sgt i32 %43, 1
   br i1 %44, label %45, label %46
@@ -130,7 +130,7 @@ define internal noundef zeroext i1 @zlib_decompress(ptr noundef writeonly captur
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !29
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %12

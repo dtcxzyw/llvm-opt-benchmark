@@ -1230,7 +1230,7 @@ define void @Acec_TreeVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captur
   %31 = lshr i32 %28, %30
   %32 = and i32 %31, 1
   %.not65 = icmp eq i32 %32, %17
-  %33 = getelementptr inbounds nuw [3 x i32], ptr @__const.Acec_TreeVerifyPhaseOne.Truths, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr @__const.Acec_TreeVerifyPhaseOne.Truths, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !25
   %35 = and i32 %34, 255
   %36 = xor i32 %35, 255

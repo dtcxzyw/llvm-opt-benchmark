@@ -12,7 +12,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %6 = load i32, ptr %1, align 4, !tbaa !3
   %7 = and i32 %3, 255
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8base_icu20utf8_countTrailBytesE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN8base_icu20utf8_countTrailBytesE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !7
   %11 = zext i8 %10 to i32
   %12 = add nsw i32 %6, %11
@@ -97,7 +97,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %.07199 = phi i32 [ %52, %44 ], [ %18, %15 ]
   %.07898 = phi i32 [ %45, %44 ], [ %6, %15 ]
   %57 = zext i8 %10 to i64
-  %58 = getelementptr inbounds nuw [4 x i32], ptr @_ZN8base_icuL13utf8_minLegalE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr @_ZN8base_icuL13utf8_minLegalE, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = icmp slt i32 %.07199, %59
   br i1 %60, label %.thread, label %61
@@ -204,7 +204,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
 .thread101.sink.split:                            ; preds = %88, %86, %100, %79
   %.sink130 = phi i64 [ %82, %79 ], [ %102, %100 ], [ %57, %86 ], [ %57, %88 ]
   %.684.ph = phi i32 [ %.482.lcssa, %79 ], [ %.785.lcssa, %100 ], [ %.07898, %86 ], [ %.07898, %88 ]
-  %103 = getelementptr inbounds [6 x i32], ptr @_ZN8base_icuL15utf8_errorValueE, i64 0, i64 %.sink130
+  %103 = getelementptr inbounds i32, ptr @_ZN8base_icuL15utf8_errorValueE, i64 %.sink130
   %104 = load i32, ptr %103, align 4, !tbaa !3
   br label %.thread101
 

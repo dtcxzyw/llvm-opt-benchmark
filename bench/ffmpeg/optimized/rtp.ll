@@ -18,23 +18,23 @@ define range(i32 -1, 1) i32 @ff_rtp_get_codec_info(ptr noundef %0, i32 noundef %
 3:                                                ; preds = %2, %26
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %26 ]
   %4 = phi i32 [ 0, %2 ], [ %28, %26 ]
-  %5 = phi ptr [ @rtp_payload_types, %2 ], [ %27, %26 ]
-  %6 = icmp eq i32 %4, %1
-  br i1 %6, label %7, label %26
+  %5 = icmp eq i32 %4, %1
+  br i1 %5, label %6, label %26
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %26, label %10
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !9
   store i32 %12, ptr %0, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %13, align 4, !tbaa !18
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load i32, ptr %14, align 4, !tbaa !19
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %20
@@ -48,7 +48,7 @@ define range(i32 -1, 1) i32 @ff_rtp_get_codec_info(ptr noundef %0, i32 noundef %
   br label %20
 
 20:                                               ; preds = %17, %10
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.loopexit
@@ -58,9 +58,9 @@ define range(i32 -1, 1) i32 @ff_rtp_get_codec_info(ptr noundef %0, i32 noundef %
   store i32 %22, ptr %25, align 8, !tbaa !23
   br label %.loopexit
 
-26:                                               ; preds = %3, %7
+26:                                               ; preds = %3, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv.next
   %28 = load i32, ptr %27, align 4, !tbaa !24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !25
@@ -129,7 +129,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 .thread.split.us.split.split.us:                  ; preds = %.thread.split.us, %53
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %53 ], [ 0, %.thread.split.us ]
   %29 = phi i32 [ %55, %53 ], [ 0, %.thread.split.us ]
-  %30 = phi ptr [ %54, %53 ], [ @rtp_payload_types, %.thread.split.us ]
+  %30 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv80
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = icmp eq i32 %32, 69660
@@ -171,7 +171,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 
 53:                                               ; preds = %43, %51, %.thread.split.us.split.split.us
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %54 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next81
+  %54 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv.next81
   %55 = load i32, ptr %54, align 4, !tbaa !24
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 26
   br i1 %exitcond83.not, label %.split.us, label %.thread.split.us.split.split.us, !llvm.loop !45
@@ -179,7 +179,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 .thread.split.us.split.split:                     ; preds = %.thread.split.us, %76
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %76 ], [ 0, %.thread.split.us ]
   %56 = phi i32 [ %78, %76 ], [ 0, %.thread.split.us ]
-  %57 = phi ptr [ %77, %76 ], [ @rtp_payload_types, %.thread.split.us ]
+  %57 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv76
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = icmp eq i32 %59, %.fr64
@@ -214,7 +214,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 
 76:                                               ; preds = %74, %68, %.thread.split.us.split.split
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %77 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next77
+  %77 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv.next77
   %78 = load i32, ptr %77, align 4, !tbaa !24
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 26
   br i1 %exitcond79.not, label %.split.us, label %.thread.split.us.split.split, !llvm.loop !45
@@ -222,7 +222,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 .thread.split:                                    ; preds = %.thread.split.preheader, %120
   %indvars.iv = phi i64 [ 0, %.thread.split.preheader ], [ %indvars.iv.next, %120 ]
   %79 = phi i32 [ 0, %.thread.split.preheader ], [ %122, %120 ]
-  %80 = phi ptr [ @rtp_payload_types, %.thread.split.preheader ], [ %121, %120 ]
+  %80 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %83 = load i32, ptr %20, align 4, !tbaa !18
@@ -302,7 +302,7 @@ thread-pre-split:                                 ; preds = %94
 
 120:                                              ; preds = %.thread.split, %112, %118, %87, %89, %92, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %121 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
+  %121 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv.next
   %122 = load i32, ptr %121, align 4, !tbaa !24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
   br i1 %exitcond.not, label %.split.us, label %.thread.split, !llvm.loop !45
@@ -333,28 +333,27 @@ declare i32 @av_opt_flag_is_set(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define nonnull ptr @ff_rtp_enc_name(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = icmp eq i32 %0, 0
-  br i1 %2, label %._crit_edge, label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv13 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv13, 1
+2:                                                ; preds = %5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %3 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv.next
+  %4 = load i32, ptr %3, align 4, !tbaa !24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !46
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
-  %5 = load i32, ptr %4, align 4, !tbaa !24
-  %6 = icmp eq i32 %5, %0
-  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+5:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %6 = phi i32 [ 0, %1 ], [ %4, %2 ]
+  %7 = icmp eq i32 %6, %0
+  br i1 %7, label %8, label %2
 
-._crit_edge:                                      ; preds = %3, %1
-  %.lcssa = phi ptr [ @rtp_payload_types, %1 ], [ %4, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv, i32 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.05 = phi ptr [ %7, %._crit_edge ], [ @.str.3, %.lr.ph ]
+.loopexit:                                        ; preds = %2, %8
+  %.05 = phi ptr [ %9, %8 ], [ @.str.3, %2 ]
   ret ptr %.05
 }
 
@@ -364,7 +363,7 @@ define i32 @ff_rtp_codec_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 3:                                                ; preds = %2, %14
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %14 ]
-  %4 = phi ptr [ @rtp_payload_types, %2 ], [ %15, %14 ]
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = tail call i32 @av_strcasecmp(ptr noundef %0, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %6, 0
@@ -383,7 +382,6 @@ define i32 @ff_rtp_codec_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 14:                                               ; preds = %3, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !47
 

@@ -153,7 +153,7 @@ define dso_local ptr @vu_request_to_string(i32 noundef %0) local_unnamed_addr #0
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [43 x ptr], ptr @vu_request_to_string.vu_request_str, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @vu_request_to_string.vu_request_str, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -858,7 +858,7 @@ __cmsg_nxthdr.exit:                               ; preds = %53, %.lr.ph50
 
 89:                                               ; preds = %89, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %89 ]
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %88, i64 0, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.i
   %91 = load i32, ptr %90, align 1
   %92 = call i32 @close(i32 noundef %91) #21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1318,7 +1318,7 @@ vu_get_shared_object.exit.i:                      ; preds = %142, %139, %135
 
 148:                                              ; preds = %148, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %148 ]
-  %149 = getelementptr inbounds nuw [8 x i32], ptr %147, i64 0, i64 %indvars.iv.i.i
+  %149 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i.i
   %150 = load i32, ptr %149, align 4
   %151 = call i32 @close(i32 noundef %150) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1835,7 +1835,7 @@ virtqueue_num_heads.exit:                         ; preds = %41
   %.val.i = load ptr, ptr %15, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds [0 x i16], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds i16, ptr %46, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %.not.i92 = icmp ugt i32 %43, %50
@@ -2419,7 +2419,7 @@ vring_notify.exit:                                ; preds = %56
   %.val19.i = load ptr, ptr %9, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 4
   %65 = sext i32 %.val18.i to i64
-  %66 = getelementptr inbounds [0 x i16], ptr %64, i64 0, i64 %65
+  %66 = getelementptr inbounds i16, ptr %64, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = xor i16 %67, -1
   %69 = add i16 %63, %68
@@ -2547,7 +2547,7 @@ define dso_local void @vu_queue_set_notification(ptr noundef readonly captures(n
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %1, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.vring_used_elem], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.vring_used_elem, ptr %18, i64 %20
   store i16 %13, ptr %21, align 4
   br label %29
 
@@ -2722,7 +2722,7 @@ vu_queue_empty.exit.thread50:                     ; preds = %vu_is_vq_usable.exi
   %.val.i = load ptr, ptr %8, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %72 = zext nneg i32 %70 to i64
-  %73 = getelementptr inbounds nuw [0 x i16], ptr %71, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i16, ptr %71, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i32
   %.not.i44 = icmp ugt i32 %64, %75
@@ -2750,7 +2750,7 @@ virtqueue_get_head.exit:                          ; preds = %66
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = zext i32 %64 to i64
-  %88 = getelementptr inbounds nuw [0 x %struct.vring_used_elem], ptr %86, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw %struct.vring_used_elem, ptr %86, i64 %87
   store i16 %68, ptr %88, align 4
   %.val39.pre = load i32, ptr %1, align 8
   br label %vring_set_avail_event.exit
@@ -2791,7 +2791,7 @@ vring_set_avail_event.exit:                       ; preds = %83, %79, %76
   store i64 %101, ptr %105, align 8
   %106 = load ptr, ptr %97, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %108 = getelementptr inbounds nuw [0 x %struct.VuDescStateSplit], ptr %107, i64 0, i64 %103
+  %108 = getelementptr inbounds nuw %struct.VuDescStateSplit, ptr %107, i64 %103
   store i8 1, ptr %108, align 8
   br label %vu_queue_inflight_get.exit
 
@@ -3051,7 +3051,7 @@ virtqueue_read_next_desc.exit:                    ; preds = %105, %.thread25
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %123 ]
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw %struct.iovec, ptr %130, i64 %indvars.iv
-  %132 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %6, i64 0, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 16 dereferenceable(16) %132, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %118
@@ -3064,7 +3064,7 @@ virtqueue_read_next_desc.exit:                    ; preds = %105, %.thread25
   %135 = trunc nuw i64 %indvars.iv50 to i32
   %136 = add i32 %95, %135
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %6, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 16 dereferenceable(16) %138, i64 16, i1 false)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %113
@@ -3368,7 +3368,7 @@ vu_log_queue_fill.exit:                           ; preds = %105, %106, %34, %.t
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = sext i32 %122 to i64
-  %128 = getelementptr inbounds [0 x %struct.vring_used_elem], ptr %126, i64 0, i64 %127
+  %128 = getelementptr inbounds %struct.vring_used_elem, ptr %126, i64 %127
   store i64 %.sroa.0.0.insert.insert, ptr %128, align 4
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %130 = load i64, ptr %129, align 8
@@ -3566,7 +3566,7 @@ vu_queue_flush.exit:                              ; preds = %vu_queue_inflight_p
   %56 = load ptr, ptr %53, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = sext i32 %50 to i64
-  %59 = getelementptr inbounds [0 x %struct.VuDescStateSplit], ptr %57, i64 0, i64 %58
+  %59 = getelementptr inbounds %struct.VuDescStateSplit, ptr %57, i64 %58
   store i8 0, ptr %59, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !18
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -3801,8 +3801,8 @@ vu_remove_all_mem_regs.exit:                      ; preds = %9, %2
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [8 x %struct.VhostUserMemoryRegion], ptr %25, i64 0, i64 %indvars.iv
-  %29 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.VhostUserMemoryRegion, ptr %25, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 1
   call fastcc void @_vu_add_mem_reg(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %30)
   %31 = load i32, ptr %29, align 1
@@ -4378,7 +4378,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %76 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %77 = load i16, ptr %76, align 4
   %78 = zext i16 %77 to i64
-  %79 = getelementptr inbounds nuw [0 x %struct.VuDescStateSplit], ptr %75, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw %struct.VuDescStateSplit, ptr %75, i64 %78
   store i8 0, ptr %79, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !19
   %80 = load i16, ptr %68, align 4
@@ -4404,7 +4404,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
 90:                                               ; preds = %98, %.lr.ph.i
   %91 = phi i16 [ %87, %.lr.ph.i ], [ %99, %98 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
-  %92 = getelementptr inbounds nuw [0 x %struct.VuDescStateSplit], ptr %88, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw %struct.VuDescStateSplit, ptr %88, i64 %indvars.iv.i
   %93 = load i8, ptr %92, align 8
   %94 = icmp eq i8 %93, 1
   br i1 %94, label %95, label %98
@@ -4451,7 +4451,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %112 = phi ptr [ %133, %132 ], [ %85, %.preheader.i ]
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %132 ], [ 0, %.preheader.i ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %114 = getelementptr inbounds nuw [0 x %struct.VuDescStateSplit], ptr %113, i64 0, i64 %indvars.iv9.i
+  %114 = getelementptr inbounds nuw %struct.VuDescStateSplit, ptr %113, i64 %indvars.iv9.i
   %115 = load i8, ptr %114, align 8
   %.not55.i = icmp eq i8 %115, 0
   br i1 %.not55.i, label %132, label %116
@@ -4987,7 +4987,7 @@ define internal fastcc noundef zeroext i1 @vu_add_mem_reg(ptr noundef %0, ptr no
 
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 1
   %13 = tail call i32 @close(i32 noundef %12) #21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5068,7 +5068,7 @@ define internal fastcc void @vu_rem_mem_reg(ptr noundef %0, ptr noundef nonnull 
 
 8:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 1
   %11 = tail call i32 @close(i32 noundef %10) #21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5097,7 +5097,7 @@ vmsg_close_fds.exit:                              ; preds = %8
 
 22:                                               ; preds = %22, %.lr.ph.i33
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %22 ]
-  %23 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv.i34
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i34
   %24 = load i32, ptr %23, align 1
   %25 = tail call i32 @close(i32 noundef %24) #21
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
@@ -5187,7 +5187,7 @@ reg_equal.exit:                                   ; preds = %48, %30, %52, %vu_g
 
 59:                                               ; preds = %59, %.lr.ph.i38
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %59 ]
-  %60 = getelementptr inbounds nuw [8 x i32], ptr %58, i64 0, i64 %indvars.iv.i39
+  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i39
   %61 = load i32, ptr %60, align 1
   %62 = tail call i32 @close(i32 noundef %61) #21
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
@@ -5306,7 +5306,7 @@ unmap_rings.exit:                                 ; preds = %unmap_rings.exit.lo
 
 126:                                              ; preds = %126, %.lr.ph.i48
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i50, %126 ]
-  %127 = getelementptr inbounds nuw [8 x i32], ptr %125, i64 0, i64 %indvars.iv.i49
+  %127 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv.i49
   %128 = load i32, ptr %127, align 1
   %129 = tail call i32 @close(i32 noundef %128) #21
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
@@ -5682,7 +5682,7 @@ define internal fastcc noundef zeroext i1 @vu_check_queue_msg_file(ptr noundef %
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 1
   %18 = tail call i32 @close(i32 noundef %17) #21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5712,7 +5712,7 @@ vmsg_close_fds.exit:                              ; preds = %15, %10
 
 29:                                               ; preds = %29, %.lr.ph.i16
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i18, %29 ]
-  %30 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %indvars.iv.i17
+  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i17
   %31 = load i32, ptr %30, align 1
   %32 = tail call i32 @close(i32 noundef %31) #21
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
@@ -5735,7 +5735,7 @@ vmsg_close_fds.exit:                              ; preds = %15, %10
 
 40:                                               ; preds = %40, %.lr.ph.i20
   %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i22, %40 ]
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv.i21
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i21
   %42 = load i32, ptr %41, align 1
   %43 = tail call i32 @close(i32 noundef %42) #21
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1

@@ -272,7 +272,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm2384902EPFP7oopDescS2_lS2_S2_ELNS_11BarrierTypeE5EE15resolve_barrierEv.exit: ; preds = %14, %11
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_, %11 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1, %14 ]
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep7 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1.sink, i64 0, i64 %17
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE22atomic_cmpxchg_at_initES2_lS2_S2_.1.sink, i64 %17
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   store ptr %switch.load8, ptr @_ZN14AccessInternal15RuntimeDispatchILm2384902EP7oopDescLNS_11BarrierTypeE5EE23_atomic_cmpxchg_at_funcE, align 8
   %18 = tail call noundef ptr %switch.load8(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #6
@@ -535,7 +535,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %9 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %10 = lshr i64 %9, 12
   %11 = and i64 %10, 15
-  %12 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = zext nneg i32 %13 to i64
   %15 = shl i64 %8, %14
@@ -546,7 +546,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %20 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %19, i64 %16, ptr %7) #6, !srcloc !7
   %21 = lshr i64 %20, 12
   %22 = and i64 %21, 15
-  %23 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = zext nneg i32 %24 to i64
   %26 = lshr i64 %20, %25
@@ -1161,7 +1161,7 @@ define linkonce_odr hidden void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEP
   %.not.i.i.i = icmp eq i64 %14, 0
   %15 = lshr i64 %3, 12
   %16 = and i64 %15, 15
-  %17 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 %3, %19
@@ -1222,7 +1222,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %50 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %49, %55
@@ -1260,7 +1260,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i.i13 = icmp eq i64 %73, 0
   %74 = lshr i64 %3, 12
   %75 = and i64 %74, 15
-  %76 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = zext nneg i32 %77 to i64
   %79 = lshr i64 %3, %78
@@ -1472,7 +1472,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %9 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %10 = lshr i64 %9, 12
   %11 = and i64 %10, 15
-  %12 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = zext nneg i32 %13 to i64
   %15 = shl i64 %8, %14
@@ -1483,7 +1483,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %20 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %19, i64 %16, ptr %7) #6, !srcloc !7
   %21 = lshr i64 %20, 12
   %22 = and i64 %21, 15
-  %23 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = zext nneg i32 %24 to i64
   %26 = lshr i64 %20, %25

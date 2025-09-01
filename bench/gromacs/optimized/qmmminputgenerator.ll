@@ -1907,7 +1907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit137: ; preds = %
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 112
   %185 = load i32, ptr %184, align 8, !tbaa !89
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !90
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.157, ptr noundef %188)
           to label %189 unwind label %241
@@ -4195,7 +4195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178: ; preds = %
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 112
   %370 = load i32, ptr %369, align 8, !tbaa !89
   %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 %371
   %373 = load ptr, ptr %372, align 8, !tbaa !90
   store ptr %229, ptr %13, align 8, !tbaa !21
   %374 = icmp eq ptr %373, null

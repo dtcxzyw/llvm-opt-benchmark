@@ -456,9 +456,9 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   unreachable
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds [0 x i8], ptr %90, i64 0, i64 %127
+  %134 = getelementptr inbounds i8, ptr %90, i64 %127
   %135 = load i8, ptr %134, align 1, !alias.scope !75, !noalias !81, !noundef !4
-  %136 = getelementptr inbounds [0 x i8], ptr %86, i64 0, i64 %130
+  %136 = getelementptr inbounds i8, ptr %86, i64 %130
   %137 = load i8, ptr %136, align 1, !alias.scope !73, !noalias !79, !noundef !4
   %.not.i13 = icmp eq i8 %135, %137
   br i1 %.not.i13, label %.preheader20, label %139
@@ -473,9 +473,9 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
 
 141:                                              ; preds = %122
   %142 = add nuw i64 %.sroa.04.0.i11, 1
-  %143 = getelementptr inbounds [0 x i8], ptr %90, i64 0, i64 %.sroa.04.0.i11
+  %143 = getelementptr inbounds i8, ptr %90, i64 %.sroa.04.0.i11
   %144 = load i8, ptr %143, align 1, !alias.scope !75, !noalias !81, !noundef !4
-  %145 = getelementptr inbounds [0 x i8], ptr %86, i64 0, i64 %123
+  %145 = getelementptr inbounds i8, ptr %86, i64 %123
   %146 = load i8, ptr %145, align 1, !alias.scope !73, !noalias !79, !noundef !4
   %.not24.i15 = icmp eq i8 %144, %146
   br i1 %.not24.i15, label %120, label %149
@@ -562,9 +562,9 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   unreachable
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds [0 x i8], ptr %90, i64 0, i64 %182
+  %188 = getelementptr inbounds i8, ptr %90, i64 %182
   %189 = load i8, ptr %188, align 1, !alias.scope !87, !noalias !93, !noundef !4
-  %190 = getelementptr inbounds [0 x i8], ptr %86, i64 0, i64 %184
+  %190 = getelementptr inbounds i8, ptr %86, i64 %184
   %191 = load i8, ptr %190, align 1, !alias.scope !85, !noalias !91, !noundef !4
   %.not.i = icmp eq i8 %189, %191
   br i1 %.not.i, label %.preheader, label %193
@@ -579,9 +579,9 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
 
 195:                                              ; preds = %178
   %196 = add nuw i64 %.sroa.04.0.i, 1
-  %197 = getelementptr inbounds [0 x i8], ptr %90, i64 0, i64 %.sroa.04.0.i
+  %197 = getelementptr inbounds i8, ptr %90, i64 %.sroa.04.0.i
   %198 = load i8, ptr %197, align 1, !alias.scope !87, !noalias !93, !noundef !4
-  %199 = getelementptr inbounds [0 x i8], ptr %86, i64 0, i64 %179
+  %199 = getelementptr inbounds i8, ptr %86, i64 %179
   %200 = load i8, ptr %199, align 1, !alias.scope !85, !noalias !91, !noundef !4
   %.not24.i = icmp eq i8 %198, %200
   br i1 %.not24.i, label %.preheader19, label %203

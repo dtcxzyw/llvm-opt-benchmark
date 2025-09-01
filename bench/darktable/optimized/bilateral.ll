@@ -398,7 +398,7 @@ define void @dt_bilateral_splat(ptr noundef readonly captures(none) %0, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 64, !tbaa !26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %163, label %7
+  br i1 %.not, label %162, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -598,37 +598,36 @@ image_to_relgrid.exit.us:                         ; preds = %.lr.ph.split.us, %1
 
 146:                                              ; preds = %146, %image_to_relgrid.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %146 ], [ 0, %image_to_relgrid.exit.us ]
-  %147 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %148 = load float, ptr %147, align 4, !tbaa !65
   %149 = fmul reassoc nsz arcp contract afn float %148, %142
-  %150 = getelementptr inbounds nuw [8 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %151 = load i64, ptr %150, align 8, !tbaa !64
   %152 = getelementptr float, ptr %144, i64 %151
   %153 = load float, ptr %152, align 4, !tbaa !65
   %154 = fadd reassoc nsz arcp contract afn float %153, %149
   store float %154, ptr %152, align 4, !tbaa !65
   %155 = fmul reassoc nsz arcp contract afn float %148, %129
-  %156 = or disjoint i64 %indvars.iv, 4
-  %157 = getelementptr inbounds nuw [8 x i64], ptr %3, i64 0, i64 %156
-  %158 = load i64, ptr %157, align 8, !tbaa !64
-  %159 = getelementptr float, ptr %144, i64 %158
-  %160 = load float, ptr %159, align 4, !tbaa !65
-  %161 = fadd reassoc nsz arcp contract afn float %160, %155
-  store float %161, ptr %159, align 4, !tbaa !65
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 32
+  %157 = load i64, ptr %156, align 8, !tbaa !64
+  %158 = getelementptr float, ptr %144, i64 %157
+  %159 = load float, ptr %158, align 4, !tbaa !65
+  %160 = fadd reassoc nsz arcp contract afn float %159, %155
+  store float %160, ptr %158, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %145, label %146
 
 ._crit_edge.us:                                   ; preds = %145
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
-  %162 = icmp slt i64 %indvars.iv.next167, %78
-  br i1 %162, label %.lr.ph.split.us, label %.loopexit
+  %161 = icmp slt i64 %indvars.iv.next167, %78
+  br i1 %161, label %.lr.ph.split.us, label %.loopexit
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %163
+  br label %162
 
-163:                                              ; preds = %2, %._crit_edge
+162:                                              ; preds = %2, %._crit_edge
   ret void
 }
 

@@ -135,7 +135,7 @@ define hidden void @jI1Quant(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %56, label %58, label %61
 
 58:                                               ; preds = %.lr.ph64.us.i.i
-  %59 = getelementptr inbounds nuw [3 x i32], ptr @select_ncolors.RGB_order, i64 0, i64 %indvars.iv84.i.i
+  %59 = getelementptr inbounds nuw i32, ptr @select_ncolors.RGB_order, i64 %indvars.iv84.i.i
   %60 = load i32, ptr %59, align 4
   br label %61
 
@@ -237,7 +237,7 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.
   %108 = phi i32 [ %105, %.lr.ph71.preheader.i ], [ %131, %._crit_edge.i ]
   %indvars.iv83.i = phi i64 [ 0, %.lr.ph71.preheader.i ], [ %indvars.iv.next84.i, %._crit_edge.i ]
   %.06068.i = phi i32 [ %.us-phi73.i.i, %.lr.ph71.preheader.i ], [ %111, %._crit_edge.i ]
-  %109 = getelementptr inbounds nuw [4 x i32], ptr %35, i64 0, i64 %indvars.iv83.i
+  %109 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv83.i
   %110 = load i32, ptr %109, align 4
   %.fr73.i = freeze i32 %110
   %111 = sdiv i32 %.06068.i, %.fr73.i
@@ -338,7 +338,7 @@ create_colormap.exit:                             ; preds = %._crit_edge.i, %96
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = tail call ptr %152(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %144) #6
-  %154 = getelementptr inbounds nuw [4 x ptr], ptr %148, i64 0, i64 %indvars.iv.i25
+  %154 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.i25
   store ptr %153, ptr %154, align 8
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %155 = load i32, ptr %11, align 8
@@ -423,7 +423,7 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 
 40:                                               ; preds = %make_odither_array.exit.i, %.lr.ph26.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph26.i ], [ %indvars.iv.next30.i, %make_odither_array.exit.i ]
-  %41 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv29.i
+  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv29.i
   %42 = load i32, ptr %41, align 4
   %.not.i = icmp eq i64 %indvars.iv29.i, 0
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i
@@ -435,13 +435,13 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 
 .lr.ph.i:                                         ; preds = %40, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %40 ]
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %42, %45
   br i1 %46, label %47, label %43
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds nuw [4 x ptr], ptr %38, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread.i, label %make_odither_array.exit.i
@@ -456,20 +456,20 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 
 .preheader.i.i:                                   ; preds = %67, %.thread.i
   %indvars.iv22.i.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next23.i.i, %67 ]
-  %56 = getelementptr inbounds nuw [16 x [16 x i8]], ptr @base_dither_matrix, i64 0, i64 %indvars.iv22.i.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr @base_dither_matrix, i64 %indvars.iv22.i.i
   %57 = getelementptr inbounds nuw [16 x i32], ptr %53, i64 %indvars.iv22.i.i
   br label %58
 
 58:                                               ; preds = %58, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %58 ]
-  %59 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 0, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv.i.i
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 1
   %63 = sub nsw i32 255, %62
   %64 = mul nsw i32 %63, 255
   %65 = sdiv i32 %64, %55
-  %66 = getelementptr inbounds nuw [16 x i32], ptr %57, i64 0, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i.i
   store i32 %65, ptr %66, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
@@ -482,7 +482,7 @@ define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0,
 
 make_odither_array.exit.i:                        ; preds = %67, %47
   %.1.i = phi ptr [ %49, %47 ], [ %53, %67 ]
-  %68 = getelementptr inbounds nuw [4 x ptr], ptr %38, i64 0, i64 %indvars.iv29.i
+  %68 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv29.i
   store ptr %.1.i, ptr %68, align 8
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %69 = load i32, ptr %21, align 8
@@ -528,7 +528,7 @@ make_odither_array.exit.i:                        ; preds = %67, %47
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = tail call ptr %93(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %83) #6
-  %95 = getelementptr inbounds nuw [4 x ptr], ptr %89, i64 0, i64 %indvars.iv.i31
+  %95 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.i31
   store ptr %94, ptr %95, align 8
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %96 = load i32, ptr %84, align 8
@@ -549,7 +549,7 @@ alloc_fs_workspace.exit:                          ; preds = %90, %.alloc_fs_work
 
 .lr.ph:                                           ; preds = %alloc_fs_workspace.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %alloc_fs_workspace.exit ]
-  %107 = getelementptr inbounds nuw [4 x ptr], ptr %75, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8
   tail call void @jZeroFar(ptr noundef %108, i64 noundef %104) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -620,7 +620,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %.loopexit.us
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.loopexit.us ], [ 0, %.lr.ph62 ]
   %.04660.us = phi i32 [ %22, %.loopexit.us ], [ %18, %.lr.ph62 ]
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv80
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv80
   %21 = load i32, ptr %20, align 4
   %22 = sdiv i32 %.04660.us, %21
   %23 = load ptr, ptr %14, align 8
@@ -694,7 +694,7 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %76
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %76 ], [ 0, %.lr.ph62 ]
   %.04660 = phi i32 [ %57, %76 ], [ %18, %.lr.ph62 ]
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv69
+  %55 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv69
   %56 = load i32, ptr %55, align 4
   %57 = sdiv i32 %.04660, %56
   %58 = load ptr, ptr %14, align 8
@@ -1080,7 +1080,7 @@ define internal void @quantize_ord_dither(ptr noundef readonly captures(none) %0
   %31 = load ptr, ptr %15, align 8
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv63
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %indvars.iv63
+  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv63
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds [16 x i32], ptr %35, i64 %27
   br label %37
@@ -1192,7 +1192,7 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %29 ], [ 0, %.lr.ph101.us.us ]
   %30 = load i32, ptr %16, align 8
   %.not88.us.us.us = icmp eq i32 %30, 0
-  %31 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv127
+  %31 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv127
   %32 = load ptr, ptr %31, align 8
   %.082.us.us.us.idx = select i1 %.not88.us.us.us, i64 0, i64 %24
   %.082.us.us.us = getelementptr inbounds nuw i16, ptr %32, i64 %.082.us.us.us.idx
@@ -1230,13 +1230,13 @@ define internal void @quantize_fs_dither(ptr noundef readonly captures(none) %0,
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 %19
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 %20
-  %46 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv117
+  %46 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv117
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i16, ptr %47, i64 %24
   br label %.lr.ph.us
 
 49:                                               ; preds = %38
-  %50 = getelementptr inbounds nuw [4 x ptr], ptr %22, i64 0, i64 %indvars.iv117
+  %50 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv117
   %51 = load ptr, ptr %50, align 8
   br label %.lr.ph.us
 

@@ -191,7 +191,7 @@ define internal noundef i32 @lj_cf_math_randomseed(ptr noundef %0) #0 {
   %24 = icmp ult i64 %22, %23
   %25 = select i1 %24, i64 %23, i64 0
   %spec.select.i = add nuw nsw i64 %25, %22
-  %26 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
   store i64 %spec.select.i, ptr %26, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

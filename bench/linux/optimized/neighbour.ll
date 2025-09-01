@@ -1393,7 +1393,7 @@ define internal fastcc ptr @___neigh_create(ptr noundef %0, ptr noundef %1, ptr 
 
 269:                                              ; preds = %269, %266
   %270 = phi i64 [ 0, %266 ], [ %274, %269 ]
-  %271 = getelementptr [4 x i32], ptr %268, i64 0, i64 %270
+  %271 = getelementptr i32, ptr %268, i64 %270
   %272 = tail call i32 @get_random_u32() #21
   %273 = or i32 %272, 1
   store i32 %273, ptr %271, align 4
@@ -4118,7 +4118,7 @@ define dso_local void @neigh_table_init(i32 noundef %0, ptr noundef %1) #0 align
 
 48:                                               ; preds = %48, %45
   %49 = phi i64 [ 0, %45 ], [ %53, %48 ]
-  %50 = getelementptr [4 x i32], ptr %47, i64 0, i64 %49
+  %50 = getelementptr i32, ptr %47, i64 %49
   %51 = tail call i32 @get_random_u32() #21
   %52 = or i32 %51, 1
   store i32 %52, ptr %50, align 4
@@ -4219,7 +4219,7 @@ define dso_local void @neigh_table_init(i32 noundef %0, ptr noundef %1) #0 align
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 568
   store i64 %106, ptr %107, align 8
   %108 = sext i32 %0 to i64
-  %109 = getelementptr [3 x ptr], ptr @neigh_tables, i64 0, i64 %108
+  %109 = getelementptr ptr, ptr @neigh_tables, i64 %108
   store ptr %1, ptr %109, align 8
   ret void
 }
@@ -4648,7 +4648,7 @@ define internal void @neigh_proxy_process(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @neigh_table_clear(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [3 x ptr], ptr @neigh_tables, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @neigh_tables, i64 %3
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %6 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %5) #21
@@ -5257,7 +5257,7 @@ define dso_local i32 @neigh_xmit(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 
 6:                                                ; preds = %4
   %7 = sext i32 %0 to i64
-  %8 = getelementptr [3 x ptr], ptr @neigh_tables, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr @neigh_tables, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread12, label %11
@@ -6199,7 +6199,7 @@ define internal fastcc void @neigh_proc_update(ptr noundef readonly captures(non
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %25
-  %33 = getelementptr [14 x i32], ptr %8, i64 0, i64 %18
+  %33 = getelementptr i32, ptr %8, i64 %18
   switch i32 %28, label %.thread [
     i32 2, label %.split.us
     i32 10, label %.split.us6
@@ -6229,7 +6229,7 @@ define internal fastcc void @neigh_proc_update(ptr noundef readonly captures(non
 47:                                               ; preds = %42
   %48 = load i32, ptr %33, align 4
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  %50 = getelementptr [14 x i32], ptr %49, i64 0, i64 %18
+  %50 = getelementptr i32, ptr %49, i64 %18
   store i32 %48, ptr %50, align 4
   br label %.thread.us
 
@@ -6262,7 +6262,7 @@ define internal fastcc void @neigh_proc_update(ptr noundef readonly captures(non
 66:                                               ; preds = %61
   %67 = load i32, ptr %33, align 4
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  %69 = getelementptr [14 x i32], ptr %68, i64 0, i64 %18
+  %69 = getelementptr i32, ptr %68, i64 %18
   store i32 %67, ptr %69, align 4
   br label %.thread.us7
 
@@ -6321,7 +6321,7 @@ define dso_local noundef range(i32 -105, 1) i32 @neigh_sysctl_register(ptr nound
 
 10:                                               ; preds = %10, %7
   %11 = phi i64 [ 0, %7 ], [ %18, %10 ]
-  %12 = getelementptr [22 x %struct.ctl_table], ptr %9, i64 0, i64 %11
+  %12 = getelementptr %struct.ctl_table, ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 %8
@@ -7131,8 +7131,8 @@ define internal ptr @neigh_stat_seq_start(ptr noundef readonly captures(none) %0
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 576
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
-  %30 = ashr exact i64 %24, 32
-  %31 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %30
+  %30 = ashr exact i64 %24, 29
+  %31 = getelementptr i8, ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %29
   %34 = inttoptr i64 %33 to ptr
@@ -7189,8 +7189,8 @@ define internal ptr @neigh_stat_seq_next(ptr noundef readonly captures(none) %0,
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 576
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
-  %28 = ashr exact i64 %22, 32
-  %29 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %28
+  %28 = ashr exact i64 %22, 29
+  %29 = getelementptr i8, ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %27
   %32 = inttoptr i64 %31 to ptr
@@ -8194,7 +8194,7 @@ define internal i32 @neigh_get(ptr noundef readonly captures(none) %0, ptr nound
 54:                                               ; preds = %74, %51
   %55 = phi ptr [ %75, %74 ], [ null, %51 ]
   %56 = phi i64 [ %76, %74 ], [ 0, %51 ]
-  %57 = getelementptr [18 x ptr], ptr %4, i64 0, i64 %56
+  %57 = getelementptr ptr, ptr %4, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %74, label %60
@@ -8546,7 +8546,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %64 = phi i32 [ %79, %78 ], [ 0, %58 ]
   %65 = phi i32 [ %80, %78 ], [ 0, %58 ]
   %66 = phi i64 [ %81, %78 ], [ 0, %58 ]
-  %67 = getelementptr [18 x ptr], ptr %3, i64 0, i64 %66
+  %67 = getelementptr ptr, ptr %3, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %78, label %70
@@ -8579,7 +8579,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %83 = phi i32 [ %100, %99 ], [ 0, %.thread265 ]
   %84 = phi i32 [ %101, %99 ], [ 0, %.thread265 ]
   %85 = phi i64 [ %102, %99 ], [ 0, %.thread265 ]
-  %86 = getelementptr [18 x ptr], ptr %3, i64 0, i64 %85
+  %86 = getelementptr ptr, ptr %3, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %99, label %89
@@ -8661,7 +8661,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
 
 .split116.us:                                     ; preds = %106, %287
   %126 = phi i64 [ %288, %287 ], [ 0, %106 ]
-  %127 = getelementptr [3 x ptr], ptr @neigh_tables, i64 0, i64 %126
+  %127 = getelementptr ptr, ptr @neigh_tables, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, null
   %130 = icmp slt i64 %126, %125
@@ -8946,7 +8946,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
 
 .split116:                                        ; preds = %106, %441
   %290 = phi i64 [ %442, %441 ], [ 0, %106 ]
-  %291 = getelementptr [3 x ptr], ptr @neigh_tables, i64 0, i64 %290
+  %291 = getelementptr ptr, ptr @neigh_tables, i64 %290
   %292 = load ptr, ptr %291, align 8
   %293 = icmp eq ptr %292, null
   %294 = icmp slt i64 %290, %125
@@ -9342,7 +9342,7 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr noundef captures(non
   %78 = phi i64 [ 0, %46 ], [ %330, %.loopexit ]
   %79 = phi i32 [ %19, %46 ], [ %.ph19, %.loopexit ]
   %80 = phi i32 [ 0, %46 ], [ %.ph, %.loopexit ]
-  %81 = getelementptr [3 x ptr], ptr @neigh_tables, i64 0, i64 %78
+  %81 = getelementptr ptr, ptr @neigh_tables, i64 %78
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   %84 = icmp slt i64 %78, %76
@@ -9525,7 +9525,7 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr noundef captures(non
   %196 = load ptr, ptr %174, align 8
   %197 = ptrtoint ptr %196 to i64
   %198 = and i64 %192, 63
-  %199 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %198
+  %199 = getelementptr i64, ptr @__per_cpu_offset, i64 %198
   %200 = load i64, ptr %199, align 8
   %201 = add i64 %200, %197
   %202 = inttoptr i64 %201 to ptr
@@ -9806,7 +9806,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
 35:                                               ; preds = %54, %33
   %36 = phi i64 [ 0, %33 ], [ %55, %54 ]
   %37 = phi i1 [ true, %33 ], [ %56, %54 ]
-  %38 = getelementptr [3 x ptr], ptr @neigh_tables, i64 0, i64 %36
+  %38 = getelementptr ptr, ptr @neigh_tables, i64 %36
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %54, label %41
@@ -9960,7 +9960,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
 
 134:                                              ; preds = %222, %116
   %135 = phi i64 [ 1, %116 ], [ %223, %222 ]
-  %136 = getelementptr [20 x ptr], ptr %14, i64 0, i64 %135
+  %136 = getelementptr ptr, ptr %14, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null
   br i1 %138, label %222, label %139

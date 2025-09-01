@@ -80,7 +80,7 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %indvar = phi i64 [ %indvar.next, %.lr.ph ], [ 0, %10 ]
   %14 = load ptr, ptr @ProcSignal, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = getelementptr inbounds nuw [0 x %struct.ProcSignalSlot], ptr %15, i64 0, i64 %indvar
+  %16 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %15, i64 %indvar
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i8 0, ptr %17, align 4
@@ -156,7 +156,7 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   %18 = load ptr, ptr @ProcSignal, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.ProcSignalSlot], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #11, !srcloc !9
   %.not31 = icmp eq i8 %23, 0
@@ -301,7 +301,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %5 = load ptr, ptr @ProcSignal, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [0 x %struct.ProcSignalSlot], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.ProcSignalSlot, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %10 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %9, i8 1, ptr nonnull elementtype(i8) %9) #11, !srcloc !9
   %.not32 = icmp eq i8 %10, 0
@@ -319,7 +319,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw [14 x i32], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
   store volatile i32 1, ptr %19, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   store volatile i8 0, ptr %9, align 4
@@ -346,7 +346,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %27 = phi ptr [ %.pre39, %.lr.ph.preheader ], [ %42, %41 ]
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = getelementptr inbounds nuw [0 x %struct.ProcSignalSlot], ptr %28, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %28, i64 %indvars.iv
   %30 = load volatile i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %0
   br i1 %31, label %32, label %41
@@ -381,7 +381,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %46 = zext i32 %1 to i64
-  %47 = getelementptr inbounds nuw [14 x i32], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
   store volatile i32 1, ptr %47, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
   store volatile i8 0, ptr %33, align 4
@@ -446,7 +446,7 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
   %indvars.iv29 = phi i64 [ %11, %.lr.ph26.preheader ], [ %indvars.iv.next30, %36 ]
   %21 = load ptr, ptr @ProcSignal, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = getelementptr inbounds nuw [0 x %struct.ProcSignalSlot], ptr %22, i64 0, i64 %indvars.iv29
+  %23 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %22, i64 %indvars.iv29
   %24 = load volatile i32, ptr %23, align 4
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %36, label %25
@@ -513,7 +513,7 @@ define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_ad
   %indvars.iv = phi i64 [ %9, %.lr.ph14.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %11 = load ptr, ptr @ProcSignal, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds nuw [0 x %struct.ProcSignalSlot], ptr %12, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %.011 = load volatile i64, ptr %14, align 8
   %15 = icmp ult i64 %.011, %0
@@ -933,7 +933,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   %7 = phi ptr [ %.pre35, %.lr.ph.preheader ], [ %40, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = getelementptr inbounds nuw [0 x %struct.ProcSignalSlot], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %8, i64 %indvars.iv
   %10 = load volatile i32, ptr %9, align 4
   %.not = icmp eq i32 %10, %0
   br i1 %.not, label %11, label %38

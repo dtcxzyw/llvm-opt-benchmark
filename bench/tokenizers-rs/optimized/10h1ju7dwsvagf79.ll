@@ -5450,7 +5450,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !1324
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { ptr, ptr, double, double }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { ptr, ptr, double, double }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -5464,7 +5464,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !1324
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { i64, i32, i32 }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { i64, i32, i32 }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -5478,7 +5478,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !1324
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i32, i32 }, i64 }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i32, i32 }, i64 }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -6315,7 +6315,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN84_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8e2a4c056affeaf6E.llvm.11083375685992158394.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !1435, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { ptr, ptr, double, double }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { ptr, ptr, double, double }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -6333,7 +6333,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN84_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hdca388abefaa1875E.llvm.11083375685992158394.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !1441, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { i64, i32, i32 }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { i64, i32, i32 }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -6351,7 +6351,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN84_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hde4877761760a291E.llvm.11083375685992158394.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !1447, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i32, i32 }, i64 }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i32, i32 }, i64 }, ptr %9, i64 %1
   ret ptr %10
 }
 

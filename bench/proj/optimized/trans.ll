@@ -1174,7 +1174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
   br i1 %157, label %163, label %158
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv223
+  %159 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv223
   store i32 %67, ptr %159, align 4, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv223, 1

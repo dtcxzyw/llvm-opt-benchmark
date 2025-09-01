@@ -125540,10 +125540,10 @@ define noundef zeroext i1 @"_ZN97_$LT$ockam_api..nodes..models..transport..commo
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !10, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b32236dc83d7f78E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b32236dc83d7f78E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN97_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Display$GT$3fmt17hb147e3d1ee8bc2c8E.281", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN97_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Display$GT$3fmt17hb147e3d1ee8bc2c8E.281", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -125560,10 +125560,10 @@ define noundef zeroext i1 @"_ZN97_$LT$ockam_api..nodes..models..transport..commo
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !10, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN97_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Display$GT$3fmt17hd423d7e40ef361baE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN97_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Display$GT$3fmt17hd423d7e40ef361baE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN97_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Display$GT$3fmt17hd423d7e40ef361baE.282", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN97_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Display$GT$3fmt17hd423d7e40ef361baE.282", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -140161,10 +140161,10 @@ define noundef zeroext i1 @"_ZN95_$LT$ockam_api..nodes..models..transport..commo
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !10, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b32236dc83d7f78E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b32236dc83d7f78E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b32236dc83d7f78E.283", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportType$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b32236dc83d7f78E.283", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -140187,10 +140187,10 @@ define noundef zeroext i1 @"_ZN95_$LT$ockam_api..nodes..models..transport..commo
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !10, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc2268d3e6e6f9ebE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc2268d3e6e6f9ebE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc2268d3e6e6f9ebE.284", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ockam_api..nodes..models..transport..common..TransportMode$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc2268d3e6e6f9ebE.284", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

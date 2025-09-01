@@ -1361,7 +1361,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 125:                                              ; preds = %91
   %126 = lshr i32 %34, 23
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [1 x ptr], ptr %32, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw ptr, ptr %32, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !61
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !63
@@ -1420,7 +1420,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 158:                                              ; preds = %91
   %159 = lshr i32 %34, 23
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [1 x ptr], ptr %32, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw ptr, ptr %32, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !61
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %164 = load ptr, ptr %163, align 8, !tbaa !63
@@ -2707,11 +2707,11 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %894 = icmp eq i32 %893, 4
   %895 = lshr i32 %892, 23
   %896 = zext nneg i32 %895 to i64
-  %897 = getelementptr inbounds nuw [1 x ptr], ptr %890, i64 0, i64 %indvars.iv891
+  %897 = getelementptr inbounds nuw ptr, ptr %890, i64 %indvars.iv891
   br i1 %894, label %898, label %901
 
 898:                                              ; preds = %891
-  %899 = getelementptr inbounds nuw [1 x ptr], ptr %32, i64 0, i64 %896
+  %899 = getelementptr inbounds nuw ptr, ptr %32, i64 %896
   %900 = load ptr, ptr %899, align 8, !tbaa !61
   br label %904
 

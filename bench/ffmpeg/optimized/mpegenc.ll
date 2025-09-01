@@ -231,7 +231,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
 
 72:                                               ; preds = %66, %76
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %76 ]
-  %73 = getelementptr inbounds nuw [4 x i32], ptr @lpcm_freq_tab, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr @lpcm_freq_tab, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !57
   %75 = icmp eq i32 %74, %71
   br i1 %75, label %.thread, label %76
@@ -248,7 +248,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
 
 78:                                               ; preds = %77, %78
   %indvars.iv351 = phi i64 [ 0, %77 ], [ %indvars.iv.next352, %78 ]
-  %79 = getelementptr inbounds nuw [4 x i32], ptr @lpcm_freq_tab, i64 0, i64 %indvars.iv351
+  %79 = getelementptr inbounds nuw i32, ptr @lpcm_freq_tab, i64 %indvars.iv351
   %80 = load i32, ptr %79, align 4, !tbaa !57
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.23, i32 noundef %80) #8
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1

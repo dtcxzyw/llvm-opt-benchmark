@@ -133,7 +133,7 @@ define dso_local ptr @SystemAttributeDefinition(i16 noundef signext %0) local_un
 6:                                                ; preds = %1
   %7 = xor i32 %2, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [6 x ptr], ptr @SysAtt, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %8
   %10 = load ptr, ptr %9, align 8
   ret ptr %10
 }
@@ -158,7 +158,7 @@ define dso_local ptr @SystemAttributeByName(ptr noundef readonly captures(none) 
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [6 x ptr], ptr @SysAtt, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #12
@@ -352,7 +352,7 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
 
 17:                                               ; preds = %16, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw [6 x ptr], ptr @SysAtt, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %15) #12

@@ -2696,7 +2696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %84, label %switch.lookup, label %87
 
 switch.lookup:                                    ; preds = %83
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK10open_spiel9laser_tag13LaserTagState14ActionToStringB5cxx11Eil, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK10open_spiel9laser_tag13LaserTagState14ActionToStringB5cxx11Eil, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 
@@ -3498,22 +3498,22 @@ define noundef zeroext i1 @_ZN10open_spiel9laser_tag13LaserTagState11ResolveMove
   %4 = alloca [1 x i32], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %10 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 %6
+  %10 = getelementptr inbounds i32, ptr %9, i64 %6
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %13 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds i32, ptr %12, i64 %6
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [4 x %"struct.std::array.50"], ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111row_offsetsE, i64 0, i64 %15
+  %16 = getelementptr inbounds %"struct.std::array.50", ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111row_offsetsE, i64 %15
   %17 = sext i32 %2 to i64
-  %18 = getelementptr inbounds [10 x i32], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %8
-  %21 = getelementptr inbounds [4 x %"struct.std::array.50"], ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111col_offsetsE, i64 0, i64 %15
-  %22 = getelementptr inbounds [10 x i32], ptr %21, i64 0, i64 %17
+  %21 = getelementptr inbounds %"struct.std::array.50", ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111col_offsetsE, i64 %15
+  %22 = getelementptr inbounds i32, ptr %21, i64 %17
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %11
   %25 = or i32 %24, %20
@@ -3838,9 +3838,9 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit131: ; preds = %97, %_ZNSt
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @_ZNSt6vectorIiSaIiEE13_M_assign_auxIPKiEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr noundef nonnull %4, ptr noundef nonnull %143)
   %144 = zext nneg i32 %.075.ph to i64
-  %145 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %5, i64 %144
   %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %144
+  %147 = getelementptr inbounds nuw i32, ptr %9, i64 %144
   %148 = load i32, ptr %147, align 4
   %149 = load ptr, ptr %27, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
@@ -5559,11 +5559,11 @@ _ZNSt6vectorIbSaIbEEC2ESt16initializer_listIbERKS0_.exit.preheader: ; preds = %_
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %42 = sext i32 %2 to i64
-  %43 = getelementptr inbounds [2 x i32], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds i32, ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %45 = getelementptr inbounds [2 x i32], ptr %44, i64 0, i64 %42
+  %45 = getelementptr inbounds i32, ptr %44, i64 %42
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %47 = getelementptr inbounds [2 x i32], ptr %46, i64 0, i64 %42
+  %47 = getelementptr inbounds i32, ptr %46, i64 %42
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5787,7 +5787,7 @@ _ZNSt6vectorIbSaIbEEC2ESt16initializer_listIbERKS0_.exit._crit_edge: ; preds = %
 150:                                              ; preds = %143
   store ptr @.str.16, ptr %8, align 8
   store i64 1, ptr %137, align 8
-  %151 = getelementptr inbounds nuw [2 x i32], ptr %138, i64 0, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv
   %152 = load i32, ptr %151, align 4
   %153 = invoke noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %152, ptr noundef nonnull %139)
           to label %.noexc44 unwind label %.body33.loopexit
@@ -5910,7 +5910,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit55:                  ; preds = %171, %170
 define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridEiii(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.23") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [2 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %.thread [
     i32 0, label %10
@@ -5921,14 +5921,14 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridE
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %12 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 %7
+  %12 = getelementptr inbounds i32, ptr %11, i64 %7
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %19 = getelementptr inbounds [2 x i32], ptr %18, i64 0, i64 %7
+  %19 = getelementptr inbounds i32, ptr %18, i64 %7
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, %4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -5938,14 +5938,14 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridE
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %27 = getelementptr inbounds [2 x i32], ptr %26, i64 0, i64 %7
+  %27 = getelementptr inbounds i32, ptr %26, i64 %7
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %30 = load i32, ptr %29, align 4
   %31 = sub i32 %28, %3
   %32 = add i32 %31, %30
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %34 = getelementptr inbounds [2 x i32], ptr %33, i64 0, i64 %7
+  %34 = getelementptr inbounds i32, ptr %33, i64 %7
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %37 = load i32, ptr %36, align 4
@@ -5955,14 +5955,14 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridE
 
 40:                                               ; preds = %5
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %42 = getelementptr inbounds [2 x i32], ptr %41, i64 0, i64 %7
+  %42 = getelementptr inbounds i32, ptr %41, i64 %7
   %43 = load i32, ptr %42, align 4
   %44 = add nsw i32 %43, %4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %46 = load i32, ptr %45, align 4
   %47 = sub i32 %44, %46
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %49 = getelementptr inbounds [2 x i32], ptr %48, i64 0, i64 %7
+  %49 = getelementptr inbounds i32, ptr %48, i64 %7
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %52 = load i32, ptr %51, align 4
@@ -5972,14 +5972,14 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridE
 
 55:                                               ; preds = %5
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %57 = getelementptr inbounds [2 x i32], ptr %56, i64 0, i64 %7
+  %57 = getelementptr inbounds i32, ptr %56, i64 %7
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %60 = load i32, ptr %59, align 4
   %61 = sub i32 %58, %4
   %62 = add i32 %61, %60
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %64 = getelementptr inbounds [2 x i32], ptr %63, i64 0, i64 %7
+  %64 = getelementptr inbounds i32, ptr %63, i64 %7
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %65, %3
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -6441,10 +6441,10 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 70:                                               ; preds = %70, %69
   %indvars.iv.i.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i.i, %70 ]
   %.078.i.i = phi i32 [ 0, %69 ], [ %76, %70 ]
-  %71 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %71 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
   %72 = load i32, ptr %71, align 4
   %73 = mul nsw i32 %72, %.078.i.i
-  %74 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i.i
+  %74 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i
   %75 = load i32, ptr %74, align 4
   %76 = add nsw i32 %73, %75
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6582,11 +6582,11 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
   %.not2799 = icmp slt i32 %20, 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %38 = sext i32 %1 to i64
-  %39 = getelementptr inbounds [2 x i32], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds i32, ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %41 = getelementptr inbounds [2 x i32], ptr %40, i64 0, i64 %38
+  %41 = getelementptr inbounds i32, ptr %40, i64 %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %43 = getelementptr inbounds [2 x i32], ptr %42, i64 0, i64 %38
+  %43 = getelementptr inbounds i32, ptr %42, i64 %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -6779,10 +6779,10 @@ _ZNK10open_spiel9laser_tag13LaserTagState17observation_planeEii.exit: ; preds = 
 135:                                              ; preds = %135, %134
   %indvars.iv.i.i = phi i64 [ 0, %134 ], [ %indvars.iv.next.i.i, %135 ]
   %.078.i.i = phi i32 [ 0, %134 ], [ %141, %135 ]
-  %136 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %indvars.iv.i.i
+  %136 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i.i
   %137 = load i32, ptr %136, align 4
   %138 = mul nsw i32 %137, %.078.i.i
-  %139 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %indvars.iv.i.i
+  %139 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i
   %140 = load i32, ptr %139, align 4
   %141 = add nsw i32 %138, %140
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

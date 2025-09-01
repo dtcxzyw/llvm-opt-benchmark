@@ -5510,7 +5510,7 @@ _ZN4llvm6detail12DenseSetImplINS_14BasicBlockEdgeENS_8DenseMapIS2_NS0_13DenseSet
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %1596 ], [ 0, %1592 ]
   %1597 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
   call void @llvm.assume(i1 %1597)
-  %1598 = getelementptr inbounds nuw [2 x i64], ptr %1595, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %1598 = getelementptr inbounds nuw i64, ptr %1595, i64 %indvars.iv.i.i.i.i.i
   %1599 = load i64, ptr %1598, align 8, !tbaa !9, !noalias !514
   %.not.i.i.i.i.i101 = icmp eq i64 %1599, 0
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -5851,7 +5851,7 @@ _ZNK4llvm6detail12DenseSetImplINS_14BasicBlockEdgeENS_8DenseMapIS2_NS0_13DenseSe
   %1780 = lshr i32 %1779, 6
   %1781 = and i32 %.sroa.12.2.i, 63
   %1782 = zext nneg i32 %1780 to i64
-  %1783 = getelementptr inbounds nuw [2 x i64], ptr %1823, i64 0, i64 %1782
+  %1783 = getelementptr inbounds nuw i64, ptr %1823, i64 %1782
   %1784 = load i64, ptr %1783, align 8, !tbaa !9
   %1785 = zext nneg i32 %1781 to i64
   %1786 = shl nsw i64 -1, %1785
@@ -5900,7 +5900,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i.i: ; preds = %1800,
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %1808 ], [ 0, %1804 ]
   %1809 = icmp samesign ult i64 %indvars.iv.i.i.i, 2
   call void @llvm.assume(i1 %1809)
-  %1810 = getelementptr inbounds nuw [2 x i64], ptr %1807, i64 0, i64 %indvars.iv.i.i.i
+  %1810 = getelementptr inbounds nuw i64, ptr %1807, i64 %indvars.iv.i.i.i
   %1811 = load i64, ptr %1810, align 8, !tbaa !9
   %.not.i9.i.i = icmp eq i64 %1811, 0
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -5935,7 +5935,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i: ; preds = %180
   %.018.i.ph.frozen.i.i = freeze i32 %.018.i.ph.i.i
   %1826 = lshr i32 %.018.i.ph.frozen.i.i, 6
   %1827 = zext nneg i32 %1826 to i64
-  %1828 = getelementptr inbounds nuw [2 x i64], ptr %1823, i64 0, i64 %1827
+  %1828 = getelementptr inbounds nuw i64, ptr %1823, i64 %1827
   %1829 = load i64, ptr %1828, align 8, !tbaa !9
   %.urem12.i.i = add i32 %.018.i.ph.frozen.i.i, -64
   %.cmp13.i.i = icmp ult i32 %.018.i.ph.frozen.i.i, 64
@@ -9483,7 +9483,7 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit:     ; preds = %3332, %.sink.split.
   %3350 = lshr i32 %.130.i, 6
   %3351 = and i32 %3350, 1
   %3352 = zext nneg i32 %3351 to i64
-  %3353 = getelementptr inbounds nuw [2 x i64], ptr %3349, i64 0, i64 %3352
+  %3353 = getelementptr inbounds nuw i64, ptr %3349, i64 %3352
   %3354 = load i64, ptr %3353, align 8, !tbaa !9
   %3355 = or i64 %3354, %3348
   store i64 %3355, ptr %3353, align 8, !tbaa !9
@@ -23890,7 +23890,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %53 = lshr i32 %1, 6
   %54 = and i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %52, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !9
   %58 = or i64 %57, %51
   store i64 %58, ptr %56, align 8, !tbaa !9
@@ -42918,7 +42918,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %41 = lshr i32 %1, 6
   %42 = and i32 %41, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [2 x i64], ptr %40, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !9
   %46 = and i64 %45, %39
   store i64 %46, ptr %44, align 8, !tbaa !9
@@ -42927,7 +42927,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 47:                                               ; preds = %47, %35
   %.not8.i = phi i1 [ true, %35 ], [ false, %47 ]
   %indvars.iv.i = phi i64 [ 0, %35 ], [ 1, %47 ]
-  %48 = getelementptr inbounds nuw [2 x i64], ptr %40, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i
   %49 = load i64, ptr %48, align 8, !tbaa !9
   %.not.i = icmp eq i64 %49, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
@@ -46808,7 +46808,7 @@ _ZNK12_GLOBAL__N_16NewGVN15getMemoryAccessEPKN4llvm10BasicBlockE.exit.thread: ; 
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %214 ], [ 0, %210 ]
   %215 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   call void @llvm.assume(i1 %215)
-  %216 = getelementptr inbounds nuw [2 x i64], ptr %213, i64 0, i64 %indvars.iv.i.i.i.i
+  %216 = getelementptr inbounds nuw i64, ptr %213, i64 %indvars.iv.i.i.i.i
   %217 = load i64, ptr %216, align 8, !tbaa !9, !noalias !1422
   %.not.i.i.i.i = icmp eq i64 %217, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -47372,7 +47372,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   %21 = and i32 %18, 63
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !9
   %26 = zext nneg i32 %21 to i64
   %27 = shl nsw i64 -1, %26
@@ -47432,7 +47432,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
   %56 = icmp samesign ult i64 %indvars.iv.i, 2
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw [2 x i64], ptr %54, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i
   %58 = load i64, ptr %57, align 8, !tbaa !9
   %.not.i9 = icmp eq i64 %58, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -47462,7 +47462,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %69, ptr %70, align 4, !tbaa !1431
   %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %22, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !9
   %.urem12 = add i32 %.018.i.ph.frozen, -64
   %.cmp13 = icmp ult i32 %.018.i.ph.frozen, 64

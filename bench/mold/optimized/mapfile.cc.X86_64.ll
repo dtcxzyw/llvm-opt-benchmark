@@ -518,7 +518,7 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_
 79:                                               ; preds = %79, %.preheader.i.i.i.i
   %.01021.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %83, %79 ]
   %80 = icmp eq i64 %.01021.i.i.i.i, 0
-  %81 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %.ptr17.i.i.i.i, i64 0, i64 %.01021.i.i.i.i
+  %81 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %.ptr17.i.i.i.i, i64 %.01021.i.i.i.i
   %82 = select i1 %80, i64 %75, i64 0
   store atomic i64 %82, ptr %81 monotonic, align 8, !alias.scope !41
   %83 = add nuw nsw i64 %.01021.i.i.i.i, 1
@@ -1622,7 +1622,7 @@ _ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold11TimerRecordESt14default_
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.01098 = phi i64 [ %52, %.lr.ph99 ], [ 1, %.preheader ]
-  %51 = getelementptr inbounds nuw [3 x %"struct.std::atomic.114"], ptr %31, i64 0, i64 %.01098
+  %51 = getelementptr inbounds nuw %"struct.std::atomic.114", ptr %31, i64 %.01098
   store atomic i64 %27, ptr %51 release, align 8
   %52 = add nuw nsw i64 %.01098, 1
   %exitcond103.not = icmp eq i64 %52, %invariant.umin
@@ -2706,7 +2706,7 @@ thread-pre-split.i.i:                             ; preds = %200
 
 .lr.ph.i.i.i:                                     ; preds = %106
   %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %102, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1, !tbaa !17
   %111 = icmp ult i8 %.pre.i.i.i, %109
   br i1 %111, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
@@ -2730,7 +2730,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %124, label %125, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
 
 125:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i
-  %126 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %116
+  %126 = getelementptr inbounds nuw i8, ptr %102, i64 %116
   %127 = add i8 %115, 1
   %128 = and i8 %127, 7
   %129 = zext nneg i8 %128 to i64
@@ -2751,7 +2751,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %139 = load i8, ptr %126, align 1, !tbaa !17
   %140 = add i8 %139, 1
   store i8 %140, ptr %126, align 1, !tbaa !17
-  %141 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %129
+  %141 = getelementptr inbounds nuw i8, ptr %102, i64 %129
   store i8 %140, ptr %141, align 1, !tbaa !17
   %142 = add nuw nsw i8 %114, 1
   %exitcond.not.i.i.i = icmp eq i8 %142, 8
@@ -2790,7 +2790,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 .thread.i.i:                                      ; preds = %150
   %153 = zext nneg i8 %107 to i64
   %154 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %103, i64 %153
-  %155 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %153
+  %155 = getelementptr inbounds nuw i8, ptr %102, i64 %153
   %156 = load i8, ptr %155, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !86
@@ -2842,7 +2842,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 
 180:                                              ; preds = %150
   %181 = zext i8 %145 to i64
-  %182 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr %102, i64 %181
   %183 = load i8, ptr %182, align 1, !tbaa !17
   %184 = icmp ult i8 %183, %151
   br i1 %184, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINSB_6X86_64EEESt6vectorISF_SaISF_EEEEZNSB_L7get_mapISD_EENS7_19concurrent_hash_mapIPNSB_12InputSectionIT_EESH_IPNSB_6SymbolISO_EESaIST_EENS1_16tbb_hash_compareISQ_EENS1_13tbb_allocatorISt4pairIKSQ_SV_EEEEERNSB_7ContextISO_EEEUlSF_E_SF_EEKNS1_16auto_partitionerEEEEEbRSO_.exit.i.i
@@ -3212,7 +3212,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_
   %21 = shl nuw i64 1, %20
   %22 = and i64 %21, -2
   %23 = sub i64 %17, %22
-  %24 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %12, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %12, i64 %20
   %25 = load atomic i64, ptr %24 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %25 to ptr
   %26 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i, i64 %23
@@ -3395,7 +3395,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.e
   %99 = shl nuw i64 1, %98
   %100 = and i64 %99, -2
   %101 = sub i64 %95, %100
-  %102 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %12, i64 0, i64 %98
+  %102 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %12, i64 %98
   %103 = load atomic i64, ptr %102 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %103 to ptr
   %104 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i, i64 %101, i32 1
@@ -3419,7 +3419,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.e
   %113 = add i64 %.5.ph, 1
   %114 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %113, i1 true)
   %115 = xor i64 %114, 63
-  %116 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %12, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %12, i64 %115
   %117 = load atomic i64, ptr %116 acquire, align 8
   %.not12.i = icmp eq i64 %117, 0
   br i1 %.not12.i, label %118, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputSectionINS6_6X86_64EEESt6vectorIPNS6_6SymbolIS8_EESaISF_EEEEENS3_13spin_rw_mutexEE15insert_new_nodeEPNSL_6bucketEPNS1_18hash_map_node_baseISK_EEm.exit
@@ -3612,7 +3612,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputSectionINS6_6X86_64EEESt6vectorIPNS6_6SymbolIS8_EESaISF_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSL_6bucketEmb.exit.i, label %.lr.ph.i.i.i, !llvm.loop !511
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputSectionINS6_6X86_64EEESt6vectorIPNS6_6SymbolIS8_EESaISF_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSL_6bucketEmb.exit.i: ; preds = %.lr.ph.i.i.i
-  %181 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %12, i64 0, i64 %.237114
+  %181 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %12, i64 %.237114
   %182 = ptrtoint ptr %177 to i64
   store atomic i64 %182, ptr %181 release, align 8
   %183 = shl i64 2, %.237114
@@ -3639,7 +3639,7 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputS
 
 191:                                              ; preds = %191, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputSectionINS6_6X86_64EEESt6vectorIPNS6_6SymbolIS8_EESaISF_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSL_6bucketEmb.exit14.i
   %.038.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputSectionINS6_6X86_64EEESt6vectorIPNS6_6SymbolIS8_EESaISF_EEEEENS3_13spin_rw_mutexEE12init_bucketsEPNSL_6bucketEmb.exit14.i ], [ %196, %191 ]
-  %192 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %12, i64 0, i64 %.038.i
+  %192 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %12, i64 %.038.i
   %193 = shl nuw nsw i64 1, %.038.i
   %194 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %190, i64 %193
   %195 = ptrtoint ptr %194 to i64
@@ -3722,7 +3722,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d219concurrent_hash_mapIPN4mo
   %13 = and i64 %12, 9223372036854775806
   %14 = sub nsw i64 %8, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %15, i64 %11
   %17 = load atomic i64, ptr %16 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %17 to ptr
   %18 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i, i64 %14
@@ -4414,7 +4414,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit12.i.backedge: ; pred
   %142 = load i8, ptr %96, align 1, !tbaa !521
   %143 = zext i8 %142 to i64
   %144 = getelementptr inbounds nuw %"class.tbb::detail::d2::hash_map_range", ptr %99, i64 %143
-  %145 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 0, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %98, i64 %143
   %146 = load i8, ptr %145, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !86
@@ -4516,7 +4516,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit12.i.backedge: ; pred
 207:                                              ; preds = %136
   %208 = load i8, ptr %4, align 8, !tbaa !518
   %209 = zext i8 %208 to i64
-  %210 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr %98, i64 %209
   %211 = load i8, ptr %210, align 1, !tbaa !17
   %212 = icmp ult i8 %211, %138
   br i1 %212, label %_ZN3tbb6detail2d112range_vectorINS0_2d214hash_map_rangeINS3_17hash_map_iteratorINS3_19concurrent_hash_mapIPN4mold12InputSectionINS7_6X86_64EEESt6vectorIPNS7_6SymbolIS9_EESaISF_EENS1_16tbb_hash_compareISB_EENS1_13tbb_allocatorISt4pairIKSB_SH_EEEEESN_EEEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS0_2d214hash_map_rangeINS5_17hash_map_iteratorINS5_19concurrent_hash_mapIPN4mold12InputSectionINS9_6X86_64EEESt6vectorIPNS9_6SymbolISB_EESaISH_EENS1_16tbb_hash_compareISD_EENS1_13tbb_allocatorISt4pairIKSD_SJ_EEEEESP_EEEEZNS9_L7get_mapISB_EENS8_IPNSA_IT_EESE_IPNSF_ISV_EESaISZ_EENSK_ISX_EENSM_ISN_IKSX_S11_EEEEERNS9_7ContextISV_EEEUlRKST_E_KNS1_16auto_partitionerEEEEEbRSV_.exit.i.i
@@ -4729,7 +4729,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d214hash_map_rangeINS1_17hash
   %42 = and i64 %41, -2
   %43 = sub i64 %36, %42
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  %45 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %44, i64 0, i64 %40
+  %45 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %44, i64 %40
   %46 = load atomic i64, ptr %45 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %46 to ptr
   %47 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i, i64 %43
@@ -4772,7 +4772,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d214hash_map_rangeINS1_17hash
   %65 = shl nuw i64 1, %64
   %66 = and i64 %65, -2
   %67 = sub i64 %.010.i.i.i, %66
-  %68 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %53, i64 0, i64 %64
+  %68 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %53, i64 %64
   %69 = load atomic i64, ptr %68 acquire, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %69 to ptr
   %70 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i, i64 %67
@@ -4835,7 +4835,7 @@ _ZNK3tbb6detail2d214hash_map_rangeINS1_17hash_map_iteratorINS1_19concurrent_hash
   %98 = and i64 %97, -2
   %99 = sub i64 %92, %98
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 56
-  %101 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %100, i64 0, i64 %96
+  %101 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %100, i64 %96
   %102 = load atomic i64, ptr %101 acquire, align 8
   %.0.i.i.i.i7 = inttoptr i64 %102 to ptr
   %103 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i7, i64 %99
@@ -4878,7 +4878,7 @@ _ZNK3tbb6detail2d214hash_map_rangeINS1_17hash_map_iteratorINS1_19concurrent_hash
   %121 = shl nuw i64 1, %120
   %122 = and i64 %121, -2
   %123 = sub i64 %.010.i.i.i14, %122
-  %124 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %109, i64 0, i64 %120
+  %124 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %109, i64 %120
   %125 = load atomic i64, ptr %124 acquire, align 8
   %.0.i.i.i.i.i.i24 = inttoptr i64 %125 to ptr
   %126 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i24, i64 %123
@@ -5018,7 +5018,7 @@ _ZN4mold4sortISt6vectorIPNS_6SymbolINS_6X86_64EEESaIS5_EEZZNS_L7get_mapIS3_EEN3t
   %42 = shl nuw i64 1, %41
   %43 = and i64 %42, -2
   %44 = sub i64 %.010.i.i.i.i.i.i.i.i, %43
-  %45 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %16, i64 0, i64 %41
+  %45 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %16, i64 %41
   %46 = load atomic i64, ptr %45 acquire, align 8, !noalias !534
   %.0.i.i.i.i.i.i.i.i.i.i.i = inttoptr i64 %46 to ptr
   %47 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i.i.i.i.i.i, i64 %44
@@ -5062,7 +5062,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d112range_vectorINS0_2d214has
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i8, ptr %0, align 8, !tbaa !518
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %3, i64 %.phi.trans.insert
   %.pre6 = load i8, ptr %.phi.trans.insert5, align 1, !tbaa !17
   br label %8
 
@@ -5070,7 +5070,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d112range_vectorINS0_2d214has
   %9 = phi i8 [ %.pre6, %.lr.ph ], [ %60, %25 ]
   %10 = phi i8 [ %.pre, %.lr.ph ], [ %61, %25 ]
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
   %13 = icmp ult i8 %9, %1
   br i1 %13, label %_ZN3tbb6detail2d112range_vectorINS0_2d214hash_map_rangeINS3_17hash_map_iteratorINS3_19concurrent_hash_mapIPN4mold12InputSectionINS7_6X86_64EEESt6vectorIPNS7_6SymbolIS9_EESaISF_EENS1_16tbb_hash_compareISB_EENS1_13tbb_allocatorISt4pairIKSB_SH_EEEEESN_EEEELh8EE12is_divisibleEh.exit, label %.critedge
 
@@ -5143,7 +5143,7 @@ _ZN3tbb6detail2d112range_vectorINS0_2d214hash_map_rangeINS3_17hash_map_iteratorI
   store i8 %60, ptr %12, align 1, !tbaa !17
   %61 = load i8, ptr %0, align 8, !tbaa !518
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %62
   store i8 %60, ptr %63, align 1, !tbaa !17
   %64 = load i8, ptr %4, align 2, !tbaa !522
   %65 = add i8 %64, 1
@@ -6374,7 +6374,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d214hash_map_rangeINS1_17hash
   %25 = and i64 %24, -2
   %26 = sub i64 %.010.i.i, %25
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %28 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %27, i64 0, i64 %23
+  %28 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %27, i64 %23
   %29 = load atomic i64, ptr %28 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %29 to ptr
   %30 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i, i64 %26
@@ -6429,7 +6429,7 @@ _ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSec
   %54 = and i64 %53, -2
   %55 = sub i64 %48, %54
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %57 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %56, i64 0, i64 %52
+  %57 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %56, i64 %52
   %58 = load atomic i64, ptr %57 acquire, align 8
   %.0.i.i.i.i6 = inttoptr i64 %58 to ptr
   %59 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i6, i64 %55
@@ -6472,7 +6472,7 @@ _ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN4mold12InputSec
   %77 = shl nuw i64 1, %76
   %78 = and i64 %77, -2
   %79 = sub i64 %.010.i.i.i, %78
-  %80 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %65, i64 0, i64 %76
+  %80 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %65, i64 %76
   %81 = load atomic i64, ptr %80 acquire, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %81 to ptr
   %82 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i, i64 %79
@@ -6519,7 +6519,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d219concurrent_hash_mapIPN4mo
 
 9:                                                ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputSectionINS6_6X86_64EEESt6vectorIPNS6_6SymbolIS8_EESaISF_EEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit, %1
   %.019 = phi i64 [ %7, %1 ], [ %19, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold12InputSectionINS6_6X86_64EEESt6vectorIPNS6_6SymbolIS8_EESaISF_EEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit ]
-  %10 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %8, i64 0, i64 %.019
+  %10 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %8, i64 %.019
   %11 = load atomic i64, ptr %10 monotonic, align 8
   %.0.i.i = inttoptr i64 %11 to ptr
   %12 = tail call i64 @llvm.umax.i64(i64 %.019, i64 1)
@@ -7042,7 +7042,7 @@ thread-pre-split:                                 ; preds = %145
 
 .lr.ph.i:                                         ; preds = %40
   %.phi.trans.insert.i = zext i8 %.promoted4.i to i64
-  %.phi.trans.insert6.i = getelementptr inbounds nuw [8 x i8], ptr %32, i64 0, i64 %.phi.trans.insert.i
+  %.phi.trans.insert6.i = getelementptr inbounds nuw i8, ptr %32, i64 %.phi.trans.insert.i
   %.pre.i = load i8, ptr %.phi.trans.insert6.i, align 1, !tbaa !17
   %45 = icmp ult i8 %.pre.i, %43
   br i1 %45, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit
@@ -7066,7 +7066,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exi
   br i1 %58, label %59, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit
 
 59:                                               ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i
-  %60 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 0, i64 %50
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 %50
   %61 = add i8 %49, 1
   %62 = and i8 %61, 7
   %63 = zext nneg i8 %62 to i64
@@ -7087,7 +7087,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exi
   %73 = load i8, ptr %60, align 1, !tbaa !17
   %74 = add i8 %73, 1
   store i8 %74, ptr %60, align 1, !tbaa !17
-  %75 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 0, i64 %63
+  %75 = getelementptr inbounds nuw i8, ptr %32, i64 %63
   store i8 %74, ptr %75, align 1, !tbaa !17
   %76 = add nuw nsw i8 %48, 1
   %exitcond.not.i = icmp eq i8 %76, 8
@@ -7126,7 +7126,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.ex
 .thread:                                          ; preds = %84
   %87 = zext nneg i8 %41 to i64
   %88 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.400", ptr %33, i64 %87
-  %89 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %32, i64 %87
   %90 = load i8, ptr %89, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !86
@@ -7178,7 +7178,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.ex
 
 115:                                              ; preds = %84
   %116 = zext i8 %79 to i64
-  %117 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %32, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !17
   %119 = icmp ult i8 %118, %85
   br i1 %119, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit, label %_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold9print_mapINS8_6X86_64EEEvRNS8_7ContextIT_EEEUllE_lEEKNS1_16auto_partitionerEEEEEbRSC_.exit
@@ -8052,7 +8052,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3tbb6detail2d219concurrent_
   %20 = shl nuw i64 1, %19
   %21 = and i64 %20, -2
   %22 = sub i64 %16, %21
-  %23 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %12, i64 0, i64 %19
+  %23 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %12, i64 %19
   %24 = load atomic i64, ptr %23 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %24 to ptr
   %25 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i, i64 %22
@@ -8186,7 +8186,7 @@ _ZNK3tbb6detail2d219concurrent_hash_mapIPN4mold12InputSectionINS3_6X86_64EEESt6v
   %80 = shl nuw i64 1, %79
   %81 = and i64 %80, -2
   %82 = sub i64 %76, %81
-  %83 = getelementptr inbounds nuw [64 x %"struct.std::atomic.218"], ptr %12, i64 0, i64 %79
+  %83 = getelementptr inbounds nuw %"struct.std::atomic.218", ptr %12, i64 %79
   %84 = load atomic i64, ptr %83 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %84 to ptr
   %85 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::InputSection<mold::X86_64> *const, std::vector<mold::Symbol<mold::X86_64> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i, i64 %82, i32 1

@@ -649,9 +649,9 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
 
 86:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %87 = getelementptr inbounds nuw [256 x i32], ptr %84, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !78
-  %89 = getelementptr inbounds nuw [256 x i32], ptr %35, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   store i32 %88, ptr %89, align 4, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = icmp samesign ult i64 %indvars.iv.next, %85
@@ -727,7 +727,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
 
 128:                                              ; preds = %131, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %131 ]
-  %129 = getelementptr inbounds nuw [67 x %struct.anon.2], ptr %127, i64 0, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw %struct.anon.2, ptr %127, i64 %indvars.iv.i
   %130 = load i8, ptr %129, align 4, !tbaa !130
   switch i8 %130, label %131 [
     i8 0, label %.thread213

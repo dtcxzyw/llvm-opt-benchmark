@@ -89,7 +89,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i": ; preds = %25
   %29 = getelementptr i8, ptr %.val, i64 24
   %.val.i = load ptr, ptr %29, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %.val.i, i64 0, i64 %22
+  %30 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i, i64 %22
   %31 = load i32, ptr %30, align 4, !noundef !5
   %32 = zext i32 %31 to i64
   %33 = shl i64 %2, 1

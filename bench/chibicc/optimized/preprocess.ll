@@ -619,7 +619,7 @@ define dso_local void @init_macros() local_unnamed_addr #0 {
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %220 = load i32, ptr %219, align 8, !tbaa !31
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds [12 x [4 x i8]], ptr @format_date.mon, i64 0, i64 %221
+  %222 = getelementptr inbounds [4 x i8], ptr @format_date.mon, i64 %221
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 12
   %224 = load i32, ptr %223, align 4, !tbaa !33
   %225 = getelementptr inbounds nuw i8, ptr %218, i64 20

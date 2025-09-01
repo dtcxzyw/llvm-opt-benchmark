@@ -48,7 +48,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %9) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -101,19 +101,19 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .preheader.i.i.i:                                 ; preds = %49, %.preheader.lr.ph.i.i.i
   %indvars.iv38.i.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i.i ], [ %indvars.iv.next39.i.i.i, %49 ]
-  %29 = getelementptr inbounds nuw [4 x [3 x ptr]], ptr %27, i64 0, i64 %indvars.iv38.i.i.i
+  %29 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 %indvars.iv38.i.i.i
   br label %30
 
 30:                                               ; preds = %48, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %48 ]
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %25, i64 0, i64 %indvars.iv.i.i.i
+  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i.i.i
   %32 = load i32, ptr %31, align 4, !tbaa !40
-  %33 = getelementptr inbounds nuw [4 x i32], ptr %26, i64 0, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !40
   %35 = mul nsw i32 %34, %32
   %36 = sext i32 %35 to i64
   %37 = tail call noalias ptr @av_calloc(i64 noundef %36, i64 noundef 8) #9
-  %38 = getelementptr inbounds nuw [3 x ptr], ptr %29, i64 0, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i.i
   store ptr %37, ptr %38, align 8, !tbaa !44
   %.not24.i.i.i = icmp eq ptr %37, null
   br i1 %.not24.i.i.i, label %39, label %48
@@ -125,7 +125,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .preheader14.i.i.i.i:                             ; preds = %45, %39
   %indvars.iv19.i.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next20.i.i.i.i, %45 ]
-  %41 = getelementptr inbounds nuw [4 x [3 x ptr]], ptr %27, i64 0, i64 %indvars.iv19.i.i.i.i
+  %41 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 %indvars.iv19.i.i.i.i
   br label %43
 
 .preheader.loopexit.i.i.i.i:                      ; preds = %45
@@ -133,12 +133,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not25.i.i.i, label %filter_grey_edge.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.loopexit.i.i.i.i
-  %42 = getelementptr inbounds nuw [4 x [3 x ptr]], ptr %27, i64 0, i64 %wide.trip.count.i.i.i.i
+  %42 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 %wide.trip.count.i.i.i.i
   br label %46
 
 43:                                               ; preds = %43, %.preheader14.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader14.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [3 x ptr], ptr %41, i64 0, i64 %indvars.iv.i.i.i.i
+  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i.i.i.i
   call void @av_freep(ptr noundef nonnull %44) #9
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
@@ -151,7 +151,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 46:                                               ; preds = %46, %.lr.ph.i.i.i.i
   %indvars.iv23.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next24.i.i.i.i, %46 ]
-  %47 = getelementptr inbounds nuw [3 x ptr], ptr %42, i64 0, i64 %indvars.iv23.i.i.i.i
+  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv23.i.i.i.i
   call void @av_freep(ptr noundef nonnull %47) #9
   %indvars.iv.next24.i.i.i.i = add nuw nsw i64 %indvars.iv23.i.i.i.i, 1
   %exitcond27.not.i.i.i.i = icmp eq i64 %indvars.iv.next24.i.i.i.i, %indvars.iv.i.i.i
@@ -319,7 +319,7 @@ get_derivative.exit.i.i:                          ; preds = %101, %88, %77, %70,
   %indvars.iv114.i.i = phi i64 [ 0, %.lr.ph91.us.preheader.i.i ], [ %indvars.iv.next115.i.i, %._crit_edge92.us.i.i ]
   %112 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv114.i.i
   store double 0.000000e+00, ptr %112, align 8, !tbaa !51
-  %113 = getelementptr inbounds nuw [3 x ptr], ptr %111, i64 0, i64 %indvars.iv114.i.i
+  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv114.i.i
   %114 = load ptr, ptr %113, align 8, !tbaa !44
   br label %115
 
@@ -347,7 +347,7 @@ get_derivative.exit.i.i:                          ; preds = %101, %88, %77, %70,
   br i1 %107, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %119
-  %121 = getelementptr inbounds nuw [3 x ptr], ptr %110, i64 0, i64 %indvars.iv102.i.i
+  %121 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv102.i.i
   %122 = load ptr, ptr %121, align 8, !tbaa !44
   br label %123
 
@@ -381,18 +381,18 @@ get_derivative.exit.i.i:                          ; preds = %101, %88, %77, %70,
 
 .preheader14.i.i.i:                               ; preds = %137, %.preheader14.lr.ph.i.i.i
   %indvars.iv19.i.i.i = phi i64 [ 0, %.preheader14.lr.ph.i.i.i ], [ %indvars.iv.next20.i.i.i, %137 ]
-  %132 = getelementptr inbounds nuw [4 x [3 x ptr]], ptr %131, i64 0, i64 %indvars.iv19.i.i.i
+  %132 = getelementptr inbounds nuw [3 x ptr], ptr %131, i64 %indvars.iv19.i.i.i
   br label %135
 
 .preheader.i74.i.i:                               ; preds = %137, %.loopexit.i.i
   %.013.lcssa.i.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %wide.trip.count.i75.i.i, %137 ]
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %134 = getelementptr inbounds nuw [4 x [3 x ptr]], ptr %133, i64 0, i64 %.013.lcssa.i.i.i
+  %134 = getelementptr inbounds nuw [3 x ptr], ptr %133, i64 %.013.lcssa.i.i.i
   br label %138
 
 135:                                              ; preds = %135, %.preheader14.i.i.i
   %indvars.iv.i76.i.i = phi i64 [ 0, %.preheader14.i.i.i ], [ %indvars.iv.next.i77.i.i, %135 ]
-  %136 = getelementptr inbounds nuw [3 x ptr], ptr %132, i64 0, i64 %indvars.iv.i76.i.i
+  %136 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.i76.i.i
   call void @av_freep(ptr noundef nonnull %136) #9
   %indvars.iv.next.i77.i.i = add nuw nsw i64 %indvars.iv.i76.i.i, 1
   %exitcond.not.i78.i.i = icmp eq i64 %indvars.iv.next.i77.i.i, 3
@@ -405,7 +405,7 @@ get_derivative.exit.i.i:                          ; preds = %101, %88, %77, %70,
 
 138:                                              ; preds = %138, %.preheader.i74.i.i
   %indvars.iv23.i.i.i = phi i64 [ 0, %.preheader.i74.i.i ], [ %indvars.iv.next24.i.i.i, %138 ]
-  %139 = getelementptr inbounds nuw [3 x ptr], ptr %134, i64 0, i64 %indvars.iv23.i.i.i
+  %139 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv23.i.i.i
   call void @av_freep(ptr noundef nonnull %139) #9
   %indvars.iv.next24.i.i.i = add nuw nsw i64 %indvars.iv23.i.i.i, 1
   %exitcond27.not.i.i.i = icmp eq i64 %indvars.iv.next24.i.i.i, 3
@@ -576,14 +576,14 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
 32:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %33 = tail call noalias ptr @av_calloc(i64 noundef %29, i64 noundef 8) #9
-  %34 = getelementptr inbounds nuw [3 x ptr], ptr %30, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
   store ptr %33, ptr %34, align 8, !tbaa !44
   %.not115.i = icmp eq ptr %33, null
   br i1 %.not115.i, label %.lr.ph127.i, label %37
 
 .lr.ph127.i:                                      ; preds = %32, %.lr.ph127.i
   %indvars.iv159.i = phi i64 [ %indvars.iv.next160.i, %.lr.ph127.i ], [ %indvars.iv.i, %32 ]
-  %35 = getelementptr inbounds nuw [3 x ptr], ptr %30, i64 0, i64 %indvars.iv159.i
+  %35 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv159.i
   tail call void @av_freep(ptr noundef nonnull %35) #9
   %indvars.iv.next160.i = add nsw i64 %indvars.iv159.i, -1
   %36 = icmp sgt i64 %indvars.iv159.i, 0
@@ -847,9 +847,9 @@ define internal noundef i32 @slice_normalize(ptr noundef readonly captures(none)
 
 .preheader.us:                                    ; preds = %4, %.loopexit.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.loopexit.us ], [ 0, %4 ]
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv70
+  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv70
   %20 = load i32, ptr %19, align 4, !tbaa !40
-  %21 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv70
+  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv70
   %22 = load i32, ptr %21, align 4, !tbaa !40
   %23 = sext i32 %22 to i64
   %24 = sext i32 %20 to i64
@@ -860,9 +860,9 @@ define internal noundef i32 @slice_normalize(ptr noundef readonly captures(none)
   %29 = mul nsw i64 %25, %14
   %30 = sdiv i64 %29, %12
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds nuw [3 x ptr], ptr %15, i64 0, i64 %indvars.iv70
+  %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv70
   %33 = load ptr, ptr %32, align 8, !tbaa !44
-  %34 = getelementptr inbounds nuw [3 x ptr], ptr %16, i64 0, i64 %indvars.iv70
+  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv70
   %35 = load ptr, ptr %34, align 8, !tbaa !44
   %36 = icmp slt i32 %28, %31
   br i1 %36, label %.lr.ph55.us.preheader, label %.loopexit.us
@@ -896,9 +896,9 @@ define internal noundef i32 @slice_normalize(ptr noundef readonly captures(none)
 
 .split:                                           ; preds = %4, %.loopexit52
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.loopexit52 ], [ 0, %4 ]
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv61
+  %44 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv61
   %45 = load i32, ptr %44, align 4, !tbaa !40
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv61
+  %46 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv61
   %47 = load i32, ptr %46, align 4, !tbaa !40
   %48 = sext i32 %47 to i64
   %49 = sext i32 %45 to i64
@@ -909,11 +909,11 @@ define internal noundef i32 @slice_normalize(ptr noundef readonly captures(none)
   %54 = mul nsw i64 %50, %14
   %55 = sdiv i64 %54, %12
   %56 = trunc i64 %55 to i32
-  %57 = getelementptr inbounds nuw [3 x ptr], ptr %15, i64 0, i64 %indvars.iv61
+  %57 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv61
   %58 = load ptr, ptr %57, align 8, !tbaa !44
-  %59 = getelementptr inbounds nuw [3 x ptr], ptr %16, i64 0, i64 %indvars.iv61
+  %59 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv61
   %60 = load ptr, ptr %59, align 8, !tbaa !44
-  %61 = getelementptr inbounds nuw [3 x ptr], ptr %18, i64 0, i64 %indvars.iv61
+  %61 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv61
   %62 = load ptr, ptr %61, align 8, !tbaa !44
   %63 = icmp slt i32 %53, %56
   br i1 %63, label %.lr.ph.preheader, label %.loopexit52
@@ -972,19 +972,19 @@ define internal noundef i32 @filter_slice_grey_edge(ptr noundef readonly capture
 
 .preheader82.us:                                  ; preds = %4, %.loopexit.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.loopexit.us ], [ 0, %4 ]
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv125
+  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv125
   %18 = load i32, ptr %17, align 4, !tbaa !40
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv125
+  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv125
   %20 = load i32, ptr %19, align 4, !tbaa !40
-  %21 = getelementptr inbounds nuw [8 x i32], ptr %12, i64 0, i64 %indvars.iv125
+  %21 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv125
   %22 = load i32, ptr %21, align 4, !tbaa !40
   %23 = mul nsw i32 %18, %2
   %24 = sdiv i32 %23, %3
   %25 = mul nsw i32 %18, %13
   %26 = sdiv i32 %25, %3
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv125
+  %27 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv125
   %28 = load ptr, ptr %27, align 8, !tbaa !79
-  %29 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %indvars.iv125
+  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv125
   %30 = load ptr, ptr %29, align 8, !tbaa !44
   %31 = getelementptr inbounds double, ptr %30, i64 %15
   store double 0.000000e+00, ptr %31, align 8, !tbaa !51
@@ -1040,19 +1040,19 @@ define internal noundef i32 @filter_slice_grey_edge(ptr noundef readonly capture
 
 .preheader83:                                     ; preds = %4, %.loopexit84
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.loopexit84 ], [ 0, %4 ]
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv111
+  %47 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv111
   %48 = load i32, ptr %47, align 4, !tbaa !40
-  %49 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv111
+  %49 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv111
   %50 = load i32, ptr %49, align 4, !tbaa !40
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %12, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv111
   %52 = load i32, ptr %51, align 4, !tbaa !40
   %53 = mul nsw i32 %48, %2
   %54 = sdiv i32 %53, %3
   %55 = mul nsw i32 %48, %13
   %56 = sdiv i32 %55, %3
-  %57 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv111
   %58 = load ptr, ptr %57, align 8, !tbaa !79
-  %59 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %indvars.iv111
+  %59 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv111
   %60 = load ptr, ptr %59, align 8, !tbaa !44
   %61 = getelementptr inbounds double, ptr %60, i64 %15
   store double 0.000000e+00, ptr %61, align 8, !tbaa !51
@@ -1133,17 +1133,17 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
   %.fr144 = freeze i32 %17
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %19 = sext i32 %10 to i64
-  %20 = getelementptr inbounds [3 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds [4 x [3 x ptr]], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds [3 x ptr], ptr %25, i64 %26
   %28 = icmp eq i32 %12, 0
   %29 = sext i32 %13 to i64
-  %30 = getelementptr inbounds [4 x [3 x ptr]], ptr %25, i64 0, i64 %29
+  %30 = getelementptr inbounds [3 x ptr], ptr %25, i64 %29
   %31 = add nsw i32 %2, 1
   %32 = ashr i32 %.fr144, 2
   %33 = icmp sgt i32 %.fr144, 0
@@ -1159,15 +1159,15 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
 
 .split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %.loopexit.us.us
   %indvars.iv207 = phi i64 [ 0, %.split.us.split.us.preheader ], [ %indvars.iv.next208, %.loopexit.us.us ]
-  %35 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv207
+  %35 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv207
   %36 = load i32, ptr %35, align 4, !tbaa !40
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv207
+  %37 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv207
   %38 = load i32, ptr %37, align 4, !tbaa !40
-  %39 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %indvars.iv207
+  %39 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv207
   %40 = load i32, ptr %39, align 4, !tbaa !40
-  %41 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv207
+  %41 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv207
   %42 = load ptr, ptr %41, align 8, !tbaa !44
-  %43 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv207
+  %43 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv207
   %44 = load ptr, ptr %43, align 8, !tbaa !79
   %45 = mul nsw i32 %36, %2
   %46 = sdiv i32 %45, %3
@@ -1245,11 +1245,11 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
 
 .split.us.split:                                  ; preds = %.split.us, %.loopexit.us
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.loopexit.us ], [ 0, %.split.us ]
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv185
+  %73 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv185
   %74 = load i32, ptr %73, align 4, !tbaa !40
-  %75 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv185
+  %75 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv185
   %76 = load i32, ptr %75, align 4, !tbaa !40
-  %77 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv185
+  %77 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv185
   %78 = load ptr, ptr %77, align 8, !tbaa !44
   %79 = mul nsw i32 %74, %2
   %80 = sdiv i32 %79, %3
@@ -1293,13 +1293,13 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
 
 .split.split.us:                                  ; preds = %.split.split.us.preheader, %.loopexit110.us
   %indvars.iv177 = phi i64 [ 0, %.split.split.us.preheader ], [ %indvars.iv.next178, %.loopexit110.us ]
-  %93 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv177
+  %93 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv177
   %94 = load i32, ptr %93, align 4, !tbaa !40
-  %95 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv177
+  %95 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv177
   %96 = load i32, ptr %95, align 4, !tbaa !40
-  %97 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv177
+  %97 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv177
   %98 = load ptr, ptr %97, align 8, !tbaa !44
-  %99 = getelementptr inbounds nuw [3 x ptr], ptr %30, i64 0, i64 %indvars.iv177
+  %99 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv177
   %100 = load ptr, ptr %99, align 8, !tbaa !44
   %101 = mul nsw i32 %96, %2
   %102 = sdiv i32 %101, %3
@@ -1376,11 +1376,11 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
 
 .split.split:                                     ; preds = %.split, %.loopexit110
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.loopexit110 ], [ 0, %.split ]
-  %128 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv158
+  %128 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv158
   %129 = load i32, ptr %128, align 4, !tbaa !40
-  %130 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv158
+  %130 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv158
   %131 = load i32, ptr %130, align 4, !tbaa !40
-  %132 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv158
+  %132 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv158
   %133 = load ptr, ptr %132, align 8, !tbaa !44
   %134 = mul nsw i32 %131, %2
   %135 = sdiv i32 %134, %3
@@ -1455,9 +1455,9 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
 
 17:                                               ; preds = %4, %._crit_edge
   %indvars.iv36 = phi i64 [ 0, %4 ], [ %indvars.iv.next37, %._crit_edge ]
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv36
+  %18 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv36
   %19 = load i32, ptr %18, align 4, !tbaa !40
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv36
+  %20 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv36
   %21 = load i32, ptr %20, align 4, !tbaa !40
   %22 = sext i32 %21 to i64
   %23 = sext i32 %19 to i64
@@ -1468,15 +1468,15 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
   %28 = mul nsw i64 %24, %15
   %29 = sdiv i64 %28, %13
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv36
+  %31 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv36
   %32 = load ptr, ptr %31, align 8, !tbaa !79
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv36
+  %33 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv36
   %34 = load ptr, ptr %33, align 8, !tbaa !79
   %35 = icmp ult i32 %27, %30
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %36 = getelementptr inbounds nuw [3 x double], ptr %16, i64 0, i64 %indvars.iv36
+  %36 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv36
   %37 = and i64 %26, 4294967295
   %wide.trip.count = and i64 %29, 4294967295
   br label %38

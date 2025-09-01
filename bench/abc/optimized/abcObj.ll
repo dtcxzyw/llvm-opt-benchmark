@@ -199,7 +199,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %.0.i, ptr %45, align 8, !tbaa !36
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = zext i32 %1 to i64
-  %48 = getelementptr inbounds nuw [11 x i32], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !37
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4, !tbaa !37
@@ -809,7 +809,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge118, %35
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 15
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [11 x i32], ptr %42, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %42, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !37
   %49 = add nsw i32 %48, -1
   store i32 %49, ptr %47, align 4, !tbaa !37
@@ -1312,7 +1312,7 @@ define void @Abc_NtkDeleteObjPo(ptr noundef %0) local_unnamed_addr #0 {
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 15
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [11 x i32], ptr %28, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !37
   %35 = add nsw i32 %34, -1
   store i32 %35, ptr %33, align 4, !tbaa !37

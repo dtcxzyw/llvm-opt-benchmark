@@ -75,7 +75,7 @@ define dso_local i32 @set_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 align 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
@@ -282,7 +282,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %61 = load volatile ptr, ptr %60, align 8
   %62 = zext i32 %59 to i64
-  %63 = getelementptr [0 x ptr], ptr %61, i64 0, i64 %62
+  %63 = getelementptr ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   call void @__rcu_read_unlock() #7
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 144

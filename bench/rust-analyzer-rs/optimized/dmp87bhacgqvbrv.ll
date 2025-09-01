@@ -6019,7 +6019,7 @@ define hidden void @_ZN7ide_ssr9replacing25matches_to_edit_at_offset17h048f849a4
   br i1 %64, label %65, label %70, !prof !837
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds [0 x { { [104 x i8], i8, [7 x i8] }, i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, [7 x i8] } }], ptr %7, i64 0, i64 %63
+  %66 = getelementptr inbounds { { [104 x i8], i8, [7 x i8] }, i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, [7 x i8] } }, ptr %7, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 104
   %68 = load i8, ptr %67, align 8, !range !838, !alias.scope !831, !noalias !839, !noundef !10
   %69 = icmp eq i8 %68, 2
@@ -7703,10 +7703,10 @@ switch.lookup:                                    ; preds = %288, %286
   %290 = load i8, ptr %289, align 4, !range !838, !noundef !10
   %291 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %292 = zext nneg i8 %290 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E, i64 0, i64 %292
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E, i64 %292
   %switch.load = load ptr, ptr %switch.gep, align 8
   %293 = zext nneg i8 %290 to i64
-  %switch.gep142 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E.64, i64 0, i64 %293
+  %switch.gep142 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E.64, i64 %293
   %switch.load143 = load i64, ptr %switch.gep142, align 8
   store ptr %switch.load, ptr %21, align 8
   store i64 %switch.load143, ptr %291, align 8

@@ -421,7 +421,7 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
   br i1 %or.cond56.i, label %.critedge.i, label %118
 
 118:                                              ; preds = %.lr.ph
-  %119 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %115, ptr %119, align 8, !tbaa !26
   %120 = load ptr, ptr %8, align 8, !tbaa !17
   %121 = load i8, ptr %120, align 1, !tbaa !4
@@ -1640,12 +1640,12 @@ switch.early.test.thread:                         ; preds = %switch.early.test
   store i8 37, ptr %6, align 1
   %47 = lshr i8 %33, 4
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw [17 x i8], ptr @hexdigits, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @hexdigits, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !4
   store i8 %50, ptr %23, align 1, !tbaa !4
   %51 = and i8 %33, 15
   %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr inbounds nuw [17 x i8], ptr @hexdigits, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @hexdigits, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !4
   store i8 %54, ptr %24, align 1, !tbaa !4
   %55 = call i32 @Curl_dyn_addn(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 3) #10
@@ -2114,12 +2114,12 @@ define dso_local range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address
   store i8 37, ptr %9, align 1
   %203 = lshr i8 %192, 4
   %204 = zext nneg i8 %203 to i64
-  %205 = getelementptr inbounds nuw [17 x i8], ptr @hexdigits, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr @hexdigits, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !4
   store i8 %206, ptr %190, align 1, !tbaa !4
   %207 = and i8 %192, 15
   %208 = zext nneg i8 %207 to i64
-  %209 = getelementptr inbounds nuw [17 x i8], ptr @hexdigits, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr @hexdigits, i64 %208
   %210 = load i8, ptr %209, align 1, !tbaa !4
   store i8 %210, ptr %191, align 1, !tbaa !4
   %211 = call i32 @Curl_dyn_addn(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 3) #10
@@ -2201,12 +2201,12 @@ define dso_local range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address
   store i8 37, ptr %9, align 1
   %240 = lshr i8 %219, 4
   %241 = zext nneg i8 %240 to i64
-  %242 = getelementptr inbounds nuw [17 x i8], ptr @hexdigits, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i8, ptr @hexdigits, i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !4
   store i8 %243, ptr %190, align 1, !tbaa !4
   %244 = and i8 %219, 15
   %245 = zext nneg i8 %244 to i64
-  %246 = getelementptr inbounds nuw [17 x i8], ptr @hexdigits, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw i8, ptr @hexdigits, i64 %245
   %247 = load i8, ptr %246, align 1, !tbaa !4
   store i8 %247, ptr %191, align 1, !tbaa !4
   %248 = call i32 @Curl_dyn_addn(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 3) #10
@@ -3413,7 +3413,7 @@ sub_0:                                            ; preds = %11
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %.174, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %24, ptr %29, align 1, !tbaa !4
   %30 = load i8, ptr %28, align 1, !tbaa !4
   %.not58 = icmp eq i8 %30, 0
@@ -3426,7 +3426,7 @@ sub_0:                                            ; preds = %11
   br i1 %or.cond69, label %31, label %.thread66
 
 31:                                               ; preds = %.critedge
-  %32 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 0, ptr %32, align 1, !tbaa !4
   %33 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !15
   %34 = call ptr %33(ptr noundef nonnull %4) #10

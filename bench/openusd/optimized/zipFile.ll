@@ -3027,7 +3027,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
   %183 = and i32 %.091.i, 255
   %184 = xor i32 %183, %182
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw [256 x i32], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Crc32ERKSt10unique_ptrIKcNS_13Arch_UnmapperEEE9crc_table, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i32, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Crc32ERKSt10unique_ptrIKcNS_13Arch_UnmapperEEE9crc_table, i64 %185
   %187 = load i32, ptr %186, align 4
   %188 = xor i32 %187, %179
   %189 = add nuw i64 %.02.i, 1

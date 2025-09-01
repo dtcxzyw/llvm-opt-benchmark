@@ -485,7 +485,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.then1
 for.body:                                         ; preds = %if.then10, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then10 ]
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 968), align 8, !tbaa !40
-  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr %shaders, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %shaders, i64 %indvars.iv
   %12 = load i32, ptr %arrayidx, align 4, !tbaa !26
   call void %11(i32 noundef %12) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -3065,17 +3065,17 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
   br i1 %4, label %.preheader, label %19
 
 .preheader:                                       ; preds = %5, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %5 ]
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.preheader ], [ 0, %5 ]
+  %9 = trunc nuw nsw i64 %indvars.iv85 to i32
   %10 = add i32 %2, %9
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
   %12 = lshr i8 %11, 4
   %13 = mul nsw i8 %12, -6
   %14 = add i8 %13, %11
-  %15 = getelementptr [10 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %6, i64 %indvars.iv85
   store i8 %14, ptr %15, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next, 9
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next86, 9
   br i1 %exitcond88.not, label %16, label %.preheader, !llvm.loop !6
 
 16:                                               ; preds = %.preheader
@@ -3090,18 +3090,18 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
   br label %20
 
 20:                                               ; preds = %19, %20
-  %indvars.iv84 = phi i64 [ 0, %19 ], [ %indvars.iv.next85, %20 ]
-  %21 = trunc nuw nsw i64 %indvars.iv84 to i32
+  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %20 ]
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = add i32 %2, %21
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %22)
   %24 = lshr i8 %23, 4
   %25 = mul nsw i8 %24, -6
   %26 = add i8 %25, %23
-  %27 = add nuw nsw i64 %indvars.iv84, 2
-  %28 = getelementptr [10 x i8], ptr %6, i64 0, i64 %27
+  %27 = getelementptr i8, ptr %6, i64 %indvars.iv
+  %28 = getelementptr i8, ptr %27, i64 2
   store i8 %26, ptr %28, align 1
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next85, 7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %29, label %20, !llvm.loop !8
 
 29:                                               ; preds = %20
@@ -3170,7 +3170,7 @@ define internal fastcc noundef i32 @s7comm_add_timestamp_to_tree(ptr noundef %0,
 74:                                               ; preds = %32
   %75 = load i32, ptr @hf_s7comm_data_ts, align 4
   %76 = zext nneg i32 %73 to i64
-  %77 = getelementptr [12 x [4 x i8]], ptr @mon_names, i64 0, i64 %76
+  %77 = getelementptr [4 x i8], ptr @mon_names, i64 %76
   %78 = load i32, ptr %57, align 4
   %79 = load i32, ptr %48, align 4
   %80 = add i32 %79, 1900
@@ -7176,8 +7176,8 @@ define internal fastcc i32 @s7comm_decode_message_service(ptr noundef %0, ptr no
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %50
-  %54 = add i64 %51, -1
-  %55 = getelementptr [42 x i8], ptr %7, i64 0, i64 %54
+  %54 = getelementptr i8, ptr %7, i64 %51
+  %55 = getelementptr i8, ptr %54, i64 -1
   store i8 0, ptr %55, align 1
   br label %56
 
@@ -9113,7 +9113,7 @@ define internal fastcc void @s7comm_get_timestring_from_s7time(ptr noundef %0, i
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [12 x [4 x i8]], ptr @mon_names, i64 0, i64 %19
+  %20 = getelementptr [4 x i8], ptr @mon_names, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 20

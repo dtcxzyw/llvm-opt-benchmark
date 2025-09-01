@@ -80,7 +80,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %.050.lcssa = phi ptr [ %5, %7 ], [ %108, %.lr.ph ]
   %.049.lcssa = phi ptr [ %4, %7 ], [ %107, %.lr.ph ]
   %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %236, label %111
+  br i1 %.not, label %230, label %111
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04892 = phi i32 [ %109, %.lr.ph ], [ 0, %7 ]
@@ -291,62 +291,56 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
-  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %218, %.lr.ph97 ]
+  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %215, %.lr.ph97 ]
   %204 = load float, ptr %.194, align 4, !tbaa !11
-  %205 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %204, ptr %205, align 16, !tbaa !11
   %206 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %207 = load float, ptr %206, align 4, !tbaa !11
-  %208 = or disjoint i64 %indvars.iv, 1
-  %209 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %208
-  store float %207, ptr %209, align 4, !tbaa !11
-  %210 = getelementptr inbounds nuw i8, ptr %.194, i64 8
-  %211 = load float, ptr %210, align 4, !tbaa !11
-  %212 = or disjoint i64 %indvars.iv, 2
-  %213 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %212
-  store float %211, ptr %213, align 8, !tbaa !11
-  %214 = getelementptr inbounds nuw i8, ptr %.194, i64 12
-  %215 = load float, ptr %214, align 4, !tbaa !11
-  %216 = or disjoint i64 %indvars.iv, 3
-  %217 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %216
-  store float %215, ptr %217, align 4, !tbaa !11
-  %218 = getelementptr inbounds nuw i8, ptr %.194, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 4
+  store float %207, ptr %208, align 4, !tbaa !11
+  %209 = getelementptr inbounds nuw i8, ptr %.194, i64 8
+  %210 = load float, ptr %209, align 4, !tbaa !11
+  %211 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  store float %210, ptr %211, align 8, !tbaa !11
+  %212 = getelementptr inbounds nuw i8, ptr %.194, i64 12
+  %213 = load float, ptr %212, align 4, !tbaa !11
+  %214 = getelementptr inbounds nuw i8, ptr %205, i64 12
+  store float %213, ptr %214, align 4, !tbaa !11
+  %215 = getelementptr inbounds nuw i8, ptr %.194, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %219 = icmp samesign ult i64 %indvars.iv.next, %114
-  br i1 %219, label %.lr.ph97, label %._crit_edge98, !llvm.loop !13
+  %216 = icmp samesign ult i64 %indvars.iv.next, %114
+  br i1 %216, label %.lr.ph97, label %._crit_edge98, !llvm.loop !13
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %236
+  br label %230
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
-  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %234, %.lr.ph103 ]
-  %220 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv107
-  %221 = load i8, ptr %220, align 4, !tbaa !8
-  store i8 %221, ptr %.151100, align 1, !tbaa !8
-  %222 = or disjoint i64 %indvars.iv107, 1
-  %223 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %222
-  %224 = load i8, ptr %223, align 1, !tbaa !8
-  %225 = getelementptr inbounds nuw i8, ptr %.151100, i64 1
-  store i8 %224, ptr %225, align 1, !tbaa !8
-  %226 = or disjoint i64 %indvars.iv107, 2
-  %227 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %226
-  %228 = load i8, ptr %227, align 2, !tbaa !8
-  %229 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
-  store i8 %228, ptr %229, align 1, !tbaa !8
-  %230 = or disjoint i64 %indvars.iv107, 3
-  %231 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %230
-  %232 = load i8, ptr %231, align 1, !tbaa !8
-  %233 = getelementptr inbounds nuw i8, ptr %.151100, i64 3
-  store i8 %232, ptr %233, align 1, !tbaa !8
-  %234 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
+  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %228, %.lr.ph103 ]
+  %217 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv107
+  %218 = load i8, ptr %217, align 4, !tbaa !8
+  store i8 %218, ptr %.151100, align 1, !tbaa !8
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 1
+  %220 = load i8, ptr %219, align 1, !tbaa !8
+  %221 = getelementptr inbounds nuw i8, ptr %.151100, i64 1
+  store i8 %220, ptr %221, align 1, !tbaa !8
+  %222 = getelementptr inbounds nuw i8, ptr %217, i64 2
+  %223 = load i8, ptr %222, align 2, !tbaa !8
+  %224 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
+  store i8 %223, ptr %224, align 1, !tbaa !8
+  %225 = getelementptr inbounds nuw i8, ptr %217, i64 3
+  %226 = load i8, ptr %225, align 1, !tbaa !8
+  %227 = getelementptr inbounds nuw i8, ptr %.151100, i64 3
+  store i8 %226, ptr %227, align 1, !tbaa !8
+  %228 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 4
-  %235 = icmp samesign ult i64 %indvars.iv.next108, %203
-  br i1 %235, label %.lr.ph103, label %._crit_edge104, !llvm.loop !14
+  %229 = icmp samesign ult i64 %indvars.iv.next108, %203
+  br i1 %229, label %.lr.ph103, label %._crit_edge104, !llvm.loop !14
 
-236:                                              ; preds = %._crit_edge104, %._crit_edge
+230:                                              ; preds = %._crit_edge104, %._crit_edge
   ret void
 }
 
@@ -370,7 +364,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %.050.lcssa = phi ptr [ %5, %7 ], [ %118, %.lr.ph ]
   %.049.lcssa = phi ptr [ %4, %7 ], [ %117, %.lr.ph ]
   %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %256, label %121
+  br i1 %.not, label %250, label %121
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04892 = phi i32 [ %119, %.lr.ph ], [ 0, %7 ]
@@ -603,62 +597,56 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
-  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %238, %.lr.ph97 ]
+  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %235, %.lr.ph97 ]
   %224 = load float, ptr %.194, align 4, !tbaa !11
-  %225 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %224, ptr %225, align 16, !tbaa !11
   %226 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %227 = load float, ptr %226, align 4, !tbaa !11
-  %228 = or disjoint i64 %indvars.iv, 1
-  %229 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %228
-  store float %227, ptr %229, align 4, !tbaa !11
-  %230 = getelementptr inbounds nuw i8, ptr %.194, i64 8
-  %231 = load float, ptr %230, align 4, !tbaa !11
-  %232 = or disjoint i64 %indvars.iv, 2
-  %233 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %232
-  store float %231, ptr %233, align 8, !tbaa !11
-  %234 = getelementptr inbounds nuw i8, ptr %.194, i64 12
-  %235 = load float, ptr %234, align 4, !tbaa !11
-  %236 = or disjoint i64 %indvars.iv, 3
-  %237 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %236
-  store float %235, ptr %237, align 4, !tbaa !11
-  %238 = getelementptr inbounds nuw i8, ptr %.194, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 4
+  store float %227, ptr %228, align 4, !tbaa !11
+  %229 = getelementptr inbounds nuw i8, ptr %.194, i64 8
+  %230 = load float, ptr %229, align 4, !tbaa !11
+  %231 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  store float %230, ptr %231, align 8, !tbaa !11
+  %232 = getelementptr inbounds nuw i8, ptr %.194, i64 12
+  %233 = load float, ptr %232, align 4, !tbaa !11
+  %234 = getelementptr inbounds nuw i8, ptr %225, i64 12
+  store float %233, ptr %234, align 4, !tbaa !11
+  %235 = getelementptr inbounds nuw i8, ptr %.194, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %239 = icmp samesign ult i64 %indvars.iv.next, %124
-  br i1 %239, label %.lr.ph97, label %._crit_edge98, !llvm.loop !16
+  %236 = icmp samesign ult i64 %indvars.iv.next, %124
+  br i1 %236, label %.lr.ph97, label %._crit_edge98, !llvm.loop !16
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %256
+  br label %250
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
-  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %254, %.lr.ph103 ]
-  %240 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %indvars.iv107
-  %241 = load i16, ptr %240, align 8, !tbaa !17
-  store i16 %241, ptr %.151100, align 2, !tbaa !17
-  %242 = or disjoint i64 %indvars.iv107, 1
-  %243 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %242
-  %244 = load i16, ptr %243, align 2, !tbaa !17
-  %245 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
-  store i16 %244, ptr %245, align 2, !tbaa !17
-  %246 = or disjoint i64 %indvars.iv107, 2
-  %247 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %246
-  %248 = load i16, ptr %247, align 4, !tbaa !17
-  %249 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
-  store i16 %248, ptr %249, align 2, !tbaa !17
-  %250 = or disjoint i64 %indvars.iv107, 3
-  %251 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %250
-  %252 = load i16, ptr %251, align 2, !tbaa !17
-  %253 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
-  store i16 %252, ptr %253, align 2, !tbaa !17
-  %254 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
+  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %248, %.lr.ph103 ]
+  %237 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv107
+  %238 = load i16, ptr %237, align 8, !tbaa !17
+  store i16 %238, ptr %.151100, align 2, !tbaa !17
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 2
+  %240 = load i16, ptr %239, align 2, !tbaa !17
+  %241 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
+  store i16 %240, ptr %241, align 2, !tbaa !17
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 4
+  %243 = load i16, ptr %242, align 4, !tbaa !17
+  %244 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
+  store i16 %243, ptr %244, align 2, !tbaa !17
+  %245 = getelementptr inbounds nuw i8, ptr %237, i64 6
+  %246 = load i16, ptr %245, align 2, !tbaa !17
+  %247 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
+  store i16 %246, ptr %247, align 2, !tbaa !17
+  %248 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 4
-  %255 = icmp samesign ult i64 %indvars.iv.next108, %223
-  br i1 %255, label %.lr.ph103, label %._crit_edge104, !llvm.loop !19
+  %249 = icmp samesign ult i64 %indvars.iv.next108, %223
+  br i1 %249, label %.lr.ph103, label %._crit_edge104, !llvm.loop !19
 
-256:                                              ; preds = %._crit_edge104, %._crit_edge
+250:                                              ; preds = %._crit_edge104, %._crit_edge
   ret void
 }
 
@@ -682,7 +670,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %.050.lcssa = phi ptr [ %5, %7 ], [ %118, %.lr.ph ]
   %.049.lcssa = phi ptr [ %4, %7 ], [ %117, %.lr.ph ]
   %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %256, label %121
+  br i1 %.not, label %250, label %121
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04892 = phi i32 [ %119, %.lr.ph ], [ 0, %7 ]
@@ -915,62 +903,56 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
-  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %238, %.lr.ph97 ]
+  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %235, %.lr.ph97 ]
   %224 = load float, ptr %.194, align 4, !tbaa !11
-  %225 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %224, ptr %225, align 16, !tbaa !11
   %226 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %227 = load float, ptr %226, align 4, !tbaa !11
-  %228 = or disjoint i64 %indvars.iv, 1
-  %229 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %228
-  store float %227, ptr %229, align 4, !tbaa !11
-  %230 = getelementptr inbounds nuw i8, ptr %.194, i64 8
-  %231 = load float, ptr %230, align 4, !tbaa !11
-  %232 = or disjoint i64 %indvars.iv, 2
-  %233 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %232
-  store float %231, ptr %233, align 8, !tbaa !11
-  %234 = getelementptr inbounds nuw i8, ptr %.194, i64 12
-  %235 = load float, ptr %234, align 4, !tbaa !11
-  %236 = or disjoint i64 %indvars.iv, 3
-  %237 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %236
-  store float %235, ptr %237, align 4, !tbaa !11
-  %238 = getelementptr inbounds nuw i8, ptr %.194, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 4
+  store float %227, ptr %228, align 4, !tbaa !11
+  %229 = getelementptr inbounds nuw i8, ptr %.194, i64 8
+  %230 = load float, ptr %229, align 4, !tbaa !11
+  %231 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  store float %230, ptr %231, align 8, !tbaa !11
+  %232 = getelementptr inbounds nuw i8, ptr %.194, i64 12
+  %233 = load float, ptr %232, align 4, !tbaa !11
+  %234 = getelementptr inbounds nuw i8, ptr %225, i64 12
+  store float %233, ptr %234, align 4, !tbaa !11
+  %235 = getelementptr inbounds nuw i8, ptr %.194, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %239 = icmp samesign ult i64 %indvars.iv.next, %124
-  br i1 %239, label %.lr.ph97, label %._crit_edge98, !llvm.loop !21
+  %236 = icmp samesign ult i64 %indvars.iv.next, %124
+  br i1 %236, label %.lr.ph97, label %._crit_edge98, !llvm.loop !21
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %256
+  br label %250
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
-  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %254, %.lr.ph103 ]
-  %240 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %indvars.iv107
-  %241 = load i16, ptr %240, align 8, !tbaa !17
-  store i16 %241, ptr %.151100, align 2, !tbaa !17
-  %242 = or disjoint i64 %indvars.iv107, 1
-  %243 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %242
-  %244 = load i16, ptr %243, align 2, !tbaa !17
-  %245 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
-  store i16 %244, ptr %245, align 2, !tbaa !17
-  %246 = or disjoint i64 %indvars.iv107, 2
-  %247 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %246
-  %248 = load i16, ptr %247, align 4, !tbaa !17
-  %249 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
-  store i16 %248, ptr %249, align 2, !tbaa !17
-  %250 = or disjoint i64 %indvars.iv107, 3
-  %251 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %250
-  %252 = load i16, ptr %251, align 2, !tbaa !17
-  %253 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
-  store i16 %252, ptr %253, align 2, !tbaa !17
-  %254 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
+  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %248, %.lr.ph103 ]
+  %237 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv107
+  %238 = load i16, ptr %237, align 8, !tbaa !17
+  store i16 %238, ptr %.151100, align 2, !tbaa !17
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 2
+  %240 = load i16, ptr %239, align 2, !tbaa !17
+  %241 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
+  store i16 %240, ptr %241, align 2, !tbaa !17
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 4
+  %243 = load i16, ptr %242, align 4, !tbaa !17
+  %244 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
+  store i16 %243, ptr %244, align 2, !tbaa !17
+  %245 = getelementptr inbounds nuw i8, ptr %237, i64 6
+  %246 = load i16, ptr %245, align 2, !tbaa !17
+  %247 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
+  store i16 %246, ptr %247, align 2, !tbaa !17
+  %248 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 4
-  %255 = icmp samesign ult i64 %indvars.iv.next108, %223
-  br i1 %255, label %.lr.ph103, label %._crit_edge104, !llvm.loop !22
+  %249 = icmp samesign ult i64 %indvars.iv.next108, %223
+  br i1 %249, label %.lr.ph103, label %._crit_edge104, !llvm.loop !22
 
-256:                                              ; preds = %._crit_edge104, %._crit_edge
+250:                                              ; preds = %._crit_edge104, %._crit_edge
   ret void
 }
 
@@ -994,7 +976,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %.050.lcssa = phi ptr [ %5, %7 ], [ %118, %.lr.ph ]
   %.049.lcssa = phi ptr [ %4, %7 ], [ %117, %.lr.ph ]
   %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %256, label %121
+  br i1 %.not, label %250, label %121
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04892 = phi i32 [ %119, %.lr.ph ], [ 0, %7 ]
@@ -1227,62 +1209,56 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
-  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %238, %.lr.ph97 ]
+  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %235, %.lr.ph97 ]
   %224 = load float, ptr %.194, align 4, !tbaa !11
-  %225 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %224, ptr %225, align 16, !tbaa !11
   %226 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %227 = load float, ptr %226, align 4, !tbaa !11
-  %228 = or disjoint i64 %indvars.iv, 1
-  %229 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %228
-  store float %227, ptr %229, align 4, !tbaa !11
-  %230 = getelementptr inbounds nuw i8, ptr %.194, i64 8
-  %231 = load float, ptr %230, align 4, !tbaa !11
-  %232 = or disjoint i64 %indvars.iv, 2
-  %233 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %232
-  store float %231, ptr %233, align 8, !tbaa !11
-  %234 = getelementptr inbounds nuw i8, ptr %.194, i64 12
-  %235 = load float, ptr %234, align 4, !tbaa !11
-  %236 = or disjoint i64 %indvars.iv, 3
-  %237 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %236
-  store float %235, ptr %237, align 4, !tbaa !11
-  %238 = getelementptr inbounds nuw i8, ptr %.194, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 4
+  store float %227, ptr %228, align 4, !tbaa !11
+  %229 = getelementptr inbounds nuw i8, ptr %.194, i64 8
+  %230 = load float, ptr %229, align 4, !tbaa !11
+  %231 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  store float %230, ptr %231, align 8, !tbaa !11
+  %232 = getelementptr inbounds nuw i8, ptr %.194, i64 12
+  %233 = load float, ptr %232, align 4, !tbaa !11
+  %234 = getelementptr inbounds nuw i8, ptr %225, i64 12
+  store float %233, ptr %234, align 4, !tbaa !11
+  %235 = getelementptr inbounds nuw i8, ptr %.194, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %239 = icmp samesign ult i64 %indvars.iv.next, %124
-  br i1 %239, label %.lr.ph97, label %._crit_edge98, !llvm.loop !24
+  %236 = icmp samesign ult i64 %indvars.iv.next, %124
+  br i1 %236, label %.lr.ph97, label %._crit_edge98, !llvm.loop !24
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %256
+  br label %250
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
-  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %254, %.lr.ph103 ]
-  %240 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %indvars.iv107
-  %241 = load i16, ptr %240, align 8, !tbaa !17
-  store i16 %241, ptr %.151100, align 2, !tbaa !17
-  %242 = or disjoint i64 %indvars.iv107, 1
-  %243 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %242
-  %244 = load i16, ptr %243, align 2, !tbaa !17
-  %245 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
-  store i16 %244, ptr %245, align 2, !tbaa !17
-  %246 = or disjoint i64 %indvars.iv107, 2
-  %247 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %246
-  %248 = load i16, ptr %247, align 4, !tbaa !17
-  %249 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
-  store i16 %248, ptr %249, align 2, !tbaa !17
-  %250 = or disjoint i64 %indvars.iv107, 3
-  %251 = getelementptr inbounds nuw [32 x i16], ptr %9, i64 0, i64 %250
-  %252 = load i16, ptr %251, align 2, !tbaa !17
-  %253 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
-  store i16 %252, ptr %253, align 2, !tbaa !17
-  %254 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
+  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %248, %.lr.ph103 ]
+  %237 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv107
+  %238 = load i16, ptr %237, align 8, !tbaa !17
+  store i16 %238, ptr %.151100, align 2, !tbaa !17
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 2
+  %240 = load i16, ptr %239, align 2, !tbaa !17
+  %241 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
+  store i16 %240, ptr %241, align 2, !tbaa !17
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 4
+  %243 = load i16, ptr %242, align 4, !tbaa !17
+  %244 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
+  store i16 %243, ptr %244, align 2, !tbaa !17
+  %245 = getelementptr inbounds nuw i8, ptr %237, i64 6
+  %246 = load i16, ptr %245, align 2, !tbaa !17
+  %247 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
+  store i16 %246, ptr %247, align 2, !tbaa !17
+  %248 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 4
-  %255 = icmp samesign ult i64 %indvars.iv.next108, %223
-  br i1 %255, label %.lr.ph103, label %._crit_edge104, !llvm.loop !25
+  %249 = icmp samesign ult i64 %indvars.iv.next108, %223
+  br i1 %249, label %.lr.ph103, label %._crit_edge104, !llvm.loop !25
 
-256:                                              ; preds = %._crit_edge104, %._crit_edge
+250:                                              ; preds = %._crit_edge104, %._crit_edge
   ret void
 }
 
@@ -1308,7 +1284,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %.050.lcssa = phi ptr [ %5, %7 ], [ %81, %.lr.ph ]
   %.049.lcssa = phi ptr [ %4, %7 ], [ %80, %.lr.ph ]
   %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %182, label %84
+  br i1 %.not, label %176, label %84
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04892 = phi i32 [ %82, %.lr.ph ], [ 0, %7 ]
@@ -1467,62 +1443,56 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
-  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %164, %.lr.ph97 ]
+  %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %161, %.lr.ph97 ]
   %150 = load float, ptr %.194, align 4, !tbaa !11
-  %151 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %150, ptr %151, align 16, !tbaa !11
   %152 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %153 = load float, ptr %152, align 4, !tbaa !11
-  %154 = or disjoint i64 %indvars.iv, 1
-  %155 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %154
-  store float %153, ptr %155, align 4, !tbaa !11
-  %156 = getelementptr inbounds nuw i8, ptr %.194, i64 8
-  %157 = load float, ptr %156, align 4, !tbaa !11
-  %158 = or disjoint i64 %indvars.iv, 2
-  %159 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %158
-  store float %157, ptr %159, align 8, !tbaa !11
-  %160 = getelementptr inbounds nuw i8, ptr %.194, i64 12
-  %161 = load float, ptr %160, align 4, !tbaa !11
-  %162 = or disjoint i64 %indvars.iv, 3
-  %163 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %162
-  store float %161, ptr %163, align 4, !tbaa !11
-  %164 = getelementptr inbounds nuw i8, ptr %.194, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  store float %153, ptr %154, align 4, !tbaa !11
+  %155 = getelementptr inbounds nuw i8, ptr %.194, i64 8
+  %156 = load float, ptr %155, align 4, !tbaa !11
+  %157 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store float %156, ptr %157, align 8, !tbaa !11
+  %158 = getelementptr inbounds nuw i8, ptr %.194, i64 12
+  %159 = load float, ptr %158, align 4, !tbaa !11
+  %160 = getelementptr inbounds nuw i8, ptr %151, i64 12
+  store float %159, ptr %160, align 4, !tbaa !11
+  %161 = getelementptr inbounds nuw i8, ptr %.194, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %165 = icmp samesign ult i64 %indvars.iv.next, %87
-  br i1 %165, label %.lr.ph97, label %._crit_edge98, !llvm.loop !27
+  %162 = icmp samesign ult i64 %indvars.iv.next, %87
+  br i1 %162, label %.lr.ph97, label %._crit_edge98, !llvm.loop !27
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %182
+  br label %176
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
-  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %180, %.lr.ph103 ]
-  %166 = getelementptr inbounds nuw [32 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %indvars.iv107
-  %167 = load i16, ptr %166, align 8, !tbaa !17
-  store i16 %167, ptr %.151100, align 2, !tbaa !17
-  %168 = or disjoint i64 %indvars.iv107, 1
-  %169 = getelementptr inbounds nuw [32 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %168
-  %170 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
-  %171 = load i16, ptr %169, align 2, !tbaa !17
-  store i16 %171, ptr %170, align 2, !tbaa !17
-  %172 = or disjoint i64 %indvars.iv107, 2
-  %173 = getelementptr inbounds nuw [32 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %172
-  %174 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
-  %175 = load i16, ptr %173, align 4, !tbaa !17
-  store i16 %175, ptr %174, align 2, !tbaa !17
-  %176 = or disjoint i64 %indvars.iv107, 3
-  %177 = getelementptr inbounds nuw [32 x %"class.Imath_3_1::half"], ptr %9, i64 0, i64 %176
-  %178 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
-  %179 = load i16, ptr %177, align 2, !tbaa !17
-  store i16 %179, ptr %178, align 2, !tbaa !17
-  %180 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
+  %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %174, %.lr.ph103 ]
+  %163 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %9, i64 %indvars.iv107
+  %164 = load i16, ptr %163, align 8, !tbaa !17
+  store i16 %164, ptr %.151100, align 2, !tbaa !17
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 2
+  %166 = getelementptr inbounds nuw i8, ptr %.151100, i64 2
+  %167 = load i16, ptr %165, align 2, !tbaa !17
+  store i16 %167, ptr %166, align 2, !tbaa !17
+  %168 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %.151100, i64 4
+  %170 = load i16, ptr %168, align 4, !tbaa !17
+  store i16 %170, ptr %169, align 2, !tbaa !17
+  %171 = getelementptr inbounds nuw i8, ptr %163, i64 6
+  %172 = getelementptr inbounds nuw i8, ptr %.151100, i64 6
+  %173 = load i16, ptr %171, align 2, !tbaa !17
+  store i16 %173, ptr %172, align 2, !tbaa !17
+  %174 = getelementptr inbounds nuw i8, ptr %.151100, i64 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 4
-  %181 = icmp samesign ult i64 %indvars.iv.next108, %149
-  br i1 %181, label %.lr.ph103, label %._crit_edge104, !llvm.loop !28
+  %175 = icmp samesign ult i64 %indvars.iv.next108, %149
+  br i1 %175, label %.lr.ph103, label %._crit_edge104, !llvm.loop !28
 
-182:                                              ; preds = %._crit_edge104, %._crit_edge
+176:                                              ; preds = %._crit_edge104, %._crit_edge
   ret void
 }
 
@@ -1546,7 +1516,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %.048.lcssa = phi ptr [ %5, %7 ], [ %77, %.lr.ph ]
   %.047.lcssa = phi ptr [ %4, %7 ], [ %76, %.lr.ph ]
   %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %174, label %80
+  br i1 %.not, label %168, label %80
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04688 = phi i32 [ %78, %.lr.ph ], [ 0, %7 ]
@@ -1701,62 +1671,56 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next, %.lr.ph93 ]
-  %.190 = phi ptr [ %.047.lcssa, %.lr.ph93.preheader ], [ %156, %.lr.ph93 ]
+  %.190 = phi ptr [ %.047.lcssa, %.lr.ph93.preheader ], [ %153, %.lr.ph93 ]
   %142 = load float, ptr %.190, align 4, !tbaa !11
-  %143 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %142, ptr %143, align 16, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %.190, i64 4
   %145 = load float, ptr %144, align 4, !tbaa !11
-  %146 = or disjoint i64 %indvars.iv, 1
-  %147 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %146
-  store float %145, ptr %147, align 4, !tbaa !11
-  %148 = getelementptr inbounds nuw i8, ptr %.190, i64 8
-  %149 = load float, ptr %148, align 4, !tbaa !11
-  %150 = or disjoint i64 %indvars.iv, 2
-  %151 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %150
-  store float %149, ptr %151, align 8, !tbaa !11
-  %152 = getelementptr inbounds nuw i8, ptr %.190, i64 12
-  %153 = load float, ptr %152, align 4, !tbaa !11
-  %154 = or disjoint i64 %indvars.iv, 3
-  %155 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %154
-  store float %153, ptr %155, align 4, !tbaa !11
-  %156 = getelementptr inbounds nuw i8, ptr %.190, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 4
+  store float %145, ptr %146, align 4, !tbaa !11
+  %147 = getelementptr inbounds nuw i8, ptr %.190, i64 8
+  %148 = load float, ptr %147, align 4, !tbaa !11
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  store float %148, ptr %149, align 8, !tbaa !11
+  %150 = getelementptr inbounds nuw i8, ptr %.190, i64 12
+  %151 = load float, ptr %150, align 4, !tbaa !11
+  %152 = getelementptr inbounds nuw i8, ptr %143, i64 12
+  store float %151, ptr %152, align 4, !tbaa !11
+  %153 = getelementptr inbounds nuw i8, ptr %.190, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %157 = icmp samesign ult i64 %indvars.iv.next, %83
-  br i1 %157, label %.lr.ph93, label %._crit_edge94, !llvm.loop !30
+  %154 = icmp samesign ult i64 %indvars.iv.next, %83
+  br i1 %154, label %.lr.ph93, label %._crit_edge94, !llvm.loop !30
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %._crit_edge94
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %174
+  br label %168
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv103 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next104, %.lr.ph99 ]
-  %.14996 = phi ptr [ %.048.lcssa, %.lr.ph99.preheader ], [ %172, %.lr.ph99 ]
-  %158 = getelementptr inbounds nuw [32 x float], ptr %9, i64 0, i64 %indvars.iv103
-  %159 = load float, ptr %158, align 16, !tbaa !11
-  store float %159, ptr %.14996, align 4, !tbaa !11
-  %160 = or disjoint i64 %indvars.iv103, 1
-  %161 = getelementptr inbounds nuw [32 x float], ptr %9, i64 0, i64 %160
-  %162 = load float, ptr %161, align 4, !tbaa !11
-  %163 = getelementptr inbounds nuw i8, ptr %.14996, i64 4
-  store float %162, ptr %163, align 4, !tbaa !11
-  %164 = or disjoint i64 %indvars.iv103, 2
-  %165 = getelementptr inbounds nuw [32 x float], ptr %9, i64 0, i64 %164
-  %166 = load float, ptr %165, align 8, !tbaa !11
-  %167 = getelementptr inbounds nuw i8, ptr %.14996, i64 8
-  store float %166, ptr %167, align 4, !tbaa !11
-  %168 = or disjoint i64 %indvars.iv103, 3
-  %169 = getelementptr inbounds nuw [32 x float], ptr %9, i64 0, i64 %168
-  %170 = load float, ptr %169, align 4, !tbaa !11
-  %171 = getelementptr inbounds nuw i8, ptr %.14996, i64 12
-  store float %170, ptr %171, align 4, !tbaa !11
-  %172 = getelementptr inbounds nuw i8, ptr %.14996, i64 16
+  %.14996 = phi ptr [ %.048.lcssa, %.lr.ph99.preheader ], [ %166, %.lr.ph99 ]
+  %155 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv103
+  %156 = load float, ptr %155, align 16, !tbaa !11
+  store float %156, ptr %.14996, align 4, !tbaa !11
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  %158 = load float, ptr %157, align 4, !tbaa !11
+  %159 = getelementptr inbounds nuw i8, ptr %.14996, i64 4
+  store float %158, ptr %159, align 4, !tbaa !11
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %161 = load float, ptr %160, align 8, !tbaa !11
+  %162 = getelementptr inbounds nuw i8, ptr %.14996, i64 8
+  store float %161, ptr %162, align 4, !tbaa !11
+  %163 = getelementptr inbounds nuw i8, ptr %155, i64 12
+  %164 = load float, ptr %163, align 4, !tbaa !11
+  %165 = getelementptr inbounds nuw i8, ptr %.14996, i64 12
+  store float %164, ptr %165, align 4, !tbaa !11
+  %166 = getelementptr inbounds nuw i8, ptr %.14996, i64 16
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 4
-  %173 = icmp samesign ult i64 %indvars.iv.next104, %141
-  br i1 %173, label %.lr.ph99, label %._crit_edge100, !llvm.loop !31
+  %167 = icmp samesign ult i64 %indvars.iv.next104, %141
+  br i1 %167, label %.lr.ph99, label %._crit_edge100, !llvm.loop !31
 
-174:                                              ; preds = %._crit_edge100, %._crit_edge
+168:                                              ; preds = %._crit_edge100, %._crit_edge
   ret void
 }
 

@@ -74,7 +74,7 @@ define dso_local i32 @itostr(ptr noundef captures(none) %0, i32 noundef %1, i32 
   %.1 = phi i32 [ %12, %6 ], [ %spec.select, %4 ]
   %7 = urem i32 %.1, %2
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @__const.itostr.digits, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @__const.itostr.digits, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv

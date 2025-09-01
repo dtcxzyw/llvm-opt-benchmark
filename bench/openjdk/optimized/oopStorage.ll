@@ -580,7 +580,7 @@ define hidden noundef nonnull ptr @_ZN10OopStorage5Block8allocateEv(ptr noundef 
   %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
   %6 = shl nuw i64 1, %5
   %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %2) #20, !srcloc !10
-  %8 = getelementptr inbounds nuw [64 x ptr], ptr %0, i64 0, i64 %5
+  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %5
   ret ptr %8
 }
 
@@ -751,7 +751,7 @@ _ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit: ; preds = %25, %23, 
   %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %29, i1 true)
   %31 = shl nuw i64 1, %30
   %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %31, ptr nonnull %20) #20, !srcloc !10
-  %33 = getelementptr inbounds nuw [64 x ptr], ptr %19, i64 0, i64 %30
+  %33 = getelementptr inbounds nuw ptr, ptr %19, i64 %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %34) #20, !srcloc !10
   %36 = load volatile i64, ptr %20, align 8
@@ -1053,7 +1053,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10OopStorage20bl
   %57 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.13338, i1 true)
   %58 = shl nuw i64 1, %57
   %59 = xor i64 %58, %.13338
-  %60 = getelementptr inbounds nuw [64 x ptr], ptr %50, i64 0, i64 %57
+  %60 = getelementptr inbounds nuw ptr, ptr %50, i64 %57
   %61 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03139
   store ptr %60, ptr %61, align 8
   %62 = add nuw nsw i64 %.03139, 1
@@ -1639,7 +1639,7 @@ define hidden noundef ptr @_ZNK10OopStorage19obtain_active_arrayEv(ptr noundef n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = and i32 %3, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %10
   %12 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %11) #20, !srcloc !7
   %13 = add i32 %12, 2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2155,7 +2155,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %9, %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %21 = and i32 %15, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [2 x i32], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
   %24 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %23) #20, !srcloc !7
   %25 = add i32 %24, 2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2455,7 +2455,7 @@ define hidden noundef i64 @_ZNK10OopStorage11block_countEv(ptr noundef nonnull a
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = and i32 %3, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %10
   %12 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %11) #20, !srcloc !7
   %13 = add i32 %12, 2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2593,7 +2593,7 @@ define hidden noundef i64 @_ZNK10OopStorage18total_memory_usageEv(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %11 = and i32 %5, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
   %14 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %13) #20, !srcloc !7
   %15 = add i32 %14, 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2654,7 +2654,7 @@ define hidden void @_ZN10OopStorage13BasicParStateC2EPKS_jb(ptr noundef nonnull 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %14 = and i32 %8, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %15
   %17 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %16) #20, !srcloc !7
   %18 = add i32 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 84

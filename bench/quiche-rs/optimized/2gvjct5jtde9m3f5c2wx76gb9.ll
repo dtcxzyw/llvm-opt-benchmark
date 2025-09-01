@@ -2675,7 +2675,7 @@ define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$quiche..recovery..g
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i64 0, 15) i64 @_ZN6quiche5Error7to_wire17h5159afa5f1000f6dE(i64 noundef range(i64 0, 20) %0, i64 %1) unnamed_addr #6 {
 switch.lookup:
-  %switch.gep = getelementptr inbounds nuw [20 x i64], ptr @switch.table._ZN6quiche5Error7to_wire17h5159afa5f1000f6dE, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6quiche5Error7to_wire17h5159afa5f1000f6dE, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -8085,10 +8085,10 @@ define internal noundef zeroext i1 @"_ZN62_$LT$quiche..crypto..Algorithm$u20$as$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !706, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN62_$LT$quiche..crypto..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h1110473172b03bc8E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$quiche..crypto..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h1110473172b03bc8E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN62_$LT$quiche..crypto..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h1110473172b03bc8E.56", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$quiche..crypto..Algorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h1110473172b03bc8E.56", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -8099,10 +8099,10 @@ define internal noundef zeroext i1 @"_ZN87_$LT$quiche..recovery..congestion..bbr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !707, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN87_$LT$quiche..recovery..congestion..bbr..BBRStateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17h28fb39ae23c84bc8E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$quiche..recovery..congestion..bbr..BBRStateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17h28fb39ae23c84bc8E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN87_$LT$quiche..recovery..congestion..bbr..BBRStateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17h28fb39ae23c84bc8E.57", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$quiche..recovery..congestion..bbr..BBRStateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17h28fb39ae23c84bc8E.57", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

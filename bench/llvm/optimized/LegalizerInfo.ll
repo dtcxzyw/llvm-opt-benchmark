@@ -787,7 +787,7 @@ define dso_local noundef i32 @_ZNK4llvm13LegalizerInfo23getActionDefinitionsIdxE
   %3 = add i32 %1, -53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !72
   %.not = icmp eq i32 %7, 0
   %8 = add i32 %7, -53
@@ -800,13 +800,13 @@ define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZNK4llvm13Le
   %3 = add i32 %1, -53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !72
   %.not.i = icmp eq i32 %7, 0
   %8 = add i32 %7, -53
   %spec.select.i = select i1 %.not.i, i32 %3, i32 %8
   %9 = zext i32 %spec.select.i to i64
-  %10 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %4, i64 %9
   ret ptr %10
 }
 
@@ -815,13 +815,13 @@ define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13Leg
   %3 = add i32 %1, -53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !72
   %.not.i = icmp eq i32 %7, 0
   %8 = add i32 %7, -53
   %spec.select.i = select i1 %.not.i, i32 %3, i32 %8
   %9 = zext i32 %spec.select.i to i64
-  %10 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %4, i64 %9
   ret ptr %10
 }
 
@@ -842,13 +842,13 @@ define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13Leg
   %7 = add i32 %4, -53
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %8, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !72
   %.not.i.i = icmp eq i32 %11, 0
   %12 = add i32 %11, -53
   %spec.select.i.i = select i1 %.not.i.i, i32 %7, i32 %12
   %13 = zext i32 %spec.select.i.i to i64
-  %14 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %8, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %8, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i8 1, ptr %15, align 4, !tbaa !80
   ret ptr %14
@@ -858,7 +858,7 @@ define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13Leg
   %17 = load i32, ptr %.014, align 4, !tbaa !79
   %18 = add i32 %17, -53
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %6, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %6, i64 %19
   store i32 %4, ptr %20, align 8, !tbaa !72
   %.0 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   %.not = icmp eq ptr %.0, %5
@@ -870,7 +870,7 @@ define dso_local void @_ZN4llvm13LegalizerInfo22aliasActionDefinitionsEjj(ptr no
   %4 = add i32 %2, -53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %5, i64 %6
   store i32 %1, ptr %7, align 8, !tbaa !72
   ret void
 }
@@ -881,13 +881,13 @@ define dso_local { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13Legalit
   %4 = add i32 %3, -53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8, !tbaa !72
   %.not.i.i = icmp eq i32 %8, 0
   %9 = add i32 %8, -53
   %spec.select.i.i = select i1 %.not.i.i, i32 %4, i32 %9
   %10 = zext i32 %spec.select.i.i to i64
-  %11 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !26
   %.not.i.i5 = icmp eq i32 %13, 0
@@ -1224,13 +1224,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3LLTELb1EE9push_backES1_.exit: ; preds = %_
   %135 = add nsw i32 %130, -53
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %137 = zext i32 %135 to i64
-  %138 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %136, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %136, i64 %137
   %139 = load i32, ptr %138, align 8, !tbaa !72
   %.not.i.i.i = icmp eq i32 %139, 0
   %140 = add i32 %139, -53
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %135, i32 %140
   %141 = zext i32 %spec.select.i.i.i to i64
-  %142 = getelementptr inbounds nuw [253 x %"class.llvm::LegalizeRuleSet"], ptr %136, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw %"class.llvm::LegalizeRuleSet", ptr %136, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load i32, ptr %143, align 8, !tbaa !26
   %.not.i.i5.i = icmp eq i32 %144, 0

@@ -746,14 +746,14 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %44
 .lr.ph.i:                                         ; preds = %ansi_to_unicode.exit.i, %61
   %55 = phi i64 [ %63, %61 ], [ 0, %ansi_to_unicode.exit.i ]
   %.0722.i = phi i32 [ %62, %61 ], [ 0, %ansi_to_unicode.exit.i ]
-  %56 = getelementptr [768 x i8], ptr %15, i64 0, i64 %55
+  %56 = getelementptr i8, ptr %15, i64 %55
   %57 = load i8, ptr %56, align 1
   %.not86.i = icmp eq i8 %57, 0
   br i1 %.not86.i, label %61, label %58
 
 58:                                               ; preds = %.lr.ph.i
   %59 = tail call signext i8 @g_ascii_toupper(i8 noundef signext %57) #20
-  %60 = getelementptr [256 x i8], ptr %14, i64 0, i64 %55
+  %60 = getelementptr i8, ptr %14, i64 %55
   store i8 %59, ptr %60, align 1
   br label %61
 
@@ -1332,7 +1332,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
   %40 = getelementptr i8, ptr %26, i64 %indvars.iv14
   %41 = load i8, ptr %40, align 1
   %42 = call signext i8 @g_ascii_toupper(i8 noundef signext %41) #20
-  %43 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv14
+  %43 = getelementptr i8, ptr %12, i64 %indvars.iv14
   store i8 %42, ptr %43, align 1
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, %spec.store.select

@@ -4060,7 +4060,7 @@ define dso_local i32 @jbd2_journal_load(ptr noundef %0) #1 align 16 {
   %21 = phi i32 [ 0, %.thread9 ], [ %13, %18 ]
   tail call void @mutex_lock(ptr noundef nonnull @jbd2_journal_create_slab.jbd2_slab_create_mutex) #20
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr [8 x ptr], ptr @jbd2_slab, i64 0, i64 %22
+  %23 = getelementptr ptr, ptr @jbd2_slab, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
@@ -4071,7 +4071,7 @@ define dso_local i32 @jbd2_journal_load(ptr noundef %0) #1 align 16 {
 
 27:                                               ; preds = %20
   %28 = shl nuw nsw i32 1024, %21
-  %29 = getelementptr [8 x ptr], ptr @jbd2_slab_names, i64 0, i64 %22
+  %29 = getelementptr ptr, ptr @jbd2_slab_names, i64 %22
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @kmem_cache_create(ptr noundef %30, i32 noundef %28, i32 noundef %28, i32 noundef 0, ptr noundef null) #20
   store ptr %31, ptr %23, align 8
@@ -5171,7 +5171,7 @@ jbd2_free.exit:                                   ; preds = %jbd2_free.exit.back
 129:                                              ; preds = %.thread3.i, %127
   %130 = phi i32 [ 0, %.thread3.i ], [ %124, %127 ]
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr [8 x ptr], ptr @jbd2_slab, i64 0, i64 %131
+  %132 = getelementptr ptr, ptr @jbd2_slab, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %136, !prof !30
@@ -5428,7 +5428,7 @@ define dso_local ptr @jbd2_alloc(i64 noundef %0, i32 noundef %1) local_unnamed_a
 18:                                               ; preds = %.thread3, %16
   %19 = phi i32 [ 0, %.thread3 ], [ %13, %16 ]
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [8 x ptr], ptr @jbd2_slab, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr @jbd2_slab, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25, !prof !30
@@ -5497,7 +5497,7 @@ define dso_local void @jbd2_free(ptr noundef %0, i64 noundef %1) local_unnamed_a
 14:                                               ; preds = %.thread3, %12
   %15 = phi i32 [ 0, %.thread3 ], [ %9, %12 ]
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr [8 x ptr], ptr @jbd2_slab, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr @jbd2_slab, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21, !prof !30
@@ -8282,7 +8282,7 @@ define dso_local void @jbd2_journal_put_journal_head(ptr noundef %0) #1 align 16
 86:                                               ; preds = %.thread3.i, %84
   %87 = phi i32 [ 0, %.thread3.i ], [ %81, %84 ]
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr [8 x ptr], ptr @jbd2_slab, i64 0, i64 %88
+  %89 = getelementptr ptr, ptr @jbd2_slab, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %93, !prof !30
@@ -8343,7 +8343,7 @@ jbd2_free.exit:                                   ; preds = %94, %93, %66
 117:                                              ; preds = %.thread3.i2, %115
   %118 = phi i32 [ 0, %.thread3.i2 ], [ %112, %115 ]
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr [8 x ptr], ptr @jbd2_slab, i64 0, i64 %119
+  %120 = getelementptr ptr, ptr @jbd2_slab, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %124, !prof !30
@@ -8452,7 +8452,7 @@ define internal fastcc void @jbd2_journal_destroy_caches() unnamed_addr #1 align
 
 4:                                                ; preds = %4, %0
   %5 = phi i64 [ 0, %0 ], [ %8, %4 ]
-  %6 = getelementptr [8 x ptr], ptr @jbd2_slab, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @jbd2_slab, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @kmem_cache_destroy(ptr noundef %7) #20
   store ptr null, ptr %6, align 8

@@ -1497,7 +1497,7 @@ define hidden noundef i32 @mbedtls_sha1_finish(ptr noundef %0, ptr noundef write
   %4 = and i32 %3, 63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
   store i8 -128, ptr %7, align 1, !tbaa !4
   %8 = icmp samesign ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64

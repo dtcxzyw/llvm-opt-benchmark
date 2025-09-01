@@ -6899,7 +6899,7 @@ _ZN4llvm5ErrorD2Ev.exit88.i:                      ; preds = %626
 
 switch.lookup:                                    ; preds = %.critedge72.i
   %663 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm8coverage20BinaryCoverageReader6createENS_15MemoryBufferRefENS_9StringRefERNS_15SmallVectorImplISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS6_EEEES3_PNS4_INS_8ArrayRefIhEEEE, i64 0, i64 %663
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm8coverage20BinaryCoverageReader6createENS_15MemoryBufferRefENS_9StringRefERNS_15SmallVectorImplISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS6_EEEES3_PNS4_INS_8ArrayRefIhEEEE, i64 %663
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
 
@@ -10066,7 +10066,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %48 = phi i32 [ 0, %.lr.ph ], [ %60, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %.054 = phi i32 [ 0, %.lr.ph ], [ %61, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %49 = zext i32 %.054 to i64
-  %50 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %17, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %17, i64 %49
   %.sroa.019.0.copyload = load i64, ptr %50, align 8, !tbaa !76
   %51 = load i32, ptr %11, align 4, !tbaa !353
   %.not.i.i.not.i = icmp ult i32 %48, %51

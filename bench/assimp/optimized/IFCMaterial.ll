@@ -837,7 +837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   store i32 %222, ptr %15, align 4
   %223 = getelementptr inbounds nuw i8, ptr %15, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %223, ptr align 1 %.pre.i, i64 %219, i1 false)
-  %224 = getelementptr inbounds nuw [1024 x i8], ptr %223, i64 0, i64 %219
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 %219
   store i8 0, ptr %224, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 

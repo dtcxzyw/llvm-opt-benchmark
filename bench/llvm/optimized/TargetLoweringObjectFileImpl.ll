@@ -1435,7 +1435,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %240 = or disjoint i32 %235, %231
   %241 = lshr i32 %230, 2
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !348, !noalias !389
   %245 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 %.04345.i
@@ -1443,7 +1443,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %247 = lshr i32 %240, 12
   %248 = and i32 %247, 63
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !348, !noalias !389
   %252 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 %.04345.i
@@ -1452,7 +1452,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %255 = lshr i32 %239, 6
   %256 = and i32 %255, 63
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %257
   %259 = load i8, ptr %258, align 1, !tbaa !348, !noalias !389
   %260 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 %.04345.i
@@ -1460,7 +1460,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   store i8 %259, ptr %262, align 1, !tbaa !348
   %263 = and i32 %238, 63
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %264
   %266 = load i8, ptr %265, align 1, !tbaa !348, !noalias !389
   %267 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 %.04345.i
@@ -1479,14 +1479,14 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %278 = shl nuw nsw i32 %277, 4
   %279 = lshr i32 %277, 2
   %280 = zext nneg i32 %279 to i64
-  %281 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %280
   %282 = load i8, ptr %281, align 1, !tbaa !348, !noalias !389
   %283 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 %.043.lcssa.i
   store i8 %282, ptr %284, align 1, !tbaa !348
   %285 = and i32 %278, 48
   %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %286
   %288 = load i8, ptr %287, align 16, !tbaa !348, !noalias !389
   %289 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 %.043.lcssa.i
@@ -1512,7 +1512,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %305 = or disjoint i32 %304, %300
   %306 = lshr i32 %299, 2
   %307 = zext nneg i32 %306 to i64
-  %308 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %307
   %309 = load i8, ptr %308, align 1, !tbaa !348, !noalias !389
   %310 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 %.043.lcssa.i
@@ -1520,7 +1520,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %312 = lshr i32 %305, 12
   %313 = and i32 %312, 63
   %314 = zext nneg i32 %313 to i64
-  %315 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %314
   %316 = load i8, ptr %315, align 1, !tbaa !348, !noalias !389
   %317 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 %.043.lcssa.i
@@ -1529,7 +1529,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %320 = shl nuw nsw i32 %303, 2
   %321 = and i32 %320, 60
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 %322
   %324 = load i8, ptr %323, align 4, !tbaa !348, !noalias !389
   br label %.sink.split.i
 
@@ -2829,7 +2829,7 @@ _ZL25getELFKindForNamedSectionN4llvm9StringRefENS_11SectionKindE.exit: ; preds =
 
 switch.lookup:                                    ; preds = %_ZL25getELFKindForNamedSectionN4llvm9StringRefENS_11SectionKindE.exit
   %130 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE, i64 0, i64 %130
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE, i64 %130
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit
 
@@ -3136,23 +3136,23 @@ _ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread312: ; preds = %257, %_ZNK4
 268:                                              ; preds = %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread312
   %269 = getelementptr inbounds nuw i8, ptr %251, i64 160
   %270 = load i32, ptr %269, align 8, !tbaa !459
-  %switch.tableidx461 = add i8 %.sroa.0.0.extract.trunc.i, -5
-  %271 = icmp ult i8 %switch.tableidx461, 6
-  br i1 %271, label %switch.lookup460, label %272
+  %switch.tableidx460 = add i8 %.sroa.0.0.extract.trunc.i, -5
+  %271 = icmp ult i8 %switch.tableidx460, 6
+  br i1 %271, label %switch.lookup461, label %272
 
 272:                                              ; preds = %268
   %273 = icmp eq i8 %.sroa.0.0.extract.trunc.i, 11
   %..i125 = select i1 %273, i32 32, i32 0
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit126
 
-switch.lookup460:                                 ; preds = %268
-  %274 = zext nneg i8 %switch.tableidx461 to i64
-  %switch.gep462 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE, i64 0, i64 %274
+switch.lookup461:                                 ; preds = %268
+  %274 = zext nneg i8 %switch.tableidx460 to i64
+  %switch.gep462 = getelementptr inbounds nuw i32, ptr @switch.table._ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE, i64 %274
   %switch.load463 = load i32, ptr %switch.gep462, align 4
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit126
 
-_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit126: ; preds = %switch.lookup460, %272
-  %.0.i121 = phi i32 [ %..i125, %272 ], [ %switch.load463, %switch.lookup460 ]
+_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit126: ; preds = %switch.lookup461, %272
+  %.0.i121 = phi i32 [ %..i125, %272 ], [ %switch.load463, %switch.lookup461 ]
   %.not100 = icmp eq i32 %270, %.0.i121
   br i1 %.not100, label %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
@@ -3315,23 +3315,23 @@ _ZN4llvmplERKNS_5TwineES2_.exit157:               ; preds = %_ZN4llvmplERKNS_5Tw
   store i8 %.sink454, ptr %325, align 8, !tbaa !349, !alias.scope !485
   %326 = getelementptr inbounds nuw i8, ptr %25, i64 33
   store i8 %.sink, ptr %326, align 1, !tbaa !345, !alias.scope !485
-  %switch.tableidx465 = add i8 %.sroa.0.0.extract.trunc.i, -5
-  %327 = icmp ult i8 %switch.tableidx465, 6
-  br i1 %327, label %switch.lookup464, label %328
+  %switch.tableidx464 = add i8 %.sroa.0.0.extract.trunc.i, -5
+  %327 = icmp ult i8 %switch.tableidx464, 6
+  br i1 %327, label %switch.lookup465, label %328
 
 328:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit157
   %329 = icmp eq i8 %.sroa.0.0.extract.trunc.i, 11
   %330 = select i1 %329, i64 32, i64 0
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit165
 
-switch.lookup464:                                 ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit157
-  %331 = zext nneg i8 %switch.tableidx465 to i64
-  %switch.gep466 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZL27selectExplicitSectionGlobalPKN4llvm12GlobalObjectENS_11SectionKindERKNS_13TargetMachineERNS_9MCContextERNS_7ManglerERjbb.6, i64 0, i64 %331
+switch.lookup465:                                 ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit157
+  %331 = zext nneg i8 %switch.tableidx464 to i64
+  %switch.gep466 = getelementptr inbounds nuw i64, ptr @switch.table._ZL27selectExplicitSectionGlobalPKN4llvm12GlobalObjectENS_11SectionKindERKNS_13TargetMachineERNS_9MCContextERNS_7ManglerERjbb.6, i64 %331
   %switch.load467 = load i64, ptr %switch.gep466, align 8
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit165
 
-_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit165: ; preds = %switch.lookup464, %328
-  %.0.i160 = phi i64 [ %330, %328 ], [ %switch.load467, %switch.lookup464 ]
+_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit165: ; preds = %switch.lookup465, %328
+  %.0.i160 = phi i64 [ %330, %328 ], [ %switch.load467, %switch.lookup465 ]
   %332 = inttoptr i64 %.0.i160 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
   call void @llvm.experimental.noalias.scope.decl(metadata !489)
@@ -3847,7 +3847,7 @@ define internal fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCCont
 
 switch.lookup:                                    ; preds = %10
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL19getEntrySizeForKindN4llvm11SectionKindE.exit
 
@@ -6183,9 +6183,9 @@ _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit13: ; preds = %29
   br i1 %or.cond, label %48, label %50
 
 48:                                               ; preds = %.thread
-  %switch.tableidx43 = add nsw i8 %.sroa.017.0.extract.trunc, -8
-  %49 = icmp ult i8 %switch.tableidx43, 3
-  br i1 %49, label %switch.lookup42, label %.thread32
+  %switch.tableidx42 = add nsw i8 %.sroa.017.0.extract.trunc, -8
+  %49 = icmp ult i8 %switch.tableidx42, 3
+  br i1 %49, label %switch.lookup43, label %.thread32
 
 50:                                               ; preds = %.thread
   switch i8 %47, label %51 [
@@ -6197,30 +6197,30 @@ _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit13: ; preds = %29
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
 51:                                               ; preds = %50
-  %switch.tableidx45 = add i8 %.sroa.017.0.extract.trunc, -16
-  %52 = icmp ult i8 %switch.tableidx45, 5
-  br i1 %52, label %switch.lookup44, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
+  %switch.tableidx44 = add i8 %.sroa.017.0.extract.trunc, -16
+  %52 = icmp ult i8 %switch.tableidx44, 5
+  br i1 %52, label %switch.lookup45, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
 switch.lookup:                                    ; preds = %27
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-switch.lookup42:                                  ; preds = %48
-  %54 = shl nuw nsw i8 %switch.tableidx43, 3
+switch.lookup43:                                  ; preds = %48
+  %54 = shl nuw nsw i8 %switch.tableidx42, 3
   %switch.idx.mult = zext nneg i8 %54 to i64
   %switch.offset = add nuw nsw i64 %switch.idx.mult, 632
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-switch.lookup44:                                  ; preds = %51
-  %55 = zext nneg i8 %switch.tableidx45 to i64
-  %switch.gep46 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE.7, i64 0, i64 %55
+switch.lookup45:                                  ; preds = %51
+  %55 = zext nneg i8 %switch.tableidx44 to i64
+  %switch.gep46 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE.7, i64 %55
   %switch.load47 = load i64, ptr %switch.gep46, align 8
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %51, %switch.lookup44, %switch.lookup42, %switch.lookup, %27, %40, %34, %32, %30, %30, %20, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit, %.thread32
-  %.sink = phi i64 [ 48, %.thread32 ], [ 432, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit ], [ 424, %20 ], [ 24, %27 ], [ 584, %30 ], [ 584, %30 ], [ %., %32 ], [ 560, %34 ], [ 568, %40 ], [ %switch.load, %switch.lookup ], [ %switch.offset, %switch.lookup42 ], [ %switch.load47, %switch.lookup44 ], [ 32, %51 ]
+_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %51, %switch.lookup45, %switch.lookup43, %switch.lookup, %27, %40, %34, %32, %30, %30, %20, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit, %.thread32
+  %.sink = phi i64 [ 48, %.thread32 ], [ 432, %_ZL16checkMachOComdatPKN4llvm11GlobalValueE.exit ], [ 424, %20 ], [ 24, %27 ], [ 584, %30 ], [ 584, %30 ], [ %., %32 ], [ 560, %34 ], [ 568, %40 ], [ %switch.load, %switch.lookup ], [ %switch.offset, %switch.lookup43 ], [ %switch.load47, %switch.lookup45 ], [ 32, %51 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load ptr, ptr %56, align 8, !tbaa !750
   ret ptr %.0
@@ -7156,7 +7156,7 @@ _ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit: ; preds 
 
 switch.lookup:                                    ; preds = %54
   %58 = zext nneg i32 %56 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK4llvm28TargetLoweringObjectFileCOFF22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm28TargetLoweringObjectFileCOFF22SelectSectionForGlobalEPKNS_12GlobalObjectENS_11SectionKindERKNS_13TargetMachineE, i64 %58
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit
 

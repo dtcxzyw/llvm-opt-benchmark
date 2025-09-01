@@ -450,7 +450,7 @@ define void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull alig
   %28 = lshr i32 %22, %27
   %29 = and i32 %28, 63
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !74
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %33 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i
@@ -482,7 +482,7 @@ define void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull alig
   %40 = shl i32 %21, %39
   %41 = and i32 %40, 63
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !74
   %45 = add nsw i32 %.248.lcssa.i, 1
   %46 = sext i32 %.248.lcssa.i to i64
@@ -1391,7 +1391,7 @@ thread-pre-split:                                 ; preds = %228, %.thread
 143:                                              ; preds = %141
   %144 = load i32, ptr %28, align 4, !tbaa !68
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [1025 x i8], ptr %22, i64 0, i64 %145
+  %146 = getelementptr inbounds i8, ptr %22, i64 %145
   store i8 0, ptr %146, align 1, !tbaa !74
   br label %.thread
 
@@ -1406,7 +1406,7 @@ thread-pre-split:                                 ; preds = %228, %.thread
 
 151:                                              ; preds = %147
   %152 = sext i32 %148 to i64
-  %153 = getelementptr inbounds [1025 x i8], ptr %22, i64 0, i64 %152
+  %153 = getelementptr inbounds i8, ptr %22, i64 %152
   store i8 %35, ptr %153, align 1, !tbaa !74
   %154 = load i32, ptr %28, align 4, !tbaa !68
   %155 = add nsw i32 %154, 1
@@ -1445,7 +1445,7 @@ thread-pre-split:                                 ; preds = %228, %.thread
 162:                                              ; preds = %160
   %163 = load i32, ptr %21, align 4, !tbaa !108
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [2049 x i8], ptr %20, i64 0, i64 %164
+  %165 = getelementptr inbounds i8, ptr %20, i64 %164
   store i8 0, ptr %165, align 1, !tbaa !74
   %166 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %22) #29
   %167 = icmp eq i32 %166, 0
@@ -1514,7 +1514,7 @@ thread-pre-split:                                 ; preds = %228, %.thread
 
 198:                                              ; preds = %194
   %199 = sext i32 %195 to i64
-  %200 = getelementptr inbounds [2049 x i8], ptr %20, i64 0, i64 %199
+  %200 = getelementptr inbounds i8, ptr %20, i64 %199
   store i8 %35, ptr %200, align 1, !tbaa !74
   %201 = load i32, ptr %21, align 4, !tbaa !108
   %202 = add nsw i32 %201, 1
@@ -1787,7 +1787,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
 73:                                               ; preds = %72
   %74 = load i32, ptr %31, align 4, !tbaa !68
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [1025 x i8], ptr %26, i64 0, i64 %75
+  %76 = getelementptr inbounds i8, ptr %26, i64 %75
   store i8 0, ptr %76, align 1, !tbaa !74
   br label %.thread
 
@@ -1798,7 +1798,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
 
 80:                                               ; preds = %77
   %81 = sext i32 %78 to i64
-  %82 = getelementptr inbounds [1025 x i8], ptr %26, i64 0, i64 %81
+  %82 = getelementptr inbounds i8, ptr %26, i64 %81
   store i8 %38, ptr %82, align 1, !tbaa !74
   %83 = load i32, ptr %31, align 4, !tbaa !68
   %84 = add nsw i32 %83, 1
@@ -1829,7 +1829,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
 89:                                               ; preds = %88
   %90 = load i32, ptr %25, align 4, !tbaa !108
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [2049 x i8], ptr %24, i64 0, i64 %91
+  %92 = getelementptr inbounds i8, ptr %24, i64 %91
   store i8 0, ptr %92, align 1, !tbaa !74
   %93 = call i32 @strcasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %26) #29
   %94 = icmp eq i32 %93, 0
@@ -1936,7 +1936,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
 
 135:                                              ; preds = %132
   %136 = sext i32 %133 to i64
-  %137 = getelementptr inbounds [2049 x i8], ptr %24, i64 0, i64 %136
+  %137 = getelementptr inbounds i8, ptr %24, i64 %136
   store i8 %38, ptr %137, align 1, !tbaa !74
   %138 = load i32, ptr %25, align 4, !tbaa !108
   %139 = add nsw i32 %138, 1
@@ -2013,7 +2013,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
   %171 = lshr i32 %165, %170
   %172 = and i32 %171, 63
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !74
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %176 = getelementptr inbounds i8, ptr %159, i64 %indvars.iv.i
@@ -2045,7 +2045,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
   %183 = shl i32 %164, %182
   %184 = and i32 %183, 63
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 %185
   %187 = load i8, ptr %186, align 1, !tbaa !74
   %188 = add nsw i32 %.248.lcssa.i, 1
   %189 = sext i32 %.248.lcssa.i to i64
@@ -2092,7 +2092,7 @@ thread-pre-split:                                 ; preds = %218, %.thread
 
 _ZL13encode_base64PKhiPci.exit:                   ; preds = %.lr.ph.i, %.lr.ph78.i, %179, %._crit_edge79.i, %199
   %.3.i = phi i64 [ %200, %199 ], [ -1, %179 ], [ -1, %._crit_edge79.i ], [ -1, %.lr.ph78.i ], [ -1, %.lr.ph.i ]
-  %202 = getelementptr inbounds [2049 x i8], ptr %159, i64 0, i64 %.3.i
+  %202 = getelementptr inbounds i8, ptr %159, i64 %.3.i
   store i8 0, ptr %202, align 1, !tbaa !74
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 9992
   %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %203, i64 noundef 8192, ptr noundef nonnull @.str.16, ptr noundef nonnull %159, ptr noundef nonnull %27) #24

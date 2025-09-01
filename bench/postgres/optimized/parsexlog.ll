@@ -179,7 +179,7 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
 63:                                               ; preds = %59, %.thread50.i
   %64 = phi i64 [ %58, %.thread50.i ], [ %61, %59 ]
   %65 = zext nneg i8 %35 to i64
-  %66 = getelementptr inbounds nuw [256 x ptr], ptr @RmgrNames, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr @RmgrNames, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %68
 

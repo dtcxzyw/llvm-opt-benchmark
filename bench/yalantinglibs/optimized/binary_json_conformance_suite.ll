@@ -3217,16 +3217,16 @@ entry:
   %call = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_115GetFieldForTypeEN6google8protobuf15FieldDescriptor4TypeEbbNS_6PackedE(i32 noundef %type, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0)
   %call2 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_115GetFieldForTypeEN6google8protobuf15FieldDescriptor4TypeEbbNS_6PackedE(i32 noundef %type, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 0)
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr @_ZZN6google8protobuf29BinaryAndJsonConformanceSuite23TestPrematureEOFForTypeENS0_15FieldDescriptor4TypeEE11incompletesB5cxx11, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZZN6google8protobuf29BinaryAndJsonConformanceSuite23TestPrematureEOFForTypeENS0_15FieldDescriptor4TypeEE11incompletesB5cxx11, i64 %idxprom
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %arrayidx.i72 = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i72 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i72, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %1)
           to label %invoke.cont8 unwind label %lpad5
@@ -5011,7 +5011,7 @@ invoke.cont72:                                    ; preds = %invoke.cont69
 
 invoke.cont75:                                    ; preds = %invoke.cont72
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %25 = load ptr, ptr %arrayidx.i, align 8
   %call80 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %call76, ptr noundef %25)
           to label %invoke.cont79 unwind label %lpad68
@@ -5732,14 +5732,14 @@ entry:
   %text454 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp459 = alloca %"class.std::__cxx11::basic_string", align 8
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %type_name, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %type_name, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_string_length.i.i.i129 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %arrayidx.i133 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i
+  %arrayidx.i133 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %values, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 16
   %_M_string_length.i.i.i.i.i1420 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
@@ -16453,7 +16453,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %key_type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -16536,7 +16536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
 
 invoke.cont13:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116
   %idxprom.i117 = zext i32 %value_type to i64
-  %arrayidx.i118 = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i117
+  %arrayidx.i118 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i117
   %14 = load ptr, ptr %arrayidx.i118, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef %14)
           to label %invoke.cont17 unwind label %lpad14
@@ -16613,9 +16613,9 @@ if.then.i.i145:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i146, %if.then.i.i145
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #23
-  %arrayidx.i151 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i
+  %arrayidx.i151 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %28 = load i32, ptr %arrayidx.i151, align 4
-  %arrayidx.i153 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i117
+  %arrayidx.i153 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i117
   %29 = load i32, ptr %arrayidx.i153, align 4
   %sext = shl i32 %28, 24
   %conv.i154 = ashr exact i32 %sext, 24
@@ -20135,7 +20135,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
 
 invoke.cont40:                                    ; preds = %invoke.cont38
   %idxprom.i = zext i32 %key_type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %20 = load ptr, ptr %arrayidx.i, align 8
   %call44 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %call41, ptr noundef %20)
           to label %invoke.cont43 unwind label %lpad39
@@ -22416,7 +22416,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -22493,7 +22493,7 @@ if.then.i.i60:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, %if.then.i.i60
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  %arrayidx.i66 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i
+  %arrayidx.i66 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i66, align 4
   %sext = shl i32 %14, 24
   %conv.i67 = ashr exact i32 %sext, 24
@@ -23167,7 +23167,7 @@ invoke.cont132:                                   ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i232)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %idxprom.i235 = zext i32 %97 to i64
-  %arrayidx.i236 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i235
+  %arrayidx.i236 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i235
   %98 = load i32, ptr %arrayidx.i236, align 4
   %number_.i237 = getelementptr inbounds nuw i8, ptr %call131, i64 68
   %99 = load i32, ptr %number_.i237, align 4
@@ -23907,7 +23907,7 @@ invoke.cont36:                                    ; preds = %invoke.cont32
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %15 = load ptr, ptr %arrayidx.i, align 8
   %call42 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %call39, ptr noundef %15)
           to label %invoke.cont41 unwind label %lpad37
@@ -26282,7 +26282,7 @@ invoke.cont19:                                    ; preds = %for.body
   %5 = trunc i64 %indvars.iv to i8
   %conv21 = add i8 %4, %5
   store i8 %conv21, ptr %arrayidx.i.i, align 1
-  %arrayidx = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %nullfield, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %nullfield, i64 %indvars.iv
   invoke void @_ZN6google8protobuf29BinaryAndJsonConformanceSuite42ExpectParseFailureForProtoWithProtoVersionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_20ConformanceTestSuite16ConformanceLevelEb(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef 0, i1 noundef zeroext true)
           to label %.noexc unwind label %lpad22
 
@@ -26966,7 +26966,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -27043,7 +27043,7 @@ if.then.i.i19:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %if.then.i.i19
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  %arrayidx.i25 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i
+  %arrayidx.i25 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 16
   %_M_string_length.i.i.i30 = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 16
@@ -27254,7 +27254,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -27331,7 +27331,7 @@ if.then.i.i17:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, %if.then.i.i17
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  %arrayidx.i23 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i
+  %arrayidx.i23 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i23, align 4
   %sext = shl i32 %14, 24
   %conv.i24 = ashr exact i32 %sext, 24
@@ -44580,7 +44580,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -47774,21 +47774,20 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i64 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i64 %rem.i, 1
   %div.i3 = udiv i64 %__val.addr.016.i, 100
-  %add.i4 = or disjoint i64 %mul.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i4
-  %6 = load i8, ptr %arrayidx.i, align 1
+  %6 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %7 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i32 %__pos.015.i to i64
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom.i
-  store i8 %6, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
-  %7 = load i8, ptr %arrayidx2.i, align 2
+  store i8 %7, ptr %arrayidx1.i, align 1
+  %8 = load i8, ptr %6, align 2
   %sub3.i = add i32 %__pos.015.i, -1
   %idxprom4.i = zext i32 %sub3.i to i64
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom4.i
-  store i8 %7, ptr %arrayidx5.i, align 1
+  store i8 %8, ptr %arrayidx5.i, align 1
   %sub6.i = add i32 %__pos.015.i, -2
-  %cmp.i5 = icmp ugt i64 %__val.addr.016.i, 9999
-  br i1 %cmp.i5, label %while.body.i, label %while.end.i, !llvm.loop !892
+  %cmp.i4 = icmp ugt i64 %__val.addr.016.i, 9999
+  br i1 %cmp.i4, label %while.body.i, label %while.end.i, !llvm.loop !892
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %invoke.cont ], [ %div.i3, %while.body.i ]
@@ -47797,22 +47796,21 @@ while.end.i:                                      ; preds = %while.body.i, %invo
 
 if.then.i:                                        ; preds = %while.end.i
   %mul9.i = shl nuw nsw i64 %__val.addr.0.lcssa.i, 1
-  %add10.i = or disjoint i64 %mul9.i, 1
-  %arrayidx11.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
-  %8 = load i8, ptr %arrayidx11.i, align 1
+  %9 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul9.i
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %10 = load i8, ptr %arrayidx11.i, align 1
   %arrayidx12.i = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %8, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
-  %9 = load i8, ptr %arrayidx13.i, align 2
+  store i8 %10, ptr %arrayidx12.i, align 1
+  %11 = load i8, ptr %9, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %10 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %10, 48
+  %12 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %12, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %9, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %11, %if.then.i ]
   store i8 %storemerge.i, ptr %4, align 1
   ret void
 }

@@ -87,7 +87,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 28:                                               ; preds = %28, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   store i32 %27, ptr %29, align 4, !tbaa !74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -104,7 +104,7 @@ process_common_setup.exit:                        ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 2552
   %38 = load i32, ptr %37, align 8, !tbaa !78
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [4 x [4 x float]], ptr @dt_iop_rawoverexposed_colors, i64 0, i64 %39
+  %40 = getelementptr inbounds [4 x float], ptr @dt_iop_rawoverexposed_colors, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !79
   %43 = sext i32 %42 to i64
@@ -263,7 +263,7 @@ process_common_setup.exit:                        ; preds = %28
   %135 = getelementptr inbounds nuw [6 x i8], ptr %62, i64 %134
   %136 = urem i32 %131, 6
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [6 x i8], ptr %135, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !122
   %140 = zext i8 %139 to i32
   br label %149
@@ -288,7 +288,7 @@ process_common_setup.exit:                        ; preds = %28
   %155 = load i16, ptr %154, align 2, !tbaa !123
   %156 = uitofp i16 %155 to float
   %157 = zext nneg i32 %.088 to i64
-  %158 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i32, ptr %9, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !74
   %160 = uitofp i32 %159 to float
   %161 = fcmp reassoc nsz arcp contract afn olt float %156, %160
@@ -303,7 +303,7 @@ process_common_setup.exit:                        ; preds = %28
 
 163:                                              ; preds = %162
   %164 = getelementptr inbounds nuw float, ptr %3, i64 %119
-  %165 = getelementptr inbounds nuw [4 x [4 x float]], ptr @dt_iop_rawoverexposed_colors, i64 0, i64 %157
+  %165 = getelementptr inbounds nuw [4 x float], ptr @dt_iop_rawoverexposed_colors, i64 %157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %164, ptr noundef nonnull align 16 dereferenceable(16) %165, i64 16, i1 false)
   br label %171
 

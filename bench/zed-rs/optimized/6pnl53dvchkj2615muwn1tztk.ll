@@ -8255,7 +8255,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 111:                                              ; preds = %._crit_edge
-  %112 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i, i32 2
+  %112 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i, i32 2
   %113 = load i64, ptr %112, align 8, !noalias !1047, !noundef !9
   %.sroa.0.011.i = and i64 %64, %113
   %114 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.011.i
@@ -8421,7 +8421,7 @@ _ZN4core3ptr19swap_nonoverlapping17h12eddcc7ed2d6ecbE.exit.loopexit.i: ; preds =
 .lr.ph.i8:                                        ; preds = %176, %_ZN4core3ptr19swap_nonoverlapping17h12eddcc7ed2d6ecbE.exit.loopexit.i
   %.val3.i16.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17h12eddcc7ed2d6ecbE.exit.loopexit.i ], [ %.val3.i15.i, %176 ]
   %188 = phi ptr [ %184, %_ZN4core3ptr19swap_nonoverlapping17h12eddcc7ed2d6ecbE.exit.loopexit.i ], [ %173, %176 ]
-  %189 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i16.i, i32 2
+  %189 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i16.i, i32 2
   %190 = load i64, ptr %189, align 8, !noalias !1075, !noundef !9
   %.val8.i = load i64, ptr %15, align 8, !alias.scope !1057, !noundef !9
   %.sroa.0.011.i.i = and i64 %.val8.i, %190
@@ -9020,7 +9020,7 @@ common.resume:                                    ; preds = %172, %125
   br label %common.resume
 
 174:                                              ; preds = %160
-  %175 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %169, i32 2
+  %175 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %169, i32 2
   %176 = load i64, ptr %175, align 8, !noundef !9
   %.sroa.0.011.i = and i64 %176, %6
   %177 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.0.011.i

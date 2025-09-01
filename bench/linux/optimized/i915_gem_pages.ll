@@ -665,13 +665,13 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
 98:                                               ; preds = %109, %91
   %99 = phi i1 [ true, %91 ], [ false, %109 ]
   %100 = phi i64 [ 0, %91 ], [ 1, %109 ]
-  %101 = getelementptr [2 x ptr], ptr %96, i64 0, i64 %100
+  %101 = getelementptr ptr, ptr %96, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %109, label %104
 
 104:                                              ; preds = %98
-  %105 = getelementptr [2 x i32], ptr %97, i64 0, i64 %100
+  %105 = getelementptr i32, ptr %97, i64 %100
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %109, label %108

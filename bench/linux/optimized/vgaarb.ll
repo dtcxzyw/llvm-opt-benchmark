@@ -1156,7 +1156,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
 
 95:                                               ; preds = %115, %78
   %96 = phi i64 [ 0, %78 ], [ %116, %115 ]
-  %97 = getelementptr [11 x %struct.resource], ptr %94, i64 0, i64 %96
+  %97 = getelementptr %struct.resource, ptr %94, i64 %96
   %98 = icmp eq ptr %97, null
   br i1 %98, label %120, label %99
 
@@ -1626,7 +1626,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %13
-  %17 = getelementptr [64 x i8], ptr %6, i64 0, i64 %2
+  %17 = getelementptr i8, ptr %6, i64 %2
   store i8 0, ptr %17, align 1
   %18 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.13, i64 5)
   %19 = icmp eq i32 %18, 0
@@ -1671,7 +1671,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
 
 43:                                               ; preds = %40, %37
   %44 = phi i64 [ 0, %37 ], [ %41, %40 ]
-  %45 = getelementptr [16 x %struct.vga_arb_user_card], ptr %39, i64 0, i64 %44
+  %45 = getelementptr %struct.vga_arb_user_card, ptr %39, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %35
   br i1 %47, label %48, label %40
@@ -1733,7 +1733,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
 82:                                               ; preds = %82, %80
   %83 = phi i64 [ 0, %80 ], [ %89, %82 ]
   %84 = phi ptr [ null, %80 ], [ %88, %82 ]
-  %85 = getelementptr [16 x %struct.vga_arb_user_card], ptr %81, i64 0, i64 %83
+  %85 = getelementptr %struct.vga_arb_user_card, ptr %81, i64 %83
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, %78
   %88 = select i1 %87, ptr %85, ptr %84
@@ -1833,7 +1833,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
 
 144:                                              ; preds = %141, %139
   %145 = phi i64 [ 0, %139 ], [ %142, %141 ]
-  %146 = getelementptr [16 x %struct.vga_arb_user_card], ptr %140, i64 0, i64 %145
+  %146 = getelementptr %struct.vga_arb_user_card, ptr %140, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, %134
   br i1 %148, label %149, label %141
@@ -1931,7 +1931,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
 
 197:                                              ; preds = %207, %194
   %198 = phi i64 [ 0, %194 ], [ %208, %207 ]
-  %199 = getelementptr [16 x %struct.vga_arb_user_card], ptr %196, i64 0, i64 %198
+  %199 = getelementptr %struct.vga_arb_user_card, ptr %196, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, %181
   br i1 %201, label %.loopexit17, label %202
@@ -2075,7 +2075,7 @@ define internal noundef i32 @vga_arb_release(ptr readnone captures(none) %0, ptr
 
 11:                                               ; preds = %.loopexit, %2
   %12 = phi i64 [ 0, %2 ], [ %117, %.loopexit ]
-  %13 = getelementptr [16 x %struct.vga_arb_user_card], ptr %10, i64 0, i64 %12
+  %13 = getelementptr %struct.vga_arb_user_card, ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16

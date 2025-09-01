@@ -5500,7 +5500,7 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1986, %ct_eval_bina
 
 2072:                                             ; preds = %.lr.ph1673, %.critedge1293
   %indvars.iv1675 = phi i64 [ 0, %.lr.ph1673 ], [ %indvars.iv.next1676, %.critedge1293 ]
-  %2073 = getelementptr inbounds nuw [1 x %struct._zend_send_arg_info], ptr %2068, i64 0, i64 %indvars.iv1675
+  %2073 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %2068, i64 %indvars.iv1675
   %2074 = load ptr, ptr %2073, align 8, !tbaa !124
   %2075 = getelementptr inbounds nuw i8, ptr %2074, i64 28
   %2076 = load i8, ptr %2075, align 4, !tbaa !77
@@ -5535,7 +5535,7 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1986, %ct_eval_bina
   br i1 %.not.i1620, label %get_op1_value.exit1622.thread, label %2096
 
 get_op1_value.exit1622.thread:                    ; preds = %2086
-  %2095 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv1675
+  %2095 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv1675
   store ptr null, ptr %2095, align 8, !tbaa !126
   br label %.critedge1293
 
@@ -5546,7 +5546,7 @@ get_op1_value.exit1622.thread:                    ; preds = %2086
 
 get_op1_value.exit1622:                           ; preds = %2081, %2096
   %.0.i1621 = phi ptr [ %2085, %2081 ], [ %2098, %2096 ]
-  %2099 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv1675
+  %2099 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv1675
   store ptr %.0.i1621, ptr %2099, align 8, !tbaa !126
   %.not1285 = icmp eq ptr %.0.i1621, null
   br i1 %.not1285, label %.critedge1293, label %2100
@@ -5803,7 +5803,7 @@ get_op1_value.exit1631:                           ; preds = %2210, %2217, %2230
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %2245
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %2245 ]
-  %2234 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %2234 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %2235 = load ptr, ptr %2234, align 8, !tbaa !126
   %.not1280 = icmp eq ptr %2235, null
   br i1 %.not1280, label %2236, label %2239
@@ -7720,7 +7720,7 @@ thread-pre-split:                                 ; preds = %zval_to_string_offs
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %51 = getelementptr inbounds nuw [1 x i8], ptr %50, i64 0, i64 %42
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %42
   %52 = call noalias ptr @_emalloc_32() #13
   store i32 1, ptr %52, align 4, !tbaa !67
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -9363,7 +9363,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr 
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw [1 x %struct._zend_send_arg_info], ptr %33, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %33, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !124
   %37 = load ptr, ptr %22, align 8, !tbaa !71
   %38 = load ptr, ptr %9, align 8, !tbaa !76

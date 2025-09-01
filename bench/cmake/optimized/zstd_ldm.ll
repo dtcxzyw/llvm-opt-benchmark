@@ -233,7 +233,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.072
   %13 = load i8, ptr %12, align 1, !tbaa !29
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i64], ptr @ZSTD_ldm_gearTab, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !26
   %17 = add i64 %16, %11
   %18 = or disjoint i64 %.072, 1
@@ -256,7 +256,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %30 = load i8, ptr %29, align 1, !tbaa !29
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i64], ptr @ZSTD_ldm_gearTab, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = add i64 %33, %28
   %35 = or disjoint i64 %.072, 2
@@ -279,7 +279,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %35
   %47 = load i8, ptr %46, align 1, !tbaa !29
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x i64], ptr @ZSTD_ldm_gearTab, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !26
   %51 = add i64 %50, %45
   %52 = or disjoint i64 %.072, 3
@@ -302,7 +302,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %52
   %64 = load i8, ptr %63, align 1, !tbaa !29
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [256 x i64], ptr @ZSTD_ldm_gearTab, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !26
   %68 = add i64 %67, %62
   %69 = add i64 %.072, 4
@@ -332,7 +332,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 %.275
   %83 = load i8, ptr %82, align 1, !tbaa !29
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i64], ptr @ZSTD_ldm_gearTab, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !26
   %87 = add i64 %86, %81
   %88 = add nuw i64 %.275, 1

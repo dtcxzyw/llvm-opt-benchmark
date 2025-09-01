@@ -117,7 +117,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 27:                                               ; preds = %26
   %28 = zext nneg i32 %.048 to i64
-  %29 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %6, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %28
   store i32 %1, ptr %29, align 8, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i16 195, ptr %30, align 4, !tbaa !10
@@ -133,7 +133,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 34:                                               ; preds = %33
   %35 = zext nneg i32 %.149 to i64
-  %36 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %6, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %35
   store i32 %2, ptr %36, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i16 262, ptr %37, align 4, !tbaa !10
@@ -170,7 +170,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 51:                                               ; preds = %50
   %52 = zext nneg i32 %.351 to i64
-  %53 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %6, i64 0, i64 %52, i32 2
+  %53 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %52, i32 2
   %54 = load i16, ptr %53, align 2, !tbaa !11
   %55 = and i16 %54, 89
   %.not62 = icmp eq i16 %55, 0
@@ -190,7 +190,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 61:                                               ; preds = %60
   %62 = zext nneg i32 %.452 to i64
-  %63 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %6, i64 0, i64 %62, i32 2
+  %63 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %62, i32 2
   %64 = load i16, ptr %63, align 2, !tbaa !11
   %65 = and i16 %64, 260
   %.not64 = icmp eq i16 %65, 0
@@ -455,7 +455,7 @@ define hidden range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(non
   %.pre28 = phi i32 [ %4, %.lr.ph ], [ %.pre29, %.critedge ]
   %10 = phi i32 [ %4, %.lr.ph ], [ %57, %.critedge ]
   %.01625 = phi i64 [ 0, %.lr.ph ], [ %58, %.critedge ]
-  %11 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %.01625
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.01625
   %12 = load i8, ptr %11, align 1, !tbaa !24
   %13 = and i8 %12, 1
   %14 = shl i8 %12, 1
@@ -466,7 +466,7 @@ define hidden range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(non
   br i1 %.not20, label %.critedge, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %.01625
+  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %.01625
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = load i32, ptr %6, align 8, !tbaa !21
   %20 = icmp sgt i32 %19, -1
@@ -594,7 +594,7 @@ define hidden i32 @Curl_waitfds_add_ps(ptr noundef captures(none) %0, ptr nounde
 9:                                                ; preds = %.lr.ph, %40
   %.01522 = phi i32 [ 0, %.lr.ph ], [ %.116, %40 ]
   %.01721 = phi i64 [ 0, %.lr.ph ], [ %41, %40 ]
-  %10 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %.01721
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.01721
   %11 = load i8, ptr %10, align 1, !tbaa !24
   %12 = and i8 %11, 1
   %13 = shl i8 %11, 1
@@ -605,7 +605,7 @@ define hidden i32 @Curl_waitfds_add_ps(ptr noundef captures(none) %0, ptr nounde
   br i1 %.not19, label %40, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %.01721
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %.01721
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = load ptr, ptr %0, align 8, !tbaa !27
   %.not.i = icmp eq ptr %18, null

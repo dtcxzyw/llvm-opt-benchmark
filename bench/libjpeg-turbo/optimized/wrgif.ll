@@ -186,7 +186,7 @@ define internal void @finish_output_gif(ptr noundef %0, ptr noundef captures(non
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 8, !tbaa !68
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr %18, i64 0, i64 %22
+  %23 = getelementptr inbounds i8, ptr %18, i64 %22
   store i8 %17, ptr %23, align 1, !tbaa !35
   %24 = load i32, ptr %19, align 8, !tbaa !68
   %25 = icmp sgt i32 %24, 254
@@ -806,7 +806,7 @@ define internal fastcc void @output(ptr noundef captures(none) %0, i16 noundef s
   %24 = add nsw i32 %21, 1
   store i32 %24, ptr %17, align 8, !tbaa !68
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 %25
+  %26 = getelementptr inbounds i8, ptr %16, i64 %25
   store i8 %23, ptr %26, align 1, !tbaa !35
   %27 = load i32, ptr %17, align 8, !tbaa !68
   %28 = icmp sgt i32 %27, 254

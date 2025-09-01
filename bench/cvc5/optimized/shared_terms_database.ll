@@ -4916,7 +4916,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %18 = icmp eq i32 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !104, !noalias !249
   store ptr %22, ptr %3, align 8, !tbaa !159, !alias.scope !249
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
@@ -4928,7 +4928,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %28 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %27)
   %29 = icmp eq i32 %28, 2
   %spec.select.i.i = select i1 %29, i64 2, i64 1
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %spec.select.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %19, i64 %spec.select.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !104, !noalias !252
   store ptr %31, ptr %4, align 8, !tbaa !159, !alias.scope !252
   %32 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine8areEqualENS0_12NodeTemplateILb0EEES5_(ptr noundef nonnull align 8 dereferenceable(1784) %14, ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -4939,7 +4939,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %35 = icmp eq i32 %34, 2
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %37 = zext i1 %35 to i64
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !104, !noalias !255
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %41 = load ptr, ptr %40, align 8, !tbaa !149
@@ -4954,7 +4954,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %49 = icmp eq i32 %48, 2
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %51 = zext i1 %49 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !104, !noalias !258
   store ptr %53, ptr %5, align 8, !tbaa !159, !alias.scope !258
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
@@ -4966,7 +4966,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal19SharedTermsDatabase7isKnow
   %59 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %58)
   %60 = icmp eq i32 %59, 2
   %spec.select.i.i16 = select i1 %60, i64 2, i64 1
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %spec.select.i.i16
+  %61 = getelementptr inbounds nuw ptr, ptr %50, i64 %spec.select.i.i16
   %62 = load ptr, ptr %61, align 8, !tbaa !104, !noalias !261
   store ptr %62, ptr %6, align 8, !tbaa !159, !alias.scope !261
   %63 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %41, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false)

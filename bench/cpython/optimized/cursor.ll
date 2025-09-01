@@ -486,7 +486,7 @@ stmt_reset.exit215:                               ; preds = %101, %105
   br i1 %.not184.i, label %172, label %177
 
 172:                                              ; preds = %171
-  %173 = getelementptr [1 x ptr], ptr %155, i64 0, i64 %160
+  %173 = getelementptr ptr, ptr %155, i64 %160
   %174 = load ptr, ptr %173, align 8, !tbaa !14
   %175 = load i32, ptr %174, align 8, !tbaa !13
   %176 = icmp slt i32 %175, 0
@@ -1131,7 +1131,7 @@ Py_DECREF.exit195:                                ; preds = %424, %427, %430
 432:                                              ; preds = %Py_DECREF.exit195
   %433 = load ptr, ptr %47, align 8, !tbaa !54
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 24
-  %435 = getelementptr [1 x ptr], ptr %434, i64 0, i64 %indvars.iv
+  %435 = getelementptr ptr, ptr %434, i64 %indvars.iv
   store ptr %425, ptr %435, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2179,7 +2179,7 @@ _Py_NewRef.exit120.thread.sink.split.i:           ; preds = %76, %53
 
 _Py_NewRef.exit120.thread.i:                      ; preds = %_Py_NewRef.exit120.thread.sink.split.i, %_Py_NewRef.exit120.i, %112, %76, %53
   %.4135.i = phi ptr [ %.4.i, %_Py_NewRef.exit120.i ], [ @_Py_NoneStruct, %76 ], [ %113, %112 ], [ @_Py_NoneStruct, %53 ], [ @_Py_NoneStruct, %_Py_NewRef.exit120.thread.sink.split.i ]
-  %167 = getelementptr [1 x ptr], ptr %27, i64 0, i64 %indvars.iv.i
+  %167 = getelementptr ptr, ptr %27, i64 %indvars.iv.i
   store ptr %.4135.i, ptr %167, align 8, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

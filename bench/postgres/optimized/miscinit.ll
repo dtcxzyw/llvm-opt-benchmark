@@ -336,7 +336,7 @@ define dso_local noundef nonnull ptr @GetBackendTypeDesc(i32 noundef %0) local_u
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table.GetBackendTypeDesc, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GetBackendTypeDesc, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1220,7 +1220,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
 
 59:                                               ; preds = %50
   %60 = and i64 %43, 2147483647
-  %61 = getelementptr inbounds nuw [2304 x i8], ptr %6, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %60
   store i8 0, ptr %61, align 1
   %62 = call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #22
   %63 = trunc i64 %62 to i32
@@ -1538,7 +1538,7 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
 
 24:                                               ; preds = %12
   %25 = and i64 %14, 2147483647
-  %26 = getelementptr inbounds nuw [8192 x i8], ptr %3, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %25
   store i8 0, ptr %26, align 1
   %27 = icmp sgt i32 %0, 1
   br i1 %27, label %.lr.ph, label %._crit_edge
@@ -1768,7 +1768,7 @@ define dso_local noundef zeroext i1 @RecheckDataDirLockFile() local_unnamed_addr
 
 29:                                               ; preds = %17
   %30 = and i64 %19, 2147483647
-  %31 = getelementptr inbounds nuw [8192 x i8], ptr %1, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   store i8 0, ptr %31, align 1
   %32 = tail call i32 @close(i32 noundef %2) #22
   %33 = call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #22

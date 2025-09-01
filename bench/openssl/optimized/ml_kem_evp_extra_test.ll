@@ -191,7 +191,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 256, ptr %7, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %25 = getelementptr inbounds nuw [3 x i32], ptr @test_non_derandomised_ml_kem.alg, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr @test_non_derandomised_ml_kem.alg, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !11
   %27 = call ptr @ossl_ml_kem_get_vinfo(i32 noundef %26) #6
   %28 = icmp eq ptr %27, null
@@ -243,7 +243,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %49 = load i64, ptr %48, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
-  %51 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @expected_rho, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [32 x i8], ptr @expected_rho, i64 %indvars.iv
   %52 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 281, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef %50, i64 noundef 32, ptr noundef nonnull %51, i64 noundef 32) #6
   %.not88 = icmp eq i32 %52, 0
   br i1 %.not88, label %172, label %53
@@ -352,14 +352,14 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not102, label %172, label %109
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @expected_ctext_sha256, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [32 x i8], ptr @expected_ctext_sha256, i64 %indvars.iv
   %111 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 333, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %110, i64 noundef 32) #6
   %.not103 = icmp eq i32 %111, 0
   br i1 %.not103, label %172, label %112
 
 112:                                              ; preds = %109
   %113 = load i64, ptr %6, align 8, !tbaa !15
-  %114 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @expected_shared_secret, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [32 x i8], ptr @expected_shared_secret, i64 %indvars.iv
   %115 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 337, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.54, ptr noundef %91, i64 noundef %113, ptr noundef nonnull %114, i64 noundef 32) #6
   %.not104 = icmp eq i32 %115, 0
   br i1 %.not104, label %172, label %116

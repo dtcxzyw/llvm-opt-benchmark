@@ -353,7 +353,7 @@ conversation_element_count.exit.preheader:        ; preds = %10, %conversation_e
 
 conversation_element_count.exit:                  ; preds = %conversation_element_count.exit.preheader
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr [9 x ptr], ptr @type_names, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr @type_names, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.17, ptr noundef nonnull %.015, ptr noundef %20)
   %21 = add nuw nsw i64 %.01114, 1
@@ -5573,7 +5573,7 @@ switch.lookup:                                    ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %47 = zext nneg i32 %42 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.conversation_pt_to_endpoint_type, i64 0, i64 %47
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %49 = load i32, ptr %48, align 4
@@ -5610,7 +5610,7 @@ define range(i32 0, 34) i32 @conversation_pt_to_conversation_type(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.conversation_pt_to_endpoint_type, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5669,7 +5669,7 @@ define ptr @find_conversation_pinfo_ro(ptr noundef %0, i32 noundef %1) local_unn
 
 switch.lookup:                                    ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.conversation_pt_to_endpoint_type, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = tail call ptr @find_conversation_strat(ptr noundef %0, i32 noundef %switch.load, i32 noundef %1)
   br label %35
@@ -5732,7 +5732,7 @@ switch.lookup:                                    ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %35 = zext nneg i32 %30 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.conversation_pt_to_endpoint_type, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %37 = load i32, ptr %36, align 4
@@ -6100,7 +6100,7 @@ define range(i32 0, 34) i32 @conversation_pt_to_endpoint_type(i32 noundef %0) lo
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.conversation_pt_to_endpoint_type, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

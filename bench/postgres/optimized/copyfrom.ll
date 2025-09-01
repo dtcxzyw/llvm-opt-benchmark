@@ -724,7 +724,7 @@ CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfo
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8016
   %240 = load i32, ptr %239, align 8
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds [1000 x ptr], ptr %238, i64 0, i64 %241
+  %242 = getelementptr inbounds ptr, ptr %238, i64 %241
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %245, label %CopyMultiInsertInfoNextFreeSlot.exit
@@ -969,7 +969,7 @@ CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %329, %334
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8016
   %366 = load i32, ptr %365, align 8
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds [1000 x ptr], ptr %364, i64 0, i64 %367
+  %368 = getelementptr inbounds ptr, ptr %364, i64 %367
   %369 = load ptr, ptr %368, align 8
   %370 = icmp eq ptr %369, null
   br i1 %370, label %371, label %CopyMultiInsertInfoNextFreeSlot.exit378
@@ -1107,7 +1107,7 @@ CopyMultiInsertInfoNextFreeSlot.exit378:          ; preds = %362, %371
   %440 = getelementptr inbounds nuw i8, ptr %.2.val, i64 8016
   %441 = load i32, ptr %440, align 8
   %442 = sext i32 %441 to i64
-  %443 = getelementptr inbounds [1000 x i64], ptr %439, i64 0, i64 %442
+  %443 = getelementptr inbounds i64, ptr %439, i64 %442
   store i64 %437, ptr %443, align 8
   %444 = load i32, ptr %440, align 8
   %445 = add i32 %444, 1
@@ -1296,7 +1296,7 @@ CopyMultiInsertInfoNextFreeSlot.exit378:          ; preds = %362, %371
 
 527:                                              ; preds = %.preheader, %530
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %530 ], [ 0, %.preheader ]
-  %528 = getelementptr inbounds nuw [1000 x ptr], ptr %517, i64 0, i64 %indvars.iv.i.i
+  %528 = getelementptr inbounds nuw ptr, ptr %517, i64 %indvars.iv.i.i
   %529 = load ptr, ptr %528, align 8
   %.not.i.i = icmp eq ptr %529, null
   br i1 %.not.i.i, label %.critedge.i.i, label %530
@@ -1617,10 +1617,10 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   br i1 %106, label %107, label %115
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds nuw [1000 x i64], ptr %102, i64 0, i64 %indvars.iv121.i
+  %108 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv121.i
   %109 = load i64, ptr %108, align 8
   store i64 %109, ptr %80, align 8
-  %110 = getelementptr inbounds nuw [1000 x ptr], ptr %18, i64 0, i64 %indvars.iv121.i
+  %110 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv121.i
   %111 = load ptr, ptr %110, align 8
   %112 = call ptr @ExecInsertIndexTuples(ptr noundef nonnull %24, ptr noundef %111, ptr noundef %20, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #12
   %113 = load ptr, ptr %110, align 8
@@ -1647,7 +1647,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   br i1 %124, label %125, label %131
 
 125:                                              ; preds = %121, %117
-  %126 = getelementptr inbounds nuw [1000 x i64], ptr %102, i64 0, i64 %indvars.iv121.i
+  %126 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv121.i
   %127 = load i64, ptr %126, align 8
   store i64 %127, ptr %80, align 8
   %128 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv121.i
@@ -1748,7 +1748,7 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
 
 171:                                              ; preds = %.preheader, %174
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i32, %174 ], [ 0, %.preheader ]
-  %172 = getelementptr inbounds nuw [1000 x ptr], ptr %.0, i64 0, i64 %indvars.iv.i30
+  %172 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv.i30
   %173 = load ptr, ptr %172, align 8
   %.not.i31 = icmp eq ptr %173, null
   br i1 %.not.i31, label %.critedge.i, label %174

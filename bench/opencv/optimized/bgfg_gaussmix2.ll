@@ -1101,7 +1101,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %65 ]
   %66 = getelementptr float, ptr %60, i64 %indvars.iv
   %67 = load float, ptr %66, align 4, !tbaa !95
-  %68 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !95
   %70 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload, float %67, float %69)
   store float %70, ptr %68, align 4, !tbaa !95
@@ -1122,10 +1122,10 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 
 74:                                               ; preds = %74, %._crit_edge
   %indvars.iv.i.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i.i, %74 ]
-  %75 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %75 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i
   %76 = load float, ptr %75, align 4, !tbaa !95, !noalias !101
   %77 = fmul float %.0, %76
-  %78 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i.i.i
+  %78 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i
   store float %77, ptr %78, align 4, !tbaa !95, !alias.scope !101
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1138,14 +1138,14 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit:     ; preds = %74
 
 79:                                               ; preds = %79, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_f.exit ], [ %indvars.iv.next.i, %79 ]
-  %80 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %81 = load float, ptr %80, align 4, !tbaa !95, !noalias !105
   %82 = insertelement <4 x float> poison, float %81, i64 0
   %83 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %82)
   %84 = call i32 @llvm.smax.i32(i32 %83, i32 0)
   %85 = call i32 @llvm.umin.i32(i32 %84, i32 255)
   %86 = trunc nuw i32 %85 to i8
-  %87 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %86, ptr %87, align 1, !tbaa !94, !alias.scope !105
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1509,7 +1509,7 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
   %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %64 ]
   %65 = getelementptr float, ptr %59, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !95
-  %67 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %68 = load float, ptr %67, align 4, !tbaa !95
   %69 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload, float %66, float %68)
   store float %69, ptr %67, align 4, !tbaa !95
@@ -1529,10 +1529,10 @@ define linkonce_odr hidden void @_ZNK2cv28BackgroundSubtractorMOG2Impl25getBackg
 
 73:                                               ; preds = %73, %._crit_edge
   %indvars.iv.i.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i.i, %73 ]
-  %74 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %74 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i
   %75 = load float, ptr %74, align 4, !tbaa !95, !noalias !116
   %76 = fmul float %.0, %75
-  %77 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %77 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i.i
   store float %76, ptr %77, align 4, !tbaa !95, !alias.scope !116
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -3842,7 +3842,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %156 = getelementptr inbounds nuw float, ptr %.1193289, i64 %indvars.iv
   %157 = load float, ptr %156, align 4, !tbaa !95
   %158 = fsub float %155, %157
-  %159 = getelementptr inbounds nuw [512 x float], ptr %6, i64 0, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %158, ptr %159, align 4, !tbaa !95
   %160 = call float @llvm.fmuladd.f32(float %158, float %158, float %.1250)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3897,7 +3897,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 
 186:                                              ; preds = %172, %186
   %indvars.iv304 = phi i64 [ 0, %172 ], [ %indvars.iv.next305, %186 ]
-  %187 = getelementptr inbounds nuw [512 x float], ptr %6, i64 0, i64 %indvars.iv304
+  %187 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv304
   %188 = load float, ptr %187, align 4, !tbaa !95
   %189 = getelementptr inbounds nuw float, ptr %.0200262, i64 %indvars.iv304
   %190 = load float, ptr %189, align 4, !tbaa !95

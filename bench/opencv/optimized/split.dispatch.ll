@@ -1182,7 +1182,7 @@ define void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereference
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %27
   %28 = zext nneg i32 %8 to i64
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL12getSplitFuncEiE8splitTab, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL12getSplitFuncEiE8splitTab, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !62
   %31 = load i32, ptr %13, align 4, !tbaa !59
   %32 = icmp sgt i32 %31, 0

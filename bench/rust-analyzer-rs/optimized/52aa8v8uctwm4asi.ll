@@ -35878,7 +35878,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6291, !noalias !6223, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6291, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6291
   %68 = icmp slt i64 %67, 0
@@ -36085,7 +36085,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6374, !noalias !6306, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6374, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6374
   %68 = icmp slt i64 %67, 0
@@ -36292,7 +36292,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6456, !noalias !6388, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6456, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6456
   %68 = icmp slt i64 %67, 0
@@ -36499,7 +36499,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6538, !noalias !6470, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6538, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6538
   %68 = icmp slt i64 %67, 0
@@ -36745,7 +36745,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 87:                                               ; preds = %.noexc7
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8, !alias.scope !6629, !noalias !6552, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds [0 x ptr], ptr %89, i64 0, i64 %83
+  %90 = getelementptr inbounds ptr, ptr %89, i64 %83
   %91 = load ptr, ptr %90, align 8, !noalias !6629, !nonnull !5, !noundef !5
   %92 = atomicrmw add ptr %91, i64 1 monotonic, align 8, !noalias !6629
   %93 = icmp slt i64 %92, 0
@@ -36936,7 +36936,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 61:                                               ; preds = %.noexc3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load ptr, ptr %62, align 8, !alias.scope !6703, !noalias !6643, !nonnull !5, !noundef !5
-  %64 = getelementptr inbounds [0 x ptr], ptr %63, i64 0, i64 %57
+  %64 = getelementptr inbounds ptr, ptr %63, i64 %57
   %65 = load ptr, ptr %64, align 8, !noalias !6703, !nonnull !5, !noundef !5
   %66 = atomicrmw add ptr %65, i64 1 monotonic, align 8, !noalias !6703
   %67 = icmp slt i64 %66, 0
@@ -37143,7 +37143,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 67:                                               ; preds = %.noexc3
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8, !alias.scope !6793, !noalias !6717, !nonnull !5, !noundef !5
-  %70 = getelementptr inbounds [0 x ptr], ptr %69, i64 0, i64 %63
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %63
   %71 = load ptr, ptr %70, align 8, !noalias !6793, !nonnull !5, !noundef !5
   %72 = atomicrmw add ptr %71, i64 1 monotonic, align 8, !noalias !6793
   %73 = icmp slt i64 %72, 0
@@ -37350,7 +37350,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6875, !noalias !6807, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6875, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6875
   %68 = icmp slt i64 %67, 0
@@ -37557,7 +37557,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6957, !noalias !6889, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6957, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6957
   %68 = icmp slt i64 %67, 0
@@ -37764,7 +37764,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7039, !noalias !6971, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7039, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7039
   %68 = icmp slt i64 %67, 0
@@ -37971,7 +37971,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7121, !noalias !7053, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7121, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7121
   %68 = icmp slt i64 %67, 0
@@ -38178,7 +38178,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7203, !noalias !7135, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7203, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7203
   %68 = icmp slt i64 %67, 0
@@ -38419,7 +38419,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 96:                                               ; preds = %.noexc3
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8, !alias.scope !7295, !noalias !7217, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds [0 x ptr], ptr %98, i64 0, i64 %92
+  %99 = getelementptr inbounds ptr, ptr %98, i64 %92
   %100 = load ptr, ptr %99, align 8, !noalias !7295, !nonnull !5, !noundef !5
   %101 = atomicrmw add ptr %100, i64 1 monotonic, align 8, !noalias !7295
   %102 = icmp slt i64 %101, 0
@@ -38626,7 +38626,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7377, !noalias !7309, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7377, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7377
   %68 = icmp slt i64 %67, 0
@@ -38844,7 +38844,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 78:                                               ; preds = %.noexc3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8, !alias.scope !7463, !noalias !7391, !nonnull !5, !noundef !5
-  %81 = getelementptr inbounds [0 x ptr], ptr %80, i64 0, i64 %74
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %74
   %82 = load ptr, ptr %81, align 8, !noalias !7463, !nonnull !5, !noundef !5
   %83 = atomicrmw add ptr %82, i64 1 monotonic, align 8, !noalias !7463
   %84 = icmp slt i64 %83, 0
@@ -39051,7 +39051,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7545, !noalias !7477, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7545, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7545
   %68 = icmp slt i64 %67, 0
@@ -39297,7 +39297,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 87:                                               ; preds = %.noexc7
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8, !alias.scope !7635, !noalias !7559, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds [0 x ptr], ptr %89, i64 0, i64 %83
+  %90 = getelementptr inbounds ptr, ptr %89, i64 %83
   %91 = load ptr, ptr %90, align 8, !noalias !7635, !nonnull !5, !noundef !5
   %92 = atomicrmw add ptr %91, i64 1 monotonic, align 8, !noalias !7635
   %93 = icmp slt i64 %92, 0
@@ -39504,7 +39504,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7717, !noalias !7649, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7717, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7717
   %68 = icmp slt i64 %67, 0
@@ -39734,7 +39734,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 81:                                               ; preds = %.noexc5
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load ptr, ptr %82, align 8, !alias.scope !7814, !noalias !7731, !nonnull !5, !noundef !5
-  %84 = getelementptr inbounds [0 x ptr], ptr %83, i64 0, i64 %77
+  %84 = getelementptr inbounds ptr, ptr %83, i64 %77
   %85 = load ptr, ptr %84, align 8, !noalias !7814, !nonnull !5, !noundef !5
   %86 = atomicrmw add ptr %85, i64 1 monotonic, align 8, !noalias !7814
   %87 = icmp slt i64 %86, 0
@@ -39941,7 +39941,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7896, !noalias !7828, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x ptr], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7896, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7896
   %68 = icmp slt i64 %67, 0
@@ -40101,7 +40101,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -40395,7 +40395,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -40689,7 +40689,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -40983,7 +40983,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -41277,7 +41277,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -41571,7 +41571,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -41865,7 +41865,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -42159,7 +42159,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -42460,7 +42460,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8, !nonnull !5, !noundef !5
-  %54 = getelementptr inbounds [0 x ptr], ptr %53, i64 0, i64 %40
+  %54 = getelementptr inbounds ptr, ptr %53, i64 %40
   %55 = load ptr, ptr %54, align 8, !nonnull !5, !noundef !5
   %56 = atomicrmw add ptr %55, i64 1 monotonic, align 8
   %57 = icmp slt i64 %56, 0
@@ -42870,7 +42870,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -43164,7 +43164,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -43457,7 +43457,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %31
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %31
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -43764,7 +43764,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44058,7 +44058,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44352,7 +44352,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44646,7 +44646,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44940,7 +44940,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -45235,7 +45235,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -45529,7 +45529,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -45832,7 +45832,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds [0 x ptr], ptr %45, i64 0, i64 %32
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -46070,7 +46070,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8672, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8672, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8672
   %23 = icmp slt i64 %22, 0
@@ -46161,7 +46161,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8685, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8685, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8685
   %23 = icmp slt i64 %22, 0
@@ -46252,7 +46252,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8698, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8698, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8698
   %23 = icmp slt i64 %22, 0
@@ -46343,7 +46343,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8711, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8711, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8711
   %23 = icmp slt i64 %22, 0
@@ -46434,7 +46434,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8724, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8724, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8724
   %23 = icmp slt i64 %22, 0
@@ -46525,7 +46525,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8737, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8737, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8737
   %23 = icmp slt i64 %22, 0
@@ -46616,7 +46616,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8750, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8750, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8750
   %23 = icmp slt i64 %22, 0
@@ -46707,7 +46707,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8763, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8763, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8763
   %23 = icmp slt i64 %22, 0
@@ -46798,7 +46798,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8776, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8776, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8776
   %23 = icmp slt i64 %22, 0
@@ -46889,7 +46889,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8789, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8789, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8789
   %23 = icmp slt i64 %22, 0
@@ -46980,7 +46980,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8802, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8802, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8802
   %23 = icmp slt i64 %22, 0
@@ -47071,7 +47071,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8815, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8815, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8815
   %23 = icmp slt i64 %22, 0
@@ -47162,7 +47162,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8828, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8828, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8828
   %23 = icmp slt i64 %22, 0
@@ -47253,7 +47253,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8841, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8841, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8841
   %23 = icmp slt i64 %22, 0
@@ -47344,7 +47344,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8854, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8854, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8854
   %23 = icmp slt i64 %22, 0
@@ -47435,7 +47435,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8867, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8867, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8867
   %23 = icmp slt i64 %22, 0
@@ -47526,7 +47526,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8880, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8880, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8880
   %23 = icmp slt i64 %22, 0
@@ -47617,7 +47617,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8893, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8893, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8893
   %23 = icmp slt i64 %22, 0
@@ -47708,7 +47708,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8906, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8906, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8906
   %23 = icmp slt i64 %22, 0
@@ -47799,7 +47799,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8919, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8919, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8919
   %23 = icmp slt i64 %22, 0
@@ -47865,7 +47865,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47894,7 +47894,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47923,7 +47923,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47952,7 +47952,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47981,7 +47981,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48010,7 +48010,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48039,7 +48039,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48068,7 +48068,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48097,7 +48097,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48126,7 +48126,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48155,7 +48155,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48184,7 +48184,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48213,7 +48213,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48242,7 +48242,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48271,7 +48271,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48300,7 +48300,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48329,7 +48329,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48358,7 +48358,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48387,7 +48387,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48416,7 +48416,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48820,10 +48820,10 @@ define internal noundef zeroext i1 @"_ZN74_$LT$hir_expand..proc_macro..ProcMacro
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E.196", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E.196", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

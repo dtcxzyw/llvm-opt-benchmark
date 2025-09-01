@@ -6959,7 +6959,7 @@ define dso_local void @_ZN27btMultiBodyConstraintSolver23convertMultiBodyContact
   %51 = phi i32 [ %38, %.lr.ph ], [ %210, %209 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %209 ]
   %.0161 = phi i32 [ 4, %.lr.ph ], [ %.2, %209 ]
-  %52 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %40, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %40, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %54 = load float, ptr %53, align 8, !tbaa !132
   %55 = load float, ptr %41, align 8, !tbaa !158

@@ -3011,7 +3011,7 @@ list_length.exit.i.i:                             ; preds = %436, %acquireLocksO
 
 switch.lookup:                                    ; preds = %.lr.ph215.i.i
   %497 = zext nneg i32 %495 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.RewriteQuery, i64 0, i64 %497
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.RewriteQuery, i64 %497
   %switch.load = load i64, ptr %switch.gep, align 8
   %498 = getelementptr inbounds nuw i8, ptr %493, i64 %switch.load
   %499 = load ptr, ptr %498, align 8

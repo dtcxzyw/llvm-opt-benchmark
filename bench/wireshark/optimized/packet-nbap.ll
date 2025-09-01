@@ -15945,13 +15945,13 @@ define hidden void @proto_register_nbap() local_unnamed_addr #0 {
 
 8:                                                ; preds = %0, %8
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr [16 x %struct.preference_strings], ptr @ch_strings, i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct.preference_strings, ptr @ch_strings, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr [16 x i32], ptr @lch_contents, i64 0, i64 %indvars.iv
+  %15 = getelementptr i32, ptr @lch_contents, i64 %indvars.iv
   tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @content_types, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -16058,16 +16058,17 @@ define internal void @nbap_init() #0 {
 
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr [16 x i32], ptr @lch_contents, i64 0, i64 %indvars.iv
+  %4 = getelementptr i32, ptr @lch_contents, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = trunc i32 %5 to i8
+  %7 = getelementptr i8, ptr @lchId_type_table, i64 %indvars.iv
+  %8 = getelementptr i8, ptr %7, i64 1
+  store i8 %6, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = getelementptr [16 x i8], ptr @lchId_type_table, i64 0, i64 %indvars.iv.next
-  store i8 %6, ptr %7, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !8
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   ret void
 }
 
@@ -20151,13 +20152,13 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 
 103:                                              ; preds = %103, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
-  %104 = getelementptr [64 x i32], ptr %99, i64 0, i64 %indvars.iv.i
+  %104 = getelementptr i32, ptr %99, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr [64 x i32], ptr %100, i64 0, i64 %indvars.iv.i
+  %106 = getelementptr i32, ptr %100, i64 %indvars.iv.i
   store i32 %105, ptr %106, align 4
-  %107 = getelementptr [64 x i32], ptr %101, i64 0, i64 %indvars.iv.i
+  %107 = getelementptr i32, ptr %101, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr [64 x i32], ptr %102, i64 0, i64 %indvars.iv.i
+  %109 = getelementptr i32, ptr %102, i64 %indvars.iv.i
   store i32 %108, ptr %109, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -20181,13 +20182,13 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 
 118:                                              ; preds = %118, %.lr.ph149.i
   %indvars.iv166.i = phi i64 [ 0, %.lr.ph149.i ], [ %indvars.iv.next167.i, %118 ]
-  %119 = getelementptr [64 x i32], ptr %114, i64 0, i64 %indvars.iv166.i
+  %119 = getelementptr i32, ptr %114, i64 %indvars.iv166.i
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr [64 x i32], ptr %115, i64 0, i64 %indvars.iv166.i
+  %121 = getelementptr i32, ptr %115, i64 %indvars.iv166.i
   store i32 %120, ptr %121, align 4
-  %122 = getelementptr [64 x i32], ptr %116, i64 0, i64 %indvars.iv166.i
+  %122 = getelementptr i32, ptr %116, i64 %indvars.iv166.i
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr [64 x i32], ptr %117, i64 0, i64 %indvars.iv166.i
+  %124 = getelementptr i32, ptr %117, i64 %indvars.iv166.i
   store i32 %123, ptr %124, align 4
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next167.i, %wide.trip.count169.i
@@ -20227,7 +20228,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %138 = add nsw i32 %136, 1
   store i32 %138, ptr %126, align 8
   %139 = sext i32 %138 to i64
-  %140 = getelementptr [128 x i32], ptr %125, i64 0, i64 %139
+  %140 = getelementptr i32, ptr %125, i64 %139
   store i32 %137, ptr %140, align 4
   %141 = sext i32 %137 to i64
   %142 = getelementptr %struct.nbap_dch_channel_info_t, ptr %30, i64 %141
@@ -20235,7 +20236,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %144 = load i32, ptr %143, align 4
   %145 = load i32, ptr %126, align 8
   %146 = sext i32 %145 to i64
-  %147 = getelementptr [128 x %struct.fp_dch_channel_info_t], ptr %97, i64 0, i64 %146
+  %147 = getelementptr %struct.fp_dch_channel_info_t, ptr %97, i64 %146
   store i32 %144, ptr %147, align 4
   %148 = icmp sgt i32 %144, 0
   br i1 %148, label %.lr.ph153.i, label %._crit_edge154.i
@@ -20248,23 +20249,23 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 
 151:                                              ; preds = %151, %.lr.ph153.i
   %indvars.iv171.i = phi i64 [ 0, %.lr.ph153.i ], [ %indvars.iv.next172.i, %151 ]
-  %152 = getelementptr [64 x i32], ptr %149, i64 0, i64 %indvars.iv171.i
+  %152 = getelementptr i32, ptr %149, i64 %indvars.iv171.i
   %153 = load i32, ptr %152, align 4
   %154 = load i32, ptr %126, align 8
   %155 = sext i32 %154 to i64
   %.idx144.i = mul nsw i64 %155, 1032
   %156 = getelementptr i8, ptr %97, i64 %.idx144.i
   %157 = getelementptr i8, ptr %156, i64 4
-  %158 = getelementptr [64 x i32], ptr %157, i64 0, i64 %indvars.iv171.i
+  %158 = getelementptr i32, ptr %157, i64 %indvars.iv171.i
   store i32 %153, ptr %158, align 4
-  %159 = getelementptr [64 x i32], ptr %150, i64 0, i64 %indvars.iv171.i
+  %159 = getelementptr i32, ptr %150, i64 %indvars.iv171.i
   %160 = load i32, ptr %159, align 4
   %161 = load i32, ptr %126, align 8
   %162 = sext i32 %161 to i64
   %.idx145.i = mul nsw i64 %162, 1032
   %163 = getelementptr i8, ptr %97, i64 %.idx145.i
   %164 = getelementptr i8, ptr %163, i64 260
-  %165 = getelementptr [64 x i32], ptr %164, i64 0, i64 %indvars.iv171.i
+  %165 = getelementptr i32, ptr %164, i64 %indvars.iv171.i
   store i32 %160, ptr %165, align 4
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %exitcond175.not.i = icmp eq i64 %indvars.iv.next172.i, %wide.trip.count174.i
@@ -20294,23 +20295,23 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 
 173:                                              ; preds = %173, %.lr.ph157.i
   %indvars.iv176.i = phi i64 [ 0, %.lr.ph157.i ], [ %indvars.iv.next177.i, %173 ]
-  %174 = getelementptr [64 x i32], ptr %171, i64 0, i64 %indvars.iv176.i
+  %174 = getelementptr i32, ptr %171, i64 %indvars.iv176.i
   %175 = load i32, ptr %174, align 4
   %176 = load i32, ptr %126, align 8
   %177 = sext i32 %176 to i64
   %.idx142.i = mul nsw i64 %177, 1032
   %178 = getelementptr i8, ptr %97, i64 %.idx142.i
   %179 = getelementptr i8, ptr %178, i64 520
-  %180 = getelementptr [64 x i32], ptr %179, i64 0, i64 %indvars.iv176.i
+  %180 = getelementptr i32, ptr %179, i64 %indvars.iv176.i
   store i32 %175, ptr %180, align 4
-  %181 = getelementptr [64 x i32], ptr %172, i64 0, i64 %indvars.iv176.i
+  %181 = getelementptr i32, ptr %172, i64 %indvars.iv176.i
   %182 = load i32, ptr %181, align 4
   %183 = load i32, ptr %126, align 8
   %184 = sext i32 %183 to i64
   %.idx143.i = mul nsw i64 %184, 1032
   %185 = getelementptr i8, ptr %97, i64 %.idx143.i
   %186 = getelementptr i8, ptr %185, i64 776
-  %187 = getelementptr [64 x i32], ptr %186, i64 0, i64 %indvars.iv176.i
+  %187 = getelementptr i32, ptr %186, i64 %indvars.iv176.i
   store i32 %182, ptr %187, align 4
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
   %exitcond180.not.i = icmp eq i64 %indvars.iv.next177.i, %wide.trip.count179.i
@@ -20325,7 +20326,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %189 = add i32 %188, 1
   store i32 %189, ptr %126, align 8
   %190 = sext i32 %189 to i64
-  %191 = getelementptr [128 x i32], ptr %125, i64 0, i64 %190
+  %191 = getelementptr i32, ptr %125, i64 %190
   store i32 %.0137.lcssa.i, ptr %191, align 4
   call void @set_umts_fp_conv_data(ptr noundef %53, ptr noundef %61)
   %192 = load ptr, ptr %10, align 8
@@ -20578,13 +20579,13 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 
 113:                                              ; preds = %113, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %113 ]
-  %114 = getelementptr [64 x i32], ptr %109, i64 0, i64 %indvars.iv.i
+  %114 = getelementptr i32, ptr %109, i64 %indvars.iv.i
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr [64 x i32], ptr %110, i64 0, i64 %indvars.iv.i
+  %116 = getelementptr i32, ptr %110, i64 %indvars.iv.i
   store i32 %115, ptr %116, align 4
-  %117 = getelementptr [64 x i32], ptr %111, i64 0, i64 %indvars.iv.i
+  %117 = getelementptr i32, ptr %111, i64 %indvars.iv.i
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr [64 x i32], ptr %112, i64 0, i64 %indvars.iv.i
+  %119 = getelementptr i32, ptr %112, i64 %indvars.iv.i
   store i32 %118, ptr %119, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -20608,13 +20609,13 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 
 128:                                              ; preds = %128, %.lr.ph92.i
   %indvars.iv95.i = phi i64 [ 0, %.lr.ph92.i ], [ %indvars.iv.next96.i, %128 ]
-  %129 = getelementptr [64 x i32], ptr %124, i64 0, i64 %indvars.iv95.i
+  %129 = getelementptr i32, ptr %124, i64 %indvars.iv95.i
   %130 = load i32, ptr %129, align 4
-  %131 = getelementptr [64 x i32], ptr %125, i64 0, i64 %indvars.iv95.i
+  %131 = getelementptr i32, ptr %125, i64 %indvars.iv95.i
   store i32 %130, ptr %131, align 4
-  %132 = getelementptr [64 x i32], ptr %126, i64 0, i64 %indvars.iv95.i
+  %132 = getelementptr i32, ptr %126, i64 %indvars.iv95.i
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr [64 x i32], ptr %127, i64 0, i64 %indvars.iv95.i
+  %134 = getelementptr i32, ptr %127, i64 %indvars.iv95.i
   store i32 %133, ptr %134, align 4
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count98.i
@@ -27901,7 +27902,7 @@ nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_
   store i32 %127, ptr %125, align 8
   %128 = getelementptr inbounds nuw i8, ptr %73, i64 76
   %129 = sext i32 %126 to i64
-  %130 = getelementptr [128 x i32], ptr %128, i64 0, i64 %129
+  %130 = getelementptr i32, ptr %128, i64 %129
   store i32 %100, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %132 = load i8, ptr %131, align 4
@@ -29243,7 +29244,7 @@ nbap_get_private_data.exit64.i:                   ; preds = %116, %copy_address_
   store i32 %124, ptr %122, align 8
   %125 = getelementptr inbounds nuw i8, ptr %72, i64 76
   %126 = sext i32 %123 to i64
-  %127 = getelementptr [128 x i32], ptr %125, i64 0, i64 %126
+  %127 = getelementptr i32, ptr %125, i64 %126
   %128 = trunc nuw nsw i64 %indvars.iv69.i to i32
   store i32 %128, ptr %127, align 4
   call void @set_umts_fp_conv_data(ptr noundef %64, ptr noundef %72)
@@ -36244,13 +36245,13 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 
 112:                                              ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %113 = getelementptr [64 x i32], ptr %108, i64 0, i64 %indvars.iv
+  %113 = getelementptr i32, ptr %108, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr [64 x i32], ptr %109, i64 0, i64 %indvars.iv
+  %115 = getelementptr i32, ptr %109, i64 %indvars.iv
   store i32 %114, ptr %115, align 4
-  %116 = getelementptr [64 x i32], ptr %110, i64 0, i64 %indvars.iv
+  %116 = getelementptr i32, ptr %110, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr [64 x i32], ptr %111, i64 0, i64 %indvars.iv
+  %118 = getelementptr i32, ptr %111, i64 %indvars.iv
   store i32 %117, ptr %118, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -36274,13 +36275,13 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 
 127:                                              ; preds = %.lr.ph151, %127
   %indvars.iv168 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next169, %127 ]
-  %128 = getelementptr [64 x i32], ptr %123, i64 0, i64 %indvars.iv168
+  %128 = getelementptr i32, ptr %123, i64 %indvars.iv168
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr [64 x i32], ptr %124, i64 0, i64 %indvars.iv168
+  %130 = getelementptr i32, ptr %124, i64 %indvars.iv168
   store i32 %129, ptr %130, align 4
-  %131 = getelementptr [64 x i32], ptr %125, i64 0, i64 %indvars.iv168
+  %131 = getelementptr i32, ptr %125, i64 %indvars.iv168
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr [64 x i32], ptr %126, i64 0, i64 %indvars.iv168
+  %133 = getelementptr i32, ptr %126, i64 %indvars.iv168
   store i32 %132, ptr %133, align 4
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
@@ -36322,7 +36323,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %149 = add nsw i32 %147, 1
   store i32 %149, ptr %135, align 8
   %150 = sext i32 %149 to i64
-  %151 = getelementptr [128 x i32], ptr %134, i64 0, i64 %150
+  %151 = getelementptr i32, ptr %134, i64 %150
   store i32 %148, ptr %151, align 4
   %152 = sext i32 %148 to i64
   %153 = getelementptr %struct.nbap_dch_channel_info_t, ptr %29, i64 %152
@@ -36330,7 +36331,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %155 = load i32, ptr %154, align 4
   %156 = load i32, ptr %135, align 8
   %157 = sext i32 %156 to i64
-  %158 = getelementptr [128 x %struct.fp_dch_channel_info_t], ptr %106, i64 0, i64 %157
+  %158 = getelementptr %struct.fp_dch_channel_info_t, ptr %106, i64 %157
   store i32 %155, ptr %158, align 4
   %159 = icmp sgt i32 %155, 0
   br i1 %159, label %.lr.ph155, label %._crit_edge156
@@ -36343,23 +36344,23 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 
 162:                                              ; preds = %.lr.ph155, %162
   %indvars.iv173 = phi i64 [ 0, %.lr.ph155 ], [ %indvars.iv.next174, %162 ]
-  %163 = getelementptr [64 x i32], ptr %160, i64 0, i64 %indvars.iv173
+  %163 = getelementptr i32, ptr %160, i64 %indvars.iv173
   %164 = load i32, ptr %163, align 4
   %165 = load i32, ptr %135, align 8
   %166 = sext i32 %165 to i64
   %.idx146 = mul nsw i64 %166, 1032
   %167 = getelementptr i8, ptr %106, i64 %.idx146
   %168 = getelementptr i8, ptr %167, i64 4
-  %169 = getelementptr [64 x i32], ptr %168, i64 0, i64 %indvars.iv173
+  %169 = getelementptr i32, ptr %168, i64 %indvars.iv173
   store i32 %164, ptr %169, align 4
-  %170 = getelementptr [64 x i32], ptr %161, i64 0, i64 %indvars.iv173
+  %170 = getelementptr i32, ptr %161, i64 %indvars.iv173
   %171 = load i32, ptr %170, align 4
   %172 = load i32, ptr %135, align 8
   %173 = sext i32 %172 to i64
   %.idx147 = mul nsw i64 %173, 1032
   %174 = getelementptr i8, ptr %106, i64 %.idx147
   %175 = getelementptr i8, ptr %174, i64 260
-  %176 = getelementptr [64 x i32], ptr %175, i64 0, i64 %indvars.iv173
+  %176 = getelementptr i32, ptr %175, i64 %indvars.iv173
   store i32 %171, ptr %176, align 4
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
@@ -36389,23 +36390,23 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 
 184:                                              ; preds = %.lr.ph159, %184
   %indvars.iv178 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next179, %184 ]
-  %185 = getelementptr [64 x i32], ptr %182, i64 0, i64 %indvars.iv178
+  %185 = getelementptr i32, ptr %182, i64 %indvars.iv178
   %186 = load i32, ptr %185, align 4
   %187 = load i32, ptr %135, align 8
   %188 = sext i32 %187 to i64
   %.idx144 = mul nsw i64 %188, 1032
   %189 = getelementptr i8, ptr %106, i64 %.idx144
   %190 = getelementptr i8, ptr %189, i64 520
-  %191 = getelementptr [64 x i32], ptr %190, i64 0, i64 %indvars.iv178
+  %191 = getelementptr i32, ptr %190, i64 %indvars.iv178
   store i32 %186, ptr %191, align 4
-  %192 = getelementptr [64 x i32], ptr %183, i64 0, i64 %indvars.iv178
+  %192 = getelementptr i32, ptr %183, i64 %indvars.iv178
   %193 = load i32, ptr %192, align 4
   %194 = load i32, ptr %135, align 8
   %195 = sext i32 %194 to i64
   %.idx145 = mul nsw i64 %195, 1032
   %196 = getelementptr i8, ptr %106, i64 %.idx145
   %197 = getelementptr i8, ptr %196, i64 776
-  %198 = getelementptr [64 x i32], ptr %197, i64 0, i64 %indvars.iv178
+  %198 = getelementptr i32, ptr %197, i64 %indvars.iv178
   store i32 %193, ptr %198, align 4
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
@@ -36420,7 +36421,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %200 = add i32 %199, 1
   store i32 %200, ptr %135, align 8
   %201 = sext i32 %200 to i64
-  %202 = getelementptr [128 x i32], ptr %134, i64 0, i64 %201
+  %202 = getelementptr i32, ptr %134, i64 %201
   store i32 %.0139.lcssa, ptr %202, align 4
   call void @set_umts_fp_conv_data(ptr noundef %52, ptr noundef %60)
   %203 = load ptr, ptr %9, align 8
@@ -36768,9 +36769,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 %44, ptr %42, align 4
   %45 = load i32, ptr %6, align 4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 268
-  %47 = add nsw i32 %30, -1
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr [64 x i32], ptr %46, i64 0, i64 %48
+  %47 = zext nneg i32 %30 to i64
+  %48 = getelementptr i32, ptr %46, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 -4
   store i32 %45, ptr %49, align 4
   br label %97
 
@@ -36783,9 +36784,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 %55, ptr %53, align 4
   %56 = load i32, ptr %6, align 4
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 784
-  %58 = add nsw i32 %30, -1
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr [64 x i32], ptr %57, i64 0, i64 %59
+  %58 = zext nneg i32 %30 to i64
+  %59 = getelementptr i32, ptr %57, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -4
   store i32 %56, ptr %60, align 4
   br label %97
 
@@ -36802,14 +36803,14 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 268
   %71 = add nsw i32 %30, -1
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr [64 x i32], ptr %70, i64 0, i64 %72
+  %73 = getelementptr i32, ptr %70, i64 %72
   store i32 %69, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 524
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 784
-  %78 = getelementptr [64 x i32], ptr %77, i64 0, i64 %72
+  %78 = getelementptr i32, ptr %77, i64 %72
   store i32 %69, ptr %78, align 4
   br label %97
 
@@ -36826,14 +36827,14 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 268
   %89 = add nsw i32 %30, -1
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr [64 x i32], ptr %88, i64 0, i64 %90
+  %91 = getelementptr i32, ptr %88, i64 %90
   store i32 %87, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 524
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, 1
   store i32 %94, ptr %92, align 4
   %95 = getelementptr inbounds nuw i8, ptr %83, i64 784
-  %96 = getelementptr [64 x i32], ptr %95, i64 0, i64 %90
+  %96 = getelementptr i32, ptr %95, i64 %90
   store i32 %87, ptr %96, align 4
   br label %97
 
@@ -36916,9 +36917,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.idx38 = mul nuw nsw i64 %41, 1040
   %42 = getelementptr i8, ptr %27, i64 %.idx38
   %43 = getelementptr i8, ptr %42, i64 12
-  %44 = add nsw i32 %30, -1
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr [64 x i32], ptr %43, i64 0, i64 %45
+  %44 = zext nneg i32 %30 to i64
+  %45 = getelementptr i32, ptr %43, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 -4
   store i32 %40, ptr %46, align 4
   br label %79
 
@@ -36928,9 +36929,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.idx = mul nuw nsw i64 %49, 1040
   %50 = getelementptr i8, ptr %27, i64 %.idx
   %51 = getelementptr i8, ptr %50, i64 528
-  %52 = add nsw i32 %30, -1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr [64 x i32], ptr %51, i64 0, i64 %53
+  %52 = zext nneg i32 %30 to i64
+  %53 = getelementptr i32, ptr %51, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -4
   store i32 %48, ptr %54, align 4
   br label %79
 
@@ -36943,10 +36944,10 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = add nsw i32 %30, -1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr [64 x i32], ptr %61, i64 0, i64 %63
+  %64 = getelementptr i32, ptr %61, i64 %63
   store i32 %58, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 528
-  %66 = getelementptr [64 x i32], ptr %65, i64 0, i64 %63
+  %66 = getelementptr i32, ptr %65, i64 %63
   store i32 %58, ptr %66, align 4
   br label %79
 
@@ -36959,10 +36960,10 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %74 = add nsw i32 %30, -1
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr [64 x i32], ptr %73, i64 0, i64 %75
+  %76 = getelementptr i32, ptr %73, i64 %75
   store i32 %70, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 528
-  %78 = getelementptr [64 x i32], ptr %77, i64 0, i64 %75
+  %78 = getelementptr i32, ptr %77, i64 %75
   store i32 %70, ptr %78, align 4
   br label %79
 
@@ -44805,7 +44806,7 @@ nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_
   store i32 %126, ptr %124, align 8
   %127 = getelementptr inbounds nuw i8, ptr %72, i64 76
   %128 = sext i32 %125 to i64
-  %129 = getelementptr [128 x i32], ptr %127, i64 0, i64 %128
+  %129 = getelementptr i32, ptr %127, i64 %128
   store i32 %99, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %131 = load i8, ptr %130, align 4
@@ -45073,7 +45074,7 @@ copy_address_wmem.exit.i:                         ; preds = %107, %91
   store i32 %131, ptr %129, align 8
   %132 = getelementptr inbounds nuw i8, ptr %93, i64 76
   %133 = sext i32 %130 to i64
-  %134 = getelementptr [128 x i32], ptr %132, i64 0, i64 %133
+  %134 = getelementptr i32, ptr %132, i64 %133
   store i32 %118, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %75, i64 36
   %136 = load i8, ptr %135, align 4
@@ -45466,14 +45467,14 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %34 = load i16, ptr %33, align 1
   %35 = and i16 %34, 8
   %.not = icmp eq i16 %35, 0
-  br i1 %.not, label %36, label %48
+  br i1 %.not, label %36, label %49
 
 36:                                               ; preds = %nbap_get_private_data.exit
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   %or.cond = icmp ult i32 %39, 16
-  br i1 %or.cond, label %40, label %48
+  br i1 %or.cond, label %40, label %49
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
@@ -45482,12 +45483,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.idx = mul nuw nsw i64 %43, 136
   %44 = getelementptr i8, ptr %.0.i, i64 266400
   %45 = getelementptr i8, ptr %44, i64 %.idx
-  %46 = zext nneg i32 %39 to i64
-  %47 = getelementptr [16 x i32], ptr %45, i64 0, i64 %46
-  store i32 %28, ptr %47, align 4
-  br label %48
+  %46 = zext nneg i32 %38 to i64
+  %47 = getelementptr i32, ptr %45, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 -4
+  store i32 %28, ptr %48, align 4
+  br label %49
 
-48:                                               ; preds = %36, %40, %nbap_get_private_data.exit
+49:                                               ; preds = %36, %40, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -45841,17 +45843,17 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 67:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr [16 x i8], ptr %61, i64 0, i64 %indvars.iv
+  %68 = getelementptr i8, ptr %61, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr [16 x i8], ptr %62, i64 0, i64 %indvars.iv
+  %70 = getelementptr i8, ptr %62, i64 %indvars.iv
   store i8 %69, ptr %70, align 1
-  %71 = getelementptr [16 x i32], ptr %63, i64 0, i64 %indvars.iv
+  %71 = getelementptr i32, ptr %63, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr [16 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %73 = getelementptr i32, ptr %64, i64 %indvars.iv
   store i32 %72, ptr %73, align 4
-  %74 = getelementptr [16 x i8], ptr %65, i64 0, i64 %indvars.iv
+  %74 = getelementptr i8, ptr %65, i64 %indvars.iv
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr [16 x i8], ptr %66, i64 0, i64 %indvars.iv
+  %76 = getelementptr i8, ptr %66, i64 %indvars.iv
   store i8 %75, ptr %76, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -46124,7 +46126,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
   %or.cond = icmp ult i32 %32, 16
-  br i1 %or.cond, label %33, label %42
+  br i1 %or.cond, label %33, label %43
 
 33:                                               ; preds = %nbap_get_private_data.exit
   %34 = trunc i32 %28 to i8
@@ -46134,12 +46136,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.idx = mul nuw nsw i64 %37, 136
   %38 = getelementptr i8, ptr %.0.i, i64 266465
   %39 = getelementptr i8, ptr %38, i64 %.idx
-  %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr [16 x i8], ptr %39, i64 0, i64 %40
-  store i8 %34, ptr %41, align 1
-  br label %42
+  %40 = zext nneg i32 %31 to i64
+  %41 = getelementptr i8, ptr %39, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 -1
+  store i8 %34, ptr %42, align 1
+  br label %43
 
-42:                                               ; preds = %33, %nbap_get_private_data.exit
+43:                                               ; preds = %33, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -46210,14 +46213,14 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %34 = load i16, ptr %33, align 1
   %35 = and i16 %34, 8
   %.not = icmp eq i16 %35, 0
-  br i1 %.not, label %36, label %49
+  br i1 %.not, label %36, label %50
 
 36:                                               ; preds = %nbap_get_private_data.exit
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   %or.cond = icmp ult i32 %39, 16
-  br i1 %or.cond, label %40, label %49
+  br i1 %or.cond, label %40, label %50
 
 40:                                               ; preds = %36
   %41 = trunc i32 %28 to i8
@@ -46227,12 +46230,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.idx = mul nuw nsw i64 %44, 136
   %45 = getelementptr i8, ptr %.0.i, i64 266384
   %46 = getelementptr i8, ptr %45, i64 %.idx
-  %47 = zext nneg i32 %39 to i64
-  %48 = getelementptr [16 x i8], ptr %46, i64 0, i64 %47
-  store i8 %41, ptr %48, align 1
-  br label %49
+  %47 = zext nneg i32 %38 to i64
+  %48 = getelementptr i8, ptr %46, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 -1
+  store i8 %41, ptr %49, align 1
+  br label %50
 
-49:                                               ; preds = %36, %40, %nbap_get_private_data.exit
+50:                                               ; preds = %36, %40, %nbap_get_private_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
@@ -46602,13 +46606,13 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 
 113:                                              ; preds = %.lr.ph, %113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
-  %114 = getelementptr [64 x i32], ptr %109, i64 0, i64 %indvars.iv
+  %114 = getelementptr i32, ptr %109, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr [64 x i32], ptr %110, i64 0, i64 %indvars.iv
+  %116 = getelementptr i32, ptr %110, i64 %indvars.iv
   store i32 %115, ptr %116, align 4
-  %117 = getelementptr [64 x i32], ptr %111, i64 0, i64 %indvars.iv
+  %117 = getelementptr i32, ptr %111, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr [64 x i32], ptr %112, i64 0, i64 %indvars.iv
+  %119 = getelementptr i32, ptr %112, i64 %indvars.iv
   store i32 %118, ptr %119, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -46632,13 +46636,13 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 
 128:                                              ; preds = %.lr.ph150, %128
   %indvars.iv167 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next168, %128 ]
-  %129 = getelementptr [64 x i32], ptr %124, i64 0, i64 %indvars.iv167
+  %129 = getelementptr i32, ptr %124, i64 %indvars.iv167
   %130 = load i32, ptr %129, align 4
-  %131 = getelementptr [64 x i32], ptr %125, i64 0, i64 %indvars.iv167
+  %131 = getelementptr i32, ptr %125, i64 %indvars.iv167
   store i32 %130, ptr %131, align 4
-  %132 = getelementptr [64 x i32], ptr %126, i64 0, i64 %indvars.iv167
+  %132 = getelementptr i32, ptr %126, i64 %indvars.iv167
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr [64 x i32], ptr %127, i64 0, i64 %indvars.iv167
+  %134 = getelementptr i32, ptr %127, i64 %indvars.iv167
   store i32 %133, ptr %134, align 4
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
@@ -46680,7 +46684,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %150 = add nsw i32 %148, 1
   store i32 %150, ptr %136, align 8
   %151 = sext i32 %150 to i64
-  %152 = getelementptr [128 x i32], ptr %135, i64 0, i64 %151
+  %152 = getelementptr i32, ptr %135, i64 %151
   store i32 %149, ptr %152, align 4
   %153 = sext i32 %149 to i64
   %154 = getelementptr %struct.nbap_dch_channel_info_t, ptr %29, i64 %153
@@ -46688,7 +46692,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %156 = load i32, ptr %155, align 4
   %157 = load i32, ptr %136, align 8
   %158 = sext i32 %157 to i64
-  %159 = getelementptr [128 x %struct.fp_dch_channel_info_t], ptr %107, i64 0, i64 %158
+  %159 = getelementptr %struct.fp_dch_channel_info_t, ptr %107, i64 %158
   store i32 %156, ptr %159, align 4
   %160 = icmp sgt i32 %156, 0
   br i1 %160, label %.lr.ph154, label %._crit_edge155
@@ -46701,23 +46705,23 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 
 163:                                              ; preds = %.lr.ph154, %163
   %indvars.iv172 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next173, %163 ]
-  %164 = getelementptr [64 x i32], ptr %161, i64 0, i64 %indvars.iv172
+  %164 = getelementptr i32, ptr %161, i64 %indvars.iv172
   %165 = load i32, ptr %164, align 4
   %166 = load i32, ptr %136, align 8
   %167 = sext i32 %166 to i64
   %.idx144 = mul nsw i64 %167, 1032
   %168 = getelementptr i8, ptr %107, i64 %.idx144
   %169 = getelementptr i8, ptr %168, i64 4
-  %170 = getelementptr [64 x i32], ptr %169, i64 0, i64 %indvars.iv172
+  %170 = getelementptr i32, ptr %169, i64 %indvars.iv172
   store i32 %165, ptr %170, align 4
-  %171 = getelementptr [64 x i32], ptr %162, i64 0, i64 %indvars.iv172
+  %171 = getelementptr i32, ptr %162, i64 %indvars.iv172
   %172 = load i32, ptr %171, align 4
   %173 = load i32, ptr %136, align 8
   %174 = sext i32 %173 to i64
   %.idx145 = mul nsw i64 %174, 1032
   %175 = getelementptr i8, ptr %107, i64 %.idx145
   %176 = getelementptr i8, ptr %175, i64 260
-  %177 = getelementptr [64 x i32], ptr %176, i64 0, i64 %indvars.iv172
+  %177 = getelementptr i32, ptr %176, i64 %indvars.iv172
   store i32 %172, ptr %177, align 4
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
@@ -46747,23 +46751,23 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 
 185:                                              ; preds = %.lr.ph158, %185
   %indvars.iv177 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next178, %185 ]
-  %186 = getelementptr [64 x i32], ptr %183, i64 0, i64 %indvars.iv177
+  %186 = getelementptr i32, ptr %183, i64 %indvars.iv177
   %187 = load i32, ptr %186, align 4
   %188 = load i32, ptr %136, align 8
   %189 = sext i32 %188 to i64
   %.idx142 = mul nsw i64 %189, 1032
   %190 = getelementptr i8, ptr %107, i64 %.idx142
   %191 = getelementptr i8, ptr %190, i64 520
-  %192 = getelementptr [64 x i32], ptr %191, i64 0, i64 %indvars.iv177
+  %192 = getelementptr i32, ptr %191, i64 %indvars.iv177
   store i32 %187, ptr %192, align 4
-  %193 = getelementptr [64 x i32], ptr %184, i64 0, i64 %indvars.iv177
+  %193 = getelementptr i32, ptr %184, i64 %indvars.iv177
   %194 = load i32, ptr %193, align 4
   %195 = load i32, ptr %136, align 8
   %196 = sext i32 %195 to i64
   %.idx143 = mul nsw i64 %196, 1032
   %197 = getelementptr i8, ptr %107, i64 %.idx143
   %198 = getelementptr i8, ptr %197, i64 776
-  %199 = getelementptr [64 x i32], ptr %198, i64 0, i64 %indvars.iv177
+  %199 = getelementptr i32, ptr %198, i64 %indvars.iv177
   store i32 %194, ptr %199, align 4
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
@@ -46778,7 +46782,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %201 = add i32 %200, 1
   store i32 %201, ptr %136, align 8
   %202 = sext i32 %201 to i64
-  %203 = getelementptr [128 x i32], ptr %135, i64 0, i64 %202
+  %203 = getelementptr i32, ptr %135, i64 %202
   store i32 %.0136.lcssa, ptr %203, align 4
   call void @set_umts_fp_conv_data(ptr noundef %62, ptr noundef %70)
   br label %204
@@ -47096,7 +47100,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   %114 = call noalias dereferenceable_or_null(20) ptr @wmem_alloc0(ptr noundef %113, i64 noundef 20) #9
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = zext i32 %108 to i64
-  %117 = getelementptr [8 x i16], ptr %115, i64 0, i64 %116
+  %117 = getelementptr i16, ptr %115, i64 %116
   store i16 %34, ptr %117, align 2
   %118 = load i32, ptr %.0.i, align 8
   store i32 %118, ptr %114, align 4
@@ -47109,7 +47113,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 122:                                              ; preds = %105
   %123 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %124 = zext i32 %108 to i64
-  %125 = getelementptr [8 x i16], ptr %123, i64 0, i64 %124
+  %125 = getelementptr i16, ptr %123, i64 %124
   store i16 %34, ptr %125, align 2
   br label %126
 
@@ -48249,7 +48253,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %54 = load i32, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %56 = zext i32 %54 to i64
-  %57 = getelementptr [8 x i16], ptr %55, i64 0, i64 %56
+  %57 = getelementptr i16, ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 %58, ptr %59, align 4
@@ -48302,17 +48306,17 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 88:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr [16 x i8], ptr %82, i64 0, i64 %indvars.iv
+  %89 = getelementptr i8, ptr %82, i64 %indvars.iv
   %90 = load i8, ptr %89, align 1
-  %91 = getelementptr [16 x i8], ptr %83, i64 0, i64 %indvars.iv
+  %91 = getelementptr i8, ptr %83, i64 %indvars.iv
   store i8 %90, ptr %91, align 1
-  %92 = getelementptr [16 x i32], ptr %84, i64 0, i64 %indvars.iv
+  %92 = getelementptr i32, ptr %84, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr [16 x i32], ptr %85, i64 0, i64 %indvars.iv
+  %94 = getelementptr i32, ptr %85, i64 %indvars.iv
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr [16 x i8], ptr %86, i64 0, i64 %indvars.iv
+  %95 = getelementptr i8, ptr %86, i64 %indvars.iv
   %96 = load i8, ptr %95, align 1
-  %97 = getelementptr [16 x i8], ptr %87, i64 0, i64 %indvars.iv
+  %97 = getelementptr i8, ptr %87, i64 %indvars.iv
   store i8 %96, ptr %97, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

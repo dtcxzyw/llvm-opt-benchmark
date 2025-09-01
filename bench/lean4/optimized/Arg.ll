@@ -50,7 +50,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_Term_add
 
 9:                                                ; preds = %.lr.ph, %7
   %.01938 = phi i64 [ %2, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01938
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01938
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -1537,7 +1537,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_expandArgs___spec__3(p
   %.0223553 = phi i64 [ %1, %.lr.ph ], [ %.8231, %560 ]
   %.0232552 = phi ptr [ %3, %.lr.ph ], [ %.5237, %560 ]
   %.0238551 = phi ptr [ %8, %.lr.ph ], [ %.6244, %560 ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0223553
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0223553
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1

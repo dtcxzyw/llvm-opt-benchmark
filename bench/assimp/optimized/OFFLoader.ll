@@ -1707,7 +1707,7 @@ _ZN6Assimp11GetNextLineIcEEbRPKT_PS1_.exit:       ; preds = %464
 
 _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit:         ; preds = %478, %480
   %.0.lcssa.i.i = phi ptr [ %.0.i.i, %478 ], [ %scevgep.i.i, %480 ]
-  %483 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %483 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %484 = load ptr, ptr %483, align 8
   %485 = invoke noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef %.0.lcssa.i.i, ptr noundef nonnull align 4 dereferenceable(4) %484, i1 noundef zeroext true)
           to label %486 unwind label %487
@@ -1767,7 +1767,7 @@ _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit440:      ; preds = %492, %494
 .lr.ph727:                                        ; preds = %.preheader, %.lr.ph727
   %indvars.iv772 = phi i64 [ %indvars.iv.next773, %.lr.ph727 ], [ 0, %.preheader ]
   %500 = load float, ptr %8, align 4
-  %501 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv772
+  %501 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv772
   %502 = load ptr, ptr %501, align 8
   %503 = load float, ptr %502, align 4
   %504 = fdiv float %503, %500
@@ -2835,7 +2835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

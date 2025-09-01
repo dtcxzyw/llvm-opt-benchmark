@@ -83,7 +83,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %9, %11
   %20 = select i1 %15, i32 %19, i32 %17
   call void @u_UCharsToChars_77(ptr noundef %.0.i, ptr noundef nonnull %3, i32 noundef %20)
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !6
   %23 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #16
   %24 = trunc i64 %23 to i32
@@ -673,7 +673,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %19, %17, %11
 
 _ZNK7DataMap4utoiERKN6icu_7713UnicodeStringE.exit: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %29
+  %30 = getelementptr inbounds i8, ptr %4, i64 %29
   store i8 0, ptr %30, align 1, !tbaa !6
   %31 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #16
   %32 = trunc i64 %31 to i32
@@ -838,7 +838,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %24
 
 37:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr %5, i64 %38
   store i8 0, ptr %39, align 1, !tbaa !6
   %40 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 10) #16
   %41 = trunc i64 %40 to i32

@@ -121,7 +121,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !28
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [3 x [7 x i32]], ptr @query_formats.sample_fmts, i64 0, i64 %8
+  %9 = getelementptr inbounds [7 x i32], ptr @query_formats.sample_fmts, i64 %8
   %10 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9) #8
   %. = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
   ret i32 %.
@@ -683,7 +683,7 @@ define internal fastcc range(i32 -22, 1) i32 @set_volume(ptr noundef %0) unnamed
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !28
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [3 x ptr], ptr @precision_str, i64 0, i64 %26
+  %27 = getelementptr inbounds ptr, ptr @precision_str, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !72
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.7, double noundef %19, double noundef %21, double noundef %23, ptr noundef %28) #8
   %29 = load i32, ptr %24, align 8, !tbaa !28

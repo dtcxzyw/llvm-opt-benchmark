@@ -565,7 +565,7 @@ _ZN7Imf_3_49AutoArrayIPmLi65537EED2Ev.exit111.i:  ; preds = %_ZSt9make_heapIPPmN
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge153.i ], [ %indvars.iv.next.i.i, %.preheader28.i.i ]
   %250 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv.i.i
   %251 = load i64, ptr %250, align 8, !tbaa !7
-  %252 = getelementptr inbounds nuw [59 x i64], ptr %4, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i64, ptr %4, i64 %251
   %253 = load i64, ptr %252, align 8, !tbaa !7
   %254 = add i64 %253, 1
   store i64 %254, ptr %252, align 8, !tbaa !7
@@ -576,7 +576,7 @@ _ZN7Imf_3_49AutoArrayIPmLi65537EED2Ev.exit111.i:  ; preds = %_ZSt9make_heapIPPmN
 .preheader27.i.i:                                 ; preds = %.preheader28.i.i, %.preheader27.i.i
   %indvars.iv36.i.i = phi i64 [ %indvars.iv.next37.i.i, %.preheader27.i.i ], [ 58, %.preheader28.i.i ]
   %.02531.i.i = phi i64 [ %258, %.preheader27.i.i ], [ 0, %.preheader28.i.i ]
-  %255 = getelementptr inbounds nuw [59 x i64], ptr %4, i64 0, i64 %indvars.iv36.i.i
+  %255 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv36.i.i
   %256 = load i64, ptr %255, align 8, !tbaa !7
   %257 = add i64 %256, %.02531.i.i
   %258 = lshr i64 %257, 1
@@ -595,7 +595,7 @@ _ZN7Imf_3_49AutoArrayIPmLi65537EED2Ev.exit111.i:  ; preds = %_ZSt9make_heapIPPmN
 
 264:                                              ; preds = %.preheader.i.i
   %265 = and i64 %261, 2147483647
-  %266 = getelementptr inbounds nuw [59 x i64], ptr %4, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i64, ptr %4, i64 %265
   %267 = load i64, ptr %266, align 8, !tbaa !7
   %268 = add i64 %267, 1
   store i64 %268, ptr %266, align 8, !tbaa !7
@@ -1517,7 +1517,7 @@ _ZN7Imf_3_412_GLOBAL__N_17getBitsEiRmRiRPKc.exit42.i: ; preds = %_ZN7Imf_3_412_G
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge81.i ], [ %indvars.iv.next.i.i, %.preheader28.i.i ]
   %150 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv.i.i
   %151 = load i64, ptr %150, align 8, !tbaa !7
-  %152 = getelementptr inbounds nuw [59 x i64], ptr %5, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i64, ptr %5, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !7
   %154 = add i64 %153, 1
   store i64 %154, ptr %152, align 8, !tbaa !7
@@ -1528,7 +1528,7 @@ _ZN7Imf_3_412_GLOBAL__N_17getBitsEiRmRiRPKc.exit42.i: ; preds = %_ZN7Imf_3_412_G
 .preheader27.i.i:                                 ; preds = %.preheader28.i.i, %.preheader27.i.i
   %indvars.iv36.i.i = phi i64 [ %indvars.iv.next37.i.i, %.preheader27.i.i ], [ 58, %.preheader28.i.i ]
   %.02531.i.i = phi i64 [ %158, %.preheader27.i.i ], [ 0, %.preheader28.i.i ]
-  %155 = getelementptr inbounds nuw [59 x i64], ptr %5, i64 0, i64 %indvars.iv36.i.i
+  %155 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv36.i.i
   %156 = load i64, ptr %155, align 8, !tbaa !7
   %157 = add i64 %156, %.02531.i.i
   %158 = lshr i64 %157, 1
@@ -1547,7 +1547,7 @@ _ZN7Imf_3_412_GLOBAL__N_17getBitsEiRmRiRPKc.exit42.i: ; preds = %_ZN7Imf_3_412_G
 
 164:                                              ; preds = %.preheader.i.i
   %165 = and i64 %161, 2147483647
-  %166 = getelementptr inbounds nuw [59 x i64], ptr %5, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i64, ptr %5, i64 %165
   %167 = load i64, ptr %166, align 8, !tbaa !7
   %168 = add i64 %167, 1
   store i64 %168, ptr %166, align 8, !tbaa !7

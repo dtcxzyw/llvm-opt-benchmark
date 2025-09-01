@@ -132,7 +132,7 @@ define hidden range(i32 -1, 1) i32 @event_debug_map_HT_GROW(ptr noundef captures
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %10, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds [26 x i32], ptr @event_debug_map_PRIMES, i64 0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds i32, ptr @event_debug_map_PRIMES, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4
   %13 = uitofp i32 %12 to double
   %14 = fmul double %13, 5.000000e-01
@@ -463,7 +463,7 @@ define hidden range(i32 10000, 9999) i32 @event_debug_map_HT_REP_IS_BAD_(ptr nou
 
 29:                                               ; preds = %25
   %30 = zext nneg i32 %20 to i64
-  %31 = getelementptr inbounds nuw [26 x i32], ptr @event_debug_map_PRIMES, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @event_debug_map_PRIMES, i64 %30
   %32 = load i32, ptr %31, align 4
   %.not42 = icmp eq i32 %3, %32
   br i1 %.not42, label %33, label %50
@@ -932,7 +932,7 @@ event_config_is_avoided_method.exit.us.us:        ; preds = %.split.us.split.us
   %97 = call ptr %96(ptr noundef nonnull %.0.i118) #26
   store ptr %97, ptr %69, align 8
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %98 = getelementptr inbounds nuw [4 x ptr], ptr @eventops, i64 0, i64 %indvars.iv.next147
+  %98 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next147
   %99 = load ptr, ptr %98, align 8
   %.not92.us.us = icmp eq i64 %indvars.iv.next147, 3
   br i1 %.not92.us.us, label %.critedge, label %.split.us.split.us, !llvm.loop !11
@@ -959,7 +959,7 @@ event_config_is_avoided_method.exit.us.us:        ; preds = %.split.us.split.us
   %108 = call signext i8 @EVUTIL_TOUPPER_(i8 noundef signext %106) #26
   store i8 %108, ptr %107, align 1
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %109 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.next.i.us
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i.us
   %110 = load i8, ptr %109, align 1
   %.not.i111.us = icmp eq i8 %110, 0
   br i1 %.not.i111.us, label %event_is_method_disabled.exit.us, label %.lr.ph.i110.us, !llvm.loop !12
@@ -980,7 +980,7 @@ event_is_method_disabled.exit.us:                 ; preds = %.lr.ph.i110.us, %10
 
 event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_method_disabled.exit.us
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %116 = getelementptr inbounds nuw [4 x ptr], ptr @eventops, i64 0, i64 %indvars.iv.next144
+  %116 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next144
   %117 = load ptr, ptr %116, align 8
   %.not92.us = icmp eq i64 %indvars.iv.next144, 3
   br i1 %.not92.us, label %.critedgethread-pre-split, label %.split.us.split, !llvm.loop !11
@@ -1039,7 +1039,7 @@ event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_meth
 event_config_is_avoided_method.exit.us128:        ; preds = %126, %134, %.loopexit124.us
   %138 = phi ptr [ %137, %134 ], [ null, %.loopexit124.us ], [ null, %126 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %139 = getelementptr inbounds nuw [4 x ptr], ptr @eventops, i64 0, i64 %indvars.iv.next141
+  %139 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next141
   %140 = load ptr, ptr %139, align 8
   %.not92.us129 = icmp eq i64 %indvars.iv.next141, 3
   br i1 %.not92.us129, label %.critedgethread-pre-split, label %.split.split.us, !llvm.loop !11
@@ -1096,7 +1096,7 @@ event_config_is_avoided_method.exit.us128:        ; preds = %126, %134, %.loopex
   %160 = call signext i8 @EVUTIL_TOUPPER_(i8 noundef signext %158) #26
   store i8 %160, ptr %159, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %161 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %indvars.iv.next.i
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i
   %162 = load i8, ptr %161, align 1
   %.not.i111 = icmp eq i8 %162, 0
   br i1 %.not.i111, label %event_is_method_disabled.exit, label %.lr.ph.i110, !llvm.loop !12
@@ -1117,7 +1117,7 @@ event_is_method_disabled.exit:                    ; preds = %.lr.ph.i110, %155
 
 event_config_is_avoided_method.exit:              ; preds = %147, %event_is_method_disabled.exit, %.loopexit124, %164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %168 = getelementptr inbounds nuw [4 x ptr], ptr @eventops, i64 0, i64 %indvars.iv.next
+  %168 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next
   %169 = load ptr, ptr %168, align 8
   %.not92 = icmp eq i64 %indvars.iv.next, 3
   br i1 %.not92, label %.critedgethread-pre-split, label %.split.split, !llvm.loop !11
@@ -2898,7 +2898,7 @@ event_mm_free_.exit138:                           ; preds = %419, %420
 .preheader:                                       ; preds = %435, %._crit_edge182
   %437 = phi i1 [ true, %435 ], [ false, %._crit_edge182 ]
   %indvars.iv189 = phi i64 [ 0, %435 ], [ 1, %._crit_edge182 ]
-  %438 = getelementptr inbounds nuw [2 x %struct.evwatch_list], ptr %436, i64 0, i64 %indvars.iv189
+  %438 = getelementptr inbounds nuw %struct.evwatch_list, ptr %436, i64 %indvars.iv189
   %439 = load ptr, ptr %438, align 8
   %.not114180 = icmp eq ptr %439, null
   br i1 %.not114180, label %._crit_edge182, label %.lr.ph181
@@ -4804,7 +4804,7 @@ event_mm_calloc_.exit:                            ; preds = %0
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %7 = getelementptr inbounds nuw [4 x ptr], ptr @eventops, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

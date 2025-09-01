@@ -2072,7 +2072,7 @@ define internal i32 @ring_request_alloc(ptr noundef %0) #0 align 16 {
 124:                                              ; preds = %116
   %125 = load ptr, ptr %115, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8640
-  %127 = getelementptr [2 x ptr], ptr %126, i64 0, i64 %118
+  %127 = getelementptr ptr, ptr %126, i64 %118
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, null
   br i1 %129, label %.thread20, label %130
@@ -3037,7 +3037,7 @@ define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr noundef readonly 
   %52 = phi ptr [ %48, %44 ], [ %67, %66 ]
   %53 = load ptr, ptr %49, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4040
-  %55 = getelementptr [27 x ptr], ptr %54, i64 0, i64 %51
+  %55 = getelementptr ptr, ptr %54, i64 %51
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   %58 = icmp eq ptr %56, %5
@@ -3131,7 +3131,7 @@ define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr noundef readonly 
   %114 = phi ptr [ %109, %105 ], [ %129, %128 ]
   %115 = load ptr, ptr %110, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4040
-  %117 = getelementptr [27 x ptr], ptr %116, i64 0, i64 %112
+  %117 = getelementptr ptr, ptr %116, i64 %112
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   %120 = icmp eq ptr %118, %5

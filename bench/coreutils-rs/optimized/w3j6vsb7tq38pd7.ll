@@ -153,7 +153,7 @@ define hidden void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$
 25:                                               ; preds = %24
   %26 = load i8, ptr %14, align 1, !noalias !45, !noundef !4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @anon.3a1f828661baf8542c780624c0749de3.23, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @anon.3a1f828661baf8542c780624c0749de3.23, i64 %27
   %29 = load i8, ptr %28, align 1, !noalias !45, !noundef !4
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 %30

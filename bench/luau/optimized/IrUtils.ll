@@ -28,7 +28,7 @@ define dso_local noundef zeroext range(i8 0, 7) i8 @_ZN4Luau7CodeGen15getCmdValu
 switch.lookup:
   %switch.tableidx = xor i8 %0, -128
   %1 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i8], ptr @switch.table._ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -176,7 +176,7 @@ define dso_local noundef range(i32 0, 13) i32 @_ZN4Luau7CodeGen18tmToHostMetamet
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4Luau7CodeGen18tmToHostMetamethodEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7CodeGen18tmToHostMetamethodEi, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

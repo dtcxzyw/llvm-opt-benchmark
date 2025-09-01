@@ -1684,7 +1684,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %47 ]
   %.02752.i = phi i32 [ 0, %3 ], [ %.128.i, %47 ]
   %.02951.i = phi double [ -4.000000e+00, %3 ], [ %.130.i, %47 ]
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4, !tbaa !8
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %47, label %18
@@ -1751,7 +1751,7 @@ get_angle.exit.i:                                 ; preds = %37, %32
   %indvars.iv57.i = phi i64 [ 0, %48 ], [ %indvars.iv.next58.i, %83 ]
   %.055.i = phi i32 [ 0, %48 ], [ %.1.i, %83 ]
   %.254.i = phi double [ -4.000000e+00, %48 ], [ %.3.i, %83 ]
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 0, i64 %indvars.iv57.i
+  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv57.i
   %52 = load i32, ptr %51, align 4, !tbaa !8
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %83, label %54
@@ -1813,11 +1813,11 @@ get_angle.exit49.i:                               ; preds = %73, %68
 get_vertex_positions.exit:                        ; preds = %83
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %85 = sext i32 %.128.i to i64
-  %86 = getelementptr inbounds [4 x i32], ptr %84, i64 0, i64 %85
+  %86 = getelementptr inbounds i32, ptr %84, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %89 = sext i32 %.1.i to i64
-  %90 = getelementptr inbounds [4 x i32], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds i32, ptr %88, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !8
   %92 = load i32, ptr @chain_idx, align 4, !tbaa !8
   %93 = add nsw i32 %92, 1
@@ -1856,21 +1856,21 @@ get_vertex_positions.exit:                        ; preds = %83
   %115 = load i32, ptr %114, align 8, !tbaa !70
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %117 = load i32, ptr %116, align 8, !tbaa !70
-  %118 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %85
+  %118 = getelementptr inbounds i32, ptr %11, i64 %85
   store i32 %2, ptr %118, align 4, !tbaa !8
   %119 = sext i32 %115 to i64
-  %120 = getelementptr inbounds [4 x i32], ptr %84, i64 0, i64 %119
+  %120 = getelementptr inbounds i32, ptr %84, i64 %119
   store i32 %93, ptr %120, align 4, !tbaa !8
   %121 = load i32, ptr %103, align 4, !tbaa !68
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds %struct.monchain_t, ptr %95, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !69
-  %125 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %119
+  %125 = getelementptr inbounds i32, ptr %11, i64 %119
   store i32 %124, ptr %125, align 4, !tbaa !8
   %126 = sext i32 %117 to i64
-  %127 = getelementptr inbounds [4 x i32], ptr %88, i64 0, i64 %126
+  %127 = getelementptr inbounds i32, ptr %88, i64 %126
   store i32 %94, ptr %127, align 4, !tbaa !8
-  %128 = getelementptr inbounds [4 x i32], ptr %49, i64 0, i64 %126
+  %128 = getelementptr inbounds i32, ptr %49, i64 %126
   store i32 %1, ptr %128, align 4, !tbaa !8
   %129 = load i32, ptr %114, align 8, !tbaa !70
   %130 = add nsw i32 %129, 1

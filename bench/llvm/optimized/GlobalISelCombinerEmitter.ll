@@ -40813,7 +40813,7 @@ _ZN12_GLOBAL__N_118CombineRuleBuilder37emitCodeGenInstructionApplyImmOperandERN4
   %.not.i.i.i.i.i.i.i = phi i1 [ true, %361 ], [ false, %376 ]
   %.0813.i.i.i.i.i.i.i = phi i64 [ 0, %361 ], [ 1, %376 ]
   %.0912.i.i.i.i.i.i.i = phi i64 [ 2, %361 ], [ %.1.i.i.i.i.i.i.i, %376 ]
-  %371 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i
+  %371 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 %.0813.i.i.i.i.i.i.i
   %372 = load i8, ptr %371, align 1, !tbaa !1166, !range !49, !noalias !1833, !noundef !50
   %373 = trunc nuw i8 %372 to i1
   br i1 %373, label %374, label %376
@@ -41225,7 +41225,7 @@ _ZN12_GLOBAL__N_123declareTempRegExpansionERN4llvm14CodeExpansionsEjNS0_9StringR
   %.not.i.i.i.i.i.i = phi i1 [ true, %507 ], [ false, %521 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %507 ], [ 1, %521 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %507 ], [ %.1.i.i.i.i.i.i, %521 ]
-  %516 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %516 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %517 = load i8, ptr %516, align 1, !tbaa !1166, !range !49, !noalias !1874, !noundef !50
   %518 = trunc nuw i8 %517 to i1
   br i1 %518, label %519, label %521
@@ -42507,7 +42507,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %.not.i.i.i.i.i = phi i1 [ true, %3 ], [ false, %22 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %3 ], [ 1, %22 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %3 ], [ %.1.i.i.i.i.i, %22 ]
-  %17 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 %.0813.i.i.i.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !1166, !range !49, !noalias !1983, !noundef !50
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %22

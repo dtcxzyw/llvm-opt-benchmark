@@ -84,7 +84,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #1 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [32768 x %struct.hist_node], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.hist_node, ptr %4, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %6) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32768
@@ -430,7 +430,7 @@ update_histogram_diff.exit.thread:                ; preds = %.critedge.i.i, %.cr
 
 149:                                              ; preds = %139, %149
   %indvars.iv = phi i64 [ 0, %139 ], [ %indvars.iv.next, %149 ]
-  %150 = getelementptr inbounds nuw [32768 x %struct.hist_node], ptr %148, i64 0, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw %struct.hist_node, ptr %148, i64 %indvars.iv
   call void @av_freep(ptr noundef nonnull %150) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32768
@@ -549,7 +549,7 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
 
 42:                                               ; preds = %get_next_box_id_to_split.exit
   %43 = zext nneg i32 %.118.i to i64
-  %44 = getelementptr inbounds nuw [256 x %struct.range_box], ptr %32, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.range_box, ptr %32, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 44
   %46 = load i32, ptr %45, align 4, !tbaa !77
   %47 = icmp sgt i32 %46, 1
@@ -568,7 +568,7 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
 
 54:                                               ; preds = %.lr.ph145
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds [6 x ptr], ptr @cmp_funcs, i64 0, i64 %55
+  %56 = getelementptr inbounds ptr, ptr @cmp_funcs, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !82
   %58 = load ptr, ptr %24, align 8, !tbaa !71
   %59 = getelementptr inbounds nuw i8, ptr %.071106143, i64 40
@@ -630,7 +630,7 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %36, align 8, !tbaa !80
   %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds [256 x %struct.range_box], ptr %32, i64 0, i64 %92
+  %93 = getelementptr inbounds %struct.range_box, ptr %32, i64 %92
   %94 = add nsw i32 %.073.lcssa, 1
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 40
   store i32 %94, ptr %95, align 8, !tbaa !83
@@ -683,7 +683,7 @@ split_box.exit:                                   ; preds = %105
   %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.i83 ], [ %indvars.iv.next.i86, %125 ]
   %.01622.i = phi i64 [ -1, %.lr.ph.i83 ], [ %.1.i, %125 ]
   %.01721.i = phi i32 [ -1, %.lr.ph.i83 ], [ %.118.i, %125 ]
-  %116 = getelementptr inbounds nuw [256 x %struct.range_box], ptr %32, i64 0, i64 %indvars.iv.i85
+  %116 = getelementptr inbounds nuw %struct.range_box, ptr %32, i64 %indvars.iv.i85
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 44
   %118 = load i32, ptr %117, align 4, !tbaa !77
   %119 = icmp sgt i32 %118, 1
@@ -810,7 +810,7 @@ get_next_box_id_to_split.exit:                    ; preds = %125
 172:                                              ; preds = %.lr.ph.i92
   %173 = add nsw i32 %.13943.i, 1
   %174 = sext i32 %.13943.i to i64
-  %175 = getelementptr inbounds [256 x %struct.range_box], ptr %151, i64 0, i64 %174
+  %175 = getelementptr inbounds %struct.range_box, ptr %151, i64 %174
   %176 = load i32, ptr %175, align 8, !tbaa !89
   %177 = getelementptr inbounds nuw i32, ptr %.04147.i, i64 %indvars.iv.i93
   store i32 %176, ptr %177, align 4, !tbaa !49
@@ -867,7 +867,7 @@ get_next_box_id_to_split.exit:                    ; preds = %125
 
 .lr.ph108:                                        ; preds = %.critedge, %.lr.ph108
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph108 ], [ 0, %.critedge ]
-  %204 = getelementptr inbounds nuw [256 x %struct.range_box], ptr %32, i64 0, i64 %indvars.iv114
+  %204 = getelementptr inbounds nuw %struct.range_box, ptr %32, i64 %indvars.iv114
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
   %.sroa.0.0.copyload = load i64, ptr %205, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 12

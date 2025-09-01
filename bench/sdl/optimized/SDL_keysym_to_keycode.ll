@@ -20,13 +20,13 @@ define hidden i32 @SDL_GetKeyCodeFromKeySym(i32 noundef %0, i32 noundef %1, i16 
 
 .preheader:                                       ; preds = %3, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw [8 x %struct.anon], ptr @keysym_to_keycode_table, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.anon, ptr @keysym_to_keycode_table, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %.thread, label %5
 
 .thread:                                          ; preds = %.preheader
-  %9 = getelementptr inbounds nuw [8 x %struct.anon], ptr @keysym_to_keycode_table, i64 0, i64 %indvars.iv, i32 1
+  %9 = getelementptr inbounds nuw %struct.anon, ptr @keysym_to_keycode_table, i64 %indvars.iv, i32 1
   %10 = load i32, ptr %9, align 4
   br label %.critedge
 

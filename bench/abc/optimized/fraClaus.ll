@@ -302,12 +302,12 @@ define range(i32 0, -2147483648) i32 @Fra_ClausProcessClausesCut(ptr noundef rea
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !38
   %21 = mul nsw i32 %20, %8
   %22 = sext i32 %21 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %22
-  %23 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %gep, ptr %23, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -343,14 +343,14 @@ define range(i32 0, -2147483648) i32 @Fra_ClausProcessClausesCut(ptr noundef rea
 
 29:                                               ; preds = %.preheader47.us, %29
   %indvars.iv65 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next66, %29 ]
-  %30 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv65
+  %30 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv65
   %31 = load ptr, ptr %30, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv70
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = add nuw nsw i64 %28, %indvars.iv65
   %36 = sub nsw i64 31, %35
-  %37 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds i32, ptr %5, i64 %36
   store i32 %34, ptr %37, align 4, !tbaa !38
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
@@ -407,7 +407,7 @@ define range(i32 0, -2147483648) i32 @Fra_ClausProcessClausesCut(ptr noundef rea
 
 transpose32a.exit.preheader:                      ; preds = %61, %transpose32a.exit
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %transpose32a.exit ], [ 0, %61 ]
-  %66 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv75
+  %66 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv75
   %67 = load i32, ptr %66, align 4, !tbaa !38
   br label %68
 
@@ -486,12 +486,12 @@ define range(i32 0, -2147483648) i32 @Fra_ClausProcessClausesCut2(ptr noundef re
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !38
   %20 = mul nsw i32 %19, %7
   %21 = sext i32 %20 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %21
-  %22 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %gep, ptr %22, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -525,7 +525,7 @@ define range(i32 0, -2147483648) i32 @Fra_ClausProcessClausesCut2(ptr noundef re
 27:                                               ; preds = %.lr.ph44, %27
   %indvars.iv53 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next54, %27 ]
   %.03642 = phi i32 [ 0, %.lr.ph44 ], [ %.137, %27 ]
-  %28 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv53
+  %28 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv53
   %29 = load ptr, ptr %28, align 8, !tbaa !48
   %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv59
   %31 = load i32, ptr %30, align 4, !tbaa !38
@@ -607,12 +607,12 @@ define void @Fra_ClausProcessClausesCut3(ptr noundef readonly captures(none) %0,
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !38
   %22 = mul nsw i32 %21, %8
   %23 = sext i32 %22 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %23
-  %24 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %gep, ptr %24, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -654,7 +654,7 @@ define void @Fra_ClausProcessClausesCut3(ptr noundef readonly captures(none) %0,
 35:                                               ; preds = %35, %.preheader61.us.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %35 ], [ 0, %.preheader61.us.us ]
   %.05068.us.us = phi i32 [ %.1.us.us, %35 ], [ 0, %.preheader61.us.us ]
-  %36 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv91
+  %36 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv91
   %37 = load ptr, ptr %36, align 8, !tbaa !48
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv97
   %39 = load i32, ptr %38, align 4, !tbaa !38
@@ -720,14 +720,14 @@ define void @Fra_ClausProcessClausesCut3(ptr noundef readonly captures(none) %0,
 
 60:                                               ; preds = %.preheader.us, %60
   %indvars.iv102 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next103, %60 ]
-  %61 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv102
+  %61 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv102
   %62 = load ptr, ptr %61, align 8, !tbaa !48
   %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv107
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx
   %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = add nuw nsw i64 %59, %indvars.iv102
   %67 = sub nsw i64 31, %66
-  %68 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %67
+  %68 = getelementptr inbounds i32, ptr %5, i64 %67
   store i32 %65, ptr %68, align 4, !tbaa !38
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
@@ -784,7 +784,7 @@ define void @Fra_ClausProcessClausesCut3(ptr noundef readonly captures(none) %0,
 
 transpose32a.exit.preheader:                      ; preds = %92, %transpose32a.exit
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %transpose32a.exit ], [ 0, %92 ]
-  %97 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv112
+  %97 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv112
   %98 = load i32, ptr %97, align 4, !tbaa !38
   br label %99
 
@@ -967,7 +967,7 @@ define void @Fra_ClausRecordClause(ptr noundef readonly captures(none) %0, ptr n
   %12 = load ptr, ptr %8, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !36
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !38
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %14, i64 %17
@@ -1213,7 +1213,7 @@ define void @Fra_ClausRecordClause2(ptr noundef readonly captures(none) %0, ptr 
   %13 = load ptr, ptr %9, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !36
-  %16 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %15, i64 %18
@@ -3154,12 +3154,12 @@ Abc_Clock.exit140:                                ; preds = %106, %109
 
 145:                                              ; preds = %145, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %145 ]
-  %146 = getelementptr inbounds nuw [4 x i32], ptr %143, i64 0, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv.i
   %147 = load i32, ptr %146, align 4, !tbaa !38
   %148 = mul nsw i32 %147, %140
   %149 = sext i32 %148 to i64
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %149
-  %150 = getelementptr inbounds nuw [16 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   store ptr %gep.i, ptr %150, align 8, !tbaa !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3189,14 +3189,14 @@ Abc_Clock.exit140:                                ; preds = %106, %109
 
 155:                                              ; preds = %155, %.preheader47.us.i
   %indvars.iv65.i = phi i64 [ 0, %.preheader47.us.i ], [ %indvars.iv.next66.i, %155 ]
-  %156 = getelementptr inbounds nuw [16 x ptr], ptr %11, i64 0, i64 %indvars.iv65.i
+  %156 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv65.i
   %157 = load ptr, ptr %156, align 8, !tbaa !48
   %158 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv70.i
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i
   %160 = load i32, ptr %159, align 4, !tbaa !38
   %161 = add nuw nsw i64 %154, %indvars.iv65.i
   %162 = sub nsw i64 31, %161
-  %163 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %162
+  %163 = getelementptr inbounds i32, ptr %10, i64 %162
   store i32 %160, ptr %163, align 4, !tbaa !38
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count.i
@@ -3250,7 +3250,7 @@ Abc_Clock.exit140:                                ; preds = %106, %109
 
 transpose32a.exit.preheader.i:                    ; preds = %187, %transpose32a.exit.i
   %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %transpose32a.exit.i ], [ 0, %187 ]
-  %192 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv75.i
+  %192 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv75.i
   %193 = load i32, ptr %192, align 4, !tbaa !38
   br label %194
 
@@ -3499,12 +3499,12 @@ Abc_Clock.exit148:                                ; preds = %266, %269
 
 303:                                              ; preds = %303, %.lr.ph.i151
   %indvars.iv.i154 = phi i64 [ 0, %.lr.ph.i151 ], [ %indvars.iv.next.i156, %303 ]
-  %304 = getelementptr inbounds nuw [4 x i32], ptr %301, i64 0, i64 %indvars.iv.i154
+  %304 = getelementptr inbounds nuw i32, ptr %301, i64 %indvars.iv.i154
   %305 = load i32, ptr %304, align 4, !tbaa !38
   %306 = mul nsw i32 %305, %298
   %307 = sext i32 %306 to i64
   %gep.i155 = getelementptr i32, ptr %invariant.gep.i152, i64 %307
-  %308 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv.i154
+  %308 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i154
   store ptr %gep.i155, ptr %308, align 8, !tbaa !48
   %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i154, 1
   %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i153
@@ -3535,14 +3535,14 @@ Abc_Clock.exit148:                                ; preds = %266, %269
 
 314:                                              ; preds = %314, %.preheader47.us.i174
   %indvars.iv65.i176 = phi i64 [ 0, %.preheader47.us.i174 ], [ %indvars.iv.next66.i177, %314 ]
-  %315 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv65.i176
+  %315 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv65.i176
   %316 = load ptr, ptr %315, align 8, !tbaa !48
   %317 = getelementptr inbounds nuw i32, ptr %316, i64 %indvars.iv70.i175
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 %.idx.i173
   %319 = load i32, ptr %318, align 4, !tbaa !38
   %320 = add nuw nsw i64 %313, %indvars.iv65.i176
   %321 = sub nsw i64 31, %320
-  %322 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %321
+  %322 = getelementptr inbounds i32, ptr %4, i64 %321
   store i32 %319, ptr %322, align 4, !tbaa !38
   %indvars.iv.next66.i177 = add nuw nsw i64 %indvars.iv65.i176, 1
   %exitcond69.not.i178 = icmp eq i64 %indvars.iv.next66.i177, %wide.trip.count.i153
@@ -3596,7 +3596,7 @@ Abc_Clock.exit148:                                ; preds = %266, %269
 
 transpose32a.exit.preheader.i188:                 ; preds = %346, %transpose32a.exit.i193
   %indvars.iv75.i189 = phi i64 [ %indvars.iv.next76.i194, %transpose32a.exit.i193 ], [ 0, %346 ]
-  %351 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv75.i189
+  %351 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv75.i189
   %352 = load i32, ptr %351, align 4, !tbaa !38
   br label %353
 
@@ -3662,7 +3662,7 @@ Fra_ClausProcessClausesCut.exit198:               ; preds = %.preheader.i159
   br i1 %.not113, label %379, label %376
 
 376:                                              ; preds = %.preheader
-  %377 = getelementptr inbounds nuw [16 x i32], ptr %19, i64 0, i64 %indvars.iv243
+  %377 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv243
   %378 = load i32, ptr %377, align 4, !tbaa !38
   call void @Fra_ClausRecordClause(ptr noundef %0, ptr noundef nonnull %.198231, i32 noundef %373, i32 noundef %378)
   %.pre250 = load i32, ptr %293, align 4
@@ -4001,13 +4001,13 @@ Abc_Clock.exit189:                                ; preds = %Abc_Clock.exit187, 
 .lr.ph:                                           ; preds = %91, %103
   %94 = phi i8 [ %104, %103 ], [ %93, %91 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %103 ], [ 0, %91 ]
-  %95 = getelementptr inbounds nuw [4096 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !38
   %.not159 = icmp eq i32 %96, 0
   br i1 %.not159, label %103, label %97
 
 97:                                               ; preds = %.lr.ph
-  %98 = getelementptr inbounds nuw [4096 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4, !tbaa !38
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %103
@@ -4812,7 +4812,7 @@ define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr noundef readonly captures(
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %.val, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !33
-  %23 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %22, ptr %23, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4851,7 +4851,7 @@ define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr noundef readonly captures(
   %33 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv64
   %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = and i32 %34, 1
-  %36 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv64
+  %36 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv64
   %37 = load ptr, ptr %36, align 8, !tbaa !48
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv69
   %39 = load i32, ptr %38, align 4, !tbaa !38
@@ -4891,7 +4891,7 @@ define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr noundef readonly captures(
   %46 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv74
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %48 = and i32 %47, 1
-  %49 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv74
+  %49 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv74
   %50 = load ptr, ptr %49, align 8, !tbaa !48
   %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.lcssa
   %52 = load i32, ptr %51, align 4, !tbaa !38
@@ -6015,7 +6015,7 @@ define void @Fra_ClausPrintIndClauses(ptr noundef readonly captures(none) %0) lo
 
 17:                                               ; preds = %9
   %18 = sext i32 %12 to i64
-  %19 = getelementptr inbounds [9 x i32], ptr %2, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr %2, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !38
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !38
@@ -6033,7 +6033,7 @@ define void @Fra_ClausPrintIndClauses(ptr noundef readonly captures(none) %0) lo
 
 25:                                               ; preds = %.critedge, %31
   %indvars.iv28 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next29, %31 ]
-  %26 = getelementptr inbounds nuw [9 x i32], ptr %2, i64 0, i64 %indvars.iv28
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv28
   %27 = load i32, ptr %26, align 4, !tbaa !38
   %.not20 = icmp eq i32 %27, 0
   br i1 %.not20, label %31, label %28
@@ -6301,7 +6301,7 @@ define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr noundef readonly c
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv37
   %19 = load i32, ptr %18, align 4, !tbaa !38
   %20 = and i32 %19, 1
-  %21 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv37
+  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv37
   %22 = load ptr, ptr %21, align 8, !tbaa !48
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv42
   %24 = load i32, ptr %23, align 4, !tbaa !38
@@ -6331,7 +6331,7 @@ define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr noundef readonly c
   %37 = mul nsw i32 %10, %36
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i32, ptr %8, i64 %38
-  %40 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %39, ptr %40, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6493,7 +6493,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %75 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv37.i
   %76 = load i32, ptr %75, align 4, !tbaa !38
   %77 = and i32 %76, 1
-  %78 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %indvars.iv37.i
+  %78 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv37.i
   %79 = load ptr, ptr %78, align 8, !tbaa !48
   %80 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv42.i
   %81 = load i32, ptr %80, align 4, !tbaa !38
@@ -6523,7 +6523,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %94 = mul nsw i32 %93, %69
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds i32, ptr %41, i64 %95
-  %97 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   store ptr %96, ptr %97, align 8, !tbaa !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

@@ -835,7 +835,7 @@ define dso_local i32 @ieee80211_add_virtual_monitor(ptr noundef %0) local_unname
 
 57:                                               ; preds = %52, %47
   %58 = phi i8 [ -1, %47 ], [ %56, %52 ]
-  %59 = getelementptr [4 x i8], ptr %45, i64 0, i64 %48
+  %59 = getelementptr i8, ptr %45, i64 %48
   store i8 %58, ptr %59, align 1
   %60 = add nuw nsw i64 %48, 1
   %61 = icmp eq i64 %60, 4
@@ -870,7 +870,7 @@ define dso_local i32 @ieee80211_add_virtual_monitor(ptr noundef %0) local_unname
 
 75:                                               ; preds = %72, %67
   %76 = phi i64 [ 0, %67 ], [ %73, %72 ]
-  %77 = getelementptr [4 x i8], ptr %45, i64 0, i64 %76
+  %77 = getelementptr i8, ptr %45, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, -1
   br i1 %79, label %80, label %81, !prof !42
@@ -984,7 +984,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_check_queues(ptr
 
 12:                                               ; preds = %9, %7
   %13 = phi i64 [ 0, %7 ], [ %10, %9 ]
-  %14 = getelementptr [4 x i8], ptr %8, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %8, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, -1
   br i1 %16, label %17, label %18, !prof !42
@@ -3012,7 +3012,7 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
   %142 = phi i64 [ 0, %123 ], [ %164, %163 ]
   %143 = load ptr, ptr %13, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 312
-  %145 = getelementptr [6 x ptr], ptr %144, i64 0, i64 %142
+  %145 = getelementptr ptr, ptr %144, i64 %142
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %159, label %148
@@ -3022,23 +3022,23 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
   %150 = load i32, ptr %149, align 8
   %151 = shl nsw i32 -1, %150
   %152 = xor i32 %151, -1
-  %153 = getelementptr [6 x i32], ptr %138, i64 0, i64 %142
+  %153 = getelementptr i32, ptr %138, i64 %142
   store i32 %152, ptr %153, align 4
-  %154 = getelementptr [6 x [10 x i8]], ptr %139, i64 0, i64 %142
+  %154 = getelementptr [10 x i8], ptr %139, i64 %142
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(10) %154, ptr noundef nonnull align 1 dereferenceable(10) %155, i64 10, i1 false)
   %156 = getelementptr inbounds nuw i8, ptr %146, i64 60
   %157 = load i16, ptr %156, align 4
-  %158 = getelementptr [6 x [8 x i16]], ptr %140, i64 0, i64 %142
+  %158 = getelementptr [8 x i16], ptr %140, i64 %142
   tail call void @ieee80211_get_vht_mask_from_cap(i16 noundef zeroext %157, ptr noundef %158) #15
   br label %163
 
 159:                                              ; preds = %141
-  %160 = getelementptr [6 x i32], ptr %138, i64 0, i64 %142
+  %160 = getelementptr i32, ptr %138, i64 %142
   store i32 0, ptr %160, align 4
-  %161 = getelementptr [6 x [10 x i8]], ptr %139, i64 0, i64 %142
+  %161 = getelementptr [10 x i8], ptr %139, i64 %142
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(10) %161, i8 0, i64 10, i1 false)
-  %162 = getelementptr [6 x [8 x i16]], ptr %140, i64 0, i64 %142
+  %162 = getelementptr [8 x i16], ptr %140, i64 %142
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
   br label %163
 
@@ -3070,7 +3070,7 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
 
 181:                                              ; preds = %176, %171
   %182 = phi i8 [ -1, %171 ], [ %180, %176 ]
-  %183 = getelementptr [4 x i8], ptr %169, i64 0, i64 %172
+  %183 = getelementptr i8, ptr %169, i64 %172
   store i8 %182, ptr %183, align 1
   %184 = add nuw nsw i64 %172, 1
   %185 = icmp eq i64 %184, 4
@@ -4088,7 +4088,7 @@ define internal fastcc void @ieee80211_do_stop(ptr noundef %0, i1 noundef zeroex
 238:                                              ; preds = %.loopexit, %233
   %239 = phi i32 [ 0, %233 ], [ %266, %.loopexit ]
   %240 = sext i32 %239 to i64
-  %241 = getelementptr [16 x %struct.sk_buff_head], ptr %237, i64 0, i64 %240
+  %241 = getelementptr %struct.sk_buff_head, ptr %237, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, %241
   br i1 %243, label %.loopexit, label %.preheader
@@ -4124,7 +4124,7 @@ define internal fastcc void @ieee80211_do_stop(ptr noundef %0, i1 noundef zeroex
 260:                                              ; preds = %251, %.preheader
   %261 = phi i32 [ %.pre, %251 ], [ %244, %.preheader ]
   %262 = sext i32 %261 to i64
-  %263 = getelementptr [16 x %struct.sk_buff_head], ptr %237, i64 0, i64 %262
+  %263 = getelementptr %struct.sk_buff_head, ptr %237, i64 %262
   %264 = icmp eq ptr %247, %263
   br i1 %264, label %.loopexit, label %.preheader, !llvm.loop !163
 

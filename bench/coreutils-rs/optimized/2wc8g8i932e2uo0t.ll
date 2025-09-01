@@ -458,7 +458,7 @@ define hidden { i64, i64 } @_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b
 
 .lr.ph:                                           ; preds = %3, %9
   %.05 = phi i64 [ %10, %9 ], [ 0, %3 ]
-  %6 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.05
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.05
   %7 = load i8, ptr %6, align 1, !noundef !5
   %8 = icmp eq i8 %7, %0
   br i1 %8, label %._crit_edge, label %9
@@ -593,7 +593,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.5112204137213319250
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.i
   %.05.i = phi i64 [ %54, %.lr.ph.i ], [ 0, %50 ]
-  %51 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.05.i
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 %.05.i
   %52 = load i8, ptr %51, align 1, !alias.scope !46, !noundef !5
   %53 = icmp eq i8 %52, %44
   %54 = add nuw nsw i64 %.05.i, 1
@@ -651,7 +651,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 
 .lr.ph.i:                                         ; preds = %20, %31
   %.05.i = phi i64 [ %32, %31 ], [ 0, %20 ]
-  %28 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %.05.i
+  %28 = getelementptr inbounds i8, ptr %2, i64 %.05.i
   %29 = load i8, ptr %28, align 1, !alias.scope !53, !noundef !5
   %30 = icmp eq i8 %29, %21
   br i1 %30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfd23e8f0ecd467a6E.exit", label %31
@@ -688,7 +688,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   unreachable
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17hd4570c52fe120214E.exit.i.i": ; preds = %42
-  %46 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %43
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %47 = load i8, ptr %46, align 1, !alias.scope !56, !noalias !70, !noundef !5
   %.not.i.not.i.i = icmp eq i8 %47, %34
   br i1 %.not.i.not.i.i, label %39, label %48
@@ -761,7 +761,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %77 = icmp eq <16 x i8> %.0.copyload.i.i, %60
   %78 = icmp eq <16 x i8> %.0.copyload2.i.i, %61
   %79 = and <16 x i1> %77, %78
-  %80 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0143.i
+  %80 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0143.i
   store <16 x i1> %79, ptr %80, align 2, !noalias !71
   %exitcond.not.i38 = icmp eq i64 %73, 4
   br i1 %exitcond.not.i38, label %.preheader139.i, label %72
@@ -779,7 +779,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.sroa.028.0145.i = phi i64 [ %86, %90 ], [ 0, %72 ]
   %.2144.i = phi i8 [ %.3.i, %90 ], [ 0, %72 ]
   %86 = add nuw nsw i64 %.sroa.028.0145.i, 1
-  %87 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0145.i
+  %87 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0145.i
   %88 = load i16, ptr %87, align 2, !noalias !71, !noundef !5
   %89 = icmp eq i16 %88, 0
   br i1 %89, label %90, label %91
@@ -1098,9 +1098,9 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i: 
   unreachable
 
 246:                                              ; preds = %242
-  %247 = getelementptr inbounds [0 x i8], ptr %208, i64 0, i64 %240
+  %247 = getelementptr inbounds i8, ptr %208, i64 %240
   %248 = load i8, ptr %247, align 1, !alias.scope !116, !noalias !122, !noundef !5
-  %249 = getelementptr inbounds [0 x i8], ptr %204, i64 0, i64 %243
+  %249 = getelementptr inbounds i8, ptr %204, i64 %243
   %250 = load i8, ptr %249, align 1, !alias.scope !114, !noalias !120, !noundef !5
   %.not28.i55 = icmp eq i8 %248, %250
   br i1 %.not28.i55, label %.preheader65, label %252
@@ -1120,9 +1120,9 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i: 
 
 257:                                              ; preds = %254
   %258 = add nuw i64 %.sroa.04.0.i53, 1
-  %259 = getelementptr inbounds [0 x i8], ptr %208, i64 0, i64 %.sroa.04.0.i53
+  %259 = getelementptr inbounds i8, ptr %208, i64 %.sroa.04.0.i53
   %260 = load i8, ptr %259, align 1, !alias.scope !116, !noalias !122, !noundef !5
-  %261 = getelementptr inbounds [0 x i8], ptr %204, i64 0, i64 %255
+  %261 = getelementptr inbounds i8, ptr %204, i64 %255
   %262 = load i8, ptr %261, align 1, !alias.scope !114, !noalias !120, !noundef !5
   %.not.i58 = icmp eq i8 %260, %262
   br i1 %.not.i58, label %236, label %265
@@ -1204,9 +1204,9 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i: 
   unreachable
 
 298:                                              ; preds = %294
-  %299 = getelementptr inbounds [0 x i8], ptr %208, i64 0, i64 %293
+  %299 = getelementptr inbounds i8, ptr %208, i64 %293
   %300 = load i8, ptr %299, align 1, !alias.scope !128, !noalias !134, !noundef !5
-  %301 = getelementptr inbounds [0 x i8], ptr %204, i64 0, i64 %295
+  %301 = getelementptr inbounds i8, ptr %204, i64 %295
   %302 = load i8, ptr %301, align 1, !alias.scope !126, !noalias !132, !noundef !5
   %.not28.i = icmp eq i8 %300, %302
   br i1 %.not28.i, label %.preheader, label %304
@@ -1226,9 +1226,9 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i: 
 
 309:                                              ; preds = %306
   %310 = add nuw i64 %.sroa.04.0.i, 1
-  %311 = getelementptr inbounds [0 x i8], ptr %208, i64 0, i64 %.sroa.04.0.i
+  %311 = getelementptr inbounds i8, ptr %208, i64 %.sroa.04.0.i
   %312 = load i8, ptr %311, align 1, !alias.scope !128, !noalias !134, !noundef !5
-  %313 = getelementptr inbounds [0 x i8], ptr %204, i64 0, i64 %307
+  %313 = getelementptr inbounds i8, ptr %204, i64 %307
   %314 = load i8, ptr %313, align 1, !alias.scope !126, !noalias !132, !noundef !5
   %.not.i45 = icmp eq i8 %312, %314
   br i1 %.not.i45, label %.preheader64, label %317
@@ -1386,7 +1386,7 @@ define hidden void @"_ZN6uu_ptx10WordFilter3new28_$u7b$$u7b$closure$u7d$$u7d$17h
 
 .lr.ph.i.i:                                       ; preds = %43, %38
   %.05.i.i = phi i64 [ %44, %43 ], [ 0, %38 ]
-  %40 = getelementptr inbounds nuw [0 x i8], ptr @anon.844ad9c1aa9c9405946a85b3fb6f145d.36.llvm.5112204137213319250, i64 0, i64 %.05.i.i
+  %40 = getelementptr inbounds nuw i8, ptr @anon.844ad9c1aa9c9405946a85b3fb6f145d.36.llvm.5112204137213319250, i64 %.05.i.i
   %41 = load i8, ptr %40, align 1, !alias.scope !165, !noundef !5
   %42 = icmp eq i8 %41, %39
   br i1 %42, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5112204137213319250.exit, label %43

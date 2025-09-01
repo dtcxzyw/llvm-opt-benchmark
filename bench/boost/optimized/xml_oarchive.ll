@@ -776,7 +776,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
 
 18:                                               ; preds = %.lr.ph.i
   %19 = zext nneg i8 %16 to i64
-  %20 = getelementptr inbounds nuw [160 x i8], ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !50
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i
@@ -1066,7 +1066,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
 
 19:                                               ; preds = %.lr.ph.i
   %20 = zext nneg i8 %17 to i64
-  %21 = getelementptr inbounds nuw [160 x i8], ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !50
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i
@@ -2809,7 +2809,7 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13mb_from
 
 21:                                               ; preds = %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13mb_from_wcharINS4_10xml_escapeIPKwEEEEwNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit
   %22 = load i64, ptr %6, align 8, !tbaa !152
-  %23 = getelementptr inbounds nuw [9 x i8], ptr %8, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !50
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext %24)
   %26 = load ptr, ptr %3, align 8, !tbaa !66

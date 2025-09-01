@@ -1338,7 +1338,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAns
   %16 = getelementptr inbounds nuw i32, ptr %11, i64 %.03449
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !9
   %21 = add i64 %20, 1
   store i64 %21, ptr %19, align 8, !tbaa !9

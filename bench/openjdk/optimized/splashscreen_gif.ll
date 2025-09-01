@@ -340,7 +340,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %183 = or disjoint i32 %175, %179
   %184 = or disjoint i32 %183, %182
   %185 = or disjoint i32 %184, -16777216
-  %186 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %185, ptr %186, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -1912,7 +1912,7 @@ define hidden { i64, i64 } @_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b
 
 .lr.ph:                                           ; preds = %3, %9
   %.05 = phi i64 [ %10, %9 ], [ 0, %3 ]
-  %6 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.05
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.05
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = icmp eq i8 %7, %0
   br i1 %8, label %._crit_edge, label %9
@@ -2936,7 +2936,7 @@ define hidden i64 @_ZN5gimli5write3cfi10FrameTable5write17h88625a023bb73879E(ptr
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %63 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %62, i64 0, i64 %54
+  %63 = getelementptr inbounds { i64, [1 x i64] }, ptr %62, i64 %54
   %64 = load i64, ptr %63, align 8, !range !22, !noundef !4
   %trunc = trunc nuw i64 %64 to i1
   br i1 %trunc, label %330, label %65
@@ -3557,7 +3557,7 @@ _ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i:
 
 337:                                              ; preds = %333
   %338 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %339 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %338, i64 0, i64 %54
+  %339 = getelementptr inbounds { i64, [1 x i64] }, ptr %338, i64 %54
   store i64 1, ptr %339, align 8
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
   store i64 %72, ptr %340, align 8
@@ -4378,7 +4378,7 @@ define hidden i64 @_ZN5gimli5write3cfi10FrameTable5write17hf7deab00f61ee0f4E(ptr
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %61, i64 0, i64 %53
+  %62 = getelementptr inbounds { i64, [1 x i64] }, ptr %61, i64 %53
   %63 = load i64, ptr %62, align 8, !range !22, !noundef !4
   %trunc = trunc nuw i64 %63 to i1
   br i1 %trunc, label %329, label %64
@@ -4999,7 +4999,7 @@ _ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i:
 
 336:                                              ; preds = %332
   %337 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %338 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %337, i64 0, i64 %53
+  %338 = getelementptr inbounds { i64, [1 x i64] }, ptr %337, i64 %53
   store i64 1, ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
   store i64 %71, ptr %339, align 8
@@ -9657,7 +9657,7 @@ define hidden noundef zeroext i1 @_ZN18wasmtime_cranelift5debug9transform10expre
 
 .lr.ph.i:                                         ; preds = %4, %8
   %.05.i = phi i64 [ %9, %8 ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %.05.i
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.05.i
   %6 = load i8, ptr %5, align 1, !alias.scope !2488, !noundef !4
   %7 = icmp eq i8 %6, -111
   br i1 %7, label %.loopexit, label %8
@@ -9685,7 +9685,7 @@ define hidden noundef zeroext i1 @_ZN18wasmtime_cranelift5debug9transform10expre
 
 .lr.ph.i6:                                        ; preds = %8, %.lr.ph.i6
   %.05.i7 = phi i64 [ %18, %.lr.ph.i6 ], [ 0, %8 ]
-  %15 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %.05.i7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.05.i7
   %16 = load i8, ptr %15, align 1, !alias.scope !2491, !noundef !4
   %17 = icmp eq i8 %16, 35
   %18 = add nuw nsw i64 %.05.i7, 1
@@ -9979,7 +9979,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift5debug9transform10expression
 
 144:                                              ; preds = %128
   %145 = add i64 %.022.i, -1
-  %146 = getelementptr inbounds [0 x { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }], ptr %115, i64 0, i64 %145, i32 2
+  %146 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }, ptr %115, i64 %145, i32 2
   %147 = load i64, ptr %146, align 8, !noundef !4
   %148 = icmp ugt i64 %147, %105
   %spec.select = select i1 %148, i64 %145, i64 %.022.i
@@ -9994,7 +9994,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift5debug9transform10expression
 
 152:                                              ; preds = %.lr.ph
   %153 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
-  %154 = getelementptr inbounds [0 x { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }], ptr %153, i64 0, i64 %149
+  %154 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }, ptr %153, i64 %149
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 48
   %156 = load i64, ptr %155, align 8, !noundef !4
   %.not99 = icmp ult i64 %156, %108
@@ -10088,7 +10088,7 @@ common.resume:                                    ; preds = %271, %276, %257, %1
 
 187:                                              ; preds = %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6891a0b19c5930d2E.exit"
   %188 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
-  %189 = getelementptr inbounds [0 x { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }], ptr %188, i64 0, i64 %149, i32 2
+  %189 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }, ptr %188, i64 %149, i32 2
   store i64 %108, ptr %189, align 8
   store i64 %108, ptr %96, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -10164,7 +10164,7 @@ common.resume:                                    ; preds = %271, %276, %257, %1
 
 212:                                              ; preds = %163
   %213 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
-  %214 = getelementptr inbounds [0 x { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }], ptr %213, i64 0, i64 %149
+  %214 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }, ptr %213, i64 %149
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 56
   %216 = load i64, ptr %215, align 8, !noundef !4
   %.not102 = icmp ugt i64 %216, %108
@@ -10249,7 +10249,7 @@ common.resume:                                    ; preds = %271, %276, %257, %1
 
 244:                                              ; preds = %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6891a0b19c5930d2E.exit126"
   %245 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
-  %246 = getelementptr inbounds [0 x { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }], ptr %245, i64 0, i64 %149, i32 2
+  %246 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i32, [1 x i32] }, ptr %245, i64 %149, i32 2
   store i64 %105, ptr %246, align 8
   store i64 %105, ptr %99, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -11413,7 +11413,7 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform10fu
   %.sroa.6.0 = select i1 %trunc.i, i64 %29, i64 undef
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 520
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }], ptr %48, i64 0, i64 %3
+  %49 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }, ptr %48, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %.sroa.05.0, ptr %50, align 8
@@ -11501,7 +11501,7 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform10fu
 77:                                               ; preds = %67
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 520
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
-  %80 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }], ptr %79, i64 0, i64 %3
+  %80 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }, ptr %79, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %81 = load ptr, ptr %54, align 8, !nonnull !4, !noundef !4
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -11572,7 +11572,7 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform10fu
 106:                                              ; preds = %102
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 520
   %108 = load ptr, ptr %107, align 8, !nonnull !4, !noundef !4
-  %109 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }], ptr %108, i64 0, i64 %3
+  %109 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }, ptr %108, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %101, ptr %110, align 8
@@ -11601,14 +11601,14 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform10fu
 117:                                              ; preds = %_ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform10func_range17h4fbc2aed3ac0e2ceE.exit
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %119 = load ptr, ptr %118, align 8, !alias.scope !2731, !noalias !2732, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds nuw [0 x { { { { { ptr, i64 } }, {} }, {} }, i64, i64, i64, i64 }], ptr %119, i64 0, i64 %36
+  %120 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, i64, i64, i64, i64 }, ptr %119, i64 %36
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i64, ptr %121, align 8, !noalias !2725, !noundef !4
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = load i64, ptr %123, align 8, !noalias !2725, !noundef !4
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 520
   %126 = load ptr, ptr %125, align 8, !nonnull !4, !noundef !4
-  %127 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }], ptr %126, i64 0, i64 %3
+  %127 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i16, i8, [5 x i8] }, ptr %126, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %128, align 8
@@ -11681,7 +11681,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform18range_info_builder1
 _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform17func_source_range17h21af8516e8f7e582E.exit: ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !2758, !noalias !2759, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw [0 x { { { { { ptr, i64 } }, {} }, {} }, i64, i64, i64, i64 }], ptr %28, i64 0, i64 %22
+  %29 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, i64, i64, i64, i64 }, ptr %28, i64 %22
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i64, ptr %30, align 8, !noalias !2752, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 40

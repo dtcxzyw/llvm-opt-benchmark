@@ -3487,7 +3487,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 48:                                               ; preds = %44, %.critedge
   %.01944 = phi i64 [ 0, %44 ], [ %64, %.critedge ]
-  %49 = getelementptr inbounds nuw [4 x %"struct.sentencepiece::(anonymous namespace)::BinaryBlob"], ptr @_ZN13sentencepiece12_GLOBAL__N_124kNormalizationRules_blobE, i64 0, i64 %.01944
+  %49 = getelementptr inbounds nuw %"struct.sentencepiece::(anonymous namespace)::BinaryBlob", ptr @_ZN13sentencepiece12_GLOBAL__N_124kNormalizationRules_blobE, i64 %.01944
   %50 = load ptr, ptr %49, align 8, !tbaa !151
   %51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #26
   %52 = icmp eq i64 %51, %1

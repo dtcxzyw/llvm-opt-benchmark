@@ -60,7 +60,7 @@ define void @_ZN5arrow4util13base64_encodeB5cxx11ESt17basic_string_viewIcSt11cha
   %16 = load i8, ptr %.044.i, align 1, !tbaa !15, !noalias !3
   %17 = add nuw nsw i32 %.02143.i, 1
   %18 = zext nneg i32 %.02143.i to i64
-  %19 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
   store i8 %16, ptr %19, align 1, !tbaa !15, !noalias !3
   %20 = icmp eq i32 %17, 3
   br i1 %20, label %21, label %.loopexit39.i
@@ -87,7 +87,7 @@ define void @_ZN5arrow4util13base64_encodeB5cxx11ESt17basic_string_viewIcSt11cha
 
 35:                                               ; preds = %52, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %52 ]
-  %36 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1, !tbaa !15, !noalias !3
   %38 = zext i8 %37 to i64
   %39 = load ptr, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, align 8, !tbaa !16, !noalias !3
@@ -211,7 +211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 .lr.ph51.i:                                       ; preds = %95, %.lr.ph51.preheader.i
   %indvars.iv58.i = phi i64 [ 0, %.lr.ph51.preheader.i ], [ %indvars.iv.next59.i, %95 ]
-  %79 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv58.i
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv58.i
   %80 = load i8, ptr %79, align 1, !tbaa !15, !noalias !3
   %81 = zext i8 %80 to i64
   %82 = load ptr, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, align 8, !tbaa !16, !noalias !3
@@ -341,7 +341,7 @@ define void @_ZN5arrow4util13base64_decodeB5cxx11ESt17basic_string_viewIcSt11cha
 23:                                               ; preds = %17
   %24 = add nsw i32 %.02647, 1
   %25 = sext i32 %.02647 to i64
-  %26 = getelementptr inbounds [4 x i8], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds i8, ptr %4, i64 %25
   store i8 %16, ptr %26, align 1, !tbaa !15
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %27 = icmp eq i32 %24, 4
@@ -349,7 +349,7 @@ define void @_ZN5arrow4util13base64_decodeB5cxx11ESt17basic_string_viewIcSt11cha
 
 .preheader41:                                     ; preds = %23, %.preheader41
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader41 ], [ 0, %23 ]
-  %28 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !15
   %30 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5arrow4utilL12base64_charsB5cxx11E, i8 noundef signext %29, i64 noundef 0) #15
   %31 = trunc i64 %30 to i8
@@ -413,7 +413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 54:                                               ; preds = %39, %67
   %indvars.iv58 = phi i64 [ 0, %39 ], [ %indvars.iv.next59, %67 ]
-  %55 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv58
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv58
   %56 = load i8, ptr %55, align 1, !tbaa !15
   %57 = load i64, ptr %7, align 8, !tbaa !12
   %58 = add i64 %57, 1
@@ -472,7 +472,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
   %indvars.iv65 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next66, %.lr.ph53 ]
-  %73 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv65
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv65
   %74 = load i8, ptr %73, align 1, !tbaa !15
   %75 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5arrow4utilL12base64_charsB5cxx11E, i8 noundef signext %74, i64 noundef 0) #15
   %76 = trunc i64 %75 to i8
@@ -508,7 +508,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %105
   %indvars.iv69 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next70, %105 ]
-  %93 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv69
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv69
   %94 = load i8, ptr %93, align 1, !tbaa !15
   %95 = load i64, ptr %7, align 8, !tbaa !12
   %96 = add i64 %95, 1

@@ -373,7 +373,7 @@ define linkonce_odr void @_ZN5folly11toAppendFitIJA44_ciPNSt7__cxx1112basic_stri
 
 10:                                               ; preds = %16, %3
   %.08.i2.i.i.i.i.i = phi i64 [ 0, %3 ], [ %17, %16 ]
-  %11 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i2.i.i.i.i.i
+  %11 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i2.i.i.i.i.i
   %12 = load i64, ptr %11, align 8, !tbaa !22
   %13 = icmp ugt i64 %12, %9
   br i1 %13, label %14, label %16, !prof !23
@@ -500,7 +500,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 25:                                               ; preds = %29, %22
   %.08.i.i2.i.i.i = phi i64 [ 0, %22 ], [ %30, %29 ]
-  %26 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i.i2.i.i.i
+  %26 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i2.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !22
   %28 = icmp ugt i64 %27, %24
   br i1 %28, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i, label %29, !prof !23
@@ -525,7 +525,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %33 = add i64 %.014.i3.i.i.i, -2
   %34 = udiv i64 %.0.i4.i.i.i, 100
   %35 = urem i64 %.0.i4.i.i.i, 100
-  %36 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 %33
   store i16 %37, ptr %38, align 1
@@ -536,7 +536,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %spec.select.i.i10.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %spec.select.i.i11.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %31, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %34, %.lr.ph.i.i.i ]
-  %40 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
+  %40 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %41 = load i16, ptr %40, align 2, !tbaa !27
   %42 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %42, label %43, label %44, !prof !23
@@ -587,7 +587,7 @@ define linkonce_odr void @_ZN5folly11toAppendFitIJA55_ciPNSt7__cxx1112basic_stri
 
 10:                                               ; preds = %16, %3
   %.08.i2.i.i.i.i.i = phi i64 [ 0, %3 ], [ %17, %16 ]
-  %11 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i2.i.i.i.i.i
+  %11 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i2.i.i.i.i.i
   %12 = load i64, ptr %11, align 8, !tbaa !22
   %13 = icmp ugt i64 %12, %9
   br i1 %13, label %14, label %16, !prof !23
@@ -657,7 +657,7 @@ define linkonce_odr void @_ZN5folly11toAppendFitIJA56_ciPNSt7__cxx1112basic_stri
 
 10:                                               ; preds = %16, %3
   %.08.i2.i.i.i.i.i = phi i64 [ 0, %3 ], [ %17, %16 ]
-  %11 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i2.i.i.i.i.i
+  %11 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i2.i.i.i.i.i
   %12 = load i64, ptr %11, align 8, !tbaa !22
   %13 = icmp ugt i64 %12, %9
   br i1 %13, label %14, label %16, !prof !23

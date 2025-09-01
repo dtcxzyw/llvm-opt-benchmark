@@ -577,7 +577,7 @@ ehcleanup35:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %entry
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_20short_weekday_holderE, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_20short_weekday_holderE, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call1.i22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load, i64 noundef 3)
   ret ptr %out
@@ -758,7 +758,7 @@ ehcleanup35:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %entry
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_23shortest_weekday_holderE, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_23shortest_weekday_holderE, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call1.i22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load, i64 noundef 2)
   ret ptr %out

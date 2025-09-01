@@ -238,7 +238,7 @@ decode_vendor_and_product_identification.exit:    ; preds = %37, %.critedge.i
   %68 = lshr i8 %62, 4
   %69 = and i8 %68, 7
   %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds nuw [8 x i32], ptr @decode_display_parameters.bit_depth, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr @decode_display_parameters.bit_depth, i64 %70
   %72 = load i32, ptr %71, align 4
   store i32 %72, ptr %66, align 8
   %73 = and i8 %62, 15
@@ -247,7 +247,7 @@ decode_vendor_and_product_identification.exit:    ; preds = %37, %.critedge.i
 
 75:                                               ; preds = %67
   %76 = zext nneg i8 %73 to i64
-  %77 = getelementptr inbounds nuw [6 x i32], ptr @decode_display_parameters.interfaces, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr @decode_display_parameters.interfaces, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %78, ptr %79, align 4
@@ -261,7 +261,7 @@ decode_vendor_and_product_identification.exit:    ; preds = %37, %.critedge.i
 82:                                               ; preds = %decode_vendor_and_product_identification.exit
   %83 = lshr i8 %62, 5
   %84 = zext nneg i8 %83 to i64
-  %85 = getelementptr inbounds nuw [4 x [3 x double]], ptr @decode_display_parameters.levels, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [3 x double], ptr @decode_display_parameters.levels, i64 %84
   %86 = load double, ptr %85, align 8
   store double %86, ptr %66, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -410,7 +410,7 @@ decode_vendor_and_product_identification.exit:    ; preds = %37, %.critedge.i
   %177 = lshr i8 %155, 3
   %178 = and i8 %177, 3
   %179 = zext nneg i8 %178 to i64
-  %180 = getelementptr inbounds nuw [4 x i32], ptr @__const.decode_display_parameters.color_type, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i32, ptr @__const.decode_display_parameters.color_type, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i32 %181, ptr %182, align 4
@@ -656,7 +656,7 @@ decode_color_characteristics.exit:                ; preds = %329
   %.01318.i = phi i32 [ 0, %decode_color_characteristics.exit ], [ %.2.i, %358 ]
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv21.i
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 35
-  %342 = getelementptr inbounds nuw [3 x [8 x %struct.Timing]], ptr @decode_established_timings.established, i64 0, i64 %indvars.iv21.i
+  %342 = getelementptr inbounds nuw [8 x %struct.Timing], ptr @decode_established_timings.established, i64 %indvars.iv21.i
   %343 = load i8, ptr %341, align 1
   %344 = zext i8 %343 to i32
   br label %345
@@ -671,7 +671,7 @@ decode_color_characteristics.exit:                ; preds = %329
   br i1 %.not.i22, label %357, label %349
 
 349:                                              ; preds = %345
-  %350 = getelementptr inbounds nuw [8 x %struct.Timing], ptr %342, i64 0, i64 %indvars.iv.i21
+  %350 = getelementptr inbounds nuw %struct.Timing, ptr %342, i64 %indvars.iv.i21
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %352 = load i32, ptr %351, align 4
   %.not15.i = icmp eq i32 %352, 0
@@ -680,7 +680,7 @@ decode_color_characteristics.exit:                ; preds = %329
 353:                                              ; preds = %349
   %354 = add nsw i32 %.117.i, 1
   %355 = sext i32 %.117.i to i64
-  %356 = getelementptr inbounds [24 x %struct.Timing], ptr %339, i64 0, i64 %355
+  %356 = getelementptr inbounds %struct.Timing, ptr %339, i64 %355
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %356, ptr noundef nonnull align 4 dereferenceable(12) %350, i64 12, i1 false)
   br label %357
 
@@ -751,7 +751,7 @@ default.unreachable:                              ; preds = %369
 
 386:                                              ; preds = %383, %379, %376, %373
   %.0.i = phi i32 [ %375, %373 ], [ %378, %376 ], [ %382, %379 ], [ %385, %383 ]
-  %387 = getelementptr inbounds nuw [8 x %struct.Timing], ptr %359, i64 0, i64 %indvars.iv.i25
+  %387 = getelementptr inbounds nuw %struct.Timing, ptr %359, i64 %indvars.iv.i25
   store i32 %372, ptr %387, align 4
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 4
   store i32 %.0.i, ptr %388, align 4
@@ -882,7 +882,7 @@ decode_lf_string.exit.sink.split.i.i:             ; preds = %426, %419, %412
 431:                                              ; preds = %403, %397
   %432 = add nsw i32 %.01523.i, 1
   %433 = sext i32 %.01523.i to i64
-  %434 = getelementptr inbounds [4 x %struct.DetailedTiming], ptr %393, i64 0, i64 %433
+  %434 = getelementptr inbounds %struct.DetailedTiming, ptr %393, i64 %433
   %435 = load i16, ptr %400, align 1
   %436 = zext i16 %435 to i32
   %437 = mul nuw nsw i32 %436, 10000
@@ -1006,7 +1006,7 @@ decode_lf_string.exit.sink.split.i.i:             ; preds = %426, %419, %412
   %541 = and i32 %538, 1
   %542 = or disjoint i32 %540, %541
   %543 = zext nneg i32 %542 to i64
-  %544 = getelementptr inbounds nuw [8 x i32], ptr @__const.decode_detailed_timing.stereo, i64 0, i64 %543
+  %544 = getelementptr inbounds nuw i32, ptr @__const.decode_detailed_timing.stereo, i64 %543
   %545 = load i32, ptr %544, align 4
   %546 = getelementptr inbounds nuw i8, ptr %434, i64 56
   store i32 %545, ptr %546, align 4
@@ -1170,7 +1170,7 @@ define hidden void @dump_monitor_info(ptr noundef %0) local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %47
   %51 = zext nneg i32 %49 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dump_monitor_info, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dump_monitor_info, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %52
 
@@ -1230,7 +1230,7 @@ switch.lookup:                                    ; preds = %47
 
 switch.lookup185:                                 ; preds = %66
   %94 = zext nneg i32 %92 to i64
-  %switch.gep186 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dump_monitor_info.13, i64 0, i64 %94
+  %switch.gep186 = getelementptr inbounds nuw ptr, ptr @switch.table.dump_monitor_info.13, i64 %94
   %switch.load187 = load ptr, ptr %switch.gep186, align 8
   br label %95
 
@@ -1356,7 +1356,7 @@ switch.lookup185:                                 ; preds = %66
 
 175:                                              ; preds = %125, %180
   %indvars.iv = phi i64 [ 0, %125 ], [ %indvars.iv.next, %180 ]
-  %176 = getelementptr inbounds nuw [24 x %struct.Timing], ptr %174, i64 0, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw %struct.Timing, ptr %174, i64 %indvars.iv
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %178, 0
@@ -1378,7 +1378,7 @@ switch.lookup185:                                 ; preds = %66
 
 187:                                              ; preds = %185, %192
   %indvars.iv168 = phi i64 [ 0, %185 ], [ %indvars.iv.next169, %192 ]
-  %188 = getelementptr inbounds nuw [8 x %struct.Timing], ptr %186, i64 0, i64 %indvars.iv168
+  %188 = getelementptr inbounds nuw %struct.Timing, ptr %186, i64 %indvars.iv168
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load i32, ptr %189, align 4
   %191 = icmp eq i32 %190, 0
@@ -1405,7 +1405,7 @@ switch.lookup185:                                 ; preds = %66
 
 202:                                              ; preds = %.lr.ph, %278
   %indvars.iv172 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next173, %278 ]
-  %203 = getelementptr inbounds nuw [4 x %struct.DetailedTiming], ptr %201, i64 0, i64 %indvars.iv172
+  %203 = getelementptr inbounds nuw %struct.DetailedTiming, ptr %201, i64 %indvars.iv172
   %204 = icmp eq i64 %indvars.iv172, 0
   br i1 %204, label %205, label %208
 
@@ -1464,7 +1464,7 @@ switch.lookup185:                                 ; preds = %66
 
 switch.lookup188:                                 ; preds = %208
   %252 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep189 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dump_monitor_info.14, i64 0, i64 %252
+  %switch.gep189 = getelementptr inbounds nuw ptr, ptr @switch.table.dump_monitor_info.14, i64 %252
   %switch.load190 = load ptr, ptr %switch.gep189, align 8
   br label %253
 

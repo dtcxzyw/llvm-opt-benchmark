@@ -17366,7 +17366,7 @@ lean_dec.exit79:                                  ; preds = %38, %37, %35, %lean
   %.059156 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i119, %204 ]
   %.062155 = phi ptr [ %6, %.lr.ph ], [ %109, %204 ]
   %43 = getelementptr inbounds nuw i8, ptr %.059156, i64 24
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %.056157
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.056157
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1
@@ -18134,7 +18134,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Toml_elabInlineTable___spec__1(p
 6:                                                ; preds = %.lr.ph, %lean_dec.exit36
   %.02666 = phi i64 [ %1, %.lr.ph ], [ %17, %lean_dec.exit36 ]
   %.02865 = phi ptr [ %3, %.lr.ph ], [ %.230, %lean_dec.exit36 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02666
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02666
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -19798,7 +19798,7 @@ define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lake_Toml_elabInlineTabl
   %.01942 = phi i64 [ %34, %50 ], [ %2, %4 ]
   %.02141 = phi ptr [ %.0.i.i29, %50 ], [ %3, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.02141, i64 24
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.01942
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01942
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -20702,7 +20702,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Toml_elabInlineTable___spec__9(p
   %.0150442 = phi ptr [ %4, %.lr.ph ], [ %.4154, %lean_dec.exit208 ]
   %.0155441 = phi ptr [ %5, %.lr.ph ], [ %.4159, %lean_dec.exit208 ]
   %.0160440 = phi ptr [ %8, %.lr.ph ], [ %.4164, %lean_dec.exit208 ]
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0145443
+  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0145443
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -22016,7 +22016,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Toml_elabInlineTable___spec__10(
   %.04511405 = phi i64 [ %4, %.lr.ph ], [ %.12463, %lean_dec.exit646 ]
   %.04641404 = phi ptr [ %6, %.lr.ph ], [ %.12476, %lean_dec.exit646 ]
   %.04791403 = phi ptr [ %9, %.lr.ph ], [ %.12491, %lean_dec.exit646 ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.04511405
+  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %.04511405
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1

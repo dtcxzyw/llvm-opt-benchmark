@@ -2087,8 +2087,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit155.i:     ; preds = %_ZNKSt7__cxx1112bas
 359:                                              ; preds = %357
   %360 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %358) #28
   %361 = xor i64 %360, -1
-  %362 = add i64 %355, %361
-  %363 = getelementptr inbounds nuw [1024 x i8], ptr %13, i64 0, i64 %362
+  %362 = getelementptr i8, ptr %13, i64 %355
+  %363 = getelementptr i8, ptr %362, i64 %361
   store i8 0, ptr %363, align 1, !tbaa !176
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %13)
   %endptr.i = getelementptr inbounds i8, ptr %13, i64 %strlen.i

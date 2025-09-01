@@ -11879,7 +11879,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 
 84:                                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %84
   %indvars.iv = phi i64 [ 0, %_ZN4llvm8DebugLocD2Ev.exit ], [ %indvars.iv.next, %84 ]
-  %85 = getelementptr inbounds nuw [13 x %"struct.std::pair.399"], ptr @_ZL13FixedCSRFIMap, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw %"struct.std::pair.399", ptr @_ZL13FixedCSRFIMap, i64 %indvars.iv
   %86 = load i16, ptr %85, align 4, !tbaa !817
   %87 = zext i16 %86 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -11930,7 +11930,7 @@ _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit.thread: ; preds = %_ZNK4l
 
 _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit: ; preds = %_ZNK4llvm8ArrayRefINS_15CalleeSavedInfoEEcvSt6vectorIS1_SaIS1_EEEv.exit
   %100 = zext nneg i32 %98 to i64
-  %101 = getelementptr inbounds nuw [13 x ptr], ptr @_ZZL19getSpillLibCallNameRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EEE13SpillLibCalls, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr @_ZZL19getSpillLibCallNameRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EEE13SpillLibCalls, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !826
   call void @_ZdlPvm(ptr noundef nonnull %90, i64 noundef %.idx.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -12703,7 +12703,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 
 175:                                              ; preds = %.lr.ph, %175
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %175 ]
-  %176 = getelementptr inbounds nuw [13 x %"struct.std::pair.399"], ptr @_ZL13FixedCSRFIMap, i64 0, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw %"struct.std::pair.399", ptr @_ZL13FixedCSRFIMap, i64 %indvars.iv
   %177 = load i16, ptr %176, align 4, !tbaa !817
   %178 = zext i16 %177 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -12742,7 +12742,7 @@ _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit92.thread: ; preds = %_ZNK
 
 _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit92: ; preds = %_ZNK4llvm8ArrayRefINS_15CalleeSavedInfoEEcvSt6vectorIS1_SaIS1_EEEv.exit90
   %188 = zext nneg i32 %186 to i64
-  %189 = getelementptr inbounds nuw [13 x ptr], ptr @_ZZL21getRestoreLibCallNameRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EEE15RestoreLibCalls, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw ptr, ptr @_ZZL21getRestoreLibCallNameRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EEE15RestoreLibCalls, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !826
   call void @_ZdlPvm(ptr noundef nonnull %182, i64 noundef %.idx.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

@@ -66,7 +66,7 @@ define internal range(i32 -1094995529, 1) i32 @mp_decode_init(ptr noundef %0) #0
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %26
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %27
   %28 = zext nneg i32 %.110.i to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !39
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 1
@@ -404,11 +404,11 @@ mp_read_codes_table.exit:                         ; preds = %.mp_read_codes_tabl
   %197 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %198 = load i32, ptr %197, align 4, !tbaa !65
   %199 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %200 = add nsw i32 %163, -1
-  %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw [16 x %struct.HuffCode], ptr %199, i64 0, i64 %201
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 1
-  %204 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %196, i32 noundef %198, i32 noundef %163, ptr noundef nonnull %202, i32 noundef -2, ptr noundef nonnull %203, i32 noundef -2, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #11
+  %200 = zext nneg i32 %163 to i64
+  %201 = getelementptr %struct.HuffCode, ptr %199, i64 %200
+  %202 = getelementptr i8, ptr %201, i64 -2
+  %203 = getelementptr i8, ptr %201, i64 -1
+  %204 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %196, i32 noundef %198, i32 noundef %163, ptr noundef %202, i32 noundef -2, ptr noundef %203, i32 noundef -2, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #11
   %205 = icmp slt i32 %204, 0
   br i1 %205, label %mp_read_codes_table.exit.thread, label %206
 
@@ -472,7 +472,7 @@ mp_read_codes_table.exit:                         ; preds = %.mp_read_codes_tabl
   %243 = load i16, ptr %242, align 2, !tbaa !61
   %244 = and i16 %243, 32767
   %245 = zext nneg i16 %244 to i64
-  %246 = getelementptr inbounds nuw [32768 x %struct.YuvPixel], ptr @mp_rgb_yuv_table, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %245
   %.sroa.0.0.copyload.i.i = load i24, ptr %246, align 1
   %.sroa.0.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload.i.i to i8
   %.sroa.7.0.extract.shift.i = lshr i24 %.sroa.0.0.copyload.i.i, 8
@@ -831,7 +831,7 @@ mp_get_vlc.exit35.i:                              ; preds = %347, %327
   %492 = load i16, ptr %491, align 2, !tbaa !61
   %493 = and i16 %492, 32767
   %494 = zext nneg i16 %493 to i64
-  %495 = getelementptr inbounds nuw [32768 x %struct.YuvPixel], ptr @mp_rgb_yuv_table, i64 0, i64 %494
+  %495 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %494
   %.sroa.0.0.copyload.i.i.i = load i24, ptr %495, align 1
   store i24 %.sroa.0.0.copyload.i.i.i, ptr %485, align 1
   %496 = add nsw i32 %.0102.i.i, 4
@@ -854,7 +854,7 @@ mp_get_vlc.exit35.i:                              ; preds = %347, %327
   %506 = load i16, ptr %505, align 2, !tbaa !61
   %507 = and i16 %506, 32767
   %508 = zext nneg i16 %507 to i64
-  %509 = getelementptr inbounds nuw [32768 x %struct.YuvPixel], ptr @mp_rgb_yuv_table, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw %struct.YuvPixel, ptr @mp_rgb_yuv_table, i64 %508
   %.sroa.0.0.copyload.i93.i.i = load i24, ptr %509, align 1
   %.sroa.0.0.extract.trunc.i.i = trunc i24 %.sroa.0.0.copyload.i93.i.i to i8
   %.sroa.8.0.extract.shift.i.i = lshr i24 %.sroa.0.0.copyload.i93.i.i, 8
@@ -1636,7 +1636,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mp_get_code(ptr noundef ca
   %39 = add nsw i32 %31, 1
   store i32 %39, ptr %30, align 8, !tbaa !67
   %40 = sext i32 %31 to i64
-  %41 = getelementptr inbounds [16 x %struct.HuffCode], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds %struct.HuffCode, ptr %38, i64 %40
   store i8 %37, ptr %41, align 2, !tbaa !91
   br label %.loopexit
 

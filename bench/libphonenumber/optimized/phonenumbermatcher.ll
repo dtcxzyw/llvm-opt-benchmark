@@ -1123,7 +1123,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit: ; preds
   %84 = getelementptr inbounds i8, ptr %83, i64 -1
   %85 = load i8, ptr %84, align 1, !tbaa !28
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4i18n12phonenumbers6UniLibL11kUTF8LenTblE, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @_ZN4i18n12phonenumbers6UniLibL11kUTF8LenTblE, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !28
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 %89

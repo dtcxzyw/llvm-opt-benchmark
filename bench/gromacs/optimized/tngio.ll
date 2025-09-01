@@ -955,7 +955,7 @@ _ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecu
 
 118:                                              ; preds = %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.exit, %_ZL11IS_CHEMBONDi.exit.thread
   %indvars.iv463 = phi i64 [ 0, %_ZL26addTngMoleculeFromTopologyP18gmx_tng_trajectoryPKcPK7t_atomslPP12tng_molecule.exit ], [ %indvars.iv.next464, %_ZL11IS_CHEMBONDi.exit.thread ]
-  %119 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv463
+  %119 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv463
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i32, ptr %120, align 16, !tbaa !141
   %122 = icmp eq i32 %121, 2
@@ -969,7 +969,7 @@ _ZL11IS_CHEMBONDi.exit:                           ; preds = %118
   br i1 %.not186, label %_ZL11IS_CHEMBONDi.exit.thread, label %126
 
 126:                                              ; preds = %_ZL11IS_CHEMBONDi.exit
-  %127 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %117, i64 0, i64 %indvars.iv463
+  %127 = getelementptr inbounds nuw %struct.InteractionList, ptr %117, i64 %indvars.iv463
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !144
   %130 = load ptr, ptr %127, align 8, !tbaa !145
@@ -2233,7 +2233,7 @@ _ZL18all_atoms_selectedPK10gmx_mtop_t23SimulationAtomGroupType.exit.i: ; preds =
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %_ZL11IS_CHEMBONDi.exit.thread.i
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_ZL11IS_CHEMBONDi.exit.thread.i ], [ 0, %.preheader.i.preheader ]
-  %140 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv43.i
+  %140 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv43.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load i32, ptr %141, align 16, !tbaa !141
   %143 = icmp eq i32 %142, 2
@@ -2247,7 +2247,7 @@ _ZL11IS_CHEMBONDi.exit.i:                         ; preds = %.preheader.i
   br i1 %.not6.i, label %_ZL11IS_CHEMBONDi.exit.thread.i, label %147
 
 147:                                              ; preds = %_ZL11IS_CHEMBONDi.exit.i
-  %148 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %82, i64 0, i64 %indvars.iv43.i
+  %148 = getelementptr inbounds nuw %struct.InteractionList, ptr %82, i64 %indvars.iv43.i
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !144
   %151 = load ptr, ptr %148, align 8, !tbaa !145
@@ -3012,7 +3012,7 @@ define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_
 55:                                               ; preds = %48, %90
   %indvars.iv = phi i64 [ 0, %48 ], [ %indvars.iv.next, %90 ]
   %56 = load ptr, ptr %15, align 8, !tbaa !33
-  %57 = getelementptr inbounds nuw [5 x i64], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE11fallbackIds, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i64, ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE11fallbackIds, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8, !tbaa !31
   %59 = call i32 @tng_data_get_stride_length(ptr noundef %56, i64 noundef %58, i64 noundef -1, ptr noundef nonnull %12)
   %60 = icmp eq i32 %59, 0
@@ -3030,21 +3030,21 @@ define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_
 62:                                               ; preds = %61, %61
   %63 = load ptr, ptr %16, align 8, !tbaa !33
   %64 = load i64, ptr %12, align 8, !tbaa !31
-  %65 = getelementptr inbounds nuw [5 x [32 x i8]], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [32 x i8], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 %indvars.iv
   %66 = call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %63, i64 noundef %64, i64 noundef 3, i64 noundef %58, ptr noundef nonnull %65, i8 noundef signext 1, i8 noundef signext 2)
   br label %90
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %16, align 8, !tbaa !33
   %69 = load i64, ptr %12, align 8, !tbaa !31
-  %70 = getelementptr inbounds nuw [5 x [32 x i8]], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [32 x i8], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 %indvars.iv
   %71 = call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %68, i64 noundef %69, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull %70, i8 noundef signext 1, i8 noundef signext 3)
   br label %90
 
 72:                                               ; preds = %61
   %73 = load ptr, ptr %16, align 8, !tbaa !33
   %74 = load i64, ptr %12, align 8, !tbaa !31
-  %75 = getelementptr inbounds nuw [5 x [32 x i8]], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [32 x i8], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 %indvars.iv
   %76 = call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %73, i64 noundef %74, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull %75, i8 noundef signext 0, i8 noundef signext 3)
   %77 = load i64, ptr %12, align 8, !tbaa !31
   %78 = trunc i64 %77 to i32
@@ -3056,7 +3056,7 @@ define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_
 81:                                               ; preds = %61
   %82 = load ptr, ptr %16, align 8, !tbaa !33
   %83 = load i64, ptr %12, align 8, !tbaa !31
-  %84 = getelementptr inbounds nuw [5 x [32 x i8]], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [32 x i8], ptr @_ZZ23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKcE13fallbackNames, i64 %indvars.iv
   %85 = call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %82, i64 noundef %83, i64 noundef 1, i64 noundef 1152921504875282432, ptr noundef nonnull %84, i8 noundef signext 0, i8 noundef signext 3)
   %86 = load i64, ptr %12, align 8, !tbaa !31
   %87 = trunc i64 %86 to i32
@@ -3684,7 +3684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %129
   %151 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli, i64 0, i64 %151
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli, i64 %151
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %153
 
@@ -3721,7 +3721,7 @@ switch.lookup:                                    ; preds = %129
 163:                                              ; preds = %158, %157, %.noexc
   %.0.i = phi float [ %162, %158 ], [ 1.000000e+01, %157 ], [ 1.000000e+00, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %164 = getelementptr inbounds nuw [3 x [3 x float]], ptr %81, i64 0, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [3 x float], ptr %81, i64 %indvars.iv
   %165 = mul nuw nsw i64 %switch.load, %indvars.iv
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 %165
   %167 = load i8, ptr %14, align 1, !tbaa !32

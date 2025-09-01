@@ -1662,7 +1662,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc19._Z
   %109 = getelementptr inbounds i8, ptr %4, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 8, ptr %110, align 8, !tbaa !58
-  %111 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %112 = load i32, ptr %111, align 4, !tbaa !16
   %113 = zext i32 %112 to i64
   %114 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %113)

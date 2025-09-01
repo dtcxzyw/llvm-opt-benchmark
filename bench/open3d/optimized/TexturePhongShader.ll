@@ -3556,7 +3556,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEEE7setOnesEv.exit28: ; pred
   %40 = fcmp olt double %36, %39
   %41 = select i1 %40, double %39, double %36
   %42 = fptrunc double %41 to float
-  %43 = getelementptr inbounds nuw [4 x %"class.Eigen::Matrix.46"], ptr %12, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %"class.Eigen::Matrix.46", ptr %12, i64 %indvars.iv
   %44 = load double, ptr %43, align 8, !tbaa !120
   %45 = fptrunc double %44 to float
   %46 = load double, ptr %13, align 8, !tbaa !120, !noalias !196
@@ -3618,7 +3618,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEEE7setOnesEv.exit28: ; pred
   %99 = fadd float %98, %92
   store float %99, ptr %90, align 8, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %100 = getelementptr inbounds nuw [4 x %"class.Eigen::Matrix.46"], ptr %24, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw %"class.Eigen::Matrix.46", ptr %24, i64 %indvars.iv
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i
   %102 = load double, ptr %100, align 8, !tbaa !120
   %103 = fptrunc double %102 to float

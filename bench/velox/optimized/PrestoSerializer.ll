@@ -6578,7 +6578,7 @@ if.then.i420:                                     ; preds = %for.end.i415
   %conv23.i421 = sub i32 %273, %i.0.lcssa.i416
   %.sroa.speculated.i.i422 = call i32 @llvm.smin.i32(i32 %conv23.i421, i32 8)
   %conv.i.i.i423 = sext i32 %.sroa.speculated.i.i422 to i64
-  %arrayidx.i.i.i.i424 = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i423
+  %arrayidx.i.i.i.i424 = getelementptr inbounds %"class.xsimd::batch_bool", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 %conv.i.i.i423
   %retval.sroa.0.0.copyload.i.i.i16.i425 = load <8 x i32>, ptr %arrayidx.i.i.i.i424, align 32
   %add.ptr33.i426 = getelementptr inbounds nuw i32, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %conv20.i417
   %274 = load <8 x i32>, ptr %add.ptr33.i426, align 1
@@ -6940,7 +6940,7 @@ for.body41.i:                                     ; preds = %if.end31.i, %if.end
   br i1 %tobool44.not.i, label %if.end59.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %for.body41.i
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %322
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %322
   %323 = load <8 x i32>, ptr %arrayidx.i.i, align 32
   %vecinit.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -7056,7 +7056,7 @@ if.then.i96:                                      ; preds = %for.end.i
   %conv23.i97 = sub nuw i32 %retval.0.i, %i.0.lcssa.i
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %conv23.i97, i32 8)
   %conv.i.i.i = sext i32 %.sroa.speculated.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds %"class.xsimd::batch_bool", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 %conv.i.i.i
   %retval.sroa.0.0.copyload.i.i.i16.i = load <8 x i32>, ptr %arrayidx.i.i.i.i, align 32
   %add.ptr33.i = getelementptr inbounds nuw i32, ptr %call44, i64 %conv20.i
   %332 = load <8 x i32>, ptr %add.ptr33.i, align 1
@@ -17210,7 +17210,7 @@ for.body:                                         ; preds = %entry, %for.body
   %10 = shl i64 %indvars.iv, 49
   %conv.i22 = and i64 %10, -72057594037927936
   %or13 = or disjoint i64 %or11, %conv.i22
-  %arrayidx = getelementptr inbounds nuw [256 x i64], ptr @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_114bitsToBytesMapE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i64, ptr @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_114bitsToBytesMapE, i64 %indvars.iv
   store i64 %or13, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -18288,7 +18288,7 @@ for.body41.i.us.i:                                ; preds = %if.end4.i.us.i, %if
   br i1 %tobool44.not.i.us.i, label %if.end59.i.us.i, label %if.then45.i.us.i
 
 if.then45.i.us.i:                                 ; preds = %for.body41.i.us.i
-  %arrayidx.i.i.us.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %17
+  %arrayidx.i.i.us.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %17
   %18 = load <8 x i32>, ptr %arrayidx.i.i.us.i, align 32
   %vecinit.i.i.i.i.us.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i, i64 0
   %vecinit7.i.i.i.i.us.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -18396,7 +18396,7 @@ for.body41.i.i:                                   ; preds = %if.end31.i.i, %if.e
   br i1 %tobool44.not.i.i, label %if.end59.i.i, label %if.then45.i.i
 
 if.then45.i.i:                                    ; preds = %for.body41.i.i
-  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %24
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %24
   %25 = load <8 x i32>, ptr %arrayidx.i.i.i, align 32
   %vecinit.i.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i.i, i64 0
   %vecinit7.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -18697,7 +18697,7 @@ for.body41.i.us.i186:                             ; preds = %if.end4.i.us.i179, 
   br i1 %tobool44.not.i.us.i192, label %if.end59.i.us.i201, label %if.then45.i.us.i193
 
 if.then45.i.us.i193:                              ; preds = %for.body41.i.us.i186
-  %arrayidx.i.i.us.i194 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %69
+  %arrayidx.i.i.us.i194 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %69
   %70 = load <8 x i32>, ptr %arrayidx.i.i.us.i194, align 32
   %vecinit.i.i.i.i.us.i195 = insertelement <8 x i32> poison, i32 %row.246.i.us.i189, i64 0
   %vecinit7.i.i.i.i.us.i196 = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i195, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -18805,7 +18805,7 @@ for.body41.i.i129:                                ; preds = %if.end31.i.i121, %i
   br i1 %tobool44.not.i.i135, label %if.end59.i.i144, label %if.then45.i.i136
 
 if.then45.i.i136:                                 ; preds = %for.body41.i.i129
-  %arrayidx.i.i.i137 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %76
+  %arrayidx.i.i.i137 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %76
   %77 = load <8 x i32>, ptr %arrayidx.i.i.i137, align 32
   %vecinit.i.i.i.i.i138 = insertelement <8 x i32> poison, i32 %row.246.i.i132, i64 0
   %vecinit7.i.i.i.i.i139 = shufflevector <8 x i32> %vecinit.i.i.i.i.i138, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -19116,7 +19116,7 @@ for.body41.i.us.i.i:                              ; preds = %if.end4.i.us.i.i, %
   br i1 %tobool44.not.i.us.i.i, label %if.end59.i.us.i.i, label %if.then45.i.us.i.i
 
 if.then45.i.us.i.i:                               ; preds = %for.body41.i.us.i.i
-  %arrayidx.i.i.us.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %121
+  %arrayidx.i.i.us.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %121
   %122 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i, align 32
   %vecinit.i.i.i.i.us.i.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i, i64 0
   %vecinit7.i.i.i.i.us.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -19224,7 +19224,7 @@ for.body41.i.i.i:                                 ; preds = %if.end31.i.i.i, %if
   br i1 %tobool44.not.i.i.i, label %if.end59.i.i.i, label %if.then45.i.i.i
 
 if.then45.i.i.i:                                  ; preds = %for.body41.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %128
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %128
   %129 = load <8 x i32>, ptr %arrayidx.i.i.i.i, align 32
   %vecinit.i.i.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i.i.i, i64 0
   %vecinit7.i.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -19515,7 +19515,7 @@ for.body41.i.us.i188.i:                           ; preds = %if.end4.i.us.i181.i
   br i1 %tobool44.not.i.us.i194.i, label %if.end59.i.us.i203.i, label %if.then45.i.us.i195.i
 
 if.then45.i.us.i195.i:                            ; preds = %for.body41.i.us.i188.i
-  %arrayidx.i.i.us.i196.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %171
+  %arrayidx.i.i.us.i196.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %171
   %172 = load <8 x i32>, ptr %arrayidx.i.i.us.i196.i, align 32
   %vecinit.i.i.i.i.us.i197.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i191.i, i64 0
   %vecinit7.i.i.i.i.us.i198.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i197.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -19623,7 +19623,7 @@ for.body41.i.i131.i:                              ; preds = %if.end31.i.i123.i, 
   br i1 %tobool44.not.i.i137.i, label %if.end59.i.i146.i, label %if.then45.i.i138.i
 
 if.then45.i.i138.i:                               ; preds = %for.body41.i.i131.i
-  %arrayidx.i.i.i139.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %178
+  %arrayidx.i.i.i139.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %178
   %179 = load <8 x i32>, ptr %arrayidx.i.i.i139.i, align 32
   %vecinit.i.i.i.i.i140.i = insertelement <8 x i32> poison, i32 %row.246.i.i134.i, i64 0
   %vecinit7.i.i.i.i.i141.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i140.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -19914,7 +19914,7 @@ for.body41.i.us.i410.i:                           ; preds = %if.end4.i.us.i403.i
   br i1 %tobool44.not.i.us.i416.i, label %if.end59.i.us.i425.i, label %if.then45.i.us.i417.i
 
 if.then45.i.us.i417.i:                            ; preds = %for.body41.i.us.i410.i
-  %arrayidx.i.i.us.i418.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %221
+  %arrayidx.i.i.us.i418.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %221
   %222 = load <8 x i32>, ptr %arrayidx.i.i.us.i418.i, align 32
   %vecinit.i.i.i.i.us.i419.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i413.i, i64 0
   %vecinit7.i.i.i.i.us.i420.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i419.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -20022,7 +20022,7 @@ for.body41.i.i353.i:                              ; preds = %if.end31.i.i345.i, 
   br i1 %tobool44.not.i.i359.i, label %if.end59.i.i368.i, label %if.then45.i.i360.i
 
 if.then45.i.i360.i:                               ; preds = %for.body41.i.i353.i
-  %arrayidx.i.i.i361.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %228
+  %arrayidx.i.i.i361.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %228
   %229 = load <8 x i32>, ptr %arrayidx.i.i.i361.i, align 32
   %vecinit.i.i.i.i.i362.i = insertelement <8 x i32> poison, i32 %row.246.i.i356.i, i64 0
   %vecinit7.i.i.i.i.i363.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i362.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -20313,7 +20313,7 @@ for.body41.i.us.i632.i:                           ; preds = %if.end4.i.us.i625.i
   br i1 %tobool44.not.i.us.i638.i, label %if.end59.i.us.i647.i, label %if.then45.i.us.i639.i
 
 if.then45.i.us.i639.i:                            ; preds = %for.body41.i.us.i632.i
-  %arrayidx.i.i.us.i640.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %271
+  %arrayidx.i.i.us.i640.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %271
   %272 = load <8 x i32>, ptr %arrayidx.i.i.us.i640.i, align 32
   %vecinit.i.i.i.i.us.i641.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i635.i, i64 0
   %vecinit7.i.i.i.i.us.i642.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i641.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -20421,7 +20421,7 @@ for.body41.i.i575.i:                              ; preds = %if.end31.i.i567.i, 
   br i1 %tobool44.not.i.i581.i, label %if.end59.i.i590.i, label %if.then45.i.i582.i
 
 if.then45.i.i582.i:                               ; preds = %for.body41.i.i575.i
-  %arrayidx.i.i.i583.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %278
+  %arrayidx.i.i.i583.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %278
   %279 = load <8 x i32>, ptr %arrayidx.i.i.i583.i, align 32
   %vecinit.i.i.i.i.i584.i = insertelement <8 x i32> poison, i32 %row.246.i.i578.i, i64 0
   %vecinit7.i.i.i.i.i585.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i584.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -20712,7 +20712,7 @@ for.body41.i.us.i854.i:                           ; preds = %if.end4.i.us.i847.i
   br i1 %tobool44.not.i.us.i860.i, label %if.end59.i.us.i869.i, label %if.then45.i.us.i861.i
 
 if.then45.i.us.i861.i:                            ; preds = %for.body41.i.us.i854.i
-  %arrayidx.i.i.us.i862.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %321
+  %arrayidx.i.i.us.i862.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %321
   %322 = load <8 x i32>, ptr %arrayidx.i.i.us.i862.i, align 32
   %vecinit.i.i.i.i.us.i863.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i857.i, i64 0
   %vecinit7.i.i.i.i.us.i864.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i863.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -20820,7 +20820,7 @@ for.body41.i.i797.i:                              ; preds = %if.end31.i.i789.i, 
   br i1 %tobool44.not.i.i803.i, label %if.end59.i.i812.i, label %if.then45.i.i804.i
 
 if.then45.i.i804.i:                               ; preds = %for.body41.i.i797.i
-  %arrayidx.i.i.i805.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %328
+  %arrayidx.i.i.i805.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %328
   %329 = load <8 x i32>, ptr %arrayidx.i.i.i805.i, align 32
   %vecinit.i.i.i.i.i806.i = insertelement <8 x i32> poison, i32 %row.246.i.i800.i, i64 0
   %vecinit7.i.i.i.i.i807.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i806.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -21111,7 +21111,7 @@ for.body41.i.us.i1076.i:                          ; preds = %if.end4.i.us.i1069.
   br i1 %tobool44.not.i.us.i1082.i, label %if.end59.i.us.i1091.i, label %if.then45.i.us.i1083.i
 
 if.then45.i.us.i1083.i:                           ; preds = %for.body41.i.us.i1076.i
-  %arrayidx.i.i.us.i1084.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %371
+  %arrayidx.i.i.us.i1084.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %371
   %372 = load <8 x i32>, ptr %arrayidx.i.i.us.i1084.i, align 32
   %vecinit.i.i.i.i.us.i1085.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i1079.i, i64 0
   %vecinit7.i.i.i.i.us.i1086.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i1085.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -21219,7 +21219,7 @@ for.body41.i.i1019.i:                             ; preds = %if.end31.i.i1011.i,
   br i1 %tobool44.not.i.i1025.i, label %if.end59.i.i1034.i, label %if.then45.i.i1026.i
 
 if.then45.i.i1026.i:                              ; preds = %for.body41.i.i1019.i
-  %arrayidx.i.i.i1027.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %378
+  %arrayidx.i.i.i1027.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %378
   %379 = load <8 x i32>, ptr %arrayidx.i.i.i1027.i, align 32
   %vecinit.i.i.i.i.i1028.i = insertelement <8 x i32> poison, i32 %row.246.i.i1022.i, i64 0
   %vecinit7.i.i.i.i.i1029.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i1028.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -21510,7 +21510,7 @@ for.body41.i.us.i1298.i:                          ; preds = %if.end4.i.us.i1291.
   br i1 %tobool44.not.i.us.i1304.i, label %if.end59.i.us.i1313.i, label %if.then45.i.us.i1305.i
 
 if.then45.i.us.i1305.i:                           ; preds = %for.body41.i.us.i1298.i
-  %arrayidx.i.i.us.i1306.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %421
+  %arrayidx.i.i.us.i1306.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %421
   %422 = load <8 x i32>, ptr %arrayidx.i.i.us.i1306.i, align 32
   %vecinit.i.i.i.i.us.i1307.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i1301.i, i64 0
   %vecinit7.i.i.i.i.us.i1308.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i1307.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -21618,7 +21618,7 @@ for.body41.i.i1241.i:                             ; preds = %if.end31.i.i1233.i,
   br i1 %tobool44.not.i.i1247.i, label %if.end59.i.i1256.i, label %if.then45.i.i1248.i
 
 if.then45.i.i1248.i:                              ; preds = %for.body41.i.i1241.i
-  %arrayidx.i.i.i1249.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %428
+  %arrayidx.i.i.i1249.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %428
   %429 = load <8 x i32>, ptr %arrayidx.i.i.i1249.i, align 32
   %vecinit.i.i.i.i.i1250.i = insertelement <8 x i32> poison, i32 %row.246.i.i1244.i, i64 0
   %vecinit7.i.i.i.i.i1251.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i1250.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -21909,7 +21909,7 @@ for.body41.i.us.i1520.i:                          ; preds = %if.end4.i.us.i1513.
   br i1 %tobool44.not.i.us.i1526.i, label %if.end59.i.us.i1535.i, label %if.then45.i.us.i1527.i
 
 if.then45.i.us.i1527.i:                           ; preds = %for.body41.i.us.i1520.i
-  %arrayidx.i.i.us.i1528.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %471
+  %arrayidx.i.i.us.i1528.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %471
   %472 = load <8 x i32>, ptr %arrayidx.i.i.us.i1528.i, align 32
   %vecinit.i.i.i.i.us.i1529.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i1523.i, i64 0
   %vecinit7.i.i.i.i.us.i1530.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i1529.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -22017,7 +22017,7 @@ for.body41.i.i1463.i:                             ; preds = %if.end31.i.i1455.i,
   br i1 %tobool44.not.i.i1469.i, label %if.end59.i.i1478.i, label %if.then45.i.i1470.i
 
 if.then45.i.i1470.i:                              ; preds = %for.body41.i.i1463.i
-  %arrayidx.i.i.i1471.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %478
+  %arrayidx.i.i.i1471.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %478
   %479 = load <8 x i32>, ptr %arrayidx.i.i.i1471.i, align 32
   %vecinit.i.i.i.i.i1472.i = insertelement <8 x i32> poison, i32 %row.246.i.i1466.i, i64 0
   %vecinit7.i.i.i.i.i1473.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i1472.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -22326,7 +22326,7 @@ for.body41.i.us.i1742.i:                          ; preds = %if.end4.i.us.i1735.
   br i1 %tobool44.not.i.us.i1748.i, label %if.end59.i.us.i1757.i, label %if.then45.i.us.i1749.i
 
 if.then45.i.us.i1749.i:                           ; preds = %for.body41.i.us.i1742.i
-  %arrayidx.i.i.us.i1750.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %527
+  %arrayidx.i.i.us.i1750.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %527
   %528 = load <8 x i32>, ptr %arrayidx.i.i.us.i1750.i, align 32
   %vecinit.i.i.i.i.us.i1751.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i1745.i, i64 0
   %vecinit7.i.i.i.i.us.i1752.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i1751.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -22434,7 +22434,7 @@ for.body41.i.i1685.i:                             ; preds = %if.end31.i.i1677.i,
   br i1 %tobool44.not.i.i1691.i, label %if.end59.i.i1700.i, label %if.then45.i.i1692.i
 
 if.then45.i.i1692.i:                              ; preds = %for.body41.i.i1685.i
-  %arrayidx.i.i.i1693.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %534
+  %arrayidx.i.i.i1693.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %534
   %535 = load <8 x i32>, ptr %arrayidx.i.i.i1693.i, align 32
   %vecinit.i.i.i.i.i1694.i = insertelement <8 x i32> poison, i32 %row.246.i.i1688.i, i64 0
   %vecinit7.i.i.i.i.i1695.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i1694.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -22725,7 +22725,7 @@ for.body41.i.us.i1964.i:                          ; preds = %if.end4.i.us.i1957.
   br i1 %tobool44.not.i.us.i1970.i, label %if.end59.i.us.i1979.i, label %if.then45.i.us.i1971.i
 
 if.then45.i.us.i1971.i:                           ; preds = %for.body41.i.us.i1964.i
-  %arrayidx.i.i.us.i1972.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %577
+  %arrayidx.i.i.us.i1972.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %577
   %578 = load <8 x i32>, ptr %arrayidx.i.i.us.i1972.i, align 32
   %vecinit.i.i.i.i.us.i1973.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i1967.i, i64 0
   %vecinit7.i.i.i.i.us.i1974.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i1973.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -22833,7 +22833,7 @@ for.body41.i.i1907.i:                             ; preds = %if.end31.i.i1899.i,
   br i1 %tobool44.not.i.i1913.i, label %if.end59.i.i1922.i, label %if.then45.i.i1914.i
 
 if.then45.i.i1914.i:                              ; preds = %for.body41.i.i1907.i
-  %arrayidx.i.i.i1915.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %584
+  %arrayidx.i.i.i1915.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %584
   %585 = load <8 x i32>, ptr %arrayidx.i.i.i1915.i, align 32
   %vecinit.i.i.i.i.i1916.i = insertelement <8 x i32> poison, i32 %row.246.i.i1910.i, i64 0
   %vecinit7.i.i.i.i.i1917.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i1916.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -23124,7 +23124,7 @@ for.body41.i.us.i2186.i:                          ; preds = %if.end4.i.us.i2179.
   br i1 %tobool44.not.i.us.i2192.i, label %if.end59.i.us.i2201.i, label %if.then45.i.us.i2193.i
 
 if.then45.i.us.i2193.i:                           ; preds = %for.body41.i.us.i2186.i
-  %arrayidx.i.i.us.i2194.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %627
+  %arrayidx.i.i.us.i2194.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %627
   %628 = load <8 x i32>, ptr %arrayidx.i.i.us.i2194.i, align 32
   %vecinit.i.i.i.i.us.i2195.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i2189.i, i64 0
   %vecinit7.i.i.i.i.us.i2196.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i2195.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -23232,7 +23232,7 @@ for.body41.i.i2129.i:                             ; preds = %if.end31.i.i2121.i,
   br i1 %tobool44.not.i.i2135.i, label %if.end59.i.i2144.i, label %if.then45.i.i2136.i
 
 if.then45.i.i2136.i:                              ; preds = %for.body41.i.i2129.i
-  %arrayidx.i.i.i2137.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %634
+  %arrayidx.i.i.i2137.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %634
   %635 = load <8 x i32>, ptr %arrayidx.i.i.i2137.i, align 32
   %vecinit.i.i.i.i.i2138.i = insertelement <8 x i32> poison, i32 %row.246.i.i2132.i, i64 0
   %vecinit7.i.i.i.i.i2139.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i2138.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -23523,7 +23523,7 @@ for.body41.i.us.i2408.i:                          ; preds = %if.end4.i.us.i2401.
   br i1 %tobool44.not.i.us.i2414.i, label %if.end59.i.us.i2423.i, label %if.then45.i.us.i2415.i
 
 if.then45.i.us.i2415.i:                           ; preds = %for.body41.i.us.i2408.i
-  %arrayidx.i.i.us.i2416.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %677
+  %arrayidx.i.i.us.i2416.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %677
   %678 = load <8 x i32>, ptr %arrayidx.i.i.us.i2416.i, align 32
   %vecinit.i.i.i.i.us.i2417.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i2411.i, i64 0
   %vecinit7.i.i.i.i.us.i2418.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i2417.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -23631,7 +23631,7 @@ for.body41.i.i2351.i:                             ; preds = %if.end31.i.i2343.i,
   br i1 %tobool44.not.i.i2357.i, label %if.end59.i.i2366.i, label %if.then45.i.i2358.i
 
 if.then45.i.i2358.i:                              ; preds = %for.body41.i.i2351.i
-  %arrayidx.i.i.i2359.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %684
+  %arrayidx.i.i.i2359.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %684
   %685 = load <8 x i32>, ptr %arrayidx.i.i.i2359.i, align 32
   %vecinit.i.i.i.i.i2360.i = insertelement <8 x i32> poison, i32 %row.246.i.i2354.i, i64 0
   %vecinit7.i.i.i.i.i2361.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i2360.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -24198,7 +24198,7 @@ for.body41:                                       ; preds = %if.end31, %if.end59
   br i1 %tobool44.not, label %if.end59, label %if.then45
 
 if.then45:                                        ; preds = %for.body41
-  %arrayidx.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %6
+  %arrayidx.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %6
   %7 = load <8 x i32>, ptr %arrayidx.i, align 32
   %vecinit.i.i.i = insertelement <8 x i32> poison, i32 %row.246, i64 0
   %vecinit7.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -24688,7 +24688,7 @@ for.body41.i:                                     ; preds = %if.end31.i, %if.end
   br i1 %tobool44.not.i, label %if.end59.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %for.body41.i
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %3
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %3
   %4 = load <8 x i32>, ptr %arrayidx.i.i, align 32
   %vecinit.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -24949,7 +24949,7 @@ if.then.i79:                                      ; preds = %for.end.i
   %conv23.i = sub nuw i32 %retval.0.i, %i.0.lcssa.i
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %conv23.i, i32 8)
   %conv.i.i.i = sext i32 %.sroa.speculated.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds %"class.xsimd::batch_bool", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 %conv.i.i.i
   %retval.sroa.0.0.copyload.i.i.i16.i = load <8 x i32>, ptr %arrayidx.i.i.i.i, align 32
   %add.ptr33.i = getelementptr inbounds nuw i32, ptr %call15, i64 %conv20.i
   %31 = load <8 x i32>, ptr %add.ptr33.i, align 1
@@ -26030,7 +26030,7 @@ for.body41.i.us:                                  ; preds = %if.end4.i.us, %if.e
   br i1 %tobool44.not.i.us, label %if.end59.i.us, label %if.then45.i.us
 
 if.then45.i.us:                                   ; preds = %for.body41.i.us
-  %arrayidx.i.i.us = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %11
+  %arrayidx.i.i.us = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %11
   %12 = load <8 x i32>, ptr %arrayidx.i.i.us, align 32
   %vecinit.i.i.i.i.us = insertelement <8 x i32> poison, i32 %row.246.i.us, i64 0
   %vecinit7.i.i.i.i.us = shufflevector <8 x i32> %vecinit.i.i.i.i.us, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -26138,7 +26138,7 @@ for.body41.i:                                     ; preds = %if.end31.i, %if.end
   br i1 %tobool44.not.i, label %if.end59.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %for.body41.i
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %18
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %18
   %19 = load <8 x i32>, ptr %arrayidx.i.i, align 32
   %vecinit.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -41251,7 +41251,7 @@ for.body.i152.i.i.i:                              ; preds = %while.body.i.i.i.i.
   %toClear.1.i = phi i32 [ %inc.i160.i.i.i, %for.body.i152.i.i.i ], [ %toClear.0.i, %while.body.i.i.i.i.i ]
   %rem.i.i153.i.i.i = and i32 %toClear.1.i, 7
   %idxprom.i.i154.i.i.i = zext nneg i32 %rem.i.i153.i.i.i to i64
-  %arrayidx.i.i155.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i154.i.i.i
+  %arrayidx.i.i155.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i.i154.i.i.i
   %49 = load i8, ptr %arrayidx.i.i155.i.i.i, align 1
   %div2.i.i156.i.i.i = lshr i32 %toClear.1.i, 3
   %idxprom1.i.i157.i.i.i = zext nneg i32 %div2.i.i156.i.i.i to i64
@@ -41311,7 +41311,7 @@ cond.true.i.i135.i.i.i:                           ; preds = %_ZN8facebook5velox1
 
 cond.false.i.i142.i.i.i:                          ; preds = %_ZN8facebook5velox15ByteInputStream4readIaEET_v.exit.i131.i.i.i
   %idxprom.i4.i.i143.i.i.i = and i64 %48, 7
-  %arrayidx.i5.i.i144.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i143.i.i.i
+  %arrayidx.i5.i.i144.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i143.i.i.i
   %60 = load i8, ptr %arrayidx.i5.i.i144.i.i.i, align 1
   %div2.i6.i.i145.i.i.i = lshr i32 %add.i26.i.i.i.i, 3
   %idxprom1.i.i.i146.i.i.i = zext nneg i32 %div2.i6.i.i145.i.i.i to i64
@@ -41365,7 +41365,7 @@ for.body.i105.i.i.i:                              ; preds = %while.body.i42.i.i.
   %toClear.3.i = phi i32 [ %inc.i113.i.i.i, %for.body.i105.i.i.i ], [ %toClear.2.i, %while.body.i42.i.i.i.i ]
   %rem.i.i106.i.i.i = and i32 %toClear.3.i, 7
   %idxprom.i.i107.i.i.i = zext nneg i32 %rem.i.i106.i.i.i to i64
-  %arrayidx.i.i108.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i107.i.i.i
+  %arrayidx.i.i108.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i.i107.i.i.i
   %64 = load i8, ptr %arrayidx.i.i108.i.i.i, align 1
   %div2.i.i109.i.i.i = lshr i32 %toClear.3.i, 3
   %idxprom1.i.i110.i.i.i = zext nneg i32 %div2.i.i109.i.i.i to i64
@@ -41425,7 +41425,7 @@ cond.true.i.i88.i.i.i:                            ; preds = %_ZN8facebook5velox1
 
 cond.false.i.i95.i.i.i:                           ; preds = %_ZN8facebook5velox15ByteInputStream4readIaEET_v.exit.i84.i.i.i
   %idxprom.i4.i.i96.i.i.i = and i64 %63, 7
-  %arrayidx.i5.i.i97.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i96.i.i.i
+  %arrayidx.i5.i.i97.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i96.i.i.i
   %75 = load i8, ptr %arrayidx.i5.i.i97.i.i.i, align 1
   %div2.i6.i.i98.i.i.i = lshr i32 %add.i45.i.i.i.i, 3
   %idxprom1.i.i.i99.i.i.i = zext nneg i32 %div2.i6.i.i98.i.i.i to i64
@@ -41488,7 +41488,7 @@ for.body.i58.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %toClear.7.i = phi i32 [ %inc.i66.i.i.i, %for.body.i58.i.i.i ], [ %toClear.6.i, %for.body.i.i.i.i.i ]
   %rem.i.i59.i.i.i = and i32 %toClear.7.i, 7
   %idxprom.i.i60.i.i.i = zext nneg i32 %rem.i.i59.i.i.i to i64
-  %arrayidx.i.i61.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i60.i.i.i
+  %arrayidx.i.i61.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i.i60.i.i.i
   %78 = load i8, ptr %arrayidx.i.i61.i.i.i, align 1
   %div2.i.i62.i.i.i = lshr i32 %toClear.7.i, 3
   %idxprom1.i.i63.i.i.i = zext nneg i32 %div2.i.i62.i.i.i to i64
@@ -41548,7 +41548,7 @@ cond.true.i.i41.i.i.i:                            ; preds = %_ZN8facebook5velox1
 
 cond.false.i.i48.i.i.i:                           ; preds = %_ZN8facebook5velox15ByteInputStream4readIaEET_v.exit.i37.i.i.i
   %idxprom.i4.i.i49.i.i.i = and i64 %row.015.i.i.i.i.i, 7
-  %arrayidx.i5.i.i50.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i49.i.i.i
+  %arrayidx.i5.i.i50.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i49.i.i.i
   %89 = load i8, ptr %arrayidx.i5.i.i50.i.i.i, align 1
   %div2.i6.i.i51.i.i.i = lshr i64 %row.015.i.i.i.i.i, 3
   %idxprom1.i.i.i52.i.i.i = and i64 %div2.i6.i.i51.i.i.i, 536870911
@@ -41577,7 +41577,7 @@ for.body.i80.i.i.i.i:                             ; preds = %while.body.i55.i.i.
   %toClear.9.i = phi i32 [ %inc.i81.i.i.i.i, %for.body.i80.i.i.i.i ], [ %toClear.8.i, %while.body.i55.i.i.i.i ]
   %rem.i.i.i.i.i.i = and i32 %toClear.9.i, 7
   %idxprom.i.i.i.i.i.i = zext nneg i32 %rem.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i.i.i.i.i.i
   %92 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
   %div2.i.i.i.i.i.i = lshr i32 %toClear.9.i, 3
   %idxprom1.i.i.i.i.i.i = zext nneg i32 %div2.i.i.i.i.i.i to i64
@@ -41637,7 +41637,7 @@ cond.true.i.i.i.i.i.i:                            ; preds = %_ZN8facebook5velox1
 
 cond.false.i.i.i.i.i.i:                           ; preds = %_ZN8facebook5velox15ByteInputStream4readIaEET_v.exit.i.i.i.i.i
   %idxprom.i4.i.i.i.i.i.i = and i64 %91, 7
-  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i.i.i.i.i
   %103 = load i8, ptr %arrayidx.i5.i.i.i.i.i.i, align 1
   %div2.i6.i.i.i.i.i.i = lshr i32 %add10.i.i.i.i.i, 3
   %idxprom1.i.i.i.i.i.i.i = zext nneg i32 %div2.i6.i.i.i.i.i.i to i64
@@ -41691,7 +41691,7 @@ for.body.i19.i.i.i:                               ; preds = %while.body.i70.i.i.
   %toClear.13.i = phi i32 [ %inc.i.i.i.i, %for.body.i19.i.i.i ], [ %toClear.12.i, %while.body.i70.i.i.i.i ]
   %rem.i.i.i.i.i = and i32 %toClear.13.i, 7
   %idxprom.i.i20.i.i.i = zext nneg i32 %rem.i.i.i.i.i to i64
-  %arrayidx.i.i21.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i.i20.i.i.i
+  %arrayidx.i.i21.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i.i20.i.i.i
   %107 = load i8, ptr %arrayidx.i.i21.i.i.i, align 1
   %div2.i.i.i.i.i = lshr i32 %toClear.13.i, 3
   %idxprom1.i.i.i.i.i = zext nneg i32 %div2.i.i.i.i.i to i64
@@ -41751,7 +41751,7 @@ cond.true.i.i.i.i.i:                              ; preds = %_ZN8facebook5velox1
 
 cond.false.i.i.i.i.i:                             ; preds = %_ZN8facebook5velox15ByteInputStream4readIaEET_v.exit.i.i.i.i
   %idxprom.i4.i.i.i.i.i = and i64 %106, 7
-  %arrayidx.i5.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i.i.i.i
   %118 = load i8, ptr %arrayidx.i5.i.i.i.i.i, align 1
   %div2.i6.i.i.i.i.i = lshr i32 %add.i73.i.i.i.i, 3
   %idxprom1.i.i.i14.i.i.i = zext nneg i32 %div2.i6.i.i.i.i.i to i64
@@ -41817,7 +41817,7 @@ cond.true.i.i:                                    ; preds = %_ZN8facebook5velox1
 
 cond.false.i.i:                                   ; preds = %_ZN8facebook5velox15ByteInputStream4readIaEET_v.exit.i
   %idxprom.i4.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i5.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i
   %129 = load i8, ptr %arrayidx.i5.i.i, align 1
   %div2.i6.i.i = lshr i32 %row.029.i, 3
   %idxprom1.i.i.i = zext nneg i32 %div2.i6.i.i to i64
@@ -52161,7 +52161,7 @@ cond.true.i.i:                                    ; preds = %for.body17.i
 
 cond.false.i.i:                                   ; preds = %for.body17.i
   %idxprom.i4.i.i = zext nneg i32 %and.i.i to i64
-  %arrayidx.i5.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i
+  %arrayidx.i5.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i
   %29 = load i8, ptr %arrayidx.i5.i.i, align 1
   %and3.i.i.i = and i8 %29, %27
   br label %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i
@@ -66640,7 +66640,7 @@ cond.true.i.i.i.i:                                ; preds = %if.end.i.i9.i
 
 cond.false.i.i.i.i:                               ; preds = %if.end.i.i9.i
   %idxprom.i4.i.i.i.i = zext nneg i32 %rem.i.i.i.i.i to i64
-  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i.i.i
+  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i.i.i.i
   %207 = load i8, ptr %arrayidx.i5.i.i.i.i, align 1
   %div2.i6.i.i.i.i = lshr i32 %201, 3
   %idxprom1.i.i.i.i.i = zext nneg i32 %div2.i6.i.i.i.i to i64
@@ -74123,7 +74123,7 @@ for.body41.i:                                     ; preds = %if.end31.i, %if.end
   br i1 %tobool44.not.i, label %if.end59.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %for.body41.i
-  %arrayidx.i.i303 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %402
+  %arrayidx.i.i303 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %402
   %403 = load <8 x i32>, ptr %arrayidx.i.i303, align 32
   %vecinit.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -74353,7 +74353,7 @@ if.then.i238:                                     ; preds = %for.end.i236
   %conv23.i = sub nuw i32 %retval.0.i, %i.0.lcssa.i
   %.sroa.speculated.i.i239 = call i32 @llvm.smin.i32(i32 %conv23.i, i32 8)
   %conv.i.i.i240 = sext i32 %.sroa.speculated.i.i239 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i240
+  %arrayidx.i.i.i.i = getelementptr inbounds %"class.xsimd::batch_bool", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 %conv.i.i.i240
   %retval.sroa.0.0.copyload.i.i.i16.i = load <8 x i32>, ptr %arrayidx.i.i.i.i, align 32
   %add.ptr33.i = getelementptr inbounds nuw i32, ptr %call16.i, i64 %conv20.i
   %427 = load <8 x i32>, ptr %add.ptr33.i, align 1
@@ -74967,7 +74967,7 @@ if.then.i28:                                      ; preds = %for.end.i
   %conv23.i = sub i32 %18, %i.0.lcssa.i
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %conv23.i, i32 8)
   %conv.i.i.i = sext i32 %.sroa.speculated.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds %"class.xsimd::batch_bool", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 %conv.i.i.i
   %retval.sroa.0.0.copyload.i.i.i16.i = load <8 x i32>, ptr %arrayidx.i.i.i.i, align 32
   %add.ptr33.i = getelementptr inbounds nuw i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %conv20.i
   %19 = load <8 x i32>, ptr %add.ptr33.i, align 1
@@ -75429,7 +75429,7 @@ for.body41.i.us.i:                                ; preds = %if.end4.i.us.i, %if
   br i1 %tobool44.not.i.us.i, label %if.end59.i.us.i, label %if.then45.i.us.i
 
 if.then45.i.us.i:                                 ; preds = %for.body41.i.us.i
-  %arrayidx.i.i.us.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %27
+  %arrayidx.i.i.us.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %27
   %28 = load <8 x i32>, ptr %arrayidx.i.i.us.i, align 32
   %vecinit.i.i.i.i.us.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i, i64 0
   %vecinit7.i.i.i.i.us.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -75537,7 +75537,7 @@ for.body41.i.i:                                   ; preds = %if.end31.i.i, %if.e
   br i1 %tobool44.not.i.i, label %if.end59.i.i, label %if.then45.i.i
 
 if.then45.i.i:                                    ; preds = %for.body41.i.i
-  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %34
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %34
   %35 = load <8 x i32>, ptr %arrayidx.i.i.i, align 32
   %vecinit.i.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i.i, i64 0
   %vecinit7.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -75624,7 +75624,7 @@ if.then.i86.i:                                    ; preds = %for.end.i.i
   %conv23.i.i = sub nuw i32 %retval.0.i.i, %i.0.lcssa.i.i
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %conv23.i.i, i32 8)
   %conv.i.i.i.i = sext i32 %.sroa.speculated.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.xsimd::batch_bool", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 %conv.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i16.i.i = load <8 x i32>, ptr %arrayidx.i.i.i.i.i, align 32
   %add.ptr33.i.i = getelementptr inbounds nuw i32, ptr %call26.i, i64 %conv20.i.i
   %42 = load <8 x i32>, ptr %add.ptr33.i.i, align 1
@@ -75881,7 +75881,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %valueBits.0.i, i64 %indvars.iv.i
   %89 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i.i = zext i8 %89 to i64
-  %arrayidx.i110.i = getelementptr inbounds nuw [256 x i64], ptr @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_114bitsToBytesMapE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i110.i = getelementptr inbounds nuw i64, ptr @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_114bitsToBytesMapE, i64 %idxprom.i.i
   %90 = load i64, ptr %arrayidx.i110.i, align 8
   store i64 %90, ptr %word.i, align 8
   %cmp54.i = icmp samesign ult i64 %indvars.iv.i, %88
@@ -76244,7 +76244,7 @@ if.then.i47.i:                                    ; preds = %invoke.cont22.i
 
 cond.false.i.i:                                   ; preds = %if.then.i47.i
   %idxprom.i.i.i45 = zext i8 %155 to i64
-  %arrayidx.i.i.i46 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %idxprom.i.i.i45
+  %arrayidx.i.i.i46 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %idxprom.i.i.i45
   br label %if.end.i.i11
 
 if.else.i.i:                                      ; preds = %invoke.cont22.i
@@ -76308,7 +76308,7 @@ for.body41.i.us.i.i:                              ; preds = %if.end4.i.us.i.i, %
   br i1 %tobool44.not.i.us.i.i, label %if.end59.i.us.i.i, label %if.then45.i.us.i.i
 
 if.then45.i.us.i.i:                               ; preds = %for.body41.i.us.i.i
-  %arrayidx.i.i.us.i.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %159
+  %arrayidx.i.i.us.i.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %159
   %160 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i, align 32
   %vecinit.i.i.i.i.us.i.i = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i, i64 0
   %vecinit7.i.i.i.i.us.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -76416,7 +76416,7 @@ for.body41.i.i.i:                                 ; preds = %if.end31.i.i.i, %if
   br i1 %tobool44.not.i.i.i, label %if.end59.i.i.i, label %if.then45.i.i.i
 
 if.then45.i.i.i:                                  ; preds = %for.body41.i.i.i
-  %arrayidx.i.i.i.i42 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %166
+  %arrayidx.i.i.i.i42 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %166
   %167 = load <8 x i32>, ptr %arrayidx.i.i.i.i42, align 32
   %vecinit.i.i.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i.i.i, i64 0
   %vecinit7.i.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -77076,7 +77076,7 @@ if.then.i78.i:                                    ; preds = %invoke.cont21.i105
 
 cond.false.i.i294:                                ; preds = %if.then.i78.i
   %idxprom.i.i.i295 = zext i8 %281 to i64
-  %arrayidx.i.i.i296 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %idxprom.i.i.i295
+  %arrayidx.i.i.i296 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %idxprom.i.i.i295
   br label %if.end.i48.i
 
 if.else.i.i111:                                   ; preds = %invoke.cont21.i105
@@ -77140,7 +77140,7 @@ for.body41.i.us.i.i254:                           ; preds = %if.end4.i.us.i.i250
   br i1 %tobool44.not.i.us.i.i260, label %if.end59.i.us.i.i269, label %if.then45.i.us.i.i261
 
 if.then45.i.us.i.i261:                            ; preds = %for.body41.i.us.i.i254
-  %arrayidx.i.i.us.i.i262 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %285
+  %arrayidx.i.i.us.i.i262 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %285
   %286 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i262, align 32
   %vecinit.i.i.i.i.us.i.i263 = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i257, i64 0
   %vecinit7.i.i.i.i.us.i.i264 = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i263, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -77248,7 +77248,7 @@ for.body41.i.i.i205:                              ; preds = %if.end31.i.i.i201, 
   br i1 %tobool44.not.i.i.i211, label %if.end59.i.i.i217, label %if.then45.i.i.i212
 
 if.then45.i.i.i212:                               ; preds = %for.body41.i.i.i205
-  %arrayidx.i.i.i74.i = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %292
+  %arrayidx.i.i.i74.i = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %292
   %293 = load <8 x i32>, ptr %arrayidx.i.i.i74.i, align 32
   %vecinit.i.i.i.i.i.i213 = insertelement <8 x i32> poison, i32 %row.246.i.i.i208, i64 0
   %vecinit7.i.i.i.i.i.i214 = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i213, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -77923,7 +77923,7 @@ if.then.i47.i694:                                 ; preds = %invoke.cont21.i441
 
 cond.false.i.i697:                                ; preds = %if.then.i47.i694
   %idxprom.i.i.i698 = zext i8 %408 to i64
-  %arrayidx.i.i.i699 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %idxprom.i.i.i698
+  %arrayidx.i.i.i699 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %idxprom.i.i.i698
   br label %if.end.i.i463
 
 if.else.i.i450:                                   ; preds = %invoke.cont21.i441
@@ -77987,7 +77987,7 @@ for.body41.i.us.i.i656:                           ; preds = %if.end4.i.us.i.i649
   br i1 %tobool44.not.i.us.i.i662, label %if.end59.i.us.i.i671, label %if.then45.i.us.i.i663
 
 if.then45.i.us.i.i663:                            ; preds = %for.body41.i.us.i.i656
-  %arrayidx.i.i.us.i.i664 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %412
+  %arrayidx.i.i.us.i.i664 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %412
   %413 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i664, align 32
   %vecinit.i.i.i.i.us.i.i665 = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i659, i64 0
   %vecinit7.i.i.i.i.us.i.i666 = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i665, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -78095,7 +78095,7 @@ for.body41.i.i.i599:                              ; preds = %if.end31.i.i.i591, 
   br i1 %tobool44.not.i.i.i605, label %if.end59.i.i.i614, label %if.then45.i.i.i606
 
 if.then45.i.i.i606:                               ; preds = %for.body41.i.i.i599
-  %arrayidx.i.i.i.i607 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %419
+  %arrayidx.i.i.i.i607 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %419
   %420 = load <8 x i32>, ptr %arrayidx.i.i.i.i607, align 32
   %vecinit.i.i.i.i.i.i608 = insertelement <8 x i32> poison, i32 %row.246.i.i.i602, i64 0
   %vecinit7.i.i.i.i.i.i609 = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i608, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -78577,7 +78577,7 @@ if.then.i47.i1047:                                ; preds = %invoke.cont21.i788
 
 cond.false.i.i1050:                               ; preds = %if.then.i47.i1047
   %idxprom.i.i.i1051 = zext i8 %494 to i64
-  %arrayidx.i.i.i1052 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %idxprom.i.i.i1051
+  %arrayidx.i.i.i1052 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %idxprom.i.i.i1051
   br label %if.end.i.i810
 
 if.else.i.i797:                                   ; preds = %invoke.cont21.i788
@@ -78641,7 +78641,7 @@ for.body41.i.us.i.i1009:                          ; preds = %if.end4.i.us.i.i100
   br i1 %tobool44.not.i.us.i.i1015, label %if.end59.i.us.i.i1024, label %if.then45.i.us.i.i1016
 
 if.then45.i.us.i.i1016:                           ; preds = %for.body41.i.us.i.i1009
-  %arrayidx.i.i.us.i.i1017 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %498
+  %arrayidx.i.i.us.i.i1017 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %498
   %499 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i1017, align 32
   %vecinit.i.i.i.i.us.i.i1018 = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i1012, i64 0
   %vecinit7.i.i.i.i.us.i.i1019 = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i1018, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -78749,7 +78749,7 @@ for.body41.i.i.i952:                              ; preds = %if.end31.i.i.i944, 
   br i1 %tobool44.not.i.i.i958, label %if.end59.i.i.i967, label %if.then45.i.i.i959
 
 if.then45.i.i.i959:                               ; preds = %for.body41.i.i.i952
-  %arrayidx.i.i.i.i960 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %505
+  %arrayidx.i.i.i.i960 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %505
   %506 = load <8 x i32>, ptr %arrayidx.i.i.i.i960, align 32
   %vecinit.i.i.i.i.i.i961 = insertelement <8 x i32> poison, i32 %row.246.i.i.i955, i64 0
   %vecinit7.i.i.i.i.i.i962 = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i961, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -79270,7 +79270,7 @@ if.then.i48.i:                                    ; preds = %invoke.cont21.i1135
 
 cond.false.i.i1306:                               ; preds = %if.then.i48.i
   %idxprom.i.i.i1307 = zext i8 %584 to i64
-  %arrayidx.i.i.i1308 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %idxprom.i.i.i1307
+  %arrayidx.i.i.i1308 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %idxprom.i.i.i1307
   br label %if.end.i.i1154
 
 if.else.i.i1143:                                  ; preds = %invoke.cont21.i1135
@@ -79366,7 +79366,7 @@ for.body41.i.i.i1267:                             ; preds = %if.end31.i.i.i1259,
   br i1 %tobool44.not.i.i.i1273, label %if.end59.i.i.i1280, label %if.then45.i.i.i1274
 
 if.then45.i.i.i1274:                              ; preds = %for.body41.i.i.i1267
-  %arrayidx.i.i.i.i1275 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %590
+  %arrayidx.i.i.i.i1275 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %590
   %591 = load <8 x i32>, ptr %arrayidx.i.i.i.i1275, align 32
   %vecinit.i.i.i.i.i.i1276 = insertelement <8 x i32> poison, i32 %row.246.i.i.i1270, i64 0
   %vecinit7.i.i.i.i.i.i1277 = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i1276, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -79926,7 +79926,7 @@ if.then.i47.i1657:                                ; preds = %invoke.cont21.i1397
 
 cond.false.i.i1660:                               ; preds = %if.then.i47.i1657
   %idxprom.i.i.i1661 = zext i8 %673 to i64
-  %arrayidx.i.i.i1662 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %idxprom.i.i.i1661
+  %arrayidx.i.i.i1662 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %idxprom.i.i.i1661
   br label %if.end.i.i1419
 
 if.else.i.i1406:                                  ; preds = %invoke.cont21.i1397
@@ -79990,7 +79990,7 @@ for.body41.i.us.i.i1619:                          ; preds = %if.end4.i.us.i.i161
   br i1 %tobool44.not.i.us.i.i1625, label %if.end59.i.us.i.i1634, label %if.then45.i.us.i.i1626
 
 if.then45.i.us.i.i1626:                           ; preds = %for.body41.i.us.i.i1619
-  %arrayidx.i.i.us.i.i1627 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %677
+  %arrayidx.i.i.us.i.i1627 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %677
   %678 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i1627, align 32
   %vecinit.i.i.i.i.us.i.i1628 = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i1622, i64 0
   %vecinit7.i.i.i.i.us.i.i1629 = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i1628, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -80098,7 +80098,7 @@ for.body41.i.i.i1562:                             ; preds = %if.end31.i.i.i1554,
   br i1 %tobool44.not.i.i.i1568, label %if.end59.i.i.i1577, label %if.then45.i.i.i1569
 
 if.then45.i.i.i1569:                              ; preds = %for.body41.i.i.i1562
-  %arrayidx.i.i.i.i1570 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %684
+  %arrayidx.i.i.i.i1570 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %684
   %685 = load <8 x i32>, ptr %arrayidx.i.i.i.i1570, align 32
   %vecinit.i.i.i.i.i.i1571 = insertelement <8 x i32> poison, i32 %row.246.i.i.i1565, i64 0
   %vecinit7.i.i.i.i.i.i1572 = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i1571, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -80580,7 +80580,7 @@ if.then.i47.i2011:                                ; preds = %invoke.cont21.i1751
 
 cond.false.i.i2014:                               ; preds = %if.then.i47.i2011
   %idxprom.i.i.i2015 = zext i8 %759 to i64
-  %arrayidx.i.i.i2016 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %idxprom.i.i.i2015
+  %arrayidx.i.i.i2016 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %idxprom.i.i.i2015
   br label %if.end.i.i1773
 
 if.else.i.i1760:                                  ; preds = %invoke.cont21.i1751
@@ -80644,7 +80644,7 @@ for.body41.i.us.i.i1973:                          ; preds = %if.end4.i.us.i.i196
   br i1 %tobool44.not.i.us.i.i1979, label %if.end59.i.us.i.i1988, label %if.then45.i.us.i.i1980
 
 if.then45.i.us.i.i1980:                           ; preds = %for.body41.i.us.i.i1973
-  %arrayidx.i.i.us.i.i1981 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %763
+  %arrayidx.i.i.us.i.i1981 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %763
   %764 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i1981, align 32
   %vecinit.i.i.i.i.us.i.i1982 = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i1976, i64 0
   %vecinit7.i.i.i.i.us.i.i1983 = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i1982, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -80752,7 +80752,7 @@ for.body41.i.i.i1916:                             ; preds = %if.end31.i.i.i1908,
   br i1 %tobool44.not.i.i.i1922, label %if.end59.i.i.i1931, label %if.then45.i.i.i1923
 
 if.then45.i.i.i1923:                              ; preds = %for.body41.i.i.i1916
-  %arrayidx.i.i.i.i1924 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %770
+  %arrayidx.i.i.i.i1924 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %770
   %771 = load <8 x i32>, ptr %arrayidx.i.i.i.i1924, align 32
   %vecinit.i.i.i.i.i.i1925 = insertelement <8 x i32> poison, i32 %row.246.i.i.i1919, i64 0
   %vecinit7.i.i.i.i.i.i1926 = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i1925, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -81481,7 +81481,7 @@ for.body41.i.us.i.i2319:                          ; preds = %if.end4.i.us.i.i231
   br i1 %tobool44.not.i.us.i.i2325, label %if.end59.i.us.i.i2334, label %if.then45.i.us.i.i2326
 
 if.then45.i.us.i.i2326:                           ; preds = %for.body41.i.us.i.i2319
-  %arrayidx.i.i.us.i.i2327 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %886
+  %arrayidx.i.i.us.i.i2327 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %886
   %887 = load <8 x i32>, ptr %arrayidx.i.i.us.i.i2327, align 32
   %vecinit.i.i.i.i.us.i.i2328 = insertelement <8 x i32> poison, i32 %row.246.i.us.i.i2322, i64 0
   %vecinit7.i.i.i.i.us.i.i2329 = shufflevector <8 x i32> %vecinit.i.i.i.i.us.i.i2328, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -81589,7 +81589,7 @@ for.body41.i.i.i2268:                             ; preds = %if.end31.i.i.i2263,
   br i1 %tobool44.not.i.i.i2274, label %if.end59.i.i.i2283, label %if.then45.i.i.i2275
 
 if.then45.i.i.i2275:                              ; preds = %for.body41.i.i.i2268
-  %arrayidx.i.i.i.i2276 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %893
+  %arrayidx.i.i.i.i2276 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %893
   %894 = load <8 x i32>, ptr %arrayidx.i.i.i.i2276, align 32
   %vecinit.i.i.i.i.i.i2277 = insertelement <8 x i32> poison, i32 %row.246.i.i.i2271, i64 0
   %vecinit7.i.i.i.i.i.i2278 = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i2277, <8 x i32> poison, <8 x i32> zeroinitializer
@@ -83465,7 +83465,7 @@ for.body41.i:                                     ; preds = %if.end31.i, %if.end
   br i1 %tobool44.not.i, label %if.end59.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %for.body41.i
-  %arrayidx.i.i40 = getelementptr inbounds nuw [256 x [8 x i32]], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 0, i64 %15
+  %arrayidx.i.i40 = getelementptr inbounds nuw [8 x i32], ptr @_ZN8facebook5velox4simd6detail11byteSetBitsE, i64 %15
   %16 = load <8 x i32>, ptr %arrayidx.i.i40, align 32
   %vecinit.i.i.i.i = insertelement <8 x i32> poison, i32 %row.246.i, i64 0
   %vecinit7.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer

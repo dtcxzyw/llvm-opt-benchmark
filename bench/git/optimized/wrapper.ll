@@ -1197,7 +1197,7 @@ define dso_local range(i32 -1, -2147483648) i32 @git_mkstemps_mode(ptr noundef c
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
   %23 = phi i64 [ %.promoted, %.preheader ], [ %28, %22 ]
   %24 = urem i64 %23, 62
-  %25 = getelementptr inbounds nuw [63 x i8], ptr @git_mkstemps_mode.letters, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @git_mkstemps_mode.letters, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   store i8 %26, ptr %27, align 1, !tbaa !8

@@ -4776,7 +4776,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   store i32 %78, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %79, ptr align 1 %.pre115149, i64 %75, i1 false)
-  %80 = getelementptr inbounds nuw [1024 x i8], ptr %79, i64 0, i64 %75
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %75
   store i8 0, ptr %80, align 1
   %.pre114 = load ptr, ptr %7, align 8
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -4966,7 +4966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit66.us: ; preds
   %145 = getelementptr inbounds nuw i8, ptr %103, i64 20
   %146 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %145, ptr align 1 %146, i64 %141, i1 false)
-  %147 = getelementptr inbounds nuw [1024 x i8], ptr %145, i64 0, i64 %141
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 %141
   store i8 0, ptr %147, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69.us
 
@@ -5060,7 +5060,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16ai
   %177 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %178 = load ptr, ptr %.sroa.079.0106, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %177, ptr align 1 %178, i64 %172, i1 false)
-  %179 = getelementptr inbounds nuw [1024 x i8], ptr %177, i64 0, i64 %172
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 %172
   store i8 0, ptr %179, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit62
 

@@ -177,7 +177,7 @@ define range(i32 0, -1) i32 @Saig_TsiStateHash(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !39
   %7 = and i64 %indvars.iv, 127
-  %8 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !39
   %10 = mul i32 %9, %6
   %11 = xor i32 %10, %.089
@@ -613,7 +613,7 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_TsiComputePrefix(ptr noundef
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -701,7 +701,7 @@ define range(i32 0, 2) i32 @Saig_TsiStateLookup(ptr noundef readonly captures(no
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -756,7 +756,7 @@ define void @Saig_TsiStateInsert(ptr noundef readonly captures(none) %0, ptr nou
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -1226,7 +1226,7 @@ define noalias noundef ptr @Saig_ManReachableTernary(ptr noundef %0, ptr noundef
   %111 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i
   %112 = load i32, ptr %111, align 4, !tbaa !39
   %113 = and i64 %indvars.iv.i.i, 127
-  %114 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !39
   %116 = mul i32 %115, %112
   %117 = xor i32 %116, %.089.i.i
@@ -1279,7 +1279,7 @@ Saig_TsiStateLookup.exit:                         ; preds = %.lr.ph.i
   %128 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i146
   %129 = load i32, ptr %128, align 4, !tbaa !39
   %130 = and i64 %indvars.iv.i.i146, 127
-  %131 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !39
   %133 = mul i32 %132, %129
   %134 = xor i32 %133, %.089.i.i147
@@ -1719,7 +1719,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = srem i32 %53, %1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [257 x i32], ptr %5, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %55
   br i1 %or.cond94, label %57, label %58
 
 57:                                               ; preds = %39
@@ -1748,7 +1748,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
 
 62:                                               ; preds = %.lr.ph79, %65
   %indvars.iv96 = phi i64 [ 1, %.lr.ph79 ], [ %indvars.iv.next97, %65 ]
-  %63 = getelementptr inbounds nuw [257 x i32], ptr %5, i64 0, i64 %indvars.iv96
+  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv96
   %64 = load i32, ptr %63, align 4, !tbaa !39
   %.not66 = icmp eq i32 %64, %61
   br i1 %.not66, label %65, label %._crit_edge.loopexit
@@ -1781,7 +1781,7 @@ define i32 @Saig_ManFindRegisters(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph84:                                         ; preds = %72, %.lr.ph84
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph84 ], [ 0, %72 ]
   %74 = load ptr, ptr @stdout, align 8, !tbaa !83
-  %75 = getelementptr inbounds nuw [257 x i32], ptr %5, i64 0, i64 %indvars.iv101
+  %75 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv101
   %76 = load i32, ptr %75, align 4, !tbaa !39
   %switch.selectcmp.i = icmp eq i32 %76, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 49, i32 120
@@ -2464,7 +2464,7 @@ define i32 @Saig_ManPhaseFrameNum(ptr noundef %0, ptr noundef readonly captures(
   %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !39
   %21 = and i64 %indvars.iv.i.i, 127
-  %22 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !39
   %24 = mul i32 %23, %20
   %25 = xor i32 %24, %.089.i.i
@@ -2570,7 +2570,7 @@ define noundef i32 @Saig_ManPhasePrefixLength(ptr noundef %0, i32 noundef %1, i3
   %21 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !39
   %23 = and i64 %indvars.iv.i.i, 127
-  %24 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !39
   %26 = mul i32 %25, %22
   %27 = xor i32 %26, %.089.i.i
@@ -2704,7 +2704,7 @@ define ptr @Saig_ManPhaseAbstract(ptr noundef %0, ptr noundef readonly captures(
   %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !39
   %26 = and i64 %indvars.iv.i.i, 127
-  %27 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !39
   %29 = mul i32 %28, %25
   %30 = xor i32 %29, %.089.i.i
@@ -2906,7 +2906,7 @@ define ptr @Saig_ManPhaseAbstractAuto(ptr noundef %0, i32 noundef %1) local_unna
   %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !39
   %21 = and i64 %indvars.iv.i.i, 127
-  %22 = getelementptr inbounds nuw [128 x i32], ptr @Saig_TsiStateHash.s_FPrimes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @Saig_TsiStateHash.s_FPrimes, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !39
   %24 = mul i32 %23, %20
   %25 = xor i32 %24, %.089.i.i

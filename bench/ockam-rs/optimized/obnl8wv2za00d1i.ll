@@ -6308,7 +6308,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 2255:                                             ; preds = %2252
   call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !697
   store <2 x i64> <i64 240, i64 8>, ptr %76, align 16, !noalias !697
-  %2256 = getelementptr inbounds nuw [2 x i64], ptr %76, i64 0, i64 %2253
+  %2256 = getelementptr inbounds nuw i64, ptr %76, i64 %2253
   %2257 = load i64, ptr %2256, align 8, !noalias !697, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %78, i64 %2257, i1 false), !noalias !697
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !697

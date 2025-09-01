@@ -4547,7 +4547,7 @@ define linkonce_odr hidden i16 @_ZNK4llvm18TargetLoweringBase15getRegisterTypeER
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2444
   %12 = zext i16 %2 to i64
-  %13 = getelementptr inbounds nuw [234 x %"class.llvm::MVT"], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.llvm::MVT", ptr %11, i64 %12
   %.sroa.01.0.copyload.i = load i16, ptr %13, align 2, !tbaa !436
   br label %26
 
@@ -4976,10 +4976,10 @@ define dso_local void @_ZN4llvm20FunctionLoweringInfo24ComputePHILiveOutRegInfoE
 
 47:                                               ; preds = %43
   %48 = zext i16 %46 to i64
-  %49 = add nsw i64 %48, -1
-  %50 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %49
+  %49 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %50, align 16
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %49, i64 -8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.fca.0.insert.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i, i8 %.sroa.2.0.copyload.i.i, 1

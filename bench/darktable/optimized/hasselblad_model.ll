@@ -91,7 +91,7 @@ define noundef ptr @_ZN6LibRaw21HassyRawFormat_idx2HREj(ptr noundef nonnull read
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw [7 x %struct.anon], ptr @_ZL14HassyRawFormat, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @_ZL14HassyRawFormat, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16, !tbaa !8
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %8, label %3
@@ -390,7 +390,7 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %90 = call i32 @llvm.smin.i32(i32 %.079, i32 63)
   %91 = sext i32 %90 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 4 %80, i64 %91, i1 false)
-  %92 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 %91
+  %92 = getelementptr inbounds i8, ptr %2, i64 %91
   store i8 0, ptr %92, align 1, !tbaa !16
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 153508
   %94 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %93, ptr noundef nonnull @.str.27)
@@ -437,7 +437,7 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %113 = call i32 @llvm.smin.i32(i32 %.180, i32 63)
   %114 = sext i32 %113 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 4 %104, i64 %114, i1 false)
-  %115 = getelementptr inbounds [64 x i8], ptr %2, i64 0, i64 %114
+  %115 = getelementptr inbounds i8, ptr %2, i64 %114
   store i8 0, ptr %115, align 1, !tbaa !16
   br label %116
 
@@ -475,7 +475,7 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
 
 127:                                              ; preds = %.preheader443, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader443 ]
-  %128 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN6LibRaw15parseHassyModelEvE15Hasselblad_Ctrl, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw15parseHassyModelEvE15Hasselblad_Ctrl, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !86
   %130 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %11, ptr noundef %129)
   %.not122 = icmp eq ptr %130, null
@@ -504,7 +504,7 @@ sub_0:                                            ; preds = %135
   %140 = ptrtoint ptr %11 to i64
   %141 = sub i64 %139, %140
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 4 %11, i64 %141, i1 false)
-  %142 = getelementptr inbounds [64 x i8], ptr %18, i64 0, i64 %141
+  %142 = getelementptr inbounds i8, ptr %18, i64 %141
   store i8 0, ptr %142, align 1, !tbaa !16
   %143 = getelementptr inbounds i8, ptr %136, i64 -2
   %144 = load i8, ptr %143, align 1
@@ -597,7 +597,7 @@ sub_2:                                            ; preds = %sub_1
 
 .preheader:                                       ; preds = %172, %178
   %indvars.iv407 = phi i64 [ %indvars.iv.next408, %178 ], [ 0, %172 ]
-  %179 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN6LibRaw15parseHassyModelEvE27Hasselblad_SensorEnclosures, i64 0, i64 %indvars.iv407
+  %179 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw15parseHassyModelEvE27Hasselblad_SensorEnclosures, i64 %indvars.iv407
   %180 = load ptr, ptr %179, align 8, !tbaa !86
   %181 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %11, ptr noundef %180)
   %.not129 = icmp eq ptr %181, null
@@ -1658,7 +1658,7 @@ sub_2:                                            ; preds = %sub_1
 
 588:                                              ; preds = %587, %586
   %indvars.iv.i = phi i64 [ 0, %586 ], [ %indvars.iv.next.i, %587 ]
-  %589 = getelementptr inbounds nuw [7 x %struct.anon], ptr @_ZL14HassyRawFormat, i64 0, i64 %indvars.iv.i
+  %589 = getelementptr inbounds nuw %struct.anon, ptr @_ZL14HassyRawFormat, i64 %indvars.iv.i
   %590 = load i32, ptr %589, align 16, !tbaa !8
   %591 = icmp eq i32 %590, %.4
   br i1 %591, label %592, label %587

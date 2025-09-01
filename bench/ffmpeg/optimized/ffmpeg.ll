@@ -494,7 +494,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @frame_data_ensure(ptr noun
 
 32:                                               ; preds = %28, %32
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw [7 x i64], ptr %31, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
   store i64 -9223372036854775808, ptr %33, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -1379,13 +1379,13 @@ switch.early.test.i.i:                            ; preds = %read_key.exit42.i.i
   %317 = zext nneg i32 %.034.i.i.ph to i64
   %318 = trunc i32 %.0.i41.i.i to i8
   %319 = add nuw nsw i32 %.034.i.i.ph, 1
-  %320 = getelementptr inbounds nuw [4096 x i8], ptr %14, i64 0, i64 %317
+  %320 = getelementptr inbounds nuw i8, ptr %14, i64 %317
   store i8 %318, ptr %320, align 1, !tbaa !4
   br label %.outer, !llvm.loop !164
 
 .critedge.i.i:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %read_key.exit42.i.i
   %321 = zext nneg i32 %.034.i.i.ph to i64
-  %322 = getelementptr inbounds nuw [4096 x i8], ptr %14, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw i8, ptr %14, i64 %321
   store i8 0, ptr %322, align 1, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %323 = call i32 @tcgetattr(i32 noundef 0, ptr noundef nonnull %6) #17

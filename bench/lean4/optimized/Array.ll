@@ -114,7 +114,7 @@ define internal fastcc ptr @lean_array_get(ptr noundef %0, ptr noundef readonly 
 
 lean_dec.exit:                                    ; preds = %19, %18, %16, %10
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %7
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -1098,7 +1098,7 @@ lean_array_get.exit.thread326:                    ; preds = %352
 
 lean_dec.exit.i:                                  ; preds = %366, %365, %363, %357
   %367 = getelementptr inbounds nuw i8, ptr %334, i64 24
-  %368 = getelementptr inbounds nuw [0 x ptr], ptr %367, i64 0, i64 %353
+  %368 = getelementptr inbounds nuw ptr, ptr %367, i64 %353
   %369 = load ptr, ptr %368, align 8, !tbaa !12
   %370 = ptrtoint ptr %369 to i64
   %371 = and i64 %370, 1
@@ -4293,7 +4293,7 @@ lean_dec.exit301:                                 ; preds = %573, %572, %570, %l
 577:                                              ; preds = %408, %lean_dec.exit312
   %578 = lshr i64 %194, 1
   %579 = getelementptr inbounds nuw i8, ptr %387, i64 24
-  %580 = getelementptr inbounds nuw [0 x ptr], ptr %579, i64 0, i64 %578
+  %580 = getelementptr inbounds nuw ptr, ptr %579, i64 %578
   %581 = load ptr, ptr %580, align 8, !tbaa !12
   %582 = ptrtoint ptr %581 to i64
   %583 = and i64 %582, 1
@@ -7996,7 +7996,7 @@ lean_dec.exit249:                                 ; preds = %573, %572, %570, %l
 lean_dec.exit248:                                 ; preds = %586, %585, %583, %577
   %587 = lshr i64 %194, 1
   %588 = getelementptr inbounds nuw i8, ptr %387, i64 24
-  %589 = getelementptr inbounds nuw [0 x ptr], ptr %588, i64 0, i64 %587
+  %589 = getelementptr inbounds nuw ptr, ptr %588, i64 %587
   %590 = load ptr, ptr %589, align 8, !tbaa !12
   %591 = ptrtoint ptr %590 to i64
   %592 = and i64 %591, 1

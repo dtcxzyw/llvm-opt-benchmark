@@ -322,8 +322,8 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h18702fa380be5
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds [0 x { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }], ptr %0, i64 0, i64 %2
-  %12 = getelementptr inbounds [0 x { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }], ptr %0, i64 0, i64 %3
+  %11 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %0, i64 %2
+  %12 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %0, i64 %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(104) %11, i64 104, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0, i64 104, i1 false)
@@ -719,7 +719,7 @@ default.unreachable41:                            ; preds = %5
 63:                                               ; preds = %38
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load ptr, ptr %64, align 8, !nonnull !3, !noundef !3
-  %66 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %65, i64 0, i64 %43
+  %66 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %65, i64 %43
   %67 = load i64, ptr %66, align 16, !range !32, !noundef !3
   %68 = icmp eq i64 %67, 3
   br i1 %68, label %70, label %77
@@ -919,7 +919,7 @@ default.unreachable38:                            ; preds = %4
 45:                                               ; preds = %16
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !3, !noundef !3
-  %48 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %47, i64 0, i64 %21
+  %48 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %47, i64 %21
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 16, !nonnull !3, !noundef !3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1215,7 +1215,7 @@ define i16 @_ZN14cranelift_isle4sema4Rule5visit17hfe0e81d7e799b37eE(ptr align 16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load i64, ptr %37, align 16, !noundef !3
   %39 = getelementptr inbounds { i64, [5 x i64] }, ptr %36, i64 %38
-  %40 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %34, i64 0, i64 %27, i32 2
+  %40 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %34, i64 %27, i32 2
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !3, !noundef !3
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -1742,7 +1742,7 @@ define hidden { ptr, i64 } @"_ZN14cranelift_isle4sema7TermEnv27collect_extractor
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1787,7 +1787,7 @@ define hidden void @"_ZN14cranelift_isle4sema7TermEnv41check_for_expr_terms_with
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
-  %27 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %26, i64 0, i64 %20
+  %27 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %26, i64 %20
   %28 = tail call zeroext i1 @_ZN14cranelift_isle4sema4Term15has_constructor17hef4547a80c2ddad6E(ptr nonnull align 16 %27)
   br i1 %28, label %16, label %30
 

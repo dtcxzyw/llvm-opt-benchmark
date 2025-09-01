@@ -640,10 +640,10 @@ define dso_local range(i64 1, -4278190080) i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = zext i16 %0 to i64
-  %7 = add nsw i64 %6, -1
-  %8 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %7
+  %7 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %7, i64 -8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %2, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -652,12 +652,12 @@ define dso_local range(i64 1, -4278190080) i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(
   %10 = shl i64 %9, 32
   %storemerge.i.i.i = or disjoint i64 %10, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %29
+  br label %30
 
 11:                                               ; preds = %1
   %12 = zext nneg i16 %0 to i64
-  %13 = add nsw i64 %12, -1
-  %14 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %13
+  %13 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -2
   %15 = load i16, ptr %14, align 2, !tbaa !23
   %16 = add nsw i16 %0, -138
   %spec.select.i.i = icmp ult i16 %16, 53
@@ -665,37 +665,38 @@ define dso_local range(i64 1, -4278190080) i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(
   %.sroa.0.0.insert.ext.i.i = zext i16 %15 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %17 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %13
-  %18 = load i16, ptr %17, align 2, !tbaa !25
-  %19 = zext i16 %18 to i64
-  %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %20
-  %.sroa.0.0.copyload.i8 = load i64, ptr %21, align 16
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %17 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %12
+  %18 = getelementptr i8, ptr %17, i64 -2
+  %19 = load i16, ptr %18, align 2, !tbaa !25
+  %20 = zext i16 %19 to i64
+  %21 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -16
+  %.sroa.0.0.copyload.i8 = load i64, ptr %22, align 16
+  %.sroa.2.0..sroa_idx.i9 = getelementptr i8, ptr %21, i64 -8
   %.sroa.2.0.copyload.i10 = load i8, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store i64 %.sroa.0.0.copyload.i8, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.2.0.copyload.i10, ptr %.sroa.2.0..sroa_idx, align 8
-  %22 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #6
-  %23 = shl i64 %22, 32
-  %storemerge.i.i.i.i = or disjoint i64 %23, 1
+  %23 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #6
+  %24 = shl i64 %23, 32
+  %storemerge.i.i.i.i = or disjoint i64 %24, 1
   %.not4.not.i.i = icmp eq i64 %.sroa.0.0.insert.insert.i.i, 1
   br i1 %.not4.not.i.i, label %_ZN4llvm3LLT14scalarOrVectorENS_12ElementCountEm.exit, label %_ZNK4llvm3LLT9isPointerEv.exit.i.i.i
 
 _ZNK4llvm3LLT9isPointerEv.exit.i.i.i:             ; preds = %11
-  %24 = shl nuw nsw i64 %.sroa.0.0.insert.ext.i.i, 8
-  %25 = lshr exact i64 %.sroa.2.0.insert.shift.i.i, 29
-  %26 = or disjoint i64 %24, %25
-  %27 = or disjoint i64 %23, %26
-  %28 = or disjoint i64 %27, 4
+  %25 = shl nuw nsw i64 %.sroa.0.0.insert.ext.i.i, 8
+  %26 = lshr exact i64 %.sroa.2.0.insert.shift.i.i, 29
+  %27 = or disjoint i64 %25, %26
+  %28 = or disjoint i64 %24, %27
+  %29 = or disjoint i64 %28, 4
   br label %_ZN4llvm3LLT14scalarOrVectorENS_12ElementCountEm.exit
 
 _ZN4llvm3LLT14scalarOrVectorENS_12ElementCountEm.exit: ; preds = %11, %_ZNK4llvm3LLT9isPointerEv.exit.i.i.i
-  %.sroa.03.0.i.i = phi i64 [ %28, %_ZNK4llvm3LLT9isPointerEv.exit.i.i.i ], [ %storemerge.i.i.i.i, %11 ]
+  %.sroa.03.0.i.i = phi i64 [ %29, %_ZNK4llvm3LLT9isPointerEv.exit.i.i.i ], [ %storemerge.i.i.i.i, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %_ZN4llvm3LLT14scalarOrVectorENS_12ElementCountEm.exit, %5
+30:                                               ; preds = %_ZN4llvm3LLT14scalarOrVectorENS_12ElementCountEm.exit, %5
   %.sroa.07.0 = phi i64 [ %.sroa.03.0.i.i, %_ZN4llvm3LLT14scalarOrVectorENS_12ElementCountEm.exit ], [ %storemerge.i.i.i, %5 ]
   ret i64 %.sroa.07.0
 }

@@ -301,18 +301,17 @@ define internal i32 @test_single_key_enc_alg(i32 noundef %0) #1 {
   %3 = load ptr, ptr @lgcyprov, align 8, !tbaa !11
   %4 = icmp eq ptr %3, null
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [16 x i32], ptr @enc_nids_all, i64 0, i64 %5
-  %7 = getelementptr inbounds [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %5
-  %storemerge.in = select i1 %4, ptr %7, ptr %6
+  %storemerge.in.v = select i1 %4, ptr @enc_nids_no_legacy, ptr @enc_nids_all
+  %storemerge.in = getelementptr inbounds i32, ptr %storemerge.in.v, i64 %5
   %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !13
   store i32 %storemerge, ptr %2, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @.str.47, ptr %8, align 8, !tbaa !18
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1000, ptr %9, align 8, !tbaa !19
-  %10 = call fastcc i32 @test_single_key(ptr noundef %2)
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @.str.47, ptr %6, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 1000, ptr %7, align 8, !tbaa !19
+  %8 = call fastcc i32 @test_single_key(ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %10
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -323,52 +322,51 @@ define internal i32 @test_single_secret_enc_alg(i32 noundef %0) #1 {
   %4 = load ptr, ptr @lgcyprov, align 8, !tbaa !11
   %5 = icmp eq ptr %4, null
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds [16 x i32], ptr @enc_nids_all, i64 0, i64 %6
-  %8 = getelementptr inbounds [5 x i32], ptr @enc_nids_no_legacy, i64 0, i64 %6
-  %storemerge.in = select i1 %5, ptr %8, ptr %7
+  %storemerge.in.v = select i1 %5, ptr @enc_nids_no_legacy, ptr @enc_nids_all
+  %storemerge.in = getelementptr inbounds i32, ptr %storemerge.in.v, i64 %6
   %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !13
   store i32 %storemerge, ptr %3, align 8, !tbaa !15
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.47, ptr %9, align 8, !tbaa !18
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 1000, ptr %10, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.47, ptr %7, align 8, !tbaa !18
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 1000, ptr %8, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %11 = tail call ptr @OBJ_nid2sn(i32 noundef %storemerge) #4
-  %12 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.50, ptr noundef %11, i32 noundef 1000) #4
-  %13 = call ptr @new_pkcs12_builder(ptr noundef nonnull %2) #4
-  %14 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
-  %.not.i.i = icmp eq i32 %14, -1
-  br i1 %.not.i.i, label %15, label %test_single_secret.exit
+  %9 = tail call ptr @OBJ_nid2sn(i32 noundef %storemerge) #4
+  %10 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.50, ptr noundef %9, i32 noundef 1000) #4
+  %11 = call ptr @new_pkcs12_builder(ptr noundef nonnull %2) #4
+  %12 = load i32, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+  %.not.i.i = icmp eq i32 %12, -1
+  br i1 %.not.i.i, label %13, label %test_single_secret.exit
 
-15:                                               ; preds = %1
-  %16 = call i32 @OBJ_create(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55) #4
-  %17 = icmp ne i32 %16, 0
-  %18 = zext i1 %17 to i32
-  %19 = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 324, ptr noundef nonnull @.str.52, i32 noundef %18) #4
-  %.not2.i.i = icmp eq i32 %19, 0
-  br i1 %.not2.i.i, label %test_single_secret.exit, label %20
+13:                                               ; preds = %1
+  %14 = call i32 @OBJ_create(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55) #4
+  %15 = icmp ne i32 %14, 0
+  %16 = zext i1 %15 to i32
+  %17 = call i32 @test_true(ptr noundef nonnull @.str.20, i32 noundef 324, ptr noundef nonnull @.str.52, i32 noundef %16) #4
+  %.not2.i.i = icmp eq i32 %17, 0
+  br i1 %.not2.i.i, label %test_single_secret.exit, label %18
 
-20:                                               ; preds = %15
-  %21 = call i32 @OBJ_txt2nid(ptr noundef nonnull @.str.54) #4
-  store i32 %21, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
+18:                                               ; preds = %13
+  %19 = call i32 @OBJ_txt2nid(ptr noundef nonnull @.str.54) #4
+  store i32 %19, ptr @get_custom_oid.sec_nid, align 4, !tbaa !13
   br label %test_single_secret.exit
 
-test_single_secret.exit:                          ; preds = %1, %15, %20
-  %.0.i.i = phi i32 [ %21, %20 ], [ %14, %1 ], [ -1, %15 ]
-  call void @start_pkcs12(ptr noundef %13) #4
-  call void @start_contentinfo(ptr noundef %13) #4
-  call void @add_secretbag(ptr noundef %13, i32 noundef %.0.i.i, ptr noundef nonnull @.str.51, ptr noundef nonnull @ATTRS1) #4
-  call void @end_contentinfo_encrypted(ptr noundef %13, ptr noundef nonnull %3) #4
-  call void @end_pkcs12_with_mac(ptr noundef %13, ptr noundef nonnull @mac_default) #4
-  call void @start_check_pkcs12_with_mac(ptr noundef %13, ptr noundef nonnull @mac_default) #4
-  call void @start_check_contentinfo_encrypted(ptr noundef %13, ptr noundef nonnull %3) #4
-  call void @check_secretbag(ptr noundef %13, i32 noundef %.0.i.i, ptr noundef nonnull @.str.51, ptr noundef nonnull @ATTRS1) #4
-  call void @end_check_contentinfo(ptr noundef %13) #4
-  call void @end_check_pkcs12(ptr noundef %13) #4
-  %22 = call i32 @end_pkcs12_builder(ptr noundef %13) #4
+test_single_secret.exit:                          ; preds = %1, %13, %18
+  %.0.i.i = phi i32 [ %19, %18 ], [ %12, %1 ], [ -1, %13 ]
+  call void @start_pkcs12(ptr noundef %11) #4
+  call void @start_contentinfo(ptr noundef %11) #4
+  call void @add_secretbag(ptr noundef %11, i32 noundef %.0.i.i, ptr noundef nonnull @.str.51, ptr noundef nonnull @ATTRS1) #4
+  call void @end_contentinfo_encrypted(ptr noundef %11, ptr noundef nonnull %3) #4
+  call void @end_pkcs12_with_mac(ptr noundef %11, ptr noundef nonnull @mac_default) #4
+  call void @start_check_pkcs12_with_mac(ptr noundef %11, ptr noundef nonnull @mac_default) #4
+  call void @start_check_contentinfo_encrypted(ptr noundef %11, ptr noundef nonnull %3) #4
+  call void @check_secretbag(ptr noundef %11, i32 noundef %.0.i.i, ptr noundef nonnull @.str.51, ptr noundef nonnull @ATTRS1) #4
+  call void @end_check_contentinfo(ptr noundef %11) #4
+  call void @end_check_pkcs12(ptr noundef %11) #4
+  %20 = call i32 @end_pkcs12_builder(ptr noundef %11) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %22
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -534,7 +532,7 @@ define internal i32 @test_single_key_enc_pass(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 146, ptr %2, align 8, !tbaa !15
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @passwords, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !18
@@ -553,7 +551,7 @@ define internal i32 @test_single_key_enc_iter(i32 noundef %0) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.47, ptr %3, align 8, !tbaa !18
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @iters, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %6, ptr %7, align 8, !tbaa !19
@@ -584,7 +582,7 @@ define internal i32 @test_single_cert_mac_alg(i32 noundef %0) #1 {
   %2 = alloca %struct.pkcs12_enc, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [6 x i32], ptr @mac_nids, i64 0, i64 %3
+  %4 = getelementptr inbounds i32, ptr @mac_nids, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !13
   store i32 %5, ptr %2, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -602,7 +600,7 @@ define internal i32 @test_single_cert_mac_pass(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 64, ptr %2, align 8, !tbaa !15
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @passwords, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !18
@@ -621,7 +619,7 @@ define internal i32 @test_single_cert_mac_iter(i32 noundef %0) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.47, ptr %3, align 8, !tbaa !18
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @iters, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %6, ptr %7, align 8, !tbaa !19

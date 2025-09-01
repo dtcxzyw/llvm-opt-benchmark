@@ -276,10 +276,10 @@ define i32 @exr_add_part(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 switch.lookup:                                    ; preds = %.loopexit
   %69 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.exr_add_part, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.exr_add_part, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = zext nneg i32 %2 to i64
-  %switch.gep166 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.exr_add_part.1, i64 0, i64 %70
+  %switch.gep166 = getelementptr inbounds nuw ptr, ptr @switch.table.exr_add_part.1, i64 %70
   %switch.load167 = load ptr, ptr %switch.gep166, align 8
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 112

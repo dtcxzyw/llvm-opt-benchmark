@@ -1099,7 +1099,7 @@ define hidden void @_ZN13FileMapHeader5printEP12outputStream(ptr noundef nonnull
 
 29:                                               ; preds = %2, %29
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw [4 x %struct.CDSFileMapRegion], ptr %28, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.CDSFileMapRegion, ptr %28, i64 %indvars.iv
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN13FileMapRegion5printEP12outputStreami(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull %1, i32 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1263,7 +1263,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13FileMapRegion5printEP12outputStreami(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds [4 x ptr], ptr @_ZZL11region_nameiE5names, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZZL11region_nameiE5names, i64 %4
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.117, i32 noundef %2, ptr noundef %6) #25
   %7 = load i32, ptr %0, align 8
@@ -4569,7 +4569,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo14init_from_fileEi(ptr noundef
 
 132:                                              ; preds = %122, %131
   %indvars.iv = phi i64 [ 0, %122 ], [ %indvars.iv.next, %131 ]
-  %133 = getelementptr inbounds nuw [4 x %struct.CDSFileMapRegion], ptr %130, i64 0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw %struct.CDSFileMapRegion, ptr %130, i64 %indvars.iv
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load i64, ptr %134, align 8
   %136 = icmp ugt i64 %135, %128
@@ -5203,7 +5203,7 @@ define hidden void @_ZN11FileMapInfo11bitmap_viewEib(ptr dead_on_unwind noalias 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %7, i64 %8
   %10 = load i8, ptr %1, align 8
   %11 = trunc i8 %10 to i1
   %_ZN11FileMapInfo13_current_infoE.val = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8
@@ -5222,7 +5222,7 @@ define hidden void @_ZN11FileMapInfo11bitmap_viewEib(ptr dead_on_unwind noalias 
   br i1 %.not, label %21, label %17
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds [4 x ptr], ptr @_ZZL11region_nameiE5names, i64 0, i64 %8
+  %18 = getelementptr inbounds ptr, ptr @_ZZL11region_nameiE5names, i64 %8
   %19 = load ptr, ptr %18, align 8
   %.str.115..str.116 = select i1 %3, ptr @.str.115, ptr @.str.116
   %20 = ptrtoint ptr %15 to i64
@@ -5385,7 +5385,7 @@ define hidden void @_ZN11FileMapInfo11oopmap_viewEi(ptr dead_on_unwind noalias w
   %5 = load ptr, ptr %4, align 8, !noalias !28
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %6, i64 %7
   %9 = load i8, ptr %1, align 8, !noalias !28
   %10 = trunc i8 %9 to i1
   %_ZN11FileMapInfo13_current_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !28
@@ -5402,7 +5402,7 @@ define hidden void @_ZN11FileMapInfo11oopmap_viewEi(ptr dead_on_unwind noalias w
   br i1 %.not.i, label %_ZN11FileMapInfo11bitmap_viewEib.exit, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds [4 x ptr], ptr @_ZZL11region_nameiE5names, i64 0, i64 %7
+  %17 = getelementptr inbounds ptr, ptr @_ZZL11region_nameiE5names, i64 %7
   %18 = load ptr, ptr %17, align 8, !noalias !28
   %19 = ptrtoint ptr %14 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef %18, ptr noundef nonnull @.str.115, i64 noundef %19, i64 noundef %13), !noalias !28
@@ -5422,7 +5422,7 @@ define hidden void @_ZN11FileMapInfo11ptrmap_viewEi(ptr dead_on_unwind noalias w
   %5 = load ptr, ptr %4, align 8, !noalias !31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %6, i64 %7
   %9 = load i8, ptr %1, align 8, !noalias !31
   %10 = trunc i8 %9 to i1
   %_ZN11FileMapInfo13_current_infoE.val.i = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8, !noalias !31
@@ -5439,7 +5439,7 @@ define hidden void @_ZN11FileMapInfo11ptrmap_viewEi(ptr dead_on_unwind noalias w
   br i1 %.not.i, label %_ZN11FileMapInfo11bitmap_viewEib.exit, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds [4 x ptr], ptr @_ZZL11region_nameiE5names, i64 0, i64 %7
+  %17 = getelementptr inbounds ptr, ptr @_ZZL11region_nameiE5names, i64 %7
   %18 = load ptr, ptr %17, align 8, !noalias !31
   %19 = ptrtoint ptr %14 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.114, ptr noundef %18, ptr noundef nonnull @.str.116, i64 noundef %19, i64 noundef %13), !noalias !31
@@ -5458,7 +5458,7 @@ define hidden void @_ZN11FileMapInfo12write_regionEiPcmbb(ptr noundef nonnull al
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %9, i64 %10
   %12 = icmp eq i32 %1, 2
   %13 = icmp eq i64 %3, 0
   %or.cond = or i1 %12, %13
@@ -5526,7 +5526,7 @@ define hidden void @_ZN11FileMapInfo12write_regionEiPcmbb(ptr noundef nonnull al
   br i1 %.not, label %53, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds [4 x ptr], ptr @_ZZL11region_nameiE5names, i64 0, i64 %10
+  %50 = getelementptr inbounds ptr, ptr @_ZZL11region_nameiE5names, i64 %10
   %51 = load ptr, ptr %50, align 8
   %52 = load i64, ptr %47, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.131, ptr noundef %51, i32 noundef %1, i64 noundef %3, i64 noundef %.036, i64 noundef %52, i32 noundef %46)
@@ -6321,7 +6321,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN11FileMapInfo11map_regionsEPiiPc13
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = sext i32 %15 to i64
-  %23 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %21, i64 %22
   %24 = load i8, ptr %0, align 8
   %25 = trunc i8 %24 to i1
   %.str.136..str.137 = select i1 %25, ptr @.str.136, ptr @.str.137
@@ -6337,7 +6337,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN11FileMapInfo11map_regionsEPiiPc13
   %35 = and i64 %33, %34
   %36 = getelementptr inbounds i8, ptr %27, i64 %35
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds [4 x ptr], ptr @_ZL18shared_region_name, i64 0, i64 %22
+  %38 = getelementptr inbounds ptr, ptr @_ZL18shared_region_name, i64 %22
   %39 = load ptr, ptr %38, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.135, ptr noundef nonnull %.str.136..str.137, i32 noundef %15, i64 noundef %28, i64 noundef %37, ptr noundef %39)
   br label %40
@@ -6380,7 +6380,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN11FileMapInfo10map_regionEilPc13Re
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = tail call noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() #25
@@ -6461,7 +6461,7 @@ _ZL10map_memoryiPKcmPcmbb8MEMFLAGS.exit:          ; preds = %33, %51
   br i1 %.not33, label %60, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds [4 x ptr], ptr @_ZL18shared_region_name, i64 0, i64 %9
+  %57 = getelementptr inbounds ptr, ptr @_ZL18shared_region_name, i64 %9
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %20 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.142, ptr noundef %58, i64 noundef %59)
@@ -6771,7 +6771,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo11read_regionEiPcmb(ptr nounde
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %8, i64 %9
   br i1 %4, label %11, label %36
 
 11:                                               ; preds = %5
@@ -6786,7 +6786,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo11read_regionEiPcmb(ptr nounde
   %16 = ptrtoint ptr %2 to i64
   %17 = getelementptr inbounds i8, ptr %2, i64 %3
   %18 = ptrtoint ptr %17 to i64
-  %19 = getelementptr inbounds [4 x ptr], ptr @_ZL18shared_region_name, i64 0, i64 %9
+  %19 = getelementptr inbounds ptr, ptr @_ZL18shared_region_name, i64 %9
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load i32, ptr %21, align 8
@@ -6811,7 +6811,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo11read_regionEiPcmb(ptr nounde
   %32 = load i8, ptr %0, align 8
   %33 = trunc i8 %32 to i1
   %.str.136..str.1371 = select i1 %33, ptr @.str.136, ptr @.str.137
-  %34 = getelementptr inbounds [4 x ptr], ptr @_ZL18shared_region_name, i64 0, i64 %9
+  %34 = getelementptr inbounds ptr, ptr @_ZL18shared_region_name, i64 %9
   %35 = load ptr, ptr %34, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.140, ptr noundef nonnull %.str.136..str.1371, i32 noundef %1, ptr noundef %35)
   br label %_ZNK13FileMapRegion16check_region_crcEPc.exit
@@ -7741,7 +7741,7 @@ define hidden void @_ZN11FileMapInfo12unmap_regionEi(ptr noundef nonnull readonl
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [4 x %struct.CDSFileMapRegion], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.CDSFileMapRegion, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -7771,7 +7771,7 @@ define hidden void @_ZN11FileMapInfo12unmap_regionEi(ptr noundef nonnull readonl
 
 23:                                               ; preds = %21
   %24 = ptrtoint ptr %9 to i64
-  %25 = getelementptr inbounds [4 x ptr], ptr @_ZL18shared_region_name, i64 0, i64 %6
+  %25 = getelementptr inbounds ptr, ptr @_ZL18shared_region_name, i64 %6
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.166, i32 noundef %1, i64 noundef %24, ptr noundef %26)
   br label %27

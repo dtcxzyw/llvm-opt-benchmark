@@ -129,7 +129,7 @@ define hidden noundef nonnull ptr @dfvm_opcode_tostr(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dfvm_dump_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -677,7 +677,7 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr noundef readonly captures(n
 
 switch.lookup:                                    ; preds = %29
   %38 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dfvm_dump_str, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dfvm_opcode_tostr.exit
 

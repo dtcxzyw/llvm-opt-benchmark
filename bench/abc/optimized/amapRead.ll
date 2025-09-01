@@ -468,8 +468,8 @@ define noundef ptr @Amap_ParseGateWithSamePins(ptr noundef readonly captures(non
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.018, ptr noundef nonnull align 8 dereferenceable(72) %22, i64 72, i1 false), !tbaa.struct !43
   %25 = ptrtoint ptr %.018 to i64
   %26 = sub i64 %25, %23
-  %27 = sdiv exact i64 %26, 72
-  %28 = getelementptr inbounds [128 x ptr], ptr %2, i64 0, i64 %27
+  %27 = sdiv exact i64 %26, 9
+  %28 = getelementptr inbounds i8, ptr %2, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   store ptr %29, ptr %.018, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %.018, i64 72
@@ -993,8 +993,8 @@ sub_0:                                            ; preds = %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.018.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %126, i64 72, i1 false), !tbaa.struct !43
   %233 = ptrtoint ptr %.018.i to i64
   %234 = sub i64 %233, %231
-  %235 = sdiv exact i64 %234, 72
-  %236 = getelementptr inbounds [128 x ptr], ptr %3, i64 0, i64 %235
+  %235 = sdiv exact i64 %234, 9
+  %236 = getelementptr inbounds i8, ptr %3, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !20
   store ptr %237, ptr %.018.i, align 8, !tbaa !44
   %238 = getelementptr inbounds nuw i8, ptr %.018.i, i64 72

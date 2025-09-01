@@ -1285,7 +1285,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_
   %indvars.iv199 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next200, %_ZN4ncnn6CpuSet6enableEi.exit119 ]
   %indvars.iv = phi i64 [ %54, %.lr.ph176.preheader ], [ %indvars.iv.next, %_ZN4ncnn6CpuSet6enableEi.exit119 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %55 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %indvars.iv.next
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.next
   %56 = load i8, ptr %55, align 1, !tbaa !21
   %57 = and i8 %56, 1
   %.not102 = icmp ne i8 %57, 0
@@ -1857,7 +1857,7 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN4ncnn28get_cp
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -2019,7 +2019,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn17set_cpu_powersaveEi(i32 no
 switch.lookup:                                    ; preds = %1
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
   %6 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = tail call noundef i32 @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE(ptr noundef nonnull align 8 dereferenceable(128) %switch.load)
   %.not = icmp eq i32 %7, 0

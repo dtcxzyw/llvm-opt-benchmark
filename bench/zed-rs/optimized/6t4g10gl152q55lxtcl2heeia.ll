@@ -9137,7 +9137,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %45
   %.sroa.01.05.i = phi i64 [ %46, %45 ], [ 0, %.preheader.i ]
-  %42 = getelementptr inbounds nuw [0 x i8], ptr %23, i64 0, i64 %.sroa.01.05.i
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 %.sroa.01.05.i
   %43 = load i8, ptr %42, align 1, !alias.scope !2162, !noundef !5
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %.thread210, label %45
@@ -9183,8 +9183,8 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer
           to label %67 unwind label %106
 
 61:                                               ; preds = %53
-  %62 = add i64 %54, -1
-  %63 = getelementptr inbounds [0 x i8], ptr %55, i64 0, i64 %62
+  %62 = getelementptr i8, ptr %55, i64 %54
+  %63 = getelementptr i8, ptr %62, i64 -1
   %64 = load i8, ptr %63, align 1, !alias.scope !2166, !noalias !2171, !noundef !5
   %65 = zext i8 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -9464,7 +9464,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %41
   %.sroa.01.05.i = phi i64 [ %42, %41 ], [ 0, %.preheader.i ]
-  %38 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %.sroa.01.05.i
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 %.sroa.01.05.i
   %39 = load i8, ptr %38, align 1, !alias.scope !2211, !noundef !5
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread186, label %41
@@ -9505,8 +9505,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit: ; preds = %36
   br label %62
 
 56:                                               ; preds = %49
-  %57 = add i64 %50, -1
-  %58 = getelementptr inbounds [0 x i8], ptr %51, i64 0, i64 %57
+  %57 = getelementptr i8, ptr %51, i64 %50
+  %58 = getelementptr i8, ptr %57, i64 -1
   %59 = load i8, ptr %58, align 1, !alias.scope !2214, !noalias !2219, !noundef !5
   %60 = zext i8 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -9711,7 +9711,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %37
   %.sroa.01.05.i = phi i64 [ %38, %37 ], [ 0, %.preheader.i ]
-  %34 = getelementptr inbounds nuw [0 x i8], ptr %20, i64 0, i64 %.sroa.01.05.i
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.01.05.i
   %35 = load i8, ptr %34, align 1, !alias.scope !2232, !noundef !5
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread186, label %37
@@ -9752,8 +9752,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit: ; preds = %32
   br label %58
 
 52:                                               ; preds = %45
-  %53 = add i64 %46, -1
-  %54 = getelementptr inbounds [0 x i8], ptr %47, i64 0, i64 %53
+  %53 = getelementptr i8, ptr %47, i64 %46
+  %54 = getelementptr i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1, !alias.scope !2235, !noalias !2240, !noundef !5
   %56 = zext i8 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -9949,7 +9949,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %37
   %.sroa.01.05.i = phi i64 [ %38, %37 ], [ 0, %.preheader.i ]
-  %34 = getelementptr inbounds nuw [0 x i8], ptr %20, i64 0, i64 %.sroa.01.05.i
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.01.05.i
   %35 = load i8, ptr %34, align 1, !alias.scope !2251, !noundef !5
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread186, label %37
@@ -9990,8 +9990,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit: ; preds = %32
   br label %58
 
 52:                                               ; preds = %45
-  %53 = add i64 %46, -1
-  %54 = getelementptr inbounds [0 x i8], ptr %47, i64 0, i64 %53
+  %53 = getelementptr i8, ptr %47, i64 %46
+  %54 = getelementptr i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1, !alias.scope !2254, !noalias !2259, !noundef !5
   %56 = zext i8 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -10187,7 +10187,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %38
   %.sroa.01.05.i = phi i64 [ %39, %38 ], [ 0, %.preheader.i ]
-  %35 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.sroa.01.05.i
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.01.05.i
   %36 = load i8, ptr %35, align 1, !alias.scope !2270, !noundef !5
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread186, label %38
@@ -10228,8 +10228,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit: ; preds = %33
   br label %59
 
 53:                                               ; preds = %46
-  %54 = add i64 %47, -1
-  %55 = getelementptr inbounds [0 x i8], ptr %48, i64 0, i64 %54
+  %54 = getelementptr i8, ptr %48, i64 %47
+  %55 = getelementptr i8, ptr %54, i64 -1
   %56 = load i8, ptr %55, align 1, !alias.scope !2273, !noalias !2278, !noundef !5
   %57 = zext i8 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -49434,7 +49434,7 @@ define internal fastcc void @"_ZN8zvariant8gvariant2de26ValueDeserializer$LT$F$G
   unreachable
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 %21
+  %32 = getelementptr inbounds i8, ptr %16, i64 %21
   %33 = load i8, ptr %32, align 1, !noundef !5
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %36, label %18

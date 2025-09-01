@@ -829,7 +829,7 @@ get_refs.exit:                                    ; preds = %272, %274
 
 288:                                              ; preds = %290, %283
   %.0811.i.i = phi i64 [ 0, %283 ], [ %291, %290 ]
-  %289 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %289 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %287, %289
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %290
 
@@ -2655,7 +2655,7 @@ parse_git_refs.exit:                              ; preds = %172, %177
 
 194:                                              ; preds = %186
   %195 = sext i32 %192 to i64
-  %196 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %195
+  %196 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %195
   br label %200
 
 197:                                              ; preds = %186
@@ -2673,7 +2673,7 @@ parse_git_refs.exit:                              ; preds = %172, %177
 
 202:                                              ; preds = %204, %200
   %.0811.i.i = phi i64 [ 0, %200 ], [ %205, %204 ]
-  %203 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %203 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i54.i = icmp eq ptr %.0.i.ph.i, %203
   br i1 %.not.i54.i, label %.split.loop.exit9.i.i, label %204
 
@@ -3826,7 +3826,7 @@ define internal noundef i64 @rpc_in(ptr noundef %0, i64 noundef %1, i64 noundef 
   %spec.select51.i = call i64 @llvm.umin.i64(i64 %.03756.i, i64 %25)
   %spec.select.i = trunc i64 %spec.select51.i to i32
   %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds [4 x i8], ptr %17, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr %17, i64 %26
   %sext.i = shl i64 %spec.select51.i, 32
   %28 = ashr exact i64 %sext.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.03855.i, i64 %28, i1 false)

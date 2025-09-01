@@ -1960,7 +1960,7 @@ png_write_chunk.exit184:                          ; preds = %271, %319
 
 .preheader:                                       ; preds = %268, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %268 ]
-  %326 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %265, i64 0, i64 %indvars.iv
+  %326 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %265, i64 %indvars.iv
   %327 = load i64, ptr %326, align 4
   %.sroa.0.0.extract.trunc.i185 = trunc i64 %327 to i32
   %.sroa.2.0.extract.shift.i186 = lshr i64 %327, 32
@@ -2504,10 +2504,10 @@ define internal fastcc range(i32 -12, 1) i32 @encode_frame(ptr noundef readonly 
   br i1 %70, label %.lr.ph, label %.loopexit194
 
 .lr.ph:                                           ; preds = %.preheader193
-  %71 = getelementptr inbounds nuw [7 x i8], ptr @ff_png_pass_ymask, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr @ff_png_pass_ymask, i64 %indvars.iv
   %72 = load i8, ptr %71, align 1, !tbaa !57
   %73 = zext i8 %72 to i32
-  %74 = getelementptr inbounds nuw [7 x i32], ptr @png_get_interlaced_row.masks, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr @png_get_interlaced_row.masks, i64 %indvars.iv
   %75 = zext nneg i32 %67 to i64
   %76 = getelementptr inbounds nuw i8, ptr %26, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16

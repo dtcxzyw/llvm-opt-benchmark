@@ -17364,7 +17364,7 @@ define dso_local void @_ZN4llvm12DWARFContext6createERKNS_6object10ObjectFileENS
 
 switch.lookup:                                    ; preds = %8
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN4llvm12DWARFContext6createERKNS_6object10ObjectFileENS0_23ProcessDebugRelocationsEPKNS_16LoadedObjectInfoENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_5ErrorEEESI_b, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm12DWARFContext6createERKNS_6object10ObjectFileENS0_23ProcessDebugRelocationsEPKNS_16LoadedObjectInfoENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_5ErrorEEESI_b, i64 %80
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i.i
 

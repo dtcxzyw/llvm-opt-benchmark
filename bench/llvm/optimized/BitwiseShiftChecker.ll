@@ -3494,7 +3494,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %988, %986
   %991 = phi ptr [ %.pre.i.i, %986 ], [ %990, %988 ]
   %992 = zext i32 %966 to i64
-  %993 = getelementptr inbounds nuw [4 x %"struct.(anonymous namespace)::NoteTagTemplate"], ptr @_ZN12_GLOBAL__N_116NoteTagTemplatesE, i64 0, i64 %992
+  %993 = getelementptr inbounds nuw %"struct.(anonymous namespace)::NoteTagTemplate", ptr @_ZN12_GLOBAL__N_116NoteTagTemplatesE, i64 %992
   %.sroa.03.0.copyload.i.i = load ptr, ptr %993, align 16
   %.sroa.4.0..sroa_idx.i86.i = getelementptr inbounds nuw i8, ptr %993, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i86.i, align 8

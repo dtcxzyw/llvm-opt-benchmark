@@ -6005,7 +6005,7 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr44drop
   %85 = or disjoint i8 %84, 4
   %switch.offset = zext nneg i8 %85 to i64
   %86 = zext nneg i8 %84 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %switch.load, ptr %21, align 8, !noalias !1222
@@ -6032,7 +6032,7 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr44drop
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %94 = load i8, ptr %93, align 1, !range !1221, !noundef !37
   %95 = zext nneg i8 %94 to i64
-  %switch.gep27 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE.35, i64 0, i64 %95
+  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE.35, i64 %95
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %switch.load28, ptr %18, align 8, !noalias !1233

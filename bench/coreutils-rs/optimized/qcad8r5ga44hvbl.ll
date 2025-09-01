@@ -5410,7 +5410,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread215: ; 
 
 .lr.ph.i.i.i:                                     ; preds = %391, %395
   %.05.i.i.i = phi i64 [ %396, %395 ], [ 0, %391 ]
-  %392 = getelementptr inbounds nuw [0 x i8], ptr %385, i64 0, i64 %.05.i.i.i
+  %392 = getelementptr inbounds nuw i8, ptr %385, i64 %.05.i.i.i
   %393 = load i8, ptr %392, align 1, !alias.scope !1413, !noalias !1412, !noundef !16
   %394 = icmp eq i8 %393, 10
   br i1 %394, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread23.i", label %395

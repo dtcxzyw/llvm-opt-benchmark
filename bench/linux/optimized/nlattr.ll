@@ -563,7 +563,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br i1 %177, label %178, label %196
 
 178:                                              ; preds = %173
-  %179 = getelementptr [22 x i8], ptr @nla_attr_len, i64 0, i64 %174
+  %179 = getelementptr i8, ptr @nla_attr_len, i64 %174
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i16
   %182 = icmp eq i16 %152, %181
@@ -872,7 +872,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
 
 335:                                              ; preds = %329
   %336 = zext i8 %.pre to i64
-  %337 = getelementptr [22 x i8], ptr @nla_attr_minlen, i64 0, i64 %336
+  %337 = getelementptr i8, ptr @nla_attr_minlen, i64 %336
   %338 = load i8, ptr %337, align 1
   %339 = zext i8 %338 to i32
   br label %340
@@ -1497,7 +1497,7 @@ define dso_local i32 @nla_policy_len(ptr noundef readonly captures(none) %0, i32
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %15
-  %22 = getelementptr [22 x i8], ptr @nla_attr_len, i64 0, i64 %17
+  %22 = getelementptr i8, ptr @nla_attr_len, i64 %17
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, 7
@@ -1511,7 +1511,7 @@ define dso_local i32 @nla_policy_len(ptr noundef readonly captures(none) %0, i32
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %28
-  %32 = getelementptr [22 x i8], ptr @nla_attr_minlen, i64 0, i64 %17
+  %32 = getelementptr i8, ptr @nla_attr_minlen, i64 %17
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 7

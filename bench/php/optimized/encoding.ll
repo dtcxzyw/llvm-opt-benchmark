@@ -80,7 +80,7 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr noundef rea
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 %.01314.i
   %26 = load i8, ptr %25, align 1, !tbaa !26
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !26
   %.not.i = icmp eq i8 %29, 1
   br i1 %.not.i, label %30, label %looks_ascii.exit
@@ -275,7 +275,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %124
+  %129 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %124
   %130 = load i8, ptr %129, align 1, !tbaa !26
   %.not46.us.i = icmp eq i8 %130, 1
   br i1 %.not46.us.i, label %131, label %.loopexit
@@ -324,7 +324,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   br i1 %163, label %164, label %167
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %160
+  %165 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %160
   %166 = load i8, ptr %165, align 1, !tbaa !26
   %.not46.i = icmp eq i8 %166, 1
   br i1 %.not46.i, label %167, label %.loopexit
@@ -372,7 +372,7 @@ looks_ucs32.exit:                                 ; preds = %131, %101
   %176 = getelementptr inbounds nuw i8, ptr %11, i64 %.01517.i
   %177 = load i8, ptr %176, align 1, !tbaa !26
   %178 = zext i8 %177 to i64
-  %179 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %178
   %180 = load i8, ptr %179, align 1, !tbaa !26
   %181 = icmp eq i8 %180, 1
   %182 = icmp ugt i8 %177, -97
@@ -403,7 +403,7 @@ looks_latin1.exit:                                ; preds = %.lr.ph.i150
   %189 = getelementptr inbounds nuw i8, ptr %11, i64 %.01820.i
   %190 = load i8, ptr %189, align 1, !tbaa !26
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %191
   %193 = load i8, ptr %192, align 1, !tbaa !26
   %194 = icmp ugt i8 %190, -97
   %195 = and i8 %193, -3
@@ -440,7 +440,7 @@ looks_extended.exit:                              ; preds = %.lr.ph.i154
   %206 = getelementptr inbounds nuw i8, ptr %11, i64 %.06.i
   %207 = load i8, ptr %206, align 1, !tbaa !26
   %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds nuw [256 x i8], ptr @ebcdic_to_ascii, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr @ebcdic_to_ascii, i64 %208
   %210 = load i8, ptr %209, align 1, !tbaa !26
   %211 = getelementptr inbounds nuw i8, ptr %203, i64 %.06.i
   store i8 %210, ptr %211, align 1, !tbaa !26
@@ -458,7 +458,7 @@ from_ebcdic.exit:                                 ; preds = %.lr.ph.i158
   %214 = getelementptr inbounds nuw i8, ptr %203, i64 %.01314.i162
   %215 = load i8, ptr %214, align 1, !tbaa !26
   %216 = zext i8 %215 to i64
-  %217 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %216
   %218 = load i8, ptr %217, align 1, !tbaa !26
   %.not.i163 = icmp eq i8 %218, 1
   br i1 %.not.i163, label %219, label %looks_ascii.exit166
@@ -487,7 +487,7 @@ looks_ascii.exit166:                              ; preds = %.lr.ph.i161
   %225 = getelementptr inbounds nuw i8, ptr %203, i64 %.01517.i169
   %226 = load i8, ptr %225, align 1, !tbaa !26
   %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %227
   %229 = load i8, ptr %228, align 1, !tbaa !26
   %230 = icmp eq i8 %229, 1
   %231 = icmp ugt i8 %226, -97
@@ -564,7 +564,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
 
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %8 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !26
   %.not93 = icmp eq i8 %14, 1
   %spec.select = select i1 %.not93, i32 %.073120, i32 1
@@ -577,11 +577,11 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
 
 18:                                               ; preds = %15
   %19 = zext i8 %8 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @first, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @first, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !26
   %22 = lshr i8 %21, 4
   %23 = zext nneg i8 %22 to i64
-  %24 = getelementptr inbounds nuw [16 x %struct.accept_range], ptr @accept_ranges, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.accept_range, ptr @accept_ranges, i64 %23
   %25 = icmp eq i8 %21, -15
   br i1 %25, label %.thread, label %26
 
@@ -777,7 +777,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   br i1 %38, label %40, label %._crit_edge76
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %39
   %42 = load i8, ptr %41, align 1, !tbaa !26
   %.not58.us = icmp eq i8 %42, 1
   br i1 %.not58.us, label %._crit_edge76, label %.critedge
@@ -842,7 +842,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   br i1 %71, label %73, label %._crit_edge
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr @text_chars, i64 %72
   %75 = load i8, ptr %74, align 1, !tbaa !26
   %.not58 = icmp eq i8 %75, 1
   br i1 %.not58, label %._crit_edge, label %.critedge

@@ -653,7 +653,7 @@ define dso_local i32 @ktime_get_resolution_ns() #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_get_with_offset(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [3 x ptr], ptr @offsets, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @offsets, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @timekeeping_suspended, align 4
   %6 = icmp eq i32 %5, 0
@@ -720,7 +720,7 @@ define dso_local i64 @ktime_get_with_offset(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_get_coarse_with_offset(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [3 x ptr], ptr @offsets, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @offsets, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @timekeeping_suspended, align 4
   %6 = icmp eq i32 %5, 0
@@ -771,7 +771,7 @@ define dso_local i64 @ktime_get_coarse_with_offset(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_mono_to_any(i64 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr [3 x ptr], ptr @offsets, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @offsets, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 

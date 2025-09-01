@@ -385,9 +385,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1f76a48
   unreachable
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %50
+  %61 = getelementptr inbounds i8, ptr %4, i64 %50
   %62 = load i8, ptr %61, align 1, !noundef !17
-  %63 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %57
+  %63 = getelementptr inbounds i8, ptr %2, i64 %57
   %64 = load i8, ptr %63, align 1, !noundef !17
   %.not = icmp eq i8 %62, %64
   br i1 %.not, label %45, label %66
@@ -403,9 +403,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1f76a48
 
 68:                                               ; preds = %42
   %69 = add nuw i64 %.sroa.04.0, 1
-  %70 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
+  %70 = getelementptr inbounds i8, ptr %4, i64 %.sroa.04.0
   %71 = load i8, ptr %70, align 1, !noundef !17
-  %72 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %43
+  %72 = getelementptr inbounds i8, ptr %2, i64 %43
   %73 = load i8, ptr %72, align 1, !noundef !17
   %.not24 = icmp eq i8 %71, %73
   br i1 %.not24, label %39, label %76

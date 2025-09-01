@@ -1077,7 +1077,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr %68, ptr %4, align 8, !tbaa !37
   store i64 0, ptr %69, align 8, !tbaa !40
   store i8 0, ptr %68, align 8, !tbaa !39
-  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3igl3xml17serialization_xmlL14forbiddenCharsE, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw i8, ptr @_ZN3igl3xml17serialization_xmlL14forbiddenCharsE, i64 %indvars.iv
   %112 = load i8, ptr %111, align 1, !tbaa !39
   %113 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef 0, i64 noundef 1, i8 noundef signext %112)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit unwind label %176
@@ -1672,7 +1672,7 @@ define dso_local void @_ZN3igl3xml17serialization_xml13base64_encodeB5cxx11EPKhj
   %16 = load i8, ptr %.044, align 1, !tbaa !39
   %17 = add nuw nsw i32 %.02143, 1
   %18 = zext nneg i32 %.02143 to i64
-  %19 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
   store i8 %16, ptr %19, align 1, !tbaa !39
   %20 = icmp eq i32 %17, 3
   br i1 %20, label %21, label %.loopexit39
@@ -1699,7 +1699,7 @@ define dso_local void @_ZN3igl3xml17serialization_xml13base64_encodeB5cxx11EPKhj
 
 35:                                               ; preds = %21, %52
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %52 ]
-  %36 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !39
   %38 = zext i8 %37 to i64
   %39 = load ptr, ptr @_ZN3igl3xml17serialization_xmlL12base64_charsB5cxx11E, align 8, !tbaa !32
@@ -1827,7 +1827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %101
   %indvars.iv58 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next59, %101 ]
-  %85 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv58
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv58
   %86 = load i8, ptr %85, align 1, !tbaa !39
   %87 = zext i8 %86 to i64
   %88 = load ptr, ptr @_ZN3igl3xml17serialization_xmlL12base64_charsB5cxx11E, align 8, !tbaa !32
@@ -1956,7 +1956,7 @@ define dso_local void @_ZN3igl3xml17serialization_xml13base64_decodeERKNSt7__cxx
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !39
   %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds [200 x i32], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %5, i64 %23
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %25, ptr %24, align 4, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1986,7 +1986,7 @@ define dso_local void @_ZN3igl3xml17serialization_xml13base64_decodeERKNSt7__cxx
 37:                                               ; preds = %31
   %38 = add nsw i32 %.03761, 1
   %39 = sext i32 %.03761 to i64
-  %40 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr %3, i64 %39
   store i8 %30, ptr %40, align 1, !tbaa !39
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %41 = icmp eq i32 %38, 4
@@ -1994,10 +1994,10 @@ define dso_local void @_ZN3igl3xml17serialization_xml13base64_decodeERKNSt7__cxx
 
 .preheader53:                                     ; preds = %37, %.preheader53
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.preheader53 ], [ 0, %37 ]
-  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv73
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv73
   %43 = load i8, ptr %42, align 1, !tbaa !39
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [200 x i32], ptr %5, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !74
   %47 = trunc i32 %46 to i8
   store i8 %47, ptr %42, align 1, !tbaa !39
@@ -2061,7 +2061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 70:                                               ; preds = %55, %83
   %indvars.iv77 = phi i64 [ 0, %55 ], [ %indvars.iv.next78, %83 ]
-  %71 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv77
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv77
   %72 = load i8, ptr %71, align 1, !tbaa !39
   %73 = load i64, ptr %10, align 8, !tbaa !40
   %74 = add i64 %73, 1
@@ -2128,7 +2128,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader ], [ 0, %.preheader.preheader ]
-  %93 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv87
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv87
   %94 = load i8, ptr %93, align 1, !tbaa !39
   %95 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN3igl3xml17serialization_xmlL12base64_charsB5cxx11E, i8 noundef signext %94, i64 noundef 0) #27
   %96 = trunc i64 %95 to i8
@@ -2170,7 +2170,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %131
   %indvars.iv91 = phi i64 [ 0, %.lr.ph71.preheader ], [ %indvars.iv.next92, %131 ]
-  %119 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv91
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv91
   %120 = load i8, ptr %119, align 1, !tbaa !39
   %121 = load i64, ptr %10, align 8, !tbaa !40
   %122 = add i64 %121, 1

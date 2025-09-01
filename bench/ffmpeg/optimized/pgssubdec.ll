@@ -112,7 +112,7 @@ define internal i32 @decode(ptr noundef %0, ptr noundef %1, ptr noundef captures
 
 .lr.ph.i.i:                                       ; preds = %43, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [8 x %struct.PGSSubPalette], ptr %40, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw %struct.PGSSubPalette, ptr %40, i64 %indvars.iv.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = icmp eq i32 %45, %38
   br i1 %46, label %find_palette.exit.i, label %43
@@ -129,7 +129,7 @@ define internal i32 @decode(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %50 = add nsw i32 %41, 1
   store i32 %50, ptr %39, align 8, !tbaa !39
   %51 = sext i32 %41 to i64
-  %52 = getelementptr inbounds [8 x %struct.PGSSubPalette], ptr %40, i64 0, i64 %51
+  %52 = getelementptr inbounds %struct.PGSSubPalette, ptr %40, i64 %51
   store i32 %38, ptr %52, align 4, !tbaa !37
   br label %find_palette.exit.i
 
@@ -202,7 +202,7 @@ find_palette.exit.i:                              ; preds = %.lr.ph.i.i, %.threa
   %104 = or disjoint i32 %102, %103
   %105 = or disjoint i32 %104, %99
   %106 = zext i8 %60 to i64
-  %107 = getelementptr inbounds nuw [256 x i32], ptr %57, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i32, ptr %57, i64 %106
   store i32 %105, ptr %107, align 4, !tbaa !30
   %108 = icmp ult ptr %70, %36
   br i1 %108, label %58, label %parse_palette_segment.exit, !llvm.loop !44
@@ -234,7 +234,7 @@ find_palette.exit.i:                              ; preds = %.lr.ph.i.i, %.threa
 
 .lr.ph.i.i50:                                     ; preds = %121, %.lr.ph.preheader.i.i48
   %indvars.iv.i.i51 = phi i64 [ 0, %.lr.ph.preheader.i.i48 ], [ %indvars.iv.next.i.i52, %121 ]
-  %122 = getelementptr inbounds nuw [64 x %struct.PGSSubObject], ptr %118, i64 0, i64 %indvars.iv.i.i51
+  %122 = getelementptr inbounds nuw %struct.PGSSubObject, ptr %118, i64 %indvars.iv.i.i51
   %123 = load i32, ptr %122, align 8, !tbaa !47
   %124 = icmp eq i32 %123, %116
   br i1 %124, label %find_object.exit.i, label %121
@@ -251,7 +251,7 @@ find_palette.exit.i:                              ; preds = %.lr.ph.i.i, %.threa
   %128 = add nsw i32 %119, 1
   store i32 %128, ptr %117, align 8, !tbaa !49
   %129 = sext i32 %119 to i64
-  %130 = getelementptr inbounds [64 x %struct.PGSSubObject], ptr %118, i64 0, i64 %129
+  %130 = getelementptr inbounds %struct.PGSSubObject, ptr %118, i64 %129
   store i32 %116, ptr %130, align 8, !tbaa !47
   br label %find_object.exit.i
 
@@ -410,7 +410,7 @@ find_object.exit.i:                               ; preds = %.lr.ph.i.i50, %.thr
 
 228:                                              ; preds = %228, %.lr.ph.i.i57
   %indvars.iv.i.i58 = phi i64 [ 0, %.lr.ph.i.i57 ], [ %indvars.iv.next.i.i59, %228 ]
-  %229 = getelementptr inbounds nuw [64 x %struct.PGSSubObject], ptr %227, i64 0, i64 %indvars.iv.i.i58
+  %229 = getelementptr inbounds nuw %struct.PGSSubObject, ptr %227, i64 %indvars.iv.i.i58
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
   tail call void @av_freep(ptr noundef nonnull %230) #7
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 24
@@ -466,7 +466,7 @@ flush_cache.exit.i:                               ; preds = %228, %223
   %256 = phi i32 [ %252, %.lr.ph.i54 ], [ %314, %313 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i54 ], [ %indvars.iv.next.i, %313 ]
   %.07577.i = phi ptr [ %243, %.lr.ph.i54 ], [ %.1.i, %313 ]
-  %257 = getelementptr inbounds nuw [2 x %struct.PGSSubObjectRef], ptr %253, i64 0, i64 %indvars.iv.i
+  %257 = getelementptr inbounds nuw %struct.PGSSubObjectRef, ptr %253, i64 %indvars.iv.i
   %258 = ptrtoint ptr %.07577.i to i64
   %259 = sub i64 %254, %258
   %260 = icmp slt i64 %259, 8
@@ -622,7 +622,7 @@ flush_cache.exit.i:                               ; preds = %228, %223
 
 .lr.ph.i.i64:                                     ; preds = %340, %.lr.ph.preheader.i.i62
   %indvars.iv.i.i65 = phi i64 [ 0, %.lr.ph.preheader.i.i62 ], [ %indvars.iv.next.i.i66, %340 ]
-  %341 = getelementptr inbounds nuw [8 x %struct.PGSSubPalette], ptr %337, i64 0, i64 %indvars.iv.i.i65
+  %341 = getelementptr inbounds nuw %struct.PGSSubPalette, ptr %337, i64 %indvars.iv.i.i65
   %342 = load i32, ptr %341, align 4, !tbaa !37
   %343 = icmp eq i32 %342, %335
   br i1 %343, label %find_palette.exit.preheader.i, label %340
@@ -661,7 +661,7 @@ find_palette.exit.preheader.i:                    ; preds = %.lr.ph.i.i64
   store ptr %352, ptr %358, align 8, !tbaa !81
   %359 = getelementptr inbounds nuw i8, ptr %352, i64 76
   store i32 1, ptr %359, align 4, !tbaa !83
-  %360 = getelementptr inbounds nuw [2 x %struct.PGSSubObjectRef], ptr %347, i64 0, i64 %indvars.iv.i69
+  %360 = getelementptr inbounds nuw %struct.PGSSubObjectRef, ptr %347, i64 %indvars.iv.i69
   %361 = load i32, ptr %360, align 4, !tbaa !67
   %362 = load i32, ptr %348, align 8, !tbaa !45
   %363 = icmp sgt i32 %362, 0
@@ -678,7 +678,7 @@ find_palette.exit.preheader.i:                    ; preds = %.lr.ph.i.i64
 
 .lr.ph.i104.i:                                    ; preds = %364, %.lr.ph.preheader.i102.i
   %indvars.iv.i105.i = phi i64 [ 0, %.lr.ph.preheader.i102.i ], [ %indvars.iv.next.i106.i, %364 ]
-  %365 = getelementptr inbounds nuw [64 x %struct.PGSSubObject], ptr %344, i64 0, i64 %indvars.iv.i105.i
+  %365 = getelementptr inbounds nuw %struct.PGSSubObject, ptr %344, i64 %indvars.iv.i105.i
   %366 = load i32, ptr %365, align 8, !tbaa !47
   %367 = icmp eq i32 %366, %361
   br i1 %367, label %find_object.exit.i71, label %364
@@ -981,7 +981,7 @@ define internal fastcc void @flush_cache(ptr %.32.val) unnamed_addr #1 {
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [64 x %struct.PGSSubObject], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.PGSSubObject, ptr %4, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @av_freep(ptr noundef nonnull %7) #7
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24

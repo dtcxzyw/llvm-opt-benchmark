@@ -1581,7 +1581,7 @@ define internal fastcc noundef ptr @read_one(ptr noundef nonnull captures(none) 
 
 57:                                               ; preds = %.preheader, %59
   %.0811.i.i = phi i64 [ %60, %59 ], [ 0, %.preheader ]
-  %58 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %58 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %49, %58
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %59
 

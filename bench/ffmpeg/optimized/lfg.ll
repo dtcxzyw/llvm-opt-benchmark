@@ -20,27 +20,24 @@ define void @av_lfg_init(ptr noundef writeonly captures(none) %0, i32 noundef %1
   store i8 %8, ptr %4, align 4, !tbaa !4
   call void @av_md5_sum(ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef 16) #8
   %9 = load i32, ptr %3, align 16, !tbaa !4
-  %10 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %9, ptr %10, align 4, !tbaa !7
   %11 = load i32, ptr %4, align 4, !tbaa !4
-  %12 = or disjoint i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %12
-  store i32 %11, ptr %13, align 4, !tbaa !7
-  %14 = load i32, ptr %5, align 8, !tbaa !4
-  %15 = or disjoint i64 %indvars.iv, 2
-  %16 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %15
-  store i32 %14, ptr %16, align 4, !tbaa !7
-  %17 = load i32, ptr %6, align 4, !tbaa !4
-  %18 = or disjoint i64 %indvars.iv, 3
-  %19 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %18
-  store i32 %17, ptr %19, align 4, !tbaa !7
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %11, ptr %12, align 4, !tbaa !7
+  %13 = load i32, ptr %5, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 %13, ptr %14, align 4, !tbaa !7
+  %15 = load i32, ptr %6, align 4, !tbaa !4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 %15, ptr %16, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %20 = icmp samesign ult i64 %indvars.iv, 60
-  br i1 %20, label %7, label %21, !llvm.loop !9
+  %17 = icmp samesign ult i64 %indvars.iv, 60
+  br i1 %17, label %7, label %18, !llvm.loop !9
 
-21:                                               ; preds = %7
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %22, align 4, !tbaa !11
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i32 0, ptr %19, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -61,17 +58,17 @@ define void @av_bmg_get(ptr noundef captures(none) %0, ptr noundef writeonly cap
   %6 = add i32 %5, 40
   %7 = and i32 %6, 63
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !7
   %11 = add i32 %5, 9
   %12 = and i32 %11, 63
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !7
   %16 = add i32 %15, %10
   %17 = and i32 %5, 63
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   store i32 %16, ptr %19, align 4, !tbaa !7
   %20 = add i32 %5, 1
   %21 = uitofp i32 %16 to double
@@ -79,17 +76,17 @@ define void @av_bmg_get(ptr noundef captures(none) %0, ptr noundef writeonly cap
   %23 = add i32 %5, 41
   %24 = and i32 %23, 63
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = add i32 %5, 10
   %29 = and i32 %28, 63
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !7
   %33 = add i32 %32, %27
   %34 = and i32 %20, 63
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %35
   store i32 %33, ptr %36, align 4, !tbaa !7
   %37 = add i32 %5, 2
   %38 = uitofp i32 %33 to double
@@ -146,7 +143,7 @@ define range(i32 -22, 1) i32 @av_lfg_init_from_data(ptr noundef writeonly captur
   %14 = sub nsw i32 %11, %.01820
   %15 = zext i32 %14 to i64
   %16 = tail call i32 @av_crc(ptr noundef %7, i32 noundef %.022, ptr noundef %13, i64 noundef %15) #9
-  %17 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !7
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !16

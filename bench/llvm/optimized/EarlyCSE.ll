@@ -9837,7 +9837,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CmpClass_matchINS0_14specificval_ty
 
 switch.lookup:                                    ; preds = %101
   %104 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZL30matchSelectWithOptionalNotCondPN4llvm5ValueERS1_S2_S2_RNS_19SelectPatternFlavorE, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL30matchSelectWithOptionalNotCondPN4llvm5ValueERS1_S2_S2_RNS_19SelectPatternFlavorE, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %4, align 4, !tbaa !567
   br label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CmpClass_matchINS0_14specificval_tyES4_NS_8ICmpInstELb0EEEEEbPT_RKT0_.exit28.thread

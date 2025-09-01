@@ -6313,14 +6313,14 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit747: ; preds = %578
 1204:                                             ; preds = %1196
   %1205 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i, 255
   %1206 = zext nneg i32 %1205 to i64
-  %1207 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h417ed3331dcb5442E, i64 0, i64 %1206
+  %1207 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h417ed3331dcb5442E, i64 %1206
   %1208 = load i8, ptr %1207, align 1, !noalias !950, !noundef !5
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h89534b98b99b4908E.exit.i.i.i"
 
 1209:                                             ; preds = %1196
   %1210 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i, 255
   %1211 = zext nneg i32 %1210 to i64
-  %1212 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h417ed3331dcb5442E, i64 0, i64 %1211
+  %1212 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h417ed3331dcb5442E, i64 %1211
   %1213 = load i8, ptr %1212, align 1, !noalias !950, !noundef !5
   %1214 = lshr i8 %1213, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h89534b98b99b4908E.exit.i.i.i"

@@ -1244,7 +1244,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr noundef 
 
 131:                                              ; preds = %127
   %132 = zext nneg i32 %129 to i64
-  %133 = getelementptr inbounds nuw [63 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_multi_index_iso_2022_jp_katakana, i64 0, i64 %132, i32 2
+  %133 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_iso_2022_jp_katakana, i64 %132, i32 2
   %134 = load i32, ptr %133, align 4, !tbaa !26
   br label %135
 
@@ -3171,9 +3171,9 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_shift_jis(ptr noundef ca
 55:                                               ; preds = %54, %37
   %.049 = phi i32 [ %13, %37 ], [ 65293, %54 ]
   %56 = urem i32 %.049, 9253
-  %57 = add nuw nsw i32 %56, 1
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 %58
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_jis0208, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   br label %60
 
 60:                                               ; preds = %68, %55
@@ -5938,7 +5938,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr noundef cap
 
 93:                                               ; preds = %89
   %94 = zext nneg i32 %91 to i64
-  %95 = getelementptr inbounds nuw [63 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_multi_index_iso_2022_jp_katakana, i64 0, i64 %94, i32 2
+  %95 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_iso_2022_jp_katakana, i64 %94, i32 2
   %96 = load i32, ptr %95, align 4, !tbaa !26
   br label %97
 
@@ -6779,9 +6779,9 @@ define hidden signext range(i8 -2, 3) i8 @lxb_encoding_encode_shift_jis_single(p
 17:                                               ; preds = %16, %14
   %.021 = phi i32 [ %3, %14 ], [ 65293, %16 ]
   %18 = urem i32 %.021, 9253
-  %19 = add nuw nsw i32 %18, 1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 %20
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw %struct.lexbor_shs_hash_t, ptr @lxb_encoding_multi_hash_jis0208, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   br label %22
 
 22:                                               ; preds = %30, %17

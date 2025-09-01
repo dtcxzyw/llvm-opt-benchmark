@@ -845,7 +845,7 @@ define hidden void @"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h4d
   %33 = load i8, ptr %23, align 1, !noundef !12
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17h62babefefbded8d7E, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read6ESCAPE17h62babefefbded8d7E, i64 %34
   %36 = load i8, ptr %35, align 1, !range !115, !noundef !12
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %51, label %41
@@ -3596,7 +3596,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$
   %7 = load i8, ptr %5, align 1, !noundef !12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17h62babefefbded8d7E, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read6ESCAPE17h62babefefbded8d7E, i64 %8
   %10 = load i8, ptr %9, align 1, !range !115, !noundef !12
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %15, label %.backedge

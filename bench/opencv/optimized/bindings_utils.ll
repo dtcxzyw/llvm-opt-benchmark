@@ -534,7 +534,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %166, %164
   br label %174
 
 170:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %.lr.ph
-  %171 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %172 = load i32, ptr %171, align 4, !tbaa !31
   %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %172)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit103 unwind label %168
@@ -1508,7 +1508,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %237, %235
   br label %245
 
 241:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %.lr.ph
-  %242 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %242 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %243 = load i32, ptr %242, align 4, !tbaa !31
   %244 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %243)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit143 unwind label %239
@@ -2147,7 +2147,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %166, %164
   br label %174
 
 170:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %.lr.ph
-  %171 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %172 = load i32, ptr %171, align 4, !tbaa !31
   %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %172)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit103 unwind label %168
@@ -3067,7 +3067,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %236, %234
   br label %244
 
 240:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %.lr.ph
-  %241 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %242 = load i32, ptr %241, align 4, !tbaa !31
   %243 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %242)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit143 unwind label %238

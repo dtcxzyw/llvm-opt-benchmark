@@ -371,7 +371,7 @@ define dso_local range(i32 -2147483648, 128) i32 @cmd_merge_file(i32 noundef %0,
   %indvars.iv = phi i64 [ %indvars.iv.next, %188 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %152 = getelementptr inbounds nuw %struct.s_mmfile, ptr %6, i64 %indvars.iv
-  %153 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8, !tbaa !36
   %.not71 = icmp eq ptr %154, null
   %155 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
@@ -598,7 +598,7 @@ select.unfold:                                    ; preds = %175, %176, %178
 
 256:                                              ; preds = %255, %256
   %indvars.iv108 = phi i64 [ 0, %255 ], [ %indvars.iv.next109, %256 ]
-  %257 = getelementptr inbounds nuw [3 x %struct.s_mmfile], ptr %6, i64 0, i64 %indvars.iv108
+  %257 = getelementptr inbounds nuw %struct.s_mmfile, ptr %6, i64 %indvars.iv108
   %258 = load ptr, ptr %257, align 16, !tbaa !60
   call void @free(ptr noundef %258) #12
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1

@@ -328,14 +328,14 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %181 = icmp ne i8 %180, 0
   %182 = trunc i64 %177 to i32
   %183 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %179, i32 noundef %182, i32 noundef %174, i1 noundef zeroext %181) #8
-  %184 = getelementptr [15 x %struct.drm_dsc_rc_range_parameters], ptr %170, i64 0, i64 %177
+  %184 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %177
   store i8 %183, ptr %184, align 1
   %185 = load i8, ptr %79, align 1, !range !5, !noundef !6
   %186 = icmp ne i8 %185, 0
   %187 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %179, i32 noundef %182, i32 noundef %174, i1 noundef zeroext %186) #8
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 1
   store i8 %187, ptr %188, align 1
-  %189 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und4, i64 0, i64 %177
+  %189 = getelementptr i8, ptr @calculate_rc_params.ofs_und4, i64 %177
   %190 = load i8, ptr %189, align 1
   %191 = and i8 %190, 63
   %.idx.us = mul nuw nsw i64 %177, 3
@@ -358,17 +358,17 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %201 = icmp ne i8 %200, 0
   %202 = trunc i64 %197 to i32
   %203 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %199, i32 noundef %202, i32 noundef %174, i1 noundef zeroext %201) #8
-  %204 = getelementptr [15 x %struct.drm_dsc_rc_range_parameters], ptr %170, i64 0, i64 %197
+  %204 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %197
   store i8 %203, ptr %204, align 1
   %205 = load i8, ptr %79, align 1, !range !5, !noundef !6
   %206 = icmp ne i8 %205, 0
   %207 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %199, i32 noundef %202, i32 noundef %174, i1 noundef zeroext %206) #8
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 1
   store i8 %207, ptr %208, align 1
-  %209 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und12, i64 0, i64 %197
+  %209 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %197
   %210 = load i8, ptr %209, align 1
   %211 = sext i8 %210 to i32
-  %212 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und4, i64 0, i64 %197
+  %212 = getelementptr i8, ptr @calculate_rc_params.ofs_und4, i64 %197
   %213 = load i8, ptr %212, align 1
   %214 = sext i8 %213 to i32
   %215 = sub nsw i32 %211, %214
@@ -394,7 +394,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %230 = icmp ne i8 %229, 0
   %231 = trunc i64 %226 to i32
   %232 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %228, i32 noundef %231, i32 noundef %174, i1 noundef zeroext %230) #8
-  %233 = getelementptr [15 x %struct.drm_dsc_rc_range_parameters], ptr %170, i64 0, i64 %226
+  %233 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %226
   store i8 %232, ptr %233, align 1
   %234 = load i8, ptr %79, align 1, !range !5, !noundef !6
   %235 = icmp ne i8 %234, 0
@@ -404,18 +404,18 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br i1 %171, label %238, label %241
 
 238:                                              ; preds = %.split.split
-  %239 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und12, i64 0, i64 %226
+  %239 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %226
   %240 = load i8, ptr %239, align 1
   br label %255
 
 241:                                              ; preds = %.split.split
-  %242 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und15, i64 0, i64 %226
+  %242 = getelementptr i8, ptr @calculate_rc_params.ofs_und15, i64 %226
   %243 = load i8, ptr %242, align 1
   br i1 %176, label %244, label %255
 
 244:                                              ; preds = %241
   %245 = sext i8 %243 to i32
-  %246 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und12, i64 0, i64 %226
+  %246 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %226
   %247 = load i8, ptr %246, align 1
   %248 = sext i8 %247 to i32
   %249 = sub nsw i32 %245, %248
@@ -452,7 +452,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %272 = icmp ne i8 %271, 0
   %273 = trunc i64 %268 to i32
   %274 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %270, i32 noundef %273, i32 noundef %263, i1 noundef zeroext %272) #8
-  %275 = getelementptr [15 x %struct.drm_dsc_rc_range_parameters], ptr %170, i64 0, i64 %268
+  %275 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %268
   store i8 %274, ptr %275, align 1
   %276 = load i8, ptr %79, align 1, !range !5, !noundef !6
   %277 = icmp ne i8 %276, 0
@@ -462,7 +462,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br i1 %264, label %280, label %283
 
 280:                                              ; preds = %267
-  %281 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und6.1, i64 0, i64 %268
+  %281 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %268
   %282 = load i8, ptr %281, align 1
   br label %315
 
@@ -470,10 +470,10 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br i1 %265, label %284, label %297
 
 284:                                              ; preds = %283
-  %285 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und12, i64 0, i64 %268
+  %285 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %268
   %286 = load i8, ptr %285, align 1
   %287 = sext i8 %286 to i32
-  %288 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und6.1, i64 0, i64 %268
+  %288 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %268
   %289 = load i8, ptr %288, align 1
   %290 = sext i8 %289 to i32
   %291 = sub nsw i32 %287, %290
@@ -488,18 +488,18 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   br i1 %171, label %298, label %301
 
 298:                                              ; preds = %297
-  %299 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und12, i64 0, i64 %268
+  %299 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %268
   %300 = load i8, ptr %299, align 1
   br label %315
 
 301:                                              ; preds = %297
-  %302 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und15, i64 0, i64 %268
+  %302 = getelementptr i8, ptr @calculate_rc_params.ofs_und15, i64 %268
   %303 = load i8, ptr %302, align 1
   br i1 %266, label %304, label %315
 
 304:                                              ; preds = %301
   %305 = sext i8 %303 to i32
-  %306 = getelementptr [15 x i8], ptr @calculate_rc_params.ofs_und12, i64 0, i64 %268
+  %306 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %268
   %307 = load i8, ptr %306, align 1
   %308 = sext i8 %307 to i32
   %309 = sub nsw i32 %305, %308
@@ -683,7 +683,7 @@ define dso_local void @intel_dsc_dsi_pps_write(ptr noundef readonly captures(non
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr [9 x ptr], ptr %10, i64 0, i64 %12
+  %19 = getelementptr ptr, ptr %10, i64 %12
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -1036,7 +1036,7 @@ intel_dsc_get_pps_reg.exit:                       ; preds = %123, %.thread.i, %.
 
 130:                                              ; preds = %130, %intel_dsc_get_pps_reg.exit
   %131 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit ], [ %135, %130 ]
-  %132 = getelementptr [2 x %struct.i915_reg_t], ptr %15, i64 0, i64 %131
+  %132 = getelementptr %struct.i915_reg_t, ptr %15, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = load ptr, ptr %128, align 8
   tail call void %134(ptr noundef nonnull %127, i32 %133, i32 noundef %86, i1 noundef zeroext true) #8
@@ -1144,7 +1144,7 @@ intel_dsc_get_pps_reg.exit15:                     ; preds = %177, %.thread.i12, 
 
 184:                                              ; preds = %184, %intel_dsc_get_pps_reg.exit15
   %185 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit15 ], [ %189, %184 ]
-  %186 = getelementptr [2 x %struct.i915_reg_t], ptr %14, i64 0, i64 %185
+  %186 = getelementptr %struct.i915_reg_t, ptr %14, i64 %185
   %187 = load i32, ptr %186, align 4
   %188 = load ptr, ptr %182, align 8
   tail call void %188(ptr noundef nonnull %181, i32 %187, i32 noundef %141, i1 noundef zeroext true) #8
@@ -1259,7 +1259,7 @@ intel_dsc_get_pps_reg.exit24:                     ; preds = %238, %.thread.i21, 
 
 245:                                              ; preds = %245, %intel_dsc_get_pps_reg.exit24
   %246 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit24 ], [ %250, %245 ]
-  %247 = getelementptr [2 x %struct.i915_reg_t], ptr %13, i64 0, i64 %246
+  %247 = getelementptr %struct.i915_reg_t, ptr %13, i64 %246
   %248 = load i32, ptr %247, align 4
   %249 = load ptr, ptr %243, align 8
   tail call void %249(ptr noundef nonnull %242, i32 %248, i32 noundef %202, i1 noundef zeroext true) #8
@@ -1371,7 +1371,7 @@ intel_dsc_get_pps_reg.exit33:                     ; preds = %296, %.thread.i30, 
 
 303:                                              ; preds = %303, %intel_dsc_get_pps_reg.exit33
   %304 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit33 ], [ %308, %303 ]
-  %305 = getelementptr [2 x %struct.i915_reg_t], ptr %12, i64 0, i64 %304
+  %305 = getelementptr %struct.i915_reg_t, ptr %12, i64 %304
   %306 = load i32, ptr %305, align 4
   %307 = load ptr, ptr %301, align 8
   tail call void %307(ptr noundef nonnull %300, i32 %306, i32 noundef %260, i1 noundef zeroext true) #8
@@ -1484,7 +1484,7 @@ intel_dsc_get_pps_reg.exit42:                     ; preds = %355, %.thread.i39, 
 
 362:                                              ; preds = %362, %intel_dsc_get_pps_reg.exit42
   %363 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit42 ], [ %367, %362 ]
-  %364 = getelementptr [2 x %struct.i915_reg_t], ptr %11, i64 0, i64 %363
+  %364 = getelementptr %struct.i915_reg_t, ptr %11, i64 %363
   %365 = load i32, ptr %364, align 4
   %366 = load ptr, ptr %360, align 8
   tail call void %366(ptr noundef nonnull %359, i32 %365, i32 noundef %319, i1 noundef zeroext true) #8
@@ -1597,7 +1597,7 @@ intel_dsc_get_pps_reg.exit51:                     ; preds = %414, %.thread.i48, 
 
 421:                                              ; preds = %421, %intel_dsc_get_pps_reg.exit51
   %422 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit51 ], [ %426, %421 ]
-  %423 = getelementptr [2 x %struct.i915_reg_t], ptr %10, i64 0, i64 %422
+  %423 = getelementptr %struct.i915_reg_t, ptr %10, i64 %422
   %424 = load i32, ptr %423, align 4
   %425 = load ptr, ptr %419, align 8
   tail call void %425(ptr noundef nonnull %418, i32 %424, i32 noundef %378, i1 noundef zeroext true) #8
@@ -1723,7 +1723,7 @@ intel_dsc_get_pps_reg.exit60:                     ; preds = %486, %.thread.i57, 
 
 493:                                              ; preds = %493, %intel_dsc_get_pps_reg.exit60
   %494 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit60 ], [ %498, %493 ]
-  %495 = getelementptr [2 x %struct.i915_reg_t], ptr %9, i64 0, i64 %494
+  %495 = getelementptr %struct.i915_reg_t, ptr %9, i64 %494
   %496 = load i32, ptr %495, align 4
   %497 = load ptr, ptr %491, align 8
   tail call void %497(ptr noundef nonnull %490, i32 %496, i32 noundef %450, i1 noundef zeroext true) #8
@@ -1835,7 +1835,7 @@ intel_dsc_get_pps_reg.exit69:                     ; preds = %544, %.thread.i66, 
 
 551:                                              ; preds = %551, %intel_dsc_get_pps_reg.exit69
   %552 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit69 ], [ %556, %551 ]
-  %553 = getelementptr [2 x %struct.i915_reg_t], ptr %8, i64 0, i64 %552
+  %553 = getelementptr %struct.i915_reg_t, ptr %8, i64 %552
   %554 = load i32, ptr %553, align 4
   %555 = load ptr, ptr %549, align 8
   tail call void %555(ptr noundef nonnull %548, i32 %554, i32 noundef %508, i1 noundef zeroext true) #8
@@ -1947,7 +1947,7 @@ intel_dsc_get_pps_reg.exit78:                     ; preds = %602, %.thread.i75, 
 
 609:                                              ; preds = %609, %intel_dsc_get_pps_reg.exit78
   %610 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit78 ], [ %614, %609 ]
-  %611 = getelementptr [2 x %struct.i915_reg_t], ptr %7, i64 0, i64 %610
+  %611 = getelementptr %struct.i915_reg_t, ptr %7, i64 %610
   %612 = load i32, ptr %611, align 4
   %613 = load ptr, ptr %607, align 8
   tail call void %613(ptr noundef nonnull %606, i32 %612, i32 noundef %566, i1 noundef zeroext true) #8
@@ -2055,7 +2055,7 @@ intel_dsc_get_pps_reg.exit87:                     ; preds = %656, %.thread.i84, 
 
 663:                                              ; preds = %663, %intel_dsc_get_pps_reg.exit87
   %664 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit87 ], [ %668, %663 ]
-  %665 = getelementptr [2 x %struct.i915_reg_t], ptr %6, i64 0, i64 %664
+  %665 = getelementptr %struct.i915_reg_t, ptr %6, i64 %664
   %666 = load i32, ptr %665, align 4
   %667 = load ptr, ptr %661, align 8
   tail call void %667(ptr noundef nonnull %660, i32 %666, i32 noundef %620, i1 noundef zeroext true) #8
@@ -2170,7 +2170,7 @@ intel_dsc_get_pps_reg.exit96:                     ; preds = %717, %.thread.i93, 
 
 724:                                              ; preds = %724, %intel_dsc_get_pps_reg.exit96
   %725 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit96 ], [ %729, %724 ]
-  %726 = getelementptr [2 x %struct.i915_reg_t], ptr %5, i64 0, i64 %725
+  %726 = getelementptr %struct.i915_reg_t, ptr %5, i64 %725
   %727 = load i32, ptr %726, align 4
   %728 = load ptr, ptr %722, align 8
   tail call void %728(ptr noundef nonnull %721, i32 %727, i32 noundef %681, i1 noundef zeroext true) #8
@@ -2293,7 +2293,7 @@ intel_dsc_get_pps_reg.exit105:                    ; preds = %784, %.thread.i102,
 
 791:                                              ; preds = %791, %intel_dsc_get_pps_reg.exit105
   %792 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit105 ], [ %796, %791 ]
-  %793 = getelementptr [2 x %struct.i915_reg_t], ptr %4, i64 0, i64 %792
+  %793 = getelementptr %struct.i915_reg_t, ptr %4, i64 %792
   %794 = load i32, ptr %793, align 4
   %795 = load ptr, ptr %789, align 8
   tail call void %795(ptr noundef nonnull %788, i32 %794, i32 noundef %748, i1 noundef zeroext true) #8
@@ -2407,7 +2407,7 @@ intel_dsc_get_pps_reg.exit114:                    ; preds = %842, %.thread.i111,
 
 849:                                              ; preds = %849, %intel_dsc_get_pps_reg.exit114
   %850 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit114 ], [ %854, %849 ]
-  %851 = getelementptr [2 x %struct.i915_reg_t], ptr %3, i64 0, i64 %850
+  %851 = getelementptr %struct.i915_reg_t, ptr %3, i64 %850
   %852 = load i32, ptr %851, align 4
   %853 = load ptr, ptr %847, align 8
   tail call void %853(ptr noundef nonnull %846, i32 %852, i32 noundef %806, i1 noundef zeroext true) #8
@@ -2519,7 +2519,7 @@ intel_dsc_get_pps_reg.exit123:                    ; preds = %900, %.thread.i120,
 
 907:                                              ; preds = %907, %intel_dsc_get_pps_reg.exit123
   %908 = phi i64 [ 0, %intel_dsc_get_pps_reg.exit123 ], [ %912, %907 ]
-  %909 = getelementptr [2 x %struct.i915_reg_t], ptr %2, i64 0, i64 %908
+  %909 = getelementptr %struct.i915_reg_t, ptr %2, i64 %908
   %910 = load i32, ptr %909, align 4
   %911 = load ptr, ptr %905, align 8
   tail call void %911(ptr noundef nonnull %904, i32 %910, i32 noundef %864, i1 noundef zeroext true) #8
@@ -2539,7 +2539,7 @@ intel_dsc_get_pps_reg.exit123:                    ; preds = %900, %.thread.i120,
 
 918:                                              ; preds = %934, %915
   %919 = phi i64 [ 0, %915 ], [ %936, %934 ]
-  %920 = getelementptr [14 x i16], ptr %916, i64 0, i64 %919
+  %920 = getelementptr i16, ptr %916, i64 %919
   %921 = load i16, ptr %920, align 2
   %922 = zext i16 %921 to i32
   %923 = trunc i64 %919 to i32
@@ -2548,7 +2548,7 @@ intel_dsc_get_pps_reg.exit123:                    ; preds = %900, %.thread.i120,
   %926 = shl i32 %922, %925
   %927 = lshr i64 %919, 2
   %928 = and i64 %927, 1073741823
-  %929 = getelementptr [4 x i32], ptr %16, i64 0, i64 %928
+  %929 = getelementptr i32, ptr %16, i64 %928
   %930 = load i32, ptr %929, align 4
   %931 = or i32 %926, %930
   store i32 %931, ptr %929, align 4
@@ -2684,7 +2684,7 @@ intel_dsc_get_pps_reg.exit123:                    ; preds = %900, %.thread.i120,
 
 1010:                                             ; preds = %1036, %1008
   %1011 = phi i64 [ 0, %1008 ], [ %1038, %1036 ]
-  %1012 = getelementptr [15 x %struct.drm_dsc_rc_range_parameters], ptr %1009, i64 0, i64 %1011
+  %1012 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %1009, i64 %1011
   %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 2
   %1014 = load i8, ptr %1013, align 1
   %1015 = zext i8 %1014 to i32
@@ -2703,7 +2703,7 @@ intel_dsc_get_pps_reg.exit123:                    ; preds = %900, %.thread.i120,
   %1028 = shl i32 %1024, %1027
   %1029 = lshr i64 %1011, 1
   %1030 = and i64 %1029, 2147483647
-  %1031 = getelementptr [8 x i32], ptr %17, i64 0, i64 %1030
+  %1031 = getelementptr i32, ptr %17, i64 %1030
   %1032 = load i32, ptr %1031, align 4
   %1033 = or i32 %1028, %1032
   store i32 %1033, ptr %1031, align 4

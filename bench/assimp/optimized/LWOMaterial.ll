@@ -428,7 +428,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp11LWOImporter14HandleTexturesEP10aiM
   store i32 %92, ptr %7, align 4
   %93 = load ptr, ptr %87, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 1 %93, i64 %89, i1 false)
-  %94 = getelementptr inbounds nuw [1024 x i8], ptr %23, i64 0, i64 %89
+  %94 = getelementptr inbounds nuw i8, ptr %23, i64 %89
   store i8 0, ptr %94, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -538,7 +538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %129 = trunc nuw nsw i64 %126 to i32
   store i32 %129, ptr %7, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 1 %.pre118, i64 %126, i1 false)
-  %130 = getelementptr inbounds nuw [1024 x i8], ptr %23, i64 0, i64 %126
+  %130 = getelementptr inbounds nuw i8, ptr %23, i64 %126
   store i8 0, ptr %130, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit72
 
@@ -703,7 +703,7 @@ define hidden void @_ZN6Assimp11LWOImporter15ConvertMaterialERKNS_3LWO7SurfaceEP
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %18 = load ptr, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 1 %18, i64 %13, i1 false)
-  %19 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   store i8 0, ptr %19, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 

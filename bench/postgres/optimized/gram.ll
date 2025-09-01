@@ -431,7 +431,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
 
 45:                                               ; preds = %.thread10220
   %46 = sext i32 %.09971 to i64
-  %47 = getelementptr inbounds [6495 x i32], ptr @yypact, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr @yypact, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -5901
   br i1 %49, label %88, label %50
@@ -463,7 +463,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
 
 62:                                               ; preds = %60
   %63 = zext nneg i32 %.4 to i64
-  %64 = getelementptr inbounds nuw [779 x i16], ptr @yytranslate, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i16, ptr @yytranslate, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   br label %67
@@ -477,14 +477,14 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
 
 69:                                               ; preds = %67
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr inbounds nuw [123287 x i16], ptr @yycheck, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = sext i16 %72 to i32
   %.not10080 = icmp eq i32 %.010022, %73
   br i1 %.not10080, label %74, label %88
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw [123287 x i16], ptr @yytable, i64 0, i64 %70
+  %75 = getelementptr inbounds nuw i16, ptr @yytable, i64 %70
   %76 = load i16, ptr %75, align 2
   %77 = sext i16 %76 to i32
   %78 = icmp slt i16 %76, 1
@@ -510,7 +510,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
 
 88:                                               ; preds = %67, %69, %45
   %.3 = phi i32 [ %.09966, %45 ], [ %.5, %67 ], [ %.5, %69 ]
-  %89 = getelementptr inbounds [6495 x i16], ptr @yydefact, i64 0, i64 %46
+  %89 = getelementptr inbounds i16, ptr @yydefact, i64 %46
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i32
   %92 = icmp eq i16 %90, 0
@@ -520,7 +520,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   %.010019 = phi i32 [ %91, %88 ], [ %82, %81 ]
   %.8 = phi i32 [ %.3, %88 ], [ %.5, %81 ]
   %94 = sext i32 %.010019 to i64
-  %95 = getelementptr inbounds [3432 x i8], ptr @yyr2, i64 0, i64 %94
+  %95 = getelementptr inbounds i8, ptr @yyr2, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = sext i8 %96 to i32
   %98 = sub nsw i32 1, %97
@@ -28580,11 +28580,11 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   store ptr %.sroa.04645.0, ptr %15556, align 8
   %15557 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 %.010023, ptr %15557, align 4
-  %15558 = getelementptr inbounds [3432 x i16], ptr @yyr1, i64 0, i64 %94
+  %15558 = getelementptr inbounds i16, ptr @yyr1, i64 %94
   %15559 = load i16, ptr %15558, align 2
   %15560 = sext i16 %15559 to i64
   %15561 = add nsw i64 %15560, -541
-  %15562 = getelementptr inbounds [735 x i16], ptr @yypgoto, i64 0, i64 %15561
+  %15562 = getelementptr inbounds i16, ptr @yypgoto, i64 %15561
   %15563 = load i16, ptr %15562, align 2
   %15564 = sext i16 %15563 to i32
   %15565 = load i16, ptr %15555, align 2
@@ -28595,17 +28595,17 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15569:                                            ; preds = %.critedge10155
   %15570 = zext nneg i32 %15567 to i64
-  %15571 = getelementptr inbounds nuw [123287 x i16], ptr @yycheck, i64 0, i64 %15570
+  %15571 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %15570
   %15572 = load i16, ptr %15571, align 2
   %15573 = icmp eq i16 %15572, %15565
   br i1 %15573, label %15574, label %15576
 
 15574:                                            ; preds = %15569
-  %15575 = getelementptr inbounds nuw [123287 x i16], ptr @yytable, i64 0, i64 %15570
+  %15575 = getelementptr inbounds nuw i16, ptr @yytable, i64 %15570
   br label %15578
 
 15576:                                            ; preds = %15569, %.critedge10155
-  %15577 = getelementptr inbounds [735 x i16], ptr @yydefgoto, i64 0, i64 %15561
+  %15577 = getelementptr inbounds i16, ptr @yydefgoto, i64 %15561
   br label %15578
 
 15578:                                            ; preds = %15576, %15574
@@ -28657,13 +28657,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15594:                                            ; preds = %15592
   %15595 = zext nneg i32 %15593 to i64
-  %15596 = getelementptr inbounds nuw [123287 x i16], ptr @yycheck, i64 0, i64 %15595
+  %15596 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %15595
   %15597 = load i16, ptr %15596, align 2
   %15598 = icmp eq i16 %15597, 1
   br i1 %15598, label %15599, label %15603
 
 15599:                                            ; preds = %15594
-  %15600 = getelementptr inbounds nuw [123287 x i16], ptr @yytable, i64 0, i64 %15595
+  %15600 = getelementptr inbounds nuw i16, ptr @yytable, i64 %15595
   %15601 = load i16, ptr %15600, align 2
   %15602 = icmp sgt i16 %15601, 0
   br i1 %15602, label %15611, label %15603
@@ -28679,7 +28679,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %15609 = getelementptr inbounds i8, ptr %.510016, i64 -4
   %15610 = load i16, ptr %15608, align 2
   %.phi.trans.insert10777 = sext i16 %15610 to i64
-  %.phi.trans.insert10778 = getelementptr inbounds [6495 x i32], ptr @yypact, i64 0, i64 %.phi.trans.insert10777
+  %.phi.trans.insert10778 = getelementptr inbounds i32, ptr @yypact, i64 %.phi.trans.insert10777
   %.pre10779 = load i32, ptr %.phi.trans.insert10778, align 4
   br label %15589
 

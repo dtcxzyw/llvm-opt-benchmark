@@ -459,16 +459,16 @@ define hidden zeroext i1 @SDL_GetMasksForPixelFormat_REAL(i32 noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %21
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetMasksForPixelFormat_REAL, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep123 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.1, i64 0, i64 %28
+  %switch.gep123 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.1, i64 %28
   %switch.load124 = load i32, ptr %switch.gep123, align 4
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep125 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.2, i64 0, i64 %29
+  %switch.gep125 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.2, i64 %29
   %switch.load126 = load i32, ptr %switch.gep125, align 4
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep127 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.3, i64 0, i64 %30
+  %switch.gep127 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.3, i64 %30
   %switch.load128 = load i32, ptr %switch.gep127, align 4
   %31 = lshr i32 %0, 20
   %32 = and i32 %31, 15
@@ -1362,7 +1362,7 @@ SDL_GetBT601ConversionMatrix.exit.sink.split:     ; preds = %19, %24, %14, %10, 
   %.sink32 = phi i32 [ %8, %6 ], [ %12, %10 ], [ %16, %14 ], [ %26, %24 ], [ %22, %19 ]
   %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink = phi ptr [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6, %6 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %10 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %14 ], [ @switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8, %24 ], [ %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.6.switch.table.SDL_GetYCbCRtoRGBConversionMatrix.7, %19 ]
   %28 = zext nneg i32 %.sink32 to i64
-  %switch.gep30 = getelementptr inbounds nuw [3 x ptr], ptr %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink, i64 0, i64 %28
+  %switch.gep30 = getelementptr inbounds nuw ptr, ptr %switch.table.SDL_GetYCbCRtoRGBConversionMatrix.8.sink, i64 %28
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
   br label %SDL_GetBT601ConversionMatrix.exit
 
@@ -1393,24 +1393,24 @@ define hidden noundef ptr @SDL_GetColorPrimariesConversionMatrix(i32 noundef %0,
   br i1 %5, label %switch.lookup, label %10
 
 6:                                                ; preds = %2
-  %switch.tableidx7 = add i32 %0, -1
-  %7 = icmp ult i32 %switch.tableidx7, 12
-  br i1 %7, label %switch.lookup6, label %10
+  %switch.tableidx6 = add i32 %0, -1
+  %7 = icmp ult i32 %switch.tableidx6, 12
+  br i1 %7, label %switch.lookup7, label %10
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.SDL_GetColorPrimariesConversionMatrix, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_GetColorPrimariesConversionMatrix, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
-switch.lookup6:                                   ; preds = %6
-  %9 = zext nneg i32 %switch.tableidx7 to i64
-  %switch.gep8 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.SDL_GetColorPrimariesConversionMatrix.9, i64 0, i64 %9
+switch.lookup7:                                   ; preds = %6
+  %9 = zext nneg i32 %switch.tableidx6 to i64
+  %switch.gep8 = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_GetColorPrimariesConversionMatrix.9, i64 %9
   %switch.load9 = load ptr, ptr %switch.gep8, align 8
   br label %10
 
-10:                                               ; preds = %2, %4, %6, %switch.lookup6, %switch.lookup, %3
-  %.0 = phi ptr [ %switch.select5, %3 ], [ %switch.load, %switch.lookup ], [ %switch.load9, %switch.lookup6 ], [ null, %6 ], [ null, %4 ], [ null, %2 ]
+10:                                               ; preds = %2, %4, %6, %switch.lookup7, %switch.lookup, %3
+  %.0 = phi ptr [ %switch.select5, %3 ], [ %switch.load, %switch.lookup ], [ %switch.load9, %switch.lookup7 ], [ null, %6 ], [ null, %4 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1906,7 +1906,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %52, %49
 
 56:                                               ; preds = %54
   %57 = zext i8 %2 to i64
-  %58 = getelementptr inbounds nuw [256 x i16], ptr @SDL_expand_byte_10, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i16, ptr @SDL_expand_byte_10, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1914,7 +1914,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %52, %49
   %63 = zext nneg i8 %62 to i32
   %64 = shl i32 %60, %63
   %65 = zext i8 %3 to i64
-  %66 = getelementptr inbounds nuw [256 x i16], ptr @SDL_expand_byte_10, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i16, ptr @SDL_expand_byte_10, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 29
@@ -1923,7 +1923,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %52, %49
   %72 = shl i32 %68, %71
   %73 = or i32 %72, %64
   %74 = zext i8 %4 to i64
-  %75 = getelementptr inbounds nuw [256 x i16], ptr @SDL_expand_byte_10, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i16, ptr @SDL_expand_byte_10, i64 %74
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 30
@@ -2083,7 +2083,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %54, %51
 
 58:                                               ; preds = %56
   %59 = zext i8 %2 to i64
-  %60 = getelementptr inbounds nuw [256 x i16], ptr @SDL_expand_byte_10, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i16, ptr @SDL_expand_byte_10, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2091,7 +2091,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %54, %51
   %65 = zext nneg i8 %64 to i32
   %66 = shl i32 %62, %65
   %67 = zext i8 %3 to i64
-  %68 = getelementptr inbounds nuw [256 x i16], ptr @SDL_expand_byte_10, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i16, ptr @SDL_expand_byte_10, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 29
@@ -2100,7 +2100,7 @@ SDL_FindColor.exit.loopexit:                      ; preds = %54, %51
   %74 = shl i32 %70, %73
   %75 = or i32 %74, %66
   %76 = zext i8 %4 to i64
-  %77 = getelementptr inbounds nuw [256 x i16], ptr @SDL_expand_byte_10, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i16, ptr @SDL_expand_byte_10, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 30
@@ -2343,7 +2343,7 @@ define hidden void @SDL_GetRGB_REAL(i32 noundef %0, ptr noundef readonly capture
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %62 = load i8, ptr %61, align 4
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i32, ptr %66, align 4
@@ -2365,7 +2365,7 @@ define hidden void @SDL_GetRGB_REAL(i32 noundef %0, ptr noundef readonly capture
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %82 = load i32, ptr %81, align 4
@@ -2391,7 +2391,7 @@ define hidden void @SDL_GetRGB_REAL(i32 noundef %0, ptr noundef readonly capture
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %99 = load i8, ptr %98, align 2
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = zext i32 %97 to i64
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 %103
@@ -2603,7 +2603,7 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = load i8, ptr %65, align 4
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i32, ptr %70, align 4
@@ -2625,7 +2625,7 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %86 = load i32, ptr %85, align 4
@@ -2647,7 +2647,7 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %96 = load i8, ptr %95, align 2
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %101 = load i32, ptr %100, align 4
@@ -2673,7 +2673,7 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 27
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %116 = load i32, ptr %115, align 4

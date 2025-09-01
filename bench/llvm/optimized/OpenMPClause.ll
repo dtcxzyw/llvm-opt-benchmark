@@ -19125,7 +19125,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %30, %43, %45, %46
 
 58:                                               ; preds = %.preheader, %_ZN4llvm11raw_ostreamlsEc.exit31
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsEc.exit31 ]
-  %59 = getelementptr inbounds nuw [6 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !580
   switch i32 %60, label %70 [
     i32 6, label %_ZN4llvm11raw_ostreamlsEc.exit31
@@ -19434,7 +19434,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %21, %23, %24
   %30 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ false, %29 ]
   %indvars.iv = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ 1, %29 ]
   %.02341 = phi i32 [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %spec.select, %29 ]
-  %31 = getelementptr inbounds nuw [2 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !404
   %.not25 = icmp ne i32 %32, 2
   %33 = zext i1 %.not25 to i32
@@ -19490,7 +19490,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %40, %42
 59:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit36
   %60 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEc.exit ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit36 ]
   %indvars.iv45 = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit36 ]
-  %61 = getelementptr inbounds nuw [2 x i32], ptr %27, i64 0, i64 %indvars.iv45
+  %61 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv45
   %62 = load i32, ptr %61, align 4, !tbaa !404
   %.not24 = icmp eq i32 %62, 2
   br i1 %.not24, label %_ZN4llvm11raw_ostreamlsEPKc.exit36, label %63
@@ -19695,7 +19695,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %21, %23, %24
   %30 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ false, %29 ]
   %indvars.iv = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ 1, %29 ]
   %.02341 = phi i32 [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit ], [ %spec.select, %29 ]
-  %31 = getelementptr inbounds nuw [2 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !404
   %.not25 = icmp ne i32 %32, 2
   %33 = zext i1 %.not25 to i32
@@ -19751,7 +19751,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %40, %42
 59:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit36
   %60 = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEc.exit ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit36 ]
   %indvars.iv45 = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit36 ]
-  %61 = getelementptr inbounds nuw [2 x i32], ptr %27, i64 0, i64 %indvars.iv45
+  %61 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv45
   %62 = load i32, ptr %61, align 4, !tbaa !404
   %.not24 = icmp eq i32 %62, 2
   br i1 %.not24, label %_ZN4llvm11raw_ostreamlsEPKc.exit36, label %63

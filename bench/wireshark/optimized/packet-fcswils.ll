@@ -871,7 +871,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   %.095118126 = phi i8 [ 1, %.thread122 ], [ %.095118, %88 ]
   %.094120125 = phi i8 [ 0, %.thread122 ], [ %.094120, %88 ]
   %93 = zext nneg i8 %.095118126 to i64
-  %94 = getelementptr [53 x %struct._fcswils_func_table_t], ptr @fcswils_func_table, i64 0, i64 %93
+  %94 = getelementptr %struct._fcswils_func_table_t, ptr @fcswils_func_table, i64 %93
   %95 = load ptr, ptr %94, align 8
   %.not113 = icmp eq ptr %95, null
   br i1 %.not113, label %.thread128, label %96

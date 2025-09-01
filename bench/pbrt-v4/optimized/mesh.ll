@@ -1190,7 +1190,7 @@ _ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit:      ; preds = %._crit_edge.i.i.i, 
   store i64 %68, ptr %69, align 8, !tbaa !72
   %70 = lshr i64 %66, 26
   %71 = and i64 %70, 63
-  %72 = getelementptr inbounds nuw [64 x %"class.std::shared_mutex"], ptr %0, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"class.std::shared_mutex", ptr %0, i64 %71
   br label %73
 
 73:                                               ; preds = %73, %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit
@@ -1206,7 +1206,7 @@ _ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit:      ; preds = %._crit_edge.i.i.i, 
 
 _ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %77 = getelementptr inbounds nuw [64 x %"class.std::unordered_set"], ptr %76, i64 0, i64 %71
+  %77 = getelementptr inbounds nuw %"class.std::unordered_set", ptr %76, i64 %71
   %78 = call ptr @_ZNSt10_HashtableIN4pbrt11BufferCacheIiE6BufferES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_12BufferHasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %89, label %.thread
@@ -1535,7 +1535,7 @@ _ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_ed
   store i64 %68, ptr %69, align 8, !tbaa !80
   %70 = lshr i64 %66, 26
   %71 = and i64 %70, 63
-  %72 = getelementptr inbounds nuw [64 x %"class.std::shared_mutex"], ptr %0, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"class.std::shared_mutex", ptr %0, i64 %71
   br label %73
 
 73:                                               ; preds = %73, %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit
@@ -1551,7 +1551,7 @@ _ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_ed
 
 _ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %77 = getelementptr inbounds nuw [64 x %"class.std::unordered_set.33"], ptr %76, i64 0, i64 %71
+  %77 = getelementptr inbounds nuw %"class.std::unordered_set.33", ptr %76, i64 %71
   %78 = call ptr @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %89, label %.thread
@@ -1946,7 +1946,7 @@ _ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_ed
   store i64 %68, ptr %69, align 8, !tbaa !89
   %70 = lshr i64 %66, 26
   %71 = and i64 %70, 63
-  %72 = getelementptr inbounds nuw [64 x %"class.std::shared_mutex"], ptr %0, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"class.std::shared_mutex", ptr %0, i64 %71
   br label %73
 
 73:                                               ; preds = %73, %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit
@@ -1962,7 +1962,7 @@ _ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_ed
 
 _ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %77 = getelementptr inbounds nuw [64 x %"class.std::unordered_set.53"], ptr %76, i64 0, i64 %71
+  %77 = getelementptr inbounds nuw %"class.std::unordered_set.53", ptr %76, i64 %71
   %78 = call ptr @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_6Point2IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %89, label %.thread
@@ -2355,7 +2355,7 @@ _ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_e
   store i64 %68, ptr %69, align 8, !tbaa !98
   %70 = lshr i64 %66, 26
   %71 = and i64 %70, 63
-  %72 = getelementptr inbounds nuw [64 x %"class.std::shared_mutex"], ptr %0, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"class.std::shared_mutex", ptr %0, i64 %71
   br label %73
 
 73:                                               ; preds = %73, %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit
@@ -2371,7 +2371,7 @@ _ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_e
 
 _ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %77 = getelementptr inbounds nuw [64 x %"class.std::unordered_set.75"], ptr %76, i64 0, i64 %71
+  %77 = getelementptr inbounds nuw %"class.std::unordered_set.75", ptr %76, i64 %71
   %78 = call ptr @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Normal3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %89, label %.thread
@@ -2697,7 +2697,7 @@ _ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_e
   store i64 %68, ptr %69, align 8, !tbaa !104
   %70 = lshr i64 %66, 26
   %71 = and i64 %70, 63
-  %72 = getelementptr inbounds nuw [64 x %"class.std::shared_mutex"], ptr %0, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"class.std::shared_mutex", ptr %0, i64 %71
   br label %73
 
 73:                                               ; preds = %73, %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit
@@ -2713,7 +2713,7 @@ _ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit: ; preds = %._crit_e
 
 _ZNSt12shared_mutex11lock_sharedEv.exit:          ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %77 = getelementptr inbounds nuw [64 x %"class.std::unordered_set.97"], ptr %76, i64 0, i64 %71
+  %77 = getelementptr inbounds nuw %"class.std::unordered_set.97", ptr %76, i64 %71
   %78 = call ptr @_ZNSt10_HashtableIN4pbrt11BufferCacheINS0_7Vector3IfEEE6BufferES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS4_12BufferHasherENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %89, label %.thread
@@ -6023,7 +6023,7 @@ _ZN4pbrt7WarningIJiEEEvPKcDpOT_.exit:             ; preds = %_ZNKSt7__cxx1112bas
   %47 = fptosi double %46 to i32
   %48 = load ptr, ptr %3, align 8, !tbaa !211
   %49 = load i64, ptr %6, align 8, !tbaa !23
-  %50 = getelementptr inbounds [4 x i32], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr %48, i64 %49
   store i32 %47, ptr %50, align 4, !tbaa !25
   %51 = load i64, ptr %5, align 8, !tbaa !23
   %52 = add nsw i64 %51, -1
@@ -6038,7 +6038,7 @@ _ZN4pbrt7WarningIJiEEEvPKcDpOT_.exit:             ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ 0, %54 ]
   %56 = load ptr, ptr %3, align 8, !tbaa !211
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = getelementptr inbounds nuw [4 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 32

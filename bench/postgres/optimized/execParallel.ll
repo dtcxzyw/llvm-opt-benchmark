@@ -921,7 +921,7 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds i32, ptr %12, i64 %15
   store i32 %11, ptr %16, align 4
   br label %17
 
@@ -1551,7 +1551,7 @@ define dso_local void @ExecParallelCleanup(ptr noundef %0) local_unnamed_addr #0
 
 27:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw [0 x %struct.JitInstrumentation], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %struct.JitInstrumentation, ptr %26, i64 %indvars.iv.i
   tail call void @InstrJitAgg(ptr noundef %23, ptr noundef nonnull %28) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load i32, ptr %9, align 8
@@ -1632,7 +1632,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
 
 11:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %6
   br i1 %14, label %18, label %15
@@ -1888,7 +1888,7 @@ RestoreParamExecParams.exit:                      ; preds = %52, %45
   %86 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %87 = load i32, ptr @ParallelWorkerNumber, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [0 x %struct.JitInstrumentation], ptr %86, i64 0, i64 %88
+  %89 = getelementptr inbounds %struct.JitInstrumentation, ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %82, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %90, i64 48, i1 false)
   br label %91
@@ -2091,7 +2091,7 @@ define internal zeroext i1 @ExecParallelReportInstrumentation(ptr noundef %0, pt
 
 13:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %14 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %6
   br i1 %16, label %20, label %17

@@ -702,7 +702,7 @@ define internal noundef range(i64 -22, 4) i64 @bm_status_write(ptr noundef reado
 
 12:                                               ; preds = %10
   %13 = add nsw i64 %2, -1
-  %14 = getelementptr [4 x i8], ptr %5, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %5, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 10
   %17 = select i1 %16, i64 %13, i64 %2
@@ -1380,7 +1380,7 @@ define internal fastcc noundef ptr @scanarg(ptr noundef captures(ret: address, p
   %14 = getelementptr i8, ptr %8, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @_ctype, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, 68
   %20 = icmp eq i8 %19, 0
@@ -1391,7 +1391,7 @@ define internal fastcc noundef ptr @scanarg(ptr noundef captures(ret: address, p
   %23 = getelementptr i8, ptr %8, i64 4
   %24 = load i8, ptr %22, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %25
+  %26 = getelementptr i8, ptr @_ctype, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 68
   %29 = icmp eq i8 %28, 0
@@ -1588,7 +1588,7 @@ define internal noundef range(i64 -22, 4) i64 @bm_entry_write(ptr noundef readon
 
 16:                                               ; preds = %14
   %17 = add nsw i64 %2, -1
-  %18 = getelementptr [4 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %5, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 10
   %21 = select i1 %20, i64 %17, i64 %2

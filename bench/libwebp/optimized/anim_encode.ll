@@ -2428,7 +2428,7 @@ SetPreviousDisposeMethod.exit.i:                  ; preds = %162
 
 170:                                              ; preds = %169, %175
   %indvars.iv = phi i64 [ 0, %169 ], [ %indvars.iv.next, %175 ]
-  %171 = getelementptr inbounds nuw [4 x %struct.Candidate], ptr %6, i64 0, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw %struct.Candidate, ptr %6, i64 %indvars.iv
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 96
   %173 = load i32, ptr %172, align 8, !tbaa !130
   %.not78 = icmp eq i32 %173, 0

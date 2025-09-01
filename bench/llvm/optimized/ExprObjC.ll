@@ -1884,10 +1884,10 @@ switch.lookup:
   %2 = load i8, ptr %1, align 8
   %3 = and i8 %2, 3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv.1, i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang19ObjCBridgedCastExpr17getBridgeKindNameEv.1, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

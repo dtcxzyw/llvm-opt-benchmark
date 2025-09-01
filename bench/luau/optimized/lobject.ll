@@ -31,7 +31,7 @@ define hidden noundef range(i32 -2147483640, -2147483648) i32 @_Z9luaO_log2j(i32
   %.05.lcssa = phi i32 [ %0, %1 ], [ %4, %.lr.ph ]
   %.0.lcssa = phi i32 [ -1, %1 ], [ %3, %.lr.ph ]
   %6 = zext nneg i32 %.05.lcssa to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ9luaO_log2jE5log_2, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZ9luaO_log2jE5log_2, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !6
   %9 = zext i8 %8 to i32
   %10 = add nsw i32 %.0.lcssa, %9

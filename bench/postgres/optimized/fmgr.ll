@@ -135,14 +135,14 @@ define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef 
   br i1 %16, label %._crit_edge, label %17
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw [0 x i16], ptr @fmgr_builtin_oid_index, i64 0, i64 %.pre
+  %18 = getelementptr inbounds nuw i16, ptr @fmgr_builtin_oid_index, i64 %.pre
   %19 = load i16, ptr %18, align 2
   %20 = icmp eq i16 %19, -1
   br i1 %20, label %._crit_edge, label %21
 
 21:                                               ; preds = %17
   %22 = zext i16 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x %struct.FmgrBuiltin], ptr @fmgr_builtins, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -251,7 +251,7 @@ define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %76, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw [0 x %struct.FmgrBuiltin], ptr @fmgr_builtins, i64 0, i64 %indvars.iv.i, i32 4
+  %77 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i, i32 4
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %78) #15
   %80 = icmp eq i32 %79, 0
@@ -642,7 +642,7 @@ define dso_local i32 @fmgr_internal_function(ptr noundef readonly captures(none)
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw [0 x %struct.FmgrBuiltin], ptr @fmgr_builtins, i64 0, i64 %indvars.iv.i, i32 4
+  %5 = getelementptr inbounds nuw %struct.FmgrBuiltin, ptr @fmgr_builtins, i64 %indvars.iv.i, i32 4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #15
   %8 = icmp eq i32 %7, 0
@@ -3259,7 +3259,7 @@ define dso_local i32 @get_fn_expr_argtype(ptr noundef readonly captures(address_
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   %.023.i = load ptr, ptr %10, align 8
@@ -3313,7 +3313,7 @@ define dso_local i32 @get_call_expr_argtype(ptr noundef readonly captures(addres
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.023 = load ptr, ptr %8, align 8
@@ -3375,7 +3375,7 @@ define dso_local noundef zeroext i1 @get_fn_expr_arg_stable(ptr noundef readonly
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   %.021.i = load ptr, ptr %10, align 8
@@ -3433,7 +3433,7 @@ define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readon
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.get_call_expr_arg_stable, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.021 = load ptr, ptr %8, align 8

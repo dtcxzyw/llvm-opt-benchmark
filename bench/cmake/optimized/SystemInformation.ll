@@ -630,7 +630,7 @@ define dso_local noundef nonnull ptr @_ZN5cmsys17SystemInformation11GetVendorIDE
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5cmsys31SystemInformationImplementation11GetVendorIDEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5cmsys31SystemInformationImplementation11GetVendorIDEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5cmsys31SystemInformationImplementation11GetVendorIDEv.exit
 
@@ -647,7 +647,7 @@ define dso_local noundef nonnull ptr @_ZN5cmsys31SystemInformationImplementation
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5cmsys31SystemInformationImplementation11GetVendorIDEv, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5cmsys31SystemInformationImplementation11GetVendorIDEv, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -3597,7 +3597,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i32 %2, ptr %32, align 8, !tbaa !155
-  %126 = getelementptr inbounds [256 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %126 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !162
   store ptr %127, ptr %37, align 8, !tbaa !163
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3716,7 +3716,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZStl
   br i1 %or.cond.i.i, label %171, label %183
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %169
+  %172 = getelementptr inbounds nuw i8, ptr %4, i64 %169
   store i8 0, ptr %172, align 1, !tbaa !16, !noalias !172
   %173 = load i64, ptr %43, align 8, !tbaa !15, !noalias !172
   %174 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #34, !noalias !172
@@ -8372,15 +8372,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %19, %27
 .preheader:                                       ; preds = %49, %.preheader.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.preheader.backedge ], [ 0, %49 ]
   %.13857 = phi i32 [ %.239, %.preheader.backedge ], [ 0, %49 ]
-  %52 = getelementptr inbounds nuw [6 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1, !tbaa !221, !range !78, !noundef !127
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %63, label %55
 
 55:                                               ; preds = %.preheader
-  %56 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZN5cmsys31SystemInformationImplementation16QueryLinuxMemoryEv.format, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr @__const._ZN5cmsys31SystemInformationImplementation16QueryLinuxMemoryEv.format, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !133
-  %58 = getelementptr inbounds nuw [6 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef %57, ptr noundef nonnull %58) #34
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %61, label %63
@@ -10805,9 +10805,9 @@ _ZNSolsEPKv.exit57:                               ; preds = %_ZStlsISt11char_tra
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZNSolsEPKv.exit57
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !244
-  %switch.tableidx121 = add i32 %94, -1
-  %95 = icmp ult i32 %switch.tableidx121, 5
-  br i1 %95, label %switch.lookup120, label %96
+  %switch.tableidx120 = add i32 %94, -1
+  %95 = icmp ult i32 %switch.tableidx120, 5
+  br i1 %95, label %switch.lookup121, label %96
 
 96:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58
   %97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.233, i64 noundef 5)
@@ -10838,40 +10838,40 @@ _ZNSolsEPKv.exit67:                               ; preds = %_ZStlsISt11char_tra
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68: ; preds = %_ZNSolsEPKv.exit67
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load i32, ptr %108, align 8, !tbaa !244
-  %switch.tableidx127 = add i32 %109, -1
-  %110 = icmp ult i32 %switch.tableidx127, 8
-  br i1 %110, label %switch.lookup126, label %120
+  %switch.tableidx126 = add i32 %109, -1
+  %110 = icmp ult i32 %switch.tableidx126, 8
+  br i1 %110, label %switch.lookup127, label %120
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38
   %111 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv, i64 0, i64 %111
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv, i64 %111
   %switch.load = load ptr, ptr %switch.gep, align 8
   %112 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep118 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.9, i64 0, i64 %112
+  %switch.gep118 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.9, i64 %112
   %switch.load119 = load i64, ptr %switch.gep118, align 8
   br label %.invoke117
 
-switch.lookup120:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58
-  %113 = zext nneg i32 %switch.tableidx121 to i64
-  %switch.gep122 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.10, i64 0, i64 %113
+switch.lookup121:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58
+  %113 = zext nneg i32 %switch.tableidx120 to i64
+  %switch.gep122 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.10, i64 %113
   %switch.load123 = load ptr, ptr %switch.gep122, align 8
-  %114 = zext nneg i32 %switch.tableidx121 to i64
-  %switch.gep124 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.11, i64 0, i64 %114
+  %114 = zext nneg i32 %switch.tableidx120 to i64
+  %switch.gep124 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.11, i64 %114
   %switch.load125 = load i64, ptr %switch.gep124, align 8
   br label %.invoke117
 
-switch.lookup126:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68
-  %115 = zext nneg i32 %switch.tableidx127 to i64
-  %switch.gep128 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.12, i64 0, i64 %115
+switch.lookup127:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68
+  %115 = zext nneg i32 %switch.tableidx126 to i64
+  %switch.gep128 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.12, i64 %115
   %switch.load129 = load ptr, ptr %switch.gep128, align 8
-  %116 = zext nneg i32 %switch.tableidx127 to i64
-  %switch.gep130 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.13, i64 0, i64 %116
+  %116 = zext nneg i32 %switch.tableidx126 to i64
+  %switch.gep130 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5cmsys12_GLOBAL__N_123StacktraceSignalHandlerEiP9siginfo_tPv.13, i64 %116
   %switch.load131 = load i64, ptr %switch.gep130, align 8
   br label %.invoke117
 
-.invoke117:                                       ; preds = %switch.lookup126, %switch.lookup120, %switch.lookup, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32, %51, %52, %80
-  %117 = phi ptr [ @.str.236, %80 ], [ @.str.222, %52 ], [ @.str.221, %51 ], [ @.str.220, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32 ], [ @.str.235, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 ], [ %switch.load, %switch.lookup ], [ %switch.load123, %switch.lookup120 ], [ %switch.load129, %switch.lookup126 ]
-  %118 = phi i64 [ 36, %80 ], [ 14, %52 ], [ 14, %51 ], [ 13, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32 ], [ 28, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 ], [ %switch.load119, %switch.lookup ], [ %switch.load125, %switch.lookup120 ], [ %switch.load131, %switch.lookup126 ]
+.invoke117:                                       ; preds = %switch.lookup127, %switch.lookup121, %switch.lookup, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32, %51, %52, %80
+  %117 = phi ptr [ @.str.236, %80 ], [ @.str.222, %52 ], [ @.str.221, %51 ], [ @.str.220, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32 ], [ @.str.235, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 ], [ %switch.load, %switch.lookup ], [ %switch.load123, %switch.lookup121 ], [ %switch.load129, %switch.lookup127 ]
+  %118 = phi i64 [ 36, %80 ], [ 14, %52 ], [ 14, %51 ], [ 13, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32 ], [ 28, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 ], [ %switch.load119, %switch.lookup ], [ %switch.load125, %switch.lookup121 ], [ %switch.load131, %switch.lookup127 ]
   %119 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %117, i64 noundef %118)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit33 unwind label %49
 

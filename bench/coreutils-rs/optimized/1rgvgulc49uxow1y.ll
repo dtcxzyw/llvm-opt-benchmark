@@ -2159,7 +2159,7 @@ _ZN5uu_df7columns6Column9alignment17h111dd4d8f0b27676E.exit.i: ; preds = %269, %
 343:                                              ; preds = %339
   %344 = zext nneg i32 %337 to i64
   %345 = lshr i64 %344, 13
-  %346 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %345
   %347 = load i8, ptr %346, align 1, !noundef !5
   %348 = zext i8 %347 to i64
   %349 = shl nuw nsw i64 %348, 7
@@ -2170,7 +2170,7 @@ _ZN5uu_df7columns6Column9alignment17h111dd4d8f0b27676E.exit.i: ; preds = %269, %
   br i1 %353, label %354, label %.invoke, !prof !234
 
 354:                                              ; preds = %343
-  %355 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %352
+  %355 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %352
   %356 = load i8, ptr %355, align 1, !noundef !5
   %357 = zext i8 %356 to i64
   %358 = shl nuw nsw i64 %357, 4
@@ -2181,7 +2181,7 @@ _ZN5uu_df7columns6Column9alignment17h111dd4d8f0b27676E.exit.i: ; preds = %269, %
   br i1 %362, label %_ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i, label %.invoke, !prof !234
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i: ; preds = %354
-  %363 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %361
+  %363 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %361
   %364 = load i8, ptr %363, align 1, !noundef !5
   %.tr.i.i.i.i.i = trunc i32 %337 to i8
   %365 = shl i8 %.tr.i.i.i.i.i, 1
@@ -2207,7 +2207,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
 
 375:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit
   %376 = load ptr, ptr %260, align 8, !nonnull !5, !noundef !5
-  %377 = getelementptr inbounds nuw [0 x i64], ptr %376, i64 0, i64 %.sroa.7147.0215
+  %377 = getelementptr inbounds nuw i64, ptr %376, i64 %.sroa.7147.0215
   %378 = load i64, ptr %377, align 8, !noundef !5
   %379 = icmp ugt i64 %.0.lcssa.i, %378
   br i1 %379, label %380, label %455
@@ -2288,7 +2288,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
 422:                                              ; preds = %418
   %423 = zext nneg i32 %416 to i64
   %424 = lshr i64 %423, 13
-  %425 = getelementptr inbounds nuw [256 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 0, i64 %424
+  %425 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_017h2dfef07f282300f4E, i64 %424
   %426 = load i8, ptr %425, align 1, !noundef !5
   %427 = zext i8 %426 to i64
   %428 = shl nuw nsw i64 %427, 7
@@ -2299,7 +2299,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
   br i1 %432, label %433, label %.invoke, !prof !234
 
 433:                                              ; preds = %422
-  %434 = getelementptr inbounds nuw [2432 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 0, i64 %431
+  %434 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_117h235c306d3c9b4312E, i64 %431
   %435 = load i8, ptr %434, align 1, !noundef !5
   %436 = zext i8 %435 to i64
   %437 = shl nuw nsw i64 %436, 4
@@ -2320,7 +2320,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
   unreachable
 
 _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i.i110: ; preds = %433
-  %445 = getelementptr inbounds nuw [3888 x i8], ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 0, i64 %440
+  %445 = getelementptr inbounds nuw i8, ptr @_ZN13unicode_width6tables9charwidth8TABLES_217h1b91008132f922bcE, i64 %440
   %446 = load i8, ptr %445, align 1, !noundef !5
   %.tr.i.i.i.i.i111 = trunc i32 %416 to i8
   %447 = shl i8 %.tr.i.i.i.i.i111, 1
@@ -2724,7 +2724,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hbf895a1172c8edefE.exit.thread"
 
 77:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf8f5bfc25b469255E.exit"
-  %78 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %.sroa.055.0213
+  %78 = getelementptr inbounds i8, ptr %22, i64 %.sroa.055.0213
   %79 = load i8, ptr %78, align 1, !range !86, !noundef !5
   %trunc93 = trunc nuw i8 %79 to i1
   br i1 %trunc93, label %82, label %81
@@ -2764,7 +2764,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br i1 %87, label %.loopexit, label %.thread
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds [0 x i64], ptr %26, i64 0, i64 %.sroa.055.0213
+  %89 = getelementptr inbounds i64, ptr %26, i64 %.sroa.055.0213
   %90 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr %13, ptr %9, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h371cc3c1f64aca2aE", ptr %27, align 8
@@ -2798,7 +2798,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br i1 %.not92, label %.thread, label %.thread137
 
 94:                                               ; preds = %82
-  %95 = getelementptr inbounds [0 x i64], ptr %26, i64 0, i64 %.sroa.055.0213
+  %95 = getelementptr inbounds i64, ptr %26, i64 %.sroa.055.0213
   %96 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr %13, ptr %6, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h371cc3c1f64aca2aE", ptr %40, align 8

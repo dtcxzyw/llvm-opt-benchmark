@@ -859,7 +859,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 40:                                               ; preds = %34, %.preheader
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
   %41 = sext i32 %.06197 to i64
-  %42 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %5, i64 %41
   %43 = sub i32 8192, %.06197
   %44 = call ptr @fgets(ptr noundef nonnull %42, i32 noundef %43, ptr noundef %1)
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
@@ -872,7 +872,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %48 = add i32 %.06197, %47
   %49 = add i32 %48, -1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 %50
+  %51 = getelementptr inbounds i8, ptr %5, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 10
   br i1 %53, label %54, label %70

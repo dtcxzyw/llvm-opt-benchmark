@@ -242,7 +242,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %.072111 = phi ptr [ %.173, %145 ], [ null, %12 ]
   %.074110 = phi ptr [ %.175, %145 ], [ null, %12 ]
   %.076109 = phi ptr [ %.177, %145 ], [ null, %12 ]
-  %75 = getelementptr inbounds nuw [5 x %class.CgroupInfo], ptr %1, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw %class.CgroupInfo, ptr %1, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %75, align 8
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 13
   %.sroa.65.0.copyload = load i8, ptr %.sroa.65.0..sroa_idx, align 1
@@ -379,7 +379,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   br i1 %.not, label %145, label %142
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw [5 x ptr], ptr @_ZL18cg_controller_name, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw ptr, ptr @_ZL18cg_controller_name, i64 %indvars.iv
   %144 = load ptr, ptr %143, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, ptr noundef %144)
   br label %145
@@ -659,7 +659,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not227, label %118, label %115
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw [5 x ptr], ptr @_ZL18cg_controller_name, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw ptr, ptr @_ZL18cg_controller_name, i64 %indvars.iv
   %117 = load ptr, ptr %116, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef %117)
   br label %118

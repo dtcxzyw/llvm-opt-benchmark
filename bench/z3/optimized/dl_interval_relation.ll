@@ -8164,7 +8164,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %24
 
 47:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !428
   %50 = tail call noundef zeroext i1 @_ZNK7datalog24interval_relation_plugin9is_linearEP4exprRjS3_R8rationalb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %49, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %.tr71)
   br i1 %50, label %44, label %.loopexit

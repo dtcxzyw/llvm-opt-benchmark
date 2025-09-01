@@ -2149,7 +2149,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_sync
 .lr.ph:                                           ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit
   %.03467 = phi i64 [ %149, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit ], [ 0, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit ]
   %137 = icmp ult i64 %.03467, 256
-  %138 = getelementptr inbounds nuw [256 x ptr], ptr %8, i64 0, i64 %.03467
+  %138 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03467
   %139 = shl i64 %.03467, 32
   %sext = add i64 %139, -1099511627776
   %140 = ashr exact i64 %sext, 29
@@ -2924,7 +2924,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_sync
 .lr.ph:                                           ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit
   %.03463 = phi i64 [ %134, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit ], [ 0, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit ]
   %122 = icmp ult i64 %.03463, 256
-  %123 = getelementptr inbounds nuw [256 x ptr], ptr %8, i64 0, i64 %.03463
+  %123 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03463
   %124 = shl i64 %.03463, 32
   %sext = add i64 %124, -1099511627776
   %125 = ashr exact i64 %sext, 29
@@ -3489,7 +3489,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_sync
 .lr.ph:                                           ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit
   %.03471 = phi i64 [ %152, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats_removeEv.exit ], [ 0, %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE33write_synchonize_on_visible_epochEP6Thread.exit ]
   %140 = icmp ult i64 %.03471, 256
-  %141 = getelementptr inbounds nuw [256 x ptr], ptr %8, i64 0, i64 %.03471
+  %141 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03471
   %142 = shl i64 %.03471, 32
   %sext = add i64 %142, -1099511627776
   %143 = ashr exact i64 %sext, 29

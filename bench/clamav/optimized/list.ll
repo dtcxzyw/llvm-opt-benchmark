@@ -784,7 +784,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = call noundef i32 %133(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef %spec.select)
-  %135 = getelementptr inbounds nuw [2048 x i8], ptr %13, i64 0, i64 %spec.select
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 %spec.select
   store i8 0, ptr %135, align 1, !tbaa !88
   br label %136
 

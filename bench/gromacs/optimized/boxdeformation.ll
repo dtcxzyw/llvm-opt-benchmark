@@ -871,7 +871,7 @@ define void @_ZN3gmx27setBoxDeformationFlowMatrixEPA3_KfS2_PA3_f(ptr noundef rea
 
 .preheader:                                       ; preds = %3, %6
   %indvars.iv16 = phi i64 [ 0, %3 ], [ %indvars.iv.next17, %6 ]
-  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %0, i64 0, i64 %indvars.iv16
+  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv16
   %4 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv16
   br label %7
 
@@ -888,10 +888,10 @@ define void @_ZN3gmx27setBoxDeformationFlowMatrixEPA3_KfS2_PA3_f(ptr noundef rea
   %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv
   %8 = load float, ptr %gep, align 4, !tbaa !125
   %9 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv
-  %10 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !125
   %12 = fdiv float %8, %11
-  %13 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %12, ptr %13, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

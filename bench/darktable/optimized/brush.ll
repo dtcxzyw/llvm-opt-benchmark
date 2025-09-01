@@ -4178,14 +4178,14 @@ dt_masks_dynbuf_free.exit353:                     ; preds = %dt_masks_dynbuf_fre
 
 278:                                              ; preds = %260, %288
   %indvars.iv418 = phi i64 [ 0, %260 ], [ %indvars.iv.next419, %288 ]
-  %279 = getelementptr inbounds nuw [5 x i32], ptr %263, i64 0, i64 %indvars.iv418
+  %279 = getelementptr inbounds nuw i32, ptr %263, i64 %indvars.iv418
   %280 = load i32, ptr %279, align 4, !tbaa !97
   %281 = load i32, ptr %33, align 8, !tbaa !84
   %282 = icmp eq i32 %280, %281
   br i1 %282, label %283, label %288
 
 283:                                              ; preds = %278
-  %284 = getelementptr inbounds nuw [5 x ptr], ptr %264, i64 0, i64 %indvars.iv418
+  %284 = getelementptr inbounds nuw ptr, ptr %264, i64 %indvars.iv418
   %285 = load ptr, ptr %284, align 8, !tbaa !196
   %286 = tail call i64 @gtk_toggle_button_get_type() #22
   %287 = tail call ptr @g_type_check_instance_cast(ptr noundef %285, i64 noundef %286) #19

@@ -2279,7 +2279,7 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes21ForeignTheoryRewrit
   %14 = icmp eq i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %16 = zext i1 %14 to i64
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !53, !noalias !81
   store ptr %18, ptr %5, align 8, !tbaa !27, !alias.scope !81
   %19 = load i64, ptr %18, align 8, !noalias !81

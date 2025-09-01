@@ -543,13 +543,13 @@ parse_command_line.exit:                          ; preds = %._crit_edge.i
 
 .lr.ph.i73:                                       ; preds = %142, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %142 ]
-  %143 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
   %144 = load i64, ptr %143, align 8, !tbaa !18
   %145 = icmp eq i64 %144, -1
   br i1 %145, label %.loopexit.i, label %146
 
 146:                                              ; preds = %.lr.ph.i73
-  %147 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
   %148 = load i64, ptr %147, align 8, !tbaa !18
   %.not.i74 = icmp eq i64 %148, %144
   br i1 %.not.i74, label %142, label %.loopexit.i
@@ -1042,9 +1042,9 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
 
 .lr.ph:                                           ; preds = %.preheader71, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader71 ]
-  %35 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !18
   %.not = icmp eq i64 %36, %38
   br i1 %.not, label %39, label %._crit_edge
@@ -1062,9 +1062,9 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
 .lr.ph80:                                         ; preds = %._crit_edge, %62
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %62 ], [ 0, %._crit_edge ]
   %42 = load ptr, ptr @stdout, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv100
+  %43 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv100
   %44 = load i64, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv100
+  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv100
   %46 = load i64, ptr %45, align 8, !tbaa !18
   %47 = trunc nuw nsw i64 %indvars.iv100 to i32
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.102, i32 noundef %47, i64 noundef %44, i64 noundef %46) #20
@@ -1104,9 +1104,9 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %73 ], [ 0, %._crit_edge81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %63 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv105
+  %63 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv105
   %64 = load i64, ptr %63, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv105
+  %65 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv105
   %66 = load i64, ptr %65, align 8, !tbaa !18
   %67 = icmp ugt i64 %64, %66
   br i1 %67, label %.lr.ph86.preheader, label %73
@@ -1119,7 +1119,7 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
   %indvars.iv110 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next111, %.lr.ph86 ]
-  %70 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv110
+  %70 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv110
   store i64 1, ptr %70, align 8, !tbaa !18
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %26

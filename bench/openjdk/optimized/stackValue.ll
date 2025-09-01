@@ -675,7 +675,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %11, %_ZNK11Register
   %24 = sdiv i32 %23, 64
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4872
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds [10 x i64], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds i64, ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = srem i32 %23, 64
   %30 = zext nneg i32 %29 to i64
@@ -686,7 +686,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %11, %_ZNK11Register
 
 33:                                               ; preds = %17
   %34 = sext i32 %23 to i64
-  %35 = getelementptr inbounds [609 x ptr], ptr %1, i64 0, i64 %34
+  %35 = getelementptr inbounds ptr, ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
@@ -718,7 +718,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %11, %_ZNK11Register
   %55 = sdiv i32 %54, 64
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 4872
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds [10 x i64], ptr %56, i64 0, i64 %57
+  %58 = getelementptr inbounds i64, ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = srem i32 %54, 64
   %61 = zext nneg i32 %60 to i64
@@ -729,7 +729,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %11, %_ZNK11Register
 
 64:                                               ; preds = %48
   %65 = sext i32 %54 to i64
-  %66 = getelementptr inbounds [609 x ptr], ptr %1, i64 0, i64 %65
+  %66 = getelementptr inbounds ptr, ptr %1, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %_ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit
 

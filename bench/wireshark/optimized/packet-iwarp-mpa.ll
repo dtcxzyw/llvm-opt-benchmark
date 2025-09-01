@@ -971,7 +971,7 @@ get_mpa_state.exit:                               ; preds = %22, %24
 
 47:                                               ; preds = %39, %43
   %48 = zext nneg i8 %storemerge to i64
-  %49 = getelementptr [2 x %struct.minfo], ptr %29, i64 0, i64 %48
+  %49 = getelementptr %struct.minfo, ptr %29, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 4, !range !6, !noundef !7
   %52 = trunc nuw i8 %51 to i1

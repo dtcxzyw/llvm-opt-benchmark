@@ -2862,9 +2862,9 @@ define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTy
   %.0.val.0.val.fr = freeze ptr %.0.val.0.val
   %6 = load i32, ptr %0, align 4, !tbaa !13
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %7, i32 3
+  %8 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %7, i32 3
   %9 = load i32, ptr %8, align 4, !tbaa !176
-  %10 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %7, i32 4
+  %10 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %7, i32 4
   %11 = load i32, ptr %10, align 8, !tbaa !178
   %.fr108 = freeze i32 %11
   %.fr109 = freeze i32 %9

@@ -70,7 +70,7 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
 17:                                               ; preds = %13
   %18 = and i32 %0, 255
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = add nsw i32 %18, -255
   %23 = icmp ult i32 %22, -126
@@ -154,7 +154,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 3:                                                ; preds = %.lr.ph
   %4 = load i8, ptr %.07694, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   switch i8 %7, label %177 [
     i8 0, label %.loopexit
@@ -175,7 +175,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 11:                                               ; preds = %.lr.ph
   %12 = load i8, ptr %.07694, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
   switch i8 %15, label %177 [
     i8 0, label %.loopexit
@@ -190,7 +190,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 17:                                               ; preds = %.lr.ph
   %18 = load i8, ptr %.07694, align 1, !tbaa !4
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   switch i8 %21, label %177 [
     i8 0, label %.loopexit
@@ -205,7 +205,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 23:                                               ; preds = %.lr.ph
   %24 = load i8, ptr %.07694, align 1, !tbaa !4
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !4
   switch i8 %27, label %177 [
     i8 0, label %.loopexit
@@ -223,7 +223,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 30:                                               ; preds = %.lr.ph
   %31 = load i8, ptr %.07694, align 1, !tbaa !4
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !4
   switch i8 %34, label %177 [
     i8 0, label %35
@@ -242,7 +242,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 38:                                               ; preds = %.lr.ph
   %39 = load i8, ptr %.07694, align 1, !tbaa !4
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !4
   switch i8 %42, label %177 [
     i8 0, label %.loopexit
@@ -257,7 +257,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 44:                                               ; preds = %.lr.ph
   %45 = load i8, ptr %.07694, align 1, !tbaa !4
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !4
   switch i8 %48, label %177 [
     i8 0, label %49
@@ -279,7 +279,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 53:                                               ; preds = %.lr.ph
   %54 = load i8, ptr %.07694, align 1, !tbaa !4
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !4
   switch i8 %57, label %177 [
     i8 0, label %58
@@ -301,7 +301,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 62:                                               ; preds = %.lr.ph
   %63 = load i8, ptr %.07694, align 1, !tbaa !4
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !4
   switch i8 %66, label %177 [
     i8 0, label %67
@@ -320,7 +320,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 70:                                               ; preds = %.lr.ph
   %71 = load i8, ptr %.07694, align 1, !tbaa !4
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !4
   switch i8 %74, label %177 [
     i8 0, label %75
@@ -342,7 +342,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 79:                                               ; preds = %.lr.ph
   %80 = load i8, ptr %.07694, align 1, !tbaa !4
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !4
   switch i8 %83, label %177 [
     i8 0, label %84
@@ -361,7 +361,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 87:                                               ; preds = %.lr.ph
   %88 = load i8, ptr %.07694, align 1, !tbaa !4
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !4
   switch i8 %91, label %177 [
     i8 0, label %92
@@ -380,7 +380,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 95:                                               ; preds = %.lr.ph
   %96 = load i8, ptr %.07694, align 1, !tbaa !4
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !4
   switch i8 %99, label %177 [
     i8 0, label %100
@@ -399,7 +399,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 103:                                              ; preds = %.lr.ph
   %104 = load i8, ptr %.07694, align 1, !tbaa !4
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !4
   switch i8 %107, label %177 [
     i8 0, label %108
@@ -418,7 +418,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 111:                                              ; preds = %.lr.ph
   %112 = load i8, ptr %.07694, align 1, !tbaa !4
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %113
   %115 = load i8, ptr %114, align 1, !tbaa !4
   switch i8 %115, label %177 [
     i8 0, label %116
@@ -437,7 +437,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 119:                                              ; preds = %.lr.ph
   %120 = load i8, ptr %.07694, align 1, !tbaa !4
   %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !4
   switch i8 %123, label %177 [
     i8 0, label %.loopexit
@@ -452,7 +452,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 125:                                              ; preds = %.lr.ph
   %126 = load i8, ptr %.07694, align 1, !tbaa !4
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !4
   switch i8 %129, label %177 [
     i8 0, label %130
@@ -474,7 +474,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 134:                                              ; preds = %.lr.ph
   %135 = load i8, ptr %.07694, align 1, !tbaa !4
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !4
   switch i8 %138, label %177 [
     i8 0, label %139
@@ -493,7 +493,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 142:                                              ; preds = %.lr.ph
   %143 = load i8, ptr %.07694, align 1, !tbaa !4
   %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !4
   switch i8 %146, label %177 [
     i8 0, label %.loopexit
@@ -511,7 +511,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 149:                                              ; preds = %.lr.ph
   %150 = load i8, ptr %.07694, align 1, !tbaa !4
   %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !4
   switch i8 %153, label %177 [
     i8 0, label %.loopexit
@@ -526,7 +526,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 155:                                              ; preds = %.lr.ph
   %156 = load i8, ptr %.07694, align 1, !tbaa !4
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !4
   switch i8 %159, label %177 [
     i8 0, label %160
@@ -545,7 +545,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 163:                                              ; preds = %.lr.ph
   %164 = load i8, ptr %.07694, align 1, !tbaa !4
   %165 = zext i8 %164 to i64
-  %166 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !4
   switch i8 %167, label %177 [
     i8 0, label %168
@@ -564,7 +564,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 171:                                              ; preds = %.lr.ph
   %172 = load i8, ptr %.07694, align 1, !tbaa !4
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !4
   switch i8 %175, label %177 [
     i8 0, label %.loopexit
@@ -665,7 +665,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
 define internal range(i32 0, 2) i32 @gb18030_is_allowed_reverse_match(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @GB18030_MAP, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = icmp eq i8 %6, 0
   %8 = zext i1 %7 to i32

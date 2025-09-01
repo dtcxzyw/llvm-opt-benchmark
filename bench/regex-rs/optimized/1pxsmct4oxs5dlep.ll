@@ -4705,7 +4705,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN75_$LT$usize
   br i1 %5, label %6, label %8, !prof !6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -4727,7 +4727,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN81_$LT$alloc
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hba6d4d3baf3995eeE.llvm.16611923841924356903.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -5239,9 +5239,9 @@ switch.lookup:
   %4 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %0, align 8, !range !33, !noundef !5
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN75_$LT$regex_syntax..ast..visitor..ClassFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h6fa2b99de81f738bE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$regex_syntax..ast..visitor..ClassFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h6fa2b99de81f738bE", i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN75_$LT$regex_syntax..ast..visitor..ClassFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h6fa2b99de81f738bE.33", i64 0, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$regex_syntax..ast..visitor..ClassFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h6fa2b99de81f738bE.33", i64 %5
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -5304,10 +5304,10 @@ switch.lookup:                                    ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %17 = load i8, ptr %16, align 8, !range !58, !noundef !5
   %18 = zext nneg i8 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E", i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E", i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i8 %17 to i64
-  %switch.gep4 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E.34", i64 0, i64 %19
+  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E.34", i64 %19
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   store ptr %switch.load5, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5474,7 +5474,7 @@ define hidden { ptr, i64 } @_ZN12regex_syntax7unicode16SimpleCaseFolder7mapping1
 
 23:                                               ; preds = %10
   %24 = load ptr, ptr %0, align 8, !nonnull !5, !align !34, !noundef !5
-  %25 = getelementptr inbounds [0 x { i32, [1 x i32], { ptr, i64 } }], ptr %24, i64 0, i64 %12
+  %25 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %24, i64 %12
   %26 = load i32, ptr %25, align 8, !range !4, !noundef !5
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %39, label %.lr.ph.i.i.i
@@ -5528,7 +5528,7 @@ define hidden { ptr, i64 } @_ZN12regex_syntax7unicode16SimpleCaseFolder7mapping1
 50:                                               ; preds = %45
   %51 = add nuw i64 %29, 1
   store i64 %51, ptr %11, align 8
-  %52 = getelementptr inbounds [0 x { i32, [1 x i32], { ptr, i64 } }], ptr %24, i64 0, i64 %29, i32 2
+  %52 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %24, i64 %29, i32 2
   %53 = load ptr, ptr %52, align 8, !nonnull !5, !align !79, !noundef !5
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i64, ptr %54, align 8, !noundef !5
@@ -5674,7 +5674,7 @@ _ZN12regex_syntax7unicode14canonical_prop17hfd1549437477a757E.exit.thread: ; pre
   br i1 %28, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h5b15d29981e3414dE.exit81.thread", label %_ZN12regex_syntax7unicode14canonical_prop17hfd1549437477a757E.exit.thread
 
 29:                                               ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h5b15d29981e3414dE.exit81.thread"
-  %30 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.3345, i64 0, i64 %14, i32 1
+  %30 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.3345, i64 %14, i32 1
   %31 = load ptr, ptr %30, align 8, !noalias !116, !nonnull !5, !align !107, !noundef !5
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8, !noalias !116, !noundef !5
@@ -6064,7 +6064,7 @@ common.resume:                                    ; preds = %437, %391, %348, %9
           to label %106 unwind label %104, !noalias !143
 
 133:                                              ; preds = %114
-  %134 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.3345, i64 0, i64 %116, i32 1
+  %134 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.3345, i64 %116, i32 1
   %135 = load ptr, ptr %134, align 8, !noalias !178, !nonnull !5, !align !107, !noundef !5
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = load i64, ptr %136, align 8, !noalias !178, !noundef !5
@@ -6136,7 +6136,7 @@ common.resume:                                    ; preds = %437, %391, %348, %9
           to label %205 unwind label %131, !noalias !143
 
 166:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit96.thread.i"
-  %167 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 0, i64 %146, i32 1
+  %167 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 %146, i32 1
   %168 = load ptr, ptr %167, align 8, !noalias !204, !nonnull !5, !align !34, !noundef !5
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %170 = load i64, ptr %169, align 8, !noalias !204, !noundef !5
@@ -6191,7 +6191,7 @@ _ZN12regex_syntax7unicode15canonical_value17h2f8e1d41e115dc76E.exit.thread: ; pr
   br label %.loopexit
 
 192:                                              ; preds = %.lr.ph.i.i.i
-  %193 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %168, i64 0, i64 %176, i32 1
+  %193 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %168, i64 %176, i32 1
   %194 = load ptr, ptr %193, align 8, !alias.scope !205, !noalias !226, !nonnull !5, !align !107, !noundef !5
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = load i64, ptr %195, align 8, !alias.scope !205, !noalias !226, !noundef !5
@@ -6431,7 +6431,7 @@ _ZN12regex_syntax7unicode10ClassQuery12canonicalize17h58ccff790773959eE.exit: ; 
   br i1 %278, label %262, label %.thread.i.i
 
 279:                                              ; preds = %262
-  %280 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4485, i64 0, i64 %264, i32 1
+  %280 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4485, i64 %264, i32 1
   %281 = load ptr, ptr %280, align 8, !alias.scope !285, !noalias !307, !nonnull !5, !align !79, !noundef !5
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %283 = load i64, ptr %282, align 8, !alias.scope !285, !noalias !307, !noundef !5
@@ -6594,7 +6594,7 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   br i1 %331, label %315, label %.loopexit.i
 
 332:                                              ; preds = %315
-  %333 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4188, i64 0, i64 %317, i32 1
+  %333 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4188, i64 %317, i32 1
   %334 = load ptr, ptr %333, align 8, !alias.scope !365, !noalias !392, !nonnull !5, !align !79, !noundef !5
   %335 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %336 = load i64, ptr %335, align 8, !alias.scope !365, !noalias !392, !noundef !5
@@ -6610,7 +6610,7 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   br i1 %337, label %.loopexit.i, label %346
 
 338:                                              ; preds = %297
-  %339 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4188, i64 0, i64 %299, i32 1
+  %339 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4188, i64 %299, i32 1
   %340 = load ptr, ptr %339, align 8, !alias.scope !344, !noalias !397, !nonnull !5, !align !79, !noundef !5
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 8
   %342 = load i64, ptr %341, align 8, !alias.scope !344, !noalias !397, !noundef !5
@@ -6724,7 +6724,7 @@ _ZN12regex_syntax7unicode6gencat17h7a12ab031675e367E.exit: ; preds = %294, %296,
   br i1 %371, label %355, label %.thread.i.i96
 
 372:                                              ; preds = %355
-  %373 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4354, i64 0, i64 %357, i32 1
+  %373 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4354, i64 %357, i32 1
   %374 = load ptr, ptr %373, align 8, !alias.scope !411, !noalias !434, !nonnull !5, !align !79, !noundef !5
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %376 = load i64, ptr %375, align 8, !alias.scope !411, !noalias !434, !noundef !5
@@ -6887,7 +6887,7 @@ _ZN12regex_syntax3hir12ClassUnicode5empty17h26d5991a0702163dE.exit: ; preds = %3
   br i1 %419, label %403, label %.thread.i.i122
 
 420:                                              ; preds = %403
-  %421 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4425, i64 0, i64 %405, i32 1
+  %421 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4425, i64 %405, i32 1
   %422 = load ptr, ptr %421, align 8, !alias.scope !490, !noalias !513, !nonnull !5, !align !79, !noundef !5
   %423 = getelementptr inbounds nuw i8, ptr %421, i64 8
   %424 = load i64, ptr %423, align 8, !alias.scope !490, !noalias !513, !noundef !5
@@ -7351,7 +7351,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hda57f
   unreachable
 
 24:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit27.thread"
-  %25 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 0, i64 %8, i32 1
+  %25 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 %8, i32 1
   %26 = load ptr, ptr %25, align 8, !noalias !625, !nonnull !5, !align !34, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !625, !noundef !5
@@ -7402,7 +7402,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hda57f
   br label %_ZN12regex_syntax7unicode15canonical_value17h2f8e1d41e115dc76E.exit
 
 46:                                               ; preds = %.lr.ph.i.i.i
-  %47 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %26, i64 0, i64 %30, i32 1
+  %47 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %26, i64 %30, i32 1
   %48 = load ptr, ptr %47, align 8, !alias.scope !626, !noalias !647, !nonnull !5, !align !107, !noundef !5
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i64, ptr %49, align 8, !alias.scope !626, !noalias !647, !noundef !5
@@ -7459,7 +7459,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_script17hb0626
   unreachable
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 0, i64 %6, i32 1
+  %23 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 %6, i32 1
   %24 = load ptr, ptr %23, align 8, !noalias !665, !nonnull !5, !align !34, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !665, !noundef !5
@@ -7510,7 +7510,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_script17hb0626
   br label %49
 
 44:                                               ; preds = %.lr.ph.i.i.i
-  %45 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %24, i64 0, i64 %28, i32 1
+  %45 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %24, i64 %28, i32 1
   %46 = load ptr, ptr %45, align 8, !alias.scope !666, !noalias !687, !nonnull !5, !align !107, !noundef !5
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i64, ptr %47, align 8, !alias.scope !666, !noalias !687, !noundef !5
@@ -7570,7 +7570,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode3gcb17hb8ef32ba6d8eed21E(p
   br i1 %21, label %5, label %.thread.i
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4498, i64 0, i64 %7, i32 1
+  %23 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4498, i64 %7, i32 1
   %24 = load ptr, ptr %23, align 8, !alias.scope !691, !noalias !713, !nonnull !5, !align !79, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !alias.scope !691, !noalias !713, !noundef !5
@@ -7643,7 +7643,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode2wb17hc0a5a8cc8ed468edE(pt
   br i1 %21, label %5, label %.thread.i
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4513, i64 0, i64 %7, i32 1
+  %23 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4513, i64 %7, i32 1
   %24 = load ptr, ptr %23, align 8, !alias.scope !719, !noalias !741, !nonnull !5, !align !79, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !alias.scope !719, !noalias !741, !noundef !5
@@ -7716,7 +7716,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode2sb17h2baa8a68179ef89cE(pt
   br i1 %21, label %5, label %.thread.i
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.ee024262027212e939cdd9996d089225.4526, i64 0, i64 %7, i32 1
+  %23 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4526, i64 %7, i32 1
   %24 = load ptr, ptr %23, align 8, !alias.scope !747, !noalias !769, !nonnull !5, !align !79, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !alias.scope !747, !noalias !769, !noundef !5
@@ -7845,7 +7845,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
 40:                                               ; preds = %.lr.ph.i, %44
   %.sroa.03.036.i = phi i64 [ %.sroa.03.0.ph38.i, %.lr.ph.i ], [ %41, %44 ]
   %41 = add nuw i64 %.sroa.03.036.i, 1
-  %42 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %.sroa.03.036.i
+  %42 = getelementptr inbounds i8, ptr %10, i64 %.sroa.03.036.i
   %43 = load i8, ptr %42, align 1, !alias.scope !794, !noundef !5
   switch i8 %43, label %46 [
     i8 32, label %44
@@ -7875,7 +7875,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   br i1 %53, label %54, label %.invoke, !prof !6
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %.0.ph39.i
+  %55 = getelementptr inbounds i8, ptr %10, i64 %.0.ph39.i
   store i8 %43, ptr %55, align 1, !alias.scope !794
   %56 = add nuw i64 %.0.ph39.i, 1
   br label %.outer.i
@@ -7891,7 +7891,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   br label %40
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %.0.ph39.i
+  %59 = getelementptr inbounds i8, ptr %10, i64 %.0.ph39.i
   %60 = or disjoint i8 %43, 32
   store i8 %60, ptr %59, align 1, !alias.scope !794
   %61 = add nuw i64 %.0.ph39.i, 1

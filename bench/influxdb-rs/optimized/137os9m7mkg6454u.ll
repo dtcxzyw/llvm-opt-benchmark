@@ -1495,7 +1495,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %18 = shl nuw nsw i64 %17, 32
   %.sroa.0.0.insert.ext.i = zext i32 %14 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %18, %.sroa.0.0.insert.ext.i
-  %19 = getelementptr inbounds nuw [0 x { [2 x i32] }], ptr %5, i64 0, i64 %.sroa.7.027
+  %19 = getelementptr inbounds nuw { [2 x i32] }, ptr %5, i64 %.sroa.7.027
   store i64 %.sroa.0.0.insert.insert.i, ptr %19, align 4
   %20 = icmp eq i64 %11, 0
   br i1 %20, label %.thread, label %.lr.ph
@@ -1590,7 +1590,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !319
-  %30 = getelementptr inbounds nuw [0 x { [6 x i64] }], ptr %8, i64 0, i64 %.sroa.7.034
+  %30 = getelementptr inbounds nuw { [6 x i64] }, ptr %8, i64 %.sroa.7.034
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.sroa.0, i64 24, i1 false)
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %.sroa.0.0.i13, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
@@ -2147,7 +2147,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %20 = shl nuw nsw i64 %19, 32
   %.sroa.0.0.insert.ext.i.i = zext i32 %16 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %20, %.sroa.0.0.insert.ext.i.i
-  %21 = getelementptr inbounds nuw [0 x { [2 x i32] }], ptr %7, i64 0, i64 %.sroa.7.027.i
+  %21 = getelementptr inbounds nuw { [2 x i32] }, ptr %7, i64 %.sroa.7.027.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %21, align 4, !noalias !419
   %22 = icmp eq i64 %13, 0
   br i1 %22, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h309532866f1f670eE.llvm.14496618814205752201.exit", label %.lr.ph.i

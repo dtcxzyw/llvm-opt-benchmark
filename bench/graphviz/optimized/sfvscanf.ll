@@ -446,7 +446,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
 
 169:                                              ; preds = %167
   %170 = sext i8 %49 to i64
-  %171 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 0, i64 %170
+  %171 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !3
   %173 = zext i8 %172 to i32
   %174 = and i32 %173, 3
@@ -527,7 +527,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   store i32 %210, ptr %3, align 4, !tbaa !18
   %211 = load ptr, ptr %5, align 16
   %212 = sext i32 %206 to i64
-  %213 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 0, i64 %212
+  %213 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 %212
   %214 = load i8, ptr %213, align 1, !tbaa !3
   %215 = icmp eq i8 %214, 0
   br i1 %215, label %.backedge861.backedge, label %222
@@ -575,7 +575,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   br label %.backedge861.backedge
 
 230:                                              ; preds = %222
-  %231 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 0, i64 %212
+  %231 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 928), i64 %212
   %232 = and i32 %.1583, -2097145
   %233 = and i32 %208, 2097144
   %234 = or disjoint i32 %233, %232
@@ -1381,7 +1381,7 @@ gv_isspace.exit771:                               ; preds = %.preheader846
   %.19613 = phi i32 [ %.2596, %551 ], [ %573, %572 ]
   %.38 = phi i32 [ %.5561, %551 ], [ %.41, %572 ]
   %555 = zext nneg i32 %.22646 to i64
-  %556 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %555
+  %556 = getelementptr inbounds nuw i8, ptr %6, i64 %555
   %557 = load i8, ptr %556, align 1, !tbaa !44, !range !46, !noundef !47
   %558 = trunc nuw i8 %557 to i1
   %559 = load i32, ptr %3, align 4, !tbaa !18

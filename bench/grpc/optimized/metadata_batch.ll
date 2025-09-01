@@ -5114,10 +5114,10 @@ define void @_ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE(ptr dead_
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i8 %1 to i64
-  %switch.gep5 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE.4, i64 0, i64 %6
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE.4, i64 %6
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8, !tbaa !697
   %.sroa.4.0..sroa_idx.i.i3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5479,10 +5479,10 @@ define void @_ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE(ptr dead_o
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep7 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9grpc_core18HttpMethodMetadata12DisplayValueENS0_9ValueTypeE, i64 0, i64 %5
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core18HttpMethodMetadata12DisplayValueENS0_9ValueTypeE, i64 %5
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   br label %6
 
@@ -5503,7 +5503,7 @@ define noundef nonnull ptr @_ZN9grpc_core18HttpMethodMetadata12DisplayValueENS0_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN9grpc_core18HttpMethodMetadata12DisplayValueENS0_9ValueTypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core18HttpMethodMetadata12DisplayValueENS0_9ValueTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

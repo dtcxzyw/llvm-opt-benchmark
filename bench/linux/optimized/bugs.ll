@@ -442,7 +442,7 @@ define internal fastcc void @spectre_v1_select_mitigation() unnamed_addr #3 sect
 
 33:                                               ; preds = %30, %17, %7
   %34 = phi i64 [ %32, %30 ], [ 1, %17 ], [ 0, %7 ]
-  %35 = getelementptr [2 x ptr], ptr @spectre_v1_strings, i64 0, i64 %34
+  %35 = getelementptr ptr, ptr @spectre_v1_strings, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, ptr noundef %36) #17
   br label %38
@@ -592,7 +592,7 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
 64:                                               ; preds = %63, %.thread3
   store i32 %59, ptr @spectre_v2_enabled, align 4
   %65 = zext nneg i32 %59 to i64
-  %66 = getelementptr [7 x ptr], ptr @spectre_v2_strings, i64 0, i64 %65
+  %66 = getelementptr ptr, ptr @spectre_v2_strings, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, ptr noundef %67) #17
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 70), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 70)) #15, !srcloc !12
@@ -799,7 +799,7 @@ thread-pre-split:                                 ; preds = %18
 51:                                               ; preds = %49, %46, %45, %44, %39
   %52 = load i32, ptr @retbleed_mitigation, align 4
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr [6 x ptr], ptr @retbleed_strings, i64 0, i64 %53
+  %54 = getelementptr ptr, ptr @retbleed_strings, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.45, ptr noundef %55) #17
   br label %57
@@ -935,7 +935,7 @@ define internal fastcc void @spectre_v2_user_select_mitigation() unnamed_addr #3
 
 62:                                               ; preds = %59, %8
   %63 = phi i64 [ %61, %59 ], [ 0, %8 ]
-  %64 = getelementptr [5 x ptr], ptr @spectre_v2_user_strings, i64 0, i64 %63
+  %64 = getelementptr ptr, ptr @spectre_v2_user_strings, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, ptr noundef %65) #17
   br label %67
@@ -955,7 +955,7 @@ define internal fastcc void @ssb_select_mitigation() unnamed_addr #3 section ".i
 
 5:                                                ; preds = %0
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr [4 x ptr], ptr @ssb_strings, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr @ssb_strings, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.101, ptr noundef %8) #17
   br label %10
@@ -1126,7 +1126,7 @@ define internal fastcc void @srbds_select_mitigation() unnamed_addr #3 section "
   tail call void @update_srbds_msr()
   %32 = load i32, ptr @srbds_mitigation, align 4
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [5 x ptr], ptr @srbds_strings, i64 0, i64 %33
+  %34 = getelementptr ptr, ptr @srbds_strings, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %35) #17
   br label %37
@@ -1299,7 +1299,7 @@ default.unreachable:                              ; preds = %28
 55:                                               ; preds = %54, %49, %48, %47, %46, %45, %36, %35, %24
   %56 = load i32, ptr @srso_mitigation, align 4
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr [7 x ptr], ptr @srso_strings, i64 0, i64 %57
+  %58 = getelementptr ptr, ptr @srso_strings, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.122, ptr noundef %59) #17
   br label %61
@@ -1386,7 +1386,7 @@ define internal fastcc void @gds_select_mitigation() unnamed_addr #3 section ".i
 35:                                               ; preds = %34, %21, %19, %8
   %36 = load i32, ptr @gds_mitigation, align 4
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr [6 x ptr], ptr @gds_strings, i64 0, i64 %37
+  %38 = getelementptr ptr, ptr @gds_strings, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, ptr noundef %39) #17
   br label %41
@@ -2761,7 +2761,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(p
 16:                                               ; preds = %15, %15
   %17 = load i32, ptr @spectre_v2_enabled, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr [7 x ptr], ptr @spectre_v2_strings, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr @spectre_v2_strings, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %22 = and i64 %21, 288230376151711744
@@ -2855,7 +2855,7 @@ default.unreachable:                              ; preds = %44
 74:                                               ; preds = %9
   %75 = load i32, ptr @ssb_mode, align 4
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr [4 x ptr], ptr @ssb_strings, i64 0, i64 %76
+  %77 = getelementptr ptr, ptr @ssb_strings, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %78) #15
   br label %197
@@ -2879,7 +2879,7 @@ default.unreachable:                              ; preds = %44
 90:                                               ; preds = %86
   %91 = load i32, ptr @mds_mitigation, align 4
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr [3 x ptr], ptr @mds_strings, i64 0, i64 %92
+  %93 = getelementptr ptr, ptr @mds_strings, i64 %92
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef %94) #15
   br label %197
@@ -2890,7 +2890,7 @@ default.unreachable:                              ; preds = %44
   %99 = icmp eq i64 %98, 0
   %100 = load i32, ptr @mds_mitigation, align 4
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr [3 x ptr], ptr @mds_strings, i64 0, i64 %101
+  %102 = getelementptr ptr, ptr @mds_strings, i64 %101
   %103 = load ptr, ptr %102, align 8
   br i1 %99, label %111, label %104
 
@@ -2931,7 +2931,7 @@ default.unreachable:                              ; preds = %44
 
 118:                                              ; preds = %116, %116
   %119 = zext nneg i32 %117 to i64
-  %120 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %119
+  %120 = getelementptr ptr, ptr @taa_strings, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %121) #15
   br label %197
@@ -2941,7 +2941,7 @@ default.unreachable:                              ; preds = %44
   %125 = and i64 %124, 2147483648
   %126 = icmp eq i64 %125, 0
   %127 = zext nneg i32 %117 to i64
-  %128 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %127
+  %128 = getelementptr ptr, ptr @taa_strings, i64 %127
   %129 = load ptr, ptr %128, align 8
   br i1 %126, label %132, label %130
 
@@ -2968,7 +2968,7 @@ default.unreachable:                              ; preds = %44
 139:                                              ; preds = %9
   %140 = load i32, ptr @srbds_mitigation, align 4
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr [5 x ptr], ptr @srbds_strings, i64 0, i64 %141
+  %142 = getelementptr ptr, ptr @srbds_strings, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %143) #15
   br label %197
@@ -2997,7 +2997,7 @@ default.unreachable:                              ; preds = %44
   %158 = and i64 %157, 2147483648
   %159 = icmp eq i64 %158, 0
   %160 = zext nneg i32 %152 to i64
-  %161 = getelementptr [3 x ptr], ptr @mmio_strings, i64 0, i64 %160
+  %161 = getelementptr ptr, ptr @mmio_strings, i64 %160
   %162 = load ptr, ptr %161, align 8
   br i1 %159, label %165, label %163
 
@@ -3036,7 +3036,7 @@ default.unreachable:                              ; preds = %44
 
 178:                                              ; preds = %174, %174
   %179 = zext nneg i32 %171 to i64
-  %180 = getelementptr [6 x ptr], ptr @retbleed_strings, i64 0, i64 %179
+  %180 = getelementptr ptr, ptr @retbleed_strings, i64 %179
   %181 = load ptr, ptr %180, align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
           to label %182 [label %187], !srcloc !23
@@ -3055,7 +3055,7 @@ default.unreachable:                              ; preds = %44
 
 190:                                              ; preds = %170
   %191 = zext nneg i32 %171 to i64
-  %192 = getelementptr [6 x ptr], ptr @retbleed_strings, i64 0, i64 %191
+  %192 = getelementptr ptr, ptr @retbleed_strings, i64 %191
   %193 = load ptr, ptr %192, align 8
   %194 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %193) #15
   br label %197
@@ -3085,7 +3085,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spectre_v1(ptr
   %10 = load i1, ptr @spectre_v1_mitigation, align 4
   %11 = xor i1 %10, true
   %12 = zext i1 %11 to i64
-  %13 = getelementptr [2 x ptr], ptr @spectre_v1_strings, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @spectre_v1_strings, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %14) #15
   br label %16
@@ -3116,7 +3116,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spec_store_byp
 9:                                                ; preds = %3
   %10 = load i32, ptr @ssb_mode, align 4
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [4 x ptr], ptr @ssb_strings, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr @ssb_strings, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %13) #15
   br label %15
@@ -3185,7 +3185,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_tsx_async_abor
 
 11:                                               ; preds = %9, %9
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @taa_strings, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %14) #15
   br label %cpu_show_common.exit
@@ -3195,7 +3195,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_tsx_async_abor
   %18 = and i64 %17, 2147483648
   %19 = icmp eq i64 %18, 0
   %20 = zext nneg i32 %10 to i64
-  %21 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr @taa_strings, i64 %20
   %22 = load ptr, ptr %21, align 8
   br i1 %19, label %25, label %23
 
@@ -3246,7 +3246,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_srbds(ptr noun
 9:                                                ; preds = %3
   %10 = load i32, ptr @srbds_mitigation, align 4
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [5 x ptr], ptr @srbds_strings, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr @srbds_strings, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %13) #15
   br label %15
@@ -3297,7 +3297,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spec_rstack_ov
 15:                                               ; preds = %9
   %16 = load i32, ptr @srso_mitigation, align 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr [7 x ptr], ptr @srso_strings, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr @srso_strings, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %19) #15
   br label %21
@@ -3322,7 +3322,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_gds(ptr nounde
 9:                                                ; preds = %3
   %10 = load i32, ptr @gds_mitigation, align 4
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [6 x ptr], ptr @gds_strings, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr @gds_strings, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %13) #15
   br label %15
@@ -3641,7 +3641,7 @@ define internal fastcc void @md_clear_update_mitigation() unnamed_addr #3 sectio
 34:                                               ; preds = %30
   %35 = load i32, ptr @mds_mitigation, align 4
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [3 x ptr], ptr @mds_strings, i64 0, i64 %36
+  %37 = getelementptr ptr, ptr @mds_strings, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %38) #17
   br label %40
@@ -3655,7 +3655,7 @@ define internal fastcc void @md_clear_update_mitigation() unnamed_addr #3 sectio
 44:                                               ; preds = %40
   %45 = load i32, ptr @taa_mitigation, align 4
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr @taa_strings, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %48) #17
   br label %50
@@ -3669,7 +3669,7 @@ define internal fastcc void @md_clear_update_mitigation() unnamed_addr #3 sectio
 54:                                               ; preds = %50
   %55 = load i32, ptr @mmio_mitigation, align 4
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr [3 x ptr], ptr @mmio_strings, i64 0, i64 %56
+  %57 = getelementptr ptr, ptr @mmio_strings, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %58) #17
   br label %66
@@ -3733,7 +3733,7 @@ define internal fastcc i32 @spectre_v2_parse_user_cmdline() unnamed_addr #3 sect
 
 .preheader:                                       ; preds = %3, %29
   %6 = phi i64 [ %30, %29 ], [ 0, %3 ]
-  %7 = getelementptr [7 x %struct.anon.5], ptr @v2_user_options, i64 0, i64 %6
+  %7 = getelementptr %struct.anon.5, ptr @v2_user_options, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = call i64 @strlen(ptr noundef %8) #15
   %10 = trunc i64 %9 to i32
@@ -3815,7 +3815,7 @@ define internal fastcc i32 @spectre_v2_parse_cmdline() unnamed_addr #3 section "
 
 .preheader:                                       ; preds = %6, %19
   %9 = phi i64 [ %20, %19 ], [ 0, %6 ]
-  %10 = getelementptr [11 x %struct.anon.6], ptr @mitigation_options, i64 0, i64 %9
+  %10 = getelementptr %struct.anon.6, ptr @mitigation_options, i64 %9
   %11 = load ptr, ptr %10, align 16
   %12 = call i64 @strlen(ptr noundef %11) #15
   %13 = trunc i64 %12 to i32
@@ -4093,7 +4093,7 @@ define internal fastcc i32 @ssb_parse_cmdline() unnamed_addr #3 section ".init.t
 
 .preheader:                                       ; preds = %6, %19
   %9 = phi i64 [ %20, %19 ], [ 0, %6 ]
-  %10 = getelementptr [5 x %struct.anon.7], ptr @ssb_mitigation_options, i64 0, i64 %9
+  %10 = getelementptr %struct.anon.7, ptr @ssb_mitigation_options, i64 %9
   %11 = load ptr, ptr %10, align 16
   %12 = call i64 @strlen(ptr noundef %11) #15
   %13 = trunc i64 %12 to i32

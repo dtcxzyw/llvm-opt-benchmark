@@ -56,9 +56,9 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
   br i1 %9, label %22, label %10
 
 10:                                               ; preds = %8
-  %11 = add i32 %7, -1
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [31 x i32], ptr %0, i64 0, i64 %12
+  %11 = sext i32 %7 to i64
+  %12 = getelementptr i32, ptr %0, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !9
   %15 = trunc i32 %14 to i8
   %.not = icmp ult i8 %2, %15
@@ -67,9 +67,9 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
 .preheader:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load i32, ptr %16, align 4, !tbaa !10
-  %18 = sext i32 %7 to i64
-  %19 = sext i32 %17 to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %17, i32 %11)
+  %18 = sext i32 %17 to i64
+  %19 = add i32 %7, -1
+  %smin = tail call i32 @llvm.smin.i32(i32 %17, i32 %19)
   %20 = add i32 %smin, 1
   br label %30
 
@@ -86,18 +86,18 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
   %27 = add nsw i32 %23, 1
   store i32 %27, ptr %26, align 4, !tbaa !4
   %28 = sext i32 %23 to i64
-  %29 = getelementptr inbounds [31 x i32], ptr %0, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr %0, i64 %28
   store i32 %25, ptr %29, align 4, !tbaa !9
   br label %50
 
 30:                                               ; preds = %.preheader, %32
-  %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %32 ]
+  %indvars.iv = phi i64 [ %11, %.preheader ], [ %indvars.iv.next, %32 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %31 = icmp sgt i64 %indvars.iv.next, %19
+  %31 = icmp sgt i64 %indvars.iv.next, %18
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds [31 x i32], ptr %0, i64 0, i64 %indvars.iv.next
+  %33 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = trunc i32 %34 to i8
   %36 = icmp ult i8 %2, %35
@@ -116,7 +116,7 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
   %40 = shl i32 %1, 8
   %41 = or disjoint i32 %40, %4
-  %42 = getelementptr inbounds [31 x i32], ptr %0, i64 0, i64 %39
+  %42 = getelementptr inbounds i32, ptr %0, i64 %39
   store i32 %41, ptr %42, align 4, !tbaa !9
   %43 = load i32, ptr %6, align 4, !tbaa !4
   %44 = add nsw i32 %43, 1
@@ -126,12 +126,12 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
   br label %50
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph ], [ %18, %.critedge ]
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph ], [ %11, %.critedge ]
+  %46 = getelementptr i32, ptr %0, i64 %indvars.iv27
+  %47 = getelementptr i8, ptr %46, i64 -4
+  %48 = load i32, ptr %47, align 4, !tbaa !9
+  store i32 %48, ptr %46, align 4, !tbaa !9
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, -1
-  %46 = getelementptr inbounds [31 x i32], ptr %0, i64 0, i64 %indvars.iv.next28
-  %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds [31 x i32], ptr %0, i64 0, i64 %indvars.iv27
-  store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = icmp sgt i64 %indvars.iv.next28, %39
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
@@ -158,7 +158,7 @@ define dso_local void @_ZNK6icu_7723BuilderReorderingBuffer8toStringERNS_13Unico
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw [31 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = ashr i32 %11, 8
   %13 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %12)
@@ -595,9 +595,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   br i1 %57, label %68, label %58
 
 58:                                               ; preds = %56
-  %59 = add i32 %55, -1
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %60
+  %59 = sext i32 %55 to i64
+  %60 = getelementptr i32, ptr %2, i64 %59
+  %61 = getelementptr i8, ptr %60, i64 -4
   %62 = load i32, ptr %61, align 4, !tbaa !9
   %63 = trunc i32 %62 to i8
   %.not.i26 = icmp ult i8 %52, %63
@@ -605,9 +605,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
 
 .preheader.i:                                     ; preds = %58
   %64 = load i32, ptr %24, align 4, !tbaa !10
-  %65 = sext i32 %55 to i64
-  %66 = sext i32 %64 to i64
-  %smin.i = tail call i32 @llvm.smin.i32(i32 %64, i32 %59)
+  %65 = sext i32 %64 to i64
+  %66 = add i32 %55, -1
+  %smin.i = tail call i32 @llvm.smin.i32(i32 %64, i32 %66)
   %67 = add i32 %smin.i, 1
   br label %75
 
@@ -622,18 +622,18 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   %72 = add nsw i32 %69, 1
   store i32 %72, ptr %23, align 4, !tbaa !4
   %73 = sext i32 %69 to i64
-  %74 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %73
+  %74 = getelementptr inbounds i32, ptr %2, i64 %73
   store i32 %71, ptr %74, align 4, !tbaa !9
   br label %_ZN6icu_7723BuilderReorderingBuffer6appendEih.exit
 
 75:                                               ; preds = %77, %.preheader.i
-  %indvars.iv.i = phi i64 [ %65, %.preheader.i ], [ %indvars.iv.next.i, %77 ]
+  %indvars.iv.i = phi i64 [ %59, %.preheader.i ], [ %indvars.iv.next.i, %77 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %76 = icmp sgt i64 %indvars.iv.next.i, %66
+  %76 = icmp sgt i64 %indvars.iv.next.i, %65
   br i1 %76, label %77, label %.critedge.i
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %indvars.iv.next.i
+  %78 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
   %79 = load i32, ptr %78, align 4, !tbaa !9
   %80 = trunc i32 %79 to i8
   %81 = icmp ult i8 %52, %80
@@ -652,7 +652,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.critedge.i
   %85 = shl i32 %.121, 8
   %86 = or disjoint i32 %85, %53
-  %87 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %84
+  %87 = getelementptr inbounds i32, ptr %2, i64 %84
   store i32 %86, ptr %87, align 4, !tbaa !9
   %88 = load i32, ptr %23, align 4, !tbaa !4
   %89 = add nsw i32 %88, 1
@@ -661,12 +661,12 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   br label %_ZN6icu_7723BuilderReorderingBuffer6appendEih.exit
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.i
-  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.lr.ph.i ], [ %65, %.critedge.i ]
+  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.lr.ph.i ], [ %59, %.critedge.i ]
+  %90 = getelementptr i32, ptr %2, i64 %indvars.iv27.i
+  %91 = getelementptr i8, ptr %90, i64 -4
+  %92 = load i32, ptr %91, align 4, !tbaa !9
+  store i32 %92, ptr %90, align 4, !tbaa !9
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
-  %90 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %indvars.iv.next28.i
-  %91 = load i32, ptr %90, align 4, !tbaa !9
-  %92 = getelementptr inbounds [31 x i32], ptr %2, i64 0, i64 %indvars.iv27.i
-  store i32 %91, ptr %92, align 4, !tbaa !9
   %93 = icmp sgt i64 %indvars.iv.next28.i, %84
   br i1 %93, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
@@ -694,7 +694,7 @@ _ZN6icu_7723BuilderReorderingBuffer6appendEih.exit: ; preds = %68, %._crit_edge.
 
 .lr.ph.i28:                                       ; preds = %97, %.lr.ph.i28
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %.lr.ph.i28 ], [ 0, %97 ]
-  %104 = getelementptr inbounds nuw [31 x i32], ptr %2, i64 0, i64 %indvars.iv.i29
+  %104 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i29
   %105 = load i32, ptr %104, align 4, !tbaa !9
   %106 = ashr i32 %105, 8
   %107 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %106)

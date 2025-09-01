@@ -166,7 +166,7 @@ define hidden void @_ZN4cvc58internal12OracleCaller12getOracleForERKNS0_12NodeTe
   %27 = icmp eq i32 %26, 2
   %spec.select.i.i = select i1 %27, i64 3, i64 2
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %spec.select.i.i
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %spec.select.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !105, !noalias !102
   store ptr %30, ptr %5, align 8, !tbaa !18, !alias.scope !102
   %31 = load i64, ptr %30, align 8, !noalias !102
@@ -210,7 +210,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %36, %42, %44
   %53 = icmp eq i32 %52, 2
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %55 = zext i1 %53 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !105, !noalias !108
   store ptr %57, ptr %4, align 8, !tbaa !18, !alias.scope !108
   %58 = load i64, ptr %57, align 8, !noalias !108

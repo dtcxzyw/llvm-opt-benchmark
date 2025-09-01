@@ -1506,7 +1506,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
 
 .lr.ph.i.us.i:                                    ; preds = %27, %31
   %.05.i.us.i = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.05.i.us.i
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.05.i.us.i
   %29 = load i8, ptr %28, align 1, !alias.scope !315, !noalias !314, !noundef !11
   %30 = icmp eq i8 %29, %23
   br i1 %30, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %31
@@ -1563,7 +1563,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i: ; preds = %31
 
 .lr.ph.i.i:                                       ; preds = %51, %55
   %.05.i.i = phi i64 [ %56, %55 ], [ 0, %51 ]
-  %52 = getelementptr inbounds nuw [0 x i8], ptr %45, i64 0, i64 %.05.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 %.05.i.i
   %53 = load i8, ptr %52, align 1, !alias.scope !315, !noalias !314, !noundef !11
   %54 = icmp eq i8 %53, %47
   br i1 %54, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %55
@@ -5606,7 +5606,7 @@ define void @_ZN9actix_web5guard6Header17h90e29c3d20f19907E(ptr noalias noundef 
 
 .lr.ph.i:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heeae024f6a21dc8dE.exit", %12
   %.0911.i = phi i64 [ %13, %12 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heeae024f6a21dc8dE.exit" ]
-  %14 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.0911.i
+  %14 = getelementptr inbounds i8, ptr %3, i64 %.0911.i
   %15 = load i8, ptr %14, align 1, !alias.scope !881, !noalias !884, !noundef !11
   %16 = add i8 %15, -32
   %or.cond.i = icmp ult i8 %16, 95

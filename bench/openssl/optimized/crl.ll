@@ -667,7 +667,7 @@ define dso_local range(i32 0, 2) i32 @crl_main(i32 noundef %0, ptr noundef %1) l
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %225 ]
   %232 = phi i32 [ %241, %.lr.ph ], [ %230, %225 ]
   %233 = load ptr, ptr @bio_out, align 8, !tbaa !15
-  %234 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %235 = load i8, ptr %234, align 1, !tbaa !19
   %236 = zext i8 %235 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

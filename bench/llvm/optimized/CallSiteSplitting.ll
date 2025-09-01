@@ -1811,7 +1811,7 @@ _ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys
   %618 = load ptr, ptr %617, align 8, !tbaa !166
   %619 = load ptr, ptr %168, align 8, !tbaa !82
   %620 = getelementptr inbounds i8, ptr %619, i64 -24
-  %621 = getelementptr inbounds nuw [2 x %"class.llvm::ValueMap"], ptr %9, i64 0, i64 %616
+  %621 = getelementptr inbounds nuw %"class.llvm::ValueMap", ptr %9, i64 %616
   %622 = call noundef ptr @_ZN4llvm35DuplicateInstructionsInSplitBetweenEPNS_10BasicBlockES1_PNS_11InstructionERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEERNS_14DomTreeUpdaterE(ptr noundef %574, ptr noundef %618, ptr noundef nonnull %620, ptr noundef nonnull align 8 dereferenceable(57) %621, ptr noundef nonnull align 8 dereferenceable(688) %27) #15
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 48
   %624 = load ptr, ptr %623, align 8, !tbaa !75

@@ -700,7 +700,7 @@ _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, 
   %conv.i.i.i.i = sub nuw nsw i8 23, %3
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
-  %arrayidx2.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %value, i64 0, i64 %sub.ptr.sub.i
+  %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %value, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1
   br label %invoke.cont5
 

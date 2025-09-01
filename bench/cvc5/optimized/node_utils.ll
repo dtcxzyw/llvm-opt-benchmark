@@ -1419,7 +1419,7 @@ define hidden void @_ZN4cvc58internal6theory5arith8rewriter12removeToRealENS0_12
   %10 = icmp eq i32 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = zext i1 %10 to i64
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !52, !noalias !49
   br label %15
 

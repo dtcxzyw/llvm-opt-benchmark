@@ -8381,7 +8381,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_8ByStringENS0_10AllowEmptyENS0_
   %348 = phi i64 [ %373, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_8ByStringENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit.i ], [ %.pre18.i, %.preheader.preheader.i ]
   %349 = phi ptr [ %365, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_8ByStringENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit.i ], [ %.pre.i159, %.preheader.preheader.i ]
   %.0.i = phi i64 [ %378, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_8ByStringENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit.i ], [ 0, %.preheader.preheader.i ]
-  %350 = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %5, i64 0, i64 %.0.i
+  %350 = getelementptr inbounds nuw %struct.raw_view, ptr %5, i64 %.0.i
   store ptr %349, ptr %350, align 8, !noalias !74
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
   store i64 %348, ptr %351, align 8, !noalias !74

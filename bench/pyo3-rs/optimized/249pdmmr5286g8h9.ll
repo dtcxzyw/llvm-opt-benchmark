@@ -1007,7 +1007,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig16to_cargo_dep_env17
   %40 = load i8, ptr %34, align 1, !noalias !6
   %41 = lshr i8 %40, 4
   %42 = zext nneg i8 %41 to i64
-  %43 = getelementptr inbounds nuw [16 x i8], ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.153, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.153, i64 %42
   %44 = load i8, ptr %43, align 1, !noalias !6
   %45 = zext i8 %44 to i32
   invoke void @_ZN5alloc6string6String4push17h408762896e2874f3E(ptr nonnull align 8 %5, i32 %45)
@@ -1016,7 +1016,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig16to_cargo_dep_env17
 46:                                               ; preds = %39
   %47 = and i8 %40, 15
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw [16 x i8], ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.153, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.153, i64 %48
   %50 = load i8, ptr %49, align 1, !noalias !6
   %51 = zext i8 %50 to i32
   invoke void @_ZN5alloc6string6String4push17h408762896e2874f3E(ptr nonnull align 8 %5, i32 %51)

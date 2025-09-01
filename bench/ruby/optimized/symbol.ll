@@ -183,7 +183,7 @@ define hidden void @Init_sym() local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %18, %29
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %29 ], [ 0, %18 ]
-  %19 = getelementptr [21 x %struct.anon.16], ptr @op_tbl, i64 0, i64 %indvars.iv19.i
+  %19 = getelementptr %struct.anon.16, ptr @op_tbl, i64 %indvars.iv19.i
   %20 = load i16, ptr %19, align 2, !tbaa !20
   %21 = zext i16 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -488,7 +488,7 @@ define dso_local i64 @rb_id_attrset(i64 noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %14
   %17 = and i64 %0, 14
-  %18 = getelementptr [8 x [8 x i8]], ptr @rb_id_attrset.id_types, i64 0, i64 %17
+  %18 = getelementptr [8 x i8], ptr @rb_id_attrset.id_types, i64 %17
   tail call void (i64, ptr, ...) @rb_name_error(i64 noundef %0, ptr noundef nonnull @.str.3, i32 noundef 8, ptr noundef %18, i64 noundef %0) #20
   unreachable
 
@@ -945,7 +945,7 @@ is_global_name_punct.exit.i.i:                    ; preds = %15
   %19 = add nsw i32 %17, -32
   %20 = lshr i32 %19, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [3 x i32], ptr @ruby_global_name_punct_bits, i64 0, i64 %21
+  %22 = getelementptr i32, ptr @ruby_global_name_punct_bits, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !44
   %24 = and i32 %17, 31
   %25 = shl nuw i32 1, %24

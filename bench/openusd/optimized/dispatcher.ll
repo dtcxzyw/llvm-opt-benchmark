@@ -1543,7 +1543,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__16TfErrorTra
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %58 = phi i1 [ false, %.lr.ph96 ], [ true, %.preheader ]
   %.01495 = phi i64 [ 2, %.lr.ph96 ], [ 1, %.preheader ]
-  %59 = getelementptr inbounds nuw [3 x %"struct.std::atomic.9"], ptr %44, i64 0, i64 %.01495
+  %59 = getelementptr inbounds nuw %"struct.std::atomic.9", ptr %44, i64 %.01495
   store atomic i64 %39, ptr %59 release, align 8
   %60 = add nuw nsw i64 %.01495, 1
   %61 = icmp ult i64 %60, %56

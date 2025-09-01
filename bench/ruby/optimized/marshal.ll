@@ -1191,7 +1191,7 @@ define internal fastcc range(i32 0, 32) i32 @rb_type(i64 noundef %0) unnamed_add
   br label %19
 
 switch.lookup:                                    ; preds = %11
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_type, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_type, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -3087,7 +3087,7 @@ w_long.exit76:                                    ; preds = %94, %98, %103
   %131 = load i8, ptr %118, align 1, !tbaa !17
   %132 = add nuw nsw i32 %.0, 1
   %133 = zext nneg i32 %.0 to i64
-  %134 = getelementptr [32 x i8], ptr %7, i64 0, i64 %133
+  %134 = getelementptr i8, ptr %7, i64 %133
   store i8 %131, ptr %134, align 1, !tbaa !17
   %135 = add i32 %126, -1
   %136 = icmp sgt i32 %135, 0
@@ -3096,7 +3096,7 @@ w_long.exit76:                                    ; preds = %94, %98, %103
 .thread:                                          ; preds = %130
   %137 = or disjoint i32 %.0, 2
   %138 = zext nneg i32 %132 to i64
-  %139 = getelementptr [32 x i8], ptr %7, i64 0, i64 %138
+  %139 = getelementptr i8, ptr %7, i64 %138
   store i8 46, ptr %139, align 1, !tbaa !17
   br label %141
 
@@ -3122,26 +3122,26 @@ ruby_nonempty_memcpy.exit:                        ; preds = %140, %141
   %150 = add i32 %127, -1
   %151 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %148, i64 noundef %149, ptr noundef nonnull @.str.46, i32 noundef %150) #22
   %152 = add i32 %151, %146
-  br label %188
+  br label %184
 
 153:                                              ; preds = %121
   %154 = icmp sgt i32 %127, 0
+  %155 = zext nneg i32 %.0 to i64
+  %156 = getelementptr i8, ptr %7, i64 %155
   br i1 %154, label %ruby_nonempty_memcpy.exit61, label %169
 
 ruby_nonempty_memcpy.exit61:                      ; preds = %153
-  %155 = zext nneg i32 %.0 to i64
-  %156 = getelementptr i8, ptr %7, i64 %155
   %157 = zext nneg i32 %127 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %156, ptr noundef nonnull readonly align 1 %118, i64 noundef range(i64 1, 0) %157, i1 noundef false) #22
   %158 = add nuw i32 %127, %.0
   %159 = sub i32 %126, %127
   %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %ruby_nonempty_memcpy.exit64, label %188
+  br i1 %160, label %ruby_nonempty_memcpy.exit64, label %184
 
 ruby_nonempty_memcpy.exit64:                      ; preds = %ruby_nonempty_memcpy.exit61
   %161 = add nuw i32 %158, 1
   %162 = sext i32 %158 to i64
-  %163 = getelementptr [32 x i8], ptr %7, i64 0, i64 %162
+  %163 = getelementptr i8, ptr %7, i64 %162
   store i8 46, ptr %163, align 1, !tbaa !17
   %164 = sext i32 %161 to i64
   %165 = getelementptr i8, ptr %7, i64 %164
@@ -3149,71 +3149,67 @@ ruby_nonempty_memcpy.exit64:                      ; preds = %ruby_nonempty_memcp
   %167 = zext nneg i32 %159 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %165, ptr noundef nonnull readonly align 1 %166, i64 noundef range(i64 1, 0) %167, i1 noundef false) #22
   %168 = add i32 %159, %161
-  br label %188
+  br label %184
 
 169:                                              ; preds = %153
-  %170 = add nuw nsw i32 %.0, 1
-  %171 = zext nneg i32 %.0 to i64
-  %172 = getelementptr [32 x i8], ptr %7, i64 0, i64 %171
-  store i8 48, ptr %172, align 1, !tbaa !17
-  %173 = or disjoint i32 %.0, 2
-  %174 = zext nneg i32 %170 to i64
-  %175 = getelementptr [32 x i8], ptr %7, i64 0, i64 %174
-  store i8 46, ptr %175, align 1, !tbaa !17
+  store i8 48, ptr %156, align 1, !tbaa !17
+  %170 = or disjoint i32 %.0, 2
+  %171 = getelementptr i8, ptr %156, i64 1
+  store i8 46, ptr %171, align 1, !tbaa !17
   %.not52 = icmp eq i32 %127, 0
-  br i1 %.not52, label %182, label %176
+  br i1 %.not52, label %178, label %172
 
-176:                                              ; preds = %169
-  %177 = zext nneg i32 %173 to i64
-  %178 = getelementptr i8, ptr %7, i64 %177
-  %179 = sub nsw i32 0, %127
-  %180 = zext nneg i32 %179 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %178, i8 noundef 48, i64 noundef range(i64 -2147483648, 2147483648) %180, i1 noundef false) #22
-  %181 = sub nsw i32 %173, %127
-  br label %182
+172:                                              ; preds = %169
+  %173 = zext nneg i32 %170 to i64
+  %174 = getelementptr i8, ptr %7, i64 %173
+  %175 = sub nsw i32 0, %127
+  %176 = zext nneg i32 %175 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %174, i8 noundef 48, i64 noundef range(i64 -2147483648, 2147483648) %176, i1 noundef false) #22
+  %177 = sub nsw i32 %170, %127
+  br label %178
 
-182:                                              ; preds = %176, %169
-  %.3 = phi i32 [ %181, %176 ], [ %173, %169 ]
+178:                                              ; preds = %172, %169
+  %.3 = phi i32 [ %177, %172 ], [ %170, %169 ]
   %sext = shl i64 %125, 32
   %.not.i65 = icmp eq i64 %sext, 0
-  br i1 %.not.i65, label %ruby_nonempty_memcpy.exit67, label %183
+  br i1 %.not.i65, label %ruby_nonempty_memcpy.exit67, label %179
 
-183:                                              ; preds = %182
-  %184 = ashr exact i64 %sext, 32
-  %185 = zext nneg i32 %.3 to i64
-  %186 = getelementptr i8, ptr %7, i64 %185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %186, ptr noundef nonnull readonly align 1 %118, i64 noundef range(i64 1, 0) %184, i1 noundef false) #22
+179:                                              ; preds = %178
+  %180 = ashr exact i64 %sext, 32
+  %181 = zext nneg i32 %.3 to i64
+  %182 = getelementptr i8, ptr %7, i64 %181
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %182, ptr noundef nonnull readonly align 1 %118, i64 noundef range(i64 1, 0) %180, i1 noundef false) #22
   br label %ruby_nonempty_memcpy.exit67
 
-ruby_nonempty_memcpy.exit67:                      ; preds = %182, %183
-  %187 = add i32 %.3, %126
-  br label %188
+ruby_nonempty_memcpy.exit67:                      ; preds = %178, %179
+  %183 = add i32 %.3, %126
+  br label %184
 
-188:                                              ; preds = %ruby_nonempty_memcpy.exit67, %ruby_nonempty_memcpy.exit64, %ruby_nonempty_memcpy.exit61, %ruby_nonempty_memcpy.exit
-  %.2 = phi i32 [ %152, %ruby_nonempty_memcpy.exit ], [ %168, %ruby_nonempty_memcpy.exit64 ], [ %158, %ruby_nonempty_memcpy.exit61 ], [ %187, %ruby_nonempty_memcpy.exit67 ]
+184:                                              ; preds = %ruby_nonempty_memcpy.exit67, %ruby_nonempty_memcpy.exit64, %ruby_nonempty_memcpy.exit61, %ruby_nonempty_memcpy.exit
+  %.2 = phi i32 [ %152, %ruby_nonempty_memcpy.exit ], [ %168, %ruby_nonempty_memcpy.exit64 ], [ %158, %ruby_nonempty_memcpy.exit61 ], [ %183, %ruby_nonempty_memcpy.exit67 ]
   call void @free(ptr noundef %118) #22
-  %189 = sext i32 %.2 to i64
-  call fastcc void @w_long(i64 noundef %189, ptr noundef readonly %1)
-  %190 = load i64, ptr %1, align 8, !tbaa !40
-  %191 = call i64 @rb_str_cat(i64 noundef %190, ptr noundef nonnull %7, i64 noundef %189) #22
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %193 = load i64, ptr %192, align 8, !tbaa !36
-  %.not.i.i68 = icmp eq i64 %193, 0
-  br i1 %.not.i.i68, label %w_bytes.exit69, label %194
+  %185 = sext i32 %.2 to i64
+  call fastcc void @w_long(i64 noundef %185, ptr noundef readonly %1)
+  %186 = load i64, ptr %1, align 8, !tbaa !40
+  %187 = call i64 @rb_str_cat(i64 noundef %186, ptr noundef nonnull %7, i64 noundef %185) #22
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %189 = load i64, ptr %188, align 8, !tbaa !36
+  %.not.i.i68 = icmp eq i64 %189, 0
+  br i1 %.not.i.i68, label %w_bytes.exit69, label %190
 
-194:                                              ; preds = %188
-  %195 = inttoptr i64 %190 to ptr
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  %197 = load i64, ptr %196, align 8, !tbaa !41
-  %198 = icmp sgt i64 %197, 8191
-  br i1 %198, label %199, label %w_bytes.exit69
+190:                                              ; preds = %184
+  %191 = inttoptr i64 %186 to ptr
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
+  %193 = load i64, ptr %192, align 8, !tbaa !41
+  %194 = icmp sgt i64 %193, 8191
+  br i1 %194, label %195, label %w_bytes.exit69
 
-199:                                              ; preds = %194
-  %200 = call i64 @rb_io_write(i64 noundef %193, i64 noundef %190) #22
-  %201 = call i64 @rb_str_resize(i64 noundef %190, i64 noundef 0) #22
+195:                                              ; preds = %190
+  %196 = call i64 @rb_io_write(i64 noundef %189, i64 noundef %186) #22
+  %197 = call i64 @rb_str_resize(i64 noundef %186, i64 noundef 0) #22
   br label %w_bytes.exit69
 
-w_bytes.exit69:                                   ; preds = %188, %194, %199
+w_bytes.exit69:                                   ; preds = %184, %190, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

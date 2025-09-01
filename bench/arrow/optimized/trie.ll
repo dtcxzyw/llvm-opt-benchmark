@@ -1019,7 +1019,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
   store i56 %.sroa.4.0..sroa.4.0..sroa.4.1..0..0..0..sroa.0.0.copyload.i33, ptr %.sroa_idx34, align 1
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %.sroa.4.7..sroa.4.7..sroa.4.8..8..8..8..sroa.2.0.copyload.i, ptr %.sroa.26.0..sroa_idx, align 2
-  %24 = getelementptr inbounds nuw [11 x i8], ptr %20, i64 0, i64 %3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %3
   %25 = load i8, ptr %24, align 1, !tbaa !45
   store i16 -1, ptr %11, align 2, !tbaa !25
   store i16 -1, ptr %8, align 2, !tbaa !22
@@ -1096,8 +1096,8 @@ define void @_ZN5arrow8internal11TrieBuilder6AppendESt17basic_string_viewIcSt11c
   %33 = load i8, ptr %32, align 1, !tbaa !33
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 5
-  %.not65154.not = icmp eq i8 %33, 0
-  br i1 %.not65154.not, label %.critedge.thread109, label %.lr.ph.preheader
+  %.not65156.not = icmp eq i8 %33, 0
+  br i1 %.not65156.not, label %.critedge.thread109, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.critedge
   %36 = add i64 %.051, %34
@@ -1105,10 +1105,10 @@ define void @_ZN5arrow8internal11TrieBuilder6AppendESt17basic_string_viewIcSt11c
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %111
-  %.152157 = phi i64 [ %112, %111 ], [ %.051, %.lr.ph.preheader ]
-  %.154156 = phi i64 [ %113, %111 ], [ %.053, %.lr.ph.preheader ]
-  %.058155 = phi i64 [ %114, %111 ], [ 0, %.lr.ph.preheader ]
-  %38 = icmp eq i64 %.154156, 0
+  %.152159 = phi i64 [ %112, %111 ], [ %.051, %.lr.ph.preheader ]
+  %.154158 = phi i64 [ %113, %111 ], [ %.053, %.lr.ph.preheader ]
+  %.058157 = phi i64 [ %114, %111 ], [ 0, %.lr.ph.preheader ]
+  %38 = icmp eq i64 %.154158, 0
   br i1 %38, label %39, label %60
 
 39:                                               ; preds = %.lr.ph
@@ -1144,7 +1144,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %39
   store i56 %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.1..0..0..0..sroa.0.0.copyload.i33.i, ptr %.sroa_idx34.i, align 1, !noalias !121
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %.sroa.4.i.7..sroa.4.i.7..sroa.4.i.7..sroa.4.7..sroa.4.8..8..8..8..sroa.2.0.copyload.i.i, ptr %.sroa.26.0..sroa_idx.i, align 2, !noalias !121
-  %51 = getelementptr inbounds nuw [11 x i8], ptr %35, i64 0, i64 %.053
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 %.053
   %52 = load i8, ptr %51, align 1, !tbaa !45, !noalias !121
   store i16 -1, ptr %42, align 2, !tbaa !25, !noalias !121
   store i16 -1, ptr %31, align 2, !tbaa !22, !noalias !121
@@ -1182,15 +1182,15 @@ _ZN5arrow6StatusD2Ev.exit72:                      ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge70
 
 60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %.152157
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %.152159
   %62 = load i8, ptr %61, align 1, !tbaa !45
-  %63 = getelementptr inbounds nuw i8, ptr %35, i64 %.058155
+  %63 = getelementptr inbounds nuw i8, ptr %35, i64 %.058157
   %64 = load i8, ptr %63, align 1, !tbaa !45
   %.not = icmp eq i8 %62, %64
   br i1 %.not, label %111, label %65
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.152157
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.152159
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !133
   %67 = load i16, ptr %31, align 2, !tbaa !22, !noalias !133
   store i16 %67, ptr %15, align 2, !tbaa !22, !noalias !133
@@ -1198,9 +1198,9 @@ _ZN5arrow6StatusD2Ev.exit72:                      ; preds = %_ZN5arrow6StatusD2E
   %69 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %70 = load i16, ptr %69, align 2, !tbaa !25, !noalias !133
   store i16 %70, ptr %68, align 2, !tbaa !25, !noalias !133
-  %71 = add nuw nsw i64 %.058155, 1
+  %71 = add nuw nsw i64 %.058157, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i74)
-  %.not112 = icmp samesign ult i64 %.058155, %34
+  %.not112 = icmp samesign ult i64 %.058157, %34
   br i1 %.not112, label %_ZN5arrow6StatusD2Ev.exit.i75, label %72
 
 72:                                               ; preds = %65
@@ -1226,8 +1226,8 @@ _ZN5arrow6StatusD2Ev.exit.i75:                    ; preds = %65
   store i16 -1, ptr %69, align 2, !tbaa !25, !noalias !133
   store i16 -1, ptr %31, align 2, !tbaa !22, !noalias !133
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.439.i73)
-  %78 = trunc nuw i64 %.058155 to i8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.439.i73, ptr nonnull align 1 %35, i64 %.058155, i1 false), !noalias !133
+  %78 = trunc nuw i64 %.058157 to i8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.439.i73, ptr nonnull align 1 %35, i64 %.058157, i1 false), !noalias !133
   %.sroa.439.i73.0..sroa.439.i73.0..sroa.439.i73.0..sroa.439.0..sroa.439.1..0..0..0..sroa.0.0.copyload.i2336.i82 = load i56, ptr %.sroa.439.i73, align 8, !noalias !133
   %.sroa.439.i73.7.i73.7.i73.7..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.439.i73, i64 7
   %.sroa.439.i73.7..sroa.439.i73.7..sroa.439.i73.7..sroa.439.7..sroa.439.8..8..8..8..sroa.2.0.copyload.i25.i84 = load i32, ptr %.sroa.439.i73.7.i73.7.i73.7..8..8..8..sroa_idx, align 1, !noalias !133
@@ -1252,7 +1252,7 @@ _ZN5arrow6StatusD2Ev.exit92:                      ; preds = %_ZN5arrow6StatusD2E
   %81 = load ptr, ptr %1, align 8, !tbaa !9
   %82 = getelementptr inbounds nuw %"struct.arrow::internal::Trie::Node", ptr %81, i64 %.0
   %83 = load i8, ptr %66, align 1, !tbaa !45
-  %84 = add nsw i64 %.152157, 1
+  %84 = add nsw i64 %.152159, 1
   %85 = icmp ugt i64 %84, %2
   br i1 %85, label %86, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
@@ -1343,9 +1343,9 @@ _ZN5arrow6StatusD2Ev.exit31.i.i:                  ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge70
 
 111:                                              ; preds = %60
-  %112 = add nsw i64 %.152157, 1
-  %113 = add nsw i64 %.154156, -1
-  %114 = add nuw nsw i64 %.058155, 1
+  %112 = add nsw i64 %.152159, 1
+  %113 = add nsw i64 %.154158, -1
+  %114 = add nuw nsw i64 %.058157, 1
   %exitcond.not = icmp eq i64 %114, %34
   br i1 %exitcond.not, label %.critedge.thread109, label %.lr.ph, !llvm.loop !159
 

@@ -195,7 +195,7 @@ define range(i32 -1, 257) i32 @exr_compression_lines_per_chunk(i32 noundef %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.exr_compression_lines_per_chunk, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.exr_compression_lines_per_chunk, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

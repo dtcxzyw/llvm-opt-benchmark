@@ -1385,7 +1385,7 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   call void @RelationMapRemoveMapping(i32 noundef %42) #8
   %43 = add i32 %.04755, 1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %44
+  %45 = getelementptr inbounds i32, ptr %11, i64 %44
   %46 = load i32, ptr %45, align 4
   %.not52 = icmp eq i32 %46, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !7

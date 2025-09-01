@@ -532,7 +532,7 @@ mi_page_block_size.exit:                          ; preds = %7, %9
 mi_page_queue.exit:                               ; preds = %mi_page_block_size.exit, %20, %23, %25
   %.0.i.i.i = phi i64 [ %22, %20 ], [ %35, %25 ], [ 1, %mi_page_block_size.exit ], [ 73, %23 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %37 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %36, i64 0, i64 %.0.i.i.i
+  %37 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %36, i64 %.0.i.i.i
   call fastcc void @mi_page_queue_push(ptr noundef %0, ptr noundef nonnull %37, ptr noundef nonnull %1)
   ret void
 }
@@ -793,7 +793,7 @@ define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
 mi_heap_page_queue_of.exit:                       ; preds = %4, %17, %20, %22
   %33 = phi i64 [ %19, %17 ], [ %32, %22 ], [ 1, %4 ], [ 73, %20 ]
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 1040
-  %35 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %34, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %34, i64 %33
   store i8 %.val, ptr %2, align 2
   tail call fastcc void @mi_page_queue_enqueue_from(ptr noundef nonnull %35, ptr noundef nonnull %8, ptr noundef nonnull %0)
   br label %36
@@ -1356,7 +1356,7 @@ mi_page_queue_of.exit.thread:                     ; preds = %18, %1
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1040
-  %35 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %34, i64 0, i64 %.ph28
+  %35 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %34, i64 %.ph28
   br label %.critedge
 
 mi_page_queue_of.exit:                            ; preds = %6, %15, %20
@@ -1365,7 +1365,7 @@ mi_page_queue_of.exit:                            ; preds = %6, %15, %20
   %38 = load atomic i64, ptr %37 monotonic, align 8
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1040
-  %41 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %40, i64 0, i64 %36
+  %41 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %40, i64 %36
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !11
   %44 = icmp eq ptr %43, %0
@@ -1442,7 +1442,7 @@ define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %0, i
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %.02834.us = phi i64 [ %33, %32 ], [ %4, %.lr.ph ]
-  %8 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %7, i64 0, i64 %.02834.us
+  %8 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %7, i64 %.02834.us
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %.not30.us = icmp eq ptr %9, null
   br i1 %.not30.us, label %32, label %10
@@ -1502,7 +1502,7 @@ define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %0, i
   %.036 = phi i64 [ %.1, %62 ], [ 74, %.lr.ph ]
   %.02635 = phi i64 [ %.127, %62 ], [ 0, %.lr.ph ]
   %.02834 = phi i64 [ %63, %62 ], [ %4, %.lr.ph ]
-  %35 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %7, i64 0, i64 %.02834
+  %35 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %7, i64 %.02834
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %.not30 = icmp eq ptr %36, null
   br i1 %.not30, label %62, label %37
@@ -1766,7 +1766,7 @@ define internal fastcc ptr @mi_find_page(ptr noundef %0, i64 noundef %1) unnamed
 mi_page_queue.exit.i:                             ; preds = %19, %16, %10
   %.0.i.i.i.i = phi i64 [ %18, %16 ], [ %29, %19 ], [ 1, %10 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %31 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %30, i64 0, i64 %.0.i.i.i.i
+  %31 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %30, i64 %.0.i.i.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !10
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %75, label %33
@@ -2138,7 +2138,7 @@ mi_page_to_full.exit.i.i:                         ; preds = %.sink.split.i.i.i.i
   %.036.i.i.i = phi i64 [ %.1.i.i.i, %236 ], [ 74, %._crit_edge.i.i ]
   %.02635.i.i.i = phi i64 [ %.127.i.i.i, %236 ], [ 0, %._crit_edge.i.i ]
   %.02834.i.i.i = phi i64 [ %237, %236 ], [ %207, %._crit_edge.i.i ]
-  %209 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %30, i64 0, i64 %.02834.i.i.i
+  %209 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %30, i64 %.02834.i.i.i
   %210 = load ptr, ptr %209, align 8, !tbaa !10
   %.not30.i.i.i = icmp eq ptr %210, null
   br i1 %.not30.i.i.i, label %236, label %211
@@ -2281,7 +2281,7 @@ define internal fastcc ptr @mi_large_huge_page_alloc(ptr noundef %0, i64 noundef
 28:                                               ; preds = %17, %15, %12, %6
   %.0.i.i.i = phi i64 [ %14, %12 ], [ %27, %17 ], [ 1, %6 ], [ 73, %15 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %30 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %29, i64 0, i64 %.0.i.i.i
+  %30 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %29, i64 %.0.i.i.i
   %31 = tail call fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %4)
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %mi_page_usable_block_size.exit, label %35

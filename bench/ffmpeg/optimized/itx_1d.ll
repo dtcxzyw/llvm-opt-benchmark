@@ -4055,7 +4055,7 @@ define void @ff_vvc_inv_dct8_4(ptr noundef captures(none) %0, i64 noundef %1, i6
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 2
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4080,7 +4080,7 @@ define void @ff_vvc_inv_dct8_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4116,7 +4116,7 @@ define void @ff_vvc_inv_dct8_8(ptr noundef captures(none) %0, i64 noundef %1, i6
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 3
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4141,7 +4141,7 @@ define void @ff_vvc_inv_dct8_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4177,7 +4177,7 @@ define void @ff_vvc_inv_dct8_16(ptr noundef captures(none) %0, i64 noundef %1, i
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 4
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4202,7 +4202,7 @@ define void @ff_vvc_inv_dct8_16(ptr noundef captures(none) %0, i64 noundef %1, i
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4238,7 +4238,7 @@ define void @ff_vvc_inv_dct8_32(ptr noundef captures(none) %0, i64 noundef %1, i
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 5
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4263,7 +4263,7 @@ define void @ff_vvc_inv_dct8_32(ptr noundef captures(none) %0, i64 noundef %1, i
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4299,7 +4299,7 @@ define void @ff_vvc_inv_dst7_4(ptr noundef captures(none) %0, i64 noundef %1, i6
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 2
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4324,7 +4324,7 @@ define void @ff_vvc_inv_dst7_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4360,7 +4360,7 @@ define void @ff_vvc_inv_dst7_8(ptr noundef captures(none) %0, i64 noundef %1, i6
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 3
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4385,7 +4385,7 @@ define void @ff_vvc_inv_dst7_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4421,7 +4421,7 @@ define void @ff_vvc_inv_dst7_16(ptr noundef captures(none) %0, i64 noundef %1, i
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 4
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4446,7 +4446,7 @@ define void @ff_vvc_inv_dst7_16(ptr noundef captures(none) %0, i64 noundef %1, i
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4482,7 +4482,7 @@ define void @ff_vvc_inv_dst7_32(ptr noundef captures(none) %0, i64 noundef %1, i
 5:                                                ; preds = %5, %.preheader.us.i.i
   %indvars.iv42.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next43.i.i, %5 ]
   %.02233.us.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %13, %5 ]
-  %6 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv42.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = shl nuw nsw i64 %indvars.iv42.i.i, 5
   %9 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 %8
@@ -4507,7 +4507,7 @@ define void @ff_vvc_inv_dst7_32(ptr noundef captures(none) %0, i64 noundef %1, i
   %17 = mul nsw i64 %indvars.iv.i.i, %1
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !4
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
@@ -4534,7 +4534,7 @@ define void @ff_vvc_inv_lfnst_1d(ptr noundef writeonly captures(none) %0, ptr no
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %4 to i64
-  %11 = getelementptr inbounds nuw [95 x i8], ptr @ff_vvc_lfnst_tr_set_index, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @ff_vvc_lfnst_tr_set_index, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
   br label %14
@@ -4542,29 +4542,30 @@ define void @ff_vvc_inv_lfnst_1d(ptr noundef writeonly captures(none) %0, ptr no
 14:                                               ; preds = %7, %9
   %15 = phi i64 [ %13, %9 ], [ 1, %7 ]
   %16 = icmp sgt i32 %3, 16
-  %17 = add nsw i32 %5, -1
-  %18 = sext i32 %17 to i64
+  %17 = sext i32 %5 to i64
   br i1 %16, label %.thread, label %21
 
 .thread:                                          ; preds = %14
-  %19 = getelementptr inbounds nuw [4 x [2 x [16 x [48 x i8]]]], ptr @ff_vvc_lfnst_8x8, i64 0, i64 %15
-  %20 = getelementptr inbounds [2 x [16 x [48 x i8]]], ptr %19, i64 0, i64 %18
+  %18 = getelementptr inbounds nuw [2 x [16 x [48 x i8]]], ptr @ff_vvc_lfnst_8x8, i64 %15
+  %19 = getelementptr [16 x [48 x i8]], ptr %18, i64 %17
+  %20 = getelementptr i8, ptr %19, i64 -768
   br label %.preheader.lr.ph
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw [4 x [2 x [16 x [16 x i8]]]], ptr @ff_vvc_lfnst_4x4, i64 0, i64 %15
-  %23 = getelementptr inbounds [2 x [16 x [16 x i8]]], ptr %22, i64 0, i64 %18
-  %24 = icmp sgt i32 %3, 0
-  br i1 %24, label %.preheader.lr.ph, label %._crit_edge32
+  %22 = getelementptr inbounds nuw [2 x [16 x [16 x i8]]], ptr @ff_vvc_lfnst_4x4, i64 %15
+  %23 = getelementptr [16 x [16 x i8]], ptr %22, i64 %17
+  %24 = getelementptr i8, ptr %23, i64 -256
+  %25 = icmp sgt i32 %3, 0
+  br i1 %25, label %.preheader.lr.ph, label %._crit_edge32
 
 .preheader.lr.ph:                                 ; preds = %.thread, %21
-  %25 = phi ptr [ %20, %.thread ], [ %23, %21 ]
-  %26 = icmp sgt i32 %2, 0
-  %27 = shl nuw i32 1, %6
+  %26 = phi ptr [ %20, %.thread ], [ %24, %21 ]
+  %27 = icmp sgt i32 %2, 0
+  %28 = shl nuw i32 1, %6
   %.neg.i = shl i32 -2, %6
-  %28 = add nsw i32 %27, -1
-  %29 = zext nneg i32 %3 to i64
-  br i1 %26, label %.preheader.us.preheader, label %.preheader.lr.ph.split
+  %29 = add nsw i32 %28, -1
+  %30 = zext nneg i32 %3 to i64
+  br i1 %27, label %.preheader.us.preheader, label %.preheader.lr.ph.split
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -4572,43 +4573,43 @@ define void @ff_vvc_inv_lfnst_1d(ptr noundef writeonly captures(none) %0, ptr no
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv36 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next37, %._crit_edge.us ]
-  %.02530.us = phi ptr [ %25, %.preheader.us.preheader ], [ %46, %._crit_edge.us ]
-  br label %30
+  %.02530.us = phi ptr [ %26, %.preheader.us.preheader ], [ %47, %._crit_edge.us ]
+  br label %31
 
-30:                                               ; preds = %.preheader.us, %30
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %30 ]
-  %.02328.us = phi i32 [ 0, %.preheader.us ], [ %38, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %32 = load i32, ptr %31, align 4, !tbaa !4
-  %33 = mul nuw nsw i64 %indvars.iv, %29
-  %34 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !8
-  %36 = sext i8 %35 to i32
-  %37 = mul nsw i32 %32, %36
-  %38 = add nsw i32 %37, %.02328.us
+31:                                               ; preds = %.preheader.us, %31
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
+  %.02328.us = phi i32 [ 0, %.preheader.us ], [ %39, %31 ]
+  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %33 = load i32, ptr %32, align 4, !tbaa !4
+  %34 = mul nuw nsw i64 %indvars.iv, %30
+  %35 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !8
+  %37 = sext i8 %36 to i32
+  %38 = mul nsw i32 %33, %37
+  %39 = add nsw i32 %38, %.02328.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !13
 
-._crit_edge.us:                                   ; preds = %30
-  %39 = add nsw i32 %38, 64
-  %40 = ashr i32 %39, 7
-  %41 = add i32 %40, %27
-  %42 = and i32 %41, %.neg.i
-  %.not.i.us = icmp eq i32 %42, 0
-  %43 = ashr i32 %39, 31
-  %44 = xor i32 %43, %28
-  %.0.i.us = select i1 %.not.i.us, i32 %40, i32 %44
-  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv36
-  store i32 %.0.i.us, ptr %45, align 4, !tbaa !4
+._crit_edge.us:                                   ; preds = %31
+  %40 = add nsw i32 %39, 64
+  %41 = ashr i32 %40, 7
+  %42 = add i32 %41, %28
+  %43 = and i32 %42, %.neg.i
+  %.not.i.us = icmp eq i32 %43, 0
+  %44 = ashr i32 %40, 31
+  %45 = xor i32 %44, %29
+  %.0.i.us = select i1 %.not.i.us, i32 %41, i32 %45
+  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv36
+  store i32 %.0.i.us, ptr %46, align 4, !tbaa !4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %46 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %29
+  %47 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %30
   br i1 %exitcond40.not, label %._crit_edge32, label %.preheader.us, !llvm.loop !14
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %47 = shl nuw nsw i64 %29, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %47, i1 false), !tbaa !4
+  %48 = shl nuw nsw i64 %30, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %48, i1 false), !tbaa !4
   br label %._crit_edge32
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split, %21

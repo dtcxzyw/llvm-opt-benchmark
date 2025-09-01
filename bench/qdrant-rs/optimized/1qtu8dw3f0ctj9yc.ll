@@ -906,8 +906,8 @@ define { i32, float } @_ZN6sparse6common13sparse_vector12SparseVector5score17ha9
   %.03769 = phi i64 [ 0, %.lr.ph ], [ %.138, %35 ]
   %.03968 = phi i8 [ 0, %.lr.ph ], [ %.140, %35 ]
   %.04167 = phi float [ 0.000000e+00, %.lr.ph ], [ %.142, %35 ]
-  %25 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %.03670
-  %26 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %.03769
+  %25 = getelementptr inbounds i32, ptr %12, i64 %.03670
+  %26 = getelementptr inbounds i32, ptr %10, i64 %.03769
   %27 = load i32, ptr %25, align 4, !noundef !5
   %28 = load i32, ptr %26, align 4, !noundef !5
   %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %27, i32 %28)
@@ -951,9 +951,9 @@ default.unreachable:                              ; preds = %24
   unreachable
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds [0 x float], ptr %20, i64 0, i64 %.03670
+  %42 = getelementptr inbounds float, ptr %20, i64 %.03670
   %43 = load float, ptr %42, align 4, !noundef !5
-  %44 = getelementptr inbounds [0 x float], ptr %18, i64 0, i64 %.03769
+  %44 = getelementptr inbounds float, ptr %18, i64 %.03769
   %45 = load float, ptr %44, align 4, !noundef !5
   %46 = fmul float %43, %45
   %47 = fadd float %.04167, %46

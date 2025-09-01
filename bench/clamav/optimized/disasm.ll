@@ -484,9 +484,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   store i16 %51, ptr %6, align 8, !tbaa !6
   %52 = getelementptr inbounds nuw i8, ptr %.0518.i, i64 1
   %53 = zext nneg i32 %.0551.i to i64
-  %54 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr @x86ops, i64 %53
   %55 = zext i8 %50 to i64
-  %56 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %54, i64 0, i64 %55, i32 4
+  %56 = getelementptr inbounds nuw %struct.OPCODES, ptr %54, i64 %55, i32 4
   %57 = load i32, ptr %56, align 4, !tbaa !10
   %58 = trunc i32 %57 to i16
   store i16 %58, ptr %23, align 2, !tbaa !12
@@ -511,7 +511,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br label %.backedge.i.backedge
 
 62:                                               ; preds = %49
-  %63 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %54, i64 0, i64 %55
+  %63 = getelementptr inbounds nuw %struct.OPCODES, ptr %54, i64 %55
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %65 = add i32 %64, -8
   %or.cond647.i = icmp ult i32 %65, 6
@@ -523,7 +523,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 67:                                               ; preds = %62
   %68 = zext nneg i32 %64 to i64
-  %69 = getelementptr inbounds nuw [14 x i8], ptr getelementptr inbounds nuw (i8, ptr @regmap, i64 28), i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @regmap, i64 28), i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = zext i8 %70 to i32
   store i32 %71, ptr %26, align 8, !tbaa !17
@@ -557,9 +557,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 84:                                               ; preds = %80
   %85 = and i8 %81, 63
   %86 = zext nneg i32 %75 to i64
-  %87 = getelementptr inbounds nuw [8 x [64 x %struct.anon.0]], ptr @x87_st, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [64 x %struct.anon.0], ptr @x87_st, i64 %86
   %88 = zext nneg i8 %85 to i64
-  %89 = getelementptr inbounds nuw [64 x %struct.anon.0], ptr %87, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw %struct.anon.0, ptr %87, i64 %88
   %90 = load i32, ptr %89, align 8, !tbaa !18
   %91 = trunc i32 %90 to i16
   store i16 %91, ptr %23, align 2, !tbaa !12
@@ -584,7 +584,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %.2536.i = phi i32 [ 1, %97 ], [ %.0534.i, %94 ]
   %99 = xor i32 %.2536.i, 1
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %100
   store i32 3, ptr %101, align 8, !tbaa !21
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 46, ptr %102, align 8, !tbaa !23
@@ -593,7 +593,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 103:                                              ; preds = %98, %94
   %.3537.i = phi i32 [ %.2536.i, %98 ], [ %.0534.i, %94 ]
   %104 = zext nneg i32 %.3537.i to i64
-  %105 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %104
   store i32 3, ptr %105, align 8, !tbaa !21
   %106 = and i8 %81, 7
   %narrow.i = add nuw nsw i8 %106, 46
@@ -617,9 +617,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %114 = and i8 %113, 7
   %115 = and i8 %81, 7
   %116 = zext nneg i32 %75 to i64
-  %117 = getelementptr inbounds nuw [8 x [8 x %struct.anon.1]], ptr @x87_mrm, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [8 x %struct.anon.1], ptr @x87_mrm, i64 %116
   %118 = zext nneg i8 %114 to i64
-  %119 = getelementptr inbounds nuw [8 x %struct.anon.1], ptr %117, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %struct.anon.1, ptr %117, i64 %118
   %120 = load i32, ptr %119, align 8, !tbaa !18
   %121 = trunc i32 %120 to i16
   store i16 %121, ptr %23, align 2, !tbaa !12
@@ -654,7 +654,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %138 = shl nuw nsw i8 1, %134
   store i8 %138, ptr %25, align 8, !tbaa !3
   %139 = zext nneg i8 %137 to i64
-  %140 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !3
   %142 = zext i8 %141 to i32
   %143 = icmp eq i8 %141, 5
@@ -664,7 +664,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %spec.select648.i = select i1 %or.cond.i, i8 2, i8 %112
   store i32 %spec.select.i, ptr %21, align 4, !tbaa !3
   %145 = zext nneg i8 %136 to i64
-  %146 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !3
   %148 = zext i8 %147 to i32
   store i32 %148, ptr %20, align 8, !tbaa !3
@@ -686,7 +686,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 155:                                              ; preds = %153
   store i8 1, ptr %25, align 8, !tbaa !3
   %156 = zext nneg i8 %115 to i64
-  %157 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !3
   %159 = zext i8 %158 to i32
   br label %160
@@ -751,7 +751,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 176:                                              ; preds = %174
   store i8 1, ptr %25, align 8, !tbaa !3
   %177 = zext nneg i8 %115 to i64
-  %178 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw %struct.anon.2, ptr @mrm_regmapw, i64 %177
   %179 = load i32, ptr %178, align 8, !tbaa !18
   store i32 %179, ptr %20, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 4
@@ -795,9 +795,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 193:                                              ; preds = %.backedge.i
   %194 = zext nneg i32 %.0551.i to i64
-  %195 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr @x86ops, i64 %194
   %196 = zext nneg i16 %39 to i64
-  %197 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %195, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw %struct.OPCODES, ptr %195, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !16
   switch i32 %198, label %514 [
     i32 12, label %199
@@ -832,7 +832,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   ]
 
 199:                                              ; preds = %193, %193, %193, %193, %193, %193
-  %200 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %195, i64 0, i64 %196, i32 1
+  %200 = getelementptr inbounds nuw %struct.OPCODES, ptr %195, i64 %196, i32 1
   %201 = load i32, ptr %200, align 4, !tbaa !25
   %202 = icmp eq i32 %201, 2
   br i1 %202, label %204, label %203
@@ -842,7 +842,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   unreachable
 
 204:                                              ; preds = %199, %193, %193, %193, %193
-  %205 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %195, i64 0, i64 %196, i32 1
+  %205 = getelementptr inbounds nuw %struct.OPCODES, ptr %195, i64 %196, i32 1
   %206 = load i32, ptr %205, align 4, !tbaa !25
   %switch.i = icmp ult i32 %206, 2
   br i1 %switch.i, label %207, label %208
@@ -852,7 +852,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   unreachable
 
 208:                                              ; preds = %204, %193, %193, %193, %193
-  %209 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %195, i64 0, i64 %196, i32 1
+  %209 = getelementptr inbounds nuw %struct.OPCODES, ptr %195, i64 %196, i32 1
   %210 = load i32, ptr %209, align 4, !tbaa !25
   %211 = icmp ult i32 %210, 6
   br i1 %211, label %213, label %212
@@ -881,9 +881,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %223 = phi i32 [ %31, %214 ], [ %42, %213 ]
   %224 = phi i32 [ %215, %214 ], [ %210, %213 ]
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw [4 x [14 x i8]], ptr @regmap, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw [14 x i8], ptr @regmap, i64 %225
   %227 = zext nneg i32 %198 to i64
-  %228 = getelementptr inbounds nuw [14 x i8], ptr %226, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 %227
   %229 = load i8, ptr %228, align 1, !tbaa !3
   %230 = zext i8 %229 to i32
   store i32 %230, ptr %24, align 8, !tbaa !23
@@ -926,7 +926,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 249:                                              ; preds = %193, %193
   %250 = add nsw i32 %198, -26
   store i32 %250, ptr %18, align 8, !tbaa !21
-  %251 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %195, i64 0, i64 %196, i32 1
+  %251 = getelementptr inbounds nuw %struct.OPCODES, ptr %195, i64 %196, i32 1
   %252 = load i32, ptr %251, align 4, !tbaa !25
   %253 = icmp ult i32 %252, 7
   br i1 %253, label %255, label %254
@@ -937,9 +937,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 255:                                              ; preds = %249
   %256 = zext nneg i32 %252 to i64
-  %257 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw [2 x i8], ptr @sizemap, i64 %256
   %258 = zext nneg i32 %33 to i64
-  %259 = getelementptr inbounds nuw [2 x i8], ptr %257, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !3
   %261 = zext i8 %260 to i32
   %.not632.i = icmp eq i8 %260, -1
@@ -1036,10 +1036,10 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %.0558.i = phi i8 [ %286, %292 ], [ 3, %290 ], [ %286, %291 ], [ 3, %283 ], [ 3, %283 ]
   %.0548.i = phi ptr [ @mrm_regmap, %292 ], [ @mrm_dregmap, %290 ], [ @mrm_sregmap, %291 ], [ @mrm_cregmap, %283 ], [ @mrm_cregmap, %283 ]
   %294 = zext nneg i32 %.5539.i to i64
-  %295 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
   store i32 0, ptr %296, align 4, !tbaa !24
-  %297 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %195, i64 0, i64 %196, i32 1
+  %297 = getelementptr inbounds nuw %struct.OPCODES, ptr %195, i64 %196, i32 1
   %298 = load i32, ptr %297, align 4, !tbaa !25
   switch i32 %298, label %303 [
     i32 3, label %.sink.split1066.i
@@ -1077,12 +1077,12 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %309 = phi i32 [ %42, %293 ], [ %.ph1070.i, %.sink.split1066.i ]
   %310 = xor i32 %.5539.i, 1
   %311 = zext nneg i32 %310 to i64
-  %312 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %311
   store i32 3, ptr %312, align 8, !tbaa !21
   %313 = zext nneg i32 %305 to i64
   %314 = getelementptr inbounds nuw [8 x i8], ptr %.0548.i, i64 %313
   %315 = zext nneg i8 %288 to i64
-  %316 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i8, ptr %314, i64 %315
   %317 = load i8, ptr %316, align 1, !tbaa !3
   %318 = zext i8 %317 to i32
   %319 = getelementptr inbounds nuw i8, ptr %312, i64 8
@@ -1115,9 +1115,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 329:                                              ; preds = %328
   store i32 3, ptr %295, align 8, !tbaa !21
   %330 = zext nneg i32 %326 to i64
-  %331 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw [8 x i8], ptr @mrm_regmap, i64 %330
   %332 = zext nneg i8 %289 to i64
-  %333 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 0, i64 %332
+  %333 = getelementptr inbounds nuw i8, ptr %331, i64 %332
   %334 = load i8, ptr %333, align 1, !tbaa !3
   %335 = zext i8 %334 to i32
   %336 = getelementptr inbounds nuw i8, ptr %295, i64 8
@@ -1136,8 +1136,8 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 341:                                              ; preds = %338
   %342 = zext nneg i16 %.mask631.i to i64
-  %343 = getelementptr inbounds nuw [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %342
-  %344 = getelementptr inbounds nuw [8 x %struct.anon.3], ptr %343, i64 0, i64 %315
+  %343 = getelementptr inbounds nuw [8 x %struct.anon.3], ptr @extra_1a, i64 %342
+  %344 = getelementptr inbounds nuw %struct.anon.3, ptr %343, i64 %315
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
   %346 = load i32, ptr %345, align 4, !tbaa !20
   %347 = load i32, ptr %19, align 4, !tbaa !24
@@ -1199,7 +1199,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %377 = getelementptr inbounds nuw i8, ptr %295, i64 24
   store i8 %375, ptr %377, align 8, !tbaa !3
   %378 = zext nneg i8 %374 to i64
-  %379 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %378
+  %379 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 %378
   %380 = load i8, ptr %379, align 1, !tbaa !3
   %381 = zext i8 %380 to i32
   %382 = getelementptr inbounds nuw i8, ptr %295, i64 20
@@ -1210,7 +1210,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %spec.select651.i = select i1 %or.cond15.i, i8 2, i8 %.0558.i
   store i32 %spec.select650.i, ptr %382, align 4, !tbaa !3
   %385 = zext nneg i8 %373 to i64
-  %386 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %385
+  %386 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 %385
   %387 = load i8, ptr %386, align 1, !tbaa !3
   %388 = zext i8 %387 to i32
   store i32 %388, ptr %376, align 8, !tbaa !3
@@ -1235,7 +1235,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %397 = getelementptr inbounds nuw i8, ptr %295, i64 24
   store i8 1, ptr %397, align 8, !tbaa !3
   %398 = zext nneg i8 %289 to i64
-  %399 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 %398
   %400 = load i8, ptr %399, align 1, !tbaa !3
   %401 = zext i8 %400 to i32
   br label %402
@@ -1307,7 +1307,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %431 = getelementptr inbounds nuw i8, ptr %295, i64 24
   store i8 1, ptr %431, align 8, !tbaa !3
   %432 = zext nneg i8 %289 to i64
-  %433 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %432
+  %433 = getelementptr inbounds nuw %struct.anon.2, ptr @mrm_regmapw, i64 %432
   %434 = load i32, ptr %433, align 8, !tbaa !18
   %435 = getelementptr inbounds nuw i8, ptr %433, i64 4
   %436 = load i32, ptr %435, align 4, !tbaa !20
@@ -1380,8 +1380,8 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 462:                                              ; preds = %459
   %463 = zext nneg i16 %.mask.i to i64
-  %464 = getelementptr inbounds nuw [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %463
-  %465 = getelementptr inbounds nuw [8 x %struct.anon.3], ptr %464, i64 0, i64 %315
+  %464 = getelementptr inbounds nuw [8 x %struct.anon.3], ptr @extra_1a, i64 %463
+  %465 = getelementptr inbounds nuw %struct.anon.3, ptr %464, i64 %315
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 4
   %467 = load i32, ptr %466, align 4, !tbaa !20
   %468 = load i32, ptr %19, align 4, !tbaa !24
@@ -1419,7 +1419,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 484:                                              ; preds = %193
   store i32 4, ptr %18, align 8, !tbaa !21
-  %485 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %195, i64 0, i64 %196, i32 1
+  %485 = getelementptr inbounds nuw %struct.OPCODES, ptr %195, i64 %196, i32 1
   %486 = load i32, ptr %485, align 4, !tbaa !25
   switch i32 %486, label %487 [
     i32 0, label %488
@@ -1432,7 +1432,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 488:                                              ; preds = %484, %484
   %489 = zext nneg i32 %38 to i64
-  %490 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @sizemap, i64 10), i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sizemap, i64 10), i64 %489
   %491 = load i8, ptr %490, align 1, !tbaa !3
   %492 = zext i8 %491 to i32
   %.not620.i = icmp eq i8 %491, -1
@@ -1444,9 +1444,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 494:                                              ; preds = %488
   %495 = zext nneg i32 %486 to i64
-  %496 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw [2 x i8], ptr @sizemap, i64 %495
   %497 = zext nneg i32 %37 to i64
-  %498 = getelementptr inbounds nuw [2 x i8], ptr %496, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw i8, ptr %496, i64 %497
   %499 = load i8, ptr %498, align 1, !tbaa !3
   %.not621.i = icmp eq i8 %499, -1
   br i1 %.not621.i, label %500, label %501
@@ -1503,9 +1503,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %516 = add i8 %45, 1
   store i8 %516, ptr %10, align 4, !tbaa !26
   %517 = zext nneg i32 %.0551.i to i64
-  %518 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %517
+  %518 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr @x86ops, i64 %517
   %519 = zext nneg i16 %44 to i64
-  %520 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %518, i64 0, i64 %519, i32 2
+  %520 = getelementptr inbounds nuw %struct.OPCODES, ptr %518, i64 %519, i32 2
   %521 = load i32, ptr %520, align 4, !tbaa !27
   switch i32 %521, label %611 [
     i32 30, label %522
@@ -1523,9 +1523,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 523:                                              ; preds = %515
   %524 = zext i8 %516 to i64
-  %525 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %524
+  %525 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %524
   store i32 1, ptr %525, align 8, !tbaa !21
-  %526 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %518, i64 0, i64 %519, i32 3
+  %526 = getelementptr inbounds nuw %struct.OPCODES, ptr %518, i64 %519, i32 3
   %527 = load i32, ptr %526, align 4, !tbaa !28
   switch i32 %527, label %528 [
     i32 5, label %529
@@ -1538,9 +1538,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 529:                                              ; preds = %523, %523
   %530 = zext nneg i32 %527 to i64
-  %531 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %530
+  %531 = getelementptr inbounds nuw [2 x i8], ptr @sizemap, i64 %530
   %532 = zext nneg i32 %40 to i64
-  %533 = getelementptr inbounds nuw [2 x i8], ptr %531, i64 0, i64 %532
+  %533 = getelementptr inbounds nuw i8, ptr %531, i64 %532
   %534 = load i8, ptr %533, align 1, !tbaa !3
   %535 = zext i8 %534 to i32
   %536 = lshr i32 %535, 1
@@ -1592,7 +1592,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br label %.backedge.i.backedge
 
 556:                                              ; preds = %515, %515, %515
-  %557 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %518, i64 0, i64 %519, i32 3
+  %557 = getelementptr inbounds nuw %struct.OPCODES, ptr %518, i64 %519, i32 3
   %558 = load i32, ptr %557, align 4, !tbaa !28
   %559 = icmp ult i32 %558, 6
   br i1 %559, label %561, label %560
@@ -1603,7 +1603,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 561:                                              ; preds = %556
   %562 = zext i8 %516 to i64
-  %563 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %562
+  %563 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %562
   store i32 3, ptr %563, align 8, !tbaa !21
   %.not611.i = icmp eq i32 %558, 5
   %.not612.i = icmp eq i32 %41, 0
@@ -1611,9 +1611,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %565 = select i1 %.not611.i, i32 %41, i32 %42
   %566 = select i1 %.not611.i, i32 %564, i32 %558
   %567 = zext nneg i32 %566 to i64
-  %568 = getelementptr inbounds nuw [4 x [14 x i8]], ptr @regmap, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw [14 x i8], ptr @regmap, i64 %567
   %569 = zext nneg i32 %521 to i64
-  %570 = getelementptr inbounds nuw [14 x i8], ptr %568, i64 0, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr %568, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !3
   %572 = zext i8 %571 to i32
   %.idx613.i = shl nuw nsw i64 %562, 5
@@ -1625,7 +1625,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 575:                                              ; preds = %515
   %576 = zext i8 %516 to i64
-  %577 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %576
   store i32 1, ptr %577, align 8, !tbaa !21
   %.idx.i = shl nuw nsw i64 %576, 5
   %578 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
@@ -1638,7 +1638,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 581:                                              ; preds = %515
   store i32 4, ptr %11, align 8, !tbaa !21
-  %582 = getelementptr inbounds nuw [256 x %struct.OPCODES], ptr %518, i64 0, i64 %519, i32 3
+  %582 = getelementptr inbounds nuw %struct.OPCODES, ptr %518, i64 %519, i32 3
   %583 = load i32, ptr %582, align 4, !tbaa !28
   switch i32 %583, label %584 [
     i32 0, label %585
@@ -1651,7 +1651,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 585:                                              ; preds = %581, %581
   %586 = zext nneg i32 %43 to i64
-  %587 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @sizemap, i64 10), i64 0, i64 %586
+  %587 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sizemap, i64 10), i64 %586
   %588 = load i8, ptr %587, align 1, !tbaa !3
   %589 = zext i8 %588 to i32
   %.not.i = icmp eq i8 %588, -1
@@ -1663,9 +1663,9 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 591:                                              ; preds = %585
   %592 = zext nneg i32 %583 to i64
-  %593 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %592
+  %593 = getelementptr inbounds nuw [2 x i8], ptr @sizemap, i64 %592
   %594 = zext nneg i32 %42 to i64
-  %595 = getelementptr inbounds nuw [2 x i8], ptr %593, i64 0, i64 %594
+  %595 = getelementptr inbounds nuw i8, ptr %593, i64 %594
   %596 = load i8, ptr %595, align 1, !tbaa !3
   %.not608.i = icmp eq i8 %596, -1
   br i1 %.not608.i, label %597, label %598
@@ -1764,7 +1764,7 @@ default.unreachable:                              ; preds = %.backedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2
   %616 = zext i16 %28 to i64
-  %617 = getelementptr inbounds nuw [287 x ptr], ptr @mnemonic, i64 0, i64 %616
+  %617 = getelementptr inbounds nuw ptr, ptr @mnemonic, i64 %616
   %618 = load ptr, ptr %617, align 8, !tbaa !29
   %619 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %618) #10
   %620 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
@@ -1774,7 +1774,7 @@ default.unreachable:                              ; preds = %.backedge.i
 622:                                              ; preds = %717, %615
   %indvars.iv.i45 = phi i64 [ 0, %615 ], [ %indvars.iv.next.i46, %717 ]
   %.06980.i = phi ptr [ %621, %615 ], [ %.170.i, %717 ]
-  %623 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv.i45
+  %623 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %indvars.iv.i45
   %624 = load i32, ptr %623, align 8, !tbaa !21
   switch i32 %624, label %717 [
     i32 4, label %648
@@ -1807,7 +1807,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %640 = getelementptr inbounds nuw i8, ptr %623, i64 8
   %641 = load i32, ptr %640, align 8, !tbaa !23
   %642 = zext i32 %641 to i64
-  %643 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %642
+  %643 = getelementptr inbounds nuw ptr, ptr @x86regs, i64 %642
   %644 = load ptr, ptr %643, align 8, !tbaa !29
   %645 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %5, ptr noundef %644) #10
   %646 = sext i32 %645 to i64
@@ -1818,7 +1818,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %649 = getelementptr inbounds nuw i8, ptr %623, i64 4
   %650 = load i32, ptr %649, align 4, !tbaa !24
   %651 = zext i32 %650 to i64
-  %652 = getelementptr inbounds nuw [7 x ptr], ptr @dis_size, i64 0, i64 %651
+  %652 = getelementptr inbounds nuw ptr, ptr @dis_size, i64 %651
   %653 = load ptr, ptr %652, align 8, !tbaa !29
   %654 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %5, ptr noundef %653) #10
   %655 = sext i32 %654 to i64
@@ -1829,7 +1829,7 @@ default.unreachable:                              ; preds = %.backedge.i
 
 658:                                              ; preds = %648
   %659 = zext i32 %657 to i64
-  %660 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw ptr, ptr @x86regs, i64 %659
   %661 = load ptr, ptr %660, align 8, !tbaa !29
   %662 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %656, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %661) #10
   %663 = sext i32 %662 to i64
@@ -1856,7 +1856,7 @@ default.unreachable:                              ; preds = %.backedge.i
 
 672:                                              ; preds = %669
   %673 = zext i32 %668 to i64
-  %674 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %673
+  %674 = getelementptr inbounds nuw ptr, ptr @x86regs, i64 %673
   %675 = load ptr, ptr %674, align 8, !tbaa !29
   %stpcpy.i = call ptr @stpcpy(ptr nonnull %666, ptr %675)
   %676 = ptrtoint ptr %stpcpy.i to i64
@@ -1870,7 +1870,7 @@ default.unreachable:                              ; preds = %.backedge.i
 681:                                              ; preds = %669
   %682 = zext i8 %671 to i32
   %683 = zext i32 %668 to i64
-  %684 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw ptr, ptr @x86regs, i64 %683
   %685 = load ptr, ptr %684, align 8, !tbaa !29
   %686 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %666, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %685, i32 noundef %682) #10
   %687 = sext i32 %686 to i64
@@ -1887,7 +1887,7 @@ default.unreachable:                              ; preds = %.backedge.i
 
 692:                                              ; preds = %689
   %693 = zext i32 %691 to i64
-  %694 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %693
+  %694 = getelementptr inbounds nuw ptr, ptr @x86regs, i64 %693
   %695 = load ptr, ptr %694, align 8, !tbaa !29
   %696 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %.0.i50, ptr noundef %695) #10
   %697 = sext i32 %696 to i64
@@ -1966,10 +1966,10 @@ spam_x86.exit:                                    ; preds = %717
 
 730:                                              ; preds = %718, %763
   %indvars.iv = phi i64 [ 0, %718 ], [ %indvars.iv.next, %763 ]
-  %731 = getelementptr inbounds nuw [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv
+  %731 = getelementptr inbounds nuw %struct.DIS_ARGS, ptr %18, i64 %indvars.iv
   %732 = load i32, ptr %731, align 8, !tbaa !21
   %733 = trunc i32 %732 to i8
-  %734 = getelementptr inbounds nuw [3 x [10 x i8]], ptr %729, i64 0, i64 %indvars.iv
+  %734 = getelementptr inbounds nuw [10 x i8], ptr %729, i64 %indvars.iv
   store i8 %733, ptr %734, align 1, !tbaa !3
   %735 = getelementptr inbounds nuw i8, ptr %731, i64 4
   %736 = load i32, ptr %735, align 4, !tbaa !24

@@ -140,7 +140,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.config_input, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_input, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %switch.load, ptr %10, align 8, !tbaa !46

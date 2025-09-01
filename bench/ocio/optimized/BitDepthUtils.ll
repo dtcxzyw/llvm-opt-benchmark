@@ -101,7 +101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %1
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x double], ptr @switch.table._ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE, i64 %28
   %switch.load = load double, ptr %switch.gep, align 8
   ret double %switch.load
 
@@ -312,7 +312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %1
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev21GetChannelSizeInBytesENS_8BitDepthE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev21GetChannelSizeInBytesENS_8BitDepthE, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 

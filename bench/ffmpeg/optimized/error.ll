@@ -76,7 +76,7 @@ define range(i32 -2147483647, -2147483648) i32 @av_strerror(i32 noundef %0, ptr 
 
 5:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw [29 x %struct.error_entry], ptr @error_entries, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.error_entry, ptr @error_entries, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %4

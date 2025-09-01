@@ -2828,7 +2828,7 @@ switch.hole_check:                                ; preds = %52
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %68 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dissect_eplpdu, i64 0, i64 %68
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_eplpdu, i64 %68
   %switch.load = load ptr, ptr %switch.gep, align 8
   %69 = load ptr, ptr %21, align 8
   %70 = load i32, ptr %59, align 4
@@ -2843,22 +2843,22 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %75 = load i32, ptr @ett_epl, align 4
   %76 = call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75)
   %77 = load i8, ptr %5, align 1
-  %switch.tableidx170 = add i8 %77, -1
-  %78 = icmp ult i8 %switch.tableidx170, 13
+  %switch.tableidx169 = add i8 %77, -1
+  %78 = icmp ult i8 %switch.tableidx169, 13
   br i1 %78, label %switch.hole_check171, label %.thread
 
 switch.hole_check171:                             ; preds = %72
-  %switch.maskindex173 = zext nneg i8 %switch.tableidx170 to i16
+  %switch.maskindex173 = zext nneg i8 %switch.tableidx169 to i16
   %switch.shifted174 = lshr i16 4221, %switch.maskindex173
   %switch.lobit175 = trunc i16 %switch.shifted174 to i1
   br i1 %switch.lobit175, label %switch.lookup172, label %.thread
 
 switch.lookup172:                                 ; preds = %switch.hole_check171
-  %79 = zext nneg i8 %switch.tableidx170 to i64
-  %switch.gep176 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dissect_eplpdu.3, i64 0, i64 %79
+  %79 = zext nneg i8 %switch.tableidx169 to i64
+  %switch.gep176 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_eplpdu.3, i64 %79
   %switch.load177 = load ptr, ptr %switch.gep176, align 8
-  %80 = zext nneg i8 %switch.tableidx170 to i64
-  %switch.gep178 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.dissect_eplpdu.4, i64 0, i64 %80
+  %80 = zext nneg i8 %switch.tableidx169 to i64
+  %switch.gep178 = getelementptr inbounds nuw i64, ptr @switch.table.dissect_eplpdu.4, i64 %80
   %switch.load179 = load i64, ptr %switch.gep178, align 8
   %81 = load i32, ptr %switch.load177, align 4
   %82 = call ptr @proto_tree_add_boolean(ptr noundef %76, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 1, i64 noundef %switch.load179)
@@ -5391,9 +5391,9 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %127, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16384) @epl_asnd_sdo_reassembly_write, i8 noundef 0, i64 noundef 16384, i1 noundef false) #24
   %229 = load i8, ptr @epl_segmentation.2, align 1
   %230 = zext i8 %229 to i64
-  %231 = getelementptr [64 x [64 x i32]], ptr @epl_asnd_sdo_reassembly_write, i64 0, i64 %230
+  %231 = getelementptr [64 x i32], ptr @epl_asnd_sdo_reassembly_write, i64 %230
   %232 = zext nneg i8 %227 to i64
-  %233 = getelementptr [64 x i32], ptr %231, i64 0, i64 %232
+  %233 = getelementptr i32, ptr %231, i64 %232
   store i32 %107, ptr %233, align 4
   %234 = load i32, ptr @ct, align 4
   %235 = add i32 %234, 1
@@ -5404,9 +5404,9 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %127, 
 237:                                              ; preds = %217
   %238 = load i8, ptr @epl_segmentation.2, align 1
   %239 = zext i8 %238 to i64
-  %240 = getelementptr [64 x [64 x i32]], ptr @epl_asnd_sdo_reassembly_write, i64 0, i64 %239
+  %240 = getelementptr [64 x i32], ptr @epl_asnd_sdo_reassembly_write, i64 %239
   %241 = zext i8 %227 to i64
-  %242 = getelementptr [64 x i32], ptr %240, i64 0, i64 %241
+  %242 = getelementptr i32, ptr %240, i64 %241
   %243 = load i32, ptr %242, align 4
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %245, label %253
@@ -5434,10 +5434,10 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %127, 
   %254 = call ptr @fragment_add_seq_check(ptr noundef nonnull @epl_reassembly_table, ptr noundef %1, i32 noundef range(i32 16, 24) %.1163, ptr noundef %2, i32 noundef %224, ptr noundef null, i32 noundef 0, i32 noundef %226, i1 noundef zeroext %218)
   %255 = load i8, ptr @epl_segmentation.2, align 1
   %256 = zext i8 %255 to i64
-  %257 = getelementptr [64 x [64 x i32]], ptr @epl_asnd_sdo_reassembly_write, i64 0, i64 %256
+  %257 = getelementptr [64 x i32], ptr @epl_asnd_sdo_reassembly_write, i64 %256
   %258 = load i8, ptr @epl_segmentation.3, align 1
   %259 = zext i8 %258 to i64
-  %260 = getelementptr [64 x i32], ptr %257, i64 0, i64 %259
+  %260 = getelementptr i32, ptr %257, i64 %259
   store i32 %107, ptr %260, align 4
   br label %261
 
@@ -5449,10 +5449,10 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %127, 
 262:                                              ; preds = %261
   %263 = load i8, ptr @epl_segmentation.2, align 1
   %264 = zext i8 %263 to i64
-  %265 = getelementptr [64 x [64 x i32]], ptr @epl_asnd_sdo_reassembly_write, i64 0, i64 %264
+  %265 = getelementptr [64 x i32], ptr @epl_asnd_sdo_reassembly_write, i64 %264
   %266 = load i8, ptr @epl_segmentation.3, align 1
   %267 = zext i8 %266 to i64
-  %268 = getelementptr [64 x i32], ptr %265, i64 0, i64 %267
+  %268 = getelementptr i32, ptr %265, i64 %267
   %269 = load i32, ptr %268, align 4
   %270 = icmp eq i32 %269, %107
   br i1 %270, label %271, label %285
@@ -6613,7 +6613,7 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
   %839 = load i8, ptr %838, align 4
   %840 = add i8 %839, 1
   %841 = zext i8 %839 to i64
-  %842 = getelementptr [4 x %struct.read_req], ptr %837, i64 0, i64 %841
+  %842 = getelementptr %struct.read_req, ptr %837, i64 %841
   %843 = and i8 %840, 3
   store i8 %843, ptr %838, align 4
   %844 = getelementptr inbounds nuw i8, ptr %842, i64 3
@@ -6657,10 +6657,10 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
   %866 = icmp eq i8 %27, 3
   %867 = load i8, ptr @epl_segmentation.2, align 1
   %868 = zext i8 %867 to i64
-  %869 = getelementptr [64 x [64 x i32]], ptr @epl_asnd_sdo_reassembly_read, i64 0, i64 %868
+  %869 = getelementptr [64 x i32], ptr @epl_asnd_sdo_reassembly_read, i64 %868
   %870 = load i8, ptr @epl_segmentation.3, align 1
   %871 = zext i8 %870 to i64
-  %872 = getelementptr [64 x i32], ptr %869, i64 0, i64 %871
+  %872 = getelementptr i32, ptr %869, i64 %871
   %873 = load i32, ptr %872, align 4
   %874 = icmp eq i32 %873, 0
   %875 = icmp eq i32 %873, %791
@@ -6703,10 +6703,10 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
 888:                                              ; preds = %887
   %889 = load i8, ptr @epl_segmentation.2, align 1
   %890 = zext i8 %889 to i64
-  %891 = getelementptr [64 x [64 x i32]], ptr @epl_asnd_sdo_reassembly_read, i64 0, i64 %890
+  %891 = getelementptr [64 x i32], ptr @epl_asnd_sdo_reassembly_read, i64 %890
   %892 = load i8, ptr @epl_segmentation.3, align 1
   %893 = zext i8 %892 to i64
-  %894 = getelementptr [64 x i32], ptr %891, i64 0, i64 %893
+  %894 = getelementptr i32, ptr %891, i64 %893
   %895 = load i32, ptr %894, align 4
   %896 = icmp eq i32 %895, %791
   br i1 %896, label %897, label %.thread.i
@@ -6741,7 +6741,7 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
   %916 = load i8, ptr @epl_segmentation.2, align 1
   %917 = zext i8 %916 to i64
   %.idx.i = shl nuw nsw i64 %917, 8
-  %918 = getelementptr [64 x [64 x i32]], ptr @epl_asnd_sdo_reassembly_read, i64 0, i64 %917
+  %918 = getelementptr [64 x i32], ptr @epl_asnd_sdo_reassembly_read, i64 %917
   %919 = sub nsw i64 16384, %.idx.i
   %920 = icmp ugt i8 %916, 64
   %921 = select i1 %920, i64 0, i64 %919
@@ -6776,7 +6776,7 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
 
 934:                                              ; preds = %933, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %933 ]
-  %935 = getelementptr [4 x %struct.read_req], ptr %932, i64 0, i64 %indvars.iv.i.i
+  %935 = getelementptr %struct.read_req, ptr %932, i64 %indvars.iv.i.i
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 3
   %937 = load i8, ptr %936, align 1
   %938 = icmp eq i8 %937, %926

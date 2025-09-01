@@ -167,13 +167,13 @@ define range(i32 -12, 1) i32 @ff_ffv1_init_slice_state(ptr noundef readonly capt
 
 41:                                               ; preds = %.preheader, %41
   %indvars.iv53 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next54, %41 ]
-  %42 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 0, i64 %indvars.iv53
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv53
   %43 = load i8, ptr %42, align 1, !tbaa !61
-  %44 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %indvars.iv53
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv53
   store i8 %43, ptr %44, align 1, !tbaa !61
   %45 = sub i8 0, %43
   %46 = sub nuw nsw i64 256, %indvars.iv53
-  %47 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 %46
   store i8 %45, ptr %47, align 1, !tbaa !61
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 256
@@ -405,11 +405,11 @@ define range(i32 -12, 1) i32 @ff_ffv1_allocate_initial_states(ptr noundef captur
 
 7:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %8 = getelementptr inbounds nuw [8 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !79
   %10 = sext i32 %9 to i64
   %11 = tail call ptr @av_malloc_array(i64 noundef %10, i64 noundef 32) #12
-  %12 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !80
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %13
@@ -513,7 +513,7 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
 31:                                               ; preds = %.lr.ph29.split
   %32 = load i32, ptr %25, align 8, !tbaa !86
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [8 x ptr], ptr %8, i64 0, i64 %33
+  %34 = getelementptr inbounds ptr, ptr %8, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !80
   %.not26 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -598,7 +598,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv75
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv75
   %23 = load i32, ptr %22, align 4, !tbaa !79
   %24 = shl i32 %23, 1
   %25 = add i32 %24, -2
@@ -612,7 +612,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
   %.110.i70.us = select i1 %.not11.i69.us, i32 %spec.select.i67.us, i32 %27
   %.1.i71.us = select i1 %.not11.i69.us, i32 %spec.select12.i68.us, i32 %28
   %29 = zext nneg i32 %.110.i70.us to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !61
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %.1.i71.us, %32
@@ -638,7 +638,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %43 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !79
   %45 = shl i32 %44, 1
   %46 = add i32 %45, -2
@@ -652,7 +652,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
   %.110.i70 = select i1 %.not11.i69, i32 %spec.select.i67, i32 %48
   %.1.i71 = select i1 %.not11.i69, i32 %spec.select12.i68, i32 %49
   %50 = zext nneg i32 %.110.i70 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !61
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %.1.i71, %53
@@ -691,7 +691,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
   %.110.i64 = select i1 %.not11.i63, i32 %spec.select.i61, i32 %72
   %.1.i65 = select i1 %.not11.i63, i32 %spec.select12.i62, i32 %73
   %74 = zext nneg i32 %.110.i64 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !61
   %77 = zext i8 %76 to i32
   %78 = add nuw nsw i32 %.1.i65, %77
@@ -711,7 +711,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
   %.110.i58 = select i1 %.not11.i57, i32 %spec.select.i55, i32 %85
   %.1.i59 = select i1 %.not11.i57, i32 %spec.select12.i56, i32 %86
   %87 = zext nneg i32 %.110.i58 to i64
-  %88 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !61
   %90 = zext i8 %89 to i32
   %91 = add nuw nsw i32 %.1.i59, %90
@@ -732,7 +732,7 @@ define void @ff_ffv1_compute_bits_per_plane(ptr noundef readonly captures(none) 
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %99
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %100
   %101 = zext nneg i32 %.110.i to i64
-  %102 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !61
   %104 = zext i8 %103 to i32
   %105 = add nuw nsw i32 %.1.i, %104
@@ -779,7 +779,7 @@ define i32 @ff_ffv1_get_symbol(ptr noundef %0, ptr noundef captures(none) %1, i3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i8, ptr %1, align 1, !tbaa !61
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !61
   store i8 %18, ptr %1, align 1, !tbaa !61
   %19 = load i32, ptr %4, align 4, !tbaa !93
@@ -821,7 +821,7 @@ define i32 @ff_ffv1_get_symbol(ptr noundef %0, ptr noundef captures(none) %1, i3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %42 = load i8, ptr %1, align 1, !tbaa !61
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw [256 x i8], ptr %41, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !61
   store i8 %45, ptr %1, align 1, !tbaa !61
   store i32 %9, ptr %4, align 4, !tbaa !93
@@ -885,7 +885,7 @@ get_rac.exit.i:                                   ; preds = %35, %30, %13
 83:                                               ; preds = %71
   %84 = load i8, ptr %75, align 1, !tbaa !61
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !61
   store i8 %87, ptr %75, align 1, !tbaa !61
   %88 = load i32, ptr %4, align 4, !tbaa !93
@@ -923,7 +923,7 @@ get_rac.exit.i:                                   ; preds = %35, %30, %13
   store i32 %106, ptr %0, align 8, !tbaa !94
   %107 = load i8, ptr %75, align 1, !tbaa !61
   %108 = zext i8 %107 to i64
-  %109 = getelementptr inbounds nuw [256 x i8], ptr %67, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !61
   store i8 %110, ptr %75, align 1, !tbaa !61
   store i32 %79, ptr %4, align 4, !tbaa !93
@@ -998,7 +998,7 @@ get_rac.exit32.i:                                 ; preds = %102, %97, %83
 145:                                              ; preds = %133
   %146 = load i8, ptr %137, align 1, !tbaa !61
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr %14, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !61
   store i8 %149, ptr %137, align 1, !tbaa !61
   %150 = load i32, ptr %4, align 4, !tbaa !93
@@ -1036,7 +1036,7 @@ get_rac.exit32.i:                                 ; preds = %102, %97, %83
   store i32 %168, ptr %0, align 8, !tbaa !94
   %169 = load i8, ptr %137, align 1, !tbaa !61
   %170 = zext i8 %169 to i64
-  %171 = getelementptr inbounds nuw [256 x i8], ptr %67, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr %67, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !61
   store i8 %172, ptr %137, align 1, !tbaa !61
   store i32 %141, ptr %4, align 4, !tbaa !93
@@ -1095,7 +1095,7 @@ get_rac.exit34.i:                                 ; preds = %186, %181, %167, %1
 204:                                              ; preds = %192
   %205 = load i8, ptr %196, align 1, !tbaa !61
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr %14, i64 %206
   %208 = load i8, ptr %207, align 1, !tbaa !61
   store i8 %208, ptr %196, align 1, !tbaa !61
   %209 = load i32, ptr %4, align 4, !tbaa !93
@@ -1133,7 +1133,7 @@ get_rac.exit34.i:                                 ; preds = %186, %181, %167, %1
   store i32 %227, ptr %0, align 8, !tbaa !94
   %228 = load i8, ptr %196, align 1, !tbaa !61
   %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds nuw [256 x i8], ptr %67, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw i8, ptr %67, i64 %229
   %231 = load i8, ptr %230, align 1, !tbaa !61
   store i8 %231, ptr %196, align 1, !tbaa !61
   store i32 %200, ptr %4, align 4, !tbaa !93
@@ -1213,13 +1213,13 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 
 19:                                               ; preds = %6, %19
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %20) #12
-  %21 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %21) #12
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   store i32 0, ptr %22, align 4, !tbaa !79
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 0, ptr %23, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1241,7 +1241,7 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 
 31:                                               ; preds = %.lr.ph43, %._crit_edge40
   %indvars.iv52 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next53, %._crit_edge40 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %28, i64 0, i64 %indvars.iv52
+  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv52
   tail call void @av_freep(ptr noundef nonnull %32) #12
   %33 = load i32, ptr %2, align 8, !tbaa !63
   %34 = icmp sgt i32 %33, 0
@@ -1251,7 +1251,7 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph39 ], [ 0, %31 ]
   %35 = load ptr, ptr %29, align 8, !tbaa !65
   %36 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %35, i64 %indvars.iv49, i32 17, i32 0, i32 1
-  %37 = getelementptr inbounds nuw [8 x ptr], ptr %36, i64 0, i64 %indvars.iv52
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv52
   tail call void @av_freep(ptr noundef nonnull %37) #12
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %38 = load i32, ptr %2, align 8, !tbaa !63
@@ -1260,7 +1260,7 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %40, label %.lr.ph39, label %._crit_edge40, !llvm.loop !102
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %31
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv52
+  %41 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv52
   tail call void @av_freep(ptr noundef nonnull %41) #12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %42 = load i32, ptr %25, align 8, !tbaa !78

@@ -627,7 +627,7 @@ define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef
 
 .preheader33:                                     ; preds = %15, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %15 ]
-  %23 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = zext i8 %24 to i32
   %26 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %25) #5
@@ -662,7 +662,7 @@ define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef
 
 .preheader:                                       ; preds = %31, %43
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %43 ], [ 0, %31 ]
-  %44 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %indvars.iv37
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv37
   %45 = load i8, ptr %44, align 1, !tbaa !35
   %46 = zext i8 %45 to i32
   %47 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %46) #5
@@ -735,7 +735,7 @@ switch.early.test:                                ; preds = %14
 16:                                               ; preds = %14, %.lr.ph, %switch.early.test
   %.fr.sink = phi i8 [ %switch.select42, %switch.early.test ], [ 46, %.lr.ph ], [ %.fr, %14 ]
   %17 = sext i32 %.02434 to i64
-  %18 = getelementptr inbounds [80 x i8], ptr %3, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr %3, i64 %17
   store i8 %.fr.sink, ptr %18, align 1, !tbaa !35
   %19 = add nsw i32 %.02434, 1
   %20 = icmp sgt i32 %.02434, 78
@@ -882,9 +882,9 @@ define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr nounde
 
 77:                                               ; preds = %72, %68, %64, %35
   %.0 = phi i32 [ %76, %72 ], [ 0, %68 ], [ 0, %64 ], [ 0, %35 ]
-  %78 = add nsw i32 %33, -529
-  %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [12 x ptr], ptr @mon, i64 0, i64 %79
+  %78 = zext nneg i32 %33 to i64
+  %79 = getelementptr ptr, ptr @mon, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 -4232
   %81 = load ptr, ptr %80, align 8, !tbaa !59
   %spec.select = add nsw i32 %24, 1900
   %82 = add nsw i32 %spec.select, %spec.select.v
@@ -1053,9 +1053,9 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, pt
   %.057 = phi i32 [ %86, %87 ], [ %86, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ %86, %.preheader ], [ %86, %.critedge.loopexit.split.loop.exit86 ], [ %86, %96 ]
   %.056 = phi ptr [ null, %87 ], [ null, %82 ], [ null, %78 ], [ null, %74 ], [ null, %45 ], [ %88, %.preheader ], [ %88, %.critedge.loopexit.split.loop.exit86 ], [ %88, %96 ]
   %.055 = phi i32 [ 0, %87 ], [ 0, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ 1, %.preheader ], [ %97, %.critedge.loopexit.split.loop.exit86 ], [ %92, %96 ]
-  %98 = add nsw i32 %43, -529
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw [12 x ptr], ptr @mon, i64 0, i64 %99
+  %98 = zext nneg i32 %43 to i64
+  %99 = getelementptr ptr, ptr @mon, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 -4232
   %101 = load ptr, ptr %100, align 8, !tbaa !59
   %102 = select i1 %.not69, ptr @.str.29, ptr @.str.4
   %103 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef %101, i32 noundef %54, i32 noundef %63, i32 noundef %72, i32 noundef %.057, i32 noundef %.055, ptr noundef %.056, i32 noundef %35, ptr noundef nonnull %102) #5

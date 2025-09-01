@@ -811,7 +811,7 @@ define noundef i32 @_ZN6icu_7712PreparsedUCD8readLineER10UErrorCode(ptr noundef 
   %.lcssa = phi i32 [ %spec.select, %._crit_edge ], [ %.promoted, %.preheader53 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %16 = sext i32 %.lcssa to i64
-  %17 = getelementptr inbounds [3 x [4096 x i8]], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds [4096 x i8], ptr %15, i64 %16
   store i8 0, ptr %17, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %17, ptr %18, align 8, !tbaa !46
@@ -933,7 +933,7 @@ define noundef i32 @_ZN6icu_7712PreparsedUCD8readLineER10UErrorCode(ptr noundef 
 
 63:                                               ; preds = %._crit_edge72, %68
   %indvars.iv = phi i64 [ 2, %._crit_edge72 ], [ %indvars.iv.next, %68 ]
-  %64 = getelementptr inbounds nuw [11 x ptr], ptr @_ZN6icu_77L15lineTypeStringsE, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L15lineTypeStringsE, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !51
   %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %65) #29
   %67 = icmp eq i32 %66, 0
@@ -985,7 +985,7 @@ define noundef nonnull ptr @_ZN6icu_7712PreparsedUCD10firstFieldEv(ptr noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [3 x [4096 x i8]], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds [4096 x i8], ptr %2, i64 %5
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6)
   %strchr = getelementptr inbounds i8, ptr %6, i64 %strlen
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1039,7 +1039,7 @@ define noundef ptr @_ZN6icu_7712PreparsedUCD8getPropsERNS_10UnicodeSetER10UError
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !39
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [3 x [4096 x i8]], ptr %15, i64 0, i64 %18
+  %19 = getelementptr inbounds [4096 x i8], ptr %15, i64 %18
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19)
   %strchr.i = getelementptr inbounds i8, ptr %19, i64 %strlen.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1308,9 +1308,9 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
   br i1 %.not64, label %186, label %178
 
 178:                                              ; preds = %175
-  %179 = getelementptr inbounds nuw [76 x i8], ptr %171, i64 0, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw i8, ptr %171, i64 %indvars.iv
   %180 = load i8, ptr %179, align 1, !tbaa !32
-  %181 = getelementptr inbounds nuw [76 x i8], ptr %172, i64 0, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw i8, ptr %172, i64 %indvars.iv
   %182 = load i8, ptr %181, align 1, !tbaa !32
   %183 = icmp eq i8 %180, %182
   br i1 %183, label %184, label %186
@@ -1333,9 +1333,9 @@ _ZN6icu_7712PreparsedUCD19parseCodePointRangeEPKcRiS3_R10UErrorCode.exit.thread:
 
 190:                                              ; preds = %187
   %191 = add nsw i64 %indvars.iv98, -4096
-  %192 = getelementptr inbounds [27 x i32], ptr %173, i64 0, i64 %191
+  %192 = getelementptr inbounds i32, ptr %173, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !12
-  %194 = getelementptr inbounds [27 x i32], ptr %174, i64 0, i64 %191
+  %194 = getelementptr inbounds i32, ptr %174, i64 %191
   %195 = load i32, ptr %194, align 4, !tbaa !12
   %196 = icmp eq i32 %193, %195
   br i1 %196, label %197, label %199
@@ -1497,7 +1497,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD13parsePropert
 
 .preheader:                                       ; preds = %41, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %41 ]
-  %46 = getelementptr inbounds nuw [3 x %struct.anon.1], ptr @_ZN6icu_77L15ppucdPropertiesE, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZN6icu_77L15ppucdPropertiesE, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 16, !tbaa !61
   %48 = invoke i32 @uprv_stricmp_77(ptr noundef %.0130, ptr noundef %47)
           to label %49 unwind label %54
@@ -1527,7 +1527,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD13parsePropert
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = sext i32 %.0134 to i64
-  %62 = getelementptr inbounds [76 x i8], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds i8, ptr %60, i64 %61
   store i8 %.0142, ptr %62, align 1, !tbaa !32
   br label %.critedge156
 
@@ -1621,9 +1621,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD13parsePropert
 
 115:                                              ; preds = %107
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %117 = add nsw i32 %.0134, -4096
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [27 x i32], ptr %116, i64 0, i64 %118
+  %117 = zext nneg i32 %.0134 to i64
+  %118 = getelementptr i32, ptr %116, i64 %117
+  %119 = getelementptr i8, ptr %118, i64 -16384
   store i32 %.0131, ptr %119, align 4, !tbaa !12
   br label %.critedge156
 
@@ -2268,7 +2268,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PreparsedUCD19getRangeForA
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !39
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [3 x [4096 x i8]], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds [4096 x i8], ptr %14, i64 %17
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18)
   %strchr.i = getelementptr inbounds i8, ptr %18, i64 %strlen.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40

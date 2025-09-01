@@ -172,7 +172,7 @@ define void @_Z25common_ngram_cache_updateRSt13unordered_mapI12common_ngramS_Iii
 
 46:                                               ; preds = %43, %41
   %47 = phi i32 [ %45, %43 ], [ -1, %41 ]
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   store i32 %47, ptr %48, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -197,9 +197,9 @@ _ZN12common_ngramC2EPKii.exit:                    ; preds = %46
 
 54:                                               ; preds = %54, %52
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i.i.i.i, %54 ]
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i
   %56 = load i32, ptr %55, align 4, !tbaa !12
-  %57 = getelementptr inbounds nuw [4 x i32], ptr %53, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %57 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i.i.i.i.i
   %58 = load i32, ptr %57, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %56, %58
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -219,7 +219,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 63:                                               ; preds = %63, %59
   %indvars.iv.i.i.i.i = phi i64 [ 1, %59 ], [ %indvars.iv.next.i.i.i.i, %63 ]
   %.068.i.i.i.i = phi i64 [ %62, %59 ], [ %68, %63 ]
-  %64 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i
+  %64 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !12
   %66 = sext i32 %65 to i64
   %67 = mul i64 %66, -7046029254386353131
@@ -252,9 +252,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %76, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %76 ]
-  %81 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %82 = load i32, ptr %81, align 4, !tbaa !12
-  %83 = getelementptr inbounds nuw [4 x i32], ptr %79, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %83 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %82, %84
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -1112,9 +1112,9 @@ define void @_Z24common_ngram_cache_draftRSt6vectorIiSaIiEES2_iiiRSt13unordered_
 
 76:                                               ; preds = %76, %74
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %74 ], [ %indvars.iv.next.i.i.i.i.i, %76 ]
-  %77 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %77 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i.i
   %78 = load i32, ptr %77, align 4, !tbaa !12
-  %79 = getelementptr inbounds nuw [4 x i32], ptr %75, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %79 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.i.i.i.i.i
   %80 = load i32, ptr %79, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %78, %80
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -1134,7 +1134,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 85:                                               ; preds = %85, %81
   %indvars.iv.i.i.i.i = phi i64 [ 1, %81 ], [ %indvars.iv.next.i.i.i.i, %85 ]
   %.068.i.i.i.i = phi i64 [ %84, %81 ], [ %90, %85 ]
-  %86 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv.i.i.i.i
+  %86 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i
   %87 = load i32, ptr %86, align 4, !tbaa !12
   %88 = sext i32 %87 to i64
   %89 = mul i64 %88, -7046029254386353131
@@ -1167,9 +1167,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %98, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %98 ]
-  %103 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %103 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !12
-  %105 = getelementptr inbounds nuw [4 x i32], ptr %101, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %105 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %106 = load i32, ptr %105, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %104, %106
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -1213,7 +1213,7 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
   %.in.i = select i1 %113, ptr %114, ptr %116
   %117 = load i32, ptr %.in.i, align 4, !tbaa !12
   %118 = sub nsw i64 %indvars.iv, %72
-  %119 = getelementptr inbounds [4 x i32], ptr %12, i64 0, i64 %118
+  %119 = getelementptr inbounds i32, ptr %12, i64 %118
   store i32 %117, ptr %119, align 4, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1369,7 +1369,7 @@ _ZNSt6vectorI12common_ngramSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__
   %.in.i58 = select i1 %172, ptr %173, ptr %175
   %176 = load i32, ptr %.in.i58, align 4, !tbaa !12
   %177 = sub nsw i64 %indvars.iv143, %146
-  %178 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %177
+  %178 = getelementptr inbounds i32, ptr %15, i64 %177
   store i32 %176, ptr %178, align 4, !tbaa !12
   %indvars.iv.next144 = add nsw i64 %indvars.iv143, 1
   %179 = icmp slt i64 %indvars.iv.next144, %147
@@ -1434,9 +1434,9 @@ _ZNSt6vectorI12common_ngramSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vecto
 
 194:                                              ; preds = %194, %192
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %192 ], [ %indvars.iv.next.i.i.i.i.i.i, %194 ]
-  %195 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %195 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i.i.i.i.i
   %196 = load i32, ptr %195, align 4, !tbaa !12
-  %197 = getelementptr inbounds nuw [4 x i32], ptr %193, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %197 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i.i.i.i.i.i
   %198 = load i32, ptr %197, align 4, !tbaa !12
   %.not.i.i.i.i.i.i = icmp eq i32 %196, %198
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -1456,7 +1456,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 202:                                              ; preds = %202, %199
   %indvars.iv.i.i.i.i.i59 = phi i64 [ 1, %199 ], [ %indvars.iv.next.i.i.i.i.i60, %202 ]
   %.068.i.i.i.i.i = phi i64 [ %201, %199 ], [ %207, %202 ]
-  %203 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.i.i.i.i.i59
+  %203 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i.i.i.i59
   %204 = load i32, ptr %203, align 4, !tbaa !12
   %205 = sext i32 %204 to i64
   %206 = mul i64 %205, -7046029254386353131
@@ -1489,9 +1489,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i.i:                           ; preds = %215, %.preheader.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ 0, %215 ]
-  %220 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %220 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %221 = load i32, ptr %220, align 4, !tbaa !12
-  %222 = getelementptr inbounds nuw [4 x i32], ptr %218, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %222 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %223 = load i32, ptr %222, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %221, %223
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -1818,9 +1818,9 @@ define internal fastcc noundef i32 @_ZL9try_draftRSt13unordered_mapI12common_ngr
 
 36:                                               ; preds = %36, %34
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.i.i.i, %36 ]
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i
   %38 = load i32, ptr %37, align 4, !tbaa !12
-  %39 = getelementptr inbounds nuw [4 x i32], ptr %35, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i.i.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %38, %40
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -1840,7 +1840,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 45:                                               ; preds = %45, %41
   %indvars.iv.i.i.i.i = phi i64 [ 1, %41 ], [ %indvars.iv.next.i.i.i.i, %45 ]
   %.068.i.i.i.i = phi i64 [ %44, %41 ], [ %50, %45 ]
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %48 = sext i32 %47 to i64
   %49 = mul i64 %48, -7046029254386353131
@@ -1873,9 +1873,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %58, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %58 ]
-  %63 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %63 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %64 = load i32, ptr %63, align 4, !tbaa !12
-  %65 = getelementptr inbounds nuw [4 x i32], ptr %61, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %65 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %66 = load i32, ptr %65, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %64, %66
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -3195,9 +3195,9 @@ define void @_Z24common_ngram_cache_mergeRSt13unordered_mapI12common_ngramS_IiiS
 
 37:                                               ; preds = %37, %35
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i.i.i.i.i, %37 ]
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i.i
   %39 = load i32, ptr %38, align 4, !tbaa !12
-  %40 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i.i.i.i
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %39, %41
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -3217,7 +3217,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 46:                                               ; preds = %46, %42
   %indvars.iv.i.i.i.i = phi i64 [ 1, %42 ], [ %indvars.iv.next.i.i.i.i, %46 ]
   %.068.i.i.i.i = phi i64 [ %45, %42 ], [ %51, %46 ]
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i
   %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = sext i32 %48 to i64
   %50 = mul i64 %49, -7046029254386353131
@@ -3250,9 +3250,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %59, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %59 ]
-  %64 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !12
-  %66 = getelementptr inbounds nuw [4 x i32], ptr %62, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %67 = load i32, ptr %66, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %65, %67
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -4432,9 +4432,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableI12common_ngramSt4pairIKS0_St1
 
 15:                                               ; preds = %15, %13
   %indvars.iv.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !12
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %.not.i.i.i = icmp eq i32 %17, %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -4454,7 +4454,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 23:                                               ; preds = %23, %.critedge
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ %indvars.iv.next.i.i, %23 ]
   %.068.i.i = phi i64 [ %22, %.critedge ], [ %28, %23 ]
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !12
   %26 = sext i32 %25 to i64
   %27 = mul i64 %26, -7046029254386353131
@@ -4491,9 +4491,9 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i:                                 ; preds = %39, %.preheader.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i.i ], [ 0, %39 ]
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !12
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i.i.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %.not.i.i.i.i.i.i = icmp eq i32 %45, %47
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -4921,9 +4921,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableI12common_ngramSt4pairIKS0_St1
 
 15:                                               ; preds = %15, %13
   %indvars.iv.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !12
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %.not.i.i.i = icmp eq i32 %17, %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -4943,7 +4943,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 23:                                               ; preds = %23, %.critedge
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ %indvars.iv.next.i.i, %23 ]
   %.068.i.i = phi i64 [ %22, %.critedge ], [ %28, %23 ]
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !12
   %26 = sext i32 %25 to i64
   %27 = mul i64 %26, -7046029254386353131
@@ -4980,9 +4980,9 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i:                                 ; preds = %39, %.preheader.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i.i ], [ 0, %39 ]
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !12
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i.i.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %.not.i.i.i.i.i.i = icmp eq i32 %45, %47
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1

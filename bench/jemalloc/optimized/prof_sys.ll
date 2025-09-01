@@ -160,8 +160,8 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
   br i1 %18, label %19, label %prof_get_pid_namespace.exit
 
 19:                                               ; preds = %16
-  %20 = add nsw i64 %17, -1
-  %21 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %20
+  %20 = getelementptr i8, ptr %4, i64 %17
+  %21 = getelementptr i8, ptr %20, i64 -1
   store i8 0, ptr %21, align 1, !tbaa !22
   %22 = call ptr @strtok(ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #12
   %23 = call i64 @strtol(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 10) #12

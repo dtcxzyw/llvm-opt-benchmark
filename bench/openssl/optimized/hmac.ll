@@ -97,7 +97,7 @@ thread-pre-split:                                 ; preds = %30
 
 39:                                               ; preds = %37
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw [144 x i8], ptr %8, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 %40
   %42 = sub i32 144, %38
   %43 = zext i32 %42 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 0, i64 %43, i1 false)
@@ -108,10 +108,10 @@ thread-pre-split:                                 ; preds = %30
 
 44:                                               ; preds = %.preheader99, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.preheader99 ]
-  %45 = getelementptr inbounds nuw [144 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = xor i8 %46, 54
-  %48 = getelementptr inbounds nuw [144 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %47, ptr %48, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 144
@@ -134,10 +134,10 @@ thread-pre-split:                                 ; preds = %30
 
 .preheader:                                       ; preds = %53, %.preheader
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.preheader ], [ 0, %53 ]
-  %58 = getelementptr inbounds nuw [144 x i8], ptr %8, i64 0, i64 %indvars.iv89
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv89
   %59 = load i8, ptr %58, align 1, !tbaa !14
   %60 = xor i8 %59, 92
-  %61 = getelementptr inbounds nuw [144 x i8], ptr %6, i64 0, i64 %indvars.iv89
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv89
   store i8 %60, ptr %61, align 1, !tbaa !14
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 144

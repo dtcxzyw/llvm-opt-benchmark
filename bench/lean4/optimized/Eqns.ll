@@ -380,7 +380,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_PartialF
 
 7:                                                ; preds = %.lr.ph, %5
   %.01531 = phi i64 [ %1, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01531
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01531
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -458,7 +458,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_PartialFixpoint_registerEqnsIn
   %.02047 = phi i64 [ %47, %63 ], [ %1, %3 ]
   %.02246 = phi ptr [ %.0.i.i32, %63 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02246, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02047
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02047
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -645,7 +645,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_PartialFixpoint_registerEqn
 18:                                               ; preds = %.lr.ph, %lean_dec.exit
   %.052127 = phi i64 [ %5, %.lr.ph ], [ %159, %lean_dec.exit ]
   %.054126 = phi ptr [ %7, %.lr.ph ], [ %158, %lean_dec.exit ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.052127
+  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %.052127
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
@@ -1082,7 +1082,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_PartialFixpoint_registerEqnsIn
 18:                                               ; preds = %.lr.ph, %288
   %.080229 = phi i64 [ %1, %.lr.ph ], [ %289, %288 ]
   %.084228 = phi ptr [ %7, %.lr.ph ], [ %168, %288 ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.080229
+  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %.080229
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
@@ -1891,7 +1891,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_PartialFixpoint_registerEqn
   br label %lean_dec.exit61
 
 lean_dec.exit61:                                  ; preds = %20, %19, %17, %11
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.043108
+  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %.043108
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -2783,7 +2783,7 @@ lean_alloc_ctor.exit564:                          ; preds = %lean_dec.exit388
 
 230:                                              ; preds = %228, %.lr.ph.i
   %.01531.i = phi i64 [ 0, %.lr.ph.i ], [ %229, %228 ]
-  %231 = getelementptr inbounds nuw [0 x ptr], ptr %227, i64 0, i64 %.01531.i
+  %231 = getelementptr inbounds nuw ptr, ptr %227, i64 %.01531.i
   %232 = load ptr, ptr %231, align 8, !tbaa !4
   %233 = ptrtoint ptr %232 to i64
   %234 = and i64 %233, 1
@@ -4948,7 +4948,7 @@ lean_dec.exit9:                                   ; preds = %23, %22, %20, %lean
 
 27:                                               ; preds = %25, %.lr.ph.i
   %.01531.i = phi i64 [ %.val, %.lr.ph.i ], [ %26, %25 ]
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %.01531.i
+  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01531.i
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1

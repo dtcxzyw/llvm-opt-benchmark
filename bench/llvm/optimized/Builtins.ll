@@ -1941,7 +1941,7 @@ define dso_local noundef ptr @_ZNK5clang10HeaderDesc7getNameEv(ptr noundef nonnu
 switch.lookup:
   %1 = load i16, ptr %0, align 2, !tbaa !3
   %2 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [28 x ptr], ptr @switch.table._ZNK5clang10HeaderDesc7getNameEv, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang10HeaderDesc7getNameEv, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1953,7 +1953,7 @@ define dso_local noundef nonnull align 8 dereferenceable(44) ptr @_ZNK5clang7Bui
   br i1 %3, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %4
   br label %24
 
 7:                                                ; preds = %2
@@ -2044,7 +2044,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %2, %_ZNK4llvm9Strin
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.split.us: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit ]
-  %8 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %indvars.iv26
+  %8 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %indvars.iv26
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.us = load i64, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !17
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
@@ -2065,7 +2065,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread14.us:    ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.split: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14 ], [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit ]
-  %14 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %indvars.iv
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !17
   %.not.i = icmp eq i64 %.sroa.4.0.fr, %.sroa.2.0.copyload
@@ -2123,7 +2123,7 @@ define dso_local void @_ZN5clang7Builtin7Context18initializeBuiltinsERNS_15Ident
 
 9:                                                ; preds = %3, %19
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %19 ]
-  %10 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %indvars.iv
   %11 = tail call fastcc noundef zeroext i1 @_ZL18builtinIsSupportedRKN5clang7Builtin4InfoERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(44) %10, ptr noundef nonnull align 8 dereferenceable(849) %2)
   br i1 %11, label %12, label %19
 
@@ -2306,14 +2306,14 @@ _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread95: ; preds = %
   br i1 %.not6497, label %125, label %.thread98
 
 _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread: ; preds = %82
-  %102 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %84, i32 2
+  %102 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %84, i32 2
   %103 = load ptr, ptr %102, align 8, !tbaa !18
   %104 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %103, i32 noundef 102) #14
   %.not65 = icmp eq ptr %104, null
   br i1 %.not65, label %125, label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread
-  %105 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %84
+  %105 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %84
   br label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
 
 .thread98:                                        ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread95
@@ -2618,7 +2618,7 @@ define dso_local void @_ZNK5clang7Builtin7Context13getQuotedNameB5cxx11Ej(ptr de
   br i1 %6, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %7
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
 10:                                               ; preds = %3
@@ -2682,7 +2682,7 @@ define dso_local noundef i32 @_ZNK5clang7Builtin7Context22getRequiredVectorWidth
   br i1 %4, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %5
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit
 
 8:                                                ; preds = %2
@@ -2740,7 +2740,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7Builtin7Context6isLikeEjRjRbPKc(
   br i1 %6, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %7
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit
 
 10:                                               ; preds = %5
@@ -2802,7 +2802,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7Builtin7Context12isPrintfLikeEjRj
   br i1 %5, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %6
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit.i
 
 9:                                                ; preds = %4
@@ -2859,7 +2859,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7Builtin7Context11isScanfLikeEjRjR
   br i1 %5, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %6
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit.i
 
 9:                                                ; preds = %4
@@ -2917,7 +2917,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7Builtin7Context16performsCallbac
   br i1 %5, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %6
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit
 
 9:                                                ; preds = %3
@@ -3051,7 +3051,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7Builtin7Context15canBeRedeclared
   br i1 %6, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %7
   br label %_ZNK5clang7Builtin7Context21hasCustomTypecheckingEj.exit
 
 10:                                               ; preds = %5
@@ -3092,7 +3092,7 @@ _ZNK5clang7Builtin7Context21hasCustomTypecheckingEj.exit: ; preds = %8, %14, %22
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %.pre-phi
+  %33 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %.pre-phi
   br label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
 
 34:                                               ; preds = %30
@@ -3169,14 +3169,14 @@ _ZNK5clang7Builtin7Context9getRecordEj.exit.thread8: ; preds = %5
   br i1 %.not10, label %.thread11, label %44
 
 _ZNK5clang7Builtin7Context9getRecordEj.exit.thread: ; preds = %2
-  %24 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %4, i32 1
+  %24 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %4, i32 1
   %25 = load ptr, ptr %24, align 16, !tbaa !94
   %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 38) #14
   %.not6 = icmp eq ptr %26, null
   br i1 %.not6, label %.thread, label %44
 
 .thread:                                          ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread
-  %27 = getelementptr inbounds nuw [1463 x %"struct.clang::Builtin::Info"], ptr @_ZL11BuiltinInfo, i64 0, i64 %4
+  %27 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %4
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit4
 
 .thread11:                                        ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread8

@@ -1560,7 +1560,7 @@ define internal fastcc void @_ZL9EncodeHexB5cxx11PKhm(ptr dead_on_unwind noalias
   %10 = load i8, ptr %9, align 1, !tbaa !15
   %11 = lshr i8 %10, 4
   %12 = zext nneg i8 %11 to i64
-  %13 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL9EncodeHexB5cxx11PKhmE10kHexDigits, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZZL9EncodeHexB5cxx11PKhmE10kHexDigits, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = load i64, ptr %5, align 8, !tbaa !12
   %16 = add i64 %15, 1
@@ -1598,7 +1598,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %30 = load i8, ptr %9, align 1, !tbaa !15
   %31 = and i8 %30, 15
   %32 = zext nneg i8 %31 to i64
-  %33 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL9EncodeHexB5cxx11PKhmE10kHexDigits, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZZL9EncodeHexB5cxx11PKhmE10kHexDigits, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = load i64, ptr %5, align 8, !tbaa !12
   %36 = add i64 %35, 1

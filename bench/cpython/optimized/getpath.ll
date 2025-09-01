@@ -1310,7 +1310,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   %.066106 = phi i64 [ 0, %.lr.ph ], [ %42, %38 ]
   %.067105 = phi i64 [ 0, %.lr.ph ], [ %.269, %38 ]
   %.071104 = phi i64 [ 0, %.lr.ph ], [ %41, %38 ]
-  %24 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.066106
+  %24 = getelementptr ptr, ptr %22, i64 %.066106
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = icmp eq ptr %25, @_Py_NoneStruct

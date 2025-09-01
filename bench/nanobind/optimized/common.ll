@@ -2283,7 +2283,7 @@ define void @_ZN8nanobind6detail11tuple_checkEP7_objectm(ptr noundef readonly ca
 
 6:                                                ; preds = %.lr.ph, %4
   %.04 = phi i64 [ 0, %.lr.ph ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw [1 x ptr], ptr %3, i64 0, i64 %.04
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.04
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %4

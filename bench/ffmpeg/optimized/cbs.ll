@@ -74,7 +74,7 @@ define range(i32 -22, 1) i32 @ff_cbs_init(ptr noundef writeonly captures(none) %
 
 6:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw [9 x ptr], ptr @cbs_type_table, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @cbs_type_table, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = load i32, ptr %8, align 8, !tbaa !11
   %10 = icmp eq i32 %9, %1
@@ -922,7 +922,7 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
   %30 = and i32 %29, %27
   %.not84 = icmp eq i32 %30, 0
   %31 = select i1 %.not84, i8 48, i8 49
-  %32 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   store i8 %31, ptr %32, align 1, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -930,7 +930,7 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
 
 ._crit_edge:                                      ; preds = %19, %.preheader87
   %33 = sext i32 %2 to i64
-  %34 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 %33
+  %34 = getelementptr inbounds i8, ptr %8, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !91
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %37, label %35
@@ -1017,7 +1017,7 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
 63:                                               ; preds = %.preheader85
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %indvars.iv.next114 = add nsw i64 %indvars.iv113, 1
-  %64 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %indvars.iv113
+  %64 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv113
   store i8 %62, ptr %64, align 1, !tbaa !91
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next116
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !91
@@ -1041,7 +1041,7 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
 70:                                               ; preds = %66
   %71 = add nsw i32 %.168, 1
   %72 = sext i32 %.069 to i64
-  %73 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %72
+  %73 = getelementptr inbounds i8, ptr %7, i64 %72
   store i8 %42, ptr %73, align 1, !tbaa !91
   br label %.loopexit.backedge
 
@@ -1071,7 +1071,7 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
 
 81:                                               ; preds = %77
   %82 = sext i32 %.069 to i64
-  %83 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %82
+  %83 = getelementptr inbounds i8, ptr %7, i64 %82
   store i8 0, ptr %83, align 1, !tbaa !91
   %84 = icmp eq i32 %.066.ph, %38
   br i1 %84, label %86, label %85
@@ -2307,7 +2307,7 @@ define range(i32 -38, 1) i32 @ff_cbs_alloc_unit_content(ptr noundef readonly cap
 
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %26 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !91
   %28 = icmp eq i32 %27, %16
   br i1 %28, label %cbs_find_unit_type_desc.exit, label %24
@@ -2423,7 +2423,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_clone_unit_content(ptr
 
 17:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !91
   %20 = icmp eq i32 %19, %8
   br i1 %20, label %cbs_find_unit_type_desc.exit, label %16
@@ -2478,7 +2478,7 @@ cbs_alloc_content.exit.i:                         ; preds = %23
 
 36:                                               ; preds = %36, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i21, %36 ]
-  %37 = getelementptr inbounds nuw [2 x i64], ptr %34, i64 0, i64 %indvars.iv.i20
+  %37 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv.i20
   %38 = load i64, ptr %37, align 8, !tbaa !91
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -2492,7 +2492,7 @@ cbs_alloc_content.exit.i:                         ; preds = %23
 .lr.ph6.i:                                        ; preds = %.preheader.i22, %58
   %44 = phi i32 [ %59, %58 ], [ %41, %.preheader.i22 ]
   %indvars.iv8.i = phi i64 [ %indvars.iv.next9.i, %58 ], [ 0, %.preheader.i22 ]
-  %45 = getelementptr inbounds nuw [2 x i64], ptr %34, i64 0, i64 %indvars.iv8.i
+  %45 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv8.i
   %46 = load i64, ptr %45, align 8, !tbaa !91
   %47 = getelementptr inbounds nuw i8, ptr %.val17, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -2788,7 +2788,7 @@ define internal void @cbs_default_free_unit_content(ptr readonly captures(none) 
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [2 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !91
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8

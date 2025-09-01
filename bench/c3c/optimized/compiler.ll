@@ -912,7 +912,7 @@ build_base_name.exit.i256:                        ; preds = %._crit_edge.i.i266,
 
 switch.lookup:                                    ; preds = %build_base_name.exit.i256
   %164 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.compiler_compile, i64 0, i64 %164
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.compiler_compile, i64 %164
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dynamic_lib_name.exit
 
@@ -1890,7 +1890,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
 .preheader85:                                     ; preds = %.loopexit88, %.preheader85
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader85 ], [ 0, %.loopexit88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw [41 x ptr], ptr @attribute_list, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr @attribute_list, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = trunc nuw nsw i64 %indvars.iv.next to i32
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %37, ptr noundef %36)
@@ -1906,7 +1906,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
 .preheader84:                                     ; preds = %.loopexit86, %.preheader84
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.preheader84 ], [ 0, %.loopexit86 ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %42 = getelementptr inbounds nuw [100 x ptr], ptr @builtin_list, i64 0, i64 %indvars.iv107
+  %42 = getelementptr inbounds nuw ptr, ptr @builtin_list, i64 %indvars.iv107
   %43 = load ptr, ptr %42, align 8
   %44 = trunc nuw nsw i64 %indvars.iv.next108 to i32
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %44, ptr noundef %43)
@@ -1920,7 +1920,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
 48:                                               ; preds = %46, %48
   %indvars.iv111 = phi i64 [ 0, %46 ], [ %indvars.iv.next112, %48 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %49 = getelementptr inbounds nuw [13 x ptr], ptr @builtin_defines, i64 0, i64 %indvars.iv111
+  %49 = getelementptr inbounds nuw ptr, ptr @builtin_defines, i64 %indvars.iv111
   %50 = load ptr, ptr %49, align 8
   %51 = trunc nuw nsw i64 %indvars.iv.next112 to i32
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %51, ptr noundef %50)
@@ -1936,7 +1936,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
 .preheader:                                       ; preds = %.loopexit83, %.preheader
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader ], [ 0, %.loopexit83 ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %56 = getelementptr inbounds nuw [22 x ptr], ptr @type_property_list, i64 0, i64 %indvars.iv115
+  %56 = getelementptr inbounds nuw ptr, ptr @type_property_list, i64 %indvars.iv115
   %57 = load ptr, ptr %56, align 8
   %58 = trunc nuw nsw i64 %indvars.iv.next116 to i32
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, i32 noundef %58, ptr noundef %57)
@@ -1963,7 +1963,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv119 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next120, %.lr.ph ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %68 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @project_default_keys, i64 0, i64 %indvars.iv119
+  %68 = getelementptr inbounds nuw [2 x ptr], ptr @project_default_keys, i64 %indvars.iv119
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load ptr, ptr %70, align 8
@@ -1987,7 +1987,7 @@ define dso_local void @print_syntax(ptr noundef readonly captures(none) %0) loca
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   %indvars.iv123 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next124, %.lr.ph102 ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %78 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @project_target_keys, i64 0, i64 %indvars.iv123
+  %78 = getelementptr inbounds nuw [2 x ptr], ptr @project_target_keys, i64 %indvars.iv123
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8
@@ -2375,7 +2375,7 @@ setup_bool_define.exit121:                        ; preds = %setup_bool_define.e
 
 switch.lookup:                                    ; preds = %setup_bool_define.exit121
   %156 = zext nneg i32 %153 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x i64], ptr @switch.table.compile, i64 0, i64 %156
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.compile, i64 %156
   %switch.load = load i64, ptr %switch.gep, align 8
   %157 = load ptr, ptr @type_int, align 8
   call fastcc void @setup_int_define(ptr noundef nonnull @.str.98, i64 noundef %switch.load, ptr noundef %157)

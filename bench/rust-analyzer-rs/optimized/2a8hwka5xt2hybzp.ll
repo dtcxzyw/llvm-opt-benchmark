@@ -94,7 +94,7 @@ define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$
 
 .lr.ph.i:                                         ; preds = %0, %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.16042521026500353233.exit.i"
   %.09.i = phi i64 [ %3, %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.16042521026500353233.exit.i" ], [ 0, %0 ]
-  %2 = getelementptr inbounds [0 x { [56 x i8], i8, [7 x i8] }], ptr %.0.val, i64 0, i64 %.09.i
+  %2 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %.0.val, i64 %.09.i
   %3 = add nuw i64 %.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -174,7 +174,7 @@ define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$
   br label %27
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds [0 x { [56 x i8], i8, [7 x i8] }], ptr %.0.val, i64 0, i64 %.1.i
+  %32 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %.0.val, i64 %.1.i
   %33 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.16042521026500353233"(ptr noalias noundef nonnull align 8 dereferenceable(64) %32) #20
           to label %27 unwind label %34

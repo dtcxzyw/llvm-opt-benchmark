@@ -247,7 +247,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_register_type(ptr noundef %
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -401,7 +401,7 @@ define dso_local ptr @xfrm_state_get_afinfo(i32 noundef %0) local_unnamed_addr #
 3:                                                ; preds = %1
   tail call void @__rcu_read_lock() #15
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9, !prof !6
@@ -423,7 +423,7 @@ define dso_local void @xfrm_unregister_type(ptr noundef readonly captures(addres
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -575,7 +575,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_register_type_offload(ptr n
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -626,7 +626,7 @@ define dso_local void @xfrm_unregister_type_offload(ptr noundef readonly capture
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -7318,7 +7318,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_register_afinfo(ptr n
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @xfrm_state_afinfo_lock) #15
   %6 = load i8, ptr %0, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15, !prof !7
@@ -7327,7 +7327,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_register_afinfo(ptr n
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !132
   %12 = load i8, ptr %0, align 8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %13
   store volatile ptr %0, ptr %14, align 8
   br label %15
 
@@ -7357,14 +7357,14 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_unregister_afinfo(ptr
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @xfrm_state_afinfo_lock) #15
   %6 = load i8, ptr %0, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %17, label %11, !prof !6
 
 11:                                               ; preds = %5
   %12 = zext nneg i8 %2 to i64
-  %13 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %16, label %17
@@ -7391,7 +7391,7 @@ define dso_local ptr @xfrm_state_afinfo_get_rcu(i32 noundef %0) #8 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   br label %7
 
@@ -7586,7 +7586,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 27:                                               ; preds = %26
   %28 = zext nneg i8 %23 to i64
-  %29 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm4_mode_map, i64 0, i64 %28
+  %29 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 2
@@ -7594,7 +7594,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 33:                                               ; preds = %26
   %34 = zext nneg i8 %23 to i64
-  %35 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm6_mode_map, i64 0, i64 %34
+  %35 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 10
@@ -7643,7 +7643,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 56:                                               ; preds = %55
   %57 = zext nneg i8 %23 to i64
-  %58 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm4_mode_map, i64 0, i64 %57
+  %58 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 2
@@ -7651,7 +7651,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 62:                                               ; preds = %55
   %63 = zext nneg i8 %23 to i64
-  %64 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm6_mode_map, i64 0, i64 %63
+  %64 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 10
@@ -7678,14 +7678,14 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %8, label %81, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm4_mode_map, i64 0, i64 %75
+  %77 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %75
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 2
   br i1 %80, label %86, label %.lr.ph.split
 
 81:                                               ; preds = %73
-  %82 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm6_mode_map, i64 0, i64 %75
+  %82 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %75
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 10
@@ -7718,7 +7718,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %99 = load i8, ptr %98, align 4
   %.pn = zext i16 %6 to i64
-  %100 = getelementptr [46 x ptr], ptr @xfrm_state_afinfo, i64 0, i64 %.pn
+  %100 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %.pn
   %101 = zext i8 %99 to i32
   tail call void @__rcu_read_lock() #15
   %102 = load volatile ptr, ptr %100, align 8
@@ -7879,7 +7879,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 164:                                              ; preds = %163
   %165 = zext nneg i8 %161 to i64
-  %166 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm4_mode_map, i64 0, i64 %165
+  %166 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %168 = load i8, ptr %167, align 1
   %169 = icmp eq i8 %168, 2
@@ -7887,7 +7887,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 170:                                              ; preds = %163
   %171 = zext nneg i8 %161 to i64
-  %172 = getelementptr [5 x %struct.xfrm_mode], ptr @xfrm6_mode_map, i64 0, i64 %171
+  %172 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %174 = load i8, ptr %173, align 1
   %175 = icmp eq i8 %174, 10

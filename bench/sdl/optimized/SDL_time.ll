@@ -148,9 +148,9 @@ define hidden i32 @SDL_GetDaysInMonth_REAL(i32 noundef %0, i32 noundef %1) local
   br label %17
 
 6:                                                ; preds = %2
-  %7 = add nsw i32 %1, -1
-  %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [12 x i32], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 0, i64 %8
+  %7 = zext nneg i32 %1 to i64
+  %8 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %1, 2
   %12 = and i32 %0, 3
@@ -187,106 +187,104 @@ define hidden range(i32 -1, 2147483341) i32 @SDL_GetDayOfYear_REAL(i32 noundef %
 
 7:                                                ; preds = %3
   %8 = icmp slt i32 %2, 1
-  %.pre = add nsw i32 %1, -1
-  %.pre26 = zext nneg i32 %.pre to i64
+  %.phi.trans.insert = zext nneg i32 %1 to i64
+  %.phi.trans.insert26 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %.phi.trans.insert
+  %.phi.trans.insert27 = getelementptr i8, ptr %.phi.trans.insert26, i64 -4
+  %.pre = load i32, ptr %.phi.trans.insert27, align 4
   br i1 %8, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %7
   %.pre28 = and i32 %0, 3
-  br label %19
+  br label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw [12 x i32], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 0, i64 %.pre26
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %1, 2
-  %13 = and i32 %0, 3
-  %.not.i = icmp eq i32 %13, 0
-  %or.cond16.i = and i1 %12, %.not.i
-  br i1 %or.cond16.i, label %14, label %SDL_GetDaysInMonth_REAL.exit
+  %10 = icmp eq i32 %1, 2
+  %11 = and i32 %0, 3
+  %.not.i = icmp eq i32 %11, 0
+  %or.cond16.i = and i1 %10, %.not.i
+  br i1 %or.cond16.i, label %12, label %SDL_GetDaysInMonth_REAL.exit
 
-14:                                               ; preds = %9
-  %15 = srem i32 %0, 100
-  %.not14.i = icmp ne i32 %15, 0
-  %16 = srem i32 %0, 400
-  %.not15.i = icmp eq i32 %16, 0
+12:                                               ; preds = %9
+  %13 = srem i32 %0, 100
+  %.not14.i = icmp ne i32 %13, 0
+  %14 = srem i32 %0, 400
+  %.not15.i = icmp eq i32 %14, 0
   %or.cond17.i = or i1 %.not14.i, %.not15.i
-  %17 = zext i1 %or.cond17.i to i32
-  %spec.select.i = add nsw i32 %11, %17
+  %15 = zext i1 %or.cond17.i to i32
+  %spec.select.i = add nsw i32 %.pre, %15
   br label %SDL_GetDaysInMonth_REAL.exit
 
-SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %14
-  %.012.i = phi i32 [ %11, %9 ], [ %spec.select.i, %14 ]
-  %18 = icmp sgt i32 %2, %.012.i
-  br i1 %18, label %19, label %28
+SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %12
+  %.012.i = phi i32 [ %.pre, %9 ], [ %spec.select.i, %12 ]
+  %16 = icmp sgt i32 %2, %.012.i
+  br i1 %16, label %17, label %24
 
-19:                                               ; preds = %._crit_edge, %SDL_GetDaysInMonth_REAL.exit
-  %.pre-phi29 = phi i32 [ %.pre28, %._crit_edge ], [ %13, %SDL_GetDaysInMonth_REAL.exit ]
-  %20 = getelementptr inbounds nuw [12 x i32], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 0, i64 %.pre26
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %1, 2
+17:                                               ; preds = %._crit_edge, %SDL_GetDaysInMonth_REAL.exit
+  %.pre-phi29 = phi i32 [ %.pre28, %._crit_edge ], [ %11, %SDL_GetDaysInMonth_REAL.exit ]
+  %18 = icmp eq i32 %1, 2
   %.not.i18 = icmp eq i32 %.pre-phi29, 0
-  %or.cond16.i19 = and i1 %22, %.not.i18
-  br i1 %or.cond16.i19, label %23, label %SDL_GetDaysInMonth_REAL.exit25
+  %or.cond16.i19 = and i1 %18, %.not.i18
+  br i1 %or.cond16.i19, label %19, label %SDL_GetDaysInMonth_REAL.exit25
 
-23:                                               ; preds = %19
-  %24 = srem i32 %0, 100
-  %.not14.i21 = icmp ne i32 %24, 0
-  %25 = srem i32 %0, 400
-  %.not15.i22 = icmp eq i32 %25, 0
+19:                                               ; preds = %17
+  %20 = srem i32 %0, 100
+  %.not14.i21 = icmp ne i32 %20, 0
+  %21 = srem i32 %0, 400
+  %.not15.i22 = icmp eq i32 %21, 0
   %or.cond17.i23 = or i1 %.not14.i21, %.not15.i22
-  %26 = zext i1 %or.cond17.i23 to i32
-  %spec.select.i24 = add nsw i32 %21, %26
+  %22 = zext i1 %or.cond17.i23 to i32
+  %spec.select.i24 = add nsw i32 %.pre, %22
   br label %SDL_GetDaysInMonth_REAL.exit25
 
-SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %19, %23
-  %.012.i20 = phi i32 [ %21, %19 ], [ %spec.select.i24, %23 ]
-  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, i32 noundef %.012.i20, i32 noundef %1) #5
+SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %17, %19
+  %.012.i20 = phi i32 [ %.pre, %17 ], [ %spec.select.i24, %19 ]
+  %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, i32 noundef %.012.i20, i32 noundef %1) #5
   br label %SDL_CivilToDays.exit
 
-28:                                               ; preds = %SDL_GetDaysInMonth_REAL.exit
-  %29 = icmp samesign ult i32 %1, 3
-  %.neg.i = sext i1 %29 to i32
-  %30 = add i32 %0, %.neg.i
-  %31 = icmp samesign ugt i32 %1, 2
-  %.v.i = select i1 %31, i32 65533, i32 9
-  %32 = add nuw nsw i32 %.v.i, %1
-  %33 = trunc i32 %32 to i16
-  %34 = mul i16 %33, 153
-  %.lhs.trunc = add i16 %34, 2
-  %35 = udiv i16 %.lhs.trunc, 5
-  %.zext = zext nneg i16 %35 to i32
-  %36 = add nuw nsw i32 %2, %.zext
-  %37 = add nsw i32 %36, -1
-  %38 = icmp samesign ugt i32 %37, 305
-  br i1 %38, label %39, label %41
+24:                                               ; preds = %SDL_GetDaysInMonth_REAL.exit
+  %25 = icmp samesign ult i32 %1, 3
+  %.neg.i = sext i1 %25 to i32
+  %26 = add i32 %0, %.neg.i
+  %27 = icmp samesign ugt i32 %1, 2
+  %.v.i = select i1 %27, i32 65533, i32 9
+  %28 = add nuw nsw i32 %.v.i, %1
+  %29 = trunc i32 %28 to i16
+  %30 = mul i16 %29, 153
+  %.lhs.trunc = add i16 %30, 2
+  %31 = udiv i16 %.lhs.trunc, 5
+  %.zext = zext nneg i16 %31 to i32
+  %32 = add nuw nsw i32 %2, %.zext
+  %33 = add nsw i32 %32, -1
+  %34 = icmp samesign ugt i32 %33, 305
+  br i1 %34, label %35, label %37
 
-39:                                               ; preds = %28
-  %40 = add nsw i32 %36, -307
+35:                                               ; preds = %24
+  %36 = add nsw i32 %32, -307
   br label %SDL_CivilToDays.exit
 
-41:                                               ; preds = %28
-  %42 = and i32 %30, 3
-  %.not38.i = icmp eq i32 %42, 0
-  br i1 %.not38.i, label %43, label %48
+37:                                               ; preds = %24
+  %38 = and i32 %26, 3
+  %.not38.i = icmp eq i32 %38, 0
+  br i1 %.not38.i, label %39, label %44
 
-43:                                               ; preds = %41
-  %44 = srem i32 %30, 100
-  %.not39.i = icmp eq i32 %44, 0
-  br i1 %.not39.i, label %45, label %48
+39:                                               ; preds = %37
+  %40 = srem i32 %26, 100
+  %.not39.i = icmp eq i32 %40, 0
+  br i1 %.not39.i, label %41, label %44
 
-45:                                               ; preds = %43
-  %46 = srem i32 %30, 400
-  %.not40.i = icmp eq i32 %46, 0
-  %47 = select i1 %.not40.i, i32 60, i32 59
-  br label %48
+41:                                               ; preds = %39
+  %42 = srem i32 %26, 400
+  %.not40.i = icmp eq i32 %42, 0
+  %43 = select i1 %.not40.i, i32 60, i32 59
+  br label %44
 
-48:                                               ; preds = %45, %43, %41
-  %49 = phi i32 [ 59, %41 ], [ 60, %43 ], [ %47, %45 ]
-  %50 = add nuw nsw i32 %49, %37
+44:                                               ; preds = %41, %39, %37
+  %45 = phi i32 [ 59, %37 ], [ 60, %39 ], [ %43, %41 ]
+  %46 = add nuw nsw i32 %45, %33
   br label %SDL_CivilToDays.exit
 
-SDL_CivilToDays.exit:                             ; preds = %48, %39, %SDL_GetDaysInMonth_REAL.exit25, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %SDL_GetDaysInMonth_REAL.exit25 ], [ %40, %39 ], [ %50, %48 ]
+SDL_CivilToDays.exit:                             ; preds = %44, %35, %SDL_GetDaysInMonth_REAL.exit25, %5
+  %.0 = phi i32 [ -1, %5 ], [ -1, %SDL_GetDaysInMonth_REAL.exit25 ], [ %36, %35 ], [ %46, %44 ]
   ret i32 %.0
 }
 
@@ -298,117 +296,115 @@ define hidden range(i32 -1, 7) i32 @SDL_GetDayOfWeek_REAL(i32 noundef %0, i32 no
 
 5:                                                ; preds = %3
   %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, i32 noundef %1) #5
-  br label %62
+  br label %58
 
 7:                                                ; preds = %3
   %8 = icmp slt i32 %2, 1
-  %.pre = add nsw i32 %1, -1
-  %.pre27 = zext nneg i32 %.pre to i64
+  %.phi.trans.insert = zext nneg i32 %1 to i64
+  %.phi.trans.insert27 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %.phi.trans.insert
+  %.phi.trans.insert28 = getelementptr i8, ptr %.phi.trans.insert27, i64 -4
+  %.pre = load i32, ptr %.phi.trans.insert28, align 4
   br i1 %8, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %7
   %.pre29 = and i32 %0, 3
-  br label %19
+  br label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw [12 x i32], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 0, i64 %.pre27
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %1, 2
-  %13 = and i32 %0, 3
-  %.not.i = icmp eq i32 %13, 0
-  %or.cond16.i = and i1 %12, %.not.i
-  br i1 %or.cond16.i, label %14, label %SDL_GetDaysInMonth_REAL.exit
+  %10 = icmp eq i32 %1, 2
+  %11 = and i32 %0, 3
+  %.not.i = icmp eq i32 %11, 0
+  %or.cond16.i = and i1 %10, %.not.i
+  br i1 %or.cond16.i, label %12, label %SDL_GetDaysInMonth_REAL.exit
 
-14:                                               ; preds = %9
-  %15 = srem i32 %0, 100
-  %.not14.i = icmp ne i32 %15, 0
-  %16 = srem i32 %0, 400
-  %.not15.i = icmp eq i32 %16, 0
+12:                                               ; preds = %9
+  %13 = srem i32 %0, 100
+  %.not14.i = icmp ne i32 %13, 0
+  %14 = srem i32 %0, 400
+  %.not15.i = icmp eq i32 %14, 0
   %or.cond17.i = or i1 %.not14.i, %.not15.i
-  %17 = zext i1 %or.cond17.i to i32
-  %spec.select.i = add nsw i32 %11, %17
+  %15 = zext i1 %or.cond17.i to i32
+  %spec.select.i = add nsw i32 %.pre, %15
   br label %SDL_GetDaysInMonth_REAL.exit
 
-SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %14
-  %.012.i = phi i32 [ %11, %9 ], [ %spec.select.i, %14 ]
-  %18 = icmp sgt i32 %2, %.012.i
-  br i1 %18, label %19, label %28
+SDL_GetDaysInMonth_REAL.exit:                     ; preds = %9, %12
+  %.012.i = phi i32 [ %.pre, %9 ], [ %spec.select.i, %12 ]
+  %16 = icmp sgt i32 %2, %.012.i
+  br i1 %16, label %17, label %24
 
-19:                                               ; preds = %._crit_edge, %SDL_GetDaysInMonth_REAL.exit
-  %.pre-phi30 = phi i32 [ %.pre29, %._crit_edge ], [ %13, %SDL_GetDaysInMonth_REAL.exit ]
-  %20 = getelementptr inbounds nuw [12 x i32], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 0, i64 %.pre27
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %1, 2
+17:                                               ; preds = %._crit_edge, %SDL_GetDaysInMonth_REAL.exit
+  %.pre-phi30 = phi i32 [ %.pre29, %._crit_edge ], [ %11, %SDL_GetDaysInMonth_REAL.exit ]
+  %18 = icmp eq i32 %1, 2
   %.not.i18 = icmp eq i32 %.pre-phi30, 0
-  %or.cond16.i19 = and i1 %22, %.not.i18
-  br i1 %or.cond16.i19, label %23, label %SDL_GetDaysInMonth_REAL.exit25
+  %or.cond16.i19 = and i1 %18, %.not.i18
+  br i1 %or.cond16.i19, label %19, label %SDL_GetDaysInMonth_REAL.exit25
 
-23:                                               ; preds = %19
-  %24 = srem i32 %0, 100
-  %.not14.i21 = icmp ne i32 %24, 0
-  %25 = srem i32 %0, 400
-  %.not15.i22 = icmp eq i32 %25, 0
+19:                                               ; preds = %17
+  %20 = srem i32 %0, 100
+  %.not14.i21 = icmp ne i32 %20, 0
+  %21 = srem i32 %0, 400
+  %.not15.i22 = icmp eq i32 %21, 0
   %or.cond17.i23 = or i1 %.not14.i21, %.not15.i22
-  %26 = zext i1 %or.cond17.i23 to i32
-  %spec.select.i24 = add nsw i32 %21, %26
+  %22 = zext i1 %or.cond17.i23 to i32
+  %spec.select.i24 = add nsw i32 %.pre, %22
   br label %SDL_GetDaysInMonth_REAL.exit25
 
-SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %19, %23
-  %.012.i20 = phi i32 [ %21, %19 ], [ %spec.select.i24, %23 ]
-  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, i32 noundef %.012.i20, i32 noundef %1) #5
-  br label %62
+SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %17, %19
+  %.012.i20 = phi i32 [ %.pre, %17 ], [ %spec.select.i24, %19 ]
+  %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, i32 noundef %.012.i20, i32 noundef %1) #5
+  br label %58
 
-28:                                               ; preds = %SDL_GetDaysInMonth_REAL.exit
-  %29 = icmp samesign ult i32 %1, 3
-  %.neg.i = sext i1 %29 to i32
-  %30 = add i32 %0, %.neg.i
-  %31 = add nsw i32 %30, -399
-  %32 = icmp slt i32 %30, 0
-  %33 = select i1 %32, i32 %31, i32 %30
-  %34 = sdiv i32 %33, 400
-  %.neg36.i = mul nsw i32 %34, -400
-  %35 = add i32 %.neg36.i, %30
-  %36 = icmp samesign ugt i32 %1, 2
-  %.v.i = select i1 %36, i32 65533, i32 9
-  %37 = add nuw nsw i32 %.v.i, %1
-  %38 = trunc i32 %37 to i16
-  %39 = mul i16 %38, 153
-  %.lhs.trunc = add i16 %39, 2
-  %40 = udiv i16 %.lhs.trunc, 5
-  %.zext = zext nneg i16 %40 to i32
-  %41 = mul i32 %35, 365
-  %42 = lshr i32 %35, 2
-  %43 = udiv i32 %35, 100
-  %44 = add nsw i32 %2, -1
-  %45 = add nuw i32 %44, %.zext
-  %46 = add nuw i32 %45, %42
-  %47 = add i32 %46, %41
-  %48 = sub i32 %47, %43
-  %49 = sext i32 %34 to i64
-  %50 = mul nsw i64 %49, 146097
-  %51 = zext i32 %48 to i64
-  %52 = add nsw i64 %50, %51
-  %53 = icmp sgt i64 %52, 719463
-  br i1 %53, label %54, label %57
+24:                                               ; preds = %SDL_GetDaysInMonth_REAL.exit
+  %25 = icmp samesign ult i32 %1, 3
+  %.neg.i = sext i1 %25 to i32
+  %26 = add i32 %0, %.neg.i
+  %27 = add nsw i32 %26, -399
+  %28 = icmp slt i32 %26, 0
+  %29 = select i1 %28, i32 %27, i32 %26
+  %30 = sdiv i32 %29, 400
+  %.neg36.i = mul nsw i32 %30, -400
+  %31 = add i32 %.neg36.i, %26
+  %32 = icmp samesign ugt i32 %1, 2
+  %.v.i = select i1 %32, i32 65533, i32 9
+  %33 = add nuw nsw i32 %.v.i, %1
+  %34 = trunc i32 %33 to i16
+  %35 = mul i16 %34, 153
+  %.lhs.trunc = add i16 %35, 2
+  %36 = udiv i16 %.lhs.trunc, 5
+  %.zext = zext nneg i16 %36 to i32
+  %37 = mul i32 %31, 365
+  %38 = lshr i32 %31, 2
+  %39 = udiv i32 %31, 100
+  %40 = add nsw i32 %2, -1
+  %41 = add nuw i32 %40, %.zext
+  %42 = add nuw i32 %41, %38
+  %43 = add i32 %42, %37
+  %44 = sub i32 %43, %39
+  %45 = sext i32 %30 to i64
+  %46 = mul nsw i64 %45, 146097
+  %47 = zext i32 %44 to i64
+  %48 = add nsw i64 %46, %47
+  %49 = icmp sgt i64 %48, 719463
+  br i1 %49, label %50, label %53
 
-54:                                               ; preds = %28
-  %55 = add nsw i64 %52, -719464
-  %56 = urem i64 %55, 7
+50:                                               ; preds = %24
+  %51 = add nsw i64 %48, -719464
+  %52 = urem i64 %51, 7
   br label %SDL_CivilToDays.exit
 
-57:                                               ; preds = %28
-  %.nonneg.i = sub nsw i64 719463, %52
-  %58 = urem i64 %.nonneg.i, 7
-  %59 = sub nuw nsw i64 6, %58
+53:                                               ; preds = %24
+  %.nonneg.i = sub nsw i64 719463, %48
+  %54 = urem i64 %.nonneg.i, 7
+  %55 = sub nuw nsw i64 6, %54
   br label %SDL_CivilToDays.exit
 
-SDL_CivilToDays.exit:                             ; preds = %54, %57
-  %60 = phi i64 [ %56, %54 ], [ %59, %57 ]
-  %61 = trunc nuw nsw i64 %60 to i32
-  br label %62
+SDL_CivilToDays.exit:                             ; preds = %50, %53
+  %56 = phi i64 [ %52, %50 ], [ %55, %53 ]
+  %57 = trunc nuw nsw i64 %56 to i32
+  br label %58
 
-62:                                               ; preds = %SDL_CivilToDays.exit, %SDL_GetDaysInMonth_REAL.exit25, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %SDL_GetDaysInMonth_REAL.exit25 ], [ %61, %SDL_CivilToDays.exit ]
+58:                                               ; preds = %SDL_CivilToDays.exit, %SDL_GetDaysInMonth_REAL.exit25, %5
+  %.0 = phi i32 [ -1, %5 ], [ -1, %SDL_GetDaysInMonth_REAL.exit25 ], [ %57, %SDL_CivilToDays.exit ]
   ret i32 %.0
 }
 
@@ -442,9 +438,9 @@ define hidden zeroext i1 @SDL_DateTimeToTime_REAL(ptr noundef readonly captures(
 
 14:                                               ; preds = %8
   %15 = load i32, ptr %0, align 4
-  %16 = add nsw i32 %10, -1
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [12 x i32], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 0, i64 %17
+  %16 = zext nneg i32 %10 to i64
+  %17 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %10, 2
   %21 = and i32 %15, 3

@@ -4562,7 +4562,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm23SmallVect
 
 switch.lookup:                                    ; preds = %159
   %164 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN4llvm13Float2IntPass7convertEPNS_11InstructionEPNS_4TypeE, i64 0, i64 %164
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm13Float2IntPass7convertEPNS_11InstructionEPNS_4TypeE, i64 %164
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL11mapFCmpPredN4llvm7CmpInst9PredicateE.exit
 

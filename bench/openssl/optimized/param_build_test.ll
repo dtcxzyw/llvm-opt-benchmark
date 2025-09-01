@@ -1799,7 +1799,7 @@ define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
   %.lhs.trunc = trunc i64 %indvars.iv to i8
   %5 = udiv i8 %.lhs.trunc, 26
   %6 = or disjoint i8 %5, 64
-  %7 = getelementptr inbounds nuw [100 x [3 x i8]], ptr %1, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv
   store i8 %6, ptr %7, align 1, !tbaa !27
   %8 = urem i8 %.lhs.trunc, 26
   %9 = or disjoint i8 %8, 96

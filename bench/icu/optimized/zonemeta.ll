@@ -212,7 +212,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %2
   %76 = call i32 @u_strlen_77(ptr noundef nonnull %72)
   call void @u_UCharsToChars_77(ptr noundef nonnull %72, ptr noundef nonnull %6, i32 noundef %76)
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [129 x i8], ptr %6, i64 0, i64 %77
+  %78 = getelementptr inbounds i8, ptr %6, i64 %77
   store i8 0, ptr %78, align 1, !tbaa !7
   %79 = load i8, ptr %6, align 16, !tbaa !7
   %.not8189 = icmp eq i8 %79, 0
@@ -1397,7 +1397,7 @@ define noundef ptr @_ZN6icu_778ZoneMeta22createMetazoneMappingsERKNS_13UnicodeSt
 
 34:                                               ; preds = %25
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds [129 x i8], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %5, i64 %35
   store i8 0, ptr %36, align 1, !tbaa !7
   br label %37
 
@@ -1943,7 +1943,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778ZoneMeta19get
 19:                                               ; preds = %10
   %20 = call noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %6, i32 noundef 129, i32 noundef 0)
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [129 x i8], ptr %6, i64 0, i64 %21
+  %22 = getelementptr inbounds i8, ptr %6, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !7
   %23 = call ptr @ures_openDirect_77(ptr noundef null, ptr noundef nonnull @_ZN6icu_77L10gMetaZonesE, ptr noundef nonnull %4)
   %24 = call ptr @ures_getByKey_77(ptr noundef %23, ptr noundef nonnull @_ZN6icu_77L16gMapTimezonesTagE, ptr noundef %23, ptr noundef nonnull %4)
@@ -1972,7 +1972,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778ZoneMeta19get
 38:                                               ; preds = %28
   %39 = call noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %36, ptr noundef nonnull %6, i32 noundef 129, i32 noundef 0)
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [129 x i8], ptr %6, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %6, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !7
   %42 = call ptr @ures_getStringByKey_77(ptr noundef %23, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %43 = load i32, ptr %4, align 4, !tbaa !3
@@ -2582,7 +2582,7 @@ define noundef ptr @_ZN6icu_778ZoneMeta23getShortIDFromCanonicalEPKDs(ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @u_UCharsToChars_77(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4)
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [129 x i8], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds i8, ptr %2, i64 %5
   store i8 0, ptr %6, align 1, !tbaa !7
   %7 = load i8, ptr %2, align 16, !tbaa !7
   %.not13 = icmp eq i8 %7, 0

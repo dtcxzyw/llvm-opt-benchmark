@@ -4582,7 +4582,7 @@ dynamic_cast.notnull:                             ; preds = %_ZNSt7__cxx1112basi
   %channelnum67 = getelementptr inbounds nuw i8, ptr %127, i64 30
   %128 = load i8, ptr %channelnum67, align 2, !tbaa !142
   %idxprom = zext i8 %128 to i64
-  %arrayidx = getelementptr inbounds nuw [3 x %"class.con::Channel"], ptr %channels, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
   call void @llvm.lifetime.start.p0(ptr nonnull %list)
   %outgoing_reliables_sent = getelementptr inbounds nuw i8, ptr %arrayidx, i64 72
   invoke void @_ZN3con20ReliablePacketBuffer9getResendEfj(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.69") align 8 %list, ptr noundef nonnull align 8 dereferenceable(72) %outgoing_reliables_sent, float noundef 0.000000e+00, i32 noundef 1)
@@ -7008,7 +7008,7 @@ ehcleanup54:                                      ; preds = %if.then.i.i607, %_Z
 
 for.body57:                                       ; preds = %cleanup, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit605
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit605 ], [ %indvars.iv.next, %cleanup ]
-  %arrayidx = getelementptr inbounds nuw [3 x %"class.con::Channel"], ptr %channels, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %indvars.iv
   %_M_finish.i.i612 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 192
   %_M_start.i.i613 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 160
   %53 = load ptr, ptr %_M_finish.i.i612, align 8, !tbaa !155
@@ -10023,7 +10023,7 @@ dynamic_cast.notnull:                             ; preds = %entry
   %spec.select = select i1 %23, ptr %1, ptr null
   %channels = getelementptr inbounds nuw i8, ptr %spec.select, i64 152
   %idxprom = zext i8 %channelnum to i64
-  %arrayidx = getelementptr inbounds nuw [3 x %"class.con::Channel"], ptr %channels, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
   br i1 %reliable, label %if.then25, label %if.end122
 
 if.then25:                                        ; preds = %dynamic_cast.notnull
@@ -15626,7 +15626,7 @@ ehcleanup267:                                     ; preds = %if.then.i.i648, %_Z
 if.end268:                                        ; preds = %dynamic_cast.notnull
   %channels = getelementptr inbounds nuw i8, ptr %172, i64 152
   %idxprom = zext nneg i8 %call79.val to i64
-  %arrayidx = getelementptr inbounds nuw [3 x %"class.con::Channel"], ptr %channels, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
   invoke void @_ZN3con7Channel19UpdateBytesReceivedEj(ptr noundef nonnull align 8 dereferenceable(512) %arrayidx, i32 noundef %call28)
           to label %invoke.cont270 unwind label %lpad269
 
@@ -16572,7 +16572,7 @@ lpad63:                                           ; preds = %_ZNSt7__cxx1112basi
 
 if.end66:                                         ; preds = %if.end39
   %idxprom = zext nneg i8 %12 to i64
-  %arrayidx = getelementptr inbounds nuw [4 x %"struct.con::ConnectionReceiveThread::PacketTypeHandler"], ptr @_ZN3con23ConnectionReceiveThread16packetTypeRouterE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.con::ConnectionReceiveThread::PacketTypeHandler", ptr @_ZN3con23ConnectionReceiveThread16packetTypeRouterE, i64 %idxprom
   %.unpack = load i64, ptr %arrayidx, align 16, !tbaa !283
   %44 = and i64 %.unpack, 1
   %memptr.isvirtual.not = icmp eq i64 %44, 0
@@ -17460,20 +17460,18 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %rem.i.i = urem i32 %__val.addr.036.i.i, 100
   %mul.i.i = shl nuw nsw i32 %rem.i.i, 1
   %div.i.i = udiv i32 %__val.addr.036.i.i, 100
-  %add.i16.i = or disjoint i32 %mul.i.i, 1
-  %idxprom.i.i = zext nneg i32 %add.i16.i to i64
-  %arrayidx.i17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i.i
-  %3 = load i8, ptr %arrayidx.i17.i, align 1, !tbaa !13, !noalias !285
+  %3 = zext nneg i32 %mul.i.i to i64
+  %4 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %3
+  %arrayidx.i17.i = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %5 = load i8, ptr %arrayidx.i17.i, align 1, !tbaa !13, !noalias !285
   %idxprom1.i.i = zext i32 %__pos.035.i.i to i64
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 %idxprom1.i.i
-  store i8 %3, ptr %arrayidx2.i.i, align 1, !tbaa !13
-  %idxprom3.i.i = zext nneg i32 %mul.i.i to i64
-  %arrayidx4.i.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i.i
-  %4 = load i8, ptr %arrayidx4.i.i, align 2, !tbaa !13, !noalias !285
+  store i8 %5, ptr %arrayidx2.i.i, align 1, !tbaa !13
+  %6 = load i8, ptr %4, align 2, !tbaa !13, !noalias !285
   %sub5.i.i = add i32 %__pos.035.i.i, -1
   %idxprom6.i.i = zext i32 %sub5.i.i to i64
   %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 %idxprom6.i.i
-  store i8 %4, ptr %arrayidx7.i.i, align 1, !tbaa !13
+  store i8 %6, ptr %arrayidx7.i.i, align 1, !tbaa !13
   %sub8.i.i = add i32 %__pos.035.i.i, -2
   %cmp.i18.i = icmp ugt i32 %__val.addr.036.i.i, 9999
   br i1 %cmp.i18.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !289
@@ -17485,31 +17483,29 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %in
 
 if.then.i.i:                                      ; preds = %while.end.i.i
   %mul11.i.i = shl nuw nsw i32 %__val.addr.0.lcssa.i.i, 1
-  %add12.i.i = or disjoint i32 %mul11.i.i, 1
-  %idxprom13.i.i = zext nneg i32 %add12.i.i to i64
-  %arrayidx14.i.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i.i
-  %5 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !13, !noalias !285
+  %7 = zext nneg i32 %mul11.i.i to i64
+  %8 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %7
+  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %9 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !13, !noalias !285
   %arrayidx15.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
-  store i8 %5, ptr %arrayidx15.i.i, align 1, !tbaa !13
-  %idxprom16.i.i = zext nneg i32 %mul11.i.i to i64
-  %arrayidx17.i.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i.i
-  %6 = load i8, ptr %arrayidx17.i.i, align 2, !tbaa !13, !noalias !285
+  store i8 %9, ptr %arrayidx15.i.i, align 1, !tbaa !13
+  %10 = load i8, ptr %8, align 2, !tbaa !13, !noalias !285
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
-  %conv.i.i = or disjoint i8 %7, 48
+  %11 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
+  %conv.i.i = or disjoint i8 %11, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 terminate.lpad.i:                                 ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
-  %8 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #29
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #29
   unreachable
 
 _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %if.else.i.i, %if.then.i.i
-  %storemerge.i.i = phi i8 [ %conv.i.i, %if.else.i.i ], [ %6, %if.then.i.i ]
+  %storemerge.i.i = phi i8 [ %conv.i.i, %if.else.i.i ], [ %10, %if.then.i.i ]
   store i8 %storemerge.i.i, ptr %arrayidx.i.i, align 1, !tbaa !13
   ret void
 }

@@ -5124,7 +5124,7 @@ define void @_ZN7rocksdb6Logger4LogvENS_12InfoLogLevelEPKcP13__va_list_tag(ptr n
 18:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = zext i8 %1 to i64
-  %20 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZN7rocksdb6Logger4LogvENS_12InfoLogLevelEPKcP13__va_list_tagE18kInfoLogLevelNames, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr @_ZZN7rocksdb6Logger4LogvENS_12InfoLogLevelEPKcP13__va_list_tagE18kInfoLogLevelNames, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !121
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 499, ptr noundef nonnull @.str.52, ptr noundef %21, ptr noundef %2) #37
   %23 = load ptr, ptr %0, align 8, !tbaa !18

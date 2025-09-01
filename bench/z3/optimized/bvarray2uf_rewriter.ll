@@ -13808,7 +13808,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI23bvarray2uf_rewriter_cfgE11p
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !41
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -16013,7 +16013,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI23bvarray2uf_rewriter_cfgE11p
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !41
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

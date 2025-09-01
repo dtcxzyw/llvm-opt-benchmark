@@ -92,7 +92,7 @@ define dso_local ptr @auth_get_plugin_name(i32 noundef %0) local_unnamed_addr #0
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
@@ -198,7 +198,7 @@ define dso_local range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
 
 14:                                               ; preds = %13, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 16
   %17 = icmp eq i32 %16, 102
   br i1 %17, label %18, label %13
@@ -235,7 +235,7 @@ auth_get_plugin_name.exit:                        ; preds = %13, %18
 
 28:                                               ; preds = %27, %26
   %indvars.iv.i21 = phi i64 [ 0, %26 ], [ %indvars.iv.next.i22, %27 ]
-  %29 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i21
+  %29 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i21
   %30 = load i32, ptr %29, align 16
   %31 = icmp eq i32 %30, 103
   br i1 %31, label %32, label %27
@@ -1054,7 +1054,7 @@ define dso_local ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) loca
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %._crit_edge.preheader ]
-  %23 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %.pre, %24
   br i1 %25, label %26, label %22

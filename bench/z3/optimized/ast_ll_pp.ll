@@ -1931,7 +1931,7 @@ _ZNK4decl18get_num_parametersEv.exit:             ; preds = %73
   %83 = add i32 %80, -1
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %84, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !58
   %88 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %87)
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 848
@@ -1979,7 +1979,7 @@ _ZNK11ast_manager8has_factEPK3app.exit:           ; preds = %._crit_edge50
   %110 = add i32 %108, -1
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw [0 x ptr], ptr %111, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !58
   %115 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %114)
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 848
@@ -1991,7 +1991,7 @@ _ZNK11ast_manager8has_factEPK3app.exit:           ; preds = %._crit_edge50
   %indvars.iv54 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next55, %118 ]
   %119 = load ptr, ptr %0, align 8, !tbaa !26
   %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.6, i64 noundef 1)
-  %121 = getelementptr inbounds nuw [0 x ptr], ptr %95, i64 0, i64 %indvars.iv54
+  %121 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv54
   %122 = load ptr, ptr %121, align 8, !tbaa !58
   tail call void @_ZN10ll_printer13display_childEP3ast(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %122)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
@@ -2002,7 +2002,7 @@ _ZNK11ast_manager8has_factEPK3app.exit:           ; preds = %._crit_edge50
   %124 = load i32, ptr %79, align 8, !tbaa !57
   %125 = add i32 %124, -1
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw [0 x ptr], ptr %111, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw ptr, ptr %111, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !58
   tail call void @_ZN10ll_printer13display_childEP3ast(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %128)
   br label %.sink.split
@@ -2707,7 +2707,7 @@ _ZN10ll_printer12display_nameEP9func_decl.exit:   ; preds = %_ZStlsISt11char_tra
   %indvars.iv = phi i64 [ 0, %_ZN10ll_printer12display_nameEP9func_decl.exit ], [ %indvars.iv.next, %54 ]
   %55 = load ptr, ptr %0, align 8, !tbaa !26
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @.str.6, i64 noundef 1)
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !58
   tail call void @_ZN10ll_printer7displayEP4exprj(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %58, i32 noundef %51)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

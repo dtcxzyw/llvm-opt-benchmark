@@ -648,7 +648,7 @@ _ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit: ; preds = %5, %21, %25, %2
 
 34:                                               ; preds = %_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit, %48
   %indvars.iv = phi i64 [ 0, %_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb.exit ], [ %indvars.iv.next, %48 ]
-  %35 = getelementptr inbounds nuw [6 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %36, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %38 = load ptr, ptr %33, align 8
@@ -960,10 +960,10 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %6
 
 switch.lookup:                                    ; preds = %14
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1, i64 0, i64 %29
+  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1, i64 %29
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %30
 

@@ -542,29 +542,26 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralSSE2EPKfiS1_Pfi(pt
 
 .lr.ph137.i:                                      ; preds = %.lr.ph137.i, %.lr.ph137.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph137.preheader.i ], [ %indvars.iv.next.i, %.lr.ph137.i ]
-  %.1134.i = phi ptr [ %.068.lcssa.i, %.lr.ph137.preheader.i ], [ %459, %.lr.ph137.i ]
+  %.1134.i = phi ptr [ %.068.lcssa.i, %.lr.ph137.preheader.i ], [ %456, %.lr.ph137.i ]
   %445 = load float, ptr %.1134.i, align 4, !tbaa !14
-  %446 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %indvars.iv.i
+  %446 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
   store float %445, ptr %446, align 16, !tbaa !14
   %447 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 4
   %448 = load float, ptr %447, align 4, !tbaa !14
-  %449 = or disjoint i64 %indvars.iv.i, 1
-  %450 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %449
-  store float %448, ptr %450, align 4, !tbaa !14
-  %451 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 8
-  %452 = load float, ptr %451, align 4, !tbaa !14
-  %453 = or disjoint i64 %indvars.iv.i, 2
-  %454 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %453
-  store float %452, ptr %454, align 8, !tbaa !14
-  %455 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 12
-  %456 = load float, ptr %455, align 4, !tbaa !14
-  %457 = or disjoint i64 %indvars.iv.i, 3
-  %458 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %457
-  store float %456, ptr %458, align 4, !tbaa !14
-  %459 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 16
+  %449 = getelementptr inbounds nuw i8, ptr %446, i64 4
+  store float %448, ptr %449, align 4, !tbaa !14
+  %450 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 8
+  %451 = load float, ptr %450, align 4, !tbaa !14
+  %452 = getelementptr inbounds nuw i8, ptr %446, i64 8
+  store float %451, ptr %452, align 8, !tbaa !14
+  %453 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 12
+  %454 = load float, ptr %453, align 4, !tbaa !14
+  %455 = getelementptr inbounds nuw i8, ptr %446, i64 12
+  store float %454, ptr %455, align 4, !tbaa !14
+  %456 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %460 = icmp samesign ult i64 %indvars.iv.next.i, %238
-  br i1 %460, label %.lr.ph137.i, label %._crit_edge138.loopexit.i, !llvm.loop !16
+  %457 = icmp samesign ult i64 %indvars.iv.next.i, %238
+  br i1 %457, label %.lr.ph137.i, label %._crit_edge138.loopexit.i, !llvm.loop !16
 
 ._crit_edge144.i:                                 ; preds = %.lr.ph143.i, %._crit_edge138.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -573,29 +570,26 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralSSE2EPKfiS1_Pfi(pt
 
 .lr.ph143.i:                                      ; preds = %.lr.ph143.i, %.lr.ph143.preheader.i
   %indvars.iv147.i = phi i64 [ 0, %.lr.ph143.preheader.i ], [ %indvars.iv.next148.i, %.lr.ph143.i ]
-  %.170140.i = phi ptr [ %.069.lcssa.i, %.lr.ph143.preheader.i ], [ %475, %.lr.ph143.i ]
-  %461 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %indvars.iv147.i
-  %462 = load float, ptr %461, align 16, !tbaa !14
-  store float %462, ptr %.170140.i, align 4, !tbaa !14
-  %463 = or disjoint i64 %indvars.iv147.i, 1
-  %464 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %463
-  %465 = load float, ptr %464, align 4, !tbaa !14
-  %466 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 4
-  store float %465, ptr %466, align 4, !tbaa !14
-  %467 = or disjoint i64 %indvars.iv147.i, 2
-  %468 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %467
-  %469 = load float, ptr %468, align 8, !tbaa !14
-  %470 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 8
-  store float %469, ptr %470, align 4, !tbaa !14
-  %471 = or disjoint i64 %indvars.iv147.i, 3
-  %472 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %471
-  %473 = load float, ptr %472, align 4, !tbaa !14
-  %474 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 12
-  store float %473, ptr %474, align 4, !tbaa !14
-  %475 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 16
+  %.170140.i = phi ptr [ %.069.lcssa.i, %.lr.ph143.preheader.i ], [ %469, %.lr.ph143.i ]
+  %458 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv147.i
+  %459 = load float, ptr %458, align 16, !tbaa !14
+  store float %459, ptr %.170140.i, align 4, !tbaa !14
+  %460 = getelementptr inbounds nuw i8, ptr %458, i64 4
+  %461 = load float, ptr %460, align 4, !tbaa !14
+  %462 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 4
+  store float %461, ptr %462, align 4, !tbaa !14
+  %463 = getelementptr inbounds nuw i8, ptr %458, i64 8
+  %464 = load float, ptr %463, align 8, !tbaa !14
+  %465 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 8
+  store float %464, ptr %465, align 4, !tbaa !14
+  %466 = getelementptr inbounds nuw i8, ptr %458, i64 12
+  %467 = load float, ptr %466, align 4, !tbaa !14
+  %468 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 12
+  store float %467, ptr %468, align 4, !tbaa !14
+  %469 = getelementptr inbounds nuw i8, ptr %.170140.i, i64 16
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 4
-  %476 = icmp samesign ult i64 %indvars.iv.next148.i, %444
-  br i1 %476, label %.lr.ph143.i, label %._crit_edge144.i, !llvm.loop !17
+  %470 = icmp samesign ult i64 %indvars.iv.next148.i, %444
+  br i1 %470, label %.lr.ph143.i, label %._crit_edge144.i, !llvm.loop !17
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124applyTetrahedralSSE2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit: ; preds = %._crit_edge.i, %._crit_edge144.i
   ret void

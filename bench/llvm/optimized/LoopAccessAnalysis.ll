@@ -6443,7 +6443,7 @@ define dso_local void @_ZN4llvm16MemoryDepChecker9addAccessEPNS_8LoadInstE(ptr n
 define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm16MemoryDepChecker10Dependence22isSafeForVectorizationENS1_7DepTypeE(i32 noundef %0) local_unnamed_addr #9 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm16MemoryDepChecker11areDepsSafeERKNS_18EquivalenceClassesINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEESt4lessIS9_EEERKNS_11SmallVectorIS9_Lj8EEE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm16MemoryDepChecker11areDepsSafeERKNS_18EquivalenceClassesINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEESt4lessIS9_EEERKNS_11SmallVectorIS9_Lj8EEE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -6933,7 +6933,7 @@ define dso_local noundef i32 @_ZN4llvm16MemoryDepChecker11isDependentERKNS_14Poi
   %.not.i.i = phi i1 [ true, %5 ], [ false, %30 ]
   %.0813.i.i = phi i64 [ 0, %5 ], [ 1, %30 ]
   %.0912.i.i = phi i64 [ 2, %5 ], [ %.1.i.i, %30 ]
-  %25 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm16MemoryDepChecker10Dependence7DepTypeEJS3_NS1_28DepDistanceStrideAndSizeInfoEEEmv.__found, i64 0, i64 %.0813.i.i
+  %25 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm16MemoryDepChecker10Dependence7DepTypeEJS3_NS1_28DepDistanceStrideAndSizeInfoEEEmv.__found, i64 %.0813.i.i
   %26 = load i8, ptr %25, align 1, !tbaa !75, !range !59, !noundef !60
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
@@ -8289,7 +8289,7 @@ switch.lookup:                                    ; preds = %398, %.lr.ph
   %.sroa.0.0 = phi ptr [ %64, %398 ], [ %238, %.lr.ph ]
   %399 = call noundef i32 @_ZN4llvm16MemoryDepChecker11isDependentERKNS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEEjSA_j(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0194.0, i32 noundef %.sroa.7196.0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0, i32 noundef %.sroa.7.0)
   %400 = zext nneg i32 %399 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm16MemoryDepChecker11areDepsSafeERKNS_18EquivalenceClassesINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEESt4lessIS9_EEERKNS_11SmallVectorIS9_Lj8EEE, i64 0, i64 %400
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm16MemoryDepChecker11areDepsSafeERKNS_18EquivalenceClassesINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEESt4lessIS9_EEERKNS_11SmallVectorIS9_Lj8EEE, i64 %400
   %switch.load = load i32, ptr %switch.gep, align 4
   %401 = load i32, ptr %22, align 4, !tbaa !366
   %402 = icmp slt i32 %401, %switch.load
@@ -8426,7 +8426,7 @@ define dso_local void @_ZNK4llvm16MemoryDepChecker10Dependence5printERNS_11raw_o
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4, !tbaa !361
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4llvm16MemoryDepChecker10Dependence7DepNameE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN4llvm16MemoryDepChecker10Dependence7DepNameE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !48
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i

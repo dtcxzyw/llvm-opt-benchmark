@@ -556,7 +556,7 @@ define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr noundef nonnu
 55:                                               ; preds = %47, %55
   %indvars.iv = phi i64 [ 0, %47 ], [ %indvars.iv.next, %55 ]
   %.0913 = phi i32 [ 0, %47 ], [ %spec.select, %55 ]
-  %56 = getelementptr inbounds nuw [17 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %57 = load i8, ptr %56, align 1
   %58 = and i8 %57, 1
   %59 = xor i8 %58, 1
@@ -1806,7 +1806,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 switch.lookup:                                    ; preds = %323
   %327 = zext nneg i8 %324 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN15Sample_SoloMesh11handleBuildEv, i64 0, i64 %327
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN15Sample_SoloMesh11handleBuildEv, i64 %327
   %switch.load = load i16, ptr %switch.gep, align 2
   %328 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %329 = load ptr, ptr %328, align 8

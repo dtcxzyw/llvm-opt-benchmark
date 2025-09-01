@@ -1403,7 +1403,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel6y_game4MoveELm6EESaIS4_EE6resizeEm.exit.i.i:
 
 105:                                              ; preds = %105, %102
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %105 ], [ 0, %102 ]
-  %106 = getelementptr inbounds nuw [6 x %"struct.open_spiel::y_game::Move"], ptr @_ZN10open_spiel6y_game12_GLOBAL__N_116neighbor_offsetsE, i64 0, i64 %indvars.iv.i.i
+  %106 = getelementptr inbounds nuw %"struct.open_spiel::y_game::Move", ptr @_ZN10open_spiel6y_game12_GLOBAL__N_116neighbor_offsetsE, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.us.i.i = load i8, ptr %106, align 2, !noalias !6
   %.sroa.2.0..sroa_idx.us.i.i = getelementptr inbounds nuw i8, ptr %106, i64 1
   %.sroa.2.0.copyload.us.i.i = load i8, ptr %.sroa.2.0..sroa_idx.us.i.i, align 1, !noalias !6
@@ -1425,7 +1425,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel6y_game4MoveELm6EESaIS4_EE6resizeEm.exit.i.i:
   %118 = load ptr, ptr %5, align 8, !alias.scope !6
   %119 = getelementptr inbounds nuw %"struct.std::array.35", ptr %118, i64 %indvars.iv30.i.i
   %120 = getelementptr inbounds nuw %"struct.std::array.35", ptr %119, i64 %100
-  %121 = getelementptr inbounds nuw [6 x %"struct.open_spiel::y_game::Move"], ptr %120, i64 0, i64 %indvars.iv.i.i
+  %121 = getelementptr inbounds nuw %"struct.open_spiel::y_game::Move", ptr %120, i64 %indvars.iv.i.i
   %122 = shl i32 %117, 16
   %.sroa.3.0.insert.shift.us.i.i = select i1 %or.cond20.i.i.us.i.i, i32 %122, i32 -131072
   %.sroa.2.0.insert.ext.us.i.i = shl i32 %110, 8
@@ -3411,7 +3411,7 @@ _ZN10open_spiel6y_game14PlayerRelativeENS0_7YPlayerEi.exit: ; preds = %64, %65, 
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %.06.i, %_ZN10open_spiel6y_game14PlayerRelativeENS0_7YPlayerEi.exit ], [ %75, %76 ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN10open_spiel6y_game14PlayerRelativeENS0_7YPlayerEi.exit ], [ 1, %76 ]
   %.078.i.i = phi i32 [ 0, %_ZN10open_spiel6y_game14PlayerRelativeENS0_7YPlayerEi.exit ], [ %81, %76 ]
-  %78 = getelementptr inbounds nuw [2 x i32], ptr %42, i64 0, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i.i
   %79 = load i32, ptr %78, align 4
   %80 = mul nsw i32 %79, %.078.i.i
   %81 = add nsw i32 %80, %indvars.iv.i.i.sroa.phi.sroa.speculated

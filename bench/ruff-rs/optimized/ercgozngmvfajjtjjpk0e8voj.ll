@@ -2551,10 +2551,10 @@ switch.lookup:
   %4 = alloca [24 x i8], align 8
   %5 = load i8, ptr %2, align 1, !range !172, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E.58", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E.58", i64 %7
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8

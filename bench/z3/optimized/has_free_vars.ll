@@ -493,7 +493,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13contains_vars3imp14visit_chi
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %23, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   %.135 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   %23 = add nsw i64 %indvars.iv, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %25, ptr %5, align 8, !tbaa !46

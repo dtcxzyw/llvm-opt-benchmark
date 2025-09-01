@@ -1085,9 +1085,9 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load i32, ptr %34, align 8, !tbaa !32
-  %switch.tableidx8 = add i32 %35, -1
-  %36 = icmp ult i32 %switch.tableidx8, 10
-  %switch.maskindex11 = trunc i32 %switch.tableidx8 to i16
+  %switch.tableidx7 = add i32 %35, -1
+  %36 = icmp ult i32 %switch.tableidx7, 10
+  %switch.maskindex11 = trunc i32 %switch.tableidx7 to i16
   %switch.shifted12 = lshr i16 561, %switch.maskindex11
   %switch.lobit13 = trunc i16 %switch.shifted12 to i1
   %or.cond15 = select i1 %36, i1 %switch.lobit13, i1 false
@@ -1258,7 +1258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %2
   %14 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef 1)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %6

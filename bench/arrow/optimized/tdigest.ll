@@ -607,7 +607,7 @@ define linkonce_odr void @_ZNK5arrow8internal7TDigest11TDigestImpl8ValidateEv(pt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !17
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds %"class.std::vector.2", ptr %4, i64 %7
   %.val23 = load ptr, ptr %8, align 8, !tbaa !32
   %9 = getelementptr i8, ptr %8, i64 8
   %.val24 = load ptr, ptr %9, align 8, !tbaa !32
@@ -772,7 +772,7 @@ define linkonce_odr void @_ZNK5arrow8internal7TDigest11TDigestImpl4DumpEv(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds %"class.std::vector.2", ptr %2, i64 %5
   %7 = getelementptr i8, ptr %6, i64 8
   %.val16 = load ptr, ptr %6, align 8, !tbaa !13
   %.val817 = load ptr, ptr %7, align 8, !tbaa !16
@@ -1144,7 +1144,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL_
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load i32, ptr %20, align 8, !tbaa !17
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %19, i64 0, i64 %22
+  %23 = getelementptr inbounds %"class.std::vector.2", ptr %19, i64 %22
   %.val = load ptr, ptr %23, align 8, !tbaa !13
   %24 = getelementptr i8, ptr %23, i64 8
   %.val27 = load ptr, ptr %24, align 8, !tbaa !16
@@ -1186,7 +1186,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL_
   %39 = load i32, ptr %20, align 8, !tbaa !17
   %40 = sub nsw i32 1, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %19, i64 0, i64 %41
+  %42 = getelementptr inbounds %"class.std::vector.2", ptr %19, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %38, ptr %43, align 8, !tbaa !91
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1208,7 +1208,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL_
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %51 = load i32, ptr %50, align 8, !tbaa !17
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %49, i64 0, i64 %52
+  %53 = getelementptr inbounds %"class.std::vector.2", ptr %49, i64 %52
   %.val28 = load ptr, ptr %53, align 8, !tbaa !13
   %54 = getelementptr i8, ptr %53, i64 8
   %.val29 = load ptr, ptr %54, align 8, !tbaa !16
@@ -1725,7 +1725,7 @@ define linkonce_odr noundef double @_ZNK5arrow8internal7TDigest11TDigestImpl8Qua
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i32, ptr %7, align 8, !tbaa !17
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds %"class.std::vector.2", ptr %6, i64 %9
   %.val = load ptr, ptr %10, align 8, !tbaa !13
   %11 = getelementptr i8, ptr %10, i64 8
   %.val71 = load ptr, ptr %11, align 8, !tbaa !16
@@ -1889,7 +1889,7 @@ _ZNK5arrow8internal7TDigest10MergeInputEv.exit:   ; preds = %1, %5
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %12 = load i32, ptr %11, align 8, !tbaa !17
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds %"class.std::vector.2", ptr %10, i64 %13
   %.val.i = load ptr, ptr %14, align 8, !tbaa !32
   %15 = getelementptr i8, ptr %14, i64 8
   %.val8.i = load ptr, ptr %15, align 8, !tbaa !32
@@ -2098,7 +2098,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit: ; pr
   %71 = load i32, ptr %70, align 8, !tbaa !17
   %72 = sub nsw i32 1, %71
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %69, i64 0, i64 %73
+  %74 = getelementptr inbounds %"class.std::vector.2", ptr %69, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %68, ptr %75, align 8, !tbaa !91
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2119,7 +2119,7 @@ _ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vecto
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double -1.000000e+00, ptr %80, align 8, !tbaa !28
   %81 = sext i32 %71 to i64
-  %82 = getelementptr inbounds [2 x %"class.std::vector.2"], ptr %69, i64 0, i64 %81
+  %82 = getelementptr inbounds %"class.std::vector.2", ptr %69, i64 %81
   %83 = getelementptr i8, ptr %82, i64 8
   %.val49 = load ptr, ptr %82, align 8, !tbaa !13
   %.val3450 = load ptr, ptr %83, align 8, !tbaa !16

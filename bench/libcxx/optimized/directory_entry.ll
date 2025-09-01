@@ -467,7 +467,7 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerIvEC2B8ne210000EPKcPNS_10error_co
 switch.lookup:                                    ; preds = %51
   %58 = lshr exact i32 %56, 12
   %59 = zext nneg i32 %58 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZNSt3__14__fs10filesystem6detail18create_file_statusB8ne210000ERNS_10error_codeERKNS1_4pathERK4statPS3_, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNSt3__14__fs10filesystem6detail18create_file_statusB8ne210000ERNS_10error_codeERKNS1_4pathERK4statPS3_, i64 %59
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %60
 

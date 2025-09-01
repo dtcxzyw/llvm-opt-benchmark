@@ -3337,7 +3337,7 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EEaSEOS2_.exit: ; preds = %1006
 
 1084:                                             ; preds = %1082, %1076
   %.0813.i.i.i = phi i64 [ 0, %1076 ], [ %1083, %1082 ]
-  %1085 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %.0813.i.i.i
+  %1085 = getelementptr inbounds nuw i64, ptr %25, i64 %.0813.i.i.i
   %1086 = load i64, ptr %1085, align 8
   %.not.i.i.i277 = icmp eq i64 %1086, -1
   br i1 %.not.i.i.i277, label %1082, label %_ZNK3ue29CharReach3allEv.exit.thread.loopexit.i
@@ -3382,7 +3382,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i:           ; preds = %_ZNK3ue29CharReach3
 
 1108:                                             ; preds = %1116, %1106
   %.0710.i.i.i = phi i64 [ 0, %1106 ], [ %1117, %1116 ]
-  %1109 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %.0710.i.i.i
+  %1109 = getelementptr inbounds nuw i64, ptr %25, i64 %.0710.i.i.i
   %1110 = load i64, ptr %1109, align 8
   %.not.i.i15.i = icmp eq i64 %1110, 0
   br i1 %.not.i.i15.i, label %1116, label %1111
@@ -3445,7 +3445,7 @@ _ZNK3ue29CharReachcoEv.exit.i:                    ; preds = %1120
 
 1140:                                             ; preds = %1148, %1138
   %.0710.i.i16.i = phi i64 [ 0, %1138 ], [ %1149, %1148 ]
-  %1141 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.0710.i.i16.i
+  %1141 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i.i16.i
   %1142 = load i64, ptr %1141, align 8
   %.not.i.i17.i = icmp eq i64 %1142, 0
   br i1 %.not.i.i17.i, label %1148, label %1143

@@ -499,7 +499,7 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %33 = add nsw i64 %.sroa.2.022.i, -1
   %34 = load i8, ptr %30, align 1, !noalias !59, !noundef !4
-  %35 = getelementptr inbounds nuw [0 x i8], ptr %28, i64 0, i64 %.021.i
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.021.i
   store i8 %34, ptr %35, align 1
   %36 = add nuw nsw i64 %.021.i, 1
   %37 = icmp eq i64 %33, 0

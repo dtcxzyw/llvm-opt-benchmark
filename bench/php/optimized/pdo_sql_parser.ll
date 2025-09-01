@@ -796,7 +796,7 @@ zend_string_init.exit:                            ; preds = %345
   store i64 %351, ptr %357, align 8, !tbaa !33
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %358, ptr align 1 %349, i64 %351, i1 false)
-  %359 = getelementptr inbounds nuw [1 x i8], ptr %358, i64 0, i64 %351
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 %351
   store i8 0, ptr %359, align 1, !tbaa !39
   %360 = icmp eq i64 %351, 1
   br i1 %360, label %zend_string_equals_cstr.exit, label %zend_string_equals_cstr.exit.thread
@@ -967,7 +967,7 @@ zend_string_init.exit360:                         ; preds = %.lr.ph472, %zend_st
   store i64 %426, ptr %432, align 8, !tbaa !33
   %433 = getelementptr inbounds nuw i8, ptr %429, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %433, ptr align 1 %424, i64 %426, i1 false)
-  %434 = getelementptr inbounds nuw [1 x i8], ptr %433, i64 0, i64 %426
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 %426
   store i8 0, ptr %434, align 1, !tbaa !39
   %435 = load ptr, ptr %417, align 8, !tbaa !87
   %436 = getelementptr inbounds nuw i8, ptr %.4278469, i64 24

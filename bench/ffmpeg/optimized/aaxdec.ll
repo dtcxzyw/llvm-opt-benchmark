@@ -188,7 +188,7 @@ switch.hole_check:                                ; preds = %75
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %83 = zext nneg i8 %80 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table.aax_read_header, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.aax_read_header, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   %84 = getelementptr inbounds nuw %struct.AAXColumn, ptr %78, i64 %indvars.iv, i32 4
   store i32 %switch.load, ptr %84, align 4, !tbaa !49

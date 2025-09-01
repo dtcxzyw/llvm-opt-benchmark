@@ -1821,10 +1821,10 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h9356a48683cc36f6E.exit.
 switch.lookup:                                    ; preds = %429
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %436 = zext nneg i8 %431 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.14, i64 0, i64 %436
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.14, i64 %436
   %switch.load = load ptr, ptr %switch.gep, align 8
   %437 = zext nneg i8 %431 to i64
-  %switch.gep492 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.13, i64 0, i64 %437
+  %switch.gep492 = getelementptr inbounds nuw i64, ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.13, i64 %437
   %switch.load493 = load i64, ptr %switch.gep492, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) @anon.bbb906e4541fad27cf5595ce5ea38697.49, i64 32, i1 false)
   %438 = getelementptr inbounds nuw i8, ptr %97, i64 32
@@ -2171,7 +2171,7 @@ _ZN10actix_http6header3map9HeaderMap12contains_key17hc05489d7ef9358f5E.exit: ; p
 
 560:                                              ; preds = %558, %557
   %.091.i = phi i64 [ 0, %557 ], [ %559, %558 ]
-  %561 = getelementptr inbounds nuw [0 x i8], ptr @anon.bbb906e4541fad27cf5595ce5ea38697.44, i64 0, i64 %.091.i
+  %561 = getelementptr inbounds nuw i8, ptr @anon.bbb906e4541fad27cf5595ce5ea38697.44, i64 %.091.i
   %562 = load i8, ptr %561, align 1, !noalias !331, !noundef !5
   %563 = add i8 %562, -32
   %or.cond.i262 = icmp ult i8 %563, 95
@@ -3316,10 +3316,10 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
 switch.lookup494:                                 ; preds = %927
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
   %934 = zext nneg i8 %929 to i64
-  %switch.gep495 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.13, i64 0, i64 %934
+  %switch.gep495 = getelementptr inbounds nuw i64, ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.13, i64 %934
   %switch.load496 = load i64, ptr %switch.gep495, align 8
   %935 = zext nneg i8 %929 to i64
-  %switch.gep497 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.14, i64 0, i64 %935
+  %switch.gep497 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11actix_files5named9NamedFile13into_response17h28eeb980dbf50da0E.14, i64 %935
   %switch.load498 = load ptr, ptr %switch.gep497, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) @anon.bbb906e4541fad27cf5595ce5ea38697.49, i64 32, i1 false)
   %936 = getelementptr inbounds nuw i8, ptr %112, i64 32

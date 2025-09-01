@@ -250,7 +250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.i.i: ; preds = 
   store i32 0, ptr %50, align 4, !tbaa !27
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #23
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %52) #23
-  %61 = getelementptr inbounds nuw [8 x %"class.cv::Size_"], ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 0, i64 %indvars.iv139.i.i
+  %61 = getelementptr inbounds nuw %"class.cv::Size_", ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 %indvars.iv139.i.i
   %62 = load i64, ptr %61, align 8
   store i64 %62, ptr %11, align 8
   %63 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %51, ptr noundef nonnull align 8 dereferenceable(96) %9)
@@ -383,11 +383,11 @@ _ZNSt6vectorIN12_GLOBAL__N_17BIFImpl10UnitParamsESaIS2_EE9push_backERKS2_.exit.u
   %indvars.iv.i.sroa.phi.i = phi ptr [ %9, %.preheader.us.i.i ], [ %indvars.iv.i.sroa.gep4.i, %121 ]
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ 1, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %109 = getelementptr inbounds nuw [2 x %"class.cv::Size_"], ptr %122, i64 0, i64 %indvars.iv.i.i
+  %109 = getelementptr inbounds nuw %"class.cv::Size_", ptr %122, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.us.i.i = load i64, ptr %109, align 8
-  %110 = getelementptr inbounds nuw [2 x double], ptr %123, i64 0, i64 %indvars.iv.i.i
+  %110 = getelementptr inbounds nuw double, ptr %123, i64 %indvars.iv.i.i
   %111 = load double, ptr %110, align 8, !tbaa !39
-  %112 = getelementptr inbounds nuw [2 x double], ptr %124, i64 0, i64 %indvars.iv.i.i
+  %112 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv.i.i
   %113 = load double, ptr %112, align 8, !tbaa !39
   invoke void @_ZN2cv14getGaborKernelENS_5Size_IiEEdddddi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %10, i64 %.sroa.0.0.copyload.us.i.i, double noundef %111, double noundef %56, double noundef %113, double noundef 3.000000e-01, double noundef 0.000000e+00, i32 noundef 5)
           to label %114 unwind label %.split121.us.i.i
@@ -415,9 +415,9 @@ _ZNSt6vectorIN12_GLOBAL__N_17BIFImpl10UnitParamsESaIS2_EE9push_backERKS2_.exit.u
   br i1 %108, label %107, label %60, !llvm.loop !44
 
 .preheader.us.i.i:                                ; preds = %58
-  %122 = getelementptr inbounds nuw [8 x [2 x %"class.cv::Size_"]], ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 0, i64 %indvars.iv139.i.i
-  %123 = getelementptr inbounds nuw [8 x [2 x double]], ptr @_ZN12_GLOBAL__N_112kGaborSigmasE, i64 0, i64 %indvars.iv139.i.i
-  %124 = getelementptr inbounds nuw [8 x [2 x double]], ptr @_ZN12_GLOBAL__N_114kGaborWavelensE, i64 0, i64 %indvars.iv139.i.i
+  %122 = getelementptr inbounds nuw [2 x %"class.cv::Size_"], ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 %indvars.iv139.i.i
+  %123 = getelementptr inbounds nuw [2 x double], ptr @_ZN12_GLOBAL__N_112kGaborSigmasE, i64 %indvars.iv139.i.i
+  %124 = getelementptr inbounds nuw [2 x double], ptr @_ZN12_GLOBAL__N_114kGaborWavelensE, i64 %indvars.iv139.i.i
   br label %107
 
 ._crit_edge.us.i.i:                               ; preds = %106

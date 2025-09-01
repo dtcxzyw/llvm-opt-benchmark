@@ -524,14 +524,14 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1832
   %48 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %45)
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [20 x %"struct.std::atomic.200"], ptr %47, i64 0, i64 %49
+  %50 = getelementptr inbounds %"struct.std::atomic.200", ptr %47, i64 %49
   %51 = atomicrmw add ptr %50, i64 1 monotonic, align 8
   %52 = load i32, ptr %36, align 4, !tbaa !47
   %53 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1992
   %55 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %52)
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [20 x %"struct.std::atomic.200"], ptr %54, i64 0, i64 %56
+  %57 = getelementptr inbounds %"struct.std::atomic.200", ptr %54, i64 %56
   %58 = atomicrmw add ptr %57, i64 1 monotonic, align 8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %60 = load i32, ptr %59, align 4, !tbaa !48
@@ -539,7 +539,7 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 2152
   %63 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %60)
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [20 x %"struct.std::atomic.200"], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %"struct.std::atomic.200", ptr %62, i64 %64
   %66 = atomicrmw add ptr %65, i64 1 monotonic, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %68 = load i32, ptr %67, align 4, !tbaa !49
@@ -547,7 +547,7 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 2312
   %71 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %68)
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [20 x %"struct.std::atomic.200"], ptr %70, i64 0, i64 %72
+  %73 = getelementptr inbounds %"struct.std::atomic.200", ptr %70, i64 %72
   %74 = atomicrmw add ptr %73, i64 1 monotonic, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %76 = load i32, ptr %75, align 4, !tbaa !50
@@ -555,7 +555,7 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 2472
   %79 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %76)
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds [20 x %"struct.std::atomic.200"], ptr %78, i64 0, i64 %80
+  %81 = getelementptr inbounds %"struct.std::atomic.200", ptr %78, i64 %80
   %82 = atomicrmw add ptr %81, i64 1 monotonic, align 8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %84 = load i32, ptr %83, align 4, !tbaa !51
@@ -563,7 +563,7 @@ define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18g
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 2632
   %87 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %84)
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [20 x %"struct.std::atomic.200"], ptr %86, i64 0, i64 %88
+  %89 = getelementptr inbounds %"struct.std::atomic.200", ptr %86, i64 %88
   %90 = atomicrmw add ptr %89, i64 1 monotonic, align 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !10

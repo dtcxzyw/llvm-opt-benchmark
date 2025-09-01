@@ -73,7 +73,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEmm
   %39 = add nuw nsw i64 %36, %34
   %40 = and i64 %39, %16
   %41 = or disjoint i64 %38, %40
-  %42 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.04857
+  %42 = getelementptr inbounds nuw i64, ptr %8, i64 %.04857
   store i64 %41, ptr %42, align 8, !tbaa !15
   %43 = add nuw nsw i64 %.04857, 1
   %exitcond.not = icmp eq i64 %43, 8
@@ -100,7 +100,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEmm
   %55 = load i64, ptr %54, align 8, !tbaa !15
   %56 = add i64 %55, %53
   %57 = and i64 %56, %0
-  %58 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.04759
+  %58 = getelementptr inbounds nuw i64, ptr %8, i64 %.04759
   store i64 %57, ptr %58, align 8, !tbaa !15
   %59 = add nuw nsw i64 %.04759, 1
   %exitcond64.not = icmp eq i64 %59, 8
@@ -180,7 +180,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3subEmm
   %41 = sub nuw nsw i64 %40, %36
   %42 = and i64 %41, %17
   %43 = or disjoint i64 %39, %42
-  %44 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.05262
+  %44 = getelementptr inbounds nuw i64, ptr %8, i64 %.05262
   store i64 %43, ptr %44, align 8, !tbaa !15
   %45 = add nuw nsw i64 %.05262, 1
   %exitcond.not = icmp eq i64 %45, 8
@@ -209,7 +209,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3subEmm
   %59 = and i64 %58, %0
   %60 = add i64 %59, %55
   %61 = and i64 %60, %0
-  %62 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.05164
+  %62 = getelementptr inbounds nuw i64, ptr %8, i64 %.05164
   store i64 %61, ptr %62, align 8, !tbaa !15
   %63 = add nuw nsw i64 %.05164, 1
   %exitcond69.not = icmp eq i64 %63, 8
@@ -254,7 +254,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE16clear
   %15 = getelementptr inbounds nuw i64, ptr %10, i64 %.014
   %16 = load i64, ptr %15, align 8, !tbaa !15
   %17 = and i64 %16, %0
-  %18 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %.014
+  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %.014
   store i64 %17, ptr %18, align 8, !tbaa !15
   %19 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %19, 8

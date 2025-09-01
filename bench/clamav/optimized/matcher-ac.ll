@@ -970,7 +970,7 @@ define range(i32 0, 21) i32 @cli_ac_init(ptr noundef captures(none) %0, i8 nound
   store i8 %2, ptr %22, align 1, !tbaa !3
   %23 = load i32, ptr %0, align 8, !tbaa !58
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [15 x %struct.cli_mtarget], ptr @cli_mtargets, i64 0, i64 %24, i32 4
+  %25 = getelementptr inbounds nuw %struct.cli_mtarget, ptr @cli_mtargets, i64 %24, i32 4
   %26 = load i8, ptr %25, align 1, !tbaa !66
   %27 = icmp ne i8 %26, 0
   %28 = icmp ne i8 %3, 0
@@ -2128,7 +2128,7 @@ define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef captures(address_is_nul
 
 99:                                               ; preds = %.loopexit, %99
   %indvars.iv181 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next182, %99 ]
-  %100 = getelementptr inbounds nuw [32 x i32], ptr %98, i64 0, i64 %indvars.iv181
+  %100 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv181
   store i32 -2, ptr %100, align 4, !tbaa !55
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 32
@@ -2344,7 +2344,7 @@ define void @cli_ac_freedata(ptr noundef captures(address_is_null) %0) local_unn
 31:                                               ; preds = %.lr.ph62, %36
   %32 = phi i32 [ %29, %.lr.ph62 ], [ %37, %36 ]
   %indvars.iv71 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next72, %36 ]
-  %33 = getelementptr inbounds nuw [1 x ptr], ptr %30, i64 0, i64 %indvars.iv71
+  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv71
   %34 = load ptr, ptr %33, align 8, !tbaa !117
   %.not56 = icmp eq ptr %34, null
   br i1 %.not56, label %36, label %35
@@ -2556,7 +2556,7 @@ define range(i32 0, 21) i32 @lsig_sub_matched(ptr noundef readonly captures(none
 68:                                               ; preds = %67, %51
   %.0118 = phi ptr [ %64, %67 ], [ %55, %51 ]
   %69 = getelementptr inbounds nuw i8, ptr %.0118, i64 8
-  %70 = getelementptr inbounds nuw [1 x ptr], ptr %69, i64 0, i64 %17
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %17
   %71 = load ptr, ptr %70, align 8, !tbaa !117
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %78
@@ -2612,7 +2612,7 @@ define range(i32 0, 21) i32 @lsig_sub_matched(ptr noundef readonly captures(none
   %93 = getelementptr inbounds nuw i8, ptr %.1117, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %.1117, i64 4
   %95 = zext i32 %92 to i64
-  %96 = getelementptr inbounds nuw [16 x i32], ptr %93, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %93, i64 %95
   store i32 %4, ptr %96, align 4, !tbaa !55
   %97 = add i32 %92, 1
   store i32 %97, ptr %94, align 4, !tbaa !127
@@ -2657,7 +2657,7 @@ define range(i32 0, 21) i32 @lsig_sub_matched(ptr noundef readonly captures(none
   %126 = load i32, ptr %125, align 4, !tbaa !130
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds nuw [32 x i32], ptr %127, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i32, ptr %127, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !55
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !99
@@ -3026,7 +3026,7 @@ ac_findmatch.exit:                                ; preds = %119
 148:                                              ; preds = %141
   %149 = load i32, ptr %127, align 4, !tbaa !55
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw [32 x i32], ptr %33, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i32, ptr %33, i64 %150
   store i32 %126, ptr %151, align 4, !tbaa !55
   br label %.critedge542
 
@@ -6153,7 +6153,7 @@ select.unfold:                                    ; preds = %55, %48, %30, %25, 
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !42
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @boundary, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @boundary, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !42
   %86 = icmp sgt i8 %85, 1
   br i1 %86, label %87, label %89
@@ -6718,7 +6718,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @ac_findmatch_special(ptr 
 
 155:                                              ; preds = %11
   %156 = zext i8 %14 to i64
-  %157 = getelementptr inbounds nuw [256 x i8], ptr @boundary, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @boundary, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !42
   %.not137 = icmp eq i8 %158, 0
   br i1 %.not137, label %.loopexit, label %159
@@ -6899,7 +6899,7 @@ select.unfold:                                    ; preds = %55, %48, %29, %24, 
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !42
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @boundary, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @boundary, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !42
   switch i8 %86, label %89 [
     i8 1, label %87

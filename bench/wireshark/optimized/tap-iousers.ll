@@ -153,10 +153,10 @@ sub_1155:                                         ; preds = %sub_0
 
 switch.lookup:                                    ; preds = %16
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.iousers_draw, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep201 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw.1, i64 0, i64 %27
+  %switch.gep201 = getelementptr inbounds nuw ptr, ptr @switch.table.iousers_draw.1, i64 %27
   %switch.load202 = load ptr, ptr %switch.gep201, align 8
   br label %28
 

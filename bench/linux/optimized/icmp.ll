@@ -1430,7 +1430,7 @@ define dso_local range(i32 1, 77) i32 @icmpv6_notify(ptr noundef %0, i8 noundef 
 46:                                               ; preds = %33, %42
   %47 = load i8, ptr %6, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr [256 x ptr], ptr @inet6_protos, i64 0, i64 %48
+  %49 = getelementptr ptr, ptr @inet6_protos, i64 %48
   %50 = load volatile ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %58, label %52
@@ -1547,7 +1547,7 @@ define dso_local range(i32 -2147483648, 1) i32 @icmpv6_init() local_unnamed_addr
 17:                                               ; preds = %12
   %18 = load ptr, ptr %1, align 8
   %19 = and i64 %9, 63
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
+  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @ipv6_icmp_sk to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -1608,7 +1608,7 @@ define dso_local i32 @icmpv6_err_convert(i8 noundef zeroext %0, i8 noundef zeroe
 
 6:                                                ; preds = %4
   %7 = zext nneg i8 %1 to i64
-  %8 = getelementptr [7 x %struct.icmp6_err], ptr @tab_unreach, i64 0, i64 %7
+  %8 = getelementptr %struct.icmp6_err, ptr @tab_unreach, i64 %7
   %9 = load i32, ptr %8, align 8
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1801,13 +1801,13 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %50 = add i32 %43, -1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr [1 x %struct.xfrm_offload], ptr %49, i64 0, i64 %51
+  %52 = getelementptr %struct.xfrm_offload, ptr %49, i64 %51
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread34, label %54
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %56 = getelementptr [6 x ptr], ptr %55, i64 0, i64 %51
+  %56 = getelementptr ptr, ptr %55, i64 %51
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 656
   %59 = load i8, ptr %58, align 8
@@ -1884,7 +1884,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %103 = load i32, ptr %99, align 8
   %104 = add i32 %103, -1
   %105 = sext i32 %104 to i64
-  %106 = getelementptr [6 x ptr], ptr %102, i64 0, i64 %105
+  %106 = getelementptr ptr, ptr %102, i64 %105
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 225
   %109 = load i8, ptr %108, align 1
@@ -1965,13 +1965,13 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %162 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %163 = add i32 %156, -1
   %164 = sext i32 %163 to i64
-  %165 = getelementptr [1 x %struct.xfrm_offload], ptr %162, i64 0, i64 %164
+  %165 = getelementptr %struct.xfrm_offload, ptr %162, i64 %164
   %166 = icmp eq ptr %165, null
   br i1 %166, label %.thread42, label %167
 
 167:                                              ; preds = %161
   %168 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %169 = getelementptr [6 x ptr], ptr %168, i64 0, i64 %164
+  %169 = getelementptr ptr, ptr %168, i64 %164
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 656
   %172 = load i8, ptr %171, align 8
@@ -2211,7 +2211,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %312 = getelementptr inbounds nuw i8, ptr %28, i64 928
   %313 = load ptr, ptr %312, align 8
   %314 = zext i8 %310 to i64
-  %315 = getelementptr [512 x %struct.atomic64_t], ptr %313, i64 0, i64 %314
+  %315 = getelementptr %struct.atomic64_t, ptr %313, i64 %314
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %315, ptr elementtype(i64) %315) #13, !srcloc !20
   br label %316
 
@@ -2220,7 +2220,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %317 = load ptr, ptr %212, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 496
   %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr [512 x %struct.atomic64_t], ptr %319, i64 0, i64 %.pre-phi68
+  %320 = getelementptr %struct.atomic64_t, ptr %319, i64 %.pre-phi68
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %320, ptr elementtype(i64) %320) #13, !srcloc !20
   switch i8 %310, label %359 [
     i8 -128, label %321

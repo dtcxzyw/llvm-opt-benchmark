@@ -155,7 +155,7 @@ define hidden i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 nound
   %12 = sub nuw nsw i64 8, %1
   %spec.select = select i1 %11, i64 %12, i64 %.0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %14 = getelementptr inbounds nuw [8 x i8], ptr @png_sig_cmp.png_signature, i64 0, i64 %1
+  %14 = getelementptr inbounds nuw i8, ptr @png_sig_cmp.png_signature, i64 %1
   %15 = tail call i32 @memcmp(ptr noundef %13, ptr noundef nonnull %14, i64 noundef %spec.select) #29
   br label %16
 
@@ -266,7 +266,7 @@ define hidden range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %5 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds [7 x i8], ptr @.str.2, i64 0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds i8, ptr @.str.2, i64 %indvars.iv.next
   %8 = load i8, ptr %7, align 1
   %.not24 = icmp eq i8 %6, %8
   br i1 %.not24, label %12, label %9
@@ -1007,9 +1007,9 @@ define hidden range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0,
   %.0 = phi i64 [ %35, %34 ], [ %32, %28 ]
   %38 = load i8, ptr %9, align 2
   %39 = zext i8 %38 to i64
-  %40 = add nsw i64 %39, -1
-  %41 = getelementptr inbounds [12 x [4 x i8]], ptr @png_convert_to_rfc1123_buffer.short_months, i64 0, i64 %40
-  %42 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.0, ptr noundef nonnull %41) #30
+  %40 = getelementptr [4 x i8], ptr @png_convert_to_rfc1123_buffer.short_months, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 -4
+  %42 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.0, ptr noundef %41) #30
   %43 = icmp ult i64 %42, 28
   br i1 %43, label %44, label %47
 
@@ -1136,7 +1136,7 @@ define hidden void @png_build_grayscale_palette(i32 noundef %0, ptr noundef writ
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table.png_build_grayscale_palette, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.png_build_grayscale_palette, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = shl nuw nsw i32 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i32 %7 to i64
@@ -1298,7 +1298,7 @@ define hidden void @png_zstream_error(ptr noalias noundef captures(none) %0, i32
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.png_zstream_error, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.png_zstream_error, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -2959,27 +2959,25 @@ is_ICC_signature.exit:                            ; preds = %31
   store i8 %.0.i14.i, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %46, i64 5
   store i8 39, ptr %66, align 1
-  %67 = add i64 %16, 6
-  %68 = add i64 %16, 7
-  %69 = getelementptr inbounds [196 x i8], ptr %6, i64 0, i64 %67
-  store i8 58, ptr %69, align 1
-  %70 = add i64 %16, 8
-  %71 = getelementptr inbounds [196 x i8], ptr %6, i64 0, i64 %68
-  store i8 32, ptr %71, align 1
-  br label %76
+  %67 = getelementptr i8, ptr %46, i64 6
+  store i8 58, ptr %67, align 1
+  %68 = add i64 %16, 8
+  %69 = getelementptr i8, ptr %46, i64 7
+  store i8 32, ptr %69, align 1
+  br label %74
 
 is_ICC_signature.exit.thread:                     ; preds = %12, %23, %31, %is_ICC_signature.exit
-  %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %73 = call ptr @png_format_number(ptr noundef nonnull %7, ptr noundef nonnull %72, i32 noundef 3, i64 noundef %3) #30
-  %74 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %16, ptr noundef %73) #30
-  %75 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %74, ptr noundef nonnull @.str.73) #30
-  br label %76
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %71 = call ptr @png_format_number(ptr noundef nonnull %7, ptr noundef nonnull %70, i32 noundef 3, i64 noundef %3) #30
+  %72 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %16, ptr noundef %71) #30
+  %73 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %72, ptr noundef nonnull @.str.73) #30
+  br label %74
 
-76:                                               ; preds = %is_ICC_signature.exit.thread, %45
-  %.0 = phi i64 [ %70, %45 ], [ %75, %is_ICC_signature.exit.thread ]
-  %77 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %.0, ptr noundef %4) #30
-  %78 = select i1 %.not, i32 1, i32 2
-  call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %78) #30
+74:                                               ; preds = %is_ICC_signature.exit.thread, %45
+  %.0 = phi i64 [ %68, %45 ], [ %73, %is_ICC_signature.exit.thread ]
+  %75 = call i64 @png_safecat(ptr noundef nonnull %6, i64 noundef 196, i64 noundef %.0, ptr noundef %4) #30
+  %76 = select i1 %.not, i32 1, i32 2
+  call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %76) #30
   ret void
 }
 
@@ -3520,7 +3518,7 @@ define hidden void @png_icc_set_sRGB(ptr noalias noundef %0, ptr noalias noundef
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %166 ]
   %.05463.i = phi i32 [ 65536, %4 ], [ %.2.i, %166 ]
   %.05562.i = phi i32 [ 0, %4 ], [ %.257.i, %166 ]
-  %43 = getelementptr inbounds nuw [7 x %struct.anon], ptr @png_sRGB_checks, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw %struct.anon, ptr @png_sRGB_checks, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load i32, ptr %44, align 4, !noalias !57
   %46 = icmp eq i32 %22, %45
@@ -4784,7 +4782,7 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
   %173 = or disjoint i8 %172, 48
   %174 = add i32 %.5101219, 1
   %175 = zext i32 %.5101219 to i64
-  %176 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 %175
   store i8 %173, ptr %176, align 1
   %177 = udiv i32 %.1220, 10
   %.not148 = icmp ult i32 %.1220, 10
@@ -4807,7 +4805,7 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
   %indvars.iv = phi i64 [ %180, %.lr.ph228 ], [ %178, %.preheader185 ]
   %.15227 = phi ptr [ %183, %.lr.ph228 ], [ %.14, %.preheader185 ]
   %180 = add nsw i64 %indvars.iv, -1
-  %181 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr %7, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = getelementptr inbounds nuw i8, ptr %.15227, i64 1
   store i8 %182, ptr %.15227, align 1
@@ -4892,7 +4890,7 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
   %15 = add i8 %14, 48
   %16 = add i32 %.03648, 1
   %17 = zext i32 %.03648 to i64
-  %18 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   store i8 %15, ptr %18, align 1
   %19 = icmp eq i32 %.03449, 16
   %20 = icmp ne i32 %13, 0
@@ -4917,7 +4915,7 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
   %indvars.iv = phi i64 [ %22, %.lr.ph53.preheader ], [ %23, %.lr.ph53 ]
   %.152 = phi ptr [ %.03378, %.lr.ph53.preheader ], [ %26, %.lr.ph53 ]
   %23 = add nsw i64 %indvars.iv, -1
-  %24 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = getelementptr inbounds nuw i8, ptr %.152, i64 1
   store i8 %25, ptr %.152, align 1
@@ -4955,7 +4953,7 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
   %.23864 = phi i32 [ %34, %.lr.ph66 ], [ %.137.lcssa, %.preheader ]
   %34 = add i32 %.23864, -1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = getelementptr inbounds nuw i8, ptr %.365, i64 1
   store i8 %37, ptr %.365, align 1

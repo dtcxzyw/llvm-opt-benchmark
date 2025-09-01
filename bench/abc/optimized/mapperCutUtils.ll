@@ -61,7 +61,7 @@ declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_
 define void @Map_CutPrint(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load float, ptr %8, align 8, !tbaa !26
   %10 = fpext float %9 to double
@@ -85,7 +85,7 @@ define void @Map_CutPrint(ptr noundef readnone captures(none) %0, ptr noundef re
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !29
@@ -133,7 +133,7 @@ define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr noundef readonly captures(no
 define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %.idx = mul nsw i64 %5, 40
   %8 = getelementptr i8, ptr %7, i64 92
@@ -337,7 +337,7 @@ define noundef ptr @Map_CutInternalNodes(ptr noundef %0, ptr noundef readonly ca
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [6 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 %10, ptr %18, align 4, !tbaa !48

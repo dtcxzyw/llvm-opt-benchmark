@@ -18293,7 +18293,7 @@ if.then5:                                         ; preds = %if.then
   %2 = trunc nuw nsw i64 %add to i8
   %conv.i9 = sub nuw nsw i8 23, %2
   store i8 %conv.i9, ptr %arrayidx.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw [24 x i8], ptr %this, i64 0, i64 %add
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %this, i64 %add
   store i8 0, ptr %arrayidx2.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %sub.i
   br label %return
@@ -19128,7 +19128,7 @@ _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %if.then7.i.i, %if.
   %conv.i.i.i = sub nuw nsw i8 23, %5
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
-  %arrayidx2.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %this, i64 0, i64 %call.i.i
+  %arrayidx2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 %call.i.i
   store i8 0, ptr %arrayidx2.i.i.i, align 1
   br label %_ZN5folly13fbstring_coreIcEC2EPKcmb.exit
 

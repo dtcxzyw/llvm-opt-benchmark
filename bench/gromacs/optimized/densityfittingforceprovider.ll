@@ -3507,7 +3507,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i unwind label %298
 
 _ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %293
-  %297 = getelementptr inbounds nuw [3 x float], ptr %32, i64 0, i64 %indvars.iv.i
+  %297 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i
   store float %296, ptr %297, align 4, !tbaa !121
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -4000,7 +4000,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i96 unwind label %468, !noalias !223
 
 _ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i96: ; preds = %463
-  %467 = getelementptr inbounds nuw [9 x float], ptr %20, i64 0, i64 %indvars.iv.i94
+  %467 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i94
   store float %466, ptr %467, align 4, !tbaa !121, !noalias !223
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, 9

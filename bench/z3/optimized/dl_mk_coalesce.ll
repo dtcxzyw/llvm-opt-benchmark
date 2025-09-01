@@ -300,9 +300,9 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 24:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !218
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !218
   %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %29
@@ -1276,7 +1276,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
 291:                                              ; preds = %.lr.ph, %329
   %indvars.iv162 = phi i64 [ %280, %.lr.ph ], [ %indvars.iv.next163, %329 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %292 = getelementptr inbounds nuw [0 x ptr], ptr %281, i64 0, i64 %indvars.iv162
+  %292 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv162
   %293 = load ptr, ptr %292, align 8, !tbaa !270
   %294 = ptrtoint ptr %293 to i64
   %295 = and i64 %294, -8
@@ -2236,14 +2236,14 @@ _ZN13bool_rewriterC2ER11ast_managerRK10params_ref.exit: ; preds = %63
 
 105:                                              ; preds = %.lr.ph, %154
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %154 ]
-  %106 = getelementptr inbounds nuw [0 x ptr], ptr %100, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8, !tbaa !270
   %108 = ptrtoint ptr %107 to i64
   %109 = and i64 %108, -8
   %110 = inttoptr i64 %109 to ptr
   %111 = load ptr, ptr %1, align 8, !tbaa !249
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 80
-  %113 = getelementptr inbounds nuw [0 x ptr], ptr %112, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !270
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, -8
@@ -3357,14 +3357,14 @@ define hidden noundef zeroext i1 @_ZNK7datalog11mk_coalesce9same_bodyERKNS_4rule
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !270
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -8
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !229
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !270
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -8
@@ -3766,14 +3766,14 @@ _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_manager
 
 138:                                              ; preds = %137, %.lr.ph.i47
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i47 ], [ %indvars.iv.next.i50, %137 ]
-  %139 = getelementptr inbounds nuw [0 x ptr], ptr %135, i64 0, i64 %indvars.iv.i49
+  %139 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i49
   %140 = load ptr, ptr %139, align 8, !tbaa !270
   %141 = ptrtoint ptr %140 to i64
   %142 = and i64 %141, -8
   %143 = inttoptr i64 %142 to ptr
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !229
-  %146 = getelementptr inbounds nuw [0 x ptr], ptr %136, i64 0, i64 %indvars.iv.i49
+  %146 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv.i49
   %147 = load ptr, ptr %146, align 8, !tbaa !270
   %148 = ptrtoint ptr %147 to i64
   %149 = and i64 %148, -8

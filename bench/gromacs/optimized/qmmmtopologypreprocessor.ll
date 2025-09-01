@@ -1376,14 +1376,14 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor22modifyQMMMVirtualSitesEP10gmx_mt
 
 38:                                               ; preds = %27, %.loopexit
   %indvars.iv80 = phi i64 [ 0, %27 ], [ %indvars.iv.next81, %.loopexit ]
-  %39 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv80, i32 5
+  %39 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv80, i32 5
   %40 = load i32, ptr %39, align 4, !tbaa !98
   %41 = and i32 %40, 2
   %.not50 = icmp eq i32 %41, 0
   br i1 %.not50, label %.loopexit, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %36, i64 0, i64 %indvars.iv80
+  %43 = getelementptr inbounds nuw %struct.InteractionList, ptr %36, i64 %indvars.iv80
   %44 = load ptr, ptr %43, align 8, !tbaa !100
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !100
@@ -1391,7 +1391,7 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor22modifyQMMMVirtualSitesEP10gmx_mt
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv80, i32 2
+  %49 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv80, i32 2
   %50 = load i32, ptr %49, align 16, !tbaa !101
   %51 = add i32 %50, 1
   %52 = ptrtoint ptr %46 to i64
@@ -2092,7 +2092,7 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor31modifyQMMMTwoCenterInteractionsE
 
 37:                                               ; preds = %25, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv244 = phi i64 [ 0, %25 ], [ %indvars.iv.next245, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %38 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv244, i32 5
+  %38 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv244, i32 5
   %39 = load i32, ptr %38, align 4, !tbaa !98
   %.fr = freeze i32 %39
   %40 = and i32 %.fr, 1
@@ -2111,13 +2111,13 @@ switch.early.test:                                ; preds = %37
   ]
 
 43:                                               ; preds = %switch.early.test
-  %44 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv244, i32 2
+  %44 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv244, i32 2
   %45 = load i32, ptr %44, align 16, !tbaa !101
   %.not = icmp eq i32 %45, 2
   br i1 %.not, label %46, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %33, i64 0, i64 %indvars.iv244
+  %47 = getelementptr inbounds nuw %struct.InteractionList, ptr %33, i64 %indvars.iv244
   %48 = load ptr, ptr %47, align 8, !tbaa !100
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !100
@@ -2134,7 +2134,7 @@ switch.early.test:                                ; preds = %37
   br i1 %57, label %.lr.ph208, label %._crit_edge
 
 .lr.ph208:                                        ; preds = %.preheader
-  %58 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv244
+  %58 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv244
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 28
   br label %66
@@ -2654,7 +2654,7 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor33modifyQMMMThreeCenterInteraction
 
 39:                                               ; preds = %26, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv323 = phi i64 [ 0, %26 ], [ %indvars.iv.next324, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %40 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv323, i32 5
+  %40 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv323, i32 5
   %41 = load i32, ptr %40, align 4, !tbaa !98
   %42 = and i32 %41, 1
   %43 = icmp eq i32 %42, 0
@@ -2663,13 +2663,13 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor33modifyQMMMThreeCenterInteraction
   br i1 %or.cond, label %55, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv323, i32 2
+  %46 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv323, i32 2
   %47 = load i32, ptr %46, align 16, !tbaa !101
   %.not = icmp eq i32 %47, 3
   br i1 %.not, label %48, label %55
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %35, i64 0, i64 %indvars.iv323
+  %49 = getelementptr inbounds nuw %struct.InteractionList, ptr %35, i64 %indvars.iv323
   %50 = load ptr, ptr %49, align 8, !tbaa !100
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !100
@@ -2692,7 +2692,7 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor33modifyQMMMThreeCenterInteraction
   %57 = phi ptr [ %.pre329, %.split74 ], [ %50, %48 ]
   %58 = phi ptr [ %.pre, %.split74 ], [ %52, %48 ]
   %phi.call = phi i32 [ %56, %.split74 ], [ 3, %48 ]
-  %59 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %35, i64 0, i64 %indvars.iv323
+  %59 = getelementptr inbounds nuw %struct.InteractionList, ptr %35, i64 %indvars.iv323
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = ptrtoint ptr %58 to i64
   %62 = ptrtoint ptr %57 to i64
@@ -2704,7 +2704,7 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor33modifyQMMMThreeCenterInteraction
 
 .preheader169.lr.ph:                              ; preds = %.split
   %67 = add i32 %phi.call, 1
-  %68 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv323, i32 2
+  %68 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv323, i32 2
   %.not76257 = icmp slt i32 %phi.call, 0
   %69 = icmp eq i64 %indvars.iv323, 64
   %70 = sext i32 %67 to i64
@@ -3402,7 +3402,7 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor32modifyQMMMFourCenterInteractions
 
 33:                                               ; preds = %24, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv146 = phi i64 [ 0, %24 ], [ %indvars.iv.next147, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %34 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv146, i32 5
+  %34 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv146, i32 5
   %35 = load i32, ptr %34, align 4, !tbaa !98
   %36 = and i32 %35, 1
   %37 = icmp eq i32 %36, 0
@@ -3411,13 +3411,13 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor32modifyQMMMFourCenterInteractions
   br i1 %or.cond, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %39
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv146, i32 2
+  %40 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv146, i32 2
   %41 = load i32, ptr %40, align 16, !tbaa !101
   %.not = icmp eq i32 %41, 4
   br i1 %.not, label %42, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %32, i64 0, i64 %indvars.iv146
+  %43 = getelementptr inbounds nuw %struct.InteractionList, ptr %32, i64 %indvars.iv146
   %44 = load ptr, ptr %43, align 8, !tbaa !100
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !100
@@ -3718,20 +3718,20 @@ define void @_ZN3gmx24QMMMTopologyPreprocessor13buildQMMMLinkEP10gmx_mtop_t(ptr 
 
 37:                                               ; preds = %28, %.loopexit
   %indvars.iv146 = phi i64 [ 0, %28 ], [ %indvars.iv.next147, %.loopexit ]
-  %38 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv146, i32 5
+  %38 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv146, i32 5
   %39 = load i32, ptr %38, align 4, !tbaa !98
   %40 = and i32 %39, 8
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %.loopexit, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv146, i32 2
+  %42 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv146, i32 2
   %43 = load i32, ptr %42, align 16, !tbaa !101
   %.not42 = icmp eq i32 %43, 2
   br i1 %.not42, label %44, label %.loopexit
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %36, i64 0, i64 %indvars.iv146
+  %45 = getelementptr inbounds nuw %struct.InteractionList, ptr %36, i64 %indvars.iv146
   %46 = load ptr, ptr %45, align 8, !tbaa !100
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !100
@@ -5563,7 +5563,7 @@ define linkonce_odr void @_ZN13gmx_moltype_tC2ERKS_(ptr noundef nonnull align 8 
   %.idx.i = mul nuw nsw i64 %5, 24
   %.add7 = add nuw nsw i64 %.idx.i, 80
   %.ptr10 = getelementptr inbounds nuw i8, ptr %0, i64 %.add7
-  %6 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !184
   %9 = load ptr, ptr %6, align 8, !tbaa !185

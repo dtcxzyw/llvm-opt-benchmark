@@ -4031,7 +4031,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI14label_rewriterE11process_ap
 
 19:                                               ; preds = %15
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !74
   %23 = and i32 %16, -64
   %24 = add i32 %23, 64
@@ -8153,7 +8153,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI14label_rewriterE11process_ap
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !74
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

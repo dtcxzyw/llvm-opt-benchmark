@@ -358,7 +358,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
   %191 = load ptr, ptr %160, align 8, !tbaa !28
   %192 = getelementptr inbounds nuw i64, ptr %191, i64 %indvars.iv.i
   %193 = load i64, ptr %192, align 8, !tbaa !29
-  %194 = getelementptr inbounds nuw [3 x i32], ptr @__const.SzFolder_Decode2.indices, i64 0, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw i32, ptr @__const.SzFolder_Decode2.indices, i64 %indvars.iv.i
   %195 = load i32, ptr %194, align 4, !tbaa !22
   %196 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %196, label %197, label %202
@@ -383,7 +383,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
   %207 = sub nuw nsw i64 1, %indvars.iv.i
   %208 = getelementptr inbounds nuw ptr, ptr %27, i64 %207
   store ptr %199, ptr %208, align 8, !tbaa !32
-  %209 = getelementptr inbounds nuw [3 x i64], ptr %25, i64 0, i64 %207
+  %209 = getelementptr inbounds nuw i64, ptr %25, i64 %207
   store i64 %193, ptr %209, align 8, !tbaa !33
   br i1 %.not207294.i, label %SzFolder_Decode2.exit, label %.lr.ph.preheader.i.i
 
@@ -953,7 +953,7 @@ SzFolder_Decode2.exit:                            ; preds = %197, %202, %204, %2
 391:                                              ; preds = %SzFolder_Decode2.exit, %391
   %indvars.iv = phi i64 [ 0, %SzFolder_Decode2.exit ], [ %indvars.iv.next, %391 ]
   %392 = load ptr, ptr %390, align 8, !tbaa !63
-  %393 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %393 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %394 = load ptr, ptr %393, align 8, !tbaa !32
   call void %392(ptr noundef %6, ptr noundef %394) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

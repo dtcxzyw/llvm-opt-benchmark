@@ -86,7 +86,7 @@ define hidden zeroext i1 @ir_check(ptr noundef readonly captures(none) %0) local
 
 22:                                               ; preds = %15
   %23 = zext nneg i8 %16 to i64
-  %24 = getelementptr inbounds nuw [108 x i32], ptr @ir_op_flags, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !30
   %26 = and i32 %25, 3
   %27 = and i32 %25, 4
@@ -180,7 +180,7 @@ ir_input_edges_count.exit:                        ; preds = %22, %28
 69:                                               ; preds = %60
   %70 = load i8, ptr %63, align 8, !tbaa !27
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [108 x i32], ptr @ir_op_flags, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !30
   %74 = and i32 %73, 256
   %.not320 = icmp eq i32 %74, 0
@@ -285,10 +285,10 @@ ir_input_edges_count.exit:                        ; preds = %22, %28
 
 111:                                              ; preds = %109
   %112 = zext i8 %108 to i64
-  %113 = getelementptr inbounds nuw [14 x i8], ptr @ir_type_size, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @ir_type_size, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !27
   %115 = zext i8 %106 to i64
-  %116 = getelementptr inbounds nuw [14 x i8], ptr @ir_type_size, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @ir_type_size, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !27
   %118 = icmp ult i8 %114, %117
   br i1 %118, label %131, label %.thread
@@ -388,7 +388,7 @@ ir_check_domination.exit.thread:                  ; preds = %.preheader.i, %150,
 161:                                              ; preds = %60
   %162 = load i8, ptr %63, align 8, !tbaa !27
   %163 = zext i8 %162 to i64
-  %164 = getelementptr inbounds nuw [108 x i32], ptr @ir_op_flags, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !30
   %166 = and i32 %165, 8192
   %.not318 = icmp eq i32 %166, 0
@@ -449,7 +449,7 @@ ir_check_domination.exit.thread:                  ; preds = %.preheader.i, %150,
 194:                                              ; preds = %60
   %195 = load i8, ptr %63, align 8, !tbaa !27
   %196 = zext i8 %195 to i64
-  %197 = getelementptr inbounds nuw [108 x i32], ptr @ir_op_flags, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !30
   %199 = and i32 %198, 512
   %.not312 = icmp eq i32 %199, 0
@@ -608,14 +608,14 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
   br i1 %271, label %273, label %._crit_edge399
 
 273:                                              ; preds = %270
-  %274 = getelementptr inbounds nuw [14 x i8], ptr @ir_type_size, i64 0, i64 %272
+  %274 = getelementptr inbounds nuw i8, ptr @ir_type_size, i64 %272
   %275 = load i8, ptr %274, align 1, !tbaa !27
   %.not300 = icmp eq i8 %275, %14
   br i1 %.not300, label %328, label %._crit_edge399
 
 ._crit_edge399:                                   ; preds = %270, %273
   %276 = load ptr, ptr @stderr, align 8, !tbaa !28
-  %277 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_name, i64 0, i64 %272
+  %277 = getelementptr inbounds nuw ptr, ptr @ir_type_name, i64 %272
   %278 = load ptr, ptr %277, align 8, !tbaa !41
   %279 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.16, i32 noundef %.0262389, ptr noundef %278) #4
   br label %328
@@ -633,7 +633,7 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
 287:                                              ; preds = %280
   %288 = load ptr, ptr @stderr, align 8, !tbaa !28
   %289 = zext i8 %286 to i64
-  %290 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %289
   %291 = load ptr, ptr %290, align 8, !tbaa !41
   %292 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.17, i32 noundef %.0262389, ptr noundef %291) #4
   br label %328
@@ -727,7 +727,7 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
   %343 = getelementptr inbounds %struct._ir_insn, ptr %.val343, i64 %342
   %344 = load i8, ptr %343, align 8, !tbaa !27
   %345 = zext i8 %344 to i64
-  %346 = getelementptr inbounds nuw [108 x i32], ptr @ir_op_flags, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %345
   %347 = load i32, ptr %346, align 4, !tbaa !30
   %348 = and i32 %347, 3
   %349 = and i32 %347, 4
@@ -833,7 +833,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
 .thread356:                                       ; preds = %376, %377, %388
   %389 = load ptr, ptr @stderr, align 8, !tbaa !28
   %390 = zext nneg i8 %366 to i64
-  %391 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %390
   %392 = load ptr, ptr %391, align 8, !tbaa !41
   %393 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %389, ptr noundef nonnull @.str.23, i32 noundef %.0262389, ptr noundef %392, i32 noundef %.lcssa364) #4
   br label %446
@@ -859,7 +859,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %404 = getelementptr inbounds %struct._ir_insn, ptr %400, i64 %403
   %405 = load i8, ptr %404, align 8, !tbaa !27
   %406 = zext i8 %405 to i64
-  %407 = getelementptr inbounds nuw [108 x i32], ptr @ir_op_flags, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %406
   %408 = load i32, ptr %407, align 4, !tbaa !30
   %409 = lshr i32 %408, 9
   %410 = and i32 %409, 1
@@ -925,7 +925,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
 440:                                              ; preds = %437
   %441 = load ptr, ptr @stderr, align 8, !tbaa !28
   %442 = zext i8 %366 to i64
-  %443 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %442
   %444 = load ptr, ptr %443, align 8, !tbaa !41
   %445 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %441, ptr noundef nonnull @.str.24, i32 noundef %.0262389, ptr noundef %444, i32 noundef %.2) #4
   br label %446

@@ -2957,7 +2957,7 @@ define dso_local void @build_open_how(ptr dead_on_unwind noalias writable writeo
 define dso_local noundef range(i32 -22, 1) i32 @build_open_flags(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, 3
-  %5 = getelementptr [5 x i8], ptr @.str.1, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @.str.1, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i64 %3, 7864259

@@ -25882,7 +25882,7 @@ _ZNK4llvm11ConstantInt15getLimitedValueEm.exit:   ; preds = %31, %_ZNK4llvm5APIn
   %.0.in.i.i.i.i = select i1 %35, ptr %32, ptr %39
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !125
   %40 = trunc i64 %.0.i.i.i.i to i32
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %40, ptr %41, align 4, !tbaa !47
   %42 = icmp ult i32 %40, 8
   br i1 %42, label %43, label %.critedge
@@ -28623,9 +28623,9 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl14visitFenceInstERNS_9Fence
   %14 = and i16 %13, 7
   %15 = and i16 %.val, 7
   %16 = zext nneg i16 %14 to i64
-  %17 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %16
   %18 = zext nneg i16 %15 to i64
-  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !308, !range !52, !noundef !53
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %.critedge
@@ -28658,9 +28658,9 @@ _ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit: ; preds
   %32 = and i16 %31, 7
   %33 = and i16 %.val22, 7
   %34 = zext nneg i16 %32 to i64
-  %35 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %34
   %36 = zext nneg i16 %33 to i64
-  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !308, !range !52, !noundef !53
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread

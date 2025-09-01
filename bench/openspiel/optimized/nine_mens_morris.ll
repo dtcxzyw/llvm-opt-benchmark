@@ -671,7 +671,7 @@ define noundef range(i32 -3, 2) i32 @_ZN10open_spiel16nine_mens_morris13StateToP
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -734,7 +734,7 @@ _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %1, %12
 
 24:                                               ; preds = %17, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
   %indvars.iv111 = phi i64 [ 0, %17 ], [ %indvars.iv.next112, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %25 = getelementptr inbounds nuw [24 x i32], ptr %22, i64 0, i64 %indvars.iv111
+  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv111
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -772,7 +772,7 @@ common.resume:                                    ; preds = %179, %181, %122, %1
 
 switch.lookup:                                    ; preds = %24
   %35 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -858,7 +858,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [2 x i32], ptr %68, i64 0, i64 %71
+  %72 = getelementptr inbounds i32, ptr %68, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.preheader, label %108
@@ -871,7 +871,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 77:                                               ; preds = %.preheader, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit49
   %78 = phi ptr [ %13, %.preheader ], [ %107, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit49 ]
   %indvars.iv107 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next108, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit49 ]
-  %79 = getelementptr inbounds nuw [24 x i32], ptr %75, i64 0, i64 %indvars.iv107
+  %79 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv107
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit49
@@ -944,7 +944,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit49:         ; preds = %_ZNSt6vectorIlSaIlE
 
 108:                                              ; preds = %67
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %110 = getelementptr inbounds [2 x i32], ptr %109, i64 0, i64 %71
+  %110 = getelementptr inbounds i32, ptr %109, i64 %71
   %111 = load i32, ptr %110, align 4
   %112 = icmp sgt i32 %111, 3
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -954,7 +954,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit49:         ; preds = %_ZNSt6vectorIlSaIlE
 .preheader82:                                     ; preds = %108, %.loopexit81
   %115 = phi ptr [ %171, %.loopexit81 ], [ %13, %108 ]
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.loopexit81 ], [ 0, %108 ]
-  %116 = getelementptr inbounds nuw [24 x i32], ptr %113, i64 0, i64 %indvars.iv103
+  %116 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv103
   %117 = load i32, ptr %116, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -986,7 +986,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit49:         ; preds = %_ZNSt6vectorIlSaIlE
 
 switch.lookup142:                                 ; preds = %.preheader82
   %126 = zext nneg i32 %117 to i64
-  %switch.gep143 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 0, i64 %126
+  %switch.gep143 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 %126
   %switch.load144 = load i32, ptr %switch.gep143, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -995,7 +995,7 @@ switch.lookup142:                                 ; preds = %.preheader82
   br i1 %128, label %.preheader80, label %.loopexit81
 
 .preheader80:                                     ; preds = %switch.lookup142
-  %129 = getelementptr inbounds nuw [24 x %"struct.std::array.13"], ptr @_ZN10open_spiel16nine_mens_morris12_GLOBAL__N_115kPointNeighborsE, i64 0, i64 %indvars.iv103
+  %129 = getelementptr inbounds nuw %"struct.std::array.13", ptr @_ZN10open_spiel16nine_mens_morris12_GLOBAL__N_115kPointNeighborsE, i64 %indvars.iv103
   %130 = trunc i64 %indvars.iv103 to i32
   %131 = mul i32 %130, 24
   %132 = add i32 %131, 24
@@ -1004,14 +1004,14 @@ switch.lookup142:                                 ; preds = %.preheader82
 133:                                              ; preds = %.preheader80, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit60
   %134 = phi ptr [ %115, %.preheader80 ], [ %170, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit60 ]
   %indvars.iv99 = phi i64 [ 0, %.preheader80 ], [ %indvars.iv.next100, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit60 ]
-  %135 = getelementptr inbounds nuw [4 x i32], ptr %129, i64 0, i64 %indvars.iv99
+  %135 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv99
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit60
 
 138:                                              ; preds = %133
   %139 = zext nneg i32 %136 to i64
-  %140 = getelementptr inbounds nuw [24 x i32], ptr %113, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr %113, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit60
@@ -1093,7 +1093,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit60:         ; preds = %_ZNSt6vectorIlSaIlE
 .preheader85:                                     ; preds = %108, %.loopexit84
   %172 = phi ptr [ %222, %.loopexit84 ], [ %13, %108 ]
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.loopexit84 ], [ 0, %108 ]
-  %173 = getelementptr inbounds nuw [24 x i32], ptr %113, i64 0, i64 %indvars.iv95
+  %173 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv95
   %174 = load i32, ptr %173, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1125,7 +1125,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit60:         ; preds = %_ZNSt6vectorIlSaIlE
 
 switch.lookup145:                                 ; preds = %.preheader85
   %183 = zext nneg i32 %174 to i64
-  %switch.gep146 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 0, i64 %183
+  %switch.gep146 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 %183
   %switch.load147 = load i32, ptr %switch.gep146, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1145,7 +1145,7 @@ switch.lookup145:                                 ; preds = %.preheader85
   br i1 %190, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit71, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds nuw [24 x i32], ptr %113, i64 0, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv
   %193 = load i32, ptr %192, align 4
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %195, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit71
@@ -1242,7 +1242,7 @@ define noundef zeroext i1 @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisSta
 
 6:                                                ; preds = %2, %23
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
-  %7 = getelementptr inbounds nuw [24 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1279,7 +1279,7 @@ define noundef zeroext i1 @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisSta
 
 switch.lookup:                                    ; preds = %6
   %18 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1310,7 +1310,7 @@ define noundef zeroext i1 @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisSta
   %7 = alloca [2 x i32], align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [24 x i32], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1378,7 +1378,7 @@ _ZN10open_spiel16nine_mens_morris13StateToPlayerENS0_9CellStateE.exit: ; preds =
   %.026.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.026.idx48
   %24 = load i32, ptr %.026.ptr, align 4
   %25 = sext i32 %24 to i64
-  %invariant.gep = getelementptr [4 x i32], ptr @_ZN10open_spiel16nine_mens_morris12_GLOBAL__N_115kPointNeighborsE, i64 0, i64 %25
+  %invariant.gep = getelementptr i32, ptr @_ZN10open_spiel16nine_mens_morris12_GLOBAL__N_115kPointNeighborsE, i64 %25
   %26 = add i32 %.02847, 2
   br label %27
 
@@ -1387,14 +1387,14 @@ _ZN10open_spiel16nine_mens_morris13StateToPlayerENS0_9CellStateE.exit: ; preds =
   %.02545 = phi i32 [ %1, %23 ], [ %30, %44 ]
   %.144 = phi i32 [ %.02847, %23 ], [ %45, %44 ]
   %29 = sext i32 %.02545 to i64
-  %gep = getelementptr [24 x %"struct.std::array.13"], ptr %invariant.gep, i64 0, i64 %29
+  %gep = getelementptr %"struct.std::array.13", ptr %invariant.gep, i64 %29
   %30 = load i32, ptr %gep, align 4
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %27
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw [24 x i32], ptr %8, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %8, i64 %33
   %35 = load i32, ptr %34, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1505,7 +1505,7 @@ _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %2, %28
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %35 = getelementptr inbounds [24 x i32], ptr %34, i64 0, i64 %1
+  %35 = getelementptr inbounds i32, ptr %34, i64 %1
   %36 = load i32, ptr %35, align 4
   %.not18 = icmp eq i32 %36, 0
   br i1 %33, label %37, label %70
@@ -1599,7 +1599,7 @@ _ZN10open_spiel16nine_mens_morris13StateToPlayerENS0_9CellStateE.exit: ; preds =
 59:                                               ; preds = %_ZN10open_spiel16nine_mens_morris13StateToPlayerENS0_9CellStateE.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %61 = zext nneg i32 %.04.i to i64
-  %62 = getelementptr inbounds nuw [2 x i32], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, -1
   store i32 %64, ptr %62, align 4
@@ -1688,7 +1688,7 @@ _ZN10open_spiel16nine_mens_morris13PlayerToStateEi.exit: ; preds = %75, %78
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %92 = load i32, ptr %76, align 4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [2 x i32], ptr %91, i64 0, i64 %93
+  %94 = getelementptr inbounds i32, ptr %91, i64 %93
   %95 = load i32, ptr %94, align 4
   store i32 %95, ptr %16, align 4
   store i32 0, ptr %17, align 4
@@ -1738,8 +1738,8 @@ _ZN10open_spiel16nine_mens_morris13PlayerToStateEi.exit: ; preds = %75, %78
   %116 = trunc nuw nsw i64 %115 to i32
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %sext = shl i64 %114, 32
-  %118 = ashr exact i64 %sext, 32
-  %119 = getelementptr inbounds [24 x i32], ptr %117, i64 0, i64 %118
+  %118 = ashr exact i64 %sext, 30
+  %119 = getelementptr inbounds i8, ptr %117, i64 %118
   %120 = load i32, ptr %119, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1776,7 +1776,7 @@ _ZN10open_spiel16nine_mens_morris13PlayerToStateEi.exit: ; preds = %75, %78
 
 switch.lookup:                                    ; preds = %112
   %130 = zext nneg i32 %120 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 0, i64 %130
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel16nine_mens_morris19NineMensMorrisState13DoApplyActionEl, i64 %130
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1801,7 +1801,7 @@ switch.lookup:                                    ; preds = %112
   br label %common.resume
 
 137:                                              ; preds = %switch.lookup
-  %138 = getelementptr inbounds nuw [24 x i32], ptr %117, i64 0, i64 %115
+  %138 = getelementptr inbounds nuw i32, ptr %117, i64 %115
   %139 = load i32, ptr %138, align 4
   %.not16 = icmp eq i32 %139, 0
   br i1 %.not16, label %144, label %140
@@ -2821,11 +2821,11 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit32:           ; preds = %77
 
 129:                                              ; preds = %127, %149
   %indvars.iv = phi i64 [ 0, %127 ], [ %indvars.iv.next, %149 ]
-  %130 = getelementptr inbounds nuw [24 x %"struct.std::array.6"], ptr @_ZN10open_spiel16nine_mens_morris12_GLOBAL__N_115kPointStrCoordsE, i64 0, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw %"struct.std::array.6", ptr @_ZN10open_spiel16nine_mens_morris12_GLOBAL__N_115kPointStrCoordsE, i64 %indvars.iv
   %131 = load i32, ptr %130, align 4
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds nuw [24 x i32], ptr %128, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv
   %135 = load i32, ptr %134, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3493,7 +3493,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 
 61:                                               ; preds = %58
   %62 = sext i32 %.12741 to i64
-  %63 = getelementptr inbounds [24 x i32], ptr %50, i64 0, i64 %62
+  %63 = getelementptr inbounds i32, ptr %50, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 1
   %66 = icmp eq i32 %64, 2
@@ -3557,10 +3557,10 @@ select.unfold:                                    ; preds = %77, %61, %72
 81:                                               ; preds = %81, %select.unfold
   %indvars.iv.i.i = phi i64 [ 0, %select.unfold ], [ %indvars.iv.next.i.i, %81 ]
   %.078.i.i = phi i32 [ 0, %select.unfold ], [ %87, %81 ]
-  %82 = getelementptr inbounds nuw [3 x i32], ptr %39, i64 0, i64 %indvars.iv.i.i
+  %82 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i.i
   %83 = load i32, ptr %82, align 4
   %84 = mul nsw i32 %83, %.078.i.i
-  %85 = getelementptr inbounds nuw [3 x i32], ptr %20, i64 0, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i
   %86 = load i32, ptr %85, align 4
   %87 = add nsw i32 %84, %86
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

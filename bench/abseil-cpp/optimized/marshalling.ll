@@ -124,7 +124,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !7
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !7
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -134,7 +134,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !7
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !7
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -144,7 +144,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !7
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !7
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -154,7 +154,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !7
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !7
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -179,7 +179,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !7
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !7
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -190,7 +190,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !7
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !7
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !7
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !7
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -234,14 +234,14 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: 
 
 72:                                               ; preds = %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, %70
   %.01529 = phi i64 [ 0, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %71, %70 ]
-  %73 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kTrue, i64 0, i64 %.01529
+  %73 = getelementptr inbounds nuw ptr, ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kTrue, i64 %.01529
   %74 = load ptr, ptr %73, align 8, !tbaa !17
   %75 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #18
   %76 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.speculated.i.i.i, ptr %7, i64 %75, ptr nonnull %74) #18
   br i1 %76, label %.critedge.sink.split, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kFalse, i64 0, i64 %.01529
+  %78 = getelementptr inbounds nuw ptr, ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kFalse, i64 %.01529
   %79 = load ptr, ptr %78, align 8, !tbaa !17
   %80 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #18
   %81 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.speculated.i.i.i, ptr %7, i64 %80, ptr nonnull %79) #18
@@ -310,7 +310,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !26
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !26
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -320,7 +320,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !26
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !26
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -330,7 +330,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !26
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !26
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -340,7 +340,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !26
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !26
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -365,7 +365,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !26
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !26
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -376,7 +376,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !26
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !26
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -387,7 +387,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !26
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !26
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -498,7 +498,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !33
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !33
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -508,7 +508,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !33
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !33
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -518,7 +518,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !33
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !33
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -528,7 +528,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !33
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !33
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -553,7 +553,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !33
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !33
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -564,7 +564,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !33
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !33
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -575,7 +575,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !33
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !33
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -681,7 +681,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !40
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !40
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -691,7 +691,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !40
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !40
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -701,7 +701,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !40
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !40
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -711,7 +711,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !40
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !40
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -736,7 +736,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !40
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !40
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -747,7 +747,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !40
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !40
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -758,7 +758,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !40
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !40
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -852,7 +852,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !49
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !49
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -862,7 +862,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !49
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !49
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -872,7 +872,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !49
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !49
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -882,7 +882,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !49
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !49
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -907,7 +907,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !49
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !49
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -918,7 +918,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !49
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !49
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -929,7 +929,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !49
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !49
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -1023,7 +1023,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !56
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !56
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -1033,7 +1033,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !56
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !56
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -1043,7 +1043,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !56
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !56
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -1053,7 +1053,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !56
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !56
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -1078,7 +1078,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !56
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !56
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -1089,7 +1089,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !56
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !56
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -1100,7 +1100,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !56
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !56
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -1194,7 +1194,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !65
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !65
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -1204,7 +1204,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !65
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !65
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -1214,7 +1214,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !65
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !65
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -1224,7 +1224,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !65
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !65
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -1249,7 +1249,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !65
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !65
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -1260,7 +1260,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !65
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !65
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -1271,7 +1271,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl14flags_internal13Pars
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !65
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !65
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -1358,7 +1358,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !72
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !72
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -1368,7 +1368,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !72
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !72
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -1378,7 +1378,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !72
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !72
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -1388,7 +1388,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !72
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !72
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -1413,7 +1413,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !72
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !72
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -1424,7 +1424,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !72
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !72
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -1435,7 +1435,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !72
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !72
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -1538,7 +1538,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %13 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !4, !noalias !79
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4, !noalias !79
   %18 = and i8 %17, 8
   %.not.i.i = icmp eq i8 %18, 0
@@ -1548,7 +1548,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %20 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !4, !noalias !79
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4, !noalias !79
   %25 = and i8 %24, 8
   %.not9.i.i = icmp eq i8 %25, 0
@@ -1558,7 +1558,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %27 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %28 = load i8, ptr %27, align 1, !tbaa !4, !noalias !79
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4, !noalias !79
   %32 = and i8 %31, 8
   %.not10.i.i = icmp eq i8 %32, 0
@@ -1568,7 +1568,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %34 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !79
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !79
   %39 = and i8 %38, 8
   %.not11.i.i = icmp eq i8 %39, 0
@@ -1593,7 +1593,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %45 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !4, !noalias !79
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4, !noalias !79
   %50 = and i8 %49, 8
   %.not12.i.i = icmp eq i8 %50, 0
@@ -1604,7 +1604,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %52 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %53 = load i8, ptr %52, align 1, !tbaa !4, !noalias !79
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !79
   %57 = and i8 %56, 8
   %.not13.i.i = icmp eq i8 %57, 0
@@ -1615,7 +1615,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   %59 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !4, !noalias !79
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !4, !noalias !79
   %64 = and i8 %63, 8
   %.not14.i.i = icmp eq i8 %64, 0
@@ -3237,7 +3237,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_vi
   %14 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %15 = load i8, ptr %14, align 1, !tbaa !4, !noalias !189
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !4, !noalias !189
   %19 = and i8 %18, 8
   %.not.i.i = icmp eq i8 %19, 0
@@ -3247,7 +3247,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_vi
   %21 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %22 = load i8, ptr %21, align 1, !tbaa !4, !noalias !189
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !4, !noalias !189
   %26 = and i8 %25, 8
   %.not9.i.i = icmp eq i8 %26, 0
@@ -3257,7 +3257,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_vi
   %28 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %29 = load i8, ptr %28, align 1, !tbaa !4, !noalias !189
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !4, !noalias !189
   %33 = and i8 %32, 8
   %.not10.i.i = icmp eq i8 %33, 0
@@ -3267,7 +3267,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_vi
   %35 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %36 = load i8, ptr %35, align 1, !tbaa !4, !noalias !189
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !4, !noalias !189
   %40 = and i8 %39, 8
   %.not11.i.i = icmp eq i8 %40, 0
@@ -3292,7 +3292,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_vi
   %46 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %47 = load i8, ptr %46, align 1, !tbaa !4, !noalias !189
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !4, !noalias !189
   %51 = and i8 %50, 8
   %.not12.i.i = icmp eq i8 %51, 0
@@ -3303,7 +3303,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_vi
   %53 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %54 = load i8, ptr %53, align 1, !tbaa !4, !noalias !189
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !4, !noalias !189
   %58 = and i8 %57, 8
   %.not13.i.i = icmp eq i8 %58, 0
@@ -3314,7 +3314,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_vi
   %60 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %61 = load i8, ptr %60, align 1, !tbaa !4, !noalias !189
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !4, !noalias !189
   %65 = and i8 %64, 8
   %.not14.i.i = icmp eq i8 %65, 0
@@ -3445,7 +3445,7 @@ define dso_local void @_ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE(ptr de
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !102
@@ -3565,7 +3565,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.02946.i.i.i = phi ptr [ %36, %35 ], [ %1, %.lr.ph.i.i.i.preheader ]
   %9 = load i8, ptr %.02946.i.i.i, align 1, !tbaa !4
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -3575,7 +3575,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !4
   %20 = and i8 %19, 8
   %.not5 = icmp eq i8 %20, 0
@@ -3585,7 +3585,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = and i8 %26, 8
   %.not6 = icmp eq i8 %27, 0
@@ -3595,7 +3595,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = and i8 %33, 8
   %.not7 = icmp eq i8 %34, 0
@@ -3624,7 +3624,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
 40:                                               ; preds = %._crit_edge.i.i.i
   %41 = load i8, ptr %.029.lcssa.i.i.i, align 1, !tbaa !4
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = and i8 %44, 8
   %.not8 = icmp eq i8 %45, 0
@@ -3638,7 +3638,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.1.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i, align 1, !tbaa !4
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !4
   %53 = and i8 %52, 8
   %.not9 = icmp eq i8 %53, 0
@@ -3652,7 +3652,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.2.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i, align 1, !tbaa !4
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = and i8 %60, 8
   %.not10 = icmp eq i8 %61, 0
@@ -3972,7 +3972,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   %41 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre23, %.preheader.preheader ]
   %42 = phi ptr [ %61, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %67, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %43 = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %4, i64 0, i64 %.0
+  %43 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
   store ptr %42, ptr %43, align 8, !tbaa !230
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %41, ptr %44, align 8, !tbaa !232

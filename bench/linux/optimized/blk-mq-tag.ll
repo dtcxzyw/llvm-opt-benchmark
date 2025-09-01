@@ -341,7 +341,7 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = zext i32 %73 to i64
-  %78 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %77
+  %78 = getelementptr i64, ptr @__per_cpu_offset, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %76
   %81 = inttoptr i64 %80 to ptr
@@ -354,7 +354,7 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   %87 = icmp eq i32 %86, 0
   %88 = zext i1 %87 to i64
   %89 = select i1 %85, i64 %88, i64 2
-  %90 = getelementptr [3 x ptr], ptr %83, i64 0, i64 %89
+  %90 = getelementptr ptr, ptr %83, i64 %89
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %7, align 8
   %92 = load i32, ptr %3, align 4

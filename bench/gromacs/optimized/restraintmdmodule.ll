@@ -285,7 +285,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   %.not.i.i.i.i.i = phi i1 [ true, %87 ], [ false, %98 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %87 ], [ 1, %98 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %87 ], [ %.1.i.i.i.i.i, %98 ]
-  %93 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %93 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i
   %94 = load i8, ptr %93, align 1, !tbaa !70, !range !71, !noundef !72
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %98
@@ -393,7 +393,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %120, %101, %_ZNK11g
   %.not.i.i.i.i.i76 = phi i1 [ true, %144 ], [ false, %155 ]
   %.0813.i.i.i.i.i77 = phi i64 [ 0, %144 ], [ 1, %155 ]
   %.0912.i.i.i.i.i78 = phi i64 [ 2, %144 ], [ %.1.i.i.i.i.i79, %155 ]
-  %150 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i77
+  %150 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i77
   %151 = load i8, ptr %150, align 1, !tbaa !70, !range !71, !noundef !72
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %155
@@ -1239,7 +1239,7 @@ define linkonce_odr { <2 x float>, float } @_ZN3gmx4Site12centerOfMassERK9t_comm
   %.not.i.i.i.i.i = phi i1 [ true, %9 ], [ false, %21 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %9 ], [ 1, %21 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %9 ], [ %.1.i.i.i.i.i, %21 ]
-  %16 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !70, !range !71, !noundef !72
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %21

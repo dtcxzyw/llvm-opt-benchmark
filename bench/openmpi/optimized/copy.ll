@@ -171,7 +171,7 @@ switch.hole_check:                                ; preds = %3
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [43 x i64], ptr @switch.table.pmix20_bfrop_std_copy, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.pmix20_bfrop_std_copy, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = tail call noalias ptr @malloc(i64 noundef %switch.load) #16
   %7 = icmp eq ptr %6, null

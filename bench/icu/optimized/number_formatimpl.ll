@@ -1144,10 +1144,10 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKN
   %91 = add nsw i32 %86, -10
   %92 = icmp ult i32 %91, -9
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 264
-  %94 = add nuw nsw i32 %86, 17
-  %95 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %96 = zext nneg i32 %94 to i64
-  %97 = getelementptr inbounds nuw [29 x %"class.icu_77::UnicodeString"], ptr %95, i64 0, i64 %96
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %95 = zext nneg i32 %86 to i64
+  %96 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %94, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1088
   %.0.i.i.i = select i1 %92, ptr %93, ptr %97
   %98 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i
@@ -1979,7 +1979,7 @@ _ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit: ; preds =
 
 switch.lookup:                                    ; preds = %_ZN6icu_776number4impl5utils14unitIsBaseUnitERKNS_11MeasureUnitE.exit
   %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6icu_776number4impl19NumberFormatterImpl22macrosToMicroGeneratorERKNS1_10MacroPropsEbR10UErrorCode, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_776number4impl19NumberFormatterImpl22macrosToMicroGeneratorERKNS1_10MacroPropsEbR10UErrorCode, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge
 
@@ -3888,10 +3888,10 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl18writeIntegerDig
   %33 = add nsw i32 %28, -10
   %34 = icmp ult i32 %33, -9
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 264
-  %36 = add nuw nsw i32 %28, 17
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw [29 x %"class.icu_77::UnicodeString"], ptr %37, i64 0, i64 %38
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %37 = zext nneg i32 %28 to i64
+  %38 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1088
   %.0.i.i = select i1 %34, ptr %35, ptr %39
   %40 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 32, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit
@@ -3944,10 +3944,10 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl19writeFractionDi
   %22 = add nsw i32 %17, -10
   %23 = icmp ult i32 %22, -9
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 264
-  %25 = add nuw nsw i32 %17, 17
-  %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw [29 x %"class.icu_77::UnicodeString"], ptr %26, i64 0, i64 %27
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %26 = zext nneg i32 %17 to i64
+  %27 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1088
   %.0.i.i = select i1 %23, ptr %24, ptr %28
   %29 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %2, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 33, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_776number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit

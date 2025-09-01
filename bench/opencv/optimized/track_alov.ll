@@ -270,7 +270,7 @@ define hidden void @_ZN2cv8datasets14TRACK_alovImpl11loadDatasetERKNSt7__cxx1112
   %.sroa.0365.0988 = phi ptr [ null, %2 ], [ %.sroa.0365.4, %._crit_edge ]
   %.sroa.8.0987 = phi ptr [ null, %2 ], [ %.sroa.8.2, %._crit_edge ]
   %.sroa.11.0986 = phi ptr [ null, %2 ], [ %.sroa.11.2, %._crit_edge ]
-  %34 = getelementptr inbounds nuw [14 x i32], ptr @_ZN2cv8datasetsL12sectionSizesE, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr @_ZN2cv8datasetsL12sectionSizesE, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !12
   %smax = call i32 @llvm.smax.i32(i32 %35, i32 1)
   %36 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1422,7 +1422,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8datasets13TRACK_alovObjEEESaIS4_EED2Ev.exit164: ; pre
 .lr.ph992.preheader:                              ; preds = %._crit_edge993, %.preheader394
   %indvars.iv1135 = phi i64 [ 0, %.preheader394 ], [ %indvars.iv.next1136, %._crit_edge993 ]
   %.027996 = phi i64 [ 0, %.preheader394 ], [ %indvars.iv.next1133, %._crit_edge993 ]
-  %440 = getelementptr inbounds nuw [14 x i32], ptr @_ZN2cv8datasetsL12sectionSizesE, i64 0, i64 %indvars.iv1135
+  %440 = getelementptr inbounds nuw i32, ptr @_ZN2cv8datasetsL12sectionSizesE, i64 %indvars.iv1135
   %441 = load i32, ptr %440, align 4, !tbaa !12
   %sext = shl i64 %.027996, 32
   %442 = ashr exact i64 %sext, 32
@@ -2730,7 +2730,7 @@ define hidden void @_ZN2cv8datasets14TRACK_alovImpl24loadDatasetAnnotatedOnlyERK
   %.sroa.0237.0965 = phi ptr [ null, %2 ], [ %.sroa.0237.3, %._crit_edge ]
   %.sroa.8.0964 = phi ptr [ null, %2 ], [ %.sroa.8.3, %._crit_edge ]
   %.sroa.11.0963 = phi ptr [ null, %2 ], [ %.sroa.11.3, %._crit_edge ]
-  %74 = getelementptr inbounds nuw [14 x i32], ptr @_ZN2cv8datasetsL12sectionSizesE, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr @_ZN2cv8datasetsL12sectionSizesE, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4, !tbaa !12
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph
@@ -4645,7 +4645,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %46 = sext i32 %3 to i64
-  %47 = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 0, i64 %46
+  %47 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 %46
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !11, !noalias !172
@@ -5371,7 +5371,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %43 = sext i32 %3 to i64
-  %44 = getelementptr inbounds [14 x %"class.std::__cxx11::basic_string"], ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 0, i64 %43
+  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 %43
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !11, !noalias !189

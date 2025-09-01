@@ -52,10 +52,10 @@ define hidden range(i32 -1, 2) i32 @toshiba_open(ptr noundef captures(none) %0, 
 .lr.ph.i:                                         ; preds = %13, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %13 ]
   %.01721.i = phi i32 [ %.1.i, %26 ], [ 0, %13 ]
-  %17 = getelementptr [240 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr i8, ptr %4, i64 %indvars.iv.i
   %18 = load i8, ptr %17, align 1
   %19 = zext nneg i32 %.01721.i to i64
-  %20 = getelementptr [13 x i8], ptr @toshiba_hdr_magic, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @toshiba_hdr_magic, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %18, %21
   br i1 %22, label %23, label %26
@@ -119,7 +119,7 @@ define internal noundef zeroext i1 @toshiba_read(ptr noundef readonly captures(n
   %8 = phi i32 [ %26, %24 ], [ %7, %5 ]
   %.01418.i = phi i32 [ %.1.i, %24 ], [ 0, %5 ]
   %9 = zext nneg i32 %.01418.i to i64
-  %10 = getelementptr [4 x i8], ptr @toshiba_rec_magic, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @toshiba_rec_magic, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i32
   %13 = icmp eq i32 %8, %12

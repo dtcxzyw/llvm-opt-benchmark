@@ -46,7 +46,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters4pushERK9JavaValue(ptr noun
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %9 = load i32, ptr %8, align 4
@@ -65,7 +65,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters10push_largeERK9JavaValue(p
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %9 = load i32, ptr %8, align 4
@@ -120,7 +120,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters8push_oopEP7oopDesc(ptr nou
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 12, ptr %7, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %.sroa.22.0..sroa_idx, align 8
@@ -147,7 +147,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %2, %4
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %7, align 8
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %10
   store i8 12, ptr %11, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %6, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -165,7 +165,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters12push_jobjectEP8_jobject(p
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 15, ptr %7, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %.sroa.22.0..sroa_idx, align 8
@@ -183,7 +183,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters9push_jintEi(ptr noundef no
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 10, ptr %7, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %1, ptr %.sroa.21.0..sroa_idx, align 8
@@ -201,7 +201,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters11push_jfloatEf(ptr noundef
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 6, ptr %7, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %1, ptr %.sroa.22.0..sroa_idx, align 8
@@ -219,7 +219,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters12push_jdoubleEd(ptr nounde
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 7, ptr %7, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.22.0..sroa_idx, align 8
@@ -237,7 +237,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters10push_jlongEl(ptr noundef 
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 11, ptr %7, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %.sroa.21.0..sroa_idx, align 8
@@ -251,7 +251,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters10push_jlongEl(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK16JfrJavaArguments10Parameters6valuesEi(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(264) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %3
   ret ptr %4
 }
 
@@ -332,7 +332,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
 
 43:                                               ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %149 ]
-  %44 = getelementptr inbounds nuw [16 x %class.JavaValue], ptr %0, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %class.JavaValue, ptr %0, i64 %indvars.iv
   %45 = load i8, ptr %44, align 8
   switch i8 %45, label %147 [
     i8 4, label %46
@@ -825,7 +825,7 @@ define hidden void @_ZN16JfrJavaArguments8push_oopEP7oopDesc(ptr noundef nonnull
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 12, ptr %7, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -852,7 +852,7 @@ _ZN16JfrJavaArguments10Parameters8push_oopE6Handle.exit: ; preds = %2, %4
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %7, align 8
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %10
   store i8 12, ptr %11, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %6, ptr %.sroa.22.0..sroa_idx.i.i, align 8
@@ -870,7 +870,7 @@ define hidden void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef n
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 15, ptr %7, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -888,7 +888,7 @@ define hidden void @_ZN16JfrJavaArguments8push_intEi(ptr noundef nonnull align 8
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 10, ptr %7, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %1, ptr %.sroa.21.0..sroa_idx.i, align 8
@@ -906,7 +906,7 @@ define hidden void @_ZN16JfrJavaArguments10push_floatEf(ptr noundef nonnull alig
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 6, ptr %7, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %1, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -924,7 +924,7 @@ define hidden void @_ZN16JfrJavaArguments11push_doubleEd(ptr noundef nonnull ali
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 7, ptr %7, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -942,7 +942,7 @@ define hidden void @_ZN16JfrJavaArguments9push_longEl(ptr noundef nonnull align 
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %6
   store i8 11, ptr %7, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %.sroa.21.0..sroa_idx.i, align 8
@@ -956,7 +956,7 @@ define hidden void @_ZN16JfrJavaArguments9push_longEl(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK16JfrJavaArguments5paramEi(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(300) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds %class.JavaValue, ptr %0, i64 %3
   ret ptr %4
 }
 

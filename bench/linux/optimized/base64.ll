@@ -40,7 +40,7 @@ define dso_local i32 @base64_encode(ptr noundef readonly captures(none) %0, i32 
   %22 = lshr i32 %16, %21
   %23 = and i32 %22, 63
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr [65 x i8], ptr @base64_table, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @base64_table, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr i8, ptr %20, i64 1
   store i8 %26, ptr %20, align 1
@@ -61,7 +61,7 @@ define dso_local i32 @base64_encode(ptr noundef readonly captures(none) %0, i32 
   %36 = shl i32 %15, %35
   %37 = and i32 %36, 63
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [65 x i8], ptr @base64_table, i64 0, i64 %38
+  %39 = getelementptr i8, ptr @base64_table, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = getelementptr i8, ptr %20, i64 2
   store i8 %40, ptr %27, align 1

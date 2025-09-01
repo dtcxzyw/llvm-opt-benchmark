@@ -571,7 +571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   %283 = fneg float %282
   %284 = xor i32 %.0100, 1
   %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds nuw [2 x float], ptr %8, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw float, ptr %8, i64 %285
   store float %283, ptr %286, align 4, !tbaa !26
   %287 = load i32, ptr @_ZZ10gmx_sigepsiPPcE4npow, align 4, !tbaa !4
   %288 = fpext float %261 to double
@@ -603,7 +603,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
 
 312:                                              ; preds = %250
   %313 = zext nneg i32 %.0100 to i64
-  %314 = getelementptr inbounds nuw [2 x float], ptr %8, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw float, ptr %8, i64 %313
   %315 = load float, ptr %314, align 4, !tbaa !26
   %316 = fmul float %315, %283
   %317 = fcmp olt float %316, 0.000000e+00

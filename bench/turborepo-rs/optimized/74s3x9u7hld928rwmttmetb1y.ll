@@ -2517,7 +2517,7 @@ define hidden void @_RINvXNtNtCs68wO5nsWeTG_5alloc5slice4hackINtNtB7_3vec3VecNtN
 _RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit: ; preds = %21
   %26 = add nuw nsw i64 %.sroa.7.019, 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 24
-  %28 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %12, i64 0, i64 %.sroa.7.019
+  %28 = getelementptr inbounds nuw { [3 x i64] }, ptr %12, i64 %.sroa.7.019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %29 = icmp eq i64 %19, 0
   br i1 %29, label %.thread, label %.lr.ph
@@ -2711,7 +2711,7 @@ default.unreachable133:                           ; preds = %110
 _RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i: ; preds = %58
   %63 = add nuw nsw i64 %.sroa.7.019.i, 1
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.011.020.i, i64 24
-  %65 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %51, i64 0, i64 %.sroa.7.019.i
+  %65 = getelementptr inbounds nuw { [3 x i64] }, ptr %51, i64 %.sroa.7.019.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !622
   %66 = icmp eq i64 %56, 0
   br i1 %66, label %.noexc11, label %.lr.ph.i
@@ -2896,7 +2896,7 @@ _RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5C
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.024.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.024.sroa.8, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.22, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.22)
-  %122 = getelementptr inbounds nuw [0 x { [8 x i64] }], ptr %17, i64 0, i64 %.sroa.7.052
+  %122 = getelementptr inbounds nuw { [8 x i64] }, ptr %17, i64 %.sroa.7.052
   store i64 %.sroa.0.0, ptr %122, align 8
   %.sroa.024.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i64 %.sroa.9.sroa.0.0.insert.insert, ptr %.sroa.024.sroa.4.0..sroa_idx, align 8
@@ -5482,7 +5482,7 @@ define void @_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecIBw_NtNtCseG2FYMysgNb_3
 _RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i: ; preds = %24
   %29 = add nuw nsw i64 %.sroa.7.019.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.011.020.i, i64 24
-  %31 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %15, i64 0, i64 %.sroa.7.019.i
+  %31 = getelementptr inbounds nuw { [3 x i64] }, ptr %15, i64 %.sroa.7.019.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !1293
   %32 = icmp eq i64 %22, 0
   br i1 %32, label %_RINvXNtNtCs68wO5nsWeTG_5alloc5slice4hackINtNtB7_3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtB3_10ConvertVec6to_vecNtNtB7_5alloc6GlobalEBW_.llvm.229089854818389411.exit, label %.lr.ph.i

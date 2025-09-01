@@ -14442,7 +14442,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10.i: ; preds = %36, %
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10.i
   %43 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5Catch20ReusableStringStreamlsIN5vcpkg14CiBaselineLineEEERS0_RKT_, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5Catch20ReusableStringStreamlsIN5vcpkg14CiBaselineLineEEERS0_RKT_, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %switch.load, i64 noundef 4)
   ret ptr %0

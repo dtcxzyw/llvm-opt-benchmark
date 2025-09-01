@@ -149,7 +149,7 @@ _ZN4llvm5MachO16isVirtualSectionEh.exit:
 
 28:                                               ; preds = %23, %25
   %.sink = phi i8 [ %27, %25 ], [ 0, %23 ]
-  %29 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   store i8 %.sink, ptr %29, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 16
@@ -311,7 +311,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit52:    ; preds = %63, %65, %66
 79:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit52
   %80 = and i32 %70, 255
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [23 x %struct.anon], ptr @_ZL22SectionTypeDescriptors, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw %struct.anon, ptr @_ZL22SectionTypeDescriptors, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !51
   %85 = icmp eq i64 %84, 0
@@ -427,7 +427,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %120, %122
   %.03693 = phi i8 [ %.137, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit76 ], [ 44, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61 ]
   %.03892 = phi i32 [ %208, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit76 ], [ 0, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit61 ]
   %135 = zext nneg i32 %.03892 to i64
-  %136 = getelementptr inbounds nuw [11 x %struct.anon.5], ptr @_ZL22SectionAttrDescriptors, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw %struct.anon.5, ptr @_ZL22SectionAttrDescriptors, i64 %135
   %137 = load i32, ptr %136, align 8, !tbaa !52
   %exitcond = icmp eq i32 %.03892, 10
   br i1 %exitcond, label %.critedge, label %140

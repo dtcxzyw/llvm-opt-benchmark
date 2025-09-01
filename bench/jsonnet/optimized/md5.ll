@@ -139,7 +139,7 @@ define void @_ZN3MD56updateEPKcj(ptr noundef nonnull align 4 captures(none) dere
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = zext nneg i32 %7 to i64
-  %21 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = zext nneg i32 %17 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %22, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %19)
@@ -165,7 +165,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i, %18, %28
   %.020.i = phi i64 [ %29, %28 ], [ 0, %18 ], [ 0, %.lr.ph.i ]
   %.1.i = phi i32 [ 0, %28 ], [ %17, %18 ], [ %24, %.lr.ph.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %31 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 0, i64 %.020.i
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.020.i
   %32 = zext i32 %.1.i to i64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %32
   %34 = sub i32 %2, %.1.i
@@ -210,7 +210,7 @@ _ZN3MD56encodeEPhPKjj.exit:                       ; preds = %1
 22:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   %26 = zext nneg i32 %21 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 16 dereferenceable(1) @_ZZN3MD58finalizeEvE7padding, i64 %26, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %23)
@@ -236,7 +236,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %22, %32
   %.020.i = phi i64 [ %33, %32 ], [ 0, %22 ], [ 0, %.lr.ph.i4 ]
   %.1.i = phi i32 [ 0, %32 ], [ %21, %22 ], [ %28, %.lr.ph.i4 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %35 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 0, i64 %.020.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.020.i
   %36 = zext i32 %.1.i to i64
   %37 = getelementptr inbounds nuw i8, ptr @_ZZN3MD58finalizeEvE7padding, i64 %36
   %38 = sub i32 %11, %.1.i
@@ -258,7 +258,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %22, %32
 48:                                               ; preds = %_ZN3MD56updateEPKhj.exit
   %49 = sub nuw nsw i32 64, %42
   %50 = zext nneg i32 %42 to i64
-  %51 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %34, i64 %50
   %52 = zext nneg i32 %49 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 8 dereferenceable(1) %2, i64 %52, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %34)
@@ -271,7 +271,7 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %22, %32
 _ZN3MD56updateEPKhj.exit12:                       ; preds = %48, %53
   %.020.i10 = phi i64 [ %54, %53 ], [ 0, %48 ]
   %.1.i11 = phi i32 [ 0, %53 ], [ %49, %48 ]
-  %55 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 0, i64 %.020.i10
+  %55 = getelementptr inbounds nuw i8, ptr %34, i64 %.020.i10
   %56 = zext nneg i32 %.1.i11 to i64
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 %56
   %58 = sub nuw nsw i32 8, %.1.i11
@@ -1147,7 +1147,7 @@ define void @_ZN3MD56updateEPKhj(ptr noundef nonnull align 4 captures(none) dere
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = zext nneg i32 %6 to i64
-  %21 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = zext nneg i32 %17 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %22, i1 false)
   tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %19)
@@ -1173,7 +1173,7 @@ define void @_ZN3MD56updateEPKhj(ptr noundef nonnull align 4 captures(none) dere
   %.020 = phi i64 [ %29, %28 ], [ 0, %18 ], [ 0, %.lr.ph ]
   %.1 = phi i32 [ 0, %28 ], [ %17, %18 ], [ %24, %.lr.ph ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %31 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 0, i64 %.020
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.020
   %32 = zext i32 %.1 to i64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %32
   %34 = sub i32 %2, %.1
@@ -1244,7 +1244,7 @@ define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sre
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %22 ]
   %23 = shl nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
-  %25 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1, !tbaa !24
   %27 = zext i8 %26 to i32
   %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %27) #18
@@ -1334,7 +1334,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef n
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %23 ]
   %24 = shl nuw nsw i64 %indvars.iv.i, 1
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
-  %26 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
   %27 = load i8, ptr %26, align 1, !tbaa !24, !noalias !30
   %28 = zext i8 %27 to i32
   %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28) #18, !noalias !30
@@ -1472,7 +1472,7 @@ define void @_Z3md5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %23 ]
   %24 = shl nuw nsw i64 %indvars.iv.i, 1
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
-  %26 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
   %27 = load i8, ptr %26, align 1, !tbaa !24, !noalias !33
   %28 = zext i8 %27 to i32
   %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28) #18, !noalias !33

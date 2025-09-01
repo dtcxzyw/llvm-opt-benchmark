@@ -1616,7 +1616,7 @@ define noundef zeroext i1 @_ZNK9grpc_core16CommonTlsContext28CertificateValidati
 4:                                                ; preds = %10, %1
   %.0813.i.i = phi i64 [ 0, %1 ], [ %11, %10 ]
   %.0912.i.i = phi i64 [ 3, %1 ], [ %.1.i.i, %10 ]
-  %5 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt9monostateJS0_N9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEEmv.__found, i64 0, i64 %.0813.i.i
+  %5 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt9monostateJS0_N9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEEmv.__found, i64 %.0813.i.i
   %6 = load i8, ptr %5, align 1, !tbaa !87, !range !89, !noundef !90
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -1841,7 +1841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
 86:                                               ; preds = %92, %83
   %.0813.i.i.i = phi i64 [ 0, %83 ], [ %93, %92 ]
   %.0912.i.i.i = phi i64 [ 3, %83 ], [ %.1.i.i.i, %92 ]
-  %87 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt9monostateJS0_N9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt9monostateJS0_N9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEEmv.__found, i64 %.0813.i.i.i
   %88 = load i8, ptr %87, align 1, !tbaa !87, !range !89, !noundef !90
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %92
@@ -2269,7 +2269,7 @@ define noundef zeroext i1 @_ZNK9grpc_core16CommonTlsContext5EmptyEv(ptr noundef 
 12:                                               ; preds = %18, %9
   %.0813.i.i.i = phi i64 [ 0, %9 ], [ %19, %18 ]
   %.0912.i.i.i = phi i64 [ 3, %9 ], [ %.1.i.i.i, %18 ]
-  %13 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt9monostateJS0_N9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt9monostateJS0_N9grpc_core16CommonTlsContext33CertificateProviderPluginInstanceENS2_28CertificateValidationContext15SystemRootCertsEEEmv.__found, i64 %.0813.i.i.i
   %14 = load i8, ptr %13, align 1, !tbaa !87, !range !89, !noundef !90
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %18

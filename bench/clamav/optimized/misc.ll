@@ -407,7 +407,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly captures(address_is_n
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge2
   %.030 = phi i64 [ %.0, %.critedge2 ], [ %.028, %.preheader ]
-  %27 = getelementptr inbounds nuw [1025 x i8], ptr @filelist.buff, i64 0, i64 %.030
+  %27 = getelementptr inbounds nuw i8, ptr @filelist.buff, i64 %.030
   %28 = load i8, ptr %27, align 1, !tbaa !22
   switch i8 %28, label %.critedge [
     i8 10, label %.critedge2
@@ -488,7 +488,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 13:                                               ; preds = %10, %18
   %indvars.iv50 = phi i64 [ 0, %10 ], [ %indvars.iv.next51, %18 ]
-  %14 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv50
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv50
   %15 = load i32, ptr %14, align 4, !tbaa !21
   %.not28 = icmp eq i32 %15, -1
   br i1 %.not28, label %18, label %16
@@ -504,7 +504,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 .preheader31:                                     ; preds = %0, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %0 ]
-  %19 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !21
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call i32 @dup2(i32 noundef %20, i32 noundef %21) #19
@@ -518,7 +518,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 27:                                               ; preds = %24, %32
   %indvars.iv46 = phi i64 [ 0, %24 ], [ %indvars.iv.next47, %32 ]
-  %28 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv46
+  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv46
   %29 = load i32, ptr %28, align 4, !tbaa !21
   %.not = icmp eq i32 %29, -1
   br i1 %.not, label %32, label %30
@@ -539,7 +539,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %33, %39
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %39 ], [ 0, %33 ]
-  %34 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv42
+  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv42
   %35 = load i32, ptr %34, align 4, !tbaa !21
   %36 = icmp sgt i32 %35, 2
   br i1 %36, label %37, label %39

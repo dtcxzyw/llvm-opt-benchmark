@@ -979,7 +979,7 @@ lean_usize_mod.exit:                              ; preds = %4, %7
 
 lean_inc.exit569:                                 ; preds = %19, %18, %16, %lean_usize_mod.exit
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %9
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %9
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -4343,7 +4343,7 @@ lean_dec.exit570:                                 ; preds = %1224, %1223, %1221,
 
 lean_inc.exit:                                    ; preds = %1234, %1233, %1231, %lean_dec.exit570
   %1235 = getelementptr inbounds nuw i8, ptr %1226, i64 24
-  %1236 = getelementptr inbounds nuw [0 x ptr], ptr %1235, i64 0, i64 %9
+  %1236 = getelementptr inbounds nuw ptr, ptr %1235, i64 %9
   %1237 = load ptr, ptr %1236, align 8, !tbaa !10
   %1238 = ptrtoint ptr %1237 to i64
   %1239 = and i64 %1238, 1

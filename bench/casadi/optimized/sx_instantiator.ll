@@ -111153,7 +111153,7 @@ _ZNSt5arrayIN6casadi6SXElemELm3EED2Ev.exit267:    ; preds = %418, %425, %.thread
   %452 = getelementptr inbounds nuw %"struct.std::array", ptr %451, i64 %450
   %453 = load i32, ptr %435, align 8, !tbaa !33
   %454 = sext i32 %453 to i64
-  %455 = getelementptr inbounds nuw [3 x %"class.casadi::SXElem"], ptr %452, i64 0, i64 %454
+  %455 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %452, i64 %454
   %456 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %457 unwind label %460
 
@@ -168170,7 +168170,7 @@ define linkonce_odr noundef ptr @_ZSt18__do_uninit_fill_nIPSt5arrayIN6casadi6SXE
   %5 = phi i64 [ %9, %8 ], [ 0, %.preheader ]
   %.idx.i.i = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %.018, i64 %.idx.i.i
-  %7 = getelementptr inbounds nuw [3 x %"class.casadi::SXElem"], ptr %2, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %2, i64 %5
   invoke void @_ZN6casadi6SXElemC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %8 unwind label %11
 

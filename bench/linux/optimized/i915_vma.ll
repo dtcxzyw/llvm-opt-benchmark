@@ -1426,7 +1426,7 @@ define dso_local void @vma_invalidate_tlb(ptr noundef readonly captures(none) %0
   %8 = phi i64 [ 0, %4 ], [ 1, %19 ]
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 9304
-  %11 = getelementptr [2 x ptr], ptr %10, i64 0, i64 %8
+  %11 = getelementptr ptr, ptr %10, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
@@ -2073,7 +2073,7 @@ define internal fastcc i32 @i915_vma_insert(ptr noundef %0, ptr noundef %1, i64 
 .thread:                                          ; preds = %63, %52
   %68 = phi i64 [ 0, %52 ], [ %67, %63 ]
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 344
-  %70 = getelementptr [4 x i64], ptr %69, i64 0, i64 %68
+  %70 = getelementptr i64, ptr %69, i64 %68
   %71 = load i64, ptr %70, align 8
   %72 = tail call i64 @llvm.umax.i64(i64 %25, i64 %71)
   %73 = shl i64 %39, 1
@@ -2402,7 +2402,7 @@ define internal fastcc i32 @__i915_ggtt_pin(ptr noundef %0, ptr noundef %1, i32 
 
 25:                                               ; preds = %32, %.preheader
   %26 = phi i64 [ 0, %.preheader ], [ %33, %32 ]
-  %27 = getelementptr [27 x ptr], ptr %24, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %32, label %30
@@ -3674,7 +3674,7 @@ define dso_local ptr @__i915_vma_evict(ptr noundef %0, i1 noundef zeroext %1) lo
   %150 = phi i64 [ 0, %.thread ], [ 1, %161 ]
   %151 = load ptr, ptr %147, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 9304
-  %153 = getelementptr [2 x ptr], ptr %152, i64 0, i64 %150
+  %153 = getelementptr ptr, ptr %152, i64 %150
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %161, label %156
@@ -4363,7 +4363,7 @@ define internal fastcc ptr @intel_rotate_pages(ptr noundef %0, ptr noundef %1) u
   %16 = phi i1 [ true, %12 ], [ false, %.loopexit5 ]
   %17 = phi i64 [ 0, %12 ], [ 1, %.loopexit5 ]
   %18 = phi ptr [ %14, %12 ], [ %93, %.loopexit5 ]
-  %19 = getelementptr [2 x %struct.intel_remapped_plane_info], ptr %0, i64 0, i64 %17
+  %19 = getelementptr %struct.intel_remapped_plane_info, ptr %0, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i16, ptr %20, align 1
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 6
@@ -4558,7 +4558,7 @@ define internal fastcc ptr @intel_remap_pages(ptr noundef %0, ptr noundef %1) un
 
 31:                                               ; preds = %25, %19
   %32 = phi i32 [ %30, %25 ], [ 0, %19 ]
-  %33 = getelementptr [4 x %struct.intel_remapped_plane_info], ptr %0, i64 0, i64 %20
+  %33 = getelementptr %struct.intel_remapped_plane_info, ptr %0, i64 %20
   %34 = load i32, ptr %33, align 1
   %35 = icmp sgt i32 %34, -1
   br i1 %35, label %116, label %36

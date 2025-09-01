@@ -2470,8 +2470,8 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
   store i32 0, ptr %5, align 4, !annotation !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %17 = zext i16 %13 to i64
-  %18 = add nsw i64 %17, -1
-  %19 = getelementptr [0 x %struct.security_class_mapping], ptr @secclass_map, i64 0, i64 %18
+  %18 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -272
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -12429,7 +12429,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
 
 26:                                               ; preds = %23, %21
   %27 = phi i64 [ 0, %21 ], [ %24, %23 ]
-  %28 = getelementptr [5 x %struct.anon.138], ptr @tokens, i64 0, i64 %27
+  %28 = getelementptr %struct.anon.138, ptr @tokens, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
@@ -12808,7 +12808,7 @@ define internal noundef range(i32 -12, 1) i32 @selinux_sk_alloc_security(ptr nou
 
 11:                                               ; preds = %7, %3
   %12 = phi i64 [ 0, %3 ], [ %10, %7 ]
-  %13 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %12, i64 5
+  %13 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %12, i64 5
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %4, i64 noundef 32) #28
   %16 = icmp eq ptr %15, null

@@ -2720,7 +2720,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 18:                                               ; preds = %.lr.ph, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !102
@@ -3394,7 +3394,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit.thread: ; preds = %.lr.ph.i.
           to label %_ZN8rationalmLERKS_.exit unwind label %156
 
 _ZN8rationalmLERKS_.exit:                         ; preds = %.noexc84, %113
-  %114 = getelementptr inbounds nuw [0 x ptr], ptr %92, i64 0, i64 %95
+  %114 = getelementptr inbounds nuw ptr, ptr %92, i64 %95
   %115 = load ptr, ptr %114, align 8, !tbaa !43
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !102
@@ -6313,7 +6313,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 18:                                               ; preds = %.lr.ph, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !102
@@ -6991,7 +6991,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit.thread: ; preds = %.lr.ph.i.
           to label %_ZN8rationalmLERKS_.exit unwind label %152
 
 _ZN8rationalmLERKS_.exit:                         ; preds = %.noexc83, %113
-  %114 = getelementptr inbounds nuw [0 x ptr], ptr %92, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
   %115 = load ptr, ptr %114, align 8, !tbaa !43
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !102

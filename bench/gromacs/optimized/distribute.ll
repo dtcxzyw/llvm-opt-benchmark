@@ -819,7 +819,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i:       ; preds = %_ZN3gmx14LogEntryWr
 
 .lr.ph.i96.i:                                     ; preds = %.lr.ph.i96.i, %280
   %indvars.iv.i97.i = phi i64 [ 0, %280 ], [ %indvars.iv.next.i98.i, %.lr.ph.i96.i ]
-  %289 = getelementptr inbounds nuw [4 x i32], ptr %286, i64 0, i64 %indvars.iv.i97.i
+  %289 = getelementptr inbounds nuw i32, ptr %286, i64 %indvars.iv.i97.i
   store i32 %288, ptr %289, align 4, !tbaa !284
   %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i97.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i98.i, 4
@@ -1271,9 +1271,9 @@ _ZL20distributeAtomGroupsRKN3gmx8MDLoggerEP12gmx_domdec_tRK10gmx_mtop_tPA3_KfPK1
 
 563:                                              ; preds = %563, %.preheader168.i
   %indvars.iv.i22 = phi i64 [ 0, %.preheader168.i ], [ %indvars.iv.next.i23, %563 ]
-  %564 = getelementptr inbounds nuw [7 x float], ptr %414, i64 0, i64 %indvars.iv.i22
+  %564 = getelementptr inbounds nuw float, ptr %414, i64 %indvars.iv.i22
   %565 = load float, ptr %564, align 4, !tbaa !345
-  %566 = getelementptr inbounds nuw [7 x float], ptr %415, i64 0, i64 %indvars.iv.i22
+  %566 = getelementptr inbounds nuw float, ptr %415, i64 %indvars.iv.i22
   store float %565, ptr %566, align 4, !tbaa !345
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %.not162.i = icmp eq i64 %indvars.iv.next.i23, 7
@@ -1777,7 +1777,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 48:                                               ; preds = %.preheader139, %48
   %indvars.iv209 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next210, %48 ]
-  %49 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv209
+  %49 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv209
   %50 = load float, ptr %49, align 4, !tbaa !345
   %51 = fmul float %31, %50
   store float %51, ptr %49, align 4, !tbaa !345
@@ -1843,7 +1843,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %79 = phi float [ %.promoted189, %.loopexit140 ], [ %271, %.critedge ]
   %80 = phi float [ %.promoted188, %.loopexit140 ], [ %272, %.critedge ]
   %.lcssa180184 = phi float [ %.promoted178, %.loopexit140 ], [ %.lcssa179, %.critedge ]
-  %81 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv213
+  %81 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv213
   %82 = load float, ptr %81, align 4, !tbaa !345
   %83 = icmp slt i64 %indvars.iv213, %65
   br i1 %83, label %84, label %.loopexit136
@@ -1851,19 +1851,19 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 84:                                               ; preds = %78
   %85 = icmp eq i64 %indvars.iv213, 0
   %86 = and i1 %85, %57
-  %87 = getelementptr inbounds nuw [3 x i32], ptr %58, i64 0, i64 %indvars.iv213
+  %87 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv213
   %88 = load i32, ptr %87, align 4, !tbaa !284
   %.not = icmp eq i32 %88, 0
   br i1 %.not, label %.loopexit138, label %89
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw [3 x i32], ptr %54, i64 0, i64 %indvars.iv213
+  %90 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv213
   %91 = load i32, ptr %90, align 4, !tbaa !284
   %92 = icmp sgt i32 %91, 1
   br i1 %92, label %.preheader137, label %.loopexit138
 
 .preheader137:                                    ; preds = %89
-  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv213
+  %invariant.gep = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv213
   %93 = icmp samesign ult i64 %indvars.iv213, 2
   br i1 %93, label %.lr.ph153, label %.loopexit138
 
@@ -1871,9 +1871,9 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %indvars.iv215 = phi i64 [ 1, %.lr.ph153 ], [ %indvars.iv213, %.preheader137 ]
   %.2151 = phi float [ %97, %.lr.ph153 ], [ %82, %.preheader137 ]
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %94 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv.next216
+  %94 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next216
   %95 = load float, ptr %94, align 4, !tbaa !345
-  %gep = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv.next216
+  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv.next216
   %96 = load float, ptr %gep, align 4, !tbaa !345
   %97 = tail call float @llvm.fmuladd.f32(float %95, float %96, float %.2151)
   %98 = icmp eq i64 %indvars.iv215, 0
@@ -1882,7 +1882,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 .loopexit138:                                     ; preds = %.lr.ph153, %.preheader137, %89, %84
   %.1 = phi float [ %82, %89 ], [ %82, %84 ], [ %82, %.preheader137 ], [ %97, %.lr.ph153 ]
   %99 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv213
-  %100 = getelementptr inbounds nuw [3 x float], ptr %99, i64 0, i64 %indvars.iv213
+  %100 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv213
   %101 = load float, ptr %100, align 4, !tbaa !345
   %102 = fcmp ult float %.1, %101
   br i1 %102, label %.preheader, label %.lr.ph162
@@ -1975,7 +1975,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 147:                                              ; preds = %147, %.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us, %147 ]
-  %148 = getelementptr inbounds nuw [3 x float], ptr %145, i64 0, i64 %indvars.iv.i.us
+  %148 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv.i.us
   %149 = load float, ptr %148, align 4, !tbaa !345
   %150 = load float, ptr %146, align 4, !tbaa !345
   %151 = getelementptr inbounds nuw float, ptr %144, i64 %indvars.iv.i.us
@@ -2126,7 +2126,7 @@ _ZL30correctVelocityForDisplacementILb1EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph15
 
 227:                                              ; preds = %227, %.preheader.i126.us
   %indvars.iv.i129.us = phi i64 [ 0, %.preheader.i126.us ], [ %indvars.iv.next.i130.us, %227 ]
-  %228 = getelementptr inbounds nuw [3 x float], ptr %225, i64 0, i64 %indvars.iv.i129.us
+  %228 = getelementptr inbounds nuw float, ptr %225, i64 %indvars.iv.i129.us
   %229 = load float, ptr %228, align 4, !tbaa !345
   %230 = load float, ptr %226, align 4, !tbaa !345
   %231 = getelementptr inbounds nuw float, ptr %224, i64 %indvars.iv.i129.us
@@ -2224,9 +2224,9 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit: ; preds = %.lr.ph17
   %272 = phi float [ %80, %78 ], [ %108, %.preheader ], [ %211, %.loopexit136.loopexit ]
   %.lcssa179 = phi float [ %.lcssa180184, %78 ], [ %.lcssa, %.preheader ], [ %199, %.loopexit136.loopexit ]
   %.0120 = phi float [ %82, %78 ], [ %.3.lcssa, %.preheader ], [ %197, %.loopexit136.loopexit ]
-  %273 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv213
+  %273 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv213
   %274 = getelementptr inbounds nuw %"class.std::vector.2", ptr %3, i64 %indvars.iv213
-  %275 = getelementptr inbounds nuw [3 x i32], ptr %54, i64 0, i64 %indvars.iv213
+  %275 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv213
   %276 = load i32, ptr %275, align 4, !tbaa !284
   %smax = tail call i32 @llvm.smax.i32(i32 %276, i32 1)
   %277 = add nsw i32 %smax, -1

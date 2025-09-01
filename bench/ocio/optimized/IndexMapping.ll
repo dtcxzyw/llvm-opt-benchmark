@@ -509,8 +509,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
 
 11:                                               ; preds = %.preheader, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ]
-  %12 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %9, i64 0, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"class.std::vector", ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %"class.std::vector", ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = load ptr, ptr %12, align 8, !tbaa !10

@@ -1028,10 +1028,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %2
   %17 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK6open3d13visualization22ViewControlWithEditing15GetStatusStringB5cxx11Ev, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK6open3d13visualization22ViewControlWithEditing15GetStatusStringB5cxx11Ev, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = zext nneg i32 %7 to i64
-  %switch.gep14 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK6open3d13visualization22ViewControlWithEditing15GetStatusStringB5cxx11Ev.1, i64 0, i64 %18
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6open3d13visualization22ViewControlWithEditing15GetStatusStringB5cxx11Ev.1, i64 %18
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load15)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %9

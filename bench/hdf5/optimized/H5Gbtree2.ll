@@ -228,7 +228,7 @@ define internal noundef i32 @H5G__dense_btree2_name_debug(ptr noundef captures(n
 16:                                               ; preds = %12, %16
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr @stderr, align 8, !tbaa !36
-  %18 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !35
   %20 = zext i8 %19 to i32
   %.not = icmp eq i64 %indvars.iv, 6
@@ -382,7 +382,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_debug(ptr noundef captures
 16:                                               ; preds = %12, %16
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr @stderr, align 8, !tbaa !36
-  %18 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !35
   %20 = zext i8 %19 to i32
   %.not = icmp eq i64 %indvars.iv, 6

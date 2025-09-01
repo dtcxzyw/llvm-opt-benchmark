@@ -3826,7 +3826,7 @@ _ZN4llvm11SmallVectorIZNS_12WinException21emitCLRExceptionTableEPKNS_15MachineFu
 
 switch.lookup:                                    ; preds = %.lr.ph180
   %325 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm12WinException21emitCLRExceptionTableEPKNS_15MachineFunctionE, i64 0, i64 %325
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm12WinException21emitCLRExceptionTableEPKNS_15MachineFunctionE, i64 %325
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %326
 

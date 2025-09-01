@@ -13496,7 +13496,7 @@ _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.i: ; 
 
 switch.lookup:                                    ; preds = %38
   %58 = zext nneg i32 %44 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN12_GLOBAL__N_113ItaniumCXXABI15emitCXXStructorEN5clang10GlobalDeclE, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_113ItaniumCXXABI15emitCXXStructorEN5clang10GlobalDeclE, i64 %58
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit
 
@@ -16203,7 +16203,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %313 = trunc nuw nsw i64 %312 to i32
   %314 = and i32 %313, 15
   %315 = and i64 %312, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN12_GLOBAL__N_113ItaniumCXXABI18BuildMemberPointerEPKN5clang13CXXMethodDeclENS1_9CharUnitsE, i64 0, i64 %315
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_113ItaniumCXXABI18BuildMemberPointerEPKN5clang13CXXMethodDeclENS1_9CharUnitsE, i64 %315
   %switch.load = load i64, ptr %switch.gep, align 8
   %316 = lshr i64 %288, 59
   %317 = and i64 %316, 1
@@ -23544,7 +23544,7 @@ _ZNK5clang7CodeGen13CodeGenModule30shouldMapVisibilityToDLLExportEPKNS_9NamedDec
   %96 = lshr i8 %95, 3
   %97 = and i8 %96, 3
   %98 = zext nneg i8 %97 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12_GLOBAL__N_113ItaniumCXXABI30EmitFundamentalRTTIDescriptorsEPKN5clang13CXXRecordDeclE, i64 0, i64 %98
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_113ItaniumCXXABI30EmitFundamentalRTTIDescriptorsEPKN5clang13CXXRecordDeclE, i64 %98
   %switch.load = load i32, ptr %switch.gep, align 4
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 16

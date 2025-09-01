@@ -717,7 +717,7 @@ define internal fastcc void @iee80211_tdls_recalc_chanctx(ptr %.1256.val, ptr %.
   %9 = load ptr, ptr %.4912.val, align 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr [6 x ptr], ptr %8, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %.4912.val, i64 -88
   tail call void @ieee80211_recalc_chanctx_chantype(ptr noundef %.1256.val, ptr noundef %14) #12
@@ -1870,7 +1870,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   tail call void @__rcu_read_lock() #12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3904
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr [15 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %18, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24, !prof !69
@@ -1981,7 +1981,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 312
   %80 = zext i32 %76 to i64
-  %81 = getelementptr [6 x ptr], ptr %79, i64 0, i64 %80
+  %81 = getelementptr ptr, ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %88, label %84
@@ -2038,7 +2038,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 312
   %114 = zext i32 %110 to i64
-  %115 = getelementptr [6 x ptr], ptr %113, i64 0, i64 %114
+  %115 = getelementptr ptr, ptr %113, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %122, label %118
@@ -2125,7 +2125,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 312
   %164 = zext i32 %160 to i64
-  %165 = getelementptr [6 x ptr], ptr %163, i64 0, i64 %164
+  %165 = getelementptr ptr, ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %172, label %168
@@ -2177,7 +2177,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 312
   %193 = zext i32 %189 to i64
-  %194 = getelementptr [6 x ptr], ptr %192, i64 0, i64 %193
+  %194 = getelementptr ptr, ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
   br i1 %196, label %197, label %198, !prof !73
@@ -2255,7 +2255,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %243 = load ptr, ptr %221, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 312
   %245 = zext i32 %242 to i64
-  %246 = getelementptr [6 x ptr], ptr %244, i64 0, i64 %245
+  %246 = getelementptr ptr, ptr %244, i64 %245
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, null
   br i1 %248, label %253, label %249
@@ -2971,7 +2971,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %670 = load ptr, ptr %669, align 8
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 312
   %672 = zext i32 %668 to i64
-  %673 = getelementptr [6 x ptr], ptr %671, i64 0, i64 %672
+  %673 = getelementptr ptr, ptr %671, i64 %672
   %674 = load ptr, ptr %673, align 8
   %675 = icmp eq ptr %674, null
   br i1 %675, label %676, label %677, !prof !73
@@ -3078,7 +3078,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 724:                                              ; preds = %723, %722, %721, %720, %717
   %725 = phi i64 [ 0, %723 ], [ 1, %722 ], [ 3, %721 ], [ 2, %717 ], [ 2, %720 ]
-  %726 = getelementptr [4 x %struct.ieee80211_tx_queue_params], ptr %715, i64 0, i64 %725
+  %726 = getelementptr %struct.ieee80211_tx_queue_params, ptr %715, i64 %725
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 6
   %728 = load i8, ptr %727, align 2
   %729 = getelementptr inbounds nuw i8, ptr %726, i64 7
@@ -3090,7 +3090,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %735 = trunc i64 %718 to i8
   %736 = shl i8 %735, 5
   %737 = or disjoint i8 %734, %736
-  %738 = getelementptr [4 x %struct.ieee80211_wmm_ac_param], ptr %716, i64 0, i64 %718
+  %738 = getelementptr %struct.ieee80211_wmm_ac_param, ptr %716, i64 %718
   store i8 %737, ptr %738, align 1
   %739 = getelementptr inbounds nuw i8, ptr %726, i64 2
   %740 = load i16, ptr %739, align 2
@@ -3424,7 +3424,7 @@ define internal fastcc void @ieee80211_tdls_chandef_vht_upgrade(ptr noundef read
 
 21:                                               ; preds = %18, %14
   %22 = phi i64 [ 0, %14 ], [ %19, %18 ]
-  %23 = getelementptr [6 x i16], ptr @ieee80211_tdls_chandef_vht_upgrade.centers_80mhz, i64 0, i64 %22
+  %23 = getelementptr i16, ptr @ieee80211_tdls_chandef_vht_upgrade.centers_80mhz, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = sub i32 %17, %25

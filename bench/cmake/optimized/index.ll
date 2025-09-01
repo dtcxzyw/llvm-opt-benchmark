@@ -495,7 +495,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_append(ptr noundef captures(ad
   %22 = add i64 %21, 3
   %23 = and i64 %22, -4
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %25 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %24, i64 0, i64 %18
+  %25 = getelementptr inbounds nuw %struct.index_record, ptr %24, i64 %18
   %26 = load i64, ptr %25, align 8, !tbaa !46
   br label %.thread
 
@@ -684,7 +684,7 @@ index_tree_append.exit:                           ; preds = %137, %110, %108, %8
   %138 = getelementptr inbounds nuw i8, ptr %.070, i64 64
   %139 = getelementptr inbounds nuw i8, ptr %.070, i64 56
   %140 = load i64, ptr %139, align 8, !tbaa !36
-  %141 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %138, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %struct.index_record, ptr %138, i64 %140
   store i64 %32, ptr %141, align 8, !tbaa !46
   %.idx80 = shl nuw nsw i64 %140, 4
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx80
@@ -1767,21 +1767,20 @@ index_tree_next.exit65:                           ; preds = %.preheader17.i58, %
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  %107 = add i64 %.1, -1
-  %108 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %106, i64 0, i64 %107
+  %107 = getelementptr %struct.index_record, ptr %106, i64 %.1
+  %108 = getelementptr i8, ptr %107, i64 -16
   %109 = load i64, ptr %108, align 8, !tbaa !46
-  %110 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %106, i64 0, i64 %.1
-  %111 = load i64, ptr %110, align 8, !tbaa !46
-  %112 = icmp eq i64 %109, %111
-  br i1 %112, label %.backedge.backedge, label %.loopexit
+  %110 = load i64, ptr %107, align 8, !tbaa !46
+  %111 = icmp eq i64 %109, %110
+  br i1 %111, label %.backedge.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %100, %105, %.critedge56.thread, %37
   %.2128 = phi ptr [ %40, %37 ], [ %.2, %.critedge56.thread ], [ %.2, %105 ], [ %.2, %100 ]
   %.348127 = phi ptr [ %38, %37 ], [ %.348, %.critedge56.thread ], [ %.348, %105 ], [ %.348, %100 ]
   %.1.lcssa = phi i64 [ 0, %37 ], [ %.1, %.critedge56.thread ], [ %.1, %105 ], [ 0, %100 ]
   store ptr %.348127, ptr %7, align 8, !tbaa !45
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %.2128, ptr %113, align 8, !tbaa !45
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store ptr %.2128, ptr %112, align 8, !tbaa !45
   store i64 %.1.lcssa, ptr %9, align 8, !tbaa !45
   tail call fastcc void @iter_set_info(ptr noundef %0)
   br label %index_tree_next.exit83
@@ -1910,7 +1909,7 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %78, ptr %79, align 8, !tbaa !79
   %80 = load i64, ptr %71, align 8, !tbaa !36
-  %81 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %70, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %struct.index_record, ptr %70, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !46
   br label %83
 
@@ -1918,7 +1917,7 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
   %.sink = phi i64 [ 0, %52 ], [ %82, %60 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sink, ptr %84, align 8, !tbaa !80
-  br i1 %8, label %129, label %85
+  br i1 %8, label %128, label %85
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1937,53 +1936,53 @@ define internal fastcc void @iter_set_info(ptr noundef captures(none) initialize
 95:                                               ; preds = %85
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !48
-  br label %105
+  br label %104
 
 98:                                               ; preds = %85
-  %99 = shl i64 %7, 4
-  %100 = getelementptr i8, ptr %5, i64 56
-  %101 = getelementptr i8, ptr %100, i64 %99
-  %102 = load i64, ptr %101, align 8, !tbaa !37
-  %103 = add i64 %102, 3
-  %104 = and i64 %103, -4
-  br label %105
+  %.idx83 = shl i64 %7, 4
+  %99 = getelementptr i8, ptr %5, i64 56
+  %100 = getelementptr i8, ptr %99, i64 %.idx83
+  %101 = load i64, ptr %100, align 8, !tbaa !37
+  %102 = add i64 %101, 3
+  %103 = and i64 %102, -4
+  br label %104
 
-105:                                              ; preds = %98, %95
-  %106 = phi i64 [ %97, %95 ], [ %104, %98 ]
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %106, ptr %107, align 8, !tbaa !83
-  %108 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %109 = add i64 %7, -1
-  %110 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %108, i64 0, i64 %109
-  %.in = select i1 %94, ptr %5, ptr %110
-  %111 = load i64, ptr %.in, align 8, !tbaa !36
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %111, ptr %112, align 8, !tbaa !84
-  %113 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %108, i64 0, i64 %7
-  %114 = load i64, ptr %113, align 8, !tbaa !46
-  %115 = sub i64 %114, %111
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 %115, ptr %116, align 8, !tbaa !85
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %118 = load i64, ptr %117, align 8, !tbaa !37
-  %119 = sub i64 %118, %106
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 %119, ptr %120, align 8, !tbaa !86
-  %121 = add i64 %119, 3
-  %122 = and i64 %121, -4
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 %122, ptr %123, align 8, !tbaa !87
-  %124 = add i64 %106, 12
-  store i64 %124, ptr %107, align 8, !tbaa !83
-  %125 = add i64 %124, %38
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %125, ptr %126, align 8, !tbaa !88
-  %127 = add i64 %111, %40
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %127, ptr %128, align 8, !tbaa !89
-  br label %129
+104:                                              ; preds = %98, %95
+  %105 = phi i64 [ %97, %95 ], [ %103, %98 ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i64 %105, ptr %106, align 8, !tbaa !83
+  %107 = getelementptr i8, ptr %5, i64 48
+  %108 = getelementptr %struct.index_record, ptr %107, i64 %7
+  %.in = select i1 %94, ptr %5, ptr %108
+  %109 = load i64, ptr %.in, align 8, !tbaa !36
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 %109, ptr %110, align 8, !tbaa !84
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %112 = getelementptr inbounds nuw %struct.index_record, ptr %111, i64 %7
+  %113 = load i64, ptr %112, align 8, !tbaa !46
+  %114 = sub i64 %113, %109
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i64 %114, ptr %115, align 8, !tbaa !85
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %117 = load i64, ptr %116, align 8, !tbaa !37
+  %118 = sub i64 %117, %105
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i64 %118, ptr %119, align 8, !tbaa !86
+  %120 = add i64 %118, 3
+  %121 = and i64 %120, -4
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i64 %121, ptr %122, align 8, !tbaa !87
+  %123 = add i64 %105, 12
+  store i64 %123, ptr %106, align 8, !tbaa !83
+  %124 = add i64 %123, %38
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 %124, ptr %125, align 8, !tbaa !88
+  %126 = add i64 %109, %40
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %126, ptr %127, align 8, !tbaa !89
+  br label %128
 
-129:                                              ; preds = %105, %83
+128:                                              ; preds = %104, %83
   ret void
 }
 
@@ -2051,7 +2050,7 @@ index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_
   %19 = sub nuw i64 %.02745, %.02844
   %20 = lshr i64 %19, 1
   %21 = add i64 %20, %.02844
-  %22 = getelementptr inbounds nuw [0 x %struct.index_record], ptr %17, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.index_record, ptr %17, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !46
   %.not31 = icmp ugt i64 %23, %11
   %24 = add i64 %21, 1

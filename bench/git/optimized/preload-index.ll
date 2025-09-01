@@ -219,7 +219,7 @@ stop_progress.exit:                               ; preds = %69, %71
 
 .preheader:                                       ; preds = %stop_progress.exit, %.preheader
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.preheader ], [ 0, %stop_progress.exit ]
-  %73 = getelementptr inbounds nuw [20 x %struct.thread_data], ptr %4, i64 0, i64 %indvars.iv90, i32 2
+  %73 = getelementptr inbounds nuw %struct.thread_data, ptr %4, i64 %indvars.iv90, i32 2
   call void @clear_pathspec(ptr noundef nonnull %73) #10
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count82

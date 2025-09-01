@@ -481,7 +481,7 @@ mqtt_send.exit:                                   ; preds = %19, %26
   %69 = load i64, ptr %61, align 8, !tbaa !93
   %70 = add i64 %69, 1
   store i64 %70, ptr %61, align 8, !tbaa !93
-  %71 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 0, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %60, i64 %69
   store i8 %68, ptr %71, align 1, !tbaa !7
   %.not95 = icmp slt i8 %68, 0
   %72 = icmp ult i64 %70, 4

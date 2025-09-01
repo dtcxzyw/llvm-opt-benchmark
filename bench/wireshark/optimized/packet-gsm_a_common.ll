@@ -2173,7 +2173,7 @@ define zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
 
 switch.lookup:                                    ; preds = %61
   %66 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %67 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %35)
@@ -2425,7 +2425,7 @@ define hidden zeroext i16 @elem_telv(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %68
   %73 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %74 = call ptr @proto_tree_add_uint(ptr noundef %70, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %35)
@@ -2650,7 +2650,7 @@ define hidden zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup:                                    ; preds = %60
   %65 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %65
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %66 = call ptr @proto_tree_add_uint(ptr noundef %62, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %35)
@@ -2864,7 +2864,7 @@ define zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 n
 
 switch.lookup:                                    ; preds = %55
   %60 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %61 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %34)
@@ -3245,7 +3245,7 @@ define zeroext range(i16 0, 2) i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %35
   %38 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %39 = call ptr @val_to_str_ext(i32 noundef %5, ptr noundef nonnull %9, ptr noundef nonnull @.str.68)
@@ -4167,7 +4167,7 @@ define zeroext i16 @de_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %70 = load i32, ptr @hf_gsm_a_identity_digit1, align 4
   %71 = lshr i32 %10, 4
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr [16 x i8], ptr @Dgt1_9_bcd, i64 0, i64 %72
+  %73 = getelementptr i8, ptr @Dgt1_9_bcd, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %70, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.77, i32 noundef %75)
@@ -4506,7 +4506,7 @@ define noundef zeroext i16 @de_ms_cm_3(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond, label %switch.lookup, label %73
 
 switch.lookup:                                    ; preds = %7
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.de_ms_cm_3, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.de_ms_cm_3, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %67 = load i32, ptr %switch.load, align 4
   %68 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %67, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0)
@@ -6087,8 +6087,8 @@ define hidden void @proto_register_gsm_a_common() local_unnamed_addr #1 {
 1:                                                ; preds = %0, %1
   %indvars.iv9 = phi i64 [ 2, %0 ], [ %indvars.iv.next10, %1 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr [19 x i32], ptr @ett_gsm_common_elem, i64 0, i64 %indvars.iv
-  %3 = getelementptr [21 x ptr], ptr @proto_register_gsm_a_common.ett, i64 0, i64 %indvars.iv9
+  %2 = getelementptr i32, ptr @ett_gsm_common_elem, i64 %indvars.iv
+  %3 = getelementptr ptr, ptr @proto_register_gsm_a_common.ett, i64 %indvars.iv9
   store ptr %2, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1

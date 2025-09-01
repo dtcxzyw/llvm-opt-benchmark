@@ -1797,7 +1797,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIiP13InstanceKlas
 
 109:                                              ; preds = %108, %106
   %indvars.iv.i.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i.i, %108 ]
-  %110 = getelementptr inbounds nuw [18 x i32], ptr @__const._ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE16calculate_resizeEb.large_table_sizes, i64 0, i64 %indvars.iv.i.i
+  %110 = getelementptr inbounds nuw i32, ptr @__const._ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE16calculate_resizeEb.large_table_sizes, i64 %indvars.iv.i.i
   %111 = load i32, ptr %110, align 4
   %.not.i.i19 = icmp slt i32 %111, %107
   br i1 %.not.i.i19, label %108, label %_ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE16calculate_resizeEb.exit.i

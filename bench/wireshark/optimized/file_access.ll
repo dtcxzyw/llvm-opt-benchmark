@@ -1431,7 +1431,7 @@ define hidden void @wtap_init_file_type_subtypes() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr [0 x %struct._wtap_module_reg], ptr @wtap_module_reg, i64 0, i64 %indvars.iv, i32 1
+  %10 = getelementptr %struct._wtap_module_reg, ptr @wtap_module_reg, i64 %indvars.iv, i32 1
   %11 = load ptr, ptr %10, align 8
   tail call void %11()
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

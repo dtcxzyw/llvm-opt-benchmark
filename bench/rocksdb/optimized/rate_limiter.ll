@@ -387,7 +387,7 @@ _ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit:    ; preds = %1
 15:                                               ; preds = %_ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit, %15
   %indvars.iv = phi i64 [ 0, %_ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit ], [ %indvars.iv.next, %15 ]
   %.033 = phi i64 [ 0, %_ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit ], [ %46, %15 ]
-  %16 = getelementptr inbounds nuw [4 x %"class.std::deque"], ptr %5, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %"class.std::deque", ptr %5, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 72
@@ -430,7 +430,7 @@ _ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit:    ; preds = %1
 48:                                               ; preds = %6, %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit
   %indvars.iv40 = phi i64 [ 3, %6 ], [ %indvars.iv.next41, %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %49 = getelementptr inbounds nuw [4 x %"class.std::deque"], ptr %5, i64 0, i64 %indvars.iv40
+  %49 = getelementptr inbounds nuw %"class.std::deque", ptr %5, i64 %indvars.iv40
   invoke void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %49)
           to label %50 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1001,7 +1001,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %67, %66, %59
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %85 = zext i32 %2 to i64
-  %86 = getelementptr inbounds nuw [4 x i64], ptr %84, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i64, ptr %84, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !115
   %88 = add nsw i64 %87, 1
   store i64 %88, ptr %86, align 8, !tbaa !115
@@ -1013,7 +1013,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %67, %66, %59
 92:                                               ; preds = %83
   %.sroa.speculated67 = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated, i64 %90)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %94 = getelementptr inbounds nuw [4 x i64], ptr %93, i64 0, i64 %85
+  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %85
   %95 = load i64, ptr %94, align 8, !tbaa !115
   %96 = add nsw i64 %95, %.sroa.speculated67
   store i64 %96, ptr %94, align 8, !tbaa !115
@@ -1039,7 +1039,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %67, %66, %59
 
 _ZN7rocksdb18GenericRateLimiter3ReqC2ElPNS_4port5MutexE.exit: ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %106 = getelementptr inbounds nuw [4 x %"class.std::deque"], ptr %105, i64 0, i64 %85
+  %106 = getelementptr inbounds nuw %"class.std::deque", ptr %105, i64 %85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !73
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 48
@@ -1171,7 +1171,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %146, %148
 .critedge:                                        ; preds = %163, %166
   %.01776 = phi i32 [ %167, %166 ], [ 3, %163 ]
   %170 = zext nneg i32 %.01776 to i64
-  %171 = getelementptr inbounds nuw [4 x %"class.std::deque"], ptr %105, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw %"class.std::deque", ptr %105, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 48
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %174 = load ptr, ptr %172, align 8, !tbaa !62
@@ -1425,10 +1425,10 @@ _ZNSt6vectorIN7rocksdb3Env10IOPriorityESaIS2_EED2Ev.exit: ; preds = %.loopexit
   %50 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !132
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [4 x %"class.std::deque"], ptr %47, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %"class.std::deque", ptr %47, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %56 = getelementptr inbounds nuw [4 x i64], ptr %48, i64 0, i64 %52
+  %56 = getelementptr inbounds nuw i64, ptr %48, i64 %52
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -1698,7 +1698,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter20GetTotalBytes
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %.0811 = phi i64 [ %8, %.preheader ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !115
   %8 = add nsw i64 %7, %.0811
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1707,7 +1707,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter20GetTotalBytes
 
 9:                                                ; preds = %2
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %5, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !115
   br label %.loopexit
 
@@ -1738,7 +1738,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter16GetTotalReque
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %.0811 = phi i64 [ %8, %.preheader ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !115
   %8 = add nsw i64 %7, %.0811
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1747,7 +1747,7 @@ define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter16GetTotalReque
 
 9:                                                ; preds = %2
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %5, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !115
   br label %.loopexit
 
@@ -1778,7 +1778,7 @@ define linkonce_odr void @_ZNK7rocksdb18GenericRateLimiter23GetTotalPendingReque
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
   %.017 = phi i64 [ %38, %.preheader ], [ 0, %4 ]
-  %8 = getelementptr inbounds nuw [4 x %"class.std::deque"], ptr %7, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %"class.std::deque", ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -1816,7 +1816,7 @@ define linkonce_odr void @_ZNK7rocksdb18GenericRateLimiter23GetTotalPendingReque
 
 39:                                               ; preds = %4
   %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw [4 x %"class.std::deque"], ptr %7, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"class.std::deque", ptr %7, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 72

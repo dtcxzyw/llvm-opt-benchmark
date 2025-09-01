@@ -374,22 +374,22 @@ switch.lookup:                                    ; preds = %3
   %21 = trunc nuw i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %23 = load i8, ptr %22, align 1, !noundef !4
-  br i1 %21, label %switch.lookup5, label %24
+  br i1 %21, label %switch.lookup6, label %24
 
 24:                                               ; preds = %16
   %25 = icmp eq i8 %23, 32
   %..i.i = select i1 %25, i16 123, i16 124
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
-switch.lookup5:                                   ; preds = %16
+switch.lookup6:                                   ; preds = %16
   %26 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %23, i1 true)
-  %switch.tableidx6 = add nsw i8 %26, -3
-  %switch.idx.cast7 = zext i8 %switch.tableidx6 to i16
+  %switch.tableidx5 = add nsw i8 %26, -3
+  %switch.idx.cast7 = zext i8 %switch.tableidx5 to i16
   %switch.offset8 = add nuw nsw i16 %switch.idx.cast7, 118
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit: ; preds = %switch.lookup5, %24
-  %.0.i.i = phi i16 [ %..i.i, %24 ], [ %switch.offset8, %switch.lookup5 ]
+_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit: ; preds = %switch.lookup6, %24
+  %.0.i.i = phi i16 [ %..i.i, %24 ], [ %switch.offset8, %switch.lookup6 ]
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
   %28 = trunc nuw nsw i64 %27 to i16
   %29 = shl nuw nsw i16 %28, 4
@@ -404,22 +404,22 @@ _ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.ex
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %37 = load i8, ptr %36, align 1, !noundef !4
-  br i1 %35, label %switch.lookup9, label %38
+  br i1 %35, label %switch.lookup10, label %38
 
 38:                                               ; preds = %31
   %39 = icmp eq i8 %37, 32
   %40 = select i1 %39, i16 1259, i16 1260
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
-switch.lookup9:                                   ; preds = %31
+switch.lookup10:                                  ; preds = %31
   %41 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %37, i1 true)
-  %switch.tableidx10 = add nsw i8 %41, -3
-  %switch.idx.cast11 = zext i8 %switch.tableidx10 to i16
+  %switch.tableidx9 = add nsw i8 %41, -3
+  %switch.idx.cast11 = zext i8 %switch.tableidx9 to i16
   %switch.offset12 = add nuw nsw i16 %switch.idx.cast11, 1254
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit: ; preds = %switch.lookup9, %38
-  %.0.i.i2 = phi i16 [ %40, %38 ], [ %switch.offset12, %switch.lookup9 ]
+_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit: ; preds = %switch.lookup10, %38
+  %.0.i.i2 = phi i16 [ %40, %38 ], [ %switch.offset12, %switch.lookup10 ]
   %42 = load i64, ptr %32, align 8, !noundef !4
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 false)
   %44 = trunc nuw nsw i64 %43 to i16

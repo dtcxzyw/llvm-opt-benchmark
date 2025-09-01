@@ -192,15 +192,15 @@ define hidden i64 @pm_encoding_utf_8_char_width(ptr noundef readonly captures(no
   %.01118 = phi i64 [ %20, %18 ], [ 0, %2 ]
   %.01217 = phi i64 [ %19, %18 ], [ 0, %2 ]
   %4 = shl nuw nsw i64 %.01217, 4
-  %5 = add nuw nsw i64 %4, 256
-  %6 = getelementptr i8, ptr %0, i64 %.01118
-  %7 = load i8, ptr %6, align 1, !tbaa !7
-  %8 = zext i8 %7 to i64
-  %9 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !7
-  %11 = zext i8 %10 to i64
-  %12 = add nuw nsw i64 %5, %11
-  %13 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %12
+  %5 = getelementptr i8, ptr %0, i64 %.01118
+  %6 = load i8, ptr %5, align 1, !tbaa !7
+  %7 = zext i8 %6 to i64
+  %8 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !7
+  %10 = zext i8 %9 to i64
+  %11 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %4
+  %12 = getelementptr i8, ptr %11, i64 256
+  %13 = getelementptr i8, ptr %12, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %18
@@ -228,7 +228,7 @@ define hidden i64 @pm_encoding_utf_8_alpha_char(ptr noundef readonly captures(no
 
 5:                                                ; preds = %2
   %6 = zext nneg i8 %3 to i64
-  %7 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i64
@@ -247,7 +247,7 @@ define hidden i64 @pm_encoding_utf_8_alpha_char(ptr noundef readonly captures(no
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = zext i8 %14 to i32
   %16 = zext i8 %14 to i64
-  %17 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !7
   %19 = zext i8 %18 to i32
   %.not.i = icmp eq i32 %.02735.i, 0
@@ -270,7 +270,7 @@ define hidden i64 @pm_encoding_utf_8_alpha_char(ptr noundef readonly captures(no
   %30 = add nuw nsw i32 %29, 256
   %31 = add nuw nsw i32 %30, %19
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %32
+  %33 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !7
   %.not28.i = icmp eq i8 %34, 0
   br i1 %.not28.i, label %pm_utf_8_codepoint.exit, label %35
@@ -290,7 +290,7 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   %.3.i14 = phi i32 [ %28, %pm_utf_8_codepoint.exit ], [ 0, %11 ], [ 0, %35 ]
   %storemerge.i13 = phi i64 [ %38, %pm_utf_8_codepoint.exit ], [ 0, %11 ], [ 0, %35 ]
   %40 = zext nneg i32 %.3.i14 to i64
-  %41 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %40
+  %41 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !7
   %43 = and i8 %42, 1
   %.not = icmp eq i8 %43, 0
@@ -335,7 +335,7 @@ define hidden i64 @pm_encoding_utf_8_alnum_char(ptr noundef readonly captures(no
 
 5:                                                ; preds = %2
   %6 = zext nneg i8 %3 to i64
-  %7 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = lshr i8 %8, 1
   %.lobit = and i8 %9, 1
@@ -355,7 +355,7 @@ define hidden i64 @pm_encoding_utf_8_alnum_char(ptr noundef readonly captures(no
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = zext i8 %14 to i32
   %16 = zext i8 %14 to i64
-  %17 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !7
   %19 = zext i8 %18 to i32
   %.not.i = icmp eq i32 %.02735.i, 0
@@ -378,7 +378,7 @@ define hidden i64 @pm_encoding_utf_8_alnum_char(ptr noundef readonly captures(no
   %30 = add nuw nsw i32 %29, 256
   %31 = add nuw nsw i32 %30, %19
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %32
+  %33 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !7
   %.not28.i = icmp eq i8 %34, 0
   br i1 %.not28.i, label %pm_utf_8_codepoint.exit, label %35
@@ -398,7 +398,7 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   %.3.i14 = phi i32 [ %28, %pm_utf_8_codepoint.exit ], [ 0, %11 ], [ 0, %35 ]
   %storemerge.i13 = phi i64 [ %38, %pm_utf_8_codepoint.exit ], [ 0, %11 ], [ 0, %35 ]
   %40 = zext nneg i32 %.3.i14 to i64
-  %41 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %40
+  %41 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !7
   %43 = and i8 %42, 2
   %.not = icmp eq i8 %43, 0
@@ -458,7 +458,7 @@ define hidden zeroext i1 @pm_encoding_utf_8_isupper_char(ptr noundef readonly ca
   %10 = load i8, ptr %9, align 1, !tbaa !7
   %11 = zext i8 %10 to i32
   %12 = zext i8 %10 to i64
-  %13 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = zext i8 %14 to i32
   %.not.i = icmp eq i32 %.02735.i, 0
@@ -481,7 +481,7 @@ define hidden zeroext i1 @pm_encoding_utf_8_isupper_char(ptr noundef readonly ca
   %26 = add nuw nsw i32 %25, 256
   %27 = add nuw nsw i32 %26, %15
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [400 x i8], ptr @pm_utf_8_dfa, i64 0, i64 %28
+  %29 = getelementptr i8, ptr @pm_utf_8_dfa, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !7
   %.not28.i = icmp eq i8 %30, 0
   br i1 %.not28.i, label %pm_utf_8_codepoint.exit, label %31
@@ -528,7 +528,7 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %31, %7, %pm_utf_8_c
 
 pm_unicode_codepoint_match.exit.sink.split:       ; preds = %5, %pm_utf_8_codepoint.exit.thread
   %.sink19 = phi i64 [ %35, %pm_utf_8_codepoint.exit.thread ], [ %6, %5 ]
-  %47 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %.sink19
+  %47 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %.sink19
   %48 = load i8, ptr %47, align 1, !tbaa !7
   %49 = and i8 %48, 4
   %50 = icmp ne i8 %49, 0
@@ -551,7 +551,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_char_width(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -562,7 +562,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -574,7 +574,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char(ptr noundef re
 define internal zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -645,7 +645,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char_7bit(ptr nound
 
 5:                                                ; preds = %2
   %6 = zext nneg i8 %3 to i64
-  %7 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i64
@@ -664,7 +664,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char_7bit(ptr nound
 
 5:                                                ; preds = %2
   %6 = zext nneg i8 %3 to i64
-  %7 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = lshr i8 %8, 1
   %.lobit.i = and i8 %9, 1
@@ -702,7 +702,7 @@ define internal zeroext i1 @pm_encoding_euc_jp_isupper_char(ptr noundef readonly
 
 14:                                               ; preds = %2
   %15 = zext nneg i8 %3 to i64
-  %16 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !7
   %18 = and i8 %17, 4
   %19 = icmp ne i8 %18, 0
@@ -817,7 +817,7 @@ pm_encoding_shift_jis_char_width.exit:            ; preds = %2
 
 18:                                               ; preds = %pm_encoding_shift_jis_char_width.exit
   %19 = zext nneg i8 %3 to i64
-  %20 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !7
   %22 = and i8 %21, 1
   %23 = zext nneg i8 %22 to i64
@@ -868,7 +868,7 @@ pm_encoding_shift_jis_char_width.exit:            ; preds = %2
 
 18:                                               ; preds = %pm_encoding_shift_jis_char_width.exit
   %19 = zext nneg i8 %3 to i64
-  %20 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !7
   %22 = lshr i8 %21, 1
   %.lobit.i = and i8 %22, 1
@@ -913,7 +913,7 @@ define internal zeroext i1 @pm_encoding_shift_jis_isupper_char(ptr noundef reado
 
 16:                                               ; preds = %2
   %17 = zext i8 %3 to i64
-  %18 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %17
+  %18 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = and i8 %19, 4
   %21 = icmp ne i8 %20, 0
@@ -988,7 +988,7 @@ define internal zeroext i1 @pm_encoding_ascii_isupper_char_7bit(ptr noundef read
 
 5:                                                ; preds = %2
   %6 = zext nneg i8 %3 to i64
-  %7 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %6
+  %7 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = and i8 %8, 4
   %10 = icmp ne i8 %9, 0
@@ -1018,7 +1018,7 @@ define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures
 
 6:                                                ; preds = %2
   %7 = zext nneg i8 %4 to i64
-  %8 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !7
   %10 = and i8 %9, 1
   %11 = zext nneg i8 %10 to i64
@@ -1032,7 +1032,7 @@ define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures
 
 15:                                               ; preds = %12
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !7
   %19 = and i8 %18, 1
   %.not = icmp eq i8 %19, 0
@@ -1088,7 +1088,7 @@ define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures
 
 6:                                                ; preds = %2
   %7 = zext nneg i8 %4 to i64
-  %8 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !7
   %10 = lshr i8 %9, 1
   %.lobit = and i8 %10, 1
@@ -1103,7 +1103,7 @@ define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures
 
 15:                                               ; preds = %12
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !7
   %19 = and i8 %18, 2
   %.not = icmp eq i8 %19, 0
@@ -1159,7 +1159,7 @@ define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly
 
 6:                                                ; preds = %2
   %7 = zext nneg i8 %4 to i64
-  %8 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !7
   %10 = and i8 %9, 4
   %11 = icmp ne i8 %10, 0
@@ -1173,7 +1173,7 @@ define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly
 
 15:                                               ; preds = %12
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !7
   %19 = and i8 %18, 4
   %20 = icmp ne i8 %19, 0
@@ -1218,7 +1218,7 @@ pm_unicode_codepoint_match.exit:                  ; preds = %29, %26, %15
 define internal range(i64 0, 2) i64 @pm_encoding_cp850_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1229,7 +1229,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp850_alpha_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_cp850_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1241,7 +1241,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp850_alnum_char(ptr noundef re
 define internal zeroext i1 @pm_encoding_cp850_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1252,7 +1252,7 @@ define internal zeroext i1 @pm_encoding_cp850_isupper_char(ptr noundef readonly 
 define internal range(i64 0, 2) i64 @pm_encoding_cp852_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1263,7 +1263,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp852_alpha_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_cp852_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1275,7 +1275,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp852_alnum_char(ptr noundef re
 define internal zeroext i1 @pm_encoding_cp852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1286,7 +1286,7 @@ define internal zeroext i1 @pm_encoding_cp852_isupper_char(ptr noundef readonly 
 define internal range(i64 0, 2) i64 @pm_encoding_cp855_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1297,7 +1297,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp855_alpha_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_cp855_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1309,7 +1309,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp855_alnum_char(ptr noundef re
 define internal zeroext i1 @pm_encoding_cp855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1599,7 +1599,7 @@ switch.early.test34:                              ; preds = %7
 define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1610,7 +1610,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1622,7 +1622,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_gb1988_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1761,7 +1761,7 @@ switch.early.test:                                ; preds = %21
 define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1772,7 +1772,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1784,7 +1784,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm437_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1795,7 +1795,7 @@ define internal zeroext i1 @pm_encoding_ibm437_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1806,7 +1806,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1818,7 +1818,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm720_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1829,7 +1829,7 @@ define internal zeroext i1 @pm_encoding_ibm720_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1840,7 +1840,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1852,7 +1852,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm737_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1863,7 +1863,7 @@ define internal zeroext i1 @pm_encoding_ibm737_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1874,7 +1874,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1886,7 +1886,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm775_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1897,7 +1897,7 @@ define internal zeroext i1 @pm_encoding_ibm775_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1908,7 +1908,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1920,7 +1920,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1931,7 +1931,7 @@ define internal zeroext i1 @pm_encoding_ibm852_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1942,7 +1942,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1954,7 +1954,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1965,7 +1965,7 @@ define internal zeroext i1 @pm_encoding_ibm855_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -1976,7 +1976,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -1988,7 +1988,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm857_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -1999,7 +1999,7 @@ define internal zeroext i1 @pm_encoding_ibm857_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2010,7 +2010,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2022,7 +2022,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm860_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2033,7 +2033,7 @@ define internal zeroext i1 @pm_encoding_ibm860_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2044,7 +2044,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2056,7 +2056,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm861_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2067,7 +2067,7 @@ define internal zeroext i1 @pm_encoding_ibm861_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2078,7 +2078,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2090,7 +2090,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm862_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2101,7 +2101,7 @@ define internal zeroext i1 @pm_encoding_ibm862_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2112,7 +2112,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2124,7 +2124,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm863_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2135,7 +2135,7 @@ define internal zeroext i1 @pm_encoding_ibm863_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2146,7 +2146,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2158,7 +2158,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm864_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2169,7 +2169,7 @@ define internal zeroext i1 @pm_encoding_ibm864_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2180,7 +2180,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2192,7 +2192,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm865_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2203,7 +2203,7 @@ define internal zeroext i1 @pm_encoding_ibm865_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2214,7 +2214,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2226,7 +2226,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm866_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2237,7 +2237,7 @@ define internal zeroext i1 @pm_encoding_ibm866_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2248,7 +2248,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2260,7 +2260,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_ibm869_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2271,7 +2271,7 @@ define internal zeroext i1 @pm_encoding_ibm869_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2282,7 +2282,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2294,7 +2294,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_1_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2305,7 +2305,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_1_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_2_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2316,7 +2316,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_2_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2328,7 +2328,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_2_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_2_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2339,7 +2339,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_2_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_3_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2350,7 +2350,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_3_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2362,7 +2362,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_3_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_3_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2373,7 +2373,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_3_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_4_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2384,7 +2384,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_4_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2396,7 +2396,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_4_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_4_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2407,7 +2407,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_4_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_5_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2418,7 +2418,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_5_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2430,7 +2430,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_5_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_5_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2441,7 +2441,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_5_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2452,7 +2452,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2464,7 +2464,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_6_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2475,7 +2475,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_6_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_7_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2486,7 +2486,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_7_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2498,7 +2498,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_7_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_7_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2509,7 +2509,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_7_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1255_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2520,7 +2520,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1255_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2540,7 +2540,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_8_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2551,7 +2551,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alpha_char(ptr nound
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2563,7 +2563,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alnum_char(ptr nound
 define internal zeroext i1 @pm_encoding_iso_8859_9_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_unicode_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2574,7 +2574,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_9_isupper_char(ptr noundef read
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_10_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2585,7 +2585,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_10_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2597,7 +2597,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_iso_8859_10_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_10_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2608,7 +2608,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_10_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_tis_620_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2619,7 +2619,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_tis_620_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2639,7 +2639,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_11_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1257_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2650,7 +2650,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1257_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2662,7 +2662,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_iso_8859_13_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1257_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2673,7 +2673,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_13_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_14_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2684,7 +2684,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_14_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2696,7 +2696,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_iso_8859_14_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_14_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2707,7 +2707,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_14_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_15_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2718,7 +2718,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_15_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2730,7 +2730,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_iso_8859_15_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_15_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2741,7 +2741,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_15_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_16_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2752,7 +2752,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_16_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2764,7 +2764,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_iso_8859_16_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_iso_8859_16_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2775,7 +2775,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_16_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_koi8_r_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2786,7 +2786,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_koi8_r_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2798,7 +2798,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_koi8_r_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_koi8_r_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2809,7 +2809,7 @@ define internal zeroext i1 @pm_encoding_koi8_r_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_koi8_u_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2820,7 +2820,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alpha_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_koi8_u_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2832,7 +2832,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alnum_char(ptr noundef r
 define internal zeroext i1 @pm_encoding_koi8_u_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_koi8_u_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2843,7 +2843,7 @@ define internal zeroext i1 @pm_encoding_koi8_u_isupper_char(ptr noundef readonly
 define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2854,7 +2854,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alpha_char(ptr no
 define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2866,7 +2866,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alnum_char(ptr no
 define internal zeroext i1 @pm_encoding_mac_cent_euro_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2877,7 +2877,7 @@ define internal zeroext i1 @pm_encoding_mac_cent_euro_isupper_char(ptr noundef r
 define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2888,7 +2888,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2900,7 +2900,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_mac_croatian_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2911,7 +2911,7 @@ define internal zeroext i1 @pm_encoding_mac_croatian_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2922,7 +2922,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2934,7 +2934,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_mac_cyrillic_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2945,7 +2945,7 @@ define internal zeroext i1 @pm_encoding_mac_cyrillic_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2956,7 +2956,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alpha_char(ptr nounde
 define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -2968,7 +2968,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alnum_char(ptr nounde
 define internal zeroext i1 @pm_encoding_mac_greek_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -2979,7 +2979,7 @@ define internal zeroext i1 @pm_encoding_mac_greek_isupper_char(ptr noundef reado
 define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -2990,7 +2990,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3002,7 +3002,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_mac_iceland_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3013,7 +3013,7 @@ define internal zeroext i1 @pm_encoding_mac_iceland_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3024,7 +3024,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alpha_char(ptr nounde
 define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3036,7 +3036,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alnum_char(ptr nounde
 define internal zeroext i1 @pm_encoding_mac_roman_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3047,7 +3047,7 @@ define internal zeroext i1 @pm_encoding_mac_roman_isupper_char(ptr noundef reado
 define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3058,7 +3058,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3070,7 +3070,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_mac_romania_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3081,7 +3081,7 @@ define internal zeroext i1 @pm_encoding_mac_romania_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3092,7 +3092,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alpha_char(ptr noundef
 define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3104,7 +3104,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alnum_char(ptr noundef
 define internal zeroext i1 @pm_encoding_mac_thai_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3115,7 +3115,7 @@ define internal zeroext i1 @pm_encoding_mac_thai_isupper_char(ptr noundef readon
 define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3126,7 +3126,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3138,7 +3138,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_mac_turkish_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3149,7 +3149,7 @@ define internal zeroext i1 @pm_encoding_mac_turkish_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3160,7 +3160,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3172,7 +3172,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_mac_ukraine_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3183,7 +3183,7 @@ define internal zeroext i1 @pm_encoding_mac_ukraine_isupper_char(ptr noundef rea
 define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_tis_620_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3194,7 +3194,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alpha_char(ptr noundef 
 define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_tis_620_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3214,7 +3214,7 @@ define internal zeroext i1 @pm_encoding_tis_620_isupper_char(ptr noundef readonl
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1250_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3225,7 +3225,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1250_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3237,7 +3237,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1250_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1250_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3248,7 +3248,7 @@ define internal zeroext i1 @pm_encoding_windows_1250_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1251_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3259,7 +3259,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1251_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3271,7 +3271,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1251_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1251_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3282,7 +3282,7 @@ define internal zeroext i1 @pm_encoding_windows_1251_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1252_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3293,7 +3293,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1252_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3305,7 +3305,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1252_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1252_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3316,7 +3316,7 @@ define internal zeroext i1 @pm_encoding_windows_1252_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1253_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3327,7 +3327,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1253_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3339,7 +3339,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1253_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1253_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3350,7 +3350,7 @@ define internal zeroext i1 @pm_encoding_windows_1253_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1254_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3361,7 +3361,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1254_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3373,7 +3373,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1254_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1254_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3384,7 +3384,7 @@ define internal zeroext i1 @pm_encoding_windows_1254_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1255_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3395,7 +3395,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1255_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3415,7 +3415,7 @@ define internal zeroext i1 @pm_encoding_windows_1255_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3426,7 +3426,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3438,7 +3438,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1256_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1256_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3449,7 +3449,7 @@ define internal zeroext i1 @pm_encoding_windows_1256_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1257_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3460,7 +3460,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1257_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3472,7 +3472,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1257_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_1257_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3483,7 +3483,7 @@ define internal zeroext i1 @pm_encoding_windows_1257_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3494,7 +3494,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alpha_char(ptr nou
 define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3506,7 +3506,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alnum_char(ptr nou
 define internal zeroext i1 @pm_encoding_windows_1258_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0
@@ -3517,7 +3517,7 @@ define internal zeroext i1 @pm_encoding_windows_1258_isupper_char(ptr noundef re
 define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i64
@@ -3528,7 +3528,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alpha_char(ptr noun
 define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = lshr i8 %6, 1
   %.lobit = and i8 %7, 1
@@ -3540,7 +3540,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alnum_char(ptr noun
 define internal zeroext i1 @pm_encoding_windows_874_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @pm_encoding_windows_874_table, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = and i8 %6, 4
   %8 = icmp ne i8 %7, 0

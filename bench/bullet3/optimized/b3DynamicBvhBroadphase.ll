@@ -484,7 +484,7 @@ define dso_local noundef ptr @_ZN22b3DynamicBvhBroadphase11createProxyERK9b3Vect
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %28 = load i32, ptr %20, align 4, !tbaa !25
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [3 x ptr], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
   store ptr null, ptr %18, align 8, !tbaa !37
   %31 = load ptr, ptr %30, align 8, !tbaa !37
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 80
@@ -909,7 +909,7 @@ define dso_local void @_ZN22b3DynamicBvhBroadphase12destroyProxyEP17b3Broadphase
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load i32, ptr %4, align 8, !tbaa !50
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [3 x ptr], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
   store ptr %13, ptr %20, align 8, !tbaa !37
   br label %21
 
@@ -1542,7 +1542,7 @@ _Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread:   ; preds = %23, %32, %37, %43, 
 122:                                              ; preds = %114
   %123 = load i32, ptr %14, align 8, !tbaa !50
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [3 x ptr], ptr %115, i64 0, i64 %124
+  %125 = getelementptr inbounds ptr, ptr %115, i64 %124
   store ptr %119, ptr %125, align 8, !tbaa !37
   br label %126
 
@@ -1565,7 +1565,7 @@ _ZL12b3ListRemoveI11b3DbvtProxyEvPT_RS2_.exit:    ; preds = %126, %127
   %133 = load i32, ptr %132, align 4, !tbaa !25
   store i32 %133, ptr %14, align 8, !tbaa !50
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds [3 x ptr], ptr %115, i64 0, i64 %134
+  %135 = getelementptr inbounds ptr, ptr %115, i64 %134
   store ptr null, ptr %116, align 8, !tbaa !37
   %136 = load ptr, ptr %135, align 8, !tbaa !37
   store ptr %136, ptr %118, align 8, !tbaa !37
@@ -2008,7 +2008,7 @@ define dso_local void @_ZN22b3DynamicBvhBroadphase18setAabbForceUpdateEP17b3Broa
 36:                                               ; preds = %28
   %37 = load i32, ptr %9, align 8, !tbaa !50
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [3 x ptr], ptr %29, i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr %29, i64 %38
   store ptr %33, ptr %39, align 8, !tbaa !37
   br label %40
 
@@ -2031,7 +2031,7 @@ _ZL12b3ListRemoveI11b3DbvtProxyEvPT_RS2_.exit:    ; preds = %40, %41
   %47 = load i32, ptr %46, align 4, !tbaa !25
   store i32 %47, ptr %9, align 8, !tbaa !50
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [3 x ptr], ptr %29, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %29, i64 %48
   store ptr null, ptr %30, align 8, !tbaa !37
   %50 = load ptr, ptr %49, align 8, !tbaa !37
   store ptr %50, ptr %32, align 8, !tbaa !37
@@ -2123,7 +2123,7 @@ define dso_local void @_ZN22b3DynamicBvhBroadphase7collideEP12b3Dispatcher(ptr n
   store i32 %30, ptr %27, align 4, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !37
   %.not47 = icmp eq ptr %34, null
   br i1 %.not47, label %66, label %.preheader
@@ -2152,7 +2152,7 @@ define dso_local void @_ZN22b3DynamicBvhBroadphase7collideEP12b3Dispatcher(ptr n
 46:                                               ; preds = %38
   %47 = load i32, ptr %41, align 8, !tbaa !50
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [3 x ptr], ptr %31, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %31, i64 %48
   store ptr %40, ptr %49, align 8, !tbaa !37
   br label %50
 

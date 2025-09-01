@@ -4226,9 +4226,9 @@ define hidden void @_ZN12object_store4path4Path5parse17hd52a62bc34171086E(ptr no
   br i1 %68, label %69, label %.split276.us.invoke, !prof !739
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.14.0.copyload, i64 0, i64 %64
+  %70 = getelementptr inbounds i8, ptr %.sroa.031.sroa.14.0.copyload, i64 %64
   %71 = load i8, ptr %70, align 1, !alias.scope !734, !noalias !740, !noundef !13
-  %72 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.12.0.copyload, i64 0, i64 %67
+  %72 = getelementptr inbounds i8, ptr %.sroa.031.sroa.12.0.copyload, i64 %67
   %73 = load i8, ptr %72, align 1, !alias.scope !731, !noalias !736, !noundef !13
   %.not28.i89.us = icmp eq i8 %71, %73
   br i1 %.not28.i89.us, label %.preheader201.us, label %74
@@ -4244,9 +4244,9 @@ define hidden void @_ZN12object_store4path4Path5parse17hd52a62bc34171086E(ptr no
 
 79:                                               ; preds = %76
   %80 = add nuw i64 %.sroa.04.0.i87.us, 1
-  %81 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i87.us
+  %81 = getelementptr inbounds i8, ptr %.sroa.031.sroa.14.0.copyload, i64 %.sroa.04.0.i87.us
   %82 = load i8, ptr %81, align 1, !alias.scope !734, !noalias !740, !noundef !13
-  %83 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.12.0.copyload, i64 0, i64 %77
+  %83 = getelementptr inbounds i8, ptr %.sroa.031.sroa.12.0.copyload, i64 %77
   %84 = load i8, ptr %83, align 1, !alias.scope !731, !noalias !736, !noundef !13
   %.not.i92.us = icmp eq i8 %82, %84
   br i1 %.not.i92.us, label %58, label %85
@@ -4305,9 +4305,9 @@ define hidden void @_ZN12object_store4path4Path5parse17hd52a62bc34171086E(ptr no
   br i1 %106, label %107, label %.split276.us.invoke, !prof !739
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.14.0.copyload, i64 0, i64 %103
+  %108 = getelementptr inbounds i8, ptr %.sroa.031.sroa.14.0.copyload, i64 %103
   %109 = load i8, ptr %108, align 1, !alias.scope !744, !noalias !749, !noundef !13
-  %110 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.12.0.copyload, i64 0, i64 %105
+  %110 = getelementptr inbounds i8, ptr %.sroa.031.sroa.12.0.copyload, i64 %105
   %111 = load i8, ptr %110, align 1, !alias.scope !741, !noalias !746, !noundef !13
   %.not28.i.us = icmp eq i8 %109, %111
   br i1 %.not28.i.us, label %.preheader.us, label %112
@@ -4327,9 +4327,9 @@ define hidden void @_ZN12object_store4path4Path5parse17hd52a62bc34171086E(ptr no
 
 119:                                              ; preds = %116
   %120 = add nuw i64 %.sroa.04.0.i.us, 1
-  %121 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i.us
+  %121 = getelementptr inbounds i8, ptr %.sroa.031.sroa.14.0.copyload, i64 %.sroa.04.0.i.us
   %122 = load i8, ptr %121, align 1, !alias.scope !744, !noalias !749, !noundef !13
-  %123 = getelementptr inbounds [0 x i8], ptr %.sroa.031.sroa.12.0.copyload, i64 0, i64 %117
+  %123 = getelementptr inbounds i8, ptr %.sroa.031.sroa.12.0.copyload, i64 %117
   %124 = load i8, ptr %123, align 1, !alias.scope !741, !noalias !746, !noundef !13
   %.not.i.us = icmp eq i8 %122, %124
   br i1 %.not.i.us, label %.preheader200.us, label %125
@@ -7650,9 +7650,9 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 define internal { ptr, i64 } @"_ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17h6afc8e1a2573f9f4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !1206, !noundef !13
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17h6afc8e1a2573f9f4E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17h6afc8e1a2573f9f4E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17h6afc8e1a2573f9f4E.26", i64 0, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17h6afc8e1a2573f9f4E.26", i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1

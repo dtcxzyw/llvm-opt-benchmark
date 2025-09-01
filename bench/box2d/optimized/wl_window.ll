@@ -3557,7 +3557,7 @@ define internal fastcc void @handleEvents(ptr noundef %0) unnamed_addr #0 {
 
 69:                                               ; preds = %.lr.ph
   %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr inbounds nuw [256 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !282
   %73 = sext i16 %72 to i32
   br label %translateKey.exit
@@ -4013,7 +4013,7 @@ define hidden noundef ptr @_glfwGetScancodeNameWayland(i32 noundef %0) local_unn
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [256 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !282
   %8 = icmp eq i16 %7, -1
   br i1 %8, label %37, label %9
@@ -4056,7 +4056,7 @@ define hidden noundef ptr @_glfwGetScancodeNameWayland(i32 noundef %0) local_unn
 
 28:                                               ; preds = %23
   %29 = sext i16 %7 to i64
-  %30 = getelementptr inbounds [349 x [5 x i8]], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 135378), i64 0, i64 %29
+  %30 = getelementptr inbounds [5 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 135378), i64 %29
   %31 = call i64 @_glfwEncodeUTF8(ptr noundef nonnull %30, i32 noundef %25) #20
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %34
@@ -4066,7 +4066,7 @@ define hidden noundef ptr @_glfwGetScancodeNameWayland(i32 noundef %0) local_unn
   br label %36
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw [5 x i8], ptr %30, i64 0, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   store i8 0, ptr %35, align 1, !tbaa !314
   br label %36
 
@@ -4087,7 +4087,7 @@ declare i64 @_glfwEncodeUTF8(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden range(i32 -32768, 32768) i32 @_glfwGetKeyScancodeWayland(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [349 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 0, i64 %2
+  %3 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 %2
   %4 = load i16, ptr %3, align 2, !tbaa !282
   %5 = sext i16 %4 to i32
   ret i32 %5
@@ -4288,7 +4288,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateStandardCursorWayland(ptr noundef 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._glfwCreateStandardCursorWayland, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._glfwCreateStandardCursorWayland, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -4317,9 +4317,9 @@ switch.lookup:                                    ; preds = %2
   br i1 %.not17, label %17, label %33
 
 17:                                               ; preds = %15
-  %switch.tableidx24 = add i32 %1, -221185
-  %18 = icmp ult i32 %switch.tableidx24, 9
-  %switch.maskindex = trunc i32 %switch.tableidx24 to i16
+  %switch.tableidx23 = add i32 %1, -221185
+  %18 = icmp ult i32 %switch.tableidx23, 9
+  %switch.maskindex = trunc i32 %switch.tableidx23 to i16
   %switch.shifted = lshr i16 319, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %18, i1 %switch.lobit, i1 false
@@ -4330,8 +4330,8 @@ switch.lookup:                                    ; preds = %2
   br label %33
 
 switch.lookup25:                                  ; preds = %17
-  %20 = zext nneg i32 %switch.tableidx24 to i64
-  %switch.gep26 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._glfwCreateStandardCursorWayland.19, i64 0, i64 %20
+  %20 = zext nneg i32 %switch.tableidx23 to i64
+  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table._glfwCreateStandardCursorWayland.19, i64 %20
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137560), align 8, !tbaa !302
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134096), align 8, !tbaa !303
@@ -5622,7 +5622,7 @@ define internal void @keyboardHandleKey(ptr readnone captures(none) %0, ptr read
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %4 to i64
-  %13 = getelementptr inbounds nuw [256 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !282
   %15 = sext i16 %14 to i32
   br label %translateKey.exit
@@ -5752,7 +5752,7 @@ define internal void @keyboardHandleModifiers(ptr readnone captures(none) %0, pt
   %.09 = phi i64 [ 0, %10 ], [ %45, %44 ]
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137296), align 8, !tbaa !383
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137152), align 8, !tbaa !309
-  %35 = getelementptr inbounds nuw [6 x %struct.anon.39], ptr %8, i64 0, i64 %.09
+  %35 = getelementptr inbounds nuw %struct.anon.39, ptr %8, i64 %.09
   %36 = load i32, ptr %35, align 8, !tbaa !381
   %37 = tail call i32 %33(ptr noundef %34, i32 noundef %36, i32 noundef 8) #20
   %38 = icmp eq i32 %37, 1

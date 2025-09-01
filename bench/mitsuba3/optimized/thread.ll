@@ -683,7 +683,7 @@ define noundef zeroext i1 @_ZN7mitsuba6Thread12set_priorityENS0_9EPriorityE(ptr 
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x float], ptr @switch.table._ZN7mitsuba6Thread12set_priorityENS0_9EPriorityE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN7mitsuba6Thread12set_priorityENS0_9EPriorityE, i64 %19
   %switch.load = load float, ptr %switch.gep, align 4
   br label %20
 

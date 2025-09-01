@@ -753,14 +753,14 @@ define noundef i32 @_ZN6icu_7725FCDUIterCollationIterator14handleNextCE32ERiR10U
 20:                                               ; preds = %18
   %21 = lshr i32 %16, 5
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9tcccIndexE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9tcccIndexE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !54
   %.not.i = icmp eq i8 %24, 0
   br i1 %.not.i, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit
 
 _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %20
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8tcccBitsE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8tcccBitsE, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !12
   %28 = and i32 %16, 31
   %29 = shl nuw i32 1, %28
@@ -784,14 +784,14 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %20
 39:                                               ; preds = %33
   %40 = lshr i32 %37, 5
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !54
   %.not.i18 = icmp eq i8 %43, 0
   br i1 %.not.i18, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %39
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !12
   %47 = and i32 %37, 31
   %48 = shl nuw i32 1, %47
@@ -1368,14 +1368,14 @@ define noundef i32 @_ZN6icu_7725FCDUIterCollationIterator13nextCodePointER10UErr
 19:                                               ; preds = %17
   %20 = lshr i32 %15, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9tcccIndexE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9tcccIndexE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !54
   %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit
 
 _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %19
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8tcccBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8tcccBitsE, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !12
   %27 = and i32 %15, 31
   %28 = shl nuw i32 1, %27
@@ -1399,14 +1399,14 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %19
 38:                                               ; preds = %32
   %39 = lshr i32 %36, 5
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !54
   %.not.i27 = icmp eq i8 %42, 0
   br i1 %.not.i27, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %38
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !12
   %46 = and i32 %36, 31
   %47 = shl nuw i32 1, %46
@@ -1580,14 +1580,14 @@ define noundef i32 @_ZN6icu_7725FCDUIterCollationIterator17previousCodePointER10
 18:                                               ; preds = %16
   %19 = lshr i32 %13, 5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !54
   %.not.i = icmp eq i8 %22, 0
   br i1 %.not.i, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %18
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8lcccBitsE, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !12
   %26 = and i32 %13, 31
   %27 = shl nuw i32 1, %26
@@ -1611,14 +1611,14 @@ _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %18
 37:                                               ; preds = %31
   %38 = lshr i32 %35, 5
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [2048 x i8], ptr @_ZN6icu_7712CollationFCD9tcccIndexE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9tcccIndexE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !54
   %.not.i32 = icmp eq i8 %41, 0
   br i1 %.not.i32, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread, label %_ZN6icu_7712CollationFCD7hasTcccEi.exit
 
 _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %37
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6icu_7712CollationFCD8tcccBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @_ZN6icu_7712CollationFCD8tcccBitsE, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !12
   %45 = and i32 %35, 31
   %46 = shl nuw i32 1, %45

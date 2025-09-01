@@ -1009,7 +1009,7 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
 5:                                                ; preds = %14, %1
   %6 = phi i1 [ true, %1 ], [ false, %14 ]
   %7 = phi i64 [ 0, %1 ], [ 1, %14 ]
-  %8 = getelementptr [2 x ptr], ptr %4, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11

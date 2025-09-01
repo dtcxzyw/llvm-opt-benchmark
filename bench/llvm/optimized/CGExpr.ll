@@ -8858,7 +8858,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction9EmitCheckEN4llvm8Array
   %30 = alloca %"class.llvm::Twine", align 8
   %31 = alloca %"class.llvm::Twine", align 8
   %32 = zext i32 %3 to i64
-  %33 = getelementptr inbounds nuw [26 x %"struct.(anonymous namespace)::SanitizerHandlerInfo"], ptr @_ZL17SanitizerHandlers, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SanitizerHandlerInfo", ptr @_ZL17SanitizerHandlers, i64 %32
   %34 = load ptr, ptr %33, align 16, !tbaa !1594
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %35
@@ -32697,7 +32697,7 @@ _ZNSt8optionalIN5clang7CodeGen18ApplyDebugLocationEE7emplaceIJRNS1_15CodeGenFunc
   %35 = and i64 %34, 140737488355328
   %36 = icmp ne i64 %35, 0
   %37 = zext i32 %4 to i64
-  %38 = getelementptr inbounds nuw [26 x %"struct.(anonymous namespace)::SanitizerHandlerInfo"], ptr @_ZL17SanitizerHandlers, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SanitizerHandlerInfo", ptr @_ZL17SanitizerHandlers, i64 %37
   %39 = load ptr, ptr %38, align 16, !tbaa !1594
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %40, label %43
@@ -39771,7 +39771,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %31
 
 switch.lookup:                                    ; preds = %333
   %338 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction8EmitCallENS_8QualTypeERKNS0_8CGCalleeEPKNS_8CallExprENS0_15ReturnValueSlotEPN4llvm5ValueEPPNSA_8CallBaseEPPKNS0_14CGFunctionInfoE, i64 0, i64 %338
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction8EmitCallENS_8QualTypeERKNS0_8CGCalleeEPKNS_8CallExprENS0_15ReturnValueSlotEPN4llvm5ValueEPPNSA_8CallBaseEPPKNS0_14CGFunctionInfoE, i64 %338
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang19CXXOperatorCallExpr14isAssignmentOpEv.exit.thread
 

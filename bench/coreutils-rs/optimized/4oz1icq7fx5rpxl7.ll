@@ -261,8 +261,8 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %.lr.ph
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit": ; preds = %21
-  %25 = getelementptr inbounds [0 x { ptr, i64 }], ptr %1, i64 0, i64 %12
-  %26 = getelementptr inbounds [0 x { ptr, i64 }], ptr %1, i64 0, i64 %.09
+  %25 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %12
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %.09
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !alias.scope !49
@@ -326,8 +326,8 @@ _ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit: ; preds = %.lr.ph
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit": ; preds = %21
-  %25 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %12
-  %26 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %.09
+  %25 = getelementptr inbounds i64, ptr %1, i64 %12
+  %26 = getelementptr inbounds i64, ptr %1, i64 %.09
   %.0.copyload.i = load i64, ptr %25, align 8, !alias.scope !53
   %27 = load i64, ptr %26, align 8, !alias.scope !53
   store i64 %27, ptr %25, align 8, !alias.scope !53
@@ -367,7 +367,7 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %5
   br i1 %15, label %16, label %18, !prof !52
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds [0 x { ptr, i64 }], ptr %0, i64 0, i64 %.05
+  %17 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.05
   br label %7
 
 18:                                               ; preds = %14

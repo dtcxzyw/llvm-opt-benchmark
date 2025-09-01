@@ -2739,7 +2739,7 @@ _ZN15ast_translation5cacheEP3astS1_.exit:         ; preds = %_ZN6vectorIP3astLb0
   %177 = phi i32 [ %172, %.lr.ph411 ], [ %233, %224 ]
   %178 = add i32 %177, -1
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw [0 x ptr], ptr %175, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw ptr, ptr %175, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !169
   %182 = add i32 %177, 1
   store i32 %182, ptr %52, align 8, !tbaa !160
@@ -3619,7 +3619,7 @@ _ZNK6vectorIP3astLb0EjE4sizeEv.exit208:           ; preds = %579, %582
 606:                                              ; preds = %604
   %607 = sub i32 %596, %587
   %608 = zext i32 %607 to i64
-  %609 = getelementptr inbounds nuw [0 x ptr], ptr %594, i64 0, i64 %608
+  %609 = getelementptr inbounds nuw ptr, ptr %594, i64 %608
   br label %610
 
 610:                                              ; preds = %604, %606, %598

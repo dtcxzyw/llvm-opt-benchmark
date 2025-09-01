@@ -130,9 +130,9 @@ is_inside.exit:                                   ; preds = %37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !31
-  %56 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !31
   %.not103 = icmp eq i32 %55, %57
   br i1 %.not103, label %58, label %._crit_edge.loopexit

@@ -85,7 +85,7 @@ define i64 @Abc_Isop6Cover(i64 noundef %0, i64 noundef %1, ptr noundef writeonly
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 %0, %22
   %24 = and i64 %indvars.iv.next, 4294967295
-  %25 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %23, %0
   %28 = and i64 %26, %27
@@ -103,12 +103,12 @@ split:                                            ; preds = %20, %29, %.preheade
   %.pre-phi87 = phi i64 [ %.pre86, %.preheader._crit_edge ], [ %22, %29 ], [ %22, %20 ]
   %.0.lcssa = phi i32 [ %15, %.preheader._crit_edge ], [ %indvars, %29 ], [ %indvars, %20 ]
   %33 = sext i32 %.0.lcssa to i64
-  %34 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %33
+  %34 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = and i64 %35, %0
   %37 = shl i64 %36, %.pre-phi87
   %38 = or i64 %37, %36
-  %39 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %33
+  %39 = getelementptr inbounds i64, ptr @s_Truths6, i64 %33
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = and i64 %40, %0
   %42 = lshr i64 %41, %.pre-phi87
@@ -330,7 +330,7 @@ Abc_TtHasVar.exit:                                ; preds = %20, %27
 
 .split36:                                         ; preds = %Abc_TtHasVar.exit
   %38 = zext nneg i32 %.03389 to i64
-  %39 = getelementptr inbounds nuw [17 x ptr], ptr @s_pFuncIsopCover, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr @s_pFuncIsopCover, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !17
   %41 = tail call i64 %40(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4, ptr noundef %5) #20
   %42 = icmp eq i32 %.03389, %3
@@ -392,8 +392,8 @@ define void @Abc_IsopBuildTruth(ptr noundef readonly captures(none) %0, i32 noun
 
 .preheader5.i:                                    ; preds = %5, %.preheader5.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader5.i ], [ 0, %5 ]
-  %9 = getelementptr inbounds nuw [17 x [1024 x i64]], ptr @Abc_IsopTtElems.TtElems, i64 0, i64 %indvars.iv.i
-  %10 = getelementptr inbounds nuw [17 x ptr], ptr @Abc_IsopTtElems.pTtElems, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [1024 x i64], ptr @Abc_IsopTtElems.TtElems, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw ptr, ptr @Abc_IsopTtElems.pTtElems, i64 %indvars.iv.i
   store ptr %9, ptr %10, align 8, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 17
@@ -413,7 +413,7 @@ define void @Abc_IsopBuildTruth(ptr noundef readonly captures(none) %0, i32 noun
   br label %23
 
 .preheader.i.i:                                   ; preds = %.preheader.i
-  %17 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv12.i.i
+  %17 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv12.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw ptr, ptr @Abc_IsopTtElems.pTtElems, i64 %indvars.iv12.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !20
@@ -766,7 +766,7 @@ define i32 @Abc_IsopCnf(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noun
 
 9:                                                ; preds = %4
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw [17 x ptr], ptr @s_pFuncIsopCover, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @s_pFuncIsopCover, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = call i64 %12(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %5, i64 noundef %7, ptr noundef %3) #20
   br label %17
@@ -808,7 +808,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %18
 
 27:                                               ; preds = %Abc_TtNot.exit
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw [17 x ptr], ptr @s_pFuncIsopCover, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr @s_pFuncIsopCover, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !17
   %.not68 = icmp eq ptr %3, null
   %31 = ashr i64 %.056, 32
@@ -1121,7 +1121,7 @@ define i64 @Abc_Esop6Cover(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %0, %13
   %15 = and i64 %indvars.iv.next, 4294967295
-  %16 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !3
   %18 = xor i64 %14, %0
   %19 = and i64 %17, %18
@@ -1132,12 +1132,12 @@ split:                                            ; preds = %11, %.preheader._cr
   %.pre-phi82 = phi i64 [ %.pre81, %.preheader._crit_edge ], [ %13, %11 ]
   %.0.lcssa = phi i32 [ %6, %.preheader._crit_edge ], [ %indvars, %11 ]
   %20 = sext i32 %.0.lcssa to i64
-  %21 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %20
+  %21 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = and i64 %22, %0
   %24 = shl i64 %23, %.pre-phi82
   %25 = or i64 %24, %23
-  %26 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %20
+  %26 = getelementptr inbounds i64, ptr @s_Truths6, i64 %20
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = and i64 %27, %0
   %29 = lshr i64 %28, %.pre-phi82
@@ -2047,7 +2047,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %85 = lshr i64 %82, %84
   %86 = trunc i64 %85 to i32
   %87 = and i32 %86, 1
-  %88 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %87, ptr %88, align 4, !tbaa !7
   %spec.select = add nuw nsw i32 %87, %.0329
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2088,7 +2088,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %indvars.iv391 = phi i64 [ %108, %.loopexit313 ], [ 0, %104 ]
   %indvars.iv384 = phi i64 [ %indvars.iv.next385, %.loopexit313 ], [ 1, %104 ]
   %.1177341 = phi i32 [ %.2178, %.loopexit313 ], [ -1, %104 ]
-  %106 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv391
+  %106 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv391
   %107 = load i32, ptr %106, align 4, !tbaa !7
   %.not191 = icmp eq i32 %107, 0
   %108 = add nuw nsw i64 %indvars.iv391, 1
@@ -2105,7 +2105,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 112:                                              ; preds = %.lr.ph335, %126
   %indvars.iv386 = phi i64 [ %indvars.iv384, %.lr.ph335 ], [ %indvars.iv.next387, %126 ]
   %.0169.in333 = phi i32 [ %110, %.lr.ph335 ], [ %.pre-phi, %126 ]
-  %113 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv386
+  %113 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv386
   %114 = load i32, ptr %113, align 4, !tbaa !7
   %.not192 = icmp eq i32 %114, 0
   br i1 %.not192, label %115, label %._crit_edge404
@@ -2153,7 +2153,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 
 .lr.ph359:                                        ; preds = %.preheader314, %133
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %133 ], [ 0, %.preheader314 ]
-  %131 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv396
+  %131 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv396
   %132 = load i32, ptr %131, align 4, !tbaa !7
   %.not189 = icmp eq i32 %132, 0
   br i1 %.not189, label %._crit_edge360.loopexit.split.loop.exit, label %133
@@ -3345,7 +3345,7 @@ define internal i64 @Abc_Isop9Cover(ptr noundef readonly captures(none) %0, ptr 
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3365,7 +3365,7 @@ define internal i64 @Abc_Isop9Cover(ptr noundef readonly captures(none) %0, ptr 
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 4
@@ -3386,26 +3386,26 @@ define internal i64 @Abc_Isop9Cover(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 4
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 4
@@ -3422,14 +3422,14 @@ define internal i64 @Abc_Isop9Cover(ptr noundef readonly captures(none) %0, ptr 
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -3511,7 +3511,7 @@ define internal i64 @Abc_Isop10Cover(ptr noundef readonly captures(none) %0, ptr
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -3531,7 +3531,7 @@ define internal i64 @Abc_Isop10Cover(ptr noundef readonly captures(none) %0, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 8
@@ -3552,26 +3552,26 @@ define internal i64 @Abc_Isop10Cover(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 8
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 8
@@ -3588,14 +3588,14 @@ define internal i64 @Abc_Isop10Cover(ptr noundef readonly captures(none) %0, ptr
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 64
@@ -3677,7 +3677,7 @@ define internal i64 @Abc_Isop11Cover(ptr noundef readonly captures(none) %0, ptr
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -3697,7 +3697,7 @@ define internal i64 @Abc_Isop11Cover(ptr noundef readonly captures(none) %0, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 16
@@ -3718,26 +3718,26 @@ define internal i64 @Abc_Isop11Cover(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 16
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [16 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 16
@@ -3754,14 +3754,14 @@ define internal i64 @Abc_Isop11Cover(ptr noundef readonly captures(none) %0, ptr
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [16 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [16 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 128
@@ -3843,7 +3843,7 @@ define internal i64 @Abc_Isop12Cover(ptr noundef readonly captures(none) %0, ptr
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -3863,7 +3863,7 @@ define internal i64 @Abc_Isop12Cover(ptr noundef readonly captures(none) %0, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 32
@@ -3884,26 +3884,26 @@ define internal i64 @Abc_Isop12Cover(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 32
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 32
@@ -3920,14 +3920,14 @@ define internal i64 @Abc_Isop12Cover(ptr noundef readonly captures(none) %0, ptr
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 256
@@ -4009,7 +4009,7 @@ define internal i64 @Abc_Isop13Cover(ptr noundef readonly captures(none) %0, ptr
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [64 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -4029,7 +4029,7 @@ define internal i64 @Abc_Isop13Cover(ptr noundef readonly captures(none) %0, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [64 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 64
@@ -4050,26 +4050,26 @@ define internal i64 @Abc_Isop13Cover(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [64 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 64
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [64 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [64 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [64 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 64
@@ -4086,14 +4086,14 @@ define internal i64 @Abc_Isop13Cover(ptr noundef readonly captures(none) %0, ptr
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [64 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [64 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [64 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 512
@@ -4175,7 +4175,7 @@ define internal i64 @Abc_Isop14Cover(ptr noundef readonly captures(none) %0, ptr
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
@@ -4195,7 +4195,7 @@ define internal i64 @Abc_Isop14Cover(ptr noundef readonly captures(none) %0, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 128
@@ -4216,26 +4216,26 @@ define internal i64 @Abc_Isop14Cover(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [128 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 128
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [128 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [128 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 128
@@ -4252,14 +4252,14 @@ define internal i64 @Abc_Isop14Cover(ptr noundef readonly captures(none) %0, ptr
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [128 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [128 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [128 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 1024
@@ -4341,7 +4341,7 @@ define internal i64 @Abc_Isop15Cover(ptr noundef readonly captures(none) %0, ptr
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -4361,7 +4361,7 @@ define internal i64 @Abc_Isop15Cover(ptr noundef readonly captures(none) %0, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 256
@@ -4382,26 +4382,26 @@ define internal i64 @Abc_Isop15Cover(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [256 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 256
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [256 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [256 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 256
@@ -4418,14 +4418,14 @@ define internal i64 @Abc_Isop15Cover(ptr noundef readonly captures(none) %0, ptr
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [256 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [256 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [256 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 2048
@@ -4507,7 +4507,7 @@ define internal i64 @Abc_Isop16Cover(ptr noundef readonly captures(none) %0, ptr
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = getelementptr inbounds nuw [512 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -4527,7 +4527,7 @@ define internal i64 @Abc_Isop16Cover(ptr noundef readonly captures(none) %0, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = xor i64 %26, -1
   %28 = and i64 %24, %27
-  %29 = getelementptr inbounds nuw [512 x i64], ptr %6, i64 0, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv107
   store i64 %28, ptr %29, align 8, !tbaa !3
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 512
@@ -4548,26 +4548,26 @@ define internal i64 @Abc_Isop16Cover(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.preheader100 ], [ 0, %30 ]
   %37 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv111
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw [512 x i64], ptr %8, i64 0, i64 %indvars.iv111
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv111
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = xor i64 %40, -1
   %42 = and i64 %38, %41
   %43 = or disjoint i64 %indvars.iv111, 512
   %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw [512 x i64], ptr %9, i64 0, i64 %indvars.iv111
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv111
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = xor i64 %47, -1
   %49 = and i64 %45, %48
   %50 = or i64 %49, %42
-  %51 = getelementptr inbounds nuw [512 x i64], ptr %6, i64 0, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv111
   store i64 %50, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv111
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
-  %57 = getelementptr inbounds nuw [512 x i64], ptr %7, i64 0, i64 %indvars.iv111
+  %57 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv111
   store i64 %56, ptr %57, align 8, !tbaa !3
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 512
@@ -4584,14 +4584,14 @@ define internal i64 @Abc_Isop16Cover(ptr noundef readonly captures(none) %0, ptr
 
 .preheader99:                                     ; preds = %58, %.preheader99
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader99 ], [ 0, %58 ]
-  %64 = getelementptr inbounds nuw [512 x i64], ptr %10, i64 0, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv115
   %65 = load i64, ptr %64, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw [512 x i64], ptr %8, i64 0, i64 %indvars.iv115
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv115
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = or i64 %67, %65
   %69 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv115
   store i64 %68, ptr %69, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw [512 x i64], ptr %9, i64 0, i64 %indvars.iv115
+  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv115
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = or i64 %71, %65
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 4096

@@ -883,7 +883,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %indvars.iv = phi i64 [ 0, %500 ], [ %indvars.iv.next, %509 ]
   %510 = getelementptr i8, ptr %.2.lcssa, i64 %indvars.iv
   %511 = load i8, ptr %510, align 1
-  %512 = getelementptr [64 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %512 = getelementptr i8, ptr %5, i64 %indvars.iv
   %513 = load i8, ptr %512, align 1
   %514 = xor i8 %513, %511
   %515 = getelementptr i8, ptr %.2641.lcssa, i64 %indvars.iv

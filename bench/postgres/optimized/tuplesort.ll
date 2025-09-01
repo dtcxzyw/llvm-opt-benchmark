@@ -1516,7 +1516,7 @@ worker_nomergeruns.exit:                          ; preds = %28, %38
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %41 = load i32, ptr %26, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [0 x %struct.TapeShare], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds %struct.TapeShare, ptr %40, i64 %42
   %44 = load i64, ptr %3, align 8
   store i64 %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1603,7 +1603,7 @@ inittapestate.exit.i:                             ; preds = %70, %60
 86:                                               ; preds = %86, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
   %87 = load ptr, ptr %76, align 8
-  %88 = getelementptr inbounds nuw [0 x %struct.TapeShare], ptr %85, i64 0, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw %struct.TapeShare, ptr %85, i64 %indvars.iv.i
   %89 = trunc nuw nsw i64 %indvars.iv.i to i32
   %90 = tail call ptr @LogicalTapeImport(ptr noundef %87, i32 noundef %89, ptr noundef nonnull %88) #13
   %91 = load ptr, ptr %81, align 8
@@ -2465,7 +2465,7 @@ worker_freeze_result_tape.exit:                   ; preds = %291, %295
   %297 = getelementptr inbounds nuw i8, ptr %287, i64 72
   %298 = load i32, ptr %88, align 8
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds [0 x %struct.TapeShare], ptr %297, i64 0, i64 %299
+  %300 = getelementptr inbounds %struct.TapeShare, ptr %297, i64 %299
   %301 = load i64, ptr %2, align 8
   store i64 %301, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %287, i64 8
@@ -3359,7 +3359,7 @@ define dso_local noundef nonnull ptr @tuplesort_method_name(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.tuplesort_method_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tuplesort_method_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

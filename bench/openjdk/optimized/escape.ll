@@ -10186,7 +10186,7 @@ define hidden noundef ptr @_ZN15ConnectionGraph14specialize_cmpEP4NodeS1_(ptr no
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %19, i32 1
+  %20 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %19, i32 1
   %21 = load i8, ptr %20, align 4
   %22 = tail call noundef ptr @_ZN11PhaseValues7zeroconE9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %16, i8 noundef zeroext %21) #12
   br label %45
@@ -10223,7 +10223,7 @@ define hidden noundef ptr @_ZN15ConnectionGraph14specialize_cmpEP4NodeS1_(ptr no
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %48, i32 1
+  %49 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %48, i32 1
   %50 = load i8, ptr %49, align 4
   %51 = tail call noundef ptr @_ZN7CmpNode4makeEP4NodeS1_9BasicTypeb(ptr noundef nonnull %1, ptr noundef %.0, i8 noundef zeroext %50, i1 noundef zeroext false) #12
   ret ptr %51
@@ -10258,7 +10258,7 @@ define hidden noundef ptr @_ZN15ConnectionGraph17specialize_castppEP4NodeS1_S1_(
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %25, i32 1
+  %26 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %25, i32 1
   %27 = load i8, ptr %26, align 4
   %28 = tail call noundef ptr @_ZN11PhaseValues7zeroconE9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %22, i8 noundef zeroext %27) #12
   br label %_ZN15ConnectionGraph14specialize_cmpEP4NodeS1_.exit
@@ -10295,7 +10295,7 @@ _ZN15ConnectionGraph14specialize_cmpEP4NodeS1_.exit: ; preds = %21, %29, %48
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %53, i32 1
+  %54 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %53, i32 1
   %55 = load i8, ptr %54, align 4
   %56 = tail call noundef ptr @_ZN7CmpNode4makeEP4NodeS1_9BasicTypeb(ptr noundef nonnull %2, ptr noundef %.0.i, i8 noundef zeroext %55, i1 noundef zeroext false) #12
   %57 = load ptr, ptr %7, align 8
@@ -10856,7 +10856,7 @@ define hidden noundef ptr @_ZN15ConnectionGraph29split_castpp_load_through_phiEP
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %20, i32 1
+  %21 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %20, i32 1
   %22 = load i8, ptr %21, align 4
   %23 = tail call noundef ptr @_ZN11PhaseValues7zeroconE9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %8, i8 noundef zeroext %22) #12
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17930,7 +17930,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %80 = add nuw nsw i8 %79, 15
   %81 = sext i32 %30 to i64
   %82 = zext nneg i8 %80 to i64
-  %83 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = tail call noundef ptr @_ZN14InitializeNode19find_captured_storeEliP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(73) %11, i64 noundef %81, i32 noundef %84, ptr noundef %2) #12
   %.not35 = icmp eq ptr %85, null
@@ -18968,7 +18968,7 @@ _ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit: ; preds = %52, %56
 
 _ZN7ciField11layout_typeEv.exit:                  ; preds = %68, %72
   %76 = phi i64 [ %75, %72 ], [ 12, %68 ]
-  %77 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @type2field, i64 %76
   %78 = load i8, ptr %77, align 1
   br label %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47
 

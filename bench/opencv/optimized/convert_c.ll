@@ -75,7 +75,7 @@ define void @cvSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 25:                                               ; preds = %5, %25
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %25 ]
   %.043108 = phi i32 [ 0, %5 ], [ %30, %25 ]
-  %26 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = icmp ne ptr %27, null
   %29 = zext i1 %28 to i32
@@ -175,7 +175,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %31
 62:                                               ; preds = %58, %169
   %indvars.iv113 = phi i64 [ 0, %58 ], [ %indvars.iv.next114, %169 ]
   %.044110 = phi i32 [ 0, %58 ], [ %.145, %169 ]
-  %63 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv113
+  %63 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv113
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %.not52 = icmp eq ptr %64, null
   br i1 %.not52, label %169, label %65
@@ -629,7 +629,7 @@ define void @cvMerge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 19:                                               ; preds = %5, %19
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %19 ]
   %.03978 = phi i32 [ 0, %5 ], [ %24, %19 ]
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = icmp ne ptr %21, null
   %23 = zext i1 %22 to i32
@@ -729,7 +729,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %25
 56:                                               ; preds = %52, %113
   %indvars.iv83 = phi i64 [ 0, %52 ], [ %indvars.iv.next84, %113 ]
   %.04080 = phi i32 [ 0, %52 ], [ %.141, %113 ]
-  %57 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv83
+  %57 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv83
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   %.not48 = icmp eq ptr %58, null
   br i1 %.not48, label %113, label %59

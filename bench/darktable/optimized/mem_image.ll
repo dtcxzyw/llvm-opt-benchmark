@@ -402,7 +402,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
 
 40:                                               ; preds = %38
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %41 = getelementptr inbounds nuw [8192 x i32], ptr %37, i64 0, i64 %indvars.iv.next
+  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.next
   %42 = load i32, ptr %41, align 4, !tbaa !87
   %43 = add nsw i32 %42, %.083
   %44 = icmp sgt i32 %43, %.063
@@ -531,10 +531,10 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %.382137.us = phi ptr [ %109, %.lr.ph139.us ], [ %.281142.us, %.preheader.us ]
   %100 = load ptr, ptr %5, align 8, !tbaa !110
   %101 = getelementptr inbounds [4 x i16], ptr %100, i64 %indvars.iv247
-  %102 = getelementptr inbounds nuw [4 x i16], ptr %101, i64 0, i64 %indvars.iv244
+  %102 = getelementptr inbounds nuw i16, ptr %101, i64 %indvars.iv244
   %103 = load i16, ptr %102, align 2, !tbaa !111
   %104 = zext i16 %103 to i64
-  %105 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i16, ptr %81, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !111
   %107 = lshr i16 %106, 8
   %108 = trunc nuw i16 %107 to i8
@@ -590,10 +590,10 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
 126:                                              ; preds = %126, %.preheader97.us.us
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %126 ], [ 0, %.preheader97.us.us ]
   %.378127.us.us = phi ptr [ %132, %126 ], [ %.277132.us.us, %.preheader97.us.us ]
-  %127 = getelementptr inbounds nuw [4 x i16], ptr %125, i64 0, i64 %indvars.iv235
+  %127 = getelementptr inbounds nuw i16, ptr %125, i64 %indvars.iv235
   %128 = load i16, ptr %127, align 2, !tbaa !111
   %129 = zext i16 %128 to i64
-  %130 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i16, ptr %81, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !111
   %132 = getelementptr inbounds nuw i8, ptr %.378127.us.us, i64 2
   store i16 %131, ptr %.378127.us.us, align 2, !tbaa !111
@@ -690,10 +690,10 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %167 ], [ %151, %.lr.ph.us.us.us ]
   %.176110.us.us.us = phi ptr [ %173, %167 ], [ %.075113.us.us.us, %.lr.ph.us.us.us ]
   %indvars.iv.next210 = add nsw i64 %indvars.iv209, -1
-  %168 = getelementptr inbounds nuw [4 x i16], ptr %166, i64 0, i64 %indvars.iv.next210
+  %168 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv.next210
   %169 = load i16, ptr %168, align 2, !tbaa !111
   %170 = zext i16 %169 to i64
-  %171 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i16, ptr %81, i64 %170
   %172 = load i16, ptr %171, align 2, !tbaa !111
   %173 = getelementptr inbounds nuw i8, ptr %.176110.us.us.us, i64 2
   store i16 %172, ptr %.176110.us.us.us, align 2, !tbaa !111
@@ -749,10 +749,10 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv218 = phi i64 [ %188, %.lr.ph.us ], [ %indvars.iv.next219, %191 ]
   %.176110.us = phi ptr [ %.075113.us, %.lr.ph.us ], [ %197, %191 ]
   %indvars.iv.next219 = add nsw i64 %indvars.iv218, -1
-  %192 = getelementptr inbounds nuw [4 x i16], ptr %190, i64 0, i64 %indvars.iv.next219
+  %192 = getelementptr inbounds nuw i16, ptr %190, i64 %indvars.iv.next219
   %193 = load i16, ptr %192, align 2, !tbaa !111
   %194 = zext i16 %193 to i64
-  %195 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i16, ptr %81, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !111
   %197 = getelementptr inbounds nuw i8, ptr %.176110.us, i64 2
   store i16 %196, ptr %.176110.us, align 2, !tbaa !111
@@ -818,10 +818,10 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv.next226 = add nsw i64 %indvars.iv225, -1
   %221 = load ptr, ptr %5, align 8, !tbaa !110
   %222 = getelementptr inbounds [4 x i16], ptr %221, i64 %indvars.iv228
-  %223 = getelementptr inbounds nuw [4 x i16], ptr %222, i64 0, i64 %indvars.iv.next226
+  %223 = getelementptr inbounds nuw i16, ptr %222, i64 %indvars.iv.next226
   %224 = load i16, ptr %223, align 2, !tbaa !111
   %225 = zext i16 %224 to i64
-  %226 = getelementptr inbounds nuw [65536 x i16], ptr %81, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i16, ptr %81, i64 %225
   %227 = load i16, ptr %226, align 2, !tbaa !111
   %228 = lshr i16 %227, 8
   %229 = trunc nuw i16 %228 to i8

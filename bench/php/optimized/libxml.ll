@@ -1818,7 +1818,7 @@ zend_string_alloc.exit79.i:                       ; preds = %16
   store i64 %17, ptr %23, align 8, !tbaa !41
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %1, i64 %17, i1 false)
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %24, i64 0, i64 %17
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %17
   store i8 0, ptr %25, align 1, !tbaa !33
   store ptr %20, ptr %5, align 16, !tbaa !33
   br label %26
@@ -1845,7 +1845,7 @@ zend_string_alloc.exit.i:                         ; preds = %26
   store i64 %29, ptr %35, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 1 %0, i64 %29, i1 false)
-  %37 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %29
   store i8 0, ptr %37, align 1, !tbaa !33
   store ptr %32, ptr %28, align 16, !tbaa !33
   br label %38
@@ -4160,7 +4160,7 @@ smart_str_0.exit:                                 ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !41
-  %31 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !33
   %32 = load ptr, ptr %5, align 8, !tbaa !81
   %.not.i13 = icmp eq ptr %32, null
@@ -4287,7 +4287,7 @@ smart_str_0.exit:                                 ; preds = %22
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw [1 x i8], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   store i8 0, ptr %26, align 1, !tbaa !33
   %27 = load ptr, ptr %4, align 8, !tbaa !81
   %.not.i11 = icmp eq ptr %27, null

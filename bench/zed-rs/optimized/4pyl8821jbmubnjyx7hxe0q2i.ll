@@ -7810,7 +7810,7 @@ switch.lookup:                                    ; preds = %.noexc.i, %56
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %70 = load i8, ptr %69, align 8, !range !1457, !noundef !17
   %71 = zext nneg i8 %70 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN106_$LT$title_bar..platforms..platform_windows..WindowsCaptionButton$u20$as$u20$gpui..element..RenderOnce$GT$6render17h91f66eb935a5d38aE", i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN106_$LT$title_bar..platforms..platform_windows..WindowsCaptionButton$u20$as$u20$gpui..element..RenderOnce$GT$6render17h91f66eb935a5d38aE", i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZN4gpui7element13ParentElement5child17h5cdaff9fcf35c3a9E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %14, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

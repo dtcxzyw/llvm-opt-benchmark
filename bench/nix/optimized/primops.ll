@@ -8139,7 +8139,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %57, %_ZNKSt14defaul
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %72, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %72, i64 %75
   %.not10.i = icmp eq i32 %74, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -9409,7 +9409,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %65, %_ZNKSt14defaul
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %80, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %80, i64 %83
   %.not10.i = icmp eq i32 %82, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -9691,7 +9691,7 @@ _ZN7testing15AssertionResultD2Ev.exit80:          ; preds = %166, %_ZNKSt14defau
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %179, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %179, i64 %182
   %.not10.i81 = icmp eq i32 %181, 0
   br i1 %.not10.i81, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i89, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i82
 
@@ -15097,7 +15097,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %146, %_ZNKSt14defau
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %163 = load i32, ptr %162, align 4
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %161, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %161, i64 %164
   %.not10.i = icmp eq i32 %163, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -15513,7 +15513,7 @@ _ZN7testing15AssertionResultD2Ev.exit126:         ; preds = %294, %_ZNKSt14defau
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 4
   %309 = load i32, ptr %308, align 4
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %307, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %307, i64 %310
   %.not10.i127 = icmp eq i32 %309, 0
   br i1 %.not10.i127, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i135, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i128
 
@@ -16098,7 +16098,7 @@ define linkonce_odr noundef ptr @_ZN3nix8Bindings4findENS_6SymbolE(ptr noundef n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %3, i64 %6
   %.not10 = icmp eq i32 %5, 0
   br i1 %.not10, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i
 
@@ -18274,7 +18274,7 @@ define linkonce_odr noundef i32 @_ZNK3nix5Value4typeEb(ptr noundef nonnull align
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 
@@ -18750,7 +18750,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %55, %_ZNKSt14defaul
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %70, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %70, i64 %73
   %.not10.i = icmp eq i32 %72, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -19217,7 +19217,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %55, %_ZNKSt14defaul
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %70, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %70, i64 %73
   %.not10.i = icmp eq i32 %72, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -20131,7 +20131,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %62, %_ZNKSt14defaul
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %77, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %77, i64 %80
   %.not10.i = icmp eq i32 %79, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -20405,7 +20405,7 @@ _ZN7testing15AssertionResultD2Ev.exit77:          ; preds = %161, %_ZNKSt14defau
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %174, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %174, i64 %177
   %.not10.i78 = icmp eq i32 %176, 0
   br i1 %.not10.i78, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i86, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i79
 
@@ -20888,7 +20888,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %72, %_ZNKSt14defaul
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %87, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %87, i64 %90
   %.not10.i = icmp eq i32 %89, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -21349,7 +21349,7 @@ _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %238, %_ZNKSt14defau
   %252 = getelementptr inbounds nuw i8, ptr %249, i64 4
   %253 = load i32, ptr %252, align 4
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %251, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %251, i64 %254
   %.not10.i157 = icmp eq i32 %253, 0
   br i1 %.not10.i157, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i165, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i158
 
@@ -29192,7 +29192,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %96, %_ZNKSt14defaul
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %111, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %111, i64 %114
   %.not10.i = icmp eq i32 %113, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -29732,7 +29732,7 @@ _ZN7testing15AssertionResultD2Ev.exit168:         ; preds = %292, %_ZNKSt14defau
   %306 = getelementptr inbounds nuw i8, ptr %303, i64 4
   %307 = load i32, ptr %306, align 4
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %305, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %305, i64 %308
   %.not10.i169 = icmp eq i32 %307, 0
   br i1 %.not10.i169, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i177, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i170
 
@@ -43642,7 +43642,7 @@ _ZN3nix11LibExprTest12createSymbolEPKc.exit:      ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %108, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %108, i64 %111
   %.not10.i = icmp eq i32 %110, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -43837,7 +43837,7 @@ _ZN3nix11LibExprTest12createSymbolEPKc.exit116:   ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %178 = load i32, ptr %177, align 4
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw [0 x %"struct.nix::Attr"], ptr %176, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %176, i64 %179
   %.not10.i117 = icmp eq i32 %178, 0
   br i1 %.not10.i117, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i125, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i118
 
@@ -97399,7 +97399,7 @@ _ZNKSt5ctypeIcE5widenEc.exit216:                  ; preds = %56, %59
   br i1 %.not.i217, label %_ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET0_RKSG_SI_RT_RKT1_.exit, label %84
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw [256 x i8], ptr %76, i64 0, i64 %80
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 %80
   %86 = load i8, ptr %85, align 1
   %.not.i.i.i = icmp eq i8 %86, 0
   br i1 %.not.i.i.i, label %87, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit.i
@@ -97561,7 +97561,7 @@ _ZNKSt5ctypeIcE5widenEc.exit225:                  ; preds = %136, %139
   %160 = phi ptr [ %153, %.lr.ph ], [ %194, %192 ]
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %156, i64 %162
   %164 = load i8, ptr %163, align 1
   %.not.i.i = icmp eq i8 %164, 0
   br i1 %.not.i.i, label %165, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit
@@ -97740,7 +97740,7 @@ _ZNKSt5ctypeIcE5widenEc.exit230:                  ; preds = %210, %213
   br i1 %.not.i233, label %_ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5ctypeIcEEET0_RKSG_SI_RT_RKT1_.exit, label %245
 
 245:                                              ; preds = %.lr.ph.i231
-  %246 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 0, i64 %241
+  %246 = getelementptr inbounds nuw i8, ptr %156, i64 %241
   %247 = load i8, ptr %246, align 1
   %.not.i.i.i234 = icmp eq i8 %247, 0
   br i1 %.not.i.i.i234, label %248, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit.i235
@@ -97919,7 +97919,7 @@ _ZNKSt5ctypeIcE5widenEc.exit246:                  ; preds = %295, %298
   %.0207302 = phi i8 [ 0, %.lr.ph304 ], [ %.1, %362 ]
   %327 = load i8, ptr %326, align 1
   %328 = zext i8 %327 to i64
-  %329 = getelementptr inbounds nuw [256 x i8], ptr %324, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr %324, i64 %328
   %330 = load i8, ptr %329, align 1
   %.not.i.i247 = icmp eq i8 %330, 0
   br i1 %.not.i.i247, label %331, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250
@@ -98092,7 +98092,7 @@ _ZNKSt5ctypeIcE5widenEc.exit255:                  ; preds = %386, %389
   %399 = load i8, ptr %398, align 1
   %400 = getelementptr inbounds nuw i8, ptr %3, i64 313
   %401 = zext i8 %399 to i64
-  %402 = getelementptr inbounds nuw [256 x i8], ptr %400, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i8, ptr %400, i64 %401
   %403 = load i8, ptr %402, align 1
   %.not.i.i256 = icmp eq i8 %403, 0
   br i1 %.not.i.i256, label %404, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit259
@@ -99209,7 +99209,7 @@ define linkonce_odr ptr @_ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iter
   br i1 %.not, label %.critedge, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %14
   %20 = load i8, ptr %19, align 1
   %.not.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i, label %21, label %_ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit
@@ -104068,7 +104068,7 @@ switch.lookup:                                    ; preds = %_ZN7testing19MatchR
 
 15:                                               ; preds = %switch.lookup
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nixlsERSoNS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %switch.load)
   br label %_ZN7testing19MatchResultListenerlsIN3nix9ValueTypeEEERS0_RKT_.exit
@@ -106918,7 +106918,7 @@ switch.lookup:                                    ; preds = %_ZN7testing19MatchR
 
 17:                                               ; preds = %switch.lookup
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nixlsERSoNS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %switch.load)
   br label %_ZN7testing19MatchResultListenerlsIN3nix9ValueTypeEEERS0_RKT_.exit
@@ -107858,7 +107858,7 @@ switch.lookup:                                    ; preds = %_ZN7testing19MatchR
 
 15:                                               ; preds = %switch.lookup
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEE15MatchAndExplainES5_PN7testing19MatchResultListenerE, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nixlsERSoNS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %switch.load)
   br label %_ZN7testing19MatchResultListenerlsIN3nix9ValueTypeEEERS0_RKT_.exit

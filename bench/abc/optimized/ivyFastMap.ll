@@ -632,7 +632,7 @@ Ivy_FastMapNodeAreaDerefed.exit.i.thread:         ; preds = %Ivy_FastMapNodeArea
 290:                                              ; preds = %290, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %290 ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.0..i.i, %290 ]
-  %291 = getelementptr inbounds nuw [0 x i32], ptr %288, i64 0, i64 %indvars.iv.i.i
+  %291 = getelementptr inbounds nuw i32, ptr %288, i64 %indvars.iv.i.i
   %292 = load i32, ptr %291, align 4, !tbaa !41
   %293 = sext i32 %292 to i64
   %294 = getelementptr inbounds ptr, ptr %.val20.val.i.i, i64 %293
@@ -805,7 +805,7 @@ Ivy_ObjFaninId1.exit104.i:                        ; preds = %353, %Ivy_ObjFaninI
 369:                                              ; preds = %369, %.lr.ph.i109.i
   %indvars.iv.i113.i = phi i64 [ 0, %.lr.ph.i109.i ], [ %indvars.iv.next.i117.i, %369 ]
   %.02.i114.i = phi i32 [ 0, %.lr.ph.i109.i ], [ %.0..i116.i, %369 ]
-  %370 = getelementptr inbounds nuw [0 x i32], ptr %367, i64 0, i64 %indvars.iv.i113.i
+  %370 = getelementptr inbounds nuw i32, ptr %367, i64 %indvars.iv.i113.i
   %371 = load i32, ptr %370, align 4, !tbaa !41
   %372 = sext i32 %371 to i64
   %373 = getelementptr inbounds ptr, ptr %.val20.val.i112.i, i64 %372
@@ -1411,7 +1411,7 @@ define internal fastcc void @Ivy_FastMapRequired(ptr noundef readonly captures(n
 
 89:                                               ; preds = %.lr.ph135, %89
   %indvars.iv153 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next154, %89 ]
-  %90 = getelementptr inbounds nuw [0 x i32], ptr %87, i64 0, i64 %indvars.iv153
+  %90 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv153
   %91 = load i32, ptr %90, align 4, !tbaa !41
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %.val128.val, i64 %92
@@ -1537,7 +1537,7 @@ Vec_PtrAlloc.exit22:                              ; preds = %Vec_PtrAlloc.exit, 
 45:                                               ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.0..i.i, %45 ]
-  %46 = getelementptr inbounds nuw [0 x i32], ptr %44, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !41
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %.val17, i64 %48
@@ -1837,7 +1837,7 @@ Ivy_FastMapCutCost.exit70.i:                      ; preds = %.loopexit, %thread-
   %176 = getelementptr inbounds nuw ptr, ptr %.val19.i.i, i64 %indvars.iv.i76.i
   %177 = load ptr, ptr %176, align 8, !tbaa !44
   %178 = load i32, ptr %177, align 8, !tbaa !35
-  %179 = getelementptr inbounds nuw [0 x i32], ptr %173, i64 0, i64 %indvars.iv.i76.i
+  %179 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv.i76.i
   store i32 %178, ptr %179, align 4, !tbaa !41
   %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i76.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i77.i, %174
@@ -1870,7 +1870,7 @@ Ivy_FastMapNodeUpdate.exit.i:                     ; preds = %175, %Ivy_FastMapCu
 190:                                              ; preds = %190, %.lr.ph.i83.i
   %indvars.iv.i87.i = phi i64 [ 0, %.lr.ph.i83.i ], [ %indvars.iv.next.i91.i, %190 ]
   %.02.i88.i = phi i32 [ 0, %.lr.ph.i83.i ], [ %.0..i90.i, %190 ]
-  %191 = getelementptr inbounds nuw [0 x i32], ptr %188, i64 0, i64 %indvars.iv.i87.i
+  %191 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i87.i
   %192 = load i32, ptr %191, align 4, !tbaa !41
   %193 = sext i32 %192 to i64
   %194 = getelementptr inbounds ptr, ptr %.val20.val.i86.i, i64 %193
@@ -1948,7 +1948,7 @@ Ivy_FastMapNodeAreaRefed.exit99.i:                ; preds = %205, %Ivy_FastMapNo
   %226 = getelementptr inbounds nuw ptr, ptr %.val19.i107.i, i64 %indvars.iv.i108.i
   %227 = load ptr, ptr %226, align 8, !tbaa !44
   %228 = load i32, ptr %227, align 8, !tbaa !35
-  %229 = getelementptr inbounds nuw [0 x i32], ptr %223, i64 0, i64 %indvars.iv.i108.i
+  %229 = getelementptr inbounds nuw i32, ptr %223, i64 %indvars.iv.i108.i
   store i32 %228, ptr %229, align 4, !tbaa !41
   %indvars.iv.next.i109.i = add nuw nsw i64 %indvars.iv.i108.i, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next.i109.i, %224
@@ -2123,7 +2123,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FastMapArea_rec(ptr noundef 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.024 = phi i32 [ 0, %.lr.ph ], [ %27, %19 ]
-  %20 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !41
   %.val22 = load ptr, ptr %18, align 8, !tbaa !15
   %22 = getelementptr i8, ptr %.val22, i64 8
@@ -2333,7 +2333,7 @@ define void @Ivy_FastMapNodeArea2(ptr noundef readonly captures(none) %0, ptr no
 29:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
   %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %.0..i, %29 ]
-  %30 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 4, !tbaa !41
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %.val20.val.i, i64 %32
@@ -2496,7 +2496,7 @@ Ivy_ObjFaninId1.exit77:                           ; preds = %Ivy_ObjFaninId0.exi
 101:                                              ; preds = %101, %.lr.ph.i82
   %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next.i90, %101 ]
   %.02.i87 = phi i32 [ 0, %.lr.ph.i82 ], [ %.0..i89, %101 ]
-  %102 = getelementptr inbounds nuw [0 x i32], ptr %98, i64 0, i64 %indvars.iv.i86
+  %102 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i86
   %103 = load i32, ptr %102, align 4, !tbaa !41
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds ptr, ptr %.val20.val.i85, i64 %104
@@ -2603,18 +2603,18 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
 
 28:                                               ; preds = %.lr.ph120, %25
   %indvars.iv142 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next143, %25 ]
-  %29 = getelementptr inbounds nuw [0 x i32], ptr %23, i64 0, i64 %indvars.iv142
+  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv142
   %30 = load i32, ptr %29, align 4, !tbaa !41
-  %31 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv142
+  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv142
   %32 = load i32, ptr %31, align 4, !tbaa !41
   %.not = icmp eq i32 %30, %32
   br i1 %.not, label %25, label %.loopexit
 
 33:                                               ; preds = %.lr.ph122, %33
   %indvars.iv147 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next148, %33 ]
-  %34 = getelementptr inbounds nuw [0 x i32], ptr %26, i64 0, i64 %indvars.iv147
+  %34 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv147
   %35 = load i32, ptr %34, align 4, !tbaa !41
-  %36 = getelementptr inbounds nuw [0 x i32], ptr %27, i64 0, i64 %indvars.iv147
+  %36 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv147
   store i32 %35, ptr %36, align 4, !tbaa !41
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
@@ -2622,7 +2622,7 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
 
 .preheader104:                                    ; preds = %.preheader104.lr.ph, %.thread
   %indvars.iv132 = phi i64 [ 0, %.preheader104.lr.ph ], [ %indvars.iv.next133, %.thread ]
-  %37 = getelementptr inbounds nuw [0 x i32], ptr %20, i64 0, i64 %indvars.iv132
+  %37 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv132
   br label %41
 
 .preheader103:                                    ; preds = %.thread, %.preheader105
@@ -2643,7 +2643,7 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
 
 44:                                               ; preds = %41
   %45 = add nsw i64 %indvars.iv128, -1
-  %46 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %19, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !41
   %48 = load i32, ptr %37, align 4, !tbaa !41
   %49 = icmp eq i32 %47, %48
@@ -2660,9 +2660,9 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
 
 52:                                               ; preds = %.lr.ph118, %52
   %indvars.iv137 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next138, %52 ]
-  %53 = getelementptr inbounds nuw [0 x i32], ptr %39, i64 0, i64 %indvars.iv137
+  %53 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv137
   %54 = load i32, ptr %53, align 4, !tbaa !41
-  %55 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %indvars.iv137
+  %55 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv137
   store i32 %54, ptr %55, align 4, !tbaa !41
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
@@ -2686,9 +2686,9 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
 62:                                               ; preds = %59
   %63 = add nsw i32 %.4111, 1
   %64 = sext i32 %.4111 to i64
-  %65 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %64
+  %65 = getelementptr inbounds i32, ptr %11, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !41
-  %67 = getelementptr inbounds nuw [0 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %66, ptr %67, align 4, !tbaa !41
   br label %.critedge
 
@@ -2698,21 +2698,21 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
 69:                                               ; preds = %68
   %70 = add nsw i32 %.1112, 1
   %71 = sext i32 %.1112 to i64
-  %72 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %71
+  %72 = getelementptr inbounds i32, ptr %12, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !41
-  %74 = getelementptr inbounds nuw [0 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %73, ptr %74, align 4, !tbaa !41
   br label %.critedge
 
 75:                                               ; preds = %68
   %76 = sext i32 %.4111 to i64
-  %77 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %76
+  %77 = getelementptr inbounds i32, ptr %11, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !41
   %79 = sext i32 %.1112 to i64
-  %80 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %79
+  %80 = getelementptr inbounds i32, ptr %12, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !41
   %82 = icmp slt i32 %78, %81
-  %83 = getelementptr inbounds nuw [0 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   br i1 %82, label %84, label %86
 
 84:                                               ; preds = %75
@@ -3665,7 +3665,7 @@ define void @Ivy_FastMapNodePrepare(ptr noundef %0, ptr noundef captures(none) %
 
 19:                                               ; preds = %.lr.ph, %Vec_PtrPush.exit28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit28 ]
-  %20 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !41
   %.val20 = load ptr, ptr %17, align 8, !tbaa !15
   %22 = getelementptr i8, ptr %.val20, i64 8
@@ -3844,7 +3844,7 @@ define void @Ivy_FastMapNodeUpdate(ptr noundef readonly captures(none) %0, ptr n
   %17 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = load i32, ptr %18, align 8, !tbaa !35
-  %20 = getelementptr inbounds nuw [0 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   store i32 %19, ptr %20, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %11, align 4, !tbaa !23
@@ -3882,7 +3882,7 @@ define internal fastcc i32 @Ivy_FastMapNodeDeref(ptr noundef readonly captures(n
   %13 = phi i8 [ %8, %.lr.ph ], [ %36, %35 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.0151 = phi i32 [ 1, %.lr.ph ], [ %.1, %35 ]
-  %14 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !41
   %.val21 = load ptr, ptr %11, align 8, !tbaa !15
   %16 = getelementptr i8, ptr %.val21, i64 8
@@ -3954,7 +3954,7 @@ define internal fastcc i32 @Ivy_FastMapNodeRef(ptr noundef readonly captures(non
   %13 = phi i8 [ %8, %.lr.ph ], [ %36, %35 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.0151 = phi i32 [ 1, %.lr.ph ], [ %.1, %35 ]
-  %14 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !41
   %.val21 = load ptr, ptr %11, align 8, !tbaa !15
   %16 = getelementptr i8, ptr %.val21, i64 8
@@ -4125,7 +4125,7 @@ Ivy_FastMapCutCost.exit63:                        ; preds = %36, %34, %30
   %49 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i65
   %50 = load ptr, ptr %49, align 8, !tbaa !44
   %51 = load i32, ptr %50, align 8, !tbaa !35
-  %52 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %indvars.iv.i65
+  %52 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i65
   store i32 %51, ptr %52, align 4, !tbaa !41
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %.val.i67 = load i32, ptr %28, align 4, !tbaa !23
@@ -4185,7 +4185,7 @@ Ivy_FastMapNodeAreaRefed.exit72:                  ; preds = %Ivy_FastMapNodeUpda
   %75 = getelementptr inbounds nuw ptr, ptr %.val19.i80, i64 %indvars.iv.i81
   %76 = load ptr, ptr %75, align 8, !tbaa !44
   %77 = load i32, ptr %76, align 8, !tbaa !35
-  %78 = getelementptr inbounds nuw [0 x i32], ptr %73, i64 0, i64 %indvars.iv.i81
+  %78 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i81
   store i32 %77, ptr %78, align 4, !tbaa !41
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %.val.i83 = load i32, ptr %69, align 4, !tbaa !23
@@ -4253,7 +4253,7 @@ define void @Ivy_FastMapNodeRecover4(ptr noundef %0, ptr noundef captures(none) 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %.0..i, %17 ]
-  %18 = getelementptr inbounds nuw [0 x i32], ptr %14, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !41
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %.val20.val.i, i64 %20
@@ -4390,7 +4390,7 @@ Ivy_FastMapCutCost.exit81:                        ; preds = %56, %54, %50
   %69 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i87
   %70 = load ptr, ptr %69, align 8, !tbaa !44
   %71 = load i32, ptr %70, align 8, !tbaa !35
-  %72 = getelementptr inbounds nuw [0 x i32], ptr %67, i64 0, i64 %indvars.iv.i87
+  %72 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv.i87
   store i32 %71, ptr %72, align 4, !tbaa !41
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
   %.val.i89 = load i32, ptr %48, align 4, !tbaa !23
@@ -4426,7 +4426,7 @@ Ivy_FastMapNodeUpdate.exit:                       ; preds = %68, %Ivy_FastMapCut
 86:                                               ; preds = %86, %.lr.ph.i94
   %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.i94 ], [ %indvars.iv.next.i102, %86 ]
   %.02.i99 = phi i32 [ 0, %.lr.ph.i94 ], [ %.0..i101, %86 ]
-  %87 = getelementptr inbounds nuw [0 x i32], ptr %83, i64 0, i64 %indvars.iv.i98
+  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i98
   %88 = load i32, ptr %87, align 4, !tbaa !41
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds ptr, ptr %.val20.val.i97, i64 %89
@@ -4506,7 +4506,7 @@ Ivy_FastMapNodeAreaRefed.exit110:                 ; preds = %Ivy_FastMapNodeDela
   %124 = getelementptr inbounds nuw ptr, ptr %.val19.i118, i64 %indvars.iv.i119
   %125 = load ptr, ptr %124, align 8, !tbaa !44
   %126 = load i32, ptr %125, align 8, !tbaa !35
-  %127 = getelementptr inbounds nuw [0 x i32], ptr %122, i64 0, i64 %indvars.iv.i119
+  %127 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i119
   store i32 %126, ptr %127, align 4, !tbaa !41
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %.val.i121 = load i32, ptr %118, align 4, !tbaa !23

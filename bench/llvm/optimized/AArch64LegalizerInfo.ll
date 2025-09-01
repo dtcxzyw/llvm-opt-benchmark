@@ -22288,9 +22288,9 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %59, %61
 
 _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit: ; preds = %73
   %76 = zext nneg i16 %69 to i64
-  %77 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %76
   %78 = zext nneg i16 %70 to i64
-  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !205, !range !182, !noundef !183
   %81 = trunc nuw i8 %80 to i1
   %.v.i = select i1 %81, i16 %69, i16 %70
@@ -22300,7 +22300,7 @@ _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit: ; preds = %73
 
 switch.lookup:                                    ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit
   %83 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread
 
@@ -22498,24 +22498,24 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit104: ; preds = %152, %154
 
 _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109: ; preds = %166
   %169 = zext nneg i16 %162 to i64
-  %170 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %169
   %171 = zext nneg i16 %163 to i64
-  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !205, !range !182, !noundef !183
   %174 = trunc nuw i8 %173 to i1
   %.v.i107 = select i1 %174, i16 %162, i16 %163
-  %switch.tableidx187 = add nsw i16 %.v.i107, -4
-  %175 = icmp ult i16 %switch.tableidx187, 4
-  br i1 %175, label %switch.lookup186, label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread
+  %switch.tableidx186 = add nsw i16 %.v.i107, -4
+  %175 = icmp ult i16 %switch.tableidx186, 4
+  br i1 %175, label %switch.lookup187, label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread
 
-switch.lookup186:                                 ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109
-  %176 = zext nneg i16 %switch.tableidx187 to i64
-  %switch.gep188 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE.770, i64 0, i64 %176
+switch.lookup187:                                 ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109
+  %176 = zext nneg i16 %switch.tableidx186 to i64
+  %switch.gep188 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE.770, i64 %176
   %switch.load189 = load i32, ptr %switch.gep188, align 4
   br label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread
 
-_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread: ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109, %166, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit104, %switch.lookup186
-  %.0102 = phi i32 [ %switch.load189, %switch.lookup186 ], [ 462, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit104 ], [ 462, %166 ], [ 464, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109 ]
+_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread: ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109, %166, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit104, %switch.lookup187
+  %.0102 = phi i32 [ %switch.load189, %switch.lookup187 ], [ 462, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit104 ], [ 462, %166 ], [ 464, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109 ]
   %177 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %2, ptr noundef nonnull @_ZN4llvm7AArch6413GPR64RegClassE, ptr nonnull @.str, i64 0) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 %47, ptr %25, align 8, !tbaa !188

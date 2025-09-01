@@ -28,7 +28,7 @@ define void @ff_mpeg12_find_best_frame_rate(i64 %0, ptr noundef writeonly captur
 
 .split.us.split:                                  ; preds = %.split.us, %av_cmp_q.exit.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_cmp_q.exit.thread.us ], [ 1, %.split.us ]
-  %12 = getelementptr inbounds nuw [16 x %struct.AVRational], ptr @ff_mpeg12_frame_rate_tab, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %14 = ashr i64 %13, 32
   %15 = mul nsw i64 %14, %9
@@ -56,7 +56,7 @@ av_cmp_q.exit.thread.us:                          ; preds = %18, %.split.us.spli
 
 .split.split.us:                                  ; preds = %.split, %av_cmp_q.exit.thread.us150
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %av_cmp_q.exit.thread.us150 ], [ 1, %.split ]
-  %21 = getelementptr inbounds nuw [16 x %struct.AVRational], ptr @ff_mpeg12_frame_rate_tab, i64 0, i64 %indvars.iv197
+  %21 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv197
   %22 = load i64, ptr %21, align 8
   %23 = ashr i64 %22, 32
   %24 = mul nuw nsw i64 %23, %9
@@ -80,7 +80,7 @@ av_cmp_q.exit.thread.us150:                       ; preds = %.split.split.us
 
 .split.split:                                     ; preds = %.split, %av_cmp_q.exit.thread
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %av_cmp_q.exit.thread ], [ 1, %.split ]
-  %29 = getelementptr inbounds nuw [16 x %struct.AVRational], ptr @ff_mpeg12_frame_rate_tab, i64 0, i64 %indvars.iv192
+  %29 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv192
   %30 = load i64, ptr %29, align 8
   %.sroa.0.0.extract.trunc.i = trunc i64 %30 to i32
   %31 = ashr i64 %30, 32
@@ -113,7 +113,7 @@ av_cmp_q.exit.thread:                             ; preds = %.split.split, %37
   %.160170 = phi i32 [ 1, %.preheader124 ], [ %.463.ph, %98 ]
   %.166169 = phi i32 [ 1, %.preheader124 ], [ %.469.ph, %98 ]
   %.sroa.015.0168 = phi i64 [ 6442450943, %.preheader124 ], [ %.sroa.015.3.ph, %98 ]
-  %40 = getelementptr inbounds nuw [16 x %struct.AVRational], ptr @ff_mpeg12_frame_rate_tab, i64 0, i64 %indvars.iv208
+  %40 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv208
   %41 = load i64, ptr %40, align 8
   %42 = trunc nuw nsw i64 %indvars.iv208 to i32
   br label %.preheader

@@ -45,7 +45,7 @@ define range(i32 0, 14) i32 @av_hwdevice_find_type_by_name(ptr noundef readonly 
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw [14 x ptr], ptr @hw_type_names, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @hw_type_names, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #10
   %.not9 = icmp eq i32 %6, 0
@@ -76,7 +76,7 @@ define ptr @av_hwdevice_get_type_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [14 x ptr], ptr @hw_type_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @hw_type_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   br label %7
 
@@ -99,7 +99,7 @@ define i32 @av_hwdevice_iterate_types(i32 noundef %0) local_unnamed_addr #3 {
   %.pre = load i32, ptr %2, align 8, !tbaa !11
   %3 = tail call i32 @llvm.umin.i32(i32 %.pre, i32 %.01220.us)
   %.113.us = select i1 %.not19.us, i32 %.pre, i32 %3
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv28
+  %4 = getelementptr inbounds nuw ptr, ptr @hw_table, i64 %indvars.iv28
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   br i1 %.not.us, label %.split24.us, label %.split.us, !llvm.loop !17
 
@@ -116,7 +116,7 @@ define i32 @av_hwdevice_iterate_types(i32 noundef %0) local_unnamed_addr #3 {
   %spec.select = select i1 %.not19, i32 %7, i32 %8
   %.113 = select i1 %.not18, i32 %spec.select, i32 %.01220
   %.1 = select i1 %.not18, i32 1, i32 %.022
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr @hw_table, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   br i1 %.not, label %.split24.us.loopexit26, label %.split, !llvm.loop !17
 
@@ -137,7 +137,7 @@ define ptr @av_hwdevice_ctx_alloc(i32 noundef %0) local_unnamed_addr #4 {
   br label %6
 
 3:                                                ; preds = %6
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @hw_table, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @hw_table, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   br i1 %.not, label %.thread, label %6, !llvm.loop !18
 

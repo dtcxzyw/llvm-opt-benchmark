@@ -99,7 +99,7 @@ define internal range(i32 0, 2) i32 @v2_check_quota_file(ptr noundef %0, i32 nou
 13:                                               ; preds = %10, %2
   %14 = load i32, ptr %3, align 8
   %15 = sext i32 %1 to i64
-  %16 = getelementptr [3 x i32], ptr @v2_check_quota_file.quota_magics, i64 0, i64 %15
+  %16 = getelementptr i32, ptr @v2_check_quota_file.quota_magics, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %14, %17
   br i1 %18, label %19, label %24
@@ -127,7 +127,7 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   store i64 0, ptr %4, align 8, !annotation !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = sext i32 %1 to i64
-  %7 = getelementptr [3 x %struct.mem_dqinfo], ptr %5, i64 0, i64 %6
+  %7 = getelementptr %struct.mem_dqinfo, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @down_read(ptr noundef nonnull %8) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -234,7 +234,7 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   %75 = zext i32 %60 to i64
   %76 = shl nuw nsw i64 %75, 10
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %78 = getelementptr [3 x ptr], ptr %77, i64 0, i64 %6
+  %78 = getelementptr ptr, ptr %77, i64 %6
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
   %81 = load i64, ptr %80, align 8
@@ -281,7 +281,7 @@ define internal i32 @v2_write_file_info(ptr noundef %0, i32 noundef %1) #2 align
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = sext i32 %1 to i64
-  %6 = getelementptr [3 x %struct.mem_dqinfo], ptr %4, i64 0, i64 %5
+  %6 = getelementptr %struct.mem_dqinfo, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264

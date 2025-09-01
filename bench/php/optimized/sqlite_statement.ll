@@ -213,7 +213,7 @@ zend_string_alloc.exit:                           ; preds = %2
   store i64 %14, ptr %20, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 1 %13, i64 %14, i1 false)
-  %22 = getelementptr inbounds nuw [1 x i8], ptr %21, i64 0, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
   store i8 0, ptr %22, align 1, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !40
@@ -304,7 +304,7 @@ zend_string_alloc.exit.i:                         ; preds = %28
   store i64 %34, ptr %40, align 8, !tbaa !39
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr align 1 %30, i64 range(i64 -2147483648, 2147483648) %34, i1 false)
-  %42 = getelementptr inbounds nuw [1 x i8], ptr %41, i64 0, i64 %34
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %34
   store i8 0, ptr %42, align 1, !tbaa !36
   br label %zend_string_init_fast.exit
 
@@ -319,7 +319,7 @@ zend_string_alloc.exit.i:                         ; preds = %28
 47:                                               ; preds = %43
   %48 = load i8, ptr %30, align 1, !tbaa !36
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !45
   br label %zend_string_init_fast.exit
 
@@ -357,7 +357,7 @@ zend_string_alloc.exit.i44:                       ; preds = %57
   store i64 %63, ptr %69, align 8, !tbaa !39
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr align 1 %59, i64 range(i64 -2147483648, 2147483648) %63, i1 false)
-  %71 = getelementptr inbounds nuw [1 x i8], ptr %70, i64 0, i64 %63
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %63
   store i8 0, ptr %71, align 1, !tbaa !36
   br label %zend_string_init_fast.exit45
 
@@ -372,7 +372,7 @@ zend_string_alloc.exit.i44:                       ; preds = %57
 76:                                               ; preds = %72
   %77 = load i8, ptr %59, align 1, !tbaa !36
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !45
   br label %zend_string_init_fast.exit45
 

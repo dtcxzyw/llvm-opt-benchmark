@@ -617,7 +617,7 @@ define dso_local ptr @GetMemoryChunkContext(ptr noundef %0) local_unnamed_addr #
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %3, i32 5
+  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3, i32 5
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0) #16
   ret ptr %6
@@ -628,7 +628,7 @@ define dso_local i64 @GetMemoryChunkSpace(ptr noundef %0) local_unnamed_addr #0 
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %3, i32 6
+  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3, i32 6
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef %0) #16
   ret i64 %6
@@ -1002,7 +1002,7 @@ define dso_local void @MemoryContextCreate(ptr noundef initializes((0, 5), (8, 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %6, align 4
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1408,7 +1408,7 @@ define dso_local void @pfree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %3, i32 1
+  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3, i32 1
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0) #16
   ret void
@@ -1419,7 +1419,7 @@ define dso_local ptr @repalloc(ptr noundef %0, i64 noundef %1) local_unnamed_add
   %3 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %3, align 8
   %4 = and i64 %.val, 15
-  %5 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, i64 noundef %1, i32 noundef 0) #16
   ret ptr %7
@@ -1430,7 +1430,7 @@ define dso_local ptr @repalloc_extended(ptr noundef %0, i64 noundef %1, i32 noun
   %4 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %4, align 8
   %5 = and i64 %.val, 15
-  %6 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %5, i32 2
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1, i32 noundef %2) #16
   ret ptr %8
@@ -1452,7 +1452,7 @@ define dso_local ptr @repalloc0(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %9 = getelementptr i8, ptr %0, i64 -8
   %.val.i = load i64, ptr %9, align 8
   %10 = and i64 %.val.i, 15
-  %11 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %10, i32 2
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef %0, i64 noundef %2, i32 noundef 0) #16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %1
@@ -1477,7 +1477,7 @@ define dso_local ptr @repalloc_huge(ptr noundef %0, i64 noundef %1) local_unname
   %3 = getelementptr i8, ptr %0, i64 -8
   %.val.i = load i64, ptr %3, align 8
   %4 = and i64 %.val.i, 15
-  %5 = getelementptr inbounds nuw [16 x %struct.MemoryContextMethods], ptr @mcxt_methods, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, i64 noundef %1, i32 noundef 1) #16
   ret ptr %7
@@ -1748,7 +1748,7 @@ define internal void @MemoryContextStatsPrint(ptr noundef readonly captures(none
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %26, i8 32)
   %27 = add i32 %.02843, 1
   %28 = sext i32 %.02843 to i64
-  %29 = getelementptr inbounds [110 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %5, i64 %28
   store i8 %spec.store.select, ptr %29, align 1
   %30 = icmp samesign ugt i32 %.144, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !20
@@ -1756,7 +1756,7 @@ define internal void @MemoryContextStatsPrint(ptr noundef readonly captures(none
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.028.lcssa = phi i32 [ %18, %22 ], [ %27, %.lr.ph ]
   %31 = sext i32 %.028.lcssa to i64
-  %32 = getelementptr inbounds [110 x i8], ptr %5, i64 0, i64 %31
+  %32 = getelementptr inbounds i8, ptr %5, i64 %31
   store i8 0, ptr %32, align 1
   br i1 %19, label %33, label %34
 

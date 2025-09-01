@@ -973,7 +973,7 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   %29 = add nsw i8 %20, -48
   %30 = add nsw i32 %.1278, 1
   %31 = sext i32 %.1278 to i64
-  %32 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %31
+  %32 = getelementptr inbounds i8, ptr %6, i64 %31
   store i8 %29, ptr %32, align 1, !tbaa !11
   br label %185
 
@@ -1084,9 +1084,9 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   %96 = load ptr, ptr %0, align 8, !tbaa !3
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %98 = load ptr, ptr %97, align 8, !tbaa !39
-  %99 = add nsw i32 %.1272, 12
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds [16 x i8], ptr %98, i64 0, i64 %100
+  %99 = sext i32 %.1272 to i64
+  %100 = getelementptr i8, ptr %98, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 12
   store i8 %95, ptr %101, align 1, !tbaa !11
   %102 = add nsw i32 %.1272, 1
   br label %185
@@ -1610,7 +1610,7 @@ define internal fastcc ptr @uriParseIPv6address2A(ptr noundef nonnull %0, ptr no
   %.1260.ph = phi i32 [ 1, %193 ], [ 1, %200 ], [ %.0259, %207 ]
   %379 = add nsw i8 %192, %.sink843
   %380 = sext i32 %.3280 to i64
-  %381 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %380
+  %381 = getelementptr inbounds i8, ptr %6, i64 %380
   store i8 %379, ptr %381, align 1, !tbaa !11
   %382 = add nsw i32 %.3280, 1
   br label %383
@@ -2604,7 +2604,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %27 = add nsw i8 %26, -48
   %28 = add nsw i32 %.1278, 1
   %29 = sext i32 %.1278 to i64
-  %30 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds i8, ptr %5, i64 %29
   store i8 %27, ptr %30, align 1, !tbaa !11
   br label %183
 
@@ -2715,9 +2715,9 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %94 = load ptr, ptr %0, align 8, !tbaa !51
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8, !tbaa !78
-  %97 = add nsw i32 %.1272, 12
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [16 x i8], ptr %96, i64 0, i64 %98
+  %97 = sext i32 %.1272 to i64
+  %98 = getelementptr i8, ptr %96, i64 %97
+  %99 = getelementptr i8, ptr %98, i64 12
   store i8 %93, ptr %99, align 1, !tbaa !11
   %100 = add nsw i32 %.1272, 1
   br label %183
@@ -3242,7 +3242,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   %377 = trunc nuw nsw i32 %190 to i8
   %378 = add nsw i8 %.sink825, %377
   %379 = sext i32 %.3280 to i64
-  %380 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %379
+  %380 = getelementptr inbounds i8, ptr %5, i64 %379
   store i8 %378, ptr %380, align 1, !tbaa !11
   %381 = add nsw i32 %.3280, 1
   br label %382

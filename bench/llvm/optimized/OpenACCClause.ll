@@ -5716,7 +5716,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %47, %49
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1) local_unnamed_addr #9 comdat {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24

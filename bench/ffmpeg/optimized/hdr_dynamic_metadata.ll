@@ -127,7 +127,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %spec.select.i300301 = phi i32 [ 10, %.lr.ph ], [ %spec.select.i, %36 ]
-  %37 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %33, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %33, i64 %indvars.iv
   %38 = lshr i32 %spec.select.i300301, 3
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %39
@@ -370,13 +370,13 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 .preheader296.us:                                 ; preds = %.preheader296.us.preheader, %._crit_edge306.us
   %indvars.iv370 = phi i64 [ 0, %.preheader296.us.preheader ], [ %indvars.iv.next371, %._crit_edge306.us ]
   %.lcssa309310.us = phi i32 [ %207, %.preheader296.us.preheader ], [ %234, %._crit_edge306.us ]
-  %221 = getelementptr inbounds nuw [25 x [25 x %struct.AVRational]], ptr %220, i64 0, i64 %indvars.iv370
+  %221 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %220, i64 %indvars.iv370
   br label %222
 
 222:                                              ; preds = %.preheader296.us, %222
   %indvars.iv365 = phi i64 [ 0, %.preheader296.us ], [ %indvars.iv.next366, %222 ]
   %223 = phi i32 [ %.lcssa309310.us, %.preheader296.us ], [ %234, %222 ]
-  %224 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %221, i64 0, i64 %indvars.iv365
+  %224 = getelementptr inbounds nuw %struct.AVRational, ptr %221, i64 %indvars.iv365
   %225 = lshr i32 %223, 3
   %226 = zext nneg i32 %225 to i64
   %227 = getelementptr inbounds nuw i8, ptr %169, i64 %226
@@ -408,7 +408,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 236:                                              ; preds = %.loopexit298, %.critedge245
   %indvars.iv384 = phi i64 [ 0, %.loopexit298 ], [ %indvars.iv.next385, %.critedge245 ]
   %.lcssa316322324 = phi i32 [ %.promoted321, %.loopexit298 ], [ %318, %.critedge245 ]
-  %237 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %235, i64 0, i64 %indvars.iv384
+  %237 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %235, i64 %indvars.iv384
   %238 = sub nsw i32 %.val262.pre, %.lcssa316322324
   %239 = icmp slt i32 %238, 72
   br i1 %239, label %.critedge, label %.preheader294
@@ -462,7 +462,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 269:                                              ; preds = %.preheader294, %269
   %indvars.iv375 = phi i64 [ 0, %.preheader294 ], [ %indvars.iv.next376, %269 ]
   %270 = phi i32 [ %.lcssa316322324, %.preheader294 ], [ %281, %269 ]
-  %271 = getelementptr inbounds nuw [3 x %struct.AVRational], ptr %240, i64 0, i64 %indvars.iv375
+  %271 = getelementptr inbounds nuw %struct.AVRational, ptr %240, i64 %indvars.iv375
   %272 = lshr i32 %270, 3
   %273 = zext nneg i32 %272 to i64
   %274 = getelementptr inbounds nuw i8, ptr %169, i64 %273
@@ -504,7 +504,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
   %293 = add i32 %284, 7
   %294 = call i32 @llvm.umin.i32(i32 %174, i32 %293)
   %295 = trunc nuw nsw i32 %292 to i8
-  %296 = getelementptr inbounds nuw [15 x %struct.AVHDRPlusPercentile], ptr %268, i64 0, i64 %indvars.iv379
+  %296 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %268, i64 %indvars.iv379
   store i8 %295, ptr %296, align 4, !tbaa !45
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 4
   %298 = lshr i32 %294, 3
@@ -629,13 +629,13 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 .preheader290.us:                                 ; preds = %.preheader290.us.preheader, %._crit_edge330.us
   %indvars.iv394 = phi i64 [ 0, %.preheader290.us.preheader ], [ %indvars.iv.next395, %._crit_edge330.us ]
   %.lcssa327333334.us = phi i32 [ %356, %.preheader290.us.preheader ], [ %383, %._crit_edge330.us ]
-  %370 = getelementptr inbounds nuw [25 x [25 x %struct.AVRational]], ptr %369, i64 0, i64 %indvars.iv394
+  %370 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %369, i64 %indvars.iv394
   br label %371
 
 371:                                              ; preds = %.preheader290.us, %371
   %indvars.iv389 = phi i64 [ 0, %.preheader290.us ], [ %indvars.iv.next390, %371 ]
   %372 = phi i32 [ %.lcssa327333334.us, %.preheader290.us ], [ %383, %371 ]
-  %373 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %370, i64 0, i64 %indvars.iv389
+  %373 = getelementptr inbounds nuw %struct.AVRational, ptr %370, i64 %indvars.iv389
   %374 = lshr i32 %372, 3
   %375 = zext nneg i32 %374 to i64
   %376 = getelementptr inbounds nuw i8, ptr %169, i64 %375
@@ -665,7 +665,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 .loopexit292:                                     ; preds = %.loopexit292.preheader, %483
   %indvars.iv404 = phi i64 [ %indvars.iv.next405, %483 ], [ 0, %.loopexit292.preheader ]
   %.lcssa339345348 = phi i32 [ %.lcssa339346, %483 ], [ %.lcssa339345348.ph, %.loopexit292.preheader ]
-  %384 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %235, i64 0, i64 %indvars.iv404
+  %384 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %235, i64 %indvars.iv404
   %.not288 = icmp sgt i32 %.val262.pre, %.lcssa339345348
   br i1 %.not288, label %385, label %.critedge
 
@@ -752,7 +752,7 @@ define range(i32 -1094995529, 1) i32 @av_dynamic_hdr_plus_from_t35(ptr noundef w
 441:                                              ; preds = %.lr.ph341, %441
   %indvars.iv399 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next400, %441 ]
   %442 = phi i32 [ %434, %.lr.ph341 ], [ %453, %441 ]
-  %443 = getelementptr inbounds nuw [15 x %struct.AVRational], ptr %440, i64 0, i64 %indvars.iv399
+  %443 = getelementptr inbounds nuw %struct.AVRational, ptr %440, i64 %indvars.iv399
   %444 = lshr i32 %442, 3
   %445 = zext nneg i32 %444 to i64
   %446 = getelementptr inbounds nuw i8, ptr %169, i64 %445
@@ -980,7 +980,7 @@ define range(i32 -1397118274, 1) i32 @av_dynamic_hdr_plus_to_t35(ptr noundef rea
   %indvars.iv693 = phi i64 [ 0, %.lr.ph597 ], [ %indvars.iv.next694, %72 ]
   %.4594 = phi i64 [ %.3, %.lr.ph597 ], [ %spec.select, %72 ]
   %61 = add i64 %.4594, 1
-  %62 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %56, i64 0, i64 %indvars.iv693
+  %62 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %56, i64 %indvars.iv693
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 272
   %64 = load i8, ptr %63, align 4, !tbaa !54
   %.not264 = icmp eq i8 %64, 0
@@ -1161,7 +1161,7 @@ put_bits.exit278:                                 ; preds = %131, %148
   %.sroa.0.0602 = phi i32 [ %87, %.lr.ph604 ], [ %.026.i.i320, %put_bits.exit322 ]
   %.sroa.79.0601 = phi i32 [ 22, %.lr.ph604 ], [ %378, %put_bits.exit322 ]
   %.sroa.155.0600 = phi ptr [ %.0245, %.lr.ph604 ], [ %.sroa.155.42, %put_bits.exit322 ]
-  %152 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %97, i64 0, i64 %indvars.iv698
+  %152 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %97, i64 %indvars.iv698
   %153 = load i32, ptr %152, align 4, !tbaa !64
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !65
@@ -1667,7 +1667,7 @@ put_bits.exit330:                                 ; preds = %416, %423, %408
   br i1 %.not684, label %._crit_edge614, label %.lr.ph613
 
 .lr.ph613:                                        ; preds = %.preheader582
-  %431 = getelementptr inbounds nuw [25 x [25 x %struct.AVRational]], ptr %426, i64 0, i64 %indvars.iv704
+  %431 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %426, i64 %indvars.iv704
   br label %437
 
 ._crit_edge614.loopexit:                          ; preds = %put_bits.exit334
@@ -1692,7 +1692,7 @@ put_bits.exit330:                                 ; preds = %416, %423, %408
   %.sroa.0.3611 = phi i32 [ %.sroa.0.2620, %.lr.ph613 ], [ %.026.i.i332, %put_bits.exit334 ]
   %.sroa.79.3610 = phi i32 [ %.sroa.79.2619, %.lr.ph613 ], [ %.0.i.i333, %put_bits.exit334 ]
   %.sroa.155.3609 = phi ptr [ %.sroa.155.2618, %.lr.ph613 ], [ %.sroa.155.48, %put_bits.exit334 ]
-  %439 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %431, i64 0, i64 %indvars.iv701
+  %439 = getelementptr inbounds nuw %struct.AVRational, ptr %431, i64 %indvars.iv701
   %440 = load i32, ptr %439, align 4, !tbaa !74
   %441 = mul nsw i32 %440, 15
   %442 = getelementptr inbounds nuw i8, ptr %439, i64 4
@@ -1817,7 +1817,7 @@ put_bits.exit338:                                 ; preds = %475, %492
   br i1 %.not260, label %.loopexit, label %650
 
 495:                                              ; preds = %put_bits.exit350
-  %496 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %470, i64 0, i64 %indvars.iv714
+  %496 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %470, i64 %indvars.iv714
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 72
   %498 = load i32, ptr %497, align 4, !tbaa !77
   %499 = sext i32 %498 to i64
@@ -1915,7 +1915,7 @@ put_bits.exit346:                                 ; preds = %527, %543
   %.sroa.0.5627 = phi i32 [ %.sroa.0.4640, %.preheader581 ], [ %.026.i.i348, %put_bits.exit350 ]
   %.sroa.79.5626 = phi i32 [ %.sroa.79.4639, %.preheader581 ], [ %573, %put_bits.exit350 ]
   %.sroa.155.5625 = phi ptr [ %.sroa.155.4638, %.preheader581 ], [ %.sroa.155.56, %put_bits.exit350 ]
-  %548 = getelementptr inbounds nuw [3 x %struct.AVRational], ptr %471, i64 0, i64 %indvars.iv707
+  %548 = getelementptr inbounds nuw %struct.AVRational, ptr %471, i64 %indvars.iv707
   %549 = load i32, ptr %548, align 4, !tbaa !74
   %550 = sext i32 %549 to i64
   %551 = mul nsw i64 %550, 100000
@@ -2015,7 +2015,7 @@ put_bits.exit354:                                 ; preds = %588, %595, %581
   %.sroa.0.6631 = phi i32 [ %.026.i.i344, %.lr.ph633 ], [ %.026.i.i360, %put_bits.exit362 ]
   %.sroa.79.6630 = phi i32 [ %.0.i.i345, %.lr.ph633 ], [ %646, %put_bits.exit362 ]
   %.sroa.155.6629 = phi ptr [ %.sroa.155.54, %.lr.ph633 ], [ %.sroa.155.62, %put_bits.exit362 ]
-  %601 = getelementptr inbounds nuw [15 x %struct.AVHDRPlusPercentile], ptr %546, i64 0, i64 %indvars.iv711
+  %601 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %546, i64 %indvars.iv711
   %602 = load i8, ptr %601, align 4, !tbaa !45
   %603 = zext i8 %602 to i32
   %604 = icmp sgt i32 %.sroa.79.6630, 7
@@ -2196,7 +2196,7 @@ put_bits.exit370:                                 ; preds = %684, %691, %676
   br i1 %.not688, label %._crit_edge651, label %.lr.ph650
 
 .lr.ph650:                                        ; preds = %.preheader
-  %699 = getelementptr inbounds nuw [25 x [25 x %struct.AVRational]], ptr %694, i64 0, i64 %indvars.iv720
+  %699 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %694, i64 %indvars.iv720
   br label %705
 
 ._crit_edge651.loopexit:                          ; preds = %put_bits.exit374
@@ -2221,7 +2221,7 @@ put_bits.exit370:                                 ; preds = %684, %691, %676
   %.sroa.0.9648 = phi i32 [ %.sroa.0.8657, %.lr.ph650 ], [ %.026.i.i372, %put_bits.exit374 ]
   %.sroa.79.9647 = phi i32 [ %.sroa.79.8656, %.lr.ph650 ], [ %.0.i.i373, %put_bits.exit374 ]
   %.sroa.155.9646 = phi ptr [ %.sroa.155.8655, %.lr.ph650 ], [ %.sroa.155.68, %put_bits.exit374 ]
-  %707 = getelementptr inbounds nuw [25 x %struct.AVRational], ptr %699, i64 0, i64 %indvars.iv717
+  %707 = getelementptr inbounds nuw %struct.AVRational, ptr %699, i64 %indvars.iv717
   %708 = load i32, ptr %707, align 4, !tbaa !74
   %709 = mul nsw i32 %708, 15
   %710 = getelementptr inbounds nuw i8, ptr %707, i64 4
@@ -2328,7 +2328,7 @@ flush_put_bits.exit:                              ; preds = %743, %._crit_edge67
   %.sroa.0.10673 = phi i32 [ %.sroa.0.7, %.lr.ph676 ], [ %.sroa.0.12, %put_bits.exit402 ]
   %.sroa.79.10672 = phi i32 [ %.sroa.79.7, %.lr.ph676 ], [ %.sroa.79.12, %put_bits.exit402 ]
   %.sroa.155.10671 = phi ptr [ %.sroa.155.7, %.lr.ph676 ], [ %.sroa.155.12, %put_bits.exit402 ]
-  %751 = getelementptr inbounds nuw [3 x %struct.AVHDRPlusColorTransformParams], ptr %736, i64 0, i64 %indvars.iv726
+  %751 = getelementptr inbounds nuw %struct.AVHDRPlusColorTransformParams, ptr %736, i64 %indvars.iv726
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 272
   %753 = load i8, ptr %752, align 4, !tbaa !54
   %754 = zext i8 %753 to i32
@@ -2560,7 +2560,7 @@ put_bits.exit394:                                 ; preds = %850, %866
   %.sroa.0.11664 = phi i32 [ %.026.i.i388, %.lr.ph666 ], [ %.026.i.i396, %put_bits.exit398 ]
   %.sroa.79.11663 = phi i32 [ %.0.i.i389, %.lr.ph666 ], [ %.0.i.i397, %put_bits.exit398 ]
   %.sroa.155.11662 = phi ptr [ %.sroa.155.77, %.lr.ph666 ], [ %.sroa.155.81, %put_bits.exit398 ]
-  %871 = getelementptr inbounds nuw [15 x %struct.AVRational], ptr %845, i64 0, i64 %indvars.iv723
+  %871 = getelementptr inbounds nuw %struct.AVRational, ptr %845, i64 %indvars.iv723
   %872 = load i32, ptr %871, align 4, !tbaa !74
   %873 = mul nsw i32 %872, 1023
   %874 = getelementptr inbounds nuw i8, ptr %871, i64 4

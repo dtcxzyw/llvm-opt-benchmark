@@ -759,7 +759,7 @@ _ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %13, %_ZN6icu_
   store i32 0, ptr %17, align 8, !tbaa !26
   %18 = load i8, ptr %10, align 1, !tbaa !23
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L17unshapeMap_IBM420E, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L17unshapeMap_IBM420E, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !23
   %22 = zext i8 %21 to i32
   br label %23
@@ -1131,7 +1131,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_8859_15match
 7:                                                ; preds = %3, %17
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %17 ]
   %.01618 = phi i32 [ -1, %3 ], [ %.1, %17 ]
-  %8 = getelementptr inbounds nuw [10 x %"struct.icu_77::NGramsPlusLang"], ptr @_ZN6icu_77L13ngrams_8859_1E, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %"struct.icu_77::NGramsPlusLang", ptr @_ZN6icu_77L13ngrams_8859_1E, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1182,7 +1182,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_8859_25match
 7:                                                ; preds = %3, %17
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %17 ]
   %.01618 = phi i32 [ -1, %3 ], [ %.1, %17 ]
-  %8 = getelementptr inbounds nuw [4 x %"struct.icu_77::NGramsPlusLang"], ptr @_ZN6icu_77L13ngrams_8859_2E, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %"struct.icu_77::NGramsPlusLang", ptr @_ZN6icu_77L13ngrams_8859_2E, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = load ptr, ptr %0, align 8, !tbaa !3

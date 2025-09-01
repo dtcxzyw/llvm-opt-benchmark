@@ -851,7 +851,7 @@ pack_sg_list.exit7:                               ; preds = %57
   %122 = ashr exact i64 %sext, 27
   %123 = getelementptr i8, ptr %8, i64 %122
   %124 = zext nneg i32 %120 to i64
-  %125 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %124
+  %125 = getelementptr ptr, ptr %3, i64 %124
   store ptr %123, ptr %125, align 8
   br label %pack_sg_list.exit7.thread
 
@@ -1141,7 +1141,7 @@ pack_sg_list.exit.thread:                         ; preds = %.critedge, %117, %1
   %132 = getelementptr %struct.scatterlist, ptr %69, i64 %131
   %133 = add nuw nsw i32 %127, 1
   %134 = zext nneg i32 %127 to i64
-  %135 = getelementptr [4 x ptr], ptr %10, i64 0, i64 %134
+  %135 = getelementptr ptr, ptr %10, i64 %134
   store ptr %132, ptr %135, align 8
   %136 = load i64, ptr %11, align 8
   %137 = call fastcc i32 @pack_sg_list_p(ptr noundef nonnull %69, i32 noundef %126, ptr noundef nonnull %128, i32 noundef %64, i64 noundef %136, i32 noundef %66)
@@ -1160,7 +1160,7 @@ pack_sg_list.exit.thread:                         ; preds = %.critedge, %117, %1
   %146 = sext i32 %141 to i64
   %147 = getelementptr %struct.scatterlist, ptr %69, i64 %146
   %148 = zext nneg i32 %140 to i64
-  %149 = getelementptr [4 x ptr], ptr %10, i64 0, i64 %148
+  %149 = getelementptr ptr, ptr %10, i64 %148
   store ptr %147, ptr %149, align 8
   br label %150
 
@@ -1178,7 +1178,7 @@ pack_sg_list.exit.thread:                         ; preds = %.critedge, %117, %1
   %159 = add nuw nsw i32 %151, 1
   %160 = add nuw nsw i32 %151, %140
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr [4 x ptr], ptr %10, i64 0, i64 %161
+  %162 = getelementptr ptr, ptr %10, i64 %161
   store ptr %158, ptr %162, align 8
   %163 = add i32 %143, %141
   %164 = load i64, ptr %11, align 8

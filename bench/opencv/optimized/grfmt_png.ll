@@ -5729,7 +5729,7 @@ define hidden void @_ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii(ptr noundef non
   %31 = tail call i32 @deflate(ptr noundef nonnull %24, i32 noundef 4)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 7680
   %33 = sext i32 %9 to i64
-  %34 = getelementptr inbounds [6 x %"struct.cv::OP"], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds %"struct.cv::OP", ptr %32, i64 %33
   store ptr %1, ptr %34, align 8, !tbaa !254
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 7496
   %36 = load i64, ptr %35, align 8, !tbaa !256
@@ -6242,7 +6242,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(pt
   %140 = tail call i32 @deflate(ptr noundef nonnull %133, i32 noundef 4)
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 7680
   %142 = sext i32 %119 to i64
-  %143 = getelementptr inbounds [6 x %"struct.cv::OP"], ptr %141, i64 0, i64 %142
+  %143 = getelementptr %"struct.cv::OP", ptr %141, i64 %142
   store ptr %4, ptr %143, align 8, !tbaa !254
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 7496
   %145 = load i64, ptr %144, align 8, !tbaa !256
@@ -6272,50 +6272,48 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(pt
   br i1 %.not298, label %.thread, label %158
 
 158:                                              ; preds = %118
-  %159 = or disjoint i32 %119, 1
-  %160 = getelementptr inbounds i8, ptr %5, i64 %121
-  %161 = getelementptr inbounds i8, ptr %160, i64 %124
+  %159 = getelementptr inbounds i8, ptr %5, i64 %121
+  %160 = getelementptr inbounds i8, ptr %159, i64 %124
   store i32 0, ptr %128, align 8, !tbaa !248
-  %162 = load ptr, ptr %129, align 8, !tbaa !208
-  store ptr %162, ptr %131, align 8, !tbaa !249
+  %161 = load ptr, ptr %129, align 8, !tbaa !208
+  store ptr %161, ptr %131, align 8, !tbaa !249
   store i32 %8, ptr %132, align 8, !tbaa !250
   store i32 0, ptr %134, align 8, !tbaa !251
-  %163 = load ptr, ptr %135, align 8, !tbaa !208
-  store ptr %163, ptr %137, align 8, !tbaa !252
+  %162 = load ptr, ptr %135, align 8, !tbaa !208
+  store ptr %162, ptr %137, align 8, !tbaa !252
   store i32 %8, ptr %138, align 8, !tbaa !253
-  tail call void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %161, i32 noundef %126, i32 noundef %6, i32 noundef %7, i32 noundef %116, ptr noundef null)
-  %164 = tail call i32 @deflate(ptr noundef nonnull %127, i32 noundef 4)
-  %165 = tail call i32 @deflate(ptr noundef nonnull %133, i32 noundef 4)
-  %166 = sext i32 %159 to i64
-  %167 = getelementptr inbounds [6 x %"struct.cv::OP"], ptr %141, i64 0, i64 %166
-  store ptr %5, ptr %167, align 8, !tbaa !254
-  %168 = load i64, ptr %144, align 8, !tbaa !256
-  %169 = load i64, ptr %146, align 8, !tbaa !257
-  %170 = icmp uge i64 %168, %169
-  %spec.select.i308 = tail call i64 @llvm.umin.i64(i64 %168, i64 %169)
-  %spec.select32.i309 = zext i1 %170 to i32
+  tail call void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %160, i32 noundef %126, i32 noundef %6, i32 noundef %7, i32 noundef %116, ptr noundef null)
+  %163 = tail call i32 @deflate(ptr noundef nonnull %127, i32 noundef 4)
+  %164 = tail call i32 @deflate(ptr noundef nonnull %133, i32 noundef 4)
+  %165 = getelementptr i8, ptr %143, i64 40
+  store ptr %5, ptr %165, align 8, !tbaa !254
+  %166 = load i64, ptr %144, align 8, !tbaa !256
+  %167 = load i64, ptr %146, align 8, !tbaa !257
+  %168 = icmp uge i64 %166, %167
+  %spec.select.i308 = tail call i64 @llvm.umin.i64(i64 %166, i64 %167)
+  %spec.select32.i309 = zext i1 %168 to i32
   %.sink30.i310 = trunc i64 %spec.select.i308 to i32
-  %171 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store i32 %.sink30.i310, ptr %171, align 8, !tbaa !258
-  %172 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  store i32 %spec.select32.i309, ptr %172, align 8, !tbaa !259
-  %173 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  store i32 %.4268, ptr %173, align 4, !tbaa !260
-  %174 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  store i32 %.4251, ptr %174, align 8, !tbaa !261
-  %175 = getelementptr inbounds nuw i8, ptr %167, i64 20
-  store i32 %114, ptr %175, align 4, !tbaa !262
-  %176 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  store i32 %116, ptr %176, align 8, !tbaa !263
-  %177 = getelementptr inbounds nuw i8, ptr %167, i64 28
-  store i32 1, ptr %177, align 4, !tbaa !264
-  %178 = tail call i32 @deflateReset(ptr noundef nonnull %127)
-  %179 = tail call i32 @deflateReset(ptr noundef nonnull %133)
+  %169 = getelementptr i8, ptr %143, i64 48
+  store i32 %.sink30.i310, ptr %169, align 8, !tbaa !258
+  %170 = getelementptr i8, ptr %143, i64 72
+  store i32 %spec.select32.i309, ptr %170, align 8, !tbaa !259
+  %171 = getelementptr i8, ptr %143, i64 52
+  store i32 %.4268, ptr %171, align 4, !tbaa !260
+  %172 = getelementptr i8, ptr %143, i64 56
+  store i32 %.4251, ptr %172, align 8, !tbaa !261
+  %173 = getelementptr i8, ptr %143, i64 60
+  store i32 %114, ptr %173, align 4, !tbaa !262
+  %174 = getelementptr i8, ptr %143, i64 64
+  store i32 %116, ptr %174, align 8, !tbaa !263
+  %175 = getelementptr i8, ptr %143, i64 68
+  store i32 1, ptr %175, align 4, !tbaa !264
+  %176 = tail call i32 @deflateReset(ptr noundef nonnull %127)
+  %177 = tail call i32 @deflateReset(ptr noundef nonnull %133)
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.lr.ph, %.preheader328, %.preheader325, %.preheader322, %.preheader320, %12, %112, %158, %118, %.loopexit
-  %180 = phi i1 [ true, %112 ], [ true, %158 ], [ true, %118 ], [ false, %.loopexit ], [ false, %12 ], [ false, %.preheader320 ], [ false, %.preheader322 ], [ false, %.preheader325 ], [ false, %.preheader328 ], [ false, %.preheader.lr.ph ]
-  ret i1 %180
+  %178 = phi i1 [ true, %112 ], [ true, %158 ], [ true, %118 ], [ false, %.loopexit ], [ false, %12 ], [ false, %.preheader320 ], [ false, %.preheader322 ], [ false, %.preheader325 ], [ false, %.preheader328 ], [ false, %.preheader.lr.ph ]
+  ret i1 %178
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6323,7 +6321,7 @@ define hidden void @_ZN2cv10PngEncoder14deflateRectFinEPhPjiiS1_ii(ptr noundef n
   %9 = alloca %struct.z_stream_s, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 7680
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds [6 x %"struct.cv::OP"], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %"struct.cv::OP", ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !254
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !261
@@ -7937,7 +7935,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc463
   %indvars.iv646 = phi i64 [ 1, %652 ], [ %indvars.iv.next647, %663 ]
   %.0586 = phi i32 [ 0, %652 ], [ %.1, %663 ]
   %.0293585 = phi i32 [ %653, %652 ], [ %.1294, %663 ]
-  %655 = getelementptr inbounds nuw [6 x %"struct.cv::OP"], ptr %550, i64 0, i64 %indvars.iv646
+  %655 = getelementptr inbounds nuw %"struct.cv::OP", ptr %550, i64 %indvars.iv646
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 28
   %657 = load i32, ptr %656, align 4, !tbaa !264
   %.not373 = icmp eq i32 %657, 0
@@ -8089,7 +8087,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc463
 
 .loopexit:                                        ; preds = %708, %._crit_edge591.us, %.preheader534, %.preheader533, %687, %688
   %717 = sext i32 %.1 to i64
-  %718 = getelementptr inbounds [6 x %"struct.cv::OP"], ptr %550, i64 0, i64 %717
+  %718 = getelementptr inbounds %"struct.cv::OP", ptr %550, i64 %717
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 12
   %720 = load i32, ptr %719, align 4, !tbaa !260
   %721 = getelementptr inbounds nuw i8, ptr %718, i64 16

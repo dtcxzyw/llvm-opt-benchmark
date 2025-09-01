@@ -1186,7 +1186,7 @@ define range(i32 -2147483648, 1) i32 @show_codecs(ptr noundef readnone captures(
 
 switch.lookup:                                    ; preds = %15
   %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.print_codecs.21, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.print_codecs.21, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_media_type_char.exit
 
@@ -1514,7 +1514,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @print_codecs(i32 noundef r
 
 switch.lookup:                                    ; preds = %next_codec_for_id.exit.loopexit.us.us
   %24 = zext nneg i32 %52 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.print_codecs.21, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.print_codecs.21, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_media_type_char.exit.us.us
 
@@ -1617,7 +1617,7 @@ next_codec_for_id.exit.loopexit35:                ; preds = %67
 
 switch.lookup75:                                  ; preds = %next_codec_for_id.exit.loopexit35
   %73 = zext nneg i32 %71 to i64
-  %switch.gep76 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.print_codecs.21, i64 0, i64 %73
+  %switch.gep76 = getelementptr inbounds nuw i32, ptr @switch.table.print_codecs.21, i64 %73
   %switch.load77 = load i32, ptr %switch.gep76, align 4
   br label %get_media_type_char.exit
 
@@ -2948,7 +2948,7 @@ split:                                            ; preds = %40
 
 58:                                               ; preds = %55, %57
   %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %57 ]
-  %59 = getelementptr inbounds nuw [9 x %struct.anon], ptr @__const.opt_loglevel.log_levels, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw %struct.anon, ptr @__const.opt_loglevel.log_levels, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 16, !tbaa !124
   %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %56) #18
   %.not53 = icmp eq i32 %61, 0
@@ -2974,7 +2974,7 @@ split:                                            ; preds = %40
 
 72:                                               ; preds = %70, %72
   %indvars.iv58 = phi i64 [ 0, %70 ], [ %indvars.iv.next59, %72 ]
-  %73 = getelementptr inbounds nuw [9 x %struct.anon], ptr @__const.opt_loglevel.log_levels, i64 0, i64 %indvars.iv58
+  %73 = getelementptr inbounds nuw %struct.anon, ptr @__const.opt_loglevel.log_levels, i64 %indvars.iv58
   %74 = load ptr, ptr %73, align 16, !tbaa !124
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.66, ptr noundef %74) #17
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -3573,7 +3573,7 @@ define internal fastcc void @print_codec(ptr noundef nonnull %0) unnamed_addr #2
 switch.lookup:                                    ; preds = %87
   %93 = lshr exact i32 %91, 12
   %94 = zext nneg i32 %93 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.print_codec, i64 0, i64 %94
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.print_codec, i64 %94
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %95
 

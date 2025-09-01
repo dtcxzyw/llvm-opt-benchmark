@@ -53,8 +53,8 @@ declare float @llvm.sin.f32(float) #1
 define void @ff_init_ff_sine_windows(i32 noundef %0) local_unnamed_addr #2 {
   %2 = add nsw i32 %0, -5
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [9 x i32], ptr @init_sine_window_once, i64 0, i64 %3
-  %5 = getelementptr inbounds [9 x ptr], ptr @sine_window_init_func_array, i64 0, i64 %3
+  %4 = getelementptr inbounds i32, ptr @init_sine_window_once, i64 %3
+  %5 = getelementptr inbounds ptr, ptr @sine_window_init_func_array, i64 %3
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = tail call i32 @pthread_once(ptr noundef nonnull %4, ptr noundef %6) #5
   ret void

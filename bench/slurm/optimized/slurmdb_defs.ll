@@ -4273,7 +4273,7 @@ define dso_local i32 @str_2_slurmdb_acct_flags(ptr noundef %0) local_unnamed_add
 
 .preheader.i:                                     ; preds = %.lr.ph, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw [6 x %struct.anon], ptr @slurmdb_acct_flags_map, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @slurmdb_acct_flags_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0822) #20
@@ -4334,7 +4334,7 @@ define dso_local ptr @slurmdb_acct_flags_2_str(i32 noundef %0) local_unnamed_add
 
 .preheader:                                       ; preds = %1, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
-  %9 = getelementptr inbounds nuw [6 x %struct.anon], ptr @slurmdb_acct_flags_map, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.anon, ptr @slurmdb_acct_flags_map, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, %0
   %12 = icmp eq i32 %11, %10
@@ -4390,7 +4390,7 @@ define dso_local i32 @str_2_slurmdb_assoc_flags(ptr noundef %0) local_unnamed_ad
 
 .preheader.i:                                     ; preds = %.lr.ph, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @slurmdb_assoc_flags_map, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.anon.0, ptr @slurmdb_assoc_flags_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0822) #20
@@ -4448,7 +4448,7 @@ define dso_local ptr @slurmdb_assoc_flags_2_str(i32 noundef %0) local_unnamed_ad
 
 .preheader:                                       ; preds = %1, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
-  %9 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @slurmdb_assoc_flags_map, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.anon.0, ptr @slurmdb_assoc_flags_map, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, %0
   %12 = icmp eq i32 %11, %10
@@ -5139,7 +5139,7 @@ define dso_local noundef nonnull ptr @slurmdb_admin_level_str(i32 noundef %0) lo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.slurmdb_admin_level_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.slurmdb_admin_level_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -5800,7 +5800,7 @@ define dso_local noundef nonnull ptr @rollup_interval_to_string(i32 noundef %0) 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.rollup_interval_to_string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rollup_interval_to_string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6181,7 +6181,7 @@ define dso_local noundef ptr @slurmdb_problem_str_get(i16 noundef zeroext %0) lo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.slurmdb_problem_str_get, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.slurmdb_problem_str_get, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6537,7 +6537,7 @@ slurmdb_qos_str.exit:                             ; preds = %56, %59, %62, %63, 
 
 .preheader.i:                                     ; preds = %136, %153
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %153 ], [ 0, %136 ]
-  %144 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @slurmdb_assoc_flags_map, i64 0, i64 %indvars.iv.i
+  %144 = getelementptr inbounds nuw %struct.anon.0, ptr @slurmdb_assoc_flags_map, i64 %indvars.iv.i
   %145 = load i32, ptr %144, align 8
   %146 = and i32 %145, %138
   %147 = icmp eq i32 %146, %145

@@ -862,10 +862,10 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %204, %218
 
 .preheader:                                       ; preds = %200, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %200 ]
-  %222 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %223 = load double, ptr %222, align 8
   %224 = fptrunc double %223 to float
-  %225 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %224, ptr %225, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3005,7 +3005,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE11mlsGradientERKN3
   %76 = sdiv exact i64 %75, 12
   %77 = load ptr, ptr %43, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv
+  %invariant.gep = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv
   br label %79
 
 79:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit
@@ -3098,23 +3098,23 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %.088.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %109, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %.087.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %129, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %.086.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %125, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
-  %131 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %44, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %44, i64 %indvars.iv
   store double %.sroa.0145.1.lcssa, ptr %131, align 8
   %.sroa.8150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 8
   store double %.sroa.8150.1.lcssa, ptr %.sroa.8150.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 16
   store double %.sroa.14.1.lcssa, ptr %.sroa.14.0..sroa_idx, align 8
-  %132 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %45, i64 0, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %45, i64 %indvars.iv
   store double %.sroa.0137.1.lcssa, ptr %132, align 8
   %.sroa.6140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 8
   store double %.sroa.6140.1.lcssa, ptr %.sroa.6140.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 16
   store double %.sroa.10.1.lcssa, ptr %.sroa.10.0..sroa_idx, align 8
-  %133 = getelementptr inbounds nuw [3 x double], ptr %46, i64 0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
   store double %.086.lcssa, ptr %133, align 8
-  %134 = getelementptr inbounds nuw [3 x double], ptr %47, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
   store double %.087.lcssa, ptr %134, align 8
-  %135 = getelementptr inbounds nuw [3 x double], ptr %48, i64 0, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv
   store double %.088.lcssa, ptr %135, align 8
   %136 = load double, ptr %17, align 8
   %137 = load double, ptr %14, align 8
@@ -3211,30 +3211,30 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %228 = tail call noundef float @llvm.fmuladd.f32(float %220, float %220, float %227)
   %229 = fpext float %228 to double
   %230 = tail call double @llvm.fmuladd.f64(double %174, double %229, double %225)
-  %231 = getelementptr inbounds nuw [3 x double], ptr %54, i64 0, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv
   %232 = load double, ptr %231, align 8
   %233 = fadd double %232, %230
-  %234 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %235 = load float, ptr %234, align 4
   %236 = fpext float %235 to double
   %237 = fmul double %236, 2.000000e+00
   %238 = tail call double @llvm.fmuladd.f64(double %237, double %175, double %233)
   %239 = fptrunc double %238 to float
-  %240 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %239, ptr %240, align 4
-  %241 = getelementptr inbounds nuw [3 x double], ptr %60, i64 0, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv
   store double %167, ptr %241, align 8
-  %242 = getelementptr inbounds nuw [3 x double], ptr %61, i64 0, i64 %indvars.iv
+  %242 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv
   store double %156, ptr %242, align 8
-  %243 = getelementptr inbounds nuw [3 x double], ptr %62, i64 0, i64 %indvars.iv
+  %243 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv
   store double %215, ptr %243, align 8
-  %244 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %63, i64 0, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %63, i64 %indvars.iv
   store double %200, ptr %244, align 8
   %.sroa.4115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 8
   store double %201, ptr %.sroa.4115.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 16
   store double %202, ptr %.sroa.7.0..sroa_idx, align 8
-  %245 = getelementptr inbounds nuw [3 x double], ptr %64, i64 0, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv
   store double %174, ptr %245, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next, 3
@@ -3326,23 +3326,23 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE10mlsHessianERKN3v
 
 78:                                               ; preds = %3, %446
   %indvars.iv357 = phi i64 [ 0, %3 ], [ %indvars.iv.next358, %446 ]
-  %79 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %45, i64 0, i64 %indvars.iv357
-  %80 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %46, i64 0, i64 %indvars.iv357
-  %81 = getelementptr inbounds nuw [3 x double], ptr %47, i64 0, i64 %indvars.iv357
-  %82 = getelementptr inbounds nuw [3 x double], ptr %48, i64 0, i64 %indvars.iv357
-  %83 = getelementptr inbounds nuw [3 x double], ptr %49, i64 0, i64 %indvars.iv357
+  %79 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %45, i64 %indvars.iv357
+  %80 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %46, i64 %indvars.iv357
+  %81 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv357
+  %82 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv357
+  %83 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv357
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %50, i64 0, i64 %indvars.iv357
+  %85 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %50, i64 %indvars.iv357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
-  %86 = getelementptr inbounds nuw [3 x double], ptr %51, i64 0, i64 %indvars.iv357
+  %86 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv357
   %87 = load double, ptr %86, align 8
-  %88 = getelementptr inbounds nuw [3 x double], ptr %52, i64 0, i64 %indvars.iv357
+  %88 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv357
   %89 = load double, ptr %88, align 8
-  %90 = getelementptr inbounds nuw [3 x double], ptr %53, i64 0, i64 %indvars.iv357
+  %90 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv357
   %91 = load double, ptr %90, align 8
   %invariant.gep = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv357
-  %92 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv357
-  %93 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv357
+  %92 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv357
+  %93 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv357
   %94 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -3377,8 +3377,8 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE10mlsHessianERKN3v
   %118 = ptrtoint ptr %116 to i64
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 2
-  %121 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
-  %122 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %123 = icmp eq i64 %indvars.iv, %indvars.iv357
   %124 = load ptr, ptr %60, align 8
   %125 = load ptr, ptr %59, align 8
@@ -3513,7 +3513,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %.0180.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %194, %177 ]
   %200 = load double, ptr %21, align 8
   %201 = fmul double %200, -2.000000e+00
-  %202 = getelementptr inbounds nuw [3 x double], ptr %48, i64 0, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv
   %203 = load double, ptr %202, align 8
   %204 = fmul double %201, %203
   %205 = load double, ptr %79, align 8
@@ -3550,7 +3550,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %236 = call double @llvm.fmuladd.f64(double %214, double %.sroa.0254.2.lcssa, double %235)
   %237 = call noundef double @llvm.fmuladd.f64(double %220, double %.sroa.9.2.lcssa, double %236)
   %238 = fadd double %234, %237
-  %239 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %45, i64 0, i64 %indvars.iv
+  %239 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %45, i64 %indvars.iv
   %240 = load double, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %242 = load double, ptr %241, align 8
@@ -3560,7 +3560,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %246 = load double, ptr %245, align 8
   %247 = call noundef double @llvm.fmuladd.f64(double %246, double %221, double %244)
   %248 = fadd double %238, %247
-  %249 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %46, i64 0, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %46, i64 %indvars.iv
   %250 = load double, ptr %249, align 8
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %252 = load double, ptr %251, align 8
@@ -3618,13 +3618,13 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %304 = load float, ptr %65, align 8
   %305 = fpext float %304 to double
   %306 = fmul double %305, 5.000000e-01
-  %307 = getelementptr inbounds nuw [3 x double], ptr %53, i64 0, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv
   %308 = load double, ptr %307, align 8
   %309 = fmul double %89, %308
   %310 = call double @llvm.fmuladd.f64(double %274, double %44, double %309)
   %311 = fneg double %303
   %312 = call double @llvm.fmuladd.f64(double %311, double %39, double %310)
-  %313 = getelementptr inbounds nuw [3 x double], ptr %52, i64 0, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv
   %314 = load double, ptr %313, align 8
   %315 = call double @llvm.fmuladd.f64(double %98, double %314, double %312)
   %316 = fmul double %66, %308
@@ -3632,7 +3632,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %318 = call double @llvm.fmuladd.f64(double %64, double %315, double %317)
   %319 = fmul double %306, %318
   %320 = fdiv double %319, %68
-  %321 = getelementptr inbounds nuw [3 x double], ptr %51, i64 0, i64 %indvars.iv
+  %321 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv
   %322 = load double, ptr %321, align 8
   %323 = fmul double %205, %322
   %324 = fmul double %207, %322
@@ -3677,7 +3677,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %363 = fsub double %352, %358
   %364 = fsub double %354, %360
   %365 = fsub double %356, %362
-  %366 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %50, i64 0, i64 %indvars.iv
+  %366 = getelementptr inbounds nuw %"class.vcg::Point3.31", ptr %50, i64 %indvars.iv
   %367 = load double, ptr %366, align 8, !noalias !79
   %368 = fmul double %224, %367
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 8
@@ -3701,7 +3701,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %387 = fadd double %383, %386
   %388 = load double, ptr %20, align 8
   %389 = call double @llvm.fmuladd.f64(double %320, double %388, double %387)
-  %390 = getelementptr inbounds nuw [3 x double], ptr %47, i64 0, i64 %indvars.iv
+  %390 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
   %391 = load double, ptr %390, align 8
   %392 = call double @llvm.fmuladd.f64(double %87, double %391, double %389)
   %393 = fmul double %.sroa.7.2.lcssa, %359
@@ -3717,15 +3717,15 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %403 = call double @llvm.fmuladd.f64(double %.0181.lcssa, double %326, double %402)
   %404 = load double, ptr %75, align 8
   %405 = call double @llvm.fmuladd.f64(double %.0182.lcssa, double %404, double %403)
-  %406 = getelementptr inbounds nuw [3 x double], ptr %49, i64 0, i64 %indvars.iv
+  %406 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv
   %407 = load double, ptr %406, align 8
   %408 = call double @llvm.fmuladd.f64(double %224, double %407, double %405)
   %409 = fneg double %408
   %410 = call double @llvm.fmuladd.f64(double %105, double %203, double %409)
   %411 = fmul double %23, %410
-  %412 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
+  %412 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %413 = load double, ptr %412, align 8
-  %414 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv
+  %414 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %415 = load float, ptr %414, align 4
   %416 = fpext float %415 to double
   %417 = call double @llvm.fmuladd.f64(double %106, double %416, double %413)
@@ -3745,7 +3745,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %431 = call noundef float @llvm.fmuladd.f32(float %423, float %423, float %430)
   %432 = fpext float %431 to double
   %433 = call double @llvm.fmuladd.f64(double %320, double %432, double %428)
-  %434 = getelementptr inbounds nuw [3 x double], ptr %366, i64 0, i64 %indvars.iv357
+  %434 = getelementptr inbounds nuw double, ptr %366, i64 %indvars.iv357
   %435 = load double, ptr %434, align 8
   %436 = fadd double %435, %433
   %437 = icmp eq i64 %indvars.iv, %indvars.iv357

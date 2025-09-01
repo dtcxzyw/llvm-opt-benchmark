@@ -484,7 +484,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
   %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   ret ptr %7
 }
@@ -535,7 +535,7 @@ define noundef zeroext i1 @_ZNK3gmx19DeviceStreamManager13streamIsValidENS_16Dev
   %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8

@@ -1917,36 +1917,36 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
 668:                                              ; preds = %.thread652
   %669 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %665, ptr noundef nonnull dereferenceable(1) %spec.store.select5) #22
   %670 = icmp ugt i64 %663, 4
-  br i1 %670, label %.lr.ph1238, label %..critedge.thread_crit_edge
+  br i1 %670, label %.lr.ph1238.preheader, label %..critedge.thread_crit_edge
 
 ..critedge.thread_crit_edge:                      ; preds = %668
   %.pre1452 = load i32, ptr @displayLevel, align 4, !tbaa !9
   br label %.critedge.thread
 
-.lr.ph1238:                                       ; preds = %668
+.lr.ph1238.preheader:                             ; preds = %668
   %671 = add i64 %663, -4
-  br label %672
+  br label %.lr.ph1238
 
-672:                                              ; preds = %.lr.ph1238, %679
-  %.12471237 = phi i64 [ %663, %.lr.ph1238 ], [ %680, %679 ]
-  %673 = getelementptr inbounds nuw i8, ptr %spec.store.select5, i64 %.12471237
-  %674 = load i8, ptr %673, align 1, !tbaa !4
-  %reass.sub = sub i64 %.12471237, %663
-  %675 = add i64 %reass.sub, 4
-  %676 = getelementptr inbounds nuw [5 x i8], ptr @.str.59, i64 0, i64 %675
+.lr.ph1238:                                       ; preds = %.lr.ph1238.preheader, %679
+  %.12471237 = phi i64 [ %680, %679 ], [ %663, %.lr.ph1238.preheader ]
+  %672 = getelementptr inbounds nuw i8, ptr %spec.store.select5, i64 %.12471237
+  %673 = load i8, ptr %672, align 1, !tbaa !4
+  %674 = sub i64 %.12471237, %663
+  %675 = getelementptr i8, ptr @.str.59, i64 %674
+  %676 = getelementptr i8, ptr %675, i64 4
   %677 = load i8, ptr %676, align 1, !tbaa !4
-  %678 = icmp eq i8 %674, %677
+  %678 = icmp eq i8 %673, %677
   br i1 %678, label %679, label %.critedge
 
-679:                                              ; preds = %672
+679:                                              ; preds = %.lr.ph1238
   %680 = add i64 %.12471237, -1
   %681 = getelementptr inbounds nuw i8, ptr %665, i64 %.12471237
   store i8 0, ptr %681, align 1, !tbaa !4
   %.not373 = icmp ult i64 %680, %671
-  br i1 %.not373, label %.critedge, label %672, !llvm.loop !25
+  br i1 %.not373, label %.critedge, label %.lr.ph1238, !llvm.loop !25
 
-.critedge:                                        ; preds = %679, %672
-  %.1247.lcssa.ph = phi i64 [ %680, %679 ], [ %.12471237, %672 ]
+.critedge:                                        ; preds = %679, %.lr.ph1238
+  %.1247.lcssa.ph = phi i64 [ %680, %679 ], [ %.12471237, %.lr.ph1238 ]
   %682 = add i64 %663, -5
   %.not374 = icmp eq i64 %.1247.lcssa.ph, %682
   %.pre1453 = load i32, ptr @displayLevel, align 4, !tbaa !9

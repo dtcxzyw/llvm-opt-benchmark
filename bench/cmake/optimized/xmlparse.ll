@@ -6029,7 +6029,7 @@ define dso_local noundef ptr @XML_ErrorString(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [43 x ptr], ptr @switch.table.XML_ErrorString, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.XML_ErrorString, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -16477,7 +16477,7 @@ define internal fastcc range(i32 0, 41) i32 @addBinding(ptr noundef captures(non
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %indvars.iv182
+  %39 = getelementptr inbounds nuw i8, ptr @addBinding.xmlNamespace, i64 %indvars.iv182
   %40 = load i8, ptr %39, align 1, !tbaa !61
   %.not132.us.us = icmp eq i8 %35, %40
   br i1 %.not132.us.us, label %is_rfc3986_uri_char.exit.us.us, label %41
@@ -16510,7 +16510,7 @@ is_rfc3986_uri_char.exit.us.us:                   ; preds = %41, %38, %.lr.ph.sp
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr @addBinding.xmlNamespace, i64 %indvars.iv
   %52 = load i8, ptr %51, align 1, !tbaa !61
   %.not132.us = icmp eq i8 %47, %52
   br i1 %.not132.us, label %54, label %53
@@ -16638,7 +16638,7 @@ is_rfc3986_uri_char.exit.us:                      ; preds = %56, %56, %56, %56, 
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %indvars.iv186
+  %65 = getelementptr inbounds nuw i8, ptr @addBinding.xmlNamespace, i64 %indvars.iv186
   %66 = load i8, ptr %65, align 1, !tbaa !61
   %.not132.us156 = icmp eq i8 %61, %66
   br i1 %.not132.us156, label %68, label %67
@@ -16656,7 +16656,7 @@ is_rfc3986_uri_char.exit.us:                      ; preds = %56, %56, %56, %56, 
   br i1 %70, label %74, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %indvars.iv186
+  %72 = getelementptr inbounds nuw i8, ptr @addBinding.xmlnsNamespace, i64 %indvars.iv186
   %73 = load i8, ptr %72, align 1, !tbaa !61
   %.not133.us = icmp eq i8 %61, %73
   br i1 %.not133.us, label %is_rfc3986_uri_char.exit.us159, label %74
@@ -16690,7 +16690,7 @@ is_rfc3986_uri_char.exit.us159:                   ; preds = %74, %71, %68
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw [37 x i8], ptr @addBinding.xmlNamespace, i64 0, i64 %indvars.iv184
+  %84 = getelementptr inbounds nuw i8, ptr @addBinding.xmlNamespace, i64 %indvars.iv184
   %85 = load i8, ptr %84, align 1, !tbaa !61
   %.not132 = icmp eq i8 %80, %85
   br i1 %.not132, label %87, label %86
@@ -16708,7 +16708,7 @@ is_rfc3986_uri_char.exit.us159:                   ; preds = %74, %71, %68
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw [30 x i8], ptr @addBinding.xmlnsNamespace, i64 0, i64 %indvars.iv184
+  %91 = getelementptr inbounds nuw i8, ptr @addBinding.xmlnsNamespace, i64 %indvars.iv184
   %92 = load i8, ptr %91, align 1, !tbaa !61
   %.not133 = icmp eq i8 %80, %92
   br i1 %.not133, label %94, label %93
@@ -17514,7 +17514,7 @@ define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0
 
 77:                                               ; preds = %._crit_edge209, %.lr.ph
   %78 = phi ptr [ %.pre210, %._crit_edge209 ], [ %72, %.lr.ph ]
-  %79 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %80 = load i8, ptr %79, align 1, !tbaa !61
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 1
   store ptr %81, ptr %16, align 8, !tbaa !132

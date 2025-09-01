@@ -186,7 +186,7 @@ define hidden noundef zeroext i1 @_ZN3ue213splitOffPuffsERNS_9RoseBuildERNS_13Re
 
 83:                                               ; preds = %81, %75
   %.0813.i.i.i = phi i64 [ 0, %75 ], [ %82, %81 ]
-  %84 = getelementptr inbounds nuw [4 x i64], ptr %80, i64 0, i64 %.0813.i.i.i
+  %84 = getelementptr inbounds nuw i64, ptr %80, i64 %.0813.i.i.i
   %85 = load i64, ptr %84, align 8
   %.not.i.i.i = icmp eq i64 %85, -1
   br i1 %.not.i.i.i, label %81, label %_ZNK3ue29CharReach3allEv.exit.i
@@ -1342,7 +1342,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
 
 503:                                              ; preds = %501, %499
   %.0813.i.i.i.i = phi i64 [ 0, %499 ], [ %502, %501 ]
-  %504 = getelementptr inbounds nuw [4 x i64], ptr %500, i64 0, i64 %.0813.i.i.i.i
+  %504 = getelementptr inbounds nuw i64, ptr %500, i64 %.0813.i.i.i.i
   %505 = load i64, ptr %504, align 8
   %.not.i.i.i325.i = icmp eq i64 %505, -1
   br i1 %.not.i.i.i325.i, label %501, label %_ZNK3ue29CharReach3allEv.exit.preheader.i.i
@@ -1528,7 +1528,7 @@ _ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i: ; preds = %532, %._ZN3ue2L19
 
 switch.lookup:                                    ; preds = %570
   %572 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN3ue213splitOffPuffsERNS_9RoseBuildERNS_13ReportManagerERNS_8NGHolderEbRKNS_14CompileContextE, i64 0, i64 %572
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN3ue213splitOffPuffsERNS_9RoseBuildERNS_13ReportManagerERNS_8NGHolderEbRKNS_14CompileContextE, i64 %572
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i
 
@@ -1977,7 +1977,7 @@ _ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detai
 
 .preheader.i.i:                                   ; preds = %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i, %716
   %.0813.i.i.i337.i = phi i64 [ %717, %716 ], [ 0, %_ZN3ue2L21allowedSquashDistanceERKNS_9CharReachEjRKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEb.exit.i.i ]
-  %718 = getelementptr inbounds nuw [4 x i64], ptr %80, i64 0, i64 %.0813.i.i.i337.i
+  %718 = getelementptr inbounds nuw i64, ptr %80, i64 %.0813.i.i.i337.i
   %719 = load i64, ptr %718, align 8
   %.not.i.i52.i.i = icmp eq i64 %719, -1
   br i1 %.not.i.i52.i.i, label %716, label %.critedge47.i.i

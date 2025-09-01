@@ -784,7 +784,7 @@ _ZNK12quasi_macros22is_non_ground_uninterpEPK4expr.exit.thread32: ; preds = %_Z1
   %158 = phi ptr [ %.pre51, %.lr.ph ], [ %215, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit26 ]
   %indvars.iv = phi i64 [ %156, %.lr.ph ], [ %159, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit26 ]
   %159 = add nsw i64 %indvars.iv, -1
-  %160 = getelementptr inbounds nuw [0 x ptr], ptr %155, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw ptr, ptr %155, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !44
   %162 = icmp eq ptr %158, null
   br i1 %162, label %169, label %163
@@ -1276,7 +1276,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread
   %51 = phi ptr [ %13, %.lr.ph ], [ %100, %99 ]
   %indvars.iv = phi i64 [ %48, %.lr.ph ], [ %52, %99 ]
   %52 = add nsw i64 %indvars.iv, -1
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %47, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !44
   %55 = getelementptr inbounds i8, ptr %51, i64 -8
   %56 = load i32, ptr %55, align 4, !tbaa !36
@@ -2512,7 +2512,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit1
 106:                                              ; preds = %.lr.ph, %311
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %311 ]
   %.070249 = phi i32 [ 0, %.lr.ph ], [ %.272.ph, %311 ]
-  %107 = getelementptr inbounds nuw [0 x ptr], ptr %91, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !44
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
@@ -6623,7 +6623,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !231
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

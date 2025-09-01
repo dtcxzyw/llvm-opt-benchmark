@@ -66,7 +66,7 @@ define dso_local void @protocol_v2_advertise_capabilities(ptr noundef %0) local_
 
 9:                                                ; preds = %1, %strbuf_setlen.exit17
   %.018 = phi i64 [ 0, %1 ], [ %43, %strbuf_setlen.exit17 ]
-  %10 = getelementptr inbounds nuw [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %.018
+  %10 = getelementptr inbounds nuw %struct.protocol_capability, ptr @capabilities, i64 %.018
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = call i32 %12(ptr noundef %0, ptr noundef nonnull %3) #7
@@ -268,7 +268,7 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
 
 .preheader.i.i:                                   ; preds = %21, %skip_prefix.exit.i.i
   %.01429.i.i = phi i64 [ %33, %skip_prefix.exit.i.i ], [ 0, %21 ]
-  %22 = getelementptr inbounds nuw [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %.01429.i.i
+  %22 = getelementptr inbounds nuw %struct.protocol_capability, ptr @capabilities, i64 %.01429.i.i
   %23 = load ptr, ptr %22, align 16, !tbaa !10
   br label %24
 
@@ -340,7 +340,7 @@ get_capability.exit.i:                            ; preds = %skip_prefix.exit.i.
 
 .preheader.i.i15:                                 ; preds = %46, %skip_prefix.exit.i.i20
   %.01429.i.i16 = phi i64 [ %60, %skip_prefix.exit.i.i20 ], [ 0, %46 ]
-  %47 = getelementptr inbounds nuw [8 x %struct.protocol_capability], ptr @capabilities, i64 0, i64 %.01429.i.i16
+  %47 = getelementptr inbounds nuw %struct.protocol_capability, ptr @capabilities, i64 %.01429.i.i16
   %48 = load ptr, ptr %47, align 16, !tbaa !10
   br label %49
 
@@ -439,7 +439,7 @@ parse_command.exit:                               ; preds = %70, %67, %41
 
 83:                                               ; preds = %85, %79
   %.0811.i = phi i64 [ 0, %79 ], [ %86, %85 ]
-  %84 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %84 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i25 = icmp eq ptr %82, %84
   br i1 %.not.i25, label %.split.loop.exit9.i, label %85
 
@@ -460,7 +460,7 @@ hash_algo_by_ptr.exit:                            ; preds = %85, %.split.loop.ex
 88:                                               ; preds = %hash_algo_by_ptr.exit
   %89 = load ptr, ptr %82, align 8, !tbaa !48
   %90 = sext i32 %80 to i64
-  %91 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %90
+  %91 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %90
   %92 = load ptr, ptr %91, align 16, !tbaa !48
   call void (ptr, ...) @die(ptr noundef nonnull @.str.23, ptr noundef %89, ptr noundef %92) #9
   unreachable

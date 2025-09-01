@@ -317,7 +317,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
 
 switch.lookup:                                    ; preds = %64
   %69 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.map_output_shape, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.map_output_shape, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %70 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %switch.load) #4
   %.not110 = icmp eq ptr %7, null

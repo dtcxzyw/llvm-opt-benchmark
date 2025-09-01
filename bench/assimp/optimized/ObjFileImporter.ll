@@ -1541,7 +1541,7 @@ define hidden void @_ZN6Assimp15ObjFileImporter20CreateDataFromImportEPKNS_7ObjF
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %17 = load ptr, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 1 %17, i64 %12, i1 false)
-  %18 = getelementptr inbounds nuw [1024 x i8], ptr %16, i64 0, i64 %12
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %12
   store i8 0, ptr %18, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2077,7 +2077,7 @@ define hidden noundef ptr @_ZN6Assimp15ObjFileImporter11createNodesEPKNS_7ObjFil
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %26 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr align 1 %26, i64 %21, i1 false)
-  %27 = getelementptr inbounds nuw [1024 x i8], ptr %25, i64 0, i64 %21
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %21
   store i8 0, ptr %27, align 1
   br label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2754,12 +2754,12 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile
   %.not164 = icmp ne i32 %223, 0
   %224 = select i1 %.not164, i64 7, i64 6
   %225 = getelementptr inbounds nuw i8, ptr %74, i64 20560
-  %226 = getelementptr inbounds nuw [20 x i8], ptr %225, i64 0, i64 %224
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %224
   br label %227
 
 227:                                              ; preds = %221, %237
   %indvars.iv = phi i64 [ 0, %221 ], [ %indvars.iv.next, %237 ]
-  %228 = getelementptr inbounds nuw [6 x %struct.aiString], ptr %219, i64 0, i64 %indvars.iv
+  %228 = getelementptr inbounds nuw %struct.aiString, ptr %219, i64 %indvars.iv
   %229 = trunc nuw nsw i64 %indvars.iv to i32
   %230 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %228, ptr noundef nonnull @.str.40, i32 noundef 11, i32 noundef %229)
   %231 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %18, i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef 11, i32 noundef %229, i32 noundef 4)
@@ -3101,7 +3101,7 @@ define hidden void @_ZN6Assimp15ObjFileImporter14createTopologyEPKNS_7ObjFile5Mo
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 240
   %36 = load ptr, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr align 1 %36, i64 %30, i1 false)
-  %37 = getelementptr inbounds nuw [1024 x i8], ptr %35, i64 0, i64 %30
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %30
   store i8 0, ptr %37, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -3891,7 +3891,7 @@ _ZNSt6vectorIjSaIjEE2atEm.exit185:                ; preds = %186
 260:                                              ; preds = %260, %.preheader
   %indvars.iv.i = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i, %260 ]
   %.056.i = phi i32 [ 0, %.preheader ], [ %spec.select.i, %260 ]
-  %261 = getelementptr inbounds nuw [8 x ptr], ptr %97, i64 0, i64 %indvars.iv.i
+  %261 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv.i
   %262 = load ptr, ptr %261, align 8
   %.not.i = icmp ne ptr %262, null
   %263 = zext i1 %.not.i to i32
@@ -3906,7 +3906,7 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit:             ; preds = %260
   br i1 %265, label %266, label %.loopexit
 
 266:                                              ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit
-  %267 = getelementptr inbounds nuw [8 x ptr], ptr %97, i64 0, i64 %.0
+  %267 = getelementptr inbounds nuw ptr, ptr %97, i64 %.0
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr inbounds nuw %class.aiVector3t, ptr %268, i64 %137
   %270 = getelementptr inbounds nuw %class.aiVector3t, ptr %268, i64 %243
@@ -5086,7 +5086,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -5138,7 +5138,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -5414,7 +5414,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -5433,7 +5433,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

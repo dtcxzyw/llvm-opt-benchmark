@@ -746,7 +746,7 @@ define internal fastcc void @PrintHeader(i32 noundef range(i32 -2147483648, 3) %
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.PrintHeader, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PrintHeader, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %puts5 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.load)
   br label %8

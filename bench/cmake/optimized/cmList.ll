@@ -2051,7 +2051,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StringSorterC2ERKS0_(ptr noundef
   %6 = phi i64 [ 0, %2 ], [ 1, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2ERKS9_.exit ]
   %.idx = shl nuw nsw i64 %6, 5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %8 = getelementptr inbounds nuw [2 x %"class.std::function"], ptr %1, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw %"class.std::function", ptr %1, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -14567,7 +14567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit33: ; preds = %
   %110 = phi i1 [ false, %108 ], [ true, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i ]
   %.sroa.phi = phi ptr [ %6, %108 ], [ %.sroa.gep39, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i ]
   %111 = phi i64 [ 0, %108 ], [ 1, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_EEC2EOS9_.exit.i.i ]
-  %112 = getelementptr inbounds nuw [2 x %"class.std::function"], ptr %4, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw %"class.std::function", ptr %4, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 24
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.phi, i8 0, i64 24, i1 false)

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define i32 @ws_ipv4_get_subnet_mask(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [33 x i32], ptr @ws_ipv4_get_subnet_mask.masks, i64 0, i64 %2
+  %3 = getelementptr i32, ptr @ws_ipv4_get_subnet_mask.masks, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -22,7 +22,7 @@ define void @ws_ipv4_addr_and_mask_init(ptr noundef writeonly captures(none) ini
   %4 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1) #7, !srcloc !6
   store i32 %4, ptr %0, align 4
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [33 x i32], ptr @ws_ipv4_get_subnet_mask.masks, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @ws_ipv4_get_subnet_mask.masks, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
@@ -63,9 +63,9 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr noundef readonly capture
   br i1 %exitcond.not.i, label %16, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr [16 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %12 = getelementptr i8, ptr %0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr [16 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %3, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
   %.not44.i = icmp eq i8 %13, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -76,13 +76,13 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr noundef readonly capture
   br i1 %.not.i, label %30, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr [16 x i8], ptr %0, i64 0, i64 %9
+  %18 = getelementptr i8, ptr %0, i64 %9
   %19 = load i8, ptr %18, align 1
   %20 = zext nneg i32 %8 to i64
-  %21 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @bitmasks, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, %19
-  %24 = getelementptr [16 x i8], ptr %3, i64 0, i64 %9
+  %24 = getelementptr i8, ptr %3, i64 %9
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, %22
   %.not43.i = icmp eq i8 %23, %26

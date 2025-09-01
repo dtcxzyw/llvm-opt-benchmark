@@ -54,7 +54,7 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
   %22 = tail call ptr @palloc(i64 noundef %21) #7
   store ptr %22, ptr %7, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %208, label %24
+  br i1 %23, label %207, label %24
 
 24:                                               ; preds = %._crit_edge
   store i32 0, ptr %8, align 4
@@ -76,7 +76,7 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
   %30 = getelementptr inbounds i32, ptr %22, i64 %29
   store i32 0, ptr %30, align 4
   %31 = icmp eq i32 %.066.lcssa, 0
-  br i1 %31, label %208, label %.preheader
+  br i1 %31, label %207, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge145
   %32 = icmp sgt i32 %.066.lcssa, 1
@@ -115,12 +115,12 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
 Decomp_hash_func.exit.i.i:                        ; preds = %41
   %50 = urem i32 %47, 13551
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = sext i16 %53 to i32
   %55 = urem i32 %49, 13551
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %59, %54
@@ -170,12 +170,12 @@ get_canonical_class.exit:                         ; preds = %get_code_entry.exit
 Decomp_hash_func.exit.i.i93:                      ; preds = %69
   %78 = urem i32 %75, 13551
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = sext i16 %81 to i32
   %83 = urem i32 %77, 13551
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = sext i16 %86 to i32
   %88 = add nsw i32 %87, %82
@@ -219,7 +219,7 @@ get_canonical_class.exit98:                       ; preds = %89
   br i1 %102, label %.lr.ph147, label %._crit_edge148, !llvm.loop !8
 
 ._crit_edge148:                                   ; preds = %100, %.preheader
-  br i1 %12, label %103, label %208
+  br i1 %12, label %103, label %207
 
 103:                                              ; preds = %._crit_edge148
   %104 = tail call ptr @palloc(i64 noundef %21) #7
@@ -267,12 +267,12 @@ get_canonical_class.exit98:                       ; preds = %89
 Decomp_hash_func.exit.i.i104:                     ; preds = %110
   %119 = urem i32 %116, 13551
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = sext i16 %122 to i32
   %124 = urem i32 %118, 13551
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = sext i16 %127 to i32
   %129 = add nsw i32 %128, %123
@@ -300,7 +300,7 @@ get_canonical_class.exit109:                      ; preds = %get_code_entry.exit
   %.0.i108 = phi i8 [ %136, %134 ], [ 0, %get_code_entry.exit.thread.i107 ]
   %137 = zext i8 %.0.i108 to i32
   %138 = icmp slt i32 %.070152, %137
-  br i1 %138, label %139, label %201
+  br i1 %138, label %139, label %200
 
 139:                                              ; preds = %get_canonical_class.exit109
   %140 = add i32 %.076149, -4352
@@ -364,12 +364,12 @@ get_canonical_class.exit109:                      ; preds = %get_code_entry.exit
 Recomp_hash_func.exit.i:                          ; preds = %163
   %172 = urem i32 %169, 1883
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [1883 x i16], ptr @Recomp_hash_func.h, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i16, ptr @Recomp_hash_func.h, i64 %173
   %175 = load i16, ptr %174, align 2
   %176 = sext i16 %175 to i32
   %177 = urem i32 %171, 1883
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw [1883 x i16], ptr @Recomp_hash_func.h, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i16, ptr @Recomp_hash_func.h, i64 %178
   %180 = load i16, ptr %179, align 2
   %181 = sext i16 %180 to i32
   %182 = add nsw i32 %181, %176
@@ -381,69 +381,68 @@ Recomp_hash_func.exit.i:                          ; preds = %163
   %185 = getelementptr inbounds nuw i16, ptr @RecompInverseLookup, i64 %184
   %186 = load i16, ptr %185, align 2
   %187 = zext i16 %186 to i64
-  %188 = getelementptr inbounds nuw [6775 x %struct.pg_unicode_decomposition], ptr @UnicodeDecompMain, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw %struct.pg_unicode_decomposition, ptr @UnicodeDecompMain, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 6
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i64
-  %192 = getelementptr inbounds nuw [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i32, ptr @UnicodeDecomp_codepoints, i64 %191
   %193 = load i32, ptr %192, align 4
   %194 = icmp eq i32 %.076149, %193
   br i1 %194, label %195, label %.sink.split
 
 195:                                              ; preds = %183
-  %196 = add nuw nsw i64 %191, 1
-  %197 = getelementptr inbounds nuw [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %196
-  %198 = load i32, ptr %197, align 4
-  %199 = icmp eq i32 %108, %198
-  br i1 %199, label %recompose_code.exit.thread126, label %.sink.split
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 4
+  %197 = load i32, ptr %196, align 4
+  %198 = icmp eq i32 %108, %197
+  br i1 %198, label %recompose_code.exit.thread126, label %.sink.split
 
 recompose_code.exit.thread126:                    ; preds = %195
-  %200 = load i32, ptr %188, align 8
+  %199 = load i32, ptr %188, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %recompose_code.exit.thread
 
 .sink.split:                                      ; preds = %Recomp_hash_func.exit.i, %195, %183
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %201
+  br label %200
 
-201:                                              ; preds = %.sink.split, %get_canonical_class.exit109
-  %202 = icmp eq i8 %.0.i108, 0
-  %203 = add i32 %.074150, 1
-  %..076149 = select i1 %202, i32 %108, i32 %.076149
-  %.074150..072151 = select i1 %202, i32 %.074150, i32 %.072151
-  %. = select i1 %202, i32 -1, i32 %137
+200:                                              ; preds = %.sink.split, %get_canonical_class.exit109
+  %201 = icmp eq i8 %.0.i108, 0
+  %202 = add i32 %.074150, 1
+  %..076149 = select i1 %201, i32 %108, i32 %.076149
+  %.074150..072151 = select i1 %201, i32 %.074150, i32 %.072151
+  %. = select i1 %201, i32 -1, i32 %137
   br label %recompose_code.exit.thread
 
-recompose_code.exit.thread:                       ; preds = %201, %recompose_code.exit.thread126, %143, %155
-  %.074150.sink = phi i32 [ %.072151, %155 ], [ %.072151, %143 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.074150, %201 ]
-  %.sink = phi i32 [ %156, %155 ], [ %147, %143 ], [ %200, %recompose_code.exit.thread126 ], [ %108, %201 ]
-  %.177 = phi i32 [ %156, %155 ], [ %147, %143 ], [ %200, %recompose_code.exit.thread126 ], [ %..076149, %201 ]
-  %.175 = phi i32 [ %.074150, %155 ], [ %.074150, %143 ], [ %.074150, %recompose_code.exit.thread126 ], [ %203, %201 ]
-  %.173 = phi i32 [ %.072151, %155 ], [ %.072151, %143 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.074150..072151, %201 ]
-  %.171 = phi i32 [ %.070152, %155 ], [ %.070152, %143 ], [ %.070152, %recompose_code.exit.thread126 ], [ %., %201 ]
-  %204 = sext i32 %.074150.sink to i64
-  %205 = getelementptr inbounds i32, ptr %104, i64 %204
-  store i32 %.sink, ptr %205, align 4
+recompose_code.exit.thread:                       ; preds = %200, %recompose_code.exit.thread126, %143, %155
+  %.074150.sink = phi i32 [ %.072151, %155 ], [ %.072151, %143 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.074150, %200 ]
+  %.sink = phi i32 [ %156, %155 ], [ %147, %143 ], [ %199, %recompose_code.exit.thread126 ], [ %108, %200 ]
+  %.177 = phi i32 [ %156, %155 ], [ %147, %143 ], [ %199, %recompose_code.exit.thread126 ], [ %..076149, %200 ]
+  %.175 = phi i32 [ %.074150, %155 ], [ %.074150, %143 ], [ %.074150, %recompose_code.exit.thread126 ], [ %202, %200 ]
+  %.173 = phi i32 [ %.072151, %155 ], [ %.072151, %143 ], [ %.072151, %recompose_code.exit.thread126 ], [ %.074150..072151, %200 ]
+  %.171 = phi i32 [ %.070152, %155 ], [ %.070152, %143 ], [ %.070152, %recompose_code.exit.thread126 ], [ %., %200 ]
+  %203 = sext i32 %.074150.sink to i64
+  %204 = getelementptr inbounds i32, ptr %104, i64 %203
+  store i32 %.sink, ptr %204, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge156.loopexit, label %.lr.ph155, !llvm.loop !10
 
 ._crit_edge156.loopexit:                          ; preds = %recompose_code.exit.thread
-  %206 = sext i32 %.175 to i64
+  %205 = sext i32 %.175 to i64
   br label %._crit_edge156
 
 ._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %105
-  %.074.lcssa = phi i64 [ 1, %105 ], [ %206, %._crit_edge156.loopexit ]
-  %207 = getelementptr inbounds i32, ptr %104, i64 %.074.lcssa
-  store i32 0, ptr %207, align 4
+  %.074.lcssa = phi i64 [ 1, %105 ], [ %205, %._crit_edge156.loopexit ]
+  %206 = getelementptr inbounds i32, ptr %104, i64 %.074.lcssa
+  store i32 0, ptr %206, align 4
   br label %.sink.split189
 
 .sink.split189:                                   ; preds = %103, %._crit_edge156
   %.0.ph = phi ptr [ %104, %._crit_edge156 ], [ null, %103 ]
   tail call void @pfree(ptr noundef nonnull %22) #7
-  br label %208
+  br label %207
 
-208:                                              ; preds = %.sink.split189, %._crit_edge148, %._crit_edge145, %._crit_edge
+207:                                              ; preds = %.sink.split189, %._crit_edge148, %._crit_edge145, %._crit_edge
   %.0 = phi ptr [ null, %._crit_edge ], [ %22, %._crit_edge145 ], [ %22, %._crit_edge148 ], [ %.0.ph, %.sink.split189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -489,12 +488,12 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
 Decomp_hash_func.exit.i:                          ; preds = %9
   %18 = urem i32 %15, 13551
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i32
   %23 = urem i32 %17, 13551
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = sext i16 %26 to i32
   %28 = add nsw i32 %27, %22
@@ -541,7 +540,7 @@ get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.ex
 
 47:                                               ; preds = %41
   %48 = zext i16 %44 to i64
-  %49 = getelementptr inbounds nuw [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @UnicodeDecomp_codepoints, i64 %48
   %50 = zext nneg i32 %37 to i64
   br label %get_code_decomposition.exit
 
@@ -632,12 +631,12 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
 Decomp_hash_func.exit.i:                          ; preds = %29
   %38 = urem i32 %35, 13551
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = sext i16 %41 to i32
   %43 = urem i32 %37, 13551
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = sext i16 %46 to i32
   %48 = add nsw i32 %47, %42
@@ -689,7 +688,7 @@ get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.ex
 
 70:                                               ; preds = %64
   %71 = zext i16 %67 to i64
-  %72 = getelementptr inbounds nuw [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr @UnicodeDecomp_codepoints, i64 %71
   %73 = zext nneg i32 %57 to i64
   br label %get_code_decomposition.exit
 
@@ -768,12 +767,12 @@ define dso_local range(i32 -1, 2) i32 @unicode_is_normalized_quickcheck(i32 noun
 Decomp_hash_func.exit.i.i:                        ; preds = %10
   %19 = urem i32 %16, 13551
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
   %24 = urem i32 %18, 13551
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [13551 x i16], ptr @Decomp_hash_func.h, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i16, ptr @Decomp_hash_func.h, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = sext i16 %27 to i32
   %29 = add nsw i32 %28, %23
@@ -831,12 +830,12 @@ get_canonical_class.exit:                         ; preds = %30
 NFC_QC_hash_func.exit.i:                          ; preds = %40
   %49 = urem i32 %46, 2463
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [2463 x i16], ptr @NFC_QC_hash_func.h, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i16, ptr @NFC_QC_hash_func.h, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = sext i16 %52 to i32
   %54 = urem i32 %48, 2463
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [2463 x i16], ptr @NFC_QC_hash_func.h, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i16, ptr @NFC_QC_hash_func.h, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = sext i16 %57 to i32
   %59 = add nsw i32 %58, %53
@@ -881,12 +880,12 @@ qc_hash_lookup.exit.i:                            ; preds = %60, %NFC_QC_hash_fu
 NFKC_QC_hash_func.exit.i:                         ; preds = %66
   %75 = urem i32 %72, 10079
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [10079 x i16], ptr @NFKC_QC_hash_func.h, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i16, ptr @NFKC_QC_hash_func.h, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = sext i16 %78 to i32
   %80 = urem i32 %74, 10079
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [10079 x i16], ptr @NFKC_QC_hash_func.h, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i16, ptr @NFKC_QC_hash_func.h, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i32
   %85 = add nsw i32 %84, %79

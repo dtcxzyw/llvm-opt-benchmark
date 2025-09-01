@@ -99,7 +99,7 @@ define internal fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c5
 .lr.ph276:                                        ; preds = %19, %.thread
   %.sroa.08.0.i9275 = phi i64 [ %48, %.thread ], [ 0, %19 ]
   %.sroa.02.0.i8274 = phi i64 [ %.sroa.02.1.i11, %.thread ], [ 0, %19 ]
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %.sroa.08.0.i9275
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.08.0.i9275
   %21 = load i8, ptr %20, align 1, !alias.scope !11, !noundef !7
   %22 = add i8 %21, -10
   %spec.select.i33 = icmp ult i8 %22, 4
@@ -122,7 +122,7 @@ define internal fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c5
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %28
   %32 = load i8, ptr %31, align 1, !alias.scope !11, !noundef !7
   %33 = icmp eq i8 %32, -123
   %34 = zext i1 %33 to i64
@@ -135,14 +135,14 @@ define internal fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c5
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %35
-  %39 = add nuw nsw i64 %.sroa.08.0.i9275, 1
-  %40 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %39
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.08.0.i9275
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %41 = load i8, ptr %40, align 1, !alias.scope !11, !noundef !7
   %42 = icmp eq i8 %41, -128
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %36
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %36
   %45 = load i8, ptr %44, align 1, !alias.scope !11, !noundef !7
   %.mask.i12 = and i8 %45, -2
   %46 = icmp eq i8 %.mask.i12, -88
@@ -164,7 +164,7 @@ define internal fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c5
   br i1 %53, label %54, label %.thread
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %52
   %56 = load i8, ptr %55, align 1, !alias.scope !11, !noundef !7
   %57 = icmp eq i8 %56, 10
   %spec.select25.i14 = select i1 %57, i64 %.sroa.02.0.i8274, i64 %25
@@ -393,7 +393,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
 .lr.ph291:                                        ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit, %.thread253
   %.sroa.08.0.i290 = phi i64 [ %196, %.thread253 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
   %.sroa.02.0.i289 = phi i64 [ %.sroa.02.1.i, %.thread253 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
-  %165 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %.sroa.08.0.i290
+  %165 = getelementptr inbounds i8, ptr %.sroa.0.1.i.lcssa, i64 %.sroa.08.0.i290
   %166 = load i8, ptr %165, align 1, !alias.scope !22, !noundef !7
   %167 = add i8 %166, -10
   %spec.select.i35 = icmp ult i8 %167, 4
@@ -416,7 +416,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %174, label %175, label %.thread253
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %173
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %173
   %177 = load i8, ptr %176, align 1, !alias.scope !22, !noundef !7
   %178 = icmp eq i8 %177, -123
   %179 = zext i1 %178 to i64
@@ -434,7 +434,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %185, label %186, label %190, !prof !25
 
 186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %184
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %184
   %188 = load i8, ptr %187, align 1, !alias.scope !22, !noundef !7
   %189 = icmp eq i8 %188, -128
   br i1 %189, label %191, label %.thread253
@@ -444,7 +444,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   unreachable
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %181
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %181
   %193 = load i8, ptr %192, align 1, !alias.scope !22, !noundef !7
   %.mask.i = and i8 %193, -2
   %194 = icmp eq i8 %.mask.i, -88
@@ -466,7 +466,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %201, label %202, label %.thread253
 
 202:                                              ; preds = %199
-  %203 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %200
+  %203 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %200
   %204 = load i8, ptr %203, align 1, !alias.scope !22, !noundef !7
   %205 = icmp eq i8 %204, 10
   %spec.select25.i = select i1 %205, i64 %.sroa.02.0.i289, i64 %170
@@ -482,25 +482,24 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   br i1 %or.cond.i, label %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread, label %210
 
 210:                                              ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit
-  %211 = add i64 %.sroa.01.0.lcssa317, -1
-  %212 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %211
+  %211 = getelementptr i8, ptr %0, i64 %.sroa.01.0.lcssa317
+  %212 = getelementptr i8, ptr %211, i64 -1
   %213 = load i8, ptr %212, align 1, !alias.scope !26, !noundef !7
   %214 = icmp eq i8 %213, 13
   br i1 %214, label %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit, label %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread
 
 _ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit: ; preds = %210
-  %215 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %.sroa.01.0.lcssa317
-  %216 = load i8, ptr %215, align 1, !alias.scope !26, !noundef !7
-  %.not = icmp eq i8 %216, 10
-  %217 = add i64 %208, -1
-  br i1 %.not, label %218, label %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread
+  %215 = load i8, ptr %211, align 1, !alias.scope !26, !noundef !7
+  %.not = icmp eq i8 %215, 10
+  %216 = add i64 %208, -1
+  br i1 %.not, label %217, label %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread
 
 _ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread: ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit, %210, %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit
-  br label %218
+  br label %217
 
-218:                                              ; preds = %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit, %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread
-  %219 = phi i64 [ %208, %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread ], [ %217, %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit ]
-  ret i64 %219
+217:                                              ; preds = %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit, %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread
+  %218 = phi i64 [ %208, %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread ], [ %216, %_ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit ]
+  ret i64 %218
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -749,7 +748,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245
   %.sroa.01.08.i.i248 = phi i64 [ %80, %.lr.ph.i.i247 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ]
   %79 = phi i64 [ %83, %.lr.ph.i.i247 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ]
   %80 = add nuw nsw i64 %.sroa.01.08.i.i248, 1
-  %81 = getelementptr inbounds nuw [0 x { i64, i64, i64, i64 }], ptr %78, i64 0, i64 %.sroa.01.08.i.i248
+  %81 = getelementptr inbounds nuw { i64, i64, i64, i64 }, ptr %78, i64 %.sroa.01.08.i.i248
   %82 = load i64, ptr %81, align 8, !alias.scope !94, !noalias !88, !noundef !7
   %83 = add i64 %82, %79
   %exitcond.not.i.i250 = icmp eq i64 %80, %75
@@ -922,7 +921,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
 .lr.ph1813:                                       ; preds = %155, %.thread
   %.sroa.08.0.i1201811 = phi i64 [ %184, %.thread ], [ 0, %155 ]
   %.sroa.02.0.i1191810 = phi i64 [ %.sroa.02.1.i122, %.thread ], [ 0, %155 ]
-  %156 = getelementptr inbounds nuw [0 x i8], ptr %102, i64 0, i64 %.sroa.08.0.i1201811
+  %156 = getelementptr inbounds nuw i8, ptr %102, i64 %.sroa.08.0.i1201811
   %157 = load i8, ptr %156, align 1, !alias.scope !135, !noundef !7
   %158 = add i8 %157, -10
   %spec.select.i302 = icmp ult i8 %158, 4
@@ -945,7 +944,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   br i1 %165, label %166, label %.thread
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw [0 x i8], ptr %102, i64 0, i64 %164
+  %167 = getelementptr inbounds nuw i8, ptr %102, i64 %164
   %168 = load i8, ptr %167, align 1, !alias.scope !135, !noundef !7
   %169 = icmp eq i8 %168, -123
   %170 = zext i1 %169 to i64
@@ -958,14 +957,14 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   br i1 %173, label %174, label %.thread
 
 174:                                              ; preds = %171
-  %175 = add nuw nsw i64 %.sroa.08.0.i1201811, 1
-  %176 = getelementptr inbounds nuw [0 x i8], ptr %102, i64 0, i64 %175
+  %175 = getelementptr inbounds nuw i8, ptr %102, i64 %.sroa.08.0.i1201811
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
   %177 = load i8, ptr %176, align 1, !alias.scope !135, !noundef !7
   %178 = icmp eq i8 %177, -128
   br i1 %178, label %179, label %.thread
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds nuw [0 x i8], ptr %102, i64 0, i64 %172
+  %180 = getelementptr inbounds nuw i8, ptr %102, i64 %172
   %181 = load i8, ptr %180, align 1, !alias.scope !135, !noundef !7
   %.mask.i123 = and i8 %181, -2
   %182 = icmp eq i8 %.mask.i123, -88
@@ -987,7 +986,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   br i1 %189, label %190, label %.thread
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds nuw [0 x i8], ptr %102, i64 0, i64 %188
+  %191 = getelementptr inbounds nuw i8, ptr %102, i64 %188
   %192 = load i8, ptr %191, align 1, !alias.scope !135, !noundef !7
   %193 = icmp eq i8 %192, 10
   %spec.select25.i125 = select i1 %193, i64 %.sroa.02.0.i1191810, i64 %161
@@ -1216,7 +1215,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
 .lr.ph1829:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117, %.thread1448
   %.sroa.08.0.i1181828 = phi i64 [ %332, %.thread1448 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117 ]
   %.sroa.02.0.i1827 = phi i64 [ %.sroa.02.1.i, %.thread1448 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117 ]
-  %301 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %.sroa.08.0.i1181828
+  %301 = getelementptr inbounds i8, ptr %.sroa.0.1.i114.lcssa, i64 %.sroa.08.0.i1181828
   %302 = load i8, ptr %301, align 1, !alias.scope !146, !noundef !7
   %303 = add i8 %302, -10
   %spec.select.i304 = icmp ult i8 %303, 4
@@ -1239,7 +1238,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
   br i1 %310, label %311, label %.thread1448
 
 311:                                              ; preds = %308
-  %312 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %309
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i114.lcssa, i64 %309
   %313 = load i8, ptr %312, align 1, !alias.scope !146, !noundef !7
   %314 = icmp eq i8 %313, -123
   %315 = zext i1 %314 to i64
@@ -1257,7 +1256,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
   br i1 %321, label %322, label %326, !prof !25
 
 322:                                              ; preds = %319
-  %323 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %320
+  %323 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i114.lcssa, i64 %320
   %324 = load i8, ptr %323, align 1, !alias.scope !146, !noundef !7
   %325 = icmp eq i8 %324, -128
   br i1 %325, label %327, label %.thread1448
@@ -1267,7 +1266,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
   unreachable
 
 327:                                              ; preds = %322
-  %328 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %317
+  %328 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i114.lcssa, i64 %317
   %329 = load i8, ptr %328, align 1, !alias.scope !146, !noundef !7
   %.mask.i = and i8 %329, -2
   %330 = icmp eq i8 %.mask.i, -88
@@ -1289,7 +1288,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
   br i1 %337, label %338, label %.thread1448
 
 338:                                              ; preds = %335
-  %339 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %336
+  %339 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i114.lcssa, i64 %336
   %340 = load i8, ptr %339, align 1, !alias.scope !146, !noundef !7
   %341 = icmp eq i8 %340, 10
   %spec.select25.i = select i1 %341, i64 %.sroa.02.0.i1827, i64 %306
@@ -1999,7 +1998,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .lr.ph1721:                                       ; preds = %662, %.thread1494
   %.sroa.08.0.i1361719 = phi i64 [ %691, %.thread1494 ], [ 0, %662 ]
   %.sroa.02.0.i1351718 = phi i64 [ %.sroa.02.1.i138, %.thread1494 ], [ 0, %662 ]
-  %663 = getelementptr inbounds nuw [0 x i8], ptr %655, i64 0, i64 %.sroa.08.0.i1361719
+  %663 = getelementptr inbounds nuw i8, ptr %655, i64 %.sroa.08.0.i1361719
   %664 = load i8, ptr %663, align 1, !alias.scope !226, !noundef !7
   %665 = add i8 %664, -10
   %spec.select.i369 = icmp ult i8 %665, 4
@@ -2022,7 +2021,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %672, label %673, label %.thread1494
 
 673:                                              ; preds = %670
-  %674 = getelementptr inbounds nuw [0 x i8], ptr %655, i64 0, i64 %671
+  %674 = getelementptr inbounds nuw i8, ptr %655, i64 %671
   %675 = load i8, ptr %674, align 1, !alias.scope !226, !noundef !7
   %676 = icmp eq i8 %675, -123
   %677 = zext i1 %676 to i64
@@ -2035,14 +2034,14 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %680, label %681, label %.thread1494
 
 681:                                              ; preds = %678
-  %682 = add nuw nsw i64 %.sroa.08.0.i1361719, 1
-  %683 = getelementptr inbounds nuw [0 x i8], ptr %655, i64 0, i64 %682
+  %682 = getelementptr inbounds nuw i8, ptr %655, i64 %.sroa.08.0.i1361719
+  %683 = getelementptr inbounds nuw i8, ptr %682, i64 1
   %684 = load i8, ptr %683, align 1, !alias.scope !226, !noundef !7
   %685 = icmp eq i8 %684, -128
   br i1 %685, label %686, label %.thread1494
 
 686:                                              ; preds = %681
-  %687 = getelementptr inbounds nuw [0 x i8], ptr %655, i64 0, i64 %679
+  %687 = getelementptr inbounds nuw i8, ptr %655, i64 %679
   %688 = load i8, ptr %687, align 1, !alias.scope !226, !noundef !7
   %.mask.i139 = and i8 %688, -2
   %689 = icmp eq i8 %.mask.i139, -88
@@ -2064,7 +2063,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %696, label %697, label %.thread1494
 
 697:                                              ; preds = %694
-  %698 = getelementptr inbounds nuw [0 x i8], ptr %655, i64 0, i64 %695
+  %698 = getelementptr inbounds nuw i8, ptr %655, i64 %695
   %699 = load i8, ptr %698, align 1, !alias.scope !226, !noundef !7
   %700 = icmp eq i8 %699, 10
   %spec.select25.i141 = select i1 %700, i64 %.sroa.02.0.i1351718, i64 %668
@@ -2293,7 +2292,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
 .lr.ph1737:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit, %.thread1497
   %.sroa.08.0.i1281736 = phi i64 [ %839, %.thread1497 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
   %.sroa.02.0.i1271735 = phi i64 [ %.sroa.02.1.i130, %.thread1497 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
-  %808 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %.sroa.08.0.i1281736
+  %808 = getelementptr inbounds i8, ptr %.sroa.0.1.i106.lcssa, i64 %.sroa.08.0.i1281736
   %809 = load i8, ptr %808, align 1, !alias.scope !237, !noundef !7
   %810 = add i8 %809, -10
   %spec.select.i372 = icmp ult i8 %810, 4
@@ -2316,7 +2315,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %817, label %818, label %.thread1497
 
 818:                                              ; preds = %815
-  %819 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %816
+  %819 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i106.lcssa, i64 %816
   %820 = load i8, ptr %819, align 1, !alias.scope !237, !noundef !7
   %821 = icmp eq i8 %820, -123
   %822 = zext i1 %821 to i64
@@ -2334,7 +2333,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %828, label %829, label %833, !prof !25
 
 829:                                              ; preds = %826
-  %830 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %827
+  %830 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i106.lcssa, i64 %827
   %831 = load i8, ptr %830, align 1, !alias.scope !237, !noundef !7
   %832 = icmp eq i8 %831, -128
   br i1 %832, label %834, label %.thread1497
@@ -2344,7 +2343,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   unreachable
 
 834:                                              ; preds = %829
-  %835 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %824
+  %835 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i106.lcssa, i64 %824
   %836 = load i8, ptr %835, align 1, !alias.scope !237, !noundef !7
   %.mask.i131 = and i8 %836, -2
   %837 = icmp eq i8 %.mask.i131, -88
@@ -2366,7 +2365,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %844, label %845, label %.thread1497
 
 845:                                              ; preds = %842
-  %846 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %843
+  %846 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i106.lcssa, i64 %843
   %847 = load i8, ptr %846, align 1, !alias.scope !237, !noundef !7
   %848 = icmp eq i8 %847, 10
   %spec.select25.i133 = select i1 %848, i64 %.sroa.02.0.i1271735, i64 %813
@@ -2829,7 +2828,7 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
 1076:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
   %1077 = sub i64 %.sroa.016.01638, %.sroa.058.01627
   %1078 = sub i64 %.sroa.07.01639, %.sroa.058.01627
-  %1079 = getelementptr inbounds nuw [0 x ptr], ptr %451, i64 0, i64 %.sroa.8.01625
+  %1079 = getelementptr inbounds nuw ptr, ptr %451, i64 %.sroa.8.01625
   %1080 = load ptr, ptr %1079, align 8, !nonnull !7, !noundef !7
   %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 16
   %1082 = load i8, ptr %1081, align 8, !range !38, !noundef !7
@@ -2914,7 +2913,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   %.sroa.01.08.i.i = phi i64 [ %44, %.lr.ph.i.i ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ]
   %43 = phi i64 [ %47, %.lr.ph.i.i ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i ]
   %44 = add nuw nsw i64 %.sroa.01.08.i.i, 1
-  %45 = getelementptr inbounds nuw [0 x { i64, i64, i64, i64 }], ptr %42, i64 0, i64 %.sroa.01.08.i.i
+  %45 = getelementptr inbounds nuw { i64, i64, i64, i64 }, ptr %42, i64 %.sroa.01.08.i.i
   %46 = load i64, ptr %45, align 8, !alias.scope !288, !noalias !283, !noundef !7
   %47 = add i64 %46, %43
   %exitcond.not.i.i = icmp eq i64 %44, %39
@@ -2976,7 +2975,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231
   %.sroa.01.08.i.i234 = phi i64 [ %66, %.lr.ph.i.i233 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ]
   %65 = phi i64 [ %69, %.lr.ph.i.i233 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ]
   %66 = add nuw nsw i64 %.sroa.01.08.i.i234, 1
-  %67 = getelementptr inbounds nuw [0 x { i64, i64, i64, i64 }], ptr %64, i64 0, i64 %.sroa.01.08.i.i234
+  %67 = getelementptr inbounds nuw { i64, i64, i64, i64 }, ptr %64, i64 %.sroa.01.08.i.i234
   %68 = load i64, ptr %67, align 8, !alias.scope !309, !noalias !304, !noundef !7
   %69 = add i64 %68, %65
   %exitcond.not.i.i236 = icmp eq i64 %66, %61
@@ -3021,7 +3020,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246
   %.sroa.01.08.i.i249 = phi i64 [ %83, %.lr.ph.i.i248 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ]
   %82 = phi i64 [ %86, %.lr.ph.i.i248 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ]
   %83 = add nuw nsw i64 %.sroa.01.08.i.i249, 1
-  %84 = getelementptr inbounds nuw [0 x { i64, i64, i64, i64 }], ptr %81, i64 0, i64 %.sroa.01.08.i.i249
+  %84 = getelementptr inbounds nuw { i64, i64, i64, i64 }, ptr %81, i64 %.sroa.01.08.i.i249
   %85 = load i64, ptr %84, align 8, !alias.scope !326, !noalias !320, !noundef !7
   %86 = add i64 %85, %82
   %exitcond.not.i.i251 = icmp eq i64 %83, %78
@@ -3333,7 +3332,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
 .lr.ph1435:                                       ; preds = %236, %.thread
   %.sroa.08.0.i1481433 = phi i64 [ %265, %.thread ], [ 0, %236 ]
   %.sroa.02.0.i1471432 = phi i64 [ %.sroa.02.1.i150, %.thread ], [ 0, %236 ]
-  %237 = getelementptr inbounds nuw [0 x i8], ptr %106, i64 0, i64 %.sroa.08.0.i1481433
+  %237 = getelementptr inbounds nuw i8, ptr %106, i64 %.sroa.08.0.i1481433
   %238 = load i8, ptr %237, align 1, !alias.scope !374, !noundef !7
   %239 = add i8 %238, -10
   %spec.select.i314 = icmp ult i8 %239, 4
@@ -3356,7 +3355,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
   br i1 %246, label %247, label %.thread
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds nuw [0 x i8], ptr %106, i64 0, i64 %245
+  %248 = getelementptr inbounds nuw i8, ptr %106, i64 %245
   %249 = load i8, ptr %248, align 1, !alias.scope !374, !noundef !7
   %250 = icmp eq i8 %249, -123
   %251 = zext i1 %250 to i64
@@ -3369,14 +3368,14 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
   br i1 %254, label %255, label %.thread
 
 255:                                              ; preds = %252
-  %256 = add nuw nsw i64 %.sroa.08.0.i1481433, 1
-  %257 = getelementptr inbounds nuw [0 x i8], ptr %106, i64 0, i64 %256
+  %256 = getelementptr inbounds nuw i8, ptr %106, i64 %.sroa.08.0.i1481433
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 1
   %258 = load i8, ptr %257, align 1, !alias.scope !374, !noundef !7
   %259 = icmp eq i8 %258, -128
   br i1 %259, label %260, label %.thread
 
 260:                                              ; preds = %255
-  %261 = getelementptr inbounds nuw [0 x i8], ptr %106, i64 0, i64 %253
+  %261 = getelementptr inbounds nuw i8, ptr %106, i64 %253
   %262 = load i8, ptr %261, align 1, !alias.scope !374, !noundef !7
   %.mask.i151 = and i8 %262, -2
   %263 = icmp eq i8 %.mask.i151, -88
@@ -3398,7 +3397,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
   br i1 %270, label %271, label %.thread
 
 271:                                              ; preds = %268
-  %272 = getelementptr inbounds nuw [0 x i8], ptr %106, i64 0, i64 %269
+  %272 = getelementptr inbounds nuw i8, ptr %106, i64 %269
   %273 = load i8, ptr %272, align 1, !alias.scope !374, !noundef !7
   %274 = icmp eq i8 %273, 10
   %spec.select25.i153 = select i1 %274, i64 %.sroa.02.0.i1471432, i64 %242
@@ -3627,7 +3626,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
 .lr.ph1451:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146, %.thread1203
   %.sroa.08.0.i1450 = phi i64 [ %413, %.thread1203 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146 ]
   %.sroa.02.0.i1449 = phi i64 [ %.sroa.02.1.i, %.thread1203 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146 ]
-  %382 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %.sroa.08.0.i1450
+  %382 = getelementptr inbounds i8, ptr %.sroa.0.1.i143.lcssa, i64 %.sroa.08.0.i1450
   %383 = load i8, ptr %382, align 1, !alias.scope !385, !noundef !7
   %384 = add i8 %383, -10
   %spec.select.i316 = icmp ult i8 %384, 4
@@ -3650,7 +3649,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
   br i1 %391, label %392, label %.thread1203
 
 392:                                              ; preds = %389
-  %393 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %390
+  %393 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i143.lcssa, i64 %390
   %394 = load i8, ptr %393, align 1, !alias.scope !385, !noundef !7
   %395 = icmp eq i8 %394, -123
   %396 = zext i1 %395 to i64
@@ -3668,7 +3667,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
   br i1 %402, label %403, label %407, !prof !25
 
 403:                                              ; preds = %400
-  %404 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %401
+  %404 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i143.lcssa, i64 %401
   %405 = load i8, ptr %404, align 1, !alias.scope !385, !noundef !7
   %406 = icmp eq i8 %405, -128
   br i1 %406, label %408, label %.thread1203
@@ -3678,7 +3677,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
   unreachable
 
 408:                                              ; preds = %403
-  %409 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %398
+  %409 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i143.lcssa, i64 %398
   %410 = load i8, ptr %409, align 1, !alias.scope !385, !noundef !7
   %.mask.i = and i8 %410, -2
   %411 = icmp eq i8 %.mask.i, -88
@@ -3700,7 +3699,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
   br i1 %418, label %419, label %.thread1203
 
 419:                                              ; preds = %416
-  %420 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %417
+  %420 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i143.lcssa, i64 %417
   %421 = load i8, ptr %420, align 1, !alias.scope !385, !noundef !7
   %422 = icmp eq i8 %421, 10
   %spec.select25.i = select i1 %422, i64 %.sroa.02.0.i1449, i64 %387
@@ -4136,7 +4135,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
 .lr.ph1389:                                       ; preds = %624, %.thread1222
   %.sroa.08.0.i1641387 = phi i64 [ %653, %.thread1222 ], [ 0, %624 ]
   %.sroa.02.0.i1631386 = phi i64 [ %.sroa.02.1.i166, %.thread1222 ], [ 0, %624 ]
-  %625 = getelementptr inbounds nuw [0 x i8], ptr %613, i64 0, i64 %.sroa.08.0.i1641387
+  %625 = getelementptr inbounds nuw i8, ptr %613, i64 %.sroa.08.0.i1641387
   %626 = load i8, ptr %625, align 1, !alias.scope !436, !noundef !7
   %627 = add i8 %626, -10
   %spec.select.i352 = icmp ult i8 %627, 4
@@ -4159,7 +4158,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %634, label %635, label %.thread1222
 
 635:                                              ; preds = %632
-  %636 = getelementptr inbounds nuw [0 x i8], ptr %613, i64 0, i64 %633
+  %636 = getelementptr inbounds nuw i8, ptr %613, i64 %633
   %637 = load i8, ptr %636, align 1, !alias.scope !436, !noundef !7
   %638 = icmp eq i8 %637, -123
   %639 = zext i1 %638 to i64
@@ -4172,14 +4171,14 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %642, label %643, label %.thread1222
 
 643:                                              ; preds = %640
-  %644 = add nuw nsw i64 %.sroa.08.0.i1641387, 1
-  %645 = getelementptr inbounds nuw [0 x i8], ptr %613, i64 0, i64 %644
+  %644 = getelementptr inbounds nuw i8, ptr %613, i64 %.sroa.08.0.i1641387
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 1
   %646 = load i8, ptr %645, align 1, !alias.scope !436, !noundef !7
   %647 = icmp eq i8 %646, -128
   br i1 %647, label %648, label %.thread1222
 
 648:                                              ; preds = %643
-  %649 = getelementptr inbounds nuw [0 x i8], ptr %613, i64 0, i64 %641
+  %649 = getelementptr inbounds nuw i8, ptr %613, i64 %641
   %650 = load i8, ptr %649, align 1, !alias.scope !436, !noundef !7
   %.mask.i167 = and i8 %650, -2
   %651 = icmp eq i8 %.mask.i167, -88
@@ -4201,7 +4200,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %658, label %659, label %.thread1222
 
 659:                                              ; preds = %656
-  %660 = getelementptr inbounds nuw [0 x i8], ptr %613, i64 0, i64 %657
+  %660 = getelementptr inbounds nuw i8, ptr %613, i64 %657
   %661 = load i8, ptr %660, align 1, !alias.scope !436, !noundef !7
   %662 = icmp eq i8 %661, 10
   %spec.select25.i169 = select i1 %662, i64 %.sroa.02.0.i1631386, i64 %630
@@ -4430,7 +4429,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
 .lr.ph1405:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit, %.thread1225
   %.sroa.08.0.i1561404 = phi i64 [ %801, %.thread1225 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
   %.sroa.02.0.i1551403 = phi i64 [ %.sroa.02.1.i158, %.thread1225 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
-  %770 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %.sroa.08.0.i1561404
+  %770 = getelementptr inbounds i8, ptr %.sroa.0.1.i.lcssa, i64 %.sroa.08.0.i1561404
   %771 = load i8, ptr %770, align 1, !alias.scope !447, !noundef !7
   %772 = add i8 %771, -10
   %spec.select.i355 = icmp ult i8 %772, 4
@@ -4453,7 +4452,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %779, label %780, label %.thread1225
 
 780:                                              ; preds = %777
-  %781 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %778
+  %781 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %778
   %782 = load i8, ptr %781, align 1, !alias.scope !447, !noundef !7
   %783 = icmp eq i8 %782, -123
   %784 = zext i1 %783 to i64
@@ -4471,7 +4470,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %790, label %791, label %795, !prof !25
 
 791:                                              ; preds = %788
-  %792 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %789
+  %792 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %789
   %793 = load i8, ptr %792, align 1, !alias.scope !447, !noundef !7
   %794 = icmp eq i8 %793, -128
   br i1 %794, label %796, label %.thread1225
@@ -4481,7 +4480,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   unreachable
 
 796:                                              ; preds = %791
-  %797 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %786
+  %797 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %786
   %798 = load i8, ptr %797, align 1, !alias.scope !447, !noundef !7
   %.mask.i159 = and i8 %798, -2
   %799 = icmp eq i8 %.mask.i159, -88
@@ -4503,7 +4502,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   br i1 %806, label %807, label %.thread1225
 
 807:                                              ; preds = %804
-  %808 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %805
+  %808 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.lcssa, i64 %805
   %809 = load i8, ptr %808, align 1, !alias.scope !447, !noundef !7
   %810 = icmp eq i8 %809, 10
   %spec.select25.i161 = select i1 %810, i64 %.sroa.02.0.i1551403, i64 %775
@@ -4981,7 +4980,7 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
 1050:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
   %1051 = sub i64 %.sroa.099.01353, %.sroa.068.01341
   %1052 = sub i64 %.sroa.089.01352, %.sroa.068.01341
-  %1053 = getelementptr inbounds nuw [0 x ptr], ptr %440, i64 0, i64 %.sroa.8.01339
+  %1053 = getelementptr inbounds nuw ptr, ptr %440, i64 %.sroa.8.01339
   %1054 = load ptr, ptr %1053, align 8, !nonnull !7, !noundef !7
   %1055 = getelementptr inbounds nuw i8, ptr %1054, i64 16
   %1056 = load i8, ptr %1055, align 8, !range !38, !noundef !7

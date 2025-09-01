@@ -14186,7 +14186,7 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit19: ; preds = %_ZN4Luau6Parse
 
 62:                                               ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit19
   %63 = zext i32 %.sroa.020.1 to i64
-  %64 = getelementptr inbounds nuw [16 x %"struct.Luau::Parser::BinaryOpPriority"], ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %"struct.Luau::Parser::BinaryOpPriority", ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 %63
   %65 = load i8, ptr %64, align 2, !tbaa !483
   %66 = zext i8 %65 to i32
   %67 = icmp ult i32 %1, %66
@@ -14195,7 +14195,7 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit19: ; preds = %_ZN4Luau6Parse
 68:                                               ; preds = %62
   %69 = load i64, ptr %16, align 4
   call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-  %70 = getelementptr inbounds nuw [16 x %"struct.Luau::Parser::BinaryOpPriority"], ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 0, i64 %63, i32 1
+  %70 = getelementptr inbounds nuw %"struct.Luau::Parser::BinaryOpPriority", ptr @_ZZN4Luau6Parser9parseExprEjE14binaryPriority, i64 %63, i32 1
   %71 = load i8, ptr %70, align 1, !tbaa !485
   %72 = zext i8 %71 to i32
   %73 = call noundef ptr @_ZN4Luau6Parser9parseExprEj(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef %72)
@@ -15507,80 +15507,75 @@ define dso_local void @_ZN4Luau6Parser9parseNameEPKc(ptr dead_on_unwind noalias 
 define dso_local range(i64 0, -4294967294) i64 @_ZN4Luau6Parser17validateAttributeEPKcRKNS_10TempVectorIPNS_7AstAttrEEE(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr @_ZN4Luau17kAttributeEntriesE, align 16, !tbaa !532
   %.not33 = icmp eq ptr %4, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #35
-  %.not1345 = icmp eq i32 %5, 0
-  br i1 %.not1345, label %.lr.ph._crit_edge, label %.lr.ph47
-
-.lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv46 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv46, 1
-  %6 = getelementptr inbounds nuw [3 x %"struct.Luau::AttributeEntry"], ptr @_ZN4Luau17kAttributeEntriesE, i64 0, i64 %indvars.iv.next
+5:                                                ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %6 = getelementptr inbounds nuw %"struct.Luau::AttributeEntry", ptr @_ZN4Luau17kAttributeEntriesE, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 16, !tbaa !532
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !535
 
-.lr.ph:                                           ; preds = %.lr.ph47
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %7) #35
-  %.not13 = icmp eq i32 %8, 0
-  br i1 %.not13, label %.lr.ph._crit_edge, label %.lr.ph47, !llvm.loop !535
+.lr.ph:                                           ; preds = %3, %5
+  %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %3 ]
+  %8 = phi ptr [ %7, %5 ], [ %4, %3 ]
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %8) #35
+  %.not13 = icmp eq i32 %9, 0
+  br i1 %.not13, label %15, label %5
 
-._crit_edge:                                      ; preds = %.lr.ph47, %3
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #35
-  %10 = icmp eq i64 %9, 1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  br i1 %10, label %12, label %13
-
-12:                                               ; preds = %._crit_edge
-  tail call void (ptr, ptr, ptr, ...) @_ZN4Luau6Parser6reportERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull @.str.132)
-  br label %.loopexit
+._crit_edge:                                      ; preds = %5, %3
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #35
+  %11 = icmp eq i64 %10, 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  br i1 %11, label %13, label %14
 
 13:                                               ; preds = %._crit_edge
-  tail call void (ptr, ptr, ptr, ...) @_ZN4Luau6Parser6reportERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull @.str.133, ptr noundef nonnull %1)
+  tail call void (ptr, ptr, ptr, ...) @_ZN4Luau6Parser6reportERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull @.str.132)
   br label %.loopexit
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa = phi ptr [ @_ZN4Luau17kAttributeEntriesE, %.lr.ph.preheader ], [ %6, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !536
-  %16 = load ptr, ptr %2, align 8, !tbaa !537
-  %17 = load ptr, ptr %16, align 8, !tbaa !540
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !541
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !542
-  %.idx = shl nsw i64 %22, 3
-  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx
-  %.not3035 = icmp eq i64 %22, 0
+14:                                               ; preds = %._crit_edge
+  tail call void (ptr, ptr, ptr, ...) @_ZN4Luau6Parser6reportERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull @.str.133, ptr noundef nonnull %1)
+  br label %.loopexit
+
+15:                                               ; preds = %.lr.ph
+  %16 = getelementptr inbounds nuw %"struct.Luau::AttributeEntry", ptr @_ZN4Luau17kAttributeEntriesE, i64 %indvars.iv, i32 1
+  %17 = load i32, ptr %16, align 8, !tbaa !536
+  %18 = load ptr, ptr %2, align 8, !tbaa !537
+  %19 = load ptr, ptr %18, align 8, !tbaa !540
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !541
+  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load i64, ptr %23, align 8, !tbaa !542
+  %.idx = shl nsw i64 %24, 3
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
+  %.not3035 = icmp eq i64 %24, 0
   br i1 %.not3035, label %.loopexit, label %.lr.ph38
 
-.lr.ph38:                                         ; preds = %.lr.ph._crit_edge
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  br label %25
+.lr.ph38:                                         ; preds = %15
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  br label %27
 
-25:                                               ; preds = %.lr.ph38, %31
-  %.sroa.014.036 = phi ptr [ %20, %.lr.ph38 ], [ %32, %31 ]
-  %26 = load ptr, ptr %.sroa.014.036, align 8, !tbaa !543
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 28
-  %28 = load i32, ptr %27, align 4, !tbaa !545
-  %29 = icmp eq i32 %28, %15
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %.lr.ph38, %33
+  %.sroa.014.036 = phi ptr [ %22, %.lr.ph38 ], [ %34, %33 ]
+  %28 = load ptr, ptr %.sroa.014.036, align 8, !tbaa !543
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
+  %30 = load i32, ptr %29, align 4, !tbaa !545
+  %31 = icmp eq i32 %30, %17
+  br i1 %31, label %32, label %33
 
-30:                                               ; preds = %25
-  tail call void (ptr, ptr, ptr, ...) @_ZN4Luau6Parser6reportERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull @.str.134, ptr noundef nonnull %1)
-  br label %31
+32:                                               ; preds = %27
+  tail call void (ptr, ptr, ptr, ...) @_ZN4Luau6Parser6reportERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull @.str.134, ptr noundef nonnull %1)
+  br label %33
 
-31:                                               ; preds = %30, %25
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.014.036, i64 8
-  %.not30 = icmp eq ptr %32, %23
-  br i1 %.not30, label %.loopexit, label %25
+33:                                               ; preds = %32, %27
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.036, i64 8
+  %.not30 = icmp eq ptr %34, %25
+  br i1 %.not30, label %.loopexit, label %27
 
-.loopexit:                                        ; preds = %31, %.lr.ph._crit_edge, %12, %13
-  %.02229 = phi i32 [ undef, %12 ], [ undef, %13 ], [ %15, %.lr.ph._crit_edge ], [ %15, %31 ]
-  %.126 = phi i64 [ 0, %12 ], [ 0, %13 ], [ 1, %.lr.ph._crit_edge ], [ 1, %31 ]
+.loopexit:                                        ; preds = %33, %15, %13, %14
+  %.02229 = phi i32 [ undef, %13 ], [ undef, %14 ], [ %17, %15 ], [ %17, %33 ]
+  %.126 = phi i64 [ 0, %13 ], [ 0, %14 ], [ 1, %15 ], [ 1, %33 ]
   %.sroa.221.0.insert.ext = zext i32 %.02229 to i64
   %.sroa.221.0.insert.shift = shl nuw i64 %.sroa.221.0.insert.ext, 32
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.221.0.insert.shift, %.126

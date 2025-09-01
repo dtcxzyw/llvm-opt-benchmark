@@ -600,7 +600,7 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %2, align 4, !tbaa !25
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %76
+  br i1 %6, label %7, label %74
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -620,7 +620,7 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   %19 = sext i16 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %21 = load i32, ptr %20, align 4, !tbaa !30
-  br label %47
+  br label %45
 
 22:                                               ; preds = %7
   %23 = add nsw i32 %1, -1721424
@@ -644,78 +644,77 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   %37 = add nsw i32 %36, 6
   %38 = sdiv i32 %37, 367
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [12 x i16], ptr @_ZL12kLeapNumDays, i64 0, i64 %39
-  %41 = getelementptr inbounds [12 x i16], ptr @_ZL8kNumDays, i64 0, i64 %39
-  %.in = select i1 %32, ptr %40, ptr %41
-  %42 = load i16, ptr %.in, align 2, !tbaa !31
-  %43 = sext i16 %42 to i32
-  %reass.sub = sub i32 %30, %43
-  %44 = add i32 %reass.sub, 1
-  %45 = add nsw i32 %30, 1
+  %.in.v = select i1 %32, ptr @_ZL12kLeapNumDays, ptr @_ZL8kNumDays
+  %.in = getelementptr inbounds i16, ptr %.in.v, i64 %39
+  %40 = load i16, ptr %.in, align 2, !tbaa !31
+  %41 = sext i16 %40 to i32
+  %reass.sub = sub i32 %30, %41
+  %42 = add i32 %reass.sub, 1
+  %43 = add nsw i32 %30, 1
   %.pre = load i32, ptr %8, align 8
-  %46 = icmp slt i32 %1, %.pre
-  br label %47
+  %44 = icmp slt i32 %1, %.pre
+  br label %45
 
-47:                                               ; preds = %22, %10
-  %.not43 = phi i1 [ false, %10 ], [ %46, %22 ]
-  %.038 = phi i32 [ %19, %10 ], [ %45, %22 ]
-  %.037 = phi i32 [ %16, %10 ], [ %44, %22 ]
+45:                                               ; preds = %22, %10
+  %.not43 = phi i1 [ false, %10 ], [ %44, %22 ]
+  %.038 = phi i32 [ %19, %10 ], [ %43, %22 ]
+  %.037 = phi i32 [ %16, %10 ], [ %42, %22 ]
   %.035 = phi i32 [ %13, %10 ], [ %38, %22 ]
   %.034 = phi i32 [ %21, %10 ], [ %27, %22 ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %49 = load i32, ptr %48, align 8, !tbaa !22
-  %50 = icmp ne i32 %.034, %49
-  %or.cond = select i1 %50, i1 true, i1 %.not43
-  br i1 %or.cond, label %.split40, label %51
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %47 = load i32, ptr %46, align 8, !tbaa !22
+  %48 = icmp ne i32 %.034, %47
+  %or.cond = select i1 %48, i1 true, i1 %.not43
+  br i1 %or.cond, label %.split40, label %49
 
-51:                                               ; preds = %47
-  %52 = sext i32 %.034 to i64
-  %53 = add nsw i64 %52, -1
-  %54 = call noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef %53, i64 noundef 400)
-  %55 = call noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef %53, i64 noundef 100)
-  %56 = sub nsw i64 %54, %55
-  %57 = trunc i64 %56 to i32
-  %58 = add i32 %.038, 2
-  %59 = add i32 %58, %57
+49:                                               ; preds = %45
+  %50 = sext i32 %.034 to i64
+  %51 = add nsw i64 %50, -1
+  %52 = call noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef %51, i64 noundef 400)
+  %53 = call noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef %51, i64 noundef 100)
+  %54 = sub nsw i64 %52, %53
+  %55 = trunc i64 %54 to i32
+  %56 = add i32 %.038, 2
+  %57 = add i32 %56, %55
   br label %.split40
 
-.split40:                                         ; preds = %51, %47
-  %.139 = phi i32 [ %59, %51 ], [ %.038, %47 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.035, ptr %61, align 8, !tbaa !32
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 106
-  store i8 1, ptr %63, align 2, !tbaa !33
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %.035, ptr %64, align 4, !tbaa !32
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 127
+.split40:                                         ; preds = %49, %45
+  %.139 = phi i32 [ %57, %49 ], [ %.038, %45 ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.035, ptr %59, align 8, !tbaa !32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 106
+  store i8 1, ptr %61, align 2, !tbaa !33
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %.035, ptr %62, align 4, !tbaa !32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 127
+  store i8 1, ptr %63, align 1, !tbaa !33
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %.037, ptr %64, align 4, !tbaa !32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 109
   store i8 1, ptr %65, align 1, !tbaa !33
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.037, ptr %66, align 4, !tbaa !32
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 109
-  store i8 1, ptr %67, align 1, !tbaa !33
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.139, ptr %68, align 8, !tbaa !32
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  store i8 1, ptr %69, align 2, !tbaa !33
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %.034, ptr %70, align 4, !tbaa !32
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  store i8 1, ptr %71, align 1, !tbaa !33
-  %72 = icmp sgt i32 %.034, 0
-  %73 = sub nsw i32 1, %.034
-  %storemerge = zext i1 %72 to i32
-  %.1 = select i1 %72, i32 %.034, i32 %73
-  store i32 %storemerge, ptr %60, align 8, !tbaa !32
-  store i8 1, ptr %62, align 8, !tbaa !33
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.1, ptr %74, align 4, !tbaa !32
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  store i8 1, ptr %75, align 1, !tbaa !33
-  br label %76
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.139, ptr %66, align 8, !tbaa !32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 110
+  store i8 1, ptr %67, align 2, !tbaa !33
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %.034, ptr %68, align 4, !tbaa !32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 123
+  store i8 1, ptr %69, align 1, !tbaa !33
+  %70 = icmp sgt i32 %.034, 0
+  %71 = sub nsw i32 1, %.034
+  %storemerge = zext i1 %70 to i32
+  %.1 = select i1 %70, i32 %.034, i32 %71
+  store i32 %storemerge, ptr %58, align 8, !tbaa !32
+  store i8 1, ptr %60, align 8, !tbaa !33
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.1, ptr %72, align 4, !tbaa !32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  store i8 1, ptr %73, align 1, !tbaa !33
+  br label %74
 
-76:                                               ; preds = %3, %.split40
+74:                                               ; preds = %3, %.split40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -868,7 +867,7 @@ define noundef i64 @_ZNK6icu_7717GregorianCalendar23handleComputeMonthStartEiiaR
   store i32 %2, ptr %7, align 4, !tbaa !32
   %8 = load i32, ptr %4, align 4, !tbaa !25
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %63
+  br i1 %9, label %10, label %61
 
 10:                                               ; preds = %5
   %or.cond = icmp ugt i32 %2, 11
@@ -886,7 +885,7 @@ define noundef i64 @_ZNK6icu_7717GregorianCalendar23handleComputeMonthStartEiiaR
 
 14:                                               ; preds = %11
   store i32 1, ptr %4, align 4, !tbaa !25
-  br label %63
+  br label %61
 
 15:                                               ; preds = %._crit_edge, %10
   %16 = phi i32 [ %.pre, %._crit_edge ], [ %1, %10 ]
@@ -952,20 +951,19 @@ define noundef i64 @_ZNK6icu_7717GregorianCalendar23handleComputeMonthStartEiiaR
   %.014 = phi i64 [ %53, %44 ], [ %24, %36 ]
   %55 = load i32, ptr %7, align 4, !tbaa !32
   %.not22 = icmp eq i32 %55, 0
-  br i1 %.not22, label %63, label %56
+  br i1 %.not22, label %61, label %56
 
 56:                                               ; preds = %54
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds [12 x i16], ptr @_ZL12kLeapNumDays, i64 0, i64 %57
-  %59 = getelementptr inbounds [12 x i16], ptr @_ZL8kNumDays, i64 0, i64 %57
-  %.in = select i1 %.016, ptr %59, ptr %58
-  %60 = load i16, ptr %.in, align 2, !tbaa !31
-  %61 = sext i16 %60 to i64
-  %62 = add nsw i64 %.014, %61
-  br label %63
+  %.in.v = select i1 %.016, ptr @_ZL8kNumDays, ptr @_ZL12kLeapNumDays
+  %.in = getelementptr inbounds i16, ptr %.in.v, i64 %57
+  %58 = load i16, ptr %.in, align 2, !tbaa !31
+  %59 = sext i16 %58 to i64
+  %60 = add nsw i64 %.014, %59
+  br label %61
 
-63:                                               ; preds = %14, %56, %54, %5
-  %.0 = phi i64 [ 0, %5 ], [ 0, %14 ], [ %62, %56 ], [ %.014, %54 ]
+61:                                               ; preds = %14, %56, %54, %5
+  %.0 = phi i64 [ 0, %5 ], [ 0, %14 ], [ %60, %56 ], [ %.014, %54 ]
   ret i64 %.0
 }
 
@@ -1002,40 +1000,37 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_7717GregorianCalendar20handleG
 14:                                               ; preds = %9
   %15 = srem i32 %.0, 100
   %.not5.i = icmp eq i32 %15, 0
-  br i1 %.not5.i, label %19, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread
+  br i1 %.not5.i, label %18, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread
 
 _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread: ; preds = %14
   %16 = load i32, ptr %5, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %17
-  br label %30
+  br label %25
 
-19:                                               ; preds = %14
-  %20 = srem i32 %.0, 400
-  %21 = icmp eq i32 %20, 0
-  %22 = load i32, ptr %5, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %23
-  %25 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %23
-  br i1 %21, label %30, label %32
+18:                                               ; preds = %14
+  %19 = srem i32 %.0, 400
+  %20 = icmp eq i32 %19, 0
+  %21 = load i32, ptr %5, align 4
+  %22 = sext i32 %21 to i64
+  br i1 %20, label %25, label %27
 
 _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit: ; preds = %9
   %.mux.i = and i1 %.not.i, %13
-  %26 = load i32, ptr %5, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %27
-  %29 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %27
-  br i1 %.mux.i, label %30, label %32
+  %23 = load i32, ptr %5, align 4
+  %24 = sext i32 %23 to i64
+  br i1 %.mux.i, label %25, label %27
 
-30:                                               ; preds = %19, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit
-  %31 = phi ptr [ %18, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread ], [ %28, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %24, %19 ]
-  br label %32
+25:                                               ; preds = %18, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit
+  %26 = phi i64 [ %17, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread ], [ %24, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %22, %18 ]
+  br label %27
 
-32:                                               ; preds = %19, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit, %30
-  %33 = phi ptr [ %31, %30 ], [ %29, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %25, %19 ]
-  %34 = load i8, ptr %33, align 1, !tbaa !33
-  %35 = sext i8 %34 to i32
-  ret i32 %35
+27:                                               ; preds = %18, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit, %25
+  %28 = phi i64 [ %26, %25 ], [ %24, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %22, %18 ]
+  %29 = phi ptr [ @_ZL16kLeapMonthLength, %25 ], [ @_ZL12kMonthLength, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ @_ZL12kMonthLength, %18 ]
+  %.in = getelementptr inbounds i8, ptr %29, i64 %28
+  %30 = load i8, ptr %.in, align 1, !tbaa !33
+  %31 = sext i8 %30 to i32
+  ret i32 %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1101,37 +1096,34 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_7717GregorianCalendar11monthLe
 8:                                                ; preds = %3
   %9 = srem i32 %2, 100
   %.not5.i = icmp eq i32 %9, 0
-  br i1 %.not5.i, label %12, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread
+  br i1 %.not5.i, label %11, label %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread
 
 _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread: ; preds = %8
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %10
-  br label %21
+  br label %16
 
-12:                                               ; preds = %8
-  %13 = srem i32 %2, 400
-  %14 = icmp eq i32 %13, 0
-  %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %15
-  %17 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %15
-  br i1 %14, label %21, label %23
+11:                                               ; preds = %8
+  %12 = srem i32 %2, 400
+  %13 = icmp eq i32 %12, 0
+  %14 = sext i32 %1 to i64
+  br i1 %13, label %16, label %18
 
 _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit: ; preds = %3
   %.mux.i = and i1 %7, %.not.i
-  %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [12 x i8], ptr @_ZL16kLeapMonthLength, i64 0, i64 %18
-  %20 = getelementptr inbounds [12 x i8], ptr @_ZL12kMonthLength, i64 0, i64 %18
-  br i1 %.mux.i, label %21, label %23
+  %15 = sext i32 %1 to i64
+  br i1 %.mux.i, label %16, label %18
 
-21:                                               ; preds = %12, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit
-  %22 = phi ptr [ %11, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread ], [ %19, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %16, %12 ]
-  br label %23
+16:                                               ; preds = %11, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit
+  %17 = phi i64 [ %10, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread ], [ %15, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %14, %11 ]
+  br label %18
 
-23:                                               ; preds = %12, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit, %21
-  %24 = phi ptr [ %22, %21 ], [ %20, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %17, %12 ]
-  %25 = load i8, ptr %24, align 1, !tbaa !33
-  %26 = sext i8 %25 to i32
-  ret i32 %26
+18:                                               ; preds = %11, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit, %16
+  %19 = phi i64 [ %17, %16 ], [ %15, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ %14, %11 ]
+  %20 = phi ptr [ @_ZL16kLeapMonthLength, %16 ], [ @_ZL12kMonthLength, %_ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit ], [ @_ZL12kMonthLength, %11 ]
+  %.in = getelementptr inbounds i8, ptr %20, i64 %19
+  %21 = load i8, ptr %.in, align 1, !tbaa !33
+  %22 = sext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1189,7 +1181,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717GregorianCalendar14valida
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw [24 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
@@ -1748,9 +1740,9 @@ define noundef i32 @_ZNK6icu_7717GregorianCalendar16getActualMinimumE19UCalendar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7717GregorianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL24kGregorianCalendarLimits, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZL24kGregorianCalendarLimits, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !32
   ret i32 %8
 }

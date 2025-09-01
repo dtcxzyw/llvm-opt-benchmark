@@ -208,23 +208,23 @@ get_fps.exit:                                     ; preds = %28, %29
 
 56:                                               ; preds = %.preheader219, %56
   %indvars.iv = phi i64 [ 0, %.preheader219 ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw [5 x %struct.Predictor], ptr %47, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.Predictor, ptr %47, i64 %indvars.iv
   store double 8.260000e+02, ptr %57, align 8, !tbaa !92
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store double 1.000000e+00, ptr %58, align 8, !tbaa !94
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store double 4.000000e-01, ptr %59, align 8, !tbaa !95
-  %60 = getelementptr inbounds nuw [5 x i32], ptr %48, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
   store i32 1, ptr %60, align 4, !tbaa !96
-  %61 = getelementptr inbounds nuw [5 x i64], ptr %49, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv
   store i64 1, ptr %61, align 8, !tbaa !97
-  %62 = getelementptr inbounds nuw [5 x i64], ptr %50, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
   store i64 1, ptr %62, align 8, !tbaa !97
-  %63 = getelementptr inbounds nuw [5 x i64], ptr %51, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv
   store i64 1, ptr %63, align 8, !tbaa !97
-  %64 = getelementptr inbounds nuw [5 x i64], ptr %52, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
   store i64 1, ptr %64, align 8, !tbaa !97
-  %65 = getelementptr inbounds nuw [5 x double], ptr %53, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv
   store double 5.900000e+02, ptr %65, align 8, !tbaa !98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -458,7 +458,7 @@ get_fpsQ.exit.i.._crit_edge.thread.i_crit_edge:   ; preds = %get_fpsQ.exit.i
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %176 = load float, ptr %175, align 4, !tbaa !114
   %177 = sext i32 %170 to i64
-  %178 = getelementptr inbounds [5 x i64], ptr %52, i64 0, i64 %177
+  %178 = getelementptr inbounds i64, ptr %52, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !97
   %180 = uitofp i64 %179 to float
   %181 = call nsz float @llvm.fmuladd.f32(float %174, float %176, float %180)
@@ -467,7 +467,7 @@ get_fpsQ.exit.i.._crit_edge.thread.i_crit_edge:   ; preds = %get_fpsQ.exit.i
   %183 = getelementptr inbounds nuw i8, ptr %169, i64 28
   %184 = load i32, ptr %183, align 4, !tbaa !123
   %185 = sitofp i32 %184 to float
-  %186 = getelementptr inbounds [5 x i64], ptr %51, i64 0, i64 %177
+  %186 = getelementptr inbounds i64, ptr %51, i64 %177
   %187 = load i64, ptr %186, align 8, !tbaa !97
   %188 = uitofp i64 %187 to float
   %189 = call nsz float @llvm.fmuladd.f32(float %185, float %176, float %188)
@@ -476,11 +476,11 @@ get_fpsQ.exit.i.._crit_edge.thread.i_crit_edge:   ; preds = %get_fpsQ.exit.i
   %191 = getelementptr inbounds nuw i8, ptr %169, i64 20
   %192 = load i32, ptr %191, align 4, !tbaa !124
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds [5 x i64], ptr %50, i64 0, i64 %177
+  %194 = getelementptr inbounds i64, ptr %50, i64 %177
   %195 = load i64, ptr %194, align 8, !tbaa !97
   %196 = add i64 %195, %193
   store i64 %196, ptr %194, align 8, !tbaa !97
-  %197 = getelementptr inbounds [5 x i32], ptr %48, i64 0, i64 %177
+  %197 = getelementptr inbounds i32, ptr %48, i64 %177
   %198 = load i32, ptr %197, align 4, !tbaa !96
   %199 = add nsw i32 %198, 1
   store i32 %199, ptr %197, align 4, !tbaa !96
@@ -491,7 +491,7 @@ get_fpsQ.exit.i.._crit_edge.thread.i_crit_edge:   ; preds = %get_fpsQ.exit.i
   %204 = fpext nsz float %176 to double
   %205 = load i32, ptr %171, align 8, !tbaa !110
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds [5 x double], ptr %2, i64 0, i64 %206
+  %207 = getelementptr inbounds double, ptr %2, i64 %206
   %208 = load double, ptr %207, align 8, !tbaa !98
   %209 = call nsz double @llvm.fmuladd.f64(double %203, double %204, double %208)
   store double %209, ptr %207, align 8, !tbaa !98
@@ -500,7 +500,7 @@ get_fpsQ.exit.i.._crit_edge.thread.i_crit_edge:   ; preds = %get_fpsQ.exit.i
   %212 = load i32, ptr %211, align 8, !tbaa !115
   %213 = add nsw i32 %212, %210
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds [5 x i64], ptr %3, i64 0, i64 %206
+  %215 = getelementptr inbounds i64, ptr %3, i64 %206
   %216 = load i64, ptr %215, align 8, !tbaa !97
   %217 = add i64 %216, %214
   store i64 %217, ptr %215, align 8, !tbaa !97
@@ -777,7 +777,7 @@ ff_vbv_update.exit.us.i:                          ; preds = %355, %348, %327, %g
   %.val205.us.i = load i32, ptr %369, align 8, !tbaa !110
   %370 = load double, ptr %234, align 8, !tbaa !98
   %371 = sext i32 %.val205246.us.i to i64
-  %372 = getelementptr inbounds [5 x double], ptr %53, i64 0, i64 %371
+  %372 = getelementptr inbounds double, ptr %53, i64 %371
   %373 = load double, ptr %372, align 8, !tbaa !98
   switch i32 %.val205.us.i, label %393 [
     i32 1, label %383
@@ -833,7 +833,7 @@ ff_vbv_update.exit.us.i:                          ; preds = %355, %348, %327, %g
 397:                                              ; preds = %393, %.thread.i207.us.i
   %.14.i210.us.i = phi double [ %.12.i209.us.i, %.thread.i207.us.i ], [ %.1.i217.us.i, %393 ]
   %398 = sext i32 %.val205.us.i to i64
-  %399 = getelementptr inbounds [5 x double], ptr %53, i64 0, i64 %398
+  %399 = getelementptr inbounds double, ptr %53, i64 %398
   %400 = load double, ptr %399, align 8, !tbaa !98
   %401 = load i32, ptr %486, align 4, !tbaa !139
   %402 = mul nsw i32 %401, 118
@@ -877,7 +877,7 @@ get_diff_limited_q.exit220.us.i:                  ; preds = %411, %410
   %.val.us.i = load i32, ptr %416, align 8, !tbaa !110
   %417 = load double, ptr %234, align 8, !tbaa !98
   %418 = sext i32 %.val241.us.i to i64
-  %419 = getelementptr inbounds [5 x double], ptr %53, i64 0, i64 %418
+  %419 = getelementptr inbounds double, ptr %53, i64 %418
   %420 = load double, ptr %419, align 8, !tbaa !98
   switch i32 %.val.us.i, label %440 [
     i32 1, label %430
@@ -933,7 +933,7 @@ get_diff_limited_q.exit220.us.i:                  ; preds = %411, %410
 444:                                              ; preds = %440, %.thread.i.us.i
   %.14.i.us.i = phi double [ %.12.i.us.i, %.thread.i.us.i ], [ %.1.i.us.i, %440 ]
   %445 = sext i32 %.val.us.i to i64
-  %446 = getelementptr inbounds [5 x double], ptr %53, i64 0, i64 %445
+  %446 = getelementptr inbounds double, ptr %53, i64 %445
   %447 = load double, ptr %446, align 8, !tbaa !98
   %448 = load i32, ptr %477, align 4, !tbaa !139
   %449 = mul nsw i32 %448, 118
@@ -979,7 +979,7 @@ get_diff_limited_q.exit.us.i:                     ; preds = %458, %457
   store double %462, ptr %463, align 8, !tbaa !98
   %464 = load i32, ptr %460, align 8, !tbaa !112
   %465 = sext i32 %464 to i64
-  %466 = getelementptr inbounds [5 x double], ptr %53, i64 0, i64 %465
+  %466 = getelementptr inbounds double, ptr %53, i64 %465
   store double %462, ptr %466, align 8, !tbaa !98
   %indvars.iv.next300.i = add nuw nsw i64 %indvars.iv299.i, 1
   %467 = load i32, ptr %6, align 8, !tbaa !108
@@ -1138,7 +1138,7 @@ get_diff_limited_q.exit.us.i:                     ; preds = %458, %457
   store double %537, ptr %538, align 8, !tbaa !98
   %539 = load i32, ptr %535, align 8, !tbaa !112
   %540 = sext i32 %539 to i64
-  %541 = getelementptr inbounds [5 x double], ptr %53, i64 0, i64 %540
+  %541 = getelementptr inbounds double, ptr %53, i64 %540
   store double %537, ptr %541, align 8, !tbaa !98
   %indvars.iv.next297.i = add nuw nsw i64 %indvars.iv296.i, 1
   %542 = load i32, ptr %6, align 8, !tbaa !108
@@ -1368,24 +1368,24 @@ get_diff_limited_q.exit.us.i:                     ; preds = %458, %457
   %656 = phi float [ 0.000000e+00, %647 ], [ %646, %644 ]
   store i32 %654, ptr %610, align 4, !tbaa !124
   %657 = zext nneg i32 %.sink to i64
-  %658 = getelementptr inbounds nuw [5 x i64], ptr %52, i64 0, i64 %657
+  %658 = getelementptr inbounds nuw i64, ptr %52, i64 %657
   %659 = load i64, ptr %658, align 8, !tbaa !97
   %660 = uitofp i64 %659 to float
   %661 = call nsz float @llvm.fmuladd.f32(float %656, float 2.360000e+02, float %660)
   %662 = fptoui float %661 to i64
   store i64 %662, ptr %658, align 8, !tbaa !97
-  %663 = getelementptr inbounds nuw [5 x i64], ptr %51, i64 0, i64 %657
+  %663 = getelementptr inbounds nuw i64, ptr %51, i64 %657
   %664 = load i64, ptr %663, align 8, !tbaa !97
   %665 = uitofp i64 %664 to float
   %666 = call nsz float @llvm.fmuladd.f32(float %655, float 2.360000e+02, float %665)
   %667 = fptoui float %666 to i64
   store i64 %667, ptr %663, align 8, !tbaa !97
   %668 = sext i32 %654 to i64
-  %669 = getelementptr inbounds nuw [5 x i64], ptr %50, i64 0, i64 %657
+  %669 = getelementptr inbounds nuw i64, ptr %50, i64 %657
   %670 = load i64, ptr %669, align 8, !tbaa !97
   %671 = add i64 %670, %668
   store i64 %671, ptr %669, align 8, !tbaa !97
-  %672 = getelementptr inbounds nuw [5 x i32], ptr %48, i64 0, i64 %657
+  %672 = getelementptr inbounds nuw i32, ptr %48, i64 %657
   %673 = load i32, ptr %672, align 4, !tbaa !96
   %674 = add nsw i32 %673, 1
   store i32 %674, ptr %672, align 4, !tbaa !96
@@ -1623,11 +1623,11 @@ define internal fastcc double @get_qscale(ptr noundef captures(none) %0, ptr nou
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   %78 = sext i32 %9 to i64
-  %79 = getelementptr inbounds [5 x i64], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds i64, ptr %77, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !97
   %81 = uitofp i64 %80 to double
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 7992
-  %83 = getelementptr inbounds [5 x i32], ptr %82, i64 0, i64 %78
+  %83 = getelementptr inbounds i32, ptr %82, i64 %78
   %84 = load i32, ptr %83, align 4, !tbaa !96
   %85 = sitofp i32 %84 to double
   %86 = fdiv nsz double %81, %85
@@ -1673,9 +1673,9 @@ define internal fastcc double @get_qscale(ptr noundef captures(none) %0, ptr nou
   %121 = fdiv nsz double %117, %120
   store double %121, ptr %114, align 16, !tbaa !98
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %123 = getelementptr inbounds [5 x i64], ptr %92, i64 0, i64 %78
+  %123 = getelementptr inbounds i64, ptr %92, i64 %78
   %124 = load i64, ptr %123, align 8, !tbaa !97
-  %125 = getelementptr inbounds [5 x i64], ptr %109, i64 0, i64 %78
+  %125 = getelementptr inbounds i64, ptr %109, i64 %78
   %126 = load i64, ptr %125, align 8, !tbaa !97
   %127 = add i64 %126, %124
   %128 = uitofp i64 %127 to double
@@ -2119,7 +2119,7 @@ get_fps.exit:                                     ; preds = %46, %47
   %71 = load double, ptr %70, align 8, !tbaa !180
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 7616
   %73 = sext i32 %57 to i64
-  %74 = getelementptr inbounds [5 x %struct.Predictor], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds %struct.Predictor, ptr %72, i64 %73
   %75 = fmul nsz double %71, %69
   %76 = fadd nsz double %61, 1.000000e+00
   %77 = fdiv nsz double %75, %76
@@ -2298,7 +2298,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   store i32 1, ptr %174, align 8, !tbaa !115
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 7616
   %176 = sext i32 %10 to i64
-  %177 = getelementptr inbounds [5 x %struct.Predictor], ptr %175, i64 0, i64 %176
+  %177 = getelementptr inbounds %struct.Predictor, ptr %175, i64 %176
   %178 = sitofp i64 %161 to double
   %179 = tail call nsz double @llvm.sqrt.f64(double %178)
   %.val = load double, ptr %177, align 8, !tbaa !92
@@ -2337,7 +2337,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   store i32 %.sink, ptr %197, align 4, !tbaa !124
   %198 = sitofp i32 %.sink206 to float
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 7832
-  %200 = getelementptr inbounds [5 x i64], ptr %199, i64 0, i64 %176
+  %200 = getelementptr inbounds i64, ptr %199, i64 %176
   %201 = load i64, ptr %200, align 8, !tbaa !97
   %202 = uitofp i64 %201 to float
   %203 = tail call nsz float @llvm.fmuladd.f32(float %198, float 2.360000e+02, float %202)
@@ -2345,7 +2345,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   store i64 %204, ptr %200, align 8, !tbaa !97
   %205 = sitofp i32 %.sink205 to float
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 7872
-  %207 = getelementptr inbounds [5 x i64], ptr %206, i64 0, i64 %176
+  %207 = getelementptr inbounds i64, ptr %206, i64 %176
   %208 = load i64, ptr %207, align 8, !tbaa !97
   %209 = uitofp i64 %208 to float
   %210 = tail call nsz float @llvm.fmuladd.f32(float %205, float 2.360000e+02, float %209)
@@ -2353,12 +2353,12 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   store i64 %211, ptr %207, align 8, !tbaa !97
   %212 = sext i32 %.sink to i64
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 7912
-  %214 = getelementptr inbounds [5 x i64], ptr %213, i64 0, i64 %176
+  %214 = getelementptr inbounds i64, ptr %213, i64 %176
   %215 = load i64, ptr %214, align 8, !tbaa !97
   %216 = add i64 %215, %212
   store i64 %216, ptr %214, align 8, !tbaa !97
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 7992
-  %218 = getelementptr inbounds [5 x i32], ptr %217, i64 0, i64 %176
+  %218 = getelementptr inbounds i32, ptr %217, i64 %176
   %219 = load i32, ptr %218, align 4, !tbaa !96
   %220 = add nsw i32 %219, 1
   store i32 %220, ptr %218, align 4, !tbaa !96
@@ -2393,7 +2393,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8012
   %241 = load i32, ptr %240, align 4, !tbaa !140
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds [5 x double], ptr %237, i64 0, i64 %242
+  %243 = getelementptr inbounds double, ptr %237, i64 %242
   %244 = load double, ptr %243, align 8, !tbaa !98
   switch i32 %.0171.val, label %268 [
     i32 1, label %245
@@ -2454,7 +2454,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
 273:                                              ; preds = %268, %.thread.i
   %.14.i = phi double [ %.12.i, %.thread.i ], [ %.1.i, %268 ]
   %274 = sext i32 %.0171.val to i64
-  %275 = getelementptr inbounds [5 x double], ptr %237, i64 0, i64 %274
+  %275 = getelementptr inbounds double, ptr %237, i64 %274
   %276 = load double, ptr %275, align 8, !tbaa !98
   %277 = getelementptr inbounds nuw i8, ptr %236, i64 444
   %278 = load i32, ptr %277, align 4, !tbaa !139

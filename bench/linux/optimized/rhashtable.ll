@@ -175,7 +175,7 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
 94:                                               ; preds = %62
   %95 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %96 = zext i32 %55 to i64
-  %97 = getelementptr [0 x ptr], ptr %95, i64 0, i64 %96
+  %97 = getelementptr ptr, ptr %95, i64 %96
   br label %select.unfold
 
 98:                                               ; preds = %51
@@ -188,7 +188,7 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %103 = zext i32 %55 to i64
-  %104 = getelementptr [0 x ptr], ptr %102, i64 0, i64 %103
+  %104 = getelementptr ptr, ptr %102, i64 %103
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.loopexit32, %101, %99, %94
@@ -705,7 +705,7 @@ define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr 
 42:                                               ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %44 = zext i32 %36 to i64
-  %45 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %43, i64 %44
   br label %46
 
 46:                                               ; preds = %42, %40
@@ -770,7 +770,7 @@ define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr 
 83:                                               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %85 = zext i32 %77 to i64
-  %86 = getelementptr [0 x ptr], ptr %84, i64 0, i64 %85
+  %86 = getelementptr ptr, ptr %84, i64 %85
   br label %87
 
 87:                                               ; preds = %83, %81
@@ -946,7 +946,7 @@ define internal fastcc ptr @__rhashtable_walk_find_next(ptr noundef captures(non
 
 28:                                               ; preds = %.split.us
   %29 = zext i32 %23 to i64
-  %30 = getelementptr [0 x ptr], ptr %20, i64 0, i64 %29
+  %30 = getelementptr ptr, ptr %20, i64 %29
   br label %31
 
 31:                                               ; preds = %28, %26
@@ -1003,7 +1003,7 @@ define internal fastcc ptr @__rhashtable_walk_find_next(ptr noundef captures(non
 
 62:                                               ; preds = %.split
   %63 = zext i32 %57 to i64
-  %64 = getelementptr [0 x ptr], ptr %20, i64 0, i64 %63
+  %64 = getelementptr ptr, ptr %20, i64 %63
   br label %65
 
 65:                                               ; preds = %62, %60
@@ -1376,7 +1376,7 @@ define dso_local noundef range(i32 -22, 1) i32 @rhashtable_init(ptr noundef %0, 
 96:                                               ; preds = %96, %88
   %97 = phi i64 [ 0, %88 ], [ %101, %96 ]
   %98 = phi i32 [ 0, %88 ], [ %100, %96 ]
-  %99 = getelementptr [0 x ptr], ptr %95, i64 0, i64 %97
+  %99 = getelementptr ptr, ptr %95, i64 %97
   store ptr null, ptr %99, align 8
   %100 = add i32 %98, 1
   %101 = sext i32 %100 to i64
@@ -1771,7 +1771,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
 
 19:                                               ; preds = %15, %12
   %20 = phi i64 [ 0, %12 ], [ %18, %15 ]
-  %21 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %20, i64 1
+  %21 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20, i64 1
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %22, i32 noundef %5, i64 noundef 72) #18
   %24 = icmp eq ptr %23, null
@@ -1837,7 +1837,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
 57:                                               ; preds = %57, %55
   %58 = phi i64 [ 0, %55 ], [ %62, %57 ]
   %59 = phi i32 [ 0, %55 ], [ %61, %57 ]
-  %60 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %58
+  %60 = getelementptr ptr, ptr %56, i64 %58
   store ptr null, ptr %60, align 8
   %61 = add i32 %59, 1
   %62 = sext i32 %61 to i64
@@ -1995,7 +1995,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 64
-  %99 = getelementptr [0 x ptr], ptr %98, i64 0, i64 %89
+  %99 = getelementptr ptr, ptr %98, i64 %89
   br label %100
 
 100:                                              ; preds = %97, %94
@@ -2131,7 +2131,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %176 = and i32 %175, %173
   %177 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %178 = zext i32 %176 to i64
-  %179 = getelementptr [0 x ptr], ptr %177, i64 0, i64 %178
+  %179 = getelementptr ptr, ptr %177, i64 %178
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !11
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #15, !srcloc !12
@@ -2443,7 +2443,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   br label %85
 
 83:                                               ; preds = %38
-  %84 = getelementptr [0 x ptr], ptr %37, i64 0, i64 %39
+  %84 = getelementptr ptr, ptr %37, i64 %39
   br label %85
 
 85:                                               ; preds = %83, %.loopexit7
@@ -2857,7 +2857,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @rhashtable_rehash_alloc(pt
 17:                                               ; preds = %17, %15
   %18 = phi i64 [ 0, %15 ], [ %22, %17 ]
   %19 = phi i32 [ 0, %15 ], [ %21, %17 ]
-  %20 = getelementptr [0 x ptr], ptr %16, i64 0, i64 %18
+  %20 = getelementptr ptr, ptr %16, i64 %18
   store ptr null, ptr %20, align 8
   %21 = add i32 %19, 1
   %22 = sext i32 %21 to i64

@@ -1314,7 +1314,7 @@ define dso_local ptr @mxid_to_string(i32 noundef %0, i32 noundef %1, ptr noundef
 switch.lookup:                                    ; preds = %7
   %14 = load i32, ptr %2, align 4
   %15 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_get_multixact_members, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i32 noundef %0, i32 noundef %1, i32 noundef %14, ptr noundef nonnull %switch.load) #13
   %16 = icmp sgt i32 %1, 1
@@ -1342,7 +1342,7 @@ switch.lookup:                                    ; preds = %7
 switch.lookup19:                                  ; preds = %.lr.ph
   %24 = load i32, ptr %17, align 4
   %25 = zext nneg i32 %19 to i64
-  %switch.gep20 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %25
+  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table.pg_get_multixact_members, i64 %25
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i32 noundef %24, ptr noundef nonnull %switch.load21) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2969,7 +2969,7 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %49, %54
 .lr.ph:                                           ; preds = %MultiXactAdvanceNextMXact.exit, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %MultiXactAdvanceNextMXact.exit ]
   %.053 = phi i32 [ %.1, %67 ], [ %59, %MultiXactAdvanceNextMXact.exit ]
-  %62 = getelementptr inbounds nuw [0 x %struct.MultiXactMember], ptr %35, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %35, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.053, i32 noundef %63) #13
   br i1 %64, label %65, label %67
@@ -3197,7 +3197,7 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %45
   %60 = zext nneg i32 %55 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_get_multixact_members, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %61, align 8

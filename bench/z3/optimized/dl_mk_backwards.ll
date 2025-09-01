@@ -688,7 +688,7 @@ _ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit: ; preds = %186, %19
 248:                                              ; preds = %.lr.ph, %368
   %249 = phi ptr [ %242, %.lr.ph ], [ %369, %368 ]
   %indvars.iv = phi i64 [ %245, %.lr.ph ], [ %indvars.iv.next, %368 ]
-  %250 = getelementptr inbounds nuw [0 x ptr], ptr %244, i64 0, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw ptr, ptr %244, i64 %indvars.iv
   %251 = load ptr, ptr %250, align 8, !tbaa !291
   %252 = ptrtoint ptr %251 to i64
   %253 = and i64 %252, -8
@@ -1058,7 +1058,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZN7obj_refI3app11a
 
 399:                                              ; preds = %382
   %400 = zext i32 %.0133 to i64
-  %401 = getelementptr inbounds nuw [0 x ptr], ptr %246, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw ptr, ptr %246, i64 %400
   %402 = load ptr, ptr %401, align 8, !tbaa !291
   %403 = ptrtoint ptr %402 to i64
   %404 = and i64 %403, -8

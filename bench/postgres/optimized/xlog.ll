@@ -4065,7 +4065,7 @@ define dso_local noundef zeroext i1 @check_wal_consistency_checking(ptr noundef 
 
 .preheader:                                       ; preds = %.lr.ph98, %29
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %29 ], [ 0, %.lr.ph98 ]
-  %25 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv87
+  %25 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv87
   %26 = load ptr, ptr %25, align 8
   %.not77 = icmp eq ptr %26, null
   br i1 %.not77, label %29, label %GetRmgr.exit
@@ -4077,7 +4077,7 @@ GetRmgr.exit:                                     ; preds = %.preheader
   br i1 %.not59, label %29, label %27
 
 27:                                               ; preds = %GetRmgr.exit
-  %28 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv87
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv87
   store i8 1, ptr %28, align 1
   br label %29
 
@@ -4088,7 +4088,7 @@ GetRmgr.exit:                                     ; preds = %.preheader
 
 .preheader78:                                     ; preds = %.lr.ph98, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph98 ]
-  %30 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %.not76 = icmp eq ptr %31, null
   br i1 %.not76, label %37, label %GetRmgr.exit68
@@ -4106,7 +4106,7 @@ GetRmgr.exit70:                                   ; preds = %GetRmgr.exit68
 
 34:                                               ; preds = %GetRmgr.exit70
   %35 = and i64 %indvars.iv, 4294967295
-  %36 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   store i8 1, ptr %36, align 1
   br label %.loopexit
 
@@ -10527,7 +10527,7 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
 .lr.ph:                                           ; preds = %121
   %sext = shl i64 %123, 32
   %127 = ashr exact i64 %sext, 32
-  %128 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 %127
+  %128 = getelementptr inbounds i8, ptr %8, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
   %.not80 = icmp eq ptr %2, null
   br label %130
@@ -10600,7 +10600,7 @@ WALInsertLockRelease.exit93:                      ; preds = %.preheader.i89
   br label %.thread.sink.split, !llvm.loop !94
 
 163:                                              ; preds = %157
-  %164 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 0, i64 %158
+  %164 = getelementptr inbounds nuw i8, ptr %8, i64 %158
   store i8 0, ptr %164, align 1
   %165 = icmp sgt i32 %152, %124
   br i1 %165, label %166, label %175

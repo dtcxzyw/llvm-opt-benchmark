@@ -669,12 +669,12 @@ define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm20RISCVGenRegisterInfo2
   %4 = add i32 %1, -1
   %5 = add i32 %2, -1
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw [54 x i8], ptr @_ZZNK4llvm20RISCVGenRegisterInfo24composeSubRegIndicesImplEjjE6RowMap, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm20RISCVGenRegisterInfo24composeSubRegIndicesImplEjjE6RowMap, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [7 x [54 x i8]], ptr @_ZZNK4llvm20RISCVGenRegisterInfo24composeSubRegIndicesImplEjjE4Rows, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [54 x i8], ptr @_ZZNK4llvm20RISCVGenRegisterInfo24composeSubRegIndicesImplEjjE4Rows, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [54 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %14 = zext i8 %13 to i32
   ret i32 %14
@@ -684,10 +684,10 @@ define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm20RISCVGenRegisterInfo2
 define dso_local i64 @_ZNK4llvm20RISCVGenRegisterInfo30composeSubRegIndexLaneMaskImplEjNS_11LaneBitmaskE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = add i32 %1, -1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [54 x i8], ptr @_ZN4llvmL18CompositeSequencesE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL18CompositeSequencesE, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !3
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [20 x %"struct.llvm::MaskRolOp"], ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %8
   %10 = load i64, ptr %9, align 16, !tbaa !6
   %.not1718 = icmp eq i64 %10, 0
   br i1 %.not1718, label %._crit_edge, label %.lr.ph
@@ -734,10 +734,10 @@ define dso_local i64 @_ZNK4llvm20RISCVGenRegisterInfo37reverseComposeSubRegIndex
   %8 = and i64 %.sroa.0.0.copyload.i, %2
   %9 = add i32 %1, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [54 x i8], ptr @_ZN4llvmL18CompositeSequencesE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL18CompositeSequencesE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [20 x %"struct.llvm::MaskRolOp"], ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %13
   %15 = load i64, ptr %14, align 16, !tbaa !6
   %.not1920 = icmp eq i64 %15, 0
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
@@ -783,9 +783,9 @@ define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo21getSubClassWithSu
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !44
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [93 x [54 x i8]], ptr @_ZZNK4llvm20RISCVGenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [54 x i8], ptr @_ZZNK4llvm20RISCVGenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [54 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %.not10 = icmp eq i8 %13, 0
   br i1 %.not10, label %22, label %14
@@ -816,9 +816,9 @@ define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo19getSubRegisterCla
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !44
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [93 x [54 x i8]], ptr @_ZZNK4llvm20RISCVGenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [54 x i8], ptr @_ZZNK4llvm20RISCVGenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [54 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %.not10 = icmp eq i8 %13, 0
   br i1 %.not10, label %22, label %14
@@ -844,7 +844,7 @@ define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4llvm20RISC
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !44
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [93 x %"struct.llvm::RegClassWeight"], ptr @_ZZNK4llvm20RISCVGenRegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassEE13RCWeightTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::RegClassWeight", ptr @_ZZNK4llvm20RISCVGenRegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassEE13RCWeightTable, i64 %6
   ret ptr %7
 }
 
@@ -861,7 +861,7 @@ define dso_local noundef i32 @_ZNK4llvm20RISCVGenRegisterInfo21getNumRegPressure
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo21getRegPressureSetNameEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [15 x ptr], ptr @_ZZNK4llvm20RISCVGenRegisterInfo21getRegPressureSetNameEjE17PressureNameTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm20RISCVGenRegisterInfo21getRegPressureSetNameEjE17PressureNameTable, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !49
   ret ptr %5
 }
@@ -869,7 +869,7 @@ define dso_local noundef ptr @_ZNK4llvm20RISCVGenRegisterInfo21getRegPressureSet
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm20RISCVGenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEj(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw [15 x i8], ptr @_ZZNK4llvm20RISCVGenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEjE18PressureLimitTable, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm20RISCVGenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEjE18PressureLimitTable, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = zext i8 %6 to i32
   ret i32 %7
@@ -881,20 +881,20 @@ define dso_local noundef nonnull ptr @_ZNK4llvm20RISCVGenRegisterInfo23getRegCla
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !44
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [93 x i8], ptr @_ZZNK4llvm20RISCVGenRegisterInfo23getRegClassPressureSetsEPKNS_19TargetRegisterClassEE15RCSetStartTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm20RISCVGenRegisterInfo23getRegClassPressureSetsEPKNS_19TargetRegisterClassEE15RCSetStartTable, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [38 x i32], ptr @_ZN4llvmL11RCSetsTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL11RCSetsTableE, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK4llvm20RISCVGenRegisterInfo22getRegUnitPressureSetsEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [106 x i8], ptr @_ZZNK4llvm20RISCVGenRegisterInfo22getRegUnitPressureSetsEjE15RUSetStartTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm20RISCVGenRegisterInfo22getRegUnitPressureSetsEjE15RUSetStartTable, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [38 x i32], ptr @_ZN4llvmL11RCSetsTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL11RCSetsTableE, i64 %6
   ret ptr %7
 }
 
@@ -2496,10 +2496,10 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %2, %21
   %.sroa.0129.4.extract.trunc = trunc nuw i64 %.sroa.0129.4.extract.shift to i32
   %switch.tableidx = add nsw i32 %.sroa.0129.4.extract.trunc, -1
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep170 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm17RISCVRegisterInfo11lowerVSPILLENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.4, i64 0, i64 %44
+  %switch.gep170 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm17RISCVRegisterInfo11lowerVSPILLENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.4, i64 %44
   %switch.load171 = load i64, ptr %switch.gep170, align 8
   %45 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %28, ptr noundef nonnull @_ZN4llvm5RISCV11GPRRegClassE, ptr nonnull @.str.36, i64 0) #22
   %46 = call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544) %30) #22
@@ -3007,10 +3007,10 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %2, %19
   %.sroa.0124.4.extract.trunc = trunc nuw i64 %.sroa.0124.4.extract.shift to i32
   %switch.tableidx = add nsw i32 %.sroa.0124.4.extract.trunc, -1
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep165 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.5, i64 0, i64 %42
+  %switch.gep165 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.5, i64 %42
   %switch.load166 = load i64, ptr %switch.gep165, align 8
   %43 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %26, ptr noundef nonnull @_ZN4llvm5RISCV11GPRRegClassE, ptr nonnull @.str.36, i64 0) #22
   %44 = call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544) %28) #22

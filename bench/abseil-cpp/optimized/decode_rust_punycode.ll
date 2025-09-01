@@ -223,7 +223,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %notmask.i = shl nsw i64 -1, %102
   %103 = xor i64 %notmask.i, -1
   %104 = zext nneg i32 %99 to i64
-  %105 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i64, ptr %2, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !16
   %107 = and i64 %106, %103
   %108 = call range(i64 0, 63) i64 @llvm.ctpop.i64(i64 %107)
@@ -235,8 +235,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   br i1 %.not42.i, label %.preheader.i, label %.lr.ph.i53
 
 .preheader.i:                                     ; preds = %.lr.ph.i53, %98
-  %.041.lcssa.i = phi i32 [ %109, %98 ], [ %119, %.lr.ph.i53 ]
-  %.040.lcssa.i = phi i32 [ %112, %98 ], [ %123, %.lr.ph.i53 ]
+  %.041.lcssa.i = phi i32 [ %109, %98 ], [ %118, %.lr.ph.i53 ]
+  %.040.lcssa.i = phi i32 [ %112, %98 ], [ %122, %.lr.ph.i53 ]
   %.not49.i = icmp eq i32 %99, 7
   br i1 %.not49.i, label %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit, label %.lr.ph48.preheader.i
 
@@ -245,43 +245,43 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   br label %.lr.ph48.i
 
 .lr.ph.i53:                                       ; preds = %98, %.lr.ph.i53
-  %.03945.i = phi i32 [ %113, %.lr.ph.i53 ], [ %99, %98 ]
-  %.04044.i = phi i32 [ %123, %.lr.ph.i53 ], [ %112, %98 ]
-  %.04143.i = phi i32 [ %119, %.lr.ph.i53 ], [ %109, %98 ]
-  %113 = add nsw i32 %.03945.i, -1
-  %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %114
-  %116 = load i64, ptr %115, align 8, !tbaa !16
-  %117 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %116)
-  %118 = trunc nuw nsw i64 %117 to i32
-  %119 = add nuw nsw i32 %.04143.i, %118
-  %120 = and i64 %116, -6148914691236517206
-  %121 = call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %120)
-  %122 = trunc nuw nsw i64 %121 to i32
-  %123 = add nuw nsw i32 %.04044.i, %122
-  %.not.i = icmp eq i32 %113, 0
-  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i53, !llvm.loop !23
+  %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %.lr.ph.i53 ], [ %104, %98 ]
+  %.04044.i = phi i32 [ %122, %.lr.ph.i53 ], [ %112, %98 ]
+  %.04143.i = phi i32 [ %118, %.lr.ph.i53 ], [ %109, %98 ]
+  %113 = getelementptr i64, ptr %2, i64 %indvars.iv.i54
+  %114 = getelementptr i8, ptr %113, i64 -8
+  %115 = load i64, ptr %114, align 8, !tbaa !16
+  %116 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %115)
+  %117 = trunc nuw nsw i64 %116 to i32
+  %118 = add nuw nsw i32 %.04143.i, %117
+  %119 = and i64 %115, -6148914691236517206
+  %120 = call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %119)
+  %121 = trunc nuw nsw i64 %120 to i32
+  %122 = add nuw nsw i32 %.04044.i, %121
+  %indvars.iv.next.i55 = add nsw i64 %indvars.iv.i54, -1
+  %123 = icmp eq i64 %indvars.iv.next.i55, 0
+  br i1 %123, label %.preheader.i, label %.lr.ph.i53, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph48.i
-  %.pre52.i = load i64, ptr %105, align 8, !tbaa !16
-  %.pre53.i = and i64 %.pre52.i, %103
+  %.pre54.i = load i64, ptr %105, align 8, !tbaa !16
+  %.pre55.i = and i64 %.pre54.i, %103
   br label %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
   %124 = phi i64 [ %.pre.i, %.lr.ph48.preheader.i ], [ %127, %.lr.ph48.i ]
-  %indvars.iv.i54 = phi i64 [ 7, %.lr.ph48.preheader.i ], [ %indvars.iv.next.i55, %.lr.ph48.i ]
-  %125 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.i54
-  %indvars.iv.next.i55 = add nsw i64 %indvars.iv.i54, -1
-  %126 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.next.i55
+  %indvars.iv51.i = phi i64 [ 7, %.lr.ph48.preheader.i ], [ %indvars.iv.next52.i, %.lr.ph48.i ]
+  %125 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv51.i
+  %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, -1
+  %126 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next52.i
   %127 = load i64, ptr %126, align 8, !tbaa !16
   %128 = call i64 @llvm.fshl.i64(i64 %124, i64 %127, i64 2)
   store i64 %128, ptr %125, align 8, !tbaa !16
-  %129 = icmp ugt i64 %indvars.iv.next.i55, %104
+  %129 = icmp ugt i64 %indvars.iv.next52.i, %104
   br i1 %129, label %.lr.ph48.i, label %._crit_edge.loopexit.i, !llvm.loop !24
 
 _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit: ; preds = %.preheader.i, %._crit_edge.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre53.i, %._crit_edge.loopexit.i ], [ %107, %.preheader.i ]
-  %130 = phi i64 [ %.pre52.i, %._crit_edge.loopexit.i ], [ %106, %.preheader.i ]
+  %.pre-phi.i = phi i64 [ %.pre55.i, %._crit_edge.loopexit.i ], [ %107, %.preheader.i ]
+  %130 = phi i64 [ %.pre54.i, %._crit_edge.loopexit.i ], [ %106, %.preheader.i ]
   %131 = add nuw i32 %.041.lcssa.i, %spec.store.select.i
   %132 = add nuw i32 %131, %.040.lcssa.i
   %133 = add i32 %92, -5

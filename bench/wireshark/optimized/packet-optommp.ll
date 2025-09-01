@@ -240,7 +240,7 @@ switch.early.test:                                ; preds = %4
 
 switch.lookup:                                    ; preds = %switch.early.test
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.get_optommp_message_len, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_optommp_message_len, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split
 

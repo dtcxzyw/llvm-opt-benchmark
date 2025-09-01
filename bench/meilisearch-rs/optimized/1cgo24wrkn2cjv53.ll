@@ -40524,7 +40524,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17h5987ce9d
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17ha76d9851a1300119E.exit": ; preds = %2
   %12 = load ptr, ptr %3, align 8, !noundef !4
   %13 = and i64 %5, 31
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
   store ptr %12, ptr %14, align 8
   %15 = shl nuw nsw i64 1, %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 272
@@ -40559,7 +40559,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17h83fade3d
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hb0cc79808138f699E.exit": ; preds = %2
   %11 = and i64 %4, 31
-  %12 = getelementptr inbounds nuw [0 x { { { [3 x i64] } } }], ptr %5, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw { { { [3 x i64] } } }, ptr %5, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %13 = shl nuw nsw i64 1, %11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 784
@@ -40607,7 +40607,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17he14a3d2d
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h3541343693aa107dE.exit": ; preds = %2
   %11 = and i64 %4, 31
-  %12 = getelementptr inbounds nuw [0 x { { { [47 x i64] } } }], ptr %5, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw { { { [47 x i64] } } }, ptr %5, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %12, ptr noundef nonnull align 8 dereferenceable(376) %1, i64 376, i1 false)
   %13 = shl nuw nsw i64 1, %11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 12048
@@ -143129,8 +143129,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %_ZN4core3cmp9PartialEq2ne17h9f29abc7ad38839fE.llvm.5336188084572713014.exit.thread, label %5
 
 5:                                                ; preds = %.preheader.split
-  %6 = getelementptr inbounds [0 x { { i64, [2 x i64] }, i16, [3 x i16] }], ptr %0, i64 0, i64 %.sroa.02.0
-  %7 = getelementptr inbounds [0 x { { i64, [2 x i64] }, i16, [3 x i16] }], ptr %2, i64 0, i64 %.sroa.02.0
+  %6 = getelementptr inbounds { { i64, [2 x i64] }, i16, [3 x i16] }, ptr %0, i64 %.sroa.02.0
+  %7 = getelementptr inbounds { { i64, [2 x i64] }, i16, [3 x i16] }, ptr %2, i64 %.sroa.02.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38978)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38981)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38983)

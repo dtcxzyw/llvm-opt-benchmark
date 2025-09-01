@@ -623,7 +623,7 @@ define hidden void @_Z15parse_argumentsiPPc(ptr dead_on_unwind noalias writable 
 11:                                               ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
   %.03538 = phi i32 [ 8, %3 ], [ %spec.select, %11 ]
-  %12 = getelementptr inbounds nuw [8 x %"class.std::__cxx11::basic_string"], ptr @_ZL14kWarpTypeNamesB5cxx11, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 %indvars.iv
   %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #31
   %14 = load ptr, ptr %10, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %14) #32
@@ -1067,7 +1067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .noexc25:                                         ; preds = %72
   %73 = sext i32 %31 to i64
-  %74 = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr @_ZL14kWarpTypeNamesB5cxx11, i64 0, i64 %73
+  %74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZL14kWarpTypeNamesB5cxx11, i64 %73
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !13
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %75, ptr %5, align 8, !alias.scope !16, !noalias !13
@@ -4745,7 +4745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit464: ;
 
 838:                                              ; preds = %838, %834
   %.04.i.i = phi i64 [ 0, %834 ], [ %840, %838 ]
-  %839 = getelementptr inbounds nuw [4 x float], ptr %32, i64 0, i64 %.04.i.i
+  %839 = getelementptr inbounds nuw float, ptr %32, i64 %.04.i.i
   store float 2.550000e+02, ptr %839, align 4
   %840 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %840, 4
@@ -4757,12 +4757,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %838
 
 841:                                              ; preds = %841, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
   %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i ], [ %848, %841 ]
-  %842 = getelementptr inbounds nuw [4 x float], ptr %31, i64 0, i64 %.06.i.i
+  %842 = getelementptr inbounds nuw float, ptr %31, i64 %.06.i.i
   %843 = load float, ptr %842, align 4
-  %844 = getelementptr inbounds nuw [4 x float], ptr %32, i64 0, i64 %.06.i.i
+  %844 = getelementptr inbounds nuw float, ptr %32, i64 %.06.i.i
   %845 = load float, ptr %844, align 4
   %846 = fdiv float %843, %845
-  %847 = getelementptr inbounds nuw [4 x float], ptr %30, i64 0, i64 %.06.i.i
+  %847 = getelementptr inbounds nuw float, ptr %30, i64 %.06.i.i
   store float %846, ptr %847, align 4
   %848 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i4.i = icmp eq i64 %848, 4
@@ -6619,8 +6619,8 @@ define linkonce_odr hidden void @_ZN14WarpTestScreen13draw_contentsEv(ptr nounde
 
 46:                                               ; preds = %46, %1
   %.05.i = phi i64 [ 0, %1 ], [ %49, %46 ]
-  %47 = getelementptr inbounds nuw [4 x [4 x float]], ptr %22, i64 0, i64 %.05.i
-  %48 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %.05.i
+  %47 = getelementptr inbounds nuw [4 x float], ptr %22, i64 %.05.i
+  %48 = getelementptr inbounds nuw float, ptr %47, i64 %.05.i
   store float 1.000000e+00, ptr %48, align 4
   %49 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %49, 4
@@ -6667,10 +6667,10 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit:               ; preds = %46
 
 67:                                               ; preds = %67, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit
   %.05.i.i = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit ], [ %72, %67 ]
-  %68 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.05.i.i
+  %68 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i.i
   %69 = load float, ptr %68, align 4, !noalias !58
-  %70 = getelementptr inbounds nuw [4 x [4 x float]], ptr %27, i64 0, i64 %.05.i.i
-  %71 = getelementptr inbounds nuw [4 x float], ptr %70, i64 0, i64 %.05.i.i
+  %70 = getelementptr inbounds nuw [4 x float], ptr %27, i64 %.05.i.i
+  %71 = getelementptr inbounds nuw float, ptr %70, i64 %.05.i.i
   store float %69, ptr %71, align 4, !alias.scope !58
   %72 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %72, 4
@@ -6697,13 +6697,13 @@ _ZN7nanogui6MatrixIfLm4EE11perspectiveILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0
 
 79:                                               ; preds = %_ZN7nanogui6MatrixIfLm4EE11perspectiveILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffff.exit, %79
   %.07.i180 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE11perspectiveILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffff.exit ], [ %83, %79 ]
-  %80 = getelementptr inbounds nuw [3 x float], ptr %30, i64 0, i64 %.07.i180
+  %80 = getelementptr inbounds nuw float, ptr %30, i64 %.07.i180
   %81 = load float, ptr %80, align 4, !noalias !60
-  %82 = getelementptr inbounds nuw [4 x float], ptr %78, i64 0, i64 %.07.i180
+  %82 = getelementptr inbounds nuw float, ptr %78, i64 %.07.i180
   store float %81, ptr %82, align 4, !alias.scope !60
   %83 = add nuw nsw i64 %.07.i180, 1
-  %84 = getelementptr inbounds nuw [4 x [4 x float]], ptr %29, i64 0, i64 %83
-  %85 = getelementptr inbounds nuw [4 x float], ptr %84, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [4 x float], ptr %29, i64 %83
+  %85 = getelementptr inbounds nuw float, ptr %84, i64 %83
   store float 1.000000e+00, ptr %85, align 4, !alias.scope !60
   %.not.i = icmp eq i64 %83, 3
   br i1 %.not.i, label %_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit, label %79
@@ -6714,21 +6714,21 @@ _ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit: ; preds = %79
 
 .preheader18.i:                                   ; preds = %95, %_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit
   %.01724.i = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit ], [ %96, %95 ]
-  %invariant.gep.i = getelementptr inbounds nuw [4 x float], ptr %29, i64 0, i64 %.01724.i
-  %invariant.gep21.i = getelementptr inbounds nuw [4 x float], ptr %28, i64 0, i64 %.01724.i
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %29, i64 %.01724.i
+  %invariant.gep21.i = getelementptr inbounds nuw float, ptr %28, i64 %.01724.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %93, %.preheader18.i
   %.01623.i = phi i64 [ 0, %.preheader18.i ], [ %94, %93 ]
-  %86 = getelementptr inbounds nuw [4 x [4 x float]], ptr %22, i64 0, i64 %.01623.i
+  %86 = getelementptr inbounds nuw [4 x float], ptr %22, i64 %.01623.i
   br label %87
 
 87:                                               ; preds = %87, %.preheader.i
   %.020.i = phi i64 [ 0, %.preheader.i ], [ %92, %87 ]
   %.01519.i = phi float [ 0.000000e+00, %.preheader.i ], [ %91, %87 ]
-  %gep.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i, i64 0, i64 %.020.i
+  %gep.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i, i64 %.020.i
   %88 = load float, ptr %gep.i, align 4, !noalias !63
-  %89 = getelementptr inbounds nuw [4 x float], ptr %86, i64 0, i64 %.020.i
+  %89 = getelementptr inbounds nuw float, ptr %86, i64 %.020.i
   %90 = load float, ptr %89, align 4, !noalias !63
   %91 = call float @llvm.fmuladd.f32(float %88, float %90, float %.01519.i)
   %92 = add nuw nsw i64 %.020.i, 1
@@ -6736,7 +6736,7 @@ _ZN7nanogui6MatrixIfLm4EE9translateERKNS_5ArrayIfLm3EEE.exit: ; preds = %79
   br i1 %exitcond.not.i70, label %93, label %87, !llvm.loop !66
 
 93:                                               ; preds = %87
-  %gep22.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep21.i, i64 0, i64 %.01623.i
+  %gep22.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep21.i, i64 %.01623.i
   store float %91, ptr %gep22.i, align 4, !alias.scope !63
   %94 = add nuw nsw i64 %.01623.i, 1
   %exitcond25.not.i = icmp eq i64 %94, 4
@@ -6753,8 +6753,8 @@ _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit:       ; preds = %95
 
 97:                                               ; preds = %97, %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit
   %.05.i71 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit ], [ %100, %97 ]
-  %98 = getelementptr inbounds nuw [4 x [4 x float]], ptr %31, i64 0, i64 %.05.i71
-  %99 = getelementptr inbounds nuw [4 x float], ptr %98, i64 0, i64 %.05.i71
+  %98 = getelementptr inbounds nuw [4 x float], ptr %31, i64 %.05.i71
+  %99 = getelementptr inbounds nuw float, ptr %98, i64 %.05.i71
   store float 1.000000e+00, ptr %99, align 4
   %100 = add nuw nsw i64 %.05.i71, 1
   %exitcond.not.i72 = icmp eq i64 %100, 4
@@ -6840,21 +6840,21 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit73:             ; preds = %97
 
 .preheader18.i74:                                 ; preds = %155, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit73
   %.01724.i75 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit73 ], [ %156, %155 ]
-  %invariant.gep.i76 = getelementptr inbounds nuw [4 x float], ptr %31, i64 0, i64 %.01724.i75
-  %invariant.gep21.i77 = getelementptr inbounds nuw [4 x float], ptr %32, i64 0, i64 %.01724.i75
+  %invariant.gep.i76 = getelementptr inbounds nuw float, ptr %31, i64 %.01724.i75
+  %invariant.gep21.i77 = getelementptr inbounds nuw float, ptr %32, i64 %.01724.i75
   br label %.preheader.i78
 
 .preheader.i78:                                   ; preds = %153, %.preheader18.i74
   %.01623.i79 = phi i64 [ 0, %.preheader18.i74 ], [ %154, %153 ]
-  %146 = getelementptr inbounds nuw [4 x [4 x float]], ptr %22, i64 0, i64 %.01623.i79
+  %146 = getelementptr inbounds nuw [4 x float], ptr %22, i64 %.01623.i79
   br label %147
 
 147:                                              ; preds = %147, %.preheader.i78
   %.020.i80 = phi i64 [ 0, %.preheader.i78 ], [ %152, %147 ]
   %.01519.i81 = phi float [ 0.000000e+00, %.preheader.i78 ], [ %151, %147 ]
-  %gep.i82 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i76, i64 0, i64 %.020.i80
+  %gep.i82 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i76, i64 %.020.i80
   %148 = load float, ptr %gep.i82, align 4, !noalias !76
-  %149 = getelementptr inbounds nuw [4 x float], ptr %146, i64 0, i64 %.020.i80
+  %149 = getelementptr inbounds nuw float, ptr %146, i64 %.020.i80
   %150 = load float, ptr %149, align 4, !noalias !76
   %151 = call float @llvm.fmuladd.f32(float %148, float %150, float %.01519.i81)
   %152 = add nuw nsw i64 %.020.i80, 1
@@ -6862,7 +6862,7 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit73:             ; preds = %97
   br i1 %exitcond.not.i83, label %153, label %147, !llvm.loop !66
 
 153:                                              ; preds = %147
-  %gep22.i84 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep21.i77, i64 0, i64 %.01623.i79
+  %gep22.i84 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep21.i77, i64 %.01623.i79
   store float %151, ptr %gep22.i84, align 4, !alias.scope !76
   %154 = add nuw nsw i64 %.01623.i79, 1
   %exitcond25.not.i85 = icmp eq i64 %154, 4
@@ -6955,7 +6955,7 @@ _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit87:     ; preds = %155
 
 207:                                              ; preds = %207, %203
   %.04.i.i = phi i64 [ 0, %203 ], [ %209, %207 ]
-  %208 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.04.i.i
+  %208 = getelementptr inbounds nuw float, ptr %18, i64 %.04.i.i
   store float 2.550000e+02, ptr %208, align 4
   %209 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i88 = icmp eq i64 %209, 4
@@ -6967,12 +6967,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %207
 
 210:                                              ; preds = %210, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
   %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i ], [ %217, %210 ]
-  %211 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.06.i.i
+  %211 = getelementptr inbounds nuw float, ptr %17, i64 %.06.i.i
   %212 = load float, ptr %211, align 4
-  %213 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.06.i.i
+  %213 = getelementptr inbounds nuw float, ptr %18, i64 %.06.i.i
   %214 = load float, ptr %213, align 4
   %215 = fdiv float %212, %214
-  %216 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.06.i.i
+  %216 = getelementptr inbounds nuw float, ptr %16, i64 %.06.i.i
   store float %215, ptr %216, align 4
   %217 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i4.i = icmp eq i64 %217, 4
@@ -7001,7 +7001,7 @@ _ZN7nanogui5ColorC2Eiiii.exit:                    ; preds = %210
 
 222:                                              ; preds = %222, %218
   %.04.i.i89 = phi i64 [ 0, %218 ], [ %224, %222 ]
-  %223 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %.04.i.i89
+  %223 = getelementptr inbounds nuw float, ptr %15, i64 %.04.i.i89
   store float 2.550000e+02, ptr %223, align 4
   %224 = add nuw nsw i64 %.04.i.i89, 1
   %exitcond.not.i.i90 = icmp eq i64 %224, 4
@@ -7013,12 +7013,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i91:            ; preds = %222
 
 225:                                              ; preds = %225, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i91
   %.06.i.i92 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i91 ], [ %232, %225 ]
-  %226 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.06.i.i92
+  %226 = getelementptr inbounds nuw float, ptr %14, i64 %.06.i.i92
   %227 = load float, ptr %226, align 4
-  %228 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %.06.i.i92
+  %228 = getelementptr inbounds nuw float, ptr %15, i64 %.06.i.i92
   %229 = load float, ptr %228, align 4
   %230 = fdiv float %227, %229
-  %231 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %.06.i.i92
+  %231 = getelementptr inbounds nuw float, ptr %13, i64 %.06.i.i92
   store float %230, ptr %231, align 4
   %232 = add nuw nsw i64 %.06.i.i92, 1
   %exitcond.not.i4.i93 = icmp eq i64 %232, 4
@@ -7046,7 +7046,7 @@ _ZN7nanogui5ColorC2Eiiii.exit98:                  ; preds = %225
 
 234:                                              ; preds = %234, %233
   %.04.i.i99 = phi i64 [ 0, %233 ], [ %236, %234 ]
-  %235 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %.04.i.i99
+  %235 = getelementptr inbounds nuw i32, ptr %12, i64 %.04.i.i99
   store i32 255, ptr %235, align 4
   %236 = add nuw nsw i64 %.04.i.i99, 1
   %exitcond.not.i.i100 = icmp eq i64 %236, 3
@@ -7059,10 +7059,10 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:              ; preds = %234
 
 237:                                              ; preds = %237, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
   %.05.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i ], [ %242, %237 ]
-  %238 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %.05.i.i.i
+  %238 = getelementptr inbounds nuw i32, ptr %12, i64 %.05.i.i.i
   %239 = load i32, ptr %238, align 4
   %240 = sitofp i32 %239 to float
-  %241 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.05.i.i.i
+  %241 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i.i.i
   store float %240, ptr %241, align 4
   %242 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %242, 3
@@ -7070,7 +7070,7 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:              ; preds = %234
 
 _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %237, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   %.04.i.i.i = phi i64 [ %244, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i ], [ 0, %237 ]
-  %243 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.04.i.i.i
+  %243 = getelementptr inbounds nuw float, ptr %11, i64 %.04.i.i.i
   store float 2.550000e+02, ptr %243, align 4
   %244 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %244, 3
@@ -7082,12 +7082,12 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIf
 
 245:                                              ; preds = %245, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
   %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i ], [ %252, %245 ]
-  %246 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.06.i.i.i
+  %246 = getelementptr inbounds nuw float, ptr %10, i64 %.06.i.i.i
   %247 = load float, ptr %246, align 4
-  %248 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.06.i.i.i
+  %248 = getelementptr inbounds nuw float, ptr %11, i64 %.06.i.i.i
   %249 = load float, ptr %248, align 4
   %250 = fdiv float %247, %249
-  %251 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %.06.i.i.i
+  %251 = getelementptr inbounds nuw float, ptr %9, i64 %.06.i.i.i
   store float %250, ptr %251, align 4
   %252 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i3.i.i = icmp eq i64 %252, 3
@@ -7118,7 +7118,7 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %245
 
 263:                                              ; preds = %263, %_ZN7nanogui5ColorC2Eii.exit
   %.04.i.i101 = phi i64 [ 0, %_ZN7nanogui5ColorC2Eii.exit ], [ %265, %263 ]
-  %264 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %.04.i.i101
+  %264 = getelementptr inbounds nuw i32, ptr %8, i64 %.04.i.i101
   store i32 255, ptr %264, align 4
   %265 = add nuw nsw i64 %.04.i.i101, 1
   %exitcond.not.i.i102 = icmp eq i64 %265, 3
@@ -7131,10 +7131,10 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i103:           ; preds = %263
 
 266:                                              ; preds = %266, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i103
   %.05.i.i.i104 = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i103 ], [ %271, %266 ]
-  %267 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %.05.i.i.i104
+  %267 = getelementptr inbounds nuw i32, ptr %8, i64 %.05.i.i.i104
   %268 = load i32, ptr %267, align 4
   %269 = sitofp i32 %268 to float
-  %270 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %.05.i.i.i104
+  %270 = getelementptr inbounds nuw float, ptr %6, i64 %.05.i.i.i104
   store float %269, ptr %270, align 4
   %271 = add nuw nsw i64 %.05.i.i.i104, 1
   %exitcond.not.i.i.i105 = icmp eq i64 %271, 3
@@ -7142,7 +7142,7 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i103:           ; preds = %263
 
 _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i106: ; preds = %266, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i106
   %.04.i.i.i107 = phi i64 [ %273, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i106 ], [ 0, %266 ]
-  %272 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %.04.i.i.i107
+  %272 = getelementptr inbounds nuw float, ptr %7, i64 %.04.i.i.i107
   store float 2.550000e+02, ptr %272, align 4
   %273 = add nuw nsw i64 %.04.i.i.i107, 1
   %exitcond.not.i2.i.i108 = icmp eq i64 %273, 3
@@ -7154,12 +7154,12 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i109:         ; preds = %_ZN7nanogui5ArrayIf
 
 274:                                              ; preds = %274, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i109
   %.06.i.i.i110 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i109 ], [ %281, %274 ]
-  %275 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %.06.i.i.i110
+  %275 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i.i.i110
   %276 = load float, ptr %275, align 4
-  %277 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %.06.i.i.i110
+  %277 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i.i110
   %278 = load float, ptr %277, align 4
   %279 = fdiv float %276, %278
-  %280 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %.06.i.i.i110
+  %280 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i.i110
   store float %279, ptr %280, align 4
   %281 = add nuw nsw i64 %.06.i.i.i110, 1
   %exitcond.not.i3.i.i111 = icmp eq i64 %281, 3
@@ -7211,21 +7211,21 @@ _ZN7nanogui5ColorC2Eii.exit120:                   ; preds = %274
 
 .preheader18.i121:                                ; preds = %310, %300
   %.01724.i122 = phi i64 [ 0, %300 ], [ %311, %310 ]
-  %invariant.gep.i123 = getelementptr inbounds nuw [4 x float], ptr %21, i64 0, i64 %.01724.i122
-  %invariant.gep21.i124 = getelementptr inbounds nuw [4 x float], ptr %39, i64 0, i64 %.01724.i122
+  %invariant.gep.i123 = getelementptr inbounds nuw float, ptr %21, i64 %.01724.i122
+  %invariant.gep21.i124 = getelementptr inbounds nuw float, ptr %39, i64 %.01724.i122
   br label %.preheader.i125
 
 .preheader.i125:                                  ; preds = %308, %.preheader18.i121
   %.01623.i126 = phi i64 [ 0, %.preheader18.i121 ], [ %309, %308 ]
-  %301 = getelementptr inbounds nuw [4 x [4 x float]], ptr %20, i64 0, i64 %.01623.i126
+  %301 = getelementptr inbounds nuw [4 x float], ptr %20, i64 %.01623.i126
   br label %302
 
 302:                                              ; preds = %302, %.preheader.i125
   %.020.i127 = phi i64 [ 0, %.preheader.i125 ], [ %307, %302 ]
   %.01519.i128 = phi float [ 0.000000e+00, %.preheader.i125 ], [ %306, %302 ]
-  %gep.i129 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i123, i64 0, i64 %.020.i127
+  %gep.i129 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i123, i64 %.020.i127
   %303 = load float, ptr %gep.i129, align 4, !noalias !83
-  %304 = getelementptr inbounds nuw [4 x float], ptr %301, i64 0, i64 %.020.i127
+  %304 = getelementptr inbounds nuw float, ptr %301, i64 %.020.i127
   %305 = load float, ptr %304, align 4, !noalias !83
   %306 = call float @llvm.fmuladd.f32(float %303, float %305, float %.01519.i128)
   %307 = add nuw nsw i64 %.020.i127, 1
@@ -7233,7 +7233,7 @@ _ZN7nanogui5ColorC2Eii.exit120:                   ; preds = %274
   br i1 %exitcond.not.i130, label %308, label %302, !llvm.loop !66
 
 308:                                              ; preds = %302
-  %gep22.i131 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep21.i124, i64 0, i64 %.01623.i126
+  %gep22.i131 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep21.i124, i64 %.01623.i126
   store float %306, ptr %gep22.i131, align 4, !alias.scope !83
   %309 = add nuw nsw i64 %.01623.i126, 1
   %exitcond25.not.i132 = icmp eq i64 %309, 4
@@ -7250,21 +7250,21 @@ _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit134:    ; preds = %310
 
 .preheader18.i135:                                ; preds = %321, %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit134
   %.01724.i136 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit134 ], [ %322, %321 ]
-  %invariant.gep.i137 = getelementptr inbounds nuw [4 x float], ptr %39, i64 0, i64 %.01724.i136
-  %invariant.gep21.i138 = getelementptr inbounds nuw [4 x float], ptr %38, i64 0, i64 %.01724.i136
+  %invariant.gep.i137 = getelementptr inbounds nuw float, ptr %39, i64 %.01724.i136
+  %invariant.gep21.i138 = getelementptr inbounds nuw float, ptr %38, i64 %.01724.i136
   br label %.preheader.i139
 
 .preheader.i139:                                  ; preds = %319, %.preheader18.i135
   %.01623.i140 = phi i64 [ 0, %.preheader18.i135 ], [ %320, %319 ]
-  %312 = getelementptr inbounds nuw [4 x [4 x float]], ptr %22, i64 0, i64 %.01623.i140
+  %312 = getelementptr inbounds nuw [4 x float], ptr %22, i64 %.01623.i140
   br label %313
 
 313:                                              ; preds = %313, %.preheader.i139
   %.020.i141 = phi i64 [ 0, %.preheader.i139 ], [ %318, %313 ]
   %.01519.i142 = phi float [ 0.000000e+00, %.preheader.i139 ], [ %317, %313 ]
-  %gep.i143 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i137, i64 0, i64 %.020.i141
+  %gep.i143 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i137, i64 %.020.i141
   %314 = load float, ptr %gep.i143, align 4, !noalias !86
-  %315 = getelementptr inbounds nuw [4 x float], ptr %312, i64 0, i64 %.020.i141
+  %315 = getelementptr inbounds nuw float, ptr %312, i64 %.020.i141
   %316 = load float, ptr %315, align 4, !noalias !86
   %317 = call float @llvm.fmuladd.f32(float %314, float %316, float %.01519.i142)
   %318 = add nuw nsw i64 %.020.i141, 1
@@ -7272,7 +7272,7 @@ _ZN7nanoguimlERKNS_6MatrixIfLm4EEES3_.exit134:    ; preds = %310
   br i1 %exitcond.not.i144, label %319, label %313, !llvm.loop !66
 
 319:                                              ; preds = %313
-  %gep22.i145 = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep21.i138, i64 0, i64 %.01623.i140
+  %gep22.i145 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep21.i138, i64 %.01623.i140
   store float %317, ptr %gep22.i145, align 4, !alias.scope !86
   %320 = add nuw nsw i64 %.01623.i140, 1
   %exitcond25.not.i146 = icmp eq i64 %320, 4
@@ -10501,7 +10501,7 @@ _ZN8WarpTestC2E8WarpTypefPN4nori4BSDFENS1_15BSDFQueryRecordEii.exit: ; preds = %
           to label %99 unwind label %110
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw [2 x %"class.nanogui::ref.11"], ptr %75, i64 0, i64 %indvars.iv78
+  %100 = getelementptr inbounds nuw %"class.nanogui::ref.11", ptr %75, i64 %indvars.iv78
   %101 = load ptr, ptr %100, align 8
   %.not.i = icmp eq ptr %101, %95
   br i1 %.not.i, label %_ZN7nanogui3refINS_7TextureEEaSEPS1_.exit, label %102
@@ -12144,12 +12144,12 @@ define linkonce_odr hidden void @_ZN7nanogui6MatrixIfLm4EE7look_atILm4ETnNSt9ena
 
 16:                                               ; preds = %16, %4
   %.06.i = phi i64 [ 0, %4 ], [ %23, %16 ]
-  %17 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %.06.i
+  %17 = getelementptr inbounds nuw float, ptr %2, i64 %.06.i
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %.06.i
+  %19 = getelementptr inbounds nuw float, ptr %1, i64 %.06.i
   %20 = load float, ptr %19, align 4
   %21 = fsub float %18, %20
-  %22 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.06.i
+  %22 = getelementptr inbounds nuw float, ptr %10, i64 %.06.i
   store float %21, ptr %22, align 4
   %23 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %23, 3
@@ -12171,7 +12171,7 @@ _ZN7nanoguimiERKNS_5ArrayIfLm3EEES3_.exit:        ; preds = %16
 25:                                               ; preds = %25, %_ZN7nanoguimiERKNS_5ArrayIfLm3EEES3_.exit
   %.011.i.i.i = phi i64 [ 1, %_ZN7nanoguimiERKNS_5ArrayIfLm3EEES3_.exit ], [ %29, %25 ]
   %.0910.i.i.i = phi float [ %24, %_ZN7nanoguimiERKNS_5ArrayIfLm3EEES3_.exit ], [ %28, %25 ]
-  %26 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %.011.i.i.i
+  %26 = getelementptr inbounds nuw float, ptr %12, i64 %.011.i.i.i
   %27 = load float, ptr %26, align 4
   %28 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %.0910.i.i.i)
   %29 = add nuw nsw i64 %.011.i.i.i, 1
@@ -12184,7 +12184,7 @@ _ZN7nanogui4normIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit.i: ; preds = %25
 
 31:                                               ; preds = %31, %_ZN7nanogui4normIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit.i
   %.04.i.i = phi i64 [ 0, %_ZN7nanogui4normIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit.i ], [ %33, %31 ]
-  %32 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %.04.i.i
+  %32 = getelementptr inbounds nuw float, ptr %9, i64 %.04.i.i
   store float %30, ptr %32, align 4
   %33 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %33, 3
@@ -12196,12 +12196,12 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i:              ; preds = %31
 
 34:                                               ; preds = %34, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i
   %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i ], [ %41, %34 ]
-  %35 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %.06.i.i
+  %35 = getelementptr inbounds nuw float, ptr %12, i64 %.06.i.i
   %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %.06.i.i
+  %37 = getelementptr inbounds nuw float, ptr %9, i64 %.06.i.i
   %38 = load float, ptr %37, align 4
   %39 = fdiv float %36, %38
-  %40 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %.06.i.i
+  %40 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i.i
   store float %39, ptr %40, align 4
   %41 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i6.i = icmp eq i64 %41, 3
@@ -12244,7 +12244,7 @@ _ZN7nanogui9normalizeIfLm3EEENS_5ArrayIT_XT0_EEERKS3_.exit: ; preds = %34
 59:                                               ; preds = %59, %_ZN7nanogui9normalizeIfLm3EEENS_5ArrayIT_XT0_EEERKS3_.exit
   %.011.i.i.i30 = phi i64 [ 1, %_ZN7nanogui9normalizeIfLm3EEENS_5ArrayIT_XT0_EEERKS3_.exit ], [ %63, %59 ]
   %.0910.i.i.i31 = phi float [ %58, %_ZN7nanogui9normalizeIfLm3EEENS_5ArrayIT_XT0_EEERKS3_.exit ], [ %62, %59 ]
-  %60 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %.011.i.i.i30
+  %60 = getelementptr inbounds nuw float, ptr %14, i64 %.011.i.i.i30
   %61 = load float, ptr %60, align 4
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %.0910.i.i.i31)
   %63 = add nuw nsw i64 %.011.i.i.i30, 1
@@ -12257,7 +12257,7 @@ _ZN7nanogui4normIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit.i33: ; preds = %59
 
 65:                                               ; preds = %65, %_ZN7nanogui4normIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit.i33
   %.04.i.i34 = phi i64 [ 0, %_ZN7nanogui4normIfLm3EEET_RKNS_5ArrayIS1_XT0_EEE.exit.i33 ], [ %67, %65 ]
-  %66 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %.04.i.i34
+  %66 = getelementptr inbounds nuw float, ptr %7, i64 %.04.i.i34
   store float %64, ptr %66, align 4
   %67 = add nuw nsw i64 %.04.i.i34, 1
   %exitcond.not.i.i35 = icmp eq i64 %67, 3
@@ -12269,12 +12269,12 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i36:            ; preds = %65
 
 68:                                               ; preds = %68, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i36
   %.06.i.i37 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i36 ], [ %75, %68 ]
-  %69 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %.06.i.i37
+  %69 = getelementptr inbounds nuw float, ptr %14, i64 %.06.i.i37
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %.06.i.i37
+  %71 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i37
   %72 = load float, ptr %71, align 4
   %73 = fdiv float %70, %72
-  %74 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %.06.i.i37
+  %74 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i.i37
   store float %73, ptr %74, align 4
   %75 = add nuw nsw i64 %.06.i.i37, 1
   %exitcond.not.i6.i38 = icmp eq i64 %75, 3
@@ -12310,10 +12310,10 @@ _ZN7nanogui9normalizeIfLm3EEENS_5ArrayIT_XT0_EEERKS3_.exit44: ; preds = %68
 
 87:                                               ; preds = %87, %_ZN7nanogui9normalizeIfLm3EEENS_5ArrayIT_XT0_EEERKS3_.exit44
   %.04.i = phi i64 [ 0, %_ZN7nanogui9normalizeIfLm3EEENS_5ArrayIT_XT0_EEERKS3_.exit44 ], [ %92, %87 ]
-  %88 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.04.i
+  %88 = getelementptr inbounds nuw float, ptr %11, i64 %.04.i
   %89 = load float, ptr %88, align 4
   %90 = fneg float %89
-  %91 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %.04.i
+  %91 = getelementptr inbounds nuw float, ptr %5, i64 %.04.i
   store float %90, ptr %91, align 4
   %92 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i49 = icmp eq i64 %92, 3
@@ -12334,8 +12334,8 @@ _ZNK7nanogui5ArrayIfLm3EEngEv.exit:               ; preds = %87
 
 96:                                               ; preds = %96, %_ZNK7nanogui5ArrayIfLm3EEngEv.exit
   %.05.i = phi i64 [ 0, %_ZNK7nanogui5ArrayIfLm3EEngEv.exit ], [ %99, %96 ]
-  %97 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %.05.i
-  %98 = getelementptr inbounds nuw [4 x float], ptr %97, i64 0, i64 %.05.i
+  %97 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %.05.i
+  %98 = getelementptr inbounds nuw float, ptr %97, i64 %.05.i
   store float 0.000000e+00, ptr %98, align 4
   %99 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i55 = icmp eq i64 %99, 4
@@ -12366,9 +12366,9 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit:               ; preds = %96
 110:                                              ; preds = %110, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit
   %.011.i = phi i64 [ 1, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit ], [ %116, %110 ]
   %.0910.i = phi float [ %109, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit ], [ %115, %110 ]
-  %111 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %.011.i
+  %111 = getelementptr inbounds nuw float, ptr %13, i64 %.011.i
   %112 = load float, ptr %111, align 4
-  %113 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %.011.i
+  %113 = getelementptr inbounds nuw float, ptr %1, i64 %.011.i
   %114 = load float, ptr %113, align 4
   %115 = tail call float @llvm.fmuladd.f32(float %112, float %114, float %.0910.i)
   %116 = add nuw nsw i64 %.011.i, 1
@@ -12385,9 +12385,9 @@ _ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit: ; preds = %110
 120:                                              ; preds = %120, %_ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit
   %.011.i57 = phi i64 [ 1, %_ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit ], [ %126, %120 ]
   %.0910.i58 = phi float [ %119, %_ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit ], [ %125, %120 ]
-  %121 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %.011.i57
+  %121 = getelementptr inbounds nuw float, ptr %15, i64 %.011.i57
   %122 = load float, ptr %121, align 4
-  %123 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %.011.i57
+  %123 = getelementptr inbounds nuw float, ptr %1, i64 %.011.i57
   %124 = load float, ptr %123, align 4
   %125 = tail call float @llvm.fmuladd.f32(float %122, float %124, float %.0910.i58)
   %126 = add nuw nsw i64 %.011.i57, 1
@@ -12404,9 +12404,9 @@ _ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit60: ; preds = %120
 130:                                              ; preds = %130, %_ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit60
   %.011.i61 = phi i64 [ 1, %_ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit60 ], [ %136, %130 ]
   %.0910.i62 = phi float [ %129, %_ZN7nanogui3dotIfLm3EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit60 ], [ %135, %130 ]
-  %131 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.011.i61
+  %131 = getelementptr inbounds nuw float, ptr %11, i64 %.011.i61
   %132 = load float, ptr %131, align 4
-  %133 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %.011.i61
+  %133 = getelementptr inbounds nuw float, ptr %1, i64 %.011.i61
   %134 = load float, ptr %133, align 4
   %135 = tail call float @llvm.fmuladd.f32(float %132, float %134, float %.0910.i62)
   %136 = add nuw nsw i64 %.011.i61, 1
@@ -12472,8 +12472,8 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
 
 42:                                               ; preds = %42, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
   %.05.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge ], [ %45, %42 ]
-  %43 = getelementptr inbounds nuw [4 x [4 x float]], ptr %5, i64 0, i64 %.05.i.i
-  %44 = getelementptr inbounds nuw [4 x float], ptr %43, i64 0, i64 %.05.i.i
+  %43 = getelementptr inbounds nuw [4 x float], ptr %5, i64 %.05.i.i
+  %44 = getelementptr inbounds nuw float, ptr %43, i64 %.05.i.i
   store float 0.000000e+00, ptr %44, align 4, !alias.scope !229
   %45 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %45, 4

@@ -1955,8 +1955,8 @@ default.unreachable16:                            ; preds = %17, %6
   br i1 %exitcond.not.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i", label %32
 
 32:                                               ; preds = %.preheader.split.i.i.i.i.i
-  %33 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
-  %34 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val2.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
+  %33 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
+  %34 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val2.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %35 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %34), !noalias !371
   br i1 %35, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
@@ -2020,8 +2020,8 @@ default.unreachable16:                            ; preds = %17, %6
   br i1 %exitcond.not.i.i.i.i13.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i", label %63
 
 63:                                               ; preds = %.preheader.split.i.i.i.i11.i
-  %64 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i8.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
-  %65 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val8.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i12.i
+  %64 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val.i.i8.i, i64 %.sroa.01.0.i.i.i.i12.i
+  %65 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val8.i.i.i, i64 %.sroa.01.0.i.i.i.i12.i
   %66 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %65), !noalias !379
   br i1 %66, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
@@ -2115,8 +2115,8 @@ default.unreachable16:                            ; preds = %17, %6
   br i1 %exitcond.not.i.i.i.i26.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i28.i", label %114
 
 114:                                              ; preds = %.preheader.split.i.i.i.i24.i
-  %115 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val.i.i18.i, i64 0, i64 %.sroa.01.0.i.i.i.i25.i
-  %116 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %.val4.i.i20.i, i64 0, i64 %.sroa.01.0.i.i.i.i25.i
+  %115 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val.i.i18.i, i64 %.sroa.01.0.i.i.i.i25.i
+  %116 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val4.i.i20.i, i64 %.sroa.01.0.i.i.i.i25.i
   %117 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %116), !noalias !385
   br i1 %117, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
@@ -3336,7 +3336,7 @@ _ZN9typst_pdf4page22write_global_resources17h159b5f3c5f39f4f9E.exit: ; preds = %
 
 414:                                              ; preds = %410
   %415 = load ptr, ptr %382, align 8, !alias.scope !671, !nonnull !16, !noundef !16
-  %416 = getelementptr inbounds [0 x { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] }], ptr %415, i64 0, i64 %.sroa.01.0108
+  %416 = getelementptr inbounds { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] }, ptr %415, i64 %.sroa.01.0108
   %417 = load i32, ptr %81, align 8, !range !394, !alias.scope !671, !noundef !16
   %418 = icmp ugt i32 %417, 2147483646
   br i1 %418, label %419, label %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i15
@@ -5434,8 +5434,8 @@ define internal fastcc void @_ZN9typst_pdf4page11PageContext10set_stroke17hec0be
 
 51:                                               ; preds = %.preheader.split.i.i.i
   %52 = add i64 %.sroa.01.0.i.i.i, 1
-  %53 = getelementptr inbounds [0 x double], ptr %.val.i, i64 0, i64 %.sroa.01.0.i.i.i
-  %54 = getelementptr inbounds [0 x double], ptr %.val4.i, i64 0, i64 %.sroa.01.0.i.i.i
+  %53 = getelementptr inbounds double, ptr %.val.i, i64 %.sroa.01.0.i.i.i
+  %54 = getelementptr inbounds double, ptr %.val4.i, i64 %.sroa.01.0.i.i.i
   %55 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54)
   br i1 %55, label %.preheader.split.i.i.i, label %.critedge
 
@@ -5867,8 +5867,8 @@ _ZN10pdf_writer7content7Content14set_line_width17h2dd8d2f502be0f7fE.exit..crited
 
 228:                                              ; preds = %.preheader.split.i.i.i.i.i
   %229 = add i64 %.sroa.01.0.i.i.i.i.i, 1
-  %230 = getelementptr inbounds [0 x double], ptr %.val.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
-  %231 = getelementptr inbounds [0 x double], ptr %.val2.i.i.i, i64 0, i64 %.sroa.01.0.i.i.i.i.i
+  %230 = getelementptr inbounds double, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
+  %231 = getelementptr inbounds double, ptr %.val2.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %232 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %230, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %231), !noalias !1094
   br i1 %232, label %.preheader.split.i.i.i.i.i, label %.critedge79
 

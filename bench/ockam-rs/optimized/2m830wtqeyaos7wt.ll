@@ -3190,7 +3190,7 @@ common.ret:                                       ; preds = %1857, %214, %179
 
 .lr.ph.i.i.i.i:                                   ; preds = %599, %610
   %.05.i.i.i.i = phi i64 [ %611, %610 ], [ 0, %599 ]
-  %607 = getelementptr inbounds nuw [0 x i8], ptr %.val416.i, i64 0, i64 %.05.i.i.i.i
+  %607 = getelementptr inbounds nuw i8, ptr %.val416.i, i64 %.05.i.i.i.i
   %608 = load i8, ptr %607, align 1, !alias.scope !519, !noalias !522, !noundef !5
   %609 = icmp eq i8 %608, %600
   br i1 %609, label %.thread.i, label %610
@@ -3223,7 +3223,7 @@ common.ret:                                       ; preds = %1857, %214, %179
   br i1 %623, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h91cdb1f396c1058dE.exit.i.i.i.i.i", label %.invoke.i, !prof !530
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h91cdb1f396c1058dE.exit.i.i.i.i.i": ; preds = %621
-  %624 = getelementptr inbounds nuw [0 x i8], ptr %585, i64 0, i64 %622
+  %624 = getelementptr inbounds nuw i8, ptr %585, i64 %622
   %625 = load i8, ptr %624, align 1, !alias.scope !528, !noalias !531, !noundef !5
   %.not.i.not.i.i.i.i.i = icmp eq i8 %625, %613
   br i1 %.not.i.not.i.i.i.i.i, label %618, label %626
@@ -3296,7 +3296,7 @@ common.ret:                                       ; preds = %1857, %214, %179
   %655 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i, %638
   %656 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i, %639
   %657 = and <16 x i1> %655, %656
-  %658 = getelementptr inbounds nuw [4 x i16], ptr %32, i64 0, i64 %.sroa.022.0147.i.i.i.i
+  %658 = getelementptr inbounds nuw i16, ptr %32, i64 %.sroa.022.0147.i.i.i.i
   store <16 x i1> %657, ptr %658, align 2, !noalias !539
   %exitcond.not.i37.i.i.i = icmp eq i64 %651, 4
   br i1 %exitcond.not.i37.i.i.i, label %.preheader143.i.i.i.i, label %650
@@ -3314,7 +3314,7 @@ common.ret:                                       ; preds = %1857, %214, %179
   %.sroa.028.0149.i.i.i.i = phi i64 [ %664, %668 ], [ 0, %650 ]
   %.2148.i.i.i.i = phi i8 [ %.3.i.i.i.i, %668 ], [ 0, %650 ]
   %664 = add nuw nsw i64 %.sroa.028.0149.i.i.i.i, 1
-  %665 = getelementptr inbounds nuw [4 x i16], ptr %32, i64 0, i64 %.sroa.028.0149.i.i.i.i
+  %665 = getelementptr inbounds nuw i16, ptr %32, i64 %.sroa.028.0149.i.i.i.i
   %666 = load i16, ptr %665, align 2, !noalias !539, !noundef !5
   %667 = icmp eq i16 %666, 0
   br i1 %667, label %668, label %669
@@ -3635,9 +3635,9 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %822, label %823, label %.invoke.i, !prof !530
 
 823:                                              ; preds = %820
-  %824 = getelementptr inbounds [0 x i8], ptr %786, i64 0, i64 %818
+  %824 = getelementptr inbounds i8, ptr %786, i64 %818
   %825 = load i8, ptr %824, align 1, !alias.scope !585, !noalias !590, !noundef !5
-  %826 = getelementptr inbounds [0 x i8], ptr %782, i64 0, i64 %821
+  %826 = getelementptr inbounds i8, ptr %782, i64 %821
   %827 = load i8, ptr %826, align 1, !alias.scope !583, !noalias !589, !noundef !5
   %.not25.i54.i.i.i = icmp eq i8 %825, %827
   br i1 %.not25.i54.i.i.i, label %.preheader65.i.i.i, label %828
@@ -3653,9 +3653,9 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 833:                                              ; preds = %830
   %834 = add nuw i64 %.sroa.04.0.i52.i.i.i, 1
-  %835 = getelementptr inbounds [0 x i8], ptr %786, i64 0, i64 %.sroa.04.0.i52.i.i.i
+  %835 = getelementptr inbounds i8, ptr %786, i64 %.sroa.04.0.i52.i.i.i
   %836 = load i8, ptr %835, align 1, !alias.scope !585, !noalias !590, !noundef !5
-  %837 = getelementptr inbounds [0 x i8], ptr %782, i64 0, i64 %831
+  %837 = getelementptr inbounds i8, ptr %782, i64 %831
   %838 = load i8, ptr %837, align 1, !alias.scope !583, !noalias !589, !noundef !5
   %.not.i58.i.i.i = icmp eq i8 %836, %838
   br i1 %.not.i58.i.i.i, label %814, label %841
@@ -3733,9 +3733,9 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %870, label %871, label %.invoke.i, !prof !530
 
 871:                                              ; preds = %867
-  %872 = getelementptr inbounds [0 x i8], ptr %786, i64 0, i64 %868
+  %872 = getelementptr inbounds i8, ptr %786, i64 %868
   %873 = load i8, ptr %872, align 1, !alias.scope !596, !noalias !601, !noundef !5
-  %874 = getelementptr inbounds [0 x i8], ptr %782, i64 0, i64 %869
+  %874 = getelementptr inbounds i8, ptr %782, i64 %869
   %875 = load i8, ptr %874, align 1, !alias.scope !594, !noalias !600, !noundef !5
   %.not25.i.i.us.i.i = icmp eq i8 %873, %875
   br i1 %.not25.i.i.us.i.i, label %.preheader.i.us.i.i, label %.split50.us.i.i
@@ -3755,9 +3755,9 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
 
 880:                                              ; preds = %877
   %881 = add nuw i64 %.sroa.04.0.i.i.i.i, 1
-  %882 = getelementptr inbounds [0 x i8], ptr %786, i64 0, i64 %.sroa.04.0.i.i.i.i
+  %882 = getelementptr inbounds i8, ptr %786, i64 %.sroa.04.0.i.i.i.i
   %883 = load i8, ptr %882, align 1, !alias.scope !596, !noalias !601, !noundef !5
-  %884 = getelementptr inbounds [0 x i8], ptr %782, i64 0, i64 %878
+  %884 = getelementptr inbounds i8, ptr %782, i64 %878
   %885 = load i8, ptr %884, align 1, !alias.scope !594, !noalias !600, !noundef !5
   %.not.i44.i.i.i = icmp eq i8 %883, %885
   br i1 %.not.i44.i.i.i, label %.preheader64.i.i.i, label %891

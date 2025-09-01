@@ -88,13 +88,13 @@ define dso_local range(i32 -255, 256) i32 @strncasecmp(ptr noundef readonly capt
 
 17:                                               ; preds = %15
   %18 = zext i8 %9 to i64
-  %19 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @_ctype, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = shl i8 %20, 5
   %22 = and i8 %21, 32
   %23 = add i8 %22, %9
   %24 = zext i8 %11 to i64
-  %25 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @_ctype, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = shl i8 %26, 5
   %28 = and i8 %27, 32
@@ -131,7 +131,7 @@ define dso_local range(i32 -255, 256) i32 @strcasecmp(ptr noundef readonly captu
   %6 = getelementptr i8, ptr %4, i64 1
   %7 = load i8, ptr %4, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @_ctype, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = shl i8 %10, 5
   %12 = and i8 %11, 32
@@ -139,7 +139,7 @@ define dso_local range(i32 -255, 256) i32 @strcasecmp(ptr noundef readonly captu
   %14 = getelementptr i8, ptr %5, i64 1
   %15 = load i8, ptr %5, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @_ctype, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = shl i8 %18, 5
   %20 = and i8 %19, 32

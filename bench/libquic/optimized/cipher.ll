@@ -640,7 +640,7 @@ define hidden range(i32 0, 2) i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %45 = sext i32 %24 to i64
-  %46 = getelementptr inbounds [32 x i8], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds i8, ptr %44, i64 %45
   %47 = zext nneg i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %3, i64 %47, i1 false)
   %48 = load i32, ptr %23, align 4, !tbaa !26
@@ -653,7 +653,7 @@ define hidden range(i32 0, 2) i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef
   %51 = sub nsw i32 %40, %24
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %53 = sext i32 %24 to i64
-  %54 = getelementptr inbounds [32 x i8], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
   %55 = sext i32 %51 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr align 1 %3, i64 %55, i1 false)
   %56 = load ptr, ptr %0, align 8, !tbaa !6
@@ -972,7 +972,7 @@ define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr nound
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %35 = add i32 %16, -1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !32
   %39 = zext i8 %38 to i32
   %40 = icmp eq i8 %38, 0
@@ -994,7 +994,7 @@ define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr nound
   %.03849 = phi i32 [ %44, %43 ], [ 0, %33 ]
   %45 = add i32 %.050, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !32
   %.not47 = icmp eq i8 %48, %38
   br i1 %.not47, label %43, label %49
@@ -1014,7 +1014,7 @@ define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %53 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !32
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %54, ptr %55, align 1, !tbaa !32

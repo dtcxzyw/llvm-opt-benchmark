@@ -459,14 +459,14 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
 134:                                              ; preds = %126
   %135 = and i32 %.sroa.4.1.i.ph10.i10.i.i.i, 255
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %136
   %138 = load i8, ptr %137, align 1, !noalias !61, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i
 
 139:                                              ; preds = %126
   %140 = and i32 %.sroa.4.1.i.ph10.i10.i.i.i, 255
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %141
   %143 = load i8, ptr %142, align 1, !noalias !61, !noundef !5
   %144 = lshr i8 %143, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i
@@ -1268,14 +1268,14 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %"_ZN5alloc3vec
 254:                                              ; preds = %246
   %255 = and i32 %.sroa.4.0.i.ph, 255
   %256 = zext nneg i32 %255 to i64
-  %257 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %256
   %258 = load i8, ptr %257, align 1, !noundef !5
   br label %265
 
 259:                                              ; preds = %246
   %260 = and i32 %.sroa.4.0.i.ph, 255
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %261
   %263 = load i8, ptr %262, align 1, !noundef !5
   %264 = lshr i8 %263, 1
   br label %265

@@ -3770,13 +3770,13 @@ define internal noundef range(i32 -1, 1) i32 @_ZN8nanobind6detailL19nd_ndarray_t
 
 switch.lookup:                                    ; preds = %12
   %35 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %37
 
 switch.lookup76:                                  ; preds = %19
   %36 = zext nneg i32 %24 to i64
-  %switch.gep80 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 0, i64 %36
+  %switch.gep80 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 %36
   %switch.load81 = load ptr, ptr %switch.gep80, align 8
   br label %37
 

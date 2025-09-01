@@ -234,7 +234,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   %.07076 = phi i64 [ 0, %.preheader74 ], [ %22, %16 ]
   %17 = getelementptr inbounds nuw i8, ptr %.078, i64 %.07076
   %18 = load i8, ptr %17, align 1, !tbaa !12
-  %19 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %.07076
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.07076
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = xor i8 %20, %18
   store i8 %21, ptr %19, align 1, !tbaa !12
@@ -259,7 +259,7 @@ define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80
   %.180 = phi i64 [ %32, %.preheader ], [ 0, %._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %.180
   %28 = load i8, ptr %27, align 1, !tbaa !12
-  %29 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %.180
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.180
   %30 = load i8, ptr %29, align 1, !tbaa !12
   %31 = xor i8 %30, %28
   store i8 %31, ptr %29, align 1, !tbaa !12
@@ -367,7 +367,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %.166, i64 1
   %22 = load i8, ptr %.166, align 1, !tbaa !12
   %23 = zext i32 %.15065 to i64
-  %24 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !12
   %26 = xor i8 %25, %22
   store i8 %26, ptr %24, align 1, !tbaa !12
@@ -420,7 +420,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   %.05269 = phi i64 [ 0, %47 ], [ %55, %49 ]
   %50 = getelementptr inbounds nuw i8, ptr %.2, i64 %.05269
   %51 = load i8, ptr %50, align 1, !tbaa !12
-  %52 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 0, i64 %.05269
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.05269
   %53 = load i8, ptr %52, align 1, !tbaa !12
   %54 = xor i8 %53, %51
   store i8 %54, ptr %52, align 1, !tbaa !12
@@ -513,12 +513,12 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %.1182, i64 1
   %48 = load i8, ptr %.1182, align 1, !tbaa !12
   %49 = zext i32 %.1156179 to i64
-  %50 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !12
   %52 = xor i8 %51, %48
   %53 = getelementptr inbounds nuw i8, ptr %.1144181, i64 1
   store i8 %52, ptr %.1144181, align 1, !tbaa !12
-  %54 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 0, i64 %49
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 %49
   %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = xor i8 %55, %52
   store i8 %56, ptr %54, align 1, !tbaa !12
@@ -693,12 +693,12 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   %139 = zext i32 %.3158211 to i64
   %140 = getelementptr inbounds nuw i8, ptr %.4, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !12
-  %142 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 0, i64 %139
+  %142 = getelementptr inbounds nuw i8, ptr %127, i64 %139
   %143 = load i8, ptr %142, align 1, !tbaa !12
   %144 = xor i8 %143, %141
   %145 = getelementptr inbounds nuw i8, ptr %.4147, i64 %139
   store i8 %144, ptr %145, align 1, !tbaa !12
-  %146 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 0, i64 %139
+  %146 = getelementptr inbounds nuw i8, ptr %136, i64 %139
   %147 = load i8, ptr %146, align 1, !tbaa !12
   %148 = xor i8 %147, %144
   store i8 %148, ptr %146, align 1, !tbaa !12
@@ -787,12 +787,12 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %.1184, i64 1
   %48 = load i8, ptr %.1184, align 1, !tbaa !12
   %49 = zext i32 %.1159181 to i64
-  %50 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !12
   %52 = xor i8 %51, %48
   %53 = getelementptr inbounds nuw i8, ptr %.1147183, i64 1
   store i8 %52, ptr %.1147183, align 1, !tbaa !12
-  %54 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 0, i64 %49
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 %49
   %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = xor i8 %55, %48
   store i8 %56, ptr %54, align 1, !tbaa !12
@@ -961,11 +961,11 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   %136 = zext i32 %.3161215 to i64
   %137 = getelementptr inbounds nuw i8, ptr %.4, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !12
-  %139 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 0, i64 %136
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 %136
   %140 = load i8, ptr %139, align 1, !tbaa !12
   %141 = xor i8 %140, %138
   store i8 %141, ptr %139, align 1, !tbaa !12
-  %142 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 0, i64 %136
+  %142 = getelementptr inbounds nuw i8, ptr %124, i64 %136
   %143 = load i8, ptr %142, align 1, !tbaa !12
   %144 = xor i8 %143, %138
   %145 = getelementptr inbounds nuw i8, ptr %.4150, i64 %136
@@ -1035,12 +1035,12 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, p
   %28 = getelementptr inbounds nuw i8, ptr %.1172, i64 1
   %29 = load i8, ptr %.1172, align 1, !tbaa !12
   %30 = zext i32 %.1151169 to i64
-  %31 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !12
   %33 = xor i8 %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %.1141171, i64 1
   store i8 %33, ptr %.1141171, align 1, !tbaa !12
-  %35 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 0, i64 %30
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 %30
   %36 = load i8, ptr %35, align 1, !tbaa !12
   %37 = xor i8 %36, %33
   store i8 %37, ptr %35, align 1, !tbaa !12
@@ -1207,12 +1207,12 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   %126 = zext i32 %.3153186 to i64
   %127 = getelementptr inbounds nuw i8, ptr %.4, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !12
-  %129 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 0, i64 %126
+  %129 = getelementptr inbounds nuw i8, ptr %114, i64 %126
   %130 = load i8, ptr %129, align 1, !tbaa !12
   %131 = xor i8 %130, %128
   %132 = getelementptr inbounds nuw i8, ptr %.4144, i64 %126
   store i8 %131, ptr %132, align 1, !tbaa !12
-  %133 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 0, i64 %126
+  %133 = getelementptr inbounds nuw i8, ptr %123, i64 %126
   %134 = load i8, ptr %133, align 1, !tbaa !12
   %135 = xor i8 %134, %131
   store i8 %135, ptr %133, align 1, !tbaa !12
@@ -1283,12 +1283,12 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, p
   %28 = getelementptr inbounds nuw i8, ptr %.1176, i64 1
   %29 = load i8, ptr %.1176, align 1, !tbaa !12
   %30 = zext i32 %.1155173 to i64
-  %31 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !12
   %33 = xor i8 %32, %29
   %34 = getelementptr inbounds nuw i8, ptr %.1145175, i64 1
   store i8 %33, ptr %.1145175, align 1, !tbaa !12
-  %35 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 0, i64 %30
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 %30
   %36 = load i8, ptr %35, align 1, !tbaa !12
   %37 = xor i8 %36, %29
   store i8 %37, ptr %35, align 1, !tbaa !12
@@ -1455,11 +1455,11 @@ aesni_gcm_enabled.exit.thread:                    ; preds = %50, %53, %aesni_gcm
   %126 = zext i32 %.3157190 to i64
   %127 = getelementptr inbounds nuw i8, ptr %.4, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !12
-  %129 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 0, i64 %126
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %126
   %130 = load i8, ptr %129, align 1, !tbaa !12
   %131 = xor i8 %130, %128
   store i8 %131, ptr %129, align 1, !tbaa !12
-  %132 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 0, i64 %126
+  %132 = getelementptr inbounds nuw i8, ptr %114, i64 %126
   %133 = load i8, ptr %132, align 1, !tbaa !12
   %134 = xor i8 %133, %128
   %135 = getelementptr inbounds nuw i8, ptr %.4148, i64 %126

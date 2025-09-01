@@ -697,7 +697,7 @@ _ZN2cv2mlL11computeSumsERKNS_3MatEPKmiiPd.exit:   ; preds = %._crit_edge.us.i, %
   %.0132319 = phi i32 [ 0, %_ZN2cv2mlL11computeSumsERKNS_3MatEPKmiiPd.exit ], [ %.2134, %462 ]
   %.0318 = phi i32 [ 0, %_ZN2cv2mlL11computeSumsERKNS_3MatEPKmiiPd.exit ], [ %.1, %462 ]
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw [64 x %"struct.cv::ml::SubTree"], ptr %16, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw %"struct.cv::ml::SubTree", ptr %16, i64 %207
   %209 = load i32, ptr %208, align 16, !tbaa !67
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %211 = load i32, ptr %210, align 4, !tbaa !69
@@ -1318,7 +1318,7 @@ _ZN2cv2mlL11computeSumsERKNS_3MatEPKmiiPd.exit223: ; preds = %._crit_edge.us.i21
   store i32 %458, ptr %212, align 4, !tbaa !45
   %459 = add nuw nsw i32 %.0130320, 1
   %460 = zext nneg i32 %.0130320 to i64
-  %461 = getelementptr inbounds nuw [64 x %"struct.cv::ml::SubTree"], ptr %16, i64 0, i64 %460
+  %461 = getelementptr inbounds nuw %"struct.cv::ml::SubTree", ptr %16, i64 %460
   store i32 %432, ptr %461, align 16, !tbaa !45
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %461, i64 4
   store i32 %211, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !45

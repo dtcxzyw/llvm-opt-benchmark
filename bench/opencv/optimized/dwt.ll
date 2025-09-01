@@ -2969,8 +2969,8 @@ define hidden double @opj_dwt_getnorm(i32 noundef %0, i32 noundef %1) local_unna
   %6 = zext i32 %spec.store.select to i64
   %.0 = select i1 %or.cond, i64 9, i64 %6
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms, i64 0, i64 %7
-  %9 = getelementptr inbounds nuw [10 x double], ptr %8, i64 0, i64 %.0
+  %8 = getelementptr inbounds nuw [10 x double], ptr @opj_dwt_norms, i64 %7
+  %9 = getelementptr inbounds nuw double, ptr %8, i64 %.0
   %10 = load double, ptr %9, align 8, !tbaa !147
   ret double %10
 }
@@ -4195,8 +4195,8 @@ define hidden double @opj_dwt_getnorm_real(i32 noundef %0, i32 noundef %1) local
   %6 = zext i32 %spec.store.select to i64
   %.0 = select i1 %or.cond, i64 9, i64 %6
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %7
-  %9 = getelementptr inbounds nuw [10 x double], ptr %8, i64 0, i64 %.0
+  %8 = getelementptr inbounds nuw [10 x double], ptr @opj_dwt_norms_real, i64 %7
+  %9 = getelementptr inbounds nuw double, ptr %8, i64 %.0
   %10 = load double, ptr %9, align 8, !tbaa !147
   ret double %10
 }
@@ -4249,7 +4249,7 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
 
 .thread33:                                        ; preds = %.thread
   %29 = add i32 %28, %1
-  %30 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %14, i64 %indvars.iv
   br label %.lr.ph.i.i.preheader
 
 31:                                               ; preds = %.thread
@@ -4261,8 +4261,8 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
   %35 = zext i32 %spec.store.select.i to i64
   %.0.i = select i1 %or.cond.i, i64 9, i64 %35
   %36 = zext nneg i32 %23 to i64
-  %37 = getelementptr inbounds nuw [4 x [10 x double]], ptr @opj_dwt_norms_real, i64 0, i64 %36
-  %38 = getelementptr inbounds nuw [10 x double], ptr %37, i64 0, i64 %.0.i
+  %37 = getelementptr inbounds nuw [10 x double], ptr @opj_dwt_norms_real, i64 %36
+  %38 = getelementptr inbounds nuw double, ptr %37, i64 %.0.i
   %39 = load double, ptr %38, align 8, !tbaa !147
   %40 = shl nuw nsw i32 1, %28
   %41 = uitofp nneg i32 %40 to double
@@ -4271,7 +4271,7 @@ define hidden void @opj_dwt_calc_explicit_stepsizes(ptr noundef captures(none) %
   %44 = tail call double @llvm.floor.f64(double %43)
   %45 = fptosi double %44 to i32
   %46 = add i32 %28, %1
-  %47 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %14, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %struct.opj_stepsize, ptr %14, i64 %indvars.iv
   %48 = icmp sgt i32 %45, 1
   br i1 %48, label %.lr.ph.i.i.preheader, label %opj_dwt_encode_stepsize.exit
 
@@ -4792,7 +4792,7 @@ opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
 
 263:                                              ; preds = %263, %.preheader.us.i
   %indvars.iv376.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next377.i, %263 ]
-  %264 = getelementptr inbounds nuw [8 x float], ptr %262, i64 0, i64 %indvars.iv376.i
+  %264 = getelementptr inbounds nuw float, ptr %262, i64 %indvars.iv376.i
   %265 = load float, ptr %264, align 4, !tbaa !57, !noalias !181
   %266 = mul nuw i64 %indvars.iv376.i, %64
   %gep.us.i = getelementptr float, ptr %invariant.gep.us.i, i64 %266
@@ -6746,7 +6746,7 @@ define internal fastcc ptr @opj_dwt_init_sparse_array(ptr noundef readonly captu
   %34 = phi i32 [ %.pre123, %.lr.ph109 ], [ %110, %.critedge97 ]
   %35 = phi i32 [ %.pre, %.lr.ph109 ], [ %111, %.critedge97 ]
   %indvars.iv117 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next118, %.critedge97 ]
-  %36 = getelementptr inbounds nuw [3 x %struct.opj_tcd_band], ptr %25, i64 0, i64 %indvars.iv117
+  %36 = getelementptr inbounds nuw %struct.opj_tcd_band, ptr %25, i64 %indvars.iv117
   %37 = mul i32 %34, %35
   %.not90104.not = icmp eq i32 %37, 0
   br i1 %.not90104.not, label %.critedge97, label %.lr.ph106

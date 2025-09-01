@@ -19977,7 +19977,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter15VisitAtomicExprEPN5
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [89 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111StmtPrinter15VisitAtomicExprEPN5clang10AtomicExprE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_111StmtPrinter15VisitAtomicExprEPN5clang10AtomicExprE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !386
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #20

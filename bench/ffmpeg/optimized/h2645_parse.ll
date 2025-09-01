@@ -959,7 +959,7 @@ get_bit_length.exit:                              ; preds = %200, %202
 
 vvc_nal_unit_name.exit.i:                         ; preds = %255
   %257 = zext nneg i32 %242 to i64
-  %258 = getelementptr inbounds nuw [32 x ptr], ptr @vvc_nal_type_name, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw ptr, ptr @vvc_nal_type_name, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !51
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef %242, ptr noundef %259, i32 noundef %237, i32 noundef %252) #6
   br label %vvc_parse_nal_header.exit.thread223
@@ -1007,7 +1007,7 @@ hevc_parse_nal_header.exit:                       ; preds = %261, %262
 
 hevc_parse_nal_header.exit.thread:                ; preds = %262
   %286 = zext nneg i32 %265 to i64
-  %287 = getelementptr inbounds nuw [64 x ptr], ptr @hevc_nal_type_name, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw ptr, ptr @hevc_nal_type_name, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !51
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef %265, ptr noundef %288, i32 noundef %269, i32 noundef %280) #6
   %289 = getelementptr inbounds nuw i8, ptr %163, i64 76
@@ -1030,7 +1030,7 @@ hevc_parse_nal_header.exit.thread:                ; preds = %262
   store i32 8, ptr %230, align 8, !tbaa !47
   store i32 %299, ptr %232, align 8, !tbaa !48
   %300 = zext nneg i32 %299 to i64
-  %301 = getelementptr inbounds nuw [32 x ptr], ptr @h264_nal_type_name, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw ptr, ptr @h264_nal_type_name, i64 %300
   %302 = load ptr, ptr %301, align 8, !tbaa !51
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.102, i32 noundef %299, ptr noundef %302, i32 noundef %296) #6
   br label %vvc_parse_nal_header.exit.thread223

@@ -519,7 +519,7 @@ define weak_odr void @_ZN9Imath_3_232procrustesRotationAndTranslationIdEENS_8Mat
   %.sroa.096.0291 = phi double [ 0.000000e+00, %.loopexit ], [ %309, %302 ]
   %.sroa.697.0290 = phi double [ 0.000000e+00, %.loopexit ], [ %311, %302 ]
   %invariant.gep = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv346
-  %299 = getelementptr inbounds nuw [3 x [3 x double]], ptr %7, i64 0, i64 %indvars.iv346
+  %299 = getelementptr inbounds nuw [3 x double], ptr %7, i64 %indvars.iv346
   br label %303
 
 300:                                              ; preds = %302
@@ -535,7 +535,7 @@ define weak_odr void @_ZN9Imath_3_232procrustesRotationAndTranslationIdEENS_8Mat
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %303 ]
   %.sroa.096.1288 = phi double [ %.sroa.096.0291, %.preheader ], [ %309, %303 ]
   %.sroa.697.1287 = phi double [ %.sroa.697.0290, %.preheader ], [ %311, %303 ]
-  %gep = getelementptr inbounds nuw [3 x [3 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %indvars.iv
   %304 = load double, ptr %gep, align 8, !tbaa !3
   %305 = getelementptr inbounds nuw double, ptr %299, i64 %indvars.iv
   %306 = load double, ptr %305, align 8, !tbaa !3
@@ -1091,7 +1091,7 @@ define weak_odr void @_ZN9Imath_3_232procrustesRotationAndTranslationIfEENS_8Mat
   %.sroa.096.0291 = phi double [ 0.000000e+00, %.loopexit ], [ %342, %335 ]
   %.sroa.697.0290 = phi double [ 0.000000e+00, %.loopexit ], [ %344, %335 ]
   %invariant.gep = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv346
-  %332 = getelementptr inbounds nuw [3 x [3 x double]], ptr %7, i64 0, i64 %indvars.iv346
+  %332 = getelementptr inbounds nuw [3 x double], ptr %7, i64 %indvars.iv346
   br label %336
 
 333:                                              ; preds = %335
@@ -1107,7 +1107,7 @@ define weak_odr void @_ZN9Imath_3_232procrustesRotationAndTranslationIfEENS_8Mat
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %336 ]
   %.sroa.096.1288 = phi double [ %.sroa.096.0291, %.preheader ], [ %342, %336 ]
   %.sroa.697.1287 = phi double [ %.sroa.697.0290, %.preheader ], [ %344, %336 ]
-  %gep = getelementptr inbounds nuw [3 x [3 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %indvars.iv
   %337 = load double, ptr %gep, align 8, !tbaa !3
   %338 = getelementptr inbounds nuw double, ptr %332, i64 %indvars.iv
   %339 = load double, ptr %338, align 8, !tbaa !3
@@ -1333,7 +1333,7 @@ define weak_odr void @_ZN9Imath_3_29jacobiSVDIdEEvRKNS_8Matrix33IT_EERS3_RNS_4Ve
 
 98:                                               ; preds = %98, %92
   %indvars.iv.i.i.i = phi i64 [ 0, %92 ], [ %indvars.iv.next.i.i.i, %98 ]
-  %99 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 0, i64 %indvars.iv.i.i.i
+  %99 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv.i.i.i
   %100 = load double, ptr %99, align 8, !tbaa !3
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load double, ptr %101, align 8, !tbaa !3
@@ -1350,7 +1350,7 @@ define weak_odr void @_ZN9Imath_3_29jacobiSVDIdEEvRKNS_8Matrix33IT_EERS3_RNS_4Ve
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi0ELi1EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i: ; preds = %98, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi0ELi1EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i
   %indvars.iv.i125.i.i = phi i64 [ %indvars.iv.next.i126.i.i, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi0ELi1EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i ], [ 0, %98 ]
-  %108 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 0, i64 %indvars.iv.i125.i.i
+  %108 = getelementptr inbounds nuw [3 x double], ptr %3, i64 %indvars.iv.i125.i.i
   %109 = load double, ptr %108, align 8, !tbaa !3
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load double, ptr %110, align 8, !tbaa !3
@@ -1474,7 +1474,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdLi0ELi1ELi2EEEbRNS_8Matrix3
 
 190:                                              ; preds = %190, %184
   %indvars.iv.i.i100.i = phi i64 [ 0, %184 ], [ %indvars.iv.next.i.i101.i, %190 ]
-  %191 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 0, i64 %indvars.iv.i.i100.i
+  %191 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv.i.i100.i
   %192 = load double, ptr %191, align 8, !tbaa !3
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %194 = load double, ptr %193, align 8, !tbaa !3
@@ -1491,7 +1491,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdLi0ELi1ELi2EEEbRNS_8Matrix3
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi0ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i: ; preds = %190, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi0ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i
   %indvars.iv.i125.i103.i = phi i64 [ %indvars.iv.next.i126.i104.i, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi0ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i ], [ 0, %190 ]
-  %200 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 0, i64 %indvars.iv.i125.i103.i
+  %200 = getelementptr inbounds nuw [3 x double], ptr %3, i64 %indvars.iv.i125.i103.i
   %201 = load double, ptr %200, align 8, !tbaa !3
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %203 = load double, ptr %202, align 8, !tbaa !3
@@ -1616,7 +1616,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdLi0ELi2ELi1EEEbRNS_8Matrix3
 
 281:                                              ; preds = %281, %275
   %indvars.iv.i.i123.i = phi i64 [ 0, %275 ], [ %indvars.iv.next.i.i124.i, %281 ]
-  %282 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 0, i64 %indvars.iv.i.i123.i
+  %282 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv.i.i123.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load double, ptr %283, align 8, !tbaa !3
   %285 = getelementptr inbounds nuw i8, ptr %282, i64 16
@@ -1634,7 +1634,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdLi0ELi2ELi1EEEbRNS_8Matrix3
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi1ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i: ; preds = %281, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi1ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i
   %indvars.iv.i125.i126.i = phi i64 [ %indvars.iv.next.i126.i127.i, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdLi1ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i ], [ 0, %281 ]
-  %292 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 0, i64 %indvars.iv.i125.i126.i
+  %292 = getelementptr inbounds nuw [3 x double], ptr %3, i64 %indvars.iv.i125.i126.i
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %294 = load double, ptr %293, align 8, !tbaa !3
   %295 = getelementptr inbounds nuw i8, ptr %292, i64 16
@@ -1728,7 +1728,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdLi1ELi2ELi0EEEbRNS_8Matrix3
 
 343:                                              ; preds = %343, %341
   %indvars.iv.i = phi i64 [ 0, %341 ], [ %indvars.iv.next.i, %343 ]
-  %gep.i = getelementptr inbounds nuw [3 x [3 x double]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [3 x double], ptr %invariant.gep.i, i64 %indvars.iv.i
   %344 = load double, ptr %gep.i, align 8, !tbaa !3
   %345 = fneg double %344
   store double %345, ptr %gep.i, align 8, !tbaa !3
@@ -1770,7 +1770,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdLi1ELi2ELi0EEEbRNS_8Matrix3
 
 354:                                              ; preds = %354, %353
   %indvars.iv.i.i = phi i64 [ 0, %353 ], [ %indvars.iv.next.i.i, %354 ]
-  %355 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 0, i64 %indvars.iv.i.i
+  %355 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv.i.i
   %356 = getelementptr inbounds nuw double, ptr %355, i64 %indvars.iv158.i
   %357 = getelementptr inbounds nuw double, ptr %355, i64 %indvars.iv.next159.i
   %358 = load double, ptr %356, align 8, !tbaa !3
@@ -1783,7 +1783,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdLi1ELi2ELi0EEEbRNS_8Matrix3
 
 _ZN9Imath_3_212_GLOBAL__N_111swapColumnsIdEEvRNS_8Matrix33IT_EEii.exit.i: ; preds = %354, %_ZN9Imath_3_212_GLOBAL__N_111swapColumnsIdEEvRNS_8Matrix33IT_EEii.exit.i
   %indvars.iv.i137.i = phi i64 [ %indvars.iv.next.i138.i, %_ZN9Imath_3_212_GLOBAL__N_111swapColumnsIdEEvRNS_8Matrix33IT_EEii.exit.i ], [ 0, %354 ]
-  %360 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 0, i64 %indvars.iv.i137.i
+  %360 = getelementptr inbounds nuw [3 x double], ptr %3, i64 %indvars.iv.i137.i
   %361 = getelementptr inbounds nuw double, ptr %360, i64 %indvars.iv158.i
   %362 = getelementptr inbounds nuw double, ptr %360, i64 %indvars.iv.next159.i
   %363 = load double, ptr %361, align 8, !tbaa !3
@@ -1835,7 +1835,7 @@ _ZN9Imath_3_212_GLOBAL__N_111swapColumnsIdEEvRNS_8Matrix33IT_EEii.exit140.i: ; p
 
 .preheader142.i:                                  ; preds = %365, %.preheader142.i
   %indvars.iv167.i = phi i64 [ %indvars.iv.next168.i, %.preheader142.i ], [ 0, %365 ]
-  %395 = getelementptr inbounds nuw [3 x [3 x double]], ptr %1, i64 0, i64 %indvars.iv167.i, i64 2
+  %395 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv167.i, i64 2
   %396 = load double, ptr %395, align 8, !tbaa !3
   %397 = fneg double %396
   store double %397, ptr %395, align 8, !tbaa !3
@@ -1880,7 +1880,7 @@ _ZN9Imath_3_212_GLOBAL__N_111swapColumnsIdEEvRNS_8Matrix33IT_EEii.exit140.i: ; p
 
 .preheader.i:                                     ; preds = %398, %.preheader.i
   %indvars.iv171.i = phi i64 [ %indvars.iv.next172.i, %.preheader.i ], [ 0, %398 ]
-  %428 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 0, i64 %indvars.iv171.i, i64 2
+  %428 = getelementptr inbounds nuw [3 x double], ptr %3, i64 %indvars.iv171.i, i64 2
   %429 = load double, ptr %428, align 8, !tbaa !3
   %430 = fneg double %429
   store double %430, ptr %428, align 8, !tbaa !3
@@ -2053,7 +2053,7 @@ define weak_odr void @_ZN9Imath_3_29jacobiSVDIfEEvRKNS_8Matrix33IT_EERS3_RNS_4Ve
 
 106:                                              ; preds = %106, %100
   %indvars.iv.i.i.i = phi i64 [ 0, %100 ], [ %indvars.iv.next.i.i.i, %106 ]
-  %107 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1, i64 0, i64 %indvars.iv.i.i.i
+  %107 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv.i.i.i
   %108 = load float, ptr %107, align 4, !tbaa !32
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %110 = load float, ptr %109, align 4, !tbaa !32
@@ -2070,7 +2070,7 @@ define weak_odr void @_ZN9Imath_3_29jacobiSVDIfEEvRKNS_8Matrix33IT_EERS3_RNS_4Ve
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi0ELi1EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i: ; preds = %106, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi0ELi1EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i
   %indvars.iv.i125.i.i = phi i64 [ %indvars.iv.next.i126.i.i, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi0ELi1EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i ], [ 0, %106 ]
-  %116 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv.i125.i.i
+  %116 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv.i125.i.i
   %117 = load float, ptr %116, align 4, !tbaa !32
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %119 = load float, ptr %118, align 4, !tbaa !32
@@ -2194,7 +2194,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfLi0ELi1ELi2EEEbRNS_8Matrix3
 
 198:                                              ; preds = %198, %192
   %indvars.iv.i.i100.i = phi i64 [ 0, %192 ], [ %indvars.iv.next.i.i101.i, %198 ]
-  %199 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1, i64 0, i64 %indvars.iv.i.i100.i
+  %199 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv.i.i100.i
   %200 = load float, ptr %199, align 4, !tbaa !32
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %202 = load float, ptr %201, align 4, !tbaa !32
@@ -2211,7 +2211,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfLi0ELi1ELi2EEEbRNS_8Matrix3
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi0ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i: ; preds = %198, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi0ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i
   %indvars.iv.i125.i103.i = phi i64 [ %indvars.iv.next.i126.i104.i, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi0ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i ], [ 0, %198 ]
-  %208 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv.i125.i103.i
+  %208 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv.i125.i103.i
   %209 = load float, ptr %208, align 4, !tbaa !32
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %211 = load float, ptr %210, align 4, !tbaa !32
@@ -2336,7 +2336,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfLi0ELi2ELi1EEEbRNS_8Matrix3
 
 289:                                              ; preds = %289, %283
   %indvars.iv.i.i123.i = phi i64 [ 0, %283 ], [ %indvars.iv.next.i.i124.i, %289 ]
-  %290 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1, i64 0, i64 %indvars.iv.i.i123.i
+  %290 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv.i.i123.i
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 4
   %292 = load float, ptr %291, align 4, !tbaa !32
   %293 = getelementptr inbounds nuw i8, ptr %290, i64 8
@@ -2354,7 +2354,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfLi0ELi2ELi1EEEbRNS_8Matrix3
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi1ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i: ; preds = %289, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi1ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i
   %indvars.iv.i125.i126.i = phi i64 [ %indvars.iv.next.i126.i127.i, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfLi1ELi2EEEvRNS_8Matrix33IT_EES3_S3_.exit.i.i ], [ 0, %289 ]
-  %300 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv.i125.i126.i
+  %300 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv.i125.i126.i
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 4
   %302 = load float, ptr %301, align 4, !tbaa !32
   %303 = getelementptr inbounds nuw i8, ptr %300, i64 8
@@ -2448,7 +2448,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfLi1ELi2ELi0EEEbRNS_8Matrix3
 
 351:                                              ; preds = %351, %349
   %indvars.iv.i = phi i64 [ 0, %349 ], [ %indvars.iv.next.i, %351 ]
-  %gep.i = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [3 x float], ptr %invariant.gep.i, i64 %indvars.iv.i
   %352 = load float, ptr %gep.i, align 4, !tbaa !32
   %353 = fneg float %352
   store float %353, ptr %gep.i, align 4, !tbaa !32
@@ -2490,7 +2490,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfLi1ELi2ELi0EEEbRNS_8Matrix3
 
 362:                                              ; preds = %362, %361
   %indvars.iv.i.i = phi i64 [ 0, %361 ], [ %indvars.iv.next.i.i, %362 ]
-  %363 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1, i64 0, i64 %indvars.iv.i.i
+  %363 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv.i.i
   %364 = getelementptr inbounds nuw float, ptr %363, i64 %indvars.iv158.i
   %365 = getelementptr inbounds nuw float, ptr %363, i64 %indvars.iv.next159.i
   %366 = load float, ptr %364, align 4, !tbaa !32
@@ -2503,7 +2503,7 @@ _ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfLi1ELi2ELi0EEEbRNS_8Matrix3
 
 _ZN9Imath_3_212_GLOBAL__N_111swapColumnsIfEEvRNS_8Matrix33IT_EEii.exit.i: ; preds = %362, %_ZN9Imath_3_212_GLOBAL__N_111swapColumnsIfEEvRNS_8Matrix33IT_EEii.exit.i
   %indvars.iv.i137.i = phi i64 [ %indvars.iv.next.i138.i, %_ZN9Imath_3_212_GLOBAL__N_111swapColumnsIfEEvRNS_8Matrix33IT_EEii.exit.i ], [ 0, %362 ]
-  %368 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv.i137.i
+  %368 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv.i137.i
   %369 = getelementptr inbounds nuw float, ptr %368, i64 %indvars.iv158.i
   %370 = getelementptr inbounds nuw float, ptr %368, i64 %indvars.iv.next159.i
   %371 = load float, ptr %369, align 4, !tbaa !32
@@ -2551,7 +2551,7 @@ _ZN9Imath_3_212_GLOBAL__N_111swapColumnsIfEEvRNS_8Matrix33IT_EEii.exit140.i: ; p
 
 .preheader142.i:                                  ; preds = %373, %.preheader142.i
   %indvars.iv167.i = phi i64 [ %indvars.iv.next168.i, %.preheader142.i ], [ 0, %373 ]
-  %399 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1, i64 0, i64 %indvars.iv167.i, i64 2
+  %399 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv167.i, i64 2
   %400 = load float, ptr %399, align 4, !tbaa !32
   %401 = fneg float %400
   store float %401, ptr %399, align 4, !tbaa !32
@@ -2592,7 +2592,7 @@ _ZN9Imath_3_212_GLOBAL__N_111swapColumnsIfEEvRNS_8Matrix33IT_EEii.exit140.i: ; p
 
 .preheader.i:                                     ; preds = %402, %.preheader.i
   %indvars.iv171.i = phi i64 [ %indvars.iv.next172.i, %.preheader.i ], [ 0, %402 ]
-  %428 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %indvars.iv171.i, i64 2
+  %428 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv171.i, i64 2
   %429 = load float, ptr %428, align 4, !tbaa !32
   %430 = fneg float %429
   store float %430, ptr %428, align 4, !tbaa !32
@@ -2702,7 +2702,7 @@ define weak_odr void @_ZN9Imath_3_29jacobiSVDIfEEvRKNS_8Matrix44IT_EERS3_RNS_4Ve
 .preheader.i.i:                                   ; preds = %69, %6
   %indvars.iv16.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next17.i.i, %69 ]
   %.01013.i.i = phi float [ 0.000000e+00, %6 ], [ %.2.i.i, %69 ]
-  %68 = getelementptr inbounds nuw [4 x [4 x float]], ptr %9, i64 0, i64 %indvars.iv16.i.i
+  %68 = getelementptr inbounds nuw [4 x float], ptr %9, i64 %indvars.iv16.i.i
   br label %70
 
 69:                                               ; preds = %76
@@ -2754,7 +2754,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit.i: ; pred
 .preheader.i146.i:                                ; preds = %.preheader164.i, %92
   %indvars.iv16.i147.i = phi i64 [ %indvars.iv.next17.i156.i, %92 ], [ 0, %.preheader164.i ]
   %.01013.i148.i = phi float [ %.2.i153.i, %92 ], [ 0.000000e+00, %.preheader164.i ]
-  %91 = getelementptr inbounds nuw [4 x [4 x float]], ptr %9, i64 0, i64 %indvars.iv16.i147.i
+  %91 = getelementptr inbounds nuw [4 x float], ptr %9, i64 %indvars.iv16.i147.i
   br label %93
 
 92:                                               ; preds = %99
@@ -2839,7 +2839,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 128:                                              ; preds = %128, %126
   %indvars.iv.i = phi i64 [ 0, %126 ], [ %indvars.iv.next.i, %128 ]
-  %gep.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i, i64 %indvars.iv.i
   %129 = load float, ptr %gep.i, align 4, !tbaa !32
   %130 = fneg float %129
   store float %130, ptr %gep.i, align 4, !tbaa !32
@@ -2907,7 +2907,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 157:                                              ; preds = %157, %.preheader161.i
   %indvars.iv188.i = phi i64 [ 0, %.preheader161.i ], [ %indvars.iv.next189.i, %157 ]
-  %gep169.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep168.i, i64 0, i64 %indvars.iv188.i
+  %gep169.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep168.i, i64 %indvars.iv188.i
   %158 = load float, ptr %gep169.i, align 4, !tbaa !32
   %159 = getelementptr i8, ptr %gep169.i, i64 4
   store float %158, ptr %159, align 4, !tbaa !32
@@ -2925,7 +2925,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 164:                                              ; preds = %164, %.preheader160.i
   %indvars.iv192.i = phi i64 [ 0, %.preheader160.i ], [ %indvars.iv.next193.i, %164 ]
-  %gep172.i = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep171.i, i64 0, i64 %indvars.iv192.i
+  %gep172.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep171.i, i64 %indvars.iv192.i
   %165 = load float, ptr %gep172.i, align 4, !tbaa !32
   %166 = getelementptr i8, ptr %gep172.i, i64 4
   store float %165, ptr %166, align 4, !tbaa !32
@@ -2948,7 +2948,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
   %indvars.iv201.i = phi i64 [ 0, %167 ], [ %indvars.iv.next202.i, %169 ]
   %170 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv201.i
   %171 = load float, ptr %170, align 4, !tbaa !32
-  %172 = getelementptr [4 x [4 x float]], ptr %invariant.gep174.i, i64 0, i64 %indvars.iv201.i, i64 1
+  %172 = getelementptr [4 x float], ptr %invariant.gep174.i, i64 %indvars.iv201.i, i64 1
   store float %171, ptr %172, align 4, !tbaa !32
   %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
   %exitcond204.not.i = icmp eq i64 %indvars.iv.next202.i, 4
@@ -2969,7 +2969,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
   %indvars.iv205.i = phi i64 [ 0, %.preheader162.i ], [ %indvars.iv.next206.i, %176 ]
   %177 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv205.i
   %178 = load float, ptr %177, align 4, !tbaa !32
-  %179 = getelementptr [4 x [4 x float]], ptr %invariant.gep177.i, i64 0, i64 %indvars.iv205.i, i64 1
+  %179 = getelementptr [4 x float], ptr %invariant.gep177.i, i64 %indvars.iv205.i, i64 1
   store float %178, ptr %179, align 4, !tbaa !32
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
   %exitcond208.not.i = icmp eq i64 %indvars.iv.next206.i, 4
@@ -2988,7 +2988,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 .preheader159.i:                                  ; preds = %180, %.preheader159.i
   %indvars.iv213.i = phi i64 [ %indvars.iv.next214.i, %.preheader159.i ], [ 0, %180 ]
-  %186 = getelementptr inbounds nuw [4 x [4 x float]], ptr %1, i64 0, i64 %indvars.iv213.i, i64 3
+  %186 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv213.i, i64 3
   %187 = load float, ptr %186, align 4, !tbaa !32
   %188 = fneg float %187
   store float %188, ptr %186, align 4, !tbaa !32
@@ -3009,7 +3009,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIfEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 .preheader.i:                                     ; preds = %189, %.preheader.i
   %indvars.iv217.i = phi i64 [ %indvars.iv.next218.i, %.preheader.i ], [ 0, %189 ]
-  %195 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %indvars.iv217.i, i64 3
+  %195 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv217.i, i64 3
   %196 = load float, ptr %195, align 4, !tbaa !32
   %197 = fneg float %196
   store float %197, ptr %195, align 4, !tbaa !32
@@ -3119,7 +3119,7 @@ define weak_odr void @_ZN9Imath_3_29jacobiSVDIdEEvRKNS_8Matrix44IT_EERS3_RNS_4Ve
 .preheader.i.i:                                   ; preds = %69, %6
   %indvars.iv16.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next17.i.i, %69 ]
   %.01013.i.i = phi double [ 0.000000e+00, %6 ], [ %.2.i.i, %69 ]
-  %68 = getelementptr inbounds nuw [4 x [4 x double]], ptr %9, i64 0, i64 %indvars.iv16.i.i
+  %68 = getelementptr inbounds nuw [4 x double], ptr %9, i64 %indvars.iv16.i.i
   br label %70
 
 69:                                               ; preds = %76
@@ -3171,7 +3171,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit.i: ; pred
 .preheader.i146.i:                                ; preds = %.preheader164.i, %92
   %indvars.iv16.i147.i = phi i64 [ %indvars.iv.next17.i156.i, %92 ], [ 0, %.preheader164.i ]
   %.01013.i148.i = phi double [ %.2.i153.i, %92 ], [ 0.000000e+00, %.preheader164.i ]
-  %91 = getelementptr inbounds nuw [4 x [4 x double]], ptr %9, i64 0, i64 %indvars.iv16.i147.i
+  %91 = getelementptr inbounds nuw [4 x double], ptr %9, i64 %indvars.iv16.i147.i
   br label %93
 
 92:                                               ; preds = %99
@@ -3256,7 +3256,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 128:                                              ; preds = %128, %126
   %indvars.iv.i = phi i64 [ 0, %126 ], [ %indvars.iv.next.i, %128 ]
-  %gep.i = getelementptr inbounds nuw [4 x [4 x double]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x double], ptr %invariant.gep.i, i64 %indvars.iv.i
   %129 = load double, ptr %gep.i, align 8, !tbaa !3
   %130 = fneg double %129
   store double %130, ptr %gep.i, align 8, !tbaa !3
@@ -3324,7 +3324,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 157:                                              ; preds = %157, %.preheader161.i
   %indvars.iv188.i = phi i64 [ 0, %.preheader161.i ], [ %indvars.iv.next189.i, %157 ]
-  %gep169.i = getelementptr inbounds nuw [4 x [4 x double]], ptr %invariant.gep168.i, i64 0, i64 %indvars.iv188.i
+  %gep169.i = getelementptr inbounds nuw [4 x double], ptr %invariant.gep168.i, i64 %indvars.iv188.i
   %158 = load double, ptr %gep169.i, align 8, !tbaa !3
   %159 = getelementptr i8, ptr %gep169.i, i64 8
   store double %158, ptr %159, align 8, !tbaa !3
@@ -3342,7 +3342,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 164:                                              ; preds = %164, %.preheader160.i
   %indvars.iv192.i = phi i64 [ 0, %.preheader160.i ], [ %indvars.iv.next193.i, %164 ]
-  %gep172.i = getelementptr inbounds nuw [4 x [4 x double]], ptr %invariant.gep171.i, i64 0, i64 %indvars.iv192.i
+  %gep172.i = getelementptr inbounds nuw [4 x double], ptr %invariant.gep171.i, i64 %indvars.iv192.i
   %165 = load double, ptr %gep172.i, align 8, !tbaa !3
   %166 = getelementptr i8, ptr %gep172.i, i64 8
   store double %165, ptr %166, align 8, !tbaa !3
@@ -3365,7 +3365,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
   %indvars.iv201.i = phi i64 [ 0, %167 ], [ %indvars.iv.next202.i, %169 ]
   %170 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv201.i
   %171 = load double, ptr %170, align 8, !tbaa !3
-  %172 = getelementptr [4 x [4 x double]], ptr %invariant.gep174.i, i64 0, i64 %indvars.iv201.i, i64 1
+  %172 = getelementptr [4 x double], ptr %invariant.gep174.i, i64 %indvars.iv201.i, i64 1
   store double %171, ptr %172, align 8, !tbaa !3
   %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
   %exitcond204.not.i = icmp eq i64 %indvars.iv.next202.i, 4
@@ -3386,7 +3386,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
   %indvars.iv205.i = phi i64 [ 0, %.preheader162.i ], [ %indvars.iv.next206.i, %176 ]
   %177 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv205.i
   %178 = load double, ptr %177, align 8, !tbaa !3
-  %179 = getelementptr [4 x [4 x double]], ptr %invariant.gep177.i, i64 0, i64 %indvars.iv205.i, i64 1
+  %179 = getelementptr [4 x double], ptr %invariant.gep177.i, i64 %indvars.iv205.i, i64 1
   store double %178, ptr %179, align 8, !tbaa !3
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
   %exitcond208.not.i = icmp eq i64 %indvars.iv.next206.i, 4
@@ -3405,7 +3405,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 .preheader159.i:                                  ; preds = %180, %.preheader159.i
   %indvars.iv213.i = phi i64 [ %indvars.iv.next214.i, %.preheader159.i ], [ 0, %180 ]
-  %186 = getelementptr inbounds nuw [4 x [4 x double]], ptr %1, i64 0, i64 %indvars.iv213.i, i64 3
+  %186 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv213.i, i64 3
   %187 = load double, ptr %186, align 8, !tbaa !3
   %188 = fneg double %187
   store double %188, ptr %186, align 8, !tbaa !3
@@ -3426,7 +3426,7 @@ _ZN9Imath_3_212_GLOBAL__N_110maxOffDiagIdEET_RKNS_8Matrix44IS2_EE.exit158.i: ; p
 
 .preheader.i:                                     ; preds = %189, %.preheader.i
   %indvars.iv217.i = phi i64 [ %indvars.iv.next218.i, %.preheader.i ], [ 0, %189 ]
-  %195 = getelementptr inbounds nuw [4 x [4 x double]], ptr %3, i64 0, i64 %indvars.iv217.i, i64 3
+  %195 = getelementptr inbounds nuw [4 x double], ptr %3, i64 %indvars.iv217.i, i64 3
   %196 = load double, ptr %195, align 8, !tbaa !3
   %197 = fneg double %196
   store double %197, ptr %195, align 8, !tbaa !3
@@ -3475,7 +3475,7 @@ define weak_odr void @_ZN9Imath_3_217jacobiEigenSolverIfEEvRNS_8Matrix33IT_EERNS
   br i1 %14, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader66
-  %15 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv17.i
+  %15 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv17.i
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
@@ -3507,7 +3507,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix33IfEEEENT_8BaseTypeERKS4_
 
 30:                                               ; preds = %4, %30
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv
   %32 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !32
   %34 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
@@ -3577,7 +3577,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix33IfEEEENT_8BaseTypeERKS4_
 
 73:                                               ; preds = %73, %47
   %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %73 ]
-  %74 = getelementptr inbounds nuw [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %74 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i.i
   %75 = load float, ptr %74, align 4, !tbaa !32
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %77 = load float, ptr %76, align 4, !tbaa !32
@@ -3652,7 +3652,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi1ELi2EfEEbRNS_8Matrix33IT2_EES
 
 120:                                              ; preds = %120, %94
   %indvars.iv.i.i42 = phi i64 [ 0, %94 ], [ %indvars.iv.next.i.i43, %120 ]
-  %121 = getelementptr inbounds nuw [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i42
+  %121 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i.i42
   %122 = load float, ptr %121, align 4, !tbaa !32
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = load float, ptr %123, align 4, !tbaa !32
@@ -3730,7 +3730,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0EfEEbRNS_8Matrix33IT2_EES
 
 167:                                              ; preds = %167, %141
   %indvars.iv.i.i47 = phi i64 [ 0, %141 ], [ %indvars.iv.next.i.i48, %167 ]
-  %168 = getelementptr inbounds nuw [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i47
+  %168 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i.i47
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load float, ptr %169, align 4, !tbaa !32
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -3758,7 +3758,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0EfEEbRNS_8Matrix33IT2_EES
   %182 = load float, ptr %181, align 4, !tbaa !32
   %183 = fadd float %180, %182
   store float %183, ptr %181, align 4, !tbaa !32
-  %184 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv70
+  %184 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv70
   %185 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv70
   store float %183, ptr %185, align 4, !tbaa !32
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -3780,7 +3780,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0EfEEbRNS_8Matrix33IT2_EES
   br i1 %186, label %.lr.ph.i58, label %.loopexit.i54
 
 .lr.ph.i58:                                       ; preds = %.preheader
-  %187 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv17.i50
+  %187 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv17.i50
   br label %188
 
 188:                                              ; preds = %188, %.lr.ph.i58
@@ -3834,7 +3834,7 @@ define weak_odr void @_ZN9Imath_3_217jacobiEigenSolverIdEEvRNS_8Matrix33IT_EERNS
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader66
-  %11 = getelementptr inbounds nuw [3 x [3 x double]], ptr %0, i64 0, i64 %indvars.iv17.i
+  %11 = getelementptr inbounds nuw [3 x double], ptr %0, i64 %indvars.iv17.i
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
@@ -3866,7 +3866,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix33IdEEEENT_8BaseTypeERKS4_
 
 26:                                               ; preds = %4, %26
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [3 x [3 x double]], ptr %0, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [3 x double], ptr %0, i64 %indvars.iv
   %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
   %29 = load double, ptr %28, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
@@ -3934,7 +3934,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix33IdEEEENT_8BaseTypeERKS4_
 
 69:                                               ; preds = %69, %43
   %indvars.iv.i.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.i, %69 ]
-  %70 = getelementptr inbounds nuw [3 x [3 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv.i.i
   %71 = load double, ptr %70, align 8, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load double, ptr %72, align 8, !tbaa !3
@@ -4009,7 +4009,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi1ELi2EdEEbRNS_8Matrix33IT2_EES
 
 116:                                              ; preds = %116, %90
   %indvars.iv.i.i42 = phi i64 [ 0, %90 ], [ %indvars.iv.next.i.i43, %116 ]
-  %117 = getelementptr inbounds nuw [3 x [3 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i42
+  %117 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv.i.i42
   %118 = load double, ptr %117, align 8, !tbaa !3
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %120 = load double, ptr %119, align 8, !tbaa !3
@@ -4087,7 +4087,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0EdEEbRNS_8Matrix33IT2_EES
 
 163:                                              ; preds = %163, %137
   %indvars.iv.i.i47 = phi i64 [ 0, %137 ], [ %indvars.iv.next.i.i48, %163 ]
-  %164 = getelementptr inbounds nuw [3 x [3 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i47
+  %164 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv.i.i47
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load double, ptr %165, align 8, !tbaa !3
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
@@ -4115,7 +4115,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0EdEEbRNS_8Matrix33IT2_EES
   %178 = load double, ptr %177, align 8, !tbaa !3
   %179 = fadd double %176, %178
   store double %179, ptr %177, align 8, !tbaa !3
-  %180 = getelementptr inbounds nuw [3 x [3 x double]], ptr %0, i64 0, i64 %indvars.iv70
+  %180 = getelementptr inbounds nuw [3 x double], ptr %0, i64 %indvars.iv70
   %181 = getelementptr inbounds nuw double, ptr %180, i64 %indvars.iv70
   store double %179, ptr %181, align 8, !tbaa !3
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -4137,7 +4137,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0EdEEbRNS_8Matrix33IT2_EES
   br i1 %182, label %.lr.ph.i58, label %.loopexit.i54
 
 .lr.ph.i58:                                       ; preds = %.preheader
-  %183 = getelementptr inbounds nuw [3 x [3 x double]], ptr %0, i64 0, i64 %indvars.iv17.i50
+  %183 = getelementptr inbounds nuw [3 x double], ptr %0, i64 %indvars.iv17.i50
   br label %184
 
 184:                                              ; preds = %184, %.lr.ph.i58
@@ -4195,7 +4195,7 @@ define weak_odr void @_ZN9Imath_3_217jacobiEigenSolverIfEEvRNS_8Matrix44IT_EERNS
   br i1 %12, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader92
-  %13 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %indvars.iv17.i
+  %13 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv17.i
   br label %14
 
 14:                                               ; preds = %14, %.lr.ph.i
@@ -4232,7 +4232,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix44IfEEEENT_8BaseTypeERKS4_
 
 33:                                               ; preds = %4, %33
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv
   %35 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !32
   %37 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
@@ -4308,7 +4308,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix44IfEEEENT_8BaseTypeERKS4_
 
 82:                                               ; preds = %82, %50
   %indvars.iv.i.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i, %82 ]
-  %83 = getelementptr inbounds nuw [4 x [4 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %83 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv.i.i
   %84 = load float, ptr %83, align 4, !tbaa !32
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %86 = load float, ptr %85, align 4, !tbaa !32
@@ -4391,7 +4391,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi1ELi2ELi3EfEEbRNS_8Matrix44IT3
 
 135:                                              ; preds = %135, %103
   %indvars.iv.i.i54 = phi i64 [ 0, %103 ], [ %indvars.iv.next.i.i55, %135 ]
-  %136 = getelementptr inbounds nuw [4 x [4 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i54
+  %136 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv.i.i54
   %137 = load float, ptr %136, align 4, !tbaa !32
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %139 = load float, ptr %138, align 4, !tbaa !32
@@ -4474,7 +4474,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi2ELi1ELi3EfEEbRNS_8Matrix44IT3
 
 188:                                              ; preds = %188, %156
   %indvars.iv.i.i59 = phi i64 [ 0, %156 ], [ %indvars.iv.next.i.i60, %188 ]
-  %189 = getelementptr inbounds nuw [4 x [4 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i59
+  %189 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv.i.i59
   %190 = load float, ptr %189, align 4, !tbaa !32
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 12
   %192 = load float, ptr %191, align 4, !tbaa !32
@@ -4552,7 +4552,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi3ELi1ELi2EfEEbRNS_8Matrix44IT3
 
 240:                                              ; preds = %240, %208
   %indvars.iv.i.i64 = phi i64 [ 0, %208 ], [ %indvars.iv.next.i.i65, %240 ]
-  %241 = getelementptr inbounds nuw [4 x [4 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i64
+  %241 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv.i.i64
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %243 = load float, ptr %242, align 4, !tbaa !32
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 8
@@ -4636,7 +4636,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0ELi3EfEEbRNS_8Matrix44IT3
 
 294:                                              ; preds = %294, %262
   %indvars.iv.i.i69 = phi i64 [ 0, %262 ], [ %indvars.iv.next.i.i70, %294 ]
-  %295 = getelementptr inbounds nuw [4 x [4 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i69
+  %295 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv.i.i69
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
   %297 = load float, ptr %296, align 4, !tbaa !32
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 12
@@ -4719,7 +4719,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi3ELi0ELi2EfEEbRNS_8Matrix44IT3
 
 347:                                              ; preds = %347, %315
   %indvars.iv.i.i74 = phi i64 [ 0, %315 ], [ %indvars.iv.next.i.i75, %347 ]
-  %348 = getelementptr inbounds nuw [4 x [4 x float]], ptr %2, i64 0, i64 %indvars.iv.i.i74
+  %348 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv.i.i74
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %350 = load float, ptr %349, align 4, !tbaa !32
   %351 = getelementptr inbounds nuw i8, ptr %348, i64 12
@@ -4745,7 +4745,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi2ELi3ELi0ELi1EfEEbRNS_8Matrix44IT3
   %360 = load float, ptr %359, align 4, !tbaa !32
   %361 = fadd float %358, %360
   store float %361, ptr %359, align 4, !tbaa !32
-  %362 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %indvars.iv96
+  %362 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv96
   %363 = getelementptr inbounds nuw float, ptr %362, i64 %indvars.iv96
   store float %361, ptr %363, align 4, !tbaa !32
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -4771,7 +4771,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi2ELi3ELi0ELi1EfEEbRNS_8Matrix44IT3
   br i1 %366, label %.lr.ph.i85, label %.loopexit.i81
 
 .lr.ph.i85:                                       ; preds = %365
-  %367 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %indvars.iv17.i77
+  %367 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv17.i77
   br label %368
 
 368:                                              ; preds = %368, %.lr.ph.i85
@@ -4829,7 +4829,7 @@ define weak_odr void @_ZN9Imath_3_217jacobiEigenSolverIdEEvRNS_8Matrix44IT_EERNS
   br i1 %12, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader92
-  %13 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv17.i
+  %13 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv17.i
   br label %14
 
 14:                                               ; preds = %14, %.lr.ph.i
@@ -4866,7 +4866,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix44IdEEEENT_8BaseTypeERKS4_
 
 33:                                               ; preds = %4, %33
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv
   %35 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
   %36 = load double, ptr %35, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
@@ -4942,7 +4942,7 @@ _ZN9Imath_3_212_GLOBAL__N_114maxOffDiagSymmINS_8Matrix44IdEEEENT_8BaseTypeERKS4_
 
 82:                                               ; preds = %82, %50
   %indvars.iv.i.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i, %82 ]
-  %83 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %83 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv.i.i
   %84 = load double, ptr %83, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load double, ptr %85, align 8, !tbaa !3
@@ -5025,7 +5025,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi1ELi2ELi3EdEEbRNS_8Matrix44IT3
 
 135:                                              ; preds = %135, %103
   %indvars.iv.i.i54 = phi i64 [ 0, %103 ], [ %indvars.iv.next.i.i55, %135 ]
-  %136 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i54
+  %136 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv.i.i54
   %137 = load double, ptr %136, align 8, !tbaa !3
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %139 = load double, ptr %138, align 8, !tbaa !3
@@ -5108,7 +5108,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi2ELi1ELi3EdEEbRNS_8Matrix44IT3
 
 188:                                              ; preds = %188, %156
   %indvars.iv.i.i59 = phi i64 [ 0, %156 ], [ %indvars.iv.next.i.i60, %188 ]
-  %189 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i59
+  %189 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv.i.i59
   %190 = load double, ptr %189, align 8, !tbaa !3
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %192 = load double, ptr %191, align 8, !tbaa !3
@@ -5186,7 +5186,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi0ELi3ELi1ELi2EdEEbRNS_8Matrix44IT3
 
 240:                                              ; preds = %240, %208
   %indvars.iv.i.i64 = phi i64 [ 0, %208 ], [ %indvars.iv.next.i.i65, %240 ]
-  %241 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i64
+  %241 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv.i.i64
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load double, ptr %242, align 8, !tbaa !3
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 16
@@ -5270,7 +5270,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi2ELi0ELi3EdEEbRNS_8Matrix44IT3
 
 294:                                              ; preds = %294, %262
   %indvars.iv.i.i69 = phi i64 [ 0, %262 ], [ %indvars.iv.next.i.i70, %294 ]
-  %295 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i69
+  %295 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv.i.i69
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load double, ptr %296, align 8, !tbaa !3
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 24
@@ -5353,7 +5353,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi1ELi3ELi0ELi2EdEEbRNS_8Matrix44IT3
 
 347:                                              ; preds = %347, %315
   %indvars.iv.i.i74 = phi i64 [ 0, %315 ], [ %indvars.iv.next.i.i75, %347 ]
-  %348 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv.i.i74
+  %348 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv.i.i74
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load double, ptr %349, align 8, !tbaa !3
   %351 = getelementptr inbounds nuw i8, ptr %348, i64 24
@@ -5379,7 +5379,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi2ELi3ELi0ELi1EdEEbRNS_8Matrix44IT3
   %360 = load double, ptr %359, align 8, !tbaa !3
   %361 = fadd double %358, %360
   store double %361, ptr %359, align 8, !tbaa !3
-  %362 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv96
+  %362 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv96
   %363 = getelementptr inbounds nuw double, ptr %362, i64 %indvars.iv96
   store double %361, ptr %363, align 8, !tbaa !3
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -5405,7 +5405,7 @@ _ZN9Imath_3_212_GLOBAL__N_114jacobiRotationILi2ELi3ELi0ELi1EdEEbRNS_8Matrix44IT3
   br i1 %366, label %.lr.ph.i85, label %.loopexit.i81
 
 .lr.ph.i85:                                       ; preds = %365
-  %367 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv17.i77
+  %367 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv17.i77
   br label %368
 
 368:                                              ; preds = %368, %.lr.ph.i85
@@ -5485,7 +5485,7 @@ define weak_odr void @_ZN9Imath_3_214maxEigenVectorINS_8Matrix33IfEENS_4Vec3IfEE
 
 25:                                               ; preds = %.preheader, %25
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %25 ]
-  %gep = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv17
   %26 = load float, ptr %gep, align 4, !tbaa !32
   %27 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv17
   store float %26, ptr %27, align 4, !tbaa !32
@@ -5545,7 +5545,7 @@ define weak_odr void @_ZN9Imath_3_214maxEigenVectorINS_8Matrix44IfEENS_4Vec4IfEE
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %23 ]
-  %gep = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv17
   %24 = load float, ptr %gep, align 4, !tbaa !32
   %25 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv17
   store float %24, ptr %25, align 4, !tbaa !32
@@ -5601,7 +5601,7 @@ define weak_odr void @_ZN9Imath_3_214maxEigenVectorINS_8Matrix33IdEENS_4Vec3IdEE
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %21 ]
-  %gep = getelementptr inbounds nuw [3 x [3 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %indvars.iv17
   %22 = load double, ptr %gep, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv17
   store double %22, ptr %23, align 8, !tbaa !3
@@ -5661,7 +5661,7 @@ define weak_odr void @_ZN9Imath_3_214maxEigenVectorINS_8Matrix44IdEENS_4Vec4IdEE
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %23 ]
-  %gep = getelementptr inbounds nuw [4 x [4 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [4 x double], ptr %invariant.gep, i64 %indvars.iv17
   %24 = load double, ptr %gep, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv17
   store double %24, ptr %25, align 8, !tbaa !3
@@ -5725,7 +5725,7 @@ define weak_odr void @_ZN9Imath_3_214minEigenVectorINS_8Matrix33IfEENS_4Vec3IfEE
 
 25:                                               ; preds = %.preheader, %25
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %25 ]
-  %gep = getelementptr inbounds nuw [3 x [3 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv17
   %26 = load float, ptr %gep, align 4, !tbaa !32
   %27 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv17
   store float %26, ptr %27, align 4, !tbaa !32
@@ -5785,7 +5785,7 @@ define weak_odr void @_ZN9Imath_3_214minEigenVectorINS_8Matrix44IfEENS_4Vec4IfEE
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %23 ]
-  %gep = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv17
   %24 = load float, ptr %gep, align 4, !tbaa !32
   %25 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv17
   store float %24, ptr %25, align 4, !tbaa !32
@@ -5841,7 +5841,7 @@ define weak_odr void @_ZN9Imath_3_214minEigenVectorINS_8Matrix33IdEENS_4Vec3IdEE
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %21 ]
-  %gep = getelementptr inbounds nuw [3 x [3 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %indvars.iv17
   %22 = load double, ptr %gep, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv17
   store double %22, ptr %23, align 8, !tbaa !3
@@ -5901,7 +5901,7 @@ define weak_odr void @_ZN9Imath_3_214minEigenVectorINS_8Matrix44IdEENS_4Vec4IdEE
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %23 ]
-  %gep = getelementptr inbounds nuw [4 x [4 x double]], ptr %invariant.gep, i64 0, i64 %indvars.iv17
+  %gep = getelementptr inbounds nuw [4 x double], ptr %invariant.gep, i64 %indvars.iv17
   %24 = load double, ptr %gep, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv17
   store double %24, ptr %25, align 8, !tbaa !3
@@ -5925,13 +5925,13 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef zeroext i1 @_ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIfEEbRNS_8Matrix44IT_EEiiS5_S5_S3_(ptr noundef nonnull align 4 captures(none) dereferenceable(64) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 1, 4) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(64) %4, float noundef %5) unnamed_addr #5 {
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw float, ptr %8, i64 %7
   %10 = load float, ptr %9, align 4, !tbaa !32
   %11 = zext nneg i32 %2 to i64
   %12 = getelementptr inbounds nuw float, ptr %8, i64 %11
   %13 = load float, ptr %12, align 4, !tbaa !32
-  %14 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %11
   %15 = getelementptr inbounds nuw float, ptr %14, i64 %7
   %16 = load float, ptr %15, align 4, !tbaa !32
   %17 = getelementptr inbounds nuw float, ptr %14, i64 %11
@@ -6060,7 +6060,7 @@ define internal fastcc noundef zeroext i1 @_ZN9Imath_3_212_GLOBAL__N_122twoSided
 
 .preheader:                                       ; preds = %128, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %128 ]
-  %95 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv.i
   %96 = getelementptr inbounds nuw float, ptr %95, i64 %7
   %97 = load float, ptr %96, align 4, !tbaa !32
   %98 = getelementptr inbounds nuw float, ptr %95, i64 %11
@@ -6078,7 +6078,7 @@ define internal fastcc noundef zeroext i1 @_ZN9Imath_3_212_GLOBAL__N_122twoSided
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfEEvRNS_8Matrix44IT_EEiiS3_S3_.exit: ; preds = %.preheader, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfEEvRNS_8Matrix44IT_EEiiS3_S3_.exit
   %indvars.iv.i182 = phi i64 [ %indvars.iv.next.i183, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfEEvRNS_8Matrix44IT_EEiiS3_S3_.exit ], [ 0, %.preheader ]
-  %105 = getelementptr inbounds nuw [4 x [4 x float]], ptr %4, i64 0, i64 %indvars.iv.i182
+  %105 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %indvars.iv.i182
   %106 = getelementptr inbounds nuw float, ptr %105, i64 %7
   %107 = load float, ptr %106, align 4, !tbaa !32
   %108 = getelementptr inbounds nuw float, ptr %105, i64 %11
@@ -6102,7 +6102,7 @@ _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIfEEvRNS_8Matrix44IT_EEiiS3_S3_.ex
   br i1 %or.cond181, label %128, label %117
 
 117:                                              ; preds = %.preheader188
-  %118 = getelementptr inbounds nuw [4 x [4 x float]], ptr %0, i64 0, i64 %indvars.iv192
+  %118 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv192
   %119 = getelementptr inbounds nuw float, ptr %118, i64 %7
   %120 = load float, ptr %119, align 4, !tbaa !32
   %121 = getelementptr inbounds nuw float, ptr %118, i64 %11
@@ -6296,13 +6296,13 @@ define linkonce_odr hidden noundef float @_ZNK9Imath_3_28Matrix44IfE11determinan
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef zeroext i1 @_ZN9Imath_3_212_GLOBAL__N_122twoSidedJacobiRotationIdEEbRNS_8Matrix44IT_EEiiS5_S5_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 1, 4) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(128) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(128) %4, double noundef %5) unnamed_addr #5 {
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw double, ptr %8, i64 %7
   %10 = load double, ptr %9, align 8, !tbaa !3
   %11 = zext nneg i32 %2 to i64
   %12 = getelementptr inbounds nuw double, ptr %8, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %11
   %15 = getelementptr inbounds nuw double, ptr %14, i64 %7
   %16 = load double, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw double, ptr %14, i64 %11
@@ -6431,7 +6431,7 @@ define internal fastcc noundef zeroext i1 @_ZN9Imath_3_212_GLOBAL__N_122twoSided
 
 .preheader:                                       ; preds = %128, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %128 ]
-  %95 = getelementptr inbounds nuw [4 x [4 x double]], ptr %3, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [4 x double], ptr %3, i64 %indvars.iv.i
   %96 = getelementptr inbounds nuw double, ptr %95, i64 %7
   %97 = load double, ptr %96, align 8, !tbaa !3
   %98 = getelementptr inbounds nuw double, ptr %95, i64 %11
@@ -6449,7 +6449,7 @@ define internal fastcc noundef zeroext i1 @_ZN9Imath_3_212_GLOBAL__N_122twoSided
 
 _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdEEvRNS_8Matrix44IT_EEiiS3_S3_.exit: ; preds = %.preheader, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdEEvRNS_8Matrix44IT_EEiiS3_S3_.exit
   %indvars.iv.i182 = phi i64 [ %indvars.iv.next.i183, %_ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdEEvRNS_8Matrix44IT_EEiiS3_S3_.exit ], [ 0, %.preheader ]
-  %105 = getelementptr inbounds nuw [4 x [4 x double]], ptr %4, i64 0, i64 %indvars.iv.i182
+  %105 = getelementptr inbounds nuw [4 x double], ptr %4, i64 %indvars.iv.i182
   %106 = getelementptr inbounds nuw double, ptr %105, i64 %7
   %107 = load double, ptr %106, align 8, !tbaa !3
   %108 = getelementptr inbounds nuw double, ptr %105, i64 %11
@@ -6473,7 +6473,7 @@ _ZN9Imath_3_212_GLOBAL__N_117jacobiRotateRightIdEEvRNS_8Matrix44IT_EEiiS3_S3_.ex
   br i1 %or.cond181, label %128, label %117
 
 117:                                              ; preds = %.preheader188
-  %118 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv192
+  %118 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv192
   %119 = getelementptr inbounds nuw double, ptr %118, i64 %7
   %120 = load double, ptr %119, align 8, !tbaa !3
   %121 = getelementptr inbounds nuw double, ptr %118, i64 %11

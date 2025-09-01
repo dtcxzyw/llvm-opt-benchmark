@@ -358,7 +358,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_instToTomlArray___spec__1___rarg(pt
   %.02148 = phi i64 [ %2, %.lr.ph ], [ %48, %lean_dec.exit ]
   %.02347 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i33, %lean_dec.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02347, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.02148
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.02148
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -710,7 +710,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Toml_encodeArray_x3f___spec__1__
 9:                                                ; preds = %.lr.ph, %lean_dec.exit56
   %.042100 = phi i64 [ %2, %.lr.ph ], [ %20, %lean_dec.exit56 ]
   %.04499 = phi ptr [ %4, %.lr.ph ], [ %.448, %lean_dec.exit56 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.042100
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.042100
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1

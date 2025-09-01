@@ -71,7 +71,7 @@ st_mult.exit:                                     ; preds = %9
 
 32:                                               ; preds = %34, %25
   %.0811.i.i = phi i64 [ 0, %25 ], [ %35, %34 ]
-  %33 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %33 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %31, %33
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %34
 

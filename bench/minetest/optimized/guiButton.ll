@@ -2092,7 +2092,7 @@ entry:
   %frombool1 = zext i1 %scale to i8
   %ButtonSprites = getelementptr inbounds nuw i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw [7 x %"struct.GUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.GUIButton::ButtonSprite", ptr %ButtonSprites, i64 %idxprom
   store i32 %index, ptr %arrayidx, align 4, !tbaa !7
   %Color = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   store i32 %color.coerce, ptr %Color, align 4, !tbaa !62
@@ -2108,7 +2108,7 @@ define dso_local noundef i32 @_ZNK9GUIButton14getSpriteIndexEN3irr3gui17EGUI_BUT
 entry:
   %ButtonSprites = getelementptr inbounds nuw i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw [7 x %"struct.GUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.GUIButton::ButtonSprite", ptr %ButtonSprites, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !7
   ret i32 %0
 }
@@ -2778,7 +2778,7 @@ switch.hole_check:                                ; preds = %while.body.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN9GUIButton4drawEv, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN9GUIButton4drawEv, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   %idxprom.i.i = zext nneg i32 %switch.load to i64
   %arrayidx.i.i = getelementptr inbounds nuw %"struct.GUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom.i.i
@@ -2787,11 +2787,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %tobool35.not.i.i, label %while.body.i.i, label %lor.lhs.false67, !llvm.loop !104
 
 lor.lhs.false67:                                  ; preds = %switch.lookup, %land.rhs.lr.ph.i.i
+  %48 = phi ptr [ %42, %land.rhs.lr.ph.i.i ], [ %47, %switch.lookup ]
   %idxprom72.pre-phi = phi i64 [ %idxprom.i.i253, %land.rhs.lr.ph.i.i ], [ %idxprom.i.i, %switch.lookup ]
-  %arrayidx73 = getelementptr inbounds nuw [9 x %"struct.GUIButton::ButtonImage"], ptr %ButtonImages, i64 0, i64 %idxprom72.pre-phi
-  %48 = load ptr, ptr %ButtonImages, align 8, !tbaa !67
-  %49 = load ptr, ptr %arrayidx73, align 8, !tbaa !67
-  %cmp.i175 = icmp eq ptr %48, %49
+  %arrayidx73 = getelementptr inbounds nuw %"struct.GUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom72.pre-phi
+  %49 = load ptr, ptr %ButtonImages, align 8, !tbaa !67
+  %cmp.i175 = icmp eq ptr %49, %48
   br i1 %cmp.i175, label %land.rhs.i176, label %if.end86
 
 land.rhs.i176:                                    ; preds = %lor.lhs.false67
@@ -2830,7 +2830,7 @@ if.then75:                                        ; preds = %switch.hole_check, 
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then75, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit, %land.rhs.i176, %lor.lhs.false67, %if.end57
-  %64 = phi ptr [ %23, %if.end57 ], [ %.pre258, %if.then75 ], [ %48, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %48, %lor.lhs.false67 ], [ %48, %land.rhs.i176 ]
+  %64 = phi ptr [ %23, %if.end57 ], [ %.pre258, %if.then75 ], [ %49, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %49, %lor.lhs.false67 ], [ %49, %land.rhs.i176 ]
   %pos.sroa.0.0 = phi i32 [ %sub, %if.end57 ], [ %add, %if.then75 ], [ %sub, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %sub, %lor.lhs.false67 ], [ %sub, %land.rhs.i176 ]
   %pos.sroa.11.0 = phi i32 [ %sub61, %if.end57 ], [ %add84, %if.then75 ], [ %sub61, %_ZNK9GUIButton11ButtonImageeqERKS0_.exit ], [ %sub61, %lor.lhs.false67 ], [ %sub61, %land.rhs.i176 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %image_colors)
@@ -3232,7 +3232,7 @@ entry:
   %colors = alloca [4 x %"class.irr::video::SColor"], align 16
   %ButtonSprites = getelementptr inbounds nuw i8, ptr %this, i64 308
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw [7 x %"struct.GUIButton::ButtonSprite"], ptr %ButtonSprites, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.GUIButton::ButtonSprite", ptr %ButtonSprites, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !7
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end53, label %if.then
@@ -3598,7 +3598,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.then2, %if.end
   %ButtonImages = getelementptr inbounds nuw i8, ptr %this, i64 400
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw [9 x %"struct.GUIButton::ButtonImage"], ptr %ButtonImages, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.GUIButton::ButtonImage", ptr %ButtonImages, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !67
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end14, label %if.then5
@@ -4330,7 +4330,7 @@ arrayinit.body.i.i:                               ; preds = %invoke.cont.i.i, %e
   %.idx.i = shl nsw i64 %arrayinit.index.i.i, 5
   %properties.add.i = add nuw nsw i64 %.idx.i, 32
   %.ptr.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 %properties.add.i
-  %arrayidx.i.i = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties3.i, i64 0, i64 %arrayinit.index.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties3.i, i64 %arrayinit.index.i.i
   %0 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
   store ptr %0, ptr %.ptr.i, align 8, !tbaa !71
   %1 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !122
@@ -4438,13 +4438,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2.not.us, label %for.inc.us, label %if.then.us
 
 if.then.us:                                       ; preds = %for.body.us
-  %arrayidx.i.i13.us = getelementptr inbounds nuw [8 x %class.StyleSpec], ptr %styles, i64 0, i64 %indvars.iv32
+  %arrayidx.i.i13.us = getelementptr inbounds nuw %class.StyleSpec, ptr %styles, i64 %indvars.iv32
   invoke void @_ZNK9StyleSpecorERKS_(ptr dead_on_unwind nonnull writable sret(%class.StyleSpec) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(833) %agg.result, ptr noundef nonnull align 8 dereferenceable(833) %arrayidx.i.i13.us)
           to label %for.body.us.i.i.us unwind label %lpad.split.us
 
 for.body.us.i.i.us:                               ; preds = %if.then.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us.1
   %__i0.07.us.i.i.us = phi i64 [ %inc.us.i.i.us.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us.1 ], [ 0, %if.then.us ]
-  %arrayidx.us.i.i.us = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties3.i14, i64 0, i64 %__i0.07.us.i.i.us
+  %arrayidx.us.i.i.us = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties3.i14, i64 %__i0.07.us.i.i.us
   %14 = load ptr, ptr %arrayidx.us.i.i.us, align 8, !tbaa !122
   %15 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us, i64 16
   %cmp.i.i.us.i.i.us = icmp eq ptr %14, %15
@@ -4474,10 +4474,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us: ; p
   br i1 %cmp.not.us.i.i.us, label %_ZN9StyleSpecaSEOS_.exit.loopexit.us, label %for.body.us.i.i.us.1, !llvm.loop !125
 
 for.body.us.i.i.us.1:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us
-  %inc.us.i.i.us = or disjoint i64 %__i0.07.us.i.i.us, 1
-  %arrayidx.us.i.i.us.1 = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties3.i14, i64 0, i64 %inc.us.i.i.us
+  %arrayidx.us.i.i.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us, i64 32
   %18 = load ptr, ptr %arrayidx.us.i.i.us.1, align 8, !tbaa !122
-  %19 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us.1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us, i64 48
   %cmp.i.i.us.i.i.us.1 = icmp eq ptr %18, %19
   br i1 %cmp.i.i.us.i.i.us.1, label %if.then15.i.us.i.i.us.1, label %if.end32.i.us.i.i.us.1
 
@@ -4490,7 +4489,7 @@ if.else37.i.us.i.i.us.1:                          ; preds = %if.end32.i.us.i.i.u
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us.1
 
 if.then15.i.us.i.i.us.1:                          ; preds = %for.body.us.i.i.us.1
-  %_M_string_length.i.i.us.i.i.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us.1, i64 8
+  %_M_string_length.i.i.us.i.i.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us, i64 40
   %20 = load i64, ptr %_M_string_length.i.i.us.i.i.us.1, align 8, !tbaa !72
   %cmp3.i.i.us.i.i.us.1 = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.us.i.i.us.1)
@@ -4498,7 +4497,7 @@ if.then15.i.us.i.i.us.1:                          ; preds = %for.body.us.i.i.us.
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us.i.i.us.1: ; preds = %if.then15.i.us.i.i.us.1, %if.else37.i.us.i.i.us.1, %if.end32.i.us.i.i.us.1
   %21 = phi ptr [ %19, %if.else37.i.us.i.i.us.1 ], [ %18, %if.then15.i.us.i.i.us.1 ], [ %18, %if.end32.i.us.i.i.us.1 ]
-  %_M_string_length.i.i.i.i.us.i.i.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us.1, i64 8
+  %_M_string_length.i.i.i.i.us.i.i.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx.us.i.i.us, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.us.i.i.us.1, align 8, !tbaa !72
   store i8 0, ptr %21, align 1, !tbaa !73
   %inc.us.i.i.us.1 = add nuw nsw i64 %__i0.07.us.i.i.us, 2
@@ -4529,7 +4528,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
-  %arrayidx.i.i13 = getelementptr inbounds nuw [8 x %class.StyleSpec], ptr %styles, i64 0, i64 %indvars.iv
+  %arrayidx.i.i13 = getelementptr inbounds nuw %class.StyleSpec, ptr %styles, i64 %indvars.iv
   invoke void @_ZNK9StyleSpecorERKS_(ptr dead_on_unwind nonnull writable sret(%class.StyleSpec) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(833) %agg.result, ptr noundef nonnull align 8 dereferenceable(833) %arrayidx.i.i13)
           to label %invoke.cont unwind label %lpad.split
 
@@ -4539,8 +4538,8 @@ invoke.cont:                                      ; preds = %if.then
 
 for.body.i.i:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i, %invoke.cont
   %__i0.07.i.i = phi i64 [ %inc.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i ], [ 0, %invoke.cont ]
-  %arrayidx.i.i15 = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties.i, i64 0, i64 %__i0.07.i.i
-  %arrayidx3.i.i = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties3.i14, i64 0, i64 %__i0.07.i.i
+  %arrayidx.i.i15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties.i, i64 %__i0.07.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties3.i14, i64 %__i0.07.i.i
   %25 = load ptr, ptr %arrayidx.i.i15, align 8, !tbaa !122
   %26 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i15, i64 16
   %cmp.i.i.i.i16 = icmp eq ptr %25, %26
@@ -6727,7 +6726,7 @@ entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %Type, align 8, !tbaa !164
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [27 x ptr], ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !60
   ret ptr %1
 }
@@ -7893,7 +7892,7 @@ arrayinit.body.i.i:                               ; preds = %invoke.cont.i.i, %e
   %.idx.i = shl nsw i64 %arrayinit.index.i.i, 5
   %properties.add.i = add nuw nsw i64 %.idx.i, 32
   %.ptr.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 %properties.add.i
-  %arrayidx.i.i = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties3.i, i64 0, i64 %arrayinit.index.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties3.i, i64 %arrayinit.index.i.i
   %0 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
   store ptr %0, ptr %.ptr.i, align 8, !tbaa !71
   %1 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !122
@@ -8017,7 +8016,7 @@ for.cond.cleanup:                                 ; preds = %if.end
 
 for.body:                                         ; preds = %if.end, %entry
   %i.055 = phi i64 [ 0, %entry ], [ %inc, %if.end ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [25 x i8], ptr %other, i64 0, i64 %i.055
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 %i.055
   %2 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !167, !range !54, !noundef !55
   %tobool.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
@@ -8028,7 +8027,7 @@ if.then:                                          ; preds = %for.body
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !72
   store i8 0, ptr %0, align 8, !tbaa !73
   call void @llvm.experimental.noalias.scope.decl(metadata !181)
-  %arrayidx.i.i.i23 = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties.i, i64 0, i64 %i.055
+  %arrayidx.i.i.i23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties.i, i64 %i.055
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i23, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i24 = icmp eq i64 %3, 0
@@ -8073,12 +8072,12 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i.i.i,
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !73
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i)
-  %arrayidx.i.i.i28 = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties.i26, i64 0, i64 %i.055
+  %arrayidx.i.i.i28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties.i26, i64 %i.055
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [25 x i8], ptr %this, i64 0, i64 %i.055
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 %i.055
   store i8 1, ptr %arrayidx.i.i6.i, align 1, !tbaa !167
   %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !122
   %cmp.i.i.i29 = icmp eq ptr %10, %1

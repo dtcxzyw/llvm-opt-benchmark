@@ -494,7 +494,7 @@ define dso_local ptr @find_rel_exe_dir(ptr noundef %0) local_unnamed_addr #5 {
 19:                                               ; preds = %17, %30
   %.01518 = phi i64 [ 0, %17 ], [ %31, %30 ]
   tail call void @scratch_buffer_clear() #17
-  %20 = getelementptr inbounds nuw [5 x ptr], ptr @__const.find_rel_exe_dir.attempts, i64 0, i64 %.01518
+  %20 = getelementptr inbounds nuw ptr, ptr @__const.find_rel_exe_dir.attempts, i64 %.01518
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.18, ptr noundef nonnull %3, ptr noundef %21, ptr noundef %0) #17
   %22 = tail call ptr @scratch_buffer_to_string() #17

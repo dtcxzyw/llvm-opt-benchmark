@@ -329,7 +329,7 @@ define internal i32 @dissect_lacp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %76, label %73
 
 73:                                               ; preds = %68
-  %74 = getelementptr [9 x i8], ptr @lacp_state_flags_to_str.first_letters, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr i8, ptr @lacp_state_flags_to_str.first_letters, i64 %indvars.iv.i
   %75 = load i8, ptr %74, align 1
   br label %76
 
@@ -429,7 +429,7 @@ proto_item_set_generated.exit:                    ; preds = %lacp_state_flags_to
   br i1 %.not.i242, label %140, label %137
 
 137:                                              ; preds = %132
-  %138 = getelementptr [9 x i8], ptr @lacp_state_flags_to_str.first_letters, i64 0, i64 %indvars.iv.i241
+  %138 = getelementptr i8, ptr @lacp_state_flags_to_str.first_letters, i64 %indvars.iv.i241
   %139 = load i8, ptr %138, align 1
   br label %140
 

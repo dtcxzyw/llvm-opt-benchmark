@@ -1012,7 +1012,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
 
 214:                                              ; preds = %.preheader77.i
   %215 = trunc i32 %.05382.i to i8
-  %216 = getelementptr inbounds nuw [9 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   store i8 %215, ptr %216, align 1, !tbaa !68
   %217 = invoke noundef i32 @_ZN2cv12RLByteStream7getByteEv(ptr noundef nonnull align 8 dereferenceable(57) %77)
           to label %.noexc148 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1030,7 +1030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   %storemerge.lcssa.i = phi i32 [ %218, %.split.loop.exit.i ], [ 8, %.noexc148 ]
   %.053.lcssa.i = phi i32 [ %.05382.i, %.split.loop.exit.i ], [ %217, %.noexc148 ]
   %219 = zext nneg i32 %storemerge.lcssa.i to i64
-  %220 = getelementptr inbounds nuw [9 x i8], ptr %2, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 %219
   store i8 0, ptr %220, align 1, !tbaa !68
   %221 = tail call i32 @isspace(i32 noundef %.053.lcssa.i) #26
   %.not61.i = icmp eq i32 %221, 0
@@ -1049,7 +1049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
 
 225:                                              ; preds = %224, %.preheader75.i
   %indvars.iv92.i = phi i64 [ 0, %.preheader75.i ], [ %indvars.iv.next93.i, %224 ]
-  %226 = getelementptr inbounds nuw [6 x %"struct.cv::pam_header_field"], ptr @_ZN2cvL6fieldsE, i64 0, i64 %indvars.iv92.i
+  %226 = getelementptr inbounds nuw %"struct.cv::pam_header_field", ptr @_ZN2cvL6fieldsE, i64 %indvars.iv92.i
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %228 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %227, ptr noundef nonnull dereferenceable(1) %2, i64 noundef %223) #26
   %229 = icmp eq i32 %228, 0
@@ -2061,7 +2061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216: ; preds = %_Z
 
 .preheader:                                       ; preds = %284, %496
   %indvars.iv = phi i64 [ %indvars.iv.next, %496 ], [ 0, %284 ]
-  %497 = getelementptr inbounds nuw [6 x %"struct.cv::pam_format"], ptr @_ZN2cvL7formatsE, i64 0, i64 %indvars.iv
+  %497 = getelementptr inbounds nuw %"struct.cv::pam_format", ptr @_ZN2cvL7formatsE, i64 %indvars.iv
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 4
   %499 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %498, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256) #26
   %500 = icmp eq i32 %499, 0
@@ -2736,7 +2736,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %2, %32
 
 47:                                               ; preds = %44
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds [6 x %"struct.cv::pam_format"], ptr @_ZN2cvL7formatsE, i64 0, i64 %48
+  %49 = getelementptr inbounds %"struct.cv::pam_format", ptr @_ZN2cvL7formatsE, i64 %48
   br label %56
 
 50:                                               ; preds = %44
@@ -3841,7 +3841,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %15
 
 44:                                               ; preds = %40
   %45 = zext nneg i32 %42 to i64
-  %46 = getelementptr inbounds nuw [6 x %"struct.cv::pam_format"], ptr @_ZN2cvL7formatsE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %"struct.cv::pam_format", ptr @_ZN2cvL7formatsE, i64 %45
   br label %47
 
 47:                                               ; preds = %.lr.ph, %44, %40

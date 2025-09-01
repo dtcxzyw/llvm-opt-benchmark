@@ -2397,9 +2397,9 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
 
 135:                                              ; preds = %135, %131
   %136 = phi i64 [ 0, %131 ], [ %140, %135 ]
-  %137 = getelementptr [8 x i64], ptr %132, i64 0, i64 %136
+  %137 = getelementptr i64, ptr %132, i64 %136
   %138 = load i64, ptr %137, align 8
-  %139 = getelementptr [8 x i64], ptr %133, i64 0, i64 %136
+  %139 = getelementptr i64, ptr %133, i64 %136
   store i64 %138, ptr %139, align 8
   %140 = add nuw nsw i64 %136, 1
   %141 = icmp eq i64 %140, %134

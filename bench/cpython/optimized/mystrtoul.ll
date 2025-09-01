@@ -18,7 +18,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %5 = phi i8 [ %12, %10 ], [ %4, %3 ]
   %.0101142 = phi ptr [ %11, %10 ], [ %0, %3 ]
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %6
+  %7 = getelementptr i32, ptr @_Py_ctype_table, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !7
   %9 = and i32 %8, 8
   %.not121 = icmp eq i32 %9, 0
@@ -67,7 +67,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %20 = getelementptr i8, ptr %.0101.lcssa, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = zext i8 %21 to i64
-  %23 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %22
+  %23 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp ugt i8 %24, 15
   br i1 %25, label %26, label %.preheader136.preheader
@@ -84,7 +84,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %29 = getelementptr i8, ptr %.0101.lcssa, i64 2
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = zext i8 %30 to i64
-  %32 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %31
+  %32 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = icmp ugt i8 %33, 7
   br i1 %34, label %35, label %.preheader136.preheader
@@ -101,7 +101,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %38 = getelementptr i8, ptr %.0101.lcssa, i64 2
   %39 = load i8, ptr %38, align 1, !tbaa !4
   %40 = zext i8 %39 to i64
-  %41 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %40
+  %41 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = icmp ugt i8 %42, 1
   br i1 %43, label %44, label %.preheader136.preheader
@@ -129,7 +129,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %.3 = phi ptr [ %53, %.preheader137 ], [ %.3.ph, %.preheader137.preheader ]
   %48 = load i8, ptr %.3, align 1, !tbaa !4
   %49 = zext i8 %48 to i64
-  %50 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %49
+  %50 = getelementptr i32, ptr @_Py_ctype_table, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !7
   %52 = and i32 %51, 8
   %.not125 = icmp eq i32 %52, 0
@@ -159,7 +159,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %61 = getelementptr i8, ptr %.0101.lcssa, i64 2
   %62 = load i8, ptr %61, align 1, !tbaa !4
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !4
   %66 = icmp ugt i8 %65, 15
   br i1 %66, label %67, label %95
@@ -187,7 +187,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %74 = getelementptr i8, ptr %.0101.lcssa, i64 2
   %75 = load i8, ptr %74, align 1, !tbaa !4
   %76 = zext i8 %75 to i64
-  %77 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %76
+  %77 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !4
   %79 = icmp ugt i8 %78, 7
   br i1 %79, label %80, label %95
@@ -215,7 +215,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %87 = getelementptr i8, ptr %.0101.lcssa, i64 2
   %88 = load i8, ptr %87, align 1, !tbaa !4
   %89 = zext i8 %88 to i64
-  %90 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %89
+  %90 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !4
   %92 = icmp ugt i8 %91, 1
   br i1 %92, label %93, label %95
@@ -257,16 +257,16 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
 102:                                              ; preds = %.preheader136
   %103 = zext nneg i32 %.0105171 to i64
   %104 = zext i8 %99 to i64
-  %105 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %104
+  %105 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !4
   %107 = zext i8 %106 to i32
   %108 = icmp samesign ugt i32 %.0105171, %107
   br i1 %108, label %.lr.ph153, label %._crit_edge
 
 .lr.ph153:                                        ; preds = %102
-  %109 = getelementptr [37 x i32], ptr @digitlimit, i64 0, i64 %103
+  %109 = getelementptr i32, ptr @digitlimit, i64 %103
   %110 = load i32, ptr %109, align 4, !tbaa !7
-  %111 = getelementptr [37 x i64], ptr @smallmax, i64 0, i64 %103
+  %111 = getelementptr i64, ptr @smallmax, i64 %103
   br label %112
 
 112:                                              ; preds = %.lr.ph153, %129
@@ -305,7 +305,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %131 = add nsw i32 %.0100152, -1
   %132 = load i8, ptr %130, align 1, !tbaa !4
   %133 = zext i8 %132 to i64
-  %134 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %133
+  %134 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !4
   %136 = zext i8 %135 to i32
   %137 = icmp samesign ugt i32 %.0105171, %136
@@ -329,7 +329,7 @@ select.unfold:                                    ; preds = %124, %119, %121
   %.6 = phi ptr [ %145, %.preheader ], [ %.5151, %select.unfold ]
   %139 = load i8, ptr %.6, align 1, !tbaa !4
   %140 = zext i8 %139 to i64
-  %141 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %140
+  %141 = getelementptr i8, ptr @_PyLong_DigitValue, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !4
   %143 = zext i8 %142 to i32
   %144 = icmp samesign ugt i32 %.0105171, %143
@@ -363,7 +363,7 @@ define dso_local i64 @PyOS_strtol(ptr noundef %0, ptr noundef writeonly captures
   %5 = phi i8 [ %12, %10 ], [ %4, %3 ]
   %.028 = phi ptr [ %11, %10 ], [ %0, %3 ]
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %6
+  %7 = getelementptr i32, ptr @_Py_ctype_table, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !7
   %9 = and i32 %8, 8
   %.not24 = icmp eq i32 %9, 0

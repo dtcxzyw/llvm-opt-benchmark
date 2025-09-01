@@ -1633,7 +1633,7 @@ define hidden ptr @lxb_html_tokenizer_state_char_ref(ptr noundef captures(none) 
   store i8 0, ptr %4, align 8, !tbaa !51
   %5 = load i8, ptr %1, align 1, !tbaa !30
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alphanumeric_character, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alphanumeric_character, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !52
   %.not.i = icmp eq i64 %8, 255
   br i1 %.not.i, label %21, label %9
@@ -1727,7 +1727,7 @@ _lxb_html_tokenizer_state_char_ref.exit:          ; preds = %9, %lxb_html_tokeni
 define internal ptr @lxb_html_tokenizer_state_tag_open(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !52
   %.not = icmp eq i64 %7, 255
   br i1 %.not, label %45, label %8
@@ -2514,7 +2514,7 @@ lxb_html_tokenizer_temp_append_data.exit126:      ; preds = %235
 define internal ptr @lxb_html_tokenizer_state_end_tag_open(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !52
   %.not = icmp eq i64 %7, 255
   br i1 %.not, label %48, label %8
@@ -5744,7 +5744,7 @@ define internal ptr @lxb_html_tokenizer_state_char_ref_attr(ptr noundef captures
   store i8 1, ptr %4, align 8, !tbaa !51
   %5 = load i8, ptr %1, align 1, !tbaa !30
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alphanumeric_character, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alphanumeric_character, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !52
   %.not.i = icmp eq i64 %8, 255
   br i1 %.not.i, label %21, label %9
@@ -5943,7 +5943,7 @@ lexbor_sbst_entry_static_find.exit:               ; preds = %.lr.ph.i
   %53 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 12
   %54 = load i16, ptr %53, align 2, !tbaa !72
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw [9854 x %struct.lexbor_sbst_entry_static_t], ptr @lxb_html_tokenizer_res_entities_sbst, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw %struct.lexbor_sbst_entry_static_t, ptr @lxb_html_tokenizer_res_entities_sbst, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %.075110, i64 1
   %exitcond.not = icmp eq ptr %57, %2
   br i1 %exitcond.not, label %._crit_edge, label %14
@@ -6029,7 +6029,7 @@ lxb_html_tokenizer_temp_append.exit90:            ; preds = %64
 
 98:                                               ; preds = %95
   %99 = zext i8 %96 to i64
-  %100 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alphanumeric_character, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alphanumeric_character, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !52
   %.not83 = icmp eq i64 %101, 255
   br i1 %.not83, label %.thread137, label %159
@@ -6220,7 +6220,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 define internal noundef ptr @lxb_html_tokenizer_state_char_ref_hexademical_start(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef returned %1, ptr readnone captures(none) %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_hex, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_hex, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !30
   %.not = icmp eq i8 %7, -1
   br i1 %.not, label %8, label %14
@@ -6273,7 +6273,7 @@ define internal ptr @lxb_html_tokenizer_state_char_ref_hexademical(ptr noundef c
   %.01722 = phi ptr [ %1, %.lr.ph ], [ %29, %28 ]
   %6 = load i8, ptr %.01722, align 1, !tbaa !30
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_hex, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_hex, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !30
   %10 = icmp eq i8 %9, -1
   br i1 %10, label %11, label %17
@@ -6299,7 +6299,7 @@ define internal ptr @lxb_html_tokenizer_state_char_ref_hexademical(ptr noundef c
   store i32 %21, ptr %4, align 4, !tbaa !74
   %22 = load i8, ptr %.01722, align 1, !tbaa !30
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_hex, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_hex, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !30
   %26 = zext i8 %25 to i32
   %27 = or i32 %21, %26
@@ -6470,7 +6470,7 @@ switch.early.test:                                ; preds = %54
 .thread.thread:                                   ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.thread
   %66 = phi i32 [ %64, %.thread ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ]
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [160 x i64], ptr @lexbor_str_res_replacement_character, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_replacement_character, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !52
   %70 = trunc i64 %69 to i32
   store i32 %70, ptr %30, align 4, !tbaa !74
@@ -6587,7 +6587,7 @@ define internal ptr @lxb_html_tokenizer_state_char_ref_decimal(ptr noundef captu
   %.01723 = phi ptr [ %1, %.lr.ph ], [ %26, %25 ]
   %6 = load i8, ptr %.01723, align 1, !tbaa !30
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_num, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_num, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !30
   %10 = zext i8 %9 to i32
   %11 = add i8 %6, -58

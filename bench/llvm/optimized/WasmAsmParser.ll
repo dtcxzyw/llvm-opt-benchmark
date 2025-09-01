@@ -1138,7 +1138,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_.exit: ; 
   %.01218 = phi i32 [ 0, %.lr.ph ], [ %35, %28 ]
   %.117 = phi ptr [ %.01323, %.lr.ph ], [ %33, %28 ]
   %29 = and i64 %.019, 15
-  %30 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !183
   %32 = or i8 %31, %11
   %33 = getelementptr inbounds i8, ptr %.117, i64 -1

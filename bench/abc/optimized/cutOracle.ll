@@ -826,9 +826,9 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %111, %14
 209:                                              ; preds = %205
   %210 = add nsw i32 %.05259.i, 1
   %211 = sext i32 %.05259.i to i64
-  %212 = getelementptr inbounds [0 x i32], ptr %195, i64 0, i64 %211
+  %212 = getelementptr inbounds i32, ptr %195, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !47
-  %214 = getelementptr inbounds nuw [0 x i32], ptr %197, i64 0, i64 %indvars.iv.i76
+  %214 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.i76
   store i32 %213, ptr %214, align 4, !tbaa !47
   br label %240
 
@@ -838,21 +838,21 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %111, %14
 216:                                              ; preds = %215
   %217 = add nsw i32 %.05160.i, 1
   %218 = sext i32 %.05160.i to i64
-  %219 = getelementptr inbounds [0 x i32], ptr %196, i64 0, i64 %218
+  %219 = getelementptr inbounds i32, ptr %196, i64 %218
   %220 = load i32, ptr %219, align 4, !tbaa !47
-  %221 = getelementptr inbounds nuw [0 x i32], ptr %197, i64 0, i64 %indvars.iv.i76
+  %221 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.i76
   store i32 %220, ptr %221, align 4, !tbaa !47
   br label %240
 
 222:                                              ; preds = %215
   %223 = sext i32 %.05259.i to i64
-  %224 = getelementptr inbounds [0 x i32], ptr %195, i64 0, i64 %223
+  %224 = getelementptr inbounds i32, ptr %195, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !47
   %226 = sext i32 %.05160.i to i64
-  %227 = getelementptr inbounds [0 x i32], ptr %196, i64 0, i64 %226
+  %227 = getelementptr inbounds i32, ptr %196, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !47
   %229 = icmp slt i32 %225, %228
-  %230 = getelementptr inbounds nuw [0 x i32], ptr %197, i64 0, i64 %indvars.iv.i76
+  %230 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.i76
   br i1 %229, label %231, label %233
 
 231:                                              ; preds = %222

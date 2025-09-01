@@ -13256,7 +13256,7 @@ default.unreachable:                              ; preds = %.noexc
   br i1 %81, label %"_ZN4core3ptr94drop_in_place$LT$smallvec..SmallVec$LT$$u5b$hir_ty..builder..ParamKind$u3b$$u20$2$u5d$$GT$$GT$17h2bcb3e2eda0e925dE.exit", label %82
 
 82:                                               ; preds = %.preheader.i.i
-  %83 = getelementptr inbounds nuw [0 x { i64, [1 x i64] }], ptr %24, i64 0, i64 %.0.i.i.i
+  %83 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %24, i64 %.0.i.i.i
   %84 = add nuw nsw i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h142e1d301788293fE.llvm.13297079808459514206"(ptr noalias noundef nonnull align 8 dereferenceable(16) %83)
           to label %.preheader.i.i unwind label %87
@@ -13272,7 +13272,7 @@ default.unreachable:                              ; preds = %.noexc
   br label %85
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %24, i64 0, i64 %.1.i.i.i
+  %90 = getelementptr inbounds { i64, [1 x i64] }, ptr %24, i64 %.1.i.i.i
   %91 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h142e1d301788293fE.llvm.13297079808459514206"(ptr noalias noundef nonnull align 8 dereferenceable(16) %90) #41
           to label %85 unwind label %92

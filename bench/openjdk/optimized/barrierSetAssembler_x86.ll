@@ -1219,7 +1219,7 @@ define hidden noundef i32 @_ZN19BarrierSetAssembler15refine_registerEPK4Nodei(pt
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @UseAVX, align 4
   %11 = icmp slt i32 %10, 3
@@ -1301,7 +1301,7 @@ define hidden noundef range(i32 10, 14) i32 @_ZN17SaveLiveRegisters22xmm_ideal_r
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1355,7 +1355,7 @@ define hidden void @_ZN17SaveLiveRegisters17xmm_register_saveERKNS_15XMMRegister
 
 20:                                               ; preds = %18
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -1380,7 +1380,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
 
 switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %33 = load i32, ptr %32, align 4
@@ -1432,7 +1432,7 @@ define hidden void @_ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegis
 
 20:                                               ; preds = %18
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -1457,7 +1457,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
 
 switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1628,7 +1628,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %8, %.thread
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw i64 1, %11
   %13 = zext nneg i32 %7 to i64
-  %14 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %3, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = or i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -1656,7 +1656,7 @@ _ZN7RegMask6InsertEi.exit35:                      ; preds = %22, %25
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw i64 1, %27
   %29 = zext nneg i32 %18 to i64
-  %30 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %28
   store i64 %32, ptr %30, align 8
@@ -1684,7 +1684,7 @@ _ZN7RegMask6InsertEi.exit36:                      ; preds = %38, %41
   %43 = zext nneg i32 %42 to i64
   %44 = shl nuw i64 1, %43
   %45 = zext nneg i32 %34 to i64
-  %46 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %3, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = or i64 %47, %44
   store i64 %48, ptr %46, align 8
@@ -1712,7 +1712,7 @@ _ZN7RegMask6InsertEi.exit37:                      ; preds = %54, %57
   %59 = zext nneg i32 %58 to i64
   %60 = shl nuw i64 1, %59
   %61 = zext nneg i32 %50 to i64
-  %62 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %3, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = or i64 %63, %60
   store i64 %64, ptr %62, align 8
@@ -1740,7 +1740,7 @@ _ZN7RegMask6InsertEi.exit38:                      ; preds = %70, %73
   %75 = zext nneg i32 %74 to i64
   %76 = shl nuw i64 1, %75
   %77 = zext nneg i32 %66 to i64
-  %78 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %3, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = or i64 %79, %76
   store i64 %80, ptr %78, align 8
@@ -1768,7 +1768,7 @@ _ZN7RegMask6InsertEi.exit39:                      ; preds = %86, %89
   %91 = zext nneg i32 %90 to i64
   %92 = shl nuw i64 1, %91
   %93 = zext nneg i32 %82 to i64
-  %94 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i64, ptr %3, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = or i64 %95, %92
   store i64 %96, ptr %94, align 8
@@ -1796,7 +1796,7 @@ _ZN7RegMask6InsertEi.exit40:                      ; preds = %102, %105
   %107 = zext nneg i32 %106 to i64
   %108 = shl nuw i64 1, %107
   %109 = zext nneg i32 %98 to i64
-  %110 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i64, ptr %3, i64 %109
   %111 = load i64, ptr %110, align 8
   %112 = or i64 %111, %108
   store i64 %112, ptr %110, align 8
@@ -1824,7 +1824,7 @@ _ZN7RegMask6InsertEi.exit41:                      ; preds = %118, %121
   %123 = zext nneg i32 %122 to i64
   %124 = shl nuw i64 1, %123
   %125 = zext nneg i32 %114 to i64
-  %126 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr %3, i64 %125
   %127 = load i64, ptr %126, align 8
   %128 = or i64 %127, %124
   store i64 %128, ptr %126, align 8
@@ -1852,7 +1852,7 @@ _ZN7RegMask6InsertEi.exit42:                      ; preds = %134, %137
   %139 = zext nneg i32 %138 to i64
   %140 = shl nuw i64 1, %139
   %141 = zext nneg i32 %130 to i64
-  %142 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i64, ptr %3, i64 %141
   %143 = load i64, ptr %142, align 8
   %144 = or i64 %143, %140
   store i64 %144, ptr %142, align 8
@@ -1885,7 +1885,7 @@ _ZN7RegMask6InsertEi.exit43:                      ; preds = %153, %156
   %158 = zext nneg i32 %157 to i64
   %159 = shl nuw i64 1, %158
   %160 = zext nneg i32 %149 to i64
-  %161 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i64, ptr %3, i64 %160
   %162 = load i64, ptr %161, align 8
   %163 = or i64 %162, %159
   store i64 %163, ptr %161, align 8
@@ -1913,7 +1913,7 @@ _ZN7RegMask6InsertEi.exit44:                      ; preds = %169, %172
   %174 = zext nneg i32 %173 to i64
   %175 = shl nuw i64 1, %174
   %176 = zext nneg i32 %165 to i64
-  %177 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i64, ptr %3, i64 %176
   %178 = load i64, ptr %177, align 8
   %179 = or i64 %178, %175
   store i64 %179, ptr %177, align 8
@@ -1941,7 +1941,7 @@ _ZN7RegMask6InsertEi.exit45:                      ; preds = %185, %188
   %190 = zext nneg i32 %189 to i64
   %191 = shl nuw i64 1, %190
   %192 = zext nneg i32 %181 to i64
-  %193 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i64, ptr %3, i64 %192
   %194 = load i64, ptr %193, align 8
   %195 = or i64 %194, %191
   store i64 %195, ptr %193, align 8
@@ -1969,7 +1969,7 @@ _ZN7RegMask6InsertEi.exit46:                      ; preds = %201, %204
   %206 = zext nneg i32 %205 to i64
   %207 = shl nuw i64 1, %206
   %208 = zext nneg i32 %197 to i64
-  %209 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i64, ptr %3, i64 %208
   %210 = load i64, ptr %209, align 8
   %211 = or i64 %210, %207
   store i64 %211, ptr %209, align 8
@@ -1997,7 +1997,7 @@ _ZN7RegMask6InsertEi.exit47:                      ; preds = %217, %220
   %222 = zext nneg i32 %221 to i64
   %223 = shl nuw i64 1, %222
   %224 = zext nneg i32 %213 to i64
-  %225 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i64, ptr %3, i64 %224
   %226 = load i64, ptr %225, align 8
   %227 = or i64 %226, %223
   store i64 %227, ptr %225, align 8
@@ -2025,7 +2025,7 @@ _ZN7RegMask6InsertEi.exit48:                      ; preds = %233, %236
   %238 = zext nneg i32 %237 to i64
   %239 = shl nuw i64 1, %238
   %240 = zext nneg i32 %229 to i64
-  %241 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw i64, ptr %3, i64 %240
   %242 = load i64, ptr %241, align 8
   %243 = or i64 %242, %239
   store i64 %243, ptr %241, align 8
@@ -2053,7 +2053,7 @@ _ZN7RegMask6InsertEi.exit49:                      ; preds = %249, %252
   %254 = zext nneg i32 %253 to i64
   %255 = shl nuw i64 1, %254
   %256 = zext nneg i32 %245 to i64
-  %257 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw i64, ptr %3, i64 %256
   %258 = load i64, ptr %257, align 8
   %259 = or i64 %258, %255
   store i64 %259, ptr %257, align 8
@@ -2081,7 +2081,7 @@ _ZN7RegMask6InsertEi.exit50:                      ; preds = %265, %268
   %270 = zext nneg i32 %269 to i64
   %271 = shl nuw i64 1, %270
   %272 = zext nneg i32 %261 to i64
-  %273 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw i64, ptr %3, i64 %272
   %274 = load i64, ptr %273, align 8
   %275 = or i64 %274, %271
   store i64 %275, ptr %273, align 8
@@ -2109,7 +2109,7 @@ _ZN7RegMask6InsertEi.exit51:                      ; preds = %281, %284
   %286 = zext nneg i32 %285 to i64
   %287 = shl nuw i64 1, %286
   %288 = zext nneg i32 %277 to i64
-  %289 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i64, ptr %3, i64 %288
   %290 = load i64, ptr %289, align 8
   %291 = or i64 %290, %287
   store i64 %291, ptr %289, align 8
@@ -2137,7 +2137,7 @@ _ZN7RegMask6InsertEi.exit52:                      ; preds = %297, %300
   %302 = zext nneg i32 %301 to i64
   %303 = shl nuw i64 1, %302
   %304 = zext nneg i32 %293 to i64
-  %305 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw i64, ptr %3, i64 %304
   %306 = load i64, ptr %305, align 8
   %307 = or i64 %306, %303
   store i64 %307, ptr %305, align 8
@@ -2165,7 +2165,7 @@ _ZN7RegMask6InsertEi.exit53:                      ; preds = %313, %316
   %318 = zext nneg i32 %317 to i64
   %319 = shl nuw i64 1, %318
   %320 = zext nneg i32 %309 to i64
-  %321 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i64, ptr %3, i64 %320
   %322 = load i64, ptr %321, align 8
   %323 = or i64 %322, %319
   store i64 %323, ptr %321, align 8
@@ -2193,7 +2193,7 @@ _ZN7RegMask6InsertEi.exit54:                      ; preds = %329, %332
   %334 = zext nneg i32 %333 to i64
   %335 = shl nuw i64 1, %334
   %336 = zext nneg i32 %325 to i64
-  %337 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw i64, ptr %3, i64 %336
   %338 = load i64, ptr %337, align 8
   %339 = or i64 %338, %335
   store i64 %339, ptr %337, align 8
@@ -2221,7 +2221,7 @@ _ZN7RegMask6InsertEi.exit55:                      ; preds = %345, %348
   %350 = zext nneg i32 %349 to i64
   %351 = shl nuw i64 1, %350
   %352 = zext nneg i32 %341 to i64
-  %353 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw i64, ptr %3, i64 %352
   %354 = load i64, ptr %353, align 8
   %355 = or i64 %354, %351
   store i64 %355, ptr %353, align 8
@@ -2249,7 +2249,7 @@ _ZN7RegMask6InsertEi.exit56:                      ; preds = %361, %364
   %366 = zext nneg i32 %365 to i64
   %367 = shl nuw i64 1, %366
   %368 = zext nneg i32 %357 to i64
-  %369 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw i64, ptr %3, i64 %368
   %370 = load i64, ptr %369, align 8
   %371 = or i64 %370, %367
   store i64 %371, ptr %369, align 8
@@ -2277,7 +2277,7 @@ _ZN7RegMask6InsertEi.exit57:                      ; preds = %377, %380
   %382 = zext nneg i32 %381 to i64
   %383 = shl nuw i64 1, %382
   %384 = zext nneg i32 %373 to i64
-  %385 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw i64, ptr %3, i64 %384
   %386 = load i64, ptr %385, align 8
   %387 = or i64 %386, %383
   store i64 %387, ptr %385, align 8
@@ -2305,7 +2305,7 @@ _ZN7RegMask6InsertEi.exit58:                      ; preds = %393, %396
   %398 = zext nneg i32 %397 to i64
   %399 = shl nuw i64 1, %398
   %400 = zext nneg i32 %389 to i64
-  %401 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw i64, ptr %3, i64 %400
   %402 = load i64, ptr %401, align 8
   %403 = or i64 %402, %399
   store i64 %403, ptr %401, align 8
@@ -2327,7 +2327,7 @@ _ZN7RegMask6InsertEi.exit58:                      ; preds = %393, %396
 411:                                              ; preds = %410
   %412 = add i32 %.sroa.7.1, 1
   %413 = zext i32 %.sroa.7.1 to i64
-  %414 = getelementptr inbounds nuw [11 x i64], ptr %405, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i64, ptr %405, i64 %413
   %415 = load i64, ptr %414, align 8
   %.not11.i.i = icmp eq i64 %415, 0
   br i1 %.not11.i.i, label %410, label %_ZN15RegMaskIteratorC2ERK7RegMask.exit, !llvm.loop !6
@@ -2385,7 +2385,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
 440:                                              ; preds = %.preheader.i
   %441 = add i32 %.sroa.7.3, 1
   %442 = zext i32 %.sroa.7.3 to i64
-  %443 = getelementptr inbounds nuw [11 x i64], ptr %405, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw i64, ptr %405, i64 %442
   %444 = load i64, ptr %443, align 8
   %.not11.i = icmp eq i64 %444, 0
   br i1 %.not11.i, label %.preheader.i, label %445, !llvm.loop !6
@@ -2409,7 +2409,7 @@ _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i, %434,
 
 454:                                              ; preds = %_ZN15RegMaskIterator4nextEv.exit
   %455 = sext i32 %.sroa.11.0112 to i64
-  %456 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %455
+  %456 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %455
   %457 = load ptr, ptr %456, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit
 
@@ -2427,7 +2427,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %_ZN15RegMaskIterato
 464:                                              ; preds = %_ZN7OptoReg8as_VMRegEi.exit
   %465 = lshr i32 %.sroa.11.0112, 6
   %466 = zext nneg i32 %465 to i64
-  %467 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw i64, ptr %3, i64 %466
   %468 = load i64, ptr %467, align 8
   %469 = and i32 %.sroa.11.0112, 63
   %470 = zext nneg i32 %469 to i64
@@ -2547,7 +2547,7 @@ _ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exi
 
 531:                                              ; preds = %528
   %532 = sext i32 %529 to i64
-  %533 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %532
+  %533 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %532
   %534 = load ptr, ptr %533, align 16
   br label %_ZN7OptoReg8as_VMRegEi.exit71
 

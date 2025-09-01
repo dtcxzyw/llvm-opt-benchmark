@@ -3340,7 +3340,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %20 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
-  %21 = getelementptr inbounds [0 x { { { i64, [5 x i64] } }, { i64, [2 x i64] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %20, i64 0, i64 %14
+  %21 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [2 x i64] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %20, i64 %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   br i1 %.off, label %27, label %25
@@ -3378,7 +3378,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %35 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds [0 x { { { i64, [5 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } }], ptr %35, i64 0, i64 %23
+  %36 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %35, i64 %23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load i64, ptr %37, align 8, !range !459, !noundef !5
   %trunc = trunc nuw i64 %38 to i1

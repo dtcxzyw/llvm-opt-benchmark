@@ -3024,7 +3024,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i.i: ; preds = %_ZNK6ve
 
 396:                                              ; preds = %392
   %397 = zext nneg i32 %394 to i64
-  %398 = getelementptr inbounds nuw [0 x ptr], ptr %391, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw ptr, ptr %391, i64 %397
   %399 = load ptr, ptr %398, align 8, !tbaa !131
   %400 = and i32 %393, -64
   %401 = add i32 %400, 64
@@ -6805,7 +6805,7 @@ _ZN12rewriter_tplIN6spacer12_GLOBAL__N_130limit_denominator_rewriter_cfgEE13cons
 
 2054:                                             ; preds = %1920, %1916, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i.i.i, %1897, %1893, %1891
   %2055 = zext nneg i32 %1889 to i64
-  %2056 = getelementptr inbounds nuw [0 x ptr], ptr %1886, i64 0, i64 %2055
+  %2056 = getelementptr inbounds nuw ptr, ptr %1886, i64 %2055
   %2057 = load ptr, ptr %2056, align 8, !tbaa !131
   %2058 = add i32 %.mask.i.i.i.i, 64
   %2059 = and i32 %1888, 63

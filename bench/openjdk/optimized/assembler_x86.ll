@@ -1032,9 +1032,9 @@ switch.lookup:                                    ; preds = %20, %10, %13, %16, 
 25:                                               ; preds = %switch.lookup
   %26 = add nsw i32 %.028, %3
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %27
+  %28 = getelementptr inbounds [3 x i8], ptr @_ZL11tuple_table, i64 %27
   %29 = zext nneg i32 %2 to i64
-  %30 = getelementptr inbounds nuw [3 x i8], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = srem i32 %0, %32
@@ -1138,9 +1138,9 @@ switch.lookup:                                    ; preds = %26, %12, %19, %22, 
 37:                                               ; preds = %switch.lookup
   %38 = add nsw i32 %.020, %16
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %39
+  %40 = getelementptr inbounds [3 x i8], ptr @_ZL11tuple_table, i64 %39
   %41 = zext nneg i32 %36 to i64
-  %42 = getelementptr inbounds nuw [3 x i8], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = load i32, ptr %1, align 4
@@ -4463,7 +4463,7 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
 
 39:                                               ; preds = %30
   %40 = zext nneg i32 %4 to i64
-  %41 = getelementptr inbounds nuw [4 x i32], ptr @_ZL8simd_pre, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr @_ZL8simd_pre, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -4516,7 +4516,7 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
 
 70:                                               ; preds = %62
   %71 = zext nneg i32 %5 to i64
-  %72 = getelementptr inbounds nuw [4 x i32], ptr @_ZL8simd_opc, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr @_ZL8simd_opc, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = load ptr, ptr %63, align 8
   %75 = trunc i32 %73 to i8
@@ -48818,7 +48818,7 @@ define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPr
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %3 to i64
-  %10 = getelementptr inbounds nuw [4 x i32], ptr @_ZL8simd_pre, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL8simd_pre, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -49008,7 +49008,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %108, %66, %60, %22
 
 121:                                              ; preds = %113
   %122 = zext nneg i32 %4 to i64
-  %123 = getelementptr inbounds nuw [4 x i32], ptr @_ZL8simd_opc, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i32, ptr @_ZL8simd_opc, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = load ptr, ptr %114, align 8
   %126 = trunc i32 %124 to i8
@@ -95523,7 +95523,7 @@ define hidden void @_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdP
 
 10:                                               ; preds = %6
   %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr inbounds nuw [4 x i32], ptr @_ZL8simd_pre, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @_ZL8simd_pre, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -95577,7 +95577,7 @@ define hidden void @_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdP
 
 42:                                               ; preds = %34
   %43 = zext nneg i32 %4 to i64
-  %44 = getelementptr inbounds nuw [4 x i32], ptr @_ZL8simd_opc, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr @_ZL8simd_opc, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = load ptr, ptr %35, align 8
   %47 = trunc i32 %45 to i8

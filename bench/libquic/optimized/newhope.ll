@@ -78,7 +78,7 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_client_compute_key(ptr noundef %0, pt
   %13 = alloca [32 x i8], align 16
   %14 = alloca %struct.sha256_state_st, align 4
   %.not = icmp eq i64 %3, 1824
-  br i1 %.not, label %15, label %48
+  br i1 %.not, label %15, label %44
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -114,30 +114,27 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_client_compute_key(ptr noundef %0, pt
 
 18:                                               ; preds = %18, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %18 ]
-  %19 = shl nuw nsw i64 %indvars.iv.i, 2
-  %20 = getelementptr inbounds nuw [1024 x i16], ptr %12, i64 0, i64 %19
-  %21 = load i16, ptr %20, align 8, !tbaa !6
-  %22 = trunc i16 %21 to i8
-  %23 = or disjoint i64 %19, 1
-  %24 = getelementptr inbounds nuw [1024 x i16], ptr %12, i64 0, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !6
-  %26 = trunc i16 %25 to i8
-  %27 = shl i8 %26, 2
-  %28 = or i8 %27, %22
-  %29 = or disjoint i64 %19, 2
-  %30 = getelementptr inbounds nuw [1024 x i16], ptr %12, i64 0, i64 %29
-  %31 = load i16, ptr %30, align 4, !tbaa !6
-  %32 = trunc i16 %31 to i8
-  %33 = shl i8 %32, 4
-  %34 = or i8 %28, %33
-  %35 = or disjoint i64 %19, 3
-  %36 = getelementptr inbounds nuw [1024 x i16], ptr %12, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !6
-  %38 = trunc i16 %37 to i8
-  %39 = shl i8 %38, 6
-  %40 = or i8 %34, %39
-  %41 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i
-  store i8 %40, ptr %41, align 1, !tbaa !10
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
+  %20 = load i16, ptr %19, align 8, !tbaa !6
+  %21 = trunc i16 %20 to i8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  %23 = load i16, ptr %22, align 2, !tbaa !6
+  %24 = trunc i16 %23 to i8
+  %25 = shl i8 %24, 2
+  %26 = or i8 %25, %21
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %28 = load i16, ptr %27, align 4, !tbaa !6
+  %29 = trunc i16 %28 to i8
+  %30 = shl i8 %29, 4
+  %31 = or i8 %26, %30
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 6
+  %33 = load i16, ptr %32, align 2, !tbaa !6
+  %34 = trunc i16 %33 to i8
+  %35 = shl i8 %34, 6
+  %36 = or i8 %31, %35
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i
+  store i8 %36, ptr %37, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
   br i1 %exitcond.not.i, label %encode_rec.exit, label %18, !llvm.loop !11
@@ -146,32 +143,32 @@ encode_rec.exit:                                  ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @newhope_reconcile(ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %12) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %42 = call i32 @SHA256_Init(ptr noundef nonnull %14) #8
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %47, label %43
+  %38 = call i32 @SHA256_Init(ptr noundef nonnull %14) #8
+  %.not8 = icmp eq i32 %38, 0
+  br i1 %.not8, label %43, label %39
 
-43:                                               ; preds = %encode_rec.exit
-  %44 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef nonnull %13, i64 noundef 32) #8
-  %.not9 = icmp eq i32 %44, 0
-  br i1 %.not9, label %47, label %45
+39:                                               ; preds = %encode_rec.exit
+  %40 = call i32 @SHA256_Update(ptr noundef nonnull %14, ptr noundef nonnull %13, i64 noundef 32) #8
+  %.not9 = icmp eq i32 %40, 0
+  br i1 %.not9, label %43, label %41
 
-45:                                               ; preds = %43
-  %46 = call i32 @SHA256_Final(ptr noundef %0, ptr noundef nonnull %14) #8
-  %.not10 = icmp ne i32 %46, 0
+41:                                               ; preds = %39
+  %42 = call i32 @SHA256_Final(ptr noundef %0, ptr noundef nonnull %14) #8
+  %.not10 = icmp ne i32 %42, 0
   %spec.select = zext i1 %.not10 to i32
-  br label %47
+  br label %43
 
-47:                                               ; preds = %45, %encode_rec.exit, %43
-  %.1 = phi i32 [ 0, %43 ], [ 0, %encode_rec.exit ], [ %spec.select, %45 ]
+43:                                               ; preds = %41, %encode_rec.exit, %39
+  %.1 = phi i32 [ 0, %39 ], [ 0, %encode_rec.exit ], [ %spec.select, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %48
+  br label %44
 
-48:                                               ; preds = %4, %47
-  %.0 = phi i32 [ %.1, %47 ], [ 0, %4 ]
+44:                                               ; preds = %4, %43
+  %.0 = phi i32 [ %.1, %43 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -197,7 +194,7 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_server_compute_key(ptr noundef %0, pt
   %8 = alloca [32 x i8], align 16
   %9 = alloca %struct.sha256_state_st, align 4
   %.not = icmp eq i64 %3, 2048
-  br i1 %.not, label %10, label %39
+  br i1 %.not, label %10, label %35
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -215,26 +212,23 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_server_compute_key(ptr noundef %0, pt
   %14 = load i8, ptr %13, align 1, !tbaa !10
   %15 = and i8 %14, 3
   %16 = zext nneg i8 %15 to i16
-  %17 = shl nuw nsw i64 %indvars.iv.i, 2
-  %18 = getelementptr inbounds nuw [1024 x i16], ptr %7, i64 0, i64 %17
-  store i16 %16, ptr %18, align 8, !tbaa !6
-  %19 = lshr i8 %14, 2
-  %20 = and i8 %19, 3
-  %21 = zext nneg i8 %20 to i16
-  %22 = or disjoint i64 %17, 1
-  %23 = getelementptr inbounds nuw [1024 x i16], ptr %7, i64 0, i64 %22
-  store i16 %21, ptr %23, align 2, !tbaa !6
-  %24 = lshr i8 %14, 4
-  %25 = and i8 %24, 3
-  %26 = zext nneg i8 %25 to i16
-  %27 = or disjoint i64 %17, 2
-  %28 = getelementptr inbounds nuw [1024 x i16], ptr %7, i64 0, i64 %27
-  store i16 %26, ptr %28, align 4, !tbaa !6
-  %29 = lshr i8 %14, 6
-  %30 = zext nneg i8 %29 to i16
-  %31 = or disjoint i64 %17, 3
-  %32 = getelementptr inbounds nuw [1024 x i16], ptr %7, i64 0, i64 %31
-  store i16 %30, ptr %32, align 2, !tbaa !6
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  store i16 %16, ptr %17, align 8, !tbaa !6
+  %18 = lshr i8 %14, 2
+  %19 = and i8 %18, 3
+  %20 = zext nneg i8 %19 to i16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  store i16 %20, ptr %21, align 2, !tbaa !6
+  %22 = lshr i8 %14, 4
+  %23 = and i8 %22, 3
+  %24 = zext nneg i8 %23 to i16
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i16 %24, ptr %25, align 4, !tbaa !6
+  %26 = lshr i8 %14, 6
+  %27 = zext nneg i8 %26 to i16
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  store i16 %27, ptr %28, align 2, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
   br i1 %exitcond.not.i, label %decode_rec.exit, label %12, !llvm.loop !13
@@ -243,32 +237,32 @@ decode_rec.exit:                                  ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @newhope_reconcile(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %33 = call i32 @SHA256_Init(ptr noundef nonnull %9) #8
-  %.not6 = icmp eq i32 %33, 0
-  br i1 %.not6, label %38, label %34
+  %29 = call i32 @SHA256_Init(ptr noundef nonnull %9) #8
+  %.not6 = icmp eq i32 %29, 0
+  br i1 %.not6, label %34, label %30
 
-34:                                               ; preds = %decode_rec.exit
-  %35 = call i32 @SHA256_Update(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 32) #8
-  %.not7 = icmp eq i32 %35, 0
-  br i1 %.not7, label %38, label %36
+30:                                               ; preds = %decode_rec.exit
+  %31 = call i32 @SHA256_Update(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 32) #8
+  %.not7 = icmp eq i32 %31, 0
+  br i1 %.not7, label %34, label %32
 
-36:                                               ; preds = %34
-  %37 = call i32 @SHA256_Final(ptr noundef %0, ptr noundef nonnull %9) #8
-  %.not8 = icmp ne i32 %37, 0
+32:                                               ; preds = %30
+  %33 = call i32 @SHA256_Final(ptr noundef %0, ptr noundef nonnull %9) #8
+  %.not8 = icmp ne i32 %33, 0
   %spec.select = zext i1 %.not8 to i32
-  br label %38
+  br label %34
 
-38:                                               ; preds = %36, %decode_rec.exit, %34
-  %.1 = phi i32 [ 0, %34 ], [ 0, %decode_rec.exit ], [ %spec.select, %36 ]
+34:                                               ; preds = %32, %decode_rec.exit, %30
+  %.1 = phi i32 [ 0, %30 ], [ 0, %decode_rec.exit ], [ %spec.select, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %39
+  br label %35
 
-39:                                               ; preds = %4, %38
-  %.0 = phi i32 [ %.1, %38 ], [ 0, %4 ]
+35:                                               ; preds = %4, %34
+  %.0 = phi i32 [ %.1, %34 ], [ 0, %4 ]
   ret i32 %.0
 }
 

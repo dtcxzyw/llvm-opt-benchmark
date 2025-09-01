@@ -124,7 +124,7 @@ define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$$u5b$tt..TokenTree
 
 2:                                                ; preds = %1, %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.exit"
   %.08 = phi i64 [ 0, %1 ], [ 1, %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.exit" ]
-  %3 = getelementptr inbounds nuw [2 x { [56 x i8], i8, [7 x i8] }], ptr %0, i64 0, i64 %.08
+  %3 = getelementptr inbounds nuw { [56 x i8], i8, [7 x i8] }, ptr %0, i64 %.08
   %4 = add nuw nsw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1614,7 +1614,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit351
 270:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$mbe..expander..matcher..Match$GT$17h21156a8fa0aefe40E.exit.i"
   %271 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %272 = load ptr, ptr %271, align 8, !alias.scope !359, !noalias !362, !nonnull !8, !noundef !8
-  %273 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %272, i64 0, i64 %.val336.i
+  %273 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %272, i64 %.val336.i
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load ptr, ptr %274, align 8, !noalias !365, !nonnull !8, !noundef !8
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 16
@@ -1683,7 +1683,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit.i: ; pr
 294:                                              ; preds = %290
   %295 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %296 = load ptr, ptr %295, align 8, !alias.scope !381, !noalias !384, !nonnull !8, !noundef !8
-  %297 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %296, i64 0, i64 %.sroa.6.1.i
+  %297 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %296, i64 %.sroa.6.1.i
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load ptr, ptr %298, align 8, !noalias !386, !nonnull !8, !noundef !8
   %300 = getelementptr inbounds nuw i8, ptr %297, i64 16
@@ -1788,7 +1788,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit385.i: ;
   br i1 %327, label %"_ZN4core3ptr102drop_in_place$LT$smallvec..SmallVec$LT$$u5b$mbe..expander..matcher..MatchState$u3b$$u20$1$u5d$$GT$$GT$17h4bf52f90e593d3f9E.exit.i", label %328
 
 328:                                              ; preds = %326
-  %329 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %324, i64 0, i64 %.0.i.i.i.i
+  %329 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %324, i64 %.0.i.i.i.i
   %330 = add i64 %.0.i.i.i.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %329)
           to label %326 unwind label %333, !noalias !256
@@ -1804,7 +1804,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit385.i: ;
   br label %331
 
 335:                                              ; preds = %331
-  %336 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %324, i64 0, i64 %.1.i.i.i.i
+  %336 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %324, i64 %.1.i.i.i.i
   %337 = add i64 %.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %336) #23
           to label %331 unwind label %338, !noalias !256
@@ -2486,7 +2486,7 @@ default.unreachable:                              ; preds = %.thread164.i, %.lr.
   br i1 %563, label %"_ZN4core3ptr102drop_in_place$LT$smallvec..SmallVec$LT$$u5b$mbe..expander..matcher..MatchState$u3b$$u20$1$u5d$$GT$$GT$17h4bf52f90e593d3f9E.exit480.i", label %564
 
 564:                                              ; preds = %562
-  %565 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %560, i64 0, i64 %.0.i.i.i472.i
+  %565 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %560, i64 %.0.i.i.i472.i
   %566 = add i64 %.0.i.i.i472.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %565)
           to label %562 unwind label %569, !noalias !256
@@ -2502,7 +2502,7 @@ default.unreachable:                              ; preds = %.thread164.i, %.lr.
   br label %567
 
 571:                                              ; preds = %567
-  %572 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %560, i64 0, i64 %.1.i.i.i473.i
+  %572 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %560, i64 %.1.i.i.i473.i
   %573 = add i64 %.1.i.i.i473.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %572) #23
           to label %567 unwind label %574, !noalias !256
@@ -2624,7 +2624,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483
   br i1 %609, label %"_ZN4core3ptr102drop_in_place$LT$smallvec..SmallVec$LT$$u5b$mbe..expander..matcher..MatchState$u3b$$u20$1$u5d$$GT$$GT$17h4bf52f90e593d3f9E.exit496.i", label %610
 
 610:                                              ; preds = %608
-  %611 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %606, i64 0, i64 %.0.i.i.i490.i
+  %611 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %606, i64 %.0.i.i.i490.i
   %612 = add i64 %.0.i.i.i490.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %611)
           to label %608 unwind label %615, !noalias !256
@@ -2640,7 +2640,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483
   br label %613
 
 617:                                              ; preds = %613
-  %618 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %606, i64 0, i64 %.1.i.i.i491.i
+  %618 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %606, i64 %.1.i.i.i491.i
   %619 = add i64 %.1.i.i.i491.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %618) #23
           to label %613 unwind label %620, !noalias !256
@@ -2688,7 +2688,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483
   br i1 %632, label %"_ZN4core3ptr102drop_in_place$LT$smallvec..SmallVec$LT$$u5b$mbe..expander..matcher..MatchState$u3b$$u20$1$u5d$$GT$$GT$17h4bf52f90e593d3f9E.exit503.i", label %633
 
 633:                                              ; preds = %631
-  %634 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %629, i64 0, i64 %.0.i.i.i497.i
+  %634 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %629, i64 %.0.i.i.i497.i
   %635 = add i64 %.0.i.i.i497.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %634)
           to label %631 unwind label %638, !noalias !256
@@ -2704,7 +2704,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483
   br label %636
 
 640:                                              ; preds = %636
-  %641 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %629, i64 0, i64 %.1.i.i.i498.i
+  %641 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %629, i64 %.1.i.i.i498.i
   %642 = add i64 %.1.i.i.i498.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %641) #23
           to label %636 unwind label %643, !noalias !256
@@ -2815,7 +2815,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit483
 683:                                              ; preds = %679
   %684 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %685 = load ptr, ptr %684, align 8, !alias.scope !577, !noalias !580, !nonnull !8, !noundef !8
-  %686 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %685, i64 0, i64 %.sroa.6.1.i
+  %686 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %685, i64 %.sroa.6.1.i
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 8
   %688 = load ptr, ptr %687, align 8, !noalias !582, !nonnull !8, !noundef !8
   %689 = getelementptr inbounds nuw i8, ptr %686, i64 16
@@ -2895,7 +2895,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit533.i: ;
   br i1 %711, label %"_ZN4core3ptr102drop_in_place$LT$smallvec..SmallVec$LT$$u5b$mbe..expander..matcher..MatchState$u3b$$u20$1$u5d$$GT$$GT$17h4bf52f90e593d3f9E.exit545.i", label %712
 
 712:                                              ; preds = %710
-  %713 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %708, i64 0, i64 %.0.i.i.i537.i
+  %713 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %708, i64 %.0.i.i.i537.i
   %714 = add i64 %.0.i.i.i537.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %713)
           to label %710 unwind label %717, !noalias !256
@@ -2911,7 +2911,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit533.i: ;
   br label %715
 
 719:                                              ; preds = %715
-  %720 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %708, i64 0, i64 %.1.i.i.i538.i
+  %720 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %708, i64 %.1.i.i.i538.i
   %721 = add i64 %.1.i.i.i538.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %720) #23
           to label %715 unwind label %722, !noalias !256
@@ -2961,7 +2961,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit533.i: ;
   br i1 %736, label %"_ZN4core3ptr102drop_in_place$LT$smallvec..SmallVec$LT$$u5b$mbe..expander..matcher..MatchState$u3b$$u20$1$u5d$$GT$$GT$17h4bf52f90e593d3f9E.exit554.i", label %737
 
 737:                                              ; preds = %735
-  %738 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %733, i64 0, i64 %.0.i.i.i546.i
+  %738 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %733, i64 %.0.i.i.i546.i
   %739 = add i64 %.0.i.i.i546.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %738)
           to label %735 unwind label %742, !noalias !256
@@ -2977,7 +2977,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit533.i: ;
   br label %740
 
 744:                                              ; preds = %740
-  %745 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %733, i64 0, i64 %.1.i.i.i547.i
+  %745 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %733, i64 %.1.i.i.i547.i
   %746 = add i64 %.1.i.i.i547.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %745) #23
           to label %740 unwind label %747, !noalias !256
@@ -3044,7 +3044,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit533.i: ;
   br i1 %765, label %"_ZN4core3ptr102drop_in_place$LT$smallvec..SmallVec$LT$$u5b$mbe..expander..matcher..MatchState$u3b$$u20$1$u5d$$GT$$GT$17h4bf52f90e593d3f9E.exit561.i", label %766
 
 766:                                              ; preds = %764
-  %767 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %762, i64 0, i64 %.0.i.i.i555.i
+  %767 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %762, i64 %.0.i.i.i555.i
   %768 = add i64 %.0.i.i.i555.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %767)
           to label %764 unwind label %771, !noalias !256
@@ -3060,7 +3060,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder5build17he1dae028699fe622E.exit533.i: ;
   br label %769
 
 773:                                              ; preds = %769
-  %774 = getelementptr inbounds [0 x { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }], ptr %762, i64 0, i64 %.1.i.i.i556.i
+  %774 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %762, i64 %.1.i.i.i556.i
   %775 = add i64 %.1.i.i.i556.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$mbe..expander..matcher..MatchState$GT$17h22d4b18cd3f9bfd7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %774) #23
           to label %769 unwind label %776, !noalias !256
@@ -3349,7 +3349,7 @@ define hidden void @_ZN3mbe8expander7matcher15BindingsBuilder10push_empty17hf2fe
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !8, !noundef !8
-  %13 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %12, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !673)
@@ -3499,7 +3499,7 @@ define internal fastcc void @_ZN3mbe8expander7matcher15BindingsBuilder13push_opt
 5:                                                ; preds = %1
   %6 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.8.val, i64 0, i64 %.0.val
+  %7 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.8.val, i64 %.0.val
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !690)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !693)
@@ -3649,7 +3649,7 @@ define internal fastcc void @_ZN3mbe8expander7matcher15BindingsBuilder13push_fra
 6:                                                ; preds = %2
   %7 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.8.val, i64 0, i64 %.0.val
+  %8 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.8.val, i64 %.0.val
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
@@ -4174,7 +4174,7 @@ default.unreachable:                              ; preds = %129, %289
   br i1 %146, label %147, label %150, !prof !364
 
 147:                                              ; preds = %141
-  %148 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %68, i64 0, i64 %143
+  %148 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %68, i64 %143
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !786
   store i64 0, ptr %16, align 8, !noalias !786
   store ptr inttoptr (i64 8 to ptr), ptr %69, align 8, !noalias !786
@@ -4190,7 +4190,7 @@ default.unreachable:                              ; preds = %129, %289
   unreachable
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %74, i64 0, i64 %145
+  %152 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %74, i64 %145
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8, !noalias !786, !nonnull !8, !noundef !8
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 16
@@ -4229,7 +4229,7 @@ default.unreachable:                              ; preds = %129, %289
           to label %"_ZN3mbe8expander7matcher15BindingsBuilder14collect_nested28_$u7b$$u7b$closure$u7d$$u7d$17hcce800769049ac15E.exit.i.i" unwind label %.loopexit.i, !noalias !798
 
 172:                                              ; preds = %167
-  %173 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %68, i64 0, i64 %166
+  %173 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %68, i64 %166
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8, !noalias !799, !nonnull !8, !noundef !8
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 16
@@ -5167,7 +5167,7 @@ define internal fastcc void @_ZN3mbe8expander7matcher15BindingsBuilder18collect_
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !nonnull !8, !noundef !8
-  %11 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %10, i64 0, i64 %1
+  %11 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %10, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !8, !noundef !8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -5207,7 +5207,7 @@ define internal fastcc void @_ZN3mbe8expander7matcher15BindingsBuilder18collect_
   br label %"_ZN3mbe8expander7matcher15BindingsBuilder18collect_nested_ref28_$u7b$$u7b$closure$u7d$$u7d$17h5aab9a3622326695E.exit"
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %19, i64 0, i64 %27
+  %34 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %19, i64 %27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !noalias !1052, !nonnull !8, !noundef !8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -5260,7 +5260,7 @@ define internal fastcc void @_ZN3mbe8expander7matcher15BindingsBuilder17collect_
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !8, !noundef !8
-  %11 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %10, i64 0, i64 %1
+  %11 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %10, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !8, !noundef !8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -5883,7 +5883,7 @@ define internal fastcc void @_ZN3mbe8expander7matcher16match_loop_inner17h2d18cb
 
 286:                                              ; preds = %.noexc297
   %287 = load ptr, ptr %118, align 8, !alias.scope !1107, !nonnull !8, !noundef !8
-  %288 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %287, i64 0, i64 %279
+  %288 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %287, i64 %279
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !1107
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !1110
   store i64 1, ptr %43, align 8, !noalias !1110
@@ -6218,7 +6218,7 @@ default.unreachable:                              ; preds = %.critedge247, %855,
 
 396:                                              ; preds = %392
   %397 = load ptr, ptr %137, align 8, !alias.scope !1158, !noalias !1161, !nonnull !8, !noundef !8
-  %398 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %397, i64 0, i64 %393
+  %398 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %397, i64 %393
   %399 = load i64, ptr %115, align 8, !alias.scope !1161, !noalias !1158, !noundef !8
   %400 = getelementptr inbounds nuw i8, ptr %398, i64 16
   %401 = load i64, ptr %400, align 8, !alias.scope !1163, !noalias !1166, !noundef !8
@@ -7898,7 +7898,7 @@ select.unfold.i:                                  ; preds = %.noexc394, %"_ZN3mb
   %856 = getelementptr inbounds nuw i8, ptr %482, i64 8
   %857 = icmp ne ptr %.val284, null
   call void @llvm.assume(i1 %857)
-  %858 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.val284, i64 0, i64 %.val286
+  %858 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.val284, i64 %.val286
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1605
   call void @llvm.experimental.noalias.scope.decl(metadata !1608)
   call void @llvm.experimental.noalias.scope.decl(metadata !1611)

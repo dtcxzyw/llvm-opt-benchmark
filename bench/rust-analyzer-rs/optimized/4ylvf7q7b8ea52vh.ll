@@ -929,7 +929,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6retain17ha11949bb72d90ff6E"
 "_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc5451bb110a002c5E.exit": ; preds = %13
   %20 = load ptr, ptr %0, align 8, !alias.scope !196, !noalias !199, !nonnull !12
   %.sink3.i.i = select i1 %16, ptr %20, ptr %0
-  %21 = getelementptr inbounds [0 x i32], ptr %.sink3.i.i, i64 0, i64 %.sroa.01.033
+  %21 = getelementptr inbounds i32, ptr %.sink3.i.i, i64 %.sroa.01.033
   %.val14 = load i32, ptr %21, align 4, !noundef !12
   %.not19 = icmp eq i32 %.val14, %8
   br i1 %.not19, label %22, label %24
@@ -958,7 +958,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6retain17ha11949bb72d90ff6E"
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc5c62c81a8e08043E.exit": ; preds = %26
-  %30 = getelementptr inbounds [0 x i32], ptr %.sink3.i.i, i64 0, i64 %27
+  %30 = getelementptr inbounds i32, ptr %.sink3.i.i, i64 %27
   %.0.copyload.i = load i32, ptr %30, align 4, !alias.scope !205
   store i32 %.val14, ptr %30, align 4, !alias.scope !205
   store i32 %.0.copyload.i, ptr %21, align 4, !alias.scope !205

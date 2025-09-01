@@ -2744,7 +2744,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23allocateVaryingVerticesENS1
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -3162,24 +3162,24 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelVal
 
 switch.lookup:                                    ; preds = %5
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 %16
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %5, %switch.lookup
   %.0.i.i = phi i16 [ %switch.load, %switch.lookup ], [ -1, %5 ]
-  %switch.tableidx24 = add i32 %13, -1
-  %17 = icmp ult i32 %switch.tableidx24, 10
-  br i1 %17, label %switch.lookup23, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10
+  %switch.tableidx23 = add i32 %13, -1
+  %17 = icmp ult i32 %switch.tableidx23, 10
+  br i1 %17, label %switch.lookup24, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10
 
-switch.lookup23:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
-  %18 = zext nneg i32 %switch.tableidx24 to i64
-  %switch.gep25 = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 0, i64 %18
+switch.lookup24:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
+  %18 = zext nneg i32 %switch.tableidx23 to i64
+  %switch.gep25 = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 %18
   %switch.load26 = load i16, ptr %switch.gep25, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10
 
-_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup23
-  %.0.i.i9 = phi i16 [ %switch.load26, %switch.lookup23 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
+_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup24
+  %.0.i.i9 = phi i16 [ %switch.load26, %switch.lookup24 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
   %.sroa.speculated = tail call i16 @llvm.smax.i16(i16 %.0.i.i, i16 %.0.i.i9)
   %19 = sext i16 %.sroa.speculated to i32
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -3431,7 +3431,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE9push_back
 
 switch.lookup:                                    ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE9push_backEOS4_.exit
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3653,7 +3653,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetNumControlVertic
 
 switch.lookup:                                    ; preds = %2
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3716,7 +3716,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable21getPatchArrayVertic
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3749,7 +3749,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetPatchArrayVerti
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3789,7 +3789,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesER
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3816,7 +3816,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEi
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -4092,7 +4092,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVer
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4134,7 +4134,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVer
 
 switch.lookup:                                    ; preds = %9
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4178,7 +4178,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayVaryi
 
 switch.lookup:                                    ; preds = %8
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4233,7 +4233,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable28getPatchArrayVaryin
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4266,7 +4266,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23populateVaryingVerticesEv(p
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4309,18 +4309,18 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %28 = load ptr, ptr %6, align 8
   %29 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
-  %switch.tableidx68 = add i32 %30, -1
-  %31 = icmp ult i32 %switch.tableidx68, 10
-  br i1 %31, label %switch.lookup67, label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit
+  %switch.tableidx67 = add i32 %30, -1
+  %31 = icmp ult i32 %switch.tableidx67, 10
+  br i1 %31, label %switch.lookup68, label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit
 
-switch.lookup67:                                  ; preds = %27
-  %32 = zext nneg i32 %switch.tableidx68 to i64
-  %switch.gep69 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 0, i64 %32
+switch.lookup68:                                  ; preds = %27
+  %32 = zext nneg i32 %switch.tableidx67 to i64
+  %switch.gep69 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %32
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27, %switch.lookup67
-  %.0.i.i.i.i = phi i32 [ %switch.load70, %switch.lookup67 ], [ -1, %27 ]
+_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27, %switch.lookup68
+  %.0.i.i.i.i = phi i32 [ %switch.load70, %switch.lookup68 ], [ -1, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load i32, ptr %33, align 4
   %35 = mul nsw i32 %.0.i.i.i.i, %.03147
@@ -4545,15 +4545,15 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValues
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i32, ptr %19, align 4
-  %switch.tableidx12 = add i32 %20, -1
-  %21 = icmp ult i32 %switch.tableidx12, 10
+  %switch.tableidx11 = add i32 %20, -1
+  %21 = icmp ult i32 %switch.tableidx11, 10
   br i1 %21, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split, label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split: ; preds = %18, %14
-  %switch.tableidx12.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx12, %18 ]
+  %switch.tableidx11.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx11, %18 ]
   %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.3.sink = phi ptr [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %14 ], [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %18 ]
-  %22 = zext nneg i32 %switch.tableidx12.sink to i64
-  %switch.gep13 = getelementptr inbounds nuw [10 x i32], ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.3.sink, i64 0, i64 %22
+  %22 = zext nneg i32 %switch.tableidx11.sink to i64
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.3.sink, i64 %22
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4598,15 +4598,15 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValues
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load i32, ptr %21, align 4
-  %switch.tableidx5 = add i32 %22, -1
-  %23 = icmp ult i32 %switch.tableidx5, 10
+  %switch.tableidx4 = add i32 %22, -1
+  %23 = icmp ult i32 %switch.tableidx4, 10
   br i1 %23, label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split, label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: ; preds = %20, %16
-  %switch.tableidx5.sink = phi i32 [ %switch.tableidx, %16 ], [ %switch.tableidx5, %20 ]
+  %switch.tableidx4.sink = phi i32 [ %switch.tableidx, %16 ], [ %switch.tableidx4, %20 ]
   %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi.4.sink = phi ptr [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %16 ], [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %20 ]
-  %24 = zext nneg i32 %switch.tableidx5.sink to i64
-  %switch.gep6 = getelementptr inbounds nuw [10 x i32], ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi.4.sink, i64 0, i64 %24
+  %24 = zext nneg i32 %switch.tableidx4.sink to i64
+  %switch.gep6 = getelementptr inbounds nuw i32, ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi.4.sink, i64 %24
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
@@ -4655,15 +4655,15 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValues
 25:                                               ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = load i32, ptr %26, align 4
-  %switch.tableidx6 = add i32 %27, -1
-  %28 = icmp ult i32 %switch.tableidx6, 10
+  %switch.tableidx5 = add i32 %27, -1
+  %28 = icmp ult i32 %switch.tableidx5, 10
   br i1 %28, label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split, label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: ; preds = %25, %21
-  %switch.tableidx6.sink = phi i32 [ %switch.tableidx, %21 ], [ %switch.tableidx6, %25 ]
+  %switch.tableidx5.sink = phi i32 [ %switch.tableidx, %21 ], [ %switch.tableidx5, %25 ]
   %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5.sink = phi ptr [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %21 ], [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %25 ]
-  %29 = zext nneg i32 %switch.tableidx6.sink to i64
-  %switch.gep7 = getelementptr inbounds nuw [10 x i32], ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5.sink, i64 0, i64 %29
+  %29 = zext nneg i32 %switch.tableidx5.sink to i64
+  %switch.gep7 = getelementptr inbounds nuw i32, ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5.sink, i64 %29
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 

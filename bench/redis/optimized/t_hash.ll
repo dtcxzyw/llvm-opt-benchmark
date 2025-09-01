@@ -7572,7 +7572,7 @@ define dso_local void @hgetCommand(ptr noundef %0) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !145
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !64
   %14 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %8, ptr noundef %13) #16
   %15 = icmp eq ptr %14, null
@@ -8878,7 +8878,7 @@ define dso_local void @genericHgetallCommand(ptr noundef %0, i32 noundef %1) loc
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !145
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 128), i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 128), i64 %9
   br label %11
 
 11:                                               ; preds = %2, %6
@@ -10023,7 +10023,7 @@ define dso_local void @hrandfieldCommand(ptr noundef %0) local_unnamed_addr #1 {
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !145
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %40) #16
   %42 = icmp eq ptr %41, null
@@ -10044,7 +10044,7 @@ define dso_local void @hrandfieldCommand(ptr noundef %0) local_unnamed_addr #1 {
 49:                                               ; preds = %45
   %50 = load i32, ptr %36, align 4, !tbaa !145
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !64
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %53) #16
   br label %87

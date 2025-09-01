@@ -2223,7 +2223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -2916,7 +2916,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit173:        ; preds = %_ZNK4pugi8xml_node4
   store i32 %282, ptr %5, align 4
   %283 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %283, i64 %279, i1 false)
-  %284 = getelementptr inbounds nuw [1024 x i8], ptr %28, i64 0, i64 %279
+  %284 = getelementptr inbounds nuw i8, ptr %28, i64 %279
   store i8 0, ptr %284, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2959,7 +2959,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit175.
   store i32 %301, ptr %5, align 4
   %302 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %302, i64 %.sink299, i1 false)
-  %303 = getelementptr inbounds nuw [1024 x i8], ptr %28, i64 0, i64 %.sink299
+  %303 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink299
   store i8 0, ptr %303, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit175.invoke
 
@@ -2983,7 +2983,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit175.
   store i32 %312, ptr %5, align 4
   %313 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %313, i64 %309, i1 false)
-  %314 = getelementptr inbounds nuw [1024 x i8], ptr %28, i64 0, i64 %309
+  %314 = getelementptr inbounds nuw i8, ptr %28, i64 %309
   store i8 0, ptr %314, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176
 
@@ -3020,7 +3020,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176:
   store i32 %329, ptr %5, align 4
   %330 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %330, i64 %326, i1 false)
-  %331 = getelementptr inbounds nuw [1024 x i8], ptr %28, i64 0, i64 %326
+  %331 = getelementptr inbounds nuw i8, ptr %28, i64 %326
   store i8 0, ptr %331, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit177
 
@@ -3046,7 +3046,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit177:
   store i32 %342, ptr %5, align 4
   %343 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %343, i64 %339, i1 false)
-  %344 = getelementptr inbounds nuw [1024 x i8], ptr %28, i64 0, i64 %339
+  %344 = getelementptr inbounds nuw i8, ptr %28, i64 %339
   store i8 0, ptr %344, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit178
 

@@ -2861,7 +2861,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = zext nneg i32 %.0.i to i64
-  %10 = getelementptr inbounds nuw [5 x %"class.boost::thread_specific_ptr"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.boost::thread_specific_ptr", ptr %8, i64 %9
   %11 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %70
@@ -2992,7 +2992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %66
 
 56:                                               ; preds = %12
-  %57 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 0, i64 %9
+  %57 = getelementptr inbounds nuw i32, ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 %9
   %58 = load i32, ptr %57, align 4, !tbaa !75
   %59 = load ptr, ptr %14, align 8, !tbaa !30
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 152
@@ -5581,7 +5581,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = zext nneg i32 %.0.i to i64
-  %10 = getelementptr inbounds nuw [5 x %"class.boost::thread_specific_ptr"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.boost::thread_specific_ptr", ptr %8, i64 %9
   %11 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %70
@@ -5706,7 +5706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %66
 
 54:                                               ; preds = %12
-  %55 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 0, i64 %9
+  %55 = getelementptr inbounds nuw i32, ptr @__const._ZNK5boost6locale8impl_icu12collate_implIwE12get_collatorENS0_13collate_levelE.levels, i64 %9
   %56 = load i32, ptr %55, align 4, !tbaa !75
   %57 = load ptr, ptr %14, align 8, !tbaa !30
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 152

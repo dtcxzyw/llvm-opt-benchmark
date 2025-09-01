@@ -38,6 +38,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %conv2.i = zext i8 %numLevels to i64
   %conv.i = uitofp i32 %k to double
+  %invariant.gep = getelementptr double, ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 %conv2.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit
@@ -57,7 +58,7 @@ for.body.i.i.i:                                   ; preds = %init.check.i.i, %fo
   %2 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %conv.i.i.i = uitofp nneg i32 %2 to double
   %call.i.i.i = tail call double @pow(double noundef 0x3FE5555555555555, double noundef %conv.i.i.i) #8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw double, ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 %indvars.iv.i.i.i
   store double %call.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 60
@@ -69,9 +70,8 @@ for.body.i.i.i:                                   ; preds = %init.check.i.i, %fo
 
 _ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit: ; preds = %for.body, %init.check.i.i, %"_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiENK3$_0clEv.exit.i.i"
   %3 = xor i64 %indvars.iv, -1
-  %sub4.i = add nsw i64 %3, %conv2.i
-  %arrayidx.i.i.i.i = getelementptr inbounds [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %sub4.i
-  %4 = load double, ptr %arrayidx.i.i.i.i, align 8
+  %gep = getelementptr double, ptr %invariant.gep, i64 %3
+  %4 = load double, ptr %gep, align 8
   %mul.i = fmul double %4, %conv.i
   %conv5.i = fptoui double %mul.i to i32
   %.sroa.speculated.i = tail call noundef range(i32 8, 0) i32 @llvm.umax.i32(i32 %conv5.i, i32 8)
@@ -102,7 +102,7 @@ for.body.i.i:                                     ; preds = %init.check.i, %for.
   %2 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %conv.i.i = uitofp nneg i32 %2 to double
   %call.i.i = tail call double @pow(double noundef 0x3FE5555555555555, double noundef %conv.i.i) #8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 %indvars.iv.i.i
   store double %call.i.i, ptr %arrayidx.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 60
@@ -116,11 +116,11 @@ _ZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEi.exit: 
   %conv3 = zext i8 %height to i64
   %3 = xor i64 %conv3, -1
   %conv2 = zext i8 %numLevels to i64
-  %sub4 = add nsw i64 %3, %conv2
   %conv = uitofp i32 %k to double
-  %arrayidx.i.i.i = getelementptr inbounds [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %sub4
-  %4 = load double, ptr %arrayidx.i.i.i, align 8
-  %mul = fmul double %4, %conv
+  %4 = getelementptr double, ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 %3
+  %arrayidx.i.i.i = getelementptr double, ptr %4, i64 %conv2
+  %5 = load double, ptr %arrayidx.i.i.i, align 8
+  %mul = fmul double %5, %conv
   %conv5 = fptoui double %mul to i32
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv5, i32 8)
   ret i32 %.sroa.speculated

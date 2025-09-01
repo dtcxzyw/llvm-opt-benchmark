@@ -43,7 +43,7 @@ define internal noundef i32 @native_init() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
@@ -64,7 +64,7 @@ define internal void @native_finalize() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
@@ -88,7 +88,7 @@ define internal range(i32 -27, 1) i32 @native_get_max_size(i16 noundef zeroext %
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.native_decode_int, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %1, align 8, !tbaa !35
   br label %5
@@ -117,7 +117,7 @@ define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0,
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.native_decode_int, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %switch.load, i1 false)
   switch i16 %0, label %18 [
@@ -188,7 +188,7 @@ define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0,
 
 switch.lookup:                                    ; preds = %5
   %10 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.native_decode_int, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %switch.load, i1 false)
   switch i16 %0, label %19 [

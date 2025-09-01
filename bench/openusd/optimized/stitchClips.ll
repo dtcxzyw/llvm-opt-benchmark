@@ -10264,7 +10264,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN3tbb6detail2d118
 
 .lr.ph.i.i.i:                                     ; preds = %108
   %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %104, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1
   %113 = icmp ult i8 %.pre.i.i.i, %111
   br i1 %113, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
@@ -10288,7 +10288,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %126, label %127, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i
 
 127:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i
-  %128 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %118
+  %128 = getelementptr inbounds nuw i8, ptr %104, i64 %118
   %129 = add i8 %117, 1
   %130 = and i8 %129, 7
   %131 = zext nneg i8 %130 to i64
@@ -10309,7 +10309,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %141 = load i8, ptr %128, align 1
   %142 = add i8 %141, 1
   store i8 %142, ptr %128, align 1
-  %143 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %131
+  %143 = getelementptr inbounds nuw i8, ptr %104, i64 %131
   store i8 %142, ptr %143, align 1
   %144 = add nuw nsw i8 %116, 1
   %exitcond.not.i.i.i = icmp eq i8 %144, 8
@@ -10347,7 +10347,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 
 .noexc.i.i:                                       ; preds = %152
   %155 = zext nneg i8 %109 to i64
-  %156 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %104, i64 %155
   %157 = load i8, ptr %156, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -10400,7 +10400,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
 
 183:                                              ; preds = %152
   %184 = zext i8 %147 to i64
-  %185 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i8, ptr %104, i64 %184
   %186 = load i8, ptr %185, align 1
   %187 = icmp ult i8 %186, %153
   br i1 %187, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i
@@ -10998,7 +10998,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit6: ; preds
   %62 = and i32 %60, 255
   %63 = lshr i32 %60, 8
   %64 = zext nneg i32 %62 to i64
-  %65 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = mul nuw nsw i32 %63, 24
   %68 = zext nneg i32 %67 to i64
@@ -11039,7 +11039,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %10 = and i32 %8, 255
   %11 = lshr i32 %8, 8
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = mul nuw nsw i32 %11, 24
   %16 = zext nneg i32 %15 to i64
@@ -11168,7 +11168,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
@@ -11605,7 +11605,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN3tbb6detail2d118
 
 .lr.ph.i.i.i:                                     ; preds = %137
   %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %133, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %133, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1
   %142 = icmp ult i8 %.pre.i.i.i, %140
   br i1 %142, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEELh8EE13split_to_fillEh.exit.loopexit.i.i
@@ -11632,7 +11632,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iterat
   br i1 %158, label %159, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEELh8EE13split_to_fillEh.exit.loopexit.i.i
 
 159:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEELh8EE12is_divisibleEh.exit.i.i.i
-  %160 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 0, i64 %147
+  %160 = getelementptr inbounds nuw i8, ptr %133, i64 %147
   %161 = add i8 %146, 1
   %162 = and i8 %161, 7
   %163 = zext nneg i8 %162 to i64
@@ -11655,7 +11655,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iterat
   %175 = load i8, ptr %160, align 1
   %176 = add i8 %175, 1
   store i8 %176, ptr %160, align 1
-  %177 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 0, i64 %163
+  %177 = getelementptr inbounds nuw i8, ptr %133, i64 %163
   store i8 %176, ptr %177, align 1
   %178 = add nuw nsw i8 %145, 1
   %exitcond.not.i.i.i = icmp eq i8 %178, 8
@@ -11693,7 +11693,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iterat
 
 .noexc.i.i:                                       ; preds = %186
   %189 = zext nneg i8 %138 to i64
-  %190 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw i8, ptr %133, i64 %189
   %191 = load i8, ptr %190, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -11754,7 +11754,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iterat
 
 221:                                              ; preds = %186
   %222 = zext i8 %181 to i64
-  %223 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i8, ptr %133, i64 %222
   %224 = load i8, ptr %223, align 1
   %225 = icmp ult i8 %224, %187
   br i1 %225, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEELh8EE12is_divisibleEh.exit.thread.i.i
@@ -20035,7 +20035,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNSt6vectorI
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64

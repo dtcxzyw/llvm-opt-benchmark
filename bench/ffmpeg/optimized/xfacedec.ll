@@ -142,7 +142,7 @@ define internal i32 @xface_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %.04974 = phi i8 [ 0, %.critedge ], [ %.15065, %58 ]
   %.273 = phi i32 [ 0, %.critedge ], [ %.364, %58 ]
   %.05372 = phi i32 [ 0, %.critedge ], [ %.255, %58 ]
-  %43 = getelementptr inbounds nuw [2304 x i8], ptr %7, i64 0, i64 %indvars.iv78
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv78
   %44 = load i8, ptr %43, align 1, !tbaa !33
   %45 = add i8 %44, %.04974
   %46 = icmp eq i32 %.273, 7
@@ -202,7 +202,7 @@ declare void @ff_big_add(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 define internal fastcc void @decode_block(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 17) %2, i32 noundef range(i32 0, 17) %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca i8, align 1
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %7
+  %8 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @ff_big_div(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %6) #5
   %9 = load i8, ptr %6, align 1, !tbaa !33

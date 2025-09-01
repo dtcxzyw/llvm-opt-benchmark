@@ -2670,7 +2670,7 @@ dissect_data.exit459.i:                           ; preds = %797, %.thread483.i,
   %805 = lshr i16 %804, 7
   %806 = and i16 %805, 3
   %807 = zext nneg i16 %806 to i64
-  %808 = getelementptr [4 x double], ptr @tecmp_payload_analog_scale_factor_values, i64 0, i64 %807
+  %808 = getelementptr double, ptr @tecmp_payload_analog_scale_factor_values, i64 %807
   %809 = load double, ptr %808, align 8
   store i32 %497, ptr %13, align 4
   %.not428495.i = icmp eq i16 %495, 1

@@ -2197,8 +2197,8 @@ _ZNSt3mapIN4cvc58internal4kind6Kind_tENSt7__cxx1112basic_stringIcSt11char_traits
   %spec.select.i.i = add nuw i64 %.018196, %613
   %614 = getelementptr inbounds nuw i8, ptr %604, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %615 = ashr exact i64 %sext, 32
-  %616 = getelementptr inbounds [0 x ptr], ptr %614, i64 0, i64 %615
+  %615 = ashr exact i64 %sext, 29
+  %616 = getelementptr inbounds i8, ptr %614, i64 %615
   %617 = load ptr, ptr %616, align 8, !tbaa !29, !noalias !115
   store ptr %617, ptr %25, align 8, !tbaa !30, !alias.scope !115
   %618 = load i64, ptr %617, align 8, !noalias !115

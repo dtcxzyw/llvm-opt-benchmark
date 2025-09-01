@@ -297,7 +297,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   %97 = load ptr, ptr %96, align 8, !tbaa !38
   %98 = tail call i32 @pmix_pointer_array_add(ptr noundef nonnull @mca_types, ptr noundef %97) #9
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr @prte_frameworks, i64 0, i64 %indvars.iv.next135
+  %99 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.next135
   %100 = load ptr, ptr %99, align 8, !tbaa !36
   %.not82 = icmp eq ptr %100, null
   br i1 %.not82, label %._crit_edge, label %.lr.ph130, !llvm.loop !41

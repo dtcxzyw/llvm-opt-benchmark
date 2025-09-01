@@ -1818,7 +1818,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph:      ; preds = %_ZN6vectorIP4exprLb
 66:                                               ; preds = %.lr.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit
   %67 = phi ptr [ %.pre, %.lr.ph ], [ %81, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ]
-  %68 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !100
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, -8
@@ -7044,7 +7044,7 @@ _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_manager
 
 37:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !100
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -8
@@ -7875,7 +7875,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
 
 .lr.ph304:                                        ; preds = %134, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
   %indvars.iv303 = phi i64 [ %indvars.iv.next, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ], [ 0, %134 ]
-  %146 = getelementptr inbounds nuw [0 x ptr], ptr %139, i64 0, i64 %indvars.iv303
+  %146 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv303
   %147 = load ptr, ptr %146, align 8, !tbaa !100
   %148 = ptrtoint ptr %147 to i64
   %149 = and i64 %148, -8

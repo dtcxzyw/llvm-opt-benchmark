@@ -244,11 +244,11 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %87 = trunc nuw nsw i64 %indvars.iv to i32
   %88 = call zeroext i8 @tvb_get_uint8(ptr noundef %80, i32 noundef %87)
   %89 = zext i8 %88 to i64
-  %90 = getelementptr [256 x i8], ptr @reverse_map, i64 0, i64 %89
+  %90 = getelementptr i8, ptr @reverse_map, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = add i32 %.1128, %87
   %93 = zext i32 %92 to i64
-  %94 = getelementptr [128 x i8], ptr %5, i64 0, i64 %93
+  %94 = getelementptr i8, ptr %5, i64 %93
   store i8 %91, ptr %94, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

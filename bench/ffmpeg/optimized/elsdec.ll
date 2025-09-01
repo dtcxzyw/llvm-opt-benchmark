@@ -88,7 +88,7 @@ define range(i32 -541478725, 2) i32 @ff_els_decode_bit(ptr noundef captures(none
   %7 = load i32, ptr %6, align 8, !tbaa !16
   %8 = load i8, ptr %1, align 1, !tbaa !4
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %9, i32 1
+  %10 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %9, i32 1
   %11 = load i8, ptr %10, align 1, !tbaa !19
   %12 = sext i8 %11 to i32
   %13 = add nsw i32 %7, %12
@@ -121,7 +121,7 @@ define range(i32 -541478725, 2) i32 @ff_els_decode_bit(ptr noundef captures(none
 32:                                               ; preds = %28
   %33 = load i8, ptr %1, align 1, !tbaa !4
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %34
   %36 = load i8, ptr %35, align 4, !tbaa !22
   %37 = sext i8 %36 to i32
   %38 = add i32 %7, %37
@@ -174,7 +174,7 @@ els_import_byte.exit:                             ; preds = %47
   %61 = load i8, ptr %1, align 1, !tbaa !4
   %62 = and i8 %61, 1
   %63 = zext i8 %61 to i64
-  %64 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %63, i32 2
+  %64 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %63, i32 2
   br label %105
 
 65:                                               ; preds = %28
@@ -183,7 +183,7 @@ els_import_byte.exit:                             ; preds = %47
   store i32 %16, ptr %17, align 4, !tbaa !17
   %67 = load i8, ptr %1, align 1, !tbaa !4
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %68, i32 1
+  %69 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %68, i32 1
   %70 = load i8, ptr %69, align 1, !tbaa !19
   %71 = sext i8 %70 to i32
   %72 = add nsw i32 %7, %71
@@ -254,7 +254,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
   %101 = and i8 %100, 1
   %102 = xor i8 %101, 1
   %103 = zext i8 %100 to i64
-  %104 = getelementptr inbounds nuw [174 x %struct.Ladder], ptr @Ladder, i64 0, i64 %103, i32 3
+  %104 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %103, i32 3
   br label %105
 
 105:                                              ; preds = %.loopexit, %59
@@ -331,7 +331,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
 .preheader:                                       ; preds = %2, %7
   %indvars.iv83 = phi i32 [ %indvars.iv.next84, %7 ], [ 0, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw [11 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %6 = tail call i32 @ff_els_decode_bit(ptr noundef %0, ptr noundef %5)
   %.not65 = icmp eq i32 %6, 0
   br i1 %.not65, label %7, label %8

@@ -1478,7 +1478,7 @@ _ZNK2OT4GDEF19get_glyph_class_defEv.exit:         ; preds = %2, %10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 6
   %48 = zext nneg i32 %38 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %47, i64 %48
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %46, %28
@@ -1703,7 +1703,7 @@ _ZNK2OT4GDEF15get_attach_listEv.exit:             ; preds = %5, %13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %50 = zext nneg i32 %35 to i64
-  %51 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.252"], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"struct.OT::OffsetTo.252", ptr %49, i64 %50
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_11AttachPointENS_7IntTypeItLj2EEELb1EEES4_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_11AttachPointENS_7IntTypeItLj2EEELb1EEES4_EixEi.exit.i: ; preds = %48, %39
@@ -3183,7 +3183,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %52, %45
 69:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i18, i64 2
-  %71 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %70, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %70, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 _ZNK2OT8GSUBGPOS15get_feature_tagEj.exit:         ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i, %69
@@ -3309,7 +3309,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %26, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
-  %48 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %46, i64 %47
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i, %45
@@ -3475,7 +3475,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i, %46
@@ -3842,7 +3842,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %26, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
-  %48 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %46, i64 %47
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i, %45
@@ -3885,7 +3885,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %77 = zext nneg i32 %3 to i64
-  %78 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %76, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %"struct.OT::Record", ptr %76, i64 %77
   br label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; preds = %75, %66
@@ -3972,7 +3972,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %109, %102
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %129 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 2
   %130 = zext nneg i32 %97 to i64
-  %131 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %129, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %129, i64 %130
   br label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %128, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
@@ -4086,7 +4086,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i, %46
@@ -4129,7 +4129,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %78 = zext nneg i32 %3 to i64
-  %79 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw %"struct.OT::Record", ptr %77, i64 %78
   br label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; preds = %76, %67
@@ -4288,7 +4288,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i, %46
@@ -4331,7 +4331,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %78 = zext nneg i32 %3 to i64
-  %79 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw %"struct.OT::Record", ptr %77, i64 %78
   br label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; preds = %76, %67
@@ -4470,7 +4470,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %126, %119
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 2
   %145 = zext nneg i32 %117 to i64
-  %146 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %144, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %144, i64 %145
   br label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %143, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
@@ -4582,7 +4582,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %26, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
-  %48 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %46, i64 %47
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i, %45
@@ -4625,7 +4625,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %77 = zext nneg i32 %3 to i64
-  %78 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %76, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %"struct.OT::Record", ptr %76, i64 %77
   br label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; preds = %75, %66
@@ -4684,7 +4684,7 @@ _ZNK2OT6Script12get_lang_sysEj.exit:              ; preds = %61, %_ZNK2OT7ArrayO
 
 109:                                              ; preds = %102
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %110 = getelementptr inbounds nuw [1 x %"struct.OT::Index"], ptr %98, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw %"struct.OT::Index", ptr %98, i64 %indvars.iv
   br label %_ZNK2OT7LangSys17get_feature_indexEj.exit
 
 _ZNK2OT7LangSys17get_feature_indexEj.exit:        ; preds = %102, %109
@@ -4738,7 +4738,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %126, %119
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 2
   %145 = zext nneg i32 %117 to i64
-  %146 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %144, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %144, i64 %145
   br label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %143, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
@@ -5055,7 +5055,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %45, %.lr.ph43
 64:                                               ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 2
-  %66 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %65, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %65, i64 %indvars.iv
   br label %67
 
 67:                                               ; preds = %64, %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i
@@ -5220,7 +5220,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i28:     ; preds = %139, %_ZNK2OT8GSUBG
 158:                                              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i28
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i29, i64 2
-  %160 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %159, i64 0, i64 %112
+  %160 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %159, i64 %112
   br label %161
 
 161:                                              ; preds = %158, %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i28
@@ -5424,7 +5424,7 @@ define internal fastcc void @_ZL23script_collect_featuresP29hb_collect_features_
 
 39:                                               ; preds = %32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %40 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %31, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.OT::Record", ptr %31, i64 %indvars.iv
   br label %_ZNK2OT6Script12get_lang_sysEj.exit
 
 _ZNK2OT6Script12get_lang_sysEj.exit:              ; preds = %32, %39
@@ -5524,7 +5524,7 @@ _ZNK2OT6Script19find_lang_sys_indexEjPj.exit:     ; preds = %85
 
 95:                                               ; preds = %94
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %96 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %8, i64 0, i64 %62
+  %96 = getelementptr inbounds nuw %"struct.OT::Record", ptr %8, i64 %62
   br label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i24
 
 _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i24: ; preds = %95, %94
@@ -5646,7 +5646,7 @@ _ZNK2OT8GSUBGPOS15get_script_listEv.exit.i:       ; preds = %27, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %48 = zext nneg i32 %2 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %47, i64 %48
   br label %_ZNK2OT8GSUBGPOS10get_scriptEj.exit
 
 _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15get_script_listEv.exit.i, %46
@@ -5689,7 +5689,7 @@ _ZNK2OT8GSUBGPOS10get_scriptEj.exit:              ; preds = %_ZNK2OT8GSUBGPOS15g
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i.i, i64 4
   %78 = zext nneg i32 %3 to i64
-  %79 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %77, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw %"struct.OT::Record", ptr %77, i64 %78
   br label %_ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; preds = %76, %67
@@ -5792,7 +5792,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %121, %114
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i19, i64 2
   %140 = zext i16 %rev.i.i.i.i.i to i64
-  %141 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %139, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %139, i64 %140
   br label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %138, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
@@ -5893,7 +5893,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, label %34
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %35 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %18
+  %35 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %18
   %36 = load i32, ptr %35, align 4
   br label %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
 
@@ -6070,7 +6070,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %49, %41
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %68 = zext nneg i32 %42 to i64
-  %69 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %67, i64 %68
   br label %70
 
 70:                                               ; preds = %66, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
@@ -6376,7 +6376,7 @@ _ZN2OT27hb_collect_glyphs_context_tC2EP9hb_face_tP8hb_set_tS4_S4_S4_j.exit: ; pr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %71 = zext nneg i32 %2 to i64
-  %72 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %70, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %70, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %75 = load i8, ptr %74, align 1
@@ -6429,7 +6429,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %69, %50, %36
 
 106:                                              ; preds = %99
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %107 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %98, i64 0, i64 %indvars.iv.i.i.i
+  %107 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %98, i64 %indvars.iv.i.i.i
   br label %108
 
 108:                                              ; preds = %106, %99
@@ -6536,7 +6536,7 @@ _ZN2OT27hb_collect_glyphs_context_tD2Ev.exit:     ; preds = %.loopexit.split-lp
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i21, i64 2
   %161 = zext nneg i32 %2 to i64
-  %162 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %160, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %160, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 1
   %165 = load i8, ptr %164, align 1
@@ -6588,7 +6588,7 @@ _ZNK2OT6Layout4GPOS10get_lookupEj.exit:           ; preds = %159, %140, %126
 
 196:                                              ; preds = %189
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %197 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.630"], ptr %188, i64 0, i64 %indvars.iv.i.i.i27
+  %197 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %188, i64 %indvars.iv.i.i.i27
   br label %198
 
 198:                                              ; preds = %196, %189
@@ -6806,7 +6806,7 @@ _ZNK2OT8GSUBGPOS22get_feature_variationsEv.exit:  ; preds = %23, %26
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %69 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %70 = zext i32 %2 to i64
-  %71 = getelementptr inbounds nuw [1 x %"struct.OT::FeatureVariationRecord"], ptr %69, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %"struct.OT::FeatureVariationRecord", ptr %69, i64 %70
   br label %_ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.i: ; preds = %68, %_ZNK2OT8GSUBGPOS22get_feature_variationsEv.exit
@@ -6858,7 +6858,7 @@ _ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEEixEi.exit.i: ; p
 
 105:                                              ; preds = %104, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %104 ]
-  %106 = getelementptr inbounds nuw [1 x %"struct.OT::FeatureTableSubstitutionRecord"], ptr %103, i64 0, i64 %indvars.iv.i.i
+  %106 = getelementptr inbounds nuw %"struct.OT::FeatureTableSubstitutionRecord", ptr %103, i64 %indvars.iv.i.i
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
   %109 = shl nuw nsw i32 %108, 8
@@ -6939,7 +6939,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %145, %_ZNK2OT17Feat
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 2
   %166 = zext nneg i32 %1 to i64
-  %167 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %165, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %165, i64 %166
   br label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 _ZNK2OT8GSUBGPOS11get_featureEj.exit:             ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i, %164
@@ -7060,7 +7060,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_lookup_would_substitute(ptr noun
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %53 = zext nneg i32 %1 to i64
-  %54 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %52, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %57 = load i8, ptr %56, align 1
@@ -7153,7 +7153,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT8GSUBGPOS13accelerator_tINS_6Layo
 42:                                               ; preds = %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
-  %44 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %43, i64 0, i64 %6
+  %44 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %43, i64 %6
   %45 = load i8, ptr %44, align 1
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1
@@ -7277,7 +7277,7 @@ _ZNK2OT33hb_ot_layout_lookup_accelerator_t8may_haveEj.exit: ; preds = %16
 
 54:                                               ; preds = %47
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %55 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %46, i64 0, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %46, i64 %indvars.iv.i.i
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit.i.i
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit.i.i: ; preds = %54, %47
@@ -7328,7 +7328,7 @@ define hidden void @_Z29hb_ot_layout_substitute_startP9hb_font_tP11hb_buffer_t(p
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 255
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x %struct.hb_atomic_short_t], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.hb_atomic_short_t, ptr %10, i64 %15
   %17 = load atomic i16, ptr %16 monotonic, align 2
   %18 = sext i16 %17 to i32
   %19 = icmp eq i16 %17, -1
@@ -7527,7 +7527,7 @@ define hidden void @hb_ot_layout_lookup_substitute_closure(ptr noundef %0, i32 n
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %73 = zext nneg i32 %1 to i64
-  %74 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %72, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %77 = load i8, ptr %76, align 1
@@ -7595,7 +7595,7 @@ _ZN2OT20hb_closure_context_t19should_visit_lookupEj.exit.i: ; preds = %_ZNK2OT6L
 
 114:                                              ; preds = %107
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %115 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %106, i64 0, i64 %indvars.iv.i.i.i
+  %115 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %106, i64 %indvars.iv.i.i.i
   br label %116
 
 116:                                              ; preds = %114, %107
@@ -8148,7 +8148,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit: ; preds 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %134 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i32, i64 2
   %135 = zext nneg i32 %109 to i64
-  %136 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %134, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %134, i64 %135
   %137 = load i8, ptr %136, align 1
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 1
   %139 = load i8, ptr %138, align 1
@@ -8215,7 +8215,7 @@ _ZN2OT20hb_closure_context_t19should_visit_lookupEj.exit.i: ; preds = %_ZNK2OT6L
 
 175:                                              ; preds = %168
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %176 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %167, i64 0, i64 %indvars.iv.i.i.i37
+  %176 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %167, i64 %indvars.iv.i.i.i37
   br label %177
 
 177:                                              ; preds = %175, %168
@@ -8400,7 +8400,7 @@ _ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %.preheader, %_ZNK2O
 _ZNK2OT6Layout4GSUB10get_lookupEj.exit49:         ; preds = %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %237 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
-  %238 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %237, i64 0, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %237, i64 %indvars.iv
   %239 = load i8, ptr %238, align 1
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 1
   %241 = load i8, ptr %240, align 1
@@ -8464,7 +8464,7 @@ _ZN2OT20hb_closure_context_t19should_visit_lookupEj.exit.i50: ; preds = %_ZNK2OT
 
 278:                                              ; preds = %271
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %279 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %270, i64 0, i64 %indvars.iv.i.i.i54
+  %279 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %270, i64 %indvars.iv.i.i.i54
   br label %280
 
 280:                                              ; preds = %278, %271
@@ -8972,7 +8972,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %50, %43
 67:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 2
-  %69 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %68, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %68, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS15get_feature_tagEj.exit
 
 _ZNK2OT8GSUBGPOS15get_feature_tagEj.exit:         ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i, %67
@@ -9035,7 +9035,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i60:    ; preds = %95, %88
 112:                                              ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i60
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %113 = getelementptr inbounds nuw i8, ptr %.0.i.i61, i64 2
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %113, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %113, i64 %indvars.iv
   br label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 _ZNK2OT8GSUBGPOS11get_featureEj.exit:             ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i60, %112
@@ -9273,7 +9273,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %29, %22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %50 = zext nneg i32 %2 to i64
-  %51 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %49, i64 %50
   %.pre.pre = load i8, ptr %.0.i, align 1
   br label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
@@ -9333,7 +9333,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i84:    ; preds = %68, %_ZNK2OT8GSUBGP
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i85, i64 2
   %89 = zext nneg i32 %2 to i64
-  %90 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %88, i64 %89
   br label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 _ZNK2OT8GSUBGPOS11get_featureEj.exit:             ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i84, %87
@@ -9613,7 +9613,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %26, %_ZL18get_gsubg
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   %47 = zext nneg i32 %2 to i64
-  %48 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %46, i64 %47
   br label %_ZNK2OT8GSUBGPOS11get_featureEj.exit
 
 _ZNK2OT8GSUBGPOS11get_featureEj.exit:             ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i, %45
@@ -9685,7 +9685,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i9:     ; preds = %78, %71
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 2
   %99 = zext nneg i32 %2 to i64
-  %100 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %98, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %98, i64 %99
   br label %_ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i
 
 _ZNK2OT13RecordArrayOfINS_7FeatureEE7get_tagEj.exit.i: ; preds = %97, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i9
@@ -9943,7 +9943,7 @@ define linkonce_odr hidden void @_ZNK11hb_ot_map_t5applyI9GSUBProxyEEvRKT_PK18hb
 88:                                               ; preds = %69
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
-  %90 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %89, i64 0, i64 %52
+  %90 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %89, i64 %52
   %91 = load i8, ptr %90, align 1
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 1
   %93 = load i8, ptr %92, align 1
@@ -10014,7 +10014,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit.i:         ; preds = %88, %69, %.lr.ph.i
 
 130:                                              ; preds = %123
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %131 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %122, i64 0, i64 %indvars.iv.i.i.i
+  %131 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %122, i64 %indvars.iv.i.i.i
   br label %132
 
 132:                                              ; preds = %130, %123
@@ -10085,7 +10085,7 @@ _ZNK2OT6Layout9GSUB_impl11SubstLookup8dispatchINS_33hb_accelerate_subtables_cont
   br i1 %.not32.i, label %169, label %164
 
 164:                                              ; preds = %.lr.ph40.i
-  %165 = getelementptr inbounds nuw [1 x %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t"], ptr %114, i64 0, i64 %indvars.iv.i
+  %165 = getelementptr inbounds nuw %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t", ptr %114, i64 %indvars.iv.i
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 16
@@ -10250,7 +10250,7 @@ _ZNK24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0E
 252:                                              ; preds = %233
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
-  %254 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %253, i64 0, i64 %52
+  %254 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %253, i64 %52
   %255 = load i8, ptr %254, align 1
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 1
   %257 = load i8, ptr %256, align 1
@@ -10612,7 +10612,7 @@ define linkonce_odr hidden void @_ZNK11hb_ot_map_t5applyI9GPOSProxyEEvRKT_PK18hb
 109:                                              ; preds = %90
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
-  %111 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %110, i64 0, i64 %73
+  %111 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %110, i64 %73
   %112 = load i8, ptr %111, align 1
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %114 = load i8, ptr %113, align 1
@@ -10683,7 +10683,7 @@ _ZNK2OT6Layout4GPOS10get_lookupEj.exit.i:         ; preds = %109, %90, %.lr.ph.i
 
 151:                                              ; preds = %144
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %152 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.630"], ptr %143, i64 0, i64 %indvars.iv.i.i.i
+  %152 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %143, i64 %indvars.iv.i.i.i
   br label %153
 
 153:                                              ; preds = %151, %144
@@ -10754,7 +10754,7 @@ _ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_33hb_accelerate_subtables_context
   br i1 %.not32.i, label %190, label %185
 
 185:                                              ; preds = %.lr.ph40.i
-  %186 = getelementptr inbounds nuw [1 x %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t"], ptr %135, i64 0, i64 %indvars.iv.i
+  %186 = getelementptr inbounds nuw %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t", ptr %135, i64 %indvars.iv.i
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 16
@@ -10919,7 +10919,7 @@ _ZNK24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0E
 273:                                              ; preds = %254
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %274 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
-  %275 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %274, i64 0, i64 %73
+  %275 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %274, i64 %73
   %276 = load i8, ptr %275, align 1
   %277 = getelementptr inbounds nuw i8, ptr %275, i64 1
   %278 = load i8, ptr %277, align 1
@@ -11536,7 +11536,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_get_font_extents2(ptr noundef %0
 13:                                               ; preds = %5
   %14 = add i32 %12, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %8, i64 %15
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -11549,7 +11549,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_get_font_extents2(ptr noundef %0
 21:                                               ; preds = %18
   %22 = add i32 %20, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %10, i64 %23
   %25 = load i32, ptr %24, align 4
   br label %_ZL16choose_base_tags11hb_script_tPK18hb_language_impl_tPjS3_.exit
 
@@ -11778,7 +11778,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_get_baseline2(ptr noundef %0, i3
 12:                                               ; preds = %6
   %13 = add i32 %11, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %14
   %16 = load i32, ptr %15, align 4
   br label %17
 
@@ -11791,7 +11791,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_layout_get_baseline2(ptr noundef %0, i3
 20:                                               ; preds = %17
   %21 = add i32 %19, -1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %22
   %24 = load i32, ptr %23, align 4
   br label %_ZL16choose_base_tags11hb_script_tPK18hb_language_impl_tPjS3_.exit
 
@@ -12149,7 +12149,7 @@ define hidden void @hb_ot_layout_get_baseline_with_fallback2(ptr noundef %0, i32
 12:                                               ; preds = %6
   %13 = add i32 %11, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %14
   %16 = load i32, ptr %15, align 4
   br label %17
 
@@ -12162,7 +12162,7 @@ define hidden void @hb_ot_layout_get_baseline_with_fallback2(ptr noundef %0, i32
 20:                                               ; preds = %17
   %21 = add i32 %19, -1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %22
   %24 = load i32, ptr %23, align 4
   br label %_ZL16choose_base_tags11hb_script_tPK18hb_language_impl_tPjS3_.exit
 
@@ -12236,7 +12236,7 @@ define hidden noundef i32 @hb_ot_layout_lookup_get_glyph_alternates(ptr noundef 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %48 = zext nneg i32 %1 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %47, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %52 = load i8, ptr %51, align 1
@@ -12320,7 +12320,7 @@ define hidden i32 @hb_ot_layout_lookup_get_optical_bound(ptr noundef %0, i32 nou
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %44 = zext nneg i32 %1 to i64
-  %45 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %43, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %43, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
   %48 = load i8, ptr %47, align 1
@@ -12382,7 +12382,7 @@ _ZNK2OT6Layout9GPOS_impl17PosLookupSubTable8dispatchI29hb_position_single_dispat
 
 83:                                               ; preds = %76
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %84 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.630"], ptr %75, i64 0, i64 %indvars.iv.i.i
+  %84 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %75, i64 %indvars.iv.i.i
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit.i.i
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit.i.i: ; preds = %83, %76
@@ -15722,7 +15722,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_11AttachPointENS_7IntTypeItLj2EEELb1EEES4_E16san
 
 112:                                              ; preds = %.lr.ph, %158
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
-  %113 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.252"], ptr %82, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw %"struct.OT::OffsetTo.252", ptr %82, i64 %indvars.iv
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 2
   %115 = load ptr, ptr %4, align 8
   %116 = ptrtoint ptr %114 to i64
@@ -15980,7 +15980,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEELb1EEES4_E16sanitiz
 
 112:                                              ; preds = %.lr.ph, %141
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %141 ]
-  %113 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.257"], ptr %82, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw %"struct.OT::OffsetTo.257", ptr %82, i64 %indvars.iv
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 2
   %115 = load ptr, ptr %4, align 8
   %116 = ptrtoint ptr %114 to i64
@@ -16091,7 +16091,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEELb1EEES4_E16sani
 
 39:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %40 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.259"], ptr %3, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.OT::OffsetTo.259", ptr %3, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = load ptr, ptr %4, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -16384,7 +16384,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeIjLj4EEELb1EE
 
 50:                                               ; preds = %50, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %50 ]
-  %51 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.229"], ptr %22, i64 0, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds nuw %"struct.OT::OffsetTo.229", ptr %22, i64 %indvars.iv.i.i.i
   %52 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_6Layout6Common8CoverageENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_20MarkGlyphSetsFormat1EEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSC_(ptr noundef nonnull align 8 dereferenceable(62) %0, ptr noundef nonnull align 1 dereferenceable(4) %51, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -16716,7 +16716,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %116 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.220"], ptr %4, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %"struct.OT::OffsetTo.220", ptr %4, i64 %indvars.iv
   %117 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -17416,7 +17416,7 @@ _ZNK2OT4GDEF19get_mark_glyph_setsEv.exit.i:       ; preds = %58, %44, %30
 86:                                               ; preds = %77
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %88 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.229"], ptr %87, i64 0, i64 %8
+  %88 = getelementptr inbounds nuw %"struct.OT::OffsetTo.229", ptr %87, i64 %8
   br label %_ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i
 
 _ZNK2OT20MarkGlyphSetsFormat16coversEjj.exit.i.i: ; preds = %86, %77
@@ -18044,7 +18044,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
 233:                                              ; preds = %.critedge146
   %234 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %235 = zext nneg i32 %224 to i64
-  %236 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %234, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %234, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 8
@@ -18087,7 +18087,7 @@ _ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit.i.i: ; preds = %23
 270:                                              ; preds = %_ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit.i.i
   %271 = getelementptr inbounds nuw i8, ptr %253, i64 4
   %272 = zext nneg i32 %261 to i64
-  %273 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %271, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %271, i64 %272
   %274 = load i8, ptr %273, align 1
   %275 = zext i8 %274 to i32
   %276 = shl nuw nsw i32 %275, 8
@@ -18116,7 +18116,7 @@ _ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit17.i.i: ; preds = %
   %296 = lshr i32 %295, 1
   %.0.i.i.i = select i1 %294, i32 1073741823, i32 %296
   %297 = zext nneg i32 %.0.i.i.i to i64
-  %298 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.144"], ptr %290, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw %"struct.OT::IntType.144", ptr %290, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 2
   %300 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %301 = load ptr, ptr %300, align 8
@@ -19668,7 +19668,7 @@ define linkonce_odr hidden void @_ZN3AAT16StateTableDriverINS_13ObsoleteTypesEvE
 131:                                              ; preds = %105
   %132 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %133 = zext nneg i32 %122 to i64
-  %134 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.142"], ptr %132, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw %"struct.OT::IntType.142", ptr %132, i64 %133
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i32
   br label %_ZNK3AAT10StateTableINS_13ObsoleteTypesEvE9get_classEjj.exit
@@ -20051,7 +20051,7 @@ define linkonce_odr hidden void @_ZN3AAT19KerxSubTableFormat1IN2OT21KernAATSubTa
   %16 = add nuw nsw i32 %10, 1
   store i32 %16, ptr %9, align 8
   %17 = zext nneg i32 %10 to i64
-  %18 = getelementptr inbounds nuw [8 x i32], ptr %13, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %13, i64 %17
   store i32 %15, ptr %18, align 4
   br label %20
 
@@ -20092,7 +20092,7 @@ define linkonce_odr hidden void @_ZN3AAT19KerxSubTableFormat1IN2OT21KernAATSubTa
   %43 = lshr i32 %42, 1
   %.0.i.i = select i1 %41, i32 1073741823, i32 %43
   %44 = zext nneg i32 %.0.i.i to i64
-  %45 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.144"], ptr %36, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %"struct.OT::IntType.144", ptr %36, i64 %44
   %46 = load ptr, ptr %0, align 8
   %47 = icmp slt i32 %30, 0
   br i1 %47, label %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_jj.exit.thread, label %48
@@ -20154,7 +20154,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_jj.exit.thre
   %83 = add i32 %82, -1
   store i32 %83, ptr %29, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %74, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %74, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %.06877, i64 2
   %88 = load i32, ptr %75, align 8
@@ -20772,7 +20772,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
 233:                                              ; preds = %.critedge146
   %234 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %235 = zext nneg i32 %224 to i64
-  %236 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %234, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %234, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 8
@@ -20815,7 +20815,7 @@ _ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit.i.i: ; preds = %23
 270:                                              ; preds = %_ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit.i.i
   %271 = getelementptr inbounds nuw i8, ptr %253, i64 4
   %272 = zext nneg i32 %261 to i64
-  %273 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %271, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %271, i64 %272
   %274 = load i8, ptr %273, align 1
   %275 = zext i8 %274 to i32
   %276 = shl nuw nsw i32 %275, 8
@@ -20844,7 +20844,7 @@ _ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit17.i.i: ; preds = %
   %296 = lshr i32 %295, 1
   %.0.i.i.i = select i1 %294, i32 1073741823, i32 %296
   %297 = zext nneg i32 %.0.i.i.i to i64
-  %298 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.144"], ptr %290, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw %"struct.OT::IntType.144", ptr %290, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 2
   %300 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %301 = load ptr, ptr %300, align 8
@@ -21613,7 +21613,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT8ClassDef13collect_classI8
 
 30:                                               ; preds = %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %31 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %19, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %19, i64 %indvars.iv.i
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i: ; preds = %30, %23
@@ -21814,7 +21814,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i:             ; preds = %_ZNK11hb_vector_tIN
   %49 = lshr i32 %1, 6
   %50 = and i32 %49, 7
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %48, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %48, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, %47
   store i64 %54, ptr %52, align 8
@@ -21841,7 +21841,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i:             ; preds = %_ZNK11hb_vector_tIN
   %65 = lshr i32 %1, 6
   %66 = and i32 %65, 7
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x i64], ptr %64, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %64, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = or i64 %69, %63
   store i64 %70, ptr %68, align 8
@@ -23134,7 +23134,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT12LigCaretList14get_lig_caretsEP9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = zext nneg i32 %19 to i64
-  %35 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.257"], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.OT::OffsetTo.257", ptr %33, i64 %34
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEELb1EEES4_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEELb1EEES4_EixEi.exit: ; preds = %23, %32
@@ -23689,7 +23689,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %40 = sub nuw nsw i32 4, %12
   %41 = lshr i32 %38, %40
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %39, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
@@ -23759,7 +23759,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = zext nneg i32 %73 to i64
-  %96 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.220"], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"struct.OT::OffsetTo.220", ptr %94, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %99 = load i8, ptr %98, align 1
@@ -23883,7 +23883,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %40 = sub nuw nsw i32 4, %12
   %41 = lshr i32 %38, %40
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %39, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
@@ -23953,7 +23953,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = zext nneg i32 %73 to i64
-  %96 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.220"], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"struct.OT::OffsetTo.220", ptr %94, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %99 = load i8, ptr %98, align 1
@@ -24096,7 +24096,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.04757 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %81, %.lr.ph.split ]
   %.05255 = phi ptr [ %45, %.lr.ph.split.preheader ], [ %62, %.lr.ph.split ]
-  %53 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %48, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %48, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
@@ -24147,7 +24147,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv82 = phi i64 [ %52, %.lr.ph65 ], [ %indvars.iv.next83, %86 ]
   %.164 = phi float [ %.047.lcssa, %.lr.ph65 ], [ %105, %86 ]
   %.04863 = phi ptr [ %.052.lcssa, %.lr.ph65 ], [ %96, %86 ]
-  %87 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %51, i64 0, i64 %indvars.iv82
+  %87 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %51, i64 %indvars.iv82
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
@@ -24174,7 +24174,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv87 = phi i64 [ %84, %.lr.ph72 ], [ %indvars.iv.next88, %106 ]
   %.04671 = phi ptr [ %.048.lcssa, %.lr.ph72 ], [ %116, %106 ]
   %.270 = phi float [ %.1.lcssa, %.lr.ph72 ], [ %119, %106 ]
-  %107 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %83, i64 0, i64 %indvars.iv87
+  %107 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %83, i64 %indvars.iv87
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = shl nuw nsw i32 %109, 8
@@ -24471,7 +24471,7 @@ _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.thread: ; preds = %38, %_ZNK2OT8GSUB
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i1545, i64 2
   %61 = zext nneg i32 %.011 to i64
-  %62 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %60, i64 %61
   br label %63
 
 63:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i.thread, %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
@@ -24571,7 +24571,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i:     ; preds = %_ZNK11hb_vector_tIN
   %113 = lshr i32 %80, 6
   %114 = and i32 %113, 7
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %112, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %112, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = and i32 %79, 63
   %119 = zext nneg i32 %118 to i64
@@ -24713,7 +24713,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i: ; preds = %_ZNK12h
   %59 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink.i.i.i.i.i.i.i, i64 %58, i32 1
   %60 = lshr i64 %23, 6
   %61 = and i64 %60, 7
-  %62 = getelementptr inbounds nuw [8 x i64], ptr %59, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %59, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %23, 63
   %65 = shl nuw i64 1, %64
@@ -24856,7 +24856,7 @@ define internal fastcc void @_ZL24langsys_collect_featuresP29hb_collect_features
 
 83:                                               ; preds = %76
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %84 = getelementptr inbounds nuw [1 x %"struct.OT::Index"], ptr %70, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw %"struct.OT::Index", ptr %70, i64 %indvars.iv
   br label %_ZNK2OT7LangSys17get_feature_indexEj.exit
 
 _ZNK2OT7LangSys17get_feature_indexEj.exit:        ; preds = %76, %83
@@ -24946,7 +24946,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
   %123 = lshr i32 %91, 6
   %124 = and i32 %123, 7
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [8 x i64], ptr %122, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr %122, i64 %125
   %127 = load i64, ptr %126, align 8
   %128 = and i32 %90, 63
   %129 = zext nneg i32 %128 to i64
@@ -25092,7 +25092,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i: ; preds = %_ZNK12h
   %63 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink.i.i.i.i.i.i.i, i64 %62, i32 1
   %64 = lshr i64 %27, 6
   %65 = and i64 %64, 7
-  %66 = getelementptr inbounds nuw [8 x i64], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %63, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = and i64 %27, 63
   %69 = shl nuw i64 1, %68
@@ -25167,7 +25167,7 @@ define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t9add_arrayIN2OT5Ind
   %32 = lshr i32 %.133.us44.us.i.i, 6
   %33 = and i32 %32, 7
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %27, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = or i64 %36, %31
   store i64 %37, ptr %35, align 8
@@ -25348,7 +25348,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %32, %_ZNK11hb_vecto
   %78 = lshr i32 %.133.i, 6
   %79 = and i32 %78, 7
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [8 x i64], ptr %56, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %56, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = and i64 %82, %77
   store i64 %83, ptr %81, align 8
@@ -25516,7 +25516,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread16.i:   ; preds = %15, %.lr.ph.i.i.i.i
 
 26:                                               ; preds = %35, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread16.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread16.i ], [ %indvars.iv.next.i.i, %35 ]
-  %27 = getelementptr inbounds nuw [8 x i64], ptr %25, i64 0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.i
   %28 = load i64, ptr %27, align 8
   %.not.i14.i = icmp eq i64 %28, 0
   br i1 %.not.i14.i, label %35, label %29
@@ -25650,7 +25650,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %84 = and i32 %81, 63
   %85 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %73, i64 %80, i32 1
   %86 = zext nneg i32 %83 to i64
-  %87 = getelementptr inbounds nuw [8 x i64], ptr %85, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
   %88 = load i64, ptr %87, align 8
   %89 = zext nneg i32 %84 to i64
   %notmask.i = shl nsw i64 -1, %89
@@ -25659,7 +25659,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   br i1 %.not18.i70, label %.lr.ph, label %._crit_edge
 
 thread-pre-split.i:                               ; preds = %.lr.ph
-  %91 = getelementptr inbounds nuw [8 x i64], ptr %85, i64 0, i64 %indvars.iv.next.i34
+  %91 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv.next.i34
   %.pr.i = load i64, ptr %91, align 8
   %.not18.i = icmp eq i64 %.pr.i, 0
   br i1 %.not18.i, label %.lr.ph, label %._crit_edge.loopexit
@@ -25713,7 +25713,7 @@ thread-pre-split.i:                               ; preds = %.lr.ph
 
 111:                                              ; preds = %114, %.lr.ph75
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next.i38, %114 ]
-  %112 = getelementptr inbounds nuw [8 x i64], ptr %110, i64 0, i64 %indvars.iv.i36
+  %112 = getelementptr inbounds nuw i64, ptr %110, i64 %indvars.iv.i36
   %113 = load i64, ptr %112, align 8
   %.not.i37 = icmp eq i64 %113, 0
   br i1 %.not.i37, label %114, label %_ZNK13hb_bit_page_t7get_minEv.exit
@@ -25782,7 +25782,7 @@ define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t3delEj(ptr noundef 
   %18 = lshr i32 %1, 6
   %19 = and i32 %18, 7
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = or i64 %22, %16
   store i64 %23, ptr %21, align 8
@@ -25878,7 +25878,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i:             ; preds = %_ZNK11hb_vector_tIN
   %65 = lshr i32 %1, 6
   %66 = and i32 %65, 7
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x i64], ptr %64, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %64, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = and i64 %69, %63
   store i64 %70, ptr %68, align 8
@@ -26001,7 +26001,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vector_t
   %54 = lshr i32 %25, 6
   %55 = and i32 %54, 7
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [8 x i64], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i64, ptr %53, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = and i32 %24, 63
   %60 = zext nneg i32 %59 to i64
@@ -26281,7 +26281,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
   %196 = lshr i32 %160, 6
   %197 = and i32 %196, 7
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw [8 x i64], ptr %195, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %195, i64 %198
   %200 = load i64, ptr %199, align 8
   %201 = and i32 %159, 63
   %202 = zext nneg i32 %201 to i64
@@ -26483,7 +26483,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vector_tIN
   %59 = lshr i32 %23, 6
   %60 = and i32 %59, 7
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [8 x i64], ptr %58, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %58, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = and i32 %22, 63
   %65 = zext nneg i32 %64 to i64
@@ -26726,7 +26726,7 @@ define linkonce_odr hidden void @_ZN2OT6Layout9GSUB_impl11SubstLookup21dispatch_
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %42 = zext nneg i32 %1 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %41, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %46 = load i8, ptr %45, align 1
@@ -26778,7 +26778,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %2, %21, %40
 
 77:                                               ; preds = %70
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %78 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %69, i64 0, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %69, i64 %indvars.iv.i.i
   br label %79
 
 79:                                               ; preds = %77, %70
@@ -27307,7 +27307,7 @@ _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_im
 _ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.thread.us.i: ; preds = %.lr.ph.i, %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.thread.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.thread.us.i ], [ %110, %.lr.ph.i ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %111 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %108, i64 0, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %108, i64 %indvars.iv.i
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   %114 = shl nuw nsw i32 %113, 8
@@ -27332,7 +27332,7 @@ _ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_imp
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us24.i ], [ %110, %.lr.ph.i ]
   %.sroa.20.020.us21.ph.i = phi i32 [ %165, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us24.i ], [ %.sroa.12.0, %.lr.ph.i ]
   %.sroa.16.019.us22.ph.i = phi i32 [ %173, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us24.i ], [ 0, %.lr.ph.i ]
-  %128 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %indvars.iv
   br label %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.us.i
 
 _ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.us.i: ; preds = %154, %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.us.outer.i
@@ -27391,7 +27391,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %157, label %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.us.i, label %_ZorI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EE9hb_sink_tIR8hb_set_tETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELSE_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSQ_.exit, !llvm.loop !144
 
 _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us24.i: ; preds = %146
-  %158 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %indvars.iv.next
+  %158 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %indvars.iv.next
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = shl nuw nsw i32 %160, 8
@@ -27562,7 +27562,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23hb_bit_set_invertible_t16add
   %33 = lshr i32 %.135.us58.i.i, 6
   %34 = and i32 %33, 7
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %27, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = or i64 %37, %32
   store i64 %38, ptr %36, align 8
@@ -27745,7 +27745,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %31, %_ZNK11hb_vecto
   %73 = lshr i32 %.135.i, 6
   %74 = and i32 %73, 7
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw [8 x i64], ptr %55, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i64, ptr %55, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = or i64 %77, %72
   store i64 %78, ptr %76, align 8
@@ -27815,7 +27815,7 @@ define linkonce_odr hidden void @_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %24 = zext nneg i32 %14 to i64
-  %25 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %23, i64 %24
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i: ; preds = %22, %7
@@ -27852,7 +27852,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %51 = zext nneg i32 %36 to i64
-  %52 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %50, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 8
@@ -28130,7 +28130,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
 143:                                              ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.us.i"
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %144 = zext nneg i32 %.sroa.9.021.us26.i to i64
-  %145 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %110, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %110, i64 %144
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i: ; preds = %143, %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.us.i"
@@ -28159,7 +28159,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 163:                                              ; preds = %154
   %164 = zext nneg i32 %155 to i64
-  %165 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %110, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %110, i64 %164
   %166 = load i8, ptr %165, align 1
   %167 = zext i8 %166 to i32
   %168 = shl nuw nsw i32 %167, 8
@@ -28435,7 +28435,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
 137:                                              ; preds = %130
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %138 = zext nneg i32 %.sroa.9.022.i to i64
-  %139 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %138
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14: ; preds = %137, %130
@@ -28464,7 +28464,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 157:                                              ; preds = %148
   %158 = zext nneg i32 %149 to i64
-  %159 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = shl nuw nsw i32 %161, 8
@@ -28566,7 +28566,7 @@ define linkonce_odr hidden void @_ZN23hb_bit_set_invertible_t9add_arrayIN2OT11HB
   %32 = lshr i32 %.133.us44.us.i.i, 6
   %33 = and i32 %32, 7
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %27, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = or i64 %36, %31
   store i64 %37, ptr %35, align 8
@@ -28747,7 +28747,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %32, %_ZNK11hb_vecto
   %78 = lshr i32 %.133.i, 6
   %79 = and i32 %78, 7
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [8 x i64], ptr %56, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %56, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = and i64 %82, %77
   store i64 %83, ptr %81, align 8
@@ -29006,7 +29006,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
 137:                                              ; preds = %130
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %138 = zext nneg i32 %.sroa.9.022.i to i64
-  %139 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %138
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14: ; preds = %137, %130
@@ -29035,7 +29035,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 157:                                              ; preds = %148
   %158 = zext nneg i32 %149 to i64
-  %159 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = shl nuw nsw i32 %161, 8
@@ -29466,7 +29466,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i:         ; preds = %_ZNK11hb_vector_tIN
   %220 = lshr i32 %.133.i.i.i.i, 6
   %221 = and i32 %220, 7
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw [8 x i64], ptr %198, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i64, ptr %198, i64 %222
   %224 = load i64, ptr %223, align 8
   %225 = and i64 %224, %219
   store i64 %225, ptr %223, align 8
@@ -29532,7 +29532,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i:         ; preds = %_ZNK11hb_vector_tIN
   %258 = lshr i32 %.133.us44.us.i.i.i.i.i, 6
   %259 = and i32 %258, 7
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw [8 x i64], ptr %253, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i64, ptr %253, i64 %260
   %262 = load i64, ptr %261, align 8
   %263 = or i64 %262, %257
   store i64 %263, ptr %261, align 8
@@ -29666,7 +29666,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %333 = lshr i32 %285, 6
   %334 = and i32 %333, 7
   %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr inbounds nuw [8 x i64], ptr %332, i64 0, i64 %335
+  %336 = getelementptr inbounds nuw i64, ptr %332, i64 %335
   %337 = load i64, ptr %336, align 8
   %338 = and i64 %337, %331
   store i64 %338, ptr %336, align 8
@@ -29691,7 +29691,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %348 = lshr i32 %285, 6
   %349 = and i32 %348, 7
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw [8 x i64], ptr %347, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i64, ptr %347, i64 %350
   %352 = load i64, ptr %351, align 8
   %353 = or i64 %352, %346
   store i64 %353, ptr %351, align 8
@@ -29726,7 +29726,7 @@ _ZN23hb_bit_set_invertible_t3addEj.exit.i.i:      ; preds = %322, %343, %340, %3
 364:                                              ; preds = %357
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %365 = zext nneg i32 %.sroa.9.046.i to i64
-  %366 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %365
+  %366 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %365
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14: ; preds = %364, %357
@@ -29755,7 +29755,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 384:                                              ; preds = %375
   %385 = zext nneg i32 %376 to i64
-  %386 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %108, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %108, i64 %385
   %387 = load i8, ptr %386, align 1
   %388 = zext i8 %387 to i32
   %389 = shl nuw nsw i32 %388, 8
@@ -30015,7 +30015,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i.i.i: ; preds = %_ZN
   %110 = lshr i32 %64, 6
   %111 = and i32 %110, 7
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [8 x i64], ptr %109, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i64, ptr %109, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = and i32 %63, 63
   %116 = zext nneg i32 %115 to i64
@@ -30144,7 +30144,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %181 = lshr i32 %64, 6
   %182 = and i32 %181, 7
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw [8 x i64], ptr %180, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i64, ptr %180, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = and i64 %185, %179
   store i64 %186, ptr %184, align 8
@@ -30169,7 +30169,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %196 = lshr i32 %64, 6
   %197 = and i32 %196, 7
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw [8 x i64], ptr %195, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %195, i64 %198
   %200 = load i64, ptr %199, align 8
   %201 = or i64 %200, %194
   store i64 %201, ptr %199, align 8
@@ -30296,7 +30296,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
   %52 = lshr i32 %1, 6
   %53 = and i32 %52, 7
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [8 x i64], ptr %51, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %51, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = and i32 %1, 63
   %58 = zext nneg i32 %57 to i64
@@ -30686,7 +30686,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %156 = lshr i32 %114, 6
   %157 = and i32 %156, 7
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw [8 x i64], ptr %155, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i64, ptr %155, i64 %158
   %160 = load i64, ptr %159, align 8
   %161 = and i64 %160, %154
   store i64 %161, ptr %159, align 8
@@ -30710,7 +30710,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %170 = lshr i32 %114, 6
   %171 = and i32 %170, 7
   %172 = zext nneg i32 %171 to i64
-  %173 = getelementptr inbounds nuw [8 x i64], ptr %169, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i64, ptr %169, i64 %172
   %174 = load i64, ptr %173, align 8
   %175 = or i64 %174, %168
   store i64 %175, ptr %173, align 8
@@ -30838,7 +30838,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i77:         ; preds = %_ZNK11hb_vector_tIN
   %231 = lshr i32 %189, 6
   %232 = and i32 %231, 7
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw [8 x i64], ptr %230, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw i64, ptr %230, i64 %233
   %235 = load i64, ptr %234, align 8
   %236 = and i64 %235, %229
   store i64 %236, ptr %234, align 8
@@ -30862,7 +30862,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i77:         ; preds = %_ZNK11hb_vector_tIN
   %245 = lshr i32 %189, 6
   %246 = and i32 %245, 7
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [8 x i64], ptr %244, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i64, ptr %244, i64 %247
   %249 = load i64, ptr %248, align 8
   %250 = or i64 %249, %243
   store i64 %250, ptr %248, align 8
@@ -30990,7 +30990,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i96:         ; preds = %_ZNK11hb_vector_tIN
   %306 = lshr i32 %264, 6
   %307 = and i32 %306, 7
   %308 = zext nneg i32 %307 to i64
-  %309 = getelementptr inbounds nuw [8 x i64], ptr %305, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw i64, ptr %305, i64 %308
   %310 = load i64, ptr %309, align 8
   %311 = and i64 %310, %304
   store i64 %311, ptr %309, align 8
@@ -31014,7 +31014,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i96:         ; preds = %_ZNK11hb_vector_tIN
   %320 = lshr i32 %264, 6
   %321 = and i32 %320, 7
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds nuw [8 x i64], ptr %319, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw i64, ptr %319, i64 %322
   %324 = load i64, ptr %323, align 8
   %325 = or i64 %324, %318
   store i64 %325, ptr %323, align 8
@@ -31149,7 +31149,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i.i.i: ; preds = %_ZN
   %384 = lshr i32 %338, 6
   %385 = and i32 %384, 7
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %383, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %383, i64 %386
   %388 = load i64, ptr %387, align 8
   %389 = and i32 %337, 63
   %390 = zext nneg i32 %389 to i64
@@ -31278,7 +31278,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %455 = lshr i32 %338, 6
   %456 = and i32 %455, 7
   %457 = zext nneg i32 %456 to i64
-  %458 = getelementptr inbounds nuw [8 x i64], ptr %454, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw i64, ptr %454, i64 %457
   %459 = load i64, ptr %458, align 8
   %460 = and i64 %459, %453
   store i64 %460, ptr %458, align 8
@@ -31303,7 +31303,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %470 = lshr i32 %338, 6
   %471 = and i32 %470, 7
   %472 = zext nneg i32 %471 to i64
-  %473 = getelementptr inbounds nuw [8 x i64], ptr %469, i64 0, i64 %472
+  %473 = getelementptr inbounds nuw i64, ptr %469, i64 %472
   %474 = load i64, ptr %473, align 8
   %475 = or i64 %474, %468
   store i64 %475, ptr %473, align 8
@@ -31573,7 +31573,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i.i.i.i: ; 
 
 185:                                              ; preds = %178
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %186 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %69, i64 0, i64 %indvars.iv.i.i
+  %186 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %69, i64 %indvars.iv.i.i
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i: ; preds = %185, %178
@@ -31687,7 +31687,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %245 = lshr i32 %203, 6
   %246 = and i32 %245, 7
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [8 x i64], ptr %244, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i64, ptr %244, i64 %247
   %249 = load i64, ptr %248, align 8
   %250 = and i64 %249, %243
   store i64 %250, ptr %248, align 8
@@ -31713,7 +31713,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %260 = lshr i32 %203, 6
   %261 = and i32 %260, 7
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw [8 x i64], ptr %259, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i64, ptr %259, i64 %262
   %264 = load i64, ptr %263, align 8
   %265 = or i64 %264, %258
   store i64 %265, ptr %263, align 8
@@ -31859,7 +31859,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i22.i.i.i: 
 
 336:                                              ; preds = %329
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %337 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %75, i64 0, i64 %indvars.iv.i.i90
+  %337 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %75, i64 %indvars.iv.i.i90
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i92
 
 _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i92: ; preds = %336, %329
@@ -31973,7 +31973,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i131:        ; preds = %_ZNK11hb_vector_tIN
   %396 = lshr i32 %354, 6
   %397 = and i32 %396, 7
   %398 = zext nneg i32 %397 to i64
-  %399 = getelementptr inbounds nuw [8 x i64], ptr %395, i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i64, ptr %395, i64 %398
   %400 = load i64, ptr %399, align 8
   %401 = and i64 %400, %394
   store i64 %401, ptr %399, align 8
@@ -31999,7 +31999,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i131:        ; preds = %_ZNK11hb_vector_tIN
   %411 = lshr i32 %354, 6
   %412 = and i32 %411, 7
   %413 = zext nneg i32 %412 to i64
-  %414 = getelementptr inbounds nuw [8 x i64], ptr %410, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i64, ptr %410, i64 %413
   %415 = load i64, ptr %414, align 8
   %416 = or i64 %415, %409
   store i64 %416, ptr %414, align 8
@@ -32145,7 +32145,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT7IntTypeItLj2EEEERS4_EppEv.exit.i.i.i30.i.i.i: 
 
 487:                                              ; preds = %480
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %488 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %81, i64 0, i64 %indvars.iv.i.i110
+  %488 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %81, i64 %indvars.iv.i.i110
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i112
 
 _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit.i.i112: ; preds = %487, %480
@@ -32259,7 +32259,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i151:        ; preds = %_ZNK11hb_vector_tIN
   %547 = lshr i32 %505, 6
   %548 = and i32 %547, 7
   %549 = zext nneg i32 %548 to i64
-  %550 = getelementptr inbounds nuw [8 x i64], ptr %546, i64 0, i64 %549
+  %550 = getelementptr inbounds nuw i64, ptr %546, i64 %549
   %551 = load i64, ptr %550, align 8
   %552 = and i64 %551, %545
   store i64 %552, ptr %550, align 8
@@ -32285,7 +32285,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i151:        ; preds = %_ZNK11hb_vector_tIN
   %562 = lshr i32 %505, 6
   %563 = and i32 %562, 7
   %564 = zext nneg i32 %563 to i64
-  %565 = getelementptr inbounds nuw [8 x i64], ptr %561, i64 0, i64 %564
+  %565 = getelementptr inbounds nuw i64, ptr %561, i64 %564
   %566 = load i64, ptr %565, align 8
   %567 = or i64 %566, %560
   store i64 %567, ptr %565, align 8
@@ -32490,7 +32490,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i.i.i: ; preds = %_ZN
   %663 = lshr i32 %617, 6
   %664 = and i32 %663, 7
   %665 = zext nneg i32 %664 to i64
-  %666 = getelementptr inbounds nuw [8 x i64], ptr %662, i64 0, i64 %665
+  %666 = getelementptr inbounds nuw i64, ptr %662, i64 %665
   %667 = load i64, ptr %666, align 8
   %668 = and i32 %616, 63
   %669 = zext nneg i32 %668 to i64
@@ -32619,7 +32619,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %734 = lshr i32 %617, 6
   %735 = and i32 %734, 7
   %736 = zext nneg i32 %735 to i64
-  %737 = getelementptr inbounds nuw [8 x i64], ptr %733, i64 0, i64 %736
+  %737 = getelementptr inbounds nuw i64, ptr %733, i64 %736
   %738 = load i64, ptr %737, align 8
   %739 = and i64 %738, %732
   store i64 %739, ptr %737, align 8
@@ -32644,7 +32644,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %749 = lshr i32 %617, 6
   %750 = and i32 %749, 7
   %751 = zext nneg i32 %750 to i64
-  %752 = getelementptr inbounds nuw [8 x i64], ptr %748, i64 0, i64 %751
+  %752 = getelementptr inbounds nuw i64, ptr %748, i64 %751
   %753 = load i64, ptr %752, align 8
   %754 = or i64 %753, %747
   store i64 %754, ptr %752, align 8
@@ -32943,7 +32943,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GSUB_impl30ReverseChainSingleSub
 
 36:                                               ; preds = %29
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %26, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %26, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit: ; preds = %29, %36
@@ -33012,7 +33012,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE
 
 76:                                               ; preds = %69
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %77 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %66, i64 0, i64 %indvars.iv35
+  %77 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %66, i64 %indvars.iv35
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit22
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit22: ; preds = %69, %76
@@ -33466,7 +33466,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout9GPOS_impl16PairPosFormat1_3INS0_
 
 38:                                               ; preds = %31
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %39 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.616"], ptr %26, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %"struct.OT::OffsetTo.616", ptr %26, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit: ; preds = %31, %38
@@ -33643,7 +33643,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT17ClassDefFormat1_3INS_6La
 
 23:                                               ; preds = %16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %24 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %11, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %11, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit: ; preds = %16, %23
@@ -33767,7 +33767,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT17FeatureVariations10find_
 24:                                               ; preds = %.lr.ph, %123
   %.01116 = phi i32 [ 0, %.lr.ph ], [ %124, %123 ]
   %25 = zext i32 %.01116 to i64
-  %26 = getelementptr inbounds nuw [1 x %"struct.OT::FeatureVariationRecord"], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.OT::FeatureVariationRecord", ptr %23, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1
@@ -33813,7 +33813,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT17FeatureVariations10find_
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.633"], ptr %56, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw %"struct.OT::OffsetTo.633", ptr %56, i64 %indvars.iv.i
   %60 = load i8, ptr %59, align 1
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %62 = load i8, ptr %61, align 1
@@ -34386,7 +34386,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl22Ligatur
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %30 = zext nneg i32 %17 to i64
-  %31 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.449"], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.OT::OffsetTo.449", ptr %29, i64 %30
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit: ; preds = %19, %28
@@ -34474,8 +34474,8 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesE
 
 84:                                               ; preds = %73
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !184
-  %85 = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, -1
-  %86 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %68, i64 0, i64 %85
+  %85 = getelementptr %"struct.OT::HBGlyphID16", ptr %68, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i
+  %86 = getelementptr i8, ptr %85, i64 -2
   br label %_ZNK2OT15HeadlessArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK2OT15HeadlessArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %84, %73
@@ -34533,7 +34533,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat1_4INS_6Lay
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %28 = zext nneg i32 %18 to i64
-  %29 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %27, i64 %28
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %2, %26
@@ -34717,7 +34717,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
   %43 = zext nneg i32 %33 to i64
-  %44 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %42, i64 %43
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %41, %23
@@ -34825,7 +34825,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %2, %_ZNK2OT17ClassD
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %108 = zext nneg i32 %.0.i to i64
-  %109 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %107, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %107, i64 %108
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %106
@@ -34945,7 +34945,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
 184:                                              ; preds = %170
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %185 = zext nneg i32 %177 to i64
-  %186 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %131, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %131, i64 %185
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i: ; preds = %184, %170
@@ -35088,7 +35088,7 @@ define internal noundef zeroext i1 @_ZN2OTL11match_classER15hb_glyph_info_tjPKv(
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %31 = zext nneg i32 %21 to i64
-  %32 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %30, i64 %31
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %29, %11
@@ -35238,7 +35238,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat1_4INS
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %28 = zext nneg i32 %18 to i64
-  %29 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %27, i64 %28
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %2, %26
@@ -35418,7 +35418,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 6
   %43 = zext nneg i32 %33 to i64
-  %44 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %42, i64 %43
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %41, %23
@@ -35526,7 +35526,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %2, %_ZNK2OT17ClassD
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %108 = zext nneg i32 %.0.i to i64
-  %109 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %107, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %107, i64 %108
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %106
@@ -35675,7 +35675,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
 209:                                              ; preds = %195
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %210 = zext nneg i32 %202 to i64
-  %211 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %132, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %132, i64 %210
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i.i: ; preds = %209, %195
@@ -35844,7 +35844,7 @@ _ZNK2OT4GDEF25get_mark_attach_class_defEv.exit:   ; preds = %2, %10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 6
   %48 = zext nneg i32 %38 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %47, i64 %48
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %46, %28
@@ -37153,7 +37153,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIjN2hb10unique_p
 
 31:                                               ; preds = %._crit_edge
   %32 = zext nneg i32 %.0.i to i64
-  %33 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %32
   %34 = load i32, ptr %33, align 4
   br label %_ZN12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE9prime_forEj.exit
 
@@ -37556,7 +37556,7 @@ _ZN9hb_iter_tI13hb_map_iter_tIN12hb_bit_set_t6iter_tERKS1_L24hb_function_sortedn
   %74 = lshr i32 %40, 6
   %75 = and i32 %74, 7
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [8 x i64], ptr %73, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = and i32 %40, 63
   %80 = zext nneg i32 %79 to i64
@@ -37718,10 +37718,10 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread:       ; preds = %_ZNR9hb_iter_tI10hb
 
 .preheader.i:                                     ; preds = %48, %56
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %48 ]
-  %57 = getelementptr inbounds nuw [8 x i64], ptr %24, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i
   %58 = load i64, ptr %57, align 8
   %59 = xor i64 %58, -1
-  %60 = getelementptr inbounds nuw [8 x i64], ptr %25, i64 0, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, %59
   %.not.i28 = icmp eq i64 %62, 0
@@ -38642,12 +38642,12 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_18EE16hb_vector_size_tIyLj64EERK
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %4 ]
-  %5 = getelementptr inbounds nuw [8 x i64], ptr %1, i64 0, i64 %indvars.iv.i.i.i
-  %6 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i.i
+  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i.i.i
   %.val.i.i.i = load i64, ptr %5, align 8, !noalias !209
   %.val7.i.i.i = load i64, ptr %6, align 8, !noalias !209
   %7 = and i64 %.val7.i.i.i, %.val.i.i.i
-  %8 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i.i
   store i64 %7, ptr %8, align 8, !alias.scope !209
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -38666,12 +38666,12 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_17EE16hb_vector_size_tIyLj64EERK
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %4 ]
-  %5 = getelementptr inbounds nuw [8 x i64], ptr %1, i64 0, i64 %indvars.iv.i.i.i
-  %6 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i.i
+  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i.i.i
   %.val.i.i.i = load i64, ptr %5, align 8, !noalias !220
   %.val7.i.i.i = load i64, ptr %6, align 8, !noalias !220
   %7 = or i64 %.val7.i.i.i, %.val.i.i.i
-  %8 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i.i
   store i64 %7, ptr %8, align 8, !alias.scope !220
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -38692,10 +38692,10 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_19EE16hb_vector_size_tIyLj64EERK
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %5 ]
-  %6 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i.i.i
   %.val.i.i.i = load i64, ptr %6, align 8, !noalias !231
   %7 = xor i64 %.val.i.i.i, -1
-  %8 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i.i
   store i64 %7, ptr %8, align 8, !alias.scope !232, !noalias !222
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -38708,12 +38708,12 @@ _ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i:        ; preds = %5
 
 9:                                                ; preds = %9, %_ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i
   %indvars.iv.i.i2.i = phi i64 [ 0, %_ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i ], [ %indvars.iv.next.i.i4.i, %9 ]
-  %10 = getelementptr inbounds nuw [8 x i64], ptr %1, i64 0, i64 %indvars.iv.i.i2.i
-  %11 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i2.i
+  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i2.i
+  %11 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i2.i
   %.val.i.i3.i = load i64, ptr %10, align 8, !noalias !240
   %.val7.i.i.i = load i64, ptr %11, align 8, !noalias !240
   %12 = and i64 %.val7.i.i.i, %.val.i.i3.i
-  %13 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i.i2.i
+  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i2.i
   store i64 %12, ptr %13, align 8, !alias.scope !240
   %indvars.iv.next.i.i4.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
   %exitcond.not.i.i5.i = icmp eq i64 %indvars.iv.next.i.i4.i, 8
@@ -38735,10 +38735,10 @@ define internal void @"_ZN12hb_bit_set_t3op_I4$_25EE16hb_vector_size_tIyLj64EERK
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %5 ]
-  %6 = getelementptr inbounds nuw [8 x i64], ptr %1, i64 0, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i.i
   %.val.i.i.i = load i64, ptr %6, align 8, !noalias !250
   %7 = xor i64 %.val.i.i.i, -1
-  %8 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i.i
   store i64 %7, ptr %8, align 8, !alias.scope !251, !noalias !241
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -38751,12 +38751,12 @@ _ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i:        ; preds = %5
 
 9:                                                ; preds = %9, %_ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i
   %indvars.iv.i.i2.i = phi i64 [ 0, %_ZNK16hb_vector_size_tIyLj64EEcoEv.exit.i ], [ %indvars.iv.next.i.i4.i, %9 ]
-  %10 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i2.i
-  %11 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i2.i
+  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i2.i
+  %11 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i.i2.i
   %.val.i.i3.i = load i64, ptr %10, align 8, !noalias !258
   %.val7.i.i.i = load i64, ptr %11, align 8, !noalias !258
   %12 = and i64 %.val7.i.i.i, %.val.i.i3.i
-  %13 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i.i2.i
+  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i2.i
   store i64 %12, ptr %13, align 8, !alias.scope !258
   %indvars.iv.next.i.i4.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
   %exitcond.not.i.i5.i = icmp eq i64 %indvars.iv.next.i.i4.i, 8
@@ -38821,7 +38821,7 @@ define linkonce_odr hidden void @_ZN2OT6Layout9GSUB_impl11SubstLookup27closure_g
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %46 = zext nneg i32 %1 to i64
-  %47 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %45, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %50 = load i8, ptr %49, align 1
@@ -38884,7 +38884,7 @@ _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %5, %25, %44
 
 84:                                               ; preds = %77
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %85 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %76, i64 0, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %76, i64 %indvars.iv.i.i
   br label %86
 
 86:                                               ; preds = %84, %77
@@ -38949,7 +38949,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Lookup8dispatchINS_6Layou
 
 26:                                               ; preds = %19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %27 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %18, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %18, i64 %indvars.iv
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit: ; preds = %19, %26
@@ -39699,7 +39699,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10
 
 25:                                               ; preds = %18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %26 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %12, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %12, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 _ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %18, %25
@@ -39789,7 +39789,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
   %65 = lshr i32 %33, 6
   %66 = and i32 %65, 7
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [8 x i64], ptr %64, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %64, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = and i32 %32, 63
   %71 = zext nneg i32 %70 to i64
@@ -39813,7 +39813,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
 
 85:                                               ; preds = %78
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %86 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %12, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %12, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit9
 
 _ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit9: ; preds = %78, %85
@@ -40061,7 +40061,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %114 = lshr i32 %69, 6
   %115 = and i32 %114, 7
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [8 x i64], ptr %113, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i64, ptr %113, i64 %116
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %118, %112
   store i64 %119, ptr %117, align 8
@@ -40085,7 +40085,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %128 = lshr i32 %69, 6
   %129 = and i32 %128, 7
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [8 x i64], ptr %127, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i64, ptr %127, i64 %130
   %132 = load i64, ptr %131, align 8
   %133 = or i64 %132, %126
   store i64 %133, ptr %131, align 8
@@ -40186,7 +40186,7 @@ _ZNK12hb_bit_set_t14previous_rangeEPjS0_.exit:    ; preds = %.lr.ph.i, %31, %23,
 define linkonce_odr hidden noundef zeroext i1 @_ZNK12hb_bit_set_t8previousEPj(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, -1
-  br i1 %4, label %5, label %42
+  br i1 %4, label %5, label %41
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -40244,229 +40244,228 @@ _ZNR9hb_iter_tI10hb_array_tIKyERS1_EppEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
 _ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i:     ; preds = %17, %.lr.ph.i.i.i.i
   %26 = load i32, ptr %.0.i.i, align 4
   %27 = shl i32 %26, 9
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i11.i, i64 8
-  br label %29
+  br label %28
 
-29:                                               ; preds = %30, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %30 ], [ 8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i ]
+28:                                               ; preds = %29, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %29 ], [ 8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i ]
   %.not10.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not10.i.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.i, label %30
+  br i1 %.not10.i.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.i, label %29
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %31 = getelementptr inbounds nuw [8 x i64], ptr %28, i64 0, i64 %indvars.iv.next.i.i
-  %32 = load i64, ptr %31, align 8
-  %.not.i14.i = icmp eq i64 %32, 0
-  br i1 %.not.i14.i, label %29, label %33, !llvm.loop !265
+  %30 = getelementptr i64, ptr %.0.i11.i, i64 %indvars.iv.i.i
+  %31 = load i64, ptr %30, align 8
+  %.not.i14.i = icmp eq i64 %31, 0
+  br i1 %.not.i14.i, label %28, label %32, !llvm.loop !265
 
-33:                                               ; preds = %30
-  %34 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %35 = shl i32 %34, 6
-  %36 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
-  %37 = trunc nuw nsw i64 %36 to i32
-  %38 = or disjoint i32 %35, %37
-  %39 = xor i32 %38, 63
+32:                                               ; preds = %29
+  %33 = trunc nsw i64 %indvars.iv.next.i.i to i32
+  %34 = shl i32 %33, 6
+  %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
+  %36 = trunc nuw nsw i64 %35 to i32
+  %37 = or disjoint i32 %34, %36
+  %38 = xor i32 %37, 63
   br label %_ZNK13hb_bit_page_t7get_maxEv.exit.i
 
-_ZNK13hb_bit_page_t7get_maxEv.exit.i:             ; preds = %29, %33
-  %.06.i.i = phi i32 [ %39, %33 ], [ 0, %29 ]
-  %40 = add i32 %.06.i.i, %27
+_ZNK13hb_bit_page_t7get_maxEv.exit.i:             ; preds = %28, %32
+  %.06.i.i = phi i32 [ %38, %32 ], [ 0, %28 ]
+  %39 = add i32 %.06.i.i, %27
   br label %_ZNK12hb_bit_set_t7get_maxEv.exit
 
 _ZNK12hb_bit_set_t7get_maxEv.exit:                ; preds = %.backedge.i, %5, %_ZNK13hb_bit_page_t7get_maxEv.exit.i
-  %.0.i = phi i32 [ %40, %_ZNK13hb_bit_page_t7get_maxEv.exit.i ], [ -1, %5 ], [ -1, %.backedge.i ]
+  %.0.i = phi i32 [ %39, %_ZNK13hb_bit_page_t7get_maxEv.exit.i ], [ -1, %5 ], [ -1, %.backedge.i ]
   store i32 %.0.i, ptr %1, align 4
-  %41 = icmp ne i32 %.0.i, -1
-  br label %135
+  %40 = icmp ne i32 %.0.i, -1
+  br label %134
 
-42:                                               ; preds = %2
-  %43 = lshr i32 %3, 9
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %47 = load i32, ptr %46, align 4
-  %.not1.i.i.i.i = icmp sgt i32 %47, 0
+41:                                               ; preds = %2
+  %42 = lshr i32 %3, 9
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %46 = load i32, ptr %45, align 4
+  %.not1.i.i.i.i = icmp sgt i32 %46, 0
   br i1 %.not1.i.i.i.i, label %.lr.ph.preheader.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %42
-  %48 = add nsw i32 %47, -1
+.lr.ph.preheader.i.i.i.i:                         ; preds = %41
+  %47 = add nsw i32 %46, -1
   br label %.lr.ph.i.i.i.i16
 
-.lr.ph.i.i.i.i16:                                 ; preds = %61, %.lr.ph.preheader.i.i.i.i
-  %.0193.i.i.i.i = phi i32 [ %.1.i.i.i.i, %61 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
-  %.0202.i.i.i.i = phi i32 [ %.121.i.i.i.i, %61 ], [ %48, %.lr.ph.preheader.i.i.i.i ]
-  %49 = add i32 %.0202.i.i.i.i, %.0193.i.i.i.i
-  %50 = lshr i32 %49, 1
-  %51 = zext nneg i32 %50 to i64
-  %52 = shl nuw nsw i64 %51, 3
-  %53 = getelementptr inbounds nuw i8, ptr %45, i64 %52
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp slt i32 %43, %54
-  br i1 %55, label %56, label %58
+.lr.ph.i.i.i.i16:                                 ; preds = %60, %.lr.ph.preheader.i.i.i.i
+  %.0193.i.i.i.i = phi i32 [ %.1.i.i.i.i, %60 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.0202.i.i.i.i = phi i32 [ %.121.i.i.i.i, %60 ], [ %47, %.lr.ph.preheader.i.i.i.i ]
+  %48 = add i32 %.0202.i.i.i.i, %.0193.i.i.i.i
+  %49 = lshr i32 %48, 1
+  %50 = zext nneg i32 %49 to i64
+  %51 = shl nuw nsw i64 %50, 3
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 %51
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp slt i32 %42, %53
+  br i1 %54, label %55, label %57
 
-56:                                               ; preds = %.lr.ph.i.i.i.i16
-  %57 = add nsw i32 %50, -1
-  br label %61
+55:                                               ; preds = %.lr.ph.i.i.i.i16
+  %56 = add nsw i32 %49, -1
+  br label %60
 
-58:                                               ; preds = %.lr.ph.i.i.i.i16
-  %.not23.i.i.i.i = icmp eq i32 %43, %54
-  br i1 %.not23.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %59
+57:                                               ; preds = %.lr.ph.i.i.i.i16
+  %.not23.i.i.i.i = icmp eq i32 %42, %53
+  br i1 %.not23.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %58
 
-59:                                               ; preds = %58
-  %60 = add nuw nsw i32 %50, 1
-  br label %61
+58:                                               ; preds = %57
+  %59 = add nuw nsw i32 %49, 1
+  br label %60
 
-61:                                               ; preds = %59, %56
-  %.121.i.i.i.i = phi i32 [ %57, %56 ], [ %.0202.i.i.i.i, %59 ]
-  %.1.i.i.i.i = phi i32 [ %.0193.i.i.i.i, %56 ], [ %60, %59 ]
+60:                                               ; preds = %58, %55
+  %.121.i.i.i.i = phi i32 [ %56, %55 ], [ %.0202.i.i.i.i, %58 ]
+  %.1.i.i.i.i = phi i32 [ %.0193.i.i.i.i, %55 ], [ %59, %58 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.1.i.i.i.i, %.121.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %.lr.ph.i.i.i.i16, !llvm.loop !105
 
-_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit: ; preds = %61, %58, %42
-  %storemerge.i.i.ph.sink.i.i = phi i32 [ 0, %42 ], [ %.1.i.i.i.i, %61 ], [ %50, %58 ]
-  %62 = icmp ult i32 %storemerge.i.i.ph.sink.i.i, %47
-  %63 = zext i32 %storemerge.i.i.ph.sink.i.i to i64
-  br i1 %62, label %64, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge
+_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit: ; preds = %60, %57, %41
+  %storemerge.i.i.ph.sink.i.i = phi i32 [ 0, %41 ], [ %.1.i.i.i.i, %60 ], [ %49, %57 ]
+  %61 = icmp ult i32 %storemerge.i.i.ph.sink.i.i, %46
+  %62 = zext i32 %storemerge.i.i.ph.sink.i.i to i64
+  br i1 %61, label %63, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge
 
-64:                                               ; preds = %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit
-  %65 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %45, i64 %63
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, %43
-  br i1 %67, label %68, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge
+63:                                               ; preds = %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit
+  %64 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %44, i64 %62
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, %42
+  br i1 %66, label %67, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge
 
-68:                                               ; preds = %64
-  %69 = and i32 %3, 511
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %_ZNK13hb_bit_page_t8previousEPj.exit.thread, label %71
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %71 = load i32, ptr %70, align 4
+  %.not.i = icmp ult i32 %69, %71
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %73 = load ptr, ptr %72, align 8
+  %74 = zext i32 %69 to i64
+  %75 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %73, i64 %74
+  %.0.i18 = select i1 %.not.i, ptr %75, ptr @_hb_NullPool
+  %76 = and i32 %3, 511
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %_ZNK13hb_bit_page_t8previousEPj.exit.thread, label %78
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %75 = load i32, ptr %74, align 4
-  %.not.i = icmp ult i32 %73, %75
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %78 = zext i32 %73 to i64
-  %79 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %77, i64 %78
-  %.0.i18 = select i1 %.not.i, ptr %79, ptr @_hb_NullPool
-  %80 = add i32 %3, 511
-  %81 = lshr i32 %80, 6
-  %82 = and i32 %81, 7
-  %83 = and i32 %80, 63
-  %.not.i19 = icmp eq i32 %83, 63
-  %84 = add nuw nsw i32 %83, 1
-  %85 = zext nneg i32 %84 to i64
-  %notmask.i = shl nsw i64 -1, %85
-  %86 = xor i64 %notmask.i, -1
-  %87 = select i1 %.not.i19, i64 -1, i64 %86
-  %88 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
-  %89 = zext nneg i32 %82 to i64
-  %90 = getelementptr inbounds nuw [8 x i64], ptr %88, i64 0, i64 %89
-  %91 = load i64, ptr %90, align 8
-  %92 = and i64 %91, %87
-  %.not2023.i = icmp eq i64 %92, 0
-  br i1 %.not2023.i, label %.lr.ph.i20, label %97
+78:                                               ; preds = %67
+  %79 = add i32 %3, 511
+  %80 = lshr i32 %79, 6
+  %81 = and i32 %80, 7
+  %82 = and i32 %79, 63
+  %.not.i19 = icmp eq i32 %82, 63
+  %83 = add nuw nsw i32 %82, 1
+  %84 = zext nneg i32 %83 to i64
+  %notmask.i = shl nsw i64 -1, %84
+  %85 = xor i64 %notmask.i, -1
+  %86 = select i1 %.not.i19, i64 -1, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
+  %88 = zext nneg i32 %81 to i64
+  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %90 = load i64, ptr %89, align 8
+  %91 = and i64 %90, %86
+  %.not2023.i = icmp eq i64 %91, 0
+  br i1 %.not2023.i, label %.lr.ph.i20, label %96
 
-._crit_edge.loopexit.i:                           ; preds = %95
-  %93 = trunc nuw nsw i64 %indvars.iv.next.i22 to i32
-  br label %97
+._crit_edge.loopexit.i:                           ; preds = %94
+  %92 = trunc nuw nsw i64 %indvars.iv.next.i22 to i32
+  br label %96
 
-.lr.ph.i20:                                       ; preds = %71, %95
-  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i22, %95 ], [ %89, %71 ]
-  %94 = icmp slt i64 %indvars.iv.i21, 1
-  br i1 %94, label %_ZNK13hb_bit_page_t8previousEPj.exit.thread, label %95
+.lr.ph.i20:                                       ; preds = %78, %94
+  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i22, %94 ], [ %88, %78 ]
+  %93 = icmp slt i64 %indvars.iv.i21, 1
+  br i1 %93, label %_ZNK13hb_bit_page_t8previousEPj.exit.thread, label %94
 
-95:                                               ; preds = %.lr.ph.i20
+94:                                               ; preds = %.lr.ph.i20
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i21, -1
-  %96 = getelementptr inbounds nuw [8 x i64], ptr %88, i64 0, i64 %indvars.iv.next.i22
-  %.pr.i = load i64, ptr %96, align 8
+  %95 = getelementptr i64, ptr %.0.i18, i64 %indvars.iv.i21
+  %.pr.i = load i64, ptr %95, align 8
   %.not20.i = icmp eq i64 %.pr.i, 0
   br i1 %.not20.i, label %.lr.ph.i20, label %._crit_edge.loopexit.i, !llvm.loop !266
 
-_ZNK13hb_bit_page_t8previousEPj.exit.thread:      ; preds = %.lr.ph.i20, %68
+_ZNK13hb_bit_page_t8previousEPj.exit.thread:      ; preds = %.lr.ph.i20, %67
   store i32 -1, ptr %1, align 4
-  %.pre = load ptr, ptr %44, align 8
+  %.pre = load ptr, ptr %43, align 8
   br label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge
 
-97:                                               ; preds = %._crit_edge.loopexit.i, %71
-  %.lcssa.i = phi i64 [ %92, %71 ], [ %.pr.i, %._crit_edge.loopexit.i ]
-  %.018.lcssa.i = phi i32 [ %82, %71 ], [ %93, %._crit_edge.loopexit.i ]
-  %98 = shl nuw nsw i32 %.018.lcssa.i, 6
-  %99 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa.i, i1 true)
-  %100 = trunc nuw nsw i64 %99 to i32
-  %101 = or disjoint i32 %98, %100
-  %102 = xor i32 %101, 63
-  store i32 %102, ptr %1, align 4
-  %103 = load ptr, ptr %44, align 8
-  %104 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %103, i64 %63
-  %105 = load i32, ptr %104, align 4
-  %106 = shl i32 %105, 9
-  %107 = add nuw i32 %106, %102
-  store i32 %107, ptr %1, align 4
-  br label %135
+96:                                               ; preds = %._crit_edge.loopexit.i, %78
+  %.lcssa.i = phi i64 [ %91, %78 ], [ %.pr.i, %._crit_edge.loopexit.i ]
+  %.018.lcssa.i = phi i32 [ %81, %78 ], [ %92, %._crit_edge.loopexit.i ]
+  %97 = shl nuw nsw i32 %.018.lcssa.i, 6
+  %98 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa.i, i1 true)
+  %99 = trunc nuw nsw i64 %98 to i32
+  %100 = or disjoint i32 %97, %99
+  %101 = xor i32 %100, 63
+  store i32 %101, ptr %1, align 4
+  %102 = load ptr, ptr %43, align 8
+  %103 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %102, i64 %62
+  %104 = load i32, ptr %103, align 4
+  %105 = shl i32 %104, 9
+  %106 = add nuw i32 %105, %101
+  store i32 %106, ptr %1, align 4
+  br label %134
 
-_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge: ; preds = %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, %_ZNK13hb_bit_page_t8previousEPj.exit.thread, %64
-  %108 = phi ptr [ %.pre, %_ZNK13hb_bit_page_t8previousEPj.exit.thread ], [ %45, %64 ], [ %45, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %110 = load ptr, ptr %109, align 8
-  br label %111
+_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge: ; preds = %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, %_ZNK13hb_bit_page_t8previousEPj.exit.thread, %63
+  %107 = phi ptr [ %.pre, %_ZNK13hb_bit_page_t8previousEPj.exit.thread ], [ %44, %63 ], [ %44, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit ]
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %109 = load ptr, ptr %108, align 8
+  br label %110
 
-111:                                              ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK13hb_bit_page_t7get_maxEv.exit ], [ %63, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge ]
+110:                                              ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK13hb_bit_page_t7get_maxEv.exit ], [ %62, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit._crit_edge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %112 = and i64 %indvars.iv.next, 2147483648
-  %113 = icmp eq i64 %112, 0
-  br i1 %113, label %114, label %134
+  %111 = and i64 %indvars.iv.next, 2147483648
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %113, label %133
 
-114:                                              ; preds = %111
-  %115 = and i64 %indvars.iv.next, 2147483647
-  %116 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %108, i64 %115, i32 1
-  %117 = load i32, ptr %116, align 4
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %110, i64 %118, i32 1
-  br label %120
+113:                                              ; preds = %110
+  %114 = and i64 %indvars.iv.next, 2147483647
+  %115 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %107, i64 %114, i32 1
+  %116 = load i32, ptr %115, align 4
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %109, i64 %117
+  br label %119
 
-120:                                              ; preds = %121, %114
-  %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i24, %121 ], [ 8, %114 ]
+119:                                              ; preds = %120, %113
+  %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i24, %120 ], [ 8, %113 ]
   %.not10.i = icmp eq i64 %indvars.iv.i23, 0
-  br i1 %.not10.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %121
+  br i1 %.not10.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %120
 
-121:                                              ; preds = %120
+120:                                              ; preds = %119
   %indvars.iv.next.i24 = add nsw i64 %indvars.iv.i23, -1
-  %122 = getelementptr inbounds nuw [8 x i64], ptr %119, i64 0, i64 %indvars.iv.next.i24
-  %123 = load i64, ptr %122, align 8
-  %.not.i25 = icmp eq i64 %123, 0
-  br i1 %.not.i25, label %120, label %_ZNK13hb_bit_page_t7get_maxEv.exit, !llvm.loop !265
+  %121 = getelementptr i64, ptr %118, i64 %indvars.iv.i23
+  %122 = load i64, ptr %121, align 8
+  %.not.i25 = icmp eq i64 %122, 0
+  br i1 %.not.i25, label %119, label %_ZNK13hb_bit_page_t7get_maxEv.exit, !llvm.loop !265
 
-_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %121
-  %124 = trunc nsw i64 %indvars.iv.next.i24 to i32
-  %125 = shl i32 %124, 6
-  %126 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %123, i1 true)
-  %127 = trunc nuw nsw i64 %126 to i32
-  %128 = or disjoint i32 %125, %127
-  %.not = icmp eq i32 %128, -64
-  br i1 %.not, label %111, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit37, !llvm.loop !267
+_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %120
+  %123 = trunc nsw i64 %indvars.iv.next.i24 to i32
+  %124 = shl i32 %123, 6
+  %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %122, i1 true)
+  %126 = trunc nuw nsw i64 %125 to i32
+  %127 = or disjoint i32 %124, %126
+  %.not = icmp eq i32 %127, -64
+  br i1 %.not, label %110, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit37, !llvm.loop !267
 
 _ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit37: ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit
-  %129 = xor i32 %128, 63
+  %128 = xor i32 %127, 63
   br label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread
 
-_ZNK13hb_bit_page_t7get_maxEv.exit.thread:        ; preds = %120, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit37
-  %.06.i35 = phi i32 [ %129, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit37 ], [ 0, %120 ]
-  %130 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %108, i64 %115
-  %131 = load i32, ptr %130, align 4
-  %132 = shl i32 %131, 9
-  %133 = add i32 %132, %.06.i35
-  store i32 %133, ptr %1, align 4
-  br label %135
+_ZNK13hb_bit_page_t7get_maxEv.exit.thread:        ; preds = %119, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit37
+  %.06.i35 = phi i32 [ %128, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit37 ], [ 0, %119 ]
+  %129 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %107, i64 %114
+  %130 = load i32, ptr %129, align 4
+  %131 = shl i32 %130, 9
+  %132 = add i32 %131, %.06.i35
+  store i32 %132, ptr %1, align 4
+  br label %134
 
-134:                                              ; preds = %111
+133:                                              ; preds = %110
   store i32 -1, ptr %1, align 4
-  br label %135
+  br label %134
 
-135:                                              ; preds = %134, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, %97, %_ZNK12hb_bit_set_t7get_maxEv.exit
-  %.0 = phi i1 [ %41, %_ZNK12hb_bit_set_t7get_maxEv.exit ], [ true, %97 ], [ true, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread ], [ false, %134 ]
+134:                                              ; preds = %133, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, %96, %_ZNK12hb_bit_set_t7get_maxEv.exit
+  %.0 = phi i1 [ %40, %_ZNK12hb_bit_set_t7get_maxEv.exit ], [ true, %96 ], [ true, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread ], [ false, %133 ]
   ret i1 %.0
 }
 
@@ -40843,7 +40842,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit: ; preds 
 
 101:                                              ; preds = %94
   %102 = zext nneg i32 %92 to i64
-  %103 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %87, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %87, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = shl nuw nsw i32 %105, 8
@@ -41112,7 +41111,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph
 42:                                               ; preds = %35
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %43 = zext nneg i32 %30 to i64
-  %44 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %4, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %4, i64 %43
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %42, %35
@@ -41141,7 +41140,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 62:                                               ; preds = %53
   %63 = zext nneg i32 %54 to i64
-  %64 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %4, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %4, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 8
@@ -41192,7 +41191,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %62, %53, %81,
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %95
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %96 = zext nneg i32 %84 to i64
-  %97 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %4, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %4, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %99, 8
@@ -41282,7 +41281,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_
   %136 = lshr i32 %.0.i.i.i.i.i.i.i.i.i.i, 6
   %137 = and i32 %136, 7
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [8 x i64], ptr %135, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i64, ptr %135, i64 %138
   %140 = load i64, ptr %139, align 8
   %141 = and i32 %.0.i.i.i.i.i.i.i.i.i.i, 63
   %142 = zext nneg i32 %141 to i64
@@ -41361,7 +41360,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %29 = zext nneg i32 %14 to i64
-  %30 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %28, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 8
@@ -41460,7 +41459,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vector
   %75 = lshr i32 %.0.i.i.i.i.i.i.i, 6
   %76 = and i32 %75, 7
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [8 x i64], ptr %74, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %74, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = and i32 %.0.i.i.i.i.i.i.i, 63
   %81 = zext nneg i32 %80 to i64
@@ -41678,7 +41677,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %109
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %110 = zext nneg i32 %.sroa.10.096 to i64
-  %111 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %103, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %103, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   %114 = shl nuw nsw i32 %113, 8
@@ -41768,7 +41767,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
   %150 = lshr i32 %.0.i.i.i.i.i.i.i.i, 6
   %151 = and i32 %150, 7
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [8 x i64], ptr %149, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %149, i64 %152
   %154 = load i64, ptr %153, align 8
   %155 = and i32 %.0.i.i.i.i.i.i.i.i, 63
   %156 = zext nneg i32 %155 to i64
@@ -41803,7 +41802,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
 173:                                              ; preds = %166
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %174 = zext nneg i32 %.sroa.10.096 to i64
-  %175 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %103, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %103, i64 %174
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %173, %166
@@ -41832,7 +41831,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 193:                                              ; preds = %184
   %194 = zext nneg i32 %185 to i64
-  %195 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %103, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %103, i64 %194
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = shl nuw nsw i32 %197, 8
@@ -41978,7 +41977,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
 265:                                              ; preds = %258
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %266 = zext nneg i32 %254 to i64
-  %267 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %225, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %225, i64 %266
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i: ; preds = %265, %258
@@ -42007,7 +42006,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 285:                                              ; preds = %276
   %286 = zext nneg i32 %277 to i64
-  %287 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %225, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %225, i64 %286
   %288 = load i8, ptr %287, align 1
   %289 = zext i8 %288 to i32
   %290 = shl nuw nsw i32 %289, 8
@@ -42058,7 +42057,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i4.
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %318
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %319 = zext nneg i32 %307 to i64
-  %320 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %225, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %225, i64 %319
   %321 = load i8, ptr %320, align 1
   %322 = zext i8 %321 to i32
   %323 = shl nuw nsw i32 %322, 8
@@ -42148,7 +42147,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN
   %359 = lshr i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 6
   %360 = and i32 %359, 7
   %361 = zext nneg i32 %360 to i64
-  %362 = getelementptr inbounds nuw [8 x i64], ptr %358, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw i64, ptr %358, i64 %361
   %363 = load i64, ptr %362, align 8
   %364 = and i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 63
   %365 = zext nneg i32 %364 to i64
@@ -42356,7 +42355,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %109
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %110 = zext nneg i32 %.sroa.10.096 to i64
-  %111 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %103, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %103, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   %114 = shl nuw nsw i32 %113, 8
@@ -42446,7 +42445,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
   %150 = lshr i32 %.0.i.i.i.i.i.i.i.i, 6
   %151 = and i32 %150, 7
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [8 x i64], ptr %149, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %149, i64 %152
   %154 = load i64, ptr %153, align 8
   %155 = and i32 %.0.i.i.i.i.i.i.i.i, 63
   %156 = zext nneg i32 %155 to i64
@@ -42481,7 +42480,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
 173:                                              ; preds = %166
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %174 = zext nneg i32 %.sroa.10.096 to i64
-  %175 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %103, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %103, i64 %174
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %173, %166
@@ -42510,7 +42509,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 193:                                              ; preds = %184
   %194 = zext nneg i32 %185 to i64
-  %195 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %103, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %103, i64 %194
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = shl nuw nsw i32 %197, 8
@@ -42656,7 +42655,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
 265:                                              ; preds = %258
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %266 = zext nneg i32 %254 to i64
-  %267 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %225, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %225, i64 %266
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i: ; preds = %265, %258
@@ -42685,7 +42684,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 285:                                              ; preds = %276
   %286 = zext nneg i32 %277 to i64
-  %287 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %225, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %225, i64 %286
   %288 = load i8, ptr %287, align 1
   %289 = zext i8 %288 to i32
   %290 = shl nuw nsw i32 %289, 8
@@ -42736,7 +42735,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i4.
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %318
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %319 = zext nneg i32 %307 to i64
-  %320 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %225, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %225, i64 %319
   %321 = load i8, ptr %320, align 1
   %322 = zext i8 %321 to i32
   %323 = shl nuw nsw i32 %322, 8
@@ -42826,7 +42825,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN
   %359 = lshr i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 6
   %360 = and i32 %359, 7
   %361 = zext nneg i32 %360 to i64
-  %362 = getelementptr inbounds nuw [8 x i64], ptr %358, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw i64, ptr %358, i64 %361
   %363 = load i64, ptr %362, align 8
   %364 = and i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 63
   %365 = zext nneg i32 %364 to i64
@@ -43034,7 +43033,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %109
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %110 = zext nneg i32 %.sroa.10.0109 to i64
-  %111 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %103, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %103, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   %114 = shl nuw nsw i32 %113, 8
@@ -43124,7 +43123,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
   %150 = lshr i32 %.0.i.i.i.i.i.i.i.i, 6
   %151 = and i32 %150, 7
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [8 x i64], ptr %149, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %149, i64 %152
   %154 = load i64, ptr %153, align 8
   %155 = and i32 %.0.i.i.i.i.i.i.i.i, 63
   %156 = zext nneg i32 %155 to i64
@@ -43159,7 +43158,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11hb_vect
 173:                                              ; preds = %166
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %174 = zext nneg i32 %.sroa.10.0109 to i64
-  %175 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %103, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %103, i64 %174
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %173, %166
@@ -43188,7 +43187,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 193:                                              ; preds = %184
   %194 = zext nneg i32 %185 to i64
-  %195 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %103, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %103, i64 %194
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = shl nuw nsw i32 %197, 8
@@ -43430,7 +43429,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.us.i.i.i: ; preds = %_ZNK
   %313 = lshr i32 %286, 6
   %314 = and i32 %313, 7
   %315 = zext nneg i32 %314 to i64
-  %316 = getelementptr inbounds nuw [8 x i64], ptr %312, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i64, ptr %312, i64 %315
   %317 = load i64, ptr %316, align 8
   %318 = and i32 %285, 63
   %319 = zext nneg i32 %318 to i64
@@ -43496,7 +43495,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %337
   %349 = lshr i32 %334, 6
   %350 = and i32 %349, 7
   %351 = zext nneg i32 %350 to i64
-  %352 = getelementptr inbounds nuw [8 x i64], ptr %348, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw i64, ptr %348, i64 %351
   %353 = load i64, ptr %352, align 8
   %354 = and i32 %333, 63
   %355 = zext nneg i32 %354 to i64
@@ -43611,7 +43610,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %411 = lshr i32 %369, 6
   %412 = and i32 %411, 7
   %413 = zext nneg i32 %412 to i64
-  %414 = getelementptr inbounds nuw [8 x i64], ptr %410, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i64, ptr %410, i64 %413
   %415 = load i64, ptr %414, align 8
   %416 = and i64 %415, %409
   store i64 %416, ptr %414, align 8
@@ -43635,7 +43634,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
   %425 = lshr i32 %369, 6
   %426 = and i32 %425, 7
   %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds nuw [8 x i64], ptr %424, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw i64, ptr %424, i64 %427
   %429 = load i64, ptr %428, align 8
   %430 = or i64 %429, %423
   store i64 %430, ptr %428, align 8
@@ -43678,7 +43677,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i.i.i:       ; preds = %_ZNK11hb_vector_tIN
 444:                                              ; preds = %437
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %445 = zext nneg i32 %432 to i64
-  %446 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %225, i64 0, i64 %445
+  %446 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %225, i64 %445
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i: ; preds = %444, %437
@@ -43707,7 +43706,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 464:                                              ; preds = %455
   %465 = zext nneg i32 %456 to i64
-  %466 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %225, i64 0, i64 %465
+  %466 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %225, i64 %465
   %467 = load i8, ptr %466, align 1
   %468 = zext i8 %467 to i32
   %469 = shl nuw nsw i32 %468, 8
@@ -43758,7 +43757,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i.i: ; preds = %483, %464, 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %497
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %498 = zext nneg i32 %486 to i64
-  %499 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %225, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %225, i64 %498
   %500 = load i8, ptr %499, align 1
   %501 = zext i8 %500 to i32
   %502 = shl nuw nsw i32 %501, 8
@@ -43848,7 +43847,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN
   %538 = lshr i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 6
   %539 = and i32 %538, 7
   %540 = zext nneg i32 %539 to i64
-  %541 = getelementptr inbounds nuw [8 x i64], ptr %537, i64 0, i64 %540
+  %541 = getelementptr inbounds nuw i64, ptr %537, i64 %540
   %542 = load i64, ptr %541, align 8
   %543 = and i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 63
   %544 = zext nneg i32 %543 to i64
@@ -44111,7 +44110,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %139
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %140 = zext nneg i32 %.sroa.1056.093 to i64
-  %141 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %137, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %137, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = shl nuw nsw i32 %143, 8
@@ -44214,7 +44213,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11h
   %191 = lshr i32 %.0.i.i.i.i.i.i.i.i, 6
   %192 = and i32 %191, 7
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [8 x i64], ptr %190, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i64, ptr %190, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = and i32 %.0.i.i.i.i.i.i.i.i, 63
   %197 = zext nneg i32 %196 to i64
@@ -44250,7 +44249,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11h
 215:                                              ; preds = %208
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %216 = zext nneg i32 %.sroa.1056.093 to i64
-  %217 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %137, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %137, i64 %216
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %215, %208
@@ -44279,7 +44278,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 235:                                              ; preds = %226
   %236 = zext nneg i32 %227 to i64
-  %237 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %137, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %137, i64 %236
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i32
   %240 = shl nuw nsw i32 %239, 8
@@ -44364,7 +44363,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %269
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %270 = zext nneg i32 %.sroa.15.060.i to i64
-  %271 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %266, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %266, i64 %270
   %272 = load i8, ptr %271, align 1
   %273 = zext i8 %272 to i32
   %274 = shl nuw nsw i32 %273, 8
@@ -44388,7 +44387,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
 285:                                              ; preds = %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_16ContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
   %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i = zext nneg i32 %.sroa.4726.063.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %286 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %267, i64 0, i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i
+  %286 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %267, i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_16ContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EESM_IjRKNS3_7RuleSetISC_EEEEdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_16ContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EESM_IjRKNS3_7RuleSetISC_EEEEdeEv.exit.i.i": ; preds = %285, %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_16ContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
@@ -44427,7 +44426,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
 306:                                              ; preds = %299
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %307 = zext nneg i32 %.sroa.15.060.i to i64
-  %308 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %307
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22: ; preds = %306, %299
@@ -44456,7 +44455,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 326:                                              ; preds = %317
   %327 = zext nneg i32 %318 to i64
-  %328 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %327
   %329 = load i8, ptr %328, align 1
   %330 = zext i8 %329 to i32
   %331 = shl nuw nsw i32 %330, 8
@@ -44510,7 +44509,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %345, %326, %3
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i8.i.i: ; preds = %.lr.ph.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %356 = zext nneg i32 %.sroa.15.343.i to i64
-  %357 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %266, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %266, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i32
   %360 = shl nuw nsw i32 %359, 8
@@ -44613,7 +44612,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
   %407 = lshr i32 %.0.i.i.i.i.i.i.i.i.i5.i.i, 6
   %408 = and i32 %407, 7
   %409 = zext nneg i32 %408 to i64
-  %410 = getelementptr inbounds nuw [8 x i64], ptr %406, i64 0, i64 %409
+  %410 = getelementptr inbounds nuw i64, ptr %406, i64 %409
   %411 = load i64, ptr %410, align 8
   %412 = and i32 %.0.i.i.i.i.i.i.i.i.i5.i.i, 63
   %413 = zext nneg i32 %412 to i64
@@ -44649,7 +44648,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
 430:                                              ; preds = %423
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %431 = zext nneg i32 %.sroa.15.343.i to i64
-  %432 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %431
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i: ; preds = %430, %423
@@ -44678,7 +44677,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 450:                                              ; preds = %441
   %451 = zext nneg i32 %442 to i64
-  %452 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %451
+  %452 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %451
   %453 = load i8, ptr %452, align 1
   %454 = zext i8 %453 to i32
   %455 = shl nuw nsw i32 %454, 8
@@ -44844,7 +44843,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i:     ; preds = %_ZNK11hb_vector_tIN
   %38 = lshr i32 %1, 6
   %39 = and i32 %38, 7
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %37, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = and i32 %1, 63
   %44 = zext nneg i32 %43 to i64
@@ -45390,7 +45389,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i:     ; preds = %_ZNK11hb_vector_tIN
   %87 = lshr i32 %51, 6
   %88 = and i32 %87, 7
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [8 x i64], ptr %86, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i64, ptr %86, i64 %89
   %91 = load i64, ptr %90, align 8
   %92 = and i32 %50, 63
   %93 = zext nneg i32 %92 to i64
@@ -46817,7 +46816,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i.i.i: ; preds = %_ZN
   %250 = lshr i32 %218, 6
   %251 = and i32 %250, 7
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw [8 x i64], ptr %249, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i64, ptr %249, i64 %252
   %254 = load i64, ptr %253, align 8
   %255 = and i32 %218, 63
   %256 = zext nneg i32 %255 to i64
@@ -47849,7 +47848,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
   %155 = lshr i32 %126, 6
   %156 = and i32 %155, 7
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw [8 x i64], ptr %154, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i64, ptr %154, i64 %157
   %159 = load i64, ptr %158, align 8
   %160 = and i32 %125, 63
   %161 = zext nneg i32 %160 to i64
@@ -48373,7 +48372,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
   %92 = lshr i32 %60, 6
   %93 = and i32 %92, 7
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [8 x i64], ptr %91, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i64, ptr %91, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = and i32 %60, 63
   %98 = zext nneg i32 %97 to i64
@@ -48807,7 +48806,7 @@ define linkonce_odr hidden void @_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTyp
 
 66:                                               ; preds = %59
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %67 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %16, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %16, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit: ; preds = %59, %66
@@ -48909,7 +48908,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit: ; preds = %_ZNK12hb_
   %116 = lshr i32 %84, 6
   %117 = and i32 %116, 7
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [8 x i64], ptr %115, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr %115, i64 %118
   %120 = load i64, ptr %119, align 8
   %121 = and i32 %84, 63
   %122 = zext nneg i32 %121 to i64
@@ -49522,7 +49521,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %286 = lshr i32 %241, 6
   %287 = and i32 %286, 7
   %288 = zext nneg i32 %287 to i64
-  %289 = getelementptr inbounds nuw [8 x i64], ptr %285, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i64, ptr %285, i64 %288
   %290 = load i64, ptr %289, align 8
   %291 = and i64 %290, %284
   store i64 %291, ptr %289, align 8
@@ -49546,7 +49545,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit.i.i:           ; preds = %_ZNK11hb_vector_tIN
   %300 = lshr i32 %241, 6
   %301 = and i32 %300, 7
   %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw [8 x i64], ptr %299, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw i64, ptr %299, i64 %302
   %304 = load i64, ptr %303, align 8
   %305 = or i64 %304, %298
   store i64 %305, ptr %303, align 8
@@ -49865,7 +49864,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj8hb_set_tLb0EE
   br i1 %40, label %_ZN12hb_hashmap_tIj8hb_set_tLb0EE9prime_forEj.exit, label %41
 
 41:                                               ; preds = %._crit_edge
-  %42 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 0, i64 %18
+  %42 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb1EE9prime_forEj.prime_mod, i64 %18
   %43 = load i32, ptr %42, align 4
   br label %_ZN12hb_hashmap_tIj8hb_set_tLb0EE9prime_forEj.exit
 
@@ -50671,7 +50670,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %139
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %140 = zext nneg i32 %.sroa.1056.093 to i64
-  %141 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %137, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %137, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = shl nuw nsw i32 %143, 8
@@ -50774,7 +50773,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11h
   %191 = lshr i32 %.0.i.i.i.i.i.i.i.i, 6
   %192 = and i32 %191, 7
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [8 x i64], ptr %190, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i64, ptr %190, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = and i32 %.0.i.i.i.i.i.i.i.i, 63
   %197 = zext nneg i32 %196 to i64
@@ -50810,7 +50809,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK11h
 215:                                              ; preds = %208
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %216 = zext nneg i32 %.sroa.1056.093 to i64
-  %217 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %137, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %137, i64 %216
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %215, %208
@@ -50839,7 +50838,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 235:                                              ; preds = %226
   %236 = zext nneg i32 %227 to i64
-  %237 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %137, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %137, i64 %236
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i32
   %240 = shl nuw nsw i32 %239, 8
@@ -50924,7 +50923,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %269
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %270 = zext nneg i32 %.sroa.15.060.i to i64
-  %271 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %266, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %266, i64 %270
   %272 = load i8, ptr %271, align 1
   %273 = zext i8 %272 to i32
   %274 = shl nuw nsw i32 %273, 8
@@ -50948,7 +50947,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
 285:                                              ; preds = %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_21ChainContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
   %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i = zext nneg i32 %.sroa.4726.063.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %286 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %267, i64 0, i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i
+  %286 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %267, i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_21ChainContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EESM_IjRKNS3_12ChainRuleSetISC_EEEEdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS3_21ChainContextFormat1_4INS4_10SmallTypesEE7closureEPNS3_20hb_closure_context_tEEUljE_RK3$_5LPv0EEZNKSD_7closureESF_EUl9hb_pair_tIjjEE_L24hb_function_sortedness_t0ELSK_0EESM_IjRKNS3_12ChainRuleSetISC_EEEEdeEv.exit.i.i": ; preds = %285, %"_ZNK9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEEZNKS2_21ChainContextFormat1_4INS3_10SmallTypesEE7closureEPNS2_20hb_closure_context_tEEUljE_RK3$_5LPv0EE9hb_pair_tIjjEEdeEv.exit.i.i.i.i"
@@ -50987,7 +50986,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
 306:                                              ; preds = %299
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %307 = zext nneg i32 %.sroa.15.060.i to i64
-  %308 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %307
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i22: ; preds = %306, %299
@@ -51016,7 +51015,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 326:                                              ; preds = %317
   %327 = zext nneg i32 %318 to i64
-  %328 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %327
   %329 = load i8, ptr %328, align 1
   %330 = zext i8 %329 to i32
   %331 = shl nuw nsw i32 %330, 8
@@ -51070,7 +51069,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %345, %326, %3
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i.i8.i.i: ; preds = %.lr.ph.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %356 = zext nneg i32 %.sroa.15.343.i to i64
-  %357 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %266, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %266, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i32
   %360 = shl nuw nsw i32 %359, 8
@@ -51173,7 +51172,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
   %407 = lshr i32 %.0.i.i.i.i.i.i.i.i.i5.i.i, 6
   %408 = and i32 %407, 7
   %409 = zext nneg i32 %408 to i64
-  %410 = getelementptr inbounds nuw [8 x i64], ptr %406, i64 0, i64 %409
+  %410 = getelementptr inbounds nuw i64, ptr %406, i64 %409
   %411 = load i64, ptr %410, align 8
   %412 = and i32 %.0.i.i.i.i.i.i.i.i.i5.i.i, 63
   %413 = zext nneg i32 %412 to i64
@@ -51209,7 +51208,7 @@ _ZNK12hb_bit_set_t8page_forEj.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
 430:                                              ; preds = %423
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %431 = zext nneg i32 %.sroa.15.343.i to i64
-  %432 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %431
+  %432 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %431
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i.i: ; preds = %430, %423
@@ -51238,7 +51237,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
 
 450:                                              ; preds = %441
   %451 = zext nneg i32 %442 to i64
-  %452 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %266, i64 0, i64 %451
+  %452 = getelementptr inbounds nuw %"struct.OT::Layout::Common::RangeRecord", ptr %266, i64 %451
   %453 = load i8, ptr %452, align 1
   %454 = zext i8 %453 to i32
   %455 = shl nuw nsw i32 %454, 8
@@ -52032,7 +52031,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.i.i.i: ; preds = %_ZN
   %281 = lshr i32 %249, 6
   %282 = and i32 %281, 7
   %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr inbounds nuw [8 x i64], ptr %280, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i64, ptr %280, i64 %283
   %285 = load i64, ptr %284, align 8
   %286 = and i32 %249, 63
   %287 = zext nneg i32 %286 to i64
@@ -53153,7 +53152,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit: ; preds = %2
 
 47:                                               ; preds = %40
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %48 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %39, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %39, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit: ; preds = %40, %47
@@ -53223,7 +53222,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit20: ; preds = %_ZNK2O
 
 84:                                               ; preds = %77
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %85 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %76, i64 0, i64 %indvars.iv45
+  %85 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %76, i64 %indvars.iv45
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit23
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit23: ; preds = %77, %84
@@ -53940,7 +53939,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11SubstLookupENS_7IntTypeItLj2E
 
 113:                                              ; preds = %142, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %142 ]
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.812"], ptr %83, i64 0, i64 %indvars.iv.i.i.i
+  %114 = getelementptr inbounds nuw %"struct.OT::OffsetTo.812", ptr %83, i64 %indvars.iv.i.i.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load ptr, ptr %5, align 8
   %117 = ptrtoint ptr %115 to i64
@@ -54150,7 +54149,7 @@ _ZNK2OT7ArrayOfINS_6RecordINS_6ScriptEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP
 
 41:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %42 = getelementptr inbounds nuw [1 x %"struct.OT::Record.358"], ptr %4, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %"struct.OT::Record.358", ptr %4, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
@@ -54364,7 +54363,7 @@ _ZNK2OT7ArrayOfINS_6RecordINS_7LangSysEEENS_7IntTypeItLj2EEEE16sanitize_shallowE
 
 85:                                               ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
-  %86 = getelementptr inbounds nuw [1 x %"struct.OT::Record"], ptr %55, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw %"struct.OT::Record", ptr %55, i64 %indvars.iv
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 6
   %88 = load ptr, ptr %5, align 8
   %89 = ptrtoint ptr %87 to i64
@@ -54505,7 +54504,7 @@ _ZNK2OT7ArrayOfINS_6RecordINS_7FeatureEEENS_7IntTypeItLj2EEEE16sanitize_shallowE
 
 41:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %42 = getelementptr inbounds nuw [1 x %"struct.OT::Record.374"], ptr %4, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %"struct.OT::Record.374", ptr %4, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
@@ -55049,7 +55048,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTy
 
 80:                                               ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %109 ]
-  %81 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %3, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %3, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 2
   %83 = load ptr, ptr %4, align 8
   %84 = ptrtoint ptr %82 to i64
@@ -55175,7 +55174,7 @@ _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.e
 
 158:                                              ; preds = %.lr.ph70
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %159 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %3, i64 0, i64 %indvars.iv75
+  %159 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %3, i64 %indvars.iv75
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit48
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit48: ; preds = %.lr.ph70, %158
@@ -56094,7 +56093,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS
 
 113:                                              ; preds = %.lr.ph, %159
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %159 ]
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.443"], ptr %83, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw %"struct.OT::OffsetTo.443", ptr %83, i64 %indvars.iv
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load ptr, ptr %5, align 8
   %117 = ptrtoint ptr %115 to i64
@@ -56353,7 +56352,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypes
 
 113:                                              ; preds = %.lr.ph, %159
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %159 ]
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.446"], ptr %83, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw %"struct.OT::OffsetTo.446", ptr %83, i64 %indvars.iv
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load ptr, ptr %5, align 8
   %117 = ptrtoint ptr %115 to i64
@@ -56612,7 +56611,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesE
 
 113:                                              ; preds = %.lr.ph, %142
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %142 ]
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.449"], ptr %83, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw %"struct.OT::OffsetTo.449", ptr %83, i64 %indvars.iv
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load ptr, ptr %5, align 8
   %117 = ptrtoint ptr %115 to i64
@@ -56723,7 +56722,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8LigatureINS2_10SmallTypesEEENS
 
 39:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %40 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.528"], ptr %3, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.OT::OffsetTo.528", ptr %3, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = load ptr, ptr %4, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -56994,7 +56993,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
 
 113:                                              ; preds = %.lr.ph, %142
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %142 ]
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %83, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %83, i64 %indvars.iv
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load ptr, ptr %5, align 8
   %117 = ptrtoint ptr %115 to i64
@@ -57105,7 +57104,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_4RuleINS_6Layout10SmallTypesEEENS_7IntTypeItLj2E
 
 39:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %40 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.553"], ptr %3, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.OT::OffsetTo.553", ptr %3, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = load ptr, ptr %4, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -57499,7 +57498,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItL
 
 187:                                              ; preds = %.lr.ph, %216
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %216 ]
-  %188 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %157, i64 0, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %157, i64 %indvars.iv
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 2
   %190 = load ptr, ptr %5, align 8
   %191 = ptrtoint ptr %189 to i64
@@ -57605,7 +57604,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_6Layout6Common8Covera
 
 34:                                               ; preds = %.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread ]
-  %35 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %3, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %3, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = load ptr, ptr %4, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -57951,7 +57950,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
 114:                                              ; preds = %.lr.ph, %171
   %.01730 = phi i32 [ 0, %.lr.ph ], [ %172, %171 ]
   %115 = zext nneg i32 %.01730 to i64
-  %116 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %84, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %84, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 2
   %118 = load ptr, ptr %6, align 8
   %119 = ptrtoint ptr %117 to i64
@@ -58028,7 +58027,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9ChainRuleINS_6Layout10SmallTypesEEENS_7IntTypeI
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %162, %.lr.ph.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %162 ]
-  %163 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.591"], ptr %136, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %163 = getelementptr inbounds nuw %"struct.OT::OffsetTo.591", ptr %136, i64 %indvars.iv.i.i.i.i.i
   %164 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ChainRuleINS1_6Layout10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEJPKNS1_12ChainRuleSetIS5_EEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSE_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(2) %163, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %164, label %162, label %.loopexit.i.i
 
@@ -58745,7 +58744,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntT
 336:                                              ; preds = %.lr.ph, %393
   %.038114 = phi i32 [ 0, %.lr.ph ], [ %394, %393 ]
   %337 = zext nneg i32 %.038114 to i64
-  %338 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %306, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %306, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 2
   %340 = load ptr, ptr %6, align 8
   %341 = ptrtoint ptr %339 to i64
@@ -58822,7 +58821,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9ChainRuleINS_6Layout10SmallTypesEEENS_7IntTypeI
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %384, %.lr.ph.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %384 ]
-  %385 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.591"], ptr %358, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %385 = getelementptr inbounds nuw %"struct.OT::OffsetTo.591", ptr %358, i64 %indvars.iv.i.i.i.i.i
   %386 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_9ChainRuleINS1_6Layout10SmallTypesEEENS1_7IntTypeItLj2EEELb1EEEJPKNS1_12ChainRuleSetIS5_EEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSE_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(2) %385, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %386, label %384, label %.loopexit.i.i
 
@@ -58922,7 +58921,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE
 
 42:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %7, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %7, i64 %indvars.iv
   %44 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_6Layout6Common8CoverageENS1_7IntTypeItLj2EEELb1EEEJPKNS1_19ChainContextFormat3EEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSC_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(2) %43, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %44, label %41, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
@@ -58998,7 +58997,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %80
   %indvars.iv94 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next95, %80 ]
-  %81 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %54, i64 0, i64 %indvars.iv94
+  %81 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %54, i64 %indvars.iv94
   %82 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_6Layout6Common8CoverageENS1_7IntTypeItLj2EEELb1EEEJPKNS1_19ChainContextFormat3EEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSC_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(2) %81, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %82, label %80, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
@@ -59077,7 +59076,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %125
   %indvars.iv99 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next100, %125 ]
-  %126 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %95, i64 0, i64 %indvars.iv99
+  %126 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %95, i64 %indvars.iv99
   %127 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_6Layout6Common8CoverageENS1_7IntTypeItLj2EEELb1EEEJPKNS1_19ChainContextFormat3EEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSC_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(2) %126, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %127, label %125, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EEES6_E16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
@@ -59449,7 +59448,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE
 
 114:                                              ; preds = %.lr.ph, %113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
-  %115 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %85, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %85, i64 %indvars.iv
   %116 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_6Layout6Common8CoverageENS1_7IntTypeItLj2EEELb1EEEJPKNS3_9GSUB_impl30ReverseChainSingleSubstFormat1EEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSD_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(2) %115, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %116, label %113, label %.critedge
 
@@ -59525,7 +59524,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %152
   %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %152 ]
-  %153 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.250"], ptr %126, i64 0, i64 %indvars.iv79
+  %153 = getelementptr inbounds nuw %"struct.OT::OffsetTo.250", ptr %126, i64 %indvars.iv79
   %154 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_6Layout6Common8CoverageENS1_7IntTypeItLj2EEELb1EEEJPKNS3_9GSUB_impl30ReverseChainSingleSubstFormat1EEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSD_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(2) %153, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %154, label %152, label %.critedge
 
@@ -59807,7 +59806,7 @@ _ZNK2OT7ArrayOfINS_22FeatureVariationRecordENS_7IntTypeIjLj4EEEE16sanitize_shall
 
 70:                                               ; preds = %70, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %71 = getelementptr inbounds nuw [1 x %"struct.OT::FeatureVariationRecord"], ptr %22, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %"struct.OT::FeatureVariationRecord", ptr %22, i64 %indvars.iv
   %72 = tail call noundef zeroext i1 @_ZNK2OT22FeatureVariationRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -60000,7 +59999,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9ConditionENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEE
 
 39:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %40 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.633"], ptr %3, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.OT::OffsetTo.633", ptr %3, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load ptr, ptr %4, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -60160,7 +60159,7 @@ _ZNK2OT7ArrayOfINS_30FeatureTableSubstitutionRecordENS_7IntTypeItLj2EEEE16saniti
 
 52:                                               ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
-  %53 = getelementptr inbounds nuw [1 x %"struct.OT::FeatureTableSubstitutionRecord"], ptr %22, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"struct.OT::FeatureTableSubstitutionRecord", ptr %22, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %55 = load ptr, ptr %4, align 8
   %56 = ptrtoint ptr %54 to i64
@@ -60808,7 +60807,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl9PosLookupENS_7IntTypeItLj2EEEL
 
 113:                                              ; preds = %142, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %142 ]
-  %114 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.817"], ptr %83, i64 0, i64 %indvars.iv.i.i.i
+  %114 = getelementptr inbounds nuw %"struct.OT::OffsetTo.817", ptr %83, i64 %indvars.iv.i.i.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load ptr, ptr %5, align 8
   %117 = ptrtoint ptr %115 to i64
@@ -61075,7 +61074,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl17PosLookupSubTableENS_7IntType
 
 80:                                               ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %109 ]
-  %81 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.630"], ptr %3, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %3, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 2
   %83 = load ptr, ptr %4, align 8
   %84 = ptrtoint ptr %82 to i64
@@ -61201,7 +61200,7 @@ _ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exi
 
 158:                                              ; preds = %.lr.ph70
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %159 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.630"], ptr %3, i64 0, i64 %indvars.iv75
+  %159 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %3, i64 %indvars.iv75
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit48
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GPOS_impl17PosLookupSubTableEEERKT_j.exit48: ; preds = %.lr.ph70, %158
@@ -62798,7 +62797,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_
 
 136:                                              ; preds = %.lr.ph, %165
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
-  %137 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.616"], ptr %4, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw %"struct.OT::OffsetTo.616", ptr %4, i64 %indvars.iv
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 2
   %139 = load ptr, ptr %5, align 8
   %140 = ptrtoint ptr %138 to i64
@@ -62955,7 +62954,7 @@ _ZNK21hb_sanitize_context_t11check_rangeIN2OT6Layout9GPOS_impl15PairValueRecordI
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %48, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %48, i64 %68
   %70 = zext i32 %65 to i64
   br label %71
 
@@ -63447,7 +63446,7 @@ _ZNK21hb_sanitize_context_t11check_rangeIvEEbPKT_jj.exit: ; preds = %275
 
 .lr.ph.i66:                                       ; preds = %.loopexit
   %300 = zext nneg i32 %238 to i64
-  %301 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %3, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %3, i64 %300
   %302 = zext nneg i32 %249 to i64
   br label %303
 
@@ -63675,7 +63674,7 @@ _ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEE16sani
 
 139:                                              ; preds = %139, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %139 ]
-  %140 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::GPOS_impl::EntryExitRecord"], ptr %86, i64 0, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::EntryExitRecord", ptr %86, i64 %indvars.iv
   %141 = tail call noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl15EntryExitRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %140, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -64572,7 +64571,7 @@ _ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEE16sanitize_
 
 39:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %40 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::GPOS_impl::MarkRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::MarkRecord", ptr %3, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load ptr, ptr %4, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -64727,7 +64726,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_6Layout9GPOS_impl6Anc
 
 44:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %45 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.619"], ptr %4, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %"struct.OT::OffsetTo.619", ptr %4, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %47 = load ptr, ptr %5, align 8
   %48 = ptrtoint ptr %46 to i64
@@ -65228,7 +65227,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2
 
 40:                                               ; preds = %70, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %70 ]
-  %41 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.622"], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw %"struct.OT::OffsetTo.622", ptr %4, i64 %indvars.iv.i.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = load ptr, ptr %5, align 8
   %44 = ptrtoint ptr %42 to i64
@@ -66348,7 +66347,7 @@ _ZNK2OT13SortedArrayOfINS_3TagENS_7IntTypeItLj2EEEE5bfindIjEEbRKT_Pj14hb_not_fou
 84:                                               ; preds = %_ZNK2OT13SortedArrayOfINS_3TagENS_7IntTypeItLj2EEEE5bfindIjEEbRKT_Pj14hb_not_found_tj.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %85 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %86 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.833"], ptr %85, i64 0, i64 %44
+  %86 = getelementptr inbounds nuw %"struct.OT::OffsetTo.833", ptr %85, i64 %44
   br label %_ZNK2OT10BaseScript14get_base_coordEi.exit
 
 _ZNK2OT10BaseScript14get_base_coordEi.exit:       ; preds = %_ZNK2OT13SortedArrayOfINS_3TagENS_7IntTypeItLj2EEEE5bfindIjEEbRKT_Pj14hb_not_found_tj.exit, %84
@@ -66720,7 +66719,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
 
 36:                                               ; preds = %29
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %28, i64 0, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %28, i64 %indvars.iv.i.i
   br label %38
 
 38:                                               ; preds = %36, %29
@@ -66790,7 +66789,7 @@ _ZNK2OT6Layout9GSUB_impl11SubstLookup8dispatchINS_33hb_accelerate_subtables_cont
   br i1 %.not32, label %76, label %71
 
 71:                                               ; preds = %.lr.ph40
-  %72 = getelementptr inbounds nuw [1 x %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t"], ptr %16, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t", ptr %16, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -67530,7 +67529,7 @@ define linkonce_odr hidden void @_ZN2OT21hb_ot_apply_context_t16_set_glyph_class
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = and i32 %1, 255
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [256 x %struct.hb_atomic_short_t], ptr %60, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.hb_atomic_short_t, ptr %60, i64 %62
   %64 = load atomic i16, ptr %63 monotonic, align 2
   %65 = sext i16 %64 to i32
   %66 = icmp eq i16 %64, -1
@@ -67702,7 +67701,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl20SingleS
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %48 = zext nneg i32 %23 to i64
-  %49 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %47, i64 %48
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 _ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %38, %.thread
@@ -67829,7 +67828,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.443"], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.443", ptr %35, i64 %36
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i: ; preds = %34, %25
@@ -67896,7 +67895,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.443"], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.443", ptr %35, i64 %36
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl8SequenceINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i: ; preds = %34, %25
@@ -68125,7 +68124,7 @@ _ZN2OT21hb_ot_apply_context_t13replace_glyphEj.exit: ; preds = %24, %.lr.ph.i.i.
   br label %129
 
 129:                                              ; preds = %118, %117
-  %130 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %116, i64 0, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %116, i64 %indvars.iv
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
   %133 = shl nuw nsw i32 %132, 8
@@ -68306,7 +68305,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.446"], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.446", ptr %35, i64 %36
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i: ; preds = %34, %25
@@ -68373,7 +68372,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.446"], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.446", ptr %35, i64 %36
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i: ; preds = %34, %25
@@ -68488,7 +68487,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl12Alterna
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %62 = zext nneg i32 %40 to i64
-  %63 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %61, i64 %62
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 _ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %53, %60
@@ -68618,7 +68617,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.449"], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.449", ptr %35, i64 %36
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i: ; preds = %34, %25
@@ -68685,7 +68684,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = zext nneg i32 %23 to i64
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.449"], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.449", ptr %35, i64 %36
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i.i: ; preds = %34, %25
@@ -68737,7 +68736,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl11Ligatur
 
 12:                                               ; preds = %12, %.lr.ph200
   %indvars.iv207 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next208, %12 ]
-  %13 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.528"], ptr %11, i64 0, i64 %indvars.iv207
+  %13 = getelementptr inbounds nuw %"struct.OT::OffsetTo.528", ptr %11, i64 %indvars.iv207
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
@@ -69041,7 +69040,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit1
 187:                                              ; preds = %.critedge141, %244
   %indvars.iv = phi i64 [ 0, %.critedge141 ], [ %indvars.iv.next, %244 ]
   %.0107197 = phi i8 [ 0, %.critedge141 ], [ %.1, %244 ]
-  %188 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.528"], ptr %186, i64 0, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw %"struct.OT::OffsetTo.528", ptr %186, i64 %indvars.iv
   %189 = load i8, ptr %188, align 1
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 1
   %191 = load i8, ptr %190, align 1
@@ -69752,7 +69751,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit2
 310:                                              ; preds = %.lr.ph338, %316
   %indvars.iv352 = phi i64 [ 0, %.lr.ph338 ], [ %indvars.iv.next353, %316 ]
   %.0175335 = phi ptr [ %4, %.lr.ph338 ], [ %322, %316 ]
-  %311 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv352
+  %311 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv352
   %312 = load i32, ptr %311, align 4
   %313 = add i32 %312, %304
   store i32 %313, ptr %311, align 4
@@ -70372,7 +70371,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
-  %38 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %36, i64 %37
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i: ; preds = %35, %26
@@ -70443,7 +70442,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
-  %38 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %36, i64 %37
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i: ; preds = %35, %26
@@ -71126,7 +71125,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit3
 361:                                              ; preds = %.critedge255, %437
   %indvars.iv = phi i64 [ 0, %.critedge255 ], [ %indvars.iv.next, %437 ]
   %.0189457 = phi i32 [ %152, %.critedge255 ], [ %.1, %437 ]
-  %362 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.553"], ptr %359, i64 0, i64 %indvars.iv
+  %362 = getelementptr inbounds nuw %"struct.OT::OffsetTo.553", ptr %359, i64 %indvars.iv
   %363 = load i8, ptr %362, align 1
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 1
   %365 = load i8, ptr %364, align 1
@@ -72195,7 +72194,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT16ContextFormat2_5INS_6Lay
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 6
   %79 = zext nneg i32 %69 to i64
-  %80 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %78, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %78, i64 %79
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %77, %59
@@ -72303,7 +72302,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = zext nneg i32 %.013 to i64
-  %145 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.452"], ptr %143, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw %"struct.OT::OffsetTo.452", ptr %143, i64 %144
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %142
@@ -72378,7 +72377,7 @@ define internal noundef zeroext i1 @_ZN2OTL18match_class_cachedER15hb_glyph_info
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %37 = zext nneg i32 %27 to i64
-  %38 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %36, i64 %37
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %35, %17
@@ -73099,7 +73098,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
-  %38 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %36, i64 %37
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i: ; preds = %35, %26
@@ -73170,7 +73169,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT33hb_accelerate_subtables_c
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %24 to i64
-  %38 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %36, i64 %37
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit.i.i: ; preds = %35, %26
@@ -73901,7 +73900,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit3
 403:                                              ; preds = %.critedge279, %527
   %indvars.iv = phi i64 [ 0, %.critedge279 ], [ %indvars.iv.next, %527 ]
   %.0210486 = phi i32 [ -1, %.critedge279 ], [ %.1, %527 ]
-  %404 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.591"], ptr %401, i64 0, i64 %indvars.iv
+  %404 = getelementptr inbounds nuw %"struct.OT::OffsetTo.591", ptr %401, i64 %indvars.iv
   %405 = load i8, ptr %404, align 1
   %406 = getelementptr inbounds nuw i8, ptr %404, i64 1
   %407 = load i8, ptr %406, align 1
@@ -74013,7 +74012,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit3
 488:                                              ; preds = %478
   %489 = getelementptr inbounds nuw i8, ptr %434, i64 4
   %490 = zext nneg i32 %486 to i64
-  %491 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %489, i64 0, i64 %490
+  %491 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %489, i64 %490
   %492 = load i8, ptr %491, align 1
   %493 = zext i8 %492 to i32
   %494 = shl nuw nsw i32 %493, 8
@@ -75338,7 +75337,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT21ChainContextFormat2_5INS
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %108 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 6
   %109 = zext nneg i32 %99 to i64
-  %110 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %108, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %108, i64 %109
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %107, %89
@@ -75446,7 +75445,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %174 = zext nneg i32 %.019 to i64
-  %175 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.456"], ptr %173, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %"struct.OT::OffsetTo.456", ptr %173, i64 %174
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit: ; preds = %_ZNK2OT8ClassDef9get_classEj.exit, %172
@@ -75522,7 +75521,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached1ER15hb_glyph_inf
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %38 = zext nneg i32 %28 to i64
-  %39 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %37, i64 %38
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %36, %18
@@ -75688,7 +75687,7 @@ define internal noundef zeroext i1 @_ZN2OTL19match_class_cached2ER15hb_glyph_inf
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %38 = zext nneg i32 %28 to i64
-  %39 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %37, i64 %38
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %36, %18
@@ -77436,7 +77435,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %328 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %329 = zext nneg i32 %26 to i64
-  %330 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %328, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %328, i64 %329
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 _ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %320, %327
@@ -79121,7 +79120,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Layout9GSUB_impl11SubstLoo
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %42 = zext nneg i32 %1 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %41, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %46 = load i8, ptr %45, align 1
@@ -79411,7 +79410,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Layout9GPOS_impl9PosLookup
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
   %42 = zext nneg i32 %1 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %41, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %46 = load i8, ptr %45, align 1
@@ -79710,7 +79709,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT8GSUBGPOS13accelerator_tINS_6Layo
 42:                                               ; preds = %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
-  %44 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.401"], ptr %43, i64 0, i64 %6
+  %44 = getelementptr inbounds nuw %"struct.OT::OffsetTo.401", ptr %43, i64 %6
   %45 = load i8, ptr %44, align 1
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1
@@ -79813,7 +79812,7 @@ define linkonce_odr hidden noundef ptr @_ZN2OT33hb_ot_layout_lookup_accelerator_
 
 36:                                               ; preds = %29
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %37 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.630"], ptr %28, i64 0, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw %"struct.OT::OffsetTo.630", ptr %28, i64 %indvars.iv.i.i
   br label %38
 
 38:                                               ; preds = %36, %29
@@ -79883,7 +79882,7 @@ _ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_33hb_accelerate_subtables_context
   br i1 %.not32, label %76, label %71
 
 71:                                               ; preds = %.lr.ph40
-  %72 = getelementptr inbounds nuw [1 x %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t"], ptr %16, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t", ptr %16, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -80888,7 +80887,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl16SingleP
   %54 = tail call noundef range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %53)
   %55 = mul nuw nsw i32 %54, %23
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %46, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %46, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %18, align 4
@@ -81202,7 +81201,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %150 = zext nneg i32 %23 to i64
-  %151 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.616"], ptr %149, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw %"struct.OT::OffsetTo.616", ptr %149, i64 %150
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GPOS_impl7PairSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit: ; preds = %.critedge82, %148
@@ -81346,7 +81345,7 @@ _ZL10hb_bsearchIKN2OT6Layout9GPOS_impl15PairValueRecordINS1_10SmallTypesEEEjEPT_
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %82 = zext nneg i32 %14 to i64
-  %83 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %85, i64 %29
@@ -81779,7 +81778,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %181 = getelementptr inbounds nuw i8, ptr %.0.i.i162, i64 6
   %182 = zext nneg i32 %172 to i64
-  %183 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %181, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %181, i64 %182
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i: ; preds = %180, %162
@@ -81962,7 +81961,7 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %.critedge157, %_ZNK
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %289 = getelementptr inbounds nuw i8, ptr %.0.i.i171, i64 6
   %290 = zext nneg i32 %280 to i64
-  %291 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %289, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %289, i64 %290
   br label %_ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i188
 
 _ZNK2OT17ClassDefFormat1_3INS_6Layout10SmallTypesEE9get_classEj.exit.i188: ; preds = %288, %270
@@ -82140,7 +82139,7 @@ _ZNK2OT8ClassDef9get_classEj.exit190:             ; preds = %247, %_ZNK2OT17Clas
   %405 = add nuw i32 %404, %226
   %406 = mul i32 %402, %405
   %407 = zext i32 %406 to i64
-  %408 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %403, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %403, i64 %407
   %409 = load ptr, ptr %3, align 8
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 192
   %411 = load ptr, ptr %410, align 8
@@ -82352,7 +82351,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl17Cursive
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %38 = zext nneg i32 %28 to i64
-  %39 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::GPOS_impl::EntryExitRecord"], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::EntryExitRecord", ptr %37, i64 %38
   br label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit
 
 _ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %2, %36
@@ -82742,7 +82741,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %250 = zext nneg i32 %241 to i64
-  %251 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::GPOS_impl::EntryExitRecord"], ptr %249, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::EntryExitRecord", ptr %249, i64 %250
   br label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit231
 
 _ZNK2OT7ArrayOfINS_6Layout9GPOS_impl15EntryExitRecordENS_7IntTypeItLj2EEEEixEi.exit231: ; preds = %.critedge219, %248
@@ -84334,7 +84333,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl9MarkArra
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = zext nneg i32 %2 to i64
-  %25 = getelementptr inbounds nuw [1 x %"struct.OT::Layout::GPOS_impl::MarkRecord"], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.OT::Layout::GPOS_impl::MarkRecord", ptr %23, i64 %24
   br label %_ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEEixEi.exit
 
 _ZNK2OT7ArrayOfINS_6Layout9GPOS_impl10MarkRecordENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %7, %22
@@ -84579,7 +84578,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(10) ptr @_ZNK
   %16 = mul i32 %4, %2
   %17 = add i32 %16, %3
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.619"], ptr %15, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.OT::OffsetTo.619", ptr %15, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -85141,7 +85140,7 @@ _ZL50_hb_glyph_info_is_default_ignorable_and_not_hiddenPK15hb_glyph_info_t.exit.
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !31
   %246 = getelementptr inbounds nuw i8, ptr %.0.i.i147, i64 2
   %247 = zext nneg i32 %180 to i64
-  %248 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.622"], ptr %246, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw %"struct.OT::OffsetTo.622", ptr %246, i64 %247
   %249 = load i8, ptr %248, align 1
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 1
   %251 = load i8, ptr %250, align 1
@@ -85939,7 +85938,7 @@ define internal fastcc noundef zeroext i1 @_ZL13apply_forwardPN2OT21hb_ot_apply_
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw [1 x %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t", ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
@@ -86234,7 +86233,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_conte
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %185 = load i32, ptr %4, align 8
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw [1 x %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t"], ptr %184, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw %"struct.OT::hb_accelerate_subtables_context_t::hb_applicable_t", ptr %184, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8
   %190 = load ptr, ptr %187, align 8
@@ -86988,7 +86987,7 @@ _ZNK2OT7ArrayOfINS_16BaseScriptRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21
 
 98:                                               ; preds = %128, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %128 ]
-  %99 = getelementptr inbounds nuw [1 x %"struct.OT::BaseScriptRecord"], ptr %69, i64 0, i64 %indvars.iv.i.i.i
+  %99 = getelementptr inbounds nuw %"struct.OT::BaseScriptRecord", ptr %69, i64 %indvars.iv.i.i.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
   %101 = load ptr, ptr %4, align 8
   %102 = ptrtoint ptr %100 to i64
@@ -87215,7 +87214,7 @@ _ZNK2OT7ArrayOfINS_17BaseLangSysRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP2
 
 99:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
-  %100 = getelementptr inbounds nuw [1 x %"struct.OT::BaseLangSysRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw %"struct.OT::BaseLangSysRecord", ptr %3, i64 %indvars.iv
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 6
   %102 = load ptr, ptr %4, align 8
   %103 = ptrtoint ptr %101 to i64
@@ -87328,7 +87327,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_9BaseCoordENS_7IntTypeItLj2EEELb1EEES4_E16saniti
 
 40:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %41 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.833"], ptr %3, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %"struct.OT::OffsetTo.833", ptr %3, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = load ptr, ptr %4, align 8
   %44 = ptrtoint ptr %42 to i64
@@ -87767,7 +87766,7 @@ _ZNK2OT7ArrayOfINS_16FeatMinMaxRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %131 = getelementptr inbounds nuw [1 x %"struct.OT::FeatMinMaxRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw %"struct.OT::FeatMinMaxRecord", ptr %3, i64 %indvars.iv
   %132 = tail call noundef zeroext i1 @_ZNK2OT16FeatMinMaxRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %131, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -87993,7 +87992,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT6Lookup8dispatchINS_6Layout9GSUB_
 
 30:                                               ; preds = %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
-  %31 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.462"], ptr %22, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %"struct.OT::OffsetTo.462", ptr %22, i64 %indvars.iv
   br label %_ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit
 
 _ZNK2OT6Lookup12get_subtableINS_6Layout9GSUB_impl19SubstLookupSubTableEEERKT_j.exit: ; preds = %23, %30
@@ -88213,7 +88212,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT6Layout9GSUB_impl11SingleSubst8di
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %77 = zext nneg i32 %60 to i64
-  %78 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %76, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %"struct.OT::HBGlyphID16", ptr %76, i64 %77
   br label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i.i.i
 
 _ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit.i.i.i: ; preds = %75, %66
@@ -88272,7 +88271,7 @@ define linkonce_odr hidden noundef i32 @_ZN34hb_get_glyph_alternates_dispatch_t9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !11
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %33 = zext nneg i32 %23 to i64
-  %34 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.446"], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %"struct.OT::OffsetTo.446", ptr %32, i64 %33
   br label %_ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl12AlternateSetINS2_10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES8_EixEi.exit.i: ; preds = %31, %6
@@ -88461,7 +88460,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl16SingleP
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = mul nuw nsw i32 %41, %20
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.139"], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %"struct.OT::IntType.139", ptr %42, i64 %44
   %46 = invoke noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl11ValueFormat11apply_valueEPNS_21hb_ot_apply_context_tEPKvPKNS_7IntTypeItLj2EEER19hb_glyph_position_t(ptr noundef nonnull align 1 dereferenceable(2) %33, ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef nonnull align 4 dereferenceable(20) %5)
           to label %47 unwind label %56
 

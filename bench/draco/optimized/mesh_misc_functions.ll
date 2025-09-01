@@ -141,12 +141,12 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %.split, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %indvars.iv = phi i64 [ 0, %.split ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
-  %37 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.33"], ptr %36, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %"class.draco::IndexType.33", ptr %36, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %37, align 4, !tbaa !54
   %38 = zext i32 %.sroa.0.0.copyload to i64
   %39 = getelementptr inbounds nuw %"class.draco::IndexType.34", ptr %31, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !54
-  %41 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %5, i64 %indvars.iv
   store i32 %40, ptr %41, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

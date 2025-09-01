@@ -1192,14 +1192,14 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit146.
   br i1 %160, label %switch.lookup, label %171
 
 switch.lookup:                                    ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit146.thread
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E, i64 0, i64 %159
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E, i64 %159
   %switch.load = load i64, ptr %switch.gep, align 8
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load
   %.0.i = load i64, ptr %161, align 8, !alias.scope !324, !noundef !11
   %162 = add i64 %.0.i, %.2120
   %163 = uitofp i64 %162 to double
   %164 = zext nneg i8 %.0 to i64
-  %switch.gep263 = getelementptr inbounds nuw [3 x double], ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E.9, i64 0, i64 %164
+  %switch.gep263 = getelementptr inbounds nuw double, ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E.9, i64 %164
   %switch.load264 = load double, ptr %switch.gep263, align 8
   %165 = tail call noundef double @llvm.log.f64(double %163)
   %166 = fdiv double %165, %switch.load264

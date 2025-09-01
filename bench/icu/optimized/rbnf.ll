@@ -1022,7 +1022,7 @@ _ZN6icu_776VArrayD2Ev.exit:                       ; preds = %.loopexit.i
 define void @_ZN6icu_7713LocDataParser10parseErrorEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr readnone captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !27
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %58, label %4
+  br i1 %.not, label %56, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1064,43 +1064,41 @@ define void @_ZN6icu_7713LocDataParser10parseErrorEPKc(ptr noundef nonnull align
   %29 = load ptr, ptr %5, align 8, !tbaa !29
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %22
-  %32 = ashr exact i64 %31, 1
-  %33 = getelementptr inbounds [16 x i16], ptr %28, i64 0, i64 %32
-  store i16 0, ptr %33, align 2, !tbaa !26
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %35 = ptrtoint ptr %spec.select22 to i64
-  %36 = sub i64 %35, %30
-  %37 = lshr exact i64 %36, 1
-  %38 = trunc i64 %37 to i32
-  %39 = tail call ptr @u_strncpy_77(ptr noundef nonnull %34, ptr noundef %29, i32 noundef %38)
-  %40 = load ptr, ptr %18, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %5, align 8, !tbaa !29
-  %43 = ptrtoint ptr %42 to i64
-  %44 = sub i64 %35, %43
-  %45 = ashr exact i64 %44, 1
-  %46 = getelementptr inbounds [16 x i16], ptr %41, i64 0, i64 %45
-  store i16 0, ptr %46, align 2, !tbaa !26
-  %47 = load ptr, ptr %0, align 8, !tbaa !27
-  %48 = ptrtoint ptr %47 to i64
-  %49 = sub i64 %43, %48
-  %50 = lshr exact i64 %49, 1
-  %51 = trunc i64 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 %51, ptr %52, align 4, !tbaa !25
-  tail call void @uprv_free_77(ptr noundef %47)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = getelementptr inbounds i8, ptr %28, i64 %31
+  store i16 0, ptr %32, align 2, !tbaa !26
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %34 = ptrtoint ptr %spec.select22 to i64
+  %35 = sub i64 %34, %30
+  %36 = lshr exact i64 %35, 1
+  %37 = trunc i64 %36 to i32
+  %38 = tail call ptr @u_strncpy_77(ptr noundef nonnull %33, ptr noundef %29, i32 noundef %37)
+  %39 = load ptr, ptr %18, align 8, !tbaa !21
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %41 = load ptr, ptr %5, align 8, !tbaa !29
+  %42 = ptrtoint ptr %41 to i64
+  %43 = sub i64 %34, %42
+  %44 = getelementptr inbounds i8, ptr %40, i64 %43
+  store i16 0, ptr %44, align 2, !tbaa !26
+  %45 = load ptr, ptr %0, align 8, !tbaa !27
+  %46 = ptrtoint ptr %45 to i64
+  %47 = sub i64 %42, %46
+  %48 = lshr exact i64 %47, 1
+  %49 = trunc i64 %48 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 %49, ptr %50, align 4, !tbaa !25
+  tail call void @uprv_free_77(ptr noundef %45)
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %54 = load ptr, ptr %53, align 8, !tbaa !12
-  %55 = load i32, ptr %54, align 4, !tbaa !19
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %58, label %57
+  %52 = load ptr, ptr %51, align 8, !tbaa !12
+  %53 = load i32, ptr %52, align 4, !tbaa !19
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %56, label %55
 
-57:                                               ; preds = %13
-  store i32 9, ptr %54, align 4, !tbaa !19
-  br label %58
+55:                                               ; preds = %13
+  store i32 9, ptr %52, align 4, !tbaa !19
+  br label %56
 
-58:                                               ; preds = %13, %57, %2
+56:                                               ; preds = %13, %55, %2
   ret void
 }
 
@@ -3327,7 +3325,7 @@ define void @_ZN6icu_7721RuleBasedNumberFormatC2ENS_15URBNFRuleSetTagERKNS_6Loca
 
 switch.lookup:                                    ; preds = %28
   %31 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6icu_7721RuleBasedNumberFormatC2ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6icu_7721RuleBasedNumberFormatC2ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load ptr, ptr %32, align 8, !tbaa !105

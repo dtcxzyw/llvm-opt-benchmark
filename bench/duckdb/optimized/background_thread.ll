@@ -356,7 +356,7 @@ define noundef zeroext i1 @duckdb_je_background_threads_enable(ptr noundef %0) l
   br i1 %10, label %47, label %11
 
 11:                                               ; preds = %.lr.ph44
-  %12 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %indvars.iv
   %13 = load atomic i64, ptr %12 acquire, align 8
   %14 = icmp eq i64 %13, 0
   %.pre = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
@@ -441,7 +441,7 @@ malloc_mutex_lock.exit:                           ; preds = %23, %29
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %55
   %indvars.iv52 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next53, %55 ]
-  %51 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %indvars.iv52
+  %51 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %indvars.iv52
   %52 = load atomic i64, ptr %51 acquire, align 8
   %.not37 = icmp eq i64 %52, 0
   br i1 %.not37, label %55, label %53
@@ -482,7 +482,7 @@ define noundef zeroext i1 @duckdb_je_background_threads_disable(ptr noundef %0) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %6 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %indvars.iv
   %7 = load atomic i64, ptr %6 acquire, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %10, label %8
@@ -1662,7 +1662,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   %.02227.us = phi i64 [ %.1.us, %22 ], [ -1, %.lr.ph ]
   %.02326.us = phi i32 [ %25, %22 ], [ %2, %.lr.ph ]
   %15 = zext i32 %.02326.us to i64
-  %16 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %15
   %17 = load atomic i64, ptr %16 acquire, align 8
   %.not.us = icmp eq i64 %17, 0
   %18 = icmp ult i64 %.02227.us, 100000001
@@ -1767,7 +1767,7 @@ background_thread_sleep.exit:                     ; preds = %54, %61
   %.02227 = phi i64 [ %.1, %71 ], [ -1, %.lr.ph ]
   %.02326 = phi i32 [ %74, %71 ], [ %2, %.lr.ph ]
   %63 = zext i32 %.02326 to i64
-  %64 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @duckdb_je_arenas, i64 %63
   %65 = load atomic i64, ptr %64 acquire, align 8
   %.0.i.i = inttoptr i64 %65 to ptr
   %.not = icmp eq i64 %65, 0

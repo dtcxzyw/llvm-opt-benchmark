@@ -782,15 +782,15 @@ Vec_IntStartFull.exit:                            ; preds = %12, %Vec_IntAlloc.e
   %169 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %170 = lshr i32 %168, 6
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw [720 x [6 x i8]], ptr %104, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [6 x i8], ptr %104, i64 %171
   br label %173
 
 173:                                              ; preds = %.lr.ph165, %Mpm_ManGetAbcNode.exit
   %indvars.iv181 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next182, %Mpm_ManGetAbcNode.exit ]
-  %174 = getelementptr inbounds nuw [6 x i8], ptr %172, i64 0, i64 %indvars.iv181
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 %indvars.iv181
   %175 = load i8, ptr %174, align 1, !tbaa !93
   %176 = sext i8 %175 to i64
-  %177 = getelementptr inbounds [1 x i32], ptr %169, i64 0, i64 %176
+  %177 = getelementptr inbounds i32, ptr %169, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !44
   %179 = trunc nuw nsw i64 %indvars.iv181 to i32
   %180 = lshr i32 %168, %179

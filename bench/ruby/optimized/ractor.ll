@@ -2743,7 +2743,7 @@ switch.lookup:                                    ; preds = %6
   %12 = load i32, ptr %11, align 8, !tbaa !14
   %13 = load ptr, ptr @stderr, align 8, !tbaa !7
   %14 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.builtin_inline_class_720, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.builtin_inline_class_720, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %13, i32 noundef 1, ptr noundef nonnull @.str.31, i32 noundef %12, ptr noundef nonnull %switch.load) #18
   br label %16
@@ -4612,7 +4612,7 @@ define internal i64 @builtin_inline_class_720(ptr readnone captures(none) %0, i6
 
 switch.lookup:                                    ; preds = %2
   %10 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.builtin_inline_class_720, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.builtin_inline_class_720, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %switch.load) #18
   ret i64 %11
@@ -6274,7 +6274,7 @@ obj_traverse_replace_rec.exit200:                 ; preds = %34, %36
   %68 = phi ptr [ %85, %rb_obj_write.exit ], [ %57, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %rb_obj_write.exit ], [ 0, %.preheader ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = getelementptr [1 x i64], ptr %69, i64 0, i64 %indvars.iv
+  %70 = getelementptr i64, ptr %69, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8, !tbaa !100
   %72 = icmp eq i64 %71, 36
   br i1 %72, label %rb_obj_write.exit, label %73
@@ -6292,7 +6292,7 @@ obj_traverse_replace_rec.exit200:                 ; preds = %34, %36
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %.pre241, i64 8
-  %79 = getelementptr [1 x i64], ptr %78, i64 0, i64 %indvars.iv
+  %79 = getelementptr i64, ptr %78, i64 %indvars.iv
   store i64 %76, ptr %79, align 8, !tbaa !80
   %80 = icmp eq i64 %76, 0
   %81 = and i64 %76, 7

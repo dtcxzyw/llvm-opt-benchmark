@@ -225,7 +225,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %87 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #11
   %88 = call double @strtod(ptr noundef nonnull captures(none) %87, ptr noundef null) #11
   %89 = fptrunc double %88 to float
-  %90 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %84, i64 0, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %84, i64 %indvars.iv.i.i
   store float %89, ptr %90, align 4, !tbaa !33
   %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i.i

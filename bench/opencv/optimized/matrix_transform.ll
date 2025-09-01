@@ -409,7 +409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   br i1 %129, label %131, label %168
 
 131:                                              ; preds = %122
-  %132 = getelementptr inbounds nuw [33 x ptr], ptr @_ZN2cvL19transposeInplaceTabE, i64 0, i64 %130
+  %132 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL19transposeInplaceTabE, i64 %130
   %133 = load ptr, ptr %132, align 8, !tbaa !36
   %134 = shl nuw nsw i64 1, %130
   %135 = and i64 %134, 4278120097
@@ -566,7 +566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
   br label %203
 
 184:                                              ; preds = %168
-  %185 = getelementptr inbounds nuw [33 x ptr], ptr @_ZN2cvL12transposeTabE, i64 0, i64 %130
+  %185 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL12transposeTabE, i64 %130
   %186 = load ptr, ptr %185, align 8, !tbaa !36
   %187 = load i64, ptr %124, align 8, !tbaa !37
   %188 = load i64, ptr %126, align 8, !tbaa !37

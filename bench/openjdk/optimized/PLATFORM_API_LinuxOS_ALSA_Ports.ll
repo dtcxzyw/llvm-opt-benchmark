@@ -692,7 +692,7 @@ createVolumeControl.exit122:                      ; preds = %94, %96
 110:                                              ; preds = %106
   %111 = add nsw i32 %.2158, 1
   %112 = sext i32 %.2158 to i64
-  %113 = getelementptr inbounds [10 x ptr], ptr %9, i64 0, i64 %112
+  %113 = getelementptr inbounds ptr, ptr %9, i64 %112
   store ptr %109, ptr %113, align 8
   br label %getControlSlot.exit119.thread
 
@@ -739,7 +739,7 @@ getControlSlot.exit.thread:                       ; preds = %getControlSlot.exit
 134:                                              ; preds = %119
   %135 = add nsw i32 %.1, 1
   %136 = sext i32 %.1 to i64
-  %137 = getelementptr inbounds [10 x ptr], ptr %9, i64 0, i64 %136
+  %137 = getelementptr inbounds ptr, ptr %9, i64 %136
   store ptr %133, ptr %137, align 8
   br label %getControlSlot.exit124.thread
 
@@ -788,7 +788,7 @@ getControlSlot.exit124.thread:                    ; preds = %115, %getControlSlo
 160:                                              ; preds = %145
   %161 = add nsw i32 %.079, 1
   %162 = sext i32 %.079 to i64
-  %163 = getelementptr inbounds [10 x ptr], ptr %9, i64 0, i64 %162
+  %163 = getelementptr inbounds ptr, ptr %9, i64 %162
   store ptr %159, ptr %163, align 8
   br label %getControlSlot.exit126.thread
 

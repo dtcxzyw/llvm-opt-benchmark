@@ -74,7 +74,7 @@ thread-pre-split:                                 ; preds = %19
   %22 = add nsw i32 %20, 1
   store i32 %22, ptr %12, align 8, !tbaa !12
   %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds [16 x i8], ptr %16, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %16, i64 %23
   store i8 %21, ptr %24, align 1, !tbaa !13
   %25 = add i64 %.14857, -1
   %26 = icmp eq i64 %25, 0

@@ -770,7 +770,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl8crc32c_tES4_TnPNSt9enable_ifIXoonts
 120:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit57, %120
   %indvars.iv = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit57 ], [ %indvars.iv.next, %120 ]
   %121 = trunc i64 %indvars.iv to i8
-  %122 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %121, ptr %122, align 1, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -918,7 +918,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl8crc32c_tES4_TnPNSt9enable_ifIXoonts
   %indvars.iv117 = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit73 ], [ %indvars.iv.next118, %166 ]
   %167 = trunc i64 %indvars.iv117 to i8
   %168 = sub nuw nsw i8 31, %167
-  %169 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv117
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv117
   store i8 %168, ptr %169, align 1, !tbaa !42
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 32

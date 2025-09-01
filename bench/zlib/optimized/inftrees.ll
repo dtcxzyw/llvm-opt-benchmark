@@ -31,7 +31,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !3
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr %6, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !3
   %13 = add i16 %12, 1
   store i16 %13, ptr %11, align 2, !tbaa !3
@@ -46,7 +46,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 15:                                               ; preds = %._crit_edge, %19
   %.0198246 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
   %16 = zext i32 %.0198246 to i64
-  %17 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !3
   %.not213 = icmp eq i16 %18, 0
   br i1 %.not213, label %19, label %21
@@ -82,7 +82,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 
 .lr.ph249:                                        ; preds = %21, %30
   %indvars.iv280 = phi i64 [ %indvars.iv.next281, %30 ], [ 1, %21 ]
-  %28 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv280
+  %28 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv280
   %29 = load i16, ptr %28, align 2, !tbaa !3
   %.not214 = icmp eq i16 %29, 0
   br i1 %.not214, label %30, label %._crit_edge250.loopexit.split.loop.exit
@@ -110,7 +110,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %indvars.iv287 = phi i64 [ 1, %._crit_edge250 ], [ %indvars.iv.next288, %32 ]
   %.0189254 = phi i32 [ 1, %._crit_edge250 ], [ %38, %32 ]
   %34 = shl i32 %.0189254, 1
-  %35 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv287
+  %35 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv287
   %36 = load i16, ptr %35, align 2, !tbaa !3
   %37 = zext i16 %36 to i32
   %38 = sub nsw i32 %34, %37
@@ -142,11 +142,11 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 46:                                               ; preds = %44, %46
   %47 = phi i16 [ 0, %44 ], [ %50, %46 ]
   %indvars.iv291 = phi i64 [ 1, %44 ], [ %indvars.iv.next292, %46 ]
-  %48 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv291
+  %48 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv291
   %49 = load i16, ptr %48, align 2, !tbaa !3
   %50 = add i16 %49, %47
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %51 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv.next292
+  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.next292
   store i16 %50, ptr %51, align 2, !tbaa !3
   %exitcond294.not = icmp eq i64 %indvars.iv.next292, 15
   br i1 %exitcond294.not, label %.preheader235, label %46, !llvm.loop !17
@@ -161,7 +161,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 54:                                               ; preds = %.lr.ph257
   %55 = trunc i64 %indvars.iv295 to i16
   %56 = zext i16 %53 to i64
-  %57 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i16, ptr %7, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !3
   %59 = add i16 %58, 1
   store i16 %59, ptr %57, align 2, !tbaa !3
@@ -284,7 +284,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %.1186 = select i1 %.not218, i32 0, i32 %109
   %110 = add i32 %.2202, 1
   %111 = zext i32 %.3 to i64
-  %112 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i16, ptr %6, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !3
   %114 = add i16 %113, -1
   store i16 %114, ptr %112, align 2, !tbaa !3
@@ -337,7 +337,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %.1190260 = phi i32 [ %147, %145 ], [ %135, %.lr.ph262.preheader ]
   %.2195259 = phi i32 [ %146, %145 ], [ %134, %.lr.ph262.preheader ]
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i16, ptr %6, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !3
   %142 = zext i16 %141 to i32
   %143 = sub nsw i32 %.1190260, %142

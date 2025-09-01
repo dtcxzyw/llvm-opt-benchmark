@@ -357,41 +357,41 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %.2205 = phi i32 [ 0, %.thread ], [ %spec.select, %._crit_edge241 ], [ %spec.select, %.lr.ph246 ]
   %.0187 = phi ptr [ %159, %.thread ], [ %150, %._crit_edge241 ], [ %150, %.lr.ph246 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %161 = getelementptr inbounds nuw [5 x i32], ptr %160, i64 0, i64 %.0202221
+  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %.0202221
   store i32 672, ptr %161, align 4
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %163 = getelementptr inbounds nuw [5 x i32], ptr %162, i64 0, i64 %.0202221
+  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %.0202221
   store i32 0, ptr %163, align 4
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %165 = getelementptr inbounds nuw [5 x ptr], ptr %164, i64 0, i64 %.0202221
+  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %.0202221
   store ptr %.0187, ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %167 = getelementptr inbounds nuw [5 x i32], ptr %166, i64 0, i64 %.0202221
+  %167 = getelementptr inbounds nuw i32, ptr %166, i64 %.0202221
   store i32 %.2205, ptr %167, align 4
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %169 = getelementptr inbounds nuw [5 x i32], ptr %168, i64 0, i64 %.0202221
+  %169 = getelementptr inbounds nuw i32, ptr %168, i64 %.0202221
   store i32 701, ptr %169, align 4
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %171 = getelementptr inbounds nuw [5 x i16], ptr %170, i64 0, i64 %.0202221
+  %171 = getelementptr inbounds nuw i16, ptr %170, i64 %.0202221
   store i16 8, ptr %171, align 2
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 286
-  %173 = getelementptr inbounds nuw [5 x i8], ptr %172, i64 0, i64 %.0202221
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 %.0202221
   store i8 1, ptr %173, align 1
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %175 = getelementptr inbounds nuw [5 x i8], ptr %174, i64 0, i64 %.0202221
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %.0202221
   store i8 100, ptr %175, align 1
   %176 = call ptr @palloc(i64 noundef 4) #5
   %177 = fdiv double %94, %103
   %178 = fptrunc double %177 to float
   store float %178, ptr %176, align 4
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %180 = getelementptr inbounds nuw [5 x ptr], ptr %179, i64 0, i64 %.0202221
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %.0202221
   store ptr %176, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %182 = getelementptr inbounds nuw [5 x i32], ptr %181, i64 0, i64 %.0202221
+  %182 = getelementptr inbounds nuw i32, ptr %181, i64 %.0202221
   store i32 1, ptr %182, align 4
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %184 = getelementptr inbounds nuw [5 x i16], ptr %183, i64 0, i64 %.0202221
+  %184 = getelementptr inbounds nuw i16, ptr %183, i64 %.0202221
   store i16 6, ptr %184, align 2
   store ptr %112, ptr @CurrentMemoryContext, align 8
   br label %.thread265

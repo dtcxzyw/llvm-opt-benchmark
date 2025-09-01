@@ -412,7 +412,7 @@ _Z18ufmt_digitvalue_77Ds.exit43:                  ; preds = %_Z18ufmt_digitvalue
 59:                                               ; preds = %_Z18ufmt_digitvalue_77Ds.exit43, %_Z18ufmt_digitvalue_77Ds.exit
   %.3 = phi i32 [ %46, %_Z18ufmt_digitvalue_77Ds.exit43 ], [ %31, %_Z18ufmt_digitvalue_77Ds.exit ]
   %.0.in = phi i8 [ %58, %_Z18ufmt_digitvalue_77Ds.exit43 ], [ %.0.i, %_Z18ufmt_digitvalue_77Ds.exit ]
-  %60 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv60
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv60
   store i8 %.0.in, ptr %60, align 1, !tbaa !15
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %.not37.not = icmp sgt i32 %.3, %spec.select

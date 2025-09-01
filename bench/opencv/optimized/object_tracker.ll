@@ -1516,7 +1516,7 @@ define hidden void @_ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE
 
 switch.lookup:                                    ; preds = %24
   %33 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %5, align 4, !tbaa !185
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 20

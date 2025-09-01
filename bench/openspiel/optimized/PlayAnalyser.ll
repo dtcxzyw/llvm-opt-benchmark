@@ -155,8 +155,8 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   br label %46
 
 46:                                               ; preds = %.lr.ph167, %._crit_edge
-  %47 = phi i32 [ %28, %.lr.ph167 ], [ %137, %._crit_edge ]
-  %48 = phi i32 [ %28, %.lr.ph167 ], [ %138, %._crit_edge ]
+  %47 = phi i32 [ %28, %.lr.ph167 ], [ %135, %._crit_edge ]
+  %48 = phi i32 [ %28, %.lr.ph167 ], [ %136, %._crit_edge ]
   %indvars.iv171 = phi i64 [ 1, %.lr.ph167 ], [ %indvars.iv.next172, %._crit_edge ]
   %.0116164 = phi i32 [ %16, %.lr.ph167 ], [ %.1117.lcssa, %._crit_edge ]
   %.0118163 = phi i32 [ 1, %.lr.ph167 ], [ %.1119.lcssa, %._crit_edge ]
@@ -178,36 +178,37 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %56 = sext i32 %54 to i64
   %57 = add nuw nsw i32 %50, 1
   %wide.trip.count = zext nneg i32 %57 to i64
+  %invariant.gep = getelementptr i32, ptr %31, i64 %56
   br label %58
 
-58:                                               ; preds = %.lr.ph, %134
-  %59 = phi i32 [ %47, %.lr.ph ], [ %135, %134 ]
-  %60 = phi i32 [ %48, %.lr.ph ], [ %136, %134 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %134 ]
-  %.0107155 = phi i32 [ 0, %.lr.ph ], [ %.1108, %134 ]
-  %.0109154 = phi i32 [ 0, %.lr.ph ], [ %.1110, %134 ]
-  %.0111153 = phi i32 [ 0, %.lr.ph ], [ %.1112, %134 ]
-  %.0113152 = phi i32 [ 0, %.lr.ph ], [ %.1114, %134 ]
-  %.1117151 = phi i32 [ %.0116164, %.lr.ph ], [ %.2, %134 ]
-  %.1119150 = phi i32 [ %.0118163, %.lr.ph ], [ %.2120, %134 ]
-  %.1122149 = phi i32 [ %.0121162, %.lr.ph ], [ %.2123, %134 ]
-  %.1125148 = phi i32 [ %.0124161, %.lr.ph ], [ %.2126, %134 ]
+58:                                               ; preds = %.lr.ph, %132
+  %59 = phi i32 [ %47, %.lr.ph ], [ %133, %132 ]
+  %60 = phi i32 [ %48, %.lr.ph ], [ %134, %132 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %132 ]
+  %.0107155 = phi i32 [ 0, %.lr.ph ], [ %.1108, %132 ]
+  %.0109154 = phi i32 [ 0, %.lr.ph ], [ %.1110, %132 ]
+  %.0111153 = phi i32 [ 0, %.lr.ph ], [ %.1112, %132 ]
+  %.0113152 = phi i32 [ 0, %.lr.ph ], [ %.1114, %132 ]
+  %.1117151 = phi i32 [ %.0116164, %.lr.ph ], [ %.2, %132 ]
+  %.1119150 = phi i32 [ %.0118163, %.lr.ph ], [ %.2120, %132 ]
+  %.1122149 = phi i32 [ %.0121162, %.lr.ph ], [ %.2123, %132 ]
+  %.1125148 = phi i32 [ %.0124161, %.lr.ph ], [ %.2126, %132 ]
   %61 = icmp sle i64 %indvars.iv, %43
   %62 = and i1 %52, %61
   %63 = add nsw i64 %indvars.iv, -1
-  %64 = getelementptr inbounds [3 x i32], ptr %38, i64 0, i64 %63
-  %65 = getelementptr inbounds [3 x i32], ptr %39, i64 0, i64 %63
+  %64 = getelementptr inbounds i32, ptr %38, i64 %63
+  %65 = getelementptr inbounds i32, ptr %39, i64 %63
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = add i32 %55, %66
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [52 x i32], ptr %36, i64 0, i64 %68
-  %70 = getelementptr inbounds [52 x i32], ptr %37, i64 0, i64 %68
+  %69 = getelementptr inbounds i32, ptr %36, i64 %68
+  %70 = getelementptr inbounds i32, ptr %37, i64 %68
   %.0101.in = select i1 %62, ptr %64, ptr %69
   %.0100.in = select i1 %62, ptr %65, ptr %70
   %.0100 = load i32, ptr %.0100.in, align 4
   %.0101 = load i32, ptr %.0101.in, align 4
   %71 = sext i32 %.0100 to i64
-  %72 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %71
+  %72 = getelementptr inbounds i16, ptr @bitMapRank, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = shl nuw nsw i32 %74, 2
@@ -255,9 +256,9 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %.1110 = phi i32 [ %78, %77 ], [ %.1122149, %87 ], [ %.0109154, %88 ], [ %.0109154, %85 ], [ %spec.select140, %89 ]
   %.1108 = phi i32 [ %81, %77 ], [ 1, %87 ], [ 1, %88 ], [ 1, %85 ], [ 0, %89 ]
   %93 = sext i32 %.1122149 to i64
-  %94 = getelementptr inbounds [4 x [4 x i32]], ptr %42, i64 0, i64 %93
+  %94 = getelementptr inbounds [4 x i32], ptr %42, i64 %93
   %95 = sext i32 %.0101 to i64
-  %96 = getelementptr inbounds [4 x i32], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds i32, ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, %75
   %99 = icmp eq i32 %98, 0
@@ -308,7 +309,7 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %.2 = phi i32 [ %110, %105 ], [ %.1117151, %117 ]
   %.1106 = phi i32 [ %113, %105 ], [ 0, %117 ]
   %.1 = phi i32 [ %.0104, %105 ], [ %121, %117 ]
-  br i1 %62, label %134, label %124
+  br i1 %62, label %132, label %124
 
 124:                                              ; preds = %122
   %125 = load i32, ptr %32, align 4
@@ -322,35 +323,34 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %129 = sub nsw i32 %.2, %128
   %130 = select i1 %.not136, i32 %128, i32 %129
   %131 = add nsw i32 %130, %.2126
-  %132 = add nsw i64 %indvars.iv, %56
-  %133 = getelementptr inbounds [53 x i32], ptr %31, i64 0, i64 %132
-  store i32 %131, ptr %133, align 4
-  br label %134
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  store i32 %131, ptr %gep, align 4
+  br label %132
 
-134:                                              ; preds = %122, %127
-  %135 = phi i32 [ %59, %122 ], [ %128, %127 ]
-  %136 = phi i32 [ %123, %122 ], [ %128, %127 ]
+132:                                              ; preds = %122, %127
+  %133 = phi i32 [ %59, %122 ], [ %128, %127 ]
+  %134 = phi i32 [ %123, %122 ], [ %128, %127 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %134, %46
-  %137 = phi i32 [ %47, %46 ], [ %135, %134 ]
-  %138 = phi i32 [ %48, %46 ], [ %136, %134 ]
-  %.1125.lcssa = phi i32 [ %.0124161, %46 ], [ %.2126, %134 ]
-  %.1122.lcssa = phi i32 [ %.0121162, %46 ], [ %.2123, %134 ]
-  %.1119.lcssa = phi i32 [ %.0118163, %46 ], [ %.2120, %134 ]
-  %.1117.lcssa = phi i32 [ %.0116164, %46 ], [ %.2, %134 ]
+._crit_edge:                                      ; preds = %132, %46
+  %135 = phi i32 [ %47, %46 ], [ %133, %132 ]
+  %136 = phi i32 [ %48, %46 ], [ %134, %132 ]
+  %.1125.lcssa = phi i32 [ %.0124161, %46 ], [ %.2126, %132 ]
+  %.1122.lcssa = phi i32 [ %.0121162, %46 ], [ %.2123, %132 ]
+  %.1119.lcssa = phi i32 [ %.0118163, %46 ], [ %.2120, %132 ]
+  %.1117.lcssa = phi i32 [ %.0116164, %46 ], [ %.2, %132 ]
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
   br i1 %exitcond175.not, label %._crit_edge168, label %46, !llvm.loop !6
 
 ._crit_edge168:                                   ; preds = %._crit_edge, %11
-  %139 = shl nsw i32 %spec.select137, 2
+  %137 = shl nsw i32 %spec.select137, 2
   %reass.sub169 = sub nsw i32 %spec.select, %18
-  %140 = add nsw i32 %reass.sub169, -3
-  %141 = add i32 %140, %139
-  store i32 %141, ptr %2, align 4
+  %138 = add nsw i32 %reass.sub169, -3
+  %139 = add i32 %138, %137
+  store i32 %139, ptr %2, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %124, %100, %8, %4, %._crit_edge168
@@ -417,11 +417,11 @@ define void @_Z16PlaySingleCommonii(i32 noundef %0, i32 noundef %1) local_unname
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @playparam, i64 8), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [200 x %struct.deal], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.deal, ptr %7, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(96) %9, i64 96, i1 false)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 8), align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = getelementptr inbounds [200 x %struct.playTraceBin], ptr %11, i64 0, i64 %8
+  %12 = getelementptr inbounds %struct.playTraceBin, ptr %11, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %5, ptr noundef nonnull align 4 dereferenceable(420) %12, i64 420, i1 false)
   %13 = call i32 @AnalysePlayBin(ptr noundef nonnull byval(%struct.deal) align 8 %4, ptr noundef nonnull byval(%struct.playTraceBin) align 8 %5, ptr noundef nonnull %3, i32 noundef %0)
   %14 = icmp eq i32 %13, 1
@@ -430,7 +430,7 @@ define void @_Z16PlaySingleCommonii(i32 noundef %0, i32 noundef %1) local_unname
 15:                                               ; preds = %2
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 16), align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = getelementptr inbounds [200 x %struct.solvedPlay], ptr %17, i64 0, i64 %8
+  %18 = getelementptr inbounds %struct.solvedPlay, ptr %17, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %18, ptr noundef nonnull align 4 dereferenceable(216) %3, i64 216, i1 false)
   br label %20
 
@@ -461,11 +461,11 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %sext = shl i64 %8, 32
   %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds [200 x %struct.deal], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.deal, ptr %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(96) %12, i64 96, i1 false)
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 8), align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = getelementptr inbounds [200 x %struct.playTraceBin], ptr %14, i64 0, i64 %11
+  %15 = getelementptr inbounds %struct.playTraceBin, ptr %14, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %4, ptr noundef nonnull align 4 dereferenceable(420) %15, i64 420, i1 false)
   %16 = call i32 @AnalysePlayBin(ptr noundef nonnull byval(%struct.deal) align 8 %3, ptr noundef nonnull byval(%struct.playTraceBin) align 8 %4, ptr noundef nonnull %2, i32 noundef %0)
   %17 = icmp eq i32 %16, 1
@@ -474,7 +474,7 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 16), align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %21 = getelementptr inbounds [200 x %struct.solvedPlay], ptr %20, i64 0, i64 %11
+  %21 = getelementptr inbounds %struct.solvedPlay, ptr %20, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %21, ptr noundef nonnull align 4 dereferenceable(216) %2, i64 216, i1 false)
   br label %_Z16PlaySingleCommonii.exit
 
@@ -560,8 +560,8 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 12:                                               ; preds = %.lr.ph, %34
   %indvars.iv45 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next46, %34 ]
-  %13 = getelementptr inbounds nuw [200 x %struct.deal], ptr %10, i64 0, i64 %indvars.iv45
-  %14 = getelementptr inbounds nuw [200 x %struct.dealPBN], ptr %11, i64 0, i64 %indvars.iv45
+  %13 = getelementptr inbounds nuw %struct.deal, ptr %10, i64 %indvars.iv45
+  %14 = getelementptr inbounds nuw %struct.dealPBN, ptr %11, i64 %indvars.iv45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = call noundef i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef nonnull %15, ptr noundef nonnull %16)
@@ -583,13 +583,13 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 27:                                               ; preds = %18, %27
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [3 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds nuw [3 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw [3 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 %32, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -622,8 +622,8 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 46:                                               ; preds = %.lr.ph41, %42
   %indvars.iv48 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next49, %42 ]
-  %47 = getelementptr inbounds nuw [200 x %struct.playTracePBN], ptr %40, i64 0, i64 %indvars.iv48
-  %48 = getelementptr inbounds nuw [200 x %struct.playTraceBin], ptr %41, i64 0, i64 %indvars.iv48
+  %47 = getelementptr inbounds nuw %struct.playTracePBN, ptr %40, i64 %indvars.iv48
+  %48 = getelementptr inbounds nuw %struct.playTraceBin, ptr %41, i64 %indvars.iv48
   %49 = call noundef i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12playTraceBin(ptr noundef nonnull align 4 dereferenceable(112) %47, ptr noundef nonnull align 4 dereferenceable(420) %48)
   %.not = icmp eq i32 %49, 1
   br i1 %.not, label %42, label %AnalyseAllPlaysBin.exit

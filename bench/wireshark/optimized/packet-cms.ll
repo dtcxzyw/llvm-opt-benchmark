@@ -1612,7 +1612,7 @@ cms_get_private_data.exit.i:                      ; preds = %13, %4
 
 42:                                               ; preds = %42, %41
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = getelementptr [20 x i8], ptr @digest_buf, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr i8, ptr @digest_buf, i64 %indvars.iv.i.i
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.679, i32 noundef %45)

@@ -141,7 +141,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef 
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv86 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next87, %.lr.ph84 ]
-  %71 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv86
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv86
   %72 = load i8, ptr %71, align 1, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv86
   %74 = load i8, ptr %73, align 1, !tbaa !3
@@ -386,7 +386,7 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph181 ], [ 0, %._crit_edge ]
   %51 = getelementptr inbounds nuw i8, ptr %.1178, i64 %indvars.iv
   %52 = load i8, ptr %51, align 1, !tbaa !3
-  %53 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !3
   %55 = xor i8 %54, %52
   store i8 %55, ptr %53, align 1, !tbaa !3

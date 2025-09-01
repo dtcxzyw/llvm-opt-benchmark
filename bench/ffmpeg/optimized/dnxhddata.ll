@@ -76,7 +76,7 @@ define noundef ptr @ff_dnxhd_get_cid_table(i32 noundef %0) local_unnamed_addr #0
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [20 x %struct.CIDEntry], ptr @dnxhd_cid_table, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8, !tbaa !6
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
@@ -97,7 +97,7 @@ define i32 @ff_dnxhd_get_frame_size(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %4 = getelementptr inbounds nuw [20 x %struct.CIDEntry], ptr @dnxhd_cid_table, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8, !tbaa !6
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %ff_dnxhd_get_cid_table.exit, label %2
@@ -123,7 +123,7 @@ define range(i32 -1, 2147479553) i32 @ff_dnxhd_get_hr_frame_size(i32 noundef %0,
 
 5:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %6 = getelementptr inbounds nuw [20 x %struct.CIDEntry], ptr @dnxhd_cid_table, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %ff_dnxhd_get_cid_table.exit, label %4
@@ -200,7 +200,7 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 19:                                               ; preds = %.preheader41, %.loopexit
   %indvars.iv46 = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next47, %.loopexit ]
-  %20 = getelementptr inbounds nuw [20 x %struct.CIDEntry], ptr @dnxhd_cid_table, i64 0, i64 %indvars.iv46
+  %20 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv46
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i16, ptr %21, align 4, !tbaa !36
   %23 = zext i16 %22 to i32
@@ -257,7 +257,7 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 51:                                               ; preds = %.preheader, %50
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %50 ]
-  %52 = getelementptr inbounds nuw [5 x i32], ptr %48, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !45
   %54 = icmp eq i32 %53, %6
   br i1 %54, label %55, label %50
@@ -284,7 +284,7 @@ define void @ff_dnxhd_print_profiles(ptr noundef %0, i32 noundef %1) local_unnam
 
 3:                                                ; preds = %2, %27
   %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %27 ]
-  %4 = getelementptr inbounds nuw [20 x %struct.CIDEntry], ptr @dnxhd_cid_table, i64 0, i64 %indvars.iv24
+  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -294,7 +294,7 @@ define void @ff_dnxhd_print_profiles(ptr noundef %0, i32 noundef %1) local_unnam
 
 10:                                               ; preds = %3, %25
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %25 ]
-  %11 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !45
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %27, label %13

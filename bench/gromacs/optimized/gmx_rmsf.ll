@@ -870,7 +870,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit316:       ; preds = %_ZNKSt7__cxx1112bas
 
 329:                                              ; preds = %322, %342
   %indvars.iv599 = phi i64 [ 0, %322 ], [ %indvars.iv.next600, %342 ]
-  %330 = getelementptr inbounds nuw [3 x float], ptr %326, i64 0, i64 %indvars.iv599
+  %330 = getelementptr inbounds nuw float, ptr %326, i64 %indvars.iv599
   %331 = load float, ptr %330, align 4, !tbaa !57
   %332 = fpext float %331 to double
   %gep847 = getelementptr inbounds nuw double, ptr %invariant.gep846, i64 %indvars.iv599
@@ -883,7 +883,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit316:       ; preds = %_ZNKSt7__cxx1112bas
 
 335:                                              ; preds = %329, %335
   %indvars.iv595 = phi i64 [ 0, %329 ], [ %indvars.iv.next596, %335 ]
-  %336 = getelementptr inbounds nuw [3 x float], ptr %326, i64 0, i64 %indvars.iv595
+  %336 = getelementptr inbounds nuw float, ptr %326, i64 %indvars.iv595
   %337 = load float, ptr %336, align 4, !tbaa !57
   %338 = fmul float %331, %337
   %339 = fpext float %338 to double
@@ -928,13 +928,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit316:       ; preds = %_ZNKSt7__cxx1112bas
 
 354:                                              ; preds = %347, %354
   %indvars.iv608 = phi i64 [ 0, %347 ], [ %indvars.iv.next609, %354 ]
-  %355 = getelementptr inbounds nuw [3 x float], ptr %351, i64 0, i64 %indvars.iv608
+  %355 = getelementptr inbounds nuw float, ptr %351, i64 %indvars.iv608
   %356 = load float, ptr %355, align 4, !tbaa !57
-  %357 = getelementptr inbounds nuw [3 x float], ptr %352, i64 0, i64 %indvars.iv608
+  %357 = getelementptr inbounds nuw float, ptr %352, i64 %indvars.iv608
   %358 = load float, ptr %357, align 4, !tbaa !57
   %359 = fsub float %356, %358
   %360 = fmul float %359, %359
-  %361 = getelementptr inbounds nuw [3 x float], ptr %353, i64 0, i64 %indvars.iv608
+  %361 = getelementptr inbounds nuw float, ptr %353, i64 %indvars.iv608
   %362 = load float, ptr %361, align 4, !tbaa !57
   %363 = fadd float %362, %360
   store float %363, ptr %361, align 4, !tbaa !57
@@ -2413,14 +2413,14 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit407.preheader: ; preds = %990
 
 1001:                                             ; preds = %.preheader, %1001
   %indvars.iv677 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next678, %1001 ]
-  %1002 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %indvars.iv677
+  %1002 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv677
   %1003 = load float, ptr %1002, align 4, !tbaa !57
   %1004 = fpext float %1003 to double
   %gep855 = getelementptr inbounds nuw double, ptr %invariant.gep854, i64 %indvars.iv677
   %1005 = load double, ptr %gep855, align 8, !tbaa !79
   %1006 = fadd double %1005, %1004
   %1007 = fptrunc double %1006 to float
-  %1008 = getelementptr inbounds nuw [3 x float], ptr %1000, i64 0, i64 %indvars.iv677
+  %1008 = getelementptr inbounds nuw float, ptr %1000, i64 %indvars.iv677
   store float %1007, ptr %1008, align 4, !tbaa !57
   %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
   %exitcond680.not = icmp eq i64 %indvars.iv.next678, 3
@@ -2634,11 +2634,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv.i417 = phi i64 [ %indvars.iv.next.i418, %.preheader.i ], [ 0, %1075 ]
   %1081 = load ptr, ptr %1073, align 8, !tbaa !98
   %1082 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %1081, i64 %indvars.iv40.i, i32 7
-  %1083 = getelementptr inbounds nuw [6 x i32], ptr %1082, i64 0, i64 %indvars.iv.i417
+  %1083 = getelementptr inbounds nuw i32, ptr %1082, i64 %indvars.iv.i417
   %1084 = load i32, ptr %1083, align 4, !tbaa !4
   %1085 = load ptr, ptr %1074, align 8, !tbaa !98
   %1086 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %1085, i64 %indvars.iv40.i, i32 7
-  %1087 = getelementptr inbounds nuw [6 x i32], ptr %1086, i64 0, i64 %indvars.iv.i417
+  %1087 = getelementptr inbounds nuw i32, ptr %1086, i64 %indvars.iv.i417
   %1088 = load i32, ptr %1087, align 4, !tbaa !4
   %1089 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1046, ptr noundef nonnull @.str.83, i32 noundef %1084, i32 noundef %1088) #17
   %indvars.iv.next.i418 = add nuw nsw i64 %indvars.iv.i417, 1
@@ -3264,32 +3264,32 @@ define internal fastcc void @_ZL9print_dirP8_IO_FILEPf(ptr noundef captures(none
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, double noundef %20, double noundef %23, double noundef %25) #17
   br label %27
 
-27:                                               ; preds = %.preheader.preheader, %38
-  %indvars.iv47 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next48, %38 ]
+27:                                               ; preds = %.preheader.preheader, %35
+  %indvars.iv47 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next48, %35 ]
   %28 = trunc i64 %indvars.iv47 to i32
   %29 = or i32 %28, 88
   %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %29) #17
+  %invariant.gep52 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv47
   br label %31
 
 31:                                               ; preds = %27, %31
   %indvars.iv44 = phi i64 [ 2, %27 ], [ %indvars.iv.next45, %31 ]
-  %32 = mul nuw nsw i64 %indvars.iv44, 3
-  %33 = add nuw nsw i64 %32, %indvars.iv47
-  %34 = getelementptr inbounds nuw [9 x float], ptr %3, i64 0, i64 %33
-  %35 = load float, ptr %34, align 4, !tbaa !57
-  %36 = fpext float %35 to double
-  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, double noundef %36) #17
+  %.idx51 = mul nuw nsw i64 %indvars.iv44, 12
+  %gep53 = getelementptr inbounds nuw i8, ptr %invariant.gep52, i64 %.idx51
+  %32 = load float, ptr %gep53, align 4, !tbaa !57
+  %33 = fpext float %32 to double
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.79, double noundef %33) #17
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
   %.not = icmp eq i64 %indvars.iv44, 0
-  br i1 %.not, label %38, label %31, !llvm.loop !134
+  br i1 %.not, label %35, label %31, !llvm.loop !134
 
-38:                                               ; preds = %31
+35:                                               ; preds = %31
   %fputc = call i32 @fputc(i32 10, ptr %0)
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
-  br i1 %exitcond50.not, label %39, label %27, !llvm.loop !135
+  br i1 %exitcond50.not, label %36, label %27, !llvm.loop !135
 
-39:                                               ; preds = %38
+36:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

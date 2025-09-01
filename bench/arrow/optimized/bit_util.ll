@@ -17,10 +17,10 @@ define void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr noundef captures(none) %0, i
   %9 = sdiv i64 %1, 8
   %10 = sdiv i64 %7, 8
   %11 = srem i64 %1, 8
-  %12 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %14 = srem i64 %7, 8
-  %15 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL16kTrailingBitmaskE, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL16kTrailingBitmaskE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !3
   %17 = icmp eq i64 %10, %9
   br i1 %17, label %18, label %22
@@ -94,61 +94,60 @@ _ZN5arrow8bit_util7RoundUpEll.exit.i:             ; preds = %7, %5
   %sext.i = shl i64 %13, 32
   %14 = ashr exact i64 %sext.i, 32
   %15 = icmp slt i64 %2, %14
-  br i1 %15, label %16, label %28
+  br i1 %15, label %16, label %27
 
 16:                                               ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i
   %sext36.i = sub i64 34359738368, %sext.i
   %17 = ashr exact i64 %sext36.i, 32
-  %18 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !3
-  %20 = add nsw i64 %17, %2
-  %21 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !3
-  %23 = xor i8 %22, %19
-  %24 = sdiv i64 %1, 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !3
-  %27 = or i8 %26, %23
-  store i8 %27, ptr %25, align 1, !tbaa !3
+  %20 = getelementptr i8, ptr %18, i64 %2
+  %21 = load i8, ptr %20, align 1, !tbaa !3
+  %22 = xor i8 %21, %19
+  %23 = sdiv i64 %1, 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !3
+  %26 = or i8 %25, %22
+  store i8 %26, ptr %24, align 1, !tbaa !3
   br label %_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit
 
-28:                                               ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i
-  %29 = trunc i64 %13 to i32
-  %30 = sub nsw i32 8, %29
-  %31 = sdiv i64 %1, 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !3
-  %34 = icmp ult i32 %30, 8
-  %.neg.i = sext i1 %34 to i32
-  %35 = and i32 %30, 7
-  %.neg37.i = shl nsw i32 %.neg.i, %35
+27:                                               ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i
+  %28 = trunc i64 %13 to i32
+  %29 = sub nsw i32 8, %28
+  %30 = sdiv i64 %1, 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !3
+  %33 = icmp ult i32 %29, 8
+  %.neg.i = sext i1 %33 to i32
+  %34 = and i32 %29, 7
+  %.neg37.i = shl nsw i32 %.neg.i, %34
   %.neg38.i = trunc nsw i32 %.neg37.i to i8
-  %36 = or i8 %33, %.neg38.i
-  store i8 %36, ptr %32, align 1, !tbaa !3
-  %37 = add nsw i64 %14, %1
-  %38 = sub nsw i64 %2, %14
-  %39 = sdiv i64 %37, 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  %41 = lshr i64 %38, 3
-  tail call void @llvm.memset.p0.i64(ptr align 1 %40, i8 -1, i64 %41, i1 false)
-  %42 = and i64 %38, 7
-  %.not.i = icmp eq i64 %42, 0
-  br i1 %.not.i, label %_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit, label %43
+  %35 = or i8 %32, %.neg38.i
+  store i8 %35, ptr %31, align 1, !tbaa !3
+  %36 = add nsw i64 %14, %1
+  %37 = sub nsw i64 %2, %14
+  %38 = sdiv i64 %36, 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 %38
+  %40 = lshr i64 %37, 3
+  tail call void @llvm.memset.p0.i64(ptr align 1 %39, i8 -1, i64 %40, i1 false)
+  %41 = and i64 %37, 7
+  %.not.i = icmp eq i64 %41, 0
+  br i1 %.not.i, label %_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit, label %42
 
-43:                                               ; preds = %28
-  %44 = and i64 %38, -8
-  %45 = add nsw i64 %44, %37
-  %46 = trunc nuw nsw i64 %42 to i8
-  %47 = sdiv i64 %45, 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !3
-  %notmask.i = shl nsw i8 -1, %46
-  %50 = xor i8 %notmask.i, -1
-  %51 = or i8 %49, %50
-  store i8 %51, ptr %48, align 1, !tbaa !3
+42:                                               ; preds = %27
+  %43 = and i64 %37, -8
+  %44 = add nsw i64 %43, %36
+  %45 = trunc nuw nsw i64 %41 to i8
+  %46 = sdiv i64 %44, 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 %46
+  %48 = load i8, ptr %47, align 1, !tbaa !3
+  %notmask.i = shl nsw i8 -1, %45
+  %49 = xor i8 %notmask.i, -1
+  %50 = or i8 %48, %49
+  store i8 %50, ptr %47, align 1, !tbaa !3
   br label %_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit
 
-_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit: ; preds = %3, %16, %28, %43
+_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit: ; preds = %3, %16, %27, %42
   ret void
 }
 
@@ -174,62 +173,61 @@ _ZN5arrow8bit_util7RoundUpEll.exit.i:             ; preds = %7, %5
   %sext.i = shl i64 %13, 32
   %14 = ashr exact i64 %sext.i, 32
   %15 = icmp slt i64 %2, %14
-  br i1 %15, label %16, label %29
+  br i1 %15, label %16, label %28
 
 16:                                               ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i
   %sext36.i = sub i64 34359738368, %sext.i
   %17 = ashr exact i64 %sext36.i, 32
-  %18 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !3
-  %20 = add nsw i64 %17, %2
-  %21 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !3
-  %23 = sdiv i64 %1, 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !3
-  %26 = xor i8 %19, %22
-  %27 = xor i8 %26, -1
-  %28 = and i8 %25, %27
-  store i8 %28, ptr %24, align 1, !tbaa !3
+  %20 = getelementptr i8, ptr %18, i64 %2
+  %21 = load i8, ptr %20, align 1, !tbaa !3
+  %22 = sdiv i64 %1, 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !3
+  %25 = xor i8 %19, %21
+  %26 = xor i8 %25, -1
+  %27 = and i8 %24, %26
+  store i8 %27, ptr %23, align 1, !tbaa !3
   br label %_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit
 
-29:                                               ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i
-  %30 = trunc i64 %13 to i32
-  %31 = sub nsw i32 8, %30
-  %32 = sdiv i64 %1, 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !3
-  %35 = icmp ult i32 %31, 8
-  %36 = zext i1 %35 to i32
-  %37 = and i32 %31, 7
-  %38 = shl nuw nsw i32 %36, %37
-  %39 = trunc nuw i32 %38 to i8
-  %40 = add i8 %39, -1
-  %41 = and i8 %34, %40
-  store i8 %41, ptr %33, align 1, !tbaa !3
-  %42 = add nsw i64 %14, %1
-  %43 = sub nsw i64 %2, %14
-  %44 = sdiv i64 %42, 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = lshr i64 %43, 3
-  tail call void @llvm.memset.p0.i64(ptr align 1 %45, i8 0, i64 %46, i1 false)
-  %47 = and i64 %43, 7
-  %.not.i = icmp eq i64 %47, 0
-  br i1 %.not.i, label %_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit, label %48
+28:                                               ; preds = %_ZN5arrow8bit_util7RoundUpEll.exit.i
+  %29 = trunc i64 %13 to i32
+  %30 = sub nsw i32 8, %29
+  %31 = sdiv i64 %1, 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !3
+  %34 = icmp ult i32 %30, 8
+  %35 = zext i1 %34 to i32
+  %36 = and i32 %30, 7
+  %37 = shl nuw nsw i32 %35, %36
+  %38 = trunc nuw i32 %37 to i8
+  %39 = add i8 %38, -1
+  %40 = and i8 %33, %39
+  store i8 %40, ptr %32, align 1, !tbaa !3
+  %41 = add nsw i64 %14, %1
+  %42 = sub nsw i64 %2, %14
+  %43 = sdiv i64 %41, 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 %43
+  %45 = lshr i64 %42, 3
+  tail call void @llvm.memset.p0.i64(ptr align 1 %44, i8 0, i64 %45, i1 false)
+  %46 = and i64 %42, 7
+  %.not.i = icmp eq i64 %46, 0
+  br i1 %.not.i, label %_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit, label %47
 
-48:                                               ; preds = %29
-  %49 = and i64 %43, -8
-  %50 = add nsw i64 %49, %42
-  %51 = trunc nuw nsw i64 %47 to i8
-  %52 = sdiv i64 %50, 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !3
-  %.neg.i = shl nsw i8 -1, %51
-  %55 = and i8 %54, %.neg.i
-  store i8 %55, ptr %53, align 1, !tbaa !3
+47:                                               ; preds = %28
+  %48 = and i64 %42, -8
+  %49 = add nsw i64 %48, %41
+  %50 = trunc nuw nsw i64 %46 to i8
+  %51 = sdiv i64 %49, 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !3
+  %.neg.i = shl nsw i8 -1, %50
+  %54 = and i8 %53, %.neg.i
+  store i8 %54, ptr %52, align 1, !tbaa !3
   br label %_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit
 
-_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit: ; preds = %3, %16, %29, %48
+_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit: ; preds = %3, %16, %28, %47
   ret void
 }
 

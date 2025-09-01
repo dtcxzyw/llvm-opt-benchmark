@@ -4130,8 +4130,8 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_120AggLoadStoreRewriterEbE9visitLoadERNS_8Lo
   br i1 %or.cond591, label %_ZNK4llvm4Type17isSingleValueTypeEv.exit.thread.i.i.i, label %382
 
 382:                                              ; preds = %373
-  %switch.tableidx581 = add i8 %trunc.i.i.i.i.i.i, -10
-  %383 = icmp ult i8 %switch.tableidx581, 11
+  %switch.tableidx580 = add i8 %trunc.i.i.i.i.i.i, -10
+  %383 = icmp ult i8 %switch.tableidx580, 11
   br i1 %383, label %switch.hole_check582, label %_ZNK4llvm4Type17isSingleValueTypeEv.exit.i.i.i
 
 _ZNK4llvm4Type17isSingleValueTypeEv.exit.i.i.i:   ; preds = %switch.hole_check582, %382
@@ -4280,7 +4280,7 @@ _ZN12_GLOBAL__N_120AggLoadStoreRewriter10OpSplitterINS0_15StoreOpSplitterEED2Ev.
   br label %_ZNK4llvm4Type17isSingleValueTypeEv.exit.thread.i.i.i
 
 switch.hole_check582:                             ; preds = %382
-  %switch.maskindex584 = zext nneg i8 %switch.tableidx581 to i16
+  %switch.maskindex584 = zext nneg i8 %switch.tableidx580 to i16
   %switch.shifted585 = lshr i16 1429, %switch.maskindex584
   %switch.lobit586 = trunc i16 %switch.shifted585 to i1
   br i1 %switch.lobit586, label %_ZNK4llvm4Type17isSingleValueTypeEv.exit.thread.i.i.i, label %_ZNK4llvm4Type17isSingleValueTypeEv.exit.i.i.i

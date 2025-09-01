@@ -235,7 +235,7 @@ lean_dec.exit79:                                  ; preds = %62, %61, %59, %lean
   %.067188 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i147, %254 ]
   %.070187 = phi ptr [ %8, %.lr.ph ], [ %145, %254 ]
   %67 = getelementptr inbounds nuw i8, ptr %.067188, i64 24
-  %68 = getelementptr inbounds nuw [0 x ptr], ptr %67, i64 0, i64 %.064189
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.064189
   %69 = load ptr, ptr %68, align 8, !tbaa !10
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, 1
@@ -976,7 +976,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filter___spe
   %.073220 = phi i64 [ %2, %.lr.ph ], [ %.376, %lean_dec.exit102 ]
   %.077219 = phi ptr [ %4, %.lr.ph ], [ %.380, %lean_dec.exit102 ]
   %.081218 = phi ptr [ %9, %.lr.ph ], [ %.384, %lean_dec.exit102 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.073220
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.073220
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -3197,7 +3197,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_Probe_sortedBySize___
   %.02246 = phi i64 [ %37, %53 ], [ %1, %3 ]
   %.02445 = phi ptr [ %.0.i.i32, %53 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02445, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02246
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02246
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -4147,7 +4147,7 @@ lean_dec.exit580:                                 ; preds = %46, %45, %43, %lean
 50:                                               ; preds = %.lr.ph, %1257
   %.04621137 = phi i64 [ %7, %.lr.ph ], [ %1258, %1257 ]
   %.04641136 = phi ptr [ %8, %.lr.ph ], [ %1239, %1257 ]
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.04621137
+  %51 = getelementptr inbounds nuw ptr, ptr %15, i64 %.04621137
   %52 = load ptr, ptr %51, align 8, !tbaa !10
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %53, 1
@@ -4261,7 +4261,7 @@ lean_dec.exit578:                                 ; preds = %lean_inc.exit625, %
   %96 = add nsw i64 %68, -1
   %97 = and i64 %95, %96
   %98 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr %98, i64 0, i64 %97
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %97
   %100 = load ptr, ptr %99, align 8, !tbaa !10
   %101 = ptrtoint ptr %100 to i64
   %102 = and i64 %101, 1
@@ -6020,7 +6020,7 @@ lean_dec.exit560:                                 ; preds = %lean_inc.exit599, %
   %757 = add nsw i64 %729, -1
   %758 = and i64 %756, %757
   %759 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %760 = getelementptr inbounds nuw [0 x ptr], ptr %759, i64 0, i64 %758
+  %760 = getelementptr inbounds nuw ptr, ptr %759, i64 %758
   %761 = load ptr, ptr %760, align 8, !tbaa !10
   %762 = ptrtoint ptr %761 to i64
   %763 = and i64 %762, 1
@@ -7801,7 +7801,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_countUnique_
 6:                                                ; preds = %.lr.ph, %26
   %.01529 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
   %.01728 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01529
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01529
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -7948,7 +7948,7 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
 26:                                               ; preds = %46, %.lr.ph.i
   %.01529.i = phi i64 [ %.val15, %.lr.ph.i ], [ %48, %46 ]
   %.01728.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.01529.i
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01529.i
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -8278,7 +8278,7 @@ lean_dec.exit125:                                 ; preds = %106, %105, %103, %l
 108:                                              ; preds = %128, %.lr.ph.i
   %.01529.i = phi i64 [ 0, %.lr.ph.i ], [ %130, %128 ]
   %.01728.i = phi ptr [ %73, %.lr.ph.i ], [ %129, %128 ]
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %107, i64 0, i64 %.01529.i
+  %109 = getelementptr inbounds nuw ptr, ptr %107, i64 %.01529.i
   %110 = load ptr, ptr %109, align 8, !tbaa !10
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -8577,7 +8577,7 @@ lean_alloc_ctor.exit211:                          ; preds = %lean_dec.exit116
 219:                                              ; preds = %239, %.lr.ph.i215
   %.01529.i216 = phi i64 [ 0, %.lr.ph.i215 ], [ %241, %239 ]
   %.01728.i217 = phi ptr [ %180, %.lr.ph.i215 ], [ %240, %239 ]
-  %220 = getelementptr inbounds nuw [0 x ptr], ptr %218, i64 0, i64 %.01529.i216
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %.01529.i216
   %221 = load ptr, ptr %220, align 8, !tbaa !10
   %222 = ptrtoint ptr %221 to i64
   %223 = and i64 %222, 1
@@ -10462,7 +10462,7 @@ define nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_getL
   br label %lean_dec.exit39
 
 lean_dec.exit39:                                  ; preds = %21, %20, %18, %12
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.03265
+  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %.03265
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -12088,7 +12088,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_getLetValues
   br label %lean_dec.exit86
 
 lean_dec.exit86:                                  ; preds = %31, %30, %28, %22
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.062187
+  %32 = getelementptr inbounds nuw ptr, ptr %11, i64 %.062187
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1
@@ -13462,7 +13462,7 @@ define nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_getJ
   br label %lean_dec.exit39
 
 lean_dec.exit39:                                  ; preds = %21, %20, %18, %12
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.03265
+  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %.03265
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -15165,7 +15165,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_getJps_start
   br label %lean_dec.exit86
 
 lean_dec.exit86:                                  ; preds = %31, %30, %28, %22
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.062187
+  %32 = getelementptr inbounds nuw ptr, ptr %11, i64 %.062187
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1
@@ -16530,7 +16530,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByLet_go_
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -20096,7 +20096,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByLet_
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -21164,7 +21164,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByFun_go_
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -24532,7 +24532,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByFun_
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -25600,7 +25600,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByJp_go__
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -29621,7 +29621,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByJp__
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -30689,7 +30689,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByFunDecl
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -34057,7 +34057,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByFunD
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -35125,7 +35125,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByCases_g
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -38677,7 +38677,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByCase
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -39745,7 +39745,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByJmp_go_
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -42239,7 +42239,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByJmp_
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -43307,7 +43307,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByReturn_
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -45840,7 +45840,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByRetu
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -46908,7 +46908,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Compiler_LCNF_Probe_filterByUnreach
 21:                                               ; preds = %.lr.ph, %313
   %.084243 = phi i64 [ %2, %.lr.ph ], [ %314, %313 ]
   %.088242 = phi ptr [ %8, %.lr.ph ], [ %104, %313 ]
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.084243
+  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %.084243
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -49441,7 +49441,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_filterByUnre
   %.076231 = phi i64 [ %2, %.lr.ph ], [ %.379, %lean_dec.exit105 ]
   %.080230 = phi ptr [ %4, %.lr.ph ], [ %.383, %lean_dec.exit105 ]
   %.084229 = phi ptr [ %9, %.lr.ph ], [ %.387, %lean_dec.exit105 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.076231
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %.076231
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -50497,7 +50497,7 @@ define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Compiler_LCNF_Probe
   %.02451 = phi i64 [ %55, %71 ], [ %1, %8 ]
   %.02650 = phi ptr [ %.0.i.i36, %71 ], [ %2, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.02650, i64 24
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %.02451
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02451
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
@@ -50975,7 +50975,7 @@ lean_dec.exit:                                    ; preds = %18, %17, %15, %._cr
   %.02552 = phi i64 [ %2, %.lr.ph ], [ %56, %72 ]
   %.02751 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i37, %72 ]
   %23 = getelementptr inbounds nuw i8, ptr %.02751, i64 24
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %.02552
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02552
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -51676,7 +51676,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_Probe_sum___spec__
 6:                                                ; preds = %.lr.ph, %lean_dec.exit20.thread32
   %.01648 = phi i64 [ %1, %.lr.ph ], [ %45, %lean_dec.exit20.thread32 ]
   %.01847 = phi ptr [ %3, %.lr.ph ], [ %.0.i2631, %lean_dec.exit20.thread32 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01648
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01648
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -52756,7 +52756,7 @@ lean_dec.exit73:                                  ; preds = %17, %16, %14, %._cr
   %.060135 = phi i64 [ %3, %.lr.ph ], [ %162, %178 ]
   %.063134 = phi ptr [ %4, %.lr.ph ], [ %.0.i.i112, %178 ]
   %22 = getelementptr inbounds nuw i8, ptr %.063134, i64 24
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %.060135
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.060135
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1

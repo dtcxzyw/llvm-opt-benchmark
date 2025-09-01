@@ -3406,7 +3406,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %22 = zext i32 %1 to i64
   %23 = lshr i64 %22, 13
   %24 = and i64 %23, 255
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 %24
   %26 = load i8, ptr %25, align 1, !noundef !5
   %27 = zext i8 %26 to i64
   %28 = shl nuw nsw i64 %27, 7
@@ -3417,7 +3417,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds nuw [2432 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 0, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 %31
   %35 = load i8, ptr %34, align 1, !noundef !5
   %36 = zext i8 %35 to i64
   %37 = shl nuw nsw i64 %36, 4
@@ -3436,7 +3436,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   unreachable
 
 .split48.thread:                                  ; preds = %33
-  %44 = getelementptr inbounds nuw [3808 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 0, i64 %40
+  %44 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 %40
   %45 = load i8, ptr %44, align 1, !noundef !5
   %.tr.i = trunc i32 %1 to i8
   %46 = shl i8 %.tr.i, 1
@@ -3662,7 +3662,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit100.
 162:                                              ; preds = %160, %158
   %.pre-phi.i = phi i8 [ 1, %160 ], [ %156, %158 ]
   %163 = zext nneg i8 %.pre-phi.i to i64
-  %164 = getelementptr inbounds nuw [6 x i32], ptr %.sroa.018.0, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr %.sroa.018.0, i64 %163
   store i32 %1, ptr %164, align 4, !alias.scope !748
   %165 = load i8, ptr %155, align 2, !alias.scope !748, !noundef !5
   %166 = add i8 %165, 1
@@ -3720,7 +3720,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit107.
 187:                                              ; preds = %185, %183
   %.pre-phi.i108 = phi i8 [ 1, %185 ], [ %181, %183 ]
   %188 = zext nneg i8 %.pre-phi.i108 to i64
-  %189 = getelementptr inbounds nuw [6 x i32], ptr %.sroa.010.0, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i32, ptr %.sroa.010.0, i64 %188
   store i32 %1, ptr %189, align 4, !alias.scope !754
   %190 = load i8, ptr %180, align 2, !alias.scope !754, !noundef !5
   %191 = add i8 %190, 1
@@ -3858,7 +3858,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130:
   %247 = zext i32 %1 to i64
   %248 = lshr i64 %247, 13
   %249 = and i64 %248, 255
-  %250 = getelementptr inbounds nuw [256 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_0, i64 %249
   %251 = load i8, ptr %250, align 1, !noalias !813, !noundef !5
   %252 = zext i8 %251 to i64
   %253 = shl nuw nsw i64 %252, 7
@@ -3869,7 +3869,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130:
   br i1 %257, label %258, label %267
 
 258:                                              ; preds = %246
-  %259 = getelementptr inbounds nuw [2432 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 0, i64 %256
+  %259 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_1, i64 %256
   %260 = load i8, ptr %259, align 1, !noalias !813, !noundef !5
   %261 = zext i8 %260 to i64
   %262 = shl nuw nsw i64 %261, 4
@@ -3888,7 +3888,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130:
   unreachable
 
 269:                                              ; preds = %258
-  %270 = getelementptr inbounds nuw [3808 x i8], ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 0, i64 %265
+  %270 = getelementptr inbounds nuw i8, ptr @_RNvNtNtCs1GgERC5BdQ8_13unicode_width6tables9charwidth8TABLES_2, i64 %265
   %271 = load i8, ptr %270, align 1, !noalias !813, !noundef !5
   %.tr.i.i = trunc i32 %1 to i8
   %272 = shl i8 %.tr.i.i, 1

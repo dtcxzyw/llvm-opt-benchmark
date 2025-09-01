@@ -30,7 +30,7 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   %9 = load i8, ptr %.01423, align 1, !tbaa !7
   %10 = zext i8 %9 to i64
   %11 = lshr i64 %10, 6
-  %12 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %11
   %13 = and i64 %10, 63
   %14 = shl nuw i64 1, %13
   %15 = load i64, ptr %12, align 8, !tbaa !10
@@ -46,7 +46,7 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = zext i8 %19 to i64
   %21 = lshr i64 %20, 6
-  %22 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %5, i64 %21
   %23 = and i64 %20, 63
   %24 = load i64, ptr %22, align 8, !tbaa !10
   %25 = shl nuw i64 1, %23
@@ -98,7 +98,7 @@ define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPi
   %15 = phi i16 [ 0, %.lr.ph ], [ %30, %_ZN5folly13SparseByteSet3addEh.exit ]
   %16 = load i8, ptr %.01419, align 1, !tbaa !7
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = zext i8 %19 to i16
   %21 = icmp ugt i16 %15, %20
@@ -106,14 +106,14 @@ define noundef i64 @_ZN5folly6detail27qfind_first_byte_of_bytesetENS0_15StringPi
 
 _ZNK5folly13SparseByteSet8containsEh.exit.i:      ; preds = %14
   %22 = zext i8 %19 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !7
   %25 = icmp eq i8 %24, %16
   br i1 %25, label %_ZN5folly13SparseByteSet3addEh.exit, label %_ZNK5folly13SparseByteSet8containsEh.exit.thread.i
 
 _ZNK5folly13SparseByteSet8containsEh.exit.thread.i: ; preds = %_ZNK5folly13SparseByteSet8containsEh.exit.i, %14
   %26 = zext i16 %15 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 %26
   store i8 %16, ptr %27, align 1, !tbaa !7
   %28 = trunc i16 %15 to i8
   store i8 %28, ptr %18, align 1, !tbaa !7
@@ -131,7 +131,7 @@ _ZN5folly13SparseByteSet3addEh.exit:              ; preds = %_ZNK5folly13SparseB
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.01221
   %34 = load i8, ptr %33, align 1, !tbaa !7
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !7
   %38 = zext i8 %37 to i16
   %39 = icmp ugt i16 %8, %38
@@ -139,7 +139,7 @@ _ZN5folly13SparseByteSet3addEh.exit:              ; preds = %_ZNK5folly13SparseB
 
 _ZNK5folly13SparseByteSet8containsEh.exit:        ; preds = %32
   %40 = zext i8 %37 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !7
   %43 = icmp eq i8 %42, %34
   br i1 %43, label %_ZNK5folly13SparseByteSet8containsEh.exit._crit_edge, label %_ZNK5folly13SparseByteSet8containsEh.exit.thread

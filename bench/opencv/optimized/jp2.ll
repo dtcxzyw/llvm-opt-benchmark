@@ -1089,7 +1089,7 @@ define hidden range(i32 0, 2) i32 @opj_jp2_setup_encoder(ptr noundef captures(ad
 
 switch.lookup:                                    ; preds = %79
   %83 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.opj_jp2_setup_encoder, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.opj_jp2_setup_encoder, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 
@@ -1130,18 +1130,18 @@ switch.lookup:                                    ; preds = %79
 90:                                               ; preds = %._crit_edge175
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %92 = load i32, ptr %91, align 4, !tbaa !101
-  %switch.tableidx221 = add i32 %92, -16
-  %93 = icmp ult i32 %switch.tableidx221, 3
-  br i1 %93, label %switch.lookup220, label %.critedge.sink.split
+  %switch.tableidx220 = add i32 %92, -16
+  %93 = icmp ult i32 %switch.tableidx220, 3
+  br i1 %93, label %switch.lookup221, label %.critedge.sink.split
 
-switch.lookup220:                                 ; preds = %90
-  %94 = zext nneg i32 %switch.tableidx221 to i64
-  %switch.gep222 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.opj_jp2_setup_encoder.6, i64 0, i64 %94
+switch.lookup221:                                 ; preds = %90
+  %94 = zext nneg i32 %switch.tableidx220 to i64
+  %switch.gep222 = getelementptr inbounds nuw i32, ptr @switch.table.opj_jp2_setup_encoder.6, i64 %94
   %switch.load223 = load i32, ptr %switch.gep222, align 4
   %.not155 = icmp ugt i32 %57, %switch.load223
   br i1 %.not155, label %95, label %.critedge.sink.split
 
-95:                                               ; preds = %switch.lookup220
+95:                                               ; preds = %switch.lookup221
   %96 = icmp ult i32 %spec.select162, %switch.load223
   br i1 %96, label %.critedge.sink.split, label %97
 
@@ -1221,8 +1221,8 @@ switch.lookup220:                                 ; preds = %90
   %129 = icmp samesign ult i64 %indvars.iv.next202, %116
   br i1 %129, label %123, label %.critedge, !llvm.loop !104
 
-.critedge.sink.split:                             ; preds = %90, %._crit_edge175, %95, %switch.lookup220
-  %.str.3.sink = phi ptr [ @.str.3, %90 ], [ @.str.4, %switch.lookup220 ], [ @.str.5, %95 ], [ @.str.6, %._crit_edge175 ]
+.critedge.sink.split:                             ; preds = %90, %._crit_edge175, %95, %switch.lookup221
+  %.str.3.sink = phi ptr [ @.str.3, %90 ], [ @.str.4, %switch.lookup221 ], [ @.str.5, %95 ], [ @.str.6, %._crit_edge175 ]
   %130 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull %.str.3.sink) #6
   br label %.critedge
 
@@ -2192,7 +2192,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_header_procedure(ptr noundef %
 
 .preheader:                                       ; preds = %50, %54
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %50 ]
-  %55 = getelementptr inbounds nuw [3 x %struct.opj_jp2_header_handler], ptr @jp2_header, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw %struct.opj_jp2_header_handler, ptr @jp2_header, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 16, !tbaa !127
   %57 = icmp eq i32 %56, %36
   br i1 %57, label %opj_jp2_find_handler.exit, label %54
@@ -2208,7 +2208,7 @@ opj_jp2_find_handler.exit:                        ; preds = %54, %.preheader
 
 59:                                               ; preds = %58, %opj_jp2_find_handler.exit
   %indvars.iv.i104 = phi i64 [ 0, %opj_jp2_find_handler.exit ], [ %indvars.iv.next.i105, %58 ]
-  %60 = getelementptr inbounds nuw [6 x %struct.opj_jp2_header_handler], ptr @jp2_img_header, i64 0, i64 %indvars.iv.i104
+  %60 = getelementptr inbounds nuw %struct.opj_jp2_header_handler, ptr @jp2_img_header, i64 %indvars.iv.i104
   %61 = load i32, ptr %60, align 16, !tbaa !127
   %62 = icmp eq i32 %61, %36
   br i1 %62, label %64, label %58
@@ -2625,7 +2625,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_jp2h(ptr noundef %0, ptr nound
 
 .preheader:                                       ; preds = %40, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %40 ]
-  %45 = getelementptr inbounds nuw [6 x %struct.opj_jp2_header_handler], ptr @jp2_img_header, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %struct.opj_jp2_header_handler, ptr @jp2_img_header, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 16, !tbaa !127
   %47 = icmp eq i32 %46, %21
   br i1 %47, label %48, label %44
@@ -3622,7 +3622,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_write_jp2h(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %11
   %16 = zext nneg i32 %.046 to i64
-  %17 = getelementptr inbounds nuw [4 x %struct.opj_jp2_img_header_writer_handler], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %struct.opj_jp2_img_header_writer_handler, ptr %4, i64 %16
   store ptr @opj_jp2_write_cdef, ptr %17, align 8, !tbaa !153
   %18 = add nuw nsw i32 %.046, 1
   br label %19

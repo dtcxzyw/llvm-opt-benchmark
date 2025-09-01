@@ -50,7 +50,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %15 = lshr i32 %14, 14
   %.lobit = and i32 %15, 1
   %16 = zext nneg i32 %.lobit to i64
-  %17 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %16
   %18 = load i8, ptr %17, align 16, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %18, ptr %3, align 16, !tbaa !19
@@ -107,7 +107,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %15 = lshr i32 %14, 14
   %.lobit = and i32 %15, 1
   %16 = zext nneg i32 %.lobit to i64
-  %17 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %16
   %18 = load i8, ptr %17, align 16, !tbaa !19
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4

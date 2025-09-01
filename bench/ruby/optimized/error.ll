@@ -1312,7 +1312,7 @@ define dso_local range(i32 0, 2) i32 @rb_bug_reporter_add(ptr noundef %0, ptr no
   %6 = add nsw i32 %3, 1
   store i32 %6, ptr @bug_reporters_size, align 4, !tbaa !32
   %7 = sext i32 %3 to i64
-  %8 = getelementptr [256 x %struct.bug_reporters], ptr @bug_reporters, i64 0, i64 %7
+  %8 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %7
   store ptr %0, ptr %8, align 16, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !36
@@ -1383,7 +1383,7 @@ define internal fastcc void @rb_bug_without_die_internal(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %13 ]
-  %24 = getelementptr [256 x %struct.bug_reporters], ptr @bug_reporters, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 16, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !36
@@ -1485,7 +1485,7 @@ define hidden void @rb_bug_for_fatal_signal(ptr noundef readonly captures(addres
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %16 ]
-  %27 = getelementptr [256 x %struct.bug_reporters], ptr @bug_reporters, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 16, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !36
@@ -1611,15 +1611,15 @@ define internal fastcc ptr @bug_report_file(ptr noundef %0, i32 noundef %1, ptr 
 
 .thread.i:                                        ; preds = %.critedge.i
   %sext.i = shl i64 %indvars.iv.i, 32
-  %30 = ashr exact i64 %sext.i, 32
-  %31 = getelementptr [16 x ptr], ptr %6, i64 0, i64 %30
+  %30 = ashr exact i64 %sext.i, 29
+  %31 = getelementptr i8, ptr %6, i64 %30
   store ptr null, ptr %31, align 8, !tbaa !37
   %32 = call ptr @ruby_popen_writer(ptr noundef nonnull %6, ptr noundef nonnull %2) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %open_report_path.exit
 
 33:                                               ; preds = %.critedge.i
-  %34 = getelementptr [16 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr ptr, ptr %6, i64 %indvars.iv.i
   store ptr %.02245.i, ptr %34, align 8, !tbaa !37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
@@ -2379,7 +2379,7 @@ RSTRING_PTR.exit:                                 ; preds = %4, %11
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %13 ]
-  %24 = getelementptr [256 x %struct.bug_reporters], ptr @bug_reporters, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 16, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !36
@@ -2470,7 +2470,7 @@ define dso_local void @rb_assert_failure_detail(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
-  %27 = getelementptr [256 x %struct.bug_reporters], ptr @bug_reporters, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr %struct.bug_reporters, ptr @bug_reporters, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 16, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !36
@@ -2518,7 +2518,7 @@ define hidden ptr @rb_builtin_type_name(i32 noundef %0) local_unnamed_addr #12 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr [29 x [10 x i8]], ptr @builtin_types, i64 0, i64 %4
+  %5 = getelementptr [10 x i8], ptr @builtin_types, i64 %4
   %6 = load i8, ptr %5, align 2, !tbaa !26
   %.not = icmp eq i8 %6, 0
   %. = select i1 %.not, ptr null, ptr %5
@@ -2621,7 +2621,7 @@ define dso_local void @rb_check_type(i64 noundef %0, i32 noundef %1) local_unnam
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %15
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_type, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_type, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2690,7 +2690,7 @@ define internal fastcc range(i32 0, 32) i32 @rb_type(i64 noundef %0) unnamed_add
   br label %19
 
 switch.lookup:                                    ; preds = %11
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_type, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_type, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -2706,7 +2706,7 @@ define internal fastcc void @unexpected_type(i64 noundef %0, i32 noundef range(i
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr [29 x [10 x i8]], ptr @builtin_types, i64 0, i64 %6
+  %7 = getelementptr [10 x i8], ptr @builtin_types, i64 %6
   %8 = load i8, ptr %7, align 2, !tbaa !26
   %.not.i = icmp eq i8 %8, 0
   br i1 %.not.i, label %rb_builtin_type_name.exit.thread, label %rb_builtin_type_name.exit

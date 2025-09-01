@@ -1661,7 +1661,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep6InsertEPv(ptr n
   %73 = phi ptr [ %.pre.i.i, %.lr.ph.preheader.i.i ], [ %76, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = getelementptr inbounds nuw [1 x %"struct.std::atomic.31"], ptr %74, i64 0, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw %"struct.std::atomic.31", ptr %74, i64 %indvars.iv.i.i
   store atomic i64 0, ptr %75 release, align 8
   %76 = load ptr, ptr %52, align 8, !tbaa !102
   %77 = load ptr, ptr %71, align 8, !tbaa !105
@@ -1793,7 +1793,7 @@ define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_115HashSkipListRep8
   %.019.i.i = phi ptr [ %31, %29 ], [ %.2.i.i, %54 ]
   %37 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
   %38 = sext i32 %.024.i.i to i64
-  %39 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds %"struct.std::atomic.31", ptr %37, i64 %38
   %40 = load atomic i64, ptr %39 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %40 to ptr
   %41 = icmp eq i64 %40, 0
@@ -1910,7 +1910,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep3GetERKNS_9Looku
   %.019.i.i = phi ptr [ %34, %31 ], [ %.2.i.i, %57 ]
   %40 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
   %41 = sext i32 %.024.i.i to i64
-  %42 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds %"struct.std::atomic.31", ptr %40, i64 %41
   %43 = load atomic i64, ptr %42 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %43 to ptr
   %44 = icmp eq i64 %43, 0
@@ -2073,7 +2073,7 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep11GetIter
   %32 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %35, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = getelementptr inbounds nuw [1 x %"struct.std::atomic.31"], ptr %33, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw %"struct.std::atomic.31", ptr %33, i64 %indvars.iv.i
   store atomic i64 0, ptr %34 release, align 8
   %35 = load ptr, ptr %19, align 8, !tbaa !102
   %36 = load ptr, ptr %30, align 8, !tbaa !105
@@ -2333,7 +2333,7 @@ _ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKS
   %.020.us.i = phi i32 [ %70, %69 ], [ %.020.us.i.ph, %.split.us.i.outer ]
   %.018.us.i = phi ptr [ %.0.i.i.i.us.i, %69 ], [ %.018.us.i.ph, %.split.us.i.outer ]
   %56 = sext i32 %.020.us.i to i64
-  %57 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %67, i64 0, i64 %56
+  %57 = getelementptr inbounds %"struct.std::atomic.31", ptr %67, i64 %56
   %58 = load atomic i64, ptr %57 acquire, align 8
   %.0.i.i.i.us.i = inttoptr i64 %58 to ptr
   %.not.us.i = icmp eq ptr %.018.us.i, %.0.i.i.i.us.i
@@ -2371,7 +2371,7 @@ _ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKS
   %.020.i = phi i32 [ %86, %85 ], [ %.020.i.ph, %.split.i.outer ]
   %.018.i = phi ptr [ %.0.i.i.i.i, %85 ], [ %.018.i.ph, %.split.i.outer ]
   %71 = sext i32 %.020.i to i64
-  %72 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %82, i64 0, i64 %71
+  %72 = getelementptr inbounds %"struct.std::atomic.31", ptr %82, i64 %71
   %73 = load atomic i64, ptr %72 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %73 to ptr
   %.not.i32 = icmp eq ptr %.018.i, %.0.i.i.i.i
@@ -2509,15 +2509,15 @@ _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE12RandomHeightEv.exit
   %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv48
   %136 = load ptr, ptr %135, align 8, !tbaa !106
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %138 = getelementptr inbounds nuw [1 x %"struct.std::atomic.31"], ptr %137, i64 0, i64 %indvars.iv48
+  %138 = getelementptr inbounds nuw %"struct.std::atomic.31", ptr %137, i64 %indvars.iv48
   %139 = load atomic i64, ptr %138 monotonic, align 8
-  %140 = getelementptr inbounds nuw [1 x %"struct.std::atomic.31"], ptr %128, i64 0, i64 %indvars.iv48
+  %140 = getelementptr inbounds nuw %"struct.std::atomic.31", ptr %128, i64 %indvars.iv48
   store atomic i64 %139, ptr %140 monotonic, align 8
   %141 = load ptr, ptr %3, align 8, !tbaa !105
   %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv48
   %143 = load ptr, ptr %142, align 8, !tbaa !106
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = getelementptr inbounds nuw [1 x %"struct.std::atomic.31"], ptr %144, i64 0, i64 %indvars.iv48
+  %145 = getelementptr inbounds nuw %"struct.std::atomic.31", ptr %144, i64 %indvars.iv48
   store atomic i64 %129, ptr %145 release, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -2665,7 +2665,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator4PrevEv
   %.020.us.i.i = phi i32 [ %26, %25 ], [ %.020.us.i.i.ph, %.split.us.i.i.outer ]
   %.018.us.i.i = phi ptr [ %.0.i.i.i.us.i.i, %25 ], [ %.018.us.i.i.ph, %.split.us.i.i.outer ]
   %13 = sext i32 %.020.us.i.i to i64
-  %14 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds %"struct.std::atomic.31", ptr %12, i64 %13
   %15 = load atomic i64, ptr %14 acquire, align 8
   %.0.i.i.i.us.i.i = inttoptr i64 %15 to ptr
   %.not.us.i.i = icmp eq ptr %.018.us.i.i, %.0.i.i.i.us.i.i
@@ -2754,7 +2754,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator4SeekER
   %.019.i.i = phi ptr [ %15, %10 ], [ %.2.i.i, %38 ]
   %21 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
   %22 = sext i32 %.024.i.i to i64
-  %23 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds %"struct.std::atomic.31", ptr %21, i64 %22
   %24 = load atomic i64, ptr %23 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %24 to ptr
   %25 = icmp eq i64 %24, 0
@@ -2877,7 +2877,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator10SeekT
 13:                                               ; preds = %.outer, %20
   %.010.i.i = phi i32 [ %21, %20 ], [ %.010.i.i.ph, %.outer ]
   %14 = sext i32 %.010.i.i to i64
-  %15 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds %"struct.std::atomic.31", ptr %12, i64 %14
   %16 = load atomic i64, ptr %15 acquire, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %.outer.loopexit
@@ -3104,7 +3104,7 @@ _ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator5ResetEPNS_8SkipListIPKcRKNS_
   %.019.i.i.i = phi ptr [ %49, %45 ], [ %.2.i.i.i, %72 ]
   %55 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 8
   %56 = sext i32 %.024.i.i.i to i64
-  %57 = getelementptr inbounds [1 x %"struct.std::atomic.31"], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds %"struct.std::atomic.31", ptr %55, i64 %56
   %58 = load atomic i64, ptr %57 acquire, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %58 to ptr
   %59 = icmp eq i64 %58, 0

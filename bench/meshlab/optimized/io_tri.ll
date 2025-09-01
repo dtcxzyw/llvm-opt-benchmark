@@ -2274,7 +2274,7 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %270, %_ZN9QtPrivate
   %324 = sdiv exact i64 %323, 48
   %325 = load ptr, ptr %319, align 8
   %326 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %325, i64 %324
-  %327 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %326, i64 0, i64 %indvars.iv285
+  %327 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %326, i64 %indvars.iv285
   %328 = sitofp i32 %312 to float
   %329 = sitofp i32 %314 to float
   %330 = fdiv float %328, %329
@@ -2291,7 +2291,7 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %270, %_ZN9QtPrivate
   %340 = sdiv exact i64 %339, 48
   %341 = load ptr, ptr %335, align 8
   %342 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %341, i64 %340
-  %343 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %342, i64 0, i64 %indvars.iv285, i32 0, i64 0, i32 0, i64 1
+  %343 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %342, i64 %indvars.iv285, i32 0, i64 0, i32 0, i64 1
   store float %331, ptr %343, align 4
   %344 = load ptr, ptr %285, align 8
   %345 = getelementptr inbounds nuw %class.CFaceO, ptr %344, i64 %indvars.iv289
@@ -2304,7 +2304,7 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %270, %_ZN9QtPrivate
   %352 = sdiv exact i64 %351, 48
   %353 = load ptr, ptr %347, align 8
   %354 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %353, i64 %352
-  %355 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %354, i64 0, i64 %indvars.iv285, i32 1
+  %355 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %354, i64 %indvars.iv285, i32 1
   store i16 0, ptr %355, align 2
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next286, 3
@@ -2795,7 +2795,7 @@ _ZeqPKcRK7QString.exit:                           ; preds = %455
   %518 = sdiv exact i64 %517, 48
   %519 = load ptr, ptr %513, align 8
   %520 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %519, i64 %518
-  %521 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %520, i64 0, i64 %indvars.iv294
+  %521 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %520, i64 %indvars.iv294
   store float %506, ptr %521, align 4
   %522 = fsub float 1.000000e+00, %509
   %523 = load ptr, ptr %482, align 8
@@ -2809,7 +2809,7 @@ _ZeqPKcRK7QString.exit:                           ; preds = %455
   %531 = sdiv exact i64 %530, 48
   %532 = load ptr, ptr %526, align 8
   %533 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %532, i64 %531
-  %534 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %533, i64 0, i64 %indvars.iv294, i32 0, i64 0, i32 0, i64 1
+  %534 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %533, i64 %indvars.iv294, i32 0, i64 0, i32 0, i64 1
   store float %522, ptr %534, align 4
   %535 = load ptr, ptr %482, align 8
   %536 = getelementptr inbounds nuw %class.CFaceO, ptr %535, i64 %indvars.iv298
@@ -2822,7 +2822,7 @@ _ZeqPKcRK7QString.exit:                           ; preds = %455
   %543 = sdiv exact i64 %542, 48
   %544 = load ptr, ptr %538, align 8
   %545 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %544, i64 %543
-  %546 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %545, i64 0, i64 %indvars.iv294, i32 1
+  %546 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %545, i64 %indvars.iv294, i32 1
   store i16 0, ptr %546, align 2
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next295, 3
@@ -3932,7 +3932,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.th
 
 81:                                               ; preds = %.preheader104, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
   %indvars.iv = phi i64 [ 0, %.preheader104 ], [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit ]
-  %82 = getelementptr inbounds nuw [3 x ptr], ptr %80, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8
   %.not54 = icmp eq ptr %83, null
   br i1 %.not54, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %84
@@ -5809,7 +5809,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %99 = sdiv exact i64 %98, 48
   %100 = load ptr, ptr %95, align 8
   %101 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %100, i64 %99
-  %102 = getelementptr inbounds nuw [3 x ptr], ptr %101, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8
   %.not57 = icmp eq ptr %103, null
   br i1 %.not57, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %104
@@ -5907,7 +5907,7 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %154 = sdiv exact i64 %153, 48
   %155 = load ptr, ptr %150, align 8
   %156 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %155, i64 %154
-  %157 = getelementptr inbounds nuw [3 x ptr], ptr %156, i64 0, i64 %indvars.iv153
+  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv153
   %158 = load ptr, ptr %157, align 8
   %.not56 = icmp eq ptr %158, null
   br i1 %.not56, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %159
@@ -6984,7 +6984,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNor
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i, %.preheader.i.i.preheader.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %.preheader.i.i.preheader.i.i.i ]
-  %19 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %.013.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %19 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.013.i.i.i, i64 %indvars.iv.i.i.i.i.i
   store float 0.000000e+00, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0.000000e+00, ptr %20, align 4
@@ -7028,7 +7028,7 @@ _ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_EE12_M_
 
 .preheader.i.i.i.i.i33:                           ; preds = %.preheader.i.i.i.i.i33, %.preheader.i.i.preheader.i.i.i30
   %indvars.iv.i.i.i.i.i34 = phi i64 [ %indvars.iv.next.i.i.i.i.i35, %.preheader.i.i.i.i.i33 ], [ 0, %.preheader.i.i.preheader.i.i.i30 ]
-  %32 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %.013.i.i.i31, i64 0, i64 %indvars.iv.i.i.i.i.i34
+  %32 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.013.i.i.i31, i64 %indvars.iv.i.i.i.i.i34
   store float 0.000000e+00, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store float 0.000000e+00, ptr %33, align 4

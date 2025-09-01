@@ -2439,13 +2439,13 @@ common.resume:                                    ; preds = %.body, %69, %44
   %82 = phi ptr [ %84, %.lr.ph.split.us ], [ %77, %.lr.ph ]
   %83 = phi i64 [ %indvars.iv139, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  %85 = getelementptr inbounds nuw [5 x ptr], ptr %8, i64 0, i64 %indvars.iv139
+  %85 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv139
   store ptr %84, ptr %85, align 8, !tbaa !42
   %86 = ptrtoint ptr %81 to i64
   %87 = ptrtoint ptr %82 to i64
   %88 = sub i64 %86, %87
   %89 = trunc i64 %88 to i32
-  %90 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %83
+  %90 = getelementptr inbounds nuw i32, ptr %9, i64 %83
   store i32 %89, ptr %90, align 4, !tbaa !12
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %91 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %84, i32 noundef 95) #27
@@ -2464,13 +2464,13 @@ common.resume:                                    ; preds = %.body, %69, %44
 
 98:                                               ; preds = %.lr.ph.split
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  %100 = getelementptr inbounds nuw [5 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %99, ptr %100, align 8, !tbaa !42
   %101 = ptrtoint ptr %94 to i64
   %102 = ptrtoint ptr %95 to i64
   %103 = sub i64 %101, %102
   %104 = trunc i64 %103 to i32
-  %105 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %96
+  %105 = getelementptr inbounds nuw i32, ptr %9, i64 %96
   store i32 %104, ptr %105, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %99, i32 noundef 95) #27
@@ -2511,7 +2511,7 @@ common.resume:                                    ; preds = %.body, %69, %44
 
 124:                                              ; preds = %120, %113
   %.sink = phi i32 [ %119, %113 ], [ %123, %120 ]
-  %125 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %.lcssa127
+  %125 = getelementptr inbounds i32, ptr %9, i64 %.lcssa127
   store i32 %.sink, ptr %125, align 4, !tbaa !12
   %126 = load i32, ptr %9, align 16, !tbaa !12
   %127 = icmp sgt i32 %126, 11
@@ -2524,7 +2524,7 @@ common.resume:                                    ; preds = %.body, %69, %44
 130:                                              ; preds = %128
   %131 = zext nneg i32 %126 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %77, i64 %131, i1 false)
-  %132 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %26, i64 %131
   store i8 0, ptr %132, align 1, !tbaa !25
   br label %133
 
@@ -2573,7 +2573,7 @@ common.resume:                                    ; preds = %.body, %69, %44
 157:                                              ; preds = %154, %150, %146, %142, %137, %133
   %.063 = phi i32 [ 2, %154 ], [ 1, %150 ], [ 1, %146 ], [ 1, %142 ], [ 1, %137 ], [ 1, %133 ]
   %158 = zext nneg i32 %.063 to i64
-  %159 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %9, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !12
   switch i32 %160, label %169 [
     i32 2, label %161
@@ -2582,11 +2582,11 @@ common.resume:                                    ; preds = %.body, %69, %44
   ]
 
 161:                                              ; preds = %157, %157
-  %162 = getelementptr inbounds nuw [5 x ptr], ptr %8, i64 0, i64 %158
+  %162 = getelementptr inbounds nuw ptr, ptr %8, i64 %158
   %163 = load ptr, ptr %162, align 8, !tbaa !42
   %164 = zext nneg i32 %160 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %24, ptr align 1 %163, i64 %164, i1 false)
-  %165 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %24, i64 %164
   store i8 0, ptr %165, align 1, !tbaa !25
   %166 = add nuw nsw i32 %.063, 1
   br label %169
@@ -2598,14 +2598,14 @@ common.resume:                                    ; preds = %.body, %69, %44
 169:                                              ; preds = %157, %167, %161
   %.164 = phi i32 [ %166, %161 ], [ %168, %167 ], [ %.063, %157 ]
   %170 = zext nneg i32 %.164 to i64
-  %171 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i32, ptr %9, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !12
   %173 = icmp sgt i32 %172, 0
   %.pre143 = load ptr, ptr %15, align 8, !tbaa !19
   br i1 %173, label %174, label %181
 
 174:                                              ; preds = %169
-  %175 = getelementptr inbounds nuw [5 x ptr], ptr %8, i64 0, i64 %170
+  %175 = getelementptr inbounds nuw ptr, ptr %8, i64 %170
   %176 = load ptr, ptr %175, align 8, !tbaa !42
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %.pre143 to i64
@@ -9796,7 +9796,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_122loadKnownCanonicalizedER1
 
 .lr.ph:                                           ; preds = %1, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw [178 x ptr], ptr @_ZN6icu_7712_GLOBAL__N_119KNOWN_CANONICALIZEDE, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_7712_GLOBAL__N_119KNOWN_CANONICALIZEDE, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = invoke i32 @uhash_puti_77(ptr noundef %3, ptr noundef %8, i32 noundef 1, ptr noundef nonnull %0)
           to label %10 unwind label %15

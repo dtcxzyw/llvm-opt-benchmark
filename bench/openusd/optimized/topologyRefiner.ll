@@ -2081,7 +2081,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
 
 .lr.ph.i:                                         ; preds = %81, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %81 ]
-  %82 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag"], ptr %7, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %7, i64 %indvars.iv.i
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, 1922
   %or.cond.i = icmp eq i16 %84, 130
@@ -2173,7 +2173,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   %116 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i43
   %117 = load i32, ptr %116, align 4
   %118 = call i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVTagEii(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %117, i32 noundef %.059)
-  %119 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag"], ptr %6, i64 0, i64 %indvars.iv.i43
+  %119 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %6, i64 %indvars.iv.i43
   store i16 %118, ptr %119, align 2
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i41

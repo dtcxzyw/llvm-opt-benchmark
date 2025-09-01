@@ -16937,7 +16937,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
 .thread.i.i:                                      ; preds = %179
   %181 = uitofp i64 %176 to double
   %182 = zext nneg i32 %177 to i64
-  %183 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %182
   %184 = load double, ptr %183, align 8, !tbaa !12
   %185 = fmul double %184, %181
   br label %.critedge
@@ -16959,7 +16959,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
   %195 = fdiv double %194, 0x7FAC7B1F3CAC7433
   %196 = sub nuw nsw i32 -307, %177
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %197
   %199 = load double, ptr %198, align 8, !tbaa !12
   %200 = fdiv double %195, %199
   br label %.critedge
@@ -16968,7 +16968,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
   %202 = uitofp i64 %176 to double
   %203 = sub nsw i32 0, %177
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !12
   %207 = fdiv double %202, %206
   br label %.critedge
@@ -16988,7 +16988,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
 .thread.i90:                                      ; preds = %212
   %214 = uitofp i64 %210 to double
   %215 = zext nneg i32 %209 to i64
-  %216 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %215
   %217 = load double, ptr %216, align 8, !tbaa !12
   %218 = fmul double %217, %214
   br label %.critedge
@@ -17008,9 +17008,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
   br i1 %228, label %.critedge, label %.thread24.i
 
 .thread24.i:                                      ; preds = %221
-  %229 = add nsw i32 %208, -307
-  %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %230
+  %229 = zext nneg i32 %208 to i64
+  %230 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %229
+  %231 = getelementptr i8, ptr %230, i64 -2456
   %232 = load double, ptr %231, align 8, !tbaa !12
   %233 = fdiv double %227, %232
   br label %.critedge
@@ -17018,7 +17018,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
 234:                                              ; preds = %219
   %235 = uitofp i64 %210 to double
   %236 = zext nneg i32 %208 to i64
-  %237 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %236
   %238 = load double, ptr %237, align 8, !tbaa !12
   %239 = fdiv double %235, %238
   br label %.critedge
@@ -17050,7 +17050,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 .thread.i95:                                      ; preds = %245
   %247 = uitofp i64 %243 to double
   %248 = zext nneg i32 %242 to i64
-  %249 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %248
   %250 = load double, ptr %249, align 8, !tbaa !12
   %251 = fmul double %250, %247
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -17070,9 +17070,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   br i1 %261, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96, label %.thread24.i94
 
 .thread24.i94:                                    ; preds = %254
-  %262 = add nsw i32 %240, -307
-  %263 = zext nneg i32 %262 to i64
-  %264 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %263
+  %262 = zext nneg i32 %240 to i64
+  %263 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %262
+  %264 = getelementptr i8, ptr %263, i64 -2456
   %265 = load double, ptr %264, align 8, !tbaa !12
   %266 = fdiv double %260, %265
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -17080,7 +17080,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 267:                                              ; preds = %252
   %268 = uitofp i64 %243 to double
   %269 = zext nneg i32 %240 to i64
-  %270 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %269
   %271 = load double, ptr %270, align 8, !tbaa !12
   %272 = fdiv double %268, %271
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -17100,7 +17100,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 .thread.i101:                                     ; preds = %277
   %279 = uitofp i64 %274 to double
   %280 = zext nneg i32 %.050187196200 to i64
-  %281 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %280
   %282 = load double, ptr %281, align 8, !tbaa !12
   %283 = fmul double %282, %279
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -17122,7 +17122,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   %293 = fdiv double %292, 0x7FAC7B1F3CAC7433
   %294 = sub nuw nsw i32 -307, %.050187196200
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %295
   %297 = load double, ptr %296, align 8, !tbaa !12
   %298 = fdiv double %293, %297
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -17131,7 +17131,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   %300 = uitofp i64 %274 to double
   %301 = sub nsw i32 0, %.050187196200
   %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %302
   %304 = load double, ptr %303, align 8, !tbaa !12
   %305 = fdiv double %300, %304
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -36298,7 +36298,7 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
 .thread.i.i:                                      ; preds = %284
   %286 = uitofp i64 %281 to double
   %287 = zext nneg i32 %282 to i64
-  %288 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %287
   %289 = load double, ptr %288, align 8, !tbaa !12
   %290 = fmul double %289, %286
   br label %.critedge
@@ -36320,7 +36320,7 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
   %300 = fdiv double %299, 0x7FAC7B1F3CAC7433
   %301 = sub nuw nsw i32 -307, %282
   %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %302
   %304 = load double, ptr %303, align 8, !tbaa !12
   %305 = fdiv double %300, %304
   br label %.critedge
@@ -36329,7 +36329,7 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
   %307 = uitofp i64 %281 to double
   %308 = sub nsw i32 0, %282
   %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %309
+  %310 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %309
   %311 = load double, ptr %310, align 8, !tbaa !12
   %312 = fdiv double %307, %311
   br label %.critedge
@@ -36349,7 +36349,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
 .thread.i90:                                      ; preds = %317
   %319 = uitofp i64 %315 to double
   %320 = zext nneg i32 %314 to i64
-  %321 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %320
   %322 = load double, ptr %321, align 8, !tbaa !12
   %323 = fmul double %322, %319
   br label %.critedge
@@ -36369,9 +36369,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
   br i1 %333, label %.critedge, label %.thread24.i
 
 .thread24.i:                                      ; preds = %326
-  %334 = add nsw i32 %313, -307
-  %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %335
+  %334 = zext nneg i32 %313 to i64
+  %335 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %334
+  %336 = getelementptr i8, ptr %335, i64 -2456
   %337 = load double, ptr %336, align 8, !tbaa !12
   %338 = fdiv double %332, %337
   br label %.critedge
@@ -36379,7 +36379,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
 339:                                              ; preds = %324
   %340 = uitofp i64 %315 to double
   %341 = zext nneg i32 %313 to i64
-  %342 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %341
+  %342 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %341
   %343 = load double, ptr %342, align 8, !tbaa !12
   %344 = fdiv double %340, %343
   br label %.critedge
@@ -36411,7 +36411,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 .thread.i95:                                      ; preds = %350
   %352 = uitofp i64 %348 to double
   %353 = zext nneg i32 %347 to i64
-  %354 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %353
   %355 = load double, ptr %354, align 8, !tbaa !12
   %356 = fmul double %355, %352
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -36431,9 +36431,9 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   br i1 %366, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96, label %.thread24.i94
 
 .thread24.i94:                                    ; preds = %359
-  %367 = add nsw i32 %345, -307
-  %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %368
+  %367 = zext nneg i32 %345 to i64
+  %368 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %367
+  %369 = getelementptr i8, ptr %368, i64 -2456
   %370 = load double, ptr %369, align 8, !tbaa !12
   %371 = fdiv double %365, %370
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -36441,7 +36441,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 372:                                              ; preds = %357
   %373 = uitofp i64 %348 to double
   %374 = zext nneg i32 %345 to i64
-  %375 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %374
   %376 = load double, ptr %375, align 8, !tbaa !12
   %377 = fdiv double %373, %376
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -36461,7 +36461,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 .thread.i101:                                     ; preds = %382
   %384 = uitofp i64 %379 to double
   %385 = zext nneg i32 %.050263276283 to i64
-  %386 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %385
   %387 = load double, ptr %386, align 8, !tbaa !12
   %388 = fmul double %387, %384
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -36483,7 +36483,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   %398 = fdiv double %397, 0x7FAC7B1F3CAC7433
   %399 = sub nuw nsw i32 -307, %.050263276283
   %400 = zext nneg i32 %399 to i64
-  %401 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %400
   %402 = load double, ptr %401, align 8, !tbaa !12
   %403 = fdiv double %398, %402
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -36492,7 +36492,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   %405 = uitofp i64 %379 to double
   %406 = sub nsw i32 0, %.050263276283
   %407 = zext nneg i32 %406 to i64
-  %408 = getelementptr inbounds nuw [309 x double], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %407
   %409 = load double, ptr %408, align 8, !tbaa !12
   %410 = fdiv double %405, %409
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96

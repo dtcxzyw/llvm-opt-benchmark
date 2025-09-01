@@ -495,7 +495,7 @@ define internal range(i32 14, 1) i32 @dissect_busmirroring(ptr noundef %0, ptr n
   %158 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4301)
   %159 = and i8 %158, 63
   %160 = zext nneg i8 %159 to i64
-  %161 = getelementptr [64 x i8], ptr @pid_table, i64 0, i64 %160
+  %161 = getelementptr i8, ptr @pid_table, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = icmp eq i8 %158, %162
   br i1 %163, label %166, label %164

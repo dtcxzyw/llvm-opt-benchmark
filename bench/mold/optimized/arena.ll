@@ -461,7 +461,7 @@ define void @_ZN3tbb6detail2r15arena11out_of_workEv(ptr noundef nonnull align 12
 
 .backedge.i.i.i:                                  ; preds = %.backedge.i.i.i.backedge, %.lr.ph.i.i.i
   %.011.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.011.i.i.i.be, %.backedge.i.i.i.backedge ]
-  %35 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %34, i64 0, i64 %.011.i.i.i
+  %35 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %34, i64 %.011.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load atomic i64, ptr %36 monotonic, align 8
   %38 = icmp eq i64 %37, 0
@@ -704,7 +704,7 @@ _ZN3tbb6detail2r110arena_baseD2Ev.exit:           ; preds = %_ZN3tbb6detail2d118
 
 64:                                               ; preds = %.lr.ph, %_ZN3tbb6detail2r111mail_outbox5drainEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3tbb6detail2r111mail_outbox5drainEv.exit ]
-  %65 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %12, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %12, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 160
   %67 = load ptr, ptr %66, align 32, !tbaa !75
   %.not.i = icmp eq ptr %67, null
@@ -800,7 +800,7 @@ define noundef i64 @_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11th
 
 25:                                               ; preds = %.lr.ph, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread
   %.02842 = phi i64 [ %.029, %.lr.ph ], [ %31, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread ]
-  %26 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %23, i64 0, i64 %.02842
+  %26 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %23, i64 %.02842
   %27 = load atomic i8, ptr %26 monotonic, align 128
   %28 = trunc i8 %27 to i1
   br i1 %28, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit
@@ -817,7 +817,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread: ; preds = %25, %_ZN3tbb
 
 32:                                               ; preds = %.lr.ph45, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread
   %.044 = phi i64 [ %2, %.lr.ph45 ], [ %38, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread ]
-  %33 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %24, i64 0, i64 %.044
+  %33 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %24, i64 %.044
   %34 = load atomic i8, ptr %33 monotonic, align 128
   %35 = trunc i8 %34 to i1
   br i1 %35, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38
@@ -913,7 +913,7 @@ define void @_ZN3tbb6detail2r15arena7processERNS1_11thread_dataE(ptr noundef non
 
 35:                                               ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i.i, %.lr.ph.i.i
   %.02842.i.i = phi i64 [ %.029.i.i, %.lr.ph.i.i ], [ %41, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i.i ]
-  %36 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %33, i64 0, i64 %.02842.i.i
+  %36 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %33, i64 %.02842.i.i
   %37 = load atomic i8, ptr %36 monotonic, align 128
   %38 = trunc i8 %37 to i1
   br i1 %38, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i.i, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.i.i
@@ -930,7 +930,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i.i: ; preds = %_ZN3tbb6
 
 42:                                               ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i.i, %.lr.ph45.i.i
   %.044.i.i = phi i64 [ %11, %.lr.ph45.i.i ], [ %48, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i.i ]
-  %43 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %34, i64 0, i64 %.044.i.i
+  %43 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %34, i64 %.044.i.i
   %44 = load atomic i8, ptr %43 monotonic, align 128
   %45 = trunc i8 %44 to i1
   br i1 %45, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i.i, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i.i
@@ -1298,7 +1298,7 @@ _ZN3tbb6detail2d118task_group_contextC2ENS2_9kind_typeEm.exit: ; preds = %40
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = ptrtoint ptr %76 to i64
   store atomic i64 %78, ptr %77 seq_cst, align 8
-  %79 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %46, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %46, i64 %indvars.iv
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 128
   store i32 %73, ptr %80, align 128, !tbaa !160
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 136
@@ -1850,7 +1850,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r15arena9has_tasksEv(ptr noundef nonnu
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   %.011 = phi i64 [ 0, %.lr.ph ], [ %.011.be, %.backedge.backedge ]
-  %7 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %6, i64 0, i64 %.011
+  %7 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %6, i64 %.011
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load atomic i64, ptr %8 monotonic, align 8
   %10 = icmp eq i64 %9, 0
@@ -3454,7 +3454,7 @@ define linkonce_odr noundef i64 @_ZN3tbb6detail2r15arena16occupy_free_slotILb0EE
 
 19:                                               ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i, %.lr.ph.i
   %.02842.i = phi i64 [ %.029.i32, %.lr.ph.i ], [ %25, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i ]
-  %20 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %18, i64 0, i64 %.02842.i
+  %20 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %18, i64 %.02842.i
   %21 = load atomic i8, ptr %20 monotonic, align 128
   %22 = trunc i8 %21 to i1
   br i1 %22, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.i
@@ -3471,7 +3471,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i: ; preds = %_ZN3tbb6de
 
 .lr.ph45.i:                                       ; preds = %.critedge.preheader.i, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i
   %.044.i = phi i64 [ %31, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i ], [ 0, %.critedge.preheader.i ]
-  %26 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %18, i64 0, i64 %.044.i
+  %26 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %18, i64 %.044.i
   %27 = load atomic i8, ptr %26 monotonic, align 128
   %28 = trunc i8 %27 to i1
   br i1 %28, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i
@@ -3542,7 +3542,7 @@ _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.th
 
 58:                                               ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i25, %.lr.ph.i22
   %.02842.i23 = phi i64 [ %.029.i13, %.lr.ph.i22 ], [ %64, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i25 ]
-  %59 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %56, i64 0, i64 %.02842.i23
+  %59 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %56, i64 %.02842.i23
   %60 = load atomic i8, ptr %59 monotonic, align 128
   %61 = trunc i8 %60 to i1
   br i1 %61, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i25, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.i24
@@ -3559,7 +3559,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i25: ; preds = %_ZN3tbb6
 
 65:                                               ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20, %.lr.ph45.i17
   %.044.i18 = phi i64 [ %34, %.lr.ph45.i17 ], [ %71, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20 ]
-  %66 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %57, i64 0, i64 %.044.i18
+  %66 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %57, i64 %.044.i18
   %67 = load atomic i8, ptr %66 monotonic, align 128
   %68 = trunc i8 %67 to i1
   br i1 %68, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i19
@@ -6841,7 +6841,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i75 = icmp samesign uge i32 %163, %16
   %165 = zext i1 %.not.i.i75 to i64
   %spec.select.i.i = add nuw nsw i64 %165, %164
-  %166 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %39, i64 0, i64 %spec.select.i.i
+  %166 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %39, i64 %spec.select.i.i
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load atomic i64, ptr %167 monotonic, align 8
   %169 = icmp eq i64 %168, 0
@@ -8164,7 +8164,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
   %.not.i.i75 = icmp samesign uge i32 %163, %16
   %165 = zext i1 %.not.i.i75 to i64
   %spec.select.i.i = add nuw nsw i64 %165, %164
-  %166 = getelementptr inbounds nuw [1 x %"class.tbb::detail::r1::arena_slot"], ptr %39, i64 0, i64 %spec.select.i.i
+  %166 = getelementptr inbounds nuw %"class.tbb::detail::r1::arena_slot", ptr %39, i64 %spec.select.i.i
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load atomic i64, ptr %167 monotonic, align 8
   %169 = icmp eq i64 %168, 0

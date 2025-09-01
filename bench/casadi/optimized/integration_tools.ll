@@ -1103,7 +1103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   br label %.body.sink.split
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i: ; preds = %38
-  %150 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN6casadi12radau_pointsE, i64 0, i64 %1
+  %150 = getelementptr inbounds nuw ptr, ptr @_ZN6casadi12radau_pointsE, i64 %1
   %151 = load ptr, ptr %150, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.idx227 = shl nuw nsw i64 %1, 3
@@ -1470,7 +1470,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
   br label %.body.sink.split
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i148: ; preds = %164
-  %276 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN6casadi15legendre_pointsE, i64 0, i64 %1
+  %276 = getelementptr inbounds nuw ptr, ptr @_ZN6casadi15legendre_pointsE, i64 %1
   %277 = load ptr, ptr %276, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.idx = shl nuw nsw i64 %1, 3
@@ -2776,7 +2776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %_Z
 
 353:                                              ; preds = %153, %38
   %_ZN6casadi15legendre_pointsE.sink = phi ptr [ @_ZN6casadi12radau_pointsE, %38 ], [ @_ZN6casadi15legendre_pointsE, %153 ]
-  %354 = getelementptr inbounds nuw [10 x ptr], ptr %_ZN6casadi15legendre_pointsE.sink, i64 0, i64 %1
+  %354 = getelementptr inbounds nuw ptr, ptr %_ZN6casadi15legendre_pointsE.sink, i64 %1
   %355 = load ptr, ptr %354, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.idx = shl nuw nsw i64 %1, 4

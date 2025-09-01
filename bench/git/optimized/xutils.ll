@@ -265,7 +265,7 @@ define dso_local range(i32 0, 2) i32 @xdl_blankline(ptr noundef readonly capture
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.011
   %9 = load i8, ptr %8, align 1, !tbaa !14
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !14
   %13 = and i8 %12, 1
   %.not10 = icmp eq i8 %13, 0
@@ -327,7 +327,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = and i8 %23, 1
   %.not145 = icmp eq i8 %24, 0
@@ -356,7 +356,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %29 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv258
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !14
   %34 = and i8 %33, 1
   %.not146 = icmp eq i8 %34, 0
@@ -390,7 +390,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = and i8 %49, 1
   %.not140 = icmp eq i8 %50, 0
@@ -400,7 +400,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 
 51:                                               ; preds = %.lr.ph212
   %52 = zext i8 %.pre to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !14
   %55 = and i8 %54, 1
   %.not141 = icmp eq i8 %55, 0
@@ -416,7 +416,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %58 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv262
   %59 = load i8, ptr %58, align 1, !tbaa !14
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !14
   %63 = and i8 %62, 1
   %.not143 = icmp eq i8 %63, 0
@@ -443,7 +443,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %68 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv266
   %69 = load i8, ptr %68, align 1, !tbaa !14
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !14
   %73 = and i8 %72, 1
   %.not144 = icmp eq i8 %73, 0
@@ -638,7 +638,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %141 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv286
   %142 = load i8, ptr %141, align 1, !tbaa !14
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !14
   %146 = and i8 %145, 1
   %.not147 = icmp eq i8 %146, 0
@@ -664,7 +664,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %152 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv290
   %153 = load i8, ptr %152, align 1, !tbaa !14
   %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !14
   %157 = and i8 %156, 1
   %.not149 = icmp eq i8 %157, 0
@@ -770,7 +770,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.0517491.us.us.i = phi ptr [ %58, %41 ], [ %5, %.lr.ph92.split.us.i ]
   %.07590.us.us.i = phi i64 [ %.1.us100.us.i, %41 ], [ 5381, %.lr.ph92.split.us.i ]
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = and i8 %39, 1
   %.not59.us.us.i = icmp eq i8 %40, 0
@@ -790,7 +790,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
 45:                                               ; preds = %.preheader66.us.us.i
   %46 = load i8, ptr %43, align 1, !tbaa !14
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = and i8 %49, 1
   %.not60.us.us.i = icmp eq i8 %50, 0
@@ -825,7 +825,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.0517491.us.i = phi ptr [ %88, %65 ], [ %5, %.lr.ph92.split.us.i ]
   %.07590.us.i = phi i64 [ %.1.us100.i, %65 ], [ 5381, %.lr.ph92.split.us.i ]
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !14
   %64 = and i8 %63, 1
   %.not59.us.i = icmp eq i8 %64, 0
@@ -845,7 +845,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
 69:                                               ; preds = %.preheader66.us.i
   %70 = load i8, ptr %67, align 1, !tbaa !14
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !14
   %74 = and i8 %73, 1
   %.not60.us.i = icmp eq i8 %74, 0
@@ -899,7 +899,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.0517491.i = phi ptr [ %109, %90 ], [ %5, %.lr.ph92.i ]
   %.07590.i = phi i64 [ %.1.i, %90 ], [ 5381, %.lr.ph92.i ]
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !14
   %96 = and i8 %95, 1
   %.not59.i = icmp eq i8 %96, 0
@@ -914,7 +914,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
 99:                                               ; preds = %.preheader66.i
   %100 = load i8, ptr %97, align 1, !tbaa !14
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !14
   %104 = and i8 %103, 1
   %.not60.i = icmp eq i8 %104, 0
@@ -1019,7 +1019,7 @@ define dso_local noundef i32 @xdl_num_out(ptr noundef %0, i64 noundef %1) local_
   %.12028 = phi ptr [ %12, %.lr.ph ], [ %.12028.ph, %.lr.ph.preheader ]
   %.12227 = phi i64 [ %13, %.lr.ph ], [ %.12227.ph, %.lr.ph.preheader ]
   %9 = urem i64 %.12227, 10
-  %10 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = getelementptr inbounds i8, ptr %.12028, i64 -1
   store i8 %11, ptr %12, align 1, !tbaa !14
@@ -1102,7 +1102,7 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_hunk_hdr(i64 noundef %0, i64 nou
   %.12028.i.i = phi ptr [ %28, %.lr.ph.i.i ], [ %.12028.i.i.ph, %.lr.ph.i.i.preheader ]
   %.12227.i.i = phi i64 [ %29, %.lr.ph.i.i ], [ %.12227.i.i.ph, %.lr.ph.i.i.preheader ]
   %25 = urem i64 %.12227.i.i, 10
-  %26 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !14
   %28 = getelementptr inbounds i8, ptr %.12028.i.i, i64 -1
   store i8 %27, ptr %28, align 1, !tbaa !14
@@ -1171,7 +1171,7 @@ xdl_num_out.exit.i:                               ; preds = %.preheader.i.i, %._
   %.12028.i58.i = phi ptr [ %56, %.lr.ph.i57.i ], [ %.12028.i58.i.ph, %.lr.ph.i57.i.preheader ]
   %.12227.i59.i = phi i64 [ %57, %.lr.ph.i57.i ], [ %.12227.i59.i.ph, %.lr.ph.i57.i.preheader ]
   %53 = urem i64 %.12227.i59.i, 10
-  %54 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = getelementptr inbounds i8, ptr %.12028.i58.i, i64 -1
   store i8 %55, ptr %56, align 1, !tbaa !14
@@ -1244,7 +1244,7 @@ xdl_num_out.exit69.i:                             ; preds = %.preheader.i61.i, %
   %.12028.i75.i = phi ptr [ %86, %.lr.ph.i74.i ], [ %.12028.i75.i.ph, %.lr.ph.i74.i.preheader ]
   %.12227.i76.i = phi i64 [ %87, %.lr.ph.i74.i ], [ %.12227.i76.i.ph, %.lr.ph.i74.i.preheader ]
   %83 = urem i64 %.12227.i76.i, 10
-  %84 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !14
   %86 = getelementptr inbounds i8, ptr %.12028.i75.i, i64 -1
   store i8 %85, ptr %86, align 1, !tbaa !14
@@ -1313,7 +1313,7 @@ xdl_num_out.exit86.i:                             ; preds = %.preheader.i78.i, %
   %.12028.i92.i = phi ptr [ %114, %.lr.ph.i91.i ], [ %.12028.i92.i.ph, %.lr.ph.i91.i.preheader ]
   %.12227.i93.i = phi i64 [ %115, %.lr.ph.i91.i ], [ %.12227.i93.i.ph, %.lr.ph.i91.i.preheader ]
   %111 = urem i64 %.12227.i93.i, 10
-  %112 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !14
   %114 = getelementptr inbounds i8, ptr %.12028.i92.i, i64 -1
   store i8 %113, ptr %114, align 1, !tbaa !14
@@ -1364,7 +1364,7 @@ xdl_num_out.exit103.i:                            ; preds = %.preheader.i95.i, %
 134:                                              ; preds = %128
   %135 = add nsw i32 %.1.i, 4
   %136 = sext i32 %131 to i64
-  %137 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %136
+  %137 = getelementptr inbounds i8, ptr %13, i64 %136
   store i8 32, ptr %137, align 1, !tbaa !14
   %138 = sext i32 %135 to i64
   %139 = sub nsw i64 127, %138
@@ -1379,7 +1379,7 @@ xdl_format_hunk_hdr.exit:                         ; preds = %128, %134
   %.2.i = phi i32 [ %142, %134 ], [ %131, %128 ]
   %143 = add nsw i32 %.2.i, 1
   %144 = sext i32 %.2.i to i64
-  %145 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %144
+  %145 = getelementptr inbounds i8, ptr %13, i64 %144
   store i8 10, ptr %145, align 1, !tbaa !14
   store ptr %13, ptr %12, align 8, !tbaa !6
   %146 = sext i32 %143 to i64

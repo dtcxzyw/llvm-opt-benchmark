@@ -613,12 +613,12 @@ define internal void @_ZN12_GLOBAL__N_120AvailableLocalesSink3putEPKcRN6icu_7713
 
 32:                                               ; preds = %26
   %33 = load i32, ptr %18, align 8, !tbaa !38
-  %34 = getelementptr inbounds nuw [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %.021
+  %34 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %.021
   store i32 %33, ptr %34, align 4, !tbaa !10
   %35 = sext i32 %33 to i64
   %36 = shl nsw i64 %35, 3
   %37 = call noalias ptr @uprv_malloc_77(i64 noundef %36) #17
-  %38 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 %.021
+  %38 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 %.021
   store ptr %37, ptr %38, align 8, !tbaa !15
   %39 = icmp eq ptr %37, null
   br i1 %39, label %41, label %.preheader
@@ -710,7 +710,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_133AvailableLocalesStringEnumerati
 
 13:                                               ; preds = %5
   %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !10
   br label %17
 
@@ -747,13 +747,13 @@ define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeratio
   %.019 = phi i32 [ %.120, %13 ], [ %10, %6 ]
   %.018 = phi i32 [ %.1, %13 ], [ %8, %6 ]
   %18 = zext i32 %.018 to i64
-  %19 = getelementptr inbounds nuw [2 x i32], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !10
   %21 = icmp slt i32 %.019, %20
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 0, i64 %18
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = sext i32 %.019 to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25

@@ -1297,7 +1297,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %35, %29, %25, %3
   %49 = icmp eq i32 %48, 2
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %51 = zext i1 %49 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !47, !noalias !54
   store ptr %53, ptr %5, align 8, !tbaa !42, !alias.scope !54
   %54 = load i64, ptr %53, align 8, !noalias !54

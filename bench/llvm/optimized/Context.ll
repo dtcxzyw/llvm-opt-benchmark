@@ -1178,7 +1178,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.thread:  ; preds = %87, %_ZNK5clang4Typ
 
 switch.lookup:                                    ; preds = %18
   %99 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK5clang6interp7Context8classifyENS_8QualTypeE, i64 0, i64 %99
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang6interp7Context8classifyENS_8QualTypeE, i64 %99
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %100
 

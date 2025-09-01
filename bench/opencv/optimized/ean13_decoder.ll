@@ -386,7 +386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %_Z
   %126 = srem i32 %100, 10
   %127 = trunc nsw i32 %126 to i8
   %128 = add nsw i8 %127, 48
-  %129 = getelementptr inbounds nuw [14 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %128, ptr %129, align 1, !tbaa !12
   %130 = load i32, ptr %90, align 8, !tbaa !30
   %131 = add i32 %130, %.072351
@@ -418,7 +418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %_Z
           to label %144 unwind label %204
 
 144:                                              ; preds = %._crit_edge
-  %145 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 0, i64 %.065.lcssa
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 %.065.lcssa
   %146 = load i8, ptr %145, align 1, !tbaa !12
   %147 = add i8 %146, 48
   store i8 %147, ptr %7, align 1, !tbaa !12
@@ -742,8 +742,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203: ; preds = %_Z
 248:                                              ; preds = %224
   %249 = trunc i32 %223 to i8
   %250 = add i8 %249, 48
-  %251 = add nuw nsw i64 %indvars.iv366, 7
-  %252 = getelementptr inbounds nuw [14 x i8], ptr %7, i64 0, i64 %251
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv366
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 7
   store i8 %250, ptr %252, align 1, !tbaa !12
   %253 = load i32, ptr %90, align 8, !tbaa !30
   %254 = add i32 %253, %.375355

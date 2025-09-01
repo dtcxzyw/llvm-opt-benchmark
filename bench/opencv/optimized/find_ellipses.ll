@@ -310,7 +310,7 @@ _ZN2cv3VecIfLi6EEC2ERKS1_.exit:                   ; preds = %.lr.ph, %135
 
 .noexc51:                                         ; preds = %_ZN2cv3VecIfLi6EEC2ERKS1_.exit, %.noexc55
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc55 ], [ 0, %_ZN2cv3VecIfLi6EEC2ERKS1_.exit ]
-  %99 = getelementptr inbounds nuw [6 x float], ptr %6, i64 0, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
   %100 = load float, ptr %99, align 4, !tbaa !50
   %101 = fpext float %100 to double
   %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %101)

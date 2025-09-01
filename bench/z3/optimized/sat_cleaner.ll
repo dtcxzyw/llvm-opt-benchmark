@@ -249,7 +249,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
 29:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.04856 = phi i32 [ 0, %.lr.ph ], [ %.149, %43 ]
-  %30 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %26, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %indvars.iv
   %.sroa.04.0.copyload = load i32, ptr %30, align 4, !tbaa !16
   %31 = zext i32 %.sroa.04.0.copyload to i64
   %32 = getelementptr inbounds nuw i32, ptr %28, i64 %31
@@ -272,7 +272,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
   br i1 %.not51, label %41, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %26, i64 0, i64 %38
+  %40 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %38
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4, !tbaa !16
   store i32 %.sroa.04.0.copyload, ptr %40, align 4, !tbaa !16
   store i32 %.sroa.0.0.copyload.i, ptr %30, align 4, !tbaa !16

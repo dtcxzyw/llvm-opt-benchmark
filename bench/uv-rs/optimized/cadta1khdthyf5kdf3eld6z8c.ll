@@ -2476,10 +2476,10 @@ common.resume:                                    ; preds = %637, %653, %.body.i
 
 switch.lookup:                                    ; preds = %.lr.ph759.i
   %345 = zext nneg i8 %340 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 0, i64 %345
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %345
   %switch.load = load ptr, ptr %switch.gep, align 8
   %346 = zext nneg i8 %340 to i64
-  %switch.gep562 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 0, i64 %346
+  %switch.gep562 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %346
   %switch.load563 = load i64, ptr %switch.gep562, align 8
   %347 = getelementptr inbounds nuw i8, ptr %switch.load, i64 %switch.load563
   br label %.lr.ph756.i
@@ -2566,10 +2566,10 @@ switch.lookup:                                    ; preds = %.lr.ph759.i
 
 switch.lookup566:                                 ; preds = %.lr.ph754.i
   %373 = zext nneg i8 %369 to i64
-  %switch.gep570 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 0, i64 %373
+  %switch.gep570 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %373
   %switch.load571 = load ptr, ptr %switch.gep570, align 8
   %374 = zext nneg i8 %369 to i64
-  %switch.gep572 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 0, i64 %374
+  %switch.gep572 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %374
   %switch.load573 = load i64, ptr %switch.gep572, align 8
   %375 = getelementptr inbounds nuw i8, ptr %switch.load571, i64 %switch.load573
   br label %.lr.ph751.i
@@ -2682,10 +2682,10 @@ switch.lookup566:                                 ; preds = %.lr.ph754.i
 
 switch.lookup586:                                 ; preds = %.preheader.i
   %402 = zext nneg i8 %400 to i64
-  %switch.gep590 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 0, i64 %402
+  %switch.gep590 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %402
   %switch.load591 = load ptr, ptr %switch.gep590, align 8
   %403 = zext nneg i8 %400 to i64
-  %switch.gep592 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 0, i64 %403
+  %switch.gep592 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %403
   %switch.load593 = load i64, ptr %switch.gep592, align 8
   %404 = getelementptr inbounds nuw i8, ptr %switch.load591, i64 %switch.load593
   br label %.lr.ph748.i
@@ -2725,10 +2725,10 @@ switch.lookup586:                                 ; preds = %.preheader.i
 
 switch.lookup576:                                 ; preds = %.preheader735.i
   %418 = zext nneg i8 %395 to i64
-  %switch.gep580 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 0, i64 %418
+  %switch.gep580 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %418
   %switch.load581 = load ptr, ptr %switch.gep580, align 8
   %419 = zext nneg i8 %395 to i64
-  %switch.gep582 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 0, i64 %419
+  %switch.gep582 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %419
   %switch.load583 = load i64, ptr %switch.gep582, align 8
   %420 = getelementptr inbounds nuw i8, ptr %switch.load581, i64 %switch.load583
   br label %.lr.ph.i
@@ -5479,10 +5479,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i8, ptr %0, align 1, !range !469, !alias.scope !989, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep3 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 0, i64 %7
+  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 %7
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   store ptr %switch.load4, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5691,10 +5691,10 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %4 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 0, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %5
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load3, 1
@@ -5706,10 +5706,10 @@ define { ptr, i64 } @_ZN16uv_platform_tags4tags12BinaryFormat16platform_machine1
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !469, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE.30, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE.30, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -5721,10 +5721,10 @@ define { ptr, i64 } @_ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !469, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

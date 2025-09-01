@@ -153,7 +153,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 49:                                               ; preds = %47
   %50 = add nsw i32 %.0130254, 1
   %51 = sext i32 %.0130254 to i64
-  %52 = getelementptr inbounds [50 x i8], ptr %3, i64 0, i64 %51
+  %52 = getelementptr inbounds i8, ptr %3, i64 %51
   store i8 %36, ptr %52, align 1, !tbaa !24
   br label %53
 
@@ -1754,7 +1754,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
 
 22:                                               ; preds = %20
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %23, i32 2
+  %24 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %23, i32 2
   %25 = load i32, ptr %24, align 4, !tbaa !66
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %.backedge.i.preheader
@@ -1961,7 +1961,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
 
 99:                                               ; preds = %97
   %100 = zext nneg i32 %98 to i64
-  %101 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %100, i32 2
+  %101 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %100, i32 2
   %102 = load i32, ptr %101, align 4, !tbaa !66
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %104, label %107
@@ -2030,7 +2030,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
 
 128:                                              ; preds = %126
   %129 = zext nneg i32 %127 to i64
-  %130 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %129, i32 2
+  %130 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %129, i32 2
   %131 = load i32, ptr %130, align 4, !tbaa !66
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %133, label %134
@@ -2574,15 +2574,15 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull 
   %62 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %6, i64 noundef 132, ptr noundef nonnull @.str.14, i64 noundef %.3114) #18
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
   %.not119 = icmp eq i64 %63, 0
-  br i1 %.not119, label %._crit_edge112, label %.lr.ph111.preheader
+  br i1 %.not119, label %._crit_edge112, label %.lr.ph111
 
-.lr.ph111.preheader:                              ; preds = %._crit_edge
+.lr.ph111:                                        ; preds = %._crit_edge
   %64 = sub i64 0, %63
   %scevgep127 = getelementptr i8, ptr %scevgep, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep127, ptr nonnull align 16 %6, i64 %63, i1 false), !tbaa !24
   br label %._crit_edge112
 
-._crit_edge112:                                   ; preds = %.lr.ph111.preheader, %._crit_edge
+._crit_edge112:                                   ; preds = %.lr.ph111, %._crit_edge
   br i1 %.not89, label %67, label %65
 
 65:                                               ; preds = %._crit_edge112

@@ -7737,7 +7737,7 @@ define noundef range(i32 1650728960, 1668300800) i32 @_ZN2cv17AVIWriteContainer1
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -7783,7 +7783,7 @@ define void @_ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE(ptr noundef
   %switch.tableidx = add i32 %2, -1
   %22 = icmp ult i32 %switch.tableidx, 3
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 %23
   br label %24
 
 ._crit_edge:                                      ; preds = %_ZN2cv9BitStream6putIntEj.exit18, %3

@@ -80,7 +80,7 @@ define dso_local range(i32 -1, 1) i32 @option_parse_diagnose(ptr noundef readonl
 .preheader:                                       ; preds = %3, %8
   %.not19 = phi i1 [ false, %8 ], [ true, %3 ]
   %.018 = phi i64 [ 1, %8 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw [2 x %struct.diagnose_option], ptr @diagnose_options, i64 0, i64 %.018
+  %9 = getelementptr inbounds nuw %struct.diagnose_option, ptr @diagnose_options, i64 %.018
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #11
@@ -425,7 +425,7 @@ loose_objs_stats.exit:                            ; preds = %strbuf_setlen.exit4
 
 .preheader:                                       ; preds = %loose_objs_stats.exit, %123
   %.02563 = phi i64 [ %124, %123 ], [ 0, %loose_objs_stats.exit ]
-  %125 = getelementptr inbounds nuw [5 x %struct.archive_dir], ptr @__const.create_diagnostics_archive.archive_dirs, i64 0, i64 %.02563
+  %125 = getelementptr inbounds nuw %struct.archive_dir, ptr @__const.create_diagnostics_archive.archive_dirs, i64 %.02563
   %126 = load ptr, ptr %125, align 16, !tbaa !67
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load i32, ptr %127, align 8, !tbaa !69

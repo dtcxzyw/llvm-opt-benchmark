@@ -736,7 +736,7 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnu
   %5 = load i32, ptr %4, align 8, !tbaa !55
   %6 = sitofp i32 %5 to double
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [5 x double], ptr @_ZN2cv11xfeatures2dL12mScaleRatiosE, i64 0, i64 %7
+  %8 = getelementptr inbounds double, ptr @_ZN2cv11xfeatures2dL12mScaleRatiosE, i64 %7
   %9 = load double, ptr %8, align 8, !tbaa !77
   %10 = fmul double %9, %6
   %11 = insertelement <2 x double> poison, double %10, i64 0
@@ -1592,9 +1592,9 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher15verifyCellPairsEi(ptr nound
   %5 = alloca %"class.cv::Scalar_", align 8
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = alloca %"class.cv::Mat", align 8
-  %8 = add nsw i32 %1, -1
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [8 x [9 x i32]], ptr @_ZN2cv11xfeatures2dL17mRotationPatternsE, i64 0, i64 %9
+  %8 = sext i32 %1 to i64
+  %9 = getelementptr [9 x i32], ptr @_ZN2cv11xfeatures2dL17mRotationPatternsE, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -36
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8, !tbaa !97
   %13 = icmp sgt i32 %12, 0

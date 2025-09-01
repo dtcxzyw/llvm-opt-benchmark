@@ -13675,7 +13675,7 @@ thread-pre-split:                                 ; preds = %.lr.ph.i.i.i.i105, 
 50:                                               ; preds = %.lr.ph, %_ZN17hint_macro_solver12occurs_checkclEP3app.exit
   %51 = phi i32 [ %47, %.lr.ph ], [ %174, %_ZN17hint_macro_solver12occurs_checkclEP3app.exit ]
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %49, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !121
   %55 = add nuw i32 %51, 1
   store i32 %55, ptr %46, align 8, !tbaa !370

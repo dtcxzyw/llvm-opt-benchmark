@@ -2266,7 +2266,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf2cfe7fcef3336a8E.exit: ; preds = %38
 switch.lookup:                                    ; preds = %_ZN4core3ops8function6FnOnce9call_once17hf2cfe7fcef3336a8E.exit, %37
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %51 = load i8, ptr %50, align 4, !range !241, !noundef !14
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @switch.table._ZN17meilisearch_types5tasks15KindWithContent7as_kind17hf5353d389ad31490E, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17meilisearch_types5tasks15KindWithContent7as_kind17hf5353d389ad31490E, i64 %21
   %switch.load = load i8, ptr %switch.gep, align 1
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %53 = load i32, ptr %52, align 8, !range !311, !noundef !14
@@ -3112,7 +3112,7 @@ switch.lookup:
   %2 = xor i64 %1, -9223372036854775808
   %3 = icmp ult i64 %2, 13
   %4 = select i1 %3, i64 %2, i64 2
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @switch.table._ZN17meilisearch_types5tasks15KindWithContent7as_kind17hf5353d389ad31490E, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17meilisearch_types5tasks15KindWithContent7as_kind17hf5353d389ad31490E, i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -5038,7 +5038,7 @@ define noundef range(i8 0, 12) i8 @"_ZN17meilisearch_types5tasks1_84_$LT$impl$u2
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !489, !noundef !14
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @"switch.table._ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$8previous17h9452c47573bb6aaeE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN17meilisearch_types5tasks1_84_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..tasks..Kind$GT$8previous17h9452c47573bb6aaeE", i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

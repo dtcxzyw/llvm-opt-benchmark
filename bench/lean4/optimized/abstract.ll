@@ -412,7 +412,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   %32 = add i64 %.02851.us.i.i.i, -1
   %33 = load ptr, ptr %31, align 8, !tbaa !41, !noalias !31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %34, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8, !tbaa !21, !noalias !31
   %37 = getelementptr i8, ptr %36, i64 4
   %.val.i.us.i.i.i = load i32, ptr %37, align 4, !noalias !31
@@ -439,7 +439,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   %46 = add i64 %.02851.us53.i.i.i, -1
   %47 = load ptr, ptr %31, align 8, !tbaa !41, !noalias !31
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %46
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8, !tbaa !21, !noalias !31
   %51 = getelementptr i8, ptr %50, i64 4
   %.val.i34.us.i.i.i = load i32, ptr %51, align 4, !noalias !31

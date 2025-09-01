@@ -317,7 +317,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 switch.lookup:                                    ; preds = %.critedge
   %98 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.config_input, i64 0, i64 %98
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_input, i64 %98
   %switch.load = load ptr, ptr %switch.gep, align 8
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr %switch.load, ptr %99, align 8, !tbaa !69
@@ -364,9 +364,9 @@ define internal noundef i32 @filter_slice(ptr noundef %0, ptr noundef readonly c
 
 21:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !57
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !57
   %26 = mul nsw i32 %23, %2
   %27 = sdiv i32 %26, %3
@@ -380,16 +380,16 @@ define internal noundef i32 @filter_slice(ptr noundef %0, ptr noundef readonly c
   br i1 %.not, label %34, label %54
 
 34:                                               ; preds = %21
-  %35 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !71
-  %37 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !57
   %39 = mul nsw i32 %38, %27
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %36, i64 %40
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !71
-  %44 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !57
   %46 = mul nsw i32 %45, %27
   %47 = sext i32 %46 to i64
@@ -404,13 +404,13 @@ define internal noundef i32 @filter_slice(ptr noundef %0, ptr noundef readonly c
 
 54:                                               ; preds = %21
   %55 = load ptr, ptr %17, align 8, !tbaa !69
-  %56 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !71
-  %58 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !57
-  %60 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !71
-  %62 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !57
   %64 = mul nsw i32 %63, %27
   %65 = sext i32 %64 to i64
@@ -479,7 +479,7 @@ define internal fastcc void @check_params(ptr noundef captures(none) %0, ptr nou
   br i1 %.not, label %54, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !57
   %35 = load i32, ptr %8, align 4, !tbaa !29
   %36 = shl nsw i32 %35, 1
@@ -497,7 +497,7 @@ define internal fastcc void @check_params(ptr noundef captures(none) %0, ptr nou
   br label %43
 
 43:                                               ; preds = %37, %32
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !57
   %46 = load i32, ptr %11, align 8, !tbaa !28
   %47 = shl nsw i32 %46, 1
@@ -886,7 +886,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
 .preheader271:                                    ; preds = %.preheader271.preheader, %.preheader271
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader271 ], [ 0, %.preheader271.preheader ]
   %179 = load ptr, ptr %110, align 8, !tbaa !68
-  %180 = getelementptr inbounds nuw [16 x [16 x i16]], ptr %12, i64 0, i64 %indvars.iv347
+  %180 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv347
   %181 = mul nsw i64 %indvars.iv347, %119
   %182 = getelementptr inbounds i16, ptr %24, i64 %181
   call void %179(ptr noundef nonnull %180, ptr noundef %182, i32 noundef %115, i32 noundef 16) #9
@@ -919,7 +919,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
 191:                                              ; preds = %.lr.ph311, %197
   %indvars.iv351 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next352, %197 ]
   %.0231296 = phi i32 [ 0, %.lr.ph311 ], [ %195, %197 ]
-  %192 = getelementptr inbounds nuw [16 x i16], ptr %11, i64 0, i64 %indvars.iv351
+  %192 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv351
   %193 = load i16, ptr %192, align 2, !tbaa !76
   %194 = zext i16 %193 to i32
   %195 = add nuw nsw i32 %.0231296, %194
@@ -938,7 +938,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
 
 198:                                              ; preds = %191
   %199 = trunc nuw nsw i64 %indvars.iv351 to i32
-  %200 = getelementptr inbounds nuw [16 x i16], ptr %13, i64 0, i64 %indvars.iv351
+  %200 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv351
   %201 = load i16, ptr %200, align 2, !tbaa !76
   %202 = sub nsw i64 %indvars.iv359, %120
   %203 = zext i16 %201 to i64
@@ -950,12 +950,12 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not261305, label %.loopexit, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.preheader
-  %204 = getelementptr inbounds nuw [16 x [16 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %204 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv351
   %205 = mul nuw nsw i32 %5, %199
   br label %236
 
 206:                                              ; preds = %198
-  %207 = getelementptr inbounds nuw [16 x [16 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %207 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv351
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %207, i8 0, i64 32, i1 false)
   %208 = trunc nsw i64 %202 to i32
   %209 = trunc i64 %202 to i16
@@ -1043,7 +1043,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %257 = zext nneg i32 %256 to i64
   %258 = getelementptr inbounds nuw i16, ptr %20, i64 %257
   call void %254(ptr noundef nonnull %11, ptr noundef %258, i32 noundef 16) #9
-  %259 = getelementptr inbounds nuw [16 x [16 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %259 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv351
   br label %260
 
 260:                                              ; preds = %253, %266
@@ -1362,7 +1362,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 .preheader271:                                    ; preds = %.preheader271.preheader, %.preheader271
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader271 ], [ 0, %.preheader271.preheader ]
   %185 = load ptr, ptr %113, align 8, !tbaa !68
-  %186 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv347
+  %186 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv347
   %187 = mul nsw i64 %indvars.iv347, %123
   %188 = getelementptr inbounds i16, ptr %24, i64 %187
   call void %185(ptr noundef nonnull %186, ptr noundef %188, i32 noundef %118, i32 noundef 32) #9
@@ -1395,7 +1395,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 197:                                              ; preds = %.lr.ph311, %203
   %indvars.iv351 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next352, %203 ]
   %.0231296 = phi i32 [ 0, %.lr.ph311 ], [ %201, %203 ]
-  %198 = getelementptr inbounds nuw [32 x i16], ptr %11, i64 0, i64 %indvars.iv351
+  %198 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv351
   %199 = load i16, ptr %198, align 2, !tbaa !76
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %.0231296, %200
@@ -1414,7 +1414,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 
 204:                                              ; preds = %197
   %205 = trunc nuw nsw i64 %indvars.iv351 to i32
-  %206 = getelementptr inbounds nuw [32 x i16], ptr %13, i64 0, i64 %indvars.iv351
+  %206 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv351
   %207 = load i16, ptr %206, align 2, !tbaa !76
   %208 = sub nsw i64 %indvars.iv359, %124
   %209 = zext i16 %207 to i64
@@ -1426,12 +1426,12 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not261305, label %.loopexit, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.preheader
-  %210 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %210 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv351
   %211 = mul nuw nsw i32 %5, %205
   br label %242
 
 212:                                              ; preds = %204
-  %213 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %213 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv351
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %213, i8 0, i64 64, i1 false)
   %214 = trunc nsw i64 %208 to i32
   %215 = trunc i64 %208 to i16
@@ -1519,7 +1519,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %263 = zext nneg i32 %262 to i64
   %264 = getelementptr inbounds nuw i16, ptr %20, i64 %263
   call void %260(ptr noundef nonnull %11, ptr noundef %264, i32 noundef 32) #9
-  %265 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %265 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv351
   br label %266
 
 266:                                              ; preds = %259, %272
@@ -1838,7 +1838,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 .preheader271:                                    ; preds = %.preheader271.preheader, %.preheader271
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader271 ], [ 0, %.preheader271.preheader ]
   %185 = load ptr, ptr %113, align 8, !tbaa !68
-  %186 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv347
+  %186 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv347
   %187 = mul nsw i64 %indvars.iv347, %123
   %188 = getelementptr inbounds i16, ptr %24, i64 %187
   call void %185(ptr noundef nonnull %186, ptr noundef %188, i32 noundef %118, i32 noundef 32) #9
@@ -1871,7 +1871,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 197:                                              ; preds = %.lr.ph311, %203
   %indvars.iv351 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next352, %203 ]
   %.0231296 = phi i32 [ 0, %.lr.ph311 ], [ %201, %203 ]
-  %198 = getelementptr inbounds nuw [32 x i16], ptr %11, i64 0, i64 %indvars.iv351
+  %198 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv351
   %199 = load i16, ptr %198, align 2, !tbaa !76
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %.0231296, %200
@@ -1890,7 +1890,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 
 204:                                              ; preds = %197
   %205 = trunc nuw nsw i64 %indvars.iv351 to i32
-  %206 = getelementptr inbounds nuw [32 x i16], ptr %13, i64 0, i64 %indvars.iv351
+  %206 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv351
   %207 = load i16, ptr %206, align 2, !tbaa !76
   %208 = sub nsw i64 %indvars.iv359, %124
   %209 = zext i16 %207 to i64
@@ -1902,12 +1902,12 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261305, label %.loopexit, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.preheader
-  %210 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %210 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv351
   %211 = mul nuw nsw i32 %5, %205
   br label %242
 
 212:                                              ; preds = %204
-  %213 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %213 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv351
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %213, i8 0, i64 64, i1 false)
   %214 = trunc nsw i64 %208 to i32
   %215 = trunc i64 %208 to i16
@@ -1995,7 +1995,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %263 = zext nneg i32 %262 to i64
   %264 = getelementptr inbounds nuw i16, ptr %20, i64 %263
   call void %260(ptr noundef nonnull %11, ptr noundef %264, i32 noundef 32) #9
-  %265 = getelementptr inbounds nuw [32 x [32 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %265 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv351
   br label %266
 
 266:                                              ; preds = %259, %272
@@ -2314,7 +2314,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 .preheader271:                                    ; preds = %.preheader271.preheader, %.preheader271
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader271 ], [ 0, %.preheader271.preheader ]
   %185 = load ptr, ptr %113, align 8, !tbaa !68
-  %186 = getelementptr inbounds nuw [64 x [64 x i16]], ptr %12, i64 0, i64 %indvars.iv347
+  %186 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv347
   %187 = mul nsw i64 %indvars.iv347, %123
   %188 = getelementptr inbounds i16, ptr %24, i64 %187
   call void %185(ptr noundef nonnull %186, ptr noundef %188, i32 noundef %118, i32 noundef 64) #9
@@ -2347,7 +2347,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 197:                                              ; preds = %.lr.ph311, %203
   %indvars.iv351 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next352, %203 ]
   %.0231296 = phi i32 [ 0, %.lr.ph311 ], [ %201, %203 ]
-  %198 = getelementptr inbounds nuw [64 x i16], ptr %11, i64 0, i64 %indvars.iv351
+  %198 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv351
   %199 = load i16, ptr %198, align 2, !tbaa !76
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %.0231296, %200
@@ -2366,7 +2366,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 
 204:                                              ; preds = %197
   %205 = trunc nuw nsw i64 %indvars.iv351 to i32
-  %206 = getelementptr inbounds nuw [64 x i16], ptr %13, i64 0, i64 %indvars.iv351
+  %206 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv351
   %207 = load i16, ptr %206, align 2, !tbaa !76
   %208 = sub nsw i64 %indvars.iv359, %124
   %209 = zext i16 %207 to i64
@@ -2378,12 +2378,12 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261305, label %.loopexit, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.preheader
-  %210 = getelementptr inbounds nuw [64 x [64 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %210 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv351
   %211 = mul nuw nsw i32 %5, %205
   br label %242
 
 212:                                              ; preds = %204
-  %213 = getelementptr inbounds nuw [64 x [64 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %213 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv351
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %213, i8 0, i64 128, i1 false)
   %214 = trunc nsw i64 %208 to i32
   %215 = trunc i64 %208 to i16
@@ -2471,7 +2471,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %263 = zext nneg i32 %262 to i64
   %264 = getelementptr inbounds nuw i16, ptr %20, i64 %263
   call void %260(ptr noundef nonnull %11, ptr noundef %264, i32 noundef 64) #9
-  %265 = getelementptr inbounds nuw [64 x [64 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %265 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv351
   br label %266
 
 266:                                              ; preds = %259, %272
@@ -2790,7 +2790,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 .preheader271:                                    ; preds = %.preheader271.preheader, %.preheader271
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader271 ], [ 0, %.preheader271.preheader ]
   %185 = load ptr, ptr %113, align 8, !tbaa !68
-  %186 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %12, i64 0, i64 %indvars.iv347
+  %186 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv347
   %187 = mul nsw i64 %indvars.iv347, %123
   %188 = getelementptr inbounds i16, ptr %24, i64 %187
   call void %185(ptr noundef nonnull %186, ptr noundef %188, i32 noundef %118, i32 noundef 128) #9
@@ -2823,7 +2823,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 197:                                              ; preds = %.lr.ph311, %203
   %indvars.iv351 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next352, %203 ]
   %.0231296 = phi i32 [ 0, %.lr.ph311 ], [ %201, %203 ]
-  %198 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv351
+  %198 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv351
   %199 = load i16, ptr %198, align 2, !tbaa !76
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %.0231296, %200
@@ -2842,7 +2842,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 
 204:                                              ; preds = %197
   %205 = trunc nuw nsw i64 %indvars.iv351 to i32
-  %206 = getelementptr inbounds nuw [128 x i16], ptr %13, i64 0, i64 %indvars.iv351
+  %206 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv351
   %207 = load i16, ptr %206, align 2, !tbaa !76
   %208 = sub nsw i64 %indvars.iv359, %124
   %209 = zext i16 %207 to i64
@@ -2854,12 +2854,12 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261305, label %.loopexit, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.preheader
-  %210 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %210 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv351
   %211 = mul nuw nsw i32 %5, %205
   br label %242
 
 212:                                              ; preds = %204
-  %213 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %213 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv351
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %213, i8 0, i64 256, i1 false)
   %214 = trunc nsw i64 %208 to i32
   %215 = trunc i64 %208 to i16
@@ -2947,7 +2947,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %263 = zext nneg i32 %262 to i64
   %264 = getelementptr inbounds nuw i16, ptr %20, i64 %263
   call void %260(ptr noundef nonnull %11, ptr noundef %264, i32 noundef 128) #9
-  %265 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %265 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv351
   br label %266
 
 266:                                              ; preds = %259, %272
@@ -3266,7 +3266,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 .preheader271:                                    ; preds = %.preheader271.preheader, %.preheader271
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader271 ], [ 0, %.preheader271.preheader ]
   %181 = load ptr, ptr %111, align 8, !tbaa !68
-  %182 = getelementptr inbounds nuw [256 x [256 x i16]], ptr %12, i64 0, i64 %indvars.iv347
+  %182 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv347
   %183 = mul nsw i64 %indvars.iv347, %121
   %184 = getelementptr inbounds i16, ptr %24, i64 %183
   call void %181(ptr noundef nonnull %182, ptr noundef %184, i32 noundef %116, i32 noundef 256) #9
@@ -3299,7 +3299,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 193:                                              ; preds = %.lr.ph311, %199
   %indvars.iv351 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next352, %199 ]
   %.0231296 = phi i32 [ 0, %.lr.ph311 ], [ %197, %199 ]
-  %194 = getelementptr inbounds nuw [256 x i16], ptr %11, i64 0, i64 %indvars.iv351
+  %194 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv351
   %195 = load i16, ptr %194, align 2, !tbaa !76
   %196 = zext i16 %195 to i32
   %197 = add nuw nsw i32 %.0231296, %196
@@ -3318,7 +3318,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 
 200:                                              ; preds = %193
   %201 = trunc nuw nsw i64 %indvars.iv351 to i32
-  %202 = getelementptr inbounds nuw [256 x i16], ptr %13, i64 0, i64 %indvars.iv351
+  %202 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv351
   %203 = load i16, ptr %202, align 2, !tbaa !76
   %204 = sub nsw i64 %indvars.iv359, %122
   %205 = zext i16 %203 to i64
@@ -3330,12 +3330,12 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261305, label %.loopexit, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.preheader
-  %206 = getelementptr inbounds nuw [256 x [256 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %206 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv351
   %207 = mul nuw nsw i32 %5, %201
   br label %238
 
 208:                                              ; preds = %200
-  %209 = getelementptr inbounds nuw [256 x [256 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %209 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv351
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %209, i8 0, i64 512, i1 false)
   %210 = trunc nsw i64 %204 to i32
   %211 = trunc i64 %204 to i16
@@ -3423,7 +3423,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %259 = zext nneg i32 %258 to i64
   %260 = getelementptr inbounds nuw i16, ptr %20, i64 %259
   call void %256(ptr noundef nonnull %11, ptr noundef %260, i32 noundef 256) #9
-  %261 = getelementptr inbounds nuw [256 x [256 x i16]], ptr %12, i64 0, i64 %indvars.iv351
+  %261 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv351
   br label %262
 
 262:                                              ; preds = %255, %268

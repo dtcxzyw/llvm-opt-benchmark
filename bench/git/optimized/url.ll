@@ -20,7 +20,7 @@ define dso_local range(i32 0, 2) i32 @is_urlschemechar(i32 noundef %0, i32 nound
 4:                                                ; preds = %2
   %5 = and i32 %1, 255
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !4
   %9 = and i8 %8, 6
   %10 = icmp ne i8 %9, 0
@@ -52,7 +52,7 @@ define dso_local range(i32 0, 2) i32 @is_url(ptr noundef readonly captures(addre
 
 is_urlschemechar.exit:                            ; preds = %2
   %5 = zext nneg i8 %3 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = and i8 %7, 6
   %.not16 = icmp eq i8 %8, 0
@@ -73,7 +73,7 @@ is_urlschemechar.exit:                            ; preds = %2
   br i1 %12, label %13, label %is_urlschemechar.exit15
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %10
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = and i8 %15, 6
   %17 = icmp ne i8 %16, 0
@@ -226,7 +226,7 @@ define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %0, i
   %21 = getelementptr inbounds nuw i8, ptr %.03580, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = sext i8 %25 to i32
   %.not.i = icmp ult i8 %25, 16
@@ -237,7 +237,7 @@ define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %0, i
   %29 = getelementptr inbounds nuw i8, ptr %.03580, i64 2
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = sext i8 %33 to i32
   %35 = or i32 %28, %34

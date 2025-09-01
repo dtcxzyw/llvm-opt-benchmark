@@ -5242,9 +5242,9 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98: ; preds = %
 
 129:                                              ; preds = %.lr.ph, %128
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %128 ]
-  %130 = getelementptr inbounds nuw [0 x ptr], ptr %124, i64 0, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv
   %131 = load ptr, ptr %130, align 8, !tbaa !18
-  %132 = getelementptr inbounds nuw [0 x ptr], ptr %125, i64 0, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !18
   %.not39 = icmp eq ptr %131, %133
   br i1 %.not39, label %128, label %tailrecurse.loopexit.loopexit

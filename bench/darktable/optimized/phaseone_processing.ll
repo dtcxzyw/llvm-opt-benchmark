@@ -205,7 +205,7 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
   %75 = sext i32 %74 to i64
   %76 = icmp sge i64 %indvars.iv116, %75
   %77 = zext i1 %76 to i64
-  %invariant.gep = getelementptr inbounds nuw [2 x i16], ptr %73, i64 0, i64 %77
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %73, i64 %77
   %78 = sext i32 %72 to i64
   br label %84
 
@@ -234,7 +234,7 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
   %91 = sub i32 %90, %64
   %92 = icmp sge i64 %indvars.iv113, %78
   %93 = zext i1 %92 to i64
-  %94 = getelementptr inbounds nuw [2 x i16], ptr %71, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i16, ptr %71, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !82
   %96 = sext i16 %95 to i32
   %97 = add nsw i32 %91, %96
@@ -284,10 +284,10 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
 
 116:                                              ; preds = %113
   %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds [4104 x i32], ptr %22, i64 0, i64 %117
+  %118 = getelementptr inbounds i32, ptr %22, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !88
   %120 = trunc i32 %119 to i16
-  %121 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %120, ptr %121, align 2, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -318,7 +318,7 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
   %133 = load i16, ptr %132, align 2, !tbaa !82
   %134 = and i32 %.05789, 15
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i16, ptr %4, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !82
   %138 = tail call i16 @llvm.usub.sat.i16(i16 %133, i16 %137)
   %139 = getelementptr inbounds nuw i16, ptr %2, i64 %131

@@ -3649,8 +3649,8 @@ rb_float_value_inline.exit.i.thread.i:            ; preds = %383, %f_negate.exit
   %425 = tail call i64 @rb_int_modulo(i64 noundef %424, i64 noundef 17) #17
   %426 = tail call i64 @rb_fix2int(i64 noundef %425) #17
   %sext.i = shl i64 %426, 32
-  %427 = ashr exact i64 %sext.i, 32
-  %428 = getelementptr [8 x [2 x i32]], ptr @complex_pow_for_special_angle.dirs, i64 0, i64 %427
+  %427 = ashr exact i64 %sext.i, 29
+  %428 = getelementptr i8, ptr @complex_pow_for_special_angle.dirs, i64 %427
   %429 = load i32, ptr %428, align 8, !tbaa !13
   switch i32 %429, label %zero_for.exit.i [
     i32 0, label %430

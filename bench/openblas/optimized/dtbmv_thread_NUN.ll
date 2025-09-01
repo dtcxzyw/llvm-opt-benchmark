@@ -91,18 +91,18 @@ define noundef i32 @dtbmv_thread_NUN(i64 noundef %0, i64 noundef %1, ptr noundef
 48:                                               ; preds = %34, %47
   %.2 = phi i64 [ %spec.select, %47 ], [ %36, %34 ]
   %49 = sub nsw i64 16, %.0123138
-  %50 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %49
+  %50 = getelementptr inbounds i64, ptr %12, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !16
   %52 = sub nsw i64 %51, %.2
   %53 = sub nsw i64 15, %.0123138
-  %54 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %53
+  %54 = getelementptr inbounds i64, ptr %12, i64 %53
   store i64 %52, ptr %54, align 8, !tbaa !16
   %55 = mul nuw nsw i64 %.0123138, %33
-  %56 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %.0123138
+  %56 = getelementptr inbounds nuw i64, ptr %13, i64 %.0123138
   %57 = mul nuw nsw i64 %.0123138, %0
   %spec.select133 = call i64 @llvm.smin.i64(i64 %55, i64 %57)
   store i64 %spec.select133, ptr %56, align 8, !tbaa !16
-  %58 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %.0123138
+  %58 = getelementptr inbounds nuw %struct.blas_queue, ptr %11, i64 %.0123138
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
   store i32 3, ptr %59, align 8, !tbaa !18
   store ptr @trmv_kernel, ptr %58, align 8, !tbaa !21
@@ -114,7 +114,7 @@ define noundef i32 @dtbmv_thread_NUN(i64 noundef %0, i64 noundef %1, ptr noundef
   store ptr %56, ptr %62, align 8, !tbaa !24
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %64 = add nuw nsw i64 %.0123138, 1
-  %65 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw %struct.blas_queue, ptr %11, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store ptr %65, ptr %66, align 8, !tbaa !25
@@ -150,13 +150,13 @@ define noundef i32 @dtbmv_thread_NUN(i64 noundef %0, i64 noundef %1, ptr noundef
 
 84:                                               ; preds = %75
   %85 = zext i32 %82 to i64
-  %86 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !17
   %88 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %87, i32 %80) #7, !srcloc !28
   %89 = extractvalue { i32, i32 } %88, 0
   store volatile i32 %89, ptr %9, align 4, !tbaa !17
   %.0..0..0..0..0..0..i = load volatile i32, ptr %9, align 4, !tbaa !17
-  %.phi.trans.insert = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %.2125136
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %12, i64 %.2125136
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !16
   br label %blas_quickdivide.exit
 
@@ -167,17 +167,17 @@ blas_quickdivide.exit:                            ; preds = %75, %84
   %91 = call i32 @llvm.umax.i32(i32 %.0.i, i32 4)
   %spec.store.select1 = zext i32 %91 to i64
   %spec.select134 = call i64 @llvm.umin.i64(i64 %.1121137, i64 %spec.store.select1)
-  %92 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %.2125136
+  %92 = getelementptr inbounds nuw i64, ptr %12, i64 %.2125136
   %93 = add nsw i64 %spec.select134, %90
   %94 = add nuw nsw i64 %.2125136, 1
-  %95 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i64, ptr %12, i64 %94
   store i64 %93, ptr %95, align 8, !tbaa !16
   %96 = mul nuw nsw i64 %.2125136, %74
-  %97 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %.2125136
+  %97 = getelementptr inbounds nuw i64, ptr %13, i64 %.2125136
   %98 = mul nuw nsw i64 %.2125136, %0
   %storemerge = call i64 @llvm.smin.i64(i64 %96, i64 %98)
   store i64 %storemerge, ptr %97, align 8, !tbaa !16
-  %99 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %.2125136
+  %99 = getelementptr inbounds nuw %struct.blas_queue, ptr %11, i64 %.2125136
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 160
   store i32 3, ptr %100, align 8, !tbaa !18
   store ptr @trmv_kernel, ptr %99, align 8, !tbaa !21
@@ -188,7 +188,7 @@ blas_quickdivide.exit:                            ; preds = %75, %84
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 40
   store ptr %97, ptr %103, align 8, !tbaa !24
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %105 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %94
+  %105 = getelementptr inbounds nuw %struct.blas_queue, ptr %11, i64 %94
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   store ptr %105, ptr %106, align 8, !tbaa !25
@@ -207,8 +207,8 @@ blas_quickdivide.exit:                            ; preds = %75, %84
   %114 = getelementptr inbounds double, ptr %6, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %114, ptr %115, align 8, !tbaa !31
-  %116 = add nsw i64 %.1124, -1
-  %117 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %116, i32 8
+  %116 = getelementptr %struct.blas_queue, ptr %11, i64 %.1124
+  %117 = getelementptr i8, ptr %116, i64 -104
   store ptr null, ptr %117, align 8, !tbaa !25
   %118 = call i32 @exec_blas(i64 noundef %.1124, ptr noundef nonnull %11) #7
   %119 = icmp samesign ugt i64 %.1124, 1
@@ -216,7 +216,7 @@ blas_quickdivide.exit:                            ; preds = %75, %84
 
 .lr.ph143:                                        ; preds = %.loopexit, %.lr.ph143
   %.2122142 = phi i64 [ %124, %.lr.ph143 ], [ 1, %.loopexit ]
-  %120 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %.2122142
+  %120 = getelementptr inbounds nuw i64, ptr %13, i64 %.2122142
   %121 = load i64, ptr %120, align 8, !tbaa !16
   %122 = getelementptr inbounds double, ptr %6, i64 %121
   %123 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %122, i64 noundef 1, ptr noundef %6, i64 noundef 1, ptr noundef null, i64 noundef 0) #7

@@ -442,7 +442,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20Summarizing
 116:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit49.i.i
   %117 = load i8, ptr %115, align 1, !tbaa !16
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %118
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %119, align 1, !tbaa !16
   %120 = icmp sgt i8 %.sroa.0.0.copyload.i.i.i, -1
   br i1 %120, label %121, label %128
@@ -939,7 +939,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
 115:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit49.i.i
   %116 = load i8, ptr %114, align 1, !tbaa !16
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %117
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %118, align 1, !tbaa !16
   %119 = icmp sgt i8 %.sroa.0.0.copyload.i.i.i, -1
   br i1 %119, label %120, label %127
@@ -1610,7 +1610,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35.i: ; preds = %116
 
 switch.lookup:                                    ; preds = %119
   %121 = zext nneg i8 %55 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i8], ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %121
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE, i64 %121
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit.i.i
 

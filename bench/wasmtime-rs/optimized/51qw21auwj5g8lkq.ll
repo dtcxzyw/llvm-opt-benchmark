@@ -3077,10 +3077,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [21 x ptr], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i8 %.0.val to i64
-  %switch.gep6 = getelementptr inbounds nuw [21 x i64], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.18, i64 0, i64 %6
+  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.18, i64 %6
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   store ptr %switch.load, ptr %3, align 8
   store i64 %switch.load7, ptr %4, align 8
@@ -3088,10 +3088,10 @@ switch.lookup:
   %7 = add nsw i32 %.0.val1, -3
   %narrow = tail call i32 @llvm.umin.i32(i32 %7, i32 21)
   %8 = zext nneg i32 %narrow to i64
-  %switch.gep9 = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19, i64 0, i64 %8
+  %switch.gep9 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.19, i64 %8
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   %9 = zext nneg i32 %narrow to i64
-  %switch.gep11 = getelementptr inbounds nuw [22 x i64], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 0, i64 %9
+  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.20, i64 %9
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   store ptr %switch.load10, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8

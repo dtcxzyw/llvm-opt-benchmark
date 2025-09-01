@@ -1033,7 +1033,7 @@ megaco_tree_add_string.exit1075:                  ; preds = %megaco_tvb_skip_wsp
 
 190:                                              ; preds = %207, %._crit_edge
   %indvars.iv.i = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next.i, %207 ]
-  %191 = getelementptr [6 x %struct.megaco_tokens_t], ptr @megaco_messageBody_names, i64 0, i64 %indvars.iv.i
+  %191 = getelementptr %struct.megaco_tokens_t, ptr @megaco_messageBody_names, i64 %indvars.iv.i
   %192 = load ptr, ptr %191, align 16
   %193 = call i64 @strlen(ptr noundef %192) #11
   %194 = icmp eq i64 %193, %189
@@ -3409,7 +3409,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %48, %.lr.ph.i185, %
 
 74:                                               ; preds = %91, %._crit_edge
   %indvars.iv.i = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next.i, %91 ]
-  %75 = getelementptr [14 x %struct.megaco_tokens_t], ptr @megaco_descriptors_names, i64 0, i64 %indvars.iv.i
+  %75 = getelementptr %struct.megaco_tokens_t, ptr @megaco_descriptors_names, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 16
   %77 = call i64 @strlen(ptr noundef %76) #11
   %78 = icmp eq i64 %77, %73
@@ -3573,7 +3573,7 @@ megaco_tvb_skip_wsp.exit.i:                       ; preds = %130, %.lr.ph.i.i, %
 
 142:                                              ; preds = %159, %._crit_edge.i
   %indvars.iv.i.i = phi i64 [ 1, %._crit_edge.i ], [ %indvars.iv.next.i.i, %159 ]
-  %143 = getelementptr [8 x %struct.megaco_tokens_t], ptr @megaco_serviceChangeParm_names, i64 0, i64 %indvars.iv.i.i
+  %143 = getelementptr %struct.megaco_tokens_t, ptr @megaco_serviceChangeParm_names, i64 %indvars.iv.i.i
   %144 = load ptr, ptr %143, align 16
   %145 = call i64 @strlen(ptr noundef %144) #11
   %146 = icmp eq i64 %145, %141
@@ -3804,7 +3804,7 @@ megaco_tvb_skip_wsp_return.exit.i203:             ; preds = %megaco_tvb_skip_wsp
 
 243:                                              ; preds = %260, %.loopexit.i
   %indvars.iv.i.i204 = phi i64 [ 1, %.loopexit.i ], [ %indvars.iv.next.i.i205, %260 ]
-  %244 = getelementptr [14 x %struct.megaco_tokens_t], ptr @megaco_descriptors_names, i64 0, i64 %indvars.iv.i.i204
+  %244 = getelementptr %struct.megaco_tokens_t, ptr @megaco_descriptors_names, i64 %indvars.iv.i.i204
   %245 = load ptr, ptr %244, align 16
   %246 = call i64 @strlen(ptr noundef %245) #11
   %247 = icmp eq i64 %246, %242
@@ -3913,14 +3913,14 @@ megaco_tvb_skip_wsp.exit122.i:                    ; preds = %277, %.lr.ph.i118.i
 288:                                              ; preds = %266
   %289 = sub i32 %.0.lcssa.i111.i, %.0.lcssa.i.i200
   %290 = load i32, ptr @hf_megaco_audititem, align 4
-  %291 = getelementptr [14 x %struct.megaco_tokens_t], ptr @megaco_descriptors_names, i64 0, i64 %265
+  %291 = getelementptr %struct.megaco_tokens_t, ptr @megaco_descriptors_names, i64 %265
   %292 = load ptr, ptr %291, align 16
   %293 = call ptr @proto_tree_add_string(ptr noundef %203, i32 noundef %290, ptr noundef %0, i32 noundef %.0.lcssa.i.i200, i32 noundef %289, ptr noundef %292)
   br label %299
 
 294:                                              ; preds = %find_megaco_descriptors_names.exit.thread.i
   %295 = load i32, ptr @hf_megaco_audititem, align 4
-  %296 = getelementptr [14 x %struct.megaco_tokens_t], ptr @megaco_descriptors_names, i64 0, i64 %265
+  %296 = getelementptr %struct.megaco_tokens_t, ptr @megaco_descriptors_names, i64 %265
   %297 = load ptr, ptr %296, align 16
   %298 = call ptr @proto_tree_add_string(ptr noundef %203, i32 noundef %295, ptr noundef %0, i32 noundef %.0.lcssa.i.i200, i32 noundef %241, ptr noundef %297)
   br label %299
@@ -4473,7 +4473,7 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %.lr.ph.i, %28, %20
 
 40:                                               ; preds = %57, %._crit_edge
   %indvars.iv.i = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next.i, %57 ]
-  %41 = getelementptr [7 x %struct.megaco_tokens_t], ptr @megaco_mediaParm_names, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr %struct.megaco_tokens_t, ptr @megaco_mediaParm_names, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 16
   %43 = call i64 @strlen(ptr noundef %42) #11
   %44 = icmp eq i64 %43, %39
@@ -4644,7 +4644,7 @@ switch.early.test._crit_edge.i:                   ; preds = %109, %switch.early.
 
 113:                                              ; preds = %130, %switch.early.test._crit_edge.i
   %indvars.iv.i.i = phi i64 [ 1, %switch.early.test._crit_edge.i ], [ %indvars.iv.next.i.i, %130 ]
-  %114 = getelementptr [23 x %struct.megaco_tokens_t], ptr @megaco_localParam_names, i64 0, i64 %indvars.iv.i.i
+  %114 = getelementptr %struct.megaco_tokens_t, ptr @megaco_localParam_names, i64 %indvars.iv.i.i
   %115 = load ptr, ptr %114, align 16
   %116 = call i64 @strlen(ptr noundef %115) #11
   %117 = icmp eq i64 %116, %112

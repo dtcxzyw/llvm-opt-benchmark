@@ -569,7 +569,7 @@ define hidden noundef range(i32 0, -1) i32 @_ZN10phf_shared9get_index17h05b8019c
   unreachable
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %1, i64 0, i64 %10
+  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %1, i64 %10
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !noundef !9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -763,7 +763,7 @@ define hidden { ptr, ptr } @"_ZN3phf3map16Map$LT$K$C$V$GT$9get_entry17hca5a9c99b
   unreachable
 
 _ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.4858207109798798013.exit: ; preds = %32
-  %37 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %9, i64 0, i64 %29
+  %37 = getelementptr inbounds nuw { i32, i32 }, ptr %9, i64 %29
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !alias.scope !98, !noalias !103, !noundef !9
   %40 = load i32, ptr %37, align 4, !alias.scope !98, !noalias !103, !noundef !9
@@ -783,7 +783,7 @@ _ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.4858207109798798013.exit: ; p
   ret { ptr, ptr } %48
 
 49:                                               ; preds = %_ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.4858207109798798013.exit
-  %50 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { i32, i32 } }], ptr %20, i64 0, i64 %45
+  %50 = getelementptr inbounds nuw { { ptr, i64 }, { i32, i32 } }, ptr %20, i64 %45
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !alias.scope !104, !noundef !9
   %.not.i.i = icmp eq i64 %52, %2

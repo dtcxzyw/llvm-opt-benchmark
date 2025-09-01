@@ -150,7 +150,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_init(ptr noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
   %.01720 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %28 ]
-  %18 = getelementptr inbounds nuw [33 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !10
   %20 = icmp eq i64 %19, -1
   br i1 %20, label %21, label %28
@@ -237,14 +237,14 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_create(ptr noundef readonl
 
 23:                                               ; preds = %22
   %24 = lshr i64 %20, 24
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !21
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 24
   br label %H5VM_log2_gen.exit
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %21
   %31 = load i8, ptr %30, align 1, !tbaa !21
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %32, 16
@@ -256,14 +256,14 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_create(ptr noundef readonl
 
 35:                                               ; preds = %34
   %36 = lshr i64 %20, 8
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !21
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 8
   br label %H5VM_log2_gen.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %20
+  %42 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %20
   %43 = load i8, ptr %42, align 1, !tbaa !21
   %44 = zext i8 %43 to i32
   br label %H5VM_log2_gen.exit
@@ -682,11 +682,11 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_get_addr(ptr noundef reado
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %42 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8, !tbaa !10
-  %44 = getelementptr inbounds nuw [33 x i32], ptr %40, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !61
   %46 = zext i32 %45 to i64
   %47 = mul i64 %43, %46
-  %48 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %47, ptr %48, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -694,7 +694,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_get_addr(ptr noundef reado
 
 .loopexit:                                        ; preds = %41, %34
   %49 = zext i32 %33 to i64
-  %50 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr %3, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !10
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = shl nuw nsw i64 %49, 3
@@ -877,7 +877,7 @@ define internal noundef i32 @H5D__earray_idx_resize(ptr noundef %0) #0 {
   %20 = shl nuw nsw i64 %19, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr nonnull align 4 %15, i64 %20, i1 false)
   %21 = zext i32 %12 to i64
-  %22 = getelementptr inbounds nuw [33 x i32], ptr %14, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %25 = shl nuw nsw i64 %21, 2
@@ -886,7 +886,7 @@ define internal noundef i32 @H5D__earray_idx_resize(ptr noundef %0) #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %27 = shl nuw nsw i64 %19, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 8 %26, i64 %27, i1 false)
-  %28 = getelementptr inbounds nuw [33 x i64], ptr %2, i64 0, i64 %21
+  %28 = getelementptr inbounds nuw i64, ptr %2, i64 %21
   %29 = load i64, ptr %28, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = shl nuw nsw i64 %21, 3
@@ -906,7 +906,7 @@ define internal noundef i32 @H5D__earray_idx_resize(ptr noundef %0) #0 {
 
 39:                                               ; preds = %13
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = shl nuw nsw i64 %40, 3
@@ -1110,11 +1110,11 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %48 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8, !tbaa !10
-  %50 = getelementptr inbounds nuw [33 x i32], ptr %46, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !61
   %52 = zext i32 %51 to i64
   %53 = mul i64 %49, %52
-  %54 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %53, ptr %54, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1122,7 +1122,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr noundef readonl
 
 .loopexit:                                        ; preds = %47, %40
   %55 = zext i32 %39 to i64
-  %56 = getelementptr inbounds nuw [33 x i64], ptr %3, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %3, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !10
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %59 = shl nuw nsw i64 %55, 3
@@ -1726,14 +1726,14 @@ define internal noalias ptr @H5D__earray_crt_context(ptr noundef readonly captur
 
 24:                                               ; preds = %23
   %25 = lshr i64 %21, 24
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !21
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 24
   br label %H5VM_log2_gen.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %22
+  %31 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %22
   %32 = load i8, ptr %31, align 1, !tbaa !21
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 16
@@ -1745,14 +1745,14 @@ define internal noalias ptr @H5D__earray_crt_context(ptr noundef readonly captur
 
 36:                                               ; preds = %35
   %37 = lshr i64 %21, 8
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !21
   %40 = zext i8 %39 to i32
   %41 = add nuw nsw i32 %40, 8
   br label %H5VM_log2_gen.exit
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %21
+  %43 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %21
   %44 = load i8, ptr %43, align 1, !tbaa !21
   %45 = zext i8 %44 to i32
   br label %H5VM_log2_gen.exit
@@ -2450,11 +2450,11 @@ define internal i32 @H5D__earray_idx_iterate_cb(i64 %0, ptr noundef readonly cap
 43:                                               ; preds = %.lr.ph, %50
   %.031 = phi i32 [ %40, %.lr.ph ], [ %51, %50 ]
   %44 = zext nneg i32 %.031 to i64
-  %45 = getelementptr inbounds nuw [33 x i64], ptr %24, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %24, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !10
   %47 = add i64 %46, 1
   store i64 %47, ptr %45, align 8, !tbaa !10
-  %48 = getelementptr inbounds nuw [33 x i64], ptr %42, i64 0, i64 %44
+  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %44
   %49 = load i64, ptr %48, align 8, !tbaa !10
   %.not30 = icmp ult i64 %47, %49
   br i1 %.not30, label %.loopexit, label %50

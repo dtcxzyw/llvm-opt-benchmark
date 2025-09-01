@@ -1135,7 +1135,7 @@ define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_
   %spec.select.i.i = add nsw i32 %.01321, %60
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %62 = sext i32 %spec.select.i.i to i64
-  %63 = getelementptr inbounds [0 x ptr], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !57, !noalias !54
   store ptr %64, ptr %4, align 8, !tbaa !23, !alias.scope !54
   %65 = load i64, ptr %64, align 8, !noalias !54

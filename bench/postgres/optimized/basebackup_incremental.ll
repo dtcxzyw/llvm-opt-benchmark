@@ -983,7 +983,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %indvars.iv379 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next380, %276 ]
   %277 = load ptr, ptr %250, align 8
   %278 = load i32, ptr %6, align 4
-  %279 = getelementptr inbounds nuw [512 x i32], ptr %8, i64 0, i64 %indvars.iv379
+  %279 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv379
   %280 = load i32, ptr %279, align 4
   call void @BlockRefTableMarkBlockModified(ptr noundef %277, ptr noundef nonnull %5, i32 noundef %278, i32 noundef %280) #14
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1

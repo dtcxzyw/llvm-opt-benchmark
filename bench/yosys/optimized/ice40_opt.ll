@@ -2293,7 +2293,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit445:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %indvars.iv2545 = phi i64 [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit445 ], [ %indvars.iv.next2546, %576 ]
   %.02402186 = phi i32 [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit445 ], [ %.1241, %576 ]
   %.02422185 = phi i32 [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit445 ], [ %.1243, %576 ]
-  %563 = getelementptr inbounds nuw [3 x %"struct.Yosys::RTLIL::SigBit"], ptr %16, i64 0, i64 %indvars.iv2545
+  %563 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigBit", ptr %16, i64 %indvars.iv2545
   %564 = load ptr, ptr %563, align 16, !tbaa !175
   %565 = icmp eq ptr %564, null
   br i1 %565, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit, label %573
@@ -3274,7 +3274,7 @@ _ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit551: ; preds = %918, %921
   %indvars.iv = phi i64 [ 0, %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit551 ], [ %indvars.iv.next, %943 ]
   %.02452179 = phi i32 [ 0, %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit551 ], [ %.1246, %943 ]
   %.02472178 = phi i32 [ 0, %_ZN5Yosys5RTLIL6SigBitC2ERKNS0_7SigSpecE.exit551 ], [ %.1248, %943 ]
-  %930 = getelementptr inbounds nuw [3 x %"struct.Yosys::RTLIL::SigBit"], ptr %27, i64 0, i64 %indvars.iv
+  %930 = getelementptr inbounds nuw %"struct.Yosys::RTLIL::SigBit", ptr %27, i64 %indvars.iv
   %931 = load ptr, ptr %930, align 16, !tbaa !175
   %932 = icmp eq ptr %931, null
   br i1 %932, label %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit553, label %940

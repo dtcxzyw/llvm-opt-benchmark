@@ -4843,7 +4843,7 @@ while.cond:                                       ; preds = %if.end14, %if.end8
 
 while.body:                                       ; preds = %while.cond
   %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %conv1.i = sext i8 %3 to i32
   %cmp12.not = icmp sgt i32 %base.0, %conv1.i
@@ -4875,7 +4875,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %ptr.332 = phi ptr [ %incdec.ptr, %for.body.lr.ph ], [ %incdec.ptr37, %for.cond ]
   %result.131 = phi i64 [ %conv17, %for.body.lr.ph ], [ %add, %for.cond ]
   %idxprom.i21 = zext i8 %5 to i64
-  %arrayidx.i22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i21
+  %arrayidx.i22 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i21
   %6 = load i8, ptr %arrayidx.i22, align 1
   %conv1.i23 = sext i8 %6 to i32
   %cmp25.not = icmp sgt i32 %base.0, %conv1.i23
@@ -5067,7 +5067,7 @@ if.then12:                                        ; preds = %land.lhs.true
 
 if.then14:                                        ; preds = %if.then12
   %idxprom.i = zext nneg i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %arrayidx16 = getelementptr inbounds nuw i8, ptr %call6.pn, i64 3
   %5 = load i8, ptr %arrayidx16, align 1
@@ -5078,7 +5078,7 @@ if.then14:                                        ; preds = %if.then12
 if.then18:                                        ; preds = %if.then14
   %mul = shl i8 %4, 3
   %idxprom.i46 = zext nneg i8 %5 to i64
-  %arrayidx.i47 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i46
+  %arrayidx.i47 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i46
   %8 = load i8, ptr %arrayidx.i47, align 1
   %add21 = add i8 %8, %mul
   br label %if.end22
@@ -5095,7 +5095,7 @@ if.end22:                                         ; preds = %if.then18, %if.then
 if.then25:                                        ; preds = %if.end22
   %mul27 = shl i8 %code.0, 3
   %idxprom.i49 = zext nneg i8 %9 to i64
-  %arrayidx.i50 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i49
+  %arrayidx.i50 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i49
   %12 = load i8, ptr %arrayidx.i50, align 1
   %add29 = add i8 %12, %mul27
   br label %if.end30
@@ -5150,7 +5150,7 @@ switch.early.test:                                ; preds = %if.then36
 
 if.then40:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.then36
   %idxprom.i52 = zext nneg i8 %.fr to i64
-  %arrayidx.i53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i52
+  %arrayidx.i53 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i52
   %15 = load i8, ptr %arrayidx.i53, align 1
   br label %if.end43
 
@@ -5183,7 +5183,7 @@ switch.early.test72:                              ; preds = %if.end43
 if.then46:                                        ; preds = %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %switch.early.test72, %if.end43
   %mul48 = shl i8 %code37.0, 4
   %idxprom.i60 = zext nneg i8 %.fr73 to i64
-  %arrayidx.i61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i60
+  %arrayidx.i61 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i60
   %18 = load i8, ptr %arrayidx.i61, align 1
   %add50 = add i8 %18, %mul48
   br label %if.end51
@@ -5223,7 +5223,7 @@ for.body.i.i:                                     ; preds = %if.end4.i.i, %for.b
 if.end4.i.i:                                      ; preds = %for.body.i.i
   %shl.i.i = shl i32 %20, 4
   %idxprom.i.i.i = zext i8 %21 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i.i.i
   %22 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv1.i.i.i = sext i8 %22 to i32
   %add.i.i = add i32 %shl.i.i, %conv1.i.i.i
@@ -5258,7 +5258,7 @@ for.body.i15.i:                                   ; preds = %land.lhs.true3.i, %
 if.end4.i18.i:                                    ; preds = %for.body.i15.i
   %shl.i19.i = shl i32 %27, 4
   %idxprom.i.i20.i = zext i8 %28 to i64
-  %arrayidx.i.i21.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %idxprom.i.i20.i
+  %arrayidx.i.i21.i = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf2io12_GLOBAL__N_111kAsciiToIntE, i64 %idxprom.i.i20.i
   %29 = load i8, ptr %arrayidx.i.i21.i, align 1
   %conv1.i.i22.i = sext i8 %29 to i32
   %add.i23.i = add i32 %shl.i19.i, %conv1.i.i22.i

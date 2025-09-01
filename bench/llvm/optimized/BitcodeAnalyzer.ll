@@ -3500,7 +3500,7 @@ _ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit: ; p
 
 switch.lookup:                                    ; preds = %179
   %185 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZN4llvm15BitcodeAnalyzer10printStatsENS_13BCDumpOptionsESt8optionalINS_9StringRefEE, i64 0, i64 %185
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm15BitcodeAnalyzer10printStatsENS_13BCDumpOptionsESt8optionalINS_9StringRefEE, i64 %185
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm9StringRefC2EPKc.exit.i
 
@@ -4453,7 +4453,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit295:              ; preds = %647, %649
 .lr.ph510:                                        ; preds = %670, %.lr.ph510
   %indvars.iv539 = phi i64 [ %indvars.iv.next540, %.lr.ph510 ], [ 0, %670 ]
   %.0148508 = phi ptr [ %685, %.lr.ph510 ], [ %676, %670 ]
-  %681 = getelementptr inbounds nuw [20 x i8], ptr %22, i64 0, i64 %indvars.iv539
+  %681 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv539
   %682 = load i64, ptr %.0148508, align 8, !tbaa !10
   %683 = trunc i64 %682 to i32
   %684 = call i32 @llvm.bswap.i32(i32 %683)
@@ -5348,7 +5348,7 @@ _ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit: ; p
 
 switch.lookup:                                    ; preds = %277
   %280 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZN4llvm15BitcodeAnalyzer10printStatsENS_13BCDumpOptionsESt8optionalINS_9StringRefEE, i64 0, i64 %280
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm15BitcodeAnalyzer10printStatsENS_13BCDumpOptionsESt8optionalINS_9StringRefEE, i64 %280
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread
 

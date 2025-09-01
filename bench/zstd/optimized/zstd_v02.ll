@@ -490,18 +490,18 @@ default.unreachable:                              ; preds = %15
   %.lhs.trunc.i.i.i = shl nuw nsw i32 %25, 4
   %45 = udiv i32 %.lhs.trunc.i.i.i, %21
   %.zext.i.i.i = zext nneg i32 %45 to i64
-  %46 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %.zext.i.i.i
+  %46 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr @algoTime, i64 %.zext.i.i.i
   br label %47
 
 47:                                               ; preds = %47, %44
   %indvars.iv.i.i.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.i.i, %47 ]
-  %48 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr %46, i64 0, i64 %indvars.iv.i.i.i
+  %48 = getelementptr inbounds nuw %struct.algo_time_t, ptr %46, i64 %indvars.iv.i.i.i
   %49 = load i32, ptr %48, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = mul i32 %51, %35
   %53 = add i32 %52, %49
-  %54 = getelementptr inbounds nuw [3 x i32], ptr %13, i64 0, i64 %indvars.iv.i.i.i
+  %54 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i.i
   store i32 %53, ptr %54, align 4, !tbaa !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -530,7 +530,7 @@ HUF_decompress.exit.i.i:                          ; preds = %47
   %65 = tail call i32 @llvm.umin.i32(i32 %58, i32 %63)
   %66 = icmp ult i32 %62, %65
   %spec.store.select.i.i.i = select i1 %66, i64 2, i64 %spec.select.i.i.i
-  %67 = getelementptr inbounds nuw [3 x ptr], ptr @HUF_decompress.decompress, i64 0, i64 %spec.store.select.i.i.i
+  %67 = getelementptr inbounds nuw ptr, ptr @HUF_decompress.decompress, i64 %spec.store.select.i.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = tail call i64 %68(ptr noundef nonnull %19, i64 noundef range(i64 0, 524288) %22, ptr noundef nonnull %34, i64 noundef range(i64 0, 524288) %26) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1352,7 +1352,7 @@ BIT_reloadDStream.exit.i:                         ; preds = %422, %420, %414
   %485 = icmp eq i8 %.sroa.4.0.copyload.i87.i.i, 0
   %spec.store.select.i.i = select i1 %485, i32 0, i32 %484
   %486 = zext i8 %.sroa.4.0.copyload.i87.i.i to i64
-  %487 = getelementptr inbounds nuw [32 x i64], ptr @ZSTD_decodeSequence.offsetPrefix, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw i64, ptr @ZSTD_decodeSequence.offsetPrefix, i64 %486
   %488 = load i64, ptr %487, align 8, !tbaa !3
   %489 = add i32 %480, %spec.store.select.i.i
   %490 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %405, i64 %.sroa.73.0190.i
@@ -1487,7 +1487,7 @@ ZSTD_wildcopy.exit.i.i:                           ; preds = %.preheader.i.i
   br i1 %561, label %562, label %583
 
 562:                                              ; preds = %560
-  %563 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_execSequence.dec64table, i64 0, i64 %.058.i.i
+  %563 = getelementptr inbounds nuw i32, ptr @ZSTD_execSequence.dec64table, i64 %.058.i.i
   %564 = load i32, ptr %563, align 4, !tbaa !22
   %565 = load i8, ptr %557, align 1, !tbaa !7
   store i8 %565, ptr %531, align 1, !tbaa !7
@@ -1503,7 +1503,7 @@ ZSTD_wildcopy.exit.i.i:                           ; preds = %.preheader.i.i
   %573 = load i8, ptr %572, align 1, !tbaa !7
   %574 = getelementptr inbounds nuw i8, ptr %531, i64 3
   store i8 %573, ptr %574, align 1, !tbaa !7
-  %575 = getelementptr inbounds nuw [8 x i32], ptr @ZSTD_execSequence.dec32table, i64 0, i64 %.058.i.i
+  %575 = getelementptr inbounds nuw i32, ptr @ZSTD_execSequence.dec32table, i64 %.058.i.i
   %576 = load i32, ptr %575, align 4, !tbaa !22
   %577 = sext i32 %576 to i64
   %578 = getelementptr inbounds i8, ptr %557, i64 %577
@@ -1676,7 +1676,7 @@ define internal i64 @HUF_decompress4X2(ptr noundef %0, i64 noundef %1, ptr nound
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03641.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %31, %.lr.ph.i ]
-  %26 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !22
   %28 = trunc i64 %indvars.iv.i to i32
   %29 = add i32 %28, -1
@@ -1689,7 +1689,7 @@ define internal i64 @HUF_decompress4X2(ptr noundef %0, i64 noundef %1, ptr nound
 
 32:                                               ; preds = %._crit_edge.i, %.lr.ph46.i
   %indvars.iv53.i = phi i64 [ 0, %.lr.ph46.i ], [ %indvars.iv.next54.i, %._crit_edge.i ]
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv53.i
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv53.i
   %34 = load i8, ptr %33, align 1, !tbaa !7
   %35 = zext nneg i8 %34 to i32
   %36 = shl nuw i32 1, %35
@@ -1697,7 +1697,7 @@ define internal i64 @HUF_decompress4X2(ptr noundef %0, i64 noundef %1, ptr nound
   %38 = trunc i64 %indvars.iv53.i to i8
   %39 = sub i8 %25, %34
   %40 = zext i8 %34 to i64
-  %41 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %10, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !22
   %43 = add i32 %37, %42
   %44 = icmp ult i32 %42, %43
@@ -2717,7 +2717,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
 
 .preheader83.i:                                   ; preds = %23
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %13, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !22
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.lr.ph.i, label %.preheader82.i
@@ -2743,7 +2743,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
 
 32:                                               ; preds = %.lr.ph.i
   %33 = add nsw i64 %indvars.iv.i, -1
-  %34 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !22
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.lr.ph.i, label %.preheader82.loopexit.i, !llvm.loop !52
@@ -2751,7 +2751,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
 .lr.ph89.i:                                       ; preds = %.lr.ph89.i, %.lr.ph89.preheader.i
   %indvars.iv112.i = phi i64 [ 1, %.lr.ph89.preheader.i ], [ %indvars.iv.next113.i, %.lr.ph89.i ]
   %.07387.i = phi i32 [ 0, %.lr.ph89.preheader.i ], [ %39, %.lr.ph89.i ]
-  %37 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %indvars.iv112.i
+  %37 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv112.i
   %38 = load i32, ptr %37, align 4, !tbaa !22
   %39 = add i32 %38, %.07387.i
   %40 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv112.i
@@ -2773,7 +2773,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
 
 .lr.ph93.i:                                       ; preds = %.lr.ph93.i, %.lr.ph93.preheader.i
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph93.preheader.i ], [ %indvars.iv.next116.i, %.lr.ph93.i ]
-  %42 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %indvars.iv115.i
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv115.i
   %43 = load i8, ptr %42, align 1, !tbaa !7
   %44 = zext i8 %43 to i64
   %45 = getelementptr inbounds nuw i32, ptr %19, i64 %44
@@ -2782,7 +2782,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
   store i32 %47, ptr %45, align 4, !tbaa !22
   %48 = trunc i64 %indvars.iv115.i to i8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw [256 x %struct.sortedSymbol_t], ptr %12, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %struct.sortedSymbol_t, ptr %12, i64 %49
   store i8 %48, ptr %50, align 2, !tbaa !48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store i8 %43, ptr %51, align 1, !tbaa !50
@@ -2809,7 +2809,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
 .lr.ph99.i:                                       ; preds = %.lr.ph99.i, %.lr.ph99.preheader.i
   %indvars.iv120.i = phi i64 [ 1, %.lr.ph99.preheader.i ], [ %indvars.iv.next121.i, %.lr.ph99.i ]
   %.07196.i = phi i32 [ 0, %.lr.ph99.preheader.i ], [ %61, %.lr.ph99.i ]
-  %56 = getelementptr inbounds nuw [17 x i32], ptr %13, i64 0, i64 %indvars.iv120.i
+  %56 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv120.i
   %57 = load i32, ptr %56, align 4, !tbaa !22
   %58 = trunc nuw nsw i64 %indvars.iv120.i to i32
   %reass.sub36 = sub i32 %58, %24
@@ -2825,7 +2825,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
 .lr.ph103.i:                                      ; preds = %.preheader.thread.i, %._crit_edge104.i
   %.069106.i = phi i32 [ %70, %._crit_edge104.i ], [ %53, %.preheader.thread.i ]
   %63 = zext i32 %.069106.i to i64
-  %64 = getelementptr inbounds nuw [16 x [17 x i32]], ptr %15, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 %63
   br label %65
 
 65:                                               ; preds = %65, %.lr.ph103.i
@@ -2865,7 +2865,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
   %77 = zext i8 %76 to i32
   %78 = sub nsw i32 %52, %77
   %79 = zext i8 %76 to i64
-  %80 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %10, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !22
   %82 = sub nsw i32 12, %78
   %83 = shl nuw i32 1, %82
@@ -2891,7 +2891,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %96, label %97, label %.loopexit.i.i.i
 
 97:                                               ; preds = %84
-  %98 = getelementptr inbounds nuw [17 x i32], ptr %9, i64 0, i64 %86
+  %98 = getelementptr inbounds nuw i32, ptr %9, i64 %86
   %99 = load i32, ptr %98, align 4, !tbaa !22
   %.not.i.i.i = icmp eq i32 %99, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
@@ -2933,7 +2933,7 @@ define internal i64 @HUF_decompress4X4(ptr noundef %0, i64 noundef %1, ptr nound
   %109 = sub nsw i32 %82, %108
   %110 = shl nuw i32 1, %109
   %111 = zext i8 %106 to i64
-  %112 = getelementptr inbounds nuw [17 x i32], ptr %9, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr %9, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !22
   %114 = add i32 %110, %113
   %115 = shl nuw nsw i32 %104, 8
@@ -4035,7 +4035,7 @@ define internal i64 @HUF_decompress4X6(ptr noundef %0, i64 noundef %1, ptr nound
 
 .preheader88.i:                                   ; preds = %20
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw [17 x i32], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !22
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.lr.ph.i, label %.preheader87.i
@@ -4061,7 +4061,7 @@ define internal i64 @HUF_decompress4X6(ptr noundef %0, i64 noundef %1, ptr nound
 
 29:                                               ; preds = %.lr.ph.i
   %30 = add nsw i64 %indvars.iv.i, -1
-  %31 = getelementptr inbounds nuw [17 x i32], ptr %11, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %11, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.lr.ph.i, label %.preheader87.loopexit.i, !llvm.loop !64
@@ -4069,7 +4069,7 @@ define internal i64 @HUF_decompress4X6(ptr noundef %0, i64 noundef %1, ptr nound
 .lr.ph94.i:                                       ; preds = %.lr.ph94.i, %.lr.ph94.preheader.i
   %indvars.iv117.i = phi i64 [ 1, %.lr.ph94.preheader.i ], [ %indvars.iv.next118.i, %.lr.ph94.i ]
   %.07592.i = phi i32 [ 0, %.lr.ph94.preheader.i ], [ %36, %.lr.ph94.i ]
-  %34 = getelementptr inbounds nuw [17 x i32], ptr %11, i64 0, i64 %indvars.iv117.i
+  %34 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv117.i
   %35 = load i32, ptr %34, align 4, !tbaa !22
   %36 = add i32 %35, %.07592.i
   %37 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv117.i
@@ -4091,7 +4091,7 @@ define internal i64 @HUF_decompress4X6(ptr noundef %0, i64 noundef %1, ptr nound
 
 .lr.ph98.i:                                       ; preds = %.lr.ph98.i, %.lr.ph98.preheader.i
   %indvars.iv120.i = phi i64 [ 0, %.lr.ph98.preheader.i ], [ %indvars.iv.next121.i, %.lr.ph98.i ]
-  %39 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv120.i
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv120.i
   %40 = load i8, ptr %39, align 1, !tbaa !7
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw i32, ptr %17, i64 %41
@@ -4100,7 +4100,7 @@ define internal i64 @HUF_decompress4X6(ptr noundef %0, i64 noundef %1, ptr nound
   store i32 %44, ptr %42, align 4, !tbaa !22
   %45 = trunc i64 %indvars.iv120.i to i8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw [256 x %struct.sortedSymbol_t], ptr %10, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %struct.sortedSymbol_t, ptr %10, i64 %46
   store i8 %45, ptr %47, align 2, !tbaa !48
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 %40, ptr %48, align 1, !tbaa !50
@@ -4127,7 +4127,7 @@ define internal i64 @HUF_decompress4X6(ptr noundef %0, i64 noundef %1, ptr nound
 .lr.ph104.i:                                      ; preds = %.lr.ph104.i, %.lr.ph104.preheader.i
   %indvars.iv125.i = phi i64 [ 1, %.lr.ph104.preheader.i ], [ %indvars.iv.next126.i, %.lr.ph104.i ]
   %.077102.i = phi i32 [ 0, %.lr.ph104.preheader.i ], [ %58, %.lr.ph104.i ]
-  %53 = getelementptr inbounds nuw [17 x i32], ptr %11, i64 0, i64 %indvars.iv125.i
+  %53 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv125.i
   %54 = load i32, ptr %53, align 4, !tbaa !22
   %55 = trunc nuw nsw i64 %indvars.iv125.i to i32
   %reass.sub34 = sub i32 %55, %21
@@ -4143,7 +4143,7 @@ define internal i64 @HUF_decompress4X6(ptr noundef %0, i64 noundef %1, ptr nound
 .lr.ph108.i:                                      ; preds = %.preheader.thread.i, %._crit_edge109.i
   %.079111.i = phi i32 [ %67, %._crit_edge109.i ], [ %50, %.preheader.thread.i ]
   %60 = zext i32 %.079111.i to i64
-  %61 = getelementptr inbounds nuw [16 x [17 x i32]], ptr %15, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 %60
   br label %62
 
 62:                                               ; preds = %62, %.lr.ph108.i
@@ -5198,8 +5198,8 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats(
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = add nsw i64 %13, -242
-  %19 = getelementptr inbounds nuw [14 x i32], ptr @HUF_readStats.l, i64 0, i64 %18
+  %18 = getelementptr i32, ptr @HUF_readStats.l, i64 %13
+  %19 = getelementptr i8, ptr %18, i64 -968
   %20 = load i32, ptr %19, align 4, !tbaa !22
   %21 = sext i32 %20 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 1, i64 256, i1 false)
@@ -6739,7 +6739,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
   %.sink = phi i16 [ 1, %23 ], [ %21, %29 ]
   %.171 = phi i32 [ %25, %23 ], [ %.07082, %29 ]
   %.269 = phi i16 [ %.06783, %23 ], [ %spec.select, %29 ]
-  %32 = getelementptr inbounds nuw [256 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   store i16 %.sink, ptr %32, align 2, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6801,7 +6801,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %50 = load i8, ptr %49, align 2, !tbaa !34
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i16], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i16, ptr %5, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !37
   %54 = add i16 %53, 1
   store i16 %54, ptr %52, align 2, !tbaa !37
@@ -7597,7 +7597,7 @@ define internal fastcc void @HUF_fillDTableX6LevelN(ptr noundef nonnull writeonl
 
 21:                                               ; preds = %13
   %22 = zext nneg i32 %5 to i64
-  %23 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %15, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !22
   %.not81 = icmp eq i32 %24, 0
   br i1 %.not81, label %.loopexit75, label %.lr.ph.preheader
@@ -7626,7 +7626,7 @@ define internal fastcc void @HUF_fillDTableX6LevelN(ptr noundef nonnull writeonl
 
 .lr.ph80:                                         ; preds = %.loopexit75
   %32 = zext nneg i16 %.sroa.5.0.extract.shift to i64
-  %33 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
   %34 = icmp ugt i16 %.fr82, 767
   %.sroa.5.0.insert.ext = zext nneg i8 %27 to i16
   %.sroa.5.0.insert.shift = shl nuw nsw i16 %.sroa.5.0.insert.ext, 8
@@ -7644,7 +7644,7 @@ define internal fastcc void @HUF_fillDTableX6LevelN(ptr noundef nonnull writeonl
   %41 = sub i32 %10, %40
   %42 = add i32 %41, %4
   %43 = zext i8 %39 to i64
-  %44 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %15, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !22
   %46 = sub nsw i32 %2, %41
   %47 = shl nuw i32 1, %46
@@ -7688,7 +7688,7 @@ define internal fastcc void @HUF_fillDTableX6LevelN(ptr noundef nonnull writeonl
   %61 = sub i32 %10, %60
   %62 = add i32 %61, %4
   %63 = zext i8 %59 to i64
-  %64 = getelementptr inbounds nuw [17 x i32], ptr %15, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %15, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !22
   %66 = sub nsw i32 %2, %61
   %67 = shl nuw i32 1, %66

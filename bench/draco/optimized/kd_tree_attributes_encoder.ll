@@ -3239,7 +3239,7 @@ _ZN5draco13EncoderBuffer6EncodeIjEEbRKT_.exit9:   ; preds = %5, %_ZN5draco13Enco
 
 35:                                               ; preds = %35, %33
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %34, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %34, i64 %indvars.iv.i
   tail call void @_ZN5draco14RAnsBitEncoder13StartEncodingEv(ptr noundef nonnull align 8 dereferenceable(56) %36)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -3259,7 +3259,7 @@ _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit: ; pre
 
 41:                                               ; preds = %41, %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit
   %indvars.iv.i10 = phi i64 [ 0, %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit ], [ %indvars.iv.next.i11, %41 ]
-  %42 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %34, i64 0, i64 %indvars.iv.i10
+  %42 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %34, i64 %indvars.iv.i10
   tail call void @_ZN5draco14RAnsBitEncoder11EndEncodingEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull %4)
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 32
@@ -3928,7 +3928,7 @@ _ZN5draco13EncoderBuffer6EncodeIjEEbRKT_.exit9:   ; preds = %5, %_ZN5draco13Enco
 
 35:                                               ; preds = %35, %33
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %34, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %34, i64 %indvars.iv.i
   tail call void @_ZN5draco14RAnsBitEncoder13StartEncodingEv(ptr noundef nonnull align 8 dereferenceable(56) %36)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -3948,7 +3948,7 @@ _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit: ; pre
 
 41:                                               ; preds = %41, %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit
   %indvars.iv.i10 = phi i64 [ 0, %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit ], [ %indvars.iv.next.i11, %41 ]
-  %42 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %34, i64 0, i64 %indvars.iv.i10
+  %42 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %34, i64 %indvars.iv.i10
   tail call void @_ZN5draco14RAnsBitEncoder11EndEncodingEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull %4)
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 32
@@ -4183,7 +4183,7 @@ _ZN5draco13EncoderBuffer6EncodeIjEEbRKT_.exit9:   ; preds = %5, %_ZN5draco13Enco
 
 35:                                               ; preds = %35, %33
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %34, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %34, i64 %indvars.iv.i
   tail call void @_ZN5draco14RAnsBitEncoder13StartEncodingEv(ptr noundef nonnull align 8 dereferenceable(56) %36)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -4203,7 +4203,7 @@ _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit: ; pre
 
 41:                                               ; preds = %41, %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit
   %indvars.iv.i10 = phi i64 [ 0, %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE13StartEncodingEv.exit ], [ %indvars.iv.next.i11, %41 ]
-  %42 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %34, i64 0, i64 %indvars.iv.i10
+  %42 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %34, i64 %indvars.iv.i10
   tail call void @_ZN5draco14RAnsBitEncoder11EndEncodingEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull %4)
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 32
@@ -9366,7 +9366,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   %.011.i.i = phi i32 [ %237, %.lr.ph.preheader.i.i ], [ %242, %.noexc105 ]
   %239 = and i32 %.011.i.i, %238
   %240 = icmp ne i32 %239, 0
-  %241 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %65, i64 0, i64 %indvars.iv.i.i
+  %241 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %65, i64 %indvars.iv.i.i
   invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %241, i1 noundef zeroext %240)
           to label %.noexc105 unwind label %.loopexit206
 
@@ -9385,7 +9385,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   %.011.i.i110 = phi i32 [ %237, %.lr.ph.preheader.i.i106 ], [ %247, %.noexc113 ]
   %244 = and i32 %.011.i.i110, %243
   %245 = icmp ne i32 %244, 0
-  %246 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %65, i64 0, i64 %indvars.iv.i.i109
+  %246 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %65, i64 %indvars.iv.i.i109
   invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %246, i1 noundef zeroext %245)
           to label %.noexc113 unwind label %.loopexit.split-lp.loopexit
 
@@ -11069,7 +11069,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   %.011.i.i = phi i32 [ %236, %.lr.ph.preheader.i.i ], [ %241, %.noexc103 ]
   %238 = and i32 %.011.i.i, %237
   %239 = icmp ne i32 %238, 0
-  %240 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i
+  %240 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %69, i64 %indvars.iv.i.i
   invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %240, i1 noundef zeroext %239)
           to label %.noexc103 unwind label %.loopexit204
 
@@ -11088,7 +11088,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   %.011.i.i108 = phi i32 [ %236, %.lr.ph.preheader.i.i104 ], [ %246, %.noexc111 ]
   %243 = and i32 %.011.i.i108, %242
   %244 = icmp ne i32 %243, 0
-  %245 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i107
+  %245 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %69, i64 %indvars.iv.i.i107
   invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %245, i1 noundef zeroext %244)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit
 
@@ -12204,7 +12204,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   %.011.i.i = phi i32 [ %236, %.lr.ph.preheader.i.i ], [ %241, %.noexc103 ]
   %238 = and i32 %.011.i.i, %237
   %239 = icmp ne i32 %238, 0
-  %240 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i
+  %240 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %69, i64 %indvars.iv.i.i
   invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %240, i1 noundef zeroext %239)
           to label %.noexc103 unwind label %.loopexit204
 
@@ -12223,7 +12223,7 @@ _ZSt9partitionIN5draco12PointDVectorIjE20PointDVectorIteratorENS0_33DynamicInteg
   %.011.i.i108 = phi i32 [ %236, %.lr.ph.preheader.i.i104 ], [ %246, %.noexc111 ]
   %243 = and i32 %.011.i.i108, %242
   %244 = icmp ne i32 %243, 0
-  %245 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitEncoder"], ptr %69, i64 0, i64 %indvars.iv.i.i107
+  %245 = getelementptr inbounds nuw %"class.draco::RAnsBitEncoder", ptr %69, i64 %indvars.iv.i.i107
   invoke void @_ZN5draco14RAnsBitEncoder9EncodeBitEb(ptr noundef nonnull align 8 dereferenceable(56) %245, i1 noundef zeroext %244)
           to label %.noexc111 unwind label %.loopexit.split-lp.loopexit
 

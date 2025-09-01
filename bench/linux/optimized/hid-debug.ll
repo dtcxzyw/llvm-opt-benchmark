@@ -1321,10 +1321,10 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
 
 71:                                               ; preds = %68
   %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr [5 x ptr], ptr @hid_dump_field.systems, i64 0, i64 %72
+  %73 = getelementptr ptr, ptr @hid_dump_field.systems, i64 %72
   %74 = load ptr, ptr %73, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef %74) #9
-  %.split = getelementptr [5 x [8 x ptr]], ptr @hid_dump_field.units, i64 0, i64 %72
+  %.split = getelementptr [8 x ptr], ptr @hid_dump_field.units, i64 %72
   br label %75
 
 75:                                               ; preds = %96, %71
@@ -1346,7 +1346,7 @@ define dso_local void @hid_dump_field(ptr noundef readonly captures(none) %0, i3
   br label %86
 
 86:                                               ; preds = %85, %82
-  %87 = getelementptr [8 x ptr], ptr %.split, i64 0, i64 %76
+  %87 = getelementptr ptr, ptr %.split, i64 %76
   %88 = load ptr, ptr %87, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %88) #9
   %89 = icmp eq i32 %80, 1
@@ -1443,7 +1443,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0
   br i1 %8, label %.loopexit5, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr [3 x ptr], ptr @hid_dump_device.table, i64 0, i64 %5
+  %10 = getelementptr ptr, ptr @hid_dump_device.table, i64 %5
   br label %13
 
 .loopexit:                                        ; preds = %31, %20
@@ -1469,7 +1469,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr [3 x ptr], ptr @hid_dump_device.table, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr @hid_dump_device.table, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.55, ptr noundef %25) #9
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.9) #9
@@ -1487,7 +1487,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.490, i32 noundef 4, ptr noundef nonnull @.str.40) #9
   %33 = trunc nuw i64 %32 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.56, i32 noundef %33) #9
-  %34 = getelementptr [256 x ptr], ptr %30, i64 0, i64 %32
+  %34 = getelementptr ptr, ptr %30, i64 %32
   %35 = load ptr, ptr %34, align 8
   tail call void @hid_dump_field(ptr noundef %35, i32 noundef 6, ptr noundef %1)
   %36 = add nuw nsw i64 %32, 1
@@ -1841,7 +1841,7 @@ define internal noundef i32 @hid_debug_rdesc_show(ptr noundef %0, ptr readnone c
   %43 = phi i32 [ %38, %40 ], [ %84, %.loopexit ]
   %44 = phi i32 [ 0, %40 ], [ %85, %.loopexit ]
   %45 = sext i32 %44 to i64
-  %46 = getelementptr [256 x ptr], ptr %41, i64 0, i64 %45
+  %46 = getelementptr ptr, ptr %41, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8
@@ -1861,9 +1861,9 @@ define internal noundef i32 @hid_debug_rdesc_show(ptr noundef %0, ptr readnone c
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %60 = load i8, ptr %59, align 4
   %61 = zext i8 %60 to i64
-  %62 = getelementptr [32 x ptr], ptr @events, i64 0, i64 %61
+  %62 = getelementptr ptr, ptr @events, i64 %61
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr [32 x ptr], ptr @names, i64 0, i64 %61
+  %64 = getelementptr ptr, ptr @names, i64 %61
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %75, label %67

@@ -1788,7 +1788,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %.thread196.i.i.i.i,
 225:                                              ; preds = %305, %.lr.ph.i.i28.i.i
   %226 = phi i32 [ %222, %.lr.ph.i.i28.i.i ], [ %306, %305 ]
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw [0 x ptr], ptr %224, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw ptr, ptr %224, i64 %227
   %229 = load ptr, ptr %228, align 8, !tbaa !19
   %230 = add nuw i32 %226, 1
   store i32 %230, ptr %221, align 8, !tbaa !177
@@ -2663,7 +2663,7 @@ thread-pre-split.i.i.i104.i:                      ; preds = %.thread196.i.i.i103
 534:                                              ; preds = %612, %.lr.ph.i.i.i126.i
   %535 = phi i32 [ %531, %.lr.ph.i.i.i126.i ], [ %613, %612 ]
   %536 = zext i32 %535 to i64
-  %537 = getelementptr inbounds nuw [0 x ptr], ptr %533, i64 0, i64 %536
+  %537 = getelementptr inbounds nuw ptr, ptr %533, i64 %536
   %538 = load ptr, ptr %537, align 8, !tbaa !19
   %539 = add nuw i32 %535, 1
   store i32 %539, ptr %530, align 8, !tbaa !177
@@ -4330,7 +4330,7 @@ _ZN15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit.i
   %.sroa.7.4294.i.i = phi ptr [ %.sroa.7.1311.i.i, %.lr.ph296.i.i ], [ %.sroa.7.5.i.i, %1215 ]
   %1116 = load ptr, ptr %38, align 8, !tbaa !53
   %1117 = getelementptr inbounds nuw i8, ptr %1115, i64 48
-  %1118 = getelementptr inbounds nuw [0 x ptr], ptr %1117, i64 0, i64 %indvars.iv.i242.i
+  %1118 = getelementptr inbounds nuw ptr, ptr %1117, i64 %indvars.iv.i242.i
   %1119 = load ptr, ptr %1118, align 8, !tbaa !314
   %1120 = trunc nuw i64 %indvars.iv.i242.i to i32
   %1121 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %1116, i32 noundef %1120, ptr noundef %1119)
@@ -4663,7 +4663,7 @@ _ZN11ast_manager6mk_appEP9func_declRK10ptr_bufferI4exprLj16EE.exit.i.i: ; preds 
   %1256 = load ptr, ptr %1255, align 8, !tbaa !304
   %1257 = load ptr, ptr %1225, align 8, !tbaa !317
   %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 32
-  %1259 = getelementptr inbounds nuw [0 x ptr], ptr %1258, i64 0, i64 %indvars.iv337.i.i
+  %1259 = getelementptr inbounds nuw ptr, ptr %1258, i64 %indvars.iv337.i.i
   %1260 = load ptr, ptr %1259, align 8, !tbaa !19
   %1261 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %1254, i32 noundef 0, i32 noundef 2, ptr noundef %1256, ptr noundef %1260)
           to label %_ZN11ast_manager5mk_eqEP4exprS1_.exit.i.i unwind label %1282
@@ -6454,7 +6454,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %31, %_ZNK4decl13get
   %72 = add nsw i64 %indvars.iv, -1
   %73 = load ptr, ptr %0, align 8, !tbaa !344
   %74 = load ptr, ptr %67, align 8, !tbaa !345
-  %75 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw ptr, ptr %68, i64 %72
   %76 = load ptr, ptr %75, align 8, !tbaa !19
   %77 = tail call noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %73, ptr noundef %76)
   br i1 %77, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %78
@@ -7189,7 +7189,7 @@ _ZN10bit_vector7reserveEjb.exit:                  ; preds = %_ZNK7obj_mapI9func_
   %150 = load ptr, ptr %0, align 8, !tbaa !355
   %151 = load ptr, ptr %145, align 8, !tbaa !356
   %152 = zext i32 %149 to i64
-  %153 = getelementptr inbounds nuw [0 x ptr], ptr %146, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %146, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !19
   %155 = call noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %150, ptr noundef %154)
   br i1 %155, label %_ZN12_GLOBAL__N_118reduce_args_tactic13may_be_uniqueER11ast_managerR7bv_utilP4exprRS6_.exit, label %156
@@ -7386,7 +7386,7 @@ _ZN7obj_mapI9func_decl7svectorIP4exprjEEixEPS0_.exit: ; preds = %226, %234
   %256 = load ptr, ptr %0, align 8, !tbaa !355
   %257 = load ptr, ptr %243, align 8, !tbaa !356
   %258 = zext i32 %247 to i64
-  %259 = getelementptr inbounds nuw [0 x ptr], ptr %244, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw ptr, ptr %244, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !19
   %261 = tail call noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %256, ptr noundef %260)
   br i1 %261, label %_ZN12_GLOBAL__N_118reduce_args_tactic13may_be_uniqueER11ast_managerR7bv_utilP4exprRS6_.exit70.thread, label %262
@@ -10616,7 +10616,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i.i: ; preds = %_ZNK6ve
 
 398:                                              ; preds = %394
   %399 = zext nneg i32 %396 to i64
-  %400 = getelementptr inbounds nuw [0 x ptr], ptr %393, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw ptr, ptr %393, i64 %399
   %401 = load ptr, ptr %400, align 8, !tbaa !19
   %402 = and i32 %395, -64
   %403 = add i32 %402, 64
@@ -14404,7 +14404,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE13con
 
 2059:                                             ; preds = %1925, %1921, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i.i.i, %1902, %1898, %1896
   %2060 = zext nneg i32 %1894 to i64
-  %2061 = getelementptr inbounds nuw [0 x ptr], ptr %1891, i64 0, i64 %2060
+  %2061 = getelementptr inbounds nuw ptr, ptr %1891, i64 %2060
   %2062 = load ptr, ptr %2061, align 8, !tbaa !19
   %2063 = add i32 %.mask.i.i.i.i, 64
   %2064 = and i32 %1893, 63
@@ -18151,7 +18151,7 @@ _ZN14core_hashtableI17default_map_entryIP3appP9func_declEN9table2mapIS5_N12_GLOB
   br i1 %.not.i.i.i.i.i.i.i, label %264, label %215
 
 215:                                              ; preds = %206
-  %216 = getelementptr inbounds nuw [0 x ptr], ptr %205, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %216 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv.i.i.i.i.i.i.i
   %217 = load ptr, ptr %216, align 8, !tbaa !19
   %218 = load i32, ptr %217, align 4, !tbaa !454
   %219 = add i32 %.091.i.i.i.i.i.i.i, 2127912214
@@ -18283,9 +18283,9 @@ _ZNK14core_hashtableI17default_map_entryIP3appP9func_declEN9table2mapIS5_N12_GLO
   br i1 %.not1.i.i.i.i.i.i.i, label %305, label %300
 
 300:                                              ; preds = %291
-  %301 = getelementptr inbounds nuw [0 x ptr], ptr %289, i64 0, i64 %indvars.iv.i.i.i65.i.i.i.i
+  %301 = getelementptr inbounds nuw ptr, ptr %289, i64 %indvars.iv.i.i.i65.i.i.i.i
   %302 = load ptr, ptr %301, align 8, !tbaa !19
-  %303 = getelementptr inbounds nuw [0 x ptr], ptr %275, i64 0, i64 %indvars.iv.i.i.i65.i.i.i.i
+  %303 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv.i.i.i65.i.i.i.i
   %304 = load ptr, ptr %303, align 8, !tbaa !19
   %.not.i.i.i66.i.i.i.i = icmp eq ptr %302, %304
   br i1 %.not.i.i.i66.i.i.i.i, label %305, label %_ZNK14core_hashtableI17default_map_entryIP3appP9func_declEN9table2mapIS5_N12_GLOBAL__N_118reduce_args_tactic18arg2func_hash_procENS8_16arg2func_eq_procEE15entry_hash_procENSB_13entry_eq_procEE6equalsERK9_key_dataIS2_S4_ESI_.exit.i.i.i.i
@@ -18348,9 +18348,9 @@ _ZNK14core_hashtableI17default_map_entryIP3appP9func_declEN9table2mapIS5_N12_GLO
   br i1 %.not1.i.i.i73.i.i.i.i, label %334, label %329
 
 329:                                              ; preds = %320
-  %330 = getelementptr inbounds nuw [0 x ptr], ptr %318, i64 0, i64 %indvars.iv.i.i.i72.i.i.i.i
+  %330 = getelementptr inbounds nuw ptr, ptr %318, i64 %indvars.iv.i.i.i72.i.i.i.i
   %331 = load ptr, ptr %330, align 8, !tbaa !19
-  %332 = getelementptr inbounds nuw [0 x ptr], ptr %278, i64 0, i64 %indvars.iv.i.i.i72.i.i.i.i
+  %332 = getelementptr inbounds nuw ptr, ptr %278, i64 %indvars.iv.i.i.i72.i.i.i.i
   %333 = load ptr, ptr %332, align 8, !tbaa !19
   %.not.i.i.i74.i.i.i.i = icmp eq ptr %331, %333
   br i1 %.not.i.i.i74.i.i.i.i, label %334, label %_ZNK14core_hashtableI17default_map_entryIP3appP9func_declEN9table2mapIS5_N12_GLOBAL__N_118reduce_args_tactic18arg2func_hash_procENS8_16arg2func_eq_procEE15entry_hash_procENSB_13entry_eq_procEE6equalsERK9_key_dataIS2_S4_ESI_.exit78.i.i.i.i
@@ -18469,7 +18469,7 @@ _ZN14core_hashtableI17default_map_entryIP3appP9func_declEN9table2mapIS5_N12_GLOB
   br i1 %.not131, label %372, label %394
 
 372:                                              ; preds = %360
-  %373 = getelementptr inbounds nuw [0 x ptr], ptr %350, i64 0, i64 %indvars.iv
+  %373 = getelementptr inbounds nuw ptr, ptr %350, i64 %indvars.iv
   %374 = load ptr, ptr %373, align 8, !tbaa !314
   %.not.i = icmp ult i32 %362, %361
   br i1 %.not.i, label %._crit_edge.i, label %375

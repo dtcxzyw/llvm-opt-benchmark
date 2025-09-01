@@ -59,7 +59,7 @@ define dso_local void @_ZN4llvm18StringTableBuilder8initSizeEv(ptr noundef nonnu
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN4llvm18StringTableBuilder19finalizeStringTableEb, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm18StringTableBuilder19finalizeStringTableEb, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %switch.load, ptr %6, align 8, !tbaa !17
@@ -85,7 +85,7 @@ define dso_local void @_ZN4llvm18StringTableBuilderC2ENS0_4KindENS_5AlignE(ptr n
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN4llvm18StringTableBuilder19finalizeStringTableEb, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm18StringTableBuilder19finalizeStringTableEb, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %4, align 8, !tbaa !17
   br label %_ZN4llvm18StringTableBuilder8initSizeEv.exit
@@ -374,7 +374,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoI
 
 switch.lookup:                                    ; preds = %._crit_edge
   %42 = zext nneg i32 %40 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN4llvm18StringTableBuilder19finalizeStringTableEb, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm18StringTableBuilder19finalizeStringTableEb, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %switch.load, ptr %43, align 8, !tbaa !17

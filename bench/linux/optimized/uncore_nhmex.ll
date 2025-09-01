@@ -872,7 +872,7 @@ define internal noundef ptr @nhmex_mbox_get_constraint(ptr noundef %0, ptr nound
 
 40:                                               ; preds = %35
   %41 = sext i32 %.pr74 to i64
-  %42 = getelementptr [0 x %struct.intel_uncore_extra_reg], ptr %17, i64 0, i64 %41
+  %42 = getelementptr %struct.intel_uncore_extra_reg, ptr %17, i64 %41
   %43 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %42) #8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load volatile i32, ptr %44, align 4
@@ -1006,7 +1006,7 @@ nhmex_mbox_get_shared_reg.exit:                   ; preds = %82
 
 119:                                              ; preds = %116
   %120 = sext i32 %108 to i64
-  %121 = getelementptr [0 x %struct.intel_uncore_extra_reg], ptr %17, i64 0, i64 %120
+  %121 = getelementptr %struct.intel_uncore_extra_reg, ptr %17, i64 %120
   %122 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %121) #8
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %124 = load volatile i32, ptr %123, align 4
@@ -2129,7 +2129,7 @@ define internal noundef ptr @nhmex_rbox_get_constraint(ptr noundef %0, ptr nound
   %29 = mul nsw i32 %28, 5
   %30 = add i32 %27, %29
   %31 = sext i32 %30 to i64
-  %32 = getelementptr [0 x %struct.intel_uncore_extra_reg], ptr %17, i64 0, i64 %31
+  %32 = getelementptr %struct.intel_uncore_extra_reg, ptr %17, i64 %31
   %33 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %32) #8
   %34 = icmp slt i32 %24, 2
   br i1 %34, label %35, label %48
@@ -2340,7 +2340,7 @@ define internal void @nhmex_rbox_put_constraint(ptr noundef %0, ptr noundef capt
   %18 = add nsw i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %20 = sext i32 %18 to i64
-  %21 = getelementptr [0 x %struct.intel_uncore_extra_reg], ptr %19, i64 0, i64 %20
+  %21 = getelementptr %struct.intel_uncore_extra_reg, ptr %19, i64 %20
   %22 = and i32 %12, -2
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %24, label %29

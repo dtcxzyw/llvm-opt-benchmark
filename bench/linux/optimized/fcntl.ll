@@ -496,7 +496,7 @@ define dso_local void @send_sigio(ptr noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #6
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = zext i32 %6 to i64
-  %20 = getelementptr [4 x %struct.hlist_head], ptr %18, i64 0, i64 %19
+  %20 = getelementptr %struct.hlist_head, ptr %18, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = shl nuw nsw i64 %19, 4
@@ -510,7 +510,7 @@ define dso_local void @send_sigio(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %28 = phi ptr [ %33, %.preheader ], [ %25, %17 ]
   tail call fastcc void @send_sigio_to_task(ptr noundef nonnull %28, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %6)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1424
-  %30 = getelementptr [4 x %struct.hlist_node], ptr %29, i64 0, i64 %19
+  %30 = getelementptr %struct.hlist_node, ptr %29, i64 %19
   %31 = load volatile ptr, ptr %30, align 16
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %31, i64 %24
@@ -610,9 +610,9 @@ define internal fastcc void @send_sigio_to_task(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 51:                                               ; preds = %47
-  %52 = add nsw i32 %3, -1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr [6 x i32], ptr @band_table, i64 0, i64 %53
+  %52 = zext nneg i32 %3 to i64
+  %53 = getelementptr i32, ptr @band_table, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 10239
   %57 = zext nneg i32 %56 to i64
@@ -717,7 +717,7 @@ send_sigurg_to_task.exit:                         ; preds = %38, %36, %33, %10
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #6
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %41 = zext i32 %4 to i64
-  %42 = getelementptr [4 x %struct.hlist_head], ptr %40, i64 0, i64 %41
+  %42 = getelementptr %struct.hlist_head, ptr %40, i64 %41
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   %45 = shl nuw nsw i64 %41, 4
@@ -776,7 +776,7 @@ send_sigurg_to_task.exit:                         ; preds = %38, %36, %33, %10
 
 send_sigurg_to_task.exit4:                        ; preds = %71, %74, %76
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 1424
-  %78 = getelementptr [4 x %struct.hlist_node], ptr %77, i64 0, i64 %41
+  %78 = getelementptr %struct.hlist_node, ptr %77, i64 %41
   %79 = load volatile ptr, ptr %78, align 16
   %80 = icmp eq ptr %79, null
   %81 = getelementptr i8, ptr %79, i64 %46

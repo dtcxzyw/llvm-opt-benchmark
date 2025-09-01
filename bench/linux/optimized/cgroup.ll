@@ -1753,7 +1753,7 @@ define internal void @perf_trace_cgroup_event(ptr noundef %0, ptr noundef readon
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @cgroup_ssid_enabled(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [14 x ptr], ptr @cgroup_subsys_enabled_key, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @cgroup_subsys_enabled_key, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @static_key_count(ptr noundef %4) #30
   %6 = icmp sgt i32 %5, 0
@@ -1795,7 +1795,7 @@ define dso_local ptr @cgroup_e_css(ptr noundef %0, ptr noundef readonly captures
 12:                                               ; preds = %18, %.split
   %13 = phi ptr [ %0, %.split ], [ %20, %18 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 376
-  %15 = getelementptr [14 x ptr], ptr %14, i64 0, i64 %11
+  %15 = getelementptr ptr, ptr %14, i64 %11
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %.loopexit
@@ -1813,7 +1813,7 @@ define dso_local ptr @cgroup_e_css(ptr noundef %0, ptr noundef readonly captures
 
 .split4.us:                                       ; preds = %18, %.split4.us.loopexit
   %.pre-phi = phi i64 [ %.pre10, %.split4.us.loopexit ], [ %11, %18 ]
-  %22 = getelementptr [14 x ptr], ptr @init_css_set, i64 0, i64 %.pre-phi
+  %22 = getelementptr ptr, ptr @init_css_set, i64 %.pre-phi
   %23 = load ptr, ptr %22, align 8
   br label %.loopexit
 
@@ -1891,7 +1891,7 @@ define dso_local ptr @cgroup_get_e_css(ptr noundef %0, ptr noundef readonly capt
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 376
   %40 = load i32, ptr %4, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr [14 x ptr], ptr %39, i64 0, i64 %41
+  %42 = getelementptr ptr, ptr %39, i64 %41
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %73, label %45
@@ -1958,7 +1958,7 @@ define dso_local ptr @cgroup_get_e_css(ptr noundef %0, ptr noundef readonly capt
 .split17.us:                                      ; preds = %73, %34
   %77 = load i32, ptr %4, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr [14 x ptr], ptr @init_css_set, i64 0, i64 %78
+  %79 = getelementptr ptr, ptr @init_css_set, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 84
   %82 = load i32, ptr %81, align 4
@@ -2065,7 +2065,7 @@ define dso_local ptr @of_css(ptr noundef readonly captures(none) %0) #6 align 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 156
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [14 x ptr], ptr %13, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %13, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   br label %19
 
@@ -2108,7 +2108,7 @@ define dso_local void @put_css_set_locked(ptr noundef %0) local_unnamed_addr #1 
 
 15:                                               ; preds = %46, %13
   %16 = phi i64 [ 0, %13 ], [ %47, %46 ]
-  %17 = getelementptr [14 x %struct.list_head], ptr %14, i64 0, i64 %16
+  %17 = getelementptr %struct.list_head, ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
@@ -2117,7 +2117,7 @@ define dso_local void @put_css_set_locked(ptr noundef %0) local_unnamed_addr #1 
   store volatile ptr %20, ptr %19, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %18, align 8
-  %22 = getelementptr [14 x ptr], ptr %0, i64 0, i64 %16
+  %22 = getelementptr ptr, ptr %0, i64 %16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 84
   %25 = load i32, ptr %24, align 4
@@ -2668,7 +2668,7 @@ define dso_local void @cgroup_lock_and_drain_offline(ptr noundef %0) local_unnam
 
 28:                                               ; preds = %86, %24
   %29 = phi i64 [ 0, %24 ], [ %87, %86 ]
-  %30 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %29
+  %30 = getelementptr ptr, ptr @cgroup_subsys, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %39, label %33
@@ -2677,7 +2677,7 @@ define dso_local void @cgroup_lock_and_drain_offline(ptr noundef %0) local_unnam
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 156
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [14 x ptr], ptr %27, i64 0, i64 %36
+  %37 = getelementptr ptr, ptr %27, i64 %36
   %38 = load volatile ptr, ptr %37, align 8
   br label %39
 
@@ -2870,8 +2870,8 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
 
 15:                                               ; preds = %11
   %16 = shl i64 %12, 32
-  %17 = ashr exact i64 %16, 32
-  %18 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %17
+  %17 = ashr exact i64 %16, 29
+  %18 = getelementptr i8, ptr @cgroup_subsys, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load ptr, ptr %20, align 8
@@ -2884,7 +2884,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 156
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [14 x ptr], ptr %25, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr %25, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
   br label %31
 
@@ -2932,8 +2932,8 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
 
 62:                                               ; preds = %58
   %63 = shl i64 %59, 32
-  %64 = ashr exact i64 %63, 32
-  %65 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %64
+  %64 = ashr exact i64 %63, 29
+  %65 = getelementptr i8, ptr @cgroup_subsys, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 176
   %68 = load ptr, ptr %67, align 8
@@ -2946,7 +2946,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 156
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [14 x ptr], ptr %72, i64 0, i64 %75
+  %76 = getelementptr ptr, ptr %72, i64 %75
   %77 = load volatile ptr, ptr %76, align 8
   br label %78
 
@@ -3031,7 +3031,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
 126:                                              ; preds = %122
   %127 = shl i64 %123, 32
   %128 = ashr exact i64 %127, 32
-  %129 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %128
+  %129 = getelementptr ptr, ptr @cgroup_subsys, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 176
   %132 = load ptr, ptr %131, align 8
@@ -3044,13 +3044,13 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 156
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr [14 x ptr], ptr %136, i64 0, i64 %139
+  %140 = getelementptr ptr, ptr %136, i64 %139
   %141 = load volatile ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %.critedge, label %143
 
 143:                                              ; preds = %135
-  %144 = getelementptr [14 x ptr], ptr %112, i64 0, i64 %139
+  %144 = getelementptr ptr, ptr %112, i64 %139
   %145 = load volatile ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %148, label %.critedge, !prof !21
@@ -3090,10 +3090,10 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
 
 161:                                              ; preds = %160, %148
   %162 = getelementptr inbounds nuw i8, ptr %132, i64 440
-  %163 = getelementptr [14 x ptr], ptr %162, i64 0, i64 %128
+  %163 = getelementptr ptr, ptr %162, i64 %128
   store volatile ptr null, ptr %163, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !65
-  %164 = getelementptr [14 x ptr], ptr %112, i64 0, i64 %128
+  %164 = getelementptr ptr, ptr %112, i64 %128
   store volatile ptr %149, ptr %164, align 8
   store ptr %0, ptr %131, align 8
   store ptr %3, ptr %149, align 8
@@ -3101,7 +3101,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %165 = getelementptr inbounds nuw i8, ptr %130, i64 156
   %166 = load i32, ptr %165, align 4
   %167 = sext i32 %166 to i64
-  %168 = getelementptr [14 x %struct.list_head], ptr %113, i64 0, i64 %167
+  %168 = getelementptr %struct.list_head, ptr %113, i64 %167
   %169 = load volatile ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, %168
   br i1 %170, label %172, label %171, !prof !21
@@ -3118,7 +3118,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %.pre-phi = phi i64 [ %.pre27, %171 ], [ %167, %161 ]
   %173 = phi i32 [ %.pre, %171 ], [ %166, %161 ]
   %174 = getelementptr inbounds nuw i8, ptr %132, i64 576
-  %175 = getelementptr [14 x %struct.list_head], ptr %174, i64 0, i64 %.pre-phi
+  %175 = getelementptr %struct.list_head, ptr %174, i64 %.pre-phi
   %176 = load ptr, ptr %175, align 16
   %177 = shl nsw i64 %.pre-phi, 4
   %178 = sub nsw i64 -208, %177
@@ -3128,7 +3128,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   br i1 %181, label %.loopexit20, label %182
 
 182:                                              ; preds = %172
-  %183 = getelementptr [14 x %struct.list_head], ptr %180, i64 0, i64 %.pre-phi
+  %183 = getelementptr %struct.list_head, ptr %180, i64 %.pre-phi
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr i8, ptr %184, i64 %178
   br label %186
@@ -3140,8 +3140,8 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %190 = phi ptr [ %222, %.loopexit ], [ %185, %182 ]
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 208
   %192 = sext i32 %188 to i64
-  %193 = getelementptr [14 x %struct.list_head], ptr %191, i64 0, i64 %192
-  %194 = getelementptr [14 x %struct.list_head], ptr %113, i64 0, i64 %192
+  %193 = getelementptr %struct.list_head, ptr %191, i64 %192
+  %194 = getelementptr %struct.list_head, ptr %113, i64 %192
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %187, i64 8
@@ -3164,12 +3164,12 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %205 = load ptr, ptr %204, align 8
   %206 = load i32, ptr %165, align 4
   %207 = sext i32 %206 to i64
-  %208 = getelementptr [14 x %struct.list_head], ptr %174, i64 0, i64 %207
+  %208 = getelementptr %struct.list_head, ptr %174, i64 %207
   %209 = icmp eq ptr %205, %208
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %.preheader
-  %211 = getelementptr [14 x %struct.list_head], ptr %113, i64 0, i64 %207
+  %211 = getelementptr %struct.list_head, ptr %113, i64 %207
   store ptr %211, ptr %204, align 8
   br label %212
 
@@ -3182,7 +3182,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %215 = getelementptr inbounds nuw i8, ptr %190, i64 208
   %216 = load i32, ptr %165, align 4
   %217 = sext i32 %216 to i64
-  %218 = getelementptr [14 x %struct.list_head], ptr %215, i64 0, i64 %217
+  %218 = getelementptr %struct.list_head, ptr %215, i64 %217
   %219 = load ptr, ptr %218, align 8
   %220 = shl nsw i64 %217, 4
   %221 = sub nsw i64 -208, %220
@@ -3224,7 +3224,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   br i1 %.not, label %239, label %242
 
 239:                                              ; preds = %235
-  %240 = getelementptr [14 x ptr], ptr @cgroup_subsys_on_dfl_key, i64 0, i64 %128
+  %240 = getelementptr ptr, ptr @cgroup_subsys_on_dfl_key, i64 %128
   %241 = load ptr, ptr %240, align 8
   tail call void @static_key_enable(ptr noundef %241) #30
   br label %248
@@ -3234,7 +3234,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rebind_subsystems(ptr noundef %0
   %244 = trunc i32 %236 to i16
   %245 = or i16 %243, %244
   store i16 %245, ptr %116, align 16
-  %246 = getelementptr [14 x ptr], ptr @cgroup_subsys_on_dfl_key, i64 0, i64 %128
+  %246 = getelementptr ptr, ptr @cgroup_subsys_on_dfl_key, i64 %128
   %247 = load ptr, ptr %246, align 8
   tail call void @static_key_disable(ptr noundef %247) #30
   br label %248
@@ -3918,7 +3918,7 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
 
 89:                                               ; preds = %226, %84
   %90 = phi i64 [ 0, %84 ], [ %227, %226 ]
-  %91 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %90
+  %91 = getelementptr ptr, ptr @cgroup_subsys, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %100, label %94
@@ -3927,7 +3927,7 @@ define internal fastcc void @cgroup_finalize_control(ptr noundef %0, i32 noundef
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 156
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr [14 x ptr], ptr %85, i64 0, i64 %97
+  %98 = getelementptr ptr, ptr %85, i64 %97
   %99 = load volatile ptr, ptr %98, align 8
   br label %100
 
@@ -4359,7 +4359,7 @@ define dso_local void @init_cgroup_root(ptr noundef readonly captures(none) %0) 
 
 28:                                               ; preds = %28, %1
   %29 = phi i64 [ 0, %1 ], [ %32, %28 ]
-  %30 = getelementptr [14 x %struct.list_head], ptr %27, i64 0, i64 %29
+  %30 = getelementptr %struct.list_head, ptr %27, i64 %29
   store volatile ptr %30, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store volatile ptr %30, ptr %31, align 8
@@ -4554,7 +4554,7 @@ define dso_local i32 @cgroup_setup_root(ptr noundef %0, i16 noundef zeroext %1) 
 
 69:                                               ; preds = %.loopexit19, %62
   %70 = phi i64 [ 0, %62 ], [ %93, %.loopexit19 ]
-  %71 = getelementptr [128 x %struct.hlist_head], ptr @css_set_table, i64 0, i64 %70
+  %71 = getelementptr %struct.hlist_head, ptr @css_set_table, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   %74 = getelementptr i8, ptr %72, i64 -464
@@ -5554,7 +5554,7 @@ define dso_local ptr @cgroup_taskset_first(ptr noundef captures(none) initialize
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = select i1 %19, ptr %11, ptr %18
-  %24 = getelementptr [14 x ptr], ptr %23, i64 0, i64 %22
+  %24 = getelementptr ptr, ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %1, align 8
   br label %.loopexit
@@ -5608,7 +5608,7 @@ define dso_local ptr @cgroup_taskset_next(ptr noundef captures(none) %0, ptr nou
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = select i1 %26, ptr %14, ptr %25
-  %31 = getelementptr [14 x ptr], ptr %30, i64 0, i64 %29
+  %31 = getelementptr ptr, ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %1, align 8
   br label %.loopexit
@@ -6012,9 +6012,9 @@ define dso_local noundef range(i32 -12, 1) i32 @cgroup_migrate_prepare_dst(ptr n
 
 54:                                               ; preds = %.preheader, %67
   %55 = phi i64 [ %68, %67 ], [ 0, %.preheader ]
-  %56 = getelementptr [14 x ptr], ptr %10, i64 0, i64 %55
+  %56 = getelementptr ptr, ptr %10, i64 %55
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr [14 x ptr], ptr %14, i64 0, i64 %55
+  %58 = getelementptr ptr, ptr %14, i64 %55
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %57, %59
   br i1 %60, label %67, label %61
@@ -6066,7 +6066,7 @@ define internal fastcc noundef ptr @find_css_set(ptr noundef readonly captures(a
   br i1 %15, label %54, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %12
+  %17 = getelementptr ptr, ptr @cgroup_subsys, i64 %12
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit29, label %20
@@ -6115,12 +6115,12 @@ define internal fastcc noundef ptr @find_css_set(ptr noundef readonly captures(a
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %25, i64 376
   %51 = sext i32 %22 to i64
-  %52 = getelementptr [14 x ptr], ptr %50, i64 0, i64 %51
+  %52 = getelementptr ptr, ptr %50, i64 %51
   %53 = load volatile ptr, ptr %52, align 8
   br label %.loopexit29
 
 54:                                               ; preds = %11
-  %55 = getelementptr [14 x ptr], ptr %0, i64 0, i64 %12
+  %55 = getelementptr ptr, ptr %0, i64 %12
   %56 = load ptr, ptr %55, align 8
   br label %.loopexit29
 
@@ -6148,7 +6148,7 @@ define internal fastcc noundef ptr @find_css_set(ptr noundef readonly captures(a
   %71 = xor i64 %70, %66
   %72 = mul i64 %71, 7046029254386353131
   %73 = lshr i64 %72, 57
-  %74 = getelementptr [128 x %struct.hlist_head], ptr @css_set_table, i64 0, i64 %73
+  %74 = getelementptr %struct.hlist_head, ptr @css_set_table, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   %77 = getelementptr i8, ptr %75, i64 -464
@@ -6435,7 +6435,7 @@ define internal fastcc noundef ptr @find_css_set(ptr noundef readonly captures(a
   %229 = xor i64 %228, %224
   %230 = mul i64 %229, 7046029254386353131
   %231 = lshr i64 %230, 57
-  %232 = getelementptr [128 x %struct.hlist_head], ptr @css_set_table, i64 0, i64 %231
+  %232 = getelementptr %struct.hlist_head, ptr @css_set_table, i64 %231
   %233 = load ptr, ptr %232, align 8
   store volatile ptr %233, ptr %190, align 8
   %234 = icmp eq ptr %233, null
@@ -6455,12 +6455,12 @@ define internal fastcc noundef ptr @find_css_set(ptr noundef readonly captures(a
 
 240:                                              ; preds = %266, %237
   %241 = phi i64 [ 0, %237 ], [ %267, %266 ]
-  %242 = getelementptr [14 x ptr], ptr %151, i64 0, i64 %241
+  %242 = getelementptr ptr, ptr %151, i64 %241
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr [14 x %struct.list_head], ptr %239, i64 0, i64 %241
+  %244 = getelementptr %struct.list_head, ptr %239, i64 %241
   %245 = load ptr, ptr %243, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 512
-  %247 = getelementptr [14 x %struct.list_head], ptr %246, i64 0, i64 %241
+  %247 = getelementptr %struct.list_head, ptr %246, i64 %241
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
   store ptr %244, ptr %248, align 8
@@ -6723,8 +6723,8 @@ define internal fastcc i32 @cgroup_migrate_execute(ptr noundef %0) unnamed_addr 
 
 21:                                               ; preds = %17
   %22 = shl i64 %18, 32
-  %23 = ashr exact i64 %22, 32
-  %24 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %23
+  %23 = ashr exact i64 %22, 29
+  %24 = getelementptr i8, ptr @cgroup_subsys, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load ptr, ptr %26, align 8
@@ -6985,8 +6985,8 @@ css_set_move_task.exit:                           ; preds = %.loopexit.i, %134
 
 166:                                              ; preds = %162
   %167 = shl i64 %163, 32
-  %168 = ashr exact i64 %167, 32
-  %169 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %168
+  %168 = ashr exact i64 %167, 29
+  %169 = getelementptr i8, ptr @cgroup_subsys, i64 %168
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 88
   %172 = load ptr, ptr %171, align 8
@@ -7033,8 +7033,8 @@ css_set_move_task.exit:                           ; preds = %.loopexit.i, %134
 
 198:                                              ; preds = %192
   %199 = shl i64 %193, 32
-  %200 = ashr exact i64 %199, 32
-  %201 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %200
+  %200 = ashr exact i64 %199, 29
+  %201 = getelementptr i8, ptr @cgroup_subsys, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 80
   %204 = load ptr, ptr %203, align 8
@@ -7472,7 +7472,7 @@ define dso_local void @cgroup_procs_write_finish(ptr noundef %0, i1 noundef zero
 
 12:                                               ; preds = %20, %11
   %13 = phi i64 [ 0, %11 ], [ %21, %20 ]
-  %14 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr @cgroup_subsys, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
@@ -7685,7 +7685,7 @@ define internal fastcc i32 @cgroup_add_cftypes(ptr noundef %0, ptr noundef %1) u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr [14 x ptr], ptr @cgroup_subsys_enabled_key, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @cgroup_subsys_enabled_key, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @static_key_count(ptr noundef %7) #30
   %9 = icmp slt i32 %8, 1
@@ -8096,7 +8096,7 @@ define dso_local void @css_task_iter_start(ptr noundef readonly captures(none) %
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 156
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [14 x %struct.list_head], ptr %11, i64 0, i64 %15
+  %16 = getelementptr %struct.list_head, ptr %11, i64 %15
   br label %19
 
 17:                                               ; preds = %3
@@ -8688,7 +8688,7 @@ define dso_local i32 @cgroup_mkdir(ptr noundef %0, ptr noundef %1, i16 noundef z
 
 93:                                               ; preds = %93, %72
   %94 = phi i64 [ 0, %72 ], [ %97, %93 ]
-  %95 = getelementptr [14 x %struct.list_head], ptr %92, i64 0, i64 %94
+  %95 = getelementptr %struct.list_head, ptr %92, i64 %94
   store volatile ptr %95, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store volatile ptr %95, ptr %96, align 8
@@ -8736,7 +8736,7 @@ define dso_local i32 @cgroup_mkdir(ptr noundef %0, ptr noundef %1, i16 noundef z
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 208
   %119 = load i32, ptr %118, align 16
   %120 = sext i32 %119 to i64
-  %121 = getelementptr [0 x ptr], ptr %115, i64 0, i64 %120
+  %121 = getelementptr ptr, ptr %115, i64 %120
   store ptr %117, ptr %121, align 8
   %122 = icmp eq ptr %117, %47
   br i1 %122, label %133, label %123
@@ -9029,7 +9029,7 @@ define internal fastcc i32 @cgroup_apply_control_enable(ptr noundef %0) unnamed_
 
 14:                                               ; preds = %209, %9
   %15 = phi i64 [ 0, %9 ], [ %210, %209 ]
-  %16 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr @cgroup_subsys, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %25, label %19
@@ -9038,7 +9038,7 @@ define internal fastcc i32 @cgroup_apply_control_enable(ptr noundef %0) unnamed_
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 156
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [14 x ptr], ptr %11, i64 0, i64 %22
+  %23 = getelementptr ptr, ptr %11, i64 %22
   %24 = load volatile ptr, ptr %23, align 8
   br label %25
 
@@ -9085,7 +9085,7 @@ define internal fastcc i32 @cgroup_apply_control_enable(ptr noundef %0) unnamed_
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 376
   %55 = sext i32 %46 to i64
-  %56 = getelementptr [14 x ptr], ptr %54, i64 0, i64 %55
+  %56 = getelementptr ptr, ptr %54, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   br label %58
 
@@ -9170,7 +9170,7 @@ define internal fastcc i32 @cgroup_apply_control_enable(ptr noundef %0) unnamed_
   %104 = getelementptr inbounds nuw i8, ptr %92, i64 156
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
-  %107 = getelementptr [14 x ptr], ptr %103, i64 0, i64 %106
+  %107 = getelementptr ptr, ptr %103, i64 %106
   store volatile ptr %63, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %63, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %108, ptr nonnull elementtype(i32) %108) #30, !srcloc !198
@@ -9561,7 +9561,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @cgroup_destroy_locked(ptr 
 
 62:                                               ; preds = %68, %.loopexit17
   %63 = phi i64 [ 0, %.loopexit17 ], [ %69, %68 ]
-  %64 = getelementptr [14 x ptr], ptr %61, i64 0, i64 %63
+  %64 = getelementptr ptr, ptr %61, i64 %63
   %65 = load volatile ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %68, label %67
@@ -9816,7 +9816,7 @@ define dso_local noundef i32 @cgroup_init_early() local_unnamed_addr #13 section
 
 3:                                                ; preds = %51, %0
   %4 = phi i64 [ 0, %0 ], [ %52, %51 ]
-  %5 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @cgroup_subsys, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -9841,13 +9841,13 @@ define dso_local noundef i32 @cgroup_init_early() local_unnamed_addr #13 section
   br i1 %20, label %._crit_edge, label %21, !prof !21
 
 ._crit_edge:                                      ; preds = %17
-  %.phi.trans.insert = getelementptr [14 x ptr], ptr @cgroup_subsys_name, i64 0, i64 %4
+  %.phi.trans.insert = getelementptr ptr, ptr @cgroup_subsys_name, i64 %4
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %32
 
 21:                                               ; preds = %17, %13, %9, %3
   tail call void asm sideeffect "1096: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1096b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1096) #30, !srcloc !219
-  %22 = getelementptr [14 x ptr], ptr @cgroup_subsys_name, i64 0, i64 %4
+  %22 = getelementptr ptr, ptr @cgroup_subsys_name, i64 %4
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -9974,7 +9974,7 @@ define internal fastcc void @cgroup_init_subsys(ptr noundef initializes((184, 20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr [14 x ptr], ptr @init_css_set, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr @init_css_set, i64 %27
   store ptr %10, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
@@ -10045,7 +10045,7 @@ define internal fastcc void @cgroup_init_subsys(ptr noundef initializes((184, 20
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 156
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr [14 x ptr], ptr %77, i64 0, i64 %80
+  %81 = getelementptr ptr, ptr %77, i64 %80
   store volatile ptr %10, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, ptr nonnull elementtype(i32) %82) #30, !srcloc !198
@@ -10121,7 +10121,7 @@ define dso_local noundef i32 @cgroup_init() local_unnamed_addr #13 section ".ini
   %24 = xor i64 %23, %19
   %25 = mul i64 %24, 7046029254386353131
   %26 = lshr i64 %25, 57
-  %27 = getelementptr [128 x %struct.hlist_head], ptr @css_set_table, i64 0, i64 %26
+  %27 = getelementptr %struct.hlist_head, ptr @css_set_table, i64 %26
   %28 = load ptr, ptr %27, align 8
   store volatile ptr %28, ptr getelementptr inbounds nuw (i8, ptr @init_css_set, i64 464), align 8
   %29 = icmp eq ptr %28, null
@@ -10150,7 +10150,7 @@ define dso_local noundef i32 @cgroup_init() local_unnamed_addr #13 section ".ini
 
 37:                                               ; preds = %138, %36
   %38 = phi i64 [ 0, %36 ], [ %139, %138 ]
-  %39 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %38
+  %39 = getelementptr ptr, ptr @cgroup_subsys, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 152
   %42 = load i8, ptr %41, align 8
@@ -10162,7 +10162,7 @@ define dso_local noundef i32 @cgroup_init() local_unnamed_addr #13 section ".ini
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 156
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr [14 x ptr], ptr @init_css_set, i64 0, i64 %48
+  %49 = getelementptr ptr, ptr @init_css_set, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 184
   %52 = tail call fastcc i32 @cgroup_idr_alloc(ptr noundef nonnull %51, ptr noundef %50)
@@ -10190,7 +10190,7 @@ define dso_local noundef i32 @cgroup_init() local_unnamed_addr #13 section ".ini
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %61, ptr %62, align 8
   store volatile ptr %58, ptr %61, align 8
-  %63 = getelementptr [14 x ptr], ptr @cgroup_subsys_enabled_key, i64 0, i64 %38
+  %63 = getelementptr ptr, ptr @cgroup_subsys_enabled_key, i64 %38
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @static_key_count(ptr noundef %64) #30
   %66 = icmp sgt i32 %65, 0
@@ -10311,14 +10311,14 @@ define dso_local noundef i32 @cgroup_init() local_unnamed_addr #13 section ".ini
   br i1 %130, label %134, label %131
 
 131:                                              ; preds = %127
-  %132 = getelementptr [14 x ptr], ptr @init_css_set, i64 0, i64 %38
+  %132 = getelementptr ptr, ptr @init_css_set, i64 %38
   %133 = load ptr, ptr %132, align 8
   tail call void %129(ptr noundef %133) #30
   br label %134
 
 134:                                              ; preds = %131, %127
   tail call void @mutex_lock(ptr noundef nonnull @cgroup_mutex) #30
-  %135 = getelementptr [14 x ptr], ptr @init_css_set, i64 0, i64 %38
+  %135 = getelementptr ptr, ptr @init_css_set, i64 %38
   %136 = load ptr, ptr %135, align 8
   %137 = tail call fastcc i32 @css_populate_dir(ptr noundef %136), !range !116
   tail call void @mutex_unlock(ptr noundef nonnull @cgroup_mutex) #30
@@ -10368,7 +10368,7 @@ define dso_local noundef i32 @cgroup_init() local_unnamed_addr #13 section ".ini
   %161 = xor i64 %160, %156
   %162 = mul i64 %161, 7046029254386353131
   %163 = lshr i64 %162, 57
-  %164 = getelementptr [128 x %struct.hlist_head], ptr @css_set_table, i64 0, i64 %163
+  %164 = getelementptr %struct.hlist_head, ptr @css_set_table, i64 %163
   %165 = load ptr, ptr %164, align 8
   store volatile ptr %165, ptr getelementptr inbounds nuw (i8, ptr @init_css_set, i64 464), align 8
   %166 = icmp eq ptr %165, null
@@ -10747,7 +10747,7 @@ define dso_local ptr @cgroup_get_from_id(i64 noundef %0) #1 align 16 {
 73:                                               ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %43, i64 1048
   %75 = sext i32 %71 to i64
-  %76 = getelementptr [0 x ptr], ptr %74, i64 0, i64 %75
+  %76 = getelementptr ptr, ptr %74, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %61
   br i1 %78, label %102, label %79
@@ -10897,7 +10897,7 @@ define dso_local range(i32 -2147483648, 1) i32 @proc_cgroup_show(ptr noundef %0,
   br i1 %59, label %68, label %60
 
 60:                                               ; preds = %52
-  %61 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %53
+  %61 = getelementptr ptr, ptr @cgroup_subsys, i64 %53
   %62 = load ptr, ptr %61, align 8
   %63 = add i32 %54, 1
   %64 = icmp eq i32 %54, 0
@@ -11401,8 +11401,8 @@ define dso_local i32 @cgroup_can_fork(ptr noundef %0, ptr noundef captures(none)
 
 191:                                              ; preds = %187
   %192 = shl i64 %188, 32
-  %193 = ashr exact i64 %192, 32
-  %194 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %193
+  %193 = ashr exact i64 %192, 29
+  %194 = getelementptr i8, ptr @cgroup_subsys, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 104
   %197 = load ptr, ptr %196, align 8
@@ -11422,7 +11422,7 @@ define dso_local i32 @cgroup_can_fork(ptr noundef %0, ptr noundef captures(none)
 
 206:                                              ; preds = %215, %204
   %207 = phi i64 [ 0, %204 ], [ %216, %215 ]
-  %208 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %207
+  %208 = getelementptr ptr, ptr @cgroup_subsys, i64 %207
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 112
   %211 = load ptr, ptr %210, align 8
@@ -11572,7 +11572,7 @@ define dso_local void @cgroup_cancel_fork(ptr noundef %0, ptr noundef captures(n
 
 4:                                                ; preds = %13, %2
   %5 = phi i64 [ 0, %2 ], [ %14, %13 ]
-  %6 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @cgroup_subsys, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
@@ -11783,8 +11783,8 @@ css_set_move_task.exit:                           ; preds = %55, %.loopexit.i, %
 
 100:                                              ; preds = %96
   %101 = shl i64 %97, 32
-  %102 = ashr exact i64 %101, 32
-  %103 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %102
+  %102 = ashr exact i64 %101, 29
+  %103 = getelementptr i8, ptr @cgroup_subsys, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 120
   %106 = load ptr, ptr %105, align 8
@@ -12038,8 +12038,8 @@ css_set_move_task.exit:                           ; preds = %.preheader.i, %.loo
 
 99:                                               ; preds = %95
   %100 = shl i64 %96, 32
-  %101 = ashr exact i64 %100, 32
-  %102 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %101
+  %101 = ashr exact i64 %100, 29
+  %102 = getelementptr i8, ptr @cgroup_subsys, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 128
   %105 = load ptr, ptr %104, align 8
@@ -12081,8 +12081,8 @@ define dso_local void @cgroup_release(ptr noundef %0) local_unnamed_addr #1 alig
 
 14:                                               ; preds = %10
   %15 = shl i64 %11, 32
-  %16 = ashr exact i64 %15, 32
-  %17 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %16
+  %16 = ashr exact i64 %15, 29
+  %17 = getelementptr i8, ptr @cgroup_subsys, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %20 = load ptr, ptr %19, align 8
@@ -12179,7 +12179,7 @@ define internal noundef i32 @cgroup_disable(ptr noundef %0) #13 section ".init.t
 
 .preheader:                                       ; preds = %.preheader3, %27
   %10 = phi i64 [ %28, %27 ], [ 0, %.preheader3 ]
-  %11 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr @cgroup_subsys, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = load ptr, ptr %13, align 8
@@ -12195,7 +12195,7 @@ define internal noundef i32 @cgroup_disable(ptr noundef %0) #13 section ".init.t
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %17, %.preheader
-  %23 = getelementptr [14 x ptr], ptr @cgroup_subsys_enabled_key, i64 0, i64 %10
+  %23 = getelementptr ptr, ptr @cgroup_subsys_enabled_key, i64 %10
   %24 = load ptr, ptr %23, align 8
   call void @static_key_disable(ptr noundef %24) #30
   %25 = load ptr, ptr %13, align 8
@@ -12268,7 +12268,7 @@ define dso_local ptr @css_tryget_online_from_dir(ptr noundef %0, ptr noundef rea
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [14 x ptr], ptr %25, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr %25, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %.thread5
@@ -13391,7 +13391,7 @@ define internal fastcc i32 @cgroup_addrm_files(ptr noundef %0, ptr noundef %1, p
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 156
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
-  %187 = getelementptr [14 x ptr], ptr %11, i64 0, i64 %186
+  %187 = getelementptr ptr, ptr %11, i64 %186
   %188 = load volatile ptr, ptr %187, align 8
   br label %189
 
@@ -13902,8 +13902,8 @@ define internal fastcc void @cgroup_propagate_control(ptr noundef %0) unnamed_ad
 
 67:                                               ; preds = %63
   %68 = shl i64 %64, 32
-  %69 = ashr exact i64 %68, 32
-  %70 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %69
+  %69 = ashr exact i64 %68, 29
+  %70 = getelementptr i8, ptr @cgroup_subsys, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 240
   %73 = load i32, ptr %72, align 8
@@ -14148,7 +14148,7 @@ define internal void @css_killed_work_fn(ptr noundef %0) #1 align 16 {
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 156
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [14 x ptr], ptr %20, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %20, i64 %23
   store volatile ptr null, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 960
@@ -14235,7 +14235,7 @@ define internal fastcc i32 @cgroup_apply_cftypes(ptr noundef nonnull %0, i1 noun
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [14 x ptr], ptr %10, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr %10, i64 %13
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread8, label %.thread.split.preheader
@@ -14347,7 +14347,7 @@ define internal fastcc i32 @cgroup_apply_cftypes(ptr noundef nonnull %0, i1 noun
 .thread7:                                         ; preds = %.thread.split, %75
   %78 = load i32, ptr %18, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr [14 x ptr], ptr %17, i64 0, i64 %79
+  %80 = getelementptr ptr, ptr %17, i64 %79
   %81 = load volatile ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %83 = load volatile ptr, ptr %82, align 8
@@ -15041,7 +15041,7 @@ define internal fastcc void @init_and_link_css(ptr noundef initializes((0, 200))
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr [14 x ptr], ptr %44, i64 0, i64 %47
+  %48 = getelementptr ptr, ptr %44, i64 %47
   %49 = load volatile ptr, ptr %48, align 8
   br label %50
 
@@ -15104,7 +15104,7 @@ define internal fastcc void @init_and_link_css(ptr noundef initializes((0, 200))
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
-  %83 = getelementptr [14 x ptr], ptr %79, i64 0, i64 %82
+  %83 = getelementptr ptr, ptr %79, i64 %82
   %84 = load volatile ptr, ptr %83, align 8
   br label %85
 
@@ -15334,7 +15334,7 @@ define internal i32 @cgroup_seqfile_show(ptr noundef %0, ptr noundef %1) #1 alig
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -15489,7 +15489,7 @@ define internal i64 @cgroup_file_write(ptr noundef %0, ptr noundef %1, i64 nound
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 156
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr [14 x ptr], ptr %49, i64 0, i64 %52
+  %53 = getelementptr ptr, ptr %49, i64 %52
   %54 = load volatile ptr, ptr %53, align 8
   br label %55
 
@@ -15609,7 +15609,7 @@ define internal noundef i32 @cgroup_type_show(ptr noundef %0, ptr readnone captu
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -16134,7 +16134,7 @@ define internal ptr @cgroup_procs_start(ptr noundef readonly captures(none) %0, 
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -16219,7 +16219,7 @@ define internal noundef i32 @cgroup_controllers_show(ptr noundef %0, ptr readnon
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -16286,8 +16286,8 @@ define internal noundef i32 @cgroup_controllers_show(ptr noundef %0, ptr readnon
 
 67:                                               ; preds = %63
   %68 = shl i64 %64, 32
-  %69 = ashr exact i64 %68, 32
-  %70 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %69
+  %69 = ashr exact i64 %68, 29
+  %70 = getelementptr i8, ptr @cgroup_subsys, i64 %69
   %71 = load ptr, ptr %70, align 8
   br i1 %59, label %72, label %73
 
@@ -16336,7 +16336,7 @@ define internal noundef i32 @cgroup_subtree_control_show(ptr noundef %0, ptr rea
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -16365,8 +16365,8 @@ define internal noundef i32 @cgroup_subtree_control_show(ptr noundef %0, ptr rea
 
 39:                                               ; preds = %35
   %40 = shl i64 %36, 32
-  %41 = ashr exact i64 %40, 32
-  %42 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %41
+  %41 = ashr exact i64 %40, 29
+  %42 = getelementptr i8, ptr @cgroup_subsys, i64 %41
   %43 = load ptr, ptr %42, align 8
   br i1 %31, label %44, label %45
 
@@ -16442,9 +16442,9 @@ define internal noundef i64 @cgroup_subtree_control_write(ptr noundef readonly c
 33:                                               ; preds = %29
   %34 = shl i64 %30, 32
   %35 = ashr exact i64 %34, 32
-  %36 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr @cgroup_subsys, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr [14 x ptr], ptr @cgroup_subsys_enabled_key, i64 0, i64 %35
+  %38 = getelementptr ptr, ptr @cgroup_subsys_enabled_key, i64 %35
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @static_key_count(ptr noundef %39) #30
   %41 = icmp sgt i32 %40, 0
@@ -16944,7 +16944,7 @@ define internal noundef i32 @cgroup_events_show(ptr noundef %0, ptr readnone cap
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -16992,7 +16992,7 @@ define internal noundef i32 @cgroup_max_descendants_show(ptr noundef %0, ptr rea
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -17138,7 +17138,7 @@ define internal noundef i32 @cgroup_max_depth_show(ptr noundef %0, ptr readnone 
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -17284,7 +17284,7 @@ define internal noundef i32 @cgroup_stat_show(ptr noundef %0, ptr readnone captu
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -17321,7 +17321,7 @@ define internal noundef i32 @cgroup_freeze_show(ptr noundef %0, ptr readnone cap
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -17496,7 +17496,7 @@ define internal i64 @cgroup_kill_write(ptr noundef readonly captures(none) %0, p
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 156
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr [14 x %struct.list_head], ptr %42, i64 0, i64 %45
+  %46 = getelementptr %struct.list_head, ptr %42, i64 %45
   br label %49
 
 47:                                               ; preds = %34
@@ -17703,7 +17703,7 @@ define internal i32 @cpu_stat_show(ptr noundef %0, ptr readnone captures(none) %
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -17789,7 +17789,7 @@ define internal i32 @cpu_local_stat_show(ptr noundef %0, ptr readnone captures(n
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [14 x ptr], ptr %16, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %16, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   br label %22
 
@@ -17881,7 +17881,7 @@ define internal fastcc ptr @__cgroup_procs_start(ptr noundef readonly captures(n
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 156
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [14 x ptr], ptr %17, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %17, i64 %20
   %22 = load volatile ptr, ptr %21, align 8
   br label %23
 
@@ -17925,7 +17925,7 @@ define internal fastcc ptr @__cgroup_procs_start(ptr noundef readonly captures(n
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 156
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr [14 x %struct.list_head], ptr %44, i64 0, i64 %48
+  %49 = getelementptr %struct.list_head, ptr %44, i64 %48
   br label %52
 
 50:                                               ; preds = %36
@@ -17965,7 +17965,7 @@ define internal fastcc ptr @__cgroup_procs_start(ptr noundef readonly captures(n
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 156
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr [14 x %struct.list_head], ptr %65, i64 0, i64 %69
+  %70 = getelementptr %struct.list_head, ptr %65, i64 %69
   br label %73
 
 71:                                               ; preds = %57
@@ -18091,7 +18091,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__cgroup_procs_wr
 
 54:                                               ; preds = %62, %53
   %55 = phi i64 [ 0, %53 ], [ %63, %62 ]
-  %56 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %55
+  %56 = getelementptr ptr, ptr @cgroup_subsys, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load ptr, ptr %58, align 8
@@ -18200,7 +18200,7 @@ define internal fastcc i32 @cgroup_attach_permissions(ptr noundef readonly captu
 
 20:                                               ; preds = %15
   %21 = sext i32 %18 to i64
-  %22 = getelementptr [0 x ptr], ptr %6, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr %6, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %11
   br i1 %24, label %28, label %25
@@ -18256,7 +18256,7 @@ define internal fastcc i32 @cgroup_attach_permissions(ptr noundef readonly captu
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %58 = sext i32 %54 to i64
-  %59 = getelementptr [0 x ptr], ptr %57, i64 0, i64 %58
+  %59 = getelementptr ptr, ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %44
   br i1 %61, label %62, label %.thread11
@@ -18272,7 +18272,7 @@ define internal fastcc i32 @cgroup_attach_permissions(ptr noundef readonly captu
   br i1 %67, label %.thread11, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr [0 x ptr], ptr %6, i64 0, i64 %58
+  %69 = getelementptr ptr, ptr %6, i64 %58
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %44
   br i1 %71, label %72, label %.thread11
@@ -18421,7 +18421,7 @@ define internal fastcc ptr @cgroup_tryget_css(ptr noundef %0, ptr noundef readon
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [14 x ptr], ptr %5, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %5, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   br label %11
 
@@ -18661,13 +18661,13 @@ define internal i64 @delegate_show(ptr readnone captures(none) %0, ptr readnone 
 .loopexit7:                                       ; preds = %.loopexit7.preheader, %.loopexit
   %26 = phi i64 [ %65, %.loopexit ], [ 0, %.loopexit7.preheader ]
   %27 = phi i64 [ %64, %.loopexit ], [ %.ph26, %.loopexit7.preheader ]
-  %28 = getelementptr [14 x ptr], ptr @cgroup_subsys, i64 0, i64 %26
+  %28 = getelementptr ptr, ptr @cgroup_subsys, i64 %26
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 224
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %2, i64 %27
   %33 = sub i64 4096, %27
-  %34 = getelementptr [14 x ptr], ptr @cgroup_subsys_name, i64 0, i64 %26
+  %34 = getelementptr ptr, ptr @cgroup_subsys_name, i64 %26
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %31, null
   br i1 %36, label %.loopexit, label %.preheader

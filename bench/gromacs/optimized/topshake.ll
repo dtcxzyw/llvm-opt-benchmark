@@ -448,7 +448,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %_ZNKSt7__cxx1112bas
 
 .split.us395:                                     ; preds = %136, %.loopexit336.split.us.us
   %indvars.iv431 = phi i64 [ %indvars.iv.next432, %.loopexit336.split.us.us ], [ 0, %136 ]
-  %145 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv431, i32 5
+  %145 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv431, i32 5
   %146 = load i32, ptr %145, align 4, !tbaa !33
   %147 = and i32 %146, 8
   %.not128.us = icmp eq i32 %147, 0
@@ -469,7 +469,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.us:                                    ; preds = %148, %.loopexit334.us.us
   %indvars.iv427 = phi i64 [ %indvars.iv.next428, %.loopexit334.us.us ], [ 0, %148 ]
-  %153 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv427, i32 5
+  %153 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv427, i32 5
   %154 = load i32, ptr %153, align 4, !tbaa !33
   %155 = and i32 %154, 32
   %.not130.us.us = icmp eq i32 %155, 0
@@ -497,7 +497,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %_ZNKSt7__cxx1112bas
 .split:                                           ; preds = %136, %.loopexit336.split
   %indvars.iv423 = phi i64 [ %indvars.iv.next424, %.loopexit336.split ], [ 0, %136 ]
   %161 = getelementptr inbounds nuw %struct.InteractionsOfType, ptr %0, i64 %indvars.iv423
-  %162 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv423, i32 5
+  %162 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv423, i32 5
   %163 = load i32, ptr %162, align 4, !tbaa !33
   %164 = and i32 %163, 8
   %.not128 = icmp eq i32 %164, 0
@@ -516,7 +516,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %_ZNKSt7__cxx1112bas
 
 170:                                              ; preds = %.preheader, %.loopexit334
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.loopexit334 ]
-  %171 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
+  %171 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 5
   %172 = load i32, ptr %171, align 4, !tbaa !33
   %173 = and i32 %172, 32
   %.not130 = icmp eq i32 %173, 0
@@ -1223,7 +1223,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit177:                 ; preds = %323, %_ZNSt6vectorI
 
 483:                                              ; preds = %.thread, %.loopexit
   %indvars.iv435 = phi i64 [ 0, %.thread ], [ %indvars.iv.next436, %.loopexit ]
-  %484 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv435, i32 5
+  %484 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv435, i32 5
   %485 = load i32, ptr %484, align 4, !tbaa !33
   %486 = and i32 %485, 16
   %.not118 = icmp eq i32 %486, 0

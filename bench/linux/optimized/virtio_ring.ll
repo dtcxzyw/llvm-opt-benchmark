@@ -1436,7 +1436,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %824 = load ptr, ptr %823, align 8
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 4
   %826 = zext nneg i32 %821 to i64
-  %827 = getelementptr [0 x i16], ptr %825, i64 0, i64 %826
+  %827 = getelementptr i16, ptr %825, i64 %826
   store i16 %822, ptr %827, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17
   %828 = load i16, ptr %816, align 2
@@ -1707,7 +1707,7 @@ define dso_local zeroext i1 @virtqueue_kick_prepare(ptr noundef captures(none) %
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %56, align 8
   %62 = zext i32 %61 to i64
-  %63 = getelementptr [0 x %struct.vring_used_elem], ptr %60, i64 0, i64 %62
+  %63 = getelementptr %struct.vring_used_elem, ptr %60, i64 %62
   %64 = load i16, ptr %63, align 4
   %65 = xor i16 %64, -1
   %66 = add i16 %49, %65
@@ -1843,7 +1843,7 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %53, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr [0 x %struct.vring_used_elem], ptr %57, i64 0, i64 %59
+  %60 = getelementptr %struct.vring_used_elem, ptr %57, i64 %59
   %61 = load i16, ptr %60, align 4
   %62 = xor i16 %61, -1
   %63 = add i16 %46, %62
@@ -2029,7 +2029,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %108 = load ptr, ptr %94, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = zext i16 %106 to i64
-  %111 = getelementptr [0 x %struct.vring_used_elem], ptr %109, i64 0, i64 %110
+  %111 = getelementptr %struct.vring_used_elem, ptr %109, i64 %110
   %112 = load i32, ptr %111, align 4
   %.idx = shl nuw nsw i64 %110, 3
   %113 = getelementptr i8, ptr %109, i64 %.idx
@@ -2086,7 +2086,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %148 = load i32, ptr %102, align 8
   %149 = zext i32 %148 to i64
-  %150 = getelementptr [0 x i16], ptr %147, i64 0, i64 %149
+  %150 = getelementptr i16, ptr %147, i64 %149
   br i1 %144, label %153, label %151
 
 151:                                              ; preds = %142
@@ -2164,7 +2164,7 @@ define dso_local void @virtqueue_disable_cb(ptr noundef captures(none) %0) #4 al
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = load i32, ptr %18, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr [0 x i16], ptr %35, i64 0, i64 %37
+  %38 = getelementptr i16, ptr %35, i64 %37
   store i16 0, ptr %38, align 2
   br label %40
 
@@ -2260,7 +2260,7 @@ define dso_local range(i32 0, 65536) i32 @virtqueue_enable_cb_prepare(ptr nounde
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %47, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr [0 x i16], ptr %52, i64 0, i64 %54
+  %55 = getelementptr i16, ptr %52, i64 %54
   store i16 %49, ptr %55, align 2
   br label %56
 
@@ -2412,7 +2412,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb(ptr noundef captures(none) %0) 
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %47, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr [0 x i16], ptr %52, i64 0, i64 %54
+  %55 = getelementptr i16, ptr %52, i64 %54
   store i16 %49, ptr %55, align 2
   br label %56
 
@@ -2614,7 +2614,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %72, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr [0 x i16], ptr %100, i64 0, i64 %102
+  %103 = getelementptr i16, ptr %100, i64 %102
   %104 = trunc nuw i32 %93 to i16
   %105 = add i16 %89, %104
   %106 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %103, i16 %105, ptr elementtype(i16) %103) #17, !srcloc !55
@@ -2628,7 +2628,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %72, align 8
   %114 = zext i32 %113 to i64
-  %115 = getelementptr [0 x i16], ptr %112, i64 0, i64 %114
+  %115 = getelementptr i16, ptr %112, i64 %114
   store volatile i16 %109, ptr %115, align 2
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !56
   br label %116
@@ -3441,7 +3441,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nound
   %208 = load ptr, ptr %204, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %210 = sext i32 %203 to i64
-  %211 = getelementptr [0 x i16], ptr %209, i64 0, i64 %210
+  %211 = getelementptr i16, ptr %209, i64 %210
   store i16 0, ptr %211, align 2
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %213 = load ptr, ptr %212, align 8
@@ -3451,7 +3451,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nound
   store i16 0, ptr %215, align 2
   %216 = load ptr, ptr %212, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %218 = getelementptr [0 x %struct.vring_used_elem], ptr %217, i64 0, i64 %210
+  %218 = getelementptr %struct.vring_used_elem, ptr %217, i64 %210
   store i16 0, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %203, ptr %219, align 4
@@ -3636,7 +3636,7 @@ define dso_local i32 @virtqueue_reset(ptr noundef %0, ptr noundef readonly captu
   %67 = load ptr, ptr %63, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = sext i32 %62 to i64
-  %70 = getelementptr [0 x i16], ptr %68, i64 0, i64 %69
+  %70 = getelementptr i16, ptr %68, i64 %69
   store i16 0, ptr %70, align 2
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %72 = load ptr, ptr %71, align 8
@@ -3646,7 +3646,7 @@ define dso_local i32 @virtqueue_reset(ptr noundef %0, ptr noundef readonly captu
   store i16 0, ptr %74, align 2
   %75 = load ptr, ptr %71, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %77 = getelementptr [0 x %struct.vring_used_elem], ptr %76, i64 0, i64 %69
+  %77 = getelementptr %struct.vring_used_elem, ptr %76, i64 %69
   store i16 0, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %62, ptr %78, align 4
@@ -3722,7 +3722,7 @@ define dso_local noundef ptr @vring_new_virtqueue(i32 noundef %0, i32 noundef %1
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %24 = getelementptr [0 x i16], ptr %23, i64 0, i64 %19
+  %24 = getelementptr i16, ptr %23, i64 %19
   %25 = ptrtoint ptr %24 to i64
   %26 = add nuw nsw i64 %17, 1
   %27 = add i64 %26, %25
@@ -5362,7 +5362,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %89 = getelementptr [0 x i16], ptr %88, i64 0, i64 %84
+  %89 = getelementptr i16, ptr %88, i64 %84
   %90 = ptrtoint ptr %89 to i64
   %91 = add nuw nsw i64 %82, 1
   %92 = add i64 %91, %90

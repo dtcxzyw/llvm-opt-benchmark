@@ -1066,7 +1066,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPos
   %27 = load ptr, ptr %26, align 8, !tbaa !82
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = sext i32 %spec.select to i64
-  %30 = getelementptr inbounds [1 x ptr], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !83
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %42

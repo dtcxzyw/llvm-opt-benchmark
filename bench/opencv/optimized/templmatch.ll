@@ -3175,7 +3175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i: ; preds = %
   %378 = load double, ptr %377, align 8, !tbaa !71
   %379 = fadd double %376, %378
   %380 = call double @llvm.fmuladd.f64(double %379, double %379, double %.1138209.us.i)
-  %381 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv.i
+  %381 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
   %382 = load double, ptr %381, align 8, !tbaa !71
   %383 = fneg double %379
   %384 = call double @llvm.fmuladd.f64(double %383, double %382, double %.1141208.us.i)
@@ -4976,12 +4976,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit346:              ; preds = %479
 
 606:                                              ; preds = %606, %605
   %indvars.iv.i.i = phi i64 [ 0, %605 ], [ %indvars.iv.next.i.i, %606 ]
-  %607 = getelementptr inbounds nuw [4 x double], ptr %92, i64 0, i64 %indvars.iv.i.i
+  %607 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv.i.i
   %608 = load double, ptr %607, align 8, !tbaa !71, !noalias !127
-  %609 = getelementptr inbounds nuw [4 x double], ptr %83, i64 0, i64 %indvars.iv.i.i
+  %609 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv.i.i
   %610 = load double, ptr %609, align 8, !tbaa !71, !noalias !127
   %611 = fdiv double %608, %610
-  %612 = getelementptr inbounds nuw [4 x double], ptr %91, i64 0, i64 %indvars.iv.i.i
+  %612 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv.i.i
   store double %611, ptr %612, align 8, !tbaa !71, !alias.scope !127
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -5095,12 +5095,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit357:              ; preds = %617
 
 644:                                              ; preds = %644, %643
   %indvars.iv.i.i358 = phi i64 [ 0, %643 ], [ %indvars.iv.next.i.i359, %644 ]
-  %645 = getelementptr inbounds nuw [4 x double], ptr %101, i64 0, i64 %indvars.iv.i.i358
+  %645 = getelementptr inbounds nuw double, ptr %101, i64 %indvars.iv.i.i358
   %646 = load double, ptr %645, align 8, !tbaa !71, !noalias !134
-  %647 = getelementptr inbounds nuw [4 x double], ptr %83, i64 0, i64 %indvars.iv.i.i358
+  %647 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv.i.i358
   %648 = load double, ptr %647, align 8, !tbaa !71, !noalias !134
   %649 = fdiv double %646, %648
-  %650 = getelementptr inbounds nuw [4 x double], ptr %100, i64 0, i64 %indvars.iv.i.i358
+  %650 = getelementptr inbounds nuw double, ptr %100, i64 %indvars.iv.i.i358
   store double %649, ptr %650, align 8, !tbaa !71, !alias.scope !134
   %indvars.iv.next.i.i359 = add nuw nsw i64 %indvars.iv.i.i358, 1
   %exitcond.not.i.i360 = icmp eq i64 %indvars.iv.next.i.i359, 4
@@ -5444,12 +5444,12 @@ _ZN2cvmIERNS_3MatERKS0_.exit:                     ; preds = %.noexc365
 
 754:                                              ; preds = %754, %753
   %indvars.iv.i.i370 = phi i64 [ 0, %753 ], [ %indvars.iv.next.i.i371, %754 ]
-  %755 = getelementptr inbounds nuw [4 x double], ptr %112, i64 0, i64 %indvars.iv.i.i370
+  %755 = getelementptr inbounds nuw double, ptr %112, i64 %indvars.iv.i.i370
   %756 = load double, ptr %755, align 8, !tbaa !71, !noalias !140
-  %757 = getelementptr inbounds nuw [4 x double], ptr %83, i64 0, i64 %indvars.iv.i.i370
+  %757 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv.i.i370
   %758 = load double, ptr %757, align 8, !tbaa !71, !noalias !140
   %759 = fdiv double %756, %758
-  %760 = getelementptr inbounds nuw [4 x double], ptr %111, i64 0, i64 %indvars.iv.i.i370
+  %760 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv.i.i370
   store double %759, ptr %760, align 8, !tbaa !71, !alias.scope !140
   %indvars.iv.next.i.i371 = add nuw nsw i64 %indvars.iv.i.i370, 1
   %exitcond.not.i.i372 = icmp eq i64 %indvars.iv.next.i.i371, 4
@@ -5634,12 +5634,12 @@ _ZNK2cv4MatxIdLi4ELi1EE3divERKS1_.exit373:        ; preds = %754
 
 817:                                              ; preds = %817, %813
   %indvars.iv.i.i380 = phi i64 [ 0, %813 ], [ %indvars.iv.next.i.i381, %817 ]
-  %818 = getelementptr inbounds nuw [4 x double], ptr %130, i64 0, i64 %indvars.iv.i.i380
+  %818 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv.i.i380
   %819 = load double, ptr %818, align 8, !tbaa !71, !noalias !149
-  %820 = getelementptr inbounds nuw [4 x double], ptr %83, i64 0, i64 %indvars.iv.i.i380
+  %820 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv.i.i380
   %821 = load double, ptr %820, align 8, !tbaa !71, !noalias !149
   %822 = fdiv double %819, %821
-  %823 = getelementptr inbounds nuw [4 x double], ptr %129, i64 0, i64 %indvars.iv.i.i380
+  %823 = getelementptr inbounds nuw double, ptr %129, i64 %indvars.iv.i.i380
   store double %822, ptr %823, align 8, !tbaa !71, !alias.scope !149
   %indvars.iv.next.i.i381 = add nuw nsw i64 %indvars.iv.i.i380, 1
   %exitcond.not.i.i382 = icmp eq i64 %indvars.iv.next.i.i381, 4
@@ -5664,12 +5664,12 @@ _ZNK2cv4MatxIdLi4ELi1EE3divERKS1_.exit373:        ; preds = %754
 
 828:                                              ; preds = %828, %827
   %indvars.iv.i.i384 = phi i64 [ 0, %827 ], [ %indvars.iv.next.i.i385, %828 ]
-  %829 = getelementptr inbounds nuw [4 x double], ptr %123, i64 0, i64 %indvars.iv.i.i384
+  %829 = getelementptr inbounds nuw double, ptr %123, i64 %indvars.iv.i.i384
   %830 = load double, ptr %829, align 8, !tbaa !71, !noalias !152
-  %831 = getelementptr inbounds nuw [4 x double], ptr %83, i64 0, i64 %indvars.iv.i.i384
+  %831 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv.i.i384
   %832 = load double, ptr %831, align 8, !tbaa !71, !noalias !152
   %833 = fdiv double %830, %832
-  %834 = getelementptr inbounds nuw [4 x double], ptr %134, i64 0, i64 %indvars.iv.i.i384
+  %834 = getelementptr inbounds nuw double, ptr %134, i64 %indvars.iv.i.i384
   store double %833, ptr %834, align 8, !tbaa !71, !alias.scope !152
   %indvars.iv.next.i.i385 = add nuw nsw i64 %indvars.iv.i.i384, 1
   %exitcond.not.i.i386 = icmp eq i64 %indvars.iv.next.i.i385, 4

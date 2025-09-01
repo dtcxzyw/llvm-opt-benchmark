@@ -217,7 +217,7 @@ define internal range(i32 -12, 1) i32 @read_header(ptr noundef %0) #0 {
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %61 to i64
-  %68 = getelementptr inbounds nuw [37 x i8], ptr %2, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %67
   store i8 0, ptr %68, align 1, !tbaa !12
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %70 = call i32 @av_dict_set(ptr noundef nonnull %69, ptr noundef nonnull @.str.11, ptr noundef nonnull %2, i32 noundef 0) #4
@@ -236,7 +236,7 @@ define internal range(i32 -12, 1) i32 @read_header(ptr noundef %0) #0 {
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %72 to i64
-  %79 = getelementptr inbounds nuw [37 x i8], ptr %2, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 %78
   store i8 0, ptr %79, align 1, !tbaa !12
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %81 = call i32 @av_dict_set(ptr noundef nonnull %80, ptr noundef nonnull @.str.12, ptr noundef nonnull %2, i32 noundef 0) #4

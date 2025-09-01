@@ -2379,7 +2379,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !151
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -6623,7 +6623,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %11
 26:                                               ; preds = %.lr.ph, %_ZNK9fm_tactic3imp10is_literalEP4expr.exit.thread22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK9fm_tactic3imp10is_literalEP4expr.exit.thread22 ]
   %.01827 = phi i8 [ 0, %.lr.ph ], [ %.220.ph, %_ZNK9fm_tactic3imp10is_literalEP4expr.exit.thread22 ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !141
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
@@ -8566,7 +8566,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 64:                                               ; preds = %.lr.ph, %_ZN9fm_tactic3imp14forbidden_procclEP3app.exit
   %65 = phi i32 [ %61, %.lr.ph ], [ %159, %_ZN9fm_tactic3imp14forbidden_procclEP3app.exit ]
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !141
   %69 = add nuw i32 %65, 1
   store i32 %69, ptr %60, align 8, !tbaa !314

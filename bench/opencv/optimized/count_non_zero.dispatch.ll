@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline18getCountNonZeroTabEi(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline18getCountNonZeroTabEiE15countNonZeroTab, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline18getCountNonZeroTabEiE15countNonZeroTab, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %4
 }
@@ -271,7 +271,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %34, %37
 .noexc33:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %39 = and i32 %38, 7
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline18getCountNonZeroTabEiE15countNonZeroTab, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline18getCountNonZeroTabEiE15countNonZeroTab, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !42

@@ -306,9 +306,9 @@ tailrecurse:                                      ; preds = %13, %3
   %5 = getelementptr inbounds nuw i8, ptr %.tr132, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !19
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds nuw [5 x [5 x %struct.b2ContactRegister]], ptr @s_registers, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr @s_registers, i64 %7
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.b2ContactRegister, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 16, !tbaa !15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
@@ -1001,11 +1001,11 @@ define hidden noundef zeroext i1 @b2UpdateContact(ptr noundef readonly captures(
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !19
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [5 x [5 x %struct.b2ContactRegister]], ptr @s_registers, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr @s_registers, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr %17, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.b2ContactRegister, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 16, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -1326,11 +1326,11 @@ define hidden void @b2ComputeManifold(ptr dead_on_unwind noalias writable sret(%
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [5 x [5 x %struct.b2ContactRegister]], ptr @s_registers, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr @s_registers, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !19
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [5 x %struct.b2ContactRegister], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.b2ContactRegister, ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 16, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8

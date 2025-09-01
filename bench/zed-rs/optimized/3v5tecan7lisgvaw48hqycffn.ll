@@ -2463,7 +2463,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i: ; preds = 
 
 .lr.ph.i.us.i.i.i.i.i.i:                          ; preds = %.preheader.i.us.i.i.i.i.i.i, %301
   %.sroa.01.05.i.us.i.i.i.i.i.i = phi i64 [ %302, %301 ], [ 0, %.preheader.i.us.i.i.i.i.i.i ]
-  %298 = getelementptr inbounds nuw [0 x i8], ptr %293, i64 0, i64 %.sroa.01.05.i.us.i.i.i.i.i.i
+  %298 = getelementptr inbounds nuw i8, ptr %293, i64 %.sroa.01.05.i.us.i.i.i.i.i.i
   %299 = load i8, ptr %298, align 1, !alias.scope !469, !noalias !472, !noundef !14
   %300 = icmp eq i8 %299, %.pre92.i.i.i.i.i.i
   br i1 %300, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i, label %301
@@ -2500,7 +2500,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i: ;
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i.i, %314
   %.sroa.01.05.i.i.i.i.i.i.i = phi i64 [ %315, %314 ], [ 0, %.preheader.i.i.i.i.i.i.i ]
-  %311 = getelementptr inbounds nuw [0 x i8], ptr %309, i64 0, i64 %.sroa.01.05.i.i.i.i.i.i.i
+  %311 = getelementptr inbounds nuw i8, ptr %309, i64 %.sroa.01.05.i.i.i.i.i.i.i
   %312 = load i8, ptr %311, align 1, !alias.scope !469, !noalias !472, !noundef !14
   %313 = icmp eq i8 %312, %.pre92.i.i.i.i.i.i
   br i1 %313, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i, label %314

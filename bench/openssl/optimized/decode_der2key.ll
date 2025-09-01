@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dh_does_selection(ptr re
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -590,7 +590,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dh_does_selection(
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -634,7 +634,7 @@ define internal range(i32 0, 2) i32 @type_specific_params_der2dh_does_selection(
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -678,7 +678,7 @@ define internal range(i32 0, 2) i32 @DH_der2dh_does_selection(ptr readnone captu
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -722,7 +722,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dhx_does_selection(ptr r
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -766,7 +766,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dhx_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -810,7 +810,7 @@ define internal range(i32 0, 2) i32 @type_specific_params_der2dhx_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -854,7 +854,7 @@ define internal range(i32 0, 2) i32 @DHX_der2dhx_does_selection(ptr readnone cap
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -898,7 +898,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dsa_does_selection(ptr r
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -942,7 +942,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dsa_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -986,7 +986,7 @@ define internal range(i32 0, 2) i32 @type_specific_der2dsa_does_selection(ptr re
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1025,7 +1025,7 @@ define internal range(i32 0, 2) i32 @DSA_der2dsa_does_selection(ptr readnone cap
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1064,7 +1064,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ec_does_selection(ptr re
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1108,7 +1108,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ec_does_selection(
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1152,7 +1152,7 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2ec_does_selection(
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1197,7 +1197,7 @@ define internal range(i32 0, 2) i32 @EC_der2ec_does_selection(ptr readnone captu
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1242,7 +1242,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x25519_does_selection(pt
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1286,7 +1286,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x25519_does_select
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1330,7 +1330,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x448_does_selection(ptr 
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1374,7 +1374,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x448_does_selectio
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1418,7 +1418,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed25519_does_selection(p
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1462,7 +1462,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed25519_does_selec
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1506,7 +1506,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed448_does_selection(ptr
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1550,7 +1550,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed448_does_selecti
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1594,7 +1594,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2sm2_does_selection(ptr r
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1638,7 +1638,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2sm2_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1682,7 +1682,7 @@ define internal range(i32 0, 2) i32 @type_specific_no_pub_der2sm2_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1727,7 +1727,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_512_does_selectio
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1771,7 +1771,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_512_does_se
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1815,7 +1815,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_768_does_selectio
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1859,7 +1859,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_768_does_se
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1903,7 +1903,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_1024_does_selecti
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1947,7 +1947,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_kem_1024_does_s
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -1991,7 +1991,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsa_does_selection(ptr r
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2035,7 +2035,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsa_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2079,7 +2079,7 @@ define internal range(i32 0, 2) i32 @type_specific_keypair_der2rsa_does_selectio
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2123,7 +2123,7 @@ define internal range(i32 0, 2) i32 @RSA_der2rsa_does_selection(ptr readnone cap
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2167,7 +2167,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsapss_does_selection(pt
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2211,7 +2211,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsapss_does_select
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2255,7 +2255,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_44_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2299,7 +2299,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_44_does_sel
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2343,7 +2343,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_65_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2387,7 +2387,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_65_does_sel
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2431,7 +2431,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_87_does_selection
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2475,7 +2475,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ml_dsa_87_does_sel
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
+  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0

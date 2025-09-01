@@ -187,7 +187,7 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
   %36 = add i32 %35, 7
   %37 = lshr i32 %36, 3
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [4 x i32], ptr %20, i64 0, i64 %29
+  %39 = getelementptr i32, ptr %20, i64 %29
   %40 = getelementptr %struct.iosys_map, ptr %2, i64 %29
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %10, align 4

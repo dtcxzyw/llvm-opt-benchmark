@@ -247,7 +247,7 @@ define hidden noundef nonnull ptr @ps_title_errno(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ps_title_errno, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ps_title_errno, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

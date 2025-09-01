@@ -1039,13 +1039,13 @@ parse_mark_ref_eol.exit.i.i:                      ; preds = %parse_mark_ref.exit
   %270 = lshr i64 %.01828.i.i.i, %269
   %271 = shl i64 %270, %269
   %272 = sub i64 %.01828.i.i.i, %271
-  %273 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i.i, i64 0, i64 %270
+  %273 = getelementptr inbounds nuw ptr, ptr %.029.i.i.i, i64 %270
   %274 = load ptr, ptr %273, align 8, !tbaa !30
   %.not.i25.i.i = icmp eq ptr %274, null
   br i1 %.not.i25.i.i, label %.critedge22.thread.i.i.i, label %.lr.ph.i.i89.i, !llvm.loop !61
 
 .critedge22.i.i.i:                                ; preds = %.lr.ph.i.i89.i
-  %275 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i.i, i64 0, i64 %.01828.i.i.i
+  %275 = getelementptr inbounds nuw ptr, ptr %.029.i.i.i, i64 %.01828.i.i.i
   %276 = load ptr, ptr %275, align 8, !tbaa !30
   %.not21.i.i.i = icmp eq ptr %276, null
   br i1 %.not21.i.i.i, label %.critedge22.thread.i.i.i, label %find_mark.exit.i.i
@@ -1398,13 +1398,13 @@ parse_mark_ref_space.exit.i.i:                    ; preds = %parse_mark_ref.exit
   %415 = lshr i64 %.01828.i.i122.i, %414
   %416 = shl i64 %415, %414
   %417 = sub i64 %.01828.i.i122.i, %416
-  %418 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i121.i, i64 0, i64 %415
+  %418 = getelementptr inbounds nuw ptr, ptr %.029.i.i121.i, i64 %415
   %419 = load ptr, ptr %418, align 8, !tbaa !30
   %.not.i37.i.i = icmp eq ptr %419, null
   br i1 %.not.i37.i.i, label %.critedge22.thread.i.i124.i, label %.lr.ph.i.i120.i, !llvm.loop !61
 
 .critedge22.i.i125.i:                             ; preds = %.lr.ph.i.i120.i
-  %420 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i121.i, i64 0, i64 %.01828.i.i122.i
+  %420 = getelementptr inbounds nuw ptr, ptr %.029.i.i121.i, i64 %.01828.i.i122.i
   %421 = load ptr, ptr %420, align 8, !tbaa !30
   %.not21.i.i126.i = icmp eq ptr %421, null
   br i1 %.not21.i.i126.i, label %.critedge22.thread.i.i124.i, label %find_mark.exit.i127.i
@@ -1657,7 +1657,7 @@ parse_path_eol.exit.i.i:                          ; preds = %strbuf_setlen.exit.
 
 513:                                              ; preds = %515, %509
   %.0811.i.i.i.i.i = phi i64 [ 0, %509 ], [ %516, %515 ]
-  %514 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i.i
+  %514 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %512, %514
   br i1 %.not.i.i.i.i.i, label %.split.loop.exit9.i.i.i.i.i, label %515
 
@@ -1902,13 +1902,13 @@ parse_mark_ref_space.exit.i181.i:                 ; preds = %parse_mark_ref.exit
   %592 = lshr i64 %.01828.i.i185.i, %591
   %593 = shl i64 %592, %591
   %594 = sub i64 %.01828.i.i185.i, %593
-  %595 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i184.i, i64 0, i64 %592
+  %595 = getelementptr inbounds nuw ptr, ptr %.029.i.i184.i, i64 %592
   %596 = load ptr, ptr %595, align 8, !tbaa !30
   %.not.i49.i.i = icmp eq ptr %596, null
   br i1 %.not.i49.i.i, label %.critedge22.thread.i.i187.i, label %.lr.ph.i48.i.i, !llvm.loop !61
 
 .critedge22.i.i188.i:                             ; preds = %.lr.ph.i48.i.i
-  %597 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i184.i, i64 0, i64 %.01828.i.i185.i
+  %597 = getelementptr inbounds nuw ptr, ptr %.029.i.i184.i, i64 %.01828.i.i185.i
   %598 = load ptr, ptr %597, align 8, !tbaa !30
   %.not21.i.i189.i = icmp eq ptr %598, null
   br i1 %.not21.i.i189.i, label %.critedge22.thread.i.i187.i, label %find_mark.exit.i190.i
@@ -2090,13 +2090,13 @@ parse_mark_ref_eol.exit.i178.i:                   ; preds = %parse_mark_ref.exit
   %664 = lshr i64 %.01828.i61.i.i, %663
   %665 = shl i64 %664, %663
   %666 = sub i64 %.01828.i61.i.i, %665
-  %667 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i60.i.i, i64 0, i64 %664
+  %667 = getelementptr inbounds nuw ptr, ptr %.029.i60.i.i, i64 %664
   %668 = load ptr, ptr %667, align 8, !tbaa !30
   %.not.i63.i.i = icmp eq ptr %668, null
   br i1 %.not.i63.i.i, label %.critedge22.thread.i64.i.i, label %.lr.ph.i59.i.i, !llvm.loop !61
 
 .critedge22.i65.i.i:                              ; preds = %.lr.ph.i59.i.i
-  %669 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i60.i.i, i64 0, i64 %.01828.i61.i.i
+  %669 = getelementptr inbounds nuw ptr, ptr %.029.i60.i.i, i64 %.01828.i61.i.i
   %670 = load ptr, ptr %669, align 8, !tbaa !30
   %.not21.i66.i.i = icmp eq ptr %670, null
   br i1 %.not21.i66.i.i, label %.critedge22.thread.i64.i.i, label %find_mark.exit67.i.i
@@ -2395,7 +2395,7 @@ skip_prefix.exit151.i:                            ; preds = %554
 
 796:                                              ; preds = %798, %791
   %.0811.i.i.i.i = phi i64 [ 0, %791 ], [ %799, %798 ]
-  %797 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %797 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i197.i = icmp eq ptr %795, %797
   br i1 %.not.i.i.i197.i, label %.split.loop.exit9.i.i.i.i, label %798
 
@@ -2417,7 +2417,7 @@ oidclr.exit.i.i:                                  ; preds = %798, %.split.loop.e
 
 802:                                              ; preds = %804, %oidclr.exit.i.i
   %.0811.i.i5.i.i = phi i64 [ 0, %oidclr.exit.i.i ], [ %805, %804 ]
-  %803 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i5.i.i
+  %803 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i5.i.i
   %.not.i.i6.i.i = icmp eq ptr %801, %803
   br i1 %.not.i.i6.i.i, label %.split.loop.exit9.i.i9.i.i, label %804
 
@@ -2916,13 +2916,13 @@ parse_mark_ref_eol.exit.i:                        ; preds = %parse_mark_ref.exit
   %973 = lshr i64 %.01828.i.i, %972
   %974 = shl i64 %973, %972
   %975 = sub i64 %.01828.i.i, %974
-  %976 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i, i64 0, i64 %973
+  %976 = getelementptr inbounds nuw ptr, ptr %.029.i.i, i64 %973
   %977 = load ptr, ptr %976, align 8, !tbaa !30
   %.not.i35.i = icmp eq ptr %977, null
   br i1 %.not.i35.i, label %.critedge22.thread.i.i, label %.lr.ph.i.i113, !llvm.loop !61
 
 .critedge22.i.i:                                  ; preds = %.lr.ph.i.i113
-  %978 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i, i64 0, i64 %.01828.i.i
+  %978 = getelementptr inbounds nuw ptr, ptr %.029.i.i, i64 %.01828.i.i
   %979 = load ptr, ptr %978, align 8, !tbaa !30
   %.not21.i.i115 = icmp eq ptr %979, null
   br i1 %.not21.i.i115, label %.critedge22.thread.i.i, label %find_mark.exit.i
@@ -3164,7 +3164,7 @@ lookup_branch.exit.i135:                          ; preds = %1060
 
 1068:                                             ; preds = %1070, %lookup_branch.exit.i135
   %.0811.i.i.i = phi i64 [ 0, %lookup_branch.exit.i135 ], [ %1071, %1070 ]
-  %1069 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %1069 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i34.i = icmp eq ptr %1067, %1069
   br i1 %.not.i.i34.i, label %.split.loop.exit9.i.i.i, label %1070
 
@@ -3189,7 +3189,7 @@ oidclr.exit.i:                                    ; preds = %1070, %.split.loop.
 
 1077:                                             ; preds = %1079, %oidclr.exit.i
   %.0811.i.i35.i = phi i64 [ 0, %oidclr.exit.i ], [ %1080, %1079 ]
-  %1078 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i35.i
+  %1078 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i35.i
   %.not.i.i36.i136 = icmp eq ptr %1076, %1078
   br i1 %.not.i.i36.i136, label %.split.loop.exit9.i.i39.i, label %1079
 
@@ -3213,7 +3213,7 @@ oidclr.exit40.i:                                  ; preds = %1079, %.split.loop.
 
 1085:                                             ; preds = %1087, %oidclr.exit40.i
   %.0811.i.i41.i = phi i64 [ 0, %oidclr.exit40.i ], [ %1088, %1087 ]
-  %1086 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i41.i
+  %1086 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i41.i
   %.not.i.i42.i = icmp eq ptr %1084, %1086
   br i1 %.not.i.i42.i, label %.split.loop.exit9.i.i45.i, label %1087
 
@@ -3447,13 +3447,13 @@ parse_mark_ref_eol.exit.i173:                     ; preds = %parse_mark_ref.exit
   %1166 = lshr i64 %.01828.i.i178, %1165
   %1167 = shl i64 %1166, %1165
   %1168 = sub i64 %.01828.i.i178, %1167
-  %1169 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i177, i64 0, i64 %1166
+  %1169 = getelementptr inbounds nuw ptr, ptr %.029.i.i177, i64 %1166
   %1170 = load ptr, ptr %1169, align 8, !tbaa !30
   %.not.i5.i = icmp eq ptr %1170, null
   br i1 %.not.i5.i, label %.critedge22.thread.i.i180, label %.lr.ph.i.i176, !llvm.loop !61
 
 .critedge22.i.i181:                               ; preds = %.lr.ph.i.i176
-  %1171 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i177, i64 0, i64 %.01828.i.i178
+  %1171 = getelementptr inbounds nuw ptr, ptr %.029.i.i177, i64 %.01828.i.i178
   %1172 = load ptr, ptr %1171, align 8, !tbaa !30
   %.not21.i.i182 = icmp eq ptr %1172, null
   br i1 %.not21.i.i182, label %.critedge22.thread.i.i180, label %find_mark.exit.i183
@@ -3644,7 +3644,7 @@ parse_mark.exit.i190:                             ; preds = %1204
   %1248 = lshr i64 %.034.i.i, %1247
   %1249 = shl i64 %1248, %1247
   %1250 = sub i64 %.034.i.i, %1249
-  %1251 = getelementptr inbounds nuw [1024 x ptr], ptr %.133.i.i, i64 0, i64 %1248
+  %1251 = getelementptr inbounds nuw ptr, ptr %.133.i.i, i64 %1248
   %1252 = load ptr, ptr %1251, align 8, !tbaa !30
   %.not31.i.i195 = icmp eq ptr %1252, null
   br i1 %.not31.i.i195, label %1253, label %1258
@@ -3669,7 +3669,7 @@ parse_mark.exit.i190:                             ; preds = %1204
 ._crit_edge.i.i197:                               ; preds = %1258, %.preheader.i.i193
   %.1.lcssa.i.i = phi ptr [ %.028.lcssa.i.i, %.preheader.i.i193 ], [ %1259, %1258 ]
   %.0.lcssa.i.i198 = phi i64 [ %1227, %.preheader.i.i193 ], [ %1250, %1258 ]
-  %1262 = getelementptr inbounds nuw [1024 x ptr], ptr %.1.lcssa.i.i, i64 0, i64 %.0.lcssa.i.i198
+  %1262 = getelementptr inbounds nuw ptr, ptr %.1.lcssa.i.i, i64 %.0.lcssa.i.i198
   %1263 = load ptr, ptr %1262, align 8, !tbaa !30
   %.not30.i.i = icmp eq ptr %1263, null
   br i1 %.not30.i.i, label %1264, label %parse_alias.exit
@@ -3869,7 +3869,7 @@ unkeep_all_packs.exit:                            ; preds = %1317, %1314
 .preheader257:                                    ; preds = %1333, %.preheader257
   %indvars.iv754 = phi i64 [ %indvars.iv.next755, %.preheader257 ], [ 0, %1333 ]
   %.030497 = phi i64 [ %1336, %.preheader257 ], [ 0, %1333 ]
-  %1334 = getelementptr inbounds nuw [8 x i64], ptr @object_count_by_type, i64 0, i64 %indvars.iv754
+  %1334 = getelementptr inbounds nuw i64, ptr @object_count_by_type, i64 %indvars.iv754
   %1335 = load i64, ptr %1334, align 8, !tbaa !9
   %1336 = add i64 %1335, %.030497
   %indvars.iv.next755 = add nuw nsw i64 %indvars.iv754, 1
@@ -3879,7 +3879,7 @@ unkeep_all_packs.exit:                            ; preds = %1317, %1314
 .preheader:                                       ; preds = %.preheader257, %.preheader
   %indvars.iv758 = phi i64 [ %indvars.iv.next759, %.preheader ], [ 0, %.preheader257 ]
   %.0499 = phi i64 [ %1339, %.preheader ], [ 0, %.preheader257 ]
-  %1337 = getelementptr inbounds nuw [8 x i64], ptr @duplicate_count_by_type, i64 0, i64 %indvars.iv758
+  %1337 = getelementptr inbounds nuw i64, ptr @duplicate_count_by_type, i64 %indvars.iv758
   %1338 = load i64, ptr %1337, align 8, !tbaa !9
   %1339 = add i64 %1338, %.0499
   %indvars.iv.next759 = add nuw nsw i64 %indvars.iv758, 1
@@ -4532,13 +4532,13 @@ parse_mark_ref_space.exit.i:                      ; preds = %parse_mark_ref.exit
   %44 = lshr i64 %.01828.i.i, %43
   %45 = shl i64 %44, %43
   %46 = sub i64 %.01828.i.i, %45
-  %47 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i, i64 0, i64 %44
+  %47 = getelementptr inbounds nuw ptr, ptr %.029.i.i, i64 %44
   %48 = load ptr, ptr %47, align 8, !tbaa !30
   %.not.i16.i = icmp eq ptr %48, null
   br i1 %.not.i16.i, label %.critedge22.thread.i.i, label %.lr.ph.i.i, !llvm.loop !61
 
 .critedge22.i.i:                                  ; preds = %.lr.ph.i.i
-  %49 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i.i, i64 0, i64 %.01828.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr %.029.i.i, i64 %.01828.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !30
   %.not21.i.i = icmp eq ptr %50, null
   br i1 %.not21.i.i, label %.critedge22.thread.i.i, label %find_mark.exit.i
@@ -5135,13 +5135,13 @@ parse_mark_ref_eol.exit:                          ; preds = %parse_mark_ref.exit
   %32 = lshr i64 %.01828.i, %31
   %33 = shl i64 %32, %31
   %34 = sub i64 %.01828.i, %33
-  %35 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw ptr, ptr %.029.i, i64 %32
   %36 = load ptr, ptr %35, align 8, !tbaa !30
   %.not.i5 = icmp eq ptr %36, null
   br i1 %.not.i5, label %.critedge22.thread.i, label %.lr.ph.i, !llvm.loop !61
 
 .critedge22.i:                                    ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i, i64 0, i64 %.01828.i
+  %37 = getelementptr inbounds nuw ptr, ptr %.029.i, i64 %.01828.i
   %38 = load ptr, ptr %37, align 8, !tbaa !30
   %.not21.i = icmp eq ptr %38, null
   br i1 %.not21.i, label %.critedge22.thread.i, label %find_mark.exit
@@ -6226,7 +6226,7 @@ define internal fastcc void @dump_branches() unnamed_addr #0 {
 
 46:                                               ; preds = %48, %42
   %.0811.i.i.i = phi i64 [ 0, %42 ], [ %49, %48 ]
-  %47 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %47 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %45, %47
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %48
 
@@ -6582,7 +6582,7 @@ define internal fastcc void @for_each_mark(ptr noundef readonly captures(none) %
 
 .preheader25:                                     ; preds = %4, %14
   %.027 = phi i64 [ %15, %14 ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw [1024 x ptr], ptr %0, i64 0, i64 %.027
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %.027
   %8 = load ptr, ptr %7, align 8, !tbaa !30
   %.not24 = icmp eq ptr %8, null
   br i1 %.not24, label %14, label %9
@@ -6602,7 +6602,7 @@ define internal fastcc void @for_each_mark(ptr noundef readonly captures(none) %
 
 .preheader:                                       ; preds = %4, %20
   %.128 = phi i64 [ %21, %20 ], [ 0, %4 ]
-  %16 = getelementptr inbounds nuw [1024 x ptr], ptr %0, i64 0, i64 %.128
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %.128
   %17 = load ptr, ptr %16, align 8, !tbaa !30
   %.not23 = icmp eq ptr %17, null
   br i1 %.not23, label %20, label %18
@@ -6948,7 +6948,7 @@ insert_object.exit.i:                             ; preds = %new_object.exit.i.i
   %143 = lshr i64 %.034.i.i, %142
   %144 = shl i64 %143, %142
   %145 = sub i64 %.034.i.i, %144
-  %146 = getelementptr inbounds nuw [1024 x ptr], ptr %.133.i.i, i64 0, i64 %143
+  %146 = getelementptr inbounds nuw ptr, ptr %.133.i.i, i64 %143
   %147 = load ptr, ptr %146, align 8, !tbaa !30
   %.not31.i.i = icmp eq ptr %147, null
   br i1 %.not31.i.i, label %148, label %153
@@ -6973,7 +6973,7 @@ insert_object.exit.i:                             ; preds = %new_object.exit.i.i
 ._crit_edge.i.i:                                  ; preds = %153, %.preheader.i.i
   %.1.lcssa.i.i = phi ptr [ %.028.lcssa.i.i, %.preheader.i.i ], [ %154, %153 ]
   %.0.lcssa.i.i = phi i64 [ %1, %.preheader.i.i ], [ %145, %153 ]
-  %157 = getelementptr inbounds nuw [1024 x ptr], ptr %.1.lcssa.i.i, i64 0, i64 %.0.lcssa.i.i
+  %157 = getelementptr inbounds nuw ptr, ptr %.1.lcssa.i.i, i64 %.0.lcssa.i.i
   %158 = load ptr, ptr %157, align 8, !tbaa !30
   %.not30.i.i = icmp eq ptr %158, null
   br i1 %.not30.i.i, label %159, label %insert_mark.exit.i
@@ -7428,7 +7428,7 @@ insert_object.exit:                               ; preds = %44, %new_object.exi
   %95 = lshr i64 %.034.i, %94
   %96 = shl i64 %95, %94
   %97 = sub i64 %.034.i, %96
-  %98 = getelementptr inbounds nuw [1024 x ptr], ptr %.133.i, i64 0, i64 %95
+  %98 = getelementptr inbounds nuw ptr, ptr %.133.i, i64 %95
   %99 = load ptr, ptr %98, align 8, !tbaa !30
   %.not31.i = icmp eq ptr %99, null
   br i1 %.not31.i, label %100, label %105
@@ -7453,7 +7453,7 @@ insert_object.exit:                               ; preds = %44, %new_object.exi
 ._crit_edge.i:                                    ; preds = %105, %.preheader.i
   %.1.lcssa.i = phi ptr [ %.028.lcssa.i, %.preheader.i ], [ %106, %105 ]
   %.0.lcssa.i = phi i64 [ %4, %.preheader.i ], [ %97, %105 ]
-  %109 = getelementptr inbounds nuw [1024 x ptr], ptr %.1.lcssa.i, i64 0, i64 %.0.lcssa.i
+  %109 = getelementptr inbounds nuw ptr, ptr %.1.lcssa.i, i64 %.0.lcssa.i
   %110 = load ptr, ptr %109, align 8, !tbaa !30
   %.not30.i = icmp eq ptr %110, null
   br i1 %.not30.i, label %111, label %insert_mark.exit
@@ -7476,7 +7476,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
 
 117:                                              ; preds = %114
   %118 = zext nneg i32 %0 to i64
-  %119 = getelementptr inbounds nuw [8 x i64], ptr @duplicate_count_by_type, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr @duplicate_count_by_type, i64 %118
   %120 = load i64, ptr %119, align 8, !tbaa !9
   %121 = add i64 %120, 1
   store i64 %121, ptr %119, align 8, !tbaa !9
@@ -7498,7 +7498,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   store i32 %131, ptr %127, align 8
   store i64 1, ptr %115, align 8, !tbaa !139
   %132 = zext nneg i32 %0 to i64
-  %133 = getelementptr inbounds nuw [8 x i64], ptr @duplicate_count_by_type, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i64, ptr @duplicate_count_by_type, i64 %132
   %134 = load i64, ptr %133, align 8, !tbaa !9
   %135 = add i64 %134, 1
   store i64 %135, ptr %133, align 8, !tbaa !9
@@ -7545,7 +7545,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
 
 158:                                              ; preds = %149
   %159 = zext nneg i32 %0 to i64
-  %160 = getelementptr inbounds nuw [8 x i64], ptr @delta_count_attempts_by_type, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i64, ptr @delta_count_attempts_by_type, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !9
   %162 = add i64 %161, 1
   store i64 %162, ptr %160, align 8, !tbaa !9
@@ -7675,7 +7675,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   %222 = add i64 %221, 1
   store i64 %222, ptr @object_count, align 8, !tbaa !9
   %223 = zext nneg i32 %0 to i64
-  %224 = getelementptr inbounds nuw [8 x i64], ptr @object_count_by_type, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i64, ptr @object_count_by_type, i64 %223
   %225 = load i64, ptr %224, align 8, !tbaa !9
   %226 = add i64 %225, 1
   store i64 %226, ptr %224, align 8, !tbaa !9
@@ -7689,7 +7689,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   %230 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %231 = load i64, ptr %230, align 8, !tbaa !148
   %232 = sub nsw i64 %229, %231
-  %233 = getelementptr inbounds nuw [8 x i64], ptr @delta_count_by_type, i64 0, i64 %223
+  %233 = getelementptr inbounds nuw i64, ptr @delta_count_by_type, i64 %223
   %234 = load i64, ptr %233, align 8, !tbaa !9
   %235 = add i64 %234, 1
   store i64 %235, ptr %233, align 8, !tbaa !9
@@ -7725,7 +7725,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   %255 = or i8 %254, -128
   %256 = add i32 %.0110, -1
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw [96 x i8], ptr %8, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i8, ptr %8, i64 %257
   store i8 %255, ptr %258, align 1, !tbaa !30
   %.not97 = icmp ult i64 %253, 128
   br i1 %.not97, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !202
@@ -8214,7 +8214,7 @@ parse_path_eol.exit:                              ; preds = %strbuf_setlen.exit8
 
 46:                                               ; preds = %48, %41
   %.0811.i.i.i = phi i64 [ 0, %41 ], [ %49, %48 ]
-  %47 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %47 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %45, %47
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %48
 
@@ -8309,7 +8309,7 @@ define internal fastcc void @store_tree(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %.lr.ph, %20
   %15 = phi i32 [ %12, %.lr.ph ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !205
   %18 = load ptr, ptr %17, align 8, !tbaa !101
   %.not49 = icmp eq ptr %18, null
@@ -8390,7 +8390,7 @@ define internal fastcc void @store_tree(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv64 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next65, %73 ]
   %.04056 = phi i32 [ 0, %.lr.ph58 ], [ %.141, %73 ]
   %.04255 = phi i32 [ 0, %.lr.ph58 ], [ %.143, %73 ]
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %indvars.iv64
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv64
   %55 = load ptr, ptr %54, align 8, !tbaa !205
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load i16, ptr %56, align 8, !tbaa !145
@@ -8409,7 +8409,7 @@ define internal fastcc void @store_tree(ptr noundef %0) unnamed_addr #0 {
   store i32 %63, ptr %64, align 4, !tbaa !58
   %65 = add i32 %.04255, 1
   %66 = zext i32 %.04255 to i64
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %52, i64 %66
   store ptr %55, ptr %67, align 8, !tbaa !205
   br label %73
 
@@ -8675,13 +8675,13 @@ parse_mark_ref_eol.exit:                          ; preds = %parse_mark_ref.exit
   %66 = lshr i64 %.01828.i, %65
   %67 = shl i64 %66, %65
   %68 = sub i64 %.01828.i, %67
-  %69 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw ptr, ptr %.029.i, i64 %66
   %70 = load ptr, ptr %69, align 8, !tbaa !30
   %.not.i46 = icmp eq ptr %70, null
   br i1 %.not.i46, label %.critedge22.thread.i, label %.lr.ph.i, !llvm.loop !61
 
 .critedge22.i:                                    ; preds = %.lr.ph.i
-  %71 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i, i64 0, i64 %.01828.i
+  %71 = getelementptr inbounds nuw ptr, ptr %.029.i, i64 %.01828.i
   %72 = load ptr, ptr %71, align 8, !tbaa !30
   %.not21.i = icmp eq ptr %72, null
   br i1 %.not21.i, label %.critedge22.thread.i, label %find_mark.exit
@@ -8886,7 +8886,7 @@ define internal fastcc void @parse_from_existing(ptr noundef %0) unnamed_addr #0
 
 9:                                                ; preds = %11, %4
   %.0811.i.i = phi i64 [ 0, %4 ], [ %12, %11 ]
-  %10 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %10 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %8, %10
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %11
 
@@ -8910,7 +8910,7 @@ oidclr.exit:                                      ; preds = %11, %.split.loop.ex
 
 17:                                               ; preds = %19, %oidclr.exit
   %.0811.i.i8 = phi i64 [ 0, %oidclr.exit ], [ %20, %19 ]
-  %18 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i8
+  %18 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i8
   %.not.i.i9 = icmp eq ptr %16, %18
   br i1 %.not.i.i9, label %.split.loop.exit9.i.i12, label %19
 
@@ -8959,7 +8959,7 @@ define internal fastcc void @release_tree_content_recursive(ptr noundef %0) unna
 5:                                                ; preds = %.lr.ph, %release_tree_entry.exit
   %6 = phi i32 [ %3, %.lr.ph ], [ %11, %release_tree_entry.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %release_tree_entry.exit ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !205
   %9 = load ptr, ptr %8, align 8, !tbaa !101
   %.not.i = icmp eq ptr %9, null
@@ -9229,7 +9229,7 @@ new_tree_entry.exit:                              ; preds = %.lr.ph92, %89
   %102 = add i32 %99, 1
   store i32 %102, ptr %101, align 4, !tbaa !11
   %103 = zext i32 %99 to i64
-  %104 = getelementptr inbounds nuw [0 x ptr], ptr %100, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %103
   store ptr %90, ptr %104, align 8, !tbaa !205
   store ptr null, ptr %90, align 8, !tbaa !101
   %105 = getelementptr inbounds nuw i8, ptr %90, i64 56
@@ -9325,7 +9325,7 @@ hc_str.exit.i:                                    ; preds = %hc_str.exit.loopexi
   store i16 %123, ptr %144, align 8, !tbaa !216
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %145, ptr nonnull readonly align 1 %118, i64 %124, i1 false)
-  %146 = getelementptr inbounds nuw [0 x i8], ptr %145, i64 0, i64 %124
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %124
   store i8 0, ptr %146, align 1, !tbaa !30
   %147 = load ptr, ptr @atom_table, align 8, !tbaa !20
   %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %.0.lcssa.i.i
@@ -9366,7 +9366,7 @@ to_atom.exit:                                     ; preds = %138, %._crit_edge.i
 
 167:                                              ; preds = %.preheader136, %169
   %.0811.i.i = phi i64 [ %170, %169 ], [ 0, %.preheader136 ]
-  %168 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %168 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i68 = icmp eq ptr %159, %168
   br i1 %.not.i.i68, label %.split.loop.exit9.i.i, label %169
 
@@ -9405,7 +9405,7 @@ oidread.exit:                                     ; preds = %169, %.split.loop.e
 
 184:                                              ; preds = %.preheader, %186
   %.0811.i.i69 = phi i64 [ %187, %186 ], [ 0, %.preheader ]
-  %185 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i69
+  %185 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i69
   %.not.i.i70 = icmp eq ptr %176, %185
   br i1 %.not.i.i70, label %.split.loop.exit9.i.i73, label %186
 
@@ -9627,7 +9627,7 @@ kh_get_oid_map.exit:                              ; preds = %8, %.critedge.i
 
 39:                                               ; preds = %kh_get_oid_map.exit.thread, %kh_get_oid_map.exit
   %40 = sext i32 %6 to i64
-  %41 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %40, i32 1
+  %41 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %40, i32 1
   %42 = load i32, ptr %41, align 8, !tbaa !227
   %43 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 400
@@ -9693,7 +9693,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_remove(ptr noundef %0, 
 22:                                               ; preds = %.lr.ph, %68
   %23 = phi i32 [ %19, %.lr.ph ], [ %69, %68 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !205
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !219
@@ -9759,7 +9759,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_remove(ptr noundef %0, 
 
 53:                                               ; preds = %.lr.ph87, %52
   %indvars.iv95 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next96, %52 ]
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %indvars.iv95
+  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv95
   %55 = load ptr, ptr %54, align 8, !tbaa !205
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load i16, ptr %56, align 8, !tbaa !145
@@ -9776,7 +9776,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_remove(ptr noundef %0, 
 
 63:                                               ; preds = %65, %58
   %.0811.i.i = phi i64 [ 0, %58 ], [ %66, %65 ]
-  %64 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %64 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %62, %64
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %65
 
@@ -9830,7 +9830,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_remove(ptr noundef %0, 
 
 81:                                               ; preds = %83, %75
   %.0811.i.i58 = phi i64 [ 0, %75 ], [ %84, %83 ]
-  %82 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i58
+  %82 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i58
   %.not.i.i59 = icmp eq ptr %80, %82
   br i1 %.not.i.i59, label %.split.loop.exit9.i.i62, label %83
 
@@ -9854,7 +9854,7 @@ oidclr.exit63:                                    ; preds = %83, %.split.loop.ex
 
 89:                                               ; preds = %91, %oidclr.exit63
   %.0811.i.i64 = phi i64 [ 0, %oidclr.exit63 ], [ %92, %91 ]
-  %90 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i64
+  %90 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i64
   %.not.i.i65 = icmp eq ptr %88, %90
   br i1 %.not.i.i65, label %.split.loop.exit9.i.i68, label %91
 
@@ -9939,7 +9939,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_set(ptr noundef %0, ptr
 28:                                               ; preds = %.lr.ph, %113
   %29 = phi i32 [ %25, %.lr.ph ], [ %114, %113 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !205
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !219
@@ -10021,7 +10021,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_set(ptr noundef %0, ptr
 
 72:                                               ; preds = %74, %67
   %.0811.i.i = phi i64 [ 0, %67 ], [ %75, %74 ]
-  %73 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %73 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %71, %73
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %74
 
@@ -10118,7 +10118,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_set(ptr noundef %0, ptr
 
 108:                                              ; preds = %110, %103
   %.0811.i.i92 = phi i64 [ 0, %103 ], [ %111, %110 ]
-  %109 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i92
+  %109 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i92
   %.not.i.i93 = icmp eq ptr %107, %109
   br i1 %.not.i.i93, label %.split.loop.exit9.i.i96, label %110
 
@@ -10235,7 +10235,7 @@ hc_str.exit.i:                                    ; preds = %hc_str.exit.loopexi
   store i16 %134, ptr %155, align 8, !tbaa !216
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %156, ptr readonly align 1 %1, i64 %135, i1 false)
-  %157 = getelementptr inbounds nuw [0 x i8], ptr %156, i64 0, i64 %135
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 %135
   store i8 0, ptr %157, align 1, !tbaa !30
   %158 = load ptr, ptr @atom_table, align 8, !tbaa !20
   %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %.0.lcssa.i.i
@@ -10262,7 +10262,7 @@ to_atom.exit:                                     ; preds = %149, %._crit_edge.i
 
 169:                                              ; preds = %171, %to_atom.exit
   %.0811.i.i104 = phi i64 [ 0, %to_atom.exit ], [ %172, %171 ]
-  %170 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i104
+  %170 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i104
   %.not.i.i105 = icmp eq ptr %168, %170
   br i1 %.not.i.i105, label %.split.loop.exit9.i.i108, label %171
 
@@ -10285,7 +10285,7 @@ oidclr.exit109:                                   ; preds = %171, %.split.loop.e
   %178 = add i32 %177, 1
   store i32 %178, ptr %176, align 4, !tbaa !11
   %179 = zext i32 %177 to i64
-  %180 = getelementptr inbounds nuw [0 x ptr], ptr %175, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw ptr, ptr %175, i64 %179
   store ptr %132, ptr %180, align 8, !tbaa !205
   %181 = load i8, ptr %6, align 1, !tbaa !30
   %.not84 = icmp eq i8 %181, 0
@@ -10369,7 +10369,7 @@ new_tree_content.exit121:                         ; preds = %188, %192, %.crited
 
 212:                                              ; preds = %214, %207
   %.0811.i.i122 = phi i64 [ 0, %207 ], [ %215, %214 ]
-  %213 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i122
+  %213 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i122
   %.not.i.i123 = icmp eq ptr %211, %213
   br i1 %.not.i.i123, label %.split.loop.exit9.i.i126, label %214
 
@@ -10506,7 +10506,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
 23:                                               ; preds = %.lr.ph, %52
   %24 = phi i32 [ %20, %.lr.ph ], [ %53, %52 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !205
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !219
@@ -10668,7 +10668,7 @@ new_tree_content.exit:                            ; preds = %16, %20, %.critedge
 
 33:                                               ; preds = %.lr.ph36, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next, %53 ]
-  %34 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !205
   %36 = load ptr, ptr @avail_tree_entry, align 8, !tbaa !143
   %.not.i27 = icmp eq ptr %36, null
@@ -10716,7 +10716,7 @@ new_tree_entry.exit:                              ; preds = %33, %45
 53:                                               ; preds = %new_tree_entry.exit, %49, %51
   %storemerge = phi ptr [ %52, %51 ], [ null, %49 ], [ null, %new_tree_entry.exit ]
   store ptr %storemerge, ptr %46, align 8, !tbaa !101
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   store ptr %46, ptr %54, align 8, !tbaa !205
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %3, align 4, !tbaa !11
@@ -10788,7 +10788,7 @@ define internal fastcc i64 @do_change_note_fanout(ptr noundef %0, ptr noundef %1
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.077, i64 16
-  %36 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !205
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !219
@@ -10993,10 +10993,10 @@ sane_qsort.exit:                                  ; preds = %3, %sane_qsort.exit
 13:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.037 = phi i64 [ 0, %.lr.ph ], [ %.1, %27 ]
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !205
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = getelementptr inbounds nuw [2 x %struct.tree_entry_ms], ptr %16, i64 0, i64 %12
+  %17 = getelementptr inbounds nuw %struct.tree_entry_ms, ptr %16, i64 %12
   %18 = load i16, ptr %17, align 8, !tbaa !145
   %.not34 = icmp eq i16 %18, 0
   br i1 %.not34, label %27, label %19
@@ -11044,10 +11044,10 @@ strbuf_setlen.exit:                               ; preds = %._crit_edge, %31
 35:                                               ; preds = %.lr.ph39, %54
   %36 = phi i32 [ %32, %.lr.ph39 ], [ %55, %54 ]
   %indvars.iv44 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next45, %54 ]
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv44
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv44
   %38 = load ptr, ptr %37, align 8, !tbaa !205
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = getelementptr inbounds nuw [2 x %struct.tree_entry_ms], ptr %39, i64 0, i64 %34
+  %40 = getelementptr inbounds nuw %struct.tree_entry_ms, ptr %39, i64 %34
   %41 = load i16, ptr %40, align 8, !tbaa !145
   %.not33 = icmp eq i16 %41, 0
   br i1 %.not33, label %54, label %42
@@ -11798,7 +11798,7 @@ insert_object.exit:                               ; preds = %15, %new_object.exi
   %73 = lshr i64 %.034.i, %72
   %74 = shl i64 %73, %72
   %75 = sub i64 %.034.i, %74
-  %76 = getelementptr inbounds nuw [1024 x ptr], ptr %.133.i, i64 0, i64 %73
+  %76 = getelementptr inbounds nuw ptr, ptr %.133.i, i64 %73
   %77 = load ptr, ptr %76, align 8, !tbaa !30
   %.not31.i = icmp eq ptr %77, null
   br i1 %.not31.i, label %78, label %83
@@ -11823,7 +11823,7 @@ insert_object.exit:                               ; preds = %15, %new_object.exi
 ._crit_edge.i:                                    ; preds = %83, %.preheader.i
   %.1.lcssa.i = phi ptr [ %.028.lcssa.i, %.preheader.i ], [ %84, %83 ]
   %.0.lcssa.i = phi i64 [ %2, %.preheader.i ], [ %75, %83 ]
-  %87 = getelementptr inbounds nuw [1024 x ptr], ptr %.1.lcssa.i, i64 0, i64 %.0.lcssa.i
+  %87 = getelementptr inbounds nuw ptr, ptr %.1.lcssa.i, i64 %.0.lcssa.i
   %88 = load ptr, ptr %87, align 8, !tbaa !30
   %.not30.i = icmp eq ptr %88, null
   br i1 %.not30.i, label %89, label %insert_mark.exit
@@ -11894,7 +11894,7 @@ define internal void @insert_oid_entry(ptr noundef captures(none) %0, ptr nounde
   %25 = lshr i64 %.034.i, %24
   %26 = shl i64 %25, %24
   %27 = sub i64 %.034.i, %26
-  %28 = getelementptr inbounds nuw [1024 x ptr], ptr %.133.i, i64 0, i64 %25
+  %28 = getelementptr inbounds nuw ptr, ptr %.133.i, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   %.not31.i = icmp eq ptr %29, null
   br i1 %.not31.i, label %30, label %35
@@ -11919,7 +11919,7 @@ define internal void @insert_oid_entry(ptr noundef captures(none) %0, ptr nounde
 ._crit_edge.i:                                    ; preds = %35, %.preheader.i
   %.1.lcssa.i = phi ptr [ %.028.lcssa.i, %.preheader.i ], [ %36, %35 ]
   %.0.lcssa.i = phi i64 [ %2, %.preheader.i ], [ %27, %35 ]
-  %39 = getelementptr inbounds nuw [1024 x ptr], ptr %.1.lcssa.i, i64 0, i64 %.0.lcssa.i
+  %39 = getelementptr inbounds nuw ptr, ptr %.1.lcssa.i, i64 %.0.lcssa.i
   %40 = load ptr, ptr %39, align 8, !tbaa !30
   %.not30.i = icmp eq ptr %40, null
   br i1 %.not30.i, label %41, label %insert_mark.exit
@@ -12235,13 +12235,13 @@ define internal void @insert_mapped_mark(i64 noundef %0, ptr noundef readonly ca
   %15 = lshr i64 %.01828.i, %14
   %16 = shl i64 %15, %14
   %17 = sub i64 %.01828.i, %16
-  %18 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i, i64 0, i64 %15
+  %18 = getelementptr inbounds nuw ptr, ptr %.029.i, i64 %15
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.critedge22.thread.i, label %.lr.ph.i, !llvm.loop !61
 
 .critedge22.i:                                    ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw [1024 x ptr], ptr %.029.i, i64 0, i64 %.01828.i
+  %20 = getelementptr inbounds nuw ptr, ptr %.029.i, i64 %.01828.i
   %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not21.i = icmp eq ptr %21, null
   br i1 %.not21.i, label %.critedge22.thread.i, label %find_mark.exit

@@ -1165,7 +1165,7 @@ _ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit: ; preds = %3
 
 392:                                              ; preds = %390, %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit
   %.0813.i.i.i = phi i64 [ 0, %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit ], [ %391, %390 ]
-  %393 = getelementptr inbounds nuw [4 x i64], ptr %385, i64 0, i64 %.0813.i.i.i
+  %393 = getelementptr inbounds nuw i64, ptr %385, i64 %.0813.i.i.i
   %394 = load i64, ptr %393, align 8
   %.not.i.i.i133 = icmp eq i64 %394, -1
   br i1 %.not.i.i.i133, label %390, label %_ZNK3ue29CharReach3allEv.exit.thread.loopexit.i
@@ -1224,7 +1224,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i:           ; preds = %_ZNK3ue29CharReach3
 
 _ZNK3ue29CharReachcoEv.exit.i:                    ; preds = %415, %425
   %.0710.i.i.i = phi i64 [ %426, %425 ], [ 0, %415 ]
-  %418 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0710.i.i.i
+  %418 = getelementptr inbounds nuw i64, ptr %5, i64 %.0710.i.i.i
   %419 = load i64, ptr %418, align 8
   %.not.i.i46.i = icmp eq i64 %419, 0
   br i1 %.not.i.i46.i, label %425, label %420
@@ -1255,7 +1255,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %425, %420
 
 430:                                              ; preds = %438, %428
   %.0710.i.i47.i = phi i64 [ 0, %428 ], [ %439, %438 ]
-  %431 = getelementptr inbounds nuw [4 x i64], ptr %385, i64 0, i64 %.0710.i.i47.i
+  %431 = getelementptr inbounds nuw i64, ptr %385, i64 %.0710.i.i47.i
   %432 = load i64, ptr %431, align 8
   %.not.i.i48.i = icmp eq i64 %432, 0
   br i1 %.not.i.i48.i, label %438, label %433

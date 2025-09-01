@@ -3287,7 +3287,7 @@ switch.lookup:                                    ; preds = %22, %24, %10
   %25 = trunc nuw i64 %4 to i1
   %.38 = select i1 %25, i64 %5, i64 6
   %26 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN11fish_printf6fmt_fp12format_float17h9afac6799c3c69edE, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN11fish_printf6fmt_fp12format_float17h9afac6799c3c69edE, i64 %26
   %switch.load = load i8, ptr %switch.gep, align 1
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %1, ptr %27, align 8

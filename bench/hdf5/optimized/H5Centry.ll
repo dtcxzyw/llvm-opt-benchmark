@@ -425,7 +425,7 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
 
 154:                                              ; preds = %152, %._crit_edge
   %155 = getelementptr inbounds nuw i8, ptr %15, i64 280
-  %156 = getelementptr inbounds nuw [65536 x ptr], ptr %155, i64 0, i64 %147
+  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %147
   %157 = load ptr, ptr %156, align 8, !tbaa !77
   %158 = icmp eq ptr %157, %1
   br i1 %158, label %159, label %161
@@ -451,14 +451,14 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %172 = load i32, ptr %171, align 8, !tbaa !80
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds [6 x i32], ptr %170, i64 0, i64 %173
+  %174 = getelementptr inbounds i32, ptr %170, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !81
   %176 = add i32 %175, -1
   store i32 %176, ptr %174, align 4, !tbaa !81
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %178 = load i32, ptr %171, align 8, !tbaa !80
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [6 x i64], ptr %177, i64 0, i64 %179
+  %180 = getelementptr inbounds i64, ptr %177, i64 %179
   %181 = load i64, ptr %180, align 8, !tbaa !59
   %182 = sub i64 %181, %166
   store i64 %182, ptr %180, align 8, !tbaa !59
@@ -472,7 +472,7 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   %188 = sub i64 %187, %185
   store i64 %188, ptr %186, align 8, !tbaa !59
   %189 = getelementptr inbounds nuw i8, ptr %15, i64 %.408
-  %190 = getelementptr inbounds [6 x i64], ptr %189, i64 0, i64 %179
+  %190 = getelementptr inbounds i64, ptr %189, i64 %179
   %191 = load i64, ptr %190, align 8, !tbaa !59
   %192 = sub i64 %191, %185
   store i64 %192, ptr %190, align 8, !tbaa !59
@@ -595,14 +595,14 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   %260 = getelementptr inbounds nuw i8, ptr %15, i64 524640
   %261 = load i32, ptr %171, align 8, !tbaa !80
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds [6 x i32], ptr %260, i64 0, i64 %262
+  %263 = getelementptr inbounds i32, ptr %260, i64 %262
   %264 = load i32, ptr %263, align 4, !tbaa !81
   %265 = add i32 %264, -1
   store i32 %265, ptr %263, align 4, !tbaa !81
   %266 = getelementptr inbounds nuw i8, ptr %15, i64 524664
   %267 = load i32, ptr %171, align 8, !tbaa !80
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds [6 x i64], ptr %266, i64 0, i64 %268
+  %269 = getelementptr inbounds i64, ptr %266, i64 %268
   %270 = load i64, ptr %269, align 8, !tbaa !59
   %271 = sub i64 %270, %256
   store i64 %271, ptr %269, align 8, !tbaa !59
@@ -810,14 +810,14 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %377 = load i32, ptr %376, align 8, !tbaa !80
   %378 = sext i32 %377 to i64
-  %379 = getelementptr inbounds [6 x i32], ptr %375, i64 0, i64 %378
+  %379 = getelementptr inbounds i32, ptr %375, i64 %378
   %380 = load i32, ptr %379, align 4, !tbaa !81
   %381 = add i32 %380, -1
   store i32 %381, ptr %379, align 4, !tbaa !81
   %382 = getelementptr inbounds nuw i8, ptr %15, i64 524664
   %383 = load i32, ptr %376, align 8, !tbaa !80
   %384 = sext i32 %383 to i64
-  %385 = getelementptr inbounds [6 x i64], ptr %382, i64 0, i64 %384
+  %385 = getelementptr inbounds i64, ptr %382, i64 %384
   %386 = load i64, ptr %385, align 8, !tbaa !59
   %387 = sub i64 %386, %371
   store i64 %387, ptr %385, align 8, !tbaa !59
@@ -835,7 +835,7 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   %394 = sub i64 %393, %391
   store i64 %394, ptr %392, align 8, !tbaa !103
   %395 = getelementptr inbounds nuw i8, ptr %15, i64 232
-  %396 = getelementptr inbounds [6 x i64], ptr %395, i64 0, i64 %.pre-phi
+  %396 = getelementptr inbounds i64, ptr %395, i64 %.pre-phi
   %397 = load i64, ptr %396, align 8, !tbaa !59
   %398 = sub i64 %397, %391
   store i64 %398, ptr %396, align 8, !tbaa !59
@@ -845,7 +845,7 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   %402 = add i64 %401, %399
   store i64 %402, ptr %400, align 8, !tbaa !104
   %403 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %404 = getelementptr inbounds [6 x i64], ptr %403, i64 0, i64 %.pre-phi
+  %404 = getelementptr inbounds i64, ptr %403, i64 %.pre-phi
   %405 = load i64, ptr %404, align 8, !tbaa !59
   %406 = add i64 %405, %399
   store i64 %406, ptr %404, align 8, !tbaa !59
@@ -1224,7 +1224,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %57 = load i32, ptr %56, align 8, !tbaa !80
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [6 x i64], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds i64, ptr %55, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !59
   %61 = sub i64 %53, %49
   %62 = add i64 %61, %60
@@ -1240,7 +1240,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %69 = sub i64 %68, %66
   store i64 %69, ptr %67, align 8, !tbaa !59
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 %.284
-  %71 = getelementptr inbounds [6 x i64], ptr %70, i64 0, i64 %58
+  %71 = getelementptr inbounds i64, ptr %70, i64 %58
   %72 = load i64, ptr %71, align 8, !tbaa !59
   %73 = sub i64 %72, %66
   store i64 %73, ptr %71, align 8, !tbaa !59
@@ -1275,7 +1275,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %95 = add i64 %81, %94
   store i64 %95, ptr %93, align 8, !tbaa !95
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 524664
-  %97 = getelementptr inbounds [6 x i64], ptr %96, i64 0, i64 %58
+  %97 = getelementptr inbounds i64, ptr %96, i64 %58
   %98 = load i64, ptr %97, align 8, !tbaa !59
   %99 = add i64 %81, %98
   store i64 %99, ptr %97, align 8, !tbaa !59
@@ -1323,7 +1323,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
 
 116:                                              ; preds = %114, %._crit_edge227
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %118 = getelementptr inbounds nuw [65536 x ptr], ptr %117, i64 0, i64 %109
+  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %109
   %119 = load ptr, ptr %118, align 8, !tbaa !77
   %120 = icmp eq ptr %119, %2
   br i1 %120, label %121, label %123
@@ -1349,14 +1349,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %134 = load i32, ptr %133, align 8, !tbaa !80
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds [6 x i32], ptr %132, i64 0, i64 %135
+  %136 = getelementptr inbounds i32, ptr %132, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !81
   %138 = add i32 %137, -1
   store i32 %138, ptr %136, align 4, !tbaa !81
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %140 = load i32, ptr %133, align 8, !tbaa !80
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [6 x i64], ptr %139, i64 0, i64 %141
+  %142 = getelementptr inbounds i64, ptr %139, i64 %141
   %143 = load i64, ptr %142, align 8, !tbaa !59
   %144 = sub i64 %143, %128
   store i64 %144, ptr %142, align 8, !tbaa !59
@@ -1371,7 +1371,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %151 = sub i64 %150, %148
   store i64 %151, ptr %149, align 8, !tbaa !59
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 %.286
-  %153 = getelementptr inbounds [6 x i64], ptr %152, i64 0, i64 %141
+  %153 = getelementptr inbounds i64, ptr %152, i64 %141
   %154 = load i64, ptr %153, align 8, !tbaa !59
   %155 = sub i64 %154, %148
   store i64 %155, ptr %153, align 8, !tbaa !59
@@ -1482,14 +1482,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 524640
   %219 = load i32, ptr %133, align 8, !tbaa !80
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds [6 x i32], ptr %218, i64 0, i64 %220
+  %221 = getelementptr inbounds i32, ptr %218, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !81
   %223 = add i32 %222, -1
   store i32 %223, ptr %221, align 4, !tbaa !81
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 524664
   %225 = load i32, ptr %133, align 8, !tbaa !80
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds [6 x i64], ptr %224, i64 0, i64 %226
+  %227 = getelementptr inbounds i64, ptr %224, i64 %226
   %228 = load i64, ptr %227, align 8, !tbaa !59
   %229 = sub i64 %228, %214
   store i64 %229, ptr %227, align 8, !tbaa !59
@@ -1503,7 +1503,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   store i64 %233, ptr %14, align 8, !tbaa !73
   %234 = lshr i64 %233, 3
   %235 = and i64 %234, 65535
-  %236 = getelementptr inbounds nuw [65536 x ptr], ptr %117, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw ptr, ptr %117, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !77
   %.not222 = icmp eq ptr %237, null
   br i1 %.not222, label %240, label %238
@@ -1524,13 +1524,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %245 = add i64 %244, %243
   store i64 %245, ptr %129, align 8, !tbaa !79
   %246 = sext i32 %232 to i64
-  %247 = getelementptr inbounds [6 x i32], ptr %132, i64 0, i64 %246
+  %247 = getelementptr inbounds i32, ptr %132, i64 %246
   %248 = load i32, ptr %247, align 4, !tbaa !81
   %249 = add i32 %248, 1
   store i32 %249, ptr %247, align 4, !tbaa !81
   %250 = load i32, ptr %133, align 8, !tbaa !80
   %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds [6 x i64], ptr %139, i64 0, i64 %251
+  %252 = getelementptr inbounds i64, ptr %139, i64 %251
   %253 = load i64, ptr %252, align 8, !tbaa !59
   %254 = add i64 %253, %243
   store i64 %254, ptr %252, align 8, !tbaa !59
@@ -1544,7 +1544,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %260 = add i64 %259, %257
   store i64 %260, ptr %258, align 8, !tbaa !59
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 %.288
-  %262 = getelementptr inbounds [6 x i64], ptr %261, i64 0, i64 %251
+  %262 = getelementptr inbounds i64, ptr %261, i64 %251
   %263 = load i64, ptr %262, align 8, !tbaa !59
   %264 = add i64 %263, %257
   store i64 %264, ptr %262, align 8, !tbaa !59
@@ -1618,14 +1618,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 524640
   %306 = load i32, ptr %133, align 8, !tbaa !80
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds [6 x i32], ptr %305, i64 0, i64 %307
+  %308 = getelementptr inbounds i32, ptr %305, i64 %307
   %309 = load i32, ptr %308, align 4, !tbaa !81
   %310 = add i32 %309, 1
   store i32 %310, ptr %308, align 4, !tbaa !81
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 524664
   %312 = load i32, ptr %133, align 8, !tbaa !80
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds [6 x i64], ptr %311, i64 0, i64 %313
+  %314 = getelementptr inbounds i64, ptr %311, i64 %313
   %315 = load i64, ptr %314, align 8, !tbaa !59
   %316 = add i64 %315, %301
   store i64 %316, ptr %314, align 8, !tbaa !59
@@ -1816,7 +1816,7 @@ define range(i32 -1, 1) i32 @H5C_insert_entry(ptr noundef %0, ptr noundef %1, i6
   %27 = lshr i64 %2, 3
   %28 = and i64 %27, 65535
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 280
-  %30 = getelementptr inbounds nuw [65536 x ptr], ptr %29, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
   %.0234267 = load ptr, ptr %30, align 8, !tbaa !77
   %.not268 = icmp eq ptr %.0234267, null
   %.not248 = icmp eq i64 %2, -1
@@ -2064,7 +2064,7 @@ define range(i32 -1, 1) i32 @H5C_insert_entry(ptr noundef %0, ptr noundef %1, i6
   %160 = load i64, ptr %55, align 8, !tbaa !73
   %161 = lshr i64 %160, 3
   %162 = and i64 %161, 65535
-  %163 = getelementptr inbounds nuw [65536 x ptr], ptr %29, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw ptr, ptr %29, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !77
   %.not254 = icmp eq ptr %164, null
   br i1 %.not254, label %167, label %165
@@ -2088,14 +2088,14 @@ define range(i32 -1, 1) i32 @H5C_insert_entry(ptr noundef %0, ptr noundef %1, i6
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %175 = load i32, ptr %81, align 8, !tbaa !80
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds [6 x i32], ptr %174, i64 0, i64 %176
+  %177 = getelementptr inbounds i32, ptr %174, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !81
   %179 = add i32 %178, 1
   store i32 %179, ptr %177, align 4, !tbaa !81
   %180 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %181 = load i32, ptr %81, align 8, !tbaa !80
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds [6 x i64], ptr %180, i64 0, i64 %182
+  %183 = getelementptr inbounds i64, ptr %180, i64 %182
   %184 = load i64, ptr %183, align 8, !tbaa !59
   %185 = add i64 %184, %171
   store i64 %185, ptr %183, align 8, !tbaa !59
@@ -2109,7 +2109,7 @@ define range(i32 -1, 1) i32 @H5C_insert_entry(ptr noundef %0, ptr noundef %1, i6
   %191 = add i64 %190, %188
   store i64 %191, ptr %189, align 8, !tbaa !59
   %192 = getelementptr inbounds nuw i8, ptr %19, i64 %.303
-  %193 = getelementptr inbounds [6 x i64], ptr %192, i64 0, i64 %182
+  %193 = getelementptr inbounds i64, ptr %192, i64 %182
   %194 = load i64, ptr %193, align 8, !tbaa !59
   %195 = add i64 %194, %188
   store i64 %195, ptr %193, align 8, !tbaa !59
@@ -2189,14 +2189,14 @@ define range(i32 -1, 1) i32 @H5C_insert_entry(ptr noundef %0, ptr noundef %1, i6
   %241 = getelementptr inbounds nuw i8, ptr %19, i64 524640
   %242 = load i32, ptr %81, align 8, !tbaa !80
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds [6 x i32], ptr %241, i64 0, i64 %243
+  %244 = getelementptr inbounds i32, ptr %241, i64 %243
   %245 = load i32, ptr %244, align 4, !tbaa !81
   %246 = add i32 %245, 1
   store i32 %246, ptr %244, align 4, !tbaa !81
   %247 = getelementptr inbounds nuw i8, ptr %19, i64 524664
   %248 = load i32, ptr %81, align 8, !tbaa !80
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [6 x i64], ptr %247, i64 0, i64 %249
+  %250 = getelementptr inbounds i64, ptr %247, i64 %249
   %251 = load i64, ptr %250, align 8, !tbaa !59
   %252 = add i64 %251, %237
   store i64 %252, ptr %250, align 8, !tbaa !59
@@ -2419,7 +2419,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_dirty(ptr noundef %0) local_unnamed_
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %69 = load i32, ptr %68, align 8, !tbaa !80
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [6 x i64], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds i64, ptr %67, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !59
   %73 = sub i64 %72, %63
   store i64 %73, ptr %71, align 8, !tbaa !59
@@ -2429,7 +2429,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_dirty(ptr noundef %0) local_unnamed_
   %77 = add i64 %76, %74
   store i64 %77, ptr %75, align 8, !tbaa !103
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 232
-  %79 = getelementptr inbounds [6 x i64], ptr %78, i64 0, i64 %70
+  %79 = getelementptr inbounds i64, ptr %78, i64 %70
   %80 = load i64, ptr %79, align 8, !tbaa !59
   %81 = add i64 %80, %74
   store i64 %81, ptr %79, align 8, !tbaa !59
@@ -2479,14 +2479,14 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_dirty(ptr noundef %0) local_unnamed_
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %112 = load i32, ptr %111, align 8, !tbaa !80
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [6 x i32], ptr %110, i64 0, i64 %113
+  %114 = getelementptr inbounds i32, ptr %110, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !81
   %116 = add i32 %115, 1
   store i32 %116, ptr %114, align 4, !tbaa !81
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 524664
   %118 = load i32, ptr %111, align 8, !tbaa !80
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds [6 x i64], ptr %117, i64 0, i64 %119
+  %120 = getelementptr inbounds i64, ptr %117, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !59
   %122 = add i64 %121, %106
   store i64 %122, ptr %120, align 8, !tbaa !59
@@ -2833,7 +2833,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_clean(ptr noundef %0) local_unnamed_
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i32, ptr %34, align 8, !tbaa !80
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [6 x i64], ptr %33, i64 0, i64 %36
+  %37 = getelementptr inbounds i64, ptr %33, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !59
   %39 = sub i64 %38, %29
   store i64 %39, ptr %37, align 8, !tbaa !59
@@ -2843,7 +2843,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_clean(ptr noundef %0) local_unnamed_
   %43 = add i64 %42, %40
   store i64 %43, ptr %41, align 8, !tbaa !104
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  %45 = getelementptr inbounds [6 x i64], ptr %44, i64 0, i64 %36
+  %45 = getelementptr inbounds i64, ptr %44, i64 %36
   %46 = load i64, ptr %45, align 8, !tbaa !59
   %47 = add i64 %46, %40
   store i64 %47, ptr %45, align 8, !tbaa !59
@@ -2892,14 +2892,14 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_clean(ptr noundef %0) local_unnamed_
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %77 = load i32, ptr %76, align 8, !tbaa !80
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [6 x i32], ptr %75, i64 0, i64 %78
+  %79 = getelementptr inbounds i32, ptr %75, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !81
   %81 = add i32 %80, -1
   store i32 %81, ptr %79, align 4, !tbaa !81
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 524664
   %83 = load i32, ptr %76, align 8, !tbaa !80
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [6 x i64], ptr %82, i64 0, i64 %84
+  %85 = getelementptr inbounds i64, ptr %82, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !59
   %87 = sub i64 %86, %71
   store i64 %87, ptr %85, align 8, !tbaa !59
@@ -3218,7 +3218,7 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %14 = lshr i64 %2, 3
   %15 = and i64 %14, 65535
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %17 = getelementptr inbounds nuw [65536 x ptr], ptr %16, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
   %.0258299 = load ptr, ptr %17, align 8, !tbaa !77
   %cond300 = icmp eq ptr %.0258299, null
   %.not277 = icmp eq i64 %2, -1
@@ -3290,7 +3290,7 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
 46:                                               ; preds = %38
   %47 = lshr i64 %3, 3
   %48 = and i64 %47, 65535
-  %49 = getelementptr inbounds nuw [65536 x ptr], ptr %16, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %16, i64 %48
   %.0259302 = load ptr, ptr %49, align 8, !tbaa !77
   %.not281303 = icmp eq ptr %.0259302, null
   %.not282 = icmp eq i64 %3, -1
@@ -3414,14 +3414,14 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %101 = getelementptr inbounds nuw i8, ptr %.0258301, i64 64
   %102 = load i32, ptr %101, align 8, !tbaa !80
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [6 x i32], ptr %100, i64 0, i64 %103
+  %104 = getelementptr inbounds i32, ptr %100, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !81
   %106 = add i32 %105, -1
   store i32 %106, ptr %104, align 4, !tbaa !81
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %108 = load i32, ptr %101, align 8, !tbaa !80
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [6 x i64], ptr %107, i64 0, i64 %109
+  %110 = getelementptr inbounds i64, ptr %107, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !59
   %112 = sub i64 %111, %96
   store i64 %112, ptr %110, align 8, !tbaa !59
@@ -3436,7 +3436,7 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %119 = sub i64 %118, %116
   store i64 %119, ptr %117, align 8, !tbaa !59
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 %.364
-  %121 = getelementptr inbounds [6 x i64], ptr %120, i64 0, i64 %109
+  %121 = getelementptr inbounds i64, ptr %120, i64 %109
   %122 = load i64, ptr %121, align 8, !tbaa !59
   %123 = sub i64 %122, %116
   store i64 %123, ptr %121, align 8, !tbaa !59
@@ -3556,14 +3556,14 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 524640
   %190 = load i32, ptr %101, align 8, !tbaa !80
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds [6 x i32], ptr %189, i64 0, i64 %191
+  %192 = getelementptr inbounds i32, ptr %189, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !81
   %194 = add i32 %193, -1
   store i32 %194, ptr %192, align 4, !tbaa !81
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 524664
   %196 = load i32, ptr %101, align 8, !tbaa !80
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds [6 x i64], ptr %195, i64 0, i64 %197
+  %198 = getelementptr inbounds i64, ptr %195, i64 %197
   %199 = load i64, ptr %198, align 8, !tbaa !59
   %200 = sub i64 %199, %185
   store i64 %200, ptr %198, align 8, !tbaa !59
@@ -3609,7 +3609,7 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
 
 219:                                              ; preds = %._crit_edge318, %202, %209
   %.pre-phi322 = phi i64 [ %.pre321, %._crit_edge318 ], [ %48, %202 ], [ %48, %209 ]
-  %220 = getelementptr inbounds nuw [65536 x ptr], ptr %16, i64 0, i64 %.pre-phi322
+  %220 = getelementptr inbounds nuw ptr, ptr %16, i64 %.pre-phi322
   %221 = load ptr, ptr %220, align 8, !tbaa !77
   %.not291 = icmp eq ptr %221, null
   br i1 %.not291, label %225, label %222
@@ -3637,14 +3637,14 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %235 = getelementptr inbounds nuw i8, ptr %.0258301, i64 64
   %236 = load i32, ptr %235, align 8, !tbaa !80
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds [6 x i32], ptr %234, i64 0, i64 %237
+  %238 = getelementptr inbounds i32, ptr %234, i64 %237
   %239 = load i32, ptr %238, align 4, !tbaa !81
   %240 = add i32 %239, 1
   store i32 %240, ptr %238, align 4, !tbaa !81
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %242 = load i32, ptr %235, align 8, !tbaa !80
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds [6 x i64], ptr %241, i64 0, i64 %243
+  %244 = getelementptr inbounds i64, ptr %241, i64 %243
   %245 = load i64, ptr %244, align 8, !tbaa !59
   %246 = add i64 %245, %230
   store i64 %246, ptr %244, align 8, !tbaa !59
@@ -3658,7 +3658,7 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %252 = add i64 %251, %249
   store i64 %252, ptr %250, align 8, !tbaa !59
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 %.366
-  %254 = getelementptr inbounds [6 x i64], ptr %253, i64 0, i64 %243
+  %254 = getelementptr inbounds i64, ptr %253, i64 %243
   %255 = load i64, ptr %254, align 8, !tbaa !59
   %256 = add i64 %255, %249
   store i64 %256, ptr %254, align 8, !tbaa !59
@@ -3741,14 +3741,14 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 524640
   %306 = load i32, ptr %235, align 8, !tbaa !80
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds [6 x i32], ptr %305, i64 0, i64 %307
+  %308 = getelementptr inbounds i32, ptr %305, i64 %307
   %309 = load i32, ptr %308, align 4, !tbaa !81
   %310 = add i32 %309, 1
   store i32 %310, ptr %308, align 4, !tbaa !81
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 524664
   %312 = load i32, ptr %235, align 8, !tbaa !80
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds [6 x i64], ptr %311, i64 0, i64 %313
+  %314 = getelementptr inbounds i64, ptr %311, i64 %313
   %315 = load i64, ptr %314, align 8, !tbaa !59
   %316 = add i64 %315, %301
   store i64 %316, ptr %314, align 8, !tbaa !59
@@ -4085,7 +4085,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %59, %40, %33
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %112 = load i32, ptr %111, align 8, !tbaa !80
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [6 x i64], ptr %110, i64 0, i64 %113
+  %114 = getelementptr inbounds i64, ptr %110, i64 %113
   %115 = load i64, ptr %114, align 8, !tbaa !59
   %116 = add i64 %.pre-phi, %115
   store i64 %116, ptr %114, align 8, !tbaa !59
@@ -4097,7 +4097,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %59, %40, %33
   %120 = sub i64 %119, %117
   store i64 %120, ptr %118, align 8, !tbaa !59
   %121 = getelementptr inbounds nuw i8, ptr %12, i64 %.176
-  %122 = getelementptr inbounds [6 x i64], ptr %121, i64 0, i64 %113
+  %122 = getelementptr inbounds i64, ptr %121, i64 %113
   %123 = load i64, ptr %122, align 8, !tbaa !59
   %124 = sub i64 %123, %117
   store i64 %124, ptr %122, align 8, !tbaa !59
@@ -4110,7 +4110,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %59, %40, %33
   %129 = add i64 %128, %1
   store i64 %129, ptr %127, align 8, !tbaa !59
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink170
-  %131 = getelementptr inbounds [6 x i64], ptr %130, i64 0, i64 %113
+  %131 = getelementptr inbounds i64, ptr %130, i64 %113
   %132 = load i64, ptr %131, align 8, !tbaa !59
   %133 = add i64 %132, %1
   store i64 %133, ptr %131, align 8, !tbaa !59
@@ -4137,7 +4137,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %59, %40, %33
   %149 = add i64 %137, %148
   store i64 %149, ptr %147, align 8, !tbaa !95
   %150 = getelementptr inbounds nuw i8, ptr %12, i64 524664
-  %151 = getelementptr inbounds [6 x i64], ptr %150, i64 0, i64 %113
+  %151 = getelementptr inbounds i64, ptr %150, i64 %113
   %152 = load i64, ptr %151, align 8, !tbaa !59
   %153 = add i64 %137, %152
   store i64 %153, ptr %151, align 8, !tbaa !59
@@ -4184,14 +4184,14 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %59, %40, %33
   %177 = getelementptr inbounds nuw i8, ptr %12, i64 524640
   %178 = load i32, ptr %111, align 8, !tbaa !80
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [6 x i32], ptr %177, i64 0, i64 %179
+  %180 = getelementptr inbounds i32, ptr %177, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !81
   %182 = add i32 %181, 1
   store i32 %182, ptr %180, align 4, !tbaa !81
   %183 = getelementptr inbounds nuw i8, ptr %12, i64 524664
   %184 = load i32, ptr %111, align 8, !tbaa !80
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [6 x i64], ptr %183, i64 0, i64 %185
+  %186 = getelementptr inbounds i64, ptr %183, i64 %185
   %187 = load i64, ptr %186, align 8, !tbaa !59
   %188 = add i64 %187, %173
   store i64 %188, ptr %186, align 8, !tbaa !59
@@ -4407,7 +4407,7 @@ define ptr @H5C_protect(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noun
   %40 = lshr i64 %2, 3
   %41 = and i64 %40, 65535
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 280
-  %43 = getelementptr inbounds nuw [65536 x ptr], ptr %42, i64 0, i64 %41
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
   %storemerge350 = load ptr, ptr %43, align 8, !tbaa !77
   %.not226351 = icmp eq ptr %storemerge350, null
   %.not227 = icmp eq i64 %2, -1
@@ -4785,7 +4785,7 @@ H5C__destroy_pf_entry_child_flush_deps.exit.thread.i: ; preds = %.critedge.threa
   %237 = load i64, ptr %168, align 8, !tbaa !73
   %238 = lshr i64 %237, 3
   %239 = and i64 %238, 65535
-  %240 = getelementptr inbounds nuw [65536 x ptr], ptr %42, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw ptr, ptr %42, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !77
   %.not366.i = icmp eq ptr %241, null
   br i1 %.not366.i, label %244, label %242
@@ -4810,14 +4810,14 @@ H5C__destroy_pf_entry_child_flush_deps.exit.thread.i: ; preds = %.critedge.threa
   %252 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %253 = load i32, ptr %187, align 8, !tbaa !80
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds [6 x i32], ptr %252, i64 0, i64 %254
+  %255 = getelementptr inbounds i32, ptr %252, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !81
   %257 = add i32 %256, 1
   store i32 %257, ptr %255, align 4, !tbaa !81
   %258 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %259 = load i32, ptr %187, align 8, !tbaa !80
   %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds [6 x i64], ptr %258, i64 0, i64 %260
+  %261 = getelementptr inbounds i64, ptr %258, i64 %260
   %262 = load i64, ptr %261, align 8, !tbaa !59
   %263 = add i64 %262, %248
   store i64 %263, ptr %261, align 8, !tbaa !59
@@ -4831,7 +4831,7 @@ H5C__destroy_pf_entry_child_flush_deps.exit.thread.i: ; preds = %.critedge.threa
   %269 = add i64 %268, %266
   store i64 %269, ptr %267, align 8, !tbaa !59
   %270 = getelementptr inbounds nuw i8, ptr %23, i64 %.486.i
-  %271 = getelementptr inbounds [6 x i64], ptr %270, i64 0, i64 %260
+  %271 = getelementptr inbounds i64, ptr %270, i64 %260
   %272 = load i64, ptr %271, align 8, !tbaa !59
   %273 = add i64 %272, %266
   store i64 %273, ptr %271, align 8, !tbaa !59
@@ -4915,14 +4915,14 @@ H5C__destroy_pf_entry_child_flush_deps.exit.thread.i: ; preds = %.critedge.threa
   %321 = getelementptr inbounds nuw i8, ptr %23, i64 524640
   %322 = load i32, ptr %187, align 8, !tbaa !80
   %323 = sext i32 %322 to i64
-  %324 = getelementptr inbounds [6 x i32], ptr %321, i64 0, i64 %323
+  %324 = getelementptr inbounds i32, ptr %321, i64 %323
   %325 = load i32, ptr %324, align 4, !tbaa !81
   %326 = add i32 %325, 1
   store i32 %326, ptr %324, align 4, !tbaa !81
   %327 = getelementptr inbounds nuw i8, ptr %23, i64 524664
   %328 = load i32, ptr %187, align 8, !tbaa !80
   %329 = sext i32 %328 to i64
-  %330 = getelementptr inbounds [6 x i64], ptr %327, i64 0, i64 %329
+  %330 = getelementptr inbounds i64, ptr %327, i64 %329
   %331 = load i64, ptr %330, align 8, !tbaa !59
   %332 = add i64 %331, %317
   store i64 %332, ptr %330, align 8, !tbaa !59
@@ -5815,7 +5815,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %510
   %785 = load i64, ptr %692, align 8, !tbaa !73
   %786 = lshr i64 %785, 3
   %787 = and i64 %786, 65535
-  %788 = getelementptr inbounds nuw [65536 x ptr], ptr %42, i64 0, i64 %787
+  %788 = getelementptr inbounds nuw ptr, ptr %42, i64 %787
   %789 = load ptr, ptr %788, align 8, !tbaa !77
   %.not234 = icmp eq ptr %789, null
   br i1 %.not234, label %792, label %790
@@ -5839,14 +5839,14 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %510
   %799 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %800 = load i32, ptr %704, align 8, !tbaa !80
   %801 = sext i32 %800 to i64
-  %802 = getelementptr inbounds [6 x i32], ptr %799, i64 0, i64 %801
+  %802 = getelementptr inbounds i32, ptr %799, i64 %801
   %803 = load i32, ptr %802, align 4, !tbaa !81
   %804 = add i32 %803, 1
   store i32 %804, ptr %802, align 4, !tbaa !81
   %805 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %806 = load i32, ptr %704, align 8, !tbaa !80
   %807 = sext i32 %806 to i64
-  %808 = getelementptr inbounds [6 x i64], ptr %805, i64 0, i64 %807
+  %808 = getelementptr inbounds i64, ptr %805, i64 %807
   %809 = load i64, ptr %808, align 8, !tbaa !59
   %810 = add i64 %809, %796
   store i64 %810, ptr %808, align 8, !tbaa !59
@@ -5860,7 +5860,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %510
   %816 = add i64 %815, %813
   store i64 %816, ptr %814, align 8, !tbaa !59
   %817 = getelementptr inbounds nuw i8, ptr %23, i64 %.494
-  %818 = getelementptr inbounds [6 x i64], ptr %817, i64 0, i64 %807
+  %818 = getelementptr inbounds i64, ptr %817, i64 %807
   %819 = load i64, ptr %818, align 8, !tbaa !59
   %820 = add i64 %819, %813
   store i64 %820, ptr %818, align 8, !tbaa !59
@@ -5949,14 +5949,14 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %510
   %871 = getelementptr inbounds nuw i8, ptr %23, i64 524640
   %872 = load i32, ptr %704, align 8, !tbaa !80
   %873 = sext i32 %872 to i64
-  %874 = getelementptr inbounds [6 x i32], ptr %871, i64 0, i64 %873
+  %874 = getelementptr inbounds i32, ptr %871, i64 %873
   %875 = load i32, ptr %874, align 4, !tbaa !81
   %876 = add i32 %875, 1
   store i32 %876, ptr %874, align 4, !tbaa !81
   %877 = getelementptr inbounds nuw i8, ptr %23, i64 524664
   %878 = load i32, ptr %704, align 8, !tbaa !80
   %879 = sext i32 %878 to i64
-  %880 = getelementptr inbounds [6 x i64], ptr %877, i64 0, i64 %879
+  %880 = getelementptr inbounds i64, ptr %877, i64 %879
   %881 = load i64, ptr %880, align 8, !tbaa !59
   %882 = add i64 %881, %867
   store i64 %882, ptr %880, align 8, !tbaa !59
@@ -6828,7 +6828,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %129, %.thread234, %
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %152 = load i32, ptr %151, align 8, !tbaa !80
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds [6 x i64], ptr %150, i64 0, i64 %153
+  %154 = getelementptr inbounds i64, ptr %150, i64 %153
   %155 = load i64, ptr %154, align 8, !tbaa !59
   %156 = sub i64 %155, %146
   store i64 %156, ptr %154, align 8, !tbaa !59
@@ -6838,7 +6838,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %129, %.thread234, %
   %160 = add i64 %159, %157
   store i64 %160, ptr %158, align 8, !tbaa !103
   %161 = getelementptr inbounds nuw i8, ptr %20, i64 232
-  %162 = getelementptr inbounds [6 x i64], ptr %161, i64 0, i64 %153
+  %162 = getelementptr inbounds i64, ptr %161, i64 %153
   %163 = load i64, ptr %162, align 8, !tbaa !59
   %164 = add i64 %163, %157
   store i64 %164, ptr %162, align 8, !tbaa !59
@@ -7222,14 +7222,14 @@ H5C__unpin_entry_from_client.exit230:             ; preds = %234, %250, %288, %2
   %385 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %386 = load i32, ptr %385, align 8, !tbaa !80
   %387 = sext i32 %386 to i64
-  %388 = getelementptr inbounds [6 x i32], ptr %384, i64 0, i64 %387
+  %388 = getelementptr inbounds i32, ptr %384, i64 %387
   %389 = load i32, ptr %388, align 4, !tbaa !81
   %390 = add i32 %389, 1
   store i32 %390, ptr %388, align 4, !tbaa !81
   %391 = getelementptr inbounds nuw i8, ptr %20, i64 524664
   %392 = load i32, ptr %385, align 8, !tbaa !80
   %393 = sext i32 %392 to i64
-  %394 = getelementptr inbounds [6 x i64], ptr %391, i64 0, i64 %393
+  %394 = getelementptr inbounds i64, ptr %391, i64 %393
   %395 = load i64, ptr %394, align 8, !tbaa !59
   %396 = add i64 %395, %380
   store i64 %396, ptr %394, align 8, !tbaa !59
@@ -7242,7 +7242,7 @@ H5C__unpin_entry_from_client.exit230:             ; preds = %234, %250, %288, %2
   %399 = lshr i64 %1, 3
   %400 = and i64 %399, 65535
   %401 = getelementptr inbounds nuw i8, ptr %20, i64 280
-  %402 = getelementptr inbounds nuw [65536 x ptr], ptr %401, i64 0, i64 %400
+  %402 = getelementptr inbounds nuw ptr, ptr %401, i64 %400
   %.0192240 = load ptr, ptr %402, align 8, !tbaa !77
   %cond241 = icmp eq ptr %.0192240, null
   %.not216 = icmp eq i64 %1, -1
@@ -7995,7 +7995,7 @@ define range(i32 -1, 1) i32 @H5C_expunge_entry(ptr noundef %0, ptr noundef readn
   %18 = lshr i64 %2, 3
   %19 = and i64 %18, 65535
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 280
-  %21 = getelementptr inbounds nuw [65536 x ptr], ptr %20, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
   %.04251 = load ptr, ptr %21, align 8, !tbaa !77
   %cond52 = icmp eq ptr %.04251, null
   %.not46 = icmp eq i64 %2, -1
@@ -8219,7 +8219,7 @@ define range(i32 -1, 1) i32 @H5C_remove_entry(ptr noundef %0) local_unnamed_addr
 
 72:                                               ; preds = %70, %._crit_edge
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 280
-  %74 = getelementptr inbounds nuw [65536 x ptr], ptr %73, i64 0, i64 %65
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %65
   %75 = load ptr, ptr %74, align 8, !tbaa !77
   %76 = icmp eq ptr %75, %0
   br i1 %76, label %77, label %79
@@ -8245,14 +8245,14 @@ define range(i32 -1, 1) i32 @H5C_remove_entry(ptr noundef %0) local_unnamed_addr
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %90 = load i32, ptr %89, align 8, !tbaa !80
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [6 x i32], ptr %88, i64 0, i64 %91
+  %92 = getelementptr inbounds i32, ptr %88, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !81
   %94 = add i32 %93, -1
   store i32 %94, ptr %92, align 4, !tbaa !81
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %96 = load i32, ptr %89, align 8, !tbaa !80
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [6 x i64], ptr %95, i64 0, i64 %97
+  %98 = getelementptr inbounds i64, ptr %95, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !59
   %100 = sub i64 %99, %84
   store i64 %100, ptr %98, align 8, !tbaa !59
@@ -8266,7 +8266,7 @@ define range(i32 -1, 1) i32 @H5C_remove_entry(ptr noundef %0) local_unnamed_addr
   %106 = sub i64 %105, %103
   store i64 %106, ptr %104, align 8, !tbaa !59
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 %.142
-  %108 = getelementptr inbounds [6 x i64], ptr %107, i64 0, i64 %97
+  %108 = getelementptr inbounds i64, ptr %107, i64 %97
   %109 = load i64, ptr %108, align 8, !tbaa !59
   %110 = sub i64 %109, %103
   store i64 %110, ptr %108, align 8, !tbaa !59

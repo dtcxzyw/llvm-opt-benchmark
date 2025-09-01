@@ -291,13 +291,13 @@ define hidden ptr @Wayland_GetPrimarySelectionText(ptr noundef readonly captures
 16:                                               ; preds = %.preheader, %26
   %.024 = phi i64 [ 0, %.preheader ], [ %27, %26 ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw [5 x ptr], ptr @text_mime_types, i64 0, i64 %.024
+  %18 = getelementptr inbounds nuw ptr, ptr @text_mime_types, i64 %.024
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 @Wayland_primary_selection_offer_has_mime(ptr noundef %17, ptr noundef %19) #4
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw [5 x ptr], ptr @text_mime_types, i64 0, i64 %.024
+  %22 = getelementptr inbounds nuw ptr, ptr @text_mime_types, i64 %.024
   %23 = load ptr, ptr %13, align 8
   %24 = load ptr, ptr %22, align 8
   %25 = call ptr @Wayland_primary_selection_offer_receive(ptr noundef %23, ptr noundef %24, ptr noundef nonnull %2) #4

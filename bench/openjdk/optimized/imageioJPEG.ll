@@ -2741,7 +2741,7 @@ marker_is_icc.exit.i:                             ; preds = %272
 
 291:                                              ; preds = %285
   %292 = zext i8 %287 to i64
-  %293 = getelementptr inbounds nuw [256 x ptr], ptr %6, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw ptr, ptr %6, i64 %292
   %294 = load ptr, ptr %293, align 8
   %.not89.i = icmp eq ptr %294, null
   br i1 %.not89.i, label %296, label %295
@@ -2786,7 +2786,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
 .lr.ph110.i:                                      ; preds = %315, %.lr.ph110.preheader.i
   %indvars.iv.i = phi i64 [ %304, %.lr.ph110.preheader.i ], [ %indvars.iv.next.i, %315 ]
   %.077107.i = phi i32 [ 0, %.lr.ph110.preheader.i ], [ %317, %315 ]
-  %306 = getelementptr inbounds nuw [256 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %306 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   %307 = load ptr, ptr %306, align 8
   %308 = icmp eq ptr %307, null
   br i1 %308, label %309, label %310
@@ -2848,7 +2848,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
 .lr.ph115.i:                                      ; preds = %328, %.lr.ph115.i
   %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %.lr.ph115.i ], [ %304, %328 ]
   %.078113.i = phi ptr [ %344, %.lr.ph115.i ], [ %332, %328 ]
-  %335 = getelementptr inbounds nuw [256 x ptr], ptr %6, i64 0, i64 %indvars.iv119.i
+  %335 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv119.i
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 24
   %338 = load ptr, ptr %337, align 8
@@ -3409,7 +3409,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
 .preheader.us:                                    ; preds = %.lr.ph380.split.us, %.preheader.us
   %indvars.iv392 = phi i64 [ %indvars.iv.next393, %.preheader.us ], [ 0, %.lr.ph380.split.us ]
   %.1301371.us = phi ptr [ %245, %.preheader.us ], [ %.0300377.us, %.lr.ph380.split.us ]
-  %240 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv392
+  %240 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv392
   %241 = load i32, ptr %240, align 4
   %242 = sext i32 %241 to i64
   %243 = getelementptr inbounds i8, ptr %.0302376.us, i64 %242
@@ -3750,7 +3750,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %40, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv62
+  %35 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv62
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %46
@@ -3761,7 +3761,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %46
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds nuw [4 x ptr], ptr %12, i64 0, i64 %indvars.iv62
+  %41 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv62
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -3780,7 +3780,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   %48 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds nuw [64 x i16], ptr %.051, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i16, ptr %.051, i64 %indvars.iv
   store i16 %50, ptr %51, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -3827,7 +3827,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not77, label %24, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw [4 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %30
@@ -3838,7 +3838,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %30
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
@@ -3895,7 +3895,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %58, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw [4 x ptr], ptr %47, i64 0, i64 %indvars.iv91
+  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv91
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %64
@@ -3906,7 +3906,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %64
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw [4 x ptr], ptr %48, i64 0, i64 %indvars.iv91
+  %59 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv91
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %64
@@ -6003,7 +6003,7 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
   %22 = getelementptr i8, ptr %21, i64 -2
   %23 = load i16, ptr %22, align 2
   %24 = trunc i16 %23 to i8
-  %25 = getelementptr inbounds nuw [17 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %24, ptr %25, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6044,7 +6044,7 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
   %46 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv53
   %47 = load i16, ptr %46, align 2
   %48 = trunc i16 %47 to i8
-  %49 = getelementptr inbounds nuw [256 x i8], ptr %44, i64 0, i64 %indvars.iv53
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv53
   store i8 %48, ptr %49, align 1
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56

@@ -1799,20 +1799,20 @@ define hidden noundef ptr @_ZNK15CheckCastPPNode5ValueEP8PhaseGVN(ptr noundef no
 
 79:                                               ; preds = %76
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %.pre38, i64 40
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw [6 x i32], ptr %84, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr %84, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = load ptr, ptr %.pre38, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 176

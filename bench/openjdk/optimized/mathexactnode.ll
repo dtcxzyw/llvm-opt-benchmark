@@ -216,7 +216,7 @@ define hidden noalias noundef nonnull ptr @_ZNK12OverflowNode3subEPK4TypeS2_(ptr
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(52) %0) #9
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 180, ptr noundef nonnull @.str.4, ptr noundef %10) #10
   unreachable

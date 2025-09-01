@@ -736,7 +736,7 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap6insert17h9a7a6cea3d6c344dE
 37:                                               ; preds = %.noexc5
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %39 = load ptr, ptr %38, align 8, !noalias !78, !nonnull !16, !align !84, !noundef !16
-  %40 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %39, i64 0, i64 %33
+  %40 = getelementptr inbounds nuw { ptr, i64 }, ptr %39, i64 %33
   %41 = load ptr, ptr %40, align 8, !noalias !78, !nonnull !16, !align !82, !noundef !16
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i64, ptr %42, align 8, !noalias !78, !noundef !16
@@ -981,7 +981,7 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
 64:                                               ; preds = %.noexc70
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %66 = load ptr, ptr %65, align 8, !noalias !101, !nonnull !16, !align !84, !noundef !16
-  %67 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %66, i64 0, i64 %60
+  %67 = getelementptr inbounds nuw { ptr, i64 }, ptr %66, i64 %60
   %68 = load ptr, ptr %67, align 8, !noalias !101, !nonnull !16, !align !82, !noundef !16
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i64, ptr %69, align 8, !noalias !101, !noundef !16
@@ -1068,7 +1068,7 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
 100:                                              ; preds = %.noexc86
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %102 = load ptr, ptr %101, align 8, !noalias !108, !nonnull !16, !align !84, !noundef !16
-  %103 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %102, i64 0, i64 %96
+  %103 = getelementptr inbounds nuw { ptr, i64 }, ptr %102, i64 %96
   %104 = load ptr, ptr %103, align 8, !noalias !108, !nonnull !16, !align !82, !noundef !16
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load i64, ptr %105, align 8, !noalias !108, !noundef !16
@@ -1212,7 +1212,7 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
 155:                                              ; preds = %.noexc113
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %157 = load ptr, ptr %156, align 8, !noalias !130, !nonnull !16, !align !84, !noundef !16
-  %158 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %157, i64 0, i64 %151
+  %158 = getelementptr inbounds nuw { ptr, i64 }, ptr %157, i64 %151
   %159 = load ptr, ptr %158, align 8, !noalias !130, !nonnull !16, !align !82, !noundef !16
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %161 = load i64, ptr %160, align 8, !noalias !130, !noundef !16

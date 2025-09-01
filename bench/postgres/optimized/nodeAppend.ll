@@ -956,7 +956,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr noundef c
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 1, ptr %11, align 1
   br label %mark_invalid_subplans_as_finished.exit
 
@@ -994,7 +994,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr noundef c
 31:                                               ; preds = %.lr.ph.i
   %32 = load ptr, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
-  %34 = getelementptr inbounds nuw [0 x i8], ptr %33, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv.i
   store i8 1, ptr %34, align 1
   br label %35
 
@@ -1009,7 +1009,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
   %.pr = load i32, ptr %5, align 4
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %40 = sext i32 %.pr to i64
-  %41 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %.lr.ph, label %._crit_edge
@@ -1029,7 +1029,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
   %49 = add i32 %44, -1
   store i32 %49, ptr %5, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 %50
+  %51 = getelementptr inbounds i8, ptr %39, i64 %50
   %52 = load i8, ptr %51, align 1, !range !4, !noundef !5
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -1045,7 +1045,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
 57:                                               ; preds = %._crit_edge
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
-  %60 = getelementptr inbounds [0 x i8], ptr %59, i64 0, i64 %.lcssa28
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.lcssa28
   store i8 1, ptr %60, align 1
   br label %61
 
@@ -1102,7 +1102,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr noundef c
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 1, ptr %11, align 1
   br label %mark_invalid_subplans_as_finished.exit
 
@@ -1137,7 +1137,7 @@ define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr noundef c
 29:                                               ; preds = %.lr.ph.i
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  %32 = getelementptr inbounds nuw [0 x i8], ptr %31, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i
   store i8 1, ptr %32, align 1
   br label %33
 
@@ -1165,7 +1165,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
 .critedge:                                        ; preds = %64, %40
   %44 = phi i32 [ %.sink, %64 ], [ %.pre, %40 ]
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [0 x i8], ptr %41, i64 0, i64 %45
+  %46 = getelementptr inbounds i8, ptr %41, i64 %45
   %47 = load i8, ptr %46, align 1, !range !4, !noundef !5
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %67
@@ -1232,7 +1232,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
   %82 = load ptr, ptr %2, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %84 = sext i32 %78 to i64
-  %85 = getelementptr inbounds [0 x i8], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds i8, ptr %83, i64 %84
   store i8 1, ptr %85, align 1
   br label %86
 
@@ -1369,7 +1369,7 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next, %54 ]
-  %43 = getelementptr inbounds nuw [16 x %struct.WaitEvent], ptr %2, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %struct.WaitEvent, ptr %2, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 2

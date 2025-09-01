@@ -786,9 +786,9 @@ switch.lookup:                                    ; preds = %3
           to label %common.resume unwind label %20, !noalias !166
 
 switch.lookup16:                                  ; preds = %switch.lookup
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.53", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.53", i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep17 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.54", i64 0, i64 %1
+  %switch.gep17 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.54", i64 %1
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %18 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load18, ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i.i.i.i" unwind label %16, !noalias !166
@@ -902,9 +902,9 @@ switch.lookup19:                                  ; preds = %36
           to label %.body unwind label %42, !noalias !196
 
 switch.lookup21:                                  ; preds = %switch.lookup19
-  %switch.gep22 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.53", i64 0, i64 %.sroa.05.013.i.i
+  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.53", i64 %.sroa.05.013.i.i
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
-  %switch.gep24 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.54", i64 0, i64 %.sroa.05.013.i.i
+  %switch.gep24 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h363ac85da1581709E.llvm.17316549881917752266.54", i64 %.sroa.05.013.i.i
   %switch.load25 = load i64, ptr %switch.gep24, align 8
   %40 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hc2aaa223287dde65E"(ptr noalias noundef nonnull readonly align 1 %switch.load23, i64 noundef %switch.load25, ptr noalias noundef nonnull align 8 dereferenceable(64) %5)
           to label %"_ZN73_$LT$ockam_abac..resource..ResourceType$u20$as$u20$core..fmt..Display$GT$3fmt17h39bcde56c49f46f2E.exit.i.i.i.i.i.i" unwind label %.loopexit.i.i, !noalias !196
@@ -1862,7 +1862,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..
   br i1 %9, label %"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2bdfd48f2a51dcd2E.llvm.17316549881917752266.exit", label %10
 
 10:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E.exit.i.i"
-  %11 = getelementptr inbounds nuw [0 x { { i8, [31 x i8] }, i8, {}, [7 x i8] }], ptr %2, i64 0, i64 %.0.i.i
+  %11 = getelementptr inbounds nuw { { i8, [31 x i8] }, i8, {}, [7 x i8] }, ptr %2, i64 %.0.i.i
   %12 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E.exit.i.i" unwind label %15, !noalias !472
@@ -1878,7 +1878,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..in_place_drop..
   br label %13
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds [0 x { { i8, [31 x i8] }, i8, {}, [7 x i8] }], ptr %2, i64 0, i64 %.1.i.i
+  %18 = getelementptr inbounds { { i8, [31 x i8] }, i8, {}, [7 x i8] }, ptr %2, i64 %.1.i.i
   %19 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #32
           to label %13 unwind label %21, !noalias !472
@@ -2021,7 +2021,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$ockam_abac..expr..Expr$
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %0, i64 0, i64 %.0
+  %6 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.17316549881917752266"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %3 unwind label %11
@@ -2040,7 +2040,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$ockam_abac..expr..Expr$
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %0, i64 0, i64 %.1
+  %14 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.17316549881917752266"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
           to label %9 unwind label %17
@@ -2144,7 +2144,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$$u5b$ockam_abac..policy..res
   br i1 %6, label %26, label %7
 
 7:                                                ; preds = %"_ZN4core3ptr72drop_in_place$LT$ockam_abac..policy..resource_policy..ResourcePolicy$GT$17h62549f54070e2c24E.exit"
-  %8 = getelementptr inbounds [0 x { { { i8, [31 x i8] } }, { i8, [31 x i8] }, {} }], ptr %0, i64 0, i64 %.0
+  %8 = getelementptr inbounds { { { i8, [31 x i8] } }, { i8, [31 x i8] }, {} }, ptr %0, i64 %.0
   %9 = add i64 %.0, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
@@ -2214,7 +2214,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$$u5b$ockam_abac..policy..res
   br label %27
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds [0 x { { { i8, [31 x i8] } }, { i8, [31 x i8] }, {} }], ptr %0, i64 0, i64 %.1
+  %32 = getelementptr inbounds { { { i8, [31 x i8] } }, { i8, [31 x i8] }, {} }, ptr %0, i64 %.1
   %33 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$ockam_abac..policy..resource_policy..ResourcePolicy$GT$17h62549f54070e2c24E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %32) #32
           to label %27 unwind label %35
@@ -2243,7 +2243,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..in_plac
   br i1 %6, label %"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3dc5c736736c05f4E.exit", label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw [0 x { i8, [31 x i8] }], ptr %.0.val, i64 0, i64 %.0.i.i
+  %8 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.0.val, i64 %.0.i.i
   %9 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.17316549881917752266"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %5 unwind label %12
@@ -2259,7 +2259,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..in_plac
   br label %10
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %.0.val, i64 0, i64 %.1.i.i
+  %15 = getelementptr inbounds { i8, [31 x i8] }, ptr %.0.val, i64 %.1.i.i
   %16 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.17316549881917752266"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #32
           to label %10 unwind label %18
@@ -2287,7 +2287,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$$u5b$ockam_abac..policy..res
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E.exit"
-  %5 = getelementptr inbounds [0 x { { i8, [31 x i8] }, i8, {}, [7 x i8] }], ptr %0, i64 0, i64 %.0
+  %5 = getelementptr inbounds { { i8, [31 x i8] }, i8, {}, [7 x i8] }, ptr %0, i64 %.0
   %6 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E.exit" unwind label %10
@@ -2306,7 +2306,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$$u5b$ockam_abac..policy..res
   br label %8
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds [0 x { { i8, [31 x i8] }, i8, {}, [7 x i8] }], ptr %0, i64 0, i64 %.1
+  %13 = getelementptr inbounds { { i8, [31 x i8] }, i8, {}, [7 x i8] }, ptr %0, i64 %.1
   %14 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #32
           to label %8 unwind label %16
@@ -4072,7 +4072,7 @@ default.unreachable:                              ; preds = %20
 "_ZN61_$LT$ockam_abac..expr..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hb0cc291e03a5738aE.exit": ; preds = %.noexc15, %.noexc14, %.noexc13, %32, %29, %26, %.noexc
   %.sroa.1021.1 = phi i8 [ %.sroa.1021.045, %.noexc ], [ %.sroa.1021.045, %26 ], [ %.sroa.1021.045, %29 ], [ %34, %32 ], [ %.sroa.1021.045, %.noexc13 ], [ %.sroa.1021.045, %.noexc14 ], [ %.sroa.1021.045, %.noexc15 ]
   %.sroa.1122.1 = phi i64 [ %.sroa.1122.8.copyload25, %.noexc ], [ %28, %26 ], [ %31, %29 ], [ %.sroa.1122.047, %32 ], [ %.sroa.1122.8.copyload24, %.noexc13 ], [ %.sroa.1122.8.copyload23, %.noexc14 ], [ %.sroa.1122.8.copyload, %.noexc15 ]
-  %47 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %10, i64 0, i64 %.sroa.7.044
+  %47 = getelementptr inbounds nuw { [4 x i64] }, ptr %10, i64 %.sroa.7.044
   store i8 %23, ptr %47, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 %.sroa.1021.1, ptr %.sroa.07.sroa.4.0..sroa_idx, align 1
@@ -4389,7 +4389,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h347c340a6ce989a7
   br i1 %11, label %"_ZN4core3ptr53drop_in_place$LT$$u5b$ockam_abac..expr..Expr$u5d$$GT$17h0233d0638ee0a474E.llvm.17316549881917752266.exit", label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %9, i64 0, i64 %.0.i
+  %13 = getelementptr inbounds { i8, [31 x i8] }, ptr %9, i64 %.0.i
   %14 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.17316549881917752266"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
           to label %10 unwind label %17
@@ -4405,7 +4405,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h347c340a6ce989a7
   br label %15
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %9, i64 0, i64 %.1.i
+  %20 = getelementptr inbounds { i8, [31 x i8] }, ptr %9, i64 %.1.i
   %21 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.17316549881917752266"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #32
           to label %15 unwind label %23
@@ -6405,7 +6405,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
   br i1 %9, label %"_ZN4core3ptr91drop_in_place$LT$$u5b$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$u5d$$GT$17hafd6882587d522b6E.llvm.17316549881917752266.exit", label %10
 
 10:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E.exit.i"
-  %11 = getelementptr inbounds nuw [0 x { { i8, [31 x i8] }, i8, {}, [7 x i8] }], ptr %2, i64 0, i64 %.0.i
+  %11 = getelementptr inbounds nuw { { i8, [31 x i8] }, i8, {}, [7 x i8] }, ptr %2, i64 %.0.i
   %12 = add nuw nsw i64 %.0.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E.exit.i" unwind label %15
@@ -6421,7 +6421,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
   br label %13
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds [0 x { { i8, [31 x i8] }, i8, {}, [7 x i8] }], ptr %2, i64 0, i64 %.1.i
+  %18 = getelementptr inbounds { { i8, [31 x i8] }, i8, {}, [7 x i8] }, ptr %2, i64 %.1.i
   %19 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr81drop_in_place$LT$ockam_abac..policy..resource_type_policy..ResourceTypePolicy$GT$17h4ed1cdf8c7861641E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #32
           to label %13 unwind label %21

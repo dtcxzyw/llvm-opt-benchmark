@@ -590,7 +590,7 @@ _Py_NewRef.exit:                                  ; preds = %.lr.ph, %36
   br label %_Py_NewRef.exit45
 
 _Py_NewRef.exit45:                                ; preds = %40, %48
-  %50 = getelementptr [1 x ptr], ptr %31, i64 0, i64 %.03749
+  %50 = getelementptr ptr, ptr %31, i64 %.03749
   store ptr %41, ptr %50, align 8, !tbaa !23
   %51 = load ptr, ptr %8, align 8, !tbaa !23
   %52 = load i32, ptr %51, align 8, !tbaa !24

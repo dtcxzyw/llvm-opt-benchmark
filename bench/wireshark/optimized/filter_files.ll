@@ -73,10 +73,10 @@ define noalias noundef ptr @ws_filter_list_read(i32 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ws_filter_list_write, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %0 to i64
-  %switch.gep337 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
+  %switch.gep337 = getelementptr inbounds nuw ptr, ptr @switch.table.ws_filter_list_write.2, i64 %7
   %switch.load338 = load ptr, ptr %switch.gep337, align 8
   %8 = tail call ptr @get_persconffile_path(ptr noundef nonnull %switch.load338, i1 noundef zeroext true)
   %9 = tail call noalias ptr @fopen(ptr noundef %8, ptr noundef nonnull @.str.9)
@@ -531,10 +531,10 @@ define void @ws_filter_list_write(ptr noundef readonly captures(none) %0) local_
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ws_filter_list_write, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %3 to i64
-  %switch.gep62 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
+  %switch.gep62 = getelementptr inbounds nuw ptr, ptr @switch.table.ws_filter_list_write.2, i64 %7
   %switch.load63 = load ptr, ptr %switch.gep62, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8

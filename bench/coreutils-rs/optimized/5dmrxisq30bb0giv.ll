@@ -3347,7 +3347,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %40 = add i64 %3, -1
   %.not93 = icmp eq i64 %3, 0
-  %41 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %2, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !align !156
   br label %59
@@ -3717,7 +3717,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
   br label %114
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %191
+  %195 = getelementptr inbounds i8, ptr %2, i64 %191
   %196 = load i8, ptr %195, align 1, !noundef !4
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %198 = load ptr, ptr %197, align 8, !nonnull !4, !align !156, !noundef !4
@@ -3808,7 +3808,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %40 = add i64 %3, -1
   %.not93 = icmp eq i64 %3, 0
-  %41 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %2, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !align !156
   br label %59
@@ -4178,7 +4178,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thre
   br label %114
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %191
+  %195 = getelementptr inbounds i8, ptr %2, i64 %191
   %196 = load i8, ptr %195, align 1, !noundef !4
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %198 = load ptr, ptr %197, align 8, !nonnull !4, !align !156, !noundef !4
@@ -4269,7 +4269,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %40 = add i64 %3, -1
   %.not93 = icmp eq i64 %3, 0
-  %41 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %2, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !align !156
   br label %59
@@ -4639,7 +4639,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7688bf669ac3f202E.exit.thre
   br label %114
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %191
+  %195 = getelementptr inbounds i8, ptr %2, i64 %191
   %196 = load i8, ptr %195, align 1, !noundef !4
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %198 = load ptr, ptr %197, align 8, !nonnull !4, !align !156, !noundef !4
@@ -4730,7 +4730,7 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %40 = add i64 %3, -1
   %.not93 = icmp eq i64 %3, 0
-  %41 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %2, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !align !156
   br label %59
@@ -5100,7 +5100,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
   br label %114
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %191
+  %195 = getelementptr inbounds i8, ptr %2, i64 %191
   %196 = load i8, ptr %195, align 1, !noundef !4
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %198 = load ptr, ptr %197, align 8, !nonnull !4, !align !156, !noundef !4
@@ -5599,7 +5599,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
   br label %212
 
 196:                                              ; preds = %192
-  %197 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %193
+  %197 = getelementptr inbounds i8, ptr %2, i64 %193
   %198 = load i8, ptr %197, align 1, !noundef !4
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %200 = load ptr, ptr %199, align 8, !nonnull !4, !align !156, !noundef !4
@@ -5670,7 +5670,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
   br label %212
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %226
+  %230 = getelementptr inbounds i8, ptr %2, i64 %226
   %231 = load i8, ptr %230, align 1, !noundef !4
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %233 = load ptr, ptr %232, align 8, !nonnull !4, !align !156, !noundef !4
@@ -6169,7 +6169,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
   br label %212
 
 196:                                              ; preds = %192
-  %197 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %193
+  %197 = getelementptr inbounds i8, ptr %2, i64 %193
   %198 = load i8, ptr %197, align 1, !noundef !4
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %200 = load ptr, ptr %199, align 8, !nonnull !4, !align !156, !noundef !4
@@ -6240,7 +6240,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7f54331c5a656880E.exit.thre
   br label %212
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %226
+  %230 = getelementptr inbounds i8, ptr %2, i64 %226
   %231 = load i8, ptr %230, align 1, !noundef !4
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %233 = load ptr, ptr %232, align 8, !nonnull !4, !align !156, !noundef !4

@@ -1251,7 +1251,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
 
 14:                                               ; preds = %10
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw [31 x i32], ptr %1, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !13
   %18 = and i32 %17, 254
   %.not114 = icmp eq i32 %18, 0
@@ -1259,7 +1259,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
 
 19:                                               ; preds = %14, %10
   %20 = zext nneg i32 %8 to i64
-  %21 = getelementptr inbounds nuw [31 x i32], ptr %1, i64 0, i64 %20
+  %21 = getelementptr i32, ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !13
   %23 = ashr i32 %22, 8
   %24 = icmp eq i32 %8, 0
@@ -1283,202 +1283,200 @@ _ZNK6icu_775Norms12combinesBackEi.exit:           ; preds = %25
 33:                                               ; preds = %_ZNK6icu_775Norms12combinesBackEi.exit, %19
   %34 = add nsw i32 %23, -4371
   %35 = icmp ult i32 %34, -19
-  br i1 %35, label %36, label %48
+  br i1 %35, label %36, label %46
 
 36:                                               ; preds = %33
   %37 = add nsw i32 %23, -4449
   %38 = icmp ult i32 %37, 21
   %39 = icmp ne i32 %8, 0
   %or.cond = and i1 %39, %38
-  br i1 %or.cond, label %40, label %50
+  br i1 %or.cond, label %40, label %48
 
 40:                                               ; preds = %36
-  %41 = add nsw i32 %8, -1
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [31 x i32], ptr %1, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !13
-  %45 = ashr i32 %44, 8
-  %46 = add nsw i32 %45, -4371
-  %47 = icmp ult i32 %46, -19
-  br i1 %47, label %.lr.ph.preheader, label %48
+  %41 = getelementptr i8, ptr %21, i64 -4
+  %42 = load i32, ptr %41, align 4, !tbaa !13
+  %43 = ashr i32 %42, 8
+  %44 = add nsw i32 %43, -4371
+  %45 = icmp ult i32 %44, -19
+  br i1 %45, label %.lr.ph.preheader, label %46
 
-48:                                               ; preds = %40, %33
-  %49 = icmp ne i32 %8, %11
+46:                                               ; preds = %40, %33
+  %47 = icmp ne i32 %8, %11
   br label %_ZNK6icu_775Norms12combinesBackEi.exit.thread
 
-50:                                               ; preds = %36
+48:                                               ; preds = %36
   br i1 %24, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %40, %50
-  %51 = zext nneg i32 %8 to i64
+.lr.ph.preheader:                                 ; preds = %40, %48
+  %49 = zext nneg i32 %8 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6icu_776Hangul6isJamoEi.exit.thread
-  %indvars.iv = phi i64 [ %51, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
-  %.082123 = phi i32 [ %23, %.lr.ph.preheader ], [ %57, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+  %indvars.iv = phi i64 [ %49, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+  %.082123 = phi i32 [ %23, %.lr.ph.preheader ], [ %55, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %52 = getelementptr inbounds [31 x i32], ptr %1, i64 0, i64 %indvars.iv.next
-  %53 = load i32, ptr %52, align 4, !tbaa !13
-  %54 = and i32 %53, 255
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.critedge.loopexit.split.loop.exit155
+  %50 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %51 = load i32, ptr %50, align 4, !tbaa !13
+  %52 = and i32 %51, 255
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %.critedge.loopexit.split.loop.exit155
 
-56:                                               ; preds = %.lr.ph
-  %57 = ashr exact i32 %53, 8
-  %58 = add nsw i32 %57, -4352
-  %or.cond.i103 = icmp ult i32 %58, 195
-  br i1 %or.cond.i103, label %59, label %_ZN6icu_776Hangul6isJamoEi.exit.thread
+54:                                               ; preds = %.lr.ph
+  %55 = ashr exact i32 %51, 8
+  %56 = add nsw i32 %55, -4352
+  %or.cond.i103 = icmp ult i32 %56, 195
+  br i1 %or.cond.i103, label %57, label %_ZN6icu_776Hangul6isJamoEi.exit.thread
 
-59:                                               ; preds = %56
-  %60 = add nsw i32 %57, -4470
-  %or.cond3.i = icmp ult i32 %60, -21
-  %61 = add nsw i32 %57, -4371
-  %62 = icmp ult i32 %61, 149
-  %or.cond119 = select i1 %62, i1 %or.cond3.i, i1 false
+57:                                               ; preds = %54
+  %58 = add nsw i32 %55, -4470
+  %or.cond3.i = icmp ult i32 %58, -21
+  %59 = add nsw i32 %55, -4371
+  %60 = icmp ult i32 %59, 149
+  %or.cond119 = select i1 %60, i1 %or.cond3.i, i1 false
   br i1 %or.cond119, label %_ZN6icu_776Hangul6isJamoEi.exit.thread, label %.critedge.loopexit.split.loop.exit
 
-_ZN6icu_776Hangul6isJamoEi.exit.thread:           ; preds = %59, %56
-  %63 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %63, label %.lr.ph, label %.critedge, !llvm.loop !60
+_ZN6icu_776Hangul6isJamoEi.exit.thread:           ; preds = %57, %54
+  %61 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %61, label %.lr.ph, label %.critedge, !llvm.loop !60
 
-.critedge.loopexit.split.loop.exit:               ; preds = %59
-  %64 = trunc nsw i64 %indvars.iv to i32
+.critedge.loopexit.split.loop.exit:               ; preds = %57
+  %62 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge.loopexit.split.loop.exit155:            ; preds = %.lr.ph
-  %65 = trunc nsw i64 %indvars.iv to i32
+  %63 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN6icu_776Hangul6isJamoEi.exit.thread, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit155, %50
-  %.083.lcssa = phi i32 [ 0, %50 ], [ %64, %.critedge.loopexit.split.loop.exit ], [ %65, %.critedge.loopexit.split.loop.exit155 ], [ 0, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
-  %.082.lcssa = phi i32 [ %23, %50 ], [ %.082123, %.critedge.loopexit.split.loop.exit ], [ %.082123, %.critedge.loopexit.split.loop.exit155 ], [ %57, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
-  %66 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %.082.lcssa)
-  %67 = icmp eq i32 %.083.lcssa, %8
-  br i1 %67, label %68, label %73
+.critedge:                                        ; preds = %_ZN6icu_776Hangul6isJamoEi.exit.thread, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit155, %48
+  %.083.lcssa = phi i32 [ 0, %48 ], [ %62, %.critedge.loopexit.split.loop.exit ], [ %63, %.critedge.loopexit.split.loop.exit155 ], [ 0, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+  %.082.lcssa = phi i32 [ %23, %48 ], [ %.082123, %.critedge.loopexit.split.loop.exit ], [ %.082123, %.critedge.loopexit.split.loop.exit155 ], [ %55, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
+  %64 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %.082.lcssa)
+  %65 = icmp eq i32 %.083.lcssa, %8
+  br i1 %65, label %66, label %71
 
-68:                                               ; preds = %.critedge
-  %69 = icmp eq ptr %66, null
-  br i1 %69, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %70
+66:                                               ; preds = %.critedge
+  %67 = icmp eq ptr %64, null
+  br i1 %67, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %68
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !62
-  %.not116 = icmp eq ptr %72, null
-  br i1 %.not116, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %73
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !62
+  %.not116 = icmp eq ptr %70, null
+  br i1 %.not116, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %71
 
-73:                                               ; preds = %70, %.critedge
-  %74 = add nuw nsw i32 %.083.lcssa, 1
-  %75 = load i32, ptr %4, align 4, !tbaa !56
-  %76 = icmp slt i32 %74, %75
-  br i1 %76, label %.lr.ph134.preheader, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread
+71:                                               ; preds = %68, %.critedge
+  %72 = add nuw nsw i32 %.083.lcssa, 1
+  %73 = load i32, ptr %4, align 4, !tbaa !56
+  %74 = icmp slt i32 %72, %73
+  br i1 %74, label %.lr.ph134.preheader, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread
 
-.lr.ph134.preheader:                              ; preds = %73
-  %77 = sext i32 %74 to i64
-  %78 = zext nneg i32 %8 to i64
+.lr.ph134.preheader:                              ; preds = %71
+  %75 = sext i32 %72 to i64
+  %76 = zext nneg i32 %8 to i64
   br label %.lr.ph134
 
-.lr.ph134:                                        ; preds = %.lr.ph134.preheader, %118
-  %indvars.iv141 = phi i64 [ %77, %.lr.ph134.preheader ], [ %indvars.iv.next142, %118 ]
-  %.074133 = phi i8 [ 0, %.lr.ph134.preheader ], [ %.377, %118 ]
-  %.078132 = phi ptr [ %66, %.lr.ph134.preheader ], [ %.381, %118 ]
-  %.184131 = phi i32 [ %.083.lcssa, %.lr.ph134.preheader ], [ %122, %118 ]
-  %79 = getelementptr inbounds [31 x i32], ptr %1, i64 0, i64 %indvars.iv141
-  %80 = load i32, ptr %79, align 4, !tbaa !13
-  %81 = trunc i32 %80 to i8
+.lr.ph134:                                        ; preds = %.lr.ph134.preheader, %116
+  %indvars.iv141 = phi i64 [ %75, %.lr.ph134.preheader ], [ %indvars.iv.next142, %116 ]
+  %.074133 = phi i8 [ 0, %.lr.ph134.preheader ], [ %.377, %116 ]
+  %.078132 = phi ptr [ %64, %.lr.ph134.preheader ], [ %.381, %116 ]
+  %.184131 = phi i32 [ %.083.lcssa, %.lr.ph134.preheader ], [ %120, %116 ]
+  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv141
+  %78 = load i32, ptr %77, align 4, !tbaa !13
+  %79 = trunc i32 %78 to i8
   %.not97 = icmp slt i32 %.184131, %8
-  br i1 %.not97, label %87, label %82
+  br i1 %.not97, label %85, label %80
 
-82:                                               ; preds = %.lr.ph134
-  %83 = and i32 %80, 255
-  %84 = tail call noundef signext i8 @_ZNK6icu_775Norms21combinesWithCCBetweenERKNS_4NormEhi(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(64) %.078132, i8 noundef zeroext %.074133, i32 noundef %83)
-  %.not98 = icmp eq i8 %84, 0
+80:                                               ; preds = %.lr.ph134
+  %81 = and i32 %78, 255
+  %82 = tail call noundef signext i8 @_ZNK6icu_775Norms21combinesWithCCBetweenERKNS_4NormEhi(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(64) %.078132, i8 noundef zeroext %.074133, i32 noundef %81)
+  %.not98 = icmp eq i8 %82, 0
   br i1 %.not98, label %.thread, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread
 
-.thread:                                          ; preds = %82
-  %85 = load i32, ptr %79, align 4, !tbaa !13
-  %86 = ashr i32 %85, 8
-  br label %89
+.thread:                                          ; preds = %80
+  %83 = load i32, ptr %77, align 4, !tbaa !13
+  %84 = ashr i32 %83, 8
+  br label %87
 
-87:                                               ; preds = %.lr.ph134
-  %88 = ashr i32 %80, 8
+85:                                               ; preds = %.lr.ph134
+  %86 = ashr i32 %78, 8
   %.not99 = icmp eq ptr %.078132, null
-  br i1 %.not99, label %107, label %89
+  br i1 %.not99, label %105, label %87
 
-89:                                               ; preds = %.thread, %87
-  %90 = phi i32 [ %86, %.thread ], [ %88, %87 ]
-  %91 = icmp ult i8 %.074133, %81
-  %92 = icmp eq i8 %.074133, 0
-  %or.cond4 = or i1 %92, %91
-  br i1 %or.cond4, label %93, label %107
+87:                                               ; preds = %.thread, %85
+  %88 = phi i32 [ %84, %.thread ], [ %86, %85 ]
+  %89 = icmp ult i8 %.074133, %79
+  %90 = icmp eq i8 %.074133, 0
+  %or.cond4 = or i1 %90, %89
+  br i1 %or.cond4, label %91, label %105
 
-93:                                               ; preds = %89
-  %94 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_775Norms10getNormRefEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %90)
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 43
-  %96 = load i8, ptr %95, align 1, !tbaa !59
-  %.not100 = icmp eq i8 %96, 0
-  br i1 %.not100, label %107, label %97
+91:                                               ; preds = %87
+  %92 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_775Norms10getNormRefEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %88)
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 43
+  %94 = load i8, ptr %93, align 1, !tbaa !59
+  %.not100 = icmp eq i8 %94, 0
+  br i1 %.not100, label %105, label %95
 
-97:                                               ; preds = %93
-  %98 = tail call noundef i32 @_ZNK6icu_774Norm7combineEi(ptr noundef nonnull align 8 dereferenceable(64) %.078132, i32 noundef %90)
-  %99 = icmp sgt i32 %98, -1
-  br i1 %99, label %100, label %107
+95:                                               ; preds = %91
+  %96 = tail call noundef i32 @_ZNK6icu_774Norm7combineEi(ptr noundef nonnull align 8 dereferenceable(64) %.078132, i32 noundef %88)
+  %97 = icmp sgt i32 %96, -1
+  br i1 %97, label %98, label %105
 
-100:                                              ; preds = %97
-  %101 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %98)
-  %.not101 = icmp slt i64 %indvars.iv141, %78
-  br i1 %.not101, label %118, label %102
+98:                                               ; preds = %95
+  %99 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %96)
+  %.not101 = icmp slt i64 %indvars.iv141, %76
+  br i1 %.not101, label %116, label %100
+
+100:                                              ; preds = %98
+  %101 = icmp eq ptr %99, null
+  br i1 %101, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %102
 
 102:                                              ; preds = %100
-  %103 = icmp eq ptr %101, null
-  br i1 %103, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %104
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !62
+  %.not117 = icmp eq ptr %104, null
+  br i1 %.not117, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %116
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %106 = load ptr, ptr %105, align 8, !tbaa !62
-  %.not117 = icmp eq ptr %106, null
-  br i1 %.not117, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %118
+105:                                              ; preds = %87, %95, %91, %85
+  %106 = phi i32 [ %88, %87 ], [ %88, %95 ], [ %88, %91 ], [ %86, %85 ]
+  %107 = icmp eq i8 %79, 0
+  br i1 %107, label %108, label %116
 
-107:                                              ; preds = %89, %97, %93, %87
-  %108 = phi i32 [ %90, %89 ], [ %90, %97 ], [ %90, %93 ], [ %88, %87 ]
-  %109 = icmp eq i8 %81, 0
-  br i1 %109, label %110, label %118
+108:                                              ; preds = %105
+  %109 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %106)
+  %110 = icmp eq i64 %indvars.iv141, %76
+  br i1 %110, label %111, label %116
 
-110:                                              ; preds = %107
-  %111 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %108)
-  %112 = icmp eq i64 %indvars.iv141, %78
-  br i1 %112, label %113, label %118
+111:                                              ; preds = %108
+  %112 = icmp eq ptr %109, null
+  br i1 %112, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %113
 
-113:                                              ; preds = %110
-  %114 = icmp eq ptr %111, null
-  br i1 %114, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %115
+113:                                              ; preds = %111
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 32
+  %115 = load ptr, ptr %114, align 8, !tbaa !62
+  %.not118 = icmp eq ptr %115, null
+  br i1 %.not118, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %116
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %117 = load ptr, ptr %116, align 8, !tbaa !62
-  %.not118 = icmp eq ptr %117, null
-  br i1 %.not118, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %118
-
-118:                                              ; preds = %104, %100, %115, %110, %107
-  %.381 = phi ptr [ %101, %104 ], [ %101, %100 ], [ %111, %115 ], [ %111, %110 ], [ %.078132, %107 ]
-  %.377 = phi i8 [ %.074133, %104 ], [ %.074133, %100 ], [ 0, %115 ], [ 0, %110 ], [ %81, %107 ]
+116:                                              ; preds = %102, %98, %113, %108, %105
+  %.381 = phi ptr [ %99, %102 ], [ %99, %98 ], [ %109, %113 ], [ %109, %108 ], [ %.078132, %105 ]
+  %.377 = phi i8 [ %.074133, %102 ], [ %.074133, %98 ], [ 0, %113 ], [ 0, %108 ], [ %79, %105 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %119 = load i32, ptr %4, align 4, !tbaa !56
-  %120 = sext i32 %119 to i64
-  %121 = icmp slt i64 %indvars.iv.next142, %120
-  %122 = trunc nsw i64 %indvars.iv141 to i32
-  br i1 %121, label %.lr.ph134, label %._crit_edge, !llvm.loop !63
+  %117 = load i32, ptr %4, align 4, !tbaa !56
+  %118 = sext i32 %117 to i64
+  %119 = icmp slt i64 %indvars.iv.next142, %118
+  %120 = trunc nsw i64 %indvars.iv141 to i32
+  br i1 %119, label %.lr.ph134, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %118
-  %123 = icmp eq i8 %.377, 0
-  br i1 %123, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %124
+._crit_edge:                                      ; preds = %116
+  %121 = icmp eq i8 %.377, 0
+  br i1 %121, label %_ZNK6icu_775Norms12combinesBackEi.exit.thread, label %122
 
-124:                                              ; preds = %._crit_edge
-  %125 = tail call noundef signext i8 @_ZNK6icu_775Norms21combinesWithCCBetweenERKNS_4NormEhi(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(64) %.381, i8 noundef zeroext %.377, i32 noundef 256)
-  %.not96 = icmp eq i8 %125, 0
+122:                                              ; preds = %._crit_edge
+  %123 = tail call noundef signext i8 @_ZNK6icu_775Norms21combinesWithCCBetweenERKNS_4NormEhi(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(64) %.381, i8 noundef zeroext %.377, i32 noundef 256)
+  %.not96 = icmp eq i8 %123, 0
   br label %_ZNK6icu_775Norms12combinesBackEi.exit.thread
 
-_ZNK6icu_775Norms12combinesBackEi.exit.thread:    ; preds = %113, %115, %102, %104, %82, %73, %25, %6, %48, %_ZNK6icu_775Norms12combinesBackEi.exit, %._crit_edge, %124, %68, %70, %14, %3
-  %.0.shrunk = phi i1 [ false, %3 ], [ false, %6 ], [ false, %14 ], [ %49, %48 ], [ false, %_ZNK6icu_775Norms12combinesBackEi.exit ], [ true, %70 ], [ true, %68 ], [ false, %._crit_edge ], [ %.not96, %124 ], [ false, %25 ], [ false, %73 ], [ false, %82 ], [ true, %104 ], [ true, %102 ], [ true, %115 ], [ true, %113 ]
+_ZNK6icu_775Norms12combinesBackEi.exit.thread:    ; preds = %111, %113, %100, %102, %80, %71, %25, %6, %46, %_ZNK6icu_775Norms12combinesBackEi.exit, %._crit_edge, %122, %66, %68, %14, %3
+  %.0.shrunk = phi i1 [ false, %3 ], [ false, %6 ], [ false, %14 ], [ %47, %46 ], [ false, %_ZNK6icu_775Norms12combinesBackEi.exit ], [ true, %68 ], [ true, %66 ], [ false, %._crit_edge ], [ %.not96, %122 ], [ false, %25 ], [ false, %71 ], [ false, %80 ], [ true, %102 ], [ true, %100 ], [ true, %113 ], [ true, %111 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -1508,7 +1506,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader ]
   %.02945 = phi ptr [ %.130, %40 ], [ null, %.preheader ]
   %.03543 = phi i8 [ %11, %40 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds nuw [31 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = ashr i32 %9, 8
   %11 = trunc i32 %9 to i8
@@ -1550,7 +1548,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw [31 x i32], ptr %1, i64 0, i64 %28
+  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %28
   %34 = load i32, ptr %33, align 4, !tbaa !13
   %35 = ashr i32 %34, 8
   %36 = add nsw i32 %35, -4470
@@ -1640,9 +1638,9 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder11postProcessERNS_4Norm
   %34 = trunc i32 %33 to i8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 %34, ptr %35, align 1, !tbaa !68
-  %36 = add nsw i32 %29, -1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [31 x i32], ptr %3, i64 0, i64 %37
+  %36 = sext i32 %29 to i64
+  %37 = getelementptr i32, ptr %3, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 -4
   %39 = load i32, ptr %38, align 4, !tbaa !13
   %40 = trunc i32 %39 to i8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 42
@@ -1889,7 +1887,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder11setSmallFCDEi(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %12 = ashr i32 %7, 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !42
   %16 = trunc nuw i32 %10 to i8
   %17 = or i8 %15, %16
@@ -1926,7 +1924,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder11writeNorm16EP14UMutab
   %21 = shl nuw nsw i32 1, %20
   %22 = ashr i32 %18, 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr %12, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %12, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !42
   %26 = trunc nuw i32 %21 to i8
   %27 = or i8 %25, %26
@@ -2962,7 +2960,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %246
 
 391:                                              ; preds = %375, %391
   %indvars.iv141 = phi i64 [ 3, %375 ], [ %indvars.iv.next142, %391 ]
-  %392 = getelementptr inbounds nuw [22 x i32], ptr %53, i64 0, i64 %indvars.iv141
+  %392 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv141
   store i32 %388, ptr %392, align 4, !tbaa !13
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 8

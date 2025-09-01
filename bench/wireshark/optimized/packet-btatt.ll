@@ -6878,7 +6878,7 @@ define hidden void @proto_reg_handoff_btatt() local_unnamed_addr #1 {
 37:                                               ; preds = %20, %.lr.ph, %25
   %38 = add i32 %.021, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr [0 x %struct._value_string], ptr @bluetooth_uuid_vals, i64 0, i64 %39
+  %40 = getelementptr %struct._value_string, ptr @bluetooth_uuid_vals, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
@@ -6978,7 +6978,7 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
 2:                                                ; preds = %0, %13
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %13 ]
   %3 = phi ptr [ @.str.2289, %0 ], [ %15, %13 ]
-  %4 = phi ptr [ @__const.proto_reg_handoff_btgatt.uuid_dissectors, %0 ], [ %14, %13 ]
+  %4 = getelementptr %struct.uuid_dissectors_t, ptr @__const.proto_reg_handoff_btgatt.uuid_dissectors, i64 %indvars.iv
   %5 = load ptr, ptr @bluetooth_uuids, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -6996,7 +6996,7 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
 
 13:                                               ; preds = %2, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr [36 x %struct.uuid_dissectors_t], ptr @__const.proto_reg_handoff_btgatt.uuid_dissectors, i64 0, i64 %indvars.iv.next
+  %14 = getelementptr %struct.uuid_dissectors_t, ptr @__const.proto_reg_handoff_btgatt.uuid_dissectors, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 35
   br i1 %exitcond, label %1, label %2, !llvm.loop !15

@@ -382,7 +382,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 switch.lookup:                                    ; preds = %2
   %82 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN5zxing6qrcode4Mode7forBitsEiRNS_12ErrorHandlerE, i64 0, i64 %82
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5zxing6qrcode4Mode7forBitsEiRNS_12ErrorHandlerE, i64 %82
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %83
 

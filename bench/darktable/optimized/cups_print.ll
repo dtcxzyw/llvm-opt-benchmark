@@ -792,7 +792,7 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store ptr @.str.28, ptr %40, align 8, !tbaa !123
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr @.str.25, ptr %41, align 16, !tbaa !123
-  %42 = getelementptr inbounds nuw [4 x ptr], ptr @__const.dt_print_file.tp_intent_name, i64 0, i64 %spec.select
+  %42 = getelementptr inbounds nuw ptr, ptr @__const.dt_print_file.tp_intent_name, i64 %spec.select
   %43 = load ptr, ptr %42, align 8, !tbaa !123
   %44 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.29, ptr noundef %43) #16
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 88

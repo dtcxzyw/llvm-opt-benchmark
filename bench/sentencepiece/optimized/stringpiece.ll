@@ -464,7 +464,7 @@ _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; pr
   %33 = getelementptr inbounds i8, ptr %31, i64 %.01317
   %34 = load i8, ptr %33, align 1, !tbaa !16
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !19, !range !22, !noundef !23
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %._crit_edge, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
@@ -553,7 +553,7 @@ _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; pr
   %31 = getelementptr inbounds i8, ptr %29, i64 %.01116
   %32 = load i8, ptr %31, align 1, !tbaa !16
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !19, !range !22, !noundef !23
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, label %._crit_edge
@@ -663,7 +663,7 @@ select.unfold.i.i:                                ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.01118
   %32 = load i8, ptr %31, align 1, !tbaa !16
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !19, !range !22, !noundef !23
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %._crit_edge, label %select.unfold
@@ -743,7 +743,7 @@ select.unfold.i:                                  ; preds = %16
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.0915
   %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !19, !range !22, !noundef !23
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge

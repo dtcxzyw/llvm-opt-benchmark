@@ -92,7 +92,7 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds nuw [100 x %struct.Util_ThData_t_], ptr %6, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv
   store ptr null, ptr %22, align 16, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %0, ptr %23, align 8, !tbaa !15
@@ -157,7 +157,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .preheader57.us:                                  ; preds = %.preheader57.us.backedge, %.preheader57.us.preheader
   %indvars.iv77 = phi i64 [ 0, %.preheader57.us.preheader ], [ %indvars.iv77.be, %.preheader57.us.backedge ]
-  %48 = getelementptr inbounds nuw [100 x %struct.Util_ThData_t_], ptr %6, i64 0, i64 %indvars.iv77
+  %48 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv77
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load atomic i8, ptr %49 acquire, align 8
   %51 = trunc i8 %50 to i1
@@ -210,7 +210,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %.265 = phi i32 [ %69, %.lr.ph66 ], [ 0, %.lr.ph66.preheader ]
   %63 = sext i32 %.265 to i64
-  %64 = getelementptr inbounds [100 x %struct.Util_ThData_t_], ptr %6, i64 0, i64 %63, i32 4
+  %64 = getelementptr inbounds %struct.Util_ThData_t_, ptr %6, i64 %63, i32 4
   %65 = load atomic i8, ptr %64 acquire, align 8
   %66 = trunc i8 %65 to i1
   %67 = call i32 @nanosleep(ptr noundef nonnull %8, ptr noundef null) #11
@@ -226,7 +226,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv82 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next83, %.lr.ph68 ]
-  %71 = getelementptr inbounds nuw [100 x %struct.Util_ThData_t_], ptr %6, i64 0, i64 %indvars.iv82
+  %71 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv82
   store ptr null, ptr %71, align 16, !tbaa !11
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store atomic i8 1, ptr %72 release, align 8
@@ -236,7 +236,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv88 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next89, %.lr.ph70 ]
-  %73 = getelementptr inbounds nuw [100 x i64], ptr %7, i64 0, i64 %indvars.iv88
+  %73 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv88
   %74 = load i64, ptr %73, align 8, !tbaa !30
   %75 = call i32 @pthread_join(i64 noundef %74, ptr noundef null) #11
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1

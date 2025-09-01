@@ -28204,10 +28204,10 @@ define { ptr, i64 } @_ZN7welcome19base_keymap_setting10BaseKeymap10asset_path17h
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !368, !noundef !13
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN7welcome19base_keymap_setting10BaseKeymap10asset_path17h1398b7dd80062fa9E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7welcome19base_keymap_setting10BaseKeymap10asset_path17h1398b7dd80062fa9E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN7welcome19base_keymap_setting10BaseKeymap10asset_path17h1398b7dd80062fa9E.88, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7welcome19base_keymap_setting10BaseKeymap10asset_path17h1398b7dd80062fa9E.88, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -28554,7 +28554,7 @@ _ZN7welcome16multibuffer_hint15MultibufferHint11shown_count17h34f7878414996e7aE.
   br i1 %36, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd88391b9f43aa8bfE.llvm.13420854397776610736.exit.i", label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }], ptr %32, i64 0, i64 %.sroa.0.0.i.i.i
+  %38 = getelementptr inbounds { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %32, i64 %.sroa.0.0.i.i.i
   %39 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr52drop_in_place$LT$workspace..item..BreadcrumbText$GT$17h1df1538bdf49f3ffE.llvm.13420854397776610736"(ptr noalias noundef nonnull align 8 dereferenceable(96) %38)
           to label %35 unwind label %42, !noalias !4147
@@ -28570,7 +28570,7 @@ _ZN7welcome16multibuffer_hint15MultibufferHint11shown_count17h34f7878414996e7aE.
   br label %40
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }], ptr %32, i64 0, i64 %.sroa.0.1.i.i.i
+  %45 = getelementptr inbounds { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %32, i64 %.sroa.0.1.i.i.i
   %46 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr52drop_in_place$LT$workspace..item..BreadcrumbText$GT$17h1df1538bdf49f3ffE.llvm.13420854397776610736"(ptr noalias noundef nonnull align 8 dereferenceable(96) %45) #42
           to label %40 unwind label %47, !noalias !4147

@@ -2029,7 +2029,7 @@ define internal fastcc noundef range(i32 6, 25) i32 @dissect_packAscii(ptr nound
   unreachable
 
 49:                                               ; preds = %47
-  %50 = getelementptr [4 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %50 = getelementptr i16, ptr %5, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2
   %52 = shl i16 %51, 1
   %53 = and i16 %52, 64

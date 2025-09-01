@@ -493,7 +493,7 @@ define dso_local void @intel_ddi_set_dp_msa(ptr noundef %0, ptr noundef %1) loca
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %74 = sext i32 %6 to i64
-  %75 = getelementptr [7 x i32], ptr %73, i64 0, i64 %74
+  %75 = getelementptr i32, ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = load i32, ptr %73, align 4
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 32
@@ -549,7 +549,7 @@ define dso_local void @intel_ddi_enable_transcoder_func(ptr noundef readonly cap
   %23 = load ptr, ptr %7, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = sext i32 %6 to i64
-  %26 = getelementptr [7 x i32], ptr %24, i64 0, i64 %25
+  %26 = getelementptr i32, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %24, align 4
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -567,7 +567,7 @@ define dso_local void @intel_ddi_enable_transcoder_func(ptr noundef readonly cap
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %25, %21 ]
   %38 = load ptr, ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = getelementptr [7 x i32], ptr %39, i64 0, i64 %.pre-phi
+  %40 = getelementptr i32, ptr %39, i64 %.pre-phi
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %39, align 4
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -843,7 +843,7 @@ define dso_local void @intel_ddi_disable_transcoder_func(ptr noundef %0) local_u
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = sext i32 %5 to i64
-  %14 = getelementptr [7 x i32], ptr %12, i64 0, i64 %13
+  %14 = getelementptr i32, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %12, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -861,7 +861,7 @@ define dso_local void @intel_ddi_disable_transcoder_func(ptr noundef %0) local_u
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %13, %10 ]
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %28 = getelementptr [7 x i32], ptr %27, i64 0, i64 %.pre-phi
+  %28 = getelementptr i32, ptr %27, i64 %.pre-phi
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %27, align 4
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -927,7 +927,7 @@ define dso_local void @intel_ddi_disable_transcoder_func(ptr noundef %0) local_u
   %71 = phi i32 [ %69, %68 ], [ %67, %64 ]
   %72 = load ptr, ptr %6, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  %74 = getelementptr [7 x i32], ptr %73, i64 0, i64 %.pre-phi
+  %74 = getelementptr i32, ptr %73, i64 %.pre-phi
   %75 = load i32, ptr %74, align 4
   %76 = load i32, ptr %73, align 4
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 32
@@ -1017,7 +1017,7 @@ define dso_local noundef range(i32 -6, 1) i32 @intel_ddi_toggle_hdcp_bits(ptr no
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = sext i32 %1 to i64
-  %27 = getelementptr [7 x i32], ptr %25, i64 0, i64 %26
+  %27 = getelementptr i32, ptr %25, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %25, align 4
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -1086,7 +1086,7 @@ define dso_local zeroext i1 @intel_ddi_connector_get_hw_state(ptr noundef readon
   %29 = select i1 %26, i64 4, i64 %28
   %30 = load ptr, ptr %19, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %32 = getelementptr [7 x i32], ptr %31, i64 0, i64 %29
+  %32 = getelementptr i32, ptr %31, i64 %29
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -1272,7 +1272,7 @@ define internal fastcc void @intel_ddi_get_encoder_pipes(ptr noundef readonly ca
   %70 = select i1 %68, i32 %31, i32 %32
   %71 = load ptr, ptr %20, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
-  %73 = getelementptr [7 x i32], ptr %72, i64 0, i64 %54
+  %73 = getelementptr i32, ptr %72, i64 %54
   %74 = load i32, ptr %73, align 4
   %75 = load i32, ptr %72, align 4
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 32
@@ -1632,7 +1632,7 @@ define dso_local i32 @intel_ddi_level(ptr noundef %0, ptr noundef %1, i32 nounde
   %46 = phi ptr [ %43, %41 ], [ %0, %38 ], [ %0, %38 ], [ %0, %38 ], [ %0, %38 ], [ null, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1916
   %48 = sext i32 %2 to i64
-  %49 = getelementptr [4 x i8], ptr %47, i64 0, i64 %48
+  %49 = getelementptr i8, ptr %47, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = call zeroext i1 @intel_dp_is_uhbr(ptr noundef %1) #14
   br i1 %51, label %52, label %55
@@ -1649,7 +1649,7 @@ define dso_local i32 @intel_ddi_level(ptr noundef %0, ptr noundef %1, i32 nounde
 
 58:                                               ; preds = %63, %55
   %59 = phi i64 [ 0, %55 ], [ %64, %63 ]
-  %60 = getelementptr [10 x i8], ptr @index_to_dp_signal_levels, i64 0, i64 %59
+  %60 = getelementptr i8, ptr @index_to_dp_signal_levels, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, %56
   br i1 %62, label %79, label %63
@@ -2095,7 +2095,7 @@ define dso_local i32 @dp_tp_ctl_reg(ptr noundef readonly captures(none) %0, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [7 x i32], ptr %10, i64 0, i64 %18
+  %19 = getelementptr i32, ptr %10, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %10, align 4
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -2137,7 +2137,7 @@ define dso_local i32 @dp_tp_status_reg(ptr noundef readonly captures(none) %0, p
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [7 x i32], ptr %10, i64 0, i64 %18
+  %19 = getelementptr i32, ptr %10, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %10, align 4
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -2212,7 +2212,7 @@ define dso_local void @intel_ddi_wait_for_fec_status(ptr noundef %0, ptr noundef
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [7 x i32], ptr %28, i64 0, i64 %36
+  %37 = getelementptr i32, ptr %28, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %28, align 4
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -2250,7 +2250,7 @@ define dso_local void @intel_ddi_wait_for_fec_status(ptr noundef %0, ptr noundef
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr [7 x i32], ptr %58, i64 0, i64 %66
+  %67 = getelementptr i32, ptr %58, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %58, align 4
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -2405,7 +2405,7 @@ define dso_local i32 @hsw_chicken_trans_reg(ptr noundef readonly captures(none) 
 
 9:                                                ; preds = %2
   %10 = sext i32 %1 to i64
-  %11 = getelementptr [5 x i32], ptr @constinit.68, i64 0, i64 %10
+  %11 = getelementptr i32, ptr @constinit.68, i64 %10
   %12 = load i32, ptr %11, align 4
   br label %13
 
@@ -2789,7 +2789,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = sext i32 %5 to i64
-  %34 = getelementptr [7 x i32], ptr %32, i64 0, i64 %33
+  %34 = getelementptr i32, ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %32, align 4
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -2942,7 +2942,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr [7 x i32], ptr %122, i64 0, i64 %129
+  %130 = getelementptr i32, ptr %122, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = load i32, ptr %122, align 4
   %133 = getelementptr inbounds nuw i8, ptr %121, i64 32
@@ -2991,7 +2991,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = sext i32 %168 to i64
-  %170 = getelementptr [7 x i32], ptr %162, i64 0, i64 %169
+  %170 = getelementptr i32, ptr %162, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = load i32, ptr %162, align 4
   %173 = getelementptr inbounds nuw i8, ptr %161, i64 32
@@ -3080,7 +3080,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 %231
   %233 = load i32, ptr %232, align 4
   %234 = sext i32 %233 to i64
-  %235 = getelementptr [7 x i32], ptr %228, i64 0, i64 %234
+  %235 = getelementptr i32, ptr %228, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = load i32, ptr %228, align 4
   %238 = getelementptr inbounds nuw i8, ptr %227, i64 32
@@ -3156,7 +3156,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 %288
   %290 = load i32, ptr %289, align 4
   %291 = sext i32 %290 to i64
-  %292 = getelementptr [7 x i32], ptr %284, i64 0, i64 %291
+  %292 = getelementptr i32, ptr %284, i64 %291
   %293 = load i32, ptr %292, align 4
   %294 = load i32, ptr %284, align 4
   %295 = getelementptr inbounds nuw i8, ptr %283, i64 32
@@ -3438,7 +3438,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %470 = load ptr, ptr %466, align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 64
   %472 = sext i32 %465 to i64
-  %473 = getelementptr [7 x i32], ptr %471, i64 0, i64 %472
+  %473 = getelementptr i32, ptr %471, i64 %472
   %474 = load i32, ptr %473, align 4
   %475 = load i32, ptr %471, align 4
   %476 = getelementptr inbounds nuw i8, ptr %470, i64 32
@@ -3507,7 +3507,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   %524 = icmp ugt i16 %523, 10
   %525 = load ptr, ptr %466, align 8
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 64
-  %527 = getelementptr [7 x i32], ptr %526, i64 0, i64 %509
+  %527 = getelementptr i32, ptr %526, i64 %509
   %528 = load i32, ptr %527, align 4
   %529 = load i32, ptr %526, align 4
   %530 = getelementptr inbounds nuw i8, ptr %525, i64 32
@@ -5472,7 +5472,7 @@ define internal void @intel_enable_ddi(ptr noundef %0, ptr noundef %1, ptr nound
   %48 = load ptr, ptr %32, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = sext i32 %31 to i64
-  %51 = getelementptr [7 x i32], ptr %49, i64 0, i64 %50
+  %51 = getelementptr i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %49, align 4
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 32
@@ -5490,7 +5490,7 @@ define internal void @intel_enable_ddi(ptr noundef %0, ptr noundef %1, ptr nound
   %.pre-phi = phi i64 [ %.pre18, %._crit_edge17 ], [ %50, %46 ]
   %63 = load ptr, ptr %32, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %65 = getelementptr [7 x i32], ptr %64, i64 0, i64 %.pre-phi
+  %65 = getelementptr i32, ptr %64, i64 %.pre-phi
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %64, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -5730,10 +5730,10 @@ thread-pre-split.thread:                          ; preds = %119, %181, %thread-
 205:                                              ; preds = %203, %191
   %206 = phi i32 [ 0, %203 ], [ %95, %191 ]
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr [5 x i32], ptr @gen9_chicken_trans_reg_by_port.trans, i64 0, i64 %207
+  %208 = getelementptr i32, ptr @gen9_chicken_trans_reg_by_port.trans, i64 %207
   %209 = load i32, ptr %208, align 4
   %210 = sext i32 %209 to i64
-  %211 = getelementptr [5 x i32], ptr @constinit.68, i64 0, i64 %210
+  %211 = getelementptr i32, ptr @constinit.68, i64 %210
   %212 = load i32, ptr %211, align 4
   %213 = getelementptr inbounds nuw i8, ptr %83, i64 7368
   %214 = getelementptr inbounds nuw i8, ptr %83, i64 7512
@@ -6563,7 +6563,7 @@ define internal void @intel_ddi_pre_enable(ptr noundef %0, ptr noundef %1, ptr n
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 64
   %238 = sext i32 %232 to i64
-  %239 = getelementptr [7 x i32], ptr %237, i64 0, i64 %238
+  %239 = getelementptr i32, ptr %237, i64 %238
   %240 = load i32, ptr %239, align 4
   %241 = load i32, ptr %237, align 4
   %242 = getelementptr inbounds nuw i8, ptr %236, i64 32
@@ -6723,7 +6723,7 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   %332 = getelementptr inbounds nuw i8, ptr %2, i64 %331
   %333 = load i32, ptr %332, align 4
   %334 = sext i32 %333 to i64
-  %335 = getelementptr [7 x i32], ptr %327, i64 0, i64 %334
+  %335 = getelementptr i32, ptr %327, i64 %334
   %336 = load i32, ptr %335, align 4
   %337 = load i32, ptr %327, align 4
   %338 = getelementptr inbounds nuw i8, ptr %326, i64 32
@@ -6947,7 +6947,7 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 64
   %467 = sext i32 %461 to i64
-  %468 = getelementptr [7 x i32], ptr %466, i64 0, i64 %467
+  %468 = getelementptr i32, ptr %466, i64 %467
   %469 = load i32, ptr %468, align 4
   %470 = load i32, ptr %466, align 4
   %471 = getelementptr inbounds nuw i8, ptr %465, i64 32
@@ -7146,7 +7146,7 @@ intel_dp_sink_set_fec_ready.exit23:               ; preds = %539, %554, %562
   %582 = getelementptr inbounds nuw i8, ptr %2, i64 %581
   %583 = load i32, ptr %582, align 4
   %584 = sext i32 %583 to i64
-  %585 = getelementptr [7 x i32], ptr %577, i64 0, i64 %584
+  %585 = getelementptr i32, ptr %577, i64 %584
   %586 = load i32, ptr %585, align 4
   %587 = load i32, ptr %577, align 4
   %588 = getelementptr inbounds nuw i8, ptr %576, i64 32
@@ -7514,7 +7514,7 @@ intel_dp_sink_set_fec_ready.exit24:               ; preds = %729, %744, %752
   %777 = getelementptr inbounds nuw i8, ptr %2, i64 %776
   %778 = load i32, ptr %777, align 4
   %779 = sext i32 %778 to i64
-  %780 = getelementptr [7 x i32], ptr %772, i64 0, i64 %779
+  %780 = getelementptr i32, ptr %772, i64 %779
   %781 = load i32, ptr %780, align 4
   %782 = load i32, ptr %772, align 4
   %783 = getelementptr inbounds nuw i8, ptr %771, i64 32
@@ -8047,7 +8047,7 @@ define internal void @intel_ddi_post_disable(ptr noundef readonly captures(none)
   %122 = load ptr, ptr %119, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 64
   %124 = sext i32 %121 to i64
-  %125 = getelementptr [7 x i32], ptr %123, i64 0, i64 %124
+  %125 = getelementptr i32, ptr %123, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = load i32, ptr %123, align 4
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 32
@@ -8524,7 +8524,7 @@ define internal void @adls_ddi_enable_clock(ptr noundef readonly captures(none) 
   %24 = mul i32 %23, 60
   %25 = add i32 %24, 1458816
   %26 = sext i32 %8 to i64
-  %27 = getelementptr [5 x i32], ptr @constinit.90, i64 0, i64 %26
+  %27 = getelementptr i32, ptr @constinit.90, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %30 = load ptr, ptr %29, align 8
@@ -8533,7 +8533,7 @@ define internal void @adls_ddi_enable_clock(ptr noundef readonly captures(none) 
   %33 = srem i32 %8, 3
   %34 = shl nsw i32 %33, 1
   %35 = shl i32 %32, %34
-  %36 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %26
+  %36 = getelementptr i32, ptr @constinit.94, i64 %26
   %37 = load i32, ptr %36, align 4
   %38 = shl nuw i32 1, %37
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 4488
@@ -8571,7 +8571,7 @@ define internal void @adls_ddi_disable_clock(ptr noundef readonly captures(none)
   %7 = mul i32 %6, 60
   %8 = add i32 %7, 1458816
   %9 = sext i32 %5 to i64
-  %10 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %9
+  %10 = getelementptr i32, ptr @constinit.94, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = shl nuw i32 1, %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4488
@@ -8598,7 +8598,7 @@ define internal zeroext i1 @adls_ddi_is_clock_enabled(ptr noundef readonly captu
   %7 = mul i32 %6, 60
   %8 = add i32 %7, 1458816
   %9 = sext i32 %5 to i64
-  %10 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %9
+  %10 = getelementptr i32, ptr @constinit.94, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = shl nuw i32 1, %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 7368
@@ -8620,7 +8620,7 @@ define internal void @adls_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 ali
   %8 = mul i32 %7, 60
   %9 = add i32 %8, 1458816
   %10 = sext i32 %6 to i64
-  %11 = getelementptr [5 x i32], ptr @constinit.90, i64 0, i64 %10
+  %11 = getelementptr i32, ptr @constinit.90, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = srem i32 %6, 3
   %14 = shl nsw i32 %13, 1
@@ -8682,7 +8682,7 @@ define internal void @rkl_ddi_enable_clock(ptr noundef readonly captures(none) %
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 27, ptr %27, align 4
   %28 = sext i32 %10 to i64
-  %29 = getelementptr [4 x i32], ptr %3, i64 0, i64 %28
+  %29 = getelementptr i32, ptr %3, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = shl i32 3, %30
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -8696,7 +8696,7 @@ define internal void @rkl_ddi_enable_clock(ptr noundef readonly captures(none) %
   store i32 4, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 27, ptr %38, align 4
-  %39 = getelementptr [4 x i32], ptr %4, i64 0, i64 %28
+  %39 = getelementptr i32, ptr %4, i64 %28
   %40 = load i32, ptr %39, align 4
   %41 = shl i32 %35, %40
   %42 = add i32 %10, 10
@@ -8789,7 +8789,7 @@ define internal void @rkl_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 alig
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 27, ptr %11, align 4
   %12 = sext i32 %8 to i64
-  %13 = getelementptr [4 x i32], ptr %3, i64 0, i64 %12
+  %13 = getelementptr i32, ptr %3, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = shl i32 3, %14
   store i32 0, ptr %4, align 4
@@ -8799,7 +8799,7 @@ define internal void @rkl_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 alig
   store i32 4, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 27, ptr %18, align 4
-  %19 = getelementptr [4 x i32], ptr %4, i64 0, i64 %12
+  %19 = getelementptr i32, ptr %4, i64 %12
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 7512
@@ -9060,7 +9060,7 @@ define internal void @jsl_ddi_tc_disable_clock(ptr noundef readonly captures(non
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @intel_port_to_phy(ptr noundef %2, i32 noundef %4) #14
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %6
+  %7 = getelementptr i32, ptr @constinit.94, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = shl nuw i32 1, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4488
@@ -9100,7 +9100,7 @@ define internal zeroext i1 @jsl_ddi_tc_is_clock_enabled(ptr noundef readonly cap
   %14 = load i32, ptr %3, align 4
   %15 = tail call i32 @intel_port_to_phy(ptr noundef %13, i32 noundef %14) #14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %16
+  %17 = getelementptr i32, ptr @constinit.94, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = shl nuw i32 1, %18
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 7368
@@ -9226,7 +9226,7 @@ define internal void @icl_ddi_combo_enable_clock(ptr noundef readonly captures(n
   %28 = load i32, ptr %27, align 8
   %29 = shl i32 %28, %23
   %30 = sext i32 %8 to i64
-  %31 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %30
+  %31 = getelementptr i32, ptr @constinit.94, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = shl nuw i32 1, %32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 4488
@@ -9261,7 +9261,7 @@ define internal void @icl_ddi_combo_disable_clock(ptr noundef readonly captures(
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @intel_port_to_phy(ptr noundef %2, i32 noundef %4) #14
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %6
+  %7 = getelementptr i32, ptr @constinit.94, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = shl nuw i32 1, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4488
@@ -9285,7 +9285,7 @@ define internal zeroext i1 @icl_ddi_combo_is_clock_enabled(ptr noundef readonly 
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @intel_port_to_phy(ptr noundef %2, i32 noundef %4) #14
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [5 x i32], ptr @constinit.94, i64 0, i64 %6
+  %7 = getelementptr i32, ptr @constinit.94, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = shl nuw i32 1, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 7368
@@ -9560,7 +9560,7 @@ define internal void @icl_ddi_tc_get_config(ptr noundef %0, ptr noundef %1) #0 a
   %45 = zext i1 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %47 = zext i1 %44 to i64
-  %48 = getelementptr [2 x %struct.icl_port_dpll], ptr %46, i64 0, i64 %47
+  %48 = getelementptr %struct.icl_port_dpll, ptr %46, i64 %47
   store ptr %23, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = tail call zeroext i1 @intel_dpll_get_hw_state(ptr noundef %24, ptr noundef nonnull %23, ptr noundef nonnull %49) #14
@@ -9841,7 +9841,7 @@ define internal void @icl_combo_phy_set_signal_levels(ptr noundef %0, ptr nounde
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @intel_port_to_phy(ptr noundef %4, i32 noundef %6) #14
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [5 x i32], ptr @constinit.112, i64 0, i64 %8
+  %9 = getelementptr i32, ptr @constinit.112, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, 2052
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 7368
@@ -9963,7 +9963,7 @@ define internal void @icl_combo_phy_set_signal_levels(ptr noundef %0, ptr nounde
 
 ._crit_edge:                                      ; preds = %87
   %.phi.trans.insert = sext i32 %68 to i64
-  %.phi.trans.insert4 = getelementptr [5 x i32], ptr @constinit.112, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert4 = getelementptr i32, ptr @constinit.112, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert4, align 4
   br label %116
 
@@ -9993,7 +9993,7 @@ define internal void @icl_combo_phy_set_signal_levels(ptr noundef %0, ptr nounde
   %102 = zext i1 %100 to i8
   store i8 %102, ptr %101, align 1
   %103 = sext i32 %68 to i64
-  %104 = getelementptr [5 x i32], ptr @constinit.112, i64 0, i64 %103
+  %104 = getelementptr i32, ptr @constinit.112, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, 40
   %107 = select i1 %100, i32 12, i32 0
@@ -12211,7 +12211,7 @@ define internal fastcc void @intel_disable_ddi_buf(ptr noundef readonly captures
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr [7 x i32], ptr %35, i64 0, i64 %41
+  %42 = getelementptr i32, ptr %35, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %35, align 4
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -12272,7 +12272,7 @@ define internal fastcc void @intel_disable_ddi_buf(ptr noundef readonly captures
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr [7 x i32], ptr %77, i64 0, i64 %85
+  %86 = getelementptr i32, ptr %77, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = load i32, ptr %77, align 4
   %89 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -12467,7 +12467,7 @@ define internal fastcc void @mtl_disable_ddi_buf(ptr noundef readonly captures(n
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
-  %108 = getelementptr [7 x i32], ptr %101, i64 0, i64 %107
+  %108 = getelementptr i32, ptr %101, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = load i32, ptr %101, align 4
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 32
@@ -12523,7 +12523,7 @@ define internal fastcc void @intel_ddi_disable_fec(ptr noundef readonly captures
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [7 x i32], ptr %14, i64 0, i64 %22
+  %23 = getelementptr i32, ptr %14, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %14, align 4
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -12568,7 +12568,7 @@ define internal fastcc void @intel_ddi_disable_fec(ptr noundef readonly captures
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr [7 x i32], ptr %52, i64 0, i64 %60
+  %61 = getelementptr i32, ptr %52, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = load i32, ptr %52, align 4
   %64 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -12678,7 +12678,7 @@ define internal void @mtl_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef %
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [7 x i32], ptr %13, i64 0, i64 %21
+  %22 = getelementptr i32, ptr %13, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %13, align 4
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -12736,7 +12736,7 @@ define internal void @mtl_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef %
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr [7 x i32], ptr %60, i64 0, i64 %64
+  %65 = getelementptr i32, ptr %60, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %60, align 4
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 32
@@ -12774,7 +12774,7 @@ define internal void @mtl_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef %
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr [7 x i32], ptr %88, i64 0, i64 %95
+  %96 = getelementptr i32, ptr %88, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = load i32, ptr %88, align 4
   %99 = getelementptr inbounds nuw i8, ptr %87, i64 32
@@ -12910,7 +12910,7 @@ define internal void @intel_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [7 x i32], ptr %13, i64 0, i64 %21
+  %22 = getelementptr i32, ptr %13, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %13, align 4
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -12966,7 +12966,7 @@ define internal void @intel_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr [7 x i32], ptr %58, i64 0, i64 %66
+  %67 = getelementptr i32, ptr %58, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %58, align 4
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -13004,7 +13004,7 @@ define internal void @intel_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr [7 x i32], ptr %89, i64 0, i64 %97
+  %98 = getelementptr i32, ptr %89, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = load i32, ptr %89, align 4
   %101 = getelementptr inbounds nuw i8, ptr %88, i64 32
@@ -13047,7 +13047,7 @@ define internal void @intel_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = sext i32 %130 to i64
-  %132 = getelementptr [7 x i32], ptr %123, i64 0, i64 %131
+  %132 = getelementptr i32, ptr %123, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = load i32, ptr %123, align 4
   %135 = getelementptr inbounds nuw i8, ptr %122, i64 32
@@ -13086,7 +13086,7 @@ define internal void @intel_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = sext i32 %162 to i64
-  %164 = getelementptr [7 x i32], ptr %155, i64 0, i64 %163
+  %164 = getelementptr i32, ptr %155, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = load i32, ptr %155, align 4
   %167 = getelementptr inbounds nuw i8, ptr %154, i64 32
@@ -13138,7 +13138,7 @@ define internal void @intel_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 %200
   %202 = load i32, ptr %201, align 4
   %203 = sext i32 %202 to i64
-  %204 = getelementptr [7 x i32], ptr %199, i64 0, i64 %203
+  %204 = getelementptr i32, ptr %199, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = load i32, ptr %199, align 4
   %207 = getelementptr inbounds nuw i8, ptr %198, i64 32
@@ -13176,7 +13176,7 @@ define internal void @intel_ddi_prepare_link_retrain(ptr noundef %0, ptr noundef
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 %231
   %233 = load i32, ptr %232, align 4
   %234 = sext i32 %233 to i64
-  %235 = getelementptr [7 x i32], ptr %227, i64 0, i64 %234
+  %235 = getelementptr i32, ptr %227, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = load i32, ptr %227, align 4
   %238 = getelementptr inbounds nuw i8, ptr %226, i64 32
@@ -13258,7 +13258,7 @@ define internal void @intel_ddi_set_link_train(ptr noundef readonly captures(non
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [7 x i32], ptr %12, i64 0, i64 %20
+  %21 = getelementptr i32, ptr %12, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %12, align 4
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -13326,7 +13326,7 @@ define internal void @intel_ddi_set_link_train(ptr noundef readonly captures(non
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr [7 x i32], ptr %59, i64 0, i64 %67
+  %68 = getelementptr i32, ptr %59, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %59, align 4
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -13374,7 +13374,7 @@ define internal void @intel_ddi_set_idle_link_train(ptr noundef readonly capture
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [7 x i32], ptr %13, i64 0, i64 %21
+  %22 = getelementptr i32, ptr %13, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %13, align 4
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -13427,7 +13427,7 @@ define internal void @intel_ddi_set_idle_link_train(ptr noundef readonly capture
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr [7 x i32], ptr %55, i64 0, i64 %63
+  %64 = getelementptr i32, ptr %55, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %55, align 4
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 32
@@ -13535,9 +13535,9 @@ define internal zeroext range(i8 0, 4) i8 @intel_ddi_dp_voltage_max(ptr noundef 
 
 36:                                               ; preds = %.thread, %34, %22
   %37 = phi i32 [ 1, %.thread ], [ 10, %34 ], [ %9, %22 ]
-  %38 = add nsw i32 %37, -1
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr [10 x i8], ptr @index_to_dp_signal_levels, i64 0, i64 %39
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr i8, ptr @index_to_dp_signal_levels, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -1
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

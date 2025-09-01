@@ -2001,7 +2001,7 @@ _float_to_fract.exit.thread:                      ; preds = %46
 49:                                               ; preds = %46
   %50 = add nsw i32 %.026.i, 1
   %51 = sext i32 %.026.i to i64
-  %52 = getelementptr inbounds [100 x i8], ptr %3, i64 0, i64 %51
+  %52 = getelementptr inbounds i8, ptr %3, i64 %51
   store i8 %.pre.i, ptr %52, align 1, !tbaa !179
   br label %53
 
@@ -2022,7 +2022,7 @@ _float_to_fract.exit.thread:                      ; preds = %46
 _float_to_fract.exit:                             ; preds = %41, %._crit_edge.loopexit.i
   %.3170 = phi i32 [ 1, %41 ], [ %.2169, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i64 [ 0, %41 ], [ %57, %._crit_edge.loopexit.i ]
-  %58 = getelementptr inbounds [100 x i8], ptr %3, i64 0, i64 %.0.lcssa.i
+  %58 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i
   store i8 0, ptr %58, align 1, !tbaa !179
   %59 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #25
   %60 = trunc i64 %59 to i32
@@ -2471,7 +2471,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %4
 108:                                              ; preds = %_iop_gui_alloc.exit, %_aspect_format.exit
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %_aspect_format.exit ]
   %109 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #26
-  %110 = getelementptr inbounds nuw [22 x %struct.dt_iop_crop_aspect_t], ptr %2, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw %struct.dt_iop_crop_aspect_t, ptr %2, i64 %indvars.iv
   %111 = load ptr, ptr %110, align 16, !tbaa !180
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 12
@@ -4695,7 +4695,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [8 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

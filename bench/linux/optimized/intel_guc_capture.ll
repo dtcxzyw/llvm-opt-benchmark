@@ -148,9 +148,9 @@ define internal fastcc i32 @guc_capture_getlistsize(ptr noundef readonly capture
   %10 = zext i32 %1 to i64
   %11 = zext i32 %2 to i64
   %12 = zext i32 %3 to i64
-  %.split = getelementptr [2 x [3 x [16 x %struct.__guc_capture_ads_cache]]], ptr %9, i64 0, i64 %10
-  %.split12 = getelementptr [3 x [16 x %struct.__guc_capture_ads_cache]], ptr %.split, i64 0, i64 %11
-  %13 = getelementptr [16 x %struct.__guc_capture_ads_cache], ptr %.split12, i64 0, i64 %12
+  %.split = getelementptr [3 x [16 x %struct.__guc_capture_ads_cache]], ptr %9, i64 %10
+  %.split12 = getelementptr [16 x %struct.__guc_capture_ads_cache], ptr %.split, i64 %11
+  %13 = getelementptr %struct.__guc_capture_ads_cache, ptr %.split12, i64 %12
   %14 = load ptr, ptr %8, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %27
@@ -426,9 +426,9 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   %11 = zext i32 %1 to i64
   %12 = zext i32 %2 to i64
   %13 = zext i32 %3 to i64
-  %.split = getelementptr [2 x [3 x [16 x %struct.__guc_capture_ads_cache]]], ptr %10, i64 0, i64 %11
-  %.split40 = getelementptr [3 x [16 x %struct.__guc_capture_ads_cache]], ptr %.split, i64 0, i64 %12
-  %14 = getelementptr [16 x %struct.__guc_capture_ads_cache], ptr %.split40, i64 0, i64 %13
+  %.split = getelementptr [3 x [16 x %struct.__guc_capture_ads_cache]], ptr %10, i64 %11
+  %.split40 = getelementptr [16 x %struct.__guc_capture_ads_cache], ptr %.split, i64 %12
+  %14 = getelementptr %struct.__guc_capture_ads_cache, ptr %.split40, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %15 = load ptr, ptr %9, align 8
@@ -665,7 +665,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   %153 = getelementptr i8, ptr %124, i64 %.idx41
   %154 = getelementptr i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr [3 x ptr], ptr %6, i64 0, i64 %152
+  %156 = getelementptr ptr, ptr %6, i64 %152
   store ptr %155, ptr %156, align 8
   %157 = load ptr, ptr %8, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 3112
@@ -684,7 +684,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
 
 166:                                              ; preds = %166, %164
   %167 = phi i64 [ 0, %164 ], [ %172, %166 ]
-  %168 = getelementptr [3 x ptr], ptr %6, i64 0, i64 %167
+  %168 = getelementptr ptr, ptr %6, i64 %167
   %169 = load ptr, ptr %168, align 8
   %.idx42 = shl i64 %167, 4
   %170 = getelementptr i8, ptr %124, i64 %.idx42
@@ -1201,7 +1201,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = load i8, ptr %28, align 8, !range !5, !noundef !6
   %30 = zext nneg i8 %29 to i64
-  %31 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %30
+  %31 = getelementptr ptr, ptr %3, i64 %30
   %32 = load ptr, ptr %31, align 8
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %32) #15
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -1214,10 +1214,10 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
 
 39:                                               ; preds = %.loopexit28, %27
   %40 = phi i64 [ 0, %27 ], [ %200, %.loopexit28 ]
-  %41 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %40
+  %41 = getelementptr ptr, ptr %4, i64 %40
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %42) #15
-  %43 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %33, i64 0, i64 %40
+  %43 = getelementptr %struct.gcap_reg_list_info, ptr %33, i64 %40
   %44 = load i32, ptr %43, align 8
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %44) #15
   %45 = trunc nuw nsw i64 %40 to i32
@@ -1232,7 +1232,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   %48 = load i32, ptr %34, align 4
   %49 = and i32 %48, 255
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr [6 x i8], ptr @guc_class_engine_class_map, i64 0, i64 %50
+  %51 = getelementptr i8, ptr @guc_class_engine_class_map, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %53) #15
@@ -2500,7 +2500,7 @@ default.unreachable161:                           ; preds = %388
   %445 = getelementptr i8, ptr %442, i64 %.idx
   %446 = getelementptr i8, ptr %445, i64 8
   %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %444
+  %448 = getelementptr ptr, ptr %3, i64 %444
   store ptr %447, ptr %448, align 8
   %449 = load ptr, ptr %6, align 8
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 3112
@@ -2519,7 +2519,7 @@ default.unreachable161:                           ; preds = %388
 
 458:                                              ; preds = %458, %456
   %459 = phi i64 [ 0, %456 ], [ %464, %458 ]
-  %460 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %459
+  %460 = getelementptr ptr, ptr %3, i64 %459
   %461 = load ptr, ptr %460, align 8
   %.idx29 = shl i64 %459, 4
   %462 = getelementptr i8, ptr %442, i64 %.idx29
@@ -2567,7 +2567,7 @@ default.unreachable161:                           ; preds = %388
   %482 = and i32 %371, 255
   %483 = getelementptr inbounds nuw i8, ptr %480, i64 40
   %484 = zext nneg i32 %372 to i64
-  %485 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %483, i64 0, i64 %484
+  %485 = getelementptr %struct.gcap_reg_list_info, ptr %483, i64 %484
   store i32 %482, ptr %485, align 8
   %switch = icmp eq i32 %372, 2
   br i1 %switch, label %486, label %496
@@ -2740,17 +2740,17 @@ define dso_local void @intel_guc_capture_destroy(ptr noundef captures(none) %0) 
 7:                                                ; preds = %26, %5
   %8 = phi i1 [ true, %5 ], [ false, %26 ]
   %9 = phi i64 [ 0, %5 ], [ 1, %26 ]
-  %.split = getelementptr [2 x [3 x [16 x %struct.__guc_capture_ads_cache]]], ptr %6, i64 0, i64 %9
+  %.split = getelementptr [3 x [16 x %struct.__guc_capture_ads_cache]], ptr %6, i64 %9
   br label %10
 
 10:                                               ; preds = %23, %7
   %11 = phi i64 [ 0, %7 ], [ %24, %23 ]
-  %.split9 = getelementptr [3 x [16 x %struct.__guc_capture_ads_cache]], ptr %.split, i64 0, i64 %11
+  %.split9 = getelementptr [16 x %struct.__guc_capture_ads_cache], ptr %.split, i64 %11
   br label %12
 
 12:                                               ; preds = %20, %10
   %13 = phi i64 [ 0, %10 ], [ %21, %20 ]
-  %14 = getelementptr [16 x %struct.__guc_capture_ads_cache], ptr %.split9, i64 0, i64 %13
+  %14 = getelementptr %struct.__guc_capture_ads_cache, ptr %.split9, i64 %13
   %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %20, label %17
@@ -3048,7 +3048,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
 
 102:                                              ; preds = %98
   %103 = sext i32 %89 to i64
-  %104 = getelementptr [3 x i8], ptr %55, i64 0, i64 %103
+  %104 = getelementptr i8, ptr %55, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i64
   %107 = zext nneg i32 %90 to i64
@@ -3186,7 +3186,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
 
 187:                                              ; preds = %183
   %188 = sext i32 %174 to i64
-  %189 = getelementptr [3 x i8], ptr %55, i64 0, i64 %188
+  %189 = getelementptr i8, ptr %55, i64 %188
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i64
   %192 = zext nneg i32 %175 to i64
@@ -3210,7 +3210,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %200 = phi i1 [ false, %199 ], [ true, %.preheader73 ]
   %201 = phi i64 [ 1, %199 ], [ 0, %.preheader73 ]
   %202 = phi ptr [ %216, %199 ], [ %143, %.preheader73 ]
-  %203 = getelementptr [2 x %struct.__ext_steer_reg], ptr @gen8_extregs, i64 0, i64 %201
+  %203 = getelementptr %struct.__ext_steer_reg, ptr @gen8_extregs, i64 %201
   %204 = load i32, ptr %3, align 4
   %205 = load i32, ptr %4, align 4
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 8
@@ -3310,7 +3310,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
 259:                                              ; preds = %290, %257
   %260 = phi i64 [ 0, %257 ], [ %292, %290 ]
   %261 = phi i32 [ 0, %257 ], [ %291, %290 ]
-  %262 = getelementptr [27 x ptr], ptr %258, i64 0, i64 %260
+  %262 = getelementptr ptr, ptr %258, i64 %260
   %263 = load ptr, ptr %262, align 8
   %264 = icmp eq ptr %263, null
   br i1 %264, label %290, label %265
@@ -3902,7 +3902,7 @@ define internal fastcc ptr @guc_capture_clone_node(ptr noundef readonly captures
   %34 = getelementptr i8, ptr %31, i64 %.idx
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %33
+  %37 = getelementptr ptr, ptr %4, i64 %33
   store ptr %36, ptr %37, align 8
   %38 = load ptr, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 3112
@@ -3921,7 +3921,7 @@ define internal fastcc ptr @guc_capture_clone_node(ptr noundef readonly captures
 
 47:                                               ; preds = %47, %45
   %48 = phi i64 [ 0, %45 ], [ %53, %47 ]
-  %49 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %48
+  %49 = getelementptr ptr, ptr %4, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.idx4 = shl i64 %48, 4
   %51 = getelementptr i8, ptr %31, i64 %.idx4
@@ -3960,10 +3960,10 @@ define internal fastcc ptr @guc_capture_clone_node(ptr noundef readonly captures
   br i1 %74, label %96, label %75
 
 75:                                               ; preds = %70
-  %76 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %31, i64 0, i64 %71
+  %76 = getelementptr %struct.gcap_reg_list_info, ptr %31, i64 %71
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %61, i64 0, i64 %71
+  %79 = getelementptr %struct.gcap_reg_list_info, ptr %61, i64 %71
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 4

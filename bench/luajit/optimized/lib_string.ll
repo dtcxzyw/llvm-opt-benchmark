@@ -976,7 +976,7 @@ push_captures.exit83.thread89:                    ; preds = %61
   unreachable
 
 91:                                               ; preds = %.lr.ph.i
-  %92 = getelementptr inbounds nuw [32 x %struct.anon.2], ptr %81, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw %struct.anon.2, ptr %81, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i64, ptr %93, align 8, !tbaa !54
   %95 = load ptr, ptr %53, align 8, !tbaa !43
@@ -1112,7 +1112,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.077, i64 2
   %29 = sext i32 %21 to i64
-  %30 = getelementptr inbounds [32 x %struct.anon.2], ptr %11, i64 0, i64 %29
+  %30 = getelementptr inbounds %struct.anon.2, ptr %11, i64 %29
   store ptr %.0.ph.ph, ptr %30, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 -2, ptr %31, align 8, !tbaa !54
@@ -1139,7 +1139,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
 
 42:                                               ; preds = %38
   %43 = sext i32 %21 to i64
-  %44 = getelementptr inbounds [32 x %struct.anon.2], ptr %11, i64 0, i64 %43
+  %44 = getelementptr inbounds %struct.anon.2, ptr %11, i64 %43
   store ptr %.0.ph.ph, ptr %44, align 8, !tbaa !56
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 -1, ptr %45, align 8, !tbaa !54
@@ -1183,7 +1183,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
 
 capture_to_close.exit:                            ; preds = %59
   %67 = and i64 %60, 4294967295
-  %68 = getelementptr inbounds nuw [32 x %struct.anon.2], ptr %11, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %struct.anon.2, ptr %11, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !56
   %70 = ptrtoint ptr %.0.ph.ph to i64
   %71 = ptrtoint ptr %69 to i64
@@ -1371,7 +1371,7 @@ classend.exit:                                    ; preds = %132
   br i1 %.not.not.i.i, label %162, label %172
 
 162:                                              ; preds = %157
-  %163 = getelementptr inbounds nuw [32 x i8], ptr @match_class_map, i64 0, i64 %159
+  %163 = getelementptr inbounds nuw i8, ptr @match_class_map, i64 %159
   %164 = load i8, ptr %163, align 1, !tbaa !16
   %165 = load i8, ptr %145, align 1, !tbaa !16
   %166 = and i8 %165, %164
@@ -1465,7 +1465,7 @@ matchbracketclass.exit:                           ; preds = %162, %173, %174, %m
   br i1 %.not.not.i.i118, label %208, label %218
 
 208:                                              ; preds = %203
-  %209 = getelementptr inbounds nuw [32 x i8], ptr @match_class_map, i64 0, i64 %205
+  %209 = getelementptr inbounds nuw i8, ptr @match_class_map, i64 %205
   %210 = load i8, ptr %209, align 1, !tbaa !16
   %211 = load i8, ptr %192, align 1, !tbaa !16
   %212 = and i8 %211, %210
@@ -1572,7 +1572,7 @@ check_capture.exit.i:                             ; preds = %246
   br i1 %.not.i124, label %start_capture.exit, label %258
 
 258:                                              ; preds = %check_capture.exit.i
-  %259 = getelementptr inbounds nuw [32 x %struct.anon.2], ptr %11, i64 0, i64 %247
+  %259 = getelementptr inbounds nuw %struct.anon.2, ptr %11, i64 %247
   %260 = load ptr, ptr %259, align 8, !tbaa !56
   %bcmp.i = tail call i32 @bcmp(ptr %260, ptr %.0.ph.ph, i64 %249)
   %261 = icmp ne i32 %bcmp.i, 0
@@ -1853,7 +1853,7 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   br i1 %.not.not.i, label %16, label %27
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw [32 x i8], ptr @match_class_map, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i8, ptr @match_class_map, i64 %13
   %18 = load i8, ptr %17, align 1, !tbaa !16
   %19 = zext nneg i32 %0 to i64
   %20 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @lj_char_bits, i64 1), i64 %19
@@ -1962,7 +1962,7 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   br i1 %.not43.i.us, label %matchbracketclass.exit, label %83
 
 73:                                               ; preds = %66
-  %74 = getelementptr inbounds nuw [32 x i8], ptr @match_class_map, i64 0, i64 %68
+  %74 = getelementptr inbounds nuw i8, ptr @match_class_map, i64 %68
   %75 = load i8, ptr %74, align 1, !tbaa !16
   %76 = load i8, ptr %45, align 1, !tbaa !16
   %77 = and i8 %76, %75
@@ -2005,7 +2005,7 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   br i1 %.not.not.i.i, label %100, label %110
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds nuw [32 x i8], ptr @match_class_map, i64 0, i64 %97
+  %101 = getelementptr inbounds nuw i8, ptr @match_class_map, i64 %97
   %102 = load i8, ptr %101, align 1, !tbaa !16
   %103 = load i8, ptr %45, align 1, !tbaa !16
   %104 = and i8 %103, %102
@@ -2103,7 +2103,7 @@ define internal fastcc void @push_onecapture(ptr noundef nonnull readonly captur
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [32 x %struct.anon.2], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.anon.2, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2235,7 +2235,7 @@ define internal i32 @lj_cf_string_gmatch_aux(ptr noundef %0) #0 {
   unreachable
 
 54:                                               ; preds = %.lr.ph.i
-  %55 = getelementptr inbounds nuw [32 x %struct.anon.2], ptr %45, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %struct.anon.2, ptr %45, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !54
   %58 = load ptr, ptr %21, align 8, !tbaa !43

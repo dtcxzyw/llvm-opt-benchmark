@@ -3560,7 +3560,7 @@ define dso_local void @SDLTest_PrintEvent(ptr noundef %0) local_unnamed_addr #0 
 
 switch.lookup:                                    ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.SDLTest_PrintEvent, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SystemThemeName.exit
 
@@ -3621,7 +3621,7 @@ SystemThemeName.exit:                             ; preds = %5, %switch.lookup
 
 switch.lookup185:                                 ; preds = %36
   %42 = zext nneg i32 %40 to i64
-  %switch.gep186 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.SDLTest_PrintEvent.1, i64 0, i64 %42
+  %switch.gep186 = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent.1, i64 %42
   %switch.load187 = load ptr, ptr %switch.gep186, align 8
   br label %DisplayOrientationName.exit
 
@@ -4016,7 +4016,7 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
 
 switch.lookup188:                                 ; preds = %278
   %282 = zext nneg i8 %280 to i64
-  %switch.gep189 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.SDLTest_PrintEvent.2, i64 0, i64 %282
+  %switch.gep189 = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent.2, i64 %282
   %switch.load190 = load ptr, ptr %switch.gep189, align 8
   br label %283
 
@@ -4085,7 +4085,7 @@ switch.lookup188:                                 ; preds = %278
 
 switch.lookup191:                                 ; preds = %315
   %322 = zext nneg i8 %319 to i64
-  %switch.gep192 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.SDLTest_PrintEvent.3, i64 0, i64 %322
+  %switch.gep192 = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_PrintEvent.3, i64 %322
   %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %GamepadAxisName.exit
 
@@ -4435,7 +4435,7 @@ define internal fastcc void @SDLTest_PrintModState(ptr noundef nonnull %0, i64 n
 4:                                                ; preds = %3, %29
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %29 ]
   %.01214 = phi i32 [ 0, %3 ], [ %.1, %29 ]
-  %5 = getelementptr inbounds nuw [13 x i16], ptr @__const.SDLTest_PrintModState.kmod_flags, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i16, ptr @__const.SDLTest_PrintModState.kmod_flags, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, %2
   %8 = icmp eq i16 %7, %6
@@ -4548,7 +4548,7 @@ define internal fastcc noundef nonnull ptr @GamepadButtonName(i32 noundef range(
 
 switch.lookup:                                    ; preds = %1
   %trunc = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.GamepadButtonName, i64 0, i64 %trunc
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GamepadButtonName, i64 %trunc
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %3
 
@@ -5065,7 +5065,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 
 switch.lookup:                                    ; preds = %211
   %216 = zext nneg i32 %spec.store.select to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.SDLTest_CommonEventMainCallbacks, i64 0, i64 %216
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDLTest_CommonEventMainCallbacks, i64 %216
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %217
 
@@ -5440,7 +5440,7 @@ define internal fastcc void @SDLTest_PasteScreenShot() unnamed_addr #0 {
 3:                                                ; preds = %0, %16
   %.01015 = phi i64 [ 0, %0 ], [ %17, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @__const.SDLTest_PasteScreenShot.image_formats, i64 0, i64 %.01015
+  %4 = getelementptr inbounds nuw ptr, ptr @__const.SDLTest_PasteScreenShot.image_formats, i64 %.01015
   %5 = load ptr, ptr %4, align 8
   %6 = call ptr @SDL_GetClipboardData(ptr noundef %5, ptr noundef nonnull %1) #9
   %.not = icmp eq ptr %6, null
@@ -5916,7 +5916,7 @@ SDLTest_PrintLogicalPresentation.exit:            ; preds = %67, %68, %69, %70, 
 99:                                               ; preds = %135, %SDLTest_PrintLogicalPresentation.exit
   %indvars.iv.i = phi i64 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %indvars.iv.next.i, %135 ]
   %.01215.i = phi i32 [ 0, %SDLTest_PrintLogicalPresentation.exit ], [ %.1.i, %135 ]
-  %100 = getelementptr inbounds nuw [25 x i64], ptr @__const.SDLTest_PrintWindowFlags.window_flags, i64 0, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw i64, ptr @__const.SDLTest_PrintWindowFlags.window_flags, i64 %indvars.iv.i
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %101, %98
   %103 = icmp eq i64 %102, %101

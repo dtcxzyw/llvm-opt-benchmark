@@ -600,7 +600,7 @@ Vec_IntGrow.exit:                                 ; preds = %.critedge, %31
   %.val.i = load ptr, ptr %35, align 8, !tbaa !30
   %.idx = shl nsw i64 %indvars.iv57, 5
   %41 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx
-  %42 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @Ivy_ManCutTruth.uTruths, i64 0, i64 %indvars.iv57
+  %42 = getelementptr inbounds nuw [8 x i32], ptr @Ivy_ManCutTruth.uTruths, i64 %indvars.iv57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %41, ptr noundef nonnull align 16 dereferenceable(32) %42, i64 32, i1 false)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %.val39 = load i32, ptr %33, align 4, !tbaa !27
@@ -2275,7 +2275,7 @@ define noundef i32 @Ivy_CutTruthPrint2(ptr noundef readnone captures(none) %0, p
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !31
   %13 = ashr i32 %12, 8
   %14 = and i32 %12, 255
@@ -2311,7 +2311,7 @@ define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0,
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.053 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
-  %9 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !31
   %11 = and i32 %10, 255
   %12 = add nuw nsw i32 %11, %.053
@@ -2338,7 +2338,7 @@ define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0,
 19:                                               ; preds = %.lr.ph61, %.critedge
   %indvars.iv70 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next71, %.critedge ]
   %.04358 = phi i32 [ 0, %.lr.ph61 ], [ %.144, %.critedge ]
-  %20 = getelementptr inbounds nuw [6 x i32], ptr %17, i64 0, i64 %indvars.iv70
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv70
   %21 = load i32, ptr %20, align 4, !tbaa !31
   %22 = ashr i32 %21, 8
   %.val49 = load ptr, ptr %18, align 8, !tbaa !16

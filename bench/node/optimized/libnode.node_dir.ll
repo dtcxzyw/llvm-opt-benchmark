@@ -1130,7 +1130,7 @@ if.then4:                                         ; preds = %if.end
 
 switch.lookup:                                    ; preds = %if.then4
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4node6fs_dir12AfterOpenDirEP7uv_fs_s, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node6fs_dir12AfterOpenDirEP7uv_fs_s, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4node6fs_dirL25get_dir_func_name_by_typeE10uv_fs_type.exit
 
@@ -2679,7 +2679,7 @@ if.then5:                                         ; preds = %if.end
 
 switch.lookup:                                    ; preds = %if.then5
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4node6fs_dir12AfterOpenDirEP7uv_fs_s, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node6fs_dir12AfterOpenDirEP7uv_fs_s, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4node6fs_dirL25get_dir_func_name_by_typeE10uv_fs_type.exit
 
@@ -2976,7 +2976,7 @@ if.then4:                                         ; preds = %if.end
 
 switch.lookup:                                    ; preds = %if.then4
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4node6fs_dir12AfterOpenDirEP7uv_fs_s, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node6fs_dir12AfterOpenDirEP7uv_fs_s, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4node6fs_dirL25get_dir_func_name_by_typeE10uv_fs_type.exit
 

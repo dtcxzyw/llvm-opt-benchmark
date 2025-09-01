@@ -102,7 +102,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_c_liP11pro
   %19 = lshr i64 %1, 2
   %20 = and i64 %19, 31
   %21 = or disjoint i64 %18, %20
-  %22 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %13
+  %22 = getelementptr inbounds nuw i64, ptr %15, i64 %13
   store i64 %21, ptr %22, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -162,7 +162,7 @@ define noundef i64 @_Z15fast_rv64i_c_liP11processor_t6insn_tm(ptr noundef captur
   %19 = lshr i64 %1, 2
   %20 = and i64 %19, 31
   %21 = or disjoint i64 %18, %20
-  %22 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %13
+  %22 = getelementptr inbounds nuw i64, ptr %15, i64 %13
   store i64 %21, ptr %22, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -215,7 +215,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_c_liP11p
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %26 = getelementptr inbounds nuw [32 x i64], ptr %25, i64 0, i64 %21
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %21
   store i64 %18, ptr %26, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -356,7 +356,7 @@ define noundef i64 @_Z17logged_rv64i_c_liP11processor_t6insn_tm(ptr noundef %0, 
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %26 = getelementptr inbounds nuw [32 x i64], ptr %25, i64 0, i64 %21
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %21
   store i64 %18, ptr %26, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -415,7 +415,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_c_liP11pro
   %26 = lshr i64 %1, 2
   %27 = and i64 %26, 31
   %28 = or disjoint i64 %25, %27
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %13
+  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %13
   store i64 %28, ptr %29, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -476,7 +476,7 @@ define noundef i64 @_Z15fast_rv64e_c_liP11processor_t6insn_tm(ptr noundef captur
   %26 = lshr i64 %1, 2
   %27 = and i64 %26, 31
   %28 = or disjoint i64 %25, %27
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %13
+  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %13
   store i64 %28, ptr %29, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -545,7 +545,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_c_liP11p
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %33 = getelementptr inbounds nuw [32 x i64], ptr %32, i64 0, i64 %14
+  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %14
   store i64 %27, ptr %33, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -616,7 +616,7 @@ define noundef i64 @_Z17logged_rv64e_c_liP11processor_t6insn_tm(ptr noundef %0, 
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %33 = getelementptr inbounds nuw [32 x i64], ptr %32, i64 0, i64 %14
+  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %14
   store i64 %27, ptr %33, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

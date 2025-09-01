@@ -468,7 +468,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @extts_fifo_show(ptr noun
 28:                                               ; preds = %15
   %29 = getelementptr i8, ptr %16, i64 -4112
   %30 = sext i32 %22 to i64
-  %31 = getelementptr [128 x %struct.ptp_extts_event], ptr %29, i64 0, i64 %30
+  %31 = getelementptr %struct.ptp_extts_event, ptr %29, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8

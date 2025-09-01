@@ -145,9 +145,9 @@ define internal fastcc i32 @x509_verify_rpk(ptr noundef nonnull initializes((176
 check_key_level.exit:                             ; preds = %10
   %12 = tail call i32 @llvm.umin.i32(i32 %.val.val, i32 5)
   %13 = tail call i32 @EVP_PKEY_get_security_bits(ptr noundef nonnull %6) #10
-  %14 = add nsw i32 %12, -1
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [5 x i32], ptr @minbits_table, i64 0, i64 %15
+  %14 = zext nneg i32 %12 to i64
+  %15 = getelementptr i32, ptr @minbits_table, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -4
   %17 = load i32, ptr %16, align 4, !tbaa !54
   %.not22 = icmp slt i32 %13, %17
   br i1 %.not22, label %check_key_level.exit.thread, label %check_key_level.exit.thread19
@@ -436,9 +436,9 @@ define internal fastcc i32 @x509_verify_x509(ptr noundef nonnull %0) unnamed_add
 check_cert_key_level.exit:                        ; preds = %23
   %25 = tail call i32 @llvm.umin.i32(i32 %.val.val.i, i32 5)
   %26 = tail call i32 @EVP_PKEY_get_security_bits(ptr noundef nonnull %19) #10
-  %27 = add nsw i32 %25, -1
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [5 x i32], ptr @minbits_table, i64 0, i64 %28
+  %27 = zext nneg i32 %25 to i64
+  %28 = getelementptr i32, ptr @minbits_table, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -4
   %30 = load i32, ptr %29, align 4, !tbaa !54
   %.not32 = icmp slt i32 %26, %30
   br i1 %.not32, label %check_cert_key_level.exit.thread, label %check_cert_key_level.exit.thread29
@@ -5521,9 +5521,9 @@ check_extensions.exit:                            ; preds = %339, %21
 check_cert_key_level.exit.i:                      ; preds = %360
   %362 = call i32 @llvm.umin.i32(i32 %.val.val.i.i, i32 5)
   %363 = call i32 @EVP_PKEY_get_security_bits(ptr noundef nonnull %357) #10
-  %364 = add nsw i32 %362, -1
-  %365 = zext nneg i32 %364 to i64
-  %366 = getelementptr inbounds nuw [5 x i32], ptr @minbits_table, i64 0, i64 %365
+  %364 = zext nneg i32 %362 to i64
+  %365 = getelementptr i32, ptr @minbits_table, i64 %364
+  %366 = getelementptr i8, ptr %365, i64 -4
   %367 = load i32, ptr %366, align 4, !tbaa !54
   %.not40.i = icmp slt i32 %363, %367
   br i1 %.not40.i, label %check_cert_key_level.exit.thread.i, label %check_cert_key_level.exit.thread32.i
@@ -5576,9 +5576,9 @@ check_sig_level.exit.thread.i:                    ; preds = %379
 check_sig_level.exit.i:                           ; preds = %379
   %381 = call i32 @llvm.umin.i32(i32 %.val.val.i, i32 5)
   %382 = load i32, ptr %2, align 4, !tbaa !54
-  %383 = add nsw i32 %381, -1
-  %384 = zext nneg i32 %383 to i64
-  %385 = getelementptr inbounds nuw [5 x i32], ptr @minbits_table, i64 0, i64 %384
+  %383 = zext nneg i32 %381 to i64
+  %384 = getelementptr i32, ptr @minbits_table, i64 %383
+  %385 = getelementptr i8, ptr %384, i64 -4
   %386 = load i32, ptr %385, align 4, !tbaa !54
   %.not41.i = icmp slt i32 %382, %386
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

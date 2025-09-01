@@ -1538,7 +1538,7 @@ define noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet9Extension7GetSiz
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !77
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !78
   switch i32 %8, label %41 [
     i32 1, label %9
@@ -1986,7 +1986,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !77
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !78
   switch i32 %10, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5ClearEv.exit [
     i32 1, label %11
@@ -2111,7 +2111,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr no
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i8, ptr %63, align 8, !tbaa !77
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !78
   switch i32 %67, label %82 [
     i32 9, label %68
@@ -5496,7 +5496,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeat
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 11
   store i8 %10, ptr %13, align 1, !tbaa !109
   %14 = zext i8 %2 to i64
-  %15 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !78
   switch i32 %16, label %215 [
     i32 1, label %17
@@ -6722,7 +6722,7 @@ select.unfold:                                    ; preds = %36, %_ZNSt3mapIiN6g
   %46 = load ptr, ptr %45, align 8, !tbaa !101
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = sext i32 %2 to i64
-  %49 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !102
   ret ptr %50
 
@@ -6847,7 +6847,7 @@ select.unfold:                                    ; preds = %36, %_ZNSt3mapIiN6g
   %46 = load ptr, ptr %45, align 8, !tbaa !101
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = sext i32 %2 to i64
-  %49 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !102
   ret ptr %50
 
@@ -6958,7 +6958,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cx
   %41 = add nsw i32 %36, 1
   store i32 %41, ptr %35, align 8, !tbaa !94
   %42 = sext i32 %36 to i64
-  %43 = getelementptr inbounds [268435454 x ptr], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !102
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -7025,7 +7025,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %78 = add nsw i32 %77, 1
   store i32 %78, ptr %76, align 8, !tbaa !94
   %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds [268435454 x ptr], ptr %75, i64 0, i64 %79
+  %80 = getelementptr inbounds ptr, ptr %75, i64 %79
   store ptr %.sink6.i.i.i.i, ptr %80, align 8, !tbaa !102
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv.exit
 
@@ -8111,7 +8111,7 @@ select.unfold:                                    ; preds = %36, %_ZNSt3mapIiN6g
   %46 = load ptr, ptr %45, align 8, !tbaa !101
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = sext i32 %2 to i64
-  %49 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !102
   ret ptr %50
 
@@ -8236,7 +8236,7 @@ select.unfold:                                    ; preds = %36, %_ZNSt3mapIiN6g
   %46 = load ptr, ptr %45, align 8, !tbaa !101
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = sext i32 %2 to i64
-  %49 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !102
   ret ptr %50
 
@@ -8340,7 +8340,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18Generic
   %40 = add nsw i32 %36, 1
   store i32 %40, ptr %35, align 8, !tbaa !94
   %41 = sext i32 %36 to i64
-  %42 = getelementptr inbounds [268435454 x ptr], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !102
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEPNT_4TypeEv.exit.thread, label %51
@@ -8456,7 +8456,7 @@ select.unfold:                                    ; preds = %35, %_ZNSt3mapIiN6g
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %44 = load i8, ptr %43, align 8, !tbaa !77
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !78
   switch i32 %47, label %113 [
     i32 1, label %54
@@ -8559,7 +8559,7 @@ select.unfold:                                    ; preds = %35, %_ZNSt3mapIiN6g
   %93 = add nsw i32 %92, -1
   store i32 %93, ptr %91, align 8, !tbaa !94
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [268435454 x ptr], ptr %90, i64 0, i64 %94
+  %95 = getelementptr inbounds ptr, ptr %90, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !102
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 0, ptr %97, align 8, !tbaa !54
@@ -8577,7 +8577,7 @@ select.unfold:                                    ; preds = %35, %_ZNSt3mapIiN6g
   %106 = add nsw i32 %105, -1
   store i32 %106, ptr %104, align 8, !tbaa !94
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds [268435454 x ptr], ptr %103, i64 0, i64 %107
+  %108 = getelementptr inbounds ptr, ptr %103, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !102
   %110 = load ptr, ptr %109, align 8, !tbaa !48
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
@@ -8691,7 +8691,7 @@ select.unfold:                                    ; preds = %35, %_ZNSt3mapIiN6g
   %49 = add nsw i32 %48, -1
   store i32 %49, ptr %47, align 8, !tbaa !94
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [268435454 x ptr], ptr %46, i64 0, i64 %50
+  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !102
   %53 = load i32, ptr %45, align 8, !tbaa !143
   %54 = add nsw i32 %53, -1
@@ -8723,7 +8723,7 @@ select.unfold:                                    ; preds = %35, %_ZNSt3mapIiN6g
 
 62:                                               ; preds = %select.unfold
   %63 = sext i32 %54 to i64
-  %64 = getelementptr inbounds [268435454 x ptr], ptr %46, i64 0, i64 %63
+  %64 = getelementptr inbounds ptr, ptr %46, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !102
   store ptr %65, ptr %51, align 8, !tbaa !102
   br label %_ZN6google8protobuf16RepeatedPtrFieldINS0_11MessageLiteEE11ReleaseLastEv.exit
@@ -8828,7 +8828,7 @@ select.unfold:                                    ; preds = %37, %_ZNSt3mapIiN6g
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %46 = load i8, ptr %45, align 8, !tbaa !77
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !78
   switch i32 %49, label %94 [
     i32 1, label %56
@@ -8911,9 +8911,9 @@ select.unfold:                                    ; preds = %37, %_ZNSt3mapIiN6g
   %75 = load ptr, ptr %74, align 8, !tbaa !101
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = sext i32 %2 to i64
-  %78 = getelementptr inbounds [268435454 x ptr], ptr %76, i64 0, i64 %77
+  %78 = getelementptr inbounds ptr, ptr %76, i64 %77
   %79 = sext i32 %3 to i64
-  %80 = getelementptr inbounds [268435454 x ptr], ptr %76, i64 0, i64 %79
+  %80 = getelementptr inbounds ptr, ptr %76, i64 %79
   %81 = load ptr, ptr %78, align 8, !tbaa !102
   %82 = load ptr, ptr %80, align 8, !tbaa !102
   store ptr %82, ptr %78, align 8, !tbaa !102
@@ -8926,9 +8926,9 @@ select.unfold:                                    ; preds = %37, %_ZNSt3mapIiN6g
   %86 = load ptr, ptr %85, align 8, !tbaa !101
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = sext i32 %2 to i64
-  %89 = getelementptr inbounds [268435454 x ptr], ptr %87, i64 0, i64 %88
+  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
   %90 = sext i32 %3 to i64
-  %91 = getelementptr inbounds [268435454 x ptr], ptr %87, i64 0, i64 %90
+  %91 = getelementptr inbounds ptr, ptr %87, i64 %90
   %92 = load ptr, ptr %89, align 8, !tbaa !102
   %93 = load ptr, ptr %91, align 8, !tbaa !102
   store ptr %93, ptr %89, align 8, !tbaa !102
@@ -9426,7 +9426,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeF
 
 ._crit_edge:                                      ; preds = %9, %17
   %23 = zext i8 %16 to i64
-  %24 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !78
   switch i32 %25, label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit [
     i32 1, label %26
@@ -10149,7 +10149,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINS0_11Me
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %439 ]
   %415 = load ptr, ptr %413, align 8, !tbaa !101
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  %417 = getelementptr inbounds nuw [268435454 x ptr], ptr %416, i64 0, i64 %indvars.iv
+  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %indvars.iv
   %418 = load ptr, ptr %417, align 8, !tbaa !102
   %419 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !34
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 16
@@ -10169,7 +10169,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18Generic
   %428 = add nsw i32 %424, 1
   store i32 %428, ptr %423, align 8, !tbaa !94
   %429 = sext i32 %424 to i64
-  %430 = getelementptr inbounds [268435454 x ptr], ptr %427, i64 0, i64 %429
+  %430 = getelementptr inbounds ptr, ptr %427, i64 %429
   %431 = load ptr, ptr %430, align 8, !tbaa !102
   %432 = icmp eq ptr %431, null
   br i1 %432, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEPNT_4TypeEv.exit.thread, label %439
@@ -10206,7 +10206,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18Generic
   %451 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %452 = load i8, ptr %451, align 8, !tbaa !77
   %453 = zext i8 %452 to i64
-  %454 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %453
   %455 = load i32, ptr %454, align 4, !tbaa !78
   switch i32 %455, label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit [
     i32 1, label %456
@@ -11589,7 +11589,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitia
   %20 = getelementptr inbounds nuw i8, ptr %.026, i64 16
   %21 = load i8, ptr %20, align 8, !tbaa !77
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !78
   %25 = icmp eq i32 %24, 10
   br i1 %25, label %26, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit
@@ -11622,7 +11622,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitia
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !101
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds nuw [268435454 x ptr], ptr %43, i64 0, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !102
   %46 = load ptr, ptr %45, align 8, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
@@ -11674,7 +11674,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet9Extension
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !tbaa !77
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !78
   %7 = icmp eq i32 %6, 10
   br i1 %7, label %8, label %.thread
@@ -11707,7 +11707,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet9Extension
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !101
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = getelementptr inbounds nuw [268435454 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !102
   %28 = load ptr, ptr %27, align 8, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -11770,7 +11770,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet32FindExten
 13:                                               ; preds = %6
   %14 = load i8, ptr %4, align 8, !tbaa !168
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !170
   store i8 0, ptr %5, align 1, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -15493,7 +15493,7 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_I
   %.sroa.9122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.1.i.i.i.i.i, i64 48
   %.sroa.9122.0.copyload = load ptr, ptr %.sroa.9122.0..sroa_idx, align 8, !tbaa !37
   %133 = zext i8 %.sroa.0118.0.copyload to i64
-  %134 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !170
   %136 = trunc nuw i8 %.sroa.5.0.copyload to i1
   br i1 %136, label %137, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit
@@ -16283,7 +16283,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %55
 75:                                               ; preds = %.noexc71.i
   %76 = load i8, ptr %10, align 8, !tbaa !168
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !170
   %80 = load i8, ptr %28, align 1, !tbaa !172, !range !99, !noundef !100
   %81 = trunc nuw i8 %80 to i1
@@ -16517,7 +16517,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit.i: ; pr
 164:                                              ; preds = %.noexc77.i
   %165 = load i8, ptr %9, align 8, !tbaa !168
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !170
   %169 = load i8, ptr %16, align 1, !tbaa !172, !range !99, !noundef !100
   %170 = trunc nuw i8 %169 to i1
@@ -19358,7 +19358,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit567: ; preds = %
   %1254 = getelementptr inbounds nuw i8, ptr %1253, i64 16
   %1255 = load ptr, ptr %1254, align 8, !tbaa !101
   %1256 = getelementptr inbounds nuw i8, ptr %1255, i64 8
-  %1257 = getelementptr inbounds nuw [268435454 x ptr], ptr %1256, i64 0, i64 %indvars.iv1251
+  %1257 = getelementptr inbounds nuw ptr, ptr %1256, i64 %indvars.iv1251
   %1258 = load ptr, ptr %1257, align 8, !tbaa !102
   %1259 = getelementptr inbounds nuw i8, ptr %1258, i64 8
   %1260 = load i64, ptr %1259, align 8, !tbaa !54
@@ -19452,7 +19452,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit570: ; preds = %
   %1299 = getelementptr inbounds nuw i8, ptr %1298, i64 16
   %1300 = load ptr, ptr %1299, align 8, !tbaa !101
   %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 8
-  %1302 = getelementptr inbounds nuw [268435454 x ptr], ptr %1301, i64 0, i64 %indvars.iv1248
+  %1302 = getelementptr inbounds nuw ptr, ptr %1301, i64 %indvars.iv1248
   %1303 = load ptr, ptr %1302, align 8, !tbaa !102
   %1304 = getelementptr inbounds nuw i8, ptr %1303, i64 8
   %1305 = load i64, ptr %1304, align 8, !tbaa !54
@@ -19546,7 +19546,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit574: ; preds = %
   %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 16
   %1345 = load ptr, ptr %1344, align 8, !tbaa !101
   %1346 = getelementptr inbounds nuw i8, ptr %1345, i64 8
-  %1347 = getelementptr inbounds nuw [268435454 x ptr], ptr %1346, i64 0, i64 %indvars.iv1245
+  %1347 = getelementptr inbounds nuw ptr, ptr %1346, i64 %indvars.iv1245
   %1348 = load ptr, ptr %1347, align 8, !tbaa !102
   %1349 = getelementptr inbounds nuw i8, ptr %.0.i573, i64 1
   br i1 %503, label %1350, label %1351
@@ -19659,7 +19659,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit588: ; preds = %
   %1393 = getelementptr inbounds nuw i8, ptr %1392, i64 16
   %1394 = load ptr, ptr %1393, align 8, !tbaa !101
   %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 8
-  %1396 = getelementptr inbounds nuw [268435454 x ptr], ptr %1395, i64 0, i64 %indvars.iv
+  %1396 = getelementptr inbounds nuw ptr, ptr %1395, i64 %indvars.iv
   %1397 = load ptr, ptr %1396, align 8, !tbaa !102
   %1398 = getelementptr inbounds nuw i8, ptr %.0.i587, i64 1
   br i1 %491, label %1399, label %1400
@@ -22129,7 +22129,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit174: ; preds = %218
 339:                                              ; preds = %.lr.ph223, %339
   %indvars.iv322 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next323, %339 ]
   %.15222 = phi i64 [ %334, %.lr.ph223 ], [ %353, %339 ]
-  %340 = getelementptr inbounds nuw [268435454 x ptr], ptr %338, i64 0, i64 %indvars.iv322
+  %340 = getelementptr inbounds nuw ptr, ptr %338, i64 %indvars.iv322
   %341 = load ptr, ptr %340, align 8, !tbaa !102
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %343 = load i64, ptr %342, align 8, !tbaa !54
@@ -22165,7 +22165,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit174: ; preds = %218
 364:                                              ; preds = %.lr.ph219, %364
   %indvars.iv317 = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next318, %364 ]
   %.16218 = phi i64 [ %359, %.lr.ph219 ], [ %378, %364 ]
-  %365 = getelementptr inbounds nuw [268435454 x ptr], ptr %363, i64 0, i64 %indvars.iv317
+  %365 = getelementptr inbounds nuw ptr, ptr %363, i64 %indvars.iv317
   %366 = load ptr, ptr %365, align 8, !tbaa !102
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = load i64, ptr %367, align 8, !tbaa !54
@@ -22237,7 +22237,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit176: ; preds = %387,
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 16
   %409 = load ptr, ptr %408, align 8, !tbaa !101
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
-  %411 = getelementptr inbounds nuw [268435454 x ptr], ptr %410, i64 0, i64 %indvars.iv311
+  %411 = getelementptr inbounds nuw ptr, ptr %410, i64 %indvars.iv311
   %412 = load ptr, ptr %411, align 8, !tbaa !102
   %413 = load ptr, ptr %412, align 8, !tbaa !48
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 72
@@ -22268,7 +22268,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit176: ; preds = %387,
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %432 = load ptr, ptr %431, align 8, !tbaa !101
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
-  %434 = getelementptr inbounds nuw [268435454 x ptr], ptr %433, i64 0, i64 %indvars.iv
+  %434 = getelementptr inbounds nuw ptr, ptr %433, i64 %indvars.iv
   %435 = load ptr, ptr %434, align 8, !tbaa !102
   %436 = load ptr, ptr %435, align 8, !tbaa !48
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 72
@@ -22613,7 +22613,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !77
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite22kFieldTypeToCppTypeMapE, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !78
   br i1 %4, label %10, label %72
 
@@ -23964,7 +23964,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase20Ad
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = sext i32 %28 to i64
-  %41 = getelementptr inbounds [268435454 x ptr], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !102
   %43 = load ptr, ptr %0, align 8, !tbaa !140
   %44 = icmp ne ptr %43, null
@@ -23987,10 +23987,10 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase20Ad
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %54 = sext i32 %28 to i64
-  %55 = getelementptr inbounds [268435454 x ptr], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !102
   %57 = sext i32 %6 to i64
-  %58 = getelementptr inbounds [268435454 x ptr], ptr %53, i64 0, i64 %57
+  %58 = getelementptr inbounds ptr, ptr %53, i64 %57
   store ptr %56, ptr %58, align 8, !tbaa !102
   %59 = load ptr, ptr %3, align 8, !tbaa !101
   %60 = load i32, ptr %59, align 8, !tbaa !143
@@ -24011,7 +24011,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %66, align 8, !tbaa !94
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds [268435454 x ptr], ptr %65, i64 0, i64 %69
+  %70 = getelementptr inbounds ptr, ptr %65, i64 %69
   store ptr %1, ptr %70, align 8, !tbaa !102
   br label %71
 

@@ -466,7 +466,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i: ; preds = %.lr.ph.sp
 
 .lr.ph.i.us.i:                                    ; preds = %.preheader.i.us.i, %29
   %.sroa.01.05.i.us.i = phi i64 [ %30, %29 ], [ 0, %.preheader.i.us.i ]
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.sroa.01.05.i.us.i
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.01.05.i.us.i
   %27 = load i8, ptr %26, align 1, !alias.scope !137, !noalias !136, !noundef !4
   %28 = icmp eq i8 %27, %.pre92.i
   br i1 %28, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i, label %29
@@ -503,7 +503,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %42
   %.sroa.01.05.i.i = phi i64 [ %43, %42 ], [ 0, %.preheader.i.i ]
-  %39 = getelementptr inbounds nuw [0 x i8], ptr %37, i64 0, i64 %.sroa.01.05.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.01.05.i.i
   %40 = load i8, ptr %39, align 1, !alias.scope !137, !noalias !136, !noundef !4
   %41 = icmp eq i8 %40, %.pre92.i
   br i1 %41, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i, label %42
@@ -5370,8 +5370,8 @@ common.resume:                                    ; preds = %23, %51
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = add i64 %10, -1
-  %21 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %19, i64 0, i64 %20
+  %20 = getelementptr { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %19, i64 %10
+  %21 = getelementptr i8, ptr %20, i64 -192
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @"_ZN72_$LT$gpui..keymap..binding..KeyBinding$u20$as$u20$core..clone..Clone$GT$5clone17hd92a3f9aa4b1286aE"(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %21)
           to label %25 unwind label %23
@@ -5398,7 +5398,7 @@ common.resume:                                    ; preds = %23, %51
   br i1 %27, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha49aefddb02c6844E.llvm.8627063476570623420.exit.i10", label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %19, i64 0, i64 %.sroa.0.0.i.i.i6
+  %29 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %19, i64 %.sroa.0.0.i.i.i6
   %30 = add i64 %.sroa.0.0.i.i.i6, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %29)
           to label %26 unwind label %33, !noalias !696
@@ -5414,7 +5414,7 @@ common.resume:                                    ; preds = %23, %51
   br label %31
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %19, i64 0, i64 %.sroa.0.1.i.i.i7
+  %36 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %19, i64 %.sroa.0.1.i.i.i7
   %37 = add i64 %.sroa.0.1.i.i.i7, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %36) #24
           to label %31 unwind label %38, !noalias !696
@@ -5509,8 +5509,8 @@ common.resume:                                    ; preds = %24, %52
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %21 = add i64 %11, -1
-  %22 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %21
+  %21 = getelementptr { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %20, i64 %11
+  %22 = getelementptr i8, ptr %21, i64 -192
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN72_$LT$gpui..keymap..binding..KeyBinding$u20$as$u20$core..clone..Clone$GT$5clone17hd92a3f9aa4b1286aE"(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %22)
           to label %26 unwind label %24
@@ -5537,7 +5537,7 @@ common.resume:                                    ; preds = %24, %52
   br i1 %28, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha49aefddb02c6844E.llvm.8627063476570623420.exit.i10", label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.0.i.i.i6
+  %30 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %20, i64 %.sroa.0.0.i.i.i6
   %31 = add i64 %.sroa.0.0.i.i.i6, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %30)
           to label %27 unwind label %34, !noalias !744
@@ -5553,7 +5553,7 @@ common.resume:                                    ; preds = %24, %52
   br label %32
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.1.i.i.i7
+  %37 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %20, i64 %.sroa.0.1.i.i.i7
   %38 = add i64 %.sroa.0.1.i.i.i7, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %37) #24
           to label %32 unwind label %39, !noalias !744
@@ -6347,7 +6347,7 @@ define noundef float @_ZN2ui6styles10typography8TextSize4rems17hdbba866a7127fe24
 define noundef float @_ZN2ui6styles10typography12HeadlineSize4size17h81d3fe3d6e522998E(i8 noundef %0) unnamed_addr #0 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x float], ptr @"switch.table._ZN78_$LT$ui..styles..typography..Headline$u20$as$u20$gpui..element..RenderOnce$GT$6render17h02fa36f34caadb0bE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw float, ptr @"switch.table._ZN78_$LT$ui..styles..typography..Headline$u20$as$u20$gpui..element..RenderOnce$GT$6render17h02fa36f34caadb0bE", i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   %2 = tail call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
   ret float %2
@@ -6536,7 +6536,7 @@ switch.lookup:                                    ; preds = %.noexc.i, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %72 = load i8, ptr %57, align 4, !range !861, !noundef !4
   %73 = zext nneg i8 %72 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x float], ptr @"switch.table._ZN78_$LT$ui..styles..typography..Headline$u20$as$u20$gpui..element..RenderOnce$GT$6render17h02fa36f34caadb0bE", i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw float, ptr @"switch.table._ZN78_$LT$ui..styles..typography..Headline$u20$as$u20$gpui..element..RenderOnce$GT$6render17h02fa36f34caadb0bE", i64 %73
   %switch.load = load float, ptr %switch.gep, align 4
   %74 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
           to label %_ZN2ui6styles10typography12HeadlineSize4size17h81d3fe3d6e522998E.exit unwind label %115

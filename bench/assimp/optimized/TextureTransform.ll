@@ -982,12 +982,12 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
 153:                                              ; preds = %150
   %154 = load i32, ptr %39, align 4
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw [8 x ptr], ptr %151, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr %151, i64 %155
   %157 = load ptr, ptr %156, align 8
   %.not265 = icmp eq ptr %157, null
   %spec.store.select = select i1 %.not265, i32 0, i32 %154
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 176
-  %159 = getelementptr inbounds nuw [8 x i32], ptr %158, i64 0, i64 %155
+  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %155
   %160 = load i32, ptr %159, align 4
   %161 = icmp ugt i32 %160, 2
   br i1 %161, label %162, label %167
@@ -1257,7 +1257,7 @@ _ZN6Assimp17STransformVecInfoD2Ev.exit289:        ; preds = %.lr.ph.i.i.i286, %.
 267:                                              ; preds = %267, %262
   %indvars.iv.i = phi i64 [ 0, %262 ], [ %indvars.iv.next.i, %267 ]
   %.056.i = phi i32 [ 0, %262 ], [ %spec.select.i, %267 ]
-  %268 = getelementptr inbounds nuw [8 x ptr], ptr %266, i64 0, i64 %indvars.iv.i
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv.i
   %269 = load ptr, ptr %268, align 8
   %.not.i = icmp ne ptr %269, null
   %270 = zext i1 %.not.i to i32
@@ -1319,7 +1319,7 @@ _ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit: ; preds = %282
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i295 = phi i64 [ %indvars.iv.next.i299, %.critedge ], [ 0, %.critedge.preheader ]
   %.056.i296 = phi i32 [ %spec.select.i298, %.critedge ], [ 0, %.critedge.preheader ]
-  %298 = getelementptr inbounds nuw [8 x ptr], ptr %266, i64 0, i64 %indvars.iv.i295
+  %298 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv.i295
   %299 = load ptr, ptr %298, align 8
   %.not.i297 = icmp ne ptr %299, null
   %300 = zext i1 %.not.i297 to i32
@@ -1508,10 +1508,10 @@ _ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE5eraseESt20_List_const_it
 
 360:                                              ; preds = %._crit_edge645, %360
   %indvars.iv701 = phi i64 [ 0, %._crit_edge645 ], [ %indvars.iv.next702, %360 ]
-  %361 = getelementptr inbounds nuw [8 x ptr], ptr %266, i64 0, i64 %indvars.iv701
+  %361 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv701
   %362 = load ptr, ptr %361, align 8
   %.not249 = icmp eq ptr %362, null
-  %363 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv701
+  %363 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv701
   %364 = zext i1 %.not249 to i8
   store i8 %364, ptr %363, align 1
   %indvars.iv.next702 = add nuw nsw i64 %indvars.iv701, 1
@@ -1527,7 +1527,7 @@ _ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE5eraseESt20_List_const_it
   %366 = getelementptr inbounds nuw i8, ptr %.sroa.0470.2650, i64 36
   %367 = load i32, ptr %366, align 4
   %368 = zext i32 %367 to i64
-  %369 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw i8, ptr %10, i64 %368
   store i8 1, ptr %369, align 1
   %.sroa.0470.2 = load ptr, ptr %.sroa.0470.2650, align 8
   %.not558 = icmp eq ptr %.sroa.0470.2, %271
@@ -1541,7 +1541,7 @@ _ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE5eraseESt20_List_const_it
 
 374:                                              ; preds = %.preheader566, %395
   %indvars.iv705 = phi i64 [ 0, %.preheader566 ], [ %indvars.iv.next706, %395 ]
-  %375 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv705
+  %375 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv705
   %376 = load i8, ptr %375, align 1, !range !34, !noundef !35
   %377 = trunc nuw i8 %376 to i1
   br i1 %377, label %395, label %378
@@ -1762,7 +1762,7 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
           to label %460 unwind label %.loopexit.split-lp
 
 460:                                              ; preds = %459, %435
-  %461 = getelementptr inbounds nuw [8 x ptr], ptr %266, i64 0, i64 %415
+  %461 = getelementptr inbounds nuw ptr, ptr %266, i64 %415
   %462 = load ptr, ptr %461, align 8
   %.not238 = icmp eq ptr %462, null
   br i1 %.not238, label %475, label %.preheader
@@ -1829,7 +1829,7 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.0470.3661, i64 36
   %490 = load i32, ptr %489, align 4
   %491 = zext i32 %490 to i64
-  %492 = getelementptr inbounds nuw [8 x ptr], ptr %13, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw ptr, ptr %13, i64 %491
   %493 = load ptr, ptr %492, align 8
   %.not239 = icmp eq ptr %487, %493
   br i1 %.not239, label %498, label %494

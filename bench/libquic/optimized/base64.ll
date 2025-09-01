@@ -34,7 +34,7 @@ define hidden void @EVP_EncodeUpdate(ptr noundef captures(none) %0, ptr noundef 
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw [80 x i8], ptr %16, i64 0, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %3, i64 %4, i1 false)
   %18 = trunc i64 %4 to i32
   %19 = add i32 %8, %18
@@ -48,7 +48,7 @@ define hidden void @EVP_EncodeUpdate(ptr noundef captures(none) %0, ptr noundef 
 21:                                               ; preds = %20
   %22 = sub i32 %12, %8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 0, i64 %9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %9
   %25 = zext i32 %22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %3, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 %25
@@ -83,14 +83,14 @@ define hidden void @EVP_EncodeUpdate(ptr noundef captures(none) %0, ptr noundef 
   %.031.i = phi i32 [ %39, %34 ], [ %31, %32 ]
   %41 = lshr i32 %.031.i, 18
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !14
   %45 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 1
   store i8 %44, ptr %.03238.i, align 1, !tbaa !14
   %46 = lshr i32 %.031.i, 12
   %47 = and i32 %46, 63
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !14
   %51 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 2
   store i8 %50, ptr %45, align 1, !tbaa !14
@@ -101,7 +101,7 @@ define hidden void @EVP_EncodeUpdate(ptr noundef captures(none) %0, ptr noundef 
   %54 = lshr i32 %.031.i, 6
   %55 = and i32 %54, 63
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !14
   br label %.thread.i
 
@@ -126,27 +126,27 @@ define hidden void @EVP_EncodeUpdate(ptr noundef captures(none) %0, ptr noundef 
   %71 = or disjoint i32 %66, %31
   %72 = lshr i32 %30, 2
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !14
   %76 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 1
   store i8 %75, ptr %.03238.i, align 1, !tbaa !14
   %77 = lshr i32 %71, 12
   %78 = and i32 %77, 63
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !14
   %82 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 2
   store i8 %81, ptr %76, align 1, !tbaa !14
   %83 = lshr i32 %70, 6
   %84 = and i32 %83, 63
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !14
   %88 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 3
   store i8 %87, ptr %82, align 1, !tbaa !14
   %89 = and i32 %69, 63
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !14
   store i8 %92, ptr %88, align 1, !tbaa !14
   %93 = add nsw i64 %.03039.i, -3
@@ -219,14 +219,14 @@ EVP_EncodeBlock.exit:                             ; preds = %62, %21, %.thread.i
   %.031.i70 = phi i32 [ %116, %111 ], [ %108, %109 ]
   %118 = lshr i32 %.031.i70, 18
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !14
   %122 = getelementptr inbounds nuw i8, ptr %.03238.i68, i64 1
   store i8 %121, ptr %.03238.i68, align 1, !tbaa !14
   %123 = lshr i32 %.031.i70, 12
   %124 = and i32 %123, 63
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !14
   %128 = getelementptr inbounds nuw i8, ptr %.03238.i68, i64 2
   store i8 %127, ptr %122, align 1, !tbaa !14
@@ -237,7 +237,7 @@ EVP_EncodeBlock.exit:                             ; preds = %62, %21, %.thread.i
   %131 = lshr i32 %.031.i70, 6
   %132 = and i32 %131, 63
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !14
   br label %.thread.i71
 
@@ -262,27 +262,27 @@ EVP_EncodeBlock.exit:                             ; preds = %62, %21, %.thread.i
   %148 = or disjoint i32 %143, %108
   %149 = lshr i32 %107, 2
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %150
   %152 = load i8, ptr %151, align 1, !tbaa !14
   %153 = getelementptr inbounds nuw i8, ptr %.03238.i68, i64 1
   store i8 %152, ptr %.03238.i68, align 1, !tbaa !14
   %154 = lshr i32 %148, 12
   %155 = and i32 %154, 63
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !14
   %159 = getelementptr inbounds nuw i8, ptr %.03238.i68, i64 2
   store i8 %158, ptr %153, align 1, !tbaa !14
   %160 = lshr i32 %147, 6
   %161 = and i32 %160, 63
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %162
   %164 = load i8, ptr %163, align 1, !tbaa !14
   %165 = getelementptr inbounds nuw i8, ptr %.03238.i68, i64 3
   store i8 %164, ptr %159, align 1, !tbaa !14
   %166 = and i32 %146, 63
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !14
   store i8 %169, ptr %165, align 1, !tbaa !14
   %170 = add nsw i64 %.03039.i67, -3
@@ -370,14 +370,14 @@ define hidden i64 @EVP_EncodeBlock(ptr noundef writeonly captures(none) %0, ptr 
   %.031 = phi i32 [ %15, %10 ], [ %7, %8 ]
   %17 = lshr i32 %.031, 18
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %.03238, i64 1
   store i8 %20, ptr %.03238, align 1, !tbaa !14
   %22 = lshr i32 %.031, 12
   %23 = and i32 %22, 63
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %.03238, i64 2
   store i8 %26, ptr %21, align 1, !tbaa !14
@@ -388,7 +388,7 @@ define hidden i64 @EVP_EncodeBlock(ptr noundef writeonly captures(none) %0, ptr 
   %30 = lshr i32 %.031, 6
   %31 = and i32 %30, 63
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !14
   br label %.thread
 
@@ -413,27 +413,27 @@ define hidden i64 @EVP_EncodeBlock(ptr noundef writeonly captures(none) %0, ptr 
   %47 = or disjoint i32 %42, %7
   %48 = lshr i32 %6, 2
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %.03238, i64 1
   store i8 %51, ptr %.03238, align 1, !tbaa !14
   %53 = lshr i32 %47, 12
   %54 = and i32 %53, 63
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !14
   %58 = getelementptr inbounds nuw i8, ptr %.03238, i64 2
   store i8 %57, ptr %52, align 1, !tbaa !14
   %59 = lshr i32 %46, 6
   %60 = and i32 %59, 63
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !14
   %64 = getelementptr inbounds nuw i8, ptr %.03238, i64 3
   store i8 %63, ptr %58, align 1, !tbaa !14
   %65 = and i32 %45, 63
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !14
   store i8 %68, ptr %64, align 1, !tbaa !14
   %69 = add i64 %.03039, -3
@@ -488,14 +488,14 @@ define hidden void @EVP_EncodeFinal(ptr noundef captures(none) %0, ptr noundef w
   %.031.i = phi i32 [ %19, %14 ], [ %11, %12 ]
   %21 = lshr i32 %.031.i, 18
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 1
   store i8 %24, ptr %.03238.i, align 1, !tbaa !14
   %26 = lshr i32 %.031.i, 12
   %27 = and i32 %26, 63
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 2
   store i8 %30, ptr %25, align 1, !tbaa !14
@@ -506,7 +506,7 @@ define hidden void @EVP_EncodeFinal(ptr noundef captures(none) %0, ptr noundef w
   %34 = lshr i32 %.031.i, 6
   %35 = and i32 %34, 63
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !14
   br label %.thread.i
 
@@ -531,27 +531,27 @@ define hidden void @EVP_EncodeFinal(ptr noundef captures(none) %0, ptr noundef w
   %51 = or disjoint i32 %46, %11
   %52 = lshr i32 %10, 2
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 1
   store i8 %55, ptr %.03238.i, align 1, !tbaa !14
   %57 = lshr i32 %51, 12
   %58 = and i32 %57, 63
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 2
   store i8 %61, ptr %56, align 1, !tbaa !14
   %63 = lshr i32 %50, 6
   %64 = and i32 %63, 63
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !14
   %68 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 3
   store i8 %67, ptr %62, align 1, !tbaa !14
   %69 = and i32 %49, 63
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [65 x i8], ptr @data_bin2ascii, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @data_bin2ascii, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !14
   store i8 %72, ptr %68, align 1, !tbaa !14
   %73 = add nsw i64 %.03039.i, -3
@@ -628,7 +628,7 @@ EVP_DecodedLength.exit:                           ; preds = %5
 
 13:                                               ; preds = %.lr.ph
   %14 = zext nneg i8 %11 to i64
-  %15 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !14
   br label %conv_ascii2bin.exit
 
@@ -641,7 +641,7 @@ conv_ascii2bin.exit:                              ; preds = %.lr.ph, %13
 
 20:                                               ; preds = %conv_ascii2bin.exit
   %21 = zext nneg i8 %18 to i64
-  %22 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !14
   br label %conv_ascii2bin.exit55
 
@@ -680,7 +680,7 @@ thread-pre-split:                                 ; preds = %33
 
 39:                                               ; preds = %.thread
   %40 = zext nneg i8 %36 to i64
-  %41 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = zext i8 %42 to i32
   br label %44
@@ -697,7 +697,7 @@ thread-pre-split:                                 ; preds = %33
 
 49:                                               ; preds = %45
   %50 = zext nneg i8 %47 to i64
-  %51 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !14
   %53 = zext i8 %52 to i32
   br label %.thread70
@@ -827,7 +827,7 @@ conv_ascii2bin.exit.thread:                       ; preds = %16, %14
 
 conv_ascii2bin.exit117:                           ; preds = %22
   %26 = zext nneg i8 %24 to i64
-  %27 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !14
   %29 = zext i8 %28 to i32
   %30 = and i32 %29, 236
@@ -973,7 +973,7 @@ conv_ascii2bin.exit.i:                            ; preds = %.thread131, %82
 
 conv_ascii2bin.exit19.i:                          ; preds = %.lr.ph.i
   %91 = zext nneg i8 %89 to i64
-  %92 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !14
   %94 = and i8 %93, -20
   %95 = icmp eq i8 %94, -32
@@ -1125,7 +1125,7 @@ conv_ascii2bin.exit:                              ; preds = %3, %14
 
 conv_ascii2bin.exit19:                            ; preds = %.lr.ph
   %23 = zext nneg i8 %21 to i64
-  %24 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !14
   %26 = and i8 %25, -20
   %27 = icmp eq i8 %26, -32
@@ -1230,7 +1230,7 @@ conv_ascii2bin.exit.i:                            ; preds = %6, %18
 
 conv_ascii2bin.exit19.i:                          ; preds = %.lr.ph.i
   %27 = zext nneg i8 %25 to i64
-  %28 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @data_ascii2bin, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !14
   %30 = and i8 %29, -20
   %31 = icmp eq i8 %30, -32

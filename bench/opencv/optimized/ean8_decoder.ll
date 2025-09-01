@@ -385,7 +385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %126 = srem i32 %100, 10
   %127 = trunc nsw i32 %126 to i8
   %128 = add nsw i8 %127, 48
-  %129 = getelementptr inbounds nuw [9 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %128, ptr %129, align 1, !tbaa !12
   %130 = load i32, ptr %90, align 8, !tbaa !30
   %131 = add i32 %130, %.065341
@@ -717,8 +717,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196: ; preds = %_Z
 234:                                              ; preds = %210
   %235 = trunc i32 %209 to i8
   %236 = add i8 %235, 48
-  %237 = or disjoint i64 %indvars.iv353, 4
-  %238 = getelementptr inbounds nuw [9 x i8], ptr %7, i64 0, i64 %237
+  %237 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv353
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
   store i8 %236, ptr %238, align 1, !tbaa !12
   %239 = load i32, ptr %90, align 8, !tbaa !30
   %240 = add i32 %239, %.368343

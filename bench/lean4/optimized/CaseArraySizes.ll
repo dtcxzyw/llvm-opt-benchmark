@@ -7470,7 +7470,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_caseArraySizes___spec__1(i64 n
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -7591,7 +7591,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_caseArraySizes___spec__2(ptr n
   %.02146 = phi i64 [ %42, %58 ], [ %2, %4 ]
   %.02345 = phi ptr [ %.0.i.i32, %58 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.02345, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02146
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02146
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -10582,7 +10582,7 @@ lean_dec.exit451:                                 ; preds = %43, %41, %52, %51, 
   %.1.i786 = phi ptr [ %46, %49 ], [ %46, %51 ], [ %46, %52 ], [ inttoptr (i64 1 to ptr), %41 ], [ %45, %43 ]
   %53 = ptrtoint ptr %.0294 to i64
   %54 = lshr i64 %53, 1
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %18, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, 1
@@ -11477,7 +11477,7 @@ lean_dec.exit431:                                 ; preds = %376, %375, %373, %l
   unreachable
 
 380:                                              ; preds = %106, %lean_dec.exit449
-  %381 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %54
+  %381 = getelementptr inbounds nuw ptr, ptr %30, i64 %54
   %382 = load ptr, ptr %381, align 8, !tbaa !11
   %383 = ptrtoint ptr %382 to i64
   %384 = and i64 %383, 1

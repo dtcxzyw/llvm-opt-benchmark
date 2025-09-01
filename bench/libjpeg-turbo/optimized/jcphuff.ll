@@ -111,9 +111,9 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %55
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %55 ], [ 0, %.lr.ph.split.us ]
-  %46 = getelementptr inbounds nuw [4 x ptr], ptr %42, i64 0, i64 %indvars.iv82
+  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv82
   %47 = load ptr, ptr %46, align 8, !tbaa !43
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %43, i64 0, i64 %indvars.iv82
+  %48 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv82
   store i32 0, ptr %48, align 4, !tbaa !44
   %49 = load i32, ptr %11, align 4, !tbaa !37
   %.not67.us.us = icmp eq i32 %49, 0
@@ -123,7 +123,7 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !45
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [4 x ptr], ptr %45, i64 0, i64 %53
+  %54 = getelementptr inbounds ptr, ptr %45, i64 %53
   tail call void @jpeg_make_c_derived_tbl(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %52, ptr noundef nonnull %54) #6
   br label %55
 
@@ -136,15 +136,15 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %59 = getelementptr inbounds nuw [4 x ptr], ptr %42, i64 0, i64 %indvars.iv79
+  %59 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv79
   %60 = load ptr, ptr %59, align 8, !tbaa !43
-  %61 = getelementptr inbounds nuw [4 x i32], ptr %43, i64 0, i64 %indvars.iv79
+  %61 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv79
   store i32 0, ptr %61, align 4, !tbaa !44
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %63 = load i32, ptr %62, align 8, !tbaa !49
   store i32 %63, ptr %44, align 8, !tbaa !50
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [4 x ptr], ptr %45, i64 0, i64 %64
+  %65 = getelementptr inbounds ptr, ptr %45, i64 %64
   tail call void @jpeg_make_c_derived_tbl(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %63, ptr noundef nonnull %65) #6
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %66 = load i32, ptr %36, align 4, !tbaa !42
@@ -162,9 +162,9 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %98
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %98 ], [ 0, %.lr.ph.split ]
-  %74 = getelementptr inbounds nuw [4 x ptr], ptr %69, i64 0, i64 %indvars.iv76
+  %74 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv76
   %75 = load ptr, ptr %74, align 8, !tbaa !43
-  %76 = getelementptr inbounds nuw [4 x i32], ptr %70, i64 0, i64 %indvars.iv76
+  %76 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv76
   store i32 0, ptr %76, align 4, !tbaa !44
   %77 = load i32, ptr %11, align 4, !tbaa !37
   %.not67.us70 = icmp eq i32 %77, 0
@@ -189,7 +189,7 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
 
 87:                                               ; preds = %81, %78
   %88 = sext i32 %80 to i64
-  %89 = getelementptr inbounds [4 x ptr], ptr %72, i64 0, i64 %88
+  %89 = getelementptr inbounds ptr, ptr %72, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !57
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %96
@@ -215,9 +215,9 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %122
   %indvars.iv = phi i64 [ %indvars.iv.next, %122 ], [ 0, %.lr.ph.split ]
-  %102 = getelementptr inbounds nuw [4 x ptr], ptr %69, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !43
-  %104 = getelementptr inbounds nuw [4 x i32], ptr %70, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
   store i32 0, ptr %104, align 4, !tbaa !44
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %106 = load i32, ptr %105, align 8, !tbaa !49
@@ -238,7 +238,7 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
 
 113:                                              ; preds = %.lr.ph.split.split, %107
   %114 = sext i32 %106 to i64
-  %115 = getelementptr inbounds [4 x ptr], ptr %72, i64 0, i64 %114
+  %115 = getelementptr inbounds ptr, ptr %72, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !57
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %122
@@ -331,15 +331,15 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
   %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !75
-  %39 = getelementptr inbounds nuw [10 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !44
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [4 x ptr], ptr %30, i64 0, i64 %41
+  %42 = getelementptr inbounds ptr, ptr %30, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !43
   %44 = load i16, ptr %38, align 2, !tbaa !77
   %45 = sext i16 %44 to i32
   %46 = ashr i32 %45, %6
-  %47 = getelementptr inbounds [4 x i32], ptr %31, i64 0, i64 %41
+  %47 = getelementptr inbounds i32, ptr %31, i64 %41
   %48 = load i32, ptr %47, align 4, !tbaa !44
   %49 = sub nsw i32 %46, %48
   store i32 %46, ptr %47, align 4, !tbaa !44
@@ -348,7 +348,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   %52 = sub nsw i32 %51, %50
   %53 = xor i32 %52, %50
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %54
+  %55 = getelementptr inbounds i8, ptr @jpeg_nbits_table, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !55
   %57 = zext i8 %56 to i32
   %58 = icmp slt i32 %32, %57
@@ -372,7 +372,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br i1 %.not.i, label %75, label %69
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds [4 x ptr], ptr %34, i64 0, i64 %67
+  %70 = getelementptr inbounds ptr, ptr %34, i64 %67
   %71 = load ptr, ptr %70, align 8, !tbaa !57
   %72 = getelementptr inbounds nuw i64, ptr %71, i64 %68
   %73 = load i64, ptr %72, align 8, !tbaa !78
@@ -381,12 +381,12 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br label %emit_symbol.exit
 
 75:                                               ; preds = %63
-  %76 = getelementptr inbounds [4 x ptr], ptr %35, i64 0, i64 %67
+  %76 = getelementptr inbounds ptr, ptr %35, i64 %67
   %77 = load ptr, ptr %76, align 8, !tbaa !43
-  %78 = getelementptr inbounds nuw [256 x i32], ptr %77, i64 0, i64 %68
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %68
   %79 = load i32, ptr %78, align 4, !tbaa !44
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 1024
-  %81 = getelementptr inbounds nuw [256 x i8], ptr %80, i64 0, i64 %68
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %68
   %82 = load i8, ptr %81, align 1, !tbaa !55
   %83 = sext i8 %82 to i32
   tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %79, i32 noundef %83)
@@ -542,7 +542,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %65 = load i32, ptr %46, align 8, !tbaa !50
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [4 x ptr], ptr %48, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %48, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !57
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1920
   %.promoted = load i64, ptr %69, align 8, !tbaa !78
@@ -568,7 +568,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   br i1 %.not.i, label %85, label %79
 
 79:                                               ; preds = %.lr.ph.split
-  %80 = getelementptr inbounds [4 x ptr], ptr %48, i64 0, i64 %78
+  %80 = getelementptr inbounds ptr, ptr %48, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !57
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1920
   %83 = load i64, ptr %82, align 8, !tbaa !78
@@ -577,7 +577,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   br label %emit_symbol.exit
 
 85:                                               ; preds = %.lr.ph.split
-  %86 = getelementptr inbounds [4 x ptr], ptr %49, i64 0, i64 %78
+  %86 = getelementptr inbounds ptr, ptr %49, i64 %78
   %87 = load ptr, ptr %86, align 8, !tbaa !43
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 960
   %89 = load i32, ptr %88, align 4, !tbaa !44
@@ -720,7 +720,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %96,
 ._crit_edge:                                      ; preds = %emit_symbol.exit, %.lr.ph.split.us, %53
   %.0.lcssa = phi i32 [ %55, %53 ], [ %75, %.lr.ph.split.us ], [ %162, %emit_symbol.exit ]
   %164 = zext i16 %58 to i64
-  %165 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr @jpeg_nbits_table, i64 %164
   %166 = load i8, ptr %165, align 1, !tbaa !55
   %167 = zext i8 %166 to i32
   %168 = icmp slt i32 %17, %167
@@ -745,7 +745,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %96,
   br i1 %.not.i65, label %186, label %180
 
 180:                                              ; preds = %173
-  %181 = getelementptr inbounds [4 x ptr], ptr %48, i64 0, i64 %178
+  %181 = getelementptr inbounds ptr, ptr %48, i64 %178
   %182 = load ptr, ptr %181, align 8, !tbaa !57
   %183 = getelementptr inbounds nuw i64, ptr %182, i64 %179
   %184 = load i64, ptr %183, align 8, !tbaa !78
@@ -754,12 +754,12 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %96,
   br label %emit_symbol.exit66
 
 186:                                              ; preds = %173
-  %187 = getelementptr inbounds [4 x ptr], ptr %49, i64 0, i64 %178
+  %187 = getelementptr inbounds ptr, ptr %49, i64 %178
   %188 = load ptr, ptr %187, align 8, !tbaa !43
-  %189 = getelementptr inbounds nuw [256 x i32], ptr %188, i64 0, i64 %179
+  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %179
   %190 = load i32, ptr %189, align 4, !tbaa !44
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 1024
-  %192 = getelementptr inbounds nuw [256 x i8], ptr %191, i64 0, i64 %179
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %179
   %193 = load i8, ptr %192, align 1, !tbaa !55
   %194 = sext i8 %193 to i32
   call fastcc void @emit_bits(ptr noundef nonnull %6, i32 noundef %190, i32 noundef %194)
@@ -1076,7 +1076,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
 
 69:                                               ; preds = %.lr.ph
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %70
+  %71 = getelementptr inbounds i8, ptr @jpeg_nbits_table, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !55
   %73 = zext i8 %72 to i32
   %74 = add nsw i32 %73, -1
@@ -1102,7 +1102,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
   br i1 %.not.i.i, label %93, label %87
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds [4 x ptr], ptr %54, i64 0, i64 %85
+  %88 = getelementptr inbounds ptr, ptr %54, i64 %85
   %89 = load ptr, ptr %88, align 8, !tbaa !57
   %90 = getelementptr inbounds i64, ptr %89, i64 %86
   %91 = load i64, ptr %90, align 8, !tbaa !78
@@ -1111,12 +1111,12 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
   br label %emit_symbol.exit.i
 
 93:                                               ; preds = %81
-  %94 = getelementptr inbounds [4 x ptr], ptr %55, i64 0, i64 %85
+  %94 = getelementptr inbounds ptr, ptr %55, i64 %85
   %95 = load ptr, ptr %94, align 8, !tbaa !43
-  %96 = getelementptr inbounds [256 x i32], ptr %95, i64 0, i64 %86
+  %96 = getelementptr inbounds i32, ptr %95, i64 %86
   %97 = load i32, ptr %96, align 4, !tbaa !44
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 1024
-  %99 = getelementptr inbounds [256 x i8], ptr %98, i64 0, i64 %86
+  %99 = getelementptr inbounds i8, ptr %98, i64 %86
   %100 = load i8, ptr %99, align 1, !tbaa !55
   %101 = sext i8 %100 to i32
   %102 = zext i32 %97 to i64
@@ -1535,7 +1535,7 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph, %emit_buffe
   br i1 %.not.i90, label %314, label %308
 
 308:                                              ; preds = %emit_eobrun.exit
-  %309 = getelementptr inbounds [4 x ptr], ptr %54, i64 0, i64 %307
+  %309 = getelementptr inbounds ptr, ptr %54, i64 %307
   %310 = load ptr, ptr %309, align 8, !tbaa !57
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 1920
   %312 = load i64, ptr %311, align 8, !tbaa !78
@@ -1544,7 +1544,7 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph, %emit_buffe
   br label %emit_buffered_bits.exit
 
 314:                                              ; preds = %emit_eobrun.exit
-  %315 = getelementptr inbounds [4 x ptr], ptr %55, i64 0, i64 %307
+  %315 = getelementptr inbounds ptr, ptr %55, i64 %307
   %316 = load ptr, ptr %315, align 8, !tbaa !43
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 960
   %318 = load i32, ptr %317, align 4, !tbaa !44
@@ -1857,7 +1857,7 @@ emit_buffered_bits.exit:                          ; preds = %emit_bits.exit150, 
   br i1 %.not.i91, label %483, label %477
 
 477:                                              ; preds = %470
-  %478 = getelementptr inbounds [4 x ptr], ptr %54, i64 0, i64 %475
+  %478 = getelementptr inbounds ptr, ptr %54, i64 %475
   %479 = load ptr, ptr %478, align 8, !tbaa !57
   %480 = getelementptr inbounds i64, ptr %479, i64 %476
   %481 = load i64, ptr %480, align 8, !tbaa !78
@@ -1866,12 +1866,12 @@ emit_buffered_bits.exit:                          ; preds = %emit_bits.exit150, 
   br label %emit_symbol.exit92
 
 483:                                              ; preds = %470
-  %484 = getelementptr inbounds [4 x ptr], ptr %55, i64 0, i64 %475
+  %484 = getelementptr inbounds ptr, ptr %55, i64 %475
   %485 = load ptr, ptr %484, align 8, !tbaa !43
-  %486 = getelementptr inbounds [256 x i32], ptr %485, i64 0, i64 %476
+  %486 = getelementptr inbounds i32, ptr %485, i64 %476
   %487 = load i32, ptr %486, align 4, !tbaa !44
   %488 = getelementptr inbounds nuw i8, ptr %485, i64 1024
-  %489 = getelementptr inbounds [256 x i8], ptr %488, i64 0, i64 %476
+  %489 = getelementptr inbounds i8, ptr %488, i64 %476
   %490 = load i8, ptr %489, align 1, !tbaa !55
   %491 = sext i8 %490 to i32
   call fastcc void @emit_bits(ptr noundef nonnull %6, i32 noundef %487, i32 noundef %491)
@@ -2195,18 +2195,18 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
   br i1 %.not.us, label %19, label %35
 
 19:                                               ; preds = %.lr.ph.split.us.split
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv32
   %21 = load ptr, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %.026.us = load i32, ptr %22, align 4, !tbaa !44
   %23 = sext i32 %.026.us to i64
-  %24 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %2, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !44
   %.not27.us = icmp eq i32 %25, 0
   br i1 %.not27.us, label %26, label %35
 
 26:                                               ; preds = %19
-  %.0.us = getelementptr inbounds [4 x ptr], ptr %13, i64 0, i64 %23
+  %.0.us = getelementptr inbounds ptr, ptr %13, i64 %23
   %27 = load ptr, ptr %.0.us, align 8, !tbaa !43
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %31
@@ -2218,7 +2218,7 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
 
 31:                                               ; preds = %29, %26
   %32 = phi ptr [ %30, %29 ], [ %27, %26 ]
-  %33 = getelementptr inbounds [4 x ptr], ptr %14, i64 0, i64 %23
+  %33 = getelementptr inbounds ptr, ptr %14, i64 %23
   %34 = load ptr, ptr %33, align 8, !tbaa !57
   tail call void @jpeg_gen_optimal_table(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %34) #6
   store i32 1, ptr %24, align 4, !tbaa !44
@@ -2235,18 +2235,18 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %39 = phi i32 [ %56, %55 ], [ %8, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
-  %40 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !43
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %.026 = load i32, ptr %42, align 4, !tbaa !44
   %43 = sext i32 %.026 to i64
-  %44 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %43
+  %44 = getelementptr inbounds i32, ptr %2, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !44
   %.not27 = icmp eq i32 %45, 0
   br i1 %.not27, label %46, label %55
 
 46:                                               ; preds = %.lr.ph.split
-  %.0 = getelementptr inbounds [4 x ptr], ptr %13, i64 0, i64 %43
+  %.0 = getelementptr inbounds ptr, ptr %13, i64 %43
   %47 = load ptr, ptr %.0, align 8, !tbaa !43
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %51
@@ -2258,7 +2258,7 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
 
 51:                                               ; preds = %49, %46
   %52 = phi ptr [ %50, %49 ], [ %47, %46 ]
-  %53 = getelementptr inbounds [4 x ptr], ptr %14, i64 0, i64 %43
+  %53 = getelementptr inbounds ptr, ptr %14, i64 %43
   %54 = load ptr, ptr %53, align 8, !tbaa !57
   tail call void @jpeg_gen_optimal_table(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %54) #6
   store i32 1, ptr %44, align 4, !tbaa !44
@@ -2428,7 +2428,7 @@ dump_buffer.exit18:                               ; preds = %39, %47
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [4 x i32], ptr %64, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   store i32 0, ptr %66, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %61, align 4, !tbaa !42
@@ -2603,7 +2603,7 @@ define internal fastcc void @emit_eobrun(ptr noundef captures(none) %0) unnamed_
 
 4:                                                ; preds = %1
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5
+  %6 = getelementptr inbounds i8, ptr @jpeg_nbits_table, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = zext i8 %7 to i32
   %9 = add nsw i32 %8, -1
@@ -2633,7 +2633,7 @@ define internal fastcc void @emit_eobrun(ptr noundef captures(none) %0) unnamed_
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %27 = getelementptr inbounds [4 x ptr], ptr %26, i64 0, i64 %23
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %23
   %28 = load ptr, ptr %27, align 8, !tbaa !57
   %29 = getelementptr inbounds i64, ptr %28, i64 %24
   %30 = load i64, ptr %29, align 8, !tbaa !78
@@ -2643,12 +2643,12 @@ define internal fastcc void @emit_eobrun(ptr noundef captures(none) %0) unnamed_
 
 32:                                               ; preds = %17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %34 = getelementptr inbounds [4 x ptr], ptr %33, i64 0, i64 %23
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %23
   %35 = load ptr, ptr %34, align 8, !tbaa !43
-  %36 = getelementptr inbounds [256 x i32], ptr %35, i64 0, i64 %24
+  %36 = getelementptr inbounds i32, ptr %35, i64 %24
   %37 = load i32, ptr %36, align 4, !tbaa !44
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 1024
-  %39 = getelementptr inbounds [256 x i8], ptr %38, i64 0, i64 %24
+  %39 = getelementptr inbounds i8, ptr %38, i64 %24
   %40 = load i8, ptr %39, align 1, !tbaa !55
   %41 = sext i8 %40 to i32
   tail call fastcc void @emit_bits(ptr noundef nonnull %0, i32 noundef %37, i32 noundef %41)

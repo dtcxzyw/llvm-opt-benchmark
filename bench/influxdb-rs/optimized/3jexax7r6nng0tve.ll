@@ -1542,7 +1542,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 29:                                               ; preds = %28, %29
   %30 = phi i64 [ 0, %28 ], [ %32, %29 ]
-  %31 = getelementptr inbounds nuw [31 x { { { [7 x i64] } }, { i64 } }], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %4, i64 %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, i8 0, i64 64, i1 false)
   %32 = add nuw nsw i64 %30, 1
   %exitcond.not = icmp eq i64 %32, 31
@@ -1577,7 +1577,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 40:                                               ; preds = %39, %40
   %41 = phi i64 [ 0, %39 ], [ %43, %40 ]
-  %42 = getelementptr inbounds nuw [31 x { { { [7 x i64] } }, { i64 } }], ptr %3, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %3, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, i8 0, i64 64, i1 false)
   %43 = add nuw nsw i64 %41, 1
   %exitcond140.not = icmp eq i64 %43, 31
@@ -1824,7 +1824,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 29:                                               ; preds = %28, %29
   %30 = phi i64 [ 0, %28 ], [ %32, %29 ]
-  %31 = getelementptr inbounds nuw [31 x { { { [3 x i64] } }, { i64 } }], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %4, i64 %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   %32 = add nuw nsw i64 %30, 1
   %exitcond.not = icmp eq i64 %32, 31
@@ -1859,7 +1859,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 40:                                               ; preds = %39, %40
   %41 = phi i64 [ 0, %39 ], [ %43, %40 ]
-  %42 = getelementptr inbounds nuw [31 x { { { [3 x i64] } }, { i64 } }], ptr %3, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %3, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   %43 = add nuw nsw i64 %41, 1
   %exitcond140.not = icmp eq i64 %43, 31
@@ -4059,7 +4059,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17
   store <8 x i8> <i8 1, i8 11, i8 13, i8 7, i8 9, i8 3, i8 5, i8 15>, ptr %3, align 8
   %4 = lshr i64 %0, 1
   %5 = and i64 %4, 7
-  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = zext i8 %7 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

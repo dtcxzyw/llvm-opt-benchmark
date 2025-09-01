@@ -235,7 +235,7 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
   %14 = phi i64 [ %24, %32 ], [ 0, %10 ]
   %15 = phi i32 [ %34, %32 ], [ %12, %10 ]
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr @node_data, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 13096
   %20 = load i64, ptr %19, align 8

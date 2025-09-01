@@ -229,7 +229,7 @@ switch.early.test:                                ; preds = %.lr.ph268
 
 68:                                               ; preds = %60
   %69 = zext nneg i8 %62 to i64
-  %70 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10fromBase64, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @_ZL10fromBase64, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !28
   %72 = sext i8 %71 to i32
   %73 = and i8 %71, -3
@@ -642,7 +642,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 96:                                               ; preds = %95
   %97 = zext i8 %.3223359 to i64
-  %98 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !28
   %100 = getelementptr inbounds nuw i8, ptr %.5230358, i64 1
   store i8 %99, ptr %.5230358, align 1, !tbaa !28
@@ -658,7 +658,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 104:                                              ; preds = %96, %101, %95
   %.10256 = phi ptr [ %103, %101 ], [ null, %96 ], [ %.9255356, %95 ]
   %.6 = phi ptr [ %100, %101 ], [ %100, %96 ], [ %.5230358, %95 ]
-  %105 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10fromBase64, i64 0, i64 %92
+  %105 = getelementptr inbounds nuw i8, ptr @_ZL10fromBase64, i64 %92
   %106 = load i8, ptr %105, align 1, !tbaa !28
   %.not297 = icmp eq i8 %106, -1
   br i1 %.not297, label %.preheader, label %107
@@ -694,7 +694,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 116:                                              ; preds = %115
   %117 = lshr i32 %89, 10
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !28
   %121 = getelementptr inbounds nuw i8, ptr %.5230358, i64 1
   store i8 %120, ptr %.5230358, align 1, !tbaa !28
@@ -705,7 +705,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %124 = lshr i32 %89, 4
   %125 = and i32 %124, 63
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !28
   %129 = getelementptr inbounds nuw i8, ptr %.5230358, i64 2
   store i8 %128, ptr %121, align 1, !tbaa !28
@@ -736,7 +736,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %139 = lshr i32 %89, 4
   %140 = and i32 %139, 63
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !28
   store i8 %143, ptr %81, align 8, !tbaa !28
   store i8 1, ptr %83, align 1, !tbaa !43
@@ -757,7 +757,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %149 = lshr i32 %89, 14
   %150 = or i32 %149, %148
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !28
   %154 = getelementptr inbounds nuw i8, ptr %.5230358, i64 1
   store i8 %153, ptr %.5230358, align 1, !tbaa !28
@@ -768,7 +768,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %157 = lshr i32 %89, 8
   %158 = and i32 %157, 63
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !28
   %162 = getelementptr inbounds nuw i8, ptr %.5230358, i64 2
   store i8 %161, ptr %154, align 1, !tbaa !28
@@ -779,7 +779,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %165 = lshr i32 %89, 2
   %166 = and i32 %165, 63
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !28
   %170 = getelementptr inbounds nuw i8, ptr %.5230358, i64 3
   store i8 %169, ptr %162, align 1, !tbaa !28
@@ -814,7 +814,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %182 = lshr i32 %89, 2
   %183 = and i32 %182, 63
   %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !28
   store i8 %186, ptr %81, align 8, !tbaa !28
   store i8 1, ptr %83, align 1, !tbaa !43
@@ -837,13 +837,13 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %192 = lshr i32 %89, 8
   %193 = and i32 %192, 63
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %194
   %196 = load i8, ptr %195, align 1, !tbaa !28
   store i8 %196, ptr %81, align 8, !tbaa !28
   %197 = lshr i32 %89, 2
   %198 = and i32 %197, 63
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !28
   store i8 %201, ptr %82, align 1, !tbaa !28
   store i8 2, ptr %83, align 1, !tbaa !43
@@ -864,7 +864,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %207 = lshr i32 %89, 12
   %208 = or i32 %207, %206
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %209
   %211 = load i8, ptr %210, align 1, !tbaa !28
   %212 = getelementptr inbounds nuw i8, ptr %.5230358, i64 1
   store i8 %211, ptr %.5230358, align 1, !tbaa !28
@@ -875,7 +875,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %215 = lshr i32 %89, 6
   %216 = and i32 %215, 63
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %217
   %219 = load i8, ptr %218, align 1, !tbaa !28
   %220 = getelementptr inbounds nuw i8, ptr %.5230358, i64 2
   store i8 %219, ptr %212, align 1, !tbaa !28
@@ -885,7 +885,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 222:                                              ; preds = %214
   %223 = and i32 %89, 63
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !28
   %227 = getelementptr inbounds nuw i8, ptr %.5230358, i64 3
   store i8 %226, ptr %220, align 1, !tbaa !28
@@ -919,7 +919,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.14245 = phi i32 [ %236, %234 ], [ %.8239357, %233 ]
   %239 = and i32 %89, 63
   %240 = zext nneg i32 %239 to i64
-  %241 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %240
   %242 = load i8, ptr %241, align 1, !tbaa !28
   store i8 %242, ptr %81, align 8, !tbaa !28
   store i8 1, ptr %83, align 1, !tbaa !43
@@ -942,12 +942,12 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %248 = lshr i32 %89, 6
   %249 = and i32 %248, 63
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %250
   %252 = load i8, ptr %251, align 1, !tbaa !28
   store i8 %252, ptr %81, align 8, !tbaa !28
   %253 = and i32 %89, 63
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %254
   %256 = load i8, ptr %255, align 1, !tbaa !28
   store i8 %256, ptr %82, align 1, !tbaa !28
   store i8 2, ptr %83, align 1, !tbaa !43
@@ -1001,7 +1001,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 263:                                              ; preds = %262
   %264 = icmp ult ptr %.4229, %12
   %265 = zext i8 %.2222 to i64
-  %266 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %265
   %267 = load i8, ptr %266, align 1, !tbaa !28
   br i1 %264, label %268, label %273
 
@@ -1024,7 +1024,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %277 = add i8 %276, 1
   store i8 %277, ptr %275, align 1, !tbaa !43
   %278 = sext i8 %276 to i64
-  %279 = getelementptr inbounds [32 x i8], ptr %274, i64 0, i64 %278
+  %279 = getelementptr inbounds i8, ptr %274, i64 %278
   store i8 %267, ptr %279, align 1, !tbaa !28
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %280
@@ -1065,7 +1065,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %293 = add i8 %292, 1
   store i8 %293, ptr %291, align 1, !tbaa !43
   %294 = sext i8 %292 to i64
-  %295 = getelementptr inbounds [32 x i8], ptr %290, i64 0, i64 %294
+  %295 = getelementptr inbounds i8, ptr %290, i64 %294
   store i8 45, ptr %295, align 1, !tbaa !28
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %296
@@ -1264,7 +1264,7 @@ define internal void @_ZL25_IMAPToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
 
 67:                                               ; preds = %66
   %68 = zext nneg i8 %60 to i64
-  %69 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10fromBase64, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @_ZL10fromBase64, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !28
   %71 = zext nneg i8 %70 to i32
   %72 = icmp sgt i8 %70, -1
@@ -1697,7 +1697,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 88:                                               ; preds = %86
   %89 = zext nneg i8 %.3261406 to i64
-  %90 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !28
   br label %92
 
@@ -1762,7 +1762,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 111:                                              ; preds = %109
   %112 = zext nneg i16 %110 to i64
-  %113 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !28
   br label %115
 
@@ -1782,7 +1782,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 123:                                              ; preds = %119
   %124 = zext nneg i8 %122 to i64
-  %125 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !28
   br label %127
 
@@ -1822,7 +1822,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 142:                                              ; preds = %138
   %143 = zext nneg i8 %141 to i64
-  %144 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !28
   br label %146
 
@@ -1851,7 +1851,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 156:                                              ; preds = %151
   %157 = zext nneg i8 %154 to i64
-  %158 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !28
   br label %160
 
@@ -1871,7 +1871,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 168:                                              ; preds = %164
   %169 = zext nneg i8 %167 to i64
-  %170 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !28
   br label %172
 
@@ -1890,7 +1890,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 179:                                              ; preds = %176
   %180 = zext nneg i8 %178 to i64
-  %181 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %180
   %182 = load i8, ptr %181, align 1, !tbaa !28
   br label %183
 
@@ -1933,7 +1933,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 199:                                              ; preds = %196
   %200 = zext nneg i8 %198 to i64
-  %201 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !28
   br label %203
 
@@ -1965,7 +1965,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 213:                                              ; preds = %209
   %214 = zext nneg i8 %212 to i64
-  %215 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %214
   %216 = load i8, ptr %215, align 1, !tbaa !28
   br label %217
 
@@ -1979,7 +1979,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 221:                                              ; preds = %217
   %222 = zext nneg i8 %220 to i64
-  %223 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %222
   %224 = load i8, ptr %223, align 1, !tbaa !28
   br label %225
 
@@ -2008,7 +2008,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 235:                                              ; preds = %230
   %236 = zext nneg i8 %233 to i64
-  %237 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !28
   br label %239
 
@@ -2028,7 +2028,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 247:                                              ; preds = %243
   %248 = zext nneg i8 %246 to i64
-  %249 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !28
   br label %251
 
@@ -2047,7 +2047,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 258:                                              ; preds = %255
   %259 = zext nneg i8 %257 to i64
-  %260 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %259
   %261 = load i8, ptr %260, align 1, !tbaa !28
   br label %262
 
@@ -2090,7 +2090,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 278:                                              ; preds = %275
   %279 = zext nneg i8 %277 to i64
-  %280 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %279
   %281 = load i8, ptr %280, align 1, !tbaa !28
   br label %282
 
@@ -2122,7 +2122,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 292:                                              ; preds = %288
   %293 = zext nneg i8 %291 to i64
-  %294 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %293
   %295 = load i8, ptr %294, align 1, !tbaa !28
   br label %296
 
@@ -2136,7 +2136,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 300:                                              ; preds = %296
   %301 = zext nneg i8 %299 to i64
-  %302 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %301
   %303 = load i8, ptr %302, align 1, !tbaa !28
   br label %304
 
@@ -2201,7 +2201,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 316:                                              ; preds = %315
   %317 = zext nneg i8 %.2260 to i64
-  %318 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %317
   %319 = load i8, ptr %318, align 1, !tbaa !28
   br label %320
 
@@ -2223,7 +2223,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 327:                                              ; preds = %326
   %328 = zext nneg i8 %.2260 to i64
-  %329 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr @_ZL8toBase64, i64 %328
   %330 = load i8, ptr %329, align 1, !tbaa !28
   br label %331
 
@@ -2235,7 +2235,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %336 = add i8 %335, 1
   store i8 %336, ptr %334, align 1, !tbaa !43
   %337 = sext i8 %335 to i64
-  %338 = getelementptr inbounds [32 x i8], ptr %333, i64 0, i64 %337
+  %338 = getelementptr inbounds i8, ptr %333, i64 %337
   store i8 %332, ptr %338, align 1, !tbaa !28
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %339
@@ -2276,7 +2276,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %352 = add i8 %351, 1
   store i8 %352, ptr %350, align 1, !tbaa !43
   %353 = sext i8 %351 to i64
-  %354 = getelementptr inbounds [32 x i8], ptr %349, i64 0, i64 %353
+  %354 = getelementptr inbounds i8, ptr %349, i64 %353
   store i8 45, ptr %354, align 1, !tbaa !28
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %355

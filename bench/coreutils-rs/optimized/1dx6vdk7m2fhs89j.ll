@@ -280,7 +280,7 @@ define hidden noundef i32 @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as
 
 "_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17hc2fb4fb328ee2f0dE.llvm.18092347618068738334.exit": ; preds = %23, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i", %1
   %24 = phi i64 [ %4, %1 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i" ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw [0 x i32], ptr %0, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4, !noundef !4
   %27 = add nuw nsw i64 %24, 1
   store i64 %27, ptr %3, align 16
@@ -2554,7 +2554,7 @@ define void @_ZN7uu_shuf9find_seps17hde38a943776dc653E(ptr noalias noundef align
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds [0 x { ptr, i64 }], ptr %18, i64 0, i64 %14
+  %19 = getelementptr inbounds { ptr, i64 }, ptr %18, i64 %14
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !727, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !4
@@ -2571,7 +2571,7 @@ define void @_ZN7uu_shuf9find_seps17hde38a943776dc653E(ptr noalias noundef align
 
 .lr.ph.i:                                         ; preds = %25, %29
   %.05.i = phi i64 [ %30, %29 ], [ 0, %25 ]
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %20, i64 0, i64 %.05.i
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %.05.i
   %27 = load i8, ptr %26, align 1, !alias.scope !728, !noundef !4
   %28 = icmp eq i8 %27, %1
   br i1 %28, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.thread119, label %29
@@ -3027,7 +3027,7 @@ define void @_ZN7uu_shuf11parse_range17h5d91bdffba6a71a9E(ptr noalias noundef wr
 
 .lr.ph.i.i.i:                                     ; preds = %27, %31
   %.05.i.i.i = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %23, i64 0, i64 %.05.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %.05.i.i.i
   %29 = load i8, ptr %28, align 1, !alias.scope !829, !noalias !823, !noundef !4
   %30 = icmp eq i8 %29, 45
   br i1 %30, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %31
@@ -3557,7 +3557,7 @@ define noundef i32 @"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit": ; preds = %8, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i.i", %32
   %33 = phi i64 [ %13, %8 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031.exit.i.i.i" ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %11, i64 %33
   %35 = load i32, ptr %34, align 4, !alias.scope !953, !noundef !4
   %36 = add nuw nsw i64 %33, 1
   store i64 %36, ptr %12, align 16, !alias.scope !953

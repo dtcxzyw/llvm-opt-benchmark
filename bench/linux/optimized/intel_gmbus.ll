@@ -1184,7 +1184,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
   br label %.loopexit11
 
 104:                                              ; preds = %80
-  %105 = getelementptr [15 x ptr], ptr %24, i64 0, i64 %26
+  %105 = getelementptr ptr, ptr %24, i64 %26
   store ptr %62, ptr %105, align 8
   br label %.thread
 
@@ -1212,7 +1212,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
 
 118:                                              ; preds = %.loopexit11, %124
   %119 = phi i64 [ %125, %124 ], [ 0, %.loopexit11 ]
-  %120 = getelementptr [15 x ptr], ptr %24, i64 0, i64 %119
+  %120 = getelementptr ptr, ptr %24, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %124, label %123
@@ -1255,7 +1255,7 @@ define dso_local void @intel_gmbus_teardown(ptr noundef captures(none) %0) local
 
 3:                                                ; preds = %9, %1
   %4 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %5 = getelementptr [15 x ptr], ptr %2, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -1283,7 +1283,7 @@ define dso_local ptr @intel_gmbus_get_adapter(ptr noundef readonly captures(none
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %7 = getelementptr [15 x ptr], ptr %6, i64 0, i64 %5
+  %7 = getelementptr ptr, ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %22, !prof !23

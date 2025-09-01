@@ -348,7 +348,7 @@ nexttoken.exit.thread301:                         ; preds = %.preheader89.i
   %.sink.i = phi i8 [ %87, %82 ], [ %70, %80 ]
   %88 = add nuw nsw i32 %.055108.i, 1
   %89 = zext nneg i32 %.055108.i to i64
-  %90 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 %89
   store i8 %.sink.i, ptr %90, align 1, !tbaa !15
   br label %.thread.i
 
@@ -368,7 +368,7 @@ nexttoken.exit.thread301:                         ; preds = %.preheader89.i
 .critedge.i:                                      ; preds = %._crit_edge.i, %.critedge.loopexit.i
   %.058.lcssa.i = phi ptr [ %.058.lcssa.ph.i, %.critedge.loopexit.i ], [ %.promoted.i, %._crit_edge.i ]
   %.055.lcssa.i = phi i64 [ %93, %.critedge.loopexit.i ], [ 0, %._crit_edge.i ]
-  %94 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %.055.lcssa.i
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 %.055.lcssa.i
   store i8 0, ptr %94, align 1, !tbaa !15
   %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
   br label %96
@@ -1310,7 +1310,7 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 30:                                               ; preds = %23
   %31 = add nsw i64 %0, -1
-  %32 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !15
   %34 = sext i8 %33 to i64
   %35 = icmp sgt i64 %1, %34
@@ -1335,7 +1335,7 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %39 ]
   %42 = phi i64 [ %46, %.lr.ph ], [ %40, %39 ]
-  %43 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = sext i8 %44 to i64
   %46 = add nsw i64 %42, %45

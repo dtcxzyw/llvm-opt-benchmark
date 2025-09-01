@@ -2209,7 +2209,7 @@ define internal ptr @py_buildvalue(ptr readnone captures(none) %0, ptr noundef %
 
 .preheader:                                       ; preds = %2, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %2 ]
-  %28 = getelementptr [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %28 = getelementptr ptr, ptr %4, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !75
   %30 = icmp eq ptr %29, @_Py_NoneStruct
   br i1 %30, label %31, label %32
@@ -4255,14 +4255,14 @@ define internal noundef ptr @get_basic_static_type(ptr readnone captures(none) %
   %21 = add nuw nsw i32 %14, 1
   store i32 %21, ptr @num_basic_static_types_used, align 4, !tbaa !46
   %22 = zext nneg i32 %14 to i64
-  %23 = getelementptr [2 x %struct._typeobject], ptr @BasicStaticTypes, i64 0, i64 %22
+  %23 = getelementptr %struct._typeobject, ptr @BasicStaticTypes, i64 %22
   br label %38
 
 24:                                               ; preds = %.thread
   %25 = add nuw nsw i32 %16, 1
   store i32 %25, ptr @num_basic_static_types_used, align 4, !tbaa !46
   %26 = zext nneg i32 %16 to i64
-  %27 = getelementptr [2 x %struct._typeobject], ptr @BasicStaticTypes, i64 0, i64 %26
+  %27 = getelementptr %struct._typeobject, ptr @BasicStaticTypes, i64 %26
   %28 = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 1, ptr noundef nonnull %6) #16
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 336
   store ptr %28, ptr %29, align 16, !tbaa !93
@@ -5799,7 +5799,7 @@ define internal noundef i32 @_simpletracer(ptr noundef %0, i32 noundef %1, ptr n
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = sext i32 %7 to i64
-  %13 = getelementptr [10 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr %11, i64 %12
   store ptr %0, ptr %13, align 8, !tbaa !80
   %14 = icmp eq i32 %1, 0
   br i1 %14, label %15, label %17
@@ -6164,7 +6164,7 @@ Py_SIZE.exit.i:                                   ; preds = %22
   unreachable
 
 PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
-  %27 = getelementptr [1 x ptr], ptr %8, i64 0, i64 %.014
+  %27 = getelementptr ptr, ptr %8, i64 %.014
   store ptr %16, ptr %27, align 8, !tbaa !75
   %28 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %28, %1

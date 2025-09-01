@@ -486,7 +486,7 @@ Vec_WrdPush.exit77:                               ; preds = %Vec_WrdPush.exit77.
   %143 = phi i32 [ %134, %.lr.ph110 ], [ %166, %Vec_WrdPush.exit91 ]
   %144 = phi i32 [ %137, %.lr.ph110 ], [ %168, %Vec_WrdPush.exit91 ]
   %indvars.iv113 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next114, %Vec_WrdPush.exit91 ]
-  %145 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv113
+  %145 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv113
   %146 = load i64, ptr %145, align 8, !tbaa !38
   %147 = icmp eq i32 %144, %143
   br i1 %147, label %Vec_WrdPush.exit84.sink.split, label %Vec_WrdPush.exit84
@@ -8406,13 +8406,13 @@ Gia_RsbFindFaninAdd.exit74:                       ; preds = %42, %Gia_RsbFindFan
   %indvars.iv98 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next99, %74 ]
   %.086 = phi i32 [ 0, %.lr.ph87 ], [ %.1, %74 ]
   %.04285 = phi i32 [ -1, %.lr.ph87 ], [ %.143, %74 ]
-  %59 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv98
+  %59 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv98
   %60 = load i32, ptr %59, align 4, !tbaa !30
   %61 = icmp slt i32 %.086, %60
   br i1 %61, label %._crit_edge, label %62
 
 ._crit_edge:                                      ; preds = %58
-  %.phi.trans.insert = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv98
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv98
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !30
   br label %74
 
@@ -8425,7 +8425,7 @@ Gia_RsbFindFaninAdd.exit74:                       ; preds = %42, %Gia_RsbFindFan
   %65 = sext i32 %.04285 to i64
   %66 = getelementptr inbounds i32, ptr %.val60.val, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !30
-  %68 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv98
+  %68 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv98
   %69 = load i32, ptr %68, align 4, !tbaa !30
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %.val60.val, i64 %70
@@ -8446,13 +8446,13 @@ Gia_RsbFindFaninAdd.exit74:                       ; preds = %42, %Gia_RsbFindFan
   %indvars.iv103 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next104, %91 ]
   %.291 = phi i32 [ 0, %.lr.ph92 ], [ %.3, %91 ]
   %.34590 = phi i32 [ -1, %.lr.ph92 ], [ %.4, %91 ]
-  %76 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv103
+  %76 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv103
   %77 = load i32, ptr %76, align 4, !tbaa !30
   %78 = icmp slt i32 %.291, %77
   br i1 %78, label %._crit_edge108, label %79
 
 ._crit_edge108:                                   ; preds = %75
-  %.phi.trans.insert109 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv103
+  %.phi.trans.insert109 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv103
   %.pre110 = load i32, ptr %.phi.trans.insert109, align 4, !tbaa !30
   br label %91
 
@@ -8465,7 +8465,7 @@ Gia_RsbFindFaninAdd.exit74:                       ; preds = %42, %Gia_RsbFindFan
   %82 = sext i32 %.34590 to i64
   %83 = getelementptr inbounds i32, ptr %.val63, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !30
-  %85 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv103
+  %85 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv103
   %86 = load i32, ptr %85, align 4, !tbaa !30
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i32, ptr %.val63, i64 %87
@@ -9415,7 +9415,7 @@ define i64 @Gia_LutComputeTruth66_rec(ptr noundef %0, ptr noundef %1) local_unna
 4:                                                ; preds = %2
   %5 = lshr i64 %.val, 32
   %6 = and i64 %5, 536870911
-  %7 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !38
   br label %common.ret24
 
@@ -10027,7 +10027,7 @@ define void @Gia_RsbTestArray() local_unnamed_addr #4 {
   %8 = phi ptr [ %.pre.i77, %Vec_IntPush.exit ], [ %5, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntPush.exit ], [ 0, %0 ]
   %9 = icmp samesign ult i64 %indvars.iv, 50
-  %.phi.trans.insert = getelementptr inbounds nuw [1000 x i32], ptr @__const.Gia_RsbTestArray.Array, i64 0, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr @__const.Gia_RsbTestArray.Array, i64 %indvars.iv
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !30
   br i1 %9, label %..critedge_crit_edge, label %10
 

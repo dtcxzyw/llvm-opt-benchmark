@@ -757,7 +757,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %indvars.iv190.i
   %189 = load ptr, ptr %188, align 8, !tbaa !74
   %190 = call ptr @av_buffer_ref(ptr noundef %189) #11
-  %191 = getelementptr inbounds nuw [8 x ptr], ptr %179, i64 0, i64 %indvars.iv190.i
+  %191 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv190.i
   store ptr %190, ptr %191, align 8, !tbaa !74
   %.not124.i = icmp eq ptr %190, null
   br i1 %.not124.i, label %.loopexit134.i, label %180

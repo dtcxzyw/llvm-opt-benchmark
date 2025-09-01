@@ -40,8 +40,8 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %indvars.iv63 = phi i64 [ %21, %.preheader.lr.ph ], [ %indvars.iv.next64, %.loopexit ]
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, -1
-  %23 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv.next64
-  %24 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %20, i64 0, i64 %indvars.iv.next64
+  %23 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.next64
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv.next64
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.critedge
@@ -52,11 +52,11 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
   %27 = load i32, ptr %26, align 4, !tbaa !12
   %28 = load i32, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
   %29 = sub nsw i32 %27, %28
-  %30 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 0, i64 %indvars.iv60
+  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv60
   store i32 %29, ptr %30, align 4, !tbaa !12
   %31 = trunc i32 %28 to i8
   %32 = and i8 %31, 1
-  %33 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 0, i64 %indvars.iv60
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv60
   store i8 %32, ptr %33, align 1, !tbaa !16
   %34 = load i32, ptr %indvars.iv60.sroa.phi, align 8, !tbaa !12
   %35 = add nsw i32 %34, 1
@@ -137,7 +137,7 @@ define range(i32 -1, 1) i32 @ff_dwt_encode(ptr noundef readonly captures(none) %
   %12 = zext i8 %4 to i64
   %13 = add nuw nsw i64 %12, 4294967295
   %14 = and i64 %13, 4294967295
-  %15 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -146,11 +146,11 @@ define range(i32 -1, 1) i32 @ff_dwt_encode(ptr noundef readonly captures(none) %
 
 20:                                               ; preds = %._crit_edge177.i, %.lr.ph180.i
   %indvars.iv236.i = phi i64 [ %14, %.lr.ph180.i ], [ %indvars.iv.next237.i, %._crit_edge177.i ]
-  %21 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv236.i
+  %21 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv236.i
   %22 = load i32, ptr %21, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !12
-  %25 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %17, i64 0, i64 %indvars.iv236.i
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv236.i
   %26 = load i8, ptr %25, align 2, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !16
@@ -633,10 +633,10 @@ sd_1d97_float.exit148.i:                          ; preds = %.lr.ph65.i143.i, %.
 
 230:                                              ; preds = %6
   %231 = zext i8 %4 to i64
-  %232 = add nsw i64 %231, -1
-  %233 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %232
+  %232 = getelementptr [2 x i32], ptr %0, i64 %231
+  %233 = getelementptr i8, ptr %232, i64 -8
   %234 = load i32, ptr %233, align 8, !tbaa !12
-  %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
+  %235 = getelementptr i8, ptr %232, i64 -4
   %236 = load i32, ptr %235, align 4, !tbaa !12
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %238 = load ptr, ptr %237, align 8, !tbaa !19
@@ -678,11 +678,11 @@ sd_1d97_float.exit148.i:                          ; preds = %.lr.ph65.i143.i, %.
 248:                                              ; preds = %.loopexit.i, %.lr.ph162.i
   %indvars.iv220.i = phi i64 [ %231, %.lr.ph162.i ], [ %indvars.iv.next221.i, %.loopexit.i ]
   %indvars.iv.next221.i = add nsw i64 %indvars.iv220.i, -1
-  %249 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv.next221.i
+  %249 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.next221.i
   %250 = load i32, ptr %249, align 8, !tbaa !12
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 4
   %252 = load i32, ptr %251, align 4, !tbaa !12
-  %253 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %245, i64 0, i64 %indvars.iv.next221.i
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %245, i64 %indvars.iv.next221.i
   %254 = load i8, ptr %253, align 2, !tbaa !16
   %255 = zext i8 %254 to i32
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 1
@@ -882,7 +882,7 @@ sd_1d97_float.exit148.i:                          ; preds = %.lr.ph65.i143.i, %.
   %316 = zext i8 %4 to i64
   %317 = add nuw nsw i64 %316, 4294967295
   %318 = and i64 %317, 4294967295
-  %319 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %318
   %320 = load i32, ptr %319, align 8, !tbaa !12
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %322 = getelementptr inbounds nuw i8, ptr %314, i64 16
@@ -891,11 +891,11 @@ sd_1d97_float.exit148.i:                          ; preds = %.lr.ph65.i143.i, %.
 
 324:                                              ; preds = %._crit_edge152.i, %.lr.ph155.i
   %indvars.iv206.i = phi i64 [ %318, %.lr.ph155.i ], [ %indvars.iv.next207.i, %._crit_edge152.i ]
-  %325 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv206.i
+  %325 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv206.i
   %326 = load i32, ptr %325, align 8, !tbaa !12
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 4
   %328 = load i32, ptr %327, align 4, !tbaa !12
-  %329 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %321, i64 0, i64 %indvars.iv206.i
+  %329 = getelementptr inbounds nuw [2 x i8], ptr %321, i64 %indvars.iv206.i
   %330 = load i8, ptr %329, align 2, !tbaa !16
   %331 = zext i8 %330 to i32
   %332 = getelementptr inbounds nuw i8, ptr %329, i64 1
@@ -1276,8 +1276,8 @@ define range(i32 -1, 1) i32 @ff_dwt_decode(ptr noundef readonly captures(none) %
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %12 = zext i8 %4 to i64
-  %13 = add nsw i64 %12, -1
-  %14 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %13
+  %13 = getelementptr [2 x i32], ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i32, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1286,11 +1286,11 @@ define range(i32 -1, 1) i32 @ff_dwt_decode(ptr noundef readonly captures(none) %
 
 19:                                               ; preds = %._crit_edge178.i, %.lr.ph181.i
   %indvars.iv237.i = phi i64 [ 0, %.lr.ph181.i ], [ %indvars.iv.next238.i, %._crit_edge178.i ]
-  %20 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv237.i
+  %20 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv237.i
   %21 = load i32, ptr %20, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !12
-  %24 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %16, i64 0, i64 %indvars.iv237.i
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv237.i
   %25 = load i8, ptr %24, align 2, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !16
@@ -1747,10 +1747,10 @@ sr_1d97_float.exit149.i:                          ; preds = %155, %152
 
 .lr.ph193.i:                                      ; preds = %6
   %200 = zext i8 %4 to i64
-  %201 = add nsw i64 %200, -1
-  %202 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %201
+  %201 = getelementptr [2 x i32], ptr %0, i64 %200
+  %202 = getelementptr i8, ptr %201, i64 -8
   %203 = load i32, ptr %202, align 8, !tbaa !12
-  %204 = getelementptr inbounds nuw i8, ptr %202, i64 4
+  %204 = getelementptr i8, ptr %201, i64 -4
   %205 = load i32, ptr %204, align 4, !tbaa !12
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %207 = load ptr, ptr %206, align 8, !tbaa !19
@@ -1771,11 +1771,11 @@ sr_1d97_float.exit149.i:                          ; preds = %155, %152
 
 214:                                              ; preds = %._crit_edge190.i, %.lr.ph193.i
   %indvars.iv251.i = phi i64 [ 0, %.lr.ph193.i ], [ %indvars.iv.next252.i, %._crit_edge190.i ]
-  %215 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv251.i
+  %215 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv251.i
   %216 = load i32, ptr %215, align 8, !tbaa !12
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 4
   %218 = load i32, ptr %217, align 4, !tbaa !12
-  %219 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %209, i64 0, i64 %indvars.iv251.i
+  %219 = getelementptr inbounds nuw [2 x i8], ptr %209, i64 %indvars.iv251.i
   %220 = load i8, ptr %219, align 2, !tbaa !16
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 1
   %222 = load i8, ptr %221, align 1, !tbaa !16
@@ -2314,8 +2314,8 @@ sr_1d97_int.exit160.i:                            ; preds = %388, %381
   %468 = load ptr, ptr %467, align 8, !tbaa !19
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 12
   %470 = zext i8 %4 to i64
-  %471 = add nsw i64 %470, -1
-  %472 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %471
+  %471 = getelementptr [2 x i32], ptr %0, i64 %470
+  %472 = getelementptr i8, ptr %471, i64 -8
   %473 = load i32, ptr %472, align 8, !tbaa !12
   %474 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %475 = getelementptr inbounds nuw i8, ptr %468, i64 16
@@ -2324,11 +2324,11 @@ sr_1d97_int.exit160.i:                            ; preds = %388, %381
 
 477:                                              ; preds = %._crit_edge152.i, %.lr.ph155.i
   %indvars.iv207.i = phi i64 [ 0, %.lr.ph155.i ], [ %indvars.iv.next208.i, %._crit_edge152.i ]
-  %478 = getelementptr inbounds nuw [32 x [2 x i32]], ptr %0, i64 0, i64 %indvars.iv207.i
+  %478 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv207.i
   %479 = load i32, ptr %478, align 8, !tbaa !12
   %480 = getelementptr inbounds nuw i8, ptr %478, i64 4
   %481 = load i32, ptr %480, align 4, !tbaa !12
-  %482 = getelementptr inbounds nuw [32 x [2 x i8]], ptr %474, i64 0, i64 %indvars.iv207.i
+  %482 = getelementptr inbounds nuw [2 x i8], ptr %474, i64 %indvars.iv207.i
   %483 = load i8, ptr %482, align 2, !tbaa !16
   %484 = getelementptr inbounds nuw i8, ptr %482, i64 1
   %485 = load i8, ptr %484, align 1, !tbaa !16

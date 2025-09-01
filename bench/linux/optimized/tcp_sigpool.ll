@@ -108,7 +108,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
 
 28:                                               ; preds = %24
   %29 = and i64 %25, 63
-  %30 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %29
+  %30 = getelementptr i64, ptr @__per_cpu_offset, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, ptrtoint (ptr @numa_node to i64)
   %33 = inttoptr i64 %32 to ptr
@@ -149,7 +149,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   %53 = add i32 %52, 1
   store i32 %53, ptr %14, align 8
   %54 = zext i32 %52 to i64
-  %55 = getelementptr [0 x ptr], ptr %17, i64 0, i64 %54
+  %55 = getelementptr ptr, ptr %17, i64 %54
   store ptr %41, ptr %55, align 8
   br label %56
 
@@ -173,7 +173,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
 .preheader33:                                     ; preds = %.thread23, %91
   %62 = phi i32 [ %92, %91 ], [ 0, %.thread23 ]
   %63 = sext i32 %62 to i64
-  %64 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %63
+  %64 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
@@ -232,7 +232,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
 .preheader:                                       ; preds = %91, %99
   %94 = phi i32 [ %100, %99 ], [ 0, %91 ]
   %95 = sext i32 %94 to i64
-  %96 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %95, i32 1
+  %96 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %95, i32 1
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %102, label %99
@@ -250,7 +250,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
 .thread28:                                        ; preds = %.thread23, %102
   %105 = phi i32 [ %103, %102 ], [ 0, %.thread23 ]
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %106
+  %107 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %106
   %108 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #8
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %108, ptr %109, align 8
@@ -344,7 +344,7 @@ define dso_local void @tcp_sigpool_release(i32 noundef %0) #0 align 16 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5, i32 1
+  %6 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %5, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !14
@@ -356,7 +356,7 @@ define dso_local void @tcp_sigpool_release(i32 noundef %0) #0 align 16 {
   br label %.thread
 
 10:                                               ; preds = %4
-  %11 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5, i32 2
+  %11 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %5, i32 2
   %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 -1, ptr elementtype(i32) %11) #8, !srcloc !22
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %17, label %14
@@ -387,7 +387,7 @@ define dso_local void @tcp_sigpool_get(i32 noundef %0) #0 align 16 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5, i32 1
+  %6 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %5, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !14
@@ -399,7 +399,7 @@ define dso_local void @tcp_sigpool_get(i32 noundef %0) #0 align 16 {
   br label %20
 
 10:                                               ; preds = %4
-  %11 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5, i32 2
+  %11 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %5, i32 2
   %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 1, ptr elementtype(i32) %11) #8, !srcloc !27
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15, !prof !14
@@ -433,7 +433,7 @@ define dso_local i32 @tcp_sigpool_start(i32 noundef %0, ptr noundef writeonly ca
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %7, i32 1
+  %8 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %7, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12, !prof !14
@@ -446,7 +446,7 @@ define dso_local i32 @tcp_sigpool_start(i32 noundef %0, ptr noundef writeonly ca
   br label %39
 
 12:                                               ; preds = %6
-  %13 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %7
+  %13 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %7
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @crypto_clone_ahash(ptr noundef %14) #8
   %16 = icmp ugt ptr %15, inttoptr (i64 -4096 to ptr)
@@ -522,7 +522,7 @@ define dso_local i64 @tcp_sigpool_algo(i32 noundef %0, ptr noundef %1, i64 nound
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %7, i32 1
+  %8 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %7, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12, !prof !14
@@ -632,7 +632,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noun
 
 63:                                               ; preds = %58, %56
   %64 = phi i64 [ 0, %56 ], [ %59, %58 ]
-  %65 = getelementptr [17 x %struct.bio_vec], ptr %57, i64 0, i64 %64
+  %65 = getelementptr %struct.bio_vec, ptr %57, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %65, align 8
@@ -728,7 +728,7 @@ define internal void @free_old_scratches(ptr noundef %0) #0 align 16 {
 8:                                                ; preds = %8, %6
   %9 = phi i32 [ %4, %6 ], [ %14, %8 ]
   %10 = zext i32 %9 to i64
-  %11 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #8
   %13 = load i32, ptr %2, align 8
@@ -775,14 +775,14 @@ define internal void @cpool_cleanup_work_cb(ptr readnone captures(none) %0) #0 a
   %5 = phi i32 [ %.lcssa23, %.thread ], [ %2, %1 ]
   %.ph = phi i64 [ %31, %.thread ], [ 0, %1 ]
   %6 = phi i1 [ true, %.thread ], [ false, %1 ]
-  %7 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %.ph
+  %7 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %.ph
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load volatile i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.lr.ph, label %.thread
 
 11:                                               ; preds = %26
-  %12 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %28
+  %12 = getelementptr %struct.sigpool_entry, ptr @cpool, i64 %28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load volatile i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
@@ -845,7 +845,7 @@ define internal void @cpool_cleanup_work_cb(ptr readnone captures(none) %0) #0 a
 
 45:                                               ; preds = %41
   %46 = and i64 %42, 63
-  %47 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %46
+  %47 = getelementptr i64, ptr @__per_cpu_offset, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, ptrtoint (ptr @sigpool_scratch to i64)
   %50 = inttoptr i64 %49 to ptr

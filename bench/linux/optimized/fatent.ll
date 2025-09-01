@@ -133,7 +133,7 @@ define dso_local i32 @fat_ent_read(ptr noundef readonly captures(none) %0, ptr n
 25:                                               ; preds = %32, %23
   %26 = phi i32 [ %21, %23 ], [ %33, %32 ]
   %27 = phi i64 [ 0, %23 ], [ %34, %32 ]
-  %28 = getelementptr [2 x ptr], ptr %24, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31
@@ -252,7 +252,7 @@ define dso_local i32 @fat_ent_read(ptr noundef readonly captures(none) %0, ptr n
 86:                                               ; preds = %.preheader, %93
   %87 = phi i32 [ %94, %93 ], [ %47, %.preheader ]
   %88 = phi i64 [ %95, %93 ], [ 0, %.preheader ]
-  %89 = getelementptr [2 x ptr], ptr %50, i64 0, i64 %88
+  %89 = getelementptr ptr, ptr %50, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %93, label %92
@@ -564,7 +564,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
 .preheader27:                                     ; preds = %54, %67
   %61 = phi i32 [ %68, %67 ], [ %59, %54 ]
   %62 = phi i64 [ %69, %67 ], [ 0, %54 ]
-  %63 = getelementptr [2 x ptr], ptr %35, i64 0, i64 %62
+  %63 = getelementptr ptr, ptr %35, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %67, label %66
@@ -636,7 +636,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   br i1 %99, label %100, label %114
 
 100:                                              ; preds = %.preheader23
-  %101 = getelementptr [2 x ptr], ptr %35, i64 0, i64 %98
+  %101 = getelementptr ptr, ptr %35, i64 %98
   %102 = load ptr, ptr %101, align 8
   %103 = zext nneg i32 %97 to i64
   br label %104
@@ -663,7 +663,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   br i1 %116, label %..thread_crit_edge, label %123
 
 ..thread_crit_edge:                               ; preds = %114
-  %.phi.trans.insert = getelementptr [2 x ptr], ptr %35, i64 0, i64 %98
+  %.phi.trans.insert = getelementptr ptr, ptr %35, i64 %98
   %.pre67 = load ptr, ptr %.phi.trans.insert, align 8
   %.pre71 = zext nneg i32 %97 to i64
   br label %.thread
@@ -671,7 +671,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
 .thread:                                          ; preds = %109, %..thread_crit_edge
   %.pre-phi = phi i64 [ %.pre71, %..thread_crit_edge ], [ %103, %109 ]
   %117 = phi ptr [ %.pre67, %..thread_crit_edge ], [ %102, %109 ]
-  %118 = getelementptr [2 x ptr], ptr %35, i64 0, i64 %98
+  %118 = getelementptr ptr, ptr %35, i64 %98
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, ptr nonnull elementtype(i32) %119) #9, !srcloc !17
   %120 = load ptr, ptr %118, align 8
@@ -780,7 +780,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
 .preheader:                                       ; preds = %175, %184
   %178 = phi i32 [ %185, %184 ], [ %176, %175 ]
   %179 = phi i64 [ %186, %184 ], [ 0, %175 ]
-  %180 = getelementptr [2 x ptr], ptr %35, i64 0, i64 %179
+  %180 = getelementptr ptr, ptr %35, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %181, null
   br i1 %182, label %184, label %183
@@ -828,7 +828,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
 
 202:                                              ; preds = %208, %200
   %203 = phi i64 [ 0, %200 ], [ %209, %208 ]
-  %204 = getelementptr [8 x ptr], ptr %8, i64 0, i64 %203
+  %204 = getelementptr ptr, ptr %8, i64 %203
   %205 = load ptr, ptr %204, align 8
   %206 = icmp eq ptr %205, null
   br i1 %206, label %208, label %207
@@ -1000,7 +1000,7 @@ define dso_local i32 @fat_free_clusters(ptr noundef readonly captures(none) %0, 
 
 86:                                               ; preds = %92, %84
   %87 = phi i64 [ 0, %84 ], [ %93, %92 ]
-  %88 = getelementptr [8 x ptr], ptr %4, i64 0, i64 %87
+  %88 = getelementptr ptr, ptr %4, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %92, label %91
@@ -1032,7 +1032,7 @@ thread-pre-split:                                 ; preds = %92, %82
   br i1 %102, label %103, label %117
 
 103:                                              ; preds = %.preheader19
-  %104 = getelementptr [2 x ptr], ptr %13, i64 0, i64 %101
+  %104 = getelementptr ptr, ptr %13, i64 %101
   %105 = load ptr, ptr %104, align 8
   %106 = zext nneg i32 %100 to i64
   br label %107
@@ -1059,7 +1059,7 @@ thread-pre-split:                                 ; preds = %92, %82
   br i1 %119, label %..thread_crit_edge, label %126
 
 ..thread_crit_edge:                               ; preds = %117
-  %.phi.trans.insert = getelementptr [2 x ptr], ptr %13, i64 0, i64 %101
+  %.phi.trans.insert = getelementptr ptr, ptr %13, i64 %101
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre46 = zext nneg i32 %100 to i64
   br label %.thread
@@ -1067,7 +1067,7 @@ thread-pre-split:                                 ; preds = %92, %82
 .thread:                                          ; preds = %112, %..thread_crit_edge
   %.pre-phi = phi i64 [ %.pre46, %..thread_crit_edge ], [ %106, %112 ]
   %120 = phi ptr [ %.pre, %..thread_crit_edge ], [ %105, %112 ]
-  %121 = getelementptr [2 x ptr], ptr %13, i64 0, i64 %101
+  %121 = getelementptr ptr, ptr %13, i64 %101
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %122, ptr nonnull elementtype(i32) %122) #9, !srcloc !17
   %123 = load ptr, ptr %121, align 8
@@ -1117,7 +1117,7 @@ thread-pre-split:                                 ; preds = %92, %82
 .preheader:                                       ; preds = %.loopexit21, %154
   %148 = phi i32 [ %155, %154 ], [ %146, %.loopexit21 ]
   %149 = phi i64 [ %156, %154 ], [ 0, %.loopexit21 ]
-  %150 = getelementptr [2 x ptr], ptr %13, i64 0, i64 %149
+  %150 = getelementptr ptr, ptr %13, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, null
   br i1 %152, label %154, label %153
@@ -1146,7 +1146,7 @@ thread-pre-split:                                 ; preds = %92, %82
 
 162:                                              ; preds = %168, %160
   %163 = phi i64 [ 0, %160 ], [ %169, %168 ]
-  %164 = getelementptr [8 x ptr], ptr %4, i64 0, i64 %163
+  %164 = getelementptr ptr, ptr %4, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
   br i1 %166, label %168, label %167
@@ -1379,7 +1379,7 @@ fat_ent_reada.exit:                               ; preds = %71, %93
 .preheader24:                                     ; preds = %fat_ent_reada.exit, %106
   %100 = phi i32 [ %107, %106 ], [ %98, %fat_ent_reada.exit ]
   %101 = phi i64 [ %108, %106 ], [ 0, %fat_ent_reada.exit ]
-  %102 = getelementptr [2 x ptr], ptr %26, i64 0, i64 %101
+  %102 = getelementptr ptr, ptr %26, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %106, label %105
@@ -1474,7 +1474,7 @@ fat_ent_reada.exit:                               ; preds = %71, %93
 .preheader:                                       ; preds = %155, %164
   %158 = phi i32 [ %165, %164 ], [ %156, %155 ]
   %159 = phi i64 [ %166, %164 ], [ 0, %155 ]
-  %160 = getelementptr [2 x ptr], ptr %26, i64 0, i64 %159
+  %160 = getelementptr ptr, ptr %26, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
   br i1 %162, label %164, label %163
@@ -1713,7 +1713,7 @@ fat_ent_reada.exit:                               ; preds = %93, %116
 .preheader38:                                     ; preds = %fat_ent_reada.exit, %129
   %123 = phi i32 [ %130, %129 ], [ %121, %fat_ent_reada.exit ]
   %124 = phi i64 [ %131, %129 ], [ 0, %fat_ent_reada.exit ]
-  %125 = getelementptr [2 x ptr], ptr %46, i64 0, i64 %124
+  %125 = getelementptr ptr, ptr %46, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %129, label %128
@@ -1848,7 +1848,7 @@ fat_ent_reada.exit:                               ; preds = %93, %116
 .preheader35:                                     ; preds = %204, %213
   %207 = phi i32 [ %214, %213 ], [ %205, %204 ]
   %208 = phi i64 [ %215, %213 ], [ 0, %204 ]
-  %209 = getelementptr [2 x ptr], ptr %46, i64 0, i64 %208
+  %209 = getelementptr ptr, ptr %46, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = icmp eq ptr %210, null
   br i1 %211, label %213, label %212
@@ -1933,7 +1933,7 @@ fat_ent_reada.exit:                               ; preds = %93, %116
 .preheader:                                       ; preds = %.thread33, %263
   %257 = phi i32 [ %264, %263 ], [ %255, %.thread33 ]
   %258 = phi i64 [ %265, %263 ], [ 0, %.thread33 ]
-  %259 = getelementptr [2 x ptr], ptr %46, i64 0, i64 %258
+  %259 = getelementptr ptr, ptr %46, i64 %258
   %260 = load ptr, ptr %259, align 8
   %261 = icmp eq ptr %260, null
   br i1 %261, label %263, label %262

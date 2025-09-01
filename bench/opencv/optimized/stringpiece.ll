@@ -439,7 +439,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %.0813
   %33 = load i8, ptr %32, align 1, !tbaa !16
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !19, !range !22, !noundef !23
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %._crit_edge, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit
@@ -526,7 +526,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.0816
   %28 = load i8, ptr %27, align 1, !tbaa !16
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !19, !range !22, !noundef !23
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %_ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEPb.exit, label %._crit_edge
@@ -637,7 +637,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.06
   %35 = load i8, ptr %34, align 1, !tbaa !16
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !19, !range !22, !noundef !23
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.06, 0
@@ -712,7 +712,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.sroa.speculated
   %29 = load i8, ptr %28, align 1, !tbaa !16
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !19, !range !22, !noundef !23
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %.lr.ph, label %._crit_edge
@@ -727,7 +727,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !16
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !19, !range !22, !noundef !23
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !29

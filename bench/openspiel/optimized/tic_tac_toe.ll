@@ -749,7 +749,7 @@ define void @_ZN10open_spiel11tic_tac_toe14TicTacToeState13DoApplyActionEl(ptr n
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %11 = getelementptr inbounds [9 x i32], ptr %10, i64 0, i64 %1
+  %11 = getelementptr inbounds i32, ptr %10, i64 %1
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %6, align 4
   store i32 0, ptr %7, align 4
@@ -932,7 +932,7 @@ define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState12LegalActionsEv(ptr d
   %13 = phi ptr [ null, %8 ], [ %43, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %14 = phi ptr [ null, %8 ], [ %44, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %15 = getelementptr inbounds nuw [9 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
@@ -1274,76 +1274,76 @@ define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState8ToStringB5cxx11Ev(ptr
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %24, %2
-  %indvars.iv17 = phi i64 [ 0, %2 ], [ %indvars.iv.next18, %24 ]
-  %9 = mul nuw nsw i64 %indvars.iv17, 3
-  br label %10
+.preheader:                                       ; preds = %21, %2
+  %indvars.iv17 = phi i64 [ 0, %2 ], [ %indvars.iv.next18, %21 ]
+  %.idx = mul nuw nsw i64 %indvars.iv17, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  br label %9
 
-10:                                               ; preds = %.preheader, %19
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %11 = add nuw nsw i64 %indvars.iv, %9
-  %12 = getelementptr inbounds nuw [9 x i32], ptr %6, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  invoke void @_ZN10open_spiel11tic_tac_toe13StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %13)
-          to label %14 unwind label %.loopexit
+9:                                                ; preds = %.preheader, %16
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %10 = load i32, ptr %gep, align 4
+  invoke void @_ZN10open_spiel11tic_tac_toe13StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %10)
+          to label %11 unwind label %.loopexit
 
-14:                                               ; preds = %10
-  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  store ptr %15, ptr %3, align 8
-  %17 = icmp sgt i64 %16, -1
-  br i1 %17, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %18
+11:                                               ; preds = %9
+  %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
+  store ptr %12, ptr %3, align 8
+  %14 = icmp sgt i64 %13, -1
+  br i1 %14, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %15
 
-18:                                               ; preds = %14
+15:                                               ; preds = %11
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %14
-  store i64 %16, ptr %7, align 8
+_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %11
+  store i64 %13, ptr %7, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %19 unwind label %20
+          to label %16 unwind label %17
 
-19:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
+16:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %22, label %10, !llvm.loop !6
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !6
 
-.loopexit:                                        ; preds = %10
+.loopexit:                                        ; preds = %9
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %23
 
-.loopexit.split-lp:                               ; preds = %23
+.loopexit.split-lp:                               ; preds = %20
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %23
 
-20:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  br label %26
+  br label %23
 
-22:                                               ; preds = %19
+19:                                               ; preds = %16
   %.not = icmp eq i64 %indvars.iv17, 2
-  br i1 %.not, label %25, label %23
+  br i1 %.not, label %22, label %20
 
-23:                                               ; preds = %22
+20:                                               ; preds = %19
   store ptr @.str.17, ptr %5, align 8
   store i64 1, ptr %8, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %24 unwind label %.loopexit.split-lp
+          to label %21 unwind label %.loopexit.split-lp
 
-24:                                               ; preds = %23
+21:                                               ; preds = %20
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   br label %.preheader
 
-25:                                               ; preds = %22
+22:                                               ; preds = %19
   ret void
 
-26:                                               ; preds = %.loopexit, %.loopexit.split-lp, %20
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+23:                                               ; preds = %.loopexit, %.loopexit.split-lp, %17
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   resume { ptr, i32 } %.pn
 }
@@ -1975,7 +1975,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
 
 45:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
   %indvars.iv = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit ], [ %indvars.iv.next, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ]
-  %46 = getelementptr inbounds nuw [9 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   br label %49
@@ -1985,7 +1985,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %47, %45 ], [ %48, %49 ]
   %indvars.iv.i.i = phi i64 [ 0, %45 ], [ 1, %49 ]
   %.078.i.i = phi i32 [ 0, %45 ], [ %54, %49 ]
-  %51 = getelementptr inbounds nuw [2 x i32], ptr %33, i64 0, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i.i
   %52 = load i32, ptr %51, align 4
   %53 = mul nsw i32 %52, %.078.i.i
   %54 = add nsw i32 %53, %indvars.iv.i.i.sroa.phi.sroa.speculated
@@ -2017,7 +2017,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN10open_spiel11tic_tac_toe14TicTacToeState10UndoActionEil(ptr noundef nonnull align 8 captures(none) dereferenceable(108) initializes((96, 104)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %5 = getelementptr inbounds [9 x i32], ptr %4, i64 0, i64 %2
+  %5 = getelementptr inbounds i32, ptr %4, i64 %2
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %6, align 8

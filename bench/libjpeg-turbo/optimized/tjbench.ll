@@ -2464,7 +2464,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i32, ptr @pf, align 4, !tbaa !4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3274,7 +3274,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %410 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %344, ptr noundef %4)
   %411 = load i32, ptr @pf, align 4, !tbaa !4
   %412 = sext i32 %411 to i64
-  %413 = getelementptr inbounds [12 x ptr], ptr @pixFormatStr, i64 0, i64 %412
+  %413 = getelementptr inbounds ptr, ptr @pixFormatStr, i64 %412
   %414 = load ptr, ptr %413, align 8, !tbaa !10
   %.b736 = load i1, ptr @bottomUp, align 4
   %415 = select i1 %.b736, ptr @.str.254, ptr @.str.255
@@ -3295,9 +3295,9 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 422:                                              ; preds = %418
   %423 = sext i32 %.fr to i64
-  %424 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %423
+  %424 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %423
   %425 = load i32, ptr %424, align 4, !tbaa !4
-  %426 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %423
+  %426 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %423
   %427 = load i32, ptr %426, align 4, !tbaa !4
   %. = call i32 @llvm.smax.i32(i32 %425, i32 %427)
   br label %428
@@ -3485,7 +3485,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 525:                                              ; preds = %480
   %526 = load i32, ptr @pf, align 4, !tbaa !4
   %527 = sext i32 %526 to i64
-  %528 = getelementptr inbounds [12 x ptr], ptr @pixFormatStr, i64 0, i64 %527
+  %528 = getelementptr inbounds ptr, ptr @pixFormatStr, i64 %527
   %529 = load ptr, ptr %528, align 8, !tbaa !10
   %.b735 = load i1, ptr @bottomUp, align 4
   %530 = select i1 %.b735, ptr @.str.265, ptr @.str.266
@@ -3605,7 +3605,7 @@ switch.early.test:                                ; preds = %587
 
 591:                                              ; preds = %590, %590, %590, %590
   %592 = sext i32 %.0664 to i64
-  %593 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %592
+  %593 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %592
   %594 = load i32, ptr %593, align 4, !tbaa !4
   %595 = srem i32 %.0652, %594
   %596 = sub nsw i32 %.0652, %595
@@ -3622,7 +3622,7 @@ switch.early.test:                                ; preds = %587
 
 598:                                              ; preds = %597, %597, %597, %597
   %599 = sext i32 %.0664 to i64
-  %600 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %599
+  %600 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %599
   %601 = load i32, ptr %600, align 4, !tbaa !4
   %602 = srem i32 %.0655, %601
   %603 = sub nsw i32 %.0655, %602
@@ -4067,10 +4067,10 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = load i32, ptr @pf, align 4, !tbaa !4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = mul nsw i32 %16, %2
-  %18 = getelementptr inbounds [12 x ptr], ptr @pixFormatStr, i64 0, i64 %14
+  %18 = getelementptr inbounds ptr, ptr @pixFormatStr, i64 %14
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = sext i32 %17 to i64
   %21 = sext i32 %3 to i64
@@ -4104,7 +4104,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 39:                                               ; preds = %35
   %40 = sext i32 %4 to i64
-  %41 = getelementptr inbounds [7 x ptr], ptr @subNameLong, i64 0, i64 %40
+  %41 = getelementptr inbounds ptr, ptr @subNameLong, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !10
   br label %43
 
@@ -4121,14 +4121,14 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %50 = add i32 %2, -1
   %51 = add i32 %3, -1
   %52 = sext i32 %4 to i64
-  %53 = getelementptr inbounds [7 x ptr], ptr @subNameLong, i64 0, i64 %52
+  %53 = getelementptr inbounds ptr, ptr @subNameLong, i64 %52
   %54 = icmp sgt i32 %3, 0
   %55 = mul nsw i32 %3, %2
   %56 = sitofp i32 %55 to double
   %57 = fdiv double %56, 1.000000e+06
   %58 = mul nsw i32 %16, %55
   %59 = sitofp i32 %58 to double
-  %60 = getelementptr inbounds [7 x ptr], ptr @subName, i64 0, i64 %52
+  %60 = getelementptr inbounds ptr, ptr @subName, i64 %52
   %wide.trip.count1483 = zext nneg i32 %3 to i64
   %wide.trip.count1488 = zext nneg i32 %3 to i64
   br label %61
@@ -5510,7 +5510,7 @@ define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr nound
   %12 = icmp eq i32 %0, -1
   %13 = load i32, ptr @precision, align 4, !tbaa !4
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [5 x ptr], ptr @csName, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr @csName, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   br i1 %12, label %17, label %19
 
@@ -5520,7 +5520,7 @@ define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr nound
 
 19:                                               ; preds = %11
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds [7 x ptr], ptr @subNameLong, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr @subNameLong, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 80, ptr noundef nonnull @.str.281, i32 noundef %13, ptr noundef %16, ptr noundef %22) #23
   br label %35
@@ -5531,13 +5531,13 @@ define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr nound
 25:                                               ; preds = %24
   %26 = icmp eq i32 %0, -1
   %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds [5 x ptr], ptr @csName, i64 0, i64 %27
+  %28 = getelementptr inbounds ptr, ptr @csName, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   br i1 %26, label %35, label %30
 
 30:                                               ; preds = %25
   %31 = sext i32 %0 to i64
-  %32 = getelementptr inbounds [7 x ptr], ptr @subNameLong, i64 0, i64 %31
+  %32 = getelementptr inbounds ptr, ptr @subNameLong, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 80, ptr noundef nonnull @.str.283, ptr noundef %29, ptr noundef %33) #23
   br label %35
@@ -5600,7 +5600,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = load i32, ptr @pf, align 4, !tbaa !4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %15
+  %16 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = add i32 %3, -1
   %19 = add i32 %18, %8
@@ -6687,7 +6687,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 
 552:                                              ; preds = %550
   %553 = sext i32 %5 to i64
-  %554 = getelementptr inbounds [7 x ptr], ptr @subName, i64 0, i64 %553
+  %554 = getelementptr inbounds ptr, ptr @subName, i64 %553
   %555 = load ptr, ptr %554, align 8, !tbaa !10
   br label %556
 

@@ -654,7 +654,7 @@ define hidden noundef zeroext i1 @_ZN18expr_pattern_match5matchEP4exprjR7obj_map
 
 54:                                               ; preds = %.lr.ph247, %54
   %indvars.iv268 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next269, %54 ]
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %indvars.iv268
+  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv268
   %56 = load ptr, ptr %55, align 8, !tbaa !24
   %57 = trunc nuw i64 %indvars.iv268 to i32
   %58 = add i32 %.sroa.11.0, %57
@@ -870,7 +870,7 @@ _ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit: ; preds = %.preheader
 
 158:                                              ; preds = %.lr.ph240, %158
   %indvars.iv260 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next261, %158 ]
-  %159 = getelementptr inbounds nuw [0 x ptr], ptr %156, i64 0, i64 %indvars.iv260
+  %159 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv260
   %160 = load ptr, ptr %159, align 8, !tbaa !24
   %161 = trunc nuw i64 %indvars.iv260 to i32
   %162 = add i32 %.sroa.11.0, %161
@@ -1023,7 +1023,7 @@ _ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit: ; preds = %.preheader
 
 226:                                              ; preds = %.lr.ph, %226
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %226 ]
-  %227 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %228 = load ptr, ptr %227, align 8, !tbaa !24
   %229 = trunc nuw i64 %indvars.iv to i32
   %230 = add i32 %.sroa.11.0, %229
@@ -2312,7 +2312,7 @@ _ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit59: ; preds = %_ZN6vec
   store i32 %.2274, ptr %208, align 4, !tbaa !12
   %209 = add i32 %202, 1
   store i32 %209, ptr %206, align 4, !tbaa !12
-  %210 = getelementptr inbounds nuw [0 x ptr], ptr %189, i64 0, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv
   %211 = load ptr, ptr %210, align 8, !tbaa !24
   br label %265
 
@@ -2445,7 +2445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   store i32 %.2274, ptr %260, align 4, !tbaa !12
   %261 = add i32 %.pre2.i63, 1
   store i32 %261, ptr %258, align 4, !tbaa !12
-  %262 = getelementptr inbounds nuw [0 x ptr], ptr %189, i64 0, i64 %indvars.iv
+  %262 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv
   %263 = load ptr, ptr %262, align 8, !tbaa !24
   %264 = icmp eq ptr %.pre319, null
   br i1 %264, label %273, label %265

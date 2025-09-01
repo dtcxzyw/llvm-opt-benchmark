@@ -207,7 +207,7 @@ define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %8, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = icmp eq ptr %12, %10
@@ -326,7 +326,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit: ; preds = 
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 220
   %33 = load i32, ptr %32, align 4, !tbaa !42
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %29, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %29, i64 %34
   store ptr %35, ptr %1, align 8, !tbaa !82
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !15
@@ -363,7 +363,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit: ; preds = 
 
 .lr.ph.i.i:                                       ; preds = %49, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %49 ]
-  %50 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %29, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %29, i64 %indvars.iv.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %53 = icmp eq ptr %52, %50
@@ -404,7 +404,7 @@ define void @_ZN3tbb6detail2r117thread_dispatcher13insert_clientERNS1_24thread_d
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 220
   %7 = load i32, ptr %6, align 4, !tbaa !42
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %3, i64 %8
   store ptr %9, ptr %1, align 8, !tbaa !82
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
@@ -441,7 +441,7 @@ define void @_ZN3tbb6detail2r117thread_dispatcher13insert_clientERNS1_24thread_d
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %3, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %3, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !15
   %27 = icmp eq ptr %26, %24
@@ -586,7 +586,7 @@ _ZN3tbb6detail2d124adaptive_wait_on_addressIZNS1_8rw_mutex4lockEvEUlvE_EEvPvT_m.
 _ZN3tbb6detail2d18rw_mutex4lockEv.exit:           ; preds = %_ZN3tbb6detail2d18rw_mutex8try_lockEv.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = zext i32 %3 to i64
-  %33 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %31, i64 %32
   br label %.thread27
 
 .thread27:                                        ; preds = %34, %_ZN3tbb6detail2d18rw_mutex4lockEv.exit
@@ -665,7 +665,7 @@ _ZN3tbb6detail2d18rw_mutex4lockEv.exit:           ; preds = %_ZN3tbb6detail2d18r
 
 .lr.ph.i.i:                                       ; preds = %69, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %69 ]
-  %70 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %31, i64 0, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %31, i64 %indvars.iv.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !15
   %73 = icmp eq ptr %72, %70
@@ -760,7 +760,7 @@ define void @_ZN3tbb6detail2r117thread_dispatcher13remove_clientERNS1_24thread_d
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %3, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %3, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   %30 = icmp eq ptr %29, %27
@@ -837,7 +837,7 @@ define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_14
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %9, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %9, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = icmp eq ptr %13, %11
@@ -951,7 +951,7 @@ _ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_c
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %14 ]
-  %15 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %9, i64 0, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %9, i64 %indvars.iv.i.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = icmp eq ptr %17, %15
@@ -1053,7 +1053,7 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
 
 .lr.ph.i.i12:                                     ; preds = %46, %.lr.ph.preheader.i.i9
   %indvars.iv.i.i13 = phi i64 [ 0, %.lr.ph.preheader.i.i9 ], [ %indvars.iv.next.i.i33, %46 ]
-  %47 = getelementptr inbounds nuw [3 x %"class.tbb::detail::r1::intrusive_list"], ptr %38, i64 0, i64 %indvars.iv.i.i13
+  %47 = getelementptr inbounds nuw %"class.tbb::detail::r1::intrusive_list", ptr %38, i64 %indvars.iv.i.i13
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !15
   %50 = icmp eq ptr %49, %47

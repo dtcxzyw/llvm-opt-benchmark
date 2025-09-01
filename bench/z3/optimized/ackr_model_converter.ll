@@ -880,7 +880,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 
 111:                                              ; preds = %.lr.ph58, %_ZN7obj_refI4expr11ast_managerED2Ev.exit40
   %indvars.iv = phi i64 [ 1, %.lr.ph58 ], [ %indvars.iv.next, %_ZN7obj_refI4expr11ast_managerED2Ev.exit40 ]
-  %112 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

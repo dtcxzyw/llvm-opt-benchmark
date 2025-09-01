@@ -132,31 +132,29 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_ftcode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(19) @.str.33, ptr noundef nonnull dereferenceable(1) %0) #10
-  %.not714 = icmp eq i32 %2, 0
-  br i1 %.not714, label %._crit_edge, label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv15 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
+2:                                                ; preds = %5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %3 = getelementptr inbounds nuw %struct.ftmap_s, ptr @ftmap, i64 %indvars.iv.next
+  %4 = load ptr, ptr %3, align 16, !tbaa !3
   %exitcond = icmp eq i64 %indvars.iv.next, 86
-  br i1 %exitcond, label %.loopexit, label %3
+  br i1 %exitcond, label %.loopexit, label %5
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw [87 x %struct.ftmap_s], ptr @ftmap, i64 0, i64 %indvars.iv.next
-  %5 = load ptr, ptr %4, align 16, !tbaa !3
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #10
-  %.not7 = icmp eq i32 %6, 0
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+5:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %6 = phi ptr [ @.str.33, %1 ], [ %4, %2 ]
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #10
+  %.not7 = icmp eq i32 %7, 0
+  br i1 %.not7, label %8, label %2
 
-._crit_edge:                                      ; preds = %3, %1
-  %.lcssa = phi ptr [ @ftmap, %1 ], [ %4, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !10
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw %struct.ftmap_s, ptr @ftmap, i64 %indvars.iv, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.05 = phi i32 [ %8, %._crit_edge ], [ 505, %.lr.ph ]
+.loopexit:                                        ; preds = %2, %8
+  %.05 = phi i32 [ %10, %8 ], [ 505, %2 ]
   ret i32 %.05
 }
 
@@ -168,21 +166,21 @@ define ptr @cli_ftname(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq i32 %0, 500
   br i1 %2, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %4
-  %indvars.iv9 = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %3
+  %indvars.iv9 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
-  %3 = getelementptr inbounds nuw [87 x %struct.ftmap_s], ptr @ftmap, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 86
-  br i1 %exitcond, label %._crit_edge.loopexit, label %4
+  br i1 %exitcond, label %._crit_edge.loopexit, label %3
 
-4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !10
-  %7 = icmp eq i32 %6, %0
-  br i1 %7, label %._crit_edge.loopexit, label %.lr.ph
+3:                                                ; preds = %.lr.ph
+  %4 = getelementptr inbounds nuw %struct.ftmap_s, ptr @ftmap, i64 %indvars.iv.next, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !10
+  %6 = icmp eq i32 %5, %0
+  br i1 %6, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %4
-  %8 = load ptr, ptr %3, align 16, !tbaa !3
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %3
+  %7 = getelementptr inbounds nuw %struct.ftmap_s, ptr @ftmap, i64 %indvars.iv.next
+  %8 = load ptr, ptr %7, align 16, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
@@ -559,8 +557,8 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 .preheader:                                       ; preds = %81, %101
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %81 ]
   %88 = phi ptr [ %103, %101 ], [ @.str.3, %81 ]
-  %89 = phi ptr [ %102, %101 ], [ @ooxml_detect, %81 ]
   %.2156284 = phi i32 [ %.3157, %101 ], [ %.0154292, %81 ]
+  %89 = getelementptr inbounds nuw %struct.ooxml_ftcodes, ptr @ooxml_detect, i64 %indvars.iv
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !49
   %bcmp = call i32 @bcmp(ptr nonnull %82, ptr nonnull %88, i64 %91)
@@ -601,7 +599,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 101:                                              ; preds = %93, %.preheader
   %.3157 = phi i32 [ %.2156284, %.preheader ], [ 1, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = getelementptr inbounds nuw [17 x %struct.ooxml_ftcodes], ptr @ooxml_detect, i64 0, i64 %indvars.iv.next
+  %102 = getelementptr inbounds nuw %struct.ooxml_ftcodes, ptr @ooxml_detect, i64 %indvars.iv.next
   %103 = load ptr, ptr %102, align 8, !tbaa !52
   %exitcond = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond, label %104, label %.preheader

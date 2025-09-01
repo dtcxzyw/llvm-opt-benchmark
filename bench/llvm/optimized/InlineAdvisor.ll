@@ -5986,7 +5986,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = and i64 %1, 4294967295
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !88
@@ -6071,7 +6071,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
   store i64 0, ptr %37, align 8, !tbaa !93
   store i8 0, ptr %28, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %switch.gep20 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE.37, i64 0, i64 %.sroa.2.0.extract.shift
+  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE.37, i64 %.sroa.2.0.extract.shift
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %39, ptr %6, align 8, !tbaa !88

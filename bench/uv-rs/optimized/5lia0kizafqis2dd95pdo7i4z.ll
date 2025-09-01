@@ -14848,10 +14848,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$indicatif..style..State$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2188, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17h619b281765e9030cE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17h619b281765e9030cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17h619b281765e9030cE.166", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17h619b281765e9030cE.166", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -31202,10 +31202,10 @@ switch.lookup:                                    ; preds = %_ZN3std4sync6poison
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %231 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 0, i64 %231
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 %231
   %switch.load = load ptr, ptr %switch.gep, align 8
   %232 = zext nneg i8 %1 to i64
-  %switch.gep242 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 0, i64 %232
+  %switch.gep242 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 %232
   %switch.load243 = load i64, ptr %switch.gep242, align 8
   store ptr %switch.load, ptr %41, align 8
   %233 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -31420,10 +31420,10 @@ switch.lookup244:                                 ; preds = %_ZN3std4sync6poison
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %276 = zext nneg i8 %1 to i64
-  %switch.gep245 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 0, i64 %276
+  %switch.gep245 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 %276
   %switch.load246 = load i64, ptr %switch.gep245, align 8
   %277 = zext nneg i8 %1 to i64
-  %switch.gep247 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 0, i64 %277
+  %switch.gep247 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 %277
   %switch.load248 = load ptr, ptr %switch.gep247, align 8
   store ptr %switch.load248, ptr %28, align 8
   %278 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -32040,10 +32040,10 @@ switch.lookup:                                    ; preds = %_ZN3std4sync6poison
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %78 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 0, i64 %78
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 %78
   %switch.load = load i64, ptr %switch.gep, align 8
   %79 = zext nneg i8 %1 to i64
-  %switch.gep54 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 0, i64 %79
+  %switch.gep54 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 %79
   %switch.load55 = load ptr, ptr %switch.gep54, align 8
   store ptr %switch.load55, ptr %11, align 8
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 8

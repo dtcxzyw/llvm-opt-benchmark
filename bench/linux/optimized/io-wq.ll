@@ -152,7 +152,7 @@ define internal fastcc void @io_wq_dec_running(ptr noundef %0) unnamed_addr #0 a
   %7 = icmp eq i32 %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %9 = zext i1 %7 to i64
-  %10 = getelementptr [2 x %struct.io_wq_acct], ptr %8, i64 0, i64 %9
+  %10 = getelementptr %struct.io_wq_acct, ptr %8, i64 %9
   %11 = and i32 %5, 1
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %32, label %13
@@ -205,7 +205,7 @@ define dso_local void @io_wq_enqueue(ptr noundef %0, ptr noundef %1) local_unnam
   %7 = lshr i32 %5, 2
   %8 = and i32 %7, 1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr [2 x %struct.io_wq_acct], ptr %6, i64 0, i64 %9
+  %10 = getelementptr %struct.io_wq_acct, ptr %6, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load volatile i64, ptr %0, align 8
   %12 = and i64 %11, 1
@@ -240,7 +240,7 @@ define dso_local void @io_wq_enqueue(ptr noundef %0, ptr noundef %1) local_unnam
   %32 = lshr i32 %31, 2
   %33 = and i32 %32, 1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr [2 x %struct.io_wq_acct], ptr %6, i64 0, i64 %34
+  %35 = getelementptr %struct.io_wq_acct, ptr %6, i64 %34
   %36 = and i32 %31, 2
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %46
@@ -268,7 +268,7 @@ define dso_local void @io_wq_enqueue(ptr noundef %0, ptr noundef %1) local_unnam
   %47 = lshr i32 %31, 24
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr [64 x ptr], ptr %48, i64 0, i64 %49
+  %50 = getelementptr ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   store ptr %1, ptr %50, align 8
   %52 = icmp eq ptr %51, null
@@ -433,7 +433,7 @@ define internal fastcc noundef zeroext i1 @io_wq_activate_free_worker(ptr nounde
   %33 = icmp eq i32 %32, 0
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %35 = zext i1 %33 to i64
-  %36 = getelementptr [2 x %struct.io_wq_acct], ptr %34, i64 0, i64 %35
+  %36 = getelementptr %struct.io_wq_acct, ptr %34, i64 %35
   %37 = icmp eq ptr %36, %1
   br i1 %37, label %46, label %38
 
@@ -529,7 +529,7 @@ define internal fastcc noundef zeroext i1 @io_acct_cancel_pending_work(ptr nound
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %24 = zext nneg i32 %19 to i64
-  %25 = getelementptr [64 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %10
   br i1 %27, label %28, label %38
@@ -652,7 +652,7 @@ define dso_local range(i32 0, 3) i32 @io_wq_cancel_cb(ptr noundef %0, ptr nounde
 13:                                               ; preds = %.backedge, %4
   %14 = phi i1 [ true, %4 ], [ %.be, %.backedge ]
   %15 = phi i64 [ 0, %4 ], [ %.be5, %.backedge ]
-  %16 = getelementptr [2 x %struct.io_wq_acct], ptr %12, i64 0, i64 %15
+  %16 = getelementptr %struct.io_wq_acct, ptr %12, i64 %15
   %17 = call fastcc zeroext i1 @io_acct_cancel_pending_work(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %5)
   %18 = load i8, ptr %11, align 8, !range !26
   %19 = icmp eq i8 %18, 0
@@ -892,7 +892,7 @@ define internal noundef i32 @io_wq_hash_wake(ptr noundef %0, i32 %1, i32 %2, ptr
 12:                                               ; preds = %22, %4
   %13 = phi i1 [ true, %4 ], [ false, %22 ]
   %14 = phi i64 [ 0, %4 ], [ 1, %22 ]
-  %15 = getelementptr [2 x %struct.io_wq_acct], ptr %11, i64 0, i64 %14
+  %15 = getelementptr %struct.io_wq_acct, ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 0, ptr nonnull elementtype(i64) %16) #17, !srcloc !35
   %18 = icmp ult i8 %17, 2
@@ -1041,7 +1041,7 @@ define dso_local void @io_wq_put_and_exit(ptr noundef %0) local_unnamed_addr #0 
 58:                                               ; preds = %.backedge, %50
   %59 = phi i1 [ true, %50 ], [ %.be, %.backedge ]
   %60 = phi i64 [ 0, %50 ], [ %.be11, %.backedge ]
-  %61 = getelementptr [2 x %struct.io_wq_acct], ptr %57, i64 0, i64 %60
+  %61 = getelementptr %struct.io_wq_acct, ptr %57, i64 %60
   %62 = call fastcc zeroext i1 @io_acct_cancel_pending_work(ptr noundef %0, ptr noundef %61, ptr noundef nonnull %2)
   %63 = load i8, ptr %52, align 8, !range !26
   %64 = icmp eq i8 %63, 0
@@ -1367,7 +1367,7 @@ define internal void @create_worker_cb(ptr noundef %0) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr [2 x %struct.io_wq_acct], ptr %4, i64 0, i64 %7
+  %8 = getelementptr %struct.io_wq_acct, ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 192
   tail call void @_raw_spin_lock(ptr noundef nonnull %9) #17
   %10 = load i32, ptr %8, align 8
@@ -1515,7 +1515,7 @@ define internal fastcc void @io_worker_cancel_cb(ptr noundef %0) unnamed_addr #0
   %7 = icmp eq i32 %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %9 = zext i1 %7 to i64
-  %10 = getelementptr [2 x %struct.io_wq_acct], ptr %8, i64 0, i64 %9
+  %10 = getelementptr %struct.io_wq_acct, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, ptr nonnull elementtype(i32) %11) #17, !srcloc !46
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -1669,7 +1669,7 @@ define internal void @create_worker_cont(ptr noundef %0) #0 align 16 {
   %58 = icmp eq i32 %57, 0
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %60 = zext i1 %58 to i64
-  %61 = getelementptr [2 x %struct.io_wq_acct], ptr %59, i64 0, i64 %60
+  %61 = getelementptr %struct.io_wq_acct, ptr %59, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %62, ptr nonnull elementtype(i32) %62) #17, !srcloc !46
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 192
@@ -1765,7 +1765,7 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #8 align 16 {
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %11 = zext i1 %9 to i64
-  %12 = getelementptr [2 x %struct.io_wq_acct], ptr %10, i64 0, i64 %11
+  %12 = getelementptr %struct.io_wq_acct, ptr %10, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !18
   %13 = or i32 %7, 3
@@ -2009,7 +2009,7 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #8 align 16 {
   %134 = icmp eq i32 %133, 0
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 96
   %136 = zext i1 %134 to i64
-  %137 = getelementptr [2 x %struct.io_wq_acct], ptr %135, i64 0, i64 %136
+  %137 = getelementptr %struct.io_wq_acct, ptr %135, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 12
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %138, ptr nonnull elementtype(i32) %138) #17, !srcloc !46
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 192
@@ -2201,7 +2201,7 @@ define internal fastcc void @io_worker_handle_work(ptr noundef %0, ptr noundef %
 44:                                               ; preds = %28
   %45 = lshr i32 %33, 24
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr [64 x ptr], ptr %27, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr %27, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %25, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2212,7 +2212,7 @@ define internal fastcc void @io_worker_handle_work(ptr noundef %0, ptr noundef %
   br i1 %53, label %54, label %63
 
 54:                                               ; preds = %44
-  %55 = getelementptr [64 x ptr], ptr %27, i64 0, i64 %46
+  %55 = getelementptr ptr, ptr %27, i64 %46
   store ptr null, ptr %55, align 8
   %56 = icmp eq ptr %30, null
   %57 = load ptr, ptr %48, align 8
@@ -2699,7 +2699,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #2
 define internal fastcc noundef zeroext i1 @create_io_worker(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [2 x %struct.io_wq_acct], ptr %3, i64 0, i64 %4
+  %5 = getelementptr %struct.io_wq_acct, ptr %3, i64 %4
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !5
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2856,7 +2856,7 @@ define internal void @io_workqueue_create(ptr noundef %0) #0 align 16 {
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %10 = zext i1 %8 to i64
-  %11 = getelementptr [2 x %struct.io_wq_acct], ptr %9, i64 0, i64 %10
+  %11 = getelementptr %struct.io_wq_acct, ptr %9, i64 %10
   %12 = tail call fastcc zeroext i1 @io_queue_worker_create(ptr noundef %2, ptr noundef %11, ptr noundef nonnull @create_worker_cont)
   br i1 %12, label %14, label %13
 

@@ -3689,7 +3689,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   %.0363 = phi ptr [ %.09, %.lr.ph ], [ %.1.i63, %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit73 ]
   %80 = load ptr, ptr %52, align 8, !tbaa !53
   %81 = zext i32 %.0345 to i64
-  %82 = getelementptr inbounds nuw [6 x i64], ptr @_ZZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionEE10MaskValues, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i64, ptr @_ZZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionEE10MaskValues, i64 %81
   %83 = load i64, ptr %82, align 8, !tbaa !111
   %84 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %80, i64 noundef %83, i1 noundef zeroext false) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

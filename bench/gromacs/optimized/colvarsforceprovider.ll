@@ -703,7 +703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
 .preheader.i:                                     ; preds = %191, %.preheader10.i
   %indvars.iv14.i = phi i64 [ 0, %.preheader10.i ], [ %indvars.iv.next15.i, %191 ]
   %189 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv14.i
-  %190 = getelementptr inbounds nuw [3 x [3 x float]], ptr %188, i64 0, i64 %indvars.iv14.i
+  %190 = getelementptr inbounds nuw [3 x float], ptr %188, i64 %indvars.iv14.i
   br label %192
 
 191:                                              ; preds = %192
@@ -713,9 +713,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
 
 192:                                              ; preds = %192, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %192 ]
-  %193 = getelementptr inbounds nuw [3 x float], ptr %189, i64 0, i64 %indvars.iv.i
+  %193 = getelementptr inbounds nuw float, ptr %189, i64 %indvars.iv.i
   %194 = load float, ptr %193, align 4, !tbaa !146
-  %195 = getelementptr inbounds nuw [3 x float], ptr %190, i64 0, i64 %indvars.iv.i
+  %195 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv.i
   %196 = load float, ptr %195, align 4, !tbaa !146
   %197 = fadd float %194, %196
   store float %197, ptr %195, align 4, !tbaa !146
@@ -770,7 +770,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %191, %._
 
 .preheader.i62:                                   ; preds = %233, %198
   %indvars.iv14.i63 = phi i64 [ 0, %198 ], [ %indvars.iv.next15.i67, %233 ]
-  %228 = getelementptr inbounds nuw [3 x float], ptr %208, i64 0, i64 %indvars.iv14.i63
+  %228 = getelementptr inbounds nuw float, ptr %208, i64 %indvars.iv14.i63
   %229 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv14.i63
   %230 = load float, ptr %228, align 4, !tbaa !146
   %231 = fpext float %230 to double
@@ -784,10 +784,10 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %191, %._
 
 234:                                              ; preds = %234, %.preheader.i62
   %indvars.iv.i64 = phi i64 [ 0, %.preheader.i62 ], [ %indvars.iv.next.i65, %234 ]
-  %235 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv.i64
+  %235 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i64
   %236 = load float, ptr %235, align 4, !tbaa !146
   %237 = fpext float %236 to double
-  %238 = getelementptr inbounds nuw [3 x float], ptr %229, i64 0, i64 %indvars.iv.i64
+  %238 = getelementptr inbounds nuw float, ptr %229, i64 %indvars.iv.i64
   %239 = load float, ptr %238, align 4, !tbaa !146
   %240 = fpext float %239 to double
   %241 = call double @llvm.fmuladd.f64(double %232, double %237, double %240)
@@ -1129,7 +1129,7 @@ define void @_ZNK3gmx25ColvarsForceProviderState10writeStateENS_25KeyValueTreeOb
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3gmx31KeyValueTreeUniformArrayBuilderIdE8addValueERKd.exit ]
   %28 = load ptr, ptr %11, align 8, !tbaa !180
   %29 = getelementptr inbounds nuw [3 x float], ptr %28, i64 %indvars.iv30
-  %30 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !146
   %32 = fpext float %31 to double
   %33 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !181
@@ -3138,7 +3138,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i:             ; preds = %82
   %94 = fptrunc double %93 to float
   %95 = load ptr, ptr %48, align 8, !tbaa !180
   %96 = getelementptr inbounds nuw [3 x float], ptr %95, i64 %.03187
-  %97 = getelementptr inbounds nuw [3 x float], ptr %96, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
   store float %94, ptr %97, align 4, !tbaa !146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -5190,7 +5190,7 @@ define void @_ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11Basi
 
 .preheader:                                       ; preds = %3, %7
   %indvars.iv14 = phi i64 [ 0, %3 ], [ %indvars.iv.next15, %7 ]
-  %4 = getelementptr inbounds nuw [3 x float], ptr %1, i64 0, i64 %indvars.iv14
+  %4 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv14
   %5 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv14
   br label %8
 
@@ -5206,10 +5206,10 @@ define void @_ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11Basi
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
   %9 = load float, ptr %4, align 4, !tbaa !146
   %10 = fpext float %9 to double
-  %11 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !146
   %13 = fpext float %12 to double
-  %14 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %15 = load float, ptr %14, align 4, !tbaa !146
   %16 = fpext float %15 to double
   %17 = fmul double %10, -5.000000e-01

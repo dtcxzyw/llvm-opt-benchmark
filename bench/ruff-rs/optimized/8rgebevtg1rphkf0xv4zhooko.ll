@@ -5798,13 +5798,13 @@ switch.lookup:                                    ; preds = %2
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %75 = load i8, ptr %74, align 8, !range !291, !noalias !917, !noundef !21
   %76 = zext nneg i8 %75 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN85_$LT$ruff_db..diagnostic..render..DisplayDiagnostic$u20$as$u20$core..fmt..Display$GT$3fmt17h3df8515886bbd25fE", i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN85_$LT$ruff_db..diagnostic..render..DisplayDiagnostic$u20$as$u20$core..fmt..Display$GT$3fmt17h3df8515886bbd25fE", i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
   %77 = zext nneg i8 %75 to i64
-  %switch.gep354 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN85_$LT$ruff_db..diagnostic..render..DisplayDiagnostic$u20$as$u20$core..fmt..Display$GT$3fmt17h3df8515886bbd25fE.138", i64 0, i64 %77
+  %switch.gep354 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN85_$LT$ruff_db..diagnostic..render..DisplayDiagnostic$u20$as$u20$core..fmt..Display$GT$3fmt17h3df8515886bbd25fE.138", i64 %77
   %switch.load355 = load ptr, ptr %switch.gep354, align 8
   %78 = zext nneg i8 %75 to i64
-  %switch.gep356 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN85_$LT$ruff_db..diagnostic..render..DisplayDiagnostic$u20$as$u20$core..fmt..Display$GT$3fmt17h3df8515886bbd25fE.139", i64 0, i64 %78
+  %switch.gep356 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$ruff_db..diagnostic..render..DisplayDiagnostic$u20$as$u20$core..fmt..Display$GT$3fmt17h3df8515886bbd25fE.139", i64 %78
   %switch.load357 = load i64, ptr %switch.gep356, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)

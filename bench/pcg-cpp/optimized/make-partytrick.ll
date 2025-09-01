@@ -354,9 +354,9 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit19: ; preds = %100
 
 104:                                              ; preds = %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit, %233
   %indvars.iv = phi i64 [ 0, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit ], [ %indvars.iv.next, %233 ]
-  %105 = getelementptr inbounds nuw [257 x i8], ptr @desired, i64 0, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw i8, ptr @desired, i64 %indvars.iv
   %106 = load i8, ptr %105, align 1, !tbaa !13
-  %107 = getelementptr inbounds nuw [257 x i8], ptr @breaks, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i8, ptr @breaks, i64 %indvars.iv
   %108 = load i8, ptr %107, align 1, !tbaa !13
   %109 = sext i8 %108 to i32
   %110 = shl nsw i32 %109, 6
@@ -395,7 +395,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit19: ; preds = %100
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE18get_extended_valueEv.exit: ; preds = %118, %122
   %123 = phi i64 [ %119, %118 ], [ %.pre, %122 ]
   %124 = and i64 %119, 63
-  %125 = getelementptr inbounds nuw [64 x i32], ptr %44, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr %44, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !15
   %127 = mul i64 %123, 6364136223846793005
   %128 = load i64, ptr %4, align 8, !tbaa !22
@@ -512,7 +512,7 @@ _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15sp
   %184 = phi i64 [ %167, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit69 ], [ %.pre99, %183 ]
   %185 = phi i64 [ %180, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit69 ], [ %.pre.i, %183 ]
   %186 = and i64 %180, 63
-  %187 = getelementptr inbounds nuw [64 x i32], ptr %44, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i32, ptr %44, i64 %186
   %188 = mul i64 %185, 6364136223846793005
   %189 = add i64 %184, %188
   store i64 %189, ptr %40, align 8, !tbaa !24
@@ -1023,7 +1023,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
   %7 = add i64 %.013, %1
   %8 = trunc i64 %7 to i32
   %9 = lshr i64 %7, 32
-  %10 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %.01112
+  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %.01112
   %11 = add nuw nsw i64 %.01112, 1
   %12 = tail call noundef zeroext i1 @_ZN10pcg_detail10inside_outINS_6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEEEE16external_advanceERjmjb(ptr noundef nonnull align 4 dereferenceable(4) %10, i64 noundef %11, i32 noundef %8, i1 noundef zeroext %2)
   %13 = zext i1 %12 to i64
@@ -1162,7 +1162,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
 4:                                                ; preds = %1, %._crit_edge
   %.012 = phi i1 [ false, %1 ], [ %49, %._crit_edge ]
   %.0911 = phi i64 [ 0, %1 ], [ %29, %._crit_edge ]
-  %5 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %.0911
+  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %.0911
   %6 = load i32, ptr %5, align 4, !tbaa !15
   br i1 %.012, label %7, label %._crit_edge
 
@@ -1193,7 +1193,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
 ._crit_edge:                                      ; preds = %4, %7
   %27 = phi i32 [ %25, %7 ], [ %6, %4 ]
   %.1 = phi i1 [ %26, %7 ], [ false, %4 ]
-  %28 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %.0911
+  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %.0911
   %29 = add nuw nsw i64 %.0911, 1
   %30 = lshr i32 %27, 22
   %31 = xor i32 %30, %27

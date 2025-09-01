@@ -3067,7 +3067,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1030: ; preds = %1683, 
   %1774 = phi i1 [ false, %1779 ], [ true, %.preheader27.i.preheader ]
   %indvars.iv32.i.sroa.phi = phi ptr [ %indvars.iv32.i.sroa.gep1213, %1779 ], [ %63, %.preheader27.i.preheader ]
   %indvars.iv32.i = phi i64 [ 1, %1779 ], [ 0, %.preheader27.i.preheader ]
-  %1775 = getelementptr inbounds nuw [2 x %"class.gmx::BasicVector.497"], ptr %1724, i64 0, i64 %indvars.iv32.i
+  %1775 = getelementptr inbounds nuw %"class.gmx::BasicVector.497", ptr %1724, i64 %indvars.iv32.i
   br label %1780
 
 1776:                                             ; preds = %1779
@@ -3083,10 +3083,10 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1030: ; preds = %1683, 
 
 1780:                                             ; preds = %1780, %.preheader27.i
   %indvars.iv.i = phi i64 [ 0, %.preheader27.i ], [ %indvars.iv.next.i, %1780 ]
-  %1781 = getelementptr inbounds nuw [3 x double], ptr %indvars.iv32.i.sroa.phi, i64 0, i64 %indvars.iv.i
+  %1781 = getelementptr inbounds nuw double, ptr %indvars.iv32.i.sroa.phi, i64 %indvars.iv.i
   %1782 = load double, ptr %1781, align 8, !tbaa !201
   %1783 = fptrunc double %1782 to float
-  %1784 = getelementptr inbounds nuw [3 x float], ptr %1775, i64 0, i64 %indvars.iv.i
+  %1784 = getelementptr inbounds nuw float, ptr %1775, i64 %indvars.iv.i
   store float %1783, ptr %1784, align 4, !tbaa !146
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -3108,10 +3108,10 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1030: ; preds = %1683, 
   %1792 = load float, ptr %1777, align 4, !tbaa !146
   %1793 = fpext float %1792 to double
   %1794 = fsub double 1.000000e+00, %1793
-  %1795 = getelementptr inbounds nuw [3 x float], ptr %1724, i64 0, i64 %indvars.iv35.i
+  %1795 = getelementptr inbounds nuw float, ptr %1724, i64 %indvars.iv35.i
   %1796 = load float, ptr %1795, align 4, !tbaa !146
   %1797 = fpext float %1796 to double
-  %1798 = getelementptr inbounds nuw [3 x float], ptr %1778, i64 0, i64 %indvars.iv35.i
+  %1798 = getelementptr inbounds nuw float, ptr %1778, i64 %indvars.iv35.i
   %1799 = load float, ptr %1798, align 4, !tbaa !146
   %1800 = fmul float %1792, %1799
   %1801 = fpext float %1800 to double
@@ -4164,7 +4164,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1064: ; preds = %2418, 
 2476:                                             ; preds = %.preheader, %2476
   %indvars.iv.i1065 = phi i64 [ %indvars.iv.next.i1066, %2476 ], [ 0, %.preheader ]
   %2477 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv.i1065
-  %2478 = getelementptr inbounds nuw [3 x float], ptr %2477, i64 0, i64 %indvars.iv.i1065
+  %2478 = getelementptr inbounds nuw float, ptr %2477, i64 %indvars.iv.i1065
   %2479 = load float, ptr %2478, align 4, !tbaa !146
   %2480 = fadd float %.sroa.01193.0.vec.extract, %2479
   store float %2480, ptr %2478, align 4, !tbaa !146
@@ -5373,7 +5373,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
 3181:                                             ; preds = %3175
   %3182 = call noundef ptr @_ZN3gmx22StatePropagatorDataGpu14fReadyOnDeviceENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 0)
   %3183 = load i64, ptr %3178, align 8, !tbaa !501
-  %3184 = getelementptr inbounds nuw [2 x ptr], ptr %88, i64 0, i64 %3183
+  %3184 = getelementptr inbounds nuw ptr, ptr %88, i64 %3183
   store ptr %3182, ptr %3184, align 8, !tbaa !504
   %3185 = add i64 %3183, 1
   store i64 %3185, ptr %3178, align 8, !tbaa !501
@@ -5382,7 +5382,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1112: ; preds 
 3186:                                             ; preds = %3175, %3181
   %3187 = call noundef ptr @_ZN3gmx22StatePropagatorDataGpu16fReducedOnDeviceENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 1)
   %3188 = load i64, ptr %3178, align 8, !tbaa !501
-  %3189 = getelementptr inbounds nuw [2 x ptr], ptr %88, i64 0, i64 %3188
+  %3189 = getelementptr inbounds nuw ptr, ptr %88, i64 %3188
   store ptr %3187, ptr %3189, align 8, !tbaa !504
   %3190 = add i64 %3188, 1
   store i64 %3190, ptr %3178, align 8, !tbaa !501
@@ -6715,7 +6715,7 @@ define internal fastcc void @_ZN3gmxL12do_nb_verletEP10t_forcerecPK19interaction
   %44 = load i8, ptr %43, align 8, !tbaa !527, !range !142, !noundef !143
   %45 = trunc nuw i8 %44 to i1
   %46 = select i1 %45, i64 2, i64 1
-  %47 = getelementptr inbounds nuw [5 x %"class.std::vector.60"], ptr %42, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %"class.std::vector.60", ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !444
   store ptr %48, ptr %10, align 8, !tbaa !255
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7490,7 +7490,7 @@ define internal fastcc void @_ZN3gmxL17postProcessForcesEPK9t_commreclP6t_nrnbP1
 .preheader.i:                                     ; preds = %41, %.preheader10.i
   %indvars.iv14.i = phi i64 [ 0, %.preheader10.i ], [ %indvars.iv.next15.i, %41 ]
   %39 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv14.i
-  %40 = getelementptr inbounds nuw [3 x [3 x float]], ptr %38, i64 0, i64 %indvars.iv14.i
+  %40 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv14.i
   br label %42
 
 41:                                               ; preds = %42
@@ -7500,9 +7500,9 @@ define internal fastcc void @_ZN3gmxL17postProcessForcesEPK9t_commreclP6t_nrnbP1
 
 42:                                               ; preds = %42, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %42 ]
-  %43 = getelementptr inbounds nuw [3 x float], ptr %39, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
   %44 = load float, ptr %43, align 4, !tbaa !146
-  %45 = getelementptr inbounds nuw [3 x float], ptr %40, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4, !tbaa !146
   %47 = fadd float %44, %46
   store float %47, ptr %45, align 4, !tbaa !146

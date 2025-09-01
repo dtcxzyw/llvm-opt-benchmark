@@ -1907,7 +1907,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !10
   %38 = tail call i32 @Acec_DetectLitPolarity(ptr noundef %0, i32 noundef %33, i32 noundef %37)
-  %39 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %38, ptr %39, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2216,7 +2216,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv94 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next95, %77 ]
   %78 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv94
   %79 = load i32, ptr %78, align 4, !tbaa !10
-  %80 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv94
+  %80 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv94
   store i32 %79, ptr %80, align 4, !tbaa !10
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %.val47 = load i32, ptr %43, align 4, !tbaa !41

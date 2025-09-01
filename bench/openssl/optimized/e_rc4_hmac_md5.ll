@@ -278,7 +278,7 @@ define internal range(i32 -1, 17) i32 @rc4_hmac_md5_ctrl(ptr noundef %0, i32 nou
 
 17:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = xor i8 %19, 54
   store i8 %20, ptr %18, align 1, !tbaa !8
@@ -294,7 +294,7 @@ define internal range(i32 -1, 17) i32 @rc4_hmac_md5_ctrl(ptr noundef %0, i32 nou
 
 25:                                               ; preds = %21, %25
   %indvars.iv54 = phi i64 [ 0, %21 ], [ %indvars.iv.next55, %25 ]
-  %26 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv54
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv54
   %27 = load i8, ptr %26, align 1, !tbaa !8
   %28 = xor i8 %27, 106
   store i8 %28, ptr %26, align 1, !tbaa !8

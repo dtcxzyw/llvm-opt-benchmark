@@ -602,7 +602,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 
 350:                                              ; preds = %345
   %351 = zext nneg i16 %348 to i64
-  %352 = getelementptr [11 x i32], ptr @hpx3_device_type.pcie_to_hpx3_type, i64 0, i64 %351
+  %352 = getelementptr i32, ptr @hpx3_device_type.pcie_to_hpx3_type, i64 %351
   %353 = load i32, ptr %352, align 4
   %354 = trunc i32 %353 to i16
   br label %355
@@ -1302,7 +1302,7 @@ define dso_local i32 @acpi_pci_set_power_state(ptr noundef %0, i32 noundef %1) l
 
 33:                                               ; preds = %30, %16
   %34 = zext nneg i32 %1 to i64
-  %35 = getelementptr [5 x i8], ptr @acpi_pci_set_power_state.state_conv, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @acpi_pci_set_power_state.state_conv, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = tail call i32 @acpi_device_set_power(ptr noundef nonnull %7, i32 noundef %37) #9
@@ -1373,7 +1373,7 @@ define dso_local i32 @acpi_pci_get_power_state(ptr noundef readonly captures(non
 
 17:                                               ; preds = %13
   %18 = sext i32 %15 to i64
-  %19 = getelementptr [5 x i32], ptr @acpi_pci_get_power_state.state_conv, i64 0, i64 %18
+  %19 = getelementptr i32, ptr @acpi_pci_get_power_state.state_conv, i64 %18
   %20 = load i32, ptr %19, align 4
   br label %21
 

@@ -615,7 +615,7 @@ b2BodyArray_Push.exit:                            ; preds = %.b2BodyArray_Reserv
   %169 = load ptr, ptr %165, align 8, !tbaa !121
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 %indvars.iv
   %171 = load i8, ptr %170, align 1, !tbaa !122
-  %172 = getelementptr inbounds nuw [32 x i8], ptr %164, i64 0, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 %indvars.iv
   store i8 %171, ptr %172, align 1, !tbaa !122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 31
@@ -3017,7 +3017,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %102, %143
   %.val192 = load ptr, ptr %6, align 8, !tbaa !10
   %164 = xor i32 %152, 1
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw [2 x %struct.b2JointEdge], ptr %155, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %155, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !203
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds %struct.b2Body, ptr %.val192, i64 %168, i32 2
@@ -3131,7 +3131,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %102, %143
   %215 = load i32, ptr %214, align 4, !tbaa !157
   %216 = xor i32 %208, 1
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw [2 x %struct.b2JointEdge], ptr %211, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %211, i64 %217
   %219 = load i32, ptr %218, align 4, !tbaa !203
   %.val = load ptr, ptr %6, align 8, !tbaa !10
   %220 = sext i32 %219 to i64
@@ -3206,7 +3206,7 @@ define void @b2Body_SetName(i64 %0, ptr noundef readonly captures(address_is_nul
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !122
-  %14 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   store i8 %13, ptr %14, align 1, !tbaa !122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 31
@@ -4669,7 +4669,7 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %25 = xor i32 %18, 1
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw [2 x %struct.b2JointEdge], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !203
   %30 = icmp eq i32 %29, %.025
   br i1 %30, label %.critedge, label %31

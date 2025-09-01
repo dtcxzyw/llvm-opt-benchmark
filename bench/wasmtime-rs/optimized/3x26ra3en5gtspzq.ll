@@ -243,10 +243,10 @@ switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %switch.tableidx = xor i8 %2, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE.2", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$cranelift_codegen..ir..instructions..Opcode$u20$as$u20$core..fmt..Debug$GT$3fmt17h84260eb1987cf5beE.2", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -754,7 +754,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit: ;
 21:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE.exit
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %23 = load ptr, ptr %22, align 8, !alias.scope !133, !noalias !136, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds [0 x { [9 x i32], i32, [4 x i32] }], ptr %23, i64 0, i64 %19
+  %24 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %23, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %26 = load i32, ptr %25, align 4, !range !139, !noalias !140, !noundef !5
   %.not.i.i = icmp samesign ult i32 %26, 2
@@ -804,7 +804,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
 _ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE.exit: ; preds = %_ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d28e8dfE.exit.i
   %.not.i6.i = icmp samesign ult i32 %34, 2
   %39 = select i1 %.not.i6.i, i64 0, i64 %.pre-phi10.i
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %39
   %switch.load = load i64, ptr %switch.gep, align 8
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 %switch.load
   %.0.i8.i = load i32, ptr %40, align 4, !alias.scope !150, !noalias !140, !noundef !5
@@ -829,7 +829,7 @@ define void @_ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf67
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds [0 x { [9 x i32], i32, [4 x i32] }], ptr %12, i64 0, i64 %8
+  %13 = getelementptr inbounds { [9 x i32], i32, [4 x i32] }, ptr %12, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %15 = load i32, ptr %14, align 4, !range !139, !noundef !5
   %.not.i = icmp samesign ult i32 %15, 2
@@ -866,7 +866,7 @@ _ZN14cranelift_wasm5state17ControlStackFrame20set_branched_to_exit17hb35c5be27d2
   %.0 = load i64, ptr %.0.in, align 8, !noundef !5
   %.not.i6 = icmp samesign ult i32 %23, 2
   %24 = select i1 %.not.i6, i64 0, i64 %.pre-phi10
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm15code_translator20translate_br_if_args17hbdaf6722bec639ceE, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
   %.0.i8 = load i32, ptr %25, align 4, !alias.scope !159, !noundef !5

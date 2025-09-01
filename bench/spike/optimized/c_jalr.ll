@@ -112,7 +112,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_c_jalrP11p
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %24 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %16
+  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %16
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = shl i64 %25, 32
   %27 = ashr exact i64 %26, 32
@@ -278,7 +278,7 @@ define noundef range(i64 0, -1) i64 @_Z17fast_rv64i_c_jalrP11processor_t6insn_tm
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %22 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %14
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %14
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = and i64 %23, -2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -432,7 +432,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_c_jalrP1
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %24, i64 0, i64 %17
+  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %17
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = shl i64 %26, 32
   %28 = ashr exact i64 %27, 32
@@ -680,7 +680,7 @@ define noundef range(i64 0, -1) i64 @_Z19logged_rv64i_c_jalrP11processor_t6insn_
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %15
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %15
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = and i64 %24, -2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -857,7 +857,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_c_jalrP11p
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %31 = getelementptr inbounds nuw [32 x i64], ptr %30, i64 0, i64 %16
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %16
   %32 = load i64, ptr %31, align 8, !tbaa !3
   %33 = shl i64 %32, 32
   %34 = ashr exact i64 %33, 32
@@ -1026,7 +1026,7 @@ define noundef range(i64 0, -1) i64 @_Z17fast_rv64e_c_jalrP11processor_t6insn_tm
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %28, i64 0, i64 %14
+  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %14
   %30 = load i64, ptr %29, align 8, !tbaa !3
   %31 = and i64 %30, -2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1196,7 +1196,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_c_jalrP1
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %32 = getelementptr inbounds nuw [32 x i64], ptr %31, i64 0, i64 %17
+  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %17
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %34 = shl i64 %33, 32
   %35 = ashr exact i64 %34, 32
@@ -1374,7 +1374,7 @@ define noundef range(i64 0, -1) i64 @_Z19logged_rv64e_c_jalrP11processor_t6insn_
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %15
+  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %15
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = and i64 %31, -2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3840

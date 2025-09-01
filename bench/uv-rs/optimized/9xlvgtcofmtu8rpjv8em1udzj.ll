@@ -24765,10 +24765,10 @@ define internal noundef zeroext i1 @"_ZN65_$LT$uv_pep440..version..Operator$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1910, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN65_$LT$uv_pep440..version..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hf15424b859930698E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN65_$LT$uv_pep440..version..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hf15424b859930698E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN65_$LT$uv_pep440..version..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hf15424b859930698E.158", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN65_$LT$uv_pep440..version..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hf15424b859930698E.158", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -47269,7 +47269,7 @@ switch.lookup:
   %5 = load i64, ptr %4, align 8, !range !557, !noundef !8
   %6 = add nsw i64 %5, -2
   %7 = tail call i64 @llvm.umin.i64(i64 %6, i64 6)
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN11uv_resolver4lock30each_element_on_its_line_array28_$u7b$$u7b$closure$u7d$$u7d$17h85d62b6c3747d081E.llvm.12339422036629587697", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11uv_resolver4lock30each_element_on_its_line_array28_$u7b$$u7b$closure$u7d$$u7d$17h85d62b6c3747d081E.llvm.12339422036629587697", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10718)
@@ -55682,7 +55682,7 @@ define hidden noundef zeroext i1 @"_ZN11uv_resolver15requires_python14RequiresPy
 
 switch.lookup:                                    ; preds = %50
   %58 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN11uv_resolver15requires_python14RequiresPython17matches_wheel_tag28_$u7b$$u7b$closure$u7d$$u7d$17ha623bafb54186048E.llvm.12339422036629587697", i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11uv_resolver15requires_python14RequiresPython17matches_wheel_tag28_$u7b$$u7b$closure$u7d$$u7d$17ha623bafb54186048E.llvm.12339422036629587697", i64 %58
   %switch.load = load i64, ptr %switch.gep, align 8
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 %switch.load
   %.sroa.03.0.in.in.i.i = load i8, ptr %59, align 1, !alias.scope !12228, !noalias !12231, !noundef !8

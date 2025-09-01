@@ -56,7 +56,7 @@ define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
 
 19:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !43
@@ -65,7 +65,7 @@ define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
 
 24:                                               ; preds = %19
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %35
@@ -83,7 +83,7 @@ define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
 
 35:                                               ; preds = %29, %24
   %36 = sext i32 %23 to i64
-  %37 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %9, i64 %36
   tail call void @jpeg_make_d_derived_tbl(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %23, ptr noundef nonnull %37) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %4, align 8, !tbaa !41
@@ -112,10 +112,10 @@ define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
   %.05674 = phi i32 [ 0, %.lr.ph75 ], [ %.1.lcssa, %.loopexit ]
   %.05773 = phi i32 [ 0, %.lr.ph75 ], [ %.158.lcssa, %.loopexit ]
   %47 = sext i32 %.05773 to i64
-  %48 = getelementptr inbounds [10 x i32], ptr %14, i64 0, i64 %47
+  %48 = getelementptr inbounds i32, ptr %14, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !53
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [4 x ptr], ptr %13, i64 0, i64 %50
+  %51 = getelementptr inbounds ptr, ptr %13, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !40
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !54
@@ -135,7 +135,7 @@ define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
 .lr.ph69.split.us:                                ; preds = %.lr.ph69, %.lr.ph69.split.us
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph69.split.us ], [ %62, %.lr.ph69 ]
   %.05567.us = phi i32 [ %66, %.lr.ph69.split.us ], [ 0, %.lr.ph69 ]
-  %63 = getelementptr inbounds [10 x %struct.lhd_output_ptr_info], ptr %15, i64 0, i64 %indvars.iv82
+  %63 = getelementptr inbounds %struct.lhd_output_ptr_info, ptr %15, i64 %indvars.iv82
   store i32 %54, ptr %63, align 4, !tbaa !57
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %.05567.us, ptr %64, align 4, !tbaa !59
@@ -152,7 +152,7 @@ define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %._crit_edge ], [ %62, %.lr.ph69 ]
   %.05567 = phi i32 [ %87, %._crit_edge ], [ 0, %.lr.ph69 ]
   %.15865 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %.05773, %.lr.ph69 ]
-  %69 = getelementptr inbounds [10 x %struct.lhd_output_ptr_info], ptr %15, i64 0, i64 %indvars.iv88
+  %69 = getelementptr inbounds %struct.lhd_output_ptr_info, ptr %15, i64 %indvars.iv88
   store i32 %54, ptr %69, align 4, !tbaa !57
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 %.05567, ptr %70, align 4, !tbaa !59
@@ -169,13 +169,13 @@ define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
   %indvars.iv85 = phi i64 [ %73, %.lr.ph64.preheader ], [ %indvars.iv.next86, %.lr.ph64 ]
   %.063 = phi i32 [ 0, %.lr.ph64.preheader ], [ %81, %.lr.ph64 ]
-  %75 = getelementptr inbounds [10 x i32], ptr %16, i64 0, i64 %indvars.iv85
+  %75 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv85
   store i32 %74, ptr %75, align 4, !tbaa !53
   %76 = load i32, ptr %59, align 4, !tbaa !43
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [4 x ptr], ptr %17, i64 0, i64 %77
+  %78 = getelementptr inbounds ptr, ptr %17, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !40
-  %80 = getelementptr inbounds [10 x ptr], ptr %18, i64 0, i64 %indvars.iv85
+  %80 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv85
   store ptr %79, ptr %80, align 8, !tbaa !40
   %81 = add nuw nsw i32 %.063, 1
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, 1
@@ -229,7 +229,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [10 x %struct.lhd_output_ptr_info], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.lhd_output_ptr_info, ptr %12, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !59
@@ -245,7 +245,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %28 = mul i32 %20, %3
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i32, ptr %27, i64 %29
-  %31 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr %30, ptr %31, align 8, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -270,7 +270,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
 
 38:                                               ; preds = %.lr.ph149, %38
   %indvars.iv164 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next165, %38 ]
-  %39 = getelementptr inbounds nuw [10 x ptr], ptr %36, i64 0, i64 %indvars.iv164
+  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv164
   %40 = load ptr, ptr %39, align 8, !tbaa !71
   %.idx = mul nuw nsw i64 %indvars.iv164, 12
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
@@ -343,7 +343,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %126 ], [ 0, %.preheader ]
   %.1102152 = phi i32 [ %.7, %126 ], [ %.0101159, %.preheader ]
   %.1108151 = phi i64 [ %.7114, %126 ], [ %.0107158, %.preheader ]
-  %77 = getelementptr inbounds nuw [10 x ptr], ptr %65, i64 0, i64 %indvars.iv167
+  %77 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv167
   %78 = load ptr, ptr %77, align 8, !tbaa !40
   %79 = icmp slt i32 %.1102152, 8
   br i1 %79, label %80, label %86
@@ -367,7 +367,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %89 = lshr i64 %.2109, %88
   %90 = and i64 %89, 255
   %91 = getelementptr inbounds nuw i8, ptr %78, i64 296
-  %92 = getelementptr inbounds nuw [256 x i32], ptr %91, i64 0, i64 %90
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %90
   %93 = load i32, ptr %92, align 4, !tbaa !53
   %94 = ashr i32 %93, 8
   %95 = icmp slt i32 %94, 9
@@ -440,10 +440,10 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %.7114 = phi i64 [ %.3110.ph, %106 ], [ %.8115, %114 ], [ %.3110.ph, %105 ]
   %.7 = phi i32 [ %.3104.ph, %106 ], [ %115, %114 ], [ %.3104.ph, %105 ]
   %.5 = phi i32 [ 32768, %106 ], [ %125, %114 ], [ %.296.ph, %105 ]
-  %127 = getelementptr inbounds nuw [10 x i32], ptr %69, i64 0, i64 %indvars.iv167
+  %127 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv167
   %128 = load i32, ptr %127, align 4, !tbaa !53
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [10 x ptr], ptr %68, i64 0, i64 %129
+  %130 = getelementptr inbounds ptr, ptr %68, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !71
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store ptr %132, ptr %130, align 8, !tbaa !71

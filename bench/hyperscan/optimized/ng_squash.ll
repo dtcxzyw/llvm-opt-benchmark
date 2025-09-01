@@ -4150,7 +4150,7 @@ _ZN5boost14dynamic_bitsetImSaImEE3setEv.exit:     ; preds = %.lr.ph.i.i.i.i111, 
 
 .preheader:                                       ; preds = %.preheader.preheader, %174
   %.0813.i.i = phi i64 [ %175, %174 ], [ 0, %.preheader.preheader ]
-  %176 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.0813.i.i
+  %176 = getelementptr inbounds nuw i64, ptr %4, i64 %.0813.i.i
   %177 = load i64, ptr %176, align 8
   %.not.i.i124 = icmp eq i64 %177, -1
   br i1 %.not.i.i124, label %174, label %_ZNK3ue29CharReach3allEv.exit.thread

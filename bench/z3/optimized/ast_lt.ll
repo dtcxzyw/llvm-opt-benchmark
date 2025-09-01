@@ -870,9 +870,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 404:                                              ; preds = %.lr.ph1135, %403
   %indvars.iv1583 = phi i64 [ 0, %.lr.ph1135 ], [ %indvars.iv.next1584, %403 ]
-  %405 = getelementptr inbounds nuw [0 x ptr], ptr %401, i64 0, i64 %indvars.iv1583
+  %405 = getelementptr inbounds nuw ptr, ptr %401, i64 %indvars.iv1583
   %406 = load ptr, ptr %405, align 8, !tbaa !46
-  %407 = getelementptr inbounds nuw [0 x ptr], ptr %402, i64 0, i64 %indvars.iv1583
+  %407 = getelementptr inbounds nuw ptr, ptr %402, i64 %indvars.iv1583
   %408 = load ptr, ptr %407, align 8, !tbaa !46
   %.not299 = icmp eq ptr %406, %408
   br i1 %.not299, label %403, label %.backedge
@@ -939,9 +939,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 436:                                              ; preds = %.lr.ph1123, %435
   %indvars.iv1573 = phi i64 [ 0, %.lr.ph1123 ], [ %indvars.iv.next1574, %435 ]
-  %437 = getelementptr inbounds nuw [0 x ptr], ptr %433, i64 0, i64 %indvars.iv1573
+  %437 = getelementptr inbounds nuw ptr, ptr %433, i64 %indvars.iv1573
   %438 = load ptr, ptr %437, align 8, !tbaa !55
-  %439 = getelementptr inbounds nuw [0 x ptr], ptr %434, i64 0, i64 %indvars.iv1573
+  %439 = getelementptr inbounds nuw ptr, ptr %434, i64 %indvars.iv1573
   %440 = load ptr, ptr %439, align 8, !tbaa !55
   %.not292 = icmp eq ptr %438, %440
   br i1 %.not292, label %435, label %.backedge

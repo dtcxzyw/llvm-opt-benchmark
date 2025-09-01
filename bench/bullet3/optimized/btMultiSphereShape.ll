@@ -449,7 +449,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK18btMultiSphereShape37localGe
   %.sroa.0.0.vec.insert.i52 = insertelement <2 x float> poison, float %71, i64 0
   %.sroa.0.4.vec.insert.i53 = insertelement <2 x float> %.sroa.0.0.vec.insert.i52, float %72, i64 1
   %.sroa.3.12.vec.insert.i54 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %73, i64 0
-  %74 = getelementptr inbounds nuw [128 x %class.btVector3], ptr %3, i64 0, i64 %.02593
+  %74 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %.02593
   store <2 x float> %.sroa.0.4.vec.insert.i53, ptr %74, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i54, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !28
@@ -461,7 +461,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK18btMultiSphereShape37localGe
 
 78:                                               ; preds = %._crit_edge.loopexit.i
   %79 = sext i32 %.113.i to i64
-  %80 = getelementptr inbounds [128 x %class.btVector3], ptr %3, i64 0, i64 %79
+  %80 = getelementptr inbounds %class.btVector3, ptr %3, i64 %79
   %.sroa.089.0.copyload = load <2 x float>, ptr %80, align 16
   %.sroa.4.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %.sroa.4.0.copyload = load <2 x float>, ptr %.sroa.4.0..sroa_idx91, align 8, !tbaa !28
@@ -622,7 +622,7 @@ define dso_local void @_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingV
   %.sroa.0.0.vec.insert.i59 = insertelement <2 x float> poison, float %80, i64 0
   %.sroa.0.4.vec.insert.i60 = insertelement <2 x float> %.sroa.0.0.vec.insert.i59, float %81, i64 1
   %.sroa.3.12.vec.insert.i61 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %82, i64 0
-  %83 = getelementptr inbounds nuw [128 x %class.btVector3], ptr %5, i64 0, i64 %.02976
+  %83 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %.02976
   store <2 x float> %.sroa.0.4.vec.insert.i60, ptr %83, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i61, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !28
@@ -634,7 +634,7 @@ define dso_local void @_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingV
 
 87:                                               ; preds = %._crit_edge.loopexit.i
   %88 = sext i32 %.113.i to i64
-  %89 = getelementptr inbounds [128 x %class.btVector3], ptr %5, i64 0, i64 %88
+  %89 = getelementptr inbounds %class.btVector3, ptr %5, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !27
   br label %90
 
@@ -701,9 +701,9 @@ define dso_local noundef nonnull ptr @_ZNK18btMultiSphereShape9serializeEPvP12bt
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %7 ]
-  %8 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i
   %9 = load float, ptr %8, align 4, !tbaa !32
-  %10 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
   store float %9, ptr %10, align 4, !tbaa !32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -716,9 +716,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i ], [ %indvars.iv.next.i9.i, %13 ]
-  %14 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv.i8.i
+  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8.i
   %15 = load float, ptr %14, align 4, !tbaa !32
-  %16 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv.i8.i
+  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8.i
   store float %15, ptr %16, align 4, !tbaa !32
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 4
@@ -778,9 +778,9 @@ _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
 
 46:                                               ; preds = %46, %44
   %indvars.iv.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i, %46 ]
-  %47 = getelementptr inbounds nuw [4 x float], ptr %45, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i
   %48 = load float, ptr %47, align 4, !tbaa !32
-  %49 = getelementptr inbounds nuw [4 x float], ptr %.02325, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw float, ptr %.02325, i64 %indvars.iv.i
   store float %48, ptr %49, align 4, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

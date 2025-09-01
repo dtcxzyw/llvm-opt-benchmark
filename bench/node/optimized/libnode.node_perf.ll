@@ -943,7 +943,7 @@ do.body.i:                                        ; preds = %if.then8
 
 switch.lookup:                                    ; preds = %if.then8
   %8 = zext nneg i32 %milestone to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4node11performance16PerformanceState4MarkENS0_20PerformanceMilestoneEm, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node11performance16PerformanceState4MarkENS0_20PerformanceMilestoneEm, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertables.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %arg_convertables.i, i64 16

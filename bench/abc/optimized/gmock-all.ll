@@ -2453,7 +2453,7 @@ define noundef zeroext i1 @_ZN7testing8internal14Base64UnescapeERKNSt7__cxx1112b
 
 19:                                               ; preds = %13
   %20 = sext i8 %14 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN7testing8internalL9kUnBase64E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN7testing8internalL9kUnBase64E, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = sext i8 %22 to i32
   %24 = icmp sgt i8 %22, 63

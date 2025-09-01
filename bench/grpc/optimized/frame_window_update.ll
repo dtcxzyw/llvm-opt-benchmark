@@ -679,7 +679,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %118, %.thread.i, %1
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 3272
   %137 = call noundef i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %134)
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds [20 x %"struct.std::atomic.252"], ptr %136, i64 0, i64 %138
+  %139 = getelementptr inbounds %"struct.std::atomic.252", ptr %136, i64 %138
   %140 = atomicrmw add ptr %139, i64 1 monotonic, align 8
   br label %141
 
@@ -694,7 +694,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %118, %.thread.i, %1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 2792
   %148 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %57)
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [20 x %"struct.std::atomic.252"], ptr %147, i64 0, i64 %149
+  %150 = getelementptr inbounds %"struct.std::atomic.252", ptr %147, i64 %149
   %151 = atomicrmw add ptr %150, i64 1 monotonic, align 8
   %152 = call noundef zeroext i1 @_Z41grpc_chttp2_list_remove_stalled_by_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef nonnull %2, ptr noundef nonnull %3)
   br i1 %152, label %153, label %.thread
@@ -767,7 +767,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit85:         ; preds = %165, %.thread.i82, 
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 3112
   %184 = call noundef i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %181)
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [20 x %"struct.std::atomic.252"], ptr %183, i64 0, i64 %185
+  %186 = getelementptr inbounds %"struct.std::atomic.252", ptr %183, i64 %185
   %187 = atomicrmw add ptr %186, i64 1 monotonic, align 8
   br label %188
 
@@ -777,7 +777,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit85:         ; preds = %165, %.thread.i82, 
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 2952
   %191 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %57)
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds [20 x %"struct.std::atomic.252"], ptr %190, i64 0, i64 %192
+  %193 = getelementptr inbounds %"struct.std::atomic.252", ptr %190, i64 %192
   %194 = atomicrmw add ptr %193, i64 1 monotonic, align 8
   %195 = zext nneg i32 %57 to i64
   %196 = load i64, ptr %155, align 8, !tbaa !264

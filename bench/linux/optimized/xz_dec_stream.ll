@@ -347,7 +347,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %197 = load ptr, ptr %33, align 8
   %198 = add i64 %189, 1
   store i64 %198, ptr %19, align 8
-  %199 = getelementptr [1024 x i8], ptr %21, i64 0, i64 %189
+  %199 = getelementptr i8, ptr %21, i64 %189
   %200 = load i8, ptr %199, align 1
   %201 = tail call i32 @xz_dec_bcj_reset(ptr noundef %197, i8 noundef zeroext %200) #14
   %202 = icmp eq i32 %201, 0
@@ -357,7 +357,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %204 = load i64, ptr %19, align 8
   %205 = add i64 %204, 1
   store i64 %205, ptr %19, align 8
-  %206 = getelementptr [1024 x i8], ptr %21, i64 0, i64 %204
+  %206 = getelementptr i8, ptr %21, i64 %204
   %207 = load i8, ptr %206, align 1
   %208 = icmp eq i8 %207, 0
   br i1 %208, label %._crit_edge71, label %.thread
@@ -376,7 +376,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
 214:                                              ; preds = %209
   %215 = add i64 %210, 1
   store i64 %215, ptr %19, align 8
-  %216 = getelementptr [1024 x i8], ptr %21, i64 0, i64 %210
+  %216 = getelementptr i8, ptr %21, i64 %210
   %217 = load i8, ptr %216, align 1
   %218 = icmp eq i8 %217, 33
   br i1 %218, label %219, label %.thread
@@ -384,7 +384,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
 219:                                              ; preds = %214
   %220 = add i64 %210, 2
   store i64 %220, ptr %19, align 8
-  %221 = getelementptr [1024 x i8], ptr %21, i64 0, i64 %215
+  %221 = getelementptr i8, ptr %21, i64 %215
   %222 = load i8, ptr %221, align 1
   %223 = icmp eq i8 %222, 1
   br i1 %223, label %224, label %.thread
@@ -397,7 +397,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %227 = load ptr, ptr %34, align 8
   %228 = add i64 %210, 3
   store i64 %228, ptr %19, align 8
-  %229 = getelementptr [1024 x i8], ptr %21, i64 0, i64 %220
+  %229 = getelementptr i8, ptr %21, i64 %220
   %230 = load i8, ptr %229, align 1
   %231 = tail call i32 @xz_dec_lzma2_reset(ptr noundef %227, i8 noundef zeroext %230) #14
   %232 = icmp eq i32 %231, 0
@@ -416,7 +416,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
 239:                                              ; preds = %236
   %240 = add nuw i64 %237, 1
   store i64 %240, ptr %19, align 8
-  %241 = getelementptr [1024 x i8], ptr %21, i64 0, i64 %237
+  %241 = getelementptr i8, ptr %21, i64 %237
   %242 = load i8, ptr %241, align 1
   %243 = icmp eq i8 %242, 0
   br i1 %243, label %236, label %.thread, !llvm.loop !9

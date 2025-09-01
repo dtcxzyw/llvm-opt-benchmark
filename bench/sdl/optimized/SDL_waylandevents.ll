@@ -4115,7 +4115,7 @@ define internal void @tablet_tool_handle_type(ptr noundef writeonly captures(non
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tablet_tool_handle_type, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tablet_tool_handle_type, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -4146,7 +4146,7 @@ define internal void @tablet_tool_handle_capability(ptr noundef captures(none) %
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tablet_tool_handle_capability, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tablet_tool_handle_capability, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -4397,7 +4397,7 @@ define internal void @tablet_tool_handle_button(ptr noundef writeonly captures(n
   %9 = icmp eq i32 %4, 1
   %10 = zext i1 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %.0
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %.0
   store i32 %10, ptr %12, align 4
   br label %13
 
@@ -4517,7 +4517,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
   br i1 %.not68, label %60, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw [7 x float], ptr %50, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
   %59 = load float, ptr %58, align 4
   tail call void @SDL_SendPenAxis(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, i32 noundef %54, float noundef %59) #12
   br label %60
@@ -4536,7 +4536,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
 
 63:                                               ; preds = %.preheader, %70
   %indvars.iv72 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next73, %70 ]
-  %64 = getelementptr inbounds nuw [3 x i32], ptr %51, i64 0, i64 %indvars.iv72
+  %64 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv72
   %65 = load i32, ptr %64, align 4
   %.not67 = icmp eq i32 %65, -1
   br i1 %.not67, label %70, label %66
@@ -5097,9 +5097,9 @@ Wayland_UpdateImplicitGrabSerial.exit.i:          ; preds = %40, %36
 96:                                               ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = add nsw i32 %74, -2
-  %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [8 x i32], ptr @Wayland_ProcessHitTest.directions, i64 0, i64 %100
+  %99 = zext nneg i32 %74 to i64
+  %100 = getelementptr i32, ptr @Wayland_ProcessHitTest.directions, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 -8
   %102 = load i32, ptr %101, align 4
   %103 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
   %104 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
@@ -7469,7 +7469,7 @@ define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0)
 
 74:                                               ; preds = %.preheader, %74
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr inbounds nuw [16 x %struct.Keymod_masks], ptr %2, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw %struct.Keymod_masks, ptr %2, i64 %indvars.iv
   %76 = load i16, ptr %75, align 8
   store i16 %76, ptr %64, align 8
   %77 = load ptr, ptr @WAYLAND_xkb_state_update_mask, align 8

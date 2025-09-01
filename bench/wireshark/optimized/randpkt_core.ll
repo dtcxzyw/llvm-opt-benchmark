@@ -100,7 +100,7 @@ define hidden ptr @randpkt_find_example(i32 noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %indvars.iv
+  %4 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %6, %0
@@ -499,7 +499,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #1 {
 4:                                                ; preds = %2, %1
   %5 = tail call i32 @g_random_int_range(i32 noundef 0, i32 noundef 23)
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %6, i32 2
+  %7 = getelementptr %struct.randpkt_example, ptr @examples, i64 %6, i32 2
   br label %16
 
 8:                                                ; preds = %.preheader
@@ -509,7 +509,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %2, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %2 ]
-  %9 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 16
   %11 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull %0)
   %12 = icmp eq i32 %11, 0
@@ -548,7 +548,7 @@ define hidden void @randpkt_example_list(ptr noundef captures(none) initializes(
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %indvars.iv
+  %6 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7)
   %9 = load ptr, ptr %0, align 8

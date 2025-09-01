@@ -41,7 +41,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 4, !tbaa !20
@@ -87,7 +87,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %23 = load i32, ptr %22, align 8, !tbaa !44
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i64
-  %26 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %29 = load i32, ptr %28, align 4, !tbaa !46
@@ -211,14 +211,14 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
 
 65:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %66 = getelementptr inbounds nuw [4 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !46
-  %68 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !46
   %70 = mul nsw i32 %69, %67
   %71 = sext i32 %70 to i64
   %72 = tail call noalias ptr @av_calloc(i64 noundef %71, i64 noundef 4) #7
-  %73 = getelementptr inbounds nuw [4 x ptr], ptr %61, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   store ptr %72, ptr %73, align 8, !tbaa !58
   %.not59 = icmp eq ptr %72, null
   br i1 %.not59, label %.loopexit, label %62
@@ -262,24 +262,24 @@ define internal noundef i32 @lagfun_frame8(ptr noundef readonly captures(none) %
 
 23:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv85 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next86, %.loopexit ]
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv85
+  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv85
   %25 = load i32, ptr %24, align 4, !tbaa !46
   %26 = mul nsw i32 %25, %2
   %27 = sdiv i32 %26, %3
   %28 = mul nsw i32 %25, %16
   %29 = sdiv i32 %28, %3
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv85
+  %30 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv85
   %31 = load i32, ptr %30, align 4, !tbaa !46
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv85
+  %32 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv85
   %33 = load ptr, ptr %32, align 8, !tbaa !61
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv85
+  %34 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv85
   %35 = load i32, ptr %34, align 4, !tbaa !46
   %36 = mul nsw i32 %35, %27
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 %37
-  %39 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv85
+  %39 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv85
   %40 = load ptr, ptr %39, align 8, !tbaa !61
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv85
+  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv85
   %42 = load i32, ptr %41, align 4, !tbaa !46
   %43 = mul nsw i32 %42, %27
   %44 = sext i32 %43 to i64
@@ -292,7 +292,7 @@ define internal noundef i32 @lagfun_frame8(ptr noundef readonly captures(none) %
   br i1 %.not, label %50, label %54
 
 50:                                               ; preds = %23
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv85
+  %51 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv85
   %52 = load i32, ptr %51, align 4, !tbaa !46
   %53 = sub nsw i32 %29, %27
   tail call void @av_image_copy_plane(ptr noundef %45, i32 noundef %42, ptr noundef %38, i32 noundef %35, i32 noundef %52, i32 noundef %53) #7
@@ -308,7 +308,7 @@ define internal noundef i32 @lagfun_frame8(ptr noundef readonly captures(none) %
   br i1 %56, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %58 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 0, i64 %indvars.iv85
+  %58 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv85
   %59 = load ptr, ptr %58, align 8, !tbaa !58
   %60 = mul nsw i32 %31, %27
   %61 = sext i32 %60 to i64
@@ -392,25 +392,25 @@ define internal noundef i32 @lagfun_frame16(ptr noundef readonly captures(none) 
 23:                                               ; preds = %.lr.ph, %.loopexit
   %24 = phi i32 [ %13, %.lr.ph ], [ %85, %.loopexit ]
   %indvars.iv85 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next86, %.loopexit ]
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv85
+  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv85
   %26 = load i32, ptr %25, align 4, !tbaa !46
   %27 = mul nsw i32 %26, %2
   %28 = sdiv i32 %27, %3
   %29 = mul nsw i32 %26, %16
   %30 = sdiv i32 %29, %3
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv85
+  %31 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv85
   %32 = load i32, ptr %31, align 4, !tbaa !46
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv85
+  %33 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv85
   %34 = load ptr, ptr %33, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv85
+  %35 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv85
   %36 = load i32, ptr %35, align 4, !tbaa !46
   %37 = mul nsw i32 %36, %28
   %38 = sext i32 %37 to i64
   %39 = lshr i64 %38, 1
   %40 = getelementptr inbounds nuw i16, ptr %34, i64 %39
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv85
+  %41 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv85
   %42 = load ptr, ptr %41, align 8, !tbaa !61
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv85
+  %43 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv85
   %44 = load i32, ptr %43, align 4, !tbaa !46
   %45 = mul nsw i32 %44, %28
   %46 = sext i32 %45 to i64
@@ -424,7 +424,7 @@ define internal noundef i32 @lagfun_frame16(ptr noundef readonly captures(none) 
   br i1 %.not, label %53, label %57
 
 53:                                               ; preds = %23
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv85
+  %54 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv85
   %55 = load i32, ptr %54, align 4, !tbaa !46
   %56 = sub nsw i32 %30, %28
   tail call void @av_image_copy_plane(ptr noundef %48, i32 noundef %44, ptr noundef %40, i32 noundef %36, i32 noundef %55, i32 noundef %56) #7
@@ -445,7 +445,7 @@ define internal noundef i32 @lagfun_frame16(ptr noundef readonly captures(none) 
   br i1 %59, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %65 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 0, i64 %indvars.iv85
+  %65 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv85
   %66 = load ptr, ptr %65, align 8, !tbaa !58
   %67 = mul nsw i32 %32, %28
   %68 = sext i32 %67 to i64
@@ -525,25 +525,25 @@ define internal noundef i32 @lagfun_frame32(ptr noundef readonly captures(none) 
 23:                                               ; preds = %.lr.ph, %.loopexit
   %24 = phi i32 [ %13, %.lr.ph ], [ %82, %.loopexit ]
   %indvars.iv85 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next86, %.loopexit ]
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv85
+  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv85
   %26 = load i32, ptr %25, align 4, !tbaa !46
   %27 = mul nsw i32 %26, %2
   %28 = sdiv i32 %27, %3
   %29 = mul nsw i32 %26, %16
   %30 = sdiv i32 %29, %3
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv85
+  %31 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv85
   %32 = load i32, ptr %31, align 4, !tbaa !46
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv85
+  %33 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv85
   %34 = load ptr, ptr %33, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv85
+  %35 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv85
   %36 = load i32, ptr %35, align 4, !tbaa !46
   %37 = mul nsw i32 %36, %28
   %38 = sext i32 %37 to i64
   %39 = lshr i64 %38, 2
   %40 = getelementptr inbounds nuw float, ptr %34, i64 %39
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv85
+  %41 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv85
   %42 = load ptr, ptr %41, align 8, !tbaa !61
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv85
+  %43 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv85
   %44 = load i32, ptr %43, align 4, !tbaa !46
   %45 = mul nsw i32 %44, %28
   %46 = sext i32 %45 to i64
@@ -557,7 +557,7 @@ define internal noundef i32 @lagfun_frame32(ptr noundef readonly captures(none) 
   br i1 %.not, label %53, label %57
 
 53:                                               ; preds = %23
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv85
+  %54 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv85
   %55 = load i32, ptr %54, align 4, !tbaa !46
   %56 = sub nsw i32 %30, %28
   tail call void @av_image_copy_plane(ptr noundef %48, i32 noundef %44, ptr noundef %40, i32 noundef %36, i32 noundef %55, i32 noundef %56) #7
@@ -578,7 +578,7 @@ define internal noundef i32 @lagfun_frame32(ptr noundef readonly captures(none) 
   br i1 %59, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %65 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 0, i64 %indvars.iv85
+  %65 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv85
   %66 = load ptr, ptr %65, align 8, !tbaa !58
   %67 = mul nsw i32 %32, %28
   %68 = sext i32 %67 to i64
@@ -654,24 +654,24 @@ define internal noundef i32 @lagfun_framed8(ptr noundef readonly captures(none) 
 
 23:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv86 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next87, %.loopexit ]
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv86
+  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv86
   %25 = load i32, ptr %24, align 4, !tbaa !46
   %26 = mul nsw i32 %25, %2
   %27 = sdiv i32 %26, %3
   %28 = mul nsw i32 %25, %16
   %29 = sdiv i32 %28, %3
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv86
+  %30 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv86
   %31 = load i32, ptr %30, align 4, !tbaa !46
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv86
+  %32 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv86
   %33 = load ptr, ptr %32, align 8, !tbaa !61
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv86
+  %34 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv86
   %35 = load i32, ptr %34, align 4, !tbaa !46
   %36 = mul nsw i32 %35, %27
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 %37
-  %39 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv86
+  %39 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv86
   %40 = load ptr, ptr %39, align 8, !tbaa !61
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv86
+  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv86
   %42 = load i32, ptr %41, align 4, !tbaa !46
   %43 = mul nsw i32 %42, %27
   %44 = sext i32 %43 to i64
@@ -684,7 +684,7 @@ define internal noundef i32 @lagfun_framed8(ptr noundef readonly captures(none) 
   br i1 %.not, label %50, label %54
 
 50:                                               ; preds = %23
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv86
+  %51 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv86
   %52 = load i32, ptr %51, align 4, !tbaa !46
   %53 = sub nsw i32 %29, %27
   tail call void @av_image_copy_plane(ptr noundef %45, i32 noundef %42, ptr noundef %38, i32 noundef %35, i32 noundef %52, i32 noundef %53) #7
@@ -700,7 +700,7 @@ define internal noundef i32 @lagfun_framed8(ptr noundef readonly captures(none) 
   br i1 %56, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %58 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 0, i64 %indvars.iv86
+  %58 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv86
   %59 = load ptr, ptr %58, align 8, !tbaa !58
   %60 = mul nsw i32 %31, %27
   %61 = sext i32 %60 to i64
@@ -783,25 +783,25 @@ define internal noundef i32 @lagfun_framed16(ptr noundef readonly captures(none)
 23:                                               ; preds = %.lr.ph, %.loopexit
   %24 = phi i32 [ %13, %.lr.ph ], [ %83, %.loopexit ]
   %indvars.iv86 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next87, %.loopexit ]
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv86
+  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv86
   %26 = load i32, ptr %25, align 4, !tbaa !46
   %27 = mul nsw i32 %26, %2
   %28 = sdiv i32 %27, %3
   %29 = mul nsw i32 %26, %16
   %30 = sdiv i32 %29, %3
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv86
+  %31 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv86
   %32 = load i32, ptr %31, align 4, !tbaa !46
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv86
+  %33 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv86
   %34 = load ptr, ptr %33, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv86
+  %35 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv86
   %36 = load i32, ptr %35, align 4, !tbaa !46
   %37 = mul nsw i32 %36, %28
   %38 = sext i32 %37 to i64
   %39 = lshr i64 %38, 1
   %40 = getelementptr inbounds nuw i16, ptr %34, i64 %39
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv86
+  %41 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv86
   %42 = load ptr, ptr %41, align 8, !tbaa !61
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv86
+  %43 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv86
   %44 = load i32, ptr %43, align 4, !tbaa !46
   %45 = mul nsw i32 %44, %28
   %46 = sext i32 %45 to i64
@@ -815,7 +815,7 @@ define internal noundef i32 @lagfun_framed16(ptr noundef readonly captures(none)
   br i1 %.not, label %53, label %57
 
 53:                                               ; preds = %23
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv86
+  %54 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv86
   %55 = load i32, ptr %54, align 4, !tbaa !46
   %56 = sub nsw i32 %30, %28
   tail call void @av_image_copy_plane(ptr noundef %48, i32 noundef %44, ptr noundef %40, i32 noundef %36, i32 noundef %55, i32 noundef %56) #7
@@ -836,7 +836,7 @@ define internal noundef i32 @lagfun_framed16(ptr noundef readonly captures(none)
   br i1 %59, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %65 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 0, i64 %indvars.iv86
+  %65 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv86
   %66 = load ptr, ptr %65, align 8, !tbaa !58
   %67 = mul nsw i32 %32, %28
   %68 = sext i32 %67 to i64
@@ -914,25 +914,25 @@ define internal noundef i32 @lagfun_framed32(ptr noundef readonly captures(none)
 23:                                               ; preds = %.lr.ph, %.loopexit
   %24 = phi i32 [ %13, %.lr.ph ], [ %83, %.loopexit ]
   %indvars.iv86 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next87, %.loopexit ]
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv86
+  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv86
   %26 = load i32, ptr %25, align 4, !tbaa !46
   %27 = mul nsw i32 %26, %2
   %28 = sdiv i32 %27, %3
   %29 = mul nsw i32 %26, %16
   %30 = sdiv i32 %29, %3
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv86
+  %31 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv86
   %32 = load i32, ptr %31, align 4, !tbaa !46
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv86
+  %33 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv86
   %34 = load ptr, ptr %33, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv86
+  %35 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv86
   %36 = load i32, ptr %35, align 4, !tbaa !46
   %37 = mul nsw i32 %36, %28
   %38 = sext i32 %37 to i64
   %39 = lshr i64 %38, 2
   %40 = getelementptr inbounds nuw float, ptr %34, i64 %39
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv86
+  %41 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv86
   %42 = load ptr, ptr %41, align 8, !tbaa !61
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv86
+  %43 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv86
   %44 = load i32, ptr %43, align 4, !tbaa !46
   %45 = mul nsw i32 %44, %28
   %46 = sext i32 %45 to i64
@@ -946,7 +946,7 @@ define internal noundef i32 @lagfun_framed32(ptr noundef readonly captures(none)
   br i1 %.not, label %53, label %57
 
 53:                                               ; preds = %23
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv86
+  %54 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv86
   %55 = load i32, ptr %54, align 4, !tbaa !46
   %56 = sub nsw i32 %30, %28
   tail call void @av_image_copy_plane(ptr noundef %48, i32 noundef %44, ptr noundef %40, i32 noundef %36, i32 noundef %55, i32 noundef %56) #7
@@ -967,7 +967,7 @@ define internal noundef i32 @lagfun_framed32(ptr noundef readonly captures(none)
   br i1 %59, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %65 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 0, i64 %indvars.iv86
+  %65 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv86
   %66 = load ptr, ptr %65, align 8, !tbaa !58
   %67 = mul nsw i32 %32, %28
   %68 = sext i32 %67 to i64

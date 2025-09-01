@@ -234,41 +234,39 @@ _ZL25getEBCDICPropertyNameCharPKc.exit25:         ; preds = %17, %23
 define noundef i32 @_ZN6icu_7712PropNameData12findPropertyEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   br label %2
 
-2:                                                ; preds = %1, %14
-  %.01941 = phi i32 [ 1, %1 ], [ %17, %14 ]
-  %.02340 = phi i32 [ 6, %1 ], [ %18, %14 ]
+2:                                                ; preds = %1, %12
+  %.01941 = phi i32 [ 1, %1 ], [ %15, %12 ]
+  %.02340 = phi i32 [ 6, %1 ], [ %16, %12 ]
   %3 = sext i32 %.01941 to i64
-  %4 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %3
+  %4 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !10
-  %6 = add nsw i32 %.01941, 1
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4, !tbaa !10
-  %10 = add nsw i32 %.01941, 2
-  %11 = icmp slt i32 %0, %5
-  br i1 %11, label %.thread31, label %12
+  %6 = getelementptr i8, ptr %4, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !10
+  %8 = add nsw i32 %.01941, 2
+  %9 = icmp slt i32 %0, %5
+  br i1 %9, label %.thread31, label %10
 
-12:                                               ; preds = %2
-  %13 = icmp slt i32 %0, %9
-  br i1 %13, label %20, label %14
+10:                                               ; preds = %2
+  %11 = icmp slt i32 %0, %7
+  br i1 %11, label %18, label %12
 
-14:                                               ; preds = %12
-  %15 = sub nsw i32 %9, %5
-  %16 = shl nsw i32 %15, 1
-  %17 = add nsw i32 %16, %10
-  %18 = add nsw i32 %.02340, -1
-  %19 = icmp samesign ugt i32 %.02340, 1
-  br i1 %19, label %2, label %.thread31, !llvm.loop !12
+12:                                               ; preds = %10
+  %13 = sub nsw i32 %7, %5
+  %14 = shl nsw i32 %13, 1
+  %15 = add nsw i32 %14, %8
+  %16 = add nsw i32 %.02340, -1
+  %17 = icmp samesign ugt i32 %.02340, 1
+  br i1 %17, label %2, label %.thread31, !llvm.loop !12
 
-20:                                               ; preds = %12
-  %21 = sub nsw i32 %0, %5
-  %22 = shl nsw i32 %21, 1
-  %23 = add nsw i32 %22, %10
+18:                                               ; preds = %10
+  %19 = sub nsw i32 %0, %5
+  %20 = shl nsw i32 %19, 1
+  %21 = add nsw i32 %20, %8
   br label %.thread31
 
-.thread31:                                        ; preds = %2, %14, %20
-  %24 = phi i32 [ %23, %20 ], [ 0, %14 ], [ 0, %2 ]
-  ret i32 %24
+.thread31:                                        ; preds = %2, %12, %18
+  %22 = phi i32 [ %21, %18 ], [ 0, %12 ], [ 0, %2 ]
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -277,86 +275,84 @@ define noundef i32 @_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii(i32 
   br i1 %3, label %.thread70, label %4
 
 4:                                                ; preds = %2
-  %5 = add nsw i32 %0, 1
-  %6 = add i32 %0, 2
-  %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %7
+  %5 = add i32 %0, 2
+  %6 = sext i32 %0 to i64
+  %7 = getelementptr i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = icmp slt i32 %9, 16
-  br i1 %10, label %.preheader, label %30
+  br i1 %10, label %.preheader, label %28
 
 .preheader:                                       ; preds = %4
   %11 = icmp sgt i32 %9, 0
   br i1 %11, label %.lr.ph, label %.thread70
 
-.lr.ph:                                           ; preds = %.preheader, %25
-  %.03678 = phi i32 [ %27, %25 ], [ %6, %.preheader ]
-  %.03977 = phi i32 [ %28, %25 ], [ %9, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %23
+  %.03678 = phi i32 [ %25, %23 ], [ %5, %.preheader ]
+  %.03977 = phi i32 [ %26, %23 ], [ %9, %.preheader ]
   %12 = sext i32 %.03678 to i64
-  %13 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %12
+  %13 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !10
-  %15 = add nsw i32 %.03678, 1
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !10
-  %19 = add nsw i32 %.03678, 2
-  %20 = icmp slt i32 %1, %14
-  br i1 %20, label %.thread70, label %21
+  %15 = getelementptr i8, ptr %13, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %17 = add nsw i32 %.03678, 2
+  %18 = icmp slt i32 %1, %14
+  br i1 %18, label %.thread70, label %19
 
-21:                                               ; preds = %.lr.ph
-  %22 = icmp slt i32 %1, %18
-  br i1 %22, label %.thread, label %25
+19:                                               ; preds = %.lr.ph
+  %20 = icmp slt i32 %1, %16
+  br i1 %20, label %.thread, label %23
 
-.thread:                                          ; preds = %21
-  %23 = add nsw i32 %19, %1
-  %24 = sub i32 %23, %14
+.thread:                                          ; preds = %19
+  %21 = add nsw i32 %17, %1
+  %22 = sub i32 %21, %14
   br label %.thread70.sink.split
 
-25:                                               ; preds = %21
-  %26 = sub i32 %19, %14
-  %27 = add i32 %26, %18
-  %28 = add nsw i32 %.03977, -1
-  %29 = icmp sgt i32 %.03977, 1
-  br i1 %29, label %.lr.ph, label %.thread70, !llvm.loop !13
+23:                                               ; preds = %19
+  %24 = sub i32 %17, %14
+  %25 = add i32 %24, %16
+  %26 = add nsw i32 %.03977, -1
+  %27 = icmp sgt i32 %.03977, 1
+  br i1 %27, label %.lr.ph, label %.thread70, !llvm.loop !13
 
-30:                                               ; preds = %4
-  %31 = add i32 %0, -14
-  %32 = add i32 %31, %9
-  %33 = sext i32 %6 to i64
-  %34 = sext i32 %32 to i64
-  br label %35
+28:                                               ; preds = %4
+  %29 = add i32 %0, -14
+  %30 = add i32 %29, %9
+  %31 = sext i32 %5 to i64
+  %32 = sext i32 %30 to i64
+  br label %33
 
-35:                                               ; preds = %41, %30
-  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ %33, %30 ]
-  %36 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !10
-  %38 = icmp slt i32 %1, %37
-  br i1 %38, label %.thread70, label %39
+33:                                               ; preds = %39, %28
+  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %31, %28 ]
+  %34 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %indvars.iv
+  %35 = load i32, ptr %34, align 4, !tbaa !10
+  %36 = icmp slt i32 %1, %35
+  br i1 %36, label %.thread70, label %37
 
-39:                                               ; preds = %35
-  %40 = icmp eq i32 %1, %37
-  br i1 %40, label %43, label %41
+37:                                               ; preds = %33
+  %38 = icmp eq i32 %1, %35
+  br i1 %38, label %41, label %39
 
-41:                                               ; preds = %39
+39:                                               ; preds = %37
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %42 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %42, label %35, label %.thread70, !llvm.loop !14
+  %40 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %40, label %33, label %.thread70, !llvm.loop !14
 
-43:                                               ; preds = %39
-  %44 = trunc nsw i64 %indvars.iv to i32
-  %45 = add nsw i32 %9, -16
-  %46 = add i32 %45, %44
+41:                                               ; preds = %37
+  %42 = trunc nsw i64 %indvars.iv to i32
+  %43 = add nsw i32 %9, -16
+  %44 = add i32 %43, %42
   br label %.thread70.sink.split
 
-.thread70.sink.split:                             ; preds = %.thread, %43
-  %.sink = phi i32 [ %46, %43 ], [ %24, %.thread ]
-  %47 = sext i32 %.sink to i64
-  %48 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !10
+.thread70.sink.split:                             ; preds = %.thread, %41
+  %.sink = phi i32 [ %44, %41 ], [ %22, %.thread ]
+  %45 = sext i32 %.sink to i64
+  %46 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !10
   br label %.thread70
 
-.thread70:                                        ; preds = %41, %35, %.lr.ph, %25, %.thread70.sink.split, %.preheader, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %49, %.thread70.sink.split ], [ 0, %25 ], [ 0, %.lr.ph ], [ 0, %35 ], [ 0, %41 ]
+.thread70:                                        ; preds = %39, %33, %.lr.ph, %23, %.thread70.sink.split, %.preheader, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %47, %.thread70.sink.split ], [ 0, %23 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %39 ]
   ret i32 %.0
 }
 
@@ -466,78 +462,76 @@ declare noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 der
 define noundef ptr @_ZN6icu_7712PropNameData15getPropertyNameEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   br label %3
 
-3:                                                ; preds = %15, %2
-  %.01941.i = phi i32 [ 1, %2 ], [ %18, %15 ]
-  %.02340.i = phi i32 [ 6, %2 ], [ %19, %15 ]
+3:                                                ; preds = %13, %2
+  %.01941.i = phi i32 [ 1, %2 ], [ %16, %13 ]
+  %.02340.i = phi i32 [ 6, %2 ], [ %17, %13 ]
   %4 = sext i32 %.01941.i to i64
-  %5 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !10
-  %7 = add nsw i32 %.01941.i, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !10
-  %11 = add nsw i32 %.01941.i, 2
-  %12 = icmp slt i32 %0, %6
-  br i1 %12, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %13
+  %7 = getelementptr i8, ptr %5, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %9 = add nsw i32 %.01941.i, 2
+  %10 = icmp slt i32 %0, %6
+  br i1 %10, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %11
 
-13:                                               ; preds = %3
-  %14 = icmp slt i32 %0, %10
-  br i1 %14, label %_ZN6icu_7712PropNameData12findPropertyEi.exit, label %15
+11:                                               ; preds = %3
+  %12 = icmp slt i32 %0, %8
+  br i1 %12, label %_ZN6icu_7712PropNameData12findPropertyEi.exit, label %13
 
-15:                                               ; preds = %13
-  %16 = sub nsw i32 %10, %6
-  %17 = shl nsw i32 %16, 1
-  %18 = add nsw i32 %17, %11
-  %19 = add nsw i32 %.02340.i, -1
-  %20 = icmp samesign ugt i32 %.02340.i, 1
-  br i1 %20, label %3, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !12
+13:                                               ; preds = %11
+  %14 = sub nsw i32 %8, %6
+  %15 = shl nsw i32 %14, 1
+  %16 = add nsw i32 %15, %9
+  %17 = add nsw i32 %.02340.i, -1
+  %18 = icmp samesign ugt i32 %.02340.i, 1
+  br i1 %18, label %3, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !12
 
-_ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %13
-  %21 = sub nsw i32 %0, %6
-  %22 = shl nsw i32 %21, 1
-  %23 = add nsw i32 %22, %11
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %25
+_ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %11
+  %19 = sub nsw i32 %0, %6
+  %20 = shl nsw i32 %19, 1
+  %21 = add nsw i32 %20, %9
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %23
 
-25:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !10
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr @_ZN6icu_7712PropNameData10nameGroupsE, i64 %29
-  %31 = icmp slt i32 %1, 0
-  br i1 %31, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %32
+23:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit
+  %24 = sext i32 %21 to i64
+  %25 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !10
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i8, ptr @_ZN6icu_7712PropNameData10nameGroupsE, i64 %27
+  %29 = icmp slt i32 %1, 0
+  br i1 %29, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %30
 
-32:                                               ; preds = %25
-  %33 = load i8, ptr %30, align 1, !tbaa !3
-  %34 = sext i8 %33 to i32
-  %.not.i = icmp slt i32 %1, %34
+30:                                               ; preds = %23
+  %31 = load i8, ptr %28, align 1, !tbaa !3
+  %32 = sext i8 %31 to i32
+  %.not.i = icmp slt i32 %1, %32
   br i1 %.not.i, label %.preheader.i, label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
-.preheader.i:                                     ; preds = %32
-  %.01012.i = getelementptr inbounds nuw i8, ptr %30, i64 1
+.preheader.i:                                     ; preds = %30
+  %.01012.i = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.not15.i = icmp eq i32 %1, 0
   br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.01014.i = phi ptr [ %.010.i, %.lr.ph.i ], [ %.01012.i, %.preheader.i ]
-  %.0913.i = phi i32 [ %35, %.lr.ph.i ], [ %1, %.preheader.i ]
+  %.0913.i = phi i32 [ %33, %.lr.ph.i ], [ %1, %.preheader.i ]
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01014.i)
   %strchr.i = getelementptr inbounds i8, ptr %.01014.i, i64 %strlen.i
-  %35 = add nsw i32 %.0913.i, -1
+  %33 = add nsw i32 %.0913.i, -1
   %.010.i = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  %36 = icmp samesign ugt i32 %.0913.i, 1
-  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  %34 = icmp samesign ugt i32 %.0913.i, 1
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.010.lcssa.i = phi ptr [ %.01012.i, %.preheader.i ], [ %.010.i, %.lr.ph.i ]
-  %37 = load i8, ptr %.010.lcssa.i, align 1, !tbaa !3
-  %38 = icmp eq i8 %37, 0
-  %..010.i = select i1 %38, ptr null, ptr %.010.lcssa.i
+  %35 = load i8, ptr %.010.lcssa.i, align 1, !tbaa !3
+  %36 = icmp eq i8 %35, 0
+  %..010.i = select i1 %36, ptr null, ptr %.010.lcssa.i
   br label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
-_ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %3, %15, %._crit_edge.i, %32, %25, %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %32 ], [ null, %25 ], [ %..010.i, %._crit_edge.i ], [ null, %15 ], [ null, %3 ]
+_ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %3, %13, %._crit_edge.i, %30, %23, %_ZN6icu_7712PropNameData12findPropertyEi.exit
+  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %30 ], [ null, %23 ], [ %..010.i, %._crit_edge.i ], [ null, %13 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -545,163 +539,159 @@ _ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %3, %15, %._crit_edg
 define noundef ptr @_ZN6icu_7712PropNameData20getPropertyValueNameEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   br label %4
 
-4:                                                ; preds = %16, %3
-  %.01941.i = phi i32 [ 1, %3 ], [ %19, %16 ]
-  %.02340.i = phi i32 [ 6, %3 ], [ %20, %16 ]
+4:                                                ; preds = %14, %3
+  %.01941.i = phi i32 [ 1, %3 ], [ %17, %14 ]
+  %.02340.i = phi i32 [ 6, %3 ], [ %18, %14 ]
   %5 = sext i32 %.01941.i to i64
-  %6 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !10
-  %8 = add nsw i32 %.01941.i, 1
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !10
-  %12 = add nsw i32 %.01941.i, 2
-  %13 = icmp slt i32 %0, %7
-  br i1 %13, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %14
+  %8 = getelementptr i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !10
+  %10 = add nsw i32 %.01941.i, 2
+  %11 = icmp slt i32 %0, %7
+  br i1 %11, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %12
 
-14:                                               ; preds = %4
-  %15 = icmp slt i32 %0, %11
-  br i1 %15, label %_ZN6icu_7712PropNameData12findPropertyEi.exit, label %16
+12:                                               ; preds = %4
+  %13 = icmp slt i32 %0, %9
+  br i1 %13, label %_ZN6icu_7712PropNameData12findPropertyEi.exit, label %14
 
-16:                                               ; preds = %14
-  %17 = sub nsw i32 %11, %7
-  %18 = shl nsw i32 %17, 1
-  %19 = add nsw i32 %18, %12
-  %20 = add nsw i32 %.02340.i, -1
-  %21 = icmp samesign ugt i32 %.02340.i, 1
-  br i1 %21, label %4, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !12
+14:                                               ; preds = %12
+  %15 = sub nsw i32 %9, %7
+  %16 = shl nsw i32 %15, 1
+  %17 = add nsw i32 %16, %10
+  %18 = add nsw i32 %.02340.i, -1
+  %19 = icmp samesign ugt i32 %.02340.i, 1
+  br i1 %19, label %4, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !12
 
-_ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %14
-  %22 = sub nsw i32 %0, %7
-  %23 = shl nsw i32 %22, 1
-  %24 = add nsw i32 %23, %12
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %26
+_ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %12
+  %20 = sub nsw i32 %0, %7
+  %21 = shl nsw i32 %20, 1
+  %22 = add nsw i32 %21, %10
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %24
 
-26:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %27 = add nsw i32 %24, 1
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !10
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %32
+24:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit
+  %25 = sext i32 %22 to i64
+  %26 = getelementptr i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %30
 
-32:                                               ; preds = %26
-  %33 = add nsw i32 %30, 1
-  %34 = add i32 %30, 2
-  %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !10
-  %38 = icmp slt i32 %37, 16
-  br i1 %38, label %.preheader.i, label %58
+30:                                               ; preds = %24
+  %31 = add i32 %28, 2
+  %32 = sext i32 %28 to i64
+  %33 = getelementptr i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !10
+  %36 = icmp slt i32 %35, 16
+  br i1 %36, label %.preheader.i, label %54
 
-.preheader.i:                                     ; preds = %32
-  %39 = icmp sgt i32 %37, 0
-  br i1 %39, label %.lr.ph.i, label %_ZN6icu_7712PropNameData7getNameEPKci.exit
+.preheader.i:                                     ; preds = %30
+  %37 = icmp sgt i32 %35, 0
+  br i1 %37, label %.lr.ph.i, label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %53
-  %.03678.i = phi i32 [ %55, %53 ], [ %34, %.preheader.i ]
-  %.03977.i = phi i32 [ %56, %53 ], [ %37, %.preheader.i ]
-  %40 = sext i32 %.03678.i to i64
-  %41 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %40
+.lr.ph.i:                                         ; preds = %.preheader.i, %49
+  %.03678.i = phi i32 [ %51, %49 ], [ %31, %.preheader.i ]
+  %.03977.i = phi i32 [ %52, %49 ], [ %35, %.preheader.i ]
+  %38 = sext i32 %.03678.i to i64
+  %39 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %41 = getelementptr i8, ptr %39, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !10
-  %43 = add nsw i32 %.03678.i, 1
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !10
-  %47 = add nsw i32 %.03678.i, 2
-  %48 = icmp slt i32 %1, %42
-  br i1 %48, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %49
+  %43 = add nsw i32 %.03678.i, 2
+  %44 = icmp slt i32 %1, %40
+  br i1 %44, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %45
 
-49:                                               ; preds = %.lr.ph.i
-  %50 = icmp slt i32 %1, %46
-  br i1 %50, label %.thread.i, label %53
+45:                                               ; preds = %.lr.ph.i
+  %46 = icmp slt i32 %1, %42
+  br i1 %46, label %.thread.i, label %49
 
-.thread.i:                                        ; preds = %49
-  %51 = add nsw i32 %47, %1
-  %52 = sub i32 %51, %42
+.thread.i:                                        ; preds = %45
+  %47 = add nsw i32 %43, %1
+  %48 = sub i32 %47, %40
   br label %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit
 
-53:                                               ; preds = %49
-  %54 = sub i32 %47, %42
-  %55 = add i32 %54, %46
-  %56 = add nsw i32 %.03977.i, -1
-  %57 = icmp sgt i32 %.03977.i, 1
-  br i1 %57, label %.lr.ph.i, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !13
+49:                                               ; preds = %45
+  %50 = sub i32 %43, %40
+  %51 = add i32 %50, %42
+  %52 = add nsw i32 %.03977.i, -1
+  %53 = icmp sgt i32 %.03977.i, 1
+  br i1 %53, label %.lr.ph.i, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !13
 
-58:                                               ; preds = %32
-  %59 = add i32 %30, -14
-  %60 = add i32 %59, %37
-  %61 = sext i32 %34 to i64
-  %62 = sext i32 %60 to i64
-  br label %63
+54:                                               ; preds = %30
+  %55 = add i32 %28, -14
+  %56 = add i32 %55, %35
+  %57 = sext i32 %31 to i64
+  %58 = sext i32 %56 to i64
+  br label %59
 
-63:                                               ; preds = %69, %58
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %69 ], [ %61, %58 ]
-  %64 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %indvars.iv.i
-  %65 = load i32, ptr %64, align 4, !tbaa !10
-  %66 = icmp slt i32 %1, %65
-  br i1 %66, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %67
+59:                                               ; preds = %65, %54
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ %57, %54 ]
+  %60 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %indvars.iv.i
+  %61 = load i32, ptr %60, align 4, !tbaa !10
+  %62 = icmp slt i32 %1, %61
+  br i1 %62, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %63
+
+63:                                               ; preds = %59
+  %64 = icmp eq i32 %1, %61
+  br i1 %64, label %67, label %65
+
+65:                                               ; preds = %63
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %66 = icmp slt i64 %indvars.iv.next.i, %58
+  br i1 %66, label %59, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !14
 
 67:                                               ; preds = %63
-  %68 = icmp eq i32 %1, %65
-  br i1 %68, label %71, label %69
-
-69:                                               ; preds = %67
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %70 = icmp slt i64 %indvars.iv.next.i, %62
-  br i1 %70, label %63, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, !llvm.loop !14
-
-71:                                               ; preds = %67
-  %72 = trunc nsw i64 %indvars.iv.i to i32
-  %73 = add nsw i32 %37, -16
-  %74 = add i32 %73, %72
+  %68 = trunc nsw i64 %indvars.iv.i to i32
+  %69 = add nsw i32 %35, -16
+  %70 = add i32 %69, %68
   br label %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit
 
-_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit: ; preds = %.thread.i, %71
-  %.sink.i = phi i32 [ %74, %71 ], [ %52, %.thread.i ]
-  %75 = sext i32 %.sink.i to i64
-  %76 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !10
-  %78 = icmp eq i32 %77, 0
+_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit: ; preds = %.thread.i, %67
+  %.sink.i = phi i32 [ %70, %67 ], [ %48, %.thread.i ]
+  %71 = sext i32 %.sink.i to i64
+  %72 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !10
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %75
+
+75:                                               ; preds = %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit
+  %76 = sext i32 %73 to i64
+  %77 = getelementptr inbounds i8, ptr @_ZN6icu_7712PropNameData10nameGroupsE, i64 %76
+  %78 = icmp slt i32 %2, 0
   br i1 %78, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %79
 
-79:                                               ; preds = %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit
-  %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds i8, ptr @_ZN6icu_7712PropNameData10nameGroupsE, i64 %80
-  %82 = icmp slt i32 %2, 0
-  br i1 %82, label %_ZN6icu_7712PropNameData7getNameEPKci.exit, label %83
-
-83:                                               ; preds = %79
-  %84 = load i8, ptr %81, align 1, !tbaa !3
-  %85 = sext i8 %84 to i32
-  %.not.i = icmp slt i32 %2, %85
+79:                                               ; preds = %75
+  %80 = load i8, ptr %77, align 1, !tbaa !3
+  %81 = sext i8 %80 to i32
+  %.not.i = icmp slt i32 %2, %81
   br i1 %.not.i, label %.preheader.i10, label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
-.preheader.i10:                                   ; preds = %83
-  %.01012.i = getelementptr inbounds nuw i8, ptr %81, i64 1
+.preheader.i10:                                   ; preds = %79
+  %.01012.i = getelementptr inbounds nuw i8, ptr %77, i64 1
   %.not15.i = icmp eq i32 %2, 0
   br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.preheader.i10, %.lr.ph.i11
   %.01014.i = phi ptr [ %.010.i, %.lr.ph.i11 ], [ %.01012.i, %.preheader.i10 ]
-  %.0913.i = phi i32 [ %86, %.lr.ph.i11 ], [ %2, %.preheader.i10 ]
+  %.0913.i = phi i32 [ %82, %.lr.ph.i11 ], [ %2, %.preheader.i10 ]
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01014.i)
   %strchr.i = getelementptr inbounds i8, ptr %.01014.i, i64 %strlen.i
-  %86 = add nsw i32 %.0913.i, -1
+  %82 = add nsw i32 %.0913.i, -1
   %.010.i = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
-  %87 = icmp samesign ugt i32 %.0913.i, 1
-  br i1 %87, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !15
+  %83 = icmp samesign ugt i32 %.0913.i, 1
+  br i1 %83, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %.preheader.i10
   %.010.lcssa.i = phi ptr [ %.01012.i, %.preheader.i10 ], [ %.010.i, %.lr.ph.i11 ]
-  %88 = load i8, ptr %.010.lcssa.i, align 1, !tbaa !3
-  %89 = icmp eq i8 %88, 0
-  %..010.i = select i1 %89, ptr null, ptr %.010.lcssa.i
+  %84 = load i8, ptr %.010.lcssa.i, align 1, !tbaa !3
+  %85 = icmp eq i8 %84, 0
+  %..010.i = select i1 %85, ptr null, ptr %.010.lcssa.i
   br label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
-_ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %4, %16, %69, %63, %.lr.ph.i, %53, %.preheader.i, %26, %._crit_edge.i, %83, %79, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit, %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit ], [ null, %83 ], [ null, %79 ], [ %..010.i, %._crit_edge.i ], [ null, %26 ], [ null, %.preheader.i ], [ null, %53 ], [ null, %.lr.ph.i ], [ null, %63 ], [ null, %69 ], [ null, %16 ], [ null, %4 ]
+_ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %4, %14, %65, %59, %.lr.ph.i, %49, %.preheader.i, %24, %._crit_edge.i, %79, %75, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit, %_ZN6icu_7712PropNameData12findPropertyEi.exit
+  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit ], [ null, %79 ], [ null, %75 ], [ %..010.i, %._crit_edge.i ], [ null, %24 ], [ null, %.preheader.i ], [ null, %49 ], [ null, %.lr.ph.i ], [ null, %59 ], [ null, %65 ], [ null, %14 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -828,56 +818,54 @@ define noundef i32 @_ZN6icu_7712PropNameData15getPropertyEnumEPKc(ptr noundef re
 define noundef i32 @_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   br label %3
 
-3:                                                ; preds = %15, %2
-  %.01941.i = phi i32 [ 1, %2 ], [ %18, %15 ]
-  %.02340.i = phi i32 [ 6, %2 ], [ %19, %15 ]
+3:                                                ; preds = %13, %2
+  %.01941.i = phi i32 [ 1, %2 ], [ %16, %13 ]
+  %.02340.i = phi i32 [ 6, %2 ], [ %17, %13 ]
   %4 = sext i32 %.01941.i to i64
-  %5 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !10
-  %7 = add nsw i32 %.01941.i, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !10
-  %11 = add nsw i32 %.01941.i, 2
-  %12 = icmp slt i32 %0, %6
-  br i1 %12, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, label %13
+  %7 = getelementptr i8, ptr %5, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %9 = add nsw i32 %.01941.i, 2
+  %10 = icmp slt i32 %0, %6
+  br i1 %10, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, label %11
 
-13:                                               ; preds = %3
-  %14 = icmp slt i32 %0, %10
-  br i1 %14, label %_ZN6icu_7712PropNameData12findPropertyEi.exit, label %15
+11:                                               ; preds = %3
+  %12 = icmp slt i32 %0, %8
+  br i1 %12, label %_ZN6icu_7712PropNameData12findPropertyEi.exit, label %13
 
-15:                                               ; preds = %13
-  %16 = sub nsw i32 %10, %6
-  %17 = shl nsw i32 %16, 1
-  %18 = add nsw i32 %17, %11
-  %19 = add nsw i32 %.02340.i, -1
-  %20 = icmp samesign ugt i32 %.02340.i, 1
-  br i1 %20, label %3, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, !llvm.loop !12
+13:                                               ; preds = %11
+  %14 = sub nsw i32 %8, %6
+  %15 = shl nsw i32 %14, 1
+  %16 = add nsw i32 %15, %9
+  %17 = add nsw i32 %.02340.i, -1
+  %18 = icmp samesign ugt i32 %.02340.i, 1
+  br i1 %18, label %3, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, !llvm.loop !12
 
-_ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %13
-  %21 = sub nsw i32 %0, %6
-  %22 = shl nsw i32 %21, 1
-  %23 = add nsw i32 %22, %11
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, label %25
+_ZN6icu_7712PropNameData12findPropertyEi.exit:    ; preds = %11
+  %19 = sub nsw i32 %0, %6
+  %20 = shl nsw i32 %19, 1
+  %21 = add nsw i32 %20, %9
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, label %23
 
-25:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %26 = add nsw i32 %23, 1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !10
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, label %31
+23:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit
+  %24 = sext i32 %21 to i64
+  %25 = getelementptr i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread, label %29
 
-31:                                               ; preds = %25
-  %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !10
-  %35 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %34, ptr noundef %1)
+29:                                               ; preds = %23
+  %30 = sext i32 %27 to i64
+  %31 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %33 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %32, ptr noundef %1)
   br label %_ZN6icu_7712PropNameData12findPropertyEi.exit.thread
 
-_ZN6icu_7712PropNameData12findPropertyEi.exit.thread: ; preds = %3, %15, %25, %_ZN6icu_7712PropNameData12findPropertyEi.exit, %31
-  %.0 = phi i32 [ %35, %31 ], [ -1, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ -1, %25 ], [ -1, %15 ], [ -1, %3 ]
+_ZN6icu_7712PropNameData12findPropertyEi.exit.thread: ; preds = %3, %13, %23, %_ZN6icu_7712PropNameData12findPropertyEi.exit, %29
+  %.0 = phi i32 [ %33, %29 ], [ -1, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ -1, %23 ], [ -1, %13 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -885,78 +873,76 @@ _ZN6icu_7712PropNameData12findPropertyEi.exit.thread: ; preds = %3, %15, %25, %_
 define ptr @u_getPropertyName_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %3
 
-3:                                                ; preds = %15, %2
-  %.01941.i.i = phi i32 [ 1, %2 ], [ %18, %15 ]
-  %.02340.i.i = phi i32 [ 6, %2 ], [ %19, %15 ]
+3:                                                ; preds = %13, %2
+  %.01941.i.i = phi i32 [ 1, %2 ], [ %16, %13 ]
+  %.02340.i.i = phi i32 [ 6, %2 ], [ %17, %13 ]
   %4 = sext i32 %.01941.i.i to i64
-  %5 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !10
-  %7 = add nsw i32 %.01941.i.i, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !10
-  %11 = add nsw i32 %.01941.i.i, 2
-  %12 = icmp slt i32 %0, %6
-  br i1 %12, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, label %13
+  %7 = getelementptr i8, ptr %5, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %9 = add nsw i32 %.01941.i.i, 2
+  %10 = icmp slt i32 %0, %6
+  br i1 %10, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, label %11
 
-13:                                               ; preds = %3
-  %14 = icmp slt i32 %0, %10
-  br i1 %14, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, label %15
+11:                                               ; preds = %3
+  %12 = icmp slt i32 %0, %8
+  br i1 %12, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, label %13
 
-15:                                               ; preds = %13
-  %16 = sub nsw i32 %10, %6
-  %17 = shl nsw i32 %16, 1
-  %18 = add nsw i32 %17, %11
-  %19 = add nsw i32 %.02340.i.i, -1
-  %20 = icmp samesign ugt i32 %.02340.i.i, 1
-  br i1 %20, label %3, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, !llvm.loop !12
+13:                                               ; preds = %11
+  %14 = sub nsw i32 %8, %6
+  %15 = shl nsw i32 %14, 1
+  %16 = add nsw i32 %15, %9
+  %17 = add nsw i32 %.02340.i.i, -1
+  %18 = icmp samesign ugt i32 %.02340.i.i, 1
+  br i1 %18, label %3, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, !llvm.loop !12
 
-_ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %13
-  %21 = sub nsw i32 %0, %6
-  %22 = shl nsw i32 %21, 1
-  %23 = add nsw i32 %22, %11
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, label %25
+_ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %11
+  %19 = sub nsw i32 %0, %6
+  %20 = shl nsw i32 %19, 1
+  %21 = add nsw i32 %20, %9
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, label %23
 
-25:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit.i
-  %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !10
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr @_ZN6icu_7712PropNameData10nameGroupsE, i64 %29
-  %31 = icmp slt i32 %1, 0
-  br i1 %31, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, label %32
+23:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit.i
+  %24 = sext i32 %21 to i64
+  %25 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !10
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i8, ptr @_ZN6icu_7712PropNameData10nameGroupsE, i64 %27
+  %29 = icmp slt i32 %1, 0
+  br i1 %29, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit, label %30
 
-32:                                               ; preds = %25
-  %33 = load i8, ptr %30, align 1, !tbaa !3
-  %34 = sext i8 %33 to i32
-  %.not.i.i = icmp slt i32 %1, %34
+30:                                               ; preds = %23
+  %31 = load i8, ptr %28, align 1, !tbaa !3
+  %32 = sext i8 %31 to i32
+  %.not.i.i = icmp slt i32 %1, %32
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit
 
-.preheader.i.i:                                   ; preds = %32
-  %.01012.i.i = getelementptr inbounds nuw i8, ptr %30, i64 1
+.preheader.i.i:                                   ; preds = %30
+  %.01012.i.i = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.not15.i.i = icmp eq i32 %1, 0
   br i1 %.not15.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.01014.i.i = phi ptr [ %.010.i.i, %.lr.ph.i.i ], [ %.01012.i.i, %.preheader.i.i ]
-  %.0913.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ %1, %.preheader.i.i ]
+  %.0913.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ %1, %.preheader.i.i ]
   %strlen.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01014.i.i)
   %strchr.i.i = getelementptr inbounds i8, ptr %.01014.i.i, i64 %strlen.i.i
-  %35 = add nsw i32 %.0913.i.i, -1
+  %33 = add nsw i32 %.0913.i.i, -1
   %.010.i.i = getelementptr inbounds nuw i8, ptr %strchr.i.i, i64 1
-  %36 = icmp samesign ugt i32 %.0913.i.i, 1
-  br i1 %36, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
+  %34 = icmp samesign ugt i32 %.0913.i.i, 1
+  br i1 %34, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.010.lcssa.i.i = phi ptr [ %.01012.i.i, %.preheader.i.i ], [ %.010.i.i, %.lr.ph.i.i ]
-  %37 = load i8, ptr %.010.lcssa.i.i, align 1, !tbaa !3
-  %38 = icmp eq i8 %37, 0
-  %..010.i.i = select i1 %38, ptr null, ptr %.010.lcssa.i.i
+  %35 = load i8, ptr %.010.lcssa.i.i, align 1, !tbaa !3
+  %36 = icmp eq i8 %35, 0
+  %..010.i.i = select i1 %36, ptr null, ptr %.010.lcssa.i.i
   br label %_ZN6icu_7712PropNameData15getPropertyNameEii.exit
 
-_ZN6icu_7712PropNameData15getPropertyNameEii.exit: ; preds = %3, %15, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, %25, %32, %._crit_edge.i.i
-  %.0.i = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i ], [ null, %32 ], [ null, %25 ], [ %..010.i.i, %._crit_edge.i.i ], [ null, %15 ], [ null, %3 ]
+_ZN6icu_7712PropNameData15getPropertyNameEii.exit: ; preds = %3, %13, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, %23, %30, %._crit_edge.i.i
+  %.0.i = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i ], [ null, %30 ], [ null, %23 ], [ %..010.i.i, %._crit_edge.i.i ], [ null, %13 ], [ null, %3 ]
   ret ptr %.0.i
 }
 
@@ -976,56 +962,54 @@ define noundef ptr @u_getPropertyValueName_77(i32 noundef %0, i32 noundef %1, i3
 define noundef i32 @u_getPropertyValueEnum_77(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   br label %3
 
-3:                                                ; preds = %15, %2
-  %.01941.i.i = phi i32 [ 1, %2 ], [ %18, %15 ]
-  %.02340.i.i = phi i32 [ 6, %2 ], [ %19, %15 ]
+3:                                                ; preds = %13, %2
+  %.01941.i.i = phi i32 [ 1, %2 ], [ %16, %13 ]
+  %.02340.i.i = phi i32 [ 6, %2 ], [ %17, %13 ]
   %4 = sext i32 %.01941.i.i to i64
-  %5 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !10
-  %7 = add nsw i32 %.01941.i.i, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !10
-  %11 = add nsw i32 %.01941.i.i, 2
-  %12 = icmp slt i32 %0, %6
-  br i1 %12, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, label %13
+  %7 = getelementptr i8, ptr %5, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %9 = add nsw i32 %.01941.i.i, 2
+  %10 = icmp slt i32 %0, %6
+  br i1 %10, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, label %11
 
-13:                                               ; preds = %3
-  %14 = icmp slt i32 %0, %10
-  br i1 %14, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, label %15
+11:                                               ; preds = %3
+  %12 = icmp slt i32 %0, %8
+  br i1 %12, label %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, label %13
 
-15:                                               ; preds = %13
-  %16 = sub nsw i32 %10, %6
-  %17 = shl nsw i32 %16, 1
-  %18 = add nsw i32 %17, %11
-  %19 = add nsw i32 %.02340.i.i, -1
-  %20 = icmp samesign ugt i32 %.02340.i.i, 1
-  br i1 %20, label %3, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, !llvm.loop !12
+13:                                               ; preds = %11
+  %14 = sub nsw i32 %8, %6
+  %15 = shl nsw i32 %14, 1
+  %16 = add nsw i32 %15, %9
+  %17 = add nsw i32 %.02340.i.i, -1
+  %18 = icmp samesign ugt i32 %.02340.i.i, 1
+  br i1 %18, label %3, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, !llvm.loop !12
 
-_ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %13
-  %21 = sub nsw i32 %0, %6
-  %22 = shl nsw i32 %21, 1
-  %23 = add nsw i32 %22, %11
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, label %25
+_ZN6icu_7712PropNameData12findPropertyEi.exit.i:  ; preds = %11
+  %19 = sub nsw i32 %0, %6
+  %20 = shl nsw i32 %19, 1
+  %21 = add nsw i32 %20, %9
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, label %23
 
-25:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit.i
-  %26 = add nsw i32 %23, 1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !10
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, label %31
+23:                                               ; preds = %_ZN6icu_7712PropNameData12findPropertyEi.exit.i
+  %24 = sext i32 %21 to i64
+  %25 = getelementptr i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit, label %29
 
-31:                                               ; preds = %25
-  %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds [1494 x i32], ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !10
-  %35 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %34, ptr noundef readonly %1)
+29:                                               ; preds = %23
+  %30 = sext i32 %27 to i64
+  %31 = getelementptr inbounds i32, ptr @_ZN6icu_7712PropNameData9valueMapsE, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %33 = tail call noundef i32 @_ZN6icu_7712PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef %32, ptr noundef readonly %1)
   br label %_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit
 
-_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit: ; preds = %3, %15, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, %25, %31
-  %.0.i = phi i32 [ %35, %31 ], [ -1, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i ], [ -1, %25 ], [ -1, %15 ], [ -1, %3 ]
+_ZN6icu_7712PropNameData20getPropertyValueEnumEiPKc.exit: ; preds = %3, %13, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i, %23, %29
+  %.0.i = phi i32 [ %33, %29 ], [ -1, %_ZN6icu_7712PropNameData12findPropertyEi.exit.i ], [ -1, %23 ], [ -1, %13 ], [ -1, %3 ]
   ret i32 %.0.i
 }
 

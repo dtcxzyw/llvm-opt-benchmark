@@ -481,9 +481,9 @@ define dso_local void @xhci_ring_ep_doorbell(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr [256 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr i32, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %10 = getelementptr [256 x ptr], ptr %9, i64 0, i64 %7
+  %10 = getelementptr ptr, ptr %9, i64 %7
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %2 to i64
   %.idx = mul nuw nsw i64 %12, 144
@@ -557,11 +557,11 @@ define dso_local void @xhci_ring_doorbell_for_active_rings(ptr noundef readonly 
 define internal fastcc void @ring_doorbell_for_active_rings(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = zext i32 %1 to i64
-  %6 = getelementptr [256 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = zext i32 %2 to i64
-  %10 = getelementptr [31 x %struct.xhci_virt_ep], ptr %8, i64 0, i64 %9
+  %10 = getelementptr %struct.xhci_virt_ep, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 16
@@ -598,7 +598,7 @@ define internal fastcc void @ring_doorbell_for_active_rings(ptr noundef readonly
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr [256 x i32], ptr %35, i64 0, i64 %5
+  %36 = getelementptr i32, ptr %35, i64 %5
   %.idx4 = mul nuw nsw i64 %9, 144
   %37 = getelementptr i8, ptr %8, i64 %.idx4
   %38 = getelementptr i8, ptr %37, i64 44
@@ -667,7 +667,7 @@ define internal fastcc void @ring_doorbell_for_active_rings(ptr noundef readonly
 
 76:                                               ; preds = %67
   %77 = load ptr, ptr %22, align 8
-  %78 = getelementptr [256 x i32], ptr %77, i64 0, i64 %5
+  %78 = getelementptr i32, ptr %77, i64 %5
   %79 = load ptr, ptr %6, align 8
   %80 = getelementptr i8, ptr %79, i64 76
   %81 = getelementptr i8, ptr %80, i64 %.idx
@@ -763,7 +763,7 @@ define dso_local ptr @xhci_triad_to_transfer_ring(ptr noundef readonly captures(
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr [256 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %24
@@ -777,7 +777,7 @@ define dso_local ptr @xhci_triad_to_transfer_ring(ptr noundef readonly captures(
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %26 = zext nneg i32 %2 to i64
-  %27 = getelementptr [31 x %struct.xhci_virt_ep], ptr %25, i64 0, i64 %26
+  %27 = getelementptr %struct.xhci_virt_ep, ptr %25, i64 %26
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
 
@@ -855,7 +855,7 @@ define internal fastcc ptr @xhci_get_virt_ep(ptr noundef readonly captures(none)
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr [256 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %22
@@ -869,7 +869,7 @@ define internal fastcc ptr @xhci_get_virt_ep(ptr noundef readonly captures(none)
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %24 = zext nneg i32 %2 to i64
-  %25 = getelementptr [31 x %struct.xhci_virt_ep], ptr %23, i64 0, i64 %24
+  %25 = getelementptr %struct.xhci_virt_ep, ptr %23, i64 %24
   br label %26
 
 26:                                               ; preds = %22, %19, %10, %5
@@ -937,7 +937,7 @@ define dso_local void @xhci_hc_died(ptr noundef %0) local_unnamed_addr #1 align 
 
 32:                                               ; preds = %.loopexit31, %.loopexit33
   %33 = phi i64 [ 0, %.loopexit33 ], [ %377, %.loopexit31 ]
-  %34 = getelementptr [256 x ptr], ptr %30, i64 0, i64 %33
+  %34 = getelementptr ptr, ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit31, label %37
@@ -970,7 +970,7 @@ define dso_local void @xhci_hc_died(ptr noundef %0) local_unnamed_addr #1 align 
 
 51:                                               ; preds = %.split
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %53 = getelementptr [31 x %struct.xhci_virt_ep], ptr %52, i64 0, i64 %45
+  %53 = getelementptr %struct.xhci_virt_ep, ptr %52, i64 %45
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread, label %55
 
@@ -2648,7 +2648,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
 
 206:                                              ; preds = %201
   %207 = sext i32 %204 to i64
-  %208 = getelementptr [256 x ptr], ptr %71, i64 0, i64 %207
+  %208 = getelementptr ptr, ptr %71, i64 %207
   %209 = load ptr, ptr %208, align 8
   %210 = icmp eq ptr %209, null
   br i1 %210, label %215, label %211
@@ -2743,7 +2743,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
 
 259:                                              ; preds = %253
   %260 = sext i32 %257 to i64
-  %261 = getelementptr [256 x ptr], ptr %71, i64 0, i64 %260
+  %261 = getelementptr ptr, ptr %71, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = icmp eq ptr %262, null
   br i1 %263, label %265, label %264
@@ -2861,7 +2861,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
 
 327:                                              ; preds = %322
   %328 = zext nneg i32 %310 to i64
-  %329 = getelementptr [256 x ptr], ptr %71, i64 0, i64 %328
+  %329 = getelementptr ptr, ptr %71, i64 %328
   %330 = load ptr, ptr %329, align 8
   %331 = icmp eq ptr %330, null
   br i1 %331, label %332, label %335
@@ -2875,7 +2875,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
 335:                                              ; preds = %327
   %336 = getelementptr inbounds nuw i8, ptr %330, i64 32
   %337 = zext nneg i32 %313 to i64
-  %338 = getelementptr [31 x %struct.xhci_virt_ep], ptr %336, i64 0, i64 %337
+  %338 = getelementptr %struct.xhci_virt_ep, ptr %336, i64 %337
   %339 = icmp eq ptr %338, null
   br i1 %339, label %.thread57, label %342
 
@@ -3191,7 +3191,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %503 = load i32, ptr %502, align 4
   %504 = getelementptr inbounds nuw i8, ptr %492, i64 184
   %505 = sext i32 %503 to i64
-  %506 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %504, i64 0, i64 %505
+  %506 = getelementptr %struct.usb_iso_packet_descriptor, ptr %504, i64 %505
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 12
   store i32 -18, ptr %507, align 4
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 8
@@ -3535,7 +3535,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %698 = load i32, ptr %697, align 4
   %699 = getelementptr inbounds nuw i8, ptr %608, i64 184
   %700 = sext i32 %698 to i64
-  %701 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %699, i64 0, i64 %700
+  %701 = getelementptr %struct.usb_iso_packet_descriptor, ptr %699, i64 %700
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 4
   %703 = load i32, ptr %702, align 4
   %704 = and i32 %693, 16777215
@@ -3990,7 +3990,7 @@ switch.early.test:                                ; preds = %927
 964:                                              ; preds = %117
   %965 = lshr i32 %118, 24
   %966 = zext nneg i32 %965 to i64
-  %967 = getelementptr [256 x ptr], ptr %71, i64 0, i64 %966
+  %967 = getelementptr ptr, ptr %71, i64 %966
   %968 = load ptr, ptr %967, align 8
   %969 = icmp eq ptr %968, null
   br i1 %969, label %970, label %973
@@ -4267,7 +4267,7 @@ define dso_local noundef range(i32 1, 0) i32 @count_trbs(i64 noundef %0, i64 nou
 define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_intr_tx(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = sext i32 %3 to i64
-  %8 = getelementptr [256 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -4401,7 +4401,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   %76 = phi ptr [ null, %62 ], [ %33, %29 ], [ %33, %.preheader26 ], [ %33, %56 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %78 = sext i32 %3 to i64
-  %79 = getelementptr [256 x ptr], ptr %77, i64 0, i64 %78
+  %79 = getelementptr ptr, ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %14, align 4
   %82 = tail call fastcc i32 @prepare_transfer(ptr noundef %0, ptr noundef %80, i32 noundef %4, i32 noundef %81, i32 noundef %72, ptr noundef %2, i32 noundef 0, i32 noundef %1)
@@ -4944,8 +4944,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_bulk_tx(ptr noundef %
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %451 = load ptr, ptr %450, align 8
   %452 = zext i32 %3 to i64
-  %453 = getelementptr [256 x i32], ptr %451, i64 0, i64 %452
-  %454 = getelementptr [256 x ptr], ptr %77, i64 0, i64 %452
+  %453 = getelementptr i32, ptr %451, i64 %452
+  %454 = getelementptr ptr, ptr %77, i64 %452
   %455 = load ptr, ptr %454, align 8
   %456 = zext i32 %4 to i64
   %.idx.i = mul nuw nsw i64 %456, 144
@@ -5033,7 +5033,7 @@ define internal fastcc i32 @prepare_transfer(ptr noundef %0, ptr noundef readonl
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = zext i32 %6 to i64
-  %25 = getelementptr [0 x %struct.xhci_td], ptr %23, i64 0, i64 %24
+  %25 = getelementptr %struct.xhci_td, ptr %23, i64 %24
   store volatile ptr %25, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store volatile ptr %25, ptr %26, align 8
@@ -5298,7 +5298,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_ctrl_tx(ptr noundef %
   %26 = select i1 %25, i32 2, i32 3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %28 = sext i32 %3 to i64
-  %29 = getelementptr [256 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %14, align 4
   %32 = tail call fastcc i32 @prepare_transfer(ptr noundef %0, ptr noundef %30, i32 noundef %4, i32 noundef %31, i32 noundef %26, ptr noundef %2, i32 noundef 0, i32 noundef %1)
@@ -5476,8 +5476,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_ctrl_tx(ptr noundef %
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %151 = load ptr, ptr %150, align 8
   %152 = zext i32 %3 to i64
-  %153 = getelementptr [256 x i32], ptr %151, i64 0, i64 %152
-  %154 = getelementptr [256 x ptr], ptr %27, i64 0, i64 %152
+  %153 = getelementptr i32, ptr %151, i64 %152
+  %154 = getelementptr ptr, ptr %27, i64 %152
   %155 = load ptr, ptr %154, align 8
   %156 = zext i32 %4 to i64
   %.idx.i = mul nuw nsw i64 %156, 144
@@ -5544,11 +5544,11 @@ giveback_first_trb.exit:                          ; preds = %185, %141, %22, %18
 define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = sext i32 %3 to i64
-  %8 = getelementptr [256 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = zext i32 %4 to i64
-  %12 = getelementptr [31 x %struct.xhci_virt_ep], ptr %10, i64 0, i64 %11
+  %12 = getelementptr %struct.xhci_virt_ep, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -5569,7 +5569,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
 26:                                               ; preds = %26, %21
   %27 = phi i64 [ 0, %21 ], [ %43, %26 ]
   %28 = phi i32 [ 0, %21 ], [ %42, %26 ]
-  %29 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %24, i64 0, i64 %27
+  %29 = getelementptr %struct.usb_iso_packet_descriptor, ptr %24, i64 %27
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = add i64 %23, %31
@@ -5697,7 +5697,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   store i32 %122, ptr %123, align 8
   %124 = load ptr, ptr %8, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %126 = getelementptr [31 x %struct.xhci_virt_ep], ptr %125, i64 0, i64 %11
+  %126 = getelementptr %struct.xhci_virt_ep, ptr %125, i64 %11
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
   %129 = load i32, ptr %18, align 4
@@ -5735,7 +5735,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
 
 157:                                              ; preds = %417, %131
   %158 = phi i64 [ 0, %131 ], [ %418, %417 ]
-  %159 = getelementptr [0 x %struct.usb_iso_packet_descriptor], ptr %140, i64 0, i64 %158
+  %159 = getelementptr %struct.usb_iso_packet_descriptor, ptr %140, i64 %158
   %160 = load i32, ptr %159, align 8
   %161 = zext i32 %160 to i64
   %162 = add i64 %133, %161
@@ -5808,7 +5808,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   br i1 %218, label %giveback_first_trb.exit, label %415
 
 219:                                              ; preds = %200
-  %220 = getelementptr [0 x %struct.xhci_td], ptr %144, i64 0, i64 %158
+  %220 = getelementptr %struct.xhci_td, ptr %144, i64 %158
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 92
   store i32 %211, ptr %221, align 4
   %222 = load i32, ptr %145, align 4
@@ -6155,8 +6155,8 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %452 = load ptr, ptr %451, align 8
   %453 = zext i32 %3 to i64
-  %454 = getelementptr [256 x i32], ptr %452, i64 0, i64 %453
-  %455 = getelementptr [256 x ptr], ptr %6, i64 0, i64 %453
+  %454 = getelementptr i32, ptr %452, i64 %453
+  %455 = getelementptr ptr, ptr %6, i64 %453
   %456 = load ptr, ptr %455, align 8
   %.idx.i = mul nuw nsw i64 %11, 144
   %457 = getelementptr i8, ptr %456, i64 76
@@ -6219,7 +6219,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   %489 = phi i64 [ %490, %.preheader ], [ %158, %415 ]
   %490 = add nsw i64 %489, -1
   %491 = and i64 %490, 4294967295
-  %492 = getelementptr [0 x %struct.xhci_td], ptr %144, i64 0, i64 %491
+  %492 = getelementptr %struct.xhci_td, ptr %144, i64 %491
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   %494 = load ptr, ptr %493, align 8
   %495 = load ptr, ptr %492, align 8
@@ -7148,7 +7148,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
 99:                                               ; preds = %89
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %101 = zext nneg i32 %5 to i64
-  %102 = getelementptr [256 x ptr], ptr %100, i64 0, i64 %101
+  %102 = getelementptr ptr, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.thread37, label %105
@@ -7220,7 +7220,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
 140:                                              ; preds = %89
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %142 = zext nneg i32 %5 to i64
-  %143 = getelementptr [256 x ptr], ptr %141, i64 0, i64 %142
+  %143 = getelementptr ptr, ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %.thread37, label %146
@@ -7332,7 +7332,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
 200:                                              ; preds = %195
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %202 = zext nneg i32 %5 to i64
-  %203 = getelementptr [256 x ptr], ptr %201, i64 0, i64 %202
+  %203 = getelementptr ptr, ptr %201, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %206, label %209
@@ -7346,7 +7346,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
 209:                                              ; preds = %200
   %210 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %211 = zext nneg i32 %187 to i64
-  %212 = getelementptr [31 x %struct.xhci_virt_ep], ptr %210, i64 0, i64 %211
+  %212 = getelementptr %struct.xhci_virt_ep, ptr %210, i64 %211
   %213 = icmp eq ptr %212, null
   br i1 %213, label %.thread37, label %214
 
@@ -7763,7 +7763,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
 461:                                              ; preds = %456
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %463 = zext nneg i32 %5 to i64
-  %464 = getelementptr [256 x ptr], ptr %462, i64 0, i64 %463
+  %464 = getelementptr ptr, ptr %462, i64 %463
   %465 = load ptr, ptr %464, align 8
   %466 = icmp eq ptr %465, null
   br i1 %466, label %467, label %470
@@ -7777,7 +7777,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
 470:                                              ; preds = %461
   %471 = getelementptr inbounds nuw i8, ptr %465, i64 32
   %472 = zext nneg i32 %451 to i64
-  %473 = getelementptr [31 x %struct.xhci_virt_ep], ptr %471, i64 0, i64 %472
+  %473 = getelementptr %struct.xhci_virt_ep, ptr %471, i64 %472
   %474 = icmp eq ptr %473, null
   br i1 %474, label %.thread37, label %475
 
@@ -7892,7 +7892,7 @@ define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef n
   %545 = lshr i32 %91, 24
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %547 = zext nneg i32 %545 to i64
-  %548 = getelementptr [256 x ptr], ptr %546, i64 0, i64 %547
+  %548 = getelementptr ptr, ptr %546, i64 %547
   %549 = load ptr, ptr %548, align 8
   %550 = icmp eq ptr %549, null
   br i1 %550, label %551, label %554
@@ -8054,7 +8054,7 @@ declare dso_local void @complete_all(ptr noundef) local_unnamed_addr #3
 define internal fastcc void @xhci_handle_cmd_config_ep(ptr noundef %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr [256 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %44, label %8
@@ -8132,7 +8132,7 @@ define internal fastcc void @xhci_handle_cmd_stop_ep(ptr noundef %0, i32 noundef
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr [256 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.thread
@@ -8169,7 +8169,7 @@ define internal fastcc void @xhci_handle_cmd_stop_ep(ptr noundef %0, i32 noundef
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr [256 x ptr], ptr %29, i64 0, i64 %30
+  %31 = getelementptr ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %37
@@ -8183,7 +8183,7 @@ define internal fastcc void @xhci_handle_cmd_stop_ep(ptr noundef %0, i32 noundef
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %39 = zext nneg i32 %18 to i64
-  %40 = getelementptr [31 x %struct.xhci_virt_ep], ptr %38, i64 0, i64 %39
+  %40 = getelementptr %struct.xhci_virt_ep, ptr %38, i64 %39
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42
 
@@ -8265,7 +8265,7 @@ define internal fastcc void @xhci_handle_cmd_stop_ep(ptr noundef %0, i32 noundef
   %87 = load i32, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %89 = zext i32 %87 to i64
-  %90 = getelementptr [31 x %struct.xhci_virt_ep], ptr %88, i64 0, i64 %89
+  %90 = getelementptr %struct.xhci_virt_ep, ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 44
   %92 = load i32, ptr %91, align 4
   %93 = and i32 %92, 16
@@ -8718,7 +8718,7 @@ define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull r
   %66 = load i32, ptr %11, align 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %68 = zext i32 %66 to i64
-  %69 = getelementptr [31 x %struct.xhci_virt_ep], ptr %67, i64 0, i64 %68
+  %69 = getelementptr %struct.xhci_virt_ep, ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 44
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 16
@@ -8848,11 +8848,11 @@ define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull r
   %150 = load i32, ptr %149, align 4
   %151 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %152 = zext i32 %4 to i64
-  %153 = getelementptr [256 x ptr], ptr %151, i64 0, i64 %152
+  %153 = getelementptr ptr, ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %156 = zext i32 %146 to i64
-  %157 = getelementptr [31 x %struct.xhci_virt_ep], ptr %155, i64 0, i64 %156
+  %157 = getelementptr %struct.xhci_virt_ep, ptr %155, i64 %156
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !147
   %158 = tail call ptr @xhci_triad_to_transfer_ring(ptr noundef %6, i32 noundef %4, i32 noundef %146, i32 noundef %150)

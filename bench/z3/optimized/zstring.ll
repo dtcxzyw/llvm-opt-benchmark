@@ -118,7 +118,7 @@ _ZL12is_hex_digitcRj.exit:                        ; preds = %27
 switch.lookup:                                    ; preds = %_ZL12is_hex_digitcRj.exit
   %34 = tail call noundef i32 @_ZN7zstring12get_encodingEv()
   %35 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK7zstring11well_formedEv, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7zstring11well_formedEv, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = icmp ugt i32 %20, %switch.load
   br i1 %36, label %_ZL12is_hex_digitcRj.exit41, label %37
@@ -219,7 +219,7 @@ switch.lookup108:                                 ; preds = %70, %75, %77
   store i32 %86, ptr %2, align 4, !tbaa !9
   %87 = tail call noundef i32 @_ZN7zstring12get_encodingEv()
   %88 = zext nneg i32 %87 to i64
-  %switch.gep109 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK7zstring11well_formedEv, i64 0, i64 %88
+  %switch.gep109 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7zstring11well_formedEv, i64 %88
   %switch.load110 = load i32, ptr %switch.gep109, align 4
   %89 = icmp ugt i32 %86, %switch.load110
   br i1 %89, label %_ZL12is_hex_digitcRj.exit41, label %90
@@ -612,7 +612,7 @@ define hidden noundef zeroext i1 @_ZNK7zstring11well_formedEv(ptr noundef nonnul
   %9 = load i32, ptr %.01422, align 4, !tbaa !9
   %10 = tail call noundef i32 @_ZN7zstring12get_encodingEv()
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK7zstring11well_formedEv, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7zstring11well_formedEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not16 = icmp ugt i32 %9, %switch.load
   br i1 %.not16, label %12, label %7
@@ -1517,7 +1517,7 @@ define hidden void @_ZNK7zstring6encodeB5cxx11Ev(ptr dead_on_unwind noalias writ
 
 26:                                               ; preds = %25
   %27 = zext i32 %.041 to i64
-  %28 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %27
   store i8 0, ptr %28, align 1, !tbaa !8
   %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
   %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, i64 noundef %29)
@@ -1592,7 +1592,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35: ; preds = %64, %
   %67 = trunc nuw nsw i32 %13 to i8
   %68 = add i32 %.3, 1
   %69 = zext i32 %.3 to i64
-  %70 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 %69
   store i8 %67, ptr %70, align 1, !tbaa !8
   br label %71
 
@@ -1606,7 +1606,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35: ; preds = %64, %
 
 75:                                               ; preds = %._crit_edge
   %76 = zext i32 %.2 to i64
-  %77 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %76
   store i8 0, ptr %77, align 1, !tbaa !8
   %78 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, i64 noundef %78)

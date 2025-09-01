@@ -19044,7 +19044,7 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$alloc..ffi..c_str..CString..new..Spe
 
 .lr.ph.i:                                         ; preds = %12, %16
   %.05.i = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %6, i64 0, i64 %.05.i
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.05.i
   %14 = load i8, ptr %13, align 1, !alias.scope !4468, !noundef !4
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %16
@@ -19178,8 +19178,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %.preheader.split
   %6 = add i64 %.sroa.01.0, 1
-  %7 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds [0 x i32], ptr %2, i64 0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds i32, ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds i32, ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4471)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4474)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4476)
@@ -28746,8 +28746,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24fin
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.split.i.preheader.i.i.i.i, %.preheader.split.backedge.i.i.i.i.i
   %.sroa.01.0.i7.i.i.i.i = phi i64 [ %39, %.preheader.split.backedge.i.i.i.i.i ], [ 0, %.preheader.split.i.preheader.i.i.i.i ]
   %39 = add nuw i64 %.sroa.01.0.i7.i.i.i.i, 1
-  %40 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %.sink5.i.i.i.i.i.i, i64 0, i64 %.sroa.01.0.i7.i.i.i.i
-  %41 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %.sink5.i.i1.i.i.i.i, i64 0, i64 %.sroa.01.0.i7.i.i.i.i
+  %40 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %.sink5.i.i.i.i.i.i, i64 %.sroa.01.0.i7.i.i.i.i
+  %41 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %.sink5.i.i1.i.i.i.i, i64 %.sroa.01.0.i7.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6829)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6832)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6834)

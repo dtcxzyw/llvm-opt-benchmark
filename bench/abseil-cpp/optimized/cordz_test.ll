@@ -4490,7 +4490,7 @@ _ZNK4absl4Cord4sizeEv.exit26:                     ; preds = %55, %59
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load i32, ptr %68, align 8, !tbaa !142
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %70
   %72 = load atomic i64, ptr %71 monotonic, align 8
   %.not14 = icmp eq i64 %72, 1
   br i1 %.not14, label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28, label %73
@@ -4517,7 +4517,7 @@ _ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16Me
 _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %73, %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
   %79 = load i32, ptr %68, align 8, !tbaa !142
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %67, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %80
   %82 = load atomic i64, ptr %81 monotonic, align 8
   br label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
 
@@ -4526,7 +4526,7 @@ _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit: ; preds = %_ZN7testing19
   %.pre = load ptr, ptr %74, align 8, !tbaa !153
   %84 = load i32, ptr %68, align 8, !tbaa !142
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %67, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %85
   %87 = load atomic i64, ptr %86 monotonic, align 8
   %.not.i32 = icmp eq ptr %.pre, null
   br i1 %.not.i32, label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28, label %88
@@ -22671,7 +22671,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27CordzMethodCountEqM
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !521
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %18, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %21
   %23 = load atomic i64, ptr %22 monotonic, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !523
@@ -22714,7 +22714,7 @@ _ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16Me
 _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit, %27, %_ZN7testing19MatchResultListenerlsIiEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA6_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
   %36 = load i32, ptr %19, align 8, !tbaa !521
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %18, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %37
   %39 = load atomic i64, ptr %38 monotonic, align 8
   br label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit
 
@@ -22723,7 +22723,7 @@ _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit: ; preds = %_ZN7testing19
   %.pre = load ptr, ptr %28, align 8, !tbaa !153
   %41 = load i32, ptr %19, align 8, !tbaa !521
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %18, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %42
   %44 = load atomic i64, ptr %43 monotonic, align 8
   %.not.i14 = icmp eq ptr %.pre, null
   br i1 %.not.i14, label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit, label %45

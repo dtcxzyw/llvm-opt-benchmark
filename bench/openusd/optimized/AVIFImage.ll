@@ -432,7 +432,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half
   %113 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i157
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %115
   %117 = load float, ptr %116, align 4
   %118 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i157
   store float %117, ptr %118, align 4
@@ -566,7 +566,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge: ; preds = %_ZNSt6vectorI
   %172 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %.0136188191, i64 %indvars.iv.i167
   %173 = load i16, ptr %172, align 2
   %174 = zext i16 %173 to i64
-  %175 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %174
   %176 = load float, ptr %175, align 4
   %177 = getelementptr inbounds nuw float, ptr %168, i64 %indvars.iv.i167
   store float %176, ptr %177, align 4
@@ -699,7 +699,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
   %215 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i176
   %216 = load i16, ptr %215, align 2
   %217 = zext i16 %216 to i64
-  %218 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %217
   %219 = load float, ptr %218, align 4
   %220 = getelementptr inbounds nuw float, ptr %209, i64 %indvars.iv.i176
   store float %219, ptr %220, align 4
@@ -1556,7 +1556,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 19:                                               ; preds = %.lr.ph
   %20 = lshr i32 %14, 23
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %21
   %23 = load i16, ptr %22, align 2
   %.not.i.i = icmp eq i16 %23, 0
   br i1 %.not.i.i, label %33, label %24

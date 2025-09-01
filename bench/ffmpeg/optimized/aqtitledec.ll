@@ -81,7 +81,7 @@ define internal range(i32 -12, 1) i32 @aqt_read_header(ptr noundef %0) #1 {
 
 22:                                               ; preds = %19
   %23 = call i64 @strcspn(ptr noundef nonnull %3, ptr noundef nonnull @.str.9) #7
-  %24 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !44
   %25 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef nonnull %2) #6
   %26 = icmp eq i32 %25, 1

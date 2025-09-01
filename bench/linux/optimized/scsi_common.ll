@@ -71,7 +71,7 @@ define dso_local ptr @scsi_device_type(i32 noundef %0) #0 align 16 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr [21 x ptr], ptr @scsi_device_types, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr @scsi_device_types, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -155,13 +155,13 @@ define dso_local i64 @scsilun_to_int(ptr noundef readonly captures(none) %0) #1 
 2:                                                ; preds = %2, %1
   %3 = phi i64 [ 0, %1 ], [ %18, %2 ]
   %4 = phi i64 [ 0, %1 ], [ %17, %2 ]
-  %5 = getelementptr [8 x i8], ptr %0, i64 0, i64 %3
+  %5 = getelementptr i8, ptr %0, i64 %3
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = or disjoint i64 %3, 1
   %9 = shl nuw nsw i64 %8, 3
   %10 = shl nuw i64 %7, %9
-  %11 = getelementptr [8 x i8], ptr %0, i64 0, i64 %8
+  %11 = getelementptr i8, ptr %0, i64 %8
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %3, 3
@@ -182,22 +182,21 @@ define dso_local void @int_to_scsilun(i64 noundef %0, ptr noundef writeonly capt
   br label %3
 
 3:                                                ; preds = %3, %2
-  %4 = phi i64 [ 0, %2 ], [ %13, %3 ]
-  %5 = phi i64 [ %0, %2 ], [ %12, %3 ]
+  %4 = phi i64 [ 0, %2 ], [ %12, %3 ]
+  %5 = phi i64 [ %0, %2 ], [ %11, %3 ]
   %6 = lshr i64 %5, 8
   %7 = trunc i64 %6 to i8
-  %8 = getelementptr [8 x i8], ptr %1, i64 0, i64 %4
+  %8 = getelementptr i8, ptr %1, i64 %4
   store i8 %7, ptr %8, align 1
   %9 = trunc i64 %5 to i8
-  %10 = or disjoint i64 %4, 1
-  %11 = getelementptr [8 x i8], ptr %1, i64 0, i64 %10
-  store i8 %9, ptr %11, align 1
-  %12 = lshr i64 %5, 16
-  %13 = add nuw nsw i64 %4, 2
-  %14 = icmp samesign ult i64 %4, 6
-  br i1 %14, label %3, label %15, !llvm.loop !8
+  %10 = getelementptr i8, ptr %8, i64 1
+  store i8 %9, ptr %10, align 1
+  %11 = lshr i64 %5, 16
+  %12 = add nuw nsw i64 %4, 2
+  %13 = icmp samesign ult i64 %4, 6
+  br i1 %13, label %3, label %14, !llvm.loop !8
 
-15:                                               ; preds = %3
+14:                                               ; preds = %3
   ret void
 }
 

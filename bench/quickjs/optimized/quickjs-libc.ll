@@ -1142,7 +1142,7 @@ define dso_local void @js_std_free_handlers(ptr noundef %0) local_unnamed_addr #
 8:                                                ; preds = %JS_FreeValueRT.exit.i, %.lr.ph
   %9 = phi i1 [ true, %.lr.ph ], [ false, %JS_FreeValueRT.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ 1, %JS_FreeValueRT.exit.i ]
-  %10 = getelementptr inbounds nuw [2 x %struct.JSValue], ptr %7, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %struct.JSValue, ptr %7, i64 %indvars.iv.i
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8
@@ -4735,7 +4735,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %93 = shl nuw i64 1, %92
   %94 = sdiv i32 %86, 64
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %95
+  %96 = getelementptr inbounds i64, ptr %5, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !12
   %98 = or i64 %97, %93
   store i64 %98, ptr %96, align 8, !tbaa !12
@@ -4754,7 +4754,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %106 = shl nuw i64 1, %105
   %107 = sdiv i32 %86, 64
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %108
+  %109 = getelementptr inbounds i64, ptr %6, i64 %108
   %110 = load i64, ptr %109, align 8, !tbaa !12
   %111 = or i64 %110, %106
   store i64 %111, ptr %109, align 8, !tbaa !12
@@ -4794,7 +4794,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %126 = shl nuw i64 1, %125
   %127 = sdiv i32 %123, 64
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %128
+  %129 = getelementptr inbounds i64, ptr %5, i64 %128
   %130 = load i64, ptr %129, align 8, !tbaa !12
   %131 = or i64 %126, %130
   store i64 %131, ptr %129, align 8, !tbaa !12
@@ -4837,7 +4837,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %142 = load i32, ptr %141, align 8, !tbaa !96
   %143 = sdiv i32 %142, 64
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %144
+  %145 = getelementptr inbounds i64, ptr %5, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !12
   %147 = srem i32 %142, 64
   %148 = zext nneg i32 %147 to i64
@@ -4864,7 +4864,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %160 = load i32, ptr %159, align 8, !tbaa !96
   %161 = sdiv i32 %160, 64
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %162
+  %163 = getelementptr inbounds i64, ptr %6, i64 %162
   %164 = load i64, ptr %163, align 8, !tbaa !12
   %165 = srem i32 %160, 64
   %166 = zext nneg i32 %165 to i64
@@ -4900,7 +4900,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %181 = load i32, ptr %180, align 8, !tbaa !59
   %182 = sdiv i32 %181, 64
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %183
+  %184 = getelementptr inbounds i64, ptr %5, i64 %183
   %185 = load i64, ptr %184, align 8, !tbaa !12
   %186 = srem i32 %181, 64
   %187 = zext nneg i32 %186 to i64
@@ -6679,7 +6679,7 @@ define internal { i64, i64 } @js_os_setReadHandler(ptr noundef %0, i64 %1, i64 %
 find_rh.exit:                                     ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %25 = sext i32 %5 to i64
-  %26 = getelementptr inbounds [2 x %struct.JSValue], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.JSValue, ptr %24, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8
@@ -6731,7 +6731,7 @@ JS_FreeValue.exit:                                ; preds = %find_rh.exit, %32, 
 51:                                               ; preds = %JS_FreeValueRT.exit.i, %45
   %52 = phi i1 [ true, %45 ], [ false, %JS_FreeValueRT.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %45 ], [ 1, %JS_FreeValueRT.exit.i ]
-  %53 = getelementptr inbounds nuw [2 x %struct.JSValue], ptr %24, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw %struct.JSValue, ptr %24, i64 %indvars.iv.i
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8
@@ -6822,7 +6822,7 @@ find_rh.exit61:                                   ; preds = %75, %81
   %.0 = phi ptr [ %80, %81 ], [ %.0.i58, %75 ]
   %89 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %90 = sext i32 %5 to i64
-  %91 = getelementptr inbounds [2 x %struct.JSValue], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds %struct.JSValue, ptr %89, i64 %90
   %92 = load i64, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load i64, ptr %93, align 8
@@ -8193,7 +8193,7 @@ define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32
   br label %20
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %12
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %12
   store i8 0, ptr %19, align 1, !tbaa !11
   br label %20
 
@@ -8375,7 +8375,7 @@ JS_FreeValue.exit268:                             ; preds = %47, %51, %56
 
 64:                                               ; preds = %._crit_edge, %64
   %indvars.iv323 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next324, %64 ]
-  %65 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv323
+  %65 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv323
   %66 = trunc nuw nsw i64 %indvars.iv323 to i32
   store i32 %66, ptr %65, align 4, !tbaa !7
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
@@ -8469,7 +8469,7 @@ JS_FreeValue.exit270:                             ; preds = %91, %94, %99
 
 101:                                              ; preds = %100, %119
   %indvars.iv326 = phi i64 [ 0, %100 ], [ %indvars.iv.next327, %119 ]
-  %102 = getelementptr inbounds nuw [3 x ptr], ptr @js_os_exec.std_name, i64 0, i64 %indvars.iv326
+  %102 = getelementptr inbounds nuw ptr, ptr @js_os_exec.std_name, i64 %indvars.iv326
   %103 = load ptr, ptr %102, align 8, !tbaa !29
   %104 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0142.0.copyload, i64 %.sroa.11.0.copyload, ptr noundef %103) #30
   %105 = extractvalue { i64, i64 } %104, 0
@@ -8504,7 +8504,7 @@ JS_FreeValue.exit271:                             ; preds = %107, %110, %115
 
 .thread:                                          ; preds = %JS_FreeValue.exit271
   %116 = load i32, ptr %13, align 4, !tbaa !7
-  %117 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv326
+  %117 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv326
   store i32 %116, ptr %117, align 4, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %119
@@ -8630,7 +8630,7 @@ JS_FreeValue.exit274:                             ; preds = %150, %153, %158
 
 .preheader289:                                    ; preds = %164, %174
   %indvars.iv330 = phi i64 [ %indvars.iv.next331, %174 ], [ 0, %164 ]
-  %166 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv330
+  %166 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv330
   %167 = load i32, ptr %166, align 4, !tbaa !7
   %168 = zext i32 %167 to i64
   %.not260 = icmp eq i64 %indvars.iv330, %168
@@ -9406,11 +9406,11 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef nonnull %1, 
 
 29:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.03241, i64 %.030, i1 false)
-  %30 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %.030
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %.030
   store i8 47, ptr %30, align 1, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %0, i64 %5, i1 false)
-  %32 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   store i8 0, ptr %32, align 1, !tbaa !11
   %33 = call i32 @execve(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef %2) #30
   %34 = tail call ptr @__errno_location() #29

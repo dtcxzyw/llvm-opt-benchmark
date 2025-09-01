@@ -90,7 +90,7 @@ define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSourcesC2ERNS0_7PDBFileER
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %15 ], [ 0, %11 ]
   %16 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw [2 x i64], ptr %14, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !20
   %.not.i.i.i.i.i = icmp eq i64 %18, 0
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -144,7 +144,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb25NativeEnumInjectedSources13getChild
   %7 = phi i1 [ true, %.lr.ph.i.i.i ], [ false, %6 ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ 1, %6 ]
   %.056.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %12, %6 ]
-  %8 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i.i.i
   %9 = load i64, ptr %8, align 8, !tbaa !20
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %11 = trunc nuw nsw i64 %10 to i32
@@ -189,7 +189,7 @@ define dso_local void @_ZNK4llvm3pdb25NativeEnumInjectedSources15getChildAtIndex
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %18 ], [ 0, %14 ]
   %19 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i.i.i.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !20
   %.not.i.i.i.i.i = icmp eq i64 %21, 0
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -329,7 +329,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i: ; preds = 
   %80 = lshr i32 %48, 6
   %81 = and i32 %80, 1
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw [2 x i64], ptr %79, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i64, ptr %79, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !20
   %85 = and i32 %48, 63
   %86 = zext nneg i32 %85 to i64
@@ -561,7 +561,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i: ; preds = %.si
   %53 = lshr i32 %22, 6
   %54 = and i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %52, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !20
   %58 = and i32 %22, 63
   %59 = zext nneg i32 %58 to i64

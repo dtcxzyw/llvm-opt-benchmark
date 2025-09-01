@@ -362,7 +362,7 @@ define ptr @l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -405,7 +405,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 7
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit
 
@@ -2586,7 +2586,7 @@ lean_dec.exit132:                                 ; preds = %97, %96, %94, %87
 
 switch.lookup:                                    ; preds = %lean_dec.exit132
   %99 = and i64 %88, 7
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %99
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %99
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit
 
@@ -2700,7 +2700,7 @@ lean_dec.exit129:                                 ; preds = %134, %133, %131, %l
 
 switch.lookup270:                                 ; preds = %lean_dec.exit129
   %136 = and i64 %126, 7
-  %switch.gep271 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %136
+  %switch.gep271 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %136
   %switch.load272 = load ptr, ptr %switch.gep271, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit191
 
@@ -3120,7 +3120,7 @@ lean_dec.exit123:                                 ; preds = %287, %286, %284, %l
 
 switch.lookup273:                                 ; preds = %lean_dec.exit123
   %289 = and i64 %279, 7
-  %switch.gep274 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %289
+  %switch.gep274 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %289
   %switch.load275 = load ptr, ptr %switch.gep274, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit219
 
@@ -7158,7 +7158,7 @@ lean_dec.exit:                                    ; preds = %51, %50, %48, %lean
 
 53:                                               ; preds = %5
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %3
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %3
   %56 = load ptr, ptr %55, align 8, !tbaa !10
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, 1

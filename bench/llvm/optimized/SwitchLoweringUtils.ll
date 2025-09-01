@@ -1989,7 +1989,7 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering19findBitTestClustersERS
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %27 = zext i16 %24 to i64
-  %28 = getelementptr inbounds nuw [234 x ptr], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !353
   %.not.i.not = icmp eq ptr %29, null
   br i1 %.not.i.not, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit
@@ -2006,10 +2006,10 @@ _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit: ; preds = %_ZNK4
 _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = zext i16 %24 to i64
-  %35 = add nsw i64 %34, -1
-  %36 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %35
+  %35 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %36, align 16
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %35, i64 -8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2829,10 +2829,10 @@ _ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10Dat
   %130 = load ptr, ptr %129, align 8
   %131 = call i16 %130(ptr noundef nonnull align 8 dereferenceable(412423) %126, ptr noundef nonnull align 8 dereferenceable(496) %127, i32 noundef 0) #20
   %132 = zext i16 %131 to i64
-  %133 = add nsw i64 %132, -1
-  %134 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %133
+  %133 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %132
+  %134 = getelementptr i8, ptr %133, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %134, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %133, i64 -8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %14, align 8
   %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8

@@ -1516,7 +1516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit101: ; preds =
 
 185:                                              ; preds = %.lr.ph
   %186 = zext nneg i32 %173 to i64
-  %187 = getelementptr inbounds nuw [32 x ptr], ptr %16, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw ptr, ptr %16, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !64
   %.not.i.i102 = icmp eq ptr %188, null
   %189 = load ptr, ptr %22, align 8
@@ -1524,7 +1524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit101: ; preds =
   %191 = ptrtoint ptr %189 to i64
   %192 = sub i64 %190, %191
   %.0.i.i103 = select i1 %.not.i.i102, i64 -1, i64 %192
-  %193 = getelementptr inbounds nuw [32 x ptr], ptr %23, i64 0, i64 %186
+  %193 = getelementptr inbounds nuw ptr, ptr %23, i64 %186
   %194 = load ptr, ptr %193, align 8, !tbaa !64
   %.not.i.i104 = icmp eq ptr %194, null
   %195 = ptrtoint ptr %194 to i64

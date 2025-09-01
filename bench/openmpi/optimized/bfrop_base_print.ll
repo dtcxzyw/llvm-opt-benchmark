@@ -2355,7 +2355,7 @@ pmix_bfrops_base_print_persist.exit:              ; preds = %272, %274
 
 switch.lookup:                                    ; preds = %348
   %353 = zext nneg i8 %351 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.pmix_bfrops_base_print_geometry, i64 0, i64 %353
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pmix_bfrops_base_print_geometry, i64 %353
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %pmix_bfrops_base_print_coord.exit
 
@@ -2706,7 +2706,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_coord(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.pmix_bfrops_base_print_geometry, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pmix_bfrops_base_print_geometry, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -2956,7 +2956,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr noundef writeo
 
 switch.lookup:                                    ; preds = %26
   %31 = zext nneg i8 %29 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.pmix_bfrops_base_print_geometry, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pmix_bfrops_base_print_geometry, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %pmix_bfrops_base_print_coord.exit
 

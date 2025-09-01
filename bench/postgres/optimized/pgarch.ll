@@ -436,7 +436,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   store i32 %38, ptr %36, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw [64 x ptr], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef %42, ptr noundef nonnull @.str.10) #19
   %44 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #19
@@ -507,7 +507,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
 
 75:                                               ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %63, i64 %70, i1 false)
-  %76 = getelementptr inbounds nuw [41 x i8], ptr %6, i64 0, i64 %70
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 %70
   store i8 0, ptr %76, align 1
   %77 = load ptr, ptr @arch_files, align 8
   %78 = load ptr, ptr %77, align 8
@@ -518,7 +518,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
 81:                                               ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 528
   %83 = sext i32 %79 to i64
-  %84 = getelementptr inbounds [64 x [41 x i8]], ptr %82, i64 0, i64 %83
+  %84 = getelementptr inbounds [41 x i8], ptr %82, i64 %83
   %85 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %6) #19
   %86 = load ptr, ptr %77, align 8
   %87 = ptrtoint ptr %84 to i64
@@ -599,7 +599,7 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge46.i.i
   store i32 %119, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %.lcssa47.i.i, i64 16
   %121 = sext i32 %119 to i64
-  %122 = getelementptr inbounds [64 x ptr], ptr %120, i64 0, i64 %121
+  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %123) #19
   br label %pgarch_readyXlog.exit.i
@@ -612,7 +612,7 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge46.i.i
   %128 = inttoptr i64 %127 to ptr
   %129 = load ptr, ptr @arch_files, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = getelementptr inbounds nuw [64 x ptr], ptr %130, i64 0, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv.i.i
   store ptr %128, ptr %131, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8

@@ -459,9 +459,9 @@ define dso_local noundef range(i32 -1, 1) i32 @intel_dp_get_link_train_fallback_
   br label %72
 
 67:                                               ; preds = %50
-  %68 = add nuw i64 %39, 4294967295
-  %69 = and i64 %68, 4294967295
-  %70 = getelementptr [8 x i32], ptr %32, i64 0, i64 %69
+  %68 = and i64 %39, 2147483647
+  %69 = getelementptr i32, ptr %32, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 -4
   %71 = load i32, ptr %70, align 4
   br label %72
 
@@ -538,9 +538,9 @@ define dso_local noundef range(i32 -1, 1) i32 @intel_dp_get_link_train_fallback_
   br label %122
 
 117:                                              ; preds = %99
-  %118 = add nuw i64 %39, 4294967295
-  %119 = and i64 %118, 4294967295
-  %120 = getelementptr [8 x i32], ptr %32, i64 0, i64 %119
+  %118 = and i64 %39, 2147483647
+  %119 = getelementptr i32, ptr %32, i64 %118
+  %120 = getelementptr i8, ptr %119, i64 -4
   %121 = load i32, ptr %120, align 4
   br label %122
 
@@ -591,9 +591,9 @@ define dso_local noundef range(i32 -1, 1) i32 @intel_dp_get_link_train_fallback_
   br label %150
 
 145:                                              ; preds = %129
-  %146 = add nsw i32 %34, -1
-  %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr [8 x i32], ptr %32, i64 0, i64 %147
+  %146 = zext nneg i32 %34 to i64
+  %147 = getelementptr i32, ptr %32, i64 %146
+  %148 = getelementptr i8, ptr %147, i64 -4
   %149 = load i32, ptr %148, align 4
   br label %150
 
@@ -671,9 +671,9 @@ define dso_local noundef range(i32 -1, 1) i32 @intel_dp_get_link_train_fallback_
   br label %201
 
 196:                                              ; preds = %178
-  %197 = add nsw i32 %179, -1
-  %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr [8 x i32], ptr %32, i64 0, i64 %198
+  %197 = zext nneg i32 %179 to i64
+  %198 = getelementptr i32, ptr %32, i64 %197
+  %199 = getelementptr i8, ptr %198, i64 -4
   %200 = load i32, ptr %199, align 4
   br label %201
 
@@ -783,7 +783,7 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
 
 31:                                               ; preds = %.preheader
   %32 = add nuw nsw i64 %29, 1
-  %33 = getelementptr [5 x i8], ptr @valid_dsc_bpp, i64 0, i64 %32
+  %33 = getelementptr i8, ptr @valid_dsc_bpp, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp ult i32 %1, %35
@@ -801,7 +801,7 @@ define dso_local noundef range(i32 0, 256) i32 @intel_dp_dsc_nearest_valid_bpp(p
 
 43:                                               ; preds = %40, %37
   %44 = phi ptr [ %42, %40 ], [ null, %37 ]
-  %45 = getelementptr [5 x i8], ptr @valid_dsc_bpp, i64 0, i64 %38
+  %45 = getelementptr i8, ptr @valid_dsc_bpp, i64 %38
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %44, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %1, i32 noundef %47) #14
@@ -917,7 +917,7 @@ define dso_local zeroext i8 @intel_dp_dsc_get_slice_count(ptr noundef %0, i32 no
 
 .split.us:                                        ; preds = %19, %.thread.us
   %40 = phi i64 [ %48, %.thread.us ], [ 0, %19 ]
-  %41 = getelementptr [3 x i8], ptr @valid_dsc_slicecount, i64 0, i64 %40
+  %41 = getelementptr i8, ptr @valid_dsc_slicecount, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = shl i8 %42, %39
   %44 = tail call zeroext i8 @drm_dp_dsc_sink_max_slice_count(ptr noundef nonnull %6, i1 noundef zeroext false) #14
@@ -936,7 +936,7 @@ define dso_local zeroext i8 @intel_dp_dsc_get_slice_count(ptr noundef %0, i32 no
 
 .split:                                           ; preds = %19, %.thread
   %50 = phi i64 [ %59, %.thread ], [ 0, %19 ]
-  %51 = getelementptr [3 x i8], ptr @valid_dsc_slicecount, i64 0, i64 %50
+  %51 = getelementptr i8, ptr @valid_dsc_slicecount, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = shl i8 %52, %39
   %54 = tail call zeroext i8 @drm_dp_dsc_sink_max_slice_count(ptr noundef nonnull %6, i1 noundef zeroext false) #14
@@ -1475,7 +1475,7 @@ define dso_local range(i32 0, 37) i32 @intel_dp_dsc_compute_max_bpp(ptr noundef 
 
 .preheader:                                       ; preds = %.preheader.preheader, %18
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr [3 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %20 = getelementptr i8, ptr %3, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = icmp ult i8 %13, %21
   br i1 %22, label %18, label %23
@@ -1742,7 +1742,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
 
 113:                                              ; preds = %110, %108
   %114 = phi i64 [ 0, %108 ], [ %111, %110 ]
-  %115 = getelementptr [3 x i8], ptr %8, i64 0, i64 %114
+  %115 = getelementptr i8, ptr %8, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = icmp ult i8 %104, %116
   br i1 %117, label %110, label %118
@@ -1958,7 +1958,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
 
 256:                                              ; preds = %268, %245
   %257 = phi i64 [ %269, %268 ], [ 0, %245 ]
-  %258 = getelementptr [3 x i8], ptr %7, i64 0, i64 %257
+  %258 = getelementptr i8, ptr %7, i64 %257
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
   %261 = mul nuw nsw i32 %260, 3
@@ -4226,10 +4226,10 @@ define internal fastcc void @intel_dp_reset_max_link_params(ptr noundef %0) unna
   br label %47
 
 41:                                               ; preds = %1
-  %42 = add nsw i32 %24, -1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr [8 x i32], ptr %43, i64 0, i64 %44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %43 = zext nneg i32 %24 to i64
+  %44 = getelementptr i32, ptr %42, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
   br label %47
 
@@ -4683,7 +4683,7 @@ define dso_local void @intel_dp_check_frl_training(ptr noundef %0) local_unnamed
 
 185:                                              ; preds = %180
   %186 = zext nneg i32 %181 to i64
-  %187 = getelementptr [6 x i32], ptr %4, i64 0, i64 %186
+  %187 = getelementptr i32, ptr %4, i64 %186
   %188 = load i32, ptr %187, align 4
   br label %.loopexit
 
@@ -5395,7 +5395,7 @@ define dso_local void @intel_dp_set_infoframes(ptr noundef %0, i1 noundef zeroex
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr [7 x i32], ptr %11, i64 0, i64 %14
+  %15 = getelementptr i32, ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %11, align 4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -5918,7 +5918,7 @@ define dso_local i32 @intel_dp_get_active_pipes(ptr noundef readonly captures(ad
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr [4 x ptr], ptr %7, i64 0, i64 %25
+  %30 = getelementptr ptr, ptr %7, i64 %25
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %16, %31
   br i1 %32, label %.loopexit, label %33
@@ -6457,7 +6457,7 @@ define dso_local void @intel_dp_phy_test(ptr noundef %0) local_unnamed_addr #2 a
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr [4 x ptr], ptr %22, i64 0, i64 %41
+  %46 = getelementptr ptr, ptr %22, i64 %41
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %32, %47
   br i1 %48, label %.loopexit, label %49
@@ -7885,7 +7885,7 @@ define dso_local noundef zeroext i1 @intel_dp_init_connector(ptr noundef %0, ptr
 
 240:                                              ; preds = %245, %238
   %241 = phi i64 [ 0, %238 ], [ %249, %245 ]
-  %242 = getelementptr [8 x i16], ptr %6, i64 0, i64 %241
+  %242 = getelementptr i16, ptr %6, i64 %241
   %243 = load i16, ptr %242, align 2
   %244 = icmp eq i16 %243, 0
   br i1 %244, label %251, label %245
@@ -7893,7 +7893,7 @@ define dso_local noundef zeroext i1 @intel_dp_init_connector(ptr noundef %0, ptr
 245:                                              ; preds = %240
   %246 = zext i16 %243 to i32
   %247 = mul nuw nsw i32 %246, 20
-  %248 = getelementptr [8 x i32], ptr %105, i64 0, i64 %241
+  %248 = getelementptr i32, ptr %105, i64 %241
   store i32 %247, ptr %248, align 4
   %249 = add nuw nsw i64 %241, 1
   %250 = icmp eq i64 %249, 8
@@ -9466,7 +9466,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dsc_compute_compressed_bpp
 
 130:                                              ; preds = %.loopexit.us.us, %126
   %131 = phi i64 [ 0, %126 ], [ %158, %.loopexit.us.us ]
-  %132 = getelementptr [8 x i32], ptr %118, i64 0, i64 %131
+  %132 = getelementptr i32, ptr %118, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = icmp slt i32 %133, %125
   br i1 %134, label %.loopexit.us.us, label %135
@@ -9539,7 +9539,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dsc_compute_compressed_bpp
 
 175:                                              ; preds = %.loopexit, %171
   %176 = phi i64 [ 0, %171 ], [ %211, %.loopexit ]
-  %177 = getelementptr [8 x i32], ptr %118, i64 0, i64 %176
+  %177 = getelementptr i32, ptr %118, i64 %176
   %178 = load i32, ptr %177, align 4
   %179 = icmp slt i32 %178, %173
   br i1 %179, label %.loopexit, label %180
@@ -10012,7 +10012,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
 .preheader.split:                                 ; preds = %.split, %.loopexit
   %126 = phi i32 [ %149, %.loopexit ], [ %115, %.split ]
   %127 = phi i64 [ %150, %.loopexit ], [ 0, %.split ]
-  %128 = getelementptr [8 x i32], ptr %104, i64 0, i64 %127
+  %128 = getelementptr i32, ptr %104, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = icmp slt i32 %129, %108
   %131 = icmp sgt i32 %129, %109
@@ -10833,13 +10833,13 @@ define internal fastcc void @intel_dp_set_sink_rates(ptr noundef %0) unnamed_add
 
 22:                                               ; preds = %27, %12
   %23 = phi i64 [ 0, %12 ], [ %29, %27 ]
-  %24 = getelementptr [4 x i32], ptr @intel_dp_set_dpcd_sink_rates.dp_rates, i64 0, i64 %23
+  %24 = getelementptr i32, ptr @intel_dp_set_dpcd_sink_rates.dp_rates, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, %20
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr [8 x i32], ptr %21, i64 0, i64 %23
+  %28 = getelementptr i32, ptr %21, i64 %23
   store i32 %25, ptr %28, align 4
   %29 = add nuw nsw i64 %23, 1
   %30 = icmp eq i64 %29, 4
@@ -10898,7 +10898,7 @@ define internal fastcc void @intel_dp_set_sink_rates(ptr noundef %0) unnamed_add
 
 61:                                               ; preds = %57
   %62 = add nuw nsw i32 %33, 1
-  %63 = getelementptr [8 x i32], ptr %21, i64 0, i64 %34
+  %63 = getelementptr i32, ptr %21, i64 %34
   store i32 1000000, ptr %63, align 4
   br label %64
 
@@ -10911,7 +10911,7 @@ define internal fastcc void @intel_dp_set_sink_rates(ptr noundef %0) unnamed_add
 68:                                               ; preds = %64
   %69 = add nsw i32 %65, 1
   %70 = sext i32 %65 to i64
-  %71 = getelementptr [8 x i32], ptr %21, i64 0, i64 %70
+  %71 = getelementptr i32, ptr %21, i64 %70
   store i32 1350000, ptr %71, align 4
   br label %72
 
@@ -10924,7 +10924,7 @@ define internal fastcc void @intel_dp_set_sink_rates(ptr noundef %0) unnamed_add
 76:                                               ; preds = %72
   %77 = add i32 %73, 1
   %78 = sext i32 %73 to i64
-  %79 = getelementptr [8 x i32], ptr %21, i64 0, i64 %78
+  %79 = getelementptr i32, ptr %21, i64 %78
   store i32 2000000, ptr %79, align 4
   br label %.thread9
 

@@ -414,12 +414,12 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
 
 111:                                              ; preds = %91
   %112 = zext nneg i32 %104 to i64
-  %113 = getelementptr inbounds nuw [24 x i8], ptr @nb_channels_tab, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @nb_channels_tab, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %115, ptr %116, align 4, !tbaa !30
-  %117 = getelementptr inbounds nuw [24 x i8], ptr @nb_programs_tab, i64 0, i64 %112
+  %117 = getelementptr inbounds nuw i8, ptr @nb_programs_tab, i64 %112
   %118 = load i8, ptr %117, align 1, !tbaa !16
   %119 = zext i8 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -451,7 +451,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %139, ptr %142, align 8, !tbaa !33
   %143 = zext nneg i32 %128 to i64
-  %144 = getelementptr inbounds nuw [16 x i16], ptr @sample_rate_tab, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i16, ptr @sample_rate_tab, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !34
   %146 = zext i16 %145 to i32
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -461,7 +461,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
 
 148:                                              ; preds = %111
   %149 = zext nneg i32 %139 to i64
-  %150 = getelementptr inbounds nuw [16 x i16], ptr @sample_rate_tab, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i16, ptr @sample_rate_tab, i64 %149
   %151 = load i16, ptr %150, align 2, !tbaa !34
   %.not104 = icmp eq i16 %151, 0
   br i1 %.not104, label %152, label %.lr.ph
@@ -543,7 +543,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %200 = add i32 %191, 10
   %201 = tail call i32 @llvm.umin.i32(i32 %93, i32 %200)
   store i32 %201, ptr %68, align 8, !tbaa !26
-  %202 = getelementptr inbounds nuw [8 x i32], ptr %159, i64 0, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv
   store i32 %199, ptr %202, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -568,7 +568,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %214 = lshr i32 %213, 28
   %215 = add i32 %206, 4
   %216 = tail call i32 @llvm.umin.i32(i32 %93, i32 %215)
-  %217 = getelementptr inbounds nuw [8 x i32], ptr %187, i64 0, i64 %indvars.iv123
+  %217 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv123
   store i32 %214, ptr %217, align 4, !tbaa !39
   %218 = add i32 %216, 1
   %219 = tail call i32 @llvm.umin.i32(i32 %93, i32 %218)
@@ -584,7 +584,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %228 = add i32 %219, 10
   %229 = tail call i32 @llvm.umin.i32(i32 %93, i32 %228)
   store i32 %229, ptr %68, align 8, !tbaa !26
-  %230 = getelementptr inbounds nuw [8 x i32], ptr %188, i64 0, i64 %indvars.iv123
+  %230 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv123
   store i32 %227, ptr %230, align 4, !tbaa !39
   %231 = lshr i32 %229, 3
   %232 = zext nneg i32 %231 to i64
@@ -597,7 +597,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %239 = add i32 %229, 10
   %240 = tail call i32 @llvm.umin.i32(i32 %93, i32 %239)
   store i32 %240, ptr %68, align 8, !tbaa !26
-  %241 = getelementptr inbounds nuw [8 x i32], ptr %189, i64 0, i64 %indvars.iv123
+  %241 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv123
   store i32 %238, ptr %241, align 4, !tbaa !39
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count127

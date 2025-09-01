@@ -20,9 +20,9 @@ define i32 @Csw_CutHash(ptr noundef readonly captures(none) %0) local_unnamed_ad
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.078 = phi i32 [ 0, %.lr.ph ], [ %12, %6 ]
-  %7 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !11
-  %9 = getelementptr inbounds nuw [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !11
   %11 = mul nsw i32 %10, %8
   %12 = xor i32 %11, %.078
@@ -87,9 +87,9 @@ define void @Csw_TableCutInsert(ptr noundef readonly captures(none) %0, ptr noun
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !11
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i32, ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = mul nsw i32 %11, %9
   %13 = xor i32 %12, %.078.i
@@ -127,9 +127,9 @@ define ptr @Csw_TableCutLookup(ptr noundef readonly captures(none) %0, ptr nound
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !11
-  %10 = getelementptr inbounds nuw [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i32, ptr @Csw_CutHash.s_FPrimes, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = mul nsw i32 %11, %9
   %13 = xor i32 %12, %.078.i

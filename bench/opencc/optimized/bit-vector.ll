@@ -348,9 +348,9 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %132 = lshr i64 %131, %129
   %133 = and i64 %132, 255
   %134 = sub i64 %.066, %133
-  %135 = getelementptr inbounds nuw [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 %134
   %136 = and i64 %130, 255
-  %137 = getelementptr inbounds nuw [256 x i8], ptr %135, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !29
   %139 = zext i8 %138 to i64
   %140 = add i64 %108, %139
@@ -537,9 +537,9 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %119 = lshr i64 %118, %116
   %120 = and i64 %119, 255
   %121 = sub i64 %.063, %120
-  %122 = getelementptr inbounds nuw [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 %121
   %123 = and i64 %117, 255
-  %124 = getelementptr inbounds nuw [256 x i8], ptr %122, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !29
   %126 = zext i8 %125 to i64
   %127 = add i64 %96, %126

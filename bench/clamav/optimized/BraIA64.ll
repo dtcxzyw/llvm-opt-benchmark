@@ -21,7 +21,7 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = and i8 %10, 31
   %12 = zext nneg i8 %11 to i64
-  %13 = getelementptr inbounds nuw [32 x i8], ptr @kBranchTable, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @kBranchTable, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = zext i8 %14 to i32
   %16 = trunc i64 %.06375 to i32

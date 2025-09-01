@@ -469,7 +469,7 @@ zend_string_alloc.exit:                           ; preds = %36
   store i64 %21, ptr %57, align 8, !tbaa !33
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 1 %51, i64 %21, i1 false)
-  %59 = getelementptr inbounds nuw [1 x i8], ptr %58, i64 0, i64 %21
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %21
   store i8 0, ptr %59, align 1, !tbaa !4
   store ptr %54, ptr %7, align 8, !tbaa !4
   store i32 262, ptr %15, align 8, !tbaa !4
@@ -1187,7 +1187,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge, %57
   br i1 %4, label %72, label %75
 
 72:                                               ; preds = %zend_string_alloc.exit
-  %73 = getelementptr inbounds nuw [1 x i8], ptr %70, i64 0, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   store i8 0, ptr %73, align 1, !tbaa !4
   store ptr %64, ptr %0, align 8, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1215,14 +1215,14 @@ zend_string_alloc.exit:                           ; preds = %.critedge, %57
   %84 = load i8, ptr %83, align 1, !tbaa !4
   %85 = lshr i8 %84, 4
   %86 = zext nneg i8 %85 to i64
-  %87 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !4
   %89 = shl i64 %.010.i, 1
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 %89
   store i8 %88, ptr %90, align 1, !tbaa !4
   %91 = and i8 %84, 15
   %92 = zext nneg i8 %91 to i64
-  %93 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !4
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store i8 %94, ptr %95, align 1, !tbaa !4
@@ -1232,7 +1232,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge, %57
 
 php_hash_bin2hex.exit:                            ; preds = %.lr.ph.i, %75
   %97 = shl i64 %82, 1
-  %98 = getelementptr inbounds nuw [1 x i8], ptr %81, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr %81, i64 %97
   store i8 0, ptr %98, align 1, !tbaa !4
   %99 = load i32, ptr %65, align 4, !tbaa !4
   %100 = and i32 %99, 64
@@ -1699,7 +1699,7 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %113
   br i1 %6, label %131, label %134
 
 131:                                              ; preds = %php_hash_string_xor_char.exit
-  %132 = getelementptr inbounds nuw [1 x i8], ptr %119, i64 0, i64 %130
+  %132 = getelementptr inbounds nuw i8, ptr %119, i64 %130
   store i8 0, ptr %132, align 1, !tbaa !4
   store ptr %53, ptr %0, align 8, !tbaa !4
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1727,14 +1727,14 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %113
   %143 = load i8, ptr %142, align 1, !tbaa !4
   %144 = lshr i8 %143, 4
   %145 = zext nneg i8 %144 to i64
-  %146 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !4
   %148 = shl i64 %.010.i, 1
   %149 = getelementptr inbounds nuw i8, ptr %140, i64 %148
   store i8 %147, ptr %149, align 1, !tbaa !4
   %150 = and i8 %143, 15
   %151 = zext nneg i8 %150 to i64
-  %152 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !4
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 1
   store i8 %153, ptr %154, align 1, !tbaa !4
@@ -1744,7 +1744,7 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %113
 
 php_hash_bin2hex.exit:                            ; preds = %.lr.ph.i123, %134
   %156 = shl i64 %141, 1
-  %157 = getelementptr inbounds nuw [1 x i8], ptr %140, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr %140, i64 %156
   store i8 0, ptr %157, align 1, !tbaa !4
   %158 = load i32, ptr %54, align 4, !tbaa !4
   %159 = and i32 %158, 64
@@ -2434,7 +2434,7 @@ zend_string_alloc.exit:                           ; preds = %13
   br label %77
 
 77:                                               ; preds = %._crit_edge, %zend_string_alloc.exit
-  %78 = getelementptr inbounds nuw [1 x i8], ptr %34, i64 0, i64 %24
+  %78 = getelementptr inbounds nuw i8, ptr %34, i64 %24
   store i8 0, ptr %78, align 1, !tbaa !4
   %79 = load ptr, ptr %17, align 8, !tbaa !19
   call void @_efree(ptr noundef %79) #16
@@ -2469,14 +2469,14 @@ zend_string_alloc.exit:                           ; preds = %13
   %92 = load i8, ptr %91, align 1, !tbaa !4
   %93 = lshr i8 %92, 4
   %94 = zext nneg i8 %93 to i64
-  %95 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !4
   %97 = shl i64 %.010.i, 1
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 %97
   store i8 %96, ptr %98, align 1, !tbaa !4
   %99 = and i8 %92, 15
   %100 = zext nneg i8 %99 to i64
-  %101 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !4
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store i8 %102, ptr %103, align 1, !tbaa !4
@@ -2485,7 +2485,7 @@ zend_string_alloc.exit:                           ; preds = %13
   br i1 %exitcond.not.i, label %php_hash_bin2hex.exit, label %.lr.ph.i
 
 php_hash_bin2hex.exit:                            ; preds = %.lr.ph.i, %84
-  %105 = getelementptr inbounds nuw [1 x i8], ptr %90, i64 0, i64 %88
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 %88
   store i8 0, ptr %105, align 1, !tbaa !4
   %106 = load i32, ptr %28, align 4, !tbaa !4
   %107 = and i32 %106, 64
@@ -3117,7 +3117,7 @@ php_hash_string_xor_char.exit220:                 ; preds = %.lr.ph.i217, %171
   call void @_efree(ptr noundef %132) #16
   %197 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %198 = load i64, ptr %7, align 8, !tbaa !18
-  %199 = getelementptr inbounds [1 x i8], ptr %197, i64 0, i64 %198
+  %199 = getelementptr inbounds i8, ptr %197, i64 %198
   store i8 0, ptr %199, align 1, !tbaa !4
   store ptr %127, ptr %1, align 8, !tbaa !4
   %200 = load i32, ptr %128, align 4, !tbaa !4
@@ -3538,14 +3538,14 @@ php_hash_string_xor.exit:                         ; preds = %.lr.ph.i239, %.lr.p
   %201 = load i8, ptr %200, align 1, !tbaa !4
   %202 = lshr i8 %201, 4
   %203 = zext nneg i8 %202 to i64
-  %204 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %203
   %205 = load i8, ptr %204, align 1, !tbaa !4
   %206 = shl i64 %.010.i, 1
   %207 = getelementptr inbounds nuw i8, ptr %196, i64 %206
   store i8 %205, ptr %207, align 1, !tbaa !4
   %208 = and i8 %201, 15
   %209 = zext nneg i8 %208 to i64
-  %210 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %209
   %211 = load i8, ptr %210, align 1, !tbaa !4
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 1
   store i8 %211, ptr %212, align 1, !tbaa !4
@@ -3556,7 +3556,7 @@ php_hash_string_xor.exit:                         ; preds = %.lr.ph.i239, %.lr.p
 php_hash_bin2hex.exit:                            ; preds = %.lr.ph.i242, %199, %197
   %214 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %215 = load i64, ptr %7, align 8, !tbaa !18
-  %216 = getelementptr inbounds [1 x i8], ptr %214, i64 0, i64 %215
+  %216 = getelementptr inbounds i8, ptr %214, i64 %215
   store i8 0, ptr %216, align 1, !tbaa !4
   call void @_efree(ptr noundef %121) #16
   store ptr %190, ptr %1, align 8, !tbaa !4
@@ -3721,7 +3721,7 @@ zend_string_alloc.exit:                           ; preds = %18
   store i64 %27, ptr %33, align 8, !tbaa !33
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %26, i64 %27, i1 false)
-  %35 = getelementptr inbounds nuw [1 x i8], ptr %34, i64 0, i64 %27
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %27
   store i8 0, ptr %35, align 1, !tbaa !4
   store ptr %30, ptr %4, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4014,7 +4014,7 @@ zend_string_alloc.exit:                           ; preds = %2
   store i64 %14, ptr %20, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 1 %13, i64 %14, i1 false)
-  %22 = getelementptr inbounds nuw [1 x i8], ptr %21, i64 0, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
   store i8 0, ptr %22, align 1, !tbaa !4
   store ptr %17, ptr %3, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8

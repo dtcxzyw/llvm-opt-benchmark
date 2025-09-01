@@ -444,10 +444,10 @@ define noundef zeroext i1 @"_ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..
 
 switch.lookup:                                    ; preds = %2
   %12 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E", i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext nneg i8 %4 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E.5", i64 0, i64 %13
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E.5", i64 %13
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
 

@@ -135,7 +135,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %43, %46
   %48 = zext nneg i32 %47 to i64
   %49 = shl nuw i64 1, %48
   %50 = zext nneg i32 %39 to i64
-  %51 = getelementptr inbounds nuw [11 x i64], ptr %12, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %12, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, %49
   store i64 %53, ptr %51, align 8
@@ -328,7 +328,7 @@ _ZN11BoxLockNode8box_nodeEP4Node.exit:            ; preds = %.lr.ph.i, %1
 .lr.ph.i1:                                        ; preds = %_ZN11BoxLockNode8box_nodeEP4Node.exit, %30
   %.0712.i = phi i32 [ %31, %30 ], [ %19, %_ZN11BoxLockNode8box_nodeEP4Node.exit ]
   %22 = zext i32 %.0712.i to i64
-  %23 = getelementptr inbounds nuw [11 x i64], ptr %17, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
   %24 = load i64, ptr %23, align 8
   %.not9.i = icmp eq i64 %24, 0
   br i1 %.not9.i, label %30, label %25

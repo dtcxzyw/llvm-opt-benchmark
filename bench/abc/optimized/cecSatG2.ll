@@ -2520,7 +2520,7 @@ Gia_ObjIsXor.exit180:                             ; preds = %119, %135
 
 Gia_ObjIsXor.exit183:                             ; preds = %Gia_ObjIsXor.exit180, %148
   %156 = phi i64 [ 0, %Gia_ObjIsXor.exit180 ], [ %155, %148 ]
-  %157 = getelementptr inbounds nuw [2 x i32], ptr %144, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i32, ptr %144, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !20
   %159 = add nsw i32 %158, 1
   store i32 %159, ptr %157, align 4, !tbaa !20
@@ -2588,7 +2588,7 @@ define range(i32 0, -1) i32 @Cec4_ManSimHashKey(ptr noundef readonly captures(no
   %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = xor i32 %9, -1
   %11 = and i64 %indvars.iv, 15
-  %12 = getelementptr inbounds nuw [16 x i32], ptr @Cec4_ManSimHashKey.s_Primes, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @Cec4_ManSimHashKey.s_Primes, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !20
   %14 = mul i32 %13, %10
   %15 = xor i32 %14, %.023
@@ -2602,7 +2602,7 @@ define range(i32 0, -1) i32 @Cec4_ManSimHashKey(ptr noundef readonly captures(no
   %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv31
   %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = and i64 %indvars.iv31, 15
-  %19 = getelementptr inbounds nuw [16 x i32], ptr @Cec4_ManSimHashKey.s_Primes, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr @Cec4_ManSimHashKey.s_Primes, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = mul i32 %20, %17
   %22 = xor i32 %21, %.225
@@ -2910,7 +2910,7 @@ define void @Cec4_RefineOneClass(ptr noundef readonly captures(none) %0, ptr nou
   %33 = load i32, ptr %32, align 4, !tbaa !20
   %34 = xor i32 %33, -1
   %35 = and i64 %indvars.iv.i, 15
-  %36 = getelementptr inbounds nuw [16 x i32], ptr @Cec4_ManSimHashKey.s_Primes, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr @Cec4_ManSimHashKey.s_Primes, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !20
   %38 = mul i32 %37, %34
   %39 = xor i32 %38, %.023.i
@@ -2924,7 +2924,7 @@ define void @Cec4_RefineOneClass(ptr noundef readonly captures(none) %0, ptr nou
   %40 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv31.i
   %41 = load i32, ptr %40, align 4, !tbaa !20
   %42 = and i64 %indvars.iv31.i, 15
-  %43 = getelementptr inbounds nuw [16 x i32], ptr @Cec4_ManSimHashKey.s_Primes, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @Cec4_ManSimHashKey.s_Primes, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !20
   %45 = mul i32 %44, %41
   %46 = xor i32 %45, %.225.i
@@ -18818,9 +18818,9 @@ getISOPObjId.exit:                                ; preds = %24
 
 33:                                               ; preds = %getISOPObjId.exit
   %34 = sext i32 %3 to i64
-  %35 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 %34
+  %35 = getelementptr inbounds ptr, ptr %10, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !245
-  %37 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 %34
+  %37 = getelementptr inbounds i32, ptr %11, i64 %34
   %38 = load i32, ptr %37, align 4, !tbaa !20
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph85, label %._crit_edge86.thread

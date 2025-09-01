@@ -833,7 +833,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
 
 353:                                              ; preds = %350
   %354 = zext i8 %352 to i64
-  %355 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %354
   %356 = load i8, ptr %355, align 1, !tbaa !28
   %357 = and i8 %356, 2
   %.not19.i.i = icmp eq i8 %357, 0

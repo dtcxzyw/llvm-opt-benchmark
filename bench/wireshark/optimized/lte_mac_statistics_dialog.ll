@@ -3363,18 +3363,18 @@ define linkonce_odr void @_ZN19MacUETreeWidgetItem6updateEPK17mac_3gpp_tap_info(
 50:                                               ; preds = %.preheader, %50
   %indvars.iv51 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next52, %50 ]
   %51 = load ptr, ptr %45, align 8
-  %52 = getelementptr [33 x i32], ptr %46, i64 0, i64 %indvars.iv51
+  %52 = getelementptr i32, ptr %46, i64 %indvars.iv51
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 104
-  %55 = getelementptr [33 x i32], ptr %54, i64 0, i64 %indvars.iv51
+  %55 = getelementptr i32, ptr %54, i64 %indvars.iv51
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, %53
   store i32 %57, ptr %55, align 4
   %58 = load ptr, ptr %47, align 8
-  %59 = getelementptr [33 x i32], ptr %48, i64 0, i64 %indvars.iv51
+  %59 = getelementptr i32, ptr %48, i64 %indvars.iv51
   %60 = load i32, ptr %59, align 4
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 104
-  %62 = getelementptr [33 x i32], ptr %61, i64 0, i64 %indvars.iv51
+  %62 = getelementptr i32, ptr %61, i64 %indvars.iv51
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, %60
   store i32 %64, ptr %62, align 4
@@ -3465,18 +3465,18 @@ define linkonce_odr void @_ZN19MacUETreeWidgetItem6updateEPK17mac_3gpp_tap_info(
 114:                                              ; preds = %.preheader45, %114
   %indvars.iv = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next, %114 ]
   %115 = load ptr, ptr %109, align 8
-  %116 = getelementptr [33 x i32], ptr %110, i64 0, i64 %indvars.iv
+  %116 = getelementptr i32, ptr %110, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 104
-  %119 = getelementptr [33 x i32], ptr %118, i64 0, i64 %indvars.iv
+  %119 = getelementptr i32, ptr %118, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %120, %117
   store i32 %121, ptr %119, align 4
   %122 = load ptr, ptr %111, align 8
-  %123 = getelementptr [33 x i32], ptr %112, i64 0, i64 %indvars.iv
+  %123 = getelementptr i32, ptr %112, i64 %indvars.iv
   %124 = load i32, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 104
-  %126 = getelementptr [33 x i32], ptr %125, i64 0, i64 %indvars.iv
+  %126 = getelementptr i32, ptr %125, i64 %indvars.iv
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, %124
   store i32 %128, ptr %126, align 4
@@ -7636,7 +7636,7 @@ define linkonce_odr void @_ZN21MacULDLTreeWidgetItem4drawEv(ptr noundef align 8 
 6:                                                ; preds = %1, %_ZN7QStringD2Ev.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = getelementptr [33 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr i32, ptr %4, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   call void @_ZN7QString6numberEji(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i32 noundef %8, i32 noundef 10)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

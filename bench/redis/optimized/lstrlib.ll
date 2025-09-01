@@ -1419,7 +1419,7 @@ push_captures.exit66.thread79:                    ; preds = %59
   br label %push_onecapture.exit
 
 79:                                               ; preds = %.lr.ph.i62
-  %80 = getelementptr inbounds nuw [32 x %struct.anon], ptr %68, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw %struct.anon, ptr %68, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !32
   switch i64 %82, label %94 [
@@ -1557,7 +1557,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
 
 24:                                               ; preds = %21, %17
   %25 = sext i32 %19 to i64
-  %26 = getelementptr inbounds [32 x %struct.anon], ptr %8, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.anon, ptr %8, i64 %25
   store ptr %.075.ph.ph, ptr %26, align 8, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 -2, ptr %27, align 8, !tbaa !32
@@ -1585,7 +1585,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
 
 40:                                               ; preds = %37, %34
   %41 = sext i32 %35 to i64
-  %42 = getelementptr inbounds [32 x %struct.anon], ptr %8, i64 0, i64 %41
+  %42 = getelementptr inbounds %struct.anon, ptr %8, i64 %41
   store ptr %.075.ph.ph, ptr %42, align 8, !tbaa !34
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 -1, ptr %43, align 8, !tbaa !32
@@ -1633,7 +1633,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
 capture_to_close.exit:                            ; preds = %62, %.loopexit.loopexit.i
   %.08.i = phi i32 [ %64, %62 ], [ %65, %.loopexit.loopexit.i ]
   %66 = sext i32 %.08.i to i64
-  %67 = getelementptr inbounds [32 x %struct.anon], ptr %8, i64 0, i64 %66
+  %67 = getelementptr inbounds %struct.anon, ptr %8, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !34
   %69 = ptrtoint ptr %.075.ph.ph to i64
   %70 = ptrtoint ptr %68 to i64
@@ -1971,7 +1971,7 @@ matchbracketclass.exit113:                        ; preds = %195, %204, %206, %2
 check_capture.exit.i:                             ; preds = %231, %226
   %.0.i.i = phi i32 [ %233, %231 ], [ %222, %226 ]
   %234 = sext i32 %.0.i.i to i64
-  %235 = getelementptr inbounds [32 x %struct.anon], ptr %8, i64 0, i64 %234
+  %235 = getelementptr inbounds %struct.anon, ptr %8, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %237 = load i64, ptr %236, align 8, !tbaa !32
   %238 = load ptr, ptr %5, align 8, !tbaa !28
@@ -2693,7 +2693,7 @@ define internal fastcc void @push_onecapture(ptr noundef nonnull readonly captur
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds [32 x %struct.anon], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds %struct.anon, ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !32
   switch i64 %22, label %36 [
@@ -2830,7 +2830,7 @@ define internal i32 @gmatch_aux(ptr noundef %0) #0 {
   br label %push_onecapture.exit
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds nuw [32 x %struct.anon], ptr %28, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct.anon, ptr %28, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !32
   switch i64 %41, label %53 [

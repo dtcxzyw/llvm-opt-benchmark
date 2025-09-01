@@ -220,7 +220,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   %.0 = phi ptr [ %31, %53 ], [ %87, %80 ]
   %58 = phi i1 [ true, %53 ], [ false, %80 ]
   %indvars.iv.i = phi i64 [ 0, %53 ], [ 1, %80 ]
-  %59 = getelementptr [2 x i32], ptr %54, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr i32, ptr %54, i64 %indvars.iv.i
   %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef %59, ptr noundef nonnull %4) #14
   %61 = icmp eq i32 %60, 2
   br i1 %61, label %66, label %62
@@ -251,7 +251,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   unreachable
 
 72:                                               ; preds = %66
-  %73 = getelementptr [2 x %union.anon], ptr %55, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr %union.anon, ptr %55, i64 %indvars.iv.i
   %74 = call zeroext i1 @get_host_ipaddr6(ptr noundef nonnull %5, ptr noundef %73)
   br i1 %74, label %80, label %75
 
@@ -260,7 +260,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   unreachable
 
 76:                                               ; preds = %.thread.i
-  %77 = getelementptr [2 x %union.anon], ptr %55, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr %union.anon, ptr %55, i64 %indvars.iv.i
   %78 = call zeroext i1 @get_host_ipaddr(ptr noundef nonnull %5, ptr noundef %77)
   br i1 %78, label %80, label %79
 
@@ -272,7 +272,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   %.sink57.i = phi i32 [ 3, %72 ], [ 2, %76 ]
   %.sink54.i = phi i32 [ 16, %72 ], [ 4, %76 ]
   %.sink.i66 = phi ptr [ %73, %72 ], [ %77, %76 ]
-  %81 = getelementptr [2 x %struct._address], ptr %56, i64 0, i64 %indvars.iv.i
+  %81 = getelementptr %struct._address, ptr %56, i64 %indvars.iv.i
   store i32 %.sink57.i, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %.sink54.i, ptr %82, align 4
@@ -522,7 +522,7 @@ define internal void @follow_draw(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %22
   %30 = zext nneg i32 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.follow_draw, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.follow_draw, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef %27, ptr noundef nonnull %switch.load)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -681,18 +681,18 @@ thread-pre-split:                                 ; preds = %75, %83
   %108 = zext i8 %107 to i32
   %109 = lshr i32 %108, 4
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr [16 x i8], ptr @bin2hex, i64 0, i64 %110
+  %111 = getelementptr i8, ptr @bin2hex, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = add i32 %.130.i, 1
   %114 = sext i32 %.130.i to i64
-  %115 = getelementptr [78 x i8], ptr %2, i64 0, i64 %114
+  %115 = getelementptr i8, ptr %2, i64 %114
   store i8 %112, ptr %115, align 1
   %116 = and i32 %108, 15
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr [16 x i8], ptr @bin2hex, i64 0, i64 %117
+  %118 = getelementptr i8, ptr @bin2hex, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = sext i32 %113 to i64
-  %121 = getelementptr [78 x i8], ptr %2, i64 0, i64 %120
+  %121 = getelementptr i8, ptr %2, i64 %120
   store i8 %119, ptr %121, align 1
   %122 = add i32 %.130.i, 3
   %123 = add i8 %107, -32
@@ -700,7 +700,7 @@ thread-pre-split:                                 ; preds = %75, %83
   %124 = select i1 %or.cond.i, i8 %107, i8 46
   %125 = add i32 %.128.i, 1
   %126 = sext i32 %.128.i to i64
-  %127 = getelementptr [78 x i8], ptr %2, i64 0, i64 %126
+  %127 = getelementptr i8, ptr %2, i64 %126
   store i8 %124, ptr %127, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %128 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -711,11 +711,11 @@ thread-pre-split:                                 ; preds = %75, %83
 130:                                              ; preds = %105
   %131 = add i32 %.130.i, 4
   %132 = sext i32 %122 to i64
-  %133 = getelementptr [78 x i8], ptr %2, i64 0, i64 %132
+  %133 = getelementptr i8, ptr %2, i64 %132
   store i8 32, ptr %133, align 1
   %134 = add i32 %.128.i, 2
   %135 = sext i32 %125 to i64
-  %136 = getelementptr [78 x i8], ptr %2, i64 0, i64 %135
+  %136 = getelementptr i8, ptr %2, i64 %135
   store i8 32, ptr %136, align 1
   br label %137
 
@@ -733,7 +733,7 @@ thread-pre-split:                                 ; preds = %75, %83
   %143 = sext i1 %142 to i32
   %spec.select.i = add i32 %.2.i, %143
   %144 = sext i32 %spec.select.i to i64
-  %145 = getelementptr [78 x i8], ptr %2, i64 0, i64 %144
+  %145 = getelementptr i8, ptr %2, i64 %144
   store i8 0, ptr %145, align 1
   %146 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.56, ptr noundef nonnull %92, ptr noundef nonnull %2)
   %147 = add i32 %.038.i, 16
@@ -872,7 +872,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %224 = load i8, ptr %223, align 1
   %225 = lshr i8 %224, 4
   %226 = zext nneg i8 %225 to i64
-  %227 = getelementptr [16 x i8], ptr @bin2hex, i64 0, i64 %226
+  %227 = getelementptr i8, ptr @bin2hex, i64 %226
   %228 = load i8, ptr %227, align 1
   %229 = or disjoint i32 %.0110138, 1
   %230 = zext i32 %.0110138 to i64
@@ -884,7 +884,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %235 = load i8, ptr %234, align 1
   %236 = and i8 %235, 15
   %237 = zext nneg i8 %236 to i64
-  %238 = getelementptr [16 x i8], ptr @bin2hex, i64 0, i64 %237
+  %238 = getelementptr i8, ptr @bin2hex, i64 %237
   %239 = load i8, ptr %238, align 1
   %240 = add i32 %.0110138, 2
   %241 = zext i32 %229 to i64

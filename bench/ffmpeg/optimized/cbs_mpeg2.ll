@@ -954,7 +954,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
 409:                                              ; preds = %404
   %410 = load i32, ptr %78, align 4, !tbaa !4
   %411 = trunc i32 %410 to i8
-  %412 = getelementptr inbounds nuw [64 x i8], ptr %403, i64 0, i64 %indvars.iv.i
+  %412 = getelementptr inbounds nuw i8, ptr %403, i64 %indvars.iv.i
   store i8 %411, ptr %412, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1002,7 +1002,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
 427:                                              ; preds = %422
   %428 = load i32, ptr %81, align 4, !tbaa !4
   %429 = trunc i32 %428 to i8
-  %430 = getelementptr inbounds nuw [64 x i8], ptr %421, i64 0, i64 %indvars.iv176.i
+  %430 = getelementptr inbounds nuw i8, ptr %421, i64 %indvars.iv176.i
   store i8 %429, ptr %430, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
@@ -1442,7 +1442,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 618:                                              ; preds = %613
   %619 = load i32, ptr %36, align 4, !tbaa !4
   %620 = trunc i32 %619 to i8
-  %621 = getelementptr inbounds nuw [64 x i8], ptr %612, i64 0, i64 %indvars.iv.i.i
+  %621 = getelementptr inbounds nuw i8, ptr %612, i64 %indvars.iv.i.i
   store i8 %620, ptr %621, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1490,7 +1490,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 636:                                              ; preds = %631
   %637 = load i32, ptr %39, align 4, !tbaa !4
   %638 = trunc i32 %637 to i8
-  %639 = getelementptr inbounds nuw [64 x i8], ptr %630, i64 0, i64 %indvars.iv139.i.i
+  %639 = getelementptr inbounds nuw i8, ptr %630, i64 %indvars.iv139.i.i
   store i8 %638, ptr %639, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %indvars.iv.next140.i.i = add nuw nsw i64 %indvars.iv139.i.i, 1
@@ -1538,7 +1538,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 654:                                              ; preds = %649
   %655 = load i32, ptr %42, align 4, !tbaa !4
   %656 = trunc i32 %655 to i8
-  %657 = getelementptr inbounds nuw [64 x i8], ptr %648, i64 0, i64 %indvars.iv143.i.i
+  %657 = getelementptr inbounds nuw i8, ptr %648, i64 %indvars.iv143.i.i
   store i8 %656, ptr %657, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %indvars.iv.next144.i.i = add nuw nsw i64 %indvars.iv143.i.i, 1
@@ -1586,7 +1586,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 672:                                              ; preds = %667
   %673 = load i32, ptr %45, align 4, !tbaa !4
   %674 = trunc i32 %673 to i8
-  %675 = getelementptr inbounds nuw [64 x i8], ptr %666, i64 0, i64 %indvars.iv147.i.i
+  %675 = getelementptr inbounds nuw i8, ptr %666, i64 %indvars.iv147.i.i
   store i8 %674, ptr %675, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %indvars.iv.next148.i.i = add nuw nsw i64 %indvars.iv147.i.i, 1
@@ -1647,7 +1647,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
 694:                                              ; preds = %689
   %695 = load i32, ptr %29, align 4, !tbaa !4
   %696 = trunc i32 %695 to i16
-  %697 = getelementptr inbounds nuw [3 x i16], ptr %677, i64 0, i64 %indvars.iv.i40.i
+  %697 = getelementptr inbounds nuw i16, ptr %677, i64 %indvars.iv.i40.i
   store i16 %696, ptr %697, align 2, !tbaa !123
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -1671,7 +1671,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
 704:                                              ; preds = %700
   %705 = load i32, ptr %32, align 4, !tbaa !4
   %706 = trunc i32 %705 to i16
-  %707 = getelementptr inbounds nuw [3 x i16], ptr %684, i64 0, i64 %indvars.iv.i40.i
+  %707 = getelementptr inbounds nuw i16, ptr %684, i64 %indvars.iv.i40.i
   store i16 %706, ptr %707, align 2, !tbaa !123
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -2954,7 +2954,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
   store i32 1, ptr %10, align 4, !tbaa !4
   %441 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %441, ptr %437, align 4, !tbaa !4
-  %442 = getelementptr inbounds nuw [64 x i8], ptr %438, i64 0, i64 %indvars.iv.i.i
+  %442 = getelementptr inbounds nuw i8, ptr %438, i64 %indvars.iv.i.i
   %443 = load i8, ptr %442, align 1, !tbaa !45
   %444 = zext i8 %443 to i32
   %445 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.40, ptr noundef nonnull %10, i32 noundef %444, i32 noundef 1, i32 noundef 255) #7
@@ -2989,7 +2989,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
   store i32 1, ptr %11, align 4, !tbaa !4
   %458 = trunc nuw nsw i64 %indvars.iv106.i.i to i32
   store i32 %458, ptr %454, align 4, !tbaa !4
-  %459 = getelementptr inbounds nuw [64 x i8], ptr %455, i64 0, i64 %indvars.iv106.i.i
+  %459 = getelementptr inbounds nuw i8, ptr %455, i64 %indvars.iv106.i.i
   %460 = load i8, ptr %459, align 1, !tbaa !45
   %461 = zext i8 %460 to i32
   %462 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull %11, i32 noundef %461, i32 noundef 1, i32 noundef 255) #7
@@ -3270,7 +3270,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   store i32 1, ptr %6, align 4, !tbaa !4
   %632 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   store i32 %632, ptr %628, align 4, !tbaa !4
-  %633 = getelementptr inbounds nuw [64 x i8], ptr %629, i64 0, i64 %indvars.iv.i.i.i
+  %633 = getelementptr inbounds nuw i8, ptr %629, i64 %indvars.iv.i.i.i
   %634 = load i8, ptr %633, align 1, !tbaa !45
   %635 = zext i8 %634 to i32
   %636 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.40, ptr noundef nonnull %6, i32 noundef %635, i32 noundef 1, i32 noundef 255) #7
@@ -3305,7 +3305,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   store i32 1, ptr %7, align 4, !tbaa !4
   %649 = trunc nuw nsw i64 %indvars.iv97.i.i.i to i32
   store i32 %649, ptr %645, align 4, !tbaa !4
-  %650 = getelementptr inbounds nuw [64 x i8], ptr %646, i64 0, i64 %indvars.iv97.i.i.i
+  %650 = getelementptr inbounds nuw i8, ptr %646, i64 %indvars.iv97.i.i.i
   %651 = load i8, ptr %650, align 1, !tbaa !45
   %652 = zext i8 %651 to i32
   %653 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull %7, i32 noundef %652, i32 noundef 1, i32 noundef 255) #7
@@ -3340,7 +3340,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   store i32 1, ptr %8, align 4, !tbaa !4
   %666 = trunc nuw nsw i64 %indvars.iv101.i.i.i to i32
   store i32 %666, ptr %662, align 4, !tbaa !4
-  %667 = getelementptr inbounds nuw [64 x i8], ptr %663, i64 0, i64 %indvars.iv101.i.i.i
+  %667 = getelementptr inbounds nuw i8, ptr %663, i64 %indvars.iv101.i.i.i
   %668 = load i8, ptr %667, align 1, !tbaa !45
   %669 = zext i8 %668 to i32
   %670 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.40, ptr noundef nonnull %8, i32 noundef %669, i32 noundef 1, i32 noundef 255) #7
@@ -3375,7 +3375,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   store i32 1, ptr %9, align 4, !tbaa !4
   %683 = trunc nuw nsw i64 %indvars.iv105.i.i.i to i32
   store i32 %683, ptr %679, align 4, !tbaa !4
-  %684 = getelementptr inbounds nuw [64 x i8], ptr %680, i64 0, i64 %indvars.iv105.i.i.i
+  %684 = getelementptr inbounds nuw i8, ptr %680, i64 %indvars.iv105.i.i.i
   %685 = load i8, ptr %684, align 1, !tbaa !45
   %686 = zext i8 %685 to i32
   %687 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.70, ptr noundef nonnull %9, i32 noundef %686, i32 noundef 1, i32 noundef 255) #7
@@ -3420,7 +3420,7 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
   store i32 1, ptr %4, align 4, !tbaa !4
   %703 = trunc nuw nsw i64 %indvars.iv.i35.i.i to i32
   store i32 %703, ptr %695, align 4, !tbaa !4
-  %704 = getelementptr inbounds nuw [3 x i16], ptr %690, i64 0, i64 %indvars.iv.i35.i.i
+  %704 = getelementptr inbounds nuw i16, ptr %690, i64 %indvars.iv.i35.i.i
   %705 = load i16, ptr %704, align 2, !tbaa !123
   %706 = sext i16 %705 to i32
   %707 = call i32 @ff_cbs_write_signed(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.72, ptr noundef nonnull %4, i32 noundef %706, i32 noundef -32768, i32 noundef 32767) #7
@@ -3435,7 +3435,7 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
 712:                                              ; preds = %709
   store i32 1, ptr %5, align 4, !tbaa !4
   store i32 %703, ptr %696, align 4, !tbaa !4
-  %713 = getelementptr inbounds nuw [3 x i16], ptr %697, i64 0, i64 %indvars.iv.i35.i.i
+  %713 = getelementptr inbounds nuw i16, ptr %697, i64 %indvars.iv.i35.i.i
   %714 = load i16, ptr %713, align 2, !tbaa !123
   %715 = sext i16 %714 to i32
   %716 = call i32 @ff_cbs_write_signed(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, i32 noundef %715, i32 noundef -32768, i32 noundef 32767) #7

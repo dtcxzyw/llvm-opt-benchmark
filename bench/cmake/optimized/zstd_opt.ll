@@ -82,8 +82,8 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
   %26 = zext nneg i32 %25 to i64
   %27 = select i1 %brmerge.i, i64 %.mux.i, i64 %26
   %28 = zext nneg i32 %5 to i64
-  %29 = getelementptr inbounds nuw [3 x [4 x ptr]], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 0, i64 %28
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr %29, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw [4 x ptr], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 %28
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %33 = load i32, ptr %32, align 4, !tbaa !23
@@ -195,7 +195,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader212 ], [ 0, %82 ]
   %95 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !24
-  %97 = getelementptr inbounds nuw [3 x i32], ptr %58, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
   store i32 %96, ptr %97, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -235,7 +235,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
 
 117:                                              ; preds = %112
   %118 = and i64 %85, 63
-  %119 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !42
   %121 = zext i8 %120 to i32
   br label %ZSTD_LLcode.exit.i
@@ -243,7 +243,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
 ZSTD_LLcode.exit.i:                               ; preds = %117, %114
   %122 = phi i32 [ %116, %114 ], [ %121, %117 ]
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !42
   %126 = zext i8 %125 to i32
   %127 = load i32, ptr %62, align 4, !tbaa !40
@@ -392,7 +392,7 @@ ZSTD_getMatchPrice.exit.us:                       ; preds = %ZSTD_getMatchPrice.
 
 201:                                              ; preds = %192
   %202 = zext nneg i32 %193 to i64
-  %203 = getelementptr inbounds nuw [128 x i8], ptr @ZSTD_MLcode.ML_Code, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr @ZSTD_MLcode.ML_Code, i64 %202
   %204 = load i8, ptr %203, align 1, !tbaa !42
   %205 = zext i8 %204 to i32
   br label %ZSTD_MLcode.exit
@@ -400,7 +400,7 @@ ZSTD_getMatchPrice.exit.us:                       ; preds = %ZSTD_getMatchPrice.
 ZSTD_MLcode.exit:                                 ; preds = %198, %201
   %206 = phi i32 [ %200, %198 ], [ %205, %201 ]
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %207
   %209 = load i8, ptr %208, align 1, !tbaa !42
   %210 = zext i8 %209 to i32
   %211 = getelementptr inbounds nuw i32, ptr %190, i64 %207
@@ -527,7 +527,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %240
 
 280:                                              ; preds = %275
   %281 = zext nneg i32 %241 to i64
-  %282 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %281
   %283 = load i8, ptr %282, align 1, !tbaa !42
   %284 = zext i8 %283 to i32
   br label %295
@@ -547,7 +547,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %240
 295:                                              ; preds = %277, %280
   %296 = phi i32 [ %279, %277 ], [ %284, %280 ]
   %297 = zext nneg i32 %296 to i64
-  %298 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %297
   %299 = load i8, ptr %298, align 1, !tbaa !42
   %300 = zext i8 %299 to i32
   %301 = load i32, ptr %62, align 4, !tbaa !40
@@ -590,7 +590,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %240
 
 328:                                              ; preds = %319
   %329 = zext nneg i32 %310 to i64
-  %330 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %329
   %331 = load i8, ptr %330, align 1, !tbaa !42
   %332 = zext i8 %331 to i32
   br label %ZSTD_LLcode.exit.i36
@@ -601,7 +601,7 @@ ZSTD_LLcode.exit.i36:                             ; preds = %328, %321
   %335 = phi i32 [ %324, %321 ], [ %309, %328 ]
   %336 = phi i32 [ %327, %321 ], [ %332, %328 ]
   %337 = zext nneg i32 %336 to i64
-  %338 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %337
   %339 = load i8, ptr %338, align 1, !tbaa !42
   %340 = zext i8 %339 to i32
   %341 = getelementptr inbounds nuw i32, ptr %333, i64 %337
@@ -938,7 +938,7 @@ ZSTD_getMatchPrice.exit10.us:                     ; preds = %._crit_edge230.us, 
 
 504:                                              ; preds = %494
   %505 = zext nneg i32 %496 to i64
-  %506 = getelementptr inbounds nuw [128 x i8], ptr @ZSTD_MLcode.ML_Code, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw i8, ptr @ZSTD_MLcode.ML_Code, i64 %505
   %507 = load i8, ptr %506, align 1, !tbaa !42
   %508 = zext i8 %507 to i32
   br label %ZSTD_MLcode.exit46
@@ -946,7 +946,7 @@ ZSTD_getMatchPrice.exit10.us:                     ; preds = %._crit_edge230.us, 
 ZSTD_MLcode.exit46:                               ; preds = %501, %504
   %509 = phi i32 [ %503, %501 ], [ %508, %504 ]
   %510 = zext nneg i32 %509 to i64
-  %511 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %510
   %512 = load i8, ptr %511, align 1, !tbaa !42
   %513 = zext i8 %512 to i32
   %514 = getelementptr inbounds nuw i32, ptr %492, i64 %510
@@ -1246,7 +1246,7 @@ ZSTD_newRep.exit61:                               ; preds = %.ZSTD_updateRep.exi
 
 616:                                              ; preds = %611
   %617 = zext nneg i32 %589 to i64
-  %618 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %617
+  %618 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %617
   %619 = load i8, ptr %618, align 1, !tbaa !42
   %620 = zext i8 %619 to i32
   br label %ZSTD_LLcode.exit.i64
@@ -1284,7 +1284,7 @@ ZSTD_LLcode.exit.i64:                             ; preds = %616, %613
 
 643:                                              ; preds = %ZSTD_LLcode.exit.i64
   %644 = zext nneg i32 %638 to i64
-  %645 = getelementptr inbounds nuw [128 x i8], ptr @ZSTD_MLcode.ML_Code, i64 0, i64 %644
+  %645 = getelementptr inbounds nuw i8, ptr @ZSTD_MLcode.ML_Code, i64 %644
   %646 = load i8, ptr %645, align 1, !tbaa !42
   %647 = zext i8 %646 to i32
   br label %ZSTD_updateStats.exit
@@ -1544,8 +1544,8 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
   %26 = zext nneg i32 %25 to i64
   %27 = select i1 %brmerge.i, i64 %.mux.i, i64 %26
   %28 = zext nneg i32 %5 to i64
-  %29 = getelementptr inbounds nuw [3 x [4 x ptr]], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 0, i64 %28
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr %29, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw [4 x ptr], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 %28
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %33 = load i32, ptr %32, align 4, !tbaa !23
@@ -1657,7 +1657,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader242 ], [ 0, %82 ]
   %95 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !24
-  %97 = getelementptr inbounds nuw [3 x i32], ptr %58, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
   store i32 %96, ptr %97, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1701,7 +1701,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
 
 121:                                              ; preds = %116
   %122 = and i64 %85, 63
-  %123 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !42
   %125 = zext i8 %124 to i32
   br label %ZSTD_LLcode.exit.i
@@ -1709,7 +1709,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
 ZSTD_LLcode.exit.i:                               ; preds = %121, %118
   %126 = phi i32 [ %120, %118 ], [ %125, %121 ]
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !42
   %130 = zext i8 %129 to i32
   %131 = load i32, ptr %62, align 4, !tbaa !40
@@ -1864,7 +1864,7 @@ ZSTD_getMatchPrice.exit.us:                       ; preds = %.lr.ph, %ZSTD_getMa
 
 215:                                              ; preds = %203
   %216 = zext nneg i32 %204 to i64
-  %217 = getelementptr inbounds nuw [128 x i8], ptr @ZSTD_MLcode.ML_Code, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr @ZSTD_MLcode.ML_Code, i64 %216
   %218 = load i8, ptr %217, align 1, !tbaa !42
   %219 = zext i8 %218 to i32
   br label %ZSTD_MLcode.exit
@@ -1872,7 +1872,7 @@ ZSTD_getMatchPrice.exit.us:                       ; preds = %.lr.ph, %ZSTD_getMa
 ZSTD_MLcode.exit:                                 ; preds = %212, %215
   %220 = phi i32 [ %214, %212 ], [ %219, %215 ]
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %221
   %223 = load i8, ptr %222, align 1, !tbaa !42
   %224 = zext i8 %223 to i32
   %225 = getelementptr inbounds nuw i32, ptr %202, i64 %221
@@ -2009,7 +2009,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
 
 304:                                              ; preds = %299
   %305 = zext nneg i32 %258 to i64
-  %306 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %305
   %307 = load i8, ptr %306, align 1, !tbaa !42
   %308 = zext i8 %307 to i32
   br label %325
@@ -2035,7 +2035,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
 325:                                              ; preds = %301, %304
   %326 = phi i32 [ %303, %301 ], [ %308, %304 ]
   %327 = zext nneg i32 %326 to i64
-  %328 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %327
   %329 = load i8, ptr %328, align 1, !tbaa !42
   %330 = zext i8 %329 to i32
   %331 = load i32, ptr %62, align 4, !tbaa !40
@@ -2085,7 +2085,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %257
 
 365:                                              ; preds = %356
   %366 = zext nneg i32 %343 to i64
-  %367 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %366
   %368 = load i8, ptr %367, align 1, !tbaa !42
   %369 = zext i8 %368 to i32
   br label %ZSTD_LLcode.exit.i37
@@ -2096,7 +2096,7 @@ ZSTD_LLcode.exit.i37:                             ; preds = %365, %358
   %372 = phi i32 [ %361, %358 ], [ %342, %365 ]
   %373 = phi i32 [ %364, %358 ], [ %369, %365 ]
   %374 = zext nneg i32 %373 to i64
-  %375 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %374
   %376 = load i8, ptr %375, align 1, !tbaa !42
   %377 = zext i8 %376 to i32
   %378 = getelementptr inbounds nuw i32, ptr %370, i64 %374
@@ -2427,7 +2427,7 @@ ZSTD_getMatchPrice.exit9.us:                      ; preds = %.lr.ph264, %520
 
 543:                                              ; preds = %530
   %544 = zext nneg i32 %532 to i64
-  %545 = getelementptr inbounds nuw [128 x i8], ptr @ZSTD_MLcode.ML_Code, i64 0, i64 %544
+  %545 = getelementptr inbounds nuw i8, ptr @ZSTD_MLcode.ML_Code, i64 %544
   %546 = load i8, ptr %545, align 1, !tbaa !42
   %547 = zext i8 %546 to i32
   br label %ZSTD_MLcode.exit50
@@ -2435,7 +2435,7 @@ ZSTD_getMatchPrice.exit9.us:                      ; preds = %.lr.ph264, %520
 ZSTD_MLcode.exit50:                               ; preds = %540, %543
   %548 = phi i32 [ %542, %540 ], [ %547, %543 ]
   %549 = zext nneg i32 %548 to i64
-  %550 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %549
+  %550 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %549
   %551 = load i8, ptr %550, align 1, !tbaa !42
   %552 = zext i8 %551 to i32
   %553 = getelementptr inbounds nuw i32, ptr %529, i64 %549
@@ -2742,7 +2742,7 @@ ZSTD_newRep.exit65:                               ; preds = %.ZSTD_updateRep.exi
 
 660:                                              ; preds = %655
   %661 = zext nneg i32 %633 to i64
-  %662 = getelementptr inbounds nuw [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %661
+  %662 = getelementptr inbounds nuw i8, ptr @ZSTD_LLcode.LL_Code, i64 %661
   %663 = load i8, ptr %662, align 1, !tbaa !42
   %664 = zext i8 %663 to i32
   br label %ZSTD_LLcode.exit.i68
@@ -2780,7 +2780,7 @@ ZSTD_LLcode.exit.i68:                             ; preds = %660, %657
 
 687:                                              ; preds = %ZSTD_LLcode.exit.i68
   %688 = zext nneg i32 %682 to i64
-  %689 = getelementptr inbounds nuw [128 x i8], ptr @ZSTD_MLcode.ML_Code, i64 0, i64 %688
+  %689 = getelementptr inbounds nuw i8, ptr @ZSTD_MLcode.ML_Code, i64 %688
   %690 = load i8, ptr %689, align 1, !tbaa !42
   %691 = zext i8 %690 to i32
   br label %ZSTD_updateStats.exit

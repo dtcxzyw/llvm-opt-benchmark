@@ -1233,7 +1233,7 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %get_gist_range_class.exit
   %.0104 = phi i16 [ %47, %get_gist_range_class.exit ], [ 1, %.lr.ph.preheader ]
   %33 = zext i16 %.0104 to i64
-  %34 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = inttoptr i64 %35 to ptr
   %37 = tail call ptr @pg_detoast_datum(ptr noundef %36) #10
@@ -1254,7 +1254,7 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
 
 get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %.0.i = phi i64 [ 8, %.lr.ph ], [ %43, %40 ]
-  %44 = getelementptr inbounds nuw [9 x i32], ptr %6, i64 0, i64 %.0.i
+  %44 = getelementptr inbounds nuw i32, ptr %6, i64 %.0.i
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -1270,7 +1270,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %.062107 = phi i32 [ %.1, %.preheader ], [ 0, %.preheader.preheader ]
   %.063106 = phi i32 [ %.2, %.preheader ], [ -1, %.preheader.preheader ]
   %.065105 = phi i32 [ %.267, %.preheader ], [ 0, %.preheader.preheader ]
-  %48 = getelementptr inbounds nuw [9 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = icmp sgt i32 %49, 0
   %51 = icmp sgt i32 %49, %.065105
@@ -1320,7 +1320,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 72:                                               ; preds = %72, %.lr.ph.i
   %.0244.i = phi i16 [ 1, %.lr.ph.i ], [ %81, %72 ]
   %73 = zext i16 %.0244.i to i64
-  %74 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = inttoptr i64 %75 to ptr
   %77 = call ptr @pg_detoast_datum(ptr noundef %76) #10
@@ -1639,7 +1639,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %197 = zext i16 %.1320.i to i64
-  %198 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %197
   %199 = load i64, ptr %198, align 8
   %200 = inttoptr i64 %199 to ptr
   %201 = call ptr @pg_detoast_datum(ptr noundef %200) #10
@@ -1756,7 +1756,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %256 = getelementptr inbounds nuw %struct.CommonEntry, ptr %194, i64 %255
   %257 = load i32, ptr %256, align 8
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %258
+  %259 = getelementptr inbounds %struct.GISTENTRY, ptr %14, i64 %258
   %260 = load i64, ptr %259, align 8
   %261 = inttoptr i64 %260 to ptr
   %262 = call ptr @pg_detoast_datum(ptr noundef %261) #10
@@ -1904,7 +1904,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
 
 334:                                              ; preds = %327
   %335 = sext i32 %.2 to i64
-  %336 = getelementptr inbounds [9 x i32], ptr %7, i64 0, i64 %335
+  %336 = getelementptr inbounds i32, ptr %7, i64 %335
   store i32 1, ptr %336, align 4
   br label %337
 
@@ -1928,7 +1928,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %.03037.i = phi ptr [ null, %.lr.ph.i78 ], [ %.131.i, %377 ]
   %.03336.i = phi i16 [ 1, %.lr.ph.i78 ], [ %380, %377 ]
   %345 = zext i16 %.03336.i to i64
-  %346 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %345
   %347 = load i64, ptr %346, align 8
   %348 = inttoptr i64 %347 to ptr
   %349 = tail call ptr @pg_detoast_datum(ptr noundef %348) #10
@@ -2046,7 +2046,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %.05662.us = phi i16 [ %23, %.lr.ph.split.us ], [ 1, %.lr.ph ]
   %14 = zext i16 %.05662.us to i32
   %15 = zext i16 %.05662.us to i64
-  %16 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %13, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = call ptr @pg_detoast_datum(ptr noundef %18) #10
@@ -2067,7 +2067,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %.05662 = phi i16 [ %33, %.lr.ph.split ], [ 1, %.lr.ph ]
   %24 = zext i16 %.05662 to i32
   %25 = zext i16 %.05662 to i64
-  %26 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %13, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %13, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = inttoptr i64 %27 to ptr
   %29 = call ptr @pg_detoast_datum(ptr noundef %28) #10
@@ -2111,7 +2111,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %43 = getelementptr inbounds nuw %struct.SingleBoundSortItem, ptr %12, i64 %indvars.iv
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %39, i64 0, i64 %45
+  %46 = getelementptr inbounds %struct.GISTENTRY, ptr %39, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = inttoptr i64 %47 to ptr
   %49 = call ptr @pg_detoast_datum(ptr noundef %48) #10
@@ -2209,7 +2209,7 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
   %.03037 = phi ptr [ null, %.lr.ph ], [ %.131, %40 ]
   %.03336 = phi i16 [ 1, %.lr.ph ], [ %43, %40 ]
   %17 = zext i16 %.03336 to i64
-  %18 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %12, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %12, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call ptr @pg_detoast_datum(ptr noundef %20) #10

@@ -844,8 +844,8 @@ Vec_IntFill.exit92:                               ; preds = %.lr.ph.i86, %Vec_In
 
 132:                                              ; preds = %Vec_IntFill.exit92, %132
   %indvars.iv = phi i64 [ 0, %Vec_IntFill.exit92 ], [ %indvars.iv.next, %132 ]
-  %133 = getelementptr inbounds nuw [12 x [64 x i64]], ptr %130, i64 0, i64 %indvars.iv
-  %134 = getelementptr inbounds nuw [12 x ptr], ptr %131, i64 0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [64 x i64], ptr %130, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv
   store ptr %133, ptr %134, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -865,7 +865,7 @@ Vec_IntFill.exit92:                               ; preds = %.lr.ph.i86, %Vec_In
   br label %147
 
 .preheader.i:                                     ; preds = %.preheader
-  %141 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv31.i
+  %141 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv31.i
   %142 = load i64, ptr %141, align 8, !tbaa !55
   %143 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv31.i
   %144 = load ptr, ptr %143, align 8, !tbaa !52

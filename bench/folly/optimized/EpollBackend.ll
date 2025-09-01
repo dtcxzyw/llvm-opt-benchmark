@@ -1834,7 +1834,7 @@ define void @_ZN5folly12EpollBackend14processSignalsEv(ptr noundef nonnull reado
 
 10:                                               ; preds = %.lr.ph29, %_ZN5folly7get_ptrISt3mapIiSt3setIP5eventSt4lessIS4_ESaIS4_EES5_IiESaISt4pairIKiS8_EEEiEEDaRT_RKT0_.exit.thread
   %.028 = phi i64 [ 0, %.lr.ph29 ], [ %47, %_ZN5folly7get_ptrISt3mapIiSt3setIP5eventSt4lessIS4_ESaIS4_EES5_IiESaISt4pairIKiS8_EEEiEEDaRT_RKT0_.exit.thread ]
-  %11 = getelementptr inbounds nuw [130 x i8], ptr %3, i64 0, i64 %.028
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.028
   %12 = load i8, ptr %11, align 1, !tbaa !55
   %13 = zext i8 %12 to i32
   %14 = icmp ugt i8 %12, 64
@@ -1842,7 +1842,7 @@ define void @_ZN5folly12EpollBackend14processSignalsEv(ptr noundef nonnull reado
 
 15:                                               ; preds = %10
   %16 = zext nneg i8 %12 to i64
-  %17 = getelementptr inbounds nuw [65 x i8], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !126, !range !40, !noundef !41
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %_ZN5folly7get_ptrISt3mapIiSt3setIP5eventSt4lessIS4_ESaIS4_EES5_IiESaISt4pairIKiS8_EEEiEEDaRT_RKT0_.exit.thread, label %20

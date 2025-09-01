@@ -322,7 +322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
 
 71:                                               ; preds = %71, %68
   %indvars.iv.i.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i.i, %71 ]
-  %72 = getelementptr inbounds nuw [16 x i16], ptr %69, i64 0, i64 %indvars.iv.i.i.i
+  %72 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv.i.i.i
   store i16 %70, ptr %72, align 2, !tbaa !13
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16

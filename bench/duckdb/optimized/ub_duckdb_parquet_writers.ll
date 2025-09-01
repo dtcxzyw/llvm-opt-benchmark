@@ -7650,7 +7650,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = add i64 %6, 1
   store i64 %10, ptr %5, align 8, !tbaa !150
-  %11 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %6
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %6
   store i32 %8, ptr %11, align 4, !tbaa !151
   %12 = icmp eq i64 %10, 32
   br i1 %12, label %13, label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
@@ -7729,7 +7729,7 @@ _ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit12: ; preds = %42
   %47 = load i32, ptr %2, align 4, !tbaa !151
   %48 = add i64 %51, 2
   store i64 %48, ptr %5, align 8, !tbaa !150
-  %49 = getelementptr inbounds nuw [32 x i32], ptr %44, i64 0, i64 %52
+  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %52
   store i32 %47, ptr %49, align 4, !tbaa !151
   store i64 0, ptr %29, align 8, !tbaa !149
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
@@ -7738,7 +7738,7 @@ _ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit12: ; preds = %42
   %.013 = phi i64 [ 0, %.preheader ], [ %54, %50 ]
   %51 = phi i64 [ 0, %.preheader ], [ %52, %50 ]
   %52 = add i64 %51, 1
-  %53 = getelementptr inbounds nuw [32 x i32], ptr %44, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw i32, ptr %44, i64 %51
   store i32 %37, ptr %53, align 4, !tbaa !151
   %54 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %54, %30

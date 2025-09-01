@@ -1963,7 +1963,7 @@ define noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef readonly c
   br i1 %20, label %21, label %.critedge.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw [6 x i8], ptr %3, i64 0, i64 %indvars.iv12.i
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv12.i
   store i8 %17, ptr %22, align 1, !tbaa !21
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count18.i
@@ -1971,7 +1971,7 @@ define noundef i32 @_ZN3url9ParsePortEPKcRKNS_9ComponentE(ptr noundef readonly c
 
 .critedge30.i:                                    ; preds = %21, %15
   %23 = sext i32 %13 to i64
-  %24 = getelementptr inbounds [6 x i8], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %3, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !21
   %25 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #15
   %26 = trunc i64 %25 to i32
@@ -2046,7 +2046,7 @@ define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef readonly c
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc nuw nsw i16 %17 to i8
-  %22 = getelementptr inbounds nuw [6 x i8], ptr %3, i64 0, i64 %indvars.iv12.i
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv12.i
   store i8 %21, ptr %22, align 1, !tbaa !21
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count18.i
@@ -2054,7 +2054,7 @@ define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef readonly c
 
 .critedge30.i:                                    ; preds = %20, %15
   %23 = sext i32 %13 to i64
-  %24 = getelementptr inbounds [6 x i8], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %3, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !21
   %25 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #15
   %26 = trunc i64 %25 to i32

@@ -4183,7 +4183,7 @@ _ZN5QListI7QPointFED2Ev.exit104:                  ; preds = %62, %_ZN17QArrayDat
           to label %75 unwind label %79
 
 75:                                               ; preds = %74
-  %76 = getelementptr [4 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %76 = getelementptr ptr, ptr %54, i64 %indvars.iv
   store ptr %73, ptr %76, align 8
   invoke void @_ZN13QGraphicsItem10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(16) %73, i1 noundef zeroext false)
           to label %_ZN13QGraphicsItem4hideEv.exit unwind label %77
@@ -5759,7 +5759,7 @@ _ZN5QListI7QPointFED2Ev.exit26:                   ; preds = %68, %_ZN17QArrayDat
 
 74:                                               ; preds = %_ZN5QListI7QPointFED2Ev.exit, %74
   %indvars.iv = phi i64 [ 0, %_ZN5QListI7QPointFED2Ev.exit ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr [4 x ptr], ptr %63, i64 0, i64 %indvars.iv
+  %75 = getelementptr ptr, ptr %63, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   call void @_ZN13QGraphicsItem10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(16) %76, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5924,7 +5924,7 @@ default.unreachable:                              ; preds = %121
 172:                                              ; preds = %159, %146, %135, %124
   %.sroa.8.1 = phi double [ %134, %124 ], [ %145, %135 ], [ %158, %146 ], [ %171, %159 ]
   %.sroa.041.1 = phi double [ %123, %124 ], [ %123, %135 ], [ %148, %146 ], [ %161, %159 ]
-  %173 = getelementptr [4 x ptr], ptr %63, i64 0, i64 %indvars.iv48
+  %173 = getelementptr ptr, ptr %63, i64 %indvars.iv48
   %174 = load ptr, ptr %173, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %175 = fsub double %.sroa.041.1, %110

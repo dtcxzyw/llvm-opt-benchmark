@@ -117,7 +117,7 @@ define void @av_aes_ctr_crypt(ptr noundef %0, ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %.03135, i64 %indvars.iv
   %21 = load i32, ptr %20, align 1, !tbaa !4
-  %22 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %23 = load i32, ptr %22, align 1, !tbaa !4
   %24 = xor i32 %23, %21
   %25 = getelementptr inbounds nuw i8, ptr %.03234, i64 %indvars.iv
@@ -150,7 +150,7 @@ define void @av_aes_ctr_crypt(ptr noundef %0, ptr noundef writeonly captures(non
   %indvars.iv43 = phi i64 [ 0, %28 ], [ %indvars.iv.next44, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %.031.lcssa, i64 %indvars.iv43
   %38 = load i8, ptr %37, align 1, !tbaa !4
-  %39 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 0, i64 %indvars.iv43
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv43
   %40 = load i8, ptr %39, align 1, !tbaa !4
   %41 = xor i8 %40, %38
   %42 = getelementptr inbounds nuw i8, ptr %.032.lcssa, i64 %indvars.iv43

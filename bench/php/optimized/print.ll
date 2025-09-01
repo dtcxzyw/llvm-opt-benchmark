@@ -92,7 +92,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr @file_names, i64 0, i64 %37
+  %40 = getelementptr inbounds nuw ptr, ptr @file_names, i64 %37
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   br label %42
 
@@ -116,7 +116,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %53 = load ptr, ptr @stderr, align 8, !tbaa !4
   %54 = and i8 %52, 7
   %55 = zext nneg i8 %54 to i64
-  %56 = getelementptr inbounds nuw [9 x i8], ptr @file_mdump.optyp, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @file_mdump.optyp, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !9
   %58 = sext i8 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -138,7 +138,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %62
-  %72 = getelementptr inbounds nuw [0 x ptr], ptr @file_names, i64 0, i64 %69
+  %72 = getelementptr inbounds nuw ptr, ptr @file_names, i64 %69
   %73 = load ptr, ptr %72, align 8, !tbaa !20
   br label %74
 
@@ -349,7 +349,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %175 = load i8, ptr %77, align 1, !tbaa !25
   %176 = and i8 %175, 7
   %177 = zext nneg i8 %176 to i64
-  %178 = getelementptr inbounds nuw [9 x i8], ptr @file_mdump.optyp, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @file_mdump.optyp, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !9
   %180 = sext i8 %179 to i32
   %181 = load ptr, ptr @stderr, align 8, !tbaa !4

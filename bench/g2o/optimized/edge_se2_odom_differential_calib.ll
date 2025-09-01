@@ -847,7 +847,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %10 = add nsw i32 %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds nuw [3 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store i8 %6, ptr %13, align 1, !tbaa !145
   %14 = icmp ult i32 %10, 3
   br i1 %14, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_S9_EEEEvOT_RT0_i.exit.sink.split, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_S9_EEEEvOT_RT0_i.exit

@@ -188,7 +188,7 @@ define void @enter(ptr noundef readonly captures(none) %0) local_unnamed_addr #1
 
 49:                                               ; preds = %1, %49
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %45, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %45, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 -1, ptr %51, align 8, !tbaa !72
@@ -306,7 +306,7 @@ _process_job_create.exit:                         ; preds = %96, %108
 
 111:                                              ; preds = %85, %111
   %indvars.iv53 = phi i64 [ 0, %85 ], [ %indvars.iv.next54, %111 ]
-  %112 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %45, i64 0, i64 %indvars.iv53
+  %112 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %45, i64 %indvars.iv53
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load i32, ptr %113, align 8, !tbaa !72
   %115 = call fastcc i32 @_get_image_at_rank(i32 noundef %114)
@@ -500,7 +500,7 @@ define void @leave(ptr noundef readonly captures(none) %0) local_unnamed_addr #1
 
 27:                                               ; preds = %._crit_edge, %27
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %19, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %19, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !86
   tail call void @free(ptr noundef %29) #12
   store ptr null, ptr %28, align 8, !tbaa !86
@@ -1365,7 +1365,7 @@ _is_slot_waiting.exit32.thread:                   ; preds = %_is_slot_waiting.ex
 81:                                               ; preds = %.preheader, %_is_slot_waiting.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_is_slot_waiting.exit.i ], [ 0, %.preheader ]
   %.056.i = phi i32 [ %96, %_is_slot_waiting.exit.i ], [ 1, %.preheader ]
-  %82 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %5, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %5, i64 %indvars.iv.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load i32, ptr %83, align 8, !tbaa !75
   %.not.i.i = icmp eq i32 %84, 0
@@ -1496,7 +1496,7 @@ _get_slot_for_image.exit.thread36:                ; preds = %_get_slot_for_image
 46:                                               ; preds = %43
   %47 = load i64, ptr %3, align 8, !tbaa !99
   %48 = zext i32 %.039 to i64
-  %49 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %15, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %15, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %47, ptr %50, align 8, !tbaa !87
   %51 = load i64, ptr %4, align 8, !tbaa !99
@@ -1540,7 +1540,7 @@ define internal range(i32 0, 2) i32 @_auto_advance(ptr noundef %0) #1 {
 6:                                                ; preds = %_is_slot_waiting.exit.i, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %_is_slot_waiting.exit.i ]
   %.056.i = phi i32 [ 1, %4 ], [ %21, %_is_slot_waiting.exit.i ]
-  %7 = getelementptr inbounds nuw [5 x %struct._slideshow_buf_t], ptr %5, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %5, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !75
   %.not.i.i = icmp eq i32 %9, 0

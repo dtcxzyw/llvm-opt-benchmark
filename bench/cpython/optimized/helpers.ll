@@ -689,7 +689,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
   %25 = phi i8 [ %.pr.i, %.critedge2.i ], [ %24, %.critedge.i ]
   %.153.i = phi ptr [ %30, %.critedge2.i ], [ %23, %.critedge.i ]
   %26 = zext i8 %25 to i64
-  %27 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %26
+  %27 = getelementptr i32, ptr @_Py_ctype_table, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !38
   %.fr.i = freeze i32 %28
   %29 = and i32 %.fr.i, 7
@@ -744,13 +744,13 @@ _PyTokenizer_new_string.exit.thread.i:            ; preds = %33
 
 45:                                               ; preds = %42
   %46 = zext i8 %44 to i64
-  %47 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %46
+  %47 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !22
   br label %49
 
 49:                                               ; preds = %45, %42
   %.sink.i.i = phi i8 [ %48, %45 ], [ 45, %42 ]
-  %50 = getelementptr [13 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr i8, ptr %5, i64 %indvars.iv.i.i
   store i8 %.sink.i.i, ptr %50, align 1, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
@@ -759,7 +759,7 @@ _PyTokenizer_new_string.exit.thread.i:            ; preds = %33
 51:                                               ; preds = %49, %42
   %.013.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %42 ], [ 12, %49 ]
   %52 = and i64 %.013.lcssa.i.i, 4294967295
-  %53 = getelementptr [13 x i8], ptr %5, i64 0, i64 %52
+  %53 = getelementptr i8, ptr %5, i64 %52
   store i8 0, ptr %53, align 1, !tbaa !22
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %5, ptr noundef nonnull dereferenceable(6) @.str.3, i64 6)
   %54 = icmp eq i32 %bcmp.i.i, 0

@@ -6046,7 +6046,7 @@ define hidden noundef align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$c
   br i1 %23, label %switch.lookup, label %"_ZN11ruff_linter5rules8pyflakes5rules13unused_import21find_dunder_all_exprs28_$u7b$$u7b$closure$u7d$$u7d$17h8869f917d701bff4E.exit"
 
 switch.lookup:                                    ; preds = %19
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hac99ccb848c2fcc8E", i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hac99ccb848c2fcc8E", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 %switch.load
   %25 = load ptr, ptr %24, align 8, !align !87, !noundef !8
@@ -52220,7 +52220,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h82e101a7dc3425e9E.exit.i: ; pre
   %2651 = invoke noundef zeroext i1 @_ZN11ruff_linter7preview42is_full_path_match_source_strategy_enabled17h8f1e57942a199831E(ptr noalias noundef nonnull readonly align 8 dereferenceable(2256) %2650)
           to label %2654 unwind label %2652, !noalias !4595
 
-2652:                                             ; preds = %2833, %2774, %2721, %switch.lookup6383, %2719, %2710, %switch.lookup, %2706, %2702, %2700, %2669, %2664, %2658, %2654, %2649
+2652:                                             ; preds = %2833, %2774, %2721, %switch.lookup6384, %2719, %2710, %switch.lookup, %2706, %2702, %2700, %2669, %2664, %2658, %2654, %2649
   %2653 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %129) #39
@@ -52354,12 +52354,12 @@ switch.lookup:                                    ; preds = %2706
 2714:                                             ; preds = %2713
   %2715 = load i32, ptr %126, align 4, !range !4498, !noalias !4598, !noundef !8
   %2716 = trunc nuw i32 %2715 to i1
-  br i1 %2716, label %switch.lookup6383, label %2719
+  br i1 %2716, label %switch.lookup6384, label %2719
 
-switch.lookup6383:                                ; preds = %2714
+switch.lookup6384:                                ; preds = %2714
   %2717 = load i32, ptr %515, align 4, !noalias !4598, !noundef !8
-  %switch.tableidx6384 = add nsw i8 %.sroa.08.0375.i, -1
-  %switch.idx.cast6385 = zext i8 %switch.tableidx6384 to i16
+  %switch.tableidx6383 = add nsw i8 %.sroa.08.0375.i, -1
+  %switch.idx.cast6385 = zext i8 %switch.tableidx6383 to i16
   %switch.offset6387 = sub nuw nsw i16 403, %switch.idx.cast6385
   %2718 = invoke noundef zeroext i1 @_ZN11ruff_linter8checkers3ast7Checker15rule_is_ignored17h60a80245222ffc81E(ptr noundef nonnull align 8 %0, i16 noundef %switch.offset6387, i32 noundef %2717)
           to label %2720 unwind label %2652, !noalias !4595
@@ -52369,7 +52369,7 @@ switch.lookup6383:                                ; preds = %2714
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h20e31691712e23adE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %106, ptr noalias noundef nonnull align 8 dereferenceable(32) %136, i32 noundef %2699, i8 noundef %.sroa.08.0375.i)
           to label %2722 unwind label %2652, !noalias !4595
 
-2720:                                             ; preds = %switch.lookup6383
+2720:                                             ; preds = %switch.lookup6384
   br i1 %2718, label %2721, label %2719
 
 2721:                                             ; preds = %2720, %2713
@@ -60065,10 +60065,10 @@ define noundef zeroext i1 @"_ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u2
 
 switch.lookup:                                    ; preds = %90
   %93 = zext nneg i8 %91 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u20$core..fmt..Display$GT$3fmt17h7764bf1f33d96a1bE", i64 0, i64 %93
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u20$core..fmt..Display$GT$3fmt17h7764bf1f33d96a1bE", i64 %93
   %switch.load = load i64, ptr %switch.gep, align 8
   %94 = zext nneg i8 %91 to i64
-  %switch.gep520 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u20$core..fmt..Display$GT$3fmt17h7764bf1f33d96a1bE.455", i64 0, i64 %94
+  %switch.gep520 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u20$core..fmt..Display$GT$3fmt17h7764bf1f33d96a1bE.455", i64 %94
   %switch.load521 = load ptr, ptr %switch.gep520, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -60380,13 +60380,13 @@ switch.lookup522:                                 ; preds = %181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
   %183 = load i8, ptr %137, align 8, !range !273, !noundef !8
   %184 = zext nneg i8 %183 to i64
-  %switch.gep523 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u20$core..fmt..Display$GT$3fmt17h7764bf1f33d96a1bE.456", i64 0, i64 %184
+  %switch.gep523 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u20$core..fmt..Display$GT$3fmt17h7764bf1f33d96a1bE.456", i64 %184
   %switch.load524 = load ptr, ptr %switch.gep523, align 8
   %185 = zext nneg i8 %183 to i64
-  %switch.gep525 = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E", i64 0, i64 %185
+  %switch.gep525 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E", i64 %185
   %switch.load526 = load i32, ptr %switch.gep525, align 4
   %186 = zext nneg i8 %183 to i64
-  %switch.gep527 = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E.459", i64 0, i64 %186
+  %switch.gep527 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E.459", i64 %186
   %switch.load528 = load i32, ptr %switch.gep527, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.sroa.0.0.insert.insert11.i = or disjoint i32 %switch.load528, %switch.load526
@@ -61069,10 +61069,10 @@ default.unreachable:                              ; preds = %10
 define range(i40 256, 4368) i40 @"_ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E"(i8 noundef range(i8 0, 3) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E", i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %2 = zext nneg i8 %0 to i64
-  %switch.gep13 = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E.459", i64 0, i64 %2
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E.459", i64 %2
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   %.sroa.0.0.insert.insert11 = or disjoint i32 %switch.load14, %switch.load
   %.sroa.0.0.insert.insert = zext nneg i32 %.sroa.0.0.insert.insert11 to i40
@@ -89259,10 +89259,10 @@ _ZN9pep440_rs7version7Version3new17hb8f7b46926d1dfc2E.exit: ; preds = %57
 define internal fastcc { ptr, i64 } @"_ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E"(i16 %.0.val) unnamed_addr #25 {
 switch.lookup:
   %0 = zext nneg i16 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [921 x i64], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E", i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E", i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i16 %.0.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [921 x ptr], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E.460", i64 0, i64 %1
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E.460", i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1

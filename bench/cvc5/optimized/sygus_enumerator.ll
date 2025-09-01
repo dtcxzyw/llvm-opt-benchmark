@@ -1847,7 +1847,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit164: ; preds = %_ZNSt6vectorIN4cv
   %529 = icmp eq i32 %528, 2
   %530 = getelementptr inbounds nuw i8, ptr %521, i64 24
   %531 = zext i1 %529 to i64
-  %532 = getelementptr inbounds nuw [0 x ptr], ptr %530, i64 0, i64 %531
+  %532 = getelementptr inbounds nuw ptr, ptr %530, i64 %531
   %533 = load ptr, ptr %532, align 8, !tbaa !66, !noalias !287
   store ptr %533, ptr %21, align 8, !tbaa !67, !alias.scope !287
   %534 = load i64, ptr %533, align 8, !noalias !287

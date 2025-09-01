@@ -61,7 +61,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %5
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 256, ptr noundef nonnull %4)
-  %16 = getelementptr inbounds nuw [257 x i8], ptr %3, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !4
   %17 = load i8, ptr %3, align 16, !tbaa !4
   %18 = icmp eq i8 %17, 0

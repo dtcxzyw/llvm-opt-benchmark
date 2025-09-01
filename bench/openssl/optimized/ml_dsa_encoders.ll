@@ -1463,7 +1463,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
 40:                                               ; preds = %48, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %48 ]
   %.12.i = phi i64 [ %.0204.i, %.preheader.i ], [ %.2.i, %48 ]
-  %41 = getelementptr inbounds nuw [256 x i32], ptr %.05.i, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i32, ptr %.05.i, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !21
   %.not24.i = icmp eq i32 %42, 0
   br i1 %.not24.i, label %48, label %43
@@ -1815,7 +1815,7 @@ vector_zero.exit.i:                               ; preds = %vector_zero.exit.i.
 56:                                               ; preds = %.lr.ph.i
   %57 = add i64 %.23515.i, 1
   %58 = zext i8 %53 to i64
-  %59 = getelementptr inbounds nuw [256 x i32], ptr %.039.i, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %.039.i, i64 %58
   store i32 1, ptr %59, align 4, !tbaa !21
   %exitcond.not.i = icmp eq i64 %57, %47
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !76

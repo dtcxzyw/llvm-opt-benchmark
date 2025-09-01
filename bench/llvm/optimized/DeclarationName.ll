@@ -2198,14 +2198,14 @@ define dso_local noundef ptr @_ZNK5clang15DeclarationName18getFETokenInfoSlowEv(
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %1, %5
   %.0.i = phi i32 [ %9, %5 ], [ %4, %1 ]
-  %switch.tableidx = add nsw i32 %.0.i, -3
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang15DeclarationName18setFETokenInfoSlowEPv, i64 0, i64 %10
+  %10 = sext i32 %.0.i to i64
+  %11 = getelementptr i64, ptr @switch.table._ZN5clang15DeclarationName18setFETokenInfoSlowEPv, i64 %10
+  %switch.gep = getelementptr i8, ptr %11, i64 -24
   %switch.load = load i64, ptr %switch.gep, align 8
-  %11 = and i64 %2, -8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %switch.load
-  %.0 = load ptr, ptr %13, align 8, !tbaa !96
+  %12 = and i64 %2, -8
+  %13 = inttoptr i64 %12 to ptr
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
+  %.0 = load ptr, ptr %14, align 8, !tbaa !96
   ret ptr %.0
 }
 
@@ -2227,14 +2227,14 @@ define dso_local void @_ZN5clang15DeclarationName18setFETokenInfoSlowEPv(ptr nou
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %2, %6
   %.0.i = phi i32 [ %10, %6 ], [ %5, %2 ]
-  %switch.tableidx = add nsw i32 %.0.i, -3
-  %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang15DeclarationName18setFETokenInfoSlowEPv, i64 0, i64 %11
+  %11 = sext i32 %.0.i to i64
+  %12 = getelementptr i64, ptr @switch.table._ZN5clang15DeclarationName18setFETokenInfoSlowEPv, i64 %11
+  %switch.gep = getelementptr i8, ptr %12, i64 -24
   %switch.load = load i64, ptr %switch.gep, align 8
-  %12 = and i64 %3, -8
-  %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
-  store ptr %1, ptr %14, align 8, !tbaa !96
+  %13 = and i64 %3, -8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %switch.load
+  store ptr %1, ptr %15, align 8, !tbaa !96
   ret void
 }
 
@@ -2357,7 +2357,7 @@ define dso_local void @_ZN5clang20DeclarationNameTableC2ERKNS_10ASTContextE(ptr 
 
 13:                                               ; preds = %9, %13
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [46 x %"class.clang::detail::CXXOperatorIdName"], ptr %.ptr6, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %"class.clang::detail::CXXOperatorIdName", ptr %.ptr6, i64 %indvars.iv
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %15, ptr %14, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

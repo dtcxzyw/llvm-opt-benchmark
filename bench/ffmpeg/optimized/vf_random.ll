@@ -62,7 +62,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [512 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   tail call void @av_frame_free(ptr noundef nonnull %9) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 4, !tbaa !24
@@ -87,21 +87,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds [512 x ptr], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
   store ptr %1, ptr %15, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load i64, ptr %16, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8480
-  %19 = getelementptr inbounds [512 x i64], ptr %18, i64 0, i64 %14
+  %19 = getelementptr inbounds i64, ptr %18, i64 %14
   store i64 %17, ptr %19, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 4384
   %23 = add nsw i32 %8, 1
   store i32 %23, ptr %7, align 8, !tbaa !36
-  %24 = getelementptr inbounds [512 x i64], ptr %22, i64 0, i64 %14
+  %24 = getelementptr inbounds i64, ptr %22, i64 %14
   store i64 %21, ptr %24, align 8, !tbaa !44
-  br label %70
+  br label %73
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -113,24 +113,24 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %32 = add i32 %31, 40
   %33 = and i32 %32, 63
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [64 x i32], ptr %29, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !50
   %37 = add i32 %31, 9
   %38 = and i32 %37, 63
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [64 x i32], ptr %29, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %29, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !50
   %42 = add i32 %41, %36
   %43 = and i32 %31, 63
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [64 x i32], ptr %29, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %29, i64 %44
   store i32 %42, ptr %45, align 4, !tbaa !50
   %46 = add i32 %31, 1
   store i32 %46, ptr %30, align 4, !tbaa !49
   %47 = urem i32 %42, %10
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds [512 x ptr], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 4384
   %53 = load i64, ptr %52, align 8, !tbaa !44
@@ -150,17 +150,20 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store ptr %1, ptr %50, align 8, !tbaa !37
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %64 = load i64, ptr %63, align 8, !tbaa !45
-  %65 = getelementptr inbounds [512 x i64], ptr %52, i64 0, i64 %60
-  store i64 %64, ptr %65, align 8, !tbaa !44
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %67 = load i64, ptr %66, align 8, !tbaa !39
-  %68 = getelementptr inbounds [512 x i64], ptr %55, i64 0, i64 %60
-  store i64 %67, ptr %68, align 8, !tbaa !44
-  %69 = tail call i32 @ff_filter_frame(ptr noundef %28, ptr noundef %51) #4
-  br label %70
+  %65 = sext i32 %10 to i64
+  %66 = getelementptr i64, ptr %52, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 -8
+  store i64 %64, ptr %67, align 8, !tbaa !44
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %69 = load i64, ptr %68, align 8, !tbaa !39
+  %70 = getelementptr i64, ptr %55, i64 %65
+  %71 = getelementptr i8, ptr %70, i64 -8
+  store i64 %69, ptr %71, align 8, !tbaa !44
+  %72 = tail call i32 @ff_filter_frame(ptr noundef %28, ptr noundef %51) #4
+  br label %73
 
-70:                                               ; preds = %25, %12
-  %.0 = phi i32 [ 0, %12 ], [ %69, %25 ]
+73:                                               ; preds = %25, %12
+  %.0 = phi i32 [ 0, %12 ], [ %72, %25 ]
   ret i32 %.0
 }
 
@@ -192,24 +195,21 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %.promoted = load i32, ptr %12, align 4, !tbaa !24
   %14 = icmp sgt i32 %.promoted, 0
-  br i1 %14, label %.lr.ph42.preheader, label %.loopexit
+  br i1 %14, label %.lr.ph42, label %.loopexit
 
-.lr.ph42.preheader:                               ; preds = %.lr.ph.split.split.us
-  %15 = zext nneg i32 %.promoted to i64
-  br label %.lr.ph42
+.lr.ph42:                                         ; preds = %.lr.ph.split.split.us, %19
+  %storemerge37.us41 = phi i32 [ %storemerge.us, %19 ], [ %.promoted, %.lr.ph.split.split.us ]
+  %15 = zext nneg i32 %storemerge37.us41 to i64
+  %16 = getelementptr ptr, ptr %13, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -8
+  %18 = load ptr, ptr %17, align 8, !tbaa !37
+  %.not25.us = icmp eq ptr %18, null
+  br i1 %.not25.us, label %19, label %.thread
 
-.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %18
-  %indvars.iv = phi i64 [ %15, %.lr.ph42.preheader ], [ %indvars.iv.next, %18 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = getelementptr inbounds nuw [512 x ptr], ptr %13, i64 0, i64 %indvars.iv.next
-  %17 = load ptr, ptr %16, align 8, !tbaa !37
-  %.not25.us = icmp eq ptr %17, null
-  br i1 %.not25.us, label %18, label %.thread
-
-18:                                               ; preds = %.lr.ph42
-  %19 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %19, ptr %12, align 4, !tbaa !24
-  %20 = icmp samesign ugt i64 %indvars.iv, 1
+19:                                               ; preds = %.lr.ph42
+  %storemerge.us = add nsw i32 %storemerge37.us41, -1
+  store i32 %storemerge.us, ptr %12, align 4, !tbaa !24
+  %20 = icmp sgt i32 %storemerge37.us41, 1
   br i1 %20, label %.lr.ph42, label %.loopexit
 
 .thread:                                          ; preds = %.lr.ph42
@@ -217,28 +217,29 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12576
   %23 = load i32, ptr %22, align 8, !tbaa !54
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [512 x i64], ptr %21, i64 0, i64 %24
+  %25 = getelementptr inbounds i64, ptr %21, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !44
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 408
   store i64 %26, ptr %27, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4384
   %29 = add nsw i32 %23, 1
   store i32 %29, ptr %22, align 8, !tbaa !54
-  %30 = getelementptr inbounds [512 x i64], ptr %28, i64 0, i64 %24
+  %30 = getelementptr inbounds i64, ptr %28, i64 %24
   %31 = load i64, ptr %30, align 8, !tbaa !44
-  %32 = getelementptr inbounds nuw i8, ptr %17, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 136
   store i64 %31, ptr %32, align 8, !tbaa !45
-  %33 = tail call i32 @ff_filter_frame(ptr noundef nonnull %0, ptr noundef nonnull %17) #4
+  %33 = tail call i32 @ff_filter_frame(ptr noundef nonnull %0, ptr noundef nonnull %18) #4
   %34 = load i32, ptr %12, align 4, !tbaa !24
-  %35 = add nsw i32 %34, -1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [512 x ptr], ptr %13, i64 0, i64 %36
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr ptr, ptr %13, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -8
   store ptr null, ptr %37, align 8, !tbaa !37
-  store i32 %35, ptr %12, align 4, !tbaa !24
+  %storemerge29 = add nsw i32 %34, -1
+  store i32 %storemerge29, ptr %12, align 4, !tbaa !24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %1, %.lr.ph, %.lr.ph.split.split.us, %.thread
-  %.1 = phi i32 [ %33, %.thread ], [ %8, %1 ], [ -541478725, %.lr.ph ], [ -541478725, %.lr.ph.split.split.us ], [ -541478725, %18 ]
+.loopexit:                                        ; preds = %19, %1, %.lr.ph, %.lr.ph.split.split.us, %.thread
+  %.1 = phi i32 [ %33, %.thread ], [ %8, %1 ], [ -541478725, %.lr.ph ], [ -541478725, %.lr.ph.split.split.us ], [ -541478725, %19 ]
   ret i32 %.1
 }
 

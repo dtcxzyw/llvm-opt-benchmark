@@ -2033,10 +2033,10 @@ define internal noundef i32 @proc_pid_limits(ptr noundef %0, ptr readnone captur
 
 16:                                               ; preds = %39, %9
   %17 = phi i64 [ 0, %9 ], [ %40, %39 ]
-  %18 = getelementptr [16 x %struct.rlimit], ptr %6, i64 0, i64 %17
+  %18 = getelementptr %struct.rlimit, ptr %6, i64 %17
   %19 = load i64, ptr %18, align 16
   %20 = icmp eq i64 %19, -1
-  %21 = getelementptr [16 x %struct.limit_names], ptr @lnames, i64 0, i64 %17
+  %21 = getelementptr %struct.limit_names, ptr @lnames, i64 %17
   %22 = load ptr, ptr %21, align 16
   br i1 %20, label %23, label %24
 
@@ -2069,7 +2069,7 @@ define internal noundef i32 @proc_pid_limits(ptr noundef %0, ptr readnone captur
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr [16 x %struct.limit_names], ptr @lnames, i64 0, i64 %17, i32 1
+  %36 = getelementptr %struct.limit_names, ptr @lnames, i64 %17, i32 1
   %37 = load ptr, ptr %36, align 8
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef %37) #18
   br label %39
@@ -2718,7 +2718,7 @@ define internal i64 @auxv_read(ptr noundef readonly captures(none) %0, ptr nound
   %11 = phi i32 [ %12, %10 ], [ 0, %8 ]
   %12 = add i32 %11, 2
   %13 = zext i32 %11 to i64
-  %14 = getelementptr [52 x i64], ptr %9, i64 0, i64 %13
+  %14 = getelementptr i64, ptr %9, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %10, !llvm.loop !30
